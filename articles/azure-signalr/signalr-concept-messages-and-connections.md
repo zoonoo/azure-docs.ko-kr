@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75392821"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Azure SignalR Service의 메시지 및 연결
@@ -54,7 +53,7 @@ ASP.NET SignalR은 다른 방법으로 서버 연결 수를 계산합니다. 고
 
 인바운드 트래픽과 아웃바운드 트래픽을 분류하는 기준은 Azure SignalR Service의 관점입니다. 트래픽은 바이트 단위로 계산됩니다.
 
-## <a name="related-resources"></a>관련 리소스
+## <a name="related-resources"></a>관련 참고 자료
 
 - [Azure Monitor의 집계 유형](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
 - [ASP.NET Core SignalR 구성](/aspnet/core/signalr/configuration)

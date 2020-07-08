@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900366"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
@@ -51,11 +50,11 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 |   |   | Windows 하위 수준 | 비영구 | 예 |
 | Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
-|   | 관리 대상 | Windows 현재 | 영구적 | 아니요 |
+|   | 관리 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
-| Azure AD 등록 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
+| Azure AD 등록됨 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
-|   | 관리 대상 | Windows 현재 | 영구적 | 아니요 |
+|   | 관리 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
 
 \***페더레이션된** id 인프라 환경은 AD FS 또는 기타 타사 IDP와 같은 id 공급자를 사용 하는 환경을 나타냅니다.
@@ -73,7 +72,7 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 - [페더레이션된 환경에 대 한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-federated-domains.md)
 - [관리 환경에 대 한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
 
-시스템 준비 도구 (sysprep.exe)를 사용 하는 경우 및 설치를 위해 Windows 10 1809 이전 이미지를 사용 하는 경우 하이브리드 Azure AD에 가입 된 Azure AD에 이미 등록 된 장치에서 이미지를 사용 하 고 있지 않은지 확인 합니다.
+시스템 준비 도구 (sysprep.exe)를 사용 하 고 설치에 Windows 10 1809 이전 이미지를 사용 하는 경우, 하이브리드 Azure AD에 가입 된 Azure AD에 이미 등록 된 장치에서 이미지를 사용 하 고 있지 않은지 확인 합니다.
 
 VM (가상 머신) 스냅숏을 사용 하 여 추가 Vm을 만드는 경우, Azure AD에 이미 등록 된 VM의 스냅숏이 하이브리드 Azure AD 조인으로 사용 되지 않는지 확인 합니다.
 
@@ -81,7 +80,7 @@ VM (가상 머신) 스냅숏을 사용 하 여 추가 Vm을 만드는 경우, Az
 
 - 데스크톱을 VDI 기반으로 표시 하는 컴퓨터의 표시 이름에 접두사를 만들고 사용 합니다.
 - 다음 명령을 로그 오프 스크립트의 일부로 구현 합니다. 이 명령은 Azure AD에 대 한 최상의 노력을 트리거하여 장치를 삭제 합니다.
-   - Windows 하위 수준 장치의 경우-autoworkplace/leave
+   - Windows 하위 수준 장치-autoworkplace.exe/나가기
 - [오래 된 장치를 관리](manage-stale-devices.md)하는 프로세스를 정의 하 고 구현 합니다.
    - 비영구 하이브리드 Azure AD 조인 장치를 식별 하는 전략을 사용 하는 경우 이러한 장치를 정리 하는 방법에 대 한 정보를 활용 하 여 오래 된 많은 장치에서 디렉터리가 소비 되지 않도록 할 수 있습니다.
  

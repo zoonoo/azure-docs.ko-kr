@@ -4,10 +4,9 @@ description: 서비스 패브릭 애플리케이션 개발, 배포, 테스트, �
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75378007"
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 애플리케이션 수명 주기
@@ -48,7 +47,7 @@ ms.locfileid: "75378007"
 
 자세한 내용은 [오류 분석 서비스 소개](service-fabric-testability-overview.md) 를 참조하세요.
 
-## <a name="upgrade"></a>업그레이드
+## <a name="upgrade"></a>Upgrade
 1. *서비스 개발자*는 인스턴스화된 애플리케이션의 구성 서비스를 업데이트 하고/하거나 버그를 수정하고 새로운 서비스 매니페스트 버전을 제공합니다.
 2. *애플리케이션 개발자*는 구성 서비스의 구성 및 배포 설정을 재정의 및 매개 변수화하고 새로운 애플리케이션 매니페스트 버전을 제공합니다. 그런 다음, 애플리케이션 개발자가 새로운 서비스 매니페스트 버전을 애플리케이션에 통합하고 업데이트된 애플리케이션 패키지에 새로운 버전의 애플리케이션 유형을 제공합니다.
 3. *응용 프로그램 관리자*가 적절한 매개 변수를 업데이트하여 응용 프로그램 유형의 새 버전을 대상 응용 프로그램에 통합합니다.

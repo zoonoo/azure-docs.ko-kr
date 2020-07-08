@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Azure Dev Spaces를 사용 하 여 응용 프로그램을 개발할 때 실행 또는 빌드 시에 Kubernetes 암호를 사용 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.openlocfilehash: d9dd0de348612bbb3baf5fb351c1c9af1c228c1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75438474"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Azure Dev Space로 작업할 때 비밀을 관리하는 방법
@@ -18,14 +17,14 @@ ms.locfileid: "75438474"
 
 ## <a name="storing-and-using-runtime-secrets"></a>런타임 비밀 저장 및 사용
 
-Azure Dev Spaces에서는 Azure Dev Spaces 클라이언트 도구에서 생성 된 투구 차트에 비밀을 저장 하기 위한 두 가지 권장 옵션, 즉 `values.dev.yaml` 파일에서 직접 인라인 하는 `azds.yaml`옵션을 제공 합니다. 에서는 `values.yaml`암호를 저장 하지 않는 것이 좋습니다.
+Azure Dev Spaces에서는 Azure Dev Spaces 클라이언트 도구에서 생성 된 투구 차트에 비밀을 저장 하기 위한 두 가지 권장 옵션, 즉 `values.dev.yaml` 파일에서 직접 인라인 하는 옵션을 제공 `azds.yaml` 합니다. 에서는 암호를 저장 하지 않는 것이 좋습니다 `values.yaml` .
 
 > [!NOTE]
 > 다음 방법에서는 클라이언트 도구에서 생성 된 투구 차트에 비밀을 저장 하 고 사용 하는 방법을 보여 줍니다. 사용자 고유의 투구 차트를 만드는 경우에는 투구 차트를 직접 사용 하 여 비밀을 관리 하 고 저장할 수 있습니다.
 
 ### <a name="using-valuesdevyaml"></a>값. dev .yaml 사용
 
-이미 Azure Dev Spaces를 사용 하 여 준비한 프로젝트에서 동일한 폴더에 비밀 `values.dev.yaml` 키와 값을 정의 `azds.yaml` 하는 파일을 만듭니다. 예를 들면 다음과 같습니다.
+이미 Azure Dev Spaces를 사용 하 여 준비한 프로젝트에서 `values.dev.yaml` 동일한 폴더에 `azds.yaml` 비밀 키와 값을 정의 하는 파일을 만듭니다. 예를 들어:
 
 ```yaml
 secrets:
@@ -35,7 +34,7 @@ secrets:
     key: "secretkeyhere"
 ```
 
-을 `?`사용 `azds.yaml` 하 여 `values.dev.yaml` 파일 참조를 선택적으로 확인 합니다. 예를 들면 다음과 같습니다.
+`azds.yaml` `values.dev.yaml` 을 사용 하 여 파일 참조를 선택적으로 확인 합니다 `?` . 예를 들어:
 
 ```yaml
 install:
@@ -46,7 +45,7 @@ install:
 
 추가 비밀 파일이 있는 경우 여기에도 추가할 수 있습니다.
 
-서비스에서 사용자의 암호를 환경 변수로 참조 하도록 업데이트 하거나 확인 합니다. 예를 들면 다음과 같습니다.
+서비스에서 사용자의 암호를 환경 변수로 참조 하도록 업데이트 하거나 확인 합니다. 예를 들어:
 
 ```javascript
 var redisPort = process.env.REDIS_PORT
@@ -54,24 +53,24 @@ var host = process.env.REDIS_HOST
 var theKey = process.env.REDIS_KEY
 ```
     
-을 사용 하 여 `azds up`업데이트 된 서비스를 실행 합니다.
+을 사용 하 여 업데이트 된 서비스를 실행 `azds up` 합니다.
 
 ```console
 azds up
 ```
  
-를 `kubectl` 사용 하 여 비밀이 만들어졌는지 확인 합니다.
+`kubectl`를 사용 하 여 비밀이 만들어졌는지 확인 합니다.
 
 ```console
 kubectl get secret --namespace default -o yaml 
 ```
 
 > [!IMPORTANT]
-> 암호를 소스 제어에 저장 하지 않는 것이 좋습니다. Git를 사용 하는 `values.dev.yaml` `.gitignore` 경우 파일에를 추가 하 여 소스 제어에서 비밀 커밋을 방지 합니다.
+> 암호를 소스 제어에 저장 하지 않는 것이 좋습니다. Git를 사용 하는 경우 파일에를 추가 하 여 `values.dev.yaml` `.gitignore` 소스 제어에서 비밀 커밋을 방지 합니다.
 
 ### <a name="using-azdsyaml"></a>Azds 사용
 
-이미 Azure Dev Spaces를 사용 하 여 준비한 프로젝트에서 구성에서 *$PLACEHOLDER* 구문을 사용 하 여 비밀 키 및 값을 추가 합니다. 설치 .에서을 `azds.yaml`(를) *설정* 합니다. 예를 들면 다음과 같습니다.
+이미 Azure Dev Spaces를 사용 하 여 준비한 프로젝트에서 구성에서 *$PLACEHOLDER* 구문을 사용 하 여 비밀 키 및 값을 추가 합니다. 설치 .에서을 (를) *설정* 합니다. `azds.yaml` 예를 들어:
 
 ```yaml
 configurations:
@@ -87,9 +86,9 @@ configurations:
 ```
 
 > [!NOTE]
-> 에서 `azds.yaml` *$PLACEHOLDER* 구문을 사용 하지 않고 직접 비밀 값을 입력할 수 있습니다. 그러나가 소스 제어에 저장 되므로 `azds.yaml` 이 방법은 사용 하지 않는 것이 좋습니다.
+> 에서 *$PLACEHOLDER* 구문을 사용 하지 않고 직접 비밀 값을 입력할 수 있습니다 `azds.yaml` . 그러나 `azds.yaml` 가 소스 제어에 저장 되므로이 방법은 사용 하지 않는 것이 좋습니다.
      
-$PLACEHOLDER 값 `.env` 을 정의 하는 것 `azds.yaml` 과 같은 폴더에 *$PLACEHOLDER* 파일을 만듭니다. 예를 들면 다음과 같습니다.
+`.env` `azds.yaml` *$PLACEHOLDER* 값을 정의 하는 것과 같은 폴더에 파일을 만듭니다. 예를 들어:
 
 ```
 REDIS_PORT=3333
@@ -98,9 +97,9 @@ REDIS_KEY=myrediskey
 ```
 
 > [!IMPORTANT]
-> 암호를 소스 제어에 저장 하지 않는 것이 좋습니다. Git를 사용 하는 `.env` `.gitignore` 경우 파일에를 추가 하 여 소스 제어에서 비밀 커밋을 방지 합니다.
+> 암호를 소스 제어에 저장 하지 않는 것이 좋습니다. Git를 사용 하는 경우 파일에를 추가 하 여 `.env` `.gitignore` 소스 제어에서 비밀 커밋을 방지 합니다.
 
-서비스에서 사용자의 암호를 환경 변수로 참조 하도록 업데이트 하거나 확인 합니다. 예를 들면 다음과 같습니다.
+서비스에서 사용자의 암호를 환경 변수로 참조 하도록 업데이트 하거나 확인 합니다. 예를 들어:
 
 ```javascript
 var redisPort = process.env.REDIS_PORT
@@ -108,13 +107,13 @@ var host = process.env.REDIS_HOST
 var theKey = process.env.REDIS_KEY
 ```
     
-을 사용 하 여 `azds up`업데이트 된 서비스를 실행 합니다.
+을 사용 하 여 업데이트 된 서비스를 실행 `azds up` 합니다.
 
 ```console
 azds up
 ```
  
-를 `kubectl` 사용 하 여 비밀이 만들어졌는지 확인 합니다.
+`kubectl`를 사용 하 여 비밀이 만들어졌는지 확인 합니다.
 
 ```console
 kubectl get secret --namespace default -o yaml 
@@ -122,9 +121,9 @@ kubectl get secret --namespace default -o yaml
 
 ## <a name="using-secrets-as-build-arguments"></a>빌드 인수로 비밀 사용
 
-이전 섹션에서는 컨테이너 런타임에 사용 하기 위해 암호를 저장 하 고 사용 하는 방법을 살펴보았습니다. 를 사용 하 여 `azds.yaml`개인 NuGet에 대 한 암호와 같은 컨테이너 빌드 시간에 모든 암호를 사용할 수도 있습니다.
+이전 섹션에서는 컨테이너 런타임에 사용 하기 위해 암호를 저장 하 고 사용 하는 방법을 살펴보았습니다. 를 사용 하 여 개인 NuGet에 대 한 암호와 같은 컨테이너 빌드 시간에 모든 암호를 사용할 수도 있습니다 `azds.yaml` .
 
-에서 `azds.yaml` `<variable name>: ${secret.<secret name>.<secret key>}` 구문을 사용 하 여 빌드 타임 비밀을 *구성* 에 설정 합니다. 예를 들면 다음과 같습니다.
+에서 `azds.yaml` 구문을 사용 하 여 빌드 타임 비밀을 *구성* 에 설정 합니다. `<variable name>: ${secret.<secret name>.<secret key>}` 예를 들어:
 
 ```yaml
 configurations:
@@ -140,9 +139,9 @@ configurations:
 위의 예제에서 *mynugetsecret* 는 기존 암호이 고 *pattoken* 는 기존 키입니다.
 
 >[!NOTE]
-> 비밀 이름 및 키에는 문자 `.` 를 포함할 수 있습니다. 를 `\` 사용 하 `.` 여 암호를 빌드 인수로 전달할 때 이스케이프 합니다. 예를 들어, *토큰*의 키를 사용 하 여 *foo. bar* 라는 암호를 `MYTOKEN: ${secret.foo\.bar.token}`전달 합니다. 또한 암호는 접두사 및 후 위 텍스트를 사용 하 여 평가할 수 있습니다. `MYURL: eus-${secret.foo\.bar.token}-version1`)을 입력합니다. 또한 부모 및 최상위 공간에서 사용 가능한 암호는 빌드 인수로 전달 될 수 있습니다.
+> 비밀 이름 및 키에는 문자를 포함할 수 있습니다 `.` . `\`를 사용 하 여 암호를 `.` 빌드 인수로 전달할 때 이스케이프 합니다. 예를 들어, *토큰*의 키를 사용 하 여 *foo. bar* 라는 암호를 전달 `MYTOKEN: ${secret.foo\.bar.token}` 합니다. 또한 암호는 접두사 및 후 위 텍스트를 사용 하 여 평가할 수 있습니다. 예: `MYURL: eus-${secret.foo\.bar.token}-version1`. 또한 부모 및 최상위 공간에서 사용 가능한 암호는 빌드 인수로 전달 될 수 있습니다.
 
-Dockerfile에서 *ARG* 지시어를 사용 하 여 비밀을 사용 하 고 dockerfile에서 나중에 동일한 변수를 사용 합니다. 예를 들면 다음과 같습니다.
+Dockerfile에서 *ARG* 지시어를 사용 하 여 비밀을 사용 하 고 dockerfile에서 나중에 동일한 변수를 사용 합니다. 예를 들어:
 
 ```dockerfile
 ...

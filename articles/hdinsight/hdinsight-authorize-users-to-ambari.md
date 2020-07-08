@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435653"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
@@ -46,7 +45,7 @@ ms.locfileid: "75435653"
 
 ### <a name="add-users-through-powershell"></a>PowerShell을 통해 사용자 추가
 
-, `NEWUSER`및 `PASSWORD` 을 적절 한 값 `CLUSTERNAME`으로 바꿔서 아래 변수를 편집 합니다.
+`CLUSTERNAME`, `NEWUSER` 및을 적절 한 값으로 바꿔서 아래 변수를 편집 `PASSWORD` 합니다.
 
 ```powershell
 # Set-ExecutionPolicy Unrestricted
@@ -135,7 +134,7 @@ Write-Output $zookeeperHosts
 
 ### <a name="add-users-through-curl"></a>말아 사용자 추가
 
-, `CLUSTERNAME` `ADMINPASSWORD`, 및 `USERPASSWORD` 을 적절 한 값으로 바꿔서 아래 변수를 편집 합니다. `NEWUSER` 이 스크립트는 bash를 사용 하 여 실행 되도록 설계 되었습니다. Windows 명령 프롬프트에 약간의 수정이 필요 합니다.
+`CLUSTERNAME`,, `ADMINPASSWORD` 및을 `NEWUSER` `USERPASSWORD` 적절 한 값으로 바꿔서 아래 변수를 편집 합니다. 이 스크립트는 bash를 사용 하 여 실행 되도록 설계 되었습니다. Windows 명령 프롬프트에 약간의 수정이 필요 합니다.
 
 ```bash
 export clusterName="CLUSTERNAME"

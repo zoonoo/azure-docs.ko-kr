@@ -4,10 +4,9 @@ description: 노이즈를 줄이기 위해 Azure Advisor 권장 사항을 확인
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75422366"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>사용자에 게 중요 한 Azure Advisor 권장 사항 보기

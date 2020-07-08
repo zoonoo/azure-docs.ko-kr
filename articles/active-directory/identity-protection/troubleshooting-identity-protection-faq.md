@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443567"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Azure Active Directory의 질문과 대답 Id 보호
@@ -24,7 +23,7 @@ ms.locfileid: "75443567"
 
 클래식 Id 보호에서 **사용자 위험 해제** 를 사용 하면 id 보호에서 사용자의 위험 기록에 있는 행위자가 **Azure AD**로 설정 됩니다.
 
-Id 보호에서 **사용자 위험 해제** 사용자 ** \<\>의 블레이드를 가리키는 하이퍼링크를 사용 하 여**id 보호의 사용자 위험 기록에 있는 행위자를 관리자 이름으로 설정 합니다.
+Id 보호에서 **사용자 위험 해제** 는 id 보호에서 사용자의 위험 기록에 있는 행위자를로 설정 **\<Admin’s name with a hyperlink pointing to user’s blade\>** 합니다.
 
 사용자 위험 해제 흐름에서 대기 시간이 발생 하는 현재 알려진 문제가 있습니다. “사용자 위험 정책”이 있는 경우 “사용자 위험 해제”를 클릭하면 몇 분 이내에 해제된 사용자에게 정책 적용이 중지됩니다. 그러나 해제된 사용자의 “위험 상태”를 새로 고치는 UX에서 알려진 지연이 있습니다. 해결 방법으로, 브라우저 수준에서 페이지를 새로 고쳐 최신 사용자 “위험 상태”를 확인합니다.
 

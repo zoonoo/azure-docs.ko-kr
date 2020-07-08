@@ -7,10 +7,9 @@ ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75409537"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
@@ -63,8 +62,8 @@ App Service Environment 사용에 대 한 자세한 내용은 App Service Enviro
 
 네트워킹 및 기능에 대 한 자세한 내용은 다음을 확인 하세요. 
 
-* [Virtual network 통합 시작에 대 한 자습서를 따르세요.](./functions-create-vnet.md)
+* [가상 네트워크 통합 시작하기에 관한 자습서 따라하기](./functions-create-vnet.md)
 * [에서 네트워킹 옵션에 대해 자세히 알아보세요 Azure Functions](./functions-networking-options.md)
 * [App Service 및 함수와의 가상 네트워크 통합에 대해 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)
-* [Azure의 가상 네트워크에 대 한 자세한 정보](../virtual-network/virtual-networks-overview.md)
-* [추가 네트워킹 기능을 사용 하 고 App Service 환경 제어](../app-service/environment/intro.md)
+* [Azure의 가상 네트워크에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)
+* [App Service Environment로 제어 및 네트워킹 기능 활성화](../app-service/environment/intro.md)

@@ -7,10 +7,9 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75351709"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>자습서: Visual Studio를 사용하여 Service Fabric 애플리케이션을 업그레이드하는 방법 알아보기
@@ -39,29 +38,29 @@ ms.locfileid: "75351709"
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric Mesh 서비스 업그레이드
 
-이 문서에서는 응용 프로그램 내에서 마이크로 서비스를 업그레이드 하는 방법을 보여 줍니다. 이 예제에서는 작업 범주를 표시 하 `WebFrontEnd` 고 지정 된 CPU의 양을 늘리기 위해 서비스를 수정 합니다. 그런 다음 배포된 서비스를 업그레이드합니다.
+이 문서에서는 응용 프로그램 내에서 마이크로 서비스를 업그레이드 하는 방법을 보여 줍니다. 이 예제에서는 `WebFrontEnd` 작업 범주를 표시 하 고 지정 된 CPU의 양을 늘리기 위해 서비스를 수정 합니다. 그런 다음 배포된 서비스를 업그레이드합니다.
 
 ## <a name="modify-the-config"></a>구성 수정
 
 Service Fabric 메시 앱을 만들 때 Visual studio는 각 배포 환경 (클라우드 및 로컬)에 대 한 **yaml** 파일을 추가 합니다. 이러한 파일에서 매개 변수 및 해당 값을 정의할 수 있습니다. 이러한 매개 변수는 메시 *. yaml 파일 (예: 서비스. yaml 또는 network .yaml)에서 참조할 수 있습니다.  Visual Studio는 서비스에서 사용할 수 있는 CPU의 양과 같은 몇 가지 변수를 제공 합니다.
 
-**웹 프런트 엔드** 서비스 `WebFrontEnd_cpu` 를 더 많이 사용 하는 것 `1.5` 을 예측 하 여 cpu 리소스를로 업데이트 하는 매개 변수를 업데이트 합니다.
+`WebFrontEnd_cpu` `1.5` **웹 프런트 엔드** 서비스를 더 많이 사용 하는 것을 예측 하 여 cpu 리소스를로 업데이트 하는 매개 변수를 업데이트 합니다.
 
-1. **Todolistapp** 프로젝트의 **환경** > **클라우드**아래에서 **매개 변수 .yaml** 파일을 엽니다. `WebFrontEnd_cpu`, 값을로 `1.5`수정 합니다. 매개 변수 이름 앞 `WebFrontEnd_` 에는 다른 서비스에 적용 되는 것과 동일한 이름의 매개 변수를 구분 하는 것이 가장 좋습니다.
+1. **Todolistapp** 프로젝트의 **환경**  >  **클라우드**아래에서 **매개 변수 .yaml** 파일을 엽니다. `WebFrontEnd_cpu`, 값을로 수정 `1.5` 합니다. 매개 변수 이름 앞에는 `WebFrontEnd_` 다른 서비스에 적용 되는 것과 동일한 이름의 매개 변수를 구분 하는 것이 가장 좋습니다.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Webfrontend **엔드** > **서비스 리소스**에서 **webfrontend 엔드** 프로젝트의 **서비스별** 파일을 엽니다.
+2. Webfrontend **엔드**서비스 리소스에서 **webfrontend 엔드** 프로젝트의 **서비스별** 파일을 엽니다  >  **Service Resources**.
 
-    에서 `resources:` 섹션은로 `cpu:` `"[parameters('WebFrontEnd_cpu')]"`설정 되어 있습니다. `'WebFrontEnd_cpu` 프로젝트를 클라우드에 대해 빌드하는 경우에 대 한 값은 **환경** > **클라우드** > **매개 변수 .yaml** 파일에서 가져온 것 이며은 `1.5`입니다. 프로젝트를 로컬로 실행 하기 위해 빌드하는 경우이 값은 **환경** > **로컬** > **매개 변수 .yaml** 파일에서 가져오고 ' 0.5 '이 됩니다.
+    에서 `resources:` 섹션은 `cpu:` 로 설정 되어 `"[parameters('WebFrontEnd_cpu')]"` 있습니다. 프로젝트를 클라우드에 대해 빌드하는 경우에 대 한 값은 `'WebFrontEnd_cpu` **환경**  >  **클라우드**  >  **매개 변수 .yaml** 파일에서 가져온 것 이며은 `1.5` 입니다. 프로젝트를 로컬로 실행 하기 위해 빌드하는 경우이 값은 **환경**  >  **로컬**  >  **매개 변수 .yaml** 파일에서 가져오고 ' 0.5 '이 됩니다.
 
 > [!Tip]
 > 기본적으로 프로필의 피어 인 매개 변수 파일은 해당 프로필의 값을 제공 하는 데 사용 됩니다. yaml 파일입니다.
 > 예를 들어, 환경 > 클라우드 > 매개 변수가 있습니다. yaml은 클라우드 > 프로필. yaml > 환경에 대 한 매개 변수 값을 제공 합니다.
 >
-> 프로필. yaml 파일에 다음을 추가 하 여이를 재정의할 수 있습니다`parametersFilePath=”relative or full path to the parameters file”` . 예를 `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` 들면 또는입니다.`parametersFilePath=”..\CommonParameters.yaml”`
+> 프로필. yaml 파일에 다음을 추가 하 여이를 재정의할 수 있습니다. `parametersFilePath=”relative or full path to the parameters file”` 예를 들면 또는입니다. `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”``parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>모델 수정
 
@@ -127,7 +126,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 그러면 **Service Fabric 애플리케이션 게시** 대화 상자가 표시됩니다.
 
-**대상 프로필** 드롭다운을 사용 하 여이 배포에 사용할 프로필 .yaml 파일을 선택 합니다. 클라우드에서 앱을 업그레이드 하는 중입니다 **.** 드롭다운 목록에서 해당 파일에 정의 된 1.0 값을 `WebFrontEnd_cpu` 사용 하는 node.js를 선택 합니다.
+**대상 프로필** 드롭다운을 사용 하 여이 배포에 사용할 프로필 .yaml 파일을 선택 합니다. 클라우드에서 앱을 업그레이드 하는 중입니다 **.** 드롭다운 목록에서 `WebFrontEnd_cpu` 해당 파일에 정의 된 1.0 값을 사용 하는 node.js를 선택 합니다.
 
 ![Visual Studio의 Service Fabric Mesh 게시 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 

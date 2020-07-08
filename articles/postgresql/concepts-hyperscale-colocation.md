@@ -8,10 +8,9 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74967340"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL의 테이블 공동 위치 – Hyperscale (Citus)
@@ -68,7 +67,7 @@ GROUP BY page_id;
 
 단일 서버 쿼리는 테 넌 트의 수와 각 테 넌 트에 대해 저장 된 데이터가 증가 함에 따라 속도가 느려집니다. 작업 집합이 메모리의 맞춤을 중지 하 고 CPU가 병목 상태가 됩니다.
 
-이 경우 Citus (Hyperscale)를 사용 하 여 여러 노드 간에 데이터를 분할할 수 있습니다. 분할을 결정할 때 가장 중요 한 첫 번째 선택은 배포 열입니다. 이벤트 테이블 및 `event_id` `page_id` `page` 테이블에 대해를 사용 하 여 naive 선택 하는 것부터 시작 해 보겠습니다.
+이 경우 Citus (Hyperscale)를 사용 하 여 여러 노드 간에 데이터를 분할할 수 있습니다. 분할을 결정할 때 가장 중요 한 첫 번째 선택은 배포 열입니다. `event_id`이벤트 테이블 및 테이블에 대해를 사용 하 여 naive 선택 하는 것부터 시작 해 보겠습니다 `page_id` `page` .
 
 ```sql
 -- naively use event_id and page_id as distribution columns
@@ -109,7 +108,7 @@ GROUP BY page_id ORDER BY count DESC LIMIT 10;
 
 ### <a name="distribute-tables-by-tenant"></a>테 넌 트 별로 테이블 배포
 
-Citus (Hyperscale)에서 동일한 분포 열 값을 가진 행은 동일한 노드에 있도록 보장 됩니다. 부터 배포 열로를 사용 `tenant_id` 하 여 테이블을 만들 수 있습니다.
+Citus (Hyperscale)에서 동일한 분포 열 값을 가진 행은 동일한 노드에 있도록 보장 됩니다. 부터 배포 열로를 사용 하 여 테이블을 만들 수 있습니다 `tenant_id` .
 
 ```sql
 -- co-locate tables by using a common distribution column

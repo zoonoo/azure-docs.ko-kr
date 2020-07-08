@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75364308"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
@@ -85,13 +84,13 @@ ms.locfileid: "75364308"
 }
 ```
 
-| 단원 | 요소 이름 | 설명 |
+| 섹션 | 요소 이름 | 설명 |
 | --- | --- | --- |
 | Setting | ID | 자동 크기 조정 설정의 리소스 ID입니다. 자동 크기 조정 설정은 Azure Resource Manager 리소스입니다. |
 | Setting | name | 자동 크기 조정 설정 이름입니다. |
 | Setting | 위치 | 자동 크기 조정 설정의 위치입니다. 이 위치는 크기가 조정되는 리소스의 위치와 다를 수 있습니다. |
 | properties | targetResourceUri | 크기가 조정되는 리소스의 리소스 ID입니다. 리소스당 하나의 자동 크기 조정 설정만 있을 수 있습니다. |
-| properties | profiles | 자동 크기 조정 설정은 하나 이상의 프로필로 구성됩니다. 자동 크기 조정 엔진이 실행될 때마다 1개의 프로필이 실행됩니다. |
+| properties | 프로필 | 자동 크기 조정 설정은 하나 이상의 프로필로 구성됩니다. 자동 크기 조정 엔진이 실행될 때마다 1개의 프로필이 실행됩니다. |
 | profile | name | 프로필의 이름입니다. 프로필을 식별하는 데 도움이 되는 어떤 이름도 선택할 수 있습니다. |
 | profile | Capacity.maximum | 허용되는 최대 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 높게 조정하지 않게 됩니다. |
 | profile | Capacity.minimum | 허용되는 최소 용량입니다. 따라서 이 프로필 실행 시, 자동 크기 조정이 리소스를 이 수치보다 낮게 조정하지 않게 됩니다. |
@@ -106,7 +105,7 @@ ms.locfileid: "75364308"
 | metricTrigger | timeAggregation | 샘플링된 메트릭을 집계하는 데 사용되는 집계 방법입니다. 예를 들어 **Timeaggregation = "average"** 는 평균을 취하여 샘플링 된 메트릭을 집계 해야 합니다. 앞의 경우에서 1분짜리 샘플을 10개 가져와서 평균을 구합니다. |
 | rule(규칙) | scaleAction | 규칙의 metricTrigger가 트리거될 때 수행할 작업입니다. |
 | scaleAction | direction | 스케일 아웃하려는 경우 "Increase"이고, 스케일 인하려는 경우 "Decrease"입니다.|
-| scaleAction | value | 늘리거나 줄일 리소스 용량 크기입니다. |
+| scaleAction | 값 | 늘리거나 줄일 리소스 용량 크기입니다. |
 | scaleAction | cooldown | 크기 조정 작업 후, 다시 크기를 조정하기 전에 대기하는 시간입니다. 예를 들어, **cooldown = “PT10M”** 인 경우 자동 크기 조정 기능은 추가로 10분 동안 다시 크기 조정을 시도하지 않습니다. cooldown은 인스턴스의 추가 또는 제거 후에 메트릭이 안정화될 수 있도록 합니다. |
 
 ## <a name="autoscale-profiles"></a>자동 크기 조정 프로필

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services v3 API에 연결-node.js
-description: 이 문서에서는 node.js를 사용 하 여 Media Services v3 API에 연결 하는 방법을 보여 줍니다.
+title: Azure Media Services v3 API에 연결-Node.js
+description: 이 문서에서는 Node.js를 사용 하 여 Media Services v3 API에 연결 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,26 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896111"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API에 연결-node.js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API에 연결-Node.js
 
-이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 node.js SDK에 연결 하는 방법을 보여 줍니다.
+이 문서에서는 서비스 사용자 로그인 방법을 사용 하 여 Azure Media Services v3 node.js SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- [Node.js](https://nodejs.org/en/download/)를 설치 합니다.
+- [Node.js](https://nodejs.org/en/download/)를 설치합니다.
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
 
 > [!IMPORTANT]
-> [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토 합니다.
+> [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토합니다.
 
-## <a name="create-packagejson"></a>Create package. json
+## <a name="create-packagejson"></a>package.js만들기
 
-1. 즐겨 사용 하는 편집기를 사용 하 여 package json 파일을 만듭니다.
+1. 선호 하는 편집기를 사용 하 여 파일에 package.js를 만듭니다.
 1. 파일을 열고 다음 코드를 붙여 넣습니다.
 
 ```json
@@ -56,7 +55,7 @@ ms.locfileid: "74896111"
 
 |패키지|Description|
 |---|---|
-|`azure-arm-mediaservices`|SDK를 Azure Media Services 합니다. <br/>최신 Azure Media Services 패키지를 사용 하 고 있는지 확인 하려면 [NPM 설치 windowsazure.mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)를 확인 합니다.|
+|`azure-arm-mediaservices`|Azure Media Services SDK <br/>최신 Azure Media Services 패키지를 사용 하 고 있는지 확인 하려면 [NPM 설치 windowsazure.mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)를 확인 합니다.|
 |`azure-storage`|저장소 SDK. 자산에 파일을 업로드할 때 사용 됩니다.|
 |`ms-rest-azure`| 로그인 하는 데 사용 됩니다.|
 
@@ -123,7 +122,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Media Services 개념](concepts-overview.md)
 - [azure-arm-mediaservices NPM 설치](https://www.npmjs.com/package/azure-arm-mediaservices/)

@@ -9,10 +9,9 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974941"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal을 사용하여 디바이스 등록을 관리하는 방법
@@ -33,7 +32,7 @@ ms.locfileid: "74974941"
   1. 프로비전 서비스에서 다음을 수행합니다.  
      a. **등록 관리**를 클릭한 후 **등록 그룹** 탭을 선택합니다.  
      b. 위쪽에 있는 **추가** 단추를 클릭합니다.  
-     c. "등록 그룹 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다.  **그룹 이름**이 필요합니다. 또한 **인증서 유형**에 대해 "CA 또는 중간"을 선택하고 디바이스 그룹에 대해 루트 **기본 인증서**를 업로드합니다.  
+     다. "등록 그룹 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다.  **그룹 이름**이 필요합니다. 또한 **인증서 유형**에 대해 "CA 또는 중간"을 선택하고 디바이스 그룹에 대해 루트 **기본 인증서**를 업로드합니다.  
      d. **저장**을 클릭합니다. 등록 그룹을 성공적으로 만들면 그룹 이름이 **등록 그룹** 탭 아래에 표시되어야 합니다.  
 
      [![포털에서 등록 그룹](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
@@ -48,7 +47,7 @@ ms.locfileid: "74974941"
     1. 프로비전 서비스에서 다음을 수행합니다.  
        a. **등록 관리**를 클릭하고 **개별 등록** 탭을 선택합니다.  
        b. 위쪽에 있는 **추가** 단추를 클릭합니다.   
-       c. "등록 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다. 먼저 디바이스에 대해 증명 **메커니즘**(X.509 또는 TPM)을 선택합니다. X.509 증명을 위해서는 디바이스의 리프 **기본 인증서**를 업로드해야 합니다. TPM에서는 디바이스의 **증명 키** 및 **등록 ID**를 입력해야 합니다.  
+       다. "등록 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다. 먼저 디바이스에 대해 증명 **메커니즘**(X.509 또는 TPM)을 선택합니다. X.509 증명을 위해서는 디바이스의 리프 **기본 인증서**를 업로드해야 합니다. TPM에서는 디바이스의 **증명 키** 및 **등록 ID**를 입력해야 합니다.  
        d. **저장**을 클릭합니다. 등록 그룹을 성공적으로 만들면 디바이스가 **개별 그룹** 탭 아래에 표시되어야 합니다.  
 
        [![포털의 개별 등록](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)

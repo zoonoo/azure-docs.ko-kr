@@ -4,10 +4,9 @@ description: 이 문서에서는 서비스 패브릭 애플리케이션 업그�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377925"
 ---
 # <a name="troubleshoot-application-upgrades"></a>애플리케이션 업그레이드 문제 해결
@@ -212,9 +211,9 @@ ServiceTypeHealthPolicyMap              :
 
 업그레이드 시간과 제한 시간의 관계에 대해 간단히 정리하면 다음과 같습니다.
 
-업그레이드 도메인에 대 한 업그레이드는 *HealthCheckWaitDuration* + *HealthCheckStableDuration*보다 빨리 완료할 수 없습니다.
+업그레이드 도메인에 대 한 업그레이드는 *HealthCheckWaitDuration*HealthCheckStableDuration 보다 빨리 완료할 수 없습니다  +  *HealthCheckStableDuration*.
 
-*HealthCheckWaitDuration* + *HealthCheckRetryTimeout*보다는 업그레이드 오류가 발생할 수 없습니다.
+*HealthCheckWaitDuration*HealthCheckRetryTimeout 보다는 업그레이드 오류가 발생할 수 없습니다  +  *HealthCheckRetryTimeout*.
 
 업그레이드 도메인에 대한 업그레이드 시간은 *UpgradeDomainTimeout*으로 제한됩니다.  *HealthCheckRetryTimeout* 및 *HealthCheckStableDuration*이 모두 0이 아니고 애플리케이션이 앞뒤로 전환되는 상태를 유지하는 경우, 업그레이드는 궁극적으로 *UpgradeDomainTimeout*의 제한 시간이 됩니다. *UpgradeDomainTimeout* 은 현재 업그레이드 도메인에 대한 업그레이드가 일단 시작되면 카운트다운을 시작합니다.
 

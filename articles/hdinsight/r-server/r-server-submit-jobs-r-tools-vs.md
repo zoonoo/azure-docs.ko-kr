@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435264"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
@@ -32,7 +31,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 3. SSH 인증에 대한 공용 및 프라이빗 키가 필요합니다.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. 컴퓨터에 [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)를 설치합니다. ML Server는 및 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) `RxSpark` 함수를 제공 합니다.
+4. 컴퓨터에 [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) 및 함수를 제공 `RxSpark` 합니다.
 
 5. [PuTTY](https://www.putty.org/)를 설치하여 로컬 클라이언트에서 HDInsight 클러스터로 `RevoScaleR` 함수를 실행하기 위한 컴퓨팅 컨텍스트를 제공합니다.
 
@@ -66,7 +65,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
 PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 컴퓨팅 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Apache Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 컴퓨팅 컨텍스트를 만듭니다.
 
-1. HDInsight의 ML 서비스에 지 노드 주소는 `CLUSTERNAME-ed-ssh.azurehdinsight.net` 이며 `CLUSTERNAME` , 여기서은 ml 서비스 클러스터의 이름입니다.
+1. HDInsight의 ML 서비스에 지 노드 주소는 이며, `CLUSTERNAME-ed-ssh.azurehdinsight.net` 여기서 `CLUSTERNAME` 은 ml 서비스 클러스터의 이름입니다.
 
 1. 사용자 환경에 맞게 설정 변수 값을 변경하여 Visual Studio의 R 대화형 창에 다음 코드를 붙여 넣습니다.
 
@@ -108,7 +107,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
     다음과 유사한 결과가 표시됩니다.
 
-    ![Rx 명령 실행](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) 성공
+    ![Rx ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) 명령 실행 성공
 1. `rxHadoopCopy`가 예제 데이터 폴더의 `people.json` 파일을 새로 만든 `/user/RevoShare/newUser` 폴더로 복사했는지 확인합니다.
 
     1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정**을 선택합니다.

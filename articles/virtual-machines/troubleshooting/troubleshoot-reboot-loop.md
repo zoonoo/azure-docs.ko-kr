@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
 ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443591"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM의 Windows 다시 부팅 루프
@@ -62,7 +61,7 @@ ms.locfileid: "75443591"
 
 4. 복구 VM에서 Windows 레지스트리 편집기(regedit)를 엽니다.
 
-5. **HKEY_LOCAL_MACHINE** 키를 선택 하 고 메뉴에서 **파일** > **로드 하이브** 를 선택 합니다.
+5. **HKEY_LOCAL_MACHINE** 키를 선택 하 고 메뉴에서 **파일**  >  **로드 하이브** 를 선택 합니다.
 
 6. **\Windows\System32\config** 폴더에서 SYSTEM 파일을 찾습니다.
 
@@ -86,7 +85,7 @@ ms.locfileid: "75443591"
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. **BROKENSYSTEM** 키를 선택 하 고 메뉴에서 **파일** > **언로드 Hive** 를 선택 합니다.
+13. **BROKENSYSTEM** 키를 선택 하 고 메뉴에서 **파일**  >  **언로드 Hive** 를 선택 합니다.
 
 14. 문제 해결을 위한 VM에서 OS 디스크를 분리합니다.
 

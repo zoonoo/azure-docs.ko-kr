@@ -13,10 +13,9 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74979005"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
@@ -78,7 +77,7 @@ ms.locfileid: "74979005"
   * PolyBase를 사용하여 SQL Data Warehouse로 데이터를 복사할 수 있도록 합니다.
 
 ## <a name="version-461"></a>버전 4.6.1
-### <a name="bug-fixes"></a>버그 수정
+### <a name="bug-fixes"></a>버그 픽스
 * 작업 창을 나열하기 위한 HTTP 요청을 해결합니다.
   * 요청 페이로드에서 리소스 그룹 이름 및 데이터 팩터리 이름을 제거합니다.
 
@@ -135,7 +134,7 @@ ms.locfileid: "74979005"
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>버전 4.0.1
-### <a name="breaking-changes"></a>호환성이 손상되는 변경
+### <a name="breaking-changes"></a>주요 변경 내용
 다음 클래스의 이름이 변경되었습니다. 새 이름은 4.0.0 릴리스 전의 클래스 원래 이름이었습니다.
 
 | 4.0.0의 이름 | 4.0.1의 이름 |
@@ -148,7 +147,7 @@ ms.locfileid: "74979005"
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>버전 4.0.0
-### <a name="breaking-changes"></a>호환성이 손상되는 변경
+### <a name="breaking-changes"></a>주요 변경 내용
 * 다음 클래스/인터페이스의 이름이 변경되었습니다.
 
 | 이전 이름 | 새 이름 |

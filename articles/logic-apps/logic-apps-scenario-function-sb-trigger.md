@@ -7,10 +7,9 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75428716"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 호출 또는 트리거
@@ -25,7 +24,7 @@ ms.locfileid: "75428716"
 
 * Azure 함수에 대 한 컨테이너인 Azure 함수 앱입니다. 함수 앱이 없으면 [먼저 함수 앱을 만든](../azure-functions/functions-create-first-azure-function.md)다음 .net을 런타임 스택으로 선택 해야 합니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 ## <a name="create-logic-app"></a>논리 앱 만들기
 
@@ -113,7 +112,7 @@ ms.locfileid: "75428716"
 
      ![기존 함수 앱의 템플릿 선택](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. **Azure Service Bus 큐 트리거** 창에서 트리거의 이름을 제공 하 고 Azure Service Bus SDK `OnMessageReceive()` 수신기를 사용 하는 큐에 대 한 **Service Bus 연결** 을 설정 하 고 **만들기**를 선택 합니다.
+1. **Azure Service Bus 큐 트리거** 창에서 트리거의 이름을 제공 하 고 Azure Service Bus SDK 수신기를 사용 하는 큐에 대 한 **Service Bus 연결** 을 설정 하 `OnMessageReceive()` 고 **만들기**를 선택 합니다.
 
 1. 큐 메시지를 트리거로 사용 하 여 이전에 만든 논리 앱 끝점을 호출 하는 기본 함수를 작성 합니다. 함수를 작성 하기 전에 다음 사항을 검토 하십시오.
 

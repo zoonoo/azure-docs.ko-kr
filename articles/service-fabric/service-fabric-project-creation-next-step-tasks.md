@@ -4,17 +4,16 @@ description: Visual Studio에서 방금 만든 애플리케이션 프로젝트�
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75349407"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 애플리케이션 및 다음 단계
 Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에서는 사용해 볼 만한 자습서, 프로젝트의 구성, 관심을 둘 만한 추가 정보 및 수행할 수 있는 다음 단계에 대해 설명합니다.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>자습서, 연습 및 샘플 시작하기
-시작할 준비가 되셨습니까?  
+시작할 준비가 되셨나요?  
 
 .NET 애플리케이션 자습서를 진행하세요. ASP.NET Core 프런트 엔드 및 상태 저장 백 엔드로 [앱을 빌드](service-fabric-tutorial-create-dotnet-app.md)하고, [애플리케이션을 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)하고, [CI/CD를 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)하고, [모니터링 및 진단을 설정](service-fabric-tutorial-monitoring-aspnet.md)하는 방법에 대해 알아보세요.
 

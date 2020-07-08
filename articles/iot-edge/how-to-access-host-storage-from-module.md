@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434534"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
@@ -26,11 +25,11 @@ Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터�
 예를 들어 IoT Edge 허브가 장치의 로컬 저장소에 메시지를 저장 하 고 나중에 검색할 수 있도록 하려면 **런타임 설정** 섹션의 Azure Portal에서 환경 변수와 만들기 옵션을 구성할 수 있습니다.
 
 1. IoT Edge 허브와 IoT Edge 에이전트 모두에서 모듈의 디렉터리를 가리키는 **Storagefolder** 라는 환경 변수를 추가 합니다.
-1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예를 들면 다음과 같습니다.
+1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예를 들어:
 
    ![로컬 저장소에 대 한 만들기 옵션 및 환경 변수 추가](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예를 들면 다음과 같습니다.
+또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예를 들어:
 
 ```json
 "systemModules": {
@@ -70,11 +69,11 @@ Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터�
 }
 ```
 
-및 `<HostStoragePath>` `<ModuleStoragePath>` 를 호스트 및 모듈 저장소 경로로 바꿉니다. 두 값 모두 절대 경로 여야 합니다.
+`<HostStoragePath>`및를 `<ModuleStoragePath>` 호스트 및 모듈 저장소 경로로 바꾸고, 두 값이 모두 절대 경로 여야 합니다.
 
-예를 들어 Linux 시스템에서는 호스트 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 시스템의 **/etc/iotedge/storage** 디렉터리가 컨테이너의 **/iotedge/storage/** 디렉터리에 매핑되는지를 의미 합니다. Windows 시스템에서 또 다른 예로, `"Binds":["C:\\temp:C:\\contemp"]` 는 호스트 시스템의 **c:\\temp** 디렉터리가 컨테이너의 **c:\\** \ 디렉터리에 매핑되어 있음을 의미 합니다.
+예를 들어 Linux 시스템에서는 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 호스트 시스템의 **/etc/iotedge/storage** 디렉터리가 컨테이너의 **/iotedge/storage/** 디렉터리에 매핑되는지를 의미 합니다. Windows 시스템에서 또 다른 예로,는 `"Binds":["C:\\temp:C:\\contemp"]` 호스트 시스템의 **c: \\ temp** 디렉터리가 컨테이너의 **c: \\ ** \ 디렉터리에 매핑되어 있음을 의미 합니다.
 
-또한 Linux 장치에서 모듈의 사용자 프로필에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있어야 합니다. IoT Edge 허브가 장치의 로컬 저장소에 메시지를 저장 하도록 설정 하는 이전 예제로 돌아가면 UID 1000 사용자 프로필에 대 한 사용 권한을 부여 해야 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 `chown` 하 여 디렉터리 소유자를 변경한 다음 `chmod` 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다.
+또한 Linux 장치에서 모듈의 사용자 프로필에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있어야 합니다. IoT Edge 허브가 장치의 로컬 저장소에 메시지를 저장 하도록 설정 하는 이전 예제로 돌아가면 UID 1000 사용자 프로필에 대 한 사용 권한을 부여 해야 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 하 여 `chown` 디렉터리 소유자를 변경한 다음 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다 `chmod` .
 
 ```bash
 sudo chown 1000 <HostStoragePath>

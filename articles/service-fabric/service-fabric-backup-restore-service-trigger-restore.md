@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377908"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
@@ -34,7 +33,7 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- ServiceFabric 모듈을 사용 하 여 구성 요청 `Connect-SFCluster` 을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
+- `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
 ```powershell
 
@@ -201,7 +200,7 @@ Service Fabric Explorer에서 복원을 트리거할 수 있습니다. Service F
 
     ![파티션 복원 파일 공유 트리거][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>데이터 _손상_/_데이터 손실_ 에 대 한 데이터 복원
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>데이터 _손상_ / _데이터 손실_ 에 대 한 데이터 복원
 
 _데이터 손실_ 또는 _데이터 손상_의 경우 Reliable Stateful 서비스 및 Reliable Actors의 파티션에 대한 백업을 선택한 백업으로 복원할 수 있습니다.
 
@@ -209,7 +208,7 @@ _데이터 손실_ 또는 _데이터 손상_의 경우 Reliable Stateful 서비�
 
 [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups)의 출력에서 백업을 선택합니다. 이 시나리오에서는 이전과 동일한 클러스터에서 백업이 생성됩니다.
 
-복원을 트리거하려면 목록에서 백업을 선택합니다. 현재 _데이터 손실_/_데이터 손상_의 경우 다음 백업을 선택 합니다.
+복원을 트리거하려면 목록에서 백업을 선택합니다. 현재 _데이터 손실_ / _데이터 손상_의 경우 다음 백업을 선택 합니다.
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4

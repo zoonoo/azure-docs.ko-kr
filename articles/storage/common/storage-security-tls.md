@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 81c9a8fe9513f1f8fc65ad64b34f0fb04383569b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75371805"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Azure Storage 클라이언트에 대한 보안 TLS 사용
@@ -77,7 +76,7 @@ Fiddler를 사용하여 TLS 1.2를 실제로 사용하는지 확인할 수 있�
 
 ![Fiddler에서 TLS 버전을 확인하는 스크린샷](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [TLS(전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
 * [TLS의 PCI 규정 준수](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)

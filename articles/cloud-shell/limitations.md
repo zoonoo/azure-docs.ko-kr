@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74951482"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
@@ -45,7 +44,7 @@ Cloud Shell은 Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozil
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>지정된 사용자에 대해 셸이 하나만 활성화될 수 있습니다.
 
-사용자는 **Bash** 또는 **PowerShell**을 이용하여 한 번에 한 가지 유형의 셸만을 시작할 수 있습니다. 그러나 PowerShell 또는 Bash의 인스턴스는 동시에 여러 개 실행할 수 있습니다. 메뉴를 사용 하 여 Bash 또는 PowerShell을 교환 하면 기존 세션을 종료 하는 Cloud Shell 다시 시작 됩니다. 또는를 입력 `bash`하 여 powershell 내에서 bash를 실행 하 고를 입력 `pwsh`하 여 bash 내에서 powershell을 실행할 수 있습니다.
+사용자는 **Bash** 또는 **PowerShell**을 이용하여 한 번에 한 가지 유형의 셸만을 시작할 수 있습니다. 그러나 PowerShell 또는 Bash의 인스턴스는 동시에 여러 개 실행할 수 있습니다. 메뉴를 사용 하 여 Bash 또는 PowerShell을 교환 하면 기존 세션을 종료 하는 Cloud Shell 다시 시작 됩니다. 또는를 입력 하 여 PowerShell 내에서 bash를 실행 `bash` 하 고를 입력 하 여 bash 내에서 powershell을 실행할 수 있습니다 `pwsh` .
 
 ### <a name="usage-limits"></a>사용 제한
 
@@ -77,11 +76,11 @@ PowerShell cmdlet을 사용 하 여 사용자는 Azure: 드라이브에서 파�
 
 ### <a name="gui-applications-are-not-supported"></a>GUI 애플리케이션은 지원되지 않습니다.
 
-사용자가 Windows 대화 상자를 만드는 명령을 실행 하는 경우 다음과 `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`같은 오류 메시지를 볼 수 있습니다.
+사용자가 Windows 대화 상자를 만드는 명령을 실행 하는 경우 다음과 같은 오류 메시지를 볼 수 `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` 있습니다.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>진행률 표시줄을 표시한 후 큰 간격이 생깁니다.
 
-사용자가 작업을 수행 하는 경우 (예: `Azure:` 드라이브의 작업 완료 탭), 커서를 제대로 설정 하지 않은 상태에서 진행률 표시줄이 이전에 표시 된 간격이 표시 될 수 있습니다.
+사용자가 작업을 수행 하는 경우 (예: 드라이브의 작업 완료 탭) `Azure:` , 커서를 제대로 설정 하지 않은 상태에서 진행률 표시줄이 이전에 표시 된 간격이 표시 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

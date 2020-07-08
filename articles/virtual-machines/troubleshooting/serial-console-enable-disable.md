@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451297"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Azure 직렬 콘솔 사용 및 사용 안 함
@@ -34,7 +33,7 @@ ms.locfileid: "75451297"
 ## <a name="subscription-level-enabledisable"></a>구독 수준 사용/사용 안 함
 
 > [!NOTE]
-> 이 명령을 실행 하기 전에 올바른 클라우드 (Azure 공용 클라우드, Azure 미국 정부 클라우드)에 있는지 확인 하세요. 로 확인 `az cloud list` 하 고 클라우드를 설정할 수 있습니다 `az cloud set -n <Name of cloud>`.
+> 이 명령을 실행 하기 전에 올바른 클라우드 (Azure 공용 클라우드, Azure 미국 정부 클라우드)에 있는지 확인 하세요. 로 확인 `az cloud list` 하 고 클라우드를 설정할 수 있습니다 `az cloud set -n <Name of cloud>` .
 
 ### <a name="azure-cli"></a>Azure CLI
 

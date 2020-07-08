@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430589"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>API Management 서비스 호스트 이름을 업데이트 하지 못했습니다.
@@ -28,7 +27,7 @@ ms.locfileid: "75430589"
 
 Azure Key Vault의 인증서를 사용 하 여 API Management 서비스에 대 한 사용자 지정 도메인을 추가 하려고 하면 다음과 같은 오류 메시지가 나타납니다.
 
-- API Management 서비스 호스트 이름을 업데이트 하지 못했습니다. 리소스 'https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0'에 대 한 요청이 실패 했습니다. 예외 메시지: 작업에서 잘못 된 상태 코드 ' 사용할 수 없음 '이 반환 되었습니다.
+- API Management 서비스 호스트 이름을 업데이트 하지 못했습니다. 리소스 ' '에 대 한 요청이 https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 실패 했습니다. 예외 메시지: 작업에서 잘못 된 상태 코드 ' 사용할 수 없음 '이 반환 되었습니다.
 
 ## <a name="cause"></a>원인
 

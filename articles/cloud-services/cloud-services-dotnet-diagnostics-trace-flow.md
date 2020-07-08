@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
 ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75386513"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Azure Diagnostics로 Cloud Services 애플리케이션의 흐름 추적
@@ -65,7 +64,7 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 수신기를 추가하는 단계를 완료한 후 코드에 추적 문을 추가할 수 있습니다.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>코드에 추적 문을 추가하려면
-1. 애플리케이션에 대한 소스 파일을 엽니다. 예를 들어 작업자 \<역할 또는 웹 역할에 대 한 RoleName> .cs 파일이 있습니다.
+1. 애플리케이션에 대한 소스 파일을 엽니다. 예를 들어 작업자 역할 또는 웹 역할에 대한 \<RoleName>.cs 파일입니다.
 2. 아직 추가 되지 않은 경우 다음 using 지시문을 추가 합니다.
     ```
         using System.Diagnostics;

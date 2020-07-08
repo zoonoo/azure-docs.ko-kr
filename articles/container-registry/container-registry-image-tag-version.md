@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445744"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>컨테이너 이미지 태그 지정 및 버전 관리에 대 한 권장 사항
@@ -32,7 +31,7 @@ ms.locfileid: "75445744"
 * `:1`– 주 버전에 대 한 안정적인 태그입니다. `1`"최신" 또는 "최신" 1. * 버전을 나타냅니다.
 * `:1.0`-버전 1.0에 대 한 안정적인 태그를 제공 하 여 개발자가 1.0 업데이트에 바인딩할 수 있도록 하 고, 릴리스 시 1.1로 롤포워드할 수 없도록 합니다.
 
-또한 팀은 현재 주 `:latest` 버전에 관계 없이 안정적인 최신 태그를 가리키는 태그를 사용 합니다.
+또한 팀은 `:latest` 현재 주 버전에 관계 없이 안정적인 최신 태그를 가리키는 태그를 사용 합니다.
 
 기본 이미지 업데이트를 사용할 수 있는 경우 또는 프레임 워크의 모든 유형에 서 안정적인 태그가 있는 이미지는 해당 버전의 최신 안정적인 릴리스를 나타내는 최신 다이제스트로 업데이트 됩니다.
 
@@ -53,11 +52,11 @@ ms.locfileid: "75445744"
 * **매니페스트 다이제스트** -컨테이너 레지스트리에 푸시되는 각 컨테이너 이미지는 고유한 SHA-256 해시 또는 다이제스트로 식별 되는 매니페스트와 연결 됩니다. 고유 하지만 다이제스트는 긴 하지만 읽기 어렵고 빌드 환경에서 상관 관계가 없는 됩니다.
 * **빌드 ID** -이 옵션은 증분 가능성이 있으므로이 옵션을 사용 하는 것이 가장 좋을 수 있으며, 모든 아티팩트와 로그를 찾기 위해 특정 빌드와 다시 연관 시킬 수 있습니다. 그러나 매니페스트 다이제스트와 마찬가지로 사람이 읽기 어려울 수 있습니다.
 
-  조직에 여러 빌드 시스템이 있는 경우, 빌드 시스템 이름을 포함 하는 태그는이 옵션 `<build-system>-<build-id>`의 변형입니다. 예를 들어 API 팀의 Jenkins 빌드 시스템과 웹 팀의 Azure Pipelines 빌드 시스템의 빌드를 구분할 수 있습니다.
+  조직에 여러 빌드 시스템이 있는 경우, 빌드 시스템 이름을 포함 하는 태그는이 옵션의 변형 `<build-system>-<build-id>` 입니다. 예를 들어 API 팀의 Jenkins 빌드 시스템과 웹 팀의 Azure Pipelines 빌드 시스템의 빌드를 구분할 수 있습니다.
 
 ### <a name="lock-deployed-image-tags"></a>배포 된 이미지 태그 잠금
 
-모범 사례로, `write-enabled` 특성을로 `false`설정 하 여 배포 된 이미지 태그를 [잠그는](container-registry-image-lock.md) 것이 좋습니다. 이 방법을 통해 레지스트리에서 이미지를 실수로 제거 하 여 배포를 방해할 수 있습니다. 릴리스 파이프라인에 잠금 단계를 포함할 수 있습니다.
+모범 사례로, 특성을로 설정 하 여 배포 된 이미지 태그를 [잠그는](container-registry-image-lock.md) 것이 좋습니다 `write-enabled` `false` . 이 방법을 통해 레지스트리에서 이미지를 실수로 제거 하 여 배포를 방해할 수 있습니다. 릴리스 파이프라인에 잠금 단계를 포함할 수 있습니다.
 
 배포 된 이미지를 잠그면 레지스트리를 유지 관리 하기 위해 Azure Container Registry 기능을 사용 하 여 레지스트리에서 배포 되지 않은 다른 이미지를 제거할 수 있습니다. 예를 들어 지정 된 기간 보다 오래 된 태그가 지정 되지 않은 매니페스트 또는 잠금 해제 된 이미지를 [자동으로 제거](container-registry-auto-purge.md) 하거나 태그가 지정 되지 않은 매니페스트에 대 한 [보존 정책을](container-registry-retention-policy.md) 설정 합니다.
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429145"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Azure IoT hub를 다른 지역에 복제 하는 방법
@@ -57,7 +56,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
     
 * 새 리소스와 함께 사용할 수 있도록 사용 중인 인증서를 업데이트 해야 합니다. 또한 다른 곳에서 DNS 테이블에 정의 된 허브가 있을 수 있습니다 .이 경우 해당 DNS 정보를 업데이트 해야 합니다.
 
-## <a name="methodology"></a>방법론
+## <a name="methodology"></a>방법
 
 이 방법은 IoT hub를 한 지역에서 다른 지역으로 이동 하는 데 권장 되는 일반적인 방법입니다. 메시지 라우팅의 경우 리소스가 새 지역으로 이동 되지 않는다고 가정 합니다. 자세한 내용은 [메시지 라우팅에 대 한 섹션](#how-to-handle-message-routing)을 참조 하세요.
 
@@ -107,7 +106,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>원본 허브를 찾아 리소스 템플릿으로 내보냅니다.
 
-1. 로그인은 [Azure 포털](https://portal.azure.com)합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 1. **리소스 그룹** 으로 이동 하 여 이동 하려는 허브가 포함 된 리소스 그룹을 선택 합니다. **리소스** 로 이동 하 여 해당 방식으로 허브를 찾을 수도 있습니다. 허브를 선택 합니다.
 
@@ -121,7 +120,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 ### <a name="view-the-template"></a>템플릿 보기 
 
-1. 다운로드 폴더 (또는 템플릿을 내보낼 때 사용한 폴더)로 이동 하 고 zip 파일을 찾습니다. Zip 파일을 열고 라는 `template.json`파일을 찾습니다. 이를 선택 하 고 Ctrl + C를 선택 하 여 템플릿을 복사 합니다. Zip 파일에 없는 다른 폴더로 이동 하 여 파일을 붙여 넣습니다 (Ctrl + V). 이제 편집할 수 있습니다.
+1. 다운로드 폴더 (또는 템플릿을 내보낼 때 사용한 폴더)로 이동 하 고 zip 파일을 찾습니다. Zip 파일을 열고 라는 파일을 찾습니다 `template.json` . 이를 선택 하 고 Ctrl + C를 선택 하 여 템플릿을 복사 합니다. Zip 파일에 없는 다른 폴더로 이동 하 여 파일을 붙여 넣습니다 (Ctrl + V). 이제 편집할 수 있습니다.
  
     다음 예는 라우팅 구성이 없는 일반 허브에 대 한 예입니다. 영역 **westus**에서 **ContosoTestHub29358** 이라는 S1 계층 허브 (1 단위 포함)입니다. 내보낸 템플릿은 다음과 같습니다.
 
@@ -308,9 +307,9 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
    "containerName": "fabrikamresults",
    ```
 
-1. 저장소 계정에 대 한 계정 키를 검색 한 후에는 별표 대신 절의 `AccountKey=****` 템플릿에 저장 합니다. 
+1. 저장소 계정에 대 한 계정 키를 검색 한 후에는 별표 대신 절의 템플릿에 저장 합니다 `AccountKey=****` . 
 
-1. Service bus 큐의 경우 SharedAccessKeyName과 일치 하는 공유 액세스 키를 가져옵니다. 다음은 json `SharedAccessKeyName` 의 키 및입니다.
+1. Service bus 큐의 경우 SharedAccessKeyName과 일치 하는 공유 액세스 키를 가져옵니다. 다음은 json의 키 및입니다 `SharedAccessKeyName` .
 
    ```json
    "connectionString": "Endpoint=sb://fabrikamsbnamespace1234.servicebus.windows.net:5671/;
@@ -347,7 +346,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 템플릿을 사용 하 여 새 위치에 새 허브를 만듭니다. 이동 하려는 라우팅 리소스가 있는 경우 새 위치에 리소스를 설정 하 고 템플릿의 참조를 일치 하도록 업데이트 해야 합니다. 라우팅 리소스를 이동 하지 않는 경우 업데이트 된 키를 사용 하 여 템플릿에 있어야 합니다.
 
-1. 로그인은 [Azure 포털](https://portal.azure.com)합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **리소스 만들기**를 선택합니다. 
 
@@ -485,9 +484,9 @@ DPS를 사용 하 여 장치를 새 위치로 이동 하려면 장치를 [다시
 
 ### <a name="running-the-sample-application-and-using-command-line-arguments"></a>예제 응용 프로그램 실행 및 명령줄 인수 사용
 
-1. 명령 프롬프트 창을 엽니다. Windows를 선택 하 고 `command prompt` 를 입력 하 여 명령 프롬프트 창을 가져옵니다.
+1. 명령 프롬프트 창을 엽니다. Windows를 선택 하 고를 입력 `command prompt` 하 여 명령 프롬프트 창을 가져옵니다.
 
-1. 환경 변수를 설정 하는 명령을 한 번에 하나씩 복사 하 고 명령 프롬프트 창에 붙여넣은 다음 Enter 키를 선택 합니다. 완료 되 면 명령 프롬프트 창 `SET` 에를 입력 하 여 환경 변수 및 해당 값을 확인 합니다. 이러한 항목을 명령 프롬프트 창에 복사한 후에는 새 명령 프롬프트 창을 열지 않는 한 다시 복사 하지 않아도 됩니다.
+1. 환경 변수를 설정 하는 명령을 한 번에 하나씩 복사 하 고 명령 프롬프트 창에 붙여넣은 다음 Enter 키를 선택 합니다. 완료 되 면 `SET` 명령 프롬프트 창에를 입력 하 여 환경 변수 및 해당 값을 확인 합니다. 이러한 항목을 명령 프롬프트 창에 복사한 후에는 새 명령 프롬프트 창을 열지 않는 한 다시 복사 하지 않아도 됩니다.
 
 1. 명령 프롬프트 창에서, 사용자가 있을 때까지 디렉터리를 변경 합니다./Svexportdevicessname. 그런 후에 다음을 입력 하 고 명령줄 인수를 포함 합니다.
 
@@ -549,7 +548,7 @@ DPS를 사용 하 여 장치를 새 위치로 이동 하려면 장치를 [다시
 
 1. [Azure Portal](https://portal.azure.com)를 사용 하 여 새 허브로 이동 합니다. 허브를 선택한 다음 **IoT 장치**를 선택 합니다. 이전 허브에서 복제 된 허브로 방금 복사한 장치가 표시 됩니다. 복제 된 허브에 대 한 속성을 볼 수도 있습니다. 
 
-1. [Azure Portal](https://portal.azure.com) 에서 Azure storage 계정으로 이동 하 고에 대 한 `devicefiles` 컨테이너를 살펴보면 가져오기/내보내기 오류를 확인 합니다. `ImportErrors.log` 이 파일이 비어 있는 경우 (크기가 0 인 경우) 오류가 발생 하지 않은 것입니다. 동일한 장치를 두 번 이상 가져오려고 시도 하면 장치를 두 번 이상 거부 하 고 로그 파일에 오류 메시지를 추가 합니다.
+1. [Azure Portal](https://portal.azure.com) 에서 Azure storage 계정으로 이동 하 고에 대 한 컨테이너를 살펴보면 가져오기/내보내기 오류를 확인 합니다 `devicefiles` `ImportErrors.log` . 이 파일이 비어 있는 경우 (크기가 0 인 경우) 오류가 발생 하지 않은 것입니다. 동일한 장치를 두 번 이상 가져오려고 시도 하면 장치를 두 번 이상 거부 하 고 로그 파일에 오류 메시지를 추가 합니다.
 
 ### <a name="committing-the-changes"></a>변경 내용 커밋 
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75433878"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
@@ -211,7 +210,7 @@ V1에서 V2로 업그레이드하려면 2단계 업그레이드가 필요합니�
     }
     ```
 
-    c. V1 및 V2 수신기와 V2 클라이언트를 사용하려면 원격 인터페이스에 어셈블리 특성을 추가합니다.
+    다. V1 및 V2 수신기와 V2 클라이언트를 사용하려면 원격 인터페이스에 어셈블리 특성을 추가합니다.
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2|RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2)]
 
@@ -268,7 +267,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>명시적 원격 클래스를 사용하여 V2(인터페이스 호환 가능) 버전에 대한 수신기/클라이언트 팩터리 만들기
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. 서비스 매니페스트에서 Endpoint Resource를 “ServiceEndpointV2_1”이라는 이름으로 추가합니다.
 
@@ -313,7 +312,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드하려면 2단계 업그레이드가 필요합니다. 이 순서대로 단계를 따르세요.
 
 > [!NOTE]
-> V 1에서 v 2로 업그레이드 하는 `Remoting` 경우 v2를 사용 하도록 네임 스페이스를 업데이트 해야 합니다. 예: ' ServiceFabric ' (' FabricTransport ')
+> V 1에서 v 2로 업그레이드 하는 경우 `Remoting` v2를 사용 하도록 네임 스페이스를 업데이트 해야 합니다. 예: ' ServiceFabric ' (' FabricTransport ')
 >
 >
 
@@ -338,7 +337,7 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
     }
     ```
 
-    c. V1 및 V2_1 수신기와 V2_1 클라이언트를 사용하기 위해 원격 인터페이스에 어셈블리 특성을 추가합니다.
+    다. V1 및 V2_1 수신기와 V2_1 클라이언트를 사용하기 위해 원격 인터페이스에 어셈블리 특성을 추가합니다.
     ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 
@@ -357,7 +356,7 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>원격 래핑된 메시지로 사용자 지정 serialization 사용
 
 원격 래핑된 메시지에서 모든 매개 변수를 필드로 사용하여 래핑된 단일 개체를 만듭니다.
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. 사용자 지정 serialization에 대한 구현을 제공하기 위해 `IServiceRemotingMessageSerializationProvider` 인터페이스를 구현합니다.
     이 코드 조각은 구현 모습을 보여줍니다.

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: ed0cd51fc686735f2d9c110ce46d5904107cafc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430610"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
@@ -32,7 +31,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 
 다음 테이블은 기본 제공 역할을 간략하게 설명합니다. Azure Portal 또는 Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 및 [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)를 비롯한 다른 도구를 사용하여 이러한 역할을 할당할 수 있습니다. 기본 제공 역할을 할당하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 참조하세요.
 
-| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | Description
+| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | 설명
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | API Management 서비스 참가자 | ✓ | ✓ | ✓ | ✓ | 슈퍼 사용자입니다. API Management 서비스 및 엔터티(예: API 및 정책)에 대한 전체 CRUD 액세스 권한을 보유합니다. 기존 게시자 포털에 대한 액세스 권한을 보유합니다. |
 | API Management Service Reader | ✓ | | || API Management 서비스 및 엔터티에 대한 읽기 전용 액세스 권한을 보유합니다. |
@@ -51,7 +50,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 기본 제공 역할이 사용자의 특정 요구 사항을 충족시키지 못하면 API Management 엔터티에 대한 보다 세분화된 액세스 관리를 제공하는 사용자 지정 역할을 작성할 수 있습니다. 예를 들어 API Management 서비스에 대해서는 읽기 전용 액세스 권한을 보유하지만 하나의 특정 API에 대해서는 쓰기 권한만 보유하는 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할에 대한 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 참조하세요. 
 
 > [!NOTE]
-> Azure Portal에서 API Management 인스턴스를 보려면 사용자 지정 역할이 ```Microsoft.ApiManagement/service/read``` 동작을 포함 해야 합니다.
+> Azure Portal에서 API Management 인스턴스를 보려면 사용자 지정 역할이 동작을 포함 해야 합니다 ```Microsoft.ApiManagement/service/read``` .
 
 사용자 지정 역할을 만들 때는 기본 제공 역할 중 하나로 시작하는 것이 쉽습니다. 속성을 편집하여 **Actions**, **NotActions** 또는 **AssignableScopes**를 추가한 다음 변경 사항을 새 역할로 저장합니다. 다음 예제에서는 "API Management Service Reader" 역할로 시작 하 고 "계산기 API Editor" 라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 특정 API에 할당할 수 있습니다. 따라서 이 역할만 해당 API에 대한 액세스 권한을 보유합니다. 
 

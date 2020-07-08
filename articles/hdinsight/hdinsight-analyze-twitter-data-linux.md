@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435609"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
@@ -28,7 +27,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
 ### <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
-1. 웹 브라우저에서에 [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/)로그인 합니다. Twitter 계정이 없는 경우 **지금 등록** 링크를 선택 합니다.
+1. 웹 브라우저에서에 로그인 [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) 합니다. Twitter 계정이 없는 경우 **지금 등록** 링크를 선택 합니다.
 
 2. **새 앱 만들기**를 선택 합니다.
 
@@ -36,7 +35,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
    | 필드 | 값 |
    |--- |--- |
-   | 속성 |MyHDInsightApp |
+   | Name |MyHDInsightApp |
    | 설명 |MyHDInsightApp |
    | Website |`https://www.myhdinsightapp.com` |
 
@@ -59,7 +58,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 > [!NOTE]  
 > 다음 단계는 Python이 이미 설치되어 있으므로 HDInsight 클러스터에서 수행됩니다.
 
-1. [Ssh 명령을](./hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -84,7 +83,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
    nano gettweets.py
    ```
 
-1. , `Your consumer secret` `Your consumer key`, 및 `Your access token secret` 를 twitter 응용 프로그램의 관련 정보로 바꿔서 아래 코드를 편집 합니다. `Your access token` 그런 다음 편집 된 코드를 **gettweets.py** 파일의 내용으로 붙여넣습니다.
+1. `Your consumer secret`,, `Your consumer key` 및를 `Your access token` `Your access token secret` twitter 응용 프로그램의 관련 정보로 바꿔서 아래 코드를 편집 합니다. 그런 다음 편집 된 코드를 **gettweets.py** 파일의 내용으로 붙여넣습니다.
 
    ```python
    #!/usr/bin/python

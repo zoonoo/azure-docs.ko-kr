@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429117"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>장치-클라우드 IoT Hub 메시지의 메시지 강화
@@ -29,7 +28,7 @@ ms.locfileid: "75429117"
 
 * 보강을 적용 해야 하는 하나 이상의 [끝점](iot-hub-devguide-endpoints.md) 입니다.
 
-**키** 가 문자열입니다. 키에는 영숫자와 특수 문자 (하이픈 (`-`), 밑줄 (`_`) 및 마침표 (`.`)만 사용할 수 있습니다.
+**키** 가 문자열입니다. 키에는 영숫자와 특수 문자 (하이픈 ( `-` ), 밑줄 ( `_` ) 및 마침표 ( `.` )만 사용할 수 있습니다.
 
 **값** 은 다음 중 하나일 수 있습니다.
 
@@ -60,7 +59,7 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 강화는 다음 메서드를 사용 하 여 구성할 수 있습니다.
 
-| **방법** | **명령** |
+| **메서드** | **명령** |
 | ----- | -----| 
 | 포털 | [Azure Portal](https://portal.azure.com) | [메시지 강화 자습서](tutorial-message-enrichments.md) 를 참조 하세요. | 
 | Azure CLI   | [az iot hub message-보강](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |

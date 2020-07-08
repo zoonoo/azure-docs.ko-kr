@@ -11,10 +11,9 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900042"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
@@ -23,7 +22,7 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 > [!NOTE]
 > 데이터 과학 virtual machines에서 Jupyter 노트북을 실행 하는 방법에 대 한 자세한 내용은 [Jupyter 액세스](#access-jupyter) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 샘플을 실행 하려면 Data Science Virtual Machine를 프로 비전 해야 합니다. [Windows](./provision-vm.md) 및 [Ubuntu](./dsvm-ubuntu-intro.md)에 대 한 빠른 시작을 참조 하세요.
 
@@ -46,7 +45,7 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 
 ## <a name="access-jupyter"></a>액세스 Jupyter 
 
-Jupyter에 액세스 하려면 바탕 화면 또는 응용 프로그램 메뉴에서 **jupyter** 아이콘을 선택 합니다. DSVM의 Linux 버전에서 Jupyter에 액세스할 수도 있습니다. 웹 브라우저에서 원격으로 액세스 하려면 Ubuntu에서로 `https://<Full Domain Name or IP Address of the DSVM>:8000` 이동 합니다.
+Jupyter에 액세스 하려면 바탕 화면 또는 응용 프로그램 메뉴에서 **jupyter** 아이콘을 선택 합니다. DSVM의 Linux 버전에서 Jupyter에 액세스할 수도 있습니다. 웹 브라우저에서 원격으로 액세스 하려면 `https://<Full Domain Name or IP Address of the DSVM>:8000` Ubuntu에서로 이동 합니다.
 
 브라우저를 통해 예외를 추가 하 고 Jupyter 액세스를 사용할 수 있도록 설정 하려면 다음 지침을 사용 합니다.
 

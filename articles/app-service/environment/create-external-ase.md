@@ -8,10 +8,9 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430505"
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기
@@ -89,7 +88,7 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     b. 새 서브넷 이름을 입력합니다.
 
-    c. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/24`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
+    다. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/24`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
 
     d. 서브넷 IP 범위를 선택합니다.
 
@@ -125,7 +124,7 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     b. 새 서브넷 이름을 입력합니다.
 
-    c. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/24`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
+    다. 서브넷의 크기를 선택합니다. *ASE의 향후 증가에 맞게 충분히 큰 크기를 설정해야 합니다.* 권장되는 크기는 `/24`입니다. 여기에는 128개의 주소가 있고 최대 크기의 ASE를 다룰 수 있습니다. 예를 들어 16개의 주소만을 사용할 수 있기 때문에 `/28`은 권장되지 않습니다. 인프라는 적어도 7개의 주소를 사용하고 Azure Networking은 다른 5개를 사용합니다. `/28` 서브넷에서는 외부 ASE에 대해 최대 4개의 App Service 계획 인스턴스를, ILB ASE에 대해서는 3개의 App Service 계획 인스턴스만 확장할 수 있습니다.
 
     d. 서브넷 IP 범위를 선택합니다.
 

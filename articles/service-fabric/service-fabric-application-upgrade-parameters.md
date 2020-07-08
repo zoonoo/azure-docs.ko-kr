@@ -4,10 +4,9 @@ description: 수행할 상태 확인 및 업그레이드를 자동으로 실행 
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377976"
 ---
 # <a name="application-upgrade-parameters"></a>애플리케이션 업그레이드 매개 변수
@@ -33,7 +32,7 @@ Visual Studio Service Fabric 애플리케이션 업그레이드 매개 변수는
 ### <a name="required-parameters"></a>필수 매개 변수
 (PS=PowerShell, VS=Visual Studio)
 
-| 매개 변수 | 적용 대상 | Description |
+| 매개 변수 | 적용 대상 | 설명 |
 | --- | --- | --- |
 ApplicationName |PS| 업그레이드될 애플리케이션의 이름입니다. 예: fabric:/VisualObjects, fabric:/ClusterMonitor |
 ApplicationTypeVersion|PS|업그레이드 대상인 애플리케이션 형식의 버전입니다. |
@@ -48,7 +47,7 @@ UnmonitoredManual | PS | 업그레이드 모드가 수동으로 모니터링되�
 상태 평가 매개 변수는 선택 사항입니다. 업그레이드 시작 시 상태 평가 조건이 지정되지 않으면 Service Fabric은 애플리케이션 인스턴스의 ApplicationManifest.xml에 지정된 애플리케이션 상태 정책을 사용합니다.
 
 > [!div class="mx-tdBreakAll"]
-> | 매개 변수 | 적용 대상 | Description |
+> | 매개 변수 | 적용 대상 | 설명 |
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| 애플리케이션 매개 변수에 대한 재정의를 지정합니다.<br>PowerShell 애플리케이션 매개 변수는 해시 테이블 이름/값 쌍으로 지정합니다. 예를 들어 @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }입니다.<br>Visual Studio 애플리케이션 매개 변수는 **애플리케이션 매개 변수 파일** 필드의 [Service Fabric 애플리케이션 게시] 대화 상자에서 지정할 수 있습니다.
 > | Confirm |PS| 허용 되는 값은 **True** 및 **False**입니다. cmdlet를 실행하기 전에 확인 메시지를 표시합니다. |
@@ -78,15 +77,15 @@ Service Fabric CLI를 사용하는 Service Fabric 애플리케이션 업그레�
 
 ### <a name="required-parameters"></a>필수 매개 변수
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
-| application-id  |업그레이드될 애플리케이션의 ID입니다. <br> 일반적으로 'fabric:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ' fabric:/myapp/app1 ' 인 경우 응용 프로그램 id는 6.0 이상에서는 '\~myapp app1 '이 고 이전 버전에서는 ' myapp/app1 '입니다.|
+| application-id  |업그레이드될 애플리케이션의 ID입니다. <br> 일반적으로 'fabric:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ' fabric:/myapp/app1 ' 인 경우 응용 프로그램 id는 \~ 6.0 이상에서는 ' myapp app1 '이 고 이전 버전에서는 ' myapp/app1 '입니다.|
 application-version |업그레이드 대상인 애플리케이션 형식의 버전입니다.|
 매개 변수  |JSON 인코딩된 애플리케이션 매개 변수 목록은 애플리케이션을 업그레이드할 때 적용되기 위해 재정의합니다.|
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 default-service-health-policy | 서비스 유형의 상태를 평가 하기 위해 기본적으로 사용 되는 상태 정책의 [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) 인코딩된 사양입니다. 맵은 기본적으로 비어 있습니다. |
 failure-action | 허용되는 값은 **Rollback**, **Manual** 및 **Invalid**입니다. *Monitored* 업그레이드에서 모니터링 정책 또는 상태 정책 위반이 발생하면 수행할 보정 작업입니다. <br>**Rollback**은 업그레이드가 업그레이드 이전 버전으로 자동으로 롤백되도록 지정합니다. <br>**Manual**은 업그레이드가 *UnmonitoredManual* 업그레이드 모드로 전환됨을 나타냅니다. <br>**Invalid**는 실패 작업이 유효하지 않음을 나타냅니다.|

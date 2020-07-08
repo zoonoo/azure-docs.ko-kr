@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74949392"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop의 Apache Hive 및 Apache Pig에서 c # 사용자 정의 함수 사용
@@ -24,7 +23,7 @@ HDInsight의 [Apache Hive](https://hive.apache.org) 및 [Apache Pig](https://pig
 
 Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처리할 수 있습니다. 이 프로세스를 _스트리밍_이라고 합니다. .NET 애플리케이션을 사용하는 경우 데이터가 STDIN의 애플리케이션으로 전달된 다음 애플리케이션이 STDOUT에서 결과를 반환합니다. STDIN 및 STDOUT에서 읽거나 쓰려면 콘솔 애플리케이션에서 `Console.ReadLine()` 및 `Console.WriteLine()`을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * .NET Framework 4.5를 대상으로 하는 C# 코드 작성 및 빌드에 대해 잘 알고 있어야 합니다.
 
@@ -52,7 +51,7 @@ HDInsight 버전에 포함 된 .NET Framework 및 Mono 버전에 대 한 자세�
 
 Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
-1. Visual Studio를 시작합니다.
+1. Visual Studio를 실행합니다.
 
 2. **새 프로젝트 만들기**를 선택합니다.
 
@@ -111,7 +110,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
     }
     ```
 
-6. 메뉴 모음에서 빌드 > **솔루션** 빌드 **를 선택 하**여 프로젝트를 빌드합니다.
+6. 메뉴 모음에서 빌드 **Build**  >  **솔루션** 빌드를 선택 하 여 프로젝트를 빌드합니다.
 
 7. 솔루션을 닫습니다.
 
@@ -160,7 +159,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
     이 코드는 Pig에서 보낸 줄을 구문 분석하고 `java.lang.Exception`로 시작하는 줄의 형식을 변경합니다.
 
-6. 메뉴 모음에서 빌드 > **솔루션** 빌드 **를 선택 하**여 프로젝트를 빌드합니다.
+6. 메뉴 모음에서 빌드 **Build**  >  **솔루션** 빌드를 선택 하 여 프로젝트를 빌드합니다.
 
 7. 솔루션을 열어 둡니다.
 
@@ -168,7 +167,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 그런 다음 Hive 및 Pig UDF 응용 프로그램을 HDInsight 클러스터의 저장소에 업로드 합니다.
 
-1. Visual Studio에서 **뷰** > **서버 탐색기**로 이동 합니다.
+1. Visual Studio에서 **뷰**  >  **서버 탐색기**로 이동 합니다.
 
 1. **서버 탐색기**에서 **Azure**를 마우스 오른쪽 단추로 클릭 하 **Microsoft Azure 구독에 연결**을 선택 하 고 로그인 프로세스를 완료 합니다.
 
@@ -186,9 +185,9 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
         ![새 프로젝트에 대 한 HDInsight 업로드 아이콘](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
-        **새 파일 업로드** 대화 상자에서 **파일 이름**아래에 있는 **찾아보기**를 선택 합니다. **Blob 업로드** 대화 상자에서 *hivecsharp.exe* 프로젝트에 대 한 *bin\debug* 폴더로 이동한 다음 *hivecsharp.exe* 파일을 선택 합니다. 마지막으로 **열기** 를 선택 하 고 **확인** 을 선택 하 여 업로드를 완료 합니다.
+        **새 파일 업로드** 대화 상자에서 **파일 이름**아래에 있는 **찾아보기**를 선택 합니다. **Blob 업로드** 대화 상자에서 *hivecsharp.exe* 프로젝트에 대 한 *bin\debug* 폴더로 이동한 다음 *HiveCSharp.exe* 파일을 선택 합니다. 마지막으로 **열기** 를 선택 하 고 **확인** 을 선택 하 여 업로드를 완료 합니다.
 
-    * **Azure Data Lake Storage**를 사용 하는 경우 파일 목록에서 빈 영역을 마우스 오른쪽 단추로 클릭 한 다음 **업로드**를 선택 합니다. 마지막으로 *hivecsharp.exe* 파일을 선택 하 고 **열기**를 선택 합니다.
+    * **Azure Data Lake Storage**를 사용 하는 경우 파일 목록에서 빈 영역을 마우스 오른쪽 단추로 클릭 한 다음 **업로드**를 선택 합니다. 마지막으로 *HiveCSharp.exe* 파일을 선택 하 고 **열기**를 선택 합니다.
 
     *HiveCSharp.exe* 업로드가 완료되면 *PigUDF.exe* 파일의 업로드 프로세스를 반복합니다.
 
@@ -196,7 +195,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 이제 Hive UDF 응용 프로그램을 사용 하는 Hive 쿼리를 실행할 수 있습니다.
 
-1. Visual Studio에서 **뷰** > **서버 탐색기**로 이동 합니다.
+1. Visual Studio에서 **뷰**  >  **서버 탐색기**로 이동 합니다.
 
 2. **Azure**를 확장한 다음 **HDInsight**를 확장합니다.
 
@@ -222,7 +221,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
     > [!IMPORTANT]
     > 클러스터에 사용되는 기본 스토리지의 유형과 일치하는 `add file` 문에서 주석 처리를 제거합니다.
 
-    이 `clientid`쿼리는 `devicemake` `devicemodel` 에서 `hivesampletable`, 및 필드를 선택 하 고 필드를 *hivecsharp.exe* 응용 프로그램으로 전달 합니다. 쿼리는 애플리케이션이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한이 쿼리는 기본 저장소 컨테이너의 루트에 있는 *hivecsharp.exe* 를 찾아야 합니다.
+    이 쿼리는에서, 및 필드를 선택 하 `clientid` `devicemake` `devicemodel` `hivesampletable` 고 필드를 *HiveCSharp.exe* 응용 프로그램에 전달 합니다. 쿼리는 애플리케이션이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한이 쿼리는 기본 저장소 컨테이너의 루트에 *HiveCSharp.exe* 를 찾으려고 합니다.
 
 5. 기본 **Interactive** 를 **Batch**로 전환 하 고 **제출** 을 선택 하 여 HDInsight 클러스터에 작업을 제출 합니다. **Hive 작업 요약** 창이 열립니다.
 
@@ -232,7 +231,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 Pig UDF 응용 프로그램을 사용 하는 Pig 작업을 실행할 수도 있습니다.
 
-1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. 예를 들어 명령을 `ssh sshuser@<clustername>-ssh.azurehdinsight.net`실행 합니다. 자세한 내용은 [USE SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)를 참조 하세요.
+1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. 예를 들어 명령을 실행 `ssh sshuser@<clustername>-ssh.azurehdinsight.net` 합니다. 자세한 내용은 [USE SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)를 참조 하세요.
 
 2. 다음 명령을 사용 하 여 Pig 명령줄을 시작 합니다.
 
@@ -252,10 +251,10 @@ Pig UDF 응용 프로그램을 사용 하는 Pig 작업을 실행할 수도 있�
     DUMP DETAILS;
     ```
 
-    `DEFINE` 문은 `streamer` *문은 pigudf.exe* 응용 프로그램에 대 한 별칭을 만들어 클러스터의 기본 저장소 `CACHE` 에서 로드 합니다. `streamer` 나중에 `STREAM` 연산자와 함께를 사용 하 여에 `LOG` 포함 된 단일 줄을 처리 하 고 데이터를 일련의 열로 반환 합니다.
+    `DEFINE`문은 `streamer` *PigUDF.exe* 응용 프로그램에 대 한 별칭을 만들어 클러스터의 `CACHE` 기본 저장소에서 로드 합니다. 나중에 `streamer` 연산자와 함께를 사용 `STREAM` 하 여에 포함 된 단일 줄을 처리 하 `LOG` 고 데이터를 일련의 열로 반환 합니다.
 
     > [!NOTE]
-    > 스트리밍에 사용 되는 응용 프로그램 이름은 별칭을 지정할 때 \` (backtick) 문자,와 함께 `SHIP`사용 될 때 ' (작은따옴표) 문자를 사용 하 여 묶어야 합니다.
+    > 스트리밍에 사용 되는 응용 프로그램 이름은 \` 별칭을 지정할 때 (backtick) 문자,와 함께 사용 될 때 ' (작은따옴표) 문자를 사용 하 여 묶어야 합니다 `SHIP` .
 
 4. 마지막 줄을 입력하면 작업이 시작됩니다. 다음 텍스트와 비슷한 출력이 반환됩니다.
 
@@ -267,7 +266,7 @@ Pig UDF 응용 프로그램을 사용 하는 Pig 작업을 실행할 수도 있�
     (2019-07-15 16:43:25 SampleClass7 [DEBUG] detail for id 1475865947)
     ```
 
-5. Pig `exit` 를 종료 하는 데 사용 합니다.
+5. `exit`Pig를 종료 하는 데 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

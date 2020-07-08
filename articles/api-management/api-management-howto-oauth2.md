@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430686"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
@@ -58,7 +57,7 @@ ms.locfileid: "75430686"
 
     원하는 유형을 선택하여 **권한 부여 유형** 을 지정합니다. **인증 코드** 가 지정됩니다.
 
-    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우이 URL은 다음 URL과 유사 합니다. 여기서 `<tenant_id>` 는 Azure AD 테 넌 트의 ID로 바뀝니다.
+    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우이 URL은 다음 URL과 유사 합니다 `<tenant_id>` . 여기서는 AZURE AD 테 넌 트의 ID로 바뀝니다.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 

@@ -15,10 +15,9 @@ ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896066"
 ---
 # <a name="creating-filters-with-cli"></a>CLI를 사용하여 필터 만들기 
@@ -104,7 +103,7 @@ az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-
 
 스트리밍 로케이터에 적용 되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. 동적 패키지 작성 [(스트리밍 끝점)](dynamic-packaging-overview.md) 은 클라이언트에서 URL에 지정 하는 필터 목록과 함께이 필터 목록을 적용 합니다. 이 조합은 URL + 스트리밍 로케이터에 지정 하는 필터를 기반으로 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md)를 생성 합니다. 필터를 적용 하지만 URL에서 필터 이름을 표시 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
 
-다음 CLI 코드는 스트리밍 로케이터를 만들고를 지정 `filters`하는 방법을 보여 줍니다. 이 속성은 자산 필터 이름 및/또는 계정 필터 이름의 공백으로 구분 된 목록을 사용 하는 선택적 속성입니다.
+다음 CLI 코드는 스트리밍 로케이터를 만들고를 지정 하는 방법을 보여 줍니다 `filters` . 이 속성은 자산 필터 이름 및/또는 계정 필터 이름의 공백으로 구분 된 목록을 사용 하는 선택적 속성입니다.
 
 ```azurecli
 az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
@@ -130,6 +129,6 @@ az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocat
 
 [비디오 스트리밍](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
