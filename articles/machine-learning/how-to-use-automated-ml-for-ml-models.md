@@ -1,22 +1,22 @@
 ---
-title: autoML을 사용하여 모델 만들기 및 배포
+title: AutoML을 사용 하 여 배포 & 모델 만들기
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델을 만들고, 검토하고, 배포합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
-author: tsikiksr
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/10/2020
-ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/20/2020
+ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831916"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -106,7 +106,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     **다음**을 선택합니다.
 
-1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [작업 유형을 정의하는 방법](how-to-define-task-type.md)을 참조하세요.
+1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원 되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) 을 참조 하세요.
 
     1. 분류의 경우 텍스트 기능화에 사용되는 딥 러닝을 사용하도록 설정할 수도 있습니다.
 
@@ -120,14 +120,16 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     추가 구성|Description
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#explore-model-metrics).
-    자동 기능화| 자동화된 Machine Learning에서 수행되는 전처리를 사용하거나 사용하지 않도록 설정할지를 선택합니다. 전처리에는 가상 기능을 생성하기 위한 자동 데이터 정리, 준비 및 변환이 포함됩니다. 시계열 예측 작업 유형에는 지원되지 않습니다. [전처리에 대해 자세히 알아보세요](#featurization). 
+    자동 기능화| 자동화 된 기계 학습에서 수행 하는 기능화를 사용 하거나 사용 하지 않도록 설정 하려면 선택 합니다. 자동 기능화에는 가상 기능을 생성 하기 위한 자동 데이터 정리, 준비 및 변환이 포함 됩니다. 시계열 예측 작업 유형에는 지원되지 않습니다. [기능화에 대해 자세히 알아보세요](how-to-configure-auto-features.md#featurization). 
     최상의 모델에 대한 설명 | 최상의 모델에 대한 설명 가능성을 표시하기 위해 사용하거나 사용하지 않도록 설정할지를 선택합니다.
     차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다.
     종료 조건| 다음 조건 중 하나가 충족되면 학습 작업이 중지됩니다. <br> *학습 작업 시간(시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대한 최소 메트릭 점수입니다. 이렇게 하면 도달하려는 목표 메트릭이 정의되어 있는 경우 학습 작업에 필요한 시간보다 더 많은 시간을 소비하지 않습니다.
-    유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-auto-train.md).
+    유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).
     동시성| *최대 동시 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다.
 
-1. (선택 사항) 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화**를 사용하도록 선택하는 경우 이 양식에서 해당 기능화를 수행할 열을 지정하고 누락된 값 대체에 사용할 통계 값을 선택할 수 있습니다.
+1. 필드 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용 하도록 선택 하는 경우 기본 기능화 기술이 적용 됩니다. **기능화 설정 보기** 에서 이러한 기본값을 변경 하 고 적절 하 게 사용자 지정할 수 있습니다. [Featurizations를 사용자 지정](#customize-featurization)하는 방법을 알아봅니다. 
+
+    ![Azure Machine Learning studio 작업 형식 폼](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -138,7 +140,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 >[!NOTE]
 > 관련이 없는 형식의 기능은 빈 항목으로 표시되어 있습니다.
 
-통계|Description
+통계|설명
 ------|------
 기능| 요약되는 열의 이름입니다.
 프로필| 유추된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 술래 및 날짜에는 값 개수가 있고 소수점(숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터의 분포를 빠르게 파악할 수 있습니다.
@@ -155,58 +157,19 @@ Variance| 이 열의 데이터가 평균 값에서 분산된 정도를 측정한
 왜곡도| 이 열의 데이터가 정규 분포에서 치우쳐 있는 정도를 측정한 값입니다.
 첨도| 이 열의 데이터가 정규 분포와 비교하여 뾰족하게 밀집된 정도를 측정한 값입니다.
 
-<a name="featurization"></a>
+## <a name="customize-featurization"></a>기능화 사용자 지정
 
-## <a name="advanced-featurization-options"></a>고급 기능화 옵션
+**기능화** 폼에서 자동 기능화를 사용 하거나 사용 하지 않도록 설정 하 고 실험에 대 한 자동 기능화 설정을 사용자 지정할 수 있습니다. 이 양식을 열려면 [실험 만들기 및 실행](#create-and-run-experiment) 섹션의 10 단계를 참조 하세요. 
 
-자동화된 Machine Learning은 전처리 및 데이터 가드 레일을 자동으로 제공하여 [과잉 맞춤 및 불균형 데이터](concept-manage-ml-pitfalls.md#prevent-over-fitting)와 같은 데이터의 잠재적인 문제를 식별하고 관리할 수 있습니다. 
+다음 표에서는 현재 스튜디오를 통해 사용할 수 있는 사용자 지정 항목을 요약 합니다. 
 
-### <a name="preprocessing"></a>전처리
+Column| 사용자 지정
+---|---
+Included | 학습에 포함할 열을 지정 합니다.
+기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
+돌립니다| 데이터에서 누락 된 값을 돌립니다 값을 선택 합니다.
 
-> [!NOTE]
-> autoML에서 만든 모델을 [ONNX 모델](concept-onnx.md)로 내보내려는 경우 *로 표시된 기능화 옵션만 ONNX 형식으로 지원됩니다. [모델을 ONNX로 변환](concept-automated-ml.md#use-with-onnx)하는 방법에 대해 자세히 알아보세요. 
-
-|전처리&nbsp;단계| Description |
-| ------------- | ------------- |
-|높은 카디널리티 또는 분산 없음 기능 삭제* |누락된 모든 값, 모든 행에서 동일한 값 또는 매우 높은 카디널리티(예: 해시, ID 또는 GUID)가 있는 기능을 포함하여 학습 및 유효성 검사 세트에서 이러한 기능을 삭제합니다.|
-|누락된 값 대체* |숫자 기능의 경우 열의 값 평균으로 대체합니다.<br/><br/>범주별 기능의 경우 가장 자주 사용되는 값으로 대체합니다.|
-|추가 기능 생성* |DateTime 기능: 연도, 월, 일, 요일, 연간 일자, 분기, 연간 주, 시간, 분, 초<br/><br/>텍스트 기능: 유니그램, 바이그램 및 트라이그램을 기반으로 하는 용어 빈도입니다.|
-|변환 및 인코딩*|고유 값이 거의 없는 숫자 기능이 범주별 기능으로 변환됩니다.<br/><br/>낮은 카디널리티 범주별 기능의 경우 one-hot 인코딩이 수행되며, 높은 카디널리티의 경우 one-hot-hash 인코딩이 수행됩니다.|
-|단어 포함|미리 학습된 모델을 사용하여 텍스트 토큰의 벡터를 문장 벡터로 변환하는 텍스트 기능화기입니다. 문서에 포함된 각 단어의 벡터는 문서 기능 벡터를 생성하기 위해 모두 집계됩니다.|
-|대상 인코딩|범주별 기능의 경우 회귀 문제에 대한 평균 목표 값을 사용하여 각 범주를 분류 문제에 대한 각 클래스의 클래스 확률에 매핑합니다. 빈도 기반 가중치 및 k-접기 교차 유효성 검사가 적용되어 스파스 데이터 범주로 인한 매핑 및 노이즈의 과잉 맞춤을 줄일 수 있습니다.|
-|텍스트 대상 인코딩|텍스트 입력의 경우 단어 모음이 포함된 누적 선형 모델을 사용하여 각 클래스의 확률을 생성합니다.|
-|WoE(증명 정보 가중치)|WoE를 대상 열에 대한 범주별 열의 상관 관계 측정값으로 계산합니다. 이는 클래스 내부 확률 및 클래스 내 확률의 로그로 계산됩니다. 이 단계에서는 클래스당 하나의 숫자 기능 열을 출력하고, 누락된 값 및 이상 값 처리를 명시적으로 대체할 필요가 없습니다.|
-|클러스터 거리|모든 숫자 열에서 k-평균 클러스터링 모델을 학습시킵니다.  각 샘플에서 각 클러스터의 중심까지의 거리를 포함하는 k개의 새 기능(클러스터당 하나의 새 숫자 기능)을 출력합니다.|
-
-### <a name="data-guardrails"></a>데이터 가드 레일
-
-자동 기능화를 사용하도록 설정되거나 유효성 검사가 자동으로 설정되면 데이터 가드 레일이 적용됩니다. 데이터 가드 레일을 사용하면 데이터의 잠재적인 문제(예: 누락된 값, 클래스 불균형)를 식별하고 향상된 결과를 위해 정정 작업을 수행할 수 있습니다. 
-
-사용자는 데이터 가드 레일을 자동화된 ML 실행에 대한 스튜디오의 **데이터 가드 레일** 탭 내에서 검토하거나 Python SDK를 사용하여 실험을 제출할 때 ```show_output=True```를 설정하여 검토할 수 있습니다. 
-
-#### <a name="data-guardrail-states"></a>데이터 가드 레일 상태
-
-데이터 가드 레일에는 **통과**, **완료** 또는 **알림**의 세 가지 상태 중 하나가 표시됩니다.
-
-시스템 상태| Description
-----|----
-통과| 데이터 문제가 검색되지 않았으며 사용자 작업이 필요하지 않습니다. 
-완료된| 변경 내용이 데이터에 적용되었습니다. 자동화된 ML에서 수행된 수정 작업을 검토하여 변경 내용이 예상 결과와 일치하는지 확인하는 것이 좋습니다. 
-알림| 해결할 수 없는 데이터 문제가 검색되었습니다. 사용자가 문제를 수정하고 해결하는 것이 좋습니다. 
-
->[!NOTE]
-> 이전 버전의 자동화된 ML 실험에서는 네 번째 상태인 **수정됨**이 표시되었습니다. 최신 실험에는 이 상태가 표시되지 않으며, **수정됨** 상태를 표시한 모든 가드 레일에는 이제 **완료**가 표시됩니다.   
-
-다음 표에서는 현재 지원되는 데이터 가드 레일 및 실험을 제출할 때 사용자에게 제공될 수 있는 관련 상태에 대해 설명합니다.
-
-가드 레일|상태|트리거 조건
----|---|---
-누락된 기능 값 대체 |**통과** <br><br><br> **완료**| 학습 데이터에서 누락된 기능 값이 검색되지 않았습니다. [누락된 값 대체](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options)에 대해 자세히 알아보세요. <br><br> 학습 데이터에서 누락된 기능 값이 검색되어 대체되었습니다.
-높은 카디널리티 기능 처리 |**통과** <br><br><br> **완료**| 입력이 분석되었으며, 높은 카디널리티 기능이 검색되지 않았습니다. [높은 카디널리티 기능 검색](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options)에 대해 자세히 알아보세요. <br><br> 입력에서 높은 카디널리티 기능이 검색되어 처리되었습니다.
-유효성 검사 분할 처리 |**완료**| *유효성 검사 구성이 '자동'으로 설정되었으며, 학습 데이터에는 20,000개 **미만**의 행이 포함되었습니다.* <br> 교차 유효성 검사를 통해 학습된 모델의 각 반복 유효성을 검사했습니다. [유효성 검사 데이터](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data)에 대해 자세히 알아보세요. <br><br> *유효성 검사 구성이 '자동'으로 설정되었으며 학습 데이터에는 20,000개가 **넘는** 행이 포함되어 있습니다.* <br> 모델의 유효성 검사를 위해 입력 데이터가 학습 데이터 세트와 유효성 검사 데이터 세트로 분할되었습니다.
-클래스 분산 검색 |**통과** <br><br><br><br> **알림** | 입력이 분석되었으며, 학습 데이터에서 모든 클래스가 균형을 유지하고 있습니다. 샘플의 수와 비율로 측정할 때 각 클래스가 데이터 세트에서 올바르게 표현되어 있으면 데이터 세트가 균형을 유지하고 있는 것으로 간주됩니다. <br><br><br> 입력에서 불균형 클래스가 검색되었습니다. 모델 편차를 수정하려면 분산 문제를 수정합니다. [불균형 데이터](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)에 대해 자세히 알아보세요.
-메모리 문제 검색 |**통과** <br><br><br><br> **완료** |<br> 선택한 {예측 시간, 지연 시간 및 롤링 기간} 값이 분석되었으며, 잠재적인 메모리 부족 문제가 검색되지 않았습니다. 시계열 [예측 구성](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)에 대해 자세히 알아보세요. <br><br><br>선택한 {예측 시간, 지연 시간 및 롤링 기간} 값이 분석되었으며, 실험에서 메모리가 부족할 수 있습니다. 지연 시간 및 롤링 기간 구성이 해제되었습니다.
-빈도 검색 |**통과** <br><br><br><br> **완료** |<br> 시계열이 분석되었으며, 모든 데이터 요소가 검색된 빈도로 정렬되어 있습니다. <br> <br> 시계열이 분석되었으며 검색된 빈도와 일치하지 않는 데이터 요소가 검색되었습니다. 데이터 세트에서 이러한 데이터 요소가 제거되었습니다. [시계열 예측을 위한 데이터 준비](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)에 대해 자세히 알아보세요.
+![Azure Machine Learning studio 작업 형식 폼](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 
@@ -255,6 +218,7 @@ Variance| 이 열의 데이터가 평균 값에서 분산된 정도를 측정한
     *고급* 메뉴에서는 [데이터 수집](how-to-enable-app-insights.md) 및 리소스 사용률 설정과 같은 기본 배포 기능을 제공합니다. 이러한 기본값을 재정의하려면 이 메뉴에서 해당 작업을 수행합니다.
 
 1. **배포**를 선택합니다. 배포가 완료되는 데 약 20분 정도 걸릴 수 있습니다.
+    배포가 시작 되 면 **모델 세부 정보** 탭이 나타납니다. **속성** 창의 배포 **상태** 섹션에서 배포 진행률을 확인 하세요. 
 
 이제 예측을 생성하는 운영 웹 서비스가 있습니다! [Power BI의 기본 제공 Azure Machine Learning 지원](how-to-consume-web-service.md#consume-the-service-from-power-bi)에서 서비스를 쿼리하여 예측을 테스트할 수 있습니다.
 

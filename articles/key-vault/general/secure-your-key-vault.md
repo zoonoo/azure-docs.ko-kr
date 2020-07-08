@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827525"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833641"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -54,7 +54,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 | 액세스&nbsp;평면 | 액세스 엔드포인트 | 작업 | 액세스&nbsp;제어 메커니즘 |
 | --- | --- | --- | --- |
-| 관리 평면 | **전역:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 | Key Vault 만들기, 읽기, 업데이트 및 삭제<br><br>Key Vault 액세스 정책 설정<br><br>Key Vault 태그 설정 | Azure Resource Manager RBAC |
+| 관리 평면 | **전역:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 | Key Vault 만들기, 읽기, 업데이트 및 삭제<br><br>Key Vault 액세스 정책 설정<br><br>Key Vault 태그 설정 | Azure RBAC |
 | 데이터 평면 | **전역:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure 미국 정부:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | 키: 암호 해독, 암호화,<br> 래핑 취소, 래핑, 확인, 서명,<br> 가져오기, 나열, 업데이트, 만들기,<br> 가져오기, 삭제, 백업, 복원<br><br> 비밀: 가져오기, 나열, 설정, 삭제 | Key Vault 액세스 정책 |
 
 ## <a name="management-plane-and-rbac"></a>관리 평면 및 RBAC
@@ -79,6 +79,8 @@ Azure AD를 사용하여 리소스 그룹에 key vault를 만들고 액세스를
 Key Vault에 대한 Key Vault 액세스 정책을 설정하여 데이터 평면 액세스 권한을 부여합니다. 이러한 액세스 정책을 설정하려면 사용자, 그룹 또는 애플리케이션은 해당 Key Vault에 대한 관리 평면에서 `Contributor` 권한이 있어야 합니다.
 
 Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 사용자, 그룹 또는 애플리케이션에 액세스 권한을 부여합니다. 각 Key Vault는 최대 1024개 액세스 정책 항목을 지원합니다. 여러 사용자에게 데이터 평면 액세스 권한을 부여하려면 Azure AD 보안 그룹을 만들고, 해당 그룹에 사용자를 추가합니다.
+
+다음 참조를 확인 하 여 자격 증명 모음 및 비밀 작업의 전체 목록을 확인 하 고 주요 자격 증명 모음 액세스 정책을 구성할 때 허용 되는 작업을 이해할 수 있습니다. [Key Vault 작업 참조](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a> Key Vault 액세스 정책은 키, 비밀 및 인증서에 대한 권한을 별도로 부여합니다. 비밀이 아닌 키에 대해서만 사용자 액세스 권한을 부여할 수 있습니다. 키, 비밀 및 인증서에 대한 액세스 권한은 자격 증명 모음 수준에서 지정됩니다. Key Vault 액세스 정책은 특정 키, 비밀 또는 인증서와 같은 세분화된 개체 수준 권한을 지원하지 않습니다. Key Vault에 대한 액세스 정책을 설정하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Key Vault 관리 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)를 사용합니다.
 
@@ -128,7 +130,7 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 | --- | --- | --- |
 | 보안 팀 | Key Vault 참가자 | 키: 백업, 만들기, 삭제, 권한 가져오기, 가져오기, 목록 표시, 복원<br>비밀: 모든 작업 |
 | 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**: 이 권한이 있으면 배포된 VM이 Key Vault에서 비밀을 가져올 수 있습니다. | None |
-| 감사자 | None | 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. |
+| 감사자 | 없음 | 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. |
 | 애플리케이션 | None | 키: 로그인<br>암호: 권한 가져오기 |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. VM(또는 Azure App Service의 Web Apps 기능)을 배포하려면 개발자와 운영자는 해당 리소스 형식에 대한 `Contributor` 액세스 권한이 필요합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.

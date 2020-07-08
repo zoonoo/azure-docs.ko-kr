@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Zip 푸시 배포
 description: Kudu 배포 서비스의 .zip 파일 배포 기능을 사용하여 Azure Functions를 게시합니다.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833055"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions에 대한 Zip 배포
 
@@ -56,7 +56,9 @@ Azure Functions에는 Azure App Service에서 제공하는 전체 범위의 지�
 
     다음과 같은 배포 GET API를 사용하여 `<function_app>` 프로젝트에서 파일 다운로드: 
 
-        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```http
+    https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```
 
     `/site/wwwroot/`를 포함하면 zip 파일에 전체 사이트가 아닌 함수 앱 프로젝트 파일만이 포함되도록 합니다. Azure에 로그인하지 않은 경우 이를 묻는 메시지가 나타납니다.  
 
@@ -66,7 +68,7 @@ GitHub 리포지토리에서도 .zip 파일을 다운로드할 수 있습니다.
 
 Azure CLI를 사용하여 푸시 배포를 트리거할 수 있습니다. [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) 명령을 사용하여 함수 앱에 .zip 파일을 푸시 배포합니다. 이 명령을 사용하려면 Azure CLI 버전 2.0.21 이상을 사용해야 합니다. 사용 중인 Azure CLI 버전을 확인하려면 `az --version` 명령을 사용합니다.
 
-다음 명령에서 `<zip_file_path>` 자리 표시자를 .zip 파일 위치의 경로로 바꿉니다. 또한을 함수 `<app_name>` 앱의 고유한 이름으로 바꾸고을 리소스 그룹의 `<resource_group>` 이름으로 바꿉니다.
+다음 명령에서 `<zip_file_path>` 자리 표시자를 .zip 파일 위치의 경로로 바꿉니다. 또한을 `<app_name>` 함수 앱의 고유한 이름으로 바꾸고을 `<resource_group>` 리소스 그룹의 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az functionapp deployment source config-zip -g <resource_group> -n \

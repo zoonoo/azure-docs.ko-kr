@@ -1,18 +1,18 @@
 ---
 title: 계층화 된 보안 v1
-description: App Service 환경에서 계층화 된 보안 아키텍처를 구현 하는 방법에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+description: App Service 환경에서 계층화 된 보안 아키텍처를 구현 하는 방법에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49f63207e40ea94620b4acd1465b61c5e46d80a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832477"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>App Service Environment로로 계층화된 보안 아키텍처 구현
 App Service Environment가 가상 네트워크에 배포된 격리된 런타임 환경을 제공하므로 개발자는 실제 애플리케이션 계층 각각에 서로 다른 수준으로 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다.
@@ -36,38 +36,48 @@ App Service Environment가 가상 네트워크에 배포된 격리된 런타임 
 * **백 엔드 API 앱 자체를 호출해야 합니까?**  때로는 간과되고 미묘한 점은 백 엔드 애플리케이션이 자신을 호출해야 한다는 시나리오입니다.  또한 App Service Environment에서 백 엔드 API 애플리케이션이 자신을 호출하는 경우 "인터넷" 호출로 처리됩니다.  샘플 아키텍처에서는 "apiase" App Service Environment의 아웃 바운드 IP 주소에서 액세스하도록 허락이 필요합니다.
 
 ## <a name="setting-up-the-network-security-group"></a>네트워크 보안 그룹 설치
-아웃 바운드 IP 주소 집합을 모두 알고 나면 다음 단계에서 네트워크 보안 그룹을 생성합니다.  클래식 가상 네트워크뿐만 아니라 가상 네트워크를 기반으로 하는 두 Resource Manager에 네트워크 보안 그룹을 만들 수 있습니다.  아래 예제에서는 Powershell을 사용하여 기존 가상 네트워크에 NSG를 만들고 구성하는 방법을 보여 줍니다.
+아웃 바운드 IP 주소 집합을 모두 알고 나면 다음 단계에서 네트워크 보안 그룹을 생성합니다.  클래식 가상 네트워크뿐만 아니라 가상 네트워크를 기반으로 하는 두 Resource Manager에 네트워크 보안 그룹을 만들 수 있습니다.  아래 예제에서는 PowerShell을 사용 하 여 클래식 가상 네트워크에서 NSG를 만들고 구성 하는 방법을 보여 줍니다.
 
 샘플 아키텍처의 경우 환경은 미국 중남부에 있으므로 빈 NSG는 해당 지역에서 만들어집니다.
 
-    New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
+```azurepowershell-interactive
+New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
+```
 
 먼저 명시적 허용 규칙은App Service 환경에 대한 [인바운드 트래픽][InboundTraffic] 문서에서 설명한 대로 Azure 관리 인프라에 추가됩니다.
 
-    #Open ports for access by Azure management infrastructure
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
+```azurepowershell-interactive
+#Open ports for access by Azure management infrastructure
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
+```
 
 다음으로 첫 번째 업스트림 App Service Environment("fe1ase")에서 HTTP 및 HTTPS 호출을 허용하도록 두 규칙을 추가합니다.
 
-    #Grant access to requests from the first upstream web front-end
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe1ase" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
+```azurepowershell-interactive
+#Grant access to requests from the first upstream web front-end
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe1ase" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
+```
 
 두 번째 및 세 번째 업스트림 App Service Environment("fe2ase" 및 "fe3ase")를 다듬고 반복합니다.
 
-    #Grant access to requests from the second upstream web front-end
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe2ase" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
+```azurepowershell-interactive
+#Grant access to requests from the second upstream web front-end
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe2ase" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-    #Grant access to requests from the third upstream web front-end
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
+#Grant access to requests from the third upstream web front-end
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
+```
 
 마지막으로 백 엔드 API의 App Service Environment의 아웃 바운드 IP 주소에 대한 액세스를 부여하므로 자신에 다시 호출할 수 있습니다.
 
-    #Allow apps on the apiase environment to call back into itself
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
+```azurepowershell-interactive
+#Allow apps on the apiase environment to call back into itself
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
+```
 
 모든 NSG에 기본적으로 인터넷에서 인바운드 액세스를 차단하는 기본 규칙의 집합이 있기 때문에 다른 네트워크 보안 규칙은 필요 없습니다.
 
@@ -77,8 +87,10 @@ App Service Environment가 가상 네트워크에 배포된 격리된 런타임 
 
 마지막 단계는 "apiase" App Service Environment에 포함된 서브넷에 NSG를 적용합니다.
 
-     #Apply the NSG to the backend API subnet
-    Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
+```azurepowershell-interactive
+#Apply the NSG to the backend API subnet
+Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
+```
 
 서브넷에 적용된 NSG를 사용하여 3개의 업스트림 App Service Environment 및 API 백 엔드를 포함하는 App Service Environment는 "apiase" 환경으로 호출하도록 합니다.
 

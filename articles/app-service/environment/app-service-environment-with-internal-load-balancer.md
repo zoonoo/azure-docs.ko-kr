@@ -1,18 +1,18 @@
 ---
 title: ILB ASE v1 만들기
-description: ILB를 사용 하 여 ASE 만들기 및 사용 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+description: ILB를 사용 하 여 ASE 만들기 및 사용 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: ccompy
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833106"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 사용
 
@@ -118,9 +118,10 @@ ASE를 구성하려면 Azure에서 ASE 관리를 위해 사용하는 IP 주소�
 #### <a name="dns-configuration"></a>DNS 구성
 외부 VIP를 사용하는 경우 DNS가 Azure에서 관리됩니다. ASE에서 만든 모든 앱은 공용 DNS에 해당하는 Azure DNS에 자동으로 추가됩니다. ILB ASE에서 자체 DNS를 관리해야 합니다. contoso.corp.net과 같은 특정 하위 도메인의 경우 다음에 대해 ILB 주소를 가리키는 DNS A 레코드를 만들어야 합니다.
 
-    * 
-    *.scm ftp 게시 
-
+- \*
+- *.scm
+- ftp
+- 게시
 
 ## <a name="getting-started"></a>시작
 App Service 환경을 시작하려면 [App Service 환경 소개][WhatisASE]를 참조하세요.

@@ -3,22 +3,23 @@ title: Jupyter 노트북에서 데이터 액세스-Azure Notebooks 미리 보기
 description: Jupyter 노트북에서 파일, REST Api, 데이터베이스 및 다른 Azure Storage 리소스에 액세스 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833488"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Jupyter Notebook에서 흥미로운 작업을 하려면 데이터가 필요합니다. 데이터는 실제로 Notebook의 핵심 요소입니다.
 
 Notebook 내에서 `curl`과 같은 명령을 사용하여 파일을 직접 다운로드할 수 있지만 [데이터 파일을 프로젝트로 가져올](work-with-project-data-files.md) 수 있습니다. 그러나 REST API, 관계형 데이터베이스 및 Azure 테이블과 같은 클라우드 스토리지와 같은 파일이 아닌 원본에서 사용할 수 있는 훨씬 더 광범위한 데이터를 사용해야 합니다.
 
 이 문서에는 간단히 이러한 다양한 옵션을 설명합니다. 데이터 액세스는 작업에서 가장 잘 표시되므로 [Azure Notebooks 샘플 - 데이터 액세스](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb)에서 실행 가능한 코드를 찾을 수 있습니다.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>REST API
 
@@ -41,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Azure SQL 데이터베이스
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance
 
-pyodbc 또는 pymssql 라이브러리 지원으로 SQL Server 데이터베이스를 액세스할 수 있습니다.
+Pyodbc 또는 pymssql 라이브러리의 도움을 받아 SQL Database 또는 SQL Managed Instance의 데이터베이스에 액세스할 수 있습니다.
 
-[Python을 사용하여 Azure SQL 데이터베이스 쿼리](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python)는 AdventureWorks 데이터를 포함하는 데이터베이스를 만드는 방법에 대한 지침을 제공하고 해당 데이터를 쿼리하는 방법을 보여 줍니다. 동일한 코드는 이 문서에 대한 샘플 Notebook에 표시됩니다.
+[Python을 사용 하 여 AZURE SQL database를 쿼리하면](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) AdventureWorks 데이터를 포함 하는 SQL Database에서 데이터베이스를 만드는 방법에 대 한 지침을 제공 하 고 해당 데이터를 쿼리 하는 방법을 보여 줍니다. 동일한 코드는 이 문서에 대한 샘플 Notebook에 표시됩니다.
 
 ## <a name="azure-storage"></a>Azure Storage
 

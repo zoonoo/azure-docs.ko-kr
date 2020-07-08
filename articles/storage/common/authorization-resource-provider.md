@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833258"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스
 
@@ -36,7 +36,7 @@ Azure Storage는 Azure AD를 사용 하 여 Blob 및 큐 저장소에 대 한 �
 
 보안 주체에 RBAC 역할을 할당 하는 경우에는 해당 역할에서 부여 된 사용 권한이 적용 되는 범위도 표시 됩니다. 관리 작업의 경우 구독, 리소스 그룹 또는 저장소 계정의 수준에서 역할을 할당할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs)또는 [Azure Storage 리소스 공급자 REST API](/rest/api/storagerp)를 사용 하 여 보안 주체에 RBAC 역할을 할당할 수 있습니다.
 
-RBAC에 대 한 자세한 내용은 [azure 리소스에 대 한 rbac (역할 기반 액세스 제어) 란 무엇 인가요?](../../role-based-access-control/overview.md) 및 [클래식 구독 관리자 역할, azure RBAC 역할 및 azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요.
+자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md) 을 참조 하세요. [클래식 구독 관리자 역할, AZURE RBAC 역할 및 AZURE AD 관리자 역할이](../../role-based-access-control/rbac-and-directory-admin-roles.md)있습니다.
 
 ### <a name="built-in-roles-for-management-operations"></a>관리 작업의 기본 제공 역할
 
@@ -44,7 +44,7 @@ Azure는 관리 작업을 호출 하는 권한을 부여 하는 기본 제공 �
 
 저장소 관리 작업을 호출 하는 권한을 부여 하는 기본 제공 역할에는 다음 표에 설명 된 역할이 포함 됩니다.
 
-|    RBAC 역할    |    Description    |    계정 키에 대 한 액세스를 포함 하나요?    |
+|    RBAC 역할    |    설명    |    계정 키에 대 한 액세스를 포함 하나요?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **소유자** | 모든 저장소 리소스를 관리 하 고 리소스에 액세스할 수 있습니다.  | 예, 저장소 계정 키를 확인 하 고 다시 생성할 수 있는 권한을 제공 합니다. |
 | **기여자**  | 모든 저장소 리소스를 관리할 수 있지만 리소스에 대 한 할당을 관리할 수 없습니다. | 예, 저장소 계정 키를 확인 하 고 다시 생성할 수 있는 권한을 제공 합니다. |
@@ -77,5 +77,5 @@ Azure 배포 모델에 대 한 자세한 내용은 [리소스 관리자 및 클�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview)
-- [Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
+- [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
 - [Azure Storage 리소스 공급자에 대 한 확장성 목표](scalability-targets-resource-provider.md)

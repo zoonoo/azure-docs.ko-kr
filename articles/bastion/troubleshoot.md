@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 방호 문제를 해결 하는 방법을 
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831933"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Azure Bastion 문제 해결
 
@@ -20,7 +20,7 @@ ms.locfileid: "80619178"
 
 ## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>AzureBastionSubnet에서 NSG를 만들 수 없음
 
-**Q:** Azure 방호 서브넷에 NSG를 만들려고 하면 다음 오류가 발생 합니다. *' 네트워크 보안 <NSG name> 그룹에는 Azure 방호 서브넷 AzureBastionSubnet에 대 한 필수 규칙이 없습니다. "*
+**Q:** Azure 방호 서브넷에 NSG를 만들려고 하면 다음 오류가 발생 합니다. *' 네트워크 보안 그룹에는 <NSG name> Azure 방호 서브넷 AzureBastionSubnet에 대 한 필수 규칙이 없습니다. "*
 
 **A:** *AzureBastionSubnet*에 nsg를 만들고 적용 하는 경우 nsg에서 다음 규칙을 추가 했는지 확인 합니다. 이러한 규칙을 추가 하지 않으면 NSG 생성/업데이트가 실패 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "80619178"
 2. 진단 로깅 및 기타 – AzureCloud에서 443에 대 한 아웃 바운드 (이 서비스 태그 내의 지역 태그는 아직 지원 되지 않음)
 3. 대상 VM – 아웃 바운드 3389 및 22 to VirtualNetwork
 
-NSG 규칙의 예제는 [빠른 시작 템플릿에서](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion)참조할 수 있습니다.
+NSG 규칙의 예제는 [빠른 시작 템플릿에서](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg)참조할 수 있습니다.
 자세한 내용은 [Azure 방호에 대 한 Nsg 지침](bastion-nsg.md)을 참조 하세요.
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Azure 방호에서 내 SSH 키를 사용할 수 없음
@@ -39,7 +39,7 @@ NSG 규칙의 예제는 [빠른 시작 템플릿에서](https://github.com/Azure
 
 예를 들어 다음 명령을 사용 하 여 새 RSA SSH 키를 만들 수 있습니다.
 
-**ssh-keygen-t rsa-b 4096-C "email@domain.com"**
+**ssh-keygen-t rsa-b 4096-C " email@domain.com "**
 
 출력:
 
@@ -71,7 +71,7 @@ The key's randomart image is:
 
 **Q:** 도메인에 가입 된 Windows 가상 머신에 연결할 수 없습니다.
 
-**A:** Azure 방호는 사용자 이름-암호 기반 도메인 로그인에 대해서만 도메인에 가입 된 VM 로그인을 지원 합니다. Azure Portal에서 도메인 자격 증명을 지정할 때 *domain\username* 형식 대신 UPN (username@domain) 형식을 사용 하 여 로그인 합니다. 도메인에 가입 되거나 하이브리드 조인 된 (도메인 가입 및 Azure AD 조인) 가상 컴퓨터에 대해 지원 됩니다. Azure AD에 가입 된 가상 컴퓨터에 대해서는 지원 되지 않습니다.
+**A:** Azure 방호는 사용자 이름-암호 기반 도메인 로그인에 대해서만 도메인에 가입 된 VM 로그인을 지원 합니다. Azure Portal에서 도메인 자격 증명을 지정할 때 username@domain *domain\username* 형식 대신 UPN () 형식을 사용 하 여 로그인 합니다. 도메인에 가입 되거나 하이브리드 조인 된 (도메인 가입 및 Azure AD 조인) 가상 컴퓨터에 대해 지원 됩니다. Azure AD에 가입 된 가상 컴퓨터에 대해서는 지원 되지 않습니다.
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>파일 전송 문제
 

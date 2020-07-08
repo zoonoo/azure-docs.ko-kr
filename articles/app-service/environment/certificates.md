@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dffa9571706c067834e47a656ec1d47cb884fb48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831882"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
 
@@ -41,13 +41,16 @@ ASE를 만들고 포털 또는 하나의 템플릿에서 인증서를 하나의 
 
 테스트를 위해 자체 서명된 인증서를 빠르게 만들려면 다음과 같은 PowerShell 비트를 사용할 수 있습니다.
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.pfx"
-    Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
+```
+
 자체 서명 된 인증서를 만들 때 주체 이름에 CN = {ASE_NAME_HERE} _InternalLoadBalancingASE 형식이 있는지 확인 해야 합니다.
 
 ## <a name="application-certificates"></a>애플리케이션 인증서 
@@ -80,15 +83,18 @@ ASE에서 인증서를 앱에 업로드하려면 다음을 수행합니다.
 
 인증서는 해당 설정을 구성한 앱과 동일한 App Service 계획에 있는 모든 앱에서 사용할 수 있습니다. 다른 App Service 계획의 응용 프로그램에서 이 인증서를 사용할 수 있도록 하려면 해당 App Service 계획의 앱에서 앱 설정 작업을 반복해야 합니다. 인증서가 설정 되었는지 확인 하려면 Kudu 콘솔로 이동 하 여 PowerShell 디버그 콘솔에서 다음 명령을 실행 합니다.
 
-    dir cert:\localmachine\root
+```azurepowershell-interactive
+dir cert:\localmachine\root
+```
 
 테스트를 수행하려면 자체 서명된 인증서를 만들고 다음 PowerShell을 사용하여 *.cer* 파일을 생성할 수 있습니다. 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.cer"
-    export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
-
+$fileName = "exportedcert.cer"
+export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
+```

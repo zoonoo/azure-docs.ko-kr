@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833275"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -38,7 +38,7 @@ ms.locfileid: "82597922"
     ![App Services 검색](./media/web-sites-staged-publishing/search-for-app-services.png)
    
 
-2. 왼쪽 창에서 **배포 슬롯** > **슬롯 추가**를 선택 합니다.
+2. 왼쪽 창에서 **배포 슬롯**  >  **슬롯 추가**를 선택 합니다.
    
     ![새 배포 슬롯 추가](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
@@ -58,7 +58,7 @@ ms.locfileid: "82597922"
    
     ![배포 슬롯 제목](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    스테이징 슬롯에는 다른 App Service 앱과 마찬가지로 관리 페이지가 있습니다. 슬롯의 구성을 변경할 수 있습니다. 배포 슬롯을 보고 있음을 알리기 위해 앱 이름은 ** \<앱 이름>/\<슬롯 이름>** 으로 표시 되 고 앱 유형은 **App Service (슬롯)** 입니다. 동일한 명칭을 사용 하 여 리소스 그룹에서 별도의 앱으로 슬롯을 볼 수도 있습니다.
+    스테이징 슬롯에는 다른 App Service 앱과 마찬가지로 관리 페이지가 있습니다. 슬롯의 구성을 변경할 수 있습니다. 배포 슬롯을 보고 있음을 알리기 위해 앱 이름이로 표시 되 **\<app-name>/\<slot-name>** 고 앱 유형이 **App Service (슬롯)** 입니다. 동일한 명칭을 사용 하 여 리소스 그룹에서 별도의 앱으로 슬롯을 볼 수도 있습니다.
 
 6. 슬롯의 리소스 페이지에서 앱 URL을 선택 합니다. 배포 슬롯에는 고유한 호스트 이름이 있으며 라이브 앱 이기도 합니다. 배포 슬롯에 대 한 공용 액세스를 제한 하려면 [AZURE APP SERVICE IP 제한](app-service-ip-restrictions.md)을 참조 하세요.
 
@@ -85,7 +85,7 @@ ms.locfileid: "82597922"
 
 1. [사용자 지정 준비](#Warm-up)상태에서 [자동 교환이](#Auto-Swap) 설정 된 경우 원본 슬롯의 각 인스턴스에서 응용 프로그램 루트 ("/")에 대 한 HTTP 요청을 만들어 [응용 프로그램 시작](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) 을 트리거합니다.
 
-    을 `applicationInitialization` 지정 하지 않으면 각 인스턴스에서 원본 슬롯의 응용 프로그램 루트에 대 한 HTTP 요청을 트리거합니다. 
+    `applicationInitialization`을 지정 하지 않으면 각 인스턴스에서 원본 슬롯의 응용 프로그램 루트에 대 한 HTTP 요청을 트리거합니다. 
     
     인스턴스가 HTTP 응답을 반환 하는 경우 준비 된 것으로 간주 됩니다.
 
@@ -151,7 +151,7 @@ Preview를 사용 하 여 교환 하려면:
 
 2. 교환을 시작할 준비가 되 면 **교환 시작**을 선택 합니다.
 
-    1 단계가 완료 되 면 대화 상자에 알림이 표시 됩니다. 로 `https://<app_name>-<source-slot-name>.azurewebsites.net`이동 하 여 원본 슬롯에서 교환을 미리 봅니다. 
+    1 단계가 완료 되 면 대화 상자에 알림이 표시 됩니다. 로 이동 하 여 원본 슬롯에서 교환을 미리 봅니다 `https://<app_name>-<source-slot-name>.azurewebsites.net` . 
 
 3. 보류 중인 교체를 완료할 준비가 되 면 **바꾸기 작업** 에서 **전체 바꾸기** 를 선택 하 고 **전체 교체**를 선택 합니다.
 
@@ -183,7 +183,7 @@ Preview를 사용 하 여 교환 하려면:
 
 자동 교환을 구성 하려면:
 
-1. 앱의 리소스 페이지로 이동 합니다. **배포 슬롯** >   >  **Configuration** > *\<원하는 원본 슬롯>* 구성**일반 설정**을 선택 합니다.
+1. 앱의 리소스 페이지로 이동 합니다. **배포 슬롯**  >  *\<desired source slot>*  >  **구성**  >  **일반 설정**을 선택 합니다.
    
 2. **자동 교환 사용**에서 **켜기**를 선택 합니다. 그런 다음 **배포 슬롯 자동 교환**에 필요한 대상 슬롯을 선택 하 고 명령 모음에서 **저장** 을 선택 합니다. 
    
@@ -197,24 +197,26 @@ Preview를 사용 하 여 교환 하려면:
 
 ## <a name="specify-custom-warm-up"></a>사용자 지정 준비 지정
 
-일부 앱의 경우 교환 전에 사용자 지정 준비 작업이 필요할 수 있습니다. Web.config `applicationInitialization` 의 구성 요소를 사용 하 여 사용자 지정 초기화 작업을 지정할 수 있습니다. [교환 작업](#AboutConfiguration) 은이 사용자 지정 준비가 완료 될 때까지 대기한 후 대상 슬롯과 교환 합니다. 다음은 web.config 조각 샘플입니다.
+일부 앱의 경우 교환 전에 사용자 지정 준비 작업이 필요할 수 있습니다. `applicationInitialization`web.config의 구성 요소를 사용 하 여 사용자 지정 초기화 작업을 지정할 수 있습니다. [교환 작업](#AboutConfiguration) 은이 사용자 지정 준비가 완료 될 때까지 대기한 후 대상 슬롯과 교환 합니다. 샘플 web.config 조각은 다음과 같습니다.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
-요소를 사용자 지정 하는 `applicationInitialization` 방법에 대 한 자세한 내용은 [가장 일반적인 배포 슬롯 교환 실패 및 수정 방법](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/)을 참조 하세요.
+요소를 사용자 지정 하는 방법에 대 한 자세한 내용은 `applicationInitialization` [가장 일반적인 배포 슬롯 교환 실패 및 수정 방법](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/)을 참조 하세요.
 
 또한 다음 [앱 설정](configure-common.md)중 하나 또는 둘 모두를 사용 하 여 준비 동작을 사용자 지정할 수 있습니다.
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트를 준비 하기 위해 ping 할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예제는 `/statuscheck`입니다. 기본값은 `/`입니다. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대 한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. 예를 `200,202` 들면입니다. 반환 된 상태 코드가 목록에 없으면 준비 및 교환 작업이 중지 됩니다. 기본적으로 모든 응답 코드는 유효합니다.
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대 한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. 예를 들면 `200,202` 입니다. 반환 된 상태 코드가 목록에 없으면 준비 및 교환 작업이 중지 됩니다. 기본적으로 모든 응답 코드는 유효합니다.
 
 > [!NOTE]
-> `<applicationInitialization>` 구성 요소는 각 앱 시작의 일부 이지만 두 개의 준비 동작 앱 설정은 슬롯 교환에만 적용 됩니다.
+> `<applicationInitialization>`구성 요소는 각 앱 시작의 일부 이지만 두 개의 준비 동작 앱 설정은 슬롯 교환에만 적용 됩니다.
 
 문제가 있는 경우 [교체 문제 해결](#troubleshoot-swaps)을 참조 하세요.
 
@@ -245,7 +247,7 @@ Preview를 사용 하 여 교환 하려면:
 클라이언트는 특정 슬롯에 자동으로 라우팅되고 나면 해당 클라이언트 세션의 수명 동안 해당 슬롯에 "고정" 됩니다. 클라이언트 브라우저에서 HTTP 헤더의 `x-ms-routing-name` 쿠키를 확인하여 세션이 고정된 슬롯을 볼 수 있습니다. "스테이징" 슬롯에 라우팅되는 요청에는 쿠키 `x-ms-routing-name=staging`이 있습니다. 프로덕션 슬롯으로 라우팅되는 요청에는 쿠키 `x-ms-routing-name=self`가 있습니다.
 
    > [!NOTE]
-   > Azure Portal 옆에 Azure CLI의 [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) 명령을 사용 하 여 devops 파이프라인이 나 기타 자동화 시스템과 같은 CI/CD 도구에서 라우팅 비율을 설정할 수도 있습니다.
+   > Azure Portal 옆에 [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) Azure CLI의 명령을 사용 하 여 DevOps 파이프라인이 나 기타 자동화 시스템과 같은 CI/CD 도구에서 라우팅 비율을 설정할 수도 있습니다.
    > 
 
 ### <a name="route-production-traffic-manually"></a>수동으로 프로덕션 트래픽 라우팅
@@ -254,7 +256,7 @@ Preview를 사용 하 여 교환 하려면:
 
 예를 들어 사용자가 베타 앱을 옵트아웃 (opt out) 할 수 있도록 웹 페이지에 다음 링크를 넣을 수 있습니다.
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
@@ -266,13 +268,13 @@ Preview를 사용 하 여 교환 하려면:
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-기본적으로 새 슬롯에는 회색으로 표시 된의 `0%`라우팅 규칙이 제공 됩니다. 이 값을 명시적으로 (검정 `0%` 텍스트로 표시)로 설정 하면 사용자가 쿼리 매개 변수를 `x-ms-routing-name` 사용 하 여 스테이징 슬롯에 수동으로 액세스할 수 있습니다. 그러나 라우팅 백분율이 0으로 설정 되어 있으므로 자동으로 슬롯에 라우팅되지 않습니다. 이는 내부 팀에서 슬롯에 대 한 변경 내용을 테스트할 수 있도록 하는 동시에 공용에서 스테이징 슬롯을 "숨길" 수 있는 고급 시나리오입니다.
+기본적으로 새 슬롯에는 회색으로 표시 된의 라우팅 규칙이 제공 됩니다 `0%` . 이 값을 명시적으로 `0%` (검정 텍스트로 표시)로 설정 하면 사용자가 `x-ms-routing-name` 쿼리 매개 변수를 사용 하 여 스테이징 슬롯에 수동으로 액세스할 수 있습니다. 그러나 라우팅 백분율이 0으로 설정 되어 있으므로 자동으로 슬롯에 라우팅되지 않습니다. 이는 내부 팀에서 슬롯에 대 한 변경 내용을 테스트할 수 있도록 하는 동시에 공용에서 스테이징 슬롯을 "숨길" 수 있는 고급 시나리오입니다.
 
 <a name="Delete"></a>
 
 ## <a name="delete-a-slot"></a>슬롯 삭제
 
-앱을 검색 하 고 선택 합니다. **배포 슬롯** >   >  **Overview***\<슬롯을 선택 하>개요를 삭제 *합니다. 앱 유형은 배포 슬롯을 보고 있음을 알리기 위해 **App Service (슬롯)** 로 표시 됩니다. 명령 모음에서 **삭제** 를 선택 합니다.  
+앱을 검색 하 고 선택 합니다. **배포 슬롯**  >  *\<slot to delete>*  >  **개요**를 선택 합니다. 앱 유형은 배포 슬롯을 보고 있음을 알리기 위해 **App Service (슬롯)** 로 표시 됩니다. 명령 모음에서 **삭제** 를 선택 합니다.  
 
 ![배포 슬롯 삭제](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -336,11 +338,11 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 [Azure Resource Manager 템플릿은](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) Azure 리소스의 배포 및 구성을 자동화 하는 데 사용 되는 선언적 JSON 파일입니다. 리소스 관리자 템플릿을 사용 하 여 슬롯을 교환 하려면 *Microsoft 웹/사이트/슬롯* 및 *microsoft 웹/사이트* 리소스에서 두 개의 속성을 설정 합니다.
 
 - `buildVersion`: 슬롯에 배포 된 앱의 현재 버전을 나타내는 문자열 속성입니다. 예를 들면 "v1", "1.0.0.1" 또는 "2019-09-20T11:53:25.2887393-07:00"입니다.
-- `targetBuildVersion`: 슬롯에 포함 해야 하는 항목 `buildVersion` 을 지정 하는 문자열 속성입니다. TargetBuildVersion가 현재 `buildVersion`와 같지 않으면 지정 `buildVersion`된이 있는 슬롯을 검색 하 여 교환 작업을 트리거합니다.
+- `targetBuildVersion`: 슬롯에 포함 해야 하는 항목을 지정 하는 문자열 속성입니다 `buildVersion` . TargetBuildVersion가 현재와 같지 않으면 지정 된 `buildVersion` 이 있는 슬롯을 검색 하 여 교환 작업을 트리거합니다 `buildVersion` .
 
 ### <a name="example-resource-manager-template"></a>리소스 관리자 템플릿 예제
 
-다음 리소스 관리자 템플릿은 스테이징 슬롯의을 `buildVersion` 업데이트 하 고 프로덕션 슬롯에서을 `targetBuildVersion` 설정 합니다. 그러면 두 슬롯이 교환 됩니다. 템플릿은 "준비" 라는 슬롯을 사용 하 여 만든 webapp 이미 있다고 가정 합니다.
+다음 리소스 관리자 템플릿은 `buildVersion` 스테이징 슬롯의을 업데이트 하 고 `targetBuildVersion` 프로덕션 슬롯에서을 설정 합니다. 그러면 두 슬롯이 교환 됩니다. 템플릿은 "준비" 라는 슬롯을 사용 하 여 만든 webapp 이미 있다고 가정 합니다.
 
 ```json
 {
@@ -384,7 +386,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 }
 ```
 
-이 리소스 관리자 템플릿은 idempotent 됩니다. 즉, 반복적으로 실행 하 여 슬롯의 동일한 상태를 생성할 수 있습니다. 첫 번째 실행 `targetBuildVersion` 후는 현재 `buildVersion`와 일치 하므로 교환이 트리거되지 않습니다.
+이 리소스 관리자 템플릿은 idempotent 됩니다. 즉, 반복적으로 실행 하 여 슬롯의 동일한 상태를 생성할 수 있습니다. 첫 번째 실행 후는 `targetBuildVersion` 현재와 일치 `buildVersion` 하므로 교환이 트리거되지 않습니다.
 
 <!-- ======== Azure CLI =========== -->
 
@@ -396,7 +398,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="troubleshoot-swaps"></a>교체 문제 해결
 
-[슬롯 교환](#AboutConfiguration)중에 오류가 발생 하면 *D:\home\LogFiles\eventlog.xml*에 로그인 됩니다. 응용 프로그램 관련 오류 로그에도 기록 됩니다.
+[슬롯 교환](#AboutConfiguration)중에 오류가 발생 하면 *D:\home\LogFiles\eventlog.xml*에 기록 됩니다. 응용 프로그램 관련 오류 로그에도 기록 됩니다.
 
 몇 가지 일반적인 교환 오류는 다음과 같습니다.
 
@@ -404,7 +406,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 - 앱 콘텐츠가 로컬 캐시에 지정 된 로컬 디스크 할당량을 초과 하면 로컬 캐시 초기화가 실패할 수 있습니다. 자세한 내용은 [로컬 캐시 개요](overview-local-cache.md)를 참조 하세요.
 
-- [사용자 지정 준비](#Warm-up)과정에서 HTTP 요청은 외부 URL을 거치지 않고 내부적으로 수행 됩니다. *Web.config의 특정*URL 재작성 규칙을 사용 하 여 실패할 수 있습니다. 예를 들어 도메인 이름을 리디렉션하는 규칙이 나 HTTPS를 적용 하면 준비 요청이 앱 코드에 도달 하지 못할 수 있습니다. 이 문제를 해결 하려면 다음 두 가지 조건을 추가 하 여 재작성 규칙을 수정 합니다.
+- [사용자 지정 준비](#Warm-up)과정에서 HTTP 요청은 외부 URL을 거치지 않고 내부적으로 수행 됩니다. *Web.config*에서 특정 URL 재작성 규칙을 사용 하 여 실패할 수 있습니다. 예를 들어 도메인 이름을 리디렉션하는 규칙이 나 HTTPS를 적용 하면 준비 요청이 앱 코드에 도달 하지 못할 수 있습니다. 이 문제를 해결 하려면 다음 두 가지 조건을 추가 하 여 재작성 규칙을 수정 합니다.
 
     ```xml
     <conditions>
@@ -421,7 +423,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
       ...
     </conditions>
     ```
-- 일부 [IP 제한 규칙](app-service-ip-restrictions.md) 은 교환 작업에서 응용 프로그램에 HTTP 요청을 보내지 못하도록 할 수 있습니다. 로 시작 하 고 `10.` `100.` 배포에 내부적으로 사용 되는 IPv4 주소 범위입니다. 앱에 연결 하도록 허용 해야 합니다.
+- 일부 [IP 제한 규칙](app-service-ip-restrictions.md) 은 교환 작업에서 응용 프로그램에 HTTP 요청을 보내지 못하도록 할 수 있습니다. 로 시작 하 `10.` 고 `100.` 배포에 내부적으로 사용 되는 IPv4 주소 범위입니다. 앱에 연결 하도록 허용 해야 합니다.
 
 - 슬롯 교체 후에는 앱에서 예기치 않은 다시 시작이 발생할 수 있습니다. 이는 교환 후 호스트 이름 바인딩 구성이 동기화 되지 않아 자체적으로 다시 시작 되지 않기 때문입니다. 그러나 특정 기본 저장소 이벤트 (예: 저장소 볼륨 장애 조치 (failover))는 이러한 불일치를 감지 하 여 모든 작업자 프로세스를 강제로 다시 시작할 수 있습니다. 이러한 유형의 다시 시작을 최소화 하려면 *모든 슬롯*에서 [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` 앱 설정을](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) 설정 합니다. 그러나이 앱 설정은 WCF (Windows Communication Foundation) 앱에서 작동 *하지* 않습니다.
 

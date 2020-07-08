@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832868"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -36,11 +36,8 @@ Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](htt
 메서드를 등록하려면 시작 시 사용되는 형식 이름을 지정하는 `FunctionsStartup` 어셈블리 특성을 추가합니다.
 
 ```csharp
-using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http;
-using Microsoft.Extensions.Logging;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -52,7 +49,7 @@ namespace MyNamespace
         {
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton((s) => {
+            builder.Services.AddSingleton<IMyService>((s) => {
                 return new MyService();
             });
 
@@ -61,6 +58,8 @@ namespace MyNamespace
     }
 }
 ```
+
+이 예제에서는 시작 시 `HttpClient`를 등록하는 데 필요한 [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) 패키지를 사용합니다.
 
 ### <a name="caveats"></a>제한 사항
 
@@ -72,48 +71,47 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>주입된 종속성 사용
 
-생성자 주입은 함수에서 종속성을 사용할 수 있도록 하는 데 사용됩니다. 생성자 주입을 사용하려면 정적 클래스를 사용해서는 안 됩니다.
+생성자 주입은 함수에서 종속성을 사용할 수 있도록 하는 데 사용됩니다. 생성자 주입을 사용 하려면 삽입 된 서비스 또는 함수 클래스에 대해 정적 클래스를 사용 하지 않아야 합니다.
 
-다음 샘플에서는 `IMyService` 및 `HttpClient` 종속성이 HTTP로 트리거되는 함수에 삽입되는 방법을 보여 줍니다. 이 예제에서는 시작 시 `HttpClient`를 등록하는 데 필요한 [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) 패키지를 사용합니다.
+다음 샘플에서는 `IMyService` 및 `HttpClient` 종속성이 HTTP로 트리거되는 함수에 삽입되는 방법을 보여 줍니다.
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MyNamespace
 {
-    public class HttpTrigger
+    public class MyHttpTrigger
     {
-        private readonly IMyService _service;
         private readonly HttpClient _client;
+        private readonly IMyService _service;
 
-        public HttpTrigger(IMyService service, HttpClient httpClient)
+        public MyHttpTrigger(HttpClient httpClient, MyService service)
         {
-            _service = service;
-            _client = httpClient;
+            this._client = httpClient;
+            this._service = service;
         }
 
-        [FunctionName("GetPosts")]
-        public async Task<IActionResult> Get(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+        [FunctionName("MyHttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _client.GetAsync("https://microsoft.com");
-            await _service.AddResponse(res);
+            var response = await _client.GetAsync("https://microsoft.com");
+            var message = _service.GetMessage();
 
-            return new OkResult();
+            return new OkObjectResult("Response from function with injected dependencies.");
         }
     }
 }
 ```
+
+이 예제에서는 시작 시 `HttpClient`를 등록하는 데 필요한 [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) 패키지를 사용합니다.
 
 ## <a name="service-lifetimes"></a>서비스 수명
 
@@ -121,13 +119,15 @@ Azure Functions 앱은 [ASP.NET 종속성 주입](https://docs.microsoft.com/asp
 
 - **임시**: 임시 서비스는 서비스가 요청될 때마다 생성됩니다.
 - **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위 서비스는 1회 실행당 한 번 생성됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
-- **싱글톤**: 싱글톤 서비스 수명은 호스트 수명과 일치하며 해당 인스턴스에서 함수를 실행할 때 다시 사용됩니다. `SqlConnection` 또는 `HttpClient` 인스턴스 같은 연결 및 클라이언트에는 싱글톤 수명 서비스가 권장됩니다.
+- **싱글톤**: 싱글톤 서비스 수명은 호스트 수명과 일치하며 해당 인스턴스에서 함수를 실행할 때 다시 사용됩니다. `DocumentClient` 또는 `HttpClient` 인스턴스 같은 연결 및 클라이언트에는 싱글톤 수명 서비스가 권장됩니다.
 
 GitHub에서 [다양한 서비스 수명 샘플](https://aka.ms/functions/di-sample)을 보거나 다운로드하세요.
 
 ## <a name="logging-services"></a>로깅 서비스
 
-자체 로깅 공급자가 필요한 경우 사용자 지정 형식을 `ILoggerProvider` 인스턴스로 등록합니다. Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
+사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
+
+Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 
 > [!WARNING]
 > - `AddApplicationInsightsTelemetry()`는 환경에서 제공하는 서비스와 충돌하는 서비스를 등록하므로 서비스 컬렉션에 추가하지 마세요.
@@ -135,7 +135,9 @@ GitHub에서 [다양한 서비스 수명 샘플](https://aka.ms/functions/di-sam
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 및 ILoggerFactory
 
-호스트는 `ILogger<T>` 및 `ILoggerFactory` 서비스를 생성자에 주입합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링됩니다.  추가 필터 및 범주로 옵트인하려면 `host.json` 파일을 수정해야 합니다.  다음 샘플에서는 호스트에서 노출하는 로그가 포함된 `ILogger<HttpTrigger>`를 추가하는 방법을 보여 줍니다.
+호스트는 `ILogger<T>` 및 `ILoggerFactory` 서비스를 생성자에 삽입 합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링 됩니다.  `host.json`추가 필터 및 범주를 옵트인 (opt in) 하도록 파일을 수정 해야 합니다.
+
+다음 예제에서는 `ILogger<HttpTrigger>` 호스트에 노출 되는 로그가 있는를 추가 하는 방법을 보여 줍니다.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +162,7 @@ namespace MyNamespace
 }
 ```
 
-로그 필터를 추가하는 `host.json` 파일
+다음 예제 `host.json` 파일은 로그 필터를 추가 합니다.
 
 ```json
 {
@@ -185,7 +187,7 @@ namespace MyNamespace
 
 |서비스 유형|수명|Description|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|싱글톤|런타임 구성|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|런타임 구성|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|싱글톤|호스트 인스턴스의 ID 제공 담당|
 
 종속성으로 사용하려는 다른 서비스가 있는 경우 [문제를 만들고 GitHub에서 제안합니다](https://github.com/azure/azure-functions-host).
@@ -251,7 +253,7 @@ public class HttpTrigger
 옵션을 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
 > [!WARNING]
-> 사용 계획의 *local.settings.json* 또는 *appsettings.{environment}.json* 같은 파일에서 값을 읽지 않도록 합니다. 트리거 연결과 관련된 이러한 파일에서 읽은 값은 앱이 스케일링되면 호스팅 인프라가 구성 정보에 액세스할 수 없으므로 사용할 수 없습니다.
+> 사용 계획의 *local.settings.json* 또는 *appsettings.{environment}.json* 같은 파일에서 값을 읽지 않도록 합니다. 트리거 연결과 관련 된 이러한 파일에서 읽은 값은 크기 조정 컨트롤러에서 앱의 새 인스턴스를 만들 때 구성 정보에 대 한 액세스 권한이 없기 때문에 앱 크기 조정에 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

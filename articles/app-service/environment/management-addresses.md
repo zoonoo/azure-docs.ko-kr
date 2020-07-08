@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/10/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 34daf74ddf5e9c93a05d27bad5f9ac55d767d5e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 4f1914b857aa6499ab4d4445cddf801feef73f43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831823"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service Environment 관리 주소
 
@@ -39,15 +39,17 @@ ASE(App Service Environment)는 Azure VNet(Virtual Network)에서 실행되는 A
 
 관리 주소는 모든 인바운드 관리 트래픽이 동일한 경로로 다시 이동할 수 있도록 인터넷의 다음 홉을 사용하여 경로 테이블에 배치할 수 있습니다. 이러한 경로는 강제 터널링을 구성할 때 필요합니다. 경로 테이블을 만들려면 포털, PowerShell 또는 Azure CLI를 사용할 수 있습니다.  PowerShell 프롬프트에서 Azure CLI를 사용하여 경로 테이블을 만드는 명령은 다음과 같습니다. 
 
-    $rg = "resource group name"
-    $rt = "route table name"
-    $location = "azure location"
-    $managementAddresses = "13.66.140.0", "13.67.8.128", "13.69.64.128", "13.69.227.128", "13.70.73.128", "13.71.170.64", "13.71.194.129", "13.75.34.192", "13.75.127.117", "13.77.50.128", "13.78.109.0", "13.89.171.0", "13.94.141.115", "13.94.143.126", "13.94.149.179", "20.36.106.128", "20.36.114.64", "23.102.135.246", "23.102.188.65", "40.69.106.128", "40.70.146.128", "40.71.13.64", "40.74.100.64", "40.78.194.128", "40.79.130.64", "40.79.178.128", "40.83.120.64", "40.83.121.56", "40.83.125.161", "40.112.242.192", "51.140.146.64", "51.140.210.128", "52.151.25.45", "52.162.106.192", "52.165.152.214", "52.165.153.122", "52.165.154.193", "52.165.158.140", "52.174.22.21", "52.178.177.147", "52.178.184.149", "52.178.190.65", "52.178.195.197", "52.187.56.50", "52.187.59.251", "52.187.63.19", "52.187.63.37", "52.224.105.172", "52.225.177.153", "52.231.18.64", "52.231.146.128", "65.52.172.237", "70.37.57.58", "104.44.129.141", "104.44.129.243", "104.44.129.255", "104.44.134.255", "104.208.54.11", "104.211.81.64", "104.211.146.128", "157.55.208.185", "191.233.203.64", "191.236.154.88"
+```azurepowershell-interactive
+$rg = "resource group name"
+$rt = "route table name"
+$location = "azure location"
+$managementAddresses = "13.66.140.0", "13.67.8.128", "13.69.64.128", "13.69.227.128", "13.70.73.128", "13.71.170.64", "13.71.194.129", "13.75.34.192", "13.75.127.117", "13.77.50.128", "13.78.109.0", "13.89.171.0", "13.94.141.115", "13.94.143.126", "13.94.149.179", "20.36.106.128", "20.36.114.64", "23.102.135.246", "23.102.188.65", "40.69.106.128", "40.70.146.128", "40.71.13.64", "40.74.100.64", "40.78.194.128", "40.79.130.64", "40.79.178.128", "40.83.120.64", "40.83.121.56", "40.83.125.161", "40.112.242.192", "51.140.146.64", "51.140.210.128", "52.151.25.45", "52.162.106.192", "52.165.152.214", "52.165.153.122", "52.165.154.193", "52.165.158.140", "52.174.22.21", "52.178.177.147", "52.178.184.149", "52.178.190.65", "52.178.195.197", "52.187.56.50", "52.187.59.251", "52.187.63.19", "52.187.63.37", "52.224.105.172", "52.225.177.153", "52.231.18.64", "52.231.146.128", "65.52.172.237", "70.37.57.58", "104.44.129.141", "104.44.129.243", "104.44.129.255", "104.44.134.255", "104.208.54.11", "104.211.81.64", "104.211.146.128", "157.55.208.185", "191.233.203.64", "191.236.154.88"
 
-    az network route-table create --name $rt --resource-group $rg --location $location
-    foreach ($ip in $managementAddresses) {
-        az network route-table route create -g $rg --route-table-name $rt -n $ip --next-hop-type Internet --address-prefix ($ip + "/32")
-    }
+az network route-table create --name $rt --resource-group $rg --location $location
+foreach ($ip in $managementAddresses) {
+    az network route-table route create -g $rg --route-table-name $rt -n $ip --next-hop-type Internet --address-prefix ($ip + "/32")
+}
+```
 
 경로 테이블을 만든 후에 ASE 서브넷에서 설정해야 합니다.  
 
@@ -55,15 +57,18 @@ ASE(App Service Environment)는 Azure VNet(Virtual Network)에서 실행되는 A
 
 다음 API 호출을 사용하여 ASE와 일치하는 관리 주소를 나열할 수 있습니다.
 
-    get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+```http
+get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+```
 
 이 API는 ASE에 대한 모든 인바운드 주소를 포함하는 JSON 문서를 반환합니다. 주소 목록에는 관리 주소, 즉, ASE 및 ASE 서브넷 주소 범위 자체에서 사용하는 VIP가 포함됩니다.  
 
 [armclient](https://github.com/projectkudu/ARMClient)를 사용하여 API를 호출하려면 다음 명령을 사용하되 구독 ID, 리소스 그룹 및 ASE 이름을 바꿔야 합니다.  
 
-    armclient login
-    armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
-
+```azurepowershell-interactive
+armclient login
+armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+```
 
 <!--IMAGES-->
 [1]: ./media/management-addresses/managementaddr-nsg.png

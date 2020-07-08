@@ -3,20 +3,20 @@ title: Jupyter 노트북에서 패키지 설치-Azure Notebooks 미리 보기
 description: 'Azure에서 실행 되는 Jupyter 노트북 내에서 Python, R 및 F # 패키지를 설치 하는 방법에 대해 알아봅니다.'
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43d38c9f3a4b0095967ab3e103ea729ec86ea2bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831219"
 ---
 # <a name="install-packages-from-within-azure-notebooks-preview"></a>Azure Notebooks 미리 보기 내에서 패키지 설치
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 [프로젝트 수준에서 노트 환경](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)을 구성할 수 있지만 개별 노트 내에서 직접 패키지를 설치할 수 있습니다.
 
 노트에서 설치한 패키지는 현재 서버 세션에만 적용됩니다. 서버가 종료되면 패키지 설치가 유지되지 않습니다.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 

@@ -2,14 +2,16 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 보안
 description: 마스터 및 노드 통신, 네트워크 정책 및 Kubernetes 비밀을 비롯한 AKS(Azure Kubernetes Service)의 보안에 대해 알아봅니다.
 services: container-service
+author: mlearned
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 07/01/2020
+ms.author: mlearned
+ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831542"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -37,7 +39,7 @@ AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니�
 
 Azure 플랫폼은 매일 매일 Linux 노드에 OS 보안 패치를 자동으로 적용 합니다. Linux OS 보안 업데이트에서 호스트를 다시 부팅 해야 하는 경우 다시 부팅이 자동으로 수행 되지 않습니다. Linux 노드를 수동으로 다시 부팅 하거나, Kubernetes에 대 한 오픈 소스 재부팅 디먼 인 [Kured][kured]를 사용 하는 것이 일반적인 방법입니다. Kured는 [DaemonSet][aks-daemonsets]으로 실행하며 다시 부팅해야 함을 표시하는 파일의 존재에 대한 각 노드를 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
 
-Windows Server 노드의 경우 Windows 업데이트는 자동으로 실행 되 고 최신 업데이트를 적용 하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 AKS 클러스터의 Windows Server 노드 풀에서 업그레이드를 수행 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만든 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+Windows Server 노드의 경우 Windows 업데이트가 자동으로 실행되고 최신 업데이트를 적용하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 AKS 클러스터의 Windows Server 노드 풀에서 업그레이드를 수행 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 만든 다음, 이전 노드를 제거합니다. 이 프로세스에 대한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
 
 노드는 공용 IP 주소가 할당되지 않은 상태에서 프라이빗 가상 네트워크 서브넷에 배포됩니다. 문제 해결 및 관리를 목적으로 SSH는 기본적으로 사용하도록 설정됩니다. SSH 액세스는 내부 IP 주소를 사용하는 경우에만 가능합니다.
 
@@ -78,6 +80,8 @@ Kubernetes *비밀*은 액세스 자격 증명이나 키와 같은 Pod에 중요
 
 비밀을 사용하면 Pod 또는 서비스 YAML 매니페스트에 정의되는 중요한 정보가 줄어듭니다. 대신 Kubernetes API 서버에 저장된 비밀을 YAML 매니페스트의 일부로 요청합니다. 이 방법은 비밀에 대한 특정 Pod 액세스만 제공합니다. 참고: 원시 비밀 매니페스트 파일에는 base64 형식의 비밀 데이터가 포함 되어 있습니다. 자세한 내용은 [공식 설명서][secret-risks] 를 참조 하세요. 따라서이 파일은 중요 한 정보로 처리 되어야 하며 소스 제어에 커밋되지 않습니다.
 
+Kubernetes 암호는 배포 키-값 저장소 인 etcd에 저장 됩니다. Etcd 스토어는 AKS에서 완벽 하 게 관리 되 고 [데이터는 Azure 플랫폼 내에서 미사용으로 암호화][encryption-atrest]됩니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
 AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드][aks-upgrade-cluster]를 참조하세요.
@@ -96,6 +100,7 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
+[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
