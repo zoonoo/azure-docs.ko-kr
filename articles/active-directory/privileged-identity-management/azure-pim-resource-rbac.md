@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743153"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 활동 및 감사 기록 보기
 
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
 1. 활동 및 활성화를 보려는 리소스를 선택 합니다.
 
@@ -56,11 +56,11 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
 1. 구독과 같이 역할 할당을 내보내려는 리소스를 선택 합니다.
 
-1. **구성원**을 선택합니다.
+1. **멤버**를 선택합니다.
 
 1. **내보내기** 를 선택 하 여 멤버 자격 창 내보내기를 엽니다.
 
@@ -76,7 +76,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
 1. 감사 기록을 보려는 리소스를 선택 합니다.
 
@@ -88,7 +88,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. **감사 유형**으로 **활성화(할당됨 + 활성화됨)** 을 선택합니다.
 
-    감사 유형을 활성화 하 여 필터링 된 감사 유형 ![리소스 감사 목록을 [![활성화 하 여 필터링 된 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-audit-activity.png "활성화로 필터링 된 리소스 감사 목록")](media/azure-pim-resource-rbac/rbac-audit-activity.png)](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    [![감사 유형을](media/azure-pim-resource-rbac/rbac-audit-activity.png "활성화로 필터링 된 리소스 감사 목록")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![ 활성화 하 여 필터링 된 리소스 감사 목록 감사 유형을 활성화 하 여 필터링 되는 리소스 감사 목록](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. **작업** 아래에서, Azure 리소스에서 수행한 작업 세부 정보를 보고 싶은 사용자의 **(작업)** 을 클릭합니다.
 
@@ -100,7 +100,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
 1. 감사 기록을 보려는 리소스를 선택 합니다.
 
@@ -116,7 +116,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>승인 이벤트에 대 한 이유, 승인자 및 티켓 번호를 가져옵니다.
 
 1. 권한 있는 역할 관리자 역할 권한을 사용 하 여 [Azure Portal](https://aad.portal.azure.com) 에 로그인 하 고 Azure AD를 엽니다.
-1. **감사 로그**를 선택 합니다.
+1. **감사 로그**를 선택합니다.
 1. **서비스** 필터를 사용 하 여 권한 있는 id 관리 서비스에 대 한 감사 이벤트만 표시 합니다. **감사 로그** 페이지에서 다음을 수행할 수 있습니다.
 
     - **상태 이유** 열에서 감사 이벤트의 이유를 참조 하세요.

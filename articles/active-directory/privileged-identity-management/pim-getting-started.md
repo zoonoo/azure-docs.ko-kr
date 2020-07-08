@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.subservice: pim
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8d41fb3e6233d319725cac924c0c0ed41b7ce4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742915"
 ---
 # <a name="start-using-privileged-identity-management"></a>Privileged Identity Management 사용 시작
 
@@ -27,7 +27,7 @@ ms.locfileid: "82234301"
 
 PIM (Privileged Identity Management)을 사용 하 여 Azure Active Directory (Azure AD) 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. PIM을 사용 하면 Azure 리소스, Azure AD 리소스 및 기타 Microsoft 온라인 서비스 (예: Office 365 또는 Microsoft Intune)에 대 한 필요 시 액세스 및 just-in-time 액세스를 제공할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Privileged Identity Management를 사용 하려면 다음 라이선스 중 하나가 있어야 합니다.
 
@@ -70,7 +70,7 @@ Privileged Identity Management 설정 된 후에는 방법을 배울 수 있습�
 | **요청 승인** | 승인하도록 지정된 디렉터리에서 사용자를 통해 적격 역할을 활성화하기 위한 요청 목록을 표시합니다. |
 | **액세스 검토** | 사용자 자신 또는 다른 사용자에 대한 액세스를 검토하는지와 관계없이 사용자에게 수행하도록 할당된 활성 액세스 검토를 나열합니다. |
 | **Azure AD 역할** | Azure AD 역할 할당을 관리 하는 권한 있는 역할 관리자에 대 한 대시보드 및 설정을 표시 합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. 내 보기 대시보드는 전체 조직이 아니라 대시보드에 액세스 하는 사용자에 대 한 정보만 표시 합니다. |
-| **: Azure 리소스** | Azure 리소스 역할 할당을 관리 하는 권한 있는 역할 관리자에 대 한 대시보드 및 설정을 표시 합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. 내 보기 대시보드는 전체 조직이 아니라 대시보드에 액세스 하는 사용자에 대 한 정보만 표시 합니다. |
+| **Azure 리소스** | Azure 리소스 역할 할당을 관리 하는 권한 있는 역할 관리자에 대 한 대시보드 및 설정을 표시 합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. 내 보기 대시보드는 전체 조직이 아니라 대시보드에 액세스 하는 사용자에 대 한 정보만 표시 합니다. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>대시보드에 PIM 타일 추가
 

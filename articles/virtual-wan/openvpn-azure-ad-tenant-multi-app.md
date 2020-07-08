@@ -4,24 +4,24 @@ description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: af5ff5817ee9ae7e6d7432fe281ecb440bf25b9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1471226bcc22373904e65f95d0c07c2d5041f55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749827"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결을 위한 Azure Active Directory 테넌트 만들기
 
 VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사용할 수 있습니다. 그러나 오픈 VPN 프로토콜을 사용 하는 경우 Azure Active Directory 인증을 사용할 수도 있습니다. 다른 사용자가 다른 게이트웨이에 연결할 수 있도록 하려면 AD에 여러 앱을 등록 하 고 다른 게이트웨이에 연결할 수 있습니다.
 
 이 문서는 P2S OpenVPN 인증을 위해 Azure AD 테 넌 트를 설정 하 고, 여러 사용자 및 그룹에 대해 서로 다른 액세스를 허용 하도록 Azure AD에서 여러 앱을 만들고 등록 하는 데 도움이 됩니다.
 
 > [!NOTE]
-> Azure AD 인증은 OpenVPN&reg; 프로토콜 연결에 대해서만 지원 됩니다.
+> Azure AD 인증은 OpenVPN 프로토콜 연결에 대해서만 지원 됩니다 &reg; .
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
@@ -63,7 +63,7 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
 5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀**를 입력합니다.
 
-6. **확인**을 클릭 합니다.
+6. **확인**을 클릭합니다.
 
 7. 이 작업을 완료하려면 최대 30분이 걸릴 수 있습니다.
 
@@ -83,14 +83,14 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 6. 압축을 푼 "AzureVPN" 폴더로 이동 합니다.
 
-7. "Azurevpnconfig" 파일의 위치를 적어둡니다. Azurevpnconfig에는 VPN 연결에 대 한 설정이 포함 되어 있으며, Azure VPN 클라이언트 응용 프로그램으로 직접 가져올 수 있습니다. 또한 전자 메일 또는 다른 방법을 통해 연결 해야 하는 모든 사용자에 게이 파일을 배포할 수 있습니다. 성공적으로 연결 하려면 사용자에 게 유효한 Azure AD 자격 증명이 필요 합니다.
+7. "azurevpnconfig.xml" 파일의 위치를 적어둡니다. azurevpnconfig.xml에는 VPN 연결에 대 한 설정이 포함 되어 있으며, Azure VPN 클라이언트 응용 프로그램으로 직접 가져올 수 있습니다. 또한 전자 메일 또는 다른 방법을 통해 연결 해야 하는 모든 사용자에 게이 파일을 배포할 수 있습니다. 성공적으로 연결 하려면 사용자에 게 유효한 Azure AD 자격 증명이 필요 합니다.
 
 ## <a name="9-configure-user-vpn-clients"></a>9. 사용자 VPN 클라이언트 구성
 
 연결하려면 Azure VPN Client를 다운로드하고, 이전 단계에서 VNet에 연결하려는 모든 컴퓨터에 다운로드한 VPN 클라이언트 프로필을 가져와야 합니다.
 
 > [!NOTE]
-> Azure AD 인증은 OpenVPN&reg; 프로토콜 연결에 대해서만 지원 됩니다.
+> Azure AD 인증은 OpenVPN 프로토콜 연결에 대해서만 지원 됩니다 &reg; .
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Azure VPN 클라이언트를 다운로드하려면,
@@ -101,33 +101,33 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1. 페이지에서 **가져오기**를 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
+    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
 2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기**를 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
+    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
 3. 프로필 이름을 지정하고, **저장**을 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
+    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
 4. **연결**을 선택하여 VPN에 연결합니다.
 
-    ![수입](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
+    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
 5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨**으로 표시됩니다.
 
-    ![수입](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
 1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![삭제](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![삭제](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제를 진단 하려면
 

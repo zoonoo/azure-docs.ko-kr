@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 방호를 사용 하 여 Linux 가상 머
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 381f45a51002188c72174cff83c26b829912a0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 98f1f3d02d8433dd88fed844a587a961ea9f8c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77596830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744292"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Azure 방호를 사용 하 여 Linux 가상 머신에 SSH를 사용 하 여 연결
 
@@ -23,7 +23,7 @@ Azure 방호를 사용 하 여 SSH를 통해 Linux 가상 머신에 연결할 �
 * 수동으로 입력 하는 개인 키
 * 개인 키 정보를 포함 하는 파일입니다.
 
-SSH 개인 키는로 시작 하 `"-----BEGIN RSA PRIVATE KEY-----"` 고로 `"-----END RSA PRIVATE KEY-----"`끝나는 형식 이어야 합니다.
+SSH 개인 키는로 시작 하 고로 끝나는 형식 이어야 합니다 `"-----BEGIN RSA PRIVATE KEY-----"` `"-----END RSA PRIVATE KEY-----"` .
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

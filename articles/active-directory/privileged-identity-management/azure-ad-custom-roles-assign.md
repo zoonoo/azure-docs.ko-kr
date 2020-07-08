@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80a75664b977c7f37808de7ca68b332363886a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742984"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 할당
 
@@ -74,7 +74,7 @@ Privileged Identity Management는 Azure AD(Azure Active Directory) 애플리케�
 1. **영구** 확인란이 있고 역할 설정에 따라 사용 가능한 경우 해당 할당이 영구적인지 여부를 지정할 수 있습니다. 영구 적격 할당으로 적용하거나 영구적으로 할당하려면 이 확인란을 선택합니다. 할당 기간을 지정하려면 이 확인란의 선택을 취소합니다.
 1. 새 역할 할당을 만들려면 **저장**, **추가**를 차례로 클릭합니다. 그러면 할당 프로세스 상태에 대한 알림이 표시됩니다.
 
-역할 할당을 확인 하려면 열린 역할 **에서 할당** > **할당** 을 선택 하 고 역할 할당이 적격 또는 활성으로 올바르게 식별 되었는지 확인 합니다.
+역할 할당을 확인 하려면 열린 역할 **에서 할당 할당을 선택 하**  >  **Assign** 고 역할 할당이 적격 또는 활성으로 올바르게 식별 되었는지 확인 합니다.
 
  ![역할 할당이 적격 또는 활성으로 표시되는지 확인](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

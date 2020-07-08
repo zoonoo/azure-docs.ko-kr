@@ -4,15 +4,15 @@ description: 이 문서에서는 포털을 사용 하 여 Azure 방호 호스트
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1fa4b6a33b055f2042c9bf941a33ae03ead6ebde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744275"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>포털을 사용 하 여 Azure 방호 호스트 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "82148332"
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="create-a-bastion-host"></a><a name="createhost"></a>요새 호스트 만들기
+## <a name="create-a-bastion-host"></a><a name="createhost"></a>Bastion 호스트 만들기
 
 이 섹션은 Azure Portal에서 새 Azure 방호 리소스를 만드는 데 도움이 됩니다.
 
@@ -50,8 +50,8 @@ ms.locfileid: "82148332"
     * **서브넷**: 가상 네트워크에서 새 요새 호스트가 배포 되는 서브넷입니다. 서브넷은 요새 호스트 전용으로 지정 되며 **AzureBastionSubnet**로 이름을 지정 해야 합니다. 이 서브넷은 최소/27 이상 이어야 합니다.
     
        **AzureBastionSubnet** 는 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 지원 하지 않지만 [네트워크 보안 그룹](bastion-nsg.md)은 지원 합니다.
-    * **공용 ip 주소**: RDP/SSH를 액세스할 수 있는 방호 리소스 (443 포트를 통해)의 공용 ip입니다. 새 공용 IP를 만들거나 기존 공용 IP를 사용 합니다. 공용 IP 주소는 만들려는 방호 리소스와 동일한 지역에 있어야 합니다.
-    * **공용 ip 주소 이름**: 공용 ip 주소 리소스의 이름입니다.
+    * **공용 ip 주소**: RDP/SSH를 액세스할 수 있는 방호 리소스 (443 포트를 통해)의 공용 ip입니다. 새 공용 IP를 만들거나 기존 항목을 사용합니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다.
+    * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다.
     * **공용 IP 주소 SKU**:이 설정은 기본적으로 **표준**으로 미리 채워져 있습니다. Azure 방호는 표준 공용 IP SKU만 사용/지원 합니다.
     * **할당**:이 설정은 기본적으로 **정적**으로 미리 채워져 있습니다.
 
@@ -63,4 +63,4 @@ ms.locfileid: "82148332"
 
 * 추가 정보는 [요새 FAQ](bastion-faq.md) 를 참조 하세요.
 
-* Azure 방호 서브넷에서 네트워크 보안 그룹을 사용 하려면 [NSGs 작업](bastion-nsg.md)을 참조 하세요.
+* Azure Bastion 서브넷에서 네트워크 보안 그룹을 사용하려면 [NSG 사용](bastion-nsg.md)을 참조하세요.

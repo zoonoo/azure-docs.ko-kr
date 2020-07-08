@@ -4,14 +4,14 @@ description: 컨테이너 이미지를 빌드, 푸시 및 배포 하기 위한 �
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
-ms.openlocfilehash: 13397cee8197afc65b93c587ae1505e59cfdebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80258042"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744003"
 ---
-# <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성 하 여 컨테이너 인스턴스 만들기
+# <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
 
 [Github 작업](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) 은 코드를 저장 하 고 끌어오기 요청 및 문제에 대해 공동으로 작업 하는 것과 동일한 장소에서 소프트웨어 개발 워크플로를 자동화 하는 github의 기능 모음입니다.
 
@@ -26,14 +26,14 @@ ms.locfileid: "80258042"
 이 문서에서는 워크플로를 설정 하는 두 가지 방법을 보여 줍니다.
 
 * 배포 Azure Container Instances 작업 및 기타 작업을 사용 하 여 GitHub 리포지토리에서 직접 워크플로를 구성 합니다.  
-* Azure CLI에서 `az container app up` [Azure 확장에 배포](https://github.com/Azure/deploy-to-azure-cli-extension) 의 명령을 사용 합니다. 이 명령은 GitHub 워크플로 및 배포 단계 만들기를 간소화 합니다.
+* `az container app up`Azure CLI에서 [Azure 확장에 배포](https://github.com/Azure/deploy-to-azure-cli-extension) 의 명령을 사용 합니다. 이 명령은 GitHub 워크플로 및 배포 단계 만들기를 간소화 합니다.
 
 > [!IMPORTANT]
 > Azure Container Instances에 대 한 GitHub 동작은 현재 미리 보기 상태입니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **GitHub 계정** -아직 계정이 없는 경우 https://github.com 에 계정을 만듭니다.
+* **GitHub 계정** -아직 계정이 없는 경우에 계정을 만듭니다 https://github.com .
 * **Azure CLI** -Azure CLI의 Azure Cloud Shell 또는 로컬 설치를 사용 하 여 Azure CLI 단계를 완료할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 * **Azure container registry** -없는 경우 [Azure CLI](../container-registry/container-registry-get-started-azure-cli.md), [Azure Portal](../container-registry/container-registry-get-started-portal.md)또는 기타 방법을 사용 하 여 기본 계층에서 azure container registry를 만듭니다. GitHub 워크플로에 사용 되는 배포에 사용 되는 리소스 그룹을 기록해 둡니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "80258042"
 
   ![GitHub에 있는 포크 단추(강조 표시됨)의 스크린샷](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* 리포지토리에 대해 작업을 사용할 수 있는지 확인 합니다. 분기 리포지토리로 이동 하 고 **설정** > **작업**을 선택 합니다. **작업 사용 권한**에서 **이 리포지토리에 대해 로컬 및 타사 작업 사용** 이 선택 되어 있는지 확인 합니다.
+* 리포지토리에 대해 작업을 사용할 수 있는지 확인 합니다. 분기 리포지토리로 이동 하 고 **설정**  >  **작업**을 선택 합니다. **작업 사용 권한**에서 **이 리포지토리에 대해 로컬 및 타사 작업 사용** 이 선택 되어 있는지 확인 합니다.
 
 ## <a name="configure-github-workflow"></a>GitHub 워크플로 구성
 
@@ -53,7 +53,7 @@ ms.locfileid: "80258042"
 
 GitHub 워크플로에서 Azure CLI에 인증 하려면 Azure 자격 증명을 제공 해야 합니다. 다음 예제에서는 컨테이너 레지스트리의 리소스 그룹으로 범위가 지정 된 참가자 역할의 서비스 주체를 만듭니다.
 
-먼저 리소스 그룹의 리소스 ID를 가져옵니다. 다음 [az group show][az-acr-show] 명령에 있는 그룹의 이름을 대체 합니다.
+먼저 리소스 그룹의 리소스 ID를 가져옵니다. 다음 [az group show][az-group-show] 명령에 있는 그룹의 이름을 대체 합니다.
 
 ```azurecli
 groupId=$(az group show \
@@ -87,7 +87,7 @@ az ad sp create-for-rbac \
 }
 ```
 
-이후 단계에서 사용 되므로 JSON 출력을 저장 합니다. 또한 다음 섹션에서 서비스 주체 `clientId`를 업데이트 해야 하는을 기록해 둡니다.
+이후 단계에서 사용 되므로 JSON 출력을 저장 합니다. 또한 `clientId` 다음 섹션에서 서비스 주체를 업데이트 해야 하는을 기록해 둡니다.
 
 ### <a name="update-service-principal-for-registry-authentication"></a>레지스트리 인증에 대 한 서비스 주체 업데이트
 
@@ -112,7 +112,7 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>GitHub 리포지토리에 자격 증명 저장
 
-1. GitHub UI에서 분기 리포지토리로 이동 하 고 **설정** > **암호**를 선택 합니다. 
+1. GitHub UI에서 분기 리포지토리로 이동 하 고 **설정**  >  **암호**를 선택 합니다. 
 
 1. **새 비밀 추가** 를 선택 하 여 다음 비밀을 추가 합니다.
 
@@ -120,15 +120,15 @@ az role assignment create \
 |---------|---------|
 |`AZURE_CREDENTIALS`     | 서비스 사용자 만들기의 전체 JSON 출력 |
 |`REGISTRY_LOGIN_SERVER`   | 레지스트리의 로그인 서버 이름 (모두 소문자)입니다. 예: *myregistry.azure.cr.io*        |
-|`REGISTRY_USERNAME`     |  `clientId` 서비스 사용자가 만든 JSON 출력의       |
-|`REGISTRY_PASSWORD`     |  `clientSecret` 서비스 사용자가 만든 JSON 출력의 |
+|`REGISTRY_USERNAME`     |  `clientId`서비스 사용자가 만든 JSON 출력의       |
+|`REGISTRY_PASSWORD`     |  `clientSecret`서비스 사용자가 만든 JSON 출력의 |
 | `RESOURCE_GROUP` | 서비스 주체의 범위를 표시 하는 데 사용한 리소스 그룹의 이름입니다. |
 
 ### <a name="create-workflow-file"></a>워크플로 파일 만들기
 
-1. GitHub UI에서 **작업** > **새 워크플로**를 선택 합니다.
+1. GitHub UI에서 **작업**  >  **새 워크플로**를 선택 합니다.
 1. **직접 워크플로 설정**을 선택 합니다.
-1. **새 파일 편집**에서 다음 yaml 콘텐츠를 붙여넣어 샘플 코드를 덮어씁니다. 기본 파일 이름을 `main.yml`그대로 적용 하거나 선택한 파일 이름을 제공 합니다.
+1. **새 파일 편집**에서 다음 yaml 콘텐츠를 붙여넣어 샘플 코드를 덮어씁니다. 기본 파일 이름을 그대로 적용 `main.yml` 하거나 선택한 파일 이름을 제공 합니다.
 1. 커밋 **시작**을 선택 하 고 필요에 따라 커밋에 대 한 간단 하 고 확장 된 설명을 제공 하 고 **새 파일 커밋**을 선택 합니다.
 
 ```yml
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>워크플로 유효성 검사
 
-워크플로 파일을 커밋한 후 워크플로가 트리거됩니다. 워크플로 진행률을 검토 하려면 **작업** > **워크플로**로 이동 합니다. 
+워크플로 파일을 커밋한 후 워크플로가 트리거됩니다. 워크플로 진행률을 검토 하려면 **작업**  >  **워크플로**로 이동 합니다. 
 
 ![워크플로 진행률 보기](./media/container-instances-github-action/github-action-progress.png)
 
@@ -203,7 +203,7 @@ aci-action01.westus.azurecontainer.io  Succeeded
 
 ## <a name="use-deploy-to-azure-extension"></a>Azure 확장에 배포 사용
 
-또는 Azure CLI에서 [Azure 확장에 배포](https://github.com/Azure/deploy-to-azure-cli-extension) 를 사용 하 여 워크플로를 구성 합니다. 확장 `az container app up` 의 명령은 Azure Container Instances에 배포할 워크플로를 설정 하는 입력 매개 변수를 사용 합니다. 
+또는 Azure CLI에서 [Azure 확장에 배포](https://github.com/Azure/deploy-to-azure-cli-extension) 를 사용 하 여 워크플로를 구성 합니다. `az container app up`확장의 명령은 Azure Container Instances에 배포할 워크플로를 설정 하는 입력 매개 변수를 사용 합니다. 
 
 Azure CLI에서 만든 워크플로는 [GitHub를 사용 하 여 수동으로 만들](#configure-github-workflow)수 있는 워크플로와 비슷합니다.
 

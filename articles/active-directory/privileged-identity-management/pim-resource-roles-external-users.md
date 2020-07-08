@@ -7,7 +7,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2efcf77d65fa2f9e203ed805cd7d78b9802ee3aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 046a0d61bb7a6d715a1d732790d2b472b3e83c13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74021932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743782"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 게스트 사용자를 초대 하 고 Azure 리소스 역할을 할당 합니다.
 
@@ -55,7 +55,7 @@ B2B 공동 작업을 사용 하는 경우 외부 사용자를 조직에 게스�
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-1. **Azure Active Directory** > **사용자 설정**을 선택 합니다.
+1. **Azure Active Directory**  >  **사용자 설정**을 선택 합니다.
 
 1. **외부 공동 작업 설정 관리**를 선택 합니다.
 
@@ -71,7 +71,7 @@ Privileged Identity Management를 사용 하 여 게스트를 초대 하 고 Azu
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
 1. **리소스 필터**를 사용하여 관리되는 리소스의 목록을 필터링합니다.
 
@@ -157,7 +157,7 @@ Privileged Identity Management를 사용 하 여 게스트를 초대 하 고 Azu
 
     ![Azure 리소스-시간, 요청자 및 작업을 나열 하는 리소스 감사 페이지](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. 게스트에 대 한 작업을 보려면 **Azure Active Directory** > **사용자** > *게스트 이름*을 선택 합니다.
+1. 게스트에 대 한 작업을 보려면 **Azure Active Directory**  >  **사용자**  >  *게스트 이름*을 선택 합니다.
 
 1. **감사 로그** 를 선택 하 여 조직에 대 한 감사 로그를 확인 합니다. 필요한 경우 필터를 지정할 수 있습니다.
 

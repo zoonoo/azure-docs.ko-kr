@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/15/2019
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72d87142f9b9c1f7bcb2b02281851bd1e29bc9c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78261988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84436189"
 ---
 Azure managed disks는 현재 4 개의 디스크 유형을 제공 합니다. 각 유형은 특정 고객 시나리오를 목표로 합니다.
 
@@ -26,7 +26,7 @@ Azure managed disks는 현재 4 개의 디스크 유형을 제공 합니다. 각
 |디스크 유형   |SSD   |SSD   |SSD   |HDD   |
 |시나리오   |[SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), 최상위 계층 데이터베이스 (예: SQL, Oracle) 및 기타 트랜잭션 집약적 워크 로드 등의 IO 집약적 워크 로드   |프로덕션 및 성능이 중요한 워크로드   |웹 서버, 적게 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트   |백업, 중요하지 않음, 가끔 액세스   |
 |최대 디스크 크기   |65536기비바이트(GiB)    |32,767GiB    |32,767GiB   |32,767GiB   |
-|최대 처리량   |2,000MiB/초    |900MiB/초   |750MiB/초   |500MiB/초   |
+|최대 처리량   |2,000MB/s    |900 m b/초   |750 m b/초   |500MB/s   |
 |최대 IOPS   |160,000    |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-disk"></a>Ultra disk

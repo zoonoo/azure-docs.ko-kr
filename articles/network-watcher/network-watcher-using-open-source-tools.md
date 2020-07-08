@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738637"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
 
@@ -84,7 +84,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
     ![filters][11]
 
-    모든 [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) capanalysis 기능에 대 한 자세한 내용은을 참조 하세요.
+    [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)모든 CapAnalysis 기능에 대 한 자세한 내용은을 참조 하세요.
 
 ## <a name="conclusion"></a>결론
 

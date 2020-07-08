@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488796"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "81604864"
 * Azure Express 경로 연결에서 리소스
 * 통합 하는 VNet의 리소스.
 * Azure Express 경로 연결을 포함 하는 피어 링 연결 간 리소스
-* 전용 끝점 
+* 프라이빗 엔드포인트 
 
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 다음과 같은 Azure 네트워킹 기능을 사용할 수 있습니다.
 
@@ -56,11 +56,7 @@ ms.locfileid: "81604864"
 
 다른 계획의 앱이 다른 계획의 앱에 이미 연결 되어 있는 VNet에 도달 하 게 하려면 기존 VNet 통합에서 사용 중인 것과 다른 서브넷을 선택 합니다.
 
-이 기능은 Linux 용 미리 보기 상태입니다. 기능의 Linux 형식은 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)를 호출 하는 것만 지원 합니다.
-
-### <a name="web-or-function-app-for-containers"></a>컨테이너에 대 한 웹 또는 함수 앱
-
-기본 제공 이미지를 사용 하 여 Linux에서 앱을 호스트 하는 경우에는 추가 변경 없이 지역 VNet 통합이 작동 합니다. 컨테이너에 웹 또는 함수 앱를 사용 하는 경우 VNet 통합을 사용 하도록 docker 이미지를 수정 해야 합니다. Docker 이미지에서 하드 코드 된 포트 번호를 사용 하는 대신 포트 환경 변수를 주 웹 서버의 수신 대기 포트로 사용 합니다. 포트 환경 변수는 컨테이너 시작 시 플랫폼에서 자동으로 설정 됩니다. SSH를 사용 하는 경우 지역 VNet 통합을 사용 하는 경우 SSH_PORT 환경 변수에 지정 된 포트 번호를 수신 하도록 SSH 디먼을 구성 해야 합니다. Linux에서 게이트웨이 필수 VNet 통합은 지원 되지 않습니다.
+이 기능은 Windows 및 Linux 웹 앱 모두에 대해 완벽 하 게 지원 됩니다. 모든 동작은 Windows 앱과 Linux 앱 간에 동일 하 게 작동 합니다.
 
 ### <a name="service-endpoints"></a>서비스 엔드포인트
 
@@ -92,7 +88,7 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 
 이러한 설정은 앱에서 Azure DNS 전용 영역을 사용 하도록 설정 하는 것 외에도 앱의 모든 아웃 바운드 호출을 VNet으로 보냅니다.
 
-### <a name="private-endpoints"></a>전용 끝점
+### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
 [전용 끝점][privateendpoints]에 대 한 호출을 수행 하려면 Azure DNS Private Zones와 통합 하거나 앱에서 사용 하는 DNS 서버에서 개인 끝점을 관리 해야 합니다. 
 

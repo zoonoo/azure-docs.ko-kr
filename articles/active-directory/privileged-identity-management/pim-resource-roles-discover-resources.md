@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4852f841fc9ac8ebea586d5e24967a1db20b8044
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74022886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743714"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Privileged Identity Management에서 관리할 Azure 리소스 검색
 
@@ -33,7 +33,7 @@ Azure 리소스에 대 한 Privileged Identity Management를 처음 설정 하�
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
     Azure 리소스에 대 한 Privileged Identity Management를 처음 사용 하는 경우 **리소스 검색** 페이지가 표시 됩니다.
 

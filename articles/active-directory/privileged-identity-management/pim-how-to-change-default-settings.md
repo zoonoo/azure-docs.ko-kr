@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 334f239ea8382a67add9655d4a25f98d254567d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743952"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -79,7 +79,7 @@ gt
 > [!NOTE]
 > 지정 된 종료 날짜가 있는 모든 할당은 전역 관리자 및 권한 있는 역할 관리자가 갱신할 수 있습니다. 또한 사용자는 [역할 할당을 확장 하거나 갱신](pim-resource-roles-renew-extend.md)하는 셀프 서비스 요청을 시작할 수 있습니다.
 
-## <a name="require-multi-factor-authentication"></a>Multi-Factor Authentication 필요
+## <a name="require-multi-factor-authentication"></a>다단계 인증 필요
 
 Privileged Identity Management는 서로 다른 두 가지 시나리오에 대해 선택적인 Azure Multi-Factor Authentication 적용을 제공합니다.
 
@@ -167,7 +167,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 **Multi-Factor Authentication** 스위치를 사용하여 사용자가 자신의 역할을 활성화하기 전에 MFA로 신원을 확인하도록 요구할지 여부를 지정할 수 있습니다. 세션 마다 한 번만 id를 확인 하면 되므로 역할을 활성화할 때마다 해당 id를 확인 해야 합니다. MFA를 사용할 때 염두에 두어야 할 두 가지가 있습니다.
 
-- 전자 메일 주소에 대 한 Microsoft 계정을 가진 사용자 ( @outlook.com일반적으로는 항상 그렇지는 않지만 항상 그렇지는 않음)는 Azure Multi-Factor Authentication에 등록할 수 없습니다. Microsoft 계정을 사용 하는 사용자에 게 역할을 할당 하려면 해당 역할에 대해 영구 관리자를 설정 하거나 multi-factor authentication을 사용 하지 않도록 설정 해야 합니다.
+- 전자 메일 주소에 대 한 Microsoft 계정을 가진 사용자 (일반적으로는 @outlook.com 항상 그렇지는 않지만 항상 그렇지는 않음)는 Azure Multi-Factor Authentication에 등록할 수 없습니다. Microsoft 계정을 사용 하는 사용자에 게 역할을 할당 하려면 해당 역할에 대해 영구 관리자를 설정 하거나 multi-factor authentication을 사용 하지 않도록 설정 해야 합니다.
 - Azure AD 및 Office 365에 대 한 높은 권한이 있는 역할에 대해서는 Azure Multi-Factor Authentication를 사용 하지 않도록 설정할 수 없습니다. 이 보안 기능은 다음 역할을 보호 하는 데 도움이 됩니다.  
   
   - Azure Information Protection 관리자

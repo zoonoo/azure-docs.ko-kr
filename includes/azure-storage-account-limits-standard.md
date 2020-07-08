@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/20/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 72afa8ebea4cb9bf07cb3ce56583cbdf1849be9e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: e2540bceab17e6f37fd94b28df3814ccffa1c81e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466832"
 ---
 다음 표에서는 Azure 범용 v1, v2, Blob 스토리지 및 블록 Blob 스토리지 계정의 기본 제한에 대해 설명합니다. *수신* 제한은 스토리지 계정에 보내는 모든 데이터를 나타냅니다. *송신* 제한은 스토리지 계정에서 받는 모든 데이터를 나타냅니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "83778190"
 | 최대 스토리지 계정 용량 | 5PiB<sup>1</sup>|
 | 스토리지 계정당 Blob 컨테이너, Blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지의 최대 수 | 제한 없음 |
 | 스토리지 계정당 최대 요청 속도<sup>1</sup> | 초당 20,000회 요청 |
-| 스토리지 계정당 최대 수신<sup>1</sup>(미국, 유럽 지역) | 25Gbps |
+| 스토리지 계정당 최대 수신<sup>1</sup>(미국, 유럽 지역) | 10Gbps |
 | 스토리지 계정당 최대 수신<sup>1</sup>(미국 및 유럽 이외의 지역) | RA-GRS/GRS를 사용하도록 설정한 경우 5Gbps, LRS/ZRS의 경우 10Gbps<sup>2</sup> |
 | 범용 v2 및 Blob 스토리지 계정에 대한 최대 송신(모든 지역) | 50Gbps |
 | 범용 v1 스토리지 계정에 대한 최대 송신(미국 지역) | RA-GRS/GRS를 사용하도록 설정한 경우 20Gbps, LRS/ZRS의 경우 30Gbps<sup>2</sup> |

@@ -4,19 +4,19 @@ description: Azure 개인 링크에 대 한 네트워크 정책을 사용 하지
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744343"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>개인 링크 서비스 원본 IP에 대해 네트워크 정책 사용 안 함
 
-개인 링크 서비스에 대 한 원본 IP 주소를 선택 하기 위해 서브넷에 명시적 사용 안 `privateLinkServiceNetworkPolicies` 함 설정이 필요 합니다. 이 설정은 개인 링크 서비스의 원본 IP로 선택한 특정 개인 IP 주소에만 적용 됩니다. 서브넷의 다른 리소스에 대 한 액세스는 NSG (네트워크 보안 그룹) 보안 규칙 정의를 기반으로 제어 됩니다. 
+개인 링크 서비스에 대 한 원본 IP 주소를 선택 하기 위해 서브넷에 명시적 사용 안 함 설정이 `privateLinkServiceNetworkPolicies` 필요 합니다. 이 설정은 개인 링크 서비스의 원본 IP로 선택한 특정 개인 IP 주소에만 적용 됩니다. 서브넷의 다른 리소스에 대 한 액세스는 NSG (네트워크 보안 그룹) 보안 규칙 정의를 기반으로 제어 됩니다. 
  
 Azure 클라이언트 (PowerShell, CLI 또는 템플릿)를 사용 하는 경우이 속성을 변경 하려면 추가 단계가 필요 합니다. Azure Portal 또는 Azure PowerShell의 로컬 설치 Azure CLI에서 cloud shell을 사용 하 여 정책을 사용 하지 않도록 설정 하거나 Azure Resource Manager 템플릿을 사용할 수 있습니다.  
  
@@ -24,13 +24,15 @@ Azure 클라이언트 (PowerShell, CLI 또는 템플릿)를 사용 하는 경우
 
 ## <a name="using-azure-powershell"></a>Azure PowerShell 사용
 이 섹션에서는 Azure PowerShell를 사용 하 여 서브넷 개인 끝점 정책을 사용 하지 않도록 설정 하는 방법을 설명 합니다.
+코드에서 "default"를 가상 서브넷의 이름으로 바꿉니다.
 
 ```azurepowershell
+$virtualSubnetName = "default"
 $virtualNetwork= Get-AzVirtualNetwork `
   -Name "myVirtualNetwork" ` 
-  -ResourceGroupName "myResourceGroup"  
+  -ResourceGroupName "myResourceGroup"
    
-($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled"  
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $virtualSubnetName} ).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```

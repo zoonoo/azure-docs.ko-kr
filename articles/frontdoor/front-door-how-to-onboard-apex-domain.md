@@ -4,22 +4,22 @@ description: Azure Portal를 사용 하 여 기존 Front 문에 root 또는 apex
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743595"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>프런트 도어에서 루트 또는 apex 도메인 등록
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Front Door에서 루트 또는 Apex 도메인 온보드
 Azure 전면 도어는 CNAME 레코드를 사용 하 여 사용자 지정 도메인의 등록을 위한 도메인 소유권의 유효성을 검사 합니다. 또한 Front 도어는 프런트 도어 프로필에 연결 된 프런트 엔드 IP 주소를 노출 하지 않으므로 apex 도메인을 IP 주소에 매핑할 수 없습니다 .이를 Azure Front 도어에 등록 하는 것입니다.
 
-DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 방지합니다. 예를 들어 도메인이 이면 `contoso.com`이 고, 그렇지 않으면입니다. 에 대 한 `somelabel.contoso.com`CNAME 레코드를 만들 수 있습니다. 그러나 자체에 대해서는 `contoso.com` CNAME을 만들 수 없습니다. 이 제한은 Azure Front 도어 뒤에 부하가 분산 된 응용 프로그램을 포함 하는 응용 프로그램 소유자에 게 문제를 제공 합니다. 앞 도어 프로필을 사용 하려면 CNAME 레코드를 만들어야 하므로 apex 영역에서 전방 도어 프로필을 가리킬 수 없습니다.
+DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 방지합니다. 예를 들어 도메인이 인 경우 `contoso.com` 에 대 한 cname 레코드를 만들 수 `somelabel.contoso.com` 있지만 자체에 대해서는 cname을 만들 수 없습니다 `contoso.com` . 이 제한은 Azure Front 도어 뒤에 부하가 분산 된 응용 프로그램을 포함 하는 응용 프로그램 소유자에 게 문제를 제공 합니다. 앞 도어 프로필을 사용 하려면 CNAME 레코드를 만들어야 하므로 apex 영역에서 전방 도어 프로필을 가리킬 수 없습니다.
 
-이 문제는 Azure DNS에 대 한 별칭 레코드를 사용 하 여 해결 됩니다. CNAME 레코드와 달리 별칭 레코드는 영역 apex에서 만들어지며 응용 프로그램 소유자는이 레코드를 사용 하 여 영역 apex 레코드를 공용 끝점이 있는 프런트 도어 프로필로 가리킬 수 있습니다. 응용 프로그램 소유자는 DNS 영역 내의 다른 도메인에 사용 되는 것과 동일한 Front 도어 프로필을 가리킵니다. 예를 `contoso.com` 들어 및 `www.contoso.com` 는 동일한 Front 도어 프로필을 가리킬 수 있습니다. 
+이 문제는 Azure DNS에 대 한 별칭 레코드를 사용 하 여 해결 됩니다. CNAME 레코드와 달리 별칭 레코드는 영역 apex에서 만들어지며 응용 프로그램 소유자는이 레코드를 사용 하 여 영역 apex 레코드를 공용 끝점이 있는 프런트 도어 프로필로 가리킬 수 있습니다. 응용 프로그램 소유자는 DNS 영역 내의 다른 도메인에 사용 되는 것과 동일한 Front 도어 프로필을 가리킵니다. 예를 들어 `contoso.com` 및는 `www.contoso.com` 동일한 Front 도어 프로필을 가리킬 수 있습니다. 
 
 Apex 또는 루트 도메인을 프런트 도어 프로필에 매핑하면 기본적으로 CNAME 평면화 또는 DNS 추적이 필요 합니다 .이는 DNS 공급자가 IP 주소에 도달할 때까지 CNAME 항목을 재귀적으로 확인 하는 메커니즘입니다. 이 기능은 전방 도어 끝점에 대 한 Azure DNS에서 지원 됩니다. 
 
@@ -48,12 +48,12 @@ Azure Portal를 사용 하 여 Front 문에 apex 도메인을 등록 하 고 TLS
 
     ![영역 apex에 대 한 별칭 레코드](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. 위의 단계에서는 프런트 도어 리소스를 가리키는 영역 apex 레코드를 만들고, 전면 도어 프로필에 도메인을 등록 하 `afdverify.contosonews.com` `afdverify.<name>.azurefd.net` 는 데 사용 되는 CNAME 레코드 매핑 ' afdverify ' (예:)를 만듭니다.
+6. 위의 단계에서는 프런트 도어 리소스를 가리키는 영역 apex 레코드를 만들고, `afdverify.contosonews.com` `afdverify.<name>.azurefd.net` 전면 도어 프로필에 도메인을 등록 하는 데 사용 되는 CNAME 레코드 매핑 ' afdverify ' (예:)를 만듭니다.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Front 문에 사용자 지정 도메인 등록
 
 1. 프런트 도어 디자이너 탭의 프런트 엔드 호스트 섹션에서 ' + ' 아이콘을 클릭 하 여 새 사용자 지정 도메인을 추가 합니다.
-2. 사용자 지정 호스트 이름 필드에 root 또는 apex 도메인 이름을 입력 합니다 (예 `contosonews.com`:).
+2. 사용자 지정 호스트 이름 필드에 root 또는 apex 도메인 이름을 입력 합니다 (예:) `contosonews.com` .
 3. 도메인에서 프런트 도어로의 CNAME 매핑을 확인 한 후 **추가** 를 클릭 하 여 사용자 지정 도메인을 추가 합니다.
 4. **저장** 을 클릭 하 여 변경 내용을 제출 합니다.
 

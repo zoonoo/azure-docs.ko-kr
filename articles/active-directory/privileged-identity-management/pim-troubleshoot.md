@@ -7,18 +7,18 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474f2634e6f7ddc1840548c39ae86cb54c3bf08e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d2ba5806e23aa87e5d7787be300512444f95b25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78299689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742150"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Privileged Identity Management 문제 해결
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD)의 Privileged Identity Management (PIM)에 문
 
 ## <a name="access-to-azure-resources-denied"></a>Azure 리소스에 대 한 액세스가 거부 되었습니다.
 
-### <a name="problem"></a>문제점
+### <a name="problem"></a>문제
 
 Azure 리소스에 대 한 활성 소유자 또는 사용자 액세스 관리자는 Privileged Identity Management 내에서 리소스를 볼 수 있지만 적격 할당을 수행 하거나 리소스 개요 페이지에서 역할 할당 목록을 보는 등의 작업을 수행할 수 없습니다. 이러한 작업으로 인해 권한 부여 오류가 발생 합니다.
 

@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42d931206e99516e0320d0cbedd0812389ee41aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75932329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742167"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Privileged Identity Management를 사용하기 위한 라이선스 요구 사항
 
@@ -32,9 +32,9 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-## <a name="how-many-licenses-must-you-have"></a>필요한 라이선스 수는 몇 개입니까?
+## <a name="how-many-licenses-must-you-have"></a>몇 개의 라이선스가 있어야 하나요?
 
-다음 작업을 수행 하는 직원이 있으므로 디렉터리에 적어도 Azure AD Premium P2 라이선스가 있는지 확인 합니다.
+디렉터리에 다음 작업을 수행할 직원 수만큼 Azure AD Premium P2 라이선스가 있어야 합니다.
 
 - PIM을 사용 하 여 관리 되는 Azure AD 역할에 적격으로 할당 된 사용자
 - PIM에서 활성화 요청을 승인 하거나 거부할 수 있는 사용자
@@ -42,15 +42,15 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 - 액세스 검토에 할당된 사용자
 - 액세스 검토를 수행하는 사용자
 
-Azure AD Premium P2 라이선스는 다음 작업에 필요 **하지 않습니다** .
+Azure AD Premium P2 라이선스가 필요하지 **않은** 작업은 다음과 같습니다.
 
 - PIM을 설정 하 고, 정책을 구성 하 고, 경고를 수신 하 고, 액세스 검토를 설정 하는 전역 관리자 또는 권한 있는 역할 관리자 역할이 있는 사용자에 게는 라이선스가 필요 하지 않습니다.
 
-라이선스에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조 하세요.
+라이선스에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
 
-## <a name="example-license-scenarios"></a>예제 라이선스 시나리오
+## <a name="example-license-scenarios"></a>라이선스 시나리오 예
 
-다음은 보유 해야 하는 라이선스 수를 결정 하는 데 도움이 되는 몇 가지 예제 라이선스 시나리오입니다.
+필요한 라이선스 수를 결정하는 데 도움이 되는 몇 가지 라이선스 시나리오 예는 다음과 같습니다.
 
 | 시나리오 | 계산 | 라이선스 수 |
 | --- | --- | --- |

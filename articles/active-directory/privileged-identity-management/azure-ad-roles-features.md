@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742864"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 관리 기능
 
@@ -56,9 +56,9 @@ Privileged Identity Management에서 Azure AD 역할에 대 한 관리 환경은
 
 ## <a name="api-changes"></a>API 변경 내용
 
-고객이 Azure AD 조직에 업데이트 된 버전을 롤아웃할 때 기존 graph API의 작동이 중지 됩니다. [Azure 리소스 역할에 대 한 Graph API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta)를 사용 하려면로 전환 해야 합니다. 해당 API를 사용 하 여 Azure AD 역할을 `/azureResources` 관리 `/aadroles` 하려면 서명에서로 바꾸고의 `resourceId`디렉터리 ID를 사용 합니다.
+고객이 Azure AD 조직에 업데이트 된 버전을 롤아웃할 때 기존 graph API의 작동이 중지 됩니다. [Azure 리소스 역할에 대 한 Graph API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta)를 사용 하려면로 전환 해야 합니다. 해당 API를 사용 하 여 Azure AD 역할을 관리 하려면 `/azureResources` `/aadroles` 서명에서로 바꾸고의 디렉터리 ID를 사용 합니다 `resourceId` .
 
-이전 API를 사용 하는 모든 고객에 게 연락 하 여 이러한 변경 사항을 미리 파악 하는 것이 가장 좋습니다. Azure AD 조직이 새 버전으로 이동 했 고 여전히 이전 API에 의존 하는 경우의 팀에 문의 pim_preview@microsoft.com하세요.
+이전 API를 사용 하는 모든 고객에 게 연락 하 여 이러한 변경 사항을 미리 파악 하는 것이 가장 좋습니다. Azure AD 조직이 새 버전으로 이동 했 고 여전히 이전 API에 의존 하는 경우의 팀에 문의 pim_preview@microsoft.com 하세요.
 
 ## <a name="powershell-change"></a>PowerShell 변경
 

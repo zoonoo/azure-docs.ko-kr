@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742269"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 감사 기록 보기
 
@@ -88,14 +88,14 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 
     페이지의 맨 아래에는 사용 가능한 감사 기록의 각 작업에 대 한 정보가 포함 된 테이블이 표시 됩니다. 열에는 다음과 같은 의미가 있습니다.
 
-    | 열 | Description |
+    | Column | Description |
     | --- | --- |
-    | 시간 | 작업이 발생 한 시간입니다. |
+    | Time | 작업이 발생 한 시간입니다. |
     | Requestor | 역할 활성화 또는 변경을 요청한 사용자입니다. 값이 **Azure System**이면 azure 감사 기록에서 자세한 내용을 확인 합니다. |
     | 작업 | 요청자에 의해 수행 된 작업입니다. 작업에는 Assign, 할당 취소, 활성화, 비활성화 또는 AddedOutsidePIM이 포함 될 수 있습니다. |
     | 멤버 | 역할을 활성화 하거나 역할에 할당 된 사용자입니다. |
     | 역할 | 사용자가 할당 하거나 활성화 한 역할입니다. |
-    | 추론 | 활성화 하는 동안 이유 필드에 입력 한 텍스트입니다. |
+    | 지각 장애 | 활성화 하는 동안 이유 필드에 입력 한 텍스트입니다. |
     | 만료 | 활성화 된 역할이 만료 되는 경우 적격 역할 할당에만 적용 됩니다. |
 
 1. 감사 기록을 정렬 하려면 **시간**, **작업**및 **역할** 단추를 클릭 합니다.
@@ -117,7 +117,7 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>승인 이벤트에 대 한 이유, 승인자 및 티켓 번호를 가져옵니다.
 
 1. 권한 있는 역할 관리자 역할 권한을 사용 하 여 [Azure Portal](https://aad.portal.azure.com) 에 로그인 하 고 Azure AD를 엽니다.
-1. **감사 로그**를 선택 합니다.
+1. **감사 로그**를 선택합니다.
 1. **서비스** 필터를 사용 하 여 권한 있는 id 관리 서비스에 대 한 감사 이벤트만 표시 합니다. **감사 로그** 페이지에서 다음을 수행할 수 있습니다.
 
     - **상태 이유** 열에서 감사 이벤트의 이유를 참조 하세요.

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 방호를 사용 하 여 Windows를 실�
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6ec60dc313c8a4374637adf38ea0e5a7d4ed964b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79eb09a005f62846fc2f7e3e7b493d5e366edabc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744326"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Azure 방호를 사용 하 여 Windows 가상 머신에 연결
 
@@ -46,7 +46,7 @@ Windows VM에 연결 하려면 다음 포트가 Windows VM에서 열려 있어�
 1. 요새를 클릭 하면 RDP, SSH 및 방호의 3 개 탭이 있는 사이드 막대가 나타납니다. 가상 네트워크에 대해 방호를 프로 비전 한 경우에는 기본적으로 방호 탭이 활성화 됩니다. 가상 네트워크에 대 한 방호를 프로 비전 하지 않은 경우에는 링크를 클릭 하 여 요새를 구성할 수 있습니다. 구성 지침은 [요새 구성](bastion-create-host-portal.md)을 참조 하세요.
 
    ![요새 탭](./media/bastion-connect-vm-rdp/bastion.png)
-1. 요새 탭에서 가상 머신에 대 한 사용자 이름 및 암호를 입력 한 다음 **연결**을 클릭 합니다. 이 가상 머신에 대 한 RDP 연결은 포트 443 및 요새 서비스를 사용 하 여 Azure Portal (HTML5 이상)에서 직접 열립니다.
+1. 요새 탭에서 가상 머신에 대 한 사용자 이름 및 암호를 입력 한 다음 **연결**을 클릭 합니다. 이 가상 머신에 대한 RDP 연결은 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다(HTML5를 통해).
 
    ![RDP 연결](./media/bastion-connect-vm-rdp/443rdp.png)
  

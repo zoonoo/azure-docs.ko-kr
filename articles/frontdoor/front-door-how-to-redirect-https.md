@@ -4,15 +4,15 @@ description: Azure Portal를 사용 하 여 HTTP에서 HTTPS로 리디렉션된 
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05699c827af251b890de4c6f195df5872bfbe364
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743612"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal를 사용 하 여 HTTP에서 HTTPS로 리디렉션하는 프런트 도어 만들기
 
@@ -40,19 +40,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      ![전면 도어 구성 디자이너](./media/front-door-url-redirect/front-door-designer.png)
 
-6. 프런트 엔드 호스트**+** 에서 ' ' 아이콘을 _클릭 하 여_ 프런트 도어 (`\<**name**\>.azurefd.net`)의 기본 프런트 엔드 호스트에 대해 전역적으로 고유한 이름을 입력 합니다. **추가** 를 클릭 하 여 다음 단계로 이동 합니다.
+6. 프런트 엔드 호스트 **+** 에서 ' ' 아이콘 _Frontend hosts_ 을 클릭 하 여 프런트 도어 ()의 기본 프런트 엔드 호스트에 대해 전역적으로 고유한 이름을 입력 `\<**name**\>.azurefd.net` 합니다. **추가** 를 클릭 하 여 다음 단계로 이동 합니다.
 
      ![프런트 엔드 호스트 추가](./media/front-door-url-redirect/front-door-create-fehost.png)
 
-7. 백 엔드 풀**+** 에서 ' ' 아이콘을 _클릭 하 여_ 백 엔드 풀을 만듭니다. 백 엔드 풀의 이름을 입력 한 다음 '**백 엔드 추가**'를 클릭 합니다.
+7. 백 엔드 풀 **+** 에서 ' ' 아이콘 _Backend pools_ 을 클릭 하 여 백 엔드 풀을 만듭니다. 백 엔드 풀의 이름을 입력 한 다음 '**백 엔드 추가**'를 클릭 합니다.
 8. 백 엔드 호스트 유형을 _App service_로 선택 합니다. 웹 앱이 호스트 되는 구독을 선택한 다음 **백 엔드 호스트 이름**드롭다운에서 특정 웹 앱을 선택 합니다.
 9. **추가** 를 클릭 하 여 백 엔드를 저장 하 고 **추가** 를 다시 클릭 하 여 백 엔드 풀 구성을 저장 합니다.   ![백 엔드 풀에 백 엔드 추가](./media/front-door-url-redirect/front-door-create-backendpool.png)
 
-10. _라우팅 규칙_ 에서**+**' ' 아이콘을 클릭 하 여 경로를 만듭니다. 경로 이름 (예를 들어, ' HttpToHttpsRedirect ')을 입력 한 다음 _허용 된 프로토콜_ 필드를 **' HTTP l o n '** 으로 설정 합니다. 적절 한 _프런트 엔드 호스트가_ 선택 되어 있는지 확인 합니다.  
+10. **+** _라우팅 규칙_ 에서 ' ' 아이콘을 클릭 하 여 경로를 만듭니다. 경로 이름 (예를 들어, ' HttpToHttpsRedirect ')을 입력 한 다음 _허용 된 프로토콜_ 필드를 **' HTTP l o n '** 으로 설정 합니다. 적절 한 _프런트 엔드 호스트가_ 선택 되어 있는지 확인 합니다.  
 11. _경로 세부 정보_ 섹션에서 _경로 유형을_ **리디렉션**으로 설정 하 고, 리디렉션 _유형이_ **Found (302)** 로 설정 되 고, _리디렉션 프로토콜이_ **HTTPS로만**설정 되어 있는지 확인 합니다. 
 12. 추가를 클릭 하 여 HTTP에 대 한 라우팅 규칙을 HTTPS 리디렉션에 저장 합니다.
      ![HTTPS 리디렉션 경로에 HTTP 추가](./media/front-door-url-redirect/front-door-redirect-config-example.png)
-13. HTTPS 트래픽을 처리 하는 또 다른 라우팅 규칙을 추가 합니다. _라우팅 규칙_ 에**+** 대 한 ' ' 기호를 클릭 하 고 경로 이름 (예를 들어, ' DefaultForwardingRoute ')을 지정한 다음 _허용 된 프로토콜_ 필드를 **' HTTPS 전용 '** 으로 설정 합니다. 적절 한 _프런트 엔드 호스트가_ 선택 되어 있는지 확인 합니다.
+13. HTTPS 트래픽을 처리 하는 또 다른 라우팅 규칙을 추가 합니다. **+** _라우팅 규칙_ 에 대 한 ' ' 기호를 클릭 하 고 경로 이름 (예를 들어, ' DefaultForwardingRoute ')을 지정한 다음 _허용 된 프로토콜_ 필드를 **' HTTPS 전용 '** 으로 설정 합니다. 적절 한 _프런트 엔드 호스트가_ 선택 되어 있는지 확인 합니다.
 14. 경로 정보 섹션에서 _경로 유형_ 을 **전달**로 설정 하 고, 올바른 백 엔드 풀이 선택 되어 있고 _전달 프로토콜이_ **HTTPS로만**설정 되어 있는지 확인 합니다. 
 15. 추가를 클릭 하 여 요청 전달에 대 한 라우팅 규칙을 저장 합니다.
      ![HTTPS 트래픽에 대 한 전달 경로 추가](./media/front-door-url-redirect/front-door-forward-route-example.png)
@@ -63,13 +63,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="add-a-custom-domain"></a>사용자 지정 도메인 추가
 
-이 예에서는 하위 `www` 도메인에 대 한 CNAME 레코드를 추가 합니다 (예: `www.contosonews.com`).
+이 예에서는 하위 도메인에 대 한 CNAME 레코드를 추가 `www` 합니다 (예: `www.contosonews.com` ).
 
 #### <a name="create-the-cname-record"></a>CNAME 레코드 만들기
 
-CNAME 레코드를 추가 하 여 프런트 도어의 기본 프런트 엔드 호스트 (`<name>.azurefd.net`, 여기서 `<name>` 은 전방 도어 프로필의 이름)에 하위 도메인을 매핑합니다.
+CNAME 레코드를 추가 하 여 프런트 도어의 기본 프런트 엔드 호스트 ( `<name>.azurefd.net` , 여기서 `<name>` 은 전방 도어 프로필의 이름)에 하위 도메인을 매핑합니다.
 
-예를 `www.contoso.com` 들어 도메인의 경우 이름을 `www` 에 `<name>.azurefd.net`매핑하는 CNAME 레코드를 추가 합니다.
+예를 들어 도메인의 경우 `www.contoso.com` 이름을에 매핑하는 CNAME 레코드를 추가 `www` `<name>.azurefd.net` 합니다.
 
 CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니다.
 
@@ -78,7 +78,7 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 #### <a name="onboard-the-custom-domain-on-your-front-door"></a>Front 문에 사용자 지정 도메인 등록
 
 1. 프런트 도어 디자이너 탭의 프런트 엔드 호스트 섹션에서 ' + ' 아이콘을 클릭 하 여 새 사용자 지정 도메인을 추가 합니다. 
-2. 사용자 지정 호스트 이름 필드에 정규화 된 사용자 지정 DNS 이름을 입력 합니다 ( `www.contosonews.com`예:). 
+2. 사용자 지정 호스트 이름 필드에 정규화 된 사용자 지정 DNS 이름을 입력 합니다 (예:) `www.contosonews.com` . 
 3. 도메인에서 프런트 도어로의 CNAME 매핑을 확인 한 후 **추가** 를 클릭 하 여 사용자 지정 도메인을 추가 합니다.
 4. **저장** 을 클릭 하 여 변경 내용을 제출 합니다.
 
@@ -94,7 +94,7 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 4. 몇 분 후에 **새로 고침** 을 클릭 한 다음 사용자 지정 도메인을 다시 클릭 하 여 인증서 프로 비전의 진행 상황을 확인 합니다. 
 
 > [!WARNING]
-> 사용자 지정 도메인에 대해 HTTPS를 사용 하도록 설정 하는 데는 몇 분 정도 걸릴 수 있으며 CNAME이 프런트 도어 호스트 `<name>.azurefd.net`에 직접 매핑되지 않는 경우 도메인 소유권 유효성 검사에 따라서도 달라 집니다. [사용자 지정 도메인에 대해 HTTPS를 사용 하도록 설정 하는 방법](./front-door-custom-domain-https.md)에 대해 자세히 알아보세요.
+> 사용자 지정 도메인에 대해 HTTPS를 사용 하도록 설정 하는 데는 몇 분 정도 걸릴 수 있으며 CNAME이 프런트 도어 호스트에 직접 매핑되지 않는 경우 도메인 소유권 유효성 검사에 따라서도 달라 집니다 `<name>.azurefd.net` . [사용자 지정 도메인에 대해 HTTPS를 사용 하도록 설정 하는 방법](./front-door-custom-domain-https.md)에 대해 자세히 알아보세요.
 
 ## <a name="configure-the-routing-rules-for-the-custom-domain"></a>사용자 지정 도메인에 대 한 라우팅 규칙 구성
 

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 방호를 사용 하 여 Azure 가상 머
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 290a20fcd827841c24983f3bdd54b6db8e154462
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3dc7ce36e773b5a615b1abf4f50406fcb07826b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744309"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Azure 방호를 사용 하 여 가상 머신 확장 집합에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "80619333"
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결 하려는 가상 머신 확장 집합으로 이동 합니다.
 
-   ![탐색](./media/bastion-connect-vm-scale-set/1.png)
+   ![이동](./media/bastion-connect-vm-scale-set/1.png)
 2. 연결 하려는 가상 머신 확장 집합 인스턴스로 이동한 다음 **연결**을 선택 합니다. RDP 연결을 사용 하는 경우 가상 머신 확장 집합은 Windows 가상 머신 확장 집합 이어야 합니다.
 
    ![가상 머신 확장 집합](./media/bastion-connect-vm-scale-set/2.png)
@@ -35,9 +35,9 @@ ms.locfileid: "80619333"
    ![요새 탭](./media/bastion-connect-vm-scale-set/3.png)
 4. 요새 탭에서 가상 머신 확장 집합에 대 한 사용자 이름 및 암호를 입력 하 고 **연결**을 선택 합니다.
 
-   ![connect](./media/bastion-connect-vm-scale-set/4.png)
-5. 이 가상 머신에 대 한 RDP 연결은 포트 443 및 요새 서비스를 사용 하 여 Azure Portal (HTML5 이상)에서 직접 열립니다.
+   ![연결](./media/bastion-connect-vm-scale-set/4.png)
+5. 이 가상 머신에 대한 RDP 연결은 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다(HTML5를 통해).
 
 ## <a name="next-steps"></a>다음 단계
 
-[요새 FAQ](bastion-faq.md)를 읽어 보세요.
+[Bastion FAQ](bastion-faq.md)를 참조하세요.

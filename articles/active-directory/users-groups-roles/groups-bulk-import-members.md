@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b83b0687db72c78a0c7788933acf07f5cb9e0ed
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 755e59a029b0a12e51db53c6c7d3bb00358af635
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742015"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Azure Active Directory에서 대량으로 그룹 구성원 추가
 
@@ -44,6 +44,7 @@ Azure AD(Azure Active Directory) 포털에서 CSV(쉼표로 구분된 값) 파�
 - 필수 열이 먼저 나열되어 있습니다.
 - 템플릿에는 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
 - 가능한 한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
+- 파일을 성공적으로 업로드 하려면 사용자의 Upn 또는 개체 Id를 두 개 이상 추가 합니다.
 
 ## <a name="to-bulk-import-group-members"></a>그룹 구성원을 대량으로 가져오려면
 

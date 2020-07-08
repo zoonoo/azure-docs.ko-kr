@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 방호 진단 로그를 사용 하도록 
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 4b71dba02a311b8fa6a16645364f90d7632693a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744207"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>요새 리소스 로그 사용 및 사용
 
@@ -79,4 +79,4 @@ ms.locfileid: "82131269"
 
 ## <a name="next-steps"></a>다음 단계
 
-[요새 FAQ](bastion-faq.md)를 읽어 보세요.
+[Bastion FAQ](bastion-faq.md)를 참조하세요.

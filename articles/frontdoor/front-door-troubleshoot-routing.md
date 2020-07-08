@@ -9,15 +9,15 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 962c884eb8adc05e5d50b6b254d5c3f0b18af556
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743578"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>일반적인 라우팅 문제 해결
 
@@ -39,7 +39,7 @@ ms.locfileid: "79471509"
 
 - 프런트 도어를 거치지 않고 백 엔드에 직접 요청을 보내고 백 엔드가 응답 하는 데 걸리는 일반적인 시간을 확인 합니다.
 - 전면 도어를 통해 요청을 보내고 503 응답이 있는지 확인 합니다. 그렇지 않으면 시간 제한 문제가 아닐 수 있습니다. 지원 담당자에게 문의하세요.
-- 프런트 도어를 통해 503 오류 응답 코드를 반환 하는 경우, 기본 시간 제한을 최대 4 분 (240 초)으로 연장 하도록 Front 문에 대 한 sendReceiveTimeout 필드를 구성 합니다. 설정은 아래에 `backendPoolSettings` 있고가 호출 `sendRecvTimeoutSeconds`됩니다. 
+- 프런트 도어를 통해 503 오류 응답 코드를 반환 하는 경우, 기본 시간 제한을 최대 4 분 (240 초)으로 연장 하도록 Front 문에 대 한 sendReceiveTimeout 필드를 구성 합니다. 설정은 아래에 `backendPoolSettings` 있고가 호출 됩니다 `sendRecvTimeoutSeconds` . 
 
 ## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>사용자 지정 도메인으로 전송 된 요청은 400 상태 코드를 반환 합니다.
 

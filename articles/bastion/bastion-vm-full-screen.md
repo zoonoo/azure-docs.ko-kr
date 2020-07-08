@@ -4,15 +4,15 @@ description: 이 문서에서는 보기를 전체 화면으로 변경 하는 방
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 2e72eb9ffc3affa0bf09692ac0780f9310308521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4aa2c5aa3f40802db7be64eeb778866819bfe67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744224"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Vm 세션의 전체 화면 보기로 변경: Azure 방호
 
@@ -32,5 +32,5 @@ ms.locfileid: "80619286"
  
 ## <a name="next-steps"></a>다음 단계
 
-[요새 FAQ](bastion-faq.md)를 읽어 보세요.
+[Bastion FAQ](bastion-faq.md)를 참조하세요.
 Azure VM에서 [복사 하 여 붙여 넣는](bastion-vm-copy-paste.md) 방법에 대해 알아봅니다.

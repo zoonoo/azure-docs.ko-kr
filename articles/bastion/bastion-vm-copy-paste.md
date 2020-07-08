@@ -4,15 +4,15 @@ description: 이 문서에서는 요새를 사용 하 여 Azure VM에서 복사 
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 8580b7e28c8a4860739efa0763ebb7c20a80585e
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 4e818617b70e874153e026bcf40b6dfee8a8e04e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744241"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 컴퓨터에 복사 하 여 붙여넣기: Azure 방호
 
@@ -60,4 +60,4 @@ ms.locfileid: "82780286"
  
 ## <a name="next-steps"></a>다음 단계
 
-[요새 FAQ](bastion-faq.md)를 읽어 보세요.
+[Bastion FAQ](bastion-faq.md)를 참조하세요.

@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8607f1a687f2979c37c67099874288c6c5ead164
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64fb692c7ef896e643db603a6fbc3948cc4b3a11
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77647495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749652"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Azure Database Migration Service란 무엇인가요?
 
@@ -23,7 +23,7 @@ Azure Database Migration Service는 가동 중지 시간 (온라인 마이그레
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>익숙한 도구로 Azure에 데이터베이스 마이그레이션
 
-Azure Database Migration Service는 기존 도구 및 서비스의 일부 기능을 통합 합니다. 고객에게 포괄적이고 항상 사용 가능한 솔루션을 제공합니다. 서비스는 [Data Migration Assistant](https://aka.ms/dma)를 사용하여 마이그레이션을 수행하기 전에 필요한 변경 사항을 안내하는 권장 사항을 제공하는 평가 보고서를 생성합니다. 필요한 모든 수정 작업을 수행하는 것은 사용자의 몫입니다. 마이그레이션 프로세스를 시작할 준비가 되 면 Azure Database Migration Service 필요한 모든 단계를 수행 합니다. 프로세스가 Microsoft에서 확인한 모범 사례를 활용한다는 사실에 안심하고 마이그레이션 프로젝트를 시작하고 잊어버릴 수 있습니다.
+Azure Database Migration Service는 기존 도구 및 서비스의 일부 기능을 통합 합니다. 고객에게 포괄적이고 항상 사용 가능한 솔루션을 제공합니다. 서비스는 [Data Migration Assistant](https://aka.ms/dma)를 사용하여 마이그레이션을 수행하기 전에 필요한 변경 사항을 안내하는 권장 사항을 제공하는 평가 보고서를 생성합니다. 필요한 모든 수정 작업을 수행하는 것은 사용자의 몫입니다. 마이그레이션 프로세스를 시작할 준비가 되 면 Azure Database Migration Service 필요한 모든 단계를 수행 합니다. 프로세스가 Microsoft에서 확인한 모범 사례를 활용한다는 사실에 안심하고 마이그레이션 프로젝트를 시작하고 잊어버릴 수 있습니다. 
 
 > [!NOTE]
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
