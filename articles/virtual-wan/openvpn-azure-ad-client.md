@@ -4,17 +4,17 @@ description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN
 services: vpn-gateway
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 03/27/2020
+ms.topic: how-to
+ms.date: 06/26/2020
 ms.author: alzam
-ms.openlocfilehash: edb509d43742aeecf74107ae8cb625aeafbccb9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf507ff75d88ac4c549233e50a44ea60ab212886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482992"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결용 VPN 클라이언트 구성: Azure AD 인증
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성: Azure AD 인증
 
 이 문서에서는 지점 및 사이트 간 VPN 및 Azure Active Directory 인증을 사용 하 여 가상 네트워크에 연결 하도록 VPN 클라이언트를 구성 하는 방법을 설명 합니다. Azure AD를 사용 하 여 연결 하 고 인증 하려면 먼저 Azure AD 테 넌 트를 구성 해야 합니다. 자세한 내용은 [AZURE AD 테 넌 트 구성](openvpn-azure-ad-tenant.md)을 참조 하세요.
 
@@ -66,55 +66,55 @@ ms.locfileid: "80385624"
 
 1. 페이지에서 **가져오기**를 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기**를 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. 프로필 이름을 지정하고, **저장**을 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. **연결**을 선택하여 VPN에 연결합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨**으로 표시됩니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="to-delete-a-client-profile"></a><a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
 1. 삭제할 클라이언트 프로필 옆에 있는 줄임표를 선택 합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>연결 만들기
 
-1. 페이지에서를 선택 하 **+** 고 **+ 추가**를 선택 합니다.
+1. 페이지에서 **+** 를 선택 하 고 **+ 추가**를 선택 합니다.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![연결](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. 연결 정보를 입력 합니다. 값이 확실 하지 않은 경우 관리자에 게 문의 하십시오. 값을 입력 한 후 **저장**을 선택 합니다.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![연결](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. **연결**을 선택하여 VPN에 연결합니다.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![연결](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. 적절 한 자격 증명을 선택한 다음 **계속**을 선택 합니다.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![연결](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. 성공적으로 연결 되 면 아이콘은 녹색으로 바뀌고 **연결 된**것을 말합니다.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![연결](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>자동으로 연결 하려면
 
@@ -158,7 +158,7 @@ ms.locfileid: "80385624"
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>VPN 클라이언트에 DNS 접미사를 추가 어떻게 할까요??
 
-다운로드 한 프로필 XML 파일을 수정 하 고 ** \<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** 태그를 추가할 수 있습니다.
+다운로드 한 프로필 XML 파일을 수정 하 고 태그를 ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** 추가할 수 있습니다.
 
 ```
 <azvpnprofile>
@@ -176,7 +176,7 @@ ms.locfileid: "80385624"
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>VPN 클라이언트에 사용자 지정 DNS 서버를 추가 어떻게 할까요??
 
-다운로드 한 프로필 XML 파일을 수정 하 고 ** \<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** 태그를 추가할 수 있습니다.
+다운로드 한 프로필 XML 파일을 수정 하 고 태그를 ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** 추가할 수 있습니다.
 
 ```
 <azvpnprofile>
@@ -192,12 +192,12 @@ ms.locfileid: "80385624"
 ```
 
 > [!NOTE]
-> OpenVPN Azure AD 클라이언트는 DNS 서버 NRPT (이름 확인 정책 테이블) 항목을 사용 합니다. 즉, DNS 서버는의 `ipconfig /all`출력에 나열 되지 않습니다. 사용 중인 DNS 설정을 확인 하려면 PowerShell에서 [get-dnsclientnrptpolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) 를 참조 하세요.
+> OpenVPN Azure AD 클라이언트는 DNS 서버 NRPT (이름 확인 정책 테이블) 항목을 사용 합니다. 즉, DNS 서버는의 출력에 나열 되지 않습니다 `ipconfig /all` . 사용 중인 DNS 설정을 확인 하려면 PowerShell에서 [get-dnsclientnrptpolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) 를 참조 하세요.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>VPN 클라이언트에 사용자 지정 경로를 추가 어떻게 할까요??
 
-다운로드 한 프로필 XML 파일을 수정 하 고 ** \<includeroutes>\<route>\<destination>\<mask> \</tdestination>\</sv>\< \<** /s>>태그를 추가할 수 있습니다.
+다운로드 한 프로필 XML 파일을 수정 하 고 태그를 ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** 추가할 수 있습니다.
 
 ```
 <azvpnprofile>
@@ -212,10 +212,30 @@ ms.locfileid: "80385624"
 </clientconfig>
 </azvpnprofile>
 ```
+### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-force-tunnel"></a>모든 트래픽을 VPN 터널 (강제 터널)로 직접 어떻게 할까요??
+
+다운로드 한 프로필 XML 파일을 수정 하 고 태그를 ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** 추가할 수 있습니다.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <includeroutes>
+        <route>
+            <destination>0.0.0.0</destination><mask>1</mask>
+        </route>
+        <route>
+            <destination>128.0.0.0</destination><mask>1</mask>
+        </route>
+    </includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>VPN 클라이언트에서 경로를 차단 (제외) 어떻게 할까요??
 
-다운로드 한 프로필 XML 파일을 수정 하 고 ** \<excluderoutes>\<route>\<destination>\<mask> \</tdestination>\</sv>\< \<** /s>>태그를 추가할 수 있습니다.
+다운로드 한 프로필 XML 파일을 수정 하 고 태그를 ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** 추가할 수 있습니다.
 
 ```
 <azvpnprofile>

@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78267895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483604"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -65,7 +65,7 @@ Azure NetApp Files를 사용 하 여 볼륨에 대 한 주문형 스냅숏을 �
         
         파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
 
-    * **양보다**  
+    * **할당량**  
         볼륨에 할당되는 논리 스토리지의 크기를 지정합니다.  
 
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504323"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 
@@ -52,6 +52,8 @@ ms.locfileid: "80478313"
     b. Installation_Directory/Vx/bin/uninstall.sh 파일을 열고 **stop_services** 함수에 대한 호출을 주석으로 처리합니다.
     다. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
     d. 모바일 에이전트를 [제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) 합니다. 제거가 완료되면 시스템을 다시 부팅한 다음, 모바일 에이전트를 다시 설치해봅니다.
+
+8. 사용자 계정에 대해 multi-factor authentication을 사용 하도록 설정 하지 않았는지 확인 합니다. Azure Site Recovery는 현재 사용자 계정에 대 한 multi-factor authentication을 지원 하지 않습니다. Multi-factor authentication을 사용 하도록 설정 된 사용자 계정을 사용 하지 않고 구성 서버를 등록 합니다.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>설치 오류: 계정을 로드 하지 못했습니다.
 
@@ -95,9 +97,9 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
-설정 | 세부 정보
+Setting | 설명
 --- | ---
-사용 | UnifiedAgentConfigurator.exe  /CSEndPoint <구성 서버 IP 주소\> /PassphraseFilePath <암호 파일 경로\>
+사용량 | UnifiedAgentConfigurator.exe  /CSEndPoint <구성 서버 IP 주소\> /PassphraseFilePath <암호 파일 경로\>
 에이전트 구성 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log 아래에 있습니다.
 /CSEndPoint | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 /PassphraseFilePath |  필수. 암호의 위치입니다. 유효한 UNC 또는 로컬 파일 경로를 사용합니다.
@@ -110,9 +112,9 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
 
-설정 | 세부 정보
+Setting | 설명
 --- | ---
-사용 | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <구성 서버 IP 주소\> -P <암호 파일 경로\>
+사용량 | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <구성 서버 IP 주소\> -P <암호 파일 경로\>
 -i | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 -P |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
@@ -191,7 +193,7 @@ AAD(Azure Active Directory)에서 [OVA(Open Virtualization Application)](vmware-
 이 문제를 해결하려면 Azure Portal에 로그인하고 다음 중 하나를 수행합니다.
 
 - AAD에서 애플리케이션 개발자 역할을 요청합니다. 애플리케이션 개발자 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
-- AAD에서 **사용자가 애플리케이션을 만들 수 있음** 플래그를 *true*로 설정했는지 확인합니다. 자세한 내용은 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)를 참조 하세요.
+- AAD에서 **사용자가 애플리케이션을 만들 수 있음** 플래그를 *true*로 설정했는지 확인합니다. 자세한 내용은 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)를 참조 하세요.
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>프로세스 서버/마스터 대상이 구성 서버와 통신할 수 없음 
 
@@ -203,7 +205,7 @@ PS(프로세스 서버) 및 MT(마스터 대상) 모듈이 CS(구성 서버)와 
 
 마스터 대상 에이전트가 구성 서버 IP의 TCP 세션을 만들 수 있는지 확인하려면 마스터 대상 에이전트 로그에서 다음과 유사한 추적을 찾습니다.
 
-TCP \<는 IP를 cs ip로 바꿉니다. 52739 \<>에서 ip를 cs ip로 바꿉니다>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here>:52739 \<Replace IP with CS IP here>:443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // 여기서 IP를 CS IP로 교체
 

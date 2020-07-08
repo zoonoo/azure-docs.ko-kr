@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67357032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504341"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
  
@@ -61,7 +61,7 @@ ms.locfileid: "67357032"
 | 데이터 사전 처리                           | 아니요                         | 예, Edge 컴퓨팅 사용    | 예                                                           |
 | 로컬 캐시<br>(온-프레미스 데이터 저장)    | 예                        | 예                      | 아니요                                                            |
 | 다른 클라우드에서 전송                    | 아니요                         | 예                       | 예                                                           |
-| 가격 책정                                       | [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [가격 책정](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
+| 가격 책정                                       | [가격](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [가격](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [가격](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,15 +3,15 @@ title: Avere vFXT 지원 사용 - Azure
 description: Avere vFXT for Azure에서 지원 업로드를 사용하도록 설정하는 방법
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: d12bbd1708ceb948aea982f9ed1ab36879e3751c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc86cca1b73eb58a038a0a6da109e86b995709c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75415361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505480"
 ---
 # <a name="enable-support-uploads"></a>지원 업로드 사용
 

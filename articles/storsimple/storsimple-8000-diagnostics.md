@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504460"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 디바이스 문제 해결
 
@@ -414,10 +414,10 @@ Controller0>
 
 다음은 매핑할 시스템 정보의 다양한 Windows PowerShell 매개 변수를 설명하는 테이블입니다. 
 
-| PowerShell 매개 변수    | Description  |
+| PowerShell 매개 변수    | 설명  |
 |-------------------------|------------------|
 | 인스턴스 ID             | 모든 컨트롤러에는 고유 식별자 또는 연결된 GUID입니다.|
-| 속성                    | 디바이스를 배포하는 동안 Azure Portal을 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다. |
+| 이름                    | 디바이스를 배포하는 동안 Azure Portal을 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다. |
 | 모델                   | 사용자 StorSimple 8000 시리즈 디바이스의 모델입니다. 모델은 8100 또는 8600일 수 있습니다.|
 | SerialNumber            | 디바이스 일련 번호는 공장에서 할당되고 길이가 15자입니다. 예를 들어, 8600-SHX0991003G44HT는 다음을 나타냅니다.<br> 8600 – 디바이스 모델을 나타냅니다.<br>SHX – 제조 사이트를 나타냅니다.<br> 0991003 - 특정 제품을 나타냅니다. <br> G44HT - 마지막 5자리 숫자는 고유한 일련 번호를 만들기 위해 증가됩니다. 순차적인 집합이 아닐 수 있습니다.|
 | TimeZone                | 디바이스를 배포하는 동안 Azure Portal에서 구성된 디바이스 표준 시간대입니다.|

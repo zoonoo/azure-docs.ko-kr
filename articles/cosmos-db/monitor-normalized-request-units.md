@@ -2,22 +2,22 @@
 title: Azure Cosmos 컨테이너 또는 계정에 대해 정규화된 RU/s 모니터링
 description: Azure Cosmos DB에서 작업의 정규화된 요청 단위 사용량을 모니터링하는 방법을 알아봅니다. 어떤 작업이 더 많은 요청 단위를 소비하는지를 Azure Cosmos DB 계정의 소유자가 이해할 수 있습니다.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
-ms.date: 05/10/2020
-ms.openlocfilehash: 23001bdaab0732dbeb088ebadefa90a27e622b19
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.date: 06/25/2020
+ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482907"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Azure Cosmos 컨테이너 또는 계정에 대해 정규화된 RU/s를 모니터링하는 방법
 
 Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를 만들 수 있는 메트릭 보기를 제공합니다. Azure Cosmos DB 메트릭은 기본적으로 수집되며, 아무것도 명시적으로 활성화하거나 구성할 필요가 없습니다.
 
-**정규화된 RU 소비** 메트릭은 파티션 키 범위 전체에서 요청 단위 소비와 관련하여 복제본이 얼마나 포화 상태인지 확인하는 데 사용됩니다. Azure Cosmos DB는 처리량을 모든 실제 파티션에 균등하게 분산합니다. 이 메트릭은 복제본 세트 내에서 최대 처리량 사용률의 초당 보기를 제공합니다. 이 메트릭을 사용하는 경우 요청 단위 사용률이 높으면 워크로드 요구를 충족하도록 처리량을 늘려야 합니다.
+**정규화** 된 사용 메트릭은 파티션 키 범위 전반의 요청 단위 사용량과 관련 하 여 복제본의 포화 상태를 확인 하는 데 사용 됩니다. Azure Cosmos DB는 처리량을 모든 실제 파티션에 균등하게 분산합니다. 이 메트릭은 복제본 세트 내에서 최대 처리량 사용률의 초당 보기를 제공합니다. 이 메트릭을 사용 하 여 지정 된 컨테이너에 대 한 파티션 간 사용 현황을 계산 합니다. 이 메트릭을 사용하는 경우 요청 단위 사용률이 높으면 워크로드 요구를 충족하도록 처리량을 늘려야 합니다.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>정규화된 RU/s가 높은 경우 필요한 항목 및 수행할 작업
 
@@ -37,17 +37,17 @@ Azure Monitor 메트릭은 **총 요청** 메트릭을 사용하여 상태 코�
 
 2. 왼쪽 탐색 모음에서 **모니터**를 선택하고 **메트릭**을 선택합니다.
 
-   ![Azure Monitor의 메트릭 창](./media/monitor-normalized-request-units/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Azure Monitor의 메트릭 창":::
 
 3. **메트릭** 창 > **리소스 선택**에서 필요한 **구독** 및 **리소스 그룹**을 선택합니다. **리소스 유형**으로 **Azure Cosmos DB 계정**을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용**을 선택합니다.
 
-   ![메트릭을 볼 Azure Cosmos 계정 선택](./media/monitor-normalized-request-units/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="메트릭을 볼 Azure Cosmos 계정 선택":::
 
 4. 다음에는 사용 가능한 메트릭 목록에서 메트릭을 선택할 수 있습니다. 요청 단위, 스토리지, 대기 시간, 가용성, Cassandra 등과 관련된 메트릭을 선택할 수 있습니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예에서는 **정규화된 RU 소비** 메트릭과 **Max**를 집계 값으로 선택하겠습니다.
 
    이러한 세부 정보 외에 메트릭의 **시간 범위**와 **시간 단위**를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다.
 
-   ![Azure Portal에서 메트릭 선택](./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Azure Portal에서 메트릭 선택":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>정규화된 요청 단위 소비에 대한 필터
 
@@ -57,7 +57,7 @@ Azure Monitor 메트릭은 **총 요청** 메트릭을 사용하여 상태 코�
 
 각 컨테이너에 대한 정규화된 요청 단위 소비 메트릭은 다음 이미지와 같이 표시됩니다.
 
-![정규화된 요청 단위 소비 메트릭에 필터 적용](./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png)
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="정규화된 요청 단위 소비 메트릭에 필터 적용":::
 
 ## <a name="next-steps"></a>다음 단계
 

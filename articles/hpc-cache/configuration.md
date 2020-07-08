@@ -3,15 +3,15 @@ title: Azure HPC 캐시 설정 구성
 description: MTU 및 비 루트 squash 같은 캐시에 대 한 추가 설정을 구성 하는 방법 및 Azure Blob 저장소 대상에서 express 스냅숏에 액세스 하는 방법을 설명 합니다.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505310"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC 캐시 설정 구성
 
@@ -22,6 +22,9 @@ Azure Portal **구성** 페이지에는 여러 설정을 사용자 지정 하는
 설정을 보려면 Azure Portal에서 캐시의 **구성** 페이지를 엽니다.
 
 ![Azure Portal 구성 페이지의 스크린샷](media/configuration.png)
+
+> [!TIP]
+> [AZURE HPC 캐시 관리 비디오](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) 에서는 구성 페이지 및 해당 설정을 보여 줍니다.
 
 ## <a name="adjust-mtu-value"></a>MTU 값 조정
 <!-- linked from troubleshoot-nas article -->
@@ -48,7 +51,7 @@ Root squash를 사용 하도록 설정 하면 클라이언트의 루트 사용�
 
 Root squash가 사용 하지 않도록 설정 된 경우 클라이언트 루트 사용자 (UID 0)의 요청은 백 엔드 NFS 저장소 시스템에 루트로 전달 됩니다. 이 구성은 부적절 한 파일 액세스를 허용할 수 있습니다.
 
-캐시에서 root squash를 설정 하면 저장소 대상으로 사용 되 ``no_root_squash`` 는 NAS 시스템에서 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prereqs.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
+캐시에서 root squash를 설정 하면 ``no_root_squash`` 저장소 대상으로 사용 되는 NAS 시스템에서 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prereqs.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
 
 기본 설정은 **예**입니다. 4 월 2020 이전에 만든 캐시에는 기본 설정인 **No**가 있을 수 있습니다.
 
@@ -73,4 +76,4 @@ Azure HPC 캐시는 새 항목으로 바뀔 때까지 매일, 매주 및 매월 
 * 최대 8 개의 주간 스냅숏
 * 최대 3 개의 월간 스냅숏
 
-Blob 저장소 대상의 네임 `.snapshot` 스페이스에 있는 디렉터리에서 스냅숏에 액세스 합니다.
+`.snapshot`Blob 저장소 대상의 네임 스페이스에 있는 디렉터리에서 스냅숏에 액세스 합니다.

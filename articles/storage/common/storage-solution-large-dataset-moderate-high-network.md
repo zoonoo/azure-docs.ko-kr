@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: cfe450972acda3affbea6cbe3d262bc4b1956dc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b60162800695be67c742554881b296c3d8bb9dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504375"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
  
@@ -73,10 +73,10 @@ ms.locfileid: "81262862"
 |    암호화                       |    AES 128비트                  |    AES 256비트                                   |    AES 256비트                           |    AES 128비트                         |
 |    하드웨어                         |     Microsoft 제공          |    Microsoft 제공                            |    Microsoft 제공                    |    고객 제공                   |
 |    Linux                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    파트너 통합              |    일부                         |    [최고](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [최고](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    일부                                |
+|    파트너 통합              |    일부                         |    [높음](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [높음](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    일부                                |
 |    발송                         |    Microsoft 관리            |    Microsoft 관리                             |    Microsoft 관리                     |    고객 관리                    |
 | 데이터 이동 시 사용         |상거래 경계 이내|상거래 경계 이내|상거래 경계 이내|지리적 경계 간(예: 미국에서 EU로 이동)|
-|    가격 책정                          |    [가격 책정](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격 책정](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    가격 책정                          |    [가격](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [가격](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [가격](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [가격](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 온라인 데이터 전송을 사용하는 경우 높은 네트워크 대역폭에 대한 다음 섹션의 표를 사용합니다.
@@ -90,8 +90,8 @@ ms.locfileid: "81262862"
 |    초기 일회성 설치     |    쉬움               |    보통                       |    쉬움(30분 미만)~보통(1~2시간)            |    광범위                                                          |
 |    데이터 사전 처리              |    아니요                                        |    아니요                                        |    예(Edge 컴퓨팅 사용)                               |    예                                                                |
 |    다른 클라우드에서 전송       |    아니요                                        |    아니요                                        |    예                                                    |    예                                                                |
-|    사용자 유형                        |    IT 전문가 또는 개발자                                       |    개발                                       |    IT 전문가                                                |    IT 전문가                                                             |
-|    가격 책정                          |    무료, 데이터 송신 요금 적용         |    무료, 데이터 송신 요금 적용         |    [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [가격 책정](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
+|    사용자 유형                        |    IT 전문가 또는 개발자                                       |    개발                                       |    IT Pro                                                |    IT Pro                                                             |
+|    가격 책정                          |    무료, 데이터 송신 요금 적용         |    무료, 데이터 송신 요금 적용         |    [가격](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [가격](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## <a name="next-steps"></a>다음 단계
 

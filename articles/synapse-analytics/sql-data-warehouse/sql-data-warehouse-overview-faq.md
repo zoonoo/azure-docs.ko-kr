@@ -6,16 +6,16 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ef8196cebfbdda72f98fee0e9c75bcb80172a55e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482533"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (이전의 SQL DW) 질문과 대답
 
@@ -47,7 +47,7 @@ A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대�
 
 17. Power BI 연결할 수 있나요?
 
-A. 예. Power BI는 Azure Synapse를 사용 하 여 직접 쿼리를 지원 하지만 많은 수의 사용자 또는 실시간 데이터를 위한 것이 아닙니다. Power BI 성능을 최적화 하려면 Azure Analysis Services 또는 Analysis Services IaaS를 Power BI 사용 하는 것이 좋습니다.
+A. 예! Power BI는 Azure Synapse를 사용 하 여 직접 쿼리를 지원 하지만 많은 수의 사용자 또는 실시간 데이터를 위한 것이 아닙니다. Power BI 성능을 최적화 하려면 Azure Analysis Services 또는 Analysis Services IaaS를 Power BI 사용 하는 것이 좋습니다.
 
 17. Synapse SQL 풀 용량 제한은 무엇 인가요?
 

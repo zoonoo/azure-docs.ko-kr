@@ -3,15 +3,15 @@ title: Avere vFXT 소유자 권한이 없는 사용자 해결 방법 - Azure
 description: 구독 소유자 권한이 없는 사용자가 Avere vFXT for Azure를 배포하는 문제를 해결하는 방법입니다.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d9b1060ee35af6cbc2e1b95b0f7813072c52d2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505378"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>소유자 권한이 없는 사용자에게 Avere vFXT 배포 권한 부여
 
@@ -62,7 +62,7 @@ ms.locfileid: "76153278"
 
    `az role definition create --role-definition <PATH_TO_FILE>`
 
-    예제:
+    예:
 
     ```azurecli
     az role definition create --role-definition ./averecreatecluster.json

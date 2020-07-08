@@ -3,15 +3,15 @@ title: 기본값에서 blob 경로 변경
 description: Azure 함수를 설정하여 Blob 파일 경로의 이름을 변경하는 방법 알아보기
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504834"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
@@ -193,7 +193,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
         
         ![“파일 보기” 링크](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. **Project. json**을 입력 한 다음 **enter**키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
+    3. **에project.js**을 입력 하 고 **enter**키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
 
         ```
         {

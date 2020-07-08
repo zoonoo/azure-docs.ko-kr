@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
-ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/26/2020
+ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483281"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
-**계산 대상은** 교육 스크립트를 실행 하거나 서비스 배포를 호스트 하는 지정 된 계산 리소스/환경입니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 일 수 있습니다. 계산 대상을 사용 하면 나중에 코드를 변경할 필요 없이 계산 환경을 쉽게 변경할 수 있습니다.  
+**계산 대상은** 교육 스크립트를 실행 하거나 서비스 배포를 호스트 하는 지정 된 계산 리소스/환경입니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 컴퓨팅 리소스일 수 있습니다. 계산 대상을 사용 하면 나중에 코드를 변경할 필요 없이 계산 환경을 쉽게 변경할 수 있습니다.  
 
 일반적인 모델 개발 수명 주기에서 다음과 같은 작업을 할 수 있습니다.
 1. 먼저 적은 양의 데이터를 개발 하 고 시험해 볼 것입니다. 이 단계에서는 로컬 환경 (로컬 컴퓨터 또는 클라우드 기반 VM)을 계산 대상으로 사용 하는 것이 좋습니다. 
@@ -52,23 +52,25 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 * Azure Machine Learning Studio
 * Azure portal
 * Python SDK 계산 [Einstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) 및 [amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) 클래스
-* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (미리 보기)
 * Resource Manager 템플릿
-
-[Azure CLI에 대해 machine learning 확장](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training)을 사용 하 여 계산 클러스터를 만들 수도 있습니다.
+* [Azure CLI에 대 한](reference-azure-machine-learning-cli.md#resource-management)Machine learning 확장입니다.  
 
 이러한 계산 리소스는 생성 될 때 다른 종류의 계산 대상과 달리 자동으로 작업 영역에 포함 됩니다.
 
-### <a name="compute-clusters"></a>컴퓨팅 클러스터
 
-학습 및 batch 추론 (미리 보기)에 대 한 계산 클러스터 Azure Machine Learning 사용할 수 있습니다.  이 계산 리소스를 사용 하 여 다음을 수행 합니다.
+|기능  |컴퓨팅 클러스터  |컴퓨팅 인스턴스  |
+|---------|---------|---------|
+|단일 또는 다중 노드 클러스터     |    **&check;**       |         |
+|실행을 제출할 때마다 자동으로 크기 조정     |     **&check;**      |         |
+|자동 클러스터 관리 및 작업 예약     |   **&check;**        |     **&check;**      |
+|CPU와 GPU 리소스에 대한 지원     |  **&check;**         |    **&check;**       |
 
-* 단일 또는 다중 노드 클러스터
-* 실행을 제출할 때마다 자동 크기 조정 
-* 자동 클러스터 관리 및 작업 예약 
-* CPU와 GPU 리소스에 대한 지원
 
-### <a name="supported-vm-series-and-sizes"></a>지원 되는 VM 시리즈 및 크기
+> [!NOTE]
+> 계산 클러스터는 유휴 상태일 때 0 개 노드로 자동 확장 되므로 사용 하지 않을 때에는 요금이 청구 되지 않습니다.  그러나 계산 *인스턴스*는 항상 켜져 있으며 자동 크기 조정 하지 않습니다.  추가 비용을 방지 하기 위해 사용 하지 않을 때는 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) 해야 합니다.
+
+### <a name="supported-vm-series-and-sizes"></a>지원되는 VM 시리즈 및 크기
 
 Azure Machine Learning에서 관리 되는 계산 리소스에 대 한 노드 크기를 선택 하면 Azure에서 사용할 수 있는 VM 크기 선택 중에서 선택할 수 있습니다. Azure는 다양 한 워크 로드에 대해 다양 한 크기의 Linux 및 Windows를 제공 합니다. 다양 한 [VM 유형 및 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)에 대 한 자세한 내용은 여기를 참조 하세요.
 

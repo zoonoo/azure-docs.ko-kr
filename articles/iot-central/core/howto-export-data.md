@@ -4,16 +4,16 @@ description: Azure IoT Central 응용 프로그램에서 Azure Event Hubs, Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: c83c97aab43b6978922202cc96ff92e1e046a7e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483927"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Azure에서 IoT 데이터를 대상으로 내보내기
 
@@ -27,7 +27,7 @@ ms.locfileid: "80811634"
 > [!Note]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 권한이 있어야 합니다.
 
@@ -64,9 +64,9 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
     |성능 계층|계정 유형|
     |-|-|
-    |Standard|범용 V2|
-    |Standard|범용 V1|
-    |Standard|Blob Storage|
+    |표준|범용 V2|
+    |표준|범용 V1|
+    |표준|Blob Storage|
     |Premium|블록 Blob 저장소|
 
 2. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 맨 위에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.
@@ -82,27 +82,31 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
     > [!Tip]
     > 왼쪽 창에 **데이터 내보내기가** 표시 되지 않으면 앱에서 데이터 내보내기를 구성할 수 있는 권한이 없는 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
-3. 오른쪽 위에 있는 **+ 새로 만들기** 단추를 선택 합니다. **Azure Event Hubs**, **Azure Service Bus**또는 **azure Blob storage** 중 하나를 내보내기 대상으로 선택 합니다. 응용 프로그램당 최대 내보내기 수는 5 개입니다.
+3. **+새로 만들기** 단추를 선택합니다. **Azure Blob Storage**, **Azure Event Hubs**, **Azure Service Bus 큐**또는 **Azure Service Bus 항목** 중 하나를 내보내기 대상으로 선택 합니다. 응용 프로그램당 최대 내보내기 수는 5 개입니다.
 
-    ![새 데이터 내보내기 만들기](media/howto-export-data/new-export-definition.png)
+4. 내보내기의 이름을 입력 합니다. 드롭다운 목록 상자에서 **네임 스페이스**를 선택 하거나 **연결 문자열을 입력**합니다.
 
-4. 드롭다운 목록 상자에서 **Event Hubs 네임 스페이스**, **Service Bus 네임**스페이스, **저장소 계정 네임 스페이스**를 선택 하거나 **연결 문자열을 입력**합니다.
-
-    - IoT Central 응용 프로그램과 동일한 구독에서 저장소 계정, Event Hubs 네임 스페이스 및 Service Bus 네임 스페이스도 볼 수 있습니다. 이 구독 외부의 대상으로 내보내려면 **연결 문자열 입력** 을 선택 하 고 다음 단계를 확인 합니다.
+    - IoT Central 응용 프로그램과 동일한 구독에서 저장소 계정, Event Hubs 네임 스페이스 및 Service Bus 네임 스페이스도 볼 수 있습니다. 이 구독 외부의 대상으로 내보내려면 **연결 문자열 입력** 을 선택 하 고 6 단계를 참조 하세요.
     - 무료 가격 책정 계획을 사용 하 여 만든 앱의 경우 데이터 내보내기를 구성 하는 유일한 방법은 연결 문자열을 사용 하는 것입니다. 무료 가격 책정 계획의 앱에는 연결 된 Azure 구독이 없습니다.
 
     ![새 이벤트 허브 만들기](media/howto-export-data/export-event-hub.png)
 
-5. (선택 사항) **연결 문자열 입력**을 선택한 경우 연결 문자열을 붙여넣을 수 있는 새 상자가 나타납니다. 다음 항목의 연결 문자열을 가져오려면
-    - Event Hubs 또는 Service Bus Azure Portal의 네임 스페이스로 이동 합니다.
-        - **설정**아래에서 **공유 액세스 정책** 을 선택 합니다.
-        - 기본 **RootManageSharedAccessKey**를 선택하거나 새로 만듭니다.
-        - 주 또는 보조 연결 문자열 중 하나를 복사합니다.
-    - 저장소 계정에서 Azure Portal의 저장소 계정으로 이동 합니다.
-        - **설정**아래에서 **액세스 키** 를 선택 합니다.
-        - Key1 연결 문자열 또는 key2 연결 문자열을 복사 합니다.
+5. 드롭다운 목록 상자에서 이벤트 허브, 큐, 항목 또는 컨테이너를 선택 합니다.
 
-6. 드롭다운 목록 상자에서 이벤트 허브, 큐, 항목 또는 컨테이너를 선택 합니다.
+6. (선택 사항) **연결 문자열 입력**을 선택한 경우 연결 문자열을 붙여넣을 수 있는 새 상자가 나타납니다. 다음 항목의 연결 문자열을 가져오려면
+
+    - Event Hubs 또는 Service Bus Azure Portal의 네임 스페이스로 이동 합니다.
+        - 전체 네임 스페이스에 대 한 연결 문자열을 사용 하려면 다음을 수행 합니다.
+            1. **설정**아래에서 **공유 액세스 정책** 을 선택 합니다.
+            2. 새 키를 만들거나 **송신** 권한이 있는 기존 키를 선택 합니다.
+            3. 주 또는 보조 연결 문자열 중 하나를 복사합니다.
+        - 특정 이벤트 허브 인스턴스 또는 Service Bus 큐 또는 토픽에 대 한 연결 문자열을 사용 하려면 **엔터티 > Event Hubs** 또는 **엔터티 > 큐** 또는 **엔터티 > 항목**으로 이동 합니다. 특정 인스턴스를 선택 하 고 위의 동일한 단계를 따라 연결 문자열을 가져옵니다.
+    - 저장소 계정에서 Azure Portal의 저장소 계정으로 이동 합니다.
+        - 전체 저장소 계정에 대 한 연결 문자열만 지원 됩니다. 단일 컨테이너로 범위가 지정 된 연결 문자열은 지원 되지 않습니다.
+          1. **설정**아래에서 **액세스 키** 를 선택 합니다.
+          2. Key1 연결 문자열 또는 key2 연결 문자열을 복사 합니다.
+
+    연결 문자열에 붙여넣습니다. 인스턴스 또는 **컨테이너 이름을**입력 합니다 .이는 대/소문자를 구분 합니다.
 
 7. **내보낼 데이터**에서 유형을 **On**으로 설정 하 여 내보낼 데이터 유형을 선택 합니다.
 
@@ -131,7 +135,7 @@ Event Hubs 및 Service Bus의 경우 장치에서 메시지를 받은 후 새 �
 Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보냅니다. 내보낸 파일은 blob storage에 [IoT Hub 메시지 라우팅을](../../iot-hub/tutorial-routing.md) 통해 내보낸 메시지 파일과 동일한 형식을 사용 합니다.
 
 > [!NOTE]
-> Blob storage의 경우 장치가 `contentType: application/JSON` 및 (또는 `contentEncoding:utf-8` `utf-16` `utf-32`)가 있는 메시지를 전송 하 고 있는지 확인 합니다. 예제는 [IoT Hub 설명서](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) 를 참조 하세요.
+> Blob storage의 경우 장치가 `contentType: application/JSON` 및 (또는)가 있는 메시지를 전송 하 고 있는지 확인 `contentEncoding:utf-8` `utf-16` `utf-32` 합니다. 예제는 [IoT Hub 설명서](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) 를 참조 하세요.
 
 원격 분석을 전송 하는 장치는 장치 ID로 표시 됩니다 (다음 섹션 참조). 장치 이름을 가져오려면 장치 데이터를 내보내고 장치 메시지의 **deviceid** 와 일치 하는 **connectiondeviceid** 를 사용 하 여 각 메시지의 상관 관계를 확인 합니다.
 
@@ -295,9 +299,9 @@ Blob storage의 경우 마지막으로 쓴 이후의 모든 변경 내용을 포
 
 각 메시지 또는 스냅숏 레코드는 마지막으로 내보낸 메시지 이후 게시 된 장치 템플릿에 대 한 변경 내용을 하나 이상 나타냅니다. 각 메시지 또는 레코드에서 전송 되는 정보는 다음과 같습니다.
 
-- `id`위의 장치 스트림의와 일치 `instanceOf` 하는 장치 템플릿
+- `id`위의 장치 스트림의와 일치 하는 장치 템플릿 `instanceOf`
 - 디바이스 템플릿의 `displayName`
-- , 원격 분석, 속성 및 명령 정의를 포함 하는 장치 `capabilityModel` `interfaces`
+- `capabilityModel` `interfaces` , 원격 분석, 속성 및 명령 정의를 포함 하는 장치
 - `cloudProperties`정의
 - 재정의 및 초기 값, 인라인`capabilityModel`
 
@@ -553,7 +557,7 @@ Blob storage의 경우 마지막으로 쓴 이후의 모든 변경 내용을 포
 3 2020 월 3 일부 터 장치 및 장치 템플릿이 사용 하도록 설정 된 응용 프로그램의 모든 새 내보내기에는 위에서 설명한 데이터 형식이 포함 됩니다. 이 날짜 이전에 만든 모든 내보내기는 이전 데이터 형식으로 유지 됩니다 .이 날짜는 30 월 2020 일까 지 자동으로 이러한 내보내기가 새 데이터 형식으로 마이그레이션됩니다. 새 데이터 형식은 IoT Central 공용 API의 장치, [장치 속성](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [장치 클라우드 속성](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)및 [장치 템플릿](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) 개체와 [일치 합니다.](https://docs.microsoft.com/rest/api/iotcentral/devices/get)
 
 **장치의**경우 이전 데이터 형식과 새 데이터 형식 간의 중요 한 차이점은 다음과 같습니다.
-- `@id`장치를 제거 `deviceId` 하는 경우의 이름이로 바뀝니다.`id` 
+- `@id`장치를 제거 하는 경우의 `deviceId` 이름이로 바뀝니다.`id` 
 - `provisioned`장치의 프로 비전 상태를 설명 하는 플래그가 추가 됩니다.
 - `approved`장치의 승인 상태를 설명 하는 플래그가 추가 됩니다.
 - `properties`장치 및 클라우드 속성을 포함 하 여 공용 API의 엔터티와 일치
@@ -561,7 +565,7 @@ Blob storage의 경우 마지막으로 쓴 이후의 모든 변경 내용을 포
 **장치 템플릿의**경우 이전 데이터 형식과 새 데이터 형식 간의 주목할 만한 차이점은 다음과 같습니다.
 
 - `@id`장치 템플릿의 이름이로 바뀜`id`
-- `@type`장치 템플릿의 이름이로 `types`바뀌고 이제는 배열입니다.
+- `@type`장치 템플릿의 이름이로 바뀌고 `types` 이제는 배열입니다.
 
 ### <a name="devices-format-deprecated-as-of-3-february-2020"></a>장치 (지원 되지 않는 형식은 3 년 2 월 2020 일)
 
@@ -748,4 +752,4 @@ Blob storage의 경우 마지막으로 쓴 이후의 모든 변경 내용을 포
 이제 Azure Event Hubs, Azure Service Bus 및 Azure Blob storage로 데이터를 내보내는 방법을 배웠으므로 다음 단계를 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [웹 후크를 만드는 방법](./howto-create-webhooks.md)
+> [Databricks를 사용 하 여 사용자 지정 분석을 실행 하는 방법](./howto-create-custom-analytics.md)

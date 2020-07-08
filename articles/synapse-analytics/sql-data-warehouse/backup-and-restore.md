@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482550"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀에서 백업 및 복원
 
@@ -30,7 +30,7 @@ Azure Synapse SQL 풀에서 백업 및 복원을 사용 하는 방법에 대해 
 
 ## <a name="automatic-restore-points"></a>자동 복원 지점
 
-스냅숏은 복원 지점이 만들어지는 서비스의 기본 제공 기능입니다. 이 기능은 사용하도록 설정할 필요가 없습니다. 그러나 복원 지점을 만들기 위해 SQL 풀이 활성 상태 여야 합니다. SQL 풀이 자주 일시 중지 된 경우에는 자동 복원 지점을 만들지 못할 수 있으므로 SQL 풀을 일시 중지 하기 전에 사용자 정의 복원 지점을 만들어야 합니다. 서비스에서 복구에 대 한 Sla를 유지 하기 위해 이러한 복원 지점이 사용 되므로 현재 자동 복원 지점은 사용자가 삭제할 수 없습니다.
+스냅숏은 복원 지점이 만들어지는 기본 제공 기능입니다. 이 기능은 사용하도록 설정할 필요가 없습니다. 그러나 복원 지점을 만들기 위해 SQL 풀이 활성 상태 여야 합니다. SQL 풀이 자주 일시 중지 된 경우에는 자동 복원 지점을 만들지 못할 수 있으므로 SQL 풀을 일시 중지 하기 전에 사용자 정의 복원 지점을 만들어야 합니다. 서비스에서 복구에 대 한 Sla를 유지 하기 위해 이러한 복원 지점이 사용 되므로 현재 자동 복원 지점은 사용자가 삭제할 수 없습니다.
 
 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 데이터 웨어하우스의 스냅숏이 생성 됩니다. 이 보존 기간은 변경할 수 없습니다. SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다.
 
@@ -65,7 +65,7 @@ order by run_id desc
 SQL 풀을 삭제 하면 최종 스냅숏이 생성 되 고 7 일 동안 저장 됩니다. 삭제할 때 생성 되는 최종 복원 지점으로 SQL 풀을 복원할 수 있습니다. SQL 풀을 일시 중지 된 상태로 놓으면 스냅숏이 생성 되지 않습니다. 이 시나리오에서는 SQL 풀을 삭제 하기 전에 사용자 정의 복원 지점을 만들어야 합니다.
 
 > [!IMPORTANT]
-> 논리적 SQL 서버 인스턴스를 삭제하면 이 인스턴스에 속하는 모든 데이터베이스도 삭제되고 복구될 수 없습니다. 삭제된 서버는 복원할 수 없습니다.
+> SQL 풀을 호스트 하는 서버를 삭제 하면 해당 서버에 속한 모든 데이터베이스도 삭제 되 고 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>지역 백업 및 재해 복구
 
@@ -96,7 +96,7 @@ Azure Synapse 가격 책정에 대 한 자세한 내용은 [Azure Synapse 가격
 
 ## <a name="cross-subscription-restore"></a>구독 간 복원
 
-구독 간에 직접 복원 해야 하는 경우 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)에서이 기능에 투표 합니다. 다른 논리 서버로 복원 하 고 구독 간에 서버를 [' 이동 '](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 하 여 구독 간 복원을 수행 합니다.
+구독 간에 직접 복원 해야 하는 경우 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)에서이 기능에 투표 합니다. 다른 서버로 복원 하 고 구독 간에 서버를 [' 이동 '](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 하 여 구독 간 복원을 수행 합니다.
 
 ## <a name="geo-redundant-restore"></a>지역 중복 복원
 
@@ -107,4 +107,4 @@ Azure Synapse 가격 책정에 대 한 자세한 내용은 [Azure Synapse 가격
 
 ## <a name="next-steps"></a>다음 단계
 
-재해 계획에 대한 자세한 내용은 [비즈니스 연속성 개요](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
+복원 요소에 대 한 자세한 내용은 [사용자 정의 복원 요소](sql-data-warehouse-restore-points.md) 를 참조 하세요.

@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-ms.date: 04/30/2020
+ms.subservice: sql-dw
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482856"
 ---
 # <a name="synapse-sql-recommendations"></a>Synapse SQL 권장 사항
 
@@ -70,3 +70,7 @@ Advisor는 테이블 액세스 빈도, 평균으로 반환되는 행 및 데이�
 ## <a name="tempdb-contention"></a>Tempdb 경합
 
 tempdb 경합이 높은 경우 쿼리 성능이 저하될 수 있습니다.  Tempdb 경합은 사용자 정의 임시 테이블을 통해 또는 많은 양의 데이터 이동이 있을 때 발생할 수 있습니다. 이 시나리오에서는 추가 tempdb 할당을 위해 크기를 조정하고 [리소스 클래스 및 워크로드를 관리](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management)하여 쿼리에 더 많은 메모리를 제공할 수 있습니다. 
+
+## <a name="data-loading-misconfiguration"></a>데이터 로드 잘못 구성
+
+대기 시간을 최소화 하려면 항상 SQL 풀과 동일한 지역의 저장소 계정에서 데이터를 로드 해야 합니다. [높은 처리량 데이터 수집을 위해 COPY 문을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 사용 하 고 준비 된 파일을 저장소 계정에 분할 하 여 처리량을 최대화 합니다. COPY 문을 사용할 수 없는 경우 더 나은 처리량을 위해 일괄 처리 크기가 높은 SqlBulkCopy API 또는 bcp를 사용할 수 있습니다. 추가 데이터 로드 지침은 다음 [설명서](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)를 참조 하세요. 

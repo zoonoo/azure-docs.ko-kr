@@ -3,15 +3,15 @@ title: Avere vFXT 클러스터 튜닝 - Azure
 description: Avere vFXT for Azure의 성능을 최적화하기 위한 사용자 지정 설정에 대해 간략히 설명합니다.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505293"
 ---
 # <a name="cluster-tuning"></a>클러스터 튜닝
 
@@ -34,7 +34,7 @@ ms.locfileid: "76152938"
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>클라우드 NAS 또는 클라우드 게이트웨이 최적화
 
-클라우드 NAS 또는 게이트웨이 시나리오에서 vFXT 클러스터는 클라우드 컨테이너에 대 한 NAS 스타일의 액세스를 제공 합니다. VFXT 클러스터와 클라우드 저장소 간의 데이터 속도를 높이려면 담당자가 캐시에서 저장소 볼륨으로 데이터를 보다 적극적으로 푸시하는 설정을 변경 하는 것이 좋습니다. 다음은 그 예입니다.
+클라우드 NAS 또는 게이트웨이 시나리오에서 vFXT 클러스터는 클라우드 컨테이너에 대 한 NAS 스타일의 액세스를 제공 합니다. VFXT 클러스터와 클라우드 저장소 간의 데이터 속도를 높이려면 담당자가 캐시에서 저장소 볼륨으로 데이터를 보다 적극적으로 푸시하는 설정을 변경 하는 것이 좋습니다. 예를 들어:
 
 * 클러스터와 스토리지 컨테이너 간의 TCP 연결 수를 늘립니다.
 

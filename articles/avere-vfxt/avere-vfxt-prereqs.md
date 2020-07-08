@@ -3,15 +3,15 @@ title: Avere vFXT 필수 조건 - Azure
 description: Avere vFXT for Azure에 대한 필수 조건입니다.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505344"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -34,7 +34,7 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
 비 소유자가 Azure 클러스터용 Avere vFXT을 만들 수 있도록 허용 하는 몇 가지 해결 방법이 있습니다. 이러한 시나리오에는 리소스를 제한 하 고 추가 RBAC (역할 기반 액세스 제어) 역할을 작성자에 게 할당 하는 작업이 포함 됩니다. 이러한 모든 경우에 구독 소유자는 미리 [Avere vFXT software 약관에 동의](#accept-software-terms) 해야 합니다.
 
-| 시나리오 | 제한 | Avere vFXT 클러스터를 만드는 데 필요한 액세스 역할 |
+| 시나리오 | 제한 사항 | Avere vFXT 클러스터를 만드는 데 필요한 액세스 역할 |
 |----------|--------|-------|
 | 리소스 그룹 관리자가 vFXT를 만듭니다. | 가상 네트워크, 클러스터 컨트롤러 및 클러스터 노드는 리소스 그룹 내에 만들어야 합니다. | [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할은 모두 대상 리소스 그룹으로 범위가 지정 됩니다. |
 | 기존 외부 가상 네트워크 사용 | 클러스터 컨트롤러와 클러스터 노드는 vFXT의 리소스 그룹 내에 만들어지지만 다른 리소스 그룹의 기존 가상 네트워크를 사용 합니다. | (1) [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할이 vFXT 리소스 그룹으로 범위가 지정 됩니다. 그리고 (2) [가상 머신 참가자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator)및 [Avere 참여자](../role-based-access-control/built-in-roles.md#avere-contributor) 역할 범위는 가상 네트워크의 리소스 그룹으로 지정 됩니다. |
@@ -98,7 +98,7 @@ Azure Portal에서 저장소 서비스 끝점을 만듭니다.
 1. 클러스터에 대 한 가상 네트워크를 선택 합니다.
 1. 왼쪽 메뉴에서 **서비스 끝점** 을 클릭 합니다.
 1. 위쪽에서 **추가**를 클릭합니다.
-1. 서비스 ``Microsoft.Storage``를 선택 합니다.
+1. 서비스를 선택 ``Microsoft.Storage`` 합니다.
 1. 클러스터의 서브넷을 선택 합니다.
 1. 아래쪽에서 **추가**를 클릭합니다.
 

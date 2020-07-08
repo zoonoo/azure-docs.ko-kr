@@ -1,29 +1,29 @@
 ---
 title: AzCopy v10를 사용 하 여 데이터를 Azure Storage 복사 또는 이동 Microsoft Docs
-description: AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정 간에 데이터를 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 AzCopy를 다운로드 하 고, 저장소 계정에 연결한 다음, 파일을 전송 하는 방법을 설명 합니다.
+description: AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정 간에 데이터를 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 AzCopy를 다운로드하고, 스토리지 계정에 연결한 다음, 파일을 전송하는 방법을 설명합니다.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504477"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
-AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 AzCopy를 다운로드 하 고, 저장소 계정에 연결한 다음, 파일을 전송 하는 방법을 설명 합니다.
+AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 AzCopy를 다운로드하고, 스토리지 계정에 연결한 다음, 파일을 전송하는 방법을 설명합니다.
 
 > [!NOTE]
 > AzCopy **V10** 는 현재 지원 되는 AzCopy 버전입니다.
 >
 > 이전 버전의 AzCopy를 사용 해야 하는 경우이 문서의 [이전 버전의 AzCopy 사용](#previous-version) 섹션을 참조 하세요.
 
-<a id="download-and-install-azcopy" />
+<a id="download-and-install-azcopy"></a>
 
 ## <a name="download-azcopy"></a>AzCopy 다운로드
 
@@ -42,13 +42,13 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 
 ## <a name="run-azcopy"></a>AzCopy 실행
 
-편의상, 사용 편의성을 위해 AzCopy 실행 파일의 디렉터리 위치를 시스템 경로에 추가 하는 것이 좋습니다. 이렇게 하면 시스템의 모든 `azcopy` 디렉터리에서 입력할 수 있습니다.
+편의상, AzCopy 실행 파일의 디렉터리 위치를 시스템 경로에 추가하여 사용하기 쉽도록 하는 것이 좋습니다. 이렇게 하면 `azcopy` 시스템의 모든 디렉터리에서 입력할 수 있습니다.
 
-AzCopy 디렉터리를 경로에 추가 하지 않도록 선택 하는 경우 AzCopy 실행 파일의 위치로 디렉터리를 변경 하 고 Windows PowerShell 명령 프롬프트에서 또는 `azcopy` `.\azcopy` 를 입력 해야 합니다.
+AzCopy 디렉터리를 경로에 추가 하지 않도록 선택 하는 경우 AzCopy 실행 파일의 위치로 디렉터리를 변경 하 고 `azcopy` `.\azcopy` Windows PowerShell 명령 프롬프트에서 또는를 입력 해야 합니다.
 
-명령 목록을 보려면를 입력 `azcopy -h` 한 다음 enter 키를 누릅니다.
+명령 목록을 보려면를 입력 한 `azcopy -h` 다음 enter 키를 누릅니다.
 
-특정 명령에 대 한 자세한 내용을 보려면 명령의 이름 (예: `azcopy list -h`)을 포함 하면 됩니다.
+특정 명령에 대 한 자세한 내용을 보려면 명령의 이름 (예:)을 포함 하면 `azcopy list -h` 됩니다.
 
 ![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
@@ -65,7 +65,7 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 
 | 스토리지 유형 | 현재 지원 되는 권한 부여 방법 |
 |--|--|
-|**Blob 저장소** | Azure AD & SAS |
+|**Blob Storage** | Azure AD & SAS |
 |**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
 |**파일 저장소** | SAS 전용 |
 
@@ -117,7 +117,7 @@ azcopy login
 azcopy login --tenant-id=<tenant-id>
 ```
 
-자리 표시자 `<tenant-id>` 를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
+`<tenant-id>`자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
 
 이 명령은 웹 사이트의 인증 코드와 URL을 반환합니다. 웹 사이트를 열고, 코드를 입력하고, **다음** 단추를 선택합니다.
 
@@ -125,7 +125,7 @@ azcopy login --tenant-id=<tenant-id>
 
 로그인 창이 나타납니다. 이 창에서 Azure 계정 자격 증명을 사용하여 Azure 계정에 로그인합니다. 로그인에 성공하면 브라우저 창을 닫고 AzCopy를 사용할 수 있습니다.
 
-<a id="service-principal" />
+<a id="service-principal"></a>
 
 #### <a name="authenticate-a-service-principal"></a>서비스 사용자 인증
 
@@ -158,10 +158,10 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 다음 명령을 입력 하 고 ENTER 키를 누릅니다.
 
 ```azcopy
-azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
+azcopy login --service-principal --certificate-path path-to-certificate-file --application-id application-id --tenant-id=tenant-id
 ```
 
-자리 표시자 `<application-id>` 를 서비스 사용자의 앱 등록의 응용 프로그램 ID로 바꿉니다. 자리 표시자 `<tenant-id>` 를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다. 
+`<application-id>`자리 표시자를 서비스 사용자의 앱 등록의 응용 프로그램 ID로 바꿉니다. `<tenant-id>`자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다. 
 
 ##### <a name="using-a-certificate"></a>인증서 사용
 
@@ -186,12 +186,12 @@ $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 azcopy login --service-principal --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-자리 표시자 `<path-to-certificate-file>` 를 인증서 파일의 상대 또는 정규화 된 경로로 바꿉니다. AzCopy는이 인증서에 대 한 경로를 저장 하지만 인증서 복사본을 저장 하지 않으므로 해당 인증서를 그대로 유지 해야 합니다. 자리 표시자 `<tenant-id>` 를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
+`<path-to-certificate-file>`자리 표시자를 인증서 파일의 상대 또는 정규화 된 경로로 바꿉니다. AzCopy는이 인증서에 대 한 경로를 저장 하지만 인증서 복사본을 저장 하지 않으므로 해당 인증서를 그대로 유지 해야 합니다. `<tenant-id>`자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
 
 > [!NOTE]
 > 이 예제에 나와 있는 것 처럼 프롬프트를 사용 하는 것이 좋습니다. 이렇게 하면 사용자의 암호가 콘솔의 명령 기록에 표시 되지 않습니다. 
 
-<a id="managed-identity" />
+<a id="managed-identity"></a>
 
 #### <a name="authenticate-a-managed-identity"></a>관리 id 인증
 
@@ -221,19 +221,19 @@ azcopy login --identity
 azcopy login --identity --identity-client-id "<client-id>"
 ```
 
-자리 표시자 `<client-id>` 를 사용자 할당 관리 id의 클라이언트 ID로 바꿉니다.
+`<client-id>`자리 표시자를 사용자 할당 관리 id의 클라이언트 ID로 바꿉니다.
 
 ```azcopy
 azcopy login --identity --identity-object-id "<object-id>"
 ```
 
-자리 표시자 `<object-id>` 를 사용자 할당 관리 id의 개체 ID로 바꿉니다.
+`<object-id>`자리 표시자를 사용자 할당 관리 id의 개체 ID로 바꿉니다.
 
 ```azcopy
 azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
-자리 표시자 `<resource-id>` 를 사용자 할당 관리 id의 리소스 ID로 바꿉니다.
+`<resource-id>`자리 표시자를 사용자 할당 관리 id의 리소스 ID로 바꿉니다.
 
 ### <a name="option-2-use-a-sas-token"></a>옵션 2: SAS 토큰 사용
 
@@ -277,7 +277,7 @@ Id를 인증 하거나 SAS 토큰을 얻은 후 파일 전송을 시작할 수 �
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
-> Linux의 경우 `--strip-components=1` `tar` 명령에서 버전 이름이 포함 된 최상위 폴더를 제거 하 고 대신 이진 파일을 현재 폴더로 직접 추출 합니다. 이렇게 하면 `azcopy` `wget` URL만 업데이트 하 여 새 버전의로 스크립트를 업데이트할 수 있습니다.
+> Linux의 경우 `--strip-components=1` 명령에서 `tar` 버전 이름이 포함 된 최상위 폴더를 제거 하 고 대신 이진 파일을 현재 폴더로 직접 추출 합니다. 이렇게 하면 URL만 업데이트 하 여 새 버전의로 스크립트를 업데이트할 수 있습니다 `azcopy` `wget` .
 
 URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서 해당 URL을 사용 하 여 AzCopy를 다운로드할 수 있습니다.
 
@@ -288,7 +288,7 @@ URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>SAS 토큰의 이스케이프 특수 문자
 
-`.cmd` 확장명이 있는 배치 파일에서 SAS 토큰에 표시 되는 `%` 문자를 이스케이프 해야 합니다. SAS 토큰 문자열의 기존 `%` `%` 문자 옆에 추가 문자를 추가 하 여이 작업을 수행할 수 있습니다.
+확장명이 있는 배치 파일에서 `.cmd` `%` SAS 토큰에 표시 되는 문자를 이스케이프 해야 합니다. `%`SAS 토큰 문자열의 기존 문자 옆에 추가 문자를 추가 하 여이 작업을 수행할 수 있습니다 `%` .
 
 ### <a name="run-scripts-by-using-jenkins"></a>Jenkins를 사용 하 여 스크립트 실행
 
@@ -304,7 +304,7 @@ URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서
 
 Storage 탐색기는 계정 키를 사용 하 여 작업을 수행 하므로 Storage 탐색기에 로그인 한 후에는 추가 권한 부여 자격 증명을 제공할 필요가 없습니다.
 
-<a id="previous-version" />
+<a id="previous-version"></a>
 
 ## <a name="use-the-previous-version-of-azcopy"></a>이전 버전의 AzCopy 사용
 

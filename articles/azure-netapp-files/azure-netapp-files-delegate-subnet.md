@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 5f36e40091ada27f411adc2ffa78b6d4a58f8cca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 713a72b0a406d2038d56dc6fcc41e169d02c54eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483621"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
@@ -50,6 +50,6 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 �
 
 ## <a name="next-steps"></a>다음 단계  
 * [Azure NetApp Files에 대한 볼륨 만들기](azure-netapp-files-create-volumes.md)
-* [Azure 서비스에 대 한 가상 네트워크 통합에 대해 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 
 
