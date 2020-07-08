@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063648"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
@@ -26,7 +25,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 또한 고객은 해당 [ID 보안 점수](identity-secure-score.md)를 확인하여 Microsoft 모범 사례에 얼마나 잘 맞는지 알 수 있습니다. 이러한 권장 사항을 구현하기 전과 후에 보안 점수를 확인하여 업계의 다른 기업 및 같은 규모의 다른 조직과 비교할 때 얼마나 잘 하고 있는지 파악합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드의 많은 권장 사항은 Azure AD Free 하거나 라이선스 없이 구현할 수 있습니다. 필요한 라이선스는 작업 완료를 위해 최소한으로 필요한 라이선스를 나타냅니다.
 
@@ -41,7 +40,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 이 단계에서 관리자는 일반 사용자 계정을 가져오거나 만들기 전에 Azure AD에서 보다 안전하고 사용하기 쉬운 기반을 만들기 위한 기본 보안 기능을 사용하도록 설정합니다. 이와 같은 기반 단계는 처음부터 보다 안전한 상태에서 작업할 수 있도록 하고 최종 사용자가 새 개념들을 한 번만 받아들이면 되도록 해줍니다.
 
-| 작업 | 세부 정보 | 필수 라이선스 |
+| Task | 세부 정보 | 필수 라이선스 |
 | ---- | ------ | ---------------- |
 | [둘 이상의 전역 관리자 지정](../users-groups-roles/directory-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. | Azure AD Free |
 | [가능한 경우 비전역 관리 역할 사용](../users-groups-roles/directory-assign-admin-roles.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. | Azure AD Free |
@@ -62,7 +61,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 다음으로, 사용자를 가져오고 동기화를 사용하고, 게스트 액세스를 계획하고, 추가 기능을 지원하도록 준비하여 1단계에서 설정한 기반을 강화합니다.
 
-| 작업 | 세부 정보 | 필수 라이선스 |
+| Task | 세부 정보 | 필수 라이선스 |
 | ---- | ------ | ---------------- |
 | [Azure AD Connect 설치](../connect/active-directory-aadconnect-select-installation.md) | 기존 온-프레미스 디렉터리에서 클라우드로 사용자를 동기화하기 위해 준비합니다. | Azure AD Free |
 | [암호 해시 동기화 구현](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | 암호 해시를 동기화하여 암호 변경 내용 복제, 잘못된 암호 검색 및 수정, 누출된 자격 증명 보고를 허용합니다. | Azure AD Free |
@@ -78,7 +77,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 이전 단계에서 수행한 작업에 이어, 마이그레이션하고 Azure AD와 통합할 후보 애플리케이션을 식별하고 해당 애플리케이션의 설치를 완료합니다.
 
-| 작업 | 세부 정보 | 필수 라이선스 |
+| Task | 세부 정보 | 필수 라이선스 |
 | ---- | ------ | ---------------- |
 | 애플리케이션 식별 | 조직에서 사용 중인 애플리케이션 식별: 온-프레미스, 클라우드의 SaaS 애플리케이션 및 기타 LOB(기간 업무) 애플리케이션 이러한 애플리케이션을 Azure AD로 관리할 수 있는지와 관리할 필요가 있는지 파악합니다. | 필요한 라이선스 없음 |
 | [지원되는 SaaS 애플리케이션을 갤러리에 통합](../manage-apps/add-application-portal.md) | Azure AD에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 Azure Portal에서 직접 액세스할 수 있는 갤러리에 있을 것입니다. | Azure AD Free |
@@ -88,7 +87,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 4단계에서는 관리자가 관리를 위해 최소 권한 원칙을 적용하고, 첫 번째 액세스 검토를 완료하고, 일반 사용자 수명 주기 작업의 자동화를 사용하도록 설정하는 과정을 보여 줍니다.
 
-| 작업 | 세부 정보 | 필수 라이선스 |
+| Task | 세부 정보 | 필수 라이선스 |
 | ---- | ------ | ---------------- |
 | [Privileged Identity Management 사용 적용](../privileged-identity-management/pim-security-wizard.md) | 매일 사용하는 일반 사용자 계정에서 관리자 역할을 제거합니다. Multi-Factor Authentication 검사를 성공하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청한 후에 관리자가 해당 역할을 사용할 수 있도록 지정합니다. | Azure AD Premium P2 |
 | [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 완료](../privileged-identity-management/pim-how-to-start-security-review.md) | 보안 및 리더십 팀과 협의하여 조직의 정책을 기준으로 관리 액세스 권한을 검토하는 액세스 검토 정책을 만듭니다. | Azure AD Premium P2 |

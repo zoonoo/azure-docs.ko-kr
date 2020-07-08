@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019675"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>CloudSimple 활동 별로 VMware 솔루션 모니터링
@@ -26,7 +25,7 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 
 ## <a name="access-the-cloudsimple-portal"></a>CloudSimple 포털 액세스
 
-[Cloudsimple 포털](access-cloudsimple-portal.md)에 액세스 합니다.
+[CloudSimple 포털](access-cloudsimple-portal.md)에 액세스합니다.
 
 ## <a name="activity-information"></a>활동 정보
 
@@ -46,7 +45,7 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 
 경고에는 다음 정보 열을 사용할 수 있습니다. **열 편집** 을 클릭 하 고 보려는 열을 선택 합니다.
 
-| 열 | Description |
+| Column | 설명 |
 ------------ | ------------- |
 | 경고 유형 | 경고의 범주입니다.|
 | 시간 | 경고가 발생 한 시간입니다. |
@@ -54,7 +53,7 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 | 리소스 이름 | 리소스에 할당 된 이름입니다 (예: 사설 클라우드 이름). |
 | 리소스 종류 | 리소스 범주: 사설 클라우드, 클라우드 랙. |
 | 리소스 ID | 리소스의 식별자입니다. |
-| Description | 경고를 트리거한 항목에 대 한 설명입니다. |
+| 설명 | 경고를 트리거한 항목에 대 한 설명입니다. |
 | 확인됨 | 경고가 승인 되었는지 여부를 나타냅니다. |
 
 ## <a name="events"></a>이벤트
@@ -63,14 +62,14 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 
 경고에는 다음 정보 열을 사용할 수 있습니다. **열 편집** 을 클릭 하 고 보려는 열을 선택 합니다.
 
-| 열 | Description |
+| Column | Description |
 ------------ | ------------- |
-| 시간 | 이벤트가 발생 한 날짜 및 시간입니다. |
+| Time | 이벤트가 발생 한 날짜 및 시간입니다. |
 | 이벤트 유형 | 이벤트를 식별 하는 숫자 코드입니다. |
 | 심각도 | 이벤트 심각도.|
 | 리소스 이름 | 리소스에 할당 된 이름입니다 (예: 사설 클라우드 이름). |
 | 리소스 종류 | 리소스 범주: 사설 클라우드, 클라우드 랙. |
-| Description | 경고를 트리거한 항목에 대 한 설명입니다. |
+| 설명 | 경고를 트리거한 항목에 대 한 설명입니다. |
 
 ## <a name="tasks"></a>작업
 
@@ -78,10 +77,10 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 
 경고에는 다음 정보 열을 사용할 수 있습니다. **열 편집** 을 클릭 하 고 보려는 열을 선택 합니다.
 
-| 열 | Description |
+| Column | 설명 |
 ------------ | ------------- |
-| 태스크 ID | 태스크에 대 한 고유 식별자입니다. |
-| 작업(Operation) | 태스크에서 수행 하는 작업입니다. |
+| 작업 ID | 태스크에 대 한 고유 식별자입니다. |
+| 연산 | 태스크에서 수행 하는 작업입니다. |
 | 사용자 | 작업을 완료 하기 위해 할당 된 사용자입니다. |
 | 리소스 이름 | 리소스에 할당 된 이름입니다. |
 | 리소스 종류 | 리소스 범주: 사설 클라우드, 클라우드 랙. |
@@ -90,7 +89,7 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 | 끝 | 작업의 종료 시간입니다. |
 | 상태 | 현재 작업 상태입니다. |
 | 경과 시간 | 작업을 완료 하는 데 걸린 시간 (완료 된 경우) 또는 현재 진행 중인 작업 (진행 중인 경우)입니다. |
-| Description | 작업 설명입니다. |
+| 설명 | 작업 설명입니다. |
 
 ## <a name="audit"></a>감사
 
@@ -98,19 +97,19 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 
 경고에는 다음 정보 열을 사용할 수 있습니다. **열 편집** 을 클릭 하 고 보려는 열을 선택 합니다.
 
-| 열 | Description |
+| Column | Description |
 ------------ | ------------- |
-| 시간 | 감사 항목의 시간입니다. |
-| 작업(Operation) | 태스크에서 수행 하는 작업입니다. |
+| Time | 감사 항목의 시간입니다. |
+| 연산 | 태스크에서 수행 하는 작업입니다. |
 | 사용자 | 작업에 할당 된 사용자입니다. |
 | 리소스 이름 | 리소스에 할당 된 이름입니다. |
 | 리소스 종류 | 리소스 범주: 사설 클라우드, 클라우드 랙. |
 | 리소스 ID | 리소스의 식별자입니다. |
 | 결과 | **성공**과 같은 작업의 결과입니다. |
 | 걸린 시간 | 작업을 완료 하는 데 걸리는 시간입니다. |
-| Description | 액션에 대한 설명입니다. |
+| 설명 | 액션에 대한 설명입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure에서 VMware VM 사용](quickstart-create-vmware-virtual-machine.md)
-* [사설 클라우드에](cloudsimple-private-cloud.md) 대 한 자세한 정보
+* [프라이빗 클라우드](cloudsimple-private-cloud.md)에 대해 자세히 알아보기

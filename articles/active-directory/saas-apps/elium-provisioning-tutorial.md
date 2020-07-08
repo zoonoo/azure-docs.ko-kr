@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058490"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Elium 구성
@@ -53,9 +52,9 @@ Azure AD는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한
 
 ## <a name="set-up-elium-for-provisioning"></a>프로 비전을 위한 Elium 설정
 
-Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Elium를 구성 하기 전에 Elium에서 SCIM (도메인 간 Id 관리) 프로 비전을 위해 시스템을 사용 하도록 설정 해야 합니다. 다음 단계를 수행하세요.
+Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Elium를 구성 하기 전에 Elium에서 SCIM (도메인 간 Id 관리) 프로 비전을 위해 시스템을 사용 하도록 설정 해야 합니다. 아래 단계를 수행합니다.
 
-1. Elium에 로그인 하 고 **내 프로필** > **설정**으로 이동 합니다.
+1. Elium에 로그인 하 고 **내 프로필**  >  **설정**으로 이동 합니다.
 
     ![Elium의 설정 메뉴 항목](media/Elium-provisioning-tutorial/setting.png)
 
@@ -69,13 +68,13 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Elium를 구
 
 ## <a name="add-elium-from-the-gallery"></a>갤러리에서 Elium 추가
 
-Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Elium를 구성 하려면 Azure AD 응용 프로그램 갤러리의 Elium를 관리 되는 SaaS (software as a service) 응용 프로그램 목록에 추가 해야 합니다. 다음 단계를 수행하세요.
+Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Elium를 구성 하려면 Azure AD 응용 프로그램 갤러리의 Elium를 관리 되는 SaaS (software as a service) 응용 프로그램 목록에 추가 해야 합니다. 아래 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
 
     ![Azure Active Directory 메뉴 항목](common/select-azuread.png)
 
-1. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
      ![Azure AD 엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
 
@@ -104,15 +103,15 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
     ![엔터프라이즈 응용 프로그램 블레이드의 응용 프로그램 목록](common/all-applications.png)
 
-1. **프로 비전** 탭을 선택 합니다.
+1. **프로비전** 탭을 선택합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드의 프로 비전 탭](common/provisioning.png)
 
-1. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+1. **프로비전 모드**를 **자동**으로 설정합니다.
 
     ![프로 비전 모드 자동 설정](common/provisioning-automatic.png)
 
-1. **관리자 자격 증명** 섹션에 있는 **테 넌 트 URL** 필드에 ** \<l\>/scim/v2** 를 입력 합니다. **L** 는 Elium 관리 콘솔에서 이전에 검색 한 값입니다. 또한 **비밀 토큰** 필드에 Elium **secret token** 값을 입력 합니다. 마지막으로 **연결 테스트** 를 선택 하 여 Azure AD가 Elium에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Elium 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+1. **관리자 자격 증명** 섹션에 있는 **테 넌 트 URL** 필드에 ** \<tenantURL\> /scim/v2** 를 입력 합니다. **L** 는 Elium 관리 콘솔에서 이전에 검색 한 값입니다. 또한 **비밀 토큰** 필드에 Elium **secret token** 값을 입력 합니다. 마지막으로 **연결 테스트** 를 선택 하 여 Azure AD가 Elium에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Elium 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![관리자 자격 증명의 테 넌 트 URL 및 암호 토큰 필드](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -140,15 +139,15 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
     ![프로 비전 범위 목록 상자](common/provisioning-scope.png)
 
-1. 프로 비전 할 준비가 되 면 **저장**을 선택 합니다.
+1. 프로비저닝할 준비가 되면 **저장**을 선택합니다.
 
     ![프로 비전 구성의 저장 단추](common/provisioning-configuration-save.png)
 
 이 작업을 수행 하면 **설정** 섹션의 **범위** 에 정의 된 모든 사용자 및 그룹의 초기 동기화가 시작 됩니다. 이 초기 동기화 프로세스는 나중에 동기화 되는 것 보다 오래 걸립니다. 프로 비전에 필요한 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
 
-**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따릅니다. 프로 비전 활동 보고서는 Elium의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
+**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따릅니다. 프로 비전 활동 보고서는 Elium의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로비저닝 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

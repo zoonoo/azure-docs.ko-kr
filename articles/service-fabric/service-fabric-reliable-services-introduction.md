@@ -7,10 +7,9 @@ ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083510"
 ---
 # <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
@@ -74,7 +73,7 @@ Reliable Services은 Service Fabric을 제공 하기 때문에 이전에 작성 
 
 모든 내부 상태를 저장하지 않으므로 이 계산기 예제는 간단해집니다. 하지만 대부분의 서비스는 상태 비저장이 아닙니다. 대신 다른 저장소에 상태를 외장화합니다. (예를 들어 세션 상태를 백업 저장소 또는 캐시에 유지하는 모든 웹앱은 상태 비저장이 아닙니다.)
 
-Service Fabric에서 상태 비저장 서비스가 사용되는 방법의 일반적인 예로 웹 애플리케이션에 대한 공용 API를 노출하는 프런트 엔드가 있습니다. 프런트 엔드 서비스는 상태 저장 서비스에 사용자의 요청을 완료하라고 말합니다. 이 경우 상태 비저장 서비스가 수신 대기 중인 알려진 포트(예: 80)에 클라이언트의 호출이 전송됩니다. 이 상태 비저장 서비스는 호출을 받고 해당 호출이 신뢰할 수 있는 대상에서 왔는지 및 어떤 서비스를 대상으로 하는지 확인합니다.  그런 다음 상태 비저장 서비스는 상태 저장 서비스의 올바른 파티션으로 호출을 전달하고 응답을 대기합니다. 상태 비저장 서비스가 응답을 받으면 원래 클라이언트에 응답합니다. 이러한 서비스의 예로는 *Service Fabric 시작* 샘플 ([c #](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), 해당 리포지토리의 다른 Service Fabric 샘플 중에서 선택할 수 있습니다.
+Service Fabric에서 상태 비저장 서비스가 사용되는 방법의 일반적인 예로 웹 애플리케이션에 대한 공용 API를 노출하는 프런트 엔드가 있습니다. 프런트 엔드 서비스는 상태 저장 서비스에 사용자의 요청을 완료하라고 말합니다. 이 경우 상태 비저장 서비스가 수신 대기 중인 알려진 포트(예: 80)에 클라이언트의 호출이 전송됩니다. 이 상태 비저장 서비스는 호출을 받고 해당 호출이 신뢰할 수 있는 대상에서 왔는지 및 어떤 서비스를 대상으로 하는지 확인합니다.  그런 다음 상태 비저장 서비스는 상태 저장 서비스의 올바른 파티션으로 호출을 전달하고 응답을 대기합니다. 상태 비저장 서비스가 응답을 받으면 원래 클라이언트에 응답합니다. 이러한 서비스의 예로는 *Service Fabric 시작* 샘플 ([c #](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)  /  [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), 해당 리포지토리의 다른 Service Fabric 샘플 중에서 선택할 수 있습니다.
 
 ### <a name="stateful-reliable-services"></a>상태 저장 신뢰할 수 있는 서비스
 
@@ -82,11 +81,11 @@ Service Fabric에서 상태 비저장 서비스가 사용되는 방법의 일반
 
 오늘날 대부분의 서비스는 외부에 상태를 저장합니다. 외부 저장소는 해당 상태에 대한 안정성, 가용성, 확장성 및 일관성을 제공하기 때문입니다. Service Fabric에서 서비스는 해당 상태를 외부적으로 저장할 필요가 없습니다. Service Fabric은 서비스 코드와 서비스 상태 모두에 대한 이러한 요구 사항을 처리합니다.
 
-이미지를 처리하는 서비스를 작성하려는 경우를 가정하겠습니다. 이를 위해 서비스는 이미지 및 일련의 변환을 사용하여 해당 이미지에서 수행합니다. 이 서비스는 `ConvertImage(Image i, IList<Conversion> conversions)`와 같은 API를 노출하는 통신 수신기(WebAPI라고 가정함)를 반환합니다. 요청이 수신 되 면 서비스는이를에 `IReliableQueue`저장 하 고 요청을 추적할 수 있도록 클라이언트에 일부 ID를 반환 합니다.
+이미지를 처리하는 서비스를 작성하려는 경우를 가정하겠습니다. 이를 위해 서비스는 이미지 및 일련의 변환을 사용하여 해당 이미지에서 수행합니다. 이 서비스는 `ConvertImage(Image i, IList<Conversion> conversions)`와 같은 API를 노출하는 통신 수신기(WebAPI라고 가정함)를 반환합니다. 요청이 수신 되 면 서비스는이를에 저장 하 `IReliableQueue` 고 요청을 추적할 수 있도록 클라이언트에 일부 ID를 반환 합니다.
 
 이 서비스에서는 `RunAsync()`가 더 복잡해질 수 있습니다. 서비스에는 `IReliableQueue`에서 요청을 가져오는 해당 `RunAsync()` 내에 루프가 있어서 요청된 변환을 수행합니다. 결과는 `IReliableDictionary`에 저장되므로 클라이언트가 다시 돌아오면 변환된 이미지를 가져올 수 있습니다. 어떤 오류가 발생해도 이미지가 손실되지 않도록 하기 위해 이 신뢰할 수 있는 서비스는 큐에서 요청을 가져오고, 변환을 수행하고, 단일 트랜잭션에 모든 결과를 저장합니다. 이 경우 변환이 완료되면 메시지는 큐 및 결과 사전에 저장된 결과에서만 제거됩니다. 또는 서비스가 큐에서 이미지를 제거하고 즉시 원격 저장소에 저장할 수 있습니다. 그러면 서비스에서 관리해야 하는 상태의 양을 감소시키지만 서비스가 필요한 메타데이터를 유지하여 원격 저장소를 관리해야 하기 때문에 복잡성을 증가시킵니다. 두 가지 방법 모두 중간에 실패했다면 처리되기를 대기하는 큐에 요청이 남게 됩니다.
 
-이 서비스는 일반적인 .NET 서비스 처럼 들리지만, 사용 되는 데이터 구조 (`IReliableQueue` 및 `IReliableDictionary`)는 Service Fabric에서 제공 하 고 안정적이 고, 사용 가능 하며, 일관성이 있습니다.
+이 서비스는 일반적인 .NET 서비스 처럼 들리지만, 사용 되는 데이터 구조 ( `IReliableQueue` 및)는 Service Fabric에서 제공 하 고 안정적이 고, `IReliableDictionary` 사용 가능 하며, 일관성이 있습니다.
 
 ## <a name="when-to-use-reliable-services-apis"></a>신뢰할 수 있는 서비스 API를 사용해야 하는 경우
 

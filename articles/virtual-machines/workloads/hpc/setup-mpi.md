@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77023993"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>HPC에 대 한 메시지 전달 인터페이스 설정
@@ -120,7 +119,7 @@ sudo ./platform_mpi-09.01.04.03r-ce.bin
 
 [INTEL MPI를 다운로드](https://software.intel.com/mpi-library/choose-download)합니다.
 
-버전에 따라 I_MPI_FABRICS 환경 변수를 변경 합니다. Intel MPI 2018의 경우 2019 `I_MPI_FABRICS=shm:ofa` 에 및를 사용 하 `I_MPI_FABRICS=shm:ofi`고를 사용 합니다.
+버전에 따라 I_MPI_FABRICS 환경 변수를 변경 합니다. Intel MPI 2018의 경우 `I_MPI_FABRICS=shm:ofa` 2019에 및를 사용 하 고를 사용 `I_MPI_FABRICS=shm:ofi` 합니다.
 
 프로세스 고정은 기본적으로 15, 30 및 60 PPN에 대해 제대로 작동 합니다.
 
@@ -141,7 +140,7 @@ CC=<mpi-install-path/bin/mpicc>CXX=<mpi-install-path/bin/mpicxx> ./configure
 make
 ```
 
-MPI 벤치 마크는 `mpi/` 폴더 아래에 있습니다.
+MPI 벤치 마크는 폴더 아래에 있습니다 `mpi/` .
 
 
 ## <a name="discover-partition-keys"></a>파티션 키 검색

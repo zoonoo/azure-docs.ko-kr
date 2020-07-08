@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086618"
 ---
 # <a name="persist-state-in-windows"></a>Windows에서 상태 유지
@@ -37,7 +36,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
     ```
 
-    예를 들면 다음과 같습니다.
+    예제:
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
@@ -48,7 +47,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
     ```
 
-    예를 들면 다음과 같습니다.
+    예제:
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume inspect myeventgridvol
@@ -73,13 +72,13 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     1. 파일 탐색기를 시작 합니다.
     1. **탑재 지점을**가리키는 폴더로 이동 합니다.
     1. 를 마우스 오른쪽 단추로 클릭 한 다음 **속성**을 선택 합니다.
-    1. **보안**을 선택 합니다.
+    1. **보안**을 선택합니다.
     1. * 그룹 또는 사용자 이름 아래에서 **편집**을 선택 합니다.
-    1. **추가**를 선택 하 `Users`고, **이름을**입력 하 고, 확인 **을 선택 합니다.**
+    1. **추가**를 선택 하 고 `Users` , **이름을**입력 하 고, **Ok**확인을 선택 합니다.
     1. *사용자의 사용 권한*아래에서 **수정**을 선택 하 고 **확인**을 선택 합니다.
 1. **바인딩을** 사용 하 여이 볼륨을 탑재 하 고 Azure Portal에서 Event Grid 모듈을 다시 배포 합니다.
 
-   예를 들면 다음과 같습니다.
+   예제:
 
     ```json
         {
@@ -112,10 +111,10 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     ```
 
    >[!IMPORTANT]
-   >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈의 특정 위치를 가리킵니다. Windows의 Event Grid 모듈은 **C:\\app\\metadataDb**여야 합니다.
+   >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈의 특정 위치를 가리킵니다. Windows의 Event Grid 모듈은 **C: \\ app \\ metadataDb**여야 합니다.
 
 
-    예를 들면 다음과 같습니다.
+    예제:
 
     ```json
     {
@@ -158,7 +157,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
    mkdir <your-directory-name-here>
    ```
 
-   예를 들면 다음과 같습니다.
+   예제:
 
    ```sh
    mkdir C:\myhostdir
@@ -176,9 +175,9 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     ```
 
     >[!IMPORTANT]
-    >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈의 특정 위치를 가리킵니다. Windows의 Event Grid 모듈은 **C:\\app\\metadataDb**여야 합니다.
+    >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈의 특정 위치를 가리킵니다. Windows의 Event Grid 모듈은 **C: \\ app \\ metadataDb**여야 합니다.
 
-    예를 들면 다음과 같습니다.
+    예제:
 
     ```json
     {
@@ -220,7 +219,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
 * 이벤트 지 속성은 생성 시 이벤트 구독에서 구성 되며, 이벤트 구독을 만든 후에는 수정할 수 없습니다. 이벤트 지 속성을 설정/해제 하려면 이벤트 구독을 삭제 하 고 다시 만들어야 합니다.
 * 이벤트 지속은 메모리 작업 보다 거의 항상 느리지만 속도 차이는 드라이브의 특징에 따라 매우 다릅니다. 속도와 안정성 간의 균형은 모든 메시징 시스템에 고유 하지만 대규모에서 매우 두드러집니다.
 
-이벤트 구독에서 이벤트 지 속성을 사용 하도록 설정 `persistencePolicy` 하려면 `true`를로 설정 합니다.
+이벤트 구독에서 이벤트 지 속성을 사용 하도록 설정 하려면를로 설정 합니다 `persistencePolicy` `true` .
 
  ```json
         {

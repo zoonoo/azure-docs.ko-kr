@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025030"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 유지 관리 및 업데이트
@@ -39,7 +38,7 @@ CloudSimple은 다음 오류를 지속적으로 모니터링 합니다.
 * 실제 NIC 포트
 * 서버
 * 팬
-* 전원
+* 고급
 * 스위치
 * 스위치 포트
 
@@ -49,7 +48,7 @@ CloudSimple은 사설 클라우드에서 이러한 VMware 요소를 백업, 유�
 
 * ESXi
 * vCenter 플랫폼 서비스
-* 컨트롤러
+* Controller
 * vSAN
 * NSX
 

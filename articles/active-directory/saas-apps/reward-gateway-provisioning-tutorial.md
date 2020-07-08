@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 928d48907e43de5e65ca5604ff878bfb83d5e95b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061002"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 보상 게이트웨이 구성
@@ -41,7 +40,7 @@ ms.locfileid: "77061002"
 
 ## <a name="assigning-users-to-reward-gateway"></a>사용자를 보상 게이트웨이에 할당 
 
-Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 게 보상 게이트웨이에 대 한 액세스가 필요한 지 여부를 결정 해야 합니다. 일단 결정 되 면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)의 지침에 따라 이러한 사용자 및/또는 그룹을 보상 게이트웨이에 할당할 수 있습니다.
 
@@ -50,7 +49,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 * 자동 사용자 프로 비전 구성을 테스트 하기 위해 단일 Azure AD 사용자를 보상 게이트웨이에 할당 하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-* 사용자를 보상 게이트웨이에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
+* 사용자를 보상 게이트웨이에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="setup-reward-gateway--for-provisioning"></a>프로 비전을 위한 보상 게이트웨이 설정
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 보상 게이트웨이를 구성 하기 전에, 보상 게이트웨이에서 SCIM 프로 비전을 사용 하도록 설정 해야 합니다.
@@ -77,7 +76,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택 합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -98,7 +97,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
 ### <a name="to-configure-automatic-user-provisioning-for-reward-gateway-in-azure-ad"></a>Azure AD에서 보상 게이트웨이에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -106,13 +105,13 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![애플리케이션 목록의 Reward Gateway 링크](common/all-applications.png)
 
-3. **프로 비전** 탭을 선택 합니다.
+3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 탭](common/provisioning.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 먼저 **테 넌 트 Url** 및 **암호 토큰** 에서 검색 된 **Scim Url (v2)** 및 **OAuth 전달자 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 보상 게이트웨이에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 보상 게이트웨이 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
@@ -156,7 +155,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,10 +4,9 @@ description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 �
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162840"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>물리적 서버에서 Azure로의 재해 복구 아키텍처

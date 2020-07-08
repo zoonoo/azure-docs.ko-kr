@@ -15,10 +15,9 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060051"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 저장 구성 (미리 보기)
@@ -116,19 +115,19 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 5. **SuccessFactors 쓰기 저장**을 검색 하 고 갤러리에서 해당 앱을 추가 합니다.
 
-6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전** 을 선택 합니다.
 
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로 비전** **모드** 를 **자동** 으로 변경
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 회사 ID가 추가 된 SuccessFactors API 사용자 계정의 사용자 이름을 입력 합니다. 형식: **username\@companyID**
+   * **관리자 사용자 이름** – 회사 ID가 추가 된 SuccessFactors API 사용자 계정의 사용자 이름을 입력 합니다. 형식: **username \@ companyID**
 
    * **관리자 암호 –** SuccessFactors API 사용자 계정의 암호를 입력 합니다. 
 
    * **테 넌 트 URL –** SuccessFactors OData API 서비스 끝점의 이름을 입력 합니다. Http 또는 https를 사용 하지 않고 서버의 호스트 이름만 입력 합니다. 이 값은 **api-server-name.successfactors.com**와 같습니다.
 
-   * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
+   * **알림 전자 메일-** 전자 메일 주소를 입력 하 고 "오류가 발생 하는 경우 전자 메일 보내기" 확인란을 선택 합니다.
     > [!NOTE]
     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
 
@@ -157,7 +156,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    >[!NOTE]
    >SuccessFactors 쓰기 저장은 전자 메일 특성만 지원 합니다. 새 특성을 추가 하려면 **새 매핑 추가** 를 사용 하지 마세요. 
 
-1. 매핑을 저장 하려면 특성 매핑 섹션 맨 위에서 **저장** 을 클릭 합니다.
+1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
 특성 매핑 구성이 완료되면 이제 [사용자 프로비저닝 서비스를 사용하도록 설정하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
 

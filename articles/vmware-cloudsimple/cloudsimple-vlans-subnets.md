@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024894"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vlan 및 서브넷 개요
@@ -68,7 +67,7 @@ VSphere/Vsphere 서브넷 CIDR 범위 크기를 선택 하면 사설 클라우�
 
 지정 된 vSphere/Vsphere 서브넷 CIDR 범위는 여러 서브넷으로 나뉩니다.  다음 표에서는 허용 된 접두사에 대 한 분석의 예를 보여 줍니다.  이 예에서는 CIDR 범위로 192.168.0.0을 사용 합니다.
 
-예제:
+예:
 
 | 지정 된 vSphere/Vsphere 서브넷 CIDR/접두사 | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
 |---------------------------------|----------------|----------------|----------------|----------------|

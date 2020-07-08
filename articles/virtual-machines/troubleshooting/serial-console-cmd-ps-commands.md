@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77167037"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
@@ -320,7 +319,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `test-netconnection`
 
 > [!NOTE]
-> 쓰기 진행률 cmdlet은이 명령에서 작동 하지 않을 수 있습니다. 완화를 위해 PowerShell에서를 실행 `$ProgressPreference = "SilentlyContinue"` 하 여 진행률 표시줄을 사용 하지 않도록 설정할 수 있습니다.
+> 쓰기 진행률 cmdlet은이 명령에서 작동 하지 않을 수 있습니다. 완화를 `$ProgressPreference = "SilentlyContinue"` 위해 PowerShell에서를 실행 하 여 진행률 표시줄을 사용 하지 않도록 설정할 수 있습니다.
 
 또는
 
@@ -479,5 +478,5 @@ osType, Location, vmSize, vmId, name, resourceGroupName, subscriptionId, private
 
 ## <a name="next-steps"></a>다음 단계
 * 주 직렬 콘솔 Windows 설명서 페이지는 [여기](serial-console-windows.md)에 있습니다.
-* 직렬 콘솔은 [Linux](serial-console-linux.md) vm 에서도 사용할 수 있습니다.
+* 이 직렬 콘솔을 [Linux](serial-console-linux.md) VM에서도 사용할 수 있습니다.
 * [부트 진단](boot-diagnostics.md)에 대해 자세히 알아봅니다.

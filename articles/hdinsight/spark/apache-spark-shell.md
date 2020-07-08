@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162806"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
@@ -21,7 +20,7 @@ ms.locfileid: "77162806"
 
 ## <a name="run-an-apache-spark-shell"></a>Apache Spark 셸 실행
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -59,7 +58,7 @@ ms.locfileid: "77162806"
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. CSV 파일을 쿼리 합니다. 아래 언어는 및 `spark-shell` `pyspark`에 대해 작동 합니다.
+1. CSV 파일을 쿼리 합니다. 아래 언어는 및에 대해 `spark-shell` 작동 `pyspark` 합니다.
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
@@ -87,7 +86,7 @@ ms.locfileid: "77162806"
     data.select("BuildingID", "Country").show(10)
     ```
 
-1. 끝내기
+1. 종료
 
     ```spark-shell
     :q
@@ -105,9 +104,9 @@ SparkSession 인스턴스에 액세스하려면 `spark`를 입력합니다. Spar
 
 ## <a name="important-shell-parameters"></a>중요한 셸 매개 변수
 
-Spark Shell 명령 (`spark-shell`또는 `pyspark`)은 많은 명령줄 매개 변수를 지원 합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸이 `spark-submit`래핑하는에만 적용 될 수 있습니다.
+Spark Shell 명령 ( `spark-shell` 또는)은 `pyspark` 많은 명령줄 매개 변수를 지원 합니다. 매개 변수의 전체 목록을 보려면 스위치 `--help`를 사용하여 Spark 셸을 시작합니다. 이러한 매개 변수 중 일부는 Spark 셸이 래핑하는에만 적용 될 수 있습니다 `spark-submit` .
 
-| switch | description | 예제 |
+| 스위치 | description | 예제 |
 | --- | --- | --- |
 | --master MASTER_URL | 마스터 URL을 지정합니다. HDInsight에서 이 값은 항상 `yarn`입니다. | `--master yarn`|
 | --jars JAR_LIST | 드라이버 및 실행기 클래스 경로에서 포함하도록 쉼표로 구분된 로컬 jar의 목록입니다. HDInsight에서 이 목록은 Azure Storage 또는 Data Lake Storage에서 기본 파일 시스템에 대한 경로로 구성됩니다. | `--jars /path/to/examples.jar` |

@@ -16,17 +16,16 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c9a823e6515c2bfe09e1ab7bcef471eb8169e75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063298"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Netsuite 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Netsuite로 자동으로 프로비전 및 프로비전 해제하도록 Netsuite OneWorld 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -65,7 +64,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. Netsuite의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-1. **프로 비전 모드** 를 **자동**으로 설정 합니다. 
+1. **프로비전 모드**를 **자동**으로 설정합니다. 
 
     ![프로비전](./media/netsuite-provisioning-tutorial/provisioning.png)
 
@@ -79,7 +78,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-1. **저장을 클릭 합니다.**
+1. **저장**을 클릭합니다.
 
 1. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to Netsuite**(Azure Active Directory 사용자를 Netsuite에 동기화)를 선택합니다.
 
@@ -87,7 +86,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. Netsuite에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 [설정] 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-1. **저장을 클릭 합니다.**
+1. **저장**을 클릭합니다.
 
 [사용자 및 그룹] 섹션에서 Netsuite에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 Netsuite 앱의 프로비저닝 서비스에서 수행한 모든 작업을 설명하는 프로비저닝 활동 로그를 확인할 수 있습니다.
 
@@ -95,6 +94,6 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](tutorial-list.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-on 구성](netsuite-tutorial.md)

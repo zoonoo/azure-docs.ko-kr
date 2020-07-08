@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025064"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>CloudSimple의 VMware 솔루션에 대 한 질문과 대답
@@ -33,7 +32,7 @@ CloudSimple은 추가 지역이 출시 될 미국 동부, 미국 서 부 및 유
 
 **CloudSimple에 대해 내 구독을 사용 하도록 설정 어떻게 할까요??**
 
-에서 [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) Microsoft 계정 담당자에 게 연락 하 여 cloudsimple 서비스에 대 한 구독을 사용 하도록 설정할 수 있습니다. CloudSimple 서비스를 사용 하도록 설정할 전자 메일에 구독 ID를 제공 합니다.  
+에서 Microsoft 계정 담당자에 게 연락 [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) 하 여 CloudSimple 서비스에 대 한 구독을 사용 하도록 설정할 수 있습니다. CloudSimple 서비스를 사용 하도록 설정할 전자 메일에 구독 ID를 제공 합니다.  
 
 **CloudSimple 포털에 액세스할 어떻게 할까요? 있나요?**
 
@@ -100,7 +99,7 @@ CloudSimple은 사설 클라우드 환경을 보호 하기 위한 다음과 같�
 * **네트워크 보안**. 사설 클라우드와 인터넷, 사설 클라우드 및 온-프레미스 환경 또는 사설 클라우드의 서브넷 내에서 적용 되는 방화벽 규칙을 사용 하 여 네트워크 트래픽 흐름을 제어 합니다.
 * **보안, 개인 연결**. 온-프레미스 네트워크와 Azure 구독 간에 안전한 개인 연결이 설정 됩니다.
 
-## <a name="compute"></a>컴퓨팅
+## <a name="compute"></a>Compute
 
 **어떤 종류의 호스트를 사용할 수 있나요?**
 

@@ -16,10 +16,9 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057416"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Elevate 구성
@@ -92,7 +91,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 9. LinkedIn Elevate의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-10. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+10. **프로비전 모드**를 **자동**으로 설정합니다.
 
     ![LinkedIn Elevate 프로비전](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
@@ -122,5 +121,5 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

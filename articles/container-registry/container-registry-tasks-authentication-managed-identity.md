@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77111772"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>ACR 작업에서 Azure 관리 id 사용 
@@ -50,9 +49,9 @@ ACR 작업에서 두 유형의 id를 모두 사용 하도록 설정할 수 있�
 
 ### <a name="2-enable-identity-on-an-acr-task"></a>2. ACR 작업에서 id 사용
 
-ACR 작업을 만들 때 필요에 따라 사용자 할당 id, 시스템 할당 id 또는 둘 다를 사용 하도록 설정 합니다. 예를 들어 Azure CLI에서 `--assign-identity` [az acr task create][az-acr-task-create] 명령을 실행할 때 매개 변수를 전달 합니다.
+ACR 작업을 만들 때 필요에 따라 사용자 할당 id, 시스템 할당 id 또는 둘 다를 사용 하도록 설정 합니다. 예를 들어 `--assign-identity` Azure CLI에서 [az acr task create][az-acr-task-create] 명령을 실행할 때 매개 변수를 전달 합니다.
 
-시스템이 할당 한 id를 사용 하도록 설정 하려면 `--assign-identity` 또는 `assign-identity [system]`를 값 없이 전달 합니다. 다음 예제 명령은 이미지를 `hello-world` 빌드하고 시스템 할당 관리 id를 사용 하도록 설정 하는 공개 GitHub 리포지토리에서 Linux 작업을 만듭니다.
+시스템이 할당 한 id를 사용 하도록 설정 하려면 `--assign-identity` 또는를 값 없이 전달 `assign-identity [system]` 합니다. 다음 예제 명령은 이미지를 빌드하고 `hello-world` 시스템 할당 관리 id를 사용 하도록 설정 하는 공개 GitHub 리포지토리에서 Linux 작업을 만듭니다.
 
 ```azurecli
 az acr task create \
@@ -64,7 +63,7 @@ az acr task create \
     --assign-identity
 ```
 
-사용자 할당 id를 사용 하도록 설정 하려면 id `--assign-identity` 의 *리소스 id* 값과 함께 전달 합니다. 다음 예제 명령은 이미지를 `hello-world` 작성 하 고 사용자 할당 관리 id를 사용 하도록 설정 하는 공개 GitHub 리포지토리에서 Linux 작업을 만듭니다.
+사용자 할당 id를 사용 하도록 설정 하려면 `--assign-identity` id의 *리소스 id* 값과 함께 전달 합니다. 다음 예제 명령은 이미지를 작성 `hello-world` 하 고 사용자 할당 관리 id를 사용 하도록 설정 하는 공개 GitHub 리포지토리에서 Linux 작업을 만듭니다.
 
 ```azurecli
 az acr task create \
@@ -103,9 +102,9 @@ az role assignment create \
 
 ### <a name="4-optional-add-credentials-to-the-task"></a>4. (선택 사항) 작업에 자격 증명 추가
 
-작업에 다른 사용자 지정 레지스트리로 이미지를 끌어오거나 푸시하는 자격 증명이 필요 하거나 다른 리소스에 액세스 하려면 작업에 자격 증명을 추가 합니다. [Az acr task credential add][az-acr-task-credential-add] 명령을 실행 하 여 자격 증명을 추가 하 고 `--use-identity` , 매개 변수를 전달 하 여 id가 자격 증명에 액세스할 수 있음을 표시 합니다. 
+작업에 다른 사용자 지정 레지스트리로 이미지를 끌어오거나 푸시하는 자격 증명이 필요 하거나 다른 리소스에 액세스 하려면 작업에 자격 증명을 추가 합니다. [Az acr task credential add][az-acr-task-credential-add] 명령을 실행 하 여 자격 증명을 추가 하 고, 매개 변수를 전달 하 여 `--use-identity` id가 자격 증명에 액세스할 수 있음을 표시 합니다. 
 
-예를 들어, 시스템 할당 id에 대 한 자격 증명을 추가 하 여 Azure container registry *targetregistry*로 인증 `use-identity [system]`하려면 다음을 전달 합니다.
+예를 들어, 시스템 할당 id에 대 한 자격 증명을 추가 하 여 Azure container registry *targetregistry*로 인증 하려면 다음을 전달 합니다 `use-identity [system]` .
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +114,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-레지스트리 *targetregistry*를 사용 하 여 인증할 사용자 할당 id에 대 한 자격 증명을 추가 `use-identity` 하려면 id의 *클라이언트 id* 값으로을 전달 합니다. 다음은 그 예입니다.
+레지스트리 *targetregistry*를 사용 하 여 인증할 사용자 할당 id에 대 한 자격 증명을 추가 하려면 `use-identity` ID의 *클라이언트 id* 값으로을 전달 합니다. 예를 들어:
 
 ```azurecli
 az acr task credential add \
@@ -125,7 +124,7 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-[Az identity show][az-identity-show] 명령을 실행 하 여 id의 클라이언트 id를 가져올 수 있습니다. 클라이언트 ID는 형식의 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`GUID입니다.
+[Az identity show][az-identity-show] 명령을 실행 하 여 id의 클라이언트 id를 가져올 수 있습니다. 클라이언트 ID는 형식의 GUID입니다 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` .
 
 ### <a name="5-run-the-task"></a>5. 작업 실행
 

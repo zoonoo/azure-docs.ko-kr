@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025302"
 ---
 # <a name="expand-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 확장
@@ -57,4 +56,4 @@ VCenter의 기본 **데이터 센터** 를 사용 하 여 사설 클라우드를
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure에서 VMware VM 사용](quickstart-create-vmware-virtual-machine.md)
-* [사설 클라우드에](cloudsimple-private-cloud.md) 대 한 자세한 정보
+* [프라이빗 클라우드](cloudsimple-private-cloud.md)에 대해 자세히 알아보기

@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086598"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>자습서: IoT Edge에서 Blob Storage 이벤트에 대응 (미리 보기)
@@ -134,8 +133,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
    > [!IMPORTANT]
    > - Blob Storage 모듈은 HTTPS와 HTTP를 모두 사용 하 여 이벤트를 게시할 수 있습니다. 
-   > - EventGrid에 클라이언트 기반 인증을 사용 하도록 설정한 경우 다음과 `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`같이 EVENTGRID_ENDPOINT 값을 업데이트 하 여 https를 허용 해야 합니다.
-   > - 또한 위의 Json에 다른 `AllowUnknownCertificateAuthority=true` 환경 변수를 추가 합니다. HTTPS를 통해 EventGrid와 통신할 때 **AllowUnknownCertificateAuthority** 는 저장소 모듈이 자체 서명 된 eventgrid 서버 인증서를 신뢰 하도록 허용 합니다.
+   > - EventGrid에 클라이언트 기반 인증을 사용 하도록 설정한 경우 다음과 같이 EVENTGRID_ENDPOINT 값을 업데이트 하 여 https를 허용 해야 `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` 합니다.
+   > - 또한 위의 Json에 다른 환경 변수를 추가 합니다 `AllowUnknownCertificateAuthority=true` . HTTPS를 통해 EventGrid와 통신할 때 **AllowUnknownCertificateAuthority** 는 저장소 모듈이 자체 서명 된 eventgrid 서버 인증서를 신뢰 하도록 허용 합니다.
 
 4. 다음 정보로 복사한 JSON을 업데이트합니다.
 
@@ -143,8 +142,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
    - `<your storage account key>`를 64바이트 base64 키로 바꿉니다. [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 같은 도구를 사용하여 키를 생성할 수 있습니다. 다른 모듈에서 Blob Storage에 액세스하려면 이러한 자격 증명을 사용합니다.
 
-   - 을 `<event grid module name>` Event Grid 모듈의 이름으로 바꿉니다.
-   - 컨테이너 `<storage mount>` 운영 체제에 따라 대체 합니다.
+   - `<event grid module name>`을 Event Grid 모듈의 이름으로 바꿉니다.
+   - `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다.
      - Linux 컨테이너의 경우 **내 볼륨:/blobroot**
      - Windows 컨테이너의 경우**내 볼륨: C:/BlobRoot**
 
@@ -199,7 +198,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     > - HTTPS 흐름의 경우 인증서를 통해 클라이언트 인증을 사용 하도록 설정 하는 경우 말아 넘기기 요청은 다음과 같습니다.`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. 구독자는 토픽에 게시 된 이벤트를 등록할 수 있습니다. 이벤트를 수신 하려면 **MicrosoftStorage** 항목에 대 한 Event Grid 구독을 만들어야 합니다.
-    1. 다음 콘텐츠를 사용 하 여 blobsubscription. json을 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+    1. 다음 콘텐츠를 사용 하 여 blobsubscription.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
        ```json
         {
@@ -217,7 +216,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
        >[!NOTE]
        > **Endpointtype** 속성은 구독자가 **Webhook**임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 배포한 Azure Function 샘플에 해당 합니다.
 
-    2. 항목에 대 한 구독을 만들려면 다음 명령을 실행 합니다. HTTP 상태 코드가 인지 `200 OK`확인 합니다.
+    2. 항목에 대 한 구독을 만들려면 다음 명령을 실행 합니다. HTTP 상태 코드가 인지 확인 `200 OK` 합니다.
 
        ```sh
        curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
@@ -326,29 +325,29 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
 다음은 지원 되는 이벤트 속성과 해당 유형 및 설명 목록입니다. 
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | Blob Storage 이벤트 데이터입니다. |
+| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | Blob Storage 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| api | string | 이벤트를 트리거하는 작업입니다. 다음 값 중 하나일 수 있습니다. <ul><li>BlobCreated-허용 되는 값 `PutBlob` 은 및입니다.`PutBlockList`</li><li>Blobdeleted-허용 되는 `DeleteBlob`값 `DeleteAfterUpload` 은 `AutoDelete`, 및입니다. <p>DeleteAfterUpload desired 속성이 true로 설정 되어 있으므로 blob이 자동으로 삭제 되 면 `DeleteAfterUpload` 이벤트가 생성 됩니다. </p><p>`AutoDelete`deleteAfterMinutes desired 속성 값이 만료 되어 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다.</p></li></ul>|
+| api | string | 이벤트를 트리거하는 작업입니다. 다음 값 중 하나일 수 있습니다. <ul><li>BlobCreated-허용 되는 값은 및입니다. `PutBlob``PutBlockList`</li><li>BlobDeleted-허용 되는 값은 `DeleteBlob` , `DeleteAfterUpload` 및 `AutoDelete` 입니다. <p>`DeleteAfterUpload`DeleteAfterUpload desired 속성이 true로 설정 되어 있으므로 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다. </p><p>`AutoDelete`deleteAfterMinutes desired 속성 값이 만료 되어 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다.</p></li></ul>|
 | clientRequestId | string | 저장소 API 작업에 대 한 클라이언트 제공 요청 ID입니다. 이 ID는 로그의 "클라이언트-요청 id" 필드를 사용 하 여 Azure Storage 진단 로그와 상호 연결 하는 데 사용할 수 있으며, "x-y-id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. 자세한 내용은 [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조 하세요. |
-| requestId | string | 저장소 API 작업에 대 한 서비스 생성 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
+| requestId | 문자열 | 저장소 API 작업에 대 한 서비스 생성 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | eTag | string | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
 | contentType | string | Blob에 대해 지정된 콘텐츠 형식입니다. |
 | contentLength | integer | Blob의 크기(바이트)입니다. |
 | blobType | string | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
-| url | string | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조 * \<\>는 blob.core.windows.net/\>/\<\>\<* 입니다.-name. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url * \<\>\<은 dfs.core.windows.net/파일\>/\<-이름 파일 이름\>* 입니다. |
+| url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 * \<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\> *입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 * \<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *입니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

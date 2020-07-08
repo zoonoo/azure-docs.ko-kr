@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057828"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Foodee 구성
@@ -49,7 +48,7 @@ Azure AD는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한
 
 사용자를 할당 하는 경우 다음 팁을 염두에 두어야 합니다.
 
-* 자동 사용자 프로 비전의 구성을 테스트 하기 위해 단일 Azure AD 사용자를 Foodee에 할당 하는 것이 좋습니다. 나중에 추가 사용자 또는 그룹을 할당할 수 있습니다.
+* 자동 사용자 프로 비전의 구성을 테스트 하기 위해 단일 Azure AD 사용자를 Foodee에 할당 하는 것이 좋습니다. 추가 사용자 또는 그룹을 나중에 할당할 수 있습니다.
 
 * Foodee에 사용자를 할당 하는 경우 **할당** 창에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 합니다. *기본 액세스* 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
 
@@ -79,7 +78,7 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
     ![Azure Active Directory 명령](common/select-azuread.png)
 
-1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택 합니다.
+1. **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 창](common/enterprise-applications.png)
 
@@ -100,7 +99,7 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
 다음을 수행 하 여 Azure AD에서 Foodee에 대 한 자동 사용자 프로 비전을 구성 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
 
     ![Enterprise 애플리케이션 창](common/enterprise-applications.png)
 
@@ -108,17 +107,17 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
     ![응용 프로그램 목록의 Foodee 링크](common/all-applications.png)
 
-1. **프로 비전** 탭을 선택 합니다.
+1. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 탭](common/provisioning.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
 1. **프로 비전 모드** 드롭다운 목록에서 **자동**을 선택 합니다.
 
-    ![프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭](common/provisioning-automatic.png)
 
 1. **관리자 자격 증명**아래에서 다음을 수행 합니다.
 
-   a. **테 넌 트 URL** 상자에 이전에 검색 한 **https:\//concierge.food.ee/scim/v2** 값을 입력 합니다.
+   a. **테 넌 트 URL** 상자에 이전에 검색 한 **https: \/ /concierge.food.ee/scim/v2** 값을 입력 합니다.
 
    b. **비밀 토큰** 상자에 이전에 검색 한 **API 토큰** 값을 입력 합니다.
    
@@ -160,17 +159,17 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
     ![프로 비전 범위 드롭다운 목록](common/provisioning-scope.png)
 
-1. 프로 비전 할 준비가 되 면 **저장**을 선택 합니다.
+1. 프로비저닝할 준비가 되면 **저장**을 선택합니다.
 
     ![프로 비전 구성 저장 단추](common/provisioning-configuration-save.png)
 
 이전 작업은 **범위** 드롭다운 목록에서 정의한 사용자 또는 그룹의 초기 동기화를 시작 합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 자세한 내용은 [사용자를 프로 비전 하](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
 
-**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라갈 수 있습니다. 이 보고서는 Foodee의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
+**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라갈 수 있습니다. 이 보고서는 Foodee의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로비저닝 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

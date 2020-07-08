@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083141"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>클라우드를 온-프레미스 VMware 워크 로드에 대 한 재해 복구 사이트로 설정
@@ -51,7 +50,7 @@ CloudSimple 솔루션:
 온-프레미스 환경에서 사설 클라우드로의 Zerto 가상 복제를 사용 하도록 설정 하려면 다음 필수 구성 요소를 완료 합니다.
 
 1. [온-프레미스 네트워크와 CloudSimple 사설 클라우드 간에 사이트 간 VPN 연결을 설정](set-up-vpn.md)합니다.
-2. 사설 클라우드 [관리 구성 요소가 사설 클라우드 DNS 서버로 전달 되도록 DNS 조회를 설정](on-premises-dns-setup.md)합니다.  DNS 조회 전달 기능을 사용 하려면에 대 한 `*.cloudsimple.io` 온-프레미스 dns 서버에서 CLOUDSIMPLE dns 서버로 전달 영역 항목을 만듭니다.
+2. 사설 클라우드 [관리 구성 요소가 사설 클라우드 DNS 서버로 전달 되도록 DNS 조회를 설정](on-premises-dns-setup.md)합니다.  DNS 조회 전달 기능을 사용 하려면에 대 한 온-프레미스 DNS 서버에서 CloudSimple DNS 서버로 전달 영역 항목을 만듭니다 `*.cloudsimple.io` .
 3. 온-프레미스 vCenter 구성 요소가 온-프레미스 DNS 서버에 전달 되도록 DNS 조회를 설정 합니다.  사이트 간 VPN을 통해 CloudSimple 사설 클라우드에서 DNS 서버에 연결할 수 있어야 합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출 하 여 다음 정보를 제공 합니다.  
 
     * 온-프레미스 DNS 도메인 이름
@@ -93,6 +92,6 @@ CloudSimple 솔루션:
 6. 필요한 경우 개별 Vm에 대 한 네트워크 설정을 사용자 지정 하 고 VPG를 만듭니다.
 7. 복제가 완료 되 면 테스트 장애 조치 (failover)
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고
 
 [Zerto 설명서](https://www.zerto.com/myzerto/technical-documentation/)

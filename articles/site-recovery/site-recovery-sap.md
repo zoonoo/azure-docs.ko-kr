@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190787"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
@@ -24,7 +23,7 @@ Site Recovery의 기능은 다음과 같습니다.
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 SAP NetWeaver 응용 프로그램 배포를 보호할 수 있습니다. 이 문서에서는 Site Recovery를 사용 하 여 다른 Azure 데이터 센터에 복제 하는 경우 Azure에서 3 계층 SAP NetWeaver 배포를 보호 하기 위한 모범 사례를 설명 합니다. 이 문서에서는 지원 되는 시나리오 및 구성을 설명 하 고 테스트 장애 조치 (failover) 및 실제 장애 조치 (failover)를 수행 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -119,7 +118,7 @@ Site Recovery를 사용 하 여 Azure 지역에서 전체 SAP 배포의 장애 �
 
 ## <a name="networking-configuration"></a>네트워킹 구성
 
-고정 IP 주소를 사용하는 경우에는 가상 머신에 부여할 IP 주소를 지정할 수 있습니다. IP 주소를 설정 하려면 **계산 및 네트워크 설정** > **네트워크 인터페이스 카드**로 이동 합니다.
+고정 IP 주소를 사용하는 경우에는 가상 머신에 부여할 IP 주소를 지정할 수 있습니다. IP 주소를 설정 하려면 **계산 및 네트워크 설정**  >  **네트워크 인터페이스 카드**로 이동 합니다.
 
 ![Site Recovery 네트워크 인터페이스 카드 창에서 개인 IP 주소를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-sap/sap-static-ip.png)
 

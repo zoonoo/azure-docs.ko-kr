@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
 ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77121727"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
@@ -42,7 +41,7 @@ Azure는 유효한 DNS 요청에 대해 100%의 시간 동안 하나 이상의 A
 
 도메인은 Domain Name System의 고유 이름입니다. 예를 들어 contoso.com이 있습니다.
 
-DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. 이 레코드에는 메일 서버에 대 한 mail.contoso.com 및\.웹 사이트용 www contoso.com 포함 될 수 있습니다. 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
+DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. 이 레코드에는 메일 서버에 대 한 mail.contoso.com 및 웹 사이트용 www contoso.com 포함 될 수 있습니다 \. . 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
 
 도메인 이름은 *단지 이름일 뿐입니다*. DNS 영역은 도메인 이름의 DNS 레코드를 포함하는 데이터 리소스입니다. Azure DNS를 사용하여 DNS 영역을 호스트하고 Azure에서 도메인에 대한 DNS 레코드를 관리할 수 있습니다. 또한 인터넷의 DNS 쿼리에 응답하기 위해 DNS 이름 서버를 제공합니다.
 

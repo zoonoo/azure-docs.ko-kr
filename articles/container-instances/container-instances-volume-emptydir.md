@@ -4,10 +4,9 @@ description: Azure Container Instances에서 컨테이너 그룹에 있는 컨�
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77117745"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Azure Container Instances에서 emptyDir 볼륨 탑재
@@ -35,7 +34,7 @@ Linux *emptyDir* 볼륨의 최대 크기는 50 GB입니다.
 
 컨테이너 인스턴스에서 emptyDir 볼륨을 탑재 하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups), [yaml 파일](container-instances-reference-yaml.md)또는 다른 프로그래밍 방식 메서드를 사용 하 여 컨테이너 그룹을 배포할 수 있습니다.
 
-먼저 파일의 컨테이너 `volumes` 그룹 `properties` 섹션에서 배열을 채웁니다. 다음으로 *emptyDir* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다.
+먼저 `volumes` 파일의 컨테이너 그룹 섹션에서 배열을 채웁니다 `properties` . 다음으로 *emptyDir* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다.
 
 예를 들어 다음과 같은 Resource Manager 템플릿은 두 컨테이너로 구성된 컨테이너 그룹을 만들고 각 그룹은 *emptyDir* 볼륨을 탑재합니다.
 

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77120694"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 webhook 경고 알림 보내기
@@ -56,7 +55,7 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
     ]
 ```
 
-| 필드 | 필수? | Description |
+| 필드 | 필수? | 설명 |
 | --- | --- | --- |
 | operation(작업) |예 |값은 "Scale"이어야 합니다. |
 | sendToSubscriptionAdministrator |예 |값은 "true" 또는 "false"여야 합니다. |
@@ -67,7 +66,7 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 | properties |예 |값은 비어 있는 {}이거나 키-값 쌍을 포함할 수 있습니다. |
 
 ## <a name="authentication-in-webhooks"></a>Webhook의 인증
-웹후크는 토큰 ID를 쿼리 매개 변수로 사용해서 웹후크 URI를 저장하는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 예: https:\//mysamplealert/webcallback? tokenid = sometokenid&someparameter = somevalue
+웹후크는 토큰 ID를 쿼리 매개 변수로 사용해서 웹후크 URI를 저장하는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 예: https: \/ /mysamplealert/webcallback? tokenid = sometokenid&someparameter = somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>크기 자동 조정 알림 Webhook 페이로드 스키마
 크기 자동 조정 알림이 생성될 때는 다음 메타데이터가 Webhook 페이로드에 포함됩니다.
@@ -99,7 +98,7 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 ```
 
 
-| 필드 | 필수? | Description |
+| 필드 | 필수? | 설명 |
 | --- | --- | --- |
 | 상태 |예 |크기 자동 조정 작업이 생성되었음을 나타내는 상태입니다. |
 | operation(작업) |예 |인스턴스가 증가하면 "규모 확장"되고 인스턴스가 감소하면 "규모 감축"됩니다. |

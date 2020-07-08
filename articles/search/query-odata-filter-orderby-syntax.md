@@ -20,13 +20,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153879"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Azure Cognitive Search의, `$filter` `$orderby`및 `$select` 에 대 한 OData 언어 개요
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>`$filter` `$orderby` Azure Cognitive Search의, 및에 대 한 OData 언어 개요 `$select`
 
 Azure Cognitive Search는 **$filter**, **$orderby**및 **$select** 식의 OData 식 구문 하위 집합을 지원 합니다. 필터 식은 쿼리 구문 분석 때 평가되고, 검색을 특정 필드로 제한하거나 인덱스 검색 때 사용되는 일치 조건을 추가합니다. Order by 식은 반환 되는 문서를 정렬 하기 위해 결과 집합에 대 한 사후 처리 단계로 적용 됩니다. 식 선택은 결과 집합에 포함 되는 문서 필드를 결정 합니다. 이러한 식의 구문은 **검색** 매개 변수에 사용 되는 [단순](query-simple-syntax.md) 또는 [전체](query-lucene-syntax.md) 쿼리 구문과 구분 됩니다. 하지만 필드를 참조 하는 구문에는 약간의 차이가 있습니다.
 
@@ -66,37 +65,37 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 
 필드 경로는 슬래시로 구분 된 하나 이상의 **식별자** 로 구성 됩니다. 각 식별자는 ASCII 문자 또는 밑줄로 시작 해야 하 고 ASCII 문자, 숫자 또는 밑줄만 포함 하는 문자 시퀀스입니다. 문자는 대문자나 소문자 일 수 있습니다.
 
-식별자는 필드 이름 또는 필터의 [컬렉션 식](search-query-odata-collection-operators.md) (`any` 또는 `all`)의 컨텍스트에서 **범위 변수** 를 참조할 수 있습니다. 범위 변수는 컬렉션의 현재 요소를 나타내는 루프 변수와 같습니다. 복합 컬렉션의 경우 해당 변수는 개체를 나타내므로 필드 경로를 사용 하 여 변수의 하위 필드를 참조할 수 있습니다. 이는 대부분의 프로그래밍 언어에서 점 표기법과 유사 합니다.
+식별자는 필드 이름 또는 필터의 [컬렉션 식](search-query-odata-collection-operators.md) (또는)의 컨텍스트에서 **범위 변수** 를 참조할 수 있습니다 `any` `all` . 범위 변수는 컬렉션의 현재 요소를 나타내는 루프 변수와 같습니다. 복합 컬렉션의 경우 해당 변수는 개체를 나타내므로 필드 경로를 사용 하 여 변수의 하위 필드를 참조할 수 있습니다. 이는 대부분의 프로그래밍 언어에서 점 표기법과 유사 합니다.
 
 다음 표에서는 필드 경로의 예를 보여 줍니다.
 
-| 필드 경로 | Description |
+| 필드 경로 | 설명 |
 | --- | --- |
 | `HotelName` | 인덱스의 최상위 필드를 참조 합니다. |
-| `Address/City` | 인덱스에 있는 `City` 복합 필드의 하위 필드를 참조 합니다. `Address` 이 예제에서는 `Edm.ComplexType` 형식입니다. |
-| `Rooms/Type` | 인덱스에 있는 `Type` 복합 컬렉션 필드의 하위 필드를 참조 합니다. `Rooms` 이 예제에서는 `Collection(Edm.ComplexType)` 형식입니다. |
-| `Stores/Address/Country` | 인덱스에 있는 `Country` 복합 컬렉션 필드의 `Address` 하위 필드에 대 한 하위 필드를 참조 합니다. `Stores` 는 형식이 `Collection(Edm.ComplexType)` 며 `Address` 이 예제에서는 형식 `Edm.ComplexType` 입니다. |
-| `room/Type` | 는 필터 식 `Type` 에서와 같이 `room` 범위 변수의 하위 필드를 참조 합니다.`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | 는 필터 식 `Country` 에서와 같이 `store` 범위 변수의 `Address` 하위 필드에 대 한 하위 필드를 참조 합니다.`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `Address/City` | `City`인덱스에 있는 복합 필드의 하위 필드를 참조 합니다. `Address` `Edm.ComplexType` 이 예제에서는 형식입니다. |
+| `Rooms/Type` | `Type`인덱스에 있는 복합 컬렉션 필드의 하위 필드를 참조 합니다. `Rooms` `Collection(Edm.ComplexType)` 이 예제에서는 형식입니다. |
+| `Stores/Address/Country` | `Country`인덱스에 있는 복합 컬렉션 필드의 하위 필드에 대 한 하위 필드를 참조 합니다 `Address` . `Stores` 는 형식이 `Collection(Edm.ComplexType)` 며 `Address` `Edm.ComplexType` 이 예제에서는 형식입니다. |
+| `room/Type` | 는 `Type` `room` 필터 식에서와 같이 범위 변수의 하위 필드를 참조 합니다.`Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | 는 `Country` `Address` `store` 필터 식에서와 같이 범위 변수의 하위 필드에 대 한 하위 필드를 참조 합니다.`Stores/any(store: store/Address/Country eq 'Canada')` |
 
 필드 경로의 의미는 컨텍스트에 따라 달라 집니다. 필터에서 필드 경로는 현재 문서에 있는 필드의 *단일 인스턴스* 값을 나타냅니다. [전체 Lucene 구문에서](query-lucene-syntax.md#bkmk_fields) **$orderby**, **$select**또는 필드 지정 search와 같은 다른 컨텍스트에서 필드 경로는 필드 자체를 참조 합니다. 이러한 차이는 필터에서 필드 경로를 사용 하는 방법에 대 한 몇 가지 영향을 줍니다.
 
-필드 경로 `Address/City`를 고려 합니다. 필터에서이는 "샌프란시스코"와 같이 현재 문서에 대 한 단일 도시를 나타냅니다. 이와 대조적으로 `Rooms/Type` 는 많은 대화방 `Type` 의 하위 필드 (예: "standard", 두 번째 방에 대 한 "deluxe")를 참조 합니다. 는 `Rooms/Type` 하위 필드 `Type`의 *단일 인스턴스* 를 참조 하지 않으므로 필터에 직접 사용할 수 없습니다. 대신, 방 유형을 필터링 하려면 다음과 같이 범위 변수와 함께 [람다 식을](search-query-odata-collection-operators.md) 사용 합니다.
+필드 경로를 고려 `Address/City` 합니다. 필터에서이는 "샌프란시스코"와 같이 현재 문서에 대 한 단일 도시를 나타냅니다. 이와 대조적으로는 `Rooms/Type` `Type` 많은 대화방의 하위 필드 (예: "standard", 두 번째 방에 대 한 "deluxe")를 참조 합니다. 는 `Rooms/Type` 하위 필드의 *단일 인스턴스* 를 참조 하지 않으므로 `Type` 필터에 직접 사용할 수 없습니다. 대신, 방 유형을 필터링 하려면 다음과 같이 범위 변수와 함께 [람다 식을](search-query-odata-collection-operators.md) 사용 합니다.
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-이 예에서는 범위 변수가 `room` `room/Type` 필드 경로에 표시 됩니다. 이러한 방식으로 `room/Type` 는 현재 문서에서 현재 대화방의 유형을 나타냅니다. 이는 `Type` 하위 필드의 단일 인스턴스이며 필터에 직접 사용할 수 있습니다.
+이 예에서는 범위 변수가 `room` 필드 경로에 표시 됩니다 `room/Type` . 이러한 방식으로는 `room/Type` 현재 문서에서 현재 대화방의 유형을 나타냅니다. 이는 하위 필드의 단일 인스턴스이며 `Type` 필터에 직접 사용할 수 있습니다.
 
 ### <a name="using-field-paths"></a>필드 경로 사용
 
 필드 경로는 [Azure COGNITIVE SEARCH REST api](https://docs.microsoft.com/rest/api/searchservice/)의 많은 매개 변수에 사용 됩니다. 다음 표에서는 사용할 수 있는 모든 위치 및 사용에 대 한 제한 사항을 보여 줍니다.
 
-| API | 매개 변수 이름 | 제한 |
+| API | 매개 변수 이름 | 제한 사항 |
 | --- | --- | --- |
 | 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `suggesters/sourceFields` | 없음 |
 | 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `scoringProfiles/text/weights` | **검색 가능한** 필드만 참조할 수 있습니다. |
 | 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `scoringProfiles/functions/fieldName` | **필터링** 가능한 필드만 참조할 수 있습니다. |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`가 `queryType` 인 경우`full` | **검색 가능한** 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search``queryType`가 인 경우`full` | **검색 가능한** 필드만 참조할 수 있습니다. |
 | [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | **패싯 가능** 필드만 참조할 수 있습니다. |
 | [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | **검색 가능한** 필드만 참조할 수 있습니다. |
 | [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | **검색 가능한** 필드만 참조할 수 있습니다. |
@@ -126,7 +125,7 @@ OData의 상수는 지정 된 EDM ( [엔터티 데이터 모델](https://docs.mi
 
 OData의 문자열 상수는 작은따옴표로 구분 됩니다. 작은따옴표를 포함할 수 있는 문자열 상수를 사용 하 여 쿼리를 생성 해야 하는 경우 포함 된 따옴표를 두 배로 이스케이프할 수 있습니다.
 
-예를 들어 "Alice의 car"와 같이 형식이 지정 되지 않은 아포스트로피를 사용 하는 구는 OData에서 문자열 상수로 `'Alice''s car'`표시 됩니다.
+예를 들어 "Alice의 car"와 같이 형식이 지정 되지 않은 아포스트로피를 사용 하는 구는 OData에서 문자열 상수로 표시 됩니다 `'Alice''s car'` .
 
 > [!IMPORTANT]
 > 프로그래밍 방식으로 필터를 생성 하는 경우 사용자 입력에서 제공 되는 문자열 상수를 이스케이프 해야 합니다. 이는 특히 필터를 사용 하 여 [보안 트리밍을](search-security-trimming-for-azure-search.md)구현할 때 [삽입 공격의](https://wikipedia.org/wiki/SQL_injection)가능성을 완화 하기 위한 것입니다.
@@ -205,7 +204,7 @@ boolean_literal ::= 'true' | 'false'
 
 ## <a name="building-expressions-from-field-paths-and-constants"></a>필드 경로 및 상수에서 식 작성
 
-필드 경로와 상수는 OData 식의 가장 기본적인 부분 이지만 이미 전체 식입니다. 실제로 Azure Cognitive Search의 **$select** 매개 변수는 아무것도 아니지만 쉼표로 구분 된 필드 경로 목록이 며 **$orderby** 는 **$select**보다 훨씬 복잡 하지 않습니다. 인덱스에 형식의 `Edm.Boolean` 필드가 있는 경우에도 해당 필드의 경로는 아니지만 필터를 작성할 수 있습니다. 상수 `true` 와 `false` 는 마찬가지로 유효한 필터입니다.
+필드 경로와 상수는 OData 식의 가장 기본적인 부분 이지만 이미 전체 식입니다. 실제로 Azure Cognitive Search의 **$select** 매개 변수는 아무것도 아니지만 쉼표로 구분 된 필드 경로 목록이 며 **$orderby** 는 **$select**보다 훨씬 복잡 하지 않습니다. 인덱스에 형식의 필드가 있는 경우에 `Edm.Boolean` 도 해당 필드의 경로는 아니지만 필터를 작성할 수 있습니다. 상수 `true` 와는 `false` 마찬가지로 유효한 필터입니다.
 
 그러나 대부분의 경우에는 둘 이상의 필드와 상수를 참조 하는 더 복잡 한 식이 필요 합니다. 이러한 식은 매개 변수에 따라 다양 한 방식으로 빌드됩니다.
 
@@ -229,7 +228,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 > [!NOTE]
 > 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-**$Orderby** 및 **$select** 매개 변수는 간단한 식의 쉼표로 구분 된 목록입니다. **$Filter** 매개 변수는 보다 간단한 하위 식으로 구성 된 부울 식입니다. 이러한 하위 식은 [ `and`,, 등 `or` `not` ](search-query-odata-logical-operators.md)의 논리 연산자를 사용 하 여 결합 되 고,, 등의 비교 연산자 [ `eq` `lt` `gt`](search-query-odata-comparison-operators.md)와 [ `any` 및 `all` ](search-query-odata-collection-operators.md)등의 컬렉션 연산자를 사용 하 여 결합 됩니다.
+**$Orderby** 및 **$select** 매개 변수는 간단한 식의 쉼표로 구분 된 목록입니다. **$Filter** 매개 변수는 보다 간단한 하위 식으로 구성 된 부울 식입니다. 이러한 하위 식은,, 등의 논리 연산자 [ `and` `or` `not` ](search-query-odata-logical-operators.md)를 사용 하 여 결합 되 고,, 등의 비교 연산자와 [ `any` 및 `all` ](search-query-odata-collection-operators.md)등 [ `eq` `lt` `gt` 의](search-query-odata-comparison-operators.md)컬렉션 연산자를 사용 하 여 결합 됩니다.
 
 **$Filter**, **$orderby**및 **$select** 매개 변수는 다음 문서에 자세히 설명 되어 있습니다.
 
@@ -237,7 +236,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 - [Azure Cognitive Search의 OData $orderby 구문](search-query-odata-orderby.md)
 - [Azure Cognitive Search의 OData $select 구문](search-query-odata-select.md)
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 - [Azure Cognitive Search의 패싯 탐색](search-faceted-navigation.md)
 - [Azure Cognitive Search의 필터](search-filters.md)

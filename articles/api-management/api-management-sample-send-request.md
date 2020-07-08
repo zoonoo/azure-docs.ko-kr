@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190004"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
@@ -104,7 +103,7 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 
 또는 토큰이 유효한 지 여부를 나타내는 "활성" 필드가 권한 부여 서버에 포함 되지 않은 경우 Postman과 같은 도구를 사용 하 여 유효한 토큰에 설정 된 속성을 확인 합니다. 예를 들어 유효한 토큰 응답에 "expires_in" 라는 속성이 포함 된 경우이 속성 이름이 권한 부여 서버 응답에 있는지 확인 합니다.
 
-Condition = "@ ((IResponse) context 인 경우 <합니다. Variables ["tokenstate"]). Body.As<JObject>(). 속성 ("expires_in") = = null) ">
+Condition = "@ ((IResponse) context 인 경우 <합니다. Variables ["tokenstate"]). Body.As <JObject> (). 속성 ("expires_in") = = null) ">
 
 ### <a name="reporting-failure"></a>오류 보고
 `<choose>` 정책을 사용하여 토큰이 유효한지 감지할 수 있으며 그럴 경우 401 응답을 반환합니다.

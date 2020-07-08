@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086661"
 ---
 # <a name="persist-state-in-linux"></a>Linux에서 상태 유지
@@ -25,7 +24,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
 이 문서에서는 Linux 배포에서 지 속성을 사용 하 여 Event Grid 모듈을 배포 하는 단계를 제공 합니다.
 
 > [!NOTE]
->Event Grid 모듈은 UID `2000` 및 name `eventgriduser`을 사용 하 여 권한이 낮은 사용자로 실행 됩니다.
+>Event Grid 모듈은 UID 및 name을 사용 하 여 권한이 낮은 사용자로 실행 됩니다 `2000` `eventgriduser` .
 
 ## <a name="persistence-via-volume-mount"></a>볼륨 탑재를 통한 지 속성
 
@@ -105,7 +104,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
    ```
 
-    예를 들면 다음과 같습니다.
+    예제:
 
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
@@ -123,7 +122,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
     }
     ```
 
-    예를 들면 다음과 같습니다.
+    예제:
 
     ```json
     {
@@ -170,7 +169,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
 * 이벤트 지 속성은 생성 시 이벤트 구독에서 구성 되며, 이벤트 구독을 만든 후에는 수정할 수 없습니다. 이벤트 지 속성을 설정/해제 하려면 이벤트 구독을 삭제 하 고 다시 만들어야 합니다.
 * 이벤트 지속은 메모리 작업 보다 거의 항상 느리지만 속도 차이는 드라이브의 특징에 따라 매우 다릅니다. 속도와 안정성 간의 균형은 모든 메시징 시스템에 고유 하지만 일반적으로 대규모의 경우에만 크게 크게 드러납니다.
 
-이벤트 구독에서 이벤트 지 속성을 사용 하도록 설정 `persistencePolicy` 하려면 `true`를로 설정 합니다.
+이벤트 구독에서 이벤트 지 속성을 사용 하도록 설정 하려면를로 설정 합니다 `persistencePolicy` `true` .
 
  ```json
         {

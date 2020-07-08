@@ -4,10 +4,9 @@ description: Azure Service Fabric 클러스터에 대한 포트를 열도록 Azu
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025387"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
@@ -50,7 +49,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변수를 사용할 수 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | `--backend-port`  | Service Fabric 애플리케이션이 수신 대기하는 포트입니다. |
 | `--frontend-port` | 부하 분산 장치가 외부 연결을 위해 노출하는 포트입니다. |

@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 15af18177cea217612a4d5276d130abe02d339f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77160763"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET에서 지원 Active Directory Federation Services
@@ -35,7 +34,7 @@ MSAL.NET는 관리 되는 사용자 (Azure AD에서 관리 되는 사용자) 또
 이 경우 사용 하는 [기관은](msal-client-application-configuration.md#authority) 일반적인 인증 기관 (기관 호스트 이름 + 테 넌 트, 공용 또는 조직)입니다.
 
 ### <a name="acquiring-a-token-interactively"></a>대화형으로 토큰 가져오기
-`AcquireTokenInteractive` 메서드를 호출 하는 경우 사용자 환경은 일반적으로 다음과 같습니다.
+메서드를 호출 하는 경우 `AcquireTokenInteractive` 사용자 환경은 일반적으로 다음과 같습니다.
 
 1. 사용자가 자신의 계정 ID를 입력 합니다.
 2. Azure AD는 "조직의 페이지로 이동" 메시지를 잠깐 표시 합니다.
@@ -44,10 +43,10 @@ MSAL.NET는 관리 되는 사용자 (Azure AD에서 관리 되는 사용자) 또
 이 페더레이션된 시나리오에서 지원 되는 AD FS 버전은 AD FS v2, AD FS v3 (Windows Server 2012 R2) 및 AD FS v4 (AD FS 2016)입니다.
 
 ### <a name="acquiring-a-token-using-acquiretokenbyintegratedauthentication-or-acquiretokenbyusernamepassword"></a>AcquireTokenByIntegratedAuthentication 또는 AcquireTokenByUsernamePassword를 사용 하 여 토큰 가져오기
-`AcquireTokenByIntegratedAuthentication` 또는 `AcquireTokenByUsernamePassword` 메서드를 사용 하 여 토큰을 획득 하는 경우 MSAL.NET는 사용자 이름을 기준으로 연락할 id 공급자를 가져옵니다.  MSAL.NET는 id 공급자에 연결한 후 [SAML 1.1 토큰](reference-saml-tokens.md) 을 수신 합니다.  그런 다음 MSAL.NET은 JWT를 가져오기 위해 Azure AD에 사용자 어설션으로 SAML 토큰을 제공 합니다 (단계별 [흐름과](msal-authentication-flows.md#on-behalf-of)비슷함).
+또는 메서드를 사용 하 여 토큰을 획득 하는 경우 `AcquireTokenByIntegratedAuthentication` `AcquireTokenByUsernamePassword` MSAL.NET는 사용자 이름을 기준으로 연락할 id 공급자를 가져옵니다.  MSAL.NET는 id 공급자에 연결한 후 [SAML 1.1 토큰](reference-saml-tokens.md) 을 수신 합니다.  그런 다음 MSAL.NET은 JWT를 가져오기 위해 Azure AD에 사용자 어설션으로 SAML 토큰을 제공 합니다 (단계별 [흐름과](msal-authentication-flows.md#on-behalf-of)비슷함).
 
 ## <a name="msal-connects-directly-to-ad-fs"></a>MSAL은 AD FS에 직접 연결 됩니다.
-MSAL.NET는 Open ID Connect 규격 이며 PKCE 및 범위를 이해 하는 AD FS 2019에 대 한 연결을 지원 합니다. 이 지원을 사용 하려면 Service Pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) 가 Windows Server에 적용 되어야 합니다. AD FS에 직접 연결 하는 경우 응용 프로그램을 빌드하는 데 사용 하려는 기관은와 비슷합니다 `https://mysite.contoso.com/adfs/`.
+MSAL.NET는 Open ID Connect 규격 이며 PKCE 및 범위를 이해 하는 AD FS 2019에 대 한 연결을 지원 합니다. 이 지원을 사용 하려면 Service Pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) 가 Windows Server에 적용 되어야 합니다. AD FS에 직접 연결 하는 경우 응용 프로그램을 빌드하는 데 사용 하려는 기관은와 비슷합니다 `https://mysite.contoso.com/adfs/` .
 
 현재 다음에 대 한 직접 연결을 지원할 계획이 없습니다.
 

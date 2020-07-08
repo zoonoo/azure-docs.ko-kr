@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
 ms.openlocfilehash: 56c25b7c77809a5cb7f4e539cff8e1815cd9976f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77031711"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka에 대한 확장성 및 스토리지 구성
@@ -48,7 +47,7 @@ Kafka 클러스터에서 작업자 노드에 사용된 디스크 수를 제어�
     ],
 ```
 
-에서 [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json)관리 디스크를 구성 하는 방법을 보여 주는 전체 템플릿을 찾을 수 있습니다.
+에서 관리 디스크를 구성 하는 방법을 보여 주는 전체 템플릿을 찾을 수 있습니다 [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) .
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -56,7 +55,7 @@ HDInsight에서 Apache Kafka를 사용하는 방법에 대한 자세한 내용�
 
 * [MirrorMaker를 사용하여 HDInsight에 Apache Kafka 복제본 만들기](apache-kafka-mirroring.md)
 * [HDInsight에서 Apache Storm 및 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md)
-* [HDInsight에서 Apache Kafka와 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
 * [Azure Virtual Network를 통해 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md)
 
 * [Apache Kafka와 관리 디스크에 대한 HDInsight 블로그](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

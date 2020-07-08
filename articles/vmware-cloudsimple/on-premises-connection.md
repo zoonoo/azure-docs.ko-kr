@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019624"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결
@@ -61,7 +60,7 @@ Express 경로 연결을 설정 하려면 Express 경로 회로에 대 한 권�
     [![Express 경로 회로 권한 부여 복사](media/azure-expressroute-transit-authorization-copy.png)](media/azure-expressroute-transit-authorization-copy.png)
 
     > [!IMPORTANT]
-    > **리소스 ID** 는 UI에서 복사 해야 하며 지원 하도록 제공할 때 형식 ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` 이어야 합니다.
+    > **리소스 ID** 는 UI에서 복사 해야 하며 ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` 지원 하도록 제공할 때 형식 이어야 합니다.
 
 6. 만들 연결을 <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">지 원하는</a> 티켓을 파일에 포함 합니다.
     * 문제 유형: **기술**

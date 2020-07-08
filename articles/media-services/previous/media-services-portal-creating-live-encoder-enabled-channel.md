@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162568"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 라이브 스트리밍을 수행 하 여 다중 비트 전송률 스트림을 만들 Azure Portal  
@@ -29,7 +28,7 @@ ms.locfileid: "77162568"
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널** 을 만드는 단계를 안내합니다.
 
@@ -61,12 +60,12 @@ ms.locfileid: "77162568"
 1. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트를 중지합니다.
 1. 이벤트를 삭제하고 필요에 따라 자산을 삭제합니다.   
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 
-  자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
+  자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
@@ -141,7 +140,7 @@ ms.locfileid: "77162568"
 채널로 들어오는 스트림이 있으면 자산, 프로그램 및 스트리밍 로케이터를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 이렇게 하면 스트림이 보관되고 스트리밍 엔드포인트를 통해 시청자가 스트림을 사용할 수 있게 됩니다. 
 
 >[!NOTE]
->AMS 계정이 만들어지면 **기본** 스트리밍 끝점이 **중지** 됨 상태에서 계정에 추가 됩니다. 콘텐츠 스트리밍을 시작 하 고 동적 패키징 및 동적 암호화를 활용 하려면 콘텐츠를 스트리밍 하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 
+>AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
 
 이벤트를 시작하는 방법에는 다음 두 가지가 있습니다. 
 

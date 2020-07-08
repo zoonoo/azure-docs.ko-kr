@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063169"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Visitly 구성
@@ -41,7 +40,7 @@ ms.locfileid: "77063169"
 
 ## <a name="assign-users-to-visitly"></a>Visitly에 사용자 할당 
 
-Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 할당된 사용자 또는 그룹만 동기화됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Visitly에 액세스 해야 하는 Azure AD의 사용자 또는 그룹을 결정 합니다. 그런 다음 여기에 설명 된 지침에 따라 이러한 사용자 또는 그룹을 Visitly에 할당 합니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,13 +49,13 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 * 자동 사용자 프로 비전 구성을 테스트 하려면 단일 Azure AD 사용자를 Visitly에 할당 하는 것이 좋습니다. 추가 사용자 또는 그룹은 나중에 할당할 수 있습니다.
 
-* 사용자를 Visitly에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
+* 사용자를 Visitly에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="set-up-visitly-for-provisioning"></a>프로 비전을 위한 Visitly 설정
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Visitly를 구성 하기 전에 Visitly에서 SCIM (도메인 간 Id 관리) 프로 비전을 위해 시스템을 사용 하도록 설정 해야 합니다.
 
-1. [Visitly](https://app.visitly.io/login)에 로그인 합니다. **통합** > **호스트 동기화**를 선택 합니다.
+1. [Visitly](https://app.visitly.io/login)에 로그인 합니다. **통합**  >  **호스트 동기화**를 선택 합니다.
 
     ![호스트 동기화](media/Visitly-provisioning-tutorial/login.png)
 
@@ -79,7 +78,7 @@ Azure AD 응용 프로그램 갤러리에서 Visitly를 추가 하려면 다음 
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택 합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -100,7 +99,7 @@ Azure AD 응용 프로그램 갤러리에서 Visitly를 추가 하려면 다음 
 
 ### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Azure AD에서 Visitly에 대 한 자동 사용자 프로 비전 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
 
     ![모든 애플리케이션](common/enterprise-applications.png)
 
@@ -108,19 +107,19 @@ Azure AD 응용 프로그램 갤러리에서 Visitly를 추가 하려면 다음 
 
     ![애플리케이션 목록의 Visitly 링크](common/all-applications.png)
 
-3. **프로 비전** 탭을 선택 합니다.
+3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 탭](common/provisioning.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+4. **프로비전 모드**를 **자동**으로 설정합니다.
 
     ![프로 비전 모드를 자동으로 설정](common/provisioning-automatic.png)
 
-5. 관리자 자격 `https://api.visitly.io/v1/usersync/SCIM` 증명 섹션 아래에 **테 넌 트 URL** 및 **암호 토큰**에서 각각 검색 된 및 **API 키** 값을 입력 합니다. **연결 테스트** 를 선택 하 여 Azure AD가 Visitly에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Visitly 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. 관리자 자격 증명 섹션 아래에 `https://api.visitly.io/v1/usersync/SCIM` **테 넌 트 URL** 및 **암호 토큰**에서 각각 검색 된 및 **API 키** 값을 입력 합니다. **연결 테스트** 를 선택 하 여 Azure AD가 Visitly에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Visitly 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테 넌 트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
-6. **알림 전자 메일** 상자에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 합니다. **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
+6. **알림 전자 메일** 상자에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 합니다. **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
 
     ![전자 메일 알림](common/provisioning-notification-email.png)
 
@@ -144,13 +143,13 @@ Azure AD 응용 프로그램 갤러리에서 Visitly를 추가 하려면 다음 
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로 비전 할 준비가 되 면 **저장**을 선택 합니다.
+13. 프로비저닝할 준비가 되면 **저장**을 선택합니다.
 
     ![프로 비전 구성 저장 중](common/provisioning-configuration-save.png)
 
-이 작업을 수행 하면 **설정** 섹션의 **범위** 에 정의 된 모든 사용자 또는 그룹의 초기 동기화가 시작 됩니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 또는 그룹이 프로 비전 하는 데 걸리는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
+이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 또는 그룹이 프로 비전 하는 데 걸리는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
 
-**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Visitly의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
+**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Visitly의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로비저닝 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 
@@ -158,7 +157,7 @@ Visitly는 하드 삭제를 지원 하지 않습니다. 모든 항목은 일시 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

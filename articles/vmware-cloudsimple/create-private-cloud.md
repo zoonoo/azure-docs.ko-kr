@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024792"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 만들기
@@ -43,7 +42,7 @@ ms.locfileid: "77024792"
 
 ## <a name="access-the-cloudsimple-portal"></a>CloudSimple 포털 액세스
 
-[Cloudsimple 포털](access-cloudsimple-portal.md)에 액세스 합니다.
+[CloudSimple 포털](access-cloudsimple-portal.md)에 액세스합니다.
 
 ## <a name="create-a-new-private-cloud"></a>새 사설 클라우드 만들기
 

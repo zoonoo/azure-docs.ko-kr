@@ -8,10 +8,9 @@ ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062152"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
@@ -20,7 +19,7 @@ ms.locfileid: "77062152"
 
 Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자세히 알아보려면 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요. 일반적인 고급 설치 시나리오 및 게이트웨이에 대 한 자세한 내용은 [온-프레미스 데이터 게이트웨이 설명서](/data-integration/gateway/service-gateway-onprem)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 **최소 요구 사항:**
 
@@ -125,7 +124,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
     ![게이트웨이 리소스에 서버 연결 성공](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-이것으로 끝입니다. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+이제 끝났습니다! 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

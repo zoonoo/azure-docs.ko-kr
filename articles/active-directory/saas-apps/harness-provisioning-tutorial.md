@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057841"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 도구 구성
@@ -31,7 +30,7 @@ ms.locfileid: "77057841"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명 된 시나리오에서는 사용자에 게 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -41,7 +40,7 @@ ms.locfileid: "77057841"
 
 ## <a name="assign-users-to-harness"></a>사용자를 도구에 할당
 
-Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD에서 도구에 액세스 해야 하는 사용자 또는 그룹을 결정 합니다. 그런 다음 [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)의 지침에 따라 이러한 사용자 또는 그룹을 도구에 할당할 수 있습니다.
 
@@ -49,11 +48,11 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 * 자동 사용자 프로 비전 구성을 테스트 하기 위해 단일 Azure AD 사용자를 도구에 할당 하는 것이 좋습니다. 추가 사용자 또는 그룹은 나중에 할당할 수 있습니다.
 
-* 사용자를 도구에 할당할 때 **할당** 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. *기본 액세스* 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
+* 사용자를 도구에 할당할 때 **할당** 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. *기본 액세스* 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="set-up-harness-for-provisioning"></a>프로 비전을 위한 도구 설정
 
-1. [하네스 관리 콘솔](https://app.harness.io/#/login)에 로그인 한 다음 **지속적인 보안** > **액세스 관리**로 이동 합니다.
+1. [하네스 관리 콘솔](https://app.harness.io/#/login)에 로그인 한 다음 **지속적인 보안**  >  **액세스 관리**로 이동 합니다.
 
     ![도구 관리 콘솔](media/harness-provisioning-tutorial/admin.png)
 
@@ -86,7 +85,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 도구를 구성 
 
     !["Azure Active Directory" 단추](common/select-azuread.png)
 
-1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택 합니다.
+1. **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
 
     !["모든 애플리케이션" 링크](common/enterprise-applications.png)
 
@@ -110,7 +109,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 도구를 구성 
 
 Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -130,9 +129,9 @@ Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하�
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. **테 넌 트 URL** 상자에을 **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** 입력 합니다.  
+   a. **테 넌 트 URL** 상자에을 입력 **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** 합니다.  
    b. **비밀 토큰** 상자에 "프로 비전을 위한 도구 설정" 섹션의 6 단계에서 저장 한 Scim 인증 토큰 값을 입력 합니다.  
-   c. **연결 테스트** 를 선택 하 여 Azure AD가 하네스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 하네스 계정에 *관리자* 권한이 있는지 확인 한 후 다시 시도 하십시오.
+   다. **연결 테스트** 를 선택 하 여 Azure AD가 하네스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 하네스 계정에 *관리자* 권한이 있는지 확인 한 후 다시 시도 하십시오.
 
 1. **알림 전자 메일** 상자에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 한 다음 **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
 
@@ -166,7 +165,7 @@ Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하�
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-1. 프로 비전 할 준비가 되 면 **저장**을 선택 합니다.
+1. 프로비저닝할 준비가 되면 **저장**을 선택합니다.
 
     ![프로 비전 저장 단추](common/provisioning-configuration-save.png)
 
@@ -176,7 +175,7 @@ Azure AD 프로 비전 로그를 읽는 방법에 대 한 자세한 내용은 [�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

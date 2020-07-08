@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019760"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Azure Data Box를 사용 하 여 Azure VMware 솔루션으로 데이터 마이그레이션
@@ -133,7 +132,7 @@ Data Box에서 NFS 공유는 NFS 데이터 저장소에 데이터를 복사 하�
 
 ### <a name="clone-a-virtual-machine-or-a-virtual-machine-template-to-the-data-box-datastore"></a>Data Box 데이터 저장소에 가상 컴퓨터 또는 가상 컴퓨터 템플릿을 복제 합니다.
 
-1. 복제 하려는 가상 컴퓨터 또는 가상 컴퓨터 템플릿을 마우스 오른쪽 단추로 클릭 합니다. 복제 **Clone** > 복제**를 가상 컴퓨터에 복제를**선택 합니다.
+1. 복제 하려는 가상 컴퓨터 또는 가상 컴퓨터 템플릿을 마우스 오른쪽 단추로 클릭 합니다. 복제 **Clone**복제  >  **를 가상 컴퓨터에 복제를**선택 합니다.
 
     ![가상 컴퓨터 복제](media/databox-migration-vm-clone.png)
 
@@ -227,12 +226,12 @@ Data Box 장치에 복사 된 데이터는 Data Box의 주문 상태가 완료�
 
 4. [Linux 가상 머신에 AzCopy를](../storage/common/storage-use-azcopy-v10.md)설치 합니다.
 
-5. AzCopy를 사용 하 여 Azure Blob 저장소에서 관리 디스크로 데이터를 다운로드 합니다.  명령 구문: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`.  을 `<storage-account-name>` Azure storage 계정 이름으로 바꾸고, `<container-name>` 을 Data Box를 통해 복사 된 데이터를 보유 하는 컨테이너로 바꿉니다.
+5. AzCopy를 사용 하 여 Azure Blob 저장소에서 관리 디스크로 데이터를 다운로드 합니다.  명령 구문: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"` .  을 `<storage-account-name>` Azure storage 계정 이름으로 바꾸고,을 `<container-name>` Data Box를 통해 복사 된 데이터를 보유 하는 컨테이너로 바꿉니다.
 
 6. Linux 가상 머신에 NFS 서버를 설치 합니다.
 
-    - Ubuntu/Debian 배포: `sudo apt install nfs-kernel-server`.
-    - 엔터프라이즈 Linux 배포판에서: `sudo yum install nfs-utils`
+    - Ubuntu/Debian 배포: `sudo apt install nfs-kernel-server` .
+    - 엔터프라이즈 Linux 배포판 `sudo yum install nfs-utils` 에서:
 
 7. Azure Blob 저장소의 데이터가 복사 된 관리 디스크의 폴더에 대 한 사용 권한을 변경 합니다.  NFS 공유로 내보내려는 모든 폴더에 대 한 사용 권한을 변경 합니다.
 
@@ -241,7 +240,7 @@ Data Box 장치에 복사 된 데이터는 Data Box의 주문 상태가 완료�
     chown nfsnobody:nfsnobody /<folder>/<subfolder>
     ```
 
-8. 파일을 `/etc/exports` 편집 하 여 NFS 공유에 액세스할 클라이언트 IP 주소에 대 한 사용 권한을 할당 합니다.
+8. 파일을 편집 하 여 NFS 공유에 액세스할 클라이언트 IP 주소에 대 한 사용 권한을 할당 `/etc/exports` 합니다.
 
     ```bash
     sudo vi /etc/exports
@@ -256,9 +255,9 @@ Data Box 장치에 복사 된 데이터는 Data Box의 주문 상태가 완료�
     .
     ```
 
-9. `sudo exportfs -a` 명령을 사용 하 여 NFS 공유를 내보냅니다.
+9. 명령을 사용 하 여 NFS 공유를 내보냅니다 `sudo exportfs -a` .
 
-10. `sudo systemctl restart nfs-kernel-server` 명령을 사용 하 여 NFS 커널 서버를 다시 시작 합니다.
+10. 명령을 사용 하 여 NFS 커널 서버를 다시 시작 `sudo systemctl restart nfs-kernel-server` 합니다.
 
 
 ### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-a-private-cloud-vcenter-cluster-and-then-copy-data"></a>사설 클라우드 vCenter 클러스터에서 Linux 가상 컴퓨터 NFS 공유를 데이터 저장소로 탑재 한 다음 데이터 복사

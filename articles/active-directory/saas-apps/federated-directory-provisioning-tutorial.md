@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
 ms.openlocfilehash: 910aaac84dacb75cd76772a0bc2960d9bfa8bb70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057929"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 페더레이션된 디렉터리 구성
@@ -40,7 +39,7 @@ ms.locfileid: "77057929"
 * 관리자 권한이 있는 페더레이션된 디렉터리의 사용자 계정
 
 ## <a name="assign-users-to-federated-directory"></a>페더레이션 디렉터리에 사용자 할당
-Azure Active Directory는 할당 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 할당이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 페더레이션된 디렉터리에 대 한 액세스가 필요한 지 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 페더레이션된 디렉터리에 할당할 수 있습니다.
 
@@ -49,7 +48,7 @@ Azure Active Directory는 할당 이라는 개념을 사용 하 여 선택한 �
  ## <a name="important-tips-for-assigning-users-to-federated-directory"></a>페더레이션 디렉터리에 사용자를 할당 하기 위한 주요 팁
  * 자동 사용자 프로 비전 구성을 테스트 하기 위해 단일 Azure AD 사용자를 페더레이션된 디렉터리에 할당 하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-* 페더레이션 디렉터리에 사용자를 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
+* 페더레이션 디렉터리에 사용자를 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비전에서 제외됩니다.
     
  ## <a name="set-up-federated-directory-for-provisioning"></a>프로 비전을 위한 페더레이션된 디렉터리 설정
 
@@ -86,7 +85,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 페더레이션�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택 합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -122,7 +121,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 페더레이션�
 
 ### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Azure AD에서 페더레이션된 디렉터리에 대해 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -130,15 +129,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 페더레이션�
 
     ![응용 프로그램 목록의 페더레이션된 디렉터리 링크](common/all-applications.png)
 
-3. **프로 비전** 탭을 선택 합니다.
+3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 탭](common/provisioning.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 있는 `https://api.federated.directory/v2/` 테 넌 트 URL에 입력 합니다. **암호 토큰**의 페더레이션된 디렉터리에서 이전에 검색 하 고 저장 한 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 페더레이션된 디렉터리에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 페더레이션된 디렉터리 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. **관리자 자격 증명** 섹션 아래의 테넌트 URL에 `https://api.federated.directory/v2/`를 입력합니다. **암호 토큰**의 페더레이션된 디렉터리에서 이전에 검색 하 고 저장 한 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 페더레이션된 디렉터리에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 페더레이션된 디렉터리 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -177,7 +176,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 페더레이션�
 Azure AD 프로 비전 로그를 읽는 방법에 대 한 자세한 내용은 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md) 를 참조 하세요.
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

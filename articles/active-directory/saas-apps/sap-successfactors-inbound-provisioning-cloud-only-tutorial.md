@@ -15,10 +15,9 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063225"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>자습서: Azure AD 사용자 프로 비전 (미리 보기)에 대 한 SAP SuccessFactors 구성
@@ -163,19 +162,19 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 5. **SuccessFactors를 검색 하 여 사용자 프로 비전을 Azure Active Directory**하 고 갤러리에서 해당 앱을 추가 합니다.
 
-6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전** 을 선택 합니다.
 
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로 비전** **모드** 를 **자동** 으로 변경
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 회사 ID가 추가 된 SuccessFactors API 사용자 계정의 사용자 이름을 입력 합니다. 형식: **username\@companyID**
+   * **관리자 사용자 이름** – 회사 ID가 추가 된 SuccessFactors API 사용자 계정의 사용자 이름을 입력 합니다. 형식: **username \@ companyID**
 
    * **관리자 암호 –** SuccessFactors API 사용자 계정의 암호를 입력 합니다. 
 
    * **테 넌 트 URL –** SuccessFactors OData API 서비스 끝점의 이름을 입력 합니다. Http 또는 https를 사용 하지 않고 서버의 호스트 이름만 입력 합니다. 이 값은 **api-server-name.successfactors.com**와 같습니다.
 
-   * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
+   * **알림 전자 메일-** 전자 메일 주소를 입력 하 고 "오류가 발생 하는 경우 전자 메일 보내기" 확인란을 선택 합니다.
     > [!NOTE]
     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
 
@@ -197,23 +196,23 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
       * 특성: personIdExternal
 
-      * 연산자: REGEX Match
+      * 연산자: REGEX 일치
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
+   * 예제: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
 
       * 특성: EmployeeID
 
-      * 연산자: IS NOT NULL
+      * 연산자: NULL이 아님
 
    > [!TIP]
    > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. **원본 개체 범위** 에서 범위 지정 필터를 사용 하 여 SuccessFactors에서 소수의 테스트 사용자로 매핑을 테스트 하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
    > [!CAUTION] 
-   > 프로 비전 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용 하지 않도록 설정/삭제 하는 것입니다. SuccessFactors Azure AD 통합에는 바람직하지 않을 수 있습니다. 이 기본 동작을 재정의 하려면 [범위를 벗어나는 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조 하세요.
+   > 프로비저닝 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용하지 않도록 설정/삭제하는 것입니다. SuccessFactors Azure AD 통합에는 바람직하지 않을 수 있습니다. 이 기본 동작을 재정의하려면 범위를 [벗어난 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조하세요.
   
-1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트가** 가장 일반적입니다.
+1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
 1. **특성 매핑** 섹션에서 개별 SuccessFactors 특성을 Active Directory 특성에 매핑하는 방법을 정의할 수 있습니다.
 
@@ -244,11 +243,11 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
       * **이 매핑 적용**
 
-         * **항상** – 사용자 만들기 및 업데이트 작업 모두에서이 매핑을 적용 합니다.
+         * **항상** – 사용자 만들기 및 업데이트 작업 시 이 매핑을 적용합니다.
 
          * **만들기 작업 시에만** - 사용자 만들기 작업 시에만 이 매핑을 적용합니다.
 
-1. 매핑을 저장 하려면 특성 매핑 섹션 맨 위에서 **저장** 을 클릭 합니다.
+1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
 특성 매핑 구성이 완료되면 이제 [사용자 프로비저닝 서비스를 사용하도록 설정하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
 

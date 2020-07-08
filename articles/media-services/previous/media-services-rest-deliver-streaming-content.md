@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77049999"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시 
@@ -62,7 +61,7 @@ OnDemand 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을
 ### <a name="create-an-access-policy"></a>액세스 정책 만들기
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 유지되는 로케이터에 대한 정책) 동일한 정책 ID를 사용합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조 하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 유지되는 로케이터에 대한 정책) 동일한 정책 ID를 사용합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
 요청:
 
@@ -193,7 +192,7 @@ URL: **경로** + 자산 파일 mp4 이름
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Media Services Operations REST API 개요](media-services-rest-how-to-use.md)
 
 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)

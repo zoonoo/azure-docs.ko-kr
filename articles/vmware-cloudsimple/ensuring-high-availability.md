@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a3eed033ba6a1a6f9237116a53ec7751ae906fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025353"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Azure에서 VMware를 실행 하는 경우 응용 프로그램 고가용성 보장
@@ -47,7 +46,7 @@ CloudSimple 제어 평면 소프트웨어는 VMware 클러스터의 상태를 �
 
 ## <a name="availability-zones"></a>가용성 영역
 
-가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 특수 한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 각 지역에는 하나의 가용성 영역이 있습니다. 자세한 내용은 [Azure에서 가용성 영역 하는 항목](../availability-zones/az-overview.md)을 참조 하세요.
+가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 가용성 영역은 Azure 지역 내에서 특수 한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 각 지역에는 하나의 가용성 영역이 있습니다. 자세한 내용은 [Azure에서 가용성 영역 하는 항목](../availability-zones/az-overview.md)을 참조 하세요.
 
 ## <a name="redundant-azure-expressroute-circuits"></a>중복 Azure Express 경로 회로
 

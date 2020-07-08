@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b7a6c2c9b7ecb0b160f7481d95f7682f3f7a109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064124"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Velpic 구성
@@ -67,11 +66,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. Velpic의 인스턴스를 선택한 다음 **프로 비전** 탭을 선택 합니다.
 
-4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+4. **프로비전 모드**를 **자동**으로 설정합니다.
 
     ![Velpic 프로 비전](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 Velpic의 **비밀 토큰&테 넌 트 URL** 을 입력 합니다. (Velpic 계정:**Integration** > **Plugin** > **scim** **관리** > )에서 이러한 값을 찾을 수 있습니다.
+5. **관리자 자격 증명** 섹션 아래에서 Velpic의 **비밀 토큰&테 넌 트 URL** 을 입력 합니다. (Velpic 계정에서 이러한 값을 찾을 수 있습니다. **관리**  >  **통합**  >  **플러그 인**  >  **Scim**)
 
     ![권한 부여 값](./media/velpic-provisioning-tutorial/Velpic2.png)
 
@@ -95,7 +94,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

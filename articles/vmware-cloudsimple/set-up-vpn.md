@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087137"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 대 한 VPN 연결 구성
@@ -57,7 +56,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 
 2. 컴퓨터에서 Viscosity를 엽니다.
 
-3. **+** 아이콘을 클릭 하 고**파일에서** **연결** > 가져오기를 선택 합니다.
+3. 아이콘을 클릭 **+** 하 고 **Import connection**  >  **파일에서**연결 가져오기를 선택 합니다.
 
     ![파일에서 VPN 구성 가져오기](media/import-p2s-vpn-config.png)
 
@@ -79,7 +78,7 @@ Viscosity OpenVPN 클라이언트를 사용 하 여 VPN에 연결 하려면 메�
 
 1. [Cloudsimple 포털](access-cloudsimple-portal.md)을 시작 합니다.
 
-2. **리소스** > **사설** 클라우드로 이동 하 여 연결 하려는 사설 클라우드를 선택 합니다.
+2. **리소스**사설 클라우드로 이동 하 여  >  **Private Clouds** 연결 하려는 사설 클라우드를 선택 합니다.
 
 3. 사설 클라우드의 **요약** 페이지에서 사설 클라우드 DNS 서버 IP 주소를 **기본 정보**로 복사 합니다.
 
@@ -97,7 +96,7 @@ Viscosity OpenVPN 클라이언트를 사용 하 여 VPN에 연결 하려면 메�
 
     ![VPN 연결 편집](media/viscosity-edit-connection.png)
 
-7. **네트워킹** 탭을 클릭 하 고 사설 클라우드 DNS 서버 IP 주소를 쉼표나 공백으로 구분 하 고 도메인을로 ```cloudsimple.io```구분 하 여 입력 합니다.  **VPN 서버에서 보낸 DNS 설정 무시**를 선택 합니다.
+7. **네트워킹** 탭을 클릭 하 고 사설 클라우드 DNS 서버 IP 주소를 쉼표나 공백으로 구분 하 고 도메인을로 구분 하 여 입력 ```cloudsimple.io``` 합니다.  **VPN 서버에서 보낸 DNS 설정 무시**를 선택 합니다.
 
     ![VPN 네트워킹](media/viscosity-edit-connection-networking.png)
 

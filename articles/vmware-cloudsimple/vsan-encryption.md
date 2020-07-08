@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77020644"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 대 한 vSAN 암호화 구성
@@ -78,8 +77,8 @@ KMS 서버 클러스터는 Azure virtual network에서 실행 되며, 구성 된
 3. Azure Marketplace에서 이미지의 초기 KeyControl 노드를 배포 합니다.  생성 된 키 쌍의 공개 키를 사용 하 고 **hytrust** 를 keycontrol 노드에 대 한 네트워크 보안 그룹으로 선택 합니다.
 4. KeyControl의 개인 IP 주소를 고정 IP 주소로 변환 합니다.
 5. 공용 IP 주소와 이전에 언급 한 키 쌍의 개인 키를 사용 하 여 KeyControl VM에 대 한 SSH를 사용 합니다.
-6. SSH 셸에서 메시지가 표시 되 면를 선택 `No` 하 여 노드를 초기 keycontrol 노드로 설정 합니다.
-7. 이 절차의 3-5 단계를 반복 하 고 기존 클러스터에 추가 하 `Yes` 라는 메시지가 표시 되 면 선택 하 여 추가 keycontrol 노드를 추가 합니다.
+6. SSH 셸에서 메시지가 표시 되 면를 선택 `No` 하 여 노드를 초기 KeyControl 노드로 설정 합니다.
+7. 이 절차의 3-5 단계를 반복 하 고 `Yes` 기존 클러스터에 추가 하 라는 메시지가 표시 되 면 선택 하 여 추가 KeyControl 노드를 추가 합니다.
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: KMIP 서버 구성
 

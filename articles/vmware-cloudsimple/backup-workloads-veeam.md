@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025132"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용 하 여 CloudSimple 사설 클라우드에서 워크 로드 Vm 백업
@@ -136,7 +135,7 @@ Veeam에서 사용 하는 포트에서 네트워크 트래픽을 허용 하도�
 
 다음 표에서는 포트 목록을 제공 합니다.
 
-| 아이콘 | Description | 아이콘 | Description |
+| 아이콘 | 설명 | 아이콘 | 설명 |
 | ------------ | ------------- | ------------ | ------------- |
 | 백업 서버  | vCenter  | HTTPS/TCP  | 443 |
 | 백업 서버 <br> *Veeam 백업 & 복제 구성 요소를 배포 하는 데 필요 합니다.* | 백업 프록시  | TCP/UDP  | 135, 137 ~ 139 및 445 |
@@ -196,7 +195,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
 
 1. Microsoft 비디오 [Azure Storage 시작](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)에 설명 된 대로 표준 유형 및 blob 컨테이너의 범용 저장소 계정 (GPv2)을 만듭니다.
 2. [컨테이너 참조 만들기](https://docs.microsoft.com/rest/api/storageservices/create-container) 에 설명 된 대로 Azure storage 컨테이너를 만듭니다.
-2. Microsoft에서 `azcopy` Linux 용 명령줄 유틸리티를 다운로드 합니다. CentOS 7.5의 bash 셸에서 다음 명령을 사용할 수 있습니다.
+2. `azcopy`Microsoft에서 Linux 용 명령줄 유틸리티를 다운로드 합니다. CentOS 7.5의 bash 셸에서 다음 명령을 사용할 수 있습니다.
 
     ```
     wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
@@ -206,7 +205,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
     sudo yum -y install icu
     ```
 
-3. `azcopy` 명령을 사용 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-linux.md) 을 참조 하세요.
+3. 명령을 사용 `azcopy` 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-linux.md) 을 참조 하세요.
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>사설 클라우드의 vCenter 콘솔: Veeam B&R 설치
 
@@ -264,7 +263,7 @@ Veeam 백업 및 복구 서버에 대 한 공용 IP 주소를 만듭니다. 자�
 
 ### <a name="cloudsimple-references"></a>CloudSimple 참조
 
-* [프라이빗 클라우드 만들기](create-private-cloud.md)
+* [사설 클라우드 만들기](create-private-cloud.md)
 * [Vlan/서브넷 만들기 및 관리](create-vlan-subnet.md)
 * [vCenter Id 원본](set-vcenter-identity.md)
 * [작업 DNS 및 DHCP 설정](dns-dhcp-setup.md)

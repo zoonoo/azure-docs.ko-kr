@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087545"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.managedidentity IdentitySelector UI 요소
@@ -69,7 +68,7 @@ ms.locfileid: "77087545"
 
 ## <a name="remarks"></a>설명
 
-- 시스템 할당 id 옵션 컨트롤의 초기 값을 설정 하려면 **systemAssignedIdentity** 를 사용 합니다. 기본값은 **Off**입니다. 허용되는 값은
+- **defaultValue.systemAssignedIdentity** 를 사용 하 여 시스템 할당 id 옵션 컨트롤의 초기 값을 설정 합니다. 기본값은 **Off**입니다. 허용되는 값은
   - **On** – 시스템 할당 id가 리소스에 할당 됩니다.
   - **Off** – 시스템 할당 id가 리소스에 할당 되지 않습니다.
   - **Ononly** – 시스템 할당 id가 리소스에 할당 됩니다. 사용자는 배포 중에이 값을 편집할 수 없습니다.

@@ -8,10 +8,9 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77137490"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
@@ -88,7 +87,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | type |
+| ExceptionType | 형식 |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | OS | client_OS | 
@@ -106,7 +105,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | type |
+| TelemetryTYpe | 형식 |
 | URL | url |
 | UserAccountId | user_AccountId |
 

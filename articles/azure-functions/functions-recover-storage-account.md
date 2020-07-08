@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063784"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>오류 해결: "Azure Functions 런타임에 연결할 수 없습니다."
@@ -26,7 +25,7 @@ Azure Functions 런타임를 시작할 수 없는 경우이 문제가 발생 합
 
 모든 함수 앱은 스토리지 계정이 있어야 작동합니다. 해당 계정이 삭제 되 면 함수가 작동 하지 않습니다.
 
-응용 프로그램 설정에서 저장소 계정 이름을 조회 하 여 시작 합니다. `AzureWebJobsStorage` 또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 에 연결 문자열에서 래핑된 저장소 계정의 이름이 포함 되어 있습니다. 자세한 내용은 [Azure Functions에 대 한 앱 설정 참조](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)를 참조 하세요.
+응용 프로그램 설정에서 저장소 계정 이름을 조회 하 여 시작 합니다. `AzureWebJobsStorage`또는 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 에 연결 문자열에서 래핑된 저장소 계정의 이름이 포함 되어 있습니다. 자세한 내용은 [Azure Functions에 대 한 앱 설정 참조](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)를 참조 하세요.
 
 Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지 확인 합니다. 저장소 계정을 삭제 한 경우 저장소 계정을 다시 만들고 저장소 연결 문자열을 대체 합니다. 함수 코드가 손실 되어 다시 배포 해야 합니다.
 
@@ -66,7 +65,7 @@ Azure Portal에서 저장소 계정을 검색 하 여 여전히 존재 하는지
 
 매일 실행 할당량이 구성 된 경우 함수 앱을 일시적으로 사용 하지 않도록 설정 하 여 많은 포털 컨트롤을 사용할 수 없게 됩니다. 
 
-[Azure Portal](https://portal.azure.com)에서 할당량을 확인 하려면 함수 앱에서 **플랫폼 기능** > **함수 앱 설정** 을 선택 합니다. 설정한 **일일 사용 할당량** 을 초과 하는 경우 다음 메시지가 표시 됩니다.
+[Azure Portal](https://portal.azure.com)에서 할당량을 확인 하려면 함수 앱에서 **플랫폼 기능**  >  **함수 앱 설정** 을 선택 합니다. 설정한 **일일 사용 할당량** 을 초과 하는 경우 다음 메시지가 표시 됩니다.
 
   > "함수 앱가 일일 사용 할당량에 도달 하 여 다음 24 시간 프레임까지 중지 되었습니다."
 

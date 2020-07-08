@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77185920"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>조건부 액세스 클래식 정책 마이그레이션
@@ -33,7 +32,7 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 ## <a name="classic-policies"></a>클래식 정책
 
-[Azure Portal](https://portal.azure.com)에서 조건부 액세스 정책은 **Azure Active Directory** > **보안** > **조건부 액세스**에서 찾을 수 있습니다. 조직에서이 페이지를 사용 하 여 오래 된 조건부 액세스 정책을 만들지 않았을 수도 있습니다. 이러한 정책은 *클래식 정책*이라고 합니다. 클래식 정책은 다음에서 만든 조건부 액세스 정책입니다.
+[Azure Portal](https://portal.azure.com)에서 조건부 액세스 정책은 **Azure Active Directory**  >  **보안**  >  **조건부 액세스**에서 찾을 수 있습니다. 조직에서이 페이지를 사용 하 여 오래 된 조건부 액세스 정책을 만들지 않았을 수도 있습니다. 이러한 정책을 *클래식 정책*이라고 합니다. 클래식 정책은 다음에서 만든 조건부 액세스 정책입니다.
 
 - Azure 클래식 포털
 - Intune 클래식 포털

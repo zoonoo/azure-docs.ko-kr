@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162211"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight의 Apache Hadoop 아키텍처
@@ -66,7 +65,7 @@ NodeManager는 애플리케이션을 구성하는 작업을 실행한 다음, �
 
 ## <a name="trash-purging"></a>휴지통 제거
 
-로컬 `fs.trash.interval` 파일 시스템에 데이터를 저장 하지 `0` 않기 때문에 **HDFS** > **고급 코어 사이트** 의 속성은 기본값으로 유지 되어야 합니다. 이 값은 원격 저장소 계정 (WASB, ADLS GEN1, ABFS)에 영향을 주지 않습니다.
+`fs.trash.interval` **HDFS**  >  로컬 파일 시스템에 데이터를 저장 하지 않기 때문에 HDFS**고급 코어 사이트** 의 속성은 기본값으로 유지 되어야 합니다 `0` . 이 값은 원격 저장소 계정 (WASB, ADLS GEN1, ABFS)에 영향을 주지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

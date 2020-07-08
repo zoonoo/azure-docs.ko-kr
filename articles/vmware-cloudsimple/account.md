@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025370"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>CloudSimple 포털을 통해 Azure VMware 솔루션에서 계정 관리
@@ -35,6 +34,6 @@ CloudSimple 포털에서 계정을 관리 하려면 [포털에 액세스](access
 
 ## <a name="cloudsimple-operator-access"></a>CloudSimple operator access
 
-운영자 액세스 설정을 사용 하면 지원 엔지니어가 CloudSimple 포털에 로그인 하도록 허용 하 여 클라우드 문제 해결에 도움이 됩니다.  설정은 기본적으로 사용 하도록 설정 되어 있습니다. 고객 계정에 로그인 할 때 지원 엔지니어가 수행 하는 모든 작업은 **활동** > **감사** 페이지에서 기록 되 고 검토에 사용할 수 있습니다.
+운영자 액세스 설정을 사용 하면 지원 엔지니어가 CloudSimple 포털에 로그인 하도록 허용 하 여 클라우드 문제 해결에 도움이 됩니다.  설정은 기본적으로 사용 하도록 설정 되어 있습니다. 고객 계정에 로그인 할 때 지원 엔지니어가 수행 하는 모든 작업은 **활동**  >  **감사** 페이지에서 기록 되 고 검토에 사용할 수 있습니다.
 
 **Cloudsimple operator access 사용** 설정/해제를 클릭 하 여 액세스를 설정 하거나 해제 합니다.

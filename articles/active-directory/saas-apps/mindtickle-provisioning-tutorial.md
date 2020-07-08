@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: 6ae7b6ac9c6feb539e4da3627ebbabd3c5b628fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061240"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 MindTickle 구성
@@ -31,7 +30,7 @@ ms.locfileid: "77061240"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -41,7 +40,7 @@ ms.locfileid: "77061240"
 
 ## <a name="assigning-users-to-mindtickle"></a>MindTickle에 사용자 할당
 
-Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 MindTickle에 액세스 해야 하는 Azure AD의 사용자 및/또는 그룹을 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 MindTickle에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,7 +49,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 * 자동 사용자 프로 비전 구성을 테스트 하기 위해 단일 Azure AD 사용자를 MindTickle에 할당 하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-* 사용자를 MindTickle에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로 비전에서 제외 됩니다.
+* 사용자를 MindTickle에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)을 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="setup-mindtickle-for-provisioning"></a>프로 비전을 위한 MindTickle 설정
 
@@ -70,7 +69,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 MindTickle를 구
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택 합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -91,7 +90,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 MindTickle를 구
 
 ### <a name="to-configure-automatic-user-provisioning-for-mindtickle-in-azure-ad"></a>Azure AD에서 MindTickle에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -99,15 +98,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 MindTickle를 구
 
     ![애플리케이션 목록의 MindTickle 링크](common/all-applications.png)
 
-3. **프로 비전** 탭을 선택 합니다.
+3. **프로비전** 탭을 선택합니다.
 
-    ![프로 비전 탭](common/provisioning.png)
+    ![프로비저닝 탭](common/provisioning.png)
 
-4. **프로 비전 모드** 를 **자동**으로 설정 합니다.
+4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로 비전 탭](common/provisioning-automatic.png)
+    ![프로비저닝 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 있는 `https://admin.mindtickle.com/scim` **테 넌 트 URL**에 입력 합니다. 비밀 토큰 텍스트 상자에서 이전에 검색 한 **jwt 토큰** 값을 입력 하 고 MindTickle 지원 팀에서 제공한 **jwt 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 myPolicies에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 MindTickle 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. **관리자 자격 증명** 섹션 아래에 `https://admin.mindtickle.com/scim` 있는 **테 넌 트 URL**에 입력 합니다. 비밀 토큰 텍스트 상자에서 이전에 검색 한 **jwt 토큰** 값을 입력 하 고 MindTickle 지원 팀에서 제공한 **jwt 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 myPolicies에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 MindTickle 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -141,9 +140,9 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 MindTickle를 구
 
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 및/또는 그룹을 프로 비전 하는 데 소요 되는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하는 데 소요 되는 시간](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)을 참조 하세요. 
 
-**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 MindTickle의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
+**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 MindTickle의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로비저닝 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77120675"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>App Service의 Windows 컨테이너에서 Azure Files 구성
@@ -20,7 +19,7 @@ ms.locfileid: "77120675"
 
 이 가이드에서는 Windows 컨테이너의 Azure Storage에 액세스 하는 방법을 보여 줍니다. [Azure Files 공유](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) 및 [프리미엄 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) 만 지원 됩니다. 이 방법의 Azure Files 공유를 사용 합니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI](/cli/azure/install-azure-cli)(2.0.46 이상)
 - [Azure App Service의 기존 Windows 컨테이너 앱](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)
