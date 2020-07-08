@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 7ae14c3606dfe6bffa8481682843f3f2e85c2131
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a06e428908777c526602166f127a28304b595ba0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74033714"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220075"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
@@ -48,6 +47,8 @@ azcopy jobs clean [flags]
 
 **--output-** 명령 출력의 문자열 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 ' text '입니다. (기본 "텍스트")
 
-## <a name="see-also"></a>참고 항목
+**--trusted-microsoft-접미사** 문자열 Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.
+
+## <a name="see-also"></a>참조
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

@@ -5,12 +5,11 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196083"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
@@ -28,7 +27,7 @@ Error ID: 153007
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>원본 가상 머신의 높은 데이터 변경률
 
-원본 가상 컴퓨터의 데이터 변경률이 지원 되는 제한 보다 높은 경우 Azure Site Recovery 이벤트를 만듭니다. 변동으로 인해 문제가 발생 했는지 확인 하려면 **복제 된 항목** > **VM** > **이벤트-지난 72 시간**으로 이동 합니다.
+원본 가상 컴퓨터의 데이터 변경률이 지원 되는 제한 보다 높은 경우 Azure Site Recovery 이벤트를 만듭니다. 변동으로 인해 문제가 발생 했는지 확인 하려면 **복제 된 항목**  >  **VM**  >  **이벤트-지난 72 시간**으로 이동 합니다.
 **데이터 변경 률은 지원 되**는 한도를 초과 하 여 확인 해야 합니다.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="매우 높은 데이터 변경 률을 보여 주는 Azure Site Recovery 페이지":::
@@ -50,7 +49,7 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |    디스크당 336GB
 프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |20 m b/초 | 디스크당 1684
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |20MB/s | 디스크당 1,684GB
 
 ### <a name="solution"></a>솔루션
 
@@ -106,6 +105,10 @@ Site Recovery 복제가 작동 하려면 VM이 특정 Url 또는 IP 범위에 �
 
 **해결 방법**: Azure Site Recovery 스토리지 공간 다이렉트 구성에 대 한 응용 프로그램 일치 복구 지점을 만들 수 없습니다. [복제 정책을 구성](azure-to-azure-how-to-enable-replication-s2d-vms.md)합니다.
 
+### <a name="app-consistency-not-enabled-on-linux-servers"></a>Linux 서버에서 앱 일관성을 사용 하도록 설정 하지 않음
+
+**해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) 같습니다.
+
 ### <a name="more-causes-because-of-vss-related-issues"></a>VSS 관련 문제로 인해 더 많은 원인이 있습니다.
 
 추가로 문제를 해결 하려면 원본 컴퓨터의 파일을 확인 하 여 오류에 대 한 정확한 오류 코드를 확인 합니다.
@@ -120,23 +123,23 @@ Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRI
 
 앞의 예제에서 **2147754994** 는이 문장 뒤의 오류에 대 한 정보를 알려 주는 오류 코드입니다.
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치 되어 있지 않습니다. 오류 2147221164
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치되어 있지 않음 - 오류 2147221164
 
 **해결 방법**: 응용 프로그램 일관성 태그를 생성 하려면 Azure Site Recovery 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. Site Recovery은 해당 작업에 대 한 VSS 공급자를 설치 하 여 응용 프로그램 일관성 스냅숏을 만듭니다. Azure Site Recovery이 VSS 공급자를 서비스로 설치 합니다. VSS 공급자가 설치 되지 않은 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. **등록 되지 않은 오류 ID 0X80040154 클래스**를 표시 합니다. [VSS 기록기 설치 문제 해결](vmware-azure-troubleshoot-push-install.md#vss-installation-failures)문서를 참조 하세요.
 
-#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음-오류 2147943458
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음 - 오류 2147943458
 
-**해결 방법**: 응용 프로그램 일관성 태그를 생성 하기 위해 Azure Site Recovery VSS를 사용 합니다. Site Recovery은 해당 작업에 대 한 VSS 공급자를 설치 하 여 응용 프로그램 일관성 스냅숏을 만듭니다. 이 VSS 공급자는 서비스로 설치 됩니다. VSS 공급자 서비스를 사용 하도록 설정 하지 않은 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. 오류가 표시 **됩니다. 지정 된 서비스가 사용 하지 않도록 설정 되어 있고 시작할 수 없습니다 (0x80070422)**.
+**해결 방법**: 응용 프로그램 일관성 태그를 생성 하기 위해 Azure Site Recovery VSS를 사용 합니다. Site Recovery은 해당 작업에 대 한 VSS 공급자를 설치 하 여 응용 프로그램 일관성 스냅숏을 만듭니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하도록 설정 하지 않은 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. 오류가 표시 **됩니다. 지정 된 서비스가 사용 하지 않도록 설정 되어 있고 시작할 수 없습니다 (0x80070422)**.
 
 VSS를 사용 하지 않도록 설정 하는 경우:
 
-- VSS 공급자 서비스의 시작 유형이 **자동**으로 설정 되어 있는지 확인 합니다.
-- 다음 서비스를 다시 시작 합니다.
+- VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
+- 다음 서비스를 다시 시작합니다.
   - VSS 서비스.
   - Azure Site Recovery VSS 공급자입니다.
   - VDS 서비스.
 
-#### <a name="vss-provider-not_registered---error-2147754756"></a>VSS 공급자 NOT_REGISTERED-오류 2147754756
+#### <a name="vss-provider-not_registered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - 오류 2147754756
 
 **해결 방법**: 응용 프로그램 일관성 태그를 생성 하기 위해 Azure Site Recovery VSS를 사용 합니다. Azure Site Recovery VSS 공급자 서비스가 설치 되어 있는지 확인 합니다.
 
@@ -150,9 +153,9 @@ VSS를 사용 하지 않도록 설정 하는 경우:
 
    `"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
-VSS 공급자 서비스의 시작 유형이 **자동**으로 설정 되어 있는지 확인 합니다.
+VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
 
-다음 서비스를 다시 시작 합니다.
+다음 서비스를 다시 시작합니다.
 
 - VSS 서비스.
 - Azure Site Recovery VSS 공급자입니다.

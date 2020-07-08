@@ -8,12 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73961477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195271"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -26,7 +25,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 1. Hyper-V 호스트 및 VM이 모든 [요구 사항 및 필수 구성 요소](hyper-v-azure-support-matrix.md)를 충족하는지 확인합니다.
 2. Hyper-V 서버가 System Center VMM(Virtual Machine Manager) 클라우드에 있는 경우 [VMM 서버](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional)가 준비되어 있는지 확인합니다.
 3. Hyper-V 호스트에서 Hyper-V Virtual Machine Management 서비스가 실행되고 있는지 확인합니다.
-4. VM의 Hyper-V-VMMS\Admin 로그인에 표시되는 문제를 확인합니다. 이 로그는 **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows**에 있습니다.
+4. VM의 Hyper-V-VMMS\Admin 로그인에 표시되는 문제를 확인합니다. 이 로그는 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**에 있습니다.
 5. 게스트 VM에서 WMI가 사용되도록 설정되어 있고 액세스 가능한지 확인합니다.
    - 기본 WMI 테스트에 대해 [자세히 알아봅니다](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/).
    - WMI [문제를 해결합니다](https://aka.ms/WMiTshooting).
@@ -42,7 +41,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 1. [최신 버전](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)의 Site Recovery 서비스를 실행하고 있는지 확인합니다.
 2. 복제가 일시 중지되었는지 여부를 확인합니다.
    - Hyper-V 관리자 콘솔에서 VM 상태를 확인합니다.
-   - 중요 한 경우 VM을 마우스 오른쪽 단추로 클릭 > **복제** > **상태 보기**를 클릭 합니다.
+   - 중요 한 경우 VM을 마우스 오른쪽 단추로 클릭 > **복제**  >  **상태 보기**를 클릭 합니다.
    - 복제가 일시 중지되면 **복제 다시 시작**을 클릭합니다.
 3. 필요한 서비스가 실행되고 있는지 확인합니다. 그렇지 않은 경우 다시 시작합니다.
     - VMM을 사용하지 않고 Hyper-V를 복제하는 경우 다음 서비스가 Hyper-V 호스트에서 실행되고 있는지 확인합니다.
@@ -80,7 +79,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 2. **복제 상태 보기**를 클릭하여 세부 정보를 확인합니다.
 
-    - 복제가 일시 중지 된 경우 VM을 마우스 오른쪽 단추로 클릭 하 > **복제** > **다시 시작**을 클릭 합니다.
+    - 복제가 일시 중지 된 경우 VM을 마우스 오른쪽 단추로 클릭 하 > **복제**  >  **다시 시작**을 클릭 합니다.
     - Site Recovery에 구성된 Hyper-V 호스트의 VM을 동일한 클러스터의 다른 Hyper-V 호스트 또는 독립 실행형 컴퓨터로 마이그레이션하면 해당 VM에 대한 복제는 영향을 받지 않습니다. 새 Hyper-V 호스트가 모든 필수 구성 요구를 충족하고 Site Recovery에 구성되었는지 확인하기만 하면 됩니다.
 
 ## <a name="app-consistent-snapshot-issues"></a>앱 일치 스냅샷 문제
@@ -107,7 +106,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
     ![동적 디스크](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. VM에 연결된 iSCSI 디스크가 없는지 확인합니다. 지원되지 않습니다.
-5. Backup 서비스가 사용되도록 설정되어 있는지 확인합니다. **Integration Services** **hyper-v 설정** > 에서 사용 하도록 설정 되어 있는지 확인 합니다.
+5. Backup 서비스가 사용되도록 설정되어 있는지 확인합니다. Integration Services **hyper-v 설정**에서 사용 하도록 설정 되어 있는지 확인  >  **Integration Services**합니다.
 6. VSS 스냅샷을 만드는 앱과 충돌하지 않는지 확인합니다. 여러 앱이 VSS 스냅샷을 동시에 만들려고 하면 충돌이 발생할 수 있습니다. 예를 들어, 복제 정책에 따라 Site Recovery가 스냅샷을 만들도록 예약되어 있을 때 Backup 앱이 VSS 스냅샷을 만드는 경우가 여기에 해당합니다.   
 7. VM에서 높은 변동률이 발생하는지 확인합니다.
     - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 데이터 변경률을 측정하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 전체 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동 정보를 파악합니다.
@@ -116,23 +115,24 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
         - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 스토리지에 대해 2MB/s입니다. [자세한 정보](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - 또한 [스토리지 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)할 수 있습니다.
-8. [Deployment Planner](hyper-v-deployment-planner-run.md)를 실행합니다.
-9. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
+8. Linux 기반 서버를 사용 하는 경우 앱에서 일관성을 사용 하도록 설정 했는지 확인 합니다. [자세한 정보](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication)
+9. [Deployment Planner](hyper-v-deployment-planner-run.md)를 실행합니다.
+10. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
 
 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Hyper-V 호스트 내부의 VSS 실패
 
 1. 이벤트 로그에서 VSS 오류 및 권장 사항을 확인합니다.
-    - Hyper-v 호스트 서버에서 **이벤트 뷰어** > **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **hyper-v** > **admin**에서 hyper-v 관리자 이벤트 로그를 엽니다.
+    - Hyper-v 호스트 서버에서 **이벤트 뷰어**  >  **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**  >  **hyper-v**  >  **admin**에서 hyper-v 관리자 이벤트 로그를 엽니다.
     - 앱 일치 스냅샷 실패를 나타내는 이벤트가 있는지 여부를 확인합니다.
     - 일반적인 오류는 다음과 같습니다. "Hyper-V가 가상 머신 'XYZ'에 대한 VSS 스냅샷 집합을 생성하지 못했습니다. 작성자에게 영구 오류가 발생했습니다. VSS 서비스가 응답하지 않을 때 서비스를 다시 시작하면 문제가 해결될 수 있습니다."
 
 2. VM에 대한 VSS 스냅샷을 생성하려면 VM에서 Hyper-V Integration Services가 설치되어 있는지와 Backup(VSS) Integration Services가 사용되도록 설정되어 있는지 확인합니다.
     - Integration Services VSS 서비스/디먼이 게스트에서 실행되고 있는지와 **정상** 상태인지 확인합니다.
-    - **Enable-vmintegrationservice-VMName\<VMName>-Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아보기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - **Enable-vmintegrationservice-VMName \<VMName> -Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아보기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - VM에서 Backup/VSS Integration Services가 실행되고 있는지와 정상 상태인지 확인합니다. 그렇지 않은 경우, 이러한 서비스와 Hyper-V 호스트 서버의 Hyper-V 볼륨 섀도 복사본 요청자 서비스를 다시 시작합니다.
 
-### <a name="common-errors"></a>일반 오류
+### <a name="common-errors"></a>일반적인 오류
 
 **오류 코드** | **메시지** | **세부 정보**
 --- | --- | ---
@@ -143,9 +143,9 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 ## <a name="collect-replication-logs"></a>복제 로그 수집
 
-모든 hyper-v 복제 이벤트는 **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows**에 있는 Hyper-V-VMMS\Admin 로그에 기록 됩니다. 또한 다음과 같이 Hyper-V Virtual Machine 관리 서비스에 대한 분석 로그를 사용할 수 있습니다.
+모든 hyper-v 복제 이벤트는 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**에 있는 Hyper-V-VMMS\Admin 로그에 기록 됩니다. 또한 다음과 같이 Hyper-V Virtual Machine 관리 서비스에 대한 분석 로그를 사용할 수 있습니다.
 
-1. 이벤트 뷰어에서 분석 및 디버그 로그가 표시되도록 합니다. 로그를 사용 가능 하 게 설정 하려면 이벤트 뷰어에서 **보기** > **분석 및 디버그 로그 표시**를 클릭 합니다. 분석 로그가 **Hyper-V-VMMS** 아래에 표시됩니다.
+1. 이벤트 뷰어에서 분석 및 디버그 로그가 표시되도록 합니다. 로그를 사용 가능 하 게 설정 하려면 이벤트 뷰어에서 **보기**  >  **분석 및 디버그 로그 표시**를 클릭 합니다. 분석 로그가 **Hyper-V-VMMS** 아래에 표시됩니다.
 2. **작업** 창에서 **로그 사용**을 클릭합니다. 
 
     ![로그 사용](media/hyper-v-azure-troubleshoot/enable-log.png)

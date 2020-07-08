@@ -4,12 +4,11 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure 가상 머신 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74173379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247802"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -31,9 +30,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="responses"></a>응답
 
-|속성  |유형  |설명  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       확인  |
+|200 정상     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       정상  |
 
 #### <a name="example-response"></a>예제 응답
 
@@ -117,7 +116,7 @@ X-Powered-By: ASP.NET
 
 ## <a name="restore-disks"></a>디스크 복원
 
-백업 데이터에서 VM 만들기를 사용자 지정해야 하는 경우 선택한 스토리지 계정에 디스크를 복원하고 관련 요구 사항에 따라 해당 디스크에서 VM을 만들 수 있습니다. 스토리지 계정은 복원 서비스 자격 증명 모음과 동일한 지역에 있어야 하며 영역이 중복돼서는 안 됩니다. 백업 된 VM ("vmconfig. json")의 구성과 함께 디스크는 지정 된 저장소 계정에 저장 됩니다.
+백업 데이터에서 VM 생성을 사용자 지정 해야 하는 경우 디스크를 선택한 저장소 계정으로 복원 하 고 요구 사항에 따라 해당 디스크에서 VM을 만들 수 있습니다. 스토리지 계정은 복원 서비스 자격 증명 모음과 동일한 지역에 있어야 하며 영역이 중복돼서는 안 됩니다. 백업 된 VM ("vmconfig.json")의 구성과 함께 디스크는 지정 된 저장소 계정에 저장 됩니다.
 
 디스크 복원을 트리거하면 *POST*를 요청합니다. 디스크 복원 작업에 대한 자세한 내용은 [REST API "복원 트리거"](https://docs.microsoft.com/rest/api/backup/restores/trigger)를 참조하세요.
 
@@ -131,7 +130,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|속성  |유형  |설명  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -165,7 +164,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|속성  |유형  |설명  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 

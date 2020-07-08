@@ -2,17 +2,19 @@
 title: 템플릿을 사용한 조건부 배포
 description: Azure Resource Manager 템플릿에서 리소스를 조건부로 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259323"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>ARM 템플릿의 조건부 배포
 
-경우에 따라 ARM (Azure Resource Manager) 템플릿에 리소스를 배포 해야 합니다. `condition` 요소를 사용 하 여 리소스 배포 여부를 지정 합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
+경우에 따라 ARM (Azure Resource Manager) 템플릿에 리소스를 배포 해야 합니다. 요소를 사용 `condition` 하 여 리소스 배포 여부를 지정 합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
+
+> [!NOTE]
+> 조건부 배포는 [자식 리소스](child-resource-name-type.md)에 종속 되지 않습니다. 리소스 및 해당 자식 리소스를 조건부로 배포 하려면 각 리소스 종류에 동일한 조건을 적용 해야 합니다.
 
 ## <a name="new-or-existing-resource"></a>신규 또는 기존 리소스
 
@@ -77,11 +79,11 @@ ms.locfileid: "80153423"
 
 조건부로 배포 되는 리소스에 [참조](template-functions-resource.md#reference) 또는 [목록](template-functions-resource.md#list) 함수를 사용 하는 경우 리소스가 배포 되지 않은 경우에도 함수가 평가 됩니다. 함수가 존재 하지 않는 리소스를 참조 하는 경우 오류가 발생 합니다.
 
-[If](template-functions-logical.md#if) 함수를 사용 하 여 리소스가 배포 될 때 함수가 조건에 대해서만 계산 되도록 합니다. If를 사용 하 고 조건부로 배포 된 리소스를 참조 하는 샘플 템플릿은 [if 함수](template-functions-logical.md#if) 를 참조 하세요.
+[If](template-functions-logical.md#if) 함수를 사용 하 여 리소스가 배포 될 때 함수가 조건에 대해서만 계산 되도록 합니다. If 및 reference를 조건부로 배포된 리소스와 함께 사용하는 샘플 템플릿에 대해서는 [if 함수](template-functions-logical.md#if)를 참조하세요.
 
 리소스를 다른 리소스와 동일 하 게 조건부 리소스에 [종속 된 것으로](define-resource-dependency.md) 설정 합니다. 조건부 리소스가 배포 되지 않은 경우 Azure Resource Manager은 필요한 종속성에서 자동으로 제거 합니다.
 
-## <a name="condition-with-complete-mode"></a>Complete 모드의 조건
+## <a name="complete-mode"></a>전체 모드
 
 [전체 모드](deployment-modes.md) 를 사용 하 여 템플릿을 배포 하 고 조건이 false로 평가 되므로 리소스가 배포 되지 않은 경우 결과는 템플릿을 배포 하는 데 사용 하는 REST API 버전에 따라 달라 집니다. 2019-05-10 이전 버전을 사용 하는 경우 리소스는 **삭제 되지 않습니다**. 2019-05-10 이상에서는 리소스가 **삭제 됩니다**. 최신 버전의 Azure PowerShell 하 고 조건이 false 인 경우 리소스를 삭제 Azure CLI.
 

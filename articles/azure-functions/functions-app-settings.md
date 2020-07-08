@@ -3,12 +3,11 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6f42c411263575040d4392b85542920e8f2463d4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 5a0201eeed1678299ec16ff268062463b9c75e5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690755"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84235359"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -20,38 +19,38 @@ ms.locfileid: "82690755"
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Application Insights에 대 한 계측 키입니다. `APPINSIGHTS_INSTRUMENTATIONKEY` 또는 `APPLICATIONINSIGHTS_CONNECTIONSTRING`중 하나만 사용 합니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요. 
+Application Insights에 대 한 계측 키입니다. 또는 중 하나만 사용 `APPINSIGHTS_INSTRUMENTATIONKEY` `APPLICATIONINSIGHTS_CONNECTION_STRING` 합니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요. 
 
 |Key|샘플 값|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83b83bb|
 
-## <a name="applicationinsights_connectionstring"></a>APPLICATIONINSIGHTS_CONNECTIONSTRING
+## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Application Insights에 대 한 연결 문자열입니다. 함수 `APPLICATIONINSIGHTS_CONNECTIONSTRING` 앱에 `APPINSIGHTS_INSTRUMENTATIONKEY` 연결 문자열을 사용 하 여 지원 되는 추가 된 사용자 지정이 필요한 경우 대신를 사용 합니다. 자세한 내용은 [연결 문자열](../azure-monitor/app/sdk-connection-string.md)을 참조 하세요. 
+Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_CONNECTION_STRING` `APPINSIGHTS_INSTRUMENTATIONKEY` 함수 앱에 연결 문자열을 사용 하 여 지원 되는 추가 된 사용자 지정이 필요한 경우 대신를 사용 합니다. 자세한 내용은 [연결 문자열](../azure-monitor/app/sdk-connection-string.md)을 참조 하세요. 
 
 |Key|샘플 값|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey = [key]; IngestionEndpoint = [url]; LiveEndpoint = [url]; ProfilerEndpoint = [url]; SnapshotEndpoint = [url];|
+|APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey = [key]; IngestionEndpoint = [url]; LiveEndpoint = [url]; ProfilerEndpoint = [url]; SnapshotEndpoint = [url];|
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-버전 2.x 이상 버전의 함수 런타임에서는 런타임 환경에 따라 앱 동작을 구성 합니다. [초기화 하는 동안](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)이 값을 읽습니다. 는 임의의 값 `AZURE_FUNCTIONS_ENVIRONMENT` 으로 설정할 수 있지만 [개발](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [준비](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)및 [프로덕션](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)의 [세 가지 값](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) 이 지원 됩니다. 가 `AZURE_FUNCTIONS_ENVIRONMENT` 설정 되지 않은 경우 로컬 환경 `Development` 및 `Production` Azure에서 기본적으로로 설정 됩니다. 런타임 환경을 설정 `ASPNETCORE_ENVIRONMENT` 하는 대신이 설정을 사용 해야 합니다. 
+버전 2.x 이상 버전의 함수 런타임에서는 런타임 환경에 따라 앱 동작을 구성 합니다. [초기화 하는 동안](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)이 값을 읽습니다. `AZURE_FUNCTIONS_ENVIRONMENT`는 임의의 값으로 설정할 수 있지만 [개발](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [준비](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)및 [프로덕션](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)의 [세 가지 값](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) 이 지원 됩니다. 가 `AZURE_FUNCTIONS_ENVIRONMENT` 설정 되지 않은 경우 로컬 환경 및 Azure에서 기본적으로로 설정 `Development` `Production` 됩니다. 런타임 환경을 설정 하는 대신이 설정을 사용 해야 합니다 `ASPNETCORE_ENVIRONMENT` . 
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
-버전 2.x 이상 버전의 함수 런타임에서는 응용 프로그램 설정이 현재 환경의 [호스트 json](functions-host-json.md) 설정을 재정의할 수 있습니다. 이러한 재정의는 이라는 `AzureFunctionsJobHost__path__to__setting`응용 프로그램 설정으로 표현 됩니다. 자세한 내용은 [Override host values](functions-host-json.md#override-hostjson-values)를 참조 하세요.
+버전 2.x 이상 버전의 함수 런타임에서는 응용 프로그램 설정이 현재 환경의 설정 [에host.js](functions-host-json.md) 를 재정의할 수 있습니다. 이러한 재정의는 이라는 응용 프로그램 설정으로 표현 됩니다 `AzureFunctionsJobHost__path__to__setting` . 자세한 내용은 [값에 대 한 host.js재정의](functions-host-json.md#override-hostjson-values)를 참조 하세요.
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 이 설정은 Azure Functions 런타임의 버전 1.x를 대상으로 하는 앱에만 유효 합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. 자세히 알아보려면 [Storage 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조 하세요.
+로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 이 설정은 Azure Functions 런타임의 버전 1.x를 대상으로 하는 앱에만 유효 합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. 자세한 내용은 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
 |Key|샘플 값|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
 > [!NOTE]
-> 성능 및 환경을 향상 시키기 위해 런타임 버전 2.x 이상 버전에서는 대신 모니터링을 위해 APPINSIGHTS_INSTRUMENTATIONKEY 및 App Insights를 사용 `AzureWebJobsDashboard`합니다.
+> 성능 및 환경을 향상 시키기 위해 런타임 버전 2.x 이상 버전에서는 대신 모니터링을 위해 APPINSIGHTS_INSTRUMENTATIONKEY 및 App Insights를 사용 `AzureWebJobsDashboard` 합니다.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -87,7 +86,7 @@ Application Insights에 대 한 연결 문자열입니다. 함수 `APPLICATIONIN
 
 |Key|샘플 값|
 |---|------------|
-|AzureWebJobsSecretStorageType|파일|
+|AzureWebJobsSecretStorageType|Files|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -121,31 +120,31 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
-## <a name="functions_v2_compatibility_mode"></a>함수\_V2\_호환성\_모드
+## <a name="functions_v2_compatibility_mode"></a>함수 \_ V2 \_ 호환성 \_ 모드
 
 이 설정을 사용 하 여 함수 앱을 버전 2.x 런타임의 버전 2.x 호환 모드에서 실행할 수 있습니다. [함수 앱을 버전 2.x에서 2.x로 업그레이드 하는](functions-versions.md#migrating-from-2x-to-3x)경우 문제가 발생 하는 경우에만이 설정을 사용 합니다. 
 
 >[!IMPORTANT]
 > 이 설정은 응용 프로그램이 버전 3.x에서 올바르게 실행 되도록 업데이트 하는 동안 단기 해결 방법 으로만 사용 됩니다. 이 설정은 2.x [런타임이 지원](functions-versions.md)되는 경우에만 지원 됩니다. 이 설정을 사용 하지 않고 앱이 버전 3(sp3)에서 실행 되지 않도록 하는 문제가 발생 하는 경우 [문제를 보고](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md)하세요.
 
-에서는 [\_함수 확장\_버전이](functions-app-settings.md#functions_extension_version) 로 `~3`설정 되어야 합니다.
+에서는 [함수 \_ 확장 \_ 버전이](functions-app-settings.md#functions_extension_version) 로 설정 되어야 `~3` 합니다.
 
 |Key|샘플 값|
 |---|------------|
-|함수\_V2\_호환성\_모드|true|
+|함수 \_ V2 \_ 호환성 \_ 모드|true|
 
-## <a name="functions_worker_process_count"></a>함수\_작업자\_프로세스\_수
+## <a name="functions_worker_process_count"></a>함수 \_ 작업자 \_ 프로세스 \_ 수
 
-기본값을 사용 하 여 언어 작업자 프로세스의 최대 수를 지정 합니다 `1`. 허용 되는 최대 값 `10`은입니다. 함수 호출은 언어 작업자 프로세스 간에 균등 하 게 분산 됩니다. 언어 작업자 프로세스는 함수\_작업자\_프로세스\_수로 설정 된 개수에 도달할 때까지 10 초 마다 생성 됩니다. 여러 언어 작업자 프로세스를 사용 하는 것은 [크기 조정과](functions-scale.md)동일 하지 않습니다. 작업에 CPU 바인딩과 i/o 바인딩된 호출이 혼합 되어 있는 경우이 설정을 사용 하는 것이 좋습니다. 이 설정은 모든 non-.NET 언어에 적용 됩니다.
+기본값을 사용 하 여 언어 작업자 프로세스의 최대 수를 지정 합니다 `1` . 허용 되는 최대 값은 `10` 입니다. 함수 호출은 언어 작업자 프로세스 간에 균등 하 게 분산 됩니다. 언어 작업자 프로세스는 함수 작업자 프로세스 수로 설정 된 개수 \_ \_ 에 도달할 때까지 10 초 마다 생성 됩니다 \_ . 여러 언어 작업자 프로세스를 사용 하는 것은 [크기 조정과](functions-scale.md)동일 하지 않습니다. 작업에 CPU 바인딩과 i/o 바인딩된 호출이 혼합 되어 있는 경우이 설정을 사용 하는 것이 좋습니다. 이 설정은 모든 non-.NET 언어에 적용 됩니다.
 
 |Key|샘플 값|
 |---|------------|
-|함수\_작업자\_프로세스\_수|2|
+|함수 \_ 작업자 \_ 프로세스 \_ 수|2|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet` (c #/f #) `node` , (JavaScript/TypeScript) `java` , (Java) `powershell` , (PowerShell) 및 `python` (Python)입니다.
+함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet` (c #/f #), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) 및 `python` (Python)입니다.
 
 |Key|샘플 값|
 |---|------------|
@@ -180,8 +179,8 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_Windows에만 해당 합니다._  
-Windows에서 함수 앱을 실행할 때 사용할 node.js의 버전을 설정 합니다. 물결표 (~)를 사용 하 여 런타임에서 대상 주 버전의 사용 가능한 최신 버전을 사용 하도록 해야 합니다. 예를 들어로 `~10`설정 하면 node.js 10의 최신 버전이 사용 됩니다. 주 버전의 대상이 물결표 인 경우 부 버전을 수동으로 업데이트 하지 않아도 됩니다. 
+_Windows만 해당됩니다._  
+Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합니다. 물결표 (~)를 사용 하 여 런타임에서 대상 주 버전의 사용 가능한 최신 버전을 사용 하도록 해야 합니다. 예를 들어로 설정 하면 `~10` 최신 버전의 Node.js 10이 사용 됩니다. 주 버전의 대상이 물결표 인 경우 부 버전을 수동으로 업데이트 하지 않아도 됩니다. 
 
 |Key|샘플 값|
 |---|------------|
@@ -204,7 +203,7 @@ Windows에서 함수 앱을 실행할 때 사용할 node.js의 버전을 설정 
 |Key|값|설명|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 더 이상 함수로 직접 전송 되지 않으며 대신 HTTP 프런트 엔드로 다시 전달 됩니다 함수 앱|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|이것은 기본값입니다. 로컬 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 해당 함수로 직접 전달 됩니다.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|기본값입니다. 로컬 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 해당 함수로 직접 전달 됩니다.|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
@@ -216,7 +215,7 @@ Windows에서 함수 앱을 실행할 때 사용할 node.js의 버전을 설정 
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시를 사용하는 경로 매개 변수는 해당 항목을 디코딩합니다. `example.com/api%2ftest`는 `example.com/api/test`가 됩니다.|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|이것은 기본적인 동작입니다. 모든 경로 매개 변수는 변경 안됨으로 전달됩니다.|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음은 URL myfunction.com에서 함수 앱의 예제 proxies.json입니다.
 

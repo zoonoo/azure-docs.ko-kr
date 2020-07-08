@@ -5,12 +5,11 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259476"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>클러스터를 사용 하 여 Service Fabric 클러스터 설명 리소스 관리자
 Azure Service Fabric의 클러스터 리소스 관리자 기능은 클러스터를 설명 하는 몇 가지 메커니즘을 제공 합니다.
@@ -83,9 +82,9 @@ Azure에서 노드를 포함 하는 장애 도메인을 선택 하는 것은 사
 
 업그레이드 도메인의 수가 많으면 장단점이 있습니다. 업그레이드 도메인은 업그레이드의 각 단계가 보다 세분화 되어 더 적은 수의 노드 또는 서비스에 영향을 준다는 것을 의미 합니다. 한 번에 이동 해야 하는 서비스의 수를 줄이면 시스템에 변동 수준이 줄어듭니다. 이는 업그레이드 중에 발생 하는 문제의 영향을 받지 않기 때문에 안정성을 향상 시키는 경향이 있습니다. 업그레이드 도메인은 업그레이드의 영향을 처리 하기 위해 다른 노드에서 사용 가능한 버퍼 수가 더 적으면 안 됩니다. 
 
-예를 들어 5 개의 업그레이드 도메인이 있는 경우 각각의 노드는 약 20%의 트래픽을 처리 합니다. 업그레이드를 위해 업그레이드 도메인을 중단 해야 하는 경우 일반적으로 해당 로드를 어딘가에 두어야 합니다. 업그레이드 도메인이 4 개 있기 때문에 각에는 총 트래픽의 약 5%에 대 한 공간이 있어야 합니다. 업그레이드 도메인이 많을 수록 클러스터의 노드에 더 작은 버퍼가 필요 합니다. 
+예를 들어 5 개의 업그레이드 도메인이 있는 경우 각각의 노드는 약 20%의 트래픽을 처리 합니다. 업그레이드를 위해 업그레이드 도메인을 중단 해야 하는 경우 일반적으로 해당 로드를 어딘가에 두어야 합니다. 업그레이드 도메인이 4 개 있기 때문에 각에는 총 트래픽의 약 25%에 대 한 공간이 있어야 합니다. 업그레이드 도메인이 많을 수록 클러스터의 노드에 더 작은 버퍼가 필요 합니다.
 
-대신 10 개의 업그레이드 도메인이 있는 경우를 고려 합니다. 이 경우 각 업그레이드 도메인은 총 트래픽의 약 10%만 처리 합니다. 클러스터를 통해 업그레이드를 수행 하는 경우 각 도메인에는 총 트래픽의 약 1.1%에 대 한 공간이 있어야 합니다. 일반적으로 더 많은 업그레이드 도메인을 사용 하면 예약 된 용량이 줄어들기 때문에 더 높은 사용률에서 노드를 실행할 수 있습니다. 장애 도메인의 경우에도 마찬가지입니다.  
+대신 10 개의 업그레이드 도메인이 있는 경우를 고려 합니다. 이 경우 각 업그레이드 도메인은 총 트래픽의 약 10%만 처리 합니다. 클러스터를 통해 업그레이드를 수행 하는 경우 각 도메인에는 총 트래픽의 약 11%에 대 한 공간이 있어야 합니다. 일반적으로 더 많은 업그레이드 도메인을 사용 하면 예약 된 용량이 줄어들기 때문에 더 높은 사용률에서 노드를 실행할 수 있습니다. 장애 도메인의 경우에도 마찬가지입니다.  
 
 업그레이드 도메인을 많이 사용 하는 경우에는 업그레이드가 더 오래 걸릴 수 있다는 단점이 있습니다. Service Fabric 업그레이드 도메인이 완료 된 후 잠시 기다렸다가 다음 업데이트를 시작 하기 전에 검사를 수행 합니다. 이러한 지연은 업그레이드가 진행되기 전에 업그레이드로 인한 문제를 감지할 수 있게 합니다. 이러한 단점은 한 번에 너무 많은 서비스에 영향을 주는 잘못된 변경 사항을 방지하기 때문에 받아들일 만합니다.
 
@@ -247,7 +246,7 @@ Azure에서 노드를 포함 하는 장애 도메인을 선택 하는 것은 사
 ## <a name="configuring-fault-and-upgrade-domains"></a>장애 및 업그레이드 도메인 구성
 Azure에서 호스트 되는 Service Fabric 배포에서 장애 도메인과 업그레이드 도메인은 자동으로 정의 됩니다. Service Fabric은 Azure의 환경 정보를 선택하고 사용합니다.
 
-사용자 고유의 클러스터를 만들거나 개발 중인 특정 토폴로지를 실행 하려는 경우 장애 도메인 및 업그레이드 도메인 정보를 직접 제공할 수 있습니다. 이 예제에서는 세 개의 데이터 센터에 걸쳐 있는 9 개 노드 로컬 개발 클러스터를 정의 합니다 (각각 3 개의 랙이 포함 됨). 이 클러스터에는 세 개의 데이터 센터에 걸쳐 스트라이프 된 세 개의 업그레이드 도메인도 있습니다. 다음은 ClusterManifest의 구성 예입니다.
+사용자 고유의 클러스터를 만들거나 개발 중인 특정 토폴로지를 실행 하려는 경우 장애 도메인 및 업그레이드 도메인 정보를 직접 제공할 수 있습니다. 이 예제에서는 세 개의 데이터 센터에 걸쳐 있는 9 개 노드 로컬 개발 클러스터를 정의 합니다 (각각 3 개의 랙이 포함 됨). 이 클러스터에는 세 개의 데이터 센터에 걸쳐 스트라이프 된 세 개의 업그레이드 도메인도 있습니다. ClusterManifest.xml의 구성 예는 다음과 같습니다.
 
 ```xml
   <Infrastructure>
@@ -268,7 +267,7 @@ Azure에서 호스트 되는 Service Fabric 배포에서 장애 도메인과 업
   </Infrastructure>
 ```
 
-이 예제에서는 독립 실행형 배포에 대해 ClusterConfig을 사용 합니다.
+이 예에서는 독립 실행형 배포에 대 한 ClusterConfig.js를 사용 합니다.
 
 ```json
 "nodes": [
@@ -347,7 +346,7 @@ Azure에서 호스트 되는 Service Fabric 배포에서 장애 도메인과 업
 
 특정 워크 로드에 대 한 하드웨어를 대상으로 하는 좋은 예는 거의 모든 n 계층 아키텍처입니다. 특정 컴퓨터는 응용 프로그램의 프런트 엔드 또는 API 서비스 측 역할을 하며 클라이언트나 인터넷에 노출 됩니다. 종종 서로 다른 하드웨어 리소스를 사용하는 다양한 머신에서 컴퓨팅 또는 스토리지 계층의 작업을 처리합니다. 이러한 컴퓨터는 대개 클라이언트 또는 인터넷에 직접 노출되지 _않습니다_. 
 
-경우에 따라 특정 워크 로드를 특정 하드웨어 구성에서 실행 해야 하는 경우도 있습니다. Service Fabric 다음은 그 예입니다.
+경우에 따라 특정 워크 로드를 특정 하드웨어 구성에서 실행 해야 하는 경우도 있습니다. Service Fabric 예를 들어:
 
 * 기존 n 계층 응용 프로그램이 Service Fabric 환경으로 "리프트 및 이동" 되었습니다.
 * 성능, 규모 또는 보안 격리를 위해 특정 하드웨어에서 작업을 실행 해야 합니다.
@@ -363,7 +362,7 @@ Azure에서 호스트 되는 Service Fabric 배포에서 장애 도메인과 업
 ### <a name="built-in-node-properties"></a>기본 제공 노드 속성
 Service Fabric는 자동으로 사용할 수 있는 몇 가지 기본 노드 속성을 정의 하므로 정의 하지 않아도 됩니다. 각 노드에서 정의 된 기본 속성은 **NodeType** 및 **NodeName**입니다. 
 
-예를 들어 배치 제약 조건을로 `"(NodeType == NodeType03)"`작성할 수 있습니다. **NodeType** 은 일반적으로 사용 되는 속성입니다. 이는 컴퓨터의 유형과 1:1에 해당 하므로 유용 합니다. 각 머신의 종류는 기존의 n 계층 애플리케이션에서 워크로드 유형에 해당합니다.
+예를 들어 배치 제약 조건을로 작성할 수 있습니다 `"(NodeType == NodeType03)"` . **NodeType** 은 일반적으로 사용 되는 속성입니다. 이는 컴퓨터의 유형과 1:1에 해당 하므로 유용 합니다. 각 머신의 종류는 기존의 n 계층 애플리케이션에서 워크로드 유형에 해당합니다.
 
 <center>
 
@@ -375,7 +374,7 @@ Node 속성에 지정 된 값은 문자열, 부울 또는 부호 있는 long 일
 
 * 특정 문을 만들기 위한 조건부 검사:
 
-  | 인수를 제거합니다. | 구문 |
+  | 인수를 제거합니다. | Syntax |
   | --- |:---:|
   | "같음" | "==" |
   | "다음과 같지 않음" | "!=" |
@@ -386,7 +385,7 @@ Node 속성에 지정 된 값은 문자열, 부울 또는 부호 있는 long 일
 
 * 그룹화 및 논리 연산에 대 한 부울 문:
 
-  | 인수를 제거합니다. | 구문 |
+  | 인수를 제거합니다. | Syntax |
   | --- |:---:|
   | "및" | "&&" |
   | "또는" | "&#124;&#124;" |
@@ -401,7 +400,7 @@ Node 속성에 지정 된 값은 문자열, 부울 또는 부호 있는 long 일
 
 전체 배치 제약 조건 문이 "True"로 평가되는 노드에만 서비스가 배치될 수 있습니다. 정의 된 속성이 없는 노드는 속성을 포함 하는 배치 제약 조건과 일치 하지 않습니다.
 
-다음 노드 속성이 ClusterManifest의 노드 형식에 대해 정의 되어 있다고 가정해 보겠습니다.
+ClusterManifest.xml에서 노드 형식에 대해 다음과 같은 노드 속성이 정의 되어 있다고 가정해 보겠습니다.
 
 ```xml
     <NodeType Name="NodeType01">
@@ -413,10 +412,10 @@ Node 속성에 지정 된 값은 문자열, 부울 또는 부호 있는 long 일
     </NodeType>
 ```
 
-다음 예제에서는 독립 실행형 배포에 대 한 ClusterConfig을 통해 정의 된 노드 속성 또는 Azure에서 호스트 되는 클러스터에 대 한 템플릿인 json을 보여 줍니다. 
+다음 예에서는 독립 실행형 배포에 대 한 ClusterConfig.json 또는 Azure에서 호스트 되는 클러스터에 대 한 Template.js를 통해 정의 된 노드 속성을 보여 줍니다. 
 
 > [!NOTE]
-> Azure Resource Manager 템플릿에서 노드 형식은 일반적으로 매개 변수화 됩니다. NodeType01가 `"[parameters('vmNodeType1Name')]"` 아닌 것 같습니다.
+> Azure Resource Manager 템플릿에서 노드 형식은 일반적으로 매개 변수화 됩니다. NodeType01가 아닌 것 같습니다 `"[parameters('vmNodeType1Name')]"` .
 >
 
 ```json
@@ -447,7 +446,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-NodeType01의 모든 노드가 유효한 경우 제약 조건을 `"(NodeType == NodeType01)"`사용 하 여 해당 노드 형식을 선택할 수도 있습니다.
+NodeType01의 모든 노드가 유효한 경우 제약 조건을 사용 하 여 해당 노드 형식을 선택할 수도 있습니다 `"(NodeType == NodeType01)"` .
 
 서비스의 배치 제약 조건은 런타임 중에 동적으로 업데이트할 수 있습니다. 필요한 경우 클러스터에서 서비스를 이동 하 고, 요구 사항을 추가 및 제거 하는 등의 방법을 사용할 수 있습니다. Service Fabric은 이러한 유형의 변경이 수행 되는 경우에도 서비스를 유지 하 고 사용할 수 있게 합니다.
 
@@ -505,7 +504,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-클러스터 매니페스트에 정의 된 용량을 확인할 수 있습니다. 다음은 ClusterManifest의 예제입니다.
+클러스터 매니페스트에 정의 된 용량을 확인할 수 있습니다. ClusterManifest.xml에 대 한 예제는 다음과 같습니다.
 
 ```xml
     <NodeType Name="NodeType03">
@@ -515,7 +514,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
     </NodeType>
 ```
 
-다음은 독립 실행형 배포에 대해 ClusterConfig을 통해 정의 된 용량과 Azure에서 호스트 되는 클러스터에 대 한 json의 예입니다. 
+다음은 독립 실행형 배포에 대 한 ClusterConfig.js를 통해 정의 된 용량과 Azure에서 호스트 되는 클러스터에 대 한 Template.js에 대 한 예입니다. 
 
 ```json
 "nodeTypes": [
@@ -548,7 +547,7 @@ Service Fabric 클러스터는 전체 클러스터가 너무 꽉 차지 리소�
 
 버퍼링 된 용량은 모든 노드에 대해 메트릭에 따라 전역적으로 지정 됩니다. 예약 된 용량에 대해 선택 하는 값은 클러스터에 있는 장애 도메인 및 업그레이드 도메인의 수에 대 한 함수입니다. 장애 도메인 및 업그레이드 도메인은 버퍼링 된 용량에 대해 더 적은 수를 선택할 수 있다는 의미입니다. 더 많은 도메인이 있는 경우 업그레이드 및 오류 중 사용할 수 없는 클러스터의 수가 감소할 수 있습니다. 메트릭에 대해 노드 용량을 지정한 경우에만 버퍼링 된 용량을 지정 하는 것이 좋습니다.
 
-다음은 ClusterManifest에서 버퍼링 된 용량을 지정 하는 방법의 예입니다.
+ClusterManifest.xml에서 버퍼링 된 용량을 지정 하는 방법의 예는 다음과 같습니다.
 
 ```xml
         <Section Name="NodeBufferPercentage">
@@ -557,7 +556,7 @@ Service Fabric 클러스터는 전체 클러스터가 너무 꽉 차지 리소�
         </Section>
 ```
 
-다음은 독립 실행형 배포에 대해 ClusterConfig. json을 통해 버퍼링 된 용량을 지정 하는 방법의 예입니다. Azure에서 호스트 하는 클러스터의 경우 json:
+다음은 독립 실행형 배포에 대 한 ClusterConfig.json을 통해 버퍼링 된 용량을 지정 하는 방법 또는 Azure에서 호스트 되는 클러스터의 Template.js에 대 한 예입니다.
 
 ```json
 "fabricSettings": [

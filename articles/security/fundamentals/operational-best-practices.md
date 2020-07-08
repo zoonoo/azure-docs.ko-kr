@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204738"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -215,8 +214,8 @@ Azure Policy를 채택 하 고 나면 다음 몇 가지 보안 모범 사례를 
 **모범 사례**: 정책 위반에 대 한 모니터링을 담당 하는 역할을 식별 하 고 올바른 수정 작업이 신속 하 게 수행 되도록 합니다.   
 **세부 정보**: [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) 또는 [명령줄](../../governance/policy/how-to/get-compliance-data.md#command-line)을 통해 할당 된 역할 모니터의 호환성을 확인 합니다.
 
-**모범 사례**: Azure Policy 조직의 작성 된 정책에 대 한 기술 표현입니다. 모든 Azure 정책을 조직 정책에 매핑하여 혼동을 줄이고 일관성을 높일 수 있습니다.   
-**세부 정보**: [Azure Policy 정의](../../governance/policy/concepts/definition-structure.md#display-name-and-description) 또는 [Azure Policy 이니셔티브](../../governance/policy/concepts/definition-structure.md#initiatives) 설명에서 조직 정책에 대 한 참조를 추가 하 여 조직의 설명서 또는 Azure Policy 정의 자체에서 문서를 매핑합니다.
+**모범 사례**: Azure Policy 조직의 작성 된 정책에 대 한 기술 표현입니다. 모든 Azure Policy 정의를 조직 정책에 매핑하여 혼동을 줄이고 일관성을 높일 수 있습니다.   
+**세부 정보**: [정책 정의](../../governance/policy/concepts/definition-structure.md#display-name-and-description) 또는 [이니셔티브 정의](../../governance/policy/concepts/initiative-definition-structure.md#metadata) 설명에서 조직 정책에 대 한 참조를 추가 하 여 조직의 설명서 또는 Azure Policy 정의 자체에서 문서를 매핑합니다.
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Azure AD 위험 보고서 모니터링
 대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 손상된 ID를 검색하는 것은 쉬운 작업이 아닙니다. Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 의심 스러운 동작은 [위험 검색](../../active-directory/reports-monitoring/concept-risk-events.md)이라고 하는 레코드에 저장 됩니다. 위험 검색은 Azure AD 보안 보고서에 기록 됩니다. 자세한 내용은 [위험에 노출 된 사용자 보안 보고서](../../active-directory/reports-monitoring/concept-user-at-risk.md) 및 [위험한 로그인 보안 보고서](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)를 참조 하세요.

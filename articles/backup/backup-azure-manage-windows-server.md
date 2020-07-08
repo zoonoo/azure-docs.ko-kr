@@ -3,16 +3,15 @@ title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: 이 문서에서는 Recovery Services 자격 증명 모음 개요 대시보드를 사용 하 여 Recovery Services 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234600"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
-이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 중요/경고 알림 상태, 진행 중/실패 백업 작업, LRS(로컬 중복 스토리지)/GRS(지역 중복 스토리지) 사용량을 보여 주는 *타일*이 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
+이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 위험 및 경고 알림 상태, 진행 중인 백업 및 실패 한 백업 작업, 사용 된 LRS (로컬 중복 저장소) 및 GRS (지역 중복 저장소)의 양에 표시 되는 *타일이* 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
 
 ![복구 서비스 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -95,9 +94,9 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 | 경고 수준 | 알림을 생성하는 이벤트 |
 | ----------- | ----------- |
-| 중요 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
-| Warning | 백업 작업이 경고와 함께 완료되었거나(예: 손상 문제로 인해 100개 미만의 파일이 백업되지 않은 경우), 1,000,000개가 넘는 파일이 성공적으로 백업된 경우에는 경고 알림을 받습니다. |
-| 정보 제공 | 현재는 사용되는 정보 알림이 없습니다. |
+| 위험 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
+| 경고 | 백업 작업이 경고와 함께 완료되었거나(예: 손상 문제로 인해 100개 미만의 파일이 백업되지 않은 경우), 1,000,000개가 넘는 파일이 성공적으로 백업된 경우에는 경고 알림을 받습니다. |
+| 정보 | 현재는 사용되는 정보 알림이 없습니다. |
 
 ### <a name="viewing-alert-details"></a>알림 세부 정보 보기
 
@@ -111,7 +110,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 * Backup 항목
 * 보호된 서버
 * 심각도
-* Duration
+* 기간
 * 만든 시간
 * 상태
 * 최근 발생 시간
@@ -226,7 +225,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 * Azure Storage
 * Azure 워크로드
 
-#### <a name="operation"></a>작업(Operation)
+#### <a name="operation"></a>연산
 
 하나 또는 모든 작업을 볼 수 있습니다. 둘 또는 세 개의 작업은 선택할 수 없습니다. 사용 가능한 작업은 다음과 같습니다.
 
@@ -245,7 +244,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 * 모든 상태
 * Completed
 * 진행 중
-* Failed
+* 실패
 * 취소됨
 * 경고와 함께 완료됨
 

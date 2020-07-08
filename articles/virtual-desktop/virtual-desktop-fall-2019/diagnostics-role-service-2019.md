@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84235559"
 ---
 # <a name="identify-and-diagnose-issues"></a>문제 식별 및 진단
 
@@ -161,7 +160,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 
 |숫자 코드|오류 코드|추천 솔루션|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|사용자가 Azure Active Directory의 구성원이 아닙니다. [Active Directory 관리 센터](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center)의 지침에 따라 사용자를 추가하세요.|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|사용자가 Active Directory의 멤버가 아닙니다. [Active Directory 관리 센터](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center)의 지침에 따라 사용자를 추가하세요.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|세션 호스트가 Active Directory에 올바르게 가입되어 있지 않습니다.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|세션 호스트를 사용할 수 없기 때문에 연결이 실패했습니다. 세션 호스트의 상태를 확인하세요.|
 |-2146233088|ConnectionFailedClientDisconnect|이 오류가 자주 발생하면 사용자의 컴퓨터가 네트워크에 연결되어 있는지 확인하세요.|
@@ -172,6 +171,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 |8|ConnectionBroken|클라이언트와 게이트웨이 또는 서버 사이의 연결이 끊어졌습니다. 예기치 않게 발생한 경우가 아닌 이상 조치가 필요하지 않습니다.|
 |14|UnexpectedNetworkDisconnect|네트워크 연결이 끊어졌습니다. 사용자에게 다시 연결하라고 요청하세요.|
 |24|ReverseConnectFailed|호스트 가상 머신에 RD 게이트웨이에 대한 직접적인 시야가 없습니다. 게이트웨이 IP 주소를 확인할 수 있는지 확인하세요.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|사용자가 Active Directory의 멤버가 아닙니다. [Active Directory 관리 센터](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center)의 지침에 따라 사용자를 추가하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

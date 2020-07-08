@@ -3,12 +3,11 @@ title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259408"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 

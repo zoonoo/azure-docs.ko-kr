@@ -4,12 +4,11 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248280"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -48,7 +47,7 @@ ms.locfileid: "82597657"
 * 한 방향 업그레이드 이며 즉시 복원으로 업그레이드 되 면 뒤로 이동할 수 없습니다.
 
 >[!NOTE]
->이 즉시 복원 업그레이드를 사용하면 모든 고객(**새 고객과 기존 고객 모두 포함**)의 스냅샷 보존 기간이 기본값인 2일로 설정됩니다. 그러나 요구 사항에 따라 기간을 1~5일 사이의 임의 값으로 설정할 수 있습니다.
+>이 즉시 복원 업그레이드를 사용하면 모든 고객(**새 고객과 기존 고객 모두 포함**)의 스냅샷 보존 기간이 기본값인 2일로 설정됩니다. 그러나 요구 사항에 따라 1 ~ 5 일 사이의 값으로 기간을 설정할 수 있습니다.
 
 ## <a name="cost-impact"></a>비용 영향
 
@@ -78,7 +77,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 각 정책에 대 한 기본 스냅숏 보존 기간은 2 일로 설정 됩니다. 사용자는 값을 최소 1 ~ 5 일로 변경할 수 있습니다. 주간 정책의 경우 스냅숏 보존 기간은 5 일로 고정 됩니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>인스턴트 복원은 비용에 어떤 영향을 주나요?
 
@@ -110,15 +109,15 @@ VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>백업 정책에 설정된 보존 기간 이후에도 스냅샷이 있는 이유는 무엇인가요?
 
-복구 지점에 스냅샷이 있고 사용 가능한 최신 RP인 경우 다음에 성공한 백업이 있을 때까지 보존됩니다. 이는 현재 VM의 문제로 인해 모든 백업이 실패 하는 경우에는 항상 하나 이상의 최신 RP를 제공 하는 최신 GC (가비지 수집) 정책을 기준으로 합니다. 정상적인 시나리오에서는 만료 후 최대 24시간 이내에 RP가 정리됩니다.
+복구 지점에 스냅샷이 있고 사용 가능한 최신 RP인 경우 다음에 성공한 백업이 있을 때까지 보존됩니다. 이는 현재 VM의 문제로 인해 모든 백업이 실패 하는 경우에는 항상 하나 이상의 최신 RP가 항상 표시 되도록 설계 된 "가비지 수집" (GC) 정책을 기반으로 합니다. 정상적인 시나리오에서는 만료 후 최대 24시간 이내에 RP가 정리됩니다.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>즉시 복원 기능이 필요 하지 않습니다. 사용 하지 않도록 설정할 수 있나요?
 
 인스턴트 복원 기능은 모든 사용자에 대해 사용 하도록 설정 되어 있으므로 사용 하지 않도록 설정할 수 없습니다. 스냅숏 보존 기간을 최소 1 일로 줄일 수 있습니다.
 
 >[!NOTE]
-> **이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.**
+> **이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.**
 >
->현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 백업 및 복원 요구에 효율적이 고 비용 효율적인 솔루션을 제공 합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크의 데이터가 포함 되어 있으므로 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음 둘 다의 복원에 적용 됩니다.
+>현재 Azure Backup은 Virtual Machine 백업 솔루션을 함께 사용하여 VM의 모든 디스크(운영 체제 및 데이터)를 백업하는 작업을 지원합니다. 디스크 제외 기능을 사용하면 VM의 여러 데이터 디스크에서 하나 또는 여러 개를 백업하는 옵션을 사용할 수 있습니다. 이는 사용자의 백업 및 복원 요구 사항을 충족하는 능률적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함된 디스크의 데이터가 포함되므로 복원 작업을 수행하는 동안 지정된 복구 지점에서 복원된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅샷과 자격 증명 모음의 복원 모두에 적용됩니다.
 >
->**미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com**
+>**미리 보기에 가입하려면 AskAzureBackupTeam@microsoft.com으로 문의해 주세요.**

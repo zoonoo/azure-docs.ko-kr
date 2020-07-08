@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836416"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197035"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -77,7 +76,7 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
     - 영향을 받는 복제된 머신의 디스크 블레이드로 이동하여 복제본 디스크 이름을 복사합니다.
     - 이 복제본 관리 디스크로 이동합니다.
     - 개요 블레이드에 SAS URL이 생성되었다는 배너가 표시될 수 있습니다. 이 배너를 클릭하고 내보내기를 취소합니다. 배너가 표시되지 않으면 이 단계를 무시합니다.
-    - SAS URL이 호출되는 즉시 관리 디스크의 구성 블레이드로 이동하여 ASR이 원본 디스크에서 관찰된 변동률을 지원하도록 크기를 늘립니다.
+    - SAS URL이 해지 되는 즉시 관리 디스크의 구성 블레이드로 이동 하 여 원본 디스크에서 관찰 된 변동 율 Azure Site Recovery 지원 하도록 크기를 늘립니다.
 - 관찰된 변동이 일시적인 경우 보류 중인 데이터 업로드를 처리하고 복구 지점이 생성될 때까지 몇 시간이 걸릴 수 있습니다.
 - 디스크가 임시 로그, 테스트 데이터 등의 중요하지 않은 데이터를 포함하는 경우 이 데이터를 다른 곳으로 이동하거나 복제에서 이 디스크를 완전히 제외하는 것이 좋습니다.
 - 문제가 지속되면 Site Recovery [Deployment Planner](site-recovery-deployment-planner.md#overview)를 사용하여 복제 계획을 세울 수 있습니다.
@@ -146,6 +145,8 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3: SQL Server 2016 및 2017의 알려진 문제
 **해결 방법**: 기술 자료 [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)를 참조하세요.
 
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 앱 일관성을 사용 하도록 설정 하지 않음
+**해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) 같습니다.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인한 추가 원인:
 
@@ -162,12 +163,12 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치되어 있지 않음 - 오류 2147221164
 
-해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 설치되지 않은 경우 “클래스가 등록되지 않음”이라는 오류 ID 0x80040154와 함께 애플리케이션 일관성 스냅샷 만들기가 실패합니다. </br>
+해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 설치 되지 않은 경우 "클래스가 등록 되지 않았습니다" 라는 오류 ID 0x80040154 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. </br>
 [VSS 기록기 설치 문제 해결에 대한 문서](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)를 참조하세요.
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음 - 오류 2147943458
 
-**해결 방법**: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 사용하지 않도록 설정된 경우 애플리케이션 일관성 스냅샷 만들기가 실패하고 오류 ID “지정된 서비스가 사용 안 함으로 지정되어 있어 시작될 수 없습니다(0x80070422).”가 발생합니다. </br>
+해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
 
 - VSS를 사용할 수 없는 경우
     - VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.

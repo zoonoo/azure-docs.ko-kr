@@ -3,12 +3,11 @@ title: PowerShell을 사용 하 여 Azure Vm 백업 및 복구
 description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백업 및 복구 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 44cffa58ea72a8a83edfaee94c616d6689e77e8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4b869b24392fa597f752992fb65de46785117618
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234703"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -96,7 +95,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](https://doc
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md) 중에 사용할 스토리지 중복 유형을 지정합니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+3. 사용할 저장소 중복성 유형을 지정 합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy-grs.md))를 사용할 수 있습니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

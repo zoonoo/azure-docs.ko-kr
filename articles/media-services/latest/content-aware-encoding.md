@@ -9,15 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76772071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234891"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>콘텐츠 인식 인코딩 미리 설정을 사용 하 여 지정 된 해상도에 대 한 최적의 비트 전송률 값을 찾습니다.
 
@@ -55,9 +54,10 @@ Microsoft의 [적응 스트리밍](autogen-bitrate-ladder.md) 사전 설정은 �
 
 다음과 같이이 사전 설정을 사용 하는 변환을 만들 수 있습니다. 
 
-> [!TIP]
-> 변환 출력을 사용 하는 자습서는 [다음 단계](#next-steps) 섹션을 참조 하세요. 출력 자산은 자습서에 표시 된 것 처럼 MPEG-2 및 HLS와 같은 프로토콜의 Media Services 스트리밍 끝점에서 배달할 수 있습니다.
+변환 출력을 사용 하는 자습서는 [다음 단계](#next-steps) 섹션을 참조 하세요. 출력 자산은 자습서에 표시 된 것 처럼 MPEG-2 및 HLS와 같은 프로토콜의 Media Services 스트리밍 끝점에서 배달할 수 있습니다.
 
+> [!NOTE]
+> **ContentAwareEncoding** 사전 설정 ContentAwareEncodingExperimental을 사용 해야 합니다.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -76,12 +76,12 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> `ContentAwareEncoding` 미리 설정을 사용 하는 인코딩 작업은 출력 시간 (분)을 기준으로 요금이 청구 됩니다. 
-
+> 미리 설정을 사용 하는 인코딩 작업 `ContentAwareEncoding` 은 출력 시간 (분)을 기준으로 요금이 청구 됩니다. 
+  
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: Media Services v3를 사용하여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
+* [자습서: Media Services v3로 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
 * [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-REST](stream-files-tutorial-with-rest.md)
 * [자습서: URL을 기준으로 원격 파일 인코딩 및 비디오 스트림-CLI](stream-files-cli-quickstart.md)
 * [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-.NET](stream-files-dotnet-quickstart.md)
-* [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오-node.js 스트리밍](stream-files-nodejs-quickstart.md)
+* [자습서: URL을 기준으로 원격 파일 인코딩 및 비디오 스트림 Node.js](stream-files-nodejs-quickstart.md)

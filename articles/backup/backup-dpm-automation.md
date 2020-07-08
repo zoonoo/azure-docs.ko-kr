@@ -3,12 +3,11 @@ title: PowerShell을 사용하여 DPM 워크로드 백업
 description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 73b6d07c9d74ab7f8af5d91e992bb1ae457f964c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: bbd03c17f9f46494d6fadb64e1d059d1b81cd9ac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234637"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 
@@ -69,7 +68,7 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 
-4. [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md) 중에 사용할 스토리지 중복 유형을 지정합니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+4. 사용할 저장소 중복성 유형을 지정 합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy-grs.md))를 사용할 수 있습니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
    > [!TIP]
    > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.

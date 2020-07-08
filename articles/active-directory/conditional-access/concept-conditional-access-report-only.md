@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204194"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>조건부 액세스 보고서 전용 모드
 
@@ -30,7 +29,7 @@ ms.locfileid: "82690454"
 - Azure Monitor 구독이 있는 고객은 조건부 액세스 insights 통합 문서를 사용 하 여 조건부 액세스 정책의 영향을 모니터링할 수 있습니다.
 
 > [!WARNING]
-> 규격 장치를 필요로 하는 보고서 전용 모드의 정책은 장치 호환성이 적용 되지 않는 경우에도 사용자에 게 Mac, iOS 및 Android에서 장치 인증서를 선택 하 라는 메시지를 표시할 수 있습니다. 이러한 메시지는 장치를 준수 하도록 설정할 때까지 반복 될 수 있습니다. 최종 사용자가 로그인 하는 동안 프롬프트를 받지 못하도록 하려면 장치 준수 검사를 수행 하는 보고서 전용 정책에서 장치 플랫폼 Mac, iOS 및 Android를 제외 합니다.
+> 규격 장치를 필요로 하는 보고서 전용 모드의 정책은 장치 호환성이 적용 되지 않는 경우에도 사용자에 게 Mac, iOS 및 Android에서 장치 인증서를 선택 하 라는 메시지를 표시할 수 있습니다. 이러한 메시지는 장치를 준수 하도록 설정할 때까지 반복 될 수 있습니다. 최종 사용자가 로그인 하는 동안 프롬프트를 받지 못하도록 하려면 장치 준수 검사를 수행 하는 보고서 전용 정책에서 장치 플랫폼 Mac, iOS 및 Android를 제외 합니다. "사용자 작업" 범위의 CA 정책에는 보고서 전용 모드를 적용할 수 없습니다.
 
 ![Azure AD 로그인 로그의 보고서 전용 탭](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

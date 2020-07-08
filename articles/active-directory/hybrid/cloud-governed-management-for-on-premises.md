@@ -9,16 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec74b9391c780cf673fe47bd82cc6d92534eb56d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67109513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234036"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD가 온-프레미스 워크 로드에 대 한 클라우드 관리 관리를 제공 하는 방법
 
@@ -93,7 +92,7 @@ Azure AD는 필요에 따라 [게스트 사용자를 위해 AD에서 자동으�
 
 ![Azure AD 진화](media/cloud-governed-management-for-on-premises/image5.png)
 
-페더레이션 응용 프로그램을 id 공급자로 Azure AD로 마이그레이션하기 시작 하려면 다음에 대 https://aka.ms/migrateapps 한 링크를 포함 하는를 참조 하세요.
+페더레이션 응용 프로그램을 id 공급자로 Azure AD로 마이그레이션하기 시작 하려면 https://aka.ms/migrateapps 다음에 대 한 링크를 포함 하는를 참조 하세요.
 
 * [응용 프로그램을 Azure Active Directory로 마이그레이션하](https://aka.ms/migrateapps/whitepaper)는 백서로, 마이그레이션의 이점을 제시 하 고, 검색, 분류, 마이그레이션 및 지속적인 관리의 네 가지 명확 하 게 설명 된 단계로 마이그레이션을 계획 하는 방법을 설명 합니다. 프로세스에 대해 생각 하 고 프로젝트를 사용 하기 쉬운 조각으로 분할 하는 방법을 안내 합니다. 문서 전체에는 과정에 도움이 되는 중요한 리소스에 대한 링크가 있습니다.
 
@@ -117,4 +116,4 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 과정을 시작 하는 방법에 대 한 자세한 내용은에 <https://aka.ms/deploymentplans> 있는 Azure AD 배포 계획을 참조 하세요. Azure AD (Azure Active Directory) 기능을 배포 하는 방법에 대 한 종단 간 지침을 제공 합니다. 각 계획은 일반적인 Azure AD 기능을 성공적으로 출시 하는 데 필요한 비즈니스 가치, 계획 고려 사항, 디자인 및 운영 절차를 설명 합니다. Microsoft는 Azure AD를 사용 하 여 클라우드에서 관리 하는 새로운 기능을 추가할 때 고객 배포 및 기타 피드백에서 얻은 모범 사례를 사용 하 여 배포 계획을 지속적으로 업데이트 합니다.
+이 과정을 시작 하는 방법에 대 한 자세한 내용은에 있는 Azure AD 배포 계획을 참조 하세요 <https://aka.ms/deploymentplans> . Azure AD (Azure Active Directory) 기능을 배포 하는 방법에 대 한 종단 간 지침을 제공 합니다. 각 계획은 일반적인 Azure AD 기능을 성공적으로 출시 하는 데 필요한 비즈니스 가치, 계획 고려 사항, 디자인 및 운영 절차를 설명 합니다. Microsoft는 Azure AD를 사용 하 여 클라우드에서 관리 하는 새로운 기능을 추가할 때 고객 배포 및 기타 피드백에서 얻은 모범 사례를 사용 하 여 배포 계획을 지속적으로 업데이트 합니다.

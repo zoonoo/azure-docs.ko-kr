@@ -7,28 +7,32 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84235614"
 ---
-# <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요 
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요
+
 Azure 파일은 파일 공유의 공유 스냅샷을 생성하는 기능을 제공합니다. 공유 스냅샷은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅샷이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
 
 ## <a name="when-to-use-share-snapshots"></a>공유 스냅샷을 사용하는 경우
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>애플리케이션 오류 및 데이터 손상으로부터 보호
+
 파일 공유를 사용하는 애플리케이션은 쓰기, 읽기, 스토리지, 전송 및 처리 등의 작업을 수행합니다. 애플리케이션이 잘못 구성되거나 의도하지 않은 버그가 발생하여 일부 블록을 실수로 덮어쓰거나 손상시킬 수 있습니다. 이러한 시나리오를 방지하기 위해 새 애플리케이션 코드를 배포하기 전에 공유 스냅샷을 생성할 수 있습니다. 새 배포에서 버그 또는 애플리케이션 오류가 발생하면 해당 파일 공유에 있는 이전 버전의 데이터로 돌아갈 수 있습니다. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>실수로 삭제 또는 의도하지 않은 변경 방지
+
 파일 공유의 텍스트 파일을 작업하고 있다고 가정하겠습니다. 텍스트 파일을 닫은 후에는 변경 내용을 취소할 수 없게 됩니다. 이런 경우에는 파일의 이전 버전을 복구해야 합니다. 실수로 파일 이름을 변경하거나 파일을 삭제한 경우 공유 스냅샷을 사용하여 파일의 이전 버전을 복구할 수 있습니다.
 
 ### <a name="general-backup-purposes"></a>일반 백업 목적
-파일 공유를 만든 후에는 파일 공유의 공유 스냅샷을 주기적으로 만들어 데이터 백업에 사용할 수 있습니다. 공유 스냅샷을 주기적으로 만들면 나중에 감사 요구 사항이나 재해 복구에 사용할 수 있는 데이터의 이전 버전을 유지 관리하는 데 도움이 됩니다.
+
+파일 공유를 만든 후에는 파일 공유의 공유 스냅샷을 주기적으로 만들어 데이터 백업에 사용할 수 있습니다. 공유 스냅샷을 주기적으로 만들면 나중에 감사 요구 사항이나 재해 복구에 사용할 수 있는 데이터의 이전 버전을 유지 관리하는 데 도움이 됩니다. 스냅숏을 작성 하 고 관리 하기 위한 백업 솔루션으로 [Azure 파일 공유 백업을](../../backup/azure-file-share-backup-overview.md) 사용 하는 것이 좋습니다. CLI 또는 PowerShell을 사용 하 여 스냅숏을 직접 사용 및 관리할 수도 있습니다.
 
 ## <a name="capabilities"></a>기능
+
 공유 스냅샷은 데이터의 특정 시점 읽기 전용 복사본입니다. REST API를 사용하여 스냅샷을 만들고 삭제하고 관리할 수 있습니다. 클라이언트 라이브러리, Azure CLI 및 Azure Portal에서도 같은 기능을 사용할 수 있습니다. 
 
 REST API 및 SMB 둘 다를 사용하여 공유의 스냅샷을 볼 수 있습니다. 디렉터리 또는 파일의 버전 목록을 검색할 수 있으며 특정 버전을 드라이브로 직접 탑재할 수도 있습니다(Windows에서만 사용 가능 - [한도](#limits) 참조). 
@@ -48,7 +52,8 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 
 먼저 모든 공유 스냅샷을 삭제하지 않으면 공유 스냅샷이 있는 공유를 삭제할 수 없습니다.
 
-## <a name="space-usage"></a>공간 사용 
+## <a name="space-usage"></a>공간 사용
+
 공유 스냅샷은 기본적으로 증분합니다. 가장 최근의 공유 스냅샷 이후에 변경된 데이터만 저장됩니다. 따라서 공유 스냅샷을 생성하는 데 필요한 시간이 최소화되어 스토리지 비용이 절약됩니다. 개체 또는 속성 또는 메타데이터 업데이트 작업에 대한 쓰기 작업은 "변경한 콘텐츠"에 포함되어 공유 스냅샷에 저장됩니다. 
 
 공간을 절약하기 위해 변동이 가장 큰 기간의 공유 스냅샷을 삭제할 수 있습니다.
@@ -58,6 +63,7 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 스냅샷은 5TB 공유 제한에 포함되지 않습니다. 공유 스냅샷이 차지하는 총 공간에는 제한이 없습니다. 다만 스토리지 계정 제한은 여전히 적용됩니다.
 
 ## <a name="limits"></a>제한
+
 Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. 공유 스냅샷 200이후로 새 공유 스냅샷을 생성하려면 이전 공유 스냅샷을 삭제해야 합니다. 
 
 공유 스냅샷 생성을 위한 동시 호출에는 제한이 없습니다. 특정 파일 공유의 공유 스냅샷이 사용할 수 있는 공간의 양에는 제한이 없습니다. 
@@ -65,6 +71,7 @@ Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. �
 오늘은 Linux에서 공유 스냅샷을 탑재할 수 없습니다. 이는 Linux SMB 클라이언트가 Windows와 같은 스냅샷 탑재를 지원하지 않기 때문입니다.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>공유 스냅샷에서 공유로 데이터 다시 복사
+
 파일 및 공유 스냅샷과 관련된 복사 작업에는 다음 규칙이 적용됩니다.
 
 파일 공유 스냅샷의 개별 파일을 해당 기본 공유 또는 다른 위치에 덮어써서 복사할 수 있습니다. 공유 스냅샷에서 파일별로 복사하여 한 파일의 이전 버전을 복원하거나 전체 파일 공유를 복원할 수 있습니다. 공유 스냅샷은 기본 공유로 승격되지 않습니다. 
@@ -75,8 +82,9 @@ Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. �
 
 대상 파일을 복사본으로 덮어쓸 때 원래 대상 파일과 연결된 공유 스냅샷은 그대로 유지됩니다.
 
-## <a name="general-best-practices"></a>일반 모범 사례 
-Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 언제나 백업을 자동화하십시오. 자동화된 작업은 수동 프로세스보다 더 안정적이므로 데이터 보호 및 복구 기능을 개선하는 데 도움이 됩니다. 자동화를 위해 REST API, 클라이언트 SDK 또는 스크립팅을 사용할 수 있습니다.
+## <a name="general-best-practices"></a>일반 모범 사례
+
+스냅숏을 관리 하는 것 외에도 스냅숏을 자동화 하는 백업 솔루션으로 [Azure 파일 공유 백업을](../../backup/azure-file-share-backup-overview.md) 사용 하는 것이 좋습니다. Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 언제나 백업을 자동화하십시오. 자동화된 작업은 수동 프로세스보다 더 안정적이므로 데이터 보호 및 복구 기능을 개선하는 데 도움이 됩니다. Azure 파일 공유 백업, REST API, 클라이언트 SDK 또는 자동화를 위한 스크립팅을 사용할 수 있습니다.
 
 공유 스냅샷 스케줄러를 배포하기 전에 불필요한 요금이 발생하지 않도록 공유 스냅샷 빈도 및 보존 설정을 신중히 고려하십시오.
 
@@ -84,6 +92,7 @@ Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 �
 
 ## <a name="next-steps"></a>다음 단계
 - 다음에서 공유 스냅샷으로 작업:
+    - [Azure 파일 공유 백업](../../backup/azure-file-share-backup-overview.md)
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)

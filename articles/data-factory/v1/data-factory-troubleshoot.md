@@ -13,12 +13,11 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 81ae5c3c702108d854e4dfde93001d5c99875666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195909"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -49,7 +48,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 
 1. AzAccount-올바른 사용자 ID 및 암호를 사용 합니다.
 2. AzSubscription-계정에 대 한 모든 구독을 표시 합니다.
-3. AzSubscription &lt;구독 이름&gt; -올바른 구독을 선택 합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
+3. AzSubscription &lt; 구독 이름 &gt; -올바른 구독을 선택 합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>문제: Azure 포털에서 데이터 관리 게이트웨이 빠른 설치를 시작하지 못함
 데이터 관리 게이트웨이 빠른 설치를 수행하려면 Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저가 필요합니다. 빠른 설치를 시작할 수 없는 경우 다음 중 하나를 수행합니다.
@@ -61,10 +60,10 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
     Firefox의 경우에도 동일한 작업을 수행합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 가로 줄 세 개)의 열기 메뉴 단추를 클릭하고 추가 기능을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
 * 포털의 같은 블레이드에 표시되어 있는 **수동 설치** 링크를 사용합니다. 이 방식을 사용하여 설치 파일을 다운로드해 수동으로 실행합니다. 설치가 정상적으로 완료되면 데이터 관리 게이트웨이 구성 대화 상자가 표시됩니다. 포털 화면에서 **키** 를 복사하고 구성 관리자에서 이 키를 사용하여 게이트웨이를 서비스에 등록합니다.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>문제: 온-프레미스 SQL Server에 연결하지 못함
+### <a name="problem-fail-to-connect-to-sql-server"></a>문제: SQL Server에 연결 하지 못함
 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**를 시작하고 **문제 해결** 탭을 사용하여 게이트웨이 컴퓨터에서 SQL Server에 대한 연결을 테스트합니다. 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>문제: 입력 조각이 무기한 대기 상태임
+### <a name="problem-input-slices-are-in-waiting-state-forever"></a>문제: 입력 조각이 무기한 대기 상태입니다.
 이 조각은 다양한 이유로 인해 **대기 중** 상태일 수 있습니다. 일반적으로는 **external** 속성이 **true**로 설정되어 있지 않으면 이러한 상태가 설정됩니다. Azure Data Factory 범위 외에서 생성된 데이터 세트는 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부에 있으며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready** 로 표시됩니다.
 
 **external** 속성의 사용 방법은 다음 예제를 참조하세요. 외부를 true로 설정 하는 경우 선택적으로 **externalData***를 지정할 수 있습니다.

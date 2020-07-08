@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용 하 여 온-프레미스에서 Azure로 데이터 복사
-description: 이 PowerShell 스크립트는 온-프레미스 SQL Server 데이터베이스의 데이터를 다른 Azure Blob Storage로 복사합니다.
+description: 이 PowerShell 스크립트는 SQL Server 데이터베이스에서 다른 Azure Blob Storage로 데이터를 복사 합니다.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,29 +10,28 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 10555defc4888af66bb88d19190b6543aa8ae0c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75974698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194622"
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>PowerShell에서 온-프레미스의 데이터를 Azure로 복사하는 Data Factory 파이프라인 만들기
+# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>PowerShell을 사용 하 여 SQL Server에서 Azure로 데이터를 복사 하는 data factory 파이프라인 만들기
 
-이 샘플 PowerShell 스크립트는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 파이프라인을 Azure Data Factory에서 만듭니다.
+이 샘플 PowerShell 스크립트는 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사 하는 파이프라인을 Azure Data Factory 만듭니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- **SQL Server**. 이 샘플에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
-- **Azure Storage 계정**. 이 샘플에서는 Azure Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
+- **SQL Server**. 이 샘플에서는 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용 합니다.
+- **Azure Storage 계정**. 이 샘플에서는 Azure Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조 하세요.
 - **자체 호스팅 통합 런타임**. [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 파일을 다운로드하고 실행하여 컴퓨터에 자체 호스팅 통합 런타임을 설치합니다.  
 
 ### <a name="create-sample-database-in-sql-server"></a>SQL Server에서 샘플 데이터베이스 만들기
-1. 다음 SQL 스크립트를 사용하여 온-프레미스 SQL Server 데이터베이스에 **emp**라는 테이블을 만듭니다.
+1. SQL Server 데이터베이스에서 다음 SQL 스크립트를 사용 하 여 **emp** 라는 테이블을 만듭니다.
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -57,7 +56,7 @@ ms.locfileid: "75974698"
 > [!IMPORTANT]
 > 이 스크립트는 하드 드라이브의 c:\ 폴더에 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 정의하는 JSON 파일을 만듭니다.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from on-premises SQL Server -> Azure Blob Storage")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from SQL Server -> Azure Blob Storage")]
 
 
 ## <a name="clean-up-deployment"></a>배포 정리

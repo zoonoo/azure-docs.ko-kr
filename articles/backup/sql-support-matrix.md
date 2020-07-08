@@ -3,12 +3,11 @@ title: Azure Vm에서 SQL Server 백업에 대 한 Azure Backup 지원 매트릭
 description: Azure Backup 서비스를 사용 하 여 Azure Vm의 SQL Server를 백업할 때 지원 설정 및 제한 사항에 대 한 요약을 제공 합니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 79a7e30ab9240c489a66b547ff85bea7887131b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79410000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234240"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure Vm의 SQL Server 백업에 대 한 지원 매트릭스
 
@@ -41,7 +40,7 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 * 서버 별로 보호할 수 있는 데이터베이스 수에 대 한 의미를 이해 하려면 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요인을 고려 하십시오. Resource planner를 [다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) 하 여 VM 리소스 및 백업 정책에 따라 서버당 사용할 수 있는 데이터베이스의 대략적인 수를 계산 합니다.
 * 가용성 그룹이 구성 되 면 몇 가지 요소에 따라 다른 노드에서 백업이 수행 됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
 
-### <a name="back-up-behavior-with-always-on-availability-groups"></a>Always on 가용성 그룹을 사용 하 여 백업 동작
+### <a name="back-up-behavior-with-always-on-availability-groups"></a>Always On 가용성 그룹을 사용하여 백업 동작
 
 가용성 그룹 (AG)의 한 노드에서만 백업을 구성 하는 것이 좋습니다. 항상 주 노드와 동일한 지역에 백업을 구성 합니다. 즉, 백업을 구성 하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성 된 동일한 지역에 있는 경우 아무 문제가 없습니다.
 
@@ -56,17 +55,17 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 **백업 유형** | **노드**
 --- | ---
-전체 | 주
-차등 | 주
-로그 |  주
-복사 전용 전체 |  주
+전체 | 기본
+차등 | 기본
+로그 |  기본
+복사 전용 전체 |  기본
 
 #### <a name="backup-preference-secondary-only"></a>백업 기본 설정: 보조만
 
 **백업 유형** | **노드**
 --- | ---
-전체 | 주
-차등 | 주
+전체 | 기본
+차등 | 기본
 로그 |  보조
 복사 전용 전체 |  보조
 
@@ -74,8 +73,8 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 **백업 유형** | **노드**
 --- | ---
-전체 | 주
-차등 | 주
+전체 | 기본
+차등 | 기본
 로그 |  보조
 복사 전용 전체 |  보조
 
@@ -83,8 +82,8 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 **백업 유형** | **노드**
 --- | ---
-전체 | 주
-차등 | 주
+전체 | 기본
+차등 | 기본
 로그 |  보조
 복사 전용 전체 |  보조
 

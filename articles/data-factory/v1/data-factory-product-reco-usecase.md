@@ -12,12 +12,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195878"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
@@ -41,7 +40,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 ## <a name="solution-overview"></a>솔루션 개요
 이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](https://azure.microsoft.com/services/hdinsight/) 및 [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 해결 및 구현했습니다.
 
-이 온라인 소매점은 전체 워크플로에서 Azure Blob 스토리지, 온-프레미스 SQL server, Azure SQL DB 및 관계형 데이터 마트를 데이터 스토리지 옵션으로 사용합니다.  Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 SQL 데이터 웨어하우스에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다. 
+온라인 소매점은 Azure Blob 저장소, 온-프레미스 SQL Server, Azure SQL Database 및 관계형 데이터 마트를 워크플로 전체의 데이터 저장소 옵션으로 사용 합니다.  Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 SQL 데이터 웨어하우스에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다. 
 
 사용자가 웹 사이트에서 카탈로그의 제품을 탐색하는 동안, 모든 데이터가 결합되고 제품 추천 시스템에 공급되어 고객 관심사 및 작업을 토대로 개인 설정된 추천을 제공합니다. 고객은 또한 전체 웹 사이트 사용 패턴에 따라 어떤 사용자와도 관련은 없지만 그들이 보고 있는 제품과 관련될 수 있는 제품도 보게 됩니다.
 

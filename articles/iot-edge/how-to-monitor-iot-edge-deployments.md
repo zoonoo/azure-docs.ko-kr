@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97bc3c8571793ec8c8b67fe0e7c5cb3b6a56fde4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220300"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
 
@@ -101,4 +100,4 @@ deployment show-metric 명령은 다음 매개 변수를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[기본 제공 직접 메서드를 사용하여 EdgeAgent와 통신](how-to-edgeagent-direct-method.md)하는 방법에 대해 알아봅니다.
+IoT Edge 배포의 연결 및 상태에 대 한 모듈 쌍, 주로 IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈을 [모니터링](how-to-monitor-module-twins.md)하는 방법에 대해 알아봅니다.

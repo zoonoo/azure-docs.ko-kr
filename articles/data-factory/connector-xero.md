@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 8a704c3891c687edbb7c5aac206f4b6c7766fa8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263893"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Xero에서 데이터 복사
 
@@ -28,14 +27,14 @@ ms.locfileid: "81409998"
 
 이 Xero 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
+- [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 특히 이 Xero 커넥터는 다음을 지원합니다.
 
-- Xero [프라이빗 애플리케이션](https://developer.xero.com/documentation/getting-started/api-application-types)(공용 애플리케이션은 제외)
+- Xero [프라이빗 애플리케이션](https://developer.xero.com/documentation/getting-started/getting-started-guide)(공용 애플리케이션은 제외)
 - "보고서"를 제외한 모든 Xero 테이블(API 엔드포인트) 
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
@@ -50,15 +49,15 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Xero 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Xero**로 설정해야 합니다. | 예 |
 | host | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | 예 |
-| consumerKey | Xero 애플리케이션과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| privateKey | Xero 프라이빗 애플리케이션에 대해 생성된 .pem 파일의 프라이빗 키는 [공개/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/api-guides/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성**하려면 `openssl genrsa -out privatekey.pem 512`를 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| consumerKey | Xero 애플리케이션과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| privateKey | Xero 프라이빗 애플리케이션에 대해 생성된 .pem 파일의 프라이빗 키는 [공개/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성**하려면 `openssl genrsa -out privatekey.pem 512`를 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예제:**
 
@@ -92,11 +91,11 @@ Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조 하세요. 이 섹션에서는 Xero 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Xero 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **XeroObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **XeroObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -124,14 +123,14 @@ Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Xer
 
 ### <a name="xero-as-source"></a>Xero 원본
 
-Xero에서 데이터를 복사하려면 복사 작업의 원본 형식을 **XeroSource**로 설정합니다. 복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
+Xero에서 데이터를 복사하려면 복사 작업의 원본 형식을 **XeroSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **XeroSource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Contacts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -219,7 +218,7 @@ Xero 쿼리를 지정할 때 다음 사항에 유의합니다.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,11 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197054"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>App Configuration에 GitHub 리포지토리 동기화
 
@@ -92,7 +91,7 @@ jobs:
 ```
 ## <a name="sync-multiple-files-in-one-action"></a>하나의 작업에서 여러 파일 동기화 
 
-구성이 여러 파일에 있는 경우 아래 패턴을 사용하여 파일 중 하나를 수정할 때 동기화를 트리거할 수 있습니다. 이 패턴은 glob 라이브러리 https://www.npmjs.com/package/glob 를 사용합니다. 
+구성이 여러 파일에 있는 경우 아래 패턴을 사용하여 파일 중 하나를 수정할 때 동기화를 트리거할 수 있습니다. 이 패턴은 glob 라이브러리를 사용 합니다 https://www.npmjs.com/package/glob . 구성 파일 이름에 쉼표가 포함 되어 있으면 백슬래시를 사용 하 여 쉼표를 이스케이프할 수 있습니다. 
 
 ```json
 on:
@@ -252,7 +251,7 @@ jobs:
 ## <a name="use-max-depth-to-limit-github-action"></a>최대 깊이를 사용하여 GitHub 작업 제한
 중첩된 JSON 특성의 기본 동작은 전체 개체를 평면화하는 것입니다.  아래 JSON은 다음 키-값 쌍을 정의합니다.
 
-| 키 | 값 |
+| Key | 값 |
 | --- | --- |
 | Object:Inner:InnerKey | InnerValue |
 
@@ -312,10 +311,10 @@ jobs:
 | format | 예 | 구성 파일의 파일 형식입니다.  유효한 형식은 다음과 같습니다. JSON, YAML, 속성. |
 | connectionString | 예 | App Configuration 인스턴스의 연결 문자열입니다. GitHub 리포지토리에서는 연결 문자열을 비밀로 저장해야 하며 워크플로에서는 비밀 이름만 사용해야 합니다. |
 | 구분 기호 | 예 | 구성 파일을 키-값 쌍으로 평면화할 때 사용되는 구분 기호입니다.  유효한 값은 다음과 같습니다. , ; : - _ __ / |
-| 접두사 | 예 | 키의 시작 부분에 추가할 접두사입니다. |
-| label | 예 | 키-값 쌍을 설정할 때 사용되는 레이블입니다. 지정하지 않으면 null 레이블이 사용됩니다. |
-| strict | 예 | strict 모드를 사용하는지 여부를 결정하는 부울 값입니다. 기본값은 False입니다. |
-| depth | 예 | 구성 파일을 평면화할 최대 깊이입니다.  깊이는 양수여야 합니다.  기본값에는 최대 깊이가 없습니다. |
+| 접두사 | 아니요 | 키의 시작 부분에 추가할 접두사입니다. |
+| label | 아니요 | 키-값 쌍을 설정할 때 사용되는 레이블입니다. 지정하지 않으면 null 레이블이 사용됩니다. |
+| strict | 아니요 | strict 모드를 사용하는지 여부를 결정하는 부울 값입니다. 기본값은 False입니다. |
+| depth | 아니요 | 구성 파일을 평면화할 최대 깊이입니다.  깊이는 양수여야 합니다.  기본값에는 최대 깊이가 없습니다. |
 | tags | 예 | 키-값 쌍에 설정되는 태그를 지정합니다.  필요한 형식은 다음과 같은 JSON 개체의 문자열화된 형식입니다. { [propertyName: string]: string; } 각 속성 이름-값이 태그가 됩니다. |
 
 ## <a name="next-steps"></a>다음 단계

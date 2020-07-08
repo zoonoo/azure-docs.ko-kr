@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d2adca661882ea11d04ebe55afe25f7f9c2ef4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84219958"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -99,9 +98,9 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 
 ## <a name="options"></a>옵션
 
-|옵션|Description|
+|옵션|설명|
 |--|--|
-|--aad-끝점|사용할 Azure Active Directory 끝점입니다. 기본 (`https://login.microsoftonline.com`)은 공용 Azure 클라우드에 대해 올바릅니다. 국가별 클라우드에서 인증할 때이 매개 변수를 설정 합니다. [AZURE AD 인증 끝점](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)을 참조 하세요.
+|--aad-끝점|사용할 Azure Active Directory 끝점입니다. 기본 ( `https://login.microsoftonline.com` )은 공용 Azure 클라우드에 대해 올바릅니다. 국가별 클라우드에서 인증할 때이 매개 변수를 설정 합니다. [AZURE AD 인증 끝점](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)을 참조 하세요.
 관리 서비스 ID에는이 플래그가 필요 하지 않습니다.|
 |--응용 프로그램 id 문자열|사용자 할당 id의 응용 프로그램 ID입니다. 서비스 주체 인증에 필요 합니다.|
 |--certificate-path 문자열|SPN 인증을 위한 인증서의 경로입니다. 인증서 기반 서비스 주체 인증에 필요 합니다.|
@@ -110,16 +109,17 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 |--id-클라이언트-id 문자열|사용자 할당 id의 클라이언트 ID입니다.|
 |--id-개체 id 문자열|사용자 할당 id의 개체 ID입니다.|
 |--id-리소스 id 문자열|사용자 할당 id의 리소스 ID입니다.|
-|--서비스 주체|인증서 또는 암호를 사용 하 여 SPN (서비스 사용자 이름)을 통해 로그인 합니다. 클라이언트 암호 또는 인증서 암호는 해당 환경 변수에 배치 되어야 합니다. 환경 `AzCopy env` 변수의 이름 및 설명을 보려면을 입력 합니다.|
+|--서비스 주체|인증서 또는 암호를 사용 하 여 SPN (서비스 사용자 이름)을 통해 로그인 합니다. 클라이언트 암호 또는 인증서 암호는 해당 환경 변수에 배치 되어야 합니다. `AzCopy env`환경 변수의 이름 및 설명을 보려면을 입력 합니다.|
 |--테 넌 트-id 문자열| OAuth 장치 대화형 로그인에 사용할 Azure active directory 테 넌 트 ID입니다.|
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
 
-|옵션|Description|
+|옵션|설명|
 |---|---|
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
+|--신뢰할 수 있는 microsoft 접미사 문자열   |Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [azcopy](storage-ref-azcopy.md)

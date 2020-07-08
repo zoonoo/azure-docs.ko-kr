@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36d580b7659325d4bf5f13889f774ddaa2ab0702
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259272"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 로컬 개발 설정 미리 보기
 
@@ -64,7 +63,7 @@ Visual Studio Code용 Live Server 확장은 정적 콘텐츠를 제공하는 로
 
 #### <a name="create-a-repository"></a>리포지토리 만들기
 
-1. [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate)로 이동하고 이 템플릿을 사용하여 **vanilla-api**라는 새 GitHub 프로젝트를 만듭니다.
+1. GitHub에 로그인 되어 있는지 확인 하 고 [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) 이 템플릿을 사용 하 여 **바닐라**라는 새 GitHub 프로젝트를 탐색 하 고 만듭니다.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="GitHub 새 리포지토리 창":::
 

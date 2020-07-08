@@ -4,12 +4,11 @@ description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855049"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248824"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -34,7 +33,7 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 
 경고 규칙이 만들어진 시점 이후 모니터는 1분 간격으로 실행되며 지난 5분 간의 메트릭 값을 살펴 이 평균이 70을 초과하는지 확인합니다. 조건에 부합하면, 즉 지난 5분의 평균 백분율 CPU가 70을 초과하면 경고 규칙에서 활성화된 알림을 생성합니다. 경고 규칙과 연결된 작업 그룹에서 이메일이나 웹후크 작업을 구성한 경우 모두 활성화된 알림을 받게 됩니다.
 
-한 규칙에서 여러 조건을 사용 하는 경우 규칙은 조건을 함께 "ands" 합니다.  즉, 경고의 모든 조건이 true로 평가 되 고 조건 중 하나가 더 이상 true가 아니면 경고가 해결 될 때 경고가 발생 합니다. 이 경고 유형의 예는 "CPU가 90% 보다 큰 경우" 및 "큐 길이가 300 항목 초과" 일 때 경고를 발생 합니다. 
+한 규칙에서 여러 조건을 사용 하는 경우 규칙은 조건을 함께 "ands" 합니다. 즉, 경고 규칙의 모든 조건이 true로 평가 되 고 조건 중 하나가 더 이상 true가 아니면 해결 될 때 경고가 발생 합니다. 이러한 유형의 경고 규칙에 대 한 예는 Azure 가상 머신을 모니터링 하 고 "CPU 비율이 90% 보다 크면" 큐 길이가 300 항목을 초과 하는 경우 경고를 생성 하는 것입니다.
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>동적 조건 형식이 있는 경고 규칙
 
@@ -143,7 +142,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 > [!NOTE]
 >
-> 여러 리소스를 모니터링 하는 메트릭 경고 규칙에서는 하나의 조건만 허용 됩니다.
+> 여러 리소스를 모니터링하는 메트릭 경고 규칙에서는 하나의 조건만 허용됩니다.
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
 
@@ -158,5 +157,5 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 - [Azure에서 메트릭 경고를 만들고, 보고, 관리 하는 방법을 알아봅니다.](alerts-metric.md)
 - [Azure Resource Manager 템플릿을 사용한 메트릭 경고 배포 방법 알아보기](../../azure-monitor/platform/alerts-metric-create-templates.md)
-- [작업 그룹에 대해 자세히 알아보기](action-groups.md)
+- [작업 그룹에 대 한 자세한 정보](action-groups.md)
 - [동적 임계값 조건 형식에 대해 자세히 알아봅니다](alerts-dynamic-thresholds.md).

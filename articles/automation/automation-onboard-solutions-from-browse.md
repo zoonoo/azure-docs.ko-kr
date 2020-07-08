@@ -5,14 +5,13 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204925"
 ---
-# <a name="enable-update-management-from-azure-portal"></a>Azure Portal에서 업데이트 관리 사용
+# <a name="enable-update-management-from-the-azure-portal"></a>Azure Portal에서 업데이트 관리 사용
 
 이 문서에서는 Azure Portal을 탐색하여 VM에 [업데이트 관리](automation-update-management.md) 기능을 사용하도록 설정하는 방법을 설명합니다. 대규모로 Azure VM을 사용하도록 설정하려면 업데이트 관리를 사용하여 기존 VM을 사용하도록 설정해야 합니다. 
 
@@ -63,9 +62,6 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * VM에 업데이트 관리를 사용하려면 [Azure VM의 업데이트 및 패치 관리](automation-tutorial-update-management.md)를 참조하세요.
-* 범위 구성은 [업데이트 관리의 범위 구성으로 작업](automation-scope-configurations-update-management.md)을 참조하세요.
-* Log Analytics 작업 영역이 더 이상 필요하지 않은 경우 [업데이트 관리 대상 Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-update-management.md)의 지침을 참조하세요.
-* 업데이트 관리에서 VM을 삭제하려면 [업데이트 관리에서 VM 제거](automation-remove-vms-from-update-management.md)를 참조하세요.
 * 일반적인 업데이트 관리 오류를 해결하려면 [업데이트 관리 문제 해결](troubleshoot/update-management.md)을 참조하세요.
 * Windows 업데이트 에이전트 문제를 해결하려면 [Windows 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues.md)을 참조하세요.
-* Linux 업데이트 에이전트 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.
+* Linux 업데이트 에이전트 관련 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.

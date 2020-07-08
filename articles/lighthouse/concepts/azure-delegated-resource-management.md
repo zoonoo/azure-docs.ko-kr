@@ -1,14 +1,13 @@
 ---
 title: Azure 위임 리소스 관리
 description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
-ms.date: 04/01/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84219082"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
 
@@ -40,7 +39,7 @@ Azure에서 위임 된 리소스 관리에 고객을 등록 하는 경우 사용
 3. 고객이 온보딩한 후에는 권한 있는 사용자는 서비스 공급자 테넌트에 로그인한 후, 사용자가 정의한 액세스 권한에 따라, 지정된 고객 범위에서 관리 작업을 수행할 수 있습니다.
 
 > [!NOTE]
-> 별도의 클라우드 간에 두 테 넌 트 간의 구독 위임은 지원 되지 않습니다.
+> 다른 [지역](../../availability-zones/az-overview.md#regions)에 있는 위임 된 리소스를 관리할 수 있습니다. 그러나 [국가 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 공용 클라우드 또는 별도의 두 국가에서 구독을 위임 하는 것은 지원 되지 않습니다.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 대한 지원
 

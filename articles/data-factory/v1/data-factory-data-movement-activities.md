@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195976"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -74,14 +73,14 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 > [!NOTE]
 > *가 있는 데이터 저장소는 온-프레미스 또는 Azure IaaS에 있을 수 있으며 온-프레미스/Azure IaaS 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 를 설치해야 합니다.
 
-### <a name="supported-file-formats"></a>지원 파일 형식
+### <a name="supported-file-formats"></a>지원되는 파일 형식
 복사 활동을 사용해서 파일 기반 데이터 저장소 간에 **파일을 있는 그대로 복사**하고, 입력 및 출력 데이터 세트 정의 둘 다에서 [형식 섹션](data-factory-create-datasets.md)을 건너뛸 수 있습니다. 그러면 데이터가 직렬화/역직렬화되지 않고 효율적으로 복사됩니다.
 
 복사 작업은 지정된 형식의 파일에서 읽고 씁니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
 
 예를 들어 다음 복사 작업을 수행할 수 있습니다.
 
-* 온-프레미스 SQL Server에서 데이터를 복사하여 ORC 형식으로 Azure Data Lake Store에 씁니다.
+* SQL Server 데이터베이스의 데이터를 복사 하 고 ORC 형식으로 Azure Data Lake Store에 씁니다.
 * 온-프레미스 파일 시스템에서 텍스트(CSV) 형식의 파일을 복사하여 Avro 형식으로 Azure Blob에 씁니다.
 * 온-프레미스 파일 시스템에서 압축된 파일을 복사하고 압축을 푼 다음 Azure Data Lake Store에 씁니다.
 * Azure Blob에서 GZip 압축 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL Database에 씁니다.
@@ -107,7 +106,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | 브라질 | 브라질 남부 | 브라질 남부 |
 | 유럽 | 북유럽 | 북유럽 |
 | &nbsp; | 서유럽 | 서유럽 |
-| United Kingdom | 영국 서부 | 영국 남부 |
+| 영국 | 영국 서부 | 영국 남부 |
 | &nbsp; | 영국 남부 | 영국 남부 |
 | 아시아 태평양 | 동남아시아 | 동남아시아 |
 | &nbsp; | 동아시아 | 동남아시아 |

@@ -3,12 +3,11 @@ title: 고급 응용 프로그램 업그레이드 항목
 description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드와 관련된 고급 항목을 다룹니다.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263094"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 응용 프로그램 업그레이드: 고급 항목
 
@@ -20,21 +19,21 @@ ms.locfileid: "81414496"
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>상태 비저장 서비스의 계획 된 가동 중지 시간에 연결 삭제 방지
 
-응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같은 계획 된 상태 비저장 인스턴스 가동 중지 시간 경우 인스턴스가 중단 된 후 노출 된 끝점으로 인해 연결이 끊어질 수 있으므로 강제 연결 클로저가 발생 합니다.
+응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같은 계획 된 상태 비저장 인스턴스 가동 중지 시간 경우 인스턴스가 다운 된 후 노출 된 끝점을 제거 하면 연결이 끊어질 수 있으며,이로 인해 연결 클로저가 발생 합니다.
 
-이 문제를 방지 하려면 클러스터 내의 다른 서비스에서 요청을 받고 역방향 프록시를 사용 하는 동안 또는 끝점 업데이트를 위해 알림 모델을 사용 하 여 API를 사용 하 여 드레이닝을 허용 하도록 서비스 구성에서 *인스턴스 닫기 지연 기간* 을 추가 하 여 *requestdrain* (미리 보기) 기능을 구성 합니다. 이렇게 하면 인스턴스를 닫기 전에 지연 시간이 시작 *되기 전에* 상태 비저장 인스턴스에서 알린 끝점이 제거 됩니다. 이렇게 지연 하면 인스턴스가 실제로 중단 되기 전에 기존 요청을 정상적으로 종료할 수 있습니다. 클라이언트는 지연을 시작할 때 콜백 함수를 사용 하 여 끝점 변경에 대 한 알림 메시지를 받을 수 있으므로 종료 되는 인스턴스로 새 요청을 보내지 않아도 됩니다.
+이 문제를 방지 하려면 서비스 구성에서 *인스턴스 종결 지연 기간* 을 추가 하 여 *requestdrain* 기능을 구성 하 여 클러스터 내의 기존 요청이 노출 된 끝점에서 드레이닝 되도록 허용 합니다. 이는 인스턴스를 닫기 전에 지연 시간이 시작 *되기 전에* 상태 비저장 인스턴스에서 알린 끝점이 제거 되기 때문에 발생 합니다. 이렇게 지연 하면 인스턴스가 실제로 중단 되기 전에 기존 요청을 정상적으로 종료할 수 있습니다. 클라이언트는 지연을 시작할 때 콜백 함수를 사용 하 여 끝점 변경에 대 한 알림 메시지를 받을 수 있으므로 종료 되는 인스턴스로 새 요청을 보내지 않아도 됩니다. 이러한 요청은 [역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 를 사용 하는 클라이언트에서 발생 하거나, 끝점을 업데이트 하기 위해[ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)(알림 모델)에서 서비스 끝점 확인 api를 사용 하 여 발생할 수 있습니다.
 
 ### <a name="service-configuration"></a>서비스 구성
 
 서비스 쪽에서 지연을 구성 하는 방법에는 여러 가지가 있습니다.
 
- * **새 서비스를 만들 때**다음을 지정 `-InstanceCloseDelayDuration`합니다.
+ * **새 서비스를 만들 때**다음을 지정 합니다 `-InstanceCloseDelayDuration` .
 
     ```powershell
-    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
- * **응용 프로그램 매니페스트의 기본값 섹션에서 서비스를 정의 하는 동안**속성을 할당 `InstanceCloseDelayDurationSeconds` 합니다.
+ * **응용 프로그램 매니페스트의 기본값 섹션에서 서비스를 정의 하는 동안**속성을 할당 합니다 `InstanceCloseDelayDurationSeconds` .
 
     ```xml
           <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
@@ -42,10 +41,37 @@ ms.locfileid: "81414496"
           </StatelessService>
     ```
 
- * **기존 서비스를 업데이트**하는 경우 다음 `-InstanceCloseDelayDuration`을 지정 합니다.
+ * **기존 서비스를 업데이트**하는 경우 다음을 지정 합니다 `-InstanceCloseDelayDuration` .
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+ * **ARM 템플릿을 통해 기존 서비스를 만들거나 업데이트할 때**값을 지정 합니다 `InstanceCloseDelayDuration` (지원 되는 최소 API 버전: 2019-11-01-미리 보기).
+
+    ```ARM template to define InstanceCloseDelayDuration of 30seconds
+    {
+      "apiVersion": "2019-11-01-preview",
+      "type": "Microsoft.ServiceFabric/clusters/applications/services",
+      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
+      "location": "[variables('clusterLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applications/', parameters('applicationName'))]"
+      ],
+      "properties": {
+        "provisioningState": "Default",
+        "serviceKind": "Stateless",
+        "serviceTypeName": "[parameters('serviceTypeName')]",
+        "instanceCount": "-1",
+        "partitionDescription": {
+          "partitionScheme": "Singleton"
+        },
+        "serviceLoadMetrics": [],
+        "servicePlacementPolicies": [],
+        "defaultMoveCost": "",
+        "instanceCloseDelayDuration": "00:00:30.0"
+      }
+    }
     ```
 
 ### <a name="client-configuration"></a>클라이언트 구성
@@ -55,7 +81,7 @@ ms.locfileid: "81414496"
 
 ### <a name="optional-upgrade-overrides"></a>선택적 업그레이드 재정의
 
-서비스 당 기본 지연 기간을 설정 하는 것 외에도 동일한 (`InstanceCloseDelayDurationSec`) 옵션을 사용 하 여 응용 프로그램/클러스터를 업그레이드 하는 동안 지연을 재정의할 수 있습니다.
+서비스 당 기본 지연 기간을 설정 하는 것 외에도 동일한 () 옵션을 사용 하 여 응용 프로그램/클러스터를 업그레이드 하는 동안 지연을 재정의할 수 있습니다 `InstanceCloseDelayDurationSec` .
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -63,15 +89,17 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-지연 기간은 호출 된 업그레이드 인스턴스에만 적용 되며, 그렇지 않으면 개별 서비스 지연 구성을 변경 하지 않습니다. 예를 들어이를 사용 하 여 미리 구성 된 업그레이드 `0` 지연을 건너뛰려면의 지연 시간을 지정할 수 있습니다.
+재정의 된 지연 기간은 호출 된 업그레이드 인스턴스에만 적용 되며, 그렇지 않으면 개별 서비스 지연 구성을 변경 하지 않습니다. 예를 들어이를 사용 하 여 `0` 미리 구성 된 업그레이드 지연을 건너뛰려면의 지연 시간을 지정할 수 있습니다.
 
 > [!NOTE]
-> Azure 부하 분산 장치에서 요청에 대해 드레이닝 요청은 허용 되지 않습니다. 호출 하는 서비스에서 불만 기반 확인을 사용 하는 경우에는 설정이 적용 되지 않습니다.
+> * 요청을 드레이닝 하면 Azure 부하 분산 장치에서 드레이닝 중인 끝점으로 새 요청을 보내지 않도록 방지할 수 없습니다.
+> * 문제 발생 후 서비스 확인을 트리거하기 때문에 불만 기반 해결 메커니즘으로 인해 요청을 정상적으로 드레이닝 하지 않습니다. 앞에서 설명한 대로 [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)를 사용 하 여 끝점 변경 알림을 구독 하도록이 기능을 대신 사용 해야 합니다.
+> * 업그레이드가 매우 작은 경우에는 설정이 적용 되지 않습니다. 즉, 업그레이드 하는 동안 복제본이 중단 되지 않는 경우
 >
 >
 
 > [!NOTE]
-> 클러스터 코드 버전이 7.1.XXX 이상이 면 위에서 설명한 대로 Get-servicefabricservice cmdlet을 사용 하 여 기존 서비스에서이 기능을 구성할 수 있습니다.
+> 클러스터 코드 버전이 7.1.XXX 이상인 경우 위에 설명 된 대로 Get-servicefabricservice cmdlet 또는 ARM 템플릿을 사용 하 여 기존 서비스에서이 기능을 구성할 수 있습니다.
 >
 >
 

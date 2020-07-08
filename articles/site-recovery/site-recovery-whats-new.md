@@ -2,13 +2,12 @@
 title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.openlocfilehash: abb1592bcacf025e9a052d7a9222f6fb3d2b72d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257434"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259221"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -20,18 +19,29 @@ ms.locfileid: "79257434"
 
 Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 N은 최신 릴리스 버전입니다. 각각은 다음 표에 요약되어 있습니다.
 
-**업데이트** |  **통합 설치** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
+**Update** |  **통합 설치** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [롤업 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [롤업 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [롤업 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [롤업 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
-[롤업 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
 
 > [!NOTE]
 > 업데이트 롤업 44은 Site Recovery 공급자 및 에이전트에 대 한 업데이트를 포함 하지 않았기 때문에 테이블에 표시 되지 않습니다.
+
+## <a name="updates-june-2020"></a>업데이트 (6 월 2020)
+
+### <a name="update-rollup-46"></a>업데이트 롤업 46
+
+[업데이트 롤업 46](https://support.microsoft.com/help/4564347/update-rollup-46-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
+**문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
 
 ## <a name="updates-march-2020"></a>업데이트 (3 월 2020)
 
@@ -39,7 +49,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 [업데이트 롤업 45](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
 **문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
@@ -50,7 +60,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 [업데이트 롤업 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 공급자 및 에이전트에 대 한 업데이트가 없습니다.
 **문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
@@ -64,7 +74,7 @@ Azure virtual machines는 이제 고객이 관리 하는 키를 사용 하 여 �
 
 [업데이트 롤업 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -76,7 +86,7 @@ Azure virtual machines는 이제 고객이 관리 하는 키를 사용 하 여 �
 
 [업데이트 롤업 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -91,7 +101,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 **UEFI** | Site Recovery은 이제 UEFI 기반 부팅 아키텍처를 사용 하는 Azure Vm에 대 한 재해 복구를 지원 합니다.
 **Linux** | Site Recovery는 이제 Azure Disk Encryption (ADE)를 사용 하 여 Linux를 실행 하는 Azure Vm을 지원 합니다.
 **2 세대** | 이제 모든 2 세대 Azure Vm이 재해 복구를 지원 합니다.
-**영역** | 이제 노르웨이 지역에서 Azure Vm에 대 한 재해 복구를 사용 하도록 설정할 수 있습니다.
+**지역** | 이제 노르웨이 지역에서 Azure Vm에 대 한 재해 복구를 사용 하도록 설정할 수 있습니다.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>VMware에서 Azure로 재해 복구
 
@@ -106,7 +116,7 @@ VMware에서 Azure로의 재해 복구에 대 한 새로운 기능이 표에 요
 Azure Vm을 보조 지역 또는 온-프레미스 VMware Vm 또는 물리적 서버에서 Azure로 재해 복구 하는 경우 다음에 유의 하세요.
 
 - 모바일 서비스 확장 (Azure Vm의 경우) 및 모바일 서비스 에이전트 (VMware/물리적 컴퓨터의 경우)의 버전 9.30.5407.1에서 일부 컴퓨터 운영 체제는 서비스 스택 업데이트 및 s h a-2를 실행 해야 합니다. 세부 정보는 아래 표에 나와 있습니다.
-- 연결 된 KB에 따라 업데이트 및 s h a-2를 설치 합니다. S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다.
+- 연결 된 KB에 따라 업데이트 및 s h a-2를 설치 합니다. SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다.
 - [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 
 **운영 체제** | **Azure VM** | **VMware v m/물리적 컴퓨터**
@@ -123,7 +133,7 @@ Azure Vm을 보조 지역 또는 온-프레미스 VMware Vm 또는 물리적 서
 
 [업데이트 롤업 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -154,7 +164,7 @@ VMware에서 Azure로의 재해 복구에 대 한 새로운 기능이 표에 요
 
 [업데이트 롤업 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -194,7 +204,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 [업데이트 롤업 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -215,7 +225,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 [업데이트 롤업 38](https://support.microsoft.com/help/4513507/) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -236,7 +246,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -258,7 +268,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [업데이트 롤업 36](https://support.microsoft.com/help/4503156) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트와 공급자에 대 한 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -291,7 +301,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [업데이트 롤업 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트와 공급자에 대 한 업데이트 (롤업에 설명 된 대로)
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
@@ -302,7 +312,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 **기능** | **세부 정보**
 --- | ---
-**관리 디스크** | 온-프레미스 VMware Vm 및 물리적 서버 복제는 이제 Azure의 관리 디스크에 직접 복제 됩니다. 온-프레미스 데이터는 Azure의 캐시 저장소 계정으로 전송 되 고, 복구 지점은 대상 위치의 관리 디스크에 생성 됩니다. 이렇게 하면 여러 대상 저장소 계정을 관리할 필요가 없습니다.
+**관리되는 디스크** | 온-프레미스 VMware Vm 및 물리적 서버 복제는 이제 Azure의 관리 디스크에 직접 복제 됩니다. 온-프레미스 데이터는 Azure의 캐시 저장소 계정으로 전송 되 고, 복구 지점은 대상 위치의 관리 디스크에 생성 됩니다. 이렇게 하면 여러 대상 저장소 계정을 관리할 필요가 없습니다.
 **구성 서버** | Site Recovery는 이제 여러 Nic가 있는 구성 서버를 지원 합니다. 자격 증명 모음에 구성 서버를 등록 하기 전에 구성 서버 VM에 어댑터를 추가 합니다. 나중에를 추가 하는 경우 자격 증명 모음에서 서버를 다시 등록 해야 합니다.
 
 
@@ -312,7 +322,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [업데이트 롤업 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
@@ -322,7 +332,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [업데이트 롤업 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
@@ -362,7 +372,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [업데이트 롤업 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
@@ -389,7 +399,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
@@ -444,7 +454,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 
 [업데이트 롤업 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
@@ -464,7 +474,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 
 [업데이트 롤업 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) 는 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
@@ -476,7 +486,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 
 [업데이트 롤업 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
@@ -505,7 +515,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 
 [업데이트 롤업 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
-**업데이트** | **세부 정보**
+**Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).

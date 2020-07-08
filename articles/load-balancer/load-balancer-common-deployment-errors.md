@@ -10,12 +10,11 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221005"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Azure Load Balancer를 사용하여 일반적인 Azure 배포 오류 해결
 
@@ -28,6 +27,7 @@ ms.locfileid: "83658632"
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| 공용 IP SKU와 Load Balancer SKU가 일치해야 합니다. Azure Load Balancer와 공용 IP SKU가 일치하는지 확인하세요. 표준 SKU는 프로덕션 워크로드용으로 권장됩니다. [SKU의 차이점](./skus.md)에 대해 자세히 알아보기  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | 가상 머신 확장 집합은 SKU가 지정되지 않았거나 표준 공용 IP 없이 배포된 경우 기본적으로 기본 Load Balancer로 설정됩니다. 개별 인스턴스에 표준 공용 IP를 사용하여 가상 머신 확장 집합을 다시 배포하는 방식으로 표준 Load Balancer가 선택되었는지 확인하거나 Azure Portal에서 가상 머신 확장 집합을 배포할 때 표준 LB를 선택하기만 하면 됩니다. |
 |MaxAvailabilitySetsInLoadBalancerReached | Load Balancer의 백 엔드 풀에는 최대 150개의 가용성 집합이 포함될 수 있습니다. 백 엔드 풀의 VM에 명시적으로 정의된 가용성 집합이 없는 경우 각 단일 VM은 자체 가용성 집합으로 이동합니다. 따라서 150개의 독립 실행형 VM을 배포한다면 150개의 가용성 집합이 있는 것이므로 한도에 도달하게 됩니다. 가용성 집합을 배포하고 이에 대한 VM을 추가하면 이 문제를 해결할 수 있습니다. |
+|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets | 기본 Sku 부하 분산 장치의 경우 네트워크 인터페이스 및 부하 분산 장치는 동일한 가용성 집합에 있어야 합니다. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| 동일한 가상 머신 확장 집합에서 참조하는 동일한 백 엔드 포트 및 프로토콜을 사용하여 지정된 부하 분산 장치 유형(내부, 공용)에는 둘 이상의 규칙을 적용할 수 없습니다. 규칙을 업데이트하여 이 중복 규칙 생성을 변경하세요. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| 동일한 가상 머신 확장 집합에서 참조하는 동일한 백 엔드 포트 및 프로토콜을 사용하여 지정된 부하 분산 장치 유형(내부, 공용)에는 둘 이상의 규칙을 적용할 수 없습니다. 규칙 매개 변수를 업데이트하여 이 중복 규칙 생성을 변경하세요. |
 |AnotherInternalLoadBalancerExists| Load Balancer의 백 엔드에서 동일한 VM/네트워크 인터페이스 세트를 참조하는 내부 유형 Load Balancer는 하나만 존재할 수 있습니다. 동일한 유형의 Load Balancer를 하나만 만들도록 배포를 업데이트하세요. |

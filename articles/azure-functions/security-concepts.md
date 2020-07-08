@@ -3,12 +3,11 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259425"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -83,7 +82,7 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 #### <a name="user-management-permissions"></a>사용자 관리 권한
 
-Functions는 기본 제공 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 지원합니다. Functions에서 지원하는 RBAC 역할은 [기여자](../role-based-access-control/built-in-roles.md#contributor), [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [독자](../role-based-access-control/built-in-roles.md#owner)입니다. 
+함수는 기본 제공 [AZURE RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 지원 합니다. Functions에서 지원하는 RBAC 역할은 [기여자](../role-based-access-control/built-in-roles.md#contributor), [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [독자](../role-based-access-control/built-in-roles.md#owner)입니다. 
 
 권한은 함수 앱 수준에서 적용됩니다. 대부분의 함수 앱 수준 작업을 수행하려면 기여자 역할이 필요합니다. 소유자 역할만 함수 앱을 삭제할 수 있습니다. 
 

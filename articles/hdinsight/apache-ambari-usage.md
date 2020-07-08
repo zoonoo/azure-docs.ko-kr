@@ -7,12 +7,11 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe7d6d4e70bc55a6a91d3c1a1b910db4b5469fe6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77067397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197082"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Azure HDInsight의 Apache Ambari 사용
 
@@ -24,7 +23,7 @@ HDInsight는 클러스터 배포 및 관리에 Apache Ambari를 사용 합니다
 
 또한 HDInsight 장애 조치 (failover) 컨트롤러는 현재 활성 헤드 노드를 가리키는 헤드 노드 호스트의 IP 주소를 업데이트 해야 합니다. 모든 Ambari 에이전트는 해당 상태 및 하트 비트를 헤드 노드 호스트에 보고 하도록 구성 됩니다. 장애 조치 컨트롤러는 클러스터의 모든 노드에서 실행 되는 서비스 집합으로, 실행 되지 않는 경우 헤드 노드 장애 조치 (failover)가 제대로 작동 하지 않을 수 있으며 Ambari 서버에 액세스 하려고 할 때 HTTP 502이 발생 합니다.
 
-활성 상태인 헤드 노드를 확인 하려면 한 가지 방법으로 클러스터의 노드 중 하나에 ssh를 실행 하 고 두 헤드 `ping headnodehost` 노드의 IP를 실행 하 고 비교 합니다.
+활성 상태인 헤드 노드를 확인 하려면 한 가지 방법으로 클러스터의 노드 중 하나에 ssh를 실행 하 `ping headnodehost` 고 두 헤드 노드의 IP를 실행 하 고 비교 합니다.
 
 장애 조치 (failover) 컨트롤러 서비스가 실행 되지 않는 경우 헤드 노드 장애 조치 (failover)가 제대로 수행 되지 않아 Ambari 서버를 실행 하지 못할 수 있습니다. 장애 조치 (failover) 컨트롤러 서비스가 실행 중인지 확인 하려면 다음을 실행 합니다.
 
@@ -56,7 +55,7 @@ ps -ef | grep failover
 
 ## <a name="ambari-database"></a>Ambari 데이터베이스
 
-HDInsight는 Ambari 서버용 데이터베이스 역할을 하는 SQL Azure 데이터베이스를 만듭니다. 기본 [서비스 계층은 S0](../sql-database/sql-database-elastic-pool-scale.md)입니다.
+HDInsight는 Ambari 서버의 데이터베이스 역할을 하는 SQL Database에서 데이터베이스를 만듭니다. 기본 [서비스 계층은 S0](../azure-sql/database/elastic-pool-scale.md)입니다.
 
 클러스터를 만들 때 작업자 노드 수가 16 개를 초과 하는 클러스터의 경우 S2는 데이터베이스 서비스 계층입니다.
 
@@ -73,8 +72,8 @@ HDInsight는 Ambari 서버용 데이터베이스 역할을 하는 SQL Azure 데�
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
-* 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

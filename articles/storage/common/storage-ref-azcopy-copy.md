@@ -8,12 +8,11 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220126"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -63,11 +62,11 @@ azcopy copy [source] [destination] [flags]
 
 OAuth 인증을 사용 하 여 단일 파일을 업로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 다음 명령을 실행 하기 전에 AzCopy login 명령을 실행 하세요.
 
-- azcopy cp "/path/to/file.txt" "https://[account]. blob. w i n. w i n.
+- azcopy cp "/path/to/file.txt" "https://[account]./[container]/[path/to/blob]"
 
 위와 동일 하지만 이번에는 파일 콘텐츠의 MD5 해시를 계산 하 고 blob의 콘텐츠-MD5 속성으로 저장 합니다.
 
-- azcopy cp "/path/to/file.txt" "https://[account]. blob. w i n d o w s/[container]/[path/to/blob]"--
+- azcopy cp "/path/to/file.txt" "https://[account]./[container]/[path/to/blob]"--
 
 SAS 토큰을 사용 하 여 단일 파일을 업로드 합니다.
 
@@ -147,25 +146,25 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 액세스 키 및 SAS 토큰을 사용 하 여 AWS (Amazon Web Services) s 3에서 Blob Storage 단일 개체를 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
   
-- azcopy cp "https://s3.amazonaws.com/[버킷]/[object]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/blob]? [SAS] "
+- azcopy cp " https://s3.amazonaws.com/ [버킷]/[object]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/blob]? [ SAS] "
 
 액세스 키 및 SAS 토큰을 사용 하 여 AWS s 3에서 전체 디렉터리를 Blob Storage에 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- cp "https://s3.amazonaws.com/[버킷]/[folder]" "https://[destaccount] azcopy/[container]/[path/to/directory]? [SAS] "--recursive = true
+- azcopy cp " https://s3.amazonaws.com/ [버킷]/[folder]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/directory]? [ SAS] "--recursive = true
 
-[폴더] https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html 자리 표시자에 대 한 자세한 내용은를 참조 하십시오.
+[폴더] 자리 표시자에 대 한 자세한 내용은를 참조 하십시오 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html .
 
 액세스 키 및 SAS 토큰을 사용 하 여 Blob Storage Amazon Web Services (AWS)에서 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/" "" "" https://[destaccount]. blob. [SAS] "--recursive = true
+- azcopy cp " https://s3.amazonaws.com/ " "" "" https://[destaccount]. blob. SAS] "--recursive = true
 
 액세스 키 및 SAS 토큰을 사용 하 여 Amazon Web Services (AWS) 지역에서 Blob Storage 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3-[region]. amazonaws/" "https://[destaccount]. blob. [SAS] "--recursive = true
+- azcopy cp " https://s3- [region]. amazonaws/" "https://[destaccount]. blob. SAS] "--recursive = true
 
 버킷 이름에 와일드 카드 기호 (*)를 사용 하 여 버킷의 하위 집합을 복사 합니다. 이전 예제와 마찬가지로 액세스 키와 SAS 토큰이 필요 합니다. AWS S3 원본에 대해 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 해야 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/[버킷 * name]/" "https://[destaccount]. blob. [SAS] "--recursive = true
+- azcopy cp " https://s3.amazonaws.com/ [버킷 * name]/" "https://[destaccount]. blob. SAS] "--recursive = true
 
 ## <a name="options"></a>옵션
 
@@ -197,7 +196,7 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--exclude-blob 형식** 문자열은 필요에 따라 컨테이너 또는 계정에서 blob을 복사할 때 제외할 blob 유형 (Blockblob/Pageblob/appendblob)을 지정 합니다. 비 azure 서비스에서 서비스로 데이터를 복사 하는 경우에는이 플래그를 사용할 수 없습니다. 하나 이상의 blob이 '; '으로 구분 되어야 합니다.
 
-**--제외-경로 문자열은** 복사할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file .pdf)를 확인 합니다. 계정 순회와 함께 사용 하는 경우 경로는 컨테이너 이름을 포함 하지 않습니다.
+**--제외-경로 문자열은** 복사할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file.pdf)를 확인 합니다. 계정 순회와 함께 사용 하는 경우 경로는 컨테이너 이름을 포함 하지 않습니다.
 
 **--exclude-패턴 문자열은** 복사할 때 이러한 파일을 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다.
 
@@ -209,7 +208,7 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일을 포함 합니다. 예: A; 삭제 &
 
-**--include-path** 문자열은 복사할 때 이러한 경로만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file .pdf)를 확인 합니다.
+**--include-path** 문자열은 복사할 때 이러한 경로만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file.pdf)를 확인 합니다.
 
 **--include-패턴** 문자열은 복사할 때 이러한 파일만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다. '; '을 사용 하 여 파일을 구분 합니다.
 
@@ -225,11 +224,11 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--유지-마지막-수정 시간**          Destination이 파일 시스템 인 경우에만 사용할 수 있습니다.
 
-**--기본적으로 smb 사용 권한** 문자열 False를 유지 합니다. 인식 리소스 (Windows 및 Azure Files) 사이에서 SMB Acl을 유지 합니다. 다운로드의 경우 플래그를 `--backup` 사용 하 여 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 `include-pattern`(예:).
+**--기본적으로 smb 사용 권한** 문자열 False를 유지 합니다. 인식 리소스 (Windows 및 Azure Files) 사이에서 SMB Acl을 유지 합니다. 다운로드의 경우 플래그를 사용 하 여 `--backup` 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: `include-pattern` ).
 
 **--기본적으로 smb 정보** 문자열 False입니다. SMB 인식 리소스 (Windows 및 Azure Files) 간에 SMB 속성 정보 (마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지 합니다. Azure Files에서 지 원하는 특성 비트만 전송 됩니다. 다른 모든 항목은 무시 됩니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: include-패턴). 폴더에 대해 전송 되는 정보는 폴더에 대해 유지 되지 않는 마지막 쓰기 시간을 제외 하 고 파일의 경우와 동일 합니다.
 
-**--소유자 유지**                       는 데이터를 다운로드 하는 경우에만 적용 되며를 사용 `--preserve-smb-permissions` 하는 경우에만 적용 됩니다. True (기본값) 이면 다운로드 시 파일 소유자 및 그룹이 유지 됩니다. 이 플래그가 false로 설정 된 경우는 `--preserve-smb-permissions` 여전히 acl을 유지 하지만 소유자와 그룹은 AzCopy를 실행 하는 사용자를 기반으로 합니다.
+**--소유자 유지**                       는 데이터를 다운로드 하는 경우에만 적용 되며를 사용 하는 경우에만 적용 됩니다 `--preserve-smb-permissions` . True (기본값) 이면 다운로드 시 파일 소유자 및 그룹이 유지 됩니다. 이 플래그가 false로 설정 된 경우 `--preserve-smb-permissions` 는 여전히 acl을 유지 하지만 소유자와 그룹은 AzCopy를 실행 하는 사용자를 기반으로 합니다.
 
 **--입력-md5**                             각 파일의 MD5 해시를 만들고 대상 blob 또는 파일의 콘텐츠-MD5 속성으로 해시를 저장 합니다. 기본적으로 해시가 생성 되지 않습니다. 업로드할 때만 사용할 수 있습니다.
 
@@ -249,6 +248,8 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--output-** 명령 출력의 문자열 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 ' text '입니다. (기본 "텍스트")
 
-## <a name="see-also"></a>참고 항목
+**--trusted-microsoft-접미사** 문자열 Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.
+
+## <a name="see-also"></a>참조
 
 - [azcopy](storage-ref-azcopy.md)

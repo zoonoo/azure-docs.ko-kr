@@ -5,12 +5,11 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75609981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259374"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -141,6 +140,10 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
 >[!NOTE]
 > 표준 템플릿은 기본적으로 모든 아웃 바운드 트래픽을 허용 하는 NSG를 참조 합니다. 인바운드 트래픽은 Service Fabric 관리 작업에 필요한 포트로 제한 됩니다. NSG 규칙은 요구 사항에 맞게 수정할 수 있습니다.
 
+>[!NOTE]
+> 표준 SKU SLB를 사용 하는 Service Fabric 클러스터는 각 노드 형식에 443 포트에서 아웃 바운드 트래픽을 허용 하는 규칙이 있는지 확인 해야 합니다. 이는 클러스터 설정을 완료 하는 데 필요 하며, 이러한 규칙이 없는 모든 배포는 실패 합니다.
+
+
 ### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 영역 사용
 영역을 사용 하도록 설정 하려면 가상 머신 확장 집합에서 가상 머신 확장 집합 리소스에 다음 세 가지 값을 포함 해야 합니다.
 
@@ -250,7 +253,7 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
 
 새 LB 및 IP는 사용 하려는 새로운 교차 가용성 영역 노드 유형에 서 참조 되어야 합니다. 위의 예제에서 3 개의 새 가상 머신 확장 집합 리소스가 영역 1, 2, 3에 추가 되었습니다. 이러한 가상 머신 확장 집합은 새로 만든 LB 및 IP를 참조 하 고 Service Fabric 클러스터 리소스에서 주 노드 유형으로 표시 됩니다.
 
-시작 하려면 기존 리소스 관리자 템플릿에 새 리소스를 추가 해야 합니다. 이러한 리소스는 다음과 같습니다.
+시작 하려면 기존 리소스 관리자 템플릿에 새 리소스를 추가 해야 합니다. 해당 리소스는 다음과 같습니다.
 * 표준 SKU를 사용 하는 공용 IP 리소스입니다.
 * 표준 SKU를 사용 하는 Load Balancer 리소스입니다.
 * 가상 머신 확장 집합을 배포 하는 서브넷에서 참조 하는 NSG입니다.

@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196271"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>하이브리드 모드 사용에 대 한 알려진 문제/마이그레이션 제한 사항
 
@@ -24,7 +23,7 @@ ms.locfileid: "77649605"
 
 ## <a name="installer-fails-to-authenticate"></a>설치 관리자가 인증에 실패 함
 
-AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 있을 때까지 몇 분까지 지연 됩니다. 설치 관리자는 몇 시간 후에 다시 시도 하려고 하지만, 다시 시도 하는 것 보다는 전파 지연 시간이 길어질 수 있으며 **FailedToGetAccessTokenException** 메시지가 표시 됩니다. 인증서가 올바른 AdApp에 업로드 되 고 올바른 AppId가 dmsSettings. json에 제공 된 경우 설치 명령을 다시 실행 해 봅니다.
+AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 있을 때까지 몇 분까지 지연 됩니다. 설치 관리자는 몇 시간 후에 다시 시도 하려고 하지만, 다시 시도 하는 것 보다는 전파 지연 시간이 길어질 수 있으며 **FailedToGetAccessTokenException** 메시지가 표시 됩니다. 인증서를 올바른 AdApp 업로드 하 고 dmsSettings.js에 올바른 AppId가 제공 된 경우 설치 명령을 다시 실행 해 보십시오.
 
 ## <a name="service-offline-after-successful-installation"></a>설치가 완료 된 후 "오프 라인" 서비스
 
@@ -55,7 +54,7 @@ AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 �
 
 ## <a name="using-your-own-signed-certificate"></a>자체 서명 된 인증서 사용
 
-작업 GenerateCert 생성 된 인증서는 자체 서명 된 인증서로, 내부 보안 정책에 따라 허용 되지 않을 수 있습니다. 이 인증서를 사용 하는 대신 사용자 고유의 인증서를 제공 하 고, 사용자 고유의 인증서를 제공 하 고, 사용자의 지문을 제공 합니다. 이 인증서는 AdApp에 업로드 하 고 Azure Database Migration Service hybrid worker를 설치 하는 컴퓨터에 설치 해야 합니다. 그런 다음 개인 키를 사용 하 여이 인증서를 로컬 컴퓨터 인증서 저장소에 설치 합니다.
+작업 GenerateCert 생성 된 인증서는 자체 서명 된 인증서로, 내부 보안 정책에 따라 허용 되지 않을 수 있습니다. 이 인증서를 사용 하는 대신 사용자 고유의 인증서를 제공 하 고 dmsSettings.js에 지문을 제공할 수 있습니다. 이 인증서는 AdApp에 업로드 하 고 Azure Database Migration Service hybrid worker를 설치 하는 컴퓨터에 설치 해야 합니다. 그런 다음 개인 키를 사용 하 여이 인증서를 로컬 컴퓨터 인증서 저장소에 설치 합니다.
 
 ## <a name="running-the-worker-service-as-a-low-privilege-account"></a>낮은 권한 계정으로 작업자 서비스 실행
 
@@ -93,10 +92,10 @@ AdApp에 인증서를 업로드 한 후 Azure를 사용 하 여 인증할 수 �
 
 다음 섹션에서는 Azure Database Migration Service 하이브리드 모드를 사용 하 여 온라인 마이그레이션을 수행 하는 것과 관련 된 시나리오 관련 문제에 대해 설명 합니다.
 
-### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스로 온라인 마이그레이션
+### <a name="online-migrations-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance로 온라인 마이그레이션
 
 **높은 CPU 사용량**
 
-**문제**: 관리 되는 인스턴스로의 온라인 마이그레이션에 대해 너무 많은 백업이 있거나 백업이 너무 큰 경우 hybrid worker를 실행 SQL Database 하는 컴퓨터에 높은 CPU 사용량이 발생 합니다.
+**문제**: SQL Managed Instance에 대 한 온라인 마이그레이션의 경우 하이브리드 작업자를 실행 하는 컴퓨터에 너무 많은 백업이 있거나 백업이 너무 큰 경우에는 높은 CPU 사용량이 발생 합니다.
 
 **완화**:이 문제를 완화 하려면 압축 된 백업을 사용 하 고, 여러 공유를 사용 하도록 마이그레이션을 분할 하거나, 하이브리드 작업자를 실행 하는 컴퓨터를 강화 합니다.

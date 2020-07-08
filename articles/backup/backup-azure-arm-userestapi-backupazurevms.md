@@ -4,12 +4,11 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 �
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248688"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -29,7 +28,7 @@ ms.locfileid: "79248165"
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` 매개 변수가 있습니다. `{fabricName}`은 "Azure"입니다. 해당 예제에 따라 `{vaultName}`은 "testVault"이고 `{vaultresourceGroupName}`은 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에서 지정되므로 별도 요청 본문이 필요 없습니다.
+POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` 매개 변수가 있습니다. `{fabricName}`은 "Azure"입니다. 예제에 따르면는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에서 지정되므로 별도 요청 본문이 필요 없습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -41,7 +40,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|속성  |Type  |Description  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -104,9 +103,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses"></a><a name="responses-1"></a>응답
 
-|속성  |Type  |Description  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       확인 |
+|200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
 
 #### <a name="example-responses"></a><a name="example-responses-1"></a>예제 응답
 
@@ -180,7 +179,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|속성  |Type  |Description  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,9 +207,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|속성  |Type  |Description  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  확인       |
+|200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
 
 ##### <a name="example-responses"></a>예제 응답
@@ -272,11 +271,11 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-이렇게 VM에 대한 보호를 사용하도록 설정하고 정책 일정에 따라 첫 번째 백업을 트리거하는지 확인합니다.
+이렇게 하면 VM에 대해 보호를 사용 하도록 설정 하 고 첫 번째 백업이 정책 일정에 따라 트리거됩니다.
 
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>보호된 Azure VM에 대한 주문형 백업 트리거
 
-백업에 대한 Azure VM을 구성하면 정책 일정에 따라 백업이 수행됩니다. 첫 번째 예약 백업을 대기하거나 언제든 주문형 백업을 트리거할 수 있습니다. 주문형 백업의 보존은 백업 정책의 보존과는 별개이며 특정 날짜/시간을 지정할 수 있습니다. 지정하지 않으면 주문형 백업을 트리거한 날로부터 30일까지로 간주됩니다.
+Azure VM이 백업용으로 구성 되 면 백업은 정책 일정에 따라 수행 됩니다. 첫 번째 예약 백업을 대기하거나 언제든 주문형 백업을 트리거할 수 있습니다. 주문형 백업의 보존은 백업 정책의 보존과는 별개이며 특정 날짜/시간을 지정할 수 있습니다. 지정하지 않으면 주문형 백업을 트리거한 날로부터 30일까지로 간주됩니다.
 
 주문형 백업의 트리거는 *POST* 작업입니다.
 
@@ -294,7 +293,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|속성  |Type  |Description  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -319,7 +318,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|속성  |Type  |Description  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -439,7 +438,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|속성  |Type  |Description  |
+|이름  |Type  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |

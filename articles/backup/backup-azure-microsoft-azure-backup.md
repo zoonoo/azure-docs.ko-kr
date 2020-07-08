@@ -3,12 +3,11 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247277"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -174,7 +173,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![Azure Backup 서버 - SQL 확인](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    컴퓨터를 다시 시작하라는 권장 사항과 함께 실패가 발생한 경우 작업을 수행하고 **다시 확인**을 클릭합니다. SQL 구성 문제가 있는 경우 SQL 지침에 따라 SQL을 다시 구성하고 SQL의 기존 인스턴스를 사용하여 MABS 설치/업그레이드를 다시 시도합니다.
+    컴퓨터를 다시 시작하라는 권장 사항과 함께 실패가 발생한 경우 작업을 수행하고 **다시 확인**을 클릭합니다. SQL 구성 문제가 있는 경우 sql 지침에 따라 SQL을 다시 구성 하 고 기존 SQL 인스턴스를 사용 하 여 MABS 설치/업그레이드를 다시 시도 합니다.
 
    **수동 구성**
 
@@ -186,9 +185,9 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     SSRS 구성에 대해 다음 값을 사용합니다.
     * 서비스 계정: ‘기본 제공 계정 사용’은 네트워크 서비스여야 합니다.
-    * 웹 서비스 URL: ‘가상 디렉터리’는 ReportServer_\<SQLInstanceName>이어야 합니다.
-    * 데이터베이스: DatabaseName은 ReportServer$\<SQLInstanceName>이어야 합니다.
-    * 웹 포털 URL: ‘가상 디렉터리’는 Reports_\<SQLInstanceName>이어야 합니다.
+    * 웹 서비스 URL: ' 가상 디렉터리 '는 ReportServer_ 이어야 합니다.\<SQLInstanceName>
+    * 데이터베이스: DatabaseName은 ReportServer $ 여야 합니다.\<SQLInstanceName>
+    * 웹 포털 URL: ' 가상 디렉터리 '는 Reports_ 이어야 합니다.\<SQLInstanceName>
 
     SSRS 구성에 대해 [자세히 알아봅니다](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
 
@@ -311,8 +310,8 @@ Azure에 대한 액세스를 차단하고 있는 방화벽 또는 프록시가 �
 ExpressRoute Microsoft 피어링을 사용하는 경우 다음 서비스/지역을 선택하세요.
 
 * Azure Active Directory(12076:5060)
-* Microsoft Azure 지역(Recovery Services 자격 증명 모음의 위치 기준)
-* Azure Storage(Recovery Services 자격 증명 모음의 위치 기준)
+* Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
+* Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
 
 자세한 내용은 [ExpressRoute 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조하세요.
 
@@ -343,7 +342,7 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 
    > [!NOTE]
    >
-   > SQL 인스턴스를 업그레이드하는 동안 종료하지 마십시오. 종료하면 SQL reporting 인스턴스가 제거되므로 MABS 다시 업그레이드 시도가 실패합니다.
+   > SQL 인스턴스를 업그레이드 하는 동안 종료 하지 마세요. 종료 하면 SQL reporting 인스턴스가 제거 되므로 MABS를 다시 업그레이드 하려고 시도 하지 않습니다.
 
    > [!IMPORTANT]
    >

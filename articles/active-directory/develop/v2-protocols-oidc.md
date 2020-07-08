@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0e1284b94500ae6b6f1aa5eb632e94e03f3d3df3
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263281"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft ID 플랫폼 및 OpenID Connect 프로토콜
 
-OIDC(OpenID Connect)는 웹 애플리케이션에 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0 기반의 인증 프로토콜입니다. Microsoft Id 플랫폼 엔드포인트의 OpenID Connect 구현을 사용하는 경우 로그인 및 API 액세스를 웹 기반 앱에 추가할 수 있습니다. 이 문서는 언어 독립적으로 수행하는 방법을 보여주고 Microsoft 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
+OIDC (Openid connect Connect)는 응용 프로그램에 사용자를 안전 하 게 로그인 하는 데 사용할 수 있는 OAuth 2.0을 기반으로 하는 인증 프로토콜입니다. Openid connect Connect의 Microsoft identity platform 끝점 구현을 사용 하는 경우 로그인 및 API 액세스를 앱에 추가할 수 있습니다. 이 문서에서는 언어와 독립적으로이 작업을 수행 하는 방법을 보여 주고 [Microsoft 오픈 소스 라이브러리](reference-v2-libraries.md)를 사용 하지 않고 HTTP 메시지를 보내고 받는 방법을 설명 합니다.
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 [권한 부여 서버](active-directory-v2-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 안전하게 획득할 수 있습니다. 또한 Microsoft ID 플랫폼 엔드포인트는 Azure AD에 등록된 타사 앱이 웹 API와 같은 안전한 리소스에 대한 액세스 토큰을 발급할 수 있도록 허용합니다. 액세스 토큰을 발급하도록 애플리케이션을 설정하는 방법에 대한 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트로 앱을 등록하는 방법](quickstart-register-app.md)을 참조하세요. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 애플리케이션](v2-app-types.md#web-apps)을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
+[Openid connect Connect](https://openid.net/specs/openid-connect-core-1_0.html) 는 *인증* 프로토콜로 사용 하기 위해 oauth 2.0 *권한 부여* 프로토콜을 확장 하므로 oauth를 사용 하 여 Single Sign-On 수 있습니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. 또한 사용자에 대 한 정보를 반환 하는 API 인 사용자 정보 [엔드포인트](userinfo.md)를 소개 합니다. 
+
 
 ## <a name="protocol-diagram-sign-in"></a>프로토콜 다이어그램: 로그인
 
@@ -34,36 +34,52 @@ OIDC(OpenID Connect)는 웹 애플리케이션에 사용자를 안전하게 로�
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>OpenID Connect 메타데이터 문서를 가져옵니다.
 
-OpenID Connect는 앱이 로그인하는 데 필요한 대부분의 정보를 포함하는 메타데이터 문서를 설명합니다. 여기에는 사용할 URL, 서비스의 공개 서명 키의 위치 등과 같은 정보가 포함됩니다. Microsoft ID 플랫폼 엔드포인트의 경우 사용해야 하는 OpenID Connect 메타데이터 문서는 다음과 같습니다.
+Openid connect Connect는 앱이 로그인을 수행 하는 데 필요한 대부분의 정보를 포함 하는 메타 데이터 문서 [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) 를 설명 합니다. 여기에는 사용할 URL, 서비스의 공개 서명 키의 위치 등과 같은 정보가 포함됩니다. 검색 문서 경로를 기관 URL에 추가 하 여이 문서를 찾을 수 있습니다.
 
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
-```
+검색 문서 경로:`/.well-known/openid-configuration`
 
-> [!TIP]
-> 사용해 보세요. [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration)을 클릭하여 `common` 테넌트 구성을 확인합니다.
+기관`https://login.microsoftonline.com/{tenant}/v2.0`
 
 `{tenant}`는 4개의 값 중 하나를 가질 수 있습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | --- | --- |
 | `common` |개인 Microsoft 계정과 Azure AD의 회사 또는 학교 계정이 둘 다 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` |Azure AD의 회사 또는 학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
 | `consumers` |개인 Microsoft 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 또는 `contoso.onmicrosoft.com` | 특정 Azure AD 테넌트(회사 또는 학교 계정의 디렉터리에 속한 구성원 또는 개인 Microsoft 계정의 디렉터리의 게스트)에 속한 사용자만 애플리케이션에 로그인할 수 있습니다. Azure AD 테넌트의 친숙한 도메인 이름 또는 테넌트의 GUID 식별자를 사용할 수 있습니다. `consumers` 테넌트 대신 소비자 테넌트 `9188040d-6c67-4c5b-b112-36a304b66dad`를 사용할 수도 있습니다.  |
 
-메타데이터는 간단한 JSON(JavaScript Object Notation) 문서입니다. 예제를 보려면 다음 코드 조각을 참조하세요. 이 조각의 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2)에 자세히 설명되어 있습니다.
+이 기관은 전 세계의 클라우드 (예: `https://login.microsoftonline.de` AZURE AD 독일 인스턴스)에서 다릅니다. 공용 클라우드를 사용 하지 않는 경우 [국가 클라우드 끝점](authentication-national-cloud.md#azure-ad-authentication-endpoints) 을 검토 하 여 적절 한 항목을 찾으십시오. `/v2.0/`끝점의 v2.0 버전을 사용할 수 있도록 테 넌 트 및가 요청에 있는지 확인 합니다.
+
+> [!TIP]
+> 사용해 보세요. [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration)구성을 보려면 클릭 `common` 합니다.
+
+### <a name="sample-request"></a>샘플 요청
+
+공용 클라우드의 공용 기관에 대 한 userinfo 끝점을 호출 하려면 다음을 사용 합니다.
+
+```http
+GET /common/v2.0/.well-known/openid-configuration
+Host: login.microsoftonline.com
+```
+
+### <a name="sample-response"></a>샘플 응답
+
+메타데이터는 간단한 JSON(JavaScript Object Notation) 문서입니다. 예제를 보려면 다음 코드 조각을 참조하세요. 콘텐츠는 [Openid connect Connect 사양](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2)에 자세히 설명 되어 있습니다.
 
 ```json
 {
-  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
-  "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
+  "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize",
+  "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token",
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
     "private_key_jwt"
   ],
-  "jwks_uri": "https:\/\/login.microsoftonline.com\/{tenant}\/discovery\/v2.0\/keys",
-
+  "jwks_uri": "https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys",
+  "userinfo_endpoint": "https://graph.microsoft.com/oidc/userinfo",
+  "subject_types_supported": [
+      "pairwise"
+  ],
   ...
 
 }
@@ -98,10 +114,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 &nonce=678910
 ```
-
-> [!TIP]
-> 이 요청을 실행하려면 다음 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 ID 토큰과 함께 `https://localhost/myapp/`으로 리디렉션됩니다. 이 요청은 `response_mode=fragment`를 사용합니다(학습 용도로만). `response_mode=form_post`를 사용하는 것이 좋습니다.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | 매개 변수 | 조건 | Description |
 | --- | --- | --- |
@@ -171,9 +183,11 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 ## <a name="validate-the-id-token"></a>ID 토큰 유효성 검사
 
-id_token을 받는 것만으로는 사용자를 인증하는 데 충분하지 않습니다. id_token의 서명 유효성을 검사하고 앱의 요구 사항에 따라 토큰의 클레임을 확인해야 합니다. Microsoft ID 플랫폼 엔드포인트는 [JWT(JSON 웹 토큰)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다.
+Id_token 받는 것 만으로는 사용자를 인증 하는 데 항상 충분 한 것은 아닙니다. id_token 서명의 유효성을 검사 하 고 앱의 요구 사항에 따라 토큰의 클레임을 확인 해야 할 수도 있습니다. 모든 OIDC 플랫폼과 마찬가지로 Microsoft identity platform 끝점은 jwt [(JSON 웹 토큰)](https://tools.ietf.org/html/rfc7519) 및 공개 키 암호화를 사용 하 여 ID 토큰에 서명 하 고 유효한 지 확인 합니다.
 
-클라이언트 코드에서 `id_token`의 유효성을 검사하도록 선택할 수 있지만, 일반적으로 `id_token`을 백 엔드 서버에 보내서 그곳에서 유효성 검사를 수행합니다. id_token의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다. [토큰 유효성 검사](id-tokens.md#validating-an-id_token) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)를 포함한 자세한 내용은 [`id_token` 참조](id-tokens.md)를 확인하세요. 대부분의 언어 및 플랫폼에서 사용할 수 있는 하나 이상의 토큰의 구문 분석 및 유효성 검사에 대한 라이브러리를 사용하는 것이 좋습니다.
+모든 앱에서 ID 토큰-네이티브 앱 및 단일 페이지 앱을 확인 하는 것이 좋은 것은 아닙니다. 예를 들어 ID 토큰의 유효성을 검사 하는 경우는 거의 없습니다.  장치 (또는 브라우저)에 물리적으로 액세스 하는 사용자는 장치에 대 한 웹 트래픽을 편집 하 여 응용 프로그램을 디버깅 하는 가짜 토큰 및 키를 제공 하 여 유효성 검사 논리를 건너뛰도록 하는 등의 다양 한 방법으로 유효성 검사를 우회할 수 있습니다.  반면에 ID 토큰을 사용 하는 웹 앱 및 Api는 데이터에 대 한 액세스를 제어 하므로 id 토큰의 유효성을 신중 하 게 확인 해야 합니다.
+
+id_token의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다. [토큰 유효성 검사](id-tokens.md#validating-an-id_token) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)를 포함한 자세한 내용은 [`id_token` 참조](id-tokens.md)를 확인하세요. 대부분의 언어 및 플랫폼에서 사용할 수 있는 하나 이상의 토큰의 구문 분석 및 유효성 검사에 대한 라이브러리를 사용하는 것이 좋습니다.
 
 시나리오에 따라 추가 클레임의 유효성을 검사할 수도 있습니다. 몇 가지 일반적인 유효성 검사는 다음과 같습니다.
 
@@ -183,25 +197,6 @@ id_token을 받는 것만으로는 사용자를 인증하는 데 충분하지 �
 
 id_token의 유효성을 검사한 후 사용자와 세션을 시작하고 id_token의 클레임을 사용하여 앱에서 사용자 정보를 가져올 수 있습니다. 이 정보는 표시, 레코드, 개인 설정 등에 사용될 수 있습니다.
 
-## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
-
-앱에서 사용자를 로그아웃시키려는 경우 앱의 쿠키를 삭제하거나 그렇지 않은 경우 사용자의 세션을 지우는 것은 충분하지 않습니다. 또한 로그아웃할 사용자를 Microsoft ID 플랫폼 엔드포인트로 리디렉션해야 합니다. 이렇게 하지 않으면 사용자는 Microsoft ID 플랫폼 엔드포인트를 사용하는 유효한 단일 로그인 세션이 있기 때문에 자격 증명을 다시 입력하지 않고 앱에 다시 인증할 수 있습니다.
-
-OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`에 사용자를 리디렉션할 수 있습니다.
-
-```HTTP
-GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-```
-
-| 매개 변수 | 조건 | Description |
-| ----------------------- | ------------------------------- | ------------ |
-| `post_logout_redirect_uri` | 권장 | 성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다. 매개 변수를 포함하지 않을 경우 사용자에게는 Microsoft ID 플랫폼 엔드포인트에 의해 생성된 일반 메시지가 표시됩니다. URL은 앱 등록 포털에서 애플리케이션에 등록한 리디렉션 URI 중 하나와 일치해야 합니다. |
-
-## <a name="single-sign-out"></a>Single Sign-Out
-
-사용자를 `end_session_endpoint`에 리디렉션하는 경우 Microsoft ID 플랫폼 엔드포인트는 브라우저에서 사용자의 세션을 지웁니다. 하지만 사용자는 인증을 위해 Microsoft 계정을 사용하는 다른 애플리케이션에 여전히 로그인되어 있을 수 있습니다. 사용자를 동시에 로그아웃하도록 해당 애플리케이션을 활성화하려면 Microsoft ID 플랫폼 엔드포인트는 현재 사용자가 로그인된 모든 애플리케이션의 등록된 `LogoutUrl`에 HTTP GET 요청을 보냅니다. 애플리케이션은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다. 애플리케이션에서 단일 로그아웃을 지원하려는 경우 애플리케이션 코드에서 해당 `LogoutUrl`을 구현해야 합니다. 앱 등록 포털에서 `LogoutUrl`을 설정할 수 있습니다.
-
 ## <a name="protocol-diagram-access-token-acquisition"></a>프로토콜 다이어그램: 액세스 토큰 획득
 
 대부분의 웹앱은 사용자를 로그인할 뿐만 아니라 OAuth를 사용하여 해당 사용자 대신 웹 서비스에 액세스해야 합니다. 이 시나리오에서는 OAuth 권한 부여 코드 흐름을 사용하여 액세스 토큰을 가져오는 데 사용할 수 있는 권한 부여 코드를 획득하는 동시에 사용자 인증에 OpenID Connect를 사용합니다.
@@ -210,31 +205,30 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ![OpenID Connect 프로토콜: 토큰 획득](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
-## <a name="get-access-tokens"></a>액세스 토큰 가져오기
-액세스 토큰을 얻으려면 로그인 요청을 수정합니다.
+## <a name="get-an-access-token-to-call-userinfo"></a>UserInfo를 호출 하는 액세스 토큰 가져오기
+
+OIDC UserInfo 끝점에 대 한 토큰을 가져오려면 로그인 요청을 수정 합니다.
 
 ```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
-&response_type=id_token%20code
+&response_type=id_token%20token                       // this will return both an id_token and an access token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
 &response_mode=form_post                              // 'form_post' or 'fragment'
-&scope=openid%20                                      // Include both 'openid' and scopes that your app needs
-offline_access%20
-https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
+&scope=openid+profile+email                           // `openid` is required.  `profile` and `email` provide additional information in the UserInfo endpoint the same way they do in an ID token. 
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
 ```
 
+응용 프로그램에 대 한 토큰을 가져오는 대신 [권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md), [장치 코드 흐름](v2-oauth2-device-code.md)또는 [새로 고침 토큰](v2-oauth2-auth-code-flow.md#refresh-the-access-token) 을 사용할 수도 있습니다 `response_type=token` .
+
 > [!TIP]
-> 이 요청을 실행하려면 다음 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 ID 토큰 및 코드와 함께 `https://localhost/myapp/`으로 리디렉션됩니다. 이 요청은 학습 용도로만 `response_mode=fragment`를 사용합니다. `response_mode=form_post`를 사용하는 것이 좋습니다.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> 이 요청을 실행하려면 다음 링크를 클릭하세요. 로그인 하면 브라우저가 `https://localhost/myapp/` 주소 표시줄의 ID 토큰과 토큰을 사용 하 여로 리디렉션됩니다. 이 요청은 데모용 으로만 사용 `response_mode=fragment` `form_post` 됩니다. 가능한 경우 추가 보안을 위해를 사용 하는 것이 webapp. 
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid+profile+email&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-Microsoft ID 플랫폼 엔드포인트는 요청에 사용 권한 범위를 포함하고 `response_type=id_token code`를 사용하여 `scope` 쿼리 매개 변수에 표시된 사용 권한에 사용자가 동의했음을 보장하고 액세스 토큰에 대한 교환으로 앱에 권한 부여 코드를 반환합니다.
-
-### <a name="successful-response"></a>성공적인 응답
+### <a name="successful-token-response"></a>토큰 응답 성공
 
 `response_mode=form_post`를 사용할 때의 성공적인 응답은 다음과 같습니다.
 
@@ -242,14 +236,23 @@ Microsoft ID 플랫폼 엔드포인트는 요청에 사용 권한 범위를 포�
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
-
-id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
+ access_token=eyJ0eXAiOiJKV1QiLCJub25jZSI6I....
+ &token_type=Bearer
+ &expires_in=3598
+ &scope=email+openid+profile
+ &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI....
+ &state=12345
 ```
+
+응답 매개 변수는 해당 매개 변수를 획득 하는 데 사용 되는 흐름과 상관 없이 동일한 작업을 의미 합니다.
 
 | 매개 변수 | Description |
 | --- | --- |
+| `token` | UserInfo 끝점을 호출 하는 데 사용 되는 토큰입니다.|
+| `token_type` | 항상 "전달자" |
+| `expires_in`| 액세스 토큰이 만료 될 때 까지의 시간 (초)입니다. |
+| `scope` | 액세스 토큰에 부여 된 권한입니다.  사용자 정보 끝점은 MS Graph에서 호스트 되므로 앱에 이전에 부여 된 경우 여기에 나열 된 추가 그래프 범위 (예: user. 읽기)가 있을 수 있습니다.  지정 된 리소스에 대 한 토큰에는 항상 현재 클라이언트에 부여 된 모든 사용 권한이 포함 되기 때문입니다.  |
 | `id_token` | 앱이 요청한 ID 토큰입니다. ID 토큰을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. ID 토큰 및 해당 내용에 대한 자세한 내용은 [`id_tokens` 참조](id-tokens.md)에서 확인할 수 있습니다. |
-| `code` | 앱이 요청한 권한 부여 코드입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. 인증 코드는 일시적으로 존재합니다. 일반적으로 권한 부여 코드는 약 10분 후에 만료됩니다. |
 | `state` | 요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
 
 ### <a name="error-response"></a>오류 응답
@@ -272,3 +275,32 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 가능한 오류 코드 및 권장되는 클라이언트 응답에 대한 설명은 [권한 부여 엔드포인트 오류에 대한 오류 코드](#error-codes-for-authorization-endpoint-errors)를 참조하세요.
 
 권한 부여 코드와 ID 토큰이 있는 경우 사용자로 로그인하여 액세스 토큰을 대신 가져올 수 있습니다. 사용자로 로그인하려면 [정확히 위에 설명된 대로](id-tokens.md#validating-an-id_token) ID 토큰의 유효성을 검사해야 합니다. 액세스 토큰을 가져오려면 [OAuth 코드 흐름 설명서](v2-oauth2-auth-code-flow.md#request-an-access-token)에 설명된 단계를 따릅니다.
+
+### <a name="calling-the-userinfo-endpoint"></a>UserInfo 끝점 호출
+
+[Userinfo 설명서](userinfo.md#calling-the-api) 를 검토 하 여이 토큰을 통해 userinfo 끝점을 호출 하는 방법을 확인 합니다.
+
+## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
+
+앱에서 사용자를 로그아웃시키려는 경우 앱의 쿠키를 삭제하거나 그렇지 않은 경우 사용자의 세션을 지우는 것은 충분하지 않습니다. 또한 로그아웃할 사용자를 Microsoft ID 플랫폼 엔드포인트로 리디렉션해야 합니다. 이렇게 하지 않으면 사용자는 Microsoft ID 플랫폼 엔드포인트를 사용하는 유효한 단일 로그인 세션이 있기 때문에 자격 증명을 다시 입력하지 않고 앱에 다시 인증할 수 있습니다.
+
+OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`에 사용자를 리디렉션할 수 있습니다.
+
+```HTTP
+GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
+post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+```
+
+| 매개 변수 | 조건 | Description |
+| ----------------------- | ------------------------------- | ------------ |
+| `post_logout_redirect_uri` | 권장 | 성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다. 매개 변수를 포함하지 않을 경우 사용자에게는 Microsoft ID 플랫폼 엔드포인트에 의해 생성된 일반 메시지가 표시됩니다. URL은 앱 등록 포털에서 애플리케이션에 등록한 리디렉션 URI 중 하나와 일치해야 합니다. |
+
+## <a name="single-sign-out"></a>Single Sign-Out
+
+사용자를 `end_session_endpoint`에 리디렉션하는 경우 Microsoft ID 플랫폼 엔드포인트는 브라우저에서 사용자의 세션을 지웁니다. 하지만 사용자는 인증을 위해 Microsoft 계정을 사용하는 다른 애플리케이션에 여전히 로그인되어 있을 수 있습니다. 사용자를 동시에 로그아웃하도록 해당 애플리케이션을 활성화하려면 Microsoft ID 플랫폼 엔드포인트는 현재 사용자가 로그인된 모든 애플리케이션의 등록된 `LogoutUrl`에 HTTP GET 요청을 보냅니다. 애플리케이션은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다. 애플리케이션에서 단일 로그아웃을 지원하려는 경우 애플리케이션 코드에서 해당 `LogoutUrl`을 구현해야 합니다. 앱 등록 포털에서 `LogoutUrl`을 설정할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [UserInfo 설명서](userinfo.md) 검토
+* 온-프레미스 시스템의 데이터로 [토큰의 값을 사용자 지정](active-directory-claims-mapping.md) 하는 방법에 대해 알아봅니다. 
+* [토큰에 추가 표준 클레임을 포함](active-directory-optional-claims.md)하는 방법을 알아봅니다.  

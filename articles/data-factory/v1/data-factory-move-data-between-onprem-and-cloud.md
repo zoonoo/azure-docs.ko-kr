@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195989"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -46,8 +45,8 @@ ms.locfileid: "75982190"
 이 연습을 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
-* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
+* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조 하세요.
+* **SQL Server**. 이 자습서에서는 SQL Server database를 **원본** 데이터 저장소로 사용 합니다.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure Portal을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
@@ -104,7 +103,7 @@ ms.locfileid: "75982190"
 
     ![게이트웨이 - 구성 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    이 방법은 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 애플리케이션이 컴퓨터에 설치된 것을 확인할 수 있습니다. **C:\Program Files\Microsoft 데이터 관리 Gateway\2.0\Shared**폴더에서 실행 파일 **configmanager** 를 찾을 수도 있습니다.
+    이 방법은 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 애플리케이션이 컴퓨터에 설치된 것을 확인할 수 있습니다. **C:\Program Files\Microsoft 데이터 관리 Gateway\2.0\Shared**폴더에 있는 실행 파일 **ConfigManager.exe** 를 찾을 수도 있습니다.
 
     또한 이 페이지에서 링크를 사용하여 게이트웨이를 수동으로 다운로드하여 설치하고 **새 키** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
 
@@ -152,9 +151,9 @@ ms.locfileid: "75982190"
 12. 왼쪽 트리의 **데이터 게이트웨이** 아래에 **adftutorialgateway**가 표시되어야 합니다.  이 항목을 클릭하면 연결된 JSON이 나타납니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-이 단계에서는 두 개의 연결된 서비스인 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결된 서비스는 Azure Blob Storage를 Data Factory에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 파이프라인을 만듭니다.
+이 단계에서는 두 개의 연결된 서비스인 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService** 는 SQL Server 데이터베이스를 연결 하 고 **AzureStorageLinkedService** 연결 된 서비스는 Azure blob 저장소를 데이터 팩터리에 연결 합니다. 이 연습에서 나중에 SQL Server 데이터베이스에서 Azure blob 저장소로 데이터를 복사 하는 파이프라인을 만듭니다.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
+#### <a name="add-a-linked-service-to-a-sql-server-database"></a>SQL Server 데이터베이스에 연결 된 서비스 추가
 1. **데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다.
 
    ![새로운 SQL Server 연결 서비스](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
@@ -189,7 +188,7 @@ ms.locfileid: "75982190"
 * 데이터 팩터리에 연결된 서비스로 추가한 Azure Blob Storage 계정에서 **adftutorial**로 명명된 BLOB 컨테이너를 만듭니다.
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>자습서에 필요한 온-프레미스 SQL Server 준비
-1. 온-프레미스 SQL Server 연결된 서비스(**SqlServerLinkedService**)에 대해 지정된 데이터베이스에서, 다음 SQL 스크립트를 사용하여 데이터베이스에 **emp** 테이블을 만듭니다.
+1. **SqlServerLinkedService**(SQL Server 연결 된 서비스)에 대해 지정한 데이터베이스에서 다음 SQL 스크립트를 사용 하 여 데이터베이스에 **emp** 테이블을 만듭니다.
 
     ```SQL   
     CREATE TABLE dbo.emp
@@ -279,7 +278,7 @@ ms.locfileid: "75982190"
    * **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. 아직 없는 경우 **adftutorial** 컨테이너를 만듭니다.
    * **가용성** 은 **매시간** 으로 설정 됩니다 (**빈도** 는 **매시간** 으로, **간격은** **1**로 설정).  데이터 팩터리 서비스는 Azure SQL Database의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
-   **출력 테이블**의 **fileName** 을 지정 하지 않으면 **folderPath** 에 생성 된 파일의 이름은 다음 형식으로 지정 됩니다. `Data.<Guid>.txt` (예:: 0a405f8a-93ff-4c6f-b3be-f69616f1df7a).
+   **출력 테이블**의 **fileName** 을 지정 하지 않으면 **folderPath** 에 생성 된 파일의 이름은 다음과 같이 지정 됩니다. `Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
    **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 partitionedBy 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
 

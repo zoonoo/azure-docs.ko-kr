@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/09/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 69eef6d8457b183f61bae98c0bc80feb0ff2e263
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84216382"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Netezza에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -64,8 +63,8 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| SecurityLevel | 드라이버가 데이터 저장소에 연결하는 데 사용하는 보안(SSL/TLS) 수준입니다. 이 드라이버는 SSL 버전 3을 사용하는 단방향 인증과의 SSL 연결을 지원합니다. <br>예: `SecurityLevel=preferredSecured`. 지원되는 값은 다음과 같습니다.<br/>- **보안되지 않은 항목만**(**onlyUnSecured**): 드라이버가 TLS를 사용하지 않습니다.<br/>- **보안되지 않은 기본값(preferredUnSecured) (기본값)** : 서버에서 선택할 수 있는 경우 드라이버는 TLS를 사용하지 않습니다. <br/>- **보안된 기본값(preferredSecured)** : 서버에서 선택할 수 있는 경우 드라이버는 TLS를 사용합니다. <br/>- **보안된 항목만(onlySecured)** : TLS 연결을 사용할 수 있는 경우가 아니면 드라이버가 연결되지 않습니다. | 예 |
-| CaCertFile | 서버에 사용되는 TLS/SSL 인증서의 전체 경로입니다. 예: `CaCertFile=<cert path>;`| 예(TLS를 사용하는 경우) |
+| SecurityLevel | 드라이버가 데이터 저장소에 연결 하는 데 사용 하는 보안 수준입니다. 이 드라이버는 SSL 버전 3을 사용하는 단방향 인증과의 SSL 연결을 지원합니다. <br>예: `SecurityLevel=preferredSecured`. 지원되는 값은 다음과 같습니다.<br/>- **Only unsecured**(**onlyUnSecured**): 드라이버가 SSL을 사용하지 않습니다.<br/>- **Preferred unsecured(preferredUnSecured)(기본값)**: 서버가 선택 사항을 제공하면 드라이버는 SSL을 사용하지 않습니다. <br/>- **기본 설정 보안 (preferredSecured)**: 서버에서 선택 항목을 제공 하는 경우 드라이버는 SSL을 사용 합니다. <br/>- **Only secured(onlySecured)**: SSL 연결을 사용할 수 있는 경우가 아니면 드라이버가 연결되지 않습니다. | 예 |
+| CaCertFile | 서버에 사용되는 SSL 인증서의 전체 경로입니다. 예: `CaCertFile=<cert path>;`| 예(SSL을 사용하는 경우) |
 
 **예제**
 

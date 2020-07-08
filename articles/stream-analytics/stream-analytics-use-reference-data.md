@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196433"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
@@ -96,13 +95,13 @@ Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션�
 
 SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입력을 만들어야 합니다. 다음 표에는 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성이 해당 설명과 함께 나와 있습니다. 자세한 내용은 [Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용](sql-reference-data.md)을 참조하세요.
 
-[Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) 를 참조 데이터 입력으로 사용할 수 있습니다. [Azure SQL Database Managed Instance에서 공용 끝점을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 아래 설정을 수동으로 구성 하 여 연결 된 데이터베이스와 함께 SQL Server를 실행 하는 Azure 가상 컴퓨터도 지원 됩니다.
+[AZURE SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) 를 참조 데이터 입력으로 사용할 수 있습니다. [SQL Managed Instance에서 공용 끝점을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 데이터베이스가 연결된 SQL Server를 실행하는 Azure 가상 머신도 아래 설정을 수동으로 구성하여 지원됩니다.
 
 |**속성 이름**|**설명**  |
 |---------|---------|
 |입력 별칭|이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 |Subscription|구독 선택|
-|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. Azure SQL Database Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver, 3342* 입니다.|
+|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. SQL Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver.public.database.windows.net,3342*입니다.|
 |사용자 이름|Azure SQL Database와 연결된 사용자 이름입니다.|
 |암호|Azure SQL Database와 연결된 암호입니다.|
 |주기적으로 새로 고침|이 옵션을 사용하면 새로 고침 빈도를 선택할 수 있습니다. “On”을 선택하면 DD:HH:MM 형식으로 새로 고침 빈도를 지정할 수 있습니다.|

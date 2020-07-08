@@ -4,12 +4,11 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248263"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -32,8 +31,8 @@ ms.locfileid: "79247710"
 
 기본적으로 모든 사용자에 게 기능이 설정 되어 있으므로 자동 치료 그러나 옵트아웃 (opt out)을 선택 하는 경우에는 다음을 수행 합니다.
 
-- SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 **ExtensionSettingsOverrides** 파일을 만들거나 편집 합니다.
-- **ExtensionSettingsOverrides**에서 *{"EnableAutoHealer": false}* 를 설정 합니다.
+- SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 **의ExtensionSettingsOverrides.js** 를 만들거나 편집 합니다.
+- **ExtensionSettingsOverrides.js**에서 *{"EnableAutoHealer": false}* 를 설정 합니다.
 - 변경 내용을 저장하고 파일을 닫습니다.
 - SQL Server 인스턴스에서 **작업 관리** 를 열고 **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작 합니다.
 
@@ -41,8 +40,8 @@ ms.locfileid: "79247710"
 
 예. SQL Server 인스턴스에 대한 영향을 최소화하기 위해 백업 정책이 실행되는 속도를 제한할 수 있습니다. 설정을 변경하려면:
 
-1. SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 *ExtensionSettingsOverrides* 파일을 만듭니다.
-2. *ExtensionSettingsOverrides* 파일에서 **Defaultbackup threshold** 설정을 더 낮은 값으로 변경 합니다 (예: 5). <br>
+1. SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 *에ExtensionSettingsOverrides.js* 를 만듭니다.
+2. 파일 *의ExtensionSettingsOverrides.js* 에서 **Defaultbackuptasksthreshold** 설정을 더 낮은 값 (예: 5)으로 변경 합니다. <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
 Defaultbackup업무 임계값의 기본값은 **20**입니다.
@@ -68,9 +67,9 @@ Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 �
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>성공한 백업 작업에 경고가 만들어지나요?
 
-아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고에 대 한 자세한 동작은 [여기](backup-azure-monitoring-built-in-monitor.md)에 설명 되어 있습니다. 그러나 성공한 작업에 대해서도 경고가 표시 되는 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용할 수 있습니다.
+아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고의 상세한 동작은 [여기](backup-azure-monitoring-built-in-monitor.md)에서 확인하세요. 그러나 성공한 작업에 대해서도 경고가 표시 되는 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용할 수 있습니다.
 
-## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>백업 작업 메뉴에서 예약 된 백업 작업을 볼 수 있나요?
+## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>백업 작업 메뉴에서 예약된 백업 작업을 볼 수 있나요?
 
 **백업 작업** 메뉴에는 주문형 백업 작업만 표시 됩니다. 예약 된 작업의 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용 합니다.
 
@@ -80,7 +79,7 @@ Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 �
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?
 
-Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터베이스 백업이 계속 시도 됩니다. 이는 삭제 된 데이터베이스가 **백업 항목** 에서 비정상 상태로 표시 되기 시작 하 고 계속 보호 됨을 의미 합니다.
+Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터베이스 백업이 계속 시도 됩니다. 즉, 삭제된 데이터베이스가 **백업 항목**에서 비정상 상태로 표시되기 시작하지만 여전히 보호되는 것으로 처리됩니다.
 
 이 데이터베이스의 보호를 중지 하는 올바른 방법은이 데이터베이스에서 **데이터를 삭제** 하는 **백업 중지** 를 수행 하는 것입니다.  
 
@@ -92,7 +91,7 @@ Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터�
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>보호 된 데이터베이스의 이름을 변경 하는 경우 동작이 어떻게 되나요?
 
-이름이 바뀐 데이터베이스는 새 데이터베이스로 처리 됩니다. 따라서 서비스는 데이터베이스를 찾을 수 없고 백업에 실패 한 것 처럼이 상황을 처리 합니다.
+이름이 변경된 데이터베이스는 새 데이터베이스로 처리됩니다. 따라서 서비스는 데이터베이스를 찾을 수 없고가 백업에 실패 한 것 처럼이 상황을 처리 합니다.
 
 이제 데이터베이스를 선택 하 여 해당 데이터베이스에 대 한 보호를 구성할 수 있습니다. 인스턴스에서 자동 보호를 사용 하도록 설정 하는 경우 이름이 바뀐 데이터베이스가 자동으로 검색 되 고 보호 됩니다.
 

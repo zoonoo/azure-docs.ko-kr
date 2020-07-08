@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221054"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -67,7 +66,7 @@ azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[contai
 ```
 
 > [!NOTE]
-> 대상 blob이 *있어야* 합니다. 를 `azcopy copy` 사용 하 여 대상에 아직 없는 단일 파일을 복사 합니다. 그렇지 않으면 다음과 같은 오류가 발생 합니다 `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`..
+> 대상 blob이 *있어야* 합니다. `azcopy copy`를 사용 하 여 대상에 아직 없는 단일 파일을 복사 합니다. 그렇지 않으면 다음과 같은 오류가 발생 합니다. `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
 
 위와 동일 하지만 이번에는 파일 콘텐츠의 MD5 해시를 계산 하 고 blob의 콘텐츠-MD5 속성으로 저장 합니다.
 
@@ -142,15 +141,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude 특성** 문자열 (Windows에만 해당) 특성 목록과 일치 하는 특성을 가진 파일을 제외 합니다. 예: A; 삭제 &
 
-**--제외-경로 문자열은** 복사할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file .pdf)를 확인 합니다. 계정 순회와 함께 사용 하는 경우 경로는 컨테이너 이름을 포함 하지 않습니다.
+**--제외-경로 문자열은** 복사할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file.pdf)를 확인 합니다. 계정 순회와 함께 사용 하는 경우 경로는 컨테이너 이름을 포함 하지 않습니다.
 
-**--exclude-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일을 제외 합니다. 예: \*.jpg; \*.Pdf; exactName
+**--exclude-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일을 제외 합니다. 예: \* .jpg; \* . pdf; exactName
 
 **-h,--** 동기화 도움말 도움말
 
 **--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일만 포함 합니다. 예: A; 삭제 &
 
-**--include-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일만 포함 합니다. 예: \*.jpg; \*.Pdf; exactName
+**--include-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일만 포함 합니다. 예: \* .jpg; \* . pdf; exactName
 
 **--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청 및 응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본 정보). (기본 "정보")
 
@@ -160,11 +159,12 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
 
-|옵션|Description|
+|옵션|설명|
 |---|---|
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
+|--신뢰할 수 있는 microsoft 접미사 문자열   |Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [azcopy](storage-ref-azcopy.md)

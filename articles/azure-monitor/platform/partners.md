@@ -3,13 +3,12 @@ title: Azure Monitor와 통합 하는 파트너
 description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다.
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: a9ba9972bcdd5b7e4bd1c4b489dcea08b5502a72
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248974"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -106,7 +105,8 @@ Grafana는 시계열 메트릭 데이터를 시각화할 수 있도록 하는 �
 
 ![InfluxData 로고](./media/partners/Influxdata.png)
 
-InfluxDB의 작성자인 InfluxData는 DevOps 및 IoT 애플리케이션에 대한 메트릭 및 이벤트(시계열 데이터)를 분석하기 위해 새롭게 빌드된 최신 오픈 소스 플랫폼을 제공합니다. 데이터가 사용자, 센서 또는 컴퓨터에서 제공되는지에 관계없이, InfluxData는 개발자가 차세대 모니터링, 분석 및 IoT 애플리케이션을 더 빠르고 쉽게 빌드하고 규모 확장을 통해 실제 비즈니스 가치를 빠르게 제공할 수 있도록 지원합니다. 샌프란시스코를 기반으로 하는 InfluxData는 420 명 이상의 고객에 게 Cisco, eBay, IBM 및 Siemens가 포함 됩니다.
+InfluxData은 오픈 소스 시계열 데이터베이스인 InfluxDB의 작성자입니다. Microsoft의 기술은 IoT 장치, 응용 프로그램, 네트워크, 컨테이너 및 컴퓨터에 의해 생성 되는 대량의 타임 스탬프 데이터를 처리 하기 위해 작성 되었습니다. Microsoft는 IBM, 부동산, Siemens, Tesla 및 NASA와 같은 개발자와 조직을 지원 하 고 실시간 데이터를 저장 및 분석 하 여 변화 모니터링, 분석 및 IoT 응용 프로그램을 더 빠르게 구축 하 고 확장할 수 있는 기능을 제공 합니다. Microsoft Azure 모니터의 메트릭 및 이벤트 수집 기능은 InfluxData의 Telegraf 에이전트를 사용 하 여 확장할 수 있습니다. Microsoft 사용자는 선행 시계열 데이터베이스 솔루션을 활용 하 고 증가 하는 오픈 소스 기여를 Telegraf에 활용할 수 있습니다.
+
 
 [설명서로 이동합니다.][influxdata-doc]
 
@@ -115,7 +115,7 @@ InfluxDB의 작성자인 InfluxData는 DevOps 및 IoT 애플리케이션에 대�
 
 ![논리 모니터 로고](./media/partners/logicmonitor.png)
 
-LogicMonitor&reg; 는 복잡 한 IT 인프라를 위한 최고의 SaaS 기반 성능 모니터링 플랫폼입니다. 수천 개의 기술에 대한 보급으로 LogicMonitor는 인프라 및 애플리케이션 성능에 대한 세부적인 가시성을 제공합니다. LM 클라우드의 포괄적인 Azure 모니터링을 통해 사용자는 Azure 클라우드, 온-프레미스 및 하이브리드 클라우드 리소스의 성능을 단일 플랫폼에서 상관 관계를 지정할 수 있습니다. 자동화된 리소스 검색, 기본 제공 모니터링 템플릿, 미리 구성된 경고 임계값 및 사용자 지정 가능한 대시보드는 성공에 필요한 속도, 유연성 및 가시성을 IT에 제공하기 위해 결합됩니다.
+LogicMonitor &reg; 는 복잡 한 IT 인프라를 위한 최고의 SaaS 기반 성능 모니터링 플랫폼입니다. 수천 개의 기술에 대한 보급으로 LogicMonitor는 인프라 및 애플리케이션 성능에 대한 세부적인 가시성을 제공합니다. LM 클라우드의 포괄적인 Azure 모니터링을 통해 사용자는 Azure 클라우드, 온-프레미스 및 하이브리드 클라우드 리소스의 성능을 단일 플랫폼에서 상관 관계를 지정할 수 있습니다. 자동화된 리소스 검색, 기본 제공 모니터링 템플릿, 미리 구성된 경고 임계값 및 사용자 지정 가능한 대시보드는 성공에 필요한 속도, 유연성 및 가시성을 IT에 제공하기 위해 결합됩니다.
 
 [설명서로 이동합니다.][logicmonitor-doc]
 
@@ -267,7 +267,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor에 대한 자세한 정보](../../azure-monitor/overview.md)
+- [Azure Monitor에 대 한 자세한 정보](../../azure-monitor/overview.md)
 - [REST API를 사용하여 메트릭 액세스](rest-api-walkthrough.md)
 - [타사 서비스에 활동 로그 스트림](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 - [Microsoft 이외의 서비스로 리소스 로그 스트림](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)

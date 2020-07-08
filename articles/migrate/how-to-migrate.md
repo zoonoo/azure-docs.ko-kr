@@ -3,12 +3,11 @@ title: Azure Migrate의 마이그레이션 도구 추가
 description: Azure Migrate에서 마이그레이션 도구를 추가 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195816"
 ---
 # <a name="add-migration-tools"></a>마이그레이션 도구 추가
 
@@ -23,7 +22,7 @@ ms.locfileid: "82901460"
 2. 사용할 마이그레이션 시나리오를 선택 합니다.
 
     - 컴퓨터 및 워크 로드를 Azure로 마이그레이션하려면 **서버 평가 및 마이그레이션**을 선택 합니다.
-    - 온-프레미스 SQL 컴퓨터를 마이그레이션하려면 **데이터베이스 평가 및 마이그레이션**을 선택 합니다.
+    - 온-프레미스 SQL Server 데이터베이스를 마이그레이션하려면 **데이터베이스 평가 및 마이그레이션**을 선택 합니다.
     - 온-프레미스 웹 앱을 마이그레이션하려면 **웹 앱 평가 및 마이그레이션**을 선택 합니다.
     - 많은 양의 온-프레미스 데이터를 오프 라인 모드에서 Azure로 마이그레이션하려면 **주문 Data Box**를 선택 합니다.
 

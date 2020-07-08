@@ -4,12 +4,11 @@ description: Azure Backup 서비스를 사용 하 여 Azure VM 백업을 관리 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248586"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
@@ -31,7 +30,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 자격 증명 모음 대시보드에서 Vm을 보려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **찾아보기**를 선택 합니다. 리소스 목록에서 **Recovery Services**를 입력합니다. 입력 하는 경우에는 입력에 따라 목록이 필터링 됩니다. **Recovery Services 자격 증명 모음**을 선택합니다.
+2. 허브 메뉴에서 **찾아보기**를 선택 합니다. 리소스 목록에서 **Recovery Services**를 입력합니다. 입력 하는 경우에는 입력에 따라 목록이 필터링 됩니다. **Recovery Services 자격 증명 모음**을 선택 합니다.
 
     ![Recovery Services 자격 증명 모음 만들기](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 

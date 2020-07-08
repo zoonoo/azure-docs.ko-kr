@@ -12,12 +12,11 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263230"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -68,15 +67,17 @@ _유효 권한_ 은 앱이 대상 리소스를 요청할 때 갖게 되는 권�
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect 범위
 
-Openid connect Connect `openid`의 Microsoft identity platform 구현에는 특정 리소스에 적용 되지 않는 몇 가지 잘 정의 된 범위 (, `email` `profile`, 및 `offline_access`)가 있습니다. `address` 및 `phone` OpenID Connect 범위는 지원되지 않습니다.
+Openid connect Connect의 Microsoft id 플랫폼 구현에는 `openid` ,, `email` `profile` 및 Microsoft Graph에도 호스트 되는 잘 정의 된 몇 가지 범위가 `offline_access` 있습니다. `address` 및 `phone` OpenID Connect 범위는 지원되지 않습니다.
+
+OIDC 범위와 토큰을 요청 하면 사용자 [정보 끝점](userinfo.md)을 호출 하는 토큰을 제공 합니다.
 
 ### <a name="openid"></a>openid
 
-앱이 [OpenID Connect](active-directory-v2-protocols.md)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 페이지에 "로그인" 권한으로 표시되고 Microsoft 계정 동의 페이지에 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱은 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 UserInfo 엔드포인트에 액세스할 수 있도록 해줍니다. Microsoft `openid` id 플랫폼 토큰 끝점에서 범위를 사용 하 여 인증을 위해 앱에서 사용할 수 있는 id 토큰을 얻을 수 있습니다.
+앱이 [OpenID Connect](active-directory-v2-protocols.md)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 페이지에 "로그인" 권한으로 표시되고 Microsoft 계정 동의 페이지에 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱은 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 UserInfo 엔드포인트에 액세스할 수 있도록 해줍니다. `openid`Microsoft id 플랫폼 토큰 끝점에서 범위를 사용 하 여 인증을 위해 앱에서 사용할 수 있는 id 토큰을 얻을 수 있습니다.
 
 ### <a name="email"></a>이메일
 
-`email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. 클레임 `email` 은 전자 메일 주소가 사용자 계정과 연결 된 경우에만 토큰에 포함 되며 항상 그렇지는 않습니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
+`email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. `email`클레임은 전자 메일 주소가 사용자 계정과 연결 된 경우에만 토큰에 포함 되며 항상 그렇지는 않습니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 
 ### <a name="profile"></a>profile
 
@@ -84,12 +85,12 @@ Openid connect Connect `openid`의 Microsoft identity platform 구현에는 특�
 
 ### <a name="offline_access"></a>offline_access
 
-[ `offline_access` 범위](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) 는 확장 된 시간 동안 사용자를 대신 하 여 리소스에 대 한 액세스 권한을 앱에 부여 합니다. 동의 페이지에서 이 범위는 "액세스 권한을 부여한 데이터에 대한 액세스 권한 유지" 권한으로 나타납니다. 사용자가 `offline_access` 범위를 승인 하면 앱은 Microsoft id 플랫폼 토큰 끝점에서 새로 고침 토큰을 받을 수 있습니다. 새로 고침 토큰은 장기적으로 존재합니다. 오래된 액세스 토큰이 만료되면 앱에서 새 액세스 토큰을 가져올 수 있습니다.
+[ `offline_access` 범위](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) 는 확장 된 시간 동안 사용자를 대신 하 여 리소스에 대 한 액세스 권한을 앱에 부여 합니다. 동의 페이지에서 이 범위는 "액세스 권한을 부여한 데이터에 대한 액세스 권한 유지" 권한으로 나타납니다. 사용자가 범위를 승인 하면 `offline_access` 앱은 Microsoft id 플랫폼 토큰 끝점에서 새로 고침 토큰을 받을 수 있습니다. 새로 고침 토큰은 장기적으로 존재합니다. 오래된 액세스 토큰이 만료되면 앱에서 새 액세스 토큰을 가져올 수 있습니다.
 
 > [!NOTE]
 > 이 권한은 새로 고침 토큰 ( [암시적 흐름](v2-oauth2-implicit-grant-flow.md))을 제공 하지 않는 흐름의 경우에도 현재 모든 동의 화면에 표시 됩니다.  이는 클라이언트가 암시적 흐름 내에서 시작 하 여 새로 고침 토큰이 필요한 코드 흐름으로 이동할 수 있는 시나리오를 다루는 것입니다.
 
-Microsoft id 플랫폼 (v2.0 끝점에 대 한 요청)에서 앱은 새로 고침 토큰을 받기 위해 `offline_access` 범위를 명시적으로 요청 해야 합니다. 즉, [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)에서 권한 부여 코드를 교환하는 경우 `/token` 엔드포인트에서 액세스 토큰만 받게 됩니다. 액세스 토큰은 짧은 시간 동안 유효합니다. 액세스 토큰은 일반적으로 1시간 후에 만료됩니다. 이 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 권한 부여 코드를 가져와야 합니다. 이 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수 있습니다.
+Microsoft id 플랫폼 (v2.0 끝점에 대 한 요청)에서 앱은 `offline_access` 새로 고침 토큰을 받기 위해 범위를 명시적으로 요청 해야 합니다. 즉, [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)에서 권한 부여 코드를 교환하는 경우 `/token` 엔드포인트에서 액세스 토큰만 받게 됩니다. 액세스 토큰은 짧은 시간 동안 유효합니다. 액세스 토큰은 일반적으로 1시간 후에 만료됩니다. 이 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 권한 부여 코드를 가져와야 합니다. 이 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수 있습니다.
 
 새로 고침 토큰을 가져오고 사용 하는 방법에 대 한 자세한 내용은 [Microsoft id 플랫폼 프로토콜 참조](active-directory-v2-protocols.md)를 참조 하세요.
 
@@ -136,7 +137,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 * `Directory.ReadWrite.All`를 사용하여 조직의 디렉터리에 데이터 쓰기
 * `Groups.Read.All`을 사용하여 조직 디렉터리의 모든 그룹 읽기
 
-소비자 사용자는 이러한 데이터에 대한 애플리케이션 액세스 권한을 부여할 수 있는 반면 조직 사용자는 동일한 집합인 회사의 중요한 데이터에 대한 액세스 권한을 부여하지 않도록 제한됩니다. 응용 프로그램이 조직 사용자에 게 이러한 사용 권한 중 하나에 대 한 액세스를 요청 하는 경우 사용자는 앱의 사용 권한에 동의할 수 있는 권한이 없다는 오류 메시지를 받게 됩니다.
+소비자 사용자는 이러한 데이터에 대한 애플리케이션 액세스 권한을 부여할 수 있는 반면 조직 사용자는 동일한 집합인 회사의 중요한 데이터에 대한 액세스 권한을 부여하지 않도록 제한됩니다. 애플리케이션이 조직 사용자에게 이러한 사용 권한 중 하나에 대한 액세스를 요청하는 경우 사용자에게는 앱의 사용 권한에 동의할 권한이 부여되지 않음을 나타내는 오류 메시지가 표시됩니다.
 
 또한 앱이 조직의 이러한 관리 제한 범위에 대한 액세스 권한을 필요로 하는 경우 아래에 설명한 관리 동의 엔드포인트를 사용하여 회사 관리자에게 직접 요청해야 합니다.
 
@@ -160,7 +161,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 응용 프로그램은 앱 등록 포털에서 필요한 권한 (위임 된 응용 프로그램과 응용 프로그램 모두)을 확인할 수 있습니다.  이를 통해 `/.default` 범위와 Azure Portal의 "관리자 동의 허용" 옵션을 사용할 수 있습니다.  일반적으로 지정 된 응용 프로그램에 대해 정적으로 정의 된 사용 권한은 동적/증분으로 요청 하는 사용 권한의 상위 집합 인지 확인 하는 것이 좋습니다.
 
 > [!NOTE]
->응용 프로그램 권한은를 [`/.default`](#the-default-scope) 사용 하는 경우에만 요청할 수 있으므로 응용 프로그램에 응용 프로그램 권한이 필요한 경우 앱 등록 포털에 나열 되어 있는지 확인 하세요.
+>응용 프로그램 권한은를 사용 하는 경우에만 요청할 수 [`/.default`](#the-default-scope) 있으므로 응용 프로그램에 응용 프로그램 권한이 필요한 경우 앱 등록 포털에 나열 되어 있는지 확인 하세요.
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>응용 프로그램에 대해 정적으로 요청 된 사용 권한 목록을 구성 하려면
 
@@ -193,14 +194,14 @@ https://graph.microsoft.com/mail.send
 
 | 매개 변수        | 조건        | 설명                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
-| `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
+| `tenant` | 필요한 공간 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
+| `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID**입니다. |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
-|`scope`        | 필수        | 응용 프로그램에서 요청 하는 사용 권한 집합을 정의 합니다. 정적 (사용 [`/.default`](#the-default-scope)) 또는 동적 범위 중 하나일 수 있습니다.  여기에는 OIDC 범위 (`openid`, `profile`, `email`)가 포함 될 수 있습니다. 응용 프로그램 권한이 필요한 경우를 사용 `/.default` 하 여 정적으로 구성 된 사용 권한 목록을 요청 해야 합니다.  |
+|`scope`        | 필요한 공간        | 응용 프로그램에서 요청 하는 사용 권한 집합을 정의 합니다. 정적 (사용 [`/.default`](#the-default-scope) ) 또는 동적 범위 중 하나일 수 있습니다.  여기에는 OIDC 범위 ( `openid` , `profile` ,)가 포함 될 수 있습니다 `email` . 응용 프로그램 권한이 필요한 경우를 사용 하 여 `/.default` 정적으로 구성 된 사용 권한 목록을 요청 해야 합니다.  |
 
 
-이 시점에서 Azure AD는 테넌트 관리자에게 요청을 완료하기 위해 로그인하도록 요구합니다. 관리자는 `scope` 매개 변수에서 요청한 모든 사용 권한을 승인 하 라는 메시지를 표시 합니다.  Static (`/.default`) 값을 사용 하는 경우,이 값은 해당 앱에 대 한 필수 사용 권한에 있는 모든 범위에 대 한 요청 동의 및 v1.0 관리자 동의 끝점 처럼 작동 합니다.
+이 시점에서 Azure AD는 테넌트 관리자에게 요청을 완료하기 위해 로그인하도록 요구합니다. 관리자는 매개 변수에서 요청한 모든 사용 권한을 승인 하 라는 메시지를 표시 `scope` 합니다.  Static () 값을 사용 하는 경우 `/.default` ,이 값은 해당 앱에 대 한 필수 사용 권한에 있는 모든 범위에 대 한 요청 동의 및 v1.0 관리자 동의 끝점 처럼 작동 합니다.
 
 #### <a name="successful-response"></a>성공적인 응답
 
@@ -256,16 +257,16 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대 한 �
 
 ## <a name="the-default-scope"></a>/.default 범위
 
-`/.default` 범위를 사용 하 여 v2.0 끝점에서 Microsoft id 플랫폼 끝점으로 앱을 마이그레이션할 수 있습니다. 이것은 애플리케이션 등록 시 구성된 정적 사용 권한 목록을 참조하는 모든 애플리케이션에 대한 기본 제공 범위입니다. `scope` 값 `https://graph.microsoft.com/.default`는 기본적으로 v1.0 엔드포인트 `resource=https://graph.microsoft.com`과 같습니다. 즉, Azure Portal에서 애플리케이션이 등록된 Microsoft Graph의 범위를 사용하여 토큰을 요청합니다.  리소스 uri를 사용 하 여 생성 됩니다 `/.default` (예: 리소스 uri가 인 `https://contosoApp.com`경우 요청 된 범위는 `https://contosoApp.com/.default`).  토큰을 올바르게 요청 하려면 두 번째 슬래시를 포함 해야 하는 경우 [후행 슬래시에](#trailing-slash-and-default) 대 한 섹션을 참조 하세요.
+범위를 사용 하 여 v2.0 `/.default` 끝점에서 Microsoft id 플랫폼 끝점으로 앱을 마이그레이션할 수 있습니다. 이것은 애플리케이션 등록 시 구성된 정적 사용 권한 목록을 참조하는 모든 애플리케이션에 대한 기본 제공 범위입니다. `scope` 값 `https://graph.microsoft.com/.default`는 기본적으로 v1.0 엔드포인트 `resource=https://graph.microsoft.com`과 같습니다. 즉, Azure Portal에서 애플리케이션이 등록된 Microsoft Graph의 범위를 사용하여 토큰을 요청합니다.  리소스 uri를 사용 하 여 생성 됩니다 `/.default` (예: 리소스 uri가 인 경우 `https://contosoApp.com` 요청 된 범위는 `https://contosoApp.com/.default` ).  토큰을 올바르게 요청 하려면 두 번째 슬래시를 포함 해야 하는 경우 [후행 슬래시에](#trailing-slash-and-default) 대 한 섹션을 참조 하세요.
 
 /.Default 범위는 모든 OAuth 2.0 흐름에서 사용할 수 있지만, v2 관리자 동의 끝점을 사용 하 여 응용 프로그램 사용 권한을 요청 하는 경우에는 물론 [흐름](v2-oauth2-on-behalf-of-flow.md) 및 [클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)에서 필요 합니다.
 
 > [!NOTE]
-> 클라이언트는 단일 요청에서`/.default`정적 () 및 동적 동의를 결합할 수 없습니다. 따라서 `scope=https://graph.microsoft.com/.default+mail.read`에서는 이러한 범위 형식의 조합으로 인해 오류가 발생합니다.
+> 클라이언트 `/.default` 는 단일 요청에서 정적 () 및 동적 동의를 결합할 수 없습니다. 따라서 `scope=https://graph.microsoft.com/.default+mail.read`에서는 이러한 범위 형식의 조합으로 인해 오류가 발생합니다.
 
 ### <a name="default-and-consent"></a>/.default 및 동의
 
-`/.default` 범위는 `prompt=consent`에 대한 v1.0 엔드포인트 동작도 트리거합니다. 리소스에 관계없이 애플리케이션이 등록하는 모든 사용 권한에 대한 동의를 요청합니다. 요청의 일부로 포함 된 경우 범위는 `/.default` 요청 된 리소스에 대 한 범위를 포함 하는 토큰을 반환 합니다.
+`/.default` 범위는 `prompt=consent`에 대한 v1.0 엔드포인트 동작도 트리거합니다. 리소스에 관계없이 애플리케이션이 등록하는 모든 사용 권한에 대한 동의를 요청합니다. 요청의 일부로 포함 된 경우 범위는 요청 된 `/.default` 리소스에 대 한 범위를 포함 하는 토큰을 반환 합니다.
 
 ### <a name="default-when-the-user-has-already-given-consent"></a>사용자가 이미 동의를 제공한 경우의 /.default
 
@@ -273,15 +274,15 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대 한 �
 
 #### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>예제 1: 사용자 또는 테 넌 트 관리자에 게 권한이 부여 됨
 
-이 예제에서는 사용자 (또는 테 넌 트 관리자)가 클라이언트에 Microsoft Graph 사용 권한을 `mail.read` 부여 했습니다. `user.read` 클라이언트가 `scope=https://graph.microsoft.com/.default`를 요청한 경우, Microsoft Graph에 대해 클라이언트 애플리케이션이 등록한 권한의 동의 여부에 관계없이 동의 프롬프트가 표시되지 않습니다. 범위 `mail.read` 및 `user.read`를 포함하는 토큰이 반환됩니다.
+이 예제에서는 사용자 (또는 테 넌 트 관리자)가 클라이언트에 Microsoft Graph 사용 권한을 부여 했습니다 `mail.read` `user.read` . 클라이언트가 `scope=https://graph.microsoft.com/.default`를 요청한 경우, Microsoft Graph에 대해 클라이언트 애플리케이션이 등록한 권한의 동의 여부에 관계없이 동의 프롬프트가 표시되지 않습니다. 범위 `mail.read` 및 `user.read`를 포함하는 토큰이 반환됩니다.
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>예 2: 사용자에 게 클라이언트와 리소스 사이에 대 한 권한이 부여 되지 않았습니다.
 
-이 예제에서는 클라이언트와 Microsoft Graph 사이에 사용자가 존재 하지 않습니다. 클라이언트는 `user.read` 및 `contacts.read` 권한 뿐만 아니라 Azure Key Vault 범위 `https://vault.azure.net/user_impersonation`에도 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`에 대한 토큰을 요청하면 `user.read`, `contacts.read` 및 Key Vault `user_impersonation` 범위에 대한 동의 화면이 표시됩니다. 반환 된 토큰에는 `user.read` 및 `contacts.read` 범위만 포함 되며 Microsoft Graph에만 사용할 수 있습니다.
+이 예제에서는 클라이언트와 Microsoft Graph 사이에 사용자가 존재 하지 않습니다. 클라이언트는 `user.read` 및 `contacts.read` 권한 뿐만 아니라 Azure Key Vault 범위 `https://vault.azure.net/user_impersonation`에도 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`에 대한 토큰을 요청하면 `user.read`, `contacts.read` 및 Key Vault `user_impersonation` 범위에 대한 동의 화면이 표시됩니다. 반환 된 토큰에는 `user.read` 및 범위만 포함 되며 `contacts.read` Microsoft Graph에만 사용할 수 있습니다.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>예 3: 사용자가 동의한 하 고 클라이언트가 추가 범위를 요청 합니다.
 
-이 예제에서는 사용자가 클라이언트에 대해를 `mail.read` 이미 동의한 했습니다. 클라이언트는 해당 등록에서 `contacts.read` 범위에 등록했습니다. 클라이언트에서를 사용 하 여 `scope=https://graph.microsoft.com/.default` 토큰에 대 한 요청을 수행 하 `prompt=consent`는 경우 및에서 동의한 요청은 응용 프로그램에 의해 등록 된 사용 권한에 대 한 모든 권한 (및에만 해당)에 대 한 동의 화면을 표시 합니다. 즉, `contacts.read`는 동의 화면에 표시되지만 `mail.read`는 표시되지 않습니다. 반환되는 토큰은 Microsoft Graph용이며 `mail.read` 및 `contacts.read`를 포함합니다.
+이 예제에서는 사용자가 클라이언트에 대해를 이미 동의한 했습니다 `mail.read` . 클라이언트는 해당 등록에서 `contacts.read` 범위에 등록했습니다. 클라이언트에서를 사용 하 여 토큰에 대 한 요청을 수행 하는 경우 `scope=https://graph.microsoft.com/.default` 및에서 동의한 요청은 `prompt=consent` 응용 프로그램에 의해 등록 된 사용 권한에 대 한 모든 권한 (및에만 해당)에 대 한 동의 화면을 표시 합니다. 즉, `contacts.read`는 동의 화면에 표시되지만 `mail.read`는 표시되지 않습니다. 반환되는 토큰은 Microsoft Graph용이며 `mail.read` 및 `contacts.read`를 포함합니다.
 
 ### <a name="using-the-default-scope-with-the-client"></a>클라이언트에서 /.default 범위 사용
 
@@ -302,9 +303,9 @@ response_type=token            //code or a hybrid flow is also possible here
 
 ### <a name="trailing-slash-and-default"></a>후행 슬래시 및/sats 기본값
 
-일부 리소스 Uri는 후행 슬래시 (`https://contoso.com/` 와 반대 `https://contoso.com`)를 가지 며,이로 인해 토큰 유효성 검사에 문제가 발생할 수 있습니다.  이는 주로 리소스 URI에 후행 슬래시를 포함 하는 Azure`https://management.azure.com/`리소스 관리 ()에 대 한 토큰을 요청 하는 경우에 발생할 수 있으며 토큰이 요청 될 때 표시 되어야 합니다.  따라서에 대 한 `https://management.azure.com/` 토큰을 요청 하 고 `/.default`를 사용 하는 `https://management.azure.com//.default` 경우 이중 슬래시를 요청 해야 합니다.
+일부 리소스 Uri는 후행 슬래시 ( `https://contoso.com/` 와 반대)를 가지 `https://contoso.com` 며,이로 인해 토큰 유효성 검사에 문제가 발생할 수 있습니다.  이는 주로 리소스 URI에 후행 슬래시를 포함 하는 Azure 리소스 관리 ()에 대 한 토큰을 요청 하는 경우에 발생할 수 있으며 `https://management.azure.com/` 토큰이 요청 될 때 표시 되어야 합니다.  따라서에 대 한 토큰을 요청 `https://management.azure.com/` 하 고를 사용 하는 경우 `/.default` `https://management.azure.com//.default` 이중 슬래시를 요청 해야 합니다.
 
-일반적으로 토큰을 발급 하 고 있음을 확인 했으며 토큰을 허용 해야 하는 API가 토큰을 거부 하는 경우 두 번째 슬래시를 추가 하 고 다시 시도 하는 것이 좋습니다. 이는 로그인 서버가 `scope` 매개 변수의 uri와 일치 하는 사용자가 있는 토큰을 끝에서 제거 하 `/.default` 여 내보내는 경우에 발생 합니다.  이로 인해 후행 슬래시가 제거 되는 경우 로그인 서버는 더 이상 일치 하지 않는 경우에도 계속 해 서 요청을 처리 하 고 리소스 URI에 대해 유효성을 검사 합니다 .이는 표준이 아니므로 응용 프로그램에 의존해 서는 안 됩니다.
+일반적으로 토큰을 발급 하 고 있음을 확인 했으며 토큰을 허용 해야 하는 API가 토큰을 거부 하는 경우 두 번째 슬래시를 추가 하 고 다시 시도 하는 것이 좋습니다. 이는 로그인 서버가 매개 변수의 Uri와 일치 하는 사용자가 있는 토큰을 `scope` 끝에서 제거 하 여 내보내는 경우에 발생 합니다 `/.default` .  이로 인해 후행 슬래시가 제거 되는 경우 로그인 서버는 더 이상 일치 하지 않는 경우에도 계속 해 서 요청을 처리 하 고 리소스 URI에 대해 유효성을 검사 합니다 .이는 표준이 아니므로 응용 프로그램에 의존해 서는 안 됩니다.
 
 ## <a name="troubleshooting-permissions-and-consent"></a>권한 및 동의 문제 해결
 

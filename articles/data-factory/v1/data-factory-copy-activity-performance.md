@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196101"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 
@@ -202,14 +201,14 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 현재는 준비 저장소를 사용하여 두 온-프레미스 데이터 저장소 간에 데이터를 복사할 수 없습니다. 이 옵션은 곧 제공될 예정입니다.
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging** 을 TRUE로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결된 서비스가 아직 없는 경우 만들어야 합니다.
 
-| 속성 | Description | 기본값 | 필수 |
+| 속성 | 설명 | 기본값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |아니요 |
 | **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse로 데이터를 로드하는 데 공유 액세스 서명을 포함한 스토리지를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
+| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |예 |
 | **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니요 |
 
 앞의 표에 설명된 속성이 있는 복사 작업의 샘플 정의는 다음과 같습니다.
@@ -264,7 +263,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
      * [데이터 관리 게이트웨이 확장성](data-factory-data-management-gateway-high-availability-scalability.md)
    * [데이터 관리 게이트웨이](#considerations-for-data-management-gateway)
    * [소스](#considerations-for-the-source)
-   * [sink](#considerations-for-the-sink)
+   * [싱크](#considerations-for-the-sink)
    * [직렬화 및 deserialization](#considerations-for-serialization-and-deserialization)
    * [압축](#considerations-for-compression)
    * [열 매핑](#considerations-for-column-mapping)
@@ -366,8 +365,8 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하는 데이터 집합 및 복사 작업 수에 주의하세요. 많은 동시 복사 작업은 데이터 저장소를 제한하고 성능 저하, 복사 작업 내부 재시도 및 일부 경우 실행 오류를 발생시킬 수 있습니다.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>샘플 시나리오: 온-프레미스 SQL Server에서 Blob Storage로 복사
-**시나리오**: 파이프라인은 온-프레미스 SQL Server에서 Blob Storage로 CSV 형식으로 데이터를 복사하도록 작성됩니다. 복사 작업을 더 빠르게 하려면 CSV 파일이 bzip2 형식으로 압축되어야 합니다.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>샘플 시나리오: SQL Server 데이터베이스에서 Blob 저장소로 복사
+**시나리오**: SQL Server 데이터베이스에서 Blob 저장소로 CSV 형식으로 데이터를 복사 하도록 파이프라인이 작성 됩니다. 복사 작업을 더 빠르게 하려면 CSV 파일이 bzip2 형식으로 압축되어야 합니다.
 
 **테스트 및 분석**: 복사 작업의 처리량이 2MBps보다 적고 성능 벤치마크보다 훨씬 더 느립니다.
 
@@ -385,7 +384,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 * **원본**: SQL Server 자체가 과도한 로드로 인해 처리량이 낮아집니다.
 * **데이터 관리 게이트웨이**:
-  * **LAN**: 게이트웨이가 SQL Server 컴퓨터에서 멀리 떨어져 있고 낮은 대역폭 연결을 사용합니다.
+  * **LAN**: 게이트웨이가 SQL Server 컴퓨터에서 멀리 떨어져 있고 낮은 대역폭 연결을 포함 합니다.
   * **게이트웨이**: 게이트웨이는 다음 작업을 수행하는 로드 제한에 도달했습니다.
     * **직렬화**: CSV 형식에 대한 데이터 스트림을 직렬화하면 처리량이 느려집니다.
     * **압축**: 느린 압축 코덱을 선택했습니다(예: Core i7 2.8MBps의 bzip2).
@@ -413,7 +412,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 ![시나리오 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
 * Azure Blob storage: blob 저장소에 [대 한 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md) 와 [blob 저장소에 대 한 성능 및 확장성 검사 목록](../../storage/blobs/storage-performance-checklist.md)입니다.

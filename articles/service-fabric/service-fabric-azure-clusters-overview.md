@@ -7,12 +7,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75614675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234687"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure의 Service Fabric 클러스터 개요
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
@@ -48,9 +47,9 @@ Azure의 Service Fabric 클러스터는 다른 Azure 리소스를 사용하고 �
 자세한 내용은 [Service Fabric 노드 형식 및 가상 머신 확장 집합](service-fabric-cluster-nodetypes.md)을 참조하세요.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-VM 인스턴스는 [공용 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) 및 DNS 레이블과 연결되는 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 뒤에서 조인됩니다.  * &lt;Clustername&gt;* 을 사용 하 여 클러스터를 프로 비전 하는 경우 * &lt;DNS&gt;이름&lt; clustername cloudapp.azure.com&gt;* 는 확장 집합 앞에 있는 부하 분산 장치와 연결 된 DNS 레이블입니다.
+VM 인스턴스는 [공용 IP 주소](../virtual-network/public-ip-addresses.md) 및 DNS 레이블과 연결되는 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 뒤에서 조인됩니다.  * &lt; Clustername &gt; *을 사용 하 여 클러스터를 프로 비전 하는 경우 DNS 이름 * &lt; clustername &gt; &lt; &gt;cloudapp.azure.com* 는 확장 집합 앞에 있는 부하 분산 장치와 연결 된 DNS 레이블입니다.
 
-클러스터의 VM에는 [개인 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)만 있습니다.  관리 트래픽 및 서비스 트래픽은 공용 Load Balancer를 통해 라우팅됩니다.  네트워크 트래픽은 NAT 규칙(클라이언트가 특정 노드/인스턴스에 연결) 또는 부하 분산 규칙(트래픽이 VM으로 왕복 이동)을 통해 이러한 컴퓨터로 라우팅됩니다.  부하 분산 장치에는 DNS 이름이 * &lt;clustername&gt;인 연결 된 공용 IP가 있습니다&lt; . cloudapp.azure.com&gt;*.  공용 IP는 리소스 그룹의 다른 Azure 리소스입니다.  클러스터에 여러 노드 형식을 정의하면 각 노드 형식/확장 집합에 대해 부하 분산 장치가 만들어집니다. 또는 여러 노드 형식에 대해 단일 부하 분산 장치를 설정할 수도 있습니다.  주 노드 형식에는 DNS 레이블 * &lt;&gt;clustername이 있습니다&lt; . cloudapp.azure.com&gt;*, 다른 노드 형식에는 DNS 레이블 * &lt;clustername&gt;-&lt;nodetype&gt;이 있습니다.&lt; cloudapp.azure.com&gt;*.
+클러스터의 VM에는 [개인 IP 주소](../virtual-network/private-ip-addresses.md)만 있습니다.  관리 트래픽 및 서비스 트래픽은 공용 Load Balancer를 통해 라우팅됩니다.  네트워크 트래픽은 NAT 규칙(클라이언트가 특정 노드/인스턴스에 연결) 또는 부하 분산 규칙(트래픽이 VM으로 왕복 이동)을 통해 이러한 컴퓨터로 라우팅됩니다.  부하 분산 장치에는 DNS 이름이 clustername 인 연결 된 공용 IP가 있습니다 * &lt; &gt; . &lt; &gt;cloudapp.azure.com*.  공용 IP는 리소스 그룹의 다른 Azure 리소스입니다.  클러스터에 여러 노드 형식을 정의하면 각 노드 형식/확장 집합에 대해 부하 분산 장치가 만들어집니다. 또는 여러 노드 형식에 대해 단일 부하 분산 장치를 설정할 수도 있습니다.  주 노드 형식에는 DNS 레이블 * &lt; clustername이 &gt; 있습니다. &lt; &gt;cloudapp.azure.com*, 다른 노드 형식에는 DNS 레이블 * &lt; clustername nodetype이 있습니다 &gt; - &lt; &gt; . &lt; &gt;cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Storage 계정
 각 클러스터 노드 형식은 [Azure Storage 계정](/azure/storage/common/storage-introduction) 및 Managed Disks에서 지원됩니다.
@@ -103,7 +102,7 @@ Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
-| 시작 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 
 자세한 내용은 [Azure에서 지원 되는 클러스터 버전](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems) 을 참조 하세요.

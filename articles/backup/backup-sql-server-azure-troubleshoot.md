@@ -3,12 +3,11 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247957"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -20,7 +19,7 @@ ms.locfileid: "82183333"
 
 가상 머신에서 SQL Server 데이터베이스에 대 한 보호를 구성 하려면 해당 가상 머신에 **Azurebackupwindowsworkload 로드** 확장을 설치 해야 합니다. **Usererrorsqlnosysadminmembership**오류가 발생 하면 SQL Server 인스턴스에 필요한 백업 권한이 없는 것입니다. 이 오류를 해결 하려면 [VM 권한 설정](backup-azure-sql-database.md#set-vm-permissions)의 단계를 따르세요.
 
-## <a name="troubleshoot-discover-and-configure-issues"></a>문제 검색 및 구성 문제 해결
+## <a name="troubleshoot-discover-and-configure-issues"></a>검색 및 구성 문제 해결
 
 Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베이스를 검색 하 고 백업을 구성 하는 과정은 두 단계로 구성 됩니다.<br>
 
@@ -46,13 +45,13 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
     `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
 
-    가 `C:\` *나의*문자로 대체 합니다.
+    `C:\`가 나의 문자로 대체 합니다 *SystemDrive*.
 
 1. VM 내에서 실행 되는 다음 세 프로세스를 바이러스 백신 검사에서 제외 합니다.
 
-    - IaasWLPluginSvc
-    - IaasWorkloadCoordinaorService
-    - TriggerExtensionJob .exe
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
 
 1. 또한 SQL은 바이러스 백신 프로그램 작업에 대 한 몇 가지 지침을 제공 합니다. 자세한 내용은 [이 문서](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) 를 참조 하세요.
 
@@ -60,9 +59,9 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 ### <a name="backup-type-unsupported"></a>지원 되지 않는 백업 유형
 
-| 심각도 | Description | 가능한 원인 | 권장 조치 |
+| 심각도 | 설명 | 가능한 원인 | 권장 조치 |
 |---|---|---|---|
-| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
+| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -123,7 +122,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지하도록 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지 하는 데 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -169,10 +168,10 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 ## <a name="re-registration-failures"></a>다시 등록 오류
 
-다시 등록 작업을 트리거하기 전에 다음 증상 중 하나 이상이 있는지 확인 합니다.
+다시 등록 작업을 트리거하기 전에 하나 이상의 다음 증상을 확인하세요.
 
 - **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**오류 코드 중 하나를 사용 하 여 VM에서 모든 작업 (예: 백업, 복원 및 구성 백업)이 실패 합니다.
-- 백업 항목의 **백업 상태** 영역에 **연결할 수 없는**것으로 표시 되는 경우 다른 모든 원인을 제외 하 여 동일한 상태가 될 수 있습니다.
+- 백업 항목에 대한 **백업 상태** 영역에 **연결할 수 없음**이 표시되면 동일한 상태를 유발하는 다른 모든 원인을 제외합니다.
 
   - VM에서 백업 관련 작업을 수행할 수 있는 권한이 없습니다.
   - 백업을 수행할 수 없으므로 VM을 종료 합니다.
@@ -182,16 +181,16 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 - Always On 가용성 그룹의 경우 백업 기본 설정을 변경 하거나 장애 조치 (failover) 후에 백업이 실패 하기 시작 합니다.
 
-이러한 증상은 다음 이유 중 하나 이상으로 인해 발생할 수 있습니다.
+다음 이유 중 하나 이상으로 인해 이러한 현상이 발생할 수 있습니다.
 
-- 확장이 삭제 되었거나 포털에서 제거 되었습니다.
+- 확장이 삭제되었거나 포털에서 제거되었습니다.
 - **프로그램 제거 또는 변경**아래의 VM에 있는 **제어판** 에서 확장이 제거 되었습니다.
-- VM이 내부 디스크 복원을 통해 다시 복원 되었습니다.
-- 오랜 기간 동안 VM이 종료 되었으며 확장 구성이 만료 되었습니다.
-- VM이 삭제 되 고 삭제 된 VM과 동일한 리소스 그룹에 다른 VM이 생성 되었습니다.
+- VM이 내부 디스크 복원을 통해 다시 복원되었습니다.
+- 오랜 기간 동안 VM이 종료되었으므로 확장 구성이 만료되었습니다.
+- VM이 삭제되고 삭제된 VM과 이름이 같고 동일한 리소스 그룹에 있는 다른 VM이 생성되었습니다.
 - 가용성 그룹 노드 중 하나가 전체 백업 구성을 받지 못했습니다. 이는 가용성 그룹이 자격 증명 모음에 등록 되거나 새 노드가 추가 될 때 발생할 수 있습니다.
 
-위의 시나리오에서 VM에 대 한 다시 등록 작업을 트리거하는 것이 좋습니다. PowerShell에서이 작업을 수행 하는 방법에 대 한 지침은 [여기](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) 를 참조 하세요.
+위의 시나리오에서 VM에 대한 다시 등록 작업을 트리거하는 것이 좋습니다. PowerShell에서이 작업을 수행 하는 방법에 대 한 지침은 [여기](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) 를 참조 하세요.
 
 ## <a name="size-limit-for-files"></a>파일의 크기 제한
 
@@ -209,7 +208,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-아래 예를 살펴보세요.
+예를 들면 다음과 같습니다.
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -219,7 +218,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 ### <a name="override-the-default-target-restore-file-path"></a>기본 대상 복원 파일 경로를 재정의 합니다.
 
-복원 작업 중에 데이터베이스 파일의 매핑이 포함 된 JSON 파일을 대상 복원 경로에 배치 하 여 대상 복원 파일 경로를 재정의할 수 있습니다. 파일을 `database_name.json` 만들고 위치 `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`에 배치 합니다.
+복원 작업 중에 데이터베이스 파일의 매핑이 포함 된 JSON 파일을 대상 복원 경로에 배치 하 여 대상 복원 파일 경로를 재정의할 수 있습니다. 파일을 만들고 `database_name.json` 위치에 배치 `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*` 합니다.
 
 파일의 내용은 다음과 같은 형식 이어야 합니다.
 
@@ -238,7 +237,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 ]
 ```
 
-아래 예를 살펴보세요.
+예를 들면 다음과 같습니다.
 
 ```json
 [
@@ -267,4 +266,4 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Server Vm (공개 미리 보기)에 대 한 Azure Backup에 대 한 자세한 내용은 [SQL vm에 대 한 Azure Backup](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup)를 참조 하세요.
+SQL Server Vm (공개 미리 보기)에 대 한 Azure Backup에 대 한 자세한 내용은 [SQL vm에 대 한 Azure Backup](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup)를 참조 하세요.

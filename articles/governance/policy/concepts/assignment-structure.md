@@ -3,12 +3,11 @@ title: 정책 할당 구조의 세부 정보
 description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84205044"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -61,7 +60,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|Mode |JSON 값 |Type |수동으로 재구성 |활동 로그 항목 |Description |
+|Mode |JSON 값 |형식 |수동으로 재구성 |활동 로그 항목 |설명 |
 |-|-|-|-|-|-|
 |사용 |기본값 |string |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
 |사용 안 함 |DoNotEnforce |string |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
@@ -75,7 +74,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 ## <a name="policy-definition-id"></a>정책 정의 ID
 
 이 필드는 정책 정의 또는 이니셔티브 정의의 전체 경로 이름 이어야 합니다.
-`policyDefinitionId`는 배열이 아니라 문자열입니다. 여러 정책을 함께 할당 하는 것이 아니라 [이니셔티브](./definition-structure.md#initiatives) 를 사용 하는 것이 좋습니다.
+`policyDefinitionId`는 배열이 아니라 문자열입니다. 여러 정책을 함께 할당 하는 것이 아니라 [이니셔티브](./initiative-definition-structure.md) 를 사용 하는 것이 좋습니다.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -93,12 +92,12 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 }
 ```
 
-이 예제에서 정책 정의에 이전에 정의 된 매개 변수는 `prefix` 및 `suffix`입니다. 이 특정 정책 할당 **은 비-LC** **로 설정** `suffix` `prefix` 됩니다. 동일한 정책 정의는 다른 부서에 대 한 다른 매개 변수 집합을 사용 하 여 다시 사용할 수 있으므로 유연성을 제공 하면서 정책 정의의 중복 및 복잡성을 줄일 수 있습니다.
+이 예제에서 정책 정의에 이전에 정의 된 매개 변수는 `prefix` 및 `suffix` 입니다. 이 특정 정책 할당 `prefix` **DeptA** `suffix` **은 비-LC**로 설정 됩니다. 동일한 정책 정의는 다른 부서에 대 한 다른 매개 변수 집합을 사용 하 여 다시 사용할 수 있으므로 유연성을 제공 하면서 정책 정의의 중복 및 복잡성을 줄일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [정책 정의 구조](./definition-structure.md)에 대해 알아봅니다.
-- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
-- [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
-- [Azure 관리 그룹을 사용](../../management-groups/overview.md)하 여 리소스를 구성 하는 관리 그룹을 검토 합니다.
+- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md) 방법을 이해합니다.
+- [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
+- [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

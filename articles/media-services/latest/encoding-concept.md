@@ -10,15 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220173"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Media Services를 사용 하 여 비디오 및 오디오 인코딩
 
@@ -81,10 +80,10 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 
 #### <a name="examples"></a>예
 
-예를 참조 하세요.
+예제 참조:
 
-* [.NET을 사용 하 여 비디오 하위 클립](subclip-video-dotnet-howto.md)
-* [REST를 사용 하 여 비디오 하위 클립](subclip-video-rest-howto.md)
+* [.NET을 사용한 비디오 서브클리핑](subclip-video-dotnet-howto.md)
+* [REST를 사용한 비디오 서브클리핑](subclip-video-rest-howto.md)
 
 ## <a name="built-in-presets"></a>기본 제공 미리 설정
 
@@ -98,7 +97,10 @@ Media Services는 다음과 같은 기본 제공 인코딩 미리 설정을 지�
 
 - **EncoderNamedPreset AACGoodQualityAudio**: 192 kbps로 인코딩된 스테레오 오디오만 포함 하는 단일 MP4 파일을 생성 합니다.
 - **EncoderNamedPreset. AdaptiveStreaming** (권장): 자세한 내용은 [비트 전송률 사다리 자동 생성](autogen-bitrate-ladder.md)을 참조 하세요.
-- **EncoderNamedPreset ContentAwareEncodingExperimental**: 내용 인식 인코딩에 대 한 실험적 사전 설정을 노출 합니다. 입력 콘텐츠가 지정 된 경우 서비스는 최적의 계층 수를 자동으로 결정 하 고 적응 스트리밍을 통해 배달할 적절 한 비트 전송률 및 해상도 설정을 자동으로 결정 합니다. 기본 알고리즘은 시간이 지남에 따라 지속적으로 발전 합니다. 출력에는 비디오 및 오디오가 인터리브 된 MP4 파일이 포함 됩니다. 자세한 내용은 [콘텐츠 인식 인코딩에 대 한 실험적 사전 설정](content-aware-encoding.md)을 참조 하세요.
+- **EncoderNamedPreset. ContentAwareEncoding**: 내용 인식 인코딩에 대 한 사전 설정을 노출 합니다. 입력 콘텐츠가 지정 된 경우 서비스는 최적의 계층 수를 자동으로 결정 하 고 적응 스트리밍을 통해 배달할 적절 한 비트 전송률 및 해상도 설정을 자동으로 결정 합니다. 기본 알고리즘은 시간이 지남에 따라 지속적으로 발전 합니다. 출력에는 비디오 및 오디오가 인터리브된 MP4 파일이 포함됩니다. 자세한 내용은 [콘텐츠 인식 인코딩](content-aware-encoding.md)을 참조 하세요.
+
+  > [!NOTE]
+  > **ContentAwareEncoding** not ContentAwareEncodingExperimental을 사용 해야 합니다.
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: 6000 kbps에서 400 kbps까지, 그리고 스테레오 AAC 오디오에 이르는 8 GOP 정렬 MP4 파일 집합을 생성 합니다. 해상도는 1,080p에서 시작하여 360p까지 낮아집니다.
 - **EncoderNamedPreset H264MultipleBitrate720p**: 3400 kbps에서 400 kbps까지, 그리고 스테레오 AAC 오디오에 이르는 6 GOP 정렬 MP4 파일 집합을 생성 합니다. 해상도는 720p에서 시작하여 360p까지 낮아집니다.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: 1600 kbps에서 400 kbps까지, 그리고 스테레오 AAC 오디오에 이르는 5 GOP 정렬 MP4 파일 집합을 생성 합니다. 해상도는 480p에서 시작하여 360p까지 낮아집니다.
