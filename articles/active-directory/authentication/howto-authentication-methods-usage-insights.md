@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680198"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>인증 방법 사용 & insights (미리 보기)
@@ -27,23 +26,23 @@ ms.locfileid: "81680198"
 다음 역할은 사용 및 정보에 액세스할 수 있습니다.
 
 - 전역 관리자
-- 보안 판독기
+- 보안 Reader
 - 보안 관리자
 - 보고서 구독자
 
 사용 및 정보에 액세스 하는 데 추가 라이선스가 필요 하지 않습니다. Azure Multi-Factor Authentication 및 SSPR (셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 인증 방법 사용 및 정보에 액세스 하려면:
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **Azure Active Directory** > **암호 재설정** > **사용 & insights**로 이동 합니다.
+1. **Azure Active Directory**  >  **암호 재설정**  >  **사용 & insights**로 이동 합니다.
 1. **등록** 또는 **사용** 개요에서 필요에 따라 필터링 할 미리 필터링 된 보고서를 열도록 선택할 수 있습니다.
 
 ![사용 & insights 개요](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-사용 & 정보에 직접 액세스 하려면로 [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade)이동 합니다. 이 링크를 누르면 등록 개요가 표시 됩니다.
+사용 & 정보에 직접 액세스 하려면로 이동 [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) 합니다. 이 링크를 누르면 등록 개요가 표시 됩니다.
 
 등록 된 사용자, 사용자 설정 및 사용자 지원 타일에는 사용자에 대 한 다음과 같은 등록 데이터가 표시 됩니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "81680198"
 
 등록 세부 정보 보고서에는 각 사용자에 대 한 다음 정보가 표시 됩니다.
 
-- 속성
+- 이름
 - 사용자 이름
 - 등록 상태 (모두, 등록 됨, 등록 되지 않음)
 - 활성화 상태 (모두, 사용, 사용 안 함)
@@ -80,7 +79,7 @@ ms.locfileid: "81680198"
 
 세부 정보 다시 설정 보고서는 지난 30 일 동안 다음과 같은 등록 및 다시 설정 이벤트를 표시 합니다.
 
-- 속성
+- 이름
 - 사용자 이름
 - 기능 (모두, 등록, 다시 설정)
 - 인증 방법 (앱 알림, 앱 코드, 전화 통화, Office 통화, SMS, 전자 메일, 보안 질문)

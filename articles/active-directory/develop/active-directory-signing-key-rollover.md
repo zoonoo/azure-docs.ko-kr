@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537239"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory에서 서명 키 롤오버
@@ -273,7 +272,7 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
 
 아래 단계에 따라 키 롤오버 논리가 제대로 작동하는지 확인합니다.
 
-1. 응용 프로그램에서 위의 코드를 사용 하 고 있는지 확인 한 후 **web.config 파일을** 열고 ** \<issuerNameRegistry>** 블록으로 이동 합니다. 특히 다음 몇 줄을 찾습니다.
+1. 애플리케이션이 위의 코드를 사용 중인지를 확인한 후 **Web.config** 파일을 열고 **\<issuerNameRegistry>** 블록으로 이동하여 구체적으로 다음 몇 줄을 확인합니다.
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,7 +280,7 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. **Add thumbprint = "" >설정에서 모든 문자를 다른 문자로 바꿔서 지문 값을 변경 합니다. \<** **Web.config** 파일을 저장합니다.
+2. 설정에서 **\<add thumbprint="">** 모든 문자를 다른 문자로 바꿔서 지문 값을 변경 합니다. **Web.config** 파일을 저장합니다.
 3. 애플리케이션을 빌드하고 실행합니다. 로그인 프로세스를 완료할 수 있으면 애플리케이션은 디렉터리의 페더레이션 메타데이터 문서에서 필요한 정보를 다운로드하여 키를 성공적으로 업데이트합니다. 로그인하는 데 문제가 있는 경우 [Azure AD를 사용하여 웹 애플리케이션에 로그온 추가](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) 문서를 읽거나 [Azure Active Directory에 대한 다중 테넌트 클라우드 애플리케이션](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) 코드 샘플을 다운로드 및 검사하여 애플리케이션의 변경 내용이 올바른지 확인합니다.
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>리소스를 보호하며 Visual Studio 2008 또는 2010 및 .NET 3.5용 WIF(Windows Identity Foundation) v1.0을 사용하여 만든 웹 애플리케이션

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.custom: mqtt
 ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730291"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
@@ -98,10 +97,10 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 [엔드포인트](iot-hub-devguide-endpoints.md)에 설명된 대로 IoT Hub는 서비스 연결 엔드포인트(**/messages/servicebound/fileuploadnotifications**)를 통해 파일 업로드 알림을 메시지로 전달합니다. 파일 업로드 알림에 대 한 수신 의미 체계는 클라우드-장치 메시지의 경우와 같으며 동일한 [메시지 수명 주기](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle)를 가집니다. 파일 업로드 알림 엔드포인트에서 검색된 각 메시지는 다음 속성을 가진 JSON 레코드입니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | EnqueuedTimeUtc |알림을 만든 시간을 나타내는 타임스탬프입니다. |
-| DeviceId |**DeviceId**입니다. |
+| deviceId |**DeviceId**입니다. |
 | BlobUri |업로드된 파일의 URI입니다. |
 | BlobName |업로드된 파일의 이름입니다. |
 | LastUpdatedTime |파일이 마지막으로 업데이트된 시간을 나타내는 타임스탬프입니다. |
@@ -124,7 +123,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 엔드포인트를 �
 
 각 IoT 허브에는 파일 업로드 알림에 대한 다음과 같은 구성 옵션이 있습니다.
 
-| 속성 | Description | 범위 및 기본값 |
+| 속성 | 설명 | 범위 및 기본값 |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |파일 업로드 알림이 파일 알림 엔드포인트에 작성되는지를 제어합니다. |Bool. 기본값은 True입니다. |
 | **fileNotifications.ttlAsIso8601** |파일 업로드 알림에 대한 기본 TTL입니다. |최대 48H(최소 1 분)까지 ISO_8601 간격입니다. 기본값은 1시간입니다. |
@@ -141,11 +140,11 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 IoT hub에서 이러
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md)은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md) - IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
 * [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
 
-* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md) - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
+* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

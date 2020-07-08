@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
 ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606289"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 서로게이트 키 변환 
@@ -47,7 +46,7 @@ SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예
 
 #### <a name="file-sources"></a>파일 원본
 
-이전 max 값이 파일에 있으면 집계 변환에서 함수를 `max()` 사용 하 여 이전 최대값을 가져옵니다.
+이전 max 값이 파일에 있으면 `max()` 집계 변환에서 함수를 사용 하 여 이전 최대값을 가져옵니다.
 
 ![서로게이트 키 파일](media/data-flow/sk008.png "서로게이트 키 파일")
 

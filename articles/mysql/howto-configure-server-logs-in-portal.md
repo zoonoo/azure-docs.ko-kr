@@ -7,17 +7,16 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: 59faf63312bd7cc657f8b96ca3110707ea997c02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273610"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Azure Portal에서 느리게 쿼리 로그 구성 및 액세스
 
 Azure Portal에서 [Azure Database for MySQL 저속 쿼리 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서의 단계를 수행 하려면 [Azure Database for MySQL 서버가](quickstart-create-mysql-server-database-using-azure-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성
@@ -66,7 +65,7 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 ## <a name="set-up-diagnostic-logs"></a>진단 로그 설정
 
-1. 사이드바의 **모니터링** 섹션에서 **진단 설정** > **진단 설정 추가**를 선택 합니다.
+1. 사이드바의 **모니터링** 섹션에서 **진단 설정**  >  **진단 설정 추가**를 선택 합니다.
 
    ![진단 설정 옵션의 스크린샷](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
 

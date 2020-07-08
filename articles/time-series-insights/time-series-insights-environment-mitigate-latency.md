@@ -13,10 +13,9 @@ ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81263389"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
@@ -32,7 +31,7 @@ ms.locfileid: "81263389"
 - 많은 양의 기록 이벤트를 이벤트 원본으로 푸시하면 지연이 발생합니다. Time Series Insights를 확인해야 합니다.
 - 원격 분석을 사용하여 참조 데이터를 결합하면 이벤트 크기가 더 커집니다. 허용 되는 최대 패킷 크기는 32 KB;입니다. 32 KB 보다 큰 데이터 패킷은 잘립니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Time Series Insights 데이터 수신 동작 및 계획 방법에 대해 알아봅니다.</br>
 
@@ -56,7 +55,7 @@ ms.locfileid: "81263389"
 
    여기에서 다음 조건 중 일부를 사용 하 여 경고를 구성할 수 있습니다.
 
-   |메트릭  |Description  |
+   |메트릭  |설명  |
    |---------|---------|
    |**수신된 바이트**     | 이벤트 원본에서 읽은 원시 바이트 수입니다. 일반적으로 원시 바이트 수에는 속성 이름 및 값이 포함됩니다.  |  
    |**수신된 잘못된 메시지**     | 모든 Azure Event Hubs 또는 Azure IoT Hub 이벤트 원본에서 읽은 잘못된 메시지 수입니다.      |
@@ -66,7 +65,7 @@ ms.locfileid: "81263389"
    |**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
    |**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
 
-   **완료**를 선택합니다.
+   **완료** 를 선택합니다.
 
 1. 원하는 신호 논리를 구성한 후에는 선택한 경고 규칙을 시각적으로 검토 합니다.
 

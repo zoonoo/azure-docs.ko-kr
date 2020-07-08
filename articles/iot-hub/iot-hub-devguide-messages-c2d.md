@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730004"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
@@ -76,16 +75,16 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 | Ack 속성 값 | 동작 |
 | ------------ | -------- |
-| none     | IoT hub가 피드백 메시지를 생성 하지 않습니다 (기본 동작). |
-| 긍정 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
-| 부정 | 클라우드-장치 메시지가 *배달 못* 한 메시지 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
+| 없음     | IoT hub가 피드백 메시지를 생성 하지 않습니다 (기본 동작). |
+| 긍정적 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
+| 부정적 | 클라우드-장치 메시지가 *배달 못* 한 메시지 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
 | 전체     | IoT hub는 어떤 경우 든 피드백 메시지를 생성 합니다. |
 
 **Ack** 값이 *full*인 경우 피드백 메시지를 받지 못하면 피드백 메시지가 만료 되었음을 의미 합니다. 서비스는 원본 메시지에서 발생한 상황을 알지 못합니다. 실제로 서비스는 만료되기 전에 피드백을 처리할 수 있는지 확인해야 합니다. 최대 만료 시간은 2 일 이며, 오류가 발생 하는 경우 서비스를 다시 실행 하는 시간을 유지 합니다.
 
 [끝점](iot-hub-devguide-endpoints.md)에 설명 된 대로 IoT hub는 서비스 지향 끝점 ( */messages/servicebound/feedback*)을 통해 피드백을 메시지로 전달 합니다. 피드백 수신을 위한 의미 체계는 클라우드-디바이스 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
-| 속성     | Description |
+| 속성     | 설명 |
 | ------------ | ----------- |
 | EnqueuedTime | 허브에서 피드백 메시지를 받은 시간을 나타내는 타임 스탬프입니다. |
 | UserId       | `{iot hub name}` |
@@ -93,13 +92,13 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 
-| 속성           | Description |
+| 속성           | 설명 |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | 메시지의 결과가 발생 한 시간을 나타내는 타임 스탬프입니다. 예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지는 만료 됩니다. |
 | OriginalMessageId  | 이 피드백 정보가 관련 된 클라우드-장치 메시지의 *MessageId* |
-| StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *Success* <br/> *만료됨* <br/> *DeliveryCountExceeded* <br/> *되었으므로* <br/> *삭제* |
-| Description        | *StatusCode* 에 대 한 문자열 값 |
-| DeviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
+| StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *Success* <br/> *만료됨* <br/> *DeliveryCountExceeded* <br/> *거부됨* <br/> *삭제* |
+| 설명        | *StatusCode* 에 대 한 문자열 값 |
+| deviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
 | DeviceGenerationId | 이 의견의 일부가 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceGenerationId* 입니다. |
 
 클라우드-장치 메시지에서 해당 피드백과 원래 메시지의 상관 관계를 지정 하려면 서비스에서 *MessageId*를 지정 해야 합니다.
@@ -133,7 +132,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 각 IoT Hub는 클라우드-디바이스 메시징에 다음 구성 옵션을 노출합니다.
 
-| 속성                  | Description | 범위 및 기본값 |
+| 속성                  | 설명 | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | 클라우드-장치 메시지에 대 한 기본 TTL | ISO_8601 간격은 최대 2 일 (최소 1 분)입니다. 기본값: 1 시간 |
 | maxDeliveryCount          | 클라우드-장치 단위 큐의 최대 배달 횟수 | 1 ~ 100; 기본값: 10 |

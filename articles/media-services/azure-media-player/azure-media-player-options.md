@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727165"
 ---
 # <a name="options"></a>옵션 #
@@ -30,12 +29,12 @@ Azure Media Player embed 코드는 단순히 HTML5 비디오 태그 이므로 �
 `amp("vid1", { "controls": true, "autoplay": false });`
 
 > [!NOTE]
-> 생성자의 옵션은 소스가 설정 되기 전에 첫 번째 초기화 에서만 설정 됩니다.  초기화 된 동일한 Azure Media Player 요소에 대 한 옵션을 수정 하려는 경우 소스를 변경 하기 전에 옵션을 업데이트 해야 합니다. 을 사용 `myPlayer.options({/*updated options*/});`하 여 JavaScript의 옵션을 업데이트할 수 있습니다. 변경 된 옵션만 영향을 받으므로 이전에 설정 된 다른 모든 옵션은 유지 됩니다.
+> 생성자의 옵션은 소스가 설정 되기 전에 첫 번째 초기화 에서만 설정 됩니다.  초기화 된 동일한 Azure Media Player 요소에 대 한 옵션을 수정 하려는 경우 소스를 변경 하기 전에 옵션을 업데이트 해야 합니다. 을 사용 하 여 JavaScript의 옵션을 업데이트할 수 있습니다 `myPlayer.options({/*updated options*/});` . 변경 된 옵션만 영향을 받으므로 이전에 설정 된 다른 모든 옵션은 유지 됩니다.
 
 ## <a name="individual-options"></a>개별 옵션 ##
 
 > [!NOTE]
->비디오 태그 특성은 true 또는 false (부울)만 가능 합니다. 특성을 설정 하거나 해제 하려면 해당 특성 (등호 없음)만 포함 하면 됩니다. 예를 들어 컨트롤을 설정 하려면: `<video controls="true" ...>` 사용자가 `<video controls ...>` 실행 하는 가장 큰 문제는 값 (예: controls = "false")으로 false를 사용 하 여 이러한 값을 false로 설정 하는 것입니다.
+>비디오 태그 특성은 true 또는 false (부울)만 가능 합니다. 특성을 설정 하거나 해제 하려면 해당 특성 (등호 없음)만 포함 하면 됩니다. 예를 들어 컨트롤을 설정 하려면: 사용자가 실행 하는 `<video controls="true" ...>` `<video controls ...>` 가장 큰 문제는 값 (예: controls = "false")으로 false를 사용 하 여 이러한 값을 false로 설정 하는 것입니다.
 
 ### <a name="controls"></a>controls ###
 
@@ -79,7 +78,7 @@ Height 특성은 비디오의 표시 높이를 설정 합니다.
 
 ### <a name="other-options"></a>기타 옵션 ###
 
-JSON을 사용 하는 매개 변수 `<video>` 를 `data-setup` 사용 하 여 태그에 대해 다른 옵션을 설정할 수 있습니다.
+`<video>`JSON을 사용 하는 매개 변수를 사용 하 여 태그에 대해 다른 옵션을 설정할 수 있습니다 `data-setup` .
 `<video ... data-setup='{"nativeControlsForTouch": false}'>`
 
 #### <a name="nativecontrolsfortouch"></a>nativeControlsForTouch ####
@@ -92,16 +91,16 @@ JSON을 사용 하는 매개 변수 `<video>` 를 `data-setup` 사용 하 여 �
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`옵션은 명시적 `width` 및 `height` 설정 보다 우선 합니다. 이 옵션은 Azure Media Player 버전 `2.0.0` 이상 에서만 사용할 수 있습니다.
+`fluid`옵션은 명시적 `width` 및 `height` 설정 보다 우선 합니다. 이 옵션은 Azure Media Player 버전 이상 에서만 사용할 수 있습니다 `2.0.0` .
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed`옵션은 playbackSpeed 컨트롤 및 사용자가 사용할 수 있는 재생 속도 설정 집합을 제어 합니다. `playbackSpeed`개체를 사용 합니다. 컨트롤 막대에서 재생 속도 제어를 사용 하도록 설정 하려면 개체의 `enabled` 속성을 true로 설정 해야 합니다. 태그에서 재생 속도를 사용 하는 예제:
+`playbackSpeed`옵션은 playbackSpeed 컨트롤 및 사용자가 사용할 수 있는 재생 속도 설정 집합을 제어 합니다. `playbackSpeed`개체를 사용 합니다. 컨트롤 막대에서 재생 속도 제어를 사용 하도록 설정 하려면 `enabled` 개체의 속성을 true로 설정 해야 합니다. 태그에서 재생 속도를 사용 하는 예제:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-이 `playbackSpeed` 설정의 다른 속성은 [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) 개체에 의해 지정 됩니다.
+이 설정의 다른 속성 `playbackSpeed` 은 [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) 개체에 의해 지정 됩니다.
 
 JavaScript에서 재생 속도 옵션을 설정 하는 예제:
 
@@ -130,7 +129,7 @@ JavaScript에서 재생 속도 옵션을 설정 하는 예제:
 
 ### <a name="staledatatimelimitinsec"></a>staleDataTimeLimitInSec ###
 
-옵션 `staleDataTimeLimitInSec` 은 mediaSource 버퍼에 유지할 부실 데이터의 최대 시간 (초)을 구성 하는 데 사용할 수 있는 최적화입니다. 이 옵션은 기본적으로 사용하지 않도록 설정되어 있습니다.
+`staleDataTimeLimitInSec`옵션은 mediaSource 버퍼에 유지할 부실 데이터의 최대 시간 (초)을 구성 하는 데 사용할 수 있는 최적화입니다. 이 옵션은 기본적으로 사용하지 않도록 설정되어 있습니다.
 
 ### <a name="cea708captionssettings"></a>cea708CaptionsSettings ###
 

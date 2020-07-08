@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: mimckitt
 ms.openlocfilehash: df1f5e1c21c28fa8c1fcdef6b2278fb92014a3b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272562"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법
@@ -28,7 +27,7 @@ ms.locfileid: "81272562"
 ## <a name="prerequisites"></a><a name="twilio-prereqs"></a>필수 조건
 이 항목에서 코드를 사용하려면 다음을 수행해야 합니다.
 
-1. [Twilio 콘솔][twilio_console]에서 Twilio 계정 및 인증 토큰을 가져옵니다. Twilio을 시작 하려면에서 [https://www.twilio.com/try-twilio][try_twilio]등록 합니다. 가격 책정은에서 [https://www.twilio.com/pricing][twilio_pricing]평가할 수 있습니다. Twilio에서 제공 하는 API에 대 한 자세한 [https://www.twilio.com/voice/api][twilio_api]내용은을 참조 하십시오.
+1. [Twilio 콘솔][twilio_console]에서 Twilio 계정 및 인증 토큰을 가져옵니다. Twilio을 시작 하려면에서 등록 [https://www.twilio.com/try-twilio][try_twilio] 합니다. 가격 책정은에서 평가할 수 있습니다 [https://www.twilio.com/pricing][twilio_pricing] . Twilio에서 제공 하는 API에 대 한 자세한 내용은을 참조 하십시오 [https://www.twilio.com/voice/api][twilio_api] .
 2. *Twilio .NET 라이브러리*를 웹 역할에 추가합니다. 이 항목의 뒷부분에 나오는 **웹 역할 프로젝트에 Twilio 라이브러리를 추가 하려면**을 참조 하세요.
 
 [Azure에서 기본적인 웹 역할][azure_webroles_get_started] 만들기에 익숙해져야 합니다.
@@ -147,15 +146,15 @@ namespace WebRole1
 
 ![Twilio 및 ASP.NET을 사용하는 Azure 통화 응답][twilio_dotnet_basic_form_output]
 
-TwiML에 대 한 자세한 내용은에서 [https://www.twilio.com/docs/api/twiml][twiml]찾을 수 있습니다. 및 기타 Twilio &lt;동사에 대 한 자세한 내용은에서 [https://www.twilio.com/docs/api/twiml/say][twilio_say]찾을 수 있습니다.&gt;
+TwiML에 대 한 자세한 내용은에서 찾을 수 있습니다 [https://www.twilio.com/docs/api/twiml][twiml] . 및 기타 Twilio 동사에 대 한 자세한 내용은 &lt; &gt; 에서 찾을 수 있습니다 [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
 
 ## <a name="next-steps"></a><a id="nextsteps"></a>다음 단계
-이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 다음은 그 예입니다.
+이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들어:
 
 * 웹 양식을 사용하는 대신, Azure Blob 스토리지 또는 Azure SQL Database 인스턴스를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Azure에서 Blob 사용에 대한 자세한 내용은 [.NET에서 Azure Blob Storage 서비스를 사용하는 방법][howto_blob_storage_dotnet]을 참조하세요. SQL Database 사용에 대한 자세한 내용은 [.NET 애플리케이션에서 Azure SQL Database를 사용하는 방법][howto_sql_azure_dotnet]을 참조하세요.
 * 양식에서 값을 하드 코딩하는 대신, `RoleEnvironment.getConfigurationSettings`를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. `RoleEnvironment` 클래스에 대한 자세한 내용은 [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet]를 참조하세요.
-* 에서 [https://www.twilio.com/docs/security][twilio_docs_security]Twilio 보안 지침을 읽습니다.
-* Twilio at [https://www.twilio.com/docs][twilio_docs]에 대해 자세히 알아보세요.
+* 에서 Twilio 보안 지침을 읽습니다 [https://www.twilio.com/docs/security][twilio_docs_security] .
+* Twilio at에 대해 자세히 알아보세요 [https://www.twilio.com/docs][twilio_docs] .
 
 ## <a name="see-also"></a><a name="seealso"></a>참고 항목
 * [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법](twilio-dotnet-how-to-use-for-voice-sms.md)

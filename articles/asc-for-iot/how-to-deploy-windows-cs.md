@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537613"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Windows에 IoT용 Azure Security Center C# 기반 보안 에이전트 배포
@@ -34,7 +33,7 @@ ms.locfileid: "81537613"
 > * 에이전트 제거
 > * 문제 해결
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
@@ -63,7 +62,7 @@ ms.locfileid: "81537613"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    다음은 그 예입니다.
+    예를 들어:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -104,7 +103,7 @@ Get-help 예:```Get-Help .\InstallSecurityAgent.ps1```
 
 로깅을 설정하려면 다음을 수행합니다.
 
-1. 표준 파일 편집기를 사용 하 여 편집할 구성 파일 (일반 .config)을 엽니다.
+1. 표준 파일 편집기를 사용 하 여 편집할 구성 파일 (General.config)을 엽니다.
 
 1. 다음 값을 편집합니다.
 

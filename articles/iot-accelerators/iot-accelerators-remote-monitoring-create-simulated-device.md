@@ -10,10 +10,9 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682002"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 만들기 및 테스트
@@ -31,7 +30,7 @@ ms.locfileid: "81682002"
 
 *속성*
 
-| 속성                     | 값                      |
+| Name                     | 값                      |
 | ------------------------ | --------------------------- |
 | 색상                    | 흰색, 빨강, 파랑            |
 | 밝기               | 0~100                    |
@@ -41,7 +40,7 @@ ms.locfileid: "81682002"
 
 다음 표는 전구에서 데이터 스트림으로 클라우드에 보고하는 데이터를 보여 줍니다.
 
-| 속성   | 값      |
+| Name   | 값      |
 | ------ | ----------- |
 | 상태 | "켜짐", "꺼짐" |
 | 온도 | 화씨 도 |
@@ -54,7 +53,7 @@ ms.locfileid: "81682002"
 
 다음 표는 새 디바이스에서 지원하는 작업을 보여 줍니다.
 
-| 속성        |
+| 이름        |
 | ----------- |
 | 켜짐   |
 | 꺼짐  |
@@ -63,7 +62,7 @@ ms.locfileid: "81682002"
 
 다음 표는 디바이스의 초기 상태를 보여 줍니다.
 
-| 속성                     | 값 |
+| Name                     | 값 |
 | ------------------------ | -------|
 | 초기 색상            | 흰색  |
 | 초기 밝기       | 75     |
@@ -83,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * Visual Studio Code. [Mac, Linux 및 Windows용 Visual Studio Code를 다운로드](https://code.visualstudio.com/download)할 수 있습니다.
 * .NET Core [Mac, Linux 및 Windows용 .NET Core를 다운로드](https://www.microsoft.com/net/download)할 수 있습니다.
-* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [Visual Studio Code용 C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../../articles/iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * SQL API를 사용하고 [강력한 일관성](../../articles/cosmos-db/how-to-manage-database-account.md)에 대해 구성된 Cosmos DB 데이터베이스. 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
@@ -108,7 +107,7 @@ GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://githu
 
 Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adapter** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-**Storage-adapter/WebService/appsettings ini** 파일을 열고 **documentdbconnectionstring** 변수에 Cosmos DB 연결 문자열을 할당 합니다.
+**저장소 어댑터/웹 서비스/appsettings.ini** 파일을 열고 **documentdbconnectionstring** 변수에 Cosmos DB 연결 문자열을 할당 합니다.
 
 마이크로 서비스를 로컬로 실행하려면 **디버그 > 디버그 시작**을 클릭합니다.
 
@@ -425,7 +424,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-simulation-dotnet-master** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-**WebService/appsettings ini** 파일을 열고 **documentdb_connstring** 변수에 Cosmos DB 연결 문자열을 할당 하 고 다음과 같이 설정을 수정 합니다.
+**WebService/appsettings.ini** 파일을 열고 Cosmos DB 연결 문자열을 **documentdb_connstring** 변수에 할당 하 고 다음과 같이 설정을 수정 합니다.
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

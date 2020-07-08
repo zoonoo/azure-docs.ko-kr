@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687076"
 ---
 # <a name="get-service-access-tokens"></a>서비스 액세스 토큰 가져오기
@@ -24,11 +23,11 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 ## <a name="token-service-rest-api"></a>토큰 서비스 REST API
 
-액세스 토큰을 만들기 위해 *보안 토큰 서비스* 는 단일 REST API를 제공 합니다. ARR STS 서비스의 URL은 https:\//sts.mixedreality.azure.com입니다.
+액세스 토큰을 만들기 위해 *보안 토큰 서비스* 는 단일 REST API를 제공 합니다. ARR STS 서비스의 URL은 https: \/ /sts.mixedreality.azure.com입니다.
 
 ### <a name="get-token-request"></a>' 토큰 가져오기 ' 요청
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /accounts/**accountId**/토큰 | GET |
 
@@ -40,11 +39,11 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 ### <a name="get-token-response"></a>' Get token ' 응답
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: 문자열 | 성공 |
 
-| 헤더 | 목적 |
+| 헤더 | 용도 |
 |--------|:------|
 | MS-CV | 이 값은 서비스 내에서 호출을 추적 하는 데 사용할 수 있습니다. |
 

@@ -4,10 +4,9 @@ description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure M
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538259"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
@@ -55,7 +54,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
 
 다운로드한 파일을 가져오고 VM을 만듭니다.
 
-1. Vsphere 클라이언트 콘솔에서 **파일 배포 파일** > **배포 템플릿**을 클릭 합니다.
+1. Vsphere 클라이언트 콘솔에서 **파일**  >  **배포 파일 배포 템플릿**을 클릭 합니다.
 ![OVF 템플릿을 배포하는 메뉴 명령](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.

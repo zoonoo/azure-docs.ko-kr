@@ -7,10 +7,9 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272681"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Azure Logic Apps에서 제한 문제 (429-"요청이 너무 많음" 오류)를 처리 합니다.
@@ -33,7 +32,7 @@ Azure Logic Apps 서비스에는 고유한 [처리량 제한이](../logic-apps/l
 
 이 수준에서 조정 이벤트를 찾으려면 Azure Portal에서 논리 앱의 **메트릭** 창을 확인 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 논리 앱 디자이너에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
 1. 논리 앱 메뉴의 **모니터링**아래에서 **메트릭**을 선택 합니다.
 
@@ -97,11 +96,11 @@ HTTP와 같은 일부 트리거 및 작업에는 예외 처리를 구현 하기 
 
   예를 들어 논리 앱이 SQL Server 데이터베이스에서 테이블을 가져온 다음 각 테이블에서 행을 가져옵니다. 처리 해야 하는 행 수에 따라 여러 개의 연결 및 여러 개의 루프 **에 대해** 여러 개의 연결을 사용 하 여 전체 행 수를 더 작은 집합으로 분할 하 여 처리할 수 있습니다. 이 시나리오에서는 **각 루프에 대해** 2 개를 사용 하 여 총 행 수를 절반으로 분할 합니다. 첫 번째 **for each** 루프는 처음 절반을 가져오는 식을 사용 합니다. **For each** 루프는 두 번째 절반을 가져오는 다른 식을 사용 합니다. 예를 들면 다음과 같습니다.<p>
 
-    * 식 1: 함수 `take()` 는 컬렉션의 앞 부분을 가져옵니다. 자세한 내용은 [ **`take()`** 함수](workflow-definition-language-functions-reference.md#take)를 참조 하세요.
+    * 식 1: `take()` 함수는 컬렉션의 앞 부분을 가져옵니다. 자세한 내용은 [ **`take()`** 함수](workflow-definition-language-functions-reference.md#take)를 참조 하세요.
 
       `@take(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
-    * 식 2: 함수 `skip()` 는 컬렉션의 앞을 제거 하 고 다른 모든 항목을 반환 합니다. 자세한 내용은 [ **`skip()`** 함수](workflow-definition-language-functions-reference.md#skip)를 참조 하세요.
+    * 식 2: `skip()` 함수는 컬렉션의 앞을 제거 하 고 다른 모든 항목을 반환 합니다. 자세한 내용은 [ **`skip()`** 함수](workflow-definition-language-functions-reference.md#skip)를 참조 하세요.
 
       `@skip(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
@@ -164,7 +163,7 @@ HTTP와 같은 일부 트리거 및 작업에는 예외 처리를 구현 하기 
 
 * 폴링 버전이 아닌 트리거 및 작업에 대 한 webhook 버전을 사용 합니다.
 
-  그 이유는 폴링 트리거는 특정 간격으로 대상 서비스 또는 시스템을 계속 검사 합니다. 1 초 간격으로 매우 자주 수행 되는 경우에는 제한 문제가 발생할 수 있습니다. 그러나 웹 후크 트리거 또는 동작 (예: [HTTP webhook](../connectors/connectors-native-webhook.md))은 구독 시에 발생 하는 대상 서비스 또는 시스템에 대 한 단일 호출만 만들며 이벤트가 발생 하는 경우에만 대상에서 트리거 또는 작업을 알립니다. 이렇게 하면 트리거 또는 작업에서 대상을 지속적으로 확인할 필요가 없습니다.
+  이유 폴링 트리거는 특정 간격으로 대상 서비스 또는 시스템을 계속 검사 합니다. 1 초 간격으로 매우 자주 수행 되는 경우에는 제한 문제가 발생할 수 있습니다. 그러나 웹 후크 트리거 또는 동작 (예: [HTTP webhook](../connectors/connectors-native-webhook.md))은 구독 시에 발생 하는 대상 서비스 또는 시스템에 대 한 단일 호출만 만들며 이벤트가 발생 하는 경우에만 대상에서 트리거 또는 작업을 알립니다. 이렇게 하면 트리거 또는 작업에서 대상을 지속적으로 확인할 필요가 없습니다.
   
   따라서 대상 서비스 또는 시스템이 웹 후크를 지원 하거나 webhook 버전이 있는 커넥터를 제공 하는 경우이 옵션은 폴링 버전을 사용 하는 것 보다 좋습니다. 웹 후크 트리거 및 작업을 식별 하려면 `ApiConnectionWebhook` 형식이 있거나 되풀이를 지정 하지 않아도 되는지 확인 합니다. 자세한 내용은 [APIConnectionWebhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action)항목을 참조 하세요.
 

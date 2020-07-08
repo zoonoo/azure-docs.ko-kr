@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 02b64d77a4fb1af25e1022de3ac8e4775f916d9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261774"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 TLS 암호화 및 인증 설정
@@ -20,7 +19,7 @@ ms.locfileid: "81261774"
 이 문서에서는 Apache Kafka 클라이언트와 Apache Kafka broker 간에 TLS (전송 계층 보안) 암호화, 이전에 SSL(Secure Sockets Layer) (SSL) 암호화를 설정 하는 방법을 보여 줍니다. 또한 클라이언트의 인증을 설정 하는 방법을 보여 줍니다 (양방향 TLS 라고도 함).
 
 > [!Important]
-> Kafka 응용 프로그램에 사용할 수 있는 두 가지 클라이언트는 Java 클라이언트와 콘솔 클라이언트입니다. Java 클라이언트만 `ProducerConsumer.java` 생성 및 소비 둘 다에 TLS를 사용할 수 있습니다. 콘솔 생산자 클라이언트 `console-producer.sh` 는 TLS에서 작동 하지 않습니다.
+> Kafka 응용 프로그램에 사용할 수 있는 두 가지 클라이언트는 Java 클라이언트와 콘솔 클라이언트입니다. Java 클라이언트만 `ProducerConsumer.java` 생성 및 소비 둘 다에 TLS를 사용할 수 있습니다. 콘솔 생산자 클라이언트는 `console-producer.sh` TLS에서 작동 하지 않습니다.
 
 > [!Note]
 > 버전 1.1의 HDInsight Kafka 콘솔 생산자는 SSL을 지원 하지 않습니다.
@@ -52,7 +51,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 다음 세부 지침을 사용 하 여 broker 설치를 완료 합니다.
 
 > [!Important]
-> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 `wn0`경우 `wn1` 또는 `wn2` 로 대체 되어야 합니다. `WorkerNode0_Name`및 `HeadNode0_Name` 는 해당 컴퓨터의 이름으로 대체 해야 합니다.
+> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 경우 또는로 대체 되어야 합니다 `wn0` `wn1` `wn2` . `WorkerNode0_Name`및는 `HeadNode0_Name` 해당 컴퓨터의 이름으로 대체 해야 합니다.
 
 1. 헤드 노드 0에 대 한 초기 설치를 수행 합니다 .이 경우 HDInsight는 CA (인증 기관)의 역할을 채웁니다.
 
@@ -208,7 +207,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. 클라이언트 컴퓨터 ( `client-ssl-auth.properties` h n 1)에서 파일을 만듭니다. 파일에 다음 줄이 있어야 합니다.
+1. `client-ssl-auth.properties`클라이언트 컴퓨터 (h n 1)에서 파일을 만듭니다. 파일에 다음 줄이 있어야 합니다.
 
     ```config
     security.protocol=SSL
@@ -297,7 +296,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. 클라이언트 컴퓨터에 `client-ssl-auth.properties` 파일을 만듭니다 (h n 1). 파일에 다음 줄이 있어야 합니다.
+1. `client-ssl-auth.properties`클라이언트 컴퓨터에 파일을 만듭니다 (h n 1). 파일에 다음 줄이 있어야 합니다.
 
     ```bash
     security.protocol=SSL
@@ -323,13 +322,13 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1. 콘솔 공급자를 시작 하 고의 경로 `client-ssl-auth.properties` 를 생산자의 구성 파일로 제공 합니다.
+1. 콘솔 공급자를 시작 하 고의 경로를 `client-ssl-auth.properties` 생산자의 구성 파일로 제공 합니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1. 클라이언트 컴퓨터에 대 한 다른 ssh 연결을 열고 콘솔 소비자를 시작 하 고 `client-ssl-auth.properties` 에 대 한 경로를 소비자의 구성 파일로 제공 합니다.
+1. 클라이언트 컴퓨터에 대 한 다른 ssh 연결을 열고 콘솔 소비자를 시작 하 고에 `client-ssl-auth.properties` 대 한 경로를 소비자의 구성 파일로 제공 합니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
@@ -349,7 +348,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-1. 클라이언트 컴퓨터에 대 한 다른 ssh 연결을 열고 콘솔 소비자를 시작 하 고 `client-ssl-auth.properties` 에 대 한 경로를 소비자의 구성 파일로 제공 합니다.
+1. 클라이언트 컴퓨터에 대 한 다른 ssh 연결을 열고 콘솔 소비자를 시작 하 고에 `client-ssl-auth.properties` 대 한 경로를 소비자의 구성 파일로 제공 합니다.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning

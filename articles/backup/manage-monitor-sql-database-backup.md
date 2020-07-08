@@ -4,10 +4,9 @@ description: 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이�
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537307"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
@@ -18,7 +17,7 @@ SQL Server 데이터베이스에 대 한 백업을 아직 구성 하지 않은 �
 
 ## <a name="monitor-manual-backup-jobs-in-the-portal"></a>포털에서 수동 백업 작업 모니터링
 
-Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 작업을 표시 합니다. 이 포털에 표시 되는 작업에는 데이터베이스 검색 및 등록, 백업 및 복원 작업이 포함 됩니다.
+Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 작업을 표시 합니다. 이 포털에는 데이터베이스 검색 및 등록 작업과 백업 및 복원 작업이 표시됩니다.
 
 ![백업 작업 포털](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -33,7 +32,7 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 로그 백업은 15분마다 발생하기 때문에 백업 작업 모니터링이 번거로울 수 있습니다. Azure Backup 전자 메일 경고를 전송 하 여 모니터링을 용이 하 게 합니다. 전자 메일 경고는 다음과 같습니다.
 
 - 모든 백업 실패에 대해 트리거됩니다.
-- 오류 코드를 기준으로 데이터베이스 수준에서 통합 됩니다.
+- 오류 코드별로 데이터베이스 수준에서 통합됩니다.
 - 데이터베이스의 첫 번째 백업 실패에 대해서만 전송 됩니다.
 
 데이터베이스 백업 경고를 모니터링 하려면:
@@ -58,12 +57,12 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 복구 지점을 그대로 두기로 선택하는 경우 다음 세부 정보를 염두에 두어야 합니다.
 
 - 모든 복구 지점은 영구적으로 유지되고, 모든 정리는 데이터 보관을 통해 보호 중지에서 중지됩니다.
-- 보호 된 인스턴스와 사용 된 저장소에 대 한 요금이 청구 됩니다. 자세한 내용은 [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)을 참조 하세요.
+- 보호된 인스턴스와 사용한 스토리지 요금이 청구됩니다. 자세한 내용은 [Microsoft Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)을 참조하세요.
 - 백업을 중지하지 않고 데이터 원본을 삭제하면 새 백업이 실패합니다. 이전 복구 지점은 정책에 따라 만료 되지만, 백업을 중지 하 고 데이터를 삭제할 때까지 마지막 복구 지점은 항상 유지 됩니다.
 
 데이터베이스에 대한 보호를 중지하려면:
 
-1. 자격 증명 모음 대시보드에서 **백업 항목**을 선택 합니다.
+1. 자격 증명 모음 대시보드에서 **백업 항목**을 선택합니다.
 
 2. **Backup 관리 유형**에서 **Azure VM의 SQL**을 선택 합니다.
 
@@ -77,11 +76,11 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 
     ![백업 중지 선택](./media/backup-azure-sql-database/stop-db-button.png)
 
-5. **백업 중지** 메뉴에서 데이터를 보존할지 삭제할지를 선택 합니다. 원하는 경우 이유 및 설명을 제공 합니다.
+5. **백업 중지** 메뉴에서 데이터를 보존할지 아니면 삭제할지 선택합니다. 원하는 경우 이유나 설명을 입력합니다.
 
     ![백업 중지 메뉴에서 데이터 보존 또는 삭제](./media/backup-azure-sql-database/stop-backup-button.png)
 
-6. **백업 중지**를 선택 합니다.
+6. **백업 중지**를 선택합니다.
 
 > [!NOTE]
 >
@@ -98,7 +97,7 @@ SQL database에 대 한 보호를 중지 하는 경우 **백업 데이터 보존
 
 SQL database에 대 한 보호를 다시 시작 하려면:
 
-1. 백업 항목을 열고 **백업 다시 시작**을 선택 합니다.
+1. 백업 항목을 열고 **백업 다시 시작**을 선택합니다.
 
     ![백업 다시 시작을 선택하여 데이터베이스 보호 다시 시작](./media/backup-azure-sql-database/resume-backup-button.png)
 
@@ -121,7 +120,7 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
 보호를 사용 하지 않도록 설정 하 고 자격 증명 모음을 삭제 하기 전에 SQL Server 인스턴스를 등록 취소 합니다.
 
-1. 자격 증명 모음 대시보드의 **관리**에서 **백업 인프라**를 선택 합니다.  
+1. 자격 증명 모음 대시보드의 **관리** 아래에서 **백업 인프라**를 선택합니다.  
 
    ![백업 인프라 선택](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -140,29 +139,29 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 정책을 수정 하 여 백업 빈도 또는 보존 범위를 변경 합니다.
 
 > [!NOTE]
-> 보존 기간을 변경 하면 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
+> 보존 기간의 변경 내용은 새 복구 지점이 아닌 모든 이전 복구 지점에 소급 적용됩니다.
 
-자격 증명 모음 대시보드에서**백업 정책** **관리** > 로 이동 하 여 편집 하려는 정책을 선택 합니다.
+자격 증명 모음 대시보드에서 백업 정책 **관리**로 이동 하 여  >  **Backup Policies** 편집 하려는 정책을 선택 합니다.
 
   ![백업 정책 관리](./media/backup-azure-sql-database/modify-backup-policy.png)
 
   ![백업 정책 수정](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-정책 수정은 관련 된 모든 백업 항목 및 트리거 **구성 보호** 작업에 영향을 줍니다.
+정책 수정은 관련된 모든 백업 항목에 영향을 주며 해당하는 **보호 구성** 작업을 트리거합니다.
 
-### <a name="inconsistent-policy"></a>일관 되지 않은 정책
+### <a name="inconsistent-policy"></a>일관성 없는 정책
 
-경우에 따라 정책 수정 작업을 수행 하면 일부 백업 항목에 대해 **일관** 되지 않은 정책 버전이 발생할 수 있습니다. 이는 정책 수정 작업이 트리거된 후 백업 항목에 대 한 해당 **보호 구성** 작업이 실패할 때 발생 합니다. 백업 항목 보기에서 다음과 같이 표시 됩니다.
+경우에 따라 정책 수정 작업을 수행 하면 일부 백업 항목에 대해 **일관** 되지 않은 정책 버전이 발생할 수 있습니다. 정책 수정 작업이 트리거된 후 백업 항목에 대한 **보호 구성** 작업이 실패하는 경우 이러한 상황이 발생합니다. 백업 항목 보기에 다음과 같이 나타납니다.
 
-  ![일관 되지 않은 정책](./media/backup-azure-sql-database/inconsistent-policy.png)
+  ![일관성 없는 정책](./media/backup-azure-sql-database/inconsistent-policy.png)
 
-한 번의 클릭으로 영향을 받는 모든 항목에 대 한 정책 버전을 수정할 수 있습니다.
+한 번의 클릭으로 영향을 받는 모든 항목에 대한 정책 버전을 수정할 수 있습니다.
 
   ![일관 되지 않은 정책 수정](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>SQL Server VM 확장을 다시 등록 합니다.
 
-경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 기타에 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업은 실패 하기 시작 합니다. 그런 다음 VM에서 확장을 다시 등록 해야 할 수 있습니다. 작업을 **다시 등록** 하면 작업을 계속할 수 있도록 VM에서 워크 로드 백업 확장 프로그램이 다시 설치 됩니다.
+경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 기타에 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업이 실패하기 시작합니다. 그런 다음, VM에서 확장을 다시 등록해야 할 수 있습니다. 작업을 **다시 등록** 하면 작업을 계속할 수 있도록 VM에서 워크 로드 백업 확장 프로그램이 다시 설치 됩니다.
 
 이 옵션은 주의 해 서 사용 해야 합니다. 이미 정상 상태의 VM에서 트리거되면이 작업을 수행 하면 확장이 다시 시작 됩니다. 이로 인해 모든 진행 중인 작업이 실패할 수 있습니다. 다시 등록 작업을 트리거하기 전에 하나 이상의 [증상](backup-sql-server-azure-troubleshoot.md#re-registration-failures) 을 확인 하세요.
 

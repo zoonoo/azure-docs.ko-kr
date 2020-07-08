@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273293"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
@@ -62,11 +61,11 @@ Cloud Shell는 지정 된 구독 내에서 저장소 계정에 Azure 파일 공�
 사용자는 저장소 계정 또는 구독 수준에서 사용 권한을 설정 하 여 파일에 대 한 액세스를 잠가야 합니다.
 
 ## <a name="supported-storage-regions"></a>지원되는 스토리지 지역
-현재 지역을 찾으려면 Bash에서 실행 `env` 하 여 변수 `ACC_LOCATION`를 찾거나 PowerShell을 실행할 `$env:ACC_LOCATION`수 있습니다. 파일 공유는 `$Home` 디렉터리를 유지하기 위해 만든 5GB 이미지를 수신합니다.
+현재 지역을 찾으려면 Bash에서 실행 하 여 `env` 변수를 찾거나 PowerShell을 실행할 수 있습니다 `ACC_LOCATION` `$env:ACC_LOCATION` . 파일 공유는 `$Home` 디렉터리를 유지하기 위해 만든 5GB 이미지를 수신합니다.
 
 Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 
-|영역|지역|
+|Area|지역|
 |---|---|
 |아메리카|미국 동부, 미국 중남부, 미국 서부|
 |유럽|북유럽, 서유럽|
@@ -80,7 +79,7 @@ Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 > [!NOTE]
 > 보조 지역이 사용 되는 경우 Cloud Shell의 파일 액세스 및 시작 시간이 느릴 수 있습니다.
 
-사용자는 PowerShell에서 `(Get-CloudDrive | Get-AzStorageAccount).Location` 를 실행 하 여 파일 공유의 위치를 볼 수 있습니다.
+사용자는 `(Get-CloudDrive | Get-AzStorageAccount).Location` PowerShell에서를 실행 하 여 파일 공유의 위치를 볼 수 있습니다.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Azure 리소스 정책으로 리소스 만들기 제한
 Cloud Shell에서 생성된 Storage 계정에 `ms-resource-usage:azure-cloud-shell` 태그가 지정됩니다. 사용자가 Cloud Shell에서 스토리지 계정을 만드는 것을 허용하지 않으려면 이 특정 태그로 트리거되는 [태그에 대한 Azure 리소스 정책](../azure-policy/json-samples.md)을 만듭니다.
@@ -96,14 +95,14 @@ Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다.
 ## <a name="clouddrive-commands"></a>clouddrive 명령
 
 ### <a name="use-the-clouddrive-command"></a>`clouddrive` 명령 사용
-Cloud Shell에서 라는 `clouddrive`명령을 실행할 수 있습니다 .이 명령을 사용 하면 Cloud Shell에 탑재 된 파일 공유를 수동으로 업데이트할 수 있습니다.
+Cloud Shell에서 라는 명령을 실행할 수 있습니다 .이 명령을 `clouddrive` 사용 하면 Cloud Shell에 탑재 된 파일 공유를 수동으로 업데이트할 수 있습니다.
 
 ![clouddrive 명령 실행](media/persisting-shell-storage/clouddrive-h.png)
 
 ### <a name="list-clouddrive"></a>목록 `clouddrive`
 `clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
 
-clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들어 `//storageaccountname.file.core.windows.net/filesharename`
+clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들면 `//storageaccountname.file.core.windows.net/filesharename`과 같습니다.
 
 ```
 justin@Azure:~$ df
@@ -122,7 +121,7 @@ justin@Azure:~$
 #### <a name="prerequisites-for-manual-mounting"></a>수동 마운트를 위한 필수 구성 요소
 `clouddrive mount` 명령을 사용하여 Cloud Shell과 연결된 파일 공유를 업데이트할 수 있습니다.
 
-기존 파일 공유를 탑재할 경우 스토리지 계정은 선택하는 Cloud Shell 영역에 있어야 합니다. 를 실행 `env` 하 고를 `ACC_LOCATION`확인 하 여 위치를 검색 합니다.
+기존 파일 공유를 탑재할 경우 스토리지 계정은 선택하는 Cloud Shell 영역에 있어야 합니다. 를 실행 하 고를 확인 하 여 위치를 검색 합니다 `env` `ACC_LOCATION` .
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` 명령
 

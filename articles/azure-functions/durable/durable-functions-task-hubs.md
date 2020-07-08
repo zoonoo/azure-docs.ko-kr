@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81604607"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
@@ -41,9 +40,9 @@ Orchestrator, entity 또는 activity 함수를 실행 하거나 실행 하도록
 * 문자로 시작
 * 의 최소 길이는 3 자, 최대 길이는 45 자입니다.
 
-작업 허브 이름은 다음 예제와 같이 *호스트 json* 파일에 선언 됩니다.
+작업 허브 이름은 다음 예제와 같이 파일 *에host.js* 선언 됩니다.
 
-### <a name="hostjson-functions-20"></a>host. json (함수 2.0)
+### <a name="hostjson-functions-20"></a>host.js(함수 2.0)
 
 ```json
 {
@@ -66,9 +65,9 @@ Orchestrator, entity 또는 activity 함수를 실행 하거나 실행 하도록
 }
 ```
 
-다음 `host.json` 예제 파일에 표시 된 것 처럼 앱 설정을 사용 하 여 작업 허브를 구성할 수도 있습니다.
+다음 예제 파일에 표시 된 것 처럼 앱 설정을 사용 하 여 작업 허브를 구성할 수도 있습니다 `host.json` .
 
-### <a name="hostjson-functions-10"></a>host. json (함수 1.0)
+### <a name="hostjson-functions-10"></a>host.js(함수 1.0)
 
 ```json
 {
@@ -78,7 +77,7 @@ Orchestrator, entity 또는 activity 함수를 실행 하거나 실행 하도록
 }
 ```
 
-### <a name="hostjson-functions-20"></a>host. json (함수 2.0)
+### <a name="hostjson-functions-20"></a>host.js(함수 2.0)
 
 ```json
 {
@@ -125,7 +124,7 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -146,13 +145,13 @@ public static async Task<HttpResponseMessage> Run(
 
 | 지 속성 확장 버전 | 기본 작업 허브 이름 |
 | - | - |
-| 2.x | Azure에 배포 된 경우 작업 허브 이름은 _함수 앱_의 이름에서 파생 됩니다. Azure 외부에서 실행 되는 경우 기본 작업 허브 이름은 `TestHubName`입니다. |
-| 1.x | 모든 환경에 대 한 기본 작업 허브 이름은 `DurableFunctionsHub`입니다. |
+| 2.x | Azure에 배포 된 경우 작업 허브 이름은 _함수 앱_의 이름에서 파생 됩니다. Azure 외부에서 실행 되는 경우 기본 작업 허브 이름은 `TestHubName` 입니다. |
+| 1.x | 모든 환경에 대 한 기본 작업 허브 이름은 `DurableFunctionsHub` 입니다. |
 
 확장 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 > [!NOTE]
-> 이 이름은 공유 스토리지 계정에 여러 작업 허브가 있을 때 작업 허브를 다른 작업 허브에서 구분해줍니다. 여러 함수 앱이 한 공유 스토리지 계정을 공유하는 경우 *host.json* 파일의 각 작업 허브에 서로 다른 이름을 명시적으로 구성해야 합니다. 그렇지 않으면 여러 함수 앱에서 메시지에 대해 서로 경쟁 하 게 됩니다 .이로 인해 `Pending` 또는 `Running` 상태에서 예기치 않게 "중지" 된 오케스트레이션이 포함 된 정의 되지 않은 동작이 발생할 수 있습니다.
+> 이 이름은 공유 스토리지 계정에 여러 작업 허브가 있을 때 작업 허브를 다른 작업 허브에서 구분해줍니다. 여러 함수 앱이 한 공유 스토리지 계정을 공유하는 경우 *host.json* 파일의 각 작업 허브에 서로 다른 이름을 명시적으로 구성해야 합니다. 그렇지 않으면 여러 함수 앱에서 메시지에 대해 서로 경쟁 하 게 됩니다 .이로 인해 또는 상태에서 예기치 않게 "중지" 된 오케스트레이션이 포함 된 정의 되지 않은 동작이 발생할 수 있습니다 `Pending` `Running` .
 
 ## <a name="next-steps"></a>다음 단계
 

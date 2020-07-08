@@ -4,10 +4,9 @@ description: Application Insights로 Java 웹 사이트의 확장된 성능 및 
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537545"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
@@ -16,7 +15,7 @@ ms.locfileid: "81537545"
 [Application Insights로 Java 웹앱을 계측][java]한 경우, Java Agent를 사용하여 코드의 변경 없이 보다 심층적인 정보를 얻을 수 있습니다.
 
 * **종속성:** 애플리케이션이 다음을 포함한 다른 구성 요소에 수행하는 호출에 대한 데이터:
-  * Apache HttpClient, OkHttp 및 `java.net.HttpURLConnection` 를 통해 생성 된 **나가는 HTTP 호출은** 캡처됩니다.
+  * Apache HttpClient, OkHttp 및를 통해 생성 된 **나가는 HTTP 호출은** `java.net.HttpURLConnection` 캡처됩니다.
   * Jedis 클라이언트를 통해 수행 된 **Redis 호출은** 캡처됩니다.
   * **JDBC 쿼리** -MySQL 및 PostgreSQL의 경우 호출이 10 초 보다 오래 걸리면 에이전트가 쿼리 계획을 보고 합니다.
 
@@ -26,8 +25,8 @@ ms.locfileid: "81537545"
   * **Logback**
 
 * **더 나은 작업 이름 지정:** (포털에서 요청을 집계 하는 데 사용 됨)
-  * **스프링** 기반 `@RequestMapping`.
-  * **Jax-rs-RS** 기반 `@Path`. 
+  * **스프링** 기반 `@RequestMapping` .
+  * **Jax-rs-RS** 기반 `@Path` . 
 
 Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Application Insights Java SDK][java]를 사용하여 웹앱을 계측해야 합니다. 
 
@@ -89,7 +88,7 @@ Azure 앱 서비스에 대해 다음을 수행 합니다.
 최신 버전의 Java 에이전트는 [여기](https://github.com/Microsoft/ApplicationInsights-Java/releases
 )에서 릴리스를 확인 하세요. 
 
-에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구** > **고급 도구** > **디버그 콘솔** 로 이동 하 여 사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
+에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구**  >  **고급 도구**디버그 콘솔로 이동 하 여  >  **Debug Console** 사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
 
 * 설정을 저장하고 앱을 다시 시작합니다. 이러한 단계는 Windows에서 실행 되는 App Services에만 적용 됩니다.
 
@@ -122,7 +121,7 @@ Application Insights 리소스에서 집계 된 원격 종속성과 메서드 �
 
 [종속성 문제 진단 - 자세한 내용](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
+## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 * 데이터가 없나요? [방화벽 예외 설정](../../azure-monitor/app/ip-addresses.md)
 * [Java 문제 해결](java-troubleshoot.md)
 

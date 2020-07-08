@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: a0a2f703d9224b8b9dd77c80b2b6a7faee70f5bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538106"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본 추가
@@ -25,7 +24,7 @@ ms.locfileid: "81538106"
 > [!NOTE]
 > 이 문서의 지침은 Azure Time Series Insights GA 및 Time Series Insights 미리 보기 환경에 적용됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Time Series Insights 환경을](time-series-insights-update-create-environment.md)만듭니다.
 * [Azure Portal을 사용하여 IoT Hub](../iot-hub/iot-hub-create-through-portal.md)를 만듭니다.
@@ -83,7 +82,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
       다음 표에서는 **수동으로 IoT Hub 설정 제공**에 대한 필수 속성을 설명합니다.
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
        | 구독 ID | 원하는 iot hub가 속한 구독입니다. |
        | Resource group | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다. |
@@ -93,7 +92,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
     * 두 옵션 모두 다음 구성 옵션을 공유 합니다.
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
        | IoT Hub 소비자 그룹 | IoT Hub에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다. |
        | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |

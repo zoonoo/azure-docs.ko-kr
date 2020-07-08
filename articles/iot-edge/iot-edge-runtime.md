@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730899"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
@@ -73,9 +72,9 @@ IoT Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서�
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-ModuleClient 클래스 및 해당 통신 방법에 대 한 자세한 내용은 [c #](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [c](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)또는 [node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)와 같은 기본 SDK 언어에 대 한 API 참조를 참조 하세요.
+ModuleClient 클래스 및 해당 통신 방법에 대 한 자세한 내용은 [c #](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [c](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)또는 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)의 기본 SDK 언어에 대 한 API 참조를 참조 하세요.
 
-솔루션 개발자는 IoT Edge 허브에서 모듈 간에 메시지를 전달하는 방식을 결정하는 규칙을 지정합니다. 라우팅 규칙은 클라우드에서 정의 되며 모듈 쌍의 IoT Edge 허브로 푸시됩니다. IoT Hub 경로에 대한 동일한 구문이 Azure IoT Edge의 모듈 간 경로를 정의하는 데 사용됩니다. 자세한 내용은 [모듈을 배포 하 고 IoT Edge에서 경로를 설정 하는 방법 알아보기](module-composition.md)를 참조 하세요.
+솔루션 개발자는 IoT Edge 허브에서 모듈 간에 메시지를 전달하는 방식을 결정하는 규칙을 지정합니다. 라우팅 규칙은 클라우드에서 정의 되며 모듈 쌍의 IoT Edge 허브로 푸시됩니다. IoT Hub 경로에 대한 동일한 구문이 Azure IoT Edge의 모듈 간 경로를 정의하는 데 사용됩니다. 자세한 내용은 [IoT Edge에서 모듈 배포 및 경로를 설정하는 방법 알아보기](module-composition.md)을 참조하세요.
 
 ![모듈 간 경로는 IoT Edge 허브를 통과합니다.](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
@@ -93,8 +92,8 @@ IoT Edge 에이전트는 Azure IoT Edge 런타임을 구성하는 다른 모듈�
 
   * 다운로드 중
   * 실행 중
-  * Unhealthy
-  * Failed
+  * 비정상
+  * 실패
   * 중지됨
 
 * **restartPolicy** – IoT Edge 에이전트에서 모듈을 다시 시작하는 방법입니다. 가능한 값은 다음과 같습니다.
@@ -118,7 +117,7 @@ IoT Edge 에이전트는 IoT Hub에 런타임 응답을 보냅니다. 가능한 
 * 406 - IoT Edge 디바이스가 오프라인 상태이거나 상태 보고서를 전송하지 않습니다.
 * 500 - IoT Edge 런타임에서 오류가 발생했습니다.
 
-자세한 내용은 [모듈을 배포 하 고 IoT Edge에서 경로를 설정 하는 방법 알아보기](module-composition.md)를 참조 하세요.
+자세한 내용은 [IoT Edge에서 모듈 배포 및 경로를 설정하는 방법 알아보기](module-composition.md)을 참조하세요.
 
 ### <a name="security"></a>보안
 

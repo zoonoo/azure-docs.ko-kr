@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: aa65b789d02c60ef6042aa62e1c138c0e1bd7224
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676908"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
@@ -210,7 +209,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    fdisk /dev/sdc
    ```
    
-   위에 제공 된 대답을 사용 하 여 `fdisk` 명령에 대 한 출력은 다음과 같습니다.
+   위에 제공 된 대답을 사용 하 여 명령에 대 한 출력은 `fdisk` 다음과 같습니다.
 
    ```output
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -246,7 +245,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
    Syncing disks.
    ```
 
-4. , `/dev/sde`및 `/dev/sdf`에 `fdisk` 대해 `/dev/sdd`이전 명령을 반복 합니다.
+4. `fdisk`, 및에 대해 이전 명령을 반복 `/dev/sdd` `/dev/sde` `/dev/sdf` 합니다.
 
 5. 디스크 구성을 확인합니다.
 
@@ -427,7 +426,7 @@ Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증**으로 이동 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
+6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결**  >  **SSH**  >  **인증**으로 이동 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
 
    ![SSH 인증 옵션의 스크린샷](./media/oracle-asm/setprivatekey.png)
 

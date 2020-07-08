@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606528"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 집계 변환
@@ -45,16 +44,16 @@ Group by 절은 집계 변환에서 선택 사항입니다.
 
 집계 변환은 SQL 집계 select 쿼리와 유사 합니다. Group by 절 또는 집계 함수에 포함 되지 않은 열은 집계 변환의 출력으로 이동 하지 않습니다. 집계 된 출력에 다른 열을 포함 하려는 경우 다음 방법 중 하나를 수행 합니다.
 
-* 또는 `last()` `first()` 와 같은 집계 함수를 사용 하 여 추가 열을 포함 합니다.
+* 또는와 같은 집계 함수 `last()` 를 사용 `first()` 하 여 추가 열을 포함 합니다.
 * [자체 조인 패턴](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/)을 사용 하 여 열을 출력 스트림에 다시 조인 합니다.
 
 ## <a name="removing-duplicate-rows"></a>중복 행 제거
 
-집계 변환의 일반적인 용도는 원본 데이터에서 중복 항목을 제거 하거나 식별 하는 것입니다. 이 프로세스를 중복 제거 라고 합니다. Group by 키 집합을 기반으로 하 여 선택한 추론을 사용 하 여 유지할 중복 행을 결정 합니다. 일반적인 추론은 `first()`, `last()` `max()`, 및 `min()`입니다. [열 패턴](concepts-data-flow-column-pattern.md) 을 사용 하 여 group by 열을 제외한 모든 열에 규칙을 적용할 수 있습니다.
+집계 변환의 일반적인 용도는 원본 데이터에서 중복 항목을 제거 하거나 식별 하는 것입니다. 이 프로세스를 중복 제거 라고 합니다. Group by 키 집합을 기반으로 하 여 선택한 추론을 사용 하 여 유지할 중복 행을 결정 합니다. 일반적인 추론은 `first()` , `last()` , `max()` 및 `min()` 입니다. [열 패턴](concepts-data-flow-column-pattern.md) 을 사용 하 여 group by 열을 제외한 모든 열에 규칙을 적용할 수 있습니다.
 
 ![중복 제거](media/data-flow/agg-dedupe.png "중복 제거")
 
-위의 예제에서 및 `ProductID` `Name` 열은 그룹화에 사용 됩니다. 이러한 두 열에 대해 두 행의 값이 같으면 중복 된 것으로 간주 됩니다. 이 집계 변환에서는 일치 하는 첫 번째 행의 값이 유지 되 고 나머지는 삭제 됩니다. 열 패턴 구문을 사용 하 여 이름이 `ProductID` `Name` 이 아닌 모든 열은 기존 열 이름에 매핑되고 일치 하는 첫 번째 행의 값을 지정 합니다. 출력 스키마는 입력 스키마와 동일 합니다.
+위의 예제에서 `ProductID` 및 열 `Name` 은 그룹화에 사용 됩니다. 이러한 두 열에 대해 두 행의 값이 같으면 중복 된 것으로 간주 됩니다. 이 집계 변환에서는 일치 하는 첫 번째 행의 값이 유지 되 고 나머지는 삭제 됩니다. 열 패턴 구문을 사용 하 여 이름이이 아닌 모든 `ProductID` 열 `Name` 은 기존 열 이름에 매핑되고 일치 하는 첫 번째 행의 값을 지정 합니다. 출력 스키마는 입력 스키마와 동일 합니다.
 
 데이터 유효성 검사 시나리오의 경우 `count()` 함수를 사용 하 여 중복 된 항목 수를 계산할 수 있습니다.
 
@@ -81,9 +80,9 @@ Group by 절은 집계 변환에서 선택 사항입니다.
 
 ### <a name="example"></a>예제
 
-아래 예제에서는 들어오는 스트림을 `MoviesYear` 사용 하 고 열 `year`을 기준으로 행을 그룹화 합니다. 이 변환은 열의 `Rating`평균으로 계산 `avgrating` 되는 집계 열을 만듭니다. 이 집계 변환의 이름은 `AvgComedyRatingsByYear`입니다.
+아래 예제에서는 들어오는 스트림을 사용 `MoviesYear` 하 고 열을 기준으로 행을 그룹화 `year` 합니다. 이 변환은 `avgrating` 열의 평균으로 계산 되는 집계 열을 만듭니다 `Rating` . 이 집계 변환의 이름은 `AvgComedyRatingsByYear` 입니다.
 
-Data Factory UX에서이 변환은 아래 이미지와 같습니다.
+Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
 
 ![예제 별 그룹화](media/data-flow/agg-script1.png "예제 별 그룹화")
 
@@ -100,7 +99,7 @@ MoviesYear aggregate(
 
 ![집계 데이터 흐름 스크립트](media/data-flow/aggdfs1.png "집계 데이터 흐름 스크립트")
 
-```MoviesYear```: Year 및 title 열 ```AvgComedyRatingByYear```을 정의 하는 파생 열: 연도 ```avgrating```를 기준으로 그룹화 된 comedies의 평균 등급 집계 변환: 집계 된 값을 보유 하기 위해 생성 되는 새 열의 이름
+```MoviesYear```: Year 및 title 열을 정의 하는 파생 열 ```AvgComedyRatingByYear``` : 연도를 기준으로 그룹화 된 comedies의 평균 등급 집계 변환: ```avgrating``` 집계 된 값을 보유 하기 위해 생성 되는 새 열의 이름
 
 ```
 MoviesYear aggregate(groupBy(year),

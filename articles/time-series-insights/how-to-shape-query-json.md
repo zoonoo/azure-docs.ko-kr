@@ -10,17 +10,16 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641288"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>JSON 셰이프 쿼리 성능 최대화
 
 이 문서에서는 Azure Time Series Insights 쿼리의 효율성을 최대화 하기 위해 JSON 셰이프를 만드는 방법에 대 한 지침을 제공 합니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>저장소 요구 사항에 맞게 JSON을 셰이핑 하는 모범 사례를 알아봅니다.</br>
 
@@ -165,7 +164,7 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
 
 * 키 속성이 **deviceId** 및 **tagId**인 참조 데이터 테이블:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | 단위 |
+   | deviceId | series.tagId | messageId | deviceLocation | 형식 | 단위 |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 흐름 속도 | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi |
@@ -174,7 +173,7 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
 
 * Time Series Insights 이벤트 테이블, 평면화 후:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | 단위 | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | 형식 | 단위 | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 흐름 속도 | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi | 2018-01-17T01:17:00Z | 34.7 |

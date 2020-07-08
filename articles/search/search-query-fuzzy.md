@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81262437"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>철자 및 오타를 수정 하는 유사 항목 검색
@@ -21,7 +20,7 @@ Azure Cognitive Search는 입력 문자열에서 오타가 나 철자가 틀린 
 
 ## <a name="what-is-fuzzy-search"></a>유사 항목 검색 이란?
 
-비슷한 컴퍼지션이 있는 용어와 일치 하는 항목을 생성 하는 확장 연습입니다. 유사 항목 검색이 지정 된 경우 엔진은 쿼리의 모든 용어에 대해 유사 하 게 구성 된 용어의 [automaton](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)을 기반으로 그래프를 작성 합니다. 예를 들어 쿼리에 세 가지 용어 "워싱턴"이 포함 되어 있는 경우 쿼리의 `search=university~ of~ washington~` 모든 용어에 대해 그래프가 생성 됩니다. 유사 항목 검색에서 중지 단어를 제거 하지 않으므로 "의"는 그래프를 가져옵니다.
+비슷한 컴퍼지션이 있는 용어와 일치 하는 항목을 생성 하는 확장 연습입니다. 유사 항목 검색이 지정 된 경우 엔진은 쿼리의 모든 용어에 대해 유사 하 게 구성 된 용어의 [automaton](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)을 기반으로 그래프를 작성 합니다. 예를 들어 쿼리에 세 가지 용어 "워싱턴"이 포함 되어 있는 경우 쿼리의 모든 용어에 대해 그래프가 생성 됩니다 `search=university~ of~ washington~` . 유사 항목 검색에서 중지 단어를 제거 하지 않으므로 "의"는 그래프를 가져옵니다.
 
 그래프는 프로세스에서 정확 하 고 잘못 된 변형을 모두 캡처하기 위해 각 용어의 최대 50 확장 또는 순열으로 구성 됩니다. 그런 다음 엔진은 응답에서 가장 관련성이 높은 일치 항목을 반환 합니다. 
 
@@ -33,7 +32,7 @@ Azure Cognitive Search에서 다음을 수행 합니다.
 
 + 유사 항목 쿼리는 전체 용어에 적용 되지만 및 구문을 통해 구를 지원할 수 있습니다. 예를 들어 "Unviersty ~ of ~" Wshington ~ "는" 대학 대학 "과 일치 합니다.
 
-+ 편집의 기본 거리는 2입니다. 값은 확장 `~0` 을 의미 하지 않으며 (정확히 일치 하는 경우에만 일치 하는 것으로 간주 `~1` 됨) 하나의 차이 또는 하나의 편집을 지정할 수 있습니다. 
++ 편집의 기본 거리는 2입니다. 값은 `~0` 확장을 의미 하지 않으며 (정확히 일치 하는 경우에만 일치 하는 것으로 간주 됨) `~1` 하나의 차이 또는 하나의 편집을 지정할 수 있습니다. 
 
 + 유사 항목 쿼리는 최대 50 개의 추가 순열의 용어를 확장할 수 있습니다. 이 한도는 구성할 수 없지만, 편집 거리를 1로 줄여서 확장 수를 효과적으로 줄일 수 있습니다.
 
@@ -58,13 +57,13 @@ Azure Cognitive Search에서 다음을 수행 합니다.
 
 유사 항목 쿼리는 [lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)를 호출 하 여 full Lucene 쿼리 구문을 사용 하 여 생성 됩니다.
 
-1. 쿼리에서 전체 Lucene 파서를 설정 합니다 (`queryType=full`).
+1. 쿼리에서 전체 Lucene 파서를 설정 `queryType=full` 합니다 ().
 
-1. 필요에 따라이 매개 변수 (`searchFields=<field1,field2>`)를 사용 하 여 요청 범위를 특정 필드로 지정 합니다. 
+1. 필요에 따라이 매개 변수 ()를 사용 하 여 요청 범위를 특정 필드로 지정 `searchFields=<field1,field2>` 합니다. 
 
-1. 전체 용어 (`search=<string>~`)`~`의 끝에 물결표 () 연산자를 추가 합니다.
+1. `~`전체 용어 ()의 끝에 물결표 () 연산자를 추가 `search=<string>~` 합니다.
 
-   편집 거리 (`~1`)를 지정 하려는 경우 0과 2 사이의 숫자 (기본값)를 포함 하는 선택적 매개 변수를 포함 합니다. 예를 들어, "blue~" 또는 "blue~1"은 "blue", "blues" 및 "glue"를 반환합니다.
+   편집 거리 ()를 지정 하려는 경우 0과 2 사이의 숫자 (기본값)를 포함 하는 선택적 매개 변수를 포함 `~1` 합니다. 예를 들어, "blue~" 또는 "blue~1"은 "blue", "blues" 및 "glue"를 반환합니다.
 
 용어 및 거리 (최대 2 개) 외에 Azure Cognitive Search에는 쿼리에 대해 설정할 추가 매개 변수가 없습니다.
 
@@ -82,7 +81,7 @@ Azure Cognitive Search에서 다음을 수행 합니다.
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>예제 1: 정확한 단어를 사용 하 여 유사 항목 검색
 
-검색 문서의 `"Description"` 필드에 다음 문자열이 있다고 가정 합니다.`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+검색 문서의 필드에 다음 문자열이 있다고 가정 합니다 `"Description"` .`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 "특수"에서 유사 항목 검색을 시작 하 고 설명 필드에 적중 항목 강조 표시를 추가 합니다.
 
@@ -120,7 +119,7 @@ Azure Cognitive Search에서 다음을 수행 합니다.
 
 이 확장 된 예제는 적중 항목 강조 표시에서 모호한 결과를 가져올 수 있는 명확성을 보여 주기 위한 것입니다. 모든 경우에 동일한 문서가 반환 됩니다. 문서 Id에 의존 하 여 일치 하는 항목을 확인 했으므로 "특수"에서 "SQL"로의 이동이 누락 되었을 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식 (쿼리 구문 분석 아키텍처)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)

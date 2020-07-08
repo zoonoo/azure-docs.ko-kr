@@ -14,10 +14,9 @@ ms.date: 07/18/2019
 ms.author: borisb
 ms.custom: ''
 ms.openlocfilehash: f36dfe0092e3447053871ee0e5b4d659bb443779
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687476"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Azure에서 Oracle 응용 프로그램을 배포 하는 아키텍처
@@ -44,7 +43,7 @@ Oracle 응용 프로그램은 여러 서비스로 구성 되며,이는 Azure의 
 
 클라우드 간 상호 연결을 사용 하 여 응용 프로그램을 배포 하는 경우 기존 Express 경로 회로를 계속 사용 하 여 Azure 환경을 온-프레미스 네트워크에 연결할 수 있습니다. 그러나 온-프레미스 네트워크에 연결 하는 것 보다 OCI와의 상호 연결에 대 한 별도의 Express 경로 회로가 필요 합니다.
 
-## <a name="e-business-suite"></a>E-비즈니스 제품군
+## <a name="e-business-suite"></a>E-Business Suite
 
 Oracle EBS (E-비즈니스 제품군)는 SCM (공급망 Management) 및 CRM (고객 관계 관리)을 포함 하는 응용 프로그램 모음입니다. OCI의 관리 되는 데이터베이스 포트폴리오를 활용 하려면 Microsoft Azure와 OCI 간의 클라우드 간 상호 연결을 사용 하 여 EBS를 배포할 수 있습니다. 이 구성에서 프레젠테이션 및 응용 프로그램 계층은 다음 아키텍처 다이어그램에 표시 된 것 처럼 Azure에서 실행 되 고 OCI의 데이터베이스 계층에 실행 됩니다 (그림 1).
 
@@ -79,7 +78,7 @@ Azure 부하 분산 장치를 사용 하면 여러 작업 인스턴스에 트래
 Microsoft 및 Oracle에서는 고가용성 설정을 사용 하는 것이 좋습니다. Azure의 고가용성은 Oracle Data Guard를 사용 하 여 두 개의 Oracle 데이터베이스를 설정 하거나 OCI의 Oracle Database Exadata 클라우드 서비스를 사용 하 여 구현할 수 있습니다. Oracle Database Exadata 클라우드 서비스를 사용 하는 경우 데이터베이스는 두 개의 서브넷에 배포 됩니다. Oracle Data Guard를 사용 하는 두 개의 가용성 도메인에서 OCI의 Vm에 Oracle Database를 설정할 수도 있습니다.
 
 
-### <a name="identity-tier"></a>Id 계층
+### <a name="identity-tier"></a>ID 계층
 
 Id 계층에는 EBS Asserter VM이 포함 됩니다. EBS Asserter를 사용 하 여 Oracle Identity Cloud Service (IDCS) 및 Azure AD에서 id를 동기화 할 수 있습니다. EBS Asserter는 EBS가 SAML 2.0 또는 Openid connect Connect와 같은 Single Sign-On 프로토콜을 지원 하지 않기 때문에 필요 합니다. EBS Asserter는 IDCS에 의해 생성 된 Openid connect connect 토큰을 사용 하 고 유효성을 검사 한 다음 EBS에서 사용자에 대 한 세션을 만듭니다. 
 
@@ -193,4 +192,4 @@ PeopleTools Client는 개발, 마이그레이션 및 업그레이드와 같은 �
 
 [Terraform 스크립트](https://github.com/microsoft/azure-oracle) 를 사용 하 여 Azure에서 Oracle 앱을 설정 하 고 OCI를 사용 하 여 클라우드 간 연결을 설정 합니다.
 
-OCI에 대 한 자세한 내용 및 백서는 [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) 설명서를 참조 하세요.
+OCI에 대한 자세한 내용 및 백서는 [Oracle 클라우드](https://docs.cloud.oracle.com/iaas/Content/home.htm) 설명서를 참조하세요.

@@ -14,10 +14,9 @@ ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: borisb
 ms.openlocfilehash: 70556cbbfefd6ad22ef96ee16065209031ea456c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683762"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
@@ -25,12 +24,12 @@ ms.locfileid: "81683762"
 [통합 된 다중 클라우드 환경을](oracle-oci-overview.md)만들기 위해 Microsoft와 Oracle은 [Express](../../../expressroute/expressroute-introduction.md) 경로 및 [FASTCONNECT](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)를 통해 Azure와 OCI (oracle cloud Infrastructure) 간에 직접 연결을 제공 합니다. Express 경로 및 FastConnect 연결을 통해 고객은 두 클라우드 간에 짧은 대기 시간, 높은 처리량, 개인 직접 연결을 경험할 수 있습니다.
 
 > [!IMPORTANT]
-> Oracle은 2020 년 5 월까지 Azure/Oracle 클라우드 상호 연결 솔루션을 사용 하는 경우 Azure에서 실행 되도록 이러한 응용 프로그램을 인증 합니다.
-> * E-비즈니스 제품군
+> 2020년 5월까지 Oracle은 Azure/Oracle Cloud 상호 연결 솔루션을 사용하여 이러한 애플리케이션을 Azure에서 실행하도록 인증할 것입니다.
+> * E-Business Suite
 > * JD Edwards EnterpriseOne
 > * PeopleSoft
-> * Oracle 소매 응용 프로그램
-> * Oracle Hyperion 금융 관리
+> * Oracle Retail 애플리케이션
+> * Oracle Hyperion Financial Management
 
 다음 이미지는 상호 교차 수준 개요를 보여 줍니다.
 

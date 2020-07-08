@@ -4,10 +4,9 @@ description: Hyper-v Vm을 평가 하 고 마이그레이션하기 위해 Azure 
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538293"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Hyper-v Vm에 대 한 어플라이언스 설정
@@ -65,7 +64,7 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
     ![VHD 배포](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. Virtual Machine 가져오기 마법사 > **시작하기 전에**에서 **다음**을 클릭합니다.
-3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. 그런 후 **Next** 를 클릭합니다.
+3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. **다음**을 클릭합니다.
 1. **Virtual Machine 선택**에서 **다음**을 클릭합니다.
 2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그런 후 **Next** 를 클릭합니다.
 3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.

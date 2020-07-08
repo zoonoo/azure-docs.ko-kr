@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 9029ece923b7cda09c7a57d07736791e241c9e70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310679"
 ---
 # <a name="security-agent-reference-architecture"></a>보안 에이전트 참조 아키텍처
@@ -47,7 +46,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center는 오픈 소스 프로
 
 IoT에 대 한 Azure Security Center는 32 비트 및 64 비트 Windows 용 설치 관리자 에이전트를 제공 하 고, 32 비트 및 64 비트 Linux의 경우 동일 합니다. 다음 표에 따라 각 장치에 대 한 올바른 에이전트 설치 관리자가 있는지 확인 합니다.
 
-| Architecture | Linux | Windows |    세부 정보|
+| Architecture | Linux | Windows |    설명|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
 | 32비트  | C  | C#  ||
 | 64비트  | C # 또는 C           | C#      | 더 제한 된 장치나 최소 장치 리소스를 사용 하는 장치에는 C 에이전트를 사용 하는 것이 좋습니다.|

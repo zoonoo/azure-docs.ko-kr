@@ -12,10 +12,9 @@ ms.custom:
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81684001"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
@@ -32,7 +31,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 1. 디바이스 모델에서 Protobuf 형식을 사용하여 지정
 1. Protobuf 형식 정의
 1. Protobuf 클래스 생성
-1. 로컬로 테스트
+1. 로컬에서 테스트
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -176,7 +175,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 다음은 그 예입니다.
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예를 들어:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -208,7 +207,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 장치 모델 JSON 및 JS 파일은 빌드된 솔루션에 복사 되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 다음은 그 예입니다.
+포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예를 들어:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -251,7 +250,7 @@ Postman을 설정하려면:
 
 1. **파일 \> 가져오기**를 차례로 클릭합니다. 그런 다음, **파일 선택**을 클릭합니다.
 
-1. **Azure Iot 장치 시뮬레이션 솔루션 가속기를 선택 합니다.\_Postman Collection** 및 **azure iot 장치 시뮬레이션 솔루션 가속기.\_Postman environment** 를 선택 하 고 **열기**를 클릭 합니다.
+1. **Azure Iot 장치 시뮬레이션 솔루션 가속기를 선택 합니다. postman \_ Collection** 및 **azure iot 장치 시뮬레이션 솔루션 가속기. postman \_ Environment** 를 선택 하 고 **열기**를 클릭 합니다.
 
 1. **Azure IoT 디바이스 시뮬레이션 솔루션 가속기**를 확장하여 보낼 수 있는 요청을 봅니다.
 

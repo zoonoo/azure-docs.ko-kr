@@ -9,10 +9,9 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
 ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687189"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
@@ -53,7 +52,7 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 
 * **프로토콜**은 HTTP 또는 HTTPS입니다. Docker 디먼은 컨테이너 레지스트리 설정에 따라 두 프로토콜 중 하나를 사용할 수 있지만, IoT Edge 디먼 및 런타임 컨테이너는 항상 HTTP를 사용 하 여 프록시에 연결 해야 합니다.
 
-* **proxy_host**는 프록시 서버의 주소입니다. 프록시 서버에 인증이 필요한 경우 **사용자**:**암호**\@**proxy_host**형식으로 프록시 호스트의 일부로 자격 증명을 제공할 수 있습니다.
+* **proxy_host**는 프록시 서버의 주소입니다. 프록시 서버에 인증이 필요한 경우 **사용자**:**암호** \@ **proxy_host**형식으로 프록시 호스트의 일부로 자격 증명을 제공할 수 있습니다.
 
 * **proxy_port**는 프록시가 네트워크 트래픽에 응답하는 네트워크 포트입니다.
 
@@ -69,7 +68,7 @@ Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패�
 
 Windows 장치에 IoT Edge 런타임을 설치 하는 경우 프록시 서버를 두 번 통과 해야 합니다. 첫 번째 연결은 설치 관리자 스크립트 파일을 다운로드 하 고 두 번째 연결은 설치 중에 필요한 구성 요소를 다운로드 하는 것입니다. Windows 설정에서 프록시 정보를 구성 하거나 PowerShell 명령에 프록시 정보를 직접 포함할 수 있습니다.
 
-다음 단계에서는 인수를 `-proxy` 사용 하 여 windows를 설치 하는 예를 보여 줍니다.
+다음 단계에서는 인수를 사용 하 여 windows를 설치 하는 예를 보여 줍니다 `-proxy` .
 
 1. 호출 WebRequest 명령에는 설치 관리자 스크립트에 액세스 하는 프록시 정보가 필요 합니다. 그런 다음 배포-IoTEdge 명령에 설치 파일을 다운로드 하기 위한 프록시 정보가 필요 합니다.
 
@@ -83,7 +82,7 @@ Windows 장치에 IoT Edge 런타임을 설치 하는 경우 프록시 서버를
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예제:
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -122,7 +121,7 @@ IoT Edge 디먼은 항상 HTTPS를 사용 하 여 IoT Hub에 요청을 보냅니
 sudo systemctl edit iotedge
 ```
 
-** \<프록시 URL>** 를 프록시 서버 주소 및 포트로 바꿔 다음 텍스트를 입력 합니다. 그런 다음 입력 내용을 저장하고 편집기를 종료합니다.
+다음 텍스트를 입력 하 고를 **\<proxy URL>** 프록시 서버 주소 및 포트로 바꿉니다. 그런 다음 입력 내용을 저장하고 편집기를 종료합니다.
 
 ```ini
 [Service]
@@ -149,7 +148,7 @@ systemctl show --property=Environment iotedge
 
 #### <a name="windows"></a>Windows
 
-관리자 권한으로 PowerShell 창을 연 후에 다음 명령을 실행해 새 환경 변수를 사용하여 레지스트리를 편집합니다. ** \<프록시 url>** 를 프록시 서버 주소 및 포트로 바꿉니다.
+관리자 권한으로 PowerShell 창을 연 후에 다음 명령을 실행해 새 환경 변수를 사용하여 레지스트리를 편집합니다. **\<proxy url>** 을 프록시 서버 주소 및 포트로 바꿉니다.
 
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Services\iotedge /v Environment /t REG_MULTI_SZ /d https_proxy=<proxy URL>
@@ -167,7 +166,7 @@ IoT Edge 에이전트는 모든 IoT Edge 디바이스에서 처음으로 시작�
 
 이 단계는 초기 장치를 설치 하는 동안 IoT Edge 장치에서 한 번 수행 됩니다.
 
-1. IoT Edge 디바이스에서 config.yaml 파일을 엽니다. Linux 시스템에서 이 파일의 위치는 **/etc/iotedge/config.yaml**입니다. Windows 시스템에서 이 파일의 위치는 **C:\ProgramData\iotedge\config.yaml**입니다. 구성 파일은 보호되어 있으므로 관리 권한이 있어야 액세스할 수 있습니다. Linux 시스템에서는 원하는 텍스트 편집기 `sudo` 에서 파일을 열기 전에 명령을 사용 합니다. Windows에서 관리자 권한으로 메모장과 같은 텍스트 편집기를 열고 파일을 엽니다.
+1. IoT Edge 디바이스에서 config.yaml 파일을 엽니다. Linux 시스템에서 이 파일의 위치는 **/etc/iotedge/config.yaml**입니다. Windows 시스템에서 이 파일의 위치는 **C:\ProgramData\iotedge\config.yaml**입니다. 구성 파일은 보호되어 있으므로 관리 권한이 있어야 액세스할 수 있습니다. Linux 시스템에서는 `sudo` 원하는 텍스트 편집기에서 파일을 열기 전에 명령을 사용 합니다. Windows에서 관리자 권한으로 메모장과 같은 텍스트 편집기를 열고 파일을 엽니다.
 
 2. config.yaml 파일에서 **Edge Agent module spec** 섹션을 찾습니다. IoT Edge 에이전트 정의에는 **env** 매개 변수가 포함되어 있으며, 이 매개 변수에 환경 변수를 추가할 수 있습니다.
 

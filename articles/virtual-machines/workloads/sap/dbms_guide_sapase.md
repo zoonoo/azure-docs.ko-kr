@@ -16,10 +16,9 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273208"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
@@ -50,7 +49,7 @@ Windows에 대 한 sap ASE 설치 설명서는 [windows 용 SAP Ase 설치 가�
 
 
 ## <a name="linux-operating-system-specific-settings"></a>Linux 운영 체제 관련 설정
-Linux Vm에서 프로필을 `saptune` 사용 하 여 실행 SAP-ASE Linux는 기본적으로 사용 하도록 설정 되 고 명령을 사용 하 여 확인할 수 있어야 합니다.  
+Linux Vm에서 프로필을 사용 하 여 실행 `saptune` SAP-ASE Linux는 기본적으로 사용 하도록 설정 되 고 명령을 사용 하 여 확인할 수 있어야 합니다.  
 
 `cat /proc/meminfo` 
 
@@ -61,7 +60,7 @@ Linux Vm에서 프로필을 `saptune` 사용 하 여 실행 SAP-ASE Linux는 기
 
 Sap NetWeaver 응용 프로그램에 대 한 SAP ASE는 [sap support #1928533 note](https://launchpad.support.sap.com/#/notes/1928533) 에 나열 된 모든 vm 유형에 대해 지원 됩니다. 보통 크기의 sap ASE 데이터베이스 서버에 사용 되는 일반적인 Vm 유형은 Esv3를 포함 합니다.  초대형 다중 테라바이트 데이터베이스는 M 시리즈 VM 유형을 활용할 수 있습니다. M 시리즈 쓰기 가속기를 사용 하 여 SAP ASE 트랜잭션 로그 디스크 쓰기 성능을 향상 시킬 수 있습니다. Sap ase에서 로그 쓰기를 수행 하는 방식 때문에 SAP ASE를 사용 하 여 신중 하 게 테스트 해야 쓰기 가속기.  [SAP support note #2816580](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 검토 하 고 성능 테스트를 실행 하는 것이 좋습니다.  
 쓰기 가속기은 트랜잭션 로그 디스크만을 위해 설계 되었습니다. 디스크 수준 캐시를 NONE으로 설정 해야 합니다. Azure 쓰기 가속기에 다른 DBMS와 유사한 향상 된 기능이 표시 되지 않는 경우에는 걱정할 필요가 없습니다. SAP ASE가 트랜잭션 로그에 기록 하는 방법에 따라 Azure 쓰기 가속기에서 가속이 거의 발생 하지 않을 수 있습니다.
-데이터 장치 및 로그 장치에는 별도의 디스크를 권장 합니다.  시스템 데이터베이스는 synonoa 이며 `saptools` 전용 디스크가 필요 하지 않으며 SAP 데이터베이스 데이터와 로그 장치를 포함 하는 디스크에 배치할 수 있습니다. 
+데이터 장치 및 로그 장치에는 별도의 디스크를 권장 합니다.  시스템 데이터베이스는 `saptools` synonoa 이며 전용 디스크가 필요 하지 않으며 SAP 데이터베이스 데이터와 로그 장치를 포함 하는 디스크에 배치할 수 있습니다. 
 
 ![SAP ASE에 대 한 저장소 구성](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
 
@@ -80,7 +79,7 @@ Sap NetWeaver 응용 프로그램에 대 한 SAP ASE는 [sap support #1928533 no
 
 SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E4s_v3 (4 개 vCPU/32gb RAM) | E4s_v3 (4 개 vCPU/32gb RAM) | --- |
 | 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
@@ -88,7 +87,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 | 데이터 장치 개수 | 4 | 4 | ---|
 | 로그 장치 개수 | 1 | 1 | --- |
 | 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
-| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
+| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
 | 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
@@ -101,7 +100,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 데이터베이스 크기가 250 GB – 750 GB (예: 작은 SAP Business Suite 시스템) 사이인 medium SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E16s_v3 (16 vCPU/128gb RAM) | E16s_v3 (16 vCPU/128gb RAM) | --- |
 | 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
@@ -109,7 +108,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 | 데이터 장치 개수 | 8 | 8 | ---|
 | 로그 장치 개수 | 1 | 1 | --- |
 | 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
-| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
+| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
 | 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
@@ -121,7 +120,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 데이터베이스 크기가 750 GB – 2000 GB (예: 대형 SAP Business Suite 시스템) 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
 | 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
@@ -129,7 +128,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 | 데이터 장치 개수 | 16 | 16 | ---|
 | 로그 장치 개수 | 1 | 1 | --- |
 | 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
-| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
+| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
 | 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
@@ -142,7 +141,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 전체적으로 사용 되는 더 큰 SAP Business Suite 시스템과 같이 데이터베이스 크기가 2tb 이상인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| Configuration | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | M 시리즈 (1.0 ~ 4.0 TB RAM)  | M 시리즈 (1.0 ~ 4.0 TB RAM) | --- |
 | 가속 네트워킹 | 사용 하도록 설정 | 사용 하도록 설정 | ---|
@@ -150,7 +149,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 | 데이터 장치 개수 | 32 | 32 | ---|
 | 로그 장치 개수 | 1 | 1 | --- |
 | 임시 장치 개수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
-| 운영 체제 | 시작 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
+| 운영 체제 | Windows Server 2019 | SUSE 12 SP4/15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
 | 형식 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
@@ -211,7 +210,7 @@ SAP 소프트웨어 프로 비전 관리자 (SWPM)는 설치 중에 데이터베
 - 올바른 스트라이프 크기 및 파일 시스템을 사용 하 여 Windows 저장소 공간 또는 Linux LVM2를 사용 하는 디스크 집계
 - 데이터, 로그, 임시 및 백업 목적으로 충분 한 수의 장치 만들기
 - X-대기업 시스템에 UltraDisk 사용 고려 
-- Linux `saptune` OS에서 SAP ASE 실행 
+- `saptune`LINUX OS에서 SAP ASE 실행 
 - DB 암호화를 사용 하 여 데이터베이스 보호 – 수동으로 키 저장 Azure Key Vault 
 - [Azure의 SAP 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 완료 
 - 로그 백업 및 전체 백업 구성 
@@ -221,7 +220,7 @@ SAP 소프트웨어 프로 비전 관리자 (SWPM)는 설치 중에 데이터베
 ## <a name="using-dbacockpit-to-monitor-database-instances"></a>DBACockpit를 사용 하 여 데이터베이스 인스턴스 모니터링
 SAP ASE를 데이터베이스 플랫폼으로 사용하는 SAP 시스템의 경우 DBACockpit는 트랜잭션 DBACockpit에 포함된 브라우저 창 또는 Webdynpro로 액세스할 수 있습니다. 그러나 데이터베이스 모니터링 및 관리를 위한 전체 기능은 DBACockpit의 Webdynpro 구현 에서만 사용할 수 있습니다.
 
-DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기능을 사용하려면 온-프레미스 시스템처럼 여러 단계가 필요합니다. 경우 사용을 사용 하도록 설정 하 고 필요한 항목을 생성 하려면 [SAP support note #1245200](https://launchpad.support.sap.com/#/notes/1245200) 를 따르세요. 위의 메모의 지침을 따르는 경우 http 및 https 연결에 사용할 포트와 함께 인터넷`ICM`통신 관리자 ()도 구성 합니다. HTTP의 기본 설정은 다음과 같이 표시됩니다.
+DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기능을 사용하려면 온-프레미스 시스템처럼 여러 단계가 필요합니다. 경우 사용을 사용 하도록 설정 하 고 필요한 항목을 생성 하려면 [SAP support note #1245200](https://launchpad.support.sap.com/#/notes/1245200) 를 따르세요. 위의 메모의 지침을 따르는 경우 `ICM` http 및 https 연결에 사용할 포트와 함께 인터넷 통신 관리자 ()도 구성 합니다. HTTP의 기본 설정은 다음과 같이 표시됩니다.
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -231,15 +230,15 @@ DBACockpit의 Webdynpro 구현에 의해 사용되는 모든 SAP NetWeaver 기�
 
 그리고 트랜잭션 DBACockpit에서 생성된 링크는 다음과 같이 표시됩니다.
 
-> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https: \/ / \<fullyqualifiedhostname> : 44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http: \/ / \<fullyqualifiedhostname> : 8000/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > 
 
 SAP 시스템을 호스트하는 Azure Virtual Machine이 AD 및 DNS에 연결된 방법에 따라 ICM이 DBACockpit를 여는 머신에서 확인할 수 있는 정규화된 호스트 이름을 사용하는지 확인해야 합니다. ICM에서 프로필 매개 변수에 따라 정규화 된 호스트 이름을 확인 하 고 필요한 경우 icm/host_name_full 매개 변수를 명시적으로 설정 하는 방법에 대 한 자세한 내용은 [SAP support note #773830](https://launchpad.support.sap.com/#/notes/773830) 를 참조 하세요.
 
-온-프레미스와 Azure 간의 크로스-프레미스 연결 없이 클라우드 전용 시나리오에서 VM을 배포한 경우 공용 IP 주소와를 `domainlabel`정의 해야 합니다. VM의 공용 DNS 이름 형식은 다음과 같이 표시됩니다.
+온-프레미스와 Azure 간의 크로스-프레미스 연결 없이 클라우드 전용 시나리오에서 VM을 배포한 경우 공용 IP 주소와를 정의 해야 `domainlabel` 합니다. VM의 공용 DNS 이름 형식은 다음과 같이 표시됩니다.
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
@@ -249,9 +248,9 @@ DNS 이름과 관련 된 자세한 내용은 [여기] [azurerm-azuresm]를 참�
 
 SAP 프로필 매개 변수 icm/host_name_full을 Azure VM의 DNS 이름으로 설정할 경우 링크는 다음과 같습니다.
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https: \/ /mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http: \/ /mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 이 경우 다음을 확인해야 합니다.
 

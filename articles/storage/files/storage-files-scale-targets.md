@@ -8,10 +8,9 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536445"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
@@ -80,7 +79,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 메모리 | 128GiB |
 | 디스크 | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
 | 네트워크 | 1Gbps 네트워크 |
-| 워크로드 | 범용 파일 서버|
+| 작업 | 범용 파일 서버|
 
 | 일회성 초기 프로비전  |  |
 |-|-|
@@ -110,7 +109,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 - 개체 처리량은 서버의 동기화 그룹 수에 비례하여 크기를 조정합니다. 서버의 여러 동기화 그룹으로 데이터를 분할하면 처리량이 향상됩니다. 처리량은 서버 및 네트워크에 의해서도 제한됩니다
 - 개체 처리량은 초당 MiB 처리량에 반비례합니다. 더 작은 파일의 경우 초당 처리된 개체 수 측면에서 더 높은 처리량이 발생하지만 초당 MiB 처리량은 더 낮습니다. 반대로 큰 파일의 경우 초당 처리되는 개체는 적지만 초당 MiB 처리량은 높습니다. 초당 MiB 처리량은 Azure Files 크기 조정 목표에 의해 제한됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-- [Azure Files 배포에 대한 계획](storage-files-planning.md)
+- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

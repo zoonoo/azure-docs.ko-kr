@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
 ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272698"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
@@ -35,15 +34,15 @@ Azure Load Balancer는 Azure Portal의 Azure 메트릭을 통해 다차원 메�
 
 다양한 표준 Load Balancer 구성에서는 다음 메트릭을 제공합니다.
 
-| 메트릭 | 리소스 유형 | Description | 권장 집계 |
+| 메트릭 | 리소스 유형 | 설명 | 권장 집계 |
 | --- | --- | --- | --- |
 | 데이터 경로 가용성 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 지역 내에서 부하 분산 장치 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.| 평균 |
 | 상태 프로브 상태 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 부하 분산 장치 풀에서 각 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다. 상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다. |  평균 |
 | SYN(동기화) 패킷 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 TCP(Transmission Control Protocol) 연결을 종료하거나 TCP 또는 UDP 패킷 흐름을 조작하지 않습니다. 흐름 및 해당 핸드셰이크는 항상 원본과 VM 인스턴스 사이에 있습니다. TCP 프로토콜 시나리오의 문제를 잘 해결하기 위해 SYN 패킷 카운터를 사용하여 TCP 연결 시도 횟수를 파악할 수 있습니다. 메트릭은 수신된 TCP SYN 패킷 수를 보고합니다.| 평균 |
 | SNAT 연결 | 공용 부하 분산 장치 |표준 Load Balancer는 공용 IP 주소 프런트 엔드로 위장되는 아웃바운드 흐름 수를 보고합니다. SNAT(원본 네트워크 주소 변환) 포트는 소모성 리소스입니다. 이 메트릭은 애플리케이션이 아웃바운드에서 시작된 흐름에 대해 SNAT에 얼마나 의존하는지를 나타낼 수 있습니다. 성공 및 실패한 아웃바운드 SNAT 흐름에 대한 카운터가 보고되고 아웃바운드 흐름의 상태를 이해하고 문제를 해결하는 데 사용할 수 있습니다.| 평균 |
-| 할당 된 SNAT 포트 | 공용 부하 분산 장치 | 표준 Load Balancer는 백 엔드 인스턴스당 할당 된 SNAT 포트 수를 보고 합니다. | 평균적. |
+| 할당 된 SNAT 포트 | 공용 부하 분산 장치 | 표준 Load Balancer는 백 엔드 인스턴스당 할당 된 SNAT 포트 수를 보고 합니다. | 평균. |
 | 사용 되는 SNAT 포트 | 공용 부하 분산 장치 | 표준 Load Balancer는 백 엔드 인스턴스당 활용 되는 SNAT 포트 수를 보고 합니다. | 평균 | 
-| 바이트 카운터 |  공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 프런트 엔드당 처리된 데이터를 보고합니다. 백 엔드 인스턴스에서 바이트가 균등 하 게 배포 되지 않을 수 있습니다. 이는 Azure의 Load Balancer 알고리즘이 흐름을 기반으로 하기 때문에 예상 됩니다. | 평균 |
+| 바이트 카운터 |  공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 프런트 엔드당 처리된 데이터를 보고합니다. 바이트가 백 엔드 인스턴스에서 균등하게 배포되지 않을 수 있습니다. 이는 Azure의 Load Balancer 알고리즘이 흐름을 기반으로 하기 때문에 예상 됩니다. | 평균 |
 | 패킷 카운터 |  공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 프런트 엔드당 처리된 패킷을 보고합니다.| 평균 |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Azure Portal에서 부하 분산 장치 메트릭 보기
@@ -231,7 +230,7 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 표준 Load Balancer **리소스에 대한 상태는****모니터 > 서비스 상태** 아래의 기존 를 통해 표시됩니다.
 
 공용 표준 Load Balancer 리소스의 상태를 보려면:
-1. **모니터** > **Service Health**를 선택 합니다.
+1. **모니터**  >  **Service Health**를 선택 합니다.
 
    ![모니터 페이지](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
@@ -251,11 +250,11 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
  
 다음 표에는 다양한 리소스 상태와 해당 설명이 나와 있습니다. 
 
-| Resource Health 상태 | Description |
+| Resource Health 상태 | 설명 |
 | --- | --- |
 | 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
-| 사용할 수 없음 | 표준 부하 분산 장치 리소스가 정상이 아닙니다. **Azure Monitor** > **메트릭을**선택 하 여 상태를 진단 합니다.<br>(*사용할 수 없음* 상태는 리소스가 표준 부하 분산 장치에 연결 되지 않은 것일 수도 있습니다.) |
-| Unknown | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았습니다.<br>(*알 수 없음* 상태는 리소스가 표준 부하 분산 장치에 연결 되어 있지 않음을 의미할 수도 있습니다.)  |
+| 사용할 수 없음 | 표준 부하 분산 장치 리소스가 정상이 아닙니다. **Azure Monitor**메트릭을 선택 하 여 상태를 진단 합니다  >  **Metrics**.<br>(*사용할 수 없음* 상태는 리소스가 표준 부하 분산 장치에 연결 되지 않은 것일 수도 있습니다.) |
+| 알 수 없음 | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았습니다.<br>(*알 수 없음* 상태는 리소스가 표준 부하 분산 장치에 연결 되어 있지 않음을 의미할 수도 있습니다.)  |
 
 ## <a name="next-steps"></a>다음 단계
 

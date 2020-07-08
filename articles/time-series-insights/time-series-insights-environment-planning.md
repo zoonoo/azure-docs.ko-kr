@@ -12,17 +12,16 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: seodec18
 ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272715"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Azure Time Series Insights GA 환경 계획
 
 이 문서에서는 예상 수신 요금 및 데이터 보존 요구 사항에 따라 Azure Time Series Insights GA (일반 공급) 환경을 계획 하는 방법을 설명 합니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 **Azure Time Series Insights의 데이터 보존 및 계획 방법에 대 한 자세한 내용은이 비디오를 시청**하세요.<br /><br />
 

@@ -16,10 +16,9 @@ ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81603836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>자습서: Amazon Web Services와 Azure Active Directory 통합 (AWS) (레거시 자습서)
@@ -68,7 +67,7 @@ AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 �
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* AWS (Amazon Web Services)에서 **SP와 IDP** 에서 시작한 SSO를 지원 합니다.
+* AWS(Amazon Web Services)에서 **SP 및 IDP** 시작 SSO 지원
 * AWS(Amazon Web Services)를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>갤러리에서 AWS(Amazon Web Services) 추가
@@ -126,7 +125,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
-    | 속성  | 원본 특성  | 네임스페이스 |
+    | Name  | 원본 특성  | 네임스페이스 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | 역할            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
@@ -212,7 +211,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **키** 텍스트 상자에 Ex: Azureadtest의 키 이름을 입력 합니다.
 
-    b. **값 (선택 사항)** 텍스트 상자에 다음 형식을 `accountname-aws-admin`사용 하 여 키 값을 입력 합니다. 계정 이름은 모두 소문자 여야 합니다.
+    b. **값 (선택 사항)** 텍스트 상자에 다음 형식을 사용 하 여 키 값을 입력 합니다 `accountname-aws-admin` . 계정 이름은 모두 소문자 여야 합니다.
 
     다. **다음: 검토**를 클릭 합니다.
 
@@ -220,7 +219,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-On 검토 구성][34]
 
-    a. **역할 이름** 텍스트 상자에 다음 패턴 `accountname-aws-admin`으로 값을 입력 합니다.
+    a. **역할 이름** 텍스트 상자에 다음 패턴으로 값을 입력 합니다 `accountname-aws-admin` .
 
     b. **역할 설명** 텍스트 상자에 역할 이름에 사용한 것과 동일한 값을 입력 합니다.
 
@@ -283,7 +282,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Microsoft Graph 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    g. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
+    예: 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
 
     ![Microsoft Graph 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 

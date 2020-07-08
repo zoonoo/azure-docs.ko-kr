@@ -13,10 +13,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605504"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
@@ -58,7 +57,7 @@ ms.locfileid: "81605504"
 - **인증 방법**에 대해 **계정 키**, **SAS URI**또는 **서비스 주체**를 선택 합니다.  
 
     >[!TIP]
-    >**서비스 주체** 방법을 선택 하는 경우 적어도 *저장소 Blob 데이터 참가자* 역할을 서비스 주체에 부여 합니다. 자세한 내용은 [Azure Blob storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조 하세요.
+    >**서비스 주체** 방법을 선택 하는 경우 적어도 *저장소 Blob 데이터 참가자*역할을 서비스 주체에 부여   합니다. 자세한 내용은 [Azure Blob storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조 하세요.
 
 ![스테이징을 위해 Azure Blob 저장소 연결 된 서비스 준비](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -118,7 +117,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>프록시를 사용 하 여 SSIS 패키지 연결
 
-Visual Studio 또는 독립 실행형 설치 관리자에 대 한 최신 SSDT SSIS 프로젝트 확장을 사용 하 여 OLEDB 또는 플랫 파일 `ConnectByProxy` 연결 관리자에 추가 된 새 속성을 찾을 수 있습니다.
+Visual Studio 또는 독립 실행형 설치 관리자에 대 한 최신 SSDT SSIS 프로젝트 확장을 사용 하 여 `ConnectByProxy` OLEDB 또는 플랫 파일 연결 관리자에 추가 된 새 속성을 찾을 수 있습니다.
 * [Visual Studio 용 SSIS 프로젝트 확장을 사용 하 여 SSDT 다운로드](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [독립 실행형 설치 관리자 다운로드](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
@@ -135,11 +134,11 @@ Visual Studio 또는 독립 실행형 설치 관리자에 대 한 최신 SSDT SS
   
   ![ConnectByProxy property3 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- **옵션 B:** SSIS IR에서 실행할 패키지를 포함 하는 프로젝트를 다시 배포 합니다. 그런 다음 SSMS에서 패키지를 실행할 때 **패키지 실행** 팝업 창의 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` **고급** 탭에서 속성 경로를 제공 하 고 속성을 *True* 로 설정 하 여 속성을 사용 하도록 설정할 수 있습니다.
+- **옵션 B:** SSIS IR에서 실행할 패키지를 포함 하는 프로젝트를 다시 배포 합니다. 그런 다음 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` SSMS에서 패키지를 실행할 때 **패키지 실행** 팝업 창의 **고급** 탭에서 속성 경로를 제공 하 고 속성을 *True* 로 설정 하 여 속성을 사용 하도록 설정할 수 있습니다.
 
   ![ConnectByProxy property4 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  속성 경로 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`를 제공 하 고, Data Factory 파이프라인에서 패키지를 실행 하는 경우 [SSIS 패키지 실행 작업](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) **의 속성 재정의 탭에서** 속성 재정의로 설정 하 여 속성을 *True* 로 설정 하 여 속성을 설정할 수도 있습니다.
+  속성 경로를 제공 하 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` 고, Data Factory 파이프라인에서 패키지를 실행 하는 경우 [SSIS 패키지 실행 작업](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) 의 **속성 재정의** 탭에서 속성 재정의로 설정 하 여 속성을 *True* 로 설정 하 여 속성을 설정할 수도 있습니다.
   
   ![ConnectByProxy property5 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
@@ -153,7 +152,7 @@ Visual Studio 또는 독립 실행형 설치 관리자에 대 한 최신 SSDT SS
 
 자체 호스팅 IR에서 준비 작업에 Windows 인증이 필요한 경우 [동일한 windows 인증을 사용 하도록 SSIS 패키지를 구성](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15)합니다. 
 
-스테이징 작업은 자체 호스팅 IR 서비스 계정 (기본적으로*NT SERVICE\DIAHostService*)을 사용 하 여 호출 되 고, 데이터 저장소는 Windows 인증 계정을 사용 하 여 액세스 됩니다. 두 계정 모두에 특정 보안 정책을 할당 해야 합니다. 자체 호스팅 IR 컴퓨터에서 **로컬 보안 정책** > **로컬 정책** > **사용자 권한 할당**으로 이동 하 고 다음을 수행 합니다.
+스테이징 작업은 자체 호스팅 IR 서비스 계정 (기본적으로*NT SERVICE\DIAHostService*)을 사용 하 여 호출 되 고, 데이터 저장소는 Windows 인증 계정을 사용 하 여 액세스 됩니다. 두 계정 모두에 특정 보안 정책을 할당 해야 합니다. 자체 호스팅 IR 컴퓨터에서 **로컬 보안 정책**  >  **로컬 정책**  >  **사용자 권한 할당**으로 이동 하 고 다음을 수행 합니다.
 
 1. *프로세스에 대 한 메모리 할당량 조정* 을 할당 하 고 *프로세스 수준 토큰* 정책을 자체 호스팅 IR 서비스 계정으로 바꿉니다. 이는 기본 서비스 계정으로 자체 호스팅 IR을 설치할 때 자동으로 발생 합니다. 그렇지 않은 경우 해당 정책을 수동으로 할당 합니다. 다른 서비스 계정을 사용 하는 경우 동일한 정책을 할당 합니다.
 

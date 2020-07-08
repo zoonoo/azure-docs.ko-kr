@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687530"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
@@ -48,12 +47,12 @@ ms.locfileid: "81687530"
 > | --- | --- | --- |
 > | **네트워킹** |LAN/WAN  |SDN(소프트웨어 방식 네트워킹)|
 > | **보안 그룹** |IP/포트 제한 도구 |[NSG (네트워크 보안 그룹)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **회복** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
-> | **계획된 유지 보수** |패치/업그레이드|[가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)(Azure에서 관리되는 패치/업그레이드) |
+> | **복원력** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
+> | **계획 된 유지 관리** |패치/업그레이드|[가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)(Azure에서 관리되는 패치/업그레이드) |
 > | **리소스** |전용  |다른 클라이언트와 공유|
-> | **영역** |데이터 센터 |[지역 쌍](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **저장소** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **규모** |수직적 확장 |수평적 확장|
+> | **지역** |데이터 센터 |[지역 쌍](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
+> | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **크기 조정** |수직적 확장 |수평적 확장|
 
 
 ### <a name="requirements"></a>요구 사항
@@ -146,7 +145,7 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 - 네트워크 성능을 향상 시키려면 [가속화 된 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 을 사용 하는 Virtual Machines를 사용 합니다.
 - 특정 Linux distrubutions 경우 [트리밍/매핑 해제 지원을](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support)사용 하도록 설정 하는 것이 좋습니다.
 - 별도의 가상 컴퓨터에 [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) 를 설치 합니다.
-- 기본적으로 큰 페이지는 linux에서 사용 하도록 설정 되지 않습니다. 큰 페이지를 사용 하도록 설정 `use_large_pages = ONLY` 하 고 Oracle DB에 설정 하는 것이 좋습니다. 이렇게 하면 성능을 향상 시킬 수 있습니다. 자세한 내용은 [여기](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
+- 기본적으로 큰 페이지는 linux에서 사용 하도록 설정 되지 않습니다. 큰 페이지를 사용 하도록 설정 하 고 Oracle DB에 설정 하는 것이 좋습니다 `use_large_pages = ONLY` . 이렇게 하면 성능을 향상 시킬 수 있습니다. 자세한 내용은 [여기](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
 
 ### <a name="disk-types-and-configurations"></a>디스크 형식 및 구성
 
@@ -225,7 +224,7 @@ Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 �
 - *사설망*(서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
 
 
-## <a name="additional-reading"></a>추가 참조 자료
+## <a name="additional-reading"></a>추가 참조 항목
 
 - [Oracle ASM 구성](configure-oracle-asm.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

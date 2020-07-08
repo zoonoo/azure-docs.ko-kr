@@ -4,10 +4,9 @@ description: 인증서 지문 대신 인증서 일반 이름을 사용하도록 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272630"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>인증서 지문에서 일반 이름으로 클러스터 변경
@@ -118,7 +117,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 
     또한 *certificateThumbprint*를 제거 하는 것이 좋습니다. 리소스 관리자 템플릿에서 더 이상 참조 되지 않을 수도 있습니다.
 
-2. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **Virtualmachineprofile**->**extensionprofile**->**확장**->**속성**->**settings**설정->**인증서**에서을 추가 `"commonNames": ["[parameters('certificateCommonName')]"],` 하 고 `"thumbprint": "[parameters('certificateThumbprint')]",`제거 합니다.
+2. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **Virtualmachineprofile** -> **extensionprofile** -> **확장** -> **속성** -> **설정** -> **인증서**에서을 추가 `"commonNames": ["[parameters('certificateCommonName')]"],` 하 고 제거 `"thumbprint": "[parameters('certificateThumbprint')]",` 합니다.
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {

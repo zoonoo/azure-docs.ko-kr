@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727269"
 ---
 # <a name="api"></a>API #
@@ -19,7 +18,7 @@ Azure Media Player API를 사용 하면 브라우저에서 HTML5 비디오, Flas
 
 ## <a name="referencing-the-player"></a>플레이어 참조 ##
 
-API 함수를 사용 하려면 player 개체에 액세스할 수 있어야 합니다. 다행히 쉽게 가져올 수 있습니다. 비디오 태그에 ID가 있는지 확인 하기만 하면 됩니다. 예제 embed 코드에는 ID가 `vid1`있습니다. 한 페이지에 여러 비디오가 있는 경우 모든 비디오 태그에 고유한 ID가 있는지 확인 합니다.
+API 함수를 사용 하려면 player 개체에 액세스할 수 있어야 합니다. 다행히 쉽게 가져올 수 있습니다. 비디오 태그에 ID가 있는지 확인 하기만 하면 됩니다. 예제 embed 코드에는 ID가 `vid1` 있습니다. 한 페이지에 여러 비디오가 있는 경우 모든 비디오 태그에 고유한 ID가 있는지 확인 합니다.
 
 `var myPlayer = amp('vid1');`
 

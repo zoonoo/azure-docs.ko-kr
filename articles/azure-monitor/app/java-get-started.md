@@ -6,10 +6,9 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
 ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537511"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
@@ -38,7 +37,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 # <a name="maven"></a>[Maven](#tab/maven)
 
-프로젝트에서 빌드에 Maven를 사용 하도록 이미 설정 되어 있는 경우 다음 코드를 *pom .xml* 파일에 병합 합니다.
+빌드에 Maven를 사용 하도록 프로젝트를 이미 설정한 경우에는 다음 코드를 *pom.xml* 파일에 병합 합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
@@ -68,14 +67,14 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
     }
 ```
 
-# <a name="other-types"></a>[다른 유형](#tab/other)
+# <a name="other-types"></a>[기타 형식](#tab/other)
 
 [최신 버전](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)을 다운로드하고 필요한 파일을 프로젝트에 복사하여 이전 버전을 교체합니다.
 
 ---
 
 ### <a name="questions"></a>질문
-* *`-web-auto`, `-web` 및 `-core` 구성 요소 간의 관계는 무엇 인가요?*
+* *`-web-auto`, 및 구성 요소 간의 관계는 `-web` 무엇 `-core` 인가요?*
   * `applicationinsights-web-auto`런타임에 Application Insights 서브렛 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
   * `applicationinsights-web`는 또한 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서브렛 필터를 수동으로 등록 해야 합니다.
   * `applicationinsights-core`응용 프로그램이 서브렛 기반이 아닌 경우와 같이, 기본 API만 제공 합니다.
@@ -86,8 +85,8 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
   * 종속성을 수동으로 관리 하는 경우 ...
     * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)를 다운로드하여 이전 버전을 대체합니다. 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
-## <a name="add-an-applicationinsightsxml-file"></a>*Applicationinsights .xml* 파일 추가
-프로젝트의 resources 폴더에 *Applicationinsights .xml* 을 추가 하거나 프로젝트의 배포 클래스 경로에 추가 되어 있는지 확인 합니다. 다음 XML을 복사합니다.
+## <a name="add-an-applicationinsightsxml-file"></a>*ApplicationInsights.xml* 파일 추가
+프로젝트의 resources 폴더에 *ApplicationInsights.xml* 를 추가 하거나 프로젝트의 배포 클래스 경로에 추가 되었는지 확인 합니다. 다음 XML을 복사합니다.
 
 계측 키를 Azure Portal 가져온 항목으로 바꿉니다.
 
@@ -118,7 +117,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 </ApplicationInsights>
 ```
 
-필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  System 속성 `-Dapplicationinsights.configurationDirectory` 은 *applicationinsights .xml*을 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
+필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  System 속성은 `-Dapplicationinsights.configurationDirectory` *ApplicationInsights.xml*를 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
@@ -129,7 +128,7 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 
 1. 시스템 속성:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
 2. 환경 변수: APPINSIGHTS_INSTRUMENTATIONKEY
-3. 구성 파일: *Applicationinsights .xml*
+3. 구성 파일: *ApplicationInsights.xml*
 
 또한 [코드로 설정](../../azure-monitor/app/api-custom-events-metrics.md#ikey)할 수 있습니다.
 
@@ -194,7 +193,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ## <a name="azure-app-service-config-spring-boot"></a>Azure App Service 구성 (스프링 부팅)
 
-Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 실행 하려면 추가 구성이 필요 합니다. **Web.config** 를 수정 하 고 다음 구성을 추가 합니다.
+Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 실행 하려면 추가 구성이 필요 합니다. **web.config** 를 수정 하 고 다음 구성을 추가 합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -233,7 +232,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 ![프로세스 전용 바이트가 선택 된 메트릭 창의 스크린샷](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>성능 카운터 수집 사용자 지정
-표준 성능 카운터 집합의 컬렉션을 사용 하지 않도록 설정 하려면 다음 코드를 *Applicationinsights .xml* 파일의 루트 노드 아래에 추가 합니다.
+표준 성능 카운터 집합의 컬렉션을 사용 하지 않도록 설정 하려면 *ApplicationInsights.xml* 파일의 루트 노드 아래에 다음 코드를 추가 합니다.
 
 ```XML
     <PerformanceCounters>
@@ -300,7 +299,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
+## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

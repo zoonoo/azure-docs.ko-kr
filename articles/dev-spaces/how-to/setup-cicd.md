@@ -9,10 +9,9 @@ manager: gwallace
 description: Azure Dev Spaces에서 Azure DevOps를 사용 하 여 연속 통합/연속 배포를 설정 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81685628"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
@@ -41,9 +40,9 @@ ms.locfileid: "81685628"
 azds space select -n dev
 ```
 
-부모 dev 공간을 선택 하 라는 메시지가 표시 되 _ \<면\>없음_을 선택 합니다.
+부모 dev 공간을 선택 하 라는 메시지가 표시 되 면를 선택 _\<none\>_ 합니다.
 
-개발 공간을 만든 후에는 호스트 접미사를 확인 해야 합니다. `azds show-context` 명령을 사용 하 여 Azure Dev Spaces 수신 컨트롤러의 호스트 접미사를 표시 합니다.
+개발 공간을 만든 후에는 호스트 접미사를 확인 해야 합니다. 명령을 사용 `azds show-context` 하 여 Azure Dev Spaces 수신 컨트롤러의 호스트 접미사를 표시 합니다.
 
 ```cmd
 $ azds show-context
@@ -77,7 +76,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
 1. **새** 빌드 파이프라인을 만드는 옵션을 선택 합니다.
 1. 원본으로 **github** 를 선택 하 고, 필요한 경우 github 계정에 대 한 권한을 부여 하 고, 분기 버전의 _개발-공간_ 예제 응용 프로그램 리포지토리의 _azds_updates_ 분기를 선택 합니다.
 1. 템플릿으로 **구성을 코드**또는 **yaml**로 선택 합니다.
-1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`)을 입력합니다.
+1. 이제 빌드 파이프라인의 구성 페이지가 표시됩니다. 위에서 설명한 것 처럼 **...** 단추를 사용 하 여 **yaml 파일 경로의** 언어별 경로로 이동 합니다. 예: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. [ **변수** ] 탭으로 이동 합니다.
 1. 수동으로 _dockerId_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 사용자 이름입니다. (필수 구성 요소 문서에 설명됨)
 1. 수동으로 _dockerPassword_를 변수로 입력합니다. 이 값은 [Azure Container Registry 관리자 계정](../../container-registry/container-registry-authentication.md#admin-account)의 암호입니다. 보안상의 이유로 _dockerPassword_는 비밀로 지정해야 합니다(잠금 아이콘 선택).
@@ -92,7 +91,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
 1. DevOps 프로젝트 주 페이지에서 파이프라인 > 릴리스로 이동합니다.
 1. 릴리스 정의를 아직 포함하지 않는 새로운 DevOps 프로젝트에서 작업할 경우 계속하기 전에 먼지 빈 릴리스 정의를 만들어야 합니다. 가져오기 옵션은 기존 릴리스 정의가 있을 때까지 UI에 표시되지 않습니다.
 1. 왼쪽에서 **+ 새로 만들기** 단추를 클릭 한 다음 **파이프라인 가져오기**를 클릭 합니다.
-1. **찾아보기** 를 클릭 하 `samples/release.json` 고 프로젝트에서를 선택 합니다.
+1. **찾아보기** 를 클릭 하 고 `samples/release.json` 프로젝트에서를 선택 합니다.
 1. **확인**을 클릭합니다. 릴리스 정의 편집 페이지에 파이프라인 창이 로드된 것을 확인할 수 있습니다. 또한 계속 구성해야 하는 클러스터 관련 세부 정보를 나타내는 몇 개의 빨간색 경고 아이콘도 표시됩니다.
 1. 파이프라인 창 왼쪽에서 **아티팩트 추가** 풍선을 클릭합니다.
 1. **원본** 드롭다운에서 이전에 만든 빌드 파이프라인을 선택 합니다.
@@ -105,7 +104,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
     ![릴리스 아티팩트 연속 배포 설정](../media/common/release-artifact-cd-setup.png)
 1. **연속 배포 트리거**를 사용 하도록 설정 합니다.
 1. **파이프라인** 옆에 있는 **작업** 탭을 마우스로 가리키고 _dev_ 를 클릭 하 여 _dev_ stage 태스크를 편집 합니다.
-1. 연결 형식에서 **Azure Resource Manager** 가 선택 되어 있는지 확인 **합니다.** 빨간색으로 강조 표시 된 세 개의 드롭다운 컨트롤 (릴리스 ![정의 설정)이 표시 됩니다.](../media/common/release-setup-tasks.png)
+1. 연결 형식에서 **Azure Resource Manager** 가 선택 되어 있는지 확인 **합니다.** 빨간색으로 강조 표시 된 세 개의 드롭다운 컨트롤 ( ![ 릴리스 정의 설정)이 표시 됩니다.](../media/common/release-setup-tasks.png)
 1. Azure Dev Spaces와 함께 사용 하는 Azure 구독을 선택 합니다. **권한 부여**를 클릭 해야 할 수도 있습니다.
 1. Azure Dev Spaces에서 사용 중인 리소스 그룹 및 클러스터를 선택 합니다.
 1. **에이전트 작업**을 클릭 합니다.
@@ -115,7 +114,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
 1. **에이전트 작업**을 클릭 합니다.
 1. **에이전트 풀**에서 **호스팅된 Ubuntu 1604** 을 선택 합니다.
 1. **변수** 탭을 클릭 하 여 릴리스에 대 한 변수를 업데이트 합니다.
-1. **DevSpacesHostSuffix** 의 값을 **UPDATE_ME** 에서 호스트 접미사로 업데이트 합니다. 이전에 `azds show-context` 명령을 실행 하면 호스트 접미사가 표시 됩니다.
+1. **DevSpacesHostSuffix** 의 값을 **UPDATE_ME** 에서 호스트 접미사로 업데이트 합니다. 이전에 명령을 실행 하면 호스트 접미사가 표시 됩니다 `azds show-context` .
 1. 오른쪽 위에서 **저장**을 클릭하고 **확인**을 클릭합니다.
 1. 저장 옆에 있는 **+ 릴리스**를 클릭하고 **릴리스 만들기**를 클릭합니다.
 1. **아티팩트**아래에서 빌드 파이프라인에서 최신 빌드가 선택 되어 있는지 확인 합니다.
@@ -131,12 +130,12 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
 모든 작업이 완료 되 면 릴리스가 수행 됩니다.
 
 > [!TIP]
-> 릴리스가 *업그레이드 실패: 조건을 기다리는 동안 시간 초과되었습니다.* 와 같은 오류 메시지를 나타내며 실패하는 경우 [Kubernetes 대시보드를 사용하여](../../aks/kubernetes-dashboard.md) 클러스터의 pod를 검사하세요. Pod가 "azdsexample.azurecr.io/mywebapi:122" 이미지를 가져오지 못했습니다 .와 같은 오류 메시지와 함께 시작 되지 않는 것을 확인 하는 경우 *: rpc 오류: code = Unknown desc = 디먼의 오류\/응답: Get https:/azdsexample.azurecr.io/v2/mywebapi/manifests/122: 권한이 없음: 인증 필요*, 클러스터에 Azure Container Registry를 끌어올 수 있는 권한이 없기 때문일 수 있습니다. [AKS 클러스터가 Azure Container Registry에서 끌어오도록 허가](../../aks/cluster-container-registry-integration.md)를 완료했는지 확인합니다.
+> 릴리스가 *업그레이드 실패: 조건을 기다리는 동안 시간 초과되었습니다.* 와 같은 오류 메시지를 나타내며 실패하는 경우 [Kubernetes 대시보드를 사용하여](../../aks/kubernetes-dashboard.md) 클러스터의 pod를 검사하세요. Pod가 "azdsexample.azurecr.io/mywebapi:122" 이미지를 가져오지 못했습니다 .와 같은 오류 메시지와 함께 시작 되지 않는 것을 확인 하는 경우 *: rpc 오류: code = Unknown desc = 디먼의 오류 응답: Get https: \/ /azdsexample.azurecr.io/v2/mywebapi/manifests/122: 권한이 없음: 인증 필요*, 클러스터에 Azure Container Registry를 끌어올 수 있는 권한이 없기 때문일 수 있습니다. [AKS 클러스터가 Azure Container Registry에서 끌어오도록 허가](../../aks/cluster-container-registry-integration.md)를 완료했는지 확인합니다.
 
 이제 Dev Spaces 샘플 앱의 GitHub 포크에 대해 완전 자동화 CI/CD 파이프라인이 구현되었습니다. 코드를 커밋하고 푸시할 때마다 빌드 파이프라인은 *mywebapi* 및 *webfrontend* 이미지를 빌드한 후 사용자 지정 ACR 인스턴스로 푸시합니다. 그러면 릴리스 파이프라인은 각 앱의 Helm 차트를 Dev Spaces 지원 클러스터의 _dev_ 공간으로 배포합니다.
 
 ## <a name="accessing-your-_dev_-services"></a>_dev_ 서비스에 액세스
-배포 후에 *webfrontend*의 _dev_ 버전은 `http://dev.webfrontend.fedcba098.eus.azds.io`와 같은 공용 URL을 통해 액세스할 수 있습니다. 다음 `azds list-uri` 명령을 실행 하 여이 URL을 찾을 수 있습니다. 
+배포 후에 *webfrontend*의 _dev_ 버전은 `http://dev.webfrontend.fedcba098.eus.azds.io`와 같은 공용 URL을 통해 액세스할 수 있습니다. 다음 명령을 실행 하 여이 URL을 찾을 수 있습니다 `azds list-uri` . 
 
 ```cmd
 $ azds list-uris
@@ -146,7 +145,7 @@ Uri                                           Status
 http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
-## <a name="deploying-to-production"></a>프로덕션에 배포
+## <a name="deploying-to-production"></a>프로덕션 환경에 배포
 
 이 자습서에서 만든 CI/CD 시스템을 사용하여 수동으로 특정 릴리스를 _prod_로 승격합니다.
 1. **파이프라인**의 **릴리스** 섹션으로 이동 합니다.

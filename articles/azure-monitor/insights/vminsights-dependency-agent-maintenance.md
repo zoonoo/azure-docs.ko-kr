@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
 ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81617844"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법
@@ -29,7 +28,7 @@ Windows 및 Linux 용 종속성 에이전트는 컴퓨터가 실행 되는 배�
 
 ## <a name="upgrade-windows-agent"></a>Windows 에이전트 업그레이드 
 
-Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트 또는 다른 자동화 솔루션에서 실행 하거나 Installdependencyagent-windows.exe 설치 마법사를 사용 합니다.  
+Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트나 기타 자동화 솔루션 또는 InstallDependencyAgent-Windows.exe 설치 마법사를 사용 하 여를 실행 합니다.  
 
 최신 버전의 Windows 에이전트는 [여기](https://aka.ms/dependencyagentwindows)에서 다운로드할 수 있습니다.
 
@@ -37,7 +36,7 @@ Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용 하 여
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **Installdependencyagent-windows.exe** 를 실행 하 여 설치 마법사를 시작 합니다.
+2. **InstallDependencyAgent-Windows.exe** 를 실행 하 여 설치 마법사를 시작 합니다.
    
 3. **Dependency Agent 설치** 마법사의 지침에 따라 이전 버전의 종속성 에이전트를 제거한 다음 최신 버전을 설치 합니다.
 
@@ -52,9 +51,9 @@ Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용 하 여
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
-    매개 `/RebootMode=manual` 변수를 사용 하는 경우 일부 프로세스에서 이전 버전의 파일을 사용 하 고 있고 잠금을 보유 하 고 있는 경우 업그레이드에서 자동으로 컴퓨터를 다시 부팅 하지 않습니다. 
+    `/RebootMode=manual`매개 변수를 사용 하는 경우 일부 프로세스에서 이전 버전의 파일을 사용 하 고 있고 잠금을 보유 하 고 있는 경우 업그레이드에서 자동으로 컴퓨터를 다시 부팅 하지 않습니다. 
 
-3. 업그레이드에 성공 했는지 확인 하려면 자세한 설치 정보 `install.log` 를 확인 하십시오. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
+3. 업그레이드에 성공 했는지 확인 하려면 `install.log` 자세한 설치 정보를 확인 하십시오. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
 
 ## <a name="upgrade-linux-agent"></a>Linux 에이전트 업그레이드 
 
@@ -64,7 +63,7 @@ Linux에서 종속성 에이전트의 이전 버전에서의 업그레이드는 
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. 루트로`sh InstallDependencyAgent-Linux64.bin -s`다음 명령을 실행 합니다. 
+2. 루트로 다음 명령을 실행 합니다 `sh InstallDependencyAgent-Linux64.bin -s` . 
 
 Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log*입니다. 
 

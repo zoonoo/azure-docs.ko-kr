@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272086"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 저속 쿼리 로그
@@ -27,16 +26,16 @@ Azure Database for MariaDB에서는 사용자에게 느린 쿼리 로그를 제�
 - **log_slow_admin_statements**: ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
 - **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
 - **log_throttle_queries_not_using_indexes**:이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
-- **log_output**: "File" 이면 저속 쿼리 로그가 로컬 서버 저장소에 기록 되 고 진단 로그를 Azure Monitor 수 있습니다. "None" 인 경우 저속 쿼리 로그는 Azure Monitor 진단 로그에만 기록 됩니다. 
+- **log_output**: "File" 이면 저속 쿼리 로그가 로컬 서버 저장소에 기록 되 고 진단 로그를 Azure Monitor 수 있습니다. "None"이면 느린 쿼리 로그가 Azure Monitor 진단 로그에만 기록됩니다. 
 
 > [!IMPORTANT]
-> 테이블이 인덱싱되지 않은 경우 이러한 인덱싱되지 않은 테이블에 `log_queries_not_using_indexes` 대해 `log_throttle_queries_not_using_indexes` 실행 되는 모든 쿼리가 저속 쿼리 로그에 기록 되기 때문에 및 매개 변수를 ON으로 설정 하면 mariadb 성능에 영향을 줄 수 있습니다.<br><br>
-> 오랜 시간 동안 느리게 쿼리를 로깅할 계획인 경우를 "없음"으로 설정 `log_output` 하는 것이 좋습니다. "File"로 설정 된 경우 이러한 로그는 로컬 서버 저장소에 기록 되 고, MariaDB 성능에 영향을 줄 수 있습니다. 
+> 테이블이 인덱싱되지 않은 경우 `log_queries_not_using_indexes` `log_throttle_queries_not_using_indexes` 이러한 인덱싱되지 않은 테이블에 대해 실행 되는 모든 쿼리가 저속 쿼리 로그에 기록 되기 때문에 및 매개 변수를 ON으로 설정 하면 MariaDB 성능에 영향을 줄 수 있습니다.<br><br>
+> 오랜 시간 동안 느리게 쿼리를 로깅할 계획인 경우 `log_output` 를 "없음"으로 설정 하는 것이 좋습니다. "File"로 설정 된 경우 이러한 로그는 로컬 서버 저장소에 기록 되 고, MariaDB 성능에 영향을 줄 수 있습니다. 
 
 느린 쿼리 로그 매개 변수의 전체 설명은 MariaDB [느린 쿼리 로그 설명서](https://mariadb.com/kb/en/library/slow-query-log-overview/)를 참조하세요.
 
 ## <a name="access-slow-query-logs"></a>저속 쿼리 로그 액세스
-Azure Database for MariaDB에서 저속 쿼리 로그에 액세스 하는 두 가지 옵션이 있습니다. 로컬 서버 저장소 또는 Azure Monitor 진단 로그입니다. 이는 매개 변수를 `log_output` 사용 하 여 설정 됩니다.
+Azure Database for MariaDB에서 저속 쿼리 로그에 액세스 하는 두 가지 옵션이 있습니다. 로컬 서버 저장소 또는 Azure Monitor 진단 로그입니다. 이는 매개 변수를 사용 하 여 설정 됩니다 `log_output` .
 
 로컬 서버 저장소의 경우 Azure Portal 또는 Azure CLI를 사용 하 여 느리게 쿼리 로그를 나열 하 고 다운로드할 수 있습니다. Azure Portal에서 Azure Portal 서버로 이동 합니다. **모니터링** 머리글 아레에서 **서버 로그** 페이지를 선택합니다. Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 구성 및 액세스](howto-configure-server-logs-cli.md)를 참조하세요. 
 
@@ -84,7 +83,7 @@ Azure Database for MariaDB은 Azure Monitor 진단 로그와 통합 됩니다. A
 | `\_ResourceId` | 리소스 URI |
 
 > [!Note]
-> 의 `sql_text`경우 로그는 2048 자를 초과 하는 경우 잘립니다.
+> 의 경우 `sql_text` 로그는 2048 자를 초과 하는 경우 잘립니다.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Azure Monitor 로그의 로그 분석
 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687338"
 ---
 # <a name="workbook-text-parameters"></a>통합 문서 텍스트 매개 변수
@@ -40,7 +39,7 @@ ms.locfileid: "81687338"
 ![읽기 모드에서 텍스트 매개 변수를 보여 주는 이미지](./media/workbooks-text/text-readmode.png)
 
 ## <a name="referencing-a-text-parameter"></a>텍스트 매개 변수 참조
-1. 파란색 `Add query` 링크를 선택 하 고 Application Insights 리소스를 선택 하 여 통합 문서에 쿼리 컨트롤을 추가 합니다.
+1. 파란색 링크를 선택 하 고 Application Insights 리소스를 선택 하 여 통합 문서에 쿼리 컨트롤을 추가 `Add query` 합니다.
 2. KQL 상자에 다음 코드 조각을 추가 합니다.
     ```kusto
     requests
@@ -60,7 +59,7 @@ ms.locfileid: "81687338"
     ![KQL에서 참조 되는 텍스트 매개 변수를 보여 주는 이미지](./media/workbooks-text/text-reference.png)
 
 > [!NOTE]
-> 위의 예제에서는 정수 `{SlowRequestThreshold}` 값을 나타냅니다. 과 같은 `{ComputerName}` 문자열을 쿼리 하는 경우 매개 변수 필드를 따옴표 없이 accept 입력에 추가 `"{ComputerName}"` 하기 위해 kusto 쿼리를 수정 해야 합니다.
+> 위의 예제에서는 `{SlowRequestThreshold}` 정수 값을 나타냅니다. 과 같은 문자열을 쿼리 하는 경우 `{ComputerName}` `"{ComputerName}"` 매개 변수 필드를 따옴표 없이 accept 입력에 추가 하기 위해 Kusto 쿼리를 수정 해야 합니다.
 
 ## <a name="setting-default-values"></a>기본값 설정
 1. 편집 모드에서 빈 통합 문서를 시작 합니다.

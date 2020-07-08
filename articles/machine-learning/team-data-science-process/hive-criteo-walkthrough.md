@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677596"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스-1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
@@ -75,7 +74,7 @@ Criteo 데이터는 370 GB 이상의 gzip 압축 TSV 파일 1.3 (압축 되지 �
 
 **다운로드 계속하기**를 클릭하여 데이터 세트 및 사용성을 읽어봅니다.
 
-데이터는 [Azure blob storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 위치에 상주 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/합니다. "wasb"는 Azure Blob Storage 위치를 나타냅니다.
+데이터는 [Azure blob storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 위치에 상주 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ 합니다. "wasb"는 Azure Blob Storage 위치를 나타냅니다.
 
 1. 이 Azure blob storage의 데이터는 압축을 푼 데이터의 3 개 하위 폴더로 구성 됩니다.
 
@@ -97,7 +96,7 @@ Criteo 데이터는 370 GB 이상의 gzip 압축 TSV 파일 1.3 (압축 되지 �
 
 설정을 완료했으므로 이제 이 연습의 첫 번째 부분인 Hive를 사용하여 데이터 탐색 및 Azure Machine Learning용 데이터 준비를 시작할 수 있습니다.
 
-## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Hive 데이터베이스 및 테이블 만들기
+## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a>Hive 데이터베이스 및 테이블 만들기
 Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드의 바탕 화면에서 ***Hadoop 명령줄***을 열고 명령을 입력하여 Hive 디렉터리를 입력합니다.
 
     cd %hive_home%\bin
@@ -424,7 +423,7 @@ Azure Machine Learning의 모델 빌드 프로세스는 다음 단계를 따릅�
 이제 Azure Machine Learning Studio에서 모델을 빌드할 준비가 완료되었습니다. 다운 샘플링한 데이터는 클러스터에 Hive 테이블로 저장됩니다. Azure Machine Learning **데이터 가져오기** 모듈을 사용하여 이 데이터를 읽습니다. 이 클러스터의 스토리지 계정에 액세스하는 데 사용되는 자격 증명은 뒤에 제공됩니다.
 
 ### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> 1단계: Import Data 모듈을 사용하여 Hive 테이블에서 Azure Machine Learning으로 데이터를 가져와 기계 학습 실험용으로 선택
-**+ 새** -> **실험** -> **빈 실험**을 선택 하 여 시작 합니다. 그런 다음 왼쪽 맨 위의 **검색** 상자에서 "Import Data"를 검색합니다. 실험 캔버스(화면 중간 부분)에 **Import Data** 모듈을 끌어다 놓고 데이터에 액세스하기 위해 모듈을 사용합니다.
+**+ 새**  ->  **실험**  ->  **빈 실험**을 선택 하 여 시작 합니다. 그런 다음 왼쪽 맨 위의 **검색** 상자에서 "Import Data"를 검색합니다. 실험 캔버스(화면 중간 부분)에 **Import Data** 모듈을 끌어다 놓고 데이터에 액세스하기 위해 모듈을 사용합니다.
 
 Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양은 다음과 같습니다.
 
@@ -434,7 +433,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 
 1. **데이터 원본**
 2. **Hive 데이터베이스 쿼리** 상자에 SELECT * FROM <your\_database\_name.your\_table\_name> 정도만 입력합니다.
-3. **Hcatalog 서버 URI**: 클러스터가 "abc" 이면 단순히 https:\//abc.azurehdinsight.net입니다.
+3. **Hcatalog 서버 URI**: 클러스터가 "abc" 이면 단순히 https: \/ /abc.azurehdinsight.net입니다.
 4. **Hadoop user account name**(Hadoop 사용자 계정 이름): 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
 5. **Hadoop user account password**(Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
 6. **Location of output data**(출력 데이터 위치): "Azure"를 선택합니다.

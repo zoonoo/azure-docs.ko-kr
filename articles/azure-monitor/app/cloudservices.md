@@ -4,10 +4,9 @@ description: Application Insights를 사용하여 웹 및 작업자 역할을 �
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537596"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
@@ -15,7 +14,7 @@ ms.locfileid: "81537596"
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 작업을 시작하려면 다음이 필요합니다.
 
 * [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
@@ -82,7 +81,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>각 역할에 대한 Azure Diagnostics 설정
 Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 설정합니다. 웹 역할의 경우 이 옵션은 성능 모니터링, 경고, 진단 및 사용량 현황 분석을 제공합니다. 다른 역할의 경우 다시 시작, 성능 카운터 및 System.Diagnostics.Trace 호출과 같은 Azure Diagnostics를 검색하고 모니터링할 수 있습니다. 
 
-1. Visual Studio 솔루션 탐색기의 ** \<YourCloudService>**  >  **역할**에서 각 역할의 속성을 엽니다.
+1. Visual Studio 솔루션 탐색기의 **\<YourCloudService>**  >  **역할**에서 각 역할의 속성을 엽니다.
 
 1. **구성**에서 **진단 데이터를 Application Insights로 보내기** 확인란을 선택하고 이전에 만든 적절한 Application Insights 리소스를 선택합니다.
 
@@ -132,7 +131,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 .NET Framework에서 전체 SQL 쿼리를 캡처하려면이 단계가 필요 합니다. 
 
-1. `\*.csdef` 다음과 유사한 각 역할에 대 한 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
+1. `\*.csdef`다음과 유사한 각 역할에 대 한 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
 
     ```xml
     <Startup>
@@ -147,7 +146,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
     </Startup>
     ```
     
-2. [Installagent .bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [installagent.](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)p s 1을 다운로드 하 여 각 `AppInsightsAgent` 역할 프로젝트의 폴더에 배치 합니다. Visual Studio 파일 속성 또는 빌드 스크립트를 통해 출력 디렉터리에 복사 해야 합니다.
+2. [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)를 다운로드 하 여 `AppInsightsAgent` 각 역할 프로젝트의 폴더에 저장 합니다. Visual Studio 파일 속성 또는 빌드 스크립트를 통해 출력 디렉터리에 복사 해야 합니다.
 
 3. 모든 작업자 역할에 대해 환경 변수를 추가 합니다. 
 
@@ -233,7 +232,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-[이 예에 표시 된 것 처럼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14) *applicationinsights .config* 를 편집 하 여 추가 사용자 지정 또는 기타 Windows 성능 카운터를 지정할 수 있습니다.
+[이 예에 표시 된 것 처럼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14) *ApplicationInsights.config* 을 편집 하 여 추가 사용자 지정 또는 기타 Windows 성능 카운터를 지정할 수 있습니다.
 
   ![성능 카운터](./media/cloudservices/002-servers.png)
 

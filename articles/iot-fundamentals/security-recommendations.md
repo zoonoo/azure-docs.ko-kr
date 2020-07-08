@@ -13,20 +13,19 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 5dd09988d37982c41b761688492bd2dc3642b2db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81728992"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>IoT (Azure 사물 인터넷) 배포에 대 한 보안 권장 사항
 
-이 문서에는 IoT에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현 하면 공유 책임 모델에 설명 된 대로 보안 의무를 달성 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)을 참조 하세요.
+이 문서에는 IoT에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현하면 공유 책임 모델에 설명된 대로 보안 의무를 충족하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 책임을 충족하기 위해 수행하는 작업에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)을 참조하세요.
 
-이 문서에 포함 된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호 하는 첫 번째 방어선입니다. Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음이를 해결 하는 방법에 대 한 권장 사항을 제공 합니다.
+이 문서에 포함된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호하는 첫 번째 방어선입니다. 이는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음 이를 해결하는 방법에 대한 권장 사항을 제공합니다.
 
-- Azure Security Center 권장 사항에 대 한 자세한 내용은 [Azure Security Center의 보안 권장 사항](../security-center/security-center-recommendations.md)을 참조 하세요.
-- Azure Security Center에 대 한 자세한 내용은 [Azure Security Center 항목](../security-center/security-center-intro.md) 을 참조 하세요.
+- Azure Security Center 권장 사항에 대한 자세한 내용은 [Azure Security Center의 보안 권장 사항](../security-center/security-center-recommendations.md)을 참조하세요.
+- Azure Security Center에 대한 자세한 내용은 [Azure Security Center란?](../security-center/security-center-intro.md)을 참조하세요.
 
 ## <a name="general"></a>일반
 

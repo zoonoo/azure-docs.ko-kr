@@ -7,15 +7,14 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727256"
 ---
 # <a name="error-codes"></a>오류 코드 #
 
-재생을 시작 하거나 중지할 수 없는 경우 오류 이벤트가 발생 하 고 함수에서 `error()` 코드 및 선택적 메시지를 반환 하 여 앱 개발자가 자세한 정보를 얻을 수 있도록 합니다. `error().message`사용자에 게 표시 되는 메시지가 아닙니다.  사용자에 게 표시 되는 메시지는 `error().code` bits 27-20을 기반으로 합니다. 아래 표를 참조 하십시오.
+재생을 시작 하거나 중지할 수 없는 경우 오류 이벤트가 발생 하 고 `error()` 함수에서 코드 및 선택적 메시지를 반환 하 여 앱 개발자가 자세한 정보를 얻을 수 있도록 합니다. `error().message`사용자에 게 표시 되는 메시지가 아닙니다.  사용자에 게 표시 되는 메시지는 `error().code` bits 27-20을 기반으로 합니다. 아래 표를 참조 하십시오.
 
 ```javascript
 
@@ -44,12 +43,12 @@ ms.locfileid: "81727256"
 오류에 대 한 세부 정보를 설명 하 고 bits 27-20는 높은 수준의 정보 19-0를 제공 합니다.
 
 
-| amp. errorCode. 이름의 | 코드, 비트 [27-0] (28 비트) | Description |
+| amp. errorCode. 이름의 | 코드, 비트 [27-0] (28 비트) | 설명 |
 |---|---:|---|
 | **MEDIA_ERR_ABORTED 오류 범위 (0x0100000-0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | 일반 중단 오류 |
 | abortedErrNotImplemented | 0x0100001 | 중단 오류, 구현 되지 않음 |
-| abortedErrHttpMixedContentBlocked | 0x0100002 | 중단 오류, 혼합 된 콘텐츠 차단 됨-일반적으로 `http://` `https://` 페이지에서 스트림을 로드할 때 발생 합니다. |
+| abortedErrHttpMixedContentBlocked | 0x0100002 | 중단 오류, 혼합 된 콘텐츠 차단 됨-일반적으로 `http://` 페이지에서 스트림을 로드할 때 발생 합니다. `https://` |
 | **MEDIA_ERR_NETWORK 오류 시작 값 (0x0200000-0X0200000)** | | |
 | networkErrUnknown | 0x0200000 | 일반 네트워크 오류 |
 | networkErrHttpBadUrlFormat | 0x0200190 | Http 400 오류 응답 |

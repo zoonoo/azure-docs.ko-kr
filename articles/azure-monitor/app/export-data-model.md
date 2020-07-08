@@ -4,10 +4,9 @@ description: JSON의 연속 내보내기에서 내보내고 필터로 사용하�
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 9891bea1d52c61197fa32fa5c0764df5450b563c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536848"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
@@ -105,7 +104,7 @@ ms.locfileid: "81536848"
 ## <a name="context"></a>Context
 모든 유형의 원격 분석에는 컨텍스트 섹션이 함께 제공됩니다. 이러한 모든 필드가 모든 데이터 요소와 함께 전송되는 것은 아닙니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |사용자 지정 속성 매개 변수에 의해 설정되는 키-값 문자열 쌍입니다. 키 최대 길이가 100이고, 값 최대 길이가 1024입니다. 100개 이상의 고유 값, 속성을 검색할 수 있지만 구분에 사용할 수 없습니다. ikey당 최대 키는 200개입니다. |
 | context.custom.metrics [0] |object [ ] |사용자 지정 측정 매개 변수 및 TrackMetrics에 의해 설정된 키-값 쌍입니다. 키 최대 길이가 100이고, 값은 숫자가 될 수 있습니다. |
@@ -128,12 +127,12 @@ ms.locfileid: "81536848"
 | context.device.screenResolution |string | |
 | context.device.type |string |PC, 브라우저... |
 | context.location |개체 |`clientip`에서 파생됩니다. |
-| context.location.city |string |알려진 경우 `clientip`에서 파생 됩니다. |
+| context.location.city |string |알려진 경우에서 파생 됩니다. `clientip` |
 | context.location.clientip |string |마지막 팔각형이 0으로 익명 처리됩니다. |
 | context.location.continent |string | |
 | context.location.country |string | |
 | context.location.province |string |시/도 |
-| context.operation.id |string |항목이 동일한 `operation id` 항목은 포털에서 관련 항목으로 표시 됩니다. 일반적으로 `request id`입니다. |
+| context.operation.id |string |항목이 동일한 항목 `operation id` 은 포털에서 관련 항목으로 표시 됩니다. 일반적으로 `request id` 입니다. |
 | context.operation.name |string |URL 또는 요청 이름 |
 | context.operation.parentId |string |중첩된 관련 항목을 허용합니다. |
 | context.session.id |string |`Id`동일한 원본의 작업 그룹입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
@@ -152,7 +151,7 @@ ms.locfileid: "81536848"
 ## <a name="events"></a>이벤트
 [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | event [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | event [0] name |string |이벤트 이름입니다.  최대 길이 250 |
@@ -163,7 +162,7 @@ ms.locfileid: "81536848"
 ## <a name="exceptions"></a>예외
 서버 및 브라우저의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 를 보고합니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
 | basicException [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
@@ -192,7 +191,7 @@ ms.locfileid: "81536848"
 ## <a name="trace-messages"></a>추적 메시지
 [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](../../azure-monitor/app/asp-net-trace-logs.md)에서 전송합니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -202,7 +201,7 @@ ms.locfileid: "81536848"
 ## <a name="remote-dependency"></a>원격 종속성
 TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](../../azure-monitor/app/asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
@@ -223,7 +222,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 ## <a name="requests"></a>요청
 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | request [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
@@ -241,7 +240,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 
 컨텍스트 값은 클라이언트 OS 및 브라우저 버전을 표시합니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |HTML 수신 완료부터 페이지 표시까지 걸리는 시간입니다. |
 | clientPerformance [0] name |string | |
@@ -258,7 +257,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 ## <a name="page-views"></a>페이지 보기
 trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)에서 전송
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | view [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | view [0] durationMetric.value |integer |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
@@ -271,7 +270,7 @@ trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events
 ## <a name="availability"></a>가용성
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 보고합니다.
 
-| 경로 | Type | 메모 |
+| 경로 | 형식 | 참고 |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |availability |
 | availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
@@ -292,7 +291,7 @@ TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
 
-다음은 그 예입니다.
+예를 들어:
 
     {
      "metric": [ ],
@@ -318,7 +317,7 @@ TrackMetric()에서 생성합니다.
     }
 
 ## <a name="about-metric-values"></a>메트릭 값 정보
-메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 다음은 그 예입니다.
+메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예를 들어:
 
       "durationMetric": {
         "name": "contoso.org",
@@ -342,7 +341,7 @@ TrackMetric()에서 생성합니다.
 ### <a name="durations"></a>기간
 달리 명시된 경우를 제외하고, 기간은 10분의 1 마이크로초로 표현되므로 10000000.0은 1초를 의미합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [연속 내보내기](export-telemetry.md)
 * [코드 샘플](export-telemetry.md#code-samples)

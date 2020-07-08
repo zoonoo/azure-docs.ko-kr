@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680713"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
@@ -28,9 +27,9 @@ ms.locfileid: "81680713"
 
 IoT Hub와 사서함을 연결하여 온도를 모니터링하고 알림을 보내는 논리 앱을 만드는 방법을 배웁니다.
 
-장치에서 실행 되는 클라이언트 코드는 IoT hub에 보내는 `temperatureAlert`모든 원격 분석 메시지에서 응용 프로그램 속성을 설정 합니다. 클라이언트 코드가 30 C 이상의 온도를 검색 하면이 속성을로 `true`설정 합니다. 그렇지 않은 경우 속성을로 `false`설정 합니다.
+장치에서 실행 되는 클라이언트 코드는 `temperatureAlert` IoT hub에 보내는 모든 원격 분석 메시지에서 응용 프로그램 속성을 설정 합니다. 클라이언트 코드가 30 C 이상의 온도를 검색 하면이 속성을로 설정 하 `true` 고, 그렇지 않은 경우 속성을로 설정 합니다 `false` .
 
-IoT hub에 도착 하는 메시지는 다음과 유사 합니다. 본문에 포함 된 원격 분석 데이터와 응용 프로그램 `temperatureAlert` 속성에 포함 된 속성 (시스템 속성은 표시 되지 않음)이 있습니다.
+IoT hub에 도착 하는 메시지는 다음과 유사 합니다. 본문에 포함 된 원격 분석 데이터와 `temperatureAlert` 응용 프로그램 속성에 포함 된 속성 (시스템 속성은 표시 되지 않음)이 있습니다.
 
 ```json
 {
@@ -48,7 +47,7 @@ IoT hub에 도착 하는 메시지는 다음과 유사 합니다. 본문에 포�
 
 IoT Hub 메시지 형식에 대 한 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 참조 하세요.
 
-이 항목에서는 Service Bus 끝점 `temperatureAlert` `true` 에 속성이 있는 메시지를 보내도록 IoT hub에 라우팅을 설정 합니다. 그런 다음 Service Bus 끝점에 도착 하는 메시지를 트리거하고 사용자에 게 전자 메일 알림을 보내는 논리 앱을 설정 합니다.
+이 항목에서는 `temperatureAlert` Service Bus 끝점에 속성이 있는 메시지를 보내도록 IoT hub에 라우팅을 설정 합니다 `true` . 그런 다음 Service Bus 끝점에 도착 하는 메시지를 트리거하고 사용자에 게 전자 메일 알림을 보내는 논리 앱을 설정 합니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 
@@ -58,7 +57,7 @@ IoT Hub 메시지 형식에 대 한 자세한 내용은 [IoT Hub 메시지 만�
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서 중 하나를 완료 합니다. 예를 들어 [node.js를 사용 하 여 Pi를 Raspberry](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 다음 요구 사항을 다룹니다.
+* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서(예: [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)) 중 하나를 완료합니다. 이러한 자습서는 다음 요구 사항을 충족합니다.
 
   * 활성화된 Azure 구독.
   * 구독 중인 Azure IoT Hub
@@ -70,7 +69,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
 ### <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에서 **+ 리소스** > **통합** > 만들기**Service Bus**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **+ 리소스**  >  **통합**만들기  >  **Service Bus**를 선택 합니다.
 
 1. **네임 스페이스 만들기** 창에서 다음 정보를 제공 합니다.
 
@@ -78,7 +77,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
    **가격 책정 계층**: 드롭다운 목록에서 **기본** 을 선택 합니다. 이 자습서에서는 기본 계층이면 충분합니다.
 
-   **리소스 그룹**: IoT hub에서 사용 하는 것과 동일한 리소스 그룹을 사용 합니다.
+   **리소스 그룹**: IoT Hub에서 사용하는 것과 동일한 리소스 그룹을 사용합니다.
 
    **위치**: IoT Hub에서 사용하는 것과 같은 위치를 사용합니다.
 
@@ -96,7 +95,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
    ![Azure Portal에서 Service Bus 큐 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. **Service Bus 네임 스페이스** 창으로 돌아가서 **엔터티**아래에서 **큐**를 선택 합니다. 목록에서 Service Bus 큐를 열고 **공유 액세스 정책** > **+ 추가**를 선택 합니다.
+1. **Service Bus 네임 스페이스** 창으로 돌아가서 **엔터티**아래에서 **큐**를 선택 합니다. 목록에서 Service Bus 큐를 열고 **공유 액세스 정책**  >  **+ 추가**를 선택 합니다.
 
 1. 정책의 이름을 입력 하 고 **관리**를 선택한 다음 **만들기**를 선택 합니다.
 
@@ -104,7 +103,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>IoT hub에 사용자 지정 끝점 및 라우팅 규칙 추가
 
-Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고, 온도 경고가 포함 된 메시지를 해당 끝점에 전달 하는 메시지 라우팅 규칙을 만들어 논리 앱에서 선택 합니다. 라우팅 규칙은 라우팅 쿼리 `temperatureAlert = "true"`를 사용 하 여 장치에서 실행 되는 클라이언트 코드에 의해 `temperatureAlert` 설정 된 응용 프로그램 속성의 값을 기반으로 메시지를 전달 합니다. 자세히 알아보려면 [메시지 속성을 기반으로 하는 메시지 라우팅 쿼리](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties)를 참조 하세요.
+Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고, 온도 경고가 포함 된 메시지를 해당 끝점에 전달 하는 메시지 라우팅 규칙을 만들어 논리 앱에서 선택 합니다. 라우팅 규칙은 라우팅 쿼리를 사용 하 여 `temperatureAlert = "true"` `temperatureAlert` 장치에서 실행 되는 클라이언트 코드에 의해 설정 된 응용 프로그램 속성의 값을 기반으로 메시지를 전달 합니다. 자세히 알아보려면 [메시지 속성을 기반으로 하는 메시지 라우팅 쿼리](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties)를 참조 하세요.
 
 ### <a name="add-a-custom-endpoint"></a>사용자 지정 끝점 추가
 
@@ -138,7 +137,7 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
    **데이터 원본**: **장치 원격 분석 메시지**를 선택 합니다.
 
-   **라우팅 쿼리**:를 `temperatureAlert = "true"`입력 합니다.
+   **라우팅 쿼리**: `temperatureAlert = "true"` 를 입력 합니다.
 
    ![Azure Portal에서 라우팅 규칙 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -150,13 +149,13 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 
-1. **리소스** > 만들기**통합** > **논리 앱**을 선택 합니다.
+1. **리소스 만들기**  >  **통합**  >  **논리 앱**을 선택 합니다.
 
 1. 다음 정보를 입력합니다.
 
    **이름**: 논리 앱의 이름입니다.
 
-   **리소스 그룹**: IoT hub에서 사용 하는 것과 동일한 리소스 그룹을 사용 합니다.
+   **리소스 그룹**: IoT Hub에서 사용하는 것과 동일한 리소스 그룹을 사용합니다.
 
    **위치**: IoT Hub에서 사용하는 것과 같은 위치를 사용합니다.
 
@@ -199,9 +198,9 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
 1. SMTP 서비스 연결을 만듭니다.
 
-   1. **새 단계**를 선택 합니다. **작업 선택**에서 **모두** 탭을 선택 합니다.
+   1. **새 단계**를 선택합니다. **작업 선택**에서 **모두** 탭을 선택 합니다.
 
-   1. 검색 `smtp` 상자에을 입력 하 고 검색 결과에서 **SMTP** 서비스를 선택한 다음 **전자 메일 보내기**를 선택 합니다.
+   1. `smtp`검색 상자에을 입력 하 고 검색 결과에서 **SMTP** 서비스를 선택한 다음 **전자 메일 보내기**를 선택 합니다.
 
       ![Azure Portal에서 논리 앱에 SMTP 연결 만들기](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
 

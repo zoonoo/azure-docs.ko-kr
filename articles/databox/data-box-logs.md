@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676403"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에 대 한 추적 및 이벤트 로깅
@@ -26,7 +25,7 @@ Data Box 또는 Data Box Heavy 순서는 순서, 설정, 데이터 복사, 반�
 | 주문 만들기               | [RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
 | 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.                                              |
-| 장치에 데이터 복사        | 데이터 복사를 위한 [ *오류 .Xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
+| 장치에 데이터 복사        | 데이터 복사를 위한 [ *error.xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
 | 배송 준비            | 장치에서 BOM 파일 또는 매니페스트 파일 [을 검사 합니다](#inspect-bom-during-prepare-to-ship) .                                      |
 | Azure에 데이터 업로드       | Azure 데이터 센터에서 데이터를 업로드 하는 동안 오류에 대 한 [복사 로그 검토](#review-copy-log-during-upload-to-azure)                         |
 | 장치에서 데이터 지우기   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
@@ -64,7 +63,7 @@ Azure Portal 및 운송 업체 웹 사이트를 통해 주문을 추적할 수 �
 
 - Data Box가 잠긴 상태에서 온-프레미스에 도착 합니다. Azure Portal에서 사용할 수 있는 장치 자격 증명을 순서 대로 사용할 수 있습니다.  
 
-    Data Box 설정 되 면 장치 자격 증명에 액세스 한 사람을 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스 한 사람을 파악 하기 위해 활동 로그를 쿼리할 수 있습니다.  **장치 세부 정보 > 자격 증명에 대** 한 액세스를 포함 하는 모든 작업은 `ListCredentials` 작업으로 작업 로그에 기록 됩니다.
+    Data Box 설정 되 면 장치 자격 증명에 액세스 한 사람을 알아야 할 수 있습니다. **장치 자격 증명** 블레이드에 액세스 한 사람을 파악 하기 위해 활동 로그를 쿼리할 수 있습니다.  **장치 세부 정보 > 자격 증명에 대** 한 액세스를 포함 하는 모든 작업은 작업으로 작업 로그에 기록 됩니다 `ListCredentials` .
 
     ![활동 로그 쿼리](media/data-box-logs/query-activity-log-1.png)
 
@@ -74,14 +73,14 @@ Azure Portal 및 운송 업체 웹 사이트를 통해 주문을 추적할 수 �
 
 Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 데이터에 문제가 있으면 오류 파일이 생성 됩니다.
 
-### <a name="errorxml-file"></a>오류 .xml 파일
+### <a name="errorxml-file"></a>Error.xml 파일
 
 복사 작업이 오류 없이 완료 되었는지 확인 합니다. 복사하는 동안 오류가 있는 경우 **연결 및 복사** 페이지에서 로그를 다운로드합니다.
 
 - 512 바이트가 아닌 파일을 Data Box의 관리 디스크 폴더에 복사한 경우 파일은 준비 저장소 계정에 페이지 blob으로 업로드 되지 않습니다. 로그에 오류가 표시됩니다. 파일을 제거하고 512 바이트로 정렬된 파일을 복사합니다.
 - VHDX 또는 동적 VHD 또는 차이점 보관용 VHD를 복사한 경우 (이러한 파일은 지원 되지 않음) 로그에 오류가 표시 됩니다.
 
-다음은 managed disks에 복사할 때 발생 하는 오류에 대 한 xml의 샘플입니다 *.*
+다음은 관리 디스크로 복사할 때 다른 오류에 대 한 *error.xml* 샘플입니다.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +89,7 @@ Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 �
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-다음은 페이지 blob에 복사할 때 발생 하는 오류에 대 한 xml의 샘플입니다 *.*
+다음은 페이지 blob에 복사할 때 다른 오류에 대 한 *error.xml* 샘플입니다.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +100,7 @@ Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 �
 ```
 
 
-블록 blob에 복사할 때 발생 하는 오류에 대 한 *xml* 의 샘플은 다음과 같습니다.
+블록 blob에 복사할 때 다른 오류에 대 한 *error.xml* 샘플은 다음과 같습니다.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +128,7 @@ Data Box 또는 Data Box Heavy 데이터를 복사 하는 동안 복사 되는 �
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Azure Files에 복사할 때 발생 하는 오류에 대 한 xml의 샘플은 다음과 같습니다 *.*
+Azure Files에 복사할 때 다른 오류에 대 한 *error.xml* 샘플은 다음과 같습니다.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>

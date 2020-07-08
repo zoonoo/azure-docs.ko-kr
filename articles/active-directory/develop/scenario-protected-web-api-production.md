@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 86e897547869c917313deeb8d71b361c9e16798b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537188"
 ---
 # <a name="protected-web-api---move-to-production"></a>보호 된 웹 API-프로덕션으로 이동
@@ -41,4 +40,4 @@ ms.locfileid: "81537188"
 > [ASP.NET Core web API 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [ASP.NET web API 샘플](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [ASP.NET Web API 샘플](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

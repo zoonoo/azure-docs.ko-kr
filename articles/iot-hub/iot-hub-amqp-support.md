@@ -11,10 +11,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730744"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>AMQP 프로토콜을 사용 하 여 IoT hub와 통신
@@ -34,7 +33,7 @@ AMQP를 사용 하 여 IoT hub에 연결 하기 위해 클라이언트는 CBS ( 
 | IoT hub 호스트 이름 | `<iot-hub-name>.azure-devices.net` |
 | 키 이름 | `service` |
 | 액세스 키 | 서비스와 연결 된 기본 키 또는 보조 키 |
-| 공유 액세스 서명 | 다음 형식의 단기 공유 액세스 서명 `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`입니다. 이 서명을 생성 하는 코드를 가져오려면 [IoT Hub에 대 한 액세스 제어](./iot-hub-devguide-security.md#security-token-structure)를 참조 하세요.
+| 공유 액세스 서명 | 다음 형식의 단기 공유 액세스 서명 `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` 입니다. 이 서명을 생성 하는 코드를 가져오려면 [IoT Hub에 대 한 액세스 제어](./iot-hub-devguide-security.md#security-token-structure)를 참조 하세요.
 
 다음 코드 조각은 [Python의 Uamqp 라이브러리](https://github.com/Azure/azure-uamqp-python) 를 사용 하 여 발신자 링크를 통해 IoT hub에 연결 합니다.
 
@@ -68,9 +67,9 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 
 서비스와 IoT hub 간의 클라우드-장치 메시지 교환 및 장치와 IoT hub 간의 클라우드-장치 메시지 교환에 대해 알아보려면 [iot hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)를 참조 하세요. 다음 표에서 설명 하는 것 처럼 서비스 클라이언트는 두 개의 링크를 사용 하 여 메시지를 보내고 이전에 보낸 메시지에 대 한 피드백을 수신 합니다.
 
-| 만든 사람 | 링크 형식 | 링크 경로 | Description |
+| 만든 사람 | 링크 형식 | 링크 경로 | 설명 |
 |------------|-----------|-----------|-------------|
-| 서비스 | 보낸 사람 링크 | `/messages/devicebound` | 장치를 대상으로 하는 클라우드-장치 메시지는 서비스에 의해이 링크에 전송 됩니다. 이 링크를 통해 전송 되 `To` `/devices/<deviceID>/messages/devicebound`는 메시지에는 대상 장치의 받는 사람 링크 경로인로 설정 된 속성이 있습니다. |
+| 서비스 | 보낸 사람 링크 | `/messages/devicebound` | 장치를 대상으로 하는 클라우드-장치 메시지는 서비스에 의해이 링크에 전송 됩니다. 이 링크를 통해 전송 되는 메시지에는 `To` 대상 장치의 받는 사람 링크 경로인로 설정 된 속성이 있습니다 `/devices/<deviceID>/messages/devicebound` . |
 | 서비스 | 받는 사람 링크 | `/messages/serviceBound/feedback` | 서비스에서이 링크에 수신 된 장치에서 제공 하는 완료, 거부 및 중단 피드백 메시지입니다. 피드백 메시지에 대 한 자세한 내용은 [IoT hub에서 클라우드-장치 메시지 보내기](./iot-hub-devguide-messages-c2d.md#message-feedback)를 참조 하세요. |
 
 다음 코드 조각에서는 [Python에서 Uamqp 라이브러리](https://github.com/Azure/azure-uamqp-python)를 사용 하 여 클라우드-장치 메시지를 만들고이를 장치로 보내는 방법을 보여 줍니다.
@@ -129,13 +128,13 @@ for msg in batch:
         print('unknown message:', msg.properties.content_type)
 ```
 
-위의 코드에 표시 된 것 처럼 클라우드-장치 피드백 메시지에는 *application/vnd*의 콘텐츠 형식이 있습니다. 메시지의 JSON 본문에서 속성을 사용 하 여 원본 메시지의 배달 상태를 유추할 수 있습니다.
+위의 코드에 표시 된 것 처럼 클라우드-장치 피드백 메시지에는 *응용 프로그램/vnd.microsoft.iothub.feedback.js*의 콘텐츠 형식이 있습니다. 메시지의 JSON 본문에서 속성을 사용 하 여 원본 메시지의 배달 상태를 유추할 수 있습니다.
 
-* 피드백 `statusCode` 본문의 키에는 *성공*, *만료 됨*, *DeliveryCountExceeded*, *거부 됨*또는 *제거*됨 값 중 하나가 있습니다.
+* `statusCode`피드백 본문의 키에는 *성공*, *만료 됨*, *DeliveryCountExceeded*, *거부 됨*또는 *제거*됨 값 중 하나가 있습니다.
 
-* 피드백 `deviceId` 본문의 키에는 대상 장치의 ID가 있습니다.
+* `deviceId`피드백 본문의 키에는 대상 장치의 ID가 있습니다.
 
-* 사용자 `originalMessageId` 의견 본문의 키에는 서비스에서 보낸 원래 클라우드-장치 메시지의 ID가 있습니다. 이 배달 상태를 사용 하 여 피드백을 클라우드-장치 메시지와 상호 연결할 수 있습니다.
+* `originalMessageId`사용자 의견 본문의 키에는 서비스에서 보낸 원래 클라우드-장치 메시지의 ID가 있습니다. 이 배달 상태를 사용 하 여 피드백을 클라우드-장치 메시지와 상호 연결할 수 있습니다.
 
 ### <a name="receive-telemetry-messages-service-client"></a>원격 분석 메시지 받기 (서비스 클라이언트)
 
@@ -147,7 +146,7 @@ for msg in batch:
 
 * 유효한 서비스 자격 증명 (서비스 공유 액세스 서명 토큰)입니다.
 
-* 메시지를 검색할 소비자 그룹 파티션에 대 한 올바른 형식의 경로입니다. 지정 된 소비자 그룹 및 파티션 ID의 경우 경로의 형식은 다음과 같습니다. `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` 기본 소비자 그룹은입니다. `$Default`
+* 메시지를 검색할 소비자 그룹 파티션에 대 한 올바른 형식의 경로입니다. 지정 된 소비자 그룹 및 파티션 ID의 경우 경로의 형식은 다음과 같습니다. `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` 기본 소비자 그룹은입니다 `$Default` .
 
 * 파티션의 시작 지점을 지정 하는 선택적 필터링 조건자입니다. 이 조건자는 시퀀스 번호, 오프셋 또는 큐에 넣은 타임 스탬프의 형식이 될 수 있습니다.
 
@@ -229,7 +228,7 @@ AMQP를 사용 하 여 IoT hub에 연결 하기 위해 장치는 [CBS (클레임
 |-------------|--------------|
 | IoT hub 호스트 이름 | `<iot-hub-name>.azure-devices.net` |
 | 액세스 키 | 장치와 연결 된 기본 키 또는 보조 키 |
-| 공유 액세스 서명 | 다음 형식의 단기 공유 액세스 서명 `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`입니다. 이 서명을 생성 하는 코드를 가져오려면 [IoT Hub에 대 한 액세스 제어](./iot-hub-devguide-security.md#security-token-structure)를 참조 하세요.
+| 공유 액세스 서명 | 다음 형식의 단기 공유 액세스 서명 `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` 입니다. 이 서명을 생성 하는 코드를 가져오려면 [IoT Hub에 대 한 액세스 제어](./iot-hub-devguide-security.md#security-token-structure)를 참조 하세요.
 
 다음 코드 조각은 [Python의 Uamqp 라이브러리](https://github.com/Azure/azure-uamqp-python) 를 사용 하 여 발신자 링크를 통해 IoT hub에 연결 합니다.
 
@@ -262,7 +261,7 @@ send_client = uamqp.SendClient(uri, debug=True)
 
 다음 링크 경로는 장치 작업으로 지원 됩니다.
 
-| 만든 사람 | 링크 형식 | 링크 경로 | Description |
+| 만든 사람 | 링크 형식 | 링크 경로 | 설명 |
 |------------|-----------|-----------|-------------|
 | 디바이스 | 받는 사람 링크 | `/devices/<deviceID>/messages/devicebound` | 장치를 대상으로 하는 클라우드-장치 메시지는 각 대상 장치에 의해이 링크에 수신 됩니다. |
 | 디바이스 | 보낸 사람 링크 | `/devices/<deviceID>/messages/events` | 장치에서 전송 되는 장치-클라우드 메시지는이 링크를 통해 전송 됩니다. |
@@ -270,7 +269,7 @@ send_client = uamqp.SendClient(uri, debug=True)
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>클라우드-장치 명령 받기 (장치 클라이언트)
 
-장치로 전송 되는 클라우드-장치 명령이 `/devices/<deviceID>/messages/devicebound` 링크에 도착 합니다. 장치는 이러한 메시지를 일괄 처리로 수신 하 고 메시지 데이터 페이로드, 메시지 속성, 주석 또는 메시지의 응용 프로그램 속성을 필요에 따라 사용할 수 있습니다.
+장치로 전송 되는 클라우드-장치 명령이 링크에 도착 `/devices/<deviceID>/messages/devicebound` 합니다. 장치는 이러한 메시지를 일괄 처리로 수신 하 고 메시지 데이터 페이로드, 메시지 속성, 주석 또는 메시지의 응용 프로그램 속성을 필요에 따라 사용할 수 있습니다.
 
 다음 코드 조각은 [Python의 Uamqp 라이브러리](https://github.com/Azure/azure-uamqp-python)를 사용 하 여 장치에서 클라우드-장치 메시지를 수신 합니다.
 
@@ -363,7 +362,7 @@ for result in results:
         print result
 ```
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * 네트워크 결함 또는 인증 토큰의 만료 (코드에서 생성)로 인해 AMQP 연결이 중단 될 수 있습니다. 서비스 클라이언트는 이러한 상황을 처리 하 고 필요한 경우 연결 및 링크를 다시 설정 해야 합니다. 인증 토큰이 만료 되 면 만료 되기 전에 토큰을 사전에 갱신 하 여 연결 삭제를 방지할 수 있습니다.
 

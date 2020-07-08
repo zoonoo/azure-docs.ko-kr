@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 96528dc34305e77602634110a0153f7623a15c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676764"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
@@ -282,7 +281,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-플래시 백를 켜고 (복구를 훨씬 더 용이 하 게 함) 대기\_파일\_관리를 자동으로 설정 합니다. SQL * Plus를 종료 합니다.
+플래시 백를 켜고 (복구를 훨씬 더 용이 하 게 함) 대기 \_ 파일 \_ 관리를 자동으로 설정 합니다. SQL * Plus를 종료 합니다.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;

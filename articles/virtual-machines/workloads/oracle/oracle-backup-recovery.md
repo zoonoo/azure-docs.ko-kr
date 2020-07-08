@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687012"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
@@ -172,7 +171,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 4. JSON 파일을 편집합니다.
 
-    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 다음은 그 예입니다.
+    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들어:
 
     ```output
     {
@@ -508,7 +507,7 @@ VM을 복원한 후에 공용 IP 주소를 설정합니다.
 
     ![공용 IP 주소의 목록](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**에 **기존 항목 사용**을 선택합니다. 그런 다음 **만들기**를 클릭 합니다.
+2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**에 **기존 항목 사용**을 선택합니다. 그런 다음 **만들기**를 클릭합니다.
 
     ![IP 주소 만들기](./media/oracle-backup-recovery/create_ip_01.png)
 

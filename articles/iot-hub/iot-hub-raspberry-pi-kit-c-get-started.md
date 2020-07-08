@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640540"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
@@ -117,9 +116,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ### <a name="enable-ssh-and-spi"></a>SSH 및 SPI를 사용하도록 설정
 
-1. Pi를 모니터, 키보드 및 마우스에 연결 하 고 Pi를 시작한 다음 사용자 이름 및 `pi` `raspberry` 를 암호로 사용 하 여 Raspbian에 로그인 합니다.
+1. Pi를 모니터, 키보드 및 마우스에 연결 하 고 Pi를 시작한 다음 사용자 이름 및를 암호로 사용 하 여 Raspbian에 로그인 `pi` `raspberry` 합니다.
  
-2. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성**을 클릭 합니다.
+2. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성**을 클릭 합니다.
 
    ![Raspbian 기본 설정 메뉴](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 

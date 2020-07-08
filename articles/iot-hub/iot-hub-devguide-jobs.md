@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730099"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
@@ -122,7 +121,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> *Updatetwin* 속성에는 유효한 etag 일치가 필요 합니다. 예를 `etag="*"`들면입니다.
+> *Updatetwin* 속성에는 유효한 etag 일치가 필요 합니다. 예를 들면 `etag="*"` 입니다.
 
 다음 코드 조각은 contoso-hub-1에서 테스트 장치에 대 한 장치 쌍 속성을 업데이트 하도록 예약 된 작업에 대 한 요청 및 응답을 보여 줍니다.
 
@@ -178,7 +177,7 @@ Content-Type: application/json; charset=utf-8
 
 다음 목록은 작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명을 나타냅니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | **Id** |작업에 대해 애플리케이션에서 제공한 ID입니다. |
 | **startTime** |작업에 대해 애플리케이션에서 제공한 시작 시간(ISO-8601)입니다. |
@@ -205,15 +204,15 @@ Content-Type: application/json; charset=utf-8
 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md) - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
+* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)는 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md) - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md) - IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
 * [디바이스 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색합니다.
 
-* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md) - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
+* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

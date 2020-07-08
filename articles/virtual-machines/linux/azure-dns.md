@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641723"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
@@ -23,7 +22,7 @@ Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대
 
 다음 표에 각 시나리오 별로 해당하는 이름 확인 방법이 나와 있습니다.
 
-| **시나리오** | **해결 방법** | **접미어** |
+| **시나리오** | **해결 방법** | **접미사** |
 | --- | --- | --- |
 | 동일한 가상 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure에서 제공하는 이름 확인 |호스트 이름 또는 FQDN(정규화된 도메인 이름) |
 | 서로 다른 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 컴퓨터 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-using-your-own-dns-server)을 참조 하세요. |FQDN만 |

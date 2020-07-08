@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81688093"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
@@ -22,7 +21,7 @@ ms.locfileid: "81688093"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 관리 옵션          | 작업                    |
+| 관리 옵션          | Task                    |
 |----------------------------|--------------------------------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
 | 디바이스 쌍 읽기           | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
@@ -48,7 +47,7 @@ ms.locfileid: "81688093"
 * 활성화된 Azure 구독.
 * 구독 중인 Azure IoT Hub
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는이 URL을 복사 하 여 브라우저 창에 붙여 넣습니다`vscode:extension/vsciot-vscode.azure-iot-tools`.
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는이 URL을 복사 하 여 브라우저 창에 붙여 넣습니다 `vscode:extension/vsciot-vscode.azure-iot-tools` .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 
@@ -71,7 +70,7 @@ ms.locfileid: "81688093"
 
 2. 입력 상자에 메서드 이름 및 페이로드를 입력합니다.
 
-3. 결과는 **출력** > **Azure IoT Hub** 보기에 표시 됩니다.
+3. 결과는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
 
 ## <a name="read-device-twin"></a>디바이스 쌍 읽기
 
@@ -95,7 +94,7 @@ IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행�
 
 2. 입력 상자에 메시지를 입력합니다.
 
-3. 결과는 **출력** > **Azure IoT Hub** 보기에 표시 됩니다.
+3. 결과는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
 ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682508"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
@@ -64,7 +63,7 @@ ms.locfileid: "81682508"
 
 1. 장치를 마우스 오른쪽 단추로 클릭 하 고 **모니터링 시작 기본 제공 이벤트 끝점**을 선택 합니다.
 
-2. 모니터링 되는 메시지는 **출력** > **Azure IoT Hub** 보기에 표시 됩니다.
+2. 모니터링 되는 메시지는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
 
 3. 모니터링을 중지 하려면 **출력** 뷰를 마우스 오른쪽 단추로 클릭 하 고 **기본 제공 이벤트 끝점 모니터링 중지**를 선택 합니다.
 
@@ -76,7 +75,7 @@ IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행�
 
 2. 입력 상자에 메시지를 입력합니다.
 
-3. 결과는 **출력** > **Azure IoT Hub** 보기에 표시 됩니다.
+3. 결과는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

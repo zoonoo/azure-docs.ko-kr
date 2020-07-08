@@ -4,10 +4,9 @@ description: Azure Migrate에서 프로젝트를 찾고 만들고 관리 하 고
 ms.topic: how-to
 ms.date: 04/19/2020
 ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676386"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
@@ -66,7 +65,7 @@ Azure Migrate 프로젝트가 이미 있고 추가 프로젝트를 만들려는 
     - 리소스 그룹이 Azure Migrate 프로젝트에 독점적으로 사용 되는 경우 전체 리소스 그룹을 삭제할 수 있습니다.
 
 
-다음 사항에 유의하세요.
+다음 사항에 유의합니다.
 
 - 를 삭제 하면 검색 된 컴퓨터에 대 한 프로젝트와 메타 데이터가 모두 삭제 됩니다.
 - 이전 버전의 Azure Migrate을 사용 하는 경우 프로젝트를 만든 Azure 리소스 그룹을 엽니다. 삭제할 마이그레이션 프로젝트를 선택 합니다 (리소스 종류는 **마이그레이션 프로젝트**).
@@ -78,8 +77,8 @@ Azure Migrate 프로젝트가 이미 있고 추가 프로젝트를 만들려는 
 
 1. 프로젝트에 연결된 Log Analytics 작업 영역을 찾습니다.
 
-    - Azure Migrate 프로젝트를 삭제 하지 않은 경우 **Essentials** > **서버 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
-       ![LA 작업](./media/create-manage-projects/loganalytics-workspace.png)영역.
+    - Azure Migrate 프로젝트를 삭제 하지 않은 경우 **Essentials**  >  **서버 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
+       ![LA 작업 영역 ](./media/create-manage-projects/loganalytics-workspace.png) .
        
     - 이미 Azure Migrate 프로젝트를 삭제 한 경우 Azure Portal의 왼쪽 창에서 **리소스 그룹** 을 선택 하 고 작업 영역을 찾습니다.
        

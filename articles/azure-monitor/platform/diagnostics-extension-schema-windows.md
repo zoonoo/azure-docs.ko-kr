@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676423"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows 진단 확장 스키마
@@ -43,9 +42,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 `http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
-|**PublicConfig**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**PublicConfig**|필수 요소. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PrivateConfig**|선택 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**IsEnabled**|Boolean입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -54,9 +53,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  공용 진단 구성을 설명합니다.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
-|**WadCfg**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**WadCfg**|필수 요소. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**StorageAccount**|데이터를 저장할 Azure Storage 계정의 이름입니다. Set-AzureServiceDiagnosticsExtension cmdlet을 실행할 때 매개 변수로 지정할 수도 있습니다.|  
 |**StorageType**|*Table*, *Blob* 또는 *TableAndBlob*일 수 있습니다. Table이 기본값입니다. TableAndBlob을 선택하면 진단 데이터는 각 형식당 한 번씩, 두 번 기록됩니다.|  
 |**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할의 경우: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Virtual Machine의 경우: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> - **경로** - Azure Diagnostics에서 사용되는 시스템의 디렉터리입니다.<br /><br /> - **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
@@ -70,9 +69,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- 필수
+ 필요한 공간
 
-|특성|Description|  
+|특성|설명|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Azure Diagnostics로 수집된 진단 데이터의 다양한 형식에서 사용될 수 있는 로컬 디스크 공간의 최대 크기입니다. 기본 설정은 4096MB입니다.<br />
 |**useProxyServer** | IE 설정에서 설정한 대로 프록시 서버 설정을 사용하도록 Azure Diagnostics를 구성합니다.|
@@ -81,13 +80,13 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
 <br /> <br />
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**CrashDumps**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** -가장 가까운 시간 (분)으로 반올림 된 저장소에 대 한 예약 된 전송 사이의 간격입니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 |**디렉터리**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**EtwProviders**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**메트릭**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**Metrics**(메트릭)|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PerformanceCounters**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**WindowsEventLog**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|
 |**DockerSources**|이 페이지의 다른 곳에 있는 설명을 참조하세요. |
@@ -99,15 +98,15 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  크래시 덤프의 수집을 사용하도록 설정합니다.  
 
-|특성|Description|  
+|특성|설명|  
 |----------------|-----------------|  
 |**containerName**|선택 사항입니다. 크래시 덤프를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
 |**crashDumpType**|선택 사항입니다.  최소 또는 전체 크래시 덤프를 수집하도록 Azure Diagnostics를 구성합니다.|  
 |**directoryQuotaPercentage**|선택 사항입니다.  VM에서 크래시 덤프에 대해 예약될 **overallQuotaInMB**의 비율을 구성합니다.|  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|필수 사항입니다. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure Diagnostics에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
+|**CrashDumpConfiguration**|필수 요소. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure Diagnostics에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
 
 ## <a name="directories-element"></a>Directories 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
@@ -116,7 +115,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  선택적 **scheduledTransferPeriod** 특성입니다. 이전 설명을 참조하세요.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**IISLogs**|이 요소를 구성에 포함하면 IIS 로그의 컬렉션이 활성화됩니다.<br /><br /> **containerName** - IIS를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|   
 |**FailedRequestLogs**|이 요소를 구성에 포함하면 IIS 사이트 또는 애플리케이션에 실패 한 요청에 대한 로그 컬렉션이 활성화합니다. 또한 **Web.config**의 **system.WebServer**에 있는 추적 옵션도 사용하도록 설정해야 합니다.|  
@@ -130,9 +129,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  모니터링할 디렉터리의 목록입니다.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|필수 사항입니다. 필수 특성:<br /><br /> **containerName** - 로그 파일을 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
+|**DirectoryConfiguration**|필수 요소. 필수 특성:<br /><br /> **containerName** - 로그 파일을 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
 
 
 
@@ -143,7 +142,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  **Absolute** 또는 **LocalResource** 요소 중 하나를 포함하되, 모두 포함할 수는 없습니다.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**32x32**|모니터링할 디렉터리의 절대 경로입니다. 다음과 같은 특성이 필요합니다.<br /><br /> - **Path** - 모니터링할 디렉터리의 절대 경로입니다.<br /><br /> - **expandEnvironment** - 경로의 환경 변수가 확장되어 있는지 여부를 구성합니다.|  
 |**LocalResource**|모니터링할 로컬 리소스의 상대 경로입니다. 필수 특성은 다음과 같습니다.<br /><br /> - **Name** - 모니터링할 디렉터리를 포함하는 로컬 리소스<br /><br /> - **relativePath** -모니터링할 디렉터리를 포함하는 이름의 상대 경로|  
@@ -155,7 +154,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  EventSource의 ETW 이벤트 및/또는 공급자를 기반으로 하는 ETW 매니페스트의 컬렉션을 구성합니다.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|[EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 필수 특성:<br /><br /> **provider** - EventSource 이벤트의 클래스 이름입니다.<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 스토리지 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** -가장 가까운 시간 (분)으로 반올림 된 저장소에 대 한 예약 된 전송 사이의 간격입니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 |**EtwManifestProviderConfiguration**|필수 특성:<br /><br /> **provider** - 이벤트 공급자의 GUID<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 스토리지 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** -가장 가까운 시간 (분)으로 반올림 된 저장소에 대 한 예약 된 전송 사이의 간격입니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
@@ -167,7 +166,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  [EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**DefaultEvents**|선택적 특성:<br/><br/> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
 |**이벤트**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
@@ -177,7 +176,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**DefaultEvents**|선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
 |**이벤트**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
@@ -189,9 +188,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다.  
 
- **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. 리소스 **Browse** -> **Resource Groups** 그룹 ->  찾아보기 **<이름\>** 을 선택 합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
+ **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **Browse**  ->  **리소스 그룹** 찾아보기  ->  **<\> 이름**을 선택 합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 스토리지에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 
@@ -206,9 +205,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  선택적 **scheduledTransferPeriod** 특성입니다. 이전 설명을 참조하세요.
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. `\Processor(_Total)\% Processor Time`)을 입력합니다. 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다. [(Unittype.pixel) 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) 에서 값을 사용할 수 있습니다. |
+|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예: `\Processor(_Total)\% Processor Time`. 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다. [(Unittype.pixel) 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) 에서 값을 사용할 수 있습니다. |
 |**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다.|    
 
 
@@ -221,9 +220,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  선택적 **scheduledTransferPeriod** 특성입니다. 이전 설명을 참조하세요.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |-------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 다음은 그 예입니다.<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다. |
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들어:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다. |
 |**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 싱크를 지원하는 모든 자식 요소에 대한 진단 데이터를 보낼 싱크 위치도 가리킵니다. 싱크 예제는 Application Insights 또는 Event Hubs입니다.|  
 
 
@@ -234,7 +233,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
-|attribute|Type|Description|  
+|attribute|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
@@ -246,7 +245,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  1.9에 추가되었습니다.
 
-|요소 이름|Description|  
+|요소 이름|설명|  
 |------------------|-----------------|  
 |**상태의**|Docker 컨테이너에 대한 통계를 수집하도록 시스템에 지시|  
 
@@ -255,9 +254,9 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  진단 데이터를 보낼 위치와 그러한 위치와 관련된 구성의 목록 입니다.  
 
-|요소 이름|Description|  
+|요소 이름|설명|  
 |------------------|-----------------|  
-|**sink**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**싱크**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="sink-element"></a>싱크 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
@@ -266,7 +265,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|attribute|Type|Description|  
+|attribute|형식|설명|  
 |---------------|----------|-----------------|  
 |**name**|문자열|sinkname을 식별하는 문자열입니다.|  
 
@@ -282,7 +281,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  싱크를 통해 전달되는 로그 데이터의 스트림에 대한 필터를 정의합니다.  
 
-|요소|Type|Description|  
+|요소|Type|설명|  
 |-------------|----------|-----------------|  
 |**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -293,7 +292,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|Type|Description|  
+|특성|형식|설명|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**name**|**string**|참조 하는 채널의 고유 이름|  
@@ -304,11 +303,11 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  버전 1.3에 추가되었습니다.  
 
- Optional  
+ 선택 사항  
 
  스토리지 계정(이름, 키 및 엔드포인트)의 프라이빗 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
 
-|자식 요소|Description|  
+|자식 요소|설명|  
 |--------------------|-----------------|  
 |**StorageAccount**|사용할 스토리지 계정입니다. 다음과 같은 특성이 필요<br /><br /> - **이름** - 스토리지 계정의 이름입니다.<br /><br /> - **키** - 스토리지 계정의 키입니다.<br /><br /> - **엔드포인트** - 스토리지 계정에 액세스하는 엔드포인트입니다. <br /><br /> -**sasToken** (추가 된 1.8.1)-개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. 제공 된 경우 저장소 계정 키가 무시 됩니다. <br />SAS 토큰에 대한 요구 사항: <br />- 계정 SAS 토큰만 지원합니다. <br />- *b*, *t* 서비스 형식이 필요합니다. <br /> - *a*, *c*, *u*, *w* 권한이 필요합니다. <br /> - *c*, *o* 리소스 형식이 필요합니다. <br /> - HTTPS 프로토콜만 지원합니다. <br /> - 시작 및 만료 시간이 유효해야 합니다.|  
 

@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4877493982671b1b5db686715ef854f25c2966ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310989"
 ---
 # <a name="send-security-messages-sdk"></a>보안 메시지 보내기 SDK
@@ -32,7 +31,7 @@ ms.locfileid: "81310989"
 > * Azure IoT C SDK를 사용 하 여 보안 메시지 보내기
 > * Azure IoT c # SDK를 사용 하 여 보안 메시지 보내기
 > * Azure IoT Python SDK를 사용 하 여 보안 메시지 보내기
-> * Azure IoT node.js SDK를 사용 하 여 보안 메시지 보내기
+> * Azure IoT Node.js SDK를 사용 하 여 보안 메시지 보내기
 > * Azure IoT Java SDK를 사용 하 여 보안 메시지 보내기
 
 ## <a name="azure-security-center-for-iot-capabilities"></a>IoT 기능을 위한 Azure Security Center
@@ -47,7 +46,7 @@ IoT에 대 한 Azure Security Center는 다음 조건을 사용 하 여 보안 �
 - 메시지가 [보안 메시지 스키마](https://aka.ms/iot-security-schemas) 를 준수 하는 경우
 - 메시지를 보내기 전에 보안 메시지로 설정 된 경우
 
-각 보안 메시지에는 `AgentId`, `AgentVersion` `MessageSchemaVersion` 및 보안 이벤트 목록과 같은 보낸 사람의 메타 데이터가 포함 됩니다.
+각 보안 메시지에는 `AgentId` , `AgentVersion` `MessageSchemaVersion` 및 보안 이벤트 목록과 같은 보낸 사람의 메타 데이터가 포함 됩니다.
 스키마는 이벤트 유형을 포함 하 여 보안 메시지의 유효한 속성 및 필수 속성을 정의 합니다.
 
 > [!NOTE]

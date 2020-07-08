@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: bbea0accc79cafb6fea3f1438a71250dc02f4d62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310998"
 ---
 # <a name="access-your-security-data"></a>보안 데이터 액세스
@@ -66,11 +65,11 @@ SecurityAlert
 | take 3
 ```
 
-| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Description                                             | ExtendedProperties                                                                                                                                                             |
+| TimeGenerated           | IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | 설명                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 무차별 암호 대입 공격 성공           | 장치에서 무차별 암호 대입 공격 성공        |    {"전체 원본 주소": "[\"10.165.12.18:\"]", "사용자 이름": "[\"\"]", "DeviceId": "IoT-Device-Linux"}                                                                       |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 성공      | 장치에 대 한 로컬 로그인에 성공 했습니다.     | {"원격 주소": "?", "원격 포트": "", "로컬 포트": "", "로그인 셸": "/bin/su", "로그인 프로세스 Id": "28207", "사용자 이름": "공격자", "DeviceId": "IoT-Device-Linux"} |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 시도 실패  | 장치에 대 한 로컬 로그인 시도가 실패 했습니다. |    {"원격 주소": "?", "원격 포트": "", "로컬 포트": "", "로그인 셸": "/bin/su", "로그인 프로세스 Id": "22644", "사용자 이름": "공격자", "DeviceId": "IoT-Device-Linux"} |
+| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높은          | 무차별 암호 대입 공격 성공           | 장치에서 무차별 암호 대입 공격 성공        |    {"전체 원본 주소": "[ \" 10.165.12.18: \" ]", "사용자 이름": "[ \" \" ]", "DeviceId": "IoT-Device-Linux"}                                                                       |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높은          | 장치에서 로컬 로그인 성공      | 장치에 대 한 로컬 로그인에 성공 했습니다.     | {"원격 주소": "?", "원격 포트": "", "로컬 포트": "", "로그인 셸": "/bin/su", "로그인 프로세스 Id": "28207", "사용자 이름": "공격자", "DeviceId": "IoT-Device-Linux"} |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높은          | 장치에서 로컬 로그인 시도 실패  | 장치에 대 한 로컬 로그인 시도가 실패 했습니다. |    {"원격 주소": "?", "원격 포트": "", "로컬 포트": "", "로그인 셸": "/bin/su", "로그인 프로세스 Id": "22644", "사용자 이름": "공격자", "DeviceId": "IoT-Device-Linux"} |
 
 ### <a name="device-summary"></a>장치 요약
 
@@ -89,12 +88,12 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | 개수 |
+| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | 개수 |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 무차별 암호 대입 공격 성공           | 9   |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 보통        | 장치에서 로컬 로그인 시도 실패  | 242 |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 성공      | 31  |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 보통        | 암호화 동전 마이너                     | 4   |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높은          | 무차별 암호 대입 공격 성공           | 9   |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 장치에서 로컬 로그인 시도 실패  | 242 |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높은          | 장치에서 로컬 로그인 성공      | 31  |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 암호화 동전 마이너                     | 4   |
 
 ### <a name="iot-hub-summary"></a>IoT hub 요약
 
@@ -115,10 +114,10 @@ SecurityAlert
 
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 무차별 암호 대입 공격 성공           | 1          |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 보통        | 장치에서 로컬 로그인 시도 실패  | 1          |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높음          | 장치에서 로컬 로그인 성공      | 1          |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 보통        | 암호화 동전 마이너                     | 1          |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높은          | 무차별 암호 대입 공격 성공           | 1          |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 중간        | 장치에서 로컬 로그인 시도 실패  | 1          |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 높은          | 장치에서 로컬 로그인 성공      | 1          |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 중간        | 암호화 동전 마이너                     | 1          |
 
 ## <a name="security-recommendations"></a>보안 권장 사항
 
@@ -146,10 +145,10 @@ SecurityRecommendation
 | take 2
 ```
 
-| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
+| TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | 설명 | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 보통 | Active | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{\"SourceAddress\":\"\",\"sourceport\":\"\",\"destinationaddress\":\"\",\"destinationaddress\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 보통 | Active | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{\"SourceAddress\":\"\",\"sourceport\":\"\",\"destinationaddress\":\"\",\"destinationaddress\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | Active | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{ \" SourceAddress \" : \" \" , \" sourceport \" : \" \" , \" destinationaddress \" : \" \" , \" destinationaddress \" : \" 1337 \" }]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | Active | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{ \" SourceAddress \" : \" \" , \" sourceport \" : \" \" , \" destinationaddress \" : \" \" , \" destinationaddress \" : \" 1337 \" }]"} |
 
 ### <a name="device-summary"></a>장치 요약
 
@@ -166,12 +165,12 @@ SecurityRecommendation
 | summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | 개수 |
+| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | 개수 |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 2   |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 보통        | 1 |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 1  |
-| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 보통        | 4   |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높은          | 2   |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 1 |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높은          | 1  |
+| /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간        | 4   |
 
 ## <a name="next-steps"></a>다음 단계
 

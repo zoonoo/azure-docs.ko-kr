@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641117"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -58,7 +57,7 @@ Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 엔�
 * 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 **통과** 전달을 위해 구성된 채널에 보냅니다. 어떠한 추가적인 처리 없이 수집된 스트림이 **채널**을 통과하는 경우를 **통과** 전달이라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력은 RTMP: Telestream Wirecast, Haivision, Teradek 트랜스코더입니다.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 
   > [!NOTE]
-  > 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 세부 정보를 참조하세요.
+  > 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격](https://azure.microsoft.com/pricing/details/media-services/) 정보를 참조 하세요.
   > 
   > 
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 Media Services를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. RTMP output을 사용 하는 다음 라이브 인코더는 Telestream Wirecast 형식의 채널에서 작동 하는 것으로 알려져 있습니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
@@ -144,7 +143,7 @@ Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operati
 * **시작 중**입니다. 채널이 시작 중입니다. 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하는 경우 채널이 중단된 상태를 반환합니다.
 * **실행 중**. 라이브 스트림 처리에 채널을 사용할 수 있습니다. 이제 사용 요금이 청구됩니다. 추가 요금 청구를 방지하기 위해 채널을 중지해야 합니다.
 * **중지 하 고**있습니다. 채널이 중지 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
-* **삭제 중**. 채널이 삭제 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
+* **삭제**합니다. 채널이 삭제 중입니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.
 
 다음 표에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
 
