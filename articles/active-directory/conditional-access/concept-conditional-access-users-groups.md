@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80755275"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
@@ -36,7 +35,7 @@ ms.locfileid: "80755275"
    - B2B 게스트를 비롯 하 여 디렉터리에 있는 모든 사용자입니다.
 - 사용자 및 그룹 선택
    - 모든 게스트 및 외부 사용자
-      - 이 선택 항목에는로 `user type` `guest`설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다. 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
+      - 이 선택 항목에는로 설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다 `user type` `guest` . 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
    - 디렉터리 역할
       - 관리자가 할당을 확인 하는 데 사용 되는 특정 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다.
    - 사용자 및 그룹
@@ -52,7 +51,7 @@ ms.locfileid: "80755275"
 조건부 액세스 정책을 만들 때 다음 옵션을 제외 하는 데 사용할 수 있습니다.
 
 - 모든 게스트 및 외부 사용자
-   - 이 선택 항목에는로 `user type` `guest`설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다. 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
+   - 이 선택 항목에는로 설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다 `user type` `guest` . 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
 - 디렉터리 역할
    - 관리자가 할당을 확인 하는 데 사용 되는 특정 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다.
 - 사용자 및 그룹
@@ -72,4 +71,4 @@ ms.locfileid: "80755275"
 
 - [조건부 액세스: 클라우드 앱 또는 작업](concept-conditional-access-cloud-apps.md)
 
-- [조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+- [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)

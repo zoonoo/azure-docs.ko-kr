@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681702"
 ---
 # <a name="rendering-modes"></a>렌더링 모드
@@ -38,7 +37,7 @@ ms.locfileid: "80681702"
 
 모든 단일 GPU는 MSAA를 사용 하 여 로컬 콘텐츠를 앤티앨리어싱 합니다. 그러나 고유 Gpu의 가장자리 사이에는 고유 하 게 별칭을 지정할 수 있습니다. 최종 이미지를 후 처리이 효과는 크지 않지만 MSAA 품질은 **TileBasedComposition** 모드 보다는 여전히 좋지 않습니다.
 
-MSAA 아티팩트는 다음 이미지에서 설명 합니다. ![DepthBasedComposition에서 msaa](./media/service-render-mode-balanced.png)
+MSAA 아티팩트는 다음 이미지에서 설명 합니다. ![ DepthBasedComposition에서 msaa](./media/service-render-mode-balanced.png)
 
 앤티 앨리어싱은 sculpture와 방식을 사이에서 제대로 작동 합니다. 두 파트가 동일한 GPU에서 렌더링 되기 때문입니다. 반면 방식을와 벽 사이의 가장자리는 이러한 두 부분이 고유한 Gpu에서 구성 되기 때문에 일부 별칭을 보여 줍니다.
 
@@ -50,7 +49,7 @@ MSAA 아티팩트는 다음 이미지에서 설명 합니다. ![DepthBasedCompos
 
 ## <a name="setting-the-render-mode"></a>렌더링 모드 설정
 
-원격 렌더링 VM에서 사용 되는 렌더링 모드는를 `AzureSession.ConnectToRuntime` 통해에서 `ConnectToRuntimeParams`지정 됩니다.
+원격 렌더링 VM에서 사용 되는 렌더링 모드는 `AzureSession.ConnectToRuntime` 를 통해에서 지정 됩니다 `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)
@@ -74,4 +73,4 @@ async void ExampleConnect(AzureSession session)
 ## <a name="next-steps"></a>다음 단계
 
 * [세션](../concepts/sessions.md)
-* [계층 구조 상태 재정의 구성 요소](../overview/features/override-hierarchical-state.md)
+* [계층 상태 재정의 구성 요소](../overview/features/override-hierarchical-state.md)

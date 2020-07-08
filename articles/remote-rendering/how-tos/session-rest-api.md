@@ -6,17 +6,16 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681247"
 ---
 # <a name="use-the-session-management-rest-api"></a>세션 관리 REST API 사용
 
 Azure 원격 렌더링 기능을 사용 하려면 *세션*을 만들어야 합니다. 각 세션은 Azure에서 할당 되는 VM (가상 머신)에 해당 하며 클라이언트 장치가 연결 될 때까지 대기 합니다. 장치가 연결 되 면 VM은 요청 된 데이터를 렌더링 하 고 결과를 비디오 스트림으로 사용 합니다. 세션을 만드는 동안 실행 하려는 서버 종류를 선택 하 여 가격 책정을 결정 합니다. 세션이 더 이상 필요 하지 않으면 중지 되어야 합니다. 수동으로 중지 되지 않은 경우 세션의 *임대 시간이* 만료 되 면 자동으로 종료 됩니다.
 
-서비스의 사용을 보여 주는 *RenderingSession*이라는 *스크립트* 폴더의 [ARR 샘플 리포지토리에서](https://github.com/Azure/azure-remote-rendering) PowerShell 스크립트를 제공 합니다. 스크립트 및 해당 구성은 여기에 설명 되어 있습니다. [예제 PowerShell 스크립트](../samples/powershell-example-scripts.md)
+서비스의 사용을 보여 주는 *RenderingSession.ps1*이라는 *스크립트* 폴더의 [ARR 샘플 리포지토리에서](https://github.com/Azure/azure-remote-rendering) PowerShell 스크립트를 제공 합니다. 스크립트 및 해당 구성은 여기에 설명 되어 있습니다. [예제 PowerShell 스크립트](../samples/powershell-example-scripts.md)
 
 > [!TIP]
 > 이 페이지에 나열 된 PowerShell 명령은 서로를 보완 하기 위한 것입니다. 동일한 PowerShell 명령 프롬프트 내에서 모든 스크립트를 순서 대로 실행 하는 경우 서로를 기반으로 빌드됩니다.
@@ -46,7 +45,7 @@ $accountKey = "*******************************************="
 
 ## <a name="common-request-headers"></a>일반 요청 헤더
 
-* *권한 부여* 헤더의 값은 "`Bearer TOKEN`" 이어야 합니다. 여기서 "`TOKEN`"는 [보안 토큰 서비스에서 반환](tokens.md)된 인증 토큰입니다.
+* *권한 부여* 헤더의 값은 "" 이어야 합니다 `Bearer TOKEN` . 여기서 " `TOKEN` "는 [보안 토큰 서비스에서 반환](tokens.md)된 인증 토큰입니다.
 
 ### <a name="example-script-request-a-token"></a>예제 스크립트: 토큰 요청
 
@@ -65,7 +64,7 @@ $token = $response.AccessToken;
 
 이 명령은 세션을 만듭니다. 새 세션의 ID를 반환 합니다. 다른 모든 명령에 대 한 세션 ID가 필요 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/create | POST |
 
@@ -73,11 +72,11 @@ $token = $response.AccessToken;
 
 * maxLeaseTime (timespan): VM이 자동으로 해제 되는 시간 제한 값
 * 모델 (배열): 미리 로드할 자산 컨테이너 Url
-* 크기 (문자열): VM 크기 (**"표준"** 또는 **"프리미엄"**)입니다. 특정 [VM 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조 하세요.
+* 크기 (문자열): VM 크기 (**"표준"** 또는 **"프리미엄"**)입니다. 특정 [VM 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조하세요.
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 202 | -sessionId: GUID | 성공 |
 
@@ -124,7 +123,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 > [!IMPORTANT]
 > 임대 시간은 항상 세션의 시작 이후 총 시간으로 제공 됩니다. 즉, 임대 시간이 1 시간인 세션을 만들고 다른 시간에 대 한 임대 시간을 연장 하려면 해당 maxLeaseTime를 2 시간으로 업데이트 해야 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountID*/sessions/*sessionId* | 패치 |
 
@@ -134,9 +133,9 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
-| 200 | | 성공 |
+| 200 | | Success |
 
 ### <a name="example-script-update-a-session"></a>예제 스크립트: 세션 업데이트
 
@@ -164,13 +163,13 @@ RawContentLength  : 0
 
 이 명령은 활성 세션 목록을 반환 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions | GET |
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 200 | -sessions: 세션 속성의 배열입니다. | 세션 속성에 대 한 설명은 "세션 속성 가져오기" 섹션을 참조 하세요. |
 
@@ -207,13 +206,13 @@ RawContentLength  : 2
 
 이 명령은 VM 호스트 이름 등의 세션에 대 한 정보를 반환 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/*sessionId*/properties | GET |
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 200 | -message: 문자열<br/>-sessionElapsedTime: timespan<br/>-sessionHostname: 문자열<br/>-sessionId: string<br/>-sessionMaxLeaseTime: timespan<br/>-sessionSize: enum<br/>-sessionStatus: enum | enum sessionStatus {시작, 준비, 중지, 중지, 만료, 오류}<br/>상태가 ' 오류 ' 또는 ' 만료 됨 ' 이면 메시지에 추가 정보가 포함 됩니다. |
 
@@ -250,13 +249,13 @@ RawContentLength  : 60
 
 이 명령은 세션을 중지 합니다. 할당 된 VM은 즉시 회수 됩니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/*sessionId* | Delete |
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 204 | | 성공 |
 

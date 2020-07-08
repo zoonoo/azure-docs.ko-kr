@@ -6,20 +6,19 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680025"
 ---
 # <a name="texconv---texture-conversion-tool"></a>TexConv-질감 변환 도구
 
 TexConv는 PNG, TGA, JPEG 및 DDS와 같은 일반적인 입력 형식에서 런타임 사용을 위해 최적화 된 형식으로 질감을 처리 하는 명령줄 도구입니다.
-가장 일반적인 시나리오는 단일 입력 파일 `A.xxx` 을 최적화 된 형식 `B.yyy`으로 변환 하는 것입니다 .이 도구에는 고급 사용을 위한 추가 옵션이 많이 있습니다.
+가장 일반적인 시나리오는 단일 입력 파일을 최적화 된 형식으로 변환 하는 것입니다 .이 도구에는 `A.xxx` `B.yyy` 고급 사용을 위한 추가 옵션이 많이 있습니다.
 
 ## <a name="command-line-help"></a>명령줄 도움말
 
-`--help` 매개 변수를 사용 하 여 TexConv를 실행 하면 사용 가능한 모든 옵션이 나열 됩니다. 또한 TexConv는 실행 되는 작업을 이해 하는 데 사용 되는 옵션을 인쇄 합니다. 자세한 내용은이 출력을 참조 하세요.
+매개 변수를 사용 하 여 TexConv.exe를 실행 `--help` 하면 사용 가능한 모든 옵션이 나열 됩니다. 또한 TexConv는 실행 되는 작업을 이해 하는 데 사용 되는 옵션을 인쇄 합니다. 자세한 내용은이 출력을 참조 하세요.
 
 ## <a name="general-usage"></a>일반 사용법
 
@@ -37,13 +36,13 @@ TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 
 ## <a name="multiple-input-files"></a>여러 입력 파일
 
-여러 입력 파일에서 출력을 조합 하려면 다음 옵션을 사용 하 여 각 `-in` 입력 파일을 숫자로 지정 합니다.
+여러 입력 파일에서 출력을 조합 하려면 다음 옵션을 사용 하 여 각 입력 파일을 숫자로 지정 합니다 `-in` .
 
 ```cmd
 -in0 D:/img0.jpg -in1 D:/img1.jpg -in2 D:/img2.jpg ...
 ```
 
-2d 질감에서 `-right`큐브 맵를 어셈블할 때,, `-left` `-top`, `-bottom` `-front`, `-back` 또는 `-px` `-nx` `-py` `-ny` `-pz`,,,,,를 사용할 수도 있습니다. `-nz`
+2d 질감에서 큐브 맵를 어셈블할 때,,,, 또는,,,,,를 사용할 수도 있습니다 `-right` `-left` `-top` `-bottom` `-front` `-back` `-px` `-nx` `-py` `-ny` `-pz` `-nz` .
 
 이러한 입력을 출력 파일에 매핑하려면 적절 한 채널 매핑이 필요 합니다.
 
@@ -67,7 +66,7 @@ TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 
 사용할 수 있는 채널 매핑 옵션은 다음과 같습니다.
 
-- `-r`, `-g`, `-b`, `-a` : 단일 채널 할당을 지정 합니다.
+- `-r`, `-g` , `-b` , `-a` : 단일 채널 할당을 지정 합니다.
 - `-rg`: 빨강 및 녹색 채널 할당을 지정 합니다.
 - `-rgb`: 빨강, 녹색 및 파랑 채널 할당을 지정 합니다.
 - `-rgba`: 4 개의 채널 할당을 모두 지정 합니다.
@@ -89,7 +88,7 @@ R, RG 또는 RGB 채널만 언급 하 고 TexConv는 각각 1, 2 또는 3 개의
 
 ## <a name="common-options"></a>일반 옵션
 
-가장 흥미로운 옵션은 다음과 같습니다. 에 `TexConv --help`는 추가 옵션이 나열 되어 있습니다.
+가장 흥미로운 옵션은 다음과 같습니다. 에는 추가 옵션이 나열 되어 `TexConv --help` 있습니다.
 
 ### <a name="output-type"></a>출력 형식
 
@@ -111,7 +110,7 @@ R, RG 또는 RGB 채널만 언급 하 고 TexConv는 각각 1, 2 또는 3 개의
 
 ### <a name="usage-srgb--gamma-correction"></a>사용법 (sRGB/감마 보정)
 
-옵션 `-usage` 은 출력의 용도를 지정 하 여 TexConv 입력 및 출력 파일에 감마 보정을 적용할지 여부를 알려 줍니다. 사용은 RGB 채널에만 영향을 줍니다. 알파 채널은 항상 ' 선형 ' 값을 포함 하는 것으로 간주 됩니다. 사용법을 지정 하지 않은 경우 ' auto ' 모드는 첫 번째 입력 이미지의 형식 및 파일 이름에서 사용을 검색 합니다. 예를 들어 단일 및 이중 채널 출력 형식은 항상 선형입니다. 출력을 확인 하 여 결정 TexConv 확인 합니다.
+`-usage`옵션은 출력의 용도를 지정 하 여 TexConv 입력 및 출력 파일에 감마 보정을 적용할지 여부를 알려 줍니다. 사용은 RGB 채널에만 영향을 줍니다. 알파 채널은 항상 ' 선형 ' 값을 포함 하는 것으로 간주 됩니다. 사용법을 지정 하지 않은 경우 ' auto ' 모드는 첫 번째 입력 이미지의 형식 및 파일 이름에서 사용을 검색 합니다. 예를 들어 단일 및 이중 채널 출력 형식은 항상 선형입니다. 출력을 확인 하 여 결정 TexConv 확인 합니다.
 
 - `-usage Linear`: 출력 이미지에 색을 나타내지 않는 값이 포함 되어 있습니다. 이는 일반적으로 금속성 및 거친 질감 및 모든 종류의 마스크에 대 한 경우입니다.
 

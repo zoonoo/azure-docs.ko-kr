@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680077"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>ArrInspector 검사 도구
@@ -20,20 +19,20 @@ ArrInspector는 실행 중인 Azure 원격 렌더링 세션을 검사 하는 데
 
 ## <a name="connecting-to-the-arrinspector"></a>ArrInspector에 연결
 
-ARR 서버의 호스트 이름 (종료 `mixedreality.azure.com`)을 가져온 후에는 [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector)를 사용 하 여 연결 합니다. 이 함수는 응용 `StartArrInspector.html` 프로그램이 실행 되는 장치에를 만듭니다. ArrInspector를 시작 하려면 PC에서 브라우저 (Edge, Firefox 또는 Chrome)를 사용 하 여 해당 파일을 엽니다. 파일은 24 시간 동안만 유효 합니다.
+ARR 서버의 호스트 이름 (종료)을 가져온 후에는 `mixedreality.azure.com` [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector)를 사용 하 여 연결 합니다. 이 함수는 `StartArrInspector.html` 응용 프로그램이 실행 되는 장치에를 만듭니다. ArrInspector를 시작 하려면 PC에서 브라우저 (Edge, Firefox 또는 Chrome)를 사용 하 여 해당 파일을 엽니다. 파일은 24 시간 동안만 유효 합니다.
 
-를 호출 `ConnectToArrInspectorAsync` 하는 앱이 PC에서 이미 실행 중인 경우:
+를 호출 하는 앱 `ConnectToArrInspectorAsync` 이 PC에서 이미 실행 중인 경우:
 
 * Unity 통합을 사용 하는 경우 자동으로 시작 될 수 있습니다.
-* 그렇지 않으면 *사용자 폴더\\LocalAppData\\[your_app]\\AC\\온도*에서 파일을 찾을 수 있습니다.
+* 그렇지 않으면 *사용자 폴더 \\ LocalAppData \\ [your_app] \\ AC \\ 온도*에서 파일을 찾을 수 있습니다.
 
 앱이 HoloLens에서 실행 되는 경우:
 
 1. [Windows 장치 포털](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)을 사용 하 여 HoloLens에 액세스 합니다.
 1. *시스템 > 파일 탐색기*로 이동 합니다.
-1. *사용자 폴더\\LocalAppData\\[your_app]\\AC\\온도*로 이동 합니다.
-1. *StartArrInspector* 을 PC에 저장 합니다.
-1. *StartArrInspector* 를 열어 세션의 ArrInspector를 로드 합니다.
+1. *사용자 폴더 \\ LocalAppData \\ [your_app] \\ AC \\ 온도*로 이동 합니다.
+1. *StartArrInspector.html* 을 PC에 저장 합니다.
+1. *StartArrInspector.html* 을 열어 세션의 ArrInspector를 로드 합니다.
 
 ## <a name="the-performance-panel"></a>성능 패널
 
@@ -57,14 +56,14 @@ CTRL 키를 누른 상태로 끌면 확대/축소할 수 있습니다. 가로 �
 
 로그 패널에는 서버 쪽에 생성 된 로그 메시지의 목록이 표시 됩니다. 연결 시 최대 200 이전 로그 메시지를 표시 하 고 발생 하는 새 로그 메시지를 인쇄 합니다.
 
-맨 위에 있는 단추를 사용 하 여 로그 유형에 `[Error/Warning/Info/Debug]` 따라 목록을 필터링 할 수 있습니다.
+`[Error/Warning/Info/Debug]`맨 위에 있는 단추를 사용 하 여 로그 유형에 따라 목록을 필터링 할 수 있습니다.
 ![로그 필터 단추](./media/log-filter.png)
 
 ## <a name="the-timing-data-capture-panel"></a>타이밍 데이터 캡처 패널
 
 ![타이밍 데이터 캡처](./media/timing-data-capture.png)
 
-이 패널은 서버에서 타이밍 정보를 캡처하고 다운로드 하는 데 사용 됩니다. 이 파일은 [Chrome 추적 JSON 형식을](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit)사용 합니다. 데이터를 검사 하려면 URL `Chrome://tracing` 에서 Chrome을 열고 다운로드 한 파일을 페이지로 끌어서 놓습니다. 타이밍 데이터는 고정 크기 링 버퍼에서 지속적으로 수집 됩니다. 기록 되 면 캡처는 바로 이전에 대 한 정보만 포함 합니다. 즉, 몇 초에서 몇 분 정도 걸릴 수 있습니다.
+이 패널은 서버에서 타이밍 정보를 캡처하고 다운로드 하는 데 사용 됩니다. 이 파일은 [Chrome 추적 JSON 형식을](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit)사용 합니다. 데이터를 검사 하려면 URL에서 Chrome을 열고 `Chrome://tracing` 다운로드 한 파일을 페이지로 끌어서 놓습니다. 타이밍 데이터는 고정 크기 링 버퍼에서 지속적으로 수집 됩니다. 기록 되 면 캡처는 바로 이전에 대 한 정보만 포함 합니다. 즉, 몇 초에서 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="the-scene-inspection-panel"></a>장면 검사 패널
 
@@ -113,7 +112,7 @@ CTRL 키를 누른 상태로 끌면 확대/축소할 수 있습니다. 가로 �
 
 기본적으로이 도구는 ArrInspector를 제공 하는 동일한 호스트에서 실행 되는 ARR 서버에 연결 합니다. 그러나 도구 포트가 열려 있는 ARR 인스턴스를 실행 하 고 있다고 가정 하 고 다른 서버를 검사 하도록 구성할 수 있습니다.
 
-이렇게 하려면 머리글 표시줄의 왼쪽에 있는 주 메뉴에 액세스 하 고 *호스트 구성*을 선택 합니다. **새 호스트 추가**를 클릭 하 고 이름 및 호스트 이름을 입력 합니다. *호스트 이름* 에는에서 `.mixedreality.azure.com`끝나는 호스트 이름만 사용 하 고 `http://` 또는 포트는 포함 하지 마세요.
+이렇게 하려면 머리글 표시줄의 왼쪽에 있는 주 메뉴에 액세스 하 고 *호스트 구성*을 선택 합니다. **새 호스트 추가**를 클릭 하 고 이름 및 호스트 이름을 입력 합니다. *호스트 이름* 에는에서 끝나는 호스트 이름만 사용 `.mixedreality.azure.com` 하 고 `http://` 또는 포트는 포함 하지 마세요.
 
 ![호스트 구성](./media/host-configuration.png)
 

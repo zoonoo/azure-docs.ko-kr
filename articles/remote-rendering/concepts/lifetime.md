@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681871"
 ---
 # <a name="object-and-resource-lifetime"></a>개체 및 리소스 수명
@@ -20,7 +19,7 @@ Azure 원격 렌더링은 두 가지 유형, 즉 **개체** 와 **리소스**를
 
 *개체* 는 사용자가 신중 하 게 생성, 수정 및 제거할 수 있는 것으로 간주 됩니다. 개체는 자유롭게 복제할 수 있으며 각 인스턴스는 시간이 지남에 따라 변경할 수 있습니다. 따라서 [엔터티](entities.md) 및 [구성 요소](components.md) 는 개체입니다.
 
-개체의 수명은 전적으로 사용자 제어에 있습니다. 그러나 클라이언트 쪽 표현의 수명과는 관련이 없습니다. 및 `Entity` `Component` 와 같은 클래스에 `Destroy` 는 원격 렌더링 호스트에서 개체의 할당을 취소 하기 위해 호출 해야 하는 함수가 있습니다. 또한 `Entity.Destroy()` 은 해당 계층의 엔터티, 자식 및 모든 구성 요소를 제거 합니다.
+개체의 수명은 전적으로 사용자 제어에 있습니다. 그러나 클라이언트 쪽 표현의 수명과는 관련이 없습니다. 및와 같은 클래스에는 `Entity` `Component` `Destroy` 원격 렌더링 호스트에서 개체의 할당을 취소 하기 위해 호출 해야 하는 함수가 있습니다. 또한 `Entity.Destroy()` 은 해당 계층의 엔터티, 자식 및 모든 구성 요소를 제거 합니다.
 
 ## <a name="resource-lifetime"></a>리소스 수명
 
@@ -32,7 +31,7 @@ Azure 원격 렌더링은 두 가지 유형, 즉 **개체** 와 **리소스**를
 
 ### <a name="built-in-resources"></a>기본 제공 리소스
 
-Azure 원격 렌더링에는를 `builtin://` `AzureSession.Actions.LoadXYZAsync()`호출 하는 동안를 사용 하 여 로드할 수 있는 몇 가지 기본 제공 리소스가 포함 되어 있습니다. 사용할 수 있는 기본 제공 리소스는 각각의 각 기능에 대 한 설명서에 나와 있습니다. 예를 들어, [공중 챕터](../overview/features/sky.md) 에는 기본 제공 되는 하늘 질감이 나열 됩니다.
+Azure 원격 렌더링에는를 호출 하는 동안를 사용 하 여 로드할 수 있는 몇 가지 기본 제공 리소스가 포함 되어 있습니다 `builtin://` `AzureSession.Actions.LoadXYZAsync()` . 사용할 수 있는 기본 제공 리소스는 각각의 각 기능에 대 한 설명서에 나와 있습니다. 예를 들어, [공중 챕터](../overview/features/sky.md) 에는 기본 제공 되는 하늘 질감이 나열 됩니다.
 
 ## <a name="general-lifetime"></a>일반 수명
 
@@ -42,6 +41,6 @@ Azure 원격 렌더링에는를 `builtin://` `AzureSession.Actions.LoadXYZAsync(
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Entities](entities.md)
-* [요소도](components.md)
+* [엔터티](entities.md)
+* [Components](components.md)
 * [모델](models.md)

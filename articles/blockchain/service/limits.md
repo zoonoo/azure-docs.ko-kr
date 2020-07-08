@@ -5,10 +5,9 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80676527"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Azure Blockchain 서비스의 제한
@@ -22,7 +21,7 @@ Azure Blockchain 서비스에는 구성원에 게 포함할 수 있는 노드 �
 | 가격 책정 계층 | 최대 트랜잭션 노드 | 최대 유효성 검사기 노드 |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
-| Standard | 10 | 2 |
+| 표준 | 10 | 2 |
 
 컨소시엄 네트워크에는 두 개 이상의 Azure Blockchain 서비스 표준 계층 노드가 있어야 합니다. 표준 계층 노드에는 두 가지 유효성 검사기 노드가 포함 됩니다. [이스탄불 비잔틴 내결함성 합의](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)를 충족 하려면 4 개의 유효성 검사기 노드가 필요 합니다.
 

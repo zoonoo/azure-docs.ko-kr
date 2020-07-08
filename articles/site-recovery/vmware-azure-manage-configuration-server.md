@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672762"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구를 위한 구성 서버 관리
@@ -45,7 +44,7 @@ OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라
 
 CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
-1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
+1. 구성 서버에 로그인 하 고 CSPSConfigtool.exe를 시작 합니다.
 2. 수정할 계정을 선택하고 **편집**을 클릭합니다.
 3. 수정된 자격 증명을 입력하고 **확인**을 클릭하세요.
 
@@ -61,7 +60,7 @@ CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
 CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
-1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
+1. 구성 서버에 로그인 하 고 CSPSConfigtool.exe를 시작 합니다.
 2. 수정 하려는 계정을 선택 하 고 **편집** 을 클릭 합니다.
 3. 새 자격 증명을 입력하고 **확인**을 클릭합니다.
 
@@ -76,7 +75,7 @@ CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
 CSPSConfigtool.exe를 통해 자격 증명을 추가할 수도 있습니다.
 
-1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
+1. 구성 서버에 로그인 하 고 CSPSConfigtool.exe를 시작 합니다.
 2. **추가**를 클릭하고 새 자격 증명을 입력한 다음, **확인**을 클릭하세요.
 
 ## <a name="modify-proxy-settings"></a>프록시 설정 수정
@@ -107,7 +106,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 ### <a name="if-certificates-are-yet-to-expire"></a>인증서가 아직 만료 되지 않은 경우
 
-1. 갱신 하려면 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 엽니다. 원하는 구성 서버를 선택합니다.
+1. 갱신 하려면 자격 증명 모음에서 **Site Recovery 인프라**  >  **구성 서버**를 엽니다. 원하는 구성 서버를 선택합니다.
 2. 모든 보호 된 컴퓨터의 모든 구성 요소 스케일 아웃 프로세스 서버, 마스터 대상 서버 및 모바일 에이전트가 최신 버전에 있고 연결 된 상태 인지 확인 합니다.
 3. 이제 **인증서 갱신**을 선택 합니다.
 4. 이 페이지의 지침을 주의 하 여 확인 하 고 확인을 클릭 하 여 선택한 구성 서버 및 연결 된 구성 요소에서 인증서를 갱신 합니다.
@@ -125,12 +124,12 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 필요한 경우 동일한 자격 증명 모음에 구성 서버를 다시 등록할 수 있습니다. 구성 서버 컴퓨터에서 실행 중인 기본 프로세스 서버 외에도, 추가 프로세스 서버 컴퓨터가 있는 경우 두 컴퓨터를 다시 등록합니다.
 
 
-1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 엽니다.
+1. 자격 증명 모음에서 **관리**  >  **Site Recovery 인프라**  >  **구성 서버**를 엽니다.
 2. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
 3. 구성 서버 컴퓨터에 로그인합니다.
 4. **%ProgramData%\ASR\home\svsystems\bin**에서 **cspsconfigtool.exe**를 엽니다.
 5. **자격 증명 모음 등록** 탭에서 **찾아보기**를 선택하고 다운로드한 자격 증명 모음 자격 증명 파일을 찾습니다.
-6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음 **등록**을 선택 합니다.
+6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음, **등록**을 선택합니다.
 7. 관리자 PowerShell 명령 창을 열고 다음 명령을 실행합니다.
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -138,7 +137,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
    ```
 
     >[!NOTE]
-    >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 풀** 하려면 *"\<설치 Drive\Microsoft Azure Site recovery\server\cdpclipclipclipclipclipcli.exe>"--registermt* 를 실행 합니다.
+    >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 끌어오기** 위해 *" \<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> "--registermt* 명령을 실행 합니다.
 
 8. 마지막으로 다음 명령을 실행하여 obengine을 다시 시작합니다.
    ```
@@ -164,7 +163,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 다음은 그 예입니다.
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들어:
 
 - 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
@@ -178,7 +177,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 다음과 같이 서버를 업그레이드합니다.
 
-1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**로 이동 합니다.
+1. 자격 증명 모음에서 **관리**  >  **Site Recovery 인프라**  >  **구성 서버**로 이동 합니다.
 2. 업데이트를 사용할 수 있는 경우 **에이전트 버전** > 열에 링크가 표시됩니다.
     ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
 3. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
@@ -212,22 +211,22 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| Type | 설명| 값|
+|매개 변수 이름| 형식 | 설명| 값|
 |-|-|-|-|
-| /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
-|/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
-|/MySQLCredsFilePath|필수|MySQL 서버 자격 증명이 저장되는 파일 경로입니다.|파일은 아래에 지정된 형식이어야 합니다.|
-|/VaultCredsFilePath|필수|자격 증명 모음 자격 증명 파일의 경로입니다.|유효한 파일 경로|
-|/EnvType|필수|보호하려는 환경 유형입니다. |VMware<br>NonVMware|
-|/PSIP|필수|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
-|/CSIP|필수|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
-|/PassphraseFilePath|필수|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
-|/BypassProxy|Optional|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
-|/ProxySettingsFilePath|Optional|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
-|DataTransferSecurePort|Optional|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
-|/SkipSpaceCheck|Optional|캐시 디스크의 공간 확인을 건너뜁니다.| |
-|/AcceptThirdpartyEULA|필수|플래그는 타사 EULA에 대한 동의를 의미합니다.| |
-|/ShowThirdpartyEULA|Optional|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
+| /ServerMode|필요한 공간|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
+|/InstallLocation|필요한 공간|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
+|/MySQLCredsFilePath|필요한 공간|MySQL 서버 자격 증명이 저장되는 파일 경로입니다.|파일은 아래에 지정된 형식이어야 합니다.|
+|/VaultCredsFilePath|필요한 공간|자격 증명 모음 자격 증명 파일의 경로입니다.|유효한 파일 경로|
+|/EnvType|필요한 공간|보호하려는 환경 유형입니다. |VMware<br>NonVMware|
+|/PSIP|필요한 공간|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
+|/CSIP|필요한 공간|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
+|/PassphraseFilePath|필요한 공간|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
+|/BypassProxy|선택 사항|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
+|/ProxySettingsFilePath|선택 사항|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
+|DataTransferSecurePort|선택 사항|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
+|/SkipSpaceCheck|선택 사항|캐시 디스크의 공간 확인을 건너뜁니다.| |
+|/AcceptThirdpartyEULA|필요한 공간|플래그는 타사 EULA에 대한 동의를 의미합니다.| |
+|/ShowThirdpartyEULA|선택 사항|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
 
 
 
@@ -256,7 +255,7 @@ ProxyPassword="Password"
 1. 구성 서버의 모든 VM에 대해 [보호를 사용하지 않습니다](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 2. 구성 서버에서 모든 복제 정책을 [연결 해제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 및 [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)합니다.
 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)합니다.
-4. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 엽니다.
+4. 자격 증명 모음에서 **Site Recovery 인프라**  >  **구성 서버**를 엽니다.
 5. 제거하려는 구성 서버를 선택합니다. 그런 다음, **세부 정보** 페이지에서 **삭제**를 선택합니다.
 
     ![구성 서버 삭제](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
@@ -266,7 +265,7 @@ ProxyPassword="Password"
 
 필요에 따라 PowerShell을 사용하여 구성 서버를 삭제할 수 있습니다.
 
-1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
+1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/install-Az-ps) 합니다.
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
     `Connect-AzAccount`
@@ -298,10 +297,10 @@ ProxyPassword="Password"
 
 ## <a name="refresh-configuration-server"></a>구성 서버 새로 고침
 
-1. Azure Portal에서 > **VMware & 물리적 컴퓨터****구성 서버** 에 대 한**Site Recovery 인프라** > **관리** >  **Recovery Services 자격 증명 모음** > 으로 이동 합니다.
+1. Azure Portal에서 **Recovery Services Vault**  >  **Manage**  >  **Site Recovery Infrastructure**  >  **VMware & 물리적 컴퓨터**  >  **구성 서버** 에 대 한 Site Recovery 인프라 관리 Recovery Services 자격 증명 모음으로 이동 합니다.
 2. 새로 고치려는 구성 서버를 클릭합니다.
-3. 선택한 구성 서버에 대 한 세부 정보가 있는 블레이드에서 **추가** > **서버 새로 고침**을 클릭 합니다.
-4. **Recovery Services 자격 증명 모음** > **모니터링** > **Site Recovery 작업**에서 작업의 진행률을 모니터링 합니다.
+3. 선택한 구성 서버에 대 한 세부 정보가 있는 블레이드에서 **추가**  >  **서버 새로 고침**을 클릭 합니다.
+4. **Recovery Services 자격 증명 모음**  >  **모니터링**  >  **Site Recovery 작업**에서 작업의 진행률을 모니터링 합니다.
 
 ## <a name="failback-requirements"></a>장애 복구 요구 사항
 

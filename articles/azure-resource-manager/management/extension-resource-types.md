@@ -4,10 +4,9 @@ description: 다른 리소스 유형의 기능을 확장 하는 데 사용 되�
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80754861"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장 하는 리소스 종류
@@ -111,7 +110,7 @@ ms.locfileid: "80754861"
 - Microsoft PolicyInsights/Policyinsights
 - Microsoft PolicyInsights/Policyinsights
 - Microsoft PolicyInsights/policyTrackedResources
-- Microsoft PolicyInsights/재구성
+- Microsoft.PolicyInsights/remediations
 - Microsoft RecoveryServices/backupProtectedItems
 - Microsoft RecoveryServices/replicationEligibilityResults    
 - Microsoft ResourceHealth/availabilityStatuses

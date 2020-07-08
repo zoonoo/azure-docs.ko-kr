@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681650"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>모델 변환에 Azure Blob Storage 사용
@@ -57,7 +56,7 @@ SAS URI는 다음 중 하나를 사용 하 여 생성할 수 있습니다.
   - 컨테이너 "공유 액세스 서명 가져오기"를 마우스 오른쪽 단추로 클릭 (읽기, 입력 컨테이너에 대 한 액세스 나열, 출력 컨테이너에 대 한 쓰기 권한)
 - Sdk (c #, Python ...)
 
-자산 변환에서 공유 액세스 서명을 사용 하는 예는 [Powershell 예제 스크립트](../../samples/powershell-example-scripts.md#script-conversionps1)의 ps1에서 볼 수 있습니다.
+자산 변환에서 공유 액세스 서명을 사용 하는 예는 [Powershell 예제 스크립트](../../samples/powershell-example-scripts.md#script-conversionps1)의 Conversion.ps1에 나와 있습니다.
 
 ## <a name="upload-an-input-model"></a>입력 모델 업로드
 
@@ -70,7 +69,7 @@ SAS URI는 다음 중 하나를 사용 하 여 생성할 수 있습니다.
 - [저장소 SDK 사용 (Python, c # ...)](https://docs.microsoft.com/azure/storage/)
 - [Azure Storage REST Api 사용](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-변환을 위해 데이터를 업로드 하는 방법에 대 한 예는 [Powershell 예제 스크립트](../../samples/powershell-example-scripts.md#script-conversionps1)의 conversion. p s 1을 참조 하세요.
+변환을 위해 데이터를 업로드 하는 방법에 대 한 예는 [Powershell 예제 스크립트](../../samples/powershell-example-scripts.md#script-conversionps1)의 Conversion.ps1을 참조 하세요.
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>변환 된 모델에 대 한 SAS URI 가져오기
 

@@ -8,10 +8,9 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80758028"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API의 보조 인덱싱
@@ -51,7 +50,7 @@ insert into sampleks.t1(user_id,lastname) values (8, 'Theo');
 insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 ```
 
-다음 문을 실행 하려고 하면를 사용 `ALLOW FILTERING`하 라는 오류가 발생 합니다. 
+다음 문을 실행 하려고 하면를 사용 하 라는 오류가 발생 합니다 `ALLOW FILTERING` . 
 
 ```shell
 select user_id, lastname from sampleks.t1 where lastname='nishu';
@@ -62,10 +61,10 @@ select user_id, lastname from sampleks.t1 where lastname='nishu';
 ```shell
 CREATE INDEX ON sampleks.t1 (lastname);
 ```
-"Lastname" 필드에 인덱스를 만든 후에는 이제 이전 쿼리를 성공적으로 실행할 수 있습니다. Azure Cosmos DB에서 Cassandra API 인덱스 이름을 제공 하지 않아도 됩니다. 형식이 `tablename_columnname_idx` 인 기본 인덱스가 사용 됩니다. 예를 들어 ` t1_lastname_idx` 은 이전 테이블의 인덱스 이름입니다.
+"Lastname" 필드에 인덱스를 만든 후에는 이제 이전 쿼리를 성공적으로 실행할 수 있습니다. Azure Cosmos DB에서 Cassandra API 인덱스 이름을 제공 하지 않아도 됩니다. 형식이 인 기본 인덱스가 `tablename_columnname_idx` 사용 됩니다. 예를 들어 ` t1_lastname_idx` 은 이전 테이블의 인덱스 이름입니다.
 
 ## <a name="dropping-the-index"></a>인덱스 삭제 
-인덱스를 삭제할 인덱스 이름을 알고 있어야 합니다. `desc schema` 명령을 실행 하 여 테이블에 대 한 설명을 가져옵니다. 이 명령의 출력에는 형식의 `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)`인덱스 이름이 포함 됩니다. 그런 다음 인덱스 이름을 사용 하 여 다음 예제와 같이 인덱스를 삭제할 수 있습니다.
+인덱스를 삭제할 인덱스 이름을 알고 있어야 합니다. 명령을 실행 `desc schema` 하 여 테이블에 대 한 설명을 가져옵니다. 이 명령의 출력에는 형식의 인덱스 이름이 포함 됩니다 `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)` . 그런 다음 인덱스 이름을 사용 하 여 다음 예제와 같이 인덱스를 삭제할 수 있습니다.
 
 ```shell
 drop index sampleks.t1_lastname_idx;
@@ -73,4 +72,4 @@ drop index sampleks.t1_lastname_idx;
 
 ## <a name="next-steps"></a>다음 단계
 * 에서 [자동 인덱싱이](index-overview.md) 작동 하는 방식을 알아봅니다 Azure Cosmos DB
-* [Azure Cosmos DB Cassandra API에서 지 원하는 Apache Cassandra 기능](cassandra-support.md)
+* [Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능](cassandra-support.md)
