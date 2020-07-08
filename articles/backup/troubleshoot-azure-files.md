@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 15cea28ee6c6a969b56e34242e2631b0aa760331
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079890"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -277,8 +277,6 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 오류 메시지: 선택한 항목에서 다른 작업이 진행 중입니다.
 
 진행 중인 다른 작업이 완료 될 때까지 기다렸다가 나중에 다시 시도 하세요.
-
-파일에서: troubleshoot-azure-files.md
 
 ## <a name="common-soft-delete-related-errors"></a>일반적인 일시 삭제 관련 오류
 

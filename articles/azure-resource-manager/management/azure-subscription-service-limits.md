@@ -4,19 +4,19 @@ description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제�
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
-ms.openlocfilehash: 865c39ea9a48f9f5e0fbf04dea629b6886cf7ae4
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 06/04/2020
+ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584073"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080978"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다.
 
-Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조 하세요. 여기서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용 하 여 비용을 예측할 수 있습니다. 특정 서비스 (예: [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows))에 대 한 가격 정보 페이지로 이동할 수도 있습니다. 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../billing/billing-getting-started.md)를 참조하세요.
+Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조 하세요. 여기서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용 하 여 비용을 예측할 수 있습니다. 특정 서비스 (예: [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows))에 대 한 가격 정보 페이지로 이동할 수도 있습니다. 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../cost-management-billing/manage/getting-started.md)를 참조하세요.
 
 ## <a name="managing-limits"></a>제한 관리
 
@@ -29,7 +29,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 >
 > 제한 또는 할당량을 기본 한도 이상으로 올리려면 [무료로 온라인 고객 지원 요청을 여세요](../templates/error-resource-quota.md).
 
-[무료 평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p) 에는 제한 또는 할당량 증가가 제공 되지 않습니다. [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판 구독을 종 량 제 구독](../../billing/billing-upgrade-azure-subscription.md) 및 [무료 평가판 구독 FAQ](https://azure.microsoft.com/free/free-account-faq)로 업그레이드를 참조 하세요.
+[무료 평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p) 에는 제한 또는 할당량 증가가 제공 되지 않습니다. [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판 구독을 종 량 제 구독](../../cost-management-billing/manage/upgrade-azure-subscription.md) 및 [무료 평가판 구독 FAQ](https://azure.microsoft.com/free/free-account-faq)로 업그레이드를 참조 하세요.
 
 일부 제한은 지역 수준에서 관리 됩니다.
 
@@ -127,6 +127,8 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
+자세한 내용은 [함수 호스팅 계획 비교](../../azure-functions/functions-scale.md#hosting-plans-comparison)를 참조 하세요.
+
 ## <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes 서비스 제한
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
@@ -217,6 +219,13 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용 �
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## <a name="digital-twins-limits"></a>Digital Twins 제한
+
+> [!NOTE]
+> 이 서비스의 일부 영역에는 제한이 적용 되지 않습니다. 이는 아래 표에는 *조정 가능한?* 열이 표시 됩니다. 제한을 조정할 수 있는 경우 *조정 가능한?* 값은 *예*입니다.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+
 ## <a name="event-grid-limits"></a>Event Grid 제한
 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
@@ -250,7 +259,7 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용 �
 
 ### <a name="media-services-v2-legacy"></a>Media Services v2(레거시)
 
-Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거시)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations) 를 참조 하세요.
+Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거시)](../../media-services/previous/media-services-quotas-and-limitations.md) 를 참조 하세요.
 
 ## <a name="mobile-services-limits"></a>Mobile Services 제한
 
@@ -323,11 +332,11 @@ Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거
 
 ## <a name="sql-database-limits"></a>SQL Database 제한
 
-SQL Database 한도에 대해서는 [단일 데이터베이스에 대 한 리소스 제한 SQL Database](../../sql-database/sql-database-vcore-resource-limits-single-databases.md) [SQL Database, 탄력적 풀 및 풀링된 데이터베이스에](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)대 한 리소스 제한 및 [관리 되는 인스턴스에 대 한](../../sql-database/sql-database-managed-instance-resource-limits.md)리소스 제한 SQL Database을 참조 하세요.
+SQL Database 한도에 대해서는 [단일 데이터베이스에 대 한 리소스 제한 SQL Database](../../azure-sql/database/resource-limits-vcore-single-databases.md) [SQL Database, 탄력적 풀 및 풀링된 데이터베이스에](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)대 한 리소스 제한 및 [SQL Managed Instance에 대 한 SQL Database 리소스 제한](../../azure-sql/managed-instance/resource-limits.md)을 참조 하세요.
 
-## <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse 제한
+## <a name="azure-synapse-analytics-limits"></a>Azure Synapse Analytics 제한
 
-SQL Data Warehouse 한도는 [SQL Data Warehouse 리소스 제한](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조 하세요.
+Azure Synapse Analytics 제한에 대해서는 [Azure Synapse 리소스 제한](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조 하세요.
 
 ## <a name="storage-limits"></a>스토리지 제한
 
@@ -401,17 +410,17 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음
 
 ### <a name="shared-image-gallery-limits"></a>공유 이미지 갤러리 제한
 
-공유 이미지 갤러리를 사용 하 여 리소스를 배포 하기 위해 구독 당 제한이 있습니다.
+Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한이 있습니다.
 
-- 100 공유 이미지 갤러리, 구독 당, 지역별
-- 1000 이미지 정의 (구독 당, 지역별)
-- 1만 이미지 버전 (구독 당, 지역별)
+- 구독마다, 지역마다 공유 이미지 갤러리 100개
+- 구독마다, 지역마다 이미지 정의 1,000개
+- 구독마다, 지역마다 이미지 버전 10,000개
 
 ## <a name="virtual-machine-scale-sets-limits"></a>가상 머신 확장 집합 제한
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

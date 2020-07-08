@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database의 단일 또는 풀링된 데이터베이스로 데이터베이스 마이그레이션 SQL Server
+title: Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 description: Azure SQL Database로 SQL Server 데이터베이스 마이그레이션에 대해 알아봅니다.
 keywords: 데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션
 services: sql-database
@@ -12,20 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 861c6749c7843d64a39376366544668c77883c9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338348"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081947"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 주요 방법에 대해 배웁니다. Azure SQL Managed Instance로 마이그레이션하는 방법에 대 한 자세한 내용은 [AZURE sql Managed Instance SQL Server 인스턴스 마이그레이션](../managed-instance/migrate-to-instance-from-sql-server.md)을 참조 하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+이 문서에서는 SQL Server 2005 이상 데이터베이스를 Azure SQL Database으로 마이그레이션하는 기본 방법에 대해 알아봅니다. Azure SQL Managed Instance로 마이그레이션하는 방법에 대 한 자세한 내용은 [AZURE sql Managed Instance SQL Server 인스턴스 마이그레이션](../managed-instance/migrate-to-instance-from-sql-server.md)을 참조 하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션
 
-Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 2가지 주요 방법이 있습니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
+SQL Server 2005 이상의 데이터베이스를 Azure SQL Database으로 마이그레이션하는 데는 두 가지 기본 방법이 있습니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
 
 두 경우 모두 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용하여 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database는 서버 수준 및 데이터베이스 간 작업과 관련 된 문제를 제외 하 고 SQL Server의 [기능 패리티](features-comparison.md) 에 근접 하 고 있습니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](transact-sql-tsql-differences-sql-server.md)을 사용하는 데이터베이스 및 애플리케이션을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues)해야 합니다.
 

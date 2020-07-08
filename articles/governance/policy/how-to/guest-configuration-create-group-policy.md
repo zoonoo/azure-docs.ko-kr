@@ -3,12 +3,12 @@ title: Windows에 대 한 그룹 정책 기준에서 게스트 구성 정책 정
 description: 그룹 정책 Windows Server 2019 보안 기준에서 정책 정의로 변환 하는 방법에 대해 알아봅니다.
 ms.date: 06/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 021e8cc4aa34a21f980363e71de1a4b9afbf3ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268739"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080672"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Windows에 대 한 그룹 정책 기준에서 게스트 구성 정책 정의를 만드는 방법
 
@@ -92,7 +92,7 @@ PowerShell에서 **DSC**, **GuestConfiguration**, **기준 관리**및 관련 Az
 1. 아래 스크립트에는 이 작업을 자동화하는 데 사용할 수 있는 함수가 포함되어 있습니다. 함수에 사용 되는 명령에는 `publish` 모듈이 필요 합니다 `Az.Storage` .
 
    ```azurepowershell-interactive
-    function publish {
+    function Publish-Configuration {
         param(
         [Parameter(Mandatory=$true)]
         $resourceGroup,
@@ -147,25 +147,29 @@ PowerShell에서 **DSC**, **GuestConfiguration**, **기준 관리**및 관련 Az
 
 1. 지정 된 매개 변수와 함께 publish 함수를 사용 하 여 공용 blob 저장소에 게스트 구성 패키지를 게시 합니다.
 
-   ```azurepowershell-interactive
-   $uri = publish `
-    -resourceGroup $resourceGroup `
-    -storageAccountName $storageAccount `
-    -storageContainerName $storageContainer `
-    -filePath $path `
-    -blobName $blob
-    -FullUri
-    ```
 
+   ```azurepowershell-interactive
+   $PublishConfigurationSplat = @{
+       resourceGroup = $resourceGroup
+       storageAccountName = $storageAccount
+       storageContainerName = $storageContainer
+       filePath = $path
+       blobName = $blob
+       FullUri = $true
+   }
+   $uri = Publish-Configuration @PublishConfigurationSplat
+    ```
 1. 게스트 구성 사용자 지정 정책 패키지를 만들고 업로드한 후에는 게스트 구성 정책 정의를 만듭니다. Cmdlet을 사용 `New-GuestConfigurationPolicy` 하 여 게스트 구성을 만듭니다.
 
    ```azurepowershell-interactive
-   New-GuestConfigurationPolicy `
-    -ContentUri $Uri `
-    -DisplayName 'Server 2019 Configuration Baseline' `
-    -Description 'Validation of using a completely custom baseline configuration for Windows VMs' `
-    -Path C:\git\policyfiles\policy  `
-    -Platform Windows 
+    $NewGuestConfigurationPolicySplat = @{
+        ContentUri = $Uri 
+        DisplayName = 'Server 2019 Configuration Baseline' 
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+        Path = 'C:\git\policyfiles\policy'  
+        Platform = Windows 
+        }
+   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
     
 1. Cmdlet을 사용 하 여 정책 정의를 게시 합니다 `Publish-GuestConfigurationPolicy` . cmdlet에는 `New-GuestConfigurationPolicy`에서 만든 JSON 파일의 위치를 가리키는 **Path** 매개 변수만 있습니다. Publish 명령을 실행 하려면 Azure에서 정책 정의를 만들기 위한 액세스 권한이 필요 합니다. 특정 권한 부여 요구 사항은 [Azure Policy 개요](../overview.md#getting-started) 페이지에 설명되어 있습니다. 가장 적합한 기본 제공 역할은 **리소스 정책 기여자**입니다.

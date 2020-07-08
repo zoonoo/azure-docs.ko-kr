@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529342"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081233"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -539,7 +539,7 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 
 Storage Analytics는 로그 메시지를 구분 기호로 분리된 형식으로 여러 Blob에 저장합니다. 구분 기호로 분리된 형식을 사용하면 클라이언트 애플리케이션에서 로그 메시지의 데이터를 쉽게 구문 분석할 수 있습니다.  
 
-Storage Analytics는 검색할 로그 메시지가 포함된 Blob를 찾을 수 있도록 Blob에 대한 명명 규칙을 사용합니다. 예를 들어 "queue/2014/07/31/1800/000001.log"라는 Blob에는 2014년 7월 31일 오후 6시 이후의 큐 서비스와 관련된 로그 메시지가 들어 있습니다. "000001"은 이것이 이 기간 동안의 첫 번째 로그 파일임을 나타냅니다. 또한 Storage Analytics는 파일에 저장된 첫 번째 및 마지막 로그 메시지의 타임스탬프를 Blob 메타데이터의 일부로 기록합니다. Blob Storage용 API를 사용하면 이름 접두사를 기반으로 컨테이너에서 Blob를 찾을 수 있습니다. 오후 6시 이후의 큐 로그 데이터가 들어 있는 모든 Blob를 찾으려면 접두사 &quot;queue/2014/07/31/1800&quot;을 사용하면 됩니다.  
+Storage Analytics는 검색할 로그 메시지가 포함된 Blob를 찾을 수 있도록 Blob에 대한 명명 규칙을 사용합니다. 예를 들어 "queue/2014/07/31/1800/000001.log"라는 Blob에는 2014년 7월 31일 오후 6시 이후의 큐 서비스와 관련된 로그 메시지가 들어 있습니다. "000001"은 이것이 이 기간 동안의 첫 번째 로그 파일임을 나타냅니다. 또한 Storage Analytics는 파일에 저장된 첫 번째 및 마지막 로그 메시지의 타임스탬프를 Blob 메타데이터의 일부로 기록합니다. Blob storage 용 API를 사용 하면 이름 접두사를 기반으로 컨테이너에서 blob을 찾을 수 있습니다. 18:00부터 시작 하는 시간 동안 큐 로그 데이터를 포함 하는 모든 blob을 찾기 위해 "queue/2014/07/31/1800" 접두사를 사용할 수 있습니다.  
 
 Storage Analytics는 로그 메시지를 내부적으로 버퍼한 다음 해당 Blob를 주기적으로 업데이트하거나 최신 로그 항목 집합으로 새 Blob를 만듭니다. 이는 Blob 서비스에 수행해야 하는 쓰기 수를 줄여 줍니다.  
 

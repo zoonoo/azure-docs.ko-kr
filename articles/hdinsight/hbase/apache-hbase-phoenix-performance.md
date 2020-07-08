@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d1dff01c9e7b5232cfac0cf5581c077e67f6937
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75552647"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079499"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 성능 모범 사례
 
@@ -52,7 +52,7 @@ Phoenix의 테이블에 정의된 기본 키는 기본 HBase 테이블의 rowkey
 
 위의 첫 번째 행에서 rowkey에 대한 데이터는 다음과 같이 표시됩니다.
 
-|rowkey|       key|   value|
+|rowkey|       key|   값|
 |------|--------------------|---|
 |  Dole-John-111|address |1111 San Gabriel Dr.|  
 |  Dole-John-111|phone |1-425-000-0002|  
@@ -82,13 +82,17 @@ Phoenix를 사용하면 데이터가 배포되는 지역의 수를 제어할 수
 
 만드는 동안 테이블을 솔트 처리하려면 솔트 버킷 수를 지정합니다.
 
-    CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```sql
+CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```
 
 이 솔트 처리(salting)는 기본 키 값에 따라 테이블을 분할하여 값을 자동으로 선택합니다. 
 
 테이블 분할이 발생하는 위치를 제어하려면 분할이 발생하는 범위 값을 제공하여 테이블을 미리 분할할 수 있습니다. 예를 들어 세 지역에 따라 분할된 테이블을 만들려면 다음을 수행합니다.
 
-    CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```sql
+CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```
 
 ## <a name="index-design"></a>인덱스 디자인
 
@@ -120,11 +124,15 @@ covered 인덱스는 인덱싱된 값 외에도 행의 데이터를 포함하는
 
 그러나 일반적으로 socialSecurityNum이 지정된 firstName 및 lastName을 조회하려는 경우, firstName 및 lastName이 인덱스 테이블의 실제 데이터로 포함되는 covered 인덱스를 만들 수 있습니다.
 
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```sql
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```
 
 이 covered 인덱스를 사용하면 다음 쿼리를 통해 보조 인덱스가 포함된 테이블에서 읽는 것만으로도 모든 데이터를 얻을 수 있습니다.
 
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```sql
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```
 
 ### <a name="use-functional-indexes"></a>함수 기반 인덱스 사용
 
@@ -132,7 +140,9 @@ covered 인덱스는 인덱싱된 값 외에도 행의 데이터를 포함하는
 
 예를 들어 사람의 이름과 성을 조합하여 대/소문자를 구분하지 않고 검색할 수 있는 인덱스를 만들 수 있습니다.
 
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```sql
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```
 
 ## <a name="query-design"></a>쿼리 디자인
 
@@ -153,46 +163,64 @@ covered 인덱스는 인덱싱된 값 외에도 행의 데이터를 포함하는
 
 예를 들어 비행 지연 정보를 저장하는 FLIGHTS라는 테이블이 있다고 가정해 보겠습니다.
 
-항공편 lineid가 인 항공편을 모두 선택 하려면이 `19805`고, 여기서는 기본 키 또는 인덱스에 없는 필드입니다.
+항공편 lineid가 인 항공편을 모두 선택 하려면 `19805` 이 고, 여기서는 기본 키 또는 인덱스에 없는 필드입니다.
 
-    select * from "FLIGHTS" where airlineid = '19805';
+```sql
+select * from "FLIGHTS" where airlineid = '19805';
+```
 
 explain 명령을 다음과 같이 실행합니다.
 
-    explain select * from "FLIGHTS" where airlineid = '19805';
+```sql
+explain select * from "FLIGHTS" where airlineid = '19805';
+```
 
 쿼리 계획은 다음과 같습니다.
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
-        SERVER FILTER BY AIRLINEID = '19805'
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
+   SERVER FILTER BY AIRLINEID = '19805'
+```
 
 이 계획에서 FULL SCAN OVER FLIGHTS(항공편에 대한 전체 검색)라는 구문을 주의하세요. 이 구문은 실행에서 더 효율적인 범위 검색 또는 검색 건너뛰기 옵션을 사용하는 대신, 테이블의 모든 행에 대해 테이블 검색을 수행함을 나타냅니다.
 
 이제 flightnum이 1보다 큰 `AA` 항공사에 대해 2014년 1월 2일의 항공편을 쿼리하려고 한다고 가정해 보겠습니다. 그리고 year, month, dayofmonth, carrier 및 flightnum 열이 예제 테이블에 있고, 모두 복합 기본 키의 일부라고 가정해 보겠습니다. 쿼리는 다음과 같습니다.
 
-    select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 다음을 사용하여 이 쿼리에 대한 계획을 살펴보겠습니다.
 
-    explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 결과 계획은 다음과 같습니다.
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```
 
 대괄호 안의 값은 기본 키의 값 범위입니다. 이 경우 범위 값은 year에 대해 2014, month에 대해 1 및 dayofmonth에 대해 2로 고정되지만, flightnum에 대한 값은 2에서 시작하여 `*`까지 허용됩니다. 이 쿼리 계획은 기본 키가 예상대로 사용되는지 확인합니다.
 
 다음으로, carrier 필드에만 있는 `carrier2_idx`라는 인덱스를 FLIGHTS 테이블에 만듭니다. 또한 이 인덱스에는 데이터를 인덱스에 저장하는 covered 열로 flightdate, tailnum, origin 및 flightnum도 포함됩니다.
 
-    CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```sql
+CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```
 
 다음 쿼리와 같이 flightdate 및 tailnum과 함께 carrier를 가져오려고 한다고 가정해 보겠습니다.
 
-    explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```sql
+explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```
 
 이 인덱스는 다음과 같이 사용됩니다.
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```
 
 explain 계획 결과에 나타날 수 있는 항목의 전체 목록은 [Apache Phoenix 튜닝 가이드](https://phoenix.apache.org/tuning_guide.html)의 Explain Plans(explain 계획) 섹션을 참조하세요.
 
@@ -222,7 +250,9 @@ explain 계획 결과에 나타날 수 있는 항목의 전체 목록은 [Apache
 
 시나리오에서 데이터 무결성보다 쓰기 속도를 선호하는 경우 테이블을 만들 때 미리 쓰기 로그를 사용하지 않도록 설정하는 것이 좋습니다.
 
-    CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```sql
+CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```
 
 이 옵션 및 다른 옵션에 대한 자세한 내용은 [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html#options)을 참조하세요.
 

@@ -3,11 +3,12 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628465"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081063"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -26,9 +27,8 @@ ms.locfileid: "84628465"
 - 백업에 대해 지원 되는 vCenter/ESXi의 버전을 실행 하 고 있는지 확인 합니다. [여기](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)에서 지원 매트릭스를 참조 하세요.
 - Azure Backup Server를 설정했는지 확인합니다. 설정하지 않은 경우 시작하기 전에 [설정](backup-azure-microsoft-azure-backup.md)합니다. 최신 업데이트를 사용하여 Azure Backup Server를 실행해야 합니다.
 - 다음 네트워크 포트가 열려있는지 확인합니다.
-    - MABS와 vCenter 간의 TCP 443
-    - MABS와 ESXi 호스트 간의 TCP 443 및 TCP 902
-
+  - MABS와 vCenter 간의 TCP 443
+  - MABS와 ESXi 호스트 간의 TCP 443 및 TCP 902
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>vCenter Server에 대한 보안 연결 만들기
 
@@ -133,72 +133,75 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
 ### <a name="role-permissions"></a>역할 권한
 
-| VCenter 6.7 사용자 계정에 대 한 권한                     | VCenter 6.5 사용자 계정에 대 한 권한                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Datatstore 클러스터를 cluster.Config데이터 저장소            | Datatstore 클러스터를 cluster.Config데이터 저장소            |
-| Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
-| Datastore.Browse datastore                                   | Datastore.Browse datastore                                   |
-| Datastore.Low-level file operations                          | Datastore.Low-level file operations                          |
-| Global.Disable methods                                       | Global.Disable methods                                       |
-| Global.Enable methods                                        | Global.Enable methods                                        |
-| Global.Licenses                                              | Global.Licenses                                              |
-| Global.Log event                                             | Global.Log event                                             |
-| Global.Manage custom attributes                              | Global.Manage custom attributes                              |
-| Global.Set custom attribute                                  | Global.Set custom attribute                                  |
-| 호스트 로컬 작업. 가상 컴퓨터 만들기                | 호스트 로컬 작업. 가상 컴퓨터 만들기                |
-| Network.Assign network                                       | Network.Assign network                                       |
-| Resource. 리소스 풀에 가상 머신 할당           | Resource. 리소스 풀에 가상 머신 할당           |
-| vApp.Add virtual machine                                     | vApp.Add virtual machine                                     |
-| vApp.Assign resource pool                                    | vApp.Assign resource pool                                    |
-| vApp.Unregister                                              | vApp.Unregister                                              |
-| VirtualMachine.Configuration. 장치 추가 또는 제거          | VirtualMachine.Configuration. 장치 추가 또는 제거          |
-| 가상 machine.Configuration. 디스크 임대 가져오기            | Virtual machine.Configuration.Disk lease                     |
-| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Add new disk                   |
-| 가상 machine.Configuration. 고급 구성        | Virtual machine.Configuration.Advanced                       |
-| 가상 machine.Configuration. 디스크 변경 내용 추적 설정/해제   | 가상 machine.Configuration. 디스크 변경 내용 추적          |
-| 가상 machine.Configuration.Config호스트 USB 장치     | 가상 machine.Configuration. 호스트 USB 장치               |
-| 가상 machine.Configuration. 가상 디스크 확장           | 가상 machine.Configuration. 가상 디스크 확장           |
-| 가상 machine.Configuration. 소유 하지 않은 파일 쿼리           | 가상 machine.Configuration. 소유 하지 않은 파일 쿼리           |
-| 가상 machine.Configuration. 스왑 스왑 배치 변경     | 가상 machine.Configuration. 스왑 스왑 배치            |
-| 가상 컴퓨터. 게스트 작업. 게스트 작업 프로그램 실행 | 가상 컴퓨터. 게스트 작업. 게스트 작업 프로그램 실행 |
-| 가상 컴퓨터. 게스트 작업. 게스트 작업 수정 | 가상 컴퓨터. 게스트 작업. 게스트 작업 수정 |
-| 가상 컴퓨터. 게스트 작업. 게스트 작업 쿼리    | 가상 컴퓨터. 게스트 작업. 게스트 작업 쿼리    |
-| 가상 컴퓨터. 작용과. 장치 연결             | 가상 컴퓨터. 작용과. 장치 연결             |
-| 가상 컴퓨터. 작용과. VIX API의 게스트 운영 체제 관리 | 가상 컴퓨터. 작용과. VIX API의 게스트 운영 체제 관리 |
-| Virtual machine .Interaction .Power Off                      | Virtual machine .Interaction .Power Off                      |
-| Virtual machine .Inventory.Create new                        | Virtual machine .Inventory.Create new                        |
-| Virtual machine .Inventory.Remove                            | Virtual machine .Inventory.Remove                            |
-| Virtual machine .Inventory.Register                          | Virtual machine .Inventory.Register                          |
-| 가상 컴퓨터. 프로 비전. 디스크 액세스 허용             | 가상 컴퓨터. 프로 비전. 디스크 액세스 허용             |
-| 가상 컴퓨터. 프로 비전. 파일 액세스 허용             | 가상 컴퓨터. 프로 비전. 파일 액세스 허용             |
-| 가상 컴퓨터. 프로 비전. 읽기 전용 디스크 액세스 허용   | 가상 컴퓨터. 프로 비전. 읽기 전용 디스크 액세스 허용   |
-| 가상 컴퓨터. 프로 비전. 가상 컴퓨터 다운로드 허용 | 가상 컴퓨터. 프로 비전. 가상 컴퓨터 다운로드 허용 |
-| Virtual machine .Snapshot management.  Create snapshot       | Virtual machine .Snapshot management.  Create snapshot       |
-| 가상 컴퓨터. 스냅숏 관리. 스냅숏 제거        | 가상 컴퓨터. 스냅숏 관리. 스냅숏 제거        |
-| 가상 컴퓨터. 스냅숏 관리. 스냅숏으로 되돌리기     | 가상 컴퓨터. 스냅숏 관리. 스냅숏으로 되돌리기     |
+다음 표에서 만든 사용자 계정에 할당해야 하는 권한을 확인할 수 있습니다.
 
-<br>
+| vCenter 6.5 사용자 계정에 대한 권한                          | vCenter 6.7 사용자 계정에 대한 권한                            |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Datastore cluster.Configure a datastore cluster                           | Datastore cluster.Configure a datastore cluster                           |
+| Datastore.AllocateSpace                                                    | Datastore.AllocateSpace                                                    |
+| Datastore.Browse datastore                                                 | Datastore.Browse datastore                                                 |
+| Datastore.Low-level file operations                                        | Datastore.Low-level file operations                                        |
+| Global.Disable methods                                                     | Global.Disable methods                                                     |
+| Global.Enable methods                                                      | Global.Enable methods                                                      |
+| Global.Licenses                                                            | Global.Licenses                                                            |
+| Global.Log event                                                           | Global.Log event                                                           |
+| Global.Manage custom attributes                                            | Global.Manage custom attributes                                            |
+| Global.Set custom attribute                                                | Global.Set custom attribute                                                |
+| Host.Local operations.Create virtual machine                               | Host.Local operations.Create virtual machine                               |
+| Network.Assign network                                                     | Network.Assign network                                                     |
+| Resource. Assign virtual machine to resource pool                          | Resource. Assign virtual machine to resource pool                          |
+| vApp.Add virtual machine                                                   | vApp.Add virtual machine                                                   |
+| vApp.Assign resource pool                                                  | vApp.Assign resource pool                                                  |
+| vApp.Unregister                                                            | vApp.Unregister                                                            |
+| VirtualMachine.Configuration. Add Or Remove Device                         | VirtualMachine.Configuration. Add Or Remove Device                         |
+| Virtual machine.Configuration.Disk lease                                   | Virtual machine.Configuration.Acquire disk lease                           |
+| Virtual machine.Configuration.Add new disk                                 | Virtual machine.Configuration.Add new disk                                 |
+| Virtual machine.Configuration.Advanced                                     | Virtual machine.Configuration.Advanced configuration                       |
+| Virtual machine.Configuration.Disk change tracking                         | Virtual machine.Configuration.Toggle disk change tracking                  |
+| Virtual machine.Configuration.Host USB device                              | Virtual machine.Configuration.Configure Host USB device                    |
+| Virtual machine.Configuration.Extend virtual disk                          | Virtual machine.Configuration.Extend virtual disk                          |
+| Virtual machine.Configuration.Query unowned files                          | Virtual machine.Configuration.Query unowned files                          |
+| Virtual machine.Configuration.Swapfile placement                           | Virtual machine.Configuration.Change Swapfile placement                    |
+| Virtual machine.Guest Operations.Guest Operation Program Execution         | Virtual machine.Guest Operations.Guest Operation Program Execution         |
+| Virtual machine.Guest Operations.Guest Operation Modifications             | Virtual machine.Guest Operations.Guest Operation Modifications             |
+| Virtual machine.Guest Operations.Guest Operation Queries                   | Virtual machine.Guest Operations.Guest Operation Queries                   |
+| Virtual machine .Interaction .Device connection                            | Virtual machine .Interaction .Device connection                            |
+| Virtual machine .Interaction .Guest operating system management by VIX API | Virtual machine .Interaction .Guest operating system management by VIX API |
+| Virtual machine .Interaction .Power Off                                    | Virtual machine .Interaction .Power Off                                    |
+| Virtual machine .Inventory.Create new                                      | Virtual machine .Inventory.Create new                                      |
+| Virtual machine .Inventory.Remove                                          | Virtual machine .Inventory.Remove                                          |
+| Virtual machine .Inventory.Register                                        | Virtual machine .Inventory.Register                                        |
+| Virtual machine .Provisioning.Allow disk access                            | Virtual machine .Provisioning.Allow disk access                            |
+| Virtual machine .Provisioning.Allow file access                            | Virtual machine .Provisioning.Allow file access                            |
+| Virtual machine .Provisioning.Allow read-only disk access                  | Virtual machine .Provisioning.Allow read-only disk access                  |
+| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
+| Virtual machine .Snapshot management. Create snapshot                      | Virtual machine .Snapshot management. Create snapshot                      |
+| Virtual machine .Snapshot management.Remove Snapshot                       | Virtual machine .Snapshot management.Remove Snapshot                       |
+| Virtual machine .Snapshot management.Revert to snapshot                    | Virtual machine .Snapshot management.Revert to snapshot                    |
 
-| **vCenter 6.0 사용자 계정에 대한 권한**                | **vCenter 5.5 사용자 계정에 대한 권한** |
-| ---------------------------------------------------------- | ------------------------------------------- |
-| Datastore.AllocateSpace                                    | Network.Assign                              |
-| 전역. 사용자 지정 특성 관리                           | Datastore.AllocateSpace                     |
-| 전역. 사용자 지정 특성 설정                               | VirtualMachine.Config.ChangeTracking        |
-| 호스트 로컬 작업. 가상 컴퓨터 만들기              | VirtualMachine.State.RemoveSnapshot         |
-| Network.  Assign network                                   | VirtualMachine.State.CreateSnapshot         |
-| Resource.  Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
-| 가상 machine.Configuration. 새 디스크 추가                | VirtualMachine.Interact.PowerOff            |
-| 가상 machine.Configuration. 고급                    | VirtualMachine.Inventory.Create             |
-| 가상 machine.Configuration. 디스크 변경 내용 추적        | VirtualMachine.Config.AddNewDisk            |
-| 가상 machine.Configuration. 호스트 USB 장치             | VirtualMachine.Config.HostUSBDevice         |
-| 가상 machine.Configuration. 소유 하지 않은 파일 쿼리         | VirtualMachine.Config.AdvancedConfig        |
-| 가상 machine.Configuration. 스왑 스왑 배치          | VirtualMachine.Config.SwapPlacement         |
-| 가상 컴퓨터. 상호 작용. 전원 끄기                     | Global.ManageCustomFields                   |
-| 가상 컴퓨터. 인벤토리에서. Create new                     |                                             |
-| 가상 컴퓨터. 프로 비전. 디스크 액세스 허용            |                                             |
-| 가상 컴퓨터. 구축한. Allow read-only disk access |                                             |
-| 가상 컴퓨터. 스냅숏 관리. 스냅숏 만들기       |                                             |
-| 가상 컴퓨터. 스냅숏 관리. 스냅숏 제거       |                                             |
+> [!NOTE]
+> 다음 표에는 vCenter 6.0 및 vCenter 5.5 사용자 계정에 대한 권한이 나와 있습니다.
+
+| vCenter 6.0 사용자 계정에 대한 권한 | vCenter 5.5 사용자 계정에 대한 권한 |
+| --- | --- |
+| Datastore.AllocateSpace | Network.Assign |
+| Global.Manage custom attributes | Datastore.AllocateSpace |
+| Global.Set custom attribute | VirtualMachine.Config.ChangeTracking |
+| Host.Local operations.Create virtual machine | VirtualMachine.State.RemoveSnapshot |
+| Network. Assign network | VirtualMachine.State.CreateSnapshot |
+| Resource. Assign virtual machine to resource pool | VirtualMachine.Provisioning.DiskRandomRead |
+| Virtual machine.Configuration.Add new disk | VirtualMachine.Interact.PowerOff |
+| Virtual machine.Configuration.Advanced | VirtualMachine.Inventory.Create |
+| Virtual machine.Configuration.Disk change tracking | VirtualMachine.Config.AddNewDisk |
+| Virtual machine.Configuration.Host USB device | VirtualMachine.Config.HostUSBDevice |
+| Virtual machine.Configuration.Query unowned files | VirtualMachine.Config.AdvancedConfig |
+| Virtual machine.Configuration.Swapfile placement | VirtualMachine.Config.SwapPlacement |
+| Virtual machine.Interaction.Power Off | Global.ManageCustomFields |
+| Virtual machine.Inventory. Create new |   |
+| Virtual machine.Provisioning.Allow disk access |   |
+| Virtual machine.Provisioning. Allow read-only disk access |   |
+| Virtual machine.Snapshot management.Create snapshot |   |
+| Virtual machine.Snapshot management.Remove Snapshot |   |
 
 ## <a name="create-a-vmware-account"></a>VMware 계정 만들기
 

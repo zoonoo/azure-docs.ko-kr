@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415833"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081297"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "81415833"
 > [!TIP]
 > SAP BW에서 데이터를 복사 하는 방법에 대 한 일반적인 내용은 SAP BW Open Hub 통합 및 델타 추출 흐름을 참조 하세요. [Azure Data Factory를 사용 하 여 개방형 허브를 통해 SAP Business Warehouse에서 데이터 복사](connector-sap-business-warehouse-open-hub.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - **Azure Data Factory**: 없는 경우 [데이터 팩터리를 만드는](quickstart-create-data-factory-portal.md#create-a-data-factory)단계를 수행 합니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **작성자 & 모니�
 
    3. **연결 테스트** 를 선택 하 여 설정의 유효성을 검사 한 다음 **마침**을 선택 합니다.
 
-   4. 새 연결이 생성 됩니다. **다음**을 선택합니다.
+   4. 새 연결이 생성 됩니다. **새로 만들기**를 선택합니다.
 
 5. 열려 있는 **허브 대상 선택** 페이지에서 SAP BW에서 사용할 수 있는 열려 있는 허브 대상을 검색 합니다. 데이터를 복사할 OHD를 선택 하 고 **다음**을 선택 합니다.
 
@@ -269,7 +269,7 @@ SAP Open Hub 대상은 2015 이후의 모든 SAP BW 지원 패키지에서 데�
 
 델타 DTP의 상태를 **인출**하도록 설정 하려면 다음 옵션을 사용 하 여 델타 dtp를 수동으로 실행 합니다.
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*데이터 전송 없음 원본에서 델타 상태: 인출*
 
 ## <a name="next-steps"></a>다음 단계
 

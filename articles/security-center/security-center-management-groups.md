@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74559340"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080876"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 Azure 구독에 보안 정책을 적용 하 여 조직의 보안 상태를 대규모로 관리 하는 방법을 설명 합니다.
@@ -47,7 +48,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
     - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 
     - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
-      ![생성](./media/security-center-management-groups/create_context_menu.png)  
+      ![만들기](./media/security-center-management-groups/create_context_menu.png)  
 5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
@@ -73,7 +74,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 3. **Azure 리소스에 대한 액세스 관리**에서 스위치를 **예**로 설정합니다.
 
-   ![전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다. - 스크린샷](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Azure 리소스에 대한 액세스 관리 - 스크린샷](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - 스위치를 예로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 스위치는 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
@@ -160,7 +161,7 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 
 2. 탐색 목록에서 **Azure Active Directory**를 클릭한 다음, **속성**을 클릭합니다.
 
-3. **전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다.** 에서 스위치를 **아니요**로 설정합니다.
+3. **Azure 리소스에 대 한 액세스 관리**에서 스위치를 **아니요**로 설정 합니다.
 
 4. **Save**를 클릭하여 설정을 저장합니다.
 

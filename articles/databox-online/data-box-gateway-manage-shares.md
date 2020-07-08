@@ -8,11 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ca8f5d629a110d2a4d3b35cb357af2c723ec312
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339198"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079153"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 공유 관리 
 
@@ -91,23 +92,23 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
 공유를 새로 고치려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1.   Azure Portal에서 **공유**로 이동합니다. 새로 고치려는 공유를 선택하고 클릭합니다.
+1. Azure Portal에서 **공유**로 이동합니다. 새로 고치려는 공유를 선택하고 클릭합니다.
 
-    ![공유 선택](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![공유 선택](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   **새로 고침**을 클릭합니다. 
+2. **새로 고침**을 클릭합니다. 
 
-    ![새로 고침 클릭](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![새로 고침 클릭](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   확인 메시지가 표시되면 **예**를 클릭합니다. 온-프레미스 공유의 콘텐츠를 새로 고치는 작업이 시작됩니다. 
+3. 확인 메시지가 표시되면 **예**를 클릭합니다. 온-프레미스 공유의 콘텐츠를 새로 고치는 작업이 시작됩니다. 
 
-    ![새로 고침 확인](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![새로 고침 확인](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   새로 고침을 진행하는 동안은 상황에 맞는 메뉴에서 새로 고침 옵션이 회색으로 표시됩니다. 새로 고침 작업 상태를 표시하려면 작업 알림을 클릭합니다.
 
-5.   새로 고침 작업의 소요 시간은 Azure 컨테이너의 파일 수는 물론 디바이스에 있는 파일에 따라 달라집니다. 새로 고침이 완료되면 공유 타임스탬프가 업데이트됩니다. 새로 고침에 부분적인 실패가 있더라도 작업이 성공한 것으로 간주되며 타임스탬프가 업데이트됩니다. 
+5. 새로 고침 작업의 소요 시간은 Azure 컨테이너의 파일 수는 물론 디바이스에 있는 파일에 따라 달라집니다. 새로 고침이 완료되면 공유 타임스탬프가 업데이트됩니다. 새로 고침에 부분적인 실패가 있더라도 작업이 성공한 것으로 간주되며 타임스탬프가 업데이트됩니다. 
 
-    ![업데이트된 타임스탬프](media/data-box-gateway-manage-shares/refresh-4.png)
+   ![업데이트된 타임스탬프](media/data-box-gateway-manage-shares/refresh-4.png)
  
 오류가 있으면 경고가 발생합니다. 경고에는 원인 및 문제 해결을 위한 권장 사항이 자세히 설명되어 있습니다. 또한 경고는 업데이트나 삭제에 실패한 파일을 비롯하여 오류에 대한 전체 요약이 포함된 파일로 연결됩니다.
 

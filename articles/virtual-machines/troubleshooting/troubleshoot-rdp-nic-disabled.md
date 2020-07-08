@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918243"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078632"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>네트워크 인터페이스를 사용하지 않기 때문에 원격 데스크톱을 VM에 사용할 수 없음
 
@@ -39,21 +40,29 @@ VM에 인터페이스를 사용하도록 설정하려면 VM에 직렬 컨트롤�
 ). VM에서 직렬 콘솔을 사용 하도록 설정 하지 않은 경우 [네트워크 인터페이스 다시 설정](#reset-network-interface)을 참조 하세요.
 2. 네트워크 인터페이스의 상태를 확인합니다.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     비활성화된 네트워크 인터페이스의 이름을 적어둡니다.
 
 3. 네트워크 인터페이스를 활성화합니다.
 
-        netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     예를 들어 상호 연동 인터페이스 이름이 "이더넷 2"인 경우 다음 명령을 실행합니다.
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  네트워크 인터페이스를 사용할 수 있도록 다시 네트워크 인터페이스의 상태를 확인합니다.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     이 시점에서 VM을 다시 시작할 필요는 없습니다. VM에 다시 연결할 수 있게 됩니다.
 

@@ -5,17 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 66138fb04b1053215a2c2ec07cec1b56e38fed0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800650"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078735"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>날씨 파트너의 날씨 데이터 가져오기
 
 Azure FarmBeats는 docker 기반 커넥터 프레임 워크를 사용 하 여 날씨 데이터 공급자의 날씨 데이터를 가져오는 데 도움이 됩니다. 이 프레임 워크를 사용 하 여 날씨 데이터 공급자는 FarmBeats와 통합할 수 있는 docker를 구현 합니다. 현재 지원 되는 날씨 데이터 공급자는 다음과 같습니다.
 
-[DTN](https://www.dtn.com/dtn-content-integration/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 날씨 데이터를 사용 하 여 FarmBeats에서 실행 가능한 정보를 생성 하 고 AI/ML 모델을 빌드할 수 있습니다.
 
@@ -59,6 +62,9 @@ FarmBeats 데이터 허브에서 날씨 데이터 가져오기를 시작 하려�
    ```
 
    예를 들어 DTN에서 날씨 데이터를 가져오려면 아래 페이로드를 사용 합니다. 기본 설정에 따라 이름 및 설명을 수정할 수 있습니다.
+
+   > [!NOTE]
+   > 아래 단계에는 API 키가 필요 합니다. dtn 구독에 대해 동일 하 게 얻으려면 DTN에 문의 하세요.
 
    ```json
    {

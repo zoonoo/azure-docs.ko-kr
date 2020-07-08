@@ -12,11 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668409"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078972"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 해결
 
@@ -104,7 +105,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 - **Console.ReadLine** 메서드 또는 확인 단추가 포함된 대화 상자를 사용하여 추가 실행을 일시 정지합니다. 사용자가 컴퓨터와 네트워크 간 케이블을 연결한 다음 Enter 키를 누릅니다.
 - 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>연결 시 틀린 철자의 데이터베이스 이름을 사용하여 테스트
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>연결할 때 사용자 이름의 철자를 검사 합니다.
 
 프로그램이 첫 번째 연결 시도 전에 의도적으로 사용자 이름의 철자를 잘못 입력할 수 있습니다. 오류는 다음과 같습니다.
 

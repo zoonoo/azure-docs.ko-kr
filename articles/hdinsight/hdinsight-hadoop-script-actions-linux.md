@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767544"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082253"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -123,7 +123,7 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 > [!IMPORTANT]  
 > 사용된 스토리지 계정은 클러스터의 기본 스토리지 계정 또는 다른 모든 스토리지 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
-예를 들어 Microsoft에서 제공 하는 샘플은 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 저장소 계정에 저장 됩니다. 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
+예를 들어 Microsoft에서 제공 하는 샘플은 저장소 계정에 저장 됩니다 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) . 이 위치는 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
 
 ### <a name="use-pre-compiled-resources"></a><a name="bPS4"></a>사전 컴파일한 리소스 사용
 
@@ -161,19 +161,19 @@ HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니�
 > [!NOTE]  
 > Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용 하 고 만들기가 실패 하는 경우 기록 된 정보에 액세스 하는 다른 방법에 대 한 [스크립트 작업 문제 해결](./troubleshoot-script-action.md) 을 참조 하세요.
 
-대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 다음은 그 예입니다.
+대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예를 들어:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 다음은 그 예입니다.
+기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예를 들어:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
 ```
 
-이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대 한 자세한 내용은을 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)참조 하십시오.
+이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대 한 자세한 내용은을 참조 하십시오 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html) .
 
 스크립트 동작에서 기록한 정보를 보는 방법에 대 한 자세한 내용은 [스크립트 작업 문제 해결](./troubleshoot-script-action.md)을 참조 하세요.
 
@@ -226,7 +226,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helper-methods-for-custom-scripts"></a><a name="helpermethods"></a>사용자 지정 스크립트에 대한 도우미 메서드
 
-스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 스크립트에 포함 됩니다. 다음을 사용하여 다운로드하고 스크립트의 일부로 사용합니다.
+스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 스크립트에 포함 됩니다 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) . 다음을 사용하여 다운로드하고 스크립트의 일부로 사용합니다.
 
 ```bash
 # Import the helper method module.
@@ -264,11 +264,15 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 환경 변수의 설정은 다음 문으로 수행됩니다.
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 여기서 VARIABLENAME은 변수의 이름입니다. 변수에 액세스하려면 `$VARIABLENAME`을 사용합니다. 예를 들어 위치 매개 변수에서 제공하는 값을 PASSWORD라는 환경 변수로 할당하려면 다음 문을 사용합니다.
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 이후 정보에 액세스하려면 `$PASSWORD`를 사용합니다.
 
@@ -328,7 +332,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 다음은 개발한 스크립트를 사용할 때 발생할 수 있는 오류입니다.
 
-**오류**: `$'\r': command not found`. 때로는 `syntax error: unexpected end of file`이 이어집니다.
+**오류**: `$'\r': command not found` . 때로는 `syntax error: unexpected end of file`이 이어집니다.
 
 *원인*:이 오류는 스크립트에서 줄이 CRLF로 끝날 때 발생합니다. Unix 시스템은 줄 끝에 LF이 필요합니다.
 
@@ -346,13 +350,15 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | 파일을 직접 수정 |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE은 끝이 LF인 버전만 포함합니다. |
 
-**오류**: `line 1: #!/usr/bin/env: No such file or directory`.
+**오류**: `line 1: #!/usr/bin/env: No such file or directory` .
 
 *원인*: 스크립트가 바이트 순서 표시(BOM)를 사용하여 UTF-8로 저장될 때 이 오류가 발생합니다.
 
 *해상도*: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저장합니다. Linux 또는 Unix 시스템에서 다음 명령을 사용하여 BOM을 사용하지 않고 파일을 만들 수도 있습니다.
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 `INFILE`을 BOM을 포함하는 파일로 대체합니다. `OUTFILE`은 BOM을 사용하지 않고 스크립트를 포함하는 새 파일 이름이어야 합니다.
 

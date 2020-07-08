@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: eb7bb7933303aaf16f320e219ad3673bf1efde72
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564661"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080484"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름을 위해 Azure Stack Edge를 사용하여 데이터 변환
 
@@ -22,7 +22,7 @@ ms.locfileid: "82564661"
 
 디바이스에서 단순 또는 고급 배포 흐름을 위해 컴퓨팅을 구성할 수 있습니다.
 
-|                  | 단순 배포                                | 고급 배포                   |
+| 조건 | 단순 배포                                | 고급 배포                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | 대상 사용자     | IT 관리자                                | 개발자                            |
 | Type             | Azure Stack Edge 서비스를 사용하여 모듈 배포      | IoT Hub 서비스를 사용하여 모듈 배포 |
@@ -41,7 +41,7 @@ ms.locfileid: "82564661"
 > * 데이터 변환 및 전송 확인
 
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Stack Edge 디바이스에서 컴퓨팅 역할을 설정하기 전에 다음 사항을 확인합니다.
 
@@ -66,7 +66,7 @@ Azure Stack Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어�
     |필드  |값  |
     |---------|---------|
     |IoT Hub     | **새로 만들기** 또는 **기존 항목** 중에서 선택합니다. <br> 표준 계층(S1)을 사용하여 IoT 리소스를 만드는 것이 기본입니다. 무료 계층 IoT 리소스를 사용하려면 IoT 리소스를 새로 만든 후 기존 리소스를 선택합니다. <br> 어떤 방법을 선택하든, IoT Hub 리소스는 Azure Stack Edge 리소스에서 사용하는 것과 동일한 구독 및 리소스 그룹을 사용합니다.     |
-    |속성     |IoT Hub 리소스의 이름을 입력합니다.         |
+    |Name     |IoT Hub 리소스의 이름을 입력합니다.         |
 
     ![컴퓨팅 시작](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
@@ -183,7 +183,7 @@ Azure Stack Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어�
      
         |필드  |값  |
         |---------|---------|
-        |속성     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
+        |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
         |이미지 URI     | 모듈의 해당 컨테이너 이미지에 대한 이미지 URI입니다.        |
         |자격 증명 필요     | 이 옵션을 선택하면 사용자 이름과 암호를 사용하여 URL이 일치하는 모듈을 검색하게 됩니다.        |
     
@@ -215,9 +215,9 @@ Azure Stack Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어�
 
         ![사용자 지정 모듈 추가](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.    **경로 지정**에서 모듈 간 경로를 설정합니다.  
-    
-    ![경로 지정](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
+5. **경로 지정**에서 모듈 간 경로를 설정합니다.  
+   
+   ![경로 지정](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
     *경로*를 이전에 복사한 다음 경로 문자열로 바꿀 수 있습니다. 이 예제에서 데이터를 클라우드 공유에 푸시하는 로컬 공유의 이름을 입력합니다. `modulename`을 모듈의 이름으로 바꿉니다. **다음**을 선택합니다.
         
@@ -227,9 +227,9 @@ Azure Stack Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어�
 
     ![경로 지정 섹션](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.    **배포 검토**에서 모든 설정을 검토한 다음, **제출**을 선택하여 배포에 사용할 수 있도록 모듈을 제출합니다.
+6. **배포 검토**에서 모든 설정을 검토한 다음, **제출**을 선택하여 배포에 사용할 수 있도록 모듈을 제출합니다.
 
-    ![모듈 설정 페이지](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![모듈 설정 페이지](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     이 작업은 모듈 배포를 시작합니다. 배포가 완료되면 모듈의 **런타임 상태**는 **실행 중**입니다.
 
@@ -241,13 +241,13 @@ Azure Stack Edge에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어�
 
 다음 단계에 따라 Azure로의 데이터 변환 및 전송을 확인합니다.
  
-1.    파일 탐색기에서, 이전에 만든 Edge 로컬 및 Edge 공유에 모두 연결합니다.
+1. 파일 탐색기에서, 이전에 만든 Edge 로컬 및 Edge 공유에 모두 연결합니다.
 
-    ![데이터 변환 확인](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
+   ![데이터 변환 확인](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.    로컬 공유에 데이터를 추가합니다.
+1. 로컬 공유에 데이터를 추가합니다.
 
-    ![데이터 변환 확인](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![데이터 변환 확인](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     데이터가 클라우드 공유로 이동합니다.
 

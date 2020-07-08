@@ -5,22 +5,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b45af924b75392374265ca41bd4dc1627edd4e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89e3aa1fec2157d77ac5c180bc4dd193f10398cd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190812"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078955"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용
 
 > [!Note]
 > 향상된 성능과 새로운 기능을 위해 [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)를 사용하여 새 HDInsight 클러스터를 배포하세요.
 
-HDInsight 클러스터에서 데이터를 분석 하기 위해, [`Azure Storage`](../storage/common/storage-introduction.md) [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md)또는 [Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)에 데이터를 저장할 수 있습니다. 모든 스토리지 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+HDInsight 클러스터에서 데이터를 분석 하기 위해 [`Azure Storage`](../storage/common/storage-introduction.md) , [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md)또는 [Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)에 데이터를 저장할 수 있습니다. 모든 스토리지 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
 이 문서에서는 Data Lake Storage Gen1이 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. Azure Storage가 HDInsight 클러스터에서 작동하는 방식에 대해 알아보려면 [Azure HDInsight 클러스터에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
@@ -40,11 +40,11 @@ HDInsight 클러스터는 Data Lake Storage Gen1을 두 가지 방식으로 사�
 
 현재 기본 저장소 및 추가 저장소 계정으로 Data Lake Storage Gen1를 사용 하는 일부 HDInsight 클러스터 유형/버전만 지원 됩니다.
 
-| HDInsight 클러스터 유형 | Data Lake Storage Gen1을 기본 스토리지로 | Data Lake Storage Gen1을 추가 스토리지로| 메모 |
+| HDInsight 클러스터 유형 | Data Lake Storage Gen1을 기본 스토리지로 | Data Lake Storage Gen1을 추가 스토리지로| 참고 |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight 버전 4.0 | 아니요 | 아니요 |ADLS Gen1 HDInsight 4.0에서 지원 되지 않음 |
-| HDInsight 버전 3.6 | 예 | 예 | HBase 제외|
-| HDInsight 버전 3.5 | 예 | 예 | HBase 제외|
+| HDInsight 버전 3.6 | 예 | Yes | HBase 제외|
+| HDInsight 버전 3.5 | 예 | Yes | HBase 제외|
 | HDInsight 버전 3.4 | 예 | 예 | |
 | HDInsight 버전 3.3 | 아니요 | 아니요 | |
 | HDInsight 버전 3.2 | 예 | 예 | |
@@ -62,7 +62,7 @@ HDInsight가 Data Lake Storage Gen1을 기본 스토리지로 하여 배포되�
 * 클러스터1에 `adl://mydatalakestore/cluster1storage` 경로를 사용할 수 있습니다.
 * 클러스터2에 `adl://mydatalakestore/cluster2storage` 경로를 사용할 수 있습니다.
 
-두 클러스터 모두 동일한 Data Lake Storage Gen1 계정인 **mydatalakestore**를 사용하는 것에 유의하세요. 각 클러스터는 Data Lake Storage의 자체 루트 파일 시스템에 액세스 권한을 갖습니다. Azure Portal 배포 환경에서는 루트 경로에 대해 **\</clusters/clustername>** 와 같은 폴더 이름을 사용 하 라는 메시지가 표시 됩니다.
+두 클러스터 모두 동일한 Data Lake Storage Gen1 계정인 **mydatalakestore**를 사용하는 것에 유의하세요. 각 클러스터는 Data Lake Storage의 자체 루트 파일 시스템에 액세스 권한을 갖습니다. Azure Portal 배포 환경에서는 루트 경로에 대 한 **/clusters/ \<clustername> ** 와 같은 폴더 이름을 사용 하 라는 메시지가 표시 됩니다.
 
 Data Lake Storage Gen1를 기본 저장소로 사용 하려면 서비스 사용자에 게 다음 경로에 대 한 액세스 권한을 부여 해야 합니다.
 
@@ -108,15 +108,15 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>추가 스토리지로 Data Lake Storage Gen1 사용
 
-Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이런 경우 클러스터 기본 스토리지는 Azure Storage Blob 또는 Data Lake Storage 계정입니다. Data Lake Storage에 저장 된 데이터에 대해 HDInsight 작업을 추가 저장소로 실행 하는 경우 정규화 된 경로를 사용 합니다. 다음은 그 예입니다.
+Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이런 경우 클러스터 기본 스토리지는 Azure Storage Blob 또는 Data Lake Storage 계정입니다. Data Lake Storage에 저장 된 데이터에 대해 HDInsight 작업을 추가 저장소로 실행 하는 경우 정규화 된 경로를 사용 합니다. 예를 들어:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 지금은 URL에 **cluster_root_path** 없습니다. 이 경우 Data Lake Storage 기본 저장소가 아니기 때문입니다. 파일 경로를 제공 하기만 하면 됩니다.
 
-Data Lake Storage Gen1를 추가 저장소로 사용 하려면 파일이 저장 된 경로에 대 한 서비스 사용자 액세스 권한을 부여 합니다.  다음은 그 예입니다.
+Data Lake Storage Gen1를 추가 저장소로 사용 하려면 파일이 저장 된 경로에 대 한 서비스 사용자 액세스 권한을 부여 합니다.  예를 들어:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 서비스 주체 및 액세스 부여 만들기에 대한 자세한 내용은 Data Lake Storage 액세스 구성을 참조하세요.
 
@@ -143,7 +143,7 @@ HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **줄인 경로 형식 사용**. 이 방법을 사용 하 여 클러스터 루트로 경로를 다음과 같이 바꿉니다.
+* **줄인 경로 형식 사용**. 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
 
     ```
     adl:///<file path>
@@ -157,17 +157,17 @@ HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있
 
 ### <a name="data-access-examples"></a>데이터 액세스 예제
 
-예는 클러스터의 헤드 노드에 대 한 [ssh 연결](./hdinsight-hadoop-linux-use-ssh-unix.md) 을 기반으로 합니다. 이 예제에서는 세 가지 URI 스키마를 모두 사용 합니다. 및 `DATALAKEACCOUNT` `CLUSTERNAME` 를 관련 값으로 바꿉니다.
+예제는 클러스터의 헤드 노드에 대한 [ssh 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)을 기반으로 합니다. 이 예제에서는 세 가지 URI 스키마를 모두 사용합니다. `DATALAKEACCOUNT`및를 `CLUSTERNAME` 관련 값으로 바꿉니다.
 
-#### <a name="a-few-hdfs-commands"></a>몇 개의 hdfs 명령
+#### <a name="a-few-hdfs-commands"></a>몇 가지 hdfs 명령
 
-1. 로컬 저장소에 파일을 만듭니다.
+1. 로컬 스토리지에 파일을 만듭니다.
 
     ```bash
     touch testFile.txt
     ```
 
-1. 클러스터 저장소에 디렉터리를 만듭니다.
+1. 클러스터 스토리지에 디렉터리를 만듭니다.
 
     ```bash
     hdfs dfs -mkdir adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -175,7 +175,7 @@ HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. 로컬 저장소에서 클러스터 저장소로 데이터를 복사 합니다.
+1. 로컬 스토리지에서 클러스터 스토리지로 데이터를 복사합니다.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -183,7 +183,7 @@ HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있
     hdfs dfs -copyFromLocal testFile.txt /sampledata3/
     ```
 
-1. 클러스터 저장소에 디렉터리 콘텐츠를 나열 합니다.
+1. 클러스터 스토리지의 디렉터리 콘텐츠를 나열합니다.
 
     ```bash
     hdfs dfs -ls adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -193,7 +193,7 @@ HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있
 
 #### <a name="creating-a-hive-table"></a>Hive 테이블 만들기
 
-설명을 위해 세 가지 파일 위치가 표시 됩니다. 실제 실행의 경우 `LOCATION` 항목 중 하나만 사용 합니다.
+설명을 위해 세 가지 파일 위치가 표시되었습니다. 실제로 실행할 때는 `LOCATION` 항목 중 하나만 사용합니다.
 
 ```hql
 DROP TABLE myTable;
@@ -212,9 +212,9 @@ LOCATION 'adl:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-ambari"></a>Ambari에서 저장소 경로를 식별 합니다.
+## <a name="identify-storage-path-from-ambari"></a>Ambari에서 스토리지 경로 식별
 
-구성 된 기본 저장소의 전체 경로를 확인 하려면 **HDFS** > **Configs** 로 이동 하 고 필터 `fs.defaultFS` 입력 상자에를 입력 합니다.
+구성 된 기본 저장소의 전체 경로를 확인 하려면 **HDFS**  >  **Configs** 로 이동 하 고 `fs.defaultFS` 필터 입력 상자에를 입력 합니다.
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대한 액세스로 HDInsight 클러스터 만들기
 
@@ -227,7 +227,7 @@ Data Lake Storage Gen1에 대한 액세스로 HDInsight 클러스터를 만드�
 
 ## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-gen1-access"></a>Data Lake Storage Gen1 액세스에 대한 HDInsight 인증서 새로 고침
 
-다음 예제 PowerShell 코드는 로컬 파일 또는 Azure Key Vault에서 인증서를 읽고, Azure Data Lake Storage Gen1에 액세스하도록 HDInsight 클러스터를 새 인증서로 업데이트합니다. 인증서에 대 한 고유한 HDInsight 클러스터 이름, 리소스 그룹 이름, 구독 `app ID`ID, 로컬 경로를 제공 합니다. 메시지가 표시되면 암호를 입력합니다.
+다음 예제 PowerShell 코드는 로컬 파일 또는 Azure Key Vault에서 인증서를 읽고, Azure Data Lake Storage Gen1에 액세스하도록 HDInsight 클러스터를 새 인증서로 업데이트합니다. 인증서에 대 한 고유한 HDInsight 클러스터 이름, 리소스 그룹 이름, 구독 ID, `app ID` 로컬 경로를 제공 합니다. 메시지가 표시되면 암호를 입력합니다.
 
 ```powershell-interactive
 $clusterName = '<clustername>'

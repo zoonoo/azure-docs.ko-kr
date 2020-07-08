@@ -13,11 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344631"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080179"
 ---
 # <a name="what-is-azure-sql"></a>Azure SQL란? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -58,7 +59,7 @@ Azure는 위협에 대 한 데이터를 지속적으로 모니터링 합니다. 
 여러 가지 요소를 선택 하 여 다양 한 데이터 제공을 선택 하는 데 영향을 줄 수 있습니다.
 
 - [비용](#cost): PaaS 및 IaaS 옵션은 기본 인프라와 라이선스를 포함 하는 기본 가격을 포함 합니다. 그러나 IaaS 옵션을 사용 하면 데이터베이스를 관리 하기 위해 추가 시간과 리소스를 투자 해야 하며, PaaS에서는 가격에 이러한 관리 기능을 제공 합니다. IaaS를 사용 하면 리소스를 사용 하지 않는 동안 리소스를 종료 하 여 비용을 줄일 수 있으며, 필요한 경우 리소스를 삭제 하 고 다시 만들지 않는 한 PaaS는 항상 실행 됩니다.
-- [관리](#administration): PaaS 옵션을 통해 데이터베이스를 관리 하는 데 투자 해야 하는 시간을 줄일 수 있습니다. 그러나 사용자 지정 관리 태스크 및 사용자가 실행 하거나 실행할 수 있는 스크립트의 범위를 제한 하기도 합니다. 예를 들어 CLR은 단일 또는 풀링된 데이터베이스에서 지원 되지 않지만 SQL Managed Instance 인스턴스에 대해 지원 됩니다. 또한 PaaS의 배포 옵션은 추적 플래그 사용을 지원 하지 않습니다.
+- [관리](#administration): PaaS 옵션을 통해 데이터베이스를 관리 하는 데 투자 해야 하는 시간을 줄일 수 있습니다. 그러나 사용자 지정 관리 태스크 및 사용자가 실행 하거나 실행할 수 있는 스크립트의 범위를 제한 하기도 합니다. 예를 들어 CLR은 SQL Database에서 지원 되지 않지만 SQL Managed Instance 인스턴스에 대해서는 지원 됩니다. 또한 PaaS의 배포 옵션은 추적 플래그 사용을 지원 하지 않습니다.
 - [서비스 수준 계약](#service-level-agreement-sla): IaaS 및 PaaS는 모두 업계 표준 SLA를 제공 합니다. PaaS 옵션은 99.99%의 SLA를 보장하지만, IaaS는 인프라에 대해 99.95%의 SLA를 보장합니다. 따라서 데이터베이스의 가용성을 보장하려면 추가 메커니즘을 구현해야 합니다. 추가 SQL 가상 머신을 만들고 SQL Server Always On 가용성 그룹 고가용성 솔루션을 구현 하 여 99.99% SLA를 얻을 수 있습니다. 
 - Azure [로 이동 하는 시간](#market): azure vm의 SQL Server 사용자 환경과 정확히 일치 하므로 온-프레미스에서 azure vm으로 마이그레이션하는 것은 온-프레미스 서버 간에 데이터베이스를 이동 하는 것과는 다릅니다. SQL Managed Instance를 사용 하면 쉽게 마이그레이션할 수 있습니다. 그러나 마이그레이션 전에 적용 해야 하는 변경 내용이 있을 수 있습니다. 
 

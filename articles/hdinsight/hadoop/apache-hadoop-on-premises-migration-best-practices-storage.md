@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0394a7db6776e00ea031a2f40ab4de01540982a6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80436932"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080213"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션
 
@@ -33,7 +33,7 @@ Azure Storage 지역에서 복제할 수 있습니다. 지역에서 복제는 �
 
 Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 
-|데이터 액세스 형식 |Description |
+|데이터 액세스 형식 |설명 |
 |---|---|
 |`wasb:///`|암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.|
 |`wasbs:///`|암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.|
@@ -70,7 +70,7 @@ keytool -import -trustcacerts -keystore /path/to/jre/lib/security/cacerts -store
 keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 ```
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure HDInsight 클러스터에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
 - [Standard storage 계정에 대 한 확장성 목표](../../storage/common/scalability-targets-standard-account.md)
@@ -83,7 +83,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 
 Azure Data Lake Storage는 HDFS 및 POSIX 스타일 액세스 제어 모델을 구현합니다. 세밀하게 세분화된 액세스 제어에 대해 AAD를 사용하여 최고 수준의 통합을 제공합니다. 저장할 수 있는 데이터 크기 또는 대규모 병렬 분석을 실행하는 기능에 제한이 없습니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure Portal을 사용하여 Data Lake Storage가 있는 HDInsight 클러스터 만들기](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Azure HDInsight 클러스터에 Data Lake Storage 사용](../hdinsight-hadoop-use-data-lake-store.md)
@@ -112,7 +112,7 @@ ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나
 - `abfs:///`: 클러스터의 기본 Data Lake Storage에 액세스합니다.
 - `abfs://file_system@account_name.dfs.core.windows.net`: 기본이 아닌 Data Lake Storage와 통신할 때 사용됩니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure Data Lake Storage Gen2 소개](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob FileSystem 드라이버(ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
@@ -155,7 +155,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
 1. [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 파일을 열고 다음 값을 변경합니다.
 
-    |토큰 속성|Description|
+    |토큰 속성|설명|
     |---|---|
     |policy_name|만들려는 저장된 정책에 사용할 이름입니다.|
     |storage_account_name|사용자 스토리지 계정의 이름입니다.|
@@ -202,7 +202,7 @@ Azure Storage에 쓴 모든 데이터는  [SSE(스토리지 서비스 암호화
 
 Azure Data Lake Storage는 LRS(로컬 중복 스토리지)를 제공하지만 재해 복구 계획의 요구에 맞게 정렬된 주파수를 사용하여 다른 지역의 다른 Data Lake Storage 계정에 중요한 데이터를 복사해야 합니다. [Adlcopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [distcp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)또는 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)를 비롯 한 다양 한 방법으로 데이터를 복사할 수 있습니다.실수로 인 한 삭제를 방지 하기 위해 Data Lake Storage 계정에 대 한 액세스 정책을 적용 하는 것도 좋습니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure Storage 복제](../../storage/common/storage-redundancy.md)
 - [ADLS(Azure Data Lake Storage)에 대한 재해 지침](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)

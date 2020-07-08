@@ -3,15 +3,16 @@ title: Azure Application Insights의 종속성 추적 | Microsoft Docs
 description: Application Insights를 사용 하 여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램에서 종속성 호출을 모니터링 합니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 472d7d26c8a478f521159a44959d7e0a5d749e0d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445222"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081352"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
-*종속성* 은 응용 프로그램에서 호출 하는 외부 구성 요소입니다. 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md) 은 종속성 호출의 시간 (실패 여부와 상관 없이 종속성의 이름과 같은 추가 정보)을 측정 합니다. 특정 종속성 호출을 조사 하 고 요청 및 예외와의 상관 관계를 지정할 수 있습니다.
+*종속성* 은 응용 프로그램에서 호출 하는 구성 요소입니다. 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md) 은 종속성 호출의 시간 (실패 여부와 상관 없이 종속성의 이름과 같은 추가 정보)을 측정 합니다. 특정 종속성 호출을 조사 하 고 요청 및 예외와의 상관 관계를 지정할 수 있습니다.
 
 ## <a name="automatically-tracked-dependencies"></a>자동으로 추적 되는 종속성
 
@@ -190,7 +191,7 @@ ASP.NET 응용 프로그램의 경우, 계측 엔진을 사용 하거나 System.
       on operation_Id
 ```
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*자동 종속성 수집기에서 종속성에 대 한 실패 한 호출을 보고 하는 방법*
 
