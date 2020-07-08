@@ -6,16 +6,15 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659703"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,7 +28,7 @@ Azure IR은 완전히 관리되는 컴퓨팅을 제공하여 기본적으로 데
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-azure-ir"></a>기본 Azure IR
-기본적으로 각 데이터 팩터리에는 백 엔드에 클라우드 데이터 저장소의 작업 및 공용 네트워크의 컴퓨팅 서비스를 지원하는 Azure IR이 있습니다. 해당 Azure IR 위치는 자동으로 확인됩니다. **connectVia** 속성이 연결된 서비스 정의에 지정되지 않은 경우 기본 Azure IR이 사용됩니다. IR의 위치를 명시적으로 정의하려는 경우 또는 관리 목적으로 다른 IR에 대한 작업 실행을 가상으로 그룹화하려는 경우에만 Azure IR을 명시적으로 만들어야 합니다. 
+기본적으로 각 데이터 팩터리에는 백 엔드에 클라우드 데이터 저장소의 작업 및 공용 네트워크의 컴퓨팅 서비스를 지원하는 Azure IR이 있습니다. Azure IR 위치는 자동 해결입니다. **connectVia** 속성이 연결된 서비스 정의에 지정되지 않은 경우 기본 Azure IR이 사용됩니다. IR의 위치를 명시적으로 정의하려는 경우 또는 관리 목적으로 다른 IR에 대한 작업 실행을 가상으로 그룹화하려는 경우에만 Azure IR을 명시적으로 만들어야 합니다. 
 
 ## <a name="create-azure-ir"></a>Azure IR 만들기
 
@@ -48,13 +47,13 @@ AzDataFactoryV2IntegrationRuntime PowerShell cmdlet을 사용 하 여 해당 위
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Azure Data Factory UI를 통해 Azure IR 만들기
 다음 단계를 사용 하 여 Azure Data Factory UI를 사용 하 여 Azure IR를 만듭니다.
 
-1. Azure Data Factory UI의 **시작** 페이지에서 왼쪽 창의 **작성자** 탭을 선택 합니다.
+1. Azure Data Factory UI의 **시작하기** 페이지의 맨 왼쪽 창에서 [관리 탭](https://docs.microsoft.com/azure/data-factory/author-management-hub)을 선택합니다.
 
-   ![홈 페이지 작성자 단추](media/doc-common-process/get-started-page-author-button.png)
+   ![홈 페이지 관리 단추](media/doc-common-process/get-started-page-manage-button.png)
 
-1. 왼쪽 창의 맨 아래에서 **연결** 을 선택 하 고 **연결** 창에서 **통합 런타임** 을 선택 합니다. **+ 새로 만들기**를 선택 합니다.
+1. 왼쪽 창에서 **통합 런타임**을 선택한 다음, **+새로 만들기**를 선택합니다.
 
-   ![Integration Runtime 만들기](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Integration Runtime 만들기](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅**을 차례로 선택 하 고 **계속**을 선택 합니다. 
 

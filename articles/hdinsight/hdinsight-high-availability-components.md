@@ -7,16 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74069622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609168"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight에서 지원 되는 고가용성 서비스
 
  분석 구성 요소에 대 한 최적의 가용성 수준을 제공 하기 위해 HDInsight는 중요 한 서비스의 HA (고가용성)를 보장 하기 위한 고유한 아키텍처를 사용 하 여 개발 되었습니다. 이 아키텍처의 일부 구성 요소는 자동 장애 조치 (failover)를 제공 하기 위해 Microsoft에서 개발 되었습니다. 다른 구성 요소는 특정 서비스를 지원 하기 위해 배포 되는 표준 Apache 구성 요소입니다. 이 문서에서는 hdinsight의 HA 서비스 모델 아키텍처, HDInsight에서 HA 서비스에 대 한 장애 조치 (failover)를 지 원하는 방법 및 다른 서비스 중단 으로부터 복구 하는 모범 사례에 대해 설명 합니다.
+ 
+> [!NOTE]
+> 바이어스-무료 통신
+>
+> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+>
+
 
 ## <a name="high-availability-infrastructure"></a>고가용성 인프라
 
@@ -48,7 +54,7 @@ HDInsight는 자동 장애 조치 (failover) 기능을 사용 하 여 네 가지
 
 Microsoft는 HDInsight 클러스터의 다음 표에서 4 개의 Apache 서비스에 대 한 지원을 제공 합니다. Apache의 구성 요소에서 지원 되는 고가용성 서비스와 구별 하기 위해 *HDINSIGHT HA 서비스*라고 합니다.
 
-| 서비스 | 클러스터 노드 | 클러스터 유형 | 목적 |
+| 서비스 | 클러스터 노드 | 클러스터 유형 | 용도 |
 |---|---|---|---|
 | Apache Ambari 서버| 활성 헤드 노드 | 모두 | 클러스터를 모니터링 하 고 관리 합니다.|
 | Apache YARN에 대 한 애플리케이션 타임라인 서버 | 활성 헤드 노드 | Kafka를 제외한 모든 | 클러스터에서 실행 되는 YARN 작업에 대 한 디버깅 정보를 유지 관리 합니다.|

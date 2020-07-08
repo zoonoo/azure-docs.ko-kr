@@ -10,13 +10,12 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
-ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655685"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 
@@ -28,21 +27,19 @@ ms.locfileid: "82106630"
 
 Azure Data Factory UI를 사용하여 공유되는 자체 호스팅 IR을 만들려면 다음 단계를 수행할 수 있습니다.
 
-1. 공유할 자체 호스팅 IR에서 연결된 IR을 만들려면 데이터 팩터리에 대한 권한을 부여합니다.
+1. 공유 되는 자체 호스팅 IR에서 **다른 데이터 팩터리에 대 한 권한 부여** 를 선택 하 고 "Integration runtime 설치" 페이지에서 연결 된 IR을 만들 데이터 팩터리를 선택 합니다.
       
-    ![공유 탭에서 권한을 부여하는 단추](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![권한 할당을 위한 선택 항목](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![공유 탭에서 권한을 부여하는 단추](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. 공유할 자체 호스팅 IR의 리소스 ID를 적어 둡니다.
-      
-   ![리소스 ID의 위치](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
+2. 공유할 자체 호스팅 IR의 위에 있는 "리소스 ID"를 복사 합니다.
+         
 3. 권한이 부여된 데이터 팩터리에서 연결된 자체 호스팅 IR을 새로 만들고 리소스 ID를 입력합니다.
       
-   ![연결된 자체 호스팅 통합 런타임을 만드는 단추](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![이름 및 리소스 ID 입력용 상자](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![자체 호스팅 통합 런타임을 만드는 단추](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![연결된 자체 호스팅 통합 런타임을 만드는 단추](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+
+    ![이름 및 리소스 ID 입력용 상자](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR 만들기
 

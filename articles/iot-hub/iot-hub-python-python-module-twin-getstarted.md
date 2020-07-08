@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
-ms.openlocfilehash: f846af548913e0cb3e872560e4b8438da306a255
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: f324b04dd87f84a07c07394f2ee7c3efdc30c3e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84607077"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (Python)
 
@@ -41,7 +41,7 @@ ms.locfileid: "80756971"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
 이 문서에서는 id 레지스트리에서 장치를 추가 하 고 해당 장치에 모듈을 추가 하는 백 엔드 서비스를 만듭니다. 이 서비스에는 레지스트리 **읽기**권한도 포함 된 **레지스트리 쓰기** 권한이 필요 합니다. 또한 새로 만든 모듈의 모듈 쌍에 원하는 속성을 추가 하는 서비스를 만듭니다. 이 서비스에는 **서비스 connect** 권한이 필요 합니다. 이러한 권한을 개별적으로 부여 하는 기본 공유 액세스 정책이 있지만이 섹션에서는 이러한 사용 권한을 모두 포함 하는 사용자 지정 공유 액세스 정책을 만듭니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "80756971"
 
 이 섹션에서는 IoT hub의 id 레지스트리에서 장치 id 및 모듈 id를 만드는 Python 서비스 앱을 만듭니다. Id 레지스트리에 항목이 없는 경우 장치 또는 모듈을 IoT hub에 연결할 수 없습니다. 자세한 내용은 [IoT hub의 id 레지스트리 이해](iot-hub-devguide-identity-registry.md)를 참조 하세요. 이 콘솔 앱을 실행하면 디바이스 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 디바이스 및 모듈은 IoT Hub에 디바이스-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 **azure-iot-허브** 패키지를 설치 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-hub** 패키지를 설치합니다.
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -190,7 +190,7 @@ ms.locfileid: "80756971"
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 **azure-iot-장치** 패키지를 설치 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 패키지를 설치합니다.
 
     ```cmd/sh
     pip install azure-iot-device

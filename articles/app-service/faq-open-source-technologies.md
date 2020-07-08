@@ -8,13 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: seodec18
-ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559570"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -26,8 +25,8 @@ ms.locfileid: "82159969"
 
 PHP 로깅을 켜려면:
 
-1. **Kudu 웹 사이트** (`https://*yourwebsitename*.scm.azurewebsites.net`)에 로그인 합니다.
-2. 상단 메뉴에서 **디버그 콘솔** > **CMD**를 선택 합니다.
+1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
+2. 상단 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
 3. **Site** 폴더를 선택합니다.
 4. **wwwroot** 폴더를 선택합니다.
 5. **+** 아이콘을 선택 하 고 **새 파일**을 선택 합니다.
@@ -56,7 +55,7 @@ Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나
   1. Azure Portal에서 웹앱으로 이동합니다.
   2. **설정** 블레이드에서 **애플리케이션 설정**을 선택합니다.
   3. **앱 설정**에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
-  4. **Kudu console** (`https://*yourwebsitename*.scm.azurewebsites.net`)로 이동 합니다.
+  4. **Kudu console** ()로 이동 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
   5. Node.js 버전을 확인하려면 다음 명령을 입력합니다.  
      ```
      node -v
@@ -91,7 +90,7 @@ debug.log 또는 php_errors.log 파일에 이 오류가 표시되면 앱이 연�
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>App Service에 호스트된 Node.js 앱을 디버그하려면 어떻게 하나요?
 
-1.  **Kudu console** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`)로 이동 합니다.
+1.  **Kudu console** ()로 이동 `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` 합니다.
 2.  애플리케이션 로그 폴더(D:\home\LogFiles\Application)로 이동합니다.
 3.  logging_errors.txt 파일에서 콘텐츠를 확인합니다.
 
@@ -138,7 +137,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 1. app/lib 폴더에서 sqljdbc*.jar 파일을 제거합니다.
 2. 사용자 지정 Tomcat 또는 Azure Marketplace Tomcat 웹 서버를 사용하는 경우 이 .jar 파일을 Tomcat lib 폴더로 복사합니다.
-3. Azure Portal에서 java를 사용 하도록 설정 하는 경우 ( **java 1.8** > **Tomcat 서버**선택) 앱에 병렬 되는 폴더에 sqljdbc. * jar 파일을 복사 합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
+3. Azure Portal에서 java를 사용 하도록 설정 하는 경우 ( **java 1.8**  >  **Tomcat 서버**선택) 앱에 병렬 되는 폴더에 sqljdbc. * jar 파일을 복사 합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
 
     ```xml
     <httpPlatform>

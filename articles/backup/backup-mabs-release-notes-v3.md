@@ -2,14 +2,13 @@
 title: Microsoft Azure Backup Server v3 릴리스 정보
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) v3의 알려진 문제 및 해결 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 11/22/2018
+ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: a5c99bcb95fde39bddc9e9db9ab000881c89081a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629152"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 
@@ -71,6 +70,40 @@ ms.locfileid: "82185628"
 
 9. MSDPM 서비스를 시작합니다.
 
+## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>UR1를 설치한 후 MABS 보고서는 새 RDL 파일로 업데이트 되지 않습니다.
+
+**설명**: UR1를 사용 하면 업데이트 된 RDL 파일로 mabs 보고서 서식 지정 문제가 해결 됩니다. 새 RDL 파일은 자동으로 기존 파일로 대체 되지 않습니다.
+
+**해결 방법**: RDL 파일을 바꾸려면 다음 단계를 수행 합니다.
+
+1. MABS 컴퓨터에서 SQL Reporting Services 웹 포털 URL을 엽니다.
+1. 웹 포털 URL에서 DPMReports 폴더는 다음 형식으로 표시 됩니다.**`DPMReports_<GUID>`**
+
+    >[!NOTE]
+    >이 명명 규칙을 사용 하는 폴더는 항상 한 개만 있습니다. MABS를 이전 버전에서 업그레이드 하는 경우 다른 이전 폴더도 있을 수 있지만 열 수는 없습니다.
+
+    ![DPMReports 폴더](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
+
+1. 폴더를 선택 하 고 엽니다 **`DPMReports_<GUID>`** . 개별 보고서 파일은 아래와 같이 나열 됩니다.
+
+    ![개별 보고서 파일 목록](./media/backup-mabs-release-notes-v3/individual-report-files.png)
+
+1. **보고서**로 끝나지 않는 보고서 파일을 선택 하 고 **옵션** 을 마우스 오른쪽 단추로 클릭 한 다음 **관리**를 선택 합니다.
+
+    ![보고서 파일에 대해 관리를 선택 합니다.](./media/backup-mabs-release-notes-v3/manage-files.png)
+
+1. 새로 만들기 페이지에서 **바꾸기** 옵션을 선택 하 여 파일을 최신 보고서 파일로 바꿉니다.
+
+    최신 보고서 파일은 경로에서 찾을 수 있습니다.`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    예: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    ![최신 보고서 파일로 파일 바꾸기](./media/backup-mabs-release-notes-v3/replace-files.png)
+
+    파일이 대체 된 후에는 **이름** 및 **설명이** 그대로 유지 되 고 비어 있지 않은지 확인 합니다.
+
+1. 파일이 대체 된 후 MABS 서비스를 다시 시작 하 고 보고서 파일을 사용 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-[MABS V3의 새로운 기능](backup-mabs-whats-new-mabs.md)
+[MABS의 새로운 기능](backup-mabs-whats-new-mabs.md)

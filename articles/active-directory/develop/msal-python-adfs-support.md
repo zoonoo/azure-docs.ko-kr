@@ -12,13 +12,12 @@ ms.workload: identity
 ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 01d4cb626aabc83117e864b75b49eec63a6c0af0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 2e5df49ea681eefeccaf621739de185767c0aa16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76699549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558642"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Python 용 MSAL에서 지원 Active Directory Federation Services
 
@@ -35,7 +34,7 @@ Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 
 
 다음은 Active Directory Federation Services (AD FS) 또는 Active Directory를 통해 직접 연결 하는지 여부에 적용 됩니다.
 
-또는 `acquire_token_by_device_flow`를 호출할 `acquire_token_by_authorization_code` 때 사용자 환경은 일반적으로 다음과 같습니다.
+`acquire_token_by_authorization_code`또는를 호출할 때 `acquire_token_by_device_flow` 사용자 환경은 일반적으로 다음과 같습니다.
 
 1. 사용자가 자신의 계정 ID를 입력 합니다.
 2. Azure AD는 "조직의 페이지로 이동" 메시지를 잠깐 표시 하 고 사용자는 id 공급자의 로그인 페이지로 리디렉션됩니다. 로그인 페이지는 일반적으로 조직의 로고를 사용 하 여 사용자 지정 됩니다.
@@ -49,7 +48,7 @@ Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 
 
 다음은 Active Directory Federation Services (AD FS) 또는 Active Directory를 통해 직접 연결 하는지 여부에 적용 됩니다.
 
-를 사용 하 여 `acquire_token_by_username_password`토큰을 획득 하는 경우 Msal Python은 사용자 이름에 따라 연락할 id 공급자를 가져옵니다. MSAL Python은 id 공급자 로부터 [SAML 1.1 토큰](reference-saml-tokens.md) 을 가져온 다음 JWT (JSON Web Token)를 반환 하는 Azure AD에 제공 합니다.
+를 사용 하 여 토큰을 획득 하는 경우 `acquire_token_by_username_password` msal Python은 사용자 이름에 따라 연락할 id 공급자를 가져옵니다. MSAL Python은 id 공급자 로부터 [SAML 1.1 토큰](reference-saml-tokens.md) 을 가져온 다음 JWT (JSON Web Token)를 반환 하는 Azure AD에 제공 합니다.
 
 ## <a name="connecting-directly-to-ad-fs"></a>AD FS에 직접 연결
 

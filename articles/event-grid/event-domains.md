@@ -2,17 +2,16 @@
 title: Azure Event Grid의 이벤트 도메인
 description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 비즈니스 조직, 고객 또는 애플리케이션에 대한 사용자 지정 이벤트의 흐름을 관리하는 방법을 설명합니다.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
-ms.author: babanisa
+ms.author: femila
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559504"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -29,7 +28,7 @@ ms.locfileid: "78898857"
 
 이벤트 도메인은 Storage 및 IoT Hub와 같은 Azure 서비스에서 사용하는 것과 동일한 아키텍처를 사용하여 이벤트를 게시합니다. 이벤트 도메인을 사용하면 수천 개의 토픽에 이벤트를 게시할 수 있습니다. 도메인 역시 각 토픽에 대한 권한 부여 및 인증 제어를 제공하므로 테넌트를 분할할 수 있습니다.
 
-### <a name="example-use-case"></a>사용 사례
+### <a name="example-use-case"></a>사용 사례 예
 
 이벤트 도메인을 가장 쉽게 설명하는 방법은 예제입니다. Contoso 생성 기계를 실행 하는 경우, 예를 들어 tractors, 장비 장비 및 기타 많은 기계를 제조할 수 있습니다. 비즈니스의 일부로, 여러분은 장비 유지 관리, 시스템 상태 및 계약 업데이트에 대한 실시간 정보를 고객에게 푸시합니다. 이 모든 정보는 회사 앱, 고객 엔드포인트, 고객이 설치한 기타 인프라를 비롯한 다양한 엔드포인트로 이동합니다.
 
@@ -105,7 +104,7 @@ Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 �
 - 50 도메인 범위 구독 
 - 5000 초당 이벤트 수집 율 (도메인)
 
-이러한 제한에 맞지 않는 경우 지원 티켓을 열거나로 [askgrid@microsoft.com](mailto:askgrid@microsoft.com)전자 메일을 보내 제품 팀에 연락 하세요. 
+이러한 제한에 맞지 않는 경우 지원 티켓을 열거나로 전자 메일을 보내 제품 팀에 연락 [askgrid@microsoft.com](mailto:askgrid@microsoft.com) 하세요. 
 
 ## <a name="pricing"></a>가격 책정
 이벤트 도메인은 Event Grid의 다른 모든 기능에서 사용 하는 것과 동일한 [작업 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/) 을 사용 합니다.

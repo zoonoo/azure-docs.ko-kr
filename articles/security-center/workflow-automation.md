@@ -8,16 +8,15 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c97dafa80adedd64d45666eb98ef6b1e69850719
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629401"
 ---
 # <a name="workflow-automation"></a>워크플로 자동화
 
-모든 보안 프로그램에는 인시던트 응답을 위한 여러 워크플로가 포함 되어 있습니다. 이러한 프로세스에는 관련 이해 관계자에 게 알리고, 변경 관리 프로세스를 시작 하 고, 특정 수정 단계를 적용할 수 있습니다. 보안 전문가는 가능한 한 해당 절차의 여러 단계를 자동화 하는 것이 좋습니다. 자동화를 통해 오버 헤드가 감소 합니다. 또한 프로세스 단계가 미리 정의 된 요구 사항에 따라 빠르고 일관 되 게 수행 되도록 하 여 보안을 향상 시킬 수 있습니다.
+모든 보안 프로그램에는 인시던트 응답을 위한 여러 워크플로가 포함되어 있습니다. 이러한 프로세스에는 관련 이해 관계자에게 알리고, 변경 관리 프로세스를 시작하고, 특정 수정 단계를 적용하는 것이 포함될 수 있습니다. 보안 전문가는 가능한 한 해당 절차의 여러 단계를 자동화할 것을 권장합니다. 자동화를 통해 오버 헤드가 감소 합니다. 또한 프로세스 단계가 미리 정의 된 요구 사항에 따라 빠르고 일관 되 게 수행 되도록 하 여 보안을 향상 시킬 수 있습니다.
 
 이 문서에서는 Azure Security Center의 워크플로 자동화 기능에 대해 설명 합니다. 이 기능은 보안 경고 및 권장 사항에 대 한 Logic Apps를 트리거할 수 있습니다. 예를 들어 경고가 발생 하는 경우 특정 사용자에 게 전자 메일을 보내는 Security Center를 원할 수 있습니다. 또한 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)를 사용 하 여 Logic Apps를 만드는 방법도 알아봅니다.
 
@@ -25,15 +24,25 @@ ms.locfileid: "80397906"
 > 이전에 사이드바에서 플레이 북 (미리 보기) 보기를 사용한 경우 새 워크플로 자동화 페이지에서 확장 된 기능과 함께 동일한 기능을 찾을 수 있습니다.
 
 
-## <a name="requirements"></a>요구 사항
 
-* Azure Logic Apps 워크플로를 사용 하려면 다음과 같은 Logic Apps 역할/권한이 있어야 합니다.
+## <a name="availability"></a>가용성
 
-    * [논리 앱 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) 권한은 필수 또는 논리 앱 읽기/트리거 액세스입니다 .이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 항목만 *실행* 합니다.
+- 릴리스 상태: **일반 공급**
+- 필요한 역할 및 사용 권한:
+    - 내보내기 구성이 포함 된 구독의 **판독기** 입니다.
+    - 리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**
+    - 또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.
+    - 또한 Azure Logic Apps 워크플로를 사용 하려면 다음과 같은 Logic Apps 역할/권한이 있어야 합니다.
 
-    * 논리 앱을 만들고 수정 하려면 [논리 앱 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) 권한이 필요 합니다.
+        * [논리 앱 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) 권한은 필수 또는 논리 앱 읽기/트리거 액세스입니다 .이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 항목만 *실행* 합니다.
 
-* 논리 앱 커넥터를 사용 하려는 경우 해당 서비스 (예: Outlook/팀/여유 시간 인스턴스)에 로그인 하려면 추가 자격 증명이 필요할 수 있습니다.
+        * 논리 앱을 만들고 수정 하려면 [논리 앱 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) 권한이 필요 합니다.
+
+        * 논리 앱 커넥터를 사용 하려는 경우 해당 서비스 (예: Outlook/팀/여유 시간 인스턴스)에 로그인 하려면 추가 자격 증명이 필요할 수 있습니다.
+- 클라우드: 
+    - ✔ 상용 클라우드
+    - ✔ US Gov
+    - ✘ 중국 .Gov, 기타 .Gov
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>논리 앱을 만들고 자동으로 실행 되는 시기를 정의 합니다. 

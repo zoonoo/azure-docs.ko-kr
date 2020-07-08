@@ -1,26 +1,25 @@
 ---
 title: CloudEvents 스키마에서 이벤트에 Azure Event Grid 사용
-description: Azure Event Grid에서 이벤트에 CloudEvents 스키마를 사용 하는 방법을 설명 합니다. 이 서비스는 클라우드 이벤트의 JSON 구현에서 이벤트를 지원 합니다.
+description: Azure Event Grid에서 이벤트에 CloudEvents 스키마를 사용하는 방법을 설명합니다. 이 서비스는 클라우드 이벤트의 JSON 구현에서 이벤트를 지원합니다.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 127095bef2c67a93097bf90bea54ca1b44b16c58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 57827b1c5a43a3408d374e8bddb7b91113b2929a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81394385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560703"
 ---
 # <a name="cloudevents-v10-schema-with-event-grid"></a>Event Grid CloudEvents v 1.0 스키마
 
-[기본 이벤트 스키마](event-schema.md)외에도 Azure Event Grid는 [CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩의](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)JSON 구현에서 이벤트를 기본적으로 지원 합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
+[기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents v1.0의 JSON 구현](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)의 이벤트를 지원합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
-CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
+CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재 버전 1.0으로 제공됩니다.
 
 이 문서에서는 Event Grid CloudEvents 스키마에 대해 설명 합니다.
 
@@ -54,7 +53,7 @@ CloudEvents 형식의 Azure Blob Storage 이벤트의 예는 다음과 같습니
 }
 ```
 
-CloudEvents v 1.0의 사용 가능한 필드, 해당 형식 및 정의에 대 한 자세한 설명은 [여기에서 사용할 수](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)있습니다.
+CloudEvents v1.0에서 사용 가능한 필드, 해당 유형 및 정의에 대한 자세한 설명은 [여기에서 확인](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)할 수 있습니다.
 
 `content-type`을 제외하고 CloudEvents 스키마 및 Event Grid 스키마에 배달된 이벤트에 대한 헤더 값은 동일합니다. CloudEvents 스키마의 경우 헤더 값은 `"content-type":"application/cloudevents+json; charset=utf-8"`입니다. Event Grid 스키마의 경우 헤더 값은 `"content-type":"application/json; charset=utf-8"`입니다.
 

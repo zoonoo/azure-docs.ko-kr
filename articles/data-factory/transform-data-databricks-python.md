@@ -11,18 +11,18 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
-ms.openlocfilehash: e102b14d8471a19564f66edc27cc328c2a789c98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 6ae42c9cb68b28e5d2f0b5a2ba3cf7eab74a74b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84561118"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks에서 Python 작업을 실행하여 데이터 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Python 작업은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. 이 문서는 데이터 변환 및 지원 되는 변환 활동의 일반적인 개요를 제공 하는 [데이터 변환 활동](transform-data.md) 문서를 기반으로 합니다.Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Python 작업은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. 이 문서는 데이터 [data transformation activities](transform-data.md)   변환 및 지원 되는 변환 활동의 일반적인 개요를 제공 하는 데이터 변환 활동 문서를 기반으로 합니다.Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
 
 11분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
@@ -63,12 +63,12 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 다음 표에서는 JSON 정의에 사용하는 JSON 속성을 설명합니다.
 
-|속성|Description|필수|
+|속성|설명|필수|
 |---|---|---|
 |name|파이프라인의 작업 이름입니다.|예|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|예|
 |type|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예|
-|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결 된 서비스에 대 한 자세한 내용은 [Compute 연결 된 서비스](compute-linked-services.md) 문서를 참조 하세요.|예|
+|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결 된 서비스에 대 한 자세한 내용은 [Compute 연결 된 서비스](compute-linked-services.md)문서를 참조 하세요   .|예|
 |pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|예|
 |매개 변수|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니요|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아니요|

@@ -7,13 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: 9f280aafabd59878ee24a9c3fe809dd027a97284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84635131"
 ---
 # <a name="what-are-mapping-data-flows"></a>데이터 흐름 매핑이란?
 
@@ -22,6 +21,8 @@ ms.locfileid: "82187854"
 데이터 흐름 매핑은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장 Apache Spark 클러스터를 사용 하는 Azure Data Factory 파이프라인 내에서 작업으로 실행 됩니다. 데이터 흐름 작업은 기존 Data Factory 예약, 제어, 흐름 및 모니터링 기능을 통해 사용할 수 있습니다.
 
 데이터 흐름을 매핑하면 코딩 없이도 완전 한 시각적 환경을 제공 합니다. 데이터 흐름은 확장 된 데이터 처리를 위해 실행 클러스터에서 실행 됩니다. Azure Data Factory는 모든 코드 변환, 경로 최적화 및 데이터 흐름 작업의 실행을 처리 합니다.
+
+![아키텍처](media/data-flow/adf-data-flows.png "Architecture")
 
 ## <a name="getting-started"></a>시작
 
@@ -35,13 +36,13 @@ ms.locfileid: "82187854"
 
 데이터 흐름 캔버스는 위쪽 막대, 그래프 및 구성 패널의 세 부분으로 구분 됩니다. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![캔버스](media/data-flow/canvas1.png "캔버스")
 
-### <a name="graph"></a>Graph
+### <a name="graph"></a>그래프
 
 그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가**를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다.
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![캔버스](media/data-flow/canvas2.png "캔버스")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Azure integration runtime 데이터 흐름 속성
 
@@ -93,7 +94,7 @@ Azure IR 데이터 흐름 속성에서 TTL을 설정 하 여 Vm (클러스터 �
 
 **최적화** 탭에는 파티션 구성표를 구성 하는 설정이 포함 되어 있습니다.
 
-![최적화](media/data-flow/optimize1.png "최적화")
+![Optimize](media/data-flow/optimize1.png "최적화")
 
 기본 설정은 **현재 분할을 사용**하며,이는 Spark에서 실행 되는 데이터 흐름에 대 한 기본 파티션 구성표를 사용 하도록 Azure Data Factory에 지시 합니다. 대부분의 시나리오에서는이 설정을 권장 합니다.
 
@@ -123,7 +124,7 @@ Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 포�
 
 분할 된 데이터 열 내에서 값의 고정 범위를 제공 하는 식을 작성 합니다. 파티션 기울이기를 방지 하려면이 옵션을 사용 하기 전에 데이터를 잘 이해 해야 합니다. 식에 대해 입력 하는 값은 파티션 함수의 일부로 사용 됩니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-##### <a name="key"></a>키
+##### <a name="key"></a>Key
 
 데이터의 카디널리티에 대해 잘 알고 있다면 키 분할이 좋은 전략이 될 수 있습니다. 키 분할은 열에서 각 고유 값에 대 한 파티션을 만듭니다. 숫자가 데이터의 고유 값을 기반으로 하기 때문에 파티션 수를 설정할 수 없습니다.
 

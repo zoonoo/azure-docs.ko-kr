@@ -5,18 +5,18 @@ description: 학습에서 데이터 집합을 사용 하는 방법 알아보기
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/20/2020
-ms.openlocfilehash: cd72ce9fed7f821807b8604f68068c64a38293e3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: a9b9faed111e6126bfdb30e4237a988afd947823
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560131"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.co
 
 작업 영역에서 실험의 학습 스크립트를 사용 하 여 기존 TabularDataset에 액세스 하 고 로컬 환경에서 추가 탐색을 위해 해당 데이터 집합을 pandas 데이터 프레임에 로드할 수 있습니다.
 
-다음 코드에서는 [`get_context()`]() [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 클래스의 메서드를 사용 하 여 학습 스크립트의 기존 입력 TabularDataset `titanic`에 액세스 합니다. 그런 다음 메서드 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 를 사용 하 여 학습 전에 추가 데이터 탐색 및 준비를 위해 해당 데이터 집합을 pandas 데이터 프레임에 로드 합니다.
+다음 코드에서는 클래스의 메서드를 사용 하 여 [`get_context()`]() [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 학습 스크립트의 기존 입력 TabularDataset에 액세스 합니다 `titanic` . 그런 다음 메서드를 사용 하 여 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 학습 전에 추가 데이터 탐색 및 준비를 위해 해당 데이터 집합을 pandas 데이터 프레임에 로드 합니다.
 
 > [!Note]
 > 원래 데이터 원본에 NaN, 빈 문자열 또는 빈 값이 포함 된 경우 to_pandas_dataframe ()를 사용 하면 해당 값이 *Null* 값으로 대체 됩니다. 
@@ -66,7 +66,7 @@ df = dataset.to_pandas_dataframe()
 
 구조화 된 데이터를 데이터 집합으로 아직 등록 하지 않은 경우 TabularDataset를 만들어 로컬 또는 원격 실험을 위한 학습 스크립트에서 직접 사용 합니다.
 
-이 예제에서는 등록 되지 않은 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 을 만들고이를 학습을 위한 `estimator` 개체에 대 한 직접 입력으로 사용 합니다. 작업 영역의 다른 실험에서이 TabularDataset를 다시 사용 하려면 [작업 영역에 데이터 집합을 등록 하는 방법](how-to-create-register-datasets.md#register-datasets)을 참조 하세요.
+이 예제에서는 등록 되지 않은 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 을 만들고이를 학습을 위한 개체에 대 한 직접 입력으로 사용 `estimator` 합니다. 작업 영역의 다른 실험에서이 TabularDataset를 다시 사용 하려면 [작업 영역에 데이터 집합을 등록 하는 방법](how-to-create-register-datasets.md#register-datasets)을 참조 하세요.
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
@@ -85,11 +85,11 @@ TabularDataset 개체는 TabularDataset의 데이터를 pandas 또는 spark 데�
 
 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 개체는 실험 실행을 제출 하는 데 사용 됩니다. Azure Machine Learning 일반적인 기계 학습 프레임 워크에 대 한 사전 구성 된 추정 및 일반 평가기 있습니다.
 
-이 코드는 `est`를 지정 하는 제네릭 평가기 개체를 만듭니다.
+이 코드는 `est` 를 지정 하는 제네릭 평가기 개체를 만듭니다.
 
 * 스크립트에 대 한 스크립트 디렉터리입니다. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 학습 스크립트 *train_titanic. py*.
-* 학습을 `titanic_ds`위한 입력 데이터 집합입니다. `as_named_input()`는 학습 스크립트의 할당 된 이름 `titanic` 으로 입력 데이터 집합을 참조할 수 있도록 해야 합니다. 
+* 학습을 위한 입력 데이터 집합 `titanic_ds` 입니다. `as_named_input()`는 학습 스크립트의 할당 된 이름으로 입력 데이터 집합을 참조할 수 있도록 해야 `titanic` 합니다. 
 * 실험의 계산 대상입니다.
 * 실험에 대 한 환경 정의입니다.
 
@@ -130,9 +130,9 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>평가기 구성
 
-탑재할 때 데이터 집합을 인수로 전달 하는 것이 좋습니다. 평가기의 `inputs` 매개 변수를 통해 데이터 집합을 전달 하는 것 외에도 데이터 집합 `script_params` 을 통해 데이터 집합을 전달 하 고 인수를 통해 학습 스크립트의 데이터 경로 (탑재 지점)를 가져올 수 있습니다. 이러한 방식으로 모든 클라우드 플랫폼에서 로컬 디버깅 및 원격 교육에 대해 동일한 학습 스크립트를 사용할 수 있습니다.
+탑재할 때 데이터 집합을 인수로 전달 하는 것이 좋습니다. 평가기의 매개 변수를 통해 데이터 집합을 전달 하는 것 외에 `inputs` 도 데이터 집합을 통해 데이터 집합을 전달 `script_params` 하 고 인수를 통해 학습 스크립트의 데이터 경로 (탑재 지점)를 가져올 수 있습니다. 이러한 방식으로 모든 클라우드 플랫폼에서 로컬 디버깅 및 원격 교육에 대해 동일한 학습 스크립트를 사용할 수 있습니다.
 
-Scikit [학습](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 평가기 개체는에 대 한 실행을 제출 하는 데 사용 됩니다. 실행을 제출한 후에는 `mnist` 데이터 집합에서 참조 하는 데이터 파일이 계산 대상으로 탑재 됩니다. [평가기](how-to-train-scikit-learn.md)학습을 사용한 학습에 대해 자세히 알아보세요.
+Scikit [학습](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 평가기 개체는에 대 한 실행을 제출 하는 데 사용 됩니다. 실행을 제출한 후에는 데이터 집합에서 참조 하는 데이터 파일이 `mnist` 계산 대상으로 탑재 됩니다. [평가기](how-to-train-scikit-learn.md)학습을 사용한 학습에 대해 자세히 알아보세요.
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -201,7 +201,7 @@ y_test = load_data(y_test, True).reshape(-1)
 
 스크립트가 데이터 집합에서 참조 하는 모든 파일을 처리 하 고 계산 디스크가 전체 데이터 집합에 적합 한 경우 storage 서비스에서 데이터를 스트리밍하는 오버 헤드를 방지 하기 위해를 다운로드 하는 것이 좋습니다. 데이터 크기가 계산 디스크 크기를 초과 하는 경우 다운로드를 수행할 수 없습니다. 이 시나리오에서는 스크립트에서 사용 하는 데이터 파일만 처리할 때 로드 되므로 탑재 하는 것이 좋습니다.
 
-다음 코드는에서 `dataset` 임시 디렉터리에 탑재 합니다.`mounted_path`
+다음 코드는 `dataset` 에서 임시 디렉터리에 탑재 합니다.`mounted_path`
 
 ```python
 import tempfile

@@ -3,16 +3,15 @@ title: Standard 및 premium SSD 간에 관리 디스크 저장소 변환
 description: Azure CLI를 사용 하 여 Azure managed disks 저장소를 standard에서 premium 또는 premium으로 표준으로 변환 하는 방법입니다.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cd9bb92b3ed86c3a57b5fc70411a4593335acedb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 51ebecf784b7a3ec38f84703a74e96d277afa70c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658200"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Azure 관리 디스크 저장소를 표준에서 프리미엄 또는 프리미엄으로 표준으로 변환
 
@@ -129,7 +128,7 @@ az vm start --ids $vmId
 
 ## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>Azure Portal에서 Standard와 Premium 간에 관리 디스크 전환
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **가상 머신**목록에서 VM을 선택 합니다.

@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77560187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608250"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
@@ -105,8 +104,8 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
     |databoxe2etest_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
-    |mydbmdrg1_MDisk.    |관리 디스크:         |SMB/NFS         |
-    |mydbmdrg2_MDisk.     |관리 디스크:         |SMB/NFS         |
+    |mydbmdrg1_MDisk-BOM.txt    |관리 디스크:         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |관리 디스크:         |SMB/NFS         |
 
 이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
 

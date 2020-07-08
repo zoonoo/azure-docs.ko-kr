@@ -3,12 +3,11 @@ title: 개념-저장소
 description: Azure VMware 솔루션 (AVS) 미리 보기 사설 클라우드의 주요 저장소 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7e58a829a40d590b7936a58ccdc866211a4f5cb4
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740357"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604119"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware 솔루션 (AVS) 미리 보기 저장소 개념
 
@@ -21,7 +20,7 @@ AVS 사설 클라우드는 VMware vSAN을 사용 하 여 기본 클러스터 전
 클러스터 호스트의 로컬 저장소는 클러스터 차원의 vSAN 데이터 저장소에 사용 됩니다. 모든 데이터 저장소는 사설 클라우드 배포의 일부로 생성 되며 즉시 사용할 수 있습니다. Cloudadmin 그룹의 cloudadmin 사용자 및 모든 사용자는 다음과 같은 vsan 권한으로 데이터 저장소를 관리할 수 있습니다.
 - Datastore.AllocateSpace
 - Datastore.Browse
-- 데이터 저장소 .Config
+- Datastore.Config
 - DeleteFile
 - FileManagement
 - UpdateVirtualMachineMetadata
@@ -32,7 +31,7 @@ vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사
 
 ## <a name="scaling"></a>확장
 
-클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. 호스트를 사용 하는 클러스터의 경우 원시 클러스터 전체 용량은 각 추가 호스트와 15.4 TB 씩 증가 합니다. GP 호스트를 사용 하 여 빌드된 클러스터는 각 추가 호스트에서 7.7 TB 씩 증가 된 원시 용량을 갖습니다. 두 클러스터 형식 모두에서 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서] [자습서-개인 클라우드]를 참조 하세요.
+클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. 호스트를 사용 하는 클러스터의 경우 원시 클러스터 전체 용량은 각 추가 호스트와 15.4 TB 씩 증가 합니다. GP 호스트를 사용 하 여 빌드된 클러스터는 각 추가 호스트에서 7.7 TB 씩 증가 된 원시 용량을 갖습니다. 두 클러스터 형식 모두에서 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud] 를 참조 하세요.
 
 ## <a name="azure-storage-integration"></a>Azure storage 통합
 
@@ -45,5 +44,5 @@ vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

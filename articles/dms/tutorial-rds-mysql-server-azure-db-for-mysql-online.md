@@ -11,19 +11,18 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609253"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure Database for MySQL 온라인으로 RDS MySQL 마이그레이션
 
 Azure Database Migration Service를 사용하면 마이그레이션 중에 원본 데이터베이스를 온라인 상태로 유지하면서 RDS MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 RDS MySQL 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 >
 > * mysqldump 및 mysql 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
@@ -67,6 +66,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 1. 새 매개 변수 그룹을 만들려면 AWS에서 제공하는 [MySQL 데이터베이스 로그 파일](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html) 문서의 **이진 로깅 형식** 섹션에 설명된 지침을 따릅니다.
 2. 다음 구성을 사용하여 새 매개 변수 그룹을 만듭니다.
+    * log_bin = ON
     * binlog_format = row
     * binlog_checksum = NONE
 3. 새 매개 변수 그룹을 저장합니다.
@@ -143,7 +143,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
     ![리소스 공급자 보기](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색 한 다음 **microsoft.datamigration**의 오른쪽에서 **등록**을 선택 합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 

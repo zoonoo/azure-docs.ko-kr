@@ -8,12 +8,11 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629573"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
@@ -60,7 +59,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Blob 데이터에 대한 액세스 계층을 지정합니다.
 
-범용 v2 계정은 모든 Azure storage 서비스 및 데이터 개체를 지원 하지만 액세스 계층은 Blob storage 내의 블록 blob에만 적용 됩니다. 범용 v2 저장소 계정으로 업그레이드 하는 경우 핫 또는 쿨의 기본 계정 액세스 계층을 지정할 수 있습니다 .이 계층은 개별 blob 액세스 계층 매개 변수가 지정 되지 않은 것 처럼 blob 데이터를 업로드할 기본 계층을 나타냅니다.
+범용 v2 계정은 모든 Azure storage 서비스 및 데이터 개체를 지원 하지만 액세스 계층은 Blob storage 내의 블록 blob에만 사용할 수 있습니다. 범용 v2 저장소 계정으로 업그레이드 하는 경우 핫 또는 쿨의 기본 계정 액세스 계층을 지정할 수 있습니다 .이 계층은 개별 blob 액세스 계층 매개 변수가 지정 되지 않은 것 처럼 blob 데이터를 업로드할 기본 계층을 나타냅니다.
 
 Blob 액세스 계층을 사용 하 여 예상 되는 사용량 패턴에 따라 가장 비용 효율적인 저장소를 선택할 수 있습니다. 블록 blob은 핫, 쿨 또는 보관 계층에 저장할 수 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
@@ -73,7 +72,7 @@ Blob 액세스 계층을 사용 하 여 예상 되는 사용량 패턴에 따라
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
-V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무료입니다. 업그레이드 프로세스 중에 원하는 계정 계층을 지정할 수 있습니다. 업그레이드 시 계정 계층을 지정 하지 않으면 업그레이드 된 계정의 기본 계정 계층이로 설정 됩니다 `Hot`. 그러나 업그레이드 후 저장소 액세스 계층을 변경 하면 청구서가 변경 될 수 있으므로 업그레이드 하는 동안 새 계정 계층을 지정 하는 것이 좋습니다.
+V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무료입니다. 업그레이드 프로세스 중에 원하는 계정 계층을 지정할 수 있습니다. 업그레이드 시 계정 계층을 지정 하지 않으면 업그레이드 된 계정의 기본 계정 계층이로 설정 됩니다 `Hot` . 그러나 업그레이드 후 저장소 액세스 계층을 변경 하면 청구서가 변경 될 수 있으므로 업그레이드 하는 동안 새 계정 계층을 지정 하는 것이 좋습니다.
 
 모든 스토리지 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 스토리지 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
@@ -167,4 +166,4 @@ Blob Storage 계정에 대한 지역에서 복제 데이터 전송의 비용은 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스토리지 계정 만들기](storage-account-create.md)
+* [스토리지 계정을 만드는](storage-account-create.md)

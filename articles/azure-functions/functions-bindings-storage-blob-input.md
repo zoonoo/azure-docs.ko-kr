@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 33db9a8d86e02db2076cdb85170d466697930b96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 1dbd3765b691d1ba7b958d765a59f6451f380a2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559085"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob 저장소 입력 바인딩
 
 입력 바인딩을 사용 하면 blob storage 데이터를 Azure Function에 대 한 입력으로 읽을 수 있습니다.
 
-설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](./functions-bindings-storage-blob.md)를 참조 하세요.
+설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-storage-blob.md)를 참조하세요.
 
 ## <a name="example"></a>예제
 
@@ -35,7 +35,7 @@ public static void Run(
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -279,35 +279,35 @@ public static void Run(
 
 `StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [트리거-특성 및 주석](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations)을 참조 하세요.
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-특성은 c # 스크립트에서 지원 되지 않습니다.
+C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-특성 `@BlobInput` 은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우를로 `dataType` `binary`설정 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
+`@BlobInput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
 
 ---
 
 ## <a name="configuration"></a>구성
 
-다음 표에서는 *함수. json* 파일 및 `Blob` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `Blob` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | 해당 없음 | `blob`로 설정해야 합니다. |
-|**방향도** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
+|**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
-|**connection** |**연결**| 이 바인딩에 사용할 [저장소 연결 문자열](../storage/common/storage-configure-connection-string.md) 을 포함 하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 "MyStorage"로 설정 `connection` 하는 경우 함수 런타임은 "AzureWebJobsMyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|**connection** |**연결**| 이 바인딩에 사용할 [저장소 연결 문자열](../storage/common/storage-configure-connection-string.md) 을 포함 하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 `connection` "MyStorage"로 설정 하는 경우 함수 런타임은 "AzureWebJobsMyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 |해당 없음 | **액세스** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -318,13 +318,13 @@ Python에서 특성을 지원 하지 않습니다.
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Where를 사용 하 `context.bindings.<NAME>` 여 `<NAME>` blob 데이터에 액세스 합니다 *. 여기서는 함수 json*에 정의 된 값과 일치 합니다.
+Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 액세스 합니다. 여기서는 *function.js*에 정의 된 값과 일치 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -332,7 +332,7 @@ Where를 사용 하 `context.bindings.<NAME>` 여 `<NAME>` blob 데이터에 액
 
 # <a name="java"></a>[Java](#tab/java)
 
-특성 `@BlobInput` 은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우를로 `dataType` `binary`설정 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
+`@BlobInput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [입력 예](#example) 를 참조 하세요.
 
 ---
 

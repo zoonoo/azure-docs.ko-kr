@@ -5,15 +5,13 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 03/03/2020
+ms.date: 06/08/2020
 ms.topic: how-to
-manager: peterpr
-ms.openlocfilehash: c9d5a0daa364b09e45699e898511c28d4b4d92ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80157758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609745"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
 
@@ -27,50 +25,50 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 2. **+ 새로** 만들기를 선택 하 여 새 작업을 만듭니다.
 
-    ![새 작업 만들기](./media/howto-run-a-job/createnewjob.png)
+    ![새 작업 만들기](./media/howto-run-a-job/create-new-job.png)
 
 3. 만들고 있는 작업을 식별 하는 이름 및 설명을 입력 합니다.
 
 4. 작업을 적용 하려는 대상 장치 그룹을 선택 합니다. **요약** 섹션에서 작업 구성이 적용 되는 장치 수를 확인할 수 있습니다.
 
-5. 다음으로 **클라우드 속성**, **속성** 또는 **명령** 중에서 구성할 작업 유형을 선택 합니다. **속성** 작업 구성을 설정 하려면 속성을 선택 하 고 새 값을 설정 합니다. **명령을**설정 하려면 실행할 명령을 선택 합니다. 속성 작업은 여러 속성을 설정할 수 있습니다.
+5. 그런 다음 구성할 작업 유형으로 **클라우드 속성**, **속성**또는 **명령을** 선택 합니다. **속성** 작업 구성을 설정 하려면 속성을 선택 하 고 새 값을 설정 합니다. **명령을**설정 하려면 실행할 명령을 선택 합니다. 속성 작업은 여러 속성을 설정할 수 있습니다.
 
-    ![작업 구성](./media/howto-run-a-job/configurejob.png)
+    ![작업 구성](./media/howto-run-a-job/configure-job.png)
 
 6. 작업을 만든 후 **실행** 또는 **저장**을 선택 합니다. 이제 작업이 기본 **작업** 페이지에 표시 됩니다. 이 페이지에서 현재 실행 중인 작업과 이전에 실행 되거나 저장 된 작업의 기록을 볼 수 있습니다. 언제 든 지 저장 된 작업을 열어 계속 편집 하거나 실행할 수 있습니다.
 
-    ![작업 보기](./media/howto-run-a-job/viewjob.png)
+    ![작업 보기](./media/howto-run-a-job/view-job.png)
 
     > [!NOTE]
     > 이전에 실행 한 작업에 대해 30 일 동안의 기록을 볼 수 있습니다.
 
 7. 작업에 대 한 개요를 보려면 목록에서 보려는 작업을 선택 합니다. 이 개요에는 작업 세부 정보, 장치 및 장치 상태 값이 포함 되어 있습니다. 이 개요에서 **작업 세부 정보 다운로드** 를 선택 하 여 장치 및 해당 상태 값을 비롯 한 작업 세부 정보의 CSV 파일을 다운로드할 수도 있습니다. 이 정보는 문제 해결에 유용할 수 있습니다.
 
-    ![디바이스 상태 보기](./media/howto-run-a-job/downloaddetails.png)
+    ![디바이스 상태 보기](./media/howto-run-a-job/download-details.png)
 
-### <a name="manage-a-job"></a>작업 관리
+## <a name="manage-jobs"></a>작업 관리
 
 실행 중인 작업 중 하나를 중지 하려면 해당 작업을 열고 **중지**를 선택 합니다. 작업이 중지 됨을 반영 하도록 작업 상태가 변경 됩니다. **요약** 섹션에는 완료 되었거나 실패 했거나 아직 보류 중인 장치가 표시 됩니다.
 
 현재 중지 된 작업을 실행 하려면 해당 작업을 선택한 다음 **실행**을 선택 합니다. 작업 상태가 반영 중으로 변경 되 면 작업이 이제 다시 실행 됩니다. **요약** 섹션은 최신 진행 상태로 계속 업데이트 됩니다.
 
-![작업 관리](./media/howto-run-a-job/managejob.png)
+![작업 관리](./media/howto-run-a-job/manage-job.png)
 
 ## <a name="copy-a-job"></a>작업 복사
 
 기존 작업 중 하나를 복사 하려면 **작업** 페이지에서 해당 작업을 선택 하 고 **복사**를 선택 합니다. 편집 하기 위해 작업 구성의 복사본이 열리고 **복사** 는 작업 이름에 추가 됩니다. 새 작업을 저장 하거나 실행할 수 있습니다.
 
-![복사 작업](./media/howto-run-a-job/copyjob.png)
+![복사 작업](./media/howto-run-a-job/copy-job.png)
 
-## <a name="view-the-job-status"></a>작업 상태 확인
+## <a name="view-job-status"></a>작업 상태 보기
 
 작업을 만든 후에는 **상태** 열이 작업의 최신 상태 메시지로 업데이트 됩니다. 다음 표에서는 가능한 상태 값을 나열 합니다.
 
 | 상태 메시지       | 상태 의미                                          |
 | -------------------- | ------------------------------------------------------- |
-| Completed            | 모든 디바이스에서 이 작업이 실행되었습니다.              |
-| Failed               | 이 작업은 실패했으며 디바이스에서 완전히 실행되지 않았습니다.  |
-| Pending              | 장치에서이 작업의 실행이 아직 시작 되지 않았습니다.         |
+| 완료            | 모든 디바이스에서 이 작업이 실행되었습니다.              |
+| 실패               | 이 작업은 실패했으며 디바이스에서 완전히 실행되지 않았습니다.  |
+| 보류 중              | 장치에서이 작업의 실행이 아직 시작 되지 않았습니다.         |
 | 실행 중              | 이 작업이 현재 디바이스에서 실행되고 있습니다.             |
 | 중지됨              | 이 작업을 사용자가 수동으로 중지했습니다.           |
 
@@ -79,20 +77,57 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 | 상태 메시지       | 상태 의미                                                     |
 | -------------------- | ------------------------------------------------------------------ |
 | 성공            | 작업이 성공적으로 실행 된 장치 수입니다.       |
-| Failed               | 작업 실행에 실패 한 장치 수입니다.       |
+| 실패               | 작업 실행에 실패 한 장치 수입니다.       |
 
-### <a name="view-the-device-status"></a>디바이스 상태 확인
+### <a name="view-the-device-status-values"></a>장치 상태 값 보기
 
-작업 및 영향을 받는 모든 장치의 상태를 보려면 작업을 엽니다. 장치 목록과 해당 상태 값을 포함 하 여 작업 세부 정보를 포함 하는 CSV 파일을 다운로드 하려면 **작업 세부 정보 다운로드**를 선택 합니다. 각 장치 이름 옆에 다음 상태 메시지 중 하나가 표시 됩니다.
+작업 및 영향을 받는 모든 장치의 상태를 보려면 작업을 엽니다. 각 장치 이름 옆에 다음 상태 메시지 중 하나가 표시 됩니다.
 
 | 상태 메시지       | 상태 의미                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Completed            | 이 디바이스에서 작업이 실행되었습니다.                                     |
-| Failed               | 이 디바이스에서 작업 실행이 실패했습니다. 오류 메시지에 자세한 정보가 표시 됩니다.  |
-| Pending              | 이 장치에서 작업이 아직 실행 되지 않았습니다.                                   |
+| 완료            | 이 장치에서 실행 되는 작업입니다.                                     |
+| 실패               | 이 장치에서 작업을 실행 하지 못했습니다. 오류 메시지에 자세한 정보가 표시 됩니다.  |
+| 보류 중              | 이 장치에서 작업이 아직 실행 되지 않았습니다.                                   |
+
+작업 세부 정보와 장치 및 해당 상태 값 목록이 포함 된 CSV 파일을 다운로드 하려면 **다운로드**를 선택 합니다.
+
+### <a name="filter-the-list-of-devices"></a>장치 목록 필터링
+
+작업 세부 정보 페이지에서 필터 아이콘을 선택 하 여 장치 목록을 필터링 할 수 있습니다. **장치 ID** 또는 **상태** 필드를 기준으로 필터링 할 수 있습니다.
+
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="디바이스 목록 필터링":::
+
+### <a name="customize-columns-in-the-device-list"></a>장치 목록의 열 사용자 지정
+
+열 옵션 아이콘을 선택 하 여 장치 목록에 표시할 추가 열을 선택할 수 있습니다.
+
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="열 옵션":::
+
+장치 목록에 표시할 열을 선택할 수 있는 대화 상자가 표시 됩니다. 표시 하려는 열을 선택 하 고 오른쪽 화살표 아이콘을 선택한 다음 **확인**을 선택 합니다. 사용 가능한 모든 열을 선택 하려면 **모두 선택**을 선택 합니다.
+
+:::image type="content" source="media/howto-run-a-job/column-picker-popup.png" alt-text="열 선택 대화 상자":::
+
+선택한 열이 장치 목록에 표시 됩니다.
+
+:::image type="content" source="media/howto-run-a-job/column-picker-column-selected.png" alt-text="열 선택":::
+
+선택한 열은 사용자 세션이 나 응용 프로그램에 대 한 액세스 권한이 있는 사용자 세션에서 지속 됩니다.
+
+## <a name="rerun-jobs"></a>작업 다시 실행
+
+장치가 실패 한 작업을 다시 실행할 수 있습니다. **다시 실행**을 선택 합니다.
+
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="작업 다시 실행":::
+
+작업 이름 및 설명을 입력 한 다음 **작업 다시 실행**을 선택 합니다. 실패 한 장치에 대 한 작업을 다시 시도 하기 위해 새 작업이 전송 됩니다.
+
+:::image type="content" source="media/howto-run-a-job/rerun-failed.png" alt-text="실패 한 장치 다시 실행":::
 
 > [!NOTE]
-> 장치를 삭제 한 경우에는 장치를 선택할 수 없습니다. 장치 ID를 사용 하 여 삭제 됨으로 표시 됩니다.
+> IoT Central 응용 프로그램에서 동시에 5 개 이상의 작업을 동시에 실행할 수 없습니다.
+
+> [!NOTE]
+> 작업이 완료 되 고 작업의 장치 목록에 있는 장치를 삭제 하는 경우 장치 이름에 삭제 된 것으로 표시 된 장치 항목 및 장치 세부 정보 링크를 삭제 된 장치에 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,13 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 0bb1371de827fbb68afd5d114f49afa4acec0deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 142ac150e863b69a4580812478828062c1f5c6c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84605598"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 
@@ -28,11 +27,11 @@ ms.locfileid: "81759724"
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 device 샘플에서는 포트 8883을 통해 통신 하는 MQTT 프로토콜을 사용 합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -42,7 +41,7 @@ ms.locfileid: "81759724"
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -69,7 +68,7 @@ ms.locfileid: "81759724"
    from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, QueryResult
    ```
 
-4. 다음 코드를 추가합니다. 을 `[IoTHub Connection String]` (를) [iot Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. 을 `[Device Id]` [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
+4. 다음 코드를 추가합니다. `[IoTHub Connection String]`을 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT hub 연결 문자열로 바꿉니다. 을 `[Device Id]` [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
   
     ```python
     IOTHUB_CONNECTION_STRING = "[IoTHub Connection String]"
@@ -158,7 +157,7 @@ ms.locfileid: "81759724"
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. 다음 코드를 추가합니다. 자리 표시자 `[IoTHub Device Connection String]` 값을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 장치 연결 문자열로 바꿉니다.
+4. 다음 코드를 추가합니다. `[IoTHub Device Connection String]`자리 표시자 값을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 장치 연결 문자열로 바꿉니다.
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -239,7 +238,7 @@ ms.locfileid: "81759724"
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 시작](quickstart-send-telemetry-python.md) 자습서를 사용 하 여 장치에서 원격 분석을 보냅니다.
+* [IoT Hub 시작](quickstart-send-telemetry-python.md) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
 
 * [Desired 속성을 사용](tutorial-device-twins.md) 하 여 장치 구성 자습서에서 장치 쌍의 desired 속성을 사용 하 여 장치를 구성 합니다.
 

@@ -5,27 +5,27 @@ author: normesta
 ms.service: storage
 ms.date: 04/10/2020
 ms.author: normesta
-ms.topic: article
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a79f3110206a01b9b974952f0ec0d299644be11f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: f5ff33d021f27f2c5dfb86ca87f2579602f0d1cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559147"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
 이 문서에서는 Python을 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
-[패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)
+[패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)  |  [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)  |  [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-> * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
+> * HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](data-lake-storage-quickstart-create-account.md)을 수행합니다.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -67,7 +67,7 @@ except Exception as e:
  
 - `storage_account_name` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-- 자리 표시자 `storage_account_key` 값을 저장소 계정 액세스 키로 바꿉니다.
+- `storage_account_key`자리 표시자 값을 저장소 계정 액세스 키로 바꿉니다.
 
 ### <a name="connect-by-using-azure-active-directory-ad"></a>Azure Active Directory (AD)를 사용 하 여 연결
 
@@ -97,7 +97,7 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 
 파일 시스템은 파일의 컨테이너 역할을 합니다. **Create_file_system FileSystemDataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
 
-이 예에서는 라는 `my-file-system`파일 시스템을 만듭니다.
+다음 예제에서는 `my-file-system`이라는 파일 시스템을 만듭니다.
 
 ```python
 def create_file_system():
@@ -115,7 +115,7 @@ def create_file_system():
 
 **Create_directory FileSystemClient** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
-이 예제에서는 라는 `my-directory` 디렉터리를 파일 시스템에 추가 합니다. 
+이 예제에서는 라는 디렉터리를 `my-directory` 파일 시스템에 추가 합니다. 
 
 ```python
 def create_directory():
@@ -130,7 +130,7 @@ def create_directory():
 
 **Rename_directory DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
 
-이 예에서는 하위 디렉터리의 이름을 `my-subdirectory-renamed`로 바꿉니다.
+이 예에서는 하위 디렉터리의 이름을로 바꿉니다 `my-subdirectory-renamed` .
 
 ```python
 def rename_directory():
@@ -150,7 +150,7 @@ def rename_directory():
 
 **Delete_directory DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리를 삭제 합니다.
 
-이 예에서는 라는 `my-directory`디렉터리를 삭제 합니다.  
+다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.  
 
 ```python
 def delete_directory():
@@ -168,9 +168,9 @@ def delete_directory():
 **Get_access_control DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리의 acl (액세스 제어 목록)을 가져오고 **set_access_control DataLakeDirectoryClient** 메서드를 호출 하 여 acl을 설정 합니다.
 
 > [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
 
-이 예제에서는 이름이 인 `my-directory`디렉터리의 ACL을 가져오고 설정 합니다. 문자열 `rwxr-xrw-` 은 소유 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
+이 예제에서는 이름이 인 디렉터리의 ACL을 가져오고 설정 합니다 `my-directory` . 문자열은 `rwxr-xrw-` 소유 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
 
 ```python
 def manage_directory_permissions():
@@ -199,7 +199,7 @@ def manage_directory_permissions():
 
 먼저 **DataLakeFileClient** 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. **Append_data DataLakeFileClient** 메서드를 호출 하 여 파일을 업로드 합니다. **Flush_data DataLakeFileClient** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
 
-이 예제에서는 라는 `my-directory`디렉터리에 텍스트 파일을 업로드 합니다.   
+이 예제에서는 라는 디렉터리에 텍스트 파일을 업로드 `my-directory` 합니다.   
 
 ```python
 def upload_file_to_directory():
@@ -254,9 +254,9 @@ def upload_file_to_directory_bulk():
 **Get_access_control DataLakeFileClient** 메서드를 호출 하 여 파일의 acl (액세스 제어 목록)을 가져오고 **set_access_control DataLakeFileClient** 메서드를 호출 하 여 acl을 설정 합니다.
 
 > [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
 
-이 예제에서는 라는 `my-file.txt`파일의 ACL을 가져오고 설정 합니다. 문자열 `rwxr-xrw-` 은 소유 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
+이 예제에서는 라는 파일의 ACL을 가져오고 설정 합니다 `my-file.txt` . 문자열은 `rwxr-xrw-` 소유 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 및 쓰기 권한을 부여 합니다.
 
 ```python
 def manage_file_permissions():
@@ -313,7 +313,7 @@ def download_file_from_directory():
 
 **Get_paths FileSystemClient** 메서드를 호출 하 고 결과를 열거 하 여 디렉터리 내용을 나열 합니다.
 
-이 예에서는 라는 `my-directory`디렉터리에 있는 각 하위 디렉터리 및 파일의 경로를 출력 합니다.
+이 예에서는 라는 디렉터리에 있는 각 하위 디렉터리 및 파일의 경로를 출력 합니다 `my-directory` .
 
 ```python
 def list_directory_contents():
@@ -330,11 +330,11 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)
 * [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
-* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+* [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)

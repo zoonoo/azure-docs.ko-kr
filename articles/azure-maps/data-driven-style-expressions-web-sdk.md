@@ -9,12 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d6009a655adcc26ebef31588eff2332a05f3a001
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 79f1188665208ec95e5d1d855d2247858e98653c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84561644"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -28,7 +27,7 @@ ms.locfileid: "80804727"
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-식은 JSON 배열로 표시 됩니다. 배열에서 식의 첫 번째 요소는 식 연산자의 이름을 지정 하는 문자열입니다. 예를 들어 "+" 또는 "case"입니다. 다음 요소 (있는 경우)는 식에 대 한 인수입니다. 각 인수는 리터럴 값 (문자열, 숫자, 부울 또는 `null`) 이거나 다른 식 배열입니다. 다음 의사 코드에서는 식의 기본 구조를 정의 합니다. 
+식은 JSON 배열로 표시 됩니다. 배열에서 식의 첫 번째 요소는 식 연산자의 이름을 지정 하는 문자열입니다. 예를 들어 "+" 또는 "case"입니다. 다음 요소 (있는 경우)는 식에 대 한 인수입니다. 각 인수는 리터럴 값 (문자열, 숫자, 부울 또는 `null` ) 이거나 다른 식 배열입니다. 다음 의사 코드에서는 식의 기본 구조를 정의 합니다. 
 
 ```javascript
 [ 
@@ -41,18 +40,18 @@ ms.locfileid: "80804727"
 
 Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자체적으로 사용 하거나 다른 식과 함께 사용할 수 있습니다.
 
-| 식 형식 | Description |
+| 식 형식 | 설명 |
 |---------------------|-------------|
-| [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고의 `clusterProperties` 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다. `DataSource` |
+| [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고의 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다 `clusterProperties` `DataSource` . |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
 | [색 식](#color-expressions) | 색 식을 사용 하면 색 값을 보다 쉽게 만들고 조작할 수 있습니다. |
-| [조건식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
+| [조건부 식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
 | [데이터 식](#data-expressions) | 기능에서 속성 데이터에 대 한 액세스를 제공 합니다. |
 | [보간 및 단계 식](#interpolate-and-step-expressions) | 보간 및 단계 식은 보간된 곡선이 나 step 함수를 따라 값을 계산 하는 데 사용할 수 있습니다. |
 | [계층 관련 식](#layer-specific-expressions) | 단일 계층에만 적용 되는 특수 식입니다. |
 | [수학 식](#math-expressions) | 식 프레임 워크 내에서 데이터 기반 계산을 수행 하는 수치 연산자를 제공 합니다. |
 | [문자열 연산자 식](#string-operator-expressions) | 문자열 연산자 식은 사례를 연결 하 고 변환 하는 등의 문자열에 대해 변환 작업을 수행 합니다. |
-| [형식 식](#type-expressions) | 형식 식은 문자열, 숫자, 부울 값 등의 다양 한 데이터 형식을 테스트 하 고 변환 하는 도구를 제공 합니다. |
+| [Type 식](#type-expressions) | 형식 식은 문자열, 숫자, 부울 값 등의 다양 한 데이터 형식을 테스트 하 고 변환 하는 도구를 제공 합니다. |
 | [변수 바인딩 식](#variable-binding-expressions) | 변수 바인딩 식은 계산 결과를 변수에 저장 하 고 저장 된 값을 다시 계산할 필요 없이 식의 다른 위치에서 여러 번 참조 합니다. |
 | [확대/축소 식](#zoom-expression) | 렌더링 시 지도의 현재 확대/축소 수준을 검색 합니다. |
 
@@ -85,18 +84,18 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 |------------|-------------|-------------|
 | `['at', number, array]` | 개체 | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | string | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
-| `['get', string]` | value | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
-| `['get', string, object]` | value | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
-| `['id']` | value | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
+| `['id']` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
 | `['length', string | array]` | number | 문자열이 나 배열의 길이를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `['in', substring, string]` | boolean | 문자열에 부분 문자열이 있는지 여부를 확인 합니다. |
 
 **예**
 
-식을 사용 하 `get` 여 식에서 직접 기능의 속성에 액세스할 수 있습니다. 이 예에서는 기능의 "zoneColor" 값을 사용 하 여 거품형 계층의 color 속성을 지정 합니다. 
+식을 사용 하 여 식에서 직접 기능의 속성에 액세스할 수 있습니다 `get` . 이 예에서는 기능의 "zoneColor" 값을 사용 하 여 거품형 계층의 color 속성을 지정 합니다. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -104,7 +103,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-위의 예제는 모든 지점 기능에 `zoneColor` 속성이 있는 경우 제대로 작동 합니다. 그렇지 않으면 색이 "black"으로 대체 될 수 있습니다. 대체 (fallback) 색을 수정 하려면 `case` 식을 `has` 식과 함께 사용 하 여 속성이 있는지 확인 합니다. 속성이 없으면 대체 (fallback) 색을 반환 합니다.
+위의 예제는 모든 지점 기능에 속성이 있는 경우 제대로 작동 합니다 `zoneColor` . 그렇지 않으면 색이 "black"으로 대체 될 수 있습니다. 대체 (fallback) 색을 수정 하려면 식을 식과 함께 사용 하 여 `case` `has` 속성이 있는지 확인 합니다. 속성이 없으면 대체 (fallback) 색을 반환 합니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -119,7 +118,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-거품형 및 기호 계층은 기본적으로 데이터 원본에 있는 모든 셰이프의 좌표를 렌더링 합니다. 이 동작은 다각형의 꼭 짓 점 또는 선을 강조 표시할 수 있습니다. 계층 `filter` 의 옵션을 사용 하 여 부울 식에서 `['geometry-type']` 식을 사용 하 여 렌더링 하는 기능의 기 하 도형 유형을 제한할 수 있습니다. 다음 예에서는 `Point` 기능만 렌더링 되도록 거품형 계층을 제한 합니다.
+거품형 및 기호 계층은 기본적으로 데이터 원본에 있는 모든 셰이프의 좌표를 렌더링 합니다. 이 동작은 다각형의 꼭 짓 점 또는 선을 강조 표시할 수 있습니다. `filter`계층의 옵션을 사용 하 여 `['geometry-type']` 부울 식에서 식을 사용 하 여 렌더링 하는 기능의 기 하 도형 유형을 제한할 수 있습니다. 다음 예에서는 기능만 렌더링 되도록 거품형 계층을 제한 합니다 `Point` .
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -127,7 +126,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-다음 예에서는 및 `Point` `MultiPoint` 기능을 모두 렌더링할 수 있습니다. 
+다음 예에서는 `Point` 및 `MultiPoint` 기능을 모두 렌더링할 수 있습니다. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -135,7 +134,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-마찬가지로 다각형의 윤곽선이 선 계층에서 렌더링 됩니다. 선 계층에서이 동작을 사용 하지 않도록 설정 하려면 및 `LineString` `MultiLineString` 기능만 허용 하는 필터를 추가 합니다.  
+마찬가지로 다각형의 윤곽선이 선 계층에서 렌더링 됩니다. 선 계층에서이 동작을 사용 하지 않도록 설정 하려면 및 기능만 허용 하는 필터를 추가 `LineString` `MultiLineString` 합니다.  
 
 ## <a name="math-expressions"></a>수학 식
 
@@ -156,15 +155,15 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 | `['atan', number]` | number | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
 | `['ceil', number]` | number | 숫자를 다음 정수 정수로 반올림 합니다. |
 | `['cos', number]` | number | 지정 된 수의 cos를 계산 합니다. |
-| `['e']` | number | 수학 상수 `e`를 반환 합니다. |
+| `['e']` | number | 수학 상수를 반환 합니다 `e` . |
 | `['floor', number]` | number | 숫자를 이전 정수 정수로 내림 합니다. |
 | `['ln', number]` | number | 지정 된 숫자의 자연 로그를 계산 합니다. |
-| `['ln2']` | number | 수학 상수 `ln(2)`를 반환 합니다. |
+| `['ln2']` | number | 수학 상수를 반환 합니다 `ln(2)` . |
 | `['log10', number]` | number | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
 | `['log2', number]` | number | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
 | `['max', number, number, …]` | number | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
 | `['min', number, number, …]` | number | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
-| `['pi']` | number | 수학 상수 `PI`를 반환 합니다. |
+| `['pi']` | number | 수학 상수를 반환 합니다 `PI` . |
 | `['round', number]` | number | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어 `['round', -1.5]` 은-2로 계산 됩니다. |
 | `['sin', number]` | number | 지정 된 숫자의 사인을 계산 합니다. |
 | `['sqrt', number]` | number | 지정된 숫자의 제곱근을 계산합니다. |
@@ -172,7 +171,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ## <a name="aggregate-expression"></a>집계 식
 
-집계 식은 데이터 집합에 대해 처리 되 고의 `clusterProperties` 옵션과 함께 사용할 수 있는 계산을 정의 `DataSource`합니다. 이러한 식의 출력은 숫자 또는 부울 이어야 합니다. 
+집계 식은 데이터 집합에 대해 처리 되 고의 옵션과 함께 사용할 수 있는 계산을 정의 `clusterProperties` `DataSource` 합니다. 이러한 식의 출력은 숫자 또는 부울 이어야 합니다. 
 
 집계 식은 연산자 값과 초기 값 및 데이터의 각 기능에서 속성을 검색 하는 식을 사용 하 여 집계 연산을 적용할 수 있는 세 가지 값을 사용 합니다. 이 식은 다음과 같은 형식입니다.
 
@@ -180,15 +179,15 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- 연산자: 클러스터의 각 지점 `mapExpression` 에 대해가 계산 하는 모든 값에 대해에 적용 되는 식 함수입니다. 지원 되는 연산자: 
-    - 숫자: `+`, `*`,, `max``min`
-    - 부울의 경우 `all`:,`any`
+- 연산자: `mapExpression` 클러스터의 각 지점에 대해가 계산 하는 모든 값에 대해에 적용 되는 식 함수입니다. 지원 되는 연산자: 
+    - 숫자: `+` ,, `*` `max` ,`min`
+    - 부울의 경우: `all` ,`any`
 - initialValue: 첫 번째 계산 된 값이 집계 되는 초기 값입니다.
 - mapExpression: 데이터 집합의 각 지점에 대해 적용 되는 식입니다.
 
 **예**
 
-데이터 집합의 모든 기능에 숫자로 된 `revenue` 속성이 있는 경우 그런 다음 데이터 집합에서 만들어진 클러스터의 모든 점에 대 한 총 수익을 계산할 수 있습니다. 이 계산은 다음 집계 식을 사용 하 여 수행 됩니다.`['+', 0, ['get', 'revenue']]`
+데이터 집합의 모든 기능에 숫자로 된 속성이 있는 경우 `revenue` 그런 다음 데이터 집합에서 만들어진 클러스터의 모든 점에 대 한 총 수익을 계산할 수 있습니다. 이 계산은 다음 집계 식을 사용 하 여 수행 됩니다.`['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>부울 식
 
@@ -198,27 +197,27 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | 논리 부정. 입력 `true` 이 `false`이면를 반환 하 고 `false` , 입력이 `true`이면를 반환 합니다. |
-| `['!= ', value, value]` | boolean | 입력 `true` 값이 같지 않으면를 반환 하 고 `false` , 그렇지 않으면를 반환 합니다. |
-| `['<', value, value]` | boolean | 첫 `true` 번째 입력이 두 번째 보다 엄격 하 게 작으면를 `false` 반환 하 고, 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
-| `['<=', value, value]` | boolean | 첫 `true` 번째 입력이 두 번째 값 보다 작거나 같으면를 반환 하 고 `false` , 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
-| `['==', value, value]` | boolean | 입력 `true` 값이 같으면를 반환 하 고 `false` , 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
-| `['>', value, value]` | boolean | 첫 `true` 번째 입력이 두 번째 보다 엄격 하 게 크면를 `false` 반환 하 고, 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
-| `['>=' value, value]` | boolean | 첫 `true` 번째 입력 값이 두 번째 값 보다 크거나 같으면를 반환 하 `false` 고, 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
-| `['all', boolean, boolean, …]` | boolean | 모든 `true` 입력이 이면 `true`를 반환 하 `false` 고, 그렇지 않으면를 반환 합니다. |
-| `['any', boolean, boolean, …]` | boolean | 입력 `true` 이 `true`이면를 반환 하 고, `false` 그렇지 않으면를 반환 합니다. |
+| `['! ', boolean]` | boolean | 논리 부정. `true`입력이 이면를 반환 `false` 하 고, `false` 입력이 이면를 반환 합니다 `true` . |
+| `['!= ', value, value]` | boolean | `true`입력 값이 같지 않으면를 반환 하 고, 그렇지 않으면를 반환 `false` 합니다. |
+| `['<', value, value]` | boolean | `true`첫 번째 입력이 두 번째 보다 엄격 하 게 작으면를 반환 하 고, 그렇지 않으면를 반환 `false` 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
+| `['<=', value, value]` | boolean | `true`첫 번째 입력이 두 번째 값 보다 작거나 같으면를 반환 하 고, `false` 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
+| `['==', value, value]` | boolean | `true`입력 값이 같으면를 반환 하 고, `false` 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
+| `['>', value, value]` | boolean | `true`첫 번째 입력이 두 번째 보다 엄격 하 게 크면를 반환 하 고, 그렇지 않으면를 반환 `false` 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
+| `['>=' value, value]` | boolean | `true`첫 번째 입력 값이 두 번째 값 보다 크거나 같으면를 반환 하 고, 그렇지 않으면를 반환 `false` 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
+| `['all', boolean, boolean, …]` | boolean | `true`모든 입력이 이면를 반환 `true` 하 고, 그렇지 않으면를 반환 `false` 합니다. |
+| `['any', boolean, boolean, …]` | boolean | `true`입력이 이면를 반환 하 고 `true` , 그렇지 않으면를 반환 `false` 합니다. |
 
 ## <a name="conditional-expressions"></a>조건부 식
 
 조건식은 if 문과 같은 논리 연산을 제공 합니다.
 
-다음 식은 입력 데이터에 대해 조건부 논리 연산을 수행 합니다. 예를 `case` 들어 식에서 "if/then/else" 논리를 제공 하 `match` 는 반면 식은 "switch 문"과 유사 합니다. 
+다음 식은 입력 데이터에 대해 조건부 논리 연산을 수행 합니다. 예를 들어 식에서 " `case` if/then/else" 논리를 제공 하는 반면 `match` 식은 "switch 문"과 유사 합니다. 
 
 ### <a name="case-expression"></a>Case 식
 
-`case` 식은 "if/then/else" 논리를 제공 하는 조건식의 유형입니다. 이 유형의 식은 부울 조건 목록을 통해 단계를 진행 합니다. True로 평가할 첫 번째 부울 조건의 출력 값을 반환 합니다.
+`case`식은 "if/then/else" 논리를 제공 하는 조건식의 유형입니다. 이 유형의 식은 부울 조건 목록을 통해 단계를 진행 합니다. True로 평가할 첫 번째 부울 조건의 출력 값을 반환 합니다.
 
-다음 의사 코드에서는 `case` 식의 구조를 정의 합니다. 
+다음 의사 코드에서는 식의 구조를 정의 합니다 `case` . 
 
 ```javascript
 [
@@ -234,7 +233,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는로 `true`계산 된 값을 찾은 다음 연결 된 값을 반환할 때까지 다른 부울 조건을 단계별로 안내 합니다. 부울 조건이로 `true`계산 되지 않으면 대체 (fallback) 값이 반환 됩니다. 
+다음 예에서는로 계산 된 값을 찾은 다음 연결 된 값을 반환할 때까지 다른 부울 조건을 단계별로 안내 합니다 `true` . 부울 조건이로 계산 되지 않으면 `true` 대체 (fallback) 값이 반환 됩니다. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -257,9 +256,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="match-expression"></a>일치 식
 
-`match` 식은 논리와 같은 switch 문을 제공 하는 조건식의 유형입니다. 입력은 문자열이 나 숫자를 반환 `['get', 'entityType']` 하는 등의 모든 식일 수 있습니다. 각 레이블은 값이 모든 문자열 또는 모든 숫자 여야 하는 단일 리터럴 값 또는 리터럴 값의 배열 이어야 합니다. 배열의 값이 일치 하는 경우 입력이 일치 합니다. 각 레이블은 고유 해야 합니다. 입력 유형이 레이블의 유형과 일치 하지 않는 경우 결과는 대체 (fallback) 값이 됩니다.
+`match`식은 논리와 같은 switch 문을 제공 하는 조건식의 유형입니다. 입력은 `['get', 'entityType']` 문자열이 나 숫자를 반환 하는 등의 모든 식일 수 있습니다. 각 레이블은 값이 모든 문자열 또는 모든 숫자 여야 하는 단일 리터럴 값 또는 리터럴 값의 배열 이어야 합니다. 배열의 값이 일치 하는 경우 입력이 일치 합니다. 각 레이블은 고유 해야 합니다. 입력 유형이 레이블의 유형과 일치 하지 않는 경우 결과는 대체 (fallback) 값이 됩니다.
 
-다음 의사 코드에서는 `match` 식의 구조를 정의 합니다. 
+다음 의사 코드에서는 식의 구조를 정의 합니다 `match` . 
 
 ```javascript
 [
@@ -276,7 +275,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 **예**
 
-다음 예에서는 거품형 계층에서 `entityType` Point 기능의 속성을 검색 하 여 일치 하는 항목을 찾습니다. 일치 하는 항목이 발견 되 면 지정 된 값이 반환 되거나 대체 (fallback) 값이 반환 됩니다.
+다음 예에서는 `entityType` 거품형 계층에서 Point 기능의 속성을 검색 하 여 일치 하는 항목을 찾습니다. 일치 하는 항목이 발견 되 면 지정 된 값이 반환 되거나 대체 (fallback) 값이 반환 됩니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -341,9 +340,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="coalesce-expression"></a>병합 식
 
-식 `coalesce` 에서는 첫 번째 null이 아닌 값을 가져와 값을 반환할 때까지 식 집합을 단계별로 진행 합니다. 
+`coalesce`식에서는 첫 번째 null이 아닌 값을 가져와 값을 반환할 때까지 식 집합을 단계별로 진행 합니다. 
 
-다음 의사 코드에서는 `coalesce` 식의 구조를 정의 합니다. 
+다음 의사 코드에서는 식의 구조를 정의 합니다 `coalesce` . 
 
 ```javascript
 [
@@ -356,7 +355,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 `coalesce` 식을 사용 하 여 기호 계층 `textField` 의 옵션을 설정 합니다. `title` 속성이 기능에서 누락 되었거나로 설정 된 경우에 `null`는 식에서 `subtitle` 속성을 찾으려고 시도 합니다. 또는 `null`가 누락 된 경우에는 빈 문자열로 대체 합니다. 
+다음 예에서는 식을 사용 하 여 `coalesce` `textField` 기호 계층의 옵션을 설정 합니다. `title`속성이 기능에서 누락 되었거나로 설정 된 경우에는 `null` 식에서 속성을 찾으려고 시도 합니다 `subtitle` . 또는가 누락 된 경우에는 `null` 빈 문자열로 대체 합니다. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -377,7 +376,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
-다음 예제에서는 `coalesce` 식을 사용 하 여 지정 된 이미지 이름 목록에서 map sprite에 사용할 수 있는 첫 번째 사용 가능한 이미지 아이콘을 검색 합니다.
+다음 예제에서는 식을 사용 하 여 `coalesce` 지정 된 이미지 이름 목록에서 map sprite에 사용할 수 있는 첫 번째 사용 가능한 이미지 아이콘을 검색 합니다.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -395,7 +394,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ``` 
 
-## <a name="type-expressions"></a>형식 식
+## <a name="type-expressions"></a>Type 식
 
 형식 식은 문자열, 숫자, 부울 값 등의 다양 한 데이터 형식을 테스트 하 고 변환 하는 도구를 제공 합니다.
 
@@ -403,14 +402,14 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | array \| 개체 | 리터럴 배열 또는 개체 값을 반환 합니다. 배열이 나 개체가 식으로 계산 되지 않도록 하려면이 식을 사용 합니다. 배열 또는 개체를 식에서 반환 해야 하는 경우이 작업이 필요 합니다. |
 | `['image', string]` | string | 지정 된 이미지 ID가 맵 이미지 스프라이트에 로드 되는지 확인 합니다. 인 경우 ID가 반환 되 고, 그렇지 않으면 null이 반환 됩니다. |
-| `['to-boolean', value]` | boolean | 입력 값을 부울로 변환 합니다. 입력이 빈 `false` 문자열인 `0` `false` `null`,,, 또는 `NaN`인 경우 결과는입니다. 그렇지 않으면 `true`입니다. |
+| `['to-boolean', value]` | boolean | 입력 값을 부울로 변환 합니다. `false`입력이 빈 문자열인,, 또는 이면이 고, `0` `false` `null` `NaN` 그렇지 않으면입니다 `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | 색 | 입력 값을 색으로 변환 합니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 `null` 또는 `false`이면 결과는 0입니다. 입력이 `true`이면 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
-| `['to-string', value]` | string | 입력 값을 문자열로 변환 합니다. 입력이 `null`이면 결과는 `""`입니다. 입력이 부울 이면 결과는 `"true"` 또는 `"false"`입니다. 입력이 숫자 이면 ECMAScript 언어 사양의 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number 함수를 사용 하 여 문자열로 변환 됩니다. 입력이 색 이면 CSS RGBA 색 문자열로 `"rgba(r,g,b,a)"`변환 됩니다. 그렇지 않으면 ECMAScript 언어 사양의 [json.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) 함수를 사용 하 여 입력이 문자열로 변환 됩니다. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 또는 이면 `null` `false` 결과는 0입니다. 입력이 이면 `true` 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
+| `['to-string', value]` | string | 입력 값을 문자열로 변환 합니다. 입력이 이면 `null` 결과는 `""` 입니다. 입력이 부울 이면 결과는 `"true"` 또는 `"false"` 입니다. 입력이 숫자 이면 ECMAScript 언어 사양의 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number 함수를 사용 하 여 문자열로 변환 됩니다. 입력이 색 이면 CSS RGBA 색 문자열로 변환 됩니다 `"rgba(r,g,b,a)"` . 그렇지 않으면 ECMAScript 언어 사양의 [json.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) 함수를 사용 하 여 입력이 문자열로 변환 됩니다. |
 | `['typeof', value]` | string | 지정 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
 
 > [!TIP]
-> 와 유사한 오류 메시지가 브라우저 콘솔 `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` 에 표시 되는 경우 코드에 첫 번째 값에 대 한 문자열이 없는 배열이 있는 식이 있음을 의미 합니다. 식이 배열을 반환 하도록 하려면 `literal` 식을 사용 하 여 배열을 래핑합니다. 다음 예에서는 식를 `offset` `match` 사용 하 여 두 개의 숫자를 포함 하는 배열 이어야 하는 기호 계층의 아이콘 옵션을 설정 하 여 point 기능의 `entityType` 속성 값을 기반으로 두 오프셋 값을 선택 합니다.
+> 와 유사한 오류 메시지가 `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` 브라우저 콘솔에 표시 되는 경우 코드에 첫 번째 값에 대 한 문자열이 없는 배열이 있는 식이 있음을 의미 합니다. 식이 배열을 반환 하도록 하려면 식을 사용 하 여 배열을 래핑합니다 `literal` . 다음 예에서는 `offset` 식를 사용 하 여 두 개의 숫자를 포함 하는 배열 이어야 하는 기호 계층의 아이콘 옵션을 설정 하 여 `match` point 기능의 속성 값을 기반으로 두 오프셋 값을 선택 합니다 `entityType` .
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -437,13 +436,13 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | 색 | `0` 와 `255`사이에 있어야 하 `1`는 *빨강*, *녹색*및 *파랑* 구성 요소와의 알파 구성 요소에서 색 값을 만듭니다. 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
-| `['rgba', number, number, number, number]` | 색 | 와 `0` 사이 `255`에 있어야 하는 `0` *빨강*, *녹색*, *파랑* 구성 요소와 및 `1`범위 내의 알파 구성 요소에서 색 값을 만듭니다. 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
+| `['rgb', number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강*, *녹색*및 *파랑* 구성 요소 `0` `255` 와의 알파 구성 요소에서 색 값을 만듭니다 `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
+| `['rgba', number, number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강*, *녹색*, *파랑* 구성 요소 `0` `255` 와 및 범위 내의 알파 구성 요소에서 색 값을 만듭니다 `0` `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
 | `['to-rgba']` | \[숫자, 숫자, 숫자, 숫자\] | 입력 색의 *빨간색*, *녹색*, *파랑*및 *알파* 구성 요소를 포함 하는 4 개 요소 배열을 해당 순서로 반환 합니다. |
 
 **예제**
 
-다음 예에서는 *빨강* 값 `255` `2.5` 이이 고 `temperature` 속성 값을 곱하여 계산 되는 *녹색* 및 *파랑* 값을 가진 RGB 색 값을 만듭니다. 온도가 변경 됨에 따라 색은 *빨간색*의 다른 음영으로 변경 됩니다.
+다음 예에서는 *빨강* 값이이 `255` 고 속성 값을 곱하여 계산 되는 *녹색* 및 *파랑* 값을 가진 RGB 색 값을 만듭니다 `2.5` `temperature` . 온도가 변경 됨에 따라 색은 *빨간색*의 다른 음영으로 변경 됩니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -465,13 +464,13 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | 문자열 | 여러 문자열을 연결 합니다. 각 값은 문자열 이어야 합니다. 필요한 경우 `to-string` 형식 식을 사용 하 여 다른 값 형식을 문자열로 변환 합니다. |
+| `['concat', string, string, …]` | 문자열 | 여러 문자열을 연결 합니다. 각 값은 문자열 이어야 합니다. `to-string`필요한 경우 형식 식을 사용 하 여 다른 값 형식을 문자열로 변환 합니다. |
 | `['downcase', string]` | string | 지정된 문자열을 소문자로 변환합니다. |
 | `['upcase', string]` | string | 지정된 문자열을 대문자로 변환합니다. |
 
 **예제**
 
-다음 예에서는 point 기능의 `temperature` 속성을 문자열로 변환 하 고 "° f"을 끝에 연결 합니다.
+다음 예에서는 `temperature` point 기능의 속성을 문자열로 변환 하 고 "° f"을 끝에 연결 합니다.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -490,20 +489,20 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 <center>
 
-![문자열 연산자 식 예제](media/how-to-expressions/string-operator-expression.png)</center>
+![문자열 연산자 식 예제 ](media/how-to-expressions/string-operator-expression.png)</center>
 
 ## <a name="interpolate-and-step-expressions"></a>보간 및 단계 식
 
-보간 및 단계 식은 보간된 곡선이 나 step 함수를 따라 값을 계산 하는 데 사용할 수 있습니다. 이러한 식은 숫자 값을 입력으로 반환 하는 식 (예: `['get',  'temperature']`)을 사용 합니다. 입력 값은 입력 및 출력 값 쌍에 대해 계산 되어 보간된 커브나 단계 함수에 가장 적합 한 값을 결정 합니다. 출력 값을 "중지" 라고 합니다. 각 중지의 입력 값은 숫자 여야 하며 오름차순 이어야 합니다. 출력 값은 숫자, 숫자 배열 또는 색 이어야 합니다.
+보간 및 단계 식은 보간된 곡선이 나 step 함수를 따라 값을 계산 하는 데 사용할 수 있습니다. 이러한 식은 숫자 값을 입력으로 반환 하는 식 (예:)을 사용 `['get',  'temperature']` 합니다. 입력 값은 입력 및 출력 값 쌍에 대해 계산 되어 보간된 커브나 단계 함수에 가장 적합 한 값을 결정 합니다. 출력 값을 "중지" 라고 합니다. 각 중지의 입력 값은 숫자 여야 하며 오름차순 이어야 합니다. 출력 값은 숫자, 숫자 배열 또는 색 이어야 합니다.
 
 ### <a name="interpolate-expression"></a>보간 식
 
-`interpolate` 보간를 사용 하 여 값의 연속, 부드러운 값 집합을 계산할 수 있습니다. 색 `interpolate` 값을 반환 하는 식은 결과 값이에서 선택 되는 색 그라데이션을 생성 합니다.
+`interpolate`보간를 사용 하 여 값의 연속, 부드러운 값 집합을 계산할 수 있습니다. `interpolate`색 값을 반환 하는 식은 결과 값이에서 선택 되는 색 그라데이션을 생성 합니다.
 
-`interpolate` 식에 사용할 수 있는 보간 방법에는 다음 세 가지 유형이 있습니다.
+식에 사용할 수 있는 보간 방법에는 다음 세 가지 유형이 있습니다 `interpolate` .
  
 * `['linear']`-중지점의 쌍 사이를 선형으로 보간합니다.
-* `['exponential', base]`-중지 사이에 지를 보간합니다. 값 `base` 은 출력이 늘어나는 속도를 제어 합니다. 값이 높을수록 출력이 범위의 높은 쪽 끝에서 증가 합니다. 1 `base` 에 가까운 값은 보다 선형적으로 향상 되는 출력을 생성 합니다.
+* `['exponential', base]`-중지 사이에 지를 보간합니다. `base`값은 출력이 늘어나는 속도를 제어 합니다. 값이 높을수록 출력이 범위의 높은 쪽 끝에서 증가 합니다. `base`1에 가까운 값은 보다 선형적으로 향상 되는 출력을 생성 합니다.
 * `['cubic-bezier', x1, y1, x2, y2]`-지정 된 제어점에서 정의 하는 [입방 형 3 차원 곡선](https://developer.mozilla.org/docs/Web/CSS/timing-function) 을 사용 하 여 보간합니다.
 
 다음은 이러한 여러 유형의 보간의 예입니다. 
@@ -512,7 +511,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 |---------|-------------|--------------|
 | ![선형 보간 그래프](media/how-to-expressions/linear-interpolation.png) | ![지 수 보간 그래프](media/how-to-expressions/exponential-interpolation.png) | ![입방 형 3 차원 보간 그래프](media/how-to-expressions/bezier-curve-interpolation.png) |
 
-다음 의사 코드에서는 `interpolate` 식의 구조를 정의 합니다. 
+다음 의사 코드에서는 식의 구조를 정의 합니다 `interpolate` . 
 
 ```javascript
 [
@@ -529,7 +528,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 `linear interpolate` 식을 사용 하 여 point 기능의 `color` `temperature` 속성을 기반으로 거품형 계층의 속성을 설정 합니다. `temperature` 값이 60 보다 작은 경우 "blue"가 반환 됩니다. 60 ~ 70 보다 작은 경우에는 노란색이 반환 됩니다. 70 ~ 80 보다 작은 경우 "주황색"이 반환 됩니다. 80 이상인 경우 "red"가 반환 됩니다.
+다음 예에서는 식을 사용 하 여 `linear interpolate` `color` point 기능의 속성을 기반으로 거품형 계층의 속성을 설정 합니다 `temperature` . `temperature`값이 60 보다 작은 경우 "blue"가 반환 됩니다. 60 ~ 70 보다 작은 경우에는 노란색이 반환 됩니다. 70 ~ 80 보다 작은 경우 "주황색"이 반환 됩니다. 80 이상인 경우 "red"가 반환 됩니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -553,13 +552,13 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
  
 <center>
 
-![보간 식 예제](media/how-to-expressions/interpolate-expression-example.png)</center>
+![보간 식 예제 ](media/how-to-expressions/interpolate-expression-example.png)</center>
 
 ### <a name="step-expression"></a>Step 식
 
-`step` 식은 중지로 정의 된 [부분 일정 분포 상수 함수](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) 를 평가 하 여 불연속의 단계별 결과 값을 계산 하는 데 사용할 수 있습니다. 
+`step`식은 중지로 정의 된 [부분 일정 분포 상수 함수](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) 를 평가 하 여 불연속의 단계별 결과 값을 계산 하는 데 사용할 수 있습니다. 
 
-다음 의사 코드에서는 `step` 식의 구조를 정의 합니다. 
+다음 의사 코드에서는 식의 구조를 정의 합니다 `step` . 
 
 ```javascript
 [
@@ -578,7 +577,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 `step` 식을 사용 하 여 point 기능의 `color` `temperature` 속성을 기반으로 거품형 계층의 속성을 설정 합니다. `temperature` 값이 60 보다 작은 경우 "blue"가 반환 됩니다. 60 ~ 70 보다 작은 경우 "노란색"이 반환 됩니다. 70 ~ 80 보다 작은 경우 "주황색"이 반환 됩니다. 80 이상인 경우 "red"가 반환 됩니다.
+다음 예에서는 식을 사용 하 여 `step` `color` point 기능의 속성을 기반으로 거품형 계층의 속성을 설정 합니다 `temperature` . `temperature`값이 60 보다 작은 경우 "blue"가 반환 됩니다. 60 ~ 70 보다 작은 경우 "노란색"이 반환 됩니다. 70 ~ 80 보다 작은 경우 "주황색"이 반환 됩니다. 80 이상인 경우 "red"가 반환 됩니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -609,7 +608,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="heat-map-density-expression"></a>열 지도 밀도 식
 
-열 지도 밀도 식은 열 지도 계층의 각 픽셀에 대 한 열 지도 밀도 값을 검색 하 고로 `['heatmap-density']`정의 됩니다. 이 값은에서 `0` `1`사이의 숫자입니다. `interpolation` 또는 `step` 식과 함께 사용 되어 열 지도를 색으로 지정 하는 데 사용 되는 색 그라데이션을 정의 합니다. 이 식은 열 지도 계층의 [색 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) 에만 사용할 수 있습니다.
+열 지도 밀도 식은 열 지도 계층의 각 픽셀에 대 한 열 지도 밀도 값을 검색 하 고로 정의 됩니다 `['heatmap-density']` . 이 값은에서 사이의 숫자 `0` 입니다 `1` . 또는 식과 함께 사용 되어 `interpolation` `step` 열 지도를 색으로 지정 하는 데 사용 되는 색 그라데이션을 정의 합니다. 이 식은 열 지도 계층의 [색 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) 에만 사용할 수 있습니다.
 
 > [!TIP]
 > 보간 식의 인덱스 0에 있는 색 또는 단계 색의 기본 색은 데이터가 없는 영역의 색을 정의 합니다. 인덱스 0에 있는 색은 배경색을 정의 하는 데 사용할 수 있습니다. 대부분 이 값을 투명 또는 반투명 검은색으로 설정하는 것을 선호합니다.
@@ -632,7 +631,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-부드러운 그라데이션을 사용 하 여 열 지도를 색상화 하는 것 외에도 `step` 식을 사용 하 여 범위 집합 내에서 색을 지정할 수 있습니다. 열 지도 `step` 를 색으로 하는 식을 사용 하 여 윤곽선 또는 방사형 스타일 맵과 유사한 범위로 밀도를 시각적으로 나눕니다.  
+부드러운 그라데이션을 사용 하 여 열 지도를 색상화 하는 것 외에도 식을 사용 하 여 범위 집합 내에서 색을 지정할 수 있습니다 `step` . 열 지도를 색으로 하는 식을 사용 하 여 `step` 윤곽선 또는 방사형 스타일 맵과 유사한 범위로 밀도를 시각적으로 나눕니다.  
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -653,14 +652,14 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 ### <a name="line-progress-expression"></a>줄 진행률 식
 
-줄 진행률 식은 선 계층에서 그라데이션 선을 따라 진행률을 검색 하 고로 `['line-progress']`정의 됩니다. 이 값은 0에서 1 사이의 숫자입니다. `interpolation` 또는 `step` 식과 함께 사용 됩니다. 이 식은 선 계층의 [strokeGradient 옵션]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) 에만 사용할 수 있습니다. 
+줄 진행률 식은 선 계층에서 그라데이션 선을 따라 진행률을 검색 하 고로 정의 됩니다 `['line-progress']` . 이 값은 0에서 1 사이의 숫자입니다. 또는 식과 함께 사용 `interpolation` `step` 됩니다. 이 식은 선 계층의 [strokeGradient 옵션]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) 에만 사용할 수 있습니다. 
 
 > [!NOTE]
-> 선 `strokeGradient` 계층의 옵션을 사용 하려면 데이터 `lineMetrics` 소스의 옵션을로 `true`설정 해야 합니다.
+> `strokeGradient`선 계층의 옵션을 사용 하려면 `lineMetrics` 데이터 소스의 옵션을로 설정 해야 합니다 `true` .
 
 **예제**
 
-이 예제에서는 `['line-progress']` 식을 사용 하 여 선의 스트로크에 색 그라데이션을 적용 합니다.
+이 예제에서는 식을 사용 하 여 `['line-progress']` 선의 스트로크에 색 그라데이션을 적용 합니다.
 
 ```javascript
 var layer = new atlas.layer.LineLayer(datasource, null, {
@@ -682,10 +681,10 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 ### <a name="text-field-format-expression"></a>텍스트 필드 형식 식
 
-텍스트 필드 형식 식은 기호 계층 `textField` `textOptions` 속성의 옵션과 함께 사용 하 여 혼합 텍스트 서식을 제공할 수 있습니다. 이 식을 사용 하면 입력 문자열과 서식 옵션의 집합을 지정할 수 있습니다. 이 식의 각 입력 문자열에 대해 다음과 같은 옵션을 지정할 수 있습니다.
+텍스트 필드 형식 식은 `textField` 기호 계층 속성의 옵션과 함께 사용 `textOptions` 하 여 혼합 텍스트 서식을 제공할 수 있습니다. 이 식을 사용 하면 입력 문자열과 서식 옵션의 집합을 지정할 수 있습니다. 이 식의 각 입력 문자열에 대해 다음과 같은 옵션을 지정할 수 있습니다.
 
- * `'font-scale'`-글꼴 크기의 배율 인수를 지정 합니다. 지정 된 경우이 값은 개별 문자열 `size` `textOptions` 에 대해의 속성을 재정의 합니다.
- * `'text-font'`-이 문자열에 사용 해야 하는 글꼴 패밀리를 하나 이상 지정 합니다. 지정 된 경우이 값은 개별 문자열 `font` `textOptions` 에 대해의 속성을 재정의 합니다.
+ * `'font-scale'`-글꼴 크기의 배율 인수를 지정 합니다. 지정 된 경우이 값은 `size` `textOptions` 개별 문자열에 대해의 속성을 재정의 합니다.
+ * `'text-font'`-이 문자열에 사용 해야 하는 글꼴 패밀리를 하나 이상 지정 합니다. 지정 된 경우이 값은 `font` `textOptions` 개별 문자열에 대해의 속성을 재정의 합니다.
  * `'text-color'`-렌더링할 때 텍스트에 적용할 색을 지정 합니다. 
 
 다음 의사 코드는 텍스트 필드 형식 식의 구조를 정의 합니다. 
@@ -711,7 +710,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 굵은 글꼴을 추가 하 고 기능 `title` 속성의 글꼴 크기를 확장 하 여 텍스트 필드의 서식을 지정 합니다. 이 예에서는 또한 줄 `subtitle` 바꿈에 기능의 속성을 추가 하 고 축소 된 글꼴 크기와 빨강 색을 지정 합니다.
+다음 예에서는 굵은 글꼴을 추가 하 고 기능 속성의 글꼴 크기를 확장 하 여 텍스트 필드의 서식을 지정 합니다 `title` . 이 예에서는 또한 `subtitle` 줄 바꿈에 기능의 속성을 추가 하 고 축소 된 글꼴 크기와 빨강 색을 지정 합니다.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -743,11 +742,11 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
  
 <center>
 
-![서식이 지정 된 텍스트 필드가](media/how-to-expressions/text-field-format-expression.png) 있는 Point 기능 이미지</center>
+![서식이 지정 된 텍스트 필드가 ](media/how-to-expressions/text-field-format-expression.png) 있는 Point 기능 이미지</center>
 
 ### <a name="number-format-expression"></a>숫자 형식 식
 
-식 `number-format` 에는 기호 계층의 `textField` 옵션만 사용할 수 있습니다. 이 식은 제공 된 숫자를 서식이 지정 된 문자열로 변환 합니다. 이 식은 JavaScript의 [Number. toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) 함수를 래핑하고 다음 옵션 집합을 지원 합니다.
+식에는 `number-format` `textField` 기호 계층의 옵션만 사용할 수 있습니다. 이 식은 제공 된 숫자를 서식이 지정 된 문자열로 변환 합니다. 이 식은 JavaScript의 [Number. toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) 함수를 래핑하고 다음 옵션 집합을 지원 합니다.
 
  * `locale`-지정 된 언어로 정렬 되는 방식으로 숫자를 문자열로 변환 하려면이 옵션을 지정 합니다. 이 옵션에 [BCP 47 언어 태그](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) 를 전달 합니다.
  * `currency`-숫자를 통화를 나타내는 문자열로 변환 합니다. 가능한 값은 미국 달러의 경우 "USD", 유로화의 경우 "EUR", 중국어 RMB의 경우 "CNY"와 같은 [ISO 4217 통화 코드](https://en.wikipedia.org/wiki/ISO_4217)입니다.
@@ -771,7 +770,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 **예제**
 
-다음 예에서는 `number-format` 식을 사용 하 여 point 달러 값 `revenue` 을 표시 하도록 기호 계층의 `textField` 옵션에서 point 기능의 속성을 렌더링 하는 방법을 수정 합니다.
+다음 예에서는 식을 사용 하 여 `number-format` `revenue` point `textField` 달러 값을 표시 하도록 기호 계층의 옵션에서 point 기능의 속성을 렌더링 하는 방법을 수정 합니다.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -791,15 +790,15 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 <center>
 
-![숫자 형식 식 예](media/how-to-expressions/number-format-expression.png)</center>
+![숫자 형식 식 예 ](media/how-to-expressions/number-format-expression.png)</center>
 
 ### <a name="image-expression"></a>이미지 식
 
-이미지 식은 기호 계층의 `image` 및 `textField` 옵션과 polygon 계층의 `fillPattern` 옵션에 사용할 수 있습니다. 이 식은 요청한 이미지가 스타일에 있는지 확인 하 고 이미지가 현재 스타일에 있는지 여부에 따라 확인 된 `null`이미지 이름 또는를 반환 합니다. 이 유효성 검사 프로세스는 동기식 이며 이미지 인수에 이미지를 요청 하기 전에 이미지를 스타일에 추가 해야 합니다.
+이미지 식은 `image` `textField` 기호 계층의 및 옵션과 `fillPattern` polygon 계층의 옵션에 사용할 수 있습니다. 이 식은 요청한 이미지가 스타일에 있는지 확인 하 고 `null` 이미지가 현재 스타일에 있는지 여부에 따라 확인 된 이미지 이름 또는를 반환 합니다. 이 유효성 검사 프로세스는 동기식 이며 이미지 인수에 이미지를 요청 하기 전에 이미지를 스타일에 추가 해야 합니다.
 
 **예제**
 
-다음 예에서는 `image` 식을 사용 하 여 기호 계층에 텍스트가 있는 아이콘을 인라인으로 추가 합니다. 
+다음 예에서는 식을 사용 하 여 `image` 기호 계층에 텍스트가 있는 아이콘을 인라인으로 추가 합니다. 
 
 ```javascript
  //Load the custom image icon into the map resources.
@@ -829,15 +828,15 @@ map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
 
 <center>
 
-![이미지 식 예](media/how-to-expressions/image-expression.png)</center>
+![이미지 식 예 ](media/how-to-expressions/image-expression.png)</center>
 
 ## <a name="zoom-expression"></a>확대/축소 식
 
-`zoom` 식은 렌더링 시 지도의 현재 확대/축소 수준을 검색 하는 데 사용 되 고로 `['zoom']`정의 됩니다. 이 식은 지도의 최소 및 최대 확대/축소 수준 범위 사이의 숫자를 반환 합니다. 웹 및 Android에 대 한 대화형 맵 컨트롤 Azure Maps 25 개의 확대/축소 수준 (0-24)을 지원 합니다. `zoom` 식을 사용 하면 지도의 확대/축소 수준을 변경할 때 스타일을 동적으로 수정할 수 있습니다. 식 `zoom` 에는 `interpolate` 및 `step` 식만 사용할 수 있습니다.
+`zoom`식은 렌더링 시 지도의 현재 확대/축소 수준을 검색 하는 데 사용 되 고로 정의 됩니다 `['zoom']` . 이 식은 지도의 최소 및 최대 확대/축소 수준 범위 사이의 숫자를 반환 합니다. 웹 및 Android에 대 한 대화형 맵 컨트롤 Azure Maps 25 개의 확대/축소 수준 (0-24)을 지원 합니다. 식을 사용 `zoom` 하면 지도의 확대/축소 수준을 변경할 때 스타일을 동적으로 수정할 수 있습니다. `zoom`식에는 및 식만 사용할 수 있습니다 `interpolate` `step` .
 
 **예제**
 
-기본적으로 열 지도 계층에 렌더링 되는 데이터 요소의 반지름에는 모든 확대/축소 수준에 대 한 고정 픽셀 반지름이 있습니다. 지도가 확대 되 면 데이터가 함께 집계 되 고 열 지도 계층이 다르게 보입니다. 각 `zoom` 데이터 요소가 지도의 동일한 실제 영역을 포함 하도록 각 확대/축소 수준에 대 한 반지름의 크기를 조정 하는 데 식을 사용할 수 있습니다. 열 지도 계층을 더 정적이 고 일관 되 게 보이게 합니다. 지도의 각 확대/축소 수준에는 이전 확대/축소 수준과 가로 및 세로로 두 배의 픽셀이 있습니다. 각 확대/축소 수준에서 두 배가 되도록 반경 크기를 조정 하면 모든 확대/축소 수준에서 일치 하는 열 지도를 만듭니다. 식에 `zoom` 식을 사용 하 여이를 수행할 수 있습니다. 최소 확대/축소 수준에 대해 픽셀 반지름이 설정 되 고 아래와 같이 계산 `2 * Math.pow(2, minZoom - maxZoom)` 된 최대 확대/축소 수준에 대해 배율이 조정 된 반지름이 사용 됩니다. `base 2 exponential interpolation`
+기본적으로 열 지도 계층에 렌더링 되는 데이터 요소의 반지름에는 모든 확대/축소 수준에 대 한 고정 픽셀 반지름이 있습니다. 지도가 확대 되 면 데이터가 함께 집계 되 고 열 지도 계층이 다르게 보입니다. 각 `zoom` 데이터 요소가 지도의 동일한 실제 영역을 포함 하도록 각 확대/축소 수준에 대 한 반지름의 크기를 조정 하는 데 식을 사용할 수 있습니다. 열 지도 계층을 더 정적이 고 일관 되 게 보이게 합니다. 지도의 각 확대/축소 수준에는 이전 확대/축소 수준과 가로 및 세로로 두 배의 픽셀이 있습니다. 각 확대/축소 수준에서 두 배가 되도록 반경 크기를 조정 하면 모든 확대/축소 수준에서 일치 하는 열 지도를 만듭니다. 식에 식을 사용 하 여이를 수행할 수 있습니다 `zoom` `base 2 exponential interpolation` . 최소 확대/축소 수준에 대해 픽셀 반지름이 설정 되 고 아래와 같이 계산 된 최대 확대/축소 수준에 대해 배율이 조정 된 반지름이 사용 됩니다 `2 * Math.pow(2, minZoom - maxZoom)` .
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -863,12 +862,12 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | 결과를 반환 하는 자식 식에서 `var` 식에 사용할 변수로 하나 이상의 값을 저장 합니다. |
-| `['var', name: string]` | any | `let` 식을 사용 하 여 만든 변수를 참조 합니다. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | `var`결과를 반환 하는 자식 식에서 식에 사용할 변수로 하나 이상의 값을 저장 합니다. |
+| `['var', name: string]` | any | 식을 사용 하 여 만든 변수를 참조 `let` 합니다. |
 
 **예제**
 
-이 예에서는 온도 비율을 기준으로 수익을 계산 하는 식을 사용한 다음 `case` 식을 사용 하 여이 값에 대 한 다양 한 부울 연산을 계산 합니다. `let` 식은 한 번만 계산 하면 되는 온도 비율을 기준으로 수익을 저장 하는 데 사용 됩니다. 식 `var` 에서이 변수를 다시 계산할 필요 없이 자주 참조 합니다.
+이 예에서는 온도 비율을 기준으로 수익을 계산 하는 식을 사용한 다음 식을 사용 하 여 `case` 이 값에 대 한 다양 한 부울 연산을 계산 합니다. `let`식은 한 번만 계산 하면 되는 온도 비율을 기준으로 수익을 저장 하는 데 사용 됩니다. `var`식에서이 변수를 다시 계산할 필요 없이 자주 참조 합니다.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -928,4 +927,4 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 > [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest) 
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)

@@ -6,16 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 7213cb10936fc1c2117b2c5c3fc32a6bfea02d30
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610069"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Azure Monitor의 로그 수집을 위한 고객 소유 스토리지 계정
 
-Azure Monitor는 [사용자 지정 로그](data-sources-custom-logs.md) 및 일부 [Azure 로그](azure-storage-iis-table.md)와 같은 일부 데이터 형식의 수집 프로세스에서 스토리지 계정을 사용합니다. 수집 프로세스 중에 로그는 먼저 스토리지 계정으로 전송되고 나중에 Log Analytics 또는 Application Insights로 수집됩니다. 수집하는 동안 데이터를 제어하려는 경우 서비스 관리 스토리지 대신 자체 스토리지 계정을 사용할 수 있습니다. 자체 스토리지 계정을 사용하면 수집하는 동안 로그의 액세스, 콘텐츠, 암호화 및 보존에 대한 제어 권한을 부여할 수 있습니다. 이를 BYOS(Bring Your Own Storage)라고 합니다. 
+Azure Monitor는 [사용자 지정 로그](data-sources-custom-logs.md) 및 일부 [Azure 로그](azure-storage-iis-table.md)와 같은 일부 데이터 형식의 수집 프로세스에서 스토리지 계정을 사용합니다. 수집 프로세스 중에 로그는 먼저 스토리지 계정으로 전송되고 나중에 Log Analytics 또는 Application Insights로 수집됩니다. 수집하는 동안 데이터를 제어하려는 경우 서비스 관리 스토리지 대신 자체 스토리지 계정을 사용할 수 있습니다. 사용자 고유의 저장소 계정을 사용 하면 수집 하는 동안 로그의 액세스, 콘텐츠, 암호화 및 보존을 제어할 수 있습니다. 이를 BYOS(Bring Your Own Storage)라고 합니다. 
 
 BYOS를 필요로 하는 한 가지 시나리오는 Private Link를 통한 네트워크 격리입니다. VNet을 사용하는 경우 네트워크 격리가 종종 요구되며, 공용 인터넷에 대한 액세스가 제한됩니다. 이러한 경우 로그 수집을 위해 Azure Monitor 서비스 스토리지에 액세스하는 것이 완전히 차단되거나 잘못된 방법으로 간주됩니다. 대신 VNet 내의 고객 소유 스토리지 계정을 통해 로그를 수집하거나 쉽게 액세스할 수 있어야 합니다.
 
@@ -210,7 +209,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## <a name="replace-a-storage-account"></a>스토리지 계정 교체
 
-수집에 사용되는 스토리지 계정을 바꾸려면 먼저 새 스토리지 계정에 대한 링크를 만듭니다. 로깅 에이전트는 업데이트된 구성을 가져오고 새 스토리지로 데이터 전송도 시작합니다.
+수집에 사용되는 스토리지 계정을 바꾸려면 먼저 새 스토리지 계정에 대한 링크를 만듭니다. 로깅 에이전트는 업데이트 된 구성을 가져오고 데이터를 새 저장소로 보내기 시작 합니다.
 
 다음으로, 에이전트가 제거된 계정에 쓰기를 중지하도록 이전 스토리지 계정의 연결을 해제합니다. 수집 프로세스는 모두 수집될 때까지 이 계정의 데이터를 계속 읽습니다. 모든 로그가 수집될 때까지 스토리지 계정을 삭제하지 마세요.
 
@@ -232,4 +231,4 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-- 프라이빗 링크 설정에 대한 자세한 내용은 [Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결](private-link-security.md)을 참조하세요.
+- 개인 링크를 설정 하는 방법에 대 한 자세한 내용은 [Azure 개인 링크를 사용 하 여 네트워크를 Azure Monitor에 안전 하 게 연결](private-link-security.md) 을 참조 하세요.

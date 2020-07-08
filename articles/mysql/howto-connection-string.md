@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ff257e101ca925a554f2343d357e2042d2930b45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 1683fba2d8f085569c7cc62a06d0fe95803d4346
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062386"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559205"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 애플리케이션을 연결하는 방법
 이 항목에는 템플릿 및 예제와 함께 MySQL용 Azure Database에서 지원되는 연결 문자열 형식이 나열되어 있습니다. 연결 문자열에 다른 매개 변수 및 설정을 사용할 수도 있습니다.
 
 - 인증서를 가져오려면 [SSL 구성 방법](./howto-configure-ssl.md)을 참조하세요.
-- {your_host} = \<servername>. mysql.database.azure.com
+- {your_host} = \<servername>.mysql.database.azure.com
 - {your_user}@{servername} = 올바른 인증을 위한 사용자 ID 형식입니다.  사용자 ID만 사용하는 경우 인증이 실패합니다.
 
 ## <a name="adonet"></a>ADO.NET

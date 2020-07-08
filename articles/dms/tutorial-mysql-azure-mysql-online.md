@@ -12,18 +12,17 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 7c8087a01bb71657e816be89b6a562dd4783b271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609236"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 마이그레이션할 수 있습니다. 즉 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 MySQL 5.7의 온-프레미스 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 >
 > * mysqldump 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
@@ -38,7 +37,14 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 Microsoft는 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것을 권장합니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+> [!NOTE]
+> 바이어스-무료 통신
+>
+> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+>
+
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -71,7 +77,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 * 다음 구성을 사용하여 원본 데이터베이스의 my.ini(Windows) 또는 my.cnf(Unix) 파일에서 이진 로깅을 사용하도록 설정합니다.
 
   * **server_id** = 1 이상(MySQL 5.6에만 해당)
-  * **log-bin** =\<path> (MySQL 5.6에만 해당)    예: log-bin = E:\MySQL_logs\BinLog
+  * **로그-bin** = \<path> (MySQL 5.6에만 해당)    예: log-bin = E:\ MySQL_logs \BinLog
   * **binlog_format** = row
   * **Expire_logs_days** = 5(0은 사용하지 않는 것이 좋음, MySQL 5.6에만 해당)
   * **Binlog_row_image** = full(MySQL 5.6에만 해당)
@@ -93,7 +99,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -105,7 +111,7 @@ mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\emplo
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -154,7 +160,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     ![리소스 공급자 보기](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색 한 다음 **microsoft.datamigration**의 오른쪽에서 **등록**을 선택 합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 

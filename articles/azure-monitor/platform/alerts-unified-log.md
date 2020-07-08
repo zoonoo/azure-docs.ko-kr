@@ -6,16 +6,15 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0e81d48f4e709a9a0bb8ebb33c7029d3841167b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609049"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
-이 문서에서는 [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 Azure의 분석 플랫폼을 경고의 기준으로 사용하게 하는 로그 경고의 세부 정보를 제공합니다.
+로그 경고는 [Azure 경고](../../azure-monitor/platform/alerts-overview.md)에서 지원 되는 경고 유형 중 하나입니다. 로그 경고를 통해 사용자는 경고의 기반으로 Azure 분석 플랫폼을 사용할 수 있습니다.
 
 로그 경고는 [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 대해 만든 로그 검색 규칙으로 이루어집니다. 로그 경고의 사용법에 대한 자세한 내용은 [Azure에서 로그 경고 만들기](../../azure-monitor/platform/alerts-log.md)를 참조
 
@@ -152,7 +151,7 @@ ms.locfileid: "77665224"
 - 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Application Insights의 로그 경고
 - 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Log Analytics의 경고 로그([scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하여 만든 경우)
 
-[레거시 Log Analytics API](../../azure-monitor/platform/api-alerts.md)에는 적절한 [Azure 리소스](../../azure-resource-manager/management/overview.md)가 아닌 Log Analytics 저장된 검색의 일부로 경고 작업 및 일정이 있습니다. 따라서 [새 api로 전환](../../azure-monitor/platform/alerts-log-api-switch.md) 하거나 [레거시 Log Analytics api](../../azure-monitor/platform/api-alerts.md) 를 사용 **하지 않고** Azure Portal를 사용 하 여 Log Analytics에 대해 만들어진 이러한 레거시 로그 경고에 대 한 청구를 사용 하도록 `microsoft.insights/scheduledqueryrules` 설정 하려면 Azure에서 청구 하기 위해에서 숨겨진 의사 경고 규칙을 만듭니다. `microsoft.insights/scheduledqueryrules`에서 청구를 위해 생성된 숨겨진 의사 경고 규칙은 리소스 그룹 및 경고 속성과 함께 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`로 표시됩니다.
+[레거시 Log Analytics API](../../azure-monitor/platform/api-alerts.md)에는 적절한 [Azure 리소스](../../azure-resource-manager/management/overview.md)가 아닌 Log Analytics 저장된 검색의 일부로 경고 작업 및 일정이 있습니다. 따라서 [새 api로 전환](../../azure-monitor/platform/alerts-log-api-switch.md) 하거나 [레거시 Log Analytics api](../../azure-monitor/platform/api-alerts.md) 를 사용 **하지 않고** Azure Portal를 사용 하 여 Log Analytics에 대해 만들어진 이러한 레거시 로그 경고에 대 한 청구를 사용 하도록 설정 하려면 `microsoft.insights/scheduledqueryrules` Azure에서 청구 하기 위해에서 숨겨진 의사 경고 규칙을 만듭니다. `microsoft.insights/scheduledqueryrules`에서 청구를 위해 생성된 숨겨진 의사 경고 규칙은 리소스 그룹 및 경고 속성과 함께 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`로 표시됩니다.
 
 > [!NOTE]
 > `<, >, %, &, \, ?, /`와 같은 잘못된 문자가 있으면 숨겨진 의사 경고 규칙 이름에서 `_`로 바뀌기 때문에 Azure 청구서에서도 그렇게 바뀝니다.
@@ -162,7 +161,7 @@ ms.locfileid: "77665224"
 - 사용자가 [Log Analytics 작업 영역에서 경고 규칙에 대한 API 기본 설정을 전환](../../azure-monitor/platform/alerts-log-api-switch.md)할 수 있으며 경고 규칙이 손실되거나 Azure Resource Manager 호환 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)로 모니터링이 이동하지 않습니다. 따라서 청구를 위해 숨겨진 의사 경고 규칙을 만들 필요가 없습니다.
 - API 기본 설정을 전환하지 않으려면 사용자가 [레거시 Log Analytics API](api-alerts.md)를 사용하여 원래 일정과 경고 작업을 **삭제**하거나 [Azure Portal에서 원래 로그 경고 규칙](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)을 제거해야 합니다.
 
-또한 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 경고 규칙을 청구 하기 위해 만든 숨겨진 scheduleQueryRules 리소스의 경우 PUT과 같은 수정 작업은 실패 합니다. `microsoft.insights/scheduledqueryrules` 형식 의사 규칙은 [레거시 Log Analytics API](api-alerts.md)를 사용 하 여 만든 경고 규칙의 요금을 청구 하기 위한 것입니다. 모든 경고 규칙 수정은 [레거시 LOG ANALYTICS api](api-alerts.md) 를 사용 하 여 수행 해야 합니다. 또는 사용자가 대신 [scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 를 사용 하도록 [경고 규칙에 대 한 API 기본 설정을 전환할](../../azure-monitor/platform/alerts-log-api-switch.md) 수 있습니다.
+또한 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 경고 규칙을 청구 하기 위해 만든 숨겨진 scheduleQueryRules 리소스의 경우 PUT과 같은 수정 작업은 실패 합니다. `microsoft.insights/scheduledqueryrules`형식 의사 규칙은 [레거시 Log Analytics API](api-alerts.md)를 사용 하 여 만든 경고 규칙의 요금을 청구 하기 위한 것입니다. 모든 경고 규칙 수정은 [레거시 LOG ANALYTICS api](api-alerts.md) 를 사용 하 여 수행 해야 합니다. 또는 사용자가 대신 [scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 를 사용 하도록 [경고 규칙에 대 한 API 기본 설정을 전환할](../../azure-monitor/platform/alerts-log-api-switch.md) 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,17 +5,17 @@ description: 기계 학습 모델이 기능 중요도를 결정 하 고 Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: 39d2bf0e527d43e2a5fb9437720f249e54b4dff3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560196"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측을 설명 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "82983638"
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>개인용 컴퓨터에서 기능 중요도 값 생성 
 다음 예제에서는 Azure 서비스에 연결 하지 않고 개인 컴퓨터에서 interpretability 패키지를 사용 하는 방법을 보여 줍니다.
 
-1. 및 `azureml-interpret` 패키지 `azureml-contrib-interpret` 를 설치 합니다.
+1. `azureml-interpret`및 패키지를 설치 `azureml-contrib-interpret` 합니다.
     ```bash
     pip install azureml-interpret
     pip install azureml-contrib-interpret
@@ -71,8 +71,8 @@ ms.locfileid: "82983638"
    * 설명 개체를 초기화 하려면 모델 및 일부 학습 데이터를 설명의 생성자에 전달 합니다.
    * 설명 및 시각화에 대 한 자세한 정보를 제공 하기 위해 분류를 수행 하는 경우 기능 이름 및 출력 클래스 이름을 전달 하도록 선택할 수 있습니다.
 
-   다음 코드 블록은, `TabularExplainer` `MimicExplainer`및 `PFIExplainer` 을 로컬로 사용 하 여 설명 개체를 인스턴스화하는 방법을 보여 줍니다.
-   * `TabularExplainer`는 (`TreeExplainer`, `DeepExplainer`또는 `KernelExplainer`) 아래에 있는 세 개의 shap explainers 중 하나를 호출 합니다.
+   다음 코드 블록은, 및을 로컬로 사용 하 여 설명 개체를 인스턴스화하는 방법을 보여 줍니다 `TabularExplainer` `MimicExplainer` `PFIExplainer` .
+   * `TabularExplainer`는 (, 또는) 아래에 있는 세 개의 SHAP explainers 중 하나를 호출 `TreeExplainer` `DeepExplainer` `KernelExplainer` 합니다.
    * `TabularExplainer`는 사용 사례에 가장 적합 한 항목을 자동으로 선택 하지만 세 가지 기본 explainers를 직접 호출할 수 있습니다.
 
     ```python
@@ -159,11 +159,11 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ### <a name="raw-feature-transformations"></a>원시 기능 변환
 
-엔지니어링 된 기능이 아니라 원시 레이크의 기능을 사용 하 여 설명을 볼 수 있습니다. 이 옵션의 경우 기능 변환 파이프라인을 설명에 전달 `train_explain.py`합니다. 그렇지 않으면 설명는 엔지니어링 된 기능 측면에서 설명을 제공 합니다.
+엔지니어링 된 기능이 아니라 원시 레이크의 기능을 사용 하 여 설명을 볼 수 있습니다. 이 옵션의 경우 기능 변환 파이프라인을 설명에 전달 `train_explain.py` 합니다. 그렇지 않으면 설명는 엔지니어링 된 기능 측면에서 설명을 제공 합니다.
 
 지원 되는 변환 형식은 [pandas](https://github.com/scikit-learn-contrib/sklearn-pandas)에서 설명한 것과 같습니다. 일반적으로 모든 변환은 단일 열에 대해 작동 하는 한, 즉 일대다를 명확 하 게 수행 하는 동안 지원 됩니다.
 
-또는에 적합 한 변환기 튜플 목록과 함께 또는 `sklearn.compose.ColumnTransformer` 를 사용 하 여 원시 기능에 대 한 설명을 가져옵니다. 다음 예에서는를 `sklearn.compose.ColumnTransformer`사용 합니다.
+또는에 적합 한 `sklearn.compose.ColumnTransformer` 변환기 튜플 목록과 함께 또는를 사용 하 여 원시 기능에 대 한 설명을 가져옵니다. 다음 예에서는를 사용 `sklearn.compose.ColumnTransformer` 합니다.
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -233,17 +233,17 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="generate-feature-importance-values-via-remote-runs"></a>원격 실행을 통해 기능 중요도 값 생성
 
-다음 예제에서는 `ExplanationClient` 클래스를 사용 하 여 원격 실행에 대해 모델 interpretability를 사용 하도록 설정 하는 방법을 보여 줍니다. 다음을 제외 하 고는 로컬 프로세스와 개념적으로 유사 합니다.
+다음 예제에서는 클래스를 사용 하 여 `ExplanationClient` 원격 실행에 대해 모델 interpretability를 사용 하도록 설정 하는 방법을 보여 줍니다. 다음을 제외 하 고는 로컬 프로세스와 개념적으로 유사 합니다.
 
-* 원격 실행 `ExplanationClient` 에서를 사용 하 여 interpretability 컨텍스트를 업로드 합니다.
+* `ExplanationClient`원격 실행에서를 사용 하 여 interpretability 컨텍스트를 업로드 합니다.
 * 로컬 환경에서 나중에 컨텍스트를 다운로드 합니다.
 
-1. 및 `azureml-interpret` 패키지 `azureml-contrib-interpret` 를 설치 합니다.
+1. `azureml-interpret`및 패키지를 설치 `azureml-contrib-interpret` 합니다.
     ```bash
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. `train_explain.py`)을 입력합니다.
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예: `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -303,7 +303,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 다음 그림에서는 학습 된 모델을 예측 및 설명과 함께 전체 보기를 제공 합니다.
 
-|그리면|Description|
+|그림|설명|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시 합니다.|
 |글로벌 중요도|개별 datapoints의 기능 중요도 값을 집계 하 여 모델의 전체 상위 K (구성 가능 K) 중요 기능을 표시 합니다. 기본 모델의 전반적인 동작을 이해 하는 데 도움이 됩니다.|
@@ -317,7 +317,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 전체 플롯에서 개별 데이터 요소 중 하나를 클릭 하 여 모든 데이터 요소에 대 한 개별 기능 중요도 그림을 로드할 수 있습니다.
 
-|그리면|Description|
+|그림|설명|
 |----|-----------|
 |로컬 중요도|개별 예측에 대 한 최상위 K (구성 가능 K) 중요 기능을 보여 줍니다. 특정 데이터 요소에 대 한 기본 모델의 로컬 동작을 보여 줍니다.|
 |Perturbation 탐색 (what-if 분석)|선택한 데이터 요소의 기능 값에 대 한 변경 내용을 허용 하 고 그 결과 예측 값에 대 한 변경 내용을 관찰 합니다.|
@@ -379,7 +379,7 @@ Azure Machine Learning 실행 기록에 생성 된 설명 업로드) [원격 int
 
 원본 모델과 함께 설명를 배포 하 고 유추 시이를 사용 하 여 새 모든 요소에 대 한 개별 기능 중요도 값 (로컬 설명)을 제공할 수 있습니다. 또한 유추 시 interpretability 성능을 향상 시키기 위해 가벼운 점수 매기기 explainers 제공 합니다. 가벼운 점수 매기기 설명를 배포 하는 프로세스는 모델 배포와 유사 하며 다음 단계를 포함 합니다.
 
-1. 설명 개체를 만듭니다. 예를 들어 다음을 사용할 `TabularExplainer`수 있습니다.
+1. 설명 개체를 만듭니다. 예를 들어 다음을 사용할 수 있습니다 `TabularExplainer` .
 
    ```python
     from interpret.ext.blackbox import TabularExplainer

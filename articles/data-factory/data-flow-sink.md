@@ -8,42 +8,55 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4b10a4c98abd6bec4074bf35764a9cbb85d5b157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: 143c94527b947495709d2e94f107dc578e7f2866
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610205"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-데이터를 변환한 후 데이터를 대상 데이터 집합으로 싱크할 수 있습니다. 모든 데이터 흐름에는 하나 이상의 싱크 변환이 필요 하지만 변환 흐름을 완료 하는 데 필요한 만큼의 싱크를 작성할 수 있습니다. 추가 싱크에 쓰려면 새 분기 및 조건부 분할을 통해 새 스트림을 만듭니다.
+데이터 변환을 완료 한 후에는 싱크 변환을 사용 하 여 대상 저장소에 데이터를 씁니다. 모든 데이터 흐름에는 하나 이상의 싱크 변환이 필요 하지만 변환 흐름을 완료 하는 데 필요한 만큼의 싱크를 작성할 수 있습니다. 추가 싱크에 쓰려면 새 분기 및 조건부 분할을 통해 새 스트림을 만듭니다.
 
-각 싱크 변환은 정확히 하나의 Data Factory 데이터 집합에 연결 됩니다. 데이터 집합은 작성 하려는 데이터의 모양과 위치를 정의 합니다.
+각 싱크 변환은 정확히 하나의 Azure Data Factory 데이터 집합 개체 또는 연결 된 서비스와 연결 됩니다. 싱크 변환은 작성 하려는 데이터의 모양과 위치를 결정 합니다.
 
-## <a name="supported-sink-connectors-in-mapping-data-flow"></a>매핑 데이터 흐름에서 지원 되는 싱크 커넥터
+## <a name="inline-datasets"></a>인라인 데이터 집합
 
-현재 다음과 같은 데이터 집합을 싱크 변환에 사용할 수 있습니다.
-    
-* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, 텍스트, Parquet)
-* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, 텍스트, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, 텍스트, Parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+싱크 변환을 만들 때 싱크 정보가 데이터 집합 개체 내부에 정의 되는지 싱크 변환 내에 정의 되어 있는지 여부를 선택 합니다. 대부분의 형식은 한 경우에만 사용할 수 있습니다. 특정 커넥터를 사용 하는 방법을 알아보려면 적절 한 커넥터 문서를 참조 하세요.
 
-이러한 커넥터에 해당 하는 설정은 **설정** 탭에 있습니다. 이러한 설정에 대 한 정보는 커넥터 설명서에 있습니다. 
+인라인 및 데이터 집합 개체에서 형식이 모두 지원 되는 경우 두 가지 이점이 있습니다. 데이터 집합 개체는 복사와 같은 다른 데이터 흐름과 작업에서 활용할 수 있는 재사용 가능한 엔터티입니다. 이러한 기능은 강화 된 스키마를 사용할 때 특히 유용 합니다. 데이터 집합은 Spark를 기반으로 하지 않으며 경우에 따라 싱크 변환에서 특정 설정 또는 스키마 프로젝션을 재정의 해야 할 수도 있습니다.
 
-Azure Data Factory는 [90 개의 기본 커넥터](connector-overview.md)에 액세스할 수 있습니다. 데이터 흐름의 다른 원본에 데이터를 쓰려면 복사 작업을 사용 하 여 데이터 흐름이 완료 된 후 지원 되는 준비 영역 중 하나에서 해당 데이터를 로드 합니다.
+유연한 스키마, 일회용 싱크 인스턴스 또는 매개 변수가 있는 싱크를 사용 하는 경우 인라인 데이터 집합을 사용 하는 것이 좋습니다. 싱크가 매우 매개 변수화 된 경우 인라인 데이터 집합을 사용 하 여 "더미" 개체를 만들 수 없습니다. 인라인 데이터 집합은 spark를 기반으로 하며 해당 속성은 데이터 흐름의 기본입니다.
+
+인라인 데이터 집합을 사용 하려면 **싱크 형식** 선택기에서 원하는 형식을 선택 합니다. 싱크 데이터 집합을 선택 하는 대신 연결할 연결 된 서비스를 선택 합니다.
+
+![인라인 데이터 집합](media/data-flow/inline-selector.png "인라인 데이터 집합")
+
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>지원 되는 싱크 형식
+
+매핑 데이터 흐름은 ELT (추출, 로드, 변환) 접근 방식을 따르며, 모든 Azure의 *준비* 데이터 집합에서 작동 합니다. 현재 원본 변환에 사용할 수 있는 데이터 집합은 다음과 같습니다.
+
+| 커넥터 | 서식 | 데이터 집합/인라인 |
+| --------- | ------ | -------------- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (미리 보기)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure CosmosDB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+
+이러한 커넥터에 해당 하는 설정은 **설정** 탭에 있습니다. 이러한 설정에 대 한 정보 및 데이터 흐름 스크립트 예제는 커넥터 설명서에 있습니다. 
+
+Azure Data Factory는 [90가지의 네이티브 커넥터](connector-overview.md)를 통해 액세스할 수 있습니다. 데이터 흐름에서 다른 원본으로 데이터를 쓰려면 복사 작업을 사용 하 여 지원 되는 싱크에서 해당 데이터를 로드 합니다.
 
 ## <a name="sink-settings"></a>싱크 설정
 
 싱크를 추가한 후에는 **싱크** 탭을 통해를 구성 합니다. 여기서 싱크가 쓰는 데이터 집합을 선택 하거나 만들 수 있습니다. 다음은 텍스트 구분 파일 형식에 대 한 여러 가지 싱크 옵션을 설명 하는 비디오입니다.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
 ![싱크 설정](media/data-flow/sink-settings.png "싱크 설정")
 

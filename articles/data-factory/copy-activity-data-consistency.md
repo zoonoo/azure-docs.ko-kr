@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a386c7d44cf5ba7eda895006cda7ce1fa9b798ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610222"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>복사 활동의 데이터 일관성 확인(미리 보기)
 
@@ -93,9 +92,8 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 
 >[!NOTE]
 >- 준비 복사 시나리오에서는 데이터 일관성이 지원되지 않습니다. 
->- 스토리지 저장소에서 Azure Blob Storage 또는 Azure Data Lake Storage Gen2로 이진 파일을 복사하는 경우 복사 활동은 파일 크기 및 MD5 체크섬 확인을 수행하여 원본 저장소와 대상 저장소 간 데이터 일관성을 확인합니다. 
->- 스토리지 저장소에서 Azure Blob Storage 또는 Azure Data Lake Storage Gen2 이외의 스토리지 저장소로 이진 파일을 복사하는 경우 복사 활동은 파일 크기 확인을 수행하여 원본 저장소와 대상 저장소 간 데이터 일관성을 확인합니다.
-
+>- 또는 Azure Blob 또는 Azure Data Lake Storage Gen2에서 파일을 복사 하는 경우 ADF는 [Azure BLOB API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) 및 [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers)를 활용 하 여 수준 MD5 체크섬 확인을 차단 합니다. ContentMD5 on 파일이 Azure Blob에 있거나 데이터 원본으로 Azure Data Lake Storage Gen2 경우 ADF는 파일을 읽은 후에도 파일 수준 MD5 체크섬 확인을 수행 합니다. Azure Blob 또는 Azure Data Lake Storage Gen2 데이터 대상으로 파일을 복사 하 고 나면 ADF가 데이터 일관성 확인을 위해 다운스트림 응용 프로그램에서 추가로 사용 될 수 있는 Azure Blob 또는 Azure Data Lake Storage Gen2에 ContentMD5을 기록 합니다.
+>- ADF는 저장소 저장소 간에 파일을 복사할 때 파일 크기를 확인 합니다.
 
 ## <a name="monitoring"></a>모니터링
 

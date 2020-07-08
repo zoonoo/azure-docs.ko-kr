@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
 ms.date: 04/27/2020
-ms.openlocfilehash: 48bd53160c3d2e76dccd1f22723c30c2c7e00d7a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: c67e8a79e2339c4a329e276c52703bd749137037
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608420"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
@@ -22,8 +21,8 @@ Apache Spark MLlib를 사용 하 여 기계 학습 응용 프로그램을 만드
 MLlib는 다음과 같은 기계 학습 작업에 유용한 여러 유틸리티를 제공 하는 코어 Spark 라이브러리입니다.
 
 * 분류
-* 재발
-* 클러스터링
+* 회귀
+* Clustering
 * 모델링
 * SVD(특이값 분해) 및 PCA(주성분 분석)
 * 가설 테스트 및 샘플 통계 계산
@@ -38,7 +37,7 @@ MLlib는 다음과 같은 기계 학습 작업에 유용한 여러 유틸리티�
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>식품 검사 데이터에 대한 예측 분석 예제
 
-이 예제에서는 Spark를 사용 하 여 음식 검사 데이터 (**Food_Inspections1 .csv**)에 대 한 몇 가지 예측 분석을 수행 합니다. [시카고 데이터 포털의 도시](https://data.cityofchicago.org/)를 통해 얻은 데이터 이 데이터 집합은 시카고에서 수행 된 음식 설정 검사에 대 한 정보를 포함 합니다. 각 설정에 대 한 정보, 발견 된 위반 (있는 경우) 및 검사 결과를 포함 합니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 스토리지 계정에서 이미 사용할 수 있습니다.
+이 예제에서는 Spark를 사용 하 여 음식 검사 데이터 (**Food_Inspections1.csv**)에 대 한 몇 가지 예측 분석을 수행 합니다. [시카고 데이터 포털의 도시](https://data.cityofchicago.org/)를 통해 얻은 데이터 이 데이터 집합은 시카고에서 수행 된 음식 설정 검사에 대 한 정보를 포함 합니다. 각 설정에 대 한 정보, 발견 된 위반 (있는 경우) 및 검사 결과를 포함 합니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 스토리지 계정에서 이미 사용할 수 있습니다.
 
 아래 단계에서는 음식 검사에 합격 또는 불합격하는 조건을 볼 수 있는 모델을 개발할 것입니다.
 
@@ -207,7 +206,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
 
      다른 결과 ("회사를 찾을 수 없음" 또는 "비즈니스 외")가 포함 된 데이터는 유용 하지 않으며 결과의 작은 비율을 구성 합니다.
 
-4. 다음 코드를 실행하여 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환합니다. 이 경우의 `0.0` 레이블은 실패를 나타내고,의 `1.0` 레이블은 성공을 나타내며,의 `-1.0` 레이블은 이러한 두 결과 외에 일부 결과를 나타냅니다.
+4. 다음 코드를 실행하여 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환합니다. 이 경우의 레이블은 `0.0` 실패를 나타내고,의 레이블은 `1.0` 성공을 나타내며,의 레이블은 `-1.0` 이러한 두 결과 외에 일부 결과를 나타냅니다.
 
     ```PySpark
     def labelForResults(s):
@@ -349,7 +348,7 @@ model = pipeline.fit(labeledData)
     plt.axis('equal')
     ```
 
-    다음과 같은 내용이 출력됩니다.
+    다음 출력이 표시됩니다.
 
     ![Spark machine learning 응용 프로그램 출력-실패 한 음식 검사의 원형 차트 백분율입니다.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning 결과 출력")
 
@@ -361,6 +360,6 @@ model = pipeline.fit(labeledData)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 * [Azure HDInsight를 사용 하 여 심층 학습 모델 Microsoft Cognitive Toolkit](apache-spark-microsoft-cognitive-toolkit.md)

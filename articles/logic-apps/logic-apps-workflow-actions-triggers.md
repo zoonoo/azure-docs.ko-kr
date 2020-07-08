@@ -3,15 +3,14 @@ title: 트리거 및 동작 유형에 대 한 스키마 참조
 description: Azure Logic Apps의 워크플로 정의 언어 트리거 및 동작 유형에 대 한 스키마 참조 가이드
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 01/19/2020
-ms.openlocfilehash: 7e14cc00d1bd716b3e4880e585b05447d2e55e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: 7c220ff2882e12f5239dbd5abc5f87b900cb3807
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609411"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure Logic Apps의 트리거 및 동작 유형에 대 한 스키마 참조 가이드
 
@@ -46,7 +45,7 @@ ms.locfileid: "81257439"
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*트리거-이름*> | String | 트리거의 이름입니다. | 
 | <*트리거-형식*> | String | "Http" 또는 "ApiConnection"과 같은 트리거 형식입니다. | 
@@ -57,9 +56,9 @@ ms.locfileid: "81257439"
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
-| <*배열 조건*> | Array | 워크플로를 실행할지 여부를 결정 하는 하나 이상의 [조건을](#trigger-conditions) 포함 하는 배열입니다. 트리거에만 사용 가능합니다. | 
+| <*배열 조건*> | 배열 | 워크플로를 실행할지 여부를 결정 하는 하나 이상의 [조건을](#trigger-conditions) 포함 하는 배열입니다. 트리거에만 사용 가능합니다. | 
 | <*런타임-구성-옵션*> | JSON 개체 | `runtimeConfiguration` 속성을 설정하여 트리거 런타임 동작을 변경할 수 있습니다. 자세한 내용은 [런타임 구성 설정](#runtime-config-options)을 참조하세요. | 
 | <*splitOn*> | String | 배열을 반환하는 트리거의 경우, 처리를 위해 여러 워크플로 인스턴스로 배열 항목을 [분할 또는 *분리*](#split-on-debatch)하는 식을 지정할 수 있습니다. | 
 | <*작업-옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
@@ -71,9 +70,9 @@ ms.locfileid: "81257439"
 
 ### <a name="built-in-triggers"></a>기본 제공 트리거
 
-| 트리거 유형 | Description | 
+| 트리거 유형 | 설명 | 
 |--------------|-------------| 
-| [**HTTP**](#http-trigger) | 엔드포인트을 검사하거나 *폴링*합니다. 이 엔드포인트은 “202” 비동기 패턴을 사용하거나 배열을 반환하여 특정 트리거 계약을 준수해야 합니다. | 
+| [**HTTP**](#http-trigger) | 엔드포인트을 검사하거나 *폴링*합니다. 이 끝점은 `202` 비동기 패턴을 사용 하거나 배열을 반환 하 여 특정 트리거 계약을 따라야 합니다. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | 논리 앱에 대한 호출 가능 엔드포인트을 만들지만 지정된 URL을 호출하여 등록하거나 등록을 취소합니다. |
 | [**되풀이**](#recurrence-trigger) | 정의된 일정에 따라 실행합니다. 이 트리거를 발생시키기 위한 미래의 날짜 및 시간을 설정할 수 있습니다. 빈도에 따라 워크플로를 실행할 시간 및 요일을 지정할 수도 있습니다. | 
 | [**요청**](#request-trigger)  | 논리 앱에 대한 호출 가능 엔드포인트을 만들며 “수동” 트리거로도 알려져 있습니다. 예를 들어 [HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. | 
@@ -81,7 +80,7 @@ ms.locfileid: "81257439"
 
 ### <a name="managed-api-triggers"></a>관리되는 API 트리거
 
-| 트리거 유형 | Description | 
+| 트리거 유형 | 설명 | 
 |--------------|-------------| 
 | [**ApiConnection**](#apiconnection-trigger) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 엔드포인트을 검사하거나 *폴링*합니다. | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 구독 및 구독을 취소하는 [Microsoft 관리 API](../connectors/apis-list.md)를 호출하여 논리 앱에 대한 호출 가능 엔드포인트을 만듭니다. | 
@@ -126,7 +125,7 @@ ms.locfileid: "81257439"
 
 *필수*
 
-| 값 | Type | Description |
+| 값 | 형식 | 설명 |
 |-------|------|-------------|
 | <*APIConnection_trigger_name*> | String | 트리거의 이름입니다. |
 | <*연결-이름*> | String | 워크플로에서 사용하는 관리되는 API 연결의 이름입니다. |
@@ -138,12 +137,12 @@ ms.locfileid: "81257439"
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
 | <*쿼리-매개 변수*> | JSON 개체 | API 호출에 포함하려는 쿼리 매개 변수입니다. 예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. | 
 | <*최대 실행*> | 정수 | 기본적으로 워크플로 인스턴스는 [기본적](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)으로 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
-| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 ( `runtimeConfiguration.concurrency.runs` 속성에 따라 변경 가능) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
+| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (속성에 따라 변경 가능) `runtimeConfiguration.concurrency.runs` 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*splitOn*> | String | 배열을 반환하는 트리거의 경우 이 식은 사용할 배열을 참조하므로, "for each" 루프를 사용하는 대신, 각 배열 항목에 대해 워크플로 인스턴스를 만들고 실행할 수 있습니다. <p>예를 들어, 이 식은 트리거 본문 콘텐츠 내에서 반환되는 배열의 항목을 나타냅니다. `@triggerbody()?['value']` |
 | <*작업-옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. |
 ||||
@@ -220,20 +219,20 @@ ms.locfileid: "81257439"
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*연결-이름*> | String | 워크플로에서 사용하는 관리되는 API 연결의 이름입니다. | 
 | <*본문-콘텐츠*> | JSON 개체 | 관리되는 API에 페이로드로 전송될 메시지 콘텐츠입니다. | 
-|||| 
+||||
 
 *선택 사항*
 
-| 값 | Type | Description | 
-|-------|------|-------------| 
-| <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
-| <*쿼리-매개 변수*> | JSON 개체 | API 호출에 포함하려는 쿼리 매개 변수입니다. <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. | 
-| <*최대 실행*> | 정수 | 기본적으로 워크플로 인스턴스는 [기본적](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)으로 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
-| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 ( `runtimeConfiguration.concurrency.runs` 속성에 따라 변경 가능) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
+| 값 | 형식 | 설명 |
+|-------|------|-------------|
+| <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. |
+| <*쿼리-매개 변수*> | JSON 개체 | API 호출에 포함하려는 쿼리 매개 변수입니다. <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. |
+| <*최대 실행*> | 정수 | 기본적으로 워크플로 인스턴스는 [기본적](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)으로 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. |
+| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (속성에 따라 변경 가능) `runtimeConfiguration.concurrency.runs` 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*splitOn*> | String | 배열을 반환하는 트리거의 경우 이 식은 사용할 배열을 참조하므로, "for each" 루프를 사용하는 대신, 각 배열 항목에 대해 워크플로 인스턴스를 만들고 실행할 수 있습니다. <p>예를 들어, 이 식은 트리거 본문 콘텐츠 내에서 반환되는 배열의 항목을 나타냅니다. `@triggerbody()?['value']` |
 | <*작업-옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
@@ -269,7 +268,7 @@ ms.locfileid: "81257439"
 
 ### <a name="http-trigger"></a>HTTP 트리거
 
-이 트리거는 지정 된 되풀이 일정에 따라 지정 된 HTTP 또는 HTTPS 끝점에 요청을 보냅니다. 그런 다음 트리거는 응답을 확인 하 여 워크플로가 실행 되는지 여부를 확인 합니다.
+이 트리거는 지정 된 되풀이 일정에 따라 지정 된 HTTP 또는 HTTPS 끝점에 요청을 보냅니다. 그런 다음 트리거는 응답을 확인 하 여 워크플로가 실행 되는지 여부를 확인 합니다. 자세한 내용은 [Azure Logic Apps에서 HTTP 또는 HTTPS를 통한 서비스 끝점 호출](../connectors/connectors-native-http.md)을 참조 하세요.
 
 ```json
 "HTTP": {
@@ -301,7 +300,7 @@ ms.locfileid: "81257439"
 
 *필수*
 
-| 속성 | 값 | Type | 설명 |
+| 속성 | 값 | 형식 | 설명 |
 |----------|-------|------|-------------|
 | `method` | <*메서드 형식*> | String | 보내는 요청을 보내는 데 사용할 방법: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" |
 | `uri` | <*HTTP-또는-HTTPS-끝점-URL*> | String | 보내는 요청을 전송 하려는 HTTP 또는 HTTPS 끝점 URL입니다. 최대 문자열 크기: 2KB <p>Azure 서비스 또는 리소스의 경우이 URI 구문에는 액세스 하려는 리소스 ID와 리소스에 대 한 경로가 포함 됩니다. |
@@ -311,36 +310,36 @@ ms.locfileid: "81257439"
 
 *선택 사항*
 
-| 속성 | 값 | Type | 설명 |
+| 속성 | 값 | 형식 | 설명 |
 |----------|-------|------|-------------|
 | `headers` | <*헤더-콘텐츠*> | JSON 개체 | 요청에 포함 해야 하는 모든 헤더 <p>예를 들어 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*쿼리-매개 변수*> | JSON 개체 | 요청에 사용 해야 하는 모든 쿼리 매개 변수 <p>예를 들어, `"queries": { "api-version": "2018-01-01" }` 개체는 요청에 `?api-version=2018-01-01`을 추가합니다. |
 | `body` | <*본문-콘텐츠*> | JSON 개체 | 요청과 함께 페이로드로 전송할 메시지 콘텐츠입니다. |
-| `authentication` | <*인증-형식-속성-값*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정 하지 않으면 기본값 `https://management.azure.com/`은 이지만 다른 값을 사용할 수 있습니다. |
+| `authentication` | <*인증-형식-속성-값*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정 하지 않으면 기본값은 `https://management.azure.com/` 이지만 다른 값을 사용할 수 있습니다. |
 | `retryPolicy` > `type` | <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. |
 | `runs` | <*최대 실행*> | 정수 | 기본적으로 워크플로 인스턴스는 [기본적](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)으로 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. |
-| `maximumWaitingRuns` | <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 ( `runtimeConfiguration.concurrency.runs` 속성에 따라 변경 가능) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. |
+| `maximumWaitingRuns` | <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (속성에 따라 변경 가능) `runtimeConfiguration.concurrency.runs` 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. |
 | `operationOptions` | <*작업-옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. |
 |||||
 
 *출력*
 
 | 요소 | Type | 설명 |
-|---------|------|-------------| 
-| headers | JSON 개체 | 응답의 헤더입니다. | 
-| 본문 | JSON 개체 | 응답의 본문입니다. | 
-| 상태 코드 | 정수 | 응답의 상태 코드 | 
-|||| 
+|---------|------|-------------|
+| `headers` | JSON 개체 | 응답의 헤더입니다. |
+| `body` | JSON 개체 | 응답의 본문입니다. |
+| `status code` | 정수 | 응답의 상태 코드 |
+||||
 
 *들어오는 요청에 대한 요구 사항*
 
-논리 앱에서 잘 작동하려면 엔드포인트은 특정 트리거 패턴 또는 계약을 준수하고, 다음 속성을 인식해야 합니다.  
-  
-| 응답 | 필수 | Description | 
-|----------|----------|-------------| 
-| 상태 코드 | 예 | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
-| Retry-after 헤더 | 아니요 | 논리 앱이 끝점을 다시 폴링할 때까지 걸리는 시간 (초)입니다. | 
-| 위치 헤더 | 아니요 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
+논리 앱에서 잘 작동 하려면 끝점이 특정 트리거 패턴 또는 계약을 준수 해야 하 고 다음과 같은 응답 속성을 인식 해야 합니다.
+
+| 속성 | 필수 | Description |
+|----------|----------|-------------|
+| 상태 코드 | 예 | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. |
+| Retry-after 헤더 | 아니요 | 논리 앱이 끝점을 다시 폴링할 때까지 걸리는 시간 (초)입니다. |
+| 위치 헤더 | 아니요 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. |
 |||| 
 
 *다른 요청에 대한 예제 동작*
@@ -397,7 +396,7 @@ ms.locfileid: "81257439"
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*메서드 형식*> | String | 구독 요청에 사용되는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
 | <*끝점-구독-URL*> | String | 구독 요청을 전송할 엔드포인트 URL입니다. | 
@@ -405,15 +404,15 @@ ms.locfileid: "81257439"
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*메서드 형식*> | String | 취소 요청에 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
 | <*끝점-구독 취소-URL*> | String | 취소 요청을 보낼 엔드포인트 URL입니다. | 
 | <*본문-콘텐츠*> | String | 구독 또는 취소 요청에 전송할 메시지 콘텐츠입니다. | 
-| <*인증-형식*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. |
+| <*인증-형식*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요. |
 | <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
 | <*최대 실행*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
-| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 ( `runtimeConfiguration.concurrency.runs` 속성에 따라 변경 가능) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
+| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (속성에 따라 변경 가능) `runtimeConfiguration.concurrency.runs` 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*작업-옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
 
@@ -491,7 +490,7 @@ ms.locfileid: "81257439"
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*시간-단위*> | String | 트리거가 실행되는 빈도를 설명하는 시간 단위로, “초”, “분”, “시간”, “일”, “주” 또는 “월”이 있습니다. | 
 | <*시간 단위 수*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
@@ -499,7 +498,7 @@ ms.locfileid: "81257439"
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*시작-날짜-시간-YYYY-MM-Yyyy-mm-ddthh: MM: ss*> | String | 다음 형식의 시작 날짜 및 시간: <p>YYYY-MM-DDThh:mm:ss(표준 시간대를 지정하는 경우) <p>또는 <p>YYYY-MM-DDThh:mm:ssZ(표준 시간대를 지정하지 않는 경우) <p>따라서 예를 들어 2017년 9월 18일, 오후 2시를 원할 경우 “2017-09-18T14:00:00”을 지정하고 “태평양 표준시”와 같은 표준 시간대를 지정하거나 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 지정하지 않으면 공백 없이 맨 끝에 문자 "Z"를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. 시작 날짜 및 시간에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요. | 
 | <*표준 시간대*> | String | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 지정합니다. | 
@@ -507,11 +506,11 @@ ms.locfileid: "81257439"
 | <*1 분 이상 표시*> | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~59 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 분으로 지정할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
 | weekDays | 문자열 또는 문자열 배열 | `frequency`에 대해 “Week”를 지정하는 경우 워크플로를 실행하려는 경우 하나 이상의 요일을 쉼표로 구분해서 지정할 수 있습니다. 예를 들면 "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"와 같이 지정합니다. | 
 | <*최대 실행*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
-| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 ( `runtimeConfiguration.concurrency.runs` 속성에 따라 변경 가능) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
+| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (속성에 따라 변경 가능) `runtimeConfiguration.concurrency.runs` 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*작업-옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
 
-*예 1*
+*예제 1*
 
 이 기본 되풀이 트리거가 매일 실행됩니다.
 
@@ -525,7 +524,7 @@ ms.locfileid: "81257439"
 }
 ```
 
-*예 2*
+*예제 2*
 
 트리거를 실행할 시작 날짜 및 시간을 설정할 수 있습니다. 이 되풀이 트리거는 지정된 날짜에 시작한 다음, 매일 실행됩니다.
 
@@ -540,7 +539,7 @@ ms.locfileid: "81257439"
 }
 ```
 
-*예제 3*
+*예 3*
 
 이 되풀이 트리거는 2017년 9월 9일 오후 2시에 시작하고, 매주 월요일 오전 10시 30분, 오후 12시 30분, 오후 2시 30분에 실행됩니다(태평양 표준시).
 
@@ -600,7 +599,7 @@ ms.locfileid: "81257439"
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*속성-이름*> | String | 페이로드를 설명하는 JSON 스키마의 속성 이름입니다. | 
 | <*속성-형식*> | String | 속성의 형식입니다. | 
@@ -608,13 +607,13 @@ ms.locfileid: "81257439"
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*메서드 형식*> | String | 들어오는 요청에서 논리 앱을 호출하는 데 사용해야 하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” |
 | <*상대 경로-허용 된 매개 변수*> | String | 엔드포인트의 URL이 수락할 수 있는 매개 변수에 대한 상대 경로입니다. | 
-| <*필수-속성*> | Array | 값이 필요한 하나 이상의 속성 | 
+| <*필수-속성*> | 배열 | 값이 필요한 하나 이상의 속성 | 
 | <*최대 실행*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
-| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 ( `runtimeConfiguration.concurrency.runs` 속성에 따라 변경 가능) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
+| <*최대 실행-큐*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (속성에 따라 변경 가능) `runtimeConfiguration.concurrency.runs` 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
 | <*작업-옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
 
@@ -655,7 +654,7 @@ ms.locfileid: "81257439"
 
 ## <a name="trigger-conditions"></a>트리거 조건
 
-트리거의 경우(트리거에 한해) 워크플로의 실행 여부를 결정하는 조건에 대한 하나 이상의 식이 들어 있는 배열을 포함할 수 있습니다. 워크플로의 트리거에 `conditions` 속성을 추가 하려면 코드 뷰 편집기에서 논리 앱을 엽니다.
+트리거의 경우(트리거에 한해) 워크플로의 실행 여부를 결정하는 조건에 대한 하나 이상의 식이 들어 있는 배열을 포함할 수 있습니다. `conditions`워크플로의 트리거에 속성을 추가 하려면 코드 뷰 편집기에서 논리 앱을 엽니다.
 
 예를 들어, `conditions` 속성에서 트리거의 상태 코드를 참조하여 웹 사이트가 내부 서버 오류를 반환할 때만 트리거가 발생하도록 지정할 수 있습니다.
 
@@ -772,7 +771,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------|
 | <*작업-이름*> | String | 작업의 이름입니다. | 
 | <*작업-형식*> | String | 작업 유형, 예: “Http” 또는 “ApiConnection”| 
@@ -783,7 +782,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------|
 | <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 다시 시도 정책을 참조하세요. | 
 | <*런타임-구성-옵션*> | JSON 개체 | 일부 작업의 경우 `runtimeConfiguration` 속성을 설정하여 런타임에 작업 동작을 변경할 수 있습니다. 자세한 내용은 [런타임 구성 설정](#runtime-config-options)을 참조하세요. | 
@@ -816,19 +815,19 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="built-in-actions"></a>기본 제공 작업
 
-| 동작 유형 | Description | 
+| 동작 유형 | 설명 | 
 |-------------|-------------| 
 | [**Docker Compose**](#compose-action) | 입력에서 단일 출력을 만듭니다. 다양한 형식을 가질 수 있습니다. | 
 | [**JavaScript 코드 실행**](#run-javascript-code) | 특정 조건에 맞는 JavaScript 코드 조각을 실행 합니다. 코드 요구 사항 및 자세한 내용은 [인라인 코드를 사용 하 여 코드 조각 추가 및 실행](../logic-apps/logic-apps-add-run-inline-code.md)을 참조 하세요. |
 | [**기능**](#function-action) | Azure 함수를 호출합니다. | 
 | [**HTTP**](#http-action) | HTTP 엔드포인트을 호출합니다. | 
-| [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
+| [**조인**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
 | [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에서 친숙한 토큰을 만듭니다. 논리 앱에 토큰을 포함하여 해당 속성을 참조할 수 있습니다. | 
 | [**쿼리**](#query-action) | 조건 또는 필터를 기준으로 다른 배열에 있는 항목에서 배열을 만듭니다. | 
 | [**응답**](#response-action) | 들어오는 호출 또는 요청에 대한 응답을 만듭니다. | 
 | [**[**](#select-action) | 지정된 맵을 기준으로 다른 배열의 항목을 변형하여 JSON 개체를 포함하는 배열을 만듭니다. | 
 | [**테이블**](#table-action) | 배열에서 CSV 또는 HTML 테이블을 만듭니다. | 
-| [**Terminate**](#terminate-action) | 현재 실행 중인 워크플로를 중지합니다. | 
+| [**종료**](#terminate-action) | 현재 실행 중인 워크플로를 중지합니다. | 
 | [**연결 시도 간격**](#wait-action) | 지정된 기간 동안 또는 지정된 날짜 및 시간까지 워크플로를 일시중지합니다. | 
 | [**워크플로**](#workflow-action) | 다른 워크플로 내에 워크플로를 중첩합니다. | 
 ||| 
@@ -837,7 +836,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="managed-api-actions"></a>관리되는 API 작업
 
-| 동작 유형 | Description | 
+| 동작 유형 | 설명 | 
 |-------------|-------------|  
 | [**ApiConnection**](#apiconnection-action) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 HTTP 엔드포인트을 호출합니다. | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | HTTP 웹후크처럼 작동하지만 [Microsoft 관리 API](../connectors/apis-list.md)를 사용합니다. | 
@@ -849,12 +848,12 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 이러한 작업은 워크플로 실행을 제어하고 다른 작업을 포함하도록 도와줍니다. 워크플로 제어 작업 외부에서, 해당 워크플로 제어 작업 내부의 작업을 직접 참조할 수 있습니다. 예를 들어, `Http` 작업이 범위 내에 있는 경우 워크플로의 어디에서든지 `@body('Http')` 식을 참조할 수 있습니다. 그러나 워크플로 제어 작업 내에서 존재하는 작업은 동일한 워크플로 제작어 업 구조 내에 있는 다른 작업 "이후에만 실행"될 수 있습니다.
 
-| 동작 유형 | Description | 
+| 동작 유형 | 설명 | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | 배열에 있는 모든 항목에 대해 동일한 작업을 반복해서 실행합니다. | 
 | [**때**](#if-action) | 지정된 조건이 true인지 또는 false인지에 따라 작업을 실행합니다. | 
-| [**범위**](#scope-action) | 작업 집합의 그룹 상태를 기준으로 작업을 실행합니다. | 
-| [**바꿀**](#switch-action) | 식, 개체 또는 토큰의 값이 각 사례에 지정된 값과 일치할 때 사례로 구성된 작업을 실행합니다. | 
+| [**Scope**](#scope-action) | 작업 집합의 그룹 상태를 기준으로 작업을 실행합니다. | 
+| [**스위치**](#switch-action) | 식, 개체 또는 토큰의 값이 각 사례에 지정된 값과 일치할 때 사례로 구성된 작업을 실행합니다. | 
 | [**발생할**](#until-action) | 지정된 조건이 충족될 때까지 작업을 반복해서 실행합니다. | 
 |||  
 
@@ -888,7 +887,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*작업-이름*> | String | 커넥터에서 제공하는 작업의 이름입니다. | 
 | <*api 이름*> | String | 연결에 사용되는 Microsoft 관리 API의 이름입니다. | 
@@ -898,7 +897,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*기타-동작 관련 입력-속성*> | JSON 개체 | 이 특정 작업에 적용되는 다른 입력 속성입니다. | 
 | <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
@@ -968,7 +967,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*작업-이름*> | String | 커넥터에서 제공하는 작업의 이름입니다. | 
 | <*메서드 형식*> | String | 엔드포인트을 구독하거나 엔드포인트에서 구독 취소하는 데 사용하는 HTTP 메서드: &quot;GET&quot;, &quot;PUT&quot;, &quot;POST&quot;, &quot;PATCH&quot; 또는 &quot;DELETE&quot; | 
@@ -977,12 +976,12 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*api-구독 취소-URL*> | String | API에서 구독 취소하는 데 사용할 URI입니다. | 
 | <*헤더-콘텐츠*> | JSON 개체 | 요청에 전송할 헤더입니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*본문-콘텐츠*> | JSON 개체 | 요청에 전송할 메시지 콘텐츠입니다. | 
-| <*인증-형식*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. |
+| <*인증-형식*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요. |
 | <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
 | <*쿼리-매개 변수*> | JSON 개체 | API 호출에 포함하려는 쿼리 매개 변수입니다. <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. | 
 | <*기타-동작 관련 입력-속성*> | JSON 개체 | 이 특정 작업에 적용되는 다른 입력 속성입니다. | 
@@ -1007,12 +1006,12 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수* 
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*입력-작성*> | 모두 | 단일 출력을 만들기 위한 입력입니다. | 
 |||| 
 
-*예 1*
+*예제 1*
 
 <!-- markdownlint-disable MD038 -->
 이 작업 정의는 `abcdefg `를 후행 공백과 값 `1234`에 병합합니다.
@@ -1030,7 +1029,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 `abcdefg 1234`
 
-*예 2*
+*예제 2*
 
 이 작업 정의는 `abcdefg`를 포함하는 문자열 변수와 `1234`를 포함하는 정수 변수를 병합합니다.
 
@@ -1050,7 +1049,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="execute-javascript-code-action"></a>JavaScript 코드 실행 작업
 
-이 작업은 JavaScript 코드 조각을 실행 하 고 나중에 작업에서 `Result` 참조할 수 있는 토큰을 통해 결과를 반환 합니다.
+이 작업은 JavaScript 코드 조각을 실행 하 고 `Result` 나중에 작업에서 참조할 수 있는 토큰을 통해 결과를 반환 합니다.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1068,25 +1067,25 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description |
+| 값 | 형식 | 설명 |
 |-------|------|-------------|
-| <*JavaScript-코드 조각*> | 다양함 | 실행 하려는 JavaScript 코드입니다. 코드 요구 사항 및 자세한 내용은 [인라인 코드를 사용 하 여 코드 조각 추가 및 실행](../logic-apps/logic-apps-add-run-inline-code.md)을 참조 하세요. <p>`code` 특성에서 코드 조각은 읽기 전용 `workflowContext` 개체를 입력으로 사용할 수 있습니다. 이 개체에는 워크플로의 트리거와 이전 작업의 결과에 대 한 코드 액세스를 제공 하는 하위 속성이 있습니다. `workflowContext` 개체에 대 한 자세한 내용은 [코드의 참조 트리거 및 작업 결과](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)를 참조 하세요. |
+| <*JavaScript-코드 조각*> | 상황에 따라 다름 | 실행 하려는 JavaScript 코드입니다. 코드 요구 사항 및 자세한 내용은 [인라인 코드를 사용 하 여 코드 조각 추가 및 실행](../logic-apps/logic-apps-add-run-inline-code.md)을 참조 하세요. <p>특성에서 `code` 코드 조각은 읽기 전용 개체를 입력으로 사용할 수 있습니다 `workflowContext` . 이 개체에는 워크플로의 트리거와 이전 작업의 결과에 대 한 코드 액세스를 제공 하는 하위 속성이 있습니다. 개체에 대 한 자세한 내용은 `workflowContext` [코드의 참조 트리거 및 작업 결과](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)를 참조 하세요. |
 ||||
 
 *일부 경우에 필요 합니다.*
 
-특성 `explicitDependencies` 은 트리거, 이전 작업 또는 둘 다의 결과를 코드 조각에 대 한 종속성으로 명시적으로 포함 하도록 지정 합니다. 이러한 종속성을 추가 하는 방법에 대 한 자세한 내용은 [인라인 코드에 대 한 매개 변수 추가](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters)를 참조 하세요. 
+`explicitDependencies`특성은 트리거, 이전 작업 또는 둘 다의 결과를 코드 조각에 대 한 종속성으로 명시적으로 포함 하도록 지정 합니다. 이러한 종속성을 추가 하는 방법에 대 한 자세한 내용은 [인라인 코드에 대 한 매개 변수 추가](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters)를 참조 하세요. 
 
-`includeTrigger` 특성의 경우 또는 `false` 값을 지정할 `true` 수 있습니다.
+특성의 경우 `includeTrigger` 또는 값을 지정할 수 있습니다 `true` `false` .
 
-| 값 | Type | Description |
+| 값 | 형식 | 설명 |
 |-------|------|-------------|
 | <*이전-작업*> | 문자열 배열 | 지정 된 작업 이름이 있는 배열입니다. 작업 이름에 밑줄 (_)을 사용 하 고 공백 ("")은 사용 하지 않는 워크플로 정의에 표시 되는 작업 이름을 사용 합니다. |
 ||||
 
-*예 1*
+*예제 1*
 
-이 작업은 논리 앱의 이름을 가져오고 결과로 "Hello 세계 from \<논리-앱-이름>" 텍스트를 반환 하는 코드를 실행 합니다. 이 예제에서 코드는 읽기 전용 `workflowContext.workflow.name` `workflowContext` 개체를 통해 속성에 액세스 하 여 워크플로 이름을 참조 합니다. 개체를 사용 하는 `workflowContext` 방법에 대 한 자세한 내용은 [코드의 참조 트리거 및 작업 결과](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)를 참조 하세요.
+이 작업은 논리 앱의 이름을 가져오고 결과로 "Hello w from" 텍스트를 반환 하는 코드를 실행 \<logic-app-name> 합니다. 이 예제에서 코드는 읽기 전용 개체를 통해 속성에 액세스 하 여 워크플로 이름을 참조 합니다 `workflowContext.workflow.name` `workflowContext` . 개체를 사용 하는 방법에 대 한 자세한 내용은 `workflowContext` [코드의 참조 트리거 및 작업 결과](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)를 참조 하세요.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1098,11 +1097,11 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 }
 ```
 
-*예 2*
+*예제 2*
 
 이 작업을 수행 하면 Office 365 Outlook 계정에 새 전자 메일이 도착할 때 트리거되는 논리 앱에서 코드가 실행 됩니다. 또한 논리 앱은 승인 요청과 함께 수신 된 전자 메일의 콘텐츠를 전달 하는 승인 전자 메일 보내기 작업을 사용 합니다.
 
-이 코드는 트리거의 `Body` 속성에서 전자 메일 주소를 추출 하 고 승인 동작의 `SelectedOption` 속성 값과 함께 주소를 반환 합니다. 작업은 `explicitDependencies`  >  `actions` 특성에 종속성으로 승인 전자 메일 보내기 작업을 명시적으로 포함 합니다.
+이 코드는 트리거의 속성에서 전자 메일 주소를 추출 `Body` 하 고 `SelectedOption` 승인 동작의 속성 값과 함께 주소를 반환 합니다. 작업은 특성에 종속성으로 승인 전자 메일 보내기 작업을 명시적으로 포함 `explicitDependencies`  >  `actions` 합니다.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1145,7 +1144,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------|  
 | <*Azure-함수 ID*> | String | 호출하려는 Azure 함수의 리소스 ID입니다. 이 값의 형식은 다음과 같습니다.<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*메서드 형식*> | String | 함수 호출에 사용되는 HTTP 메서드: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" <p>지정하지 않으면 기본값은 "POST" 메서드입니다. | 
@@ -1153,7 +1152,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------|  
 | <*헤더-콘텐츠*> | JSON 개체 | 호출과 함께 보낼 헤더입니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*본문-콘텐츠*> | JSON 개체 | 요청에 전송할 메시지 콘텐츠입니다. | 
@@ -1201,7 +1200,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="http-action"></a>HTTP 동작
 
-이 작업은 지정 된 HTTP 또는 HTTPS 끝점에 요청을 보내고 응답을 확인 하 여 워크플로가 실행 되는지 여부를 확인 합니다.
+이 작업은 지정 된 HTTP 또는 HTTPS 끝점에 요청을 보내고 응답을 확인 하 여 워크플로가 실행 되는지 여부를 확인 합니다. 자세한 내용은 [Azure Logic Apps에서 HTTP 또는 HTTPS를 통한 서비스 끝점 호출](../connectors/connectors-native-http.md)을 참조 하세요.
 
 ```json
 "HTTP": {
@@ -1223,7 +1222,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 속성 | 값 | Type | Description |
+| 속성 | 값 | 형식 | 설명 |
 |----------|-------|------|-------------|
 | `method` | <*메서드 형식*> | String | 보내는 요청을 보내는 데 사용할 방법: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" |
 | `uri` | <*HTTP-또는-HTTPS-끝점-URL*> | String | 보내는 요청을 전송 하려는 HTTP 또는 HTTPS 끝점 URL입니다. 최대 문자열 크기: 2KB <p>Azure 서비스 또는 리소스의 경우이 URI 구문에는 액세스 하려는 리소스 ID와 리소스에 대 한 경로가 포함 됩니다. |
@@ -1231,12 +1230,12 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *선택 사항*
 
-| 속성 | 값 | Type | Description |
+| 속성 | 값 | 형식 | 설명 |
 |----------|-------|------|-------------|
 | `headers` | <*헤더-콘텐츠*> | JSON 개체 | 요청에 포함 해야 하는 모든 헤더 <p>예를 들어 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*쿼리-매개 변수*> | JSON 개체 | 요청에 사용 해야 하는 모든 쿼리 매개 변수 <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. |
 | `body` | <*본문-콘텐츠*> | JSON 개체 | 요청과 함께 페이로드로 전송할 메시지 콘텐츠입니다. |
-| `authentication` | <*인증-형식-속성-값*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정 하지 않으면 기본값 `https://management.azure.com/`은 이지만 다른 값을 사용할 수 있습니다. |
+| `authentication` | <*인증-형식-속성-값*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정 하지 않으면 기본값은 `https://management.azure.com/` 이지만 다른 값을 사용할 수 있습니다. |
 | `retryPolicy` > `type` | <*다시 시도-동작*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. |
 | <*기타-동작 관련 입력-속성*> | <*입력-속성*> | JSON 개체 | 이 특정 작업에 적용되는 다른 입력 속성입니다. |
 | <*기타-작업 관련 속성*> | <*속성-값*> | JSON 개체 | 이 특정 작업에 적용되는 다른 속성입니다. |
@@ -1275,10 +1274,10 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | Description | 
 |-------|------|-------------| 
-| <*배열과*> | Array | 원본 항목을 제공하는 배열 또는 식입니다. 식을 지정할 때는 큰따옴표로 식을 묶습니다. | 
-| <*문자가*> | 단일 문자 문자열 | 문자열의 각 항목을 구분하는 문자입니다. | 
+| <*array*> | 배열 | 원본 항목을 제공하는 배열 또는 식입니다. 식을 지정할 때는 큰따옴표로 식을 묶습니다. | 
+| <*delimiter*> | 단일 문자 문자열 | 문자열의 각 항목을 구분하는 문자입니다. | 
 |||| 
 
 *예제*
@@ -1319,7 +1318,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*JSON-소스*> | JSON 개체 | 구문 분석할 JSON 콘텐츠입니다. | 
 | <*JSON-스키마*> | JSON 개체 | 기본 작업이 원본 JSON 콘텐츠를 구문 분석하는 데 사용하는 기본 JSON 콘텐츠를 설명하는 JSON 스키마입니다. <p>**팁**: Logic Apps 디자이너에서 스키마를 제공하거나 작업에서 스키마를 생성할 수 있도록 샘플 페이로드를 제공할 수 있습니다. | 
@@ -1421,9 +1420,9 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
-| <*배열과*> | Array | 원본 항목을 제공하는 배열 또는 식입니다. 식을 지정할 때는 큰따옴표로 식을 묶습니다. |
+| <*array*> | 배열 | 원본 항목을 제공하는 배열 또는 식입니다. 식을 지정할 때는 큰따옴표로 식을 묶습니다. |
 | <*조건-또는 필터*> | String | 원본 배열에서 항목을 필터링하는 데 사용되는 조건입니다. <p>**참고**: 조건을 충족하는 값이 없는 경우 작업은 빈 배열을 만듭니다. |
 |||| 
 
@@ -1462,14 +1461,14 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*응답-상태-코드*> | 정수 | 들어오는 요청으로 전송되는 HTTP 상태 코드입니다. 기본 코드는 "200 정상"이지만 3xxx를 제외하고 2xx, 4xx 또는 5xx로시작 되는 어떤 유효한 상태 코드도 될 수 있습니다. | 
 |||| 
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*응답-헤더*> | JSON 개체 | 응답에 포함할 하나 이상의 헤더입니다. | 
 | <*응답-본문*> | 다양 | 이전 작업의 문자열, JSON 개체 또는 이진 콘텐츠일 수 있는 응답 본문입니다. | 
@@ -1537,11 +1536,11 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수* 
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
-| <*배열과*> | Array | 원본 항목을 제공하는 배열 또는 식입니다. 식을 큰따옴표로 묶어야 합니다. <p>**참고**: 원본 배열이 비어 있는 경우 작업은 빈 배열을 만듭니다. | 
+| <*array*> | 배열 | 원본 항목을 제공하는 배열 또는 식입니다. 식을 큰따옴표로 묶어야 합니다. <p>**참고**: 원본 배열이 비어 있는 경우 작업은 빈 배열을 만듭니다. | 
 | <*키 이름*> | String | <*식* 의 결과에 할당 된 속성 이름입니다.> <p>출력 배열의 모든 개체에 새 속성을 추가하려면 해당 속성의 <*key-name*>과 해당 속성 값의 <*expression*>을 제공합니다. <p>배열의 모든 개체에서 속성을 제거하려면 해당 속성의 <*key-name*>을 생략합니다. | 
-| <*식*> | String | 소스 배열의 항목을 변환 하 고 결과를 <*키 이름* 에 할당 하는 식입니다.> | 
+| <*expression*> | String | 소스 배열의 항목을 변환 하 고 결과를 <*키 이름* 에 할당 하는 식입니다.> | 
 |||| 
 
 **Select** 작업은 배열을 출력으로 만들기 때문에 이 출력을 사용하려는 모든 작업은 배열을 수락해야 하고, 그렇지 않은 경우 사용자가 소비자 작업이 수락하는 형식으로 배열을 변환해야 합니다. 예를 들어, 출력 배열을 문자열로 변환하려면 해당 배열을 **Compose** 작업으로 전달한 후 **Compose** 작업의 출력을 다른 작업에서 참조할 수 있습니다.
@@ -1635,23 +1634,23 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수* 
 
-| 값 | Type | Description | 
+| 값 | 형식 | Description | 
 |-------|------|-------------| 
-| \<CSV *또는* HTML>| String | 만들려는 테이블의 형식입니다. | 
-| <*배열과*> | Array | 테이블의 원본 항목을 제공하는 배열 또는 식입니다. <p>**참고**: 원본 배열이 비어 있는 경우 작업은 빈 테이블을 만듭니다. | 
+| \<CSV *or* HTML>| String | 만들려는 테이블의 형식입니다. | 
+| <*array*> | 배열 | 테이블의 원본 항목을 제공하는 배열 또는 식입니다. <p>**참고**: 원본 배열이 비어 있는 경우 작업은 빈 테이블을 만듭니다. | 
 |||| 
 
 *선택 사항*
 
 열 머리글 및 값을 지정하거나 사용자 지정하려면 `columns` 배열을 사용합니다. `header-value` 쌍이 같은 머리글 이름을 갖는 경우 해당 값은 해당 머리글 이름 아래의 동일한 열에 표시됩니다. 그렇지 않은 경우, 각 고유 머리글은 고유한 열을 정의합니다.
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*열 이름*> | String | 열의 머리글 이름입니다. | 
 | <*열 값*> | 모두 | 해당 열의 값입니다. | 
 |||| 
 
-*예 1*
+*예제 1*
 
 현재 이 배열이 포함된 이전에 만든 "myItemArray" 변수가 있다고 가정합니다.
 
@@ -1678,7 +1677,7 @@ ID,Product_Name
 1,Oranges 
 ```
 
-*예 2*
+*예제 2*
 
 이 작업 정의는 "myItemArray" 변수에서 HTML 테이블을 만듭니다. `from` 속성에 사용되는 식은 `variables()` 함수를 사용하여 "myItemArray"에서 배열을 가져옵니다.
 
@@ -1697,7 +1696,7 @@ ID,Product_Name
 
 <table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
-*예제 3*
+*예 3*
 
 이 작업 정의는 "myItemArray" 변수에서 HTML 테이블을 만듭니다. 그러나 이 예제에서는 기본 열 머리글 이름을 "Stock_ID" 및 "Description"으로 재정의하고, "Description" 열의 값에 "Organic"이라는 단어를 추가합니다.
 
@@ -1724,7 +1723,7 @@ ID,Product_Name
 
 이 작업이 만드는 HTML 테이블은 다음과 같습니다. 
 
-<table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
+<table><thead><tr><th>Stock_ID</th><th>설명</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
@@ -1748,7 +1747,7 @@ ID,Product_Name
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*업무*> | String | 실행에 대해 반환할 상태: "Failed", "Cancelled" 또는 "Succeded" |
 |||| 
@@ -1757,7 +1756,7 @@ ID,Product_Name
 
 "runStatus" 개체의 속성은 "runStatus" 속성이 "Failed" 상태로 설정될 때만 적용됩니다.
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*오류-코드 또는-이름*> | String | 오류에 대한 코드 또는 이름입니다. |
 | <*오류-메시지*> | String | 오류 및 앱 사용자가 수행할 수 있는 작업을 설명하는 메시지 또는 텍스트입니다. | 
@@ -1818,14 +1817,14 @@ ID,Product_Name
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*단위 수*> | 정수 | **Delay** 작업에 대해 대기할 단위 수입니다. | 
-| <*간격은*> | String | **Delay** 작업에 대해 대기할 간격: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*interval*> | String | **Delay** 작업에 대해 대기할 간격: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*날짜-시간 스탬프*> | String | **Delay Until** 작업에 대해 실행을 다시 시작할 날짜 및 시간입니다. 이 값은 [UTC 날짜/시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)을 사용해야 합니다. | 
 |||| 
 
-*예 1*
+*예제 1*
 
 이 작업 정의는 15분 동안 워크플로를 일시 중지합니다.
 
@@ -1842,7 +1841,7 @@ ID,Product_Name
 },
 ```
 
-*예 2*
+*예제 2*
 
 이 작업 정의는 지정된 시간까지 워크플로를 일시 중지합니다.
 
@@ -1891,7 +1890,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*중첩 된 논리-앱 이름*> | String | 호출하려는 논리 앱의 이름입니다. | 
 | <*트리거-이름*> | String | 호출하려는 중첩된 논리 앱의 트리거 이름입니다. | 
@@ -1902,7 +1901,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------|  
 | <*헤더-콘텐츠*> | JSON 개체 | 호출과 함께 보낼 헤더입니다. | 
 | <*본문-콘텐츠*> | JSON 개체 | 호출과 함께 전송할 메시지 콘텐츠입니다. | 
@@ -1968,7 +1967,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *필수* 
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*작업-1 ... 개의*> | String | 각 배열 항목에 대해 실행되는 작업의 이름입니다. | 
 | <*작업-정의-1 ... 개의*> | JSON 개체 | 실행되는 작업에 대한 정의입니다. | 
@@ -1977,9 +1976,9 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | Description | 
 |-------|------|-------------| 
-| <*수*> | 정수 | 기본적으로 "for each" 루프 반복은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency)을 참조하세요. | 
+| <*count*> | 정수 | 기본적으로 "for each" 루프 반복은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 또는 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency)을 참조하세요. | 
 | <*작업-옵션*> | String | "for each" 루프를 병렬 방식이 아닌 순차적으로 실행하려면 <*operation-option*>을 `Sequential`로 설정하거나 <*count*>를 `1`로 설정합니다. 둘 중 하나만 설정해야 합니다. 자세한 내용은 ["for each" 루프를 순차적으로 실행](#sequential-for-each)을 참조하세요. | 
 |||| 
 
@@ -2041,7 +2040,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*조건*> | JSON 개체 | 평가할 조건으로, 식이 될 수 있습니다. | 
 | <*작업-1*> | JSON 개체 | <*condition*>이 true로 평가될 때 실행할 작업입니다. | 
@@ -2131,7 +2130,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------|  
 | <*내부 작업-1 ... 개의*> | JSON 개체 | 범위 내에서 실행되는 하나 이상의 작업입니다. |
 | <*작업-입력*> | JSON 개체 | 각 작업에 대한 입력입니다. |
@@ -2172,17 +2171,17 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 *필수*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
-| <*식-개체 또는 토큰*> | 다양함 | 평가할 식, JSON 개체 또는 토큰입니다. | 
+| <*식-개체 또는 토큰*> | 상황에 따라 다름 | 평가할 식, JSON 개체 또는 토큰입니다. | 
 | <*작업-이름*> | String | 일치하는 사례에 대해 실행할 작업의 이름입니다. | 
 | <*작업-정의*> | JSON 개체 | 일치하는 사례에 대해 실행할 작업에 대한 정의입니다. | 
-| <*일치-값*> | 다양함 | 평가된 결과와 비교할 값입니다. | 
+| <*일치-값*> | 상황에 따라 다름 | 평가된 결과와 비교할 값입니다. | 
 |||| 
 
 *선택 사항*
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*기본값-작업 이름*> | String | 일치하는 사례가 없는 경우에 실행할 기본 작업의 이름입니다. | 
 | <*기본-동작-정의*> | JSON 개체 | 일치하는 사례가 없는 경우에 실행할 작업에 대한 정의입니다. | 
@@ -2298,7 +2297,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
-| 값 | Type | Description | 
+| 값 | 형식 | 설명 | 
 |-------|------|-------------| 
 | <*작업-이름*> | String | 루프 내에서 실행하려는 작업의 이름입니다. | 
 | <*작업-형식*> | String | 실행하려는 작업 유형입니다. | 
@@ -2375,16 +2374,16 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ## <a name="runtime-configuration-settings"></a>런타임 구성 설정
 
-트리거 또는 작업 정의에 이러한 `runtimeConfiguration` 속성을 추가 하 여 트리거와 동작에 대 한 기본 런타임 동작을 변경할 수 있습니다.
+트리거 `runtimeConfiguration` 또는 작업 정의에 이러한 속성을 추가 하 여 트리거와 동작에 대 한 기본 런타임 동작을 변경할 수 있습니다.
 
-| 속성 | Type | Description | 트리거 또는 작업 | 
+| 속성 | 형식 | 설명 | 트리거 또는 작업 | 
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | 정수 | 동시에 또는 동시에 실행할 수 있는 워크플로 인스턴스 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. 이 값을 조정 하면 백엔드 시스템이 받는 요청 수를 제한할 수 있습니다. <p>`runs` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](#sequential-trigger)를 참조하세요. | 모든 트리거 | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | 정수 | 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행 대기 해야 하는 워크플로 인스턴스 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. <p>기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 모든 트리거 | 
 | `runtimeConfiguration.concurrency.repetitions` | 정수 | 동시에 실행 되거나 동시에 실행 될 수 있는 "for each" 루프 반복의 수에 대 한 [*기본 제한을*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 변경 합니다. <p>`repetitions` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](#sequential-for-each)을 참조하세요. | 작업: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | 정수 | 을 지원 하 고 페이지 매김이 설정 된 특정 작업의 경우이 값은 검색할 *최소* 결과 수를 지정 합니다. <p>페이지 매김 기능을 설정 하려면 [페이지 매김을 사용 하 여 대량 데이터, 항목 또는 결과 가져오기](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) 를 참조 하세요. | 작업: 다양 |
-| `runtimeConfiguration.secureData.properties` | Array | 이러한 설정은 많은 트리거와 작업에서 논리 앱의 실행 기록에서 입력, 출력 또는 둘 다를 숨깁니다. <p>이 데이터를 보호 하는 방법에 대해 자세히 알아보려면 [실행 기록에서 입력 및 출력 숨기기](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view)를 참조 하세요. | 대부분의 트리거 및 작업 |
-| `runtimeConfiguration.staticResult` | JSON 개체 | 을 지원 하 고 [정적 결과](../logic-apps/test-logic-apps-mock-data-static-results.md) 설정이 설정 된 작업의 경우 `staticResult` 개체에는 다음과 같은 특성이 있습니다. <p>- `name`-논리 앱 워크플로 `staticResults` `definition` 특성의 특성 내에 표시 되는 현재 작업의 정적 결과 정의 이름을 참조 하는입니다. 자세한 내용은 [워크플로 정의 언어에 대 한 정적 결과-스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md#static-results)를 참조 하세요. <p> - `staticResultOptions`현재 동작에 대 한 정적 결과가 `Enabled` 인지 여부를 지정 하는입니다. <p>정적 결과를 켜려면 [정적 결과를 설정 하 여 모의 데이터를 사용 하 여 논리 앱 테스트](../logic-apps/test-logic-apps-mock-data-static-results.md) 를 참조 하세요. | 작업: 다양 |
+| `runtimeConfiguration.secureData.properties` | 배열 | 이러한 설정은 많은 트리거와 작업에서 논리 앱의 실행 기록에서 입력, 출력 또는 둘 다를 숨깁니다. <p>이 데이터를 보호 하는 방법에 대해 자세히 알아보려면 [실행 기록에서 입력 및 출력 숨기기](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view)를 참조 하세요. | 대부분의 트리거 및 작업 |
+| `runtimeConfiguration.staticResult` | JSON 개체 | 을 지원 하 고 [정적 결과](../logic-apps/test-logic-apps-mock-data-static-results.md) 설정이 설정 된 작업의 경우 개체에는 `staticResult` 다음과 같은 특성이 있습니다. <p>- `name`- `staticResults` 논리 앱 워크플로 특성의 특성 내에 표시 되는 현재 작업의 정적 결과 정의 이름을 참조 하는입니다 `definition` . 자세한 내용은 [워크플로 정의 언어에 대 한 정적 결과-스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md#static-results)를 참조 하세요. <p> - `staticResultOptions`현재 동작에 대 한 정적 결과가 인지 여부를 지정 하는입니다 `Enabled` . <p>정적 결과를 켜려면 [정적 결과를 설정 하 여 모의 데이터를 사용 하 여 논리 앱 테스트](../logic-apps/test-logic-apps-mock-data-static-results.md) 를 참조 하세요. | 작업: 다양 |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2393,9 +2392,9 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 트리거 및 작업에 대한 기본 동작을 트리거 또는 작업 정의의 `operationOptions` 속성을 사용하여 변경할 수 있습니다.
 
-| 작업 옵션 | Type | Description | 트리거 또는 작업 | 
+| 작업 옵션 | 형식 | 설명 | 트리거 또는 작업 | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | String | 비동기가 아닌 동기적으로 HTTP 기반 작업을 실행합니다. <p><p>이 옵션을 설정하려면 [동기적으로 작업 실행](#asynchronous-patterns)을 참조하세요. | 작업: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[응답](#response-action) | 
+| `DisableAsyncPattern` | String | 비동기가 아닌 동기적으로 HTTP 기반 작업을 실행합니다. <p><p>이 옵션을 설정하려면 [동기적으로 작업 실행](#disable-asynchronous-pattern)을 참조하세요. | 작업: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[응답](#response-action) | 
 | `OptimizedForHighThroughput` | String | 5분당 작업 실행 수에 대한 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)을 [최대 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)으로 변경합니다. <p><p>이 옵션을 설정하려면 [높은 처리량 모드에서 실행](#run-high-throughput-mode)을 참조하세요. | 모든 작업 | 
 | `Sequential` | String | "for each" 루프 반복을 모두 동시에 병렬로 실행하지 않고 한 번에 하나씩 실행합니다. <p>이 옵션은 `runtimeConfiguration.concurrency.repetitions` 속성을 `1`로 설정할 때와 동일하게 작동합니다. 두 속성 중 하나만 설정할 수 있습니다. <p><p>이 옵션을 설정하려면 ["for each" 루프를 순차적으로 실행](#sequential-for-each)을 참조하세요.| 작업: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | 각 논리 앱 인스턴스에 대한 트리거를 순차적으로 실행하고, 다음 논리 앱 인스턴스를 트리거하기 전에 이전에 활성 상태이던 실행이 완료될 때까지 기다립니다. <p><p>이 옵션은 `runtimeConfiguration.concurrency.runs` 속성을 `1`로 설정할 때와 동일하게 작동합니다. 두 속성 중 하나만 설정할 수 있습니다. <p>이 옵션을 설정하려면 [인스턴스를 순차적으로 트리거](#sequential-trigger)를 참조하세요. | 모든 트리거 | 
@@ -2407,7 +2406,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 기본적으로 논리 앱 워크플로 인스턴스는 동시에 동시에 실행 되거나 동시에 실행 됩니다. 이 동작은 이전에 활성화 된 워크플로 인스턴스의 실행이 완료 되기 전에 각 트리거 인스턴스가 발생 함을 의미 합니다. 그러나 동시에 실행 되는 인스턴스의 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)있습니다. 동시에 실행 되는 워크플로 인스턴스의 수가이 한도에 도달 하면 다른 모든 새 인스턴스는 실행 대기 해야 합니다. 이 제한은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다.
 
-트리거의 동시성 제어를 켜면 트리거 인스턴스가 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 병렬로 실행 됩니다. 이 기본 동시성 한도를 변경 하려면 디자이너를 통해 동시성 설정을 변경 하면 기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 속성이 추가 또는 업데이트 되 고 그 반대의 경우에는 코드 보기 편집기나 Logic Apps designer를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 최대 새 워크플로 인스턴스 수를 제어 합니다.
+트리거의 동시성 제어를 켜면 트리거 인스턴스가 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 병렬로 실행 됩니다. 이 기본 동시성 한도를 변경 하려면 디자이너를 통해 동시성 설정을 변경 하면 `runtimeConfiguration.concurrency.runs` 기본 트리거 정의에서 속성이 추가 또는 업데이트 되 고 그 반대의 경우에는 코드 보기 편집기나 Logic Apps designer를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 최대 새 워크플로 인스턴스 수를 제어 합니다.
 
 트리거에서 동시성을 사용 하도록 설정 하려는 경우에 대 한 몇 가지 고려 사항은 다음과 같습니다.
 
@@ -2444,11 +2443,11 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
        ![제한 시간 지정](./media/logic-apps-workflow-actions-triggers/timeout.png)
 
-* 논리 앱을 순차적으로 실행 하려면 코드 보기 편집기나 디자이너를 사용 `1` 하 여 트리거의 동시성을로 설정 합니다. 코드 보기 편집기에서 트리거의 `operationOptions` 속성을로 `SingleInstance` 설정 하지 않아야 합니다. 그렇지 않으면 유효성 검사 오류가 표시됩니다. 자세한 내용은 [인스턴스를 순차적으로 트리거](#sequential-trigger)를 참조하세요.
+* 논리 앱을 순차적으로 실행 하려면 `1` 코드 보기 편집기나 디자이너를 사용 하 여 트리거의 동시성을로 설정 합니다. `operationOptions`코드 보기 편집기에서 트리거의 속성을로 설정 하지 않아야 `SingleInstance` 합니다. 그렇지 않으면 유효성 검사 오류가 표시됩니다. 자세한 내용은 [인스턴스를 순차적으로 트리거](#sequential-trigger)를 참조하세요.
 
 #### <a name="edit-in-code-view"></a>코드 보기에서 편집 
 
-기본 트리거 정의에서의 `runtimeConfiguration.concurrency.runs` `1` 범위에 해당 하 `50`는 값을 가질 수 있는 속성을 추가 합니다.
+기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 의 범위에 해당 하는 값을 가질 수 있는 속성을 추가 `1` 합니다 `50` .
 
 동시 실행 수를 10 인스턴스로 제한하는 예제는 다음과 같습니다.
 
@@ -2490,7 +2489,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 #### <a name="edit-in-code-view"></a>코드 보기에서 편집 
 
-기본 "for each" 정의에서 및 `runtimeConfiguration.concurrency.repetitions` `1` `50`의 범위에 해당 하는 값을 가질 수 있는 속성을 추가 하거나 업데이트 합니다.
+기본 "for each" 정의에서 `runtimeConfiguration.concurrency.repetitions` 및의 범위에 해당 하는 값을 가질 수 있는 속성을 추가 하거나 업데이트 합니다 `1` `50` .
 
 동시 실행 수를 10번 반복으로 제한하는 예제는 다음과 같습니다.
 
@@ -2526,7 +2525,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 대기 중인 실행 수에도 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)있습니다. 대기 중인 실행 수가이 한도에 도달 하면 Logic Apps 엔진은 더 이상 새 실행을 수락 하지 않습니다. 요청 및 웹후크 트리거는 429 오류를 반환하며, 되풀이 트리거는 폴링 시도를 건너뛰기 시작합니다.
 
-[트리거 동시성의 기본 제한을 변경할](#change-trigger-concurrency)수 있을 뿐 아니라 대기 중인 실행에 대 한 기본 제한도 변경할 수 있습니다. 기본 트리거 정의에서의 `runtimeConfiguration.concurrency.maximumWaitingRuns` `1` 범위에 해당 하 `100`는 값을 가질 수 있는 속성을 추가 합니다.
+[트리거 동시성의 기본 제한을 변경할](#change-trigger-concurrency)수 있을 뿐 아니라 대기 중인 실행에 대 한 기본 제한도 변경할 수 있습니다. 기본 트리거 정의에서 `runtimeConfiguration.concurrency.maximumWaitingRuns` 의 범위에 해당 하는 값을 가질 수 있는 속성을 추가 `1` 합니다 `100` .
 
 ```json
 "<trigger-name>": {
@@ -2575,7 +2574,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
-*디스크나*
+*또는*
 
 `operationOptions` 속성을 `SingleInstance`로 설정합니다.
 
@@ -2629,7 +2628,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
-*디스크나*
+*또는*
 
 `operationOptions` 속성을 `Sequential`로 설정합니다.
 
@@ -2653,13 +2652,52 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 1. **병렬도** 슬라이더를 숫자 `1`로 끕니다.
 
-<a name="asynchronous-patterns"></a>
+<a name="disable-asynchronous-pattern"></a>
 
-### <a name="run-actions-synchronously"></a>작업을 동기적으로 실행
+### <a name="run-actions-in-a-synchronous-operation-pattern"></a>동기 작업 패턴에서 작업 실행
 
-기본적으로 모든 HTTP 기반 작업은 표준 비동기 작업 패턴을 따릅니다. 이 패턴은 HTTP 기반 작업이 지정된 엔드포인트으로 요청을 보낼 때 원격 서버가 &quot;202 수락됨&quot; 응답을 다시 보내도록 지정합니다. 이 응답은 서버가 처리 요청을 수락했음을 의미합니다. Logic Apps 엔진은 처리가 중지될 때까지 응답(202 이외의 응답)의 위치 헤더가 지정하는 URL을 계속 확인합니다.
+기본적으로 Azure Logic Apps의 HTTP action 및 APIConnection 작업은 표준 [*비동기 작업 패턴*](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)을 따르고, 응답 동작은 *동기 작업 패턴*을 따릅니다. 비동기 패턴은 작업에서 지정 된 끝점, 서비스, 시스템 또는 API에 대 한 요청을 호출 하거나 보낸 후 수신자가 ["202 수락"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 즉시 반환 하도록 지정 합니다. 이 코드는 수신자가 요청을 수락 했지만 처리가 완료 되지 않았음을 확인 합니다. 응답에는 수신기가 `location` 처리를 중지 하 고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 다른 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 지속적으로 폴링하고 확인 하는 데 사용할 수 있는 URL 및 새로 고침 ID를 지정 하는 헤더가 포함 될 수 있습니다. 자세한 내용은 [비동기 마이크로 서비스 통합에 마이크로 서비스 자율성 적용](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조 하세요.
 
-그러나 요청에는 제한 시간이 있으므로 장기 실행 작업의 경우 작업의 입력 아래에서 `operationOptions` 속성을 추가하고 `DisableAsyncPattern`으로 설정하여 비동기 동작을 사용하지 않도록 설정할 수 있습니다.
+* 논리 앱 디자이너에서 HTTP action, APIConnection actions 및 Response 동작에는 **비동기 패턴** 설정이 있습니다. 이 설정을 사용 하도록 설정 하면 호출자가 처리가 완료 될 때까지 기다리지 않고 다음 작업으로 이동할 수 있지만 처리가 중지 될 때까지 상태를 계속 확인 합니다. 사용 하지 않도록 설정 된 경우이 설정은 호출자가 다음 작업으로 이동 하기 전에 처리가 완료 될 때까지 대기 하도록 지정 합니다. 이 설정을 찾으려면 다음 단계를 수행 합니다.
+
+  1. HTTP 작업의 제목 표시줄에서 줄임표 (**...**) 단추를 선택 하 여 작업의 설정을 엽니다.
+
+  1. **비동기 패턴** 설정을 찾습니다.
+
+     !["비동기 패턴" 설정](./media/logic-apps-workflow-actions-triggers/asynchronous-pattern-setting.png)
+
+* 작업의 기본 JavaScript Object Notation (JSON) 정의에서 HTTP action 및 APIConnection 작업은 암시적으로 비동기 작업 패턴을 따릅니다.
+
+일부 시나리오에서는 대신 동기 패턴을 따르는 작업이 필요할 수 있습니다. 예를 들어 HTTP 작업을 사용 하는 경우 다음을 수행할 수 있습니다.
+
+* [장기 실행 작업의 HTTP 시간 제한 방지](../connectors/connectors-native-http.md#avoid-http-timeouts)
+* [위치 헤더 확인 사용 안 함](../connectors/connectors-native-http.md#disable-location-header-check)
+
+이러한 경우 다음 옵션을 사용 하 여 작업을 동기적으로 실행할 수 있습니다.
+
+* 사용 가능한 경우 해당 작업의 폴링 버전을 webhook 버전으로 바꿉니다.
+
+* 옵션 중 하나를 수행 하 여 동작의 비동기 동작을 사용 하지 않도록 설정 합니다.
+
+  * 논리 앱 디자이너에서 [ **비동기 패턴** 설정을 해제](#turn-off-asynchronous-pattern-setting)합니다.
+
+  * 작업의 기본 JSON 정의에서 [ `"DisableAsyncPattern"` 작업 옵션을 추가](#add-disable-async-pattern-option)합니다.
+
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+#### <a name="turn-off-asynchronous-pattern-setting"></a>**비동기 패턴** 설정 해제
+
+1. 논리 앱 디자이너의 작업 제목 표시줄에서 줄임표 (**...**) 단추를 선택 하 여 작업의 설정을 엽니다.
+
+1. **비동기 패턴** 설정을 찾고, 설정 된 경우 **해제** 로 설정 하 고, **완료**를 선택 합니다.
+
+   !["비동기 패턴" 설정을 해제 합니다.](./media/logic-apps-workflow-actions-triggers/disable-asynchronous-pattern-setting.png)
+
+<a name="add-disable-async-pattern-option"></a>
+
+#### <a name="disable-asynchronous-pattern-in-actions-json-definition"></a>작업의 JSON 정의에서 비동기 패턴을 사용 하지 않도록 설정
+
+작업의 기본 JSON 정의에서 작업의 섹션 아래에 ["Operationoptions" 속성](#operation-options) 을 추가 하 고 설정 합니다 `"DisableAsyncPattern"` `"inputs"` . 예를 들면 다음과 같습니다.
 
 ```json
 "<some-long-running-action>": {
@@ -2669,8 +2707,6 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
    "runAfter": {}
 }
 ```
-
-자세한 내용은 [작업 옵션](#operation-options)을 참조하세요.
 
 <a name="run-high-throughput-mode"></a>
 
@@ -2694,7 +2730,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ## <a name="authenticate-triggers-and-actions"></a>트리거 및 작업 인증
 
-HTTP 및 HTTPS 끝점은 서로 다른 종류의 인증을 지원 합니다. 이러한 끝점에 액세스 하는 아웃 바운드 호출 또는 요청을 만드는 데 사용 하는 트리거 또는 작업에 따라 다양 한 인증 유형 범위에서 선택할 수 있습니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
+HTTP 및 HTTPS 끝점은 서로 다른 종류의 인증을 지원 합니다. 이러한 끝점에 액세스 하는 아웃 바운드 호출 또는 요청을 만드는 데 사용 하는 트리거 또는 작업에 따라 다양 한 인증 유형 범위에서 선택할 수 있습니다. 자세한 내용은 [아웃바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

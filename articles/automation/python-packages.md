@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2871c4c988675dd9a1a5749d908805994b6b309
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: f3ba52c1396928d8c76fb85fda3f29c625e60919
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84561859"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure Automation에서 Python 2 패키지 관리
 
@@ -48,10 +48,10 @@ C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 
  Runbook을 가져오려면 갤러리에서 Automation 계정으로 [Python 2 패키지를 pypi에서 Azure Automation 계정으로 가져옵니다](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509). 실행 설정이 **Azure**로 설정되어 있고 매개 변수가 포함된 Runbook을 시작해야 합니다. Automation 계정이 작동하려면 Runbook에 실행 계정이 필요 합니다. 각 매개 변수에 대해 다음 목록과 이미지에 표시된 것처럼 스위치를 사용하여 시작해야 합니다.
 
-* -s \<subscriptionId\>
-* -g \<resourceGroup\>
-* -a \<automationAccount\>
-* -m \<modulePackage\>
+* -s\<subscriptionId\>
+* -g\<resourceGroup\>
+* -a\<automationAccount\>
+* -m\<modulePackage\>
 
 ![패키지 목록](media/python-packages/import-python-runbook.png)
 

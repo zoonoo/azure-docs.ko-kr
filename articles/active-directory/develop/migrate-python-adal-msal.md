@@ -13,13 +13,12 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
-ms.custom: aaddev
-ms.openlocfilehash: a3f95383979fd47b3baaec946f724533461729b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 0cf711f9a295abaf20cd284e819cf062c462c668
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558696"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Python에 대 한 ADAL에서 MSAL 마이그레이션 가이드
 
@@ -44,13 +43,13 @@ ADAL은 Azure Active Directory (Azure AD) v 1.0 끝점에서 작동 합니다. M
 
 ADAL Python은 리소스에 대 한 토큰을 가져오지만 MSAL Python은 범위에 대 한 토큰을 획득 합니다. MSAL Python의 API 화면에 더 이상 리소스 매개 변수가 없습니다. 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열의 목록으로 범위를 제공 해야 합니다. 범위에 대 한 몇 가지 예를 보려면 [Microsoft Graph의 범위](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
 
-리소스에 `/.default` 범위 접미사를 추가 하 여 v2.0 끝점 (ADAL)에서 Microsoft msal (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 `https://graph.microsoft.com`리소스 값에 대해 해당 하는 범위 값은 `https://graph.microsoft.com/.default`입니다.  리소스가 URL 형식이 아닌 폼 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`의 리소스 ID 인 경우 범위 값을으로 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`계속 사용할 수 있습니다.
+리소스에 범위 접미사를 추가 하 여 v2.0 `/.default` 끝점 (ADAL)에서 Microsoft MSAL (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) 문서를 참조 하세요.
 
 ### <a name="error-handling"></a>오류 처리
 
-Python 용 ADAL (Azure Active Directory 인증 라이브러리)은 예외 `AdalError` 를 사용 하 여 문제가 있음을 표시 합니다. Python 용 MSAL은 일반적으로 오류 코드를 대신 사용 합니다. 자세한 내용은 [Msal For Python error 처리](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python)를 참조 하세요.
+Python 용 ADAL (Azure Active Directory 인증 라이브러리)은 예외를 사용 하 여 `AdalError` 문제가 있음을 표시 합니다. Python 용 MSAL은 일반적으로 오류 코드를 대신 사용 합니다. 자세한 내용은 [Msal For Python error 처리](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python)를 참조 하세요.
 
 ### <a name="api-changes"></a>API 변경 내용
 
@@ -77,30 +76,48 @@ MSAL (Microsoft 인증 라이브러리)은 새로 고침 토큰의 개념을 추
 
 다음 코드는 다른 OAuth2 라이브러리에서 관리 하는 새로 고침 토큰을 마이그레이션하는 데 도움이 됩니다 (ADAL Python을 포함 하지만이에 국한 되지 않음). 이러한 새로 고침 토큰을 마이그레이션하는 한 가지 이유는 앱을 Python 용 MSAL로 마이그레이션할 때 기존 사용자가 다시 로그인 해야 하는 것을 방지 하기 위한 것입니다.
 
-새로 고침 토큰을 마이그레이션하는 방법은 Python 용 MSAL을 사용 하 여 이전 새로 고침 토큰을 사용 하 여 새 액세스 토큰을 획득 하는 것입니다. 새 새로 고침 토큰이 반환 되 면 Python 용 MSAL이 캐시에 저장 합니다. 다음은이 작업을 수행 하는 방법의 예입니다.
+새로 고침 토큰을 마이그레이션하는 방법은 Python 용 MSAL을 사용 하 여 이전 새로 고침 토큰을 사용 하 여 새 액세스 토큰을 획득 하는 것입니다. 새 새로 고침 토큰이 반환 되 면 Python 용 MSAL이 캐시에 저장 합니다.
+MSAL Python 1.3.0 이후이 목적을 위해 MSAL 내에서 API를 제공 합니다.
+[MSAL Python을 사용 하 여 새로 고침 토큰을 마이그레이션하는 완료 된 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.3.0/sample/migrate_rt.py#L28-L67) 에서 인용 된 다음 코드 조각을 참조 하세요.
 
 ```python
-from msal import PublicClientApplication
+import msal
+def get_preexisting_rt_and_their_scopes_from_elsewhere():
+    # Maybe you have an ADAL-powered app like this
+    #   https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/1.2.3/sample/device_code_sample.py#L72
+    # which uses a resource rather than a scope,
+    # you need to convert your v1 resource into v2 scopes
+    # See https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
+    # You may be able to append "/.default" to your v1 resource to form a scope
+    # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-def get_preexisting_rt_and_their_scopes_from_elsewhere(...):
-    raise NotImplementedError("You will need to implement this by yourself")
+    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # powered by some 3rd-party auth library, and persist its tokens somehow.
 
-app = PublicClientApplication(..., token_cache=...)
+    # Either way, you need to extract RTs from there, and return them like this.
+    return [
+        ("old_rt_1", ["scope1", "scope2"]),
+        ("old_rt_2", ["scope3", "scope4"]),
+        ]
 
-for old_rt, old_scope in get_preexisting_rt_and_their_scopes_from_elsewhere(...):
-    # Assuming the old scope could be a space-delimited string.
-    # MSAL expects a list, like ["scope1", "scope2"].
-    scopes = old_scope.split()
-        # If your old refresh token came from ADAL for Python, which uses a resource rather than a scope,
-        # you need to convert your v1 resource into v2 scopes
-        # See https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
-        # You may be able to append "/.default" to your v1 resource to form a scope
-        # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    result = app.client.obtain_token_by_refresh_token(old_rt, scope=scopes)
-    # When this call returns the new token(s), a new refresh token is issued by the Microsoft identity platform and MSAL for Python
-    # stores it in the token cache.
+# We will migrate all the old RTs into a new app powered by MSAL
+app = msal.PublicClientApplication(
+    "client_id", authority="...",
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+
+# We choose a migration strategy of migrating all RTs in one loop
+for old_rt, scopes in get_preexisting_rt_and_their_scopes_from_elsewhere():
+    result = app.acquire_token_by_refresh_token(old_rt, scopes)
+    if "error" in result:
+        print("Discarding unsuccessful RT. Error: ", json.dumps(result, indent=2))
+
+print("Migration completed")
 ```
+
 
 ## <a name="next-steps"></a>다음 단계
 

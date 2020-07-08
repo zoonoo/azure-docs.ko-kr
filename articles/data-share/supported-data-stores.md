@@ -6,12 +6,11 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 624bb45de3e2ff184326949611d437f71f3e2def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84635971"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure 데이터 공유에서 지원 되는 데이터 저장소
 
@@ -38,16 +37,17 @@ Azure 데이터 공유는 데이터 저장소를 결정할 때 데이터 소비�
 
 아래 표에서는 데이터 소비자가 데이터 공유를 수락 하 고 구성할 때 제공 하는 다양 한 조합 및 선택 사항을 자세히 설명 합니다. 데이터 집합 매핑을 구성 하는 방법에 대 한 자세한 내용은 [데이터 집합 매핑을 구성 하는 방법](how-to-configure-mapping.md)을 참조 하세요.
 
-|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob 스토리지 | ✓ || ✓|
-| Azure Data Lake Storage Gen1 | ✓ | | ✓|
-| Azure Data Lake Storage Gen2 | ✓ | | ✓|
-| Azure SQL Database | ✓ | | ✓| ✓| ✓|
-| Azure Synapse Analytics (이전의 Azure SQL DW) | ✓ | | ✓| ✓| ✓|
+|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Azure Blob 스토리지 | ✓ || ✓ ||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
+| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (이전의 Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
+| Azure Data Explorer |||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>저장소 계정에서 공유
-Azure 데이터 공유는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 파일, 폴더 및 파일 시스템을 공유할 수 있도록 지원 합니다. 또한 Azure Blob Storage에서 blob, 폴더 및 컨테이너를 공유할 수 있도록 지원 합니다. 블록 blob만 현재 지원 됩니다. 스냅숏 기반 공유에서 폴더를 공유 하는 경우 데이터 소비자는 공유 데이터의 전체 복사본을 만들도록 선택 하거나, 증분 스냅숏 기능을 활용 하 여 새 파일이 나 업데이트 된 파일만 복사할 수 있습니다. 동일한 이름을 가진 기존 파일을 덮어씁니다.
+Azure 데이터 공유는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 파일, 폴더 및 파일 시스템을 공유할 수 있도록 지원 합니다. 또한 Azure Blob Storage에서 blob, 폴더 및 컨테이너를 공유할 수 있도록 지원 합니다. 블록 blob만 현재 지원 됩니다. 스냅숏 기반 공유에서 파일 시스템, 컨테이너 또는 폴더를 공유 하는 경우 데이터 소비자는 공유 데이터의 전체 복사본을 만들도록 선택 하거나 증분 스냅숏 기능을 활용 하 여 새 파일이 나 업데이트 된 파일만 복사할 수 있습니다. 증분 스냅숏은 파일의 마지막 수정 시간을 기반으로 합니다. 동일한 이름을 가진 기존 파일을 덮어씁니다.
 
 ## <a name="share-from-a-sql-based-source"></a>SQL 기반 원본에서 공유
 Azure 데이터 공유는 Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 또는 뷰를 공유할 수 있도록 지원 합니다. 데이터 소비자는 csv 또는 parquet 파일로 Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하도록 선택할 수 있습니다. 기본적으로 파일 형식은 csv입니다. 데이터 소비자는 원하는 경우 parquet 형식으로 데이터를 받도록 선택할 수 있습니다. 데이터를 받을 때 데이터 집합 매핑 설정에서이 작업을 수행할 수 있습니다. 

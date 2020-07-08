@@ -5,15 +5,14 @@ services: databox
 author: priestlg
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 2933eb216b7faed7b28fb53d79fec2f50bc4458d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608590"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Azure Portal에서 Azure Data Box용 자체 관리형 배송 사용
 
@@ -41,7 +40,7 @@ Data Box를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습
 3. 배송 주소를 입력한 후에는 유효한지 검사하고 주문을 완료해야 합니다.
    ![자체 관리형 배송](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. 디바이스가 준비되면 픽업을 예약할 수 있습니다.
+4. 장치를 준비 하 고 해당 장치에 대 한 전자 메일 알림을 받으면 픽업을 예약할 수 있습니다.
 
    Azure Data Box 주문에서 **개요**로 이동한 후 **픽업 예약**을 선택합니다.
 
@@ -57,7 +56,7 @@ Data Box를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습
 
    ![인증 코드 보기](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   **인증 코드**를 적어 둡니다. 보안 요구 사항에 따라 픽업 및 반납을 예약할 때 픽업 및 반납을 직접 처리하는 사람의 이름을 제공해야 합니다.
+   **인증 코드**를 적어 둡니다. 보안 요구 사항에 따라 선택 일정을 예약 하는 시점에, 선택에 도착할 사용자의 이름을 제공 해야 합니다.
 
    픽업 데이터 센터를 방문할 사용자에 대한 세부 정보도 제공해야 합니다. 본인 또는 연락 담당자에게 데이터 센터에서 유효성을 검사할 정부 승인 사진 ID가 있어야 합니다.
 

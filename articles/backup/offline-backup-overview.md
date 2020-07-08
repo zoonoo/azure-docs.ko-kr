@@ -3,12 +3,11 @@ title: 오프라인 백업 개요
 description: 오프라인 백업의 구성 요소에 대해 알아봅니다. 여기에는 Azure Data Box 기반의 오프라인 백업과, Azure Import/Export 서비스를 기반의 오프라인 백업이 포함됩니다.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628342"
 ---
 # <a name="overview-of-offline-backup"></a>오프라인 백업 개요
 
@@ -60,7 +59,7 @@ Azure Data Box 기반의 오프라인 백업을 사용하려면 [Azure Data Box�
 
 MARS 에이전트를 통해 Azure Import/Export 서비스 기반의 오프라인 백업을 사용하려면 [Azure Backup의 오프라인 백업 워크플로](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export)를 참조하세요.
 
-같은 내용을 MABS 또는 DPM-A에 사용하려면 [DPM 및 Azure Backup Server용 오프라인 백업 워크플로](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-)를 참조하세요.
+같은 내용을 MABS 또는 DPM-A에 사용하려면 [DPM 및 Azure Backup Server용 오프라인 백업 워크플로](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export)를 참조하세요.
 
 ## <a name="offline-backup-support-summary"></a>오프라인 백업 지원 요약
 
@@ -83,4 +82,4 @@ MARS 에이전트를 통해 Azure Import/Export 서비스 기반의 오프라인
 
 - [Azure Data Box를 사용한 Azure Backup 오프라인 백업](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md)
-- [DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로](backup-azure-backup-server-import-export-.md)
+- [DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로](backup-azure-backup-server-import-export.md)

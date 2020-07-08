@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 360d01d01c163e494340c2da3182192dc15612a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641456"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560791"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,11 +66,11 @@ ms.locfileid: "81641456"
 
     ![게시 단추](./media/how-to-create-schedule-trigger/publish-2.png)
 
-1. 왼쪽의 **파이프라인 실행** 탭으로 전환 하 고 **새로 고침** 을 선택 하 여 목록을 새로 고칩니다. 예약 된 트리거에 의해 트리거된 파이프라인 실행이 표시 됩니다. **트리거 기준** 열의 값을 확인합니다. **지금 트리거** 옵션을 사용 하는 경우 목록에서 수동 트리거 실행이 표시 됩니다. 
+1. 왼쪽의 **파이프라인 실행** 탭으로 전환 하 고 **새로 고침** 을 선택 하 여 목록을 새로 고칩니다. 예약 된 트리거에 의해 트리거된 파이프라인 실행이 표시 됩니다. **트리거된** 열에서 값을 확인 합니다. **지금 트리거** 옵션을 사용 하는 경우 목록에서 수동 트리거 실행이 표시 됩니다. 
 
     ![트리거된 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. **트리거 실행** 보기로 전환합니다. 
+1. **트리거 실행** 보기로 전환 합니다. 
 
     ![트리거 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "81641456"
 
 이 섹션에서는 Azure PowerShell을 사용하여 일정 트리거를 만들고 시작 및 모니터링하는 방법을 보여줍니다. 이 샘플이 작동하는지 확인하려면 먼저 [빠른 시작: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 진행하세요. 그런 다음 15분마다 실행되는 일정 트리거를 만들고 시작하는 다음 코드를 주 메서드에 추가하세요. 트리거는 빠른 시작의 일부로 만든 **Adfv2QuickStartPipeline**이라는 파이프라인과 연결되어 있습니다.
 
-1. 다음 콘텐츠를 사용 하 여 C:\ADFv2QuickStartPSH\ 폴더에 **Mytrigger. json** 이라는 json 파일을 만듭니다.
+1. 다음 콘텐츠를 사용 하 여 C:\ADFv2QuickStartPSH\ 폴더에 **MyTrigger.js** 이라는 JSON 파일을 만듭니다.
 
     > [!IMPORTANT]
     > JSON 파일을 저장하기 전에 **startTime** 요소의 값을 현재 UTC 시간으로 설정합니다. **endTime** 요소의 값을 현재 UTC 시간의 한 시간 이후로 설정합니다.
@@ -319,26 +319,26 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 ### <a name="schema-overview"></a>스키마 개요
 다음 테이블은 트리거의 되풀이 및 일정 계획과 관련된 주요 스키마 요소의 공급 개요를 제공합니다.
 
-| JSON 속성 | Description |
+| JSON 속성 | 설명 |
 |:--- |:--- |
 | **startTime** | 날짜-시간 값입니다. 단순한 일정의 경우 **startTime** 속성의 값이 첫 번째 되풀이에 적용됩니다. 복잡한 일정의 경우 트리거는 특정 **startTime** 값 이후에 시작합니다. |
 | **endTime** | 트리거의 종료 날짜 및 시간입니다. 트리거는 지정된 종료 날짜 및 시간 이후에 실행되지 않습니다. 속성에 대한 값은 이전에 있을 수 없습니다. 이 속성은 선택 사항입니다. |
 | **표준** | 표준 시간대입니다. 현재는 UTC 표준 시간대만 지원됩니다. |
 | **방법** | 트리거에 대한 되풀이 규칙을 지정하는 recurrence 개체입니다. recurrence 개체는 **frequency**, **interval**, **endTime**, **count** 및 **schedule** 요소를 지원합니다. recurrence 개체가 정의된 경우 **frequency** 요소는 필수입니다. 되풀이 개체의 다른 요소는 선택적입니다. |
 | **주기와** | 트리거가 되풀이되는 빈도 단위입니다. 지원되는 값은 "minute", "hour", "day", "week" 및 "month"입니다. |
-| **interval** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "week"인 경우 매 3주마다 트리거가 되풀이됩니다. |
+| **간격은** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "week"인 경우 매 3주마다 트리거가 되풀이됩니다. |
 | **일정과** | 트리거에 대한 되풀이 일정입니다. 지정된 **frequency** 값을 가진 트리거는 되풀이 일정을 기반으로 되풀이를 변경합니다. **schedule** 속성에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 되풀이에 대한 수정 내용이 포함됩니다.
 
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 유형 | 필수 | 기본값 | 유효한 값 | 예제 |
+| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예제 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | 예 | 없음 | ISO-8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **방법** | Object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | 숫자 | 아니요 | 1 | 1~1,000 | `"interval":10` |
+| **간격은** | number | 아니요 | 1 | 1~1,000 | `"interval":10` |
 | **endTime** | String | 예 | 없음 | 현재 이후의 시간을 나타내는 날짜-시간 값입니다. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **일정과** | Object | 아니요 | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **일정과** | Object | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.
@@ -366,7 +366,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 다음 테이블에서는 **일정** 요소의 세부 정보를 설명합니다.
 
 
-| JSON 요소 | Description | 유효한 값 |
+| JSON 요소 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |
 | **내** | 트리거가 실행될 시간(분)입니다. | <ul><li>정수</li><li>정수 배열</li></ul>
 | **시간의** | 트리거가 실행될 일(시간)입니다. | <ul><li>정수</li><li>정수 배열</li></ul> |
@@ -380,7 +380,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 
 예제에서 **interval** 값은 1이고 **frequency** 값은 일정 정의에 따라 올바르다고 가정합니다. 예를 들어 "day" 라는 **frequency** 값을 가질 수 없으며 **schedule** 개체에서 "monthdays"를 수정할 수도 있습니다. 이러한 제한 사항은 이전 섹션의 테이블에서 언급했습니다.
 
-| 예제 | Description |
+| 예제 | 설명 |
 |:--- |:--- |
 | `{"hours":[5]}` | 매일 오전 5시에 실행됩니다. |
 | `{"minutes":[15], "hours":[5]}` | 매일 오전 5시 15분에 실행됩니다. |

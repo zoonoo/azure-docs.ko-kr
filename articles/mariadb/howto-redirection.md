@@ -1,29 +1,29 @@
 ---
-title: 리디렉션을 사용하여 연결 - Azure Database for MySQL
-description: 이 문서에서는 리디렉션을 사용하여 Azure Database for MySQL에 연결하도록 애플리케이션을 구성하는 방법을 설명합니다.
+title: 리디렉션을 사용 하 여 연결-Azure Database for MariaDB
+description: 이 문서에서는 리디렉션을 사용 하 여 Azure Database for MariaDB에 연결 하도록 응용 프로그램을 구성 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
+ms.openlocfilehash: ae61f58f2ac44db77db496dd5d3e38fad268129f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610290"
+ms.locfileid: "84612411"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>리디렉션을 사용하여 Azure Database for MySQL에 연결
+# <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>리디렉션을 사용 하 여 Azure Database for MariaDB에 연결
 
-이 항목에서는 리디렉션 모드를 사용하여 애플리케이션을 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다. 리디렉션은 애플리케이션이 백 엔드 서버 노드에 직접 연결할 수 있도록 하여 클라이언트 애플리케이션과 MySQL 서버 간의 네트워크 대기 시간을 줄이는 것을 목표로 합니다.
+이 항목에서는 리디렉션 모드를 사용 하 여 Azure Database for MariaDB 서버에 응용 프로그램을 연결 하는 방법을 설명 합니다. 리디렉션은 응용 프로그램이 백엔드 서버 노드에 직접 연결할 수 있도록 하 여 클라이언트 응용 프로그램과 Fadb 서버 간의 네트워크 대기 시간을 줄이기 위한 것입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 엔진 버전 5.6, 5.7 또는 8.0을 사용하여 Azure Database for MySQL 서버를 만듭니다. 
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 엔진 버전 10.2 또는 10.3을 사용 하 여 Azure Database for MariaDB 서버를 만듭니다. 
 
-자세한 내용은 [Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) 또는 [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)를 사용 하 여 Azure Database for MySQL 서버를 만드는 방법을 참조 하세요.
+자세한 내용은 [Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md) 또는 [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md)를 사용 하 여 Azure Database for MariaDB 서버를 만드는 방법을 참조 하세요.
 
 ## <a name="enable-redirection"></a>리디렉션 사용
 
-Azure Database for MySQL 서버에서 `redirect_enabled` `ON` 리디렉션 모드와의 연결을 허용 하도록 매개 변수를 구성 합니다. 이 서버 매개 변수를 업데이트 하려면 [Azure Portal](howto-server-parameters.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 합니다.
+Azure Database for MariaDB 서버에서 `redirect_enabled` `ON` 리디렉션 모드와의 연결을 허용 하도록 매개 변수를 구성 합니다. 이 서버 매개 변수를 업데이트 하려면 [Azure Portal](howto-server-parameters.md) 또는 [Azure CLI](howto-configure-server-parameters-cli.md)를 사용 합니다.
 
 ## <a name="php"></a>PHP
 
@@ -46,7 +46,7 @@ Mysqlnd_azure 확장은 PECL을 통해 PHP 애플리케이션에 추가할 수 �
 |**mysqlnd_azure.enableRedirect 값**| **동작**|
 |----------------------------------------|-------------|
 |`off` 또는 `0`|리디렉션이 사용되지 않습니다. |
-|`on` 또는 `1`|- 연결에서 드라이버 쪽의 SSL을 사용하지 않는 경우 연결되지 않습니다. 다음 오류가 반환됩니다. "mysqlnd_azure.enableRedirect가 설정되어 있지만 연결 문자열에 SSL 옵션이 설정되어 있지 않습니다. 리디렉션은 SSL로만 가능합니다."<br>- SSL이 드라이버 쪽에서 사용되지만 서버에서 리디렉션이 지원되지 않으면 첫 번째 연결이 중단되고 다음과 같은 오류가 반환됩니다. "리디렉션이 MySQL 서버에서 사용하도록 설정되어 있지 않거나 네트워크 패키지가 리디렉션 프로토콜을 충족하지 않아 연결이 중단되었습니다."<br>- MySQL 서버에서 리디렉션을 지원하지만 어떤 이유로든 리디렉션된 연결에 실패한 경우 첫 번째 프록시 연결도 중단됩니다. 리디렉션된 연결의 오류를 반환합니다.|
+|`on` 또는 `1`|- 연결에서 드라이버 쪽의 SSL을 사용하지 않는 경우 연결되지 않습니다. 다음 오류가 반환됩니다. "mysqlnd_azure.enableRedirect가 설정되어 있지만 연결 문자열에 SSL 옵션이 설정되어 있지 않습니다. 리디렉션은 SSL로만 가능합니다."<br>-SSL이 드라이버 쪽에서 사용 되지만 서버에서 리디렉션이 지원 되지 않으면 첫 번째 연결이 중단 되 고 *"리디렉션이 리디렉션 프로토콜을 충족 하지 않기 때문에 연결이 중단 되었습니다."* 라는 오류가 반환 됩니다.<br>-MariaDB 서버에서 리디렉션을 지원 하지만 어떤 이유로 든 리디렉션된 연결이 실패 한 경우에는 첫 번째 프록시 연결만 중단 됩니다. 리디렉션된 연결의 오류를 반환합니다.|
 |`preferred` 또는 `2`<br> (기본값)|- 가능한 경우 mysqlnd_azure에서 리디렉션을 사용합니다.<br>- 프록시 연결이 유효한 경우 연결에서 드라이버 쪽의 SSL을 사용하지 않거나, 서버에서 리디렉션을 지원하지 않거나, 치명적이지 않은 이유로 인해 리디렉션된 연결에 실패하면, 첫 번째 프록시 연결로 대체됩니다.|
 
 문서의 이후 섹션에서는 PECL을 사용하여 `mysqlnd_azure` 확장을 설치하고 이 매개 변수의 값을 설정하는 방법을 간략하게 설명합니다.
@@ -57,7 +57,7 @@ Mysqlnd_azure 확장은 PECL을 통해 PHP 애플리케이션에 추가할 수 �
 - PHP 버전 7.2.15+ 및 7.3.2+
 - PHP PEAR 
 - php-mysql
-- Azure Database for MySQL 서버
+- Azure Database for MariaDB 서버
 
 1. [PECL](https://pecl.php.net/package/mysqlnd_azure)을 사용하여 [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure)를 설치합니다. 버전 1.1.0+를 사용하는 것이 좋습니다.
 
@@ -95,7 +95,7 @@ Mysqlnd_azure 확장은 PECL을 통해 PHP 애플리케이션에 추가할 수 �
 #### <a name="prerequisites"></a>사전 요구 사항 
 - PHP 버전 7.2.15+ 및 7.3.2+
 - php-mysql
-- Azure Database for MySQL 서버
+- Azure Database for MariaDB 서버
 
 1. 다음 명령을 실행하여 x64 또는 x86 버전의 PHP를 실행하고 있는지 확인합니다.
 
@@ -140,7 +140,7 @@ Mysqlnd_azure 확장은 PECL을 통해 PHP 애플리케이션에 추가할 수 �
  
  ```php
 <?php
-$host = '<yourservername>.mysql.database.azure.com';
+$host = '<yourservername>.mariadb.database.azure.com';
 $username = '<yourusername>@<yourservername>';
 $password = '<yourpassword>';
 $db_name = 'testdb';

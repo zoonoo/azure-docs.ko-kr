@@ -1,19 +1,18 @@
 ---
 title: 이벤트 처리기 및 대상-Azure Event Grid IoT Edge | Microsoft Docs
 description: Edge의 Event Grid에 있는 이벤트 처리기 및 대상
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e144461b80dca2cf02c0cc06d7feee882293848
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557632"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Edge의 Event Grid에 있는 이벤트 처리기 및 대상
 
@@ -23,7 +22,7 @@ ms.locfileid: "76849748"
 
 ## <a name="webhook"></a>WebHook
 
-WebHook 끝점에 게시 하려면를로 `endpointType` `WebHook` 설정 하 고 다음을 제공 합니다.
+WebHook 끝점에 게시 하려면를로 설정 하 `endpointType` `WebHook` 고 다음을 제공 합니다.
 
 * endpointUrl: WebHook 끝점 URL
 
@@ -42,7 +41,7 @@ WebHook 끝점에 게시 하려면를로 `endpointType` `WebHook` 설정 하 고
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
-Azure Event Grid 클라우드 끝점에 게시 하려면를로 `endpointType` `eventGrid` 설정 하 고 다음을 제공 합니다.
+Azure Event Grid 클라우드 끝점에 게시 하려면를로 설정 하 `endpointType` `eventGrid` 고 다음을 제공 합니다.
 
 * endpointUrl: 클라우드의 Event Grid 토픽 URL
 * sasKey: Event Grid 토픽의 SAS 키
@@ -65,7 +64,7 @@ Azure Event Grid 클라우드 끝점에 게시 하려면를로 `endpointType` `e
 
 ## <a name="iot-edge-hub"></a>IoT Edge 허브
 
-Edge 허브 모듈에 게시 하려면를로 `endpointType` `edgeHub` 설정 하 고 다음을 제공 합니다.
+Edge 허브 모듈에 게시 하려면를로 설정 하 `endpointType` `edgeHub` 고 다음을 제공 합니다.
 
 * outputName: Event Grid 모듈이이 구독과 일치 하는 이벤트를 edgeHub로 라우팅하는 출력입니다. 예를 들어 아래 구독과 일치 하는 이벤트는/messages/modules/eventgridmodule/outputs/sampleSub4.에 기록 됩니다.
 
@@ -84,7 +83,7 @@ Edge 허브 모듈에 게시 하려면를로 `endpointType` `edgeHub` 설정 하
 
 ## <a name="event-hubs"></a>Event Hubs
 
-이벤트 허브에 게시 하려면를로 `endpointType` `eventHub` 설정 하 고 다음을 제공 합니다.
+이벤트 허브에 게시 하려면를로 설정 하 `endpointType` `eventHub` 고 다음을 제공 합니다.
 
 * connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 이벤트 허브에 대 한 연결 문자열입니다.
 
@@ -106,7 +105,7 @@ Edge 허브 모듈에 게시 하려면를로 `endpointType` `edgeHub` 설정 하
 
 ## <a name="service-bus-queues"></a>Service Bus 큐
 
-Service Bus 큐에 게시 하려면를로 `endpointType` `serviceBusQueue` 설정 하 고 다음을 제공 합니다.
+Service Bus 큐에 게시 하려면를로 설정 하 `endpointType` `serviceBusQueue` 고 다음을 제공 합니다.
 
 * connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 Service Bus 큐에 대 한 연결 문자열입니다.
 
@@ -128,7 +127,7 @@ Service Bus 큐에 게시 하려면를로 `endpointType` `serviceBusQueue` 설�
 
 ## <a name="service-bus-topics"></a>Service Bus 토픽
 
-Service Bus 항목에 게시 하려면를로 `endpointType` `serviceBusTopic` 설정 하 고 다음을 제공 합니다.
+Service Bus 항목에 게시 하려면를로 설정 하 `endpointType` `serviceBusTopic` 고 다음을 제공 합니다.
 
 * connectionString: 공유 액세스 정책을 통해 생성 되는 대상으로 지정 된 특정 Service Bus 항목에 대 한 연결 문자열입니다.
 
@@ -150,7 +149,7 @@ Service Bus 항목에 게시 하려면를로 `endpointType` `serviceBusTopic` �
 
 ## <a name="storage-queues"></a>Storage 큐
 
-저장소 큐에 게시 하려면를로 설정 하 `endpointType` 고 `storageQueue` 다음을 제공 합니다.
+저장소 큐에 게시 하려면를로 설정 하 `endpointType` `storageQueue` 고 다음을 제공 합니다.
 
 * queueName: 게시 하는 저장소 큐의 이름입니다.
 * connectionString: 저장소 큐가 있는 저장소 계정에 대 한 연결 문자열입니다.

@@ -3,12 +3,12 @@ title: Linux에서 Azure Service Fabric 컨테이너 응용 프로그램 만들�
 description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 애플리케이션을 만듭니다. 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드하고 배포합니다.
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 07e3682ec1787ceb350ac72c8b80d86eed80b339
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75457964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560639"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name*은 (컨테이너 ID가 아닌) 실행 중인 컨테이너에 이름을 지정합니다.
 
-실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http:\//hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http: \/ /hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -132,7 +132,7 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>컨테이너 레지스트리에 이미지를 푸시합니다.
 Docker에서 애플리케이션이 실행되는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
-을 `docker login` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
+`docker login`을 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
 다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 
@@ -256,9 +256,9 @@ https://github.com/Azure-Samples/service-fabric-containers/의 템플릿에 제�
 ./install.sh
 ```
 
-브라우저를 열고 http:\//prohosts: 19080/Explorer (Mac OS X에서 Vagrant를 사용 하는 경우 LOCALHOST를 VM의 개인 IP로 바꿉니다.) Service Fabric Explorer로 이동 합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http: \/ /prohosts: 19080/Explorer (Mac OS X에서 Vagrant를 사용 하는 경우 localhost를 VM의 개인 IP로 바꿉니다.) Service Fabric Explorer로 이동 합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
-실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http:\//hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 4000 포트에서 반환 된 IP 주소를 가리키는 웹 브라우저를 엽니다 (예: "http: \/ /hosts: 4000"). 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 

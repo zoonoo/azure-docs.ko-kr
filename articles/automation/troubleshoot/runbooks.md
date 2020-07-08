@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84606890"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -50,7 +49,7 @@ Azure Automation에서 Runbook을 실행하는 동안 오류가 발생하면 다
 
 1. Runbook 작업 또는 Hybrid Runbook Worker의 환경에서 응답하지 않는 경우 이 단계를 수행합니다.
 
-    Azure Automation 대신 Hybrid Runbook Worker에서 Runbook을 실행하는 경우 [하이브리드 작업자 자체의 문제를 해결](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker)해야 할 수도 있습니다.
+    Azure Automation 대신 Hybrid Runbook Worker에서 Runbook을 실행하는 경우 [하이브리드 작업자 자체의 문제를 해결](hybrid-runbook-worker.md)해야 할 수도 있습니다.
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>시나리오: 403 권한 없음 또는 금지됨 오류로 인해 Runbook이 실패함
 
@@ -64,7 +63,7 @@ Azure Automation에서 Runbook을 실행하는 동안 오류가 발생하면 다
 
 ### <a name="resolution"></a>해결 방법
 
-실행 계정에 스크립트에 사용된 [리소스에 액세스할 수 있는 권한](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)이 있는지 확인합니다.
+실행 계정에 스크립트에 사용된 [리소스에 액세스할 수 있는 권한](../../role-based-access-control/role-assignments-portal.md)이 있는지 확인합니다.
 
 ## <a name="scenario-sign-in-to-azure-account-failed"></a><a name="sign-in-failed"></a>시나리오: Azure 계정에 로그인하지 못함
 
@@ -99,7 +98,7 @@ No certificate was found in the certificate store with thumbprint
    Connect-AzAccount –Credential $Cred
    ```
 
-1. 인증이 로컬로 실패하면 Azure AD(Azure Active Directory) 자격 증명을 올바르게 설정하지 않은 것입니다. Azure AD 계정을 올바르게 설정하려면 [Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조하세요.
+1. 인증이 로컬로 실패하면 Azure AD(Azure Active Directory) 자격 증명을 올바르게 설정하지 않은 것입니다. Azure AD 계정을 올바르게 설정 하려면 [Azure Active Directory를 사용 하 여 azure에 인증](../automation-use-azure-ad.md)문서를 참조 하세요.
 
 1. 일시적인 오류로 표시되면 다시 시도 논리를 인증 루틴에 추가하여 인증을 더 강력하게 합니다.
 
@@ -137,7 +136,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>원인
 
-실행 계정을 사용하지 않거나 실행 계정이 만료되었으면 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)를 참조하세요.
+실행 계정을 사용하지 않거나 실행 계정이 만료되었으면 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Automation 실행 계정 관리](../manage-runas-account.md)를 참조하세요.
 
 이 오류에는 다음 두 가지 주요 원인이 있습니다.
 
@@ -274,7 +273,7 @@ Azure 계정에서 다단계 인증을 사용하면 Azure Active Directory 사�
 
 ### <a name="resolution"></a>해결 방법
 
-Azure 클래식 배포 모델 cmdlet에서 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
+Azure 클래식 배포 모델 cmdlet에 클래식 실행 계정을 사용 하려면 [azure 서비스를 관리 하는 클래식 실행 계정 만들기](../automation-create-standalone-account.md#create-a-classic-run-as-account)를 참조 하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>시나리오: "작업이 취소되었습니다." 오류 메시지로 인해 Runbook이 실패함
 
@@ -383,7 +382,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### <a name="cause"></a>원인
 
-`Add-AzAccount`를 호출하여 Automation 계정을 추가하기 전에 Runbook에서 적절한 단계를 수행하지 않으면 이 오류가 발생할 수 있습니다. 필요한 단계 중 한 가지 예는 실행 계정으로 로그인하는 것입니다. Runbook에 사용할 올바른 작업은 [Azure Automation에서 Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution)을 참조하세요.
+`Add-AzAccount`를 호출하여 Automation 계정을 추가하기 전에 Runbook에서 적절한 단계를 수행하지 않으면 이 오류가 발생할 수 있습니다. 필요한 단계 중 한 가지 예는 실행 계정으로 로그인하는 것입니다. Runbook에 사용할 올바른 작업은 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조하세요.
 
 ## <a name="scenario-object-reference-not-set-to-an-instance-of-an-object"></a><a name="child-runbook-object"></a>시나리오: 개체 참조가 개체의 인스턴스로 설정되지 않았음
 
@@ -419,7 +418,7 @@ $waitTime = 0
 while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+   $jobResults = $job | Get-AzAutomationJob
 }
 
 $jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
@@ -652,16 +651,16 @@ Operation returned an invalid status code 'Forbidden'
 
 #### <a name="not-using-a-run-as-account"></a>실행 계정을 사용하지 않음
 
-[5단계 - Azure 리소스를 관리하기 위한 인증 추가](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources)에 따라 실행 계정을 사용하여 Key Vault에 액세스하도록 합니다.
+[5단계 - Azure 리소스를 관리하기 위한 인증 추가](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources)에 따라 실행 계정을 사용하여 Key Vault에 액세스하도록 합니다.
 
 #### <a name="insufficient-permissions"></a>권한 부족
 
-Key Vault에 액세스하는 데 충분한 권한이 실행 계정에 있도록 하는 [권한을 Key Vault에 추가](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault)합니다.
+Key Vault에 액세스하는 데 충분한 권한이 실행 계정에 있도록 하는 [권한을 Key Vault에 추가](../manage-runas-account.md#add-permissions-to-key-vault)합니다.
 
 ## <a name="recommended-documents"></a>권장되는 문서
 
 * [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)
-* [Azure Automation에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Azure Automation에서 Runbook 시작](../automation-starting-a-runbook.md)
 
 ## <a name="next-steps"></a>다음 단계
 

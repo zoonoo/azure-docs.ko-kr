@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
-ms.openlocfilehash: 1d721e89534c09a5572e5674796f28355f652165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: ea63b4bd40a610227b4315f9e6e858c39ff9ff6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84606465"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>작업 예약 및 브로드캐스트(Python)
 
@@ -29,13 +29,13 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이러한 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* 디바이스 쌍 및 속성: [디바이스 쌍 시작](iot-hub-python-twin-getstarted.md) 및 [자습서: 디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
+* 디바이스 쌍 및 속성: [ 디바이스 쌍 시작](iot-hub-python-twin-getstarted.md) 및 [자습서: 디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
 
 * 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * 솔루션 백 엔드에서 **LockDoor**를 호출할 수 있는 직접 메서드가 포함된 Python 시뮬레이션된 디바이스 앱을 만듭니다.
 
@@ -69,7 +69,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 섹션에서는 클라우드에서 호출한 메서드에 응답하는 Python 콘솔 앱을 만듭니다. 이 메서드는 시뮬레이션된 **LockDoor** 메서드를 트리거합니다.
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 **azure-iot-장치** 패키지를 설치 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 패키지를 설치합니다.
 
     ```cmd/sh
     pip install azure-iot-device
@@ -150,7 +150,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
 이 문서에서는 장치에서 직접 메서드를 호출 하 고 장치 쌍을 업데이트 하는 백 엔드 서비스를 만듭니다. 서비스는 장치에서 직접 메서드를 호출 하려면 **서비스 연결** 권한이 필요 합니다. 또한 서비스에는 id 레지스트리를 읽고 쓰기 위한 **레지스트리 읽기** 및 **레지스트리 쓰기** 권한이 필요 합니다. 이러한 권한만 포함 하는 기본 공유 액세스 정책은 없으므로 만들어야 합니다.
 
@@ -158,27 +158,27 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT hub를 엽니다. IoT hub를 가져오는 가장 쉬운 방법은 **리소스 그룹**을 선택 하 고 iot hub가 있는 리소스 그룹을 선택한 다음 리소스 목록에서 iot hub를 선택 하는 것입니다.
 
-2. IoT hub의 왼쪽 창에서 **공유 액세스 정책**을 선택 합니다.
+2. IoT Hub의 왼쪽 창에서 **공유 액세스 정책**을 선택합니다.
 
-3. 정책 목록 위의 상단 메뉴에서 **추가**를 선택 합니다.
+3. 정책 목록 위의 상단 메뉴에서 **추가**를 선택합니다.
 
 4. **공유 액세스 정책 추가** 창에서 정책에 대 한 설명이 포함 된 이름을 입력 합니다. 예: *serviceAndRegistryReadWrite*. **사용 권한**아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택 합니다 ( **레지스트리 쓰기**를 선택 하면**레지스트리 읽기가** 자동으로 선택 됨). 그런 다음 **만들기**를 선택합니다.
 
-    ![새 공유 액세스 정책을 추가 하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+    ![새 공유 액세스 정책을 추가하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
 5. 다시 **공유 액세스 정책** 창의 정책 목록에서 새 정책을 선택 합니다.
 
-6. **공유 액세스 키**에서 **연결 문자열--기본 키** 의 복사 아이콘을 선택 하 고 값을 저장 합니다.
+6. **공유 액세스 키**에서 **연결 문자열 -- 기본 키**에 대한 복사 아이콘을 선택하고 값을 저장합니다.
 
     ![연결 문자열을 검색하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-IoT Hub 공유 액세스 정책 및 사용 권한에 대 한 자세한 내용은 [액세스 제어 및 권한](./iot-hub-devguide-security.md#access-control-and-permissions)을 참조 하세요.
+IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 [액세스 제어 및 권한](./iot-hub-devguide-security.md#access-control-and-permissions)을 참조하세요.
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>직접 메서드를 호출하고 디바이스 쌍의 속성을 업데이트하기 위한 작업 예약
 
 이 섹션에서는 직접 메서드를 사용 하 여 장치에서 원격 **Lockdoor** 를 시작 하는 Python 콘솔 앱을 만들고 장치 쌍의 desired 속성을 업데이트 합니다.
 
-1. 명령 프롬프트에서 다음 명령을 실행 하 여 **azure-iot-허브** 패키지를 설치 합니다.
+1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-hub** 패키지를 설치합니다.
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -186,7 +186,7 @@ IoT Hub 공유 액세스 정책 및 사용 권한에 대 한 자세한 내용은
 
 2. 텍스트 편집기를 사용하여 작업 디렉터리에 새 **scheduleJobService.py** 파일을 만듭니다.
 
-3. ScheduleJobService.py 파일의 `import` 시작 부분에 다음 문 및 변수를 **scheduleJobService.py** 추가 합니다. 자리 표시자 `{IoTHubConnectionString}` 를 이전에 [iot Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. 자리 표시자 `{deviceId}` 를 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
+3. `import` **ScheduleJobService.py** 파일의 시작 부분에 다음 문 및 변수를 추가 합니다. `{IoTHubConnectionString}`자리 표시자를 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. `{deviceId}`자리 표시자를 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
 
     ```python
     import sys
@@ -337,4 +337,4 @@ IoT Hub 공유 액세스 정책 및 사용 권한에 대 한 자세한 내용은
 
 이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
-무선 펌웨어 업데이트를 통한 원격 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면 [펌웨어 업데이트를 수행 하는 방법](tutorial-firmware-update.md)을 참조 하세요.
+IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](tutorial-firmware-update.md)을 참조하세요.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 467d8b89ef5c114d647a257053ed3367d6336bdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559329"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
 
@@ -45,7 +45,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="api-list"></a><a name="APIList"></a> API 목록  
+## <a name="api-list"></a><a name="APIList"></a>API 목록  
  **API 목록** 템플릿을 통해 개발자 포털에서 API 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 API 목록](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM 개발자 포털 템플릿 API 목록")  
@@ -89,7 +89,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|Type|Description|  
+|속성|형식|설명|  
 |--------------|----------|-----------------|  
 |`apis`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
@@ -344,7 +344,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|Type|Description|  
+|속성|형식|Description|  
 |--------------|----------|-----------------|  
 |`apiId`|문자열|현재 API의 ID입니다.|  
 |`apiName`|string|API 이름입니다.|  
@@ -717,7 +717,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="c"></a><a name="CSharp"></a>C #  
+### <a name="c"></a><a name="CSharp"></a> C#  
  **DocumentationSamplesCsharp** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1283,7 +1283,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="python"></a><a name="Python"></a>Python  
+### <a name="python"></a><a name="Python"></a> Python  
  **DocumentationSamplesPython** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  

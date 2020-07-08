@@ -6,12 +6,11 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3d13919a54e170d410abba5da66172c2029d9b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636277"
 ---
 # <a name="monitor-azure-data-share"></a>Azure Data Share 모니터링  
 
@@ -40,13 +39,17 @@ ms.locfileid: "73490513"
 
 ## <a name="snapshot-history"></a>스냅숏 기록 
 
-기록 탭에서 데이터 소비자의 테 넌 트에 복사 된 스냅숏을 볼 수 있습니다. 각 스냅숏 간격의 빈도 및 기간을 모니터링할 수 있습니다. 
+공유의 **기록** 탭에서 데이터 공급자의 데이터를 데이터 소비자의 데이터 저장소로 복사 하는 경우를 볼 수 있습니다. 각 스냅숏의 빈도, 기간 및 상태를 모니터링할 수 있습니다. 
 
 ![스냅숏 기록](./media/sent-shares.png "스냅숏 기록") 
 
-실행 시작 날짜를 클릭 하 여 각 스냅숏 실행에 대 한 자세한 정보를 볼 수 있습니다. 
+실행 시작 날짜를 클릭 하 여 각 스냅숏 실행에 대 한 자세한 정보를 볼 수 있습니다. 그런 다음 각 데이터 집합에 대 한 상태를 클릭 하 여 전송 된 데이터의 양, 복사 된 파일/레코드 수, 스냅숏의 기간, 사용 된 vCores 수 및 오류 메시지 (있는 경우)를 표시 합니다. 
 
-기본적으로 최대 30 일까 지 스냅숏 기록이 표시 됩니다. 30 일 이상 분량의 기록이 표시 되어야 하는 경우 모니터링-> 진단 설정으로 이동 하 고 진단 설정 **추가**를 선택 합니다. 이러한 로그를 저장할 저장소 계정을 선택 해야 합니다. 
+스냅숏 기록이 최대 30 일로 표시 됩니다. 30 일 이상 분량의 기록을 저장 하 고 확인 해야 하는 경우 진단 설정을 활용할 수 있습니다.
+
+## <a name="diagnostic-setting"></a>진단 설정
+
+로그 데이터 또는 이벤트를 저장 하도록 진단 설정을 구성할 수 있습니다. 모니터링-> 진단 설정으로 이동 하 고 **진단 설정 추가**를 선택 합니다. 원하는 로그 데이터 또는 이벤트를 선택 하 고 저장 하거나 보낼 위치를 선택 합니다. 
 
 ![스냅숏 기록](./media/diagnostic-settings.png "진단 설정") 
 

@@ -5,13 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 74ca984232bef979062221a451d0ee10a6965bc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: cc996988-fb4f-47, tracking-python
+ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559909"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -42,7 +41,7 @@ public static class QueueFunctions
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트(.csx)](functions-reference-csharp.md) 코드에서 큐 트리거 바인딩을 보여 줍니다. 함수는 `myqueue-items` 큐를 폴링하고 큐 항목이 처리될 때마다 로그를 기록합니다.
 
@@ -146,7 +145,7 @@ module.exports = async function (context, message) {
 
 다음 예에서는 트리거를 통해 함수에 전달 되는 큐 메시지를 읽는 방법을 보여 줍니다.
 
-저장소 큐 트리거는 *type* 이로 `queueTrigger`설정 된 *함수인 json* 에 정의 되어 있습니다.
+저장소 큐 트리거는 *형식* 이로 설정 된 *function.js* 에서 정의 됩니다 `queueTrigger` .
 
 ```json
 {
@@ -163,7 +162,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-* _ \__ Py\_* 코드는 함수에서 큐 메시지를 읽을 `func.ServiceBusMessage`수 있도록 매개 변수를로 선언 합니다.
+* _ \_ _ \_ Py* 코드는 `func.ServiceBusMessage` 함수에서 큐 메시지를 읽을 수 있도록 매개 변수를로 선언 합니다.
 
 ```python
 import logging
@@ -192,7 +191,7 @@ def main(msg: func.QueueMessage):
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 Java 예제에서는 큐 `myqueuename`에 배치 된 트리거된 메시지를 기록 하는 저장소 큐 트리거 함수를 보여 줍니다.
+다음 Java 예제에서는 큐에 배치 된 트리거된 메시지를 기록 하는 저장소 큐 트리거 함수를 보여 줍니다 `myqueuename` .
 
  ```java
  @FunctionName("queueprocessor")
@@ -228,7 +227,7 @@ def main(msg: func.QueueMessage):
   }
   ```
 
-  `Connection` 속성을 설정 하 여 다음 예제와 같이 사용할 저장소 계정 연결 문자열을 포함 하는 앱 설정을 지정할 수 있습니다.
+  속성을 설정 `Connection` 하 여 다음 예제와 같이 사용할 저장소 계정 연결 문자열을 포함 하는 앱 설정을 지정할 수 있습니다.
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -240,7 +239,7 @@ def main(msg: func.QueueMessage):
   }
   ```
 
-  전체 예제는 [예제](#example)를 참조 하세요.
+  전체 예제는 [예제](#example)를 참조하세요.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -266,21 +265,21 @@ def main(msg: func.QueueMessage):
 * 클래스에 적용된 `StorageAccount` 특성
 * "AzureWebJobsStorage" 앱 설정
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-특성은 c # 스크립트에서 지원 되지 않습니다.
+C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`QueueTrigger` 주석은 함수를 트리거하는 큐에 대 한 액세스를 제공 합니다. 다음 예에서는 `message` 매개 변수를 통해 큐 메시지를 함수에 사용할 수 있도록 설정 합니다.
+`QueueTrigger`주석은 함수를 트리거하는 큐에 대 한 액세스를 제공 합니다. 다음 예에서는 매개 변수를 통해 큐 메시지를 함수에 사용할 수 있도록 설정 합니다 `message` .
 
 ```java
 package com.function;
@@ -299,7 +298,7 @@ public class QueueTriggerDemo {
 }
 ```
 
-| 속성    | Description |
+| 속성    | 설명 |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -307,17 +306,17 @@ public class QueueTriggerDemo {
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
-다음 표에서는 *함수. json* 파일 및 `QueueTrigger` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `QueueTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | 해당 없음| `queueTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**방향도**| 해당 없음 | *function.json* 파일에서만 적용됩니다. `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**direction**| 해당 없음 | *function.json* 파일에서만 적용됩니다. `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 |함수 코드에서 큐 항목 페이로드를 포함하는 변수 이름입니다.  |
 |**queueName** | **QueueName**| 폴링할 큐의 이름입니다. |
-|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 "MyStorage"로 설정 `connection` 하는 경우 함수 런타임은 "mystorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
+|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -325,7 +324,7 @@ public class QueueTriggerDemo {
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-와 `string paramName`같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+와 같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다 `string paramName` . 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
 * 개체 - Functions 런타임은 JSON 페이로드를 코드에 정의된 임의 클래스 인스턴스로 역직렬화합니다. 
 * `string`
@@ -334,9 +333,9 @@ public class QueueTriggerDemo {
 
 `CloudQueueMessage`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-와 `string paramName`같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다. 는 `paramName` `name` *함수 json*의 속성에 지정 된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+와 같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다 `string paramName` . 는 `paramName` `name` *function.js*의 속성에 지정 된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
 * 개체 - Functions 런타임은 JSON 페이로드를 코드에 정의된 임의 클래스 인스턴스로 역직렬화합니다. 
 * `string`
@@ -347,7 +346,7 @@ public class QueueTriggerDemo {
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-큐 항목 페이로드는를 통해 `context.bindings.<NAME>` 사용할 수 `<NAME>` 있습니다. 여기서는 *함수. json*에 정의 된 이름과 일치 합니다. 페이로드가 JSON 인 경우 값은 개체로 deserialize 됩니다.
+에서 `context.bindings.<NAME>` `<NAME>` *function.js*에 정의 된 이름과 일치 하는를 통해 큐 항목 페이로드를 사용할 수 있습니다. 페이로드가 JSON 인 경우 값은 개체로 deserialize 됩니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -363,9 +362,9 @@ public class QueueTriggerDemo {
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|Type|Description|
+|속성|형식|설명|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger` `name` *함수 json*의 속성으로 명명 된 변수와 동일한 값을 갖습니다.|
+|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . *function.json*|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
 |`ExpirationTime`|`DateTimeOffset`|메시지가 만료되는 시간입니다.|
 |`Id`|`string`|큐 메시지 ID입니다.|
@@ -375,7 +374,7 @@ public class QueueTriggerDemo {
 
 ## <a name="poison-messages"></a>포이즌 메시지
 
-큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 최대 5번(첫 번째 시도 포함) 다시 시도합니다. 5 번의 시도가 모두 실패 하면 함수 런타임은 * &lt;functions 런타임은 originalqueuename>-poison>-포이즌*이라는 큐에 메시지를 추가 합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
+큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 최대 5번(첫 번째 시도 포함) 다시 시도합니다. 5 번의 시도가 모두 실패 하면 함수 런타임은 * &lt; functions 런타임은 originalqueuename>-poison>-포이즌*이라는 큐에 메시지를 추가 합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
 
 포이즌 메시지를 수동으로 처리하려면 큐 메시지의 [dequeueCount](#message-metadata)를 확인합니다.
 
@@ -402,9 +401,9 @@ public class QueueTriggerDemo {
 
 큐 트리거는 함수가 큐 메시지를 여러 번 처리하는 것을 방지합니다. 함수를 idempotent로 작성할 필요가 없습니다.
 
-## <a name="hostjson-properties"></a>host. json 속성
+## <a name="hostjson-properties"></a>속성 host.js
 
-[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [host-a 설정](functions-bindings-storage-queue-output.md#hostjson-settings) 섹션을 참조 하세요.
+[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [설정에](functions-bindings-storage-queue-output.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

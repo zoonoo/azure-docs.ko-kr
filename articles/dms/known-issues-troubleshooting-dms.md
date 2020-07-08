@@ -11,16 +11,21 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 40c7b1b0ae2065ed00cf21f99ab2046e25970237
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609440"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
 이 문서에서는 사용자가 수행할 수 Azure Database Migration Service 있는 몇 가지 일반적인 문제 및 오류에 대해 설명 합니다. 이 문서에는 이러한 문제 및 오류를 해결 하는 방법에 대 한 정보도 포함 되어 있습니다.
+
+> [!NOTE]
+> 바이어스-무료 통신
+>
+> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+>
 
 ## <a name="migration-activity-in-queued-state"></a>대기 상태의 마이그레이션 작업
 
@@ -32,7 +37,7 @@ Azure Database Migration Service 프로젝트에서 새 활동을 만들 때 활
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>마이그레이션을 위해 선택한 최대 데이터베이스 수
 
-Azure SQL Database 또는 Azure SQL Database 관리 되는 인스턴스로 이동 하기 위해 데이터베이스 마이그레이션 프로젝트에 대 한 작업을 만들 때 다음과 같은 오류가 발생 합니다.
+Azure SQL Database 또는 Azure SQL Managed Instance로 이동 하기 위해 데이터베이스 마이그레이션 프로젝트에 대 한 작업을 만들 때 다음과 같은 오류가 발생 합니다.
 
 * **오류**: 마이그레이션 설정 유효성 검사 오류 "," errordetail ":" ' 데이터베이스 '의 최대 개수 ' 4 ' 개 이상의 개체를 마이그레이션하도록 선택 했습니다. "
 
@@ -58,7 +63,7 @@ Azure Database Migration Service 인스턴스를 중지 하면 다음과 같은 
 
 | 원인         | 해결 방법 |
 | ------------- | ------------- |
-| 이 오류는 중지 하려는 서비스 인스턴스에 마이그레이션 프로젝트에 아직 실행 중이거나 있는 작업이 포함 되어 있을 때 표시 됩니다. <br><br><br><br><br><br> | 중지 하려는 Azure Database Migration Service 인스턴스에서 실행 중인 작업이 없는지 확인 합니다. 서비스를 중지 하기 전에 활동이 나 프로젝트를 삭제할 수도 있습니다. 다음 단계에서는 실행 중인 모든 태스크를 삭제 하 여 마이그레이션 서비스 인스턴스를 정리 하는 프로젝트를 제거 하는 방법을 보여 줍니다.<br>1. Install-Module-Name AzureRM. Microsoft.datamigration <br>2. 로그인-Connect-azurermaccount <br>3. Get-azurermsubscription-SubscriptionName "\<>" <br> 4. AzureRmDataMigrationProject-Name \<projectName>-ResourceGroupName \<rgName>-Servicename \<servicename>-DeleteRunningTask |
+| 이 오류는 중지 하려는 서비스 인스턴스에 마이그레이션 프로젝트에 아직 실행 중이거나 있는 작업이 포함 되어 있을 때 표시 됩니다. <br><br><br><br><br><br> | 중지 하려는 Azure Database Migration Service 인스턴스에서 실행 중인 작업이 없는지 확인 합니다. 서비스를 중지 하기 전에 활동이 나 프로젝트를 삭제할 수도 있습니다. 다음 단계에서는 실행 중인 모든 태스크를 삭제 하 여 마이그레이션 서비스 인스턴스를 정리 하는 프로젝트를 제거 하는 방법을 보여 줍니다.<br>1. Install-Module-Name AzureRM. Microsoft.datamigration <br>2. 로그인-Connect-azurermaccount <br>3. Get-azurermsubscription-SubscriptionName " \<subName> " <br> 4. AzureRmDataMigrationProject-Name \<projectName> -ResourceGroupName- \<rgName> \<serviceName> DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Azure Database Migration Service를 시작 하는 동안 오류 발생
 
@@ -72,13 +77,13 @@ Azure Database Migration Service 인스턴스를 시작할 때 다음과 같은 
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>SQL을 Azure SQL DB 관리 되는 인스턴스로 마이그레이션하는 동안 데이터베이스를 복원 하는 동안 오류 발생
 
-SQL Server에서 관리 되는 Azure SQL Database 인스턴스로 온라인 마이그레이션을 수행 하는 경우 다음과 같은 오류가 발생 하 여 가공선이 실패 합니다.
+SQL Server에서 Azure SQL Managed Instance로 온라인 마이그레이션을 수행 하는 경우 다음과 같은 오류가 발생 하 여 가공선이 실패 합니다.
 
 * **오류**: 작업 Id ' operationId '의 복원 작업에 실패 했습니다. ' AuthorizationFailed ' 코드, 개체 id가 ' objectId ' 인 클라이언트 ' clientId '에 '/subscriptions/subscriptionId ' 범위에 대해 ' managedDatabaseRestoreAzureAsyncOperation/위치//읽기 ' 작업을 수행할 권한이 없습니다.
 
 | 원인         | 해결 방법    |
 | ------------- | ------------- |
-| 이 오류는 SQL Server에서 관리 되는 Azure SQL Database 인스턴스로의 온라인 마이그레이션에 사용 되는 응용 프로그램 보안 주체에 게 구독에 대 한 참가 권한이 없음을 나타냅니다. 현재 Managed Instance 있는 특정 API 호출에는 복원 작업에 대 한 구독에 대 한이 권한이 필요 합니다. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | 오류 메시지 `Get-AzureADServicePrincipal` 에서 사용할 수 `-ObjectId` 있는 PowerShell cmdlet을 사용 하 여 사용 중인 응용 프로그램 ID의 표시 이름을 나열 합니다.<br><br> 이 응용 프로그램에 대 한 사용 권한의 유효성을 검사 하 고 구독 수준에서 [참가자 역할이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 있는지 확인 합니다. <br><br> Azure Database Migration Service 엔지니어링 팀에서 구독에 대 한 현재 참가 역할의 필수 액세스를 제한 하기 위해 작업 중입니다. 참가 역할의 사용을 허용 하지 않는 비즈니스 요구 사항이 있는 경우 Azure 지원에 문의 하 여 추가 도움을 요청 합니다. |
+| 이 오류는 SQL Server에서 SQL Managed Instance로의 온라인 마이그레이션에 사용 되는 응용 프로그램 보안 주체가 구독에 대 한 참가 권한이 없음을 나타냅니다. 현재 Managed Instance 있는 특정 API 호출에는 복원 작업에 대 한 구독에 대 한이 권한이 필요 합니다. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | `Get-AzureADServicePrincipal` `-ObjectId` 오류 메시지에서 사용할 수 있는 PowerShell cmdlet을 사용 하 여 사용 중인 응용 프로그램 ID의 표시 이름을 나열 합니다.<br><br> 이 응용 프로그램에 대 한 사용 권한의 유효성을 검사 하 고 구독 수준에서 [참가자 역할이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 있는지 확인 합니다. <br><br> Azure Database Migration Service 엔지니어링 팀에서 구독에 대 한 현재 참가 역할의 필수 액세스를 제한 하기 위해 작업 중입니다. 참가 역할의 사용을 허용 하지 않는 비즈니스 요구 사항이 있는 경우 Azure 지원에 문의 하 여 추가 도움을 요청 합니다. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Azure Database Migration Service와 연결 된 NIC를 삭제 하는 동안 오류 발생
 
@@ -112,7 +117,7 @@ Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Dat
 
 명명 된 인스턴스나 동적 포트 중 하나에서 실행 되는 SQL Server 원본에 Azure Database Migration Service 연결 하려고 하면 다음 오류가 발생 하 여 연결이 실패 합니다.
 
-* **오류**:-1-SQL 연결에 실패 했습니다. SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바르고 SQL Server가 원격 연결을 허용하도록 구성되어 있는지 확인하십시오. (공급자: SQL 네트워크 인터페이스, 오류: 26-지정된 서버/인스턴스를 찾는 동안 오류가 발생했습니다)
+* **오류**:-1-SQL 연결에 실패 했습니다. SQL Server에 연결하는 중에 네트워크 관련 오류 또는 인스턴스별 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바르고 SQL Server가 원격 연결을 허용하도록 구성되어 있는지 확인합니다. (공급자: SQL 네트워크 인터페이스, 오류: 26 - 지정된 서버/인스턴스 찾기 오류)
 
 | 원인         | 해결 방법    |
 | ------------- | ------------- |

@@ -5,13 +5,12 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 38b6f797541ef07fa3fb5e1dc71029a4cbcf5d22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/8/2020
+ms.openlocfilehash: 3f0df02b58835ce4b43d6ba172e79f872a9fae1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608386"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MariaDB 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MariaDB 연결 아키텍처에 대해 설명 합니다.
@@ -46,6 +45,7 @@ ms.locfileid: "80546301"
 | 미국 동부 | 40.121.158.30, 191.238.6.43  |
 | 미국 동부 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | 프랑스 중부 | 40.79.137.0, 40.79.129.1  |
+| 프랑스 남부 | 40.79.177.0     |
 | 독일 중부 | 51.4.144.100     |
 | 독일 북동부 | 51.5.144.179  |
 | 인도 중부 | 104.211.96.159     |
@@ -58,7 +58,7 @@ ms.locfileid: "80546301"
 | 미국 중북부 | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | 북유럽 | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
 | 남아프리카 북부  | 102.133.152.0    |
-| 남아프리카 공화국 서 부 | 102.133.24.0   |
+| 남아프리카 공화국 서부 | 102.133.24.0   |
 | 미국 중남부 |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | 동남아시아 | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | 아랍에미리트 중부 | 20.37.72.64  |
@@ -70,6 +70,17 @@ ms.locfileid: "80546301"
 | 미국 서부 | 104.42.238.205, 23.99.34.75  |
 | 미국 서부 2 | 13.66.226.202  |
 ||||
+
+## <a name="connection-redirection"></a>연결 리디렉션
+
+Azure Database for MariaDB은 클라이언트 응용 프로그램과 Aadb 서버 간의 네트워크 대기 시간을 줄이는 데 도움이 되는 추가 연결 정책 **리디렉션**기능을 지원 합니다. 이 기능을 사용 하 여 Azure Database for MariaDB 서버에 초기 TCP 세션이 설정 된 후 서버는 MariaDB 서버를 호스팅하는 노드의 백 엔드 주소를 클라이언트에 반환 합니다. 이후에는 모든 후속 패킷이 서버에 직접 전달 되 고 게이트웨이는 무시 됩니다. 패킷이 서버에 직접 전달 되 면 대기 시간 및 처리량이 향상 됩니다.
+
+이 기능은 엔진 버전이 10.2 및 10.3 인 Azure Database for MariaDB 서버에서 지원 됩니다.
+
+리디렉션 지원은 Microsoft에서 개발한 PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) 확장에서 제공 되며 [PECL](https://pecl.php.net/package/mysqlnd_azure)에서 사용할 수 있습니다. 응용 프로그램에서 리디렉션을 사용 하는 방법에 대 한 자세한 내용은 [리디렉션 구성](./howto-redirection.md) 문서를 참조 하세요.
+
+> [!IMPORTANT]
+> PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) 확장의 리디렉션에 대한 지원은 현재 미리 보기 상태입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

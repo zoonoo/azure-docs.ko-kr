@@ -2,13 +2,12 @@
 title: 서비스 공급자 작업 보기
 description: 고객은 Azure 위임 된 리소스 관리를 통해 서비스 공급자가 수행한 작업을 확인 하기 위해 기록 된 활동을 볼 수 있습니다.
 ms.date: 01/15/2020
-ms.topic: conceptual
-ms.openlocfilehash: a923a57ecc94ac15af207c2b8dc8998708b708d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 42af2aa7fca5031eb50bd421a5207320858b70cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636447"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기
 
@@ -45,5 +44,5 @@ Azure Portal의 **모니터** 메뉴에서 [활동 로그를 볼](../../azure-mo
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor](../../azure-monitor/index.yml)에 대해 자세히 알아보세요.
+- [Azure Monitor](../../azure-monitor/index.yml)에 대해 자세히 알아봅니다.
 - Azure Portal에서 [서비스 공급자 제품을 보고 관리](view-manage-service-providers.md) 하는 방법에 대해 알아봅니다.

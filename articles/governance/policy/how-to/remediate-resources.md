@@ -1,14 +1,13 @@
 ---
 title: 규정 비준수 리소스 수정
 description: 이 지침에서는 Azure Policy에서 정책을 준수하지 않는 리소스를 수정하는 과정을 안내합니다.
-ms.date: 02/26/2020
+ms.date: 06/09/2020
 ms.topic: how-to
-ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636311"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -17,7 +16,7 @@ ms.locfileid: "83849963"
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
 Azure Policy는 **deployIfNotExists** 정책 정의의 템플릿을 실행할 때 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
-Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. 관리 ID의 ‘위치’는 Azure Policy 작업에 영향을 주지 않습니다.
+Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. 관리 id의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="관리 ID - 역할 누락" border="false":::
 
@@ -51,9 +50,6 @@ az role definition list --name 'Contributor'
 - Azure PowerShell 등의 SDK를 사용하는 경우
 - 할당 범위 외부의 리소스를 템플릿이 수정하는 경우
 - 할당 범위 외부의 리소스를 템플릿이 읽는 경우
-
-> [!NOTE]
-> 현재 이 기능을 지원하는 SDK는 Azure PowerShell 및 .NET뿐입니다.
 
 ### <a name="create-managed-identity-with-powershell"></a>PowerShell을 사용하여 관리 ID 만들기
 
@@ -183,13 +179,13 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Azure Portal에서 정책 할당 중에 수정 작업 만들기
 
-수정 작업을 만드는 간소화된 방법은 정책 할당 중에 Azure Portal에서 수행하는 것입니다. 할당할 정책 정의가 **deployIfNotExists** 또는 **수정** 효과인 경우 **수정** 탭의 마법사에서 ‘수정 작업 만들기 옵션’을 제공합니다. 이 옵션을 선택하면 정책 할당과 동시에 수정 작업이 생성됩니다.
+수정 작업을 만드는 간소화된 방법은 정책 할당 중에 Azure Portal에서 수행하는 것입니다. 할당할 정책 정의가 **Deployifnotexists** 또는 수정 효과 인 경우 수정 **탭의** 마법사는 **수정** _작업 만들기_ 옵션을 제공 합니다. 이 옵션을 선택 하면 정책 할당과 동시에 수정 작업이 생성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성하는](programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 만드는](programmatically-create.md) 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](get-compliance-data.md) 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

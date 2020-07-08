@@ -6,14 +6,13 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628682"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>App service와 같은 다중 테 넌 트 백 엔드에 대 한 Application Gateway 지원
 
@@ -42,7 +41,7 @@ Application Gateway는 사용자가 백 엔드의 호스트 이름에 따라 요
 
 ### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>다중 테 넌 트 서비스를 사용 하는 TLS 종료 및 종단 간 TLS
 
-TLS 종료와 종단 간 TLS 암호화는 모두 다중 테 넌 트 서비스에서 지원 됩니다. 응용 프로그램 게이트웨이에서 TLS를 종료 하는 경우에는 응용 프로그램 게이트웨이 수신기에 TLS 인증서를 계속 추가 해야 합니다. 그러나 종단 간 TLS의 경우 Azure 앱 서비스 웹 앱과 같은 신뢰할 수 있는 Azure 서비스는 응용 프로그램 게이트웨이에서 백 엔드를 허용 목록 필요가 없습니다. 따라서 인증 인증서를 추가할 필요가 없습니다. 
+TLS 종료와 종단 간 TLS 암호화는 모두 다중 테 넌 트 서비스에서 지원 됩니다. 응용 프로그램 게이트웨이에서 TLS를 종료 하는 경우에는 응용 프로그램 게이트웨이 수신기에 TLS 인증서를 계속 추가 해야 합니다. 그러나 종단 간 TLS의 경우 Azure 앱 서비스 웹 앱과 같은 신뢰할 수 있는 Azure 서비스는 application gateway에서 백 엔드를 허용 하지 않아도 됩니다. 따라서 인증 인증서를 추가할 필요가 없습니다. 
 
 ![종단 간 TLS](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

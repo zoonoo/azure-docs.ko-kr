@@ -2,13 +2,12 @@
 title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/24/2020
+ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628465"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -26,6 +25,10 @@ ms.locfileid: "81537409"
 
 - 백업에 대해 지원 되는 vCenter/ESXi의 버전을 실행 하 고 있는지 확인 합니다. [여기](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)에서 지원 매트릭스를 참조 하세요.
 - Azure Backup Server를 설정했는지 확인합니다. 설정하지 않은 경우 시작하기 전에 [설정](backup-azure-microsoft-azure-backup.md)합니다. 최신 업데이트를 사용하여 Azure Backup Server를 실행해야 합니다.
+- 다음 네트워크 포트가 열려있는지 확인합니다.
+    - MABS와 vCenter 간의 TCP 443
+    - MABS와 ESXi 호스트 간의 TCP 443 및 TCP 902
+
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>vCenter Server에 대한 보안 연결 만들기
 
@@ -58,7 +61,7 @@ ms.locfileid: "81537409"
 
 4. 이 파일을 Azure Backup Server 머신에 zip 확장명으로 저장합니다.
 
-5. **다운로드 .zip** > **모두 추출**을 마우스 오른쪽 단추로 클릭 합니다. 다음을 포함하는 zip 파일의 콘텐츠가 **certs** 폴더로 추출됩니다.
+5. **download.zip**  >  **모두 추출**을 마우스 오른쪽 단추로 클릭 합니다. 다음을 포함하는 zip 파일의 콘텐츠가 **certs** 폴더로 추출됩니다.
    - .0 및 .1과 같은 숫자가 매겨진 시퀀스로 시작하는 확장명을 가진 루트 인증서 파일.
    - CRL 파일은 .r0 또는 .r1과 같은 시퀀스로 시작하는 확장명을 갖습니다. CRL 파일은 인증서와 연결되어 있습니다.
 
@@ -104,7 +107,7 @@ ms.locfileid: "81537409"
 
 2. 파일 이름을 **DisableSecureAuthentication.reg**로 지정하여 Azure Backup Server 머신에 저장합니다.
 
-3. 레지스트리 항목을 활성화하려면 파일을 두 번 클릭합니다.
+3. 파일을 두 번 클릭하여 레지스트리 항목을 활성화합니다.
 
 ## <a name="create-a-vmware-role"></a>VMware 역할 만들기
 
@@ -115,11 +118,11 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
     ![관리](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. **관리** > **역할**에서 역할 추가 아이콘 (+ 기호)을 클릭 합니다.
+3. **관리**  >  **역할**에서 역할 추가 아이콘 (+ 기호)을 클릭 합니다.
 
     ![역할 추가](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. **역할** > **역할 이름**만들기에서 *backupadminrole*을 입력 합니다. 역할 이름은 원하는 대로 사용할 수 있지만 이름은 역할의 목적에 대해 쉽게 인식할 수 있어야 합니다.
+4. **역할**  >  **역할 이름**만들기에서 *backupadminrole*을 입력 합니다. 역할 이름은 원하는 대로 사용할 수 있지만 이름은 역할의 목적에 대해 쉽게 인식할 수 있어야 합니다.
 
 5. 아래 표에 요약된 대로 권한을 선택하고 **확인**을 클릭합니다.  새 역할이 **역할** 패널의 목록에 나타납니다.
    - 부모 레이블 옆의 아이콘을 클릭하여 부모를 확장하고 자식 권한을 봅니다.
@@ -132,7 +135,7 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
 | VCenter 6.7 사용자 계정에 대 한 권한                     | VCenter 6.5 사용자 계정에 대 한 권한                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 데이터 저장소 클러스터. Datatstore 클러스터 구성            | 데이터 저장소 클러스터. Datatstore 클러스터 구성            |
+| Datatstore 클러스터를 cluster.Config데이터 저장소            | Datatstore 클러스터를 cluster.Config데이터 저장소            |
 | Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
 | Datastore.Browse datastore                                   | Datastore.Browse datastore                                   |
 | Datastore.Low-level file operations                          | Datastore.Low-level file operations                          |
@@ -148,29 +151,29 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 | vApp.Add virtual machine                                     | vApp.Add virtual machine                                     |
 | vApp.Assign resource pool                                    | vApp.Assign resource pool                                    |
 | vApp.Unregister                                              | vApp.Unregister                                              |
-| VirtualMachine. 장치 추가 또는 제거          | VirtualMachine. 장치 추가 또는 제거          |
-| 가상 컴퓨터. 구성. 디스크 임대를 가져옵니다.            | Virtual machine.Configuration.Disk lease                     |
+| VirtualMachine.Configuration. 장치 추가 또는 제거          | VirtualMachine.Configuration. 장치 추가 또는 제거          |
+| 가상 machine.Configuration. 디스크 임대 가져오기            | Virtual machine.Configuration.Disk lease                     |
 | Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Add new disk                   |
-| 가상 컴퓨터. 구성. 고급 구성        | Virtual machine.Configuration.Advanced                       |
-| 가상 컴퓨터. 구성. 디스크 변경 내용 추적 설정/해제   | 가상 컴퓨터. 구성 디스크 변경 내용 추적          |
-| 가상 컴퓨터. 구성. 호스트 USB 장치 구성     | 가상 컴퓨터. 구성. 호스트 USB 장치               |
-| 가상 컴퓨터. 구성. 가상 디스크 확장           | 가상 컴퓨터. 구성. 가상 디스크 확장           |
-| 가상 컴퓨터. 구성. 소유 하지 않은 파일 쿼리           | 가상 컴퓨터. 구성. 소유 하지 않은 파일 쿼리           |
-| 가상 컴퓨터. 구성. 스왑 스왑 배치 변경     | 가상 컴퓨터. 구성 스왑 스왑 배치            |
+| 가상 machine.Configuration. 고급 구성        | Virtual machine.Configuration.Advanced                       |
+| 가상 machine.Configuration. 디스크 변경 내용 추적 설정/해제   | 가상 machine.Configuration. 디스크 변경 내용 추적          |
+| 가상 machine.Configuration.Config호스트 USB 장치     | 가상 machine.Configuration. 호스트 USB 장치               |
+| 가상 machine.Configuration. 가상 디스크 확장           | 가상 machine.Configuration. 가상 디스크 확장           |
+| 가상 machine.Configuration. 소유 하지 않은 파일 쿼리           | 가상 machine.Configuration. 소유 하지 않은 파일 쿼리           |
+| 가상 machine.Configuration. 스왑 스왑 배치 변경     | 가상 machine.Configuration. 스왑 스왑 배치            |
 | 가상 컴퓨터. 게스트 작업. 게스트 작업 프로그램 실행 | 가상 컴퓨터. 게스트 작업. 게스트 작업 프로그램 실행 |
 | 가상 컴퓨터. 게스트 작업. 게스트 작업 수정 | 가상 컴퓨터. 게스트 작업. 게스트 작업 수정 |
 | 가상 컴퓨터. 게스트 작업. 게스트 작업 쿼리    | 가상 컴퓨터. 게스트 작업. 게스트 작업 쿼리    |
 | 가상 컴퓨터. 작용과. 장치 연결             | 가상 컴퓨터. 작용과. 장치 연결             |
 | 가상 컴퓨터. 작용과. VIX API의 게스트 운영 체제 관리 | 가상 컴퓨터. 작용과. VIX API의 게스트 운영 체제 관리 |
-| 가상 컴퓨터. 작용과. 전원 끄기                      | 가상 컴퓨터. 작용과. 전원 끄기                      |
-| 가상 컴퓨터. 인벤토리. 새로 만들기                        | 가상 컴퓨터. 인벤토리. 새로 만들기                        |
+| Virtual machine .Interaction .Power Off                      | Virtual machine .Interaction .Power Off                      |
+| Virtual machine .Inventory.Create new                        | Virtual machine .Inventory.Create new                        |
 | Virtual machine .Inventory.Remove                            | Virtual machine .Inventory.Remove                            |
 | Virtual machine .Inventory.Register                          | Virtual machine .Inventory.Register                          |
 | 가상 컴퓨터. 프로 비전. 디스크 액세스 허용             | 가상 컴퓨터. 프로 비전. 디스크 액세스 허용             |
 | 가상 컴퓨터. 프로 비전. 파일 액세스 허용             | 가상 컴퓨터. 프로 비전. 파일 액세스 허용             |
 | 가상 컴퓨터. 프로 비전. 읽기 전용 디스크 액세스 허용   | 가상 컴퓨터. 프로 비전. 읽기 전용 디스크 액세스 허용   |
 | 가상 컴퓨터. 프로 비전. 가상 컴퓨터 다운로드 허용 | 가상 컴퓨터. 프로 비전. 가상 컴퓨터 다운로드 허용 |
-| Virtual machine .Snapshot management.  스냅샷 만들기       | Virtual machine .Snapshot management.  스냅샷 만들기       |
+| Virtual machine .Snapshot management.  Create snapshot       | Virtual machine .Snapshot management.  Create snapshot       |
 | 가상 컴퓨터. 스냅숏 관리. 스냅숏 제거        | 가상 컴퓨터. 스냅숏 관리. 스냅숏 제거        |
 | 가상 컴퓨터. 스냅숏 관리. 스냅숏으로 되돌리기     | 가상 컴퓨터. 스냅숏 관리. 스냅숏으로 되돌리기     |
 
@@ -184,14 +187,14 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 | 호스트 로컬 작업. 가상 컴퓨터 만들기              | VirtualMachine.State.RemoveSnapshot         |
 | Network.  Assign network                                   | VirtualMachine.State.CreateSnapshot         |
 | Resource.  Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
-| 가상 컴퓨터. 구성. 새 디스크 추가                | VirtualMachine.Interact.PowerOff            |
-| 가상 컴퓨터. 구성. 고급                    | VirtualMachine.Inventory.Create             |
-| 가상 컴퓨터. 구성 디스크 변경 내용 추적        | VirtualMachine.Config.AddNewDisk            |
-| 가상 컴퓨터. 구성. 호스트 USB 장치             | VirtualMachine.Config.HostUSBDevice         |
-| 가상 컴퓨터. 구성. 소유 하지 않은 파일 쿼리         | VirtualMachine.Config.AdvancedConfig        |
-| 가상 컴퓨터. 구성 스왑 스왑 배치          | VirtualMachine.Config.SwapPlacement         |
+| 가상 machine.Configuration. 새 디스크 추가                | VirtualMachine.Interact.PowerOff            |
+| 가상 machine.Configuration. 고급                    | VirtualMachine.Inventory.Create             |
+| 가상 machine.Configuration. 디스크 변경 내용 추적        | VirtualMachine.Config.AddNewDisk            |
+| 가상 machine.Configuration. 호스트 USB 장치             | VirtualMachine.Config.HostUSBDevice         |
+| 가상 machine.Configuration. 소유 하지 않은 파일 쿼리         | VirtualMachine.Config.AdvancedConfig        |
+| 가상 machine.Configuration. 스왑 스왑 배치          | VirtualMachine.Config.SwapPlacement         |
 | 가상 컴퓨터. 상호 작용. 전원 끄기                     | Global.ManageCustomFields                   |
-| 가상 컴퓨터. 인벤토리에서. 새로 만들기                     |                                             |
+| 가상 컴퓨터. 인벤토리에서. Create new                     |                                             |
 | 가상 컴퓨터. 프로 비전. 디스크 액세스 허용            |                                             |
 | 가상 컴퓨터. 구축한. Allow read-only disk access |                                             |
 | 가상 컴퓨터. 스냅숏 관리. 스냅숏 만들기       |                                             |
@@ -237,7 +240,7 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
     ![Azure Backup Server 아이콘](./media/backup-azure-backup-server-vmware/mabs-icon.png)
 
-2. Azure Backup Server 콘솔에서 **관리** >  **프로덕션 서버** > **VMware 관리**를 클릭 합니다.
+2. Azure Backup Server 콘솔에서 **관리**  >   **프로덕션 서버**  >  **VMware 관리**를 클릭 합니다.
 
     ![Azure Backup Server 콘솔](./media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
@@ -257,11 +260,11 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
 Azure Backup Server에 vCenter Server를 추가합니다.
 
-1. Azure Backup Server 콘솔에서 **관리** > **프로덕션 서버** > **추가**를 클릭 합니다.
+1. Azure Backup Server 콘솔에서 **관리**  >  **프로덕션 서버**  >  **추가**를 클릭 합니다.
 
     ![프로덕션 서버 추가 마법사 열기](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. **프로덕션 서버 추가 마법사** > 에서**프로덕션 서버 유형 선택** 페이지에서 **VMware 서버**를 선택 하 고 **다음**을 클릭 합니다.
+2. **프로덕션 서버 추가 마법사에서**  >  **프로덕션 서버 유형 선택** 페이지에서 **VMware 서버**를 선택 하 고 **다음**을 클릭 합니다.
 
     ![프로덕션 서버 추가 마법사](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -275,7 +278,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![자격 증명 지정](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그런 후 **Next** 를 클릭합니다.
+6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. **다음**을 클릭합니다.
 
     ![VMWare 서버 및 자격 증명 추가](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -303,14 +306,14 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그런 후 **Next** 를 클릭합니다.
+1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. **다음**을 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
 1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 생성 되지 않습니다.
 
     ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그런 후 **Next** 를 클릭합니다.
+1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. **다음**을 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -341,17 +344,17 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
     ![복제본 만들기 방법 선택](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. **다음**을 클릭합니다.
       - 복제 데이터가 일관성을 잃은 경우 또는 설정된 일정에 따라 일관성 확인을 실행할 수 있습니다.
       - 자동 일관성 확인을 구성하지 않으려면 수동 검사를 실행할 수 있습니다. 이 작업을 수행하려면 보호 그룹을 마우스 오른쪽 단추로 클릭하고 > **일관성 확인 수행**을 클릭합니다.
 
-1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그런 후 **Next** 를 클릭합니다.
+1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. **다음**을 클릭합니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. **온라인 백업 예약 지정** 페이지에서 로컬 스토리지의 데이터를 Azure로 백업할 빈도를 지정합니다.
 
-    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그런 후 **Next** 를 클릭합니다.
+    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. **다음**을 클릭합니다.
     - 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
@@ -366,6 +369,21 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 1. **요약** 페이지에서 설정을 검토한 다음, **그룹 만들기**를 클릭합니다.
 
     ![보호 그룹 구성원 및 설정 요약](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+
+## <a name="vmware-parallel-backups"></a>VMware 병렬 백업
+
+>[!NOTE]
+> 이 기능은 MABS V3 UR1에 적용 됩니다.
+
+이전 버전의 MABS에서는 보호 그룹 간에만 병렬 백업이 수행 되었습니다. MABS V3 UR1를 사용 하면 단일 보호 그룹 내의 모든 VMWare Vm 백업이 병렬 되므로 VM 백업 속도가 빨라집니다. 모든 VMWare 델타 복제 작업은 동시에 실행 됩니다. 기본적으로 병렬로 실행할 작업 수는 8로 설정 됩니다.
+
+아래 표시 된 대로 레지스트리 키를 사용 하 여 작업 수를 수정할 수 있습니다 (기본적으로 표시 되지 않음, 추가 해야 함).
+
+**키 경로**:`Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**키 유형**: DWORD (32 비트) 값입니다.
+
+> [!NOTE]
+> 작업 수를 더 높은 값으로 수정할 수 있습니다. 작업 번호를 1로 설정 하면 복제 작업이 순차적으로 실행 됩니다. 더 높은 값으로 설정하려면 VMWare 성능을 고려해야 합니다. 사용 중인 리소스의 수와 VMWare vSphere 서버에 필요한 추가 사용을 고려 하 여 병렬로 실행할 델타 복제 작업 수를 확인 합니다. 또한이 변경은 새로 만든 보호 그룹에만 적용 됩니다. 기존 보호 그룹의 경우 보호 그룹에 일시적으로 다른 VM을 추가 해야 합니다. 이렇게 하면 보호 그룹 구성을 적절 하 게 업데이트 해야 합니다. 절차가 완료 된 후 보호 그룹에서이 VM을 제거할 수 있습니다.
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
@@ -396,6 +414,126 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
 "SystemDefaultTlsVersions"=dword:00000001
 "SchUseStrongCrypto"=dword:00000001
+```
+
+## <a name="exclude-disk-from-vmware-vm-backup"></a>VMware VM 백업에서 디스크 제외
+
+> [!NOTE]
+> 이 기능은 MABS V3 UR1에 적용 됩니다.
+
+MABS V3 UR1를 사용 하 여 VMware VM 백업에서 특정 디스크를 제외할 수 있습니다. 구성 스크립트 **ExcludeDisk.ps1** 는에 있습니다 `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
+
+디스크 제외를 구성하려면 다음 단계를 수행합니다.
+
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>제외할 VMWare VM 및 디스크 세부 정보 식별
+
+  1. VMware 콘솔에서 디스크를 제외 하려는 VM 설정으로 이동 합니다.
+  2. 제외하려는 디스크를 선택하 고 해당 디스크에 대한 경로를 확인합니다.
+
+        예를 들어 TestVM4에서 하드 디스크 2를 제외하려면 하드 디스크 2의 경로는 **[datastore1] TestVM4/TestVM4\_1.vmdk**입니다.
+
+        ![제외 될 하드 디스크](./media/backup-azure-backup-server-vmware/test-vm.png)
+
+### <a name="configure-mabs-server"></a>MABS 서버 구성
+
+VMware VM이 보호 되도록 구성 된 MABS 서버로 이동 하 여 디스크 제외를 구성 합니다.
+
+  1. MABS 서버에서 보호 되는 VMware 호스트의 세부 정보를 가져옵니다.
+
+        ```powershell
+        $psInfo = get-DPMProductionServer
+        $psInfo
+        ```
+
+        ```output
+        ServerName   ClusterName     Domain            ServerProtectionState
+        ----------   -----------     ------            ---------------------
+        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+        ```
+
+  2. VMware 호스트를 선택하고 VMware 호스트에 대한 VM 보호를 나열합니다.
+
+        ```powershell
+        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+        $vmDsInfo
+        ```
+
+        ```output
+        Computer     Name     ObjectType
+        --------     ----     ----------
+        Vcentervm1  TestVM2      VMware
+        Vcentervm1  TestVM1      VMware
+        Vcentervm1  TestVM4      VMware
+        ```
+
+  3. 디스크를 제외하려는 VM을 선택합니다.
+
+        ```powershell
+        $vmDsInfo[2]
+        ```
+
+        ```output
+        Computer     Name      ObjectType
+        --------     ----      ----------
+        Vcentervm1   TestVM4   VMware
+        ```
+
+  4. 디스크를 제외 하려면 폴더로 이동 하 `Bin` 고 다음 매개 변수를 사용 하 여 *ExcludeDisk.ps1* 스크립트를 실행 합니다.
+
+        > [!NOTE]
+        > 이 명령을 실행 하기 전에 MABS 서버에서 DPMRA 서비스를 중지 합니다. 그렇지 않으면 스크립트가 success를 반환 하지만 제외 목록을 업데이트 하지는 않습니다. 서비스를 중지하기 전에 진행 중인 작업이 없는지 확인합니다.
+
+     **제외에서 디스크를 추가/제거하려면 다음 명령을 실행합니다.**
+
+      ```powershell
+      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+      ```
+
+     **예**:
+
+     TestVM4에 대 한 디스크 제외를 추가 하려면 다음 명령을 실행 합니다.
+
+       ```powershell
+      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+       ```
+
+      ```output
+       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+      ```
+
+  5. 디스크가 제외에 추가 되었는지 확인 합니다.
+
+     **특정 VM에 대한 기존 제외를 보려면 다음 명령을 실행합니다.**
+
+        ```powershell
+        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+        ```
+
+     **예제**
+
+        ```powershell
+        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+        ```
+
+        ```output
+        <VirtualMachine>
+        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+        </VirtualMachine>
+        ```
+
+     이 VM에 대 한 보호를 구성한 후에는 제외 된 디스크가 보호 중에 나열 되지 않습니다.
+
+        > [!NOTE]
+        > 이미 보호 된 VM에 대해 이러한 단계를 수행 하는 경우 제외를 위해 디스크를 추가한 후 일관성 확인을 수동으로 실행 해야 합니다.
+
+### <a name="remove-the-disk-from-exclusion"></a>제외에서 디스크 제거
+
+제외에서 디스크를 제거 하려면 다음 명령을 실행 합니다.
+
+```powershell
+C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
 ## <a name="next-steps"></a>다음 단계

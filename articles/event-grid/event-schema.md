@@ -2,24 +2,23 @@
 title: Azure Event Grid 이벤트 스키마
 description: 모든 이벤트에 대해 제공 되는 속성 및 스키마에 대해 설명 합니다.이벤트는 5개의 필수 문자열 속성 집합과 필수 데이터 개체로 구성됩니다.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559423"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
 이 문서에서는 모든 이벤트에 존재하는 속성과 스키마를 설명합니다.이벤트는 5개의 필수 문자열 속성 집합과 필수 데이터 개체로 구성됩니다. 속성은 모든 게시자에서 모든 이벤트에 공통입니다. 데이터 개체에는 각 게시자에만 적용되는 속성이 있습니다. 시스템 항목에 대한 이러한 속성은 Azure Storage 또는 Event Hubs와 같은 리소스 공급자에 따라 다릅니다.
 
-이벤트 원본은 여러 이벤트 개체를 포함할 수 있는 배열의 Azure Event Grid에 이벤트를 전송합니다. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 1mb로 제한 됩니다. 이벤트 또는 배열이 크기 제한보다 클 경우 응답 **413 페이로드가 너무 큼**을 받습니다. 작업에는 64 KB 씩 요금이 부과 됩니다. 따라서 64 KB를 초과 하는 이벤트는 여러 이벤트 처럼 작업 요금을 발생 시킵니다. 예를 들어 130 KB 인 이벤트는 별도의 3 개 이벤트 처럼 작업을 발생 시킵니다.
+이벤트 원본은 여러 이벤트 개체를 포함할 수 있는 배열의 Azure Event Grid에 이벤트를 전송합니다. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 1mb로 제한 됩니다. 이벤트 또는 배열이 크기 제한보다 클 경우 응답 **413 페이로드가 너무 큼**을 받습니다. 작업에는 64KB 단위로 요금이 부과됩니다. 따라서 64KB를 초과하는 이벤트는 여러 이벤트인 것처럼 작업 요금이 발생합니다. 예를 들어 130KB인 이벤트는 별도의 3개 이벤트처럼 작업을 발생시킵니다.
 
 Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 보냅니다. 이 동작은 나중에 변경할 수 있습니다.
 
@@ -80,21 +79,21 @@ Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 
 
 모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 있습니다.
 
-| 속성 | 유형 | 필수 | Description |
+| 속성 | 형식 | 필수 | Description |
 | -------- | ---- | -------- | ----------- |
 | 토픽 | string | 아니요, 포함 된 경우 Event Grid 토픽 Azure Resource Manager ID와 정확히 일치 해야 합니다. 포함 되지 않은 경우 Event Grid 이벤트에 스탬프를 제공 합니다. | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 예 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 예 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 예 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 예 | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | 아니요 | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
+| 데이터 | object | 아니요 | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
 | dataVersion | string | 아니요. 하지만 빈 값으로 기록 됩니다. | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 필수는 아니지만 포함 된 경우 Event Grid 스키마 `metadataVersion` 와 정확히 일치 해야 합니다 (현재는 `1`). 포함 되지 않은 경우 Event Grid 이벤트에 스탬프를 제공 합니다. | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| metadataVersion | 문자열 | 필수는 아니지만 포함 된 경우 Event Grid 스키마와 정확히 일치 해야 합니다 `metadataVersion` (현재는 `1` ). 포함 되지 않은 경우 Event Grid 이벤트에 스탬프를 제공 합니다. | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성에 대해 자세히 알아보려면 이벤트 원본을 참조하십시오.
 
 * [Azure 구독(관리 작업)](event-schema-subscriptions.md)
-* [Container Registry](event-schema-container-registry.md)
+* [컨테이너 레지스트리](event-schema-container-registry.md)
 * [Blob Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)

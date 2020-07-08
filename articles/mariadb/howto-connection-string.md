@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 74574fb905ae4ebd2552ef97cd0b5430eea6363a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 18e3f2ab7c581a1ff93a65e410e83739564b5be5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558295"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 애플리케이션을 연결하는 방법
 이 항목에는 템플릿 및 예제와 함께 Azure Database for MariaDB에서 지원되는 연결 문자열 형식이 나와 있습니다. 연결 문자열에 다른 매개 변수 및 설정을 사용할 수도 있습니다.

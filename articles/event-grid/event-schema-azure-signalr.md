@@ -2,17 +2,16 @@
 title: Event Grid 소스로 서의 Azure SignalR
 description: Azure Event Grid Azure SignalR 이벤트에 제공 되는 속성을 설명 합니다.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: babanisa
-ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 8fbae3fad4aeb85022c804e1ac648060360c6531
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560625"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>SignalR Service에 대 한 Azure Event Grid 이벤트 스키마
 
@@ -76,29 +75,29 @@ SignalR Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | SignalR Service 이벤트 데이터입니다. |
+| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | SignalR Service 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | timestamp | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | hubName | string | 클라이언트 연결이 속한 허브입니다. |
 | connectionId | string | 클라이언트 연결에 대 한 고유 식별자입니다. |
-| userId | string | 클레임에 정의 된 사용자 id입니다. |
+| userId | 문자열 | 클레임에 정의 된 사용자 id입니다. |
 | errorMessage | string | 연결을 끊을 때 발생 하는 오류입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목 | Description |
+|제목 | 설명 |
 |---------|---------|
 | [Event Grid를 사용 하 여 Azure SignalR Service 이벤트에 대응](../azure-signalr/signalr-concept-event-grid-integration.md) | Azure SignalR Service를 Event Grid와 통합 하는 방법에 대 한 개요입니다. |
 | [Event Grid에 Azure SignalR Service 이벤트를 보내는 방법](../azure-signalr/signalr-howto-event-grid-integration.md) | Event Grid를 통해 Azure SignalR Service 이벤트를 응용 프로그램에 보내는 방법을 보여 줍니다. |

@@ -7,12 +7,11 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609933"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -153,13 +152,10 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
 
 소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
 
-> [!NOTE]
-> Azure Cloud Shell을 사용하는 경우 `$web` 컨테이너(예: `\$web`)를 참조할 때 `\` 이스케이프 문자를 추가해야 합니다. Azure CLI의 로컬 설치를 사용하는 경우 이스케이프 문자를 사용할 필요가 없습니다.
-
 이 예제에서는 Azure Cloud Shell 세션에서 명령을 실행 중인 것으로 가정합니다.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 

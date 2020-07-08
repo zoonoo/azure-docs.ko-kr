@@ -2,17 +2,16 @@
 title: Event Grid 원본으로 Azure Maps
 description: Azure Event Grid를 사용한 Azure Maps 이벤트에 대해 제공되는 속성과 스키마를 설명합니다.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: f015bf682d7ce3475aba5baa73ab72b1426691fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560683"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Maps
 
@@ -104,20 +103,20 @@ Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | 지오펜싱 이벤트 데이터입니다. |
+| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | 지오펜싱 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | apiCategory | string | 이벤트의 API 범주입니다. |
 | apiName | string | 이벤트의 API 이름입니다. |
@@ -127,27 +126,27 @@ Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
 Maps API에서 오류가 발생하면 오류 개체가 반환됩니다. 오류 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| error | ErrorDetails |Maps API에서 오류가 발생하면 이 개체가 반환됩니다.  |
+| 오류 | ErrorDetails |Maps API에서 오류가 발생하면 이 개체가 반환됩니다.  |
 
 Maps API에서 오류가 발생하면 ErrorDetails 개체가 반환됩니다. ErrorDetails 또는 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | code | string | HTTP 상태 코드입니다. |
-| message | string | 사용 가능한 경우, 사용자가 읽을 수 있는 오류 설명입니다. |
+| message | 문자열 | 사용 가능한 경우, 사용자가 읽을 수 있는 오류 설명입니다. |
 | innererror | InnerError | 사용 가능한 경우, 오류에 대한 서비스 특정 정보가 포함된 개체입니다. |
 
 InnerError는 오류에 대한 서비스 특정 정보가 포함된 개체입니다. InnerError 개체의 속성은 다음과 같습니다. 
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | code | string | 오류 메시지입니다. |
 
 기하 도형 개체는 요청의 사용자 시간을 기준으로, 만료된 지오펜스의 기하 도형 ID를 나열합니다. 기하 도형 개체에 포함된 기하 도형 항목의 속성은 다음과 같습니다. 
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 |:-------- |:---- |:----------- |
 | deviceId | string | 디바이스의 ID입니다. |
 | distance | string | <p>좌표에서 가장 가까운 지오펜스 경계까지의 거리입니다. 양수는 좌표가 지오펜스 외부에 있음을 의미합니다. 좌표가 지오펜스 외부에 있지만 가장 가까운 지오펜스 경계에서 searchBuffer 값보다 멀리 떨어진 경우의 값은 999입니다. 음수는 좌표가 지오펜스 내부에 있음을 의미합니다. 좌표가 다각형 내부에 있지만 가장 가까운 지오펜싱 경계에서 searchBuffer 값보다 멀리 떨어진 경우의 값은 -999입니다. 값 999는 좌표가 지오펜스 외부에 있다는 신뢰도가 높음을 의미합니다. 값 -999는 좌표가 지오펜스 내부에 있다는 신뢰도가 높음을 의미합니다.<p> |
@@ -158,7 +157,7 @@ InnerError는 오류에 대한 서비스 특정 정보가 포함된 개체입니
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | 요청의 사용자 시간을 기준으로, 만료된 지오펜스의 기하 도형 ID 목록입니다. |
 | geometries | geometries[] |좌표 위치를 포함하거나 위치 주위의 searchBuffer와 겹치는 펜스 기하 도형을 나열합니다. |

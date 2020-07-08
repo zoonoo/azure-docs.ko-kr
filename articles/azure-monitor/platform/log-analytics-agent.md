@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: cbefe2e2b25db7ce16a7a1bde423f60fda412590
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: ce7edf4dd5ae52f3ea604fe4b8d88d1a29de5a69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608369"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드의 가상 머신, 온-프레미스 머신 및 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)에서 모니터링하는 가상 머신의 포괄적인 관리를 위해 개발되었습니다. Windows 에이전트와 Linux 에이전트는 모니터링 솔루션에 정의된 고유한 로그 또는 메트릭뿐만 아니라 다른 소스에서 수집한 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다.
@@ -114,6 +113,24 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 >[!NOTE]
 >현재 지원되지 않고 Microsoft 지원 모델에 맞지 않는 배포판 또는 버전을 사용하는 경우 이 리포지토리를 포크하고, Microsoft 기술 지원에서 포크된 에이전트 버전에 대한 지원을 제공하지 않는다는 것을 확인하는 것이 좋습니다.
 
+
+### <a name="python-2-requirement"></a>Python 2 요구 사항
+ Log Analytics 에이전트에는 Python 2가 필요 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.
+
+ - Red Hat, CentOS, Oracle:`yum install -y python2`
+ - Ubuntu, Debian:`apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+Python2 실행 파일은 다음 명령을 사용 하 여 "python"으로 별칭을 지정 해야 합니다.
+
+```
+alternatives --set python /usr/sbin/python2
+```
+
+### <a name="supported-distros"></a>지원되는 배포판
+
+Linux 에이전트에 대해 공식적으로 지원 되는 Linux 운영 체제 버전은 다음과 같습니다.
+
 * Amazon Linux 2017.09(x64)
 * CentOS Linux 6(x64) 및 7(x64)  
 * Oracle Linux 6 및 7(x64) 
@@ -190,7 +207,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|속성| Description |
+|속성| 설명 |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
@@ -210,4 +227,3 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 * [데이터 원본](agent-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요. 
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다. 
 * Azure Monitor에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [모니터링 솔루션](../insights/solutions.md)에 대해 알아봅니다.
-

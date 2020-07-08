@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: d07add7950da531330fe9f64629299cef9fad1ac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: f197dd5063f8584968277d8d55298c03d9d71ea6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558837"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 데스크톱 앱: 코드 구성
 
@@ -26,20 +25,20 @@ ms.locfileid: "82734589"
 
 다음 MSALs (Microsoft 인증 라이브러리)는 데스크톱 응용 프로그램을 지원 합니다.
 
-  Microsoft 인증 라이브러리 | 설명
+  Microsoft 인증 라이브러리 | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Linux, Windows 및 macOS와 같은 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있도록 지원 합니다.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다.
   ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다.
   ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | MacOS 에서만 실행 되는 데스크톱 응용 프로그램을 지원 합니다.
 
-## <a name="public-client-application"></a>공용 클라이언트 응용 프로그램
+## <a name="public-client-application"></a>퍼블릭 클라이언트 애플리케이션
 
 코드 관점에서 볼 때 데스크톱 응용 프로그램은 공용 클라이언트 응용 프로그램입니다. 이 구성은 대화형 인증을 사용 하는지 여부에 따라 약간 다릅니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-MSAL.NET `IPublicClientApplication`를 빌드하고 조작 해야 합니다.
+MSAL.NET를 빌드하고 조작 해야 `IPublicClientApplication` 합니다.
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -52,7 +51,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-앞서 살펴본 것 처럼 대화형 인증 또는 장치 코드 흐름을 사용 하려는 경우 `.WithRedirectUri` 한정자를 사용 합니다.
+앞서 살펴본 것 처럼 대화형 인증 또는 장치 코드 흐름을 사용 하려는 경우 한정자를 사용 `.WithRedirectUri` 합니다.
 
 ```csharp
 IPublicClientApplication app;
@@ -107,12 +106,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법에 대 한 자세한 내용은 다음과 같습니다.
 
-- 에서 `PublicClientApplicationBuilder`사용할 수 있는 모든 한정자 목록은 참조 설명서 [Publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)를 참조 하세요.
-- 에서 `PublicClientApplicationOptions`제공 하는 모든 옵션에 대 한 설명은 참조 설명서의 [Publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) 를 참조 하세요.
+- 에서 사용할 수 있는 모든 한정자 목록은 `PublicClientApplicationBuilder` 참조 설명서 [Publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)를 참조 하세요.
+- 에서 제공 하는 모든 옵션에 대 한 설명은 `PublicClientApplicationOptions` 참조 설명서의 [Publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) 를 참조 하세요.
 
 ### <a name="complete-example-with-configuration-options"></a>구성 옵션을 사용 하는 전체 예제
 
-다음 `appsettings.json` 구성 파일을 포함 하는 .net Core 콘솔 응용 프로그램을 가정해 보겠습니다.
+다음 구성 파일을 포함 하는 .NET Core 콘솔 응용 프로그램을 가정해 보겠습니다 `appsettings.json` .
 
 ```json
 {
@@ -180,7 +179,7 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-`.Build()` 메서드를 호출 하기 전에 앞에서 볼 수 있는 것 처럼 메서드를 `.WithXXX` 호출 하 여 구성을 재정의할 수 있습니다.
+메서드를 호출 하기 전에 `.Build()` 앞에서 볼 수 있는 `.WithXXX` 것 처럼 메서드를 호출 하 여 구성을 재정의할 수 있습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 

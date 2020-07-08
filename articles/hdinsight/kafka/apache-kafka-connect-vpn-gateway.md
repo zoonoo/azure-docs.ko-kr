@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, tracking-python
 ms.date: 03/04/2020
-ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d8bf80cad86f45c24a475799a840b861c23fc28a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610953"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
 
@@ -242,7 +241,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 기본적으로 Apache Zookeeper는 Kafka 브로커의 도메인 이름을 클라이언트에 반환합니다. 이 구성은 가상 네트워크의 엔터티에 대해 이름 확인을 사용할 수 없으므로 VPN 소프트웨어 클라이언트에 작동하지 않습니다. 이 구성의 경우, 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 Kafka를 구성합니다.
 
-1. 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net`으로 이동합니다. 을 `CLUSTERNAME` HDInsight 클러스터의 Kafka 이름으로 바꿉니다.
+1. 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net`으로 이동합니다. `CLUSTERNAME`을 HDInsight 클러스터의 Kafka 이름으로 바꿉니다.
 
     메시지가 표시되면, 클러스터의 HTTPS 사용자 이름 및 암호를 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 
@@ -252,7 +251,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__를 선택합니다.
 
-    ![Apache Ambari services 구성](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    ![Apache Ambari Services 구성](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 

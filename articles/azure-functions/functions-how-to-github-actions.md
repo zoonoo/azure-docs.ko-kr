@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559100"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -18,7 +18,7 @@ ms.locfileid: "83122337"
 
 GitHub 작업에서 [워크플로](https://help.github.com/articles/about-github-actions#workflow) 는 github 리포지토리에서 정의 하는 자동화 된 프로세스입니다. 이 프로세스는 github에서 함수 앱 프로젝트를 빌드하고 배포 하는 방법을 GitHub에 알려 줍니다. 
 
-워크플로는 리포지토리의 경로에 있는 YAML (.yml) 파일에 의해 정의 됩니다 `/.github/workflows/` . 이 정의는 워크플로를 구성 하는 다양 한 단계와 매개 변수를 포함 합니다. 
+워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다. 
 
 Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 섹션이 있습니다. 
 
@@ -33,16 +33,16 @@ Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용 하 여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com) 를 사용 하거나 **사용해 보기** 단추를 선택 하 여이 명령을 실행할 수 있습니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com)을 사용하거나 **사용해 보세요** 단추를 선택하여 이 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
-이 예제에서는 리소스의 자리 표시자를 구독 ID, 리소스 그룹 및 함수 앱 이름으로 바꿉니다. 출력은 함수 앱에 대 한 액세스를 제공 하는 역할 할당 자격 증명입니다. GitHub에서 인증 하는 데 사용할 수 있는이 JSON 개체를 복사 합니다.
+이 예제에서는 리소스의 자리 표시자를 구독 ID, 리소스 그룹 및 함수 앱 이름으로 바꿉니다. 출력은 함수 앱에 대 한 액세스를 제공 하는 역할 할당 자격 증명입니다. GitHub에서 인증하는 데 사용할 수 있는 이 JSON 개체를 복사합니다.
 
 > [!IMPORTANT]
-> 최소한의 액세스 권한을 부여 하는 것이 항상 좋은 방법입니다. 이전 예제의 범위가 전체 리소스 그룹이 아닌 특정 함수 앱으로 제한 되기 때문입니다.
+> 항상 최소한의 액세스 권한을 부여하는 것이 좋습니다. 이전 예제의 범위가 전체 리소스 그룹이 아닌 특정 함수 앱으로 제한 되기 때문입니다.
 
 ## <a name="download-the-publishing-profile"></a>게시 프로필 다운로드
 
@@ -54,7 +54,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 1. 게시 설정 파일의 내용을 저장 하 고 복사 합니다.
 
-## <a name="configure-the-github-secret"></a>GitHub 암호 구성
+## <a name="configure-the-github-secret"></a>GitHub 비밀 구성
 
 1. [GitHub](https://github.com)에서 리포지토리로 이동 하 고 **설정**  >  **비밀**  >  **새 비밀 추가**를 선택 합니다.
 
@@ -203,8 +203,8 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 |매개 변수 |설명  |
 |---------|---------|
-|**_앱 이름_** | 강제로 함수 앱의 이름입니다. |
-|_**슬롯-이름**_ | 필드 배포 하려는 [배포 슬롯](functions-deployment-slots.md) 의 이름입니다. 슬롯은 함수 앱에 이미 정의 되어 있어야 합니다. |
+|**_app-name_** | 강제로 함수 앱의 이름입니다. |
+|_**slot-name**_ | 필드 배포 하려는 [배포 슬롯](functions-deployment-slots.md) 의 이름입니다. 슬롯은 함수 앱에 이미 정의 되어 있어야 합니다. |
 
 
 다음 예에서는의 버전 1을 사용 합니다 `functions-action` .

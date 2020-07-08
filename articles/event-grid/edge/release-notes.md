@@ -1,19 +1,18 @@
 ---
 title: 릴리스 정보-Azure Event Grid IoT Edge | Microsoft Docs
 description: IoT Edge 릴리스 정보에 대 한 Azure Event Grid
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 18a4fb9a979841bbf6cd0090fc67a77327c61596
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 71c3df1f990f7cbe4cb4d7dda581f355ca0d518a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560429"
 ---
 # <a name="release-notes-azure-event-grid-on-iot-edge"></a>릴리스 정보: IoT Edge에서 Azure Event Grid
 
@@ -47,4 +46,4 @@ Azure Event Grid의 미리 보기 2 IoT Edge 추가 됨:
 * 대상으로 Service Bus 토픽에 게시
 * 저장소 큐에 대상으로 게시
 
-태그: `1.0.0-preview2`, `1.0`,`latest`
+태그: `1.0.0-preview2` , `1.0` ,`latest`

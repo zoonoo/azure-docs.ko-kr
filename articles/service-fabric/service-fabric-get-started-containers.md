@@ -3,12 +3,12 @@ title: Azure Service Fabric 컨테이너 응용 프로그램 만들기
 description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다. Python 응용 프로그램을 사용 하 여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리에 푸시한 다음, 컨테이너를 빌드하고 Azure Service Fabric에 배포 합니다.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560659"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -24,7 +24,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 다음을 실행하는 개발 컴퓨터
   * Visual Studio 2015 또는 Visual Studio 2019.
@@ -142,12 +142,12 @@ docker run -d --name my-web-site helloworldapp
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-해당 명령이 아무것도 반환 하지 않는 경우 다음 명령을 실행 하 고 IP 주소에 대 한 **networksettings**->**Networks** 요소를 검사 합니다.
+해당 명령이 아무것도 반환 하지 않는 경우 다음 명령을 실행 하 고 **NetworkSettings** -> IP 주소에 대 한 networksettings**Networks** 요소를 검사 합니다.
 ```
 docker inspect my-web-site
 ```
 
-실행 중인 컨테이너에 연결합니다. 반환 된 IP 주소 (예: "http:\//172.31.194.61")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 반환 된 IP 주소 (예: "http:/172.31.194.61")를 가리키는 웹 브라우저를 엽니다 \/ . 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 컨테이너를 중지하려면 다음을 실행합니다.
 
@@ -166,7 +166,7 @@ docker rm my-web-site
 
 컨테이너가 개발 컴퓨터에서 실행되었는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
-을 ``docker login`` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
+``docker login``을 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
 다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 
@@ -189,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Visual Studio에서 컨테이너화된 서비스 만들기
 Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이너를 배포할 수 있는 서비스 템플릿을 제공합니다.
 
-1. Visual Studio를 시작합니다. **파일** > **새로 만들기** > **프로젝트**를 선택 합니다.
+1. Visual Studio를 시작합니다. **File** > **New** > **Project**를 선택합니다.
 2. **Service Fabric 애플리케이션**을 선택하고 "MyFirstContainer"라는 이름을 지정하고 **확인**을 클릭합니다.
 3. **서비스 템플릿** 목록에서 **컨테이너**를 선택합니다.
 4. **이미지 이름**에서 컨테이너 리포지토리에 푸시된 이미지인 "myregistry.azurecr.io/samples/helloworldapp"을 입력합니다.
@@ -320,7 +320,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
 모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. `containercluster.westus2.cloudapp.azure.com:19000`)을 입력합니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예: `containercluster.westus2.cloudapp.azure.com:19000`. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시**를 클릭합니다.
 
@@ -343,7 +343,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 컨테이너 OS 및 호스트 OS 호환성
 
-Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 다음은 그 예입니다.
+Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예를 들어:
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
 - Windows server 2016를 사용 하 여 빌드된 windows Server 컨테이너는 Windows Server 버전 1709을 실행 하는 호스트 에서만 Hyper-v 격리 모드로 작동 합니다. 
@@ -351,7 +351,7 @@ Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 
  
 자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 다음은 그 예입니다.
+Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예를 들어:
 
 - OS가 클러스터 노드의 OS와 호환되는 컨테이너를 배포해야 합니다.
 - 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.
@@ -496,7 +496,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>컨테이너를 강제로 종료하기 전 시간 간격 구성
 
-서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. 섹션 `Hosting` 은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
+서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. `Hosting`섹션은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
 
 ```json
 "fabricSettings": [

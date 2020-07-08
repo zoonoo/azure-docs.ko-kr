@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604697"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>예: Python을 사용 하 여 사용자 지정 기술 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "77210468"
 
 사용자 지정 기술은 Python의 사용자 지정 기술 개발에 사용 되는 도구와 기술에 집중할 수 있도록 디자인 (두 문자열 연결)에 따라 간단 합니다. 간단한 기술을 성공적으로 완료 한 후에는 더 복잡 한 시나리오로 분기할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 대 한 소개를 보려면 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 를 검토 합니다.
 
@@ -30,8 +30,8 @@ ms.locfileid: "77210468"
   + [Python 3.75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Visual Studio Code 용 Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
-  + [Visual Studio Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+  + [Azure Functions 핵심 도구](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Visual Studio Code Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Azure Function 만들기
 
@@ -57,7 +57,7 @@ Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함�
 
 Visual Studio Code는 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../azure-functions/functions-host-json.md) 및 [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) 구성 파일과 언어별 프로젝트 파일이 포함됩니다. 
 
-새 HTTP 트리거된 함수는 함수 앱 프로젝트의 **Concatenator** 폴더에도 만들어집니다. 여기에는 다음 내용이 포함 된 init__ "\_\_py" 라는 파일이 있습니다.
+새 HTTP 트리거된 함수는 함수 앱 프로젝트의 **Concatenator** 폴더에도 만들어집니다. 여기에는 \_ \_ 다음 내용이 포함 된 init__ "py" 라는 파일이 있습니다.
 
 ```py
 import logging
@@ -231,7 +231,7 @@ POST [Function URL you copied above]
 
 ## <a name="connect-to-your-pipeline"></a>파이프라인에 연결
 
-이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 문서의 제목과 작성자를 merged_title_author 호출 하는 단일 필드에 연결 하는 기술을 호출 하는 방법을 보여 줍니다. 을 `[your-function-url-here]` 새 AZURE 함수의 URL로 바꿉니다.
+이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 문서의 제목과 작성자를 merged_title_author 호출 하는 단일 필드에 연결 하는 기술을 호출 하는 방법을 보여 줍니다. 을 `[your-function-url-here]` 새 Azure 함수의 URL로 바꿉니다.
 
 ```json
 {

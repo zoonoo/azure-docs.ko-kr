@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: b2394c580b871105fee84d63c478c3c490b56a0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2084bf136300126e56414599caa63d24c98f4542
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191926"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604238"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -49,7 +48,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
     |v 3.6 및 v 3.5 |`pip install sparkmagic==0.13.1`|
     |v. 3.4|`pip install sparkmagic==0.2.3`|
 
-1. 다음 `ipywidgets` 명령을 실행 하 여를 제대로 설치 했는지 확인 합니다.
+1. `ipywidgets`다음 명령을 실행 하 여를 제대로 설치 했는지 확인 합니다.
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -57,7 +56,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
 ## <a name="install-pyspark-and-spark-kernels"></a>PySpark 및 Spark 커널 설치
 
-1. 다음 명령을 `sparkmagic` 입력 하 여가 설치 되는 위치를 식별 합니다.
+1. `sparkmagic`다음 명령을 입력 하 여가 설치 되는 위치를 식별 합니다.
 
     ```cmd
     pip show sparkmagic
@@ -90,7 +89,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
     python
     ```
 
-2. Jupyter 구성 정보는 일반적으로 사용자 홈 디렉터리에 저장됩니다. 다음 명령을 입력 하 여 홈 디렉터리를 식별 하 고 ** \.sparkmagic**라는 폴더를 만듭니다.  전체 경로가 출력 됩니다.
+2. Jupyter 구성 정보는 일반적으로 사용자 홈 디렉터리에 저장됩니다. 다음 명령을 입력 하 여 홈 디렉터리를 식별 하 고 ** \. sparkmagic**라는 폴더를 만듭니다.  전체 경로가 출력 됩니다.
 
     ```python
     import os
@@ -100,7 +99,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
     exit()
     ```
 
-3. 폴더 `.sparkmagic`내에서 **app.config** 라는 파일을 만들고 그 안에 다음 json 코드 조각을 추가 합니다.  
+3. 폴더 내에서 `.sparkmagic` **config.js** 라는 파일을 만들고 그 안에 다음 JSON 코드 조각을 추가 합니다.  
 
     ```json
     {
@@ -130,12 +129,12 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
     |템플릿 값 | 새 값 |
     |---|---|
-    |이름|클러스터 로그인 이며 기본값은 `admin`입니다.|
+    |이름|클러스터 로그인 이며 기본값은 `admin` 입니다.|
     |CLUSTERDNSNAME|클러스터 이름|
-    |{BASE64ENCODEDPASSWORD}|실제 암호에 대 한 base64 인코딩 암호입니다.  에서 [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)base64 암호를 생성할 수 있습니다.|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|을 사용 하 `sparkmagic 0.12.7` 는 경우 유지 합니다 (클러스터 v1.0 및 v 3.6).  (클러스터 `sparkmagic 0.2.3` v 3.4)를 사용 하는 경우 `"should_heartbeat": true`를로 바꿉니다.|
+    |{BASE64ENCODEDPASSWORD}|실제 암호에 대 한 base64 인코딩 암호입니다.  에서 base64 암호를 생성할 수 있습니다 [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|을 사용 하는 경우 유지 `sparkmagic 0.12.7` 합니다 (클러스터 v1.0 및 v 3.6).  `sparkmagic 0.2.3`(클러스터 v 3.4)를 사용 하는 경우를로 바꿉니다 `"should_heartbeat": true` .|
 
-    [샘플 app.config](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)에서 전체 예제 파일을 볼 수 있습니다.
+    예제 [config.js에서](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)전체 예제 파일을 볼 수 있습니다.
 
    > [!TIP]  
    > 세션이 유출되지 않도록 하트 비트가 전송됩니다. 컴퓨터가 절전 모드로 전환되거나 종료되면, 하트비트가 전송되지 않으므로 세션이 삭제됩니다. 클러스터 v3.4의 경우, 이 동작을 사용하지 않도록 설정하려면 Ambari UI에서 Livy 구성 `livy.server.interactive.heartbeat.timeout`를 `0`로 설정할 수 있습니다. 클러스터 v 3.5의 경우, 위의 3.5 구성을 설정하지 않으면 세션이 삭제되지 않습니다.
@@ -153,7 +152,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
     ![Jupyter 노트북에서 사용 가능한 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 노트북의 커널")
 
     > [!IMPORTANT]  
-    > **새로 만들기** 를 선택한 후 오류에 대 한 셸을 검토 합니다.  오류가 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 표시 되는 경우 특정 버전의 토네이도에서 알려진 문제가 발생할 수 있습니다.  그렇다면 커널을 중지 한 후 다음 명령을 사용 하 여 토네이도 설치를 다운 그레이드 `pip install tornado==4.5.3`합니다.
+    > **새로 만들기** 를 선택한 후 오류에 대 한 셸을 검토 합니다.  오류가 표시 되는 경우 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 특정 버전의 토네이도에서 알려진 문제가 발생할 수 있습니다.  그렇다면 커널을 중지 한 후 다음 명령을 사용 하 여 토네이도 설치를 다운 그레이드 합니다. `pip install tornado==4.5.3`
 
     b. 다음 코드 조각을 실행합니다.
 
@@ -164,13 +163,13 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
     출력을 검색할 수 있으면 HDInsight 클러스터에 대한 연결이 테스트됩니다.
 
-    다른 클러스터에 연결 하도록 노트북 구성을 업데이트 하려는 경우 위의 3 단계와 같이 새 값 집합을 사용 하 여 app.config를 업데이트 합니다.
+    다른 클러스터에 연결 하도록 노트북 구성을 업데이트 하려면 위의 3 단계와 같이 새 값 집합을 사용 하 여 config.js를 업데이트 합니다.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>내 컴퓨터에 Jupyter를 설치해야 해야 이유는 무엇인가요?
 
 컴퓨터에 Jupyter를 설치 하 고 HDInsight의 Apache Spark 클러스터에 연결 하는 이유는 다음과 같습니다.
 
-* 는 전자 필기장을 로컬로 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트 한 다음, 노트북을 클러스터에 업로드 하는 옵션을 제공 합니다. 클러스터에 노트북을 업로드 하려면 또는 클러스터를 실행 하는 Jupyter 노트북을 사용 하 여 업로드 하거나 클러스터와 연결 된 저장소 계정의 `/HdiNotebooks` 폴더에 저장 합니다. 클러스터에 Notebook을 저장하는 방법에 대한 자세한 내용은 [Jupyter Notebook이 저장되는 위치](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
+* 는 전자 필기장을 로컬로 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트 한 다음, 노트북을 클러스터에 업로드 하는 옵션을 제공 합니다. 클러스터에 노트북을 업로드 하려면 또는 클러스터를 실행 하는 Jupyter 노트북을 사용 하 여 업로드 하거나 클러스터 `/HdiNotebooks` 와 연결 된 저장소 계정의 폴더에 저장 합니다. 클러스터에 Notebook을 저장하는 방법에 대한 자세한 내용은 [Jupyter Notebook이 저장되는 위치](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
 * 로컬에서 사용할 수 있는 Notebook을 사용하여 애플리케이션 요구 사항에 따라 다른 Spark 클러스터에 연결할 수 있습니다.
 * GitHub를 사용하여 원본 제어 시스템을 구현하고 Notebook에 대한 버전을 제어할 수 있습니다. 여러 사용자가 동일한 Notebook으로 작업할 수 있는 공동 작업 환경이 있을 수도 있습니다.
 * 클러스터 없이 로컬로 Notebook을 사용할 수 있습니다. Notebook 또는 개발 환경을 수동으로 관리하기 위해서가 아니라 Notebook을 테스트하기 위해 클러스터가 필요합니다.
@@ -181,6 +180,6 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 * [Apache Spark에서 Jupyter 노트북에 대 한 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Apache Spark에서 Jupyter 노트북과 함께 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)

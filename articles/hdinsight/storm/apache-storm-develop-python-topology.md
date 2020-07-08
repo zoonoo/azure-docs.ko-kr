@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, tracking-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 71709e2f1dcbab188646241eaeb4809e168d5697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77460027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608777"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
@@ -36,7 +35,7 @@ Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) �
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
 
-Apache Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 Storm에 대한 Thrift 정의를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈은에서 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)찾을 수 있습니다.
+Apache Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 Storm에 대한 Thrift 정의를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈은에서 찾을 수 있습니다 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py) .
 
 Storm은 JVM(Java Virtual Machine)에서 실행되는 Java 프로세스입니다. 다른 언어로 작성된 구성 요소는 하위 프로세스로 실행됩니다. Storm은 stdin/stdout을 통해 전송되는 JSON 메시지를 사용하여 이러한 하위 프로세스와 통신합니다. 구성 요소 간의 통신에 대한 자세한 내용은 [다중 언어 프로토콜](https://storm.apache.org/releases/current/Multilang-protocol.html) (영문) 설명서에서 확인할 수 있습니다.
 
@@ -70,13 +69,13 @@ Flux에서는 토폴로지를 포함하는 jar 파일 내의 `/resources` 디렉
 </resource>
 ```
 
-앞에서 설명한 것 처럼 스톰에 `storm.py` 대 한 Thrift 정의를 구현 하는 파일이 있습니다. Flux 프레임워크는 프로젝트를 빌드할 때 `storm.py`를 자동으로 포함하므로 파일을 포함하는 것에 대해 걱정할 필요가 없습니다.
+앞에서 설명한 것 처럼 `storm.py` 스톰에 대 한 Thrift 정의를 구현 하는 파일이 있습니다. Flux 프레임워크는 프로젝트를 빌드할 때 `storm.py`를 자동으로 포함하므로 파일을 포함하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="build-the-project"></a>프로젝트 빌드
 
-1. 에서 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)프로젝트를 다운로드 합니다.
+1. 에서 프로젝트를 다운로드 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 합니다.
 
-1. 명령 프롬프트를 열고 프로젝트 루트: `hdinsight-python-storm-wordcount-master`로 이동 합니다. 다음 명령을 입력합니다.
+1. 명령 프롬프트를 열고 프로젝트 루트:로 이동 `hdinsight-python-storm-wordcount-master` 합니다. 다음 명령을 입력합니다.
 
     ```cmd
     mvn clean compile package
@@ -86,7 +85,7 @@ Flux에서는 토폴로지를 포함하는 jar 파일 내의 `/resources` 디렉
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>HDInsight에서 Storm 토폴로지 실행
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 HDInsight `WordCount-1.0-SNAPSHOT.jar` 클러스터의 스톰에 파일을 복사 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 `WordCount-1.0-SNAPSHOT.jar` HDInsight 클러스터의 스톰에 파일을 복사 합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:

@@ -6,16 +6,21 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 606279c0db92ad3aeb76d4f7a1a914f14348dd8f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81263474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608471"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에서 사용자 만들기
 
 이 문서에서는 Azure Database for MySQL 서버에서 사용자를 만드는 방법을 설명합니다.
+
+> [!NOTE]
+> 바이어스-무료 통신
+>
+> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+>
 
 Azure Database for MySQL을 처음으로 만들면 서버 관리자 로그인 사용자 이름과 암호가 제공됩니다. 자세한 내용은 [빠른 시작](quickstart-create-mysql-server-database-using-azure-portal.md)을 참조하세요. Azure Portal에서 서버 관리자 로그인 사용자 이름을 찾을 수 있습니다.
 

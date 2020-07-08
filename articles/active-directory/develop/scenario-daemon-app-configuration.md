@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: ead39343cca9943ba55d66509bd9917402efb8cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558559"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
@@ -38,7 +37,7 @@ ms.locfileid: "81868980"
 
 따라서 응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
 
-ISV 이며 다중 테 넌 트 도구를 제공 하려는 경우에는를 사용할 `organizations`수 있습니다. 하지만 관리자 동의를 부여 하는 방법에 대해서도 설명 해야 합니다. 자세한 내용은 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)을 참조 하세요. 또한 현재 MSAL의 제한은 클라이언트 자격 증명이 인증서가 `organizations` 아닌 응용 프로그램 암호 인 경우에만 허용 됩니다.
+ISV 이며 다중 테 넌 트 도구를 제공 하려는 경우에는를 사용할 수 있습니다 `organizations` . 하지만 관리자 동의를 부여 하는 방법에 대해서도 설명 해야 합니다. 자세한 내용은 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)을 참조 하세요. 또한 현재 MSAL의 제한은 `organizations` 클라이언트 자격 증명이 인증서가 아닌 응용 프로그램 암호 인 경우에만 허용 됩니다.
 
 ## <a name="configure-and-instantiate-the-application"></a>응용 프로그램 구성 및 인스턴스화
 
@@ -57,7 +56,7 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[.Net Core 콘솔 디먼](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 샘플의 [appsettings.](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json)
+[.Net Core 콘솔 디먼](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 샘플에서 [appsettings.js](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 합니다.
 
 ```json
 {
@@ -69,11 +68,11 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 }
 ```
 
-`ClientSecret` 또는를 `CertificateName`제공 합니다. 이러한 설정은 배타적입니다.
+`ClientSecret`또는를 제공 `CertificateName` 합니다. 이러한 설정은 배타적입니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-클라이언트 암호를 사용 하 여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 [parameters. json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) 구성 파일은 다음과 같습니다.
+클라이언트 암호를 사용 하 여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 구성 파일 [에 대 한parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) 는 다음과 같습니다.
 
 ```Json
 {
@@ -85,7 +84,7 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 }
 ```
 
-인증서를 사용 하 여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 [parameters. json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) 구성 파일은 다음과 같습니다.
+인증서를 사용 하 여 기밀 클라이언트를 빌드하는 경우 [Python 디먼](https://github.com/Azure-Samples/ms-identity-python-daemon) 샘플의 구성 파일 [에 대 한parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) 는 다음과 같습니다.
 
 ```Json
 {
@@ -122,7 +121,7 @@ MSAL 응용 프로그램을 인스턴스화하려면 MSAL 패키지 (언어에 �
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 [IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 응용 프로그램에 추가 합니다.
-MSAL.NET에서 기밀 클라이언트 응용 프로그램은 `IConfidentialClientApplication` 인터페이스로 표시 됩니다.
+MSAL.NET에서 기밀 클라이언트 응용 프로그램은 인터페이스로 표시 됩니다 `IConfidentialClientApplication` .
 소스 코드에서 MSAL.NET 네임 스페이스를 사용 합니다.
 
 ```csharp
@@ -267,7 +266,7 @@ MSAL.NET에는 기밀 클라이언트 앱에 서명 된 어설션을 제공 하�
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-를 사용 `WithClientAssertion`하는 경우 서명 된 JWT를 제공 해야 합니다. 이 고급 시나리오는 [클라이언트 어설션에](msal-net-client-assertions.md)자세히 설명 되어 있습니다.
+를 사용 하 `WithClientAssertion` 는 경우 서명 된 JWT를 제공 해야 합니다. 이 고급 시나리오는 [클라이언트 어설션에](msal-net-client-assertions.md)자세히 설명 되어 있습니다.
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -276,7 +275,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-를 사용 `WithClientClaims`하는 경우 MSAL.NET는 Azure AD에서 예상한 클레임 및 전송 하려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다.
+를 사용 하는 경우 `WithClientClaims` MSAL.NET는 AZURE AD에서 예상한 클레임 및 전송 하려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다.
 이 코드는 다음을 수행 하는 방법을 보여 줍니다.
 
 ```csharp
@@ -293,7 +292,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 # <a name="python"></a>[Python](#tab/python)
 
-MSAL Python에서이 `ConfidentialClientApplication`의 개인 키로 서명 되는 클레임을 사용 하 여 클라이언트 클레임을 제공할 수 있습니다.
+MSAL Python에서이의 개인 키로 서명 되는 클레임을 사용 하 여 클라이언트 클레임을 제공할 수 있습니다 `ConfidentialClientApplication` .
 
 ```Python
 config = json.load(open(sys.argv[1]))
