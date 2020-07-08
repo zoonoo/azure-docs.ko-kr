@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77624131"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric 애플리케이션 디버그
@@ -56,7 +55,7 @@ ms.locfileid: "77624131"
 ### <a name="running-a-script-as-part-of-debugging"></a>디버깅의 일부로 스크립트 실행
 특정 시나리오에서 디버깅 세션을 시작 하는 과정에서 스크립트를 실행 해야 할 수도 있습니다 (예: 기본 서비스를 사용 하지 않는 경우).
 
-Visual Studio에서 Service Fabric 응용 프로그램 프로젝트 (sfproj)의 **Scripts** 폴더에 **Start-Service** 라는 파일을 추가할 수 있습니다. 이 스크립트는 로컬 클러스터에서 응용 프로그램을 만든 후에 호출 됩니다.
+Visual Studio에서 Service Fabric 응용 프로그램 프로젝트 (sfproj)의 **Scripts** 폴더에 **Start-Service.ps1** 라는 파일을 추가할 수 있습니다. 이 스크립트는 로컬 클러스터에서 응용 프로그램을 만든 후에 호출 됩니다.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

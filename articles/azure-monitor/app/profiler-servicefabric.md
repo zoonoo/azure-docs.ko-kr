@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671616"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링
@@ -26,7 +25,7 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
 
 환경을 설정하려면 다음 작업을 수행합니다.
 
-1. 프로파일러는 .NET Framework 및 .NET Core를 지원 합니다. .NET Framework를 사용 하는 경우 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 하 고 있는지 확인 합니다. 배포 된 OS가 `Windows Server 2012 R2` 이상 인지 확인 하는 데에는 충분 합니다. 프로파일러는 .NET Core 2.1 및 최신 응용 프로그램을 지원 합니다.
+1. 프로파일러는 .NET Framework 및 .NET Core를 지원 합니다. .NET Framework를 사용 하는 경우 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 하 고 있는지 확인 합니다. 배포 된 OS가 이상 인지 확인 하는 데에는 충분 `Windows Server 2012 R2` 합니다. 프로파일러는 .NET Core 2.1 및 최신 응용 프로그램을 지원 합니다.
 
 1. 배포 템플릿 파일에서 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 확장을 검색합니다.
 

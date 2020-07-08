@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670596"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor의 사용자 지정 로그
@@ -50,7 +49,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 사용자 지정 로그 마법사는 Azure Portal에서 실행되며 수집할 새 사용자 지정 로그를 정의할 수 있습니다.
 
 1. Azure Portal에서 **Log Analytics 작업 영역** > 작업 영역 > **고급 설정**을 선택합니다.
-2. **데이터** > **사용자 지정 로그**를 클릭 합니다.
+2. **데이터**  >  **사용자 지정 로그**를 클릭 합니다.
 3. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다. Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.
 4. **추가+** 를 클릭하여 Custom Log Wizard(사용자 지정 로그 마법사)를 엽니다.
 
@@ -74,7 +73,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| Description | 경로 |
+| 설명 | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |
@@ -82,13 +81,13 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 | Linux 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 */var/log/audit* 내 모든 파일 |/var/log/audit/log\*.txt |
 
 1. Windows 또는 Linux를 선택하여 추가하는 경로 형식을 지정합니다.
-2. 경로를 입력 하 고 단추를 **+** 클릭 합니다.
+2. 경로를 입력 하 고 단추를 클릭 **+** 합니다.
 3. 경로가 더 있으면 이 프로세스를 반복합니다.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4단계. 로그의 이름과 설명을 제공합니다.
 지정한 이름은 위의 설명처럼 로그 유형에 사용됩니다.  파일을 사용자 지정 로그로 구분하기 위해 항상_CL로 끝납니다.
 
-1. 로그의 이름을 입력합니다.  CL 접미사가 자동으로 제공 됩니다. ** \_**
+1. 로그의 이름을 입력합니다.  ** \_ CL** 접미사가 자동으로 제공 됩니다.
 2. 선택적인 **설명**을 추가합니다.
 3. **다음**을 클릭하여 사용자 지정 로그 정의를 저장합니다.
 
@@ -122,7 +121,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 | TimeGenerated |Azure Monitor에서 레코드를 수집한 날짜와 시간입니다.  로그에 시간 기반 구분 기호가 사용되는 경우, 항목에서 수집한 시간이 여기에 해당됩니다. |
 | SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 System Center Operations Manager <br> Linux – 모든 Linux 에이전트 |
 | RawData |수집된 항목의 전체 텍스트. [이 데이터를 개별 속성으로 구문 분석](../log-query/parse-text.md)할 가능성이 가장 높습니다. |
-| ManagementGroupName |System Center Operations Manage 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
+| ManagementGroupName |System Center Operations Manage 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<workspace ID\>입니다. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>사용자 지정 로그 추가 샘플 연습
@@ -140,7 +139,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![샘플 로그 업로드 및 구문 분석](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>로그 수집 경로 추가
-로그 파일은 *C:\MyApp\Logs*에 배치됩니다.  *appYYYYMMDD.log*패턴의 날짜를 포함하는 이름으로 매일 새 파일이 생성됩니다.  이 로그에 대 한 충분 한 패턴은 *\\\*c:\myapp\logs .log*입니다.
+로그 파일은 *C:\MyApp\Logs*에 배치됩니다.  *appYYYYMMDD.log*패턴의 날짜를 포함하는 이름으로 매일 새 파일이 생성됩니다.  이 로그에 대 한 충분 한 패턴은 *C:\myapp\logs \\ \* .log*입니다.
 
 ![로그 수집 경로](media/data-sources-custom-logs/collection-path.png)
 

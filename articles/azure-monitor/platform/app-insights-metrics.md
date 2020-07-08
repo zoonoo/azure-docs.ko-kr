@@ -8,10 +8,9 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664918"
 ---
 # <a name="application-insights-log-based-metrics"></a>로그 기반 메트릭 Application Insights
@@ -180,9 +179,9 @@ browserTimings
 
 ### <a name="browser-exceptions-exceptionsbrowser"></a>브라우저 예외 (예외/브라우저)
 
-이 메트릭은 브라우저에서 실행 중인 응용 프로그램 코드에서 throw 된 예외 수를 반영 합니다. ```trackException()``` Application Insights API 호출로 추적 되는 예외만 메트릭에 포함 됩니다.
+이 메트릭은 브라우저에서 실행 중인 응용 프로그램 코드에서 throw 된 예외 수를 반영 합니다. Application Insights API 호출로 추적 되는 예외만 ```trackException()``` 메트릭에 포함 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -197,7 +196,7 @@ exceptions
 
 실패 한 종속성 호출 수입니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -212,7 +211,7 @@ dependencies
 
 Application Insights에 대 한 예외를 기록할 때마다 SDK의 지 수 [예외 () 메서드가](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) 호출 됩니다. 예외 메트릭에는 로깅된 예외의 수가 표시 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스, 장치 유형|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -226,7 +225,7 @@ exceptions
 
 *실패로*표시 된 추적 된 서버 요청 수입니다. 기본적으로 Application Insights SDK는 HTTP 응답 코드 5xx 또는 4xx를 반환한 각 서버 요청을 실패 한 요청으로 자동으로 표시 합니다. [사용자 지정 원격 분석 이니셜라이저에서](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)요청 원격 분석 항목의 *success* 속성을 수정 하 여이 논리를 사용자 지정할 수 있습니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|클라우드 역할 인스턴스, 클라우드 역할 이름, 실제 또는 가상 트래픽, 요청 성능, 응답 코드|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -241,7 +240,7 @@ requests
 
 이 메트릭은 서버 예외의 수를 표시 합니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -423,7 +422,7 @@ requests
 | render timechart
 ```
 
-## <a name="usage-metrics"></a>사용 현황 메트릭
+## <a name="usage-metrics"></a>사용량 메트릭
 
 ### <a name="page-view-load-time-pageviewsduration"></a>페이지 보기 로드 시간 (pageViews/duration)
 

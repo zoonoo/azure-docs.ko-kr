@@ -7,10 +7,9 @@ ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671395"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>스냅숏 디버거 업그레이드
@@ -63,4 +62,4 @@ Microsoft는 사용자의 데이터에 가장 적합 한 보안을 제공 하기
 
 ## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>SDK/Nuget을 사용 하 여 스냅숏 디버거 업그레이드
 
-응용 프로그램에서 버전 1.3.1 버전을 `Microsoft.ApplicationInsights.SnapshotCollector` 사용 하는 경우 작업을 계속 하려면 [최신 버전](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 으로 업그레이드 해야 합니다.
+응용 프로그램에서 버전 1.3.1 버전을 사용 하는 경우 `Microsoft.ApplicationInsights.SnapshotCollector` 작업을 계속 하려면 [최신 버전](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 으로 업그레이드 해야 합니다.

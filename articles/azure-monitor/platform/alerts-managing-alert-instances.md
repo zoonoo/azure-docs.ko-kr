@@ -5,10 +5,9 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 1910b3b474012365e8117f584379b2b29f8ce3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77667621"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>통합 경고를 사용 하 여 경고 인스턴스 관리
@@ -22,7 +21,7 @@ Azure Monitor의 [통합 경고 환경을](https://aka.ms/azure-alerts-overview)
 
 다음 방법 중 하나를 통해 경고 페이지로 이동할 수 있습니다.
 
-- [Azure Portal](https://portal.azure.com/)에서 **모니터** > **경고**를 선택 합니다.  
+- [Azure Portal](https://portal.azure.com/)에서 **모니터**  >  **경고**를 선택 합니다.  
 
      ![모니터 경고 스크린샷](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   

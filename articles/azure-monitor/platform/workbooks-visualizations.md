@@ -10,17 +10,16 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658033"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor 통합 문서 시각화
 
 Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각화 스타일을 지원 합니다. 이 문서에서는 각 유형의 시각화에 대 한 예제를 제공 합니다.
 
-## <a name="text"></a>Text
+## <a name="text"></a>텍스트
 
 통합 문서를 사용 하면 작성자가 해당 통합 문서에 텍스트 블록을 포함할 수 있습니다. 텍스트는 원격 분석에 대 한 사람이 분석할 수 있으며, 사용자가 데이터를 해석 하는 데 도움이 되는 정보, 섹션 제목 등입니다.
 
@@ -93,7 +92,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 | `Visualization` | 사용할 시각화 | 영역형, 가로 막대형, 꺾은선형, 분산형, 그리드 |
 | `Split By` | 필요에 따라 차원의 메트릭을 분할 합니다. | 지역 유형별 트랜잭션 |
 | `Size` | 컨트롤의 세로 크기입니다. | 소형, 중형 또는 큼 |
-| `Color palette` | 차트에 사용할 색상표입니다. `Split by` 매개 변수가 사용 되는 경우 무시 됩니다. | 파랑, 녹색, 빨강 등 |
+| `Color palette` | 차트에 사용할 색상표입니다. 매개 변수가 사용 되는 경우 무시 됩니다. `Split by` | 파랑, 녹색, 빨강 등 |
 
 ## <a name="grids"></a>표
 
@@ -138,7 +137,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 7. **타일 설정** 단추를 클릭 하 여 설정 창을 엽니다.
 8. **타일 필드**에서 다음을 설정 합니다.
     * 제목: `name`
-    * 왼쪽: `Requests`, 렌더러: `Big Number`, 색상표: `Green to Red`, Min Value:`0`
+    * 왼쪽: `Requests` , 렌더러: `Big Number` , 색상표: `Green to Red` , Min Value:`0`
     * 하위별`appName`
 9. 창 맨 아래에 있는 **저장 및 닫기** 단추를 클릭 합니다.
 
@@ -182,7 +181,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 8. 위쪽의 _열_ 섹션에서 다음을 설정 합니다.
     * _Id_ 열 렌더러:`Hidden`
     * _부모 Id_ -열 렌더러:`Hidden`
-    * _요청_ -열 렌더러: `Bar`, 색: `Blue`, 최소값:`0`
+    * _요청_ -열 렌더러: `Bar` , 색: `Blue` , 최소값:`0`
 9. 창 맨 아래에 있는 _저장 및 닫기_ 단추를 클릭 합니다.    
 
 ![타일 요약 보기의 스크린샷](./media/workbooks-visualizations/tree-settings.png)
@@ -243,9 +242,9 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
     * `Node Color Field`: `Kind`
     * `Color palette`: `Pastel`
 10. 위쪽의 _노드 형식 설정_ 에서 다음을 설정 합니다.
-    * _상위 콘텐츠_-열 사용: `Name`, 열 렌더러:`Text`
-    * _가운데 내용_-열 사용: `Calls`, 열 렌더러: `Big Number`, 색상표:`None`
-    * _하위 콘텐츠_-열 사용: `Kind`, 열 렌더러:`Text`
+    * _상위 콘텐츠_-열 사용: `Name` , 열 렌더러:`Text`
+    * _가운데 내용_-열 사용: `Calls` , 열 렌더러: `Big Number` , 색상표:`None`
+    * _하위 콘텐츠_-열 사용: `Kind` , 열 렌더러:`Text`
 10. 창 맨 아래에 있는 _저장 및 닫기_ 단추를 클릭 합니다.
 
 ![타일 요약 보기의 스크린샷](./media/workbooks-visualizations/graph-settings.png)

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77655381"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
@@ -30,9 +29,9 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 
 |축약형   | 시간 단위    |
 |:---|:---|
-|d           | 일          |
+|일           | 일          |
 |h           | hour         |
-|m           | minute       |
+|분           | minute       |
 |s           | second       |
 |ms          | 밀리초  |
 |microsecond | microsecond  |
@@ -84,7 +83,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-열 `timeAgo` 에는 "00:09:31.5118992"와 같은 값이 포함 됩니다. 즉, hh: mm: ss. fffffff로 형식이 지정 됩니다. 이러한 값을 시작 시간 이후에 경과한 분의 `numver` 형식으로 지정하려면 해당 값을 “1분”으로 나눕니다.
+열에는 `timeAgo` "00:09:31.5118992"와 같은 값이 포함 됩니다. 즉, hh: mm: ss. fffffff로 형식이 지정 됩니다. 이러한 값을 시작 시간 이후에 경과한 분의 `numver` 형식으로 지정하려면 해당 값을 “1분”으로 나눕니다.
 
 ```Kusto
 Event
@@ -146,7 +145,7 @@ Event
 
 ## <a name="related-functions"></a>관련 함수
 
-| 범주 | 함수 |
+| 범주 | 기능 |
 |:---|:---|
 | 데이터 형식 변환 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | 값을 bin 크기로 반올림 | [저장소](/azure/kusto/query/binfunction) |

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665496"
 ---
 # <a name="smart-groups"></a>스마트 그룹
@@ -27,11 +26,11 @@ ms.locfileid: "77665496"
 
 다음 스마트 그룹 상태가 지원됩니다.
 
-| 시스템 상태 | Description |
+| 시스템 상태 | 설명 |
 |:---|:---|
 | 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
 | 확인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
-| 닫힘 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
+| 종결 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 
 [스마트 그룹의 상태를 변경하는 방법을 알아보세요.](https://aka.ms/managing-alert-smart-group-states)
 
@@ -47,7 +46,7 @@ ms.locfileid: "77665496"
 
 스마트 그룹 세부 정보 페이지에는 다음과 같은 섹션이 있습니다.
 
-| 단원 | Description |
+| 섹션 | Description |
 |:---|:---|
 | 경고 | 스마트 그룹에 포함된 개별 경고를 나열합니다. 경고를 선택하면 경고 세부 정보 페이지가 열립니다. |
 | 기록 | 스마트 그룹에서 수행한 각 작업과 스마트 그룹의 변경 내용을 나열합니다. 현재는 상태 변경 및 경고 멤버 자격 변경으로 제한되어 있습니다. |

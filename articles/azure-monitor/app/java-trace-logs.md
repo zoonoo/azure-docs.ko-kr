@@ -4,10 +4,9 @@ description: Application Insights에서 검색 Log4J 또는 Logback 추적 검�
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657217"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
@@ -18,9 +17,9 @@ ms.locfileid: "77657217"
 
 ## <a name="using-the-application-insights-java-agent"></a>Application Insights Java 에이전트 사용
 
-기본적으로 Application Insights Java 에이전트는 수준 이상에서 `WARN` 수행 된 로깅을 자동으로 캡처합니다.
+기본적으로 Application Insights Java 에이전트는 수준 이상에서 수행 된 로깅을 자동으로 캡처합니다 `WARN` .
 
-파일을 `AI-Agent.xml` 사용 하 여 캡처한 로깅 임계값을 변경할 수 있습니다.
+파일을 사용 하 여 캡처한 로깅 임계값을 변경할 수 있습니다 `AI-Agent.xml` .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +32,7 @@ ms.locfileid: "77657217"
 </ApplicationInsightsAgent>
 ```
 
-다음 파일을 `AI-Agent.xml` 사용 하 여 Java 에이전트의 로깅 캡처를 사용 하지 않도록 설정할 수 있습니다.
+다음 파일을 사용 하 여 Java 에이전트의 로깅 캡처를 사용 하지 않도록 설정할 수 있습니다 `AI-Agent.xml` .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

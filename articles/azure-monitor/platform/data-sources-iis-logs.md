@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670579"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
@@ -33,7 +32,7 @@ Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전�
 ## <a name="iis-log-record-properties"></a>IIS 로그 레코드 속성
 IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터의 이름입니다. |
 | cIP |클라이언트의 IP 주소입니다. |
@@ -43,7 +42,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | csUserName |서버에 액세스한 인증된 사용자의 이름입니다. 익명 사용자는 하이픈으로 표시됩니다. |
 | csUriStem |웹 페이지와 같은 요청의 대상입니다. |
 | csUriQuery |클라이언트가 수행하려고 한 쿼리입니다(있는 경우). |
-| ManagementGroupName |Operations Manager 에이전트의 관리 그룹 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
+| ManagementGroupName |Operations Manager 에이전트의 관리 그룹 이름.  다른 에이전트의 경우 AOI-\<workspace ID\>입니다. |
 | RemoteIPCountry |클라이언트의 IP 주소에 대 한 국가/지역입니다. |
 | RemoteIPLatitude |클라이언트 IP 주소의 위도입니다. |
 | RemoteIPLongitude |클라이언트 IP 주소의 경도입니다. |
@@ -65,7 +64,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | W3CIISLog |모든 IIS 로그 레코드 |
 | W3CIISLog &#124; where scStatus==500 |반환 상태가 500인 모든 IIS 로그 레코드입니다. |
 | W3CIISLog &#124; summarize count() by cIP |클라이언트 IP 주소별 IIS 로그 항목 수 |
-| W3CIISLog &#124; where csHost = = "www\.contoso.com" &#124; count () by csUriStem를 요약 합니다. |호스트 www\.contoso.com에 대 한 URL 별 IIS 로그 항목 수입니다. |
+| W3CIISLog &#124; where csHost = = "www \. contoso.com" &#124; count () By csUriStem를 요약 합니다. |호스트 www contoso.com에 대 한 URL 별 IIS 로그 항목 수입니다 \. . |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |각 IIS 컴퓨터에서 받은 총 바이트 수 |
 
 ## <a name="next-steps"></a>다음 단계

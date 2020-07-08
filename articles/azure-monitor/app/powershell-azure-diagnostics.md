@@ -4,10 +4,9 @@ description: Application Insights에 데이터를 파이프 하는 Azure 진단 
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.openlocfilehash: da1796c8af5b9463d8223615f4b0629ba65eb3e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669806"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용 하 여 Azure Cloud Services에 대 한 Application Insights 설정
@@ -38,7 +37,7 @@ ms.locfileid: "77669806"
 * `myWebAppName` - 웹앱의 ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
-`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 다음은 그 예입니다.
+`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 예를 들어:
 
 ```ps
 
@@ -125,8 +124,8 @@ Role 매개 변수 없이 `Set-AzureServiceDiagnosticsExtension` 또는 `New-Azu
 ```
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Application Insights로 Azure Cloud Services 앱 모니터링](../../azure-monitor/app/cloudservices.md)
-* [Application Insights Azure 진단 보내기](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+* [Application Insights에 Azure Diagnostics 보내기](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [구성 경고 자동화](powershell-alerts.md)
 

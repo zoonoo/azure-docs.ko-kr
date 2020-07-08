@@ -4,10 +4,9 @@ description: 서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGen
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654140"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.
@@ -50,7 +49,7 @@ ms.locfileid: "77654140"
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
 ### <a name="for-an-existing-action-group"></a>기존 작업 그룹의 경우:
-1. [Azure Portal](https://portal.azure.com/)에서 **모니터**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **모니터**를 선택 합니다.
 
 1. **설정** 섹션에서 **작업 그룹**을 선택합니다.
 
@@ -85,5 +84,5 @@ ms.locfileid: "77654140"
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대 한 webhook 알림을 구성](service-health-alert-webhook-guide.md)하는 방법을 알아봅니다.
 - [활동 로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토 합니다. 
-- [서비스 상태 알림에](../azure-monitor/platform/service-notifications.md)대해 알아봅니다.
+- [서비스 상태 알림](../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
 - [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

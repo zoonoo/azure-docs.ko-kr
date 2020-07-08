@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 31958b26cdb8a7897cf0051af6600014c07949fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671956"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>추적 원격 분석: Application Insights 데이터 모델
@@ -31,7 +30,7 @@ ms.locfileid: "77671956"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Application Insights에서 .NET 추적 로그 탐색](../../azure-monitor/app/asp-net-trace-logs.md).
+- [Application Insights에서 .net 추적 로그를 탐색](../../azure-monitor/app/asp-net-trace-logs.md)합니다.
 - [Application Insights에서 Java 추적 로그를 탐색](../../azure-monitor/app/java-trace-logs.md)합니다.
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
 - [사용자 지정 추적 원격 분석을 작성합니다](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace).

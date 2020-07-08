@@ -8,10 +8,9 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925931"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>프런트 도어 서비스 제외 목록이 포함 된 WAF (웹 응용 프로그램 방화벽) 
@@ -20,10 +19,10 @@ ms.locfileid: "77925931"
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Azure Portal를 사용 하 여 제외 목록 구성
 **관리 되는 규칙** 의 waf 포털에서 **제외 관리** 에 액세스할 수 있습니다.
 
-![제외](../media/waf-front-door-exclusion/exclusion1.png)
-![관리 exclusion_add 관리](../media/waf-front-door-exclusion/exclusion2.png)
+![제외 ](../media/waf-front-door-exclusion/exclusion1.png)
+ ![ 관리 exclusion_add 관리](../media/waf-front-door-exclusion/exclusion2.png)
 
- 제외 목록 예: ![관리 exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+ 제외 목록 예: ![ 관리 exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
 
 이 예에서는 *사용자* 헤더 필드의 값을 제외 합니다. 유효한 요청에는 SQL 삽입 규칙을 트리거하는 문자열이 포함 된 *사용자* 필드가 포함 될 수 있습니다. 이 경우 WAF 규칙이 필드에서 아무것도 평가 하지 않도록 *사용자* 매개 변수를 제외할 수 있습니다.
 

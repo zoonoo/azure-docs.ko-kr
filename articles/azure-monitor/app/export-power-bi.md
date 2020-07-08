@@ -4,10 +4,9 @@ description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664000"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
@@ -36,7 +35,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 3. **내보내기** 메뉴에서 **Power BI(M)** 를 선택합니다. 텍스트 파일을 저장합니다.
    
     ![내보내기 메뉴가 강조 표시된 Analytics 스크린샷](./media/export-power-bi/analytics-export-power-bi.png)
-4. Power BI Desktop에서 **데이터** > 가져오기**빈 쿼리**를 선택 합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
+4. Power BI Desktop에서 **데이터 가져오기**  >  **빈 쿼리**를 선택 합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
 
     내보낸 M 언어 스크립트를 고급 편집기에 붙여넣습니다.
 
@@ -61,7 +60,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
    ![Power BI 단추 스크린샷](./media/export-power-bi/button.png)
 
-3. Power BI Desktop에서 **데이터** > 가져오기**빈 쿼리**를 선택 합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
+3. Power BI Desktop에서 **데이터 가져오기**  >  **빈 쿼리**를 선택 합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
 
    ![쿼리 단추가 강조 표시된 Power BI Desktop 스크린샷](./media/export-power-bi/blankquery.png)
 
@@ -98,8 +97,8 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 1. [API 키](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 만듭니다.
 2. Azure Resource Manager URL을 Application Insights API로 대체하여 Analytics에서 내보낸 Power BI M 스크립트를 업데이트합니다.
-   * **Https:\//management.azure.com/subscriptions/를** 바꿉니다.
-   * with, **https:\//api.applicationinsights.io/beta/apps/** ...
+   * **Https: \/ /management.azure.com/subscriptions/를** 바꿉니다.
+   * with, **https: \/ /api.applicationinsights.io/beta/apps/** ...
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
 
 **기존 스크립트**
@@ -118,7 +117,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 이 방법은 원격 분석의 전체 대시보드를 만듭니다. 초기 데이터 세트는 미리 정의되어 있으나, 더 많은 데이터를 추가할 수 있습니다.
 
 ### <a name="get-the-adapter"></a>어댑터 가져오기
-1. [Power BI](https://app.powerbi.com/)에 로그인 합니다.
+1. [Power BI](https://app.powerbi.com/)에 로그인합니다.
 2. **데이터 가져오기** ![왼쪽 하단 모서리의 데이터 가져오기 아이콘 스크린샷](./media/export-power-bi/001.png), **서비스**를 엽니다.
 
     ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/export-power-bi/002.png)

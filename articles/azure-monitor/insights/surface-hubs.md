@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662504"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Azure Monitor로 Surface Hub를 모니터링하여 상태 추적
@@ -40,7 +39,7 @@ Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 
 Intune은 하나 이상의 디바이스에 적용되는 Log Analytics 작업 영역 구성 설정을 중앙에서 관리할 수 있게 하는 Microsoft 제품입니다. InTune 통해 디바이스를 구성하려면 다음 단계를 수행합니다.
 
 1. InTune에 로그인합니다.
-2. **설정** > **연결 된 원본**으로 이동 합니다.
+2. **설정**  >  **연결 된 원본**으로 이동 합니다.
 3. Surface Hub 템플릿을 기반으로 하는 정책을 만들거나 편집합니다.
 4. 정책의 Azure Operational Insights 섹션으로 이동하여 해당 정책에 Log Analytics *작업 영역 ID* 및 *작업 영역 키*를 추가합니다.
 5. 해당 정책을 저장합니다.

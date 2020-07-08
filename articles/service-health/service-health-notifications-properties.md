@@ -4,10 +4,9 @@ description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 �
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77653971"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
@@ -24,13 +23,13 @@ ms.locfileid: "77653971"
 
 각 서비스 상태 알림은 범위 및 리소스에 대한 영향에 대한 세부 정보를 포함합니다. 세부 정보는 다음과 같습니다.
 
-속성 이름 | Description
+속성 이름 | 설명
 -------- | -----------
 channels | **관리자** 또는 **작업** 값 중 하나여야 합니다.
 correlationId | 일반적으로 문자열 형식의 GUID입니다. 동일한 작업에 속하는 이벤트는 일반적으로 동일한 correlationId를 공유합니다.
 eventDataId | 이벤트의 고유 식별자입니다.
 eventName | 이벤트의 제목입니다.
-level | 이벤트의 수준입니다.
+수준 | 이벤트의 수준입니다.
 resourceProviderName | 영향을 받는 리소스의 리소스 공급자 이름입니다.
 resourceType| 영향을 받는 리소스의 리소스 형식입니다.
 subStatus | 하지만 일반적으로 해당 REST 호출의 HTTP 상태 코드는 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 예: 확인(HTTP 상태 코드: 200), 만듬 (HTTP 상태 코드: 201), 허용됨(HTTP 상태 코드: 202), 콘텐츠 없음(HTTP 상태 코드: 204), 잘못된 요청(HTTP 상태 코드: 400), 찾을 수 없음(HTTP 상태 코드: 404), 충돌(HTTP 상태 코드: 409), 내부 서버 오류(HTTP 상태 코드: 500), 서비스 사용할 수 없음(HTTP 상태 코드: 503) 및 게이트웨이 시간 제한(HTTP 상태 코드: 504)

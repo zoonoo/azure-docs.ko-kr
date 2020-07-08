@@ -4,10 +4,9 @@ description: 모니터링하지 않아도 되는 이벤트를 필터링하여 �
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659920"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
@@ -257,7 +256,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-에서 `application.properties` 고유한 필터 매개 변수를 만들고 스프링 부팅의 표면화 된 구성 프레임 워크를 활용 하 여 해당 매개 변수를 사용자 지정 필터에 전달 해야 합니다. 
+에서 고유한 필터 매개 변수를 만들고 `application.properties` 스프링 부팅의 표면화 된 구성 프레임 워크를 활용 하 여 해당 매개 변수를 사용자 지정 필터에 전달 해야 합니다. 
 
 
 ## <a name="troubleshooting"></a>문제 해결

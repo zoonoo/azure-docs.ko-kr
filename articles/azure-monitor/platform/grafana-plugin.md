@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672211"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
@@ -42,7 +41,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 
 ## <a name="sign-in-to-grafana"></a>Grafana에 로그인
 
-1. 서버의 IP 주소를 사용하여 브라우저에서 *http://\<IP 주소\>:3000* 또는 *\<DNSName>\:3000*의 로그인 페이지를 엽니다. 3000은 기본 포트이지만, 설정하는 동안 다른 포트를 설치했을 수도 있습니다. 빌드한 Grafana 서버에 대한 로그인 페이지가 표시됩니다.
+1. 서버의 IP 주소를 사용 하 여 *http:// \<IP address\> : 3000* 또는 브라우저의 * \<DNSName> \: 3000* 에서 로그인 페이지를 엽니다. 3000은 기본 포트이지만, 설정하는 동안 다른 포트를 설치했을 수도 있습니다. 빌드한 Grafana 서버에 대한 로그인 페이지가 표시됩니다.
 
     ![Grafana 로그인 화면](./media/grafana-plugin/grafana-login-screen.png)
 

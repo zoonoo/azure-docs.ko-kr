@@ -7,10 +7,9 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77655653"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
@@ -36,7 +35,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 | &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | 예               | 
 | &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | 예               | 
 | | | | 
-| **지원 되는 기능**                |                   |                   |               
+| **지원되는 기능**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | 예             | 예               | 
 | &nbsp;&nbsp;&nbsp;&mdash; 컨트롤 채널 보호|                 | 예               | 
 | &bull; 샘플링                     | 예             | 예               | 

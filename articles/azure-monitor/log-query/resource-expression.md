@@ -7,18 +7,17 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665702"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 resource () 식
 
-`resource` 식은 다른 리소스에서 데이터를 검색 하기 위해 [리소스로 범위가](scope.md#query-scope) 지정 된 Azure Monitor 쿼리에 사용 됩니다. 
+`resource`식은 다른 리소스에서 데이터를 검색 하기 위해 [리소스로 범위가](scope.md#query-scope) 지정 된 Azure Monitor 쿼리에 사용 됩니다. 
 
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 `resource(`*한정자*`)`
 
@@ -32,7 +31,7 @@ ms.locfileid: "77665702"
 | 리소스 그룹 또는 구독 | 리소스 및 리소스에 포함 된 모든 리소스에 대 한 데이터를 포함 합니다.  | 리소스 ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
 
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 * 리소스에 대 한 읽기 권한이 있어야 합니다.
 

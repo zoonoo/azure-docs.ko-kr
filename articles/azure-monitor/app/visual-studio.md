@@ -8,10 +8,9 @@ ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670885"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
@@ -90,12 +89,12 @@ Application Insights 도구 모음 단추 또는 Application Insights Search 창
 * *우선 Application Insights를 완전히 구성하여 포털에 원격 분석을 전송했습니다. 하지만 이제 Visual Studio에서만 원격 분석을 확인하려 합니다.*
   
   * Search 창 설정에서 앱이 포털에 원격 분석을 전송하는 경우 로컬 진단을 검색하는 옵션이 있습니다.
-  * 포털로 전송 되는 원격 분석을 중지 하려면 ApplicationInsights에서 줄 `<instrumentationkey>...` 을 주석으로 처리 합니다. 포털에 원격 분석을 다시 보낼 준비가 되 면 주석 처리를 제거 합니다.
+  * 포털로 전송 되는 원격 분석을 중지 하려면 ApplicationInsights.config에서 줄을 주석으로 처리 `<instrumentationkey>...` 합니다. 포털에 원격 분석을 다시 보낼 준비가 되 면 주석 처리를 제거 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 |  |  |
 | --- | --- |
-| **[추가 데이터 추가](../../azure-monitor/app/asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/visual-studio/64.png) |
+| **[더 많은 데이터 추가](../../azure-monitor/app/asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/visual-studio/64.png) |
 | **[Application Insights 포털 사용](../../azure-monitor/app/overview-dashboard.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. |![Visual studio](./media/visual-studio/62.png) |
 

@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25a0ac9ab349cfe8bef8e33d3f533bc5942e6323
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77623823"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
@@ -224,11 +223,11 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 * ![Linux][Logo_Linux] [SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임워크를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [azure netapp 파일을 사용 하 여 sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
+* ![Linux ][Logo_Linux] [Azure netapp 파일을 사용 하 여 SAP ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
 
-* ![][Logo_Linux] [SAP ascs/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 GlusterFS 설정][high-availability-guide-rhel-glusterfs]
+* ![][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 GlusterFS 설정][high-availability-guide-rhel-glusterfs]
 
-* ![][Logo_Linux] [SAP ascs/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 Pacemaker 설정][high-availability-guide-rhel-pacemaker]
+* ![][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 Pacemaker 설정][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure에 SAP NetWeaver 고가용성 시스템 설치
 
@@ -242,9 +241,9 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 * ![Linux][Logo_Linux] [SAP ASCS/SCS 인스턴스에 대해 SUSE Linux Enterprise Server 클러스터 프레임워크를 사용하여 SAP NetWeaver 고가용성 설치][sap-suse-ascs-ha-sap-installation]
 
-* ![Linux][Logo_Linux] [sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap NetWeaver 고가용성 설치 Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
+* ![Linux ][Logo_Linux] [SAP ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap NetWeaver 고가용성 설치 Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
 
 * ![][Logo_Linux] [RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치][sap-rhel-ascs-ha] RHEL
 
-* ![RHEL][Logo_Linux] [를 사용 하 여 RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치 Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
+* ![RHEL ][Logo_Linux] [를 사용 하 여 RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치 Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
 

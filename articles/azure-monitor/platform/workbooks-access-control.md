@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 20116ab105e4eb12875ba3cb279fb261eb5c70e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658424"
 ---
 # <a name="access-control"></a>Access Control
@@ -31,13 +30,13 @@ ms.locfileid: "77658424"
 
 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 에는 리소스에서 데이터를 읽는 모니터링 도구 (통합 문서 포함)에서 사용할 수 있는 표준/읽기 권한이 포함 되어 있습니다.
 
-[모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 에는 `/write` 항목 저장을 위한 다양 한 모니터링 도구에서 사용 하 `workbooks/write` 는 일반 권한 (공유 통합 문서 저장 권한 포함)이 포함 됩니다.
+[모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 에 `/write` 는 항목 저장을 위한 다양 한 모니터링 도구에서 사용 하는 일반 권한 ( `workbooks/write` 공유 통합 문서 저장 권한 포함)이 포함 됩니다.
 "통합 문서 참여자"는 공유 통합 문서를 저장 하기 위해 개체에 "통합 문서/쓰기" 권한을 추가 합니다.
 사용자가 볼 수 있는 전용 통합 문서를 저장 하는 데에는 특별 한 권한이 필요 하지 않습니다.
 
 사용자 지정 역할 기반 액세스 제어의 경우:
 
-공유 `microsoft.insights/workbooks/write` 통합 문서를 저장 하려면를 추가 합니다. 자세한 내용은 [통합 문서 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할을 참조 하세요.
+`microsoft.insights/workbooks/write`공유 통합 문서를 저장 하려면를 추가 합니다. 자세한 내용은 [통합 문서 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

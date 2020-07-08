@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: cc2cde7932f783f63ee2783f0589ce4f88f248a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658105"
 ---
 # <a name="workbook-resource-parameters"></a>통합 문서 리소스 매개 변수
@@ -61,7 +60,7 @@ ms.locfileid: "77658105"
 > [!NOTE]
 > 모든 클라우드에서 Azure 리소스 그래프를 아직 사용할 수 없습니다. 이 방법을 선택 하는 경우 대상 클라우드에서 지원 되는지 확인 합니다.
 
-[Azure 리소스 그래프 설명서](https://docs.microsoft.com/azure/governance/resource-graph/overview)
+[Azure Resource Graph 설명서](https://docs.microsoft.com/azure/governance/resource-graph/overview)
 
 ## <a name="creating-a-resource-parameter--json-list"></a>리소스 매개 변수 만들기 (JSON 목록)
 1. 편집 모드에서 빈 통합 문서를 시작 합니다.

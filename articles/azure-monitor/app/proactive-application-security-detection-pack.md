@@ -4,10 +4,9 @@ description: 잠재적인 보안 문제에 대 한 Azure 애플리케이션 정�
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669729"
 ---
 # <a name="application-security-detection-pack-preview"></a>애플리케이션 보안 검색 팩(미리 보기)

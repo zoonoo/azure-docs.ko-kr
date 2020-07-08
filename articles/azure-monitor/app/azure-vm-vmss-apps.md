@@ -4,10 +4,9 @@ description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77661331"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
@@ -32,7 +31,7 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
 
     * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 자동으로 수집 합니다. 자세히 알아보려면 [종속성 자동 수집](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) 을 참조 하세요.
         > [!NOTE]
-        > 현재 .Net IIS에서 호스트 되는 응용 프로그램만 지원 됩니다. SDK를 사용 하 여 Azure 가상 머신과 가상 머신 확장 집합에서 호스트 되는 ASP.NET Core, Java 및 node.js 응용 프로그램을 계측 합니다.
+        > 현재 .Net IIS에서 호스트 되는 응용 프로그램만 지원 됩니다. SDK를 사용 하 여 Azure 가상 머신과 가상 머신 확장 집합에서 호스트 되는 ASP.NET Core, Java 및 Node.js 응용 프로그램을 계측할 수 있습니다.
 
 * SDK **를 통한 코드 기반**
 
@@ -168,7 +167,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Azure 가상 머신 및 가상 머신 확장 집합에서 실행 되는 .NET 응용 프로그램에 대 한 Application Insights 모니터링 에이전트 확장에 대 한 문제 해결 팁을 확인 하세요.
 
 > [!NOTE]
-> .NET Core, Java 및 node.js 응용 프로그램은 수동 SDK 기반 계측을 통해 Azure virtual machines 및 Azure virtual machine scale sets 에서만 지원 되므로 아래 단계는 이러한 시나리오에 적용 되지 않습니다.
+> .NET Core, Java 및 Node.js 응용 프로그램은 수동 SDK 기반 계측을 통해 Azure virtual machines 및 Azure virtual machine scale sets 에서만 지원 되므로 아래 단계는 이러한 시나리오에 적용 되지 않습니다.
 
 확장 실행 출력은 다음 디렉터리에 있는 파일에 기록됩니다.
 ```Windows

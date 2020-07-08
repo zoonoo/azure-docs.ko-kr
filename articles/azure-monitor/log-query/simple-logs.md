@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
 ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660260"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Azure Monitor의 간단한 로그 환경 (미리 보기)
@@ -20,7 +19,7 @@ Azure Monitor KQL 언어를 사용 하 여 [로그 쿼리](log-query-overview.md
 > 단순 로그는 현재 Cosmos DB 및 키 자격 증명 모음에 대 한 테스트로만 구현 됩니다. [사용자](https://feedback.azure.com/forums/913690-azure-monitor) 의견을 통해 Microsoft와 경험을 공유 하 여이 기능을 확장 하 고 릴리스할 지 여부를 확인 하는 데 도움을 주세요.
 
 
-## <a name="scope"></a>범위
+## <a name="scope"></a>Scope
 단순 로그 환경은 선택한 리소스의 *Azurediagnostics*, *Azurediagnostics*및 *azurediagnostics* 테이블에서 데이터를 검색 합니다. 
 
 ## <a name="using-simple-logs"></a>단순 로그 사용
@@ -28,7 +27,7 @@ Azure Monitor KQL 언어를 사용 하 여 [로그 쿼리](log-query-overview.md
 
 ![메뉴](media/simple-logs/menu.png)
 
-**필드** 와 **연산자** 를 선택 하 고 비교할 **값** 을 지정 합니다. 를 **+** 클릭 하 고 **및/또는** 를 지정 하 여 추가 조건을 추가 합니다.
+**필드** 와 **연산자** 를 선택 하 고 비교할 **값** 을 지정 합니다. 를 클릭 하 **+** 고 **및/또는** 를 지정 하 여 추가 조건을 추가 합니다.
 
 ![조건](media/simple-logs/criteria.png)
 

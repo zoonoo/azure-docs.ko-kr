@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666946"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획 (사용 되지 않음)
@@ -39,7 +38,7 @@ ms.locfileid: "77666946"
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | Support(지원) | Description |
+| 연결된 소스 | Support(지원) | 설명 |
 |---|---|---|
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
@@ -51,7 +50,7 @@ ms.locfileid: "77666946"
 - Windows 또는 Operations Manager 에이전트는 가상 머신이 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 단계를 수행하여 용량 및 성능 솔루션을 작업 영역에 추가합니다.
 
@@ -85,7 +84,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 [용량 및 성능] 타일을 클릭하여 [용량 및 성능] 대시보드를 엽니다. 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 최대 열 개의 항목을 나열합니다. 열 아래쪽의 **모두 보기**를 클릭하거나 열 헤더를 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
-- **호스팅해야**
+- **호스트**
     - **호스트 CPU 사용률** 선택한 기간을 기준으로 호스트 컴퓨터 CPU 사용률과 호스트 목록의 그래픽 추세를 표시합니다. 특정 시점의 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 호스팅된 VM의 CPU 카운터 세부 정보를 보려면 호스트 이름을 클릭합니다.
     - **호스트 메모리 사용률** 선택한 기간을 기준으로 호스트 컴퓨터 메모리 사용률과 호스트 목록의 그래픽 추세를 표시합니다. 특정 시점의 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 호스팅된 VM의 메모리 카운터 세부 정보를 보려면 호스트 이름을 클릭합니다.
 - **Virtual Machines**

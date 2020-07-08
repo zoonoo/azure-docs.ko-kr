@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671140"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
@@ -66,9 +65,9 @@ ms.locfileid: "77671140"
 
 [Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅샷 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
 
-프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp\@microsoft.com** 에 문의 하세요.
+프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp \@ microsoft.com** 에 문의 하세요.
 
-스냅숏 디버거 작업을 수행할 수 없는 경우 **snapshothelp\@microsoft.com** 에 문의 하세요.
+스냅숏 디버거 작업을 수행할 수 없는 경우 **snapshothelp \@ microsoft.com** 에 문의 하세요.
 
 ![프로파일러 통합](media/transaction-diagnostics/profilerTraces.png)
 

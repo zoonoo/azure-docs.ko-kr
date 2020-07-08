@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665309"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작
@@ -30,7 +29,7 @@ ms.locfileid: "77665309"
 * 이 경고가 전달된 작업 그룹의 짧은 이름
 * 경고 제목
 
-| 회신 | Description |
+| 회신 | 설명 |
 | ----- | ----------- |
 | DISABLE `<Action Group Short name>` | 작업 그룹의 추가 SMS 해제 |
 | ENABLE `<Action Group Short name>` | 작업 그룹의 SMS 다시 설정 |

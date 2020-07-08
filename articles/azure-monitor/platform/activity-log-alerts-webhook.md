@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669049"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
@@ -254,7 +253,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 }
 ```
 
-| 요소 이름 | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
 | 상태 |메트릭 경고에 사용됩니다. 활동 로그 경고에 대해서는 항상 “activated”로 설정합니다. |
 | 컨텍스트 |이벤트에 대한 컨텍스트입니다. |
@@ -277,7 +276,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | eventDataId |이벤트에 대한 고유 식별자입니다. |
 | eventSource |이벤트를 생성한 Azure 서비스 또는 인프라의 이름입니다. |
 | httpRequest |요청은 일반적으로 clientRequestId, clientIpAddress 및 HTTP 메서드(예: PUT)를 포함합니다. |
-| level |Critical, Error, Warning 및 Informational 값 중 하나입니다. |
+| 수준 |Critical, Error, Warning 및 Informational 값 중 하나입니다. |
 | operationId |일반적으로 이벤트 간에 공유되는 GUID로서 단일 작업에 해당합니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트의 속성입니다. |

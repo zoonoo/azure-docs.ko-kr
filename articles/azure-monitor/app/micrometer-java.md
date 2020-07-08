@@ -6,10 +6,9 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670069"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
@@ -137,7 +136,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
         </dependency>
      ```
 
-2. 리소스 `ApplicationInsights.xml` 폴더에 파일을 넣습니다.
+2. `ApplicationInsights.xml`리소스 폴더에 파일을 넣습니다.
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

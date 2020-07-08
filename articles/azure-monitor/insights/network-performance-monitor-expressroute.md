@@ -7,10 +7,9 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660753"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
@@ -23,7 +22,7 @@ ms.locfileid: "77660753"
 
 ![ExpressRoute 모니터](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>구성 
+## <a name="configuration"></a>Configuration 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
 
 ### <a name="configure-network-security-group-rules"></a>네트워크 보안 그룹 규칙 구성 
@@ -57,7 +56,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 3. 이 연결에 대한 상태 이벤트를 만들려는 경우 **이 피어링에 상태 모니터링 사용**을 선택합니다. 
 4. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 피어링 연결의 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
 5. **에이전트 추가**를 선택하여 이 피어링 연결을 모니터링하는 데 사용할 모니터링 에이전트를 선택합니다. 에이전트를 연결의 양쪽 끝에 추가했는지 확인합니다. 이 피어링에 연결된 가상 네트워크에 하나 이상의 에이전트가 필요합니다. 이 피어링에 연결된 하나 이상의 온-프레미스 에이전트가 필요합니다. 
-6. **저장** 을 선택하여 구성을 저장합니다. 
+6. **저장** 을 선택 하 여 구성을 저장 합니다. 
 
    ![ExpressRoute 모니터링 구성](media/network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 
@@ -109,7 +108,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 알림 코드를 확인하고 **LogAnalytics**를 통해 알림 코드에 대한 경고를 설정할 수 있습니다. **NPM 진단** 페이지에서 트리거된 모든 진단 메시지에 대한 설명을 확인할 수 있습니다.
 
-| 알림 코드(로그) | Description |
+| 알림 코드(로그) | 설명 |
 | --- | --- |
 | 5501 | ExpressRoute 회로의 보조 연결을 통해 트래버스할 수 없음 |
 | 5502 | ExpressRoute 회로의 기본 연결을 통해 트래버스할 수 없음 |

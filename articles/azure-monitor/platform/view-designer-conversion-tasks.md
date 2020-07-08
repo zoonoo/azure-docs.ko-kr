@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658747"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>통합 문서에 대 한 뷰 디자이너 변환 일반적인 작업
@@ -40,7 +39,7 @@ Log Analytics 작업 영역의 통합 문서에는 뷰 디자이너의 일부 �
 
 사이드바 메뉴의 왼쪽 위 모퉁이에 매개 변수를 저장 합니다. 기본적으로 드롭다운을 설정 되지 *않은 상태로 두거나* 기본 **TimeRange** 값 (예: *24 시간*)을 선택할 수 있습니다. **편집 완료**를 선택 합니다.
 
-매개 변수 이름 주위에 중괄호 {} 를 추가 하 여 쿼리에 매개 변수를 사용할 수 있습니다. 매개 변수에 대 한 자세한 내용은 [통합 문서 설명서에서 매개 변수](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md)를 참조 하세요.
+매개 변수 이름 주위에 중괄호를 추가 하 여 쿼리에 매개 변수를 사용할 수 있습니다 {} . 매개 변수에 대 한 자세한 내용은 [통합 문서 설명서에서 매개 변수](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md)를 참조 하세요.
 
 ## <a name="updating-queries-with-the-timerange-parameter"></a>TimeRange 매개 변수를 사용 하 여 쿼리 업데이트
 
@@ -50,7 +49,7 @@ Log Analytics 작업 영역의 통합 문서에는 뷰 디자이너의 일부 �
 
 ### <a name="option-2-update-your-log-queries"></a>옵션 2: 로그 쿼리 업데이트
 
-쿼리에서 다음 예제 `| where TimeGenerated {TimeRange}` 와 같이 줄을 추가 합니다.
+쿼리에서 `| where TimeGenerated {TimeRange}` 다음 예제와 같이 줄을 추가 합니다.
 
 원래 쿼리
 ```KQL
@@ -118,7 +117,7 @@ search *
 
 설정을 저장 하 고 쿼리를 다시 실행 하 여 스파크 라인을 포함 하도록 테이블을 업데이트 합니다.
 
-결과 표는 다음과 유사 하 게 표시 됩니다 ![. 스파크 라인 예](media/view-designer-conversion-tasks/sparkline-example.png)
+결과 표는 다음과 유사 하 게 표시 됩니다. ![ 스파크 라인 예](media/view-designer-conversion-tasks/sparkline-example.png)
 
 ## <a name="advanced-cell-settings"></a>고급 셀 설정
 뷰 디자이너를 미러 하려면 통합 문서 셀의 크기를 변경 하거나 로그에 핀과 외부 링크를 추가 하는 등의 작업을 수행할 수 있습니다.

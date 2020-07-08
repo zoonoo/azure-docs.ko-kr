@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658629"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor 뷰 디자이너 타일 변환
@@ -23,9 +22,9 @@ ms.locfileid: "77658629"
 통합 문서에서 도넛형 & 목록 타일을 다시 만들려면 두 가지 별도의 시각화가 필요 합니다. 도넛형 부분에는 두 가지 옵션이 있습니다.
 두 시작 모두 **쿼리 추가** 를 선택 하 고 뷰 디자이너의 원래 쿼리를 셀에 붙여 넣습니다.
 
-**옵션 1:** **시각화** 드롭다운에서 ![ **원형 차트** 선택: 원형 차트 시각화 메뉴](media/view-designer-conversion-tiles/pie-chart.png)
+**옵션 1:** **시각화** 드롭다운에서 **원형 차트** 선택: ![ 원형 차트 시각화 메뉴](media/view-designer-conversion-tiles/pie-chart.png)
 
-**옵션 2:** 시각화 드롭다운에서 **Set by query** 를 **Visualization** 선택 하 고 쿼리에 `| render piechart` 를 추가 합니다.
+**옵션 2:** **시각화** 드롭다운에서 **Set by query** 를 선택 하 고 `| render piechart` 쿼리에를 추가 합니다.
 
  ![시각화 메뉴](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -75,7 +74,7 @@ search *
  
  ![꺾은선형 차트 메뉴](media/view-designer-conversion-tiles/line-visualization.png)
 
-**옵션 2:** 시각화 드롭다운에서 **Set by query** 를 **Visualization** 선택 하 고 쿼리에 `| render linechart` 를 추가 합니다.
+**옵션 2:** **시각화** 드롭다운에서 **Set by query** 를 선택 하 고 `| render linechart` 쿼리에를 추가 합니다.
 
  ![시각화 메뉴](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -146,9 +145,9 @@ search *
 
 쿼리를 가로 막대형 차트로 시각화 하는 두 가지 옵션이 있습니다.
 
-**옵션 1:** **시각화** 드롭다운: 가로 막대형 차트 시각화에서 ![ **가로 막대형 차트** 를 선택 합니다.](media/view-designer-conversion-tiles/bar-visualization.png)
+**옵션 1:** **시각화** 드롭다운: 가로 막대형 차트 시각화에서 **가로 막대형 차트** 를 선택 합니다. ![](media/view-designer-conversion-tiles/bar-visualization.png)
  
-**옵션 2:** 시각화 드롭다운에서 **Set by query** 를 **Visualization** 선택 하 고 쿼리에 `| render barchart` 를 추가 합니다.
+**옵션 2:** **시각화** 드롭다운에서 **Set by query** 를 선택 하 고 `| render barchart` 쿼리에를 추가 합니다.
 
  ![시각화 메뉴](media/view-designer-conversion-tiles/set-by-query.png)
 

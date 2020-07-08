@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669865"
 ---
 # <a name="performance-testing"></a>성능 테스트
@@ -22,7 +21,7 @@ Application Insights를 사용 하 여 웹 사이트에 대 한 부하 테스트
 
 성능 테스트를 만들려면 먼저 Application Insights 리소스를 만들어야 합니다. 리소스를 이미 만든 경우 다음 섹션으로 진행 합니다.
 
-Azure Portal에서 **리소스** > 만들기**개발자 도구** > **Application Insights** 를 선택 하 고 Application Insights 리소스를 만듭니다.
+Azure Portal에서 **리소스 만들기**  >  **개발자 도구**  >  **Application Insights** 를 선택 하 고 Application Insights 리소스를 만듭니다.
 
 ## <a name="configure-performance-testing"></a>성능 테스트 구성
 
@@ -34,7 +33,7 @@ Azure Portal에서 **리소스** > 만들기**개발자 도구** > **Application
 
 기본 성능 테스트를 만들려면 테스트 형식의 **수동 테스트** 를 선택 하 고 테스트에 필요한 설정을 입력 합니다.
 
-|설정| 최댓값
+|Setting| 최댓값
 |----------|------------|
 | 사용자 부하 | 20,000 |
 | 기간 (분)  | 60 |  

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658271"
 ---
 # <a name="interactive-workbooks"></a>대화형 Workbooks
@@ -70,12 +69,12 @@ ms.locfileid: "77658271"
 ![표 형태 창의 행 클릭을 사용 하 여 대화형 환경 만들기를 보여 주는 이미지](./media/workbooks-interactive/grid-click-read-mode.png)
 
 ### <a name="exporting-the-contents-of-an-entire-row"></a>전체 행의 내용 내보내기
-경우에 따라 특정 열이 아니라 선택한 행의 전체 내용을 내보내는 것이 좋습니다. 이러한 경우 위의 7.1 단계에서 `Field to export` 속성을 설정 하지 않은 상태로 둡니다. 통합 문서는 전체 행 내용을 json으로 매개 변수에 내보냅니다. 
+경우에 따라 특정 열이 아니라 선택한 행의 전체 내용을 내보내는 것이 좋습니다. 이러한 경우 `Field to export` 위의 7.1 단계에서 속성을 설정 하지 않은 상태로 둡니다. 통합 문서는 전체 행 내용을 json으로 매개 변수에 내보냅니다. 
 
-참조 KQL 컨트롤에서 `todynamic` 함수를 사용 하 여 json을 구문 분석 하 고 개별 열에 액세스 합니다.
+참조 KQL 컨트롤에서 함수를 사용 `todynamic` 하 여 json을 구문 분석 하 고 개별 열에 액세스 합니다.
 
  ## <a name="grid-cell-clicks"></a>표 형태의 셀 클릭
-통합 문서를 사용 하면 작성자가 이라는 특정 형식의 그리드 열 렌더러를 통해 대화형 `link renderer`작업을 추가할 수 있습니다. 링크 렌더러는 표 형태 셀을 셀의 내용에 따라 하이퍼링크로 변환 합니다. 통합 문서는 리소스 개요 블레이드, 속성 모음 뷰어, 앱 Insights 검색, 사용, 트랜잭션 추적 등을 포함 하 여 다양 한 종류의 링크 렌더러를 지원 합니다.
+통합 문서를 사용 하면 작성자가 이라는 특정 형식의 그리드 열 렌더러를 통해 대화형 작업을 추가할 수 `link renderer` 있습니다. 링크 렌더러는 표 형태 셀을 셀의 내용에 따라 하이퍼링크로 변환 합니다. 통합 문서는 리소스 개요 블레이드, 속성 모음 뷰어, 앱 Insights 검색, 사용, 트랜잭션 추적 등을 포함 하 여 다양 한 종류의 링크 렌더러를 지원 합니다.
 
 ### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>표 형태의 셀 클릭을 사용 하 여 대화형 작업 설정
 1. _편집_ 도구 모음 항목을 클릭 하 여 통합 문서를 편집 모드로 전환 합니다.
@@ -90,11 +89,11 @@ ms.locfileid: "77658271"
 5. `Run query`결과를 보려면
 6. _열 설정_ 을 클릭 하 여 설정 창을 엽니다.
 7. _열_ 섹션에서 다음을 설정 합니다.
-    1. _샘플_ 열 렌더러: `Link`, 보기 열기: `Cell Details`, 링크 레이블:`Sample`
-    2. _개수_ 열 렌더러: `Bar`, 색상표: `Blue`, 최소 값:`0`
+    1. _샘플_ 열 렌더러: `Link` , 보기 열기: `Cell Details` , 링크 레이블:`Sample`
+    2. _개수_ 열 렌더러: `Bar` , 색상표: `Blue` , 최소 값:`0`
     3. _요청_ -열 렌더러:`Automatic`
     4. _저장 후 닫기_ 를 클릭 하 여 변경 내용을 적용 합니다.
-8. 표에서 `Sample` 링크 중 하나를 클릭 합니다. 그러면 샘플링 된 요청에 대 한 세부 정보가 포함 된 속성 창이 열립니다.
+8. 표에서 링크 중 하나를 클릭 `Sample` 합니다. 그러면 샘플링 된 요청에 대 한 세부 정보가 포함 된 속성 창이 열립니다.
 
     ![표 형태의 셀 클릭을 사용 하 여 대화형 환경 만들기를 보여 주는 이미지](./media/workbooks-interactive/grid-cell-click-create.png)
 
@@ -116,7 +115,7 @@ ms.locfileid: "77658271"
 사용자는 통합 문서를 사용 하 여 매개 변수의 값에 따라 특정 컨트롤을 표시 하거나 사라지게 할 수 있습니다. 이렇게 하면 작성자가 사용자 입력 또는 원격 분석 상태에 따라 보고서를 다르게 볼 수 있습니다. 예를 들어, 문제가 있는 경우에만 소비자에 대 한 요약을 표시 하는 것이 좋습니다.
 
 ### <a name="setting-up-interactivity-using-conditional-visibility"></a>조건부 표시 유형을 사용 하 여 대화형 작업 설정
-1. `Setting up interactivity on grid row click` 섹션의 단계에 따라 두 개의 대화형 컨트롤을 설정 합니다.
+1. 섹션의 단계에 따라 `Setting up interactivity on grid row click` 두 개의 대화형 컨트롤을 설정 합니다.
 2. 맨 위에 새 매개 변수를 추가 합니다.
     1. 이름: `ShowDetails`
     2. 매개 변수 유형:`Drop down`
@@ -130,13 +129,13 @@ ms.locfileid: "77658271"
     1. 이 항목은 `ShowDetails` 매개 변수 값 `equals` 에 표시 됩니다.`Yes`
 6. _편집 완료_ 를 클릭 하 여 변경 내용을 커밋합니다.
 7. 통합 문서 도구 모음에서 _편집 완료_ 를 클릭 하 여 읽기 모드로 전환 합니다.
-8. 매개 변수 `ShowDetails` 값을로 `No`전환 합니다. 아래 차트가 사라집니다.
+8. 매개 변수 값을 `ShowDetails` 로 전환 `No` 합니다. 아래 차트가 사라집니다.
 
-아래 이미지에서는 `ShowDetails` 가 인 경우 표시 되는 경우를 보여 줍니다.`Yes`
+아래 이미지에서는가 인 경우 표시 되는 경우를 보여 줍니다. `ShowDetails``Yes`
 
 ![차트가 표시 되는 조건부 표시 유형을 보여 주는 이미지](./media/workbooks-interactive/conditional-visibility.png)
 
-아래 이미지는 `ShowDetails` 가 인 숨겨진 경우를 보여줍니다.`No`
+아래 이미지는가 인 숨겨진 경우를 보여줍니다. `ShowDetails``No`
 
 ![차트가 숨겨진 조건부 표시 유형을 보여 주는 이미지](./media/workbooks-interactive/conditional-invisible.png)
 

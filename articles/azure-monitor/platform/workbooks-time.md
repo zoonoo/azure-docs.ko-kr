@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658016"
 ---
 # <a name="workbook-time-parameters"></a>통합 문서 시간 매개 변수
@@ -40,7 +39,7 @@ ms.locfileid: "77658016"
 ## <a name="referencing-a-time-parameter"></a>Time 매개 변수 참조
 ### <a name="via-bindings"></a>Via 바인딩
 1. 통합 문서에 쿼리 컨트롤을 추가 하 고 Application Insights 리소스를 선택 합니다.
-2. 대부분의 통합 문서 컨트롤은 _시간 범위_ 범위 선택을 지원 합니다. _시간 범위_ 드롭다운을 열고 아래쪽의 time 결심 매개 `{TimeRange}` 변수 그룹에서를 선택 합니다.
+2. 대부분의 통합 문서 컨트롤은 _시간 범위_ 범위 선택을 지원 합니다. _시간 범위_ 드롭다운을 열고 `{TimeRange}` 아래쪽의 time 결심 매개 변수 그룹에서를 선택 합니다.
 3. 이는 시간 범위 매개 변수를 차트의 시간 범위에 바인딩합니다. 샘플 쿼리의 시간 범위는 이제 최근 24 시간입니다.
 4. 쿼리를 실행 하 여 결과를 확인 합니다.
 
@@ -49,7 +48,7 @@ ms.locfileid: "77658016"
 ### <a name="in-kql"></a>KQL에서
 1. 통합 문서에 쿼리 컨트롤을 추가 하 고 Application Insights 리소스를 선택 합니다.
 2. KQL에서 매개 변수를 사용 하 여 시간 범위 필터를 입력 합니다.`| where timestamp {TimeRange}`
-3. 이렇게 하면 쿼리 평가 시간이 매개 변수의 `| where timestamp > ago(1d)`시간 범위 값인로 확장 됩니다.
+3. 이렇게 하면 쿼리 평가 시간이 `| where timestamp > ago(1d)` 매개 변수의 시간 범위 값인로 확장 됩니다.
 4. 쿼리를 실행 하 여 결과를 확인 합니다.
 
     ![KQL에서 참조 되는 시간 범위를 보여 주는 이미지](./media/workbooks-time/time-in-code.png)

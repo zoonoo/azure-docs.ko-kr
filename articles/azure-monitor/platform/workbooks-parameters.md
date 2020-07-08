@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658220"
 ---
 # <a name="workbook-parameters"></a>통합 문서 매개 변수
@@ -38,7 +37,7 @@ ms.locfileid: "77658220"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름 `TimeRange` : *(매개 변수 __이름__ 에 공백이 나 특수 문자를 포함할 **수 없음** )*
+    1. 매개 변수 이름: `TimeRange` *(매개 변수 __이름__ 에 공백이 나 특수 문자를 포함할 **수 없음** )*
     2. 표시 이름: `Time Range` *(그러나 __표시 이름__ 에는 공백, 특수 문자,이 모 지 등이 포함 될 수 있습니다.)*  
     2. 매개 변수 유형:`Time range picker`
     3. 필수:`checked`
@@ -54,7 +53,7 @@ ms.locfileid: "77658220"
 ## <a name="referencing-a-parameter"></a>매개 변수 참조
 ### <a name="via-bindings"></a>Via 바인딩
 1. 통합 문서에 쿼리 컨트롤을 추가 하 고 Application Insights 리소스를 선택 합니다.
-2. _시간 범위_ 드롭다운을 열고 아래쪽의 매개 변수 `Time Range` 섹션에서 옵션을 선택 합니다.
+2. _시간 범위_ 드롭다운을 열고 `Time Range` 아래쪽의 매개 변수 섹션에서 옵션을 선택 합니다.
 3. 이는 시간 범위 매개 변수를 차트의 시간 범위에 바인딩합니다. 샘플 쿼리의 시간 범위는 이제 최근 24 시간입니다.
 4. 쿼리를 실행 하 여 결과를 확인 합니다.
 
@@ -63,7 +62,7 @@ ms.locfileid: "77658220"
 ### <a name="in-kql"></a>KQL에서
 1. 통합 문서에 쿼리 컨트롤을 추가 하 고 Application Insights 리소스를 선택 합니다.
 2. KQL에서 매개 변수를 사용 하 여 시간 범위 필터를 입력 합니다.`| where timestamp {TimeRange}`
-3. 이렇게 하면 쿼리 평가 시간이 매개 변수의 `| where timestamp > ago(1d)`시간 범위 값인로 확장 됩니다.
+3. 이렇게 하면 쿼리 평가 시간이 `| where timestamp > ago(1d)` 매개 변수의 시간 범위 값인로 확장 됩니다.
 4. 쿼리를 실행 하 여 결과를 확인 합니다.
 
     ![KQL에서 참조 되는 시간 범위를 보여 주는 이미지](./media/workbooks-parameters/time-in-code.png)
@@ -75,7 +74,7 @@ ms.locfileid: "77658220"
 4. 텍스트 컨트롤에 텍스트가 표시 됩니다. _선택한 시간 범위는 최근 24 시간입니다_ .
 
 ## <a name="parameter-options"></a>매개 변수 옵션
-_In Text_ 섹션은 값 대신 `label` 매개 변수의를 사용 했습니다. 매개 변수는 형식에 따라 다양 한 옵션을 노출 합니다. 예를 들어 시간 범위 선택에는 value, label, query, start, end 및 그레인을 사용할 수 있습니다.
+_In Text_ 섹션은 `label` 값 대신 매개 변수의를 사용 했습니다. 매개 변수는 형식에 따라 다양 한 옵션을 노출 합니다. 예를 들어 시간 범위 선택에는 value, label, query, start, end 및 그레인을 사용할 수 있습니다.
 
 매개 변수 `Previews` _편집_ 창의 섹션을 사용 하 여 매개 변수에 대 한 확장 옵션을 볼 수 있습니다.
 

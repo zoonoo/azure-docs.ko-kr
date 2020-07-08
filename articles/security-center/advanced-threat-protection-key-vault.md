@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77914809"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Azure Key Vault에 대 한 위협 방지 (미리 보기)
@@ -44,7 +43,7 @@ Security Center은 비정상적인 활동을 검색할 때 경고를 표시 합�
 
 이 문서에서는 Azure Key Vault에 대 한 advanced threat protection을 사용 하거나 사용 하지 않도록 설정 하는 방법을 알아보았습니다. 
 
-관련 자료는 다음 문서를 참조 하세요.
+관련 자료는 다음 문서를 참조하세요.
 
 - [Azure Security Center의 위협 방지](threat-protection.md)-이 문서에서는 Azure Security Center 보안 경고의 출처에 대해 설명 합니다.
 - [Key Vault 보안 경고](alerts-reference.md#alerts-azurekv)--모든 Azure Security Center 경고에 대 한 참조 테이블의 Key Vault 섹션

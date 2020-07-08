@@ -4,10 +4,9 @@ description: 컨테이너 이미지 또는 리포지토리에 대 한 특성을 
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659699"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure container registry에서 컨테이너 이미지 잠그기
@@ -17,7 +16,7 @@ Azure container registry에서 이미지 버전 또는 리포지토리를 잠가
 이 문서에서는 Azure Cloud Shell 또는 로컬 (버전 2.0.55 이상 권장)에서 Azure CLI를 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서는 Azure Portal의 **설정 > 잠금** 또는 `az lock` Azure CLI의 명령을 사용 하는 등 전체 레지스트리를 잠그는 경우에는 적용 되지 않습니다. 레지스트리 리소스를 잠그면 리포지토리에서 데이터를 생성, 업데이트 또는 삭제할 수 없습니다. 레지스트리를 잠그면 복제를 추가 또는 삭제 하거나 레지스트리 자체를 삭제 하는 등의 관리 작업에만 영향을 줍니다. [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../azure-resource-manager/management/lock-resources.md)에 대 한 자세한 정보.
+> 이 문서는 Azure Portal의 **설정 > 잠금** 또는 Azure CLI의 명령을 사용 하는 등 전체 레지스트리를 잠그는 경우에는 적용 되지 않습니다 `az lock` . 레지스트리 리소스를 잠그면 리포지토리에서 데이터를 생성, 업데이트 또는 삭제할 수 없습니다. 레지스트리를 잠그면 복제를 추가 또는 삭제 하거나 레지스트리 자체를 삭제 하는 등의 관리 작업에만 영향을 줍니다. [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../azure-resource-manager/management/lock-resources.md)에 대 한 자세한 정보.
 
 ## <a name="scenarios"></a>시나리오
 
@@ -69,7 +68,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>매니페스트 다이제스트로 이미지 잠그기
 
-매니페스트 다이제스트 (로 `sha256:...`표시 되는 SHA-256 해시)로 식별 되는 *myrepo/myrepo* 이미지를 잠그려면 다음 명령을 실행 합니다. 하나 이상의 이미지 태그와 연결 된 매니페스트 다이제스트를 찾으려면 [az acr repository show-manifest][az-acr-repository-show-manifests] 명령을 실행 합니다.
+매니페스트 다이제스트 (로 표시 되는 SHA-256 해시)로 식별 되는 *myrepo/myrepo* 이미지를 잠그려면 `sha256:...` 다음 명령을 실행 합니다. 하나 이상의 이미지 태그와 연결 된 매니페스트 다이제스트를 찾으려면 [az acr repository show-manifest][az-acr-repository-show-manifests] 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \

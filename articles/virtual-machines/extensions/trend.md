@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
 ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919926"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
@@ -84,7 +83,7 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 * 가상 머신 구성을 위한 [샘플 Windows PowerShell 스크립트](https://go.microsoft.com/fwlink/?LinkId=404100)
 * [지침](https://go.microsoft.com/fwlink/?LinkId=404099)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 [Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법]
 
 [Azure VM 확장 및 기능]

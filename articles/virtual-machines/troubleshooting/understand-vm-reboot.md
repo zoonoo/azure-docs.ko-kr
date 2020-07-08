@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919416"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
@@ -47,7 +46,7 @@ Microsoft Azure는 VM의 기반이 되는 호스트 인프라의 안정성, 성�
 Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Linux 가상 컴퓨터의 사용 가능성에 주는 영향에 대해 이해하려면 여기에 나열된 문서를 참조하세요. 이 문서는 Azure 계획된 유지 관리 프로세스 및 영향을 줄이기 위해 계획된 유지 관리를 예약하는 방법에 대한 배경을 제공합니다.
 
 - [Azure에서 VM에 대한 계획된 유지 관리](../windows/planned-maintenance.md)
-- [Azure Vm에서 계획 된 유지 관리를 예약 하는 방법](../windows/classic/planned-maintenance-schedule.md)
+- [Azure VM에 계획된 유지 관리 예약 방법](../windows/classic/planned-maintenance-schedule.md)
 
 ### <a name="memory-preserving-updates"></a>메모리 유지 업데이트
 

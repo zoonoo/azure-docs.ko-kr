@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658713"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Azure Monitor 뷰 디자이너에서 통합 문서 변환 옵션
@@ -20,12 +19,12 @@ ms.locfileid: "77658713"
 
 뷰 디자이너에는 고정 된 정적 스타일이 표시 되 고, 통합 문서에서는 데이터가 표시 되는 방식을 자유롭게 포함 하 고 수정할 수 있습니다. 아래 이미지에서는 뷰를 변환할 때 통합 문서를 정렬 하는 방법에 대 한 두 가지 예를 보여 줍니다.
 
-[세로 통합 문서](view-designer-conversion-examples.md#vertical)
-![세로](media/view-designer-conversion-options/view-designer-vertical.png)
+[세로 통합 문서](view-designer-conversion-examples.md#vertical) 
+ ![ 쓰기](media/view-designer-conversion-options/view-designer-vertical.png)
 
-[Tabbed workbook](view-designer-conversion-examples.md#tabbed)
-![시간 탭의 탭 통합 문서](media/view-designer-conversion-options/distribution-tab.png)
-![데이터 형식 분포 탭 데이터 형식](media/view-designer-conversion-options/over-time-tab.png)
+[탭 통합 문서](view-designer-conversion-examples.md#tabbed) 
+ ![ 시간 탭의 데이터 형식 분포 탭 ](media/view-designer-conversion-options/distribution-tab.png)
+ ![ 데이터 형식](media/view-designer-conversion-options/over-time-tab.png)
 
 ## <a name="tile-conversion"></a>타일 변환
 뷰 디자이너는 개요 타일 기능을 사용 하 여 전체 상태를 나타내고 요약 합니다. 이러한 값은 숫자에서 차트에 이르는 일곱 개의 타일로 표시 됩니다. 통합 문서에서 사용자는 비슷한 시각화를 만들어 개요 타일의 원래 스타일과 비슷하게 고정할 수 있습니다. 
