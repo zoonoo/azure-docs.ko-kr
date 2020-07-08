@@ -11,12 +11,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254249"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037293"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 
@@ -55,13 +54,13 @@ ms.locfileid: "79254249"
 
 ## <a name="add-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 추가
 
-Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용 하는 샘플 windmills 프로젝트의 **시계열 ID** 는 `id`입니다. 시계열 정보 인스턴스 및 **시계열 ID**에 대 한 자세한 정보는 시계열 [모델](./time-series-insights-update-tsm.md)을 참조 하세요.
+Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용 하는 샘플 windmills 프로젝트의 **시계열 ID** 는 `id` 입니다. 시계열 정보 인스턴스 및 **시계열 ID**에 대 한 자세한 정보는 시계열 [모델](./concepts-model-overview.md)을 참조 하세요.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 
 1. 아직 이벤트 원본을 만들지 않은 경우 [이벤트 원본 만들기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)에 대한 단계를 완료합니다.
 
-1. `timeSeriesId`에 대한 값을 설정합니다. 시계열 **ID**에 대 한 자세한 내용은 시계열 [모델](./time-series-insights-update-tsm.md)을 참조 하세요.
+1. `timeSeriesId`에 대한 값을 설정합니다. 시계열 **ID**에 대 한 자세한 내용은 시계열 [모델](./concepts-model-overview.md)을 참조 하세요.
 
 ### <a name="push-events-to-windmills-sample"></a>Windmills 샘플로 이벤트 푸시
 
@@ -69,11 +68,11 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 1. 이벤트 허브 인스턴스를 선택 합니다.
 
-1. **공유 액세스 정책** > **MySendPolicy**으로 이동 합니다. **연결 문자열-기본 키**의 값을 복사 합니다.
+1. **공유 액세스 정책**  >  **MySendPolicy**으로 이동 합니다. **연결 문자열-기본 키**의 값을 복사 합니다.
 
     [![기본 키 연결 문자열의 값 복사](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. https://tsiclientsample.azurewebsites.net/windFarmGen.html 으로 이동합니다. URL은 시뮬레이트된 풍차 장치를 만들고 실행 합니다.
+1. https://tsiclientsample.azurewebsites.net/windFarmGen.html 로 이동합니다. URL은 시뮬레이트된 풍차 장치를 만들고 실행 합니다.
 1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에, [풍차 입력 필드](#push-events-to-windmills-sample)에 복사한 연결 문자열을 붙여넣습니다.
   
     [![이벤트 허브 연결 문자열 상자에 기본 키 연결 문자열 붙여넣기](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)

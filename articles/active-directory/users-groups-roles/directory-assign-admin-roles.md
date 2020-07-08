@@ -14,12 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 70d53bf3d97f27caae7d3dee7cd03a4606d6761c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921750"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -173,7 +172,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 이 역할의 사용자는 Desktop Analytics 및 Office Customization 및 Policy 서비스를 관리할 수 있습니다. Desktop Analytics의 경우 여기에는 자산 인벤토리를 확인하고, 배포 계획을 만들고, 배포 및 상태를 볼 수 있는 기능이 포함됩니다. Office Customization & Policy 서비스의 경우 이 역할의 사용자는 Office 정책을 관리할 수 있습니다.
 
-### <a name="device-administrator"></a>[디바이스 관리자](#device-administrators-permissions)
+### <a name="device-administrators"></a>[디바이스 관리자](#device-administrators-permissions)
 
 이 역할은 [디바이스 설정](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)의 추가 로컬 관리자로서 할당을 위해서만 사용할 수 있습니다. 이 역할을 가진 사용자가 Azure Active Directory에 가입된 모든 Windows 10 디바이스에서 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 디바이스 개체를 관리하는 기능이 없습니다.
 
@@ -209,7 +208,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="external-id-user-flow-administrator"></a>[외부 ID 사용자 흐름 관리자](#external-id-user-flow-administrator-permissions)
 
-이 역할을 가진 사용자는 Azure Portal에서 B2C 사용자 흐름("기본 제공" 정책이라고도 함)을 만들고 관리할 수 있습니다. 이러한 사용자는 사용자 흐름을 만들거나 편집하여 사용자 환경의 html/CSS/javascript 콘텐츠를 변경하고, 사용자 흐름별 MFA 요구 사항을 변경하고, 토큰에서 클레임을 변경하고, Azure AD 조직의 모든 정책에 대한 세션 설정을 조정할 수 있습니다. 반면 이 역할은 사용자 데이터를 검토하거나 조직 스키마에 포함된 특성을 변경할 수 없습니다. Identity Experience Framework(사용자 지정이라고도 함) 정책을 변경하는 것도 이 역할의 범위를 벗어납니다.
+이 역할을 가진 사용자는 Azure Portal에서 사용자 흐름을 만들고 관리할 수 있습니다 ("기본 제공" 정책이 라고도 함). 이러한 사용자는 HTML/CSS/JavaScript 콘텐츠를 사용자 지정 하 고, MFA 요구 사항을 변경 하 고, 토큰에서 클레임을 선택 하 고, API 커넥터를 관리 하 고, Azure AD 조직의 모든 사용자 흐름에 대해 세션 설정을 구성할 수 있습니다. 반면에이 역할에는 사용자 데이터를 검토 하거나 조직 스키마에 포함 된 특성을 변경할 수 있는 기능이 포함 되지 않습니다. Id 경험 프레임 워크 정책 (사용자 지정 정책이 라고도 함)에 대 한 변경 내용은이 역할의 범위 밖에 있습니다.
 
 ### <a name="external-id-user-flow-attribute-administrator"></a>[외부 ID 사용자 흐름 특성 관리자](#external-id-user-flow-attribute-administrator-permissions)
 
@@ -224,7 +223,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="global-administrator--company-administrator"></a>[전역 관리자/회사 관리자](#company-administrator-permissions)
 
-이 역할의 사용자는 Azure Active Directory의 모든 관리 기능뿐 아니라 Microsoft 365 보안 센터, Microsoft 365 규정 준수 센터, Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같이 Azure Active Directory ID를 사용하는 서비스에도 액세스할 수 있습니다. Azure AD 조직에 가입하는 사람은 전역 관리자가 됩니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
+이 역할의 사용자는 Azure Active Directory의 모든 관리 기능뿐 아니라 Microsoft 365 보안 센터, Microsoft 365 규정 준수 센터, Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같이 Azure Active Directory ID를 사용하는 서비스에도 액세스할 수 있습니다. 또한 전역 관리자는 모든 Azure 구독 및 관리 그룹을 관리 하기 위해 [액세스 권한을 상승](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) 시킬 수 있습니다. 이렇게 하면 전역 관리자가 각 Azure AD 테 넌 트를 사용 하 여 모든 Azure 리소스에 대 한 전체 액세스 권한을 얻을 수 있습니다. Azure AD 조직에 가입하는 사람은 전역 관리자가 됩니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
 
 > [!NOTE]
 > Microsoft Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure portal](https://portal.azure.com)에서는 "전역 관리자"입니다.
@@ -238,6 +237,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > [!NOTE]
 > 글로벌 읽기 권한자 역할에는 현재 다음과 같은 제한이 있습니다.
 >
+>- [Onedrive 관리 센터](https://admin.onedrive.com/) -onedrive 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다.
 >- [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) - 글로벌 읽기 권한자는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원**에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
 >- [Office 보안 및 준수 센터](https://sip.protection.office.com/homepage) - 글로벌 읽기 권한자는 SCC 감사 로그를 읽거나, 콘텐츠를 검색하거나, 보안 점수를 볼 수 없습니다.
 >- [Teams 관리 센터](https://admin.teams.microsoft.com) - 글로벌 읽기 권한자는 **Teams 수명 주기**, **분석 및 보고서**, **IP 전화 디바이스 관리** 및 **앱 카탈로그**를 읽을 수 없습니다.
@@ -388,7 +388,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 ### <a name="search-administrator"></a>[Search 관리자](#search-administrator-permissions)
 
-이 역할의 사용자는 Microsoft 365 관리 센터의 모든 Microsoft Search 관리 기능에 액세스할 수 있습니다. Search 관리자는 Search 관리자 및 Search 편집자 역할을 사용자에게 위임하고 책갈피, 질문과 대답, 위치 등의 콘텐츠를 만들고 관리할 수 있습니다. 또한 이 역할의 사용자는 메시지 센터를 살펴보고, 서비스 상태를 모니터링하고, 서비스 요청을 만들 수 있습니다.
+이 역할의 사용자는 Microsoft 365 관리 센터의 모든 Microsoft Search 관리 기능에 액세스할 수 있습니다. 또한 이 역할의 사용자는 메시지 센터를 살펴보고, 서비스 상태를 모니터링하고, 서비스 요청을 만들 수 있습니다.
 
 ### <a name="search-editor"></a>[Search 편집자](#search-editor-permissions)
 
@@ -403,7 +403,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 [Microsoft 365 보안 센터](https://protection.office.com) | Microsoft 365 서비스 전반의 보안 관련 정책 모니터링<br>보안 위협과 경고 관리<br>보고서 보기
 ID 보호 센터 | 보안 읽기 권한자 역할의 모든 권한<br>암호 재설정을 제외한 모든 ID 보호 센터 작업을 수행하는 기능도 있음
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 보안 읽기 권한자 역할의 모든 권한<br>Azure AD 역할 할당 또는 설정을 관리할 수 **없음**
-[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 정책 관리<br>보안 위협 확인/조사/대응<br>보고서 보기
+[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 정책 관리<br>보안 위협 확인/조사/대응<br>보고서를 봅니다.
 Azure Advanced Threat Protection | 의심스러운 보안 활동 모니터링/대응
 Windows Defender ATP 및 EDR | 역할 할당<br>머신 그룹 관리<br>엔드포인트 위협 검색 및 자동 수정 구성<br>경고 확인/조사/대응
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 사용자, 디바이스, 등록, 구성 및 애플리케이션 정보 확인<br>Intune을 변경할 수는 없음
@@ -434,7 +434,7 @@ Windows Defender ATP 및 EDR | 보안 읽기 권한자 역할의 모든 권한<b
 
 그런 다음 | 가능한 작업
 --- | ---
-[Microsoft 365 보안 센터](https://protection.office.com) | Microsoft 365 서비스 전반에서 보안 관련 정책 확인<br>보안 위협 및 경고 확인<br>보고서 보기
+[Microsoft 365 보안 센터](https://protection.office.com) | Microsoft 365 서비스 전반에서 보안 관련 정책 확인<br>보안 위협 및 경고 확인<br>보고서를 봅니다.
 ID 보호 센터 | 모든 보안 보고서 및 보안 기능에 대한 설정 정보를 읽습니다.<br><ul><li>스팸 방지<li>암호화<li>데이터 손실 방지<li>맬웨어 방지<li>Advanced Threat Protection<li>피싱 방지<li>메일 흐름 규칙
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Azure AD Privileged Identity Management에 표시되는 다음과 같은 모든 정보에 대한 읽기 전용 액세스 권한이 있습니다. Azure AD 역할 할당 및 보안 검토에 대한 정책 및 보고서.<br>Azure AD Privileged Identity Management에 가입하거나 변경할 수 **없습니다**. 이 역할에 속한 사람은 Privileged Identity Management 포털 또는 PowerShell에서 적격 사용자를 대상으로 전역 관리자, 권한 있는 역할 관리자 등의 추가 역할을 활성화할 수 있습니다.
 [Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 정책 보기<br>보안 위협 확인/조사<br>보고서 보기
@@ -457,6 +457,9 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 > [!NOTE]
 > Microsoft Graph API 및 Azure AD PowerShell에서 이 역할은 "SharePoint 서비스 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "SharePoint 관리자"입니다.
+
+> [!NOTE]
+> 또한이 역할은 Microsoft Intune에 대 한 Microsoft Graph API에 범위 지정 된 사용 권한을 부여 하 여 Sharepoint 및 Onedrive 리소스와 관련 된 정책을 관리 하 고 구성할 수 있도록 합니다.
 
 ### <a name="skype-for-business--lync-administrator"></a>[비즈니스용 Skype/Lync 관리자](#lync-service-administrator-permissions)
 
@@ -1345,8 +1348,7 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | --- | --- |
 | microsoft.commerce.billing/partners/read | O365 청구의 파트너 속성을 읽습니다. |
 | microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | 볼륨 라이선스 서비스 센터의 모든 것을 관리합니다. |
-| microsoft.directory/organization/basic/update | Azure Active Directory에서 조직의 기본 속성을 업데이트합니다. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 확인 합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 
@@ -1939,4 +1941,4 @@ Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | [현재 제품 브�
 
 * Azure 구독의 관리자로서 사용자를 할당하는 자세한 방법은 [Azure 역할(Azure RBAC)을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대한 자세한 내용은 [여러 역할의 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
-* Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* 구독과 Azure AD 테 넌 트 간의 관계 또는 구독을 연결 하거나 추가 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 테 넌 트에 Azure 구독 연결 또는 추가](../fundamentals/active-directory-how-subscriptions-associated-directory.md) 를 참조 하세요.

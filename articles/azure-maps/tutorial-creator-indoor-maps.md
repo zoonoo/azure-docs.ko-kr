@@ -3,17 +3,16 @@ title: Creator를 사용하여 실내 맵 만들기
 description: Azure Maps Creator를 사용하여 실내 맵을 만듭니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745930"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027863"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Creator를 사용하여 실내 맵 만들기
 
@@ -39,6 +38,9 @@ ms.locfileid: "83745930"
 
 이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 선택할 수도 있습니다.
 
+>[!IMPORTANT]
+> 이 문서의 API url은 작성자 리소스의 위치에 따라 조정 해야 할 수 있습니다. 자세한 내용은 [Creator Services에](how-to-manage-creator.md#access-to-creator-services)대 한 액세스를 참조 하세요.
+
 ## <a name="upload-a-drawing-package"></a>그리기 패키지 업로드
 
 [데이터 업로드 API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)를 사용하여 그리기 패키지를 Azure Maps 리소스에 업로드합니다.
@@ -61,25 +63,30 @@ ms.locfileid: "83745930"
 
 5. 파란색 **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **위치** 키의 값(`status URL`)을 복사합니다.
 
-6. API 호출의 상태를 확인하려면 `status URL`에 대한 GET HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다.
+6. API 호출의 상태를 확인 하려면에 대 한 **GET** HTTP 요청을 만듭니다 `status URL` . 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 유사 합니다.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationsId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. **GET** HTTP 요청이 성공적으로 완료되면 다음 단계에서 `resourceLocation` URL을 사용하여 이 리소스에서 메타데이터를 검색할 수 있습니다.
+7. **GET** HTTP 요청이 성공적으로 완료 되 면이 반환 됩니다 `resourceLocation` . 에는 `resourceLocation` 업로드 된 `udid` 콘텐츠에 대 한 고유한가 포함 되어 있습니다. 필요에 따라 `resourceLocation` 다음 단계에서 URL을 사용 하 여이 리소스에서 메타 데이터를 검색할 수 있습니다.
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{upload-udid}?api-version=1.0"
+        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
     ```
 
-8. 콘텐츠 메타데이터를 검색하려면 7단계에서 복사한 `resourceLocation` URL에 대한 **GET** HTTP 요청을 만듭니다. 응답 본문에는 업로드된 콘텐츠에 대한 고유한 `udid`, 나중에 콘텐츠에 액세스/다운로드하는 위치 및 콘텐츠에 대한 기타 메타데이터(예: 만들거나 업데이트한 날짜, 크기 등)가 포함됩니다. 전체 응답의 예제는 다음과 같습니다.
+8. 콘텐츠 메타 데이터를 검색 하려면 **GET** `resourceLocation` 7 단계에서 검색 된 URL에 대 한 GET HTTP 요청을 만듭니다. 인증을 위한 URL에 기본 구독 키를 추가 해야 합니다. **GET** 요청은 다음 URL과 유사 합니다.
 
-     ```json
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+9. **GET** HTTP 요청이 성공적으로 완료 되 면 응답 본문에는 `udid` 7 단계의에 지정 된 `resourceLocation` , 나중에 콘텐츠를 액세스/다운로드 하는 위치, 생성/업데이트 된 날짜, 크기 등의 콘텐츠에 대 한 기타 메타 데이터가 포함 됩니다. 전체 응답의 예제는 다음과 같습니다.
+
+    ```json
     {
         "udid": "{udid}",
         "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
@@ -99,8 +106,10 @@ ms.locfileid: "83745930"
 2. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 업로드된 그리기 패키지를 맵 데이터로 변환합니다. 업로드된 패키지에 대해 `udid`를 사용합니다.
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={upload-udid}&inputType=DWG
+    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > 이 문서의 API url은 작성자 리소스의 위치에 따라 조정 해야 할 수 있습니다. 자세한 내용은 [Creator Services에](how-to-manage-creator.md#access-to-creator-services)대 한 액세스를 참조 하세요.
 
 3. **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동하여 **위치** 키를 찾습니다. 변환 요청에 대한 `status URL`인 **위치** 키의 값을 복사합니다.
 
@@ -160,7 +169,7 @@ ms.locfileid: "83745930"
 4. `datasetId`를 가져오는 **GET** 요청을 `statusURL`에서 수행합니다. 인증을 위해 Azure Maps 기본 구독 키를 추가합니다. 요청은 다음 URL과 같습니다.
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 5. **GET** HTTP 요청이 성공적으로 완료되면 만든 데이터 세트에 대한 `datasetId`가 응답 헤더에 포함됩니다. `datasetId`를 복사합니다. `datasetId`는 타일 세트를 만드는 데 사용해야 합니다.
@@ -189,7 +198,7 @@ ms.locfileid: "83745930"
 3. `statusURL`에서 타일 세트에 대한 **GET** 요청을 수행합니다. 인증을 위해 Azure Maps 기본 구독 키를 추가합니다. 요청은 다음 URL과 같습니다.
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. **GET** HTTP 요청이 성공적으로 완료되면 만든 타일 세트에 대한 `tilesetId`가 응답 헤더에 포함됩니다. `tilesetId`를 복사합니다.

@@ -3,15 +3,14 @@ title: 고객 관리 되 키를 사용 하 여 Azure HPC 캐시의 데이터 암
 description: Azure HPC 캐시에서 Azure Key Vault를 사용 하 여 기본 Microsoft 관리 암호화 키를 사용 하는 대신 암호화 키 액세스를 제어 하는 방법
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512903"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC 캐시에 대해 고객이 관리 하는 암호화 키 사용
 
@@ -148,4 +147,4 @@ Azure Portal에서 캐시에 대 한 주요 자격 증명 모음, 키 또는 키
 
 Azure HPC 캐시와 권한 있는 Key Vault 기반 암호화를 만든 후 데이터 원본에 대 한 액세스 권한을 부여 하 여 캐시를 계속 설정 합니다.
 
-* [스토리지 대상 추가](hpc-cache-add-storage.md)
+* [저장소 대상 추가](hpc-cache-add-storage.md)

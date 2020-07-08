@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732946"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
@@ -24,9 +23,9 @@ ms.locfileid: "81732946"
 
 이러한 Dll이 bin 디렉터리에 있는 경우 모니터링이 실패할 수 있습니다.
 
-- Microsoft ApplicationInsights .dll
-- TelemetryCorrelation.
-- DiagnosticSource.
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
+- System.Diagnostics.DiagnosticSource.dll
 
 이러한 Dll 중 일부는 앱에서 사용 하지 않는 경우에도 Visual Studio 기본 앱 템플릿에 포함 되어 있습니다.
 문제 해결 도구를 사용 하 여 증상 동작을 확인할 수 있습니다.
@@ -42,7 +41,7 @@ ms.locfileid: "81732946"
     FormattedMessage="Found 'System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' assembly, skipping attaching redfield binaries" 
     ```
 
-- IISReset 및 앱 부하 (원격 분석 없음) Sysinternals를 사용 하 여 조사 (핸들 .exe 및 ListDLLs):
+- IISReset 및 앱 부하 (원격 분석 없음) Sysinternals (Handle.exe 및 ListDLLs.exe)를 사용 하 여 조사 합니다.
     ```
     .\handle64.exe -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
     E54: File  (R-D)   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
@@ -60,7 +59,7 @@ HttpModule은이 공유 구성에 삽입할 수 없습니다.
 각 웹 서버에서 Enable 명령을 실행 하 여 각 서버의 GAC에 DLL을 설치 합니다.
 
 Enable 명령을 실행 한 후 다음 단계를 완료 합니다.
-1. 공유 구성 디렉터리로 이동 하 여 Applicationhost.config 파일을 찾습니다.
+1. 공유 구성 디렉터리로 이동 하 여 applicationHost.config 파일을 찾습니다.
 2. 구성의 모듈 섹션에 다음 줄을 추가 합니다.
     ```
     <modules>
@@ -86,16 +85,16 @@ SDK 구성은 버전 1.0에서 최종 사용자에 게 노출 되지 않습니�
 ### <a name="troubleshooting-powershell"></a>PowerShell 문제 해결
 
 #### <a name="determine-which-modules-are-available"></a>사용할 수 있는 모듈 확인
-`Get-Module -ListAvailable` 명령을 사용 하 여 설치 된 모듈을 확인할 수 있습니다.
+명령을 사용 하 여 `Get-Module -ListAvailable` 설치 된 모듈을 확인할 수 있습니다.
 
 #### <a name="import-a-module-into-the-current-session"></a>모듈을 현재 세션으로 가져오기
-모듈이 PowerShell 세션으로 로드 되지 않은 경우 `Import-Module <path to psd1>` 명령을 사용 하 여 수동으로 로드할 수 있습니다.
+모듈이 PowerShell 세션으로 로드 되지 않은 경우 명령을 사용 하 여 수동으로 로드할 수 있습니다 `Import-Module <path to psd1>` .
 
 
 ### <a name="troubleshooting-the-application-insights-agent-module"></a>Application Insights Agent 모듈 문제 해결
 
 #### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Application Insights Agent 모듈에서 사용할 수 있는 명령을 나열 합니다.
-명령을 `Get-Command -Module Az.ApplicationMonitor` 실행 하 여 사용 가능한 명령을 가져옵니다.
+명령을 실행 `Get-Command -Module Az.ApplicationMonitor` 하 여 사용 가능한 명령을 가져옵니다.
 
 ```
 CommandType     Name                                               Version    Source
@@ -111,7 +110,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Application Insights 에이전트 모듈의 현재 버전 확인
-`Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 명령을 실행 하 여 모듈에 대 한 다음 정보를 표시 합니다.
+명령을 실행 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 하 여 모듈에 대 한 다음 정보를 표시 합니다.
    - PowerShell 모듈 버전
    - Application Insights SDK 버전
    - PowerShell 모듈의 파일 경로
@@ -124,30 +123,30 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 계측 된 컴퓨터에서 프로세스를 검사 하 여 모든 Dll이 로드 되었는지 확인할 수 있습니다.
 모니터링이 작동 하는 경우 12 개 이상의 Dll을 로드 해야 합니다.
 
-`Get-ApplicationInsightsMonitoringStatus -InspectProcess` 명령을 사용 하 여 dll을 확인 합니다.
+명령을 사용 `Get-ApplicationInsightsMonitoringStatus -InspectProcess` 하 여 dll을 확인 합니다.
 
 이 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 [API 참조를 참조](status-monitor-v2-api-reference.md) 하세요.
 
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>PerfView를 사용 하 여 ETW 로그 수집
 
-#### <a name="setup"></a>설치 프로그램
+#### <a name="setup"></a>설정
 
-1. [GitHub](https://github.com/Microsoft/perfview/releases)에서 Perfview PerfView64를 다운로드 합니다.
-2. PerfView64를 시작 합니다.
+1. [GitHub](https://github.com/Microsoft/perfview/releases)에서 PerfView.exe 및 PerfView64.exe를 다운로드 합니다.
+2. PerfView64.exe를 시작 합니다.
 3. **고급 옵션**을 확장합니다.
 4. 다음 확인란의 선택을 취소 합니다.
     - **우편번호**
-    - **결합**
+    - **병합**
     - **.NET 기호 컬렉션**
 5. 다음과 같은 **추가 공급자**를 설정 합니다.`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>로그 수집
 
-1. 관리자 권한이 있는 명령 콘솔에서 `iisreset /stop` 명령을 실행 하 여 IIS 및 모든 웹 앱을 해제 합니다.
+1. 관리자 권한이 있는 명령 콘솔에서 명령을 실행 하 여 `iisreset /stop` IIS 및 모든 웹 앱을 해제 합니다.
 2. PerfView에서 **컬렉션 시작**을 선택 합니다.
-3. 관리자 권한이 있는 명령 콘솔에서 `iisreset /start` 명령을 실행 하 여 IIS를 시작 합니다.
+3. 관리자 권한이 있는 명령 콘솔에서 명령을 실행 하 여 `iisreset /start` IIS를 시작 합니다.
 4. 앱으로 이동 해 보세요.
 5. 앱이 로드 된 후 PerfView로 돌아가서 **수집 중지**를 선택 합니다.
 

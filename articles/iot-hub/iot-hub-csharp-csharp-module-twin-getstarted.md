@@ -10,10 +10,9 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp
 ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733387"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (.NET)
@@ -32,17 +31,17 @@ ms.locfileid: "81733387"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Visual Studio.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
 ## <a name="create-a-hub"></a>허브 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
@@ -58,7 +57,7 @@ ms.locfileid: "81733387"
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택 하 여 새 프로젝트를 솔루션에 추가 합니다. 새 프로젝트 만들기에서 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
+1. Visual Studio에서 **파일**  >  **새로 만들기**  >  **프로젝트**를 선택 하 여 새 프로젝트를 솔루션에 추가 합니다. 새 프로젝트 만들기에서 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
 
 1. 프로젝트 이름을 *UpdateModuleTwinReportedProperties*로 지정합니다. **솔루션**에서 **솔루션에 추가**를 선택 합니다. .NET Framework 버전이 4.6.1 이상인지 확인합니다.
 
@@ -66,13 +65,13 @@ ms.locfileid: "81733387"
 
 1. **만들기** 를 선택 하 여 프로젝트를 만듭니다.
 
-1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **솔루션에 대 한 nuget 패키지 관리**를 엽니다. **찾아보기** 탭을 선택합니다.
+1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **솔루션에 대 한 nuget 패키지 관리**를 엽니다. **찾아보기** 탭을 선택합니다.
 
 1. 를 검색 하 고 **Microsoft. Devices**를 선택 하 고 **설치**를 선택 합니다.
 
     ![Azure IoT Hub .NET 서비스 SDK 최신 버전을 설치 합니다.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. Program.cs 파일의 `using` 맨 위에 다음 문을 추가 합니다 **Program.cs** .
+1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -152,7 +151,7 @@ ms.locfileid: "81733387"
 
     이 코드 샘플에서는 AMQP 프로토콜을 사용하여 모듈 쌍을 검색하고 reported 속성을 업데이트하는 방법을 보여 줍니다. 공개 미리 보기에서는 모듈 쌍 작업에 대해서만 AMQP를 지원합니다.
 
-1. 필요에 따라 **Main** 메서드에 이러한 문을 추가 하 여 모듈에서 IoT Hub 이벤트를 보낼 수 있습니다. 블록 아래에 다음 줄 `try catch` 을 추가 합니다.
+1. 필요에 따라 **Main** 메서드에 이러한 문을 추가 하 여 모듈에서 IoT Hub 이벤트를 보낼 수 있습니다. 블록 아래에 다음 줄을 추가 `try catch` 합니다.
 
     ```csharp
     Byte[] bytes = new Byte[2];

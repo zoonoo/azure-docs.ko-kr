@@ -4,21 +4,18 @@ description: Azure CLI를 사용하여 DNS 영역을 관리할 수 있습니다.
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
-ms.openlocfilehash: 413c2ab3ee04249c2bb52bf42ca6a31a58fb9082
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 30b0d6ab3ff9fa96e33154907e329c28b7ae7e63
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709082"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 영역을 관리하는 방법
 
@@ -86,7 +83,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>도움말 보기
 
-Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  다음은 그 예입니다.
+Azure DNS와 관련된 모든 Azure CLI 명령은 `az network dns`로 시작합니다. `--help` 옵션(약식 `-h`)을 사용하여 각 명령에 대한 도움말을 볼 수 있습니다.  예를 들어:
 
 ```azurecli
 az network dns --help

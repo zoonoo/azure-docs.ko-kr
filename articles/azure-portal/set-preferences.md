@@ -6,15 +6,14 @@ keywords: 설정, 시간 제한, 언어, 지역
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763961"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Azure Portal 기본 설정 지정
 
@@ -70,8 +69,8 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 포털 메뉴의 기본 모드는 페이지에서 포털 메뉴가 차지 하는 공간의 크기를 제어 합니다.
 
-* 포털 메뉴는 **플라이 아웃** 모드에 있을 때 필요할 때까지 숨겨집니다. 메뉴 아이콘을 선택 하 여 메뉴를 열거나 닫습니다.
-* 포털 메뉴에 대해 **도킹** 모드를 선택 하면 항상 표시 됩니다. 메뉴를 축소 하 여 더 많은 작업 공간을 제공할 수 있습니다. 
+* 포털 메뉴는 **플라이 아웃** 모드에 있을 때 필요할 때까지 숨겨집니다. 메뉴 아이콘을 선택하여 메뉴를 열거나 닫을 수 있습니다.
+* 포털 메뉴에 대해 **도킹** 모드를 선택 하면 항상 표시 됩니다. 메뉴를 축소하면 더 많은 작업 공간을 제공할 수 있습니다. 
 
 ### <a name="choose-a-theme"></a>테마 선택
 
@@ -79,7 +78,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
    ![테마가 강조 표시 된 Azure Portal 설정을 보여 주는 스크린샷](./media/set-preferences/theme.png)
 
-고대비 테마 중 하나를 대신 선택할 수 있습니다. 고대비 설정을 사용 하면 시각 장애가 있는 사용자가 Azure Portal을 쉽게 읽고 다른 모든 테마 선택을 재정의할 수 있습니다. 자세한 내용은 [고대비 설정 또는 테마 변경](azure-portal-change-theme-high-contrast.md)을 참조 하세요.
+고대비 테마 중 하나를 대신 선택할 수 있습니다. 고대비 설정을 사용 하면 시각적 장애가 있는 사용자가 Azure Portal을 쉽게 읽고 다른 모든 테마 선택을 재정의할 수 있습니다. 자세한 내용은 [고대비 설정 또는 테마 변경](azure-portal-change-theme-high-contrast.md)을 참조 하세요.
 
 ### <a name="enable-or-disable-pop-up-notifications"></a>팝업 알림 사용 또는 사용 안 함
 

@@ -3,25 +3,24 @@ title: Azure AD 앱 프록시 링크 및 URL 변환 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69533690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764845"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -88,7 +87,7 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 
 응용 프로그램 프록시에서 링크 변환을 지 원하는 HTML 코드 태그의 전체 목록은 다음과 같습니다.
 * a
-* audio
+* 오디오
 * base
 * 단추
 * div
@@ -104,10 +103,10 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 * menuitem
 * meta
 * 개체
-* script
+* 스크립트
 * source
 * track
-* video
+* 비디오
 
 또한 CSS 내에서 URL 특성도 변환 됩니다.
 
@@ -136,8 +135,8 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 
 링크 변환 시작은 단추를 클릭하는 것만큼 간단합니다.
 
-1. 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-2. **Azure Active Directory** > **엔터프라이즈 응용 프로그램** > **모든 응용** 프로그램으로 이동 하 > **응용 프로그램 프록시**> 관리할 앱을 선택 합니다.
+1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**  >  **모든 응용** 프로그램으로 이동 하 > **응용 프로그램 프록시**> 관리할 앱을 선택 합니다.
 3. **Translate URLs in application body**(애플리케이션 본문의 URL 변환)를 **예**로 설정합니다.
 
    ![[예]를 선택하여 애플리케이션 본문의 URL 변환](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
@@ -145,7 +144,7 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 
 이제 사용자가 이 애플리케이션에 액세스하면 프록시는 테넌트에서 애플리케이션 프록시를 통해 게시된 내부 URL을 자동으로 검사합니다.
 
-## <a name="send-feedback"></a>의견 보내기
+## <a name="send-feedback"></a>피드백 보내기
 
 이 기능이 모든 앱에서 작동하도록 하는 데 도움이 되도록 피드백을 보내 주세요. HTML 및 CSS에서 30개가 넘는 태그를 검색합니다. 생성된 링크 중 변환되지 않는 예가 있으면 [애플리케이션 프록시 피드백](mailto:aadapfeedback@microsoft.com)으로 코드 조각을 보내 주세요. 
 

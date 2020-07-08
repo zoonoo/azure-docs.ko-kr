@@ -5,19 +5,19 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: security-center
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529090"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769876"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자의 데이터 연결
 
@@ -70,7 +70,7 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 2. 등록 된 응용 프로그램에 대 한 [API 권한 구성](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) : Microsoft Graph 응용 프로그램 권한 **ThreatIndicators** 을 등록 된 응용 프로그램에 추가 합니다.
 
-3. Azure Active Directory 테 넌 트 관리자에 게 문의 하 여 조직에 등록 된 응용 프로그램에 관리자 동의를 부여 합니다. Azure Portal: **Azure Active Directory** > **앱 등록** >  >  > **>앱 이름_app name_View API 사용 권한-테 넌 트 이름에 대해 관리자 동의를 부여 합니다.\<**** \< _tenant name_>****View API Permissions**
+3. Azure Active Directory 테 넌 트 관리자에 게 문의 하 여 조직에 등록 된 응용 프로그램에 관리자 동의를 부여 합니다. Azure Portal: **Azure Active Directory**  >  **앱 등록**  >  **\<_app name_>**  >  **View API 권한**  >  **부여에 대 한 \<_tenant name_> 관리자 동의 부여 **를 참조 하세요.
 
 4. 다음을 지정 하 여 Azure 센티널에 표시기를 보내도록 Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 TIP 제품 또는 앱을 구성 합니다.
     
@@ -80,11 +80,11 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
     
     다. 작업의 경우 경고를 지정 합니다.
 
-5. Azure Portal에서 **Azure 센티널** > **데이터 커넥터** 로 이동한 다음, **위협 인텔리전스 플랫폼 (미리 보기)** 커넥터를 선택 합니다.
+5. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 다음, **위협 인텔리전스 플랫폼 (미리 보기)** 커넥터를 선택 합니다.
 
 6. **커넥터 페이지 열기**를 선택한 다음 **연결**을 선택 합니다.
 
-7. Azure 센티널로 가져온 위협 지표를 보려면 **azure 센티널-Logs** > **securityinsights**로 이동한 다음 **ThreatIntelligenceIndicator**를 확장 합니다.
+7. Azure 센티널로 가져온 위협 지표를 보려면 **azure 센티널-Logs**  >  **securityinsights**로 이동한 다음 **ThreatIntelligenceIndicator**를 확장 합니다.
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>TAXII 서버에 Azure 센티널 연결
 
@@ -96,7 +96,7 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 ## <a name="instructions"></a>Instructions
 
-1. Azure Portal에서 **Azure 센티널** > **데이터 커넥터** 로 이동한 후 **위협 인텔리전스-TAXII (미리 보기)** 커넥터를 선택 합니다.
+1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 후 **위협 인텔리전스-TAXII (미리 보기)** 커넥터를 선택 합니다.
 
 2. **커넥터 페이지 열기**를 선택 합니다.
 
@@ -106,7 +106,7 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 5. 추가 TAXII 2.0 서버가 있는 경우 3 단계와 4 단계를 반복 합니다.
 
-6. Azure 센티널로 가져온 위협 지표를 보려면 **azure 센티널-Logs** > **securityinsights**로 이동한 다음 **ThreatIntelligenceIndicator**를 확장 합니다.
+6. Azure 센티널로 가져온 위협 지표를 보려면 **azure 센티널-Logs**  >  **securityinsights**로 이동한 다음 **ThreatIntelligenceIndicator**를 확장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

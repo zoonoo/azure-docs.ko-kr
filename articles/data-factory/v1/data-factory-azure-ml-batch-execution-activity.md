@@ -11,18 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c40b58dfb63ac6bf1b5532eb06bfd2ad0cdccde9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73683137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022030"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md)
-> * [Pig 작업](data-factory-pig-activity.md)
+> * [Pig 활동](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
@@ -45,7 +44,7 @@ ms.locfileid: "73683137"
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
-Data Factory는 데이터의 **이동**과 **변환**을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 다양한 데이터 저장소에서 데이터를 수집하고 변환/처리하며 데이터 저장소에 결과 데이터를 게시할 수 있는 Azure Data Factory를 사용하여 데이터 통합 솔루션을 만들 수 있습니다.
+Data Factory은 데이터의 **이동과** **변환을** 오케스트레이션 하 고 자동화 하는 클라우드 기반 데이터 통합 서비스입니다. 다양한 데이터 저장소에서 데이터를 수집하고 변환/처리하며 데이터 저장소에 결과 데이터를 게시할 수 있는 Azure Data Factory를 사용하여 데이터 통합 솔루션을 만들 수 있습니다.
 
 Data Factory 서비스를 통해 데이터를 이동하고 변환하는 파이프라인을 실행한 다음 데이터 파이프라인을 지정된 일정(매시간, 매일, 매주 등)으로 만들 수 있습니다. 또한 데이터 파이프라인 간의 종속성과 계보를 표시하는 다양한 시각화를 제공하며 문제를 쉽고 정확하게 파악하고 모니터링 경고를 설정하는 통합된 단일 보기에서 모든 데이터 파이프라인을 모니터링합니다.
 
@@ -80,7 +79,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 > [!IMPORTANT]
 > 웹 서비스에서 다중 입력을 받을 경우 **webServiceInput**를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. webServiceInputs 속성을 사용하는 예제는 [웹 서비스에는 다중 입력이 필요합니다](#web-service-requires-multiple-inputs) 섹션을 참조합니다.
 >
-> **Webserviceinput**/**webserviceinput** 및 **webserviceinput** 속성에서 참조 하는 데이터 집합 ( **typeProperties**)은 활동 **입력** 및 **출력**에도 포함 되어야 합니다.
+> **Webserviceinput** / **webserviceinput** 및 **webserviceinput** 속성에서 참조 하는 데이터 집합 ( **typeProperties**)은 활동 **입력** 및 **출력**에도 포함 되어야 합니다.
 >
 > Azure Machine Learning Studio 실험에서 웹 서비스 입력 및 출력 포트와 글로벌 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. Azure Machine Learning Studio 엔드포인트에 대한 일괄 처리 실행 도움말 페이지에서 요청 페이로드 샘플을 보고 예상되는 매핑을 확인할 수 있습니다.
 >
@@ -182,7 +181,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
     }
     ```
 
-    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업**을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader**를 **true**로 설정해야 합니다. 예를 들면 다음과 같습니다.
+    입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업**을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader**를 **true**로 설정해야 합니다. 예를 들어:
 
     ```JSON
     sink:
@@ -311,7 +310,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>시나리오: 다양한 스토리지의 데이터를 참조하는 판독기/기록기 모듈을 사용하여 실험
 Azure Machine Learning Studio 실험을 만드는 경우 또 다른 일반적인 시나리오는 판독기 및 기록기 모듈을 사용하는 것입니다. 판독기 모듈은 실험으로 데이터를 로드할 때 사용되고 기록기 모듈은 실험에서 데이터를 저장할 때 사용됩니다. 판독기 및 기록기 모듈에 대한 자세한 내용은 MSDN 라이브러리의 [판독기](https://msdn.microsoft.com/library/azure/dn905997.aspx) 및 [기록기](https://msdn.microsoft.com/library/azure/dn905984.aspx) 항목을 참조하세요.
 
-판독기 및 작성기 모듈을 사용하는 경우 해당 판독기/기록기 모듈의 각 속성에 대해 웹 서비스 매개 변수를 사용하는 것이 좋습니다. 이러한 웹 매개 변수를 통해 런타임 중 값을 구성할 수 있습니다. 예를 들어 Azure SQL Database: XXX.database.windows.net을 사용하는 판독기 모듈을 사용하여 실험을 만들 수 있습니다. 웹 서비스를 배포한 후 웹 서비스의 소비자가 YYY.database.windows.net이라는 다른 Azure SQL Server를 지정할 수 있도록 하려고 합니다. 웹 서비스 매개 변수를 사용하여 이 값을 구성할 수 있습니다.
+판독기 및 작성기 모듈을 사용하는 경우 해당 판독기/기록기 모듈의 각 속성에 대해 웹 서비스 매개 변수를 사용하는 것이 좋습니다. 이러한 웹 매개 변수를 통해 런타임 중 값을 구성할 수 있습니다. 예를 들어 Azure SQL Database: XXX.database.windows.net을 사용하는 판독기 모듈을 사용하여 실험을 만들 수 있습니다. 웹 서비스를 배포한 후 웹 서비스의 소비자가 YYY.database.windows.net 이라는 다른 논리 SQL server를 지정할 수 있도록 합니다. 웹 서비스 매개 변수를 사용하여 이 값을 구성할 수 있습니다.
 
 > [!NOTE]
 > 웹 서비스 입력 및 출력은 웹 서비스 매개 변수와 다릅니다. 첫 번째 시나리오에서는 Azure Machine Learning Studio 웹 서비스에 대한 입력과 출력을 지정하는 방법을 살펴보았습니다. 이 시나리오에서는 판독기/기록기 모듈의 속성에 해당하는 웹 서비스에 대한 매개 변수를 전달합니다.
@@ -552,10 +551,10 @@ Azure Machine Learning Studio 웹 서비스의 판독기 및 기록기 모듈은
 
 Azure Blob/Azure SQL 판독기/기록기에 대한 자세한 내용은 MSDN 라이브러리의 [판독기](https://msdn.microsoft.com/library/azure/dn905997.aspx) 및 [기록기](https://msdn.microsoft.com/library/azure/dn905984.aspx) 항목을 참조하세요. 이전 섹션의 예제에서는 Azure Blob 판독기 및 Azure Blob 기록기를 사용했습니다. 이 섹션에서는 Azure SQL 판독기 및 Azure SQL 기록기를 사용하는 방법을 설명합니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 **Q:** 빅 데이터 파이프라인에서 생성된 여러 파일이 있습니다. 모든 파일에서 작동하도록 AzureMLBatchExecution 작업을 사용할 수 있습니까?
 
-**A:** 예로. 자세한 내용은 **Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용** 섹션을 참조하세요.
+**A:** 예. 자세한 내용은 **Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용** 섹션을 참조하세요.
 
 ## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Azure Machine Learning Studio 일괄 처리 채점 작업
 **AzureMLBatchScoring** 작업을 사용하여 Azure Machine Learning과 통합하는 경우 최신 **AzureMLBatchExecution** 작업을 사용하는 것이 좋습니다.

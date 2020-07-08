@@ -8,12 +8,11 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920066"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
@@ -300,7 +299,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 컴퓨팅 에뮬레이터와 클라우드에서 서로 다른 동작을 수행하도록 하는 이 기능은 [ServiceDefinition.csdef] 파일에서 환경 변수를 만들어서 수행될 수 있습니다. 그런 다음 시작 태스크에서 값의 해당 환경 변수를 테스트합니다.
 
-환경 변수를 만들려면[RoleInstanceValue] 요소 `/RoleEnvironment/Deployment/@emulated` [변수]/를 추가 하 고의 XPath 값을 만듭니다. **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
+환경 변수를 만들려면 RoleInstanceValue 요소 [변수]를 추가 하 / [RoleInstanceValue] 고의 XPath 값을 만듭니다 `/RoleEnvironment/Deployment/@emulated` . **%ComputeEmulatorRunning%** 환경 변수의 값은 컴퓨팅 에뮬레이터에서 실행되는 경우 `true`이 되고 클라우드에서 실행되는 경우 `false`가 됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -377,9 +376,7 @@ EXIT /B 0
 웹 또는 작업자 역할에 대한 작업을 구성할 때 따라야 하는 몇 가지 모범 사례는 다음과 같습니다.
 
 ### <a name="always-log-startup-activities"></a>항상 시작 작업 기록
-Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **%PathToApp1Install%** 디렉터리의 setup.exe를 실행하려면:
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **% PathToApp1Install%** 디렉터리에서 setup.exe를 실행 하려면 다음을 수행 합니다.`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출하는 래퍼 *cmd* 파일을 만들고 동일한 환경 변수를 공유하는 각 하위 태스크를 확인할 수 있습니다.
 
@@ -483,7 +480,7 @@ EXIT %ERRORLEVEL%
 시작 배치 파일의 끝에 누락된 `EXIT /B 0` 은(는) 시작하지 않는 역할의 일반적인 이유입니다.
 
 > [!NOTE]
-> 중첩된 배치 파일은 `/B` 매개 변수를 사용하는 경우 때로는 중지됩니다. [로그 래퍼](#always-log-startup-activities)를 사용하는 경우와 같이 다른 배치 파일에서 현재 배치 파일을 호출하는 경우 이 중단 문제가 발생하지 않는지 확인하려고 합니다. 이 경우에 `/B` 매개 변수를 생략할 수 있습니다.
+> 매개 변수를 사용 하는 경우 중첩 된 배치 파일이 때때로 응답을 중지 하는 것을 알고 있습니다 `/B` . [로그 래퍼](#always-log-startup-activities)를 사용 하는 경우 처럼 다른 배치 파일이 현재 배치 파일을 호출 하는 경우에는이 문제가 발생 하지 않도록 할 수 있습니다. 이 경우에 `/B` 매개 변수를 생략할 수 있습니다.
 > 
 > 
 
@@ -491,7 +488,7 @@ EXIT %ERRORLEVEL%
 모든 역할 재활용은 재부팅을 포함하지 않으므로 모든 역할 재활용은 모든 시작 작업 실행을 포함합니다. 이는 시작 작업이 문제 없이 재부팅 사이 여러 번 실행될 수 있어야 함을 의미합니다. 이에 대해서는 [앞의 섹션](#detect-that-your-task-has-already-run)에서 설명합니다.
 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>로컬 스토리지를 사용하여 역할에 액세스할 수 있어야 하는 파일을 저장합니다.
-그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 스토리지에 배치되어 있어야 합니다. [앞의 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조하세요.
+그런 다음 역할에 액세스할 수 있는 시작 작업 중 파일을 복사하거나 만들려는 경우 해당 파일이 로컬 스토리지에 배치되어 있어야 합니다. [이전 섹션](#create-files-in-local-storage-from-a-startup-task)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 [서비스 모델 및 패키지](cloud-services-model-and-package.md)
@@ -512,6 +509,3 @@ EXIT %ERRORLEVEL%
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-

@@ -5,15 +5,14 @@ description: 이 문서에서는 VPN gateway에 대 한 Always On VPN 사용자 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 56934dd13661d8f623e673e2817e87618675c7ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8cfe1d6434c0f5765196776ae9f6712fe14c52a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984133"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Always On VPN 사용자 터널 구성
 

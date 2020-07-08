@@ -8,14 +8,13 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744168"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037191"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>위협 보호 및 Azure Security Center
 
@@ -106,36 +105,18 @@ App Service 계획에 대한 자세한 내용은 [App Service 계획](https://az
 
 
 
-## <a name="threat-protection-for-azure-containers"></a>Azure 컨테이너에 대한 위협 방지 <a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>컨테이너에 대 한 위협 방지<a name="azure-containers"></a>
 
-> [!NOTE]
-> 이 서비스는 현재 Azure 정부 및 소버린 클라우드 지역에서 사용할 수 없습니다.
+### <a name="availability"></a>가용성
 
-Security Center는 실시간 위협 방지를 컨테이너화된 환경에 제공하고 의심스러운 활동에 대한 경고를 생성합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
+- 릴리스 상태: **일반** 공급
+- 필수 역할: **보안 관리자** 가 경고를 해제할 수 있습니다. **보안 읽기 권한자**는 발견 사항을 볼 수 있습니다.
+- 클라우드:<br>
+    ✔ 상용 클라우드<br>
+    ✘ US Gov<br>
+    ✘ 중국 .Gov, 기타 .Gov
 
-Security Center에서 위협 방지를 제공하는 다양한 수준은 다음과 같습니다. 
-
-* **호스트 수준** - Security Center의 에이전트(표준 계층에서 사용 가능, 자세한 내용은 [가격 책정](security-center-pricing.md) 참조)에서 Linux를 모니터링하여 의심스러운 활동을 탐지합니다. 에이전트는 노드 또는 노드에서 실행되는 컨테이너에서 시작된 의심스러운 활동에 대한 경고를 트리거합니다. 이러한 활동의 예로 웹 셸 탐지 및 알려진 의심스러운 IP 주소와의 연결이 있습니다.
-
-    에이전트는 컨테이너화된 환경의 보안에 대한 더 심층적인 인사이트를 파악하기 위해 컨테이너 관련 분석을 모니터링합니다. 권한 있는 컨테이너 만들기, API 서버에 대한 의심스러운 액세스 및 Docker 컨테이너 내에서 실행되는 SSH(Secure Shell) 서버와 같은 이벤트에 대한 경고를 트리거합니다.
-
-    >[!IMPORTANT]
-    > 에이전트를 호스트에 설치하지 않도록 선택하는 경우 위협 방지 혜택 및 보안 경고의 하위 집합만 받게 됩니다. 네트워크 분석 및 악의적인 서버와의 통신과 관련된 경고는 계속 받을 수 있습니다.
-
-    호스트 수준 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-containerhost)를 참조하세요.
-
-
-* **AKS 클러스터 수준**의 위협 방지는 Kubernetes의 감사 로그 분석을 기반으로 합니다. 이 **에이전트 없는** 모니터링을 사용하도록 설정하려면 **가격 책정 및 설정** 페이지에서 Kubernetes 옵션을 구독에 추가합니다([가격 책정](security-center-pricing.md) 참조). 이 수준에서 경고를 생성하기 위해 Security Center는 AKS에서 검색한 로그를 사용하여 AKS 관리형 서비스를 모니터링합니다. 이 수준의 이벤트 예로 노출된 Kubernetes 대시보드, 높은 권한이 있는 역할 만들기 및 중요한 탑재 만들기가 있습니다.
-
-    >[!NOTE]
-    > Security Center는 구독 설정에서 Kubernetes 옵션을 사용하도록 설정한 후에 발생하는 Azure Kubernetes Service 작업 및 배포에 대한 보안 경고를 생성합니다. 
-
-    AKS 클러스터 수준 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-akscluster)를 참조하세요.
-
-또한 글로벌 보안 연구 팀에서는 위협 환경을 지속적으로 모니터링합니다. 검색된 컨테이너 관련 경고 및 취약성을 추가합니다.
-
-> [!TIP]
-> [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270)의 지침에 따라 컨테이너 경고를 시뮬레이션할 수 있습니다.
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
@@ -150,7 +131,7 @@ Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적
 
 의심스러운 데이터베이스 활동, 잠재적 취약성 또는 SQL 삽입 공격, 비정상 데이터베이스 액세스 및 쿼리 패턴이 있으면 경고가 표시됩니다.
 
-Azure SQL Database 및 SQL용 Advanced Threat Protection은 Azure SQL Database, Azure SQL Database 관리형 인스턴스, Azure SQL Data Warehouse 데이터베이스 및 Azure Virtual Machines의 SQL 서버를 포함하여 고급 SQL 보안 기능을 위한 [ADS(Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) 통합 패키지의 일부입니다.
+Azure SQL Database 및 SQL에 대 한 advanced Threat Protection은 Azure Virtual Machines에서 Azure SQL Database, Azure SQL 관리 되는 인스턴스, Azure SQL Data Warehouse 데이터베이스 및 SQL server를 포함 하는 고급 SQL 보안 기능을 위한 [광고 (Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) 통합 패키지의 일부입니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -162,11 +143,44 @@ Azure SQL Database 및 SQL용 Advanced Threat Protection은 Azure SQL Database, 
 
 ## <a name="threat-protection-for-azure-storage"></a>Azure Storage에 대한 위협 방지 <a name="azure-storage"></a>
 
-Storage용 Advanced Threat Protection은 스토리지 계정에 액세스하거나 이를 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지합니다. 이 보호 계층을 사용하면 보안 전문가가 아니더라도 위협을 처리할 수 있으며, 보안 모니터링 시스템을 관리할 수 있습니다.
+### <a name="availability"></a>가용성
 
-Azure Storage용 Advanced Threat Protection은 현재 [Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에만 사용할 수 있습니다. 
+- 릴리스 상태:
+    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)
+    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (미리 보기)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (미리 보기)
+- 클라우드:<br>
+    ✔ 상용 클라우드<br>
+    ✔ US Gov<br>
+    ✘ 중국 .Gov, 기타 .Gov
 
-이 서비스는 모든 퍼블릭 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만, 다른 소버린 또는 Azure Government 클라우드 지역에서는 사용할 수 없습니다.
+### <a name="whats-protected"></a>보호 되는 항목
+
+Azure Storage에 대 한 위협 방지는 Azure Storage 계정에서 잠재적으로 유해한 작업을 검색 합니다. Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는지에 관계 없이 데이터를 보호할 수 있습니다.
+
+이 보호 계층을 사용 하면 보안 전문가가 아니어도 *위협을 해결* 하 고 보안 모니터링 시스템을 관리할 수 있습니다.
+
+저장소 계정이 보호 되어 있습니다. 
+
+### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>위협 방지 Azure Storage에서 제공 하는 경고의 종류는 무엇 인가요?
+
+보안 경고는 다음과 같은 경우에 트리거됩니다.
+
+- **의심 스러운 활동** -예를 들어 저장소 계정에 대 한 액세스 권한이 있는 IP 주소에서의 활성 종료 노드 라고 합니다.
+- **비정상 동작** -예를 들어 저장소 계정에 대 한 액세스 패턴의 변경 내용
+- **업로드 된 잠재적인 맬웨어** -해시 평판 분석 업로드 된 파일에 맬웨어가 포함 되어 있음을 나타냅니다.
+
+경고에는 위협을 조사 하 고 수정 하는 방법에 대 한 권장 사항 뿐만 아니라 트리거를 트리거한 인시던트의 세부 정보가 포함 됩니다.
+
+### <a name="what-is-hash-reputation-analysis-for-malware"></a>맬웨어에 대 한 해시 평판 분석 이란?
+
+업로드 된 파일이 의심 스러운 지 여부를 확인 하기 위해 Azure Storage에 대 한 위협 방지는 [Microsoft 위협 인텔리전스](https://go.microsoft.com/fwlink/?linkid=2128684)에서 지 원하는 해시 평판 분석을 사용 합니다. 위협 방지 도구는 업로드 된 파일을 검사 하지 않고, 저장소 로그를 검토 하 고 새로 업로드 된 파일의 해시를 알려진 바이러스, 트로이 목마, 스파이웨어 및 랜 섬 웨어의 해시와 비교 합니다. 
+
+파일이 맬웨어를 포함 하는 것으로 의심 되는 경우 Security Center 경고를 표시 하 고 의심 스러운 파일을 삭제 하기 위해 필요에 따라 저장소 소유자에 게 메일을 보낼 수 있습니다. 해시 평판 분석에 맬웨어 포함을 나타내는 파일의 자동 제거를 설정 하려면 ["저장소 계정에 업로드 된 잠재적인 맬웨어"가 포함 된 경고에 대해 트리거할 워크플로 자동화](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005)를 배포 합니다.
+
+
+
+### <a name="next-steps"></a>다음 단계 
 
 30일 평가판을 포함한 자세한 가격 책정 정보는 [Azure Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
@@ -174,9 +188,13 @@ Azure Storage용 Advanced Threat Protection은 현재 [Blob Storage](https://azu
 
 * [Azure Storage용 Advanced Threat Protection을 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Azure Storage에 대한 위협 방지 경고 목록](alerts-reference.md#alerts-azurestorage)
+* [Microsoft의 위협 인텔리전스 기능](https://go.microsoft.com/fwlink/?linkid=2128684)
 
 > [!TIP]
-> [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131)의 지침에 따라 Azure Storage 경고를 시뮬레이션할 수 있습니다.
+> [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131)의 지침에 따라 저장소 경고를 시뮬레이션할 수 있습니다.
+
+
+
 
 
 
@@ -224,14 +242,17 @@ Azure Resource Manager(미리 보기) 경고 목록은 [경고 참조 표](alert
 >[!NOTE]
 > 이전 분석의 일부는 Microsoft Cloud App Security에서 작동됩니다. 이러한 분석을 활용하려면 Cloud App Security 라이선스에 대한 정품 인증을 수행해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용하도록 설정됩니다. 경고를 사용하지 않도록 설정하려면 다음을 수행합니다.
 >
-> 1. **Security Center** 블레이드에서 **보안 정책**을 선택합니다. 변경하려는 구독에 대한 **설정 편집**을 선택합니다.
-> 2. **위협 탐지**를 선택합니다.
-> 3. **통합 사용** 아래에서 **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용합니다.** 를 선택 취소한 다음, **저장**을 선택합니다.
+> 1. Security Center의 메뉴에서 **가격 책정 & 설정**을 선택 합니다.
+> 1. 변경하려는 구독을 선택합니다.
+> 1. **위협 탐지**를 선택합니다.
+> 1. **Microsoft Cloud App Security에서 내 데이터에 액세스 하도록 허용**을 선택 취소 하 고 **저장**을 선택 합니다.
 
 >[!NOTE]
 >Security Center는 보안과 관련된 고객 데이터를 리소스와 동일한 지역에 저장합니다. Microsoft에서 Security Center를 해당 리소스의 지역에 아직 배포하지 않은 경우 데이터는 미국에 저장됩니다. Cloud App Security를 사용하도록 설정되는 경우 이 정보는 Cloud App Security의 지리적 위치 규칙에 따라 저장됩니다. 자세한 내용은 [비지역 서비스에 대한 데이터 저장](https://azuredatacentermap.azurewebsites.net/)을 참조하세요.
 
+1. 에이전트를 설치 하는 작업 영역을 설정 합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
 
+1. 표준 가격 책정 계층을 설정 하 고 **저장**을 선택 합니다.
 
 
 

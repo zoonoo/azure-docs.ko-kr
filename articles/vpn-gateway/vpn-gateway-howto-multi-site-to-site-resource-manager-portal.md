@@ -5,16 +5,15 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75779691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984142"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -35,7 +34,7 @@ ms.locfileid: "75779691"
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 다음 사항을 확인합니다.
 
 * 새 공존 Express 경로 및 VPN Gateway 구성을 구성 하지 않습니다.

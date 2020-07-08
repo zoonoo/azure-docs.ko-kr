@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2abddefebdf58b6c4f82bd6e6e882e3cb5d16023
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75423074"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604304"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
 이 문서는 Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가 및 제거하는 데 도움이 됩니다.

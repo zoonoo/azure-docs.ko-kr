@@ -11,13 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770968"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -25,7 +24,7 @@ ms.locfileid: "81414135"
 
 이 문서에서는 Azure Data Factory에서 복사 작업 성능 문제를 해결 하는 방법을 설명 합니다. 
 
-복사 작업을 실행 한 후 [복사 작업 모니터링](copy-activity-monitoring.md) 보기에서 실행 결과 및 성능 통계를 수집할 수 있습니다. 다음은 이에 대한 예입니다.
+복사 작업을 실행 한 후 [복사 작업 모니터링](copy-activity-monitoring.md) 보기에서 실행 결과 및 성능 통계를 수집할 수 있습니다. 다음은 예제입니다.
 
 ![복사 작업 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
@@ -40,6 +39,7 @@ ms.locfileid: "81414135"
 | 데이터 저장소 관련   | **Azure Synpase 분석 (이전의 SQL DW)** 에 데이터를 로드 하는 중입니다. 사용 되지 않는 경우 POLYBASE 또는 COPY 문을 사용 하는 것이 좋습니다. |
 | &nbsp;                | **Azure SQL Database**간 데이터 복사: DTU가 높은 사용률을 사용 하는 경우 더 높은 계층으로 업그레이드 하는 것이 좋습니다. |
 | &nbsp;                | **Azure Cosmos DB**에서/로 데이터 복사: 높은 사용률을 사용 중인 경우에는 더 큰 사용으로 업그레이드 하는 것이 좋습니다. |
+|                       | **Sap 테이블**에서 데이터 복사: 많은 양의 데이터를 복사 하는 경우 sap 커넥터의 파티션 옵션을 활용 하 여 병렬 로드를 사용 하도록 설정 하 고 최대 파티션 수를 늘리는 것이 좋습니다. |
 | &nbsp;                | **Amazon Redshift**의 데이터 수집: 사용 되지 않는 경우 UNLOAD를 사용 하는 것이 좋습니다. |
 | 데이터 저장소 제한 | 복사 하는 동안 데이터 저장소에서 읽기/쓰기 작업을 제한 하는 경우 데이터 저장소에 대해 허용 되는 요청 빈도를 확인 하 고 늘리는 것이 좋습니다. 그렇지 않으면 동시 작업을 줄일 수 있습니다. |
 | Integration runtime  | Ir **(자체 호스팅 Integration Runtime)** 및 복사 작업을 사용 하는 경우 ir에 사용할 수 있는 리소스를 사용할 수 있을 때까지 큐에서 대기 하는 경우 ir 확장/축소를 제안 합니다. |
@@ -52,11 +52,11 @@ ms.locfileid: "81414135"
 
 복사 작업 모니터링 보기의 아래쪽에 있는 실행 세부 정보 및 기간은 복사 작업의 핵심 단계에 대해 설명 합니다 .이는 복사 성능 문제를 해결 하는 데 특히 유용 합니다. 복사 실행에 대 한 병목 상태는 기간이 가장 긴 것입니다. 각 단계의 정의에서 다음 표를 참조 하 고, [Azure IR의 복사 작업 문제를 해결](#troubleshoot-copy-activity-on-azure-ir) 하 고 [자체 호스팅 IR에서](#troubleshoot-copy-activity-on-self-hosted-ir) 이러한 정보를 사용 하 여 복사 작업의 문제를 해결 하는 방법을 알아봅니다.
 
-| 단계           | Description                                                  |
+| 단계           | 설명                                                  |
 | --------------- | ------------------------------------------------------------ |
 | 큐           | 통합 런타임에 복사 작업이 실제로 시작 될 때까지 경과 된 시간입니다. |
 | 사전 복사 스크립트 | IR에서 시작 하는 복사 작업과 복사 작업에서 싱크 데이터 저장소의 사전 복사 스크립트 실행을 완료 하는 데 걸리는 시간입니다. 데이터베이스 싱크에 대해 사전 복사 스크립트를 구성할 때 적용 됩니다. 예를 들어 Azure SQL Database에 데이터를 쓸 때 새 데이터를 복사 하기 전에 정리 작업을 수행할 수 있습니다. |
-| 전송        | 이전 단계와 IR 사이에 경과 된 시간으로, 원본에서 싱크로 모든 데이터를 전송 합니다. "Transfer" 아래의 하위 단계는 병렬로 실행 됩니다.<br><br>- **첫 번째 바이트 까지의 시간:** 이전 단계의 끝과 IR이 원본 데이터 저장소에서 첫 번째 바이트를 받는 시간 사이에 경과 된 시간입니다. 파일 기반이 아닌 소스에 적용 됩니다.<br>- **원본 나열:** 소스 파일 또는 데이터 파티션을 열거 하는 데 소요 된 시간입니다. 후자는 Oracle/SAP HANA/Teradata/Netezza/등의 데이터베이스에서 데이터를 복사 하는 경우와 같이 데이터베이스 원본에 대 한 파티션 옵션을 구성할 때 적용 됩니다.<br/>-**원본에서 읽기:** 원본 데이터 저장소에서 데이터를 검색 하는 데 소요 된 시간입니다.<br/>- **싱크에 쓰기:** 싱크 데이터 저장소에 데이터를 쓰는 데 소요 된 시간입니다. |
+| 전송        | 이전 단계와 IR 사이에 경과 된 시간으로, 원본에서 싱크로 모든 데이터를 전송 합니다. <br/>전송 아래의 하위 단계는 병렬로 실행 되며 일부 작업 (예: 파일 형식 구문 분석/생성)은 표시 되지 않습니다.<br><br/>- **첫 번째 바이트 까지의 시간:** 이전 단계의 끝과 IR이 원본 데이터 저장소에서 첫 번째 바이트를 받는 시간 사이에 경과 된 시간입니다. 파일 기반이 아닌 소스에 적용 됩니다.<br>- **원본 나열:** 소스 파일 또는 데이터 파티션을 열거 하는 데 소요 된 시간입니다. 후자는 Oracle/SAP HANA/Teradata/Netezza/등의 데이터베이스에서 데이터를 복사 하는 경우와 같이 데이터베이스 원본에 대 한 파티션 옵션을 구성할 때 적용 됩니다.<br/>-**원본에서 읽기:** 원본 데이터 저장소에서 데이터를 검색 하는 데 소요 된 시간입니다.<br/>- **싱크에 쓰기:** 싱크 데이터 저장소에 데이터를 쓰는 데 소요 된 시간입니다. 참고 일부 커넥터는 현재 Azure Cognitive Search, Azure 데이터 탐색기, Azure Table storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce 서비스 클라우드를 포함 하 여이 메트릭을 포함 하지 않습니다. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Azure IR의 복사 작업 문제 해결
 
@@ -69,8 +69,7 @@ ms.locfileid: "81414135"
 - **"첫 번째 바이트로의 전송 시간"은 긴 작업 시간**입니다 .이는 원본 쿼리가 데이터를 반환 하는 데 시간이 오래 걸리는 것을 의미 합니다. 쿼리 또는 서버를 확인 하 고 최적화 합니다. 추가 도움이 필요 하면 데이터 저장소 팀에 문의 하세요.
 
 - **"전송 목록 원본"의 장기 작동 기간**: 원본 파일을 열거 하거나 원본 데이터베이스 데이터 파티션을 더 느리게 열거 하는 것을 의미 합니다.
-
-  - 파일 기반 소스에서 데이터를 복사할 때 폴더 경로 또는 파일`wildcardFolderPath` 이름 `wildcardFileName`에 **와일드 카드 필터** 를 사용 하거나 **파일의 마지막 수정 시간 필터** (`modifiedDatetimeStart` 또는`modifiedDatetimeEnd`)를 사용 하는 경우 해당 필터는 지정 된 폴더 아래의 모든 파일을 클라이언트 쪽으로 나열 하는 복사 작업을 생성 한 다음 필터를 적용 합니다. 이러한 파일 열거는 특히 작은 파일 집합만 필터 규칙을 충족 하는 경우 병목 상태가 될 수 있습니다.
+  - 파일 기반 소스에서 데이터를 복사할 때 폴더 경로 또는 파일 이름에 **와일드 카드 필터** 를 사용 `wildcardFolderPath` `wildcardFileName` 하거나 **파일의 마지막 수정 시간 필터** (또는)를 사용 하는 경우 `modifiedDatetimeStart` `modifiedDatetimeEnd` 해당 필터는 지정 된 폴더 아래의 모든 파일을 클라이언트 쪽으로 나열 하는 복사 작업을 생성 한 다음 필터를 적용 합니다. 이러한 파일 열거는 특히 작은 파일 집합만 필터 규칙을 충족 하는 경우 병목 상태가 될 수 있습니다.
 
     - [Datetime 분할 파일 경로 또는 이름에 따라 파일을 복사할](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)수 있는지 여부를 확인 합니다. 이러한 방식으로 원본 측을 나열 하는 것은 부담 하지 않습니다.
 
@@ -124,7 +123,7 @@ ms.locfileid: "81414135"
 
   - 자체 호스팅 IR 컴퓨터가 원본 데이터 저장소에 연결 하는 데 짧은 대기 시간이 있는지 확인 합니다. 소스가 Azure에 있는 경우 [이 도구](http://www.azurespeed.com/Azure/Latency) 를 사용 하 여 자체 호스팅 IR 컴퓨터에서 azure 지역으로의 대기 시간을 확인할 수 있습니다.
 
-  - 파일 기반 소스에서 데이터를 복사할 때 폴더 경로 또는 파일`wildcardFolderPath` 이름 `wildcardFileName`에 **와일드 카드 필터** 를 사용 하거나 **파일의 마지막 수정 시간 필터** (`modifiedDatetimeStart` 또는`modifiedDatetimeEnd`)를 사용 하는 경우 해당 필터는 지정 된 폴더 아래의 모든 파일을 클라이언트 쪽으로 나열 하는 복사 작업을 생성 한 다음 필터를 적용 합니다. 이러한 파일 열거는 특히 작은 파일 집합만 필터 규칙을 충족 하는 경우 병목 상태가 될 수 있습니다.
+  - 파일 기반 소스에서 데이터를 복사할 때 폴더 경로 또는 파일 이름에 **와일드 카드 필터** 를 사용 `wildcardFolderPath` `wildcardFileName` 하거나 **파일의 마지막 수정 시간 필터** (또는)를 사용 하는 경우 `modifiedDatetimeStart` `modifiedDatetimeEnd` 해당 필터는 지정 된 폴더 아래의 모든 파일을 클라이언트 쪽으로 나열 하는 복사 작업을 생성 한 다음 필터를 적용 합니다. 이러한 파일 열거는 특히 작은 파일 집합만 필터 규칙을 충족 하는 경우 병목 상태가 될 수 있습니다.
 
     - [Datetime 분할 파일 경로 또는 이름에 따라 파일을 복사할](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)수 있는지 여부를 확인 합니다. 이러한 방식으로 원본 측을 나열 하는 것은 부담 하지 않습니다.
 
@@ -142,7 +141,7 @@ ms.locfileid: "81414135"
 
   - Azure Portal > 데이터 팩터리-> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인 합니다. CPU 사용량이 크거나 사용 가능한 메모리가 부족 한 경우 [IR을 확장/축소](create-self-hosted-integration-runtime.md#high-availability-and-scalability) 하는 것이 좋습니다.
 
-  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 다음은 그 예입니다.
+  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 예를 들어:
 
     - [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)에서 데이터를 복사 하는 경우 데이터를 병렬로 복사 하도록 데이터 파티션 옵션을 사용 하도록 설정 합니다.
 
@@ -181,11 +180,11 @@ ms.locfileid: "81414135"
 * Azure SQL Database: [성능을 모니터링](../sql-database/sql-database-single-database-monitor.md) 하 고 DTU (데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 * Azure SQL Data Warehouse: 해당 기능은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다. [Azure SQL Data Warehouse에서 계산 능력 관리 (개요)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../cosmos-db/performance-levels.md)입니다.
-* 온-프레미스 SQL Server: [성능을 모니터링 하 고 조정](https://msdn.microsoft.com/library/ms189081.aspx)합니다.
+* SQL Server: [성능을 모니터링 하 고 조정](https://msdn.microsoft.com/library/ms189081.aspx)합니다.
 * 온-프레미스 파일 서버: [파일 서버에 대 한 성능 조정](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-다른 복사 작업 문서를 참조 하세요.
+다른 복사 작업 문서를 참조하세요.
 
 - [복사 작업 개요](copy-activity-overview.md)
 - [복사 작업 성능 및 확장성 가이드](copy-activity-performance.md)

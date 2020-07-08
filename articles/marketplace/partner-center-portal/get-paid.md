@@ -5,13 +5,12 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/09/2020
+ms.openlocfilehash: 57a5f3046ce7a1f968bb823a0e13008d076b78c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636566"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>상업용 마켓플레이스에서 지급 받기
 
@@ -27,21 +26,6 @@ ms.locfileid: "83849028"
 수수료는 [Microsoft Azure Marketplace 게시자 계약](https://go.microsoft.com/fwlink/p/?LinkID=699560)에 공식적으로 정의되어 있습니다. 질문이 있는 경우 항상 해당 문서를 검토합니다.
 
 매장 수수료는 추가 기능을 포함하여 상업용 마켓플레이스에서 수집한 모든 제품 판매에 적용됩니다.
-
-## <a name="price-tiers"></a>가격 책정 계층
-
-선택한 가격 책정 계층은 제품을 배포하도록 선택하는 모든 국가/지역의 판매 가격을 설정합니다. 또한 다른 시장에 대해 다른 가격을 선택하는 등의 추가 가격 책정 기능을 사용할 수 있습니다.
-
-앱을 무료로 제공하거나 고객이 제품을 획득하기 위해 지불해야 하는 가격을 선택할 수 있습니다. 가격 책정 계층은 .99 USD부터 추가 증분(1.09 USD, 1.19 USD 등)으로 시작합니다. 가격 책정 계층 간의 증분은 가격이 높아질수록 증가합니다.
-
-> [!NOTE] 
-> 이러한 가격 책정 계층은 제품 내에서 제공하는 추가 기능에도 적용됩니다.
-
-각 가격 책정 계층에는 매장에서 제공하는 각 통화에 해당하는 값이 있습니다. 이러한 값을 사용하여 전 세계의 비슷한 가격 지점에서 제품을 판매하는 데 도움을 줍니다. 그러나 환율이 변경되기 때문에 정확한 판매량은 통화마다 약간씩 다를 수 있습니다.
-
-또한 특정 시장의 현지 통화로 선택한 무료 형식 가격을 입력할 수 있는 옵션도 제공됩니다. 이 작업을 수행하는 경우 새 가격으로 업데이트를 제출하지 않으면 가격은 조정되지 않습니다(전환율이 변경되는 경우에도). 
-
-선택한 가격은 고객이 지불해야 하는 판매 또는 부가가치세를 포함할 수 있습니다. 자세한 내용은 [유료 제품에 대한 세금 세부 정보](tax-details-paid-transactions.md)를 참조하세요.
 
 ## <a name="payout-reporting"></a>지급 보고
 

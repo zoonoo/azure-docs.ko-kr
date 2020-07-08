@@ -4,19 +4,18 @@ description: Azure Cosmos DB의 CONTAINS SQL 시스템 함수가 첫 번째 문�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a08fe47122d7e9ddd1c9038bb5f15ebbb0be30fa
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322706"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS(Azure Cosmos DB)
 
- 첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다.  
+첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -75,6 +74,8 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 ```
 
 도시의 카디널리티가 국가보다 높기 때문에 첫 번째 쿼리가 두 번째 쿼리보다 더 많은 RU를 사용할 것입니다.
+
+포함 된의 속성 크기가 일부 문서에 대해 1kb 보다 큰 경우 쿼리 엔진은 해당 문서를 로드 해야 합니다. 이 경우 쿼리 엔진은 인덱스를 사용 하 여 Contains를 완전히 평가할 수 없습니다. 속성 크기가 1kb 이상인 문서 수가 많은 경우 Contains의 추가 요금은 높아집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,15 +8,14 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 93418369724286e8b8c967754b2fb37135094008
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189303"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027593"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,7 +49,7 @@ Azure Machine Learning을 통해 효율적인 방식으로 하이퍼 매개 변�
 
 #### <a name="discrete-hyperparameters"></a>개별 하이퍼 매개 변수 
 
-개별 하이퍼 매개 변수는 불연속 값 중 `choice`로 지정됩니다. `choice`는 다음과 같을 수 있습니다.
+개별 하이퍼 매개 변수는 불연속 값 중 `choice`로 지정됩니다. `choice`는 다음이 될 수 있습니다.
 
 * 하나 이상의 쉼표로 구분된 값
 * `range` 개체
@@ -109,6 +108,7 @@ Azure Machine Learning을 통해 효율적인 방식으로 하이퍼 매개 변�
 
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
+from azureml.train.hyperdrive import normal, uniform, choice
 param_sampling = RandomParameterSampling( {
         "learning_rate": normal(10, 3),
         "keep_probability": uniform(0.05, 0.1),
@@ -123,6 +123,7 @@ param_sampling = RandomParameterSampling( {
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
+from azureml.train.hyperdrive import choice
 param_sampling = GridParameterSampling( {
         "num_hidden_layers": choice(1, 2, 3),
         "batch_size": choice(16, 32)
@@ -136,10 +137,11 @@ param_sampling = GridParameterSampling( {
 
 Bayesian 샘플링을 사용할 때 동시 실행 수는 조정 프로세스의 효율성에 영향을 줍니다. 병렬 처리 수준이 작으면 이전에 완료된 실행에서 활용하는 실행 수가 증가하므로 일반적으로 동시 실행 수가 적으면 더 나은 샘플링 수렴이 가능합니다.
 
-Bayesian 샘플링은 검색 `choice`공간 `uniform`에 대 `quniform` 한, 및 배포만 지원 합니다.
+Bayesian 샘플링은 `choice` `uniform` 검색 공간에 대 한, 및 배포만 지원 `quniform` 합니다.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
+from azureml.train.hyperdrive import uniform, choice
 param_sampling = BayesianParameterSampling( {
         "learning_rate": uniform(0.05, 0.1),
         "batch_size": choice(16, 32, 64, 128)
@@ -329,7 +331,7 @@ warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
 warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
 ```
 
-또한 하이퍼 매개 변수 튜닝 실험의 개별 학습 실행이 예산 제약 조건으로 인해 취소 되거나 다른 이유로 인해 실패 하는 경우가 있을 수 있습니다. 이제 마지막 검사점에서 이러한 개별 학습 실행을 다시 시작할 수 있습니다 (학습 스크립트가 검사점을 처리 한다고 가정). 개별 학습 실행을 다시 시작 하면 동일한 하이퍼 매개 변수 구성을 사용 하 고 해당 실행에 사용 되는 출력 폴더를 탑재 합니다. 학습 스크립트는 학습 실행을 `resume-from` 다시 시작할 검사점 또는 모델 파일이 포함 된 인수를 수락 해야 합니다. 다음 코드 조각을 사용 하 여 개별 학습 실행을 다시 시작할 수 있습니다.
+또한 하이퍼 매개 변수 튜닝 실험의 개별 학습 실행이 예산 제약 조건으로 인해 취소 되거나 다른 이유로 인해 실패 하는 경우가 있을 수 있습니다. 이제 마지막 검사점에서 이러한 개별 학습 실행을 다시 시작할 수 있습니다 (학습 스크립트가 검사점을 처리 한다고 가정). 개별 학습 실행을 다시 시작 하면 동일한 하이퍼 매개 변수 구성을 사용 하 고 해당 실행에 사용 되는 출력 폴더를 탑재 합니다. 학습 스크립트는 `resume-from` 학습 실행을 다시 시작할 검사점 또는 모델 파일이 포함 된 인수를 수락 해야 합니다. 다음 코드 조각을 사용 하 여 개별 학습 실행을 다시 시작할 수 있습니다.
 
 ```Python
 from azureml.core.run import Run
@@ -339,7 +341,7 @@ resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
 child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```
 
-하이퍼 매개 변수 튜닝 실험을 구성 하 여 이전 실험에서 웜 시작 하거나 선택적 매개 변수와 `resume_from` 구성 `resume_child_runs` 에서 개별 학습 실행을 다시 시작할 수 있습니다.
+하이퍼 매개 변수 튜닝 실험을 구성 하 여 이전 실험에서 웜 시작 하거나 선택적 매개 변수와 구성에서 개별 학습 실행을 다시 시작할 수 있습니다 `resume_from` `resume_child_runs` .
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig

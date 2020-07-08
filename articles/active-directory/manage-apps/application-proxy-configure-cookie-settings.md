@@ -2,22 +2,21 @@
 title: 애플리케이션 프록시 쿠키 설정 - Azure Active Directory | Microsoft Docs
 description: Azure AD(Azure Active Directory)에는 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 액세스할 수 있는 액세스 권한과 세션 쿠키가 있습니다. 이 문서에서는 쿠키 설정을 사용 및 구성하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764896"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정
 
@@ -49,7 +48,7 @@ Azure AD(Azure Active Directory)에는 애플리케이션 프록시를 통해 �
 Azure Portal을 사용하여 쿠키 설정을 지정하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. **Azure Active Directory** > **Enterprise applications** Enterprise 응용 프로그램 **모든 응용 프로그램**으로 이동 합니다.>
+2. **Azure Active Directory**   >  **Enterprise 응용 프로그램**   >  **모든 응용 프로그램**으로 이동 합니다.
 3. 쿠키 설정을 사용할 애플리케이션을 선택합니다.
 4. **응용 프로그램 프록시**를 클릭 합니다.
 5. **추가 설정** 아래에서 쿠키 설정을 **예** 또는 **아니요**로 지정합니다.

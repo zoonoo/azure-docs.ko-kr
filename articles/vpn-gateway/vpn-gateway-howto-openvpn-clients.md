@@ -4,15 +4,14 @@ description: Azure VPN Gateway에 대해 OpenVPN 클라이언트를 구성하는
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 09ff3ccebad0baa4148e68995254c818a29d7bd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bdddf097265e7af688175688b6f3214413a90fdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984087"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대 한 OpenVPN 클라이언트 구성
 

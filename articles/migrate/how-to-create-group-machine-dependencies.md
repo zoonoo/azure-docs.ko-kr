@@ -2,37 +2,42 @@
 title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 설정
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: 47fd7e7c864e82400288bb67da952a18b648849e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.date: 6/09/2020
+ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770580"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
-이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다. [종속성 분석](concepts-dependency-visualization.md) 을 사용 하면 평가 하 고 Azure로 마이그레이션하려는 컴퓨터 간의 종속성을 식별 하 고 이해할 수 있습니다.
+이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 없는 종속성 분석을 설정 하는 방법을 설명 합니다. [종속성 분석](concepts-dependency-visualization.md) 을 사용 하면 평가 하 고 Azure로 마이그레이션하려는 컴퓨터 간의 종속성을 식별 하 고 이해할 수 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- 에이전트 기반 종속성 분석 [에 대해 알아봅니다](concepts-dependency-visualization.md#agent-based-analysis) .
-- [VMware vm](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [물리적 서버](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)및 [hyper-v vm](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)에 대 한 에이전트 기반 종속성 시각화를 설정 하기 위한 필수 구성 요소 및 지원 요구 사항을 검토 합니다.
-- Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
-- 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-- 온-프레미스 컴퓨터를 검색 하도록 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 설정 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md), [hyper-v](how-to-set-up-appliance-hyper-v.md)또는 [물리적 서버용](how-to-set-up-appliance-physical.md)어플라이언스를 설정 하는 방법에 대해 알아봅니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터, 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다.
+- 다음에 대 한 에이전트 기반 종속성 분석의 지원 및 배포 요구 사항을 검토 합니다.
+    - [VMware VM](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+    - [물리적 서버](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
+    - [Hyper-v vm](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- 다음을 확인합니다.
+    - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](how-to-add-tool-first-time.md) .
+    - Azure Migrate: 서버 평가 도구를 프로젝트에 [추가](how-to-assess.md) 했는지 확인 합니다.
+    - 온-프레미스 컴퓨터를 검색 하도록 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 설정 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. 어플라이언스 설정:
+        - [VMware](how-to-set-up-appliance-vmware.md) Vm.
+        - [Hyper-v](how-to-set-up-appliance-hyper-v.md) Vm.
+        - [물리적 서버](how-to-set-up-appliance-physical.md).
 - 종속성 시각화를 사용 하려면 Azure Migrate 프로젝트와 [Log Analytics 작업 영역](../azure-monitor/platform/manage-access.md) 을 연결 합니다.
     - Azure Migrate 어플라이언스를 설정 하 고 Azure Migrate 프로젝트에서 컴퓨터를 검색 한 후에만 작업 영역을 연결할 수 있습니다.
     - Azure Migrate 프로젝트를 포함 하는 구독에 작업 영역이 있는지 확인 합니다.
-    - 작업 영역은 미국 동부, 동남 아시아 또는 유럽 서부 지역에 상주해 야 합니다. 다른 지역의 작업 영역은 프로젝트에 연결할 수 없습니다.
-    - 작업 영역은 [서비스 맵 지원](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)되는 지역에 있어야 합니다.
+    - 작업 영역은 미국 동부, 동남 아시아 또는 서유럽 지역에 있어야 합니다. 다른 지역의 작업 영역은 프로젝트에 연결할 수 없습니다.
+    - 작업 영역은 [서비스 맵 지원되는](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) 지역에 있어야 합니다.
     - 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결할 수 있습니다.
-    - 컴퓨터에 대 한 종속성 시각화를 처음 설정할 때 작업 영역을 연결 합니다. Azure Migrate 프로젝트에 대 한 작업 영역은 추가 된 후 수정할 수 없습니다.
-    - Log Analytics에서 Azure Migrate와 연결 된 작업 영역에는 마이그레이션 프로젝트 키와 프로젝트 이름이 지정 됩니다.
+    - 컴퓨터에 대 한 종속성 시각화를 처음 설정할 때 작업 영역을 연결 합니다. Azure Migrate 프로젝트에 대한 작업 영역은 추가된 후 수정할 수 없습니다.
+    - Log Analytics에서 Azure Migrate와 연결된 작업 영역에는 마이그레이션 프로젝트 키와 프로젝트 이름이 태그로 지정됩니다.
 
 ## <a name="associate-a-workspace"></a>작업 영역 연결
 
-1. 평가를 위해 컴퓨터를 검색 한 후 **서버** > **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다.  
+1. 평가를 위해 컴퓨터를 검색 한 후 **서버**  >  **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다.  
 2. **Azure Migrate: 서버 평가**에서 **Essentials**를 클릭 합니다.
 3. **OMS 작업 영역**에서 **구성 필요**를 클릭 합니다.
 
@@ -70,7 +75,7 @@ ms.locfileid: "82996887"
 Windows 컴퓨터에 에이전트를 설치하려면
 
 1. 다운로드한 에이전트를 두 번 클릭합니다.
-2. **시작** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의** 함을 클릭 하 여 라이선스에 동의 합니다.
+2. **Welcome** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의** 함을 클릭 하 여 라이선스에 동의 합니다.
 3. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다.
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.

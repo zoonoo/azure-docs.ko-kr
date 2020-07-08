@@ -4,25 +4,24 @@ description: 이 문서에서는 SSTP의 128 동시 연결 제한을 극복 하�
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983341"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
 P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 문서는 리소스 관리자 배포 모델에 적용 되며 OpenVPN 프로토콜 또는 IKEv2로 전환 하 여 SSTP의 128 동시 연결 제한을 해결 하는 방법에 대해 설명 합니다.
 
-## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>P2S는 어떤 프로토콜을 사용합니까?
+## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>P2S에서 사용 하는 프로토콜
 
 지점 및 사이트 간 VPN에서는 다음 프로토콜 중 하나를 사용할 수 있습니다.
 
-* **Openvpn&reg; 프로토콜**, SSL/TLS 기반 vpn 프로토콜입니다. 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
+* **Openvpn &reg; 프로토콜**, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
 
 * 독점 SSL 기반 VPN 프로토콜인 **SSTP (Secure Socket Tunneling protocol)** 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다. **SSTP는 게이트웨이 SKU에 관계 없이 최대 128의 동시 연결을 지원**합니다.
 

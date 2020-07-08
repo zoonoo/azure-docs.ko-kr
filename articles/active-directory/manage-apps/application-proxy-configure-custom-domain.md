@@ -3,25 +3,24 @@ title: Azure AD 애플리케이션 프록시의 사용자 지정 도메인 | Mic
 description: Azure AD 애플리케이션 프록시에서 사용자 지정 도메인을 구성 및 관리합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
-ms.reviewer: harshja
+ms.author: kenwith
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764913"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 구성
 
@@ -138,7 +137,7 @@ PFX 인증서를 사용하여 필수 중간 인증서가 모두 포함되어 있
 
 모든 인증서 관리는 개별 애플리케이션 페이지를 통해 관리됩니다. 애플리케이션의 **애플리케이션 프록시** 페이지로 이동하여 **인증서** 필드에 액세스합니다.
 
-여러 애플리케이션에 동일한 인증서를 사용할 수 있습니다. 업로드된 인증서가 다른 애플리케이션에서 작동하는 경우 자동으로 적용됩니다. 앱을 추가하거나 구성할 때 다시 업로드하라는 메시지가 표시되지 않습니다. 
+응용 프로그램에 대 한 인증서를 업로드 하면 동일한 인증서를 사용 하는 구성 된 **새** 앱에도 자동으로 적용 됩니다. 테 넌 트에서 기존 앱에 대 한 인증서를 다시 업로드 해야 합니다.
 
 인증서가 만료되면 다른 인증서를 업로드하라는 경고를 받습니다. 인증서가 해지되면 앱에 액세스할 때 보안 경고가 사용자에게 표시될 수 있습니다. 앱에 대한 인증서를 업데이트하려면 앱에 대한 **애플리케이션 프록시** 페이지로 이동하고 **인증서**를 선택한 후, 새 인증서를 업로드합니다. 이전 인증서가 다른 앱에서 사용되고 있지 않으면 자동으로 삭제됩니다. 
 

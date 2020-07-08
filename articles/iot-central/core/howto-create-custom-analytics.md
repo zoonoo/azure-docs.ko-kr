@@ -9,12 +9,11 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7c2c14a937b4ef55d0e5f71e7b20214428ecd68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660135"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장
 
@@ -37,9 +36,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
-| 요금제 | Standard |
+| 요금제 | 표준 |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -59,9 +58,9 @@ Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCen
 
 Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이스를 만듭니다](https://portal.azure.com/#create/Microsoft.EventHub) .
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
-| 속성    | 네임 스페이스 이름 선택 |
+| Name    | 네임 스페이스 이름 선택 |
 | 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
 | Resource group | IoTCentralAnalysis |
@@ -72,13 +71,13 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 
 Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스를 만듭니다](https://portal.azure.com/#create/Microsoft.Databricks) .
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
 | 작업 영역 이름    | 작업 영역 이름 선택 |
 | Subscription | 사용자의 구독 |
 | Resource group | IoTCentralAnalysis |
 | 위치 | 미국 동부 |
-| 가격 책정 계층 | Standard |
+| 가격 책정 계층 | 표준 |
 
 필요한 리소스를 만든 경우 **IoTCentralAnalysis** 리소스 그룹은 다음 스크린샷 처럼 보입니다.
 
@@ -91,7 +90,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스�
 1. Azure Portal에서 Event Hubs 네임 스페이스로 이동 하 고 **+ 이벤트 허브**를 선택 합니다.
 1. 이벤트 허브의 이름을 **centralexport**으로 선택 하 고 **만들기**를 선택 합니다.
 1. 네임 스페이스의 이벤트 허브 목록에서 **centralexport**를 선택 합니다. 그런 다음 **공유 액세스 정책**을 선택 합니다.
-1. **+ 추가**를 선택합니다. **수신 클레임으로** **수신 대기** 라는 정책을 만듭니다.
+1. **+추가**를 선택합니다. **수신 클레임으로** **수신 대기** 라는 정책을 만듭니다.
 1. 정책이 준비 되 면 목록에서이를 선택 하 고 **연결 문자열-기본 키** 값을 복사 합니다.
 1. 이 연결 문자열을 기록해 둡니다. 나중에 이벤트 허브에서 읽도록 Databricks 노트북을 구성할 때이 연결 문자열을 사용 합니다.
 
@@ -106,15 +105,15 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
-    | 사용 | 설정 |
+    | 사용 | 켜기 |
     | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
     | 이벤트 허브 | centralexport |
-    | 측정 | 설정 |
-    | 디바이스 | 꺼짐 |
-    | 디바이스 템플릿 | 꺼짐 |
+    | 측정 | 켜기 |
+    | 디바이스 | 끄기 |
+    | 디바이스 템플릿 | 끄기 |
 
 ![데이터 내보내기 구성](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -130,10 +129,10 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 다음 표의 정보를 사용 하 여 클러스터를 만듭니다.
 
-| 설정 | 값 |
+| Setting | 값 |
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
-| 클러스터 모드 | Standard |
+| 클러스터 모드 | 표준 |
 | Databricks Runtime 버전 | 5.5 LTS (Scala 2.11, Spark 2.4.3) |
 | Python 버전 | 3 |
 | 자동 크기 조정 사용 | 아니요 |
@@ -231,4 +230,4 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 * *연속 데이터 내보내기를*사용 하 여 IoT Central 응용 프로그램에서 원격 분석을 스트리밍합니다.
 * 원격 분석 데이터를 분석 및 플롯 하는 Azure Databricks 환경을 만듭니다.
 
-이제 사용자 지정 분석을 만드는 방법을 배웠으므로 제안 된 다음 단계는 [응용 프로그램을 관리](howto-administer.md)하는 방법을 배우는 것입니다.
+이제 사용자 지정 분석을 만드는 방법을 배웠으므로 제안 된 다음 단계는 [Power BI 대시보드에서 Azure IoT Central 데이터를 시각화 하 고 분석](howto-connect-powerbi.md)하는 방법을 배우는 것입니다.

@@ -4,13 +4,12 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP 주소를 사용하여 NGINX 수신 컨트롤러를 설치하고 구성하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: a44a41806af30479f06ec4daba936c7aa71ef5d7
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.date: 07/02/2020
+ms.openlocfilehash: f10bed46f93af3579f07e04d9940fc98eef67826
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920312"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -27,7 +26,7 @@ ms.locfileid: "82561916"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러 및 인증서 관리자를 설치 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
 
@@ -53,8 +52,8 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 수신 컨트롤러는 수신 컨트롤러 서비스에 할당 되는 부하 분산 장치의 고정 IP 주소와 공용 IP 주소 리소스에 적용 되는 DNS 이름 레이블을 모두 인식 하도록 투구 릴리스에 두 개의 추가 매개 변수를 전달 해야 합니다. HTTPS 인증서가 제대로 작동 하려면 DNS 이름 레이블이 수신 컨트롤러 IP 주소에 대 한 FQDN을 구성 하는 데 사용 됩니다.
 
-1. 매개 변수 `--set controller.service.loadBalancerIP` 를 추가 합니다. 이전 단계에서 만든 사용자 고유의 공용 IP 주소를 지정 합니다.
-1. 매개 변수 `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` 를 추가 합니다. 이전 단계에서 만든 공용 IP 주소에 적용할 DNS 이름 레이블을 지정 합니다.
+1. `--set controller.service.loadBalancerIP`매개 변수를 추가 합니다. 이전 단계에서 만든 사용자 고유의 공용 IP 주소를 지정 합니다.
+1. `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"`매개 변수를 추가 합니다. 이전 단계에서 만든 공용 IP 주소에 적용할 DNS 이름 레이블을 지정 합니다.
 
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
@@ -69,6 +68,9 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -167,7 +169,7 @@ clusterissuer.cert-manager.io/letsencrypt-staging created
 
 수신 컨트롤러와 인증서 관리 솔루션이 구성되었습니다. 이제 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서는 Helm을 사용하여 간단한 ‘Hello world’ 애플리케이션의 두 인스턴스를 배포합니다.
 
-작동 중인 수신 컨트롤러를 확인 하려면 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행 합니다. 이 예제에서는를 사용 `kubectl apply` 하 여 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 합니다.
+작동 중인 수신 컨트롤러를 확인 하려면 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행 합니다. 이 예제에서는 `kubectl apply` 를 사용 하 여 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 합니다.
 
 *Aks* 파일을 만들고 다음 예제 yaml에 복사 합니다.
 
@@ -245,7 +247,7 @@ spec:
     app: ingress-demo
 ```
 
-다음을 사용 하 여 `kubectl apply`두 개의 데모 응용 프로그램을 실행 합니다.
+다음을 사용 하 여 두 개의 데모 응용 프로그램을 실행 합니다 `kubectl apply` .
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -348,9 +350,9 @@ certificate.cert-manager.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>수신 구성 테스트
 
-Kubernetes 수신 컨트롤러의 FQDN (예:)에 대 한 웹 브라우저를 *`https://demo-aks-ingress.eastus.cloudapp.azure.com`* 엽니다.
+Kubernetes 수신 컨트롤러의 FQDN (예:)에 대 한 웹 브라우저를 엽니다 *`https://demo-aks-ingress.eastus.cloudapp.azure.com`* .
 
-이러한 예제에서를 `letsencrypt-staging`사용 하는 경우 발급 된 TLS/SSL 인증서가 브라우저에서 신뢰 되지 않습니다. 경고 프롬프트를 수락하여 애플리케이션에서 계속 진행합니다. 인증서 정보에 이 *Fake LE Intermediate X1* 인증서가 Let's Encrypt에서 발급되었다고 표시됩니다. 이 가짜 인증서는 `cert-manager`에서 요청을 올바르게 처리했으며 공급자로부터 인증서를 받았음을 나타냅니다.
+이러한 예제에서를 사용 하는 `letsencrypt-staging` 경우 발급 된 TLS/SSL 인증서가 브라우저에서 신뢰 되지 않습니다. 경고 프롬프트를 수락하여 애플리케이션에서 계속 진행합니다. 인증서 정보에 이 *Fake LE Intermediate X1* 인증서가 Let's Encrypt에서 발급되었다고 표시됩니다. 이 가짜 인증서는 `cert-manager`에서 요청을 올바르게 처리했으며 공급자로부터 인증서를 받았음을 나타냅니다.
 
 ![Let's Encrypt 스테이징 인증서](media/ingress/staging-certificate.png)
 
@@ -372,7 +374,7 @@ Kubernetes 수신 컨트롤러의 FQDN (예:)에 대 한 웹 브라우저를 *`h
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임 스페이스 및 모든 리소스 삭제
 
-전체 샘플 네임 스페이스를 삭제 하려면 `kubectl delete` 명령을 사용 하 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
+전체 샘플 네임 스페이스를 삭제 하려면 명령을 사용 하 `kubectl delete` 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -397,7 +399,7 @@ nginx-ingress           ingress-basic   1               2020-01-11 14:51:03.4541
 cert-manager            ingress-basic   1               2020-01-06 21:19:03.866212286  deployed        cert-manager-v0.13.0    v0.13.0
 ```
 
-`helm uninstall` 명령을 사용 하 여 릴리스를 제거 합니다. 다음 예제에서는 NGINX 수신 배포 및 인증서 관리자 배포를 제거 합니다.
+명령을 사용 하 여 릴리스를 제거 합니다 `helm uninstall` . 다음 예제에서는 NGINX 수신 배포 및 인증서 관리자 배포를 제거 합니다.
 
 ```
 $ helm uninstall nginx-ingress cert-manager -n ingress-basic

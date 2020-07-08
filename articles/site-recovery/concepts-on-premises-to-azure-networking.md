@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770495"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>온-프레미스에서 장애 조치 (failover) 후 Azure Vm에 연결 
 
@@ -45,7 +44,7 @@ Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 �
 
 4. 장애 조치 (failover) 후 인터넷을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 공용 프로필의 TCP 및 UDP를 허용 하 고 RDP를 모든 프로필에 대해 허용 되는 앱으로 설정 합니다.
 
-5. 장애 조치 (failover) 후 사이트 간 VPN을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 도메인 및 개인 프로필에 대 한 RDP를 허용 합니다. RDP 트래픽을 허용하는 방법에 대해 [알아보세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules).
+5. 장애 조치 (failover) 후 사이트 간 VPN을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 도메인 및 개인 프로필에 대 한 RDP를 허용 합니다. RDP 트래픽을 허용 하는 방법에 [대해 알아봅니다](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) .
 6. 장애 조치 (failover)를 트리거할 때 온-프레미스 VM에 보류 중인 Windows 업데이트가 없는지 확인 합니다. 업데이트가 있으면 장애 조치 (failover) 후 업데이트가 Azure VM에 설치를 시작할 수 있으며 업데이트가 완료 될 때까지 VM에 로그인 할 수 없습니다.
 
 ### <a name="prepare-linux-machines"></a>Linux 머신 준비
@@ -62,7 +61,7 @@ Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 �
 
 1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 동일한 공용 IP 주소는 Azure VM에 사용할 수 없습니다. [자세한 정보](../virtual-network/virtual-network-public-ip-address.md)
 2. VM의 NSG(네트워크 보안 그룹) 규칙에서 RDP 또는 SSH 포트로 들어오는 연결을 허용하는지 확인합니다.
-3. [부팅 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine)을 확인하여 VM을 살펴봅니다.
+3. [부트 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 을 확인 하 여 VM을 확인 합니다.
 
 
 > [!NOTE]
@@ -96,7 +95,7 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
 ### <a name="failover-example"></a>장애 조치 예제
 
-예제를 살펴보겠습니다.
+한 가지 예를 살펴보겠습니다.
 
 - 가상의 회사 Woodgrove Bank는 온-프레미스의 비즈니스 앱을 호스트 하 여 Azure에서 모바일 앱을 호스팅합니다.
 - 사이트 간 VPN을 통해 온-프레미스에서 Azure로 연결 합니다. 
@@ -149,11 +148,21 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
 ## <a name="get-new-ip-addresses"></a>새 IP 주소 가져오기
 
-이 시나리오에서 Azure VM은 장애 조치 (failover) 후에 새 IP 주소를 가져옵니다. 장애 조치 (failover) 된 컴퓨터에서 Azure VM의 IP 주소를 가리키도록 레코드를 업데이트 하는 DNS 업데이트입니다.
+이 시나리오에서 Azure VM은 장애 조치 (failover) 후에 새 IP 주소를 가져옵니다. 장애 조치 (failover) 후 생성 된 가상 컴퓨터에 대 한 새 IP 주소를 설정 하려면 다음 단계를 참조 하세요.
 
+1. 복제 된 **항목**으로 이동 합니다.
+2. 원하는 Azure virtual machine을 선택 합니다.
+3. **Compute 및 네트워크** 를 선택 하 고 **편집**을 선택 합니다.
 
+     ![장애 조치 (failover) 네트워킹 구성 사용자 지정](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+
+4. 장애 조치 (Failover) 네트워크 설정을 업데이트 하려면 구성 하려는 NIC에 대해 **편집** 을 선택 합니다. 열린 다음 페이지에서 테스트 장애 조치 (failover) 및 장애 조치 (failover) 위치에 미리 만든 해당 IP 주소를 제공 합니다.
+
+    ![NIC 구성 편집](media/azure-to-azure-customize-networking/nic-drilldown.png)
+
+5. **확인**을 선택합니다.
+
+이제 Site Recovery는 이러한 설정을 적용 하 고, 대상 IP 범위에서 사용할 수 있는 경우 장애 조치 (failover)의 가상 컴퓨터가 해당 IP 주소를 통해 선택한 리소스에 연결 되도록 합니다. 이 시나리오에서는 전체 서브넷을 장애 조치 (failover) 할 필요가 없습니다. 장애 조치 (failover) 된 컴퓨터에서 가상 컴퓨터의 새 IP 주소를 가리키도록 레코드를 업데이트 하려면 DNS 업데이트가 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 온-프레미스 Active Directory 및 DNS를 Azure로 복제 하는 [방법에 대해 알아봅니다](site-recovery-active-directory.md) .
-
-

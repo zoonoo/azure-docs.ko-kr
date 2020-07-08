@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 6deb5714a43d61f5ceb793757d49bd099f09f2b7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977657"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027565"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -50,7 +49,9 @@ Azure 표준 Load Balancer는 가용성 영역 시나리오를 지원 합니다.
 
 프런트 엔드의 IP 주소는 여러 가용성 영역에서 여러 독립 인프라 배포에 의해 동시에 처리 됩니다. 재시도 또는 재설정는 영역 실패의 영향을 받지 않는 다른 영역에서 성공 합니다. 
 
-:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="영역 중복" border="true":::
+<p align="center">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Virtual Network NAT">
+</p>
 
 *그림: 영역 중복 부하 분산 장치*
 
@@ -60,7 +61,12 @@ Azure 표준 Load Balancer는 가용성 영역 시나리오를 지원 합니다.
 
 또한 각 영역 내의 부하 분산 된 끝점에 대해 영역 프런트 엔드를 직접 사용 하는 것이 지원 됩니다. 이 구성을 사용 하 여 각 영역을 개별적으로 모니터링 하기 위해 부하 분산 된 영역 당 끝점을 노출할 수 있습니다. 공용 끝점의 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md) 와 같은 dns 부하 분산 제품과 통합 하 고 단일 dns 이름을 사용할 수 있습니다.
 
-:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="영역 중복" border="true":::
+
+<p align="center">
+  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Virtual Network NAT">
+</p>
+
+*그림: 영역 중복 부하 분산 장치*
 
 이러한 개념(동일한 백 엔드에 대한 영역 중복 및 영역)을 혼합하려면 [Azure Load Balancer의 다중 프런트 엔드](load-balancer-multivip-overview.md)를 검토하세요.
 
@@ -98,7 +104,7 @@ SNAT 포트 미리 할당 알고리즘은 가용성 영역을 사용 하거나 �
 
 부하 분산 장치는 가용성 영역의 맥락에서 유연 합니다. 영역에 맞추거나 각 규칙에 대해 영역 중복으로 선택할 수 있습니다. 가용성 증가는 복잡성이 증가 하는 가격으로 제공 될 수 있습니다. 최적 성능을 위한 가용성을 설계 합니다.
 
-### <a name="automatic-zone-redundancy"></a>자동 영역 중복
+### <a name="zone-redundancy"></a>영역-중복성
 
 Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간단하게 만들 수 있습니다. 영역 중복 IP 주소는 모든 영역에서 영역 리소스를 제공할 수 있습니다.  영역 내에서 한 영역이 정상 상태로 유지 되는 한 하나 이상의 영역 오류에 IP가 남아 있을 수 있습니다.  대신 영역 프런트 엔드는 단일 영역에 대 한 서비스를 줄이고 해당 영역에 대 한 공유를 공유 하는 것입니다.
 

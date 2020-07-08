@@ -3,12 +3,11 @@ title: 잘못된 템플릿 오류
 description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832524"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324065"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -29,7 +28,7 @@ Message=<varies>
 
 이 오류로 인해 별도의 몇 가지 유형의 오류가 발생할 수 있습니다. 일반적으로 템플릿에는 구문 또는 구조 오류가 있습니다.
 
-<a id="syntax-error" />
+<a id="syntax-error"></a>
 
 ## <a name="solution-1---syntax-error"></a>해결 방법 1 - 구문 오류
 
@@ -50,7 +49,7 @@ Message=Deployment template validation failed
 
 이러한 오류 유형을 수신하면 식 구문을 주의 깊게 검토합니다. [Visual Studio](create-visual-studio-deployment-project.md) 또는 [Visual Studio Code](use-vs-code-to-create-template.md)와 같이 구문 오류에 대해 경고할 수 있는 JSON 편집기를 사용하는 것을 고려해 보세요.
 
-<a id="incorrect-segment-lengths" />
+<a id="incorrect-segment-lengths"></a>
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>해결 방법 2 - 잘못된 세그먼트 길이
 
@@ -111,7 +110,7 @@ for type {resource-type} has incorrect segment lengths.
 }
 ```
 
-<a id="parameter-not-valid" />
+<a id="parameter-not-valid"></a>
 
 ## <a name="solution-3---parameter-is-not-valid"></a>해결 방법 3 - 잘못된 매개 변수
 
@@ -126,13 +125,13 @@ part of the allowed values
 
 템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다. 허용되는 매개 변수 값에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수 섹션](template-syntax.md#parameters)을 참조하세요.
 
-<a id="too-many-resource-groups" />
+<a id="too-many-resource-groups"></a>
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>해결 방법 4 - 너무 많은 대상 리소스 그룹
 
 단일 배포에서는 5개의 대상 리소스 그룹으로 제한되어 있기 때문에 이전 배포에서 이 오류가 표시될 수 있습니다. 2020년 5월, 이 제한이 800개의 리소스 그룹으로 증가되었습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-resource-group-deployment.md)를 참조하세요.
 
-<a id="circular-dependency" />
+<a id="circular-dependency"></a>
 
 ## <a name="solution-5---circular-dependency-detected"></a>해결 방법 5 - 순환 종속성이 발견됨
 

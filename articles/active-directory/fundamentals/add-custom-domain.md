@@ -7,22 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 1cfa00cceac6c30219d4577cc4ba29c84cb1a75a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603964"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 
-모든 새 Azure AD 테 넌 트는 초기 도메인 이름 * \<domainname> onmicrosoft.com*와 함께 제공 됩니다. 초기 도메인 이름을 변경 하거나 삭제할 수는 없지만 조직의 이름을 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가 하면 사용자에 게 친숙 한 사용자 이름 (예: *alain\@contoso.com*)을 만들 수 있습니다.
+모든 새 Azure AD 테 넌 트는 초기 도메인 이름 * \<domainname> . onmicrosoft.com*와 함께 제공 됩니다. 초기 도메인 이름을 변경 하거나 삭제할 수는 없지만 조직의 이름을 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가 하면 사용자에 게 친숙 한 사용자 이름 (예: *alain \@ contoso.com*)을 만들 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -50,7 +49,7 @@ ms.locfileid: "82734742"
 
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 모든 페이지에서 *Azure Active Directory* 를 검색 하 고 선택 합니다. 그런 다음 **사용자 지정 도메인 이름** > **사용자 지정 도메인 추가**를 선택 합니다.
+1. 모든 페이지에서 *Azure Active Directory*를 검색하고 선택합니다. 그런 다음 **사용자 지정 도메인 이름**  >  **사용자 지정 도메인 추가**를 선택 합니다.
 
     ![사용자 지정 도메인 이름 페이지, 표시 된 사용자 지정 도메인 추가](media/add-custom-domain/add-custom-domain.png)
 

@@ -7,17 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83a48ad13fe4ae217319b2aa85adf976aa6a7ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd5fc389ccb52c4a5eeec0e0f544a17b011333a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77149850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604525"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
 Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 사용자 또는 서비스 사용자 일 수 있으며 구성원 자격을 포함 하 여 그룹을 관리할 수 있습니다. 기존 그룹 소유자 또는 그룹 관리 관리자만 그룹 소유자를 할당할 수 있습니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다.

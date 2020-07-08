@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921541"
 ---
 # <a name="what-are-wrangling-data-flows"></a>랭 글 링 데이터 흐름은 무엇 인가요?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 조직은 매일 계속 증가 하는 복잡 한 데이터를 정확 하 게 분석 하기 위해 데이터 준비 및 랭 글 링을 수행 해야 합니다. 조직에서 다양 한 비즈니스 프로세스의 데이터를 사용 하 고 시간 값을 줄일 수 있도록 데이터를 준비 해야 합니다.
 
@@ -25,6 +25,9 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 랭 글 링 데이터 흐름은 파워 쿼리 온라인 매시업 편집기에 의해 생성 된 M을 클라우드 규모 실행을 위한 spark 코드로 변환 합니다.
 
 랭 글 링 데이터 흐름은 데이터 엔지니어 또는 ' 시민 데이터 통합자 '에 게 특히 유용 합니다.
+
+> [!NOTE]
+> 랭 글 링 데이터 흐름은 현재 공개 미리 보기로 제공 되는 가능한
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -40,7 +43,7 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 
 코드를 사용 하지 않는 방식으로 데이터를 시각적으로 검사 하 여 이상 값, 이상 값을 제거 하 고 빠른 분석을 위해 셰이프를 준수 합니다.
 
-## <a name="supported-sources"></a>지원 되는 원본
+## <a name="supported-sources"></a>지원되는 원본
 
 | 커넥터 | 데이터 형식 | 인증 유형 |
 | -- | -- | --|

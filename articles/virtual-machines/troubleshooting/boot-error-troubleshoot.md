@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71059177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769611"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Azure Virtual Machines 부팅 오류 문제 해결
 
@@ -26,12 +25,12 @@ ms.locfileid: "71059177"
 ## <a name="boot-errors-and-solutions"></a>부팅 오류 및 해결 방법
 
 * [BitLocker 부팅 오류](troubleshoot-bitlocker-boot-error.md) 
+* [Windows 업데이트 후 VM이 부팅 되지 않습니다.](troubleshoot-stuck-updating-boot-error.md)
 * [Windows 부팅 중에 “파일 시스템 확인” 표시](troubleshoot-check-disk-boot-error.md)
 * [블루 스크린 오류](troubleshoot-common-blue-screen-error.md)
 * [VM 시작이 "Windows 준비"에 걸려 있습니다.](troubleshoot-vm-boot-configure-update.md)
 * [블루 스크린의 “중요 서비스 실패” 오류](troubleshoot-critical-service-failed-boot-error.md)
 * [다시 부팅 루프 문제](troubleshoot-reboot-loop.md)
-* [VM 시작이 Windows 업데이트 단계에서 중단되는 경우](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>다음 단계
 

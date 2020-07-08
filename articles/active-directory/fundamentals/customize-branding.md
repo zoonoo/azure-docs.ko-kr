@@ -7,29 +7,28 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 14e1e84fa96b1e6b686d039abedd38e080b5720e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603913"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Office 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
 
->[!Note]
+>[!NOTE]
 >사용자 지정 브랜딩을 추가하려면 Azure Active Directory Premium 1, Premium 2 또는 Basic 버전을 사용하거나 Office 365 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 및 Basic 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD 로그인 페이지 사용자 지정
 사용자가 조직의 테넌트별 앱(예: `https://outlook.com/contoso.com`)에 로그인하거나 도메인 변수(예: `https://passwordreset.microsoftonline.com/?whr=contoso.com`)를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.
 
-사용자가 www\.office.com 등의 사이트로 이동 하는 경우 사용자 지정 브랜딩은 즉시 나타나지 않습니다. 대신, 사용자 지정된 브랜딩이 표시되기 전에 사용자는 로그인해야 합니다. 사용자가 로그인 한 후에는 브랜딩을 15 분 이상 걸릴 수 있습니다. 
+사용자가 www office.com 등의 사이트로 이동 하는 경우 사용자 지정 브랜딩은 즉시 나타나지 않습니다 \. . 대신, 사용자 지정된 브랜딩이 표시되기 전에 사용자는 로그인해야 합니다. 사용자가 로그인 한 후에는 브랜딩을 15 분 이상 걸릴 수 있습니다. 
 
 > [!NOTE]
 > 모든 브랜딩 요소는 선택 사항입니다. 예를 들어 배경 이미지가 없는 배너 로고를 지정하는 경우 로그인 페이지는 대상 사이트(예: Office 365)의 기본 배경 이미지를 사용하여 로고를 표시합니다.<br><br>또한 로그인 페이지 브랜딩은 개인 Microsoft 계정으로 전달 되지 않습니다. 사용자 또는 비즈니스 게스트가 개인 Microsoft 계정을 사용하여 로그인하는 경우 로그인 페이지는 조직의 브랜딩을 반영하지 않습니다.
@@ -43,14 +42,14 @@ ms.locfileid: "82982040"
 
 3. **회사 브랜딩 구성** 페이지에서 다음 정보 중 일부 또는 모두를 제공합니다.
 
-    >[!Important]
+    >[!IMPORTANT]
     >이 페이지에 추가한 모든 사용자 지정 이미지에는 이미지 크기(픽셀) 및 잠재적으로 파일 크기(KB) 제한이 포함됩니다. 이러한 제한 사항으로 인해 사진 편집기를 사용하여 적절한 크기의 이미지를 만들어야 할 가능성이 높습니다.
 
     - **일반 설정**
 
         ![일반 설정을 완료한 회사 브랜딩 구성 페이지](media/customize-branding/configure-company-branding-general-settings.png)
 
-        - **언어도.** 언어는 기본값으로 자동 설정되고 변경될 수 없습니다.
+        - **Language:** 언어는 기본값으로 자동 설정되고 변경될 수 없습니다.
         
         - **로그인 페이지 배경 이미지** .png 또는 .jpg 이미지 파일을 선택하여 로그인 페이지의 배경으로 표시합니다. 이미지는 브라우저의 중앙에 고정 되 고 볼 수 있는 공간의 크기에 맞게 조정 됩니다. 크기 1920 x 1080 픽셀 보다 큰 이미지를 선택할 수 없거나 파일 크기가 300 KB 보다 큰 이미지를 선택할 수 없습니다.
         
@@ -62,7 +61,17 @@ ms.locfileid: "82982040"
 
         - **Username 힌트입니다.** 사용자 이름을 잊어버린 경우 사용자에게 표시되는 힌트 텍스트를 입력합니다. 이 텍스트는 링크 또는 코드 없는 유니코드여야 하고 64자를 초과할 수 없습니다. 게스트가 앱에 로그인하는 경우 이 힌트를 추가하는 것이 좋습니다.
 
-        - **로그인 페이지 텍스트** 로그인 페이지의 맨 아래에 표시되는 텍스트를 입력합니다. 이 텍스트를 사용하여 지원 센터에 대한 전화 번호 또는 법적 설명과 같은 추가 정보를 주고 받을 수 있습니다. 이 텍스트는 유니코드여야 하고 256자를 초과할 수 없습니다.
+        - **로그인 페이지 텍스트 및 서식 지정.** 로그인 페이지의 맨 아래에 표시되는 텍스트를 입력합니다. 이 텍스트를 사용하여 지원 센터에 대한 전화 번호 또는 법적 설명과 같은 추가 정보를 주고 받을 수 있습니다. 이 텍스트는 유니코드 여야 하며 1024 자를 초과 하지 않아야 합니다.
+
+           입력 한 로그인 페이지 텍스트를 사용자 지정할 수 있습니다. 새 단락을 시작 하려면 enter 키를 두 번 사용 합니다. 텍스트 서식을 변경 하 여 굵게, 기울임꼴, 밑줄 또는 클릭할 수 있는 링크를 포함할 수도 있습니다. 텍스트에 서식을 추가 하려면 다음 구문을 사용 합니다. 
+
+          > 하이퍼링크로```[text](link)``` 
+          
+          > 굵게: ``` **text** ``` 또는``` __text__ ``` 
+          
+          > 기울임꼴: ``` *text* ``` 또는``` _text_ ``` 
+          
+          > 바뀝니다``` ++text++ ``` 
 
     - **고급 설정**
             
@@ -77,8 +86,10 @@ ms.locfileid: "82982040"
         - **사각형 로고 이미지, 어두운 테마** 위의 사각형 로고 이미지와 동일합니다. 이 로고 이미지는 기본 제공 환경(OOBE)에서 Windows 10 Azure AD 조인 화면을 사용하는 등 어두운 배경에서 사용될 때 사각형 로고 이미지를 대신합니다.  로고가 흰색, 진한 파랑 및 검은색 배경에 적합 한 경우이 이미지를 추가할 필요가 없습니다. 
         
         - **로그인 상태를 유지하는 옵션 표시** 명시적으로 로그 아웃할 때까지 사용자가 Azure AD에 로그인 된 상태를 유지 하도록 선택할 수 있습니다. **아니요**를 선택 하는 경우이 옵션은 숨겨지고 브라우저를 닫았다가 다시 열 때마다 사용자가 로그인 해야 합니다.
+
+            로그인 상태를 유지 하는 옵션을 구성 하 고 문제를 해결 하는 방법에 대 한 자세한 내용은 [AZURE AD 계정에 대 한 ' 로그인 유지 "프롬프트 구성](keep-me-signed-in.md) 을 참조 하세요.
         
-            >[!Note]
+            >[!NOTE]
             >SharePoint Online과 Office 2010의 일부 기능은 로그인 상태를 유지하도록 선택할 수 있는 사용자에 따라 달라집니다. 이 옵션을 **아니요**로 설정하는 경우 사용자에게 로그인을 요청하는 예상치 못한 메시지가 추가로 표시될 수 있습니다.
    
 
@@ -86,7 +97,7 @@ ms.locfileid: "82982040"
 
     이 프로세스에서 첫 번째 사용자 지정 브랜딩 구성을 생성하면 테넌트에 대한 기본값이 됩니다. 추가 구성이 있는 경우 기본 구성을 선택할 수 있습니다.
     
-    >[!Important]
+    >[!IMPORTANT]
     >회사 브랜딩을 테넌트에 더 추가하려면 **Contoso - 회사 브랜딩** 페이지에서 **새 언어**를 선택해야 합니다. 그러면 **구성 회사 브랜딩** 페이지가 열립니다. 여기서는 위와 동일한 단계를 따르면 됩니다.
 
 ## <a name="update-your-custom-branding"></a>사용자 지정 브랜딩 업데이트
@@ -134,5 +145,3 @@ ms.locfileid: "82982040"
 
 **원본 URL:** https://aka.ms/SSPR<br>
 **사용자 지정 URL:**`https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
- 

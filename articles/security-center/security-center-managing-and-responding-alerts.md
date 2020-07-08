@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769784"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 응답
 
@@ -58,21 +57,26 @@ ms.locfileid: "80398398"
 
 1. 정보를 검토 한 후 공격을 받은 리소스를 클릭 합니다.
 
+    보안 경고 페이지의 왼쪽 창에는 보안 경고의 제목, 심각도, 상태, 작업 시간, 의심 스러운 활동 설명 및 영향을 받는 리소스에 대 한 높은 수준의 정보가 표시 됩니다. 영향을 받는 리소스와 함께 리소스와 관련 된 Azure 태그가 있습니다. 이를 사용 하 여 경고를 조사할 때 리소스의 조직 컨텍스트를 유추 합니다.
+
+    오른쪽 창에는 문제를 조사 하는 데 도움이 되는 경고에 대 한 자세한 정보를 포함 하는 **경고 정보** 탭 (IP 주소, 파일, 프로세스 등)이 포함 되어 있습니다.
+     
     ![보안 경고에 대해 수행할 작업에 대 한 제안](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    **일반 정보** 섹션은 보안 경고를 트리거한 항목에 대 한 통찰력을 제공할 수 있습니다. 대상 리소스, 원본 IP 주소 (해당 하는 경우), 경고가 아직 활성 상태인 경우, 수정 하는 방법에 대 한 권장 사항 등의 정보가 표시 됩니다.  
+    오른쪽 창에는 **작업 수행** 탭도 있습니다 .이 탭을 사용 하 여 보안 경고와 관련 된 추가 작업을 수행할 수 있습니다. 작업은 다음과 같습니다.
+    - *위협 완화* -이 보안 경고에 대 한 수동 수정 단계를 제공 합니다.
+    - *향후 공격 방지* -공격 노출 영역을 줄이고 보안 상태를 높이고 이후 공격을 방지 하는 데 도움이 되는 보안 권장 사항을 제공 합니다.
+    - *자동 응답 트리거* -이 보안 경고에 대 한 응답으로 논리 앱을 트리거하는 옵션을 제공 합니다.
+    - *유사한 경고 표시 안 함* -경고가 조직과 관련이 없는 경우 유사한 특성을 가진 이후 경고를 표시 하지 않는 옵션을 제공 합니다.
 
-    > [!NOTE]
-    >일부 경우에는 원본 IP 주소를 사용할 수 없습니다. 일부 Windows 보안 이벤트 로그에는 IP 주소가 포함 되지 않습니다.
+    ![작업 탭 사용](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-1. Security Center에서 제안하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 
 
-    일부 경우에는 보안 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
 
-## <a name="see-also"></a>참고 항목
 
-이 문서에서는 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+## <a name="see-also"></a>참조
 
-- [Azure Security Center의 경고 기능을 사용 하 여 위협을 감시 하 고 대응 하는 방법에 대 한 Microsoft Learn 모듈](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
-* [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
-* [보안 인시던트 처리](security-center-incident.md)
+이 문서에서는 보안 경고를 보는 방법에 대해 알아보았습니다. 관련 자료는 다음 페이지를 참조 하세요.
+
+- [경고 억제 규칙 구성](alerts-suppression-rules.md)
+- [워크플로 자동화를 사용 하 여 경고 및 권장 사항에 대 한 응답 자동화](workflow-automation.md)

@@ -3,25 +3,24 @@ title: 응용 프로그램 프록시 앱에 대 한 작동 중인 커넥터 그�
 description: Azure AD 애플리케이션 프록시를 사용하는 애플리케이션에 대한 커넥터 그룹에 작동 중인 커넥터가 없을 때 발생할 수 있는 주소 문제
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96ab0d1b3bbab9c97c04da4f918f3aaa2f1d07e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1a9b43660889a318b2085f3aa8c1060daebe0244
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764743"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 작동하는 커넥터 그룹 없음
 
@@ -69,6 +68,6 @@ ms.locfileid: "74275614"
 이 문제를 조사하는 방법에 대한 자세한 내용은 포트 문제 해결 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
+[Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
 
 

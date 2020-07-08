@@ -5,16 +5,15 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022421"
 ---
 # <a name="z-fighting-mitigation"></a>Z-fighting 완화
 
-두 표면이 겹치면 어느 표면을 다른 표면 위에 렌더링해야 하는지 명확하지 않습니다. 결과는 픽셀마다 다르므로 뷰 종속 아티팩트가 생성됩니다. 따라서 카메라나 메시가 움직이면 이러한 패턴이 눈에 띄게 깜박입니다. 이 아티팩트를 *z-fighting*이라고 합니다. AR 및 VR 응용 프로그램의 경우 머리에 탑재된 장치가 자연스럽게 항상 움직이기 때문에 문제가 심화됩니다. 시청자의 불편을 방지하기 위해 z-fighting 완화 기능이 Azure Remote Rendering에서 제공됩니다.
+두 표면이 겹치면 어느 표면을 다른 표면 위에 렌더링해야 하는지 명확하지 않습니다. 결과는 픽셀 마다 다르므로 카메라 뷰 종속 아티팩트가 발생 합니다. 따라서 카메라나 메시가 움직이면 이러한 패턴이 눈에 띄게 깜박입니다. 이 아티팩트를 *z-fighting*이라고 합니다. AR 및 VR 응용 프로그램의 경우 머리에 탑재된 장치가 자연스럽게 항상 움직이기 때문에 문제가 심화됩니다. 시청자의 불편을 방지하기 위해 z-fighting 완화 기능이 Azure Remote Rendering에서 제공됩니다.
 
 ## <a name="z-fighting-mitigation-modes"></a>z-fighting 완화 모드
 

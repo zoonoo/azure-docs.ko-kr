@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc35654403bbe1375d4188476b11fd0453f74345
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bd1022079b382353591857eacdedff344ed49f63
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984152"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 강제 터널링 구성
 
@@ -60,7 +59,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 DefaultSiteHQ를 설정하고 강제 터널링을 사용하도록 'Midtier' 및 'Backend' 서브넷을 구성합니다.
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 
 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
 

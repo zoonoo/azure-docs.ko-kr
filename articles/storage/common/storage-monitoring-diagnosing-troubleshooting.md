@@ -3,18 +3,17 @@ title: Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs
 description: 스토리지 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684664"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513381"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]

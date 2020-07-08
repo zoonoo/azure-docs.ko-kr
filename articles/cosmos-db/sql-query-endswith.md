@@ -4,19 +4,18 @@ description: 첫 번째 문자열 식이 두 번째 문자열 식으로 끝나�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322689"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH(Azure Cosmos DB)
 
- 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다.  
+첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -75,6 +74,8 @@ SELECT ENDSWITH("abc", "b", false) AS e1, ENDSWITH("abc", "bC", false) AS e2, EN
 ```
 
 도시의 카디널리티가 국가보다 높기 때문에 첫 번째 쿼리가 두 번째 쿼리보다 더 많은 RU를 사용할 것입니다.
+
+일부 문서에 대해 EndsWith의 속성 크기가 1kb 보다 큰 경우 쿼리 엔진은 해당 문서를 로드 해야 합니다. 이 경우 쿼리 엔진은 인덱스를 사용 하 여 EndsWith를 완전히 평가할 수 없습니다. 속성 크기가 1kb를 초과 하는 문서 수가 많은 경우에는 EndsWith 요금이 높아집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

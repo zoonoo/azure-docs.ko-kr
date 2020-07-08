@@ -8,12 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: eec5de7521c98e8147a8439844fd2a2a6b1bd2bc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73494522"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037497"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
 
@@ -30,13 +29,17 @@ ms.locfileid: "73494522"
 
 2. 다음 명령을 실행하여 Livy를 통해 시작한 대화형 작업의 애플리케이션 ID를 찾습니다.
 
-        yarn application –list
+   ```bash
+   yarn application –list
+   ```
 
     작업이 명시적으로 지정된 이름 없이 Livy 대화형 세션으로 시작된 경우 기본 작업 이름은 Livy가 됩니다. [Jupyter Notebook](https://jupyter.org/)에서 시작 된 Livy 세션의 경우 작업 이름은로 시작 `remotesparkmagics_*` 합니다.
 
 3. 다음 명령을 실행하여 해당 작업을 중지합니다.
 
-        yarn application –kill <Application ID>
+   ```bash
+   yarn application –kill <Application ID>
+   ```
 
 새 작업 실행이 시작됩니다.
 
@@ -115,7 +118,7 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 
 2. 시작하려는 노트북을 다시 시작합니다. 이제 세션을 만들기 위한 충분한 리소스를 사용할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
