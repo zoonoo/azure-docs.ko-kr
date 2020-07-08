@@ -5,13 +5,12 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/04/2020
+ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791149"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하여 Azure Cosmos 컨테이너 및 데이터베이스 만들기
 
@@ -29,7 +28,7 @@ Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준
 
 * **확장성:** 데이터베이스와 컨테이너는 필요에 따라 프로비저닝된 처리량을 자동으로 크기 조정합니다. 클라이언트 연결, 애플리케이션에 대한 중단 또는 Azure Cosmos DB SLA에 대한 영향은 없습니다.
 
-* **비용 효율성:** 자동 크기 조정은 사용하지 않을 때 축소하여 RU/s 사용량 및 비용 사용량을 최적화하는 데 도움이 됩니다. 워크로드에 필요한 리소스에 대해서만 시간당 기준으로 비용을 지불합니다.
+* **비용 효율성:** 자동 크기 조정은 사용하지 않을 때 축소하여 RU/s 사용량 및 비용 사용량을 최적화하는 데 도움이 됩니다. 워크로드에 필요한 리소스에 대해서만 시간당 기준으로 비용을 지불합니다. 자동 크기 조정 최대 r u/초 (Tmax)를 설정 하 고 전체 크기를 시간 중 66% 미만으로 사용 하는 경우 한 달에 모든 시간을 자동 크기 조정으로 저장 합니다. 자세히 알아보려면 [표준 (수동) 및 자동 크기 조정 프로 비전 된 처리량을 선택 하는 방법](how-to-choose-offer.md) 문서를 참조 하세요.
 
 * **고가용성:** 자동 크기 조정을 사용하는 데이터베이스 및 컨테이너는 데이터 내구성 및 고가용성을 보장하기 위해 전 세계적으로 분산된 내결함성이 있으며 가용성이 높은 동일한 Azure Cosmos DB 백 엔드를 사용합니다.
 
@@ -57,8 +56,9 @@ Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준
 
 자동 크기 조정 최대 처리량 `Tmax`의 진입점은 400~4000RU/s 범위에서 크기 조정되는 4000RU/s에 시작합니다. `Tmax`를 1000RU/s 단위로 설정하고 언제든지 값을 변경할 수 있습니다.  
 
-## <a name="enable-autoscale-on-existing-resources"></a>기존 리소스에서 자동 크기 조정 사용 ##
-[Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container)을 사용하여 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정합니다. 언제든지 자동 크기 조정과 표준(수동) 프로비저닝된 처리량 사이를 전환할 수 있습니다. 자세한 내용은 이 [설명서](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)를 참조하세요.
+## <a name="enable-autoscale-on-existing-resources"></a>기존 리소스에서 자동 크기 조정 사용
+
+[Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container)을 사용하여 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정합니다. 언제든지 자동 크기 조정과 표준(수동) 프로비저닝된 처리량 사이를 전환할 수 있습니다. 자세한 내용은 이 [설명서](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)를 참조하세요. 현재 모든 Api에 대해 Azure Portal를 사용 하 여 기존 리소스에 자동 크기 조정을 사용 하도록 설정할 수 있습니다.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> 자동 크기 조정에 대한 처리량 및 스토리지 제한
 

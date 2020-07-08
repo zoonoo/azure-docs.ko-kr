@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791387"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
 이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.
@@ -53,7 +52,7 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
     권장 사항을 필터링할 수 있습니다. 권장 사항을 필터링하려면 **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
 
    * **권장 사항**: 권장 사항.
-   * 보안 **점수 영향**: 보안 권장 사항을 사용 하 여 Security Center에서 생성 되는 점수 이며, 각 권장 사항의 중요 정도를 결정 하는 고급 알고리즘을 적용 합니다. 자세한 내용은 [보안 점수 계산](security-center-secure-score.md#secure-score-calculation)을 참조 하세요.
+   * 보안 **점수 영향**: 보안 권장 사항을 사용 하 여 Security Center에서 생성 되는 점수 이며, 각 권장 사항의 중요 정도를 결정 하는 고급 알고리즘을 적용 합니다. 자세한 내용은 [보안 점수 계산](secure-score-security-controls.md#how-your-secure-score-is-calculated)을 참조 하세요.
    * **리소스**:이 권장 사항이 적용되는 리소스를 나열합니다.
    * **상태 표시줄**: 해당 특정 권장 사항의 심각도를 설명 합니다.
        * **높음 (빨강)**: 의미 있는 리소스 (예: 응용 프로그램, VM 또는 네트워크 보안 그룹)에 대 한 취약성이 있으며 주의가 필요 합니다.

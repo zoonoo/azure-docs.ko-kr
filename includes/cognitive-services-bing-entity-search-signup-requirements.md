@@ -4,20 +4,15 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/08/2020
-ms.openlocfilehash: 748f6dea8f6d057274c8e6c9f04690be05218f0c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b085e3da5f4f390e8e392a36a8d4a5154d091803
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805926"
 ---
 ## <a name="create-an-azure-resource"></a>Azure 리소스 만들기
 
 다음 Azure 리소스 중 하나를 만들어 Bing Entity Search API 사용을 시작합니다.
-
-### <a name="trial-resource"></a>[평가판 리소스](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Azure 구독이 필요하지 않습니다.
-   * 평가판은 7일 동안 유효합니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 평가판 키 및 엔드포인트를 사용할 수 있습니다.
 
 ### <a name="bing-entity-search-resource"></a>[Bing Entity Search 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch)
    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.

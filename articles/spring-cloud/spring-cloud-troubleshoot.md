@@ -6,12 +6,11 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791659"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
 
@@ -35,7 +34,7 @@ ms.locfileid: "76277573"
 
 > "SQLException: 서버 표준 시간대 값 ' 협정 세계시 '를 인식할 수 없거나 둘 이상의 표준 시간대를 나타냅니다."
 
-이 오류를 해결 하려면 MySQL 인스턴스의로 `server parameters` 이동 하 여 `time_zone` 값을 *시스템* 에서 *+ 0:00*로 변경 합니다.
+이 오류를 해결 하려면 MySQL 인스턴스의로 이동 하 여 `server parameters` `time_zone` 값을 *시스템* 에서 *+ 0:00*로 변경 합니다.
 
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>애플리케이션이 충돌하거나 예기치 않은 오류를 throw함
@@ -49,7 +48,7 @@ ms.locfileid: "76277573"
 
   - `TomcatErrorCount`(_tomcat_): 모든 스프링 응용 프로그램 예외는 여기에 계산 됩니다. 이 수가 크면 Azure Log Analytics로 이동하여 애플리케이션 로그를 검사합니다.
 
-  - `AppMemoryMax`(_jvm. max_): 응용 프로그램에 사용할 수 있는 최대 메모리 양입니다. 크기는 정의 되지 않은 것일 수도 있고, 정의 된 경우 시간이 지남에 따라 변경 될 수도 있습니다. 정의 된 경우 사용 된 메모리와 커밋된 메모리의 양은 항상 max 보다 작거나 같습니다. 그러나 *사용 된 <= max* 가 여전히 true `OutOfMemoryError` 인 경우에도 할당에서 사용 되는 *> 커밋된*메모리를 늘려야 하는 경우 메시지와 함께 메모리 할당이 실패할 수 있습니다. 이러한 상황에서 `-Xmx` 매개 변수를 사용 하 여 최대 힙 크기를 늘립니다.
+  - `AppMemoryMax`(_jvm. max_): 응용 프로그램에 사용할 수 있는 최대 메모리 양입니다. 크기는 정의 되지 않은 것일 수도 있고, 정의 된 경우 시간이 지남에 따라 변경 될 수도 있습니다. 정의 된 경우 사용 된 메모리와 커밋된 메모리의 양은 항상 max 보다 작거나 같습니다. 그러나 `OutOfMemoryError` *사용 된 <= max* 가 여전히 true 인 경우에도 할당에서 사용 되는 *> 커밋된*메모리를 늘려야 하는 경우 메시지와 함께 메모리 할당이 실패할 수 있습니다. 이러한 상황에서 매개 변수를 사용 하 여 최대 힙 크기를 늘립니다 `-Xmx` .
 
   - `AppMemoryUsed`(_jvm. memory. used_): 응용 프로그램에서 현재 사용 하는 메모리의 양 (바이트)입니다. 일반적인 로드 Java 응용 프로그램의 경우이 메트릭 시리즈는 *패턴이 톱니 모양* 패턴을 형성 합니다 .이 패턴을 사용 하면 메모리 사용이 조금씩 증가 하 고 감소 하 여 급격 하 게 감소 하 고 그 후에도 패턴이 되풀이 됩니다. 이 메트릭 계열은 컬렉션 작업이 패턴이 톱니 모양 패턴에 대 한 삭제를 나타내는 Java 가상 머신 내부의 가비지 수집 때문에 발생 합니다.
     
@@ -111,7 +110,7 @@ Azure Portal를 사용 하 여 Azure 스프링 클라우드 서비스 인스턴�
 
 리소스 관리자 템플릿을 사용 하 여 Azure 스프링 클라우드 서비스 인스턴스를 설정 하려면 먼저 [Azure Resource Manager 템플릿의 구조 및 구문 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)를 참조 하세요.
 
-Azure 스프링 클라우드 서비스 인스턴스의 이름은에서 `azureapps.io`하위 도메인 이름을 요청 하는 데 사용 되므로 이름이 기존 이름과 충돌 하는 경우 설치가 실패 합니다. 활동 로그에서 자세한 내용을 확인할 수 있습니다.
+Azure 스프링 클라우드 서비스 인스턴스의 이름은에서 하위 도메인 이름을 요청 하는 데 사용 `azureapps.io` 되므로 이름이 기존 이름과 충돌 하는 경우 설치가 실패 합니다. 활동 로그에서 자세한 내용을 확인할 수 있습니다.
 
 ### <a name="i-cant-deploy-a-jar-package"></a>JAR 패키지를 배포할 수 없습니다.
 
@@ -158,9 +157,9 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 > [!WARNING]
 > 이 프로시저는 테스트 끝점을 사용 하 여 환경 변수를 노출 합니다.  테스트 엔드포인트에 공개적으로 액세스할 수 있거나 애플리케이션에 도메인 이름을 할당한 경우에는 더이상 진행하지 마십시오.
 
-1. `https://<your application test endpoint>/actuator/health` 으로 이동합니다.  
+1. `https://<your application test endpoint>/actuator/health` 로 이동합니다.  
     - `{"status":"UP"}`과 유사한 응답은 엔드포인트가 사용하도록 설정되었음을 나타냅니다.
-    - 응답이 음수 이면 *Pom .xml* 파일에 다음 종속성을 포함 합니다.
+    - 응답이 음수 이면 *POM.xml* 파일에 다음 종속성을 포함 합니다.
 
         ```xml
             <dependency>
@@ -169,11 +168,11 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
             </dependency>
         ```
 
-1. 스프링 부팅 발동기 끝점이 사용 하도록 설정 된 상태에서 Azure Portal로 이동 하 고 응용 프로그램의 구성 페이지를 찾습니다.  이름 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` 및 값 `*` 을 사용 하 여 환경 변수를 추가 합니다. 
+1. 스프링 부팅 발동기 끝점이 사용 하도록 설정 된 상태에서 Azure Portal로 이동 하 고 응용 프로그램의 구성 페이지를 찾습니다.  이름 및 값을 사용 하 여 환경 변수를 추가 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` `*` 합니다. 
 
 1. 애플리케이션을 다시 시작합니다.
 
-1. 로 `https://<your application test endpoint>/actuator/env` 이동 하 여 응답을 검사 합니다.  다음과 같이 표시되어야 합니다.
+1. 로 이동 `https://<your application test endpoint>/actuator/env` 하 여 응답을 검사 합니다.  다음과 같이 표시됩니다.
 
     ```json
     {
@@ -189,16 +188,18 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
     }
     ```
 
-이라는 `systemEnvironment`자식 노드를 찾습니다.  이 노드에는 애플리케이션의 환경 변수가 포함됩니다.
+이라는 자식 노드를 찾습니다 `systemEnvironment` .  이 노드에는 애플리케이션의 환경 변수가 포함됩니다.
 
 > [!IMPORTANT]
-> 애플리케이션에 대한 공용 액세스를 가능하게 하려면 환경 변수의 노출을 역방향으로 바꾸어야 합니다.  Azure Portal로 이동 하 고, 응용 프로그램의 구성 페이지를 검색 하 고,이 환경 변수를 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`삭제 합니다.
+> 애플리케이션에 대한 공용 액세스를 가능하게 하려면 환경 변수의 노출을 역방향으로 바꾸어야 합니다.  Azure Portal로 이동 하 고, 응용 프로그램의 구성 페이지를 검색 하 고,이 환경 변수를 삭제 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` 합니다.
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>응용 프로그램에 대 한 메트릭 또는 로그를 찾을 수 없습니다.
 
 **앱 관리** 로 이동 하 여 응용 프로그램 상태를 _실행_ 하 고 있는지 확인 _합니다._
 
-_JVM_ 에서 메트릭을 볼 수 있지만 _Tomcat_에서 메트릭이 없는 경우 응용 프로그램 패키지에서 `spring-boot-actuator` 종속성을 사용 하도록 설정 하 고 성공적으로 부팅 되었는지 확인 합니다.
+응용 프로그램 패키지에서 날씨 _JMX_ 이 사용 하도록 설정 되어 있는지 확인 합니다. 구성 속성을 사용 하 여이 기능을 사용 하도록 설정할 수 있습니다 `spring.jmx.enabled=true` .  
+
+`spring-boot-actuator`응용 프로그램 패키지에서 종속성을 사용 하도록 설정 하 고 성공적으로 부팅 되었는지 확인 하십시오.
 
 ```xml
 <dependency>

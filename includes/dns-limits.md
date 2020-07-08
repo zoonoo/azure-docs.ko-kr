@@ -1,15 +1,14 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 2/14/2020
 ms.author: rohink
-ms.openlocfilehash: 3fbbb9d491eef202309c9e64f9a5a839a5d4516d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 434b79a2b178defd9543e1d3ad087bb5282cb287
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805741"
 ---
 **공용 DNS 영역**
 
@@ -29,6 +28,6 @@ ms.locfileid: "80335065"
 | 가상 머신이 Azure DNS 해결 프로그램으로 보낼 수 있는 초당 DNS 쿼리 수입니다 (초당). |500 <sup>2</sup> |
 | 가상 컴퓨터당 최대 DNS 쿼리 수 (응답 보류 중) |200 <sup>2</sup> |
 
-<sup>1</sup> 이러한 제한을 늘려야 하는 경우 Azure 지원에 문의 하세요.
+<sup>1</sup> 이러한 제한을 늘려야 하는 경우 Azure 지원에 문의하세요.
 
 <sup>2</sup> 이러한 제한은 가상 네트워크 수준이 아닌 모든 개별 가상 컴퓨터에 적용 됩니다. 이러한 제한을 초과 하는 DNS 쿼리는 삭제 됩니다.

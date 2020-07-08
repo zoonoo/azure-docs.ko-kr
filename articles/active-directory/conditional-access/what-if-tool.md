@@ -4,19 +4,18 @@ description: 사용자 환경에서 조건부 액세스 정책의 영향을 이�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253140"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용 하 여 문제 해결
 
@@ -30,9 +29,9 @@ ms.locfileid: "77620679"
 
 **What If** 도구는 특정 사용자에 게 적용 되는 정책을 신속 하 게 결정 하는 방법을 제공 합니다. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.    
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
-**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 이러한 설정에는 다음이 포함됩니다.
+**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 이러한 설정은 다음과 같습니다.
 
 - 테스트하려는 사용자 
 - 사용자가 액세스하려고 하는 클라우드 앱
@@ -40,7 +39,7 @@ ms.locfileid: "77620679"
      
 다음 단계로, 설정을 평가하는 시뮬레이션 실행을 시작할 수 있습니다. 사용하도록 설정된 정책만 평가 실행에 속합니다.
 
-평가가 완료되면 이 도구는 영향을 받는 정책에 대한 보고서를 생성합니다.
+평가가 완료되면 이 도구는 영향을 받는 정책에 대한 보고서를 생성합니다. 조건부 액세스 정책에 대 한 자세한 정보를 수집 하기 위해 [조건부 액세스 정보 및 보고 통합 문서](howto-conditional-access-insights-reporting.md) 는 보고서 전용 모드의 정책과 현재 사용 하도록 설정 된 정책에 대 한 추가 세부 정보를 제공할 수 있습니다.
 
 ## <a name="running-the-tool"></a>도구 실행
 
@@ -104,6 +103,5 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
-- 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 되 면 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)를 참조 하세요. 
-- 클래식 정책을 마이그레이션하려는 경우 [Azure Portal에서 클래식 정책 마이그레이션](policy-migration.md)을 참조하세요.  
+- 조건부 액세스 정책 응용 프로그램에 대 한 자세한 내용은 [조건부 액세스 정보 및 보고](howto-conditional-access-insights-reporting.md)를 사용 하는 정책 보고서 전용 모드를 사용 하 여 찾을 수 있습니다.
+- 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 된 경우 [조건부 액세스 공용 정책](concept-conditional-access-policy-common.md)을 참조 하세요. 

@@ -3,13 +3,12 @@ title: 자주 묻는 질문
 description: Azure Container Instances 서비스와 관련 된 faq (질문과 대답)
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
-ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806604"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 
@@ -27,25 +26,28 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 
 배포 시간의 주요 택배 중 하나는 이미지 크기 이므로 크기를 줄이는 방법을 찾아보십시오. 필요 하지 않은 계층을 제거 하거나 더 밝은 기본 OS 이미지를 선택 하 여 이미지의 계층 크기를 줄입니다. 예를 들어 Linux 컨테이너를 실행 하는 경우 전체 Ubuntu 서버가 아닌 기본 이미지로 알파인를 사용 하는 것이 좋습니다. 마찬가지로 Windows 컨테이너의 경우 가능 하면 Nano Server 기본 이미지를 사용 합니다. 
 
-또한 [캐시 된 이미지 나열](/rest/api/container-instances/listcachedimages) API를 통해 사용할 수 있는 Azure Container images의 미리 캐시 된 이미지 목록을 확인 해야 합니다. 미리 캐시 된 이미지 중 하나에 대 한 이미지 계층을 전환할 수 있습니다. 
+또한 [캐시 된 이미지 나열](/rest/api/container-instances/location/listcachedimages) API를 통해 사용할 수 있는 Azure Container images의 미리 캐시 된 이미지 목록을 확인 해야 합니다. 미리 캐시 된 이미지 중 하나에 대 한 이미지 계층을 전환할 수 있습니다. 
 
 컨테이너 시작 시간을 줄이는 방법에 대 한 자세한 [지침](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) 을 참조 하세요.
 
 ### <a name="what-windows-base-os-images-are-supported"></a>지원 되는 Windows 기반 OS 이미지는 무엇 인가요?
 
+> [!NOTE]
+> 2020의 Windows 업데이트 후 이전 버전과의 호환성 문제로 인해 다음 이미지 버전에는 기본 이미지에 사용 하는 것이 좋습니다. 이전 이미지 버전을 사용 하는 현재 배포는 영향을 받지 않지만 새 배포는 다음 기본 이미지를 준수 해야 합니다. 
+
 #### <a name="windows-server-2016-base-images"></a>Windows Server 2016 기본 이미지
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`,`sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,`10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` 또는 최신
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` `10.0.14393.3506` 이상
 
 > [!NOTE]
 > 반기 채널 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지는 지원 되지 않습니다.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 및 클라이언트 기본 이미지 (미리 보기)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.914` 또는 이전 버전
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809` `10.0.17763.914` 또는 이전 버전
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809` `10.0.17763.914` 또는 이전 버전
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.1040` 또는 최신
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019` , `1809` `10.0.17763.1040` 또는 이상
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809` `10.0.17763.1040` 또는 이상
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>컨테이너에서 사용 해야 하는 .NET 또는 .NET Core 이미지 계층은 무엇 인가요? 
 
@@ -72,7 +74,7 @@ Azure Container Instances는 서버를 사용 하지 않는 컨테이너 주문�
 
 ### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>4 개 이상의 코어와 16gb RAM을 사용 하 여 배포할 수 있나요?
 
-아직 없습니다. 현재는 컨테이너 그룹에 대 한 최대값입니다. 특정 요구 사항 또는 요청에 대 한 Azure 지원에 문의 하세요. 
+아직은 연결할 수 없습니다. 현재는 컨테이너 그룹에 대 한 최대값입니다. 특정 요구 사항 또는 요청에 대 한 Azure 지원에 문의 하세요. 
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>언제 특정 지역에 있나요?
 

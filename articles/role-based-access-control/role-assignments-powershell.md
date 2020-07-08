@@ -8,20 +8,19 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: db6b38f142254fa1812f34674e6a870629713d7e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735660"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790894"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]이 문서에서는 Azure PowerShell를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
@@ -34,7 +33,7 @@ ms.locfileid: "82735660"
 - `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
 - Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](/azure/cloud-shell/overview)
 
-## <a name="get-object-ids"></a>개체 Id 가져오기
+## <a name="get-object-ids"></a>개체 ID 가져오기
 
 역할 할당을 추가 하거나 제거 하려면 개체의 고유 ID를 지정 해야 할 수 있습니다. ID의 형식은 `11111111-1111-1111-1111-111111111111`입니다. Azure Portal 또는 Azure PowerShell를 사용 하 여 ID를 가져올 수 있습니다.
 
@@ -58,7 +57,7 @@ Get-AzADGroup -SearchString <group_name_in_quotes>
 
 ### <a name="application"></a>애플리케이션
 
-응용 프로그램에서 사용 하는 id에 해당 하는 Azure AD 서비스 사용자의 개체 ID를 가져오려면 [AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)을 사용 하면 됩니다. 서비스 사용자의 경우 응용 프로그램 ID가 **아니라** 개체 id를 사용 합니다.
+응용 프로그램에서 사용 하는 id에 해당 하는 Azure AD 서비스 사용자의 개체 ID를 가져오려면 [AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)을 사용 하면 됩니다. 서비스 주체의 경우 애플리케이션 ID가 **아니라** 개체 ID를 사용합니다.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
@@ -67,7 +66,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>역할 할당 추가
 
-Azure RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니다.
+Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가합니다.
 
 ### <a name="user-at-a-resource-group-scope"></a>리소스 그룹 범위의 사용자
 
@@ -112,7 +111,7 @@ CanDelegate        : False
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-다음 예에서는 *pharma-sales-projectforcast-sales* 리소스 그룹 범위에서 *alain\@Example.com* 사용자에 게 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다. 고유한 역할 ID를 얻으려면 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 를 사용 하거나 [Azure 기본 제공 역할](built-in-roles.md)을 참조 하세요.
+다음 예에서는 *pharma-sales-projectforcast-sales* 리소스 그룹 범위에서 *alain \@ Example.com* 사용자에 게 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다. 고유한 역할 ID를 얻으려면 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 를 사용 하거나 [Azure 기본 제공 역할](built-in-roles.md)을 참조 하세요.
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -207,7 +206,7 @@ CanDelegate        : False
 
 Azure RBAC에서 액세스 권한을 제거 하려면 [AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)를 사용 하 여 역할 할당을 제거 합니다.
 
-다음 예에서는 *pharma-sales-projectforcast sales* 리소스 그룹의 *alain\@Example.com* 사용자에서 *가상 컴퓨터 참가자* 역할 할당을 제거 합니다.
+다음 예에서는 *pharma-sales-projectforcast sales* 리소스 그룹의 *alain \@ Example.com* 사용자에서 *가상 컴퓨터 참가자* 역할 할당을 제거 합니다.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
@@ -225,11 +224,11 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-"제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 되 면 `-Scope` 또는 `-ResourceGroupName` 매개 변수도 지정 해야 합니다. 자세한 내용은 [AZURE RBAC 문제 해결](troubleshooting.md#role-assignments-with-identity-not-found)을 참조 하세요.
+"제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 되 면 `-Scope` 또는 매개 변수도 지정 해야 합니다 `-ResourceGroupName` . 자세한 내용은 [AZURE RBAC 문제 해결](troubleshooting.md#role-assignments-with-identity-not-found)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure PowerShell를 사용 하 여 Azure 역할 할당 나열](role-assignments-list-powershell.md)
-- [자습서: Azure PowerShell을 사용 하 여 그룹에 Azure 리소스에 대 한 액세스 권한 부여](tutorial-role-assignments-group-powershell.md)
-- [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 그룹 액세스 권한 부여](tutorial-role-assignments-group-powershell.md)
+- [자습서: Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
 - [Azure PowerShell을 사용하여 리소스 관리](../azure-resource-manager/management/manage-resources-powershell.md)

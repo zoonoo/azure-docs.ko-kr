@@ -11,16 +11,15 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 50ef431559a38d30f7e1e76646e8930c70fc4ef9
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891324"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790979"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure 역할 할당 나열
 
@@ -42,7 +41,7 @@ Azure RBAC에서 액세스를 나열 하려면 역할 할당을 나열 합니다
 1. URI 내에서 *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 형식 |
+    > | Scope | 형식 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |

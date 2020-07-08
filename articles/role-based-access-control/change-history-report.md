@@ -8,19 +8,18 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2024bd14241184338195ed635039bae774da816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 68b1cdede5fddd0bf74571da1924e0059a21d3af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78161788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791812"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Azure RBAC 변경 내용에 대 한 활동 로그 보기
 
@@ -46,7 +45,7 @@ ms.locfileid: "78161788"
 | Assert | 값 |
 | --------- | --------- |
 | 이벤트 범주 | <ul><li>관리</li></ul> |
-| 작업(Operation) | <ul><li>역할 할당 만들기</li><li>역할 할당 삭제</li><li>사용자 지정 역할 정의 만들기 또는 업데이트</li><li>사용자 지정 역할 정의 삭제</li></ul> |
+| 연산 | <ul><li>역할 할당 만들기</li><li>역할 할당 삭제</li><li>사용자 지정 역할 정의 만들기 또는 업데이트</li><li>사용자 지정 역할 정의 삭제</li></ul> |
 
 활동 로그에 대 한 자세한 내용은 [활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)을 참조 하세요.
 

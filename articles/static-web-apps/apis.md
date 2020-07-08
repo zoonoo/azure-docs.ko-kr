@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4fa3acf0e6cc767aeee4504bbc4df382a75e256b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791625"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps 미리 보기에서 API 지원
 
@@ -33,6 +32,7 @@ Azure Static Web Apps는 Azure Functions를 통해 API를 제공합니다. Azure
 
 - API 경로 접두사는 _api_여야 합니다.
 - API 함수 앱은 JavaScript에 있어야 합니다.
+- API 함수에 대 한 경로 규칙은 역할이 있는 [리디렉션](routes.md#redirects) 및 [보안 경로만](routes.md#securing-routes-with-roles)지원 합니다.
 - 트리거와 바인딩은 [HTTP](../azure-functions/functions-bindings-http-webhook.md)로 제한됩니다.
   - 출력 바인딩을 제외한 다른 모든 [Azure Functions 트리거 및 바인딩](../azure-functions/functions-triggers-bindings.md#supported-bindings)이 제한됩니다.
 - 로그는 함수 앱에 [Application Insights](../azure-functions/functions-monitoring.md)를 추가하는 경우에만 사용할 수 있습니다.

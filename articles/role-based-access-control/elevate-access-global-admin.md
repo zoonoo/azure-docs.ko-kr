@@ -2,25 +2,18 @@
 title: 모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 description: Azure Portal 또는 REST API를 사용하여 Azure Active Directory에서 모든 구독 및 관리 그룹을 관리하는 글로벌 관리자에 대한 액세스 권한을 상승시키는 방법에 대해 설명합니다.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: bagovind
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 06/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791999"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
@@ -55,6 +48,8 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 글로벌 관리자로 로그인합니다.
 
+    Azure AD Privileged Identity Management를 사용 하는 경우 [전역 관리자 역할 할당을 활성화](../active-directory/privileged-identity-management/pim-how-to-activate-role.md)합니다.
+
 1. **Azure Active Directory**를 엽니다.
 
 1. **관리**아래에서 **속성**을 선택 합니다.
@@ -70,7 +65,7 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
    토글을 **아니요**로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
 
     > [!NOTE]
-    > [PIM (Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md))을 사용 하는 경우 역할 할당을 비활성화 해도이 토글은 **아니요**로 변경 되지 않습니다. 최소 권한 액세스를 유지 하려면 역할 할당을 비활성화 하기 전에이 토글을 **아니요** 로 설정 하는 것이 좋습니다.
+    > [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)사용 하는 경우 역할 할당을 비활성화 해도 **Azure 리소스에 대 한 액세스 관리** 가 **No**로 변경 되지 않습니다. 최소 권한 액세스를 유지 하려면 역할 할당을 비활성화 하기 전에이 토글을 **아니요** 로 설정 하는 것이 좋습니다.
     
 1. **Save**를 클릭하여 설정을 저장합니다.
 
@@ -82,13 +77,15 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
    ![루트 범위의 구독 역할 할당 - 스크린샷](./media/elevate-access-global-admin/iam-root.png)
 
-1. 권한이 상승된 액세스를 확인하는 데 필요한 변경을 수행합니다.
+1. 관리자 권한으로 변경 해야 합니다.
 
-    역할 할당에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)를 참조 하세요. Azure AD PIM(Privileged Identity Management)을 사용하는 경우 [PIM에서 관리할 Azure 리소스 검색](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) 또는 [PIM에서 Azure 리소스 역할 할당](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 참조하세요.
+    역할 할당에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)를 참조 하세요. Privileged Identity Management를 사용 하는 경우 azure 리소스 [를 검색 하](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) 여 [azure 리소스 역할](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 관리 하거나 할당을 참조 하세요.
+
+1. 다음 섹션의 단계를 수행 하 여 관리자 권한 액세스를 제거 합니다.
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거
 
-루트 범위 (`/`)에서 사용자 액세스 관리자 역할 할당을 제거 하려면 다음 단계를 수행 합니다.
+루트 범위 ()에서 사용자 액세스 관리자 역할 할당을 제거 하려면 `/` 다음 단계를 수행 합니다.
 
 1. 액세스 권한을 상승 시키는 데 사용 된 것과 동일한 사용자로 로그인 합니다.
 
@@ -100,13 +97,20 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
     ![루트 범위를 사용 하 여 역할 할당 제거](./media/elevate-access-global-admin/iam-root-remove.png)
 
+1. 전역 관리자로 로그 아웃 합니다.
+
+    Privileged Identity Management를 사용 하는 경우 전역 관리자 역할 할당을 비활성화 합니다.
+
+    > [!NOTE]
+    > [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)사용 하는 경우 역할 할당을 비활성화 해도 **Azure 리소스에 대 한 액세스 관리** 가 **No**로 변경 되지 않습니다. 최소 권한 액세스를 유지 하려면 역할 할당을 비활성화 하기 전에이 토글을 **아니요** 로 설정 하는 것이 좋습니다.
+
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ### <a name="list-role-assignment-at-root-scope-"></a>루트 범위 (/)에서 역할 할당 나열
 
-루트 범위 (`/`)의 사용자에 대 한 사용자 액세스 관리자 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 명령을 사용 합니다.
+루트 범위 ()의 사용자에 대 한 사용자 액세스 관리자 역할 할당을 나열 하려면 `/` [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 명령을 사용 합니다.
 
 ```azurepowershell
 Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
@@ -127,7 +131,7 @@ CanDelegate        : False
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거
 
-사용자에 대 한 사용자 액세스 관리자 역할 할당 또는 루트 범위 (`/`)에서 다른 사용자를 제거 하려면 다음 단계를 수행 합니다.
+사용자에 대 한 사용자 액세스 관리자 역할 할당 또는 루트 범위 ()에서 다른 사용자를 제거 하려면 `/` 다음 단계를 수행 합니다.
 
 1. 상승된 액세스 권한을 제거할 수 있는 사용자로 로그인합니다. 이 사용자는 액세스 권한을 상승 시키는 데 사용 되거나 루트 범위에서 관리자 권한으로 액세스 하는 다른 전역 관리자가 될 수 있습니다.
 
@@ -142,7 +146,7 @@ CanDelegate        : False
 
 ### <a name="list-role-assignment-at-root-scope-"></a>루트 범위 (/)에서 역할 할당 나열
 
-루트 범위 (`/`)의 사용자에 대 한 사용자 액세스 관리자 역할 할당을 나열 하려면 [az role 할당 list](/cli/azure/role/assignment#az-role-assignment-list) 명령을 사용 합니다.
+루트 범위 ()의 사용자에 대 한 사용자 액세스 관리자 역할 할당을 나열 하려면 `/` [az role 할당 list](/cli/azure/role/assignment#az-role-assignment-list) 명령을 사용 합니다.
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -168,7 +172,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거
 
-사용자에 대 한 사용자 액세스 관리자 역할 할당 또는 루트 범위 (`/`)에서 다른 사용자를 제거 하려면 다음 단계를 수행 합니다.
+사용자에 대 한 사용자 액세스 관리자 역할 할당 또는 루트 범위 ()에서 다른 사용자를 제거 하려면 `/` 다음 단계를 수행 합니다.
 
 1. 상승된 액세스 권한을 제거할 수 있는 사용자로 로그인합니다. 이 사용자는 액세스 권한을 상승 시키는 데 사용 되거나 루트 범위에서 관리자 권한으로 액세스 하는 다른 전역 관리자가 될 수 있습니다.
 
@@ -184,34 +188,21 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 다음과 같은 기본 단계를 사용하여 REST API를 사용하는 전역 관리자에 대한 액세스 권한을 상승시킵니다.
 
-1. REST를 사용 하 `elevateAccess`여 루트 범위 (`/`)에서 사용자 액세스 관리자 역할을 부여 하는를 호출 합니다.
+1. REST를 사용 하 여 `elevateAccess` 루트 범위 ()에서 사용자 액세스 관리자 역할을 부여 하는를 호출 `/` 합니다.
 
    ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. 모든 범위의 모든 역할을 할당하는 [역할 할당](/rest/api/authorization/roleassignments)을 만듭니다. 다음 예제에서는 루트 범위 (`/`)에서 {roleDefinitionID} 역할을 할당 하기 위한 속성을 보여 줍니다.
+1. 관리자 권한으로 변경 해야 합니다.
 
-   ```json
-   { 
-     "properties": {
-       "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
-       "principalId": "{objectID}",
-       "scope": "/"
-     },
-     "id": "providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111",
-     "type": "Microsoft.Authorization/roleAssignments",
-     "name": "11111111-1111-1111-1111-111111111111"
-   }
-   ```
+    역할 할당에 대 한 자세한 내용은 [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)를 참조 하세요.
 
-1. 사용자 액세스 관리자는 루트 범위 (`/`)에서 역할 할당을 제거할 수도 있습니다.
-
-1. 다시 필요할 때까지 사용자 액세스 관리자 권한을 제거합니다.
+1. 이후 섹션의 단계를 수행 하 여 관리자 권한 액세스를 제거 합니다.
 
 ### <a name="list-role-assignments-at-root-scope-"></a>루트 범위 (/)에서 역할 할당 나열
 
-루트 범위 (`/`)에서 사용자에 대 한 모든 역할 할당을 나열할 수 있습니다.
+루트 범위 ()에서 사용자에 대 한 모든 역할 할당을 나열할 수 있습니다 `/` .
 
 - `{objectIdOfUser}`가 역할 할당을 검색하려는 사용자의 개체 ID인 경우 [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope)를 호출합니다.
 
@@ -221,7 +212,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ### <a name="list-deny-assignments-at-root-scope-"></a>루트 범위 (/)에서 거부 할당 나열
 
-루트 범위 (`/`)에서 사용자에 대 한 모든 거부 할당을 나열할 수 있습니다.
+루트 범위 ()에서 사용자에 대 한 모든 거부 할당을 나열할 수 있습니다 `/` .
 
 - `{objectIdOfUser}`가 거부 할당을 검색하려는 사용자의 개체 ID인 경우 GET denyAssignments를 호출합니다.
 
@@ -231,7 +222,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거
 
-를 호출 `elevateAccess`하는 경우 자신에 대 한 역할 할당을 만들어 해당 권한을 취소 하려면 루트 범위 (`/`)에서 자신에 대 한 사용자 액세스 관리자 역할 할당을 제거 해야 합니다.
+를 호출 하 `elevateAccess` 는 경우 자신에 대 한 역할 할당을 만들어 해당 권한을 취소 하려면 루트 범위 ()에서 자신에 대 한 사용자 액세스 관리자 역할 할당을 제거 해야 합니다 `/` .
 
 1. `roleName`이 사용자 액세스 관리자인 [GET roleDefinitions](/rest/api/authorization/roledefinitions/get)를 호출하여 사용자 액세스 관리자 역할의 ID 이름을 확인합니다.
 
@@ -321,5 +312,5 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [다른 역할 이해](rbac-and-directory-admin-roles.md)
+- [여러 역할의 이해](rbac-and-directory-admin-roles.md)
 - [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)

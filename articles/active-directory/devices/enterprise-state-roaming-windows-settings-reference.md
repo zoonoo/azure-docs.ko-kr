@@ -4,19 +4,18 @@ description: ESR을 사용 하 여 Windows 10에서 로밍 또는 백업 되는 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252970"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 
@@ -26,7 +25,7 @@ ms.locfileid: "78672621"
 
 Windows 10의 동기화, 백업 및 복원 프레임워크에서 지원되는 디바이스 및 계정 유형에 대한 요약 정보는 다음 테이블을 참조하세요.
 
-| 계정 유형 및 작업 | 데스크톱 | 휴대폰 |
+| 계정 유형 및 작업 | 데스크톱 | 모바일 |
 | --- | --- | --- |
 | Azure Active Directory: 동기화 |예 |아니요 |
 | Azure Active Directory: 백업/복원 |아니요 |아니요 |
@@ -69,7 +68,7 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 설정 그룹 열의 내부 항목이 참조하는 설정 및 앱은 앱 자체 내부에서 동기화를 비활성화하거나 MDM(모바일 디바이스 관리) 또는 그룹 정책 설정을 사용하여 디바이스 전체의 동기화를 비활성하는 방법으로만 비활성화할 수 있습니다.
 로밍 또는 동기화하지 않는 설정은 그룹에 소속되지 않습니다.
 
-| 설정 | 데스크톱 | 휴대폰 | 그룹 |
+| 설정 | 데스크톱 | 모바일 | 그룹 |
 | --- | --- | --- | --- |
 | **계정**: 계정 사진 |동기화 |X |테마 |
 | **계정**: 기타 계정 설정 |X |X | |
@@ -79,18 +78,18 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **Bluetooth**: 모든 Bluetooth 설정 |X |X | |
 | **명령 프롬프트**: 명령 프롬프트 "기본값" 설정 |동기화 |X |internal |
 | **자격 증명**: 자격 증명 보관 |동기화 |동기화 |password |
-| **날짜, 시간 및 지역**: 자동 시간(인터넷 시간 동기화) |동기화 |동기화 |언어 |
-| **날짜, 시간 및 지역**: 24시간 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 날짜 및 시간 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 시간대 | |X |언어 |
-| **날짜, 시간 및 지역**: 일광 절약 시간제 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 국가/지역 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 시작 요일 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 지역 형식(로캘) |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 간단한 날짜 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 자세한 날짜 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 간단한 시간 |동기화 |X |언어 |
-| **날짜, 시간 및 지역**: 자세한 시간 |동기화 |X |언어 |
+| **날짜, 시간 및 지역**: 자동 시간(인터넷 시간 동기화) |동기화 |동기화 |language |
+| **날짜, 시간 및 지역**: 24시간 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 날짜 및 시간 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 시간대 | |X |language |
+| **날짜, 시간 및 지역**: 일광 절약 시간제 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 국가/지역 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 시작 요일 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 지역 형식(로캘) |동기화 |X |language |
+| **날짜, 시간 및 지역**: 간단한 날짜 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 자세한 날짜 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 간단한 시간 |동기화 |X |language |
+| **날짜, 시간 및 지역**: 자세한 시간 |동기화 |X |language |
 | **바탕 화면 개인 설정**: 바탕 화면 테마(배경, 시스템 색, 기본 시스템 소리, 화면 보호기) |동기화 |X |테마 |
 | **바탕 화면 개인 설정**: 슬라이드 쇼 배경 화면 |동기화 |X |테마 |
 | **바탕 화면 개인 설정**: 작업 표시줄 설정(위치, 자동 숨김 등) |동기화 |X |테마 |

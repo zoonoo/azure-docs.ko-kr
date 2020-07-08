@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732109"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 등록 하위 형식 및 권한
 
@@ -36,13 +35,13 @@ ms.locfileid: "74025158"
 
 응용 프로그램 등록을 만들 수 있는 기능을 부여 하는 데 사용할 수 있는 두 가지 권한은 각기 다른 동작입니다.
 
-#### <a name="microsoftdirectoryapplicationscreateasowner"></a>microsoft. directory/응용 프로그램/createAsOwner
+#### <a name="microsoftdirectoryapplicationscreateasowner"></a>microsoft.directory/applications/createAsOwner
 
 이 권한을 할당 하면 만들어진 앱 등록의 첫 번째 소유자로 작성자가 추가 되 고 생성 된 앱 등록이 작성자의 250 생성 된 개체 할당량에 따라 계산 됩니다.
 
-#### <a name="microsoftdirectoryapplicationscreate"></a>microsoft. 디렉터리/응용 프로그램/만들기
+#### <a name="microsoftdirectoryapplicationscreate"></a>microsoft.directory/applications/create
 
-이 권한을 할당 하면 만들어진 앱 등록의 첫 번째 소유자로 작성자가 추가 되지 않으며 만들어진 앱 등록이 작성자의 250 created 개체 할당량에 대해 계산 되지 않습니다. 디렉터리 수준 할당량이 적중 될 때까지 담당자가 앱 등록을 만들 수 없도록 하는 것이 없으므로이 사용 권한을 신중 하 게 사용 합니다. 두 사용 권한이 모두 할당 된 경우이 권한이 우선적으로 적용 됩니다.
+이 권한을 할당 하면 만들어진 앱 등록의 첫 번째 소유자로 작성자가 추가 되지 않으며 만들어진 앱 등록이 작성자의 250 created 개체 할당량에 대해 계산 되지 않습니다. 디렉터리 수준 할당량에 도달할 때까지는 담당자가 앱 등록 생성을 막을 수 없으므로 이 권한을 신중하게 사용하세요. 두 권한이 모두 할당된 경우 이 권한이 우선적으로 적용됩니다.
 
 두 권한이 모두 할당 되 면/create 권한이 우선적으로 적용 됩니다. /CreateAsOwner 권한은 자동으로 작성자를 첫 번째 소유자로 추가 하지 않지만 Graph Api 또는 PowerShell cmdlet을 사용 하는 경우 앱 등록을 만드는 동안 소유자를 지정할 수 있습니다.
 
@@ -52,7 +51,7 @@ ms.locfileid: "74025158"
 
 앱 등록을 삭제 하는 기능을 부여 하는 데 사용할 수 있는 두 가지 권한이 있습니다.
 
-#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft. 디렉터리/응용 프로그램/삭제
+#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directory/applications/delete
 
 하위 형식에 관계 없이 앱 등록을 삭제할 수 있는 기능을 부여 합니다. 즉, 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램입니다.
 
@@ -77,7 +76,7 @@ ms.locfileid: "74025158"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/allProperties/read와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsownersread"></a>microsoft. 디렉터리/응용 프로그램/소유자/읽기
+#### <a name="microsoftdirectoryapplicationsownersread"></a>microsoft.directory/applications/owners/read
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에서 소유자 속성을 읽을 수 있는 기능을 부여 합니다. 응용 프로그램 등록 소유자 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -101,7 +100,7 @@ ms.locfileid: "74025158"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/allProperties/update와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft. 디렉터리/응용 프로그램/대상/업데이트
+#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
 단일 디렉터리 및 다중 디렉터리 응용 프로그램에서 지원 되는 계정 유형 (signInAudience) 속성을 업데이트 하는 기능입니다.
 
@@ -111,7 +110,7 @@ ms.locfileid: "74025158"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/사용자/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft. 디렉터리/응용 프로그램/인증/업데이트
+#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directory/applications/authentication/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에서 회신 URL, 로그 아웃 URL, 암시적 흐름 및 게시자 도메인 속성을 업데이트할 수 있습니다. 지원 되는 계정 유형을 제외한 응용 프로그램 등록 인증 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -121,7 +120,7 @@ ms.locfileid: "74025158"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/인증/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft. 디렉터리/응용 프로그램/기본/업데이트
+#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft.directory/applications/basic/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램의 이름, 로고, 홈페이지 URL, 서비스 약관 URL 및 개인정보 처리 방침 URL 속성을 업데이트 하는 기능입니다. 응용 프로그램 등록 브랜딩 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -131,7 +130,7 @@ ms.locfileid: "74025158"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/basic/update와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft. 디렉터리/응용 프로그램/자격 증명/업데이트
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에서 인증서 및 클라이언트 암호 속성을 업데이트 하는 기능입니다. 응용 프로그램 등록 인증서 & 암호 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -141,7 +140,7 @@ ms.locfileid: "74025158"
 
 는 단일 디렉터리 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/자격 증명/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft. 디렉터리/응용 프로그램/소유자/업데이트
+#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 
 단일 테 넌 트 및 다중 테 넌 트의 owner 속성을 업데이트 하는 기능입니다. 응용 프로그램 등록 소유자 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -151,7 +150,7 @@ ms.locfileid: "74025158"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/소유자/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft. 디렉터리/응용 프로그램/사용 권한/업데이트
+#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft.directory/applications/permissions/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에 대해 위임 된 권한, 응용 프로그램 권한, 권한 있는 클라이언트 응용 프로그램, 필요한 권한 및 승인 속성을 업데이트할 수 있습니다. 는 동의를 수행할 수 있는 기능을 부여 하지 않습니다. 응용 프로그램 등록 API 권한의 모든 필드에 대 한 액세스 권한을 부여 하 고 API 페이지를 표시 합니다.
 
@@ -170,4 +169,4 @@ ms.locfileid: "74025158"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Portal, AZURE AD PowerShell 및 Graph API](roles-create-custom.md) 를 사용 하 여 사용자 지정 역할을 만듭니다.
-- [사용자 지정 역할에 대 한 할당 보기](roles-view-assignments.md)
+- [사용자 지정 역할의 할당 보기](roles-view-assignments.md)

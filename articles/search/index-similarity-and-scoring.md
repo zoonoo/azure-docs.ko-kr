@@ -8,12 +8,11 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 4c725fe74185088dea55b7506493fe667e71b7ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806638"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Azure Cognitive Search의 유사성 및 점수 매기기
 
@@ -38,7 +37,7 @@ ms.locfileid: "83679666"
 
 <a name="scoring-statistics"></a>
 
-## <a name="scoring-statistics-and-sticky-sessions-preview"></a>통계 및 고정 세션 점수 매기기(미리 보기)
+## <a name="scoring-statistics-and-sticky-sessions"></a>통계 및 고정 세션 점수 매기기
 
 확장성을 위해 Azure Cognitive Search는 분할 프로세스를 통해 각 인덱스를 수평으로 분산합니다. 즉, 인덱스 부분이 물리적으로 분리됩니다.
 
@@ -47,14 +46,14 @@ ms.locfileid: "83679666"
 모든 분할된 데이터베이스의 통계 속성에 따라 점수를 계산하려면 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/searchservice/search-documents)로 *scoringStatistics=global*을 추가하여(또는 [쿼리 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)의 본문 매개 변수로 *"scoringStatistics": "global"* 추가) 이렇게 할 수 있습니다.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
 scoringStatistics를 사용하면 동일한 복제본의 모든 분할된 데이터베이스가 동일한 결과를 제공합니다. 즉, 항상 인덱스에 대한 최신 변경 내용으로 업데이트되므로 복제본마다 서로 약간씩 다를 수 있습니다. 일부 시나리오에서는 사용자가 "쿼리 세션" 중에 보다 일관된 결과를 얻게 하려고 할 수 있습니다. 이러한 시나리오에서는 쿼리의 일부로 `sessionId`를 제공할 수 있습니다. `sessionId`는 고유한 사용자 세션을 참조하기 위해 만드는 고유 문자열입니다.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
@@ -72,6 +71,37 @@ Azure Cognitive Search는 두 가지 유사성 순위 알고리즘인 *클래식
 다음 비디오 세그먼트는 Azure Cognitive Search에서 사용되는 순위 알고리즘에 대한 설명을 빠르게 제공합니다. 자세한 배경 정보는 전체 비디오를 시청하여 확인할 수 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+<a name="featuresMode-param"></a>
+
+## <a name="featuresmode-parameter-preview"></a>featuresMode 매개 변수 (미리 보기)
+
+[문서 검색](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) 요청에는 필드 수준에서 관련성에 대 한 추가 세부 정보를 제공할 수 있는 새 [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) 매개 변수가 있습니다. 는 `@searchScore` 문서에 대해 모두 계산 되는 반면 (이 쿼리의 컨텍스트에서이 문서는 어떻게 관련이 있는지) featuresMode를 통해 구조에 표시 된 대로 개별 필드에 대 한 정보를 가져올 수 있습니다 `@search.features` . 구조에는 쿼리에서 사용 되는 모든 필드 (쿼리에서 **Searchfields** 를 통한 특정 필드 또는 인덱스에서 **검색 가능한** 것으로 특성이 지정 된 모든 필드)가 포함 됩니다. 각 필드에 대해 다음 값을 얻습니다.
+
++ 필드에 있는 고유한 토큰 수
++ 유사성 점수 또는 쿼리 용어에 상대적인 필드의 내용과 유사한 측정값
++ 용어 빈도 또는 필드에서 쿼리 용어를 찾은 횟수
+
+"Description" 및 "title" 필드를 대상으로 하는 쿼리의 경우를 포함 하는 응답은 `@search.features` 다음과 같습니다.
+
+```json
+"value": [
+ {
+    "@search.score": 5.1958685,
+    "@search.features": {
+        "description": {
+            "uniqueTokenMatches": 1.0,
+            "similarityScore": 0.29541412,
+            "termFrequency" : 2
+        },
+        "title": {
+            "uniqueTokenMatches": 3.0,
+            "similarityScore": 1.75451557,
+            "termFrequency" : 6
+        }
+```
+
+[사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial) 에서 이러한 데이터 요소를 사용 하거나 정보를 사용 하 여 검색 관련성 문제를 디버그할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 

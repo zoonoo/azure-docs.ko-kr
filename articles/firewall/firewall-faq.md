@@ -5,14 +5,13 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/08/2020
 ms.author: victorh
-ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791489"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -176,7 +175,7 @@ Azure Firewall의 초기 처리량 용량은 2.5 ~ 3Gbps이며 30Gbps까지 스�
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Azure Firewall을 스케일 아웃하는 데 얼마나 걸리나요?
 
-평균 처리량 또는 CPU 사용량이 60%일 때 Azure Firewall이 점차적으로 스케일링됩니다. 스케일 아웃에는 5 ~ 7분 정도 걸립니다. 성능 테스트를 수행하는 경우 10 ~ 15분 이상 테스트하고 새 연결을 시작하여 새로 만든 Firewall 노드를 활용합니다.
+평균 처리량 또는 CPU 사용량이 60%일 때 Azure Firewall이 점차적으로 스케일링됩니다. 스케일 아웃에는 5 ~ 7분 정도 걸립니다. 성능 테스트를 수행 하는 경우 10 ~ 15 분 이상 테스트 하 고 새로 만든 방화벽 노드를 활용 하려면 새 연결을 시작 해야 합니다.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure Firewall에서 기본적으로 Active Directory에 대한 액세스를 허용하나요?
 
@@ -211,3 +210,11 @@ TCP ping은 실제로는 대상 FQDN에 연결하지 않습니다. 이러한 상
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>IP 그룹에서 지원되는 IP 주소 수에 제한이 있나요?
 
 예. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)을 참조하세요.
+
+## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>IP 그룹을 다른 리소스 그룹으로 이동할 수 있나요?
+
+아니요, IP 그룹을 다른 리소스 그룹으로 이동 하는 것은 현재 지원 되지 않습니다.
+
+## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Azure 방화벽에 대 한 TCP 유휴 시간 제한은 무엇 인가요?
+
+네트워크 방화벽의 표준 동작은 TCP 연결을 활성 상태로 유지 하 고 작업이 없는 경우 즉시 종료 하는 것입니다. Azure 방화벽 TCP 유휴 시간 제한은 4 분입니다. 이 설정은 구성할 수 없습니다. 비활성 기간이 시간 제한 값 보다 길면 TCP 또는 HTTP 세션이 유지 되지 않을 수 있습니다. 일반적인 방법은 TCP 연결 유지를 사용하는 것입니다. 이 방법은 더 오랜 기간 동안 연결을 활성 상태로 유지합니다. 자세한 내용은 [.net 예제](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_)를 참조 하십시오.

@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194910"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 푸시
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -47,7 +46,7 @@ ms.locfileid: "79281562"
 2. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다.
 3. 데이터 집합을 입력으로 사용 하 고 데이터 집합을 출력으로 사용 하는 복사 작업을 사용 하 여 **파이프라인** 을 만듭니다.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  검색 인덱스에 데이터를 복사 하는 데 사용 되는 Data Factory 엔터티에 대 한 JSON 정의가 포함 된 샘플은이 문서의 [json 예: 온-프레미스 SQL Server에서 Azure Cognitive Search 인덱스 섹션으로 데이터 복사](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) 섹션을 참조 하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  검색 인덱스에 데이터를 복사 하는 데 사용 되는 Data Factory 엔터티에 대 한 JSON 정의가 포함 된 샘플은이 문서의 [json의 예: SQL Server에서 Azure Cognitive Search 인덱스로 데이터 복사](#json-example-copy-data-from-sql-server-to-azure-cognitive-search-index) 섹션을 참조 하세요.
 
 다음 섹션에서는 검색 인덱스에 한정 된 Data Factory 엔터티를 정의 하는 데 사용 되는 JSON 속성에 대해 자세히 설명 합니다.
 
@@ -55,7 +54,7 @@ ms.locfileid: "79281562"
 
 다음 표에서는 Azure Cognitive Search 연결 된 서비스와 관련 된 JSON 요소에 대 한 설명을 제공 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | -------- | ----------- | -------- |
 | type | Type 속성은 **Azuresearch**로 설정 되어야 합니다. | 예 |
 | url | 검색 서비스에 대 한 URL입니다. | 예 |
@@ -65,7 +64,7 @@ ms.locfileid: "79281562"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다. **TypeProperties** 섹션은 데이터 집합의 각 형식 마다 다릅니다. **AzureSearchIndex** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | -------- | ----------- | -------- |
 | type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
 | indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
@@ -99,7 +98,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 | Azure Cognitive Search 데이터 형식 | Azure Cognitive Search 싱크에서 지원 됨 |
 | ---------------------- | ------------------------------ |
-| 문자열 | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
@@ -108,7 +107,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 | 문자열 배열 | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>JSON 예: 온-프레미스 SQL Server에서 Azure Cognitive Search 인덱스로 데이터 복사
+## <a name="json-example-copy-data-from-sql-server-to-azure-cognitive-search-index"></a>JSON 예제: SQL Server에서 Azure Cognitive Search 인덱스로 데이터 복사
 
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
@@ -118,7 +117,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 4. [AzureSearchIndex](#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
 4. [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 및 [AzureSearchIndexSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
-이 샘플은 온-프레미스 SQL Server 데이터베이스에서 시계열 데이터를 복사 하 여 시간별로 인덱스를 검색 합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+이 샘플은 SQL Server 데이터베이스에서 시계열 데이터를 복사 하 여 시간별로 인덱스를 검색 합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 첫 번째 단계로 온-프레미스 컴퓨터에서 데이터 관리 게이트웨이를 설정합니다. 해당 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에 나와 있습니다.
 
@@ -255,7 +254,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 }
 ```
 
-클라우드 데이터 저장소에서 Azure Cognitive Search로 데이터를 `executionLocation` 복사 하는 경우 속성이 필요 합니다. 다음 JSON 조각은 복사 작업 `typeProperties`에서 필요한 변경 내용을 예제로 보여 줍니다. 지원되는 값과 자세한 정보는[클라우드 데이터 저장소 간의 데이터 복사](data-factory-data-movement-activities.md#global)섹션을 확인합니다.
+클라우드 데이터 저장소에서 Azure Cognitive Search로 데이터를 복사 하는 경우 `executionLocation` 속성이 필요 합니다. 다음 JSON 조각은 복사 작업 `typeProperties`에서 필요한 변경 내용을 예제로 보여 줍니다. 지원되는 값과 자세한 정보는[클라우드 데이터 저장소 간의 데이터 복사](data-factory-data-movement-activities.md#global)섹션을 확인합니다.
 
 ```JSON
 "typeProperties": {
@@ -271,7 +270,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 
 ## <a name="copy-from-a-cloud-source"></a>클라우드 원본에서 복사
-클라우드 데이터 저장소에서 Azure Cognitive Search로 데이터를 `executionLocation` 복사 하는 경우 속성이 필요 합니다. 다음 JSON 조각은 복사 작업 `typeProperties`에서 필요한 변경 내용을 예제로 보여 줍니다. 지원되는 값과 자세한 정보는[클라우드 데이터 저장소 간의 데이터 복사](data-factory-data-movement-activities.md#global)섹션을 확인합니다.
+클라우드 데이터 저장소에서 Azure Cognitive Search로 데이터를 복사 하는 경우 `executionLocation` 속성이 필요 합니다. 다음 JSON 조각은 복사 작업 `typeProperties`에서 필요한 변경 내용을 예제로 보여 줍니다. 지원되는 값과 자세한 정보는[클라우드 데이터 저장소 간의 데이터 복사](data-factory-data-movement-activities.md#global)섹션을 확인합니다.
 
 ```JSON
 "typeProperties": {

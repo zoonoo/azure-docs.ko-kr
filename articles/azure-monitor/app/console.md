@@ -4,12 +4,11 @@ description: 애플리케이션의 가용성, 성능 및 사용 현황을 모니
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: fe34b2b48de8ef4f6c2cdd61623b885878bad2b4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 302d96544a719f0e818d942bff1011c6a4368ef7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807318"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -131,7 +130,7 @@ configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInit
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* [여기](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)에 설명된 대로 성능 카운터 수집기 모듈을 설치하고 초기화할 수도 있습니다.
+* [여기](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)에 설명된 대로 성능 카운터 수집기 모듈을 설치하고 초기화할 수도 있습니다.
 
 
 #### <a name="full-example"></a>전체 예제

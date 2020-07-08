@@ -11,16 +11,15 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dae0352566e6cb4f8ed1384ca12213e2aaa07f9d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791914"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>REST API를 사용 하 여 Azure deny 할당 나열
 
@@ -46,7 +45,7 @@ ms.locfileid: "82733873"
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | Type |
+    > | Scope | 형식 |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -71,7 +70,7 @@ ms.locfileid: "82733873"
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | Type |
+    > | Scope | 형식 |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -80,7 +79,7 @@ ms.locfileid: "82733873"
 1. *{filter}* 를 거부 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | (필터링 안 함) | 지정 된 범위, 위와 아래의 모든 거부 할당을 나열 합니다. |
     > | `$filter=atScope()` | 지정 된 범위 이상에 대해서만 거부 할당을 나열 합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
@@ -102,7 +101,7 @@ ms.locfileid: "82733873"
 1. *{filter}* 를 거부 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다. 필터가 필요합니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | `$filter=atScope()` | 루트 범위에 대한 거부 할당만 나열합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
     > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | 지정된 이름의 거부 할당을 나열합니다. |

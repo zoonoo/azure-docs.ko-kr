@@ -3,34 +3,35 @@ title: Azure 파일 공유 백업에 대한 지원 매트릭스
 description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806874"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대한 지원 매트릭스
 
 [Azure Backup 서비스](https://docs.microsoft.com/azure/backup/backup-overview)를 사용하여 Azure 파일 공유를 백업할 수 있습니다. 이 문서에서는 Azure Backup을 사용하여 Azure 파일 공유를 백업할 때의 지원 설정을 요약해서 설명합니다.
 
-## <a name="supported-geos"></a>지원되는 지역
+## <a name="supported-regions"></a>지원되는 지역
 
-Azure 파일 공유에 대한 백업은 다음 지역에서 제공됩니다.
+### <a name="ga-regions-for-azure-file-shares-backup"></a>Azure 파일 공유에 대 한 GA 지역 백업
 
-**GA 지역**:<br>
-ASE(오스트레일리아 남동부), CNC(캐나다 중부), WCUS(미국 중서부), SCUS(미국 중남부), WUS 2(미국 서부 2), INS(인도 남부), NCUS(미국 중북부), JPE(일본 동부), BRS(브라질 남부), SEA(동남 아시아), SZW(스위스 서부), UAC(아랍에미리트 중부), NWE(노르웨이 동부),INW(인도 서부), ACL(오스트레일리아 중부), KRC(한국 중부), JPW(일본 서부), SAN(남아프리카 공화국 북부), UKS(영국 남부), UKW(영국 서부), KRS(한국 남부), NE(북유럽), GN(독일 북부), NWW(노르웨이 서부), SAW(남아프리카 공화국 서부), SZN(스위스 북부), GWC(독일 중서부), UAN(아랍에미리트 북부), FRC(프랑스 중부), INC(인도 중부), CNE(캐나다 동부), EA(동아시아), AE(오스트레일리아 동부), CUS(미국 중부), WUS(미국 서부), UGA(US Gov 애리조나), UGT(US Gov 텍사스), UGV(US Gov 버지니아), UDC(US DoD 중부), UDE(US DoD 동부)
+Azure 파일 공유 백업은 독일 중부 (소 버린), 독일 북동쪽 (소 버린), 중국 동부, 중국 동부 2, 중국 북부, 중국 북부 2 US Gov 아이오와를 **제외한** 모든 지역에서 사용할 수 있습니다.
 
-**지원되는 지역(미리 보기의 일부로)이지만 아직 GA가 아님**:<br>
-EUS(미국 동부), EUS2(미국 동부 2), WE(서유럽)
+### <a name="supported-regions-for-accidental-delete-protection"></a>실수로 인 한 삭제 방지를 위해 지원 되는 지역
+
+미국 서 부 중부, 오스트레일리아 동부, 캐나다 중부
 
 ## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
 
-| 스토리지 계정 세부 정보 | 지원                                                      |
+| 스토리지 계정 세부 정보 | Support(지원)                                                      |
 | ------------------------ | ------------------------------------------------------------ |
 | 계정 종류            | Azure Backup은 범용 v1, 범용 v2 및 파일 스토리지 유형 스토리지 계정에 있는 Azure 파일 공유를 지원합니다. |
 | 성능              | Azure Backup은 표준 및 Premium Storage 계정 모두에서 파일 공유를 지원합니다. |
-| 복제              | 모든 복제 유형을 사용하는 스토리지 계정의 Azure 파일 공유가 지원됩니다. |
+| 복제              | 모든 복제 유형을 사용 하는 저장소 계정의 Azure 파일 공유는 지원 됩니다. |
+| 방화벽 사용         | Microsoft Azure 서비스에서 저장소 계정에 액세스할 수 있도록 허용 하는 방화벽 규칙을 사용 하는 저장소 계정의 Azure 파일 공유가 지원 됩니다.|
 
 ## <a name="supported-file-shares"></a>지원되는 파일 공유
 
@@ -45,14 +46,16 @@ EUS(미국 동부), EUS2(미국 동부 2), WE(서유럽)
 
 | 설정                                                      | 제한 |
 | ------------------------------------------------------------ | ----- |
-| 자격 증명 모음당 하루에 보호할 수 있는 최대 파일 공유 수 | 200   |
+| 매일 자격 증명 모음 당 보호할 수 있는 파일 공유의 최대 수| 200   |
 | 하루에 자격 증명 모음당 등록할 수 있는 최대 스토리지 계정 수 | 50    |
+| 자격 증명 모음 당 보호할 수 있는 최대 파일 공유 수 | 2000   |
+| 자격 증명 모음 당 등록할 수 있는 최대 저장소 계정 수 | 200   |
 
 ## <a name="backup-limits"></a>Backup 제한
 
 | 설정                                      | 제한 |
 | -------------------------------------------- | ----- |
-| 일별 최대 주문형 백업 수 | 4     |
+| 일별 최대 주문형 백업 수 | 10   |
 | 일별 최대 예약 백업 수 | 1     |
 
 ## <a name="restore-limits"></a>복원 제한

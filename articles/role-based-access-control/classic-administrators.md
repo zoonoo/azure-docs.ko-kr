@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791795"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -38,17 +37,17 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
     공동 관리자는 구독 범위에서만 할당할 수 있습니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **클래식 관리자** 탭을 클릭합니다.
 
     ![클래식 관리자를 여는 스크린샷](./media/classic-administrators/classic-administrators.png)
 
-1.  > **공동 관리자** **추가 추가를 클릭 하**여 공동 관리자 추가 창을 엽니다.
+1. **Add**  >  **공동 관리자** 추가 추가를 클릭 하 여 공동 관리자 추가 창을 엽니다.
 
     공동 관리자 추가 옵션을 사용할 수 없는 경우 권한이 없는 것입니다.
 
-1. 추가할 사용자를 선택하고 **추가**를 클릭합니다.
+1. 추가 하려는 사용자를 선택 하 고 **추가**를 클릭 합니다.
 
     ![공동 관리자를 추가하는 스크린샷](./media/classic-administrators/add-coadmin.png)
 
@@ -62,7 +61,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
 ### <a name="differences-for-guest-users"></a>게스트 사용자의 차이점
 
-공동 관리자 역할이 할당 된 게스트 사용자는 공동 관리자 역할을 사용 하는 멤버 사용자에 비해 몇 가지 차이점을 확인할 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
+공동 관리자 역할이 할당 된 게스트 사용자는 공동 관리자 역할을 사용 하는 멤버 사용자에 비해 몇 가지 차이점을 확인할 수 있습니다. 다음 시나리오를 고려하세요.
 
 - Azure AD 계정 (회사 또는 학교 계정)을 사용 하는 사용자 A는 Azure 구독에 대 한 서비스 관리자입니다.
 - 사용자 B에게는 Microsoft 계정이 있습니다.
@@ -83,7 +82,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
 1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **클래식 관리자** 탭을 클릭합니다.
 
@@ -128,7 +127,7 @@ Azure 구독 당 서비스 관리자는 하나만 있을 수 있습니다. 서�
 | Microsoft 계정 | 예 | 아니요 | 아니요 |
 | Azure AD 계정 | 예 | 예 | 아니요 |
 
-계정 관리자가 Azure AD 계정인 경우에는 서비스 관리자를 같은 디렉터리의 Azure AD 계정으로 변경할 수 있지만 다른 디렉터리에는 변경할 수 없습니다. 예를 들어 abby@contoso.com 는 서비스 관리자를로 bob@contoso.com변경할 수 있지만 contoso.com 디렉터리에가 없는 경우 john@notcontoso.com john@notcontoso.com 에는로 서비스 관리자를 변경할 수 없습니다.
+계정 관리자가 Azure AD 계정인 경우에는 서비스 관리자를 같은 디렉터리의 Azure AD 계정으로 변경할 수 있지만 다른 디렉터리에는 변경할 수 없습니다. 예를 들어는 abby@contoso.com 서비스 관리자를로 변경할 수 bob@contoso.com 있지만 john@notcontoso.com john@notcontoso.com contoso.com 디렉터리에가 없는 경우에는로 서비스 관리자를 변경할 수 없습니다.
 
 Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md)을 참조 하세요.
 
@@ -150,6 +149,6 @@ Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Activ
 
 ## <a name="next-steps"></a>다음 단계
 
-* [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
+* [여러 역할의 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
 * [Azure 구독 관리자 추가 또는 변경](../cost-management-billing/manage/add-change-subscription-administrator.md)

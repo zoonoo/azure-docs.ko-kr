@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1bdf703ac29ce11749de70fa0ef5972ee284401b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 4ee6a3c09d24d6968227ef4215000888c5f4af05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791013"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당 나열
 
@@ -168,4 +167,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-powershell.md)
+- [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-powershell.md)

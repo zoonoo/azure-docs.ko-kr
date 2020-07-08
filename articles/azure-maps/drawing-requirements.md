@@ -3,17 +3,16 @@ title: Azure Maps Creator의 그리기 패키지 요구 사항
 description: Azure Maps Conversion 서비스를 사용하여 시설 디자인 파일을 맵 데이터로 변환하기 위한 그리기 패키지 요구 사항에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/18/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791574"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
@@ -169,12 +168,13 @@ Zonelabel 레이어의 예제는 [그리기 패키지 샘플](https://github.com
 
 zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 포함해야 하며, 파일 이름은 **manifest.json**이어야 합니다. 이는 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion)에서 콘텐츠를 구문 분석할 수 있도록 하는 DWG 파일에 대해 설명합니다. 매니페스트에서 식별된 파일만 수집됩니다. zip 폴더에 있지만 매니페스트에 제대로 나열되지 않은 파일은 무시됩니다.
 
-매니페스트 파일의 **buildingLevels** 개체에 있는 파일 경로는 zip 폴더의 루트에 대한 상대 경로여야 합니다. DWG 파일 이름은 시설 수준의 이름과 정확히 일치해야 합니다. 예를 들어 "Basement(지하실)" 수준에 대한 DWG 파일은 "Basement.dwg"입니다. 수준 2에 대한 DWG 파일은 "level_2.dwg"로 명명됩니다. 수준 이름에 공백이 있는 경우 밑줄을 사용합니다. 
+매니페스트 파일의 **buildingLevels** 개체에 있는 파일 경로는 zip 폴더의 루트에 대한 상대 경로여야 합니다. DWG 파일 이름은 시설 수준의 이름과 정확히 일치해야 합니다. 예를 들어 "Basement(지하실)" 수준에 대한 DWG 파일은 "Basement.dwg"입니다. 수준 2에 대한 DWG 파일은 "level_2.dwg"로 명명됩니다. 수준 이름에 공백이 있는 경우 밑줄을 사용합니다.
 
 매니페스트 개체를 사용하는 경우 요구 사항이 있지만 일부 개체만 필요합니다. 아래 표에는 [Azure Maps Conversion 서비스](https://docs.microsoft.com/rest/api/maps/conversion) 버전 1.1의 필수 개체 및 선택적 개체가 나와 있습니다.
 
 | Object | 필수 | Description |
 | :----- | :------- | :------- |
+| 버전 | true |매니페스트 스키마 버전입니다. 현재 버전 1.1만 지원 됩니다.|
 | directoryInfo | true | 시설 지리적 정보 및 연락처 정보를 간략히 설명합니다. 또한 거주자 지리적 정보 및 연락처 정보를 설명하는 데에도 사용할 수 있습니다. |
 | buildingLevels | true | 건물 수준 및 수준 디자인이 포함된 파일 수준을 지정합니다. |
 | georeference | true | 시설 그리기에 대한 숫자 지리적 정보를 포함합니다. |
@@ -186,16 +186,16 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### <a name="directoryinfo"></a>directoryInfo
 
-| 속성  | type | 필수 | Description |
+| 속성  | type | 필수 | 설명 |
 |-----------|------|----------|-------------|
-| name      | 문자열/정수 | true   |  건물의 이름입니다. |
-| streetAddress|    문자열/정수 |    false    | 건물의 주소입니다. |
-|단위     | 문자열/정수    |  false    |  건물의 단위입니다. |
-| 인근 |    문자열/정수 |    false |    영역, 인접 영역 또는 지역의 이름입니다. 예를 들어 "호반" 또는 "중심 지구"가 있습니다. 구/군/시는 우편 주소의 일부가 아닙니다. |
+| name      | 문자열 | true   |  건물의 이름입니다. |
+| streetAddress|    문자열 |    false    | 건물의 주소입니다. |
+|단위     | 문자열    |  false    |  건물의 단위입니다. |
+| 인근 |    문자열 |    false |    영역, 인접 영역 또는 지역의 이름입니다. 예를 들어 "호반" 또는 "중심 지구"가 있습니다. 구/군/시는 우편 주소의 일부가 아닙니다. |
 | adminDivisions |    문자열의 JSON 배열 |    false     | (국가, 주, 시) 또는 (국가, 도/현, 시, 읍) 주소 명칭을 포함하는 배열입니다. ISO 3166 국가 코드 및 ISO 3166-2 주/지역 코드를 사용합니다. |
-| postalCode |    문자열/정수    | false    | 메일 분류 코드입니다. |
+| postalCode |    문자열    | false    | 메일 분류 코드입니다. |
 | hoursOfOperation |    문자열 |     false | [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) 형식을 따릅니다. |
-| phone    | 문자열/정수 |    false |    건물과 연결된 전화 번호입니다. 국가 코드를 포함해야 합니다. |
+| phone    | 문자열 |    false |    건물과 연결된 전화 번호입니다. 국가 코드를 포함해야 합니다. |
 | 웹 사이트(website)    | 문자열 |    false    | 건물과 연결된 웹 사이트입니다. M은 http 또는 https로 시작합니다. |
 | nonPublic |    bool    | false | 건물이 대중에게 공개되는지 여부를 지정하는 플래그입니다. |
 | anchorLatitude | numeric |    false | 시설 앵커(압정)의 위도입니다. |
@@ -207,17 +207,17 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `buildingLevels` 개체에는 건물 수준의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
-|levelName    |문자열/정수    |true |    설명이 포함된 수준 이름입니다. 다음은 그 예입니다.  1층, 로비, 장애인 주차 공간, 지하실 등입니다.|
+|levelName    |string    |true |    설명이 포함된 수준 이름입니다. 다음은 그 예입니다.  1층, 로비, 장애인 주차 공간, 지하실 등입니다.|
 |ordinal | integer |    true | 서수는 수준의 세로 순서를 결정하는 데 사용됩니다. 모든 시설에는 서수가 0인 수준이 있어야 합니다. |
-|heightAboveFacilityAnchor | numeric |    false |    1층의 수준 높이(미터)입니다. |
+|heightAboveFacilityAnchor | numeric | false |    앵커의 수준 높이 (미터)입니다. |
 | verticalExtent | numeric | false | 바닥에서 천장까지의 수준 높이(두께)입니다(미터 단위). |
-|filename |    문자열/정수 |    true |    건물 수준에 대한 CAD 그리기의 파일 시스템 경로입니다. 건물의 zip 파일의 루트에 대한 상대 경로여야 합니다. |
+|filename |    string |    true |    건물 수준에 대한 CAD 그리기의 파일 시스템 경로입니다. 건물의 zip 파일의 루트에 대한 상대 경로여야 합니다. |
 
 ### <a name="georeference"></a>georeference
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | 설명 |
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |lon    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
@@ -225,46 +225,47 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | 설명 |
 |-----------|------|----------|-------------|
-|exterior    |문자열/정수 배열|    true|    외부 건물 프로필을 정의하는 레이어의 이름입니다.|
-|단위|    문자열/정수 배열|    true|    단위를 정의하는 레이어의 이름입니다.|
-|wall|    문자열/정수 배열    |false|    벽을 정의하는 레이어의 이름입니다.|
-|door    |문자열/정수 배열|    false   | 문을 정의하는 레이어의 이름입니다.|
-|unitLabel    |문자열/정수 배열|    false    |단위 이름을 정의하는 레이어의 이름입니다.|
-|영역 | 문자열/정수 배열    | false    | 영역을 정의하는 레이어의 이름입니다.|
-|zoneLabel | 문자열/정수 배열 |     false |    영역 이름을 정의하는 레이어의 이름입니다.|
+|exterior    |문자열 배열|    true|    외부 건물 프로필을 정의하는 레이어의 이름입니다.|
+|단위|    문자열 배열|    true|    단위를 정의하는 레이어의 이름입니다.|
+|wall|    문자열 배열    |false|    벽을 정의하는 레이어의 이름입니다.|
+|door    |문자열 배열|    false   | 문을 정의하는 레이어의 이름입니다.|
+|unitLabel    |문자열 배열|    false    |단위 이름을 정의하는 레이어의 이름입니다.|
+|영역 | 문자열 배열    | false    | 영역을 정의하는 레이어의 이름입니다.|
+|zoneLabel | 문자열 배열 |     false |    영역 이름을 정의하는 레이어의 이름입니다.|
 
 ### <a name="unitproperties"></a>unitProperties
 
 `unitProperties` 개체에는 단위 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
-|unitName    |문자열/정수    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. `unitName`과 일치하는 레이블이 `unitLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다. |
-|categoryName|    문자열/정수|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
+|unitName    |string    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. `unitName`과 일치하는 레이블이 `unitLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다. |
+|categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
 |navigableBy| 문자열 배열 |    false    |단위를 트래버스할 수 있는 탐색 에이전트의 유형을 나타냅니다. 예를 들어 "보행자"입니다. 이 속성은 길찾기 기능을 알려줍니다.  허용되는 값은 `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat` 및 `disallowed`입니다.|
 |routeThroughBehavior|    문자열|    false    |단위에 대한 경로 통과 동작입니다. 허용되는 값은 `disallowed`, `allowed` 및 `preferred`입니다. 기본값은 `allowed`입니다.|
 |occupants    |directoryInfo 개체의 배열 |false    |단위의 거주자 목록입니다. |
-|nameAlt|    문자열/정수|    false|    단위의 대체 이름입니다. |
-|nameSubtitle|    문자열/정수    |false|    단위의 부제목입니다. |
-|addressRoomNumber|    문자열/정수|    false|    단위의 방/단위/콘도/스위트룸 번호입니다.|
-|verticalPenetrationCategory|    문자열/정수|    false| 이 속성을 정의하면 결과 기능이 단위가 아닌 VRT(수직 침투)가 됩니다. VRT를 사용하여 위 또는 아래 수준의 다른 VRT 기능으로 이동할 수 있습니다. 수직 침투는 [범주](https://aka.ms/pa-indoor-spacecategories) 이름입니다. 이 속성을 정의하면 categoryName 속성이 verticalPenetrationCategory로 재정의됩니다. |
+|nameAlt|    문자열|    false|    단위의 대체 이름입니다. |
+|nameSubtitle|    문자열    |false|    단위의 부제목입니다. |
+|addressRoomNumber|    문자열|    false|    단위의 방/단위/콘도/스위트룸 번호입니다.|
+|verticalPenetrationCategory|    문자열|    false| 이 속성을 정의하면 결과 기능이 단위가 아닌 VRT(수직 침투)가 됩니다. VRT를 사용하여 위 또는 아래 수준의 다른 VRT 기능으로 이동할 수 있습니다. 수직 침투는 [범주](https://aka.ms/pa-indoor-spacecategories) 이름입니다. 이 속성을 정의하면 categoryName 속성이 verticalPenetrationCategory로 재정의됩니다. |
 |verticalPenetrationDirection|    문자열|    false    |`verticalPenetrationCategory`가 정의되면 필요에 따라 유효한 이동 방향을 정의합니다. 허용되는 값은 `lowToHigh`, `highToLow`, `both` 및 `closed`입니다. 기본값은 `both`입니다.|
 | nonPublic | bool | false | 단위가 대중에게 공개되는지 여부를 나타냅니다. |
 | isRoutable | bool | false | `false`로 설정되면 단위를 이동하거나 탐색할 수 없습니다. 기본값은 `true`입니다. |
-| isOpenArea | bool | false | 단위에 연결된 통로 없이 탐색 에이전트에서 단위에 들어갈 수 있도록 합니다. 단위에 통로가 없으면 이 값은 기본적으로 `true`로 설정됩니다. |
+| isOpenArea | bool | false | 단위에 연결 된 열을 요구 하지 않고 탐색 에이전트가 단위를 입력할 수 있습니다. 기본적으로이 값은 여가 `true` 없는 단위의 경우로 설정 되 고, 여는 단위에 대해로 설정 됩니다 `false` .  `isOpenArea`을 (를) 시작 `false` 하지 않고 단위에서 수동으로로 설정 하면 경고가 발생 합니다. 그 이유는 탐색 에이전트가 결과 단위에 연결할 수 없기 때문입니다.|
 
 ### <a name="the-zoneproperties-object"></a>zoneProperties 개체
 
 `zoneProperties` 개체에는 영역 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
-|zoneName        |문자열/정수    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
-|categoryName|    문자열/정수|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
-|zoneNameAlt|    문자열/정수|    false    |영역의 대체 이름입니다.  |
-|zoneNameSubtitle|    문자열/정수 |    false    |영역의 부제목입니다. |
+|zoneName        |string    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
+|categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
+|zoneNameAlt|    문자열|    false    |영역의 대체 이름입니다.  |
+|zoneNameSubtitle|    문자열 |    false    |영역의 부제목입니다. |
+|zoneSetId|    문자열 |    false    | 그룹으로 쿼리하거나 선택할 수 있도록 여러 영역 간에 관계를 설정 하려면 ID를 설정 합니다. 예를 들어 여러 수준에 걸쳐 있는 영역이 있습니다. |
 
 ### <a name="sample-drawing-package-manifest"></a>그리기 패키지 매니페스트 샘플
 

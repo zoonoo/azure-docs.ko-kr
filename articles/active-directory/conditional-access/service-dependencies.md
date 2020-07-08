@@ -4,19 +4,18 @@ description: 조건부 액세스 Azure Active Directory에서 조건을 사용 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a108c952c4f1f9b8298e57c8fd94c767bb065f00
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 00b23a845002f5a92128917d81fdadf5a647d798
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253191"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>조건부 액세스 Azure Active Directory의 서비스 종속성은 무엇 인가요? 
 
@@ -46,10 +45,10 @@ Office stack의 응용 프로그램을 사용 하 여이를 수행 하는 좋은
 
 | 클라이언트 앱         | 다운스트림 서비스                          | 적용 |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
+| Azure 데이터 레이크     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 | Microsoft 교실 | Exchange                                    | 초기 바인딩 |
 |                     | SharePoint                                  | 초기 바인딩 |
-| Microsoft Teams     | Exchange                                    | 초기 바인딩 |
+| Microsoft 팀     | Exchange                                    | 초기 바인딩 |
 |                     | MS Planner                                  | 런타임에 바인딩  |
 |                     | SharePoint                                  | 초기 바인딩 |
 |                     | 비즈니스 온라인용 Skype                   | 초기 바인딩 |
@@ -59,7 +58,7 @@ Office stack의 응용 프로그램을 사용 하 여이를 수행 하는 좋은
 |                     | SharePoint                                  | 초기 바인딩 |
 | PowerApps           | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 |                     | Windows Azure Active Directory              | 초기 바인딩 |
-| 프로젝트             | Dynamics CRM                                | 초기 바인딩 |
+| Project             | Dynamics CRM                                | 초기 바인딩 |
 | 비즈니스용 Skype  | Exchange                                    | 초기 바인딩 |
 | Visual Studio       | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 | Microsoft Forms     | Exchange                                    | 초기 바인딩 |

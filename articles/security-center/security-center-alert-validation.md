@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cf732b92c1a208dd4c312ae442969ef958a021b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79140000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791183"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사(EICAR 테스트 파일)
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -37,9 +36,9 @@ ms.locfileid: "79140000"
 
 컴퓨터에 에이전트를 설치한 Security Center 후에는 경고의 공격을 받을 컴퓨터에서 다음 단계를 수행 합니다.
 
-1. 실행 파일 (예: **calc**)을 컴퓨터의 바탕 화면이 나 사용자 편의의 다른 디렉터리에 복사 하 고 **ASC_AlertTest_662jfi039N**로 이름을 바꿉니다.
+1. 실행 파일 (예: **calc.exe**)을 컴퓨터의 바탕 화면이 나 사용자 편의의 다른 디렉터리에 복사 하 고 **ASC_AlertTest_662jfi039N.exe**로 이름을 바꿉니다.
 1. 명령 프롬프트를 열고 인수 (예: 가짜 인수 이름)를 사용 하 여이 파일을 실행 합니다.```ASC_AlertTest_662jfi039N.exe -foo```
-1. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 아래 [예제](#alert-validate) 와 비슷한 경고가 표시 됩니다.
+1. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 경고가 표시 됩니다.
 
 > [!NOTE]
 > Windows에 대 한이 테스트 경고를 검토할 때 필드 **인수 감사를 사용 하도록 설정** 했는지 확인 **합니다.** **False**인 경우에는 명령줄 인수 감사를 사용 하도록 설정 해야 합니다. 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
@@ -57,11 +56,7 @@ ms.locfileid: "79140000"
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 아래 [예제](#alert-validate) 와 비슷한 경고가 표시 됩니다.
-
-### <a name="alert-example"></a>경고 예<a name="alert-validate"></a>
-
-![경고 유효성 검사 예제](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
+1. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 경고가 표시 됩니다.
 
 
 ## <a name="validate-alerts-on-kubernetes"></a>Kubernetes에 대 한 경고 유효성 검사<a name="validate-kubernetes"></a>
@@ -77,5 +72,5 @@ Azure Kubernetes Service와 Azure Security Center를 통합 하는 방법에 대
 
 * [Azure Security Center에서 Azure Key Vault 위협 검색의 유효성 검사](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) -경고를 관리 하 고 Security Center의 보안 인시던트에 대응 하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center의 보안 상태 모니터링](security-center-monitoring.md) -Azure 리소스의 상태를 모니터링 하는 방법을 알아봅니다.
 * [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) -다양 한 유형의 보안 경고에 대해 알아봅니다.

@@ -4,35 +4,36 @@ description: Azure Portal을 사용하여 디바이스를 관리하는 방법을
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
-ms.date: 06/04/2019
+ms.topic: how-to
+ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bf3f6455be992502182fb942f0e6db089051ab1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253157"
 ---
-# <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal를 사용 하 여 장치 id 관리
+# <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
 Azure Active Directory (Azure AD)의 장치 id 관리를 사용 하 여 사용자가 보안 및 규정 준수에 대 한 표준을 충족 하는 장치에서 리소스에 액세스 하 고 있는지 확인할 수 있습니다.
 
-이 문서의 내용:
+이 문서의 내용은 다음과 같습니다.
 
 - 사용자가 [의 장치 id 관리 소개 Azure Active Directory](overview.md) 잘 알고 있다고 가정 합니다.
 - Azure AD 포털을 사용 하 여 장치 id를 관리 하는 방법에 대 한 정보를 제공 합니다.
+
+![Azure Portal의 모든 장치 보기](./media/device-management-azure-portal/all-devices-azure-portal.png)
 
 ## <a name="manage-device-identities"></a>디바이스 ID 관리
 
 Azure AD 포털은 장치 id를 관리 하는 중앙의 장소를 제공 합니다. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) 를 사용 하거나 다음을 수행 하 여이 위치에 액세스할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** > **장치로**이동 합니다.
+1. **Azure Active Directory**  >  **장치로**이동 합니다.
 
 **디바이스** 페이지에서 다음을 수행할 수 있습니다.
 
@@ -47,7 +48,7 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 
 장치 설정 페이지에서 장치 id와 관련 된 설정을 구성할 수 있습니다.
 
-![Intune 디바이스 관리](./media/device-management-azure-portal/21.png)
+![Azure AD와 관련 된 장치 설정](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **사용자가 AZURE ad에 장치를 조인할 수 있습니다** .-이 설정을 사용 하면 장치를 azure ad 조인 장치로 등록할 수 있는 사용자를 선택할 수 있습니다. 기본값은 **All**입니다.
 
@@ -82,13 +83,9 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 - 등록 및 조인된 디바이스의 자세한 개요를 제공합니다.
 - 일반 디바이스 관리 작업을 수행할 수 있습니다.
 
-![모든 디바이스](./media/device-management-azure-portal/51.png)
-
 >[!TIP]
 >
 >* 등록 된 열에서 "보류 중" 상태인 "하이브리드 Azure AD 조인" 장치가 표시 되 면 장치가 Azure AD connect에서 동기화 되 고 클라이언트에서 등록을 완료 하기 위해 대기 중임을 나타냅니다. [하이브리드 AZURE AD 조인 구현을 계획](hybrid-azuread-join-plan.md)하는 방법을 참조 하세요. 추가 정보는 [장치 faq](faq.md)(질문과 대답) 문서에서 찾을 수 있습니다.
->
->   ![보류 중인 장치](./media/device-management-azure-portal/75.png)
 >
 >* 일부 iOS 디바이스의 경우 아포스트로피를 포함하는 디바이스 이름이 아포스트로피처럼 보이는 다른 문자를 사용할 수 있습니다. 따라서 이러한 장치를 검색 하는 것은 다소 복잡 합니다. 검색 결과가 올바르게 표시 되지 않는 경우 검색 문자열에 일치 하는 아포스트로피 문자를 포함 해야 합니다.
 
@@ -96,14 +93,14 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 
 전역 관리자 또는 클라우드 장치 관리자는 등록 되거나 조인 된 장치를 관리할 수 있습니다. Intune 서비스 관리자는 다음을 수행할 수 있습니다.
 
-- 디바이스 업데이트 - 예제는 디바이스를 사용/사용 안 함과 같은 일상적인 작업임
-- 디바이스 삭제 - 디바이스가 사용 중지되고 Azure AD에서 삭제돼야 하는 경우
+- 장치 업데이트-예를 들어 장치 사용/사용 안 함과 같은 일상적인 작업입니다.
+- 장치 삭제-장치가 사용 중지 되 고 Azure AD에서 삭제 되어야 하는 경우
 
 이 섹션에서는 일반적인 장치 id 관리 작업에 대 한 정보를 제공 합니다.
 
 ### <a name="manage-an-intune-device"></a>Intune 디바이스 관리
 
-Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 관리할 수 있습니다. 장치가에 등록 되지 않은 Microsoft Intune "관리" 옵션은 회색으로 표시 됩니다.
+Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 관리할 수 있습니다. 장치가 Microsoft Intune 등록 되지 않은 경우 "관리" 옵션이 회색으로 표시 됩니다.
 
 ![Intune 디바이스 관리](./media/device-management-azure-portal/31.png)
 
@@ -145,7 +142,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
    - 디바이스에 연결되어 있는 모든 세부 정보(예: Windows 디바이스에 대한 BitLocker 키)를 제거합니다.  
    - 복구할 수 없으며, 반드시 필요한 경우가 아니면 권장되지 않는 작업을 나타냅니다.
 
-장치를 다른 관리 기관 (예: Microsoft Intune)에서 관리 하는 경우, Azure AD에서 장치를 삭제 하기 전에 장치를 초기화/사용 중지 했는지 확인 합니다. 장치를 삭제 하기 전에 [오래 된 장치를 관리](device-management-azure-portal.md) 하는 방법을 검토 합니다.
+장치를 다른 관리 기관 (예: Microsoft Intune)에서 관리 하는 경우, Azure AD에서 장치를 삭제 하기 전에 장치를 초기화/사용 중지 했는지 확인 합니다. 장치를 삭제 하기 전에 [오래 된 장치를 관리](manage-stale-devices.md) 하는 방법을 검토 합니다.
 
 ### <a name="view-or-copy-device-id"></a>디바이스 ID 확인 또는 복사
 
@@ -166,10 +163,31 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 - 기술 지원팀 관리자
 - Intune 서비스 관리자
 - 보안 관리자
-- 보안 판독기
+- 보안 Reader
 
 > [!NOTE]
 > 하이브리드 Azure AD 조인 Windows 10 디바이스에는 소유자가 없습니다. 따라서 소유자로 디바이스를 찾으려는 경우 찾지 못하면 디바이스 ID로 검색합니다.
+
+### <a name="device-list-filtering-preview"></a>장치 목록 필터링 (미리 보기)
+
+이전에는 작업 및 사용 상태를 기준으로 장치 목록만 필터링 할 수 있었습니다. 이제이 미리 보기를 통해 장치에서 다음 특성을 사용 하 여 장치 목록을 필터링 할 수 있습니다.
+
+- 활성화 상태
+- 규격 상태
+- 조인 유형 (Azure AD 조인, 하이브리드 Azure AD 조인, Azure AD 등록 됨)
+- 활동 타임스탬프
+- OS
+- 장치 유형 (프린터, 보안 Vm, 공유 장치, 등록 된 장치)
+
+**모든 장치** 보기에서 미리 보기 필터링 기능을 사용 하려면 다음을 수행 합니다.
+
+![필터링 미리 보기 기능 사용](./media/device-management-azure-portal/device-filter-preview-enable.png)
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Azure Active Directory**  >  **장치로**이동 합니다.
+1. 표시 되는 배너를 선택 하 고 **새 장치 필터링 기능을 사용해 보세요. 미리 보기를 사용 하려면 클릭 합니다.**
+
+이제 **모든 장치** 보기에 필터를 **추가할** 수 있습니다.
 
 ## <a name="audit-logs"></a>감사 로그
 
@@ -198,7 +216,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 
 - 범주
 - 활동 리소스 종류
-- 작업
+- 활동
 - 날짜 범위
 - 대상
 - 초기자(작업자)

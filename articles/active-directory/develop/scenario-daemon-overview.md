@@ -11,24 +11,23 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253123"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 디먼 응용 프로그램
 
 웹 Api를 호출 하는 디먼 응용 프로그램을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>개요
 
-응용 프로그램은 사용자를 대신 하 여 웹 API를 대신 호출 하는 토큰을 획득할 수 있습니다. 이 시나리오는 디먼 응용 프로그램에 유용 합니다. 표준 OAuth 2.0 [클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) 부여를 사용 합니다.
+응용 프로그램은 사용자를 대신 하 여 웹 API를 대신 호출 하는 토큰을 획득할 수 있습니다. 이 시나리오는 디먼 응용 프로그램에 유용 합니다. 이 파일은 표준 OAuth 2.0 [클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) 권한 부여를 사용합니다.
 
 ![디먼 앱](./media/scenario-daemon-app/daemon-app.svg)
 
@@ -38,14 +37,14 @@ ms.locfileid: "80885466"
 - 배치 작업을 수행 하는 데스크톱 응용 프로그램 (예: Windows의 Windows 서비스 또는 Linux의 디먼 프로세스) 백그라운드에서 실행 되는 운영 체제 서비스
 - 특정 사용자가 아닌 디렉터리를 조작 해야 하는 웹 Api
 
-비 디먼 응용 프로그램이 클라이언트 자격 증명을 사용 하는 또 다른 일반적인 경우는 다음과 같습니다. 사용자를 대신 하 여 동작 하는 경우에도 기술적인 이유로 자체 id로 웹 API 또는 리소스에 액세스 해야 합니다. 예를 들어 캐시에 대 한 Azure SQL 데이터베이스 또는 Azure Key Vault의 비밀에 액세스할 수 있습니다.
+비 디먼 응용 프로그램이 클라이언트 자격 증명을 사용 하는 또 다른 일반적인 경우는 다음과 같습니다. 사용자를 대신 하 여 동작 하는 경우에도 기술적인 이유로 자체 id로 웹 API 또는 리소스에 액세스 해야 합니다. 예를 들어 캐시에 대 한 Azure Key Vault 또는 Azure SQL Database의 비밀에 액세스할 수 있습니다.
 
 고유 id에 대 한 토큰을 획득 하는 응용 프로그램:
 
 - 기밀 클라이언트 응용 프로그램입니다. 이러한 앱은 사용자와 독립적으로 리소스에 액세스 하는 경우 id를 증명 해야 합니다. 또한 이러한 앱은 중요 한 앱입니다. Azure Active Directory (Azure AD) 테 넌 트 관리자가 승인 해야 합니다.
 - Azure AD에 비밀 (응용 프로그램 암호 또는 인증서)을 등록 했습니다. 이 암호는 토큰을 가져오기 위해 Azure AD를 호출 하는 동안 전달 됩니다.
 
-## <a name="specifics"></a>자세히
+## <a name="specifics"></a>특수 적용 사항
 
 > [!IMPORTANT]
 >

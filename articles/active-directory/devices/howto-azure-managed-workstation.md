@@ -4,19 +4,18 @@ description: 안전 하 고 Azure로 관리 되는 워크스테이션을 배포 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d02b0299b6267fdd9d880d5bc0fe8c93d0edadc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252783"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>안전 하 고 Azure로 관리 되는 워크스테이션 배포
 
@@ -29,7 +28,7 @@ ms.locfileid: "78672615"
 > [!NOTE]
 > 요구 사항에 따라 필요에 따라 프로필을 적용 합니다. Microsoft Intune에서 할당 하 여 다른 프로필로 이동할 수 있습니다.
 
-| 프로필 | 낮음 | 향상된 | 높음 | 특수화 | 보안 | 격리 |
+| 프로필 | 낮음 | 향상된 | 높은 | 특수화 | 보안됨 | Isolated |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Azure AD의 사용자 | 예 | 예 | 예 | 예 | 예 | 예 |
 | Intune 관리 | 예 | 예 | 예 | 예 | 예 | 예 |
@@ -63,19 +62,19 @@ Azure AD (Azure Active Directory)는 관리자 워크스테이션의 사용자, 
 
 ### <a name="azure-ad-users-and-groups"></a>Azure AD 사용자 및 그룹
 
-1. Azure Portal에서 **Azure Active Directory** > **사용자** > **새 사용자**로 이동 합니다.
+1. Azure Portal에서 **Azure Active Directory**  >  **사용자**  >  **새 사용자**로 이동 합니다.
 1. [사용자 만들기 자습서](/Intune/quickstart-create-user)의 단계를 수행 하 여 장치 관리자를 만듭니다.
 1. 다음을 입력합니다.
 
    * **이름** -워크스테이션 관리자 보안
    * **사용자 이름** - `secure-ws-admin@identityitpro.com`
-   * **디렉터리 역할** - **제한 된 관리자** 이며 **Intune 관리자** 역할을 선택 합니다.
+   * **디렉터리 역할**  -  **제한 된 관리자** 를 선택 하 고 **Intune 관리자** 역할을 선택 합니다.
 
 1. **만들기**를 선택합니다.
 
 다음으로 워크스테이션 사용자 및 워크스테이션 장치 라는 두 그룹을 만듭니다.
 
-Azure Portal에서 **Azure Active Directory** > **그룹** > **새 그룹**으로 이동 합니다.
+Azure Portal에서 **Azure Active Directory**  >  **그룹**  >  **새 그룹**으로 이동 합니다.
 
 1. 워크스테이션 사용자 그룹의 경우 사용자에 대 한 라이선스 프로 비전을 자동화 하도록 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 구성 해야 할 수 있습니다.
 1. 워크스테이션 사용자 그룹에 대해 다음을 입력 합니다.
@@ -101,21 +100,21 @@ Azure Portal에서 **Azure Active Directory** > **그룹** > **새 그룹**으�
 
 Active Directory에서 장치 설정을 구성 하 여 관리 보안 그룹이 사용자의 도메인에 장치를 연결할 수 있도록 합니다. Azure Portal에서이 설정을 구성 하려면:
 
-1. **Azure Active Directory** > **Devices**장치 > **장치 설정**으로 이동 합니다.
+1. **Azure Active Directory**  >  **장치**  >  **장치 설정**으로 이동 합니다.
 1. **사용자가 AZURE AD에 장치를 조인할 수 있습니다**. **를 선택한 다음** "보안 워크스테이션 사용자" 그룹을 선택 합니다.
 
 #### <a name="removal-of-local-admin-rights"></a>로컬 관리자 권한 제거
 
 이 방법을 사용 하려면 VIP, DevOps 및 보안 수준 워크스테이션의 사용자에 게 컴퓨터에 대 한 관리자 권한이 있어야 합니다. Azure Portal에서이 설정을 구성 하려면:
 
-1. **Azure Active Directory** > **Devices**장치 > **장치 설정**으로 이동 합니다.
+1. **Azure Active Directory**  >  **장치**  >  **장치 설정**으로 이동 합니다.
 1. **AZURE AD 조인 장치의 추가 로컬 관리자**에서 **없음** 을 선택 합니다.
 
 #### <a name="require-multi-factor-authentication-to-join-devices"></a>장치를 연결 하려면 multi-factor authentication 필요
 
 Azure AD에 장치를 조인 하는 프로세스를 더욱 강화 하려면:
 
-1. **Azure Active Directory** > **Devices**장치 > **장치 설정**으로 이동 합니다.
+1. **Azure Active Directory**  >  **장치**  >  **장치 설정**으로 이동 합니다.
 1. **다단계 인증 필요에서 예를 선택 하 여 장치를 연결**합니다. **Yes**
 1. **저장**을 선택합니다.
 
@@ -123,7 +122,7 @@ Azure AD에 장치를 조인 하는 프로세스를 더욱 강화 하려면:
 
 Azure 포털에서 다음을 수행합니다.
 
-1. **Azure Active Directory** > **Mobility (MDM 및 MAM)** > **Microsoft Intune**로 이동 합니다.
+1. **Azure Active Directory**  >  **Mobility (MDM 및 MAM)**  >  **Microsoft Intune**로 이동 합니다.
 1. **MDM 사용자 범위** 설정을 **모두**로 변경 합니다.
 1. **저장**을 선택합니다.
 
@@ -143,7 +142,7 @@ Azure AD 조건부 액세스를 사용 하면 권한 있는 관리 작업을 규
 
 **Azure Portal**에서:
 
-1. **Microsoft Intune** > **장치 등록** > **Windows 등록** > **등록 상태 페이지** > **기본** > **설정**으로 이동 합니다.
+1. **Microsoft Intune**  >  **장치 등록**  >  **Windows 등록**  >  **등록 상태 페이지**  >  **기본**  >  **설정**으로 이동 합니다.
 1. **앱 프로필 설치 진행률 표시** 를 **예**로 설정 합니다.
 1. **모든 앱 및 프로필을 예로 설치할 때까지 장치 사용 차단** 을 설정 합니다. **Yes**
 
@@ -153,26 +152,26 @@ Azure AD 조건부 액세스를 사용 하면 권한 있는 관리 작업을 규
 
 Azure Portal의 Intune에서 다음을 수행 합니다.
 
-1. **장치 등록** > **Windows 등록** > **배포 프로필** > **프로필 만들기**를 선택 합니다.
+1. **장치 등록**  >  **Windows 등록**  >  **배포 프로필**  >  **프로필 만들기**를 선택 합니다.
 1. 다음을 입력합니다.
 
    * 이름- **워크스테이션 배포 프로필을 보호**합니다.
    * 설명- **보안 워크스테이션 배포**
    * **모든 대상 디바이스를 Autopilot으로 변환**을 **예**로 설정합니다. 이렇게 설정하면 목록의 모든 디바이스가 Autopilot 배포 서비스를 사용하여 등록됩니다. 등록을 처리하는 데 48시가 가량 걸립니다.
 
-1. **다음**을 선택합니다.
+1. **새로 만들기**를 선택합니다.
 
    * **배포 모드**의 경우 **자체 배포 (미리 보기)** 를 선택 합니다. 이 프로필을 사용 하는 장치는 장치를 등록 하는 사용자와 연결 됩니다. 디바이스를 등록하려면 사용자 자격 증명이 필요합니다. **자체 배포** 모드에서 장치를 배포 하면 공유 모델에 랩톱을 배포할 수 있습니다. 사용자가 처음으로 사용자에 게 할당 될 때까지 사용자 할당은 발생 하지 않습니다. 따라서 사용자 할당이 완료 될 때까지 BitLocker와 같은 사용자 정책을 사용 하도록 설정 되지 않습니다. 보안 장치에 로그온 하는 방법에 대 한 자세한 내용은 [선택한 프로필](/intune/device-profile-assign)을 참조 하세요.
    * **AZURE ad에 조인** 상자는 **azure ad에 조인** 되 고 회색으로 표시 되어야 합니다.
    * 언어 (지역), 사용자 계정 유형 **표준**을 선택 합니다. 
 
-1. **다음**을 선택합니다.
+1. **새로 만들기**를 선택합니다.
 
    * 항목을 미리 구성한 경우 범위 태그를 선택 합니다.
 
-1. **다음**을 선택합니다.
-1.  > **선택한 그룹****에 할당 할당을** >  **선택 합니다**. **포함할 그룹 선택**에서 **워크스테이션 보안**을 선택 합니다.
-1. **다음**을 선택합니다.
+1. **새로 만들기**를 선택합니다.
+1. **Assignments**  >  선택한 그룹**에 할당 할당을**선택  >  **Selected Groups**합니다. **포함할 그룹 선택**에서 **워크스테이션 보안**을 선택 합니다.
+1. **새로 만들기**를 선택합니다.
 1. **만들기**를 선택하여 프로필을 만듭니다. 이제 Autopilot 배포 프로필을 디바이스에 할당할 수 있습니다.
 
 Autopilot의 장치 등록은 장치 유형 및 역할에 따라 다른 사용자 환경을 제공 합니다. 이 배포 예제에서는 보호 된 장치를 대량으로 배포 하 고 공유할 수 있는 모델을 설명 하지만, 처음 사용 하는 경우 사용자에 게 장치가 할당 됩니다. 자세한 내용은 [Intune Autopilot device 등록](/intune/device-enrollment)을 참조 하세요.
@@ -185,7 +184,7 @@ Windows 10을 최신 상태로 유지 하는 것은 수행할 수 있는 가장 
 
 Azure Portal에서 다음을 수행합니다.
 
-1. **Microsoft Intune** > **소프트웨어 업데이트** > **Windows 10 업데이트 링**으로 이동 합니다.
+1. **Microsoft Intune**  >  **소프트웨어 업데이트**  >  **Windows 10 업데이트 링**으로 이동 합니다.
 1. 다음을 입력합니다.
 
    * 이름- **Azure 관리 되는 워크스테이션 업데이트**
@@ -211,11 +210,11 @@ Windows Defender ATP 및 Microsoft Intune는 함께 작동 하 여 보안 위반
 
 Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로 이동 합니다.
 
-1. **Microsoft Intune** > **장치 준수** > **Windows Defender ATP**로 이동 합니다.
+1. **Microsoft Intune**  >  **장치 준수**  >  **Windows Defender ATP**로 이동 합니다.
 1. **Windows DEFENDER Atp 구성**의 1 단계에서 windows defender **Security Center에서 Microsoft Intune에 연결 windows defender atp**를 선택 합니다.
 1. Windows Defender 보안 센터에서 다음을 수행합니다.
 
-   1. **설정** > **고급 기능**을 선택 합니다.
+   1. **설정** > **고급 기능**을 선택합니다.
    1. **Microsoft Intune 연결**의 경우 **켜기**를 선택 합니다.
    1. **기본 설정 저장**을 선택합니다.
 
@@ -234,24 +233,24 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 | 낮은 보안 | 해당 없음 | 해당 없음 |
 | 향상된 보안 | https://aka.ms/securedworkstationgit | Windows10-(1809). p s 1 |
 | 높은 수준의 보안 | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809) ps1 |
-| 특수화 | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
+| 특수화 | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC Windows10 (1803) SecurityBaseline.ps1 |
 | 특수 규정 준수 * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10 (1803). p s 1 |
-| 보안 | https://aka.ms/securedworkstationgit | Windows10-(1809)-SecurityBaseline. ps1 |
+| 보안됨 | https://aka.ms/securedworkstationgit | Windows10-(1809) -SecurityBaseline.ps1 |
 
 \*특수 한 규정 준수는 NCSC Windows10 SecurityBaseline에 제공 된 특수 구성을 적용 하는 스크립트입니다.
 
 스크립트가 성공적으로 실행 된 후에는 Intune에서 프로필 및 정책을 업데이트할 수 있습니다. 향상 된 보안 프로필 및 보안 프로필에 대 한 스크립트는 정책 및 프로필을 만들지만 **보안 워크스테이션** 장치 그룹에 정책을 할당 해야 합니다.
 
-* 스크립트: **Azure Portal** > **Microsoft Intune** > **장치 구성** > **프로필**에서 만든 Intune 장치 구성 프로필을 찾을 수 있는 위치는 다음과 같습니다.
-* 스크립트에서 만든 Intune 장치 준수 정책을 찾을 수 있는 위치는 **Azure Portal** > **Microsoft Intune** > **장치 준수** > **정책**입니다.
+* 스크립트: **Azure Portal**  >  **Microsoft Intune**  >  **장치 구성**  >  **프로필**에서 만든 Intune 장치 구성 프로필을 찾을 수 있는 위치는 다음과 같습니다.
+* 스크립트에서 만든 Intune 장치 준수 정책을 찾을 수 있는 위치는 **Azure Portal**  >  **Microsoft Intune**  >  **장치 준수**  >  **정책**입니다.
 
 스크립트에서 변경한 내용을 검토 하려면 프로필을 내보낼 수 있습니다. 이러한 방식으로 [Seccon 설명서](/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework)에 설명 된 대로 필요할 수 있는 추가 강화를 결정할 수 있습니다.
 
-[DeviceConfiguration Gid Uhub 리포지토리에서](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) intune `DeviceConfiguration_Export.ps1` 데이터 내보내기 스크립트를 실행 하 여 현재 intune 프로필을 모두 내보냅니다.
+`DeviceConfiguration_Export.ps1` [DeviceConfiguration Gid uhub 리포지토리에서](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) intune 데이터 내보내기 스크립트를 실행 하 여 현재 intune 프로필을 모두 내보냅니다.
 
 ## <a name="additional-configurations-and-hardening-to-consider"></a>고려할 추가 구성 및 강화
 
-여기의 지침에 따라 보안 워크스테이션을 배포 했습니다. 그러나 추가 컨트롤을 고려해 야 합니다. 다음은 그 예입니다.
+여기의 지침에 따라 보안 워크스테이션을 배포 했습니다. 그러나 추가 컨트롤을 고려해 야 합니다. 예를 들어:
 
 * 대체 브라우저에 대 한 액세스 제한
 * 아웃 바운드 HTTP 허용
@@ -286,10 +285,10 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 일부 경우에는 보안 워크스테이션에 Google Chrome 브라우저와 같은 응용 프로그램이 필요 합니다. 다음 예제에서는 보안 그룹 보안 **워크스테이션**의 장치에 Chrome을 설치 하는 지침을 제공 합니다.
 
 1. [Windows 64 비트에 대 한](https://cloud.google.com/chrome-enterprise/browser/download/)오프 라인 설치 관리자 Chrome 번들을 다운로드 합니다.
-1. 파일의 압축을 풀고 `GoogleChromeStandaloneEnterprise64.msi` 파일의 위치를 적어둡니다.
-1. **Azure Portal** 에서 **Microsoft Intune** > **클라이언트 앱** > **앱** > **추가**로 이동 합니다.
+1. 파일의 압축을 풀고 파일의 위치를 적어둡니다 `GoogleChromeStandaloneEnterprise64.msi` .
+1. **Azure Portal** 에서 **Microsoft Intune**  >  **클라이언트 앱**  >  **앱**  >  **추가**로 이동 합니다.
 1. **앱 유형**에서 **기간 업무**(lob)를 선택 합니다.
-1. **앱 패키지 파일**의 압축을 푼 `GoogleChromeStandaloneEnterprise64.msi` 위치에서 파일을 선택 하 고 **확인**을 선택 합니다.
+1. **앱 패키지 파일**의 `GoogleChromeStandaloneEnterprise64.msi` 압축을 푼 위치에서 파일을 선택 하 고 **확인**을 선택 합니다.
 1. **앱 정보**에서 설명과 게시자를 제공 합니다. **확인**을 선택합니다.
 1. **추가**를 선택합니다.
 1. **할당 탭에서** **할당 유형**아래에 **있는 등록 된 장치에 대해 사용 가능** 을 선택 합니다.
@@ -304,7 +303,7 @@ Chrome 설정 구성에 대 한 자세한 내용은 [Microsoft Intune를 사용 
 
 Intune에서 관리 하는 [회사 포털](/Intune/store-apps-company-portal-app) 복사본은 보안 워크스테이션의 사용자에 게 푸시할 수 있는 추가 도구에 대 한 주문형 액세스를 제공 합니다.
 
-배포에 특별 한 준비가 필요한 Windows 32 비트 앱 또는 다른 앱을 설치 해야 할 수 있습니다. 이러한 경우 [Microsoft win32 콘텐츠 준비 도구](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) 는 설치를 위해 바로 사용할 `.intunewin` 수 있는 서식 파일을 제공할 수 있습니다.
+배포에 특별 한 준비가 필요한 Windows 32 비트 앱 또는 다른 앱을 설치 해야 할 수 있습니다. 이러한 경우 [Microsoft win32 콘텐츠 준비 도구](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) 는 설치를 위해 바로 사용할 수 있는 서식 파일을 제공할 수 있습니다 `.intunewin` .
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>보안 워크스테이션에서 Azure Portal에 액세스할 수 있도록 허용 하는 조건부 액세스
 
@@ -313,15 +312,15 @@ Azure AD는 Azure 클라우드 관리 포털에 액세스할 수 있는 사용�
 > [!NOTE]
 > 사용자 그룹을 만들고 조건부 액세스 정책을 무시할 수 있는 응급 사용자를 포함 해야 합니다. 이 예에서는 **긴급** 도로 불리는 보안 그룹이 있습니다.
 
-1.  > **조건부 액세스 정책** >  > **Microsoft Intune****새 정책** **Azure Portal**으로 이동 합니다.
+1. **Azure portal**  >  **Microsoft Intune**  >  **조건부 액세스 정책**Microsoft Intune  >  **새 정책**Azure Portal으로 이동 합니다.
 1. 정책의 **이름을** 제공 합니다.
-1. **사용자 및 그룹** > 선택**사용자 및 그룹 선택** 
-1. **디렉터리 역할** **포함** > 을 선택 하 여 전역 관리자, 권한 있는 역할 관리자, 권한 있는 인증 관리자, 보안 관리자, 준수 관리자, 조건부 액세스 관리자, 응용 프로그램 관리자, 클라우드 응용 프로그램 관리자, Intune 서비스 관리자 > 역할 > 선택 합니다.
+1. **사용자 및 그룹**선택  >  **사용자 및 그룹 선택** 
+1. 디렉터리 **역할 포함**을 선택 하  >  **Directory roles** 여 전역 관리자, 권한 있는 역할 관리자, 권한 있는 인증 관리자, 보안 관리자, 준수 관리자, 조건부 액세스 관리자, 응용 프로그램 관리자, 클라우드 응용 프로그램 관리자, Intune 서비스 관리자 > 역할 > 선택 합니다.
 1. **제외** > 선택 **하 > 사용자 및 그룹을 선택 하 고** **제외 된 사용자 선택** 을 선택 하 > **응급 사용자 투명** 그룹을 선택 합니다.
 1. **클라우드 앱 또는 작업** > 선택 하 여 **모든 클라우드 앱** 선택
 1. **조건** > 선택 하 > **장치 플랫폼** 을 선택 하 > 선택 **예** 를 선택 하 고 **장치 플랫폼 선택** 선택 **Windows** 를 선택 합니다.
 1. **액세스 제어** > 선택 하 **고 액세스 허용** **예** > 선택 **하 고 준수 상태로 표시 된 장치 필요를**선택 합니다. 
-1. **정책** > 사용**을** 선택 합니다.
+1. **정책 사용**  >  **을** 선택 합니다.
  
 이 정책 집합은 관리자가 Intune 및 WDATP에 의해 설정 되는 호환 되는 Windows 장치를 사용 하도록 합니다. 
 
@@ -333,17 +332,17 @@ PowerShell을 사용 하 여 호스트 관리 기능을 확장할 수도 있습�
 
 보안 워크스테이션에서 일부 사용자 지정 컨트롤 및 설정을 지정 해야 할 수 있습니다. 이 예제에서는 Powershell의 기능을 사용 하 여 즉시 사용 가능한 보안 워크스테이션으로 장치를 쉽게 식별할 수 있도록 워크스테이션의 배경을 변경 합니다.
 
-Microsoft Scripting Center의 [Setdesktopbackground.](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) p s 1 스크립트를 통해 Windows는 시작 시이 [무료 일반 배경 이미지](https://i.imgur.com/OAJ28zO.png) 를 로드할 수 있습니다.
+Microsoft Scripting Center의 [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) 스크립트를 사용 하면 시작할 때 Windows에서 [일반 배경 이미지를 무료로](https://i.imgur.com/OAJ28zO.png) 로드할 수 있습니다.
 
 1. 로컬 장치에 스크립트를 다운로드 합니다.
 1. CustomerXXXX 및 배경 이미지의 다운로드 위치를 업데이트 합니다. 이 예제에서는 customerXXXX를 배경으로 바꿉니다.
-1. **Azure Portal** > **Microsoft Intune** >  > **Add****Device configuration**장치 구성 PowerShell 스크립트 추가로 이동 합니다.**PowerShell scripts** > 
+1. **Azure Portal**  >  **Microsoft Intune**  >  **장치 구성**  >  **PowerShell 스크립트**  >  **추가**로 이동 합니다.
 1. 스크립트의 **이름을** 지정 하 고 **스크립트 위치**를 지정 합니다.
 1. **구성**을 선택합니다.
    1. **로그온 된 자격 증명을 사용 하 여이 스크립트 실행** 을 **예**로 설정 합니다.
    1. **확인**을 선택합니다.
 1. **만들기**를 선택합니다.
-1. **할당** > 을 선택 하 고**그룹을 선택**합니다.
+1. **할당**을 선택 하 고  >  **그룹을 선택**합니다.
    1. 보안 그룹 보안 **워크스테이션**을 추가 합니다.
    1. **저장**을 선택합니다.
 
@@ -351,19 +350,19 @@ Microsoft Scripting Center의 [Setdesktopbackground.](https://gallery.technet.mi
 
 1. 장치를 등록 하려면 다음 정보가 필요 합니다.
    * **일련 번호** -장치 섀시에 있습니다.
-   * **Windows 제품 ID** -windows 설정 메뉴의 **시스템** > **정보** 에서 찾을 수 있습니다.
+   * **Windows 제품 ID** - **System**  >  windows 설정 메뉴의 시스템**정보** 에서 찾을 수 있습니다.
    * [WindowsAutoPilotInfo](https://aka.ms/Autopilotshell) 를 실행 하 여 장치 등록에 필요한 모든 정보가 포함 된 CSV 해시 파일을 가져올 수 있습니다.
    
-     을 `Get-WindowsAutoPilotInfo – outputfile device1.csv` 실행 하 여 Intune으로 가져올 수 있는 CSV 파일로 정보를 출력 합니다.
+     `Get-WindowsAutoPilotInfo – outputfile device1.csv`을 실행 하 여 Intune으로 가져올 수 있는 CSV 파일로 정보를 출력 합니다.
 
      > [!NOTE]
-     > 스크립트에는 상승 된 권한이 필요 합니다. 원격으로 서명 된 상태로 실행 됩니다. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned` 명령을 사용 하 여 스크립트를 제대로 실행할 수 있습니다.
+     > 스크립트에는 상승 된 권한이 필요 합니다. 원격으로 서명 된 상태로 실행 됩니다. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`명령을 사용 하 여 스크립트를 제대로 실행할 수 있습니다.
 
    * Windows 10 버전 1809 이상 장치에 로그인 하 여이 정보를 수집할 수 있습니다. 하드웨어 재판매인도이 정보를 제공할 수 있습니다.
-1. **Azure Portal**에서 **Microsoft Intune** > **장치 등록** > **windows 등록** > **장치-windows Autopilot 장치 관리**로 이동 합니다.
+1. **Azure Portal**에서 **Microsoft Intune**  >  **장치 등록**  >  **windows 등록**  >  **장치-windows Autopilot 장치 관리**로 이동 합니다.
 1. **가져오기** 를 선택 하 고 CSV 파일을 선택 합니다.
 1. **보안 워크스테이션** 보안 그룹에 장치를 추가 합니다.
-1. 구성 하려는 windows 10 장치에서 **windows 설정** > **업데이트 & 보안** > **복구**로 이동 합니다.
+1. 구성 하려는 windows 10 장치에서 **windows 설정**  >  **업데이트 & 보안**  >  **복구**로 이동 합니다.
    1. **이 PC 다시 설정**에서 **시작** 을 선택 합니다.
    1. 메시지를 따라 프로필 및 규정 준수 정책을 구성 하 여 장치를 다시 설정 하 고 다시 구성 합니다.
 
@@ -393,7 +392,7 @@ Microsoft Scripting Center의 [Setdesktopbackground.](https://gallery.technet.mi
    * **리소스 그룹** -* * 새로 만들기 * * > 보안 워크스테이션 RG > **확인을** 선택 합니다.
    * **위치** -배포에 가장 적합 한 위치를 선택 합니다.
    * **가격 책정 계층** - **GB 당 선택 (2018)**
-1. **확인을**선택 합니다.
+1. **확인**을 선택합니다.
 
 다음으로 사용 가능한 보안 워크스테이션 데이터 원본을 모니터링에 연결 합니다.
 
@@ -424,19 +423,19 @@ Intune PowerShell 스크립트를 사용 하 여 MMA 에이전트 배포
 
 1. [로컬 장치에 설치 스크립트](https://aka.ms/securedworkstationgit)를 다운로드 합니다.
 1. 매개 변수, **$WorkSpaceID** 및 **$WorkSpaceKey** 를 업데이트 합니다.
-1. **Azure Portal** > **Microsoft Intune** >  > **Add****Device configuration**장치 구성 PowerShell 스크립트 추가로 이동 합니다.**PowerShell scripts** > 
+1. **Azure Portal**  >  **Microsoft Intune**  >  **장치 구성**  >  **PowerShell 스크립트**  >  **추가**로 이동 합니다.
 1. 스크립트의 **이름을** 지정 하 고 **스크립트 위치**를 지정 합니다.
 1. **구성**을 선택합니다.
    1. **로그온 된 자격 증명을 사용 하 여이 스크립트 실행** 을 **예**로 설정 합니다.
    1. **확인**을 선택합니다.
 1. **만들기**를 선택합니다.
-1. **할당** > 을 선택 하 고**그룹을 선택**합니다.
+1. **할당**을 선택 하 고  >  **그룹을 선택**합니다.
    1. 보안 그룹 보안 **워크스테이션**을 추가 합니다.
    1. **저장**을 선택합니다.
 
 다음으로 새 로그를 수신 하도록 Log Analytics를 설정 해야 합니다.
 1. **Azure Portal**에서 **Log Analytics 작업 영역** 으로 이동 > ' 보안 워크스테이션 모니터링 '을 선택 합니다.
-1. **고급 설정** > **데이터** > **Windows 이벤트 로그** 를 선택 합니다.
+1. **고급 설정**  >  **데이터**  >  **Windows 이벤트 로그** 를 선택 합니다.
 1. **다음 이벤트 로그에서 이벤트 수집** 
 1. 다음을 입력합니다.
    * ' Microsoft-Windows-AppLocker/EXE 및 DLL ' > 선택 취소 **정보**

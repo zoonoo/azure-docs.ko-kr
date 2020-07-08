@@ -4,19 +4,18 @@ description: Enterprise State Roaming에 대 한 관리 설정
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ab24b3113f9dc69b8f3907037e228ba212a03106
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252936"
 ---
 # <a name="group-policy-and-mdm-settings"></a>그룹 정책 및 MDM 설정
 
@@ -32,7 +31,7 @@ ms.locfileid: "78672362"
 
 MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.  Windows 10 Mobile 지원은 사용자의 OneDrive 계정을 통한 Microsoft 계정 기반의 로밍에 대해서만 제공됩니다. Azure AD 기반 동기화에 대해 지원 되는 장치에 대 한 자세한 내용은 [장치 및 끝점](enterprise-state-roaming-windows-settings-reference.md) 을 참조 하세요.
 
-| 속성 | Description |
+| 이름 | 설명 |
 | --- | --- |
 | Microsoft 계정 연결 허용 |사용자가 디바이스에서 Microsoft 계정을 사용하여 인증 가능 |
 | 내 설정 동기화 허용 |사용자가 Windows 설정 및 앱 데이터 로밍 가능: 이 정책을 사용하지 않도록 설정하면 모바일 디바이스의 동기화 및 백업이 모두 사용되지 않도록 설정됩니다. |
@@ -43,7 +42,7 @@ MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.
 
 이러한 설정은 `Computer Configuration > Administrative Templates > Windows Components > Sync your settings`에 있습니다. 
 
-| 속성 | Description |
+| 이름 | 설명 |
 | --- | --- |
 | 계정: Microsoft 계정 차단 |이 정책 설정은 사용자가 이 컴퓨터에서 새 Microsoft 계정을 추가하지 못하게 차단합니다. |
 | 동기화 안 함 |사용자의 Windows 설정 및 앱 데이터 로밍 금지 |

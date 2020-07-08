@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfcb00f56a3cc6f71729fbeaf317ce9447e120ed
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732058"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Azure Active Directory에서 PowerShell을 사용 하 여 리소스 범위에 사용자 지정 역할 할당
 
@@ -32,13 +31,13 @@ Azure AD 관리자 역할에 대 한 자세한 내용은 [Azure Active Director
 
 ## <a name="prepare-powershell"></a>PowerShell 준비
 
-[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)에서 Azure AD PowerShell 모듈을 설치 합니다. 그런 후 다음 명령을 사용 하 여 Azure AD PowerShell 미리 보기 모듈을 가져옵니다.
+[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17)에서 Azure AD PowerShell 모듈을 설치 합니다. 그런 다음, 다음 명령을 사용하여 Azure AD PowerShell 미리 보기 모듈을 가져옵니다.
 
 ``` PowerShell
 import-module azureadpreview
 ```
 
-모듈을 사용할 준비가 되었는지 확인 하려면 다음 명령에서 반환 된 버전을 여기에 나열 된 버전과 일치 시킵니다.
+모듈을 사용할 준비가 되었는지 확인하려면 다음 명령에서 반환된 버전을 여기에 나열된 버전과 일치시킵니다.
 
 ``` PowerShell
 get-module azureadpreview
@@ -52,7 +51,7 @@ get-module azureadpreview
 ## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>리소스 범위를 사용 하 여 사용자 또는 서비스 주체에 역할 할당
 
 1. Azure AD preview PowerShell 모듈을 엽니다.
-1. 명령을 `Connect-AzureAD`실행 하 여 로그인 합니다.
+1. 명령을 실행 하 여 로그인 `Connect-AzureAD` 합니다.
 1. 다음 PowerShell 스크립트를 사용 하 여 새 역할을 만듭니다.
 
 ``` PowerShell

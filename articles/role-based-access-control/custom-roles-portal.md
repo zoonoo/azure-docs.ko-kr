@@ -7,19 +7,18 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791200"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 지정 역할 만들기 또는 업데이트
 
 [Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 고유한 azure 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리에는 최대 5000 개의 사용자 지정 역할이 있을 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 방법을 설명 합니다.
 
@@ -35,7 +34,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 | 메서드 | 설명 |
 | --- | --- |
-| 기존 역할 살펴보기 | 기존 역할을 확인 하 여 사용 되는 사용 권한을 확인할 수 있습니다. 자세한 내용은 [Azure 기본 제공 역할](built-in-roles.md)을 참조 하세요. |
+| 기존 역할 살펴보기 | 기존 역할을 확인 하 여 사용 되는 사용 권한을 확인할 수 있습니다. 자세한 정보는 [Azure 기본 제공 역할](built-in-roles.md)을 참조하세요. |
 | 키워드별 권한 검색 | Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 키워드를 사용 하 여 사용 권한을 검색할 수 있습니다. 예를 들어 *가상 컴퓨터* 또는 *청구* 권한을 검색할 수 있습니다. 이 검색 기능에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요. |
 | 모든 권한 다운로드 | Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 모든 권한을 CSV 파일로 다운로드 한 다음이 파일을 검색할 수 있습니다. **권한 추가** 창에서 **모든 권한 다운로드** 단추를 클릭 하 여 모든 사용 권한을 다운로드 합니다. 권한 추가 창에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요. |
 | 문서에서 사용 권한 보기 | [리소스 공급자 작업 Azure Resource Manager](resource-provider-operations.md)에서 사용 가능한 권한을 볼 수 있습니다. |
@@ -196,7 +195,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 1. **추가** 를 클릭 하 여 사용 권한 목록에 사용 권한을 추가 합니다.
 
-    권한은 `Actions` 또는로 추가 `DataActions`됩니다.
+    권한은 또는로 추가 `Actions` `DataActions` 됩니다.
 
     ![권한이 추가 됨](./media/custom-roles-portal/permissions-list-add.png)
 
@@ -204,7 +203,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 ### <a name="add-wildcard-permissions"></a>와일드 카드 권한 추가
 
-시작을 선택한 방법에 따라 사용 권한 목록에서 와일드 카드 (\*)를 사용할 수 있습니다. 와일드 카드 (\*)는 사용자가 제공 하는 문자열과 일치 하는 모든 항목에 대 한 사용 권한을 확장 합니다. 예를 들어 Azure Cost Management 및 내보내기와 관련 된 모든 권한을 추가 하려고 한다고 가정 합니다. 이러한 사용 권한을 모두 추가할 수 있습니다.
+시작을 선택한 방법에 따라 \* 사용 권한 목록에서 와일드 카드 ()를 사용할 수 있습니다. 와일드 카드 ( \* )는 사용자가 제공 하는 문자열과 일치 하는 모든 항목에 대 한 사용 권한을 확장 합니다. 예를 들어 Azure Cost Management 및 내보내기와 관련 된 모든 권한을 추가 하려고 한다고 가정 합니다. 이러한 사용 권한을 모두 추가할 수 있습니다.
 
 ```
 Microsoft.CostManagement/exports/action
@@ -224,7 +223,7 @@ Microsoft.CostManagement/exports/*
 
 ### <a name="exclude-permissions"></a>권한 제외
 
-역할에 와일드 카드 (\*) 권한이 있고 해당 와일드 카드 권한에서 특정 사용 권한을 제외 하거나 빼려는 경우 해당 권한을 제외할 수 있습니다. 예를 들어 다음과 같은 와일드 카드 권한이 있다고 가정해 보겠습니다.
+역할에 와일드 카드 ( \* ) 권한이 있고 해당 와일드 카드 권한에서 특정 사용 권한을 제외 하거나 빼려는 경우 해당 권한을 제외할 수 있습니다. 예를 들어 다음과 같은 와일드 카드 권한이 있다고 가정해 보겠습니다.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -236,7 +235,7 @@ Microsoft.CostManagement/exports/*
 Microsoft.CostManagement/exports/delete
 ```
 
-사용 권한을 제외 하면 `NotActions` 또는 `NotDataActions`로 추가 됩니다. 유효 관리 권한은를 `Actions` 모두 추가한 다음 모든을 빼서 계산 합니다. `NotActions` 유효 데이터 권한은를 모두 `DataActions` 추가한 다음 모든을 빼서 계산 합니다. `NotDataActions`
+사용 권한을 제외 하면 또는로 추가 됩니다 `NotActions` `NotDataActions` . 유효 관리 권한은를 모두 추가한 `Actions` 다음 모든을 빼서 계산 합니다 `NotActions` . 유효 데이터 권한은를 모두 추가한 `DataActions` 다음 모든을 빼서 계산 합니다 `NotDataActions` .
 
 > [!NOTE]
 > 권한 제외는 거부와 동일 하지 않습니다. 권한 제외는 단순히 와일드 카드 사용 권한에서 사용 권한을 빼는 편리한 방법입니다.
@@ -249,7 +248,7 @@ Microsoft.CostManagement/exports/delete
 
     ![권한 제외 창-사용 권한 선택](./media/custom-roles-portal/exclude-permissions-select.png)
 
-    권한은 `NotActions` 또는 `NotDataActions`로 추가 됩니다.
+    권한은 또는로 추가 `NotActions` `NotDataActions` 됩니다.
 
     ![권한 제외](./media/custom-roles-portal/exclude-permissions-list-add.png)
 
@@ -269,7 +268,7 @@ Microsoft.CostManagement/exports/delete
 
 ## <a name="step-6-json"></a>6 단계: JSON
 
-**Json** 탭에서 json으로 형식이 지정 된 사용자 지정 역할을 확인 합니다. 원하는 경우 JSON을 직접 편집할 수 있습니다. 와일드 카드 (\*) 권한을 추가 하려면이 탭을 사용 해야 합니다.
+**Json** 탭에서 json으로 형식이 지정 된 사용자 지정 역할을 확인 합니다. 원하는 경우 JSON을 직접 편집할 수 있습니다. 와일드 카드 ( \* ) 권한을 추가 하려면이 탭을 사용 해야 합니다.
 
 1. JSON을 편집 하려면 **편집**을 클릭 합니다.
 
@@ -347,6 +346,6 @@ Microsoft.CostManagement/exports/delete
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [자습서: Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
 - [Azure 사용자 지정 역할](custom-roles.md)
 - [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)
