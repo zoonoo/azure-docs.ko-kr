@@ -11,10 +11,9 @@ ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125165"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
@@ -23,7 +22,7 @@ ms.locfileid: "83125165"
 
 규모 확장 정책 기능을 통해 사용자는 다음과 같은 세 가지 규모의 구성으로 가상 컴퓨터를 확장 하는 순서를 구성할 수 있습니다. 
 
-1. Default
+1. 기본값
 2. NewestVM
 3. OldestVM
 
@@ -195,7 +194,7 @@ az vmss update \
 
 가상 머신 확장 집합은 다음과 같은 두 가지 유형의 [인스턴스 보호](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection)를 제공 합니다.
 
-1. 규모에서 보호
+1. 규모 감축으로부터 보호
 2. 크기 집합 작업에서 보호
 
 보호 된 가상 컴퓨터는 적용 된 확장 정책에 관계 없이 스케일 인 작업을 통해 삭제 되지 않습니다. 예를 들어 VM_0 (확장 집합에서 가장 오래 된 VM)이 규모 확장에서 보호 되 고 확장 집합에 ' OldestVM ' 스케일 인 정책이 설정 된 경우 확장 집합에서 가장 오래 된 VM 인 경우에도에서 크기를 조정 하는 것으로 간주 되지 않습니다 VM_0. 

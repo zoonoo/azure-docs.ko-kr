@@ -8,10 +8,9 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125811"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
@@ -54,7 +53,7 @@ ASE에서 앱을 만들려면
 
     b. 구독을 선택합니다.
 
-    c. 리소스 그룹을 선택 하거나 만듭니다.
+    다. 리소스 그룹을 선택 하거나 만듭니다.
 
     d. 웹 앱의 이름을 입력 합니다.
 
@@ -62,7 +61,7 @@ ASE에서 앱을 만들려면
 
     f. 런타임 스택을 선택 합니다.
 
-    g. **Linux** 또는 **Windows**를 선택합니다. 
+    예: **Linux** 또는 **Windows**를 선택합니다. 
 
     h. **지역** 드롭다운 목록에서 ASE를 선택 합니다. 
 
@@ -169,7 +168,7 @@ ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 �
 
 ASE를 Azure Monitor와 통합 하 여 ASE에 대 한 로그를 Azure Storage, Azure Event Hubs 또는 Log Analytics에 보낼 수 있습니다. 이러한 항목은 오늘 기록 됩니다.
 
-| 적합 | 메시지 |
+| 상황 | 메시지 |
 |---------|----------|
 | ASE가 비정상입니다. | 잘못 된 가상 네트워크 구성으로 인해 지정 된 ASE가 비정상 상태입니다. 비정상 상태가 지속 되 면 ASE가 일시 중단 됩니다. 여기에 정의 된 지침을 참조 하세요 https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | ASE 서브넷의 공간이 거의 부족 합니다. | 지정 된 ASE가 공간을 거의 벗어난 서브넷에 있습니다. {0}남은 주소가 있습니다. 이러한 주소가 모두 사용 되 면 ASE는 크기를 조정할 수 없습니다.  |
@@ -209,7 +208,7 @@ Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하
 
 Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그레이드 해야 할 수 있습니다. ASE **HostingEnvironment 리소스 관리자** 개체 내에서 **upgradepreference**설정에 대 한 값을 설정할 수 있습니다. **Upgradepreference** 설정은 템플릿, ARMClient 또는를 사용 하 여 구성할 수 있습니다 https://resources.azure.com . 가능한 세 가지 값은 다음과 같습니다.
 
-- **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값이 기본값입니다.
+- **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값은 기본값입니다.
 - **초기**: ASE는 App Service 업그레이드의 처음 절반에서 업그레이드 됩니다.
 - **후기**: ASE는 App Service 업그레이드의 후반부에서 업그레이드 됩니다.
 

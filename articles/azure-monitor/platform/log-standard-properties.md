@@ -7,17 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196229"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../log-query/logs-structure.md)각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
 
 > [!IMPORTANT]
-> APM 2.1를 사용 하는 경우 Application Insights 응용 프로그램은 다른 모든 로그 데이터가 포함 된 Log Analytics 작업 영역에 저장 됩니다. 테이블의 이름이 바뀌고 재구성 Application Insights 응용 프로그램의 테이블과 동일한 정보가 있습니다. 이러한 새 테이블은 Log Analytics 작업 영역에 있는 다른 테이블과 동일한 표준 속성을 가집니다.
+> APM 2.1를 사용 하는 경우 Application Insights 응용 프로그램은 다른 모든 로그 데이터가 포함 된 Log Analytics 작업 영역에 저장 됩니다. 테이블 이름과 구조가 변했지만 Application Insights 애플리케이션의 테이블과 동일한 정보를 포함합니다. 이러한 새 테이블은 Log Analytics 작업 영역에 있는 다른 테이블과 동일한 표준 속성을 가집니다.
 
 > [!NOTE]
 > 일부 표준 속성은 Log Analytics의 스키마 뷰나 intellisense에 표시 되지 않으며, 출력에서 속성을 명시적으로 지정 하지 않는 한 쿼리 결과에 표시 되지 않습니다.

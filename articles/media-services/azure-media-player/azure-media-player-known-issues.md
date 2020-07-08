@@ -8,7 +8,6 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83124638"

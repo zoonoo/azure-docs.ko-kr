@@ -8,10 +8,9 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125777"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
@@ -22,15 +21,15 @@ Azure Monitor [WAD(Microsoft Azure Diagnostics) 확장](diagnostics-extension-ov
 
 이 문서에서는 Windows 가상 머신 확장 집합에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. Microsoft Azure Diagnostics 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 것과 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다. 과거에는 Microsoft Azure Diagnostics 확장이 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.  
 
-리소스 관리자 템플릿을 처음 접하는 경우 [템플릿 배포](../../azure-resource-manager/management/overview.md) 와 해당 구조 및 구문에 대해 알아보세요.  
+Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../../azure-resource-manager/management/overview.md)와 해당 구조 및 구문에 대해 알아보세요.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 구독은 [Microsoft](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록 해야 합니다. 
+- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
 
 - [Azure PowerShell](/powershell/azure)이 설치되어 있어야 하거나, [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. 
 
-- VM 리소스가 [사용자 지정 메트릭을 지 원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
+- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정 
 Azure 진단 확장은 **데이터 싱크** 라는 기능을 사용 하 여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 Azure Monitor 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
@@ -38,14 +37,14 @@ Azure 진단 확장은 **데이터 싱크** 라는 기능을 사용 하 여 메�
 ## <a name="author-a-resource-manager-template"></a>Resource Manager 템플릿 작성 
 이 예에서는 공개적으로 사용 가능한 [샘플 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)사용할 수 있습니다.  
 
-- **Azuredeploy. json** 은 가상 머신 확장 집합을 배포 하기 위한 미리 구성 된 리소스 관리자 템플릿입니다.
+- **Azuredeploy.js** 은 가상 머신 확장 집합을 배포 하기 위한 미리 구성 된 리소스 관리자 템플릿입니다.
 
 - **Azuredeploy.parameters.json**은 VM에 대해 설정하려는 사용자 이름 및 암호와 같은 정보를 저장하는 매개 변수 파일입니다. 배포하는 동안 Resource Manager 템플릿에서는 이 파일에 설정된 매개 변수를 사용합니다. 
 
 두 파일을 다운로드하고 로컬로 저장합니다. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>azuredeploy.parameters.json을 수정합니다.
-**azuredeploy.parameters.json** 파일을 엽니다.  
+파일 **에서azuredeploy.parameters.js** 를 엽니다.  
  
 - 배포할 **vmSKU**를 제공합니다. Standard_D2_v3을 사용하는 것이 좋습니다. 
 - 가상 머신 확장 집합에 사용하려는 **windowsOSVersion**을 지정합니다. 2016-Datacenter를 사용하는 것이 좋습니다. 
@@ -55,7 +54,7 @@ Azure 진단 확장은 **데이터 싱크** 라는 기능을 사용 하 여 메�
 
 
 ###  <a name="modify-azuredeployjson"></a>Azuredeploy.json을 수정합니다.
-**Azuredeploy. json** 파일을 엽니다. 
+파일 **에서azuredeploy.js** 를 엽니다. 
 
 Resource Manager 템플릿에서 스토리지 계정 정보를 보유하는 변수를 추가합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 Azure Monitor 메트릭 스토리지와 여기서 지정한 스토리지 계정 둘 다에 기록됩니다. 
 
@@ -266,7 +265,7 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
 1. 배포에 성공하면 Azure Portal에서 가상 머신 확장 집합을 확인할 수 있습니다. 메트릭을 Azure Monitor로 내보내야 합니다. 
 
    > [!NOTE]  
-   > 선택한 **vmSkuSize** 관련 오류가 발생할 수 있습니다. 이 경우 **azuredeploy.json** 파일로 돌아가서 **vmSkuSize** 매개 변수의 기본값을 업데이트합니다. **Standard_DS1_v2**를 사용해 보시기 바랍니다. 
+   > 선택한 **Vmskusize**해결할 때 오류가 발생할 수 있습니다. 이 경우 **azuredeploy.json** 파일로 돌아가서 **vmSkuSize** 매개 변수의 기본값을 업데이트합니다. **Standard_DS1_v2**를 사용해 보시기 바랍니다. 
 
 
 ## <a name="chart-your-metrics"></a>메트릭 차트 작성 
@@ -275,7 +274,7 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
 
 1. 왼쪽 메뉴에서 **모니터**를 선택합니다. 
 
-1. **모니터** 페이지에서 **메트릭**을 선택합니다. 
+1. **모니터** 페이지에서 **메트릭**을 선택 합니다. 
 
    ![모니터 - 메트릭 페이지](media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png) 
 

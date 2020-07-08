@@ -10,13 +10,12 @@ ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197029"
 ---
-# <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대 한 자동 인스턴스 복구
+# <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 자동 인스턴스 복구
 
 Azure 가상 머신 확장 집합에 대 한 자동 인스턴스 복구를 사용 하도록 설정 하면 정상 인스턴스 집합을 유지 관리 하 여 응용 프로그램에 대 한 고가용성을 달성할 수 있습니다. [응용 프로그램 상태 확장](./virtual-machine-scale-sets-health-extension.md) 또는 [부하 분산 장치 상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md)에서 보고 한 대로 확장 집합의 인스턴스가 비정상으로 확인 되는 경우이 기능은 비정상 인스턴스를 삭제 하 고 새 인스턴스를 만들어 자동으로 인스턴스 복구를 수행 합니다.
 
@@ -168,7 +167,7 @@ az vmss create \
 
 Azure Portal를 통해 기존 확장 집합의 자동 복구 정책을 수정할 수 있습니다. 
  
-1. 기존 가상 머신 확장 집합으로 이동 합니다.
+1. 기존 가상 머신 확장 집합으로 이동합니다.
 1. 왼쪽 메뉴의 **설정** 에서 **상태 및 복구**를 선택 합니다.
 1. **응용 프로그램 상태 모니터링** 옵션을 사용 하도록 설정 합니다.
 1. **자동 복구 정책** 섹션을 찾습니다.

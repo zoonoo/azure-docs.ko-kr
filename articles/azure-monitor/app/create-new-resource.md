@@ -4,10 +4,9 @@ description: 새 라이브 애플리케이션에 대한 Application Insights 모
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83200686"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
@@ -97,15 +96,15 @@ TenantId           : {subid}
 
 ### <a name="azure-cli-preview"></a>Azure CLI (미리 보기)
 
-미리 보기 Application Insights Azure CLI 명령에 액세스 하려면 먼저 다음을 실행 해야 합니다.
+미리 보기 Application Insights Azure CLI 명령에 액세스하려면 먼저 다음을 실행해야 합니다.
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-명령을 실행 하지 않으면 `az extension add` 다음 오류 메시지가 표시 됩니다.`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+`az extension add` 명령을 실행하지 않으면 다음 오류 메시지가 표시됩니다. `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
-이제 다음을 실행 하 여 Application Insights 리소스를 만들 수 있습니다.
+이제 다음을 실행하여 Application Insights 리소스를 만들 수 있습니다.
 
 ```azurecli
 az monitor app-insights component create --app

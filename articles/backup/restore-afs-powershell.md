@@ -4,10 +4,9 @@ description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 63c318b66ec8f876a260b3c5b8db38bb088fb862
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201970"
 ---
 # <a name="restore-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 복원
@@ -125,7 +124,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File 
 
 ### <a name="restore-multiple-files"></a>여러 파일 복원
 
-다음 스크립트에서는 *FileSharePage* 및 *mytestfile .txt* 파일을 복원 하려고 합니다.
+다음 스크립트에서 *FileSharePage.png* 및 *MyTestFile.txt* 파일을 복원 하려고 합니다.
 
 ```powershell
 $vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"

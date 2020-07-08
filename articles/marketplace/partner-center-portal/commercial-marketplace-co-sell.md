@@ -8,15 +8,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201442"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
 
-공동 판매 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. 공동 판매 준비 및 IP 공동 판매 준비 상태를 구현 해야 합니다. 사용자가 제공 하는 정보는 Microsoft 영업 팀에서 고객 요구 사항에 대 한 적합을 평가할 때 솔루션에 대 한 자세한 정보를 제공 하는 데 사용 됩니다. 고객에 게 직접 제공 되지 않습니다. 자세한 내용은 [Microsoft에서 판매](https://partner.microsoft.com/membership/sell-with-microsoft)를 참조 하세요.
+공동 판매 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항입니다. 공동 판매 준비 및 IP 공동 판매 준비 상태를 달성해야 합니다. 제공하는 정보는 Microsoft 영업 팀에서 고객 요구 사항에 적합한지 평가할 때 솔루션을 자세히 알아보는 데 사용됩니다. 고객에게 직접 제공되지 않습니다. 자세한 내용은 [Microsoft에서 판매](https://partner.microsoft.com/membership/sell-with-microsoft)를 참조 하세요.
 
 파트너 센터의 공동 판매 옵션은 현재 일부 제품 유형에 사용할 수 있습니다. 추가 제품 유형에 대 한 지원은 시간이 지남에 따라 사용할 수 있게 됩니다.
 
@@ -34,7 +33,7 @@ ms.locfileid: "83201442"
 | Power BI 서비스 앱     |     공지 예정       |
 |  |
 
-## <a name="listing"></a>나열
+## <a name="listing"></a>목록
 
 공동 판매 목록을 통해 Microsoft 영업 팀이 더 광범위 한 대상에 게 솔루션을 마케팅 하도록 도울 수 있습니다.
 
@@ -52,7 +51,7 @@ ms.locfileid: "83201442"
 | 장치 (하드웨어) | 장치 제조업체에서 하드웨어를 빌드 또는 판매 하는 것을 포함 하는 제품입니다. |
 | IP (응용 프로그램) | 고객 사용에 대 한 라이선스를 받은 앱 또는 기타 copyrightable 자료입니다. 예: 온-프레미스에서 사용이 허가 되 고 설치 될 수 있는 CRM 프로그램입니다. |
 | 서비스 | 컨설턴트를 통해 제공 되는 특정 일회성 프로젝트에 대 한 실습 전문 기술입니다. 예: 클라이언트에 대 한 고객 데이터베이스 설정 (클라이언트에서 배달 후 데이터베이스 작동을 담당 하는 경우). |
-| 관리형 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
+| 관리 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
 
 ### <a name="solution-areas"></a>솔루션 영역
 

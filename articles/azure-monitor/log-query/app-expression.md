@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
 ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201114"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
@@ -20,7 +19,7 @@ ms.locfileid: "83201114"
 > [!IMPORTANT]
 > 응용 프로그램 () 식은 [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md) 를 사용 하는 경우에는 로그 데이터가 Log Analytics 작업 영역에 저장 되므로 사용 되지 않습니다. Log () 식을 사용 하 여 여러 작업 영역에서 응용 프로그램을 포함 하는 쿼리를 작성 합니다. 동일한 작업 영역에 있는 여러 응용 프로그램의 경우에는 상호 작업 영역 쿼리가 필요 하지 않습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 `app(`*한정자*`)`
 
@@ -29,7 +28,7 @@ ms.locfileid: "83201114"
 
 - *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 앱을 식별합니다.
 
-| ID | 설명 | 예제
+| ID | Description | 예제
 |:---|:---|:---|
 | 리소스 이름 | 사람이 읽을 수 있는 앱 이름 ("구성 요소 이름"이 라고도 함) | app(“fabrikamapp”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 앱의 전체 이름 | app(‘AI-Prototype/Fabrikam/fabrikamapp’) |

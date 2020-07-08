@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83199023"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위
@@ -22,7 +21,7 @@ ms.locfileid: "83199023"
 
 범위는 항상 Log Analytics 창의 왼쪽 위에 표시 됩니다. 아이콘은 범위가 Log Analytics 작업 영역 인지 또는 Application Insights 응용 프로그램 인지를 나타냅니다. 다른 Azure 리소스를 나타내는 아이콘이 없습니다.
 
-![범위](media/scope/scope.png)
+![Scope](media/scope/scope.png)
 
 범위는 Log Analytics를 시작 하는 데 사용 하는 방법에 따라 결정 되며, 경우에 따라 범위를 클릭 하 여 변경할 수 있습니다. 다음 표에서는 사용 되는 다양 한 종류의 범위와 각각에 대 한 다양 한 세부 정보를 나열 합니다.
 
@@ -32,7 +31,7 @@ ms.locfileid: "83199023"
 | 쿼리 범위 | 범위 내의 레코드 | 선택 방법 | 범위 변경 |
 |:---|:---|:---|:---|
 | Log Analytics 작업 영역 | Log Analytics 작업 영역에 있는 모든 레코드 | **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역** 메뉴에서 **로그** 를 선택 합니다.  | 범위를 다른 리소스 유형으로 변경할 수 있습니다. |
-| 응용 프로그램 Application Insights | Application Insights 응용 프로그램의 모든 레코드 | Application Insights의 **개요** 페이지에서 **분석** 을 선택 합니다. | 범위만 다른 Application Insights 응용 프로그램으로 변경할 수 있습니다. |
+| Application Insights 애플리케이션 | Application Insights 응용 프로그램의 모든 레코드 | Application Insights의 **개요** 페이지에서 **분석** 을 선택 합니다. | 범위만 다른 Application Insights 응용 프로그램으로 변경할 수 있습니다. |
 | Resource group | 리소스 그룹의 모든 리소스에 의해 생성 된 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 리소스 그룹 메뉴에서 **로그** 를 선택 합니다. | 범위를 변경할 수 없습니다.|
 | Subscription | 구독의 모든 리소스에서 만든 레코드 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 구독 메뉴에서 **로그** 를 선택 합니다.   | 범위를 변경할 수 없습니다. |
 | 기타 Azure 리소스 | 리소스에서 만든 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다.  | 리소스 메뉴에서 **로그** 를 선택 합니다.<br>또는<br>**Azure Monitor** 메뉴에서 **로그** 를 선택 하 고 새 범위를 선택 합니다. | 범위만 동일한 리소스 유형으로 변경할 수 있습니다. |
@@ -47,7 +46,7 @@ ms.locfileid: "83199023"
 
 쿼리 범위는 해당 리소스 또는 리소스 집합에 대 한 데이터가 있는 작업 영역을 이미 포함 하 고 있으므로 리소스로 범위가 지정 된 경우 쿼리에서 다음 명령을 사용할 수 없습니다.
 
-- [다운로드](app-expression.md)
+- [app](app-expression.md)
 - [환경이](workspace-expression.md)
  
 
@@ -71,7 +70,7 @@ Log Analytics를 사용 하면 특정 개수의 지역이 사용 되는 경우 �
 | 위치 | 속성 |
 |:---|:---|
 | Log Analytics 작업 영역          | TimeGenerated |
-| 응용 프로그램 Application Insights | timestamp     |
+| Application Insights 애플리케이션 | timestamp     |
 
 Log Analytics 창의 맨 위에 있는 시간 선택에서 시간 범위를 선택 하 여 설정 합니다.  미리 정의 된 기간을 선택 하거나 **사용자 지정** 을 선택 하 여 특정 시간 범위를 지정할 수 있습니다.
 
