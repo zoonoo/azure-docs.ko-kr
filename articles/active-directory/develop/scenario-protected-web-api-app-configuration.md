@@ -1,7 +1,7 @@
 ---
 title: 보호 된 웹 API 앱 구성 | Microsoft
 titleSuffix: Microsoft identity platform
-description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
+description: 보호된 웹 API를 빌드하고 애플리케이션의 코드를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882474"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
@@ -134,7 +133,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 ## <a name="token-validation"></a>토큰 유효성 검사
 
-위의 코드 조각에서 web apps의 Openid connect Connect 미들웨어와 같은 JwtBearer 미들웨어는의 `TokenValidationParameters`값을 기반으로 토큰의 유효성을 검사 합니다. 필요에 따라 토큰의 암호를 해독 하 고, 클레임을 추출 하 고, 서명을 확인 합니다. 그러면 미들웨어는 다음 데이터를 확인 하 여 토큰의 유효성을 검사 합니다.
+위의 코드 조각에서 web apps의 Openid connect Connect 미들웨어와 같은 JwtBearer 미들웨어는의 값을 기반으로 토큰의 유효성을 검사 합니다 `TokenValidationParameters` . 필요에 따라 토큰의 암호를 해독 하 고, 클레임을 추출 하 고, 서명을 확인 합니다. 그러면 미들웨어는 다음 데이터를 확인 하 여 토큰의 유효성을 검사 합니다.
 
 - 대상: 토큰은 웹 API를 대상으로 합니다.
 - Sub: web API를 호출할 수 있는 앱에 대해 발급 되었습니다.
@@ -150,7 +149,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 다음 표에서는 유효성 검사기에 대해 설명 합니다.
 
-| Validator | 설명 |
+| 유효성 검사기 | 설명 |
 |---------|---------|
 | **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |

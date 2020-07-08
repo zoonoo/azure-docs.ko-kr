@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80981310"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
@@ -48,7 +47,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 * 관리 작업은 손상으로 이어질 수 있는 작업과 함께 수행하면 안 됩니다(예: 인프라 서버를 감염시키는 관리자의 전자 메일 내의 맬웨어).
 * 매우 민감한 작업에 사용되는 워크스테이션은 인터넷 검색 등 위험도가 높은 용도에 사용하는 시스템으로 사용하면 안 됩니다.
 
-불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예제:
+불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예:
 
 * 디바이스의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
 
@@ -106,7 +105,7 @@ Virtual Machine–배포 애플리케이션은 필요에 따라 MMC(Microsoft Ma
 ### <a name="management-gateway"></a>관리 게이트웨이
 모든 관리 액세스를 중앙 집중화하고 모니터링 및 로깅을 간소화하려면, Azure 환경에 연결된 온-프레미스 네트워크에 전용 [원격 데스크톱 게이트웨이](https://technet.microsoft.com/library/dd560672)(RD 게이트웨이) 서버를 배포할 수 있습니다.
 
-원격 데스크톱 게이트웨이 는 보안 요구 사항을 적용하는 정책 기반 RDP 프록시 서비스입니다. Windows 서버 네트워크 액세스 보호(NAP)와 함께 RD 게이트웨이를 구현하면 Active Directory Domain Services(AD DS) 그룹 정책 개체(GPO)에 의해 설정된 특정 보안 상태 조건을 충족하는 클라이언트만 연결할 수 있는지 확인할 수 있습니다. 또한,
+원격 데스크톱 게이트웨이 는 보안 요구 사항을 적용하는 정책 기반 RDP 프록시 서비스입니다. Windows 서버 네트워크 액세스 보호(NAP)와 함께 RD 게이트웨이를 구현하면 Active Directory Domain Services(AD DS) 그룹 정책 개체(GPO)에 의해 설정된 특정 보안 상태 조건을 충족하는 클라이언트만 연결할 수 있는지 확인할 수 있습니다. 이 밖에도 다음 지침을 따릅니다.
 
 * RD 게이트웨이에서 [Azure 관리 인증서](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 프로비전하여 허용된 호스트만 Azure Portal에 액세스할 수 있도록 합니다.
 * RD 게이트웨이를 관리자 워크스테이션과 동일한 [관리 도메인](https://technet.microsoft.com/library/bb727085.aspx)에 조인합니다. 이는 사이트 간 IPsec VPN 또는 Azure AD에 단방향 트러스트 관계가 있는 도메인 내의 ExpressRoute를 사용하는 경우 또는 온-프레미스 AD DS 인스턴스와 Azure AD 간의 자격 증명을 페더레이션하는 경우 필요합니다.
@@ -171,10 +170,10 @@ RD 게이트웨이를 통해 Azure에 연결되지 않은 독립 실행형 강�
 ## <a name="best-practices"></a>모범 사례
 Azure에서 애플리케이션 및 데이터를 관리하는 경우 다음의 추가 지침을 고려합니다.
 
-### <a name="dos-and-donts"></a>실행 사항 및 금지 사항
+### <a name="dos-and-donts"></a>권장 사항 및 금지 사항
 워크스테이션이 잠겨 있기 다른 일반적인 보안 요구 사항을 충족 필요가 없다고 가정하지 마세요. 관리자 계정이 일반적으로 처리하는 상승된 액세스 수준으로 인해 위험이 발생할 가능성이 높습니다. 위험 및 대체 안전 조치의 예는 아래 테이블에 나와 있습니다.
 
-| 하지 않아야 할 일 | 해야 할 일 |
+| 안 함 | 해야 할 일 |
 | --- | --- |
 | 관리자 액세스 또는 다른 암호 (예: TLS/SSL 또는 관리 인증서)에 대 한 자격 증명을 전자 메일로 보내지 않습니다. |계정 이름 및 음성 암호(음성 메일에는 저장되지 않음)를 제공하여 기밀성을 유지하거나, 클라이언트/서버 인증서의 원격 설치를 수행하거나(암호화된 세션을 통해), 보호된 네트워크 공유에서 다운로드하거나, 이동식 미디어를 통해 직접 배포합니다. |
 | - | 관리 인증서 수명 주기를 사전 관리합니다. |

@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80884871"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
@@ -20,7 +19,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 | URL | 세부 정보 |
 |---|---|
-| `*.blob.core.windows.net` | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 특정 저장소 계정 Url에 대해 허용 목록을 사용할 수 있습니다. 예를 들어 `cache1.blob.core.windows.net` 대신 `cache2.blob.core.windows.net` 및입니다 `*.blob.core.windows.net`. |
+| `*.blob.core.windows.net` | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 특정 저장소 계정 Url에 대해 허용 목록을 사용할 수 있습니다. 예를 들어 `cache1.blob.core.windows.net` `cache2.blob.core.windows.net` 대신 및입니다 `*.blob.core.windows.net` . |
 | `login.microsoftonline.com` | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다. |
 | `*.hypervrecoverymanager.windowsazure.com` | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 _SITE RECOVERY IP_ 를 사용할 수 있습니다. |
 | `*.servicebus.windows.net` | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 하는 _Site Recovery 모니터링 IP_ 를 사용할 수 있습니다. |
@@ -51,7 +50,7 @@ VM에서 사용자 지정 DNS 설정을 사용 하는지 확인 하려면:
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>문제 2: Site Recovery 구성이 실패했습니다(151196).
 
 > [!NOTE]
-> Vm이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 기본적으로와 `login.microsoftonline.com`같은 Office 365 ip에 액세스할 수 없습니다. [Azure CLI를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성](/azure/load-balancer/configure-load-balancer-outbound-cli)문서에 설명 된 대로 **기본** 내부 부하 분산 장치 유형으로 변경 하거나 아웃 바운드 액세스를 만듭니다.
+> Vm이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 기본적으로와 같은 Office 365 ip에 액세스할 수 없습니다 `login.microsoftonline.com` . [Azure CLI를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성](/azure/load-balancer/configure-load-balancer-outbound-cli)문서에 설명 된 대로 **기본** 내부 부하 분산 장치 유형으로 변경 하거나 아웃 바운드 액세스를 만듭니다.
 
 #### <a name="possible-cause"></a>가능한 원인
 
@@ -124,7 +123,7 @@ Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](azure-to-azure
 
 #### <a name="resolution"></a>해결 방법
 
-1. 모바일 서비스 에이전트는 Windows 및 `/etc/environment` LINUX에서 IE의 프록시 설정을 검색 합니다.
+1. 모바일 서비스 에이전트는 Windows 및 Linux에서 IE의 프록시 설정을 검색 합니다 `/etc/environment` .
 1. Azure Site Recovery 모바일 서비스에 대해서만 프록시를 설정 하는 것을 선호 하는 경우에는 다음 위치에 있는 _Proxyinfo._ 에 프록시 세부 정보를 제공 하면 됩니다.
 
    - **Linux**:`/usr/local/InMage/config/`

@@ -4,10 +4,9 @@ description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처�
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892345"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
@@ -94,7 +93,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
 처음에는 앱에서 실패를 유발하는 예외가 포털에 전부 표시되지 않을 것입니다. 웹 페이지에서 [JavaScript SDK](../../azure-monitor/app/javascript.md)를 사용 중이라면 브라우저 예외가 보일 것입니다. 하지만 대부분 서버 예외는 IIS에서 catch하며 서버 예외를 보려면 약간의 코드를 작성해야 합니다.
 
-다음과 같은 작업을 수행할 수 있습니다.
+다음을 할 수 있습니다.
 
 * **예외를 명시적으로 기록** 합니다.
 * **예외를 자동으로 캡처** 합니다. 프레임워크 유형에 따라 추가할 항목이 다릅니다.
@@ -157,7 +156,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 ## <a name="browser-exceptions"></a>브라우저 예외
 대부분의 브라우저 예외가 보고됩니다.
 
-웹 페이지에 콘텐츠 배달 네트워크 또는 다른 도메인의 스크립트 파일이 포함 되어 있는 경우 스크립트 태그에 특성이 ```crossorigin="anonymous"```있고 서버에서 [CORS 헤더](https://enable-cors.org/)를 전송 하는지 확인 합니다. 이러한 리소스에서 처리되지 않은 JavaScript 예외에 대한 스택 추적 및 세부 정보를 가져올 수 있을 것입니다.
+웹 페이지에 콘텐츠 배달 네트워크 또는 다른 도메인의 스크립트 파일이 포함 되어 있는 경우 스크립트 태그에 특성이 있고 ```crossorigin="anonymous"``` 서버에서 [CORS 헤더](https://enable-cors.org/)를 전송 하는지 확인 합니다. 이러한 리소스에서 처리되지 않은 JavaScript 예외에 대한 스택 추적 및 세부 정보를 가져올 수 있을 것입니다.
 
 ## <a name="reuse-your-telemetry-client"></a>원격 분석 클라이언트 다시 사용
 
@@ -199,7 +198,7 @@ public class GoodController : ApiController
 ## <a name="mvc"></a>MVC
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 MVC 5 + 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들어:
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -291,7 +290,7 @@ FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니
 ## <a name="web-api"></a>Web API
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 WebAPI 2+의 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들어:
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외

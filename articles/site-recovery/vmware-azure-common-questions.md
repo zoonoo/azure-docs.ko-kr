@@ -4,10 +4,9 @@ description: Azure Site Recovery를 사용 하 여 Azure에 온-프레미스 VMw
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259513"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
@@ -282,7 +281,7 @@ Site Recovery는 N-1 지원 모델을 따릅니다. 이전 버전에서 업그�
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
-Recovery Services 자격 증명 모음에서 **Site Recovery 인프라** > **관리**에서 **구성 서버** 를 선택 합니다. 그런 다음 **서버**에서 **등록 키 다운로드** 를 선택 하 여 자격 증명 모음 자격 증명 파일을 다운로드 합니다.
+Recovery Services 자격 증명 모음에서 **Site Recovery 인프라**관리에서 **구성 서버** 를 선택  >  **Manage**합니다. 그런 다음 **서버**에서 **등록 키 다운로드** 를 선택 하 여 자격 증명 모음 자격 증명 파일을 다운로드 합니다.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>단일 구성 서버를 사용 하 여 여러 vCenter 인스턴스를 보호할 수 있나요?
 

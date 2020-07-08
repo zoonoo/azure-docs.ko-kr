@@ -15,18 +15,17 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: allensu
 ms.openlocfilehash: 2475bdce3ab8f153cc837601964bf4a2e90a470c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260414"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN에 대 한 디버그 HTTP 헤더
-디버그 응답 헤더 `X-Cache`는 콘텐츠가 제공 된 CDN 스택의 계층에 대 한 세부 정보를 제공 합니다. 이 헤더는 Microsoft의 Azure CDN에만 적용 됩니다.
+디버그 응답 헤더는 콘텐츠가 제공 된 `X-Cache` CDN 스택의 계층에 대 한 세부 정보를 제공 합니다. 이 헤더는 Microsoft의 Azure CDN에만 적용 됩니다.
 
 ### <a name="response-header-format"></a>응답 헤더 형식
 
-헤더 | Description
+헤더 | 설명
 -------|------------
 X 캐시: TCP_HIT | 이 헤더는 CDN에 지 캐시에서 콘텐츠를 제공할 때 반환 됩니다. 
 X 캐시: TCP_REMOTE_HIT | 이 헤더는 CDN 지역 캐시 (원본 방패 계층)에서 콘텐츠를 제공할 때 반환 됩니다.

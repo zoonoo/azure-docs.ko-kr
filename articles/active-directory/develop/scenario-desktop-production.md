@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882882"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱: 프로덕션으로 이동
@@ -31,14 +30,14 @@ ms.locfileid: "80882882"
 > [!NOTE]
 > 여러 리소스에 대 한 동의를 얻는 것은 Microsoft id 플랫폼에서 작동 하지만 Azure Active Directory (Azure AD) B2C의 경우에는 작동 하지 않습니다. Azure AD B2C은 사용자 동의가 아닌 관리자 동의만 지원 합니다.
 
-V2.0 (Microsoft identity platform) 끝점을 사용 하 여 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. 매개 `scopes` 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. 사용자가 `extraScopesToConsent` 매개 변수를 사용 하 여 여러 리소스를 미리 동의 수 있습니다.
+V2.0 (Microsoft identity platform) 끝점을 사용 하 여 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. `scopes`매개 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. 사용자가 매개 변수를 사용 하 여 여러 리소스를 미리 동의 수 있습니다 `extraScopesToConsent` .
 
 예를 들어, 두 개의 범위가 각각 포함 된 두 개의 리소스가 있을 수 있습니다.
 
 - `https://mytenant.onmicrosoft.com/customerapi`범위 `customer.read` 및`customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi`범위 `vendor.read` 및`vendor.write`
 
-이 예제에서는 `extraScopesToConsent` 매개 변수가 있는 `.WithAdditionalPromptToConsent` 한정자를 사용 합니다.
+이 예제에서는 `.WithAdditionalPromptToConsent` 매개 변수가 있는 한정자를 사용 합니다 `extraScopesToConsent` .
 
 예:
 
@@ -63,7 +62,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-### <a name="in-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL
+### <a name="in-msal-for-ios-and-macos"></a>iOS 및 macOS용 MSAL에서
 
 Objective-C:
 
@@ -95,7 +94,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 이 호출은 첫 번째 web API에 대 한 액세스 토큰을 가져옵니다.
 
-두 번째 web API를 호출 해야 하는 경우 `AcquireTokenSilent` api를 호출 합니다.
+두 번째 web API를 호출 해야 하는 경우 api를 호출 `AcquireTokenSilent` 합니다.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

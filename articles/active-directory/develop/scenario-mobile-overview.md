@@ -14,17 +14,16 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882576"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 모바일 응용 프로그램
 
-웹 Api를 호출 하는 모바일 앱을 빌드하는 방법을 알아봅니다.
+웹 API를 호출하는 모바일 앱을 빌드하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -52,7 +51,7 @@ ms.locfileid: "80882576"
 - **SSO (Single Sign-On) 구현**: msal 및 Microsoft identity platform을 사용 하 여 장치의 브라우저 또는 Microsoft Authenticator를 통해 Single Sign-On를 사용 하도록 설정 하 고 Android에서 Intune 회사 포털 수 있습니다.
 - **공유 장치 모드 구현**: 병원, 제조, 소매, 재무 등의 공유 장치 시나리오에서 사용할 수 있는 응용 프로그램을 사용 하도록 설정 합니다. [공유 장치 모드 지원에 대해 자세히](msal-shared-devices.md)알아보세요.
 
-## <a name="specifics"></a>자세히
+## <a name="specifics"></a>특수 적용 사항
 
 Microsoft id 플랫폼에서 모바일 앱을 빌드하는 경우 다음 사항을 고려해 야 합니다.
 

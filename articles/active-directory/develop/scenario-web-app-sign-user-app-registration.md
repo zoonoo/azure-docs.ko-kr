@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881582"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
@@ -43,17 +42,17 @@ ms.locfileid: "80881582"
 
 1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다. 또는 국가별 클라우드의 선택 Azure Portal에 로그인 합니다.
 1. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 계정을 선택 합니다. 그런 다음 포털 세션을 원하는 Azure Active Directory (Azure AD) 테 넌 트로 설정 합니다.
-1. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택 하 고 **앱 등록** > **새 등록**을 선택 합니다.
+1. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택 하 고 **앱 등록**  >  **새 등록**을 선택 합니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
    1. 응용 프로그램에 대해 지원 되는 계정 유형을 선택 합니다. ( [지원 되는 계정 유형](./v2-supported-account-types.md)을 참조 하세요.)
    1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **AspNetCore-WebApp**를 입력 합니다.
-   1. **리디렉션 uri**의 경우 인증에 성공한 후 반환 된 토큰 응답을 받을 응용 프로그램의 형식 및 URI 대상을 추가 합니다. 예를 들어을 **https://localhost:44321**입력 합니다. 그런 다음 **등록**을 선택합니다.
+   1. **리디렉션 uri**의 경우 인증에 성공한 후 반환 된 토큰 응답을 받을 응용 프로그램의 형식 및 URI 대상을 추가 합니다. 예를 들어을 입력 **https://localhost:44321** 합니다. 그런 다음 **등록**을 선택 합니다.
 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
    1. **회신 URL**의 경우 **https://localhost:44321/signin-oidc** **웹**형식의를 추가 합니다.
-   1. **고급 설정** 섹션에서 **로그 아웃 URL** 을로 **https://localhost:44321/signout-oidc**설정 합니다.
+   1. **고급 설정** 섹션에서 **로그아웃 URL**을 **https://localhost:44321/signout-oidc** 으로 설정합니다.
    1. **암시적 허용**에서 **ID 토큰**을 선택합니다.
    1. **저장**을 선택합니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "80881582"
    1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **https://localhost:44326/** 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.
 1. **인증** 메뉴를 선택 합니다.
-1. **고급 설정** | **암시적 허용** 섹션에서 **ID 토큰**을 선택 합니다. 이 샘플을 사용 하려면 사용자에 게 로그인 할 수 있는 [암시적 grant 흐름이](v2-oauth2-implicit-grant-flow.md) 필요 합니다.
+1. **고급 설정**  |  **암시적 허용** 섹션에서 **ID 토큰**을 선택 합니다. 이 샘플을 사용 하려면 사용자에 게 로그인 할 수 있는 [암시적 grant 흐름이](v2-oauth2-implicit-grant-flow.md) 필요 합니다.
 1. **저장**을 선택합니다.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -82,7 +81,7 @@ ms.locfileid: "80881582"
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-  그런 다음, **저장**을 선택 합니다.
+  그런 다음 **저장**을 선택합니다.
 
 1. 메뉴에서 **인증서 & 암호** 를 선택 합니다.
 1. **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 선택 하 고 다음을 수행 합니다.
@@ -97,7 +96,7 @@ ms.locfileid: "80881582"
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
    1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **python-webapp**을 입력 합니다.
    1. **모든 조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)에서** **지원 되는 계정 유형을** 계정으로 변경 합니다.
-   1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **http://localhost:5000/getAToken**합니다.
+   1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **http://localhost:5000/getAToken** 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
 1. 왼쪽 메뉴에서 **인증서 & 암호**를 선택 합니다.
@@ -117,7 +116,7 @@ ms.locfileid: "80881582"
 > - MyOrg (이 조직 디렉터리의 계정에만 해당)
 > - AnyOrg (모든 조직 디렉터리의 계정)
 >
-> 개인 Microsoft 계정 (예: Skype, Xbox 또는 Outlook.com)을 사용 하 여 사용자를 로그인 하는 응용 프로그램을 만들 수 있습니다. 먼저 다중 테 넌 트 응용 프로그램을 만듭니다. 지원 되는 계정 유형은 모든 조직 디렉터리의 계정입니다. 그런 다음 Azure Portal에서 `signInAudience` 응용 프로그램 매니페스트의 속성을 변경 합니다. 자세한 내용은 ASP.NET Core 자습서에서 [1.3 단계](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) 를 참조 하세요. 모든 언어로 된 웹 앱에이 단계를 일반화할 수 있습니다.
+> 개인 Microsoft 계정 (예: Skype, Xbox 또는 Outlook.com)을 사용 하 여 사용자를 로그인 하는 응용 프로그램을 만들 수 있습니다. 먼저 다중 테 넌 트 응용 프로그램을 만듭니다. 지원 되는 계정 유형은 모든 조직 디렉터리의 계정입니다. 그런 다음 `signInAudience` Azure Portal에서 응용 프로그램 매니페스트의 속성을 변경 합니다. 자세한 내용은 ASP.NET Core 자습서에서 [1.3 단계](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) 를 참조 하세요. 모든 언어로 된 웹 앱에이 단계를 일반화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

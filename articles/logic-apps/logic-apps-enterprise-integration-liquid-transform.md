@@ -9,15 +9,14 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 04/01/2020
 ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80879176"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps에서 Liquid 템플릿을 사용하여 고급 JSON 변환 수행
 
-**작성** 또는 **구문 분석 JSON**과 같은 네이티브 데이터 조작 작업을 사용하여 Logic Apps에서 기본 JSON 변환을 수행할 수 있습니다. 고급 JSON 변환을 수행하려면 유연한 웹앱을 위한 오픈 소스 템플릿 언어인 [Liquid](https://shopify.github.io/liquid/)를 사용하여 템플릿 또는 맵을 만들 수 있습니다. 액체 템플릿은 JSON 출력을 변환 하 고 반복, 제어 흐름, 변수 등 더 복잡 한 JSON 변환을 지 원하는 방법을 정의 합니다.
+**작성** 또는 **구문 분석 JSON**과 같은 네이티브 데이터 조작 작업을 사용하여 Logic Apps에서 기본 JSON 변환을 수행할 수 있습니다. 고급 JSON 변환을 수행하려면 유연한 웹앱을 위한 오픈 소스 템플릿 언어인 [Liquid](https://shopify.github.io/liquid/)를 사용하여 템플릿 또는 맵을 만들 수 있습니다. Liquid 템플릿을 사용하여 JSON 출력을 변환하고 반복, 제어 흐름, 변수 등 더 복잡한 JSON 변환을 지원하는 방법을 정의할 수 있습니다.
 
 논리 앱에서 액체 변환을 수행 하려면 먼저 액체 템플릿을 사용 하 여 json에 대 한 JSON 매핑을 정의 하 고 해당 맵을 통합 계정에 저장 해야 합니다. 이 문서에서는 이러한 Liquid 템플릿 또는 맵을 만들고 사용하는 방법을 보여 줍니다.
 
@@ -25,7 +24,7 @@ ms.locfileid: "80879176"
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * 기본 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
@@ -57,7 +56,7 @@ ms.locfileid: "80879176"
    }
    ```
 
-1. [Azure Portal](https://portal.azure.com)의 Azure search 상자에서를 입력 `integration accounts`하 고 **통합 계정**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 Azure search 상자에서를 입력 하 `integration accounts` 고 **통합 계정**을 선택 합니다.
 
    !["통합 계정" 찾기](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 
@@ -71,11 +70,11 @@ ms.locfileid: "80879176"
 
 1. **지도** 창에서 **추가** 를 선택 하 고 맵에 대 한 세부 정보를 제공 합니다.
 
-   | 속성 | 값 | Description | 
+   | 속성 | 값 | 설명 | 
    |----------|-------|-------------|
    | **이름** | `JsonToJsonTemplate` | 맵의 이름이며, 이 예제에서는 "JsonToJsonTemplate"입니다. | 
    | **맵 유형** | **liquid** | 맵의 형식입니다. JSON부터 JSON 변환의 경우 **Liquid**를 선택해야 합니다. | 
-   | **매핑할** | `SimpleJsonToJsonTemplate.liquid` | 변환에 사용할 기존 Liquid 템플릿이나 맵 파일이며 이 예제에서는 "SimpleJsonToJsonTemplate.liquid"입니다. 이 파일을 찾으려면 파일 선택기를 사용할 수 있습니다. 지도 크기 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)을 참조 하세요. |
+   | **Map** | `SimpleJsonToJsonTemplate.liquid` | 변환에 사용할 기존 Liquid 템플릿이나 맵 파일이며 이 예제에서는 "SimpleJsonToJsonTemplate.liquid"입니다. 이 파일을 찾으려면 파일 선택기를 사용할 수 있습니다. 지도 크기 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)을 참조 하세요. |
    ||| 
 
    ![액체 템플릿 추가](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
@@ -86,7 +85,7 @@ ms.locfileid: "80879176"
 
 1. Logic Apps 디자이너에서 논리 앱에 [요청 트리거](../connectors/connectors-native-reqres.md#add-request)를 추가합니다.
 
-1. 트리거 아래에서 **새 단계**를 선택합니다. 검색 상자에서를 필터로 입력 `liquid` 하 고이 작업: JSON **을 json으로 변환-액체** 를 선택 합니다.
+1. 트리거 아래에서 **새 단계**를 선택합니다. 검색 상자에서를 필터로 입력 하 `liquid` 고이 작업: json **을 Json으로 변환-액체** 를 선택 합니다.
 
    ![Liquid 작업 찾기 및 선택](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 

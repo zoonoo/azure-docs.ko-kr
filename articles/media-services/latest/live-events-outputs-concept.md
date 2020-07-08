@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
 ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010582"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services에서 라이브 이벤트 및 라이브 출력
@@ -30,7 +29,7 @@ Azure Media Services를 사용 하면 Azure 클라우드의 고객에 게 라이
 
 ## <a name="live-events"></a>라이브 이벤트
 
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. 라이브 이벤트를 만들 때 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 기본 및 보조 입력 끝점이 생성 됩니다. 원격 라이브 인코더는 [RTMP](https://www.adobe.com/devnet/rtmp.html) 또는 [부드러운 스트리밍](https://msdn.microsoft.com/library/ff469518.aspx) (조각화 된 MP4) 입력 프로토콜을 사용 하 여 해당 입력 끝점에 기여 피드를 보냅니다. RTMP 수집 프로토콜의 경우 콘텐츠를 일반 (`rtmp://`)으로 전송 하거나 통신 (`rtmps://`)에서 안전 하 게 암호화할 수 있습니다. 부드러운 스트리밍 수집 프로토콜의 경우 지원되는 URL 체계는 `http://` 또는 `https://`입니다.  
+[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. 라이브 이벤트를 만들 때 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 기본 및 보조 입력 끝점이 생성 됩니다. 원격 라이브 인코더는 [RTMP](https://www.adobe.com/devnet/rtmp.html) 또는 [부드러운 스트리밍](https://msdn.microsoft.com/library/ff469518.aspx) (조각화 된 MP4) 입력 프로토콜을 사용 하 여 해당 입력 끝점에 기여 피드를 보냅니다. RTMP 수집 프로토콜의 경우 콘텐츠를 일반 ()으로 전송 `rtmp://` 하거나 통신 ()에서 안전 하 게 암호화할 수 있습니다 `rtmps://` . 부드러운 스트리밍 수집 프로토콜의 경우 지원되는 URL 체계는 `http://` 또는 `https://`입니다.  
 
 ## <a name="live-event-types"></a>라이브 이벤트 유형
 
@@ -49,7 +48,7 @@ Azure Media Services를 사용 하면 Azure 클라우드의 고객에 게 라이
 H.264/AVC 또는 H.265/HEVC 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 4K의 해상도 및 초당 60프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison.md)를 참조 하세요.
 
 > [!NOTE]
-> 통과 방법을 사용 하는 것은 오랜 시간 동안 여러 이벤트를 수행 하 고 온-프레미스 인코더에 이미 투자 한 경우 라이브 스트리밍을 수행 하는 가장 경제적인 방법입니다. [가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 세부 정보를 참조하세요.
+> 통과 방법을 사용 하는 것은 오랜 시간 동안 여러 이벤트를 수행 하 고 온-프레미스 인코더에 이미 투자 한 경우 라이브 스트리밍을 수행 하는 가장 경제적인 방법입니다. [가격](https://azure.microsoft.com/pricing/details/media-services/) 정보를 참조 하세요.
 >
 
 [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126)의 .NET 코드 예제를 참조하세요.
@@ -87,7 +86,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 ### <a name="naming-rules"></a>이름 지정 규칙
 
 * 최대 라이브 이벤트 이름은 32 자입니다.
-* 이름은이 [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`합니다.
+* 이름은이 [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다. `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`
 
 또한 [스트리밍 끝점 명명 규칙](streaming-endpoint-concept.md#naming-convention)을 참조 하세요.
 
@@ -116,11 +115,11 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
     > [!NOTE]
     > Azure Portal 베 니 티 URL의 이름은 "*영구 입력 url*"입니다.
 
-    API에서이 모드를 지정 하려면를 만들 `vanityUrl` 때 `true` 로 설정 합니다 (기본값은 `false`). 또한 만들 때 사용자 고유의 액세스 토큰 (`LiveEventInput.accessToken`)을 전달 해야 합니다. 토큰 값을 지정 하 여 URL에서 임의의 토큰을 방지 합니다. 액세스 토큰은 하이픈을 포함 하거나 포함 하지 않는 유효한 GUID 문자열 이어야 합니다. 모드가 설정 된 후에는 업데이트할 수 없습니다.
+    API에서이 모드를 지정 하려면를 `vanityUrl` `true` 만들 때로 설정 합니다 (기본값은 `false` ). 또한 만들 때 사용자 고유의 액세스 토큰 ()을 전달 해야 `LiveEventInput.accessToken` 합니다. 토큰 값을 지정 하 여 URL에서 임의의 토큰을 방지 합니다. 액세스 토큰은 하이픈을 포함 하거나 포함 하지 않는 유효한 GUID 문자열 이어야 합니다. 모드가 설정 된 후에는 업데이트할 수 없습니다.
 
     액세스 토큰은 데이터 센터에서 고유 해야 합니다. 앱이 베 니 티 URL을 사용 해야 하는 경우 기존 GUID를 다시 사용 하는 대신 항상 액세스 토큰에 대 한 새 GUID 인스턴스를 만드는 것이 좋습니다.
 
-    다음 Api를 사용 하 여 베 니 티 URL을 사용 하도록 설정 하 고 액세스 토큰을 유효한 GUID (예: `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`)로 설정 합니다.  
+    다음 Api를 사용 하 여 베 니 티 URL을 사용 하도록 설정 하 고 액세스 토큰을 유효한 GUID (예: `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` )로 설정 합니다.  
 
     |언어|베 니 티 URL 사용|액세스 토큰 설정|
     |---|---|---|
@@ -131,7 +130,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`)을 입력합니다.
+* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *스트림 이름*: 특정 연결의 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하는 라이브 인코더에 의해 추가 됩니다. 연결을 설명 하는 이름을 사용 하도록 라이브 인코더를 구성할 수 있습니다 (예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-vanity-url"></a>비베니티 URL

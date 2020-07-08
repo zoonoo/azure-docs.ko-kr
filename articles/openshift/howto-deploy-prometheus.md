@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: 프로메테우스, aro, openshift, 메트릭, red hat
 ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886891"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에 독립 실행형 프로메테우스 인스턴스 배포
@@ -30,7 +29,7 @@ ms.locfileid: "80886891"
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>OC 도구를 사용 하 여 클러스터에 로그인
 
-1. 웹 브라우저를 열고 클러스터의 웹 콘솔로 이동https://openshift합니다.* 임의 id*입니다. azmosa.io *).*
+1. 웹 브라우저를 열고 클러스터의 웹 콘솔로 이동 https://openshift 합니다.* 임의 id*입니다. azmosa.io *).*
 2. Azure 자격 증명으로 로그인합니다.
 3. 오른쪽 위 모서리에서 사용자 이름을 선택 하 고 **로그인 명령 복사**를 선택 합니다.
 4. 사용할 터미널에 사용자 이름을 붙여 넣습니다.
@@ -49,7 +48,7 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> `-n` 또는 `--namespace` 매개 변수를 사용 하거나 `oc project` 명령을 실행 하 여 활성 프로젝트를 선택할 수 있습니다.
+> `-n`또는 `--namespace` 매개 변수를 사용 하거나 명령을 실행 하 여 활성 프로젝트를 선택할 수 있습니다 `oc project` .
 
 ## <a name="prepare-the-prometheus-configuration-file"></a>프로메테우스 구성 파일 준비
 다음 콘텐츠를 입력 하 여 프로메테우스. yml 파일을 만듭니다.
@@ -110,7 +109,7 @@ oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-
 Alertmanager .yml은 경고 관리자 구성 파일입니다.
 
 > [!NOTE]
-> 위의 두 단계를 확인 하려면 `oc get secret -n prometheus-project` 명령을 실행 합니다.
+> 위의 두 단계를 확인 하려면 명령을 실행 합니다 `oc get secret -n prometheus-project` .
 
 ## <a name="start-prometheus-and-alertmanager"></a>프로메테우스 및 Alertmanager 시작
 [Openshift/원본 리포지토리로](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) 이동 하 여 [프로메테우스-독립형 .yaml](
@@ -118,7 +117,7 @@ https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometh
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-프로메테우스-독립형 .yaml 파일은 OpenShift 템플릿입니다. 이 도구는 그 앞에 oauth 프록시를 사용 하 여 프로메테우스 인스턴스를 만들며,이 인스턴스는 oauth 프록시를 사용 하 여 보안이 유지 됩니다. 이 템플릿에서 oauth-proxy는 프로메테우스 프로젝트 네임 스페이스를 "가져올" 수 있는 모든 사용자를 허용 하도록 구성 됩니다 ( `-openshift-sar` 플래그 참조).
+프로메테우스-독립형 .yaml 파일은 OpenShift 템플릿입니다. 이 도구는 그 앞에 oauth 프록시를 사용 하 여 프로메테우스 인스턴스를 만들며,이 인스턴스는 oauth 프록시를 사용 하 여 보안이 유지 됩니다. 이 템플릿에서 oauth-proxy는 프로메테우스 프로젝트 네임 스페이스를 "가져올" 수 있는 모든 사용자를 허용 하도록 구성 됩니다 (플래그 참조 `-openshift-sar` ).
 
 > [!NOTE]
 > Prom StatefulSet의 DESIRED 및 CURRENT number 복제본이 같은지 확인 하려면 `oc get statefulset -n prometheus-project` 명령을 실행 합니다. 프로젝트의 모든 리소스를 확인 하려면 `oc get all -n prometheus-project` 명령을 실행 합니다.
@@ -182,7 +181,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>선택 사항: 배포 예제 응용 프로그램
 
-모든 것이 작동 중이지만 메트릭 소스가 없습니다. 프로메테우스 URL (https://prom-prometheus-project.apps로 이동 합니다.* 임의 id*입니다. azmosa.io/ *).* 다음 명령을 사용 하 여 찾을 수 있습니다.
+모든 것이 작동 중이지만 메트릭 소스가 없습니다. 프로메테우스 URL (로 이동 https://prom-prometheus-project.apps 합니다.* 임의 id*입니다. azmosa.io/ *).* 다음 명령을 사용 하 여 찾을 수 있습니다.
 
 ```
 oc get route prom -n prometheus-project
@@ -200,7 +199,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 새 응용 프로그램은 배포 후 30 초 내에 서비스 검색 페이지에 유효한 대상으로 나타나야 합니다.
 
-자세한 내용은 **상태** > **대상**을 선택 합니다.
+자세한 내용은 **상태**  >  **대상**을 선택 합니다.
 
 > [!NOTE]
 > 모든 성공적인 스크랩 대상에 대해 프로메테우스는 위쪽 메트릭에 데이터 요소를 추가 합니다. 왼쪽 위 모서리에서 **프로메테우스** 를 선택 하 고 식으로 **를 입력 한** 다음 **실행**을 선택 합니다.

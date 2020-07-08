@@ -12,24 +12,23 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5af9e34baf6115e801fbfe35e6e3895e48b360e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881726"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 앱
 
 Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다음 로그인 한 사용자를 대신 하 여 web Api를 호출 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 이 시나리오에서는 다음과 같은 시나리오를 이미 수행 했다고 가정 합니다.
 
 > [!div class="nextstepaction"]
-> [사용자가 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)
+> [사용자를 로그인 하는 웹앱](scenario-web-app-sign-user-overview.md)
 
 ## <a name="overview"></a>개요
 
@@ -40,7 +39,7 @@ Microsoft id 플랫폼에 사용자를 로그인 하는 웹 앱을 빌드한 다
 웹 Api를 호출 하는 웹 앱은 기밀 클라이언트 응용 프로그램입니다.
 따라서 Azure Active Directory (Azure AD)를 사용 하 여 비밀 (응용 프로그램 암호 또는 인증서)을 등록 합니다. 이 암호는 토큰을 가져오기 위해 Azure AD를 호출 하는 동안 전달 됩니다.
 
-## <a name="specifics"></a>자세히
+## <a name="specifics"></a>특수 적용 사항
 
 > [!NOTE]
 > 웹 앱에 로그인을 추가 하는 것은 웹 앱 자체를 보호 하는 것입니다. 이러한 보호는 MSAL (Microsoft 인증 라이브러리)이 아닌 *미들웨어* 라이브러리를 사용 하 여 구현 됩니다. 앞의 시나리오에서는 [사용자를 로그인 하는 웹 앱](scenario-web-app-sign-user-overview.md)이 해당 주제에 대해 설명 했습니다.

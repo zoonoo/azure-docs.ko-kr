@@ -4,10 +4,9 @@ description: Azure Service Fabric을 사용하면 컨테이너 내부 또는 외
 ms.topic: conceptual
 ms.date: 8/9/2017
 ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81115139"
 ---
 # <a name="resource-governance"></a>리소스 거버넌스
@@ -23,7 +22,7 @@ ms.locfileid: "81115139"
 
 * *CPU*(메트릭 이름 `servicefabric:/_CpuCores`): 호스트 컴퓨터에서 사용할 수 있는 논리 코어입니다. 모든 노드에서 모든 코어에 동일하게 가중치를 적용합니다.
 
-* *메모리* (메트릭 이름 `servicefabric:/_MemoryInMB`): 메모리는 메가바이트 단위로 표현 되며, 컴퓨터에서 사용할 수 있는 실제 메모리에 매핑됩니다.
+* *메모리* (메트릭 이름 `servicefabric:/_MemoryInMB` ): 메모리는 메가바이트 단위로 표현 되며, 컴퓨터에서 사용할 수 있는 실제 메모리에 매핑됩니다.
 
 이러한 두 메트릭을 위해 [클러스터 리소스 관리자](service-fabric-cluster-resource-manager-cluster-description.md)는 총 클러스터 용량, 클러스터의 각 노드 부하, 클러스터에 남은 리소스를 추적합니다. 이 두 메트릭은 모든 다른 사용자 또는 사용자 지정 메트릭에 동일합니다. 기존의 모든 기능을 함께 사용할 수 있습니다.
 
@@ -135,7 +134,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
   </ServiceManifestImport>
 ```
 
-이 예제에서 **ServicePackageA**라는 서비스 패키지는 자신이 배치된 노드의 코어 하나를 취합니다. 이 서비스 패키지에는 `CpuShares` 두 개의 코드 패키지 (**CodeA1** 및 **CodeA2**)가 포함 되어 있으며 둘 다 매개 변수를 지정 합니다. 비율이 CpuShares 512:256이면 코어가 코드 패키지 2개에 나뉩니다.
+이 예제에서 **ServicePackageA**라는 서비스 패키지는 자신이 배치된 노드의 코어 하나를 취합니다. 이 서비스 패키지에는 두 개의 코드 패키지 (**CodeA1** 및 **CodeA2**)가 포함 되어 있으며 둘 다 `CpuShares` 매개 변수를 지정 합니다. 비율이 CpuShares 512:256이면 코어가 코드 패키지 2개에 나뉩니다.
 
 따라서 이 예제에서 CodeA1은 코어의 2/3를 받고, CodeA2는 코어의 1/3을 받습니다(동일한 비율의 소프트 보장 예약). 코드 패키지에 대한 CpuShares를 지정하지 않은 경우 Service Fabric은 코어를 균일하게 나눕니다.
 

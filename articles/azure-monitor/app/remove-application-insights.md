@@ -4,10 +4,9 @@ description: Visual Studio에서 ASP.NET 및 ASP.NET Core에 대 한 Application
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1c9ff8d3d305645ac7d113421e2c6c5f8451bd2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80805106"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Visual Studio에서 Application Insights를 제거 하는 방법
@@ -25,9 +24,9 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
     ![상단 메뉴에서 도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔을 클릭 합니다.](./media/remove-application-insights/package-manager.png)
 
     > [!NOTE]
-    > 추적 컬렉션을 사용 하도록 설정한 경우 TraceListener를 먼저 제거 해야 합니다. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener` 키를 누른 후 아래 단계를 수행 하 여 Microsoft Applicationinsights. 웹을 제거 합니다.
+    > 추적 컬렉션을 사용 하도록 설정한 경우 TraceListener를 먼저 제거 해야 합니다. Enter 키 `Uninstall-package Microsoft.ApplicationInsights.TraceListener` 를 누른 후 아래 단계를 수행 하 여 Microsoft ApplicationInsights. 웹을 제거 합니다.
 
-1. 다음 명령을 입력합니다. `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
+1. 다음 명령을 입력 합니다. `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
     명령을 입력 하면 Application Insights 패키지와 모든 해당 종속성이 프로젝트에서 제거 됩니다.
     
@@ -39,7 +38,7 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
 
     ![상단 메뉴에서 도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔을 클릭 합니다.](./media/remove-application-insights/package-manager.png)
 
-1. 다음 명령을 입력합니다. ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
+1. 다음 명령을 입력 합니다. ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
     명령을 입력 하면 Application Insights 패키지와 모든 해당 종속성이 프로젝트에서 제거 됩니다.
 
@@ -49,7 +48,7 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. 오른쪽의 *솔루션 탐색기* 에서 **솔루션** 을 마우스 오른쪽 단추로 클릭 하 고 **솔루션용 NuGet 패키지 관리**를 선택 합니다.
+1. 오른쪽의 *솔루션 탐색기*에서   솔루션을 마우스 오른쪽 단추로 클릭 **Solution**   하 고 **솔루션용 NuGet 패키지 관리**를 선택 합니다.
 
     그러면 프로젝트의 일부인 모든 NuGet 패키지를 편집할 수 있는 화면이 표시 됩니다.
     
@@ -58,9 +57,9 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
     > [!NOTE]
     > 추적 컬렉션을 사용 하도록 설정한 경우 종속성을 제거 하지 않고 TraceListener를 먼저 제거 해야 합니다. 그런 다음 아래 단계에 따라 종속성 제거를 선택 하 여 Microsoft-ApplicationInsights를 제거 합니다.
     
-1. "Microsoft ApplicationInsights. 웹" 패키지를 클릭 합니다.오른쪽에서 *Project* 옆의 확인란을 선택 하 여 모든 프로젝트를 선택 합니다.
+1. "Microsoft ApplicationInsights. 웹" 패키지를 클릭 합니다.오른쪽에서 *Project*옆의 확인란을   선택 하 여 모든 프로젝트를 선택 합니다.
     
-1. 제거할 때 모든 종속성을 제거 하려면 프로젝트를 선택한 섹션 아래에 있는 **옵션** 드롭다운 단추를 선택 합니다.
+1. 제거할 때 모든 종속성을 제거 하려면 프로젝트를 **Options**   선택한 섹션 아래에 있는 옵션 드롭다운 단추를 선택 합니다.
 
      *제거 옵션*에서 *종속성 제거*옆에 있는 확인란을 선택 합니다.
 
@@ -68,15 +67,15 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
     
     ![종속성 제거를 선택한 다음 제거를 선택 합니다.](./media/remove-application-insights/uninstall-framework.png)
 
-    응용 프로그램에서 제거할 모든 종속성을 보여 주는 대화 상자가 표시 됩니다. **확인** 을 선택 하 여 제거 합니다.
+    응용 프로그램에서 제거할 모든 종속성을 보여 주는 대화 상자가 표시 됩니다. **확인**   을 선택 하 여 제거 합니다.
     
     ![종속성 제거를 선택한 다음 제거를 선택 합니다.](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  모든 항목을 제거한 후에도 *솔루션 탐색기*에 "applicationinsights .config" 및 "AiHandleErrorAttribute.cs"가 표시 될 수 있습니다.두 파일을 수동으로 삭제할 수 있습니다.
+1.  모든 항목을 제거한 후에도 *솔루션 탐색기*에서 "ApplicationInsights.config" 및 "AiHandleErrorAttribute.cs"가 표시 될 수 있습니다.두 파일을 수동으로 삭제할 수 있습니다.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. 오른쪽의 *솔루션 탐색기* 에서 **솔루션** 을 마우스 오른쪽 단추로 클릭 하 고 **솔루션용 NuGet 패키지 관리**를 선택 합니다.
+1. 오른쪽의 *솔루션 탐색기*에서   솔루션을 마우스 오른쪽 단추로 클릭 **Solution**   하 고 **솔루션용 NuGet 패키지 관리**를 선택 합니다.
 
     그러면 프로젝트의 일부인 모든 NuGet 패키지를 편집할 수 있는 화면이 표시 됩니다.
 
@@ -107,7 +106,7 @@ Visual Studio ASP.NET 프로젝트에 Application Insights 원격 분석를 추�
      <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
     ```
 
-- 패키지 .config
+- Packages.config
 
     ```xml
     <packages>
@@ -197,7 +196,7 @@ Visual Studio ASP.NET Core 템플릿 프로젝트에 Application Insights 원격
       </ItemGroup>
     ```
 
-- Appsettings. json:
+- Appsettings.js:
 
     ```json
     "ApplicationInsights": {

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
 ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811163"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
@@ -35,7 +34,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -87,7 +86,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 > Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](../application-gateway/features.md#session-affinity) 기능을 사용하도록 설정하세요.
 
 > [!WARNING]
-> Application Gateway WAF가 개발자 포털에서 OpenAPI 사양의 다운로드를 중단 하지 않도록 하려면 방화벽 규칙 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`을 사용 하지 않도록 설정 해야 합니다.
+> Application Gateway WAF가 개발자 포털에서 OpenAPI 사양의 다운로드를 중단 하지 않도록 하려면 방화벽 규칙을 사용 하지 않도록 설정 해야 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` 합니다.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 
@@ -150,7 +149,7 @@ $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 다음 단계에 대한 서브넷 변수 할당
 
@@ -220,7 +219,7 @@ Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
-> 레거시 개발자 포털 연결을 구성 하려면을으로 `-HostnameType DeveloperPortal` `-HostnameType Portal`바꾸어야 합니다.
+> 레거시 개발자 포털 연결을 구성 하려면을 `-HostnameType DeveloperPortal` 으로 바꾸어야 `-HostnameType Portal` 합니다.
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
@@ -260,7 +259,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 Application Gateway의 인증서가 전달되는 트래픽을 암호화하고 해독하는 데 사용되도록 구성합니다.
 
@@ -280,7 +279,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>6단계
 
-API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 엔드포인트입니다. TLS `api.contoso.net` /SSL 인증서를 사용 하 여 보안을 유지 하려면 사용자 지정 프로브 호스트 이름으로 설정 합니다.
+API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 엔드포인트입니다. `api.contoso.net`TLS/SSL 인증서를 사용 하 여 보안을 유지 하려면 사용자 지정 프로브 호스트 이름으로 설정 합니다.
 
 > [!NOTE]
 > 호스트 이름 `contosoapi.azure-api.net`은 서비스 `contosoapi`가 공용 Azure에서 생성될 때 구성된 기본 프록시 호스트 이름입니다.

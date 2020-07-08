@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: peterpfr
 ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80999032"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>자습서: 장치 그룹을 사용 하 여 장치 원격 분석 분석
@@ -21,13 +20,13 @@ ms.locfileid: "80999032"
 
 장치 그룹은 지정 된 조건과 일치 하므로 함께 그룹화 되는 장치 목록입니다. 장치 그룹을 통해 장치를 더 작은 논리 그룹으로 그룹화 하 여 규모에 따라 장치를 관리 하 고, 시각화 하 고, 분석할 수 있습니다. 예를 들어 시애틀에 있는 모든 대공 공조 장치를 나열 하는 장치 그룹을 만들어 엔지니어가 담당 하는 장치를 찾을 수 있습니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 디바이스 그룹 만들기
 > * 장치 그룹을 사용 하 여 장치 원격 분석 분석
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-simulated-device.md) 빠른 시작을 완료하여 작업할 **MXChip IoT DevKit** 디바이스 템플릿을 만들어야 합니다.
 
@@ -47,7 +46,7 @@ ms.locfileid: "80999032"
 
 1. 왼쪽 창에서 **장치 그룹** 을 선택 합니다.
 
-1. 선택 **+**:
+1. 선택 **+** :
 
     ![새 장치 그룹](media/tutorial-use-device-groups/image1.png)
 

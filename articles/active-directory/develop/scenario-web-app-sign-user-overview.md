@@ -12,17 +12,16 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 65d254cec5735c54e19f5adfde57fb6aed776a2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881488"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자에 게 로그인 하는 웹 앱
 
 Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -71,7 +70,7 @@ Python을 사용 하 여 개발 하는 경우 다음 빠른 시작을 사용해 
 > [!NOTE]
 > 웹 앱에 로그인을 추가 하는 작업은 웹 앱을 보호 하 고 **미들웨어** 라이브러리인 사용자 토큰의 유효성을 검사 하는 것입니다. .NET의 경우이 시나리오에는 보호 된 Api를 호출 하는 토큰을 획득 하는 것에 대 한 MSAL (Microsoft Authentication Library)이 아직 필요 하지 않습니다. 웹 앱이 web Api를 호출 해야 하는 경우 추가 작업 시나리오에서 인증 라이브러리가 도입 됩니다.
 
-## <a name="specifics"></a>자세히
+## <a name="specifics"></a>특수 적용 사항
 
 - 응용 프로그램을 등록 하는 동안 여러 위치에 앱을 배포 하는 경우 회신 Uri를 하나 이상 제공 해야 합니다. 경우에 따라 (ASP.NET 및 ASP.NET Core) ID 토큰을 사용 하도록 설정 해야 합니다. 마지막으로 응용 프로그램이 로그 아웃 하는 사용자에 게 반응 하도록 로그 아웃 URI를 설정 하는 것이 좋습니다.
 - 응용 프로그램에 대 한 코드에서 웹 앱이 로그인을 위임 하는 권한을 제공 해야 합니다. 토큰 유효성 검사를 사용자 지정 하는 것이 좋습니다 (특히 파트너 시나리오에서).

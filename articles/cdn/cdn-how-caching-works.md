@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81253716"
 ---
 # <a name="how-caching-works"></a>캐싱 작동 방식
@@ -76,14 +75,14 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 - 클라이언트에서 CDN POP으로의 HTTP 응답에 사용되는 경우:
      - **Verizon의 Azure CDN 표준/프리미엄** 및 **Microsoft의 Azure CDN 표준**은 둘 다 `Cache-Control` 지시문을 지원합니다.
      - **Akamai의 Azure CDN 표준**은 다음과 같은 `Cache-Control` 지시문만 지원하고 나머지는 무시됩니다.
-         - `max-age`: 캐시는 지정된 시간(초)동안 콘텐츠를 저장할 수 있습니다. `Cache-Control: max-age=5`)을 입력합니다. 이 지시문은 콘텐츠가 최신으로 간주되는 최대 시간을 지정합니다.
+         - `max-age`: 캐시는 지정된 시간(초)동안 콘텐츠를 저장할 수 있습니다. 예: `Cache-Control: max-age=5`. 이 지시문은 콘텐츠가 최신으로 간주되는 최대 시간을 지정합니다.
          - `no-cache`: 콘텐츠를 캐시하지만 캐시에서 전송할 때마다 그 전에 콘텐츠의 유효성을 검사합니다. `Cache-Control: max-age=0`과 동일합니다.
          - `no-store`: 콘텐츠를 캐시하지 않습니다. 이전에 저장된 콘텐츠가 있으면 제거합니다.
 
 **만료:**
 - 이전 버전과의 호환성을 위해 지원되는 HTTP 1.0에서 도입된 레거시 헤더입니다.
 - 초 단위 정밀도로 날짜 기반 만료 시간을 사용합니다. 
-- `Cache-Control: max-age`와 유사합니다.
+- `Cache-Control: max-age`와 비슷합니다.
 - `Cache-Control`이 없을 때 사용됩니다.
 
 **Pragma**
@@ -98,14 +97,14 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 
 **ETag**
 - **Verizon의 Azure CDN 표준/프리미엄**은 기본적으로 `ETag`를 지원하는 반면, **Microsoft의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준**은 지원하지 않습니다.
-- `ETag` 모든 파일 및 파일 버전에 대해 고유한 문자열을 정의합니다. `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`)을 입력합니다.
+- `ETag` 모든 파일 및 파일 버전에 대해 고유한 문자열을 정의합니다. 예: `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - HTTP 1.1에서 도입되었으며 `Last-Modified`보다 최신입니다. 마지막 수정 날짜를 확인하기 어려운 경우에 유용합니다.
 - 강력한 유효성 검사와 약한 유효성 검사 모두를 지원하지만 Azure CDN은 강력한 유효성 검사만 지원합니다. 강력한 유효성 검사의 경우 두 리소스 표현이 바이트 단위로 동일해야 합니다. 
-- 캐시는 요청에 하나 이상의 `ETag` 유효성 검사기가 있는 `If-None-Match` 헤더를 전송하여 `ETag`를 사용하는 파일의 유효성을 검사합니다. `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`)을 입력합니다. 서버의 버전이 목록의 `ETag` 유효성 검사기와 일치하면 응답에 상태 코드 304(수정되지 않음)가 전송됩니다. 버전이 다른 경우 서버는 상태 코드 200(정상)과 업데이트된 리소스로 응답합니다.
+- 캐시는 요청에 하나 이상의 `ETag` 유효성 검사기가 있는 `If-None-Match` 헤더를 전송하여 `ETag`를 사용하는 파일의 유효성을 검사합니다. 예: `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. 서버의 버전이 목록의 `ETag` 유효성 검사기와 일치하면 응답에 상태 코드 304(수정되지 않음)가 전송됩니다. 버전이 다른 경우 서버는 상태 코드 200(정상)과 업데이트된 리소스로 응답합니다.
 
 **마지막으로 수정한 날짜:**
 - **Verizon의 Azure CDN 표준/프리미엄**의 경우에만 `ETag`가 HTTP 응답에 속하지 않으면 `Last-Modified`가 사용됩니다. 
-- 리소스가 마지막으로 수정된 것으로 원본 서버에서 확인된 날짜와 시간을 지정합니다. `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`)을 입력합니다.
+- 리소스가 마지막으로 수정된 것으로 원본 서버에서 확인된 날짜와 시간을 지정합니다. 예: `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - 캐시는 요청에 날짜와 시간이 있는 `If-Modified-Since` 헤더를 보내어 `Last-Modified`를 사용하여 파일의 유효성을 검사합니다. 원본 서버는 해당 날짜를 최신 리소스의 `Last-Modified` 헤더와 비교합니다. 리소스가 지정된 시간 이후로 수정되지 않은 경우 서버는 응답에 상태 코드 304(수정되지 않음)를 반환합니다. 리소스가 수정된 경우에는 서버가 상태 코드 200(정상)과 업데이트된 리소스를 반환합니다.
 
 ## <a name="determining-which-files-can-be-cached"></a>캐시할 수 있는 파일 결정

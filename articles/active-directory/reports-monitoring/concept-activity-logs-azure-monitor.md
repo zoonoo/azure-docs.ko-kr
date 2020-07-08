@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261026"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
@@ -48,7 +47,7 @@ ms.locfileid: "81261026"
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용하려면 다음이 필요합니다.
 
@@ -80,7 +79,7 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | 감사 | 100,000 | 150만&nbsp; | 90GB | $1.93 | $23.12 |
 | 감사 | 1,000 | 15,000 | 900MB | $0.02 | $0.24 |
-| 로그인 | 1,000 | 34,800 | 4GB | $0.13 | $1.56 |
+| 로그인 | 1,000 | 34,800 | 4 GB | $0.13 | $1.56 |
 | 로그인 | 100,000 | 1500만&nbsp; | 1.7TB | $35.41 | $424.92 |
  
 
@@ -115,7 +114,7 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 | :--                | ---             | ---            | ---                        | --:                          |
 | 감사 및 로그인 | 100,000         | 1650만     | 4억9500만                |  $1093.00                       |
 | 감사              | 100,000         | 150만      | 45,000,000                 |  $246.66                     |
-| 로그인           | 100,000         | 15,000,000     | 4억5000만                |  $847.28                     |
+| 로그인           | 100,000         | 15,000,000     | 450,000,000                |  $847.28                     |
 
 
 

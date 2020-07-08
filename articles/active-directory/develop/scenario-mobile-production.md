@@ -1,7 +1,7 @@
 ---
 title: 프로덕션을 위한 모바일 앱 호출 웹 Api 준비 | Microsoft
 titleSuffix: Microsoft identity platform
-description: 웹 Api를 호출 하는 모바일 앱을 빌드하는 방법을 알아봅니다. 프로덕션을 위해 앱을 준비 합니다.
+description: 웹 API를 호출하는 모바일 앱을 빌드하는 방법에 대해 알아봅니다. 프로덕션을 위해 앱을 준비 합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,10 +14,9 @@ ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 28ace84f9a80b71209d7963d02b66317292b151b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882542"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>프로덕션을 위해 모바일 앱 준비

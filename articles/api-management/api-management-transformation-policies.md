@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260907"
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
@@ -69,19 +68,19 @@ ms.locfileid: "81260907"
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |json-to-xml|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |apply|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - always: 항상 전환을 적용합니다.<br />- content-type-json: 응답 Content-Type 헤더에서 JSON의 존재를 나타내는 경우에만 변환합니다.|예|해당 없음|
 |consider-accept-header|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - true: 요청 Accept 헤더에서 XML을 요청하는 경우 변환을 적용합니다.<br />- false: 항상 전환을 적용합니다.|아니요|true|
 |parse-date|`false`로 설정하면 변환 중에 날짜 값이 복사됩니다.|아니요|true|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound, on-error
@@ -113,19 +112,19 @@ ms.locfileid: "81260907"
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |xml-to-json|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |kind|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - javascript-friendly: 변환된 JSON에는 JavaScript 개발자에게 익숙한 양식이 있습니다.<br />- direct: 변환된 JSON은 원래 XML 문서의 구조를 반영합니다.|예|해당 없음|
 |apply|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - always: 항상 변환합니다.<br />- content-type-xml: 응답 Content-Type 헤더에서 XML의 존재를 나타내는 경우에만 변환합니다.|예|해당 없음|
 |consider-accept-header|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - true: 요청 Accept 헤더에서 JSON을 요청하는 경우 변환을 적용합니다.<br />- false: 항상 전환을 적용합니다.|아니요|true|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound, on-error
@@ -149,18 +148,18 @@ ms.locfileid: "81260907"
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |find-and-replace|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |원본|검색할 문자열|예|해당 없음|
 |to|대체 문자열입니다. 검색 문자열을 제거하려면 길이가 0인 대체 문자열을 지정합니다.|예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound, backend, on-error
@@ -187,11 +186,11 @@ ms.locfileid: "81260907"
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |redirect-content-urls|루트 요소입니다.|예|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound
@@ -260,23 +259,23 @@ ms.locfileid: "81260907"
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |set-backend-service|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
-|base-url|새 백 엔드 서비스 기준 URL입니다.|`base-url` 또는 `backend-id` 중 하나가 있어야 합니다.|해당 없음|
-|backend-id|라우팅할 백 엔드의 식별자입니다. 백 엔드 엔터티는 [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) 및 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)을 통해 관리 됩니다.|`base-url` 또는 `backend-id` 중 하나가 있어야 합니다.|해당 없음|
-|sf-partition-key|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 이름 확인 서비스에서 특정 파티션을 확인하는 데 사용됩니다.|아니요|해당 없음|
-|sf-replica-type|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 요청이 파티션의 주 복제본으로 이동되는지, 보조 복제본으로 이동되는지를 제어합니다. |아니요|해당 없음|
-|sf-resolve-condition|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 새로 확인할 때마다 Service Fabric 백 엔드에 대한 호출을 반복해야 하는지를 식별하는 조건입니다.|아니요|해당 없음|
-|sf-service-instance-name|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 런타임에 서비스 인스턴스를 변경할 수 있습니다. |아니요|해당 없음|
-|sf-listener-name|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. Service Fabric Reliable Services를 사용하면 서비스에서 여러 수신기를 만들 수 있습니다. 백 엔드 Reliable Service에 둘 이상의 수신기가 있을 때 이 특성은 사용하여 특정 수신기를 선택합니다. 이 특성을 지정하지 않으면 API Management에서는 이름 없이 수신기를 사용하려고 합니다. 이름이 없는 수신기는 수신기가 하나만 있는 Reliable Services에 일반적입니다. |아니요|해당 없음|
+|base-url|새 백 엔드 서비스 기준 URL입니다.|또는 중 `base-url` 하나가 `backend-id` 있어야 합니다.|해당 없음|
+|backend-id|라우팅할 백 엔드의 식별자입니다. 백 엔드 엔터티는 [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) 및 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)을 통해 관리 됩니다.|또는 중 `base-url` 하나가 `backend-id` 있어야 합니다.|해당 없음|
+|sf-partition-key|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 이름 확인 서비스에서 특정 파티션을 확인하는 데 사용됩니다.|예|해당 없음|
+|sf-replica-type|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 요청이 파티션의 주 복제본으로 이동되는지, 보조 복제본으로 이동되는지를 제어합니다. |예|해당 없음|
+|sf-resolve-condition|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 새로 확인할 때마다 Service Fabric 백 엔드에 대한 호출을 반복해야 하는지를 식별하는 조건입니다.|예|해당 없음|
+|sf-service-instance-name|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 런타임에 서비스 인스턴스를 변경할 수 있습니다. |예|해당 없음|
+|sf-listener-name|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. Service Fabric Reliable Services를 사용하면 서비스에서 여러 수신기를 만들 수 있습니다. 백 엔드 Reliable Service에 둘 이상의 수신기가 있을 때 이 특성은 사용하여 특정 수신기를 선택합니다. 이 특성을 지정하지 않으면 API Management에서는 이름 없이 수신기를 사용하려고 합니다. 이름이 없는 수신기는 수신기가 하나만 있는 Reliable Services에 일반적입니다. |예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, backend
@@ -396,13 +395,13 @@ ms.locfileid: "81260907"
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |set-body|루트 요소입니다. 본문 텍스트 또는 본문을 반환하는 식을 포함합니다.|예|
 
 ### <a name="properties"></a>속성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |template|본문 설정 정책이 실행될 템플릿 모드를 변경하는 데 사용됩니다. 현재 지원되는 유일한 값:<br /><br />- liquid - 본문 설정 정책은 liquid 템플릿 엔진을 사용합니다. |아니요||
 
@@ -446,7 +445,7 @@ OriginalUrl.
 
 
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound, backend
@@ -510,19 +509,19 @@ OriginalUrl.
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |set-header|루트 요소입니다.|예|
-|value|설정할 헤더의 값을 지정합니다. 동일한 이름을 가진 여러 헤더에 대해서는 추가 `value` 요소를 추가합니다.|아니요|
+|값|설정할 헤더의 값을 지정합니다. 동일한 이름을 가진 여러 헤더에 대해서는 추가 `value` 요소를 추가합니다.|아니요|
 
 ### <a name="properties"></a>속성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|override|
 |name|설정할 헤더의 이름을 지정합니다.|예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound, backend, on-error
@@ -565,19 +564,19 @@ OriginalUrl.
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |set-query-parameter|루트 요소입니다.|예|
-|value|설정할 쿼리 매개 변수의 값을 지정합니다. 동일한 이름을 가진 여러 쿼리 매개 변수에 대해서는 추가 `value` 요소를 추가합니다.|예|
+|값|설정할 쿼리 매개 변수의 값을 지정합니다. 동일한 이름을 가진 여러 쿼리 매개 변수에 대해서는 추가 `value` 요소를 추가합니다.|예|
 
 ### <a name="properties"></a>속성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
 |exists-action|쿼리 매개 변수가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 쿼리 매개 변수 값을 바꿉니다.<br />- skip: 기존 쿼리 매개 변수 값을 바꾸지 않습니다.<br />- append: 기존 쿼리 매개 변수 값에 값을 추가합니다.<br />- delete: 요청에서 쿼리 매개 변수를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 쿼리 매개 변수가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|override|
 |name|설정할 쿼리 매개 변수의 이름을 지정합니다.|예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, backend
@@ -644,18 +643,18 @@ OriginalUrl.
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |rewrite-uri|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|attribute|Description|필수|기본값|
+|특성|설명|필요한 공간|기본값|
 |---------------|-----------------|--------------|-------------|
 |template|모든 쿼리 문자열 매개 변수가 포함된 실제 웹 서비스 URL입니다. 식을 사용하는 경우 전체 값이 식이어야 합니다.|예|해당 없음|
 |copy-unmatched-params|원본 URL 템플릿에 없는 들어오는 요청의 쿼리 매개 변수가 re-write 템플릿에 의해 정의된 URL에 추가되는지 여부를 지정합니다.|아니요|true|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound
@@ -713,13 +712,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |xsl-transform|루트 요소입니다.|예|
 |매개 변수|변환에 사용되는 변수를 정의하는 데 사용됩니다.|아니요|
 |xsl:stylesheet|루트 스타일시트 요소입니다. 표준 [XSLT 사양](https://www.w3.org/TR/xslt)(영문)에 정의된 모든 요소와 특성입니다.|예|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound, outbound

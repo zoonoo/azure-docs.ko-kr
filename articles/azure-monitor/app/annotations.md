@@ -4,10 +4,9 @@ description: Application Insights에서 배포 또는 빌드 표식을 메트릭
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010731"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
@@ -63,7 +62,7 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
    
 1. 릴리스 템플릿 창의 **변수** 탭에서 **추가** 를 선택 하 여 새 API 키에 대 한 변수 정의를 만듭니다.
 
-1. **이름**에을 입력 `ApiKey`하 고 **값**아래에 **api 액세스** 탭에서 복사한 api 키를 붙여넣습니다.
+1. **이름**에을 입력 하 `ApiKey` 고 **값**아래에 **api 액세스** 탭에서 복사한 api 키를 붙여넣습니다.
    
    ![Azure DevOps 변수 탭에서 추가를 선택 하 고, 변수 이름을 ApiKey로 하 고, API 키를 값 아래에 붙여 넣습니다.](./media/annotations/7-paste-api-key.png)
    
@@ -94,7 +93,7 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
 ## <a name="create-custom-annotations-from-powershell"></a>PowerShell에서 사용자 지정 주석 만들기
 GitHub의 [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell 스크립트를 사용 하 여 Azure devops를 사용 하지 않고 원하는 모든 프로세스에서 주석을 만들 수 있습니다. 
 
-1. [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)의 로컬 복사본을 만듭니다.
+1. [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)의 로컬 복사본을 만듭니다.
    
 1. 이전 절차의 단계를 사용 하 여 Application Insights ID를 가져오고 Application Insights **Api 액세스** 탭에서 api 키를 만듭니다.
    

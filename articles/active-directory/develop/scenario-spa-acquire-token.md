@@ -12,15 +12,14 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882321"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>단일 페이지 응용 프로그램: API를 호출 하는 토큰 획득
 
-MSAL를 사용 하 여 Api에 대 한 토큰을 획득 하는 패턴은 먼저 `acquireTokenSilent` 메서드를 사용 하 여 자동 토큰 요청을 시도 하는 것입니다. 이 메서드가 호출 되 면 라이브러리는 먼저 브라우저 저장소의 캐시를 확인 하 여 유효한 토큰이 있는지 확인 하 고이를 반환 합니다. 캐시에 유효한 토큰이 없으면 숨겨진 iframe에서 Azure Active Directory (Azure AD)에 자동 토큰 요청을 보냅니다. 또한이 방법을 사용 하면 라이브러리에서 토큰을 갱신할 수 있습니다. Azure AD의 Single Sign-On 세션 및 토큰 수명 값에 대 한 자세한 내용은 [토큰 수명](active-directory-configurable-token-lifetimes.md)을 참조 하세요.
+MSAL.js를 사용 하 여 Api에 대 한 토큰을 획득 하는 패턴은 먼저 메서드를 사용 하 여 자동 토큰 요청을 시도 하는 것입니다 `acquireTokenSilent` . 이 메서드가 호출 되 면 라이브러리는 먼저 브라우저 저장소의 캐시를 확인 하 여 유효한 토큰이 있는지 확인 하 고이를 반환 합니다. 캐시에 유효한 토큰이 없으면 숨겨진 iframe에서 Azure Active Directory (Azure AD)에 자동 토큰 요청을 보냅니다. 또한이 방법을 사용 하면 라이브러리에서 토큰을 갱신할 수 있습니다. Azure AD의 Single Sign-On 세션 및 토큰 수명 값에 대 한 자세한 내용은 [토큰 수명](active-directory-configurable-token-lifetimes.md)을 참조 하세요.
 
 Azure AD에 대 한 자동 토큰 요청은 만료 된 Azure AD 세션 또는 암호 변경과 같은 이유로 실패할 수 있습니다. 이 경우 사용자에 게 토큰을 획득 하기 위해 대화형 메서드 (사용자에 게 표시 됨) 중 하나를 호출할 수 있습니다.
 
@@ -70,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 MSAL 각도 래퍼는 자동으로 액세스 토큰을 획득 하 고 Api에 대 한 HTTP 요청에 연결 하는 HTTP 인터셉터를 제공 합니다.
 
-`protectedResourceMap` 구성 옵션에서 api의 범위를 지정할 수 있습니다. `MsalInterceptor`는 토큰을 자동으로 획득할 때 이러한 범위를 요청 합니다.
+구성 옵션에서 Api의 범위를 지정할 수 있습니다 `protectedResourceMap` . `MsalInterceptor`는 토큰을 자동으로 획득할 때 이러한 범위를 요청 합니다.
 
 ```javascript
 // app.module.ts
@@ -126,7 +125,7 @@ ngOnDestroy() {
  }
 ```
 
-또는 핵심 MSAL .js 라이브러리에 설명 된 대로 획득 토큰 메서드를 사용 하 여 명시적으로 토큰을 가져올 수 있습니다.
+또는 핵심 MSAL.js 라이브러리에 설명 된 대로 획득 토큰 메서드를 사용 하 여 명시적으로 토큰을 가져올 수 있습니다.
 
 ---
 
@@ -168,7 +167,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 - Azure AD에서 토큰에 반환하는 특정 클레임의 동작을 변경합니다.
 - 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다.
 
-에서 `IdToken`선택적 클레임을 요청 하려면 `claimsRequest` `AuthenticationParameters.ts` 클래스의 필드에 문자열 형식 클레임 개체를 보낼 수 있습니다.
+에서 선택적 클레임을 요청 하려면 `IdToken` `claimsRequest` 클래스의 필드에 문자열 형식 클레임 개체를 보낼 수 있습니다 `AuthenticationParameters.ts` .
 
 ```javascript
 "optionalClaims":

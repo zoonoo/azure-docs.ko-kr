@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114418"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
@@ -24,13 +23,13 @@ ms.locfileid: "81114418"
 
 ## <a name="api-changes"></a>API 변경 내용
 
-클래식 경고 규칙 (`microsoft.insights/alertrules`)을 만들고 관리 하는 api는 새 메트릭 경고 (`microsoft.insights/metricalerts`)를 만들고 관리 하는 api와 다릅니다. 지금 기존 경고 규칙을 프로그래밍 방식으로 만들고 관리 하는 경우 새 Api를 사용 하도록 배포 스크립트를 업데이트 합니다.
+클래식 경고 규칙 ()을 만들고 관리 하는 Api는 `microsoft.insights/alertrules` 새 메트릭 경고 ()를 만들고 관리 하는 api와 다릅니다 `microsoft.insights/metricalerts` . 지금 기존 경고 규칙을 프로그래밍 방식으로 만들고 관리 하는 경우 새 Api를 사용 하도록 배포 스크립트를 업데이트 합니다.
 
 다음 표는 클래식 및 새 경고의 프로그래밍 인터페이스에 대 한 참조입니다.
 
 |         |클래식 경고  |새 메트릭 경고 |
 |---------|---------|---------|
-|REST API     | [microsoft insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|REST API     | [microsoft insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor 메트릭 경고](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager 템플릿 | [클래식 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[새 메트릭 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
@@ -71,7 +70,7 @@ ms.locfileid: "81114418"
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>메트릭 경고 알림을 받도록 논리 앱 수정
 
-클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행하세요.
+클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 아래 단계를 수행합니다.
 
 1. 새 논리 앱을 만듭니다.
 

@@ -13,10 +13,9 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80880753"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>방법: macOS 및 iOS에서 ADAL 및 MSAL 앱 간 SSO
@@ -37,11 +36,11 @@ ADAL 2.7. x는 MSAL 캐시 형식을 읽을 수 있습니다. 버전 ADAL 2.7. x
 
 ### <a name="account-identifier-differences"></a>계정 식별자 차이
 
-MSAL 및 ADAL은 다른 계정 식별자를 사용 합니다. ADAL은 기본 계정 식별자로 UPN을 사용 합니다. MSAL은 개체 ID와 AAD 계정에 대 한 테 넌 트 ID를 기반으로 하는, 다른 유형의 계정에 대 `sub` 한 클레임을 기반으로 하는 표시할 수 없는 계정 식별자를 사용 합니다.
+MSAL 및 ADAL은 다른 계정 식별자를 사용 합니다. ADAL은 기본 계정 식별자로 UPN을 사용 합니다. MSAL은 개체 ID와 AAD 계정에 대 한 테 넌 트 ID를 기반으로 하는, `sub` 다른 유형의 계정에 대 한 클레임을 기반으로 하는 표시할 수 없는 계정 식별자를 사용 합니다.
 
-MSAL 결과에서 `MSALAccount` 개체를 받으면 `identifier` 속성에 계정 식별자가 포함 됩니다. 응용 프로그램은 후속 자동 요청에이 식별자를 사용 해야 합니다.
+`MSALAccount`MSAL 결과에서 개체를 받으면 속성에 계정 식별자가 포함 `identifier` 됩니다. 응용 프로그램은 후속 자동 요청에이 식별자를 사용 해야 합니다.
 
-외에도 `identifier` `MSALAccount` 개체에는 라는 `username`표시할 수 있는 식별자가 포함 되어 있습니다. ADAL에서로 `userId` 변환 하는입니다. `username`는 고유 식별자로 간주 되지 않으며 언제 든 지 변경할 수 있으므로 ADAL을 사용 하는 이전 버전과의 호환성을 위해서만 사용 해야 합니다. MSAL `identifier` 은를 사용 하 여 `username` 쿼리 `identifier`를 사용 하는 경우 또는를 사용 하 여 캐시 쿼리를 지원 합니다.
+외에도 `identifier` `MSALAccount` 개체에는 라는 표시할 수 있는 식별자가 포함 되어 있습니다 `username` . ADAL에서로 변환 하는입니다 `userId` . `username`는 고유 식별자로 간주 되지 않으며 언제 든 지 변경할 수 있으므로 ADAL을 사용 하는 이전 버전과의 호환성을 위해서만 사용 해야 합니다. MSAL은를 사용 하 여 쿼리를 사용 하는 경우 또는를 사용 하 여 캐시 쿼리를 지원 `username` `identifier` `identifier` 합니다.
 
 다음 표에는 ADAL과 MSAL 간의 계정 식별자 차이가 요약 되어 있습니다.
 
@@ -49,9 +48,9 @@ MSAL 결과에서 `MSALAccount` 개체를 받으면 `identifier` 속성에 계�
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | 표시할 식별자            | `username`                                                   | `userId`        | `userId`                       |
 | 고유 하 게 표시할 때 고유 하지 않은 식별자 | `identifier`                                                 | `homeAccountId` | 해당 없음                            |
-| 알려진 계정 id 없음               | 에서 API를 통해 `allAccounts:` 모든 계정 쿼리`MSALPublicClientApplication` | 해당 없음             | 해당 없음                            |
+| 알려진 계정 id 없음               | 에서 API를 통해 모든 계정 쿼리 `allAccounts:``MSALPublicClientApplication` | 해당 없음             | 해당 없음                            |
 
-다음은 이러한 `MSALAccount` 식별자를 제공 하는 인터페이스입니다.
+`MSALAccount`다음은 이러한 식별자를 제공 하는 인터페이스입니다.
 
 ```objc
 @protocol MSALAccount <NSObject>
@@ -84,7 +83,7 @@ MSAL 결과에서 `MSALAccount` 개체를 받으면 `identifier` 속성에 계�
 
 ### <a name="sso-from-msal-to-adal"></a>MSAL에서 ADAL으로 SSO
 
-MSAL 앱과 ADAL 앱이 있고 사용자가 먼저 MSAL 기반 앱에 로그인 하는 경우 `username` `MSALAccount` 개체에서를 저장 하 고 adal 기반 앱에으로 `userId`전달 하 여 adal 앱에서 SSO를 가져올 수 있습니다. 그런 다음 ADAL은 `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API를 사용 하 여 계정 정보를 자동으로 찾을 수 있습니다.
+MSAL 앱과 ADAL 앱이 있고 사용자가 먼저 MSAL 기반 앱에 로그인 하는 경우 `username` 개체에서를 저장 `MSALAccount` 하 고 adal 기반 앱에으로 전달 하 여 adal 앱에서 SSO를 가져올 수 있습니다 `userId` . 그런 다음 ADAL은 API를 사용 하 여 계정 정보를 자동으로 찾을 수 있습니다 `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` .
 
 ### <a name="sso-from-adal-to-msal"></a>ADAL에서 MSAL으로 SSO
 
@@ -92,20 +91,20 @@ MSAL 앱과 ADAL 앱이 있고 사용자가 먼저 ADAL 기반 앱에 로그인 
 
 #### <a name="adals-homeaccountid"></a>ADAL의 homeAccountId
 
-ADAL 2.7. x는이 `homeAccountId` 속성을 `ADUserInformation` 통해 결과의 개체에서을 반환 합니다.
+ADAL 2.7. x는 `homeAccountId` 이 속성을 통해 결과의 개체에서을 반환 합니다 `ADUserInformation` .
 
 ```objc
 /*! Unique AAD account identifier across tenants based on user's home OID/home tenantId. */
 @property (readonly) NSString *homeAccountId;
 ```
 
-`homeAccountId`ADAL의는 MSAL의 `identifier` 와 동일 합니다. `accountForIdentifier:error:` API를 사용 하 여 계정 조회를 위해 msal에서 사용 하기 위해이 식별자를 저장할 수 있습니다.
+`homeAccountId`ADAL의는 MSAL의와 동일 `identifier` 합니다. API를 사용 하 여 계정 조회를 위해 MSAL에서 사용 하기 위해이 식별자를 저장할 수 있습니다 `accountForIdentifier:error:` .
 
 #### <a name="adals-userid"></a>ADAL의`userId`
 
 을 `homeAccountId` 사용할 수 없거나 표시 가능한 식별자만 있는 경우 ADAL을 사용 `userId` 하 여 msal에서 계정을 조회할 수 있습니다.
 
-MSAL에서 먼저 또는 `username` `identifier`을 기준으로 계정을 조회 합니다. 항상 쿼리 `identifier` 를 사용 하 고 대체 (fallback)로만 `username` 사용 합니다. 계정이 있는 경우 `acquireTokenSilent` 호출에서 계정을 사용 합니다.
+MSAL에서 먼저 또는을 기준으로 계정을 조회 `username` `identifier` 합니다. 항상 쿼리를 사용 하 `identifier` 고 `username` 대체 (fallback)로만 사용 합니다. 계정이 있는 경우 호출에서 계정을 사용 `acquireTokenSilent` 합니다.
 
 Objective-C:
 
@@ -190,7 +189,7 @@ Returns account for for the given username (received from an account object retu
 
 이전 ADAL 버전은 기본적으로 MSAL 캐시 형식을 지원 하지 않습니다. 그러나 ADAL에서 MSAL으로의 원활한 마이그레이션을 위해 MSAL은 사용자 자격 증명을 다시 묻지 않고 이전 ADAL 캐시 형식을 읽을 수 있습니다.
 
-이전 `homeAccountId` ADAL 버전에서는 사용할 수 없기 때문에 다음을 사용 하 여 계정을 조회 해야 `username`합니다.
+`homeAccountId`이전 ADAL 버전에서는 사용할 수 없기 때문에 다음을 사용 하 여 계정을 조회 해야 합니다 `username` .
 
 ```objc
 /*!

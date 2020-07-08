@@ -12,10 +12,9 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991572"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
@@ -93,7 +92,7 @@ ms.locfileid: "80991572"
 
 기본 인증을 사용하려면 **authenticationType**을 **ClientCertificate**로 설정합니다. 이전 섹션에서 설명한 일반 HTTP 커넥터 속성 외에 다음 속성을 설정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | embeddedCertData | PFX 파일의 이진 데이터의 Base64 인코딩 콘텐츠입니다. | **EmbeddedCertData** 또는 **certthumbprint** 를 지정 합니다. |
 | certThumbprint | 게이트웨이 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에만 적용됩니다. | **EmbeddedCertData** 또는 **certthumbprint** 를 지정 합니다. |
@@ -102,8 +101,8 @@ ms.locfileid: "80991572"
 인증에 **certThumbprint**를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 게이트웨이 서비스에 읽기 권한을 부여합니다.
 
 1. MMC(Microsoft Management Console)를 엽니다. **로컬 컴퓨터**를 대상으로 하는 **인증서** 스냅인을 추가합니다.
-2. **인증서** > **개인**을 확장 하 고 **인증서**를 선택 합니다.
-3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭 한 다음 **모든 작업** >**개인 키 관리**를 선택 합니다.
+2. **인증서**  >  **개인**을 확장 하 고 **인증서**를 선택 합니다.
+3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭 한 다음 **모든 작업**  > **개인 키 관리**를 선택 합니다.
 3. **보안** 탭에서 인증서에 대한 읽기 권한으로 데이터 관리 게이트웨이 호스트 서비스를 실행 중인 사용자 계정을 추가합니다.  
 
 **예제: 클라이언트 인증서 사용**
@@ -163,7 +162,7 @@ ms.locfileid: "80991572"
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | 아니요 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 및 **POST**입니다. | 아니요 <br />(기본값: **GET**) |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
-| requestBody | HTTP 요청의 본문입니다. | 아니요 |
+| requestBody | HTTP 요청의 본문입니다. | 예 |
 | format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 그대로 검색하려면 **format** 설정을 건너뜁니다.** <br><br> 복사 중에 HTTP 응답 내용을 구문 분석하려면 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format)을 참조하세요. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식: **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**. 지원 되는 수준: **최적** 및 **가장 빠름** 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
@@ -220,7 +219,7 @@ ms.locfileid: "80991572"
 
 현재 복사 작업의 원본이 **HttpSource** 형식인 경우 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. | 아니요<br />(기본값: **00:01:40**) |
 

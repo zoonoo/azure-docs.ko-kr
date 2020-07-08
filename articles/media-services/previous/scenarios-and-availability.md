@@ -14,16 +14,15 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985935"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Microsoft AMS(Azure Media Services)는 다양한 클라이언트(예: TV, PC 및 모바일 디바이스)로의 주문형 및 라이브 스트리밍 배달을 위해 비디오 또는 오디오 콘텐츠를 안전하게 업로드, 저장, 인코딩 및 패키지할 수 있습니다.
 
@@ -37,7 +36,7 @@ AMS는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데�
 
 Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
-* Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com)을 참조 하세요.
+* Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com)을 참조하세요.
 * Azure Media Services 계정. 자세한 내용은 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다.
 
@@ -177,9 +176,9 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 #### <a name="availability"></a>가용성
 
-|속성|상태|데이터 센터
+|이름|상태|데이터 센터
 |---|---|---|
-|Standard|GA|모두|
+|표준|GA|모두|
 |Premium|GA|모두|
 
 ### <a name="live-encoding"></a>라이브 인코딩
@@ -204,7 +203,7 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
 
 > [!NOTE]
-> 일부 분석 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
+> 일부 분석 미디어 프로세서는 더 이상 사용되지 않을 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 토픽을 참조하세요.
 
 #### <a name="availability"></a>가용성
 
@@ -255,7 +254,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 |S2|GA|브라질 남부 및 인도 서부를 제외한 모든 지역|
 |S3|GA|인도 서부를 제외한 모든 지역|
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

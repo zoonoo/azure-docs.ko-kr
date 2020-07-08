@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113362"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
@@ -30,7 +29,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - **활동** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
-    - **감사 로그** - [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
+    - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
     - **로그 프로 비전** -Azure AD 프로 비전 서비스에서 프로 비전 하는 사용자, 그룹 및 역할에 대 한 시스템 활동을 제공 합니다. 
 
 - **보안** 
@@ -94,18 +93,18 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 기본 보기에서 다음 필터를 선택할 수 있습니다.
 
 - ID
-- Date
+- 날짜
 - 상태
 - 작업
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Assert")
+![필터](./media/concept-provisioning-logs/default-filter.png "Assert")
 
 **Id** 필터를 사용 하면 관심 있는 이름이 나 id를 지정할 수 있습니다. 이 id는 사용자, 그룹, 역할 또는 다른 개체 일 수 있습니다. 개체의 이름 또는 ID를 기준으로 검색할 수 있습니다. ID는 시나리오에 따라 달라 집니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로 비전 할 때 원본 ID는 Azure AD에서 사용자의 개체 ID이 고 TargetID는 Salesforce의 사용자 ID입니다. Workday에서 Active Directory로 프로 비전 할 때 원본 ID는 Workday 작업자 직원 ID입니다. 사용자 이름은 항상 Id 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
 
 **날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
-가능한 값은 다음과 같습니다.
+가능한 값은
 
 - 1개월
 - 7 일
@@ -119,7 +118,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 **상태** 필터를 사용하면 다음을 선택할 수 있습니다.
 
 - 모두
-- 성공
+- Success
 - 실패
 - 건너뜀
 
@@ -127,9 +126,9 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **작업** 필터를 사용 하 여를 필터링 할 수 있습니다.
 
-- 만들기 
+- 생성 
 - 업데이트
-- 삭제
+- DELETE
 - 사용 안 함
 - 기타
 
@@ -175,7 +174,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 요약
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "탭")
+![필터](./media/concept-provisioning-logs/provisioning-tabs.png "탭")
 
 
 
@@ -190,7 +189,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Assert")
+![필터](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>문제 해결 및 권장 사항
@@ -238,7 +237,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 |SchemaAttributeNotFound |대상 응용 프로그램에 존재 하지 않는 특성이 지정 되었으므로 작업을 수행할 수 없습니다. 특성 사용자 지정에 대 한 [설명서](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 를 참조 하 여 구성이 올바른지 확인 합니다.|
 |InternalError |Azure AD 프로 비전 서비스 내에서 내부 서비스 오류가 발생 했습니다. 수행할 작업이 없습니다. 이 시도는 40 분 내에 자동으로 다시 시도 됩니다.|
 |InvalidDomain |잘못 된 도메인 이름을 포함 하는 특성 값으로 인해 작업을 수행할 수 없습니다. 사용자의 도메인 이름을 업데이트 하거나 대상 응용 프로그램의 허용 목록에 추가 합니다. |
-|시간 제한 |대상 응용 프로그램이 응답 하는 데 너무 오래 걸려서 작업을 완료할 수 없습니다. 수행할 작업이 없습니다. 이 시도는 40 분 내에 자동으로 다시 시도 됩니다.|
+|제한 시간 |대상 응용 프로그램이 응답 하는 데 너무 오래 걸려서 작업을 완료할 수 없습니다. 수행할 작업이 없습니다. 이 시도는 40 분 내에 자동으로 다시 시도 됩니다.|
 |LicenseLimitExceeded|이 사용자에 대해 사용할 수 있는 라이선스가 없어서 대상 응용 프로그램에서 사용자를 만들 수 없습니다. 대상 응용 프로그램에 대 한 추가 라이선스를 구입 하거나, 사용자 할당 및 특성 매핑 구성을 검토 하 여 올바른 사용자가 올바른 특성으로 할당 되었는지 확인 합니다.|
 |DuplicateTargetEntries  |구성 된 일치 특성을 사용 하 여 대상 응용 프로그램에서 둘 이상의 사용자를 찾았지만 작업을 완료할 수 없습니다. 대상 응용 프로그램에서 중복 사용자를 제거 하거나 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)에 설명 된 대로 특성 매핑을 다시 구성 하십시오.|
 |DuplicateSourceEntries | 구성 된 일치 특성을 가진 사용자를 둘 이상 찾았지만 작업을 완료할 수 없습니다. 중복 사용자를 제거 하거나 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)에 설명 된 대로 특성 매핑을 다시 구성 하십시오.|

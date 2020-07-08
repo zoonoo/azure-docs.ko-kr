@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 개발 앱에 대 한 Azure Portal 등록 필드
+title: 사용자 지정 개발 앱을 위한 Azure Portal 등록 필드
 description: Azure AD에서 사용자 지정 개발 된 응용 프로그램 등록에 대 한 지침
 services: active-directory
 author: rwike77
@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80883171"
 ---
-# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>사용자 지정 개발 앱에 대 한 Azure Portal 등록 필드
+# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>사용자 지정 개발 앱을 위한 Azure Portal 등록 필드
 
 이 아티클에서는 [Azure Portal](https://portal.azure.com)에서 애플리케이션 등록 양식에 사용 가능한 모든 필드에 대해 간략하게 설명합니다.
 
@@ -34,9 +33,9 @@ ms.locfileid: "80883171"
 
 ## <a name="fields-in-the-application-registration-form"></a>애플리케이션 등록 양식의 필드
 
-| 필드            | Description                                                                              |
+| 필드            | 설명                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| 속성             | 애플리케이션 이름입니다. 최소 4자 이상이어야 합니다.                |
+| 이름             | 애플리케이션 이름입니다. 최소 4자 이상이어야 합니다.                |
 | 지원되는 계정 유형| 응용 프로그램에서 지원할 계정 (이 조직 디렉터리의 계정에만 해당), 조직 디렉터리의 계정 또는 조직 디렉터리와 개인 Microsoft 계정의 계정을 선택 합니다.  |
 | URI 리디렉션 (선택 사항) | 빌드 중인 앱 유형, **웹** 또는 **공용 클라이언트 (모바일 & 데스크톱)** 를 선택 하 고 응용 프로그램에 대 한 리디렉션 URI 또는 회신 URL을 입력 합니다. 웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 http://localhost:31544은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다. 공용 클라이언트 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 응용 프로그램에 특정 한 값 (예: myapp://auth)을 입력 합니다. 웹 응용 프로그램 또는 네이티브 응용 프로그램에 대 한 특정 예제를 보려면 빠른 [시작을 확인 하세요.](https://docs.microsoft.com/azure/active-directory/develop)|
 
@@ -46,8 +45,8 @@ ms.locfileid: "80883171"
 
 | 필드           | 설명        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 애플리케이션 UI  | 애플리케이션을 등록하면 Azure AD에서 애플리케이션에 애플리케이션 ID를 할당합니다. 애플리케이션 ID는 Graph API 같은 리소스에 액세스뿐만 아니라 Azure AD에 인증 요청 시 애플리케이션을 고유하게 식별하는 데 사용될 수 있습니다.                                                          |
-| 앱 ID URI      | 일반적으로 **&lt;https://테\_넌 트 이름&gt;/&lt;\_응용 프로그램 이름&gt;** 형식의 고유한 URI 여야 합니다. 이는 토큰을 발급할 리소스를 지정 하기 위한 고유 식별자로 권한 부여 흐름 중에 사용 됩니다. 또한 발급된 액세스 토큰의 'aud' 클레임이 됩니다. |
+| 애플리케이션 ID  | 애플리케이션을 등록하면 Azure AD에서 애플리케이션에 애플리케이션 ID를 할당합니다. 애플리케이션 ID는 Graph API 같은 리소스에 액세스뿐만 아니라 Azure AD에 인증 요청 시 애플리케이션을 고유하게 식별하는 데 사용될 수 있습니다.                                                          |
+| 앱 ID URI      | 일반적으로 **https:// &lt; 테 넌 트 \_ 이름 &gt; / &lt; 응용 프로그램 \_ 이름 &gt; ** 형식의 고유한 URI 여야 합니다. 이는 토큰을 발급할 리소스를 지정 하기 위한 고유 식별자로 권한 부여 흐름 중에 사용 됩니다. 또한 발급된 액세스 토큰의 'aud' 클레임이 됩니다. |
 
 ### <a name="branding"></a>브랜딩
 

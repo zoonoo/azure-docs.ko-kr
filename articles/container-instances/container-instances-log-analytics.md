@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892396"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
@@ -24,7 +23,7 @@ Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
@@ -39,10 +38,10 @@ Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송�
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
 1. **설정** 아래에서 **고급 설정** 선택
-1. **연결 된 원본** > **Windows 서버** (또는 **Linux 서버**)를 선택 합니다. ID와 키는 둘 다에 대해 동일 합니다.
+1. **연결 된 원본**  >  **Windows 서버** (또는 **Linux 서버**)를 선택 합니다. ID와 키는 둘 다에 대해 동일 합니다.
 1. 다음을 기록해 둡니다.
    * **작업 영역 ID**
-   * **PRIMARY KEY**
+   * **기본 키**
 
 ## <a name="create-container-group"></a>컨테이너 그룹 만들기
 

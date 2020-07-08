@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114360"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>로그 경고의 API 기본 설정 전환
@@ -50,7 +49,7 @@ scheduledQueryRules API로 기본 설정을 전환할 경우 미치는 영향은
 [레거시 Log Analytics 경고 API](api-alerts.md)에서 경고 규칙을 이동하는 프로세스는 어떠한 방법으로도 경고 정의, 쿼리 또는 구성의 변경을 포함하지 않습니다. 경고 규칙 및 모니터링은 영향을 받지 않으며 스위치 중 또는 이후에 경고를 중지 하거나 중단 하지 않습니다. 유일한 변경 내용은 다음과 같습니다.
 
 - 새 API를 통해 API 기본 설정 및 규칙에 대 한 액세스를 변경 합니다.
-- 이 구조의 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`경고 규칙 이름 대신 [레거시 Log Analytics 경고 API](api-alerts.md) 에 사용 되는 id를 포함 하는 수정 된 경고 규칙 리소스 URI입니다. 경고 규칙의 표시 이름은 변경 되지 않고 그대로 유지 됩니다.
+- 이 구조의 경고 규칙 이름 대신 [레거시 Log Analytics 경고 API](api-alerts.md) 에 사용 되는 id를 포함 하는 수정 된 경고 규칙 리소스 URI `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` 입니다. 경고 규칙의 표시 이름은 변경 되지 않고 그대로 유지 됩니다.
 
 자발적으로 새 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)로 전환하고 [레거시 Log Analytics 경고 API](api-alerts.md)의 사용을 차단하려는 고객은 아래 API에서 PUT 호출을 수행하여 특정 Log Analytics 작업 영역과 연결된 모든 경고 규칙을 전환하면 됩니다.
 

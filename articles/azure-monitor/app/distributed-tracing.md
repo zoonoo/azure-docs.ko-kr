@@ -7,10 +7,9 @@ ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892260"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
@@ -31,7 +30,7 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 
 ## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>자동 계측 또는 Sdk를 통해 Application Insights를 통해 사용 하도록 설정
 
-.NET, .NET Core, Java, node.js 및 JavaScript에 대 한 Application Insights 에이전트 및/또는 Sdk는 기본적으로 분산 추적을 지원 합니다. 각 Application Insights SDK를 설치 및 구성하는 지침이 다음과 같이 제공됩니다.
+.NET, .NET Core, Java, Node.js 및 JavaScript에 대 한 Application Insights 에이전트 및/또는 Sdk는 기본적으로 분산 추적을 지원 합니다. 각 Application Insights SDK를 설치 및 구성하는 지침이 다음과 같이 제공됩니다.
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
@@ -55,5 +54,5 @@ OpenCensus 웹 사이트에는 [Python](https://opencensus.io/api/python/trace/u
 ## <a name="next-steps"></a>다음 단계
 
 * [OpenCensus Python 사용 가이드](https://opencensus.io/api/python/trace/usage.html)
-* [응용 프로그램 맵](./../../azure-monitor/app/app-map.md)
+* [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
 * [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)

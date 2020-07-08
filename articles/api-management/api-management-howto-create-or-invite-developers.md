@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260975"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
@@ -25,7 +24,7 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 문서의 작업을 완료합니다.
 
@@ -36,13 +35,13 @@ API Management에서 개발자는 API Management 사용을 공개하는 API의 �
 새 사용자를 추가하려면 이 섹션의 단계를 수행합니다.
 
 1. 화면 왼쪽의 **사용자** 탭을 선택합니다.
-2. **+ 추가**를 누릅니다.
+2. **+추가**를 누릅니다.
 3. 사용자에 대한 적절한 정보를 입력합니다.
 4. **추가**를 누릅니다.
 
     ![새 사용자 추가](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-기본적으로 새로 만든 개발자 계정은 **활성**이며, **개발자** 그룹과 연결됩니다. **활성** 상태의 개발자 계정은 구독하는 모든 API에 액세스하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][How to associate groups with developers]을 참조하세요.
+기본적으로 새로 만든 개발자 계정은 **활성 상태**이며 **개발자** 그룹과 연결 됩니다. **활성** 상태의 개발자 계정은 구독이 있는 모든 api에 액세스 하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][How to associate groups with developers]을 참조하세요.
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>개발자 초대
 개발자를 초대하려면 이 섹션의 단계를 수행합니다.

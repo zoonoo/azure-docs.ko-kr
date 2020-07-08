@@ -10,26 +10,25 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878394"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
 
 > [!IMPORTANT]
-> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
+> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
 >
-> 스케줄러는 Azure Portal에서 더 이상 사용할 수 없지만,이 시점에서 [REST API](/rest/api/scheduler) 및 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md) 을 계속 사용할 수 있으므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
+> Scheduler는 더 이상 Azure Portal에서 사용할 수 없지만 [REST API](/rest/api/scheduler) 및 [Azure Scheduler PowerShell cmdlet](scheduler-powershell-reference.md)은 현재 사용 가능하므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
 ## <a name="entity-hierarchy"></a>엔터티 계층 구조
 
 Azure Scheduler REST API는 다음과 같은 주요 엔터티 또는 리소스를 공개하고 사용합니다.
 
-| 엔터티 | Description |
+| 엔터티 | 설명 |
 |--------|-------------|
-| **작업** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
+| **직함** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
 | **작업 컬렉션** | 작업 그룹을 포함하며 컬렉션에서 작업이 공유하는 설정, 할당량 및 제한을 유지합니다. Azure 구독 소유자는 작업 컬렉션을 만들고, 사용 또는 애플리케이션 경계를 기준으로 작업을 함께 그룹화할 수 있습니다. 작업 컬렉션은 다음과 같은 특성이 있습니다. <p>- 한 지역으로 제한됩니다. <br>- 컬렉션의 모든 작업에 대해 사용량을 제한할 수 있도록 할당량을 적용할 수 있습니다. <br>- 할당량은 MaxJobs 및 MaxRecurrence를 포함합니다. | 
 | **작업 기록** | 예를 들어, 상태 및 응답 세부 정보와 같은 작업 실행에 대한 정보를 설명합니다. |
 ||| 
@@ -82,7 +81,7 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 
 작업에는 작업의 예약된 다음 실행 시간 등의 시스템 제공 데이터도 포함됩니다. 작업 코드 정의는 다음과 같은 요소를 가진 JSON(JavaScript Object Notation) 형식의 개체입니다.
 
-| 요소 | 필수 | Description | 
+| 요소 | 필수 | 설명 | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | 아니요 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 표준 시간대 오프셋을 사용하는 작업의 시작 시간 | 
 | [**조치**](#action) | 예 | 기본 동작의 세부 정보로, **errorAction** 개체를 포함할 수 있습니다. | 
@@ -246,15 +245,15 @@ SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세
 },
 ```
 
-| 속성 | 필수 | 값 | Description | 
+| 속성 | 필수 | 값 | 설명 | 
 |----------|----------|-------|-------------| 
 | **주기와** | **recurrence**가 사용된 경우, 예 | "Minute", "Hour", "Day", "Week", "Month", "Year" | 발생 간격 간의 시간 단위 | 
-| **interval** | 아니요 | 1에서 1000(포함) 사이 | **frequency**에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
-| **일정과** | 아니요 | 다양함 | 더 복잡한 일정 및 고급 일정에 대한 세부 정보입니다. **hours**, **minutes**, **weekDays**, **months** 및 **monthDays**를 참조하세요. | 
+| **간격은** | 아니요 | 1에서 1000(포함) 사이 | **frequency**에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
+| **일정과** | 아니요 | 상황에 따라 다름 | 더 복잡한 일정 및 고급 일정에 대한 세부 정보입니다. **hours**, **minutes**, **weekDays**, **months** 및 **monthDays**를 참조하세요. | 
 | **시간의** | 아니요 | 1 - 24 | 작업 실행 시기에 대한 시간 표식이 포함된 배열 | 
 | **내** | 아니요 | 0 ~ 59 | 작업 실행 시기에 대한 분 표식이 포함된 배열 | 
-| **개월** | 아니요 | 1 - 12 | 작업 실행 시기에 대한 월 표식이 포함된 배열 | 
-| **monthDays** | 아니요 | 다양함 | 작업 실행 시기에 대한 날짜 표식이 포함된 배열 | 
+| **months** | 아니요 | 1 - 12 | 작업 실행 시기에 대한 월 표식이 포함된 배열 | 
+| **monthDays** | 아니요 | 상황에 따라 다름 | 작업 실행 시기에 대한 날짜 표식이 포함된 배열 | 
 | **평일** | 아니요 | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | 작업 실행 시기에 대한 요일 표식이 포함된 배열 | 
 | **count** | 아니요 | <*없음을*> | 되풀이 횟수입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
 | **endTime** | 아니요 | <*없음을*> | 되풀이를 중지할 날짜 및 시간입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
@@ -276,7 +275,7 @@ Scheduler 작업이 실패할 경우 Scheduler에서 동작을 재시도할지 �
 },
 ```
 
-| 속성 | 필수 | 값 | Description | 
+| 속성 | 필수 | 값 | 설명 | 
 |----------|----------|-------|-------------| 
 | **retryType** | 예 | **Fixed**, **None** | 재시도 정책을 지정할지(**fixed**) 또는 지정하지 않을지(**none**) 결정합니다. | 
 | **retryInterval** | 아니요 | PT30S | 재시도 사이의 간격 및 빈도를 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)으로 지정합니다. 최솟값은 15초이고 최댓값은 18개월입니다. | 
@@ -308,7 +307,7 @@ Scheduler 작업이 실패할 경우 Scheduler에서 동작을 재시도할지 �
 * 실패 횟수(해당되는 경우)
 * 오류 수(해당되는 경우)
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```json
 "status": {

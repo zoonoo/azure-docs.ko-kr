@@ -4,10 +4,9 @@ description: Service Fabric 클러스터의 Resource Manager 템플릿을 만드
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 6cf0f9c3b8b54db7bd27ec8dd9c9d59d849c74cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985374"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
@@ -30,7 +29,7 @@ ms.locfileid: "80985374"
 > 국가별 클라우드(Azure Government, Azure 중국, Azure 독일)의 경우 다음 `fabricSettings`(`AADLoginEndpoint`, `AADTokenEndpointFormat` 및 `AADCertEndpointFormat`)를 템플릿에 추가해야 합니다.
 
 ## <a name="add-certificates"></a>인증서 추가
-인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. 이러한 키 자격 증명 모음 매개 변수 및 값을 리소스 관리자 템플릿 매개 변수 파일 (*azuredeploy. parameters*)에 추가 합니다.
+인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. 이러한 키 자격 증명 모음 매개 변수 및 값을 리소스 관리자 템플릿 매개 변수 파일에 추가 합니다 (*azuredeploy.parameters.js*).
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 머신 확장 집합 osProfile에 모든 인증서 추가
 클러스터에 설치 된 모든 인증서는 확장 집합 리소스 (OsProfile/virtualMachineScaleSets)의 **osProfile** 섹션에 구성 되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 애플리케이션에 사용하려는 모든 애플리케이션 보안 인증서가 포함됩니다.
@@ -132,7 +131,7 @@ ms.locfileid: "80985374"
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Azure AD 구성을 추가하여 클라이언트 액세스를 위해 Azure AD 사용
 
-인증서 키를 포함하는 Key Vault를 참조하여 Cluster Resource Manager 템플릿에 Azure AD 구성을 추가합니다. 이러한 Azure AD 매개 변수 및 값을 리소스 관리자 템플릿 매개 변수 파일 (*azuredeploy. parameters*)에 추가 합니다. 
+인증서 키를 포함하는 Key Vault를 참조하여 Cluster Resource Manager 템플릿에 Azure AD 구성을 추가합니다. 이러한 Azure AD 매개 변수 및 값을 리소스 관리자 템플릿 매개 변수 파일에 추가 합니다 (*azuredeploy.parameters.js*). 
 
 > [!NOTE]
 > Linux에서 클러스터를 만들기 전에 Azure AD 테 넌 트 및 사용자를 만들어야 합니다.  자세한 내용은 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어보세요.

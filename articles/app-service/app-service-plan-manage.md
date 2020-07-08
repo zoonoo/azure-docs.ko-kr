@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811720"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
@@ -24,11 +23,11 @@ ms.locfileid: "80811720"
 
 빈 App Service 계획을 만들거나 앱 생성의 일부로 계획을 만들 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택 합니다.
 
    ![Azure Portal에서 리소스를 만듭니다.][createResource] 
 
-1. **새** > **웹 앱** 또는 다른 종류의 app service 앱을 선택 합니다.
+1. **새**  >  **웹 앱** 또는 다른 종류의 app service 앱을 선택 합니다.
 
    ![Azure Portal에서 앱을 만듭니다.][createWebApp] 
 

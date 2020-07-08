@@ -12,10 +12,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 8cb7d86bd419563363779c499962c81f0c59e3b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881879"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 웹 앱: 앱 등록
@@ -33,4 +32,4 @@ ms.locfileid: "80881879"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [웹 Api를 호출 하는 웹 앱: 코드 구성](scenario-web-app-call-api-app-configuration.md)
+> [웹 API를 호출하는 웹앱: 코드 구성](scenario-web-app-call-api-app-configuration.md)

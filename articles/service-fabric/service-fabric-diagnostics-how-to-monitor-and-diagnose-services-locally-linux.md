@@ -4,10 +4,9 @@ description: 로컬 Linux 개발 컴퓨터에서 Service Fabric 서비스를 모
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991333"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>로컬 Linux 컴퓨터 개발 설치에서 서비스 모니터링 및 진단
@@ -24,7 +23,7 @@ ms.locfileid: "80991333"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Service Fabric Java 애플리케이션 디버깅
 
-Java 애플리케이션에 대해 [다중 로깅 프레임워크](https://en.wikipedia.org/wiki/Java_logging_framework)를 사용할 수 있습니다. 는 `java.util.logging` JRE의 기본 옵션 이므로 [GitHub의 코드 예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)에도 사용 됩니다. 다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
+Java 애플리케이션에 대해 [다중 로깅 프레임워크](https://en.wikipedia.org/wiki/Java_logging_framework)를 사용할 수 있습니다. `java.util.logging`는 JRE의 기본 옵션 이므로 [GitHub의 코드 예제](https://github.com/Azure-Samples/service-fabric-java-getting-started)에도 사용 됩니다. 다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
 
 java.util.logging을 사용하면 애플리케이션 로그를 메모리, 출력 스트림, 콘솔 파일 또는 소켓으로 리디렉션할 수 있습니다. 이들 옵션 각각에 대해 프레임워크에 이미 제공되어 있는 기본 핸들러가 있습니다. `app.properties` 파일을 만들어서 애플리케이션에 대한 파일 핸들러가 모든 로그를 로컬 파일로 리디렉션하도록 구성할 수 있습니다.
 

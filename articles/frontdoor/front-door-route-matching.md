@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878598"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Front Door에서 회람 규칙에 요청을 매칭하는 방법
@@ -29,7 +28,7 @@ Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 �
 다음은 들어오는 요청이 회람 규칙(또는 왼쪽)과 매칭되는지 여부를 결정하는 속성입니다.
 
 * **HTTP 프로토콜**(HTTP/HTTPS)
-* **호스트** (예: www\.foo.com, \*. bar.com)
+* **호스트** (예: www \. foo.com, \* . bar.com)
 * **경로**(예: /\*, /users/\*, /file.gif)
 
 이러한 속성은 각 프로토콜/호스트/경로 조합이 가능한 매칭 집합이 될 수 있도록 내부적으로 확장됩니다.
@@ -52,19 +51,19 @@ Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 �
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
-| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| C | www \. fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
 Front Door에 다음과 같은 요청이 전송된 경우, 이러한 요청은 위의 회람 규칙 중 다름 규칙과 일치합니다.
 
 | 수신 프런트 엔드 호스트 | 일치하는 회람 규칙 |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www\.fabrikam.com | C |
+| www \. fabrikam.com | C |
 | images.fabrikam.com | 오류 400: 잘못된 요청 |
 | foo.adventure-works.com | C |
 | contoso.com | 오류 400: 잘못된 요청 |
-| www\.adventure-works.com | 오류 400: 잘못된 요청 |
-| www\.northwindtraders.com | 오류 400: 잘못된 요청 |
+| www \. adventure-works.com | 오류 400: 잘못된 요청 |
+| www \. northwindtraders.com | 오류 400: 잘못된 요청 |
 
 ### <a name="path-matching"></a>경로 매칭
 특정 프런트 엔드 호스트를 확인하고 해당 프런트 엔드 호스트를 사용하여 가능한 회람 규칙을 경로에만 필터링하면 Front Door에서 요청 경로에 따라 회람 규칙을 필터링합니다. 프런트 엔드 호스트와 유사한 논리를 사용하겠습니다.
@@ -93,26 +92,26 @@ Front Door에 다음과 같은 요청이 전송된 경우, 이러한 요청은 �
 
 | 들어오는 요청    | 일치하는 경로 |
 |---------------------|---------------|
-| www\.contoso.com/            | A             |
-| www\.contoso.com/a           | b             |
-| www\.contoso.com/ab          | C             |
-| www\.contoso.com/abc         | D             |
-| www\.contoso.com/abzzz       | b             |
-| www\.contoso.com/abc/        | E             |
-| www\.contoso.com/abc/d       | F             |
-| www\.contoso.com/abc/def     | G             |
-| www\.contoso.com/abc/defzzz  | F             |
-| www\.contoso.com/abc/def/ghi | F             |
-| www\.contoso.com/path        | b             |
-| www\.contoso.com/path/       | H             |
-| www\.contoso.com/path/zzz    | b             |
+| www \. contoso.com/            | A             |
+| www \. contoso.com/a           | b             |
+| www \. contoso.com/ab          | C             |
+| www \. contoso.com/abc         | D             |
+| www \. contoso.com/abzzz       | b             |
+| www \. contoso.com/abc/        | E             |
+| www \. contoso.com/abc/d       | F             |
+| www \. contoso.com/abc/def     | G             |
+| www \. contoso.com/abc/defzzz  | F             |
+| www \. contoso.com/abc/def/ghi | F             |
+| www \. contoso.com/path        | b             |
+| www \. contoso.com/path/       | H             |
+| www \. contoso.com/path/zzz    | b             |
 
 >[!WARNING]
 > </br> 모두 캐치 라우팅 경로(`/*`)와 정확히 일치하는 프런트 엔드 호스트에 대한 회람 규칙이 없을 경우 회람 규칙과 일치하는 항목이 없는 것입니다.
 >
 > 예제 구성:
 >
-> | 라우팅 | 호스트             | 경로    |
+> | 경로 | 호스트             | 경로    |
 > |-------|------------------|---------|
 > | A     | profile.contoso.com | /api/\* |
 >

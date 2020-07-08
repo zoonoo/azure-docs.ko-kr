@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81011126"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure Cosmos DB에서 Udf (사용자 정의 함수)
@@ -26,13 +25,13 @@ Udf를 사용 하 여 Azure Cosmos DB의 쿼리 언어를 확장할 수 있습�
 그러나 다음과 같은 경우에는 Udf 방지를 권장 합니다.
 
 - 동일한 [시스템 함수가](sql-query-system-functions.md) Azure Cosmos DB에 이미 있습니다. 시스템 함수는 항상 해당 하는 UDF 보다 더 작은 사용을 사용 합니다.
-- UDF는 쿼리의 `WHERE` 절에 있는 유일한 필터입니다. UDF는 인덱스를 활용 하지 않으므로 UDF를 평가 하려면 문서를 로드 해야 합니다. `WHERE` 절에서 udf와 함께 인덱스를 사용 하는 추가 필터 조건자를 조합 하면 udf에서 처리 하는 문서 수가 줄어듭니다.
+- UDF는 쿼리의 절에 있는 유일한 필터입니다 `WHERE` . UDF는 인덱스를 활용 하지 않으므로 UDF를 평가 하려면 문서를 로드 해야 합니다. 절에서 UDF와 함께 인덱스를 사용 하는 추가 필터 조건자를 조합 `WHERE` 하면 udf에서 처리 하는 문서 수가 줄어듭니다.
 
 쿼리에서 동일한 UDF를 여러 번 사용 해야 하는 경우에는 [하위 쿼리에서](sql-query-subquery.md#evaluate-once-and-reference-many-times)udf를 참조 하 여 udf를 한 번만 평가 하 고 여러 번 참조 하는 조인 식을 사용할 수 있습니다.
 
 ## <a name="examples"></a>예
 
-다음 예에서는 Cosmos 데이터베이스의 항목 컨테이너 아래에 UDF를 등록 합니다. 이 `REGEX_MATCH`예제에서는 이름이 인 UDF를 만듭니다. 이 클래스는 및 `input` `pattern`의 두 JSON 문자열 값을 허용 하 고, 첫 번째가 JavaScript의 `string.match()` 함수를 사용 하 여 두 번째에 지정 된 패턴과 일치 하는지 확인 합니다.
+다음 예에서는 Cosmos 데이터베이스의 항목 컨테이너 아래에 UDF를 등록 합니다. 이 예제에서는 이름이 인 UDF를 만듭니다 `REGEX_MATCH` . 이 클래스는 및의 두 JSON 문자열 값을 허용 하 `input` `pattern` 고, 첫 번째가 JavaScript의 함수를 사용 하 여 두 번째에 지정 된 패턴과 일치 하는지 확인 `string.match()` 합니다.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -48,7 +47,7 @@ Udf를 사용 하 여 Azure Cosmos DB의 쿼리 언어를 확장할 수 있습�
            regexMatchUdf).Result;  
 ```
 
-이제 쿼리 프로젝션에서이 UDF를 사용 합니다. 쿼리 내에서 호출 하는 경우 대/소문자 `udf.` 를 구분 하는 접두사로 udf를 정규화 해야 합니다.
+이제 쿼리 프로젝션에서이 UDF를 사용 합니다. 쿼리 내에서 호출 하는 경우 대/소문자를 구분 하는 접두사로 Udf를 정규화 해야 합니다 `udf.` .
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -68,7 +67,7 @@ Udf를 사용 하 여 Azure Cosmos DB의 쿼리 언어를 확장할 수 있습�
     ]
 ```
 
-다음 예제와 같이 필터 내에서 `udf.` 접두사로 정규화 된 UDF를 사용할 수 있습니다.
+`udf.`다음 예제와 같이 필터 내에서 접두사로 정규화 된 UDF를 사용할 수 있습니다.
 
 ```sql
     SELECT Families.id, Families.address.city

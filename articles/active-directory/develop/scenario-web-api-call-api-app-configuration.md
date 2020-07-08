@@ -13,10 +13,9 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991010"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
@@ -73,7 +72,7 @@ AddAccountToCacheFromJwt () 메서드는 다음을 수행 해야 합니다.
 
 ### <a name="instantiate-a-confidential-client-application"></a>기밀 클라이언트 응용 프로그램 인스턴스화
 
-이 흐름은 기밀 클라이언트 흐름 에서만 사용할 수 있으므로 보호 된 웹 API는 `WithClientSecret` 또는 `WithCertificate` 메서드를 통해 [ConfidentialClientApplicationBuilder 클래스](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 에 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)을 제공 합니다.
+이 흐름은 기밀 클라이언트 흐름 에서만 사용할 수 있으므로 보호 된 웹 API는 또는 메서드를 통해 [ConfidentialClientApplicationBuilder 클래스](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 에 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)을 제공 `WithClientSecret` 합니다 `WithCertificate` .
 
 ![IConfidentialClientApplication 메서드 목록](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -98,15 +97,15 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### <a name="how-to-call-on-behalf-of"></a>대신를 호출 하는 방법
 
-인터페이스에서 AcquireTokenOnBehalf 메서드를 호출 하 여 OBO (주문형) 호출을 수행 합니다. [AcquireTokenOnBehalf method](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) `IConfidentialClientApplication`
+인터페이스에서 [AcquireTokenOnBehalf 메서드](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) 를 호출 하 여 obo (주문형) 호출을 수행 합니다 `IConfidentialClientApplication` .
 
-클래스 `UserAssertion` 는 자체 클라이언트에서 web API가 수신 하는 전달자 토큰을 기반으로 빌드됩니다. 다음과 같은 [두 가지 생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet)가 있습니다.
+`UserAssertion`클래스는 자체 클라이언트에서 WEB API가 수신 하는 전달자 토큰을 기반으로 빌드됩니다. 다음과 같은 [두 가지 생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet)가 있습니다.
 * JWT (JSON Web Token) 전달자 토큰을 사용 하는 하나
 * 다른 종류의 보안 토큰을 사용 하는 다른 종류의 보안 토큰을 사용 하 여 이름이 인 추가 매개 변수에서 지정 됩니다.`assertionType`
 
 ![UserAssertion 속성 및 메서드](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-실제로 OBO 흐름은 다운스트림 API에 대 한 토큰을 획득 하 고 MSAL.NET 사용자 토큰 캐시에 저장 하는 데 주로 사용 됩니다. 이렇게 하면 웹 API의 다른 부분이 나중에의 ``AcquireTokenOnSilent`` [재정의](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) 를 호출 하 여 다운스트림 api를 호출할 수 있습니다. 필요한 경우이 호출은 토큰을 새로 고치는 효과를 가집니다.
+실제로 OBO 흐름은 다운스트림 API에 대 한 토큰을 획득 하 고 MSAL.NET 사용자 토큰 캐시에 저장 하는 데 주로 사용 됩니다. 이렇게 하면 웹 API의 다른 부분이 나중에의 [재정의](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) 를 호출 ``AcquireTokenOnSilent`` 하 여 다운스트림 api를 호출할 수 있습니다. 필요한 경우이 호출은 토큰을 새로 고치는 효과를 가집니다.
 
 ```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -145,7 +144,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 
 (OBO) 흐름은 다운스트림 웹 API를 호출 하는 토큰을 가져오는 데 사용 됩니다. 이 흐름에서 web API는 클라이언트 응용 프로그램에서 사용자 위임 권한이 있는 전달자 토큰을 받은 다음 다른 액세스 토큰에 대해이 토큰을 교환 하 여 다운스트림 웹 API를 호출 합니다.
 
-아래 코드는 web API `SecurityContextHolder` 의 스프링 보안 프레임 워크를 사용 하 여 유효성이 검사 된 전달자 토큰을 가져옵니다. 그런 다음 MSAL Java 라이브러리를 사용 하 여 `acquireToken` 호출을 통해 다운스트림 API에 대 한 토큰 `OnBehalfOfParameters`을 가져옵니다. MSAL은 API에 대 한 후속 호출을 사용 `acquireTokenSilently` 하 여 캐시 된 토큰을 가져올 수 있도록 토큰을 캐시 합니다.
+아래 코드는 web API의 스프링 보안 프레임 워크를 사용 하 여 `SecurityContextHolder` 유효성이 검사 된 전달자 토큰을 가져옵니다. 그런 다음 MSAL Java 라이브러리를 사용 하 여 호출을 통해 다운스트림 API에 대 한 토큰을 가져옵니다 `acquireToken` `OnBehalfOfParameters` . MSAL은 API에 대 한 후속 호출을 사용 하 여 캐시 된 토큰을 가져올 수 있도록 토큰을 캐시 합니다 `acquireTokenSilently` .
 
 ```Java
 @Component
@@ -214,7 +213,7 @@ class MsalAuthHelper {
 
 (OBO) 흐름은 다운스트림 웹 API를 호출 하는 토큰을 가져오는 데 사용 됩니다. 이 흐름에서 web API는 클라이언트 응용 프로그램에서 사용자 위임 권한이 있는 전달자 토큰을 받은 다음 다른 액세스 토큰에 대해이 토큰을 교환 하 여 다운스트림 웹 API를 호출 합니다.
 
-Python web API는 클라이언트에서 받은 전달자 토큰의 유효성을 검사 하기 위해 일부 미들웨어를 사용 해야 합니다. Web API는 메서드를 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) 호출 하 여 Msal Python 라이브러리를 사용 하 여 다운스트림 api에 대 한 액세스 토큰을 가져올 수 있습니다. 이 API를 사용 하는 예제는 GitHub의 [microsoft-인증 라이브러리-python 용 테스트 코드](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472)를 참조 하세요. 중간 계층 응용 프로그램의 요구를 우회 하는 방법에 대해서도 동일한 리포지토리의 [문제 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) 에 대 한 설명을 참조 하세요.
+Python web API는 클라이언트에서 받은 전달자 토큰의 유효성을 검사 하기 위해 일부 미들웨어를 사용 해야 합니다. Web API는 메서드를 호출 하 여 MSAL Python 라이브러리를 사용 하 여 다운스트림 API에 대 한 액세스 토큰을 가져올 수 있습니다 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) . 이 API를 사용 하는 예제는 GitHub의 [microsoft-인증 라이브러리-python 용 테스트 코드](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472)를 참조 하세요. 중간 계층 응용 프로그램의 요구를 우회 하는 방법에 대해서도 동일한 리포지토리의 [문제 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) 에 대 한 설명을 참조 하세요.
 
 ---
 

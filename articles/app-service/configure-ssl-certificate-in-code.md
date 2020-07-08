@@ -6,10 +6,9 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811702"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service의 코드에서 TLS/SSL 인증서 사용
@@ -29,7 +28,7 @@ TLS/SSL 인증서를 App Service 관리 하도록 허용 하는 경우 인증서
 
 ## <a name="find-the-thumbprint"></a>지문 찾기
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 을 선택합니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services**를 선택  >  **\<app-name>** 합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정**을 선택 하 고 **개인 키 인증서 (.Pfx)** 또는 **공개 키 인증서 (.cer)** 를 선택 합니다.
 
@@ -39,17 +38,17 @@ TLS/SSL 인증서를 App Service 관리 하도록 허용 하는 경우 인증서
 
 ## <a name="make-the-certificate-accessible"></a>인증서에 액세스할 수 있도록 설정
 
-앱 코드에서 인증서에 액세스 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 `WEBSITE_LOAD_CERTIFICATES` 앱 설정에 해당 지문을 추가 합니다.
+앱 코드에서 인증서에 액세스 하려면 `WEBSITE_LOAD_CERTIFICATES` <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱 설정에 해당 지문을 추가 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-모든 인증서에 액세스할 수 있도록 하려면 값을로 `*`설정 합니다.
+모든 인증서에 액세스할 수 있도록 하려면 값을로 설정 `*` 합니다.
 
 ## <a name="load-certificate-in-windows-apps"></a>Windows 앱에서 인증서 로드
 
-`WEBSITE_LOAD_CERTIFICATES` 앱 설정은 windows 인증서 저장소의 windows 호스트 된 앱에서 지정 된 인증서에 액세스할 수 있도록 하며, 위치는 [가격 책정 계층](overview-hosting-plans.md)에 따라 달라 집니다.
+`WEBSITE_LOAD_CERTIFICATES`앱 설정은 windows 인증서 저장소의 windows 호스트 된 앱에서 지정 된 인증서에 액세스할 수 있도록 하며, 위치는 [가격 책정 계층](overview-hosting-plans.md)에 따라 달라 집니다.
 
 - **격리** 된 계층- [로컬 Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
 - 다른 모든 계층- [현재 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
@@ -109,7 +108,7 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 
 ## <a name="load-certificate-in-linux-apps"></a>Linux 앱에서 인증서 로드
 
-`WEBSITE_LOAD_CERTIFICATES` 앱 설정은 Linux에서 호스팅된 앱 (사용자 지정 컨테이너 앱 포함)에서 지정 된 인증서에 액세스할 수 있도록 합니다. 파일은 다음 디렉터리에 있습니다.
+`WEBSITE_LOAD_CERTIFICATES`앱 설정은 Linux에서 호스팅된 앱 (사용자 지정 컨테이너 앱 포함)에서 지정 된 인증서에 액세스할 수 있도록 합니다. 파일은 다음 디렉터리에 있습니다.
 
 - 개인 인증서- `/var/ssl/private` ( `.p12` 파일)
 - 공용 인증서- `/var/ssl/certs` ( `.der` 파일)

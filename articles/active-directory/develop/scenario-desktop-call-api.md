@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882967"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 데스크톱 앱: web API 호출
@@ -64,7 +63,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL에서 web API 호출
 
-토큰을 획득 하는 메서드는 `MSALResult` 개체를 반환 합니다. `MSALResult`웹 API `accessToken` 를 호출 하는 데 사용할 수 있는 속성을 노출 합니다. 보호 된 web API에 액세스 하기 위해 호출 하기 전에 HTTP 권한 부여 헤더에 액세스 토큰을 추가 합니다.
+토큰을 획득하는 메서드는 `MSALResult` 개체를 반환합니다. `MSALResult``accessToken`웹 API를 호출 하는 데 사용할 수 있는 속성을 노출 합니다. 보호 된 web API에 액세스 하기 위해 호출 하기 전에 HTTP 권한 부여 헤더에 액세스 토큰을 추가 합니다.
 
 Objective-C:
 
@@ -94,7 +93,7 @@ task.resume()
 
 ## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>여러 Api 호출: 증분 동의 및 조건부 액세스
 
-동일한 사용자에 대해 여러 Api를 호출 하려면 첫 번째 API에 대 한 토큰을 가져온 후를 `AcquireTokenSilent`호출 합니다. 대부분의 시간 동안 다른 Api에 대 한 토큰을 자동으로 가져옵니다.
+동일한 사용자에 대해 여러 Api를 호출 하려면 첫 번째 API에 대 한 토큰을 가져온 후를 호출 `AcquireTokenSilent` 합니다. 대부분의 시간 동안 다른 Api에 대 한 토큰을 자동으로 가져옵니다.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -104,9 +103,9 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-다음과 같은 경우 상호 작용이 필요 합니다.
+다음과 같은 경우 상호 작용이 필요합니다.
 
-- 사용자가 첫 번째 API에 대해 동의한 이제 더 많은 범위에 동의 해야 합니다. 이러한 종류의 동의를 증분 동의 라고 합니다.
+- 사용자가 첫 번째 API에 대해 동의했지만 이제 더 많은 범위에 동의해야 하는 경우. 이러한 종류의 동의를 증분 동의 라고 합니다.
 - 첫 번째 API에는 다단계 인증이 필요 하지 않지만 다음에는이 API가 있습니다.
 
 ```csharp
@@ -130,4 +129,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [프로덕션 환경으로 이동](scenario-desktop-production.md)
+> [프로덕션으로 이동](scenario-desktop-production.md)

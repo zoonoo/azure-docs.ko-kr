@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80876295"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
@@ -31,7 +30,7 @@ ms.locfileid: "80876295"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| 작업 | 소유자 |
+| Task | 소유자 |
 | :- | :- |
 | Azure AD에서 SSO (Single Sign-On) 구성의 수명 주기 관리 | IAM 운영 팀 |
 | Azure AD 응용 프로그램에 대 한 조건부 액세스 정책 디자인 | InfoSec 아키텍처 팀 |
@@ -59,7 +58,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 아래 표를 사용 하 여 해결 해야 하는 문제를 완화 하기 위한 권장 솔루션을 찾을 수 있습니다.
 
-| 문제 | 권장 |
+| 문제점 | 권장 |
 | :- | :- |
 | 약한 암호 로부터 보호 하는 메커니즘이 없습니다. | Azure AD [SSPR (셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) 및 [암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) 를 사용 하도록 설정 |
 | 누출 암호를 검색 하는 메커니즘이 없습니다. | 정보를 얻기 위해 phs ( [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ) 사용 |
@@ -128,7 +127,7 @@ PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 �
 다음 방법 중 하나를 사용 하 여 장치 id를 가져오고 Azure AD에서 관리 하 여이 목표를 수행할 수 있습니다.
 
 - 조직에서는 [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) 를 사용 하 여 장치를 관리 하 고 규정 준수 정책을 적용 하며 장치 상태를 증명 하 고, 장치가 규격 인지 여부에 따라 조건부 액세스 정책을 설정할 수 있습니다. IOS 장치, Mac 데스크톱 (JAMF 통합을 통해), Windows 데스크톱 (Windows 10의 경우 기본적으로 모바일 장치 관리를 사용 하 고, Microsoft 엔드포인트 Configuration Manager로 공동 관리) 및 Android 모바일 장치를 관리할 수 Microsoft Intune.
-- [하이브리드 AZURE AD 조인은](../devices/hybrid-azuread-join-managed-domains.md) Active Directory 도메인에 가입 된 컴퓨터 장치를 사용 하는 환경에서 그룹 정책 또는 Microsoft 끝점 Configuration Manager에 대 한 관리를 제공 합니다. 조직은 원활한 SSO를 사용 하 여 PHS 또는 PTA를 통해 관리 되는 환경을 배포할 수 있습니다. 장치를 Azure AD로 가져오면 클라우드 및 온-프레미스 리소스에서 SSO를 통해 사용자 생산성을 극대화 하 고, 동시에 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 클라우드 및 온-프레미스 리소스에 안전 하 게 액세스할 수 있습니다.
+- [하이브리드 AZURE AD 조인은](../devices/hybrid-azuread-join-managed-domains.md) Active Directory 도메인에 가입 된 컴퓨터 장치를 사용 하는 환경에서 그룹 정책 또는 Microsoft 끝점 Configuration Manager에 대 한 관리를 제공 합니다. 조직은 원활한 SSO를 사용 하 여 PHS 또는 PTA를 통해 관리 되는 환경을 배포할 수 있습니다. 장치를 Azure AD로 가져오면 클라우드 및 온-프레미스 리소스에서 SSO를 통해 사용자 생산성을 극대화 하 고, 동시에 [조건부 액세스](../conditional-access/overview.md)를 사용 하 여 클라우드 및 온-프레미스 리소스에 안전 하 게 액세스할 수 있습니다   .
 
 클라우드에 등록 되지 않은 도메인 가입 windows 장치 또는 클라우드에 등록 되어 있고 조건부 액세스 정책을 사용 하지 않는 도메인에 가입 된 windows 장치를 사용 하는 경우 등록 되지 않은 장치를 등록 하 고 두 경우 모두 조건부 액세스 정책에서 [컨트롤로 하이브리드 AZURE AD 조인을 사용](../conditional-access/require-managed-devices.md) 합니다.
 
@@ -199,7 +198,7 @@ Windows 10에서 [비즈니스용 Windows Hello](https://docs.microsoft.com/wind
 Azure AD의 [명명 된 위치](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) 를 사용 하 여 조직에서 신뢰할 수 있는 IP 주소 범위에 레이블을 지정할 수 있습니다. Azure AD는 명명된 위치를 사용하여 다음 작업을 수행합니다.
 
 - 위험 이벤트의 가양성을 방지 합니다. 신뢰할 수 있는 네트워크 위치에서 로그인 하면 사용자의 로그인 위험이 줄어듭니다.
-- [위치 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)를 구성 합니다.
+- [위치 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)를 구성합니다.
 
 ![명명된 위치](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
@@ -258,7 +257,7 @@ MAM (Microsoft Intune 응용 프로그램 관리)은 저장소 암호화, PIN, �
 - [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
 - [ID 및 디바이스 액세스 구성](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory 조건부 액세스 설정 참조](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
-- [일반적인 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+- [일반 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ## <a name="access-surface-area"></a>액세스 노출 영역
 
@@ -281,7 +280,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 일정을 계획 합니다.
    
-   c. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
+   다. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
 
 2. 레거시 인증을 사용 하지 않는 사용자가 더 많은 노출을 방지 하기 위해 원본 (예: Exchange 사서함)에서 레거시 프로토콜을 사용 하지 않도록 설정 합니다.
 3. 나머지 계정 (서비스 계정 등의 비 사용자 id)의 경우 조건부 액세스를 사용 하 여 인증 후 [레거시 프로토콜을 제한](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 합니다.
@@ -296,7 +295,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 다음은 Microsoft 클라우드 서비스에 대해 확인할 수 있는 권한이 있는 앱 목록입니다.
 
-- 앱 또는 위임 \*된 앱. ReadWrite 권한
+- 앱 또는 위임 된 앱 \* . ReadWrite 권한
 - 위임 된 권한이 있는 앱은 사용자 대신 전자 메일을 읽거나, 보내거나, 관리할 수 있습니다.
 - 다음 사용 권한을 부여 받은 앱:
 
@@ -309,7 +308,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
 
 |리소스 | 사용 권한 |
 | :- | :- |
@@ -344,7 +343,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 #### <a name="groups-recommended-reading"></a>그룹 권장 읽기
 
 - [Azure Active Directory B2B 협업이란?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+- [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 - [Azure Active Directory에서 앱, 사용 권한 및 동의 합니다.](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 - [그룹을 사용 하 여 Azure Active Directory 리소스에 대 한 액세스 관리](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 - [Azure Active Directory에서 셀프 서비스 응용 프로그램 액세스 관리 설정](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)

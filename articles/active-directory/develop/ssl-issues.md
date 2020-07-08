@@ -13,10 +13,9 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881080"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>방법: iOS 및 macOS TLS/SSL 문제에 대 한 MSAL 문제 해결
@@ -27,7 +26,7 @@ ms.locfileid: "80881080"
 
 **오류-1200**: "SSL 오류가 발생 하 여 서버에 대 한 보안 연결을 만들 수 없습니다."
 
-이 오류는 연결이 안전 하지 않음을 의미 합니다. 인증서가 유효 하지 않은 경우에 발생 합니다. TLS 검사가 실패 하는 서버를 포함 하 여 자세한 내용은 error 개체의 `NSURLErrorFailingURLErrorKey` `userInfo` 사전에서을 참조 하세요.
+이 오류는 연결이 안전 하지 않음을 의미 합니다. 인증서가 유효 하지 않은 경우에 발생 합니다. TLS 검사가 실패 하는 서버를 포함 하 여 자세한 내용은 `NSURLErrorFailingURLErrorKey` `userInfo` error 개체의 사전에서을 참조 하세요.
 
 이 오류는 Apple의 네트워킹 라이브러리에 있습니다. NSURL 오류 코드의 전체 목록은 macOS 및 iOS Sdk의 NSURLError에 있습니다. 이 오류에 대 한 자세한 내용은 [URL 로딩 시스템 오류 코드](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc)를 참조 하세요.
 

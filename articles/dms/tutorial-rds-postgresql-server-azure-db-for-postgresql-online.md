@@ -13,17 +13,16 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
 ms.openlocfilehash: be6f0cd734d31f43557b49f8e9314e925b383899
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113958"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>자습서: DMS를 사용 하 여 PostgreSQL online 용 Azure DB로 RDS PostgreSQL 마이그레이션
 
 Azure Database Migration Service를 사용하면 마이그레이션 중에 원본 데이터베이스를 온라인 상태로 유지하면서 RDS PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD Rental** 샘플 데이터베이스를 RDS PostgreSQL 9.6 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 >
 > * pg_dump 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
@@ -69,7 +68,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
     b. max_wal_senders = [동시 작업 수]: max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. 10으로 설정하는 것이 좋습니다.
 
-    c. max_replication_slots – = [number of slots], 5개 슬롯으로 설정하는 것이 좋습니다.
+    다. max_replication_slots – = [number of slots], 5개 슬롯으로 설정하는 것이 좋습니다.
 
 4. 만든 매개 변수 그룹을 RDS PostgreSQL 인스턴스에 연결합니다.
 
@@ -100,7 +99,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -154,7 +153,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
     ![리소스 공급자 보기](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색 한 다음 **microsoft.datamigration**의 오른쪽에서 **등록**을 선택 합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
 

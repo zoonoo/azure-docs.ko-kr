@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80989530"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
@@ -112,7 +111,7 @@ namespace CustomInitializer.Telemetry
 
 **ASP.NET apps: 활성 TelemetryConfiguration에 이니셜라이저를 로드 합니다.**
 
-ApplicationInsights에서 다음을 수행 합니다.
+ApplicationInsights.config:
 
 ```xml
     <ApplicationInsights>
@@ -138,11 +137,11 @@ ApplicationInsights에서 다음을 수행 합니다.
 ```
 
 > [!NOTE]
-> 또는 `TelemetryConfiguration.Active` 를 사용 `ApplicationInsights.config` 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+> `ApplicationInsights.config` 또는 `TelemetryConfiguration.Active`를 사용하여 이니셜라이저를 추가하는 것은 ASP.NET Core 애플리케이션에 적합하지 않습니다. 
 
 **ASP.NET Core apps: TelemetryConfiguration에 이니셜라이저를 로드 합니다.**
 
-[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 `TelemetryInitializer` 같이 종속성 주입 컨테이너에 새를 추가 하 여 새를 추가 합니다. `Startup.cs` 클래스의 `ConfigureServices` 메서드에서이 작업을 수행 합니다.
+[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 애플리케이션의 경우 새 `TelemetryInitializer` 추가 작업은 아래와 같이 종속성 주입 컨테이너에 추가하여 수행됩니다. 이 작업은 `Startup.cs` 클래스의 `ConfigureServices` 메서드에서 수행됩니다.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -169,11 +168,11 @@ ApplicationInsights에서 다음을 수행 합니다.
 }
 ```
 
-환경 변수 ```APPLICATIONINSIGHTS_ROLE_NAME```를 사용 하 여 클라우드 역할 이름을 설정할 수도 있습니다.
+환경 변수를 사용 하 여 클라우드 역할 이름을 설정할 수도 있습니다 ```APPLICATIONINSIGHTS_ROLE_NAME``` .
 
 **Java SDK**
 
-Application Insights Java SDK 2.5.0부터 SDK를 사용 하는 경우 `<RoleName>` `ApplicationInsights.xml` 파일에를 추가 하 여 클라우드 역할 이름을 지정할 수 있습니다 (예:).
+Application Insights Java SDK 2.5.0부터 SDK를 사용 하는 경우 파일에를 추가 하 여 클라우드 역할 이름을 지정할 수 있습니다 `<RoleName>` `ApplicationInsights.xml` (예:).
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -229,7 +228,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 ![애플리케이션 맵 스크린샷](media/app-map/cloud-rolename.png)
 
-위의 응용 프로그램 맵에서 녹색 상자에는이 특정 배포 응용 프로그램의 다양 한 측면에 대 한 클라우드 역할 이름 값이 있습니다. 따라서이 앱의 역할 `Authentication`은, `acmefrontend`, `Inventory Management`, a `Payment Processing Worker Role`로 구성 됩니다. 
+위의 응용 프로그램 맵에서 녹색 상자에는이 특정 배포 응용 프로그램의 다양 한 측면에 대 한 클라우드 역할 이름 값이 있습니다. 따라서이 앱의 역할은 `Authentication` ,, `acmefrontend` `Inventory Management` , a로 `Payment Processing Worker Role` 구성 됩니다. 
 
 이 앱의 경우 각 클라우드 역할 이름은 고유한 계측 키가 있는 다른 고유한 Application Insights 리소스도 나타냅니다. 이 응용 프로그램의 소유자는 이러한 4 개의 서로 다른 Application Insights 리소스에 대해 액세스할 수 있으므로 응용 프로그램 맵은 기본 관계의 맵을 함께 연결할 수 있습니다.
 

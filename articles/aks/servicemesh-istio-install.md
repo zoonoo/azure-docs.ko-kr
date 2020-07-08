@@ -7,22 +7,21 @@ ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: d1d02cb42a86023e5c341daab678c39f22f75dda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80877697"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
-[Istio][istio-github]는 Kubernetes 클러스터에서 마이크로서비스에서 기능 키 세트를 제공하는 오픈 소스 서비스 메시입니다. 이 기능에는 트래픽 관리, 서비스 ID 및 보안, 정책 적용 및 관찰성을 포함됩니다. Istio에 대한 자세한 내용은 [Istio는 무엇인가?][istio-docs-concepts] 공식 설명서를 참조하세요.
+[Istio][istio-github]는 Kubernetes 클러스터에서 마이크로 서비스에서 기능 키 세트를 제공하는 오픈 소스 서비스 메시입니다. 이 기능에는 트래픽 관리, 서비스 ID 및 보안, 정책 적용 및 관찰성을 포함됩니다. Istio에 대한 자세한 내용은 [Istio는 무엇인가?][istio-docs-concepts] 공식 설명서를 참조하세요.
 
 이 문서에서는 Istio를 설치하는 방법을 보여줍니다. Istio `istioctl` 클라이언트 이진 파일은 클라이언트 컴퓨터에 설치 되 고 istio 구성 요소는 AKS의 Kubernetes 클러스터에 설치 됩니다.
 
 > [!NOTE]
-> 다음 지침은 Istio 버전 `1.4.0`을 참조 합니다.
+> 다음 지침은 Istio 버전을 참조 합니다 `1.4.0` .
 >
-> Istio `1.4.x` 릴리스는 Kubernetes 버전 `1.13`, `1.14`, `1.15`에 대 한 istio 팀에서 테스트 했습니다. [GitHub][istio-github-releases]에서 추가 istio 버전, [istio News][istio-release-notes] 의 각 릴리스에 대 한 정보 및 [istio 일반 FAQ][istio-faq]에서 지원 되는 Kubernetes 버전을 찾을 수 있습니다.
+> Istio `1.4.x` 릴리스는 Kubernetes 버전,,에 대 한 istio 팀에서 테스트 했습니다 `1.13` `1.14` `1.15` . [GitHub][istio-github-releases]에서 추가 istio 버전, [istio News][istio-release-notes] 의 각 릴리스에 대 한 정보 및 [istio 일반 FAQ][istio-faq]에서 지원 되는 Kubernetes 버전을 찾을 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -35,7 +34,7 @@ ms.locfileid: "80877697"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 설명 된 단계에서는 AKS 클러스터 (RBAC를 사용 하 여 Kubernetes `1.13` 이상)를 만들고 클러스터와의 `kubectl` 연결을 설정 했다고 가정 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
+이 문서에 설명 된 단계에서는 AKS 클러스터 ( `1.13` RBAC를 사용 하 여 Kubernetes 이상)를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
 AKS 클러스터에서 Istio를 실행 하기 위한 추가 리소스 요구 사항을 이해 하려면 [Istio 성능 및 확장성](https://istio.io/docs/concepts/performance-and-scalability/) 설명서를 확인 해야 합니다. 코어 및 메모리 요구 사항은 특정 워크 로드에 따라 달라 집니다. 설치에 사용할 적절 한 수의 노드 및 VM 크기를 선택 합니다.
 
@@ -63,7 +62,7 @@ AKS 클러스터에서 Istio를 실행 하기 위한 추가 리소스 요구 사
 
 [Grafana][grafana] 및 [Kiali][kiali] 를 설치 하는 과정을 istio 설치의 일부로 설치 합니다. Grafana는 분석 및 모니터링 대시보드를 제공 하 고 Kiali는 서비스 메시 관찰성 대시보드를 제공 합니다. 설치 프로그램에서 이러한 각 구성 요소에는 [암호로][kubernetes-secrets]제공 되어야 하는 자격 증명이 필요 합니다.
 
-Istio 구성 요소를 설치 하기 전에 Grafana 및 Kiali 모두에 대 한 암호를 만들어야 합니다. 이러한 암호는 Istio에서 사용 되 `istio-system` 는 네임 스페이스에 설치 해야 하므로 네임 스페이스를 만들어야 합니다. 를 통해 `--save-config` `kubectl create` 네임 스페이스를 만들 때 옵션을 사용 하 여 나중에 istio 설치 관리자가 `kubectl apply` 이 개체에서 실행 될 수 있도록 해야 합니다.
+Istio 구성 요소를 설치 하기 전에 Grafana 및 Kiali 모두에 대 한 암호를 만들어야 합니다. 이러한 암호는 `istio-system` Istio에서 사용 되는 네임 스페이스에 설치 해야 하므로 네임 스페이스를 만들어야 합니다. 를 `--save-config` 통해 네임 스페이스를 만들 때 옵션을 사용 하 여 `kubectl create` 나중에 istio 설치 관리자가이 개체에서 실행 될 수 있도록 해야 `kubectl apply` 합니다.
 
 ```console
 kubectl create namespace istio-system --save-config
@@ -101,7 +100,7 @@ Istio에 대 한 [투구][helm] 설치 접근 방식은 나중에 사용 되지 
 >
 > 이제 AKS의 모든 Kubernetes 1.13 이상 버전에 대 한 [서비스 계정 토큰 Volume 프로젝션][kubernetes-feature-sa-projected-volume] Kubernetes 기능 (SDS에 대 한 요구 사항)이 **활성화** 됩니다.
 
-다음 콘텐츠를 사용 `istio.aks.yaml` 하 여 라는 파일을 만듭니다. 이 파일은 Istio를 구성 하기 위한 [istio 제어 평면 사양][istio-control-plane] 세부 정보를 포함 합니다.
+`istio.aks.yaml`다음 콘텐츠를 사용 하 여 라는 파일을 만듭니다. 이 파일은 Istio를 구성 하기 위한 [istio 제어 평면 사양][istio-control-plane] 세부 정보를 포함 합니다.
 
 ```yaml
 apiVersion: install.istio.io/v1alpha2
@@ -134,7 +133,7 @@ spec:
       enabled: true
 ```
 
-`istioctl apply` 명령과 위의 `istio.aks.yaml` istio 제어 평면 사양 파일을 사용 하 여 istio를 다음과 같이 설치 합니다.
+`istioctl apply`명령과 위의 `istio.aks.yaml` istio 제어 평면 사양 파일을 사용 하 여 istio를 다음과 같이 설치 합니다.
 
 ```console
 istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
@@ -239,7 +238,7 @@ service/istio-ingressgateway created
 
 ## <a name="validate-the-istio-installation"></a>Istio 설치 유효성 검사
 
-먼저 예상 서비스가 만들어졌는지 확인합니다. [kubectl get svc][kubectl-get] 명령을 사용하여 실행 중인 서비스를 봅니다. Istio `istio-system` 및 추가 기능 구성 요소가 `istio` 투구 차트에서 설치 된 네임 스페이스를 쿼리 합니다.
+먼저 예상 서비스가 만들어졌는지 확인합니다. [kubectl get svc][kubectl-get] 명령을 사용하여 실행 중인 서비스를 봅니다. `istio-system`Istio 및 추가 기능 구성 요소가 투구 차트에서 설치 된 네임 스페이스를 쿼리 합니다 `istio` .
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -248,7 +247,7 @@ kubectl get svc --namespace istio-system --output wide
 다음 예제 출력에서는 실행되어야 하는 서비스를 보여줍니다.
 
 - `istio-*` 서비스
-- `jaeger-*`, `tracing`및 `zipkin` 추가 기능 추적 서비스
+- `jaeger-*`, `tracing` 및 `zipkin` 추가 기능 추적 서비스
 - `prometheus`추가 기능 메트릭 서비스
 - `grafana`추가 기능 분석 및 모니터링 대시보드 서비스
 - `kiali`추가 기능 서비스 메시 대시보드 서비스
@@ -274,7 +273,7 @@ tracing                  ClusterIP      10.0.249.95    <none>           9411/TCP
 zipkin                   ClusterIP      10.0.154.89    <none>           9411/TCP                                                                                                                     94s   app=jaeger
 ```
 
-다음으로 필요한 Pod가 만들어졌는지 확인합니다. [Kubectl get pod][kubectl-get] 명령을 사용 하 여 네임 스페이스를 `istio-system` 다시 쿼리 합니다.
+다음으로 필요한 Pod가 만들어졌는지 확인합니다. [Kubectl get pod][kubectl-get] 명령을 사용 하 여 네임 스페이스를 다시 쿼리 합니다 `istio-system` .
 
 ```console
 kubectl get pods --namespace istio-system
@@ -282,10 +281,10 @@ kubectl get pods --namespace istio-system
 
 다음 예제 출력에서는 실행 중인 Pod을 보여줍니다.
 
-- `istio-*` pod
-- `prometheus-*` 추가 기능 메트릭 pod
-- `grafana-*` 추가 기능 분석 및 모니터링 대시보드 pod
-- `kiali` 추가 기능 서비스 메시 대시보드 pod
+- `istio-*`pod
+- `prometheus-*`추가 기능 메트릭 pod
+- `grafana-*`추가 기능 분석 및 모니터링 대시보드 pod
+- `kiali`추가 기능 서비스 메시 대시보드 pod
 
 ```console
 NAME                                          READY   STATUS    RESTARTS   AGE
@@ -302,7 +301,7 @@ kiali-59b7fd7f68-92zrh                        1/1     Running   0          95s
 prometheus-7c7cf9dbd6-rjxcv                   1/1     Running   0          94s
 ```
 
-모든 pod의 상태를 표시 해야 합니다 `Running`. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고하는 경우 [kubectl describe pod][kubectl-describe] 명령을 사용하여 출력과 상태를 검토합니다.
+모든 pod의 상태를 표시 해야 합니다 `Running` . Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고하는 경우 [kubectl describe pod][kubectl-describe] 명령을 사용하여 출력과 상태를 검토합니다.
 
 ## <a name="accessing-the-add-ons"></a>추가 항목 액세스
 
@@ -359,7 +358,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### <a name="remove-istio-components-and-namespace"></a>Istio 구성 요소 및 네임 스페이스 제거
 
-AKS 클러스터에서 Istio를 제거 하려면 `istioctl manifest generate` `istio.aks.yaml` istio 제어 평면 사양 파일과 함께 명령을 사용 합니다. 그러면 설치 된 모든 구성 요소와 `kubectl delete` `istio-system` 네임 스페이스를 제거 하기 위해 파이프 하는 배포 된 매니페스트가 생성 됩니다.
+AKS 클러스터에서 Istio를 제거 하려면 `istioctl manifest generate` `istio.aks.yaml` istio 제어 평면 사양 파일과 함께 명령을 사용 합니다. 그러면 `kubectl delete` 설치 된 모든 구성 요소와 네임 스페이스를 제거 하기 위해 파이프 하는 배포 된 매니페스트가 생성 됩니다 `istio-system` .
 
 ```console
 istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 

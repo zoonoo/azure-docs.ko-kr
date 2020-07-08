@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811345"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
@@ -59,7 +58,7 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
     ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. 새 **클라우드 서비스** 창에서 **DNS 이름**의 값을 입력합니다.
 4. 새 리소스 그룹을 만들거나 기존 **리소스 그룹** 을 선택 합니다.
-5. **위치**를 선택 합니다.
+5. **위치**를 선택합니다.
 6. **패키지**를 클릭합니다. **패키지 업로드** 창에서 열립니다. 필수 필드를 입력합니다. 역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 가 선택되어 있어야 합니다.
 7. **배포 시작** 이 선택되어 있는지 확인합니다.
 8. **확인**을 클릭하면 **패키지 업로드** 창이 닫힙니다.
@@ -88,7 +87,7 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
-* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
+* [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
 

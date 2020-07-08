@@ -12,21 +12,20 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882134"
 ---
 # <a name="single-page-application-call-a-web-api"></a>단일 페이지 응용 프로그램: web API 호출
 
-웹 API를 호출 하기 전에 `acquireTokenSilent` 메서드를 호출 하 여 액세스 토큰을 얻거나 갱신 하는 것이 좋습니다. 토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다.
+`acquireTokenSilent`웹 API를 호출 하기 전에 메서드를 호출 하 여 액세스 토큰을 얻거나 갱신 하는 것이 좋습니다. 토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다.
 
 ## <a name="call-a-web-api"></a>웹 API 호출
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Microsoft Graph API와 같은 웹 API를 호출 하는 HTTP 요청에서 전달자로 획득 된 액세스 토큰을 사용 합니다. 예를 들면 다음과 같습니다.
+Microsoft Graph API와 같은 웹 API를 호출 하는 HTTP 요청에서 전달자로 획득 된 액세스 토큰을 사용 합니다. 예를 들어:
 
 ```javascript
     var headers = new Headers();
@@ -53,4 +52,4 @@ MSAL 각도 래퍼는 HTTP 인터셉터를 활용 하 여 자동으로 액세스
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [프로덕션 환경으로 이동](scenario-spa-production.md)
+> [프로덕션으로 이동](scenario-spa-production.md)

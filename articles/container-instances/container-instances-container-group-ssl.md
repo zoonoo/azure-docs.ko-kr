@@ -4,10 +4,9 @@ description: 사이드카 컨테이너에서 Nginx를 실행 하 여 Azure Conta
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80984609"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 TLS 끝점 사용
@@ -40,25 +39,25 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 프롬프트에 따라 식별 정보를 추가 합니다. 일반 이름에 인증서와 연결 된 호스트 이름을 입력 합니다. 암호를 입력 하 라는 메시지가 표시 되 면 입력 하지 않고 Enter 키를 눌러 암호 추가를 건너뜁니다.
 
-다음 명령을 실행 하 여 인증서 요청에서 자체 서명 된 인증서 (.crt 파일)를 만듭니다. 다음은 그 예입니다.
+다음 명령을 실행 하 여 인증서 요청에서 자체 서명 된 인증서 (.crt 파일)를 만듭니다. 예를 들어:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-이제 디렉터리에 인증서 요청 (`ssl.csr`), 개인 키 (`ssl.key`) 및 자체 서명 된 인증서 (`ssl.crt`) 라는 세 개의 파일이 표시 됩니다. 이후 단계 `ssl.key` 에서 `ssl.crt` 및를 사용 합니다.
+이제 디렉터리에 인증서 요청 ( `ssl.csr` ), 개인 키 ( `ssl.key` ) 및 자체 서명 된 인증서 () 라는 세 개의 파일이 표시 됩니다 `ssl.crt` . `ssl.key` `ssl.crt` 이후 단계에서 및를 사용 합니다.
 
 ## <a name="configure-nginx-to-use-tls"></a>TLS를 사용 하도록 Nginx 구성
 
 ### <a name="create-nginx-configuration-file"></a>Nginx 구성 파일 만들기
 
-이 섹션에서는 TLS를 사용 하기 위해 Nginx에 대 한 구성 파일을 만듭니다. 이라는 `nginx.conf`새 파일에 다음 텍스트를 복사 하 여 시작 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용 하 여 작업 디렉터리에 파일을 만들 수 있습니다.
+이 섹션에서는 TLS를 사용 하기 위해 Nginx에 대 한 구성 파일을 만듭니다. 이라는 새 파일에 다음 텍스트를 복사 하 여 시작 `nginx.conf` 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용하여 작업 디렉터리에 파일을 만들 수 있습니다.
 
 ```console
 code nginx.conf
 ```
 
-에서 `location`를 앱에 대 한 `proxy_pass` 올바른 포트로 설정 해야 합니다. 이 예제에서는 `aci-helloworld` 컨테이너에 대해 80 포트를 설정 합니다.
+에서를 `location` `proxy_pass` 앱에 대 한 올바른 포트로 설정 해야 합니다. 이 예제에서는 컨테이너에 대해 80 포트를 설정 `aci-helloworld` 합니다.
 
 ```console
 # nginx Configuration File
@@ -138,13 +137,13 @@ cat ssl.key | base64 > base64-ssl.key
 
 ### <a name="create-yaml-file"></a>YAML 파일 만들기
 
-다음 YAML을 이라는 `deploy-aci.yaml`새 파일에 복사 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용 하 여 작업 디렉터리에 파일을 만들 수 있습니다.
+다음 YAML을 이라는 새 파일에 복사 `deploy-aci.yaml` 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용하여 작업 디렉터리에 파일을 만들 수 있습니다.
 
 ```console
 code deploy-aci.yaml
 ```
 
-에 표시 된 base64 인코딩 파일의 내용을 입력 합니다 `secret`. 예를 들어 `cat` 각 base64 인코딩 파일은 해당 내용을 볼 수 있습니다. 배포 하는 동안 이러한 파일은 컨테이너 그룹의 [비밀 볼륨](container-instances-volume-secret.md) 에 추가 됩니다. 이 예제에서는 비밀 볼륨이 Nginx 컨테이너에 탑재 됩니다.
+에 표시 된 base64 인코딩 파일의 내용을 입력 합니다 `secret` . 예를 들어 `cat` 각 base64 인코딩 파일은 해당 내용을 볼 수 있습니다. 배포 하는 동안 이러한 파일은 컨테이너 그룹의 [비밀 볼륨](container-instances-volume-secret.md) 에 추가 됩니다. 이 예제에서는 비밀 볼륨이 Nginx 컨테이너에 탑재 됩니다.
 
 ```YAML
 api-version: 2018-10-01
@@ -193,7 +192,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>컨테이너 그룹 배포
 
-[Az group create](/cli/azure/group#az-group-create) 명령을 사용 하 여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -207,7 +206,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>배포 상태 확인
 
-배포 상태를 확인하려면 [az container show](/cli/azure/container#az-container-show) 명령을 사용합니다.
+배포 상태를 확인하려면 다음 [az container show](/cli/azure/container#az-container-show) 명령을 사용합니다.
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
@@ -223,7 +222,7 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-tls-connection"></a>TLS 연결 확인
 
-브라우저를 사용 하 여 컨테이너 그룹의 공용 IP 주소로 이동 합니다. 이 예제 `52.157.22.76`에 표시 된 IP 주소는 이므로 URL은 **https://52.157.22.76**입니다. Nginx 서버 구성으로 인해 실행 중인 응용 프로그램을 보려면 HTTPS를 사용 해야 합니다. HTTP를 통한 연결 시도가 실패 합니다.
+브라우저를 사용 하 여 컨테이너 그룹의 공용 IP 주소로 이동 합니다. 이 예제에 표시 된 IP 주소는 이므로 `52.157.22.76` URL은 **https://52.157.22.76** 입니다. Nginx 서버 구성으로 인해 실행 중인 응용 프로그램을 보려면 HTTPS를 사용 해야 합니다. HTTP를 통한 연결 시도가 실패 합니다.
 
 ![Azure 컨테이너 인스턴스에서 실행되는 애플리케이션을 보여주는 브라우저 스크린샷](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 

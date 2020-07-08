@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
 ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80810238"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 애플리케이션 게이트웨이 기능
@@ -153,7 +152,7 @@ Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](.
 
 다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 v1 인스턴스의 평균 성능 처리량을 보여줍니다.
 
-| 평균 백 엔드 페이지 응답 크기 | 작음 | 보통 | 큰 |
+| 평균 백 엔드 페이지 응답 크기 | 소형 | 중간 | 대형 |
 | --- | --- | --- | --- |
 | 6KB |7.5Mbps |13Mbps |50Mbps |
 | 100KB |35Mbps |100Mbps |200Mbps |

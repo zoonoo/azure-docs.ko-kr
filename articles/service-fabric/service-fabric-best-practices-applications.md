@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
 ms.openlocfilehash: 56df6e28940eb15597a3d6bccca3f85e5f690f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991657"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric 응용 프로그램 디자인 모범 사례
@@ -32,7 +31,7 @@ Service Fabric 응용 프로그램의 [일반적인 아키텍처](https://docs.m
 - [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview) [Service Fabric와 통합](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management)됩니다.
 - [ServiceFabricProcessor](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.ServiceFabricProcessor) 를 사용 하 여 이벤트 허브 파티션에서 읽는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 - [Træfik 역방향 프록시](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)를 사용 하 여 [Azure Service Fabric 공급자](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/)를 사용 합니다.
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
+- [Azure 애플리케이션 게이트웨이입니다](https://docs.microsoft.com/azure/application-gateway/).
 
    > [!NOTE] 
    > Azure 애플리케이션 게이트웨이는 Service Fabric와 직접 통합 되지 않습니다. Azure API Management은 일반적으로 선호 되는 옵션입니다.
@@ -57,9 +56,9 @@ Service Fabric 응용 프로그램의 [일반적인 아키텍처](https://docs.m
 
 ## <a name="how-to-work-with-reliable-services"></a>Reliable Services로 작업 하는 방법
 Service Fabric Reliable Services를 사용 하면 상태 비저장 및 상태 저장 서비스를 쉽게 만들 수 있습니다. 자세한 내용은 [Reliable Services 소개](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction)를 참조 하세요.
-- 상태 비저장 및 상태 저장 서비스와 `RunAsync()` `ChangeRole()` 상태 저장 서비스에 대 한 메서드에는 항상 [취소 토큰](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) 을 적용 합니다. 그렇지 않은 경우에는 Service Fabric 서비스를 닫을 수 있는지 알 수 없습니다. 예를 들어 취소 토큰을 고려 하지 않는 경우 훨씬 긴 응용 프로그램 업그레이드 시간이 발생할 수 있습니다.
+- 상태 비저장 및 [cancellation token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) 상태 저장 `RunAsync()` 서비스와 `ChangeRole()` 상태 저장 서비스에 대 한 메서드에는 항상 취소 토큰을 적용 합니다. 그렇지 않은 경우에는 Service Fabric 서비스를 닫을 수 있는지 알 수 없습니다. 예를 들어 취소 토큰을 고려 하지 않는 경우 훨씬 긴 응용 프로그램 업그레이드 시간이 발생할 수 있습니다.
 -    적시에 [통신 수신기](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) 를 열고 닫고 취소 토큰을 적용 합니다.
--    동기화 코드와 비동기 코드를 혼합 하지 마세요. 예를 들어 비동기 호출 `.GetAwaiter().GetResult()` 에는를 사용 하지 마세요. 호출 스택을 통해 비동기 *방식으로 비동기를* 사용 합니다.
+-    동기화 코드와 비동기 코드를 혼합 하지 마세요. 예를 들어 비동기 호출에는를 사용 하지 마세요 `.GetAwaiter().GetResult()` . 호출 스택을 통해 비동기 *방식으로 비동기를* 사용 합니다.
 
 ## <a name="how-to-work-with-reliable-actors"></a>Reliable Actors로 작업 하는 방법
 Service Fabric Reliable Actors를 사용 하면 상태 저장 가상 행위자를 쉽게 만들 수 있습니다. 자세한 내용은 [Reliable Actors 소개](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction)를 참조 하세요.
@@ -70,14 +69,14 @@ Service Fabric Reliable Actors를 사용 하면 상태 저장 가상 행위자�
 - 이러한 [동시성 기반 동시성](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)때문에 행위자는 독립적 개체로 사용 되는 것이 가장 좋습니다. 다중 행위자, 동기 메서드 호출 (각각 별도의 네트워크 호출이 될 가능성이 높음)의 그래프를 만들지 않거나 순환 행위자 요청을 만듭니다. 이러한 기능은 성능 및 확장성에 큰 영향을 줍니다.
 - 동기화 코드와 비동기 코드를 혼합 하지 마세요. 비동기를 일관 되 게 사용 하 여 성능 문제를 방지 합니다.
 - 행위자에서 장기 실행 호출을 수행 하지 마세요. 장기 실행 호출은 턴 기반 동시성 때문에 동일한 행위자에 대 한 다른 호출을 차단 합니다.
-- [Service Fabric 원격](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) 기능을 사용 하 여 다른 서비스와 통신 하 고를 `ServiceProxyFactory`만드는 경우 행위자 수준이 *아닌* [행위자 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) 수준에서 팩터리를 만듭니다.
+- [Service Fabric 원격](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) 기능을 사용 하 여 다른 서비스와 통신 하 고를 만드는 경우 행위자 `ServiceProxyFactory` 수준이 *아닌* [행위자 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) 수준에서 팩터리를 만듭니다.
 
 
 ## <a name="application-diagnostics"></a>애플리케이션 진단
 서비스 호출에서 [응용 프로그램 로깅](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) 추가에 대해 자세히 알아봅니다. 서비스가 서로를 호출 하는 시나리오를 진단 하는 데 도움이 됩니다. 예를 들어 A가 B를 호출 하는 경우 C를 호출 하면 모든 위치에서 호출이 실패할 수 있습니다. 충분 한 로깅이 없으면 오류를 진단 하기 어렵습니다. 호출 볼륨으로 인해 서비스가 너무 많이 로깅 되는 경우에는 적어도 오류 및 경고 로그를 기록해 야 합니다.
 
 ## <a name="iot-and-messaging-applications"></a>IoT 및 메시징 응용 프로그램
-[Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)에서 메시지를 읽는 경우 [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor)를 사용 합니다. ServiceFabricProcessor는 Service Fabric Reliable Services와 통합 되어 이벤트 허브 파티션에서 읽기 상태를 유지 하 고 메서드를 `IEventProcessor::ProcessEventsAsync()` 통해 새 메시지를 서비스로 푸시합니다.
+[Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)에서 메시지를 읽는 경우 [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor)를 사용 합니다. ServiceFabricProcessor는 Service Fabric Reliable Services와 통합 되어 이벤트 허브 파티션에서 읽기 상태를 유지 하 고 메서드를 통해 새 메시지를 서비스로 푸시합니다 `IEventProcessor::ProcessEventsAsync()` .
 
 
 ## <a name="design-guidance-on-azure"></a>Azure에 대 한 디자인 지침

@@ -7,10 +7,9 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114317"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 방식 이해
@@ -93,7 +92,7 @@ ms.locfileid: "81114317"
 - 관찰 된 쓰기 대기 시간
 - 서비스 가용성
 - 스토리지 용량
-- 제한 된 요청
+- 제한된 요청
 - 총 요청 수
 
 초당 평균 요청, 일관성 수준, 분당 사용 된 최대 RUPM, 초당 최대 RUs, 관찰 된 읽기 대기 시간, 관찰 된 쓰기 대기 시간, 관찰 된 쓰기 대기 시간, 현재 [새 시스템](metrics-supported.md#microsoftdocumentdbdatabaseaccounts)에서 저장소 용량을 사용할 수 없습니다.
@@ -115,18 +114,18 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
-| Microsoft .SQL/servers/databases | service_level_objective, storage_limit, storage_used, 제한, dtu_consumption_percent, storage_used |
+| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, 제한, dtu_consumption_percent, storage_used |
 | Microsoft 웹/hostingEnvironments/multirolepools | averagememoryworkingset |
 | Microsoft 웹/hostingEnvironments/작업자 풀 | bytesreceived, httpqueuelength |
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>새 경고 규칙 및 작업 그룹을 만드는 방법
 
-마이그레이션 도구는 기존 경고 규칙을 동등한 새 경고 규칙 및 작업 그룹으로 변환 합니다. 대부분의 기존 경고 규칙의 경우, 같은 속성을 갖는 동일한 메트릭이 `windowSize` 및 `aggregationType`와 동일 합니다. 그러나 기존 경고 규칙은 새 시스템에서 동등한 다른 메트릭을 가진 메트릭에 있습니다. 다음 원칙은 아래 섹션에 지정 된 경우를 제외 하 고 클래식 경고 마이그레이션에 적용 됩니다.
+마이그레이션 도구는 기존 경고 규칙을 동등한 새 경고 규칙 및 작업 그룹으로 변환 합니다. 대부분의 기존 경고 규칙의 경우, 같은 속성을 갖는 동일한 메트릭이 및와 동일 합니다 `windowSize` `aggregationType` . 그러나 기존 경고 규칙은 새 시스템에서 동등한 다른 메트릭을 가진 메트릭에 있습니다. 다음 원칙은 아래 섹션에 지정 된 경우를 제외 하 고 클래식 경고 마이그레이션에 적용 됩니다.
 
-- **빈도**: 기존 또는 새 경고 규칙에서 조건에 대해 확인 하는 빈도를 정의 합니다. 클래식 `frequency` 경고 규칙의은 사용자가 구성할 수 없으며, 1 분 이었던 Application Insights 구성 요소를 제외 하 고 모든 리소스 유형에 대해 항상 5 분 이었습니다. 따라서 동등 규칙의 빈도는 각각 5 분에서 1 분으로 설정 됩니다.
-- **집계 유형**: 대상 창에서 메트릭을 집계 하는 방법을 정의 합니다. 또한 `aggregationType` 는 기존 경고와 대부분의 메트릭에 대 한 새 경고 사이에서 동일 합니다. 일부 경우에는 메트릭이 기존 경고와 새 경고 간에 차이가 있으므로 해당 `aggregationType` 메트릭에 대해 정의 된 `primary Aggregation Type` 또는가 사용 됩니다.
+- **빈도**: 기존 또는 새 경고 규칙에서 조건에 대해 확인 하는 빈도를 정의 합니다. `frequency`클래식 경고 규칙의은 사용자가 구성할 수 없으며, 1 분 이었던 Application Insights 구성 요소를 제외 하 고 모든 리소스 유형에 대해 항상 5 분 이었습니다. 따라서 동등 규칙의 빈도는 각각 5 분에서 1 분으로 설정 됩니다.
+- **집계 유형**: 대상 창에서 메트릭을 집계 하는 방법을 정의 합니다. `aggregationType`또한는 기존 경고와 대부분의 메트릭에 대 한 새 경고 사이에서 동일 합니다. 일부 경우에는 메트릭이 기존 경고와 새 경고 간에 차이가 있으므로 해당 `aggregationType` `primary Aggregation Type` 메트릭에 대해 정의 된 또는가 사용 됩니다.
 - **Units**: 경고가 생성 되는 메트릭의 속성입니다. 이와 동등한 메트릭에는 단위가 다릅니다. 필요에 따라 임계값을 적절 하 게 조정 합니다. 예를 들어 원래 메트릭에 시간 (초)이 있고 해당 하는 새 메트릭은 단위 밀리초 인 경우 원래 임계값에 1000을 곱하여 동일한 동작을 보장 합니다.
-- **창 크기**: 임계값과 비교할 메트릭 데이터를 집계 하는 기간을 정의 합니다. 5 분 `windowSize` , 15 분, 30 분, 1 시간, 3 시간, 6 시간, 12 시간, 1 일 같은 표준 값의 경우 해당 하는 새 경고 규칙에 대 한 변경 내용이 없습니다. 다른 값의 경우 가장 가까운 `windowSize` 를 사용 하도록 선택 합니다. 대부분의 고객에 게는이 변경 내용에 영향을 주지 않습니다. 소수의 고객에 게는 정확히 동일한 동작을 얻기 위해 임계값을 조정 해야 할 수 있습니다.
+- **창 크기**: 임계값과 비교할 메트릭 데이터를 집계 하는 기간을 정의 합니다. `windowSize`5 분, 15 분, 30 분, 1 시간, 3 시간, 6 시간, 12 시간, 1 일 같은 표준 값의 경우 해당 하는 새 경고 규칙에 대 한 변경 내용이 없습니다. 다른 값의 경우 가장 가까운를 `windowSize` 사용 하도록 선택 합니다. 대부분의 고객에 게는이 변경 내용에 영향을 주지 않습니다. 소수의 고객에 게는 정확히 동일한 동작을 얻기 위해 임계값을 조정 해야 할 수 있습니다.
 
 다음 섹션에서는 새 시스템에서 동등한 다른 메트릭을 가진 메트릭에 대해 자세히 설명 합니다. 클래식 및 새 경고 규칙에 대해 동일 하 게 유지 되는 메트릭은 나열 되지 않습니다. 새 시스템에서 지원 되는 메트릭 목록은 [여기](metrics-supported.md)에서 찾을 수 있습니다.
 
@@ -134,7 +133,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 다음과 같은 메트릭이 다음과 같이 동등한 메트릭에 매핑됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| "ResponseType" = "AuthorizationError" 및 "Authentication" = "Anonymous" 차원이 포함 된 트랜잭션 메트릭| |
 | AnonymousClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 및 "Authentication" = "Anonymous" 인 트랜잭션 메트릭 | |
@@ -146,12 +145,12 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 | AuthorizationError | 차원이 "ResponseType" = "AuthorizationError" 인 트랜잭션 메트릭 | |
 | AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| 용량 | BlobCapacity | ' `aggregationType` Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
+| 용량 | BlobCapacity | `aggregationType`' Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
 | ClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 인 트랜잭션 메트릭  | |
 | ClientTimeoutError | 차원이 "ResponseType" = "ClientTimeOutError" 인 트랜잭션 메트릭 | |
-| ContainerCount | ContainerCount | ' `aggregationType` Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
+| ContainerCount | ContainerCount | `aggregationType`' Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
 | NetworkError | 차원이 "ResponseType" = "NetworkError" 인 트랜잭션 메트릭 | |
-| ObjectCount | BlobCount| ' `aggregationType` Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
+| ObjectCount | BlobCount| `aggregationType`' Last ' 대신 ' average '를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
 | SASAuthorizationError | "ResponseType" = "AuthorizationError" 및 "Authentication" = "SAS" 차원이 포함 된 트랜잭션 메트릭 | |
 | SASClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 및 "Authentication" = "SAS" 인 트랜잭션 메트릭 | |
 | SASClientTimeOutError | "ResponseType" = "ClientTimeOutError" 및 "Authentication" = "SAS" 차원이 포함 된 트랜잭션 메트릭 | |
@@ -171,7 +170,7 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 
 Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
 |--------------------------|---------------------------------|---------|
 | availabilityMetric | availabilityResults/availabilityPercentage|   |
 | Durationmetric.value | availabilityResults/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
@@ -193,7 +192,7 @@ Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 | requests_in_application_queue. 값 | performanceCounters/requestsInQueue|   |
 | requests_per_sec. 값 | performanceCounters/requestsPerSecond|   |
 | 요청. 기간 | requests/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
-| 요청 요금 | 요청/요금|   |
+| 요청 요금 | 요청/속도|   |
 | requestFailed | requests/failed| ' `aggregationType` Sum ' 대신 ' count '를 사용 합니다.   |
 | 보기 수 | pageViews/count| ' `aggregationType` Sum ' 대신 ' count '를 사용 합니다.   |
 
@@ -201,7 +200,7 @@ Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
 Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
 | 데이터 크기 | DataUsage| |
@@ -210,11 +209,11 @@ Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 | Mongo 수 요청 요금| 차원이 "CommandName" = "count" 인 MongoRequestCharge||
 | Mongo 수 요청 빈도 | 차원이 "CommandName" = "count" 인 MongoRequestsCount||
 | Mongo 삭제 요청 요금 | 차원이 "CommandName" = "delete" 인 MongoRequestCharge||
-| Mongo 삭제 요청 빈도 | 차원이 "CommandName" = "delete" 인 MongoRequestsCount||
+| Mongo 삭제 요청 속도 | 차원이 "CommandName" = "delete" 인 MongoRequestsCount||
 | Mongo 삽입 요청 요금 | 차원이 "CommandName" = "insert" 인 MongoRequestCharge||
-| Mongo 삽입 요청 빈도 | 차원이 "CommandName" = "insert" 인 MongoRequestsCount||
+| Mongo 삽입 요청 속도 | 차원이 "CommandName" = "insert" 인 MongoRequestsCount||
 | Mongo 쿼리 요청 요금 | 차원이 "CommandName" = "find" 인 MongoRequestCharge||
-| Mongo 쿼리 요청 빈도 | 차원이 "CommandName" = "find" 인 MongoRequestsCount||
+| Mongo 쿼리 요청 속도 | 차원이 "CommandName" = "find" 인 MongoRequestsCount||
 | Mongo 업데이트 요청 요금 | 차원이 "CommandName" = "update" 인 MongoRequestCharge||
 | 서비스를 사용할 수 없음| ServiceAvailability||
 | TotalRequestUnits | TotalRequestUnits||
@@ -245,8 +244,8 @@ Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 - */read
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
-- MetricAlerts/*
-- AlertsManagement/smartDetectorAlertRules/*
+- Microsoft.Insights/metricAlerts/*
+- Microsoft.AlertsManagement/smartDetectorAlertRules/*
 
 > [!NOTE]
 > 위의 권한 외에도 구독을 AlertsManagement 리소스 공급자에 등록 해야 합니다. Application Insights에서 실패 이상 경고를 성공적으로 마이그레이션하려면이 작업이 필요 합니다. 
