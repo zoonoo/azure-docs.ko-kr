@@ -4,18 +4,18 @@ description: Azure CLI를 사용하여 기존 Azure 가상 네트워크에 Linux
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611699"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
 이 문서에서는 Azure CLI 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에
 
@@ -33,17 +33,17 @@ ms.locfileid: "81411019"
 
 Ubuntu 16.04 LTS의 경우:
 
-* [AzureDeploy. json][template]
-* [AzureDeploy. Parameters. json][parameters]
+* [AzureDeploy.js][template]
+* [AzureDeploy.Parameters.js][parameters]
 
 Ubuntu 18.04 LTS의 경우:
 
-* [AzureDeploy. json][template2]
-* [AzureDeploy. Parameters. json][parameters2]
+* [AzureDeploy.js][template2]
+* [AzureDeploy.Parameters.js][parameters2]
 
 두 템플릿의 차이점은 **vmImageSku** 특성은 "18.04-lts"로 설정 되 고 각 노드의 **typehandlerversion** 은 1.1로 설정 됩니다.
 
-이 템플릿은 7개 가상 머신 및 3개 노드 유형의 보안 클러스터를 가상 네트워크에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다. [Azuredeploy. json][template] 은 다음을 비롯 한 숫자 리소스를 배포 합니다.
+이 템플릿은 7개 가상 머신 및 3개 노드 유형의 보안 클러스터를 가상 네트워크에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다. [에 대 한AzureDeploy.js][template] 는 다음과 같은 숫자 리소스를 배포 합니다.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
 
@@ -54,8 +54,8 @@ Ubuntu 18.04 LTS의 경우:
 * OS: (Ubuntu 16.04 LTS/Ubuntu 18.04 LTS) (템플릿 매개 변수에서 구성 가능)
 * 보안된 인증서(템플릿 매개 변수에서 구성 가능)
 * [DNS 서비스](service-fabric-dnsservice.md) 사용
-* 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (템플릿 매개 변수에서 구성 가능)
-* 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (템플릿 매개 변수에서 구성 가능)
+* 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) (템플릿 매개 변수에서 구성 가능)
+* 실버의 [안정성 수준](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) (템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 
@@ -81,7 +81,7 @@ Ubuntu 18.04 LTS의 경우:
 
 **Azuredeploy. Parameters** 파일은 클러스터와 연결 된 리소스를 배포 하는 데 사용 되는 많은 값을 선언 합니다. 배포에 대해 수정이 필요할 수도 있는 매개 변수 중 일부는 다음과 같습니다.
 
-|매개 변수|예제 값|메모|
+|매개 변수|예제 값|참고|
 |---|---||
 |adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. |
 |adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다.|

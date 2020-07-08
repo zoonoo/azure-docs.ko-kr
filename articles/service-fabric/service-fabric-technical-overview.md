@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611733"
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 
@@ -116,7 +116,7 @@ Naming Service와 함께 작동 하는 클라이언트 및 서비스 통신 Api�
 
 **복구 관리자 서비스**: 자동화 가능한 방식으로 안전하고 투명하며 클러스터에서 복구 작업을 수행할 수 있도록 하는 선택적 시스템 서비스입니다. 복구 관리자는:
 
-   - [실버 및 골드 내구성](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric 클러스터에서 Azure 유지 관리 복구를 수행하는 데 사용됩니다.
+   - [실버 및 골드 내구성](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Azure Service Fabric 클러스터에서 Azure 유지 관리 복구를 수행하는 데 사용됩니다.
    - [패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application.md)에 대한 복구 작업을 수행하는 데 사용됩니다.
 
 ## <a name="deployment-and-application-models"></a>배포 및 애플리케이션 모델
@@ -141,7 +141,7 @@ Service Fabric에서 기존 애플리케이션을 실행할 수도 있습니다.
 
 **컨테이너**: Service Fabric은 Linux에서 Docker 컨테이너의 배포를 지원하고 Hyper-V 격리 모드에 대한 지원과 함께 Windows Server 2016에서 Windows Server 컨테이너의 배포를 지원합니다. Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)에서 컨테이너는 여러 서비스 복제본이 배치 되는 응용 프로그램 호스트를 나타냅니다. Service Fabric은 모든 컨테이너를 실행할 수 있으며 시나리오는 컨테이너 내에서 기존 애플리케이션을 패키지하는 게스트 실행 가능한 시나리오와 비슷합니다. 또한 [컨테이너 내에서 Service Fabric 서비스를 실행할](service-fabric-services-inside-containers.md) 수 있습니다.
 
-**게스트 실행 파일**: Azure Service Fabric의 Node.js, Python, Java 또는 c + +와 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 상태 비저장 서비스로 처리되는 게스트 실행 파일이라고 합니다. Service Fabric 클러스터에서 게스트 실행 파일을 실행하는 이점에는 고가용성, 상태 모니터링, 애플리케이션 수명 주기 관리, 고밀도 및 검색 기능이 있습니다.
+**게스트 실행 파일**: Azure Service Fabric에서 서비스로 Node.js, Python, Java 또는 c + +와 같은 모든 종류의 코드를 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 상태 비저장 서비스로 처리되는 게스트 실행 파일이라고 합니다. Service Fabric 클러스터에서 게스트 실행 파일을 실행하는 이점에는 고가용성, 상태 모니터링, 애플리케이션 수명 주기 관리, 고밀도 및 검색 기능이 있습니다.
 
 자세한 내용은 [서비스에 대한 프로그래밍 모델 선택](service-fabric-choose-framework.md) 문서를 참조하세요.
 
@@ -165,14 +165,14 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 | 애플리케이션 유형 | 설명 방법 | Azure Service Fabric Mesh | Azure Service Fabric 클러스터(모든 OS)| 로컬 클러스터 | 독립 실행형 클러스터 |
 |---|---|---|---|---|---|
 | Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | 지원됨 |지원되지 않음 | Windows - 지원됨, Linux 및 Mac - 지원되지 않음 | Windows - 지원되지 않음 |
-|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | 지원되지 않음| 지원 여부|지원됨|Windows - 지원됨|
+|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | 지원되지 않음| 지원됨|지원 여부|Windows - 지원됨|
 
 다음 표에서는 다양한 애플리케이션 모델 및 Service Fabric에 대한 애플리케이션 모델의 도구에 대해 설명합니다.
 
 | 애플리케이션 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
-| Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원되지 않음 |지원되지 않음 | 지원됨 - Mesh 환경만 | 지원되지 않음|
-|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원 여부|지원 여부|지원 여부|지원됨|
+| Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원 안 함 |지원 안 함 | 지원됨 - Mesh 환경만 | 지원되지 않음|
+|Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원 여부|지원 여부|지원 여부|지원 여부|
 
 ## <a name="next-steps"></a>다음 단계
 

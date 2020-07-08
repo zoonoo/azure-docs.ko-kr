@@ -3,12 +3,12 @@ title: 로컬에서 Azure 함수 개발 및 실행
 description: Azure Functions에서 실행하기 전에 로컬 컴퓨터에서 Azure Functions를 코딩 및 테스트하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 835edcb94b294d93cab41ea51b88ac38db71d95e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef59c57bf4e2ba1684c3e3b43357efad0da9806f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74230642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829383"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -18,7 +18,7 @@ ms.locfileid: "74230642"
 
 로컬 컴퓨터에서 함수를 개발하는 방식은 [언어](supported-languages.md) 및 기본 도구에 따라 달라집니다. 다음 표에서 환경은 로컬 개발을 지원합니다.
 
-|환경                              |언어         |설명|
+|환경                              |언어         |Description|
 |-----------------------------------------|------------|---|
 |[Visual Studio Code](functions-develop-vs-code.md)| [C# (class library)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-create-first-function-powershell.md), [Python](functions-reference-python.md) | [VS Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)은 VS Code에 Functions 지원을 추가합니다. 핵심 도구가 필요합니다. 2.x 버전의 핵심 도구를 사용하면 Linux, MacOS 및 Windows에서 개발을 지원합니다. 자세한 내용은 [Visual Studio Code를 사용하여 첫 번째 함수 만들기](functions-create-first-function-vs-code.md)를 참조하세요. |
 | [명령 프롬프트 또는 터미널](functions-run-local.md) | [C# (class library)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-reference-powershell.md), [Python](functions-reference-python.md) | [Azure Functions Core Tools] 은 로컬 개발을 가능 하 게 하는 함수를 만들기 위한 핵심 런타임 및 템플릿을 제공 합니다. 버전 2.x는 Linux, MacOS 및 Windows에서 개발을 지원합니다. 모든 환경은 로컬 Functions 런타임에 대한 핵심 도구를 사용합니다. |
@@ -27,16 +27,16 @@ ms.locfileid: "74230642"
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-이러한 로컬 개발 환경 각각을 통해 함수 앱 프로젝트를 만들고 미리 정의된 함수 템플릿을 사용하여 새 함수를 만들 수 있습니다. 각각은 핵심 도구를 사용합니다. 다른 앱처럼 고유한 머신에서 실제 Functions 런타임에 대해 함수를 테스트하고 디버그할 수 있습니다. 이러한 환경 중 하나에서 Azure로 함수 앱 프로젝트를 게시할 수도 있습니다.  
+이러한 로컬 개발 환경 각각을 통해 함수 앱 프로젝트를 만들고 미리 정의된 함수 템플릿을 사용하여 새 함수를 만들 수 있습니다. 각각은 핵심 도구를 사용합니다. 다른 앱처럼 고유한 머신에서 실제 Functions 런타임에 대해 함수를 테스트하고 디버그할 수 있습니다. 이러한 환경 중 하나에서 Azure로 함수 앱 프로젝트를 게시할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 + Visual Studio 2019을 사용 하 여 컴파일된 c # 함수의 로컬 개발에 대해 자세히 알아보려면 [Visual studio를 사용 하 여 Azure Functions 개발](functions-develop-vs.md)을 참조 하세요.
-+ Mac, Linux 또는 Windows 컴퓨터에서 VS Code를 사용 하 여 함수의 로컬 개발에 대해 자세히 알아보려면 [VS Code에서 Azure Functions 배포](/azure/javascript/tutorial-vscode-serverless-node-01)를 참조 하세요.
++ Mac, Linux 또는 Windows 컴퓨터에서 VS Code를 사용 하 여 함수의 로컬 개발에 대해 자세히 알아보려면 [VS Code에서 Azure Functions 배포](/azure/developer/javascript/tutorial-vscode-serverless-node-01)를 참조 하세요.
 + 명령 프롬프트 또는 터미널에서 함수를 개발하는 방법에 대한 자세한 내용은 [Azure Functions 핵심 도구 작업](functions-run-local.md)을 참조하세요.
 
 <!-- LINKS -->
 
-[Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure Portal]: https://portal.azure.com
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

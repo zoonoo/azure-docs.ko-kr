@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801141"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>보안 강화를 위해 표준 계층으로 업그레이드
 
@@ -51,9 +51,9 @@ Security Center는 두 계층으로 제공됩니다.
 > [!NOTE]
 > 위협 방지 기능을 비롯 한 모든 Security Center 기능을 사용 하도록 설정 하려면 해당 하는 작업을 포함 하는 구독에 표준 가격 책정 계층을 적용 해야 합니다. 작업 영역에 대 한 가격 책정 구성은 just-in-time VM 액세스, 적응 응용 프로그램 제어 및 Azure 리소스에 대 한 네트워크 검색을 사용 하도록 설정 하지 않습니다. 
 >
-> 구독 수준 또는 리소스 수준에서 **Azure Storage 계정** 에 대해 위협 방지를 사용 하도록 설정할 수 있습니다.
-> 구독 수준 또는 리소스 수준에서 **AZURE SQL DATABASE SQL server** 에 대 한 위협 방지를 사용 하도록 설정할 수 있습니다.
-> 리소스 수준 에서만 **Azure Database for MariaDB/MySQL/PostgreSQL** 에 대 한 위협 방지를 사용 하도록 설정할 수 있습니다.
+> **Azure Storage 계정**에 대한 위협 방지는 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
+> **Azure SQL Database SQL 서버**에 대한 위협 방지는 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
+> **Azure Database for MariaDB/ MySQL/ PostgreSQL**에 대한 위협 방지는 리소스 수준에서만 사용하도록 설정할 수 있습니다.
 
 
 ## <a name="why-upgrade-to-standard"></a>표준으로 업그레이드 하는 이유
@@ -63,13 +63,15 @@ Security Center에서는 다음을 비롯하여 하이브리드 클라우드 작
 - **보안 경고** -고급 분석 및 Microsoft Intelligent Security Graph를 사용 하 여 진화 하는 사이버 공격에 대 한 경계를 가져옵니다. 기본 제공 행동 분석 및 Machine Learning을 활용하여 공격 및 제로 데이 익스플로잇을 식별할 수 있습니다. 또한 네트워크, 컴퓨터 및 클라우스 서비스에서 들어오는 공격 및 위반 후 활동을 모니터링할 수 있습니다. 대화형 도구 및 상황에 맞는 위협 인텔리전스를 사용하면 조사를 손쉽게 수행할 수 있습니다.
 - **가상 컴퓨터에 대 한 취약성 검색** -취약성 관리를 위한 업계의 가장 고급 솔루션을 제공 하는 모든 가상 컴퓨터에 스캐너를 쉽게 배포할 수 있습니다. Security Center 내에서 검색 결과를 직접 확인, 조사 및 재구성 합니다. 
 - **액세스 및 응용 프로그램 제어** -특정 워크 로드에 맞게 조정 된 machine learning powered 허용 목록 권장 사항을 적용 하 여 맬웨어 및 기타 원치 않는 응용 프로그램을 차단 합니다. Azure Vm의 관리 포트에 대 한 적시의 제어 된 액세스로 네트워크 공격 노출 영역을 줄입니다. 따라서 무차별 암호 대입 및 기타 네트워크 공격에 대 한 노출을 크게 줄일 수 있습니다.
-- **컨테이너 보안 기능** -컨테이너 화 된 환경에 대 한 취약성 관리 및 실시간 위협 방지의 혜택을 제공 합니다. 컨테이너 레지스트리 리소스를 사용 하도록 설정 하는 경우 모든 기능을 사용 하도록 설정할 때까지 최대 12 시간이 걸릴 수 있습니다.
+- **컨테이너 보안 기능** -컨테이너 화 된 환경에 대 한 취약성 관리 및 실시간 위협 방지의 혜택을 제공 합니다. 컨테이너 레지스트리 리소스를 사용 하도록 설정 하는 경우 모든 기능을 사용 하도록 설정할 때까지 최대 12 시간이 걸릴 수 있습니다. 요금은 연결 된 레지스트리에 푸시된 고유 컨테이너 이미지의 수를 기반으로 합니다. 이미지를 한 번 검색 한 후에는 수정 하 여 다시 푸시 하지 않는 한 다시 요금이 청구 되지 않습니다. 
+
+
 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 가격 책정 방식에 대해 알아보았습니다. 표준 계층의 향상 된 보안 및 고급 위협 방지에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [위협 보호 및 Azure Security Center](threat-protection.md)
+- [위협 방지 및 Azure Security Center](threat-protection.md)
 - [Just-in-time VM 액세스 제어](security-center-just-in-time.md)
 - [컨테이너 보안 개요](container-security.md)
 - [선택한 통화 및 해당 지역에 따라 가격 정보](https://azure.microsoft.com/pricing/details/security-center/)

@@ -8,22 +8,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 63097ac520f1d49098054d64ceae614036f59df3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807807"
 ---
-# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)에서 Office 365 그룹에 민감도 레이블 할당
+# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 그룹에 민감도 레이블 할당
 
-Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.protection.office.com/homepage) 에서 Office 365 그룹에 게시 한 민감도 레이블을 적용 하도록 지원 합니다. 민감도 레이블은 Outlook, Microsoft 팀, SharePoint 등의 서비스에서 그룹에 적용 됩니다. 이 기능은 현재 공개 미리 보기로 제공됩니다. Office 365 앱 지원에 대 한 자세한 내용은 [민감도 레이블에 대 한 office 365 지원](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels)을 참조 하세요.
+Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.protection.office.com/homepage) 에서 Office 365 그룹에 게시 한 민감도 레이블을 적용 하도록 지원 합니다. 민감도 레이블은 Outlook, Microsoft 팀, SharePoint 등의 서비스에서 그룹에 적용 됩니다. 이 기능은 현재 공개 GA에 있습니다. Office 365 앱 지원에 대 한 자세한 내용은 [민감도 레이블에 대 한 office 365 지원](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels)을 참조 하세요.
 
 > [!IMPORTANT]
 > 이 기능을 구성 하려면 Azure AD 조직에 활성 Azure Active Directory Premium P1 라이선스가 하나 이상 있어야 합니다.
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.p
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-이것으로 끝입니다. 기능을 사용 하도록 설정 했으며 게시 된 레이블을 그룹에 적용할 수 있습니다.
+이제 끝났습니다! 기능을 사용 하도록 설정 했으며 게시 된 레이블을 그룹에 적용할 수 있습니다.
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Azure Portal에서 새 그룹에 레이블 할당
 
@@ -104,7 +104,7 @@ Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.p
 
 ## <a name="using-classic-azure-ad-classifications"></a>클래식 Azure AD 분류 사용
 
-이 기능을 사용 하도록 설정 하면 그룹에 대 한 "클래식" 분류는 기존 그룹 및 사이트에만 표시 되며 민감도 레이블을 지원 하지 않는 앱에서 그룹을 만드는 경우에만 새 그룹에 사용 해야 합니다. 관리자는 필요한 경우 나중에 민감도 레이블로 변환할 수 있습니다. 클래식 분류는 Azure AD PowerShell의 `ClassificationList` 설정에 대 한 값을 정의 하 여 설정한 이전 분류입니다. 이 기능을 사용 하도록 설정 하면 그룹에 해당 분류가 적용 되지 않습니다.
+이 기능을 사용 하도록 설정 하면 그룹에 대 한 "클래식" 분류는 기존 그룹 및 사이트에만 표시 되며 민감도 레이블을 지원 하지 않는 앱에서 그룹을 만드는 경우에만 새 그룹에 사용 해야 합니다. 관리자는 필요한 경우 나중에 민감도 레이블로 변환할 수 있습니다. 클래식 분류는 `ClassificationList` AZURE AD PowerShell의 설정에 대 한 값을 정의 하 여 설정한 이전 분류입니다. 이 기능을 사용 하도록 설정 하면 그룹에 해당 분류가 적용 되지 않습니다.
 
 ## <a name="troubleshooting-issues"></a>문제 해결
 

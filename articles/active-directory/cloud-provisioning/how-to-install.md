@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 764071eeaf368ecf78679632cffbd6964db40aa5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: a5b59942731c8ca7b29de30e160d8370c9cf76ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807641"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Azure AD Connect 클라우드 프로비저닝 에이전트 설치
 이 문서에서는 Azure AD(Azure Active Directory) Connect 프로비저닝 에이전트의 설치 프로세스와 Azure Portal에 이를 처음으로 구성하는 방법을 안내합니다.
@@ -34,7 +34,8 @@ Azure AD Connect 프로비저닝을 설치하고 구성하는 작업은 다음 �
 에이전트를 설치하려면 다음 단계를 따르세요.
 
 1. 사용할 서버에 엔터프라이즈 관리자 권한으로 로그인합니다.
-1. Azure Portal로 이동합니다. 왼쪽에서 **Azure Active Directory**를 선택합니다.
+1. Azure Portal에 로그인 한 후 **Azure Active Directory**로 이동 합니다.
+1. 왼쪽 메뉴에서 **Azure AD Connect**를 선택 합니다.
 1. **프로비저닝 관리(미리 보기)**  > **모든 에이전트 검토**를 선택합니다.
 1. Azure Portal에서 Azure AD Connect 프로비저닝 에이전트를 다운로드합니다.
 

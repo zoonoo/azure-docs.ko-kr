@@ -4,18 +4,18 @@ description: Azure Machine Learning CLI 확장을 설치하고 사용하여 작�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
+ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 5a532ec11cdcd97bd1f72c40f603bce7cc4b12c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611767"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning용 CLI 확장 설치 및 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,6 +158,49 @@ az extension remove -n azure-cli-ml
 
     자세한 내용은 [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)를 참조하세요.
 
++ <a id="computeinstance"></a>계산 인스턴스를 관리 합니다.  아래의 모든 예제에서 계산 인스턴스의 이름은 **cpu** 입니다.
+
+    + 새 새 새 인스턴스를 만듭니다.
+
+        ```azurecli-interactive
+        az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
+        ```
+    
+        자세한 내용은 [az ml computetarget create einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance)를 참조 하세요.
+
+    + 응답 하는 einstance를 중지 합니다.
+    
+        ```azurecli-interactive
+        az ml computetarget stop computeinstance -n cpu -v
+        ```
+    
+        자세한 내용은 [az ml computetarget stop](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop)를 참조 하세요.
+    
+    + 를 시작 합니다.
+    
+        ```azurecli-interactive
+        az ml computetarget start computeinstance -n cpu -v
+       ```
+    
+        자세한 내용은 [az ml computetarget start einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조 하세요.
+    
+    + 다시 시작 하는 einstance.
+    
+        ```azurecli-interactive
+        az ml computetarget restart computeinstance -n cpu -v
+       ```
+    
+        자세한 내용은 [az ml computetarget restart 확인 einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
+    
+    + 인 트 einstance를 삭제 합니다.
+    
+        ```azurecli-interactive
+        az ml computetarget delete -n cpu -v
+       ```
+    
+        자세한 내용은 [az ml computetarget delete einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete)를 참조 하세요.
+
+
 ## <a name="run-experiments"></a><a id="experiments"></a>실험 실행
 
 * 실험 실행을 시작합니다. 이 명령을 사용하는 경우 -c 매개 변수 가까이에 runconfig 파일의 이름(파일 시스템을 보고 있는 경우 \*.runconfig 앞의 텍스트)을 지정합니다.
@@ -195,23 +238,7 @@ az extension remove -n azure-cli-ml
 
     데이터 세트를 정의하는 데 사용되는 JSON 파일의 형식을 알아보려면 `az ml dataset register --show-template`을 사용합니다.
 
-    자세한 내용은 [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive)를 참조하세요.
-
-+ 활성 또는 사용되지 않는 데이터 세트를 보관합니다.
-
-    ```azurecli-interactive
-    az ml dataset archive -n dataset-name
-    ```
-
-    자세한 내용은 [az ml dataset archive](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive)를 참조하세요.
-
-+ 데이터 세트의 사용을 중단합니다.
-
-    ```azurecli-interactive
-    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
-    ```
-
-    자세한 내용은 [az ml dataset deprecate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive)를 참조하세요.
+    자세한 내용은 [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register)를 참조하세요.
 
 + 작업 영역의 모든 데이터 세트를 나열합니다.
 
@@ -219,7 +246,7 @@ az extension remove -n azure-cli-ml
     az ml dataset list
     ```
 
-    자세한 내용은 [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive)를 참조하세요.
+    자세한 내용은 [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list)를 참조하세요.
 
 + 데이터 세트의 세부 정보를 가져옵니다.
 
@@ -227,15 +254,7 @@ az extension remove -n azure-cli-ml
     az ml dataset show -n dataset-name
     ```
 
-    자세한 내용은 [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive)를 참조하세요.
-
-+ 보관되거나 사용되지 않는 데이터 세트를 다시 활성화합니다.
-
-    ```azurecli-interactive
-    az ml dataset reactivate -n dataset-name
-    ```
-
-    자세한 내용은 [az ml dataset reactivate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive)를 참조하세요.
+    자세한 내용은 [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show)를 참조하세요.
 
 + 데이터베이스 등록을 취소합니다.
 

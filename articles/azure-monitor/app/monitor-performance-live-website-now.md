@@ -3,17 +3,17 @@ title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mic
 description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807267"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
 > [!IMPORTANT]
-> 상태 모니터는 더 이상 사용 하지 않는 것이 좋습니다. 이 파일은 Azure Monitor Application Insights 에이전트로 대체 되었습니다 (이전의 명명 된 상태 모니터 v2). [온-프레미스 서버 배포](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 또는 [Azure 가상 머신과 가상 머신 확장 집합 배포](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)에 대 한 설명서를 참조 하세요.
+> 상태 모니터 더 이상 사용 하지 않는 것이 좋으며 **2021 년 6 월 1 일부 터** 이 버전의 상태 모니터는 지원 되지 않습니다. 이 파일은 Azure Monitor Application Insights 에이전트로 대체 되었습니다 (이전의 명명 된 상태 모니터 v2). [온-프레미스 서버 배포](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 또는 [Azure 가상 머신과 가상 머신 확장 집합 배포](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)에 대 한 설명서를 참조 하세요.
 
 코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. [Microsoft Azure](https://azure.com) 구독이 필요합니다.
 
@@ -92,12 +92,12 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 
 - applicationInsights.config 파일이 대상 앱 디렉터리에 있으며 ikey를 포함하는지 확인합니다.
 
-- 데이터 누락이 의심되면 [Analytics](../log-query/get-started-portal.md)에서 간단한 쿼리를 실행하여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열합니다.
+- 데이터가 누락 된 것으로 의심 되 면 [분석](../log-query/get-started-portal.md) 에서 쿼리를 실행 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수 있습니다.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Application Insights에 연결되었는지 확인해야 할 경우 명령 창에서 [Sysinternals 핸들](https://docs.microsoft.com/sysinternals/downloads/handle)을 실행하여 IIS에서 applicationinsights.dll을 로드했는지 확인할 수 있습니다.
+- Application Insights 성공적으로 연결 되었는지 확인 해야 하는 경우 명령 창에서 [Sysinternals 핸들](https://docs.microsoft.com/sysinternals/downloads/handle) 을 실행 하 여 applicationinsights.dll IIS에서 로드 되었는지 확인할 수 있습니다.
   ```cmd
   handle.exe /p w3wp.exe
   ```
@@ -298,9 +298,9 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
  * 종속성 호출(.NET 4.5); 종속성 호출(.NET 4.6)에 값을 반환합니다.
  * 예외 스택 추적 값
 
-[자세한 정보](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[자세한 정보](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

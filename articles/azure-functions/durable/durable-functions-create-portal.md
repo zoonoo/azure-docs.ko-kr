@@ -4,12 +4,12 @@ description: Azure Functions, 포털 개발을 위한 Durable Functions 확장�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 7aa283480d95693e2630e24d5642fc7cb909b34b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 7eee3c36620d0cc9f5906e355b76e7418c61b477
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807964"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -58,7 +58,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
    ![Kudu 실행 npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
    
-5. 마지막으로 (호환 모드 사용) `true`의 값으로 앱 설정 `FUNCTIONS_V2_COMPATIBILITY_MODE`를 추가하여 [https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1 ]을 실행합니다.
+5. 마지막으로 값이 인 앱 설정을 추가 하 여 [호환성 모드를 사용 하도록 설정](https://docs.microsoft.com/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1) `FUNCTIONS_V2_COMPATIBILITY_MODE` `true` 합니다.
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
@@ -83,7 +83,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 1. Postman 또는 cURL과 같은 HTTP 도구를 사용하여 POST 요청을 사용자가 복사한 URL로 보냅니다. 다음 예제는 Durable Functions로 POST 요청을 보내는 cURL 명령입니다.
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence --header "Content-Length: 0"
     ```
 
     이 예제에서는 `{your-function-app-name}`은 도메인으로, 함수 앱의 이름입니다. 응답 메시지에는 실행을 모니터링하고 관리하기 위해 사용할 수 있는 URI 엔드포인트 세트가 포함되어 있습니다. 다음 예와 같습니다.

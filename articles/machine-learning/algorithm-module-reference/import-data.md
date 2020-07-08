@@ -9,22 +9,22 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456202"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611818"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 기존 클라우드 데이터 서비스에서 machine learning 파이프라인으로 데이터를 로드할 수 있습니다. 
 
 > [!Note]
 > 이 모듈에서 제공 하는 모든 기능은 작업 영역 방문 페이지의 데이터 **저장소** 및 **데이터 집합** 을 통해 수행할 수 있습니다. 데이터 모니터링과 같은 추가 기능을 포함 하는 데이터 **저장소** 및 데이터 **집합** 을 사용 하는 것이 좋습니다. 자세히 알아보려면 [데이터에 액세스 하는 방법](../how-to-access-data.md) 및 데이터 [집합을 등록 하는](../how-to-create-register-datasets.md) 방법 문서를 참조 하세요.
-> 데이터 집합을 등록 한 후에는 디자이너 인터페이스 **의 데이터 집합** -> **내 데이터** 집합 범주에서 찾을 수 있습니다. 이 모듈은 익숙한 환경을 위해 Studio (클래식) 사용자 용으로 예약 되어 있습니다. 
+> 데이터 집합을 등록 한 후에는 디자이너 인터페이스의 데이터 **집합**  ->  **내 데이터** 집합 범주에서 찾을 수 있습니다. 이 모듈은 익숙한 환경을 위해 Studio (클래식) 사용자 용으로 예약 되어 있습니다. 
 >
 
 **데이터 가져오기** 모듈은 다음 원본에서 데이터 읽기를 지원 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "79456202"
 - [**Datastores**](../how-to-access-data.md)를 통한 Azure 클라우드 저장소)
     - Azure Blob 컨테이너
     - Azure 파일 공유
-    - Azure Data Lake
+    - Azure 데이터 레이크
     - Azure Data Lake Gen2
     - Azure SQL Database
     - Azure PostgreSQL    
@@ -44,6 +44,10 @@ ms.locfileid: "79456202"
 
 원본 데이터가 변경 되 면 데이터 집합을 새로 고치고 [데이터 가져오기](./import-data.md)를 다시 실행 하 여 새 데이터를 추가할 수 있습니다.
 
+> [!WARNING]
+> 작업 영역이 가상 네트워크에 있는 경우 디자이너의 데이터 시각화 기능을 사용 하도록 데이터 저장소를 구성 해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 집합을 사용 하는 방법에 대 한 자세한 내용은 [개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리](../how-to-enable-virtual-network.md#machine-learning-studio)를 참조 하세요.
+
+
 ## <a name="how-to-configure-import-data"></a>데이터 가져오기를 구성 하는 방법
 
 1. 파이프라인에 **데이터 가져오기** 모듈을 추가 합니다. 이 모듈은 디자이너의 **데이터 입력 및 출력** 범주에서 찾을 수 있습니다.
@@ -52,7 +56,7 @@ ms.locfileid: "79456202"
 
 1. **데이터 원본**을 선택 하 고 데이터 원본 유형을 선택 합니다. HTTP 또는 데이터 저장소 일 수 있습니다.
 
-    데이터 저장소를 선택 하는 경우 이미 Azure Machine Learning 작업 영역에 등록 된 기존 데이터 저장소를 선택 하거나 새 데이터 저장소를 만들 수 있습니다. 그런 다음 데이터 저장소에서 가져올 데이터의 경로를 정의 합니다. **찾아보기 경로** ![가져오기-데이터-경로를 클릭 하 여 경로를 쉽게 찾아볼 수 있습니다.](media/module/import-data-path.png)
+    데이터 저장소를 선택 하는 경우 이미 Azure Machine Learning 작업 영역에 등록 된 기존 데이터 저장소를 선택 하거나 새 데이터 저장소를 만들 수 있습니다. 그런 다음 데이터 저장소에서 가져올 데이터의 경로를 정의 합니다. **찾아보기 경로** ![ 가져오기-데이터-경로를 클릭 하 여 경로를 쉽게 찾아볼 수 있습니다.](media/module/import-data-path.png)
 
 1. 미리 보기 스키마를 선택 하 여 포함 하려는 열을 필터링 합니다. 구문 분석 옵션에서 구분 기호와 같은 고급 설정을 정의할 수도 있습니다.
 
@@ -65,7 +69,7 @@ ms.locfileid: "79456202"
     이 확인란이 선택 되어 있으면 시스템에서 모듈을 다시 실행 하 여 출력을 다시 생성 합니다. 따라서 저장소의 기본 데이터를 업데이트 하는 경우이 옵션을 선택 하면 최신 데이터를 가져오는 데 도움이 될 수 있습니다.
 
 
-1. 파이프라인을 제출 합니다.
+1. 파이프라인을 제출합니다.
 
     데이터 가져오기는 데이터를 디자이너에 로드 하는 경우 포함 된 값을 기준으로 각 열의 데이터 형식 (숫자 또는 범주)을 유추 합니다.
 
@@ -89,4 +93,4 @@ ms.locfileid: "79456202"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

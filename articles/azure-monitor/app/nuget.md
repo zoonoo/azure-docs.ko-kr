@@ -3,12 +3,12 @@ title: NuGet 패키지 Azure Monitor Application Insights
 description: ASP.NET, ASP.NET Core, Python에 대 한 Azure Monitor Application Insights NuGet 패키지 목록
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807165"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 패키지
 
@@ -16,7 +16,7 @@ ms.locfileid: "77670001"
 
 ## <a name="common-packages-for-aspnet"></a>ASP.NET용 일반 패키지
 
-| 패키지 이름 | 안정적 버전 | Description | 다운로드 |
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights | 2.12.0 | 모든 Application Insights 원격 분석 유형에 대한 핵심 전송 기능을 제공하며, 다른 모든 Application Insights 패키지의 종속 패키지입니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | 메서드 호출 가로채기를 사용하도록 설정합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
@@ -28,7 +28,7 @@ ms.locfileid: "77670001"
 
 ## <a name="common-packages-for-aspnet-core"></a>ASP.NET Core용 일반 패키지
 
-| 패키지 이름 | 안정적 버전 | Description | 다운로드 |
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AspNetCore | 2.5.0 | Application Insights for ASP.NET Core 웹 애플리케이션입니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) |
 | Microsoft.ApplicationInsights | 2.12.0 | 이 패키지는 모든 Application Insights 원격 분석 유형에 대한 핵심 전송 기능을 제공하며, 다른 모든 Application Insights 패키지의 종속 패키지입니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
@@ -38,7 +38,7 @@ ms.locfileid: "77670001"
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.12.0 | 오프라인 시나리오에서 원격 분석을 유지하는 Application Insights Windows Server SDK에 대한 원격 분석 채널을 제공합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
 ## <a name="common-packages-for-python-using-opencensus"></a>OpenCensus를 사용 하는 Python 용 일반 패키지
-| 패키지 이름 | 안정적 버전 | Description | 다운로드 |
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
 | opencensus-azure | 1.0.0 | OpenCensus를 통해 Azure Monitor에서 Python 응용 프로그램에 대 한 Application Insights 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-azure/) |
 | opencensus-django | 0.7.2 | 이 패키지는 Python [django](https://pypi.org/project/django/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-django/) |
@@ -55,7 +55,7 @@ ms.locfileid: "77670001"
 
 ## <a name="listenerscollectorsappenders"></a>수신기/수집기/어펜더
 
-| 패키지 이름 | 안정적 버전 | Description | 다운로드 |
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.DiagnosticSourceListener | 2.7.2 |  DiagnosticSource에서 Application Insights로 이벤트를 전달할 수 있습니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) |
 | Microsoft.ApplicationInsights.EventSourceListener | 2.7.2 | Application Insights EventSourceListener를 사용하여 EventSource 이벤트에서 Application Insights로 데이터를 보낼 수 있습니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) |
@@ -67,23 +67,23 @@ ms.locfileid: "77670001"
 
 ## <a name="service-fabric"></a>Service Fabric
 
-| 패키지 이름 | 안정적 버전 | Description | 다운로드 |
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.ServiceFabric | 2.2.0 | 이 패키지를 사용하여 애플리케이션이 실행되는 Service Fabric 컨텍스트를 통해 원격 분석을 자동으로 장식할 수 있습니다. 네이티브 Service Fabric 애플리케이션에는 이 NuGet을 사용하지 마세요. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric/) |
 | Microsoft.ApplicationInsights.ServiceFabric.Native | 2.2.0 | Service fabric 애플리케이션에 대한 Application Insights 모듈입니다. 네이티브 Service Fabric 애플리케이션에만 이 NuGet을 사용합니다. 컨테이너에서 실행되는 애플리케이션의 경우 Microsoft.ApplicationInsights.ServiceFabric 패키지를 사용합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric.Native/) |  
 
 ## <a name="status-monitor"></a>상태 모니터
 
-| 패키지 이름 | 안정적 버전 | Description | 다운로드 |
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  x64 애플리케이션의 런타임 데이터 수집을 사용하도록 설정합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  x86 애플리케이션의 런타임 데이터 수집을 사용하도록 설정합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-이러한 패키지는 [상태 모니터](../../azure-monitor/app/monitor-performance-live-website-now.md)의 핵심 런타임 모니터링 기능 중 일부를 구성합니다. 이러한 패키지를 직접 다운로드할 필요는 없으며 상태 모니터 설치 관리자를 사용하기만 하면 됩니다. 이러한 패키지가 내부적으로 작동하는 방식을 알라보려면 먼저 개발자가 만든 [블로그 게시물](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)을 참조하면 좋습니다.
+이러한 패키지는 [상태 모니터](../../azure-monitor/app/monitor-performance-live-website-now.md)의 핵심 런타임 모니터링 기능 중 일부를 구성합니다. 이러한 패키지를 직접 다운로드할 필요는 없으며 상태 모니터 설치 관리자를 사용하기만 하면 됩니다. 이러한 패키지가 내부적으로 작동하는 방식을 알라보려면 먼저 개발자가 만든 [블로그 게시물](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)을 참조하면 좋습니다.
 
 ## <a name="additional-packages"></a>추가 패키지
 
-| 패키지 이름 | 안정적 버전 | Description | 다운로드 |
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | 이 확장을 사용하여 Azure App Service에서 Application Insights 모니터링을 수행할 수 있습니다. SDK 버전 2.6.1. 지침: ikey를 사용하여 'APPINSIGHTS_INSTRUMENTATIONKEY' 애플리케이션 설정을 추가하고 웹앱을 다시 시작하여 변경 내용을 적용합니다.| [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | 이 패키지에는 코드 없는 Application Insights 주입에 필요한 파일이 포함되어 있습니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |

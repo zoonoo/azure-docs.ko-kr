@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: e4a7ae00edd8ff86e27037df1a26828c400f6ccf
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 97b17f7e80590b9b907b8dc25253e6d706117357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807981"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -750,7 +750,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 이러한 설정을 사용하여 함수가 단일 인스턴스에서 싱글톤으로 실행되도록 할 수 있습니다. 웹앱이 여러 인스턴스로 규모 확장될 때 함수의 단일 인스턴스만 실행되게 하려면 함수에서 수신기 수준 싱글톤 잠금을 적용합니다(`[Singleton(Mode = SingletonMode.Listener)]`). 수신기 잠금은 JobHost가 시작될 때 획득합니다. 확장된 인스턴스 3개가 동시에 시작되면 인스턴스 중 하나만 잠금을 획득하고 하나의 수신기만 시작됩니다.
 
 > [!NOTE]
-> SingletonMode.Function의 작동 원리에 대한 자세한 내용은 이 [Github 리포지토리](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs)를 참조하세요.
+> SingletonMode 작동 방식에 대해 자세히 알아보려면이 [GitHub 리포지토리](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) 를 참조 하세요.
 
 ### <a name="scope-values"></a>범위 값
 
@@ -959,7 +959,7 @@ static async Task Main()
 
 #### <a name="version-2x"></a>2\.*x* 버전
 
-2\.*x* 버전에서 Application Insights 공급자가 내부적으로 WebJobs SDK용으로 만든 [`TelemetryClient`]는 [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll)을 사용합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
+2\.*x* 버전에서 Application Insights 공급자가 내부적으로 WebJobs SDK용으로 만든 [`TelemetryClient`]는 [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll)을 사용합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/)합니다.
 
 [`TelemetryClient`]는 `ITelemetryClientFactory`를 구현하는 클래스에서 생성합니다. 기본적으로 [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)입니다.
 

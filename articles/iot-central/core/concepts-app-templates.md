@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 244de9a3236977308a9f7bcaf5106e86a0984201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b581242ad5a23072731fc7d30e09e461590ec1ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801328"
 ---
 # <a name="what-are-application-templates"></a>애플리케이션 템플릿이란?
 
@@ -56,6 +56,10 @@ Azure IoT Central은 업계와 무관 한 응용 프로그램 플랫폼입니다
   - 수상 품질 모니터링
 - [의료](../healthcare/overview-iot-central-healthcare.md).
   - 연속 환자 모니터링
+
+## <a name="application-versions"></a>응용 프로그램 버전
+
+템플릿은 특정 IoT Central 응용 프로그램 버전과 연결 됩니다. 응용 프로그램의 버전은 **도움말** 링크의 [앱 정보](./howto-get-app-info.md) 페이지에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

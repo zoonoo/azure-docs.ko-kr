@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.author: curtand
 ms.date: 04/30/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c87eabec8f09f082c258a439a17b9f3aa79336
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807862"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -90,8 +90,8 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 * 전역 관리자
 * 권한 있는 역할 관리자
-* Exchange Online 관리자
-* SharePoint Online 관리자
+* Exchange 관리자
+* SharePoint 관리자
 
 조직에 Azure AD Privileged Identity Management가 없으면 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 전역 관리자에게는 조직에서 가입한 모든 클라우드 서비스에 걸쳐 동일한 권한이 있으므로 전역 관리자 역할부터 시작합니다. 이러한 권한은 할당된 위치에 관계없이, 즉 Microsoft 365 관리 센터, Azure Portal 또는 Microsoft PowerShell용 Azure AD 모듈에서 부여됩니다.
 
@@ -114,7 +114,7 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록
 
-로그인 시 Azure AD 관리자 역할인 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에게 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
+Azure AD 관리자 역할 (전역 관리자, 권한 있는 역할 관리자, Exchange 관리자 및 SharePoint 관리자) 중 하나 이상에 영구적으로 할당 된 모든 개별 사용자에 대해 로그인 시 Azure Multi-Factor Authentication (MFA)를 요구 합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>2단계: 자주 사용되는 공격 완화
 

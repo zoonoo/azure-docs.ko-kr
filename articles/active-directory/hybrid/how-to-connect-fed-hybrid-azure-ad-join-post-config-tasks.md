@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb8243041bb93ba8be6a65bb83df6f84affaee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807590"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인 구성 후 작업
 
@@ -86,15 +86,10 @@ Windows 하위 수준 디바이스를 등록하려면 사용자가 디바이스�
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. 장치 등록을 허용 하도록 그룹 정책 구성
 
-* 아직 그룹 정책 개체를 만들지 않은 경우 Active Directory에서 새로 만듭니다.
-* 이름을 지정합니다(예: 하이브리드 Azure AD 조인).
-* 편집하고 컴퓨터 구성 &gt; 정책 &gt; 관리 템플릿 &gt; Windows 구성 요소 &gt; 디바이스 등록으로 이동합니다.
-* [도메인에 가입된 컴퓨터를 디바이스로 등록]을 설정합니다.
-* 적용하고 [확인]을 클릭합니다.
-* GPO를 원하는 위치(조직 구성 단위, 보안 그룹 또는 모든 디바이스의 도메인)에 연결합니다.
+개별 장치에 대 한 하이브리드 Azure AD 조인을 허용 하는 방법에 대 한 자세한 내용은 [하이브리드 AZURE ad 조인의 제어 된 유효성 검사](../devices/hybrid-azuread-join-control.md)를 참조 하세요.
 
->[!NOTE]
->2012R2의 경우 정책 설정이 **컴퓨터 구성 > 정책 > 관리 템플릿 > Windows 구성 요소 > 작업 공간 연결 > 클라이언트 컴퓨터에 자동으로 작업 공간 연결**에 있습니다.
+> [!NOTE]
+> 2012 r 2에 대 한 정책 설정은 **컴퓨터 구성 > 정책 > 관리 템플릿 > Windows 구성 요소 > Workplace Join > 자동으로 작업 공간 연결 클라이언트 컴퓨터**에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [디바이스 쓰기 저장 구성](how-to-connect-device-writeback.md)

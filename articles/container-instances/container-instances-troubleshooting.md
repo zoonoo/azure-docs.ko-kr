@@ -2,14 +2,14 @@
 title: 일반적인 문제 해결
 description: Azure Container Instances 배포, 실행 또는 관리할 때 발생 하는 일반적인 문제를 해결 하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807845"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -20,16 +20,17 @@ ms.locfileid: "74533390"
 ## <a name="issues-during-container-group-deployment"></a>컨테이너 그룹 배포 중에 발생 하는 문제
 ### <a name="naming-conventions"></a>명명 규칙
 
-컨테이너 사양을 정의할 때 특정 매개 변수에는 명명 제한 사항을 준수해야 합니다. 컨테이너 그룹 속성에 대한 특정 요구 사항이 포함된 테이블은 다음과 같습니다. Azure 명명 규칙에 대한 자세한 내용은 Azure 아키텍처 센터에서 [명명 규칙][azure-name-restrictions]을 참조하세요.
+컨테이너 사양을 정의할 때 특정 매개 변수에는 명명 제한 사항을 준수해야 합니다. 컨테이너 그룹 속성에 대한 특정 요구 사항이 포함된 테이블은 다음과 같습니다. 자세한 내용은 Azure 아키텍처 센터의 [명명 규칙][azure-name-restrictions] 및 [Azure 리소스에 대 한 명명 규칙 및 제한 사항][naming-rules]을 참조 하세요.
 
 | 범위 | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
 | --- | --- | --- | --- | --- | --- |
-| 컨테이너 그룹 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 컨테이너 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| 컨테이너 이름<sup>1</sup> | 1-63 |소문자 | 첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-container<number>` |`web-batch-container1` |
 | 컨테이너 포트 | 1에서 65535 사이 |정수 |1에서 65535 사이의 정수 |`<port-number>` |`443` |
 | DNS 이름 레이블 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>` |`frontend-site1` |
 | 환경 변수 | 1-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 밑줄(_) |`<name>` |`MY_VARIABLE` |
-| 볼륨 이름 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 소문자, 숫자 및 하이픈 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
+| 볼륨 이름 | 5-63 |소문자 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈입니다. 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup> 컨테이너 인스턴스와 별개로 지정 되지 않은 경우 (예: 명령 배포) 컨테이너 그룹 이름에 대 한 제한도 있습니다 `az container create` .
 
 ### <a name="os-version-of-image-not-supported"></a>지원되지 않는 이미지 OS 버전
 
@@ -186,7 +187,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 #### <a name="cached-images"></a>캐시 된 이미지
 
-Azure Container Instances는 캐싱 메커니즘을 사용 하 여, `nanoserver:1809` `servercore:ltsc2019`및 `servercore:1809`를 비롯 하 여 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다. `ubuntu:1604` 및 `alpine:3.6` 와 같은 일반적으로 사용 되는 Linux 이미지도 캐시 됩니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
+Azure Container Instances는 캐싱 메커니즘을 사용 하 여, 및를 비롯 하 여 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다 `nanoserver:1809` `servercore:ltsc2019` `servercore:1809` . 및와 같은 일반적으로 사용 되는 Linux 이미지 `ubuntu:1604` `alpine:3.6` 도 캐시 됩니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
 
 > [!NOTE]
 > Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.
@@ -199,11 +200,11 @@ Windows 컨테이너를 처음 만들면 최대 30초(또는 이상, 드문 경�
 
 Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인프라에 대한 직접 액세스를 노출하지 않습니다. 여기에는 컨테이너의 호스트에서 실행되고 권한 있는 컨테이너를 실행하는 Docker API에 대한 액세스가 포함됩니다. Docker 상호 작용이 필요한 경우 [REST 참조 설명서](https://aka.ms/aci/rest)에서 ACI API가 무엇을 지원하는지 확인하세요. 빠진 부분이 있는 경우 [ACI 피드백 포럼](https://aka.ms/aci/feedback)에서 요청을 제출하세요.
 
-### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>포트가 일치 하지 않아 컨테이너 그룹 IP 주소에 액세스 하지 못할 수 있습니다.
+### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>일치하지 않는 포트로 인해 컨테이너 그룹 IP 주소에 액세스할 수 없음
 
-Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아직 지원 하지 않습니다. 컨테이너 그룹의 IP 주소에 액세스할 수 없는 것으로 판단 되는 경우 컨테이너 그룹에서 `ports` 속성을 사용 하 여 컨테이너 그룹에 노출 하는 것과 동일한 포트를 수신 대기 하도록 구성 했는지 확인 합니다.
+Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아직 지원 하지 않습니다. 컨테이너 그룹의 IP 주소에 액세스할 수 없는 것으로 판단 되는 경우 컨테이너 그룹에서 속성을 사용 하 여 컨테이너 그룹에 노출 하는 것과 동일한 포트를 수신 대기 하도록 구성 했는지 확인 `ports` 합니다.
 
-컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 Azure Container Instances 확인 하려면 포트를 노출 하는 `aci-helloworld` 이미지의 배포를 테스트 합니다. 또한 포트에서 `aci-helloworld` 수신 하도록 앱을 실행 합니다. `aci-helloworld`선택적 환경 변수 `PORT` 를 허용 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 컨테이너 그룹을 만들 때 [환경 변수](container-instances-environment-variables.md) 를 설정 합니다.
+컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 Azure Container Instances 확인 하려면 `aci-helloworld` 포트를 노출 하는 이미지의 배포를 테스트 합니다. 또한 `aci-helloworld` 포트에서 수신 하도록 앱을 실행 합니다. `aci-helloworld`선택적 환경 변수를 허용 `PORT` 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 컨테이너 그룹을 만들 때 [환경 변수](container-instances-environment-variables.md) 를 설정 합니다.
 
 1. 컨테이너 그룹을 설정 하 여 포트 9000를 노출 하 고 포트 번호를 환경 변수의 값으로 전달 합니다. 이 예제는 Bash 셸에 대해 형식이 지정 됩니다. PowerShell 또는 명령 프롬프트와 같은 다른 셸을 선호 하는 경우에는 변수 할당을 적절 하 게 조정 해야 합니다.
     ```azurecli
@@ -212,11 +213,11 @@ Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. 의 `az container create`명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다. **Ip**값을 찾습니다. 
-1. 컨테이너가 성공적으로 프로 비전 되 면 브라우저에서 컨테이너 앱의 IP 주소와 포트 (예: `192.0.2.0:9000`)로 이동 합니다. 
+1. 의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다 `az container create` . **Ip**값을 찾습니다. 
+1. 컨테이너가 성공적으로 프로 비전 되 면 브라우저에서 컨테이너 앱의 IP 주소와 포트 (예:)로 이동 `192.0.2.0:9000` 합니다. 
 
     "시작 Azure Container Instances!"가 표시 되어야 합니다. 웹 앱에 표시 되는 메시지입니다.
-1. 컨테이너를 완료 한 후에는 `az container delete` 명령을 사용 하 여 제거 합니다.
+1. 컨테이너를 완료 한 후에는 명령을 사용 하 여 제거 합니다 `az container delete` .
 
     ```azurecli
     az container delete --resource-group myResourceGroup --name mycontainer
@@ -228,6 +229,7 @@ Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
@@ -235,4 +237,4 @@ Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

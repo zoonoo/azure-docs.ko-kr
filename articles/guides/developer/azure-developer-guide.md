@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829400"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -124,13 +124,13 @@ Azure는 응용 프로그램 호스팅 기능과 더불어 기능을 향상 시�
 
   > **사용 시기**: 앱이 키-값 쌍(테이블), Blob, 파일 공유 또는 메시지(큐)와 같은 비관계형 데이터를 저장하는 경우
   >
-  > **시작하기**: 스토리지 유형([Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [테이블](../../cosmos-db/table-storage-how-to-use-dotnet.md), [큐](../../storage/queues/storage-dotnet-how-to-use-queues.md) 또는 [파일](../../storage/files/storage-dotnet-how-to-use-files.md)) 중 하나를 선택합니다.
+  > **시작 하기**: [blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [테이블](../../cosmos-db/table-storage-how-to-use-dotnet.md), [큐](../../storage/queues/storage-dotnet-how-to-use-queues.md)또는 [파일](../../storage/files/storage-dotnet-how-to-use-files.md)유형 저장소 중 하나를 선택 합니다.
 
 - **Azure SQL Database**: 클라우드에서 관계형 표 형식 데이터를 저장하기 위한 Azure 기반 Microsoft SQL Server 엔진 버전입니다. SQL Database는 예측 가능한 성능, 가동 중지 시간이 없는 확장성, 무중단 업무 방식, 데이터 보호 기능을 제공합니다.
 
   > **사용 시기**: 애플리케이션에 참조 무결성 데이터 스토리지, 트랜잭션 지원 및 TSQL 쿼리 지원이 필요한 경우
   >
-  > **시작하기**: [Azure Portal을 사용하여 빠르게 SQL Database를 만듭니다](../../sql-database/sql-database-get-started.md).
+  > **시작 하기**: [Azure Portal를 사용 하 여 몇 분 안에 Azure SQL Database에서 데이터베이스를 만듭니다](../../sql-database/sql-database-get-started.md).
 
 
 [Azure Data Factory](../../data-factory/introduction.md)를 사용하여 기존 온-프레미스 데이터를 Azure로 이동할 수 있습니다. 데이터를 클라우드로 이동할 준비가 되지 않은 경우 Azure App Service에서 [하이브리드 연결](../../app-service/app-service-hybrid-connections.md) 하 여 App Service 호스팅된 앱을 온-프레미스 리소스에 연결할 수 있습니다. 온-프레미스 애플리케이션에서 Azure 데이터 및 스토리지 서비스에 연결할 수도 있습니다.
@@ -240,7 +240,7 @@ Azure는 명령줄에서 응용 프로그램 및 서비스를 관리 하는 두 
 
 ### <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](https://portal.azure.com) 은 웹 기반 응용 프로그램입니다. Azure Portal를 사용 하 여 Azure 리소스 및 서비스를 만들고, 관리 하 고, 제거할 수 있습니다.  다음을 포함합니다.
+[Azure Portal](https://portal.azure.com) 은 웹 기반 응용 프로그램입니다. Azure Portal를 사용 하 여 Azure 리소스 및 서비스를 만들고, 관리 하 고, 제거할 수 있습니다. 다음을 포함합니다.
 
 * 구성 가능한 대시보드
 * Azure 리소스 관리 도구
@@ -255,7 +255,7 @@ Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니�
 REST Api와 함께 많은 Azure 서비스를 사용 하면 다음과 같은 개발 플랫폼용 Sdk를 비롯 한 플랫폼별 Azure Sdk를 사용 하 여 응용 프로그램에서 리소스를 프로그래밍 방식으로 관리할 수 있습니다.
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](https://docs.microsoft.com/azure/javascript/)
+-   [Node.JS](https://docs.microsoft.com/azure/developer/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
@@ -264,11 +264,11 @@ REST Api와 함께 많은 Azure 서비스를 사용 하면 다음과 같은 개�
 
 [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) 및 [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md)와 같은 서비스는 웹 및 모바일 클라이언트 앱에서 서비스에 액세스할 수 있도록 해주는 클라이언트 쪽 SDK를 제공합니다.
 
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Azure에서 앱을 실행 하는 경우 여러 Azure 서비스를 사용 하는 것이 포함 될 수 있습니다. 이러한 서비스는 동일한 수명 주기를 따르고 논리적 단위로 간주할 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
-에는 관련 된 리소스를 논리적으로 그룹화 및 관리 하는 것과 함께 Azure Resource Manager에는 관련 리소스의 배포 및 구성을 사용자 지정할 수 있는 배포 기능이 포함 되어 있습니다. 예를 들어 리소스 관리자를 사용 하 여 응용 프로그램을 배포 하 고 구성할 수 있습니다. 이 응용 프로그램은 여러 가상 머신, 부하 분산 장치 및 Azure SQL database를 단일 단위로 구성할 수 있습니다.
+에는 관련 된 리소스를 논리적으로 그룹화 및 관리 하는 것과 함께 Azure Resource Manager에는 관련 리소스의 배포 및 구성을 사용자 지정할 수 있는 배포 기능이 포함 되어 있습니다. 예를 들어 리소스 관리자를 사용 하 여 응용 프로그램을 배포 하 고 구성할 수 있습니다. 이 응용 프로그램은 여러 가상 머신, 부하 분산 장치 및 Azure SQL Database의 데이터베이스로 구성 될 수 있습니다.
 
 JSON 형식 문서인 Azure Resource Manager 템플릿을 사용하여 이러한 배포를 개발합니다. 템플릿을 사용하면 스크립트 대신 선언적 템플릿을 통해 배포를 정의하고 애플리케이션을 관리할 수 있습니다. 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에 사용할 수 있습니다. 예를 들어 템플릿을 사용 하 여 한 번의 클릭으로 리포지토리의 코드를 Azure 서비스 집합에 배포 하는 GitHub 리포지토리에 단추를 추가할 수 있습니다.
 
@@ -312,7 +312,7 @@ Azure 리소스에 대 한 액세스를 허용 하는 경우 항상 지정 된 �
 
   > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우 자세한 내용은 [Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-#### <a name="tags"></a>태그들
+#### <a name="tags"></a>Tags
 
 Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태그를 할당할 수 있습니다. 키-값 쌍인 태그는 청구 또는 모니터링에 대한 리소스를 구성해야 하는 경우에 유용할 수 있습니다. 태그는 여러 리소스 그룹에서 리소스를 추적하는 방법을 제공합니다. 태그는 다음과 같은 방식으로 할당할 수 있습니다.
 
