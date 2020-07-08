@@ -2,27 +2,27 @@
 title: 파일 포함
 description: 포함 파일
 services: automation
-author: georgewallace
+author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 12/13/2018
-ms.author: gwallace
+ms.date: 06/29/2020
+ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: d700dfcf5a7b6e9ada2a755335689ffa571e4c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570127"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 
-| 리소스 | 제한 |참고|
+| 리소스 | 제한 |메모|
 | --- | --- |---|
 | Azure Automation 계정 마다 30 초 마다 제출할 수 있는 새 작업의 최대 수 (예약 되지 않은 작업) |100 |이 한도에 도달 하면 작업 만들기에 대 한 후속 요청이 실패 합니다. 클라이언트는 오류 응답을 받습니다.|
 | Automation 계정 (예약 되지 않은 작업) 당 동일한 인스턴스에서 동시에 실행 되는 작업의 최대 수 |200 |이 한도에 도달 하면 작업 만들기에 대 한 후속 요청이 실패 합니다. 클라이언트는 오류 응답을 받습니다.|
 | 30 일 롤링 기간의 작업 메타 데이터에 대 한 최대 저장소 크기 | 10gb (약 400만 개 작업)|이 한도에 도달 하면 작업 만들기에 대 한 후속 요청이 실패 합니다. |
-| 최대 작업 스트림 제한|1MB|단일 스트림은 1mb 보다 클 수 없습니다.|
+| 최대 작업 스트림 제한|1MiB|단일 스트림은 1mb 보다 클 수 없습니다.|
 | Automation 계정 마다 30 초 마다 가져올 수 있는 모듈의 최대 수 |5 ||
 | 모듈의 최대 크기 |100MB ||
 | 작업 실행 시간, 무료 계층 |월별 구독당 500분 ||
@@ -33,11 +33,11 @@ ms.locfileid: "80334918"
 | 구독의 최대 Automation 계정 수 |제한 없음 ||
 | Automation 계정 당 최대 Hybrid Worker 그룹 수|4,000||
 |단일 Hybrid Runbook Worker에서 실행할 수 있는 최대 동시 작업 수|50 ||
-| 최대 runbook 작업 매개 변수 크기   | 512 킬로 비트||
+| 최대 runbook 작업 매개 변수 크기   | 512 kb||
 | 최대 runbook 매개 변수   | 50|50-매개 변수 제한에 도달 하면 JSON 또는 XML 문자열을 매개 변수에 전달 하 고 runbook을 사용 하 여 구문 분석할 수 있습니다.|
-| 최대 webhook 페이로드 크기 |  512 킬로 비트|
+| 최대 webhook 페이로드 크기 |  512 kb|
 | 작업 데이터가 유지 되는 최대 일 수|30일|
-| 최대 PowerShell 워크플로 상태 크기 |5MB| 워크플로의 검사점을 할 때 PowerShell 워크플로 runbook에 적용 됩니다.|
+| 최대 PowerShell 워크플로 상태 크기 |5 MB| 워크플로의 검사점을 할 때 PowerShell 워크플로 runbook에 적용 됩니다.|
 
 <sup>1</sup> 샌드박스는 여러 작업에서 사용할 수 있는 공유 환경입니다. 동일한 샌드박스를 사용 하는 작업은 샌드박스에 대 한 리소스 제한에 의해 바인딩됩니다.
 
@@ -45,19 +45,19 @@ ms.locfileid: "80334918"
 
 다음 표에서는 변경 내용 추적에 대 한 컴퓨터별 추적 된 항목 제한을 보여 줍니다.
 
-| **리소스** | **제한**| **참고 사항** |
+| **리소스** | **제한**| **참고** |
 |---|---|---|
 |파일|500||
 |레지스트리|250||
 |Windows 소프트웨어|250|에는 소프트웨어 업데이트가 포함 되어 있지 않습니다.|
 |Linux 패키지|1250||
-|서비스|250||
+|Services|250||
 |데몬|250||
 
 #### <a name="update-management"></a>업데이트 관리
 
 다음 표에서는 업데이트 관리에 대 한 제한을 보여 줍니다.
 
-| **리소스** | **제한**| **참고 사항** |
+| **리소스** | **제한**| **참고** |
 |---|---|---|
 |업데이트 배포 당 컴퓨터 수|1000||

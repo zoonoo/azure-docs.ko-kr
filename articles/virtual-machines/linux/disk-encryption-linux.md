@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601391"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -38,7 +38,7 @@ Azure Disk Encryption은 [Azure Key Vault와 통합](disk-encryption-key-vault.m
 
 ## <a name="install-tools-and-connect-to-azure"></a>도구 설치 및 Azure에 연결
 
-Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬에 설치하고 Azure 구독에 연결해야 합니다.
+Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬로 설치 하 고 Azure 구독에 연결 해야 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -388,23 +388,7 @@ PowerShell 구문과 달리 CLI에서는 사용자가 암호화를 사용하도�
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Linux VM에 대한 암호화 사용 안 함
-Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 암호화를 사용하지 않도록 설정할 수 있습니다. 
-
->[!IMPORTANT]
->Linux VM에서 Azure Disk Encryption을 통한 암호화 사용 안 함은 데이터 볼륨에 대해서만 지원됩니다. OS 볼륨이 암호화된 경우 이 설정은 데이터 또는 OS 볼륨에서 지원되지 않습니다.  
-
-- **Azure PowerShell을 사용하여 디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Azure CLI를 사용하여 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) 명령을 사용합니다. 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Resource Manager 템플릿으로 암호화를 사용하지 않도록 설정:** [실행 중인 Linux VM에서 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 템플릿을 사용하여 암호화를 사용하지 않도록 설정할 수 있습니다.
-     1. **Deploy to Azure**를 클릭합니다.
-     2. 구독, 리소스 그룹, 위치, VM, 약관 및 규약을 선택합니다.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
@@ -412,7 +396,7 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 
 - 클래식 VM 만들기 방법을 통해 만든 VM 또는 기본 계층 VM을 암호화
 - OS 드라이브가 암호화된 경우 Linux VM의 OS 드라이브 또는 데이터 드라이브에서 암호화를 사용하지 않도록 설정
-- Linux 가상 머신 확장 집합용 OS 드라이브 암호화
+- Linux 가상 머신 확장 집합에 대 한 OS 드라이브를 암호화 합니다.
 - Linux VM에서 사용자 지정 이미지 암호화
 - 온-프레미스 키 관리 시스템과의 통합
 - Azure 파일(공유 파일 시스템)
@@ -420,12 +404,15 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - 동적 볼륨
 - 사용 후 삭제 OS 디스크
 - 다음과 같은 공유/분산 파일 시스템의 암호화(단, 다음 항목에 국한되지 않음), DFS, GFS, DRDB 및 CephFS
-- 암호화된 VM을 다른 구독으로 이동
+- 다른 구독 또는 지역으로 암호화 된 VM 이동
+- 암호화 된 VM의 이미지나 스냅숏을 만들어 추가 Vm을 배포 하는 데 사용
 - 커널 크래시 덤프(kdump)
 - Oracle ACFS(ASM 클러스터 파일 시스템)
 - Gen2 VM(참조: [Azure의 2세대 VM 지원](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 시리즈 VM(참조: [Lsv2 시리즈](../lsv2-series.md))
 - "중첩된 탑재 지점" 즉, 단일 경로 내 여러 탑재 지점(예: "/1stmountpoint/data/2stmountpoint")이 있는 VM
+- 데이터 드라이브가 OS 폴더 위에 탑재 된 VM입니다.
+- 쓰기 가속기 디스크가 있는 M 시리즈 Vm
 
 ## <a name="next-steps"></a>다음 단계
 

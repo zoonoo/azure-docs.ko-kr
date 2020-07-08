@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601278"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -64,7 +64,6 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 및 데이터 디스크 |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
-| RedHat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
@@ -94,7 +93,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 
 ## <a name="additional-vm-requirements"></a>추가 VM 요구 사항
 
-Azure Disk Encryption을 사용하려면 시스템에 dm-crypt 및 vfat 모듈이 있어야 합니다. 기본 이미지에서 vfat을 제거하거나 사용하지 않도록 설정하면 시스템에서 키 볼륨을 읽거나 후속 재부팅 시 디스크 잠금을 해제하는 데 필요한 키를 가져올 수 없습니다. 시스템에서 vfat 모듈을 제거하는 시스템 강화 단계는 Azure Disk Encryption와 호환되지 않습니다. 
+Azure Disk Encryption을 사용하려면 시스템에 dm-crypt 및 vfat 모듈이 있어야 합니다. 기본 이미지에서 vfat을 제거하거나 사용하지 않도록 설정하면 시스템에서 키 볼륨을 읽거나 후속 재부팅 시 디스크 잠금을 해제하는 데 필요한 키를 가져올 수 없습니다. 시스템에서 vfat 모듈을 제거 하거나 데이터 드라이브의 OS 탑재 지점이/폴더 확장을 적용 하는 시스템 강화 단계는 Azure Disk Encryption와 호환 되지 않습니다. 
 
 암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. 항목을 만들 때 "nofail" 옵션을 사용하고, 영구 블록 디바이스 이름을 선택합니다. "/dev/sdX" 형식의 디바이스 이름은 재부팅하는 동안, 특히 암호화 후에 동일한 디스크에 연결되지 않을 수 있습니다. 이 동작에 대한 자세한 내용은 [Linux VM 디바이스 이름 변경 문제 해결](troubleshoot-device-names-problems.md)을 참조하세요.
 

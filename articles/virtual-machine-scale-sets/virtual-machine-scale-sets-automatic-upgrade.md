@@ -6,15 +6,15 @@ ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 04/14/2020
+ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: c06ad5ab2688bd62fdf898950a8f64cd655a9fcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601346"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 
@@ -46,11 +46,11 @@ ms.locfileid: "83124978"
 확장 집합 OS 업그레이드 오케스트레이터는 전체 확장 집합 상태를 확인한 후에 모든 배치를 업그레이드합니다. 배치 업그레이드 중에 확장 집합 인스턴스의 상태에 영향을 줄 수 있는, 계획되었거나 계획되지 않은 다른 동시 유지 관리 활동이 있을 수 있습니다. 확장 집합 인스턴스의 20% 이상이 비정상 상태가 될 경우 현재 배치가 끝나면 확장 집합 업그레이드가 중지됩니다.
 
 ## <a name="supported-os-images"></a>지원되는 OS 이미지
-현재는 특정 OS 플랫폼 이미지만 지원됩니다. 사용자 지정 이미지 지원은 [공유 이미지 갤러리](shared-image-galleries.md)를 통해 사용자 지정 이미지에 대 한 [미리 보기로](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) 제공 됩니다.
+현재는 특정 OS 플랫폼 이미지만 지원됩니다. 확장 집합에서 [공유 이미지 갤러리](shared-image-galleries.md)를 통해 사용자 지정 이미지를 사용 하는 경우 사용자 지정 이미지가 [지원 됩니다](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) .
 
 현재 지원 되는 플랫폼 Sku는 다음과 같습니다 .이는 주기적으로 추가 됩니다.
 
-| 게시자               | OS 제품      |  SKU               |
+| Publisher               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
@@ -77,90 +77,25 @@ ms.locfileid: "83124978"
 ### <a name="service-fabric-requirements"></a>Service Fabric 요구 사항
 
 Service Fabric를 사용 하는 경우 다음 조건이 충족 되는지 확인 합니다.
--   Service Fabric [내구성 수준은](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) 브론즈가 아니라 실버 또는 골드입니다.
+-   Service Fabric [내구성 수준은](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) 브론즈가 아니라 실버 또는 골드입니다.
 -   확장 집합 모델 정의의 Service Fabric 확장에는 TypeHandlerVersion 1.1 이상이 있어야 합니다.
 -   Service Fabric 클러스터와 확장 집합 모델 정의에 대 한 Service Fabric 확장에서 내구성 수준이 동일 해야 합니다.
+- 추가 상태 프로브 또는 응용 프로그램 상태 확장 사용은 필요 하지 않습니다.
 
 Service Fabric 클러스터와 Service Fabric 확장에서 내구성 설정이 일치 하지 않는지 확인 합니다 .이로 인해 업그레이드 오류가 발생 합니다. [이 페이지](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels)에 설명 된 지침에 따라 내구성 수준을 수정할 수 있습니다.
 
 
-## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>사용자 지정 이미지에 대 한 자동 OS 이미지 업그레이드 (미리 보기)
+## <a name="automatic-os-image-upgrade-for-custom-images"></a>사용자 지정 이미지에 대 한 자동 OS 이미지 업그레이드
 
-> [!IMPORTANT]
-> 사용자 지정 이미지에 대 한 자동 OS 이미지 업그레이드는 현재 공개 미리 보기 상태입니다. 아래에 설명 된 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저가 필요 합니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-자동 OS 이미지 업그레이드는 [공유 이미지 갤러리](shared-image-galleries.md)를 통해 배포 된 사용자 지정 이미지에 대 한 미리 보기에서 사용할 수 있습니다. 자동 OS 이미지 업그레이드에 대 한 다른 사용자 지정 이미지는 지원 되지 않습니다.
-
-미리 보기 기능을 사용 하도록 설정 하려면 아래에서 설명 하는 것 처럼 구독 당 기능 *AutomaticOSUpgradeWithGalleryImage* 에 대 한 일회성 옵트인이 필요 합니다.
-
-### <a name="rest-api"></a>REST API
-다음 예제에서는 구독에 대해 미리 보기를 사용 하도록 설정 하는 방법을 설명 합니다.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
-```
-
-기능 등록에는 최대 15 분이 걸릴 수 있습니다. 등록 상태를 확인 하려면:
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
-```
-
-구독에 대 한 기능을 등록 한 후에는 계산 리소스 공급자에 변경 내용을 전파 하 여 옵트인 프로세스를 완료 합니다.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-[AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet을 사용 하 여 구독에 대 한 미리 보기를 사용 하도록 설정 합니다.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-기능 등록에는 최대 15 분이 걸릴 수 있습니다. 등록 상태를 확인 하려면:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-구독에 대 한 기능을 등록 한 후에는 계산 리소스 공급자에 변경 내용을 전파 하 여 옵트인 프로세스를 완료 합니다.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-[Az feature register](/cli/azure/feature#az-feature-register) 를 사용 하 여 구독에 대 한 미리 보기를 사용 하도록 설정 합니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-기능 등록에는 최대 15 분이 걸릴 수 있습니다. 등록 상태를 확인 하려면:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-구독에 대 한 기능을 등록 한 후에는 계산 리소스 공급자에 변경 내용을 전파 하 여 옵트인 프로세스를 완료 합니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+자동 OS 이미지 업그레이드는 [공유 이미지 갤러리](shared-image-galleries.md)를 통해 배포 된 사용자 지정 이미지에 대해 지원 됩니다. 자동 OS 이미지 업그레이드에 대 한 다른 사용자 지정 이미지는 지원 되지 않습니다.
 
 ### <a name="additional-requirements-for-custom-images"></a>사용자 지정 이미지에 대 한 추가 요구 사항
-- 위에서 설명한 옵트인 프로세스는 구독 당 한 번만 완료 해야 합니다. 옵트인 (opt in) 후에는 해당 구독의 모든 확장 집합에 대해 자동 OS 업그레이드를 사용 하도록 설정할 수 있습니다.
-- 공유 이미지 갤러리는 모든 구독에 있을 수 있으며 별도로 옵트인 (opt in) 할 필요가 없습니다. 확장 집합 구독에만 기능 옵트인이 필요 합니다.
-- 자동 OS 이미지 업그레이드에 대 한 구성 프로세스는이 페이지의 [구성 섹션](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) 에 자세히 설명 된 모든 확장 집합에 대해 동일 합니다.
+- 자동 OS 이미지 업그레이드에 대 한 설치 및 구성 프로세스는이 페이지의 [구성 섹션](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) 에 자세히 설명 된 모든 규모 집합에 대해 동일 합니다.
 - 자동 OS 이미지 업그레이드에 대해 구성 된 확장 집합 인스턴스는 새 버전의 이미지를 게시 하 고 해당 확장 집합의 지역에 [복제할](shared-image-galleries.md#replication) 때 공유 이미지 갤러리 이미지의 최신 버전으로 업그레이드 됩니다. 새 이미지가 배율이 배포 된 지역에 복제 되지 않으면 확장 집합 인스턴스는 최신 버전으로 업그레이드 되지 않습니다. 지역별 이미지 복제를 사용 하 여 확장 집합에 대 한 새 이미지의 출시를 제어할 수 있습니다.
 - 새 이미지 버전은 해당 갤러리 이미지의 최신 버전에서 제외 되어서는 안 됩니다. 갤러리 이미지의 최신 버전에서 제외 된 이미지 버전은 자동 OS 이미지 업그레이드를 통해 확장 집합으로 롤아웃 되지 않습니다.
 
 > [!NOTE]
->확장 집합이 자동 OS 업그레이드를 위해 구성 된 후 첫 번째 이미지 업그레이드 롤아웃을 트리거하는 데 최대 3 시간이 걸릴 수 있습니다. 크기 집합 당 일회성 지연입니다. 30 분 내에 확장 집합에서 이후 이미지 롤아웃이 트리거됩니다.
+>자동 OS 업그레이드에 대해 확장 집합이 먼저 구성 된 후 확장 집합이 첫 번째 이미지 업그레이드 롤아웃을 트리거하는 데 최대 3 시간이 걸릴 수 있습니다. 크기 집합 당 일회성 지연입니다. 이후 이미지 롤아웃은 30-60 분 내에 확장 집합에서 트리거됩니다.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>자동 OS 이미지 업그레이드 구성
@@ -193,11 +128,14 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[Az vmss update](/cli/azure/vmss#az-vmss-update) 를 사용 하 여 확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
+`[az vmss update](/cli/azure/vmss#az-vmss-update)`확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 하는 데 사용 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
+
+> [!NOTE]
+>확장 집합에 대해 자동 OS 이미지 업그레이드를 구성한 후 확장 집합에서 ' 수동 ' [업그레이드 정책을](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)사용 하는 경우 확장 집합 vm을 최신 확장 집합 모델로 가져와야 합니다.
 
 ## <a name="using-application-health-probes"></a>애플리케이션 상태 프로브 사용
 

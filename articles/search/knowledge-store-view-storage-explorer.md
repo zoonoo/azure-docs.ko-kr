@@ -1,24 +1,21 @@
 ---
-title: Storage 탐색기를 사용 하 여 기술 자료 저장소 (미리 보기) 보기
+title: Storage Explorer를 사용하여 지식 저장소 보기
 titleSuffix: Azure Cognitive Search
-description: Azure Portal의 Storage Explorer를 사용하여 Azure Cognitive Search 지식 저장소를 살펴보고 분석합니다. 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다.
+description: Azure Portal의 Storage Explorer를 사용하여 Azure Cognitive Search 지식 저장소를 살펴보고 분석합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: ba0b02067c032f9038051c169866588ded44af73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566018"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Storage Explorer를 사용하여 지식 저장소 보기
-
-> [!IMPORTANT] 
-> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
 이 문서에서는 Azure Portal에서 Storage 탐색기를 사용 하 여 기술 자료 저장소에 연결 하 고 탐색 하는 방법을 설명 합니다.
 
@@ -61,5 +58,5 @@ ms.locfileid: "75754075"
 자세한 분석을 위해이 기술 자료 저장소를 Power BI에 연결 하거나 REST API 및 Postman을 사용 하 여 다른 기술 자료 저장소를 만들어 코드로 이동 합니다.
 
 > [!div class="nextstepaction"]
-> [Power BI 연결 하 여](knowledge-store-connect-power-bi.md)
-> [REST에서 기술 자료 저장소 만들기](knowledge-store-create-rest.md)
+> [Power BI 연결](knowledge-store-connect-power-bi.md) 
+>  [REST에서 기술 자료 저장소 만들기](knowledge-store-create-rest.md)

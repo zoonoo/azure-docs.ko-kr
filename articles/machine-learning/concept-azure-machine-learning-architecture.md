@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 49c23774fe16c24ba90daa02cdda1688b79b12d3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683049"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602519"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -45,9 +45,9 @@ Azure Machine Learning의 아키텍처, 개념 및 워크플로에 대해 알아
 다음과 같은 Azure Machine Learning 도구를 사용합니다.
 
 +  [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
-+ [R용 Azure Machine Learning SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용하여 R 환경에서 서비스와 상호 작용합니다.
++ R (미리 보기) [에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) 를 사용 하 여 모든 r 환경에서 서비스와 상호 작용 합니다.
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)를 사용하여 기계 학습 활동을 자동화합니다.
-+ [Azure Machine Learning 디자이너(미리 보기)](concept-designer.md)를 사용하여 코드를 작성하지 않고 워크플로 단계를 수행합니다.
++ [Azure Machine Learning 디자이너(미리 보기)](concept-designer.md)를 사용하여 코드를 작성하지 않고 워크플로 단계를 수행합니다. ( [엔터프라이즈 작업 영역](concept-workspace.md#upgrade))은 디자이너를 사용 하는 데 필요 합니다.
 + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기준으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Azure에서는 이 기능을 사용하도록 선택한 경우 Application Insigh
 Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 중인 디바이스를 모니터링합니다.
 
 
-### <a name="compute-instance-preview"></a><a name="compute-instance"></a>컴퓨팅 인스턴스(미리 보기)
+### <a name="compute-instance"></a><a name="compute-instance"></a>컴퓨팅 인스턴스
 
 **Azure Machine Learning 컴퓨팅 인스턴스**(이전의 Notebook VM)는 기계 학습용으로 설치된 여러 도구 및 환경을 포함하는 완전 관리형 클라우드 기반 워크스테이션입니다. 컴퓨팅 인스턴스는 학습 및 추론 작업에 대한 컴퓨팅 대상으로 사용할 수 있습니다. 대량 태스크의 경우 다중 노드 크기 조정 기능이 있는 [Azure Machine Learning 컴퓨팅 클러스터](how-to-set-up-training-targets.md#amlcompute)를 컴퓨팅 대상으로 선택하는 것이 더 바람직합니다.
 

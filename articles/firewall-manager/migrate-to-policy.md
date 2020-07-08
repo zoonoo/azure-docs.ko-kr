@@ -1,26 +1,24 @@
 ---
-title: PowerShell을 사용 하 여 azure 방화벽 구성을 Azure 방화벽 정책 (미리 보기)으로 마이그레이션
-description: Azure 방화벽 구성을 Azure 방화벽 정책 (미리 보기)으로 마이그레이션하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용 하 여 azure 방화벽 구성을 azure 방화벽 정책으로 마이그레이션
+description: Azure 방화벽 구성을 Azure 방화벽 정책으로 마이그레이션하는 방법에 대해 알아봅니다.
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9dadc875e5e6d35a78930b4a02c48e9cbb6f6ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601329"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Powershell을 사용 하 여 azure 방화벽 구성을 Azure 방화벽 정책 (미리 보기)으로 마이그레이션
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-using-powershell"></a>Powershell을 사용 하 여 azure 방화벽 구성을 azure 방화벽 정책으로 마이그레이션
 
 Azure PowerShell 스크립트를 사용 하 여 기존 Azure 방화벽 구성을 Azure 방화벽 정책 리소스로 마이그레이션할 수 있습니다. 그런 다음 Azure 방화벽 관리자를 사용 하 여 정책을 배포할 수 있습니다.
 
-이 `AZFWMigrationScript.ps1` 스크립트는 ApplicationRuleCollections, NetworkRuleCollections 및 NatRuleCollections에 대해 각각 3 개의 RuleCollectionGroup 개체를 사용 하 여 FirewallPolicy를 만듭니다. 
+`AZFWMigrationScript.ps1`이 스크립트는 ApplicationRuleCollections, NetworkRuleCollections 및 NatRuleCollections에 대해 각각 3 개의 RuleCollectionGroup 개체를 사용 하 여 FirewallPolicy를 만듭니다. 
 
 RuleCollectionGroup는 향후 확장성을 위한 규칙 컬렉션을 위한 새로운 최상위 수준 그룹입니다. 위의 기본값을 사용 하는 것이 좋으며 포털에서 자동으로 수행 됩니다.
 
@@ -161,4 +159,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>다음 단계
 
-Azure 방화벽 관리자 배포에 대 한 자세한 내용은 [Azure 방화벽 관리자 미리 보기 배포 개요](deployment-overview.md)를 확인 하세요.
+Azure 방화벽 관리자 배포에 대 한 자세한 내용은 [Azure 방화벽 관리자 배포 개요](deployment-overview.md)를 확인 하세요.

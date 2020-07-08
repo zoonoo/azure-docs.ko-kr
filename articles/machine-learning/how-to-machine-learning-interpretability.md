@@ -5,17 +5,17 @@ description: Azure Machine Learning SDK를 사용 하 여 모델이 예측을 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/30/2020
+ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601686"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Azure Machine Learning 모델 interpretability
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,13 +44,11 @@ Interpretability 클래스는 여러 SDK 패키지를 통해 사용할 수 있�
 
 * `azureml.contrib.interpret`, 미리 보기 및 실험적 기능을 사용해 볼 수 있습니다.
 
-* `azureml.train.automl.automlexplainer`자동화 된 기계 학습 모델을 해석 하기 위한 패키지입니다.
-
-및를 사용 하 여 일반적인 방법 `pip install azureml-interpret-contrib` 으로, automl을 사용 하 여 interpretability 패키지를 가져옵니다. `pip install azureml-interpret-contrib` `pip install azureml-interpret`
+및를 사용 하 여 `pip install azureml-interpret` `pip install azureml-interpret-contrib` 일반적인 방법으로, `pip install azureml-contrib-interpret` automl을 사용 하 여 interpretability 패키지를 가져옵니다.
 
 
 > [!IMPORTANT]
-> `contrib` 네임 스페이스의 콘텐츠는 완전히 지원 되지 않습니다. 실험적 기능이 완성 되 면 주 네임 스페이스로 점차적으로 이동 됩니다.
+> `contrib`네임 스페이스의 콘텐츠는 완전히 지원 되지 않습니다. 실험적 기능이 완성 되 면 주 네임 스페이스로 점차적으로 이동 됩니다.
 .
 
 
@@ -72,7 +70,7 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
  `azureml-interpret`에서는 해석 된 모델을 학습 하 고 블랙 박스 AI 시스템을 설명 하는 데 도움이 되는 오픈 소스 python 패키지인 [해석 커뮤니티](https://github.com/interpretml/interpret-community/)에서 개발한 interpretability 기술을 사용 합니다. [해석-커뮤니티](https://github.com/interpretml/interpret-community/) 는이 SDK의 지원 되는 explainers 호스트 역할을 하며 현재 다음 interpretability 기술을 지원 합니다.
 
-|Interpretability 기술|Description|형식|
+|Interpretability 기술|설명|형식|
 |--|--|--------------------|
 |SHAP 트리 설명| [Shap](https://github.com/slundberg/shap)의 tree 설명는 트리의 트리와 관련 된 다항식 TIME FAST shap 값 예측 알고리즘을 **중심으로 합니다.**|모델 관련|
 |SHAP 심층 설명| SHAP의 설명에 따라 Deep 설명 "는 [SHAP NIPS 용지](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명 된 DeepLIFT와의 연결을 기반으로 하는 심층 학습 모델의 shap 값에 대 한 고속 근사값 알고리즘입니다. TensorFlow 백 엔드를 사용 하는 **TensorFlow** 모델 및 **keras** 모델이 지원 됩니다 (PyTorch에 대 한 예비 지원도 있습니다.).|모델 관련|
@@ -84,7 +82,7 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
 
 
-위에서 설명한 interpretability 기술 외에도 이라는 `TabularExplainer`다른 shap 기반 설명을 지원 합니다. 모델에 따라은 지원 `TabularExplainer` 되는 shap explainers 중 하나를 사용 합니다.
+위에서 설명한 interpretability 기술 외에도 이라는 다른 SHAP 기반 설명을 지원 `TabularExplainer` 합니다. 모델에 따라은 `TabularExplainer` 지원 되는 SHAP explainers 중 하나를 사용 합니다.
 
 * 모든 트리 기반 모델에 대 한 TreeExplainer
 * DNN 모델에 대 한 DeepExplainer
@@ -103,17 +101,17 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
 ## <a name="supported-machine-learning-models"></a>지원 되는 기계 학습 모델
 
-SDK `azureml.interpret` 패키지는 다음 데이터 집합 형식으로 학습 된 모델을 지원 합니다.
+`azureml.interpret`SDK 패키지는 다음 데이터 집합 형식으로 학습 된 모델을 지원 합니다.
 - `numpy.array`
 - `pandas.DataFrame`
 - `iml.datatypes.DenseData`
 - `scipy.sparse.csr_matrix`
 
-설명 함수는 모델과 파이프라인을 입력으로 받아들입니다. 모델을 제공 하는 경우 모델은 예측 함수 `predict` 를 구현 하거나 `predict_proba` Scikit 규칙을 준수 해야 합니다. 모델에서이 기능을 지원 하지 않는 경우 Scikit와 동일한 결과 `predict` `predict_proba` 를 생성 하는 함수로 모델을 래핑하고 선택한 설명 해당 래퍼 함수를 사용할 수 있습니다. 파이프라인이 제공 되는 경우 설명 함수는 실행 중인 파이프라인 스크립트가 예측을 반환 한다고 가정 합니다. 이 래핑 기법을 사용 `azureml.interpret` 하 여는 PyTorch, TensorFlow 및 keras (최고급 학습 프레임 워크 및 클래식 기계 학습 모델)를 통해 학습 된 모델을 지원할 수 있습니다.
+설명 함수는 모델과 파이프라인을 입력으로 받아들입니다. 모델을 제공 하는 경우 모델은 예측 함수를 구현 `predict` 하거나 `predict_proba` Scikit 규칙을 준수 해야 합니다. 모델에서이 기능을 지원 하지 않는 경우 Scikit와 동일한 결과를 생성 하는 함수로 모델을 래핑하고 `predict` `predict_proba` 선택한 설명 해당 래퍼 함수를 사용할 수 있습니다. 파이프라인이 제공 되는 경우 설명 함수는 실행 중인 파이프라인 스크립트가 예측을 반환 한다고 가정 합니다. 이 래핑 기법을 사용 하 여는 `azureml.interpret` PyTorch, TensorFlow 및 Keras (최고급 학습 프레임 워크 및 클래식 기계 학습 모델)를 통해 학습 된 모델을 지원할 수 있습니다.
 
 ## <a name="local-and-remote-compute-target"></a>로컬 및 원격 계산 대상
 
-패키지 `azureml.interpret` 는 로컬 및 원격 계산 대상 모두에서 작동 하도록 설계 되었습니다. 로컬로 실행 하는 경우 SDK 함수는 Azure 서비스에 연결 되지 않습니다. 
+`azureml.interpret`패키지는 로컬 및 원격 계산 대상 모두에서 작동 하도록 설계 되었습니다. 로컬로 실행 하는 경우 SDK 함수는 Azure 서비스에 연결 되지 않습니다. 
 
 Azure Machine Learning 계산에 대 한 설명을 원격으로 실행 하 고 설명 정보를 Azure Machine Learning 실행 기록 서비스에 기록할 수 있습니다. 이 정보가 기록 되 면 설명의 보고서 및 시각화를 사용자 분석을 위해 Azure Machine Learning studio에서 쉽게 사용할 수 있습니다.
 

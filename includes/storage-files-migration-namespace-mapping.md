@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 948090d0ee956ca1798d7b0f46bb33276c4d6354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570212"
 ---
 이 단계에서는 필요한 Azure 파일 공유 수를 평가 합니다. 단일 Windows Server 인스턴스 (또는 클러스터)에서 최대 30 개의 Azure 파일 공유를 동기화 할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure File Sync의 또 다른 중요 한 측면은 Azure File Sync 성능의 확
 > [!IMPORTANT]
 > Azure File Sync에 대 한 가장 중요 한 배율 벡터는 동기화 해야 하는 항목 (파일 및 폴더)의 수입니다.
 
-Azure File Sync는 단일 Azure 파일 공유에 대 한 최대 10만 항목 동기화를 지원 합니다. 이 한도를 초과 하 여 Azure File Sync 팀에서 정기적으로 테스트 하는 내용만 표시 합니다.
+Azure File Sync는 단일 Azure 파일 공유에 대 한 최대 1억 항목 동기화를 지원 합니다. 이 한도를 초과 하 여 Azure File Sync 팀에서 정기적으로 테스트 하는 내용만 표시 합니다.
 
 동기화 범위 당 항목 수를 낮게 유지 하는 것이 좋습니다. 이는 폴더를 Azure 파일 공유에 매핑할 때 고려해 야 할 중요 한 요소입니다.
 

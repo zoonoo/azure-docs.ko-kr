@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190426"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565959"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>가상 WAN 파트너에 대 한 자동화 지침
 
@@ -54,7 +54,7 @@ Azure Virtual WAN과 함께 예상되는 고객 환경을 이해합니다.
 
 ###  <a name="access-control"></a><a name="access"></a>Access Control
 
-고객은 디바이스 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 디바이스 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
+고객은 디바이스 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 디바이스 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
 
 * 온-프레미스 디바이스 컨트롤러에 대한 Azure Active Directory 애플리케이션을 만듭니다.
 * 애플리케이션 ID 및 인증 키 가져오기
@@ -81,17 +81,17 @@ Azure에 분기 (온-프레미스 사이트) 정보를 업로드 하는 사용�
 * **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 디바이스 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션에서는 다음 정보를 제공합니다.
 
-    * 가상 허브 VNet의 **주소 공간** 입니다.<br>예제:
+    * 가상 허브 VNet의 **주소 공간** 입니다.<br>예:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * 허브에 연결 된 Vnet의 **주소 공간** 입니다.<br>예제:
+    * 허브에 연결 된 Vnet의 **주소 공간** 입니다.<br>예:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
-    * 가상 허브 vpngateway의 **IP 주소**. vpngateway에는 활성-활성 구성의 2개 터널로 구성된 각 연결이 있기 때문에 이 파일에 두 IP 주소가 모두 나열됩니다. 이 예제에서는 각 사이트에 대한 “Instance0” 및 “Instance1”이 표시됩니다.<br>예제:
+    * 가상 허브 vpngateway의 **IP 주소**. vpngateway에는 활성-활성 구성의 2개 터널로 구성된 각 연결이 있기 때문에 이 파일에 두 IP 주소가 모두 나열됩니다. 이 예제에서는 각 사이트에 대한 “Instance0” 및 “Instance1”이 표시됩니다.<br>예:
 
         ``` 
         "Instance0":"104.45.18.186"

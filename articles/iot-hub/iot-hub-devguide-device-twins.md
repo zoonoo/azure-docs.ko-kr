@@ -1,24 +1,24 @@
 ---
 title: Azure IoT Hub 디바이스 쌍 이해 | Microsoft Docs
 description: 개발자 가이드 - 디바이스 쌍을 사용하여 IoT Hub와 디바이스 간의 상태 및 구성 데이터 동기화
-author: wesmc7777
+author: ash2017
 manager: philmea
-ms.author: wesmc
+ms.author: asrastog
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.custom: mqtt
-ms.openlocfilehash: 3bec3d19ed68b7eb8bb50baa8f6c11135ef778cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601856"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
 
-*디바이스 쌍*은 메타데이터, 상태 및 조건을 포함하는 디바이스의 상태 정보를 저장하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 
+*장치* 쌍은 메타 데이터, 구성 및 조건을 포함 하 여 장치 상태 정보를 저장 하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -55,11 +55,11 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 * **태그**. 솔루션 백 엔드에서 읽고 쓸 수 있는 JSON 문서의 섹션입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 
-* **Desired 속성**. reported 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 솔루션 백 엔드는 원하는 속성을 설정할 수 있으며 디바이스 앱에서 이를 읽을 수 있습니다. 디바이스 앱에서도 desired 속성의 변경 내용 알림을 수신할 수 있습니다.
+* **desired 속성**. reported 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 솔루션 백 엔드는 원하는 속성을 설정할 수 있으며 디바이스 앱에서 이를 읽을 수 있습니다. 디바이스 앱에서도 desired 속성의 변경 내용 알림을 수신할 수 있습니다.
 
 * **reported 속성**. desired 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 디바이스 앱은 reported 속성을 설정할 수 있으며 솔루션 백 엔드는 이를 읽고 쿼리할 수 있습니다.
 
-* **디바이스 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다. 및 `connectionStateUpdatedTime` `generationId` 속성은 포함 되지 않습니다.
+* **디바이스 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다. `connectionStateUpdatedTime`및 속성 `generationId` 은 포함 되지 않습니다.
 
 ![디바이스 쌍 속성의 스크린샷](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -120,7 +120,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 다음은 그 예입니다.
+이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 예를 들어:
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -183,7 +183,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 속성
 
-    | 속성 | 값 |
+    | 이름 | 값 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -199,7 +199,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 본문
         
-    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 패치와 동일한 형식을 사용 합니다. 여기에는 모든 쌍 섹션 (태그, 속성 보고 됨, 속성)이 포함 되 고 "$metadata" 요소가 포함 되어 있다는 차이점이 있습니다. 예를 들면 다음과 같습니다.
+    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 패치와 동일한 형식을 사용 합니다. 여기에는 모든 쌍 섹션 (태그, 속성 보고 됨, 속성)이 포함 되 고 "$metadata" 요소가 포함 되어 있다는 차이점이 있습니다. 예제:
 
     ```json
     {
@@ -288,7 +288,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ## <a name="device-twin-size"></a>디바이스 쌍 크기
 
-IoT Hub는의 `tags`값에 8kb 크기 제한을 적용 하 고 및 `properties/desired` `properties/reported`의 값에 32 kb 크기 제한을 적용 합니다. 이러한 합계는 `$etag`, `$version`, 등의 읽기 전용 요소를 제외 하 `$metadata/$lastUpdated`고,
+IoT Hub는의 값에 8kb 크기 제한을 적용 `tags` 하 고 및의 값에 32 kb 크기 제한을 적용 `properties/desired` `properties/reported` 합니다. 이러한 합계는,, 등의 읽기 전용 요소를 제외 하 `$etag` `$version` 고, `$metadata/$lastUpdated`
 
 쌍 크기는 다음과 같이 계산 됩니다.
 
@@ -302,13 +302,13 @@ IoT Hub는의 `tags`값에 8kb 크기 제한을 적용 하 고 및 `properties/d
 
 * 복합 속성 값 (중첩 된 개체)은 속성 키 및 속성 값이 포함 된 속성 값의 집계 크기를 기준으로 계산 됩니다.
 
-IoT Hub는 `tags`, `properties/desired`또는 `properties/reported` 문서 크기를 제한 보다 크게 증가 시키는 모든 작업을 오류와 함께 거부 합니다.
+IoT Hub는, 또는 문서 크기를 제한 보다 크게 증가 시키는 모든 작업을 오류와 함께 거부 `tags` `properties/desired` `properties/reported` 합니다.
 
 ## <a name="device-twin-metadata"></a>디바이스 쌍 메타데이터
 
 IoT Hub는 디바이스 쌍 desired 또는 reported 속성의 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 ```json
 {

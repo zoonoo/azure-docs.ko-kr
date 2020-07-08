@@ -2,13 +2,13 @@
 title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft Docs
 description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
-ms.date: 09/29/2019
-ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601363"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
@@ -18,8 +18,8 @@ ms.locfileid: "79275998"
 
 * "초기"를 실행하는 표준 원격 분석 모듈은 서비스에 중요한 데이터를 전송하지 않을 가능성이 있습니다. 원격 분석은 로드, 성능 및 사용 현황 메트릭, 예외 보고서 및 기타 진단 데이터와 관련되어 있습니다. 진단 보고서에 표시되는 기본 사용자 데이터는 URL입니다. 하지만 앱은 어떤 경우에도 URL에 일반 텍스트로 중요한 데이터를 배치하지 않아야 합니다.
 * 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. 이 확장성은 Application Insights의 유용한 기능입니다. 실수로 개인 및 기타 중요 한 데이터를 포함 하도록이 코드를 작성 하는 것이 가능 합니다. 응용 프로그램이 이러한 데이터를 사용 하 여 작동 하는 경우 작성 하는 모든 코드에 철저 한 검토 프로세스를 적용 해야 합니다.
-* 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다. 
-* 데이터는 미국 또는 유럽의 [Microsoft Azure](https://azure.com) 서버에 저장됩니다. 응용 프로그램은 어디에서 나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 포함 하 고 광범위 한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 전송 중 및 미사용 시 암호화 됩니다.
+* 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다.
+* 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 지역별 Application Insights 가용성에 대 한 자세한 내용은 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=all)를 참조 하세요.
 *   수집 된 데이터를 검토 합니다. 여기에는 일부 상황에서 허용 되지만 다른 경우에는 허용 되지 않는 데이터가 포함 될 수 있습니다.  이에 대 한 좋은 예는 장치 이름입니다. 서버의 장치 이름은 개인 정보에 영향을 주지 않으며 유용 하지만 휴대폰 또는 랩톱의 장치 이름은 개인 정보에 영향을 줄 수 있으며, 그다지 유용 하지 않습니다. 주로 대상 서버에 대해 개발 되는 SDK는 기본적으로 장치 이름을 수집 하며이를 일반 이벤트와 예외 모두에서 덮어써야 할 수 있습니다.
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
@@ -52,7 +52,7 @@ Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나
 * [웹 페이지](../../azure-monitor/app/javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
 * 클라이언트 및 서버 컨텍스트 - OS, 로캘, 디바이스 형식, 브라우저, 화면 해상도입니다.
-* [예외](../../azure-monitor/app/asp-net-exceptions.md) 및 충돌- **스택 덤프**, `build id`, CPU 형식. 
+* [예외](../../azure-monitor/app/asp-net-exceptions.md) 및 충돌- **스택 덤프**, `build id` , CPU 형식. 
 * [종속성](../../azure-monitor/app/asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
 * [추적 로그](../../azure-monitor/app/asp-net-trace-logs.md) 및 [사용자 지정 원격 분석](../../azure-monitor/app/api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
@@ -173,15 +173,15 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 ### <a name="javascript-browser"></a>JavaScript (브라우저)
 
-[HTML5 세션 저장소](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 는 데이터를 유지 하는 데 사용 됩니다. 및 `AI_sent_buffer`의 두 가지 별도 버퍼 `AI_buffer` 를 사용 합니다. 일괄 처리 되 고 전송 대기 중인 원격 분석은에 `AI_buffer`저장 됩니다. 방금 보낸 원격 분석은 수집 서버가 성공적 `AI_sent_buffer` 으로 수신 되었음을 응답할 때까지에 배치 됩니다. 원격 분석이 성공적으로 수신 되 면 모든 버퍼에서 제거 됩니다. 일시적 오류가 발생 하는 경우 (예: 사용자가 네트워크 연결을 잃은 경우) `AI_buffer` 원격 분석은 성공적으로 수신 될 때까지 또는 수집 서버에서 원격 분석이 잘못 된 것으로 응답 합니다 (예: 잘못 된 스키마 또는 너무 오래 됨).
+[HTML5 세션 저장소](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 는 데이터를 유지 하는 데 사용 됩니다. 및의 두 가지 별도 버퍼를 사용 `AI_buffer` `AI_sent_buffer` 합니다. 일괄 처리 되 고 전송 대기 중인 원격 분석은에 저장 됩니다 `AI_buffer` . 방금 보낸 원격 분석은 수집 `AI_sent_buffer` 서버가 성공적으로 수신 되었음을 응답할 때까지에 배치 됩니다. 원격 분석이 성공적으로 수신 되 면 모든 버퍼에서 제거 됩니다. 일시적 오류가 발생 하는 경우 (예: 사용자가 네트워크 연결을 잃은 경우) 원격 분석은 `AI_buffer` 성공적으로 수신 될 때까지 또는 수집 서버에서 원격 분석이 잘못 된 것으로 응답 합니다 (예: 잘못 된 스키마 또는 너무 오래 됨).
 
-원격 분석 버퍼는를로 [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) `false`설정 하 여 사용 하지 않도록 설정할 수 있습니다. 세션 저장소가 꺼져 있으면 대신 로컬 배열이 영구적 저장소로 사용 됩니다. JavaScript SDK는 클라이언트 장치에서 실행 되기 때문에 사용자는 브라우저의 개발자 도구를 통해이 저장소 위치에 액세스할 수 있습니다.
+원격 분석 버퍼는를로 설정 하 여 사용 하지 않도록 설정할 수 있습니다 [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) `false` . 세션 저장소가 꺼져 있으면 대신 로컬 배열이 영구적 저장소로 사용 됩니다. JavaScript SDK는 클라이언트 장치에서 실행 되기 때문에 사용자는 브라우저의 개발자 도구를 통해이 저장소 위치에 액세스할 수 있습니다.
 
 ### <a name="opencensus-python"></a>OpenCensus Python
 
-기본적으로 OpenCensus Python SDK는 현재 사용자 폴더 `%username%/.opencensus/.azure/`를 사용 합니다. 이 폴더에 대한 액세스 권한은 현재 사용자 및 관리자로 제한됩니다. 여기에서 [구현](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) 을 참조 하세요. 지속형 데이터를 포함 하는 폴더는 원격 분석을 생성 한 Python 파일의 이름이 지정 됩니다.
+기본적으로 OpenCensus Python SDK는 현재 사용자 폴더를 사용 `%username%/.opencensus/.azure/` 합니다. 이 폴더에 대한 액세스 권한은 현재 사용자 및 관리자로 제한됩니다. 여기에서 [구현](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) 을 참조 하세요. 지속형 데이터를 포함 하는 폴더는 원격 분석을 생성 한 Python 파일의 이름이 지정 됩니다.
 
-사용 중인 내보내기의 생성자에서 `storage_path` 매개 변수를 전달 하 여 저장소 파일의 위치를 변경할 수 있습니다.
+`storage_path`사용 중인 내보내기의 생성자에서 매개 변수를 전달 하 여 저장소 파일의 위치를 변경할 수 있습니다.
 
 ```python
 AzureLogHandler(
@@ -202,11 +202,11 @@ Tls 1.3와 같이 제공 되는 새로운 더 안전한 프로토콜을 자동�
 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
-| Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
-| Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
+| Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!)에 대한 공지를 참고하세요.  |
+| Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!)에 대한 공지를 참고하세요. |
 |.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 및 이전 버전에 대 한 자세한 구성 정보는 [다음 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조 하세요.  |
-|상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 TLS 1.2을 지원 하기 위해 [OS 구성](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.net 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) 에 의존 합니다.
-|Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 응용 프로그램별 구성에는 [공식 NODE.JS TLS/SSL 설명서](https://nodejs.org/api/tls.html) 를 사용 합니다. |
+|상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  +  TLS 1.2을 지원 하기 위해 OS 구성[.net 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) 에 의존 합니다.
+|Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 응용 프로그램별 구성에는 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html) 를 사용 합니다. |
 |Java | 지원됨, TLS 1.2에 대한 JDK 지원이 [JDK 6 업데이트 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 및 [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html)에서 추가되었습니다. | JDK 8은 [기본적으로 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)를 사용합니다.  |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
 | Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
@@ -247,15 +247,15 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 | 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조) |
 | --- | --- |
-| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>사용자 |
+| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>users |
 | [IIS에서 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
-| [Java 웹앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자 |
-| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>호출<br/>ClientPerf<br/>Ajax |
+| [Java 웹앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>users |
+| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax |
 | [기본 속성 정의][apiproperties] |**속성** |
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
 | [호출 추적*][api] |이벤트 이름<br/>**속성** |
 | [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 다음은 그 예입니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| SDK는 데이터를 수집할 수 없습니다. 예를 들어: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼에 대한 SDK][platforms]의 경우 해당 문서를 참조하세요.
 
@@ -277,7 +277,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | 요청 |URL, 기간, 응답 코드 |
 | 종속성 |유형 (SQL, HTTP, ...), 연결 문자열 또는 URI, sync/async, duration, success, SQL 문 (with 상태 모니터) |
 | **예외** |형식, **메시지**, 호출 스택, 소스 파일, 줄 번호,`thread id` |
-| 크래시 |`Process id`, `parent process id`, `crash thread id`; 응용 프로그램 패치 `id`,, 빌드,  예외 유형, 주소, 이유; 난독 처리 되는 기호 및 레지스터, 이진 시작 및 끝 주소, 이진 이름 및 경로, cpu 종류 |
+| 크래시 |`Process id`, `parent process id` ,, `crash thread id` 응용 프로그램 패치, `id` , 빌드,  예외 유형, 주소, 이유; 난독 처리 되는 기호 및 레지스터, 이진 시작 및 끝 주소, 이진 이름 및 경로, cpu 종류 |
 | 추적 |**메시지** 및 심각도 수준 |
 | 성능 카운터 |프로세서 시간, 사용 가능한 메모리, 요청 속도, 예외 속도, 프로세스 프라이빗 바이트, IO 속도, 요청 기간, 요청 큐 길이 |
 | 가용성 |웹 테스트 응답 코드, 각 테스트 단계, 테스트 이름, 타임 스탬프, 성공, 응답 시간, 테스트 위치의 기간 |
@@ -289,7 +289,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 > 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) 에서 사용자의 옵션을 안내 합니다.
 
 ## <a name="credits"></a>크레딧
-이 제품에는에서 [https://www.maxmind.com](https://www.maxmind.com)사용할 수 있는 maxmind로 생성 된 GeoLite2 데이터가 포함 됩니다.
+이 제품에는에서 사용할 수 있는 MaxMind로 생성 된 GeoLite2 데이터가 포함 됩니다 [https://www.maxmind.com](https://www.maxmind.com) .
 
 
 

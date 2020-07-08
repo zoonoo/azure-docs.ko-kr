@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 6b5aa4f409b8c2f5a9125ab01e8587f4ac9c4ee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570222"
 ---
 ## <a name="create-a-project-zip-file"></a>프로젝트 ZIP 파일 만들기
 
@@ -25,9 +25,9 @@ ms.locfileid: "75945184"
 
 이 디렉터리는 _index.html_, _index.php_ 및 _app.js_와 같은 웹앱에 대한 입력 파일을 포함해야 합니다. 또한 _project.json_, _composer.json_, _package.json_, _bower.json_ 및 _requirements.txt_와 같은 패키지 관리 파일을 포함할 수 있습니다.
 
-App Service 배포 자동화를 실행 하려면 모든 빌드 작업 (예 `npm`: `bower` `gulp` `composer`,,, 및 `pip`)을 실행 하 고 앱을 실행 하는 데 필요한 모든 파일이 있는지 확인 합니다. 이 단계는 [패키지를 직접 실행](../articles/app-service/deploy-run-package.md)하려는 경우에 필요 합니다.
+App Service 배포 자동화를 실행 하려면 모든 빌드 작업 (예:,,, 및)을 실행 하 `npm` `bower` `gulp` `composer` `pip` 고 앱을 실행 하는 데 필요한 모든 파일이 있는지 확인 합니다. 이 단계는 [패키지를 직접 실행](../articles/app-service/deploy-run-package.md)하려는 경우에 필요 합니다.
 
-프로젝트의 모든 것에 대한 ZIP 아카이브를 만듭니다. 다음 명령은 터미널의 기본 도구를 사용합니다.
+프로젝트의 모든 것에 대한 ZIP 아카이브를 만듭니다. 프로젝트의 경우 `dotnet` 이 폴더는 명령의 출력 폴더입니다 `dotnet publish` . 다음 명령은 터미널의 기본 도구를 사용합니다.
 
 ```
 # Bash

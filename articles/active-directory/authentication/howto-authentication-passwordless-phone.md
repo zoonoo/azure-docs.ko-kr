@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450975"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601635"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "81450975"
 > [!NOTE]
 > 이 기능은 2017 년 3 월부터 Microsoft Authenticator 앱에 포함 되었으므로 디렉터리에 대해 정책을 사용 하도록 설정 하면 사용자가이 흐름을 즉시 발견할 수 있으며 정책에 의해 사용 하도록 설정 되지 않은 경우 오류 메시지가 표시 될 수 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됨 
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
@@ -46,7 +46,7 @@ ms.locfileid: "81450975"
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>암호 없는 휴대폰 로그인 인증 방법 사용
 
 1. [Azure 포털](https://portal.azure.com)
-1. *Azure Active Directory*를 검색하고 선택합니다. **보안** > **인증 방법** > **인증 방법 정책 (미리 보기)을** 선택 합니다.
+1. *Azure Active Directory*를 검색하고 선택합니다. **보안**  >  **인증 방법**  >  **인증 방법 정책 (미리 보기)을** 선택 합니다.
 1. **Passwordless 휴대폰 로그인**에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택
@@ -78,13 +78,13 @@ ms.locfileid: "81450975"
 
 사용자가 현재 Microsoft Authenticator 앱 또는 이전 장치에서 암호 없는 휴대폰 로그인 자격 증명을 만든 시점이 있을 수 있습니다. 관리자가 암호 없는 휴대폰 로그인에 대 한 인증 방법 정책을 사용 하도록 설정 하면 자격 증명을 등록 한 모든 사용자가 정책을 사용 하도록 설정 되었는지 여부에 관계 없이 새 로그인 프롬프트가 표시 되기 시작 합니다. 사용자가 정책으로 자격 증명을 사용할 수 없는 경우 인증 흐름을 완료 한 후에 오류가 표시 됩니다. 
 
-관리자는 사용자가 암호 없는 휴대폰 로그인을 사용 하도록 선택할 수 있습니다. 또는 사용자가 메서드를 제거 해야 합니다. 사용자에 게 더 이상 등록 된 장치가 없는 경우로 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 이동 하 여 제거할 수 있습니다. 여전히 MFA에 대 한 인증자를 사용 하는 경우 Microsoft Authenticator 내에서 **휴대폰 로그인 사용 안 함** 을 선택할 수 있습니다.  
+관리자는 사용자가 암호 없는 휴대폰 로그인을 사용 하도록 선택할 수 있습니다. 또는 사용자가 메서드를 제거 해야 합니다. 사용자에 게 더 이상 등록 된 장치가 없는 경우로 이동 하 여 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 제거할 수 있습니다. 여전히 MFA에 대 한 인증자를 사용 하는 경우 Microsoft Authenticator 내에서 **휴대폰 로그인 사용 안 함** 을 선택할 수 있습니다.  
 
 ### <a name="ad-fs-integration"></a>AD FS 통합
 
-사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리는 "암호 대신 사용"을 클릭 하는 추가 단계를 수행 하지 않고 하이브리드 테 넌 트의 사용자가 로그인 확인을 위해 ADFS로 전달 되지 않도록 합니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 
+사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리를 통해 하이브리드 테 넌 트의 사용자가 "대신 암호 사용"을 클릭 하는 추가 단계를 수행 하지 않고 로그인 확인을 위해 AD FS로 전달 되지 않습니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 
 
-사용자가 응답 하지 않는 암호를 사용 하 여 로그인 인증을 보류 중이 고 다시 로그인을 시도 하면 사용자가 ADFS로 이동 하 여 암호를 입력할 수 있습니다.  
+사용자가 응답 하지 않는 암호를 사용 하 여 로그인 인증을 보류 중이 고 다시 로그인을 시도 하는 경우 사용자는 암호를 입력 하 AD FS 하는 것이 좋습니다.  
 
 ### <a name="azure-mfa-server"></a>Azure MFA 서버
 
@@ -103,7 +103,7 @@ MAM (모바일 응용 프로그램 관리)이 필요한 정책에 적용 되는 
 
 ## <a name="next-steps"></a>다음 단계
 
-[암호 없음이란?](concept-authentication-passwordless.md)
+[암호 없는의 작동 원리 알아보기](concept-authentication-passwordless.md)
 
 [디바이스 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-in-azure-ad)
 
