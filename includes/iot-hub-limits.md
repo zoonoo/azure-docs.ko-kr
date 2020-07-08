@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 007c19a10db5e000770c8c80189453d4a80edec2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204556"
 ---
 다음 표에서는 다른 서비스 계층 S1, S2, S3 및 F1와 관련 된 제한을 나열 합니다. 각 계층의 각 *단위* 비용에 대 한 자세한 내용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조 하세요.
@@ -32,7 +32,7 @@ ms.locfileid: "82204556"
 | 장치 ID의 최대 문자 수 | 128 |
 | 단일 호출에서 반환되는 최대 디바이스 ID<br/>  수 |1,000 |
 | 디바이스-&gt;클라우드 메시지의 IoT Hub 메시지 최대 보존 |7 일 |
-| 디바이스-&gt;클라우드 메시지의 최대 크기 |256KB |
+| 디바이스-&gt;클라우드 메시지의 최대 크기 |256 KB |
 | 디바이스-&gt;클라우드 배치의 최대 크기 |AMQP 및 HTTP: 전체 일괄 처리에 256KB <br/>MQTT: 각 메시지에 256KB |
 | 디바이스-&gt;클라우드 배치의 최대 메시지 |500 |
 | 클라우드-&gt;디바이스 메시지의 최대 크기 |64KB |

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e06b5261ca6923e158c818d236a30cf6ebff189b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680953"
 ---
 이 섹션에서는 직접 피어 링에 대해 다음과 같은 수정 작업을 수행 하는 방법을 설명 합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "81680953"
 
 ### <a name="remove-exchange-peering-connections"></a>Exchange 피어 링 연결 제거
 
-1. 삭제할 피어 링 연결을 선택 하 **고 ...를 선택 합니다** .  >  **연결을 삭제**합니다.
+1. 삭제할 피어 링 연결을 선택 하 **고 ...를 선택**  >  합니다. **연결을 삭제**합니다.
     > [!div class="mx-imgBorder"]
     > ![연결 삭제 단추](../media/setup-exchange-modify-deleteconnection.png)
 1. **삭제 확인** 상자에 리소스 ID를 입력 하 고 **삭제**를 선택 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "81680953"
 
 ### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>활성 연결에 IPv4 또는 IPv6 세션 추가
 
-1. 수정 하려는 피어 링 연결을 선택 하 **고 ...를 선택 합니다** .  >  **연결 편집**
+1. 수정 하려는 피어 링 연결을 선택 하 **고 ...를 선택**  >  합니다. **연결 편집**
     > [!div class="mx-imgBorder"]
     > ![연결 편집 단추](../media/setup-exchange-modify-editconnection.png)
 1. **IPv4 주소** 또는 **IPv6 주소** 정보를 추가 하 고 **저장**을 선택 합니다.

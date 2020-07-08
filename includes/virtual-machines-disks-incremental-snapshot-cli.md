@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-machines
 author: roygara
@@ -9,31 +9,31 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80343046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82204604"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>제한 사항
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
 ## <a name="cli"></a>CLI
 
-Azure CLI를 사용하여 증분 스냅숏을 만들 수 있으며 최신 버전의 Azure CLI가 필요합니다. 
+Azure CLI를 사용 하 여 증분 스냅숏을 만들 수 있습니다 Azure CLI 최신 버전의가 필요 합니다. 
 
-Windows에서 다음 명령은 기존 설치를 최신 버전으로 설치하거나 업데이트합니다.
+Windows에서 다음 명령을 설치 하거나 기존 설치를 최신 버전으로 업데이트 합니다.
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-Linux에서 CLI 설치는 운영 체제 버전에 따라 다릅니다.  특정 Linux 버전에 대한 [Azure CLI 설치를](https://docs.microsoft.com/cli/azure/install-azure-cli) 참조하십시오.
+Linux에서 CLI 설치는 운영 체제 버전에 따라 달라 집니다.  특정 Linux 버전에 대 한 [Azure CLI 설치를](https://docs.microsoft.com/cli/azure/install-azure-cli) 참조 하세요.
 
-증분 스냅숏을 만들려면 매개 변수를 `--incremental` 사용하여 [az 스냅샷 만들기를](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) 사용합니다.
+증분 스냅숏을 만들려면 [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) 를 `--incremental` 매개 변수와 함께 사용 합니다.
 
-다음 예제에서는 증분 스냅숏을 `<yourDesiredSnapShotNameHere>` `<yourResourceGroupNameHere>`만들고`<exampleDiskName>`, `<exampleLocation>` 을 대체하고, 고유의 값으로, 다음 예제를 실행합니다.
+다음 예에서는 `<yourDesiredSnapShotNameHere>` ,, `<yourResourceGroupNameHere>` 및를 `<exampleDiskName>` `<exampleLocation>` 고유한 값으로 바꾼 다음 예제를 실행 하는 증분 스냅숏을 만듭니다.
 
 ```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
@@ -45,13 +45,13 @@ az snapshot create -g <yourResourceGroupNameHere> \
 --incremental
 ```
 
-스냅숏의 `SourceResourceId` `SourceUniqueId` 속성과 동일한 디스크에서 증분 스냅숏을 식별할 수 있습니다. `SourceResourceId`은 상위 디스크의 Azure 리소스 관리자 리소스 ID입니다. `SourceUniqueId`은 디스크 `UniqueId` 속성에서 상속된 값입니다. 디스크를 삭제한 다음 이름이 같은 새 디스크를 만들면 `UniqueId` 속성 값이 변경됩니다.
+`SourceResourceId`및 스냅숏의 속성을 사용 하 여 동일한 디스크에서 증분 스냅숏을 식별할 수 있습니다 `SourceUniqueId` . `SourceResourceId`부모 디스크의 Azure Resource Manager 리소스 ID입니다. `SourceUniqueId`는 디스크의 속성에서 상속 된 값입니다 `UniqueId` . 디스크를 삭제 한 다음 같은 이름으로 새 디스크를 만들면 속성의 값이 `UniqueId` 변경 됩니다.
 
-특정 `SourceResourceId` 디스크와 `SourceUniqueId` 연결된 모든 스냅숏 목록을 만들고 만들 수 있습니다. 다음 예제에서는 특정 디스크와 관련된 모든 증분 스냅숏을 나열하지만 일부 설정이 필요합니다.
+`SourceResourceId`및 `SourceUniqueId` 를 사용 하 여 특정 디스크와 연결 된 모든 스냅숏의 목록을 만들 수 있습니다. 다음 예제에는 특정 디스크와 연결 된 모든 증분 스냅숏이 나열 되지만 일부 설정이 필요 합니다.
 
-이 예제에서는 jq를 사용하여 데이터를 쿼리합니다. 예제를 실행하려면 jq 를 [설치해야](https://stedolan.github.io/jq/download/)합니다.
+이 예제에서는 데이터를 쿼리 하는 데 jq를 사용 합니다. 예제를 실행 하려면 [jq를 설치](https://stedolan.github.io/jq/download/)해야 합니다.
 
-`<exampleDiskName>` 다음 `<yourResourceGroupNameHere>` 예제를 사용하여 jq를 설치한 경우 다음 예제를 사용하여 기존 증분 스냅숏을 나열할 수 있습니다.
+및을 사용자의 값으로 바꾸고 `<yourResourceGroupNameHere>` `<exampleDiskName>` jq도 설치한 경우 다음 예제를 사용 하 여 기존 증분 스냅숏을 나열할 수 있습니다.
 
 ```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
@@ -65,7 +65,7 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-Azure 리소스 관리자 템플릿을 사용하여 증분 스냅숏을 만들 수도 있습니다. apiVersion이 **2019-03-01로** 설정되어 있고 증분 속성도 true로 설정되어 있는지 확인해야 합니다. 다음 코드 조각은 리소스 관리자 템플릿을 사용하여 증분 스냅숏을 만드는 방법의 예입니다.
+Azure Resource Manager 템플릿을 사용 하 여 증분 스냅숏을 만들 수도 있습니다. ApiVersion가 **2019-03-01** 로 설정 되어 있고 증분 속성도 true로 설정 되어 있는지 확인 해야 합니다. 다음 코드 조각은 리소스 관리자 템플릿으로 증분 스냅숏을 만드는 방법의 예입니다.
 
 ```json
 {
@@ -101,4 +101,4 @@ Azure 리소스 관리자 템플릿을 사용하여 증분 스냅숏을 만들 �
 
 ## <a name="next-steps"></a>다음 단계
 
-.NET을 사용하여 증분 스냅숏의 차등 기능을 보여 주는 샘플 코드를 보려면 [증분 스냅숏의 차동 기능을 사용하여 다른 지역으로 Azure 관리 디스크 백업 복사를](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)참조하십시오.
+.NET을 사용 하 여 증분 스냅숏의 차등 기능을 보여 주는 샘플 코드를 보려면 [증분 스냅숏의 차등 기능을 사용 하 여 다른 지역에 Azure Managed Disks 백업 복사](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)를 참조 하세요.

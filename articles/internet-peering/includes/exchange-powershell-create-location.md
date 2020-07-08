@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fa8d8ccef7d6ad6e1b5d9f19de61e45ee8c439fa
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82587828"
 ---
-PowerShell cmdlet **AzPeeringLocation** 는 필수 매개 변수 `Kind`를 사용 하 여 피어 링 위치 목록을 반환 합니다 .이 위치는 이후 단계에서 사용할 수 있습니다.
+PowerShell cmdlet **AzPeeringLocation** 는 필수 매개 변수를 사용 하 여 피어 링 위치 목록을 반환 합니다 `Kind` .이 위치는 이후 단계에서 사용할 수 있습니다.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"

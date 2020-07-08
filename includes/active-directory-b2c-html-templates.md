@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78189028"
 ---
 ## <a name="sample-templates"></a>샘플 템플릿
@@ -25,9 +25,9 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
 
 샘플을 사용 하려면 다음을 수행 합니다.
 
-1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. 템플릿 폴더 `/ocean_blue` 또는 `/slate_gray`를 선택 합니다.
-1. 이전 섹션에 설명 된 대로 템플릿 폴더 및 `/assets` 폴더 아래의 모든 파일을 Blob 저장소에 업로드 합니다.
-1. 그런 다음 `/ocean_blue` 또는 `/slate_gray`의 `\*.html` 루트에 있는 각 파일을 열고 상대 url의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다. 다음은 그 예입니다.
+1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. 템플릿 폴더 또는를 `/ocean_blue` 선택 `/slate_gray` 합니다.
+1. `/assets`이전 섹션에 설명 된 대로 템플릿 폴더 및 폴더 아래의 모든 파일을 Blob 저장소에 업로드 합니다.
+1. 그런 다음 `\*.html` 또는의 루트에 있는 각 파일 `/ocean_blue` 을 열고 `/slate_gray` 상대 url의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다. 예를 들어:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -36,6 +36,6 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```
-1. `\*.html` 파일을 저장 하 고 Blob 저장소에 업로드 합니다.
+1. 파일을 저장 하 `\*.html` 고 Blob 저장소에 업로드 합니다.
 1. 이제 앞에서 설명한 것 처럼 HTML 파일을 가리키는 정책을 수정 합니다.
-1. 누락 된 글꼴, 이미지 또는 CSS가 표시 되 면 확장 정책 및 \*.html 파일의 참조를 확인 합니다.
+1. 누락 된 글꼴, 이미지 또는 CSS가 표시 되 면 확장 정책 및 .html 파일의 참조를 확인 합니다. \*

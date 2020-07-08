@@ -5,14 +5,14 @@ ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
 ms.openlocfilehash: 5deba9d8968f71ef1b21517e74e6af4c39aa9271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76279482"
 ---
 > [!WARNING]
-> 기존 역할에서 진단을 사용하도록 설정한 경우 패키지를 배포하면 이미 설정한 모든 확장이 비활성화됩니다. 여기에는 다음이 포함됩니다.
+> 기존 역할에서 진단을 사용하도록 설정한 경우 패키지를 배포하면 이미 설정한 모든 확장이 비활성화됩니다. 내용은 다음과 같습니다.
 >
 > * Microsoft Monitoring Agent 진단
 > * Microsoft Azure 보안 모니터링

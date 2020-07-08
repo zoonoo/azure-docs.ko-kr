@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83343323"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
@@ -51,7 +51,7 @@ Azure 전용 호스트는 이제 GA로, 단일 테 넌 트 물리적 서버에�
 자세한 내용은 다음을 참조 하세요.
 
 ## <a name="timeline"></a>타임라인
-| Date | 작업 | 
+| 날짜 | 작업 | 
 | --- | --- |
 | 2019년 11월 18일 | D/DS15i_v2의 가용성 (PAYG, 1 년 RI) |
 | 5 월 14 일, 2020  | D/DS15i_v2 1 년 RI의 최근 구매 날짜 | 
@@ -86,9 +86,9 @@ Azure 전용 호스트는 이제 GA로, 단일 테 넌 트 물리적 서버에�
 
 | RI |  인스턴스 크기 유연성 | 혜택 자격 |   
 | --- | --- | --- |
-|   D15_v2  |   꺼짐     |   D15_v2 및 D15i_v2 |    
-|   D15_v2  |   설정  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
-|   D14_v2  |   설정  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
+|   D15_v2  |   끄기     |   D15_v2 및 D15i_v2 |    
+|   D15_v2  |   켜기  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
+|   D14_v2  |   켜기  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
  
 Dsv2 시리즈의 경우에도 마찬가지입니다.
  
@@ -97,10 +97,10 @@ Dsv2 시리즈의 경우에도 마찬가지입니다.
 
 | RI |  인스턴스 크기 유연성 | 혜택 자격 |   
 | --- | --- | --- |
-| D15_v2 |  꺼짐 |   D15_v2만  
-| D15_v2 |  설정 |    D15_v2 시리즈는 RI 혜택을 받습니다. 새 D15i_v2는이 RI 유형의 RI 혜택에 적합 하지 않습니다. | 
-| D15i_v2 |     꺼짐 | D15i_v2만 |  
-| D15i_v2 |     설정  | D15i_v2만 | 
+| D15_v2 |  끄기 |   D15_v2만  
+| D15_v2 |  켜기 |    D15_v2 시리즈는 RI 혜택을 받습니다. 새 D15i_v2는이 RI 유형의 RI 혜택에 적합 하지 않습니다. | 
+| D15i_v2 |     끄기 | D15i_v2만 |  
+| D15i_v2 |     켜기  | D15i_v2만 | 
  
 인스턴스 크기 유연성을 사용 하 여 D2_v2, D4_v2, D15_v2 등의 다른 크기에 적용할 수 없습니다. 마찬가지로 Dsv2 시리즈의 경우입니다.  
  

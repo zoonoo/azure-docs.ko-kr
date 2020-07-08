@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 35f506235f698fbcf42308e6f0b0f400e925df29
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68361545"
 ---
 ### <a name="bastion-tier"></a>요새 계층
@@ -23,4 +23,4 @@ ms.locfileid: "68361545"
 ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP`
 ```
 
-이 명령은 요새에 연결 된 다음 즉시 실행 `ssh` 되므로 대상 인스턴스에서 터미널을 가져옵니다. 클러스터가 다르게 구성 된 경우 대상 인스턴스에서 root 이외의 사용자를 지정 해야 할 수 있습니다. 인수 `-A` 는 에이전트 연결을 전달 하므로 로컬 컴퓨터의 개인 키가 자동으로 사용 됩니다. 에이전트 전달은 체인 이므로 두 번째 `ssh` 명령에는 대상 인스턴스에서 시작 된 후속 `-A` SSH 연결 에서도 로컬 개인 키를 사용 하도록도 포함 됩니다.
+이 명령은 요새에 연결 된 다음 즉시 실행 `ssh` 되므로 대상 인스턴스에서 터미널을 가져옵니다. 클러스터가 다르게 구성 된 경우 대상 인스턴스에서 root 이외의 사용자를 지정 해야 할 수 있습니다. `-A`인수는 에이전트 연결을 전달 하므로 로컬 컴퓨터의 개인 키가 자동으로 사용 됩니다. 에이전트 전달은 체인 이므로 두 번째 명령에는 `ssh` `-A` 대상 인스턴스에서 시작 된 후속 SSH 연결 에서도 로컬 개인 키를 사용 하도록도 포함 됩니다.

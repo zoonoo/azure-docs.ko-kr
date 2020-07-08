@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 610bac5c08d7f3aa3c93e273bc6573a08ca1239f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680801"
 ---
 다음 예에서는 시애틀에서 10mbps Direct 피어 링을 만드는 방법을 보여 줍니다.
@@ -32,7 +32,7 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> 이전 예의 <index> **[]** <index> $peeringLocation에 대 한 값은 선택한 피어 링 위치와 일치 해야 합니다.
+> <index>이전 예의 **[] $peeringLocation** 에 대 한 값은 <index> 선택한 피어 링 위치와 일치 해야 합니다.
 
 지정 된 피어 링 위치에 중복이 필요한 경우 다른 연결을 만듭니다.
 

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678669"
 ---
 다음 예에서는 시애틀에서 Exchange 연결을 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
@@ -73,7 +73,7 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft에서 요청 된 피어 링의 프로 `ConnectionState` 비전을 시작 하 고 진행 상황을 반영 합니다.
+> Microsoft에서 요청 된 피어 링의 프로 비전을 시작 하 고 `ConnectionState` 진행 상황을 반영 합니다.
 > 프로 비전 관련 단계에 대 한 자세한 내용은 [Exchange 피어 링 연습](../walkthrough-exchange-all.md)을 참조 하세요.
 
 여기에 표시 된 것 처럼 연결 상태를 확인할 수 있습니다.

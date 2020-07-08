@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687039"
 ---
-1. Azure 피어 링 서비스를 사용 하도록 설정 하려는 피어 링 연결을 선택 합니다. 그런 후 **...를 선택 합니다** .  >  **연결 편집**
+1. Azure 피어 링 서비스를 사용 하도록 설정 하려는 피어 링 연결을 선택 합니다. 그런 후 **...를 선택**  >  합니다. **연결 편집**
     > [!div class="mx-imgBorder"]
     > ![피어 링 연결 편집 연결](../media/setup-direct-modify-editconnection.png)
 1. **피어 링 서비스에 사용**에서 **사용** 을 선택한 다음 **저장**을 선택 합니다.
