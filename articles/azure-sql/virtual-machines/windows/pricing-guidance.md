@@ -15,20 +15,19 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9b9e98b4e1f5c286acb9089893f169f2c52b855c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84342598"
 ---
-# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Azure SQL Server VM에 대한 가격 책정 지침
+# <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 가격 책정 지침
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 Azure의 [SQL Server 가상 머신](sql-server-on-azure-vm-iaas-what-is-overview.md)에 대한 가격 책정 지침을 제공합니다. 비용에 영향을 미치는 다양한 옵션이 있고 비용과 비즈니스 요구 사항 간에 균형을 이루는 적합한 이미지를 선택해야 합니다.
+이 문서에서는 [Azure Virtual Machines에서 SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)에 대 한 가격 책정 지침을 제공 합니다. 비용에 영향을 미치는 다양한 옵션이 있고 비용과 비즈니스 요구 사항 간에 균형을 이루는 적합한 이미지를 선택해야 합니다.
 
 > [!TIP]
-> 특정한 SQL Server 버전과 가상 머신 크기 조합에 대한 예상 비용만 확인하려는 경우 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 또는 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux)에 대한 가격 책정 페이지를 참조하세요. **OS/소프트웨어** 목록에서 플랫폼과 SQL Server 버전을 선택합니다.
+> SQL Server 버전 및 VM (가상 머신) 크기의 특정 조합에 대 한 예상 비용을 확인 해야 하는 경우 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 또는 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux)에 대 한 가격 책정 페이지를 참조 하세요. **OS/소프트웨어** 목록에서 플랫폼과 SQL Server 버전을 선택합니다.
 >
 > ![VM 가격 책정 페이지의 UI](./media/pricing-guidance/virtual-machines-pricing-ui.png)
 >
@@ -42,7 +41,7 @@ ms.locfileid: "84034294"
 
 이러한 개발/테스트 또는 간단한 프로덕션 작업의 경우 이러한 작업에 맞는 더 작은 VM 크기를 선택하여 비용을 절감할 수도 있습니다. 일부 시나리오에는 DS1v2를 선택하는 것이 좋습니다.
 
-이러한 이미지 중 하나를 사용하여 SQL Server 2017 Azure VM을 만들려면 다음 링크를 참조하세요.
+이러한 이미지 중 하나를 사용 하 여 SQL Server 2017를 실행 하는 Azure VM을 만들려면 다음 링크를 참조 하세요.
 
 | 플랫폼 | 자유롭게 사용이 허가된 이미지 |
 |---|---|
@@ -65,7 +64,7 @@ ms.locfileid: "84034294"
 
 ## <a name="pay-per-usage"></a>사용당 지급
 
-**사용당 SQL Server 라이선스 지급**(**종량제**라고도 함)은 Azure VM의 초당 비용에 SQL Server 라이선스 비용이 포함됨을 의미합니다. [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 또는 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux)에 대한 Azure VM 가격 페이지에서 다른 SQL Server 버전(Web, Standard, Enterprise)에 대한 가격을 확인할 수 있습니다.
+**사용당 SQL Server 라이선스 지급**(**종량제**라고도 함)은 Azure VM의 초당 비용에 SQL Server 라이선스 비용이 포함됨을 의미합니다. [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 또는 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux)에 대 한 Azure Virtual Machines 가격 책정 페이지에서 다양 한 SQL Server 버전 (Web, Standard, Enterprise)의 가격을 확인할 수 있습니다.
 
 SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다. 초당 라이선싱 비용은 VM vCPU 수에 따라 달라집니다.
 
@@ -75,7 +74,7 @@ SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다
 
 - **수명 또는 규모를 알 수 없는 작업**. 예: 몇 개월 내에 필요하지 않을 수 있거나 수요에 따라 더 많은 또는 더 적은 컴퓨팅 기능이 필요할 수 있는 앱.
 
-이러한 종량제 이미지 중 하나를 사용하여 SQL Server 2017 Azure VM을 만들려면 다음 링크를 참조하세요.
+이러한 종 량 제 이미지 중 하나를 사용 하 여 SQL Server 2017를 실행 하는 Azure VM을 만들려면 다음 링크를 참조 하세요.
 
 | 플랫폼 | 사용이 허가된 이미지 |
 |---|---|
@@ -85,14 +84,14 @@ SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
-> 포털에서 SQL Server 가상 머신을 만들 때 **크기 선택** 창에 예상 비용이 표시됩니다. 이 추정치는 Windows 또는 타사 Linux 운영 체제의 모든 OS 라이선싱 비용과 함께 VM을 실행하는 컴퓨팅 비용만 산출한 것입니다.
+> Azure Portal에서 SQL Server 가상 컴퓨터를 만들 때 **크기 선택** 창에 예상 비용이 표시 됩니다. 이 추정치는 Windows 또는 타사 Linux 운영 체제의 모든 OS 라이선싱 비용과 함께 VM을 실행하는 컴퓨팅 비용만 산출한 것입니다.
 >
 > ![VM 크기 선택 블레이드](./media/pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >
 >여기에는 Web, Standard 및 Enterprise Edition에 대한 추가 SQL Server 라이선싱 비용은 포함되지 않았습니다. 가장 정확한 가격 책정 예상 값을 얻으려면 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 또는 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)에 대한 가격 책정 페이지에서 운영 체제와 SQL Server 버전을 선택합니다.
 
 > [!NOTE]
-> 이제 라이선스 모델을 종량제 모델과 BYOL(사용자 라이선스 필요) 간에 변경할 수 있습니다. 자세한 내용은 [SQL VM의 라이선스 모델을 변경하는 방법](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
+> 이제 라이선스 모델을 종량제 모델과 BYOL(사용자 라이선스 필요) 간에 변경할 수 있습니다. 자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> BYOL(사용자 라이선스 필요)
 
@@ -102,9 +101,9 @@ SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다
 > BYOL 이미지에는 Software Assurance를 통한 기업 계약이 필요합니다. 현재 BYOL 이미지는 Azure CSP(클라우드 솔루션 파트너)의 일부로 사용할 수 없습니다. CSP 고객은 종량제 이미지를 배포하고 [Azure 하이브리드 혜택](licensing-model-azure-hybrid-benefit-ahb-change.md)을 사용하도록 설정하여 자신의 라이선스를 가져올 수 있습니다.
 
 > [!NOTE]
-> BYOL 이미지는 현재 Windows 가상 머신에만 사용할 수 있습니다. 그러나 Linux 전용 VM에 SQL Server를 수동으로 설치할 수 있습니다. 지침은 [Linux SQL VM FAQ](../linux/frequently-asked-questions-faq.md)를 참조하세요.
+> BYOL 이미지는 현재 Windows 가상 머신에만 사용할 수 있습니다. 그러나 Linux 전용 VM에 SQL Server를 수동으로 설치할 수 있습니다. [LINUX VM에 대 한 SQL SERVER FAQ](../linux/frequently-asked-questions-faq.md)의 지침을 참조 하세요.
 
-License Mobility를 통한 SQL 사용자 라이선스 필요가 권장되는 경우는 다음과 같습니다.
+라이선스 이동를 통해 사용자 고유의 SQL Server 라이선스를 가져오는 것이 좋습니다.
 
 - **연속 작업**. 예: 연중무휴 비즈니스 작업을 지원해야 하는 앱.
 
@@ -117,7 +116,7 @@ BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enter
 | **비용 절감** | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하면 비용을 최대 55% 절감할 수 있습니다. 자세한 내용은 [라이선스 모델 전환](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. |
 | **무료 수동 보조 복제본** | 사용자 라이선스 필요의 또 다른 이점은 고가용성을 위해 SQL Server당 [하나의 수동 보조 복제본에 무료 라이선스가 제공](https://azure.microsoft.com/pricing/licensing-faq/)된다는 것입니다. 이에 따라 가용성이 높은 SQL Server 배포(예: Always On 가용성 그룹 사용)의 라이선스 비용이 50% 절감됩니다. 수동 보조 복제본을 실행할 권한은 장애 조치(failover) 서버 Software Assurance 이점을 통해 제공됩니다. |
 
-이러한 사용자 라이선스 필요 이미지 중 하나를 사용하여 SQL Server 2017 Azure VM을 만들려면 접두사 “{BYOL}”이 추가된 VM을 참조하세요.
+이러한 자체 라이선스 가져오기 이미지 중 하나를 사용 하 여 SQL Server 2017를 실행 하는 Azure VM을 만들려면 "{BYOL}" 접두사가 붙은 Vm을 참조 하세요.
 
 - [SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016)
 - [SQL Server 2017 Standard Azure VM](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016)
@@ -126,7 +125,7 @@ BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enter
 > Azure에서 사용할 SQL Server 라이선스 수를 10일 이내에 알려주세요. 이전 이미지의 링크에는 이 작업을 수행하는 방법에 대한 지침이 있습니다.
 
 > [!NOTE]
-> 이제 라이선스 모델을 종량제 모델과 BYOL(사용자 라이선스 필요) 간에 변경할 수 있습니다. 자세한 내용은 [SQL VM의 라이선스 모델을 변경하는 방법](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
+> 이제 라이선스 모델을 종량제 모델과 BYOL(사용자 라이선스 필요) 간에 변경할 수 있습니다. 자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
 
 
 
@@ -140,7 +139,7 @@ SQL Server 라이선싱 비용은 vCPU 수와 직접적인 관련이 있습니�
 
 특정 유형의 SQL Server 워크로드에 잘 맞는 새로운 컴퓨터 크기가 있습니다. 이러한 컴퓨터 크기는 높은 수준의 메모리, 스토리지 및 I/O 대역폭을 유지하지만 가상화된 코어 수는 더 적습니다. 예를 들어 다음 예제를 고려해 보겠습니다.
 
-| VM 크기 | vCPU | 메모리 | 최대 디스크 수 | 최대 I/O 처리량 | SQL 라이선싱 비용 | 총 비용(컴퓨팅 + 라이선싱) |
+| VM 크기 | vCPU | 메모리 | 최대 디스크 수 | 최대 I/O 처리량 | SQL Server 라이선스 비용 | 총 비용 (계산 + 라이선스) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112GB | 32 | 51,200 IOPS 또는 768MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112GB | 32 | 51,200 IOPS 또는 768MB/s | 75% 더 낮음 | 57% 더 낮음 |
@@ -156,7 +155,7 @@ SQL Server 라이선싱 비용은 vCPU 수와 직접적인 관련이 있습니�
 
 예를 들어 Azure VM에서 SQL Server를 사용해 보려는 경우에는 실수로 몇 주 동안 계속 실행함으로써 요금이 발생하는 것을 원하지 않을 것입니다. 한 가지 해결 방법은 [automatic shutdown feature](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)(자동 종료 기능)를 사용하는 것입니다.
 
-![SQL VM 자동 종료](./media/pricing-guidance/sql-vm-auto-shutdown.png)
+![SQL Server VM 자동 종료](./media/pricing-guidance/sql-vm-auto-shutdown.png)
 
 자동 종료는 [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab)에서 제공되는 광범위한 유사 기능 집합에 포함됩니다.
 
@@ -167,9 +166,9 @@ SQL Server 라이선싱 비용은 vCPU 수와 직접적인 관련이 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 가격 책정 지침에 대해서는 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../../cost-management-billing/manage/getting-started.md)를 참조하세요. SQL Server를 포함하여 최신 Virtual Machines 가격에 대해서는 [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 또는 [Linux VM](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)에 대한 Azure VM 가격 페이지를 참조하세요.
+Azure 가격 책정 지침에 대해서는 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../../cost-management-billing/manage/getting-started.md)를 참조하세요. SQL Server를 비롯 한 최신 Azure Virtual Machines 가격은 [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 및 [Linux vm](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)에 대 한 azure Virtual Machines 가격 책정 페이지를 참조 하세요.
 
-Azure Virtual Machines에서 실행되는 SQL Server에 대한 개요는 다음 문서를 참조하세요.
+Azure Virtual Machines에서 SQL Server에 대 한 개요는 다음 문서를 참조 하세요.
 
 - [Windows VM의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 - [Linux VM의 SQL Server 개요](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)

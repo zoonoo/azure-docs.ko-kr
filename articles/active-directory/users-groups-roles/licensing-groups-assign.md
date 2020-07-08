@@ -7,7 +7,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/29/2020
@@ -15,12 +15,11 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0524e8756e86771ab555eaa853e3955fe69c8549
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727656"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
 
@@ -59,7 +58,7 @@ ms.locfileid: "82582718"
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2단계: 초기 할당이 완료되었는지 확인
 
-1. **Azure Active Directory** > **그룹**으로 이동 합니다. 라이선스가 할당 된 그룹을 선택 합니다.
+1. **Azure Active Directory**  >  **그룹**으로 이동 합니다. 라이선스가 할당 된 그룹을 선택 합니다.
 
 1. 그룹 페이지에서 **라이선스**를 선택 합니다. 그러면 사용자에게 라이선스가 완전히 할당되었는지, 확인해야 할 오류가 있는지 신속하게 확인합니다. 다음과 같은 정보가 제공됩니다.
 
@@ -71,7 +70,7 @@ ms.locfileid: "82582718"
 
    ![라이선스 오류 및 라이선스 상태](./media/licensing-groups-assign/assignment-errors.png)
 
-1. 라이선스 처리에 대 한 자세한 내용은 **Azure Active Directory** > **사용자 및 그룹** > *그룹 이름* > **감사 로그**를 참조 하세요. 다음 작업을 확인 합니다.
+1. 라이선스 처리에 대 한 자세한 내용은 **Azure Active Directory**  >  **사용자 및 그룹**  >  *그룹 이름*  >  **감사 로그**를 참조 하세요. 다음 작업을 확인 합니다.
 
    - 활동: `Start applying group based license to users` 시스템이 그룹에 대한 라이선스 할당 변경을 선택하고 모든 사용자 구성원에게 적용하기 시작하면 로깅됩니다. 수행된 변경 내용에 대한 정보가 포함됩니다.
 
@@ -81,7 +80,7 @@ ms.locfileid: "82582718"
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3단계: 라이선스 문제 확인 및 해결
 
-1. **Azure Active Directory** > **그룹**으로 이동 하 여 라이선스가 할당 된 그룹을 찾습니다.
+1. **Azure Active Directory**그룹으로 이동 하 여  >  **Groups**라이선스가 할당 된 그룹을 찾습니다.
 1. 그룹 페이지에서 **라이선스**를 선택 합니다. 페이지 맨 위에 있는 알림은 라이선스를 할당할 수 없는 10 명의 사용자가 있음을 보여 줍니다. 이 그룹에 대 한 라이선스 오류 상태의 모든 사용자 목록을 보려면이를 엽니다.
 1. **할당 실패** 열에는 두 제품 라이선스 모두 사용자에게 할당하지 못했다는 내용이 표시됩니다. **상위 실패 원인** 열에는 실패의 원인이 포함되어 있습니다. 이 예에서는 **충돌하는 서비스 계획**이 실패의 원인입니다.
 

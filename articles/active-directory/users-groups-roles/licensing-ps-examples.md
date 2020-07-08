@@ -8,25 +8,24 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c5a483ff7a5a93a6908538fd237cb4cf2dacec6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727333"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
 [Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스의 전체 기능을 사용할 수 있으며 현재 PowerShell 및 Microsoft Graph 지원은 읽기 전용 작업으로 제한 됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
 
 > [!NOTE]
-> Cmdlet 실행을 시작 하기 전에 `Connect-MsolService`  cmdlet을 실행 하 여 조직에 먼저 연결 해야 합니다.
+> Cmdlet 실행을 시작 하기 전에 cmdlet을 실행 하 여 조직에 먼저 연결 해야 합니다 `Connect-MsolService`   .
 
 > [!WARNING]
 > 이 코드는 데모 용도의 예로 제공됩니다. 사용자 환경에서 사용 하려는 경우 먼저 작은 규모에서 테스트 하거나 별도의 테스트 조직에서 테스트 해 보세요. 환경의 특정 요구에 맞게 코드를 조정해야 할 수도 있습니다.
@@ -617,7 +616,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> 위의 스크립트를 실행 하기 전에 테스트 `$skuId` 환경 `$groupId`  에 따라 직접 라이선스 제거를 대상으로 하는 변수에 대 한 값을 업데이트 하십시오. 
+> `$skuId` `$groupId`   위의 스크립트를 실행 하기 전에 테스트 환경에 따라 직접 라이선스 제거를 대상으로 하는 변수에 대 한 값을 업데이트 하십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 

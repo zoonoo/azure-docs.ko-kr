@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84417942"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
 
@@ -27,8 +26,6 @@ ms.locfileid: "79371582"
 **RegistryManager** 클래스는 **Job** 프레임워크를 사용하는 **ExportDevicesAsync** 및 **ImportDevicesAsync** 메서드를 포함합니다. 이러한 메서드를 사용하면 전체 IoT Hub ID 레지스트리를 내보내고, 가져오고, 동기화할 수 있습니다.
 
 이 항목에서는 **RegistryManager** 클래스 및 **작업** 시스템을 사용 하 여 IoT hub의 id 레지스트리에서 장치를 대량으로 가져오고 내보내는 방법을 설명 합니다. 또한 Azure IoT Hub Device Provisioning Service를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](/azure/iot-dps)를 참조하세요.
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>작업이란?
 
@@ -97,7 +94,7 @@ while(true)
 
 ## <a name="export-devices"></a>내보내기 디바이스
 
-**ExportDevicesAsync** 메서드를 사용 하 여 SAS (공유 액세스 서명)를 사용 하 여 Azure Storage blob 컨테이너로 전체 IoT hub id 레지스트리를 내보낼 수 있습니다. 공유 액세스 서명에 대 한 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조 하세요.
+**ExportDevicesAsync** 메서드를 사용 하 여 SAS (공유 액세스 서명)를 사용 하 여 Azure Storage blob 컨테이너로 전체 IoT hub id 레지스트리를 내보낼 수 있습니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조하세요.
 
 이 메서드를 사용하면 사용자가 제어하는 blob 컨테이너에 디바이스 정보의 신뢰할 수 있는 백업을 만들 수 있습니다.
 
@@ -263,11 +260,11 @@ JobProperties importJob =
 
 각 디바이스에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 디바이스별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
-| importMode | Description |
+| importMode | 설명 |
 | --- | --- |
 | **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **만드십시오** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **고침** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **create** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
+| **update** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **updateIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 | **createOrUpdateIfMatchETag** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
 | **delete** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 삭제 됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |

@@ -1,22 +1,14 @@
 ---
 title: Azure Service Bus를 사용하는 .NET 다중 계층 애플리케이션 | Microsoft Docs
 description: Azure에서 Service Bus 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: c7a64e708d860fe9e5832ad3f1375f41f9b86724
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60403381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340308"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 애플리케이션
 
@@ -72,13 +64,13 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 1. 관리자 권한을 사용하여 Visual Studio 시작: **Visual Studio** 프로그램 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다. 이 문서의 뒷부분에서 설명하는 Azure 컴퓨팅 에뮬레이터를 사용하려면 Visual Studio를 관리자 권한으로 실행해야 합니다.
    
    Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-2. **설치된 템플릿**의 **Visual C#** 에서 **클라우드**를 클릭한 다음 **Azure Cloud Service**를 클릭합니다. 프로젝트의 이름을 **MultiTierApp**으로 지정합니다. 그런 다음 **확인**을 클릭합니다.
+2. **설치된 템플릿**의 **Visual C#** 에서 **클라우드**를 클릭한 다음 **Azure Cloud Service**를 클릭합니다. 프로젝트의 이름을 **MultiTierApp**으로 지정합니다. 그런 후 **OK**를 클릭합니다.
    
    ![][9]
 3. **역할** 창에서 **ASP.NET 웹 역할**을 두 번 클릭합니다.
    
    ![][10]
-4. **Azure Cloud Service 솔루션**에서 **WebRole1**을 마우스로 가리키고 연필 아이콘을 클릭한 다음 웹 역할의 이름을 **FrontendWebRole**로 변경합니다. 그런 다음 **확인**을 클릭합니다. "FrontEnd"가 아니라 소문자 "e"를 사용하여 "Frontend"를 입력해야 합니다.
+4. **Azure Cloud Service 솔루션**에서 **WebRole1**을 마우스로 가리키고 연필 아이콘을 클릭한 다음 웹 역할의 이름을 **FrontendWebRole**로 변경합니다. 그런 후 **OK**를 클릭합니다. "FrontEnd"가 아니라 소문자 "e"를 사용하여 "Frontend"를 입력해야 합니다.
    
    ![][11]
 5. **새 ASP.NET 프로젝트** 대화 상자의 **템플릿 선택** 목록에서 **MVC**를 클릭합니다.
@@ -94,7 +86,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
    ![][13]
    
    이제 필요한 클라이언트 어셈블리가 참조되고 몇 가지 새 코드 파일이 추가되었습니다.
-10. **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에 **OnlineOrder.cs**라는 이름을 입력합니다. **추가**를 클릭합니다.
+10. **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에 **OnlineOrder.cs**라는 이름을 입력합니다. 그런 다음, **추가**를 클릭합니다.
 
 ### <a name="write-the-code-for-your-web-role"></a>웹 역할에 대한 코드 작성
 이 섹션에서는 애플리케이션에서 표시하는 다양한 페이지를 만듭니다.
@@ -316,7 +308,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 4. **새 역할 프로젝트 추가** 대화 상자에서 **Service Bus 큐가 있는 작업자 역할**을 클릭합니다.
    
    ![][23]
-5. **이름** 상자에 프로젝트 이름으로 **OrderProcessingRole**을 입력합니다. **추가**를 클릭합니다.
+5. **이름** 상자에 프로젝트 이름으로 **OrderProcessingRole**을 입력합니다. 그런 다음, **추가**를 클릭합니다.
 6. "Service Bus 네임스페이스 만들기" 섹션의 9단계에서 얻은 연결 문자열을 클립보드에 복사합니다.
 7. **솔루션 탐색기**에서, 5단계에서 만든 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭합니다. 이때 클래스가 아니라 **역할**에서 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭해야 합니다. **속성**을 클릭합니다.
 8. **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**의 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 엔드포인트 값을 붙여 넣습니다.

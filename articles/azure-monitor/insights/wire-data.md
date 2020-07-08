@@ -5,13 +5,12 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/03/2018
-ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424468"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
 
@@ -19,12 +18,15 @@ ms.locfileid: "77670647"
 
 Wire Data는 사용자 환경의 Operations Manager에서 모니터링되는 데이터를 포함하여 Log Analytics 에이전트를 통해 Windows 연결 및 Linux 연결 컴퓨터에서 수집되는 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 다른 로그 데이터와 결합됩니다.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 Log Analytics 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴퓨터에 설치하는 Microsoft 종속성 에이전트를 사용합니다. 종속성 에이전트는 사용된 다양한 프로토콜 및 포트를 포함하여 [OSI 모델](https://en.wikipedia.org/wiki/OSI_model)에서 네트워크 수준 2-3에 해당하는 컴퓨터와 주고 받는 네트워크 데이터를 모니터링합니다. 그런 다음 에이전트를 사용 하 여 Azure Monitor에 데이터를 보냅니다.  
 
 >[!NOTE]
->이미 서비스 맵를 배포 했거나 서비스 맵 또는 [VM용 Azure Monitor](../../azure-monitor/insights/vminsights-overview.md)를 고려 하 고 있는 경우, 데이터를 연결 하는 데 비슷한 정보를 제공 하는 새로운 연결 메트릭 데이터 집합을 수집 하 여 Azure Monitor에 저장 합니다.
+>실시간 데이터 솔루션을 [서비스 맵 솔루션](service-map.md)으로 대체 했습니다.  둘 다 Log Analytics 에이전트와 종속성 에이전트를 사용 하 여 네트워크 연결 데이터를 Azure Monitor 수집 합니다. 
+> 
+>실시간 데이터 솔루션을 사용 하는 기존 고객은이를 계속 사용할 수 있습니다. 서비스 맵로 이동 하기 위한 마이그레이션 타임 라인에 대 한 지침을 게시 합니다.
+>
+>새 고객은 [서비스 맵 솔루션](service-map.md) 또는 [VM용 Azure Monitor](vminsights-overview.md)을 설치 해야 합니다.  서비스 맵 데이터 집합은 실시간 데이터와 비교할 수 있습니다.  VM용 Azure Monitor는 추가 성능 데이터 및 분석을 위한 기능이 포함 된 서비스 맵 데이터 집합을 포함 합니다. 
+
 
 기본적으로 Azure Monitor는 Windows 및 Linux에 기본 제공 된 카운터의 CPU, 메모리, 디스크 및 네트워크 성능 데이터에 대 한 데이터를 기록 하 고 지정할 수 있는 다른 성능 카운터를 기록 합니다. 컴퓨터에 사용되는 서브넷 및 애플리케이션 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다.  실시간 데이터는 TCP 전송 계층으로 내려가지 않고 애플리케이션 수준에서 네트워크 데이터를 확인합니다. 솔루션은 개별 ACK 및 SYN을 확인하지 않습니다. 핸드셰이크가 완료되면 라이브 연결로 간주되고 연결됨으로 표시됩니다. 해당 연결은 양쪽에서 소켓이 열려 있고 데이터를 앞뒤로 전달할 수 있음을 동의할 경우 실시간 상태를 유지합니다. 한쪽이 연결을 닫으면 연결이 Disconnected로 표시 됩니다.  따라서 성공적으로 완료된 패킷의 대역폭만 계산하며 재전송된 패킷 또는 실패한 패킷 수는 보고하지 않습니다.
 
@@ -51,7 +53,7 @@ Log Analytics 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴�
 
 Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져옵니다. Dependency Agent는 Azure Monitor에 대 한 연결에 대 한 Log Analytics 에이전트에 따라 달라 집니다. 즉, 서버에 먼저 Log Analytics 에이전트를 설치하고 Dependency Agent로 구성해야 합니다. 다음 표는 Wire Data 솔루션이 지원하는 연결된 원본을 설명합니다.
 
-| **연결 된 원본** | **지원됨** | **설명** |
+| **연결된 원본** | **지원됨** | **설명** |
 | --- | --- | --- |
 | Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> Windows [에 대 한 Log Analytics 에이전트](../platform/agent-windows.md)외에도 windows 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> Linux [에 대 한 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md)외에도 linux 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
@@ -86,7 +88,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 #### <a name="windows-server"></a>Windows Server
 
-- 시작
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -160,11 +162,11 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 단계를 수행하여 작업 영역에 대해 Wire Data 솔루션을 구성합니다.
 
-1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) 에서 또는 [솔루션 갤러리의 모니터링 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용 하 여 활동 로그 분석 솔루션을 사용 하도록 설정 합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) 또는 [솔루션 갤러리에서 모니터링 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용 하 여 활동 로그 분석 솔루션을 사용 하도록 설정 합니다.
 2. 데이터를 가져오려는 각 컴퓨터에 종속성 에이전트를 설치 합니다. 종속성 에이전트는 즉시 인접 환경에 대 한 연결을 모니터링할 수 있으므로 모든 컴퓨터에 에이전트가 필요 하지 않을 수 있습니다.
 
 > [!NOTE]
@@ -175,7 +177,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 에이전트를 설치 또는 제거하려면 관리자 권한이 필요합니다.
 
-종속성 에이전트는 Installdependencyagent-windows.exe를 통해 Windows를 실행 하는 컴퓨터에 설치 됩니다. 옵션 없이 이 실행 파일을 실행하면 마법사가 시작되고 대화형으로 설치를 수행할 수 있습니다.
+종속성 에이전트는 InstallDependencyAgent-Windows.exe를 통해 Windows를 실행 하는 컴퓨터에 설치 됩니다. 옵션 없이 이 실행 파일을 실행하면 마법사가 시작되고 대화형으로 설치를 수행할 수 있습니다.
 
 다음 단계를 사용 하 여 Windows를 실행 하는 각 컴퓨터에 종속성 에이전트를 설치 합니다.
 
@@ -190,7 +192,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 InstallDependencyAgent-Windows.exe /?
 
-| **플래그만** | **설명** |
+| **플래그** | **설명** |
 | --- | --- |
 | <code>/?</code> | 명령줄 옵션 목록을 가져옵니다. |
 | <code>/S</code> | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
@@ -215,7 +217,7 @@ Windows 종속성 에이전트에 대 한 파일은 기본적으로 C:\Program F
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **플래그만** | **설명** |
+| **플래그** | **설명** |
 | --- | --- |
 | <code>-help</code> | 명령줄 옵션 목록을 가져옵니다. |
 | <code>-s</code> | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
@@ -223,7 +225,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 
-| **파일** | **위치** |
+| **Files** | **위치** |
 | --- | --- |
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |

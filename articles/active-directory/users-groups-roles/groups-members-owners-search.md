@@ -8,22 +8,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 92674ed9d39ea9e84d477d19aadbaeda6da6f32c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78206115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728268"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Azure Active Directory에서 그룹 및 구성원 검색 (미리 보기)
 
-이 문서에서는 그룹의 멤버 및 소유자를 검색 하는 방법과 Azure Active Directory (Azure AD) 포털에서 그룹 개선 미리 보기의 일부로 검색 필터를 사용 하는 방법을 설명 합니다. 그룹 환경에서는 구성원 및 소유자를 비롯 하 여 쉽고 빠르게 그룹을 관리 하는 데 도움이 되는 다양 한 기능이 향상 되었습니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+이 문서에서는 그룹의 멤버 및 소유자를 검색 하는 방법과 Azure Active Directory (Azure AD) 포털에서 그룹 개선 미리 보기의 일부로 검색 필터를 사용 하는 방법을 설명 합니다. 그룹 환경에서는 구성원 및 소유자를 비롯 하 여 쉽고 빠르게 그룹을 관리 하는 데 도움이 되는 다양 한 기능이 향상 되었습니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 미리 보기의 변경 내용은 다음과 같습니다.
 
@@ -45,7 +44,7 @@ ms.locfileid: "78206115"
 
 ## <a name="group-search-and-sorting"></a>그룹 검색 및 정렬
 
-그룹 목록 검색이 향상 되어 검색 문자열을 입력할 수 있는 경우 검색에서 그룹 이름 목록에 대 한 `startswith` 및 하위 문자열 검색을 자동으로 수행 합니다. 부분 문자열 검색은 단어 단위로만 수행 되며 특수 문자를 포함 하지 않습니다. 부분 문자열 검색은 대/소문자를 구분 합니다.
+그룹 목록 검색이 향상 되어 검색 문자열을 입력할 수 있는 경우 검색에서 `startswith` 그룹 이름 목록에 대 한 및 하위 문자열 검색을 자동으로 수행 합니다. 부분 문자열 검색은 단어 단위로만 수행 되며 특수 문자를 포함 하지 않습니다. 부분 문자열 검색은 대/소문자를 구분 합니다.
 
 ![모든 그룹 페이지의 새 부분 문자열 검색](./media/groups-members-owners-search/groups-search-preview.png)
 

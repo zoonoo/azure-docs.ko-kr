@@ -7,12 +7,11 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f4caa9160280b0f65f84bed36b5209d08d7f7c11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd73c6a388cde55db5437442492d53768eb03866
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343152"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -35,7 +34,7 @@ VPN 게이트웨이를 사용하여 S2S(사이트 간) 프레미스 간 VPN 연�
 
 VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당하는 링크를 참조하세요. 구성 지침에 대한 링크가 가장 효율적으로 제공됩니다. VPN 디바이스 지원은 디바이스 제조업체에 문의하세요.
 
-|**업체인**          |**디바이스 제품군**     |**최소 OS 버전** |**정책 기반 구성 지침** |**경로 기반 구성 지침** |
+|**공급업체**          |**디바이스 패밀리**     |**최소 OS 버전** |**정책 기반 구성 지침** |**경로 기반 구성 지침** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |호환되지 않음  |[구성 가이드](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
 | Allied Telesis     |AR 시리즈 VPN 라우터 |AR 시리즈 5.4.7 이상               | [구성 가이드](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[구성 가이드](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
@@ -141,7 +140,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | IKE 버전                   |IKEv1          |IKEv1 및 IKEv2                              |
 | 암호화 및 해싱 알고리즘 |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA 제품](#RouteBasedOffers) |
 | SA 수명(시간)            |3,600초  |27,000초                               |
-| SA 수명(바이트)           |102,400,000 KB | -                                           |
+| SA 수명(바이트)           |102,400,000 KB |102,400,000 KB                               |
 | PFS(Perfect Forward Secrecy) |아니요             |[RouteBased QM SA 제품](#RouteBasedOffers) |
 | 작동하지 않는 피어 검색(DPD)     |지원되지 않음  |지원됨                                    |
 
@@ -158,7 +157,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | 2 |AES256        |SHA1              |없음         |
 | 3 |3DES          |SHA1              |없음         |
 | 4 |AES256        |SHA256            |없음         |
-| 5 |AES128        |SHA1              |없음         |
+| 5 |AES128        |SHA1              |None         |
 | 6 |3DES          |SHA256            |없음         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure 게이트웨이(응답자)
@@ -169,7 +168,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | 2 |AES256        |SHA1              |없음         |
 | 3 |3DES          |SHA1              |없음         |
 | 4 |AES256        |SHA256            |없음         |
-| 5 |AES128        |SHA1              |없음         |
+| 5 |AES128        |SHA1              |None         |
 | 6 |3DES          |SHA256            |없음         |
 | 7 |DES           |SHA1              |없음         |
 | 8 |AES256        |SHA1              |1            |

@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727197"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory에서 LinkedIn 계정 연결 통합
 
@@ -91,7 +90,7 @@ Azure AD 관리 센터의 LinkedIn 계정 연결 설정에서 2 단계에서 선
 1. [Office 2016 관리 템플릿 파일(ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030) 다운로드
 1. **ADMX** 파일을 추출하고 중앙 저장소에 복사합니다.
 1. 그룹 정책 관리를 엽니다.
-1. 다음 설정을 사용 하 여 그룹 정책 개체 만들기: **사용자 구성** > **관리 템플릿** > **Microsoft Office 2016** > **기타** > **Office 응용 프로그램에서 LinkedIn 기능 표시**
+1. 다음 설정을 사용 하 여 그룹 정책 개체 만들기: **사용자 구성**  >  **관리 템플릿**  >  **Microsoft Office 2016**  >  **기타**  >  **Office 응용 프로그램에서 LinkedIn 기능 표시**
 1. **사용** 또는 **사용 안 함**을 선택합니다.
   
    시스템 상태 | 영향

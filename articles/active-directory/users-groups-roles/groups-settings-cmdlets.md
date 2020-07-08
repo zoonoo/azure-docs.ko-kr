@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: b91eb361d4bcae304734817ee7f57141d6f06415
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727860"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -28,7 +27,7 @@ ms.locfileid: "82582800"
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
 
-관리자가 아닌 사용자가 보안 그룹을 만들 수 없도록 하는 방법에 대 한 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` 자세한 내용은 [set-msolcompanysettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명 된 대로를 설정 하십시오.
+관리자가 아닌 사용자가 보안 그룹을 만들 수 없도록 하는 방법에 대 한 자세한 내용은  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` [set-msolcompanysettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명 된 대로를 설정 하십시오.
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 Office 365 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 Office 365 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 Office 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
@@ -150,18 +149,18 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
 | **설정** | **설명** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>형식: Boolean<li> 기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 Office 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: "" |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
-|  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: "" |그룹 사용 지침 링크입니다. |
-|  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: "" | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList 항목을 찾습니다.<br>EnableMIPLabels = = True 인 경우에는이 설정이 적용 되지 않습니다.|
-|  <ul><li>DefaultClassification<li>형식: String<li>기본값: "" | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.<br>EnableMIPLabels = = True 인 경우에는이 설정이 적용 되지 않습니다.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: "" | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
-| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: "" | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+|  <ul><li>GroupCreationAllowedGroupId<li>유형: String<li>기본값: "" |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
+|  <ul><li>UsageGuidelinesUrl<li>유형: String<li>기본값: "" |그룹 사용 지침 링크입니다. |
+|  <ul><li>ClassificationDescriptions<li>유형: String<li>기본값: "" | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList 항목을 찾습니다.<br>EnableMIPLabels = = True 인 경우에는이 설정이 적용 되지 않습니다.|
+|  <ul><li>DefaultClassification<li>유형: String<li>기본값: "" | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.<br>EnableMIPLabels = = True 인 경우에는이 설정이 적용 되지 않습니다.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>유형: String<li>기본값: "" | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대 한 명명 정책 적용](groups-naming-policy.md)을 참조 하세요. |
+| <ul><li>CustomBlockedWordsList<li>유형: String<li>기본값: "" | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대 한 명명 정책 적용](groups-naming-policy.md)을 참조 하세요. |
 | <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: "False" | 사용 안 함
 |  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li> 기본값: False | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
 |  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li> 기본값: True | 게스트 사용자가 Office 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>형식: String<li>기본값: "" | 게스트 사용 지침의 링크 url입니다. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>유형: String<li>기본값: "" | 게스트 사용 지침의 링크 url입니다. |
 |  <ul><li>AllowToAddGuests<li>형식: Boolean<li> 기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다. <br>이 설정은 *Enablemiplabels* 가 *True* 로 설정 되 고 게스트 정책이 해당 그룹에 할당 된 민감도 레이블과 연결 된 경우 재정의 될 수 있으며 읽기 전용으로 설정 됩니다.<br>조직 수준에서 AllowToAddGuests 설정이 False로 설정 된 경우 그룹 수준에서 AllowToAddGuests 설정이 무시 됩니다. 소수의 그룹에만 게스트 액세스를 사용 하려면 조직 수준에서 AllowToAddGuests를 true로 설정 하 고 특정 그룹에 대해 선택적으로 사용 하지 않도록 설정 해야 합니다. |
-|  <ul><li>ClassificationList<li>형식: String<li>기본값: "" | Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. <br>EnableMIPLabels = = True 인 경우에는이 설정이 적용 되지 않습니다.|
+|  <ul><li>ClassificationList<li>유형: String<li>기본값: "" | Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. <br>EnableMIPLabels = = True 인 경우에는이 설정이 적용 되지 않습니다.|
 |  <ul><li>EnableMIPLabels<li>형식: Boolean<li>기본값: "False" |Microsoft 365 준수 센터에 게시 된 민감도 레이블을 Office 365 그룹에 적용할 수 있는지 여부를 나타내는 플래그입니다. 자세한 내용은 [Office 365 그룹의 민감도 레이블 할당](groups-assign-sensitivity-labels.md)을 참조 하세요. |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>예: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성
@@ -321,7 +320,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet 구문 참조
 [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
-## <a name="additional-reading"></a>추가 참조 자료
+## <a name="additional-reading"></a>추가 참조 항목
 
 * [Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

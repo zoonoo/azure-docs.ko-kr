@@ -5,12 +5,11 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 9fabf6cf4c8a3afc2d119fca2c8cdc2526ddbebb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84415868"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>근접 배치 그룹에서 실행되는 Azure 가상 머신을 다른 지역에 복제
 
@@ -27,6 +26,9 @@ ms.locfileid: "83847636"
 - 최선의 노력은 가상 머신을 근접 배치 그룹으로 장애 조치(failover)/장애 복구(failback)하는 것입니다. 그러나 장애 조치(failover)/장애 복구(failback) 중에 근접 배치 내부에서 VM을 시작할 수 없는 경우 장애 조치(failover)/장애 복구(failback)가 계속 발생하고, 가상 머신이 근접 배치 그룹 외부에 생성됩니다.
 -  가용성 집합이 근접 배치 그룹에 고정되어 있고 장애 조치(failover)/장애 복구(failback) 중 가용성 집합의 VM에 할당 제약 조건이 있는 경우, 가상 머신은 가용성 집합 및 근접 배치 그룹의 외부에 생성됩니다.
 -  비관리 디스크는 근접 배치 그룹에 대한 Site Recovery가 지원되지 않습니다.
+
+> [!Note]
+> Azure Site Recovery는 Hyper-v에서 Azure로 시나리오에 대해 managed disks에서 장애 복구 (failback)를 지원 하지 않습니다. 따라서 Azure의 근접 배치 그룹에서 Hyper-v로 장애 복구 (failback)가 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -58,7 +60,7 @@ $OSdiskId = $vm.StorageProfile.OsDisk.ManagedDisk.Id
 $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 $RecoveryReplicaDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 
-$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType -RecoveryProximityPlacementGroupId $recPpg.Id
+$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
 # Data disk
 $datadiskId1 = $vm.StorageProfile.DataDisks[0].ManagedDisk.Id

@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 182f51a150c2ef944b0104b73c63028e915c1a4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728336"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -134,7 +133,7 @@ PowerShell cmdlet을 사용 하 여 Azure AD 조직에서 Office 365 그룹에 �
    Connect-AzureAD
    ```
 
-1. 만료 설정 구성 AzureADMSGroupLifecyclePolicy cmdlet을 사용 하 여 Azure AD 조직의 모든 Office 365 그룹에 대 한 수명을 365 일로 설정 합니다. 소유자가 없는 Office 365 그룹에 대 한 갱신 알림이 ' 'emailaddress@contoso.com(으)로 전송 됩니다.
+1. 만료 설정 구성 AzureADMSGroupLifecyclePolicy cmdlet을 사용 하 여 Azure AD 조직의 모든 Office 365 그룹에 대 한 수명을 365 일로 설정 합니다. 소유자가 없는 Office 365 그룹에 대 한 갱신 알림이 ' ' (으)로 전송 됩니다. emailaddress@contoso.com
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -144,7 +143,7 @@ PowerShell cmdlet을 사용 하 여 Azure AD 조직에서 Office 365 그룹에 �
 
    - 정책 ID
    - Azure AD 조직에서 모든 Office 365 그룹의 수명은 365 일로 설정 됩니다.
-   - 소유자가 없는 Office 365 그룹에 대 한 갱신 알림이 ' 'emailaddress@contoso.com(으)로 전송 됩니다.
+   - 소유자가 없는 Office 365 그룹에 대 한 갱신 알림이 ' ' (으)로 전송 됩니다 emailaddress@contoso.com .
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy

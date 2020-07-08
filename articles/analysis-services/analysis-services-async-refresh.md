@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8381e391afa0f8866f511d3d85e02467c6d9ba5d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413385"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
@@ -30,7 +29,7 @@ Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 �
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-예를 들어 미국 서 부 Azure 지역에 있는 라는 `myserver`서버에서 AdventureWorks 라는 모델을 생각해 보겠습니다. 서버 이름은 다음과 같습니다.
+예를 들어 `myserver` 미국 서 부 Azure 지역에 있는 라는 서버에서 AdventureWorks 라는 모델을 생각해 보겠습니다. 서버 이름은 다음과 같습니다.
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -97,7 +96,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
-| 속성             | Type  | Description  |기본값  |
+| 이름             | Type  | 설명  |기본값  |
 |------------------|-------|--------------|---------|
 | `Type`           | 열거형  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
 | `CommitMode`     | 열거형  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
@@ -112,7 +111,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 ### <a name="status-values"></a>상태 값
 
-|상태 값  |Description  |
+|상태 값  |설명  |
 |---------|---------|
 |`notStarted`    |   작업이 아직 시작 되지 않았습니다.      |
 |`inProgress`     |   작업이 진행 중입니다.      |
@@ -121,9 +120,9 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 |`failed`     |   작업이 실패했습니다.      |
 |`succeeded`      |   작업이 성공했습니다.      |
 
-## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
+## <a name="get-refreshesrefreshid"></a>GET/refreshes/\<refreshId>
 
-새로 고침 작업의 상태를 확인하려면 새로 고침 ID에 GET 동사를 사용합니다. 응답 본문의 예는 다음과 같습니다. 작업이 진행 중인 경우 상태에서 `inProgress` 이 반환 됩니다.
+새로 고침 작업의 상태를 확인하려면 새로 고침 ID에 GET 동사를 사용합니다. 응답 본문의 예는 다음과 같습니다. 작업이 진행 중인 경우 `inProgress` 상태에서이 반환 됩니다.
 
 ```
 {
@@ -158,20 +157,20 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 [
     {
         "refreshId": "1344a272-7893-4afa-a4b3-3fb87222fdac",
-        "startTime": "2017-12-09T01:58:04.76",
-        "endTime": "2017-12-09T01:58:12.607",
+        "startTime": "2017-12-07T02:06:57.1838734Z",
+        "endTime": "2017-12-07T02:07:00.4929675Z",
         "status": "succeeded"
     },
     {
         "refreshId": "474fc5a0-3d69-4c5d-adb4-8a846fa5580b",
-        "startTime": "2017-12-07T02:05:48.32",
-        "endTime": "2017-12-07T02:05:54.913",
+        "startTime": "2017-12-07T01:05:54.157324Z",
+        "endTime": "2017-12-07T01:05:57.353371Z",
         "status": "succeeded"
     }
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>DELETE /refreshes/\<refreshId>
+## <a name="delete-refreshesrefreshid"></a>DELETE/refreshes/\<refreshId>
 
 진행 중인 새로 고침 작업을 취소하려면 새로 고침 ID에 DELETE 동사를 사용합니다.
 
@@ -218,11 +217,11 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 서비스 주체를 설정하고 Azure AS에서 필요한 사용 권한을 할당하는 방법에 대한 자세한 정보는 [서비스 주체 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) 및 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조하세요. 이 단계를 완료한 다음, 다음과 같은 추가 단계를 완료합니다.
 
 1.    코드 샘플에서 **string authority = ...** 를 찾은 다음 **common** 을 조직의 테 넌 트 ID로 바꿉니다.
-2.    ClientCredential 클래스가 자격 증명 개체를 인스턴스화하는 데 사용되도록 주석 처리하거나 주석 처리를 해제합니다. \<App ID> 및 \<App Key> 값이 안전한 방식으로 액세스되는지 확인하고, 그렇지 않은 경우 서비스 사용자에 대해 인증서 기반 인증을 사용합니다.
+2.    ClientCredential 클래스가 자격 증명 개체를 인스턴스화하는 데 사용되도록 주석 처리하거나 주석 처리를 해제합니다. \<App ID>및 \<App Key> 값이 안전한 방식으로 액세스 되는지 확인 하거나 서비스 사용자에 대 한 인증서 기반 인증을 사용 합니다.
 3.    예제를 실행합니다.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [표본의](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
