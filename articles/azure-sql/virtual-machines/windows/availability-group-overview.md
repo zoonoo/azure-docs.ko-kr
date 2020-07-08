@@ -1,10 +1,9 @@
 ---
-title: 가용성 그룹 개요
-description: 이 문서에서는 Azure Virtual Machines의 SQL Server 가용성 그룹을 소개합니다.
+title: SQL Server Always On 가용성 그룹 개요
+description: 이 문서에서는 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹를 소개 합니다.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -15,25 +14,25 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62dce0204f77ab65473fc1735015e41f483dddb1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: f3c7009e5ecb43a809b9a3f703fc5ba289a2fd00
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669276"
 ---
-# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 가용성 그룹 소개
+# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 소개
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 이 문서에서는 Azure Virtual Machines의 SQL Server 가용성 그룹을 소개합니다. 
 
 Azure Virtual Machines의 Always On 가용성 그룹은 온-프레미스의 Always On 가용성 그룹과 비슷합니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요. 
 
-이 다이어그램에서는 Azure Virtual Machines의 전체 SQL Server 가용성 그룹 일부를 보여 줍니다.
+다음 다이어그램에서는 Azure Virtual Machines에서 전체 SQL Server 가용성 그룹의 부분을 보여 줍니다.
 
 ![가용성 그룹](./media/availability-group-overview/00-EndstateSampleNoELB.png)
 
-Azure Virtual Machines의 가용성 그룹에 대한 주요 차이점은 Azure Virtual Machines에 [부하 분산 장치](../../../load-balancer/load-balancer-overview.md)가 필요하다는 것입니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 보유합니다. 가용성 그룹을 여러 개 있는 경우 그룹마다 수신기가 필요합니다. 하나의 부하 분산 장치가 여러 수신기를 지원할 수 있습니다.
+Azure Virtual Machines의 가용성 그룹에 대 한 주요 차이점은 이러한 Vm (가상 머신)에 [부하 분산 장치가](../../../load-balancer/load-balancer-overview.md)필요 하다는 것입니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 보유합니다. 둘 이상의 가용성 그룹이 있는 경우 각 그룹에는 수신기가 필요 합니다. 하나의 부하 분산 장치가 여러 수신기를 지원할 수 있습니다.
 
 또한 Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 서버(클러스터 노드)당 단일 NIC 및 단일 서브넷이 권장됩니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다. 
 
@@ -43,19 +42,22 @@ Azure Virtual Machines의 가용성 그룹에 대한 주요 차이점은 Azure V
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | [SQL VM CLI](availability-group-az-cli-configure.md) | 2016 | 2017 </br>2016   | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
 | [빠른 시작 템플릿](availability-group-quickstart-template-configure.md) | 2016 | 2017</br>2016  | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
-| [포털 템플릿](availability-group-azure-marketplace-template-configure.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | 파일 공유 | 예 | 예 | 예 | 예 | 예 | 예 |
 | [수동](availability-group-manually-configure-prerequisites-tutorial.md) | 모두 | 모두 | 모두 | 모두 | 예 | 예 | 예 | 예 | 예 | 예 |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+
+**SQL Server AlwaysOn 클러스터 (미리 보기)** 템플릿이 Azure Marketplace에서 제거 되었으며 더 이상 사용할 수 없습니다. 
 
 Azure Virtual Machines에서 SQL Server 가용성을 빌드할 준비가 되면 다음 자습서를 참조하세요.
 
 ## <a name="manually-with-azure-cli"></a>Azure CLI를 사용하여 수동으로
-Azure CLI를 사용하여 가용성 그룹을 구성하고 배포하는 것이 좋습니다. 이 옵션은 배포 단순성 및 속도 측면에서 가장 좋습니다. Azure CLI에서 Windows 장애 조치(failover) 클러스터를 만들고, 클러스터에 SQL Server VM을 조인하고, 수신기 및 내부 부하 분산 장치를 만드는 작업을 30분 이내에 모두 마칠 수 있습니다. 이 옵션을 사용하려면 가용성 그룹을 수동으로 만들어야 하지만 다른 필요한 구성 단계를 모두 자동화합니다. 
+
+배포 하는 가장 간단 하 고 빠른 배포 이기 때문에 가용성 그룹을 구성 하 고 배포 하는 Azure CLI을 사용 하는 것이 좋습니다. Azure CLI에서 Windows 장애 조치(failover) 클러스터를 만들고, 클러스터에 SQL Server VM을 조인하고, 수신기 및 내부 부하 분산 장치를 만드는 작업을 30분 이내에 모두 마칠 수 있습니다. 이 옵션을 사용 하면 가용성 그룹을 수동으로 만들어야 하지만 필요한 다른 모든 구성 단계를 자동화할 수 있습니다. 
 
 자세한 내용은 [Azure SQL VM CLI를 사용하여 Azure VM의 SQL Server에 대한 Always On 가용성 그룹 구성](availability-group-az-cli-configure.md)을 참조하세요. 
 
 ## <a name="automatically-with-azure-quickstart-templates"></a>Azure 빠른 시작 템플릿을 사용하여 자동으로
-Azure 빠른 시작 템플릿은 SQL VM 리소스 공급자를 사용하여 Windows 장애 조치(failover) 클러스터를 배포하고, 이 클러스터에 SQL Server VM을 조인하고, 수신기를 만들고, 내부 부하 분산 장치를 구성합니다. 이 옵션 역시 가용성 그룹과 ILB(내부 부하 분산 장치)를 수동으로 만들어야 하지만, 다른 필요한 구성 단계(ILB 구성 포함)를 모두 자동화하고 간소화합니다. 
+
+Azure 빠른 시작 템플릿은 SQL VM 리소스 공급자를 사용하여 Windows 장애 조치(failover) 클러스터를 배포하고, 이 클러스터에 SQL Server VM을 조인하고, 수신기를 만들고, 내부 부하 분산 장치를 구성합니다. 이 옵션을 사용 하려면 가용성 그룹 및 ILB (내부 Load Balancer)를 수동으로 만들어야 합니다. 그러나 ILB의 구성을 비롯 하 여 필요한 다른 모든 구성 단계를 자동화 하 고 간소화 합니다. 
 
 자세한 내용은 [Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 Always On 가용성 그룹 구성](availability-group-quickstart-template-configure.md)을 참조하세요.
 
@@ -65,7 +67,7 @@ Azure 빠른 시작 템플릿은 SQL VM 리소스 공급자를 사용하여 Wind
 [자동으로 Azure VM의 Always On 가용성 그룹 구성 - Resource Manager](availability-group-azure-marketplace-template-configure.md)
 
 
-## <a name="manually-in-azure-portal"></a>Azure Portal에서 수동으로
+## <a name="manually-in-the-azure-portal"></a>Azure Portal에서 수동으로
 
 또한 템플릿을 사용하지 않고 가상 머신을 직접 만들 수도 있습니다. 먼저 필수 구성 요소를 완료한 다음 가용성 그룹을 만듭니다. 다음 항목을 참조하세요. 
 

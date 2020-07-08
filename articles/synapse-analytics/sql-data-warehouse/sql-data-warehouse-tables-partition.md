@@ -6,17 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213927"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 분할
 
@@ -237,7 +236,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>한 단계로 데이터를 포함 하는 파티션으로 새 데이터 로드
 
-파티션 전환을 사용 하 여 파티션에 데이터를 로드 하는 것은 새 데이터의 스위치를 사용자에 게 표시 되지 않는 테이블의 새 데이터를 준비 하는 편리한 방법입니다.  사용 중인 시스템에서 파티션 전환과 관련 된 잠금 경합을 처리 하는 것이 어려울 수 있습니다.  파티션의 기존 데이터를 지우려면 데이터를 전환 하는 데 `ALTER TABLE` 사용 되는입니다.  그런 다음 `ALTER TABLE` 새 데이터를 전환 하는 데 다른 작업이 필요 했습니다.  Synapse SQL 풀에서 `TRUNCATE_TARGET` 옵션은 `ALTER TABLE` 명령에서 지원 됩니다.  `ALTER TABLE` 명령을 사용 하 `TRUNCATE_TARGET` 여 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은를 사용 `CTAS` 하 여 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입 한 다음 모든 데이터를 다시 대상 테이블로 전환 하 여 기존 데이터를 덮어쓰는 예입니다.
+파티션 전환을 사용 하 여 파티션에 데이터를 로드 하는 것은 새 데이터의 스위치를 사용자에 게 표시 되지 않는 테이블의 새 데이터를 준비 하는 편리한 방법입니다.  사용 중인 시스템에서 파티션 전환과 관련 된 잠금 경합을 처리 하는 것이 어려울 수 있습니다.  파티션의 기존 데이터를 지우려면 데이터를 전환 하는 데 `ALTER TABLE` 사용 되는입니다.  그런 다음 `ALTER TABLE` 새 데이터를 전환 하는 데 다른 작업이 필요 했습니다.  Synapse SQL 풀에서 옵션은 `TRUNCATE_TARGET` 명령에서 지원 됩니다 `ALTER TABLE` .  명령을 사용 하 여 `TRUNCATE_TARGET` `ALTER TABLE` 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은를 사용 하 여 `CTAS` 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입 한 다음 모든 데이터를 다시 대상 테이블로 전환 하 여 기존 데이터를 덮어쓰는 예입니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

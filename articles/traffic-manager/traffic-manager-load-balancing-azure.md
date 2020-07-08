@@ -7,17 +7,16 @@ author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5667a03d127441a9a911ff4b8daba0b3b138e3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711751"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -65,7 +64,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>1단계: Traffic Manager 프로필 만들기
 
-1. Azure Portal에서 **리소스** > **만들기 네트워킹** > **Traffic Manager 프로필** > **만들기**를 클릭 합니다.
+1. Azure Portal에서 **리소스 만들기**  >  **네트워킹**  >  **Traffic Manager 프로필**  >  **만들기**를 클릭 합니다.
 2. 다음 기본 정보를 입력하세요.
 
    * **이름**: Traffic Manager 프로필에 DNS 접두사 이름을 지정합니다.
@@ -80,7 +79,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 ### <a name="step-2-create-the-application-gateways"></a>2단계: Application Gateway 만들기
 
-1. Azure Portal의 왼쪽 창에서 **리소스** > 만들기**네트워킹** > **Application Gateway**를 클릭 합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스 만들기**  >  **네트워킹**  >  **Application Gateway**를 클릭 합니다.
 2. Application Gateway에 대한 기본 정보를 입력합니다.
 
    * **이름**: Application Gateway의 이름입니다.
@@ -154,11 +153,11 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 이 시나리오에서 Load Balancer는 고가용성 클러스터 내에서 웹 계층으로부터 데이터베이스로 연결을 배포합니다.
 
-고가용성 데이터베이스 클러스터에서 SQL Server Always On을 사용하는 경우 단계별 지침은 [하나 이상의 Always On 가용성 그룹 수신기 구성](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)을 참조하세요.
+고가용성 데이터베이스 클러스터에서 SQL Server Always On을 사용하는 경우 단계별 지침은 [하나 이상의 Always On 가용성 그룹 수신기 구성](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md)을 참조하세요.
 
 내부 부하 분산 장치 구성에 대한 자세한 내용은 [Azure Portal에서 내부 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)를 참조하세요.
 
-1. Azure Portal의 왼쪽 창에서 **리소스** > 만들기**네트워킹** > **부하 분산 장치**를 클릭 합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스 만들기**  >  **네트워킹**  >  **부하 분산 장치**를 클릭 합니다.
 2. 부하 분산 장치의 이름을 선택합니다.
 3. **유형**을 **내부**로 설정하고 부하 분산 장치가 배치될 적절한 가상 네트워크 및 서브넷을 선택합니다.
 4. **IP 주소 할당**에서 **동적** 또는 **정적**중 하나를 선택 합니다.
@@ -211,4 +210,4 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 * [Traffic Manager 개요](traffic-manager-overview.md)
 * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
-* [Azure Load Balancer 개요](../load-balancer/load-balancer-overview.md)
+* [Azure Load Balancer개요](../load-balancer/load-balancer-overview.md)

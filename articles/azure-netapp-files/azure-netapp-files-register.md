@@ -11,15 +11,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/06/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274061"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956307"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files에 등록
 
@@ -30,7 +29,7 @@ ms.locfileid: "79274061"
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>서비스 액세스에 대 한 waitlist 요청을 제출 합니다.
 
-1. [Azure NetApp Files waitlist 제출 페이지](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u)를 통해 Azure NetApp Files 서비스에 액세스 하기 위한 waitlist 요청을 제출 합니다. 
+1. [Azure NetApp Files waitlist 제출 페이지](https://aka.ms/azurenetappfiles)를 통해 Azure NetApp Files 서비스에 액세스 하기 위한 waitlist 요청을 제출 합니다. 
 
     Waitlist 등록은 즉각적인 서비스 액세스를 보장 하지 않습니다. 
 
@@ -52,38 +51,50 @@ ms.locfileid: "79274061"
 
 2. Azure 계정에 여러 구독이 있는 경우 Azure NetApp Files의 허용 목록에 지정된 구독을 선택합니다.
     
-        az account set --subscription <subscriptionId>
+    ```azurepowershell
+    az account set --subscription <subscriptionId>
+    ```
 
 3. Azure Cloud Shell 콘솔에서 구독이 허용 목록에 지정되었는지 확인하려면 다음 명령을 입력합니다.
     
-        az feature list | grep NetApp
+    ```azurepowershell
+    az feature list | grep NetApp
+    ```
 
    명령 출력은 다음과 같이 나타납니다.
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
-       "name": "Microsoft.NetApp/ANFGA" 
+    ```output
+    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+    "name": "Microsoft.NetApp/ANFGA" 
+    ```
        
    `<SubID>`는 구독 ID입니다.
 
-    기능 이름이 `Microsoft.NetApp/ANFGA`표시 되지 않는 경우 서비스에 대 한 액세스 권한이 없는 것입니다. 이 단계에서 중지 합니다. 계속 하기 전에 서비스 액세스를 요청 하기 위해 [서비스에 액세스 하기 위한 waitlist 요청 제출](#waitlist) 의 지침을 따르세요. 
+    기능 이름이 표시 되지 않는 경우 `Microsoft.NetApp/ANFGA` 서비스에 대 한 액세스 권한이 없는 것입니다. 이 단계에서 중지 합니다. 계속 하기 전에 서비스 액세스를 요청 하기 위해 [서비스에 액세스 하기 위한 waitlist 요청 제출](#waitlist) 의 지침을 따르세요. 
 
 4. Azure Cloud Shell 콘솔에서 다음 명령을 입력하여 Azure 리소스 공급자를 등록합니다. 
     
-        az provider register --namespace Microsoft.NetApp --wait
+    ```azurepowershell
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
    `--wait` 매개 변수는 등록이 완료될 때까지 기다리도록 콘솔에 지시합니다. 등록 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
 5. Azure Cloud Shell 콘솔에서 다음 명령을 입력하여 Azure 리소스 공급자가 등록되었는지 확인합니다. 
     
-        az provider show --namespace Microsoft.NetApp
+    ```azurepowershell
+    az provider show --namespace Microsoft.NetApp
+    ```
 
    명령 출력은 다음과 같이 나타납니다.
    
-        {
-        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-        "namespace": "Microsoft.NetApp", 
-        "registrationState": "Registered", 
-        "resourceTypes": […. 
+    ```output
+    {
+     "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+     "namespace": "Microsoft.NetApp", 
+     "registrationState": "Registered", 
+     "resourceTypes": […. 
+    ```
 
    `<SubID>`는 구독 ID입니다.  `state` 매개 변수 값은 `Registered`를 나타냅니다.
 

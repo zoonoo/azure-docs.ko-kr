@@ -4,32 +4,31 @@ description: Azure 지역 간에 이동할 수 있는 Azure 리소스 종류를 
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 01/20/2020
+ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 9bc7dc66ccf3049ac878f7871c816e5ade1afde5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760711"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057690"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>지역 간 Azure 리소스 이동에 대 한 지원
 
 이 문서에서는 Azure 리소스 종류가 다른 Azure 지역으로 이동 하는 데 지원 되는지 여부를 확인 합니다. 
 
-리소스 공급자 네임 스페이스로 이동 합니다.
+리소스 공급자 네임스페이스로 이동합니다.
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft.AppService](#microsoftappservice)
-> - [Microsoft 인증](#microsoftauthorization)
+> - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft AzureData](#microsoftazuredata)
+> - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.BatchAI](#microsoftbatchai)
@@ -42,10 +41,10 @@ ms.locfileid: "76760711"
 > - [Microsoft.Cdn](#microsoftcdn)
 > - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft.classicnetwork](#microsoftclassicnetwork)
+> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft Compute](#microsoftcompute)
+> - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Container](#microsoftcontainer)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
@@ -54,8 +53,8 @@ ms.locfileid: "76760711"
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
-> - [Microsoft CustomProviders](#microsoftcustomproviders)
-> - [DataBox](#microsoftdatabox)
+> - [Microsoft.CustomProviders](#microsoftcustomproviders)
+> - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
@@ -63,26 +62,26 @@ ms.locfileid: "76760711"
 > - [Microsoft.DataExchange](#microsoftdataexchange)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLake](#microsoftdatalake)
-> - [DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [DataShare](#microsoftdatashare)
+> - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft. 장치](#microsoftdevices)
+> - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft.Genomics](#microsoftgenomics)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.HDInsight](#microsofthdinsight)
-> - [HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.ImportExport](#microsoftimportexport)
@@ -105,14 +104,14 @@ ms.locfileid: "76760711"
 > - [Microsoft.Maps](#microsoftmaps)
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft.Media](#microsoftmedia)
-> - [Microservices4Spring](#microsoftmicroservices4spring)
+> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft 네트워크](#microsoftnetwork)
+> - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.operationsmanagement](#microsoftoperationsmanagement)
-> - [Microsoft 피어 링](#microsoftpeering)
+> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft.Peering](#microsoftpeering)
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PortalSdk](#microsoftportalsdk)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
@@ -123,7 +122,7 @@ ms.locfileid: "76760711"
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
-> - [Microsoft 검색](#microsoftsearch)
+> - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.ServerManagement](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
@@ -131,11 +130,11 @@ ms.locfileid: "76760711"
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
 > - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft .Sql](#microsoftsql)
+> - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [StorageCache](#microsoftstoragecache)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
 > - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
 > - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
@@ -144,10 +143,10 @@ ms.locfileid: "76760711"
 > - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
 > - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft 토큰](#microsofttoken)
+> - [Microsoft.Token](#microsofttoken)
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
-> - [visualstudio](#microsoftvisualstudio)
-> - [VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
+> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
@@ -186,9 +185,9 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 서비스 |  예 | 
+> | 서비스 |  예 (템플릿 사용) <br/><br/> [지역 간에 API Management 이동](../../api-management/api-management-howto-migrate.md)합니다. | 
 
-## <a name="microsoftappconfiguration"></a>Microsoft AppConfiguration
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -200,7 +199,7 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | apiapps | 아니요 | 
+> | apiapps | 예 (템플릿 사용)<br/><br/> [App Service 앱을 다른 지역으로 이동](../../app-service/manage-move-across-regions.md) | 
 > | appidentities | 아니요 | 
 > | gateways | 아니요 | 
 
@@ -210,16 +209,16 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | policyassignments | 아니요 |
+> | policyassignments | 예 |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | automationaccounts | 아니요 | 
-> | automationaccounts/구성 | 아니요 | 
-> | automationaccounts/runbook | 아니요 | 
+> | automationaccounts | 예 (템플릿 사용) <br/><br/> [지역에서 복제 사용](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
+> | automationaccounts / configurations | 아니요 | 
+> | automationaccounts / runbooks | 아니요 | 
 
 
 
@@ -228,9 +227,9 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | b2cdirectories | 아니요 | 
+> | b2cdirectories | 예 | 
 
-## <a name="microsoftazuredata"></a>Microsoft AzureData
+## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -249,14 +248,14 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | batchaccounts | 아니요 |
+> | batchaccounts |  Batch 계정은 한 지역에서 다른 지역으로 직접 이동할 수 없지만 템플릿을 사용 하 여 템플릿을 내보내고 수정한 다음 템플릿을 새 지역에 배포할 수 있습니다. <br/><br/> [지역 간 Batch 계정 이동](../../batch/best-practices.md#moving-batch-accounts-across-regions) 에 대 한 자세한 정보 |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | clusters | 아니요 | 
+> | clusters | 아니요 <br/><br/> Azure Batch AI 서비스가 사용 [중지](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai)되었습니다.
 > | fileservers | 아니요 | 
 > | jobs | 아니요 | 
 > | workspaces | 아니요 | 
@@ -280,8 +279,8 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | blockchainmembers | 아니요 |
-> | 감시자 | 아니요 | 
+> | blockchainmembers | 아니요 <br/><br/> Blockchain 네트워크는 다른 지역에 노드를 포함할 수 없습니다. 
+> | watchers | 아니요 | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -311,8 +310,8 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | cdnwebapplicationfirewallpolicies | 아니요 |
-> | profiles | 아니요 | 
-> | 프로필/끝점 | 아니요 | 
+> | 프로필 | 아니요 | 
+> | profiles / endpoints | 아니요 | 
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
@@ -327,8 +326,8 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | domainnames | 아니요 |  
-> | virtualmachines | 아니요 | 
+> | domainnames | 클래식 서비스에 대 한 작업은 예정 되어 있지 않습니다.
+> | virtualmachines | 예 | 
 
 
 
@@ -337,8 +336,8 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | networksecuritygroups | 아니요 |
-> | reservedips | 아니요 | 
+> | networksecuritygroups | 클래식 서비스에 대 한 작업은 예정 되어 있지 않습니다.
+> | reservedips | 예 | 
 > | virtualnetworks | 아니요 | 
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
@@ -355,6 +354,7 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | 계정 | 아니요 | 
+> | Cognitive Search | 수동 단계에서 지원 됩니다.<br/><br/> [Azure Cognitive Search 서비스를 다른 지역으로 이동 하](../../search/search-howto-move-across-regions.md) 는 방법을 알아봅니다.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -362,21 +362,21 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | availabilitysets | 아니요 | 
-> | disk; 집합 | 아니요 | 
+> | diskencryptionsets | 아니요 | 
 > | disks | 아니요 | 
 > | galleries | 아니요 | 
-> | 갤러리/이미지 | 아니요 | 
-> | 갤러리/이미지/버전 | 아니요 | 
-> | 호스트 그룹 | 아니요 | 
-> | 호스트 그룹/호스트 | 아니요 | 
+> | galleries / images | 아니요 | 
+> | galleries / images / versions | 아니요 | 
+> | hostgroups | 아니요 | 
+> | hostgroups / hosts | 아니요 | 
 > | images | 아니요 | 
 > | proximityplacementgroups | 아니요 | 
 > | restorepointcollections | 아니요 | 
 > | sharedvmimages | 아니요 | 
-> | sharedvmimages/버전 | 아니요 | 
+> | sharedvmimages / versions | 아니요 | 
 > | 스냅샷 | 아니요 | 
 > | virtualmachines | 예 | 
-> | virtualmachines/확장 | 아니요 | 
+> | virtualmachines / extensions | 아니요 | 
 > | virtualmachinescalesets | 아니요 | 
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
@@ -399,17 +399,17 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | registries | 아니요 |  
-> | 레지스트리/buildtasks | 아니요 |  
-> | 레지스트리/복제 | 아니요 | 
-> | 레지스트리/작업 | 아니요 |  
-> | 레지스트리/웹 후크 | 아니요 | 
+> | registries / buildtasks | 아니요 |  
+> | registries / replications | 아니요 | 
+> | registries / tasks | 아니요 |  
+> | registries / webhooks | 아니요 | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | containerservices | 아니요 | 
+> | containerservices | 아니요.<br/><br/> 서비스가 사용 [중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)되었습니다.
 > | managedclusters | 아니요 | 
 > | openshiftmanagedclusters | 아니요 | 
 
@@ -439,9 +439,9 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | hubs | 아니요 |  
+> | hubs | 예 |  
 
-## <a name="microsoftcustomproviders"></a>Microsoft CustomProviders
+## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -527,10 +527,10 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | services | 아니요 | 
-> | 서비스/프로젝트 | 아니요 | 
+> | services / projects | 아니요 | 
 > | slots | 아니요 | 
 
-## <a name="microsoftdatashare"></a>DataShare
+## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -542,7 +542,7 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | servers | 아니요 |  
+> | servers | 지역 중복 백업 저장소를 사용 하 여 서비스를 프로 비전 하는 경우 지역 복원을 사용 하 여 다른 지역에서 복원할 수 있습니다. [자세한 정보](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
@@ -565,11 +565,11 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | artifactsources | 아니요 | 
-> | rollouts | 아니요 |  
+> | artifactsources | 예 | 
+> | rollouts | 예 |  
 > | servicetopologies | 아니요 | 
-> | servicetopologies/서비스 | 아니요 |  
-> | servicetopologies/서비스/serviceunits | 아니요 | 
+> | servicetopologies / services | 아니요 |  
+> | servicetopologies / services / serviceunits | 아니요 | 
 > | 단계 | 아니요 | 
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -577,9 +577,9 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | elasticpools | 아니요 | 
-> | elasticpools / iothubtenants | 아니요 | 
-> | iothubs | 예 | 
+> | elasticpools | 아니요. 리소스가 노출 되지 않습니다.
+> | elasticpools / iothubtenants | 아니요. 리소스가 노출 되지 않습니다.
+> | iothubs | 예. [자세한 정보](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | 아니요 | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
@@ -588,6 +588,7 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | controllers | 아니요 | 
+> | AKS 클러스터 | 아니요<br/><br/> 다른 지역으로 이동 하는 방법에 [대해 자세히 알아보세요](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) .
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -596,9 +597,9 @@ ms.locfileid: "76760711"
 > | ------------- | ----------- |
 > | labcenters | 아니요 | 
 > | labs | 아니요 | 
-> | 랩/환경 | 아니요 |  
-> | labs/servicerunners | 아니요 | 
-> | labs/virtualmachines | 아니요 |  
+> | labs / environments | 아니요 |  
+> | labs / servicerunners | 아니요 | 
+> | labs / virtualmachines | 아니요 |  
 > | schedules | 아니요 |  
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
@@ -615,7 +616,7 @@ ms.locfileid: "76760711"
 > | ------------- | ----------- |
 > | domains | 아니요 | 
 
-## <a name="microsoftenterpriseknowledgegraph"></a>EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -636,7 +637,7 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | clusters | 아니요 |  
-> | 네임스페이스 | 아니요 | 
+> | 네임스페이스 | 예 (템플릿 사용)<br/><br/> [이벤트 허브 네임 스페이스를 다른 지역으로 이동](../../event-hubs/move-across-regions.md) | 
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
@@ -650,7 +651,7 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | hanainstances | 아니요 | 
+> | hanainstances | 예 | 
 > | sapmonitors | 아니요 |  
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -660,7 +661,7 @@ ms.locfileid: "76760711"
 > | ------------- | ----------- |
 > | clusters | 아니요 | 
 
-## <a name="microsofthealthcareapis"></a>HealthcareApis
+## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -672,7 +673,7 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 머신의 | 아니요 | 
+> | machines | 예 | 
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -696,7 +697,7 @@ ms.locfileid: "76760711"
 > | 계정 | 아니요 | 
 > | actiongroups |  아니요 | 
 > | activitylogalerts | 아니요 | 
-> | alertrules |  아니요 | 
+> | alertrules |  예 | 
 > | autoscalesettings |  아니요 | 
 > | components |  아니요 |  
 > | guestdiagnosticsettings | 아니요 | 
@@ -713,7 +714,15 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | iotapps |  아니요 |  
+> | checknameavailability |  아니요.<br/><br/> IoT Central는 지역이 아닌 지역에서 작동 합니다.
+> | graph | 아니요
+
+## <a name="microsoftiothub"></a>IoTHub
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 영역 이동 | 
+> | ------------- | ----------- |
+> |  iothub |  예 (허브 복제) <br/><br/> [IoT hub를 다른 지역에 복제](../../iot-hub/iot-hub-how-to-clone.md)
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
@@ -758,7 +767,7 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 계정 | 아니요 | 
+> | 계정 | 아니요, 글로벌 서비스입니다.
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -768,7 +777,7 @@ ms.locfileid: "76760711"
 > | hostingenvironments | 아니요 | 
 > | integrationaccounts |  아니요 |  
 > | integrationserviceenvironments | 아니요 | 
-> | isolatedenvironments | 아니요 | 
+> | isolatedenvironments | 예 | 
 > | workflows |  아니요 |  
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -793,11 +802,11 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | 계정 | 아니요 | 
-> | 계정/작업 영역 | 아니요 | 
-> | 계정/작업 영역/프로젝트 | 아니요 | 
+> | accounts / workspaces | 아니요 | 
+> | accounts / workspaces / projects | 아니요 | 
 > | teamaccounts | 아니요 | 
-> | teamaccounts/작업 영역 | 아니요 | 
-> | teamaccounts/workspace/projects | 아니요 | 
+> | teamaccounts / workspaces | 아니요 | 
+> | teamaccounts / workspaces / projects | 아니요 | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
@@ -832,14 +841,14 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 계정 |  아니요 |  
+> | 계정 |  아니요, Azure Maps는 지리 공간적 서비스입니다. 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | classicdevservices | 아니요 | 
+> | classicdevservices | 클래식 서비스에 대해 계획 된 작업이 없습니다. 
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
@@ -847,10 +856,10 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | mediaservices |  아니요 | 
-> | windowsazure.mediaservices/liveevents |  아니요 | 
-> | windowsazure.mediaservices/streamingendpoints |  아니요 | 
+> | mediaservices / liveevents |  아니요 | 
+> | mediaservices / streamingendpoints |  아니요 | 
 
-## <a name="microsoftmicroservices4spring"></a>Microservices4Spring
+## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -872,10 +881,10 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | netappaccounts | 아니요 | 
-> | netappaccounts/capacitypools | 아니요 | 
-> | netappaccounts/capacitypools/볼륨 | 아니요 | 
-> | netappaccounts/capacitypools/볼륨/mounttargets | 아니요 | 
-> | netappaccounts/capacitypools/볼륨/스냅숏 | 아니요 | 
+> | netappaccounts / capacitypools | 아니요 | 
+> | netappaccounts / capacitypools / volumes | 아니요 | 
+> | netappaccounts / capacitypools / volumes / mounttargets | 아니요 | 
+> | netappaccounts / capacitypools / volumes / snapshots | 아니요 | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -883,7 +892,7 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | applicationgateways | 아니요 | 
-> | applicationgatewaywebapplicationfirewallpolicies | 아니요 | 
+> | applicationgatewaywebapplicationfirewallpolicies | 예 | 
 > | applicationsecuritygroups |  아니요 |  
 > | azurefirewalls |  아니요 |  
 > | bastionhosts | 아니요 | 
@@ -897,7 +906,7 @@ ms.locfileid: "76760711"
 > | expressrouteports | 아니요 | 
 > | frontdoors | 아니요 | 
 > | frontdoorwebapplicationfirewallpolicies | 아니요 | 
-> | loadbalancers | 예-기본 SKU<br>안 함-표준 SKU | 예-기본 SKU<br> -예 표준 SKU |
+> | loadbalancers | 예 <br/><br/> 기존 구성을 템플릿으로 내보내고 새 지역에 템플릿을 배포할 수 있습니다. [외부](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) 또는 [내부](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) 부하 분산 장치를 이동 하는 방법을 알아봅니다. |
 > | localnetworkgateways |  아니요 | 
 > | natgateways |  아니요 | 
 > | networkintentpolicies |  아니요 | 
@@ -905,15 +914,15 @@ ms.locfileid: "76760711"
 > | networkprofiles | 아니요 | 
 > | networksecuritygroups | 예 | 
 > | networkwatchers |  아니요 |  
-> | networkwatchers/connectionmonitors |  아니요 | 
+> | networkwatchers / connectionmonitors |  아니요 | 
 > | networkwatchers/lenses |  아니요 | 
-> | networkwatchers/ |  아니요 | 
+> | networkwatchers / pingmeshes |  아니요 | 
 > | p2svpngateways | 아니요 | 
 > | privatednszones |  아니요 |  
 > | privatednszones / virtualnetworklinks |  아니요 |  
 > | privateendpoints | 아니요 | 
 > | privatelinkservices | 아니요 | 
-> | publicipaddresses | 예-기본 SKU<br>안 함-표준 SKU | 예-기본 SKU<br>안 함-표준 SKU |
+> | publicipaddresses | 예<br/><br/> 기존 공용 IP 주소 구성을 템플릿으로 내보내고 새 지역에 템플릿을 배포할 수 있습니다. 공용 IP 주소 이동에 [대해 자세히 알아보세요](../../virtual-network/move-across-regions-publicip-portal.md) . |
 > | publicipprefixes | 아니요 | 
 > | routefilters | 아니요 | 
 > | routetables |  아니요 | 
@@ -924,8 +933,8 @@ ms.locfileid: "76760711"
 > | virtualnetworks |  아니요 | 
 > | virtualnetworktaps | 아니요 | 
 > | virtualwans | 아니요 | 
-> | vpngateways (가상 WAN) | 아니요 | 
-> | vpnsites (가상 WAN) | 아니요 | 
+> | vpngateways(Virtual WAN) | 예 | 
+> | vpnsites(Virtual WAN) | 예 | 
 > | webapplicationfirewallpolicies |  아니요 | 
 
 
@@ -935,7 +944,7 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | 네임스페이스 |  아니요 | 
-> | 네임 스페이스/notificationhubs |  아니요 |  
+> | namespaces / notificationhubs |  아니요 |  
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -954,12 +963,12 @@ ms.locfileid: "76760711"
 > | managementconfigurations |  아니요 | 
 > | 뷰 |  아니요 | 
 
-## <a name="microsoftpeering"></a>Microsoft 피어 링
+## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 피어 링 | 아니요 | 
+> | peerings | 아니요 | 
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
@@ -1001,7 +1010,7 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | vaults | 아니요. [자격 증명 모음을 사용 하지 않도록 설정 하 고 Site Recovery 다시 만들기](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions)  | 
+> | vaults | 아니요.<br/><br/> Azure 지역에서 Azure Backup에 대 한 Recovery Services 자격 증명 모음 이동은 지원 되지 않습니다.<br/><br/> Azure Site Recovery에 대 한 Recovery Services 자격 증명 모음에서 대상 지역에 [자격 증명 모음을 사용 하지 않도록 설정 하 고 다시 만들](../../site-recovery/move-vaults-across-regions.md) 수 있습니다. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
@@ -1055,14 +1064,14 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | gateways | 아니요 | 
-> | nodes | 아니요 | 
+> | nodes | 예 | 
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 네임스페이스 |  아니요 | 
+> | 네임스페이스 |  예 | 
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
@@ -1071,7 +1080,7 @@ ms.locfileid: "76760711"
 > | ------------- | ----------- |
 > | 애플리케이션 | 아니요 | 
 > | clusters |  아니요 | 
-> | 클러스터/응용 프로그램 | 아니요 | 
+> | clusters / applications | 아니요 | 
 > | containergroups | 아니요 | 
 > | containergroupsets | 아니요 | 
 > | edgeclusters | 아니요 | 
@@ -1116,10 +1125,10 @@ ms.locfileid: "76760711"
 > | ------------- | ----------- |
 > | instancepools | 아니요 | 
 > | managedinstances | 예 | 
-> | managedinstances/데이터베이스 | 예 | 
+> | managedinstances / databases | 예 | 
 > | servers | 예 | 
-> | 서버/데이터베이스 | 예 | 
-> | servers/elasticpools | 예 | 
+> | servers / databases | 예 | 
+> | servers / elasticpools | 예 | 
 > | virtualclusters | 예 | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
@@ -1142,28 +1151,28 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | storageaccounts | 예 | 
+> | storageaccounts | 예<br/><br/> [Azure Storage 계정을 다른 지역으로 이동](../../storage/common/storage-account-move.md) | 
 
-## <a name="microsoftstoragecache"></a>StorageCache
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 캐시 | 아니요 | 
+> | caches | 아니요 | 
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | storagesyncservices |  아니요 | 
+> | storagesyncservices |  예 | 
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | storagesyncservices | 아니요 | 
+> | storagesyncservices | 예 | 
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
@@ -1193,10 +1202,10 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | environments | 아니요 | 
-> | 환경/s s o 원본 | 아니요 | 
+> | environments / eventsources | 아니요 | 
 > | 인스턴스 | 아니요 | 
-> | 인스턴스/환경 | 아니요 | 
-> | 인스턴스/환경/s s o 원본 | 아니요 | 
+> | instances / environments | 아니요 | 
+> | instances / environments / eventsources | 아니요 | 
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 
@@ -1212,10 +1221,10 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | environments |  아니요 | 
-> | 환경/s s o 원본 |  아니요 |  
-> | environment/referencedatasets |  아니요 | 
+> | environments / eventsources |  아니요 |  
+> | environments / referencedatasets |  아니요 | 
 
-## <a name="microsofttoken"></a>Microsoft 토큰
+## <a name="microsofttoken"></a>Microsoft.Token
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -1235,12 +1244,12 @@ ms.locfileid: "76760711"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | account |  아니요 | 
-> | 계정/확장 |  아니요 | 
-> | 계정/프로젝트 |  아니요 | 
+> | account / extension |  아니요 | 
+> | account / project |  아니요 | 
 
 
 
-## <a name="microsoftvmwarecloudsimple"></a>VMwareCloudSimple
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
@@ -1261,8 +1270,8 @@ ms.locfileid: "76760711"
 > | hostingenvironments | 아니요 | 
 > | serverfarms |  아니요 |  
 > | sites |  아니요 | 
-> | 사이트/premieraddons |  아니요 |  
-> | 사이트/슬롯 |  아니요 |  
+> | sites / premieraddons |  아니요 |  
+> | sites / slots |  예 |  
 
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
@@ -1270,7 +1279,7 @@ ms.locfileid: "76760711"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | deviceservices | 아니요 | 
+> | deviceservices | 예 | 
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft WindowsVirtualDesktop
 
@@ -1279,7 +1288,7 @@ ms.locfileid: "76760711"
 > | ------------- | ----------- |
 > | applicationgroups | 아니요 | 
 > | hostpools | 아니요 | 
-> | workspaces | 아니요 | 
+> | workspaces | 예 | 
 
 ## <a name="third-party-services"></a>타사 서비스
 

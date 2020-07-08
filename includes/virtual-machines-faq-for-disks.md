@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242230"
 ---
 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
@@ -451,7 +450,7 @@ Azure Backup에서 지원하는 최대 디스크 크기는 32TiB(암호화된 �
 
 **모든 디스크 크기에서 호스트 캐싱을 사용할 수 있나요?**
 
-4TiB 미만의 디스크에서 읽기 전용 및 읽기/쓰기 호스트 캐싱을 지원합니다. 4TiB를 초과하는 디스크에서는 [없음] 이외의 캐싱 옵션을 지원하지 않습니다. VM에 캐시된 데이터를 사용하여 성능 향상을 확인할 수 있을 수 있는 더 작은 디스크 크기에 대한 캐싱을 활용하는 것이 좋습니다.
+호스트 캐싱 (읽기 전용 및 읽기/쓰기)은 4 TiB 미만의 디스크 크기에서 지원 됩니다. 즉, 4095 GiB으로 프로 비전 된 모든 디스크는 호스트 캐싱을 활용할 수 있습니다. 4096 GiB 보다 크거나 같은 디스크 크기에 대해서는 호스트 캐싱이 지원 되지 않습니다. 예를 들어 4095 GiB에 프로 비전 된 P50 premium 디스크는 호스트 캐싱을 활용할 수 있으며 4096 GiB에 프로 비전 된 P50 디스크는 호스트 캐싱을 사용할 수 없습니다. VM에 캐시된 데이터를 사용하여 성능 향상을 확인할 수 있을 수 있는 더 작은 디스크 크기에 대한 캐싱을 활용하는 것이 좋습니다.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 

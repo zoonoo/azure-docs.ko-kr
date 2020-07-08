@@ -6,16 +6,15 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75478878"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057622"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
-[EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)의 Azure 고객은 고객의 계정으로 청구되는 구독을 만들 수 있는 권한을 다른 사용자 또는 서비스 주체에게 부여할 수 있습니다. 이 문서에서는 [RBAC(역할 기반 액세스 제어)](../../active-directory/role-based-access-control-configure.md)를 사용하여 구독을 만드는 기능을 공유하고 구독 생성을 감사하는 방법을 배웁니다. 공유하려는 계정에 대해 소유자 역할이 있어야 합니다.
+[EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)의 Azure 고객은 고객의 계정으로 청구되는 구독을 만들 수 있는 권한을 다른 사용자 또는 서비스 주체에게 부여할 수 있습니다. 이 문서에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 구독을 만드는 기능을 공유하고 구독 생성을 감사하는 방법을 배웁니다. 공유하려는 계정에 대해 소유자 역할이 있어야 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -60,7 +59,7 @@ ms.locfileid: "75478878"
     }
     ```
 
-    `principalName` 속성을 사용 하 여 RBAC 소유자에 게 액세스 권한을 부여 하려는 계정을 식별 합니다. 해당 계정의 `name` 를 복사 합니다. 예를 들어 RBAC 소유자에 게 SignUpEngineering@contoso.com 등록 계정에 대 한 액세스 권한을 부여 하려는 경우를 복사 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```합니다. 등록 계정의 개체 ID입니다. 다음 단계에서로 `enrollmentAccountObjectId`사용할 수 있도록이 값을 어딘가에 붙여넣습니다.
+    속성을 사용 하 여 `principalName` RBAC 소유자에 게 액세스 권한을 부여 하려는 계정을 식별 합니다. 해당 계정의를 복사 `name` 합니다. 예를 들어 RBAC 소유자에 게 등록 계정에 대 한 액세스 권한을 부여 하려는 경우를 SignUpEngineering@contoso.com 복사 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` 합니다. 등록 계정의 개체 ID입니다. 다음 단계에서로 사용할 수 있도록이 값을 어딘가에 붙여넣습니다 `enrollmentAccountObjectId` .
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -78,7 +77,7 @@ ms.locfileid: "75478878"
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    `principalName` 속성을 사용 하 여 RBAC 소유자에 게 액세스 권한을 부여 하려는 계정을 식별 합니다. 해당 계정의 `ObjectId` 를 복사 합니다. 예를 들어 RBAC 소유자에 게 SignUpEngineering@contoso.com 등록 계정에 대 한 액세스 권한을 부여 하려는 경우를 복사 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```합니다. 다음 단계에서로 사용할 수 있도록이 개체 ID를 어딘가에 붙여넣습니다 `enrollmentAccountObjectId`.
+    속성을 사용 하 여 `principalName` RBAC 소유자에 게 액세스 권한을 부여 하려는 계정을 식별 합니다. 해당 계정의를 복사 `ObjectId` 합니다. 예를 들어 RBAC 소유자에 게 등록 계정에 대 한 액세스 권한을 부여 하려는 경우를 SignUpEngineering@contoso.com 복사 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` 합니다. 다음 단계에서로 사용할 수 있도록이 개체 ID를 어딘가에 붙여넣습니다 `enrollmentAccountObjectId` .
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -109,14 +108,14 @@ ms.locfileid: "75478878"
 
     ---
 
-    `principalName` 속성을 사용 하 여 RBAC 소유자에 게 액세스 권한을 부여 하려는 계정을 식별 합니다. 해당 계정의 `name` 를 복사 합니다. 예를 들어 RBAC 소유자에 게 SignUpEngineering@contoso.com 등록 계정에 대 한 액세스 권한을 부여 하려는 경우를 복사 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```합니다. 등록 계정의 개체 ID입니다. 다음 단계에서로 `enrollmentAccountObjectId`사용할 수 있도록이 값을 어딘가에 붙여넣습니다.
+    속성을 사용 하 여 `principalName` RBAC 소유자에 게 액세스 권한을 부여 하려는 계정을 식별 합니다. 해당 계정의를 복사 `name` 합니다. 예를 들어 RBAC 소유자에 게 등록 계정에 대 한 액세스 권한을 부여 하려는 경우를 SignUpEngineering@contoso.com 복사 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` 합니다. 등록 계정의 개체 ID입니다. 다음 단계에서로 사용할 수 있도록이 값을 어딘가에 붙여넣습니다 `enrollmentAccountObjectId` .
 
 1. <a id="userObjectId"></a>RBAC 소유자 역할을 부여 하려는 사용자 또는 그룹의 개체 ID를 가져옵니다.
 
     1. Azure Portal에서 **Azure Active Directory**를 검색 합니다.
     1. 사용자에 게 액세스 권한을 부여 하려면 왼쪽의 메뉴에서 **사용자** 를 클릭 합니다. 그룹에 대 한 액세스 권한을 부여 하려면 **그룹**을 클릭 합니다.
     1. RBAC 소유자 역할에 지정할 사용자 또는 그룹을 선택 합니다.
-    1. 사용자를 선택한 경우에는 프로필 페이지에서 개체 ID를 찾을 수 있습니다. 그룹을 선택한 경우 개체 ID는 개요 페이지에 표시 됩니다. 텍스트 상자의 오른쪽에 있는 아이콘을 클릭 하 여 **ObjectID** 를 복사 합니다. 다음 단계에서로 `userObjectId`사용할 수 있도록이 위치에 붙여 넣습니다.
+    1. 사용자를 선택한 경우에는 프로필 페이지에서 개체 ID를 찾을 수 있습니다. 그룹을 선택한 경우 개체 ID는 개요 페이지에 표시 됩니다. 텍스트 상자의 오른쪽에 있는 아이콘을 클릭 하 여 **ObjectID** 를 복사 합니다. 다음 단계에서로 사용할 수 있도록이 위치에 붙여 넣습니다 `userObjectId` .
 
 1. 사용자 또는 그룹에 등록 계정에 대 한 RBAC 소유자 역할을 부여 합니다.
 
@@ -124,7 +123,7 @@ ms.locfileid: "75478878"
 
     # <a name="rest"></a>[REST (영문)](#tab/rest-2)
 
-    다음 명령을 실행 하 여을 ```<enrollmentAccountObjectId>``` 첫 번째 `name` 단계 (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)에서 복사한으로 바꿉니다. 을 ```<userObjectId>``` 두 번째 단계에서 복사한 개체 ID로 바꿉니다.
+    다음 명령을 실행 하 여을 ```<enrollmentAccountObjectId>``` `name` 첫 번째 단계 ()에서 복사한으로 바꿉니다 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . ```<userObjectId>```을 두 번째 단계에서 복사한 개체 ID로 바꿉니다.
 
     ```json
     PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -158,7 +157,7 @@ ms.locfileid: "75478878"
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
-    다음 [AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) 명령을 실행 하 여을 첫 번째 ```<enrollmentAccountObjectId>``` 단계 ( `ObjectId` ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)에 수집 된로 바꿉니다. 을 ```<userObjectId>``` 두 번째 단계에서 수집 된 개체 ID로 바꿉니다.
+    다음 [AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) 명령을 실행 하 여을 ```<enrollmentAccountObjectId>``` `ObjectId` 첫 번째 단계 ()에 수집 된로 바꿉니다 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . ```<userObjectId>```을 두 번째 단계에서 수집 된 개체 ID로 바꿉니다.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -166,7 +165,7 @@ ms.locfileid: "75478878"
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-2)
 
-    다음 [az role 대입문 create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) 명령을 실행 하 여을 ```<enrollmentAccountObjectId>``` 첫 번째 `name` 단계 (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)에서 복사한으로 바꿉니다. 을 ```<userObjectId>``` 두 번째 단계에서 수집 된 개체 ID로 바꿉니다.
+    다음 [az role 대입문 create](../../role-based-access-control/role-assignments-cli.md) 명령을 실행 하 여을 ```<enrollmentAccountObjectId>``` `name` 첫 번째 단계 ()에서 복사한으로 바꿉니다 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . ```<userObjectId>```을 두 번째 단계에서 수집 된 개체 ID로 바꿉니다.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -180,8 +179,8 @@ ms.locfileid: "75478878"
 
 이 API를 통해 만든 구독을 추적하려면 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 사용합니다. 현재 PowerShell, CLI 또는 Azure Portal을 사용하여 구독 만들기를 추적할 수 없습니다.
 
-1. Azure AD 테넌트의 테넌트 관리자로 [액세스의 권한을 상승한](../../active-directory/role-based-access-control-tenant-admin-access.md) 다음, `/providers/microsoft.insights/eventtypes/management` 범위에 대해 감사 사용자에게 읽기 역할을 할당합니다.
-1. 감사 사용자로 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 호출하여 구독 생성 작업을 봅니다. 예제:
+1. Azure AD 테넌트의 테넌트 관리자로 [액세스의 권한을 상승한](../../role-based-access-control/elevate-access-global-admin.md) 다음, `/providers/microsoft.insights/eventtypes/management` 범위에 대해 감사 사용자에게 읽기 역할을 할당합니다.
+1. 감사 사용자로 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 호출하여 구독 생성 작업을 봅니다. 예:
 
     ```
     GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'"

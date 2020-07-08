@@ -2,13 +2,12 @@
 title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/11/2020
+ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273463"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718328"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -48,7 +47,7 @@ VMware VM의 DPM | System Center 2012 R2 업데이트 롤업 5 이상
 지원되지 않는 파일 형식 | 대/소문자를 구분하는 파일 시스템의 서버, 하드 링크(건너뜀), 재분석 지점(건너뜀), 암호화 및 압축(건너뜀), 암호화 및 스파스(건너뜀), 압축 스트림, 분석 스트림
 로컬 스토리지 | 백업 하려는 각 컴퓨터에는 백업 중인 데이터 크기의 5% 이상이 되는 로컬 사용 가능한 저장소가 있어야 합니다. 예를 들어 100GB 데이터를 백업하는 경우 스크래치 위치에 최소 5GB의 여유 공간이 필요합니다.
 자격 증명 모음 스토리지 | Azure Backup 자격 증명 모음에 백업할 수 있는 데이터 양에는 제한이 없지만 데이터 원본 (예: 가상 머신 또는 데이터베이스)의 크기는 54400 GB를 초과할 수 없습니다.
-Azure ExpressRoute | Azure Express 경로를 개인 또는 Microsoft 피어 링으로 구성 하면 데이터를 Azure에 백업 하는 데 사용할 수 없습니다.<br/><br/> Azure Express 경로를 공용 피어 링으로 구성 하면 데이터를 Azure에 백업 하는 데 사용할 수 있습니다.<br/><br/> **참고:** 공용 피어 링은 새 회로에서 사용 되지 않습니다.
+Azure ExpressRoute | 공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링에 대 한 백업은 지원 되지 않습니다.<br/><br/> **공용 피어 링 사용**: 다음 도메인/주소에 대 한 액세스를 확인 합니다.<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Microsoft 피어 링을 사용 하 여**다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)<br/><br/>-Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)<br/><br/>자세한 내용은 [express 경로 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조 하세요.<br/><br/>**참고**: 공용 피어 링은 새 회로에서 사용 되지 않습니다.
 Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 경우 DPM SP1에 대한 롤업 2 이상을 설치합니다. 이 롤업은 에이전트 설치를 위해 반드시 필요합니다.<br/><br/> 이 문서에서는 MARS(icrosoft Azure Recovery Service) 에이전트라고도 하는 최신 버전의 Azure Backup 에이전트를 배포하는 방법을 설명합니다. 이전 버전을 배포한 경우 최신 버전으로 업데이트하여 백업이 예상대로 작동하도록 합니다.
 
 시작하기 전에 Azure Backup 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. [Azure Backup 가격 정책](https://azure.microsoft.com/pricing/details/backup/)을 읽어보십시오.
@@ -103,7 +102,7 @@ Vault에서 DPM 서버를 등록하는 경우 자격 증명 모음의 자격 증
 
     ![자격 증명 모음 메뉴 열기](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. **속성** > **백업 자격 증명**에서 **다운로드**를 클릭 합니다. 포털은 자격 증명 모음 이름과 현재 날짜를 조합하여 자격 증명 모음의 자격 증명 파일을 생성하고 다운로드할 수 있도록 제공합니다.
+4. **속성**  >  **백업 자격 증명**에서 **다운로드**를 클릭 합니다. 포털은 자격 증명 모음 이름과 현재 날짜를 조합하여 자격 증명 모음의 자격 증명 파일을 생성하고 다운로드할 수 있도록 제공합니다.
 
     ![다운로드](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
@@ -127,7 +126,7 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 7. Azure Backup 에이전트가 .NET Framework 4.5 및 Windows PowerShell(설치되지 않은 경우)을 설치하여 설치를 완료합니다.
 8. 에이전트가 설치되면 창을 **닫습니다**.
 
-    ![닫습니다](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![닫기](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>자격 증명 모음에 VMM 서버 등록
 

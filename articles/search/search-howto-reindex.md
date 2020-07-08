@@ -7,13 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.openlocfilehash: 96177686e78a0595ac4ad49b9969b22d862facd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77498372"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85051727"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
 
@@ -21,13 +20,23 @@ ms.locfileid: "77498372"
 
 *다시 작성*은 모든 필드 기반의 반전된 인덱스를 포함하여 인덱스와 연결된 실제 데이터 구조를 삭제했다가 다시 만드는 것을 의미합니다. Azure Cognitive Search에서는 개별 필드를 삭제 하 고 다시 만들 수 없습니다. 인덱스를 다시 작성하려면 모든 필드 스토리지를 삭제하고, 기존 또는 수정된 인덱스 스키마를 기준으로 다시 만든 후 인덱스에 푸시되었거나 외부 원본에서 가져온 데이터로 다시 채워야 합니다. 
 
-개발 중에 인덱스를 다시 작성하는 것이 일반적이지만, 복합 형식을 추가하거나 제안기에 필드를 추가하는 경우처럼 구조적 변경을 수용하기 위해 프로덕션 수준의 인덱스를 다시 작성해야 할 수도 있습니다.
+인덱스 디자인을 반복할 때 개발 중에 인덱스를 다시 작성 하는 것이 일반적 이지만 복잡 한 형식을 추가 하거나 확인 기에 필드를 추가 하는 등 구조적 변경을 수용 하기 위해 프로덕션 수준 인덱스를 다시 작성 해야 할 수도 있습니다.
+
+## <a name="rebuild-versus-refresh"></a>"다시 작성" 및 "새로 고침"
+
+새로 작성, 수정 또는 삭제 된 문서를 사용 하 여 인덱스 내용을 새로 고치는 것과 혼동 해서는 안 됩니다. 검색 모음를 새로 고치는 것은 거의 모든 검색 앱에서 제공 되는 경우가 거의 있습니다. 예를 들어 검색 모음가 온라인 판매 앱에서 재고 변경 내용을 반영 해야 하는 경우와 같이 최신 업데이트가 필요 합니다.
+
+인덱스의 구조를 변경 하지 않는 한 인덱스를 처음 로드 하는 데 사용한 것과 동일한 기술을 사용 하 여 인덱스를 새로 고칠 수 있습니다.
+
+* 밀어넣기 모드 인덱싱의 경우 [추가, 업데이트 또는 삭제 문서](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 를 호출 하 여 변경 내용을 인덱스에 푸시합니다.
+
+* 인덱서의 경우 [인덱서 실행을 예약](search-howto-schedule-indexers.md) 하 고 변경 내용 추적 또는 타임 스탬프를 사용 하 여 델타를 식별할 수 있습니다. 업데이트를 스케줄러에서 관리할 수 있는 것 보다 빠르게 반영 해야 하는 경우에는 푸시 모드 인덱싱을 대신 사용할 수 있습니다.
 
 ## <a name="rebuild-conditions"></a>다시 작성 조건
 
 다음 조건 중 하나라도 충족 되 면 인덱스를 삭제 하 고 다시 만듭니다. 
 
-| 조건 | Description |
+| 조건 | 설명 |
 |-----------|-------------|
 | 필드 정의 변경 | 필드 이름, 데이터 형식 또는 특정 [인덱싱 특성](https://docs.microsoft.com/rest/api/searchservice/create-index)(검색 가능, 필터링 가능, 정렬 가능, 패싯 가능)을 수정하려면 전체적으로 다시 작성해야 합니다. |
 | 필드에 분석기 할당 | [분석기](search-analyzers.md)는 인덱스에 정의된 후 필드에 할당됩니다. 언제든지 새 분석기 정의를 인덱스에 추가할 수 있지만, 분석기 *할당*은 필드를 만들 때만 가능합니다. **분석기**와 **indexAnalyzer** 둘 다 그렇습니다. **searchAnalyzer** 속성은 예외입니다(이 속성을 기존 필드에 할당 가능). |
@@ -85,7 +94,7 @@ ms.locfileid: "77498372"
 
 필드를 추가 하거나 이름을 바꾼 경우 [$select](search-query-odata-select.md) 를 사용 하 여 해당 필드를 반환 합니다.`search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [인덱서 개요](search-indexer-overview.md)
 + [대규모 데이터 집합 인덱싱](search-howto-large-index.md)

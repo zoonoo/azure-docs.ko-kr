@@ -8,17 +8,16 @@ manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d656fd8757580b8ce96acf168e92fc847d400ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65150749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514056"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
 
@@ -45,7 +44,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 4. StorSimple은 자체 하드웨어를 제공합니다. 그러나 Azure Files/Azure 파일 동기화를 사용하면 사용자 고유의 로컬 Windows Server 하드웨어를 로컬 캐시로 사용할 수 있습니다. 선택한 데이터 세트을 로컬로 유지할 수 있을 만큼 충분한 스토리지 용량이 있는지 확인해야 합니다. 계층화 및 필요한 사용 가능 공간 목표 설정에 대한 자세한 내용은 [Azure 파일 동기화 배포 시 서버 엔드포인트를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)을 검토하세요. 
 5. StorSimple과 다른 [Azure 파일 동기화의 가격](https://azure.microsoft.com/pricing/details/storage/files/)을 검토합니다. AFS에는 StorSimple과 같은 중복 제거 및 압축 기능이 없습니다.
 
-## <a name="migration-prerequisites"></a>마이그레이션 필수 구성 요소
+## <a name="migration-prerequisites"></a>마이그레이션 필수 조건
 
 여기에서 Azure File Sync 하는 레거시 5000 또는 7000 시리즈 장치에 대 한 마이그레이션 필수 구성 요소를 찾을 수 있습니다. 시작 하기 전에 다음이 있는지 확인 합니다.
 

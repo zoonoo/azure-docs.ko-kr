@@ -5,17 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413351"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Functions에 대한 Azure Event Grid 출력 바인딩
 
-Event Grid 출력 바인딩을 사용하여 사용자 지정 항목에 이벤트를 씁니다. 유효한 [사용자 지정 항목에 대한 액세스 키](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key)가 있어야 합니다.
+Event Grid 출력 바인딩을 사용하여 사용자 지정 항목에 이벤트를 씁니다. 유효한 [사용자 지정 항목에 대한 액세스 키](../event-grid/security-authenticate-publishing-clients.md)가 있어야 합니다.
 
 설정 및 구성 세부 정보에 대한 자세한 내용은 [개요](./functions-bindings-event-grid.md)를 참조하세요.
 
@@ -162,7 +161,7 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 그런 다음, `topicEndpointUri`에 지정된 대로 사용자 지정 Event Grid 항목으로 이벤트를 보냅니다.
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 그런 다음에 지정 된 대로 사용자 지정 토픽에 이벤트를 보냅니다 `topicEndpointUri` .
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -187,7 +186,7 @@ module.exports = function(context) {
 }
 ```
 
-`EventGridOutputEvent`를 설정하여 사용자 지정 Event Grid 항목으로 이벤트를 보내는 Python 샘플은 다음과 같습니다.
+을 설정 하 여 사용자 지정 토픽에 이벤트를 보내는 Python 샘플은 다음과 같습니다 `EventGridOutputEvent` .
 
 ```python
 import logging

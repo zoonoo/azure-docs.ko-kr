@@ -12,16 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338173"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -45,7 +44,7 @@ ms.locfileid: "82207247"
 
 * 액세스 패키지를 사용하여 관리하려는 리소스에 이미 할당된 사용자가 있는 경우 해당 사용자에게 적절한 정책을 사용하여 액세스 패키지를 할당해야 합니다. 예를 들어 이미 사용자가 있는 그룹을 액세스 패키지에 포함하려는 경우가 있습니다. 그룹의 사용자가 계속 액세스해야 하는 경우 사용자에게 그룹에 대한 액세스 권한을 잃지 않도록 액세스 패키지에 대한 적절한 정책이 있어야 합니다. 사용자에게 해당 리소스를 포함하는 액세스 패키지를 요청하거나 사용자를 액세스 패키지에 직접 할당하는 방법으로 액세스 패키지를 할당할 수 있습니다. 자세한 내용은 [액세스 패키지에 대 한 요청 및 승인 설정 변경](entitlement-management-access-package-request-policy.md)을 참조 하세요.
 
-* 팀 구성원을 제거하면 Office 365 그룹에서도 제거됩니다. 팀 채팅 기능을 제거하면 작업이 지연될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)을 참조 하세요.
+* 팀의 구성원을 제거 하면 해당 구성원도 Microsoft 365 그룹에서 제거 됩니다. 팀 채팅 기능을 제거하면 작업이 지연될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)을 참조 하세요.
 
 * 디렉터리가 다중 지역에 대해 구성되지 않았는지 확인합니다. 권한 관리는 현재 SharePoint Online에 대한 다중 지역 위치를 지원하지 않습니다. SharePoint Online 사이트는 권한 관리로 제어되는 기본 지리적 위치에 있어야 합니다. 자세한 내용은 [OneDrive 및 SharePoint Online의 다중 지역 기능](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)을 참조 하세요.
 
@@ -139,7 +138,7 @@ ms.locfileid: "82207247"
 
 * 여러 정책이 적용 되는 경우 자동으로 선택 되는 정책이 나 요청자에 게 표시 되는 정책은 다음 우선 순위 논리를 기반으로 합니다.
 
-    | 정책 우선 순위 | 범위 |
+    | 정책 우선 순위 | Scope |
     | --- | --- |
     | P1 | 디렉터리 또는 특정 연결 된 조직의 특정 사용자 및 그룹 |
     | P2 | 디렉터리의 모든 구성원 (게스트 제외) |

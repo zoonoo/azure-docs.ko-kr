@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242172"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
-| Storage<sup>1</sup> | 10GiB | 100GiB| 500GiB |
-| 최대 이미지 레이어 크기 | 200GiB | 200GiB | 200GiB |
+| 포함 된 저장소<sup>1</sup> (GiB) | 10 | 100 | 500 |
+| 저장소 제한 (TiB) | 20| 20 | 20 |
+| 최대 이미지 계층 크기 (GiB) | 200 | 200 | 200 |
 | 분당 ReadOps<sup>2, 3</sup> | 1,000 | 3,000 | 10000 |
 | 분당 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | 다운로드 대역폭 MBps<sup>2</sup> | 30 | 60 | 100 |
@@ -35,7 +35,7 @@ ms.locfileid: "83683419"
 | &bull; 범위 맵당 리포지토리 | 해당 없음 | 해당 없음 | 500 |
 
 
-<sup>1</sup> 지정된 스토리지 제한은 각 계층에 *포함되는* 스토리지의 양입니다. 이러한 한도 초과 이미지 스토리지에 대해 GiB당 추가 일별 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
+<sup>1 개의</sup> 저장소는 각 계층에 대 한 일일 요금으로 포함 됩니다. 추가 저장소의 경우 저장소 제한까지 GiB 당 추가 일일 요금이 청구 됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
 
 <sup>2</sup>*ReadOps*, *WriteOps* 및 *Bandwidth*는 최소 추정치입니다. Azure Container Registry는 필요한 사용량에 따라 성능을 개선하려고 합니다.
 

@@ -2,21 +2,20 @@
 title: Azure AD 프로비저닝 작동 방법의 이해 | Microsoft Docs
 description: Azure AD 프로비저닝 작동 방법의 이해
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781653"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -172,7 +171,7 @@ ServiceNow, G Suite, Box 등의 일부 애플리케이션은 사용자 프로비
 
 Azure AD 프로비저닝 서비스는 사용자가 더 이상 액세스 권한을 갖지 않아야 할 경우 계정을 프로비저닝 해제함으로써 원본 및 대상 시스템을 동기화합니다. 
 
-Azure AD 프로비저닝 서비스는 애플리케이션이 일시 삭제를 지원하며(active = false로 업데이트 요청) 다음 이벤트가 발생하는 경우 애플리케이션에서 사용자를 일시 삭제합니다.
+Azure AD 프로 비전 서비스는 응용 프로그램에서 일시 삭제 (활성 = false로 업데이트 요청)를 지원할 때 응용 프로그램에서 사용자를 일시 삭제 하며 다음 이벤트 중 하나가 발생 합니다.
 
 * Azure AD에서 사용자 계정이 삭제됨
 *   애플리케이션에서 사용자가 할당 취소됨

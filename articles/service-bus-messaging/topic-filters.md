@@ -1,23 +1,13 @@
 ---
 title: Azure Service Bus 토픽 필터 | Microsoft Docs
 description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
-services: service-bus-messaging
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: b722c040248c199782f6c8dea020ae582762e102
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339964"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
@@ -35,11 +25,11 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
     - **ContentType**
      - **레이블**
-     - **MessageId**
+     - **있어**
      - **ReplyTo**
      - **ReplyToSessionId**
      - **SessionId** 
-     - **받는 사람**
+     - **수행할 작업**
      - 사용자 정의 속성입니다. 
      
      속성에 대한 도착 메시지의 값이 상관 필터에 지정된 값과 같을 때 일치가 존재합니다. 문자열 식의 경우 비교에서 대/소문자가 구분됩니다. 여러 일치 속성을 지정할 때 필터는 이들을 논리적 AND 조건으로 결합합니다. 즉, 필터가 일치하려면 모든 조건이 일치해야 합니다.
@@ -64,7 +54,7 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 
 
 > [!NOTE]
-> 현재 Azure Portal에서는 구독에 대 한 필터 규칙을 지정할 수 없습니다. 지원 되는 Sdk 또는 Azure Resource Manager 템플릿 중 하나를 사용 하 여 구독 규칙을 정의할 수 있습니다. 
+> Azure Portal는 이제 Service Bus 탐색기 기능을 지원 하므로 포털에서 구독 필터를 만들거나 편집할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 샘플을 참조 하세요. 

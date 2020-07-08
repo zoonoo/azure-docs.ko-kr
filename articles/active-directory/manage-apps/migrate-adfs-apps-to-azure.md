@@ -2,23 +2,23 @@
 title: AD FS에서 Azure Active Directory로 응용 프로그램 인증 이동
 description: 이 문서는 조직에서 페더레이션된 SaaS 애플리케이션에 중점을 두고 애플리케이션을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 04/01/2020
-ms.author: baselden
+ms.author: kenwith
+ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b777cce9b704be558460edf20cf243258c160b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608554"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 응용 프로그램 인증 이동
 
@@ -224,7 +224,7 @@ Azure AD가 응용 프로그램에서 미리 구성 된 끝점에만 토큰을 �
 
 | 요소| 구성 값 |
 | - | - |
-| Id 공급자 발급자| https:\//sts.windows.net/{tenant-id}/ |
+| Id 공급자 발급자| https: \/ /sts.windows.net/{tenant-id}/ |
 | Id 공급자 로그인 URL| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | Id 공급자 로그 아웃 URL| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | 페더레이션 메타 데이터 위치| [https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}](https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}) |
@@ -236,11 +236,11 @@ SaaS 앱은 인증 요청을 보내는 위치와 받은 토큰의 유효성을 �
 
 | 구성 설정| AD FS| Azure AD에서을 구성 하는 방법 |
 | - | - | - |
-| **IdP Sign-on URL** <p>앱의 관점에서 IdP의 로그인 URL입니다 (사용자가 로그인을 위해 리디렉션 됨).| AD FS sign-on URL은 AD FS 페더레이션 서비스 이름 뒤에 "/adfs/ls/."가 옵니다. <p>`https://fs.contoso.com/adfs/ls/`| {Tenant-id}를 테 넌 트 ID로 바꿉니다. <p> SAML-P 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **IdP 로그 아웃 URL**<p>앱의 관점에서 IdP의 로그 아웃 URL (사용자가 앱에서 로그 아웃 하도록 선택할 때 리디렉션되는 위치)입니다.| 로그 아웃 URL은 로그온 URL과 동일 하거나 "wa = wsignout1.0 1.0"이 추가 된 URL과 동일 합니다. `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>SAML-P 프로토콜을 사용 하는 앱의 경우:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **IdP Sign-on URL** <p>앱의 관점에서 IdP의 로그인 URL입니다 (사용자가 로그인을 위해 리디렉션 됨).| AD FS sign-on URL은 AD FS 페더레이션 서비스 이름 뒤에 "/adfs/ls/."가 옵니다. <p>예: `https://fs.contoso.com/adfs/ls/`| {Tenant-id}를 테 넌 트 ID로 바꿉니다. <p> SAML-P 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **IdP 로그 아웃 URL**<p>앱의 관점에서 IdP의 로그 아웃 URL (사용자가 앱에서 로그 아웃 하도록 선택할 때 리디렉션되는 위치)입니다.| 로그 아웃 URL은 로그온 URL과 동일 하거나 "wa = wsignout1.0 1.0"이 추가 된 URL과 동일 합니다. 예: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>SAML-P 프로토콜을 사용 하는 앱의 경우:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> WS-FEDERATION 프로토콜을 사용 하는 앱의 경우:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **토큰 서명 인증서**<p>IdP는 인증서의 개인 키를 사용 하 여 발급 된 토큰에 서명 합니다. 앱이 신뢰하도록 구성된 것과 동일한 IdP에서 토큰이 제공되었는지 확인합니다.| AD FS 토큰 서명 인증서는 AD FS 관리의 **인증서** 아래에 있습니다.| **SAML 서명 인증서**헤더의 응용 프로그램 **Single sign-on 속성** 에 있는 Azure Portal에서 찾습니다. 여기서는 앱에 업로드할 인증서를 다운로드할 수 있습니다.  <p>응용 프로그램에 둘 이상의 인증서가 있는 경우 페더레이션 메타 데이터 XML 파일에서 모든 인증서를 찾을 수 있습니다. |
-| **식별자/"issuer"**<p>앱의 관점에서 IdP의 식별자입니다 ("발급자 ID" 라고도 함).<p>SAML 토큰에서 값은 Issuer 요소로 표시 됩니다.| AD FS에 대 한 식별자는 일반적으로 AD FS 관리에서 **서비스 > 편집 페더레이션 서비스 속성**에 있는 페더레이션 서비스 식별자입니다. `http://fs.contoso.com/adfs/services/trust`| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>https:\//sts.windows.net/{tenant-id}/ |
-| **IdP 페더레이션 메타 데이터**<p>IdP의 공개적으로 사용할 수 있는 페더레이션 메타 데이터의 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)| **서비스 > > > 끝점**아래의 AD FS 관리에서 페더레이션 메타 데이터 URL AD FS 찾습니다. `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Azure AD에 대 한 해당 값은 패턴 [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml)을 따릅니다. {TenantDomainName}을 "contoso.onmicrosoft.com" 형식의 테 넌 트 이름으로 바꿉니다.   <p>자세한 내용은 [페더레이션 메타데이터](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata)를 참조하세요. |
+| **식별자/"issuer"**<p>앱의 관점에서 IdP의 식별자입니다 ("발급자 ID" 라고도 함).<p>SAML 토큰에서 값은 Issuer 요소로 표시 됩니다.| AD FS에 대 한 식별자는 일반적으로 AD FS 관리에서 **서비스 > 편집 페더레이션 서비스 속성**에 있는 페더레이션 서비스 식별자입니다. 예: `http://fs.contoso.com/adfs/services/trust`| {Tenant-id}를 테 넌 트 ID로 바꿉니다.<p>https: \/ /sts.windows.net/{tenant-id}/ |
+| **IdP 페더레이션 메타 데이터**<p>IdP의 공개적으로 사용할 수 있는 페더레이션 메타 데이터의 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)| **서비스 > > > 끝점**아래의 AD FS 관리에서 페더레이션 메타 데이터 URL AD FS 찾습니다. 예: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Azure AD에 대 한 해당 값은 패턴을 따릅니다 [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . {TenantDomainName}을 "contoso.onmicrosoft.com" 형식의 테 넌 트 이름으로 바꿉니다.   <p>자세한 내용은 [페더레이션 메타데이터](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata)를 참조하세요. |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>Azure AD에서 AD FS 보안 정책을 나타냅니다.
@@ -397,7 +397,7 @@ Azure AD에서 기본 제공 정책을 구현 하려면 [새 조건부 액세스
 이 테이블에는 몇 가지 유용한 허용 및 제외 옵션과 Azure AD에 매핑되는 방법이 나와 있습니다. 
 
 
-| | Azure AD에서 허용 옵션을 구성 하는 방법| Azure AD에서 Except 옵션을 구성 하는 방법 |
+| 옵션 | Azure AD에서 허용 옵션을 구성 하는 방법| Azure AD에서 Except 옵션을 구성 하는 방법 |
 | - | - | - |
 | 특정 네트워크| Azure AD의 [명명 된 위치](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) 에 매핑됩니다.| [신뢰할 수 있는 위치](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) 에 **제외** 옵션 사용 |
 | 특정 그룹| [사용자/그룹 할당 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| 사용자 및 그룹에서 **제외** 옵션 사용 |
@@ -421,7 +421,7 @@ Azure Portal에서 신뢰할 수 있는 위치에 대 한 제외 옵션을 구�
 
 ### <a name="setup-user-self-provisioning"></a>사용자 자동 프로 비전 설정 
 
-일부 SaaS 응용 프로그램은 사용자가 응용 프로그램에 처음 로그인 할 때 사용자를 자동으로 프로 비전 하는 기능을 지원 합니다. Azure AD (Azure Active Directory)에서 용어 앱 프로 비전은 사용자가 액세스 해야 하는 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만드는 것을 의미 합니다. 마이그레이션된 사용자는 이미 SaaS 응용 프로그램에 계정이 있습니다. 마이그레이션 후에 추가 된 모든 새 사용자를 프로 비전 해야 합니다. 응용 프로그램이 마이그레이션되면 [SaaS 앱 프로 비전](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) 을 테스트 합니다.
+일부 SaaS 응용 프로그램은 사용자가 응용 프로그램에 처음 로그인 할 때 사용자를 자동으로 프로 비전 하는 기능을 지원 합니다. Azure AD(Azure Active Directory)에서 앱 프로비저닝이라는 용어는 사용자가 액세스해야 하는 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 애플리케이션에서 사용자 ID와 역할을 자동으로 만드는 것을 의미합니다. 마이그레이션된 사용자는 이미 SaaS 응용 프로그램에 계정이 있습니다. 마이그레이션 후에 추가 된 모든 새 사용자를 프로 비전 해야 합니다. 응용 프로그램이 마이그레이션되면 [SaaS 앱 프로 비전](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) 을 테스트 합니다.
 
 ### <a name="sync-external-users-in-azure-ad"></a>Azure AD에서 외부 사용자 동기화
 
@@ -446,11 +446,11 @@ Azure Portal에서 신뢰할 수 있는 위치에 대 한 제외 옵션을 구�
 이 문서에서 자세히 설명 하는 마이그레이션 프로세스를 따르세요.
 
 그런 다음 [Azure Portal](https://aad.portal.azure.com/) 로 이동 하 여 마이그레이션이 성공 했는지 테스트 합니다. 아래의 지침을 따르세요.
-1. **엔터프라이즈 응용 프로그램** > **모든 응용** 프로그램을 선택 하 고 목록에서 앱을 찾습니다.
+1. **엔터프라이즈 응용 프로그램**  >  **모든 응용** 프로그램을 선택 하 고 목록에서 앱을 찾습니다.
 
-1. **사용자 및** 그룹 **관리** > 를 선택 하 여 하나 이상의 사용자 또는 그룹을 앱에 할당 합니다.
+1. **Manage**  >  **사용자 및** 그룹 관리를 선택 하 여 하나 이상의 사용자 또는 그룹을 앱에 할당 합니다.
 
-1. **조건부 액세스** **관리** > 를 선택 합니다. 정책 목록을 검토 하 고 [조건부 액세스 정책을](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)사용 하 여 응용 프로그램에 대 한 액세스를 차단 하지 않는지 확인 합니다.
+1. **Manage**  >  **조건부 액세스**관리를 선택 합니다. 정책 목록을 검토 하 고 [조건부 액세스 정책을](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)사용 하 여 응용 프로그램에 대 한 액세스를 차단 하지 않는지 확인 합니다.
 
 앱을 구성 하는 방법에 따라 SSO가 제대로 작동 하는지 확인 합니다. 
 
@@ -460,9 +460,9 @@ Azure Portal에서 신뢰할 수 있는 위치에 대 한 제외 옵션을 구�
 ‎ |
 | SAML 기반 SSO| **Single sign-on**아래에 있는 [SAML 설정 테스트](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) 단추를 사용 합니다.  
 ‎ |
-| 암호 기반 SSO| [Myapps 보안 로그인](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[확장](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)을 다운로드 하 여 설치 합니다. 이 확장은 SSO 프로세스를 사용 해야 하는 조직의 클라우드 앱을 시작 하는 데 도움이 됩니다.  
+| 암호 기반 SSO| [Myapps 보안 로그인](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)확장을 다운로드 하 여 설치 합니다 [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). 이 확장은 SSO 프로세스를 사용 해야 하는 조직의 클라우드 앱을 시작 하는 데 도움이 됩니다.  
 ‎ |
-| 애플리케이션 프록시| 커넥터가 실행 중이 고 응용 프로그램에 할당 되었는지 확인 합니다. 자세한 내용은 [응용 프로그램 프록시 문제 해결 가이드](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) [ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)를 참조 하세요.  
+| 애플리케이션 프록시| 커넥터가 실행 중이 고 응용 프로그램에 할당 되었는지 확인 합니다. 자세한 내용은 [응용 프로그램 프록시 문제 해결 가이드](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) 를 참조 하세요.  
 ‎ |
 
 > [!NOTE]

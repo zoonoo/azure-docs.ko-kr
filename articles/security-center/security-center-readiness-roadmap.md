@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
-ms.author: yurid
-ms.openlocfilehash: de14f334b2a68d820dbf80f194ac93430c452038
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.author: memildin
+ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84771362"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.

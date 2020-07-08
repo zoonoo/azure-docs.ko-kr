@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd2c58b07f3be5d5fa6d99d0c8c64906b81e7de4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650926"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036987"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
@@ -33,7 +32,7 @@ Time Series Insights 미리 보기 환경으로 이벤트를 전송 하는 방�
 최상의 쿼리 성능을 위해 다음과 같은 thumb 규칙을 따릅니다.
 
 * 불필요한 속성을 보내지 않습니다. 사용량 별로 청구서 미리 보기를 Time Series Insights 합니다. 쿼리할 데이터만 저장 하 고 처리 하는 것이 가장 좋습니다.
-* 정적 데이터에 인스턴스 필드를 사용합니다. 이 방법을 사용 하면 네트워크를 통해 정적 데이터를 전송 하지 않아도 됩니다. 시계열 모델의 구성 요소인 인스턴스 필드는 일반 공급 되는 Time Series Insights 서비스의 참조 데이터와 같은 방식으로 작동 합니다. 인스턴스 필드에 대 한 자세한 내용은 [시계열 모델](./time-series-insights-update-tsm.md)을 참조 하세요.
+* 정적 데이터에 인스턴스 필드를 사용합니다. 이 방법을 사용 하면 네트워크를 통해 정적 데이터를 전송 하지 않아도 됩니다. 시계열 모델의 구성 요소인 인스턴스 필드는 일반 공급 되는 Time Series Insights 서비스의 참조 데이터와 같은 방식으로 작동 합니다. 인스턴스 필드에 대 한 자세한 내용은 [시계열 모델](./concepts-model-overview.md)을 참조 하세요.
 * 둘 이상의 이벤트 간에 차원 속성을 공유합니다. 이 방법은 네트워크를 통해 보다 효율적으로 데이터를 보내는 데 도움이 됩니다.
 * 여러 배열 중첩을 사용하지 않습니다. Time Series Insights 미리 보기는 개체를 포함 하는 중첩 배열의 최대 두 수준을 지원 합니다. Time Series Insights 미리 보기에서는 메시지의 배열을 속성 값 쌍이 있는 여러 이벤트로 평면화합니다.
 * 대부분 또는 모든 이벤트에 몇 가지 측정값이 존재하는 경우 이러한 측정값을 동일한 개체 내에서 별도 속성으로 전송하는 것이 좋습니다. 이러한 이벤트를 개별적으로 전송 하면 이벤트 수가 감소 하 고 처리 해야 하는 이벤트 수가 줄어들기 때문에 쿼리 성능이 향상 될 수 있습니다.
@@ -50,11 +49,11 @@ Time Series Insights 미리 보기 환경으로 이벤트를 전송 하는 방�
    },
    ```
 
-   는 평면화 `data_flow` 될 때가 됩니다.
+   는 `data_flow` 평면화 될 때가 됩니다.
 
 > [!IMPORTANT]
-> * Azure Time Series Insights 미리 보기는 경계`_`열에 밑줄 ()을 사용 합니다.
-> * 대신 마침표 (`.`)를 사용 하는 일반 가용성의 차이점을 확인 합니다.
+> * Azure Time Series Insights 미리 보기는 `_` 경계 열에 밑줄 ()을 사용 합니다.
+> * 대신 마침표 ()를 사용 하는 일반 가용성의 차이점을 확인 `.` 합니다.
 
 더 복잡 한 시나리오는 다음과 같습니다.
 
@@ -95,7 +94,7 @@ Time Series Insights 미리 보기 환경으로 이벤트를 전송 하는 방�
 
 **내용**
 
-* 예제 JSON에는 [시계열 인스턴스](./time-series-insights-update-tsm.md#time-series-model-instances) 데이터를 사용 하 여 메시지의 효율성을 높이는 외부 배열이 있습니다. 시계열 인스턴스가 장치 메타 데이터를 변경할 가능성이 없더라도 데이터 분석에 유용한 속성을 제공 하는 경우가 많습니다.
+* 예제 JSON에는 [시계열 인스턴스](./concepts-model-overview.md#time-series-model-instances) 데이터를 사용 하 여 메시지의 효율성을 높이는 외부 배열이 있습니다. 시계열 인스턴스가 장치 메타 데이터를 변경할 가능성이 없더라도 데이터 분석에 유용한 속성을 제공 하는 경우가 많습니다.
 
 * JSON은 두 개 이상의 메시지 (각 장치에서 하나씩)를 시간에 따른 대역폭을 절약 하는 단일 페이로드로 결합 합니다.
 
@@ -106,7 +105,7 @@ Time Series Insights 미리 보기 환경으로 이벤트를 전송 하는 방�
 
 #### <a name="time-series-instance"></a>Time Series Instance 
 
-[시계열 인스턴스](./time-series-insights-update-tsm.md#time-series-model-instances) 를 사용 하 여 JSON을 보다 최적으로 만드는 방법에 대해 자세히 살펴보겠습니다. 
+[시계열 인스턴스](./concepts-model-overview.md#time-series-model-instances) 를 사용 하 여 JSON을 보다 최적으로 만드는 방법에 대해 자세히 살펴보겠습니다. 
 
 > [!NOTE]
 > 다음의 [시계열 id](./time-series-insights-update-how-to-id.md) 는 *deviceIds*입니다.
@@ -146,7 +145,7 @@ Time Series Insights 미리 보기 환경으로 이벤트를 전송 하는 방�
 
 Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 조인합니다(평면화 후). 테이블에는 **유형** 등의 추가 열이 포함됩니다.
 
-| deviceId  | Type | L1 | L2 | timestamp | series_Flow Rate ft3/s | 석유 압력 프 series_Engine |
+| deviceId  | 형식 | L1 | L2 | timestamp | series_Flow Rate ft3/s | 석유 압력 프 series_Engine |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | 시뮬레이터 | 배터리 시스템 | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | 시뮬레이터 |   배터리 시스템 |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -180,7 +179,7 @@ Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 �
 }
 ```
 
-위의 예제에서 평면화 `data["flow"]` 된 속성은 속성과의 `data_flow` 이름 충돌을 표시 합니다.
+위의 예제에서 평면화 된 속성은 `data["flow"]` 속성과의 이름 충돌을 표시 합니다 `data_flow` .
 
 이 경우 *최신* 속성 값이 이전 속성 값을 덮어씁니다. 
 

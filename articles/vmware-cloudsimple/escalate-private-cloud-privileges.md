@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870465"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>CloudSimple 포털에서 사설 클라우드 vCenter 권한 에스컬레이션
@@ -31,7 +30,7 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 ## <a name="escalate-privileges"></a>권한 높이기
 
-1. [Cloudsimple 포털](access-cloudsimple-portal.md)에 액세스 합니다.
+1. [CloudSimple 포털](access-cloudsimple-portal.md)에 액세스합니다.
 
 2. **리소스** 페이지를 열고 권한을 에스컬레이션 하려는 사설 클라우드를 선택 합니다.
 
@@ -39,7 +38,7 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
     ![VSphere 대 한 권한 변경](media/escalate-private-cloud-privilege.png)
 
-4. VSphere 사용자 유형을 선택 합니다.  로컬 `CloudOwner@cloudsimple.local` 사용자만 에스컬레이션 가능 합니다.
+4. VSphere 사용자 유형을 선택 합니다.  `CloudOwner@cloudsimple.local`로컬 사용자만 에스컬레이션 가능 합니다.
 
 5. 드롭다운에서 에스컬레이션 시간 간격을 선택 합니다. 작업을 완료 하는 데 사용할 가장 짧은 기간을 선택 합니다.
 
@@ -63,7 +62,7 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 작업을 완료 하기 위해 추가 시간이 필요한 경우 권한 에스컬레이션 기간을 확장할 수 있습니다.  관리 작업을 완료 하는 데 사용할 수 있는 추가 에스컬레이션 시간 간격을 선택 합니다.
 
-1. Cloudsimple 포털의 **리소스** > **사설 클라우드에서** 권한 에스컬레이션을 확장 하려는 사설 클라우드를 선택 합니다.
+1. **Resources**  >  Cloudsimple 포털의 리소스**사설 클라우드에서** 권한 에스컬레이션을 확장 하려는 사설 클라우드를 선택 합니다.
 
 2. 요약 탭의 아래쪽에 있는 **권한 에스컬레이션 확장**을 클릭 합니다.
 
@@ -77,7 +76,7 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 관리 작업이 완료 되 면 권한을 에스컬레이션 해야 합니다.  
 
-1. Cloudsimple 포털의 **리소스** > **사설 클라우드에서** 권한을 에스컬레이션 하려는 사설 클라우드를 선택 합니다.
+1. **Resources**  >  Cloudsimple 포털의 리소스**사설 클라우드에서** 권한을 에스컬레이션 하려는 사설 클라우드를 선택 합니다.
 
 2. **에스컬레이션**을 클릭 합니다.
 

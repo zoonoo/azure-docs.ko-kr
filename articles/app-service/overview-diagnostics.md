@@ -8,10 +8,9 @@ ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869939"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
@@ -38,11 +37,11 @@ App Service 진단 홈페이지에서 각 홈페이지 타일의 키워드를 �
 
 ## <a name="interactive-interface"></a>대화형 인터페이스
 
-앱의 문제에 가장 잘 맞는 홈 페이지 범주를 선택 하면 App Service 진단의 대화형 인터페이스인 Genie를 사용 하 여 앱의 문제를 진단 하 고 해결 하는 과정을 안내할 수 있습니다. Genie에서 제공 하는 타일 바로 가기를 사용 하 여 관심 있는 문제 범주의 전체 진단 보고서를 볼 수 있습니다. 타일 바로 가기를 통해 진단 메트릭에 직접 액세스할 수 있는 방법을 제공 합니다.
+앱의 문제에 가장 잘 맞는 홈 페이지 범주를 선택 하면 App Service 진단의 대화형 인터페이스인 Genie를 사용 하 여 앱의 문제를 진단 하 고 해결 하는 과정을 안내할 수 있습니다. Genie에서 제공 하는 타일 바로 가기를 사용 하 여 관심 있는 문제 범주의 전체 진단 보고서를 볼 수 있습니다. 타일 바로 가기를 통해 진단 메트릭에 직접 액세스할 수 있습니다.
 
 ![타일 바로 가기](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-이러한 타일을 클릭 한 후 타일에 설명 된 문제와 관련 된 항목의 목록을 볼 수 있습니다. 이러한 항목에서는 전체 보고서에서 주목할 만한 정보를 제공 합니다. 이러한 항목 중 하나를 클릭 하 여 문제를 자세히 조사할 수 있습니다. 또한 **전체 보고서 보기** 를 클릭 하 여 단일 페이지의 모든 항목을 탐색할 수 있습니다.
+이러한 타일을 클릭 한 후 타일에 설명 된 문제와 관련 된 항목의 목록을 볼 수 있습니다. 이러한 토픽에서는 전체 보고서에서 주목할 만한 정보 조각을 제공합니다. 이러한 항목 중 하나를 클릭 하 여 문제를 자세히 조사할 수 있습니다. 또한 **전체 보고서 보기** 를 클릭 하 여 단일 페이지의 모든 항목을 탐색할 수 있습니다.
 
 ![토픽](./media/app-service-diagnostics/application-logs-insights-3.png)
 

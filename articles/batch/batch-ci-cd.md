@@ -5,12 +5,11 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726845"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956664"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용하여 HPC 솔루션 빌드 및 배포
 
@@ -28,8 +27,8 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 이 문서의 단계를 수행하려면 Azure DevOps 조직과 팀 프로젝트가 필요합니다.
 
-* [Azure DevOps 조직 만들기](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Azure DevOps에서 프로젝트 만들기](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Azure DevOps 조직 만들기](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* [Azure DevOps에서 프로젝트 만들기](/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 ### <a name="source-control-for-your-environment"></a>환경의 소스 제어
 
@@ -48,7 +47,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 이 섹션에서는 사용자가 버전 제어 및 Resource Manager 템플릿 설계에 대해 잘 알고 있다고 가정합니다. 이러한 개념을 잘 모른다면 다음 페이지에서 관련 정보를 살펴보세요.
 
-* [소스 제어란?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
+* [소스 제어란?](/azure/devops/user-guide/source-control?view=azure-devops)
 * [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
@@ -62,7 +61,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 ![Azure Resource Manager 템플릿을 사용하는 연결된 템플릿 구조의 예](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
-여기에서 살펴볼 첫 번째 템플릿은 Azure Storage 계정용 템플릿입니다. 솔루션에서 애플리케이션을 Batch 계정에 배포하려면 스토리지 계정이 필요합니다. 스토리지 계정용 Resource Manager 템플릿을 빌드할 때는 [Microsoft.Storage 리소스 종류에 대한 Resource Manager 템플릿 참조 가이드](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)를 숙지하는 것이 좋습니다.
+여기에서 살펴볼 첫 번째 템플릿은 Azure Storage 계정용 템플릿입니다. 솔루션에서 애플리케이션을 Batch 계정에 배포하려면 스토리지 계정이 필요합니다. 스토리지 계정용 Resource Manager 템플릿을 빌드할 때는 [Microsoft.Storage 리소스 종류에 대한 Resource Manager 템플릿 참조 가이드](/azure/templates/microsoft.storage/allversions)를 숙지하는 것이 좋습니다.
 
 ```json
 {
@@ -102,7 +101,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 }
 ```
 
-다음으로, Azure Batch 계정 템플릿을 살펴봅니다. Azure Batch 계정은 여러 풀(머신 그룹)에서 여러 애플리케이션을 실행하기 위한 플랫폼으로 기능합니다. Batch 계정용 Resource Manager 템플릿을 빌드할 때는 [Microsoft.Batch 리소스 종류에 대한 Resource Manager 템플릿 참조 가이드](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions)를 숙지하는 것이 좋습니다.
+다음으로, Azure Batch 계정 템플릿을 살펴봅니다. Azure Batch 계정은 여러 풀(머신 그룹)에서 여러 애플리케이션을 실행하기 위한 플랫폼으로 기능합니다. Batch 계정용 Resource Manager 템플릿을 빌드할 때는 [Microsoft.Batch 리소스 종류에 대한 Resource Manager 템플릿 참조 가이드](/azure/templates/microsoft.batch/allversions)를 숙지하는 것이 좋습니다.
 
 ```json
 {
@@ -141,7 +140,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 }
 ```
 
-다음 템플릿에서는 Azure Batch 풀(애플리케이션을 처리하기 위한 백엔드 머신)을 만드는 예를 보여 줍니다. Batch 계정 풀용 Resource Manager 템플릿을 빌드할 때는 [Microsoft.Batch 리소스 종류에 대한 Resource Manager 템플릿 참조 가이드](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions)를 숙지하는 것이 좋습니다.
+다음 템플릿에서는 Azure Batch 풀(애플리케이션을 처리하기 위한 백엔드 머신)을 만드는 예를 보여 줍니다. Batch 계정 풀용 Resource Manager 템플릿을 빌드할 때는 [Microsoft.Batch 리소스 종류에 대한 Resource Manager 템플릿 참조 가이드](/azure/templates/microsoft.batch/allversions)를 숙지하는 것이 좋습니다.
 
 ```json
 {
@@ -309,7 +308,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 ## <a name="continuous-integration"></a>연속 통합
 
-Azure DevOps Services의 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops)를 사용하면 애플리케이션의 빌드, 테스트 및 배포 파이프라인을 구현하는 데 도움이 됩니다.
+Azure DevOps Services의 [Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops)를 사용하면 애플리케이션의 빌드, 테스트 및 배포 파이프라인을 구현하는 데 도움이 됩니다.
 
 파이프라인의 이 단계에서는 일반적으로 코드를 검증하고 소프트웨어의 적절한 부분을 빌드하기 위해 테스트가 실행됩니다. 테스트의 개수와 유형, 그리고 실행해야 하는 추가 작업은 전체 빌드 및 릴리스 전략에 따라 달라집니다.
 
@@ -323,9 +322,9 @@ Azure DevOps Services의 [Azure Pipelines](https://docs.microsoft.com/azure/devo
 
 1. 빌드 파이프라인을 만드는 두 가지 옵션이 있습니다.
 
-    a. [비주얼 디자이너를 사용합니다](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). 이를 위해서는 **새 파이프라인** 페이지에서 “비주얼 디자이너 사용”을 클릭합니다.
+    a. [비주얼 디자이너를 사용합니다](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). 이를 위해서는 **새 파이프라인** 페이지에서 “비주얼 디자이너 사용”을 클릭합니다.
 
-    b. [YAML 빌드를 사용합니다](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=azure-devops). 새 파이프라인 페이지에서 Azure Repos 또는 GitHub 옵션을 클릭하여 새 YAML 파이프라인을 만들 수 있습니다. 또는 아래 예제를 소스 제어에 저장하고 비주얼 디자이너를 클릭하여 기존 YAML 파일을 참조한 다음 YAML 템플릿을 사용할 수도 있습니다.
+    b. [YAML 빌드를 사용합니다](/azure/devops/pipelines/get-started-yaml?view=azure-devops). 새 파이프라인 페이지에서 Azure Repos 또는 GitHub 옵션을 클릭하여 새 YAML 파이프라인을 만들 수 있습니다. 또는 아래 예제를 소스 제어에 저장하고 비주얼 디자이너를 클릭하여 기존 YAML 파일을 참조한 다음 YAML 템플릿을 사용할 수도 있습니다.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,11 +356,11 @@ Azure DevOps Services의 [Azure Pipelines](https://docs.microsoft.com/azure/devo
     ![빌드의 라이브 출력 보기](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> 클라이언트 애플리케이션을 사용하여 HPC Batch 애플리케이션을 실행하는 경우, 이 애플리케이션에 대한 별도의 빌드 정의를 만들어야 합니다. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops) 설명서에서 방법 가이드를 확인할 수 있습니다.
+> 클라이언트 애플리케이션을 사용하여 HPC Batch 애플리케이션을 실행하는 경우, 이 애플리케이션에 대한 별도의 빌드 정의를 만들어야 합니다. [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops) 설명서에서 방법 가이드를 확인할 수 있습니다.
 
 ## <a name="continuous-deployment"></a>연속 배포
 
-Azure Pipelines는 애플리케이션과 기본 인프라를 배포하는 데도 사용됩니다. [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release)은 지속적인 배포를 지원하고 릴리스 프로세스를 자동화해 주는 구성 요소입니다.
+Azure Pipelines는 애플리케이션과 기본 인프라를 배포하는 데도 사용됩니다. [릴리스 파이프라인](/azure/devops/pipelines/release)은 지속적인 배포를 지원하고 릴리스 프로세스를 자동화해 주는 구성 요소입니다.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>애플리케이션 및 기본 인프라 배포
 

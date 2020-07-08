@@ -11,12 +11,11 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7b9646f2bab4c17449c6683ae7924af87b184167
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 69eb6c5e5d0139049e252b0a22fefad747429068
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340184"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057741"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
@@ -26,7 +25,7 @@ LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-concept-keys.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
+* [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-how-to-azure-subscription.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * 이 문서는 사용자 요청에 대 한 가상 회사의 로그 파일에 대 한 CSV로 시작 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)에서 다운로드하세요.
 * NPM을 사용하는 최신 Node.js를 설치합니다. [여기](https://nodejs.org/en/download/)에서 다운로드하세요.
@@ -191,7 +190,7 @@ upload done
 > [!div class="nextstepaction"]
 > [LUIS 웹 사이트에서 앱 테스트 및 학습](luis-interactive-test.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 이 애플리케이션 예제에서는 다음 LUIS API를 사용합니다.
 - [앱 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)

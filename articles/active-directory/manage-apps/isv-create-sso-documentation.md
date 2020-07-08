@@ -2,22 +2,21 @@
 title: 응용 프로그램에 대 한 Single Sign-On 설명서 만들기 & 게시
 description: Azure Active Directory와의 통합에 대 한 독립 소프트웨어 공급 업체 지침
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb223ec8ab7b5c053136c78d3b4ca30ad4da4e18
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 3c758e90548dd22b5abfb731f674f83dfbde9819
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74232275"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955984"
 ---
 # <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>응용 프로그램에 대 한 Single Sign-On 문서 만들기 및 게시   
 
@@ -61,4 +60,4 @@ ms.locfileid: "74232275"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 응용 프로그램 갤러리에 응용 프로그램 나열](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[Azure AD 응용 프로그램 갤러리에 응용 프로그램 나열](https://docs.microsoft.com/Azure/active-directory/develop/howto-app-gallery-listing)

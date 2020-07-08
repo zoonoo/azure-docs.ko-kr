@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844508"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057673"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Azure Remote Rendering 계정 만들기
 
@@ -28,20 +27,24 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
     1. '리소스 이름'을 계정 이름으로 설정
     1. 필요한 경우 ‘구독’ 업데이트
     1. ' 리소스 그룹 '을 원하는 리소스 그룹으로 설정
+    1. 이 리소스를 만들어야 하는 ' 위치 ' 드롭다운에서 지역을 선택 합니다. 아래 [계정 영역](create-an-account.md#account-regions) 에 대 한 설명을 참조 하세요.
 1. 계정을 만든 후 이동하고
     1. *개요* 탭에서 '계정 ID' 확인
     1. *설정 > 액세스 키* 탭에서 '기본 키' 확인. 계정의 비밀 계정 키임
+
+### <a name="account-regions"></a>계정 지역
+계정 생성 시 지정 된 위치에 따라 계정 리소스가 할당 된 지역이 결정 됩니다. 이를 만든 후에는 변경할 수 없습니다. 그러나 계정 위치에 관계 없이 지원 되는 모든 [지역](./../reference/regions.md)에서 원격 렌더링 세션에 연결 하는 데 계정을 사용할 수 있습니다.
 
 ### <a name="retrieve-the-account-information"></a>계정 정보 검색
 
 샘플과 자습서를 사용하려면 계정 ID와 키를 제공해야 합니다. 예를 들어 PowerShell 샘플 스크립트에 사용되는 **arrconfig.json** 파일에서
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 *지역* 옵션을 입력하는 데 [사용 가능한 지역](../reference/regions.md) 목록을 참조하세요.
@@ -89,6 +92,7 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
 > Remote Rendering 계정이 나열되지 않는 경우 이 [문제 해결 섹션](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account)을 참조하세요.
 
 **역할** 드롭다운에서 각 선택 항목에 대해 새 역할을 두 번 반복하여 추가합니다.
+
 * **Storage 계정 기여자**
 * **Storage Blob 데이터 기여자**
 

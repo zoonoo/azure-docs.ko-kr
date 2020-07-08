@@ -4,12 +4,11 @@ description: Azure 배포 관리자를 사용하여 여러 지역에 서비스�
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152530"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057928"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
 
@@ -30,7 +29,7 @@ Azure 배포 관리자 미리 보기 상태입니다. [피드백](https://aka.ms
 
 추가 리소스:
 
-- [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Azure Deployment Manager REST API 참조](/rest/api/deploymentmanager/).
 - [자습서: 리소스 관리자 템플릿과 함께 Azure 배포 관리자를 사용](./deployment-manager-tutorial.md)합니다.
 - [자습서: Azure 배포 관리자에서 상태 검사를 사용](./deployment-manager-tutorial-health-check.md)합니다.
 - [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
@@ -300,7 +299,7 @@ Azure 리소스를 배포하려면 템플릿용 매개 변수 파일에서 `$con
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployPackageUri": {

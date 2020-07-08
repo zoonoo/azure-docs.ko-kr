@@ -2,18 +2,17 @@
 title: Microsoft Power BI에서 Azure Blockchain Workbench 데이터 사용
 description: Microsoft Power BI에서 Azure Blockchain Workbench SQL DB 데이터를 로드하고 보는 방법을 알아봅니다.
 ms.date: 04/22/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 4245603fee5b3d24488426c3dc2d026a3c0d7848
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214233"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Microsoft Power BI에 Azure Blockchain Workbench 데이터 사용
 
-Microsoft Power BI는 Power BI Desktop를 사용 하 여 SQL DB 데이터베이스에서 강력한 보고서를 쉽게 생성 한 다음에 [https://www.powerbi.com](https://www.powerbi.com)게시할 수 있는 기능을 제공 합니다.
+Microsoft Power BI는 Power BI Desktop를 사용 하 여 SQL DB 데이터베이스에서 강력한 보고서를 쉽게 생성 한 다음에 게시할 수 있는 기능을 제공 합니다 [https://www.powerbi.com](https://www.powerbi.com) .
 
 이 문서에는 PowerBI Desktop 내에서 Azure Blockchain Workbench의 SQL Database에 연결하고, 보고서를 만들고, 그 보고서를 powerbi.com에 배포하는 단계별 연습이 포함되어 있습니다.
 

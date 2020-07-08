@@ -6,17 +6,16 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213553"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 사용률 및 쿼리 작업 모니터링
 
@@ -49,7 +48,7 @@ Synapse SQL용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다
 메트릭을 보고 경고를 설정할 때 고려해야 할 사항:
 
 - 사용된 DWU는 SQL 풀 전체에서 **사용량에 대한 상위 수준 표시**만 나타내며 포괄적인 사용률 표시기가 아닙니다. 규모를 확장 또는 축소할지를 결정하려면 DWU의 영향을 받을 수 있는 모든 요소(예: 동시성, 메모리, tempdb 및 적응 캐시 용량)를 고려합니다. 비즈니스 목표를 충족하는 데 가장 적합한 작업을 결정하기 위해 [다른 DWU 설정에서 워크로드를 실행](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units)하는 것이 좋습니다.
-- 실패 및 성공한 연결이 논리 서버가 아닌 특정 데이터 웨어하우스에 보고됩니다.
+- 실패 한 연결과 성공한 연결은 서버 자체가 아닌 특정 데이터 웨어하우스에 대해 보고 됩니다.
 - 메모리 백분율은 데이터 웨어하우스가 유휴 상태에 있는 경우에도 사용률을 반영합니다. 이는 활성 작업 메모리 사용을 반영하지 않습니다. 다른 메트릭(tempdb, gen2 캐시)과 함께 이 메트릭을 사용하고 추적하여 추가 캐시 용량을 조정하면 요구 사항에 맞게 워크로드 성능이 향상되는 경우에 대한 전체적인 의사 결정을 내릴 수 있습니다.
 
 ## <a name="query-activity"></a>쿼리 작업

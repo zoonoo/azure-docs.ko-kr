@@ -4,12 +4,11 @@ description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Reco
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025104"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057826"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -125,7 +124,7 @@ ms.locfileid: "82025104"
 
     ![예약 된 백업을 중지 합니다.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. 수동으로 생성 해야 하는 보안 PIN (개인 식별 번호)을 입력 하 라는 메시지가 표시 됩니다. 이렇게 하려면 먼저 Azure Portal에 로그인 합니다.
-5. **Recovery Services 자격 증명 모음** > **설정** > **속성**으로 이동 합니다.
+5. **Recovery Services 자격 증명 모음**  >  **설정**  >  **속성**으로 이동 합니다.
 6. **보안 PIN**아래에서 **생성**을 선택 합니다. 이 PIN을 복사 합니다. PIN은 5 분 동안만 유효 합니다.
 7. 관리 콘솔에서 PIN을 붙여넣은 다음 **확인**을 선택 합니다.
 
@@ -156,7 +155,7 @@ ms.locfileid: "82025104"
 
 암호는 MARS 에이전트를 사용 하 여 온-프레미스 또는 로컬 컴퓨터를 백업 또는 복원 하는 동안 데이터를 암호화 하 고 암호 해독 하는 데 사용 됩니다. 암호를 분실 하거나 잊은 경우 다음 단계를 수행 하 여 암호를 다시 생성할 수 있습니다 (컴퓨터가 Recovery Services 자격 증명 모음에 등록 되 고 백업이 구성 된 경우).
 
-- MARS 에이전트 콘솔에서 **작업 창** > **속성 변경** >로 이동 합니다. 그런 다음 **암호화 탭**으로 이동 합니다.<br>
+- MARS 에이전트 콘솔에서 **작업 창**  >  **속성 변경** >로 이동 합니다. 그런 다음 **암호화 탭**으로 이동 합니다.<br>
 - **암호 변경** 확인란을 선택 합니다.<br>
 - 새 암호를 입력 하거나 **암호 생성**을 클릭 합니다.
 - **찾아보기** 를 클릭 하 여 새 암호를 저장 합니다.
@@ -167,6 +166,27 @@ ms.locfileid: "82025104"
 
     ![암호를 생성 합니다.](./media/backup-azure-manage-mars/passphrase2.png)
 - 암호를 원본 컴퓨터가 아닌 대체 위치에 안전 하 게 저장 하 고 Azure Key Vault 하는 것이 좋습니다. MARS 에이전트를 사용 하 여 여러 컴퓨터를 백업 하는 경우 모든 암호를 추적 하세요.
+
+## <a name="managing-backup-data-for-unavailable-machines"></a>사용할 수 없는 컴퓨터의 백업 데이터 관리
+
+이 섹션에서는 MARS로 보호 된 원본 컴퓨터를 삭제 하거나, 손상 되었거나, 맬웨어/랜 섬 웨어에 감염 되었거나, 서비스 해제 되어 있으므로 더 이상 사용할 수 없는 시나리오에 대해 설명 합니다.
+
+이러한 컴퓨터의 경우 Azure Backup 서비스는 백업 정책에 지정 된 보존 규칙에 따라 마지막 복구 지점이 만료 되지 않도록 합니다. 즉, 정리 되지 않습니다. 따라서 컴퓨터를 안전 하 게 복원할 수 있습니다.  백업 된 데이터에 대해 수행할 수 있는 다음 시나리오를 고려 하십시오.
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>시나리오 1: 원본 컴퓨터를 사용할 수 없으므로 더 이상 백업 데이터를 보존할 필요가 없습니다.
+
+- [이 문서](backup-azure-delete-vault.md#delete-protected-items-on-premises)에 나열 된 단계를 사용 하 여 Azure Portal에서 백업 된 데이터를 삭제할 수 있습니다.
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>시나리오 2: 원본 컴퓨터를 사용할 수 없으므로 백업 데이터를 보존 해야 하는 경우
+
+MARS의 백업 정책을 관리 하는 작업은 포털을 통해서가 아니라 MARS 콘솔을 통해 수행 됩니다. 만료 되기 전에 기존 복구 지점의 보존 설정을 확장 해야 하는 경우 컴퓨터를 복원 하 고 MARS 콘솔을 설치 하 고 정책을 확장 해야 합니다.
+
+- 컴퓨터를 복원 하려면 다음 단계를 수행 합니다.
+  - [대체 대상 컴퓨터로 VM 복원](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - 원본 컴퓨터와 동일한 호스트 이름을 사용 하 여 대상 컴퓨터를 다시 만듭니다.
+  - 에이전트를 설치 하 고 동일한 암호를 사용 하 여 동일한 자격 증명 모음에 다시 등록
+  - MARS 클라이언트를 시작 하 여 요구 사항에 따라 보존 기간을 연장 합니다.
+- MARS를 사용 하 여 보호 되는 새로 복원 된 컴퓨터는 백업을 계속 수행 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
