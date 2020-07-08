@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
-ms.openlocfilehash: 737803f5b7fcddb07787afbb48354b4ca922e9ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888716"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon의 사용자 지정 보고서
 
@@ -68,7 +68,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
 
 ## <a name="edge-cnames-custom-report-fields"></a>에지 CNAME 사용자 지정 보고서 필드
 
-| 필드                     | Description   |
+| 필드                     | 설명   |
 |---------------------------|---------------|
 | 2xx                       | 상태 코드가 2xx HTTP(예: 200 OK)인 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. |
 | 3xx                       | 상태 코드가 3xx HTTP(예: 302 있음 또는 304 수정되지 않음)인 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. |
@@ -77,7 +77,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
 | 캐시 적중률               | 캐시에서 요청자에게 직접 제공된 캐시 가능한 요청의 비율을 나타냅니다. |
 | 캐시 적중                | 캐시 적중(예: TCP_EXPIRED_HIT, TCP_HIT 또는 TCP_PARTIAL_HIT)을 초래하는 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. 요청된 콘텐츠의 캐시된 버전이 발견되면 캐시 적중이 발생합니다. |
 | 전송되는 데이터(MB)     | 에지 CNAME에 대해 에지 서버에서 HTTP 클라이언트(웹 브라우저)로 전송된 총 데이터(MB)를 나타냅니다. 전송된 데이터의 양은 응답 본문에 HTTP 응답 헤더를 추가하여 계산됩니다. 결과적으로 각 자산에 대해 전송된 데이터의 양은 실제 파일 크기보다 큽니다. |
-| Description               | CNAME을 호스트 이름으로 식별합니다. |
+| 설명               | CNAME을 호스트 이름으로 식별합니다. |
 | 적중 횟수                      | 에지 CNAME에 대한 총 요청 수를 나타냅니다. |
 | 누락                    | 캐시 누락(예: TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS 또는 TCP_MISS)을 초래하는 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. 캐시 누락은 요청된 콘텐츠가 요청을 받은 에지 서버에 캐시되지 않은 경우 발생합니다. | 
 | 캐시 없음                  | 캐시 상태 코드가 CONFIG_NOCACHE인 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다.  |

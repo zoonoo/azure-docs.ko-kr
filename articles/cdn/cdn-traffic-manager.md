@@ -11,16 +11,16 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 3d4f77a0fb9b8005729a6e9d35f254eb522b690e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d557637815036fa49e83f1d11a948f264d493321
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888654"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 Azure CDN 엔드포인트 간 장애 조치(failover) 설정
 
@@ -62,13 +62,13 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
 
     a. 첫 번째 CNAME 항목의 경우 cdnverify 하위 도메인이 있는 사용자 지정 도메인을 CDN 엔드포인트에 매핑합니다. 이 항목은 2단계에서 Traffic Manager에 추가한 CDN 엔드포인트에 사용자 지정 도메인을 등록하는 데 필요한 단계입니다.
 
-      다음은 그 예입니다. 
+      예를 들면 다음과 같습니다. 
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
     b. 두 번째 CNAME 항목의 경우 cdnverify 하위 도메인이 없는 사용자 지정 도메인을 CDN 엔드포인트에 매핑합니다. 이 항목은 Traffic Manager에 사용자 지정 도메인을 매핑합니다. 
 
-      다음은 그 예입니다. 
+      예를 들어: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -87,7 +87,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
 
 3.  사용자 지정 도메인의 도메인 공급자에 대한 웹 사이트로 돌아가서 첫 번째 DNS 매핑을 업데이트하여 사용자 지정 도메인이 두 번째 CDN 엔드포인트에 매핑되게 합니다.
                              
-    다음은 그 예입니다. 
+    예를 들어: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

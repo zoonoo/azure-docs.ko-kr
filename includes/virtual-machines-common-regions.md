@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76021201"
 ---
 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 머신)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.
@@ -42,7 +42,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 지역 쌍 예제는 다음과 같습니다.
 
-| 주 | 보조 |
+| 기본 | 보조 |
 |:--- |:--- |
 | 미국 서부 |미국 동부 |
 | 북유럽 |서유럽 |
@@ -74,11 +74,11 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 데이터가 여러 시설에 걸쳐 복제됩니다. |예 |예 |예 |예 |
+| 데이터가 여러 시설에 걸쳐 복제됩니다. |예 |예 |예 |Yes |
 | 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |예 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
-[여기에서 Azure Storage 복제 옵션](../articles/storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대 한 자세한 내용은 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조 하세요.
+[여기에서 Azure Storage 복제 옵션](../articles/storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
 ### <a name="storage-costs"></a>스토리지 비용
 가격은 선택한 스토리지 형식 및 가용성에 따라 달라집니다.

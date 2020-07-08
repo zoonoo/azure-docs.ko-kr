@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에 대 한 서비스 �
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905377"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 대 한 자격 증명 업데이트 또는 순환
 
@@ -18,11 +18,11 @@ ms.locfileid: "81392625"
 
 [AKS 클러스터를 Azure Active Directory와 통합][aad-integration]하 고 클러스터에 대 한 인증 공급자로 사용할 수도 있습니다. 이 경우 클러스터, AAD 서버 앱 및 AAD 클라이언트 앱에 대해 생성 된 id가 2 개 더 있으므로 해당 자격 증명을 다시 설정할 수도 있습니다.
 
-또는 서비스 주체 대신 권한에 대해 관리 되는 id를 사용할 수 있습니다. 관리 되는 id는 서비스 사용자 보다 관리 하기 쉬우며 업데이트 또는 회전이 필요 하지 않습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
+또는 서비스 주체 대신 사용 권한에 대해 관리 ID를 사용할 수 있습니다. 관리 되는 id는 서비스 사용자 보다 관리 하기 쉬우며 업데이트 또는 회전이 필요 하지 않습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>AKS 클러스터에 대 한 새 서비스 주체를 업데이트 하거나 만듭니다.
 
@@ -33,7 +33,7 @@ AKS 클러스터의 자격 증명을 업데이트하려면 다음을 선택하�
 
 ### <a name="reset-existing-service-principal-credential"></a>기존 서비스 사용자 자격 증명 다시 설정
 
-기존 서비스 주체의 자격 증명을 업데이트하려면 [az aks show][az-aks-show] 명령을 사용하여 클러스터의 서비스 주체 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myAKSCluster* 클러스터의 ID를 가져옵니다. 서비스 사용자 ID는 추가 명령에서 사용할 *SP_ID* 라는 변수로 설정 됩니다.
+기존 서비스 주체의 자격 증명을 업데이트하려면 [az aks show][az-aks-show] 명령을 사용하여 클러스터의 서비스 주체 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myAKSCluster* 클러스터의 ID를 가져옵니다. 서비스 사용자 ID는 추가 명령에서 사용할 *SP_ID* 라는 변수로 설정 됩니다. 이러한 명령은 Bash 구문을 사용 합니다.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \

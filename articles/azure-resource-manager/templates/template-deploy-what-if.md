@@ -1,37 +1,41 @@
 ---
 title: 템플릿 배포 정의 (미리 보기)
 description: Azure Resource Manager 템플릿을 배포 하기 전에 리소스에 대해 수행 되는 변경 내용을 확인 합니다.
-author: mumian
+author: tfitzmac
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: jgao
-ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 06/16/2020
+ms.author: tomfitz
+ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888746"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM 템플릿 배포 가상 작업 (미리 보기)
 
 ARM (Azure Resource Manager) 템플릿을 배포 하기 전에 발생 하는 변경 내용을 미리 볼 수 있습니다. Azure Resource Manager은 템플릿을 배포할 때 리소스가 어떻게 변경 되는지 확인할 수 있는 가상 작업을 제공 합니다. 가상 작업은 기존 리소스를 변경 하지 않습니다. 대신, 지정 된 템플릿이 배포 되는 경우 변경 내용을 예측 합니다.
 
 > [!NOTE]
-> 가상 작업 인 경우 현재 미리 보기 상태입니다. 미리 보기 릴리스로 인해 실제로 변경이 발생 하지 않을 때 리소스가 변경 되는 것을 보여 주는 경우도 있습니다. 이러한 문제를 줄이기 위해 노력 하 고 있지만 도움이 필요 합니다. 에서 [https://aka.ms/whatifissues](https://aka.ms/whatifissues)이러한 문제를 보고 하세요.
+> 가상 작업 인 경우 현재 미리 보기 상태입니다. 미리 보기 릴리스로 인해 실제로 변경이 발생 하지 않을 때 리소스가 변경 되는 것을 보여 주는 경우도 있습니다. 이러한 문제를 줄이기 위해 노력 하 고 있지만 도움이 필요 합니다. 에서 이러한 문제를 보고 하세요 [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Azure PowerShell, Azure CLI 또는 REST API 작업을 사용 하 여 가상 작업을 사용할 수 있습니다.
+Azure PowerShell, Azure CLI 또는 REST API 작업을 사용 하 여 가상 작업을 사용할 수 있습니다. 가상은 리소스 그룹 및 구독 수준 배포에 대해 지원 됩니다.
 
-## <a name="install-powershell-module"></a>PowerShell 모듈 설치
+## <a name="install-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
-PowerShell에서이를 사용 하려면 PowerShell 갤러리에서 Az. Resources 모듈의 미리 보기 버전을 설치 해야 합니다. 그러나 모듈을 설치 하기 전에 PowerShell Core (6.x 또는 4.x)가 있는지 확인 합니다. PowerShell 5.x 이전 버전인 경우 [powershell의 버전을 업데이트](/powershell/scripting/install/installing-powershell)합니다. PowerShell 5.x 또는 이전 버전에서는 preview 모듈을 설치할 수 없습니다.
+PowerShell에서이를 사용 하려면 **Az module 버전 4.2 이상이**있어야 합니다.
 
-### <a name="install-preview-version"></a>Preview 버전 설치
+그러나 필수 모듈을 설치 하기 전에 PowerShell Core (6.x 또는 4.x)가 있는지 확인 합니다. PowerShell 5.x 이전 버전인 경우 [powershell의 버전을 업데이트](/powershell/scripting/install/installing-powershell)합니다. 필수 모듈은 PowerShell 5.x 또는 이전 버전에 설치할 수 없습니다.
 
-미리 보기 모듈을 설치 하려면 다음을 사용 합니다.
+### <a name="install-latest-version"></a>최신 버전 설치
+
+모듈을 설치 하려면 다음을 사용 합니다.
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+모듈을 설치 하는 방법에 대 한 자세한 내용은 [Install Azure PowerShell](/powershell/azure/install-az-ps)를 참조 하세요.
 
 ### <a name="uninstall-alpha-version"></a>알파 버전 제거
 
@@ -97,33 +101,36 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
+> [!NOTE]
+> 가상 작업은 [참조 함수](template-functions-resource.md#reference)를 확인할 수 없습니다. 속성을 참조 함수를 포함 하는 템플릿 식으로 설정할 때마다 속성은 변경 됩니다. 이 동작은가 속성 (예: 또는 부울 값)의 현재 값을 확인 되지 `true` 않은 템플릿 식과 비교 하기 때문에 발생 `false` 합니다. 분명히 이러한 값은 일치 하지 않습니다. 템플릿을 배포할 때 속성은 템플릿 식이 다른 값으로 확인 되는 경우에만 변경 됩니다.
+
 ## <a name="what-if-commands"></a>가상 명령
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-템플릿을 배포 하기 전에 변경 내용을 미리 보려면 `-Whatif` switch 매개 변수를 deployment 명령에 추가 합니다.
+템플릿을 배포 하기 전에 변경 내용을 미리 보려면 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 또는 [AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment)를 사용 합니다. `-Whatif`스위치 매개 변수를 deployment 명령에 추가 합니다.
 
 * `New-AzResourceGroupDeployment -Whatif`리소스 그룹 배포의 경우
-* `New-AzSubscriptionDeployment -Whatif`구독 `New-AzDeployment -Whatif` 수준 배포의 경우
+* `New-AzSubscriptionDeployment -Whatif``New-AzDeployment -Whatif`구독 수준 배포의 경우
 
-`-Confirm` 스위치 매개 변수를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
+`-Confirm`스위치 매개 변수를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
 
 * `New-AzResourceGroupDeployment -Confirm`리소스 그룹 배포의 경우
-* `New-AzSubscriptionDeployment -Confirm`구독 `New-AzDeployment -Confirm` 수준 배포의 경우
+* `New-AzSubscriptionDeployment -Confirm``New-AzDeployment -Confirm`구독 수준 배포의 경우
 
-이전 명령은 수동으로 검사할 수 있는 텍스트 요약을 반환 합니다. 프로그래밍 방식으로 변경 내용을 검사할 수 있는 개체를 가져오려면 다음을 사용 합니다.
+이전 명령은 수동으로 검사할 수 있는 텍스트 요약을 반환 합니다. 프로그래밍 방식으로 변경 내용을 검사할 수 있는 개체를 가져오려면 [AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) 또는 [AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult)를 사용 합니다.
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`리소스 그룹 배포의 경우
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`또는 `$results = Get-AzDeploymentWhatIfResult` 구독 수준 배포의 경우
 
 ### <a name="azure-cli"></a>Azure CLI
 
-템플릿을 배포 하기 전에 변경 내용을 미리 보려면 배포 `what-if` 명령과 함께를 사용 합니다.
+템플릿을 배포 하기 전에 변경 내용을 미리 보려면 [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) 또는 [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if)를 사용 합니다.
 
 * `az deployment group what-if`리소스 그룹 배포의 경우
 * `az deployment sub what-if`구독 수준 배포의 경우
 
-`--confirm-with-what-if` 스위치 (또는 약식 `-c`)를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다.
+`--confirm-with-what-if`스위치 (또는 약식 `-c` )를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다. 이 스위치를 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) 또는 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)에 추가 합니다.
 
 * `az deployment group create --confirm-with-what-if`또는 `-c` 리소스 그룹 배포의 경우
 * `az deployment sub create --confirm-with-what-if`또는 `-c` 구독 수준 배포의 경우
@@ -132,6 +139,8 @@ Resource changes: 1 to modify.
 
 * `az deployment group what-if --no-pretty-print`리소스 그룹 배포의 경우
 * `az deployment sub what-if --no-pretty-print`구독 수준 배포의 경우
+
+색 없이 결과를 반환 하려는 경우 [Azure CLI 구성](/cli/azure/azure-cli-configuration) 파일을 엽니다. **No_color** 를 **예**로 설정 합니다.
 
 ### <a name="azure-rest-api"></a>Azure REST API
 
@@ -150,11 +159,11 @@ REST API의 경우 다음을 사용 합니다.
 
 - **Ignore**: 리소스가 있지만 템플릿에 정의 되어 있지 않습니다. 리소스는 배포 또는 수정 되지 않습니다.
 
-- **NoChange**: 리소스가 있고 템플릿에 정의 되어 있습니다. 리소스는 다시 배포 되지만 리소스의 속성은 변경 되지 않습니다. 이 변경 형식은 [Resultformat](#result-format) 이 기본값인로 `FullResourcePayloads`설정 된 경우 반환 됩니다.
+- **NoChange**: 리소스가 있고 템플릿에 정의 되어 있습니다. 리소스는 다시 배포 되지만 리소스의 속성은 변경 되지 않습니다. 이 변경 형식은 [Resultformat](#result-format) 이 기본값인로 설정 된 경우 반환 됩니다 `FullResourcePayloads` .
 
-- **Modify**: 리소스가 있으며 템플릿에 정의 되어 있습니다. 리소스를 다시 배포 하면 리소스의 속성이 변경 됩니다. 이 변경 형식은 [Resultformat](#result-format) 이 기본값인로 `FullResourcePayloads`설정 된 경우 반환 됩니다.
+- **Modify**: 리소스가 있으며 템플릿에 정의 되어 있습니다. 리소스를 다시 배포 하면 리소스의 속성이 변경 됩니다. 이 변경 형식은 [Resultformat](#result-format) 이 기본값인로 설정 된 경우 반환 됩니다 `FullResourcePayloads` .
 
-- **배포**: 리소스가 있으며 템플릿에서 정의 됩니다. 리소스가 다시 배포 됩니다. 리소스의 속성은 변경 될 수도 있고 변경 되지 않을 수도 있습니다. 작업은 속성이 변경 되는지 여부를 확인 하는 데 충분 한 정보가 없는 경우이 변경 형식을 반환 합니다. [Resultformat](#result-format) 이로 설정 된 경우에 `ResourceIdOnly`만이 조건이 표시 됩니다.
+- **배포**: 리소스가 있으며 템플릿에서 정의 됩니다. 리소스가 다시 배포 됩니다. 리소스의 속성은 변경 될 수도 있고 변경 되지 않을 수도 있습니다. 작업은 속성이 변경 되는지 여부를 확인 하는 데 충분 한 정보가 없는 경우이 변경 형식을 반환 합니다. [Resultformat](#result-format) 이로 설정 된 경우에만이 조건이 표시 됩니다 `ResourceIdOnly` .
 
 ## <a name="result-format"></a>결과 형식
 
@@ -165,7 +174,7 @@ REST API의 경우 다음을 사용 합니다.
 
 기본값은 **FullResourcePayloads**입니다.
 
-PowerShell 배포 명령의 경우 `-WhatIfResultFormat` 매개 변수를 사용 합니다. 프로그래밍 개체 명령에서 `ResultFormat` 매개 변수를 사용 합니다.
+PowerShell 배포 명령의 경우 `-WhatIfResultFormat` 매개 변수를 사용 합니다. 프로그래밍 개체 명령에서 매개 변수를 사용 `ResultFormat` 합니다.
 
 Azure CLI의 경우 `--result-format` 매개 변수를 사용합니다.
  
@@ -397,9 +406,19 @@ Are you sure you want to execute the deployment?
 
 예상 되는 변경 내용을 확인 하 고 배포를 실행 하려는 것을 확인할 수 있습니다.
 
+## <a name="sdks"></a>SDK
+
+Azure Sdk를 통해 가상 작업을 사용할 수 있습니다.
+
+* Python의 [경우 what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-)를 사용 합니다.
+
+* Java의 경우 [Deploymentwhatif 클래스](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable)를 사용 합니다.
+
+* .NET의 경우 [Deploymentwhatif 클래스](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet)를 사용 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-- 의 미리 보기 릴리스에서 잘못 된 결과가 표시 되는 경우에서 문제를 보고 하세요 [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- 의 미리 보기 릴리스에서 잘못 된 결과가 표시 되는 경우에서 문제를 보고 하세요 [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Azure PowerShell를 사용 하 여 템플릿을 배포 하려면 [ARM 템플릿과 Azure PowerShell를 사용 하 여 리소스 배포](deploy-powershell.md)를 참조 하세요.
 - Azure CLI를 사용 하 여 템플릿을 배포 하려면 [ARM 템플릿과 Azure CLI를 사용 하 여 리소스 배포](deploy-cli.md)를 참조 하세요.
 - REST를 사용 하 여 템플릿을 배포 하려면 [ARM 템플릿을 사용 하 여 리소스 배포 및 리소스 관리자 REST API](deploy-rest.md)를 참조 하세요.
