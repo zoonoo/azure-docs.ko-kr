@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd5fcd2356742222b162e31a3178db135acd8ccf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80421026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703131"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI
 
@@ -31,7 +30,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI를 로컬로 설치 하 고 사용 하도록 결정 한 경우이 빠른 시작을 사용 하려면 Azure CLI 버전 2.0.49 이상을 사용 해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+대신 Azure CLI를 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.49 이상을 사용해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -259,7 +258,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[Az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용 하 여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *dsSubNET_v4* 및 *dsSubNET_v6*를 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *dsSubNET_v4* 및 *dsSubNET_v6*를 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 # Create the virtual network

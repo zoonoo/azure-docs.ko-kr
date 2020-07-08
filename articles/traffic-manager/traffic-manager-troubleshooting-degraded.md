@@ -7,17 +7,16 @@ author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: 6d720067b619b0d871899f2ac9025a9d8ab24d95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82130762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704066"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure Traffic Manager의 성능 저하 상태 문제 해결
 
@@ -48,7 +47,7 @@ Traffic Manager의 상태가 **비활성** 상태를 표시하는 경우 두 끝
 
 또한 Internet Explorer에서 F12 디버깅 도구의 네트워크 탭을 사용하여 HTTP 응답을 확인할 수 있습니다.
 
-이 예에서는 프로브 URL: http:\//watestsdp2008r2.cloudapp.net:80/Probe에서 응답을 확인 하려고 합니다. 다음 PowerShell 예는 이러한 문제를 보여 줍니다.
+이 예에서는 프로브 URL: http:/watestsdp2008r2.cloudapp.net:80/Probe에서 응답을 확인 하려고 합니다. \/ 다음 PowerShell 예는 이러한 문제를 보여 줍니다.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -85,7 +84,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Traffic Manager 정의](traffic-manager-overview.md)
 
-[클라우드 서비스](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 

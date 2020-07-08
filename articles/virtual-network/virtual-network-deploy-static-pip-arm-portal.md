@@ -7,18 +7,17 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: azurecli
-ms.topic: article
+ms.devlang: ''
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 3ef96c83b460346ba49051f6f5c4fd0dd5df34ab
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 745b12e2278c487ed49a9d2d726a760a7df8f276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703170"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
@@ -26,7 +25,7 @@ ms.locfileid: "82790170"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -41,7 +40,7 @@ ms.locfileid: "82790170"
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
     |Resource group| **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.|
-    |위치| **미국 동부** 를 선택 합니다.|
+    |위치| **미국 동부**를 선택합니다.|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
 5. **설정** 아래에서 **공용 IP 주소**를 선택합니다.
@@ -77,11 +76,11 @@ ms.locfileid: "82790170"
 
 1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름** 에 *myresourcegroup* 을 입력 하 고 **삭제**를 선택 합니다.
+3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대한 자세한 정보
-- 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대한 자세한 정보
+- Azure의 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) 에 대 한 자세한 정보
+- 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address) 에 대 한 자세한 정보
 - [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) 및 Azure 가상 머신에 [고정 개인 IP 주소](virtual-network-network-interface-addresses.md#add-ip-addresses) 할당에 대한 자세한 정보
 - [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 만들기에 대한 자세한 정보

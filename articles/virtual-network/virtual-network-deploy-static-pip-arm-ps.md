@@ -7,17 +7,16 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: a7b1e7471f7850f71596317c7e2c38db367bfd3a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 03a619a647da247347492076e9fd36414565bf33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703148"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>PowerShell을 사용하여 고정 공용 IP 주소를 사용하는 가상 머신 만들기
 
@@ -74,7 +73,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure에서 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 대한 자세한 정보
-- 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대한 자세한 정보
+- Azure의 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) 에 대 한 자세한 정보
+- 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address) 에 대 한 자세한 정보
 - [개인 IP 주소](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) 및 Azure 가상 머신에 [고정 개인 IP 주소](virtual-network-network-interface-addresses.md#add-ip-addresses) 할당에 대한 자세한 정보
 - [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 만들기에 대한 자세한 정보

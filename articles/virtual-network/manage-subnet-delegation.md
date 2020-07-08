@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 6f767abdf8673e3adffc6c4e3748733054ba723d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77201869"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703906"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>서브넷 위임 추가 또는 제거
 
@@ -27,18 +26,18 @@ ms.locfileid: "77201869"
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
 이 섹션에서는 나중에 Azure 서비스에 위임할 가상 네트워크 및 서브넷을 만듭니다.
 
-1. 화면 왼쪽 위에서 **리소스** > 만들기**네트워킹** > **가상 네트워크**를 선택 합니다.
+1. 화면 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **가상 네트워크**를 선택 합니다.
 1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *MyVirtualNetwork*를 입력 합니다. |
+    | Name | *MyVirtualNetwork*를 입력 합니다. |
     | 주소 공간 | *10.0.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -50,7 +49,7 @@ ms.locfileid: "77201869"
 
 ### <a name="permissions"></a>사용 권한
 
-Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write`.
+Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write` .
 
 기본 제공 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에도 필요한 권한이 포함 되어 있습니다.
 
@@ -103,7 +102,7 @@ Azure CLI를 로컬로 설치 하 고 사용 하려는 경우이 문서에서는
 ```
 ### <a name="permissions"></a>사용 권한
 
-Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write`.
+Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write` .
 
 기본 제공 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에도 필요한 권한이 포함 되어 있습니다.
 
@@ -193,7 +192,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 ```
 ### <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-[AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용 하 여 **Myvnet** 에서 [AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) 를 사용 하는 **Myvnet** 이라는 서브넷이 있는 **myvnet** 이라는 가상 네트워크를 만듭니다. 가상 네트워크에 대 한 IP 주소 공간은 **10.0.0.0/16**입니다. 가상 네트워크 내의 서브넷은 **10.0.0.0/24**입니다.  
+[New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroup**에서 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnet**이라는 서브넷이 있는 **myVnet**이라는 가상 네트워크를 만듭니다. 가상 네트워크에 대 한 IP 주소 공간은 **10.0.0.0/16**입니다. 가상 네트워크 내의 서브넷은 **10.0.0.0/24**입니다.  
 
 ```azurepowershell-interactive
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
@@ -202,7 +201,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 ```
 ### <a name="permissions"></a>사용 권한
 
-Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write`.
+Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write` .
 
 기본 제공 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에도 필요한 권한이 포함 되어 있습니다.
 

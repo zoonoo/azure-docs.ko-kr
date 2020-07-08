@@ -9,18 +9,17 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: aa2d75173b14e768a207336b54b3dc10a8c3ea5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b8c226d083c75d50639e7036de938626ca81a5ee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703471"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -45,7 +44,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서�
 az group create --name myResourceGroup --location eastus
 ```
 
-[Az network vnet create](/cli/azure/network/vnet)를 사용 하 여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork1*이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork1*이라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \

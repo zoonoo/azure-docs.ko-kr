@@ -4,25 +4,24 @@ description: 이 문서에서는 Azure CLI를 사용하여 경로 테이블이 �
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703352"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -210,7 +209,7 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후 Azure CLI는 다�
 
 ## <a name="route-traffic-through-an-nva"></a>NVA를 통한 트래픽 라우팅
 
-다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. * \<PublicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
+다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. *\<publicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
 
 ```bash
 ssh azureuser@<publicIpAddress>
