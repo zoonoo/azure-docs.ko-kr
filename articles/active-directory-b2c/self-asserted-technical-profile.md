@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203455"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -30,7 +30,7 @@ ms.locfileid: "80332502"
 
 다음 예제에서는 전자 메일 등록에 사용되는 자체 어설션된 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -40,7 +40,7 @@ ms.locfileid: "80332502"
 
 자체 어설션된 기술 프로필에서 **inputclaims** 및 **InputClaimsTransformations** 요소를 사용 하 여 자체 어설션된 페이지 (클레임 표시)에 표시 되는 클레임 값을 미리 채울 수 있습니다. 예를 들어 프로필 편집 정책의 사용자 경험에서는 먼저 Azure AD B2C 디렉터리 서비스에서 사용자 프로필을 읽습니다. 그러면 자체 어설션된 기술 프로필이 사용자 프로필에 저장된 사용자 데이터로 입력 클레임을 설정합니다. 이러한 클레임은 사용자 프로필에서 수집된 후 사용자에게 표시되며, 그러면 사용자가 기존 데이터를 편집할 수 있습니다.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
 ...
   <InputClaims>
@@ -57,7 +57,7 @@ ms.locfileid: "80332502"
 
 **DisplayClaims** 요소에는 사용자 로부터 데이터를 수집 하기 위해 화면에 표시할 클레임 목록이 포함 되어 있습니다. 표시 클레임 값을 미리 채우려면 앞에서 설명한 입력 클레임을 사용 합니다. 이 요소는 기본값을 포함할 수도 있습니다.
 
-**DisplayClaims** 의 클레임 순서는 Azure AD B2C 화면에서 클레임을 렌더링 하는 순서를 지정 합니다. 사용자가 특정 클레임에 대 한 값을 제공 하도록 강제 하려면 **DisplayClaim** `true`요소의 **필수** 특성을로 설정 합니다.
+**DisplayClaims** 의 클레임 순서는 Azure AD B2C 화면에서 클레임을 렌더링 하는 순서를 지정 합니다. 사용자가 특정 클레임에 대 한 값을 제공 하도록 강제 하려면 **DisplayClaim** 요소의 **필수** 특성을로 설정 `true` 합니다.
 
 **DisplayClaims** Collection의 **ClaimType** 요소는 **userinputtype** 요소를 Azure AD B2C에서 지 원하는 사용자 입력 형식으로 설정 해야 합니다. 예를 들어 `TextBox` 또는 `DropdownSingleSelect`입니다.
 
@@ -65,13 +65,13 @@ ms.locfileid: "80332502"
 
 표시 클레임 컬렉션에서 사용자가 만든 [DisplayControl](display-controls.md) 에 대 한 참조를 포함할 수 있습니다. 표시 컨트롤은 특수 기능이 있고 Azure AD B2C 백 엔드 서비스와 상호 작용 하는 사용자 인터페이스 요소입니다. 이를 통해 사용자는 백 엔드에서 유효성 검사 기술 프로필을 호출 하는 페이지에서 작업을 수행할 수 있습니다. 예를 들어 전자 메일 주소, 전화 번호 또는 고객 충성도 번호를 확인 합니다.
 
-다음 예제 `TechnicalProfile` 에서는 표시 컨트롤에 표시 클레임을 사용 하는 방법을 보여 줍니다.
+다음 예제에서는 표시 `TechnicalProfile` 컨트롤에 표시 클레임을 사용 하는 방법을 보여 줍니다.
 
-* 첫 번째 표시 클레임은 전자 메일 주소를 `emailVerificationControl` 수집 하 고 확인 하는 표시 컨트롤에 대 한 참조를 만듭니다.
-* 다섯 번째 표시 클레임은 전화 번호를 수집 `phoneVerificationControl` 하 고 확인 하는 표시 컨트롤에 대 한 참조를 만듭니다.
+* 첫 번째 표시 클레임은 `emailVerificationControl` 전자 메일 주소를 수집 하 고 확인 하는 표시 컨트롤에 대 한 참조를 만듭니다.
+* 다섯 번째 표시 클레임은 `phoneVerificationControl` 전화 번호를 수집 하 고 확인 하는 표시 컨트롤에 대 한 참조를 만듭니다.
 * 다른 표시 클레임은 사용자 로부터 수집 되는 ClaimTypes입니다.
 
-```XML
+```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
@@ -91,9 +91,9 @@ ms.locfileid: "80332502"
 
 자체 어설션된 기술 프로필에서 하나 이상의 **DisplayClaim** 요소를 지정 하는 경우 화면에 표시 하 고 사용자 로부터 수집할 *모든* 클레임에 대해 DisplayClaim를 사용 해야 합니다. 하나 이상의 표시 클레임이 포함 된 자체 어설션된 기술 프로필에 의해 표시 되는 출력 클레임은 없습니다.
 
-`age` 클레임이 기본 정책에서 **출력** 클레임으로 정의 되는 다음 예를 살펴보겠습니다. 자체 어설션된 기술 프로필에 표시 클레임을 추가 하기 전에 사용자의 데이터 `age` 컬렉션에 대 한 클레임이 화면에 표시 됩니다.
+`age`클레임이 기본 정책에서 **출력** 클레임으로 정의 되는 다음 예를 살펴보겠습니다. 자체 어설션된 기술 프로필에 표시 클레임을 추가 하기 전에 `age` 사용자의 데이터 컬렉션에 대 한 클레임이 화면에 표시 됩니다.
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="age" />
@@ -103,7 +103,7 @@ ms.locfileid: "80332502"
 
 해당 기본을 상속 하는 리프 정책이 이후에 `officeNumber` **표시** 클레임으로를 지정 하는 경우:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="officeNumber" />
@@ -114,13 +114,13 @@ ms.locfileid: "80332502"
 </TechnicalProfile>
 ```
 
-기본 `age` 정책의 클레임은 사용자에 게 더 이상 화면에 표시 되지 않습니다. 실제로 "숨김"입니다. 사용자 로부터 `age` 클레임을 표시 하 고 age 값을 수집 하려면 `age` **DisplayClaim**를 추가 해야 합니다.
+`age`기본 정책의 클레임은 사용자에 게 더 이상 화면에 표시 되지 않습니다. 실제로 "숨김"입니다. `age`사용자 로부터 클레임을 표시 하 고 age 값을 수집 하려면 DisplayClaim를 추가 해야 합니다 `age` **DisplayClaim**.
 
 ## <a name="output-claims"></a>출력 클레임
 
 **Outputclaims** 요소는 다음 오케스트레이션 단계로 반환 되는 클레임 목록을 포함 합니다. **DefaultValue** 특성은 클레임이 설정 된 적이 없는 경우에만 적용 됩니다. 이전 오케스트레이션 단계에서 설정 된 경우 사용자가 값을 비워 두면 기본값이 적용 되지 않습니다. 기본값을 강제로 사용하려면 **AlwaysUseDefaultValue** 특성을 `true`로 설정합니다.
 
-보안상의 이유로 암호 클레임 값 (`UserInputType` 로 `Password`설정 됨)은 자체 어설션된 기술 프로필의 유효성 검사 기술 프로필에만 사용할 수 있습니다. 다음 오케스트레이션 단계에서는 암호 클레임을 사용할 수 없습니다. 
+보안상의 이유로 암호 클레임 값 ( `UserInputType` 로 설정 `Password` 됨)은 자체 어설션된 기술 프로필의 유효성 검사 기술 프로필에만 사용할 수 있습니다. 다음 오케스트레이션 단계에서는 암호 클레임을 사용할 수 없습니다. 
 
 > [!NOTE]
 > 이전 버전의 IEF (Identity Experience Framework)에서 출력 클레임은 사용자 로부터 데이터를 수집 하는 데 사용 되었습니다. 사용자 로부터 데이터를 수집 하려면 **DisplayClaims** 컬렉션을 대신 사용 합니다.
@@ -140,7 +140,7 @@ ms.locfileid: "80332502"
 
 다음 예제에서는 표시 클레임 및 출력 클레임을 모두 사용 하는 자체 어설션된 기술 프로필을 사용 하는 방법을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -189,7 +189,7 @@ PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술
 
 ## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| attribute | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | operatingMode <sup>1</sup>| 아니요 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다.  |
 | AllowGenerationOfClaimsWithNullValues| 아니요| Null 값이 포함 된 클레임을 생성 하도록 허용 합니다. 예를 들어 사용자가 확인란을 선택 하지 않은 경우입니다.|
@@ -202,11 +202,11 @@ PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술
 | 설정. showSignupLink <sup>2</sup>| 아니요 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | forgotPasswordLinkLocation <sup>2</sup>| 아니요| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.|
 | enableRememberMe <sup>2</sup>| 아니요| [로그인 유지](custom-policy-keep-me-signed-in.md) 확인란을 표시 합니다. 가능한 값은 `true` , 또는 `false` (기본값)입니다. |
-| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`, 또는 `false`  (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 `true`설정 합니다. |
+| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
 
-메모:
-1. , 또는 `unifiedssp` `unifiedssd`의 콘텐츠 정의 [datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다.
-1. , 또는 `unifiedssp` `unifiedssd`의 콘텐츠 정의 [datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다. [페이지 레이아웃 버전](page-layout.md) 1.1.0 이상
+참고:
+1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` .
+1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` . [페이지 레이아웃 버전](page-layout.md) 1.1.0 이상
 
 ## <a name="cryptographic-keys"></a>암호화 키
 

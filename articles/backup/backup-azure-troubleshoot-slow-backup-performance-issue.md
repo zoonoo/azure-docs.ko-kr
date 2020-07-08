@@ -4,12 +4,12 @@ description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c229bd836029226a1e042de9bfe706654f97dc26
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194028"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 
@@ -96,7 +96,7 @@ VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실�
 * **UI에 데이터 전송 진행률이 표시됨**. 데이터가 여전히 전송 중입니다. 네트워크 대역폭 또는 데이터 크기로 인해 지연이 발생할 수 있습니다.
 * **UI에 데이터 전송 진행률이 표시되지 않음**. C:\Program Files\Microsoft Azure Recovery Services Agent\Temp에 있는 로그를 연 다음, 로그에서 FileProvider::EndData 항목을 확인합니다. 이 항목은 데이터 전송이 완료되었으며 카탈로그 작업이 진행 중임을 나타냅니다. 백업 작업을 취소하지 말고, 대신 카탈로그 작업가 끝날 때까지 좀 더 기다리세요. 문제가 지속되면 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
 
-대용량 디스크를 백업하려는 경우 첫 번째 백업(초기 복제)에 [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box)를 사용하는 것이 좋습니다.  Data Box를 사용할 수 없는 경우 네트워크를 통해 장기간 데이터를 전송하는 동안 사용자 환경에서 일시적인 네트워크 문제로 인한 백업 오류가 발생할 수 있습니다.  이러한 오류를 방지하려면 초기 백업에 폴더 몇 개를 추가하고 모든 폴더가 Azure에 성공적으로 백업될 때까지 점진적으로 폴더를 추가하면 됩니다.  이후 증분 백업은 상대적으로 더 빠르게 수행됩니다.
+대량 디스크를 백업 하려는 경우 첫 번째 백업 (초기 복제)에 [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) 를 사용 하는 것이 좋습니다.  Data Box를 사용할 수 없는 경우 네트워크를 통해 장기간 데이터를 전송하는 동안 사용자 환경에서 일시적인 네트워크 문제로 인한 백업 오류가 발생할 수 있습니다.  이러한 오류를 방지하려면 초기 백업에 폴더 몇 개를 추가하고 모든 폴더가 Azure에 성공적으로 백업될 때까지 점진적으로 폴더를 추가하면 됩니다.  이후 증분 백업은 상대적으로 더 빠르게 수행됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

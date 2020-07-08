@@ -4,16 +4,16 @@ description: Windows 가상 데스크톱 환경에 대 한 부하 분산 방법�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 447de339d3ceef7aeb1c232605b0e30bbbb1e7d8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204349"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Windows Virtual Desktop 부하 분산 방법 구성
 
@@ -33,15 +33,15 @@ ms.locfileid: "82612438"
 최대 세션 제한을 조정 하지 않고 너비 우선 부하 분산을 수행 하도록 호스트 풀을 구성 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst'
 ```
 
-그런 다음, 너비 우선 부하 분산 방법을 설정 했는지 확인 하려면 다음 cmdlet을 실행 합니다. 
+그런 다음, 너비 우선 부하 분산 방법을 설정 했는지 확인 하려면 다음 cmdlet을 실행 합니다.
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType
 
-Name             : hostpoolname 
+Name             : hostpoolname
 LoadBalancerType : BreadthFirst
 ```
 
@@ -58,13 +58,13 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 깊이 우선 부하 분산을 수행 하도록 호스트 풀을 구성 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ### 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
 
 설정이 업데이트 되었는지 확인 하려면 다음 cmdlet을 실행 합니다.
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit
 
 Name             : hostpoolname
 LoadBalancerType : DepthFirst
@@ -77,8 +77,8 @@ MaxSessionLimit  : 6
 
 부하 분산을 구성 하려면:
 
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다. 
-2. 서비스에서 **Windows 가상 데스크톱** 을 검색 하 고 선택 합니다. 
+1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+2. 서비스에서 **Windows 가상 데스크톱** 을 검색 하 고 선택 합니다.
 3. Windows 가상 데스크톱 페이지에서 **호스트 풀**을 선택 합니다.
 4. 편집 하려는 호스트 풀의 이름을 선택 합니다.
 5. **속성**을 선택합니다.

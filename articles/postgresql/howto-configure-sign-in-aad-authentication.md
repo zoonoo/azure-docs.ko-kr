@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 91435c2c5ca825793988e002c1ab9f6caacf2b17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7df9c40980d7a35c1eab0f892c3aca0a30938f57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652555"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194113"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>PostgreSQL 인증에 Azure Active Directory 사용
 
@@ -54,21 +54,19 @@ Azure AD를 인식하지 못하고 PostgreSQL에 연결할 때 사용자 이름 
 
 다음은 사용자/애플리케이션에서 Azure AD로 인증해야 하는 단계입니다.
 
+### <a name="prerequisites"></a>사전 요구 사항
+
+Azure Cloud Shell, Azure VM 또는 로컬 컴퓨터에서 수행할 수 있습니다. [Azure CLI가 설치](/cli/azure/install-azure-cli)되어 있는지 확인합니다.
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>1단계: Azure AD를 사용하여 인증
 
-[Azure CLI가 설치](/cli/azure/install-azure-cli)되어 있는지 확인합니다.
+Azure CLI 도구를 사용 하 여 Azure AD를 인증 하는 것으로 시작 합니다. Azure Cloud Shell에는이 단계가 필요 하지 않습니다.
 
-Azure CLI 도구를 호출하여 Azure AD로 인증합니다. Azure AD 사용자 ID와 암호를 제공해야 합니다.
-
-```azurecli-interactive
+```
 az login
 ```
 
-이 명령은 브라우저 창을 시작하고 Azure AD 인증 페이지를 표시합니다.
-
-> [!NOTE]
-> Azure Cloud Shell을 사용하여 해당 단계를 수행할 수도 있습니다.
-> Azure Cloud Shell에서 Azure AD 액세스 토큰을 검색하는 경우 `az login`를 명시적으로 호출하고 코드를 사용하여 별도의 창에서 다시 로그인해야 합니다. 로그인하면 `get-access-token` 명령이 예상대로 작동합니다.
+이 명령은 Azure AD 인증 페이지에 대 한 브라우저 창을 시작 합니다. Azure AD 사용자 ID와 암호를 제공해야 합니다.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>2단계: Azure AD 액세스 토큰 검색
 
@@ -117,8 +115,12 @@ az account get-access-token --resource-type oss-rdbms
 
 Windows 예제:
 
-```shell
+```cmd
 set PGPASSWORD=<copy/pasted TOKEN value from step 2>
+```
+
+```PowerShell
+$env:PGPASSWORD='<copy/pasted TOKEN value from step 2>'
 ```
 
 Linux/macOS 예제:
@@ -132,6 +134,15 @@ export PGPASSWORD=<copy/pasted TOKEN value from step 2>
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
+
+연결할 때 중요 한 고려 사항:
+
+* `user@tenant.onmicrosoft.com`연결 하려는 Azure AD 사용자 또는 그룹의 이름입니다.
+* 항상 Azure AD 사용자/그룹 이름 뒤에 서버 이름을 추가 합니다 (예: `@mydb` ).
+* Azure AD 사용자 또는 그룹 이름에 대 한 정확한 방법을 사용 해야 합니다.
+* Azure AD 사용자 및 그룹 이름은 대/소문자를 구분 합니다.
+* 그룹으로 연결 하는 경우 그룹 이름 (예:)만 사용 합니다. `GroupName@mydb`
+* 이름에 공백이 포함 되어 있으면 `\` 각 공간 앞에를 사용 하 여 이스케이프 합니다.
 
 이제 Azure AD 인증을 사용하여 PostgreSQL 서버에 인증됩니다.
 
@@ -157,7 +168,7 @@ CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
 
 데이터베이스 액세스에 Azure AD 그룹을 사용하려면 사용자에 사용하는 동일한 메커니즘을 사용하지만 그룹 이름을 지정합니다.
 
-**예:**
+**예제:**
 
 ```sql
 CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;

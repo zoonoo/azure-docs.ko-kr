@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 5670be6d4c45644ac8318702822c37ed82a81caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70071697"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205750"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
 
@@ -41,7 +41,7 @@ ms.locfileid: "70071697"
 7. **</>** **인바운드 처리** 또는 **아웃 바운드 처리** 섹션에서 (코드 편집기) 아이콘을 선택 합니다.
 8. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
 
-    ```XML
+    ```xml
     <policies>
         <inbound>
             <base />

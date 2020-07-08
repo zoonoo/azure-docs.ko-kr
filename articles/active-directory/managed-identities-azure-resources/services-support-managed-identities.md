@@ -4,18 +4,19 @@ description: Azure 리소스 및 Azure AD 인증에 대해 관리 ID를 지원�
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 05/12/2020
+ms.date: 06/11/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550c025807b1ec3d0d5b8fb54f4b358c9f1ec6d3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: 0dc8b77f75cffdd0b2017d8a9b0f7c168fb796cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193773"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -55,6 +56,14 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager 템플릿](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc를 지원하는 Kubernetes
+
+| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#azure-arc-agents-for-kubernetes)합니다. 관리 서비스 id 인증서는 Azure와의 통신을 위해 모든 Azure Arc 사용 Kubernetes 에이전트에 사용 됩니다.
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -67,6 +76,14 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 - [Azure Portal - 청사진 할당](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
 - [REST API - 청사진 할당](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+
+
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
@@ -94,6 +111,12 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
+### <a name="azure-data-explorer"></a>Azure Data Explorer
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | 사용할 수 없음 | ![사용 가능][check] |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -108,6 +131,22 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST (영문)](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+
+
+### <a name="azure-event-grid"></a>Azure Event Grid 
+
+관리 ID 유형 |모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음  | 사용할 수 없음  | 사용할 수 없음 |
+
+
+
+
+
+
+
 
 
 ### <a name="azure-functions"></a>Azure 기능
@@ -135,6 +174,13 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 - [Azure Portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
+### <a name="azure-importexport"></a>Azure Import/Export
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| 시스템 할당 | Azure 가져오기 내보내기 서비스를 사용할 수 있는 지역에서 사용할 수 있습니다. | 미리 보기 | 사용 가능 | 사용 가능 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
 ### <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
 | 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -160,7 +206,24 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 - [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
+### <a name="azure-policy"></a>Azure Policy
+
+|관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] | ![사용 가능][check] |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+Azure Policy에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
+
+- [Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyassignments)
+- [REST (영문)](https://docs.microsoft.com/rest/api/resources/policyassignments/create)
+
+
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
+
 [Service Fabric 애플리케이션용 관리 ID](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)는 미리 보기로 제공되며, 모든 지역에서 사용할 수 있습니다.
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -169,8 +232,18 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 | 사용자 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 |사용할 수 없음 |
 
 모든 지역에서 Azure Service Fabric 애플리케이션에 대한 관리 ID를 구성하려면 다음 목록을 참조하세요.
+
 - [Azure Resource Manager 템플릿](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
+### <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+
+자세한 내용은 [Azure 스프링 클라우드 응용 프로그램에 대 한 시스템 할당 관리 id를 사용 하도록 설정 하는 방법](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md)을 참조 하세요.
 
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets
@@ -206,7 +279,24 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 - [REST (영문)](qs-configure-rest-vm.md)
 
 
+### <a name="azure-vm-image-builder"></a>Azure VM 이미지 작성기
 
+| 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure 독일 | Azure 중국 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 
+| 사용자 할당 | [지원 되는 지역에서 사용 가능](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+Azure VM 이미지 작성기 (사용 가능한 지역)에 대해 관리 id를 구성 하는 방법을 알아보려면 [이미지 작성기 개요](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions)를 참조 하세요.
+### <a name="azure-signalr-service"></a>Azure SignalR Service
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure 독일 | Azure 중국 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
+| 사용자 할당 | 미리 보기 | 미리 보기 | 사용할 수 없음 | 미리 보기 |
+
+Azure SignalR Service에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
+
+- [Azure Resource Manager 템플릿](../../azure-signalr/howto-use-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure AD 인증을 지원하는 Azure 서비스
 
@@ -225,8 +315,8 @@ Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 �
 |--------|------------|:-:|
 | Azure 글로벌 | `https://management.azure.com/`| ![사용 가능][check] |
 | Azure Government | `https://management.usgovcloudapi.net/` | ![사용 가능][check] |
-| Azure Germany | `https://management.microsoftazure.de/` | ![사용 가능][check] |
-| Azure China 21Vianet | `https://management.chinacloudapi.cn` | ![사용 가능][check] |
+| Azure 독일 | `https://management.microsoftazure.de/` | ![사용 가능][check] |
+| Azure 중국 21Vianet | `https://management.chinacloudapi.cn` | ![사용 가능][check] |
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
@@ -234,10 +324,10 @@ Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 �
 |--------|------------|:-:|
 | Azure 글로벌 | `https://vault.azure.net`| ![사용 가능][check] |
 | Azure Government | `https://vault.usgovcloudapi.net` | ![사용 가능][check] |
-| Azure Germany |  `https://vault.microsoftazure.de` | ![사용 가능][check] |
-| Azure China 21Vianet | `https://vault.azure.cn` | ![사용 가능][check] |
+| Azure 독일 |  `https://vault.microsoftazure.de` | ![사용 가능][check] |
+| Azure 중국 21Vianet | `https://vault.azure.cn` | ![사용 가능][check] |
 
-### <a name="azure-data-lake"></a>Azure 데이터 레이크 
+### <a name="azure-data-lake"></a>Azure 데이터 레이크
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|:-:|
@@ -246,14 +336,14 @@ Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 �
 | Azure Germany |   | 사용할 수 없음 |
 | Azure China 21Vianet |  | 사용할 수 없음 |
 
-### <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>Azure SQL
 
 | 클라우드 | 리소스 ID | 상태 |
 |--------|------------|:-:|
 | Azure 글로벌 | `https://database.windows.net/` | ![사용 가능][check] |
 | Azure Government | `https://database.usgovcloudapi.net/` | ![사용 가능][check] |
-| Azure Germany | `https://database.cloudapi.de/` | ![사용 가능][check] |
-| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![사용 가능][check] |
+| Azure 독일 | `https://database.cloudapi.de/` | ![사용 가능][check] |
+| Azure 중국 21Vianet | `https://database.chinacloudapi.cn/` | ![사용 가능][check] |
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
@@ -287,17 +377,8 @@ Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 �
 |--------|------------|:-:|
 | Azure 글로벌 | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![사용 가능][check] |
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![사용 가능][check] |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![사용 가능][check] |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![사용 가능][check] |
-
-
-
-
-
-
-
-
-
+| Azure 독일 | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![사용 가능][check] |
+| Azure 중국 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![사용 가능][check] |
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
@@ -305,8 +386,8 @@ Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 �
 |--------|------------|:-:|
 | Azure 글로벌 | `https://*.asazure.windows.net` | ![사용 가능][check] |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![사용 가능][check] |
-| Azure Germany | `https://*.asazure.cloudapi.de` | ![사용 가능][check] |
-| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![사용 가능][check] |
+| Azure 독일 | `https://*.asazure.cloudapi.de` | ![사용 가능][check] |
+| Azure 중국 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![사용 가능][check] |
 
 > [!Note]
 > Microsoft Power BI에서도 [관리 ID](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)를 지원합니다.

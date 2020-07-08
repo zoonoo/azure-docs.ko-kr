@@ -11,14 +11,14 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202299"
 ---
-# <a name="display-controls"></a>컨트롤 표시
+# <a name="display-controls"></a>표시 컨트롤
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -30,11 +30,11 @@ ms.locfileid: "78188735"
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
- [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [메타 데이터](self-asserted-technical-profile.md#metadata) 섹션에서 참조 된 [contentdefinition](contentdefinitions.md) 은 페이지 계약 버전 2.0.0 이상 `DataUri` 으로 설정 해야 합니다. 예를 들면 다음과 같습니다.
+ [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [메타 데이터](self-asserted-technical-profile.md#metadata) 섹션에서 참조 된 [contentdefinition](contentdefinitions.md) 은 `DataUri` 페이지 계약 버전 2.0.0 이상으로 설정 해야 합니다. 예를 들어:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ ms.locfileid: "78188735"
 
 **DisplayControl** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 표시 컨트롤에 사용 되는 식별자입니다. [참조할](#referencing-display-controls)수 있습니다. |
 | UserInterfaceControlType | 예 | 표시 컨트롤의 형식입니다. 현재 지원 되는 [VerificationControl](display-control-verification.md) |
@@ -66,7 +66,7 @@ ms.locfileid: "78188735"
 
 다음 예에서는 주소가 이미 있는 것으로 확인 되는 전자 메일 주소를 인시던트의 합니다.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -78,11 +78,11 @@ ms.locfileid: "78188735"
 
 표시 컨트롤의 각 형식에는 다른 표시 클레임, [출력 클레임](#output-claims)및 수행할 [작업](#display-control-actions) 집합이 필요 합니다.
 
-[자체 어설션된 기술 프로필](self-asserted-technical-profile.md#display-claims)에 정의 된 **표시 클레임** 과 마찬가지로 표시 클레임은 표시 컨트롤 내에서 사용자 로부터 수집할 클레임을 나타냅니다. 참조 된 **ClaimType** 요소는 또는 `TextBox` `DropdownSingleSelect`와 같은 Azure AD B2C에서 지 원하는 사용자 입력 형식에 대해 **userinputtype** 요소를 지정 해야 합니다. **작업**에 표시 클레임 값이 필요한 경우에는 **필수** 특성을로 `true` 설정 하 여 사용자가 특정 표시 클레임에 대 한 값을 제공 하도록 합니다.
+[자체 어설션된 기술 프로필](self-asserted-technical-profile.md#display-claims)에 정의 된 **표시 클레임** 과 마찬가지로 표시 클레임은 표시 컨트롤 내에서 사용자 로부터 수집할 클레임을 나타냅니다. 참조 된 **ClaimType** 요소는 또는와 같은 Azure AD B2C에서 지 원하는 사용자 입력 형식에 대해 **userinputtype** 요소를 지정 해야 합니다 `TextBox` `DropdownSingleSelect` . **작업**에 표시 클레임 값이 필요한 경우에는 **필수** 특성을로 설정 하 여 `true` 사용자가 특정 표시 클레임에 대 한 값을 제공 하도록 합니다.
 
-특정 유형의 표시 컨트롤에 대 한 특정 표시 클레임이 필요 합니다. 예를 들어 **VerificationControl**형식의 표시 컨트롤에는 **VerificationCode** 가 필요 합니다. 특성 **Controlclaimtype** 을 사용 하 여 해당 필수 클레임에 지정 된 DisplayClaim를 지정 합니다. 예를 들면 다음과 같습니다.
+특정 유형의 표시 컨트롤에 대 한 특정 표시 클레임이 필요 합니다. 예를 들어 **VerificationControl**형식의 표시 컨트롤에는 **VerificationCode** 가 필요 합니다. 특성 **Controlclaimtype** 을 사용 하 여 해당 필수 클레임에 지정 된 DisplayClaim를 지정 합니다. 예를 들어:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -100,7 +100,7 @@ ms.locfileid: "78188735"
 
 다음 예에서는 **mfaType** 클레임의 사용자 선택에 따라 전자 메일 또는 SMS에서 코드를 보냅니다.
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -129,9 +129,9 @@ ms.locfileid: "78188735"
 
 표시 컨트롤은 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [표시 클레임](self-asserted-technical-profile.md#display-claims) 에서 참조 됩니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>

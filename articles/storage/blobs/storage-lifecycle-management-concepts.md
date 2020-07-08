@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194708"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -130,7 +130,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-다음 PowerShell 스크립트를 사용 하 여 저장소 계정에 정책을 추가할 수 있습니다. 변수 `$rgname` 는 리소스 그룹 이름으로 초기화 해야 합니다. 변수 `$accountName` 는 저장소 계정 이름으로 초기화 해야 합니다.
+다음 PowerShell 스크립트를 사용 하 여 저장소 계정에 정책을 추가할 수 있습니다. `$rgname` 변수는 리소스 그룹 이름으로 초기화해야 합니다. `$accountName` 변수는 스토리지 계정 이름으로 초기화해야 합니다.
 
 ```powershell
 #Install the latest module
@@ -226,17 +226,17 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 정책은 규칙의 컬렉션입니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 참고 |
+| 매개 변수 이름 | 매개 변수 유형 | 참고 |
 |----------------|----------------|-------|
 | `rules`        | 규칙 개체의 배열 | 정책에 하나 이상의 규칙이 필요 합니다. 정책에서 최대 100 개의 규칙을 정의할 수 있습니다.|
 
 정책 내의 각 규칙에는 다음과 같은 몇 가지 매개 변수가 있습니다.
 
-| 매개 변수 이름 | 매개 변수 형식 | 참고 | 필수 |
+| 매개 변수 이름 | 매개 변수 유형 | 참고 | 필요한 공간 |
 |----------------|----------------|-------|----------|
 | `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
-| `enabled`      | Boolean | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
-| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle`입니다. | True |
+| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
+| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle` 입니다. | True |
 | `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
 
 ## <a name="rules"></a>규칙
@@ -245,7 +245,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 ### <a name="sample-rule"></a>샘플 규칙
 
-다음 샘플 규칙은 내부 `container1` 에 존재 하는 개체에 대 한 작업을 실행 하 고로 `foo`시작 하는 계정을 필터링 합니다.  
+다음 샘플 규칙은 내부에 존재 하는 개체에 대 한 작업을 실행 하 `container1` 고로 시작 하는 계정을 필터링 합니다 `foo` .  
 
 >[!NOTE]
 >수명 주기 관리는 블록 blob 유형만 지원 합니다.  
@@ -291,12 +291,12 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 | 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는를 `blockBlob`지원 합니다. | 예 |
-| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 `https://myaccount.blob.core.windows.net/container1/foo/...` 규칙에 대 한 모든 blob을 일치 시키려는 경우 prefixMatch은 `container1/foo`입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아니요 |
-| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해 `Project = Contoso` 에서 `https://myaccount.blob.core.windows.net/` 의 모든 blob을 일치 시키려는 경우 blobindexmatch는 `{"name": "Project","op": "==","value": "Contoso"}`입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는를 지원 `blockBlob` 합니다. | 예 |
+| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아니요 |
+| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
 
 > [!NOTE]
-> Blob 인덱스는 공개 미리 보기 상태 이며 **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께이 기능에 대해 자세히 알아보려면 [Blob 인덱스를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기 (미리 보기)](storage-manage-find-blobs.md)를 참조 하세요.
+> Blob 인덱스는 퍼블릭 미리 보기로 제공되며 **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
 
 ### <a name="rule-actions"></a>규칙 작업
 
@@ -354,10 +354,10 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 ### <a name="archive-data-after-ingest"></a>수집 후 데이터 보관
 
-일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 되는 즉시 데이터를 보관 하도록 구성 됩니다. 이 예제에서는 컨테이너 `archivecontainer` 내의 저장소 계정에서 블록 blob을 보관 계층으로 전환 합니다. 전환은 마지막으로 수정한 시간 이후에 0 일 후에 blob에서 작동 하 여 수행 됩니다.
+일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 되는 즉시 데이터를 보관 하도록 구성 됩니다. 이 예제에서는 컨테이너 내의 저장소 계정에서 블록 blob을 `archivecontainer` 보관 계층으로 전환 합니다. 전환은 마지막으로 수정한 시간 이후에 0 일 후에 blob에서 작동 하 여 수행 됩니다.
 
 > [!NOTE] 
-> Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 PUTBLOCKLIST 또는 REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리를 사용 하 여 [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 에 대 한 액세스 계층 헤더를 사용할 수 있습니다. 
+> Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 x-y Blob 또는 [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리와 함께 사용할 수 있습니다. 
 
 ```json
 {
@@ -410,7 +410,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 ```
 
 ### <a name="delete-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용 하 여 데이터 삭제
-일부 데이터는 명시적으로 삭제 하도록 표시 된 경우에만 만료 되어야 합니다. Blob 인덱스 키/값 특성으로 태그가 지정 된 데이터를 만료 하도록 수명 주기 관리 정책을 구성할 수 있습니다. 다음 예제에서는로 `Project = Contoso`태그가 지정 된 모든 블록 blob를 삭제 하는 정책을 보여 줍니다. Blob 인덱스에 대해 자세히 알아보려면 [Blob 인덱스를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기 (미리 보기)](storage-manage-find-blobs.md)를 참조 하세요.
+일부 데이터는 명시적으로 삭제 하도록 표시 된 경우에만 만료 되어야 합니다. Blob 인덱스 키/값 특성으로 태그가 지정 된 데이터를 만료 하도록 수명 주기 관리 정책을 구성할 수 있습니다. 다음 예제에서는로 태그가 지정 된 모든 블록 blob를 삭제 하는 정책을 보여 줍니다 `Project = Contoso` . Blob 인덱스에 대해 자세히 알아보려면 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
 
 ```json
 {

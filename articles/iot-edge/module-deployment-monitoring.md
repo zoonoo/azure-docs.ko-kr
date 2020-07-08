@@ -8,12 +8,12 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194793"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
 
@@ -47,7 +47,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 각 모듈의 구성 메타데이터에는 다음 항목이 포함됩니다.
 
 * 버전
-* Type
+* 형식
 * 상태(예: 실행 중 또는 중지됨)
 * 다시 시작 정책
 * 이미지 및 컨테이너 레지스트리
@@ -69,7 +69,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 * tags.environment ='prod'
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
-* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* tags. operator = ' John ' 및 태그. environment = ' prod ' 및 no deviceId = ' linuxprod1 '
 * devicemodel = ' 4000x '
 
 대상 조건을 생성할 때 다음 제약 조건을 고려 합니다.
@@ -98,7 +98,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 또한 배포를 모니터링 하 고 관리 하는 데 도움이 되는 사용자 지정 메트릭을 직접 정의할 수 있습니다.
 
-메트릭은 배포 구성 적용의 결과로 장치가 다시 보고할 수 있는 다양 한 상태의 요약 개수를 제공 합니다. 메트릭은 *lastDesiredStatus* 또는 *lastconnecttime*과 같은 [보고 된 edgeHub 모듈 쌍 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 쿼리할 수 있습니다. 다음은 그 예입니다.
+메트릭은 배포 구성 적용의 결과로 장치가 다시 보고할 수 있는 다양 한 상태의 요약 개수를 제공 합니다. 메트릭은 *lastDesiredStatus* 또는 *lastconnecttime*과 같은 [보고 된 edgeHub 모듈 쌍 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 쿼리할 수 있습니다. 예를 들어:
 
 ```sql
 SELECT deviceId FROM devices
@@ -107,7 +107,7 @@ SELECT deviceId FROM devices
 
 사용자 고유의 메트릭을 추가 하는 것은 선택 사항이 며 IoT Edge 장치의 실제 구성에 영향을 주지 않습니다.
 
-## <a name="layered-deployment"></a>계층화 된 배포
+## <a name="layered-deployment"></a>계층화된 배포
 
 계층화 된 배포는 생성 해야 하는 고유한 배포의 수를 줄이기 위해 함께 결합 될 수 있는 자동 배포입니다. 계층화 된 배포는 여러 자동 배포의 여러 조합에서 동일한 모듈이 재사용 되는 시나리오에서 유용 합니다.
 
@@ -142,7 +142,7 @@ IoT Edge 장치는 표준 자동 배포를 하나 이상 적용할 수 있지만
 }
 ```
 
-동일한 장치의 일부 또는 모두를 대상으로 하는 계층화 된 배포에서 1000 메시지를 보내도록 시뮬레이션 된 센서에 지시 하는 속성을 추가 하 고 중지 합니다. 기존 속성을 덮어쓰지 않으려면 새 속성을 포함 하는 라는 `layeredProperties`desired 속성 내에 새 섹션을 만듭니다.
+동일한 장치의 일부 또는 모두를 대상으로 하는 계층화 된 배포에서 1000 메시지를 보내도록 시뮬레이션 된 센서에 지시 하는 속성을 추가 하 고 중지 합니다. 기존 속성을 덮어쓰지 않으려면 새 속성을 포함 하는 라는 desired 속성 내에 새 섹션을 만듭니다 `layeredProperties` .
 
 ```json
 "SimulatedTemperatureSensor": {
@@ -166,7 +166,7 @@ IoT Edge 장치는 표준 자동 배포를 하나 이상 적용할 수 있지만
 }
 ```
 
-계층화 된 배포에서 모듈 `properties.desired` 쌍의 필드를 설정 하는 경우 우선 순위가 낮은 배포에서 해당 모듈에 대 한 desired 속성을 덮어씁니다.
+계층화 된 배포에서 모듈 쌍의 필드를 설정 하는 경우 `properties.desired` 우선 순위가 낮은 배포에서 해당 모듈에 대 한 desired 속성을 덮어씁니다.
 
 ## <a name="phased-rollout"></a>단계별 배포
 

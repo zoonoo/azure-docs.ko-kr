@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 842a69c27ceb0d56df5a7b49eb9922b88d8d4b32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206940"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>LocalConfiguration. json 파일 이해 - C 에이전트
 
@@ -35,7 +35,7 @@ IoT 보안 에이전트의 Azure Security Center은 로컬 구성 파일의 구�
 
 ## <a name="security-agent-configurations-for-c"></a>C에 대 한 보안 에이전트 구성
 
-| 구성 이름 | 가능한 값 | 세부 정보 |
+| 구성 이름 | 가능한 값 | 설명 |
 |:-----------|:---------------|:--------|
 | AgentId | GUID | 에이전트 고유 식별자입니다. |
 | TriggerdEventsInterval | ISO8601 문자열 | 트리거된 이벤트 컬렉션에 대 한 스케줄러 간격 |
@@ -45,7 +45,7 @@ IoT 보안 에이전트의 Azure Security Center은 로컬 구성 파일의 구�
 | AuthenticationMethod | "SasToken", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호-SasToken을 선택 합니다. 암호 사용이 대칭 키인 경우 자체 서명 된 인증서 인 경우 자체 서명 된 인증서를 선택 합니다.  |
 | FilePath | 파일 경로 (문자열) | 인증 암호를 포함 하는 파일의 경로입니다. |
 | HostName | string | Azure iot hub의 호스트 이름입니다. 일반적으로 <내 허브>. azure-devices.net |
-| DeviceId | string | 장치 ID (Azure IoT Hub에 등록 됨) |
+| deviceId | string | 장치 ID (Azure IoT Hub에 등록 됨) |
 | DPS | JsonObject | DPS 관련 구성 |
 | IDScope | string | DPS의 ID 범위 |
 | RegistrationId | string  | DPS 장치 등록 ID |
@@ -55,7 +55,7 @@ IoT 보안 에이전트의 Azure Security Center은 로컬 구성 파일의 구�
 
 ## <a name="security-agent-configurations-code-example"></a>보안 에이전트 구성 코드 예제
 
-```JSON
+```json
 {
     "Configuration" : {
         "AgentId" : "b97faf0a-0f57-471f-9dab-46a8e1764946",

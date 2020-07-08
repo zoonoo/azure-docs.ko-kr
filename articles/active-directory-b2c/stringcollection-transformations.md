@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203251"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 클레임 변환
 
@@ -38,7 +38,7 @@ ms.locfileid: "81729713"
 
 다음 클레임 변환에서는 **email** ClaimType을 **otherMails** ClaimType에 추가합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
@@ -53,10 +53,10 @@ ms.locfileid: "81729713"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **컬렉션**: ["someone@outlook.com"]
-  - **항목**: "admin@contoso.com"
+  - **컬렉션**: [" someone@outlook.com "]
+  - **항목**: " admin@contoso.com "
 - 출력 클레임:
-  - **컬렉션**: ["someone@outlook.com", "admin@contoso.com"]
+  - **컬렉션**: [" someone@outlook.com ", " admin@contoso.com "]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -70,7 +70,7 @@ ms.locfileid: "81729713"
 
 신규 또는 기존 stringCollection에 문자열 값을 추가하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 상수 전자 메일 주소(admin@contoso.com)를 **otherMails** 클레임에 추가합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -87,11 +87,11 @@ ms.locfileid: "81729713"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **컬렉션**: ["someone@outlook.com"]
+  - **컬렉션**: [" someone@outlook.com "]
 - 입력 매개 변수
-  - **항목**: "admin@contoso.com"
+  - **항목**: " admin@contoso.com "
 - 출력 클레임:
-  - **컬렉션**: ["someone@outlook.com", "admin@contoso.com"]
+  - **컬렉션**: [" someone@outlook.com ", " admin@contoso.com "]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -104,7 +104,7 @@ ms.locfileid: "81729713"
 
 다음 예제에서는 **otherMails** 클레임을 읽고 첫 번째 항목을 **email** 클레임에 반환합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -118,9 +118,9 @@ ms.locfileid: "81729713"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **컬렉션**: ["someone@outlook.com", "someone@contoso.com"]
+  - **컬렉션**: [" someone@outlook.com ", " someone@contoso.com "]
 - 출력 클레임:
-  - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: " someone@outlook.com "
 
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
@@ -130,13 +130,13 @@ StringCollection 클레임 형식에 요소가 포함 되어 있는지 확인 �
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | stringCollection | 검색할 클레임 유형입니다. |
-|InputParameter|항목|string|검색할 값입니다.|
-|InputParameter|ignoreCase|string|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
+|InputParameter|항목|문자열|검색할 값입니다.|
+|InputParameter|ignoreCase|문자열|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
 | OutputClaim | outputClaim | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. 컬렉션에 이러한 문자열이 포함 된 경우의 부울 표시기 |
 
-다음 예에서는 stringCollection 클레임 `roles` 형식에 **admin**값이 포함 되어 있는지 여부를 확인 합니다.
+다음 예에서는 `roles` stringCollection 클레임 형식에 **admin**값이 포함 되어 있는지 여부를 확인 합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -167,12 +167,12 @@ StringCollection 클레임 형식에 클레임 값이 포함 되어 있는지 �
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | 검색할 클레임 유형입니다. |
 | InputClaim | 항목|string| 검색할 값을 포함 하는 클레임 형식입니다.|
-|InputParameter|ignoreCase|string|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
+|InputParameter|ignoreCase|문자열|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
 | OutputClaim | outputClaim | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. 컬렉션에 이러한 문자열이 포함 된 경우의 부울 표시기 |
 
-다음 예에서는 `roles` stringCollection 클레임 유형에 `role` 클레임 유형 값이 포함 되어 있는지 여부를 확인 합니다.
+다음 예에서는 `roles` stringCollection 클레임 유형에 클레임 유형 값이 포함 되어 있는지 여부를 확인 합니다 `role` .
 
-```XML
+```xml
 <ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />

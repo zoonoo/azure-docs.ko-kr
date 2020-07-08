@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: d705c7fbdb744082b402f4dd598551107563ed2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203167"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -35,7 +35,7 @@ ms.locfileid: "82559606"
 
 **UserJourney** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 정책의 다른 요소에서 사용자 경험을 참조하는 데 사용할 수 있는 사용자 경험의 식별자입니다. [신뢰 당사자 정책](relyingparty.md)의 **DefaultUserJourney** 요소는 이 특성을 가리킵니다. |
 
@@ -61,11 +61,11 @@ ms.locfileid: "82559606"
 
 **OrchestrationStep** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | `Order` | 예 | 오케스트레이션 단계의 순서입니다. |
-| `Type` | 예 | 오케스트레이션 단계의 유형입니다. 가능한 값은 다음과 같습니다. <ul><li>**ClaimsProviderSelection** - 오케스트레이션 단계에서 사용자가 하나를 선택할 수 있도록 여러 클레임 공급자가 표시됨을 나타냅니다.</li><li>**CombinedSignInAndSignUp** - 오케스트레이션 단계에서 소셜 공급자 로그인 및 로컬 계정 등록 페이지가 결합된 형태로 표시됨을 나타냅니다.</li><li>**ClaimsExchange** - 오케스트레이션 단계에서 클레임 공급자와 클레임을 교환함을 나타냅니다.</li><li>**Getclaims** -오케스트레이션 단계가 `InputClaims` 구성을 통해 신뢰 당사자 로부터 Azure AD B2C으로 전송 된 클레임 데이터를 처리 하도록 지정 합니다.</li><li>**SendClaims** - 오케스트레이션 단계에서 클레임 발급자가 발급한 토큰과 함께 클레임을 신뢰 당사자에게 전송함을 나타냅니다.</li></ul> |
-| ContentDefinitionReferenceId | 아니요 | 이 오케스트레이션 단계와 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. 일반적으로 콘텐츠 정의 참조 식별자는 자체 어설션된 기술 프로필에서 정의됩니다. 그러나 Azure AD B2C가 기술 프로필을 사용하지 않고 콘텐츠를 표시해야 하는 경우도 있습니다. 두 가지 예가 있습니다. `ClaimsProviderSelection` 오케스트레이션 단계의 형식이 다음 중 하나 이면이 고, 그렇지 `CombinedSignInAndSignUp`않으면 기술 프로필을 사용 하지 않고 id 공급자를 선택 해야 Azure AD B2C. |
+| `Type` | 예 | 오케스트레이션 단계의 유형입니다. 가능한 값은 다음과 같습니다. <ul><li>**ClaimsProviderSelection** - 오케스트레이션 단계에서 사용자가 하나를 선택할 수 있도록 여러 클레임 공급자가 표시됨을 나타냅니다.</li><li>**CombinedSignInAndSignUp** - 오케스트레이션 단계에서 소셜 공급자 로그인 및 로컬 계정 등록 페이지가 결합된 형태로 표시됨을 나타냅니다.</li><li>**ClaimsExchange** - 오케스트레이션 단계에서 클레임 공급자와 클레임을 교환함을 나타냅니다.</li><li>**Getclaims** -오케스트레이션 단계가 구성을 통해 신뢰 당사자 로부터 Azure AD B2C으로 전송 된 클레임 데이터를 처리 하도록 지정 합니다 `InputClaims` .</li><li>**SendClaims** - 오케스트레이션 단계에서 클레임 발급자가 발급한 토큰과 함께 클레임을 신뢰 당사자에게 전송함을 나타냅니다.</li></ul> |
+| ContentDefinitionReferenceId | 아니요 | 이 오케스트레이션 단계와 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. 일반적으로 콘텐츠 정의 참조 식별자는 자체 어설션된 기술 프로필에서 정의됩니다. 그러나 Azure AD B2C가 기술 프로필을 사용하지 않고 콘텐츠를 표시해야 하는 경우도 있습니다. 두 가지 예가 있습니다. 오케스트레이션 단계의 형식이 다음 중 하나 이면이 고 `ClaimsProviderSelection` , 그렇지 않으면 `CombinedSignInAndSignUp` 기술 프로필을 사용 하지 않고 id 공급자를 선택 해야 Azure AD B2C. |
 | CpimIssuerTechnicalProfileReferenceId | 아니요 | 오케스트레이션 단계의 유형이 `SendClaims`입니다. 이 속성은 신뢰 당사자용 토큰을 발급하는 클레임 공급자의 기술 프로필 식별자를 정의합니다.  해당 식별자가 없으면 신뢰 당사자 토큰이 생성되지 않습니다. |
 
 
@@ -90,7 +90,7 @@ ms.locfileid: "82559606"
 
 **사전 조건** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 이 전제 조건에 대해 수행할 확인이나 쿼리의 유형입니다. 값은 **ClaimsExist**(지정한 클레임이 사용자의 현재 클레임 집합에 있으면 작업을 수행해야 함을 지정함) 또는 **ClaimEquals**(지정한 클레임이 있으며 해당 값이 지정된 값과 같으면 작업을 수행해야 함을 지정함)일 수 있습니다. |
 | `ExecuteActionsIf` | 예 | true 또는 false 테스트를 사용하여 전제 조건의 작업을 수행해야 하는지를 결정합니다. |
@@ -106,7 +106,7 @@ ms.locfileid: "82559606"
 
 다음 Preconditions는 사용자의 objectId가 있는지를 확인합니다. 사용자 경험에서 사용자는 로컬 계정을 사용하여 로그인하도록 선택했습니다. objectId가 있으면 이 오케스트레이션 단계를 건너뜁니다.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -123,7 +123,7 @@ ms.locfileid: "82559606"
 
 다음 Preconditions는 사용자가 소셜 계정을 사용하여 로그인했는지를 확인합니다. 이를 위해 디렉터리에서 사용자 계정 찾기를 시도합니다. 사용자가 로그인 하거나 로컬 계정으로 등록 하는 경우이 오케스트레이션 단계를 건너뜁니다.
 
-```XML
+```xml
 <OrchestrationStep Order="3" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
@@ -140,7 +140,7 @@ ms.locfileid: "82559606"
 
 Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예제에서는 'objectId' 또는 'email'이 있는지 여부를 확인합니다. 첫 번째 조건이 true 이면 여행에서 다음 오케스트레이션 단계로 건너뜁니다.
 
-```XML
+```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
   <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -170,13 +170,13 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 **ClaimsProviderSelections** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| DisplayOption| 아니요 | 단일 클레임 공급자를 선택할 수 있는 사례의 동작을 제어 합니다. 가능한 값: `DoNotShowSingleProvider` (기본값) 사용자가 페더레이션 id 공급자로 즉시 리디렉션됩니다. 또는 `ShowSingleProvider` Azure AD B2C 단일 id 공급자를 선택 하 여 로그인 페이지를 표시 합니다. 이 특성을 사용 하려면 [콘텐츠 정의 버전이](page-layout.md) 이상 이어야 `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` 합니다.|
+| DisplayOption| 아니요 | 단일 클레임 공급자를 선택할 수 있는 사례의 동작을 제어 합니다. 가능한 값:  `DoNotShowSingleProvider`   (기본값) 사용자가 페더레이션 id 공급자로 즉시 리디렉션됩니다. 또는  `ShowSingleProvider`   Azure AD B2C 단일 id 공급자를 선택 하 여 로그인 페이지를 표시 합니다. 이 특성을 사용 하려면 [콘텐츠 정의 버전이](page-layout.md) 이상 이어야 합니다  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` .|
 
 **ClaimsProviderSelection** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | TargetClaimsExchangeId | 아니요 | 클레임 공급자 선택 항목의 다음 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 ValidationClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
 | ValidationClaimsExchangeId | 아니요 | 클레임 공급자 선택 항목의 유효성을 검사하기 위해 현재 오케스트레이션 단계에서 실행되는 클레임 교환의 식별자입니다. 이 특성 또는 TargetClaimsExchangeId 특성 중 하나만 지정해야 하며 둘 다 지정해서는 안 됩니다. |
@@ -185,7 +185,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 다음 오케스트레이션 단계에서 사용자는 Facebook, LinkedIn, Twitter, Google 또는 로컬 계정을 사용 하 여 로그인 하도록 선택할 수 있습니다. 사용자가 소셜 ID 공급자 중 하나를 선택하면 `TargetClaimsExchangeId` 특성에 지정된 선택한 클레임 교환을 사용하여 두 번째 오케스트레이션 단계가 실행됩니다. 두 번째 오케스트레이션 단계에서는 로그인 프로세스를 완료할 수 있도록 사용자를 소셜 ID 공급자로 리디렉션합니다. 사용자가 로컬 계정을 사용하여 로그인하도록 선택하는 경우 Azure AD B2C는 같은 오케스트레이션 단계(같은 등록 또는 로그인 페이지)로 유지되며 두 번째 오케스트레이션 단계는 건너뜁니다.
 
-```XML
+```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
     <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
@@ -228,7 +228,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 **ClaimsExchange** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 클레임 교환 단계의 식별자입니다. 식별자는 정책의 클레임 공급자 선택 단계에서 클레임 교환을 참조하는 데 사용됩니다. |
 | TechnicalProfileReferenceId | 예 | 실행할 기술 프로필의 식별자입니다. |

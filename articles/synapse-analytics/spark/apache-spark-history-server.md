@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4f03033942517f4778192e0b12f84610df8fd469
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429214"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194997"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장 Apache Spark 기록 서버를 사용 하 여 Apache Spark 응용 프로그램 디버그 및 진단
 
@@ -106,7 +106,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 ![Spark 응용 프로그램 및 작업 그래프 작업 ID](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-### <a name="display"></a>디스플레이
+### <a name="display"></a>표시
 
 기본적으로 **진행률** 표시가 선택 되어 있습니다. **표시** 드롭다운 목록에서 **읽기** 또는 **쓰기** 를 선택 하 여 데이터 흐름을 확인할 수 있습니다.
 
@@ -123,7 +123,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 |색상|의미|
 |-|-|
 |녹색|성공: 작업이 성공적으로 완료 되었습니다.|
-|주황색|다시 시도 됨: 실패 한 작업의 인스턴스는 작업의 최종 결과에 영향을 주지 않습니다. 해당 작업에는 중복 또는 다시 시도 인스턴스가 있었으며, 나중에 성공할 수 있습니다.|
+|Orange|다시 시도 됨: 실패 한 작업의 인스턴스는 작업의 최종 결과에 영향을 주지 않습니다. 해당 작업에는 중복 또는 다시 시도 인스턴스가 있었으며, 나중에 성공할 수 있습니다.|
 |파랑|실행 중: 태스크가 실행 되 고 있습니다.|
 |흰색|대기 중이거나 건너뜀: 태스크가 실행 되기를 기다리고 있거나 단계를 건너뛰었습니다.|
 |빨강|실패: 태스크가 실패 했습니다.|
@@ -157,7 +157,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 작업 그래프 탭에서 단계에는 다음 조건을 충족 하는 작업이 있는 경우 도구 설명 및 작은 아이콘이 표시 됩니다.
 
-|조건|Description|
+|조건|설명|
 |-|-|
 |데이터 기울이기|데이터 읽기 크기 >이 단계 내의 모든 태스크에 대 한 평균 데이터 읽기 크기 * 2 및 데이터 읽기 크기 > 10mb|
 |시간차|실행 시간 >이 단계 내 모든 작업의 평균 실행 시간 * 2 및 실행 시간 > 2 분|
@@ -214,7 +214,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 **시간 기울이기** 탭에는 작업 실행 시간을 기준으로 기울어진 작업이 표시됩니다.
 
-* **매개 변수 지정** -첫 번째 섹션에는 시간 오차를 검색 하는 데 사용 되는 매개 변수가 표시 됩니다. 시간 기울이기를 검색하는 기본 기준은 작업 실행 시간이 평균 실행 시간의 3배보다 크고 작업 실행 시간이 30초를 초과하는 것입니다. 필요에 따라 매개 변수를 변경할 수 있습니다. **기울어진 작업** 및 **기울이기 차트**에는 위의 **데이터 기울이기** 탭과 마찬가지로 해당 단계 및 작업 정보가 표시됩니다.
+* **매개 변수 지정** - 첫 번째 섹션에는 시간 기울이기를 검색하는 데 사용되는 매개 변수가 표시됩니다. 시간 기울이기를 검색하는 기본 기준은 작업 실행 시간이 평균 실행 시간의 3배보다 크고 작업 실행 시간이 30초를 초과하는 것입니다. 필요에 따라 매개 변수를 변경할 수 있습니다. **기울어진 작업** 및 **기울이기 차트**에는 위의 **데이터 기울이기** 탭과 마찬가지로 해당 단계 및 작업 정보가 표시됩니다.
 
 * **시간 오차**를 선택 하 고 필터링 된 결과는 **매개 변수 지정**섹션에 설정 된 매개 변수에 따라 **기울어진 단계** 섹션에 표시 됩니다. **기울어진 단계** 섹션에서 한 항목을 선택 하 고 해당 차트가 section3에서 초안을 만든 다음 오른쪽 아래 패널에 작업 세부 정보가 표시 됩니다.
 

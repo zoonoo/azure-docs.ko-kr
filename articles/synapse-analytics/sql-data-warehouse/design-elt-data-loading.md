@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201161"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Synapse SQL 풀에 대한 데이터 로드 전략
 
@@ -46,15 +46,13 @@ ELT를 구현하는 기본 단계는 다음과 같습니다.
 5. 데이터를 변환합니다.
 6. 프로덕션 테이블에 데이터를 삽입합니다.
 
-PolyBase 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
-
-자세한 정보는 [로드 패턴 블로그](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)를 참조하세요.
+로드 자습서는 [Azure blob storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조 하세요.
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. 텍스트 파일에 원본 데이터 추출
 
-원본 시스템에서 데이터를 추출하는 방식은 스토리지 위치에 따라 달라집니다.  목표는 PolyBase 및 COPY가 지원되는 구분된 텍스트 또는 CSV 파일로 데이터를 이동하는 것입니다.
+원본 시스템에서 데이터를 추출하는 방식은 스토리지 위치에 따라 달라집니다. 데이터를 지원 되는 구분 된 텍스트 또는 CSV 파일로 이동 하는 것이 목표입니다.
 
-### <a name="polybase-and-copy-external-file-formats"></a>PolyBase 및 COPY 외부 파일 형식
+### <a name="supported-file-formats"></a>지원되는 파일 형식
 
 PolyBase 및 COPY 문을 사용하면 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 또는 CSV 파일에서 데이터를 로드할 수 있습니다. 구분된 텍스트 또는 CSV 파일 외에도 ORC, Parquet과 같은 Hadoop 파일 형식에서도 데이터를 로드하며, 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드합니다.
 
@@ -74,11 +72,11 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 데이터를 로드하기 전에 스토리지 계정에서 데이터를 준비하고 정리해야 할 수 있습니다. 데이터가 원본에 있는 동안, 데이터를 텍스트 파일로 내보낼 때 또는 Azure Storage로 이동한 후 데이터 준비를 수행할 수 있습니다.  가능한 경우 프로세스의 초기에 데이터로 작업하는 것이 가장 쉽습니다.  
 
-### <a name="define-external-tables"></a>외부 테이블 정의
+### <a name="define-the-tables"></a>테이블 정의
 
-PolyBase를 사용하는 경우 데이터를 로드하려면 먼저 SQL 풀에서 외부 테이블을 정의해야 합니다. COPY 문을 사용하는 경우에는 외부 테이블이 필요하지 않습니다. PolyBase는 외부 테이블을 사용하여 Azure Storage의 데이터를 정의하고 액세스합니다.
+COPY 문을 사용할 때 먼저 SQL 풀에서 로드 하는 테이블을 정의 해야 합니다.
 
-데이터베이스 뷰와 비슷한 외부 테이블은 테이블 스키마를 포함하며 SQL 풀 외부에 저장된 데이터를 가리킵니다.
+PolyBase를 사용하는 경우 데이터를 로드하려면 먼저 SQL 풀에서 외부 테이블을 정의해야 합니다. PolyBase는 외부 테이블을 사용하여 Azure Storage의 데이터를 정의하고 액세스합니다. 데이터베이스 뷰와 비슷한 외부 테이블은 테이블 스키마를 포함하며 SQL 풀 외부에 저장된 데이터를 가리킵니다.
 
 외부 테이블 정의에는 데이터 원본, 텍스트 파일 형식 및 테이블 정의를 지정하는 것이 포함됩니다. 다음은 필요한 T-SQL 구문 참조 아티클입니다.
 
@@ -86,7 +84,7 @@ PolyBase를 사용하는 경우 데이터를 로드하려면 먼저 SQL 풀에�
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-Parquet를 로드하는 경우 SQL 데이터 형식 매핑은 다음과 같습니다.
+Parquet 파일을 로드할 때 다음 SQL 데이터 형식 매핑을 사용 합니다.
 
 |                         Parquet 형식                         |   Parquet 논리 형식(주석)   |  SQL 데이터 형식   |
 | :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
@@ -126,7 +124,7 @@ Parquet를 로드하는 경우 SQL 데이터 형식 매핑은 다음과 같습�
 
 
 
-외부 개체를 만드는 예는 로드 자습서의 [외부 테이블 만들기](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) 단계를 참조하세요.
+외부 개체를 만드는 예제는 [외부 테이블 만들기](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool)를 참조 하세요.
 
 ### <a name="format-text-files"></a>텍스트 파일 형식 지정
 
@@ -139,17 +137,16 @@ PolyBase를 사용하는 경우 정의된 외부 개체는 텍스트 파일의 �
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. PolyBase 또는 COPY 문을 사용하여 데이터 로드
 
-데이터는 준비 테이블로 로드하는 것이 가장 좋습니다. 준비 테이블을 사용하면 프로덕션 테이블에 영향을 주지 않고 오류를 처리할 수 있습니다. 준비 테이블에서는 데이터를 프로덕션 테이블에 삽입하기 전에 SQL 풀 MPP를 사용하여 데이터를 변환할 수도 있습니다.
+데이터는 준비 테이블로 로드하는 것이 가장 좋습니다. 준비 테이블을 사용하면 프로덕션 테이블에 영향을 주지 않고 오류를 처리할 수 있습니다. 또한 준비 테이블을 사용 하면 데이터를 프로덕션 테이블에 삽입 하기 전에 데이터 변환을 위해 SQL 풀 병렬 처리 아키텍처를 사용할 수 있습니다.
 
-COPY를 사용하여 준비 테이블에 로드할 때는 테이블을 미리 만들어야 합니다.
+### <a name="options-for-loading"></a>로드 옵션
 
-### <a name="options-for-loading-with-polybase-and-copy-statement"></a>PolyBase 및 COPY 문을 사용한 로드 옵션
+데이터를 로드 하려면 다음 로드 옵션 중 하나를 사용할 수 있습니다.
 
-PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵션 중 하나를 사용할 수 있습니다.
-
-- [T-SQL을 이용한 PolyBase](load-data-from-azure-blob-storage-using-polybase.md): Azure Blob Storage 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다.
-- [SSIS를 이용한 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest): 원본 데이터가 SQL Server(SQL Server 온-프레미스 또는 클라우드)에 있을 경우 효과적입니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
+- [COPY 문은](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 데이터를 원활 하 고 유연 하 게 로드할 수 있도록 권장 되는 로드 유틸리티입니다. 이 문에는 PolyBase에서 제공 하지 않는 많은 추가 로드 기능이 있습니다. 
+- [T-sql을 사용 하는 PolyBase](load-data-from-azure-blob-storage-using-polybase.md) 를 사용 하려면 외부 데이터 개체를 정의 해야 합니다.
 - [ADF(Azure Data Factory)를 이용한 PolyBase 및 COPY 문](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)은 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
+- [SSIS를 사용 하는 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 는 원본 데이터가 SQL Server 때 잘 작동 합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
 - [PolyBase와 Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)는 PolyBase를 사용하여 테이블에서 Databricks 데이터 프레임으로 데이터를 전송하거나 Databricks 데이터 프레임에서 테이블로 데이터를 씁니다.
 
 ### <a name="other-loading-options"></a>기타 로드 옵션

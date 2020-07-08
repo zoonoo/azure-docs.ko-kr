@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201636"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Synapse SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
 
@@ -28,8 +28,6 @@ ms.locfileid: "80745501"
 
 ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으면 Java 메모리 부족 오류가 발생할 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
 
-PolyBase는 100만 바이트 이상의 데이터를 포함 하는 행을 로드할 수 없습니다. Azure Blob Storage 또는 Azure Data Lake Store의 텍스트 파일에 데이터를 배치한 경우 데이터가 1,000,000바이트 미만이어야 합니다. 바이트 제한은 테이블 스키마에 관계없이 true입니다.
-
 모든 파일 형식에는 서로 다른 성능 특성이 있습니다. 가장 빠르게 로드하려면 압축 구분 텍스트 파일을 사용합니다. UTF-8과 UTF-16의 성능 차이는 미미합니다.
 
 대규모 압축 파일은 더 작은 크기의 압축 파일로 분할합니다.
@@ -38,38 +36,47 @@ PolyBase는 100만 바이트 이상의 데이터를 포함 하는 행을 로드�
 
 로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 가능 하지 않은 경우 최소 개수의 로드를 동시에 실행 합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 SQL 풀을 확장 하는 것이 좋습니다.
 
-적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 리소스 클래스 또는 작업 그룹에 할당 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  
-
-> [!NOTE]
-> 이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
+적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 작업 그룹으로 분류 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 작업 그룹을 사용 하 여 로드를 실행 합니다.  
 
 ### <a name="example-of-creating-a-loading-user"></a>로드 사용자를 만드는 예제
 
-이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결**하고 로그인을 만드는 것입니다.
+이 예에서는 특정 작업 그룹으로 분류 된 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결**하고 로그인을 만드는 것입니다.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. LoaderRC20 라는 사용자를 만들고 데이터베이스에 대 한 사용자 제어 권한을 부여 하는 방법을 보여 줍니다. 그런 다음 사용자를 staticrc20 데이터베이스 역할의 멤버로 추가 합니다.  
+SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. 로더 라는 사용자를 만드는 방법을 보여 주고 [COPY 문을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)사용 하 여 테이블을 만들고 로드 하는 사용자 권한을 부여 합니다. 그런 다음 사용자를 최대 리소스를 사용 하는 DataLoads 작업 그룹으로 분류 합니다. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+      MIN_PERCENTAGE_RESOURCE = 100
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+    );
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+         WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 실행 하려면 LoaderRC20로 로그인 하 고 부하를 실행 합니다.
+로드 작업 그룹에 대 한 리소스를 사용 하 여 부하를 실행 하려면 로더에 로그인 하 고 부하를 실행 합니다.
 
-동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다.
+## <a name="allowing-multiple-users-to-load-polybase"></a>여러 사용자가 로드 하도록 허용 (PolyBase)
 
-동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
-
-## <a name="allowing-multiple-users-to-load"></a>여러 사용자가 로드하도록 허용
-
-여러 사용자가 SQL 풀에 데이터를 로드 해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 로드하려면 데이터베이스에 대한 CONTROL 권한이 필요합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다.
+여러 사용자가 SQL 풀에 데이터를 로드 해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase)를 사용 하 여 로드 하려면 데이터베이스에 대 한 CONTROL 권한이 필요 합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다.
 
 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
 
@@ -104,7 +111,7 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SqLBulkCopy API 또는 bcp를 사용 하는 경우 일괄 처리 크기 늘리기
 
-PolyBase를 사용 하 여 로드 하면 SQL 풀에서 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 [SQLBULKCOPY API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용 해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다.
+COPY 문으로 로드 하면 SQL 풀에서 가장 높은 처리량이 제공 됩니다. 이 복사본을 사용 하 여 로드할 수 없고 [SQLBULKCOPY API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용 해야 하는 경우 처리량을 높이기 위해 일괄 처리 크기를 늘려야 합니다.
 
 > [!TIP]
 > 최적의 일괄 처리 크기를 결정 하기 위한 권장 기준은 100 K ~ 1M 행 사이의 일괄 처리 크기입니다.
@@ -142,7 +149,7 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="rotate-storage-keys"></a>스토리지 키 회전
+## <a name="rotate-storage-keys-polybase"></a>저장소 키 회전 (PolyBase)
 
 정기적으로 Blob Storage 액세스 키를 변경하는 것은 좋은 보안 방법입니다. Blob Storage 계정에 두 개의 스토리지 키가 있으므로 키 전환이 가능합니다.
 
@@ -150,7 +157,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행합니다.
 
-예제:
+예:
 
 원래 키를 만드는 경우
 
@@ -168,6 +175,6 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 ## <a name="next-steps"></a>다음 단계
 
-- PolyBase 및 ELT(추출, 로드 및 변환) 프로세스를 디자인하는 방법을 자세히 알아보려면 [SQL Data Warehouse에 대한 ELT 디자인](design-elt-data-loading.md)을 참조하세요.
-- 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
+- ELT (추출, 로드 및 변환) 프로세스를 설계할 때 복사 문이나 PolyBase에 대해 자세히 알아보려면 [SQL Data Warehouse에 대 한 Elt 디자인](design-elt-data-loading.md)을 참조 하세요.
+- 로드 자습서의 경우 [COPY 문을 사용 하 여 Azure blob storage에서 SYNAPSE SQL로 데이터를 로드](load-data-from-azure-blob-storage-using-polybase.md)합니다.
 - 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](sql-data-warehouse-manage-monitor.md)을 참조하세요.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207127"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한
 
@@ -30,7 +30,7 @@ Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>포털에서 액세스 제한 규칙 추가 및 편집 ##
 
-앱에 액세스 제한 규칙을 추가 하려면 메뉴를 사용 하 여 **네트워크**>**액세스 제한을** 열고 **액세스 제한 구성** 을 클릭 합니다.
+앱에 액세스 제한 규칙을 추가 하려면 메뉴를 사용 하 여 **네트워크** > **액세스 제한을** 열고 **액세스 제한 구성** 을 클릭 합니다.
 
 ![App Service 네트워킹 옵션](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -59,6 +59,10 @@ IP 주소 기반 규칙을 설정 하려면 IPv4 또는 IPv6 유형을 선택 �
 서비스 끝점은 App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한 하는 데 사용할 수 없습니다. 앱이 App Service Environment에 있는 경우 IP 액세스 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다. 
 
 서비스 끝점을 사용 하면 응용 프로그램 게이트웨이 또는 기타 WAF 장치를 사용 하 여 앱을 구성할 수 있습니다. 또한 보안 백 엔드를 사용 하 여 다중 계층 응용 프로그램을 구성할 수 있습니다. 일부 가능성에 대 한 자세한 내용은 [네트워킹 기능 및 App Service](networking-features.md) 와 [서비스 끝점과의 통합 Application Gateway](networking/app-gateway-with-service-endpoints.md)을 참조 하세요.
+
+> [!NOTE]
+> 현재 서비스 끝점은 IP SSL VIP (가상 IP)를 사용 하는 웹 앱에 대해 지원 되지 않습니다. 
+>
 
 ## <a name="managing-access-restriction-rules"></a>액세스 제한 규칙 관리
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78397808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201364"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -23,7 +23,7 @@ ms.locfileid: "78397808"
 
 **ClaimsSchema** 요소는 정책의 일부로 참조할 수 있는 클레임 형식을 정의합니다. 클레임 스키마에서 클레임을 선언합니다. 클레임은 이름, 성, 표시 이름, 전화 번호 등일 수 있습니다. ClaimsSchema 요소에는 **ClaimType** 요소 목록이 포함됩니다. **ClaimType** 요소에는 **Id** 특성(클레임 이름)이 포함됩니다.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="Id">
@@ -42,13 +42,13 @@ ms.locfileid: "78397808"
 
 **ClaimType** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | Description |
 | --------- | -------- | ----------- |
 | Id | 예 | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **ClaimType** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | 다양한 화면에서 사용자에게 표시되는 제목입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | DataType | 1:1 | 클레임의 형식입니다. |
@@ -66,12 +66,12 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **DataType** 요소는 다음 값을 지원 합니다.
 
-| 유형 | 설명 |
+| 형식 | 설명 |
 | ------- | ----------- |
 |boolean|부울(`true` 또는 `false`) 값을 나타냅니다.|
 |date| 일반적으로 날짜로 표시 되는 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
-|dateTime|일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
-|duration|년, 월, 일, 시, 분, 초의 시간 간격을 나타냅니다. 의 형식은입니다 `PnYnMnDTnHnMnS`. 여기서 `P` 는 양수 또는 `N` 음수 값을 나타냅니다. `nY`리터럴 `Y`뒤에 오는 연도 수입니다. `nMo`뒤에 리터럴이 `Mo`오는 월 수입니다. `nD`뒤에 리터럴이 `D`있는 일 수입니다. 예: `P21Y` 21 년을 나타냅니다. `P1Y2Mo`1 년 및 2 개월을 나타냅니다. `P1Y2Mo5D`1 년, 2 개월 및 5 일을 나타냅니다.  `P1Y2M5DT8H5M620S`1 년, 2 개월, 5 일, 8 시간, 5 분, 20 초를 나타냅니다.  |
+|dateTime|일반적으로 날짜와 시간으로 표현된 시간의 한 순간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
+|duration|년, 월, 일, 시, 분, 초의 시간 간격을 나타냅니다. 의 형식은입니다 `PnYnMnDTnHnMnS` . 여기서는 `P` 양수 또는 `N` 음수 값을 나타냅니다. `nY`리터럴 뒤에 오는 연도 수입니다 `Y` . `nMo`뒤에 리터럴이 오는 월 수입니다 `Mo` . `nD`뒤에 리터럴이 있는 일 수입니다 `D` . 예: `P21Y` 21 년을 나타냅니다. `P1Y2Mo`1 년 및 2 개월을 나타냅니다. `P1Y2Mo5D`1 년, 2 개월 및 5 일을 나타냅니다.  `P1Y2M5DT8H5M620S`1 년, 2 개월, 5 일, 8 시간, 5 분, 20 초를 나타냅니다.  |
 |phoneNumber|전화 번호를 나타냅니다. |
 |int| -2147483648과 2147483647 사이의 숫자를 나타냅니다.|
 |long| -9223372036854775808에서 9223372036854775807 사이의 숫자를 나타냅니다. |
@@ -90,14 +90,14 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| 속성 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다. OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다. OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
 
 다음 예제에서는 ID 경험 프레임워크가 SAML2 ID 공급자 또는 신뢰 당사자 애플리케이션과 상호 작용할 때 **surname** 클레임이 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`에 매핑되며 OpenIdConnect 및 OAuth2와 상호 작용할 때는 `family_name`에 매핑됩니다.
 
-```XML
+```xml
 <ClaimType Id="surname">
   <DisplayName>Surname</DisplayName>
   <DataType>string</DataType>
@@ -111,7 +111,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 그러므로 Azure AD B2C에서 발급하는 JWT 토큰에서는 ClaimType 이름 **surname** 대신 `family_name`이 생략됩니다.
 
-```JSON
+```json
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   "auth_time": 1535013501,
@@ -125,14 +125,14 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Mask** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
-| `Regex` | 아니요 | 가 **`Type`** 로 `Regex`설정 된 경우 사용할 정규식을 지정 합니다.
+| `Regex` | 아니요 | **`Type`** 가로 설정 된 경우 `Regex` 사용할 정규식을 지정 합니다.
 
 다음 예제에서는 `Simple` 마스크를 사용하여 **PhoneNumber** 클레임을 구성합니다.
 
-```XML
+```xml
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
@@ -147,7 +147,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 다음 예제에서는 `Regex` 마스크를 사용하여 **AlternateEmail** 클레임을 구성합니다.
 
-```XML
+```xml
 <ClaimType Id="AlternateEmail">
   <DisplayName>Please verify the secondary email linked to your account</DisplayName>
   <DataType>string</DataType>
@@ -165,32 +165,32 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Restriction** 요소는 다음 특성을 포함할 수 있습니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | MergeBehavior | 아니요 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
 
 **Restriction** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 열거형 | 1:n | 사용자가 클레임을 선택하는 데 사용할 수 있는 사용자 인터페이스의 옵션(예: 드롭다운의 값)입니다. |
-| 패턴 | 1:1 | 사용할 정규식입니다. |
+| 무늬 | 1:1 | 사용할 정규식입니다. |
 
 #### <a name="enumeration"></a>열거형
 
-**열거형** 요소는 사용자가 `CheckboxMultiSelect`, `DropdownSingleSelect`또는 `RadioSingleSelect`의 값과 같은 사용자 인터페이스에서 클레임에 대해 선택할 수 있는 옵션을 정의 합니다. 또는 [LocalizedCollections](localization.md#localizedcollections) 요소를 사용 하 여 사용 가능한 옵션을 정의 하 고 지역화할 수 있습니다. 클레임 **열거** 컬렉션에서 항목을 조회 하려면 [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) 클레임 변환을 사용 합니다.
+**열거형** 요소는 사용자가, 또는의 값과 같은 사용자 인터페이스에서 클레임에 대해 선택할 수 있는 옵션을 정의 합니다 `CheckboxMultiSelect` `DropdownSingleSelect` `RadioSingleSelect` . 또는 [LocalizedCollections](localization.md#localizedcollections) 요소를 사용 하 여 사용 가능한 옵션을 정의 하 고 지역화할 수 있습니다. 클레임 **열거** 컬렉션에서 항목을 조회 하려면 [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) 클레임 변환을 사용 합니다.
 
 **Enumeration** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| Text | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
+| 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
 |값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
 | SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
 
 다음 예제에서는 기본값을 `New York`으로 설정하여 **city** 드롭다운 목록 클레임을 구성합니다.
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
   <DataType>string</DataType>
@@ -207,18 +207,18 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 ![드롭다운 컨트롤이 브라우저에서 렌더링 되었으며 기본값을 표시 합니다.](./media/claimsschema/dropdownsingleselect.png)
 
-### <a name="pattern"></a>패턴
+### <a name="pattern"></a>무늬
 
 **Pattern** 요소는 다음 특성을 포함할 수 있습니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | RegularExpression | 예 | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
 | HelpText | 아니요 | 정규식 검사가 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
 
 다음 예제에서는 정규식 입력 유효성 검사 및 도움말 텍스트를 사용하여 **email** 클레임을 구성합니다.
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -243,7 +243,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 **Userinputtype** 요소 사용 가능한 사용자 입력 형식:
 
-| UserInputType | 지원 되는 ClaimType | Description |
+| UserInputType | 지원 되는 ClaimType | 설명 |
 | --------- | -------- | ----------- |
 |CheckboxMultiSelect| `string` |다중 선택 드롭다운 상자입니다. 클레임 값은 선택한 값의 쉼표 구분 기호 문자열로 표시 됩니다. |
 |DateTimeDropdown | `date`, `dateTime` |일, 월 및 연도를 선택 하는 드롭다운입니다. |
@@ -262,7 +262,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![클레임 유형에 지정 된 속성을 표시 하는 입력란](./media/claimsschema/textbox.png)
 
-```XML
+```xml
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
@@ -277,7 +277,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![클레임 유형에 지정 된 속성을 표시 하는 EmailBox](./media/claimsschema/emailbox.png)
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -295,7 +295,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![password가 포함된 클레임 형식 사용](./media/claimsschema/password.png)
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -310,7 +310,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![datetimedropdown이 포함된 클레임 형식 사용](./media/claimsschema/datetimedropdown.png)
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
@@ -325,7 +325,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![radiodsingleselect가 포함된 클레임 형식 사용](./media/claimsschema/radiosingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="color">
   <DisplayName>Preferred color</DisplayName>
   <DataType>string</DataType>
@@ -344,7 +344,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![dropdownsingleselect가 포함된 클레임 형식 사용](./media/claimsschema/dropdownsingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
@@ -363,7 +363,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![checkboxmultiselect가 포함된 클레임 형식 사용](./media/claimsschema/checkboxmultiselect.png)
 
-```XML
+```xml
 <ClaimType Id="languages">
   <DisplayName>Languages you speak</DisplayName>
   <DataType>string</DataType>
@@ -382,7 +382,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ![readonly가 포함된 클레임 형식 사용](./media/claimsschema/readonly.png)
 
-```XML
+```xml
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
   <DataType>string</DataType>
@@ -394,11 +394,11 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 #### <a name="paragraph"></a>Paragraph
 
-**Paragraph** 사용자 입력 유형은 단락 태그에 텍스트만 표시하는 필드를 제공하는 데 사용됩니다.  예를 들어 &lt;p&gt;text&lt;/p&gt;를 사용할 수 있습니다. 자체 **Paragraph** 어설션된 기술 프로필의 `OutputClaim` 단락 사용자 입력 형식에는 `Required` 특성 `false` 을 설정 해야 합니다 (기본값).
+**Paragraph** 사용자 입력 유형은 단락 태그에 텍스트만 표시하는 필드를 제공하는 데 사용됩니다.  예를 들어 &lt;p&gt;text&lt;/p&gt;를 사용할 수 있습니다. 자체 어설션된 기술 프로필의 **단락** 사용자 입력 형식에는 `OutputClaim` 특성을 설정 해야 `Required` 합니다 `false` (기본값).
 
 ![paragraph가 포함된 클레임 형식 사용](./media/claimsschema/paragraph.png)
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194006"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -149,19 +149,19 @@ MS 피어 링 수준 정보를 보려면 로그 검색에서 아래 설명 된 �
 
     NetworkMonitoring 
      | where SubType == "ERMSPeeringUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
     
 개인 피어 링 수준 정보를 보려면 로그 검색에서 아래에 설명 된 쿼리를 사용 하십시오.
 
     NetworkMonitoring 
      | where SubType == "ERVNetConnectionUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
   
 회로 수준 정보를 보려면 로그 검색에서 아래에서 언급 한 쿼리를 사용 하십시오.
 
     NetworkMonitoring 
         | where SubType == "ERCircuitTotalUtilization"
-        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | project CircuitName, BitsInPerSecond, BitsOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM의 성능 모니터에 대해 지원되는 하위 지역은 어느 지역인가요?
 NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
@@ -213,7 +213,7 @@ HopLatencyValues은 끝점에 대 한 소스입니다.
 * 중간 네트워크 방화벽 또는 Azure NSG가 필요한 포트에서 통신을 차단하지 않는지 확인하려면 아래 지침을 통해 제3자 PsPing 유틸리티를 사용합니다.
   * PsPing 유틸리티는 [여기](https://technet.microsoft.com/sysinternals/psping.aspx)에서 다운로드할 수 있습니다. 
   * 원본 노드에서 다음 명령을 실행합니다.
-    * psping -n 15 \<대상 노드 IP 주소\>:포트 번호. 기본적으로 NPM은 8084 포트를 사용합니다. EnableRules.ps1 스크립트를 사용하여 이 명령을 명시적으로 변경한 경우 사용하는 사용자 지정 포트 번호를 입력합니다. 이는 Azure 머신에서 온-프레미스로의 ping입니다.
+    * psping-n 15 \<destination node IPAddress\> :P ORTNUMBER NPM는 기본적으로 8084 포트를 사용 합니다. EnableRules.ps1 스크립트를 사용하여 이 명령을 명시적으로 변경한 경우 사용하는 사용자 지정 포트 번호를 입력합니다. 이는 Azure 머신에서 온-프레미스로의 ping입니다.
 * ping이 성공적인지 확인합니다. 그렇지 않은 경우 중간 네트워크 방화벽 또는 Azure NSG가 이 포트에서 트래픽을 차단함을 나타냅니다.
 * 이제 대상 노드에서 원본 노드 IP로 명령을 실행합니다.
 
@@ -222,9 +222,9 @@ HopLatencyValues은 끝점에 대 한 소스입니다.
 A에서 B로의 네트워크 경로는 B에서 A로의 네트워크 경로와 다를 수 있으므로 손실 및 대기 시간에 대해 서로 다른 값이 관찰될 수 있습니다.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>나의 ExpressRoute 회로 및 피어링 연결 중 일부가 검색되지 않는 이유는 무엇인가요?
-NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRoute 회로와 피어링 연결을 검색합니다. Express Route 리소스가 연결된 모든 구독을 선택하고 검색된 각 리소스에 대한 모니터링을 사용하도록 설정합니다. 프라이빗 피어링을 검색하는 경우 NPM에서 연결 개체를 찾으므로 VNET이 피어링과 연결되어 있는지 확인합니다.
+NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRoute 회로와 피어링 연결을 검색합니다. Express Route 리소스가 연결된 모든 구독을 선택하고 검색된 각 리소스에 대한 모니터링을 사용하도록 설정합니다. 프라이빗 피어링을 검색하는 경우 NPM에서 연결 개체를 찾으므로 VNET이 피어링과 연결되어 있는지 확인합니다. NPM는 Log Analytics 작업 영역과 다른 테 넌 트에 있는 회로 및 피어 링을 검색 하지 않습니다.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이는 무엇을 의미하나요?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 어떤 의미인가요?
 
 온-프레미스 노드와 Azure 노드 간에 정상 연결이 있지만 트래픽이 NPM에서 모니터링하도록 구성된 ExpressRoute 회로를 통해 이동하지 않는 시나리오가 있을 수 있습니다. 
 
@@ -233,6 +233,12 @@ NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRo
 * ER 회로가 다운되었습니다.
 * 경로 필터가 의도한 ExpressRoute 회로보다 다른 경로(예: VPN 연결 또는 다른 ExpressRoute 회로)에 우선권을 부여하는 방법으로 구성되었습니다. 
 * 모니터링 구성에서 ExpressRoute 회로를 모니터링하기 위해 선택한 온-프레미스 및 Azure 노드에, 의도한 ExpressRoute 회로를 통한 상호 연결이 없습니다. 모니터링하려는 ExpressRoute 회로를 통한 상호 연결이 있는 올바른 노드를 선택했는지 확인합니다.
+
+### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Express 경로 모니터가 사용 가능 하 고 데이터를 전달할 때 내 회로/피어 링을 비정상으로 보고 하는 이유는 무엇 인가요?
+Express 경로 모니터는 에이전트/서비스에서 보고 한 네트워크 성능 값 (손실, 대기 시간 및 대역폭 사용률)을 구성 하는 동안 설정 된 임계값과 비교 합니다. 회로에 대해 보고 된 대역폭 사용률 구성에 설정 된 임계값 보다 크면 회로가 비정상으로 표시 됩니다. 피어 링의 경우 손실, 대기 시간 또는 대역폭 사용률이 구성에 설정 된 임계값 보다 크면 피어 링은 비정상으로 표시 됩니다. NPM는 메트릭 또는 다른 형태의 데이터를 제품 하 여 deicde 상태를 제거 하지 않습니다.
+
+### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Express 경로 모니터의 대역폭 사용률에서 메트릭 비트의 값 차이점을 보고 하는 이유는 무엇 인가요?
+Express 경로 모니터의 경우 대역폭 utiliation는 지난 20 분 동안 들어오고 나가는 대역폭의 평균 이며 비트/초로 표시 됩니다. Express 경로 메트릭의 경우 비트 단위/출력은 분당 데이터 요소입니다. 내부적으로 사용 되는 데이터 집합은 동일 하지만 NPM와 ER 메트릭 사이에 집계 valies가 있습니다. 세부적인 모니터링 및 빠른 경고의 경우 ER 메트릭에 경고를 직접 설정 하는 것이 좋습니다.
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>내 ExpressRoute 회로의 모니터링을 구성하는 동안 Azure 노드가 감지되지 않습니다.
 이 상황은 Azure 노드가 Operations Manager를 통해 연결된 경우 발생할 수 있습니다. ExpressRoute 모니터 기능은 직접 에이전트로 연결된 Azure 노드만 지원합니다.

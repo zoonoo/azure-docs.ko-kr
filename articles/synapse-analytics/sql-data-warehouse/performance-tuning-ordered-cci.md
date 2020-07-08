@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cd81031f27d772912383fa050e0f946bf9964c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204662"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정  
 
@@ -109,7 +109,7 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 - 더 높은 DWU에서 xlargerc 리소스 클래스를 사용 하 여 인덱스 작성기가 데이터를 세그먼트로 압축 하기 전에 데이터 정렬에 더 많은 메모리를 사용할 수 있습니다.  인덱스 세그먼트에서 데이터의 물리적 위치를 변경할 수 없습니다.  세그먼트 또는 세그먼트 사이에는 데이터 정렬이 없습니다.  
 
-- MAXDOP = 1을 사용 하 여 정렬 된 CCI를 만듭니다.  순서가 지정 된 CCI 생성에 사용 되는 각 스레드는 데이터의 하위 집합에서 작동 하며 로컬로 정렬 됩니다.  여러 스레드에 의해 정렬 된 데이터에는 전역 정렬이 없습니다.  병렬 스레드를 사용 하면 정렬 된 CCI를 만드는 시간을 줄일 수 있지만 단일 스레드를 사용 하는 것 보다 더 겹치는 세그먼트를 생성 합니다.  현재 MAXDOP 옵션은 CREATE TABLE SELECT 명령으로 사용 하 여 정렬 된 CCI 테이블을 만드는 경우에만 지원 됩니다.  CREATE INDEX 또는 CREATE TABLE 명령을 통해 정렬 된 CCI를 만드는 것은 MAXDOP 옵션을 지원 하지 않습니다. 예를 들면 다음과 같습니다.
+- MAXDOP = 1을 사용 하 여 정렬 된 CCI를 만듭니다.  순서가 지정 된 CCI 생성에 사용 되는 각 스레드는 데이터의 하위 집합에서 작동 하며 로컬로 정렬 됩니다.  여러 스레드에 의해 정렬 된 데이터에는 전역 정렬이 없습니다.  병렬 스레드를 사용 하면 정렬 된 CCI를 만드는 시간을 줄일 수 있지만 단일 스레드를 사용 하는 것 보다 더 겹치는 세그먼트를 생성 합니다.  현재 MAXDOP 옵션은 CREATE TABLE SELECT 명령으로 사용 하 여 정렬 된 CCI 테이블을 만드는 경우에만 지원 됩니다.  CREATE INDEX 또는 CREATE TABLE 명령을 통해 정렬 된 CCI를 만드는 것은 MAXDOP 옵션을 지원 하지 않습니다. 예제:
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396883"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203812"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -42,7 +42,7 @@ ms.locfileid: "80396883"
 
 **Predicate** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 | 메서드 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) 또는 [IsDateRange](#isdaterange)입니다.  |
@@ -73,15 +73,15 @@ ms.locfileid: "80396883"
 
 IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정 된 최소 및 최대 매개 변수 범위 내에 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필요한 공간 | 설명 |
 | ------- | ----------- | ----------- |
 | 최대 | 예 | 입력할 수 있는 최대 문자 수입니다. |
-| 최소 | 예 | 입력 해야 하는 최소 문자 수입니다. |
+| 최소값 | 예 | 입력 해야 하는 최소 문자 수입니다. |
 
 
-다음 예제에서는 문자열의 길이 범위를 지정 하 `Minimum` 는 `Maximum` 및 매개 변수를 사용 하는 IsLengthRange 메서드를 보여 줍니다.
+다음 예제에서는 `Minimum` `Maximum` 문자열의 길이 범위를 지정 하는 및 매개 변수를 사용 하는 IsLengthRange 메서드를 보여 줍니다.
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -94,13 +94,13 @@ IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정 된 최�
 
 MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치 하는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필요한 공간 | 설명 |
 | ------- | ----------- | ----------- |
 | RegularExpression | 예 | 일치 항목을 찾을 정규식 패턴입니다. |
 
 다음 예제에서는 정규식을 지정하는 `RegularExpression` 매개 변수가 포함된 `MatchesRegex` 메서드를 보여 줍니다.
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -112,13 +112,13 @@ MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치 하는�
 
 IncludesCharacters 메서드는 문자열 클레임 값에 문자 집합이 포함 되어 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필요한 공간 | 설명 |
 | ------- | ----------- | ----------- |
-| CharacterSet | 예 | 입력할 수 있는 문자 집합입니다. 예를 `a-z`들어 소문자, 대문자 `A-Z`, 숫자 `0-9`또는 기호 목록 (예:)이 `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`있습니다. |
+| CharacterSet | 예 | 입력할 수 있는 문자 집합입니다. 예를 들어 소문자 `a-z` , 대문자 `A-Z` , 숫자 `0-9` 또는 기호 목록 (예:)이 `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` 있습니다. |
 
 다음 예제에서는 문자 집합을 지정하는 `CharacterSet` 매개 변수가 포함된 `IncludesCharacters` 메서드를 보여 줍니다.
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -130,14 +130,14 @@ IncludesCharacters 메서드는 문자열 클레임 값에 문자 집합이 포�
 
 IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사이에서 날짜 클레임 값이 있는지 여부를 확인 합니다. Predicate 요소는 다음 매개 변수를 지원 합니다.
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필요한 공간 | 설명 |
 | ------- | ----------- | ----------- |
-| 최대 | 예 | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 규칙 또는 `yyyy-mm-dd` `Today`을 따릅니다. |
-| 최소 | 예 | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 규칙 또는 `yyyy-mm-dd` `Today`을 따릅니다.|
+| 최대 | 예 | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` . |
+| 최소값 | 예 | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는을 따릅니다 `Today` .|
 
 다음 예제에서는 `yyyy-mm-dd` 및 `Today` 형식의 날짜 범위를 지정하는 `Minimum` 및 `Maximum` 매개 변수가 포함된 `IsDateRange` 메서드를 보여 줍니다.
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -152,7 +152,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **PredicateValidations** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내의 **조건자** 요소 바로 다음에 나와야 합니다.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -178,7 +178,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **PredicateValidation** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
@@ -196,7 +196,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **PredicateGroup** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 그룹에 사용되는 식별자입니다.  |
 
@@ -209,7 +209,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **PredicateReferences** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. 지정 하지 않으면 값이 모든 조건자 정의와 일치 해야 합니다. |
 
@@ -221,7 +221,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **PredicateReference** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다.  |
 
@@ -234,12 +234,12 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 - **Lowercase**(`IncludesCharacters` 메서드 사용)는 암호가 소문자를 포함하는지 유효성을 검사합니다.
 - **Uppercase**(`IncludesCharacters` 메서드 사용)는 암호가 대문자를 포함하는지 유효성을 검사합니다.
 - **Number**(`IncludesCharacters` 메서드 사용)는 암호가 숫자를 포함하는지 유효성을 검사합니다.
-- **기호** 는 `IncludesCharacters` 메서드를 사용 하 여 암호가 여러 기호 문자 중 하나를 포함 하는지 확인 합니다.
+- **기호** 는 메서드를 사용 하 여 `IncludesCharacters` 암호가 여러 기호 문자 중 하나를 포함 하는지 확인 합니다.
 - **PIN**(`MatchesRegex` 메서드 사용)은 암호가 숫자만 포함하는지 유효성을 검사합니다.
 - **AllowedAADCharacters**(`MatchesRegex` 메서드 사용)는 잘못된 문자를 포함하는 암호를 입력했는지 유효성을 검사합니다.
 - **DisallowedWhitespace**(`MatchesRegex` 메서드 사용)는 암호가 공백 문자로 시작하거나 끝나지 않는지 유효성을 검사합니다.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -297,7 +297,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 - **StrongPassword**는 DisallowedWhitespace, AllowedAADCharacters, 및 IsLengthBetween8And64 유효성 검사를 수행합니다. 마지막 그룹인 `CharacterClasses`는 `MatchAtLeast`가 3으로 설정된 추가 조건자 집합을 실행합니다. 이 경우 사용자 암호는 8~16자 사이여야 하며 소문자, 대문자, 숫자, 기호 중 3가지를 포함해야 합니다.
 - **CustomPassword**는 DisallowedWhitespace, AllowedAADCharacters 유효성 검사만 수행합니다. 따라서 사용자는 문자가 유효하기만 하면 어떤 길이의 암호든 입력할 수 있습니다.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -367,7 +367,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 클레임 형식에서 **PredicateValidationReference** 요소를 추가하고 식별자를 SimplePassword, StrongPassword 또는 CustomPassword와 같은 조건자 유효성 검사 중 하나로 지정합니다.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -386,7 +386,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 **Predicates** 및 **PredicateValidations** 요소를 사용하는 경우 `DateTimeDropdown`을 통해 **UserInputType**의 최소/최대 날짜 값을 제어할 수 있습니다. 이렇게 하려면 `IsDateRange` 메서드를 포함하여 **Predicate**를 만들고 최소/최대 매개 변수를 입력합니다.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -399,7 +399,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 `DateRange` 조건자에 대한 참조를 포함하는 **PredicateValidation**을 추가합니다.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -415,7 +415,7 @@ IsDateRange 메서드는 지정 된 최소 및 최대 매개 변수 범위 사�
 
 클레임 형식에서 **PredicateValidationReference** 요소를 추가하고 식별자를 `CustomDateRange`로 지정합니다.
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>

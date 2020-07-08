@@ -6,18 +6,18 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206733"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Azure Synapse Analytics에 인증 받기
 
@@ -54,16 +54,16 @@ SQL 풀에 연결하려면 다음 정보를 제공해야 합니다.
 Azure Active Directory의 이점은 다음과 같습니다.
 
 * SQL Server 인증에 대한 대안을 제공합니다.
-* 데이터베이스 서버 전체에서 사용자 ID의 확산을 중지합니다.
+* 서버 전체에서 사용자 ID의 확산을 중지하는 데 도움이 됩니다.
 * 한 위치에서의 암호 회전이 가능합니다.
 * 외부 Azure AD 그룹을 사용하여 데이터베이스 권한을 관리합니다.
-* Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
+* Azure Active Directory에서 지 원하는 인증의 Windows 통합 인증 및 i/o를 사용 하도록 설정 하 여 암호 저장을 제거 합니다.
 * 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 * SQL 풀에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
-* [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 포함하는 다양한 도구에 대한 Active Directory 유니버설 인증을 통해 다단계 인증을 지원합니다.
+* [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 포함하는 다양한 도구에 대한 Active Directory 유니버설 인증을 통해 다단계 인증을 지원합니다.
 
 > [!NOTE]
-> Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 작업 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), 특히 추가 고려 사항을 참조하세요.
+> Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 작업 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), 특히 추가 고려 사항을 참조하세요.
 
 ### <a name="configuration-steps"></a>구성 단계
 
@@ -80,7 +80,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 
 ### <a name="find-the-details"></a>세부 정보 찾기
 
-* Azure Active Directory 인증을 구성하고 사용하는 단계는 Azure SQL Database 및 Azure Synapse에 있는 Synapse SQL의 경우와 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL 풀 연결](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 항목의 자세한 단계를 따릅니다.
+* Azure Active Directory 인증을 구성하고 사용하는 단계는 Azure SQL Database 및 Azure Synapse에 있는 Synapse SQL의 경우와 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL 풀 연결](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 항목의 자세한 단계를 따릅니다.
 * 사용자 지정 데이터베이스 역할을 만들고 역할에 사용자를 추가 합니다. 그런 다음 역할에 세부적인 권한을 부여합니다. 자세한 내용은 [데이터베이스 엔진 권한 시작](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

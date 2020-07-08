@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201279"
 ---
 # <a name="boolean-claims-transformations"></a>부울 클레임 변환
 
@@ -36,7 +36,7 @@ ms.locfileid: "80529194"
 
 다음 클레임 변환은 두 부울 ClaimType `isEmailNotExist` 및 `isSocialAccount`의 And 연산을 수행하는 방법을 보여 줍니다. 두 입력 클레임의 값이 모두 `true`이면 출력 클레임 `presentEmailSelfAsserted`는 `true`로 설정됩니다. 소셜 계정 전자 메일이 비어 있는 경우에 한해 오케스트레이션 단계에서 전제 조건을 사용하여 자체 어설션된 페이지를 미리 설정할 수 있습니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -48,7 +48,7 @@ ms.locfileid: "80529194"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example-of-andclaims"></a>AndClaims 예
 
 - 입력 클레임:
     - **inputClaim1**: true
@@ -72,7 +72,7 @@ ms.locfileid: "80529194"
 
 다음 클레임 변환은 `true` 값을 사용하여 부울 ClaimType의 값을 확인하는 방법을 보여 줍니다. `accountEnabled` ClaimType의 값이 false이면 오류 메시지가 throw됩니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -85,7 +85,8 @@ ms.locfileid: "80529194"
 
 
 `login-NonInteractive` 유효성 검사 기술 프로필은 `AssertAccountEnabledIsTrue` 클레임 변환을 호출합니다.
-```XML
+
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -96,7 +97,7 @@ ms.locfileid: "80529194"
 
 자체 어설션된 기술 프로필은 **login-NonInteractive** 유효성 검사 기술 프로필을 호출합니다.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -107,7 +108,7 @@ ms.locfileid: "80529194"
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>예제
+### <a name="example-of-assertbooleanclaimisequaltovalue"></a>AssertBooleanClaimIsEqualToValue의 예
 
 - 입력 클레임:
     - **inputClaim**: false
@@ -124,10 +125,9 @@ ms.locfileid: "80529194"
 | InputParameter |valueToCompareTo | boolean | 비교할 값(true 또는 false)입니다. |
 | OutputClaim | compareResult | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
-
 다음 클레임 변환은 `true` 값을 사용하여 부울 ClaimType의 값을 확인하는 방법을 보여 줍니다. `IsAgeOver21Years` ClaimType의 값이 `true`와 같으면 클레임 변환에서 `true`를 반환하고 다르면 `false`로 반환합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -141,7 +141,7 @@ ms.locfileid: "80529194"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example-of-comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue의 예
 
 - 입력 클레임:
     - **inputClaim**: false
@@ -149,8 +149,6 @@ ms.locfileid: "80529194"
     - **valueToCompareTo**: true
 - 출력 클레임:
     - **compareResult**: false
-
-
 
 ## <a name="notclaims"></a>NotClaims
 
@@ -163,7 +161,7 @@ ms.locfileid: "80529194"
 
 클레임에 대해 논리 부정을 수행하려면 다음 클레임 변환을 사용합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -174,7 +172,7 @@ ms.locfileid: "80529194"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example-of-notclaims"></a>NotClaims 예
 
 - 입력 클레임:
     - **inputClaim**: false
@@ -193,7 +191,7 @@ ms.locfileid: "80529194"
 
 다음 클레임 변환은 두 부울 ClaimType의 `Or` 연산을 수행하는 방법을 보여 줍니다. 클레임 중 하나의 값이 `true`이면 오케스트레이션 단계에서 전제 조건을 사용하여 자체 어설션된 페이지를 미리 설정할 수 있습니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
@@ -205,7 +203,7 @@ ms.locfileid: "80529194"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example-of-orclaims"></a>OrClaims의 예
 
 - 입력 클레임:
     - **inputClaim1**: true

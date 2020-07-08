@@ -2,14 +2,14 @@
 title: Azure CLI를 사용 하 여 블록 체인 Data Manager 구성-Azure Blockchain 서비스
 description: Azure CLI를 사용 하 여 Azure Blockchain 서비스에 대 한 Blockchain Data Manager 만들기 및 관리
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200463"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용하여 Blockchain Data Manager 구성
 
@@ -23,9 +23,9 @@ Blockchain Data Manager 인스턴스를 구성 하려면 다음을 수행 합니
 * 블록체인 애플리케이션 추가
 * 인스턴스 시작
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 를 설치 하 고를 사용 `az login`하 여 로그인 합니다.
+* 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 를 설치 하 고를 사용 하 여 로그인 `az login` 합니다.
 * 빠른 시작 완료 [: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)합니다. Blockchain Data Manager를 사용 하는 경우 Azure Blockchain 서비스 *표준* 계층을 사용 하는 것이 좋습니다.
 * [Event Grid 토픽](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
 * [Azure Event Grid의 이벤트 처리기](../../event-grid/event-handlers.md) 알아보기
@@ -79,7 +79,7 @@ az resource create \
 }
 ```
 
-| 요소 | Description |
+| 요소 | 설명 |
 |---------|-------------|
 | 위치 | 감시자 리소스를 만들 지역 |
 | properties | 감시자 리소스를 만들 때 설정할 속성 |
@@ -125,7 +125,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | 입력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 입력의 이름입니다. |
-| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
+| 네임스페이스 | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
 | 리소스 유형 | 블록 체인에 대 한 리소스 유형은 입력 Data Manager 입력 **입니다.** |
 | 부모(parent) | 입력이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
 | is-full-object | 속성에 입력 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
@@ -133,7 +133,7 @@ az resource create \
 
 ### <a name="input-examples"></a>입력 예제
 
-블록 체인 구성원 \<\>에 연결 된 *미국 동부* 지역에서 입력 리소스를 만들기 위한 구성 JSON 예제입니다.
+구성 JSON 예를 입력 하 여에 연결 된 *미국 동부* 지역에 입력 리소스를 만듭니다 \<Blockchain member\> .
 
 ``` json
 {
@@ -147,11 +147,11 @@ az resource create \
 }
 ```
 
-| 요소 | Description |
+| 요소 | 설명 |
 |---------|-------------|
 | 위치 | 입력 리소스를 만들 지역입니다. |
 | inputType | Azure Blockchain 서비스 구성원의 원장 유형입니다. 현재 **Ethereum** 가 지원 됩니다. |
-| resourceId | 입력이 연결 된 트랜잭션 노드입니다. 구독 \<\>ID \<, 리소스\>그룹 및 \<blockchain 멤버\> 를 트랜잭션 노드 리소스에 대 한 값으로 바꿉니다. 입력은 Azure Blockchain 서비스 멤버의 기본 트랜잭션 노드에 연결 됩니다. |
+| resourceId | 입력이 연결 된 트랜잭션 노드입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Blockchain member\> 트랜잭션 노드 리소스의 값으로 바꿉니다. 입력은 Azure Blockchain 서비스 멤버의 기본 트랜잭션 노드에 연결 됩니다. |
 
 구성에 JSON 문자열을 사용 하 여 *myinput* 에 대해 *myinput* 이라는 입력을 만듭니다.
 
@@ -197,7 +197,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | 출력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 출력의 이름입니다. |
-| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
+| 네임스페이스 | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
 | 리소스 유형 | Blockchain Data Manager 출력에 대 한 리소스 유형은 **출력**입니다. |
 | 부모(parent) | 출력이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
 | is-full-object | 속성에 출력 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
@@ -205,7 +205,7 @@ az resource create \
 
 ### <a name="output-examples"></a>출력 예제
 
-Event grid 토픽 \<\>이라는 event grid 토픽에 연결 된 *미국 동부* 지역에 출력 리소스를 만드는 구성 JSON 예제입니다.
+Event grid 토픽에 연결 된 *미국 동부* 지역에 출력 리소스를 만드는 구성 JSON 예제 \<event grid topic\> 입니다.
 
 ``` json
 {
@@ -219,11 +219,11 @@ Event grid 토픽 \<\>이라는 event grid 토픽에 연결 된 *미국 동부* 
 }
 ```
 
-| 요소 | Description |
+| 요소 | 설명 |
 |---------|-------------|
 | 위치 | 출력 리소스를 만들 지역입니다. |
 | outputType | 출력의 유형입니다. 현재 **Eventgrid** 가 지원 됩니다. |
-| resourceId | 출력이 연결 되는 리소스입니다. 구독 \<\>ID \<, 리소스\>그룹 및 \<blockchain 멤버\> 를 event grid 리소스의 값으로 바꿉니다. |
+| resourceId | 출력이 연결 되는 리소스입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Blockchain member\> event grid 리소스의 값으로 바꿉니다. |
 
 JSON 구성 문자열을 사용 하 여 event grid 토픽에 연결 하는 *mywatcher* 용 *myoutput* 이라는 출력을 만듭니다.
 
@@ -273,8 +273,8 @@ az resource create \
 | 매개 변수 | Description |
 |-----------|-------------|
 | resource-group | 응용 프로그램 리소스를 만들 리소스 그룹 이름입니다. |
-| name | 응용 프로그램의 이름입니다. |
-| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
+| name | 애플리케이션의 이름입니다. |
+| 네임스페이스 | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
 | 리소스 유형 | Blockchain Data Manager 응용 프로그램에 대 한 리소스 형식이 **아티팩트**입니다. |
 | 부모(parent) | 응용 프로그램이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
 | is-full-object | 속성에 응용 프로그램 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
@@ -301,7 +301,7 @@ az resource create \
 }
 ```
 
-| 요소 | Description |
+| 요소 | 설명 |
 |---------|-------------|
 | 위치 | 응용 프로그램 리소스를 만들 지역입니다. |
 | artifactType | 애플리케이션의 유형입니다. 현재 **EthereumSmartContract** 가 지원 됩니다. |
@@ -348,7 +348,7 @@ az resource invoke-action \
 | 매개 변수 | Description |
 |-----------|-------------|
 | action | **Start** 를 사용 하 여 감시자를 실행 합니다. |
-| ids | 감시자 리소스 ID입니다. 구독 \<\>ID \<, 리소스\>그룹 및 \<감시자 이름을\> 감시자 리소스의 값으로 바꿉니다.|
+| ids | 감시자 리소스 ID입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Watcher name\> 감시자 리소스의 값으로 바꿉니다.|
 
 ### <a name="start-instance-example"></a>시작 인스턴스 예제
 
@@ -373,7 +373,7 @@ az resource invoke-action \
 | 매개 변수 | Description |
 |-----------|-------------|
 | action | **중지** 를 사용 하 여 감시자를 중지 합니다. |
-| ids | 감시자의 이름입니다. 구독 \<\>ID \<, 리소스\>그룹 및 \<감시자 이름을\> 감시자 리소스의 값으로 바꿉니다. |
+| ids | 감시자의 이름입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Watcher name\> 감시자 리소스의 값으로 바꿉니다. |
 
 ### <a name="stop-watcher-example"></a>감시자 중지 예
 

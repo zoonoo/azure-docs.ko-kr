@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc869a8ab905275c8082c4fd375f8f6d6d48d97e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205461"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>로컬 구성 파일 이해 (c # 에이전트)
 
@@ -30,9 +30,9 @@ IoT 보안 에이전트의 Azure Security Center은 로컬 구성 파일의 구�
 
 C # 보안 에이전트는 여러 구성 파일을 사용 합니다.
 
-- **일반 구성** -에이전트 관련 구성입니다.
-- **인증 구성-인증** 관련 구성 (인증 세부 정보 포함).
-- **Securityiotinterface .config** -IoT 관련 구성.
+- **General.config** 에이전트 관련 구성입니다.
+- 인증 관련 구성 (인증 정보 포함)을 **Authentication.config** 합니다.
+- **SecurityIotInterface.config** -IoT 관련 구성.
 
 구성 파일에는 기본 구성이 포함 되어 있습니다. 에이전트를 설치 하는 동안 인증 구성이 채워지고 에이전트가 다시 시작 될 때 구성 파일에 대 한 변경 내용이 적용 됩니다.
 
@@ -40,15 +40,15 @@ C # 보안 에이전트는 여러 구성 파일을 사용 합니다.
 
 Linux의 경우:
 
-- 운영 체제 구성 파일은에 `/var/ASCIoTAgent`있습니다.
+- 운영 체제 구성 파일은에 있습니다 `/var/ASCIoTAgent` .
 
 Windows의 경우:
 
 - 운영 체제 구성 파일은 보안 에이전트의 디렉터리 내에 있습니다.
 
-### <a name="generalconfig-configurations"></a>일반 구성
+### <a name="generalconfig-configurations"></a>General.config 구성
 
-| 구성 이름 | 가능한 값 | 세부 정보 |
+| 구성 이름 | 가능한 값 | 설명 |
 |:-----------|:---------------|:--------|
 | 인 | GUID | 에이전트 고유 식별자 |
 | readRemoteConfigurationTimeout | TimeSpan | IoT Hub에서 원격 구성을 가져오는 기간입니다. 에이전트가 지정 된 시간 내에 구성을 인출할 수 없는 경우 작업 시간이 초과 됩니다.|
@@ -62,9 +62,9 @@ Windows의 경우:
 | logFilePath | 파일 경로 | FileLogLevel > Off 인 경우 로그는이 파일에 기록 됩니다. |
 | defaultEventPriority | "높음", "낮음", "꺼짐" | 기본 이벤트 우선 순위입니다. |
 
-### <a name="generalconfig-example"></a>일반 .config 예
+### <a name="generalconfig-example"></a>General.config 예제
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <General>
   <add key="agentId" value="da00006c-dae9-4273-9abc-bcb7b7b4a987" />
@@ -81,24 +81,24 @@ Windows의 경우:
 </General>
 ```
 
-### <a name="authenticationconfig"></a>인증 .config
+### <a name="authenticationconfig"></a>Authentication.config
 
-| 구성 이름 | 가능한 값 | 세부 정보 |
+| 구성 이름 | 가능한 값 | 설명 |
 |:-----------|:---------------|:--------|
 | moduleName | string | 보안 모듈 id의 이름입니다. 이 이름은 장치의 모듈 id 이름과 일치 해야 합니다. |
 | deviceId | string | Azure IoT Hub에 등록 된 장치의 ID입니다. || schedulerInterval | TimeSpan 문자열 | 내부 스케줄러 간격입니다. |
 | 게이트웨이 호스트 이름 | string | Azure Iot Hub의 호스트 이름입니다. 일반적으로 <내 허브>. azure-devices.net |
 | filePath | 문자열-파일의 경로 | 인증 암호를 포함 하는 파일의 경로입니다.|
-| type | "SymmetricKey", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 을 선택 하 고, 비밀이 자체 서명 된 인증서 인 경우 *자체 서명 된 인증서* 를 선택 합니다. |
-| ID | "DPS", "모듈", "장치" | 인증 id-dps를 통해 인증을 수행 하는 경우 dps, 모듈 자격 증명을 사용 하 여 인증을 수행 하는 경우 모듈, 장치 자격 증명을 사용 하 여 인증 하는 경우 장치
+| 형식 | "SymmetricKey", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 을 선택 하 고, 비밀이 자체 서명 된 인증서 인 경우 *자체 서명 된 인증서* 를 선택 합니다. |
+| identity | "DPS", "모듈", "장치" | 인증 id-dps를 통해 인증을 수행 하는 경우 dps, 모듈 자격 증명을 사용 하 여 인증을 수행 하는 경우 모듈, 장치 자격 증명을 사용 하 여 인증 하는 경우 장치
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile 인증서가 파일에 저장 된 경우 인증서가 인증서 저장소에 있는 경우 저장 합니다. |
 | idScope | string | DPS의 ID 범위 |
 | registrationId | string  | DPS 장치 등록 ID입니다. |
 |
 
-### <a name="authenticationconfig-example"></a>인증 .config 예
+### <a name="authenticationconfig-example"></a>Authentication.config 예제
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
   <add key="moduleName" value="azureiotsecurity"/>
@@ -113,16 +113,16 @@ Windows의 경우:
 </Authentication>
 ```
 
-### <a name="securityiotinterfaceconfig"></a>Securityi이상 인터페이스 .config
+### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
 
-| 구성 이름 | 가능한 값 | 세부 정보 |
+| 구성 이름 | 가능한 값 | 설명 |
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "Mqtt" | IoT Hub 전송 유형입니다. |
 |
 
-### <a name="securityiotinterfaceconfig-example"></a>SecurityIotInterface .config 예
+### <a name="securityiotinterfaceconfig-example"></a>SecurityIotInterface.config 예제
 
-```XML
+```xml
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
   <add key="transportType" value="Amqp"/>

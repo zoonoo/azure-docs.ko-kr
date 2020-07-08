@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202860"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -30,7 +30,7 @@ ms.locfileid: "80051503"
 
 다음 예제는 콘텐츠 정의 식별자 및 지역화된 리소스 정의를 보여 줍니다.
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ ms.locfileid: "80051503"
 
 **LocalAccountSignUpWithLogonEmail** 자체 어설션된 기술 프로필의 메타데이터는 `api.localaccountsignup`으로 설정된 콘텐츠 정의 식별자 **ContentDefinitionReferenceId**를 포함합니다.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -61,7 +61,7 @@ ms.locfileid: "80051503"
 
 **ContentDefinition** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 콘텐츠 정의의 식별자입니다. 값은 이 페이지의 뒷부분에 있는 **콘텐츠 정의 ID** 섹션에서 지정된 값입니다. |
 
@@ -70,7 +70,7 @@ ms.locfileid: "80051503"
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | 콘텐츠 정의에 대한 HTML5 페이지의 URL을 포함하는 문자열입니다. |
-| RecoveryUri | 1:1 | 콘텐츠 정의와 관련된 오류를 표시하기 위한 HTML 페이지의 URL을 포함하는 문자열입니다. 현재 사용 되지 않습니다 `~/common/default_page_error.html`. 값은 이어야 합니다. |
+| RecoveryUri | 1:1 | 콘텐츠 정의와 관련된 오류를 표시하기 위한 HTML 페이지의 URL을 포함하는 문자열입니다. 현재 사용 되지 않습니다. 값은 이어야 합니다 `~/common/default_page_error.html` . |
 | DataUri | 1:1 | 단계에 대해 호출할 사용자 환경을 제공하는 HTML 파일의 상대 URL을 포함하는 문자열입니다. |
 | 메타데이터 | 0:1 | 콘텐츠 정의에서 사용되는 메타데이터를 포함하는 키/값 쌍의 컬렉션입니다. |
 | LocalizedResourcesReferences | 0:1 | 지역화된 리소스 참조의 컬렉션입니다. 이 요소를 사용하여 사용자 인터페이스 및 클레임 특성의 지역화를 사용자 지정할 수 있습니다. |
@@ -90,13 +90,13 @@ ms.locfileid: "80051503"
 
 ### <a name="select-a-page-layout"></a>페이지 레이아웃 선택
 
-와 페이지 형식을 삽입 `contract` 하 여 [JavaScript 클라이언트 쪽 코드](javascript-samples.md) 를 사용 하도록 설정할 수 있습니다. `elements` `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`)을 입력합니다.
+와 페이지 형식을 삽입 하 여 [JavaScript 클라이언트 쪽 코드](javascript-samples.md) 를 사용 하도록 설정할 수 있습니다 `contract` `elements` . 예: `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-의 [버전](page-layout.md) 부분은 정책의 사용자 `DataUri` 인터페이스 요소에 대 한 HTML, CSS 및 JavaScript를 포함 하는 콘텐츠 패키지를 지정 합니다. JavaScript 클라이언트 쪽 코드를 사용 하도록 설정 하려는 경우 JavaScript를 기반으로 하는 요소를 변경할 수 없어야 합니다. 변경할 수 없으면 사용자 페이지에서 예기치 않은 동작이 발생할 수 있습니다. 이러한 문제를 방지 하려면 페이지 레이아웃 사용을 적용 하 고 페이지 레이아웃 버전을 지정 합니다. 이렇게 하면 JavaScript를 기반으로 하는 모든 콘텐츠 정의를 변경할 수 없습니다. JavaScript를 사용 하지 않으려는 경우에도 페이지에 대 한 페이지 레이아웃 버전을 지정 해야 합니다.
+의 [버전](page-layout.md) 부분은 `DataUri` 정책의 사용자 인터페이스 요소에 대 한 HTML, CSS 및 JavaScript를 포함 하는 콘텐츠 패키지를 지정 합니다. JavaScript 클라이언트 쪽 코드를 사용 하도록 설정 하려는 경우 JavaScript를 기반으로 하는 요소를 변경할 수 없어야 합니다. 변경할 수 없으면 사용자 페이지에서 예기치 않은 동작이 발생할 수 있습니다. 이러한 문제를 방지 하려면 페이지 레이아웃 사용을 적용 하 고 페이지 레이아웃 버전을 지정 합니다. 이렇게 하면 JavaScript를 기반으로 하는 모든 콘텐츠 정의를 변경할 수 없습니다. JavaScript를 사용 하지 않으려는 경우에도 페이지에 대 한 페이지 레이아웃 버전을 지정 해야 합니다.
 
-다음 예제에서는 버전 `selfasserted` `1.2.0`의 **datauri** 를 보여 줍니다.
+다음 예제에서는 버전의 **Datauri** 를 보여 줍니다 `selfasserted` `1.2.0` .
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -137,7 +137,7 @@ ms.locfileid: "80051503"
 
 **Metadata** 요소의 **Item** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | Description |
 | --------- | -------- | ----------- |
 | 키 | 예 | 메타데이터 키입니다.  |
 
@@ -145,7 +145,7 @@ ms.locfileid: "80051503"
 
 콘텐츠 정의는 다음 메타 데이터 항목을 지원 합니다.
 
-| 키 | 필수 | 설명 |
+| Key | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | DisplayName | 아니요 | 콘텐츠 정의의 이름을 포함 하는 문자열입니다. |
 
@@ -159,14 +159,14 @@ ms.locfileid: "80051503"
 
 **LocalizedResourcesReference** 요소는 다음 특성을 포함 합니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | 언어 | 예 | RFC 5646 - 언어 식별 태그를 기준으로 정책에 대해 지원되는 언어를 포함하는 문자열입니다. |
 | LocalizedResourcesReferenceId | 예 | **LocalizedResources** 요소의 식별자입니다. |
 
 다음 예제는 영어, 프랑스어 및 스페인어 지역화 참조와 함께 등록 또는 로그인 콘텐츠 정의를 보여 줍니다.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

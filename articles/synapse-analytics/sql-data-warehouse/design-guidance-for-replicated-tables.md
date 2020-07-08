@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201704"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 복제된 테이블을 사용하기 위한 디자인 지침
 
@@ -126,7 +126,7 @@ WHERE d.FiscalYear = 2004
 
 SQL 풀은 테이블의 마스터 버전을 유지하여 복제 테이블을 구현합니다. 마스터 버전을 각 컴퓨팅 노드에 있는 첫 번째 배포 데이터베이스에 복사합니다. 변경 사항이 있는 경우 마스터 버전이 먼저 업데이트된 다음 각 컴퓨팅 노드의 테이블이 다시 작성됩니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW2000c의 복제된 테이블에는 5개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL 풀은 더 빠른 데이터 수정 문 및 유연한 크기 조정 작업을 지원하기 위해 이 모델을 사용합니다.
 
-다시 빌드가 필요한 경우:
+비동기 재작성은 다음 이후에 복제 된 테이블에 대 한 첫 번째 쿼리에 의해 트리거됩니다.
 
 - 데이터가 로드되었거나 수정된 후
 - Synapse SQL 인스턴스가 다른 수준으로 확장됩니다.

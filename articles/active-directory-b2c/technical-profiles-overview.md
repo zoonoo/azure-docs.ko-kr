@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203217"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -49,7 +49,7 @@ ms.locfileid: "82229938"
 모든 유형의 기술 프로필은 동일한 개념을 공유합니다. 입력 클레임을 보내고, 클레임 변환을 실행하고, ID 공급자, REST API 또는 Azure AD 디렉터리 서비스와 같은 구성된 당사자와 통신합니다. 프로세스가 완료 된 후 기술 프로필은 출력 클레임을 반환 하 고 출력 클레임 변환을 실행할 수 있습니다. 다음 다이어그램은 기술 프로필에서 참조되는 변환 및 매핑이 처리되는 방법을 보여 줍니다. 기술 프로필이 상호 작용하는 당사자와 관계없이 모든 클레임 변환이 실행된 후 기술 프로필의 출력 클레임은 즉시 클레임 모음에 저장됩니다.
 
 ![기술 프로필 흐름을 보여 주는 다이어그램](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
- 
+
 1. Sso **(Single sign-on) 세션 관리** - [sso 세션 관리](custom-policy-reference-sso.md)를 사용 하 여 기술 프로필의 세션 상태를 복원 합니다.
 1. **입력 클레임 변환** -모든 입력 [클레임 변환](claimstransformations.md) 의 입력 클레임이 클레임 모음에서 선택 됩니다.  입력 클레임 변환의 출력 클레임이 후속 입력 클레임 변환의 입력 클레임이 될 수 있습니다.
 1. **입력 클레임** -클레임 모음에서 클레임을 선택 하 고 기술 프로필에 사용 됩니다. 예를 들어, [자체 어설션 기술 프로필](self-asserted-technical-profile.md)은 입력 클레임을 사용하여 사용자가 제공하는 출력 클레임을 미리 채웁니다. REST API 기술 프로필은 입력 클레임을 사용하여 입력 매개 변수를 REST API 엔드포인트에 보냅니다. Azure Active Directory는 입력 클레임을 고유 식별자로 사용하여 계정을 읽거나, 업데이트하거나, 삭제합니다.
@@ -66,11 +66,11 @@ ms.locfileid: "82229938"
 
 ## <a name="technical-profile-inclusion"></a>기술 프로필 포함
 
-기술 프로필에는 다른 기술 프로필을 포함 하 여 설정을 변경 하거나 새 기능을 추가할 수 있습니다.  `IncludeTechnicalProfile` 요소는 기술 프로필이 파생 되는 기본 기술 프로필에 대 한 참조입니다. 수준 수에는 제한이 없습니다.
+기술 프로필에는 다른 기술 프로필을 포함 하 여 설정을 변경 하거나 새 기능을 추가할 수 있습니다.  `IncludeTechnicalProfile`요소는 기술 프로필이 파생 되는 기본 기술 프로필에 대 한 참조입니다. 수준 수에는 제한이 없습니다.
 
-예를 들어, **AAD-UserReadUsingAlternativeSecurityId-NoError** 기술 프로필에는 **AAD-UserReadUsingAlternativeSecurityId**가 포함됩니다. 이 기술 프로필은 `RaiseErrorIfClaimsPrincipalDoesNotExist` 메타 데이터 항목을 `true`로 설정 하 고, 소셜 계정이 디렉터리에 없으면 오류를 발생 시킵니다. **UserReadUsingAlternativeSecurityId-NoError** 는이 동작을 재정의 하 고 해당 오류 메시지를 비활성화 합니다.
+예를 들어, **AAD-UserReadUsingAlternativeSecurityId-NoError** 기술 프로필에는 **AAD-UserReadUsingAlternativeSecurityId**가 포함됩니다. 이 기술 프로필은 `RaiseErrorIfClaimsPrincipalDoesNotExist` 메타 데이터 항목을로 설정 하 `true` 고, 소셜 계정이 디렉터리에 없으면 오류를 발생 시킵니다. **UserReadUsingAlternativeSecurityId-NoError** 는이 동작을 재정의 하 고 해당 오류 메시지를 비활성화 합니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
   <Metadata>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
@@ -81,7 +81,7 @@ ms.locfileid: "82229938"
 
 **AAD-UserReadUsingAlternativeSecurityId**에는 `AAD-Common` 기술 프로필이 포함됩니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -105,7 +105,7 @@ ms.locfileid: "82229938"
 
 **UserReadUsingAlternativeSecurityId-NoError** 와 **UserReadUsingAlternativeSecurityId** 는 모두 **aad 일반** 기술 프로필에 지정 되어 있으므로 필수 **프로토콜** 요소를 지정 하지 않습니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

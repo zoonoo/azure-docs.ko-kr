@@ -4,16 +4,16 @@ description: 웹 클라이언트를 사용하여 Windows Virtual Desktop에 연�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b73a6bf2c8b853d9e3e939b6c8ff6fc05ac7021
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e95498498fd15d7a6e73630e218f9bdd1b892f09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204798"
 ---
 # <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용하여 연결
 

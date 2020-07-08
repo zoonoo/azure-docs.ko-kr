@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202317"
 ---
 # <a name="verification-display-control"></a>확인 표시 컨트롤
 
@@ -40,12 +40,12 @@ ms.locfileid: "78188786"
 
 **VerificationControl** 은 다음 요소를 포함 해야 합니다.
 
-- 의 `DisplayControl` 형식은입니다 `VerificationControl`.
+- 의 형식은입니다 `DisplayControl` `VerificationControl` .
 - `DisplayClaims`
   - 로 **보내기** -인증 코드를 보낼 위치를 지정 하는 하나 이상의 클레임입니다. 예를 들어 *전자 메일* 또는 *국가 코드* 와 *전화 번호*를 사용할 수 있습니다.
-  - **확인 코드** -코드를 보낸 후 사용자가 제공 하는 확인 코드 클레임입니다. 이 클레임은 `ControlClaimType` 필수로 설정 해야 하며,를로 `VerificationCode`설정 해야 합니다.
+  - **확인 코드** -코드를 보낸 후 사용자가 제공 하는 확인 코드 클레임입니다. 이 클레임은 필수로 설정 해야 하며, `ControlClaimType` 를로 설정 해야 합니다 `VerificationCode` .
 - 사용자가 확인 프로세스를 완료 한 후 자체 어설션된 페이지로 반환 될 출력 클레임 (선택 사항)입니다. 예를 들어 *전자 메일* 또는 *국가 코드* 와 *전화 번호*를 사용할 수 있습니다. 자체 어설션된 기술 프로필은 클레임을 사용 하 여 데이터를 유지 하거나 출력 클레임을 다음 오케스트레이션 단계로 버블링 합니다.
-- 다음 `Action`이름의 두 개.
+- `Action`다음 이름의 두 개.
   - **Sendcode** -사용자에 게 코드를 보냅니다. 이 작업에는 일반적으로 코드를 생성 하 고 보내는 두 가지 유효성 검사 기술 프로필이 포함 됩니다.
   - **Verifycode** -코드를 확인 합니다. 이 작업에는 일반적으로 단일 유효성 검사 기술 프로필이 포함 됩니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "78188786"
 
 그런 다음 사용자가 **verificationCode** 를 입력 하 고 **verifycode** 를 선택 하 여 백 엔드에서 **verifycode** 작업을 트리거합니다. 모든 유효성 검사가 통과 하면 **VerificationControl** 가 완료 된 것으로 간주 되 고 사용자는 다음 단계를 계속 진행할 수 있습니다.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

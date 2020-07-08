@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure IoT Edge 워크로드 배포
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: d82c93783d80060bc3443131191b7cec32dc4878
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193790"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Azure IoT Edge 워크로드 배포(미리 보기)
 
@@ -29,7 +29,7 @@ Azure Arc 및 Azure IoT Edge는 서로의 기능을 보완합니다. Azure Arc�
 
 * [Kubernetes에 대한 IoT Edge 지원](https://aka.ms/edgek8sdoc)을 사용하여 Azure Arc의 Flux 연산자를 통해 배포합니다.
 
-* IoT Edge Helm 차트에 대한 [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) 파일을 다운로드하고, 파일 끝에 있는 **deviceConnectionString** 자리 표시자를 1단계에서 적어 둔 내용으로 바꿉니다. 필요에 따라 지원되는 다른 차트 설치 옵션을 설정할 수 있습니다. IoT Edge 워크로드에 대한 네임스페이스를 만들고 여기에 비밀을 추가합니다.
+* IoT Edge Helm 차트에 대한 [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) 파일을 다운로드하고, 파일 끝에 있는 **deviceConnectionString** 자리 표시자를 1단계에서 적어 둔 내용으로 바꿉니다. 필요에 따라 지원되는 다른 차트 설치 옵션을 설정할 수 있습니다. IoT Edge 작업에 대 한 네임 스페이스를 만들고 여기에 비밀을 만듭니다.
 
     ```
     $ kubectl create ns iotedge

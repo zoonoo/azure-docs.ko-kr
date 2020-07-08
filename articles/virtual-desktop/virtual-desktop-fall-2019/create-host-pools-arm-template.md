@@ -4,21 +4,21 @@ description: Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 �
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c24e212f901f0af38a24ab203070f637de860fc7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 925d3ab7c01ef8dc4a2c5d590a56b4d558170472
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204764"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
 
 호스트 풀은 Windows Virtual Desktop 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
@@ -28,11 +28,11 @@ ms.locfileid: "82615189"
 
 Azure Resource Manager 템플릿을 실행 하기 전에 다음 사항을 알고 있어야 합니다.
 
-- 사용할 이미지의 소스가 인 경우 Azure 갤러리에서 온 것 입니까, 아니면 사용자 지정 인가요?
-- 도메인 가입 자격 증명입니다.
+- 사용하려는 이미지의 원본이 있는 위치. Azure 갤러리에서 온 것 입니까, 아니면 사용자 지정 인가요?
+- 도메인 조인 자격 증명
 - Windows 가상 데스크톱 자격 증명입니다.
 
-Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 호스트 풀을 만드는 경우 Azure 갤러리, 관리 되는 이미지 또는 관리 되지 않는 이미지에서 가상 컴퓨터를 만들 수 있습니다. VM 이미지를 만드는 방법에 대해 자세히 알아보려면 azure에 [업로드할 WINDOWS VHD 또는 VHDX 준비](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) 및 [azure에서 일반화 된 VM의 관리 되는 이미지 만들기](../../virtual-machines/windows/capture-image-resource.md)를 참조 하세요.
+Azure Resource Manager 템플릿을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 경우 Azure 갤러리, 관리 이미지 또는 비관리 이미지에서 가상 머신을 만들 수 있습니다. VM 이미지를 만드는 방법에 대한 자세한 내용은 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) 및 [Azure에서 일반화된 VM의 관리 이미지 만들기](../../virtual-machines/windows/capture-image-resource.md)를 참조하세요.
 
 ## <a name="run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool"></a>새 호스트 풀을 프로 비전 하기 위해 Azure Resource Manager 템플릿 실행
 
@@ -46,7 +46,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 �
 
 1. 아래로 스크롤하여 **Azure에 배포**를 마우스 오른쪽 단추로 클릭한 다음, **링크 위치 복사**를 선택합니다.
 2. 메모장 같은 텍스트 편집기를 열고 링크를 붙여넣습니다.
-3. "https://portal.azure.com/" 바로 뒤와 해시 태그 (#) 앞에 @ 기호를 입력 하 고 그 다음에 테 넌 트 도메인 이름을 입력 합니다. 사용 해야 하는 형식의 예는 다음과 같습니다 `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`.
+3. "" 바로 뒤 https://portal.azure.com/ 와 해시 태그 (#) 앞에 @ 기호를 입력 하 고 그 다음에 테 넌 트 도메인 이름을 입력 합니다. 사용 해야 하는 형식의 예는 다음과 같습니다 `https://portal.azure.com/@Contoso.onmicrosoft.com#create/` .
 4. 클라우드 솔루션 공급자 구독에 대한 관리자/기여자 권한이 있는 사용자로 Azure Portal에 로그인합니다.
 5. 텍스트 편집기에 복사한 링크를 주소 표시줄에 붙여넣습니다.
 
@@ -70,7 +70,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-사용자의 UPN은 Azure Active Directory의 사용자 id와 일치 해야 합니다 (예: user1@contoso.com). 여러 사용자를 추가하려는 경우 각 사용자에 대해 이 cmdlet을 실행해야 합니다.
+사용자의 UPN은 Azure Active Directory의 사용자 id와 일치 해야 합니다 (예: user1@contoso.com ). 여러 사용자를 추가하려는 경우 각 사용자에 대해 이 cmdlet을 실행해야 합니다.
 
 이러한 단계를 완료하면 데스크톱 애플리케이션 그룹에 추가된 사용자가 지원되는 원격 데스크톱 클라이언트를 사용하여 Windows Virtual Desktop에 로그인하고 세션 데스크톱에 대한 리소스를 확인할 수 있습니다.
 

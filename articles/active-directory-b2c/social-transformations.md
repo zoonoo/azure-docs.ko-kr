@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb713651aca266ab2546ff26c3cd0175a4cbc289
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183757"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203387"
 ---
 # <a name="social-accounts-claims-transformations"></a>소셜 계정 클레임 변환
 
@@ -24,7 +24,7 @@ ms.locfileid: "78183757"
 
 Azure Active Directory B2C (Azure AD B2C)에서 소셜 계정 id는 `userIdentities` **alternativeSecurityIdCollection** 클레임 유형의 특성에 저장 됩니다. **alternativeSecurityIdCollection**의 각 항목은 발급자(ID 공급자 이름, 예: facebook.com) 및 발급자의 고유한 사용자 식별자인 `issuerUserId`를 지정합니다.
 
-```JSON
+```json
 "userIdentities": [{
     "issuer": "google.com",
     "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
@@ -41,15 +41,15 @@ Azure Active Directory B2C (Azure AD B2C)에서 소셜 계정 id는 `userIdentit
 
 Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternativeSecurityId 속성에 대한 JSON 표현을 만듭니다. 자세한 내용은 [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) 스키마를 참조 하세요.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | string | 소셜 ID 공급자가 사용하는 고유한 사용자 식별자를 지정하는 ClaimType입니다. |
+| InputClaim | key | 문자열 | 소셜 ID 공급자가 사용하는 고유한 사용자 식별자를 지정하는 ClaimType입니다. |
 | InputClaim | identityProvider | string | 소셜 계정 ID 공급자 이름(예: facebook.com)을 지정하는 ClaimType입니다. |
 | OutputClaim | alternativeSecurityId | string | ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. 소셜 계정 사용자의 ID에 대한 정보를 포함합니다. **issuer**는 `identityProvider` 클레임의 값입니다. **issuerUserId**는 base64 형식인 `key` 클레임의 값입니다. |
 
 이 클레임 변환을 사용하여 `alternativeSecurityId` ClaimType을 생성할 수 있습니다. 모든 소셜 ID 공급자 기술 프로필(예: `Facebook-OAUTH`)에서 사용됩니다. 다음 클레임 변환은 사용자 소셜 계정 ID와 ID 공급자 이름을 수신합니다. 이 기술 프로필의 출력은 Azure AD 디렉터리 서비스에서 사용할 수 있는 JSON 문자열 형식입니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
@@ -73,7 +73,7 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 
 `alternativeSecurityIdCollection` 클레임에 `AlternativeSecurityId`를 추가합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | 항목 | string | 출력 클레임에 추가할 ClaimType입니다. |
 | InputClaim | collection | alternativeSecurityIdCollection | 정책에 사용 가능한 경우 클레임 변환에서 사용하는 ClaimType입니다. 제공된 경우 클레임 변환은 컬렉션의 끝에 `item`을 추가합니다. |
@@ -86,7 +86,7 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 1. **AddItemToAlternativeSecurityIdCollection** 클레임 변환을 호출하여 **AlternativeSecurityId2** 클레임을 기존 **AlternativeSecurityIds** 클레임에 추가합니다.
 1. **alternativeSecurityIds** 클레임을 사용자 계정에 저장합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
@@ -110,14 +110,14 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 
 **alternativeSecurityIdCollection** 클레임의 발급자 목록을 새 **stringCollection** 클레임에 반환합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | ID 공급자(발급자) 목록을 가져오는 데 사용할 ClaimType입니다. |
 | OutputClaim | identityProvidersCollection | stringCollection | 이 ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. alternativeSecurityIdCollection 입력 클레임과 연결된 ID 공급자 목록 |
 
 다음 클레임 변환은 사용자 **alternativeSecurityIds** 클레임을 읽고 해당 계정과 연결된 ID 공급자 이름 목록을 추출합니다. 출력 **identityProvidersCollection**을 사용하여 계정과 연결된 ID 공급자 목록을 사용자에게 표시합니다. 또는 ID 공급자 선택 페이지에서 출력 **identityProvidersCollection** 클레임을 기준으로 ID 공급자 목록을 필터링합니다. 따라서 사용자는 아직 계정과 연결되지 않은 새 소셜 ID를 연결하도록 선택할 수 있습니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="alternativeSecurityIds" TransformationClaimType="alternativeSecurityIdCollection" />
@@ -137,7 +137,7 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 
 **alternativeSecurityIdCollection** 클레임에서 **AlternativeSecurityId**를 제거합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | string | 컬렉션에서 제거할 ID 공급자 이름을 포함하는 ClaimType입니다. |
 | InputClaim | collection | alternativeSecurityIdCollection | 클레임 변환에서 사용하는 ClaimType입니다. 클레임 변환은 컬렉션에서 identityProvider를 제거합니다. |
@@ -149,7 +149,7 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 3. ID 공급자 이름을 사용하여 선택한 소셜 ID를 제거한 **RemoveAlternativeSecurityIdByIdentityProvider** 클레임 변환을 호출하는 클레임 변환 기술 프로필을 호출합니다.
 4. **AlternativeSecurityIds** 클레임을 사용자 계정에 유지 합니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
     <InputClaims>
         <InputClaim ClaimTypeReferenceId="secondIdentityProvider" TransformationClaimType="identityProvider" />

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f50373b0841b7626bc405f121015c15ae1587a97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80108576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201415"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Application Insights 기술 프로필 정의
 
@@ -45,9 +45,9 @@ Azure AD B2C (Azure Active Directory B2C)는 Azure AD B2C에 제공 된 계측 �
 
 ## <a name="input-claims"></a>입력 클레임
 
-**Inputclaims** 요소는 Application Insights 보낼 클레임 목록을 포함 합니다. Application Insights에 표시 하려는 이름으로 클레임 이름을 매핑할 수도 있습니다. 다음 예에서는 Application Insights에 원격 분석를 보내는 방법을 보여 줍니다. 이벤트의 속성은 구문을 `{property:NAME}`통해 추가 됩니다. 여기서 NAME은 이벤트에 추가 되는 속성입니다. DefaultValue는 정적 값 이거나 지원 되는 [클레임 해결 프로그램](claim-resolver-overview.md)중 하나에서 해결 된 값일 수 있습니다.
+**Inputclaims** 요소는 Application Insights 보낼 클레임 목록을 포함 합니다. Application Insights에 표시 하려는 이름으로 클레임 이름을 매핑할 수도 있습니다. 다음 예에서는 Application Insights에 원격 분석를 보내는 방법을 보여 줍니다. 이벤트의 속성은 구문을 통해 추가 됩니다 `{property:NAME}` . 여기서 NAME은 이벤트에 추가 되는 속성입니다. DefaultValue는 정적 값 이거나 지원 되는 [클레임 해결 프로그램](claim-resolver-overview.md)중 하나에서 해결 된 값일 수 있습니다.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
   <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
@@ -73,7 +73,7 @@ CryptographicKeys 요소는 사용되지 않습니다.
 
 ## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| attribute | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | InstrumentationKey| 예 | 이벤트를 기록 하는 데 사용 되는 Application Insights [계측 키](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)입니다. | 
 | DeveloperMode| 아니요 | 개발자 모드를 사용 하는지 여부를 나타내는 부울입니다. 가능한 값: `true` 또는 `false` (기본값) 이 메타 데이터는 이벤트가 버퍼링 되는 방식을 제어 합니다. 최소 이벤트 볼륨이 있는 개발 환경에서 개발자 모드를 사용 하도록 설정 하면 이벤트가 즉시 Application Insights 전송 됩니다.|  

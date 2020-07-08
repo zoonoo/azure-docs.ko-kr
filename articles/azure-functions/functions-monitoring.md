@@ -4,12 +4,13 @@ description: Azure Application Insights를 Azure Functions와 함께 사용하�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207010"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -245,7 +246,7 @@ v2.x 이상 버전의 Functions 런타임은 [.NET Core 로깅 필터 계층 구
 
 ## <a name="configure-sampling"></a>샘플링 구성
 
-Application Insights에는 최대 부하 시 실행이 완료될 때 원격 분석 데이터를 너무 많이 생성하지 않도록 방지하는 [샘플링](../azure-monitor/app/sampling.md) 기능이 포함되어 있습니다. 들어오는 실행 비율이 지정된 임계값을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 최대 실행 수의 기본 설정은 20입니다(1.x 버전은 5). [host.json]에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
+Application Insights에는 최대 부하 시 실행이 완료될 때 원격 분석 데이터를 너무 많이 생성하지 않도록 방지하는 [샘플링](../azure-monitor/app/sampling.md) 기능이 포함되어 있습니다. 들어오는 실행 비율이 지정된 임계값을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 최대 실행 수의 기본 설정은 20입니다(1.x 버전은 5). [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights)에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ### <a name="version-2x-and-later"></a>2\.x 이상 버전
 
@@ -255,12 +256,15 @@ Application Insights에는 최대 부하 시 실행이 완료될 때 원격 분�
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+버전 2.x에서는 샘플링에서 특정 유형의 원격 분석을 제외할 수 있습니다. 위의 예제에서 형식의 데이터 `Request` 는 샘플링에서 제외 됩니다. 이렇게 하면 *모든* 함수 실행 (요청)이 기록 되 고 다른 유형의 원격 분석은 샘플링 대상이 됩니다.
 
 ### <a name="version-1x"></a>버전 1.x 
 
@@ -313,7 +317,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
@@ -683,6 +687,28 @@ Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
+
+## <a name="scale-controller-logs"></a>컨트롤러 로그 크기 조정
+
+[Azure Functions 크기 조정 컨트롤러](./functions-scale.md#runtime-scaling) 는 앱을 실행 하는 함수 호스트 인스턴스를 모니터링 하 고 함수 호스트 인스턴스를 추가 하거나 제거할 시기에 대 한 결정을 내립니다. 크기 조정 컨트롤러가 응용 프로그램에서 수행 하는 결정을 이해 해야 하는 경우 로그를 Application Insights 또는 Blob Storage로 내보내도록 구성할 수 있습니다.
+
+> [!WARNING]
+> 이 기능은 미리 보기 상태입니다. 이 기능을 무기한으로 사용 하지 않는 것이 좋습니다 .이 기능을 사용 하는 경우 수집 된 정보가 필요할 때이 기능을 사용 하도록 설정 하 고 사용 하지 않도록 설정 해야 합니다.
+
+이 기능을 사용 하도록 설정 하려면 라는 새 응용 프로그램 설정을 추가 `SCALE_CONTROLLER_LOGGING_ENABLED` 합니다. 이 설정의 값은 다음과 같은 형식 이어야 합니다 `{Destination}:{Verbosity}` .
+* `{Destination}`전송할 로그의 대상을 지정 하며, 또는 중 하나 여야 합니다 `AppInsights` `Blob` .
+* `{Verbosity}`원하는 로깅 수준을 지정 하며, 또는 중 하나 여야 합니다 `None` `Warning` `Verbose` .
+
+예를 들어 크기 조정 컨트롤러에서 Application Insights에 대 한 자세한 정보를 기록 하려면 값을 사용 `AppInsights:Verbose` 합니다.
+
+> [!NOTE]
+> 대상 유형을 사용 하도록 설정 하는 경우 `AppInsights` [함수 앱에 대 한 Application Insights](#enable-application-insights-integration)를 구성 해야 합니다.
+
+대상을로 설정 하면 `Blob` `azure-functions-scale-controller` 응용 프로그램 설정에 설정 된 저장소 계정 내에서 이름이 지정 된 blob 컨테이너에 로그가 생성 됩니다 `AzureWebJobsStorage` .
+
+자세한 정도를로 설정 하면 `Verbose` 크기 조정 컨트롤러는 작업자 수의 모든 변경에 대 한 이유 뿐만 아니라 크기 조정 컨트롤러의 결정에 참여 하는 트리거에 대 한 정보를 기록 합니다. 예를 들어 로그에는 트리거 경고와 크기 조정 컨트롤러 실행 전후에 트리거에서 사용 하는 해시가 포함 됩니다.
+
+크기 조정 컨트롤러 로깅을 사용 하지 않도록 설정 하려면의 값을 `{Verbosity}` 로 설정 `None` 하거나 `SCALE_CONTROLLER_LOGGING_ENABLED` 응용 프로그램 설정을 제거 합니다.
 
 ## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
 

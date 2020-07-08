@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201178"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 다음 예에서는 이름이 `correlationId`인 클레임 유형이 `string`의 **DataType**으로 정의됩니다.
 
-```XML
+```xml
 <ClaimType Id="correlationId">
   <DisplayName>correlationId</DisplayName>
   <DataType>string</DataType>
@@ -36,7 +36,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 기술 프로필에서 클레임 해결 프로그램을 클레임 유형으로 매핑합니다. Azure AD B2C는 클레임 해결 프로그램 `{Context:CorrelationId}`의 값을 클레임 `correlationId`에 입력하고 클레임을 기술 프로필에 보냅니다.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
@@ -44,7 +44,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 다음 섹션은 사용 가능한 클레임 해결 프로그램을 나열합니다.
 
-### <a name="culture"></a>문화권
+### <a name="culture"></a>culture
 
 | 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
@@ -94,7 +94,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 
 | 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
-| {클레임: 클레임 유형} | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 클레임 유형의 식별자입니다.  예를 들면 `{Claim:displayName}`, 또는 `{Claim:objectId}`입니다. | 클레임 유형 값입니다.|
+| {클레임: 클레임 유형} | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 클레임 유형의 식별자입니다.  예를 들면 `{Claim:displayName}` , 또는 `{Claim:objectId}` 입니다. | 클레임 유형 값입니다.|
 
 
 ### <a name="oauth2-key-value-parameters"></a>OAuth2 키-값 매개 변수
@@ -119,12 +119,12 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 | 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
-| {SAML: AuthnContextClassReferences} | SAML `AuthnContextClassRef` 요청의 요소 값입니다. | urn: oasis: names: tc: SAML: 2.0: ac: 클래스: PasswordProtectedTransport |
-| {SAML: NameIdPolicyFormat} | SAML `Format` 요청의 `NameIDPolicy` 요소에 있는 특성입니다. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
-| {SAML: 발급자} |  SAML 요청의 `Issuer` saml 요소 값입니다.| `https://contoso.com` |
-| {SAML: AllowCreate} | SAML `AllowCreate` 요청의 `NameIDPolicy` 요소에 있는 특성 값입니다. | True |
-| {SAML: ForceAuthn} | SAML `ForceAuthN` 요청의 `AuthnRequest` 요소에 있는 특성 값입니다. | True |
-| {SAML: ProviderName} | SAML `ProviderName` 요청의 `AuthnRequest` 요소에 있는 특성 값입니다.| Contoso.com |
+| {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`SAML 요청의 요소 값입니다. | urn: oasis: names: tc: SAML: 2.0: ac: 클래스: PasswordProtectedTransport |
+| {SAML: NameIdPolicyFormat} | `Format` `NameIDPolicy` SAML 요청의 요소에 있는 특성입니다. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML: 발급자} |  `Issuer`Saml 요청의 saml 요소 값입니다.| `https://contoso.com` |
+| {SAML: AllowCreate} | `AllowCreate`SAML 요청의 요소에 있는 특성 값 `NameIDPolicy` 입니다. | True |
+| {SAML: ForceAuthn} | `ForceAuthN`SAML 요청의 요소에 있는 특성 값 `AuthnRequest` 입니다. | True |
+| {SAML: ProviderName} | `ProviderName`SAML 요청의 요소에 있는 특성 값 `AuthnRequest` 입니다.| Contoso.com |
 | {SAML: RelayState} | `RelayState` 쿼리 문자열 매개 변수입니다.| 
 
 ## <a name="using-claim-resolvers"></a>클레임 해결 프로그램 사용
@@ -146,8 +146,8 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 |[RelyingParty](relyingparty.md#technicalprofile) 기술 프로필| `OutputClaim`| 2 |
 
 설정:
-1. `IncludeClaimResolvingInClaimsHandling` 메타 데이터를로 `true`설정 해야 합니다.
-1. 입력 또는 출력 클레임 특성 `AlwaysUseDefaultValue` 은로 `true`설정 해야 합니다.
+1. `IncludeClaimResolvingInClaimsHandling`메타 데이터를로 설정 해야 합니다 `true` .
+1. 입력 또는 출력 클레임 특성은 `AlwaysUseDefaultValue` 로 설정 해야 합니다 `true` .
 
 ## <a name="claim-resolvers-samples"></a>클레임 해결 프로그램 샘플
 
@@ -157,7 +157,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 다음 예제에서는이 시나리오에서 RESTful 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="REST">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -185,9 +185,9 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 매개 변수를 전달 하 여 페이지 콘텐츠를 동적으로 렌더링할 수 있습니다. 예를 들어이 기능을 사용 하면 웹 또는 모바일 응용 프로그램에서 전달 하는 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 수정할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
 
-다음 예에서는 값 `Hawaii`이 인 **campaignId** 라는 쿼리 문자열 매개 변수, `en-US`의 **언어** 코드 및 클라이언트 ID를 나타내는 **앱** 을 전달 합니다.
+다음 예에서는 값이 인 **campaignId** 라는 쿼리 문자열 매개 변수 `Hawaii` ,의 **언어** 코드 `en-US` 및 클라이언트 ID를 나타내는 **앱** 을 전달 합니다.
 
-```XML
+```xml
 <UserJourneyBehaviors>
   <ContentDefinitionParameters>
     <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -205,9 +205,9 @@ Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 �
 
 ### <a name="content-definition"></a>콘텐츠 정의
 
-[Contentdefinition](contentdefinitions.md) `LoadUri`에서 클레임 해결 프로그램을 전송 하 여 사용 된 매개 변수에 따라 여러 위치에서 콘텐츠를 가져올 수 있습니다.
+[Contentdefinition](contentdefinitions.md) 에서 `LoadUri` 클레임 해결 프로그램을 전송 하 여 사용 된 매개 변수에 따라 여러 위치에서 콘텐츠를 가져올 수 있습니다.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
@@ -218,7 +218,7 @@ Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 �
 
 Azure Application Insights 및 클레임 해결 프로그램을 사용하면 사용자 동작에 대한 인사이트를 얻을 수 있습니다. Application Insights 기술 프로필에서 Azure Application Insights에 지속되는 입력 클레임을 보냅니다. 자세한 내용은 [Application Insights를 사용하여 Azure AD B2C 경험의 사용자 동작 추적](analytics-with-application-insights.md)을 참조하세요. 다음 예는 정책 ID, 상관 관계 ID, 언어 및 클라이언트 ID를 Azure Application Insights에 보냅니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureInsights-Common">
   <DisplayName>Alternate Email</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -236,7 +236,7 @@ Azure Application Insights 및 클레임 해결 프로그램을 사용하면 사
 
 [신뢰](relyingparty.md) 당사자 정책 기술 프로필에서는 JWT 내에서 테 넌 트 id 또는 상관 관계 id를 신뢰 당사자 응용 프로그램에 보낼 수 있습니다.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">

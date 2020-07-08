@@ -4,16 +4,16 @@ description: Windows 데스크톱 클라이언트를 사용 하 여 Windows 가�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b16818856ca8196b82eb8f618cf22b5fc1b6854
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d333b2f8bbb660e9fd71339159d942c0520f4f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201551"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "82612693"
 Windows 데스크톱 클라이언트를 사용 하 여 windows 7, Windows 10 및 Windows 10 IoT Enterprise를 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
 
 >[!NOTE]
->Windows 클라이언트는 Windows 가상 데스크톱 2019 릴리스를 자동으로 설정 합니다. 그러나 클라이언트가 사용자에 게 Azure Resource Manager 리소스가 있음을 감지 하면 리소스를 자동으로 추가 하거나 사용자에 게 사용 가능 여부를 알립니다. 
+>Windows 클라이언트는 Windows 가상 데스크톱 2019 릴리스를 자동으로 설정 합니다. 그러나 클라이언트가 사용자에 게 Azure Resource Manager 리소스가 있음을 감지 하면 리소스를 자동으로 추가 하거나 사용자에 게 사용 가능 여부를 알립니다.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop은 RADC(RemoteApp 및 데스크톱 연결) 클라이언트 또는 원격 데스크톱 연결(MSTSC) 클라이언트를 지원하지 않습니다.
@@ -46,7 +46,7 @@ Windows 버전과 일치하는 클라이언트를 선택합니다.
 
 관리자가 제공한 피드를 구독 하 여 사용할 수 있는 관리 되는 리소스 목록을 가져옵니다. 구독을 통해 로컬 PC에서 리소스를 사용할 수 있습니다.
 
-피드를 구독 하려면 다음을 수행 합니다.
+피드를 구독하려면 다음을 수행합니다.
 
 1. Windows 데스크톱 클라이언트를 엽니다.
 2. 기본 페이지에서 **구독** 을 선택 하 여 서비스에 연결 하 고 리소스를 검색 합니다.

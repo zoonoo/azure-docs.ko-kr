@@ -11,20 +11,20 @@ ms.topic: reference
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202996"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-유효성 검사 기술 프로필은 [Azure Active Directory](active-directory-technical-profile.md) 또는 [REST API](restful-technical-profile.md)와 같은 모든 프로토콜의 일반적인 기술 프로필입니다. 유효성 검사 기술 프로필은 출력 클레임을 반환 하거나, 다음 데이터를 사용 하 여 4xx HTTP 상태 코드를 반환 합니다. 자세한 내용은 [오류 메시지 반환](restful-technical-profile.md#returning-error-message) 을 참조 하십시오.
+유효성 검사 기술 프로필은 [Azure Active Directory](active-directory-technical-profile.md) 또는 [REST API](restful-technical-profile.md)와 같은 모든 프로토콜의 일반적인 기술 프로필입니다. 유효성 검사 기술 프로필은 출력 클레임을 반환 하거나, 다음 데이터를 사용 하 여 4xx HTTP 상태 코드를 반환 합니다. 자세한 내용은 [오류 메시지 반환](restful-technical-profile.md#returning-validation-error-message) 을 참조 하십시오.
 
-```JSON
+```json
 {
     "version": "1.0.0",
     "status": 409,
@@ -47,13 +47,13 @@ ms.locfileid: "79481571"
 
 **ValidationTechnicalProfiles** 요소에 포함되는 요소는 다음과 같습니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조하는 기술 프로필의 출력 클레임 일부 또는 전부의 유효성을 검사하는 데 사용되는 기술 프로필입니다. |
 
 **ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
 |ContinueOnError|아니요| 이 유효성 검사 기술 프로필에서 오류가 발생 하는 경우 후속 유효성 검사 기술 프로필의 유효성 검사를 계속할지 여부를 나타내는입니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
@@ -61,13 +61,13 @@ ms.locfileid: "79481571"
 
 **ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | Preconditions | 0:1 | 유효성 검사 기술 프로필을 실행하기 위해 충족해야 하는 사전 조건의 목록입니다. |
 
 **Precondition** 요소에 포함되는 특성은 다음과 같습니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
 | `ExecuteActionsIf` | 예 | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
@@ -87,7 +87,7 @@ ms.locfileid: "79481571"
 2. userType 클레임이 없거나 userType 값이 `Partner`이면 다음 유효성 검사 기술 프로필이 실행되지 않습니다. 유효성 검사 기술 프로필은 내부 고객 데이터베이스에서 사용자 프로필을 읽으려고 시도하고, 사용할 수 없는 REST API 서비스 또는 내부 오류와 같은 오류가 발생하더라도 계속됩니다.
 3. userType 클레임이 없거나 userType 값이 `Customer`이면 마지막 유효성 검사 기술 프로필이 실행되지 않습니다. 유효성 검사 기술 프로필은 내부 파트너 데이터베이스에서 사용자 프로필을 읽으려고 시도하고, 사용할 수 없는 REST API 서비스 또는 내부 오류와 같은 오류가 발생하더라도 계속됩니다.
 
-```XML
+```xml
 <ValidationTechnicalProfiles>
   <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >
