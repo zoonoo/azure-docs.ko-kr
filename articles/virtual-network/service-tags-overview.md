@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263204"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038041"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -96,7 +96,7 @@ ms.locfileid: "84263204"
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https://westus.servicefabric.azure.com). | 모두 | 예 | 예 |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse입니다.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에 적용되지 않습니다. | 아웃바운드 | 예 | 예 |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse입니다.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에는 적용 되지 않습니다. | 아웃바운드 | 예 | 예 |
 | **SqlManagement** | SQL 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **스토리지** | Azure Storage. <br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **StorageSyncService** | 스토리지 동기화 서비스입니다. | 모두 | 예 | 예 |
@@ -139,6 +139,8 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 - [Azure 미국 정부](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure 중국](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)   
+
+이러한 파일의 IP 주소 범위는 CIDR 표기법으로 되어 있습니다. 
 
 > [!NOTE]
 >이 정보의 일부는 [Azure 퍼블릭](https://www.microsoft.com/download/details.aspx?id=41653), [Azure 중국](https://www.microsoft.com/download/details.aspx?id=42064) 및 [Azure 독일](https://www.microsoft.com/download/details.aspx?id=54770)용 XML 파일에 게시되었습니다. 이러한 XML 다운로드는 2020년 6월 30일부터 더 이상 지원되지 않으며 해당 날짜 이후에는 더 이상 사용할 수 없습니다. 이전 섹션에서 설명한 대로 검색 API 또는 JSON 파일 다운로드를 사용하여 마이그레이션해야 합니다.

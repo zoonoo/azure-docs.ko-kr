@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: a51025245e5b02b89126afd886bc89fb1cefdef4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 2fd4faf9fa553f8fb7b6553c0d1435bf003b5578
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759845"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986126"
 ---
 Python용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
@@ -24,18 +24,19 @@ Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 
 [라이브러리 참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [GitHub에서 샘플 코드 찾기](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* 변칙 탐지기 키 및 엔드포인트
 * [Python 3.x](https://www.python.org/)
 * [Pandas 데이터 분석 라이브러리](https://pandas.pydata.org/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Anomaly Detector 리소스 만들기"  target="_blank">Anomaly Detector 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포될 때까지 기다렸다가 **리소스로 이동** 단추를 클릭합니다.
+    * 애플리케이션을 Anomaly Detector API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+
  
 ## <a name="setting-up"></a>설치
 
-### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
 ### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
@@ -43,7 +44,7 @@ Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
-환경 변수, 시계열 데이터 파일의 경로 및 구독의 Azure 위치로 키에 대한 변수를 만듭니다. `westus2`)을 입력합니다. 
+환경 변수, 시계열 데이터 파일의 경로 및 구독의 Azure 위치로 키에 대한 변수를 만듭니다. 예들 들어 `westus2`입니다. 
 
 [!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
@@ -91,7 +92,7 @@ Pandas 라이브러리의 `read_csv()` 메서드를 사용하여 데이터 파�
 
 [!code-python[Load the data file](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=loadDataFile)]
 
-시계열과 해당 데이터 포인트의 세분성(또는 [주기성](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python))을 사용하여 [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) 개체를 만듭니다. `Granularity.daily`)을 입력합니다.
+시계열과 해당 데이터 포인트의 세분성(또는 [주기성](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python))을 사용하여 [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) 개체를 만듭니다. 예들 들어 `Granularity.daily`입니다.
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 

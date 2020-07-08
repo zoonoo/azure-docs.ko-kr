@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 047e03c4fa5916119036c5e539674dc48a6c77aa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322824"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554020"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -204,7 +204,7 @@ npm install msal
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > |`clientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID.|
 > |`authority`    | (선택 사항) 위의 구성 섹션에 설명된 대로 계정 유형을 지원하는 기관 URL입니다. 기본 기관은 `https://login.microsoftonline.com/common`입니다. |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `scopes`   | (선택 사항) 로그인 시 사용자 동의를 요청하는 범위가 포함됩니다. 예를 들어 Microsoft Graph의 경우 `[ "user.read" ]` 또는 사용자 지정 웹 API의 경우 `[ "<Application ID URL>/scope" ]`(즉, `api://<Application ID>/access_as_user`)입니다. |
 
@@ -262,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `scopes`   | API에 대한 액세스 토큰에서 반환되도록 요청되는 범위가 포함됩니다. 예를 들어 Microsoft Graph의 경우 `[ "mail.read" ]` 또는 사용자 지정 웹 API의 경우 `[ "<Application ID URL>/scope" ]`(즉, `api://<Application ID>/access_as_user`)입니다.|
 

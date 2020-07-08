@@ -11,12 +11,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 4d722b827daff8abf58446fa76c67b57c3d53e1b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: da90c60319aff7fea239c107bb8677950ca57125
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268693"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038353"
 ---
 # <a name="quickstart-use-the-immersive-reader-client-library"></a>빠른 시작: 몰입형 리더 클라이언트 라이브러리 사용
 
@@ -32,8 +32,20 @@ ms.locfileid: "84268693"
 
 ::: zone-end
 
+::: zone pivot="programming-language-java-android"
+
+[!INCLUDE [Android Java quickstart](../includes/quickstarts/immersive-reader-client-library-java-android.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+[!INCLUDE [Android Kotlin quickstart](../includes/quickstarts/immersive-reader-client-library-kotlin.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-swift"
 
-[!INCLUDE [Swift quickstart](../includes/quickstarts/immersive-reader-client-library-swift.md)]
+[!INCLUDE [iOS Swift quickstart](../includes/quickstarts/immersive-reader-client-library-swift.md)]
 
 ::: zone-end

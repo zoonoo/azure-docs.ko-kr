@@ -4,12 +4,12 @@ description: 상태 비저장 및 상태 저장 서비스를 사용하여 Micros
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083789"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038024"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 
@@ -30,7 +30,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
 
-상태 비저장 서비스는 현재 클라우드 애플리케이션에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
+상태 비저장 서비스는 현재 클라우드 애플리케이션에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 종류의 서비스에서는 Azure 테이블 또는 SQL Database와 같은 외부 저장소에 상태를 유지 하 여 항상 사용 가능 하 고 신뢰할 수 있도록 해야 합니다.
 
 관리자 권한으로 Visual Studio 2017 또는 Visual Studio 2019를 시작 하 고 *HelloWorld*라는 새 Service Fabric 응용 프로그램 프로젝트를 만듭니다.
 
@@ -193,7 +193,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-신뢰할 수 있는 컬렉션에는 LINQ (Language Integrated `System.Collections.Generic` Query `System.Collections.Concurrent` )를 제외 하 고, 해당 사용자가 수행 하는 것과 동일한 많은 작업이 있습니다. 신뢰할 수 있는 컬렉션의 작업은 비동기적입니다. 신뢰할 수 있는 컬렉션을 사용한 쓰기 작업에서는 I/O 작업을 수행하여 데이터를 복제하고 디스크에 보존하기 때문입니다.
+신뢰할 수 있는 컬렉션 `System.Collections.Generic` `System.Collections.Concurrent` 에는 LINQ (Language Integrated Query)를 제외 하 고, 해당 사용자가 수행 하는 것과 동일한 많은 작업이 있습니다. 신뢰할 수 있는 컬렉션의 작업은 비동기적입니다. 신뢰할 수 있는 컬렉션을 사용한 쓰기 작업에서는 I/O 작업을 수행하여 데이터를 복제하고 디스크에 보존하기 때문입니다.
 
 신뢰할 수 있는 컬렉션 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 컬렉션 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 큐에서 작업 항목을 제거하고, 작업을 수행하고, 신뢰할 수 있는 사전의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 
@@ -216,7 +216,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [신뢰할 수 있는 컬렉션에 대한 자세한 정보](service-fabric-reliable-services-reliable-collections.md)
 
-[응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+[애플리케이션 배포](service-fabric-deploy-remove-applications.md)
 
 [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 

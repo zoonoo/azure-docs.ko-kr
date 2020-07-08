@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 362f6d1f4e50e1cc78c8897499b9f6593096162b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536015"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553863"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -133,7 +133,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |위치: ||
+> |위치: | Description |
 > |---------|---------|
 > | `ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
 
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |위치:||
+> |위치:| Description |
 > |---------|---------|
 > | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
 
@@ -170,7 +170,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |위치: ||
+> |위치: | Description |
 > |---------|---------|
 > | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
 > | `firstAccount` | 캐시의 첫 번째 사용자 계정을 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원). |

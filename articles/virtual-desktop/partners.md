@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692227"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038058"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -33,12 +33,12 @@ Citrix는 사용자 밀도와 성능을 향상 시키고, 주문형 워크 로�
 
 ![VMware 로고](./media/partners/vmware.png)
 
-Microsoft Azure의 VMware 수평 클라우드를 사용 하면 고유한 Microsoft Azure 인스턴스를 직관적이 고 직관적인 규모의 클라우드 제어 평면에 연결 하 여 가상화 된 Windows 응용 프로그램 및 데스크톱을 제공 하기 위한 안전한 포괄적인 클라우드 호스팅 솔루션을 만들 수 있습니다. Windows 가상 데스크톱의 릴리스와 함께 VMware는 Microsoft와 협력 하 여 Microsoft Azure에 대 한 수평 클라우드를 사용 하는 고객에 게 Windows 가상 데스크톱의 기능을 확장 했습니다. 이 기능은 2019 끝까지 Tech Preview에서 사용할 수 있습니다.
- 
-승인 된 공급자로 서 windows 가상 데스크톱의 이점은 다중 세션을 위한 Windows 10 Enterprise, 최대 3 년간의 무료 연장 보안 업데이트가 포함 된 Windows 7 및 FSLogix를 비롯 한 Microsoft Azure 고객의 VMware 수평 클라우드로 확장 될 예정입니다. 또한 고객은 폭넓은 끝점 지원과 같은 수평 수준의 클라우드 기능을 받게 됩니다. 클라우드 최적화 전역 브로커; 유연한 데스크톱 옵션 및 구성 사용자 환경 관리 하이브리드 환경을 지원 합니다.
+Microsoft Azure의 VMware 수평 클라우드는 VMware 수평의 모든 기능을 활용 하면서 조직에서 기존 Microsoft Azure 구독의 원격 데스크톱 및 응용 프로그램을 신속 하 게 배포할 수 있도록 하는 기본 클라우드 서비스입니다. 수평 클라우드는 수평 제어 평면을 사용 하 여 온-프레미스 또는 클라우드의 모든 수평 환경에 대해 단일 관리 인터페이스를 제공 합니다. 이를 통해 하이브리드 데스크톱 가상화를 사용 하 고 고객은 각자의 속도로 워크 로드를 Azure로 이동할 수 있습니다.
 
-- [Microsoft Azure에서 수평 클라우드의 기술 미리 보기에 등록](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)합니다.
+Windows 가상 데스크톱 승인 공급자 인 VMware는 통합 및 사용 하기 쉬운 전원 관리, 클라우드 기반 모니터링 및 폭발 익스트림 프로토콜과 같이 VMware 수평과 함께 제공 되는 추가 기능을 계속 제공 하면서 Windows 가상 데스크톱을 사용 하려는 고객에 게 도움을 줍니다. 이러한 기능은 지속적으로 뛰어난 사용자 환경을 제공 하기 위해 즉시 변화 하는 네트워크 상태에 맞게 조정 됩니다. VMware 수평 클라우드는 VMware 앱 볼륨 및 동적 환경 관리자와 함께 제공 됩니다 .이는 MSIX 앱 연결 및 FSLogix를 사용 하는 고급 응용 프로그램 및 사용자 환경 관리 기능을 추가 합니다.
+
 - [파트너 웹 사이트로 이동](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)합니다.
+- [VMWare 수평 클라우드 기술 설명서를 참조](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure)하세요.
 
 ## <a name="10zig"></a>10ZiG
 
@@ -102,6 +102,28 @@ deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술�
 
 - [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
 
+## <a name="ekran-system"></a>Ekran 시스템
+
+![Ekran 시스템 로고](./media/partners/ekran.png)
+
+Ekran System은 IT 팀이 Microsoft Azure 가상 컴퓨터에서 모든 원격 사용자 동작을 모니터링할 수 있도록 하는 Windows 가상 데스크톱 값-추가 파트너입니다. Ekran 시스템을 사용 하면 응용 프로그램 이름, 활성 창 제목, 방문한 Url, 키 입력 등과 같은 다양 한 상황에 맞는 메타 데이터를 수집 하면서 게시 된 응용 프로그램 또는 가상 데스크톱의 모든 사용자 세션에 대해 화면 작업을 기록할 수 있습니다. 고급 기능은 심층 가시성과 빠른 인시던트 응답 시간을 제공 하 여 Ekran 시스템을 효율적인 참가자 위협 관리 및 규정 준수 솔루션으로 만듭니다.  
+
+Ekran 시스템 클라이언트의 고유한 부동 끝점 라이선스는 동적으로 변경 되는 가상 데스크톱을 지원 하기 위해 자동화 됩니다. Ekran System을 사용 하면 삭제 된 비영구 가상 데스크톱의 라이선스를 자동으로 할당 해제 하 고 데이터베이스에서 제거할 수 있습니다. Ekran 시스템은 Azure Active Directory 및 Azure 센티널과 원활 하 게 통합 됩니다.
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8)하세요.
+- [파트너 페이지로 이동](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring)합니다.
+
+## <a name="flexxible-it"></a>Flexxible IT
+
+![Flexxible IT 로고](./media/partners/flexxible.png)
+
+Flexxible IT는 조직을 통해 Windows 가상 데스크톱 및 Citrix 작업 영역 인프라를 신속 하 게 확장, 모니터링 및 효율적으로 관리할 수 있는 기능을 제공 하는 Windows 가상 데스크톱 값-추가 파트너입니다. Flexxible | SUITE를 사용 하면 IT 관리자가 온-프레미스에서 Windows 가상 데스크톱 워크 로드를 지능적으로 프로 비전 및 관리 하 고 Azure에서 호스트할 수 있습니다.
+ 
+Flexxible IT 기술은 인프라 구성, 데스크톱 프로 비전 및 일상적인 관리를 간소화 하는 일반적인 프로세스를 자동화 하 여 네이티브 Windows 가상 데스크톱 및 Citrix 작업 영역 모두의 가치를 확장 합니다. 복잡 한 PowerShell 스크립트 또는 시간이 많이 걸리는 수동 프로세스에 대 한 필요 없이 제품군은 확장 가능한 데스크톱 배포, 광범위 한 모니터링 및 보고, 안전한 위임 된 관리를 제공 합니다. 이러한 기능을 통해 사용자에 게 향상 된 서비스 수준 및 품질 Windows 가상 데스크톱 환경을 제공 하는 데 집중할 수 있습니다.
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A)하세요.
+- [파트너 웹 사이트로 이동](https://www.flexxible.com/suite-for-windows-virtual-desktop)합니다.
+
 ## <a name="hp"></a>HP
 
 ![HP 로고](./media/partners/hp.png)
@@ -127,7 +149,7 @@ IGEL OS는 Citrix, Microsoft 및 VMware에서 널리 사용 되는 모든 가상
 
 ![Ivanti](./media/partners/ivanti.png)
 
-Ivanti 사용자 작업 영역 관리자는 원활한 이식성을 위해 데스크톱의 사용자 데이터를 분리 하 여 데스크톱 배포 및 관리를 용이 하 게 하는 Windows 가상 데스크톱 값 추가 서비스입니다. Ivanti를 사용 하면 사용자가 Windows 10으로 마이그레이션, Office 365 도입 또는 서비스를 클라우드로 더 빠르게 이동 하는 등 복잡 한 프로젝트를 제공할 수 있습니다. 
+Ivanti 사용자 작업 영역 관리자는 원활한 이식성을 위해 데스크톱의 사용자 데이터를 분리 하 여 데스크톱 배포 및 관리를 용이 하 게 하는 Windows 가상 데스크톱 값 추가 서비스입니다. Ivanti를 사용 하면 사용자는 Windows 10으로 마이그레이션, Microsoft 365 채택 또는 클라우드로 서비스 이동 등의 복잡 한 프로젝트를 빠르게 제공할 수 있습니다. 
 
 Windows 가상 데스크톱과 함께 사용 하는 경우 Ivanti 사용자 작업 영역 관리자는 사용자 데스크톱 환경에 대 한 간단한 상황별 관리를 제공 하 여 긴 로그인 시간을 제거 하 고 eradicating 그룹 정책을 금세 합니다. Ivanti 사용자 작업 영역 관리자 기본 템플릿을 사용 하면 에이전트 및 기존 콘솔을 통해 사용자를 간편 하 게 설치할 수 있습니다. Ivanti 사용자 작업 영역 관리자는 응답성이 뛰어난 보안 데스크톱을 제공 하 고, 서버에 비용을 절감 하 고, 사용자를 보다 효율적으로 관리 하 고, 끝점 보안 위험을 줄입니다. 
 
@@ -163,6 +185,7 @@ Liquit 응용 프로그램 집계 및 배달 소프트웨어를 사용 하 여 �
 
 인증 된 통합 파트너인 Liquit는 rip 및 바꾸기 지연 없이 클라우드로의 전환을 가속화 하는 데 도움이 됩니다. Windows 가상 데스크톱은 기존 환경에 쉽게 연결 하 고 작업 영역을 만들고 바탕 화면을 제공할 수 있습니다. 그런 다음 이전 플랫폼에서 마이그레이션을 수행 하 고 사용자에 게 확인 하지 않고 백 엔드를 변경할 수 있습니다. 일관적인 최종 사용자 환경, 유연한 인프라를 얻고 어디에 있든 상관 없이 응용 프로그램의 제어를 유지 관리 합니다.
 
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8)하세요.
 - [파트너 웹 사이트로 이동](https://www.liquit.com/wvd/)합니다.
 
 ## <a name="login-vsi"></a>로그인 .VSI
@@ -232,9 +255,20 @@ Printix는 office 인쇄 리소스에 대 한 사용자 연결을 자동화 하�
 
 RDPSoft는 강력 하 고 저렴 한 모니터링, 관리 및 보고 솔루션을 제공 하는 Windows 가상 데스크톱 파트너입니다. IT 전문가는 해당 원격 데스크톱 회사 제품을 통해 Windows 가상 데스크톱 배포의 상태, 성능, 사용자 활동, 라이선스 및 보안에 대 한 통찰력을 얻을 수 있습니다. 
  
-RDPSoft의 원격 데스크톱 회사 솔루션은 Windows 가상 데스크톱 관리를 향상 시킵니다. 프리미엄 관리 기능을 사용 하면 원격 지원, 사용자 세션 및 프로세스 관리를 제공 하 여 지원 센터 직원에 게 Windows 가상 데스크톱 관리 작업을 간편 하 게 위임할 수 있습니다. 이와 동시에 원격 데스크톱 지향 제품군은 사용자 단위 성능 및 로드, 사용자 활동 및 감사, Windows 가상 데스크톱 연결 품질 (대기 시간 및 대역폭), 라이선스 및 보안에 대 한 풍부한 메트릭을 검토를 위해 중앙 Azure SQL database 인스턴스에 수집 합니다. RDPSoft를 사용 하면 풍부한 기록 보고 및 종합적인 대시보드를 클릭 하 여 바로 이동할 수 있습니다.
+RDPSoft의 원격 데스크톱 회사 솔루션은 Windows 가상 데스크톱 관리를 향상 시킵니다. 프리미엄 관리 기능을 사용 하면 원격 지원, 사용자 세션 및 프로세스 관리를 제공 하 여 지원 센터 직원에 게 Windows 가상 데스크톱 관리 작업을 간편 하 게 위임할 수 있습니다. 이와 동시에 원격 데스크톱 지향 제품군은 사용자 단위 성능 및 로드, 사용자 활동 및 감사, Windows 가상 데스크톱 연결 품질 (대기 시간 및 대역폭), 라이선스 및 보안에 대 한 풍부한 메트릭을 검토를 위해 중앙 Azure SQL Database 인스턴스에 수집 합니다. RDPSoft를 사용 하면 풍부한 기록 보고 및 종합적인 대시보드를 클릭 하 여 바로 이동할 수 있습니다.
 
 - [파트너 웹 사이트로 이동](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)합니다.
+
+## <a name="rimo3"></a>Rimo3
+
+![Rimo3 로고](./media/partners/rimo3.png)
+
+Rimo3 배포를 가속화 하 고 지속적인 변경 관리를 개선 하 여 Windows 가상 데스크톱 환경을 향상 시킵니다. Rimo3 뛰어난 IT 팀은 응용 프로그램 작업의 Azure 마이그레이션 준비를 위해 응용 프로그램 포트폴리오를 지 원하는 데 필요한 정보를 제공 합니다. 사용자는 응용 프로그램을 등록 하 고 대상 Windows 가상 데스크톱 작업 영역에서 신속 하 고 어려움 없이 테스트할 수 있습니다. 또한 사용자는 조직에서 새로운 응용 프로그램 및 업데이트를 사용할 때 변경 사항의 영향을 사전에 이해할 수 있습니다. 마지막으로 IT 관리자는 Rimo3's Intelligent 스모크 테스트 기능을 활용 하 고 사용자 세션을 중단 하지 않고 기능 테스트를 자동화할 수 있습니다.
+
+Rimo3는 사용 하기 쉽고 확장 가능한 자동화 된 응용 프로그램 테스트 플랫폼을 제공 합니다. 이 플랫폼에는 세 가지 응용 프로그램 테스트 기본 사항 (호환성, 기능 및 성능)을 위한 기능이 포함 되어 있습니다. 이를 통해 조직, 리더 및 팀이 비즈니스 연속성을 개선 하 고, 변경 내용을 더 빠르게 도입 하 고, 사용자 환경을 최적화할 수 있습니다.
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B)하세요.
+- [파트너 웹 사이트로 이동](https://rimo3.com/outcomes/)합니다.
 
 ## <a name="sepago"></a>sepago
 
@@ -245,7 +279,7 @@ sepago는 Cologne에서 4 개의 친구에 의해 2002에서 설립 되었습니
 sepago의 혁신 및 개발 랩은 빅 데이터 및 AI 기술을 사용 하 여 스마트 솔루션을 구축 합니다. 이러한 솔루션은 Windows 가상 데스크톱과 같은 파트너 제품의 비즈니스, 사용자 환경 및 판을 개선 하는 데 중점을 둡니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm)하세요.
-- [파트너 웹 사이트로 이동](https://www.sepago.de/wvd-value-add-tools/)합니다.
+- [파트너 웹 사이트로 이동](https://www.sepago.de/en/)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 
