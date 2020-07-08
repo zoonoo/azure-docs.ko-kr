@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f2eb7cff5d8fe77a56117a0be57f0edb86889a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562308"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
@@ -71,10 +71,10 @@ ms.locfileid: "77191010"
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
+GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2020-06-30&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
 
 # Option 2: Use filter for POST and pass it in the request body
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate lt 150.0)",
@@ -109,7 +109,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
    ```
 
-+ "or"로 구분된 복합 쿼리에서는 각각 자체 필터 조건이 있습니다. 예를 들어, '개'는 '비글', '고양이'는 '샤미즈' 등입니다. 와 `or` 결합 된 식은 개별적으로 평가 되 고 각 식과 일치 하는 문서의 합집합은 응답으로 다시 전송 됩니다. 이 사용 패턴은 함수를 `search.ismatchscoring` 통해 구현 됩니다. 또한 비 점수 매기기 버전를 `search.ismatch`사용할 수 있습니다.
++ "or"로 구분된 복합 쿼리에서는 각각 자체 필터 조건이 있습니다. 예를 들어, '개'는 '비글', '고양이'는 '샤미즈' 등입니다. 와 결합 된 식은 `or` 개별적으로 평가 되 고 각 식과 일치 하는 문서의 합집합은 응답으로 다시 전송 됩니다. 이 사용 패턴은 함수를 통해 구현 됩니다 `search.ismatchscoring` . 또한 비 점수 매기기 버전를 사용할 수 있습니다 `search.ismatch` .
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,7 +119,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  대신 `or`를 사용 하 `and` 는 필터를 통해 `search.ismatchscoring` 전체 텍스트 검색을 결합할 수도 있지만이는 검색 요청에서 `search` 및 `$filter` 매개 변수를 사용 하는 것과 기능적으로 동일 합니다. 예를 들어 다음 두 쿼리는 동일한 결과를 생성 합니다.
+  대신를 사용 하는 필터를 통해 전체 텍스트 검색을 결합할 수도 `search.ismatchscoring` `and` `or` 있지만이는 `search` `$filter` 검색 요청에서 및 매개 변수를 사용 하는 것과 기능적으로 동일 합니다. 예를 들어 다음 두 쿼리는 동일한 결과를 생성 합니다.
 
   ```
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -137,7 +137,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되어 있습니다. 필터링 가능 필드는 인덱스 크기가 늘어나기 때문에 필터에서 실제로 사용하지 않는 필드에 대해서는 `"filterable": false`로 설정합니다. 필드 정의 설정에 대한 자세한 내용은 [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)(인덱스 만들기)를 참조하세요.
 
-.NET SDK에서는 필터링 가능이 기본적으로 *해제*되어 있습니다. 해당 [field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) 개체의 [isfilterable 가능 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) 을로 설정 하 여 필드를 필터링 가능 하 `true`게 만들 수 있습니다. [Isfilterable 가능한 특성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute)을 사용 하 여이 작업을 선언적으로 수행할 수도 있습니다. 아래 예제에서 특성은 인덱스 정의에 매핑되는 모델 `BaseRate` 클래스의 속성에 대해 설정 됩니다.
+.NET SDK에서는 필터링 가능이 기본적으로 *해제*되어 있습니다. 해당 [field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) 개체의 [isfilterable 가능 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) 을로 설정 하 여 필드를 필터링 가능 하 게 만들 수 있습니다 `true` . [Isfilterable 가능한 특성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute)을 사용 하 여이 작업을 선언적으로 수행할 수도 있습니다. 아래 예제에서 특성은 `BaseRate` 인덱스 정의에 매핑되는 모델 클래스의 속성에 대해 설정 됩니다.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -150,7 +150,7 @@ REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되
 
 ## <a name="text-filter-fundamentals"></a>텍스트 필터 기본 사항
 
-텍스트 필터는 필터에 제공 하는 리터럴 문자열과 문자열 필드를 일치 시킵니다. 전체 텍스트 검색과 달리 텍스트 필터에 대 한 어휘 분석 또는 단어 분리는 없으므로 정확한 일치 항목만 비교 합니다. 예를 들어 *f* 필드가 "sunny day" `$filter=f eq 'Sunny'` 를 포함 하는 경우는 일치 하지 않지만 `$filter=f eq 'sunny day'` 는 일치 한다고 가정 합니다. 
+텍스트 필터는 필터에 제공 하는 리터럴 문자열과 문자열 필드를 일치 시킵니다. 전체 텍스트 검색과 달리 텍스트 필터에 대 한 어휘 분석 또는 단어 분리는 없으므로 정확한 일치 항목만 비교 합니다. 예를 들어 *f* 필드가 "sunny day"를 포함 하는 경우는 `$filter=f eq 'Sunny'` 일치 하지 않지만는 일치 한다고 가정 `$filter=f eq 'sunny day'` 합니다. 
 
 텍스트 문자열은 대/소문자를 구분합니다. 대문자 단어의 소문자는 구분 되지 않습니다. `$filter=f eq 'Sunny day'` "sunny day"를 찾지 않습니다.
 
@@ -158,7 +158,7 @@ REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되
 
 | 접근 방식 | Description | 사용 시기 |
 |----------|-------------|-------------|
-| [`search.in`](search-query-odata-search-in-function.md) | 구분 기호로 분리 된 문자열 목록에 대해 필드와 일치 하는 함수입니다. | 문자열 필드와 일치 해야 하는 원시 텍스트 값이 많은 필터 및 [보안 필터](search-security-trimming-for-azure-search.md) 에 권장 됩니다. **Search.in** 함수는 속도를 위해 디자인 되었으며 및 `eq` `or`를 사용 하 여 각 문자열과 필드를 명시적으로 비교 하는 것 보다 훨씬 빠릅니다. | 
+| [`search.in`](search-query-odata-search-in-function.md) | 구분 기호로 분리 된 문자열 목록에 대해 필드와 일치 하는 함수입니다. | 문자열 필드와 일치 해야 하는 원시 텍스트 값이 많은 필터 및 [보안 필터](search-security-trimming-for-azure-search.md) 에 권장 됩니다. **Search.in** 함수는 속도를 위해 디자인 되었으며 및를 사용 하 여 각 문자열과 필드를 명시적으로 비교 하는 것 보다 훨씬 빠릅니다 `eq` `or` . | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 동일한 필터 식에서 전체 텍스트 검색 작업과 엄격한 부울 필터 작업을 혼합할 수 있게 해주는 함수입니다. | 하나의 요청에서 여러 검색 필터 조합을 사용 하려면 **ismatch** (또는 해당 하는 해당 점수 **매기기)를 사용 합니다.** 크기가 더 큰 문자열 내에서 부분적으로 문자열을 필터링하기 위해 *contains* 필터에 대해 이를 사용할 수도 있습니다. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | 필드, 연산자 및 값으로 구성된 사용자 정의 식입니다. | 문자열 필드와 문자열 값 사이에 정확히 일치 하는 항목을 찾으려면이를 사용 합니다. |
 
@@ -195,10 +195,10 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [지원되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)
++ [지원 되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)

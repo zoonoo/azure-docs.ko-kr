@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565881"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 
@@ -66,7 +66,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 [Azure PowerShell](/powershell/azure/overview)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
-## <a name="azure-resource-manager"></a>Azure 리소스 관리자
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
@@ -94,7 +94,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 IoT Hub에서 연결된 디바이스로 전송되는 메시지를 참조하세요. 대개 이러한 메시지는 디바이스에 작업을 수행하도록 하는 명령입니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 [자동 디바이스 구성](iot-hub-auto-device-config.md)의 컨텍스트에서 IoT Hub 내의 구성은 디바이스 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
 
@@ -222,7 +222,7 @@ IoT Hub는 수백만의 디바이스와 솔루션 백 엔드 간에서 안정적
 
 ## <a name="iot-hub-query-language"></a>IoT Hub 쿼리 언어
 
-[IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 SQL과 유사한 언어로, [](#job) 및 디바이스 쌍을 쿼리할 수 있습니다.
+[IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md) 는 [작업과](#job) 장치 쌍을 쿼리할 수 있도록 하는 SQL 유사 언어입니다.
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT Hub 리소스 REST API
 
@@ -260,7 +260,7 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 
 ## <a name="operations-monitoring"></a>작업 모니터링
 
-IoT Hub [작업 모니터링](iot-hub-operations-monitoring.md)을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. [IoT Hub](#iot-hub)는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT Hub의 엔드포인트로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
+IoT Hub [작업 모니터링](iot-hub-operations-monitoring.md) 을 사용 하면 실시간으로 IoT Hub에 대 한 작업의 상태를 모니터링할 수 있습니다. [IoT Hub](#iot-hub) 는 여러 가지 작업 범주에 걸쳐 이벤트를 추적 합니다. 하나 이상의 범주에서 IoT Hub의 엔드포인트로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
 ## <a name="physical-device"></a>물리적 디바이스
 
@@ -329,7 +329,7 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 시스템 속성은 읽기 전용이며 마지막 작업 시간 및 연결 상태와 같은 디바이스 사용에 대한 정보를 포함합니다.
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>Tags
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 디바이스 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 
@@ -343,7 +343,7 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 ## <a name="twin-queries"></a>쌍 쿼리
 
-[디바이스 및 모듈 쌍 쿼리](iot-hub-devguide-query-language.md)에서는 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 디바이스 쌍 또는 모듈 쌍에서 정보를 검색합니다. 동일한 IoT Hub 쿼리 언어를 사용하여 IoT Hub에서 실행 중인 [](#job)에 대한 정보를 검색할 수 있습니다.
+[디바이스 및 모듈 쌍 쿼리](iot-hub-devguide-query-language.md)에서는 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 디바이스 쌍 또는 모듈 쌍에서 정보를 검색합니다. 동일한 IoT Hub 쿼리 언어를 사용 하 여 IoT Hub에서 실행 되는 [작업](#job) 에 대 한 정보를 검색할 수 있습니다.
 
 ## <a name="twin-synchronization"></a>쌍 동기화
 

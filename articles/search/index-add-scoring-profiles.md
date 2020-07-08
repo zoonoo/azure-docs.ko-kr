@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565358"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스에 점수 매기기 프로필 추가
 
@@ -61,23 +61,23 @@ ms.locfileid: "82890170"
  이 점수 매기기 프로필을 사용하는 경우 쿼리 문자열에서 프로필을 지정하도록 쿼리가 작성됩니다. 아래 쿼리에서 요청의 쿼리 매개 변수 `scoringProfile=geo`에 유의합니다.  
 
 ```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2019-05-06 
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
- 이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 등의 다른 매개 변수가 포함 되어 `scoringParameter`있습니다. 쿼리 매개 변수는 [Azure Cognitive Search REST API&#41;&#40;문서 검색 ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)에 설명 되어 있습니다.  
+ 이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 등의 다른 매개 변수가 포함 되어 있습니다 `scoringParameter` . 쿼리 매개 변수는 [Azure Cognitive Search REST API&#41;&#40;문서 검색 ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)에 설명 되어 있습니다.  
 
  점수 매기기 프로필에 대한 자세한 예제를 검토하려면 [예제](#bkmk_ex) 를 클릭하세요.  
 
 ## <a name="what-is-default-scoring"></a>기본 점수 매기기  
  점수 매기기에서는 순위를 기준으로 정렬된 결과 집합의 각 항목에 대한 검색 점수를 계산합니다. 검색 결과 집합의 모든 항목에는 검색 점수가 할당된 다음 점수가 가장 높은 항목부터 가장 낮은 항목으로 순위가 지정됩니다. 그리고 점수가 높은 항목이 애플리케이션에 반환됩니다. 기본적으로는 상위 50개 항목이 반환되지만 `$top` 매개 변수를 사용하여 반환되는 항목 수를 늘리거나 줄일 수 있습니다(단일 응답에서 최대 1,000개의 항목 반환 가능).  
 
-검색 점수는 쿼리와 데이터의 통계 속성에 따라 계산됩니다. Azure Cognitive Search는 쿼리 문자열 (일부 또는 모두에 따라 `searchMode`)에 검색 단어를 포함 하는 문서를 찾습니다 .이 문서에는 여러 개의 검색 단어 인스턴스가 포함 된 찾은 다음 문서가 있습니다. 데이터가 데이터 인덱스 전체에서 드물게 발생 하지만 문서 내에서 자주 발생 하는 경우 검색 점수가 더 높아집니다. 이러한 접근 방식에 대 한 이러한 접근 방식의 기준은 [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) 또는 용어 빈도-역 문서 빈도 라고 합니다.  
+검색 점수는 쿼리와 데이터의 통계 속성에 따라 계산됩니다. Azure Cognitive Search는 쿼리 문자열 (일부 또는 모두에 따라)에 검색 단어를 포함 하는 문서를 찾습니다 .이 문서에는 `searchMode` 여러 개의 검색 단어 인스턴스가 포함 된 찾은 다음 문서가 있습니다. 해당 용어가 데이터 인덱스에는 거의 없지만 해당 문서 내에서는 자주 나오는 경우 검색 점수가 더 높아집니다. 이러한 접근 방식에 대 한 이러한 접근 방식의 기준은 [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) 또는 용어 빈도-역 문서 빈도 라고 합니다.  
 
  사용자 지정 정렬이 적용되지 않는다고 가정할 때 결과는 검색 점수를 기준으로 순위가 지정된 다음 호출 애플리케이션으로 반환됩니다. $top을 지정하지 않으면 검색 점수가 가장 높은 항목 50개가 반환됩니다.  
 
  전체 결과 집합에서 검색 점수 값이 반복될 수 있습니다. 예를 들어 점수가 1.2인 항목이 10개, 1.0인 항목이 20개, 0.5인 항목이 20개 있을 수 있습니다. 여러 적중 항목의 검색 점수가 같은 경우 동일 점수의 항목 순서는 정의되지 않았으므로 항목이 안정적으로 정렬되지 않습니다. 따라서 쿼리를 다시 실행하면 항목 위치가 바뀌어 나타날 수 있습니다. 즉, 두 항목의 점수가 같은 경우 어떤 항목이 먼저 표시되는지 보장되지 않습니다.  
 
-## <a name="when-to-use-custom-scoring"></a>사용자 지정 점수 매기기를 사용하는 경우  
+## <a name="when-to-add-scoring-logic"></a>점수 매기기 논리를 추가 하는 경우 
  기본 순위 지정 동작으로 비즈니스 목표를 충족할 수 없을 때는 점수 매기기 프로필을 하나 이상 만들어야 합니다. 새로 추가하는 항목의 검색 관련성을 높게 설정하려는 경우를 예로 들 수 있습니다. 이익률을 포함하는 필드나 잠재 수익을 나타내는 다른 필드의 경우에도 마찬가지입니다. 업무상 이점을 제공하는 적중 항목을 상승시키는 것이 점수 매기기 프로필의 사용 결정 시 중요한 요인으로 작용할 수 있습니다.  
 
  또한 관련성 기반 순서 지정도 점수 매기기 프로필을 통해 구현됩니다. 이전에 사용했던 검색 결과 페이지에서는 가격, 날짜, 등급 또는 관련성을 기준으로 결과를 정렬했다면, Azure Cognitive Search에서는 점수 매기기 프로필을 통해 ' 관련성 ' 옵션을 구동 합니다. 관련성의 정의는 제공하려는 검색 환경의 유형과 비즈니스 목표를 통해 직접 제어할 수 있습니다.  
@@ -163,8 +163,8 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
 |||  
 |-|-|  
-|**가중치**|필드에 상대 가중치를 할당하는 이름-값 쌍을 지정합니다. 이 [예제](#bkmk_ex)에서 albumTitle, 장르 및 artistName 필드는 각각 1.5, 5 및 2로 승격 됩니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 ‘genre’의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 ‘rock’은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다.|  
-|**함수**|특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용됩니다. 유효한 값은 `freshness`, `magnitude`, `distance` 및 `tag`입니다. 각 함수에는 고유한 매개 변수가 있습니다.<br /><br /> -   `freshness` - 항목의 최신 상태를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `datetime` 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. 특성은 `boostingDuration` `freshness` 함수 에서만 사용 됩니다.<br />-   `magnitude` - 숫자 값의 크기를 기준으로 순위를 높이려면 사용합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에서만 사용할 수 있습니다.<br />     `magnitude` 함수의 경우 반전 패턴을 사용하려면(예: 높은 가격의 항목보다 낮은 가격의 항목 순위를 높이기 위해) 범위를 높음에서 낮음으로 반전할 수 있습니다. 가격 범위가 $100에서 $1 사이인 경우 100에서 `boostingRangeStart`을(를) 설정하고 1에서 `boostingRangeEnd`을(를) 설정하여 낮은 가격의 항목을 상승시킬 수 있습니다.<br />-   `distance` - 근접도나 지리적 위치를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.GeographyPoint` 필드에만 사용할 수 있습니다.<br />-   `tag` - 문서와 검색 쿼리 간에 공통된 태그를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.String` 및 `Collection(Edm.String)` 필드에만 사용할 수 있습니다.<br /><br /> **함수 사용 규칙**<br /><br /> 함수 유형(`freshness`, `magnitude`, `distance`, `tag`)은 소문자여야 합니다.<br /><br /> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.<br /><br /> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대 한 자세한 내용은 [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) 를 참조 하세요.<br /><br /> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.|  
+|**가중치가**|필드에 상대 가중치를 할당하는 이름-값 쌍을 지정합니다. 이 [예제](#bkmk_ex)에서 albumTitle, 장르 및 artistName 필드는 각각 1.5, 5 및 2로 승격 됩니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 ‘genre’의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 ‘rock’은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다.|  
+|**함수**|특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용됩니다. 유효한 값은 `freshness`, `magnitude`, `distance` 및 `tag`입니다. 각 함수에는 고유한 매개 변수가 있습니다.<br /><br /> -   `freshness` - 항목의 최신 상태를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `datetime` 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. 특성은 `boostingDuration` 함수 에서만 사용 됩니다 `freshness` .<br />-   `magnitude` - 숫자 값의 크기를 기준으로 순위를 높이려면 사용합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에서만 사용할 수 있습니다.<br />     `magnitude` 함수의 경우 반전 패턴을 사용하려면(예: 높은 가격의 항목보다 낮은 가격의 항목 순위를 높이기 위해) 범위를 높음에서 낮음으로 반전할 수 있습니다. 가격 범위가 $100에서 $1 사이인 경우 100에서 `boostingRangeStart`을(를) 설정하고 1에서 `boostingRangeEnd`을(를) 설정하여 낮은 가격의 항목을 상승시킬 수 있습니다.<br />-   `distance` - 근접도나 지리적 위치를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.GeographyPoint` 필드에만 사용할 수 있습니다.<br />-   `tag` - 문서와 검색 쿼리 간에 공통된 태그를 기준으로 순위를 높이려면 사용합니다. 이 함수는 `Edm.String` 및 `Collection(Edm.String)` 필드에만 사용할 수 있습니다.<br /><br /> **함수 사용 규칙**<br /><br /> 함수 유형(`freshness`, `magnitude`, `distance`, `tag`)은 소문자여야 합니다.<br /><br /> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.<br /><br /> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대 한 자세한 내용은 [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) 를 참조 하세요.<br /><br /> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.|  
 
  인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대 한 지침은 [Create Index &#40;azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) 및 [azure &#40;Cognitive Search REST API 문서 추가, 업데이트 또는 삭제를](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 참조 하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.  
 
@@ -270,7 +270,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  다음 표에 여러 예제가 나와 있습니다.  
 
-|Duration|boostingDuration|  
+|기간|boostingDuration|  
 |--------------|----------------------|  
 |1일|"P1D"|  
 |2일 12시간|"P2DT12H"|  

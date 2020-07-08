@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564446"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure의 기술에 Cognitive Services 리소스 연결 Cognitive Search 
 
@@ -29,7 +29,7 @@ Azure Cognitive Search는 이미지 분석과 OCR (광학 문자 인식), 자연
 
 + Azure Cognitive Search는 기술에서 제공 하는 Cognitive Services 리소스 키를 사용 하 여 이미지 및 텍스트 보강를 청구 합니다. 청구 가능한 기술 실행은 [Cognitive Services 종 량 제 가격으로 진행](https://azure.microsoft.com/pricing/details/cognitive-services/)됩니다.
 
-+ 이미지 추출은 보강 전에 문서를 깨진 경우 발생 하는 Azure Cognitive Search 작업입니다. 이미지 추출을 청구 가능 합니다. 이미지 추출 가격은 [Azure Cognitive Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)를 참조 하세요.
++ 이미지 추출은 보강 전에 문서를 깨진 경우 발생 하는 Azure Cognitive Search 작업입니다. 이미지 추출을 청구 가능 합니다. 이미지 추출 가격은 [Azure Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조 하세요.
 
 + 텍스트 추출은 문서 크랙 구에도 발생 합니다. 청구 되지 않습니다.
 
@@ -110,10 +110,10 @@ Cognitive Services API를 호출 하는 기술에 대해서만 요금이 청구 
 
 프로그래밍 방식으로 기술을 정의하는 경우 `cognitiveServices` 섹션을 기술에 추가합니다. 이 섹션에는 기술 연결 하려는 Cognitive Services 리소스의 키가 포함 되어 있습니다. 리소스는 Azure Cognitive Search 리소스와 동일한 지역에 있어야 합니다. 또한 `@odata.type`을 포함하고, 이를 `#Microsoft.Azure.Search.CognitiveServicesByKey`로 설정하세요.
 
-다음 예제는 이러한 패턴을 보여줍니다. 정의의 `cognitiveServices` 끝 부분에 있는 섹션을 확인 합니다.
+다음 예제는 이러한 패턴을 보여줍니다. 정의의 끝 부분에 있는 섹션을 확인 `cognitiveServices` 합니다.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```

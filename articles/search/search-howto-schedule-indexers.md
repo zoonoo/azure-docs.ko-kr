@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72326413d463d449d339b1f3fd241ba2c27b4b6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a0812f8064174b539a1ea39fc0017a4e00a341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565763"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 예약 하는 방법
 
@@ -68,7 +68,7 @@ ms.locfileid: "74112952"
 
 REST API를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다. 다음 예에서는 기존 인덱서를 업데이트 하는 PUT 요청을 보여 줍니다.
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 

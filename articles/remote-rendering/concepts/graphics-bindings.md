@@ -9,12 +9,12 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: 4854d5ff9d697a2bf082a788c0e761a2152b0294
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: d29500db5efd0abde4c9555fde9a7e3d5bbe070a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564988"
 ---
 # <a name="graphics-binding"></a>그래픽 바인딩
 
@@ -27,7 +27,7 @@ ms.locfileid: "83758710"
 Unity에서 전체 바인딩은 `RemoteManagerUnity.InitializeManager`에 전달된 `RemoteUnityClientInit` 구조체에 의해 처리됩니다. 그래픽 모드를 설정하려면 `GraphicsApiType` 필드를 선택한 바인딩으로 설정해야 합니다. XRDevice가 있는지에 따라 필드가 자동으로 채워집니다. 다음 동작을 사용하여 동작을 수동으로 재정의할 수 있습니다.
 
 * **HoloLens 2**: [Windows Mixed Reality](#windows-mixed-reality) 그래픽 바인딩이 항상 사용됩니다.
-* **플랫 UWP 데스크톱 앱**: [시뮬레이션](#simulation)이 항상 사용됩니다. 이 모드를 사용하려면 [자습서: Unity 프로젝트를 처음부터 설정](../tutorials/unity/project-setup.md)을 참조하세요.
+* **플랫 UWP 데스크톱 앱**: [시뮬레이션](#simulation)이 항상 사용됩니다.
 * **Unity 편집기**: WMR VR 헤드셋이 연결되어 있지 않는 한 [시뮬레이션](#simulation)이 항상 사용됩니다. 이 경우 ARR은 애플리케이션의 비 ARR 관련 부분을 디버그할 수 있도록 사용하지 않도록 설정됩니다. 또한 [Holographic Remoting](../how-tos/unity/holographic-remoting.md)을 참조하세요.
 
 Unity와 관련된 유일한 다른 관련 부분은 [기본 바인딩](#access)에 액세스하는 것입니다. 아래의 다른 모든 섹션을 건너뛸 수 있습니다.
@@ -233,4 +233,4 @@ else
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: Unity 프로젝트를 처음부터 설정](../tutorials/unity/project-setup.md)
+* [자습서: 원격으로 렌더링 된 모델 보기](../tutorials/unity/view-remote-models/view-remote-models.md)

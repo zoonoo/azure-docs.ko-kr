@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 4b87008f4172e58440c32e4ff92a3ee1f4d5efae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565876"
 ---
 # <a name="textures"></a>질감
 
-텍스처는 변경할 수 없는 [공유 리소스](../concepts/lifetime.md)입니다. 텍스처는 [Blob 스토리지](../how-tos/conversion/blob-storage.md)에서 로드되고 [자습서: 환경 및 재질 변경](../tutorials/unity/changing-environment-and-materials.md)에 설명된 대로 모델에 직접 적용될 수 있습니다. 그러나 가장 일반적으로 텍스처는 [변환된 모델](../how-tos/conversion/model-conversion.md)의 일부로 해당 [재료](materials.md)에 의해 참조됩니다.
+텍스처는 변경할 수 없는 [공유 리소스](../concepts/lifetime.md)입니다. 텍스처는 [Blob 스토리지](../how-tos/conversion/blob-storage.md)에서 로드되고 [자습서: 환경 및 재질 변경](../tutorials/unity/materials-lighting-effects/materials-lighting-effects.md)에 설명된 대로 모델에 직접 적용될 수 있습니다. 그러나 가장 일반적으로 텍스처는 [변환된 모델](../how-tos/conversion/model-conversion.md)의 일부로 해당 [재료](materials.md)에 의해 참조됩니다.
 
 ## <a name="texture-types"></a>텍스처 형식
 

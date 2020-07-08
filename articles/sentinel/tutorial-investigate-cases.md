@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널을 사용 하 여 인시던트 조사 | Microsoft Docs
-description: 이 자습서를 사용 하 여 Azure 센티널에서 인시던트를 조사 하는 방법을 알아보세요.
+description: 이 자습서에서는 Azure 센티널을 사용 하 여 할당 및 조사할 수 있는 인시던트를 생성 하는 고급 경고 규칙을 만드는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565246"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>자습서: Azure 센티널을 사용 하 여 인시던트 조사
 
@@ -39,7 +39,7 @@ ms.locfileid: "77587195"
 
 인시던트는 여러 경고를 포함할 수 있습니다. 특정 조사에 대 한 모든 관련 증거의 집계입니다. **분석** 페이지에서 만든 분석 규칙에 따라 인시던트가 생성 됩니다. 심각도 및 상태와 같은 경고와 관련 된 속성은 인시던트 수준에서 설정 됩니다. Azure 센티널에서 찾고 있는 위협 종류와이를 찾는 방법을 알 수 있게 되 면 인시던트를 조사 하 여 검색 된 위협을 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함 해야 합니다.
 
 ## <a name="how-to-investigate-incidents"></a>인시던트를 조사하는 방법
@@ -97,7 +97,7 @@ ms.locfileid: "77587195"
 
     ![관련 경고 보기](media/tutorial-investigate-cases/related-alerts.png)
 
-1. 각 탐색 쿼리에 대해 **이벤트\>** 를 선택 하 여 Log Analytics에 사용 되는 원시 이벤트 결과와 쿼리를 여는 옵션을 선택할 수 있습니다.
+1. 각 탐색 쿼리에 대해 **이벤트 \> **를 선택 하 여 Log Analytics에 사용 되는 원시 이벤트 결과와 쿼리를 여는 옵션을 선택할 수 있습니다.
 
 1. 인시던트를 이해 하기 위해 그래프는 병렬 타임 라인을 제공 합니다.
 
@@ -107,7 +107,21 @@ ms.locfileid: "77587195"
 
     ![맵에서 타임 라인을 사용 하 여 경고 조사](media/tutorial-investigate-cases/use-timeline.png)
 
+## <a name="closing-an-incident"></a>인시던트 종결
 
+특정 인시던트를 해결 한 후 (예: 조사가 결론에 도달 했을 때) 인시던트의 상태를 **Closed**로 설정 해야 합니다. 이렇게 하면 닫는 이유를 지정 하 여 인시던트를 분류 하 라는 메시지가 표시 됩니다. 이 단계는 필수입니다. **분류 선택** 을 클릭 하 고 드롭다운 목록에서 다음 중 하나를 선택 합니다.
+
+- 진정한 긍정-의심 스러운 활동
+- 무해 한 긍정-의심 스러운 하지만 예상
+- 거짓 긍정-잘못 된 경고 논리
+- 거짓 긍정-잘못 된 데이터
+- 임의적인
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-텍스트}":::
+
+적절 한 분류를 선택한 후 **설명** 필드에 설명 텍스트를 추가 합니다. 이 문제는이 인시던트를 다시 참조 해야 하는 경우에 유용 합니다. 완료 되 면 **적용** 을 클릭 합니다. 그러면 인시던트가 닫힙니다.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-텍스트}":::
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure 센티널을 사용 하 여 인시던트 조사를 시작 하는 방법을 배웠습니다. 자동화 된 플레이 북을 [사용 하 여 위협에 대응 하는 방법](tutorial-respond-threats-playbook.md)에 대 한 자습서를 계속 진행 합니다.

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 910a0d9b70a63fc93aebd47896db7c3493c846b2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563197"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 
@@ -32,15 +32,20 @@ Azure Cosmos 컨테이너에 프로비전된 처리량은 해당 컨테이너 �
 
 컨테이너에 프로비전된 처리량은 실제 파티션 간에 균등하게 분산되며, 논리 파티션을 실제 파티션 간에 균등하게 분산하는 좋은 파티션 키를 가정하여 처리량이 컨테이너의 모든 논리 파티션에도 균등하게 분산됩니다. 그러나 논리 파티션의 처리량을 선택적으로 지정할 수는 없습니다. 컨테이너에 있는 하나 이상의 논리 파티션은 실제 파티션에서 호스트되므로, 실제 파티션은 컨테이너에 배타적으로 포함되고 컨테이너에서 프로비전된 처리량을 지원합니다. 
 
-논리 파티션에서 실행되는 워크로드가 해당 논리 파티션에 할당된 처리량보다 많은 양을 사용하는 경우 작업 속도가 제한됩니다. 속도 제한이 발생하는 경우 전체 컨테이너의 프로비전된 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 분할에 대한 자세한 내용은 [논리 파티션](partition-data.md)을 참조하세요.
+논리 파티션에서 실행 되는 워크 로드가 기본 실제 파티션에 할당 된 처리량을 초과 하는 경우 해당 작업의 속도가 제한 될 수 있습니다. 하나의 논리 파티션이 다른 파티션 키 값 보다 많은 요청을 지나치게 많이 포함 하는 경우 _핫 파티션이_ 발생 합니다.
+
+속도 제한이 발생하는 경우 전체 컨테이너의 프로비전된 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 또한 저장소 및 요청 볼륨을 균등 하 게 분산 하는 파티션 키를 선택 해야 합니다. 분할에 대 한 자세한 내용은 [Azure Cosmos DB 분할 및 수평적 크기 조정](partition-data.md)을 참조 하세요.
 
 컨테이너 성능을 보장하려는 경우 컨테이너 세분성에서 처리량을 구성하는 것이 좋습니다.
 
 다음 이미지는 실제 파티션이 컨테이너의 논리 파티션을 하나 이상 호스트하는 방법을 보여줍니다.
 
-![실제 파티션](./media/set-throughput/resource-partition.png)
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="실제 파티션" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>데이터베이스의 처리량 설정
+
+> [!NOTE]
+> Azure Cosmos 데이터베이스에 대 한 프로 비전 처리량은 현재 [고객이 관리](how-to-setup-cmk.md) 하는 키를 사용 하도록 설정 된 계정에서 사용할 수 없습니다.
 
 Azure Cosmos 데이터베이스의 처리량을 프로비전하는 경우 데이터베이스의 모든 컨테이너(공유 데이터베이스 컨테이너라고 함) 간에 처리량이 공유됩니다. 단, 데이터베이스의 특정 컨테이너에 프로비전된 처리량을 지정한 경우는 예외입니다. 컨테이너 간에 데이터베이스 수준 프로비전된 처리량을 공유하는 것은 머신 클러스터에 데이터베이스를 호스트하는 것과 비슷합니다. 데이터베이스 내의 모든 컨테이너가 머신에 제공되는 리소스를 공유하므로 당연히 특정 컨테이너에 대한 예상 성능이 제공되지 않습니다. 데이터베이스에서 프로비전된 처리량을 구성하는 방법을 알아보려면 [Azure Cosmos 데이터베이스에 프로비전된 처리량 구성](how-to-provision-database-throughput.md)을 참조하세요. 데이터베이스에서 자동 크기 조정 처리량을 구성하는 방법을 알아보려면 [자동 크기 조정 처리량 프로비전](how-to-provision-autoscale-throughput.md)을 참조하세요.
 
@@ -62,7 +67,7 @@ Azure Cosmos 데이터베이스에 처리량을 설정하면 해당 데이터베
 
 논리 파티션의 워크로드가 특정 논리 파티션에 할당된 처리량보다 많은 양을 사용하는 경우 작업 속도가 제한됩니다. 속도 제한이 발생하는 경우 전체 데이터베이스의 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 분할에 대한 자세한 내용은 [논리 파티션](partition-data.md)을 참조하세요.
 
-공유 처리량 데이터베이스의 컨테이너는 해당 데이터베이스에 할당된 처리량(RU/s)을 공유합니다. 데이터베이스에 최소 400RU/s를 포함하는 최대 4개의 컨테이너를 사용할 수 있습니다. 표준(수동) 프로비전된 처리량을 사용하면 처음 4개 이후의 새 컨테이너 각각에 최소 100RU/s가 추가로 필요합니다. 예를 들어 8개의 컨테이너가 있는 공유 처리량 데이터베이스를 사용하는 경우 데이터베이스에 대한 최소 RU/s는 800RU/s입니다. 자동 크기 조정 프로비전된 처리량을 사용하면 자동 크기 조정 최대 RU/s 4,000RU/s(400~4,000RU/s 범위에서 크기 조정)를 사용하여 데이터베이스에 최대 컨테이너를 포함할 수 있습니다.
+공유 처리량 데이터베이스의 컨테이너는 해당 데이터베이스에 할당된 처리량(RU/s)을 공유합니다. 데이터베이스에 최소 400RU/s를 포함하는 최대 4개의 컨테이너를 사용할 수 있습니다. 표준(수동) 프로비전된 처리량을 사용하면 처음 4개 이후의 새 컨테이너 각각에 최소 100RU/s가 추가로 필요합니다. 예를 들어 8개의 컨테이너가 있는 공유 처리량 데이터베이스를 사용하는 경우 데이터베이스에 대한 최소 RU/s는 800RU/s입니다. 자동 크기 조정 프로 비전 된 처리량을 사용 하면 자동 크기 조정 최대 4000 r u/초 (400-4000 r u/초 사이 크기 조정)를 사용 하 여 데이터베이스에 최대 25 개의 컨테이너를 포함할 수 있습니다.
 
 > [!NOTE]
 > 2020년 2월에 공유 처리량 데이터베이스에 최대 25개의 컨테이너를 포함하여 보다 원활히 컨테이너 전체에서 처리량을 공유할 수 있도록 하는 변경 내용이 도입되었습니다. 처음 25개 컨테이너 이후에는 데이터베이스의 공유 처리량과는 별개인 [전용 처리량을 사용하여 프로비전](#set-throughput-on-a-database-and-a-container)된 경우에만 데이터베이스에 더 많은 컨테이너를 추가할 수 있습니다.<br>
@@ -70,7 +75,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 
 워크로드에 데이터베이스의 모든 컬렉션을 삭제하고 다시 만드는 작업이 포함된 경우에는 컬렉션을 만들기 전에 빈 데이터베이스를 삭제하고 새 데이터베이스를 다시 만드는 것이 좋습니다. 다음 이미지는 데이터베이스 내 여러 컨테이너에 속하는 하나 이상의 논리 파티션을 실제 파티션에 호스트할 수 있다는 것을 보여줍니다.
 
-![실제 파티션](./media/set-throughput/resource-partition2.png)
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="실제 파티션" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>데이터베이스 및 컨테이너의 처리량 설정
 
@@ -79,7 +84,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 * 이름이 *Z*이고 프로비전된 처리량이 *"K"* RU인 Azure Cosmos 데이터베이스를 만들 수 있습니다. 
 * 다음으로, 데이터베이스 내에서 5개 컨테이너 *A*, *B*, *C*, *D*, *E*를 만듭니다. 컨테이너 B를 만들 때 **이 컨테이너에 전용 처리량 프로비전** 옵션을 사용하도록 설정하고 이 컨테이너에서 프로비전된 처리량 *"P"* RU를 명시적으로 구성해야 합니다. 데이터베이스와 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 
 
-   ![컨테이너 수준에서 처리량 설정](./media/set-throughput/coll-level-throughput.png)
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="컨테이너 수준에서 처리량 설정":::
 
 * *"K"* RU 처리량은 4개의 컨테이너 *A*, *C*, *D*, *E* 간에 공유됩니다. *A*, *C*, *D* 또는 *E*에 사용 가능한 정확한 처리량은 변동합니다. 각 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
 * 컨테이너 *B*는 항상 *"P"* RU 처리량을 보장받을 수 있으며 SLA가 지원됩니다.
@@ -89,11 +94,16 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>데이터베이스 또는 컨테이너에서 처리량 업데이트
 
-Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로비전된 처리량을 업데이트할 수 있습니다. 데이터베이스 또는 컨테이너에 구성할 수 있는 최대 프로비전된 처리량에는 제한이 없습니다. [최소 프로비전된 처리량](concepts-limits.md#storage-and-throughput)은 다음 요소에 따라 달라집니다. 
+Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로비전된 처리량을 업데이트할 수 있습니다. 데이터베이스 또는 컨테이너에 구성할 수 있는 최대 프로비전된 처리량에는 제한이 없습니다. 
 
-* 컨테이너에 저장하는 현재 데이터 크기
-* 지금까지 컨테이너에 프로비전한 최대 처리량
-* 데이터베이스에서 공유 처리량을 사용하는 현재 Azure Cosmos 컨테이너 수 
+데이터베이스 또는 컨테이너의 [프로 비전 된 최소 처리량](concepts-limits.md#storage-and-throughput) 을 예측 하려면 다음의 최대값을 찾습니다.
+
+* 400RU/s 
+* 현재 저장소 (GB) * 10 r u/초
+* 데이터베이스 또는 컨테이너/100에 프로 비전 된 최고 r u/초
+* 컨테이너 수 * 100 r u/초 (공유 처리량 데이터베이스만)
+
+실제 최소/s는 계정 구성에 따라 다를 수 있습니다. [Azure Monitor 메트릭을](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) 사용 하 여 리소스에서 프로 비전 된 처리량 (r u/초) 및 저장소의 기록을 볼 수 있습니다.
 
 컨테이너 또는 데이터베이스의 최소 처리량은 SDK를 사용하여 프로그래밍 방식으로 검색하거나 Azure Portal에서 볼 수 있습니다. .NET SDK를 사용하는 경우 [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) 메서드를 사용하여 프로비전된 처리량 값을 조정할 수 있습니다. Java SDK를 사용하는 경우 [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) 메서드를 사용하여 프로비전된 처리량 값을 조정할 수 있습니다. 
 

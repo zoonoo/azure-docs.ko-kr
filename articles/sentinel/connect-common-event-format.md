@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널 Preview에 CEF 데이터 연결 | Microsoft Docs
-description: Azure 센티널에 CEF 데이터를 연결 하는 방법에 대해 알아봅니다.
+description: Linux 컴퓨터를 프록시로 사용 하 여 CEF (Common Event Format) 메시지를 Azure 센티널로 보내는 외부 솔루션을 연결 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 8314614616c6b8969832d52fc684d47ba1bf0fe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34091e0c9f18cb87a240054f534f474710eb421d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563937"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -49,7 +49,7 @@ CEF 메시지를 전송 하는 외부 솔루션을 연결 하는 경우 Azure �
 보안 솔루션과 Syslog 컴퓨터 간에 TLS 통신을 사용 하려면 tls: s a s [-rsyslog를 사용 하 여 Syslog 트래픽 암호화](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), tls- [syslog를 사용 하 여 로그 메시지 암호화](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)를 사용 하 여 syslog 데몬 (rsyslog 또는 syslog 기능)을 통신 하도록 구성 해야 합니다.
 
  
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 프록시로 사용 하는 Linux 컴퓨터가 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
 - 64비트

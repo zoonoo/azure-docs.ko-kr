@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 292ceccd5a3687488c0e8b03f4a8cd351d611dce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71315804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564893"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
 
@@ -80,7 +80,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 2. **FailedVertexDebugHost** 프로젝트에 프로젝트 폴더 경로를 가져옵니다. 
 
-3. **추가된 어셈블리 소스 코드 프로젝트 > 속성**을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로**에 붙여넣습니다. 최종 출력 경로는와 유사 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`합니다.
+3. **추가된 어셈블리 소스 코드 프로젝트 > 속성**을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로**에 붙여넣습니다. 최종 출력 경로는와 유사 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` 합니다.
 
     ![Azure Data Lake Analytics U-SQL 디버그 - pdb 경로 설정](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
@@ -93,7 +93,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 디버깅 후 프로젝트가 성공적으로 완료되면 출력 창에 다음 메시지가 표시됩니다.
 
-    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+`The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).`
 
 ![Azure Data Lake Analytics U-SQL 디버그 성공](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 

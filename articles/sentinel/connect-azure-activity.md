@@ -1,6 +1,6 @@
 ---
 title: Azure 활동 데이터를 Azure 센티널에 연결 | Microsoft Docs
-description: Azure 활동 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
+description: 한 번의 클릭으로 azure 활동 로그를 Azure 센티널로 스트리밍합니다. 활동 로그는 Azure에서 구독 수준 이벤트를 기록 하 고 표시 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 82dfcaf3394703aae531c828a1b96ad290bab798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80124993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564490"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Azure 활동 로그에서 데이터 연결
 

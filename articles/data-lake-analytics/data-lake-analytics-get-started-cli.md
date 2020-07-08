@@ -7,25 +7,25 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: d9fc9bee98391f7272a417324b9c3a540b6adbe6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8de36cca8386ed2a8ddba5782b7b48f248192e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564836"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Lake Analytics 시작
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-이 문서에서는 Azure CLI 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 계정을 만들고, USQL 작업 및 카탈로그를 제출하는 방법을 설명합니다. 작업은 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환합니다. 
+이 문서에서는 Azure CLI 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 계정을 만들고, USQL 작업 및 카탈로그를 제출하는 방법을 설명합니다. 작업은 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
+
 이 작업을 시작하려면 다음 항목이 필요합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 이 문서에서는 Azure CLI 버전 2.0 이상을 실행해야 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
-
-
+* 이 문서에서는 Azure CLI 버전 2.0 이상을 실행해야 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -46,6 +46,7 @@ az account set --subscription <subscription id>
 ```
 
 ## <a name="create-data-lake-analytics-account"></a>데이터 레이크 분석 계정 만들기
+
 모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. Data Lake Analytics 계정을 만들려면 다음 항목을 지정해야 합니다.
 
 * **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 사용 하면 응용 프로그램의 리소스를 그룹으로 사용할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
@@ -63,7 +64,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
 * **계정 이름 Data Lake Analytics**합니다. Data Lake Analytics 계정마다 이름이 있습니다.
-* **위치**. Data Lake Analytics를 지원하는 Azure 데이터 센터 중 하나를 사용합니다.
+* **위치** - Data Lake Analytics를 지원하는 Azure 데이터 센터 중 하나를 사용합니다.
 * **기본 Data Lake Store 계정**: 각 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
 
 기존Data Lake Store 계정을 나열하려면
@@ -88,10 +89,11 @@ az dla account create --account "<Data Lake Analytics Account Name>" --resource-
 
 ```azurecli
 az dla account list
-az dla account show --account "<Data Lake Analytics Account Name>"            
+az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## <a name="upload-data-to-data-lake-store"></a>데이터 레이크 저장소에 데이터 업로드
+
 이 자습서에서는 몇 가지 검색 로그를 처리합니다.  검색 로그는 Data Lake Storage 또는 Azure Blob Storage에 저장할 수 있습니다.
 
 Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 기본 데이터 레이크 저장소 계정에 데이터를 업로드하려면 [원본 데이터 준비](data-lake-analytics-get-started-portal.md) 를 참조하세요.
@@ -106,19 +108,20 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 데이터 레이크 분석은 Azure Blob Storage에 액세스할 수도 있습니다.  Azure Blob Storage에 데이터를 업로드하려면 [Azure Storage와 Azure CLI 사용](../storage/common/storage-azure-cli.md)을 참조하세요.
 
 ## <a name="submit-data-lake-analytics-jobs"></a>데이터 레이크 분석 작업 제출
+
 데이터 레이크 분석 작업은 U-SQL 언어로 작성됩니다. U-SQL에 대한 자세한 내용은 [U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](https://docs.microsoft.com/u-sql/)를 참조하세요.
 
-**데이터 레이크 분석 작업 스크립트를 만들려면**
+### <a name="to-create-a-data-lake-analytics-job-script"></a>데이터 레이크 분석 작업 스크립트를 만들려면
 
 다음 U-SQL 스크립트를 사용하여 텍스트 파일을 만들고 사용자의 워크스테이션에 텍스트 파일을 저장합니다.
 
-```
-@a  = 
-    SELECT * FROM 
+```usql
+@a  =
+    SELECT * FROM
         (VALUES
             ("Contoso", 1500.0),
             ("Woodgrove", 2700.0)
-        ) AS 
+        ) AS
               D( customer, amount );
 OUTPUT @a
     TO "/data.csv"
@@ -129,24 +132,24 @@ OUTPUT @a
 
 원본 파일을 다른 위치에 복사하지 않는 한 두 경로를 수정하지 마세요.  출력 폴더가 없는 경우 Data Lake Analytics에서 해당 폴더를 만듭니다.
 
-기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  다음은 그 예입니다.
+기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들어:
 
-```
+```usql
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
 ```
 
 연결된 Storage 계정의 파일에 액세스하려면 절대 경로를 사용해야 합니다.  연결된 Azure Storage 계정에 저장된 파일에 대한 구문은 다음과 같습니다.
 
-```
+```usql
 wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 ```
 
 > [!NOTE]
-> 공용 Blob이 있는 Azure Blob 컨테이너는 지원되지 않습니다.      
-> 공용 컨테이너가 있는 Azure Blob 컨테이너는 지원되지 않습니다.      
+> 공용 Blob이 있는 Azure Blob 컨테이너는 지원되지 않습니다.
+> 공용 컨테이너가 있는 Azure Blob 컨테이너는 지원되지 않습니다.
 >
 
-**작업을 제출 하려면**
+### <a name="to-submit-jobs"></a>작업을 제출 하려면
 
 다음 구문을 사용하여 작업을 제출합니다.
 
@@ -154,20 +157,20 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```azurecli
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 ```
 
-**작업을 나열하고 작업 정보를 표시하려면**
+### <a name="to-list-jobs-and-show-job-details"></a>작업을 나열하고 작업 정보를 표시하려면
 
 ```azurecli
 az dla job list --account "<Data Lake Analytics Account Name>"
 az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-**작업을 취소하려면**
+### <a name="to-cancel-jobs"></a>작업을 취소하려면
 
 ```azurecli
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
@@ -184,7 +187,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

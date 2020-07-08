@@ -1,17 +1,17 @@
 ---
-title: 구독, 리소스 그룹 또는 지역에서 논리 앱 마이그레이션
+title: 구독, 리소스 그룹 또는 지역에서 논리 앱 이동
 description: 논리 앱 또는 통합 계정을 다른 Azure 구독, 리소스 그룹 또는 위치 (지역)로 마이그레이션
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564269"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>논리 앱 리소스를 다른 Azure 리소스 그룹, 지역 또는 구독으로 이동
 
@@ -27,7 +27,7 @@ ms.locfileid: "80878734"
 
 * [Integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) 는 동일한 azure 지역 또는 azure 구독에 있는 다른 리소스 그룹 으로만 이동할 수 있습니다. 다른 Azure 지역 또는 Azure 구독에 존재 하는 리소스 그룹으로 ISE를 이동할 수 없습니다. 또한 이러한 이동 후에는 논리 앱 워크플로, 통합 계정, 연결 등에서 ISE에 대 한 모든 참조를 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이동 하려는 논리 앱 또는 통합 계정을 만드는 데 사용 된 것과 동일한 Azure 구독
 
@@ -86,9 +86,9 @@ ms.locfileid: "80878734"
 * [개요: Azure Resource Manager 템플릿을 사용 하 여 Azure Logic Apps에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Azure Portal에서 Visual Studio로 논리 앱을 찾고 열고 다운로드 합니다.](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 만들기](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Azure Logic Apps에 대한 Azure Resource Manager 템플릿 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
-### <a name="related-resources"></a>관련 리소스
+### <a name="related-resources"></a>관련 참고 자료
 
 Azure의 온-프레미스 데이터 게이트웨이 리소스와 같은 일부 Azure 리소스는 해당 리소스를 사용 하는 논리 앱과 다른 지역에 있을 수 있습니다. 그러나 연결 된 통합 계정과 같은 다른 Azure 리소스는 논리 앱과 동일한 지역에 있어야 합니다. 시나리오에 따라 논리 앱이 동일한 지역에 있는 것으로 간주 되는 리소스에 액세스할 수 있는지 확인 합니다.
 

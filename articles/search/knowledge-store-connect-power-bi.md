@@ -1,24 +1,21 @@
 ---
-title: Power BI를 사용하여 지식 저장소(미리 보기)에 연결
+title: Power BI를 사용하여 지식 저장소에 연결
 titleSuffix: Azure Cognitive Search
-description: 분석 및 검색을 위해 Power BI를 사용하여 Azure Cognitive Search 지식 저장소(미리 보기)를 연결합니다.
+description: 분석 및 검색을 위해 Power BI를 사용하여 Azure Cognitive Search 지식 저장소에 연결합니다.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: e67bd688d720ed3d7549a86c9cff752bc19fb2fc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/30/2020
+ms.openlocfilehash: 438d8cbc4bf03fa9e03d0d2e1920522768ba9127
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565346"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
-
-> [!IMPORTANT] 
-> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
 이 문서에서는 Power BI Desktop 앱에서 파워 쿼리를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 템플릿을 사용해서 빠르게 시작하거나 사용자 지정 대시보드를 처음부터 만들 수 있습니다. 아래 간략 한 비디오에서는 Power BI와 함께 Azure Cognitive Search를 사용 하 여 데이터에 대 한 환경을 보강 하는 방법을 보여 줍니다.
 
@@ -60,7 +57,7 @@ ms.locfileid: "82858823"
    
    + REST 연습의 경우 테이블 이름은 *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* 및 *hotelReviewsSentiment*입니다.
 
-1. **로드**를 클릭 합니다.
+1. **로드**를 클릭합니다.
 
 1. 위쪽 리본에서 **쿼리** 편집을 클릭하여 **파워 쿼리 편집기**를 엽니다.
 

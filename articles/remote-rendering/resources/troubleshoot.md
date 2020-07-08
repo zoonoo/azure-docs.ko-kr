@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563269"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "83844570"
 * **8266(TCP+UDP)** - 데이터를 전송하는 데 필요
 * **5000(TCP)** , **5433(TCP)** , **8443(TCP)** - [ArrInspector](tools/arr-inspector.md)에 필요
 
-## <a name="error-disconnected-videoformatnotavailable"></a>'연결 끊김: VideoFormatNotAvailable' 오류
+## <a name="error-disconnected-videoformatnotavailable"></a>오류 ' `Disconnected: VideoFormatNotAvailable` '
 
 GPU가 하드웨어 비디오 디코딩을 지원하는지 확인합니다. [개발 PC](../overview/system-requirements.md#development-pc)를 참조하세요.
 
@@ -37,7 +37,7 @@ GPU가 2개인 랩톱에서 작업하는 경우 실행 중인 GPU가 기본적�
 
 ## <a name="h265-codec-not-available"></a>H265 코덱을 사용할 수 없음
 
-서버가 **코덱을 사용할 수 없음** 오류와 함께 연결을 거부하는 두 가지 이유가 있습니다.
+서버에서 오류가 발생 한 연결을 거부 하는 두 가지 이유가 있습니다 `codec not available` .
 
 **H265 코덱이 설치되지 않음:**
 
@@ -105,9 +105,9 @@ Hololens에서 [MRC(Mixed Reality Capture)](https://docs.microsoft.com/windows/m
 
 **모델이 선택한 VM의 제한, 특히 최대 다각형 수를 초과하는 경우:**
 
-특정 [VM 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조하세요.
+특정 [VM 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조 하세요.
 
-**모델이 보기 절두체 내에 없는 경우:**
+**모델이 카메라의 하 한을 포함 하지 않습니다.**
 
 모델이 올바르게 표시되지만 카메라 절두체의 외부에 위치한 경우가 자주 있습니다. 중심에서 멀리 떨어진 피벗을 사용하여 모델을 내보내면 모델이 카메라의 원거리 클리핑 거리에 의해 잘리는 것이 이 현상의 주요 원인입니다. 모델의 경계 상자를 프로그래밍 방식으로 쿼리하고 Unity를 사용하여 상자를 선 상자로 시각화하거나 해당 값을 디버그 로그에 출력하면 도움이 됩니다.
 
@@ -142,9 +142,19 @@ Hololens에서 [MRC(Mixed Reality Capture)](https://docs.microsoft.com/windows/m
 
 **Unity 렌더링 파이프라인에 렌더링 후크가 없는 경우:**
 
-Azure Remote Rendering은 Unity 렌더링 파이프라인에 후크하여 비디오의 프레임 컴퍼지션과 다시 프로젝션을 수행합니다. 이러한 후크가 있는지 확인하려면 메뉴에서 *창 > 분석 > 프레임 디버거*를 엽니다. 디버거를 사용하도록 설정하고 파이프라인에 `HolographicRemotingCallbackPass`에 대한 두 개의 항목이 있는지 확인합니다.
+Azure Remote Rendering은 Unity 렌더링 파이프라인에 후크하여 비디오의 프레임 컴퍼지션과 다시 프로젝션을 수행합니다. 이러한 후크가 존재 하는지 확인 하려면 메뉴를 엽니다 *:::no-loc text="Window > Analysis > Frame debugger":::* . 디버거를 사용하도록 설정하고 파이프라인에 `HolographicRemotingCallbackPass`에 대한 두 개의 항목이 있는지 확인합니다.
 
 ![Unity 프레임 디버거](./media/troubleshoot-unity-pipeline.png)
+
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>바둑판 패턴은 모델을 로드 한 후 렌더링 됩니다.
+
+렌더링 된 이미지가 다음과 같이 표시 되 면 ![ ](../reference/media/checkerboard.png) 렌더러가 [표준 VM 크기에 대 한 다각형 한도](../reference/vm-sizes.md)에 도달 합니다. 이를 완화 하려면 **프리미엄 VM** 크기로 전환 하거나 보이는 다각형의 수를 줄이십시오.
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>Unity에서 렌더링 된 이미지가 거꾸로 작동 합니다.
+
+[Unity 자습서: 원격 모델 보기](../tutorials/unity/view-remote-models/view-remote-models.md) 를 참조 하십시오. 뒤집힌 이미지는 외부 렌더링 대상을 만드는 데 Unity가 필요 함을 나타냅니다. 이 동작은 현재 지원 되지 않으며 HoloLens 2의 성능에 큰 영향을 줍니다.
+
+이 문제가 발생 하는 이유는 MSAA, HDR 또는 post 처리를 사용할 수 있기 때문일 수 있습니다. 저품질 프로필을 선택 하 고 Unity에서 기본값으로 설정 했는지 확인 합니다. 이렇게 하려면 *편집 > 프로젝트 설정 ... > 품질로*이동 합니다.
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Remote Rendering API를 사용하는 Unity 코드가 컴파일되지 않음
 
@@ -162,6 +172,10 @@ HoloLens 2용 Unity 샘플(빠른 시작, ShowCaseApp 등)을 컴파일하려고
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>AudioPluginMsHRTF.dll 누락 되어 Unity 프로젝트에 대 한 Arm64 빌드가 실패 합니다.
+
+`AudioPluginMsHRTF.dll`Arm64에 대 한가 버전 3.0.1의 *Windows Mixed Reality* 패키지 *(xr)* 에 추가 되었습니다. Unity 패키지 관리자를 통해 버전 3.0.1 이상을 설치 했는지 확인 합니다. Unity 메뉴 모음에서 *창 > 패키지 관리자* 로 이동 하 여 *Windows Mixed Reality* 패키지를 찾습니다.
+
 ## <a name="unstable-holograms"></a>불안정한 홀로그램
 
 머리를 움직이면 렌더링된 개체가 함께 이동하는 것처럼 보이는 경우 LSR(*후기 단계 다시 프로젝션*) 문제가 발생할 수 있습니다. 이러한 상황을 해결하는 방법에 대한 지침은 [후기 단계 다시 프로젝션](../overview/features/late-stage-reprojection.md)의 섹션을 참조하세요.
@@ -171,6 +185,56 @@ HoloLens 2용 Unity 샘플(빠른 시작, ShowCaseApp 등)을 컴파일하려고
 확인할 또 다른 값은 `ARRServiceStats.LatencyPoseToReceiveAvg`입니다. 이 값은 지속적으로 100밀리초 미만이어야 합니다. 이 값을 초과하면 현재 연결된 데이터 센터가 너무 멀리 떨어져 있다는 뜻입니다.
 
 문제를 완화하는 데 도움이 될 수 있는 방법 목록은 [네트워크 연결 지침](../reference/network-requirements.md#guidelines-for-network-connectivity)을 참조하세요.
+
+## <a name="z-fighting"></a>z-fighting
+
+ARR은 [z-싸 완화 기능](../overview/features/z-fighting-mitigation.md)을 제공 하지만 z-싸는 장면에 계속 표시 될 수 있습니다. 이 가이드에서는 이러한 나머지 문제를 해결 하는 방법을 설명 합니다.
+
+### <a name="recommended-steps"></a>권장되는 단계
+
+Z-싸 줄이기 위해 다음 워크플로를 사용 합니다.
+
+1. ARR의 기본 설정으로 장면을 테스트 합니다 (z-완화 완화).
+
+1. [API](../overview/features/z-fighting-mitigation.md) 를 통해 z-싸 인 한 완화 기능 사용 안 함 
+
+1. 카메라 근처와 far 비행기를 더 가까운 범위로 변경
+
+1. 다음 섹션을 통해 장면 문제 해결
+
+### <a name="investigating-remaining-z-fighting"></a>나머지 z-싸 조사
+
+위의 단계가 모두 사용 되 고 나머지 z를 사용할 수 없는 경우 z-싸 찬 원인을 조사 해야 합니다. [Z-싸 인 한 완화 기능 페이지](../overview/features/z-fighting-mitigation.md)에 설명 된 것 처럼 z-싸의 가장 큰 두 가지 이유는 깊이 범위의 끝에서 깊이 전체 자릿수 손실이 고,는 동일 하 게 유지 되는 표면입니다. 깊이 전체 자릿수 손실은 수학적 대비해 야 위의 3 단계를 수행 하 여 완화할 수 있습니다. 동일 평면상 표면은 원본 자산 결함을 나타내며 원본 데이터에서 더 잘 수정 되었습니다.
+
+ARR에는 표면에서 z를 사용할 수 있는지를 확인 하는 기능 ( [바둑판 강조 표시](../overview/features/z-fighting-mitigation.md))이 있습니다. Z를 시각적으로 표시 하는 원인을 시각적으로 확인할 수도 있습니다. 다음 첫 번째 애니메이션은 거리의 깊이 전체 자릿수 손실의 예를 보여 주고, 두 번째 애니메이션은 거의 동일 평면상 표면의 예를 보여 줍니다.
+
+![깊이-전체 자릿수-z-싸 워](./media/depth-precision-z-fighting.gif)  ![동일 평면상-z-싸 워](./media/coplanar-z-fighting.gif)
+
+이러한 예제를 z-싸 비교 하 여 원인을 확인 하거나 선택적으로이 단계별 워크플로를 수행 합니다.
+
+1. 카메라를 z 전투 표면 위에 배치 하 여 화면에서 직접 확인 합니다.
+1. 카메라를 화면 밖으로 뒤로 천천히 이동 합니다.
+1. Z-싸의 시간이 모두 표시 되 면 서피스가 완벽 하 게 동일 합니다. 
+1. Z가 대부분의 시간 동안 표시 되 면 서피스가 거의 동일 합니다.
+1. Z 이동이 멀리만 표시 되는 경우 원인은 깊이 전체 자릿수가 아닙니다.
+
+동일 평면상 표면에는 여러 가지 원인이 있을 수 있습니다.
+
+* 오류 또는 다른 워크플로 방법으로 인해 내보내기 응용 프로그램에서 개체를 복제 했습니다.
+
+    각 응용 프로그램 및 응용 프로그램 지원에서 이러한 문제를 확인 합니다.
+
+* 전면 또는 후면 얼굴 고르기을 사용 하는 렌더러에서 양면 표시를 위해 서피스가 중복 및 대칭 이동 됩니다.
+
+    [모델 변환을](../how-tos/conversion/model-conversion.md) 통한 가져오기는 모델의 주 sidedness을 결정 합니다. 이중 sidedness는 기본값으로 가정 됩니다. 표면은 양쪽에서 실제로 정확한 조명이 있는 얇은 벽으로 렌더링 됩니다. 단일 sidedness는 소스 자산의 플래그에 의해 묵시적 이거나 [모델 변환](../how-tos/conversion/model-conversion.md)중에 명시적으로 적용 될 수 있습니다. 또한 필요에 따라 [단일 면 모드](../overview/features/single-sided-rendering.md) 를 "normal"로 설정할 수 있습니다.
+
+* 개체는 원본 자산에서 교차 합니다.
+
+     일부 서피스가 겹치는 방식으로 변환 되는 개체는 z-싸도 만듭니다. ARR의 가져온 장면에서 장면 트리의 일부를 변환 하는 경우에도이 문제가 발생할 수 있습니다.
+
+* 표면은 decals 또는 벽의 텍스트와 같이 터치에 대해 의도적으로 작성 된 표면입니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

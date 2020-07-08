@@ -2,13 +2,13 @@
 title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 Azure Backup Recovery Services 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 5fcf8004cd5792b30ec57537d5d8ab0bc085dfb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563123"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -16,33 +16,41 @@ ms.locfileid: "82183758"
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-보호 된 서버 또는 백업 관리 서버와 연결 된 종속성이 있는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
+다음과 같은 종속성이 있는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
-- 백업 데이터를 포함 하는 자격 증명 모음은 삭제할 수 없습니다 (보호를 중지 했지만 백업 데이터를 유지 한 경우에도).
+- 보호 된 데이터 원본 (예: IaaS Vm, SQL 데이터베이스, Azure 파일 공유 등)을 포함 하는 자격 증명 모음은 삭제할 수 없습니다.  
+- 백업 데이터를 포함 하는 자격 증명 모음은 삭제할 수 없습니다. 백업 데이터를 삭제하면 일시 삭제된 상태로 전환됩니다.
+- 일시 삭제 된 상태에서 백업 데이터를 포함 하는 자격 증명 모음은 삭제할 수 없습니다.
+- 등록 된 저장소 계정이 있는 자격 증명 모음은 삭제할 수 없습니다.
 
-- 종속성을 포함 하는 자격 증명 모음을 삭제 하면 다음과 같은 메시지가 나타납니다.
+종속성을 제거 하지 않고 자격 증명 모음을 삭제 하려고 하면 다음 오류 메시지 중 하나가 발생 합니다.
 
-  ![자격 증명 모음 오류를 삭제 합니다.](./media/backup-azure-delete-vault/error.png)
+- 자격 증명 모음 내에 기존 리소스가 있으므로 자격 증명 모음을 삭제할 수 없습니다. 이 자격 증명 모음과 연결 된 백업 항목, 보호 된 서버 또는 백업 관리 서버가 없는지 확인 하세요. 삭제를 계속 하기 전에이 자격 증명 모음과 연결 된 다음 컨테이너의 등록을 취소 합니다.
 
-- 종속성이 포함 된 포털에서 온-프레미스로 보호 된 항목을 삭제 하면 다음과 같은 경고 메시지가 나타납니다.
+- 자격 증명 모음에 일시 삭제된 상태의 백업 항목이 있으므로 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 백업 항목이 영구적으로 삭제 되 고 자격 증명 모음에 일시 삭제 됨 상태의 항목이 없는 경우 자격 증명 모음 삭제를 시도해 보세요. 자세한 내용은 [Azure Backup에 대 한 일시 삭제](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)를 참조 하세요.
 
-  ![보호 된 서버 오류를 삭제 합니다.](./media/backup-azure-delete-vault/error-message.jpg)
+## <a name="proper-way-to-delete-a-vault"></a>자격 증명 모음을 삭제 하는 적절 한 방법
 
-- 백업 항목이 일시 삭제 됨 상태에 있는 경우 경고 메시지가 표시 되 고 영구적으로 삭제 될 때까지 기다려야 합니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)를 참조 하세요.
+>[!WARNING]
+>다음 작업은 소거식 이며 실행 취소할 수 없습니다. 보호 된 서버와 연결 된 모든 백업 데이터 및 백업 항목은 영구적으로 삭제 됩니다. 이러한 작업은 주의해서 진행합니다.
 
-   ![자격 증명 모음 오류를 삭제 합니다.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
+자격 증명 모음을 제대로 삭제 하려면 다음 순서 대로 단계를 수행 해야 합니다.
 
-- 등록 된 저장소 계정이 있는 자격 증명 모음은 삭제할 수 없습니다. 계정 등록을 취소 하는 방법을 알아보려면 [저장소 계정 등록 취소](manage-afs-backup.md#unregister-a-storage-account)를 참조 하세요.
-  
-자격 증명 모음을 삭제 하려면 설치와 일치 하는 시나리오를 선택 하 고 권장 단계를 따릅니다.
+- **1 단계**: 일시 삭제 기능을 사용 하지 않도록 설정 합니다. 일시 삭제를 사용 하지 않도록 설정 하는 단계는 [여기를 참조](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) 하세요.
 
-시나리오 | 자격 증명 모음을 삭제 하기 위한 종속성을 제거 하는 단계 |
--- | --
-Azure Backup 에이전트를 사용 하 여 보호 된 온-프레미스 파일 및 폴더를 사용 하 여 Azure에 백업 | [MARS 관리 콘솔에서 백업 항목 삭제](#delete-backup-items-from-the-mars-management-console) 의 단계를 수행 합니다.
-MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection Manager)을 사용 하 여 보호 되는 온-프레미스 컴퓨터가 Azure에 있습니다. | [MABS 관리 콘솔에서 백업 항목 삭제](#delete-backup-items-from-the-mabs-management-console) 의 단계를 수행 합니다.
-클라우드에서 항목을 보호 합니다 (예: laaS 가상 머신 또는 Azure Files 공유).  | [클라우드에서 보호 된 항목 삭제](#delete-protected-items-in-the-cloud) 의 단계를 수행 합니다.
-온-프레미스와 클라우드에서 항목을 보호 했습니다. | 다음 섹션의 모든 단계를 다음 순서 대로 수행 합니다. <br> 1. [클라우드에서 보호 된 항목을 삭제](#delete-protected-items-in-the-cloud) 합니다.<br> 2. [MARS 관리 콘솔에서 백업 항목 삭제](#delete-backup-items-from-the-mars-management-console) <br> 3. [MABS 관리 콘솔에서 백업 항목 삭제](#delete-backup-items-from-the-mabs-management-console)
-온-프레미스 또는 클라우드에 보호 된 항목이 없습니다. 그러나 여전히 자격 증명 모음 삭제 오류가 발생 합니다. | 을 [사용 하 여 Recovery Services 자격 증명 모음 삭제](#delete-the-recovery-services-vault-by-using-azure-resource-manager) 의 단계를 수행 Azure Resource Manager <br><br> 자격 증명 모음에 등록 된 저장소 계정이 없는지 확인 합니다. 계정 등록을 취소 하는 방법을 알아보려면 [저장소 계정 등록 취소](manage-afs-backup.md#unregister-a-storage-account)를 참조 하세요.
+- **2 단계**: 일시 삭제를 사용 하지 않도록 설정한 후 이전에 일시 삭제 된 상태로 남아 있는 항목이 있는지 확인 합니다. 일시 삭제 됨 상태의 항목이 있는 경우 삭제를 *취소* 하 고 다시 *삭제* 해야 합니다. 일시 삭제 항목을 찾아 영구적으로 삭제 하려면 [다음 단계를 수행](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) 합니다.
+
+- **3 단계**: 다음 세 위치를 모두 확인 하 여 보호 된 항목이 있는지 확인 해야 합니다.
+
+  - **클라우드 보호 항목**: **백업 항목**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. 백업 데이터와 함께 백업 **중지** 또는 백업 **데이터를 삭제** 하 여 여기에 나열 된 모든 항목을 제거 해야 합니다.  이러한 항목을 제거 하려면 [다음 단계를 수행](#delete-protected-items-in-the-cloud) 합니다.
+  - **MARS로 보호 된 서버**: **백업 인프라**  >  **보호 된 서버**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. MARS로 보호 된 서버가 있는 경우 여기에 나열 된 모든 항목은 해당 백업 데이터와 함께 삭제 되어야 합니다. MARS 보호 된 서버를 삭제 하려면 [다음 단계를 수행](#delete-protected-items-on-premises) 합니다.
+  - **Mabs 또는 DPM 관리 서버**: **백업 인프라**  >  **백업 관리 서버**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. DPM 또는 MABS (Azure Backup Server)를 사용 하는 경우 여기에 나열 된 모든 항목을 백업 데이터와 함께 삭제 하거나 등록을 취소 해야 합니다. 관리 서버를 삭제 하려면 [다음 단계를 수행](#delete-protected-items-on-premises) 합니다.
+
+- **4 단계**: 등록 된 모든 저장소 계정이 삭제 되었는지 확인 해야 합니다. **백업 인프라**  >  **저장소 계정**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. 여기에 나열 된 저장소 계정이 있는 경우 모든 항목의 등록을 취소 해야 합니다. 계정 등록을 취소 하는 방법을 알아보려면 [저장소 계정 등록 취소](manage-afs-backup.md#unregister-a-storage-account)를 참조 하세요.
+
+이러한 단계를 완료 한 후에 [는 자격 증명 모음](#delete-the-recovery-services-vault)을 계속 해 서 삭제할 수 있습니다.
+
+온-프레미스 또는 클라우드에 보호 된 항목이 없지만 자격 증명 모음 삭제 오류가 계속 발생 하는 경우를 [사용 하 여 Recovery Services 자격 증명 모음 삭제](#delete-the-recovery-services-vault-by-using-azure-resource-manager) 의 단계를 수행 Azure Resource Manager
 
 ## <a name="delete-protected-items-in-the-cloud"></a>클라우드에서 보호 된 항목 삭제
 
@@ -60,11 +68,11 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection M
 
         ![백업 중지 창](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - **백업 데이터 삭제** 창이 나타나면 백업 항목의 이름을 입력 하 고 (이 필드는 대/소문자를 구분 함) 드롭다운 메뉴에서 이유를 선택 합니다. 설명 (있는 경우)을 입력 합니다. 그런 다음 **삭제**를 선택 합니다.
+    - **백업 데이터 삭제** 창이 나타나면 백업 항목의 이름을 입력 하 고 (이 필드는 대/소문자를 구분 함) 드롭다운 메뉴에서 이유를 선택 합니다. 설명 (있는 경우)을 입력 합니다. 그런 다음, **삭제**를 선택합니다.
 
          ![백업 데이터 삭제 창](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-3. 알림 아이콘 **:** ![알림 아이콘을 선택 합니다.](./media/backup-azure-delete-vault/messages.png) 프로세스가 완료 되 면 서비스에서 "백업 항목 *"* 의 백업 *및 백업 데이터 삭제를 중지 하*는 다음 메시지를 표시 합니다. *작업을 완료 했습니다*.
+3. 알림 아이콘 **:** 알림 아이콘을 선택 합니다. ![](./media/backup-azure-delete-vault/messages.png) 프로세스가 완료 되 면 서비스에서 "백업 항목 *"* 의 백업 *및 백업 데이터 삭제를 중지 하*는 다음 메시지를 표시 합니다. *작업을 완료 했습니다*.
 4. **백업 항목 메뉴에서** **새로 고침** 을 선택 하 여 백업 항목이 삭제 되었는지 확인 합니다.
 
       ![백업 항목 삭제 페이지.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -82,7 +90,7 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection M
 
       - MABS 또는 DPM의 경우 **백업 관리 서버**를 선택 합니다. 그런 다음 삭제 하려는 서버를 선택 합니다.
 
-          ![MABS의 경우 자격 증명 모음을 선택 하 여 해당 대시보드를 엽니다.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+          ![MABS 또는 DPM의 경우 자격 증명 모음을 선택 하 여 해당 대시보드를 엽니다.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. **삭제** 창에 경고 메시지가 표시 됩니다.
 
@@ -97,15 +105,21 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection M
 
 4. 동의 확인란을 선택 하 고 **삭제**를 선택 합니다.
 
-5. **알림** 아이콘 ![백업 데이터](./media/backup-azure-delete-vault/messages.png)삭제를 선택 합니다. 작업이 완료 되 면 서비스는 *백업 중지 및 "백업 항목에 대 한 백업 데이터 삭제"* 메시지를 표시 합니다. *작업을 완료 했습니다*.
+5. **알림** 아이콘 ![ 백업 데이터 삭제를 선택 ](./media/backup-azure-delete-vault/messages.png) 합니다. 작업이 완료 되 면 서비스는 *백업 중지 및 "백업 항목에 대 한 백업 데이터 삭제"* 메시지를 표시 합니다. *작업을 완료 했습니다*.
 6. **백업 항목 메뉴에서** **새로 고침** 을 선택 하 여 백업 항목이 삭제 되었는지 확인 합니다.
+
+>[!NOTE]
+>종속성이 포함 된 포털에서 온-프레미스로 보호 된 항목을 삭제 하는 경우 "서버 등록 삭제가 파괴적인 작업이 며 실행 취소할 수 없다는 경고가 표시 됩니다. 모든 백업 데이터 (데이터를 복원 하는 데 필요한 복구 지점은)와 보호 된 서버와 연결 된 백업 항목은 영구적으로 삭제 됩니다. "
 
 이 프로세스가 완료 되 면 관리 콘솔에서 백업 항목을 삭제할 수 있습니다.
 
 - [MARS 관리 콘솔에서 백업 항목 삭제](#delete-backup-items-from-the-mars-management-console)
-- [MABS 관리 콘솔에서 백업 항목 삭제](#delete-backup-items-from-the-mabs-management-console)
+- [MABS 또는 DPM 관리 콘솔에서 백업 항목 삭제](#delete-backup-items-from-the-mabs-or-dpm-management-console)
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>MARS 관리 콘솔에서 백업 항목 삭제
+
+>[!NOTE]
+>백업을 중지 하지 않고 원본 컴퓨터를 삭제 하거나 잃은 경우 예약 된 다음 백업이 실패 합니다. 이전 복구 지점은 정책에 따라 만료 되지만 마지막 단일 복구 지점은 백업을 중지 하 고 데이터를 삭제할 때까지 항상 유지 됩니다. 이 작업은 [이 섹션](#delete-protected-items-on-premises)의 단계에 따라 수행할 수 있습니다.
 
 1. MARS 관리 콘솔을 열고 **작업** 창으로 이동 하 여 **Backup 예약**을 선택 합니다.
 2. 예약 된 **백업 수정 또는 중지** 페이지에서 **이 백업 일정 사용 중지와 저장 된 백업 모두 삭제**를 선택 합니다. 그다음에 **다음**을 선택합니다.
@@ -116,7 +130,7 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection M
 
     ![예약 된 백업을 중지 합니다.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. 수동으로 생성 해야 하는 보안 PIN (개인 식별 번호)을 입력 하 라는 메시지가 표시 됩니다. 이렇게 하려면 먼저 Azure Portal에 로그인 합니다.
-5. **Recovery Services 자격 증명 모음** > **설정** > **속성**으로 이동 합니다.
+5. **Recovery Services 자격 증명 모음**  >  **설정**  >  **속성**으로 이동 합니다.
 6. **보안 PIN**아래에서 **생성**을 선택 합니다. 이 PIN을 복사 합니다. PIN은 5 분 동안만 유효 합니다.
 7. 관리 콘솔에서 PIN을 붙여넣은 다음 **확인**을 선택 합니다.
 
@@ -128,9 +142,12 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection M
 
 온-프레미스 백업 항목을 삭제 한 후 포털에서 다음 단계를 수행 합니다.
 
-### <a name="delete-backup-items-from-the-mabs-management-console"></a>MABS 관리 콘솔에서 백업 항목 삭제
+### <a name="delete-backup-items-from-the-mabs-or-dpm-management-console"></a>MABS 또는 DPM 관리 콘솔에서 백업 항목 삭제
 
-MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는 방법에는 두 가지가 있습니다.
+>[!NOTE]
+>백업을 중지 하지 않고 원본 컴퓨터를 삭제 하거나 잃은 경우 예약 된 다음 백업이 실패 합니다. 이전 복구 지점은 정책에 따라 만료 되지만 마지막 단일 복구 지점은 백업을 중지 하 고 데이터를 삭제할 때까지 항상 유지 됩니다. 이 작업은 [이 섹션](#delete-protected-items-on-premises)의 단계에 따라 수행할 수 있습니다.
+
+MABS 또는 DPM 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는 방법에는 두 가지가 있습니다.
 
 #### <a name="method-1"></a>방법 1
 
@@ -154,7 +171,7 @@ MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는
 
 #### <a name="method-2"></a>방법 2
 
-**Mabs 관리** 콘솔을 엽니다. **데이터 보호 방법 선택**아래에서 **온라인 보호를 사용할** 확인란의 선택을 취소 합니다.
+**Mabs 관리** 또는 **DPM 관리** 콘솔을 엽니다. **데이터 보호 방법 선택**아래에서 **온라인 보호를 사용할** 확인란의 선택을 취소 합니다.
 
   ![데이터 보호 방법을 선택합니다.](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -177,7 +194,7 @@ MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는
 
 보호를 중지 하 고 백업 데이터를 삭제 하려면:
 
-- Azure Vm 백업에서 SQL을 사용 하 고 SQL 인스턴스에 대해 자동 보호를 사용 하도록 설정한 경우 먼저 자동 보호를 사용 하지 않도록 설정 합니다.
+- Azure Vm 백업에서 SQL을 사용 하 고 SQL 인스턴스에 대해 자동 보호를 사용 하도록 설정 하는 경우 먼저 자동 보호를 사용 하지 않도록 설정 합니다.
 
     ```PowerShell
         Disable-AzRecoveryServicesBackupAutoProtection
@@ -194,7 +211,7 @@ MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는
 
   Azure Backup 보호 된 항목에 대해 보호를 사용 하지 않도록 설정 하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) .
 
-- 클라우드의 모든 백업 보호 항목에 대 한 보호를 중지 하 고 데이터를 삭제 합니다 (예: laaS VM, Azure 파일 공유 등):
+- 클라우드의 모든 백업 보호 항목에 대 한 보호를 중지 하 고 데이터를 삭제 합니다 (예: IaaS VM, Azure 파일 공유 등).
 
     ```PowerShell
        Disable-AzRecoveryServicesBackupProtection
@@ -208,7 +225,7 @@ MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는
        [<CommonParameters>]
     ```
 
-    [Learn more](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) 에 대 한 자세한 내용은 백업 보호 된 항목에 대 한 보호 사용 안 함을 확인 하세요.
+    [자세히 알아보기](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)   정보는 백업으로 보호 된 항목에 대 한 보호를 사용 하지 않도록 설정 합니다.
 
 - Azure에 백업 하는 MARS (Azure Backup 에이전트)를 사용 하 여 보호 되는 온-프레미스 파일 및 폴더의 경우 다음 PowerShell 명령을 사용 하 여 각 MARS PowerShell 모듈에서 백업 된 데이터를 삭제 합니다.
 
@@ -218,9 +235,9 @@ MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는
 
     다음 프롬프트가 표시 되는 게시:
 
-    *이 백업 정책을 제거 하 시겠습니까 Microsoft Azure Backup? 삭제 된 백업 데이터는 14 일 동안 보존 됩니다. 이 시간 후에는 백업 데이터가 영구적으로 삭제 됩니다. <br/> [Y] 예 [A] 예 [N] 아니요 [S] 아니요 모두 [S] 일시 중지 [?] 도움말 (기본값: "Y"):*
+    *이 백업 정책을 제거 하 시겠습니까 Microsoft Azure Backup? 삭제 된 백업 데이터는 14 일 동안 보존 됩니다. 이 시간 후에는 백업 데이터가 영구적으로 삭제 됩니다. <br/>[Y] 예 [A] 예 [N] 아니요 [S] 아니요 모두 [S] 일시 중지 [?] 도움말 (기본값: "Y"):*
 
-- MABS (Microsoft Azure Backup Server) 또는 DPM에서 Azure로 보호 되는 온-프레미스 컴퓨터 (System Center Data Protection Manager)에서 다음 명령을 사용 하 여 Azure에서 백업 된 데이터를 삭제 합니다.
+- MABS (Microsoft Azure Backup Server) 또는 DPM (System Center Data Protection Manager)을 사용 하 여 보호 되는 온-프레미스 컴퓨터를 azure에서 삭제 하려면 다음 명령을 사용 하 여 Azure에서 백업 된 데이터를 삭제 합니다.
 
     ```powershell
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
@@ -228,7 +245,7 @@ MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는
 
     다음 프롬프트가 표시 되는 게시:
 
-   *Microsoft Azure Backup* 이 백업 정책을 제거 하 시겠습니까? 삭제 된 백업 데이터는 14 일 동안 보존 됩니다. 이 시간 후에는 백업 데이터가 영구적으로 삭제 됩니다. <br/>
+   *Microsoft Azure Backup* 이 백업 정책을 제거 하 시겠습니까? 삭제 된 백업 데이터는 14 일 동안 보존 됩니다. 이 기간 후에는 백업 데이터가 영구적으로 삭제됩니다. <br/>
    [Y] 예 [A] 예 [N] 아니요 [S] 아니요 모두 [S] 일시 중지 [?] 도움말 (기본값은 "Y"):*
 
 백업 된 데이터를 삭제 한 후 온-프레미스 컨테이너와 관리 서버의 등록을 취소 합니다.
@@ -352,5 +369,5 @@ ARMClient 명령에 대 한 자세한 내용은 [ARMCLIENT 추가](https://githu
 
 ## <a name="next-steps"></a>다음 단계
 
-[Recovery Services 자격 증명 모음에 대 한 자세한 정보](backup-azure-recovery-services-vault-overview.md)<br/>
-[Recovery Services 자격 증명 모음 모니터링 및 관리에 대 한 자세한 정보](backup-azure-manage-windows-server.md)
+[Recovery Services 자격 증명 모음](backup-azure-recovery-services-vault-overview.md) 
+ 에 대 한 자세한 정보 [Recovery Services 자격 증명 모음 모니터링 및 관리에 대 한 자세한 정보](backup-azure-manage-windows-server.md)

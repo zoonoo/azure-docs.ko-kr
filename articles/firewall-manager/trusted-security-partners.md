@@ -1,33 +1,30 @@
 ---
-title: Azure 방화벽 관리자 신뢰할 수 있는 보안 파트너 (미리 보기) 란?
-description: Azure 방화벽 관리자 신뢰할 수 있는 보안 파트너에 대 한 자세한 정보
+title: Azure 방화벽 관리자 보안 파트너 공급자 란?
+description: Azure 방화벽 관리자 보안 파트너 공급자에 대해 알아보기
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563602"
 ---
-# <a name="what-are-trusted-security-partners-preview"></a>신뢰할 수 있는 보안 파트너(미리 보기)란?
+# <a name="what-are-security-partner-providers"></a>보안 파트너 공급자란?
 
-> [!IMPORTANT]
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하면 사용자에 대 한 인터넷 액세스를 보호 하기 위해 친숙 하 고, 최고 수준의 타사의 secaas (security as a service) 제품을 사용할 수 있습니다.
 
-Azure 방화벽 관리자의 신뢰할 수 있는 *보안 파트너 (미리 보기)* 를 사용 하면 친숙 하 고 가장 적합 한 타사 secaas security as a service) 제품을 사용 하 여 사용자에 대 한 인터넷 액세스를 보호할 수 있습니다.
-
-빠른 구성에서는 지원 되는 보안 파트너를 사용 하 여 허브를 보호 하 고, 가상 네트워크 (Vnet) 또는 지역 내의 분기 위치에서 인터넷 트래픽을 라우팅하고 필터링 할 수 있습니다. 이 작업은 UDRs (사용자 정의 경로)를 설정 및 관리 하지 않고도 자동 경로 관리를 사용 하 여 수행 됩니다.
+빠른 구성에서는 지원 되는 보안 파트너를 사용 하 여 허브를 보호 하 고, 가상 네트워크 (Vnet) 또는 지역 내의 분기 위치에서 인터넷 트래픽을 라우팅하고 필터링 할 수 있습니다. UDRs (사용자 정의 경로)를 설정 및 관리 하지 않고도 자동 경로 관리를 사용 하 여이 작업을 수행할 수 있습니다.
 
 여러 Azure 지역에서 선택한 보안 파트너를 사용 하 여 구성 된 보안 허브를 배포 하 여 해당 지역의 전 세계 어디에서 나 사용자에 대 한 연결 및 보안을 얻을 수 있습니다. 인터넷/SaaS 응용 프로그램 트래픽에 대 한 보안 파트너의 제품 및 보안 허브의 개인 트래픽에 대 한 Azure 방화벽을 사용 하는 기능을 사용 하 여 전역으로 분산 된 사용자 및 응용 프로그램에 가까운 Azure에서 보안에 지를 구축할 수 있습니다.
 
-이 미리 보기의 경우 지원 되는 보안 파트너는 **ZScaler** 및 **iboss**입니다. 지원 되는 지역은 WestCentralUS, NorthCentralUS, WestUS, WestUS2 및 EastUS입니다.
+지원 되는 보안 파트너는 **ZScaler**, **Check Point** (preview) 및 **iboss** (미리 보기)입니다.
 
-![신뢰할 수 있는 보안 파트너](media/trusted-security-partners/trusted-security-partners.png)
+![보안 파트너 공급자](media/trusted-security-partners/trusted-security-partners.png)
 
 ## <a name="key-scenarios"></a>주요 시나리오
 
@@ -42,18 +39,8 @@ Azure 방화벽 관리자의 신뢰할 수 있는 *보안 파트너 (미리 보�
    Azure 연결 및 글로벌 배포를 활용 하 여 인터넷 시나리오에 분기에 대 한 타사 NSaaS 필터링을 쉽게 추가할 수 있습니다. Azure 가상 WAN을 사용 하 여 글로벌 전송 네트워크 및 보안에 지를 빌드할 수 있습니다.
 
 다음과 같은 시나리오가 지원됩니다.
--   타사 파트너 제품을 통한 VNet에서 인터넷으로
--   타사 파트너 제품을 통해 인터넷으로 분기 합니다.
--   Azure 방화벽을 통해 타사 파트너 제품, 나머지 개인 트래픽 (스포크-스포크, 스포크-분기, 스포크)을 통해 인터넷으로 분기 합니다.
-
-지원 되지 않는 시나리오는 다음과 같습니다.
-
-- 파트너 제품을 통한 VNet 간 VNet은 개인 트래픽에 대해 Azure 방화벽과 함께 사용할 수 없습니다. 다음 제한 사항을 참조 하세요.
-
-## <a name="current-limitations"></a>현재 제한 사항
-
-- VNet에서 인터넷을 사용할 경우 개인 트래픽에 대 한 Azure 방화벽 추가와 인터넷 트래픽에 대 한 파트너 제품을 혼합할 수 없습니다. 보안 가상 허브의 Azure 방화벽 또는 타사 보안 파트너 제품에 인터넷 트래픽을 보낼 수 있습니다. 
-- 가상 허브 당 최대 하나의 보안 파트너를 배포할 수 있습니다. 공급자를 변경 해야 하는 경우 기존 파트너를 제거 하 고 새 파트너를 추가 해야 합니다.
+- Azure 방화벽을 통해 보안 파트너 공급자와 기타 트래픽 (스포크 to 스포크, 스포크 to branch, branch로 분기)을 통해 인터넷에 대 한 VNet/분기.
+- 보안 파트너 공급자를 통해 인터넷으로의 VNet/지사
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>보안 가상 허브에서 인터넷 트래픽 필터링 모범 사례
 
@@ -75,9 +62,8 @@ Office 365의 경우 성공적인 사용자 환경을 위해 네트워크 대기
 
 [Office 365 네트워크 연결 원칙](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) 은 사용자 분기 또는 모바일 장치에서 로컬로, 인터넷을 통해 직접 라우팅할 Microsoft 네트워크 상태에 있는 키 office 365 네트워크 연결에 대 한 호출입니다.
 
-또한 Office 365 연결은 개인 정보 보호를 위해 강력 하 게 암호화 되며 성능상의 이유로 효율적이 고 독점적인 프로토콜을 사용 합니다. 이렇게 하면 기존 네트워크 수준 보안 솔루션에 대 한 이러한 연결을 적용 하기가 어렵습니다. 이러한 이유로 Azure를 통해 나머지 트래픽을 전송 하기 전에 고객이 지점에서 직접 Office 365 트래픽을 전송 하는 것이 좋습니다. Microsoft는 Azure와 Office 365을 통합 하는 여러 SD WAN 솔루션 공급자와 협력 하 여 고객이 쉽게 Office 365 직접 및 로컬 인터넷을 사용할 수 있도록 합니다. 자세한 내용은 [가상 WAN을 통해 내 O365 정책 설정 어떻게 할까요?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview) 을 참조 하세요.
-
+또한 Office 365 연결은 개인 정보 보호를 위해 암호화 되며 성능상의 이유로 효율적이 고 독점적인 프로토콜을 사용 합니다. 이렇게 하면 기존 네트워크 수준 보안 솔루션에 대 한 이러한 연결을 적용 하기가 어렵습니다. 이러한 이유로 Azure를 통해 나머지 트래픽을 전송 하기 전에 고객이 지점에서 직접 Office 365 트래픽을 전송 하는 것이 좋습니다. Microsoft는 Azure와 Office 365을 통합 하는 여러 SD WAN 솔루션 공급자와 협력 하 여 고객이 쉽게 Office 365 직접 및 로컬 인터넷을 사용할 수 있도록 합니다. 자세한 내용은 [가상 WAN을 통해 내 O365 정책 설정 어떻게 할까요?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 방화벽 관리자를 사용 하 여 보안 허브에 신뢰할 수 있는 보안 제품을 배포](deploy-trusted-security-partner.md)합니다.
+[Azure 방화벽 관리자를 사용 하 여 보안 허브에 보안 파트너 제품을 배포](deploy-trusted-security-partner.md)합니다.

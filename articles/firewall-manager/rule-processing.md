@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 74e58c316651a1604984ac14c70a3a65d46d6d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70026173d1cb932d30a59ea2b876ef22217a81bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73518204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563674"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall 규칙 처리 논리
 
@@ -20,7 +20,7 @@ Azure Firewall에는 NAT 규칙, 네트워크 규칙 및 애플리케이션 규�
 
 ## <a name="network-rules-and-applications-rules"></a>네트워크 규칙 및 애플리케이션 규칙
 
-네트워크 규칙이 가장 먼저 적용되고, 다음으로 애플리케이션 규칙이 적용됩니다. 규칙은 종료됩니다. 따라서 네트워크 규칙에서 일치 항목이 발견된 경우 애플리케이션 규칙이 처리되지 않습니다.  네트워크 규칙이 일치하지 않고 패킷 프로토콜이 HTTP/HTTPS이면 애플리케이션 규칙에 따라 패킷이 평가됩니다. 여전히 일치하는 항목이 없으면 인프라 규칙 컬렉션과 비교하여 패킷이 평가됩니다. 여전히 일치하는 항목이 없으면 패킷이 기본적으로 거부됩니다.
+네트워크 규칙이 가장 먼저 적용되고, 다음으로 애플리케이션 규칙이 적용됩니다. 규칙은 종료됩니다. 따라서 네트워크 규칙에 일치 하는 항목이 있으면 응용 프로그램 규칙이 처리 되지 않습니다.  네트워크 규칙이 일치 하지 않고 패킷 프로토콜이 HTTP/HTTPS 인 경우 해당 패킷은 응용 프로그램 규칙에 의해 평가 됩니다. 여전히 일치하는 항목이 없으면 인프라 규칙 컬렉션과 비교하여 패킷이 평가됩니다. 여전히 일치 하는 항목이 없는 경우에는 기본적으로 패킷이 거부 됩니다.
 
 ## <a name="nat-rules"></a>NAT 규칙
 
@@ -34,4 +34,4 @@ Azure Firewall에는 NAT 규칙, 네트워크 규칙 및 애플리케이션 규�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 방화벽 관리자 미리 보기에 대 한 자세한 정보](overview.md)
+- [Azure 방화벽 관리자에 대 한 자세한 정보](overview.md)

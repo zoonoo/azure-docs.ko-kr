@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Cloud App Security 데이터 연결 | Microsoft Docs
-description: Azure 센티널에 Cloud App Security 데이터를 연결 하는 방법에 대해 알아봅니다.
+description: MCAS (Microsoft Cloud App Security) 커넥터를 사용 하 여 MCAS에서 Azure 센티널로 경고 및 Cloud Discovery 로그를 스트리밍하는 방법을 알아봅니다. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563944"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security에서 데이터 연결 
 
-
-
 Mcas ( [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) ) 커넥터를 사용 하면 mcas의 경고 및 [Cloud Discovery 로그](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) 를 Azure 센티널로 스트리밍할 수 있습니다. 이렇게 하면 클라우드 앱에 대 한 가시성을 확보 하 고 정교한 분석을 통해 사이버 위협 대를 식별 및 공격 하 고 데이터가 이동 하는 방식을 제어할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 사용자에 게 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 - 사용자에 게 작업 영역의 테 넌 트에 대 한 전역 관리자 또는 보안 관리자 권한이 있어야 합니다.
@@ -50,7 +48,9 @@ Cloud App Security 배포 하 고 데이터를 수집 경고 데이터를 Azure 
 
 1. **변경 내용 적용**을 클릭합니다.
 
-1. Cloud App Security 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 `SecurityAlert` 쿼리 창에를 입력 합니다. Cloud Discovery logs 스키마의 경우를 입력 `McasShadowItReporting`합니다.
+1. 경고를 Azure Security Center 하 여 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다. **인시던트 만들기**에서 **사용** 을 선택 하 여 경고에서 인시던트를 자동으로 생성 하는 기본 분석 규칙을 설정 합니다. 그런 다음 **활성 규칙** 탭의 **분석**에서이 규칙을 편집할 수 있습니다.
+
+1. Cloud App Security 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 `SecurityAlert` 쿼리 창에를 입력 합니다. Cloud Discovery logs 스키마의 경우를 입력 `McasShadowItReporting` 합니다.
 
 > [!NOTE]
 > Cloud Discovery는 클라우드 앱에 대 한 데이터 기본 사용자의 연결을 집계 하 여 추세를 검색 하 고 식별 하는 데 도움이 됩니다.

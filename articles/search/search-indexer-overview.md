@@ -1,7 +1,7 @@
 ---
 title: 가져오는 동안 데이터를 크롤링하는 인덱서
 titleSuffix: Azure Cognitive Search
-description: Azure SQL database, Azure Cosmos DB 또는 Azure storage를 탐색 하 여 검색 가능한 데이터를 추출 하 고 Azure Cognitive Search 인덱스를 채웁니다.
+description: 검색 가능한 데이터를 추출 하 고 Azure Cognitive Search 인덱스를 채우도록 Azure SQL Database, SQL Managed Instance, Azure Cosmos DB 또는 Azure storage를 탐색 합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a728eff7addc7f835f82e795457e722fd60d2e30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564591"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -50,9 +50,9 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (미리 보기)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database 및 SQL Managed Instance](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Virtual Machines의 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
-* [Azure의 SQL 관리 되는 인스턴스](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>기본 구성 단계
 인덱서는 데이터 원본에 고유한 기능을 제공할 수 있습니다. 이러한 점에서 인덱서 또는 데이터 원본 구성의 일부 측면은 인덱서 유형에 따라 달라집니다. 그러나 인덱서는 모두 동일한 기본 구성 및 요구 사항을 공유합니다. 인덱서 모두에 공통되는 단계는 아래에서 다룹니다.
@@ -77,7 +77,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 인덱스를 예약 하는 것이 일반적 이지만 [Run 명령을](https://docs.microsoft.com/rest/api/searchservice/run-indexer)사용 하 여 요청 시 인덱서가 호출 될 수도 있습니다.
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2020-06-30
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 인덱서 [상태 가져오기 명령을](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)통해 인덱서의 상태 및 실행 기록을 검색할 수 있습니다.
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
     api-key: [Search service admin key]
 
 응답에는 전반적인 인덱서 상태, 마지막(또는 진행 중인) 인덱서 호출 및 최근 인덱서 호출 기록이 포함됩니다.
@@ -128,7 +128,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 ## <a name="next-steps"></a>다음 단계
 이제 기본 개념을 이해했으므로 다음 단계는 각 데이터 원본 유형과 관련된 요구 사항 및 작업을 검토하는 것입니다.
 
-* [Azure SQL Database 또는 Azure 가상 머신의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure 가상 컴퓨터에서 Azure SQL Database, SQL Managed Instance 또는 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)

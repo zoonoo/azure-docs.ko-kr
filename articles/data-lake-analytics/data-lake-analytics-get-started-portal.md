@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c78889c8d910edb5111c18b9cbb77387d2693f87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71315752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564786"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -28,13 +28,13 @@ ms.locfileid: "71315752"
 
 이제 Data Lake Analytics 및 Azure Data Lake Storage Gen1 계정을 동시에 만듭니다.  이 단계는 간단하며 완료하는 데 약 60초가 소요됩니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그온 합니다.
-2. **리소스** >  만들기**데이터 + 분석** > **Data Lake Analytics**를 클릭 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **리소스 만들기**  >   **데이터 + 분석**  >  **Data Lake Analytics**를 클릭 합니다.
 3. 다음 항목에 대한 값을 선택합니다.
    * **이름**: Data Lake Analytics 계정의 이름을 지정합니다(소문자와 숫자만 허용).
    * **구독**: 분석 계정에 사용할 Azure 구독을 선택합니다.
    * **리소스 그룹**. 기존 Azure 리소스 그룹을 선택하거나 리소스 그룹을 새로 만듭니다.
-   * **위치**. 데이터 레이크 분석 계정에 대한 Azure 데이터 센터를 선택합니다.
+   * **위치** - 데이터 레이크 분석 계정에 대한 Azure 데이터 센터를 선택합니다.
    * **Data Lake Storage Gen1**: 지침에 따라 새 Data Lake Storage Gen1 계정을 만들거나 기존 계정을 선택합니다. 
 4. 필요에 따라 Data Lake Analytics 계정에 대한 가격 책정 계층을 선택합니다.
 5. **만들기**를 클릭합니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "71315752"
 
 다음 텍스트는 매우 간단한 U-SQL 스크립트입니다. 스크립트 내에서 작은 데이터 세트를 정의한 다음, 해당 데이터 세트를 `/data.csv`라는 파일로 기본 Data Lake Storage Gen1 계정에 기록하는 것이 전부입니다.
 
-```
+```usql
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -63,9 +63,9 @@ OUTPUT @a
 2. 이전 U-SQL 스크립트의 텍스트에 붙여넣습니다. 작업의 이름을 지정합니다. 
 3. **전송** 단추를 선택하여 작업을 시작합니다.   
 4. 작업의 **상태**를 모니터링하고, 작업 상태가 **성공**으로 변경될 때까지 기다립니다.
-5. **데이터** 탭을 선택 하 고 **출력 탭을** 선택 합니다. 라는 `data.csv` 출력 파일을 선택 하 고 출력 데이터를 확인 합니다.
+5. **데이터** 탭을 선택 하 고 **출력 탭을** 선택 합니다. 라는 출력 파일을 선택 `data.csv` 하 고 출력 데이터를 확인 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * U-SQL 애플리케이션 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.

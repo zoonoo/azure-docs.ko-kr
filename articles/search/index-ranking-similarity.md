@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5597528d395c2c8facd4a1b916b1378b659a646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565295"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Azure Cognitive Search의 순위 알고리즘
 
 > [!IMPORTANT]
 > 2020 년 7 월 15 일부 터 새로 생성 된 검색 서비스는 자동으로 BM25 순위 함수를 사용 합니다 .이 함수는 대부분의 경우에는 현재 기본 순위 보다 사용자 기대치에 맞게 더 잘 맞춘 검색 순위를 제공 합니다. BM25는 상위 순위를 넘어 문서 크기와 같은 요소에 따라 결과를 조정 하는 구성 옵션도 가능 합니다.  
 >
-> 이러한 변경으로 인해 검색 결과의 순서가 약간 변경 될 수 있습니다. 이러한 변경의 영향을 테스트 하려는 사용자의 경우 BM25 알고리즘은 api 버전 2019-05-06-미리 보기에서 사용할 수 있습니다.  
+> 이러한 변경으로 인해 검색 결과의 순서가 약간 변경 될 수 있습니다. 이러한 변경의 영향을 테스트 하려는 사용자의 경우 BM25 알고리즘은 api 버전 2019-05-06-미리 보기 및 2020-06-30에서 사용할 수 있습니다.  
 
 이 문서에서는 미리 보기 API를 사용 하 여 만들고 쿼리 하는 새 인덱스에 대해 기존 검색 서비스에서 새로운 BM25 순위 알고리즘을 사용 하는 방법을 설명 합니다.
 
@@ -30,7 +30,7 @@ Azure Cognitive Search은 이전에 사용 된 *ClassicSimilarity* 구현을 대
 
 ## <a name="how-to-test-bm25-today"></a>지금 BM25을 테스트 하는 방법
 
-새 인덱스를 만들 때 **유사성** 속성을 설정 하 여 알고리즘을 지정할 수 있습니다. 아래와 같이 `api-version=2019-05-06-Preview`를 사용 해야 합니다.
+새 인덱스를 만들 때 **유사성** 속성을 설정 하 여 알고리즘을 지정할 수 있습니다. 아래와 같이 또는를 사용할 수 있습니다 `api-version=2019-05-06-Preview` `api-version=2020-06-30` .
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -63,9 +63,9 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 | 속성 | 설명 |
 |----------|-------------|
-| 유사성 | 선택 사항입니다. 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> 2020 `api-version=2019-05-06-Preview` 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
+| 유사성 | 선택 사항입니다. 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> `api-version=2019-05-06-Preview`2020 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
 
-2020 년 7 월 15 일 이후에 만들어진 새 서비스의 경우 BM25이 자동으로 사용 되며 유일한 유사성 알고리즘입니다. 새 서비스에서 **유사성** 을로 `ClassicSimilarity` 설정 하려고 하면 새 서비스에서 해당 알고리즘이 지원 되지 않기 때문에 400 오류가 반환 됩니다.
+2020 년 7 월 15 일 이후에 만들어진 새 서비스의 경우 BM25이 자동으로 사용 되며 유일한 유사성 알고리즘입니다. 새 서비스에서 **유사성** 을로 설정 하려고 하면 `ClassicSimilarity` 새 서비스에서 해당 알고리즘이 지원 되지 않기 때문에 400 오류가 반환 됩니다.
 
 2020 년 7 월 15 일 이전에 만든 기존 서비스의 경우 클래식 유사성은 기본 알고리즘으로 유지 됩니다. **유사성** 속성이 생략 되거나 null로 설정 된 경우 인덱스는 클래식 알고리즘을 사용 합니다. 새 알고리즘을 사용 하려는 경우 위에 설명 된 대로 **유사성** 을 설정 해야 합니다.
 

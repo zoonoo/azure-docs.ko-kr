@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73847515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562386"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Azure Cognitive Search .NET SDK 버전 10으로 업그레이드
 
-[Azure Search .NET SDK](https://aka.ms/search-sdk)버전 9.0 이전 버전을 사용 하는 경우이 문서를 통해 응용 프로그램을 업그레이드 하 여 버전 10을 사용할 수 있습니다.
+버전 9.0 또는 이전 버전의 [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용 하는 경우이 문서를 참조 하 여 버전 10을 사용 하도록 응용 프로그램을 업그레이드할 수 있습니다.
 
 Azure Search은 버전 10에서 Azure Cognitive Search로 이름이 변경 되지만 네임 스페이스와 패키지 이름은 변경 되지 않습니다. 이전 버전의 SDK (9.0 및 이전 버전)는 계속 해 서 이전 이름을 사용 합니다. 예제를 포함 하 여 SDK를 사용 하는 방법에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
 
-버전 10은 몇 가지 기능과 버그 수정을 추가 하 여 REST API 버전 `2019-05-06`의 최신 릴리스와 동일한 기능 수준으로 제공 합니다. 변경이 기존 코드를 중단 하는 경우 [문제를 해결 하는 데 필요한 단계](#UpgradeSteps)를 안내 합니다.
+버전 10은 여러 기능과 버그 수정을 추가 하 여 REST API 버전과 동일한 기능 수준으로 제공 `2019-05-06` 합니다. 변경이 기존 코드를 중단 하는 경우 [문제를 해결 하는 데 필요한 단계](#UpgradeSteps)를 안내 합니다.
 
 > [!NOTE]
 > 버전 8.0-preview 또는 이전 버전을 사용 하는 경우 먼저 버전 9로 업그레이드 한 후 버전 10으로 업그레이드 해야 합니다. 지침은 [Azure Search .NET SDK 버전 9로 업그레이드를](search-dotnet-sdk-migration-version-9.md) 참조 하세요.
@@ -32,7 +32,7 @@ Azure Search은 버전 10에서 Azure Cognitive Search로 이름이 변경 되�
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>버전 10의 새로운 기능
-Azure Cognitive Search .NET SDK 버전 10은 이러한 업데이트를 사용 하 여 일반적으로 사용 가능한 최신`2019-05-06`버전의 REST API ()를 대상으로 합니다.
+Azure Cognitive Search .NET SDK의 버전 10은 `2019-05-06` 다음 업데이트를 REST API 합니다.
 
 * 두 가지 새로운 기술- [조건부 기술](cognitive-search-skill-conditional.md) 및 [텍스트 번역](cognitive-search-skill-text-translation.md)기술을 소개 합니다.
 * [Shaper 기술](cognitive-search-skill-shaper.md) 입력은 중첩 된 컨텍스트에서 통합을 수용할 수 있도록 재구성 되었습니다. 자세한 내용은이 [예제 JSON 정의](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts)를 참조 하세요.
@@ -40,14 +40,14 @@ Azure Cognitive Search .NET SDK 버전 10은 이러한 업데이트를 사용 �
     - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
     - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
 * 경우에 따라 [인덱서 실행 상태](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) 에 표시 되는 오류 및 경고에는 디버깅에 도움이 되는 추가 정보가 있을 수 있습니다. `IndexerExecutionResult`이이 동작을 반영 하도록 업데이트 되었습니다.
-* [기술](cognitive-search-defining-skillset.md) 내에 정의 된 개별 기술은 속성을 `name` 지정 하 여 선택적으로 식별할 수 있습니다.
-* `ServiceLimits`[복합 형식의](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) 제한을 보여 주고 관련 `IndexerExecutionInfo` 인덱서 제한/할당량을 표시 합니다.
+* [기술](cognitive-search-defining-skillset.md) 내에 정의 된 개별 기술은 속성을 지정 하 여 선택적으로 식별할 수 있습니다 `name` .
+* `ServiceLimits`[복합 형식의](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) 제한을 보여 주고 `IndexerExecutionInfo` 관련 인덱서 제한/할당량을 표시 합니다.
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>업그레이드 단계
 
-1. NuGet 패키지 관리자 콘솔을 `Microsoft.Azure.Search` 사용 하거나 프로젝트 참조를 마우스 오른쪽 단추로 클릭 하 고 "Nuget 패키지 관리 ..."를 선택 하 여에 대 한 nuget 참조를 업데이트 합니다. Visual Studio에서
+1. `Microsoft.Azure.Search`Nuget 패키지 관리자 콘솔을 사용 하거나 프로젝트 참조를 마우스 오른쪽 단추로 클릭 하 고 "Nuget 패키지 관리 ..."를 선택 하 여에 대 한 nuget 참조를 업데이트 합니다. Visual Studio에서
 
 2. NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝트를 다시 빌드합니다. 
 
@@ -68,9 +68,9 @@ Azure Cognitive Search .NET SDK 버전 10은 이러한 업데이트를 사용 �
 
 [사용자 지정 WEB API 기술](cognitive-search-custom-skill-web-api.md) 정의가 버전 9 이상에서 잘못 지정 되었습니다. 
 
-사전을 포함 하 `WebApiSkill` 는 `HttpHeaders` 개체 속성으로 지정 된 _contains_ 의 모델입니다. 이 방식으로 생성 된 `WebApiSkill` 를 사용 하 여 기술를 만들면 REST API는 요청이 잘못 된 형식으로 간주 되기 때문에 예외가 발생 합니다. 이 문제는 `WebApiSkill` 모델 자체에 대 한 `HttpHeaders` **최상위 사전 속성** (REST API의 유효한 요청으로 간주 됨)을 만들어 수정 되었습니다.
+`WebApiSkill` `HttpHeaders` 사전을 _포함_ 하는 개체 속성으로 지정 된의 모델입니다. 이 방식으로 생성 된를 사용 하 여 기술를 만들면 `WebApiSkill` REST API는 요청이 잘못 된 형식으로 간주 되기 때문에 예외가 발생 합니다. 이 문제는 `HttpHeaders` 모델 자체에 대 한 **최상위 사전 속성** `WebApiSkill` (REST API의 유효한 요청으로 간주 됨)을 만들어 수정 되었습니다.
 
-예를 들어 이전에를 `WebApiSkill` 다음과 같이 인스턴스화하려고 시도한 경우
+예를 들어 이전에를 다음과 같이 인스턴스화하려고 시도한 경우 `WebApiSkill`
 
 ```csharp
 
@@ -109,12 +109,12 @@ var webApiSkill = new WebApiSkill(
 
 ## <a name="shaper-skill-allows-nested-context-consolidation"></a>Shaper 스킬은 중첩 된 컨텍스트 통합을 허용 합니다.
 
-Shaper 스킬은 이제 중첩 된 컨텍스트에서 입력 통합을 허용할 수 있습니다. 이 `InputFieldMappingEntry` 변경을 사용 하려면 `Source` 속성만 지정 하거나 `SourceContext` 및 `Inputs` 속성을 모두 지정 하 여 인스턴스화할 수 있도록 수정 했습니다.
+Shaper 스킬은 이제 중첩 된 컨텍스트에서 입력 통합을 허용할 수 있습니다. 이 변경을 사용 하려면 `InputFieldMappingEntry` `Source` 속성만 지정 하거나 및 속성을 모두 지정 하 여 인스턴스화할 수 있도록 수정 했습니다 `SourceContext` `Inputs` .
 
 코드를 변경 하지 않아도 되는 경우가 많습니다. 그러나 이러한 두 조합 중 하나만 사용할 수 있습니다. 이것은 다음을 의미합니다.
 
-- `InputFieldMappingEntry` 만 `Source` 초기화 되는를 만들 수 있습니다.
-- `InputFieldMappingEntry` `Inputs` 및가 초기화 되는를 만드는 것 `SourceContext` 은 유효 합니다.
+- 만 초기화 되는를 만들 수 `InputFieldMappingEntry` `Source` 있습니다.
+- 및가 초기화 되는를 만드는 `InputFieldMappingEntry` `SourceContext` `Inputs` 것은 유효 합니다.
 - 이러한 세 가지 속성을 포함 하는 다른 모든 조합은 유효 하지 않습니다.
 
 이 새로운 기능을 사용 하려면 먼저 모든 클라이언트를 업데이트 하 여 해당 변경 내용을 롤아웃하기 전에 먼저 버전 10을 사용 하도록 해야 합니다. 그렇지 않으면 이전 버전의 SDK를 사용 하 여 클라이언트에서 Shaper 기술에 업데이트 하는 경우 유효성 검사 오류가 발생할 수 있습니다.
@@ -124,7 +124,7 @@ Shaper 스킬은 이제 중첩 된 컨텍스트에서 입력 통합을 허용할
 
 ## <a name="skills-can-be-identified-by-a-name"></a>기술은 이름으로 식별할 수 있습니다.
 
-이제 기술 내의 각 기술에는 새 속성이 있습니다 `Name`.이 속성은 코드에서 초기화 하 여 기술 식별에 도움이 됩니다. 이 옵션은 선택 사항입니다. 지정 하지 않으면 (명시적 코드가 변경 되지 않은 경우 기본값) 기술의 기술에 대 한 1 기반 인덱스를 사용 하 여 기본 이름이 지정 되 고 접두사는 ' # ' 문자로 지정 됩니다. 예를 들어 다음 기술 정의에서 (간단히 하기 위해 대부분의 초기화를 건너뛰었습니다.)
+이제 기술 내의 각 기술에는 새 속성이 있습니다 .이 속성은 `Name` 코드에서 초기화 하 여 기술 식별에 도움이 됩니다. 이 옵션은 선택 사항입니다. 지정 하지 않으면 (명시적 코드가 변경 되지 않은 경우 기본값) 기술의 기술에 대 한 1 기반 인덱스를 사용 하 여 기본 이름이 지정 되 고 접두사는 ' # ' 문자로 지정 됩니다. 예를 들어 다음 기술 정의에서 (간단히 하기 위해 대부분의 초기화를 건너뛰었습니다.)
 
 ```csharp
 var skillset = new Skillset()
@@ -139,13 +139,13 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill`에는 `#1`이름, `WebApiSkill` 할당 됨 `#2`, `ShaperSkill` 할당 `#3` 됨 등이 할당 됩니다.
+`SentimentSkill`에는 이름, 할당 됨 `#1` `WebApiSkill` `#2` , `ShaperSkill` 할당 `#3` 됨 등이 할당 됩니다.
 
-사용자 지정 이름으로 기술을 식별 하도록 선택 하는 경우 먼저 클라이언트의 모든 인스턴스를 SDK 버전 10으로 업데이트 해야 합니다. 그렇지 않으면 이전 버전의 SDK `null` 를 사용 하는 클라이언트가 기술에 대 한 `Name` 속성을 사용 하 여 클라이언트가 기본 이름 지정 체계를 대체 하도록 할 가능성이 있습니다.
+사용자 지정 이름으로 기술을 식별 하도록 선택 하는 경우 먼저 클라이언트의 모든 인스턴스를 SDK 버전 10으로 업데이트 해야 합니다. 그렇지 않으면 이전 버전의 SDK를 사용 하는 클라이언트가 기술에 대 한 속성을 사용 하 여 `null` `Name` 클라이언트가 기본 이름 지정 체계를 대체 하도록 할 가능성이 있습니다.
 
 ## <a name="details-about-errors-and-warnings"></a>오류 및 경고에 대 한 세부 정보
 
-`ItemError`인덱서 `ItemWarning` 를 실행 하는 동안 발생 하는 오류 및 경고에 대 한 세부 정보를 캡슐화 하는 및 모델은 인덱서 디버깅에 도움이 되는 목표가 포함 된 세 개의 새로운 속성을 포함 하도록 수정 되었습니다. 이러한 속성은 다음과 같습니다.
+`ItemError`인덱서를 실행 하는 `ItemWarning` 동안 발생 하는 오류 및 경고에 대 한 세부 정보를 캡슐화 하는 및 모델은 인덱서 디버깅에 도움이 되는 목표가 포함 된 세 개의 새로운 속성을 포함 하도록 수정 되었습니다. 이러한 속성은 다음과 같습니다.
 
 - `Name`: 오류가 발생 한 원본의 이름입니다. 예를 들어 연결 된 기술의 특정 기술을 참조할 수 있습니다.
 - `Details`: 오류 또는 경고에 대 한 추가 세부 정보입니다.

@@ -1,6 +1,6 @@
 ---
 title: AWS CloudTrail를 Azure 센티널에 연결 | Microsoft Docs
-description: AWS CloudTrail 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
+description: AWS 커넥터를 사용 하 여 Azure 센티널 액세스를 AWS 리소스 로그에 위임 하 고 AWS CloudTrail와 센티널 간의 트러스트 관계를 만듭니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -9,23 +9,26 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8d296e62be9571bdedd5acf40d5547bae8c864e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564580"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>AWS CloudTrail에 Azure 센티널 연결
 
 AWS 커넥터를 사용 하 여 모든 AWS CloudTrail 이벤트를 Azure 센티널로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 Azure 센티널에 대 한 액세스를 위임 하 여 AWS CloudTrail와 Azure 센티널 간의 트러스트 관계를 만듭니다. 이는 AWS 로그에 액세스할 수 있도록 Azure 센티널에 권한을 부여 하는 역할을 만들어 AWS에서 수행 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+> [!NOTE]
+> AWS CloudTrail의 LookupEvents API에는 [기본 제공 되는 제한 사항이](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) 있습니다. 계정 당 초당 2 개 이상의 트랜잭션을 허용 하며 각 쿼리는 최대 50 개의 레코드를 반환할 수 있습니다. 따라서 한 지역에서 단일 테 넌 트가 초당 100 개 보다 많은 레코드를 생성 하는 경우에는 데이터 수집의 백로그 및 지연이 발생 합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
@@ -83,5 +86,5 @@ Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 이 문서에서는 AWS CloudTrail를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md) 하 여 데이터를 모니터링 합니다.
+- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
 

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: f3861ab8839ba0483c5096e29cd09b6268bd765e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563915"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -65,19 +65,6 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>SDK, PowerShell 및 Azure CLI의 파일 시스템 지원
 
 - ACL 가져오기 및 설정 작업은 현재 재귀적이지 않습니다.
-
-
-## <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
-
-Blob 스냅샷 삭제는 아직 지원되지 않습니다. 
-
-## <a name="archive-tier"></a>보관 계층
-
-현재 아카이브 액세스 계층에 영향을 주는 버그가 있습니다.
-
-## <a name="blobfuse"></a>Blobfuse
-
-Blobfuse는 지원되지 않습니다.
 
 <a id="known-issues-tools"></a>
 

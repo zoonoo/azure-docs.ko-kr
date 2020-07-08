@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa9a4ebe64880ae136a8460d35200fb84abb6cf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 737587ccf46d4af292dc11d37567249c13260f51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565494"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>PostgreSQL 인증을 위한 Azure Active Directory 사용
 
@@ -66,8 +66,11 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 - Azure Active Directory 통합
 - Azure Active Directory MFA 지원을 통한 유니버설 인증
 - Active Directory 애플리케이션 인증서 또는 클라이언트 암호 사용
+- [관리 ID](howto-connect-with-managed-identity.md)
 
 Active Directory에 대해 인증을 수행한 후 토큰을 검색합니다. 이 토큰은 로그인에 사용되는 암호입니다.
+
+새 사용자를 추가 하는 등의 관리 작업은이 시점에서 Azure AD 사용자 역할에 대해서만 지원 됩니다.
 
 > [!NOTE]
 > Active Directory 토큰으로 연결하는 방법에 대한 자세한 내용은 [Azure Database for PostgreSQL에서 Azure AD 구성 및 로그인](howto-configure-sign-in-aad-authentication.md)을 참조하세요.

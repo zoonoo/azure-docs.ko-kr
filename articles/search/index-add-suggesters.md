@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a0798ee923624aef9f29c1e9cc30f38b55770a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770090"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565322"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -41,7 +41,7 @@ Azure Cognitive Search에서 "검색 형식"은 [검색 인덱스](search-what-i
 
 + 문자열 필드만 사용
 
-+ 필드에 기본 표준 Lucene 분석기 (`"analyzer": null`) 또는 [언어 분석기](index-add-language-analyzers.md) (예: `"analyzer": "en.Microsoft"`)를 사용 합니다.
++ 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 합니다. `"analyzer": "en.Microsoft"`
 
 ### <a name="choose-fields"></a>필드 선택
 
@@ -133,11 +133,11 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |Description      |
+|속성      |설명      |
 |--------------|-----------------|
 |`name`        |제안기의 이름입니다.|
-|`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원 되는 모드는 `analyzingInfixMatching`현재 단어의 시작 부분에서 일치 하는입니다.|
-|`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 필드는 및 `Edm.String` `Collection(Edm.String)`형식 이어야 합니다. 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 에서 명명 된 분석기 여야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
+|`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
+|`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 에서 명명 된 분석기 여야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -155,7 +155,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 API 사용법은 다음 REST API 자동 완성 호출에 설명 되어 있습니다. 이 예제에서는 두 가지 내용 있습니다. 첫째, 모든 쿼리와 마찬가지로 작업은 인덱스의 문서 컬렉션에 대해 수행 되 고 쿼리는 **검색** 매개 변수를 포함 하며이 경우 부분 쿼리를 제공 합니다. 두 번째로, 요청에 **suggesterName** 를 추가 해야 합니다. 인덱스에 확인 기가 정의 되어 있지 않으면 자동 완성 또는 제안에 대 한 호출이 실패 합니다.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"

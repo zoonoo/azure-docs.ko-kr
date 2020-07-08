@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 699b5a4e5a7f10c883667ca5030dd971855467f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02a0de7760c660a7cce1bbd9cd36d4bb2a1180e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565779"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Azure Cognitive Search 인덱서 상태 및 결과를 모니터링 하는 방법
 
@@ -82,7 +82,7 @@ Azure Cognitive Search는 모든 인덱서의 현재 및 과거 실행에 대 �
 
 인덱서 [상태 가져오기 명령을](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)사용 하 여 인덱서의 상태 및 실행 기록을 검색할 수 있습니다.
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
     api-key: [Search service admin key]
 
 응답에는 전반적인 인덱서 상태, 마지막(또는 진행 중인) 인덱서 호출 및 최근 인덱서 호출 기록이 포함됩니다.
@@ -180,6 +180,6 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
 
 상태 코드 및 인덱서 모니터링 정보에 대 한 자세한 내용은 REST API [Getindexerstatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) 를 참조 하십시오.
 
-문서 관련 오류 또는 경고에 대 한 세부 정보는 목록과 `IndexerExecutionResult.Errors` 를 열거 하 여 `IndexerExecutionResult.Warnings`검색할 수 있습니다.
+문서 관련 오류 또는 경고에 대 한 세부 정보는 목록과를 열거 하 여 검색할 수 있습니다 `IndexerExecutionResult.Errors` `IndexerExecutionResult.Warnings` .
 
 인덱서를 모니터링 하는 데 사용 되는 .NET SDK 클래스에 대 한 자세한 내용은 [Indexerexecutioninfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) 및 [Indexerexecutioninfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet)를 참조 하세요.

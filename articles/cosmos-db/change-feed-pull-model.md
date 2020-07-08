@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563793"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 끌어오기 모델
 
@@ -164,7 +164,7 @@ Cosmos 컨테이너가 여전히 존재하는 한 FeedIterator의 연속 토큰�
 
 변경 피드 프로세서와 끌어오기 모델의 주요 차이는 다음과 같습니다.
 
-|  | 변경 피드 프로세서| 끌어오기 모델 |
+|기능  | 변경 피드 프로세서| 끌어오기 모델 |
 | --- | --- | --- |
 | 처리 중인 변경 피드의 현재 지점 추적 | 임대(Azure Cosmos DB 컨테이너에 저장됨) | 연속 토큰(메모리에 저장되거나 수동으로 유지됨) |
 | 이전 변경 내용 재생 가능 여부 | 예, 밀어넣기 모델 사용 | 예, 끌어오기 모델 사용|

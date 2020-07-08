@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564230"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>StorSimple 디바이스의 EBOD 컨트롤러 교체
 
@@ -35,14 +35,14 @@ ms.locfileid: "79254886"
 * EBOD 컨트롤러는 핫 스왑이 가능하며 꺼내거나 교체할 수 있습니다. 교체가 있을 때까지 오류가 발생한 모듈을 꺼내지 마세요. 교체 프로세스를 시작하는 경우 10분 내에 완료해야 합니다.
 
 > [!IMPORTANT]
-> StorSimple 구성 요소를 제거하거나 교체하기 전에 [안전성 아이콘 표시 규칙](storsimple-safety.md#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
+> StorSimple 구성 요소를 제거하거나 교체하기 전에 [안전성 아이콘 표시 규칙](storsimple-8000-safety.md#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-8000-safety.md)을 검토해야 합니다.
 
 ## <a name="remove-an-ebod-controller"></a>EBOD 컨트롤러 꺼내기
 StorSimple 디바이스에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체하기 전에 다른 EBOD 컨트롤러 모듈이 활성화되어 실행되고 있는지 확인합니다. 다음 절차와 표에서는 EBOD 컨트롤러 모듈을 꺼내는 방법을 설명합니다.
 
 #### <a name="to-remove-an-ebod-module"></a>EBOD 모듈을 꺼내려면
 1. Azure Portal을 엽니다.
-2. 장치로 이동 하 고 **설정** > **하드웨어 상태**로 이동한 다음 활성 ebod 컨트롤러 모듈의 led 상태가 녹색이 고 실패 한 ebod 컨트롤러 모듈의 led가 빨간색 인지 확인 합니다.
+2. 장치로 이동 하 고 **설정**  >  **하드웨어 상태**로 이동한 다음 활성 ebod 컨트롤러 모듈의 led 상태가 녹색이 고 실패 한 ebod 컨트롤러 모듈의 led가 빨간색 인지 확인 합니다.
 3. 디바이스 뒷면에서 오류가 발생한 EBOD 컨트롤러 모듈을 찾습니다.
 4. 시스템에서 EBOD 모듈을 꺼내기 전에 EBOD 컨트롤러 모듈을 컨트롤러에 연결하는 케이블을 뺍니다.
 5. 컨트롤러에 연결된 EBOD 컨트롤러 모듈의 SAS 포트를 정확하게 적어둡니다. EBOD 모듈을 교체한 후 시스템을 이 구성으로 복원해야 합니다.

@@ -3,12 +3,12 @@ title: Service Health 개요 | Microsoft Docs
 description: Azure 앱이 현재 및 향후 Azure 서비스 문제 및 유지 관리에 의해 어떤 영향을 받는지에 대한 개인 설정된 정보입니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563439"
 ---
 # <a name="service-health-overview"></a>Service Health 개요
 
@@ -21,7 +21,7 @@ Service Health는 리소스에 영향을 줄 수 있는 네 가지 유형의 상
 1. **서비스 문제** - 즉시 사용자에게 영향을 주는 Azure 서비스의 문제입니다. 
 2. **계획된 유지 관리** - 나중에 서비스의 가용성에 영향을 줄 수 있는 예정된 유지 관리입니다.  
 3. **상태 자문** - 주의가 필요한 Azure 서비스의 변경 내용입니다. Azure 기능을 사용 하지 않거나 업그레이드 요구 사항 (예: 지원 되는 PHP 프레임 워크로 업그레이드)을 예로 들 수 있습니다.
-4. **보안 권고 (미리 보기)** -Azure 서비스의 가용성에 영향을 줄 수 있는 보안 관련 알림입니다.
+4. **보안 권고** -Azure 서비스의 가용성에 영향을 줄 수 있는 보안 관련 알림 또는 위반입니다.
 
 > [!NOTE]
 > Service Health 이벤트를 보려면 사용자에 게 구독에 대 한 [읽기 권한자 역할을 부여](../role-based-access-control/role-assignments-portal.md) 해야 합니다.
@@ -36,11 +36,11 @@ Service Health 대시보드를 시작하려면 포털 대시보드에서 Service
 
 **서비스 문제** 보기에는 리소스에 영향을 주고 있는 Azure 서비스의 진행 중인 문제가 표시됩니다. 문제가 시작된 시점 및 영향을 받는 서비스 및 지역을 파악할 수 있습니다. 또한 최신 업데이트를 읽어 문제를 해결하기 위해 Azure에서 수행 중인 내용을 파악할 수 있습니다. 
 
-![서비스 문제 관리](./media/service-health-overview/azure-service-health-overview-2.png)
+[![서비스 문제 관리](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
 **잠재적 영향** 탭을 선택하여 소유한 리소스 중에서 문제의 영향을 받을 수 있는 특정 리소스 목록을 확인할 수 있습니다. 이러한 리소스의 CSV 목록을 다운로드하여 팀과 공유할 수 있습니다.
 
-![서비스 문제 관리 - 영향](./media/service-health-overview/azure-service-health-overview-4.png)
+[![서비스 문제 관리-영향](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
 ## <a name="see-emerging-issues-which-may-impact-your-services"></a>서비스에 영향을 줄 수 있는 새로운 문제를 참조 하세요.
 
@@ -52,7 +52,7 @@ Service Health 대시보드를 시작하려면 포털 대시보드에서 Service
 
 문제 관리 시스템에서 사용할 문제의 링크를 가져올 수 있습니다. PDF 및 경우에 따라 CSV 파일을 다운로드 하 여 Azure Portal에 대 한 액세스 권한이 없는 사용자와 공유할 수 있습니다.   
 
-![서비스 문제 관리 - 문제 관리](./media/service-health-overview/azure-service-health-overview-3.png)
+[![서비스 문제 관리 - 문제 관리](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
 ## <a name="get-support-from-microsoft"></a>Microsoft에서 지원 받기
 
@@ -62,7 +62,7 @@ Service Health 대시보드를 시작하려면 포털 대시보드에서 Service
 
 Service Health를 필터링하여 업무상 중요한 구독, 지역 및 리소스 종류를 표시합니다. 필터를 저장하고 개인 설정된 상태 세계 지도를 포털 대시보드에 고정합니다. 
 
-![개인 설정된 상태 맵 필터링](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![개인 설정된 상태 맵 필터링](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![개인 설정된 상태 맵 핀 고정](./media/service-health-overview/azure-service-health-overview-6b.png)
 

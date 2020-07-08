@@ -1,24 +1,21 @@
 ---
-title: 기술 자료 저장소 (미리 보기)의 프로젝션
+title: 프로젝션 개념
 titleSuffix: Azure Cognitive Search
-description: AI 보강 인덱싱 파이프라인의 보강 데이터를 전체 텍스트 검색 이외의 시나리오에서 사용할 정보 저장소로 저장 하 고 셰이프를 저장 합니다. 지식 저장소는 현재 공개 미리 보기로 제공됩니다.
+description: AI 보강 인덱싱 파이프라인의 보강 데이터를 전체 텍스트 검색 이외의 시나리오에서 사용할 정보 저장소로 저장 하 고 셰이프를 저장 합니다.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565192"
 ---
-# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소에서의 프로젝션
-
-> [!IMPORTANT] 
-> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
+# <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소 "프로젝션"
 
 Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되는 인식 기술 및 사용자 지정 기술을 통해 콘텐츠를 보강 수 있습니다. 강화 이미지에서 정보를 추출 하 고, 감정, 키 구 및 텍스트에서 엔터티를 검색 하 고, 이름을 몇 개로 하 여 새 정보를 만듭니다. 강화는 구분 되지 않은 텍스트에도 구조체를 추가 합니다. 이러한 모든 프로세스는 전체 텍스트 검색을 보다 효율적으로 만드는 문서를 생성 합니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 기술 자료 마이닝)에 유용 합니다.
 
@@ -69,7 +66,7 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 
 ### <a name="defining-a-table-projection"></a>테이블 프로젝션 정의
 
-기술의 `knowledgeStore` 요소 내에서 테이블 프로젝션을 정의 하는 경우 먼저 보강 트리의 노드를 테이블 원본에 매핑합니다. 일반적으로이 노드는 테이블에 프로젝션 해야 하는 특정 셰이프를 생성 하는 기술 목록에 추가 된 **Shaper** 기술의 출력입니다. 프로젝트를 선택 하 여 프로젝트를 여러 테이블로 분할할 수 있습니다. 테이블 정의는 프로젝트 하려는 테이블의 목록입니다.
+기술의 요소 내에서 테이블 프로젝션을 정의 하는 경우 `knowledgeStore` 먼저 보강 트리의 노드를 테이블 원본에 매핑합니다. 일반적으로이 노드는 테이블에 프로젝션 해야 하는 특정 셰이프를 생성 하는 기술 목록에 추가 된 **Shaper** 기술의 출력입니다. 프로젝트를 선택 하 여 프로젝트를 여러 테이블로 분할할 수 있습니다. 테이블 정의는 프로젝트 하려는 테이블의 목록입니다.
 
 각 테이블에는 세 가지 속성이 필요 합니다.
 
@@ -157,7 +154,7 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 
 ## <a name="file-projection"></a>파일 프로젝션
 
-파일 프로젝션은 개체 프로젝션과 비슷하며 `normalized_images` 컬렉션 에서만 작동 합니다. 개체 프로젝션과 마찬가지로 파일 프로젝션은 blob 컨테이너에 문서 ID의 base64 인코딩 값의 폴더 접두사로 저장 됩니다. 파일 프로젝션은 개체 프로젝션과 동일한 컨테이너를 공유할 수 없으며 다른 컨테이너에 프로젝션 해야 합니다.
+파일 프로젝션은 개체 프로젝션과 비슷하며 컬렉션 에서만 작동 `normalized_images` 합니다. 개체 프로젝션과 마찬가지로 파일 프로젝션은 blob 컨테이너에 문서 ID의 base64 인코딩 값의 폴더 접두사로 저장 됩니다. 파일 프로젝션은 개체 프로젝션과 동일한 컨테이너를 공유할 수 없으며 다른 컨테이너에 프로젝션 해야 합니다.
 
 ```json
 {
@@ -212,7 +209,7 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 > [!div class="nextstepaction"]
 > [REST에서 기술 자료 저장소를 만듭니다](knowledge-store-create-rest.md).
 
-조각화, 인라인 셰이핑 및 관계와 같은 고급 예측 개념에 대 한 자습서는 [기술 자료 저장소에서 예측 정의](knowledge-store-projections-examples.md) 로 시작
+조각화, 인라인 셰이핑 및 관계와 같은 고급 투영 개념에 대한 자습서에서는 [지식 저장소의 프로젝션 정의](knowledge-store-projections-examples.md)를 시작합니다.
 
 > [!div class="nextstepaction"]
-> [기술 자료 저장소에서 프로젝션 정의](knowledge-store-projections-examples.md)
+> [지식 저장소에서 프로젝션 정의](knowledge-store-projections-examples.md)

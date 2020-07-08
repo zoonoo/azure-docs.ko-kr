@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bf600890bfed570e712a159005b8ef5267298cc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 580c6294856145530e354b6e5cced955dbaa9f9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122324"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565559"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 delimitedText 구문 분석 모드 및 Blob 인덱서를 사용 하 여 CSV blob을 인덱싱하는 방법
 
@@ -24,7 +24,7 @@ ms.locfileid: "76122324"
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-이 문서에서는 구문 분석 모드를 `delimitedText` 설정 하 여 Azure Cognitive Search blob 인덱서를 사용 하 여 CSV blob을 구문 분석 하는 방법을 설명 합니다. 
+이 문서에서는 구문 분석 모드를 설정 하 여 Azure Cognitive Search blob 인덱서를 사용 하 여 CSV blob을 구문 분석 하는 방법을 설명 합니다 `delimitedText` . 
 
 > [!NOTE]
 > 일대다 [인덱싱](search-howto-index-one-to-many-blobs.md) 의 인덱서 구성 권장 사항에 따라 하나의 Azure blob에서 여러 검색 문서를 출력 합니다.
@@ -43,7 +43,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-`delimitedTextDelimiter` 구성 설정을 사용하여 구분 기호 문자를 사용자 지정할 수 있습니다. 다음은 그 예입니다.
+`delimitedTextDelimiter` 구성 설정을 사용하여 구분 기호 문자를 사용자 지정할 수 있습니다. 예를 들어:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
@@ -60,7 +60,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
 데이터 원본: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -73,7 +73,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
 인덱서:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

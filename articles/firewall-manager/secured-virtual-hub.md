@@ -5,18 +5,16 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: d93c3b47c518962bf45762b846eaf53e490ae8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73518438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563630"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>보안 가상 허브란?
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
 가상 허브는 다른 리소스에서 연결할 수 있도록 하는 Microsoft에서 관리 하는 가상 네트워크입니다. Azure Portal의 가상 WAN에서 가상 허브를 만들면 가상 허브 VNet 및 게이트웨이 (선택 사항)가 구성 요소로 만들어집니다.
 

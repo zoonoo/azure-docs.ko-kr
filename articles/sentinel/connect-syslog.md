@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Syslog 데이터 연결 | Microsoft Docs
-description: Azure 센티널에 Syslog 데이터를 연결 하는 방법에 대해 알아봅니다.
+description: 어플라이언스와 센티널 사이에 Linux 컴퓨터의 에이전트를 사용 하 여 Syslog를 지 원하는 온-프레미스 어플라이언스를 Azure 센티널에 연결 합니다. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565375"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Syslog를 사용 하 여 외부 솔루션 연결
 
@@ -28,7 +28,7 @@ Syslog를 지 원하는 온-프레미스 어플라이언스를 Azure 센티널�
 > [!NOTE]
 > 어플라이언스에서 Syslog CEF를 지 원하는 경우에는 연결이 더 완벽 하므로이 옵션을 선택 하 고 [CEF의 데이터 연결](connect-common-event-format.md)에 설명 된 지침을 따라야 합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.
 
@@ -38,7 +38,7 @@ Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플�
 > - 에이전트는 여러 원본에서 로그를 수집할 수 있지만 전용 프록시 컴퓨터에 설치 해야 합니다.
 > - 동일한 VM에서 CEF와 Syslog 모두에 대 한 커넥터를 지원 하려면 다음 단계를 수행 하 여 데이터 중복을 방지 합니다.
 >    1. 지침에 따라 [CEF를 연결](connect-common-event-format.md)합니다.
->    2. Syslog 데이터를 연결 하려면 **설정** > **작업 영역 설정** > **고급 설정** > **데이터** > **Syslog** 로 이동 하 고, 해당 기능 및 해당 우선 순위를 설정 하 여 cef 구성에서 사용한 것과 동일한 시설 및 속성이 되도록 합니다. <br></br>**내 컴퓨터에 아래 구성 적용**을 선택 하는 경우이 작업 영역에 연결 된 모든 vm에 이러한 설정 적용 됩니다.
+>    2. Syslog 데이터를 연결 하려면 **설정**  >  **작업 영역 설정**  >  **고급 설정**데이터 Syslog로 이동 하 고, 해당  >  **Data**  >  **Syslog** 기능 및 해당 우선 순위를 설정 하 여 cef 구성에서 사용한 것과 동일한 시설 및 속성이 되도록 합니다. <br></br>**내 컴퓨터에 아래 구성 적용**을 선택 하는 경우이 작업 영역에 연결 된 모든 vm에 이러한 설정 적용 됩니다.
 
 
 ## <a name="connect-your-syslog-appliance"></a>Syslog 어플라이언스 연결
@@ -57,9 +57,9 @@ Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플�
 
 4. **작업 영역 열기 고급 설정 구성**을 선택 합니다.
 
-5. **고급 설정** 블레이드에서 **데이터** > **Syslog**를 선택 합니다. 그런 다음 수집할 커넥터에 대 한 기능을 추가 합니다.
+5. **고급 설정** 블레이드에서 **데이터**  >  **Syslog**를 선택 합니다. 그런 다음 수집할 커넥터에 대 한 기능을 추가 합니다.
     
-    Syslog 어플라이언스에 포함 된 기능을 로그 헤더에 추가 합니다. Syslog 어플라이언스에서 `/etc/rsyslog.d/security-config-omsagent.conf` 폴더의 **syslog-d** 및의 **r-Syslog** 에서이 구성을 볼 수 있습니다 `/etc/syslog-ng/security-config-omsagent.conf`.
+    Syslog 어플라이언스에 포함 된 기능을 로그 헤더에 추가 합니다. Syslog 어플라이언스에서 폴더의 **syslog-d** `/etc/rsyslog.d/security-config-omsagent.conf` 및의 **r-Syslog** 에서이 구성을 볼 수 있습니다 `/etc/syslog-ng/security-config-omsagent.conf` .
     
     수집한 데이터를 사용 하 여 비정상적인 SSH 로그인 검색을 사용 하려는 경우 **auth** 및 **authpriv**를 추가 합니다. 자세한 내용은 [다음 섹션](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) 을 참조 하세요.
 
@@ -87,7 +87,7 @@ Azure 센티널은 syslog 데이터에 기계 학습 (ML)을 적용 하 여 비�
  
 이 검색에는 Syslog 데이터 커넥터의 특정 구성이 필요 합니다. 
 
-1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 다음은 그 예입니다.
+1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 예를 들어:
     
     > [!div class="mx-imgBorder"]
     > ![비정상적인 SSH 로그인 검색에 필요한 기능](./media/connect-syslog/facilities-ssh-detection.png)
@@ -100,11 +100,11 @@ Azure 센티널은 syslog 데이터에 기계 학습 (ML)을 적용 하 여 비�
     
     결과 수가 0 이면 커넥터의 구성을 확인 하 고 모니터링 되는 컴퓨터에 쿼리를 위해 지정한 기간 동안 성공한 로그인 작업이 있는지 확인 합니다.
     
-    결과 개수가 0 보다 크면 syslog 데이터가 비정상적인 SSH 로그인 검색에 적합 합니다. **분석** >  **규칙 템플릿** > **(미리 보기) 비정상적인 SSH 로그인 검색**에서이 검색을 사용 하도록 설정 합니다.
+    결과 개수가 0 보다 크면 syslog 데이터가 비정상적인 SSH 로그인 검색에 적합 합니다. **분석**  >   **규칙 템플릿**  >  **(미리 보기) 비정상적인 SSH 로그인 검색**에서이 검색을 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Syslog 온-프레미스 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md) 하 여 데이터를 모니터링 합니다.
+- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
 

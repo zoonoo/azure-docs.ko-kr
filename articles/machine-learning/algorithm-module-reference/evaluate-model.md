@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564352"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
@@ -122,7 +122,7 @@ ms.locfileid: "83847415"
   
      클러스터에 할당된 데이터 요소 수가 사용 가능한 총 데이터 요소 수보다 적으면 데이터 요소를 클러스터에 할당할 수 없음을 의미합니다.  
   
--   **클러스터 센터까지의 최대 거리** 열의 점수는 각 요소와 해당 요소의 클러스터 중심 사이의 거리 합계를 나타냅니다.  
+-   **클러스터 중심의 최대 거리**열에서 점수는 각 지점과 해당 지점의 클러스터 중심 사이의 최대 거리를 나타냅니다.  
   
      이 수치가 높으면 클러스터가 널리 분산된 것을 의미할 수 있습니다. 클러스터의 분산을 확인하려면 **클러스터 센터까지의 평균 거리**와 이 통계를 함께 검토해야 합니다.   
 

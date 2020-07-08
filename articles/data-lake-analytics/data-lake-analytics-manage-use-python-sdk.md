@@ -9,12 +9,13 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.custom: tracking-python
+ms.openlocfilehash: 055d43c4df2b642c55f58ba16eaf7cba02b36bdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "68355987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564715"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Python을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -39,7 +40,7 @@ ms.locfileid: "68355987"
 
 먼저 다음 명령을 실행하여 최신 `pip`가 있는지 확인합니다.
 
-```
+```console
 python -m pip install --upgrade pip
 ```
 
@@ -47,7 +48,7 @@ python -m pip install --upgrade pip
 
 다음 `pip` 명령을 사용하여 명령줄에서 모듈을 설치합니다.
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-datalake-store
 pip install azure-mgmt-datalake-store

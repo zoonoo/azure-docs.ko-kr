@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 004f1ea55bcda68485d8b11ed472b6cab2ca7545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562494"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
@@ -34,7 +34,7 @@ Azure Cognitive Search에서 자동 완성 쿼리와 제안 된 결과가 검색
 요청 요소에는 검색 형식 Api, 부분 쿼리 및 확인 기 중 하나가 포함 됩니다. 다음 스크립트는 REST API 자동 완성을 사용 하 여 요청의 구성 요소를 보여 줍니다.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -66,12 +66,12 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
-| 매개 변수 | 사용 |
+| 매개 변수 | 사용량 |
 |-----------|-------|
-| **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드`$select=GameTitle`를 선택 합니다 (). |
+| **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |
-| **$filter** | 결과 집합에 일치 조건 (`$filter=Category eq 'ActionAdventure'`)을 적용 합니다. |
-| **$top** | 결과를 특정 숫자 (`$top=5`)로 제한 합니다.|
+| **$filter** | 결과 집합에 일치 조건 ()을 적용 `$filter=Category eq 'ActionAdventure'` 합니다. |
+| **$top** | 결과를 특정 숫자 ()로 제한 `$top=5` 합니다.|
 
 ## <a name="add-user-interaction-code"></a>사용자 상호 작용 코드 추가
 
@@ -116,7 +116,7 @@ $(function () {
 });
 ```
 
-는 `source` 검색 상자 아래에 표시할 항목 목록을 가져오는 JQuery UI 자동 완성 기능을 제공 합니다. 이 프로젝트는 MVC 프로젝트 이므로 쿼리 제안을 반환 하는 논리를 포함 하는 **HomeController.cs** 의 **제안** 함수를 호출 합니다. 또한 이 함수는 강조 표시, 유사 일치, 용어를 제어하는 몇 가지 매개 변수도 전달합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
+는 `source` 검색 상자 아래에 표시할 항목 목록을 가져오는 JQUERY UI 자동 완성 기능을 제공 합니다. 이 프로젝트는 MVC 프로젝트 이므로 쿼리 제안을 반환 하는 논리를 포함 하는 **HomeController.cs** 의 **제안** 함수를 호출 합니다. 또한 이 함수는 강조 표시, 유사 일치, 용어를 제어하는 몇 가지 매개 변수도 전달합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
 
 는 `minLength: 3` 검색 상자에 세 개 이상의 문자가 있는 경우에만 권장 사항이 표시 되도록 합니다.
 
@@ -140,7 +140,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)를 기반으로 합니다.
 
-메서드 `InitSearch` 는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)을 참조 하세요.
+`InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)을 참조 하세요.
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)

@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23c7913fbe9b3943559d36f5cbf2a21d7ed63dbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78194345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563458"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Azure Cognitive Search의 동의어
 
@@ -51,7 +51,7 @@ Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서
 
 다음 예제에서처럼 HTTP POST를 사용하여 새 동의어 맵을 만들 수 있습니다.
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
     {
@@ -64,7 +64,7 @@ Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서
 
 또는 PUT을 사용하여 URI에서 동의어 맵 이름을 지정할 수 있습니다. 동의어 맵이 없으면 생성됩니다.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
     {
@@ -90,24 +90,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>서비스 아래 동의어 맵을 나열합니다.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>서비스 아래 동의어 맵을 가져옵니다.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>서비스 아래 동의어 맵을 삭제합니다.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다.
 
 새 필드 속성 **synonymMaps**는 검색 가능한 필드에 사용할 동의어 맵을 지정하는 데 사용될 수 있습니다. 동의어 맵은 서비스 수준 리소스이며 서비스 아래 인덱스의 모든 필드에서 참조할 수 있습니다.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
     api-key: [admin key]
 
     {

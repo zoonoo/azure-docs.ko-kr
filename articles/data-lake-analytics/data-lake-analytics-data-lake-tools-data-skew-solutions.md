@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 245a375a71cab7f09e6c64835def944bc5a638ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71802545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564861"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake Tools for Visual Studio를 사용하여 데이터 기울이기 문제 해결
 
@@ -54,7 +54,9 @@ U-SQL은 테이블에 CREATE STATISTICS 문을 제공합니다. 이 문은 쿼�
 
 코드 예제:
 
-    CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
+```usql
+CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
+```
 
 >[!NOTE]
 >통계 정보는 자동으로 업데이트되지 않습니다. 통계를 다시 만들지 않고 테이블의 데이터를 업데이트할 경우 쿼리 성능이 저하될 수 있습니다.
@@ -65,62 +67,66 @@ U-SQL은 테이블에 CREATE STATISTICS 문을 제공합니다. 이 문은 쿼�
 
 일반적으로 매개 변수를 0.5와 1로 설정할 수 있습니다. 여기서 0.5는 심각하지 않은 기울이기를 의미하고 1은 심각한 기울이기를 의미합니다. 힌트는 현재 문 및 모든 다운스트림 문에 대한 실행 계획 최적화에 영향을 미치므로 잠재적으로 기울어진 키 인식 집계 전에 힌트를 추가해야 합니다.
 
-    SKEWFACTOR (columns) = x
+```usql
+SKEWFACTOR (columns) = x
+```
 
-    Provides a hint that the given columns have a skew factor x from 0 (no skew) through 1 (very heavy skew).
+지정 된 열의 오차 계수 x가 0 (오차 없음)에서 1 (매우 높은 기울이기) 임을 나타내는 힌트를 제공 합니다.
 
 코드 예제:
 
-    //Add a SKEWFACTOR hint.
-    @Impressions =
-        SELECT * FROM
-        searchDM.SML.PageView(@start, @end) AS PageView
-        OPTION(SKEWFACTOR(Query)=0.5)
-        ;
+```usql
+//Add a SKEWFACTOR hint.
+@Impressions =
+    SELECT * FROM
+    searchDM.SML.PageView(@start, @end) AS PageView
+    OPTION(SKEWFACTOR(Query)=0.5)
+    ;
+//Query 1 for key: Query, ClientId
+@Sessions =
+    SELECT
+        ClientId,
+        Query,
+        SUM(PageClicks) AS Clicks
+    FROM
+        @Impressions
+    GROUP BY
+        Query, ClientId
+    ;
+//Query 2 for Key: Query
+@Display =
+    SELECT * FROM @Sessions
+        INNER JOIN @Campaigns
+            ON @Sessions.Query == @Campaigns.Query
+    ;
+```
 
-    //Query 1 for key: Query, ClientId
-    @Sessions =
-        SELECT
-            ClientId,
-            Query,
-            SUM(PageClicks) AS Clicks
-        FROM
-            @Impressions
-        GROUP BY
-            Query, ClientId
-        ;
-
-    //Query 2 for Key: Query
-    @Display =
-        SELECT * FROM @Sessions
-            INNER JOIN @Campaigns
-                ON @Sessions.Query == @Campaigns.Query
-        ;   
-
-### <a name="option-3-use-rowcount"></a>옵션 3: ROWCOUNT 사용  
+### <a name="option-3-use-rowcount"></a>옵션 3: ROWCOUNT 사용
 SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조인된 행 집합이 작다는 것을 알고 있는 경우 U-SQL 문에서 JOIN 앞에 ROWCOUNT 힌트를 추가하여 최적화 프로그램에 이 사실을 알려줄 수 있습니다. 그러면 최적화 프로그램에서 성능 향상에 도움이 될 수 있는 브로드캐스트 조인 전략을 선택할 수 있습니다. ROWCOUNT는 데이터 기울이기 문제를 해결하지 않지만 몇 가지 추가 도움을 줄 수 있습니다.
 
-    OPTION(ROWCOUNT = n)
+```usql
+OPTION(ROWCOUNT = n)
+```
 
-    Identify a small row set before JOIN by providing an estimated integer row count.
+예상 정수 행 개수를 제공 하 여 조인 전에 작은 행 집합을 식별 합니다.
 
 코드 예제:
 
-    //Unstructured (24-hour daily log impressions)
-    @Huge   = EXTRACT ClientId int, ...
-                FROM @"wasb://ads@wcentralus/2015/10/30/{*}.nif"
-                ;
-
-    //Small subset (that is, ForgetMe opt out)
-    @Small  = SELECT * FROM @Huge
-                WHERE Bing.ForgetMe(x,y,z)
-                OPTION(ROWCOUNT=500)
-                ;
-
-    //Result (not enough information to determine simple broadcast JOIN)
-    @Remove = SELECT * FROM Bing.Sessions
-                INNER JOIN @Small ON Sessions.Client == @Small.Client
-                ;
+```usql
+//Unstructured (24-hour daily log impressions)
+@Huge   = EXTRACT ClientId int, ...
+            FROM @"wasb://ads@wcentralus/2015/10/30/{*}.nif"
+            ;
+//Small subset (that is, ForgetMe opt out)
+@Small  = SELECT * FROM @Huge
+            WHERE Bing.ForgetMe(x,y,z)
+            OPTION(ROWCOUNT=500)
+            ;
+//Result (not enough information to determine simple broadcast JOIN)
+@Remove = SELECT * FROM Bing.Sessions
+            INNER JOIN @Small ON Sessions.Client == @Small.Client
+            ;
+```
 
 ## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>해결 방법 3: 사용자 정의 리듀서 및 결합자 향상
 
@@ -136,19 +142,23 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
 
 재귀적 리듀서의 특성:
 
-    [SqlUserDefinedReducer(IsRecursive = true)]
+```usql
+[SqlUserDefinedReducer(IsRecursive = true)]
+```
 
 코드 예제:
 
-    [SqlUserDefinedReducer(IsRecursive = true)]
-    public class TopNReducer : IReducer
+```usql
+[SqlUserDefinedReducer(IsRecursive = true)]
+public class TopNReducer : IReducer
+{
+    public override IEnumerable<IRow>
+        Reduce(IRowset input, IUpdatableRow output)
     {
-        public override IEnumerable<IRow>
-            Reduce(IRowset input, IUpdatableRow output)
-        {
-            //Your reducer code goes here.
-        }
+        //Your reducer code goes here.
     }
+}
+```
 
 ### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>옵션 2: 가능한 경우 행 수준 결합자 모드 사용
 
@@ -175,12 +185,14 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
 
 코드 예제:
 
-    [SqlUserDefinedCombiner(Mode = CombinerMode.Right)]
-    public class WatsonDedupCombiner : ICombiner
+```usql
+[SqlUserDefinedCombiner(Mode = CombinerMode.Right)]
+public class WatsonDedupCombiner : ICombiner
+{
+    public override IEnumerable<IRow>
+        Combine(IRowset left, IRowset right, IUpdatableRow output)
     {
-        public override IEnumerable<IRow>
-            Combine(IRowset left, IRowset right, IUpdatableRow output)
-        {
-        //Your combiner code goes here.
-        }
+    //Your combiner code goes here.
     }
+}
+```

@@ -9,19 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 883b2895966d71b91554e8978df6876b0edcef88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70813628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564768"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Java 앱을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 이 문서에서는 Azure Java SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 * **JDK (Java Development Kit) 8** (java 버전 1.8 사용).
 * **IntelliJ** 또는 다른 적절한 Java 개발 환경. 이 문서의 지침에서는 IntelliJ를 사용합니다.
 * AAD(Azure Active Directory) 애플리케이션을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 애플리케이션에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 애플리케이션을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
@@ -33,9 +33,9 @@ ms.locfileid: "70813628"
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 1. **명령줄 앱** 템플릿을 사용하여 IntelliJ를 열고 Java 프로젝트를 만듭니다.
 2. 화면의 왼쪽에 있는 프로젝트를 마우스 오른쪽 단추로 클릭하고 **프레임워크 지원 추가**를 클릭합니다. **Maven**을 선택하고 **확인**을 클릭합니다.
-3. 새로 만든 **"pom.xml"** 파일을 열고 **\</version>** 태그 및 **\</project>** 태그 사이에 다음 텍스트의 코드 조각을 추가합니다.
+3. 새로 만든 **"pom.xml"** 파일을 열고 **\</version>** 태그와 태그 사이에 다음 텍스트 조각을 추가 합니다 **\</project>** .
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -78,7 +78,7 @@ ms.locfileid: "70813628"
 
 **파일 > 설정 > 빌드 > 실행 > 배포**로 이동합니다. **빌드 도구 > Maven > 가져오기**를 선택합니다. **Maven 프로젝트 자동으로 가져오기**를 선택합니다.
 
-을 `Main.java` 열고 기존 코드 블록을 다음 코드로 바꿉니다.
+`Main.java`을 열고 기존 코드 블록을 다음 코드로 바꿉니다.
 
 ```java
 import com.microsoft.azure.CloudException;

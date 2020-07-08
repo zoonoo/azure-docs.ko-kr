@@ -6,15 +6,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7225b04908753bb7c07ac89510859bac9db5b89c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565022"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Azure Data Box Disk에서 데이터 업로드 문제를 해결 하기 위한 로그 이해
 
@@ -22,7 +22,7 @@ ms.locfileid: "79260138"
 
 ## <a name="about-upload-logs"></a>로그 업로드 정보
 
-데이터 센터 `_error.xml` 에서 Azure에 데이터를 업로드 하면 각 저장소 계정 `_verbose.xml` 에 대해 파일이 생성 됩니다. 이러한 로그는 데이터를 업로드 하는 데 사용 된 것과 동일한 저장소 계정에 업로드 됩니다. 
+데이터 센터에서 Azure에 데이터를 업로드 하면 `_error.xml` `_verbose.xml` 각 저장소 계정에 대해 파일이 생성 됩니다. 이러한 로그는 데이터를 업로드 하는 데 사용 된 것과 동일한 저장소 계정에 업로드 됩니다. 
 
 두 로그는 모두 동일한 형식이 며 디스크에서 Azure Storage 계정으로 데이터를 복사 하는 동안 발생 한 이벤트에 대 한 XML 설명을 포함 합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "79260138"
 
 ## <a name="sample-upload-logs"></a>샘플 업로드 로그
 
-예제 `_verbose.xml` 는 다음과 같습니다. 이 경우에는 오류 없이 주문이 성공적으로 완료 되었습니다.
+예제는 다음과 같습니다 `_verbose.xml` . 이 경우에는 오류 없이 주문이 성공적으로 완료 되었습니다.
 
 ```xml
 
@@ -91,7 +91,7 @@ ms.locfileid: "79260138"
 </DriveLog>
 ```
 
-동일한 순서로의 샘플 `_error.xml` 은 다음과 같습니다.
+동일한 순서로의 샘플은 `_error.xml` 다음과 같습니다.
 
 ```xml
 
@@ -114,7 +114,7 @@ ms.locfileid: "79260138"
 
 이 경우 오류 파일에는 `Summary` 섹션과 모든 파일 수준 오류를 포함 하는 다른 섹션이 있습니다. 
 
-에 `Summary` 는 `ValidationErrors` 및가 포함 `CopyErrors`됩니다. 이 경우 8 개의 파일이 나 폴더가 Azure에 업로드 되 고 유효성 검사 오류가 발생 하지 않습니다. 데이터가 Azure Storage 계정에 복사 되 면 5 개의 파일이 나 폴더가 성공적으로 업로드 됩니다. 나머지 3 개의 파일 또는 폴더는 Azure 컨테이너 명명 규칙에 따라 이름이 바뀌고 Azure에 성공적으로 업로드 됩니다.
+에는 `Summary` 및가 포함 `ValidationErrors` `CopyErrors` 됩니다. 이 경우 8 개의 파일이 나 폴더가 Azure에 업로드 되 고 유효성 검사 오류가 발생 하지 않습니다. 데이터가 Azure Storage 계정에 복사 되 면 5 개의 파일이 나 폴더가 성공적으로 업로드 됩니다. 나머지 3 개의 파일 또는 폴더는 Azure 컨테이너 명명 규칙에 따라 이름이 바뀌고 Azure에 성공적으로 업로드 됩니다.
 
 파일 수준 상태는 blob을 `BlobStatus` 업로드 하기 위해 수행 된 작업을 설명 하는에 있습니다. 이 경우 데이터가 복사 된 폴더가 컨테이너의 Azure 명명 규칙을 준수 하지 않기 때문에 세 개의 컨테이너 이름이 바뀝니다. 이러한 컨테이너에서 업로드 된 blob의 경우 새 컨테이너 이름, Azure의 blob 경로, 잘못 된 원본 파일 경로 및 blob 크기가 포함 됩니다.
     
@@ -168,17 +168,17 @@ Azure에 데이터를 업로드할 때 생성 되는 오류는 다음 표에 요
 |`ManagedDiskCreationTerminalFailure` | 관리 디스크로 업로드할 수 없습니다. 파일은 준비 저장소 계정에서 페이지 blob으로 사용할 수 있습니다. 페이지 blob을 관리 디스크로 수동으로 변환할 수 있습니다.  |
 |`DiskConversionNotStartedTierInfoMissing` | VHD 파일이 미리 생성 된 계층 폴더 외부에 복사 되었으므로 관리 디스크는 생성 되지 않았습니다. 파일은 주문 생성 중에 지정 된 대로 준비 저장소 계정에 페이지 blob으로 업로드 됩니다. 수동으로 관리 되는 디스크로 변환할 수 있습니다.|
 |`InvalidWorkitem` | Azure 명명 및 제한 규칙에 맞지 않으므로 데이터를 업로드할 수 없습니다.|
-|`InvalidPageBlobUploadAsBlockBlob` | 접두사가 `databoxdisk-invalid-pb-`있는 컨테이너에 블록 blob으로 업로드 됩니다.|
-|`InvalidAzureFileUploadAsBlockBlob` | 접두사 `databoxdisk-invalid-af`-를 사용 하 여 컨테이너에 블록 blob으로 업로드 됩니다.|
-|`InvalidManagedDiskUploadAsBlockBlob` | 접두사 `databoxdisk-invalid-md`-를 사용 하 여 컨테이너에 블록 blob으로 업로드 됩니다.|
-|`InvalidManagedDiskUploadAsPageBlob` |접두사가 `databoxdisk-invalid-md-`있는 컨테이너에서 페이지 blob으로 업로드 됩니다. |
-|`MovedToOverflowShare` |원본 공유 크기가 최대 Azure 크기 제한을 초과 하 여 새 공유에 파일을 업로드 했습니다. 새 파일 공유 이름의 원래 이름에는 접미사가 붙습니다 `-2`.   |
-|`MovedToDefaultAzureShare` |폴더에 포함 되지 않은 파일을 기본 공유로 업로드 했습니다. 공유 이름은로 `databox-`시작 합니다. |
-|`ContainerRenamed` |이러한 파일의 컨테이너는 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀝니다. 새 이름은로 `databox-` 시작 하 고 원래 이름의 SHA1 해시를 접미사로 사용 합니다. |
-|`ShareRenamed` |이러한 파일에 대 한 공유는 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀝니다. 새 이름은로 `databox-` 시작 하 고 원래 이름의 SHA1 해시를 접미사로 사용 합니다. |
-|`BlobRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. 새 이름 `BlobPath` 에 대 한 필드를 확인 합니다. |
-|`FileRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. 새 이름 `FileStoragePath` 에 대 한 필드를 확인 합니다. |
-|`DiskRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. 새 이름 `BlobPath` 에 대 한 필드를 확인 합니다. |
+|`InvalidPageBlobUploadAsBlockBlob` | 접두사가 있는 컨테이너에 블록 blob으로 업로드 `databoxdisk-invalid-pb-` 됩니다.|
+|`InvalidAzureFileUploadAsBlockBlob` | 접두사-를 사용 하 여 컨테이너에 블록 blob으로 업로드 `databoxdisk-invalid-af` 됩니다.|
+|`InvalidManagedDiskUploadAsBlockBlob` | 접두사-를 사용 하 여 컨테이너에 블록 blob으로 업로드 `databoxdisk-invalid-md` 됩니다.|
+|`InvalidManagedDiskUploadAsPageBlob` |접두사가 있는 컨테이너에서 페이지 blob으로 업로드 `databoxdisk-invalid-md-` 됩니다. |
+|`MovedToOverflowShare` |원본 공유 크기가 최대 Azure 크기 제한을 초과 하 여 새 공유에 파일을 업로드 했습니다. 새 파일 공유 이름의 원래 이름에는 접미사가 붙습니다 `-2` .   |
+|`MovedToDefaultAzureShare` |폴더에 포함 되지 않은 파일을 기본 공유로 업로드 했습니다. 공유 이름은로 시작 `databox-` 합니다. |
+|`ContainerRenamed` |이러한 파일의 컨테이너는 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀝니다. 새 이름은로 시작 `databox-` 하 고 원래 이름의 SHA1 해시를 접미사로 사용 합니다. |
+|`ShareRenamed` |이러한 파일에 대 한 공유는 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀝니다. 새 이름은로 시작 `databox-` 하 고 원래 이름의 SHA1 해시를 접미사로 사용 합니다. |
+|`BlobRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. `BlobPath`새 이름에 대 한 필드를 확인 합니다. |
+|`FileRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. `FileStoragePath`새 이름에 대 한 필드를 확인 합니다. |
+|`DiskRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. `BlobPath`새 이름에 대 한 필드를 확인 합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

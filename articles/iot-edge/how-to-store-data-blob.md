@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76509821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562703"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -31,14 +31,14 @@ IoT Edge에서 Azure Blob Storage는 [블록 blob](https://docs.microsoft.com/re
 
 이 모듈은 **deviceToCloudUpload** 및 **deviceautodelete** 기능과 함께 제공 됩니다.
 
-**deviceToCloudUpload** 는 구성 가능한 기능입니다. 이 함수는 임시 인터넷 연결을 지원 하 여 로컬 blob 저장소에서 Azure로 데이터를 자동으로 업로드 합니다. 다음 작업을 수행할 수 있습니다.
+**deviceToCloudUpload** 는 구성 가능한 기능입니다. 이 함수는 임시 인터넷 연결을 지원 하 여 로컬 blob 저장소에서 Azure로 데이터를 자동으로 업로드 합니다. 다음을 수행할 수 있습니다.
 
 * DeviceToCloudUpload 기능을 설정/해제 합니다.
 * NewestFirst 또는 OldestFirst와 같이 Azure에 데이터를 복사 하는 순서를 선택 합니다.
 * 데이터를 업로드 하려는 Azure Storage 계정을 지정 합니다.
 * Azure에 업로드 하려는 컨테이너를 지정 합니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다.
 * 클라우드 저장소에 업로드가 완료 된 후 blob을 즉시 삭제할 수 있는 기능을 선택 합니다.
-* 전체 blob 업로드 (작업 사용 `Put Blob` ) 및 블록 수준 업로드 ( `Put Block` `Put Block List` 및 `Append Block` 작업 사용)를 수행 합니다.
+* 전체 blob 업로드 (작업 사용 `Put Blob` ) 및 블록 수준 업로드 ( `Put Block` `Put Block List` 및 작업 사용)를 수행 `Append Block` 합니다.
 
 이 모듈은 blob이 블록으로 구성 된 경우 블록 수준 업로드를 사용 합니다. 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
@@ -47,13 +47,13 @@ IoT Edge에서 Azure Blob Storage는 [블록 blob](https://docs.microsoft.com/re
 
 Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전원 오류)가 발생 하면 모듈이 다시 온라인 상태가 되 면 업로드에 대 한 모든 블록이 다시 업로드 됩니다.
 
-**Deviceautodelete** 는 구성 가능한 기능입니다. 이 함수는 지정 된 기간 (분 단위)이 만료 될 때 로컬 저장소에서 blob을 자동으로 삭제 합니다. 다음 작업을 수행할 수 있습니다.
+**Deviceautodelete** 는 구성 가능한 기능입니다. 이 함수는 지정 된 기간 (분 단위)이 만료 될 때 로컬 저장소에서 blob을 자동으로 삭제 합니다. 다음을 수행할 수 있습니다.
 
 * DeviceAutoDelete 기능을 설정/해제 합니다.
 * Blob이 자동으로 삭제 되는 시간 (분)을 지정 합니다 (deleteAfterMinutes).
 * DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure IoT Edge 디바이스:
 
@@ -71,29 +71,29 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>deviceToCloudUpload 및 deviceAutoDelete 속성
 
-모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties**를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. 값이 올바르게 전파 되도록 및 `reported configuration` `configurationValidation` 의 "모듈 쌍"을 확인 하는 것이 좋습니다.
+모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties**를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. `reported configuration`값이 올바르게 전파 되도록 및의 "모듈 쌍"을 확인 하는 것이 좋습니다 `configurationValidation` .
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
-이 설정의 이름은 `deviceToCloudUploadProperties`입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
+이 설정의 이름은 `deviceToCloudUploadProperties` 입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
 | 속성 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
-| uploadOn | true, false | 기본적으로 `false` 로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 `true`설정 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. 기본적으로 `OldestFirst` 로 설정 됩니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. , `Azure Storage Account Name` `Azure Storage Account Key`,를 `End point suffix`지정 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`자동 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15 자로 트리밍됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
-| deleteAfterUpload | true, false | 기본적으로 `false` 로 설정 됩니다. 로 `true`설정 되 면 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 성공적으로 업로드 한 후 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램이 드물게 추가 작업을 수행 하거나 연속 추가 작업을 지원 하지 않는 경우이 설정을 사용 하지 않도록 주의 하십시오.<br><br> 환경 변수: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
+| uploadOn | true, false | `false`기본적으로로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 설정 `true` 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. `OldestFirst`기본적으로로 설정 됩니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. `Azure Storage Account Name`, `Azure Storage Account Key` ,를 지정 `End point suffix` 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 자동 할당 됩니다 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15 자로 트리밍됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| deleteAfterUpload | true, false | `false`기본적으로로 설정 됩니다. 로 설정 되 면 `true` 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 성공적으로 업로드 한 후 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램이 드물게 추가 작업을 수행 하거나 연속 추가 작업을 지원 하지 않는 경우이 설정을 사용 하지 않도록 주의 하십시오.<br><br> 환경 `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` 변수: |
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
-이 설정의 이름은 `deviceAutoDeleteProperties`입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
+이 설정의 이름은 `deviceAutoDeleteProperties` 입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
 | 속성 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
-| deleteOn | true, false | 기본적으로 `false` 로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 `true`설정 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteOn | true, false | `false`기본적으로로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 설정 `true` 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈에서 로컬 저장소의 blob을 자동으로 삭제 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | true, false | 기본적으로로 `true`설정 되며, deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 로 `false` 설정할 수 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고:이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다.  <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 값이 만료 될 때 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램에서 수행 하는 추가 작업의 예상 된 빈도로 만료 값이 충분 한지 확인 하는 것이 좋습니다.<br><br> 환경 변수: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| retainWhileUploading | true, false | 기본적으로로 설정 되며 `true` , deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 로 설정할 수 `false` 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고:이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다.  <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 값이 만료 될 때 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램에서 수행 하는 추가 작업의 예상 된 빈도로 만료 값이 충분 한지 확인 하는 것이 좋습니다.<br><br> 환경 변수: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>로컬 저장소로 SMB 공유 사용
 
@@ -101,7 +101,7 @@ Windows 호스트에서이 모듈의 Windows 컨테이너를 배포할 때 로�
 
 SMB 공유 및 IoT 장치가 상호 트러스트 된 도메인에 있는지 확인 합니다.
 
-PowerShell 명령을 실행 `New-SmbGlobalMapping` 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다.
+`New-SmbGlobalMapping`PowerShell 명령을 실행 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다.
 
 구성 단계는 다음과 같습니다.
 
@@ -110,14 +110,14 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```powershell
 $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
 ```
 
-이 명령은 자격 증명을 사용 하 여 원격 SMB 서버에 인증 합니다. 그런 다음 원격 공유 경로를 G: 드라이브 문자 (사용할 수 있는 다른 드라이브 문자 일 수 있음)에 매핑합니다. 이제 IoT 장치에는 G: 드라이브의 경로에 매핑된 데이터 볼륨이 있습니다.
+이 명령은 자격 증명을 사용하여 원격 SMB 서버에 인증합니다. 그런 다음 원격 공유 경로를 G: 드라이브 문자에 매핑합니다(사용 가능한 다른 모든 드라이브 문자일 수 있음). 이제 IoT 장치에는 G: 드라이브의 경로에 매핑된 데이터 볼륨이 있습니다.
 
 IoT 장치의 사용자가 원격 SMB 공유에 대 한 읽기/쓰기를 수행할 수 있는지 확인 합니다.
 
@@ -136,14 +136,14 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
 sudo chmod -R 700 /srv/containerdata
 ```
 
-**Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이러한 경우에는 기본 또는 루트 그룹 ID `0`를 사용 해야 합니다.
+**Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이러한 경우에는 기본 또는 루트 그룹 ID를 사용 해야 `0` 합니다.
 
 ```json
 "createOptions": {
@@ -168,7 +168,7 @@ sudo chmod -R 700 <blob-dir>
 
 만드는 스토리지 요청의 Blob 엔드포인트로 IoT Edge 디바이스를 지정합니다. 구성한 IoT Edge 디바이스 정보 및 계정 이름을 사용하여 [명시적 스토리지 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint).
 
-* IoT Edge 모듈의 Azure Blob Storage와 동일한 장치에 배포 된 모듈의 경우 Blob 끝점은 `http://<module name>:11002/<account name>`입니다.
+* IoT Edge 모듈의 Azure Blob Storage와 동일한 장치에 배포 된 모듈의 경우 Blob 끝점은 `http://<module name>:11002/<account name>` 입니다.
 * 다른 장치에서 실행 되는 모듈 또는 응용 프로그램의 경우 네트워크에 적합 한 끝점을 선택 해야 합니다. 네트워크 설정에 따라 외부 모듈이 나 응용 프로그램의 데이터 트래픽이 IoT Edge 모듈의 Azure Blob Storage를 실행 하는 장치에 도달할 수 있도록 끝점 형식을 선택 합니다. 이 시나리오에 대 한 blob 끝점은 다음 중 하나입니다.
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
@@ -291,7 +291,7 @@ IoT Edge 모듈의이 Azure Blob Storage은 이제 IoT Edge의 Event Grid와의 
 
 이 모듈에 대 한 [docker 허브의 릴리스 정보](https://hub.docker.com/_/microsoft-azure-blob-storage) 는 다음과 같습니다.
 
-## <a name="feedback"></a>사용자 의견
+## <a name="suggestions"></a>제안
 
 사용자 의견은이 모듈과 기능을 유용 하 고 사용 하기 쉽도록 하는 데 중요 합니다. 피드백을 공유 하 고 개선할 수 있는 방법을 알려주세요.
 

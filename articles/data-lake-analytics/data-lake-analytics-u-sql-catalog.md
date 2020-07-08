@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22a15750a353b88d5a9bbff96f9ed080116792db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71672838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564182"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 카탈로그 시작
 
@@ -24,7 +24,7 @@ ms.locfileid: "71672838"
 
 다음 스크립트는 기본 데이터베이스 및 스키마에 `Searchlog()`라는 TVF를 만듭니다.
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -55,7 +55,7 @@ END;
 
 다음 스크립트는 이전 스크립트에서 정의된 TVF를 사용하는 방법을 보여줍니다.
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -76,7 +76,7 @@ OUTPUT @res
 
 다음 스크립트는 기본 데이터베이스 및 스키마에 `SearchlogView`라는 뷰를 만듭니다.
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -93,7 +93,7 @@ USING Extractors.Tsv();
 
 다음 스크립트는 정의된 뷰를 사용함을 나타냅니다.
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -113,7 +113,7 @@ OUTPUT @res
 
 다음 스크립트를 사용하여 데이터베이스 하나와 테이블 두 개를 만듭니다.
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -147,7 +147,7 @@ CREATE TABLE SearchLog2(
 
 테이블에서 읽어 오려면 이전에 사용한 변환 스크립트를 수정합니다.
 
-```
+```usql
 @rs1 =
     SELECT
         Region,

@@ -1,17 +1,17 @@
 ---
 title: 관리되는 ID를 사용하여 인증
-description: 관리 ID를 사용하여 자격 증명 또는 비밀을 통해 로그인하지 않고 Azure Active Directory로 보호되는 리소스에 액세스합니다.
+description: 관리 id를 사용 하 여 자격 증명 또는 암호를 사용 하 여 로그인 하지 않고 Azure Active Directory로 보호 되는 리소스에 액세스
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 73f3e7561b97574c4603e480b972eaf2a9a1ed48
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
-ms.translationtype: HT
+ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565030"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
