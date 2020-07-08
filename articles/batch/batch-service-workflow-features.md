@@ -3,18 +3,18 @@ title: Batch 서비스 워크플로 및 리소스
 description: 개발 관점에서 Batch 서비스 및 고급 워크플로의 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 5084ae222d0a9da0d8aa171bc89dba48377a9dd4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835923"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965215"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Batch 서비스 워크플로 및 리소스
 
 Azure Batch 서비스의 핵심 구성 요소에 대한 이 개요에서는 Batch 개발자가 사용하는 기본 서비스 리소스와 함께 대규모 병렬 컴퓨팅 솔루션을 빌드하는 데 사용할 수 있는 고급 워크플로에 대해 설명합니다.
 
-분산된 계산 애플리케이션 또는 [REST API](https://docs.microsoft.com/rest/api/batchservice/) 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-apis-tools.md#batch-service-apis) 중 다른 하나를 사용하거나 상관없이 여기에서 설명하는 다양한 리소스 및 기능을 사용하게 됩니다.
+분산된 계산 애플리케이션 또는 [REST API](/rest/api/batchservice/) 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-apis-tools.md#batch-service-apis) 중 다른 하나를 사용하거나 상관없이 여기에서 설명하는 다양한 리소스 및 기능을 사용하게 됩니다.
 
 > [!TIP]
 > Batch 서비스에 대한 고급 소개는 [Azure Batch의 기본 사항](batch-technical-overview.md)을 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
@@ -47,4 +47,4 @@ Azure Batch 서비스의 핵심 구성 요소에 대한 이 개요에서는 Batc
 - Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
 - [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 애플리케이션 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 컴퓨팅 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
 - Batch 솔루션을 개발하는 동안 사용할 [Batch Explorer](https://azure.github.io/BatchExplorer/)를 다운로드 및 설치합니다. Batch Explorer를 사용하여 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있습니다.
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [Batch 커뮤니티 리포지토리](https://github.com/Azure/Batch) 및 [Azure Batch 포럼](https://docs.microsoft.com/answers/topics/azure-batch.html)을 비롯한 커뮤니티 리소스를 참조하세요.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [Batch 커뮤니티 리포지토리](https://github.com/Azure/Batch) 및 [Azure Batch 포럼](/answers/topics/azure-batch.html)을 비롯한 커뮤니티 리소스를 참조하세요.

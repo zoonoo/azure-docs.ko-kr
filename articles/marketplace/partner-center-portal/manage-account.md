@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 6dbadee427abfa82fb32ebb7db85adf627dd5e0a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800212"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964841"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 
@@ -128,7 +128,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 보고는 파트너 값(Microsoft 파트너 ID) 및 GUID를 통해 수행됩니다. 또한 제품 내의 각 계획에 맞춰 보다 세분화된 수준으로 GUID를 추적할 수 있습니다.
 
-자세한 내용은 [GUID를 사용하여 Azure 고객 사용 현황 추적 FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq)를 참조 하세요.
+자세한 내용은 [guid를 사용 하 여 Azure 고객 사용 추적 FAQ](../azure-partner-customer-usage-attribution.md#faq)(영문)를 참조 하세요.
 
 ## <a name="create-a-billing-profile"></a>청구 프로필 만들기
 
@@ -138,7 +138,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ## <a name="multi-user-account-management"></a>다중 사용자 계정 관리
 
-파트너 센터는 다중 사용자 계정 액세스 및 관리를 위해 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)(Azure AD)를 활용합니다. 조직의 Azure AD는 등록 프로세스의 일부로 파트너 센터 계정과 자동으로 연결됩니다.
+파트너 센터는 다중 사용자 계정 액세스 및 관리를 위해 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)(Azure AD)를 활용합니다. 조직의 Azure AD는 등록 프로세스의 일부로 파트너 센터 계정과 자동으로 연결됩니다.
 
 ## <a name="manage-users"></a>사용자 관리
 
@@ -168,7 +168,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ### <a name="create-new-users"></a>새 사용자 만들기
 
-새로운 사용자 계정을 만들려면 [**전역 관리자**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 권한을 보유한 계정이 있어야 합니다. 
+새로운 사용자 계정을 만들려면 [**전역 관리자**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) 권한을 보유한 계정이 있어야 합니다. 
 
 1. **사용자**(**계정 설정** 아래)로 이동하여 **사용자 추가**를 선택한 후 **새 사용자 만들기**를 선택합니다.
 1. 새로운 각 사용자의 이름과 성, 사용자 이름을 입력합니다. 
@@ -182,7 +182,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ### <a name="invite-new-users-by-email"></a>전자 메일로 새 사용자 초대
 
-현재 회사 계정(Azure AD 테넌트)에 속하지 않은 사용자를 전자 메일로 초대하려면 [**전역 관리자**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 권한을 보유한 계정이 있어야 합니다.
+현재 회사 계정(Azure AD 테넌트)에 속하지 않은 사용자를 전자 메일로 초대하려면 [**전역 관리자**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) 권한을 보유한 계정이 있어야 합니다.
 
 1. **사용자**(**계정 설정** 아래)로 이동하여 **사용자 추가**를 선택한 후 **전자 메일로 사용자 초대**를 선택합니다.
 2. 쉼표 또는 세미콜론으로 구분하여 하나 이상의 전자 메일 주소(최대 10개)를 입력합니다.
@@ -202,7 +202,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ### <a name="change-a-user-password"></a>사용자 암호 변경
 
-사용자 중 한 명이 암호를 변경해야 하는 경우, 사용자 계정을 만들 때 **암호 복구 전자 메일**을 제공했다면 본인이 직접 암호를 변경할 수 있습니다. 아래 단계를 수행하여 사용자 암호를 업데이트할 수도 있습니다. 회사 계정(Azure AD 테넌트)에서 사용자 암호를 변경하려면 [**전역 관리자**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 권한이 있는 계정에 로그인해야 합니다. 이렇게 하면 파트너 센터에 액세스하는 데 사용하는 암호와 함께 Azure AD 테넌트의 사용자 암호가 변경됩니다.
+사용자 중 한 명이 암호를 변경해야 하는 경우, 사용자 계정을 만들 때 **암호 복구 전자 메일**을 제공했다면 본인이 직접 암호를 변경할 수 있습니다. 아래 단계를 수행하여 사용자 암호를 업데이트할 수도 있습니다. 회사 계정(Azure AD 테넌트)에서 사용자 암호를 변경하려면 [**전역 관리자**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) 권한이 있는 계정에 로그인해야 합니다. 이렇게 하면 파트너 센터에 액세스하는 데 사용하는 암호와 함께 Azure AD 테넌트의 사용자 암호가 변경됩니다.
 
 1. **사용자** 페이지(**계정 설정** 아래)에서 편집하려는 사용자 계정의 이름을 선택합니다.
 2. 페이지 아래에 있는 **암호 재설정** 단추를 선택합니다.
@@ -264,7 +264,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 1. **사용자** 페이지(**계정 설정** 아래)에서 **Azure AD 애플리케이션 추가**를 선택합니다.
 2. 다음 페이지에서 **새 Azure AD 애플리케이션**을 선택합니다.
 3. 새 Azure AD 애플리케이션에 대한 **회신 URL**을 입력합니다. 이는 사용자가 로그인하여 Azure AD 애플리케이션을 이용할 수 있는 URL입니다(앱 URL 또는 로그온 URL이라고도 함). **회신 URL**은 256자를 초과할 수 없으며 디렉터리 내에서 고유해야 합니다.
-4. 새 Azure AD 애플리케이션에 대한 **앱 ID URI**를 입력합니다. 이는 Single Sign-On 요청이 Azure AD에 전송될 때 제공되는 Azure AD 애플리케이션의 논리 식별자입니다. **앱 ID URI**는 디렉터리의 Azure AD 애플리케이션마다 고유해야 합니다. 이 ID는 256자를 초과할 수 없습니다. 앱 ID URI에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts)을 참조하세요.
+4. 새 Azure AD 애플리케이션에 대한 **앱 ID URI**를 입력합니다. 이는 Single Sign-On 요청이 Azure AD에 전송될 때 제공되는 Azure AD 애플리케이션의 논리 식별자입니다. **앱 ID URI**는 디렉터리의 Azure AD 애플리케이션마다 고유해야 합니다. 이 ID는 256자를 초과할 수 없습니다. 앱 ID URI에 대 한 자세한 내용은 [응용 프로그램을 Azure Active Directory와 통합](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts))을 참조 하세요.
 5. **역할** 섹션에서 Azure AD 애플리케이션에 대한 역할 또는 사용자 지정된 권한을 지정합니다.
 6. **저장**을 선택합니다.
 
@@ -328,7 +328,7 @@ Azure AD(Active Directory), 클라우드 솔루션 공급자(CSP), 제어판 공
 3. **만들기**를 선택하여 새 도메인과 연락처 정보를 확인합니다.
 4. Azure AD 전역 관리자 사용자 이름과 암호로 로그인하여 [사용자 추가 및 관리](#manage-users)를 시작합니다.
 
-파트너 센터 포털을 통하지 않고 Azure Portal 내에서 새 테넌트를 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 새 테넌트 만들기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) 문서를 참조하세요.
+파트너 센터 포털을 통하지 않고 Azure Portal 내에서 새 테넌트를 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 새 테넌트 만들기](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 문서를 참조하세요.
 
 ### <a name="remove-a-tenant"></a>테넌트 제거
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: e50534639f5f46b1675ba5c074fb8fdd843ac87e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d86329313c1b6af1e4723dc64c982f9c81ea86b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770060"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964977"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>파트너 센터에서 Azure 앱을 온보딩하기 위한 파트너 센터 제출 API
 
@@ -29,7 +29,7 @@ Azure 제품에 파트너 센터 API를 사용하려면 몇 가지 프로그래�
 
 파트너 센터 제출 API를 호출하는 코드를 작성하기 전에 다음 필수 조건을 완료했는지 확인합니다.
 
-- 사용자(또는 조직)는 Azure AD 디렉터리가 있어야 하고 디렉터리에 대한 [전역 관리자](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 권한이 있어야 합니다. Office 365 또는 Microsoft의 다른 비즈니스 서비스를 이미 사용하는 경우 이미 Azure AD 디렉터리가 있습니다. 그렇지 않은 경우 추가 비용 없이 [파트너 센터에서 새 Azure AD를 만들면 됩니다](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account).
+- 사용자(또는 조직)는 Azure AD 디렉터리가 있어야 하고 디렉터리에 대한 [전역 관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) 권한이 있어야 합니다. Microsoft에서 이미 Microsoft 365 또는 다른 비즈니스 서비스를 사용 하는 경우 Azure AD 디렉터리가 이미 있습니다. 그렇지 않은 경우 추가 비용 없이 [파트너 센터에서 새 Azure AD를 만들면 됩니다](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account).
 
 - [Azure AD 애플리케이션을 파트너 센터 계정에 연결](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account)하고 테넌트 ID, 클라이언트 ID 및 키를 가져와야 합니다. Microsoft Store 제출 API를 호출하는 데 사용할 Azure AD 액세스 토큰을 얻으려면 이러한 값이 필요합니다.
 

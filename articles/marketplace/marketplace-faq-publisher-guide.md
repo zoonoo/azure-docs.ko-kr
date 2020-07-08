@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 1eae45eea35a118be51dc1e2f95055238212560d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 985a8ac83d48de11ac134bc9a942c766e4ff5d32
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800662"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963600"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 일반적인 질문
 
@@ -67,7 +67,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 게시자 계약에 가입하고 동의하면 파트너 센터의 상업용 마켓플레이스 페이지에 액세스할 수 있습니다. 여기에서 제품을 만들고 관리하며 분석 보고서를 볼 수 있습니다. Microsoft 365 앱의 경우 파트너 센터 내에서 Office 스토어 프로그램을 활성화해야 합니다.
 
-자세한 내용은 [상업용 마켓플레이스 시작](https://docs.microsoft.com/azure/marketplace/) 및 [Microsoft 상업용 마켓플레이스를 통해 Office 365 추가 기능으로 수익 창출](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
+자세한 내용은 [상업용 마켓플레이스 시작](index.yml) 및 [Microsoft 상업용 마켓플레이스를 통해 Office 365 추가 기능으로 수익 창출](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 지원을 받으려면 어떻게 해야 하나요?
 
@@ -77,7 +77,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>상업용 마켓플레이스에서 조직에 제공되는 분석은 무엇인가요?
 
-상업용 마켓플레이스 내에서 귀하의 제품에 대한 보고를 제공합니다. 고객, 주문, 스토어 참여 등에 대한 데이터에 액세스하려면 [파트너 센터에서 상업용 마켓플레이스에 대한 분석](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)으로 이동합니다.
+상업용 마켓플레이스 내에서 귀하의 제품에 대한 보고를 제공합니다. 고객, 주문, 스토어 참여 등에 대한 데이터에 액세스하려면 [파트너 센터에서 상업용 마켓플레이스에 대한 분석](partner-center-portal/analytics.md)으로 이동합니다.
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>내 고객과 Microsoft는 어떤 관계인가요?
 
@@ -89,7 +89,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 모든 고객에게 적용되는 변경 사항을 만들거나 특정 고객에 맞게 변경 사항을 만들 수 있습니다. 텍스트 상자에 입력하거나 웹 주소로 표시되는 웹 사이트에서 호스트될 수 있는 사용 약관을 완전히 사용자 지정할 수도 있습니다.
 
-자세한 내용은 [Microsoft 상업용 워크스페이스 표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 참조하세요.
+자세한 내용은 [Microsoft 상업용 워크스페이스 표준 계약](standard-contract.md)을 참조하세요.
 
 ### <a name="is-azure-marketplace-available-in-azure-government"></a>Azure Government에서 Azure Marketplace응 사용할 수 있나요?
 
@@ -126,7 +126,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 고객이 Microsoft AppSource 및 Azure Marketplace 스토어의 제품을 사용하는 경우 정보가 캡처됩니다. 고객이 충분한 관심을 보인 후 잠재 고객이 생성되고 선택한 시스템으로 영업 기회가 전송됩니다. 상업용 마켓플레이스로 성공한 게시자는 잠재 고객을 안내하고, 관계를 개발하며, 관심을 거래로 전환시키는 경우가 많습니다.
 
-자세한 내용은 [마켓플레이스 제품의 잠재 고객](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)을 참조하세요.
+자세한 내용은 [마켓플레이스 제품의 잠재 고객](partner-center-portal/commercial-marketplace-get-customer-leads.md)을 참조하세요.
 
 ### <a name="why-arent-my-changes-reflected-in-the-offer-on-microsoft-appsource-or-azure-marketplace"></a>Microsoft AppSource 또는 Azure Marketplace의 제품에 변경 사항이 반영되지 않는 이유는 무엇인가요?
 
@@ -146,7 +146,7 @@ Microsoft AppSource는 비즈니스 및 산업 솔루션의 대상이며 Azure M
 
 재판매인의 글로벌 네트워크에는 클라우드 솔루션 공급자 프로그램에 참여하는 수만 개의 조직이 포함됩니다. CSP 프로그램을 통해 조직은 상업용 마켓플레이스에서 제품을 재판매할 수 있으며 프로그램은 이를 성공적으로 수행할 수 있도록 도구를 제공합니다.
 
-자세한 내용은 [클라우드 솔루션 공급자](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)를 참조하세요.
+자세한 내용은 [클라우드 솔루션 공급자](cloud-solution-providers.md)를 참조하세요.
 
 ### <a name="how-can-i-find-resellers-to-establish-partnerships"></a>어떻게 재판매인을 찾아 파트너 관계를 수립할 수 있나요?
 
@@ -156,7 +156,7 @@ Microsoft AppSource는 비즈니스 및 산업 솔루션의 대상이며 Azure M
 
 예. 클라우드 솔루션 공급자 프로그램의 모든 재판매인 또는 지정하는 사용자에게만 제공되는 제품을 만들 수 있습니다.
 
-자세한 내용은 [클라우드 솔루션 공급자](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)를 참조하세요.
+자세한 내용은 [클라우드 솔루션 공급자](cloud-solution-providers.md)를 참조하세요.
 
 ### <a name="how-can-i-pay-margin-to-resellers"></a>재판매인에게 어떻게 이익을 지급할 수 있나요?
 
@@ -229,7 +229,7 @@ Microsoft AppSource는 신용 카드 결제를 지원합니다. Azure Marketplac
 
 고객은 전 세계 141개의 상업용 마켓플레이스에서 솔루션을 구매할 수 있습니다.
 
-위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions)로 이동하세요.
+위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](partner-center-portal/tax-details-paid-transactions.md)로 이동하세요.
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>상업용 마켓플레이스에서 지원되는 통화는 무엇인가요?
 
@@ -252,7 +252,7 @@ Microsoft AppSource는 신용 카드 결제를 지원합니다. Azure Marketplac
 - TWD
 - USD
 
-통화 목록을 검토하려면 [상업용 마켓플레이스의 지리적 가용성 및 통화 지원](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)으로 이동하세요.
+통화 목록을 검토하려면 [상업용 마켓플레이스의 지리적 가용성 및 통화 지원](marketplace-geo-availability-currencies.md)으로 이동하세요.
 
 ### <a name="can-customers-change-subscriptions-or-license-volumes-mid-term"></a>고객이 중간에 구독 또는 라이선스 볼륨을 변경할 수 있나요?
 
@@ -274,29 +274,32 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>상업용 마켓플레이스를 통해 판매 지급은 어느 빈도로 받나요?
 
-지급은 매월 처리됩니다. 전월에 처리된 수금은 한 번에 지급되며 판매 금액은 최소 합산 가치가 $50.00여야 합니다.
+지급은 매월 처리됩니다. 지불 일정에 대 한 자세한 내용과 파트너 센터에서 예정 된 지급를 찾고 고객의 지불 하지 않는 방법에 대 한 자세한 내용은 [지급 정책 세부 정보](partner-center-portal/payout-policy-details.md)를 참조 하세요.
 
-신용 카드 구독 및 구매는 매월 청구되고, Microsoft 고객 계약 또는 기업 계약에 대한 청구서의 경우 청구 빈도가 낮을 수 있습니다. 청구 기간은 고객에게 청구된 시점부터 30일입니다. 결제가 완료된 후 신용 카드 거래는 30일의 결제대금예치 기간이 적용됩니다.
+- 고객이 기업계약를 사용 하는 트랜잭션의 경우 다음 지급 주기 30 일 후 고객 청구서에 지급이 발급 됩니다. 
+- 고객이 신용 카드를 사용 하는 트랜잭션의 경우 자금을 명확 하 게 하 고 지불 거절 또는 의심 스러운 사기 행위를 방지 하기 위해 지불을 받은 후 30 일의 추가 기간이 추가로 제공 됩니다.
 
-자세한 내용은 [최소 결제액, 결제 방법 및 기간](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes)을 참조하세요.
+지급는 판매량이 최소 결합 값 $50.00에 도달한 경우에만 실행 됩니다.
+
+자세한 내용은 [최소 결제액, 결제 방법 및 기간](partner-center-portal/payment-thresholds-methods-timeframes.md)을 참조하세요.
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>어떤 국가/지역에서 사용자 본인을 대신하여 세금이 관리되나요?
 
 고객은 전 세계 상업용 마켓플레이스에서 솔루션을 찾을 수 있으며 Microsoft는 많은 지역에서 세금을 관리합니다. 
 
-전체 위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions)로 이동하세요.
+전체 위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](partner-center-portal/tax-details-paid-transactions.md)로 이동하세요.
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 지급 보고는 어디에서 찾을 수 있나요?
 
 파트너 센터 내에서 ‘소유자’ 또는 ‘금융 기여자’ 권한이 있는 사용자는 지급 보고를 볼 수 있습니다.  해당 사용자는 청구서를 든 손을 나타내는 아이콘을 선택하여 오른쪽 상단의 보고서에 액세스할 수 있습니다.
 
-자세한 내용은 [지급 보고](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-summary)를 참조하세요.
+자세한 내용은 [지급 보고](partner-center-portal/payout-summary.md)를 참조하세요.
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>지급 방법 및 대상은 어떻게 구성하나요?
 
 파트너 센터에서 ‘소유자’ 권한이 있는 사용자는 지급 계정 및 세금 양식을 설정할 수 있습니다. 사용자는 오른쪽 상단의 **설정** 단추(톱니 바퀴 아이콘)를 선택하여 이 작업을 수행할 수 있습니다.
 
-자세한 내용은 [지급 계정 및 세금 양식](https://docs.microsoft.com/azure/marketplace/partner-center-portal/set-up-your-payout-account-tax-forms)을 참조하세요.
+자세한 내용은 [지급 계정 및 세금 양식](partner-center-portal/set-up-your-payout-account-tax-forms.md)을 참조하세요.
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>상업용 마켓플레이스에서 반환 및 환불이 지원되나요?
 
@@ -310,7 +313,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 - [Microsoft 상업용 마켓플레이스 소개](/azure/marketplace/marketplace-publishers-guide)
 - [Microsoft 상업용 마켓플레이스 파트너 허브](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [상업용 마켓플레이스 시작](https://docs.microsoft.com/azure/marketplace/)
+- [상업용 마켓플레이스 시작](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Microsoft 및 다른 파트너에 어떻게 참여할 수 있나요?
 
@@ -322,7 +325,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 ### <a name="where-can-i-learn-more-about-partner-center"></a>파트너 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?
 
 - [파트너 센터 설명서](https://docs.microsoft.com/partner-center/)
-- [상업용 마켓플레이스 시작](https://docs.microsoft.com/azure/marketplace/)
+- [상업용 마켓플레이스 시작](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Microsoft 관리 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?
 
@@ -330,14 +333,14 @@ Microsoft 관리 센터에 대한 자세한 내용은 [조직의 타사 앱 구�
 
 ### <a name="where-can-i-learn-more-about-azure-billing"></a>Azure 청구에 대한 자세한 내용은 어디서 확인할 수 있나요?
 
-- [Azure Cost Management + 청구 설명서](https://docs.microsoft.com/azure/cost-management-billing/)
-- [Azure 청구의 Azure Marketplace 요금 이해](https://docs.microsoft.com/azure/cost-management-billing/understand/understand-azure-marketplace-charges)
-- [Azure 구독을 청구서 지불로 변환](https://docs.microsoft.com/azure/cost-management-billing/manage/pay-by-invoice)
+- [Azure Cost Management + 청구 설명서](../cost-management-billing/index.yml)
+- [Azure 청구의 Azure Marketplace 요금 이해](../cost-management-billing/understand/understand-azure-marketplace-charges.md)
+- [Azure 구독을 청구서 지불로 변환](../cost-management-billing/manage/pay-by-invoice.md)
 
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Azure Government 및 Azure Government Marketplace에 대한 정보는 어디서 확인할 수 있나요?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
 - [Microsoft 보안 센터](https://www.microsoft.com/trust-center)
-- [Azure Government 설명서](https://docs.microsoft.com/azure/azure-government/)
-- [Azure Government 마켓플레이스](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace)
-- [Azure Government 규정 준수](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance)
+- [Azure Government 설명서](../azure-government/index.yml)
+- [Azure Government 마켓플레이스](../azure-government/documentation-government-manage-marketplace.md)
+- [Azure Government 규정 준수](../azure-government/documentation-government-plan-compliance.md)

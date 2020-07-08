@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647729"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964586"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB 요금 청구 이해
 
 완전 관리형 클라우드 기본 데이터베이스 서비스인 Azure Cosmos DB는 프로비전된 처리량 및 사용된 스토리지에 대해서만 요금을 청구하여 청구 과정을 간소화합니다. 온-프레미스 및 IaaS 호스티드 대안에 비해 추가 라이선스 요금, 하드웨어, 유틸리티 비용 또는 시설 비용이 들지 않습니다. Microsoft Azure Cosmos DB의 다중 지역 기능을 고려할 때 데이터베이스 서비스는 기존의 온-프레미스 또는 IaaS 솔루션에 비해 획기적으로 비용을 절감합니다.
 
-Azure Cosmos DB을 사용하면 프로비전된 처리량 및 사용된 스토리지를 기준으로 시간당 요금이 청구됩니다. 프로비전된 처리량의 경우, 표준 공용 가격 책정이 사용된다고 가정하면 청구 단위는 100RU/초로 시간당 $0.008가 부과됩니다. [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요. 사용된 스토리지의 경우, 월간 1GB의 스토리지에 대해 $0.25가 청구됩니다. [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요. 
+Azure Cosmos DB을 사용하면 프로비전된 처리량 및 사용된 스토리지를 기준으로 시간당 요금이 청구됩니다. 프로 비전 된 처리량의 경우 요금 청구 단위는 시간당 100 r u/초입니다. 최신 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요. 사용 되는 저장소의 경우 매월 1gb의 저장소에 대해 요금이 청구 됩니다. 최신 가격 책정 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
 
-이 문서에서는 몇 가지 예외를 사용하여 월별 청구서에 표시되는 세부 항목을 이해하는 데 도움을 줍니다. 예제에 표시되는 수치는 Azure Cosmos 컨테이너가 다른 양의 처리량이 프로비전되었거나, 다중 지역에 걸쳐 있거나, 한 달 중 다른 기간에 실행된 경우 달라질 수 있습니다.
+이 문서에서는 몇 가지 예외를 사용하여 월별 청구서에 표시되는 세부 항목을 이해하는 데 도움을 줍니다. 예제에 표시되는 수치는 Azure Cosmos 컨테이너가 다른 양의 처리량이 프로비전되었거나, 다중 지역에 걸쳐 있거나, 한 달 중 다른 기간에 실행된 경우 달라질 수 있습니다. 이 문서의 모든 예제에서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 에 표시 된 가격 책정 정보를 기준으로 청구서를 계산 합니다.
 
 > [!NOTE]
-> 요금 청구는 60분이 아닌 분과 초 단위로 이루어집니다.
+> 요금 청구는 60분이 아닌 분과 초 단위로 이루어집니다. 이 문서에 표시 된 모든 예제는 미국의 비 정부 지역에 배포 된 Azure Cosmos 계정에 대 한 가격을 기준으로 합니다. 가격 책정 및 계산은 사용 중인 지역에 따라 달라 지 며, 최신 가격 책정 정보는 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
 
 ## <a name="billing-examples"></a>청구 예제
 
@@ -73,7 +73,7 @@ Storage 용량은 한 달 동안 저장된 최대 시간당 데이터 양(GB)을
 
 * 720시간(24시간 * 30일)이 있는 월에서 500시간 동안 프로비전된 처리량이 1,200RU/초였고 나머지 220시간 동안 프로비전된 처리량이 22,200RU/초였다면 월별 청구서에 다음 금액이 표시됩니다. 500 x $0.096/시 + 220 x $1.776/시 = $438.72/월
 
-![전용 처리량 청구 예제](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="전용 처리량 청구 예제":::
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>청구 예제: 공유 처리량 모드를 사용하는 컨테이너
 
@@ -87,7 +87,7 @@ Storage 용량은 한 달 동안 저장된 최대 시간당 데이터 양(GB)을
 
 * 720시간이 있는 월에서 300시간 동안 프로비전된 처리량이 120K RU/초였고 나머지 420시간 동안 프로비전된 처리량이 155K RU/초였다면 월별 청구서에 다음 금액이 표시됩니다. 300 x $9.60/시 + 420 x $12.40/시 = $2,880 + $5,208 = $8,088/월 
 
-![공유 처리량 청구 예제](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="공유 처리량 청구 예제":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>지역 복제 및 다중 마스터를 사용하는 청구 예제  
 
@@ -177,7 +177,7 @@ Azure Cosmos 컨테이너가 미국 서부에 있다고 가정해보겠습니다
 
 해당 월의 720시간 동안 프로비전된 총 처리량의 변화량은 아래 그림과 같습니다. 
 
-![실제 예제](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="실제 예제":::
 
 월간 총 청구 금액(한달을 30일/720시간으로 가정)은 다음과 같이 계산됩니다.
 
@@ -234,19 +234,18 @@ Microsoft Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400R
 
 해당 월이 끝나기 전에 청구 금액을 미리 예상해보는 또 다른 예를 살펴보겠습니다. 다음과 같이 청구 금액을 예측할 수 있습니다.
 
-|**스토리지 비용** | |
-|----|----|
-|평균 레코드 크기(KB) |1 |
-|레코드 수  |100,000,000  |
-|총 스토리지(GB)  |100 |
-|GB당 월별 비용  |$0.25  |
-|스토리지에 대한 월별 예상 비용   |$25.00  |
+**저장소 비용**
 
-<br>
+* 평균 레코드 크기 (KB) = 1 
+* 레코드 수 = 1억 
+* 총 저장소 (GB) = 100 
+* GB 당 월별 비용 = $0.25 
+* 저장소에 대 한 월별 예상 비용 = $25.00 
 
-|**처리량 비용** | | | |
-|----|----|----|----|
+**처리량 비용**
+
 |작업 유형| 요청/초| 평균 RU/요청| 필요한 RU|
+|----|----|----|----|
 |쓰기| 100 | 5 | 500|
 |읽기| 400| 1| 400|
 

@@ -3,12 +3,12 @@ title: Azure Batch의 오류 처리 및 검색
 description: 개발 관점에서 Batch 서비스 워크플로의 오류 처리에 대해 알아봅니다.
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 07b9d43ea9bdf21fe3188c4481e6dd0c86374607
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790830"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964280"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Azure Batch의 오류 처리 및 검색
 
@@ -23,13 +23,13 @@ ms.locfileid: "83790830"
 - Retry-after 헤더를 포함한 429 또는 503 상태 코드 HTTP 응답과 같은 네트워크 대역폭 제한 관련 오류
 - AlreadyExists 및 InvalidOperation과 같은 4xx 오류. 리소스가 상태 전환에 올바른 상태가 아님을 의미합니다.
 
-REST API, Batch 서비스 및 작업 태스크/예약에 대한 오류 코드를 포함하여 특정 오류 코드에 대한 자세한 내용은 [Batch 상태 및 오류 코드](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes)를 참조하세요.
+REST API, Batch 서비스 및 작업 태스크/예약에 대한 오류 코드를 포함하여 특정 오류 코드에 대한 자세한 내용은 [Batch 상태 및 오류 코드](/rest/api/batchservice/batch-status-and-error-codes)를 참조하세요.
 
 ## <a name="application-failures"></a>애플리케이션 오류
 
 실행하는 동안 애플리케이션에서 문제를 해결하는 데 사용할 수 있는 진단 출력을 생성할 수 있습니다. [파일 및 디렉터리](files-and-directories.md) 섹션에서 설명한 것처럼 Batch 서비스는 컴퓨팅 노드의 태스크 디렉터리에 있는 `stdout.txt` 및 `stderr.txt` 파일에 표준 출력 및 표준 오류 출력을 작성합니다.
 
-Azure Portal 또는 Batch SDK 중 하나를 사용하여 이러한 파일을 다운로드할 수 있습니다. 예를 들어, Batch .NET 라이브러리에서 [ComputeNode.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) 및 [CloudTask.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask)을 사용하여 문제 해결을 위해 이러한 파일 및 다른 파일을 검색할 수 있습니다.
+Azure Portal 또는 Batch SDK 중 하나를 사용하여 이러한 파일을 다운로드할 수 있습니다. 예를 들어, Batch .NET 라이브러리에서 [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) 및 [CloudTask.GetNodeFile](/dotnet/api/microsoft.azure.batch.cloudtask)을 사용하여 문제 해결을 위해 이러한 파일 및 다른 파일을 검색할 수 있습니다.
 
 ## <a name="task-errors"></a>태스크 오류
 
@@ -73,10 +73,10 @@ Azure Storage 액세스를 위해 제공된 SAS가 유효하지 않거나 쓰기
 
 ## <a name="connect-to-compute-nodes"></a>컴퓨팅 노드 연결
 
-컴퓨팅 노드에 원격으로 로그인하여 추가 디버깅 및 문제 해결을 수행할 수 있습니다. Azure Portal을 사용하여 Windows 노드에 RDP(원격 데스크톱 프로토콜) 파일을 다운로드하고 Linux 노드에 SSH(Secure Shell) 연결 정보를 가져올 수 있습니다. 또한 [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) 또는 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)과 같은 Batch API를 사용하여 수행할 수 있습니다.
+컴퓨팅 노드에 원격으로 로그인하여 추가 디버깅 및 문제 해결을 수행할 수 있습니다. Azure Portal을 사용하여 Windows 노드에 RDP(원격 데스크톱 프로토콜) 파일을 다운로드하고 Linux 노드에 SSH(Secure Shell) 연결 정보를 가져올 수 있습니다. 또한 [Batch .NET](/dotnet/api/microsoft.azure.batch.computenode) 또는 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)과 같은 Batch API를 사용하여 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> RDP 또는 SSH를 통해 노드에 연결하려면 먼저 해당 노드에서 사용자를 만들어야 합니다. 이렇게 하려면 Azure Portal을 사용할 수 있습니다. Batch REST API를 사용하여 [노드에 사용자 계정을 추가](https://docs.microsoft.com/rest/api/batchservice/computenode/adduser)하거나 Batch .NET에서 [ComputeNode.CreateComputeNodeUser](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) 메서드를 호출하거나 Batch Python 모듈에서 [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) 메서드를 호출합니다.
+> RDP 또는 SSH를 통해 노드에 연결하려면 먼저 해당 노드에서 사용자를 만들어야 합니다. 이렇게 하려면 Azure Portal을 사용할 수 있습니다. Batch REST API를 사용하여 [노드에 사용자 계정을 추가](/rest/api/batchservice/computenode/adduser)하거나 Batch .NET에서 [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode) 메서드를 호출하거나 Batch Python 모듈에서 [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) 메서드를 호출합니다.
 
 컴퓨팅 노드에 대한 RDP 또는 SSH 액세스를 제한하거나 사용하지 않도록 설정해야 하는 경우 [Azure Batch 풀의 컴퓨팅 노드에 대한 원격 액세스를 구성하거나 사용하지 않도록 설정](pool-endpoint-configuration.md)을 참조하세요.
 
@@ -84,21 +84,21 @@ Azure Storage 액세스를 위해 제공된 SAS가 유효하지 않거나 쓰기
 
 태스크가 실패한 경우 Batch 클라이언트 애플리케이션 또는 서비스는 실패한 작업의 메타데이터를 검사하여 오동작 노드를 식별할 수 있습니다. 풀의 각 노드에는 고유 ID가 지정되며, 태스크가 실행되는 노드는 태스크 메타데이터에 포함됩니다. 문제 노드를 식별하면 다음과 같은 몇 가지 작업을 수행할 수 있습니다.
 
-- **노드 다시 시작**([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reboot) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reboot)))
+- **노드 다시 시작**([REST](/rest/api/batchservice/computenode/reboot) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reboot)))
 
     노드를 다시 시작하면 경우에 따라 충돌 또는 중단 프로세스와 같은 잠재적인 문제를 해소할 수 있습니다. 풀에서 시작 태스크를 사용하거나 작업에서 준비 태스크를 사용하는 경우 노드가 다시 시작될 때 실행됩니다.
-- **노드 이미지로 다시 설치**([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reimage))
+- **노드 이미지로 다시 설치**([REST](/rest/api/batchservice/computenode/reimage) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reimage))
 
     노드에서 운영 체제를 다시 설치합니다. 노드를 다시 시작할 때와 마찬가지로 태스크를 시작하고 노드가 이미지로 다시 설치된 후에 작업 준비 태스크를 다시 실행합니다.
-- **풀에서 노드 제거**([REST](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations))
+- **풀에서 노드 제거**([REST](/rest/api/batchservice/pool/removenodes) | [.NET](/dotnet/api/microsoft.azure.batch.pooloperations))
 
     경우에 따라 풀에서 노드를 완전히 제거해야 합니다.
-- **노드에서 태스크 예약 사용 안 함**([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/disablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
+- **노드에서 태스크 예약 사용 안 함**([REST](/rest/api/batchservice/computenode/disablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
 
-    사실상 노드를 오프라인으로 만들기 때문에 해당 노드에 더 이상 작업이 할당되지 않지만 노드가 풀에서 실행되도록 유지할 수 있습니다. 그러면 실패한 태스크에 데이터 손실이나 노드에 추가 작업 오류를 발생시키지 않고 실패의 원인을 조사할 수 있습니다. 예를 들어 노드에서 태스크 예약을 사용하지 않도록 설정한 다음, 원격으로 로그인하여 노드의 이벤트 로그를 검사하거나 다른 문제를 해결할 수 있습니다. 조사를 완료하면 태스크 예약([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/enablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.enablescheduling))을 사용하여 노드를 다시 온라인 상태로 되돌리거나 앞서 설명한 다른 작업 중 하나를 수행할 수 있습니다.
+    사실상 노드를 오프라인으로 만들기 때문에 해당 노드에 더 이상 작업이 할당되지 않지만 노드가 풀에서 실행되도록 유지할 수 있습니다. 그러면 실패한 태스크에 데이터 손실이나 노드에 추가 작업 오류를 발생시키지 않고 실패의 원인을 조사할 수 있습니다. 예를 들어 노드에서 태스크 예약을 사용하지 않도록 설정한 다음, 원격으로 로그인하여 노드의 이벤트 로그를 검사하거나 다른 문제를 해결할 수 있습니다. 조사를 완료하면 태스크 예약([REST](/rest/api/batchservice/computenode/enablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling))을 사용하여 노드를 다시 온라인 상태로 되돌리거나 앞서 설명한 다른 작업 중 하나를 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 위에서 설명한 작업을 사용하여 현재 노드에서 실행되는 태스크가 작업 완료 시 처리되는 방법을 지정할 수 있습니다. 예를 들어 Batch .NET 클라이언트 라이브러리를 사용하여 노드에서 태스크 예약을 사용하지 않으면 [DisableComputeNodeSchedulingOption](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) 열거형 값을 지정하여 실행 중인 태스크를 **종료**하거나, 다른 노드에서 예약을 **다시 대기**하거나 또는 작업(**TaskCompletion**)을 수행하기 전에 완료할 태스크 실행을 허용할지를 지정할 수 있습니다.
+> 위에서 설명한 작업을 사용하여 현재 노드에서 실행되는 태스크가 작업 완료 시 처리되는 방법을 지정할 수 있습니다. 예를 들어 Batch .NET 클라이언트 라이브러리를 사용하여 노드에서 태스크 예약을 사용하지 않으면 [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) 열거형 값을 지정하여 실행 중인 태스크를 **종료**하거나, 다른 노드에서 예약을 **다시 대기**하거나 또는 작업(**TaskCompletion**)을 수행하기 전에 완료할 태스크 실행을 허용할지를 지정할 수 있습니다.
 
 ## <a name="retry-after-errors"></a>오류 후 다시 시도
 
@@ -110,4 +110,4 @@ Batch API는 오류가 발생하면 사용자에게 알립니다. 모두 다시 
 
 - [풀 및 노드 오류 확인](batch-pool-node-error-checking.md) 방법을 알아봅니다.
 - [작업 및 태스크 오류 확인](batch-job-task-error-checking.md) 방법을 알아봅니다.
-- [배치 상태 및 오류 코드](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes) 목록을 검토합니다.
+- [배치 상태 및 오류 코드](/rest/api/batchservice/batch-status-and-error-codes) 목록을 검토합니다.

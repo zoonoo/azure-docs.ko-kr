@@ -1,10 +1,9 @@
 ---
 title: SQL VM 리소스 공급자에 등록
-description: Azure SQL Server 가상 머신을 SQL VM 리소스 공급자에 등록하면 Azure Marketplace 외부에 배포된 SQL Server VM에서 기능을 설정할 수 있을 뿐 아니라 규정 준수 및 관리 기능을 향상시킬 수 있습니다.
+description: SQL VM 리소스 공급자를 사용 하 여 Azure SQL Server 가상 컴퓨터를 등록 하면 Azure Marketplace 외부에 배포 된 SQL Server 가상 컴퓨터에 대 한 기능을 사용 하도록 설정 하 고, 규정 준수 및 관리 효율성을 향상 시킬 수 있습니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: af2d23104f07991fc9833951bb4e2395d39be9b3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 60d184b3739d05063a0cddd108a2b2d7d49b57d7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039834"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962768"
 ---
-# <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Azure의 SQL Server 가상 머신을 SQL VM 리소스 공급자에 등록
+# <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>SQL VM 리소스 공급자 (RP)를 사용 하 여 Azure에 SQL Server VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 Azure에서 SQL Server VM(가상 머신)을 SQL VM 리소스 공급자에 등록하는 방법을 설명합니다. 리소스 공급자에 등록하면 가상 머신 리소스와는 별도의 리소스인 구독 내에서 **SQL 가상 머신** _리소스_가 만들어집니다. 리소스 공급자에서 SQL Server VM 등록을 취소하면 **SQL 가상 머신** _리소스_가 제거되지만 실제 가상 머신은 삭제되지 않습니다. 
+이 문서에서는 SQL VM 리소스 공급자 (RP)를 사용 하 여 Azure에 SQL Server VM (가상 머신)을 등록 하는 방법을 설명 합니다. 리소스 공급자에 등록하면 가상 머신 리소스와는 별도의 리소스인 구독 내에서 **SQL 가상 머신** _리소스_가 만들어집니다. 리소스 공급자에서 SQL Server VM 등록을 취소하면 **SQL 가상 머신** _리소스_가 제거되지만 실제 가상 머신은 삭제되지 않습니다. 
 
 Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 리소스 공급자에 등록됩니다. 그러나 Azure 가상 머신에서 SQL Server를 자동으로 설치하거나 사용자 지정 VHD에서 Azure 가상 머신을 프로비저닝하도록 선택하는 경우 사용자가 SQL Server VM을 리소스 공급자에 등록해야 합니다.
 
@@ -32,7 +31,7 @@ Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면
 
 - **규정 준수**: SQL VM 리소스 공급자에 등록하면 제품 약관에 지정된 대로 Azure 하이브리드 혜택이 구현되었음을 Microsoft에 알려야 하는 요구 사항을 간편하게 충족할 수 있습니다. 이 프로세스로 각 리소스마다 라이선스 등록 양식을 관리할 필요가 없습니다.  
 
-- **무료 관리**:  세 가지 관리 모드 모두 SQL VM 리소스 공급자 등록은 완전히 무료입니다. 리소스 공급자 또는 관리 모드 변경과 관련된 추가 비용은 없습니다. 
+- **무료 관리**: 세 가지 관리 효율성 모드 모두에서 SQL VM 리소스 공급자를 등록 하는 것은 완전히 무료입니다. 리소스 공급자 또는 관리 모드 변경과 관련된 추가 비용은 없습니다. 
 
 - **간소화된 라이선스 관리**: SQL VM 리소스 공급자에 등록하면 SQL Server 라이선스 관리가 간소화되고 [Azure Portal](manage-sql-vm-portal.md), Azure CLI 또는 PowerShell을 사용하여 Azure 하이브리드 혜택이 활성화된 SQL Server VM을 빠르게 식별할 수 있습니다. 
 
@@ -51,7 +50,7 @@ Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면
 
    ---
 
-SQL VM 리소스 공급자를 활용하려면 먼저 [리소스 공급자에 구독을 등록](#register-subscription-with-rp)하여 리소스 공급자에게 해당 구독 내에서 리소스를 만들 수 있는 권한을 부여해야 합니다.
+SQL VM 리소스 공급자를 활용 하려면 먼저 리소스 공급자에 [구독을 등록](#register-subscription-with-rp)해야 합니다. 그러면 리소스 공급자는 해당 특정 구독 내에서 리소스를 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -95,14 +94,14 @@ SQL Server VM을 SQL 리소스 공급자에 등록하려면 먼저 구독을 리
 1. 필터에 **sql**을 입력하여 SQL 관련 리소스 공급자를 표시합니다. 
 1. 원하는 작업에 따라 **Microsoft.SqlVirtualMachine** 공급자에 대해 **등록**, **다시 등록** 또는 **등록 해제**를 선택합니다. 
 
-![공급자 수정](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
+   ![공급자 수정](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
 
 
 ### <a name="command-line"></a>명령 줄
 
 Azure CLI 또는 PowerShell을 사용하여 Azure 구독에 SQL VM 리소스 공급자를 등록합니다. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
@@ -118,19 +117,19 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## <a name="register-sql-vm-with-rp"></a>RP에 SQL VM 등록 
+## <a name="register-with-rp"></a>RP로 등록
 
 ### <a name="lightweight-management-mode"></a>경량 관리 모드
 
-VM에 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)이 설치되지 않은 경우 경량 모드로 SQL VM 리소스 공급자에 등록하는 것이 좋습니다. 그러면 SQL IaaS 확장이 [경량 모드](#management-modes)로 설치되고 SQL Server 서비스가 다시 시작되지 않습니다. 그런 다음, 언제든지 전체 모드로 업그레이드할 수 있지만 이렇게 하면 SQL Server 서비스가 다시 시작되므로 예약된 유지 관리 기간이 도래할 때까지 기다리는 것이 좋습니다. 
+[SQL Server IaaS 에이전트 확장이](sql-server-iaas-agent-extension-automate-management.md) 가상 컴퓨터에 설치 되어 있지 않은 경우 SQL VM 리소스 공급자를 사용 하 여 경량 모드로 등록 하는 것이 좋습니다. 그러면 SQL IaaS 확장이 [경량 모드](#management-modes)로 설치되고 SQL Server 서비스가 다시 시작되지 않습니다. 그런 다음, 언제든지 전체 모드로 업그레이드할 수 있지만 이렇게 하면 SQL Server 서비스가 다시 시작되므로 예약된 유지 관리 기간이 도래할 때까지 기다리는 것이 좋습니다. 
 
 SQL Server 라이선스 유형을 다음과 같이 제공합니다. 사용량에 따라 지불하려면 종량제(`PAYG`), 자체 라이선스를 사용하려면 Azure 하이브리드 혜택(`AHUB`), [무료 DR 복제본 라이선스](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure)를 활성화하려면 재해 복구(`DR`)입니다.
 
-장애 조치(failover) 클러스터 인스턴스 및 다중 인스턴스 배포는 SQL VM 리소스 공급자에 경량 모드로만 등록할 수 있습니다. 
+장애 조치 (Failover) 클러스터 인스턴스 및 다중 인스턴스 배포는 경량 모드의 SQL VM 리소스 공급자에만 등록할 수 있습니다. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
-Azure CLI를 사용하여 SQL Server VM을 경량 모드로 등록합니다. 
+Azure CLI를 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다. 
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
@@ -140,7 +139,7 @@ Azure CLI를 사용하여 SQL Server VM을 경량 모드로 등록합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용하여 SQL Server VM을 경량 모드로 등록합니다.  
+PowerShell을 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다.  
 
 
   ```powershell-interactive
@@ -157,7 +156,7 @@ PowerShell을 사용하여 SQL Server VM을 경량 모드로 등록합니다.
 ### <a name="full-management-mode"></a>전체 관리 모드
 
 
-SQL IaaS 확장을 이미 VM에 수동으로 설치한 경우 SQL Server 서비스를 다시 시작하지 않고 SQL Server VM을 전체 모드로 등록할 수 있습니다. **그러나 SQL IaaS 확장이 설치되지 않은 경우 전체 모드로 등록하면 SQL IaaS 확장이 전체 모드로 설치되고 SQL Server 서비스가 다시 시작합니다. 주의하여 진행하세요.**
+SQL IaaS 확장이 이미 가상 컴퓨터에 수동으로 설치 된 경우 SQL Server 서비스를 다시 시작 하지 않고 SQL Server VM를 전체 모드로 등록할 수 있습니다. **그러나 SQL IaaS 확장이 설치되지 않은 경우 전체 모드로 등록하면 SQL IaaS 확장이 전체 모드로 설치되고 SQL Server 서비스가 다시 시작합니다. 주의하여 진행하세요.**
 
 
 SQL Server VM을 전체 모드로 직접 등록하고 SQL Server 서비스를 다시 시작하려면 다음 PowerShell 명령을 사용합니다. 
@@ -179,9 +178,9 @@ Windows Server 2008(_R2_가 아님)에 설치된 SQL Server 2008 및 2008 R2는 
 Windows Server 2008 인스턴스의 SQL Server 2008 또는 2008 R2를 등록하려면 다음 Azure CLI 또는 PowerShell 코드 조각을 사용합니다. 
 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
-Azure CLI를 사용하여 SQL Server 2008 VM을 에이전트 없음 모드로 등록합니다. 
+Azure CLI를 사용 하 여 NoAgent 모드에서 SQL Server 2008 가상 컴퓨터를 등록 합니다. 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -190,7 +189,7 @@ Azure CLI를 사용하여 SQL Server 2008 VM을 에이전트 없음 모드로 �
  ```
  
  
-Azure CLI를 사용하여 SQL Server 2008 R2 VM을 에이전트 없음 모드로 등록합니다. 
+Azure CLI를 사용 하 여 NoAgent 모드에서 SQL Server 2008 R2 가상 머신을 등록 합니다. 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -200,7 +199,7 @@ Azure CLI를 사용하여 SQL Server 2008 R2 VM을 에이전트 없음 모드로
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용하여 SQL Server 2008 VM을 에이전트 없음 모드로 등록합니다. 
+PowerShell을 사용 하 여 NoAgent 모드에서 SQL Server 2008 가상 컴퓨터를 등록 합니다. 
 
 
   ```powershell-interactive
@@ -211,7 +210,7 @@ PowerShell을 사용하여 SQL Server 2008 VM을 에이전트 없음 모드로 �
     -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
   ```
   
-  PowerShell을 사용하여 SQL Server 2008 R2 VM을 에이전트 없음 모드로 등록합니다. 
+  PowerShell을 사용 하 여 NoAgent 모드에서 SQL Server 2008 R2 가상 머신을 등록 합니다. 
 
 
   ```powershell-interactive
@@ -224,9 +223,9 @@ PowerShell을 사용하여 SQL Server 2008 VM을 에이전트 없음 모드로 �
 
 ---
 
-## <a name="upgrade-to-full-management-mode"></a>전체 관리 모드로 업그레이드 
+## <a name="upgrade-to-full"></a>전체로 업그레이드  
 
-*경량* IaaS 확장이 설치된 SQL Server VM은 Azure Portal, Azure CLI 또는 PowerShell을 사용하여 _전체_ 모드로 업그레이드할 수 있습니다. _에이전트 없음_ 모드의 SQL Server VM은 OS를 Windows 2008 R2 이상으로 업그레이드한 후 _전체_ 모드로 업그레이드할 수 있습니다. 다운그레이드할 수는 없습니다. 그러려면 SQL Server VM을 SQL VM 리소스 공급자에서 [등록 취소](#unregister-vm-from-rp)해야 합니다. 이렇게 하면 **SQL 가상 머신** _리소스_가 제거되지만 실제 가상 머신은 삭제되지 않습니다. 
+*경량* IaaS 확장이 설치된 SQL Server VM은 Azure Portal, Azure CLI 또는 PowerShell을 사용하여 _전체_ 모드로 업그레이드할 수 있습니다. _에이전트 없음_ 모드의 SQL Server VM은 OS를 Windows 2008 R2 이상으로 업그레이드한 후 _전체_ 모드로 업그레이드할 수 있습니다. 다운그레이드할 수는 없습니다. 그러려면 SQL Server VM을 SQL VM 리소스 공급자에서 [등록 취소](#unregister-from-rp)해야 합니다. 이렇게 하면 **SQL 가상 머신** _리소스_가 제거되지만 실제 가상 머신은 삭제되지 않습니다. 
 
 PowerShell을 사용하여 SQL Server IaaS 에이전트의 현재 모드를 확인할 수 있습니다. 
 
@@ -243,7 +242,7 @@ PowerShell을 사용하여 SQL Server IaaS 에이전트의 현재 모드를 확�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. [SQL 가상 머신](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) 리소스로 이동합니다. 
-1. SQL Server 가상 머신을 선택하고 **개요**를 선택합니다. 
+1. SQL Server VM를 선택 하 고 **개요**를 선택 합니다. 
 1. SQL Server VM이 에이전트 없음 또는 경량 IaaS 모드인 경우 **SQL IaaS 확장에서는 라이선스 유형 및 버전 업데이트만 사용할 수 있습니다** 메시지를 선택합니다.
 
    ![포털에서 모드를 변경하기 위한 선택 항목](./media/sql-vm-resource-provider-register/change-sql-iaas-mode-portal.png)
@@ -254,7 +253,7 @@ PowerShell을 사용하여 SQL Server IaaS 에이전트의 현재 모드를 확�
 
 ### <a name="command-line"></a>명령 줄
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 다음 Azure CLI 코드 조각을 실행합니다.
 
@@ -283,17 +282,17 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 SQL Server VM이 이�
 ### <a name="azure-portal"></a>Azure portal 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-1. [SQL Server 가상 머신](manage-sql-vm-portal.md)으로 이동합니다.
+1. [SQL Server vm](manage-sql-vm-portal.md)으로 이동 합니다.
 1. 목록에서 SQL Server VM을 선택합니다. SQL Server VM이 여기에 나열되지 않은 경우 SQL VM 리소스 공급자에 등록되지 않았을 수 있습니다. 
 1. **상태**에서 값을 확인합니다. **상태**가 **성공**인 경우 SQL Server VM이 SQL VM 리소스 공급자에 등록되어 있는 것입니다. 
 
-![SQL RP 등록 상태 확인](./media/sql-vm-resource-provider-register/verify-registration-status.png)
+   ![SQL RP 등록 상태 확인](./media/sql-vm-resource-provider-register/verify-registration-status.png)
 
 ### <a name="command-line"></a>명령 줄
 
 Azure CLI 또는 PowerShell을 사용하여 현재 SQL Server VM 등록 상태를 확인합니다. 등록이 성공하면 `ProvisioningState`가 `Succeeded`로 표시됩니다. 
 
-# <a name="az-cli"></a>[AZ CLI](#tab/bash)
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
 
   ```azurecli-interactive
@@ -311,18 +310,18 @@ Azure CLI 또는 PowerShell을 사용하여 현재 SQL Server VM 등록 상태�
 오류는 SQL Server VM이 리소스 공급자에 등록되지 않은 것을 나타냅니다. 
 
 
-## <a name="unregister-vm-from-rp"></a>RP에서 VM 등록 취소
+## <a name="unregister-from-rp"></a>RP에서 등록 취소
 
-SQL Server VM을 SQL VM 리소스 공급자에서 등록 취소하려면 Azure Portal 또는 Azure CLI를 사용하여 SQL Virtual Machine *리소스*를 삭제합니다. SQL Virtual Machine *리소스*를 삭제해도 SQL Server VM은 삭제되지 않습니다. 그러나 *리소스*를 제거하려고 할 때 실수로 가상 머신을 삭제할 수 있으므로 신중하게 단계를 수행해야 합니다. 
+SQL VM 리소스 공급자를 사용 하 여 SQL Server VM 등록을 취소 하려면 Azure Portal 또는 Azure CLI를 사용 하 여 SQL 가상 머신 *리소스* 를 삭제 합니다. SQL 가상 컴퓨터 *리소스* 를 삭제 해도 SQL Server VM는 삭제 되지 않습니다. 그러나 *리소스*를 제거하려고 할 때 실수로 가상 머신을 삭제할 수 있으므로 신중하게 단계를 수행해야 합니다. 
 
-관리 모드를 전체에서 다운그레이드하려면 SQL VM을 SQL VM 리소스 공급자에서 등록 취소해야 합니다. 
+Sql VM 리소스 공급자를 사용 하 여 SQL 가상 머신의 등록을 취소 하려면 관리 모드를 전체로 다운 그레이드 해야 합니다. 
 
 ### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 사용하여 SQL Server VM을 리소스 공급자에서 등록 취소하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. SQL Server VM 리소스로 이동합니다. 
+1. SQL VM 리소스로 이동 합니다. 
   
    ![SQL 가상 머신 리소스](./media/sql-vm-resource-provider-register/sql-vm-manage.png)
 
@@ -330,19 +329,19 @@ Azure Portal을 사용하여 SQL Server VM을 리소스 공급자에서 등록 �
 
    ![SQL VM 리소스 공급자 삭제](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
-1. SQL 가상 머신의 이름을 입력하고 **가상 머신 옆에 있는 확인란 선택을 취소**합니다.
+1. SQL 가상 컴퓨터의 이름을 입력 하 고 **가상 컴퓨터 옆에 있는 확인란의 선택을 취소**합니다.
 
    ![SQL VM 리소스 공급자 삭제](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > 가상 머신 이름 옆의 확인란 선택을 취소하지 않으면 가상 머신이 완전히 *삭제*됩니다. 이 확인란 선택을 취소하여 SQL Server VM을 리소스 공급자에서 등록 취소하되 *실제 가상 머신은 삭제하지 않습니다*. 
 
-1. **삭제**를 선택하여 SQL Server 가상 머신이 아닌 SQL 가상 머신 *리소스* 삭제를 확인합니다. 
+1. **삭제** 를 선택 하 여 SQL SERVER VM 아닌 SQL 가상 컴퓨터 *리소스*삭제를 확인 합니다. 
 
 ### <a name="command-line"></a>명령 줄
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Azure CLI를 사용하여 SQL Server 가상 머신을 리소스 공급자에서 등록 취소하려면 [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) 명령을 사용합니다. 이렇게 하면 SQL Server 가상 머신 *리소스*는 제거되지만 가상 머신은 삭제되지 않습니다. 
+Azure CLI를 사용 하 여 리소스 공급자에서 SQL Server VM 등록을 취소 하려면 [az SQL VM delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) 명령을 사용 합니다. 그러면 SQL Server VM *리소스가* 제거 되지만 가상 컴퓨터는 삭제 되지 않습니다. 
 
 
 ```azurecli-interactive
@@ -353,7 +352,7 @@ az sql vm delete
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Azure CLI를 사용하여 SQL Server 가상 머신을 리소스 공급자에서 등록 취소하려면 [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 명령을 사용합니다. 이렇게 하면 SQL Server 가상 머신 *리소스*는 제거되지만 가상 머신은 삭제되지 않습니다. 
+Azure CLI를 사용 하 여 리소스 공급자에서 SQL Server VM 등록을 취소 하려면 [AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm)명령을 사용 합니다. 그러면 SQL Server VM *리소스가* 제거 되지만 가상 컴퓨터는 삭제 되지 않습니다. 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
@@ -380,7 +379,7 @@ SQL VM 리소스 공급자는 다음만 지원합니다.
 
 **내 SQL Server VM에 SQL Server IaaS 확장이 이미 설치되어 있는 경우 SQL VM 리소스 공급자에 등록해야 하나요?**
 
-SQL Server VM이 자체 설치되고 Azure Marketplace의 SQL Server 이미지에서 프로비저닝되지 않은 경우 SQL Server IaaS 확장을 설치한 경우에도 SQL VM 리소스 공급자에 등록해야 합니다. SQL VM 리소스 공급자에 등록하면 Microsoft.SqlVirtualMachines 형식의 새 리소스가 만들어집니다. SQL Server IaaS 확장을 설치하면 이 리소스가 만들어지지 않습니다.
+SQL Server VM이 자체 설치되고 Azure Marketplace의 SQL Server 이미지에서 프로비저닝되지 않은 경우 SQL Server IaaS 확장을 설치한 경우에도 SQL VM 리소스 공급자에 등록해야 합니다. SQL VM 리소스 공급자를 사용 하 여 등록 하면 SqlVirtualMachine 형식의 새 리소스가 생성 됩니다. SQL Server IaaS 확장을 설치하면 이 리소스가 만들어지지 않습니다.
 
 **SQL VM 리소스 공급자에 등록할 때 기본 관리 모드는 무엇입니까?**
 
@@ -402,7 +401,7 @@ SQL VM 리소스 공급자에 등록할 때 기본 SQL 관리 모드는 _전체_
 
 SQL Server IaaS 확장은 전체 관리를 설정하는 데만 필요합니다. 관리 모드를 경량에서 전체로 업그레이드하면 SQL Server IaaS 확장이 설치되고 SQL Server가 다시 시작됩니다.
 
-**SQL Server VM 리소스 공급자에 등록하면 VM에서 SQL Server를 다시 시작합니까?**
+**내 VM에서 SQL VM 리소스 공급자를 다시 시작 SQL Server를 등록 하 시겠습니까?**
 
 등록 중 지정한 모드에 따라 달라집니다. 경량 또는 에이전트 없음 모드를 지정한 경우 SQL Server 서비스는 다시 시작되지 않습니다. 그러나 관리 모드를 전체로 지정하거나 관리 모드를 비워 두면 SQL IaaS 확장이 전체 관리 모드로 설치됩니다. 그러면 SQL Server 서비스가 다시 시작됩니다. 
 
@@ -428,7 +427,7 @@ SQL Server IaaS 확장은 전체 관리를 설정하는 데만 필요합니다. 
 
 아니요. SQL Server IaaS 확장 관리 모드는 다운그레이드가 지원되지 않습니다. 관리 모드는 전체 모드에서 경량 모드 또는 에이전트 없음 모드로 다운그레이드할 수 없으며 경량 모드에서 에이전트 없음 모드로 다운그레이드할 수 없습니다. 
 
-관리 모드를 전체 관리에서 변경하려면 SQL Server *리소스*를 삭제하여 SQL Server 리소스 공급자에서 SQL Server 가상 머신을 [등록 취소](#unregister-vm-from-rp)한 다음, SQL Server VM을 다른 관리 모드로 SQL VM 리소스 공급자에 다시 등록합니다.
+관리 효율성 모드를 전체 관리 기능으로 변경 하려면 SQL Server *리소스* 를 삭제 하 여 sql vm 리소스 공급자에서 SQL Server VM [등록을 취소](#unregister-from-rp) 하 고 다른 관리 모드에서 다시 sql vm 리소스 공급자를 사용 하 여 SQL Server VM를 다시 등록 합니다.
 
 **Azure Portal에서 SQL VM 리소스 공급자에 등록할 수 있나요?**
 

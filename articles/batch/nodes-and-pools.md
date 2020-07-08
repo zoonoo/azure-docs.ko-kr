@@ -2,13 +2,13 @@
 title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.date: 06/16/2020
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790920"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964045"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -27,6 +27,8 @@ Batch의 모든 컴퓨팅 노드는 다음 사항도 포함합니다.
 - 태스크에서 참조로 사용할 수 있는 표준 [폴더 구조](files-and-directories.md) 및 연결된 [환경 변수](jobs-and-tasks.md)
 - **방화벽** 설정
 - [원격 액세스](error-handling.md#connect-to-compute-nodes)
+
+기본적으로 노드는 서로 통신할 수 있지만 동일한 풀에 속하지 않는 가상 머신과 통신할 수 없습니다. 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전 하 게 통신할 수 있도록 하려면 [Azure VNet (가상 네트워크)의 서브넷에](batch-virtual-network.md)풀을 프로 비전 할 수 있습니다. 이렇게 하면 공용 IP 주소를 통해 노드에 액세스할 수 있습니다. 이러한 공용 IP 주소는 일괄 처리로 생성 되며 풀의 수명 동안 변경 될 수 있습니다. 사용자가 제어 하는 [고정 공용 IP 주소를 사용 하 여 풀을 만들어](create-pool-public-ip.md) 예기치 않게 변경 되지 않도록 할 수도 있습니다.
 
 ## <a name="pools"></a>풀
 
@@ -78,7 +80,7 @@ Cloud Services 내의 작업자 역할과 마찬가지로 *OS 버전*을 지정�
 
 ### <a name="node-agent-skus"></a>노드 에이전트 SKU
 
-풀을 만들 때 기본 VHD 이미지의 OS에 따라 적절한 **nodeAgentSkuId**를 선택해야 합니다. [지원되는 노드 에이전트 SKU 나열](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) 작업을 호출하여 사용 가능한 노드 에이전트 SKU ID를 OS 이미지 참조에 매핑할 수 있습니다.
+풀을 만들 때 기본 VHD 이미지의 OS에 따라 적절한 **nodeAgentSkuId**를 선택해야 합니다. [지원되는 노드 에이전트 SKU 나열](/rest/api/batchservice/list-supported-node-agent-skus) 작업을 호출하여 사용 가능한 노드 에이전트 SKU ID를 OS 이미지 참조에 매핑할 수 있습니다.
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Virtual Machine 풀에 대한 사용자 지정 이미지
 
@@ -127,7 +129,7 @@ Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 
 - **리소스 메트릭**은 CPU 사용량, 대역폭 사용량, 메모리 사용량 및 노드 수를 기반으로 합니다.
 - **태스크 메트릭**은 *활성*(큐에 대기), *실행* 또는 *완료* 등 태스크 상태에 따라 다릅니다.
 
-자동 크기 조정이 풀에서 컴퓨팅 노드 수를 감소시키면 감소 작업 시에 실행 중인 태스크를 처리하는 방법을 고려해야 합니다. 이를 제공하기 위해 Batch가 수식에 포함할 수 있는 [노드 할당 취소 옵션](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption)을 제공합니다. 예를 들어 실행 중인 태스크를 즉시 중지한 다음 다른 노드에서 실행하기 위해 큐에 다시 넣거나 풀에서 노드를 제거하기 전에 완료하도록 지정할 수 있습니다. 노드 할당 취소 옵션을 `taskcompletion` 또는 `retaineddata`로 설정하면 모든 태스크가 완료될 때까지 또는 모든 태스크 보존 기간이 만료될 때까지 각각 풀 크기 조정 작업을 수행할 수 없습니다.
+자동 크기 조정이 풀에서 컴퓨팅 노드 수를 감소시키면 감소 작업 시에 실행 중인 태스크를 처리하는 방법을 고려해야 합니다. 이를 제공하기 위해 Batch가 수식에 포함할 수 있는 [노드 할당 취소 옵션](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption)을 제공합니다. 예를 들어 실행 중인 태스크를 즉시 중지한 다음 다른 노드에서 실행하기 위해 큐에 다시 넣거나 풀에서 노드를 제거하기 전에 완료하도록 지정할 수 있습니다. 노드 할당 취소 옵션을 `taskcompletion` 또는 `retaineddata`로 설정하면 모든 태스크가 완료될 때까지 또는 모든 태스크 보존 기간이 만료될 때까지 각각 풀 크기 조정 작업을 수행할 수 없습니다.
 
 자동으로 애플리케이션 크기를 조정하는 방법에 대한 자세한 내용은 [Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
 
@@ -162,13 +164,16 @@ Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>VNet(가상 네트워크) 및 방화벽 구성
 
-Batch에서 컴퓨팅 노드 풀을 프로비전하면 풀을 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷과 연결할 수 있습니다. Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.  
+Batch에서 컴퓨팅 노드 풀을 프로비전하면 풀을 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷과 연결할 수 있습니다. Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.
 
 ### <a name="vnet-requirements"></a>VNet 요구 사항
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 VNet에서 Batch 풀 설정에 대한 자세한 내용은 [가상 네트워크로 가상 머신의 풀 만들기](batch-virtual-network.md)를 참조하세요.
+
+> [!TIP]
+> 노드에 액세스 하는 데 사용 되는 공용 IP 주소가 변경 되지 않도록 하려면 [사용자가 제어 하는 지정 된 공용 ip 주소를 사용 하 여 풀을 만들](create-pool-public-ip.md)수 있습니다.
 
 ## <a name="pool-and-compute-node-lifetime"></a>풀 및 컴퓨팅 노드 수명
 
@@ -184,7 +189,7 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 
 일반적으로 태스크에 대한 중요한 정보(예: [Azure Storage 계정](accounts.md#azure-storage-accounts)의 키)를 암호화하거나 암호를 해독할 때는 인증서를 사용해야 합니다. 이를 지원하려면 노드에 인증서를 설치할 수 있습니다. 암호화된 암호는 명령줄 매개 변수를 통해 태스크에 전달되거나 태스크 리소스 중 하나에 포함되며 암호를 해독하는 데 설치된 인증서를 사용할 수 있습니다.
 
-[인증서 추가](https://docs.microsoft.com/rest/api/batchservice/certificate/add) 작업(Batch REST) 또는 [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) 메서드(Batch .NET)를 사용하여 Batch 계정에 인증서를 추가할 수 있습니다. 그런 다음 인증서를 기존 풀이나 새 풀에 연결할 수 있습니다.
+[인증서 추가](/rest/api/batchservice/certificate/add) 작업(Batch REST) 또는 [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) 메서드(Batch .NET)를 사용하여 Batch 계정에 인증서를 추가할 수 있습니다. 그런 다음 인증서를 기존 풀이나 새 풀에 연결할 수 있습니다.
 
 인증서가 풀에 연결되면 Batch 서비스가 풀의 각 노드에 인증서를 설치합니다. Batch 서비스는 노드가 시작되면 [시작 태스크](jobs-and-tasks.md#start-task) 및 [작업 관리자 태스크](jobs-and-tasks.md#job-manager-task)를 포함하여 모든 태스크를 시작하기 전에 해당 인증서를 설치합니다.
 

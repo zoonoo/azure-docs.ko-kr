@@ -3,12 +3,12 @@ title: Batch에서 컴퓨팅 집약적 Azure VM 사용
 description: Azure Batch 풀에서 HPC 및 GPU 가상 머신 크기를 활용하는 방법입니다. OS 종속성에 대해 알아보고 몇 가지 시나리오 예제를 살펴봅니다.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779755"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962512"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
 
@@ -127,7 +127,7 @@ Linux NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 CUDA Too
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>예제: Windows H16r VM 풀에서 Microsoft MPI
 
-Azure H16r VM 노드 풀에서 Windows MPI 애플리케이션을 실행하려면 HpcVmDrivers 확장을 구성하고 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi)를 설치해야 합니다. 필요한 드라이버와 소프트웨어와 함께 사용자 지정 Windows Server 2016 이미지를 배포하는 샘플 단계는 다음과 같습니다.
+Azure H16r VM 노드 풀에서 Windows MPI 애플리케이션을 실행하려면 HpcVmDrivers 확장을 구성하고 [Microsoft MPI](/message-passing-interface/microsoft-mpi)를 설치해야 합니다. 필요한 드라이버와 소프트웨어와 함께 사용자 지정 Windows Server 2016 이미지를 배포하는 샘플 단계는 다음과 같습니다.
 
 1. Windows Server 2016을 실행하는 Azure H16r VM을 배포합니다. 예를 들어, 미국 서부 지역에서 VM을 만듭니다. 
 2. Azure 구독에 연결하는 클라이언트 컴퓨터에서 [Azure PowerShell 명령](../virtual-machines/sizes-hpc.md)을 실행하거나 Azure Cloud Shell을 사용하여 VM에 HpcVmDrivers 확장을 추가합니다. 
@@ -163,6 +163,6 @@ Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Batch 풀에서 MPI 작업을 실행하려면 [Windows](batch-mpi.md) 또는 [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) 예제를 참조하세요.
+* Azure Batch 풀에서 MPI 작업을 실행하려면 [Windows](batch-mpi.md) 또는 [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch) 예제를 참조하세요.
 
 * Batch에서 GPU 워크로드의 예제는 [Batch Shipyard](https://github.com/Azure/batch-shipyard/) 레시피를 참조하세요.

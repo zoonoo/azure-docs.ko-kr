@@ -6,30 +6,30 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
-ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/21/2020
+ms.openlocfilehash: 0f8078c52945b52a27144c1f73ea4a136bf536d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642305"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963158"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Marketplace 계량 서비스 인증 전략
 
 Marketplace 계량 서비스는 두 가지 인증 전략을 지원합니다.
 
-* [Azure AD 보안 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Azure AD 보안 토큰](../../active-directory/develop/access-tokens.md)
+* [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 Marketplace 계량 서비스를 사용하여 사용자 지정 미터를 안전하게 제출하기 위해 다양한 인증 전략을 사용하는 시기와 방법을 설명합니다.
 
 ## <a name="using-the-azure-ad-security-token"></a>Azure AD 보안 토큰 사용
 
-적용 가능한 제품 유형은 관리되는 애플리케이션 계획 유형을 사용하는 SaaS 및 Azure 애플리케이션입니다.  
+적용 가능한 제품 유형은 불가능 SaaS 및 관리 되는 응용 프로그램 계획 유형을 포함 하는 Azure 응용 프로그램입니다.  
 
-미리 정의된 고정 애플리케이션 ID를 사용하여 사용자 지정 미터를 제출하여 인증합니다.
+미리 정의 된 고정 Azure AD 응용 프로그램 ID를 사용 하 여 사용자 지정 측정기를 제출 하 여 인증 합니다.
 
-SaaS 제품의 경우 Azure AD는 유일하게 사용할 수 있는 옵션입니다.
+SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas [응용 프로그램 등록](./pc-saas-registration.md)에 설명 된 대로 saas 제품을 게시 하기 위한 필수 단계입니다.
 
 관리되는 애플리케이션 계획이 있는 Azure 애플리케이션의 경우 다음과 같은 경우에 이 전략을 사용하는 것을 고려해야 합니다.
 
@@ -38,7 +38,7 @@ SaaS 제품의 경우 Azure AD는 유일하게 사용할 수 있는 옵션입니
 
 애플리케이션을 등록한 후에는 프로그래밍 방식으로 Azure AD 보안 토큰을 요청할 수 있습니다. 게시자는 이 토큰을 사용하고, 이를 확인하는 요청을 수행해야 합니다.
 
-이러한 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)을 참조하세요.
+이러한 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰](../../active-directory/develop/access-tokens.md)을 참조하세요.
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Azure AD 앱에 따라 토큰 가져오기
 
@@ -68,10 +68,10 @@ SaaS 제품의 경우 Azure AD는 유일하게 사용할 수 있는 옵션입니
 
 |  **속성 이름**  |  **필수**  |  **설명**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | 권한 부여 유형입니다. 기본값은 `client_credentials`입니다. |
+|  `Grant_type`       |   True         | 권한 부여 유형입니다. 대신 `client_credentials`를 |
 |  `Client_id`        |   True         | Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.|
-|  `client_secret`    |   True         | Azure AD 앱과 연결된 암호입니다.  |
-|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. 기본값은 `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`입니다.  |
+|  `client_secret`    |   True         | Azure AD 앱과 연결 된 암호입니다.  |
+|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. 대신 `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`를 |
 | | | |
 
 #### <a name="response"></a>*응답*
@@ -106,17 +106,17 @@ SaaS 제품의 경우 Azure AD는 유일하게 사용할 수 있는 옵션입니
 >[!Note]
 >게시자는 사용량을 내보내는 리소스가 잠겨 있는지 확인해야 하므로 변조되지 않습니다.
 
-관리되는 애플리케이션은 Virtual Machines에서 Azure Functions까지 다른 유형의 리소스를 포함할 수 있습니다.  여러 서비스에 대해 관리 ID를 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID를 사용하는 방법](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources)을 참조하세요.
+관리되는 애플리케이션은 Virtual Machines에서 Azure Functions까지 다른 유형의 리소스를 포함할 수 있습니다.  여러 서비스에 대해 관리 id를 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [Azure 리소스에 관리 id를 사용 하는 방법](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources)을 참조 하세요.
 
 예를 들어 다음 단계에 따라 Windows VM을 사용하여 인증합니다.
 
 1. 다음 방법 중 하나를 사용하여 관리 ID를 구성했는지 확인합니다.
-    * [Azure Portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST (영문)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [Azure SDK](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Azure Portal UI](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Azure Resource Manager 템플릿](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [REST](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
+    * [Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. 시스템 ID, VM에 대한 RDP를 사용하여 Marketplace 계량 서비스 애플리케이션 ID(`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`)에 대한 액세스 토큰을 가져오고, PowerShell 콘솔을 열고 아래 명령을 실행합니다.
 
@@ -145,7 +145,7 @@ SaaS 제품의 경우 Azure AD는 유일하게 사용할 수 있는 옵션입니
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,3 +156,4 @@ SaaS 제품의 경우 Azure AD는 유일하게 사용할 수 있는 옵션입니
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure 애플리케이션 제품 만들기](./create-new-azure-apps-offer.md)
+* [불가능 SaaS 제안 만들기](./offer-creation-checklist.md)

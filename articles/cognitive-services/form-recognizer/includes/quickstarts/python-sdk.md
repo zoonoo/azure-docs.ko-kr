@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 811daf9b1bf5bf26419385517a67cd22cb8346e6
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e5debf66b91ebd73bb4a4972a907ef7a283f0044
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570168"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965914"
 ---
 [참조 설명서](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [패키지(PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다.
@@ -82,9 +82,9 @@ tbd object model
 여기서는 위에서 정의한 구독 변수를 사용하여 클라이언트 개체 두 개를 인증합니다. **AzureKeyCredential** 개체를 사용하면 필요한 경우 새 클라이언트 개체를 만들지 않고 API 키를 업데이트할 수 있습니다.
 
 ```python
-form_recognizer_client = FormRecognizerClient(endpoint=self.endpoint, credential=AzureKeyCredential(self.key))
+form_recognizer_client = FormRecognizerClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
-form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self.key))
+form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 ```
 
 ## <a name="define-variables"></a>변수 정의
@@ -231,7 +231,7 @@ for idx, receipt in enumerate(receipts):
 다음 코드는 **begin_training** 함수와 학습 클라이언트를 사용하여 지정된 문서 세트에 대한 모델을 학습합니다.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=False)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=False)
 model = poller.result()
 ```
 
@@ -262,7 +262,7 @@ for submodel in model.submodels:
 > 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *use_training_labels* 매개 변수를 통해 **begin_training** 함수를 호출할 수 있습니다.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=True)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=True)
 model = poller.result()
 ```
 

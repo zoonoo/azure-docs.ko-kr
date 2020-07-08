@@ -5,121 +5,111 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/10/2020
 ms.author: dsindona
-ms.openlocfilehash: b3c20d25917d66cba8ae3d811eddaa6455b87722
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 630dceedcac36cf6d37d54612d73fabe676d74f6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792958"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963719"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
-이 문서에서는 Microsoft [Azure Portal](https://portal.azure.com/)를 사용 하 여 SaaS 응용 프로그램을 등록 하는 방법을 설명 합니다.  성공적으로 등록 된 후 SaaS 처리 Api에 액세스 하는 데 사용할 수 있는 Azure Active Directory (Azure AD) 보안 토큰을 받게 됩니다.  Azure AD에 대 한 자세한 내용은 [인증 이란?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) 을 참조 하세요.
+이 문서에서는 Microsoft [Azure Portal](https://portal.azure.com/) 를 사용 하 여 SaaS 응용 프로그램을 등록 하는 방법 및 게시자의 액세스 토큰 (Azure Active Directory 액세스 토큰)을 가져오는 방법을 설명 합니다. 게시자는 SaaS 처리 Api를 호출 하 여 SaaS 응용 프로그램을 인증 하는 데이 토큰을 사용 합니다.  처리 Api는 OAuth 2.0 클라이언트 자격 증명을 사용 하 여 서비스 간 액세스 토큰 요청을 수행 하는 Azure Active Directory (v 1.0) 끝점에 흐름을 부여 합니다.
 
-## <a name="service-to-service-authentication-flow"></a>서비스 간 인증 흐름
+Azure Marketplace는 SaaS 서비스에서 최종 사용자에 대해 사용 하는 인증 방법에 대 한 제약 조건을 적용 하지 않습니다. 아래 흐름은 Azure Marketplace에서 SaaS 서비스를 인증 하는 경우에만 필요 합니다.
 
-다음 다이어그램은 새 고객에게 구독 흐름과 이러한 API가 사용되는 경우를 보여 줍니다.
-
-![SaaS 제안 API 흐름](./media/saas-offer-publish-api-flow-v1.png)
-
-Azure는 해당 최종 사용자에게 SaaS 서비스가 노출하는 인증을 제한하지 않습니다. 그러나 SaaS 처리 Api를 사용 하는 인증은 Azure AD 보안 토큰을 사용 하 여 수행 됩니다. 일반적으로 Azure Portal를 통해 SaaS 앱을 등록 하 여 가져옵니다. 
+Azure AD (Active Directory)에 대 한 자세한 내용은 [인증](../../active-directory/develop/authentication-scenarios.md)이란?을 참조 하세요.
 
 ## <a name="register-an-azure-ad-secured-app"></a>Azure AD 보안 앱 등록
 
-Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 애플리케이션이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 애플리케이션에 대한 Azure AD 세부 정보의 제공이 포함됩니다.  Azure Portal을 사용하여 새 애플리케이션을 등록하려면 다음 단계를 수행합니다.
+Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램에 대 한 몇 가지 세부 정보를 Azure AD에 제공 합니다. Azure Portal을 사용하여 새 애플리케이션을 등록하려면 다음 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  계정에서 둘 이상의 액세스를 제공 하는 경우 오른쪽 위 모서리에서 자신의 계정을 클릭 하 고 포털 세션을 원하는 Azure AD 테 넌 트로 설정 합니다.
-3.  왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 애플리케이션 등록**을 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. 계정에서 둘 이상의 액세스를 제공 하는 경우 오른쪽 위 모서리에서 자신의 계정을 클릭 하 고 포털 세션을 원하는 Azure AD 테 넌 트로 설정 합니다.
+3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 애플리케이션 등록**을 차례로 클릭합니다.
 
     ![SaaS AD 앱 등록](./media/saas-offer-app-registration-v1.png)
 
-4.  만들기 페이지에서 애플리케이션의 등록\' 정보를 입력합니다.
+4. 만들기 페이지에서 애플리케이션의 등록\' 정보를 입력합니다.
     -   **이름**: 의미 있는 애플리케이션 이름을 입력합니다.
-    -   **응용 프로그램 유형**: 
-        - 장치에 로컬로 설치 된 [클라이언트 응용 프로그램](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) 에 대해 **네이티브** 를 선택 합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)에 사용됩니다.
-        - 보안 서버에 설치 된 [클라이언트 응용](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) 프로그램 및 [리소스/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) a p i 응용 프로그램에 대해 **웹 앱/** a p i를 선택 합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) 및 공용 [사용자 에이전트 기반 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)에 사용 됩니다.
+    -   **응용 프로그램 유형**:  
+        
+        [클라이언트 응용 프로그램](../../active-directory/develop/active-directory-dev-glossary.md#client-application)에 대 한 **웹 앱/** a p i를 선택 하 고 보안 서버에 설치 된 리소스/a p i [응용 프로그램](../../active-directory/develop/active-directory-dev-glossary.md#resource-server)을 선택 합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](../../active-directory/develop/active-directory-dev-glossary.md#web-client)) 및 공용 [사용자 에이전트 기반 클라이언트](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)에 사용 됩니다.
         동일한 애플리케이션이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
-    -   **로그온 URL**: 웹앱/API 애플리케이션에서 앱의 기준 URL을 제공합니다. 예를 **http://localhost:31544** 들어는 로컬 컴퓨터에서 실행 되는 웹 앱의 URL 일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
-    -   **리디렉션 URI**: 네이티브 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 응용 프로그램에 특정 한 값을 입력 합니다 ( **http://MyFirstAADApp**예:).
 
-        ![SaaS AD 앱 등록](./media/saas-offer-app-registration-v1-2.png)
+        웹 응용 프로그램의 특정 예제는 [AZURE AD 개발자 가이드](../../active-directory/develop/index.yml)의 시작 섹션에서 사용할 수 있는 빠른 [시작](../../active-directory/develop/quickstart-create-new-tenant.md) 안내를 확인 하세요.
 
-        웹 응용 프로그램 또는 네이티브 응용 프로그램에 대 한 특정 예제를 보려면 [AZURE AD 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)의 시작 섹션에서 사용할 수 있는 빠른 *시작* 안내를 확인 하세요.
+5. 완료 되 면 **등록**을 클릭 합니다.  Azure AD는 새 응용 프로그램에 고유한 *응용 프로그램 ID* 를 할당 합니다. API에만 액세스 하는 하나의 앱 및 단일 테 넌 트를 등록 하는 것이 좋습니다.
 
-5.  작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD는 응용 프로그램에 고유한 *응용 프로그램 ID* 를 할당 하\'고, 응용 프로그램\'의 기본 등록 페이지로 다시 이동 합니다. 애플리케이션이 웹 또는 네이티브 애플리케이션인지에 따라 애플리케이션에 기능을 추가하기 위해 다른 옵션이 제공됩니다.
+6. 클라이언트 암호를 만들려면 **인증서 & 암호 페이지로** 이동 하 고 **+ 새 클라이언트 암호**를 클릭 합니다.  코드에서 사용 하려면 비밀 값을 복사 해야 합니다.
+
+**AZURE AD 앱 id** 는 게시자 id와 연결 되어 있으므로 모든 제품에서 동일한 *앱 id* 를 사용 해야 합니다.
 
 >[!Note]
->기본적으로 새로 등록된 애플리케이션은 동일한 테넌트의 사용자만이 애플리케이션에 로그인할 수 있도록 구성됩니다.
+>파트너 센터에서 게시자의 계정이 서로 다른 경우 두 개의 다른 Azure AD 앱 Id를 사용 해야 합니다.  파트너 센터의 각 파트너 계정은이 계정을 통해 게시 되는 모든 SaaS 제품에 대해 고유한 Azure AD 앱 ID를 사용 해야 합니다.
 
-## <a name="using-the-azure-ad-security-token"></a>Azure AD 보안 토큰 사용
+## <a name="how-to-get-the-publishers-authorization-token"></a>게시자의 인증 토큰을 가져오는 방법
 
-응용 프로그램을 등록 한 후에는 프로그래밍 방식으로 Azure AD 보안 토큰을 요청할 수 있습니다.  게시자는이 토큰을 사용 하 고이 토큰을 확인 하도록 요청 해야 합니다.  다양 한 처리 Api를 사용 하는 경우 사용자가 Azure에서 SaaS 웹 사이트로 리디렉션되는 경우 URL에 토큰 쿼리 매개 변수가 있습니다.  이 토큰은 1 시간 동안만 유효 합니다.  또한 사용 하기 전에 브라우저에서 토큰 값을 URL로 디코드 해야 합니다.
+응용 프로그램을 등록 한 후에는 Azure AD V1 끝점을 사용 하 여 게시자의 권한 부여 토큰 (Azure AD 액세스 토큰)을 프로그래밍 방식으로 요청할 수 있습니다. 게시자는 다양 한 SaaS 처리 Api를 호출할 때이 토큰을 사용 해야 합니다. 이 토큰은 1 시간 동안만 유효 합니다. 
 
-이러한 토큰에 대 한 자세한 내용은 [Azure Active Directory 액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)을 참조 하세요.
+이러한 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰](../../active-directory/develop/access-tokens.md)을 참조하세요.  아래에서 V1 끝점 토큰을 사용 합니다.
 
+### <a name="get-the-token-with-an-http-post"></a>HTTP POST를 사용 하 여 토큰 가져오기
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Azure AD 앱에 따라 토큰 가져오기
+#### <a name="http-method"></a>HTTP 메서드
 
-HTTP 메서드
+게시<br>
 
-`POST`
+##### <a name="request-url"></a>*요청 URL* 
 
-*요청 URL*
+`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`
 
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
+##### <a name="uri-parameter"></a>*URI 매개 변수*
 
-*URI 매개 변수*
+|  매개 변수 이름    |  필요한 공간         |  설명 |
+|  ---------------   |  ---------------  | ------------ |
+|  `tenantId`        |  True      |  등록 된 AAD 응용 프로그램의 테 넌 트 ID입니다. |
 
-|  **매개 변수 이름**  | **필수**  | **설명**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | 등록된 AAD 애플리케이션의 테넌트 ID입니다.   |
-|  |  |  |
+##### <a name="request-header"></a>*요청 헤더*
 
+|  헤더 이름       |  필요한 공간         |  설명 |
+|  ---------------   |  ---------------  | ------------ |
+|  `content-type`    |  True      |  요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다. |
 
-*요청 헤더*
+##### <a name="request-body"></a>*요청 본문*
 
-|  **헤더 이름**  | **필수** |  **설명**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  콘텐츠 형식     | True         | 요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다.  |
-|  |  |  |
+|  속성 이름     |  필요한 공간         |  설명 |
+|  ---------------   |  ---------------  | ------------ |
+|  `grant-type`      |  True      |  권한 부여 유형입니다. 대신 `"client_credentials"`를 |
+|  `client_id`       |  True      |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다. |
+|  `client_secret`   |  True      |  Azure AD 앱과 연결 된 암호입니다. |
+|  `resource`        |  True      |  토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`이 경우 Marketplace SAAS API는 항상 대상 리소스 이므로를 사용 합니다. |
 
+##### <a name="response"></a>*응답*
 
-*요청 본문*
+|  이름     |  Type         |  설명 |
+|  ------   |  ---------------  | ------------ |
+|  200 정상   |  TokenResponse    |  요청이 성공했습니다. |
 
-| **속성 이름**   | **필수** |  **설명**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | 권한 부여 유형입니다. 기본값은 `client_credentials`입니다.                    |
-|  Client_id          | True         |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.                  |
-|  client_secret      | True         |  Azure AD 앱과 연결된 암호입니다.                               |
-|  리소스           | True         |  토큰이 요청된 대상 리소스입니다. 기본값은 `62d94f6c-d599-489b-a797-3e10e42fbe22`입니다. |
-|  |  |  |
+##### <a name="tokenresponse"></a>*TokenResponse*
 
+샘플 응답:
 
-*응답*
-
-|  **Name**  | **형식**       |  **설명**    |
-| ---------- | -------------  | ------------------- |
-| 200 정상    | TokenResponse  | 요청 성공   |
-|  |  |  |
-
-*TokenResponse*
-
-샘플 응답 토큰:
-
-``` json
-  {
+```json
+{
       "token_type": "Bearer",
       "expires_in": "3600",
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
+      "resource": "20e940b3-4c77-4b0b-9a53-9e16a1b010a7",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
+  }
 ```
+
+`"access_token"`응답의 필드 값은 `<access_token>` 모든 SaaS 행 및 마켓플레이스 계량 api를 호출할 때 권한 부여 매개 변수로 전달할입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892447"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963443"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Application Insights에서 사용자 흐름을 사용하여 사용자 탐색 패턴 분석
 
-![Application Insights 사용자 흐름 도구](./media/usage-flows/00001-flows.png)
+![Application Insights 사용자 흐름 도구](./media/usage-flows/flows.png)
 
 사용자 흐름 도구는 페이지와 웹앱의 기능 간에 사용자가 탐색하는 방법을 시각화합니다. 다음과 같은 질문에 대답할 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "80892447"
 
 ## <a name="start-by-choosing-an-initial-event"></a>초기 이벤트를 선택하여 시작
 
-![사용자 흐름에 대한 초기 이벤트 선택](./media/usage-flows/00002-flows-initial-event.png)
+![사용자 흐름에 대한 초기 이벤트 선택](./media/usage-flows/initial-event.png)
 
 사용자 흐름 도구로 질문에 답변을 시작하려면 시각화의 시작점으로 사용할 초기 페이지 보기, 사용자 지정 이벤트 또는 예외를 선택합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "80892447"
 
 ## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>페이지 또는 기능을 방문한 후에 사용자가 어디로 이동하고 어떤 항목을 클릭하나요?
 
-![사용자 흐름을 사용하여 사용자가 클릭하는 위치 이해](./media/usage-flows/00003-flows-one-step.png)
+![사용자 흐름을 사용하여 사용자가 클릭하는 위치 이해](./media/usage-flows/one-step.png)
 
 초기 이벤트가 페이지 보기인 경우 시각화의 첫 번째 열("1단계")은 페이지를 방문한 직후 사용자가 수행하는 작업을 신속하게 이해하는 방법입니다. 사용자 흐름 시각화 옆에 있는 창에서 사이트를 열어 보세요. 사용자가 "1단계" 열에 있는 이벤트 목록의 페이지와 상호 작용하는 방법을 예상과 비교합니다. 종종 팀에서 불필요해 보이는 페이지의 UI 요소가 페이지에서 가장 많이 사용될 수 있습니다. 사이트의 설계 향상을 위한 시작점으로 적당할 수 있습니다.
 

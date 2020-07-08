@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "61244232"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964756"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법 
 
@@ -408,9 +408,12 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 * 인코딩 작업을 만듭니다.
 * 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
 * 미리 보기를 생성하는 데 필요한 정보 및 Encoding 기본 설정이 포함된 기본 설정 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 또는 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)을 로드합니다. 이 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 또는 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * 작업에 단일 인코딩을 추가합니다. 
 * 인코딩할 입력 자산을 지정합니다.
 * 인코딩된 자산을 포함하는 출력 자산을 만듭니다.

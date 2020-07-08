@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c0e4d281880b3870c81352efca146ece7100be74
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67059213"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964314"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Webhooks 또는 [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)를 사용하여 Media Services 작업 알림을 모니터링할 수 있습니다 이 문서에서는 웹후크를 사용하는 방법을 보여 줍니다.
 
@@ -46,8 +46,8 @@ ms.locfileid: "67059213"
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-* Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
-* Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조 하세요.
+* Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * [Azure Functions 사용 방법](../../azure-functions/functions-overview.md)이해 또한 [Azure Functions HTTP 및 웹후크 바인딩](../../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
@@ -64,7 +64,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 |이름|정의|예제| 
 |---|---|---|
 |SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
+|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https: \/ /juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
 
 ## <a name="create-a-function"></a>함수 만들기
 
@@ -75,7 +75,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 3. **제네릭 웹후크 - C#** 을 선택합니다.
 4. 웹후크에 이름을 지정하고 **만들기**를 누릅니다.
 
-### <a name="files"></a>파일
+### <a name="files"></a>Files
 
 Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연결됩니다. 기본적으로 함수는 **function.json** 및 **run.csx**(C#) 파일과 연결됩니다. **project.json** 파일을 추가해야 합니다. 이 섹션의 나머지 부분에서는 이러한 파일의 정의를 보여 줍니다.
 
@@ -354,25 +354,27 @@ internal sealed class NotificationMessage
 
 웹후크가 트리거되면 위의 예제는 다음과 같이 출력되고 사용자의 값이 달라집니다.
 
-    C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
-    Request Body = 
-    {
-      "MessageVersion": "1.1",
-      "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
-      "EventType": 4,
-      "TimeStamp": "2017-02-16T03:59:53.3041122Z",
-      "Properties": {
-        "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
-        "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
-        "NewState": "Finished",
-        "OldState": "Processing",
-        "AccountName": "mediapkeewmg5c3peq",
-        "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
-        "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
-      }
-    }
-    
-    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```output
+C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/otification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
+Request Body = 
+{
+  "MessageVersion": "1.1",
+  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
+  "EventType": 4,
+  "TimeStamp": "2017-02-16T03:59:53.3041122Z",
+  "Properties": {
+    "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
+    "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
+    "NewState": "Finished",
+    "OldState": "Processing",
+    "AccountName": "mediapkeewmg5c3peq",
+    "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
+    "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
+  }
+}
+
+URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```
 
 ## <a name="add-a-webhook-to-your-encoding-task"></a>인코딩 작업에 웹후크 추가
 

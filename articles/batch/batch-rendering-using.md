@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5a37ebba7dd0622db7e76ecef1c3eda24d72b27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726403"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965249"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
@@ -19,8 +19,8 @@ ms.locfileid: "83726403"
 * API:
   * Batch API 중 하나를 사용하여 코드를 작성합니다.  개발자는 클라우드나 온-프레미스 여부에 관계없이 Azure Batch 기능을 기존 애플리케이션이나 워크플로에 통합할 수 있습니다.
 * 명령줄 도구:
-  * [Azure 명령줄](https://docs.microsoft.com/cli/azure/) 또는 [PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
-  * 특히 [Batch CLI 템플릿 지원](https://docs.microsoft.com/azure/batch/batch-cli-templates)을 사용하면 풀을 만들고 작업을 제출하는 것이 훨씬 쉽습니다.
+  * [Azure 명령줄](/cli/azure/) 또는 [PowerShell](/powershell/azure/overview)을 사용하여 Batch 사용을 스크립트로 작성할 수 있습니다.
+  * 특히 [Batch CLI 템플릿 지원](./batch-cli-templates.md)을 사용하면 풀을 만들고 작업을 제출하는 것이 훨씬 쉽습니다.
 * Batch Explorer UI:
   * [Batch Explorer](https://github.com/Azure/BatchLabs)는 Batch 계정의 관리 및 모니터를 지원하는 플랫폼 간 클라이언트 도구입니다.
   * 각각의 렌더링 애플리케이션에 대해 간편하게 풀을 만들고 작업을 제출하는 데 사용할 수 잇는 많은 풀과 작업 템플릿이 제공됩니다.  템플릿 집합은 GitHub에서 액세스할 수 있는 템플릿 파일과 함께 애플리케이션 UI에 나열됩니다.
@@ -32,7 +32,7 @@ ms.locfileid: "83726403"
 
 ## <a name="using-batch-explorer"></a>Batch Explorer 사용
 
-Batch Explorer를 사용하여 렌더링을 수행하는 단계별 자습서는 [Blender 자습서](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)를 참조하세요.
+Batch Explorer를 사용하여 렌더링을 수행하는 단계별 자습서는 [Blender 자습서](./tutorial-rendering-batchexplorer-blender.md)를 참조하세요.
 
 ### <a name="download-and-install"></a>다운로드 및 설치
 
@@ -65,5 +65,5 @@ Batch Explorer의 '데이터' 섹션을 통해 로컬 파일 시스템과 Azure 
 
 Batch 렌더링 예제는 다음 두 자습서를 사용해 보세요.
 
-* [Azure CLI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Batch ExplorerI를 사용한 렌더링](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Azure CLI를 사용한 렌더링](./tutorial-rendering-cli.md)
+* [Batch ExplorerI를 사용한 렌더링](./tutorial-rendering-batchexplorer-blender.md)

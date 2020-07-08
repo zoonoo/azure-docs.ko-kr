@@ -4,12 +4,12 @@ description: Batch 작업 및 태스크의 출력 데이터를 유지하기 위�
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726301"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965113"
 ---
 # <a name="persist-job-and-task-output"></a>작업 및 태스크 출력 유지
 
@@ -35,7 +35,7 @@ ms.locfileid: "83726301"
 
 ### <a name="use-the-batch-service-api"></a>Batch 서비스 API 사용
 
-Batch 서비스는 [태스크를 작업에 추가](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job)하거나 [태스크의 컬렉션을 작업에 추가](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job)할 때 태스크 데이터에 대한 Azure Storage의 출력 파일을 지정하도록 지원합니다.
+Batch 서비스는 [태스크를 작업에 추가](/rest/api/batchservice/add-a-task-to-a-job)하거나 [태스크의 컬렉션을 작업에 추가](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job)할 때 태스크 데이터에 대한 Azure Storage의 출력 파일을 지정하도록 지원합니다.
 
 Batch 서비스 API를 사용하여 태스크 출력을 유지하는 방법에 대한 자세한 내용은 [Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지](batch-task-output-files.md)를 참조하세요.
 

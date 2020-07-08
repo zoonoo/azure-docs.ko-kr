@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 24ba593a56d4d12211d10f143261caaf6d901bfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725876"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964671"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
@@ -124,6 +124,6 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 
 ## <a name="next-step"></a>다음 단계
 
-SAS URI를 만드는 데 문제가 있는 경우 [일반적인 SAS URL 문제](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues)를 참조하세요. 그렇지 않으면 나중에 사용할 수 있도록 안전한 위치에 SAS URI를 저장합니다. 파트너 센터에서 VM 제품을 게시하는 데 필요합니다.
+SAS URI를 만드는 데 문제가 있는 경우 [일반적인 SAS URL 문제](common-sas-uri-issues.md)를 참조하세요. 그렇지 않으면 나중에 사용할 수 있도록 안전한 위치에 SAS URI를 저장합니다. 파트너 센터에서 VM 제품을 게시하는 데 필요합니다.
 
-* [Azure 가상 머신 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer)
+* [Azure 가상 머신 제품 만들기](azure-vm-create-offer.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670562"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963243"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -34,10 +34,10 @@ MySQL 인증 파일은 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-aut
 ### <a name="authentication-file-format"></a>인증 파일 형식
 다음은 MySQL OMI 인증 파일의 형식입니다.
 
-    [Port]=[Bind-Address], [username], [Base64 encoded Password]
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    AutoUpdate=[true|false]
+> [포트] = [바인딩-주소], [사용자 이름], [Base64 인코딩 암호]  
+> (포트) = (바인딩-주소), (사용자 이름), (Base64 인코딩 암호)  
+> (포트) = (바인딩-주소), (사용자 이름), (Base64 인코딩 암호)  
+> 자동 업데이트 = [true | false]  
 
 인증 파일의 항목은 다음 테이블에 설명되어 있습니다.
 
@@ -45,7 +45,7 @@ MySQL 인증 파일은 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-aut
 |:--|:--|
 | 포트 | MySQL 인스턴스가 수신 대기 중인 현재 포트를 나타냅니다. 포트 0은 뒤에 나오는 속성이 기본 인스턴스에 사용된다는 것을 지정합니다. |
 | 바인딩 주소| 현재 MySQL 바인딩-주소입니다. |
-| username| MySQL 서버 인스턴스를 모니터링하는 데 사용되는 MySQL 사용자입니다. |
+| 사용자 이름| MySQL 서버 인스턴스를 모니터링하는 데 사용되는 MySQL 사용자입니다. |
 | Base64로 인코딩된 암호| Base64로 인코딩된 MySQL 모니터링 사용자의 암호입니다. |
 | AutoUpdate| MySQL OMI 공급자가 업그레이드되면 my.cnf 파일에서 변경 내용을 검색하고 MySQL OMI 인증 파일을 덮어쓸지 여부를 지정합니다. |
 
@@ -54,7 +54,7 @@ MySQL OMI 인증 파일은 하나의 Linux 호스트에서 여러 MySQL 인스�
 
 다음 테이블에는 예제 인스턴스 설정이 있습니다. 
 
-| Description | 파일 |
+| 설명 | 파일 |
 |:--|:--|
 | 기본 인스턴스 및 포트 3308의 인스턴스입니다. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | 기본 인스턴스 및 포트 3308의 인스턴스, 다른 사용자 이름 및 암호입니다. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -63,14 +63,14 @@ MySQL OMI 인증 파일은 하나의 Linux 호스트에서 여러 MySQL 인스�
 ### <a name="mysql-omi-authentication-file-program"></a>MySQL OMI 인증 파일 프로그램
 MySQL OMI 공급자의 설치에 포함된 것은 MySQL OMI 인증 파일 편집에 사용할 수 있는 MySQL OMI 인증 파일 프로그램입니다. 다음 위치에서 인증 파일 프로그램을 찾을 수 있습니다.
 
-    /opt/microsoft/mysql-cimprov/bin/mycimprovauth
+`/opt/microsoft/mysql-cimprov/bin/mycimprovauth`
 
 > [!NOTE]
 > 자격 증명 파일은 omsagent 계정이 읽을 수 있어야 합니다. omsgent로 mycimprovauth 명령을 실행하는 것이 좋습니다.
 
 다음 테이블에서 mycimprovauth 사용에 대한 구문의 세부 정보를 제공합니다.
 
-| 작업(Operation) | 예제 | 설명
+| 연산 | 예제 | 설명
 |:--|:--|:--|
 | autoupdate *false or true* | mycimprovauth autoupdate false | 다시 시작 또는 업데이트 시 인증 파일이 자동으로 업데이트될지 여부를 설정합니다. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | MySQL OMI 인증 파일에서 기본 인스턴스를 설정합니다.<br>암호 필드는 일반 텍스트로 입력되어야 하며 MySQL OMI 인증 파일의 암호는 Base 64로 인코딩됩니다. |
@@ -81,15 +81,18 @@ MySQL OMI 공급자의 설치에 포함된 것은 MySQL OMI 인증 파일 편집
 
 다음 예제 명령은 localhost에서 MySQL 서버의 기본 사용자 계정을 정의합니다.  암호 필드는 일반 텍스트로 입력되어야 하며 MySQL OMI 인증 파일의 암호는 Base 64로 인코딩됩니다.
 
-    sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
-    sudo /opt/omi/bin/service_control restart
+```console
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo /opt/omi/bin/service_control restart
+```
 
 ### <a name="database-permissions-required-for-mysql-performance-counters"></a>MySQL 성능 카운터에 필요한 데이터베이스 권한
 MySQL 사용자는 MySQL 서버 성능 데이터를 수집하기 위해 다음 쿼리에 대한 액세스가 필요합니다. 
 
-    SHOW GLOBAL STATUS;
-    SHOW GLOBAL VARIABLES:
-
+```sql
+SHOW GLOBAL STATUS;
+SHOW GLOBAL VARIABLES:
+```
 
 또한 MySQL 사용자는 다음 기본 테이블에 대한 SELECT 액세스가 필요합니다.
 
@@ -98,9 +101,10 @@ MySQL 사용자는 MySQL 서버 성능 데이터를 수집하기 위해 다음 �
 
 이러한 권한은 다음과 같은 권한 부여 명령을 실행하여 부여될 수 있습니다.
 
-    GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
-    GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
-
+```sql
+GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
+```
 
 > [!NOTE]
 > MySQL 모니터링 사용자에게 권한을 부여하려면, 권한을 부여하는 사용자에게 'GRANT option' 권한은 물론 부여되는 권한에 대한 권한이 있어야 합니다.
@@ -132,12 +136,14 @@ Azure Monitor에 데이터를 보내도록 Linux용 Log Analytics 에이전트�
 
 ## <a name="apache-http-server"></a>Apache HTTP 서버 
 omsagent 번들이 설치된 경우 컴퓨터에서 Apache HTTP 서버가 감지되면, Apache HTTP 서버용 성능 모니터링 공급자가 자동으로 설치됩니다. 이 공급자는 성능 데이터에 액세스하기 위해 Apache HTTP 서버에 로드되어야 하는 Apache 모듈에 의존합니다. 모듈은 다음 명령을 사용하여 로드될 수 있습니다.
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
 Apache 모니터링 모듈을 언로드하려면, 다음 명령을 실행합니다.
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 

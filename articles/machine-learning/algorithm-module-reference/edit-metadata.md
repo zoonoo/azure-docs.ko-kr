@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064250"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965011"
 ---
 # <a name="edit-metadata-module"></a>메타 데이터 모듈 편집
 
@@ -34,7 +34,7 @@ ms.locfileid: "80064250"
   
 + 열 이름 바꾸기
   
- 일반적으로 다운스트림 모듈의 요구 사항을 충족 하기 위해 열의 정의를 수정 해야 하는 경우 언제 든 지 메타 데이터 편집을 사용 합니다. 예를 들어 일부 모듈은 특정 데이터 형식 에서만 작동 하거나 또는 `IsFeature` `IsCategorical`와 같은 열에 플래그를 요구 합니다.  
+ 일반적으로 다운스트림 모듈의 요구 사항을 충족 하기 위해 열의 정의를 수정 해야 하는 경우 언제 든 지 메타 데이터 편집을 사용 합니다. 예를 들어 일부 모듈은 특정 데이터 형식 에서만 작동 하거나 또는와 같은 열에 플래그를 요구 `IsFeature` 합니다 `IsCategorical` .  
   
  필요한 작업을 수행한 후 메타 데이터를 원래 상태로 다시 설정할 수 있습니다.
   
@@ -55,7 +55,8 @@ ms.locfileid: "80064250"
     + 메타 데이터 편집 작업을 수행한 후 열 유형 및 값이 변경 됩니다. 메타 데이터 편집을 사용 하 여 열 데이터 형식을 다시 설정 하 여 언제 든 지 원래 데이터 형식을 복구할 수 있습니다.  
 
     > [!NOTE]
-    > 숫자 형식을 **datetime** 형식으로 변경 하는 경우 **datetime 형식** 필드를 비워 둡니다. 현재 대상 데이터 형식은 지정할 수 없습니다.  
+    > **Datetime 형식은** [Python 기본 제공 datetime 형식을](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior)따릅니다.  
+    > 숫자 형식을 **datetime** 형식으로 변경 하는 경우 **datetime 형식** 필드를 비워 둡니다. 현재 대상 데이터 형식은 지정할 수 없습니다.
 
 1. 선택 된 열의 값을 범주로 처리 하도록 지정 하려면 **범주 옵션을** 선택 합니다.
 
@@ -94,8 +95,8 @@ ms.locfileid: "80064250"
   
     + 선택한 모든 열의 이름을 변경 해야 합니다. 열을 생략 하거나 건너뛸 수 없습니다.  
   
-1. 파이프라인을 제출 합니다.  
+1. 파이프라인을 제출합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

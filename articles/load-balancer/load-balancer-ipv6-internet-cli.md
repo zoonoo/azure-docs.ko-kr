@@ -8,18 +8,18 @@ author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: bff6a7ca6eb1a6859ec25d488f564c66946a780b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03bedba280fca4c051685eabdfa47eaaf00f05d3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045418"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963328"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
@@ -199,43 +199,45 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
     예상 출력:
 
-        info:    Executing command network lb show
-        info:    Looking up the load balancer "myIPv4IPv6Lb"
-        data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/pscontosorg1southctrlus09152016/providers/Microsoft.Network/loadBalancers/myIPv4IPv6Lb
-        data:    Name                            : myIPv4IPv6Lb
-        data:    Type                            : Microsoft.Network/loadBalancers
-        data:    Location                        : southcentralus
-        data:    Provisioning state              : Succeeded
-        data:
-        data:    Frontend IP configurations:
-        data:    Name             Provisioning state  Private IP allocation  Private IP   Subnet  Public IP
-        data:    ---------------  ------------------  ---------------------  -----------  ------  ---------
-        data:    FrontendVipIPv4  Succeeded           Dynamic                                     myIPv4Vip
-        data:    FrontendVipIPv6  Succeeded           Dynamic                                     myIPv6Vip
-        data:
-        data:    Probes:
-        data:    Name                 Provisioning state  Protocol  Port  Path  Interval  Count
-        data:    -------------------  ------------------  --------  ----  ----  --------  -----
-        data:    ProbeForIPv4AndIPv6  Succeeded           Tcp       80          15        2
-        data:
-        data:    Backend Address Pools:
-        data:    Name             Provisioning state
-        data:    ---------------  ------------------
-        data:    BackendPoolIPv4  Succeeded
-        data:    BackendPoolIPv6  Succeeded
-        data:
-        data:    Load Balancing Rules:
-        data:    Name                  Provisioning state  Load distribution  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes
-        data:    --------------------  ------------------  -----------------  --------  -------------  ------------  ------------------  -----------------------
-        data:    LBRuleForIPv4-Port80  Succeeded           Default            Tcp       80             80            false               4
-        data:    LBRuleForIPv6-Port80  Succeeded           Default            Tcp       80             8080          false               4
-        data:
-        data:    Inbound NAT Rules:
-        data:    Name                 Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes
-        data:    -------------------  ------------------  --------  -------------  ------------  ------------------  -----------------------
-        data:    NatRule-For-Rdp-VM1  Succeeded           Tcp       3389           3389          false               4
-        data:    NatRule-For-Rdp-VM2  Succeeded           Tcp       3391           3389          false               4
-        info:    network lb show
+    ```output
+    info:    Executing command network lb show
+    info:    Looking up the load balancer "myIPv4IPv6Lb"
+    data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/pscontosorg1southctrlus09152016/providers/Microsoft.Network/loadBalancers/myIPv4IPv6Lb
+    data:    Name                            : myIPv4IPv6Lb
+    data:    Type                            : Microsoft.Network/loadBalancers
+    data:    Location                        : southcentralus
+    data:    Provisioning state              : Succeeded
+    data:
+    data:    Frontend IP configurations:
+    data:    Name             Provisioning state  Private IP allocation  Private IP   Subnet  Public IP
+    data:    ---------------  ------------------  ---------------------  -----------  ------  ---------
+    data:    FrontendVipIPv4  Succeeded           Dynamic                                     myIPv4Vip
+    data:    FrontendVipIPv6  Succeeded           Dynamic                                     myIPv6Vip
+    data:
+    data:    Probes:
+    data:    Name                 Provisioning state  Protocol  Port  Path  Interval  Count
+    data:    -------------------  ------------------  --------  ----  ----  --------  -----
+    data:    ProbeForIPv4AndIPv6  Succeeded           Tcp       80          15        2
+    data:
+    data:    Backend Address Pools:
+    data:    Name             Provisioning state
+    data:    ---------------  ------------------
+    data:    BackendPoolIPv4  Succeeded
+    data:    BackendPoolIPv6  Succeeded
+    data:
+    data:    Load Balancing Rules:
+    data:    Name                  Provisioning state  Load distribution  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes
+    data:    --------------------  ------------------  -----------------  --------  -------------  ------------  ------------------  -----------------------
+    data:    LBRuleForIPv4-Port80  Succeeded           Default            Tcp       80             80            false               4
+    data:    LBRuleForIPv6-Port80  Succeeded           Default            Tcp       80             8080          false               4
+    data:
+    data:    Inbound NAT Rules:
+    data:    Name                 Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes
+    data:    -------------------  ------------------  --------  -------------  ------------  ------------------  -----------------------
+    data:    NatRule-For-Rdp-VM1  Succeeded           Tcp       3389           3389          false               4
+    data:    NatRule-For-Rdp-VM2  Succeeded           Tcp       3391           3389          false               4
+    info:    network lb show
+    ```
 
 ## <a name="create-nics"></a>NIC 만들기
 
@@ -282,7 +284,7 @@ VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 
     ```
 
     > [!WARNING]
-    > 이 예제에서는 일반 텍스트인 VM의 사용자 이름 및 비밀번호를 사용합니다. 일반 텍스트인 이러한 자격 증명을 사용할 경우 적절한 조치를 취합니다. PowerShell에서 자격 증명을 처리 하는 보다 안전한 방법은 [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 참조 하세요.
+    > 이 예제에서는 일반 텍스트인 VM의 사용자 이름 및 비밀번호를 사용합니다. 일반 텍스트인 이러한 자격 증명을 사용할 경우 적절한 조치를 취합니다. PowerShell에서 자격 증명을 처리 하는 보다 안전한 방법은 cmdlet을 참조 하세요 [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) .
 
 2. 가용성 집합을 만듭니다.
 

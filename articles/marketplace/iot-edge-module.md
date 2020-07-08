@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 49f86a79eb5358d27c15d93004db396436c3e680
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9783eb1dbcbfc3ee01008dfa33ff2429a87cf62a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657963"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963379"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -30,7 +30,7 @@ ms.locfileid: "83657963"
 
 ## <a name="what-is-an-iot-edge-module"></a>IoT Edge 모듈 소개
 
-Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 모듈 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules)를 참조하세요.
+Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 모듈 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](../iot-edge/iot-edge-modules.md)를 참조하세요.
 
 **컨테이너 제품 유형과 IoT Edge 모듈 제품 유형 간의 차이점**
 
@@ -40,7 +40,7 @@ IoT Edge 모듈 제품 유형은 IoT Edge 디바이스에서 실행되는 특정
 
 **적절한 상점 선택**
 
-IoT Edge 모듈은 Azure Marketplace에만 게시되며 AppSource는 적용되지 않습니다.  상점 간의 차이점과 각 상점의 대상 사용자에 대한 자세한 내용은 [솔루션 게시 옵션 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)을 참조하세요.
+IoT Edge 모듈은 Azure Marketplace에만 게시되며 AppSource는 적용되지 않습니다.  상점 간의 차이점과 각 상점의 대상 사용자에 대한 자세한 내용은 [솔루션 게시 옵션 결정](determine-your-listing-type.md)을 참조하세요.
  
 **청구 옵션**
 
@@ -48,7 +48,7 @@ Marketplace는 현재 IoT Edge 모듈에 대해 **무료** 하 고 **BYOL(Bring 
  
 **게시 옵션**
 
-모든 경우에 IoT Edge 모듈은 **거래** 게시 옵션을 선택해야 합니다.  게시 옵션에 대한 자세한 내용은 [게시 옵션 선택](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)을 참조하세요.  
+모든 경우에 IoT Edge 모듈은 **거래** 게시 옵션을 선택해야 합니다.  게시 옵션에 대한 자세한 내용은 [게시 옵션 선택](determine-your-listing-type.md)을 참조하세요.  
 
 ## <a name="eligibility-criteria"></a>자격 기준
 
@@ -58,7 +58,7 @@ IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 �
 
 IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
-- 파트너 센터에 액세스합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)를 참조하세요.
+- 파트너 센터에 액세스합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](marketplace-publishers-guide.md)를 참조하세요.
 - Azure Container Registry에서 IoT Edge 모듈 호스팅 
 - 다음과 같은 IoT Edge 모듈 메타데이터 준비(아래 목록에는 일부 메타데이터만 나와 있음) 
     - 제목

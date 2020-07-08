@@ -2,17 +2,17 @@
 title: CloudEvents 스키마에서 이벤트에 Azure Event Grid 사용
 description: Azure Event Grid에서 이벤트에 CloudEvents 스키마를 사용하는 방법을 설명합니다. 이 서비스는 클라우드 이벤트의 JSON 구현에서 이벤트를 지원합니다.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: b62122e7ce981a73fe8b8b3028c123054e16330d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 734ab15819437266b7bf12e3adfc960f7480325a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847602"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963396"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v1.0 스키마 사용
 [기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents v1.0의 JSON 구현](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)의 이벤트를 지원합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
@@ -188,7 +188,7 @@ HTTP 트리거에 대한 다음 샘플 JavaScript 코드는 Event Grid 트리거
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
     
-    if (req.method == "OPTIONS) {
+    if (req.method == "OPTIONS") {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
@@ -214,5 +214,5 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>다음 단계
 
 * 이벤트 배달 모니터링에 대한 정보는 [Event Grid 메시지 배달 모니터링](monitor-event-delivery.md)을 참조하세요.
-* CloudEvents를 테스트하고 주석을 달고 [참여](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md)할 것을 권장합니다.
+* CloudEvents를 테스트하고 주석을 달고 [참여](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md)할 것을 권장합니다.
 * Azure Event Grid 구독을 만드는 방법에 대한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조하세요.

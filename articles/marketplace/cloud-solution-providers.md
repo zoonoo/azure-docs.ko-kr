@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 633656af72790c7dfebeee567713875ce0d609b4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798144"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964212"
 ---
 # <a name="cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램
 
-이 문서에서는 CSP(클라우드 솔루션 공급자) 프로그램에서 사용할 수 있도록 제품을 구성하는 방법을 설명합니다. [상업용 마켓플레이스 웹 상점](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)을 통한 제품 게시 외에도 CSP 프로그램을 통한 판매로 프로그램에서 서비스하는 유자격 Microsoft 고객에게 접근할 수도 있습니다.
+이 문서에서는 CSP(클라우드 솔루션 공급자) 프로그램에서 사용할 수 있도록 제품을 구성하는 방법을 설명합니다. [상업용 마켓플레이스 웹 상점](comparing-appsource-azure-marketplace.md)을 통한 제품 게시 외에도 CSP 프로그램을 통한 판매로 프로그램에서 서비스하는 유자격 Microsoft 고객에게 접근할 수도 있습니다.
 
 옵트인 기반으로 CSP 프로그램에서 사용할 수 있게 신규 또는 기존 제품을 구성할 수 있어 CSP 파트너가 제품을 판매하고 고객을 위한 번들 솔루션을 만들 수 있습니다.
 
@@ -191,7 +191,7 @@ Microsoft Cloud 파트너 포털에서 CSP 채널에 옵트인한 경우 게시�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Marketplace 및 AppSource 게시자 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)를 방문합니다.
+[Azure Marketplace 및 AppSource 게시자 가이드](marketplace-publishers-guide.md)를 방문합니다.
 
 마켓플레이스 GTM 서비스에 대해 자세히 알아보려면 [Go-To-Market 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 82e131b0e6209089b658c622b415e997b40e9e4b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837841"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964654"
 ---
 # <a name="power-bi-app-creation-overview"></a>Power BI 앱 만들기 개요
 
@@ -20,11 +20,11 @@ ms.locfileid: "82837841"
 
 ## <a name="publishing-benefits"></a>게시 이점
 
-상용 marketplace에 게시할 경우의 이점:
+상업용 마켓플레이스에 게시할 경우의 이점:
 
-- Microsoft 브랜드를 사용 하 여 회사를 홍보 하세요.
-- Azure Marketplace를 통해 AppSource 및 20만 조직에서 1억 개 이상의 Office 365 및 Dynamics 365 사용자에 게 도달할 수 있습니다.
-- 이러한 마켓플레이스에서 고품질 리드를 받습니다.
+- Microsoft 브랜드를 활용하여 회사를 홍보할 수 있습니다.
+- 잠재적으로 AppSource의 Office 365 및 Dynamics 365 사용자는 1억 명이 넘고, Azure Marketplace를 사용하는 조직은 200,000곳이 넘습니다.
+- 이러한 마켓플레이스에서 우량 잠재 고객을 확보할 수 있습니다.
 - Microsoft 필드 및 전화 영업 팀이 서비스를 승격 합니다.
 
 ## <a name="overview"></a>개요
@@ -66,16 +66,16 @@ ms.locfileid: "82837841"
 2. Power BI에서 앱을 만들고 테스트 합니다.
 3. 앱 설치 웹 주소를 받으면 파트너 센터의 **기술 구성** 페이지에 추가 합니다.
 
-Power BI에서 앱을 만들고 테스트 한 후에는 응용 프로그램 설치 웹 주소를 저장 하 여 [Power BI 앱 제품을 만드는](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)데 필요 합니다.
+Power BI에서 앱을 만들고 테스트 한 후에는 응용 프로그램 설치 웹 주소를 저장 하 여 [Power BI 앱 제품을 만드는](create-power-bi-app-offer.md)데 필요 합니다.
 
 ### <a name="business-requirements"></a>비즈니스 요구 사항
 
 비즈니스 요구 사항에는 절차적, 계약 및 법적 의무가 포함 됩니다. 다음이 필요합니다.
 
-- 등록 된 상용 마켓플레이스 게시자 여야 합니다. 등록 되지 않은 경우에는 [상업적 마켓플레이스 게시자가 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)위한 단계를 수행 하세요.
+- 등록 된 상용 마켓플레이스 게시자 여야 합니다. 등록 하지 않은 경우 [파트너 센터에서 상용 마켓플레이스 계정 만들기](create-account.md)의 단계를 따릅니다.
 - AppSource에 나열 되는 제품에 대 한 기준을 충족 하는 콘텐츠를 제공 합니다. 자세한 내용은 [AppSource에서 앱을 나열할 수 있나요?를 참조 하세요. 방법은 다음과 같습니다](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - [Microsoft 개인 정보 취급 방침](https://privacy.microsoft.com/privacystatement)에 동의 하 고 다음을 수행 합니다.
 
 ## <a name="next-step"></a>다음 단계
 
-- [파트너 센터에서 Power BI 앱 제안 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)
+- [파트너 센터에서 Power BI 앱 제안 만들기](create-power-bi-app-offer.md)

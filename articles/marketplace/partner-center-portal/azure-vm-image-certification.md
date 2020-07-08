@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 63f18556847a717322b00092b973f59877102a1d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726148"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963906"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Azure VM(가상 머신) 이미지 인증
 
@@ -649,4 +649,4 @@ Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azu
 
 ## <a name="next-step"></a>다음 단계
 
-- [각 VHD에 대한 URI(Uniform Resource Identifier) 생성](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [일반적인 SAS URI 문제 및 수정](common-sas-uri-issues.md)

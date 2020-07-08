@@ -1,5 +1,5 @@
 ---
-title: Microsoft Business Applications ISV (독립 소프트웨어 공급 업체) 연결 프로그램 온 보 딩 가이드
+title: Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 description: Business Applications ISV Connect 프로그램에 등록 하는 방법은 다음과 같습니다.
 author: qianw211
 ms.service: marketplace
@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: dsindona
-ms.openlocfilehash: f7fd3f43c7faddb5481411dc9c4c94864b6dc0b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80288974"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964892"
 ---
-# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft Business Applications ISV (독립 소프트웨어 공급 업체) 연결 프로그램 온 보 딩 가이드
+# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 
 [BUSINESS APPLICATIONS Isv 연결 프로그램](https://partner.microsoft.com/solutions/business-applications/isv-overview) 은 *Dynamics 365 고객 참여 및 PowerApps* ("dynamics CE 제품") 또는 *dynamics 365 재무 및 작업* ("dynamics Ops 제안")을 사용 하 여 클라우드 기반의 최신 LOB (기간 업무) 솔루션을 빌드하는 isv (독립 소프트웨어 공급 업체)의 증가 및 전반적인 성공을 가속화 하는 데 목적이 있습니다. 이를 포함 하는 방법은 다음과 같습니다.
 
@@ -43,7 +43,7 @@ Dynamics CE 또는 Dynamics Ops 제안을 이미 게시 한 경우 대부분의 
 1. [Cloud 파트너 포털](https://cloudpartner.azure.com/)의 **게시자 프로필** 페이지에 로그인 합니다.
 2. 계정 설정이 파트너 센터로 마이그레이션 되었음을 보여 주는 배너가 표시 되 면 다음 섹션을 계속 진행 합니다. 그렇지 않으면 파트너 센터 계정을 활성화 하 라는 메시지를 표시 하는 배너를 선택 합니다.
 
-자세한 내용은 [Cloud 파트너 포털에서 파트너 센터로 계정 마이그레이션](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)을 참조 하세요.
+자세한 내용은 [Cloud 파트너 포털에서 파트너 센터로 계정 마이그레이션](../partner-center-portal/account-migration-from-cpp-to-pc.md)을 참조 하세요.
 
 ## <a name="accept-the-business-applications-isv-program-addendum"></a>Business Applications ISV 프로그램 추 록에 동의 합니다.
 
@@ -67,7 +67,7 @@ Dynamics CE 또는 Dynamics Ops 제안을 이미 게시 한 경우 대부분의 
 > [!NOTE]
 > 이 단계를 수행 하려면 계정에서 청구 정보를 업데이트 하기 위한 파트너 센터의 *소유자* 또는 *관리자* 역할이 필요 합니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인 합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
 
 2. *설정* (기어) 아이콘을 선택 하 고 **개발자 설정**을 선택 합니다.
 
@@ -88,7 +88,7 @@ Dynamics CE 또는 Dynamics Ops 제안을 이미 게시 한 경우 대부분의 
 Business Applications ISV Connect 프로그램에서 등록을 위한 마지막 단계는 기존 응용 프로그램을 recertifying는 것입니다.
 
 1. 응용 프로그램을 AppSource로 다시 인증할 [다음 단계를 수행](https://partner.microsoft.com/solutions/business-applications/isv-publish) 합니다.
-2. [새 제품을 만들고 게시](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer)합니다. 이 제품은 완전히 새로운 제품 이며 기존 항목을 대체 하지 않습니다.
+2. [새 제품을 만들고 게시](../partner-center-portal/create-new-customer-engagement-offer.md)합니다. 이 제품은 완전히 새로운 제품 이며 기존 항목을 대체 하지 않습니다.
 
 ## <a name="further-info"></a>추가 정보
 

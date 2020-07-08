@@ -3,12 +3,12 @@ title: Azure Batch 태스크 시작 이벤트
 description: Batch 태스크 시작 이벤트에 대한 참조 정보입니다. 이 이벤트는 Scheduler가 컴퓨팅 노드에서 태스크를 시작하도록 예약하면 내보내집니다.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: f872e6c89e2f528729ae08125c6cc3eb5718e19a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: ed7b3014279fc87fbaae6f1c270f056e95073aaf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725791"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965096"
 ---
 # <a name="task-start-event"></a>태스크 시작 이벤트
 
@@ -46,7 +46,7 @@ ms.locfileid: "83725791"
 |`taskType`|String|태스크의 유형입니다. 이는 작업 관리자 태스크를 나타내는 'JobManager' 또는 작업 관리자 태스크가 아님을 나타내는 'User'가 될 수 있습니다.|
 |`systemTaskVersion`|Int32|태스크에 대한 내부 재시도 카운터입니다. 내부적으로 Batch 서비스는 일시적인 문제를 해결하기 위해 태스크를 다시 시도할 수 있습니다. 이러한 문제에는 내부 일정 오류 또는 불량 상태의 컴퓨팅 노드 복구를 위한 시도가 포함될 수 있습니다.|
 |[`nodeInfo`](#nodeInfo)|복합 형식|태스크가 실행된 컴퓨팅 노드에 대한 정보를 포함합니다.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|복합 형식|여러 컴퓨팅 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 내용은 [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task)를 참조하세요.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|복합 형식|여러 컴퓨팅 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 내용은 [multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task)를 참조하세요.|
 |[`constraints`](#constraints)|복합 형식|이 태스크에 적용되는 실행 제약 조건입니다.|
 |[`executionInfo`](#executionInfo)|복합 형식|태스크 실행에 대한 정보를 포함합니다.|
 

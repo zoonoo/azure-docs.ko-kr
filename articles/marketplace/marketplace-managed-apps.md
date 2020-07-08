@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 5bd89e406c3067585595479dc1d8351e9ea7eea8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a4b788749e6178c49010b153fb5caae35b79abf9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856106"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963583"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Azure 관리 되는 응용 프로그램 게시 가이드
 
@@ -34,7 +34,7 @@ Azure 관리 되는 *응용* 프로그램 제품은 Azure Marketplace에 azure �
 |---------|---------|
 |Azure 구독 | 관리 되는 응용 프로그램은 고객의 구독에 배포 되어야 하지만 타사에서 관리할 수 있습니다. |
 |청구 및 계량    |  리소스는 고객의 Azure 구독에서 제공 됩니다. 종 량 제 지불 모델을 사용 하는 Vm은 Microsoft를 통해 고객과 거래 되며 고객의 Azure 구독을 통해 청구 됩니다. <br><br> 사용자 라이선스 Vm의 경우 Microsoft는 고객 구독에서 발생 하는 모든 인프라 비용을 청구 하지만 고객과 직접 소프트웨어 라이선스 요금을 지불 합니다.        |
-|Azure 호환 VHD (가상 하드 디스크)    |   VM은 Windows 또는 Linux에서 빌드해야 합니다.<br><br>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.<br><br>Windows VHD를 만드는 방법에 대 한 자세한 내용은 [Azure 응용 프로그램 제품 만들기](./partner-center-portal/create-new-azure-apps-offer.md)를 참조 하세요. |
+|Azure 호환 VHD (가상 하드 디스크)    |   VM은 Windows 또는 Linux에서 빌드해야 합니다.<br><br>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)을 참조하세요.<br><br>Windows VHD를 만드는 방법에 대 한 자세한 내용은 [Azure 응용 프로그램 제품 만들기](./partner-center-portal/create-new-azure-apps-offer.md)를 참조 하세요. |
 
 ---
 
@@ -46,9 +46,9 @@ Azure 관리 되는 *응용* 프로그램 제품은 Azure Marketplace에 azure �
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행 하지 않은 경우 Azure Marketplace를 사용 하 여 [클라우드 비즈니스를 확장](https://azuremarketplace.microsoft.com/sell)하는 방법을 알아보세요.
+아직 수행하지 않은 경우 [Azure Marketplace로 클라우드 비즈니스를 확장](https://azuremarketplace.microsoft.com/sell)하는 방법을 알아보세요.
 
-파트너 센터에서 등록 하 고 작업을 시작 하려면:
+파트너 센터에서 등록하고 작업을 시작하려면
 
-- [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 하 여 제품을 만들거나 완성 합니다.
+- 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
 - 자세한 내용은 [Azure 응용 프로그램 제품 만들기](./partner-center-portal/create-new-azure-apps-offer.md) 를 참조 하세요.

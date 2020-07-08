@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "64868098"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962682"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue Storage를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전인 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)을 확인 하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. Queue Storage에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
 
@@ -53,7 +53,10 @@ Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때
 5. 알림 끝점 작업에 연결하고 인코딩 작업을 제출합니다. 작업에 연결하는 여러 알림 끝점이 있을 수 있습니다.
 6. **NotificationJobState.FinalStatesOnly**를 **AddNew** 메서드에 전달합니다. 이 예제에서는 작업 처리의 최종 상태만 확인합니다.
 
-        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```csharp
+    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```
+
 7. **NotificationJobState.All**을 전달하는 경우 모든 상태 변경 알림(큐에 대기, 예약됨, 처리 중, 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Queue Storage가 순차적 전달을 보장하지 않습니다. 메시지의 순서를 지정하려면 **Timestamp** 속성(아래 예제에서는 **EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 중복된 메시지도 허용됩니다. 중복을 확인하려면 **ETag 속성**(**EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다.
 8. 10초마다 큐를 검사하여 작업이 완성된 상태가 될 때를 기다립니다. 처리된 후 메시지를 삭제합니다.
 9. 큐와 알림 끝점을 삭제합니다.
@@ -67,7 +70,7 @@ Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. 개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
+1. 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 2. 로컬 드라이브 내 임의의 위치에 새 폴더를 만들고, 인코딩하여 스트리밍하거나 점진적으로 다운로드하려는 .mp4 파일을 복사합니다. 이 예제에서는 "C:\Media" 경로가 사용됩니다.
 3. **System.Runtime.Serialization** 라이브러리에 참조를 추가합니다.
 
@@ -344,31 +347,32 @@ namespace JobNotification
 
 위의 예제는 다음과 같이 출력되고 사용자의 값이 달라집니다.
 
-    Created assetFile BigBuckBunny.mp4
-    Upload BigBuckBunny.mp4
-    Done uploading of BigBuckBunny.mp4
+```output
+Created assetFile BigBuckBunny.mp4
+Upload BigBuckBunny.mp4
+Done uploading of BigBuckBunny.mp4
 
-    EventType: NotificationEndPointRegistration
-    MessageVersion: 1.0
-    ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
-    TimeStamp: 2013-05-14T20:22:37
-        NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
-        State: Registered
-        Name: dde957b2-006e-41f2-9869-a978870ac620
-        Created: 2013-05-14T20:22:35
+EventType: NotificationEndPointRegistration
+MessageVersion: 1.0
+ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
+TimeStamp: 2013-05-14T20:22:37
+    NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
+    State: Registered
+    Name: dde957b2-006e-41f2-9869-a978870ac620
+    Created: 2013-05-14T20:22:35
 
-    EventType: JobStateChange
-    MessageVersion: 1.0
-    ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
-    TimeStamp: 2013-05-14T20:24:40
-        JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-        JobName: My MP4 to Smooth Streaming encoding job
-        NewState: Finished
-        OldState: Processing
-        AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
-    State: Finished
-
+EventType: JobStateChange
+MessageVersion: 1.0
+ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
+TimeStamp: 2013-05-14T20:24:40
+    JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
+    JobName: My MP4 to Smooth Streaming encoding job
+    NewState: Finished
+    OldState: Processing
+    AccountName: westeuropewamsaccount
+job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
+State: Finished
+```
 
 ## <a name="next-step"></a>다음 단계
 Media Services 학습 경로를 검토합니다.

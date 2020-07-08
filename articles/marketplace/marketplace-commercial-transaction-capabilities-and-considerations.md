@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: c7b13f74e63b9e74924efb70e7c9a70f6fda2d3c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800046"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964467"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -42,7 +42,7 @@ ms.locfileid: "83800046"
 
 ### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
 
-**Virtual Machines 및 Azure 애플리케이션**의 경우 Azure 인프라 사용 요금이 고객의 Azure 구독에 청구됩니다. 인프라 사용 요금의 가격이 책정되면 고객 청구서에 소프트웨어 공급 기업의 라이선스 요금과는 별도로 표시됩니다.
+**Virtual machines** 및 **azure 응용 프로그램**의 경우 azure 인프라 사용 요금은 고객의 azure 구독에 청구 됩니다. 인프라 사용 요금의 가격이 책정되면 고객 청구서에 소프트웨어 공급 기업의 라이선스 요금과는 별도로 표시됩니다.
 
 **SaaS 앱**의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금을 단일 비용 항목으로 처리해야 합니다.  이는 고객에게 고정 요금으로 표시됩니다. Azure 인프라 사용량은 관리되며 파트너에게 직접 청구됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 소프트웨어 라이선스 요금은 측정되거나 사용되지 않습니다.
 
@@ -51,9 +51,9 @@ ms.locfileid: "83800046"
 사용되는 트랜잭션 옵션에 따라 소프트웨어 라이선스 요금은 다음과 같습니다.
 
 - **무료** – 소프트웨어 라이선스 요금이 부과되지 않습니다.
-- **BYOL(Bring Your Own License)** - 소프트웨어 라이선스에 대한 적용 가능한 요금이 게시자와 고객 간에 직접 관리됩니다. Microsoft는 Azure 인프라 사용 요금을 통해서만 전달합니다. 이는 Virtual Machines 및 Azure 애플리케이션에만 적용됩니다.
-- **종량제** – 소프트웨어 라이선스 요금이 사용된 Azure 인프라를 기준으로 시간당, 코어당(vCPU) 가격 책정 요금으로 표시됩니다. 이는 Virtual Machines 및 Azure 애플리케이션에만 적용됩니다.
-- **구독 가격** – 소프트웨어 라이선스 요금은 정액 요금 또는 사용자 단위로 청구되는 월별 또는 연간 반복 요금으로 제공됩니다. 이는 SaaS 앱 및 Azure 애플리케이션 - 관리형 앱에만 적용됩니다.
+- **BYOL(Bring Your Own License)** - 소프트웨어 라이선스에 대한 적용 가능한 요금이 게시자와 고객 간에 직접 관리됩니다. Microsoft는 Azure 인프라 사용 요금을 통해서만 전달합니다. 이는 가상 머신 및 Azure 응용 프로그램에만 적용 됩니다.
+- **종량제** – 소프트웨어 라이선스 요금이 사용된 Azure 인프라를 기준으로 시간당, 코어당(vCPU) 가격 책정 요금으로 표시됩니다. 이는 가상 머신 및 Azure 응용 프로그램에만 적용 됩니다.
+- **구독 가격** – 소프트웨어 라이선스 요금은 정액 요금 또는 사용자 단위로 청구되는 월별 또는 연간 반복 요금으로 제공됩니다. 이는 SaaS 앱 (월간 또는 연간) 및 Azure 응용 프로그램 관리 앱 (월간)에만 적용 됩니다.
 - **평가판 소프트웨어** – 30일 또는 90일 동안 소프트웨어 라이선스 요금이 부과되지 않습니다.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>무료 및 BYOL(사용자 라이선스 필요) 가격 책정
@@ -136,7 +136,7 @@ Marketplace 서비스 요금 절감에 적격한 파트너는 2019년 5월부터
 |Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 90%의 라이선스 비용을 지급합니다.   |   매월 $80.00 <br> \* 매월 $90.00    |
 |Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 10%의 라이선스 비용을 유지합니다.  |  매월 $20.00 <br> \* $10.00     |
 
-상업용 Marketplace에 게시한 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명된 대로 **Marketplace 서비스 요금**을 20%에서 10%로 낮춥니다. 제품이 해당 자격을 획득하려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정해야 합니다. 이러한 Marketplace 서비스 요금 절감 혜택을 당월에 적용받으려면 전월 말로부터 영업일로 5일 이상 전에 자격을 충족해야 합니다. Marketplace 서비스 요금 절감은 상업용 Marketplace를 통해 제공되는 VM, 관리되는 앱 또는 기타 제품에는 적용되지 않습니다. 이러한 요금 절감은 2019년 5월 1일부터 2020년 6월 30일까지 Microsoft에서 수금한 라이선스 요금에 대해 적격 제품에 제공됩니다. 이 기간 후에는 요금이 정상으로 돌아옵니다.
+상업적 marketplace에 게시 하는 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 **Marketplace 서비스 요금** 을 절감 합니다. 제품이 해당 자격을 획득하려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정해야 합니다. 이러한 Marketplace 서비스 요금 절감 혜택을 당월에 적용받으려면 전월 말로부터 영업일로 5일 이상 전에 자격을 충족해야 합니다. Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상업적 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다. 이러한 요금 절감은 2019년 5월 1일부터 2020년 6월 30일까지 Microsoft에서 수금한 라이선스 요금에 대해 적격 제품에 제공됩니다. 이 기간 후에는 요금이 정상으로 돌아옵니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 
@@ -176,14 +176,17 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 - 제품의 가격 책정 모델과 관계 없이 Microsoft 계정 및 금융 정보는 거래 게시 옵션에 필요합니다.
 - 필수 금융 정보에는 지급 계정 및 세금 프로필이 포함됩니다.
 
-이러한 계정을 설정하는 방법에 대한 자세한 내용은 [파트너 센터에서 상업용 Marketplace 계정 관리](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)를 참조하세요.
+이러한 계정을 설정 하는 방법에 대 한 자세한 내용은 [파트너 센터에서 상용 마켓플레이스 계정 관리](partner-center-portal/manage-account.md)를 참조 하세요.
 
 ### <a name="requirements-for-specific-offer-types"></a>특정 제품 유형에 대한 요구 사항
 
 거래 게시 옵션은 다음과 같은 Marketplace 제품 유형에서만 사용할 수 있습니다.
 
-- **가상 머신** – 평가판, 사용자 라이선스 필요 또는 종량제 가격 책정 모델 중에서 선택하고 제품 수준에서 정의된 SKU로 제공됩니다. 고객의 Azure 청구서에서 Microsoft는 게시자 소프트웨어 라이선스 요금을 기본 Azure 인프라 요금과는 별도로 표시합니다. Azure 인프라 요금은 게시자 소프트웨어 사용으로 발생됩니다.
-- **Azure 애플리케이션: 솔루션 템플릿 또는 관리형 앱** – 둘 이상의 가상 머신을 프로비전해야 하며, 가상 머신 가격 책정의 합계를 계산합니다. 단일 플랜의 관리형 앱은 가격 책정 모델로 가상 머신 가격 책정 대신 고정 월간 구독을 선택할 수 있습니다. 일부 경우에 Azure 인프라 사용 요금은 동일한 청구서에 소프트웨어 라이선스 요금과는 별도로 표시되어 고객에게 전달됩니다. 그러나 ISV용 관리형 앱 제품 인프라 요금을 구성하는 경우 Azure 리소스 요금은 게시자로 청구되고 고객은 인프라, 소프트웨어 라이선스 및 관리 서비스 비용을 포함하는 정액 요금을 받습니다.
+- **가상 머신** – 무료, 사용자 라이선스 보유 또는 종 량 제 모델을 선택 하 고 제품 수준에서 정의 된 sku로 제공 합니다. 고객의 Azure 청구서에서 Microsoft는 게시자 소프트웨어 라이선스 요금을 기본 Azure 인프라 요금과는 별도로 표시합니다. Azure 인프라 요금은 게시자 소프트웨어 사용으로 발생됩니다.
+
+- **Azure 응용 프로그램: 솔루션 템플릿 또는 관리 되는 앱** – 하나 이상의 가상 머신을 프로 비전 하 고 가상 머신 가격의 합계를 가져옵니다. 단일 플랜의 관리형 앱은 가격 책정 모델로 가상 머신 가격 책정 대신 고정 월간 구독을 선택할 수 있습니다. 일부 경우에 Azure 인프라 사용 요금은 동일한 청구서에 소프트웨어 라이선스 요금과는 별도로 표시되어 고객에게 전달됩니다. 그러나 ISV 인프라 요금에 대 한 관리 되는 앱을 구성 하는 경우 Azure 리소스는 게시자로 청구 되 고 고객은 인프라, 소프트웨어 라이선스 및 관리 서비스 비용을 포함 하는 정액 요금을 받습니다.
+
+- **Saas 응용 프로그램** -다중 테 넌 트 솔루션 이어야 하 고, 인증을 위해 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 사용 하 고, [saas 처리 api](partner-center-portal/pc-saas-fulfillment-api-v2.md)와 통합 해야 합니다. Azure 인프라 사용량은 사용자 (파트너)와 직접 청구 되므로 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금은 단일 비용 항목으로 고려해 야 합니다. 자세한 지침은 [상업적 marketplace에서 새 SaaS 제품 만들기](partner-center-portal/create-new-saas-offer.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

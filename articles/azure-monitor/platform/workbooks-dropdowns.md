@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658287"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965050"
 ---
 # <a name="workbook-drop-down-parameters"></a>통합 문서 드롭다운 매개 변수
 
@@ -31,7 +31,7 @@ Drop 드롭다운에서 사용자가 알려진 집합에서 하나 이상의 입
     1. 매개 변수 이름:`Environment`
     2. 매개 변수 유형:`Drop down`
     3. 필수:`checked`
-    4. 허용 `multiple selection`:`unchecked`
+    4. 허용 `multiple selection` :`unchecked`
     5. 데이터 가져오기:`JSON`
 5. JSON 입력 텍스트 블록에서 다음 json 코드 조각을 삽입 합니다.
     ```json
@@ -41,14 +41,16 @@ Drop 드롭다운에서 사용자가 알려진 집합에서 하나 이상의 입
         { "value":"prod", "label":"Production", "selected":true }
     ]
     ```
-6. 파란색 `Update` 단추를 누릅니다.
+6. 파란색 단추를 누릅니다 `Update` .
 7. 도구 모음에서 ' 저장 '을 선택 하 여 매개 변수를 만듭니다.
 8. 환경 매개 변수는 세 개의 값이 있는 드롭다운입니다.
 
     ![정적 drown의 생성을 보여 주는 이미지](./media/workbook-dropdowns/dropdown-create.png)
 
 ## <a name="creating-a-static-dropdown-with-groups-of-items"></a>항목 그룹을 사용 하 여 정적 드롭다운 만들기
+
 쿼리 결과/json에 "그룹" 필드가 포함 되어 있는 경우 드롭다운에 값 그룹이 표시 됩니다. 위의 샘플을 따르고 대신 다음 json을 사용 합니다.
+
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -59,7 +61,8 @@ Drop 드롭다운에서 사용자가 알려진 집합에서 하나 이상의 입
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+
+![그룹화 된 드롭다운의 예제를 보여 주는 이미지](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## <a name="creating-a-dynamic-drop-down-parameter"></a>동적 드롭다운 매개 변수 만들기
@@ -70,7 +73,7 @@ Drop 드롭다운에서 사용자가 알려진 집합에서 하나 이상의 입
     1. 매개 변수 이름:`RequestName`
     2. 매개 변수 유형:`Drop down`
     3. 필수:`checked`
-    4. 허용 `multiple selection`:`unchecked`
+    4. 허용 `multiple selection` :`unchecked`
     5. 데이터 가져오기:`Query`
 5. JSON 입력 텍스트 블록에서 다음 json 코드 조각을 삽입 합니다.
 
@@ -79,13 +82,14 @@ Drop 드롭다운에서 사용자가 알려진 집합에서 하나 이상의 입
         | summarize by name
         | order by name asc
     ```
-1. 파란색 `Run Query` 단추를 누릅니다.
+1. 파란색 단추를 누릅니다 `Run Query` .
 2. 도구 모음에서 ' 저장 '을 선택 하 여 매개 변수를 만듭니다.
 3. RequestName 매개 변수는 앱의 모든 요청 이름이 드롭다운 됩니다.
 
     ![동적 드롭다운 생성을 보여 주는 이미지](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## <a name="referencing-drop-down-parameter"></a>드롭다운 매개 변수 참조
+
 ### <a name="in-kql"></a>KQL에서
 1. 통합 문서에 쿼리 컨트롤을 추가 하 고 Application Insights 리소스를 선택 합니다.
 2. KQL 편집기에서 다음 코드 조각을 입력 합니다.
@@ -122,7 +126,8 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+
+![값, 레이블, 선택 및 그룹 옵션을 사용 하 여 드롭다운 매개 변수를 보여 주는 이미지](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## <a name="drop-down-parameter-options"></a>드롭다운 매개 변수 옵션
@@ -133,11 +138,11 @@ dependencies
 | `{DependencyName:value}` | 선택한 값 | Fabrikamaccount 가져오기 |
 
 ## <a name="multiple-selection"></a>다중 선택
-지금까지 예제에서는 매개 변수를 명시적으로 설정 하 여 드롭다운에서 값을 하나만 선택 합니다. 드롭다운 매개 변수도 지원 `multiple selection` 합니다. `Allow multiple selection` 옵션을 선택 하는 것 처럼 간단 하 게 설정할 수 있습니다. 
+지금까지 예제에서는 매개 변수를 명시적으로 설정 하 여 드롭다운에서 값을 하나만 선택 합니다. 드롭다운 매개 변수도 지원 `multiple selection` 합니다. 옵션을 선택 하는 것 처럼 간단 하 게 설정할 수 `Allow multiple selection` 있습니다. 
 
-또한 사용자는 `delimiter` 및 `quote with` 설정을 통해 결과 집합의 형식을 지정 하는 옵션도 있습니다. 기본값은 단순히 ' a ', ' b ', ' c ' 형식의 컬렉션으로 값을 반환 합니다. 또한 선택 항목 수를 제한 하는 옵션도 있습니다.
+또한 사용자는 및 설정을 통해 결과 집합의 형식을 지정 하는 옵션도 있습니다 `delimiter` `quote with` . 기본값은 단순히 ' a ', ' b ', ' c ' 형식의 컬렉션으로 값을 반환 합니다. 또한 선택 항목 수를 제한 하는 옵션도 있습니다.
 
-매개 변수를 참조 하는 KQL는 결과 형식으로 작업 하기 위해 변경 해야 합니다. 가장 일반적인 방법은 연산자를 `in` 통해 설정 하는 것입니다.
+매개 변수를 참조 하는 KQL는 결과 형식으로 작업 하기 위해 변경 해야 합니다. 가장 일반적인 방법은 연산자를 통해 설정 하는 것입니다 `in` .
 
 ```kusto
 dependencies

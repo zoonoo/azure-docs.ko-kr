@@ -5,16 +5,16 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726505"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964875"
 ---
 # <a name="rendering-applications"></a>렌더링 애플리케이션
 
-렌더링 애플리케이션은 Batch 작업 및 태스크를 만드는 데 사용됩니다. task 명령줄 속성은 적합한 명령줄과 매개 변수를 지정합니다.  작업 태스크를 만드는 가장 쉬운 방법은 [이 문서](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer)에서 지정한 대로 Batch Explorer 템플릿을 사용하는 것입니다.  템플릿을 보고, 필요하면 만든 버전을 수정할 수 있습니다.
+렌더링 애플리케이션은 Batch 작업 및 태스크를 만드는 데 사용됩니다. task 명령줄 속성은 적합한 명령줄과 매개 변수를 지정합니다.  작업 태스크를 만드는 가장 쉬운 방법은 [이 문서](./batch-rendering-using.md#using-batch-explorer)에서 지정한 대로 Batch Explorer 템플릿을 사용하는 것입니다.  템플릿을 보고, 필요하면 만든 버전을 수정할 수 있습니다.
 
 이 문서에서는 각각의 렌더링 애플리케이션을 실행하는 방법을 간단히 설명합니다.
 

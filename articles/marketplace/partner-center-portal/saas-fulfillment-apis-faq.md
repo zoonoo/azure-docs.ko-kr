@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792907"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963753"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>SaaS 처리 Api에 대 한 일반적인 질문
 
@@ -46,11 +46,11 @@ Azure 사용자가 방문 페이지로 리디렉션되는 경우 토큰이 쿼�
 
 ![고객 구독 흐름](media/saas-metering-service-integration-flow-a.png)
 
-SaaS 제품의 수명 주기에서 transact-sql 시나리오를 처리 하기 위한 API 계약에 대 한 자세한 내용은 Saas 처리 [api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)를 참조 하세요.
+SaaS 제품의 수명 주기에서 transact-sql 시나리오를 처리 하기 위한 API 계약에 대 한 자세한 내용은 Saas 처리 [api](pc-saas-fulfillment-api-v2.md)를 참조 하세요.
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>사용자가 Azure에서 구독 하는 SaaS 제품을 어떻게 알 수 있나요?
 
-`Resolve` API에 대 한 응답에는 SaaS 구독과 관련 된 제안 및 계획 정보가 포함 됩니다.
+API에 대 한 응답에는 `Resolve` SaaS 구독과 관련 된 제안 및 계획 정보가 포함 됩니다.
 
 ### <a name="how-can-the-azure-user-change-the-plan-associated-with-this-azure-subscription"></a>Azure 사용자가이 Azure 구독과 연결 된 계획을 변경 하려면 어떻게 해야 하나요?
 

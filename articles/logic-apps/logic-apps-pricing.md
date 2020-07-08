@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536236"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964637"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -47,9 +47,9 @@ ms.locfileid: "81536236"
 
 * **프리미엄** ISE:이 SKU의 기본 단위에 고정 용량이 있지만 더 많은 처리량이 필요한 경우에는 ISE를 만드는 동안 또는 이후에 [더 많은 배율 단위를 추가할](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) 수 있습니다. ISE 제한에 대해서는 [Azure Logic Apps에 대 한 제한 및 구성](logic-apps-limits-and-config.md#integration-service-environment-ise)을 참조 하세요.
 
-* **개발자** ISE:이 SKU에는 확장, SLA (서비스 수준 계약) 및 게시 된 제한 없음 기능이 없습니다. 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만이 SKU를 사용 합니다.
+* **개발자** ISE:이 SKU에는 확장, SLA (서비스 수준 계약) 및 게시 된 제한 없음 기능이 없습니다. 이 SKU는 실험, 개발 및 테스트 용도에만 사용하고 프로덕션 또는 성능 테스트에는 사용하지 마세요.
 
-ISE에서 만들고 실행 하는 논리 앱의 경우 다음과 같은 기능에 대 한 [고정 된 월별 가격](https://azure.microsoft.com/pricing/details/logic-apps) 을 지불 합니다.
+ISE에서 만들고 실행 하는 논리 앱의 경우 다음과 같은 기능에 대 한 [고정 요금](https://azure.microsoft.com/pricing/details/logic-apps) (사용 당 지불)을 지불 합니다.
 
 * [기본 제공](../connectors/apis-list.md#built-in) 트리거 및 작업
 
@@ -57,7 +57,7 @@ ISE에서 만들고 실행 하는 논리 앱의 경우 다음과 같은 기능�
 
 * [표준](../connectors/apis-list.md#managed-connectors) 커넥터 및 [엔터프라이즈](../connectors/apis-list.md#enterprise-connectors) 커넥터를 사용 하 여 원하는 만큼 엔터프라이즈 연결을 사용할 수 있습니다.
 
-   **Ise** 레이블을 표시 하는 표준 및 엔터프라이즈 커넥터는 논리 앱과 동일한 ise에서 실행 됩니다. ISE 레이블을 표시 하지 않는 커넥터는 공용, "전역", 다중 테 넌 트 Logic Apps 서비스에서 실행 됩니다. 수정 된 월간 가격은 ISE에서 실행 되는 논리 앱과 함께 사용 하는 경우 다중 테 넌 트 서비스에서 실행 되는 커넥터에도 적용 됩니다.
+   **Ise** 레이블을 표시 하는 표준 및 엔터프라이즈 커넥터는 논리 앱과 동일한 ise에서 실행 됩니다. ISE 레이블을 표시 하지 않는 커넥터는 공용, "전역", 다중 테 넌 트 Logic Apps 서비스에서 실행 됩니다. 고정 가격은 ISE에서 실행 되는 논리 앱과 함께 사용 하는 경우 다중 테 넌 트 서비스에서 실행 되는 커넥터에도 적용 됩니다.
 
 * [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 따라 추가 비용 없이 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 사용:
 
@@ -95,7 +95,7 @@ Azure Logic Apps 커넥터를 사용 하면 [트리거](#triggers), [작업](#ac
 
 <a name="actions"></a>
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 기본 작업으로 "기본 제공" 작업 (예: HTTP)을 Azure Logic Apps 합니다. 예를 들어 기본 제공 작업에는 HTTP 호출, Azure Functions 또는 API Management의 호출 및 조건, 루프, switch 문 등의 제어 흐름 단계가 포함 됩니다. 각 작업에는 고유한 작업 유형이 있습니다. 예를 들어 [커넥터](https://docs.microsoft.com/connectors) 를 호출 하는 작업에는 "ApiConnection" 형식이 있습니다. 이러한 커넥터는 표준 또는 엔터프라이즈 커넥터로 분류 되며 해당 [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)에 따라 측정 됩니다. *미리 보기* 의 엔터프라이즈 커넥터는 표준 커넥터로 요금이 청구 됩니다.
 
@@ -116,13 +116,13 @@ Azure Logic Apps 성공 및 실패 한 모든 작업을 실행으로 측정 합�
 
 [고정 가격 책정 모델](https://azure.microsoft.com/pricing/details/logic-apps) 은 추가 비용 없이 Azure Logic Apps에서 [B2B 및 EDI](logic-apps-enterprise-integration-b2b.md) 및 [XML 처리](logic-apps-enterprise-integration-xml.md) 기능을 탐색, 개발 및 테스트할 수 있는 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 에 적용 됩니다. 각 Azure 구독은 [통합 계정의 특정 한도](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)를 포함할 수 있습니다. 각 통합 계정에는 거래 업체, 규약, 맵, 스키마, 어셈블리, 인증서, 일괄 처리 구성 등을 포함 하 여 특정 한 수 [의 아티팩트](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)를 저장할 수 있습니다.
 
-Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공 합니다. 기본 및 표준 계층은 Logic Apps SLA (서비스 수준 계약)에서 지원 되지만, 무료 계층은 SLA에서 지원 되지 않으며 처리량 및 사용에 제한이 있습니다. 무료 계층 통합 계정을 제외 하 고 각 Azure 지역에 둘 이상의 통합 계정을 사용할 수 있습니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조 하세요.
+Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공 합니다. 기본 및 표준 계층은 Logic Apps SLA (서비스 수준 계약)에서 지원 되지만 무료 계층은 SLA에서 지원 되지 않으며 지역 가용성, 처리량 및 사용에 대 한 제한이 있습니다. 무료 계층 통합 계정을 제외 하 고 각 Azure 지역에 둘 이상의 통합 계정을 사용할 수 있습니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
 
-[프리미엄 또는 개발자](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)인 [ise ( *통합 서비스 환경* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))가 있는 경우 ise에는 총 5 개의 통합 계정이 있을 수 있습니다. ISE에 대 한 고정 가격 책정 모델이 작동 하는 방법을 알아보려면이 항목의 이전 [고정 가격 책정 모델](#fixed-pricing) 섹션을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조 하세요.
+[프리미엄 또는 개발자](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)인 [ise ( *통합 서비스 환경* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))가 있는 경우 ise에는 총 5 개의 통합 계정이 있을 수 있습니다. ISE에 대 한 고정 가격 책정 모델이 작동 하는 방법을 알아보려면이 항목의 이전 [고정 가격 책정 모델](#fixed-pricing) 섹션을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
 
 무료, 기본 또는 표준 통합 계정 중에서 선택 하려면 다음과 같은 사용 사례 설명을 검토 합니다.
 
-* **무료**: 프로덕션 시나리오가 아닌 예비 시나리오를 시도 하려는 경우
+* **무료**: 프로덕션 시나리오가 아닌 예비 시나리오를 시도해 볼 수 있습니다. 이 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](https://docs.microsoft.com/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다.
 
 * **기본**: 더 큰 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 하는 메시지 처리만 하려는 경우
 
@@ -132,7 +132,7 @@ Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공 합니다.
 
 ## <a name="data-retention"></a>데이터 보존
 
-ISE (integration service environment)에서 실행 되는 논리 앱을 제외 하 고 논리 앱의 실행 기록에 저장 된 모든 입력 및 출력은 논리 앱의 [실행 보존 기간](logic-apps-limits-and-config.md#run-duration-retention-limits)을 기준으로 청구 됩니다. ISE에서 실행 되는 논리 앱은 데이터 보존 비용을 초래 하지 않습니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조 하세요.
+ISE (integration service environment)에서 실행 되는 논리 앱을 제외 하 고 논리 앱의 실행 기록에 저장 된 모든 입력 및 출력은 논리 앱의 [실행 보존 기간](logic-apps-limits-and-config.md#run-duration-retention-limits)을 기준으로 청구 됩니다. ISE에서 실행 되는 논리 앱은 데이터 보존 비용을 초래 하지 않습니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
 
 논리 앱의 저장소 사용량을 모니터링 하는 데 도움이 되도록 다음을 수행할 수 있습니다.
 

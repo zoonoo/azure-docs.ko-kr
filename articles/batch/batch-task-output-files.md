@@ -4,12 +4,12 @@ description: Batch 서비스 API를 사용하여 Azure Storage에 Batch 작업 �
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726318"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965130"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
 
@@ -32,7 +32,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 
 ## <a name="create-a-container-in-azure-storage"></a>Azure Storage에 컨테이너 만들기
 
-Azure Storage에 태스크 출력을 유지하려면 출력 파일의 대상으로 사용할 컨테이너를 만들어야 합니다. 태스크를 실행하기 전에, 오히려 작업을 제출하기 전에 컨테이너를 만드세요. 컨테이너를 만들려면 적절한 Azure Storage 클라이언트 라이브러리 또는 SDK를 사용합니다. Azure Storage API에 대한 자세한 내용은 [Azure Storage 설명서](https://docs.microsoft.com/azure/storage/)를 참조하세요.
+Azure Storage에 태스크 출력을 유지하려면 출력 파일의 대상으로 사용할 컨테이너를 만들어야 합니다. 태스크를 실행하기 전에, 오히려 작업을 제출하기 전에 컨테이너를 만드세요. 컨테이너를 만들려면 적절한 Azure Storage 클라이언트 라이브러리 또는 SDK를 사용합니다. Azure Storage API에 대한 자세한 내용은 [Azure Storage 설명서](../storage/index.yml)를 참조하세요.
 
 예를 들어 C#으로 애플리케이션을 작성하는 경우 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용합니다. 다음 예제에서는 컨테이너를 만드는 방법을 보여 줍니다.
 
@@ -61,7 +61,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## <a name="specify-output-files-for-task-output"></a>태스크 출력에 대한 출력 파일 지정
 
-태스크에 대한 출력 파일을 지정하려면 [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) 개체의 컬렉션을 만들고 태스크를 만들 때 [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 속성에 이 컬렉션을 할당합니다.
+태스크에 대한 출력 파일을 지정하려면 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 개체의 컬렉션을 만들고 태스크를 만들 때 [CloudTask.OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 속성에 이 컬렉션을 할당합니다.
 
 다음 C# 코드 예제에서는 `output.txt`라는 파일에 임의의 숫자를 쓰는 태스크를 만듭니다. 이 예제에서는 `output.txt`라는 출력 파일을 만들어 컨테이너에 씁니다. 또한 `std*.txt` 파일 패턴( _, 예:_ , `stdout.txt` 및 `stderr.txt`)과 일치하는 모든 로그 파일에 대한 출력 파일도 만듭니다. 컨테이너 URL에는 이전에 컨테이너에 대해 만든 SAS가 필요합니다. Batch 서비스에서는 이 SAS를 사용하여 컨테이너에 대한 액세스를 인증합니다.
 
@@ -91,7 +91,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### <a name="specify-a-file-pattern-for-matching"></a>일치시킬 파일 패턴 지정
 
-출력 파일을 지정할 때 [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) 속성을 사용하여 일치시킬 파일 패턴을 지정할 수 있습니다. 파일 패턴은 0개 파일, 단일 파일 또는 태스크에서 만든 파일 집합과 일치할 수 있습니다.
+출력 파일을 지정할 때 [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) 속성을 사용하여 일치시킬 파일 패턴을 지정할 수 있습니다. 파일 패턴은 0개 파일, 단일 파일 또는 태스크에서 만든 파일 집합과 일치할 수 있습니다.
 
 **FilePattern** 속성은 `*`(비재귀 일치의 경우) 및 `**`(재귀 일치의 경우)와 같은 표준 파일 시스템 와일드카드를 지원합니다. 예를 들어 위의 코드 샘플에서는 `std*.txt`와 비일치하는 파일 패턴을 지정합니다.
 
@@ -103,19 +103,19 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### <a name="specify-an-upload-condition"></a>업로드 조건 지정
 
-[OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) 속성은 출력 파일의 조건부 업로드를 허용합니다. 일반적인 시나리오는 태스크가 성공하면 한 파일 집합을 업로드하고, 실패하면 다른 파일 집합을 업로드하는 것입니다. 예를 들어 태스크가 실패하고 0이 아닌 종료 코드로 종료되는 경우에만 자세한 로그 파일을 업로드하는 것이 좋습니다. 마찬가지로 태스크가 실패하는 경우 파일이 없거나 불완전할 수 있으므로, 태스크가 성공한 경우에만 결과 파일을 업로드하는 것이 좋습니다.
+[OutputFileUploadOptions.UploadCondition](/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) 속성은 출력 파일의 조건부 업로드를 허용합니다. 일반적인 시나리오는 태스크가 성공하면 한 파일 집합을 업로드하고, 실패하면 다른 파일 집합을 업로드하는 것입니다. 예를 들어 태스크가 실패하고 0이 아닌 종료 코드로 종료되는 경우에만 자세한 로그 파일을 업로드하는 것이 좋습니다. 마찬가지로 태스크가 실패하는 경우 파일이 없거나 불완전할 수 있으므로, 태스크가 성공한 경우에만 결과 파일을 업로드하는 것이 좋습니다.
 
 위의 코드 샘플에서는 **UploadCondition** 속성을 **TaskCompletion**으로 설정합니다. 이 설정은 종료 코드의 값에 관계 없이 태스크가 완료된 후에 파일을 업로드하도록 지정합니다.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-다른 설정은 [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) 열거형을 참조하세요.
+다른 설정은 [OutputFileUploadCondition](/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) 열거형을 참조하세요.
 
 ### <a name="disambiguate-files-with-the-same-name"></a>이름이 같은 파일의 구분
 
 작업의 태스크에서 이름이 같은 파일을 만들 수 있습니다. 예를 들어 `stdout.txt` 및 `stderr.txt`는 작업에서 실행되는 모든 태스크에 대해 만들어집니다. 태스크마다 자체의 컨텍스트에서 실행되므로 이러한 파일은 노드의 파일 시스템에서 충돌하지 않습니다. 그러나 여러 태스크의 파일을 공유 컨테이너에 업로드할 때는 이름이 같은 파일을 명확하게 구분해야 합니다.
 
-[OutputFileBlobContainerDestination.Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) 속성은 출력 파일에 대한 대상 Blob 또는 가상 디렉터리를 지정합니다. **Path** 속성을 사용하여 이름이 같은 출력 파일이 Azure Storage에서 고유한 이름으로 지정되는 방식으로 Blob 또는 가상 디렉터리의 이름을 지정할 수 있습니다. 고유한 이름을 지정하고 파일을 쉽게 식별할 수 있도록 경로에 태스크 ID를 사용하는 것이 좋습니다.
+[OutputFileBlobContainerDestination.Path](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) 속성은 출력 파일에 대한 대상 Blob 또는 가상 디렉터리를 지정합니다. **Path** 속성을 사용하여 이름이 같은 출력 파일이 Azure Storage에서 고유한 이름으로 지정되는 방식으로 Blob 또는 가상 디렉터리의 이름을 지정할 수 있습니다. 고유한 이름을 지정하고 파일을 쉽게 식별할 수 있도록 경로에 태스크 ID를 사용하는 것이 좋습니다.
 
 **FilePattern** 속성이 와일드카드 식으로 설정되면 해당 패턴과 일치하는 모든 파일이 **Path** 속성으로 지정된 가상 디렉터리에 업로드됩니다. 예를 들어 컨테이너가 `mycontainer`이고 태스크 ID가 `mytask`이고 파일 패턴이 `..\std*.txt`인 경우, Azure Storage의 출력 파일에 대한 절대 URI는 다음과 비슷합니다.
 
@@ -139,7 +139,7 @@ Azure Storage의 가상 디렉터리에 대한 자세한 내용은 [컨테이너
 
 ## <a name="diagnose-file-upload-errors"></a>파일 업로드 오류 진단
 
-Azure Storage에 대한 출력 파일 업로드가 실패하면 태스크가 **완료됨** 상태로 전환되고 [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 속성이 설정됩니다. **FailureInformation** 속성을 검사하여 발생한 오류를 확인합니다. 예를 들어 컨테이너가 없는 경우 파일 업로드에서 발생하는 오류는 다음과 같습니다.
+Azure Storage에 대한 출력 파일 업로드가 실패하면 태스크가 **완료됨** 상태로 전환되고 [TaskExecutionInformation.FailureInformation](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 속성이 설정됩니다. **FailureInformation** 속성을 검사하여 발생한 오류를 확인합니다. 예를 들어 컨테이너가 없는 경우 파일 업로드에서 발생하는 오류는 다음과 같습니다.
 
 ```
 Category: UserError
@@ -163,7 +163,7 @@ C#에서 개발하는 경우 [.NET용 Batch 파일 규칙 라이브러리](https
 string containerName = job.OutputStorageContainerName();
 ```
 
-[CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) 메서드를 사용하여 컨테이너에 쓰는 데 사용되는 SAS(공유 액세스 서명) URL을 반환할 수 있습니다. 그런 다음 이 SAS를 [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) 생성자에 전달할 수 있습니다.
+[CloudJobExtensions.GetOutputStorageContainerUrl](/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) 메서드를 사용하여 컨테이너에 쓰는 데 사용되는 SAS(공유 액세스 서명) URL을 반환할 수 있습니다. 그런 다음 이 SAS를 [OutputFileBlobContainerDestination](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) 생성자에 전달할 수 있습니다.
 
 C# 이외의 언어로 개발하는 경우 파일 규칙 표준을 직접 구현해야 합니다.
 

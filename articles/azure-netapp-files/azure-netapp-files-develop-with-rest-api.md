@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/17/2019
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35800ef95e78a64d7aced13f496ec35d9fe60320
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65957029"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964603"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
 
@@ -38,133 +38,165 @@ Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azu
 2. Azure AD(Azure Active Directory)에 서비스 주체를 만듭니다.
    1. [충분한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)이 있는지 확인합니다.
 
-   1. Azure CLI에서 다음 명령을 입력합니다.  
-
-           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+   2. Azure CLI에서 다음 명령을 입력합니다. 
+    
+        ```azurecli
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+        ```
 
       명령 출력은 다음 예제와 유사합니다.  
 
-           { 
-               "appId": "appIDgoeshere", 
-               "displayName": "APPNAME", 
-               "name": "http://APPNAME", 
-               "password": "supersecretpassword", 
-               "tenant": "tenantIDgoeshere" 
-           } 
+        ```output
+        { 
+            "appId": "appIDgoeshere", 
+            "displayName": "APPNAME", 
+            "name": "http://APPNAME", 
+            "password": "supersecretpassword", 
+            "tenant": "tenantIDgoeshere" 
+        } 
+        ```
 
       명령 출력을 보관합니다.  `appId`, `password` 및 `tenant` 값이 필요합니다. 
 
 3. OAuth 액세스 토큰을 요청합니다.
 
-    이 문서의 예제에서는 cURL을 사용합니다.  [Postman](https://www.getpostman.com/), [Insomnia](https://insomnia.rest/) 및 [Paw](https://paw.cloud/)와 같은 다양한 API 도구를 사용할 수도 있습니다.  
+    이 문서의 예제에서는 cURL을 사용합니다. [Postman](https://www.getpostman.com/), [Insomnia](https://insomnia.rest/) 및 [Paw](https://paw.cloud/)와 같은 다양한 API 도구를 사용할 수도 있습니다.  
 
     다음 예제의 변수를 위 2단계의 명령 출력으로 바꿉니다. 
-
-        curl -X POST -d 'grant_type=client_credentials&client_id=[APP_ID]&client_secret=[PASSWORD]&resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/[TENANT_ID]/oauth2/token
+    
+    ```azurecli
+    curl -X POST -d 'grant_type=client_credentials&client_id=[APP_ID]&client_secret=[PASSWORD]&resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/[TENANT_ID]/oauth2/token
+    ```
 
     출력에서 다음 예제와 유사한 액세스 토큰을 제공합니다.
 
-        eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
+    `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9`
 
     표시된 토큰은 3600초간 유효합니다. 그 후에는 새 토큰을 요청해야 합니다. 
     텍스트 편집기에 토큰을 저장합니다.  이 토큰은 다음 단계에서 필요합니다.
 
 4. 테스트 호출을 보내고 REST API에 대한 액세스 권한을 확인할 토큰을 포함합니다.
 
-        curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2016-08-01
+    ```azurecli
+    curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2019-11-01
+    ```
 
 ## <a name="examples-using-the-api"></a>API 사용 예제  
 
 이 문서에서는 요청 기준선으로 다음 URL을 사용합니다. 이 URL은 Azure NetApp Files 네임스페이스의 루트를 가리킵니다. 
 
-`https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15`
+`https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01`
 
-다음 예제의 `subID` 및 `resourceGroups` 값을 사용자 고유의 값으로 바꾸어야 합니다. 
+다음 예제의 `SUBIDGOESHERE` 및 `RESOURCEGROUPGOESHERE` 값을 사용자 고유의 값으로 바꾸어야 합니다. 
 
 ### <a name="get-request-examples"></a>GET 요청 예제
 
 다음 예제와 같이 GET 요청을 사용하여 구독에서 Azure NetApp Files의 개체를 쿼리합니다. 
 
-        #get NetApp accounts 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15
+```azurecli
+#get NetApp accounts 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01
+```
 
-        #get capacity pools for NetApp account 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2017-08-15
+```azurecli
+#get capacity pools for NetApp account 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2019-11-01
+```
 
-        #get volumes in NetApp account & capacity pool 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2017-08-15
+```azurecli
+#get volumes in NetApp account & capacity pool 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2019-11-01
+```
 
-        #get snapshots for a volume 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2017-08-15
+```azurecli
+#get snapshots for a volume 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2019-11-01
+```
 
 ### <a name="put-request-examples"></a>PUT 요청 예제
 
-다음 예제와 같이 PUT 요청을 사용하여 Azure NetApp Files에 새 개체를 만듭니다. PUT 요청의 본문은 변경 내용에 대한 JSON 형식 데이터를 포함하거나, 읽어올 파일을 지정할 수 있습니다. 
+다음 예제와 같이 PUT 요청을 사용하여 Azure NetApp Files에 새 개체를 만듭니다. PUT 요청의 본문에는 변경 내용에 대 한 JSON 형식의 데이터가 포함 될 수 있습니다. 이 파일은 텍스트 또는 참조로 말아 넘기기 명령에 포함 되어야 합니다. 파일의 본문을 참조 하려면 json 예를 파일에 저장 하 고 `-d @<filename>` 를 말아 명령에 추가 합니다.
 
-        #create a NetApp account  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2017-08-15
+```azurecli
+#create a NetApp account  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2019-11-01
+```
 
-        #create a capacity pool  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2017-08-15
+```azurecli
+#create a capacity pool  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2019-11-01
+```
 
-        #create a volume  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2017-08-15
+```azurecli
+#create a volume  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2019-11-01
+```
 
-        #create a volume snapshot  
-        curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2017-08-15
+```azurecli
+ #create a volume snapshot  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2019-11-01
+```
 
 ### <a name="json-examples"></a>JSON 예
 
 다음 예제에서는 NetApp 계정을 만드는 방법을 보여 줍니다.
 
-    { 
-        "name": "MYNETAPPACCOUNT", 
-        "type": "Microsoft.NetApp/netAppAccounts", 
-        "location": "westus2", 
-        "properties": { 
-            "name": "MYNETAPPACCOUNT" 
-        }
-    } 
+```json
+{ 
+    "name": "MYNETAPPACCOUNT", 
+    "type": "Microsoft.NetApp/netAppAccounts", 
+    "location": "westus2", 
+    "properties": { 
+        "name": "MYNETAPPACCOUNT" 
+    }
+} 
+```
 
 다음 예제에서는 용량 풀을 만드는 방법을 보여 줍니다. 
 
-    {
-        "name": "MYNETAPPACCOUNT/POOLNAME",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools",
-        "location": "westus2",
-        "properties": {
-            "name": "POOLNAME"
-            "size": "4398046511104",
-            "serviceLevel": "Premium"
-        }
+```json
+{
+    "name": "MYNETAPPACCOUNT/POOLNAME",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools",
+    "location": "westus2",
+    "properties": {
+        "name": "POOLNAME",
+        "size": "4398046511104",
+        "serviceLevel": "Premium"
     }
+}
+```
 
-다음 예제에서는 새 볼륨을 만드는 방법을 보여 줍니다. 
+다음 예에서는 새 볼륨을 만드는 방법을 보여 줍니다. 볼륨의 기본 프로토콜은 NFSV3입니다. 
 
-    {
-        "name": "MYNEWVOLUME",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
-        "location": "westus2",
-        "properties": {
-            "serviceLevel": "Premium",
-            "usageThreshold": "322122547200",
-            "creationToken": "MY-FILEPATH",
-            "snapshotId": "",
-            "subnetId": "/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
-            }
-    }
+```json
+{
+    "name": "MYNEWVOLUME",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
+    "location": "westus2",
+    "properties": {
+        "serviceLevel": "Premium",
+        "usageThreshold": "322122547200",
+        "creationToken": "MY-FILEPATH",
+        "snapshotId": "",
+        "subnetId": "/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
+         }
+}
+```
 
 다음 예제에서는 볼륨의 스냅샷을 만드는 방법을 보여 줍니다. 
 
-    {
-        "name": "apitest2/apiPool01/apiVol01/snap02",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots",
-        "location": "westus2",
-        "properties": {
-            "name": "snap02",
-            "fileSystemId": "0168704a-bbec-da81-2c29-503825fe7420"
-        }
+```json
+{
+    "name": "apitest2/apiPool01/apiVol01/snap02",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots",
+    "location": "westus2",
+    "properties": {
+         "name": "snap02",
+        "fileSystemId": "0168704a-bbec-da81-2c29-503825fe7420"
     }
+}
+```
 
 > [!NOTE] 
 > 스냅샷을 만들려면 `fileSystemId`를 지정해야 합니다.  볼륨에 대한 GET 요청을 사용하여 `fileSystemId` 값을 얻을 수 있습니다. 

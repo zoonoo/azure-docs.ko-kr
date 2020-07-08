@@ -6,18 +6,18 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429955"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964994"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Synapse SQL에서 T-sql 루프 사용
+# <a name="use-t-sql-loops-in-synapse-sql"></a>Synapse SQL에서 T-sql 루프 사용
 이 문서에서는 Synapse SQL에서 SQL 풀을 사용 하 여 T-sql 루프를 사용 하 고, 커서를 바꾸고, 관련 솔루션을 개발 하는 데 필요한 팁을 제공 합니다.
 
 ## <a name="purpose-of-while-loops"></a>WHILE 루프의 목적

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 50bff8e55d1b125f56696ac485bc1e05193dea55
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: af46b48d47a53d5a8a19db7c50a9356824607a5d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992949"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962954"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
 
@@ -27,7 +27,7 @@ Custom Translator 설정 페이지 내에서 새 작업 영역을 만들고, 작
 
     ![링크 설정](media/how-to/how-to-settings.png)
 
-## <a name="associating-microsoft-translator-subscription"></a>Microsoft Translator 구독 연결
+## <a name="associating-translator-subscription"></a>Translator 구독 연결
 
 모델을 학습 하거나 배포 하려면 작업 영역과 연결 된 번역기 구독 키가 있어야 합니다.
 

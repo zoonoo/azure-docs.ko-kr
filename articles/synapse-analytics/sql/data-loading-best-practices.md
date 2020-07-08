@@ -6,19 +6,19 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b80fe79a2c27de7dbaaa2edccf7b4598c6c63f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6321fa484c883e196279ddf33661e78397bc3855
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431047"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963889"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터 웨어하우징에 대 한 데이터 로드에 대 한 모범 사례
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터웨어 하우징에 대한 데이터 로드 모범 사례
 
 데이터 로드에 대 한 권장 사항 및 성능 최적화
 
@@ -126,7 +126,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행합니다.
 
-예제:
+예:
 
 원래 키를 만드는 경우
 
@@ -144,6 +144,6 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 ## <a name="next-steps"></a>다음 단계
 
-- PolyBase 및 ELT(추출, 로드 및 변환) 프로세스를 디자인하는 방법을 자세히 알아보려면 [SQL Data Warehouse에 대한 ELT 디자인](data-loading-overview.md)을 참조하세요.
+- PolyBase 및 ELT(추출, 로드 및 변환) 프로세스를 디자인하는 방법을 자세히 알아보려면 [SQL Data Warehouse에 대한 ELT 디자인](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
 - 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 - 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.

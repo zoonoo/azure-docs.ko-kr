@@ -3,12 +3,12 @@ title: Azure Service Fabric 응용 프로그램 모델
 description: 응용 프로그램 및 서비스 매니페스트 파일을 사용 하 여 Azure Service Fabric에서 응용 프로그램 및 서비스를 모델링 하 고 설명 하는 방법입니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e6b2309fdb206771d4ea01aa03c7f355d6ff19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75551882"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963736"
 ---
 # <a name="model-an-application-in-service-fabric"></a>서비스 패브릭에서 애플리케이션 모델링
 이 문서에서는 Azure Service Fabric 애플리케이션 모델의 개요 및 매니페스트 파일을 통해 애플리케이션과 서비스를 정의하는 방법에 대해 설명합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "75551882"
 
 애플리케이션 및 서비스의 클래스(또는 "형식")는 XML 파일(애플리케이션 매니페스트 및 서비스 매니페스트)을 통해 설명됩니다.  매니페스트는 애플리케이션 및 서비스에 대해 설명하며 클러스터의 이미지 저장소에서 대상 애플리케이션을 인스턴스화할 수 있는 템플릿입니다.  매니페스트는 [애플리케이션 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)에서 자세히 다룹니다. ServiceManifest.xml 및 ApplicationManifest.xml에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다. XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
 
-서로 다른 애플리케이션 인스턴스에 대한 코드는 동일한 Service Fabric 노드에 의해 호스팅되는 경우에도 별도의 프로세스로 실행됩니다. 뿐만 아니라 각 애플리케이션 인스턴스의 수명 주기를 독립적으로 관리(예: 업그레이드)할 수 있습니다. 다음 다이어그램에서는 애플리케이션 유형이 어떻게 서비스 유형으로 구성되고, 다시 서비스 유형이 코드, 구성 및 데이터 패키지로 구성되는지를 보여줍니다. 다이어그램을 간소화하려면 `ServiceType4`에 대한 코드/구성/데이터 패키지만을 표시하지만 각 서비스 형식은 패키지 형식의 일부 또는 모두를 포함합니다.
+서로 다른 응용 프로그램 인스턴스에 대 한 코드는 동일한 Service Fabric 노드에서 호스팅되는 경우에도 별도의 프로세스로 실행 됩니다. 뿐만 아니라 각 애플리케이션 인스턴스의 수명 주기를 독립적으로 관리(예: 업그레이드)할 수 있습니다. 다음 다이어그램에서는 애플리케이션 유형이 어떻게 서비스 유형으로 구성되고, 다시 서비스 유형이 코드, 구성 및 데이터 패키지로 구성되는지를 보여줍니다. 다이어그램을 간소화하려면 `ServiceType4`에 대한 코드/구성/데이터 패키지만을 표시하지만 각 서비스 형식은 패키지 형식의 일부 또는 모두를 포함합니다.
 
 ![Service Fabric 애플리케이션 유형 및 서비스 유형][cluster-imagestore-apptypes]
 

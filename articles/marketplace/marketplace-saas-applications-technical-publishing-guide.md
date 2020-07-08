@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657821"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963838"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
@@ -62,11 +62,9 @@ SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게�
 
 최상의 Azure Active Directory 설명서, 샘플 및 지침은 다음 사이트에 위치합니다. 
 
-* [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Azure Active Directory 개발자 가이드](../active-directory/develop/index.yml)
 
-* [Azure Active Directory와 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Azure Active Directory와 통합](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Azure 로드맵 - 보안 및 ID](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +88,7 @@ SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게�
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 
-Microsoft에서는 Azure AD를 사용하여 모든 Marketplace를 인증하므로, 인증된 사용자가 Marketplace에서 평가판 항목을 클릭하고 평가판 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 평가판 단계로 직접 프로비전할 수 있습니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
+Microsoft에서는 Azure AD를 사용하여 모든 Marketplace를 인증하므로, 인증된 사용자가 Marketplace에서 평가판 항목을 클릭하고 평가판 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 평가판 단계로 직접 프로비전할 수 있습니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](../active-directory/develop/active-directory-token-and-claims.md)을 참조하세요.
 
 Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클릭 인증을 사용할 수 있습니다.  
 * 고객이 Marketplace의 환경에서 평가판으로 간단히 전환할 수 있습니다.  
@@ -106,15 +104,15 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 이미 Azure AD를 지원하는 경우 다음을 수행합니다.
 1.    Azure Portal에서 애플리케이션을 등록합니다.
-2.    Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에서 자세한 내용을 찾을 수 있습니다.  
+2.    Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](../active-directory/develop/active-directory-integrating-applications.md)에서 자세한 내용을 찾을 수 있습니다.  
 
 Azure AD 페더레이션 SSO를 처음 사용하는 경우 다음을 수행합니다. 
 1.  Azure Portal에서 애플리케이션을 등록합니다.
-2.  [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 Azure AD에서 SSO를 개발합니다.
-3.  AAD의 다중 테넌트 지원 기능으로 '원클릭'만으로 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)에서 자세한 내용을 찾을 수 있습니다.  
+2.  [OpenID Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) 또는 [OAuth 2.0](../active-directory/develop/active-directory-protocols-oauth-code.md)을 사용하여 Azure AD에서 SSO를 개발합니다.
+3.  AAD의 다중 테넌트 지원 기능으로 '원클릭'만으로 평가판 환경을 사용할 수 있습니다. [여기](../active-directory/develop/active-directory-devhowto-appsource-certified.md)에서 자세한 내용을 찾을 수 있습니다.  
 
 **단일 테넌트 애플리케이션의 경우 다음 옵션 중 하나를 사용합니다.**  
-* [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 사용하여 게스트 사용자로 디렉터리에 사용자 추가
+* [Azure B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)를 사용하여 게스트 사용자로 디렉터리에 사용자 추가
 * '연락처'를 사용하여 고객에게 평가판을 수동으로 프로비전
 * 고객별로 '시험 사용' 개발
 * SSO를 통해 다중 테넌트 샘플 데모 앱을 빌드합니다.
