@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
 ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76845352"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
@@ -194,7 +193,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 > [!Note]
 > "애플리케이션 데이터" 또는 "PII' 뿐만 아니라 계정 메타데이터(구독 매핑, 계약 정보, PII)를 포함하여 애플리케이션과 관련된 모든 데이터가 열거됩니다.
 
-데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 다음은 그 예입니다.
+데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 예를 들어:
 
 - 외부 스토리지(예: SQL Azure, 문서 DB, HDInsight, Data Lake 등)
 
@@ -406,7 +405,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../../security-center/security-center-intro.md)를 사용하면 Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위협을 예방, 검색 및 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+[Azure Security Center](../../security-center/security-center-intro.md) 는 Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 통해 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 보안 센터는 Azure 리소스의 보안 상태를 분석하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
 
@@ -513,7 +512,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 - [암호화](https://www.microsoft.com/en-us/trustcenter/security/encryption)
 
-- [ID 및 액세스 관리](https://www.microsoft.com/en-us/trustcenter/security/identity)
+- [Id 및 액세스 관리](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
 - [네트워크 보안](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 

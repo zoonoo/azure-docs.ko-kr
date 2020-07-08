@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906087"
 ---
 # <a name="sfctl-is"></a>sfctl is
@@ -17,9 +16,9 @@ ms.locfileid: "76906087"
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
-| command | 지정된 인프라 서비스 인스턴스에 대한 관리 명령을 호출합니다. |
+| 명령을 사용합니다. | 지정된 인프라 서비스 인스턴스에 대한 관리 명령을 호출합니다. |
 | Query | 지정된 인프라 서비스 인스턴스에 대한 읽기 전용 쿼리를 호출합니다. |
 
 ## <a name="sfctl-is-command"></a>sfctl is 명령
@@ -29,7 +28,7 @@ ms.locfileid: "76906087"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
 | --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
@@ -37,7 +36,7 @@ ms.locfileid: "76906087"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -52,7 +51,7 @@ ms.locfileid: "76906087"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
 | --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
@@ -60,7 +59,7 @@ ms.locfileid: "76906087"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

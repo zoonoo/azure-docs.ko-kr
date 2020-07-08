@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841715"
 ---
 # <a name="delivery-and-retry"></a>배달 및 다시 시도
@@ -27,14 +26,14 @@ Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지에 �
 
 Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 대기 합니다. 구독자의 끝점이 응답을 ACK 하지 않으면 메시지는 이후 재시도를 위해 백오프 큐 중 하나에 큐에 삽입 됩니다.
 
-다시 시도가 시도 되는 일정을 결정 하는 두 개의 미리 구성 된 백오프 큐가 있습니다. 다음 창이 여기에 포함됩니다.
+다시 시도가 시도 되는 일정을 결정 하는 두 개의 미리 구성 된 백오프 큐가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-| 일정 | Description |
+| 일정 | 설명 |
 | ---------| ------------ |
 | 1분 | 여기에서 종료 되는 메시지는 1 분 마다 시도 됩니다.
 | 10분 | 여기에서 종료 되는 메시지는 10 분 마다 시도 됩니다.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
 1. 메시지가 Event Grid 모듈에 도착 합니다. 이를 즉시 제공 하려고 합니다.
 1. 배달이 실패 하면 메시지는 1 분 큐로 큐에 배치 되 고 1 분 후에 다시 시도 됩니다.
@@ -43,7 +42,7 @@ Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 �
 
 ## <a name="retry-policy-limits"></a>재시도 정책 제한
 
-재시도 정책을 결정 하는 두 가지 구성이 있습니다. 다음 창이 여기에 포함됩니다.
+재시도 정책을 결정 하는 두 가지 구성이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 * 최대 시도 횟수
 * 이벤트 TTL (time to live)
@@ -52,9 +51,9 @@ Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 �
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>모든 구독자에 대 한 기본값 구성
 
-에는 두 가지 속성이 `brokers__defaultMaxDeliveryAttempts` 있습니다 `broker__defaultEventTimeToLiveInSeconds` .이 속성은 모든 구독자의 다시 시도 정책 기본값을 제어 하는 Event Grid 배포의 일부로 구성할 수 있습니다.
+에는 두 가지 속성이 있습니다 .이 속성은 `brokers__defaultMaxDeliveryAttempts` `broker__defaultEventTimeToLiveInSeconds` 모든 구독자의 다시 시도 정책 기본값을 제어 하는 Event Grid 배포의 일부로 구성할 수 있습니다.
 
-| 속성 이름 | Description |
+| 속성 이름 | 설명 |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | 이벤트를 전달할 최대 시도 횟수입니다. 기본값은 30입니다.
 | `broker__defaultEventTimeToLiveInSeconds` | 이벤트가 전달 되지 않은 경우 삭제 되는 이벤트 TTL (초)입니다. 기본값: **7200** 초

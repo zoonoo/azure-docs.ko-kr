@@ -6,17 +6,16 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b805b7047b00f416664a001f02f311f6b387af19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76896266"
 ---
 # <a name="sfctl-settings"></a>sfctl settings
 이 sfctl 인스턴스에 로컬인 설정을 구성합니다.
 
 ## <a name="subgroups"></a>하위 그룹
-|하위 그룹|Description|
+|하위 그룹|설명|
 | --- | --- |
 | [분석이](service-fabric-sfctl-settings-telemetry.md) | 이 sfctl 인스턴스에 로컬인 원격 분석 설정을 구성합니다. |
 

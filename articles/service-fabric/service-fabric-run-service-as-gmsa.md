@@ -7,15 +7,14 @@ ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
 ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988399"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>그룹 관리 서비스 계정으로 서비스 실행
 
-Windows Server 독립 실행형 클러스터에서 *RunAs* 정책을 사용 하 여 gMSA ( *그룹 관리 서비스 계정* )로 서비스를 실행할 수 있습니다.  기본적으로 Service Fabric 응용 프로그램은 `Fabric.exe` 프로세스가 실행 되는 계정에서 실행 됩니다. 서로 다른 계정에서 애플리케이션을 실행하면 공유 호스트 환경에서도 서로를 더욱 안전하게 보호할 수 있습니다. gMSA를 사용하면 애플리케이션 매니페스트에 저장되는 암호나 암호화된 암호가 없습니다.  [Active Directory 사용자 또는 그룹](service-fabric-run-service-as-ad-user-or-group.md)으로 서비스를 실행할 수도 있습니다.
+Windows Server 독립 실행형 클러스터에서 *RunAs* 정책을 사용 하 여 gMSA ( *그룹 관리 서비스 계정* )로 서비스를 실행할 수 있습니다.  기본적으로 Service Fabric 응용 프로그램은 프로세스가 실행 되는 계정에서 실행 `Fabric.exe` 됩니다. 서로 다른 계정에서 애플리케이션을 실행하면 공유 호스트 환경에서도 서로를 더욱 안전하게 보호할 수 있습니다. gMSA를 사용하면 애플리케이션 매니페스트에 저장되는 암호나 암호화된 암호가 없습니다.  [Active Directory 사용자 또는 그룹](service-fabric-run-service-as-ad-user-or-group.md)으로 서비스를 실행할 수도 있습니다.
 
 다음 예제에서는 *.svc-Test $* 라는 gMSA 계정을 만드는 방법, 클러스터 노드에 관리 서비스 계정을 배포 하는 방법 및 사용자 보안 주체를 구성 하는 방법을 보여 줍니다.
 
@@ -27,7 +26,7 @@ Windows Server 독립 실행형 클러스터에서 *RunAs* 정책을 사용 하 
 - 도메인에 KDS 루트 키가 필요합니다.
 - 도메인에 Windows Server 2012 (또는 R2) DC가 하나 이상 있어야 합니다.
 
-1. Active Directory 도메인 관리자가 cmdlet을 `New-ADServiceAccount` 사용 하 여 그룹 관리 서비스 계정을 만들고에 `PrincipalsAllowedToRetrieveManagedPassword` 모든 Service Fabric 클러스터 노드가 포함 되어 있는지 확인 합니다. `AccountName`, `DnsHostName` 및 `ServicePrincipalName`은 고유해야 합니다.
+1. Active Directory 도메인 관리자가 cmdlet을 사용 하 여 그룹 관리 서비스 계정을 만들고 `New-ADServiceAccount` 에 `PrincipalsAllowedToRetrieveManagedPassword` 모든 Service Fabric 클러스터 노드가 포함 되어 있는지 확인 합니다. `AccountName`, `DnsHostName` 및 `ServicePrincipalName`은 고유해야 합니다.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
@@ -69,6 +68,6 @@ Windows Server 독립 실행형 클러스터에서 *RunAs* 정책을 사용 하 
 
 - [애플리케이션 모델의 이해](service-fabric-application-model.md)
 - [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)
-- [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+- [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

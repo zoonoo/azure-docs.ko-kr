@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906033"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
@@ -17,7 +16,7 @@ Service Fabric Mesh 리소스를 만듭니다.
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
 | create | Service Fabric Mesh 리소스의 배포를 만듭니다. |
 
@@ -26,14 +25,14 @@ Service Fabric Mesh 리소스의 배포를 만듭니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --input-yaml-files[필수] | Yaml 파일을 포함 하는 디렉터리의 상대 또는 절대 경로 또는 모든 yaml 파일의 쉼표로 구분 된 상대 또는 절대 파일 경로입니다. |
 | --parameters | Yaml 파일에 대 한 상대 또는 절대 경로 또는 재정의 해야 하는 매개 변수를 포함 하는 json 개체입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

@@ -4,10 +4,9 @@ description: Azure Container Instances 컨테이너가 준비 된 경우에만 �
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76935690"
 ---
 # <a name="configure-readiness-probes"></a>준비 상태 프로브 구성
@@ -23,7 +22,7 @@ Azure Container Instances은 비정상 컨테이너가 자동으로 다시 시�
 
 ## <a name="yaml-configuration"></a>YAML 구성
 
-예를 들어 준비 프로브를 `readiness-probe.yaml` 포함 하는 다음 코드 조각을 사용 하 여 파일을 만듭니다. 이 파일은 작은 웹 앱을 실행 하는 컨테이너로 구성 된 컨테이너 그룹을 정의 합니다. 앱은 공용 `mcr.microsoft.com/azuredocs/aci-helloworld` 이미지에서 배포 됩니다. 이 컨테이너 화 된 앱은 Azure CLI 및 기타 빠른 시작을 [사용 하 여 Azure에 컨테이너 인스턴스 배포](container-instances-quickstart.md) 에도 설명 되어 있습니다.
+예를 들어 `readiness-probe.yaml` 준비 프로브를 포함 하는 다음 코드 조각을 사용 하 여 파일을 만듭니다. 이 파일은 작은 웹 앱을 실행 하는 컨테이너로 구성 된 컨테이너 그룹을 정의 합니다. 앱은 공용 이미지에서 배포 됩니다 `mcr.microsoft.com/azuredocs/aci-helloworld` . 이 컨테이너 화 된 앱은 Azure CLI 및 기타 빠른 시작을 [사용 하 여 Azure에 컨테이너 인스턴스 배포](container-instances-quickstart.md) 에도 설명 되어 있습니다.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,9 +62,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>시작 명령
 
-배포에는 컨테이너가 `command` 처음 실행 되기 시작할 때 실행 되는 시작 명령을 정의 하는 속성이 포함 되어 있습니다. 이 속성은 문자열 배열을 허용 합니다. 이 명령은 웹 앱이 실행 되는 시간을 시뮬레이션 하지만 컨테이너가 준비 되지 않습니다. 
+배포에는 `command` 컨테이너가 처음 실행 되기 시작할 때 실행 되는 시작 명령을 정의 하는 속성이 포함 되어 있습니다. 이 속성은 문자열 배열을 허용 합니다. 이 명령은 웹 앱이 실행 되는 시간을 시뮬레이션 하지만 컨테이너가 준비 되지 않습니다. 
 
-먼저 셸 세션을 시작 하 고 `node` 명령을 실행 하 여 웹 앱을 시작 합니다. 또한 240 초 동안 대기 하는 명령을 시작 합니다. 그 후에는 `ready` `/tmp` 디렉터리 내에서 라는 파일을 만듭니다.
+먼저 셸 세션을 시작 하 고 `node` 명령을 실행 하 여 웹 앱을 시작 합니다. 또한 240 초 동안 대기 하는 명령을 시작 합니다. 그 후에는 디렉터리 내에서 라는 파일을 만듭니다 `ready` `/tmp` .
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
@@ -73,11 +72,11 @@ node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 
 ### <a name="readiness-command"></a>준비 명령
 
-이 YAML 파일은 준비 `readinessProbe` 검사의 역할 `exec` 을 하는 준비 명령을 지 원하는을 정의 합니다. 이 예제 준비 명령은 `ready` `/tmp` 디렉터리에 파일이 있는지 테스트 합니다.
+이 YAML 파일은 `readinessProbe` `exec` 준비 검사의 역할을 하는 준비 명령을 지 원하는을 정의 합니다. 이 예제 준비 명령은 `ready` 디렉터리에 파일이 있는지 테스트 `/tmp` 합니다.
 
-`ready` 파일이 없으면 준비 명령이 0이 아닌 값으로 종료 됩니다. 컨테이너가 계속 실행 되지만 액세스할 수 없습니다. 종료 코드 0으로 명령이 성공적으로 종료 되 면 컨테이너에 액세스할 준비가 된 것입니다. 
+`ready`파일이 없으면 준비 명령이 0이 아닌 값으로 종료 됩니다. 컨테이너는 계속 실행 되지만 액세스할 수 없습니다. 종료 코드 0으로 명령이 성공적으로 종료 되 면 컨테이너에 액세스할 준비가 된 것입니다. 
 
-속성 `periodSeconds` 은 준비 명령이 5 초 마다 실행 되도록 지정 합니다. 준비 상태 프로브는 컨테이너 그룹의 수명 동안 실행 됩니다.
+`periodSeconds`속성은 준비 명령이 5 초 마다 실행 되도록 지정 합니다. 준비 상태 프로브는 컨테이너 그룹의 수명 동안 실행 됩니다.
 
 ## <a name="example-deployment"></a>예제 배포
 
@@ -91,7 +90,7 @@ az container create --resource-group myResourceGroup --file readiness-probe.yaml
 
 이 예제에서는 처음 240 초 동안 준비 명령이 `ready` 파일의 존재 여부를 확인할 때 실패 합니다. 반환 된 상태 코드는 컨테이너가 준비 되지 않았다는 신호를 보냅니다.
 
-이러한 이벤트는 Azure Portal 또는 Azure CLI에서 볼 수 있습니다. 예를 들어, 포털은 준비 명령이 실패 `Unhealthy` 하는 경우 형식의 이벤트를 표시 합니다. 
+이러한 이벤트는 Azure Portal 또는 Azure CLI에서 볼 수 있습니다. 예를 들어, 포털은 `Unhealthy` 준비 명령이 실패 하는 경우 형식의 이벤트를 표시 합니다. 
 
 ![포털 비정상 이벤트][portal-unhealthy]
 
@@ -117,7 +116,7 @@ Connecting to 192.0.2.1... connected.
 HTTP request sent, awaiting response... 
 ```
 
-240 초 후 준비 명령이 성공 하 고 컨테이너에 대 한 신호가 준비 됩니다. 이제 `wget` 명령을 실행 하면 성공 합니다.
+240 초 후 준비 명령이 성공 하 고 컨테이너에 대 한 신호가 준비 됩니다. 이제 명령을 실행 하면 성공 합니다 `wget` .
 
 ```
 $ wget 192.0.2.1

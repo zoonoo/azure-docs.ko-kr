@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908164"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>다른 Azure 지역으로 Service Fabric 메시 응용 프로그램 이동
@@ -19,10 +18,10 @@ ms.locfileid: "76908164"
 
  [Service Fabric 메시](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) 는 Azure 지역에서 리소스를 직접 이동 하는 기능을 지원 하지 않습니다. 그러나 현재 Azure Resource Manager 템플릿의 복사본을 새 대상 영역에 배포한 다음, 수신 트래픽과 종속성을 새로 만든 Service Fabric 메시 응용 프로그램으로 리디렉션하는 방식으로 리소스를 간접적으로 이동할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 클라이언트와 Service Fabric 메시 응용 프로그램 간의 트래픽 라우팅에 대 한 중개자 역할을 하는 수신 컨트롤러 (예: [Application Gateway](https://docs.microsoft.com/azure/application-gateway/))
-* 대상 Azure 지역 (`westus`, `eastus`또는 `westeurope`)에서 메시 (미리 보기) 가용성 Service Fabric
+* 대상 Azure 지역 ( `westus` , `eastus` 또는 `westeurope` )에서 메시 (미리 보기) 가용성 Service Fabric
 
 ## <a name="prepare"></a>준비
 

@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988790"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
@@ -57,18 +56,18 @@ Azure Maps 웹 SDK는 다음과 같은 모바일 브라우저를 지원 합니�
 
 ## <a name="nodejs"></a>Node.js
 
-다음 웹 SDK 모듈은 node.js 에서도 지원 됩니다.
+다음 웹 SDK 모듈은 Node.js 에서도 지원 됩니다.
 
-- 서비스 모듈 ([설명서](how-to-use-services-module.md) | [npm 모듈](https://www.npmjs.com/package/azure-maps-rest))
+- 서비스 모듈 ([설명서](how-to-use-services-module.md)  |  [npm 모듈](https://www.npmjs.com/package/azure-maps-rest))
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>대상 레거시 브라우저
 
-WebGL을 지원 하지 않거나 제한적 으로만 지원 되는 이전 브라우저를 대상으로 지정할 수 있습니다. 이러한 경우 [Leaflet](https://leafletjs.com/)와 같은 오픈 소스 맵 컨트롤과 함께 Azure Maps 서비스를 사용 하는 것이 좋습니다. 아래 예를 살펴보세요.
+WebGL을 지원 하지 않거나 제한적 으로만 지원 되는 이전 브라우저를 대상으로 지정할 수 있습니다. 이러한 경우 [Leaflet](https://leafletjs.com/)와 같은 오픈 소스 맵 컨트롤과 함께 Azure Maps 서비스를 사용 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> () Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>()를 참조 하세요.
+CodePen에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> () Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 

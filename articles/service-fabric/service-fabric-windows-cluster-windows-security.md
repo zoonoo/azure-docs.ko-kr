@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
 ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774439"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows 보안을 사용하여 독립 실행형 클러스터 보호
@@ -21,7 +20,7 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>gMSA를 사용하여 Windows 보안 구성  
-*GMSA* [. ServiceFabric 서버\< 와 함께 다운로드 되는 샘플 clusterconfig 구성 파일입니다. 버전> .zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지에는 [GMSA (그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx)를 사용 하 여 Windows 보안을 구성 하기 위한 템플릿이 포함 되어 있습니다.  
+[Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 구성 파일은 [gMSA(그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx)를 사용하여 Windows 보안 구성을 위한 템플릿을 포함합니다.  
 
 ```
 "security": {
@@ -45,14 +44,14 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 | ClusterCredentialType |*Windows* 로 설정 하 여 노드 간 통신에 windows 보안을 사용 하도록 설정 합니다.  | 
 | ServerCredentialType |클라이언트-노드 간 통신에서 Windows 보안을 사용하도록 설정하려면 *Windows*로 설정합니다. |
 | WindowsIdentities |클러스터와 클라이언트 ID를 포함합니다. |
-| ClustergMSAIdentity |노드 간 보안을 구성합니다. 그룹 관리 서비스 계정입니다. |
+| ClustergMSAIdentity |노드 간 보안을 구성합니다. 그룹 관리 서비스 계정. |
 | ClusterSPN |gMSA 계정에 대해 등록된 SPN|
 | ClientIdentities |클라이언트-노드 보안을 구성합니다. 클라이언트 사용자 계정의 배열입니다. |
 | ID |클라이언트 ID로 도메인 사용자인 domain\username을 추가합니다. |
 | IsAdmin |도메인 사용자가 관리자 클라이언트 액세스 권한을 갖는 경우 true로 설정하고, 사용자 클라이언트 액세스 권한을 갖는 경우 false를 설정합니다. |
 
 > [!NOTE]
-> ClustergMSAIdentity 값은 "mysfgmsa@mydomain" 형식 이어야 합니다.
+> ClustergMSAIdentity 값은 "" 형식 이어야 합니다 mysfgmsa@mydomain .
 
 [노드 간 보안](service-fabric-cluster-security.md#node-to-node-security)은 서비스 패브릭이 gMSA에서 실행되어야 하는 경우 **ClustergMSAIdentity**를 설정하여 구성됩니다. 노드 간의 신뢰 관계를 구축하기 위해 서로를 인식하도록 만들어야 합니다. 이 작업은 두 가지 방법으로 수행할 수 있습니다. 클러스터의 모든 노드를 포함하는 그룹 관리 서비스 계정을 지정하거나 클러스터의 모든 노드를 포함하는 도메인 컴퓨터 그룹을 지정합니다. 특히 노드가 10개보다 많은 대형 클러스터 또는 확장되거나 축소될 수 있는 클러스터의 경우에는 [gMSA(그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx) 방식을 사용하는 것이 좋습니다.  
 이 접근 방법에서는 클러스터 관리자에게 멤버를 추가하고 제거하는 액세스 권한을 부여하기 위해 도메인 그룹을 만들 필요가 없습니다. 이러한 계정은 자동 암호 관리에도 유용합니다. 자세한 내용은 [그룹 관리 서비스 계정 시작](https://technet.microsoft.com/library/jj128431.aspx)을 참조하세요.  
@@ -77,7 +76,7 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>컴퓨터 그룹을 사용하여 Windows 보안 구성  
-이 모델은 더 이상 사용되지 않습니다. 위에서 설명한 대로 gMSA를 사용하는 것이 좋습니다. *ClusterConfig.Windows.MultiMachine.JSON* [ServiceFabric 서버\< 와 함께 다운로드 되는 샘플 clusterconfig. c o n c. 버전> .zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지에는 Windows 보안을 구성 하기 위한 템플릿이 포함 되어 있습니다.  **Properties** 섹션에서 다음과 같이 Windows 보안을 구성합니다. 
+이 모델은 더 이상 사용되지 않습니다. 위에서 설명한 대로 gMSA를 사용하는 것이 좋습니다. [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.Windows.MultiMachine.JSON* 구성 파일은 Windows 보안 구성을 위한 템플릿을 포함합니다.  **Properties** 섹션에서 다음과 같이 Windows 보안을 구성합니다. 
 
 ```
 "security": {

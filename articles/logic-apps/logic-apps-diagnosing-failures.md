@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905024"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 오류를 진단하고 해결
@@ -31,7 +30,7 @@ ms.locfileid: "76905024"
 
    트리거 입력에는 트리거에 필요한 데이터와 워크플로를 시작 하는 데 필요한 데이터가 포함 됩니다. 이러한 입력을 검토 하면 트리거 입력이 올바른지와 조건이 충족 되었는지 여부를 확인 하 여 워크플로를 계속 진행할 수 있습니다.
 
-   예를 들어 다음 `feedUrl` 속성에는 잘못 된 RSS 피드 값이 있습니다.
+   예를 들어 `feedUrl` 다음 속성에는 잘못 된 RSS 피드 값이 있습니다.
 
    ![오류에 대 한 트리거 입력 검토](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
@@ -66,7 +65,7 @@ ms.locfileid: "76905024"
 
    ![논리 앱 실행에 대한 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-1. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 다음은 그 예입니다.
+1. 특정 단계에 대한 입력, 출력 및 오류 메시지를 검사하려면 셰이프가 확장되어 세부 정보를 표시하도록 해당 단계를 선택합니다. 예를 들어:
 
    ![단계 세부 정보 보기](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

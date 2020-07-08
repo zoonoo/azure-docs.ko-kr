@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844703"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>자습서: IoTHub로 이벤트 전달
@@ -28,7 +27,7 @@ ms.locfileid: "76844703"
 - [Event Grid 개념](concepts.md)
 - [IoT Edge 허브](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -40,7 +39,7 @@ ms.locfileid: "76844703"
 
 이벤트의 게시자는 event grid 토픽을 만들어야 합니다. 항목은 게시자가 이벤트를 보낼 수 있는 끝점을 참조 합니다.
 
-1. 다음 콘텐츠를 사용 하 여 topic4를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠를 사용 하 여 topic4.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
    ```json
     {
@@ -84,7 +83,7 @@ ms.locfileid: "76844703"
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. 아래 콘텐츠를 사용 하 여 subscription4를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 아래 콘텐츠를 사용 하 여 subscription4.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
    ```json
     {
@@ -100,7 +99,7 @@ ms.locfileid: "76844703"
    ```
 
    >[!NOTE]
-   > 는 `endpointType` 구독자를 지정 합니다 `edgeHub`. 는 `outputName` Event Grid 모듈이이 구독과 일치 하는 이벤트를 edgeHub로 라우팅하는 출력을 지정 합니다. 예를 들어 위의 구독과 일치 하는 이벤트는에 `/messages/modules/eventgridmodule/outputs/sampleSub4`기록 됩니다.
+   > 는 `endpointType` 구독자를 지정 합니다 `edgeHub` . 는 `outputName` Event Grid 모듈이이 구독과 일치 하는 이벤트를 edgeHub로 라우팅하는 출력을 지정 합니다. 예를 들어 위의 구독과 일치 하는 이벤트는에 기록 됩니다 `/messages/modules/eventgridmodule/outputs/sampleSub4` .
 2. 다음 명령을 실행 하 여 구독을 만듭니다. HTTP 상태 코드 200을 반환 해야 합니다.
 
     ```sh
@@ -147,7 +146,7 @@ ms.locfileid: "76844703"
   "fromEventGridToIoTHub":"FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
   ```
 
-  예를 들면 다음과 같습니다.
+  예제:
 
   ```json
   {
@@ -162,13 +161,13 @@ ms.locfileid: "76844703"
 
 ## <a name="setup-iot-hub-route"></a>설정 IoT Hub 경로
 
-Event Grid 모듈에서 전달 된 이벤트를 볼 수 있도록 IoT Hub에서 경로를 설정 하는 [IoT Hub 라우팅 자습서](../../iot-hub/tutorial-routing.md) 를 참조 하세요. 자습서 `true` 를 간단 하 게 유지 하기 위해 쿼리에 사용 합니다.  
+Event Grid 모듈에서 전달 된 이벤트를 볼 수 있도록 IoT Hub에서 경로를 설정 하는 [IoT Hub 라우팅 자습서](../../iot-hub/tutorial-routing.md) 를 참조 하세요. `true`자습서를 간단 하 게 유지 하기 위해 쿼리에 사용 합니다.  
 
 
 
 ## <a name="publish-an-event"></a>이벤트 게시
 
-1. 다음 콘텐츠를 사용 하 여 event4를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠를 사용 하 여 event4.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
     ```json
         [

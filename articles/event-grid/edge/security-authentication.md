@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844516"
 ---
 # <a name="security-and-authentication"></a>보안 및 인증
@@ -39,7 +38,7 @@ Event Grid 모듈은 HTTP 및 HTTPS 끝점을 모두 호스팅합니다. 모든 
 
 기본적으로 HTTPS 통신만 허용 됩니다. **Inbound__serverAuth__tlsPolicy** 구성을 통해이 동작을 재정의할 수 있습니다. 다음 표에서는이 속성의 가능한 값을 캡처합니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ---------------- | ------------ |
 | Strict | 기본값 HTTPS만 사용
 | 사용 | HTTP와 HTTPS를 모두 사용 하도록 설정 합니다.
@@ -54,26 +53,26 @@ Event Grid 모듈은 두 가지 유형의 클라이언트 인증을 지원 합�
 * 공유 액세스 서명 (SAS) 키 기반
 * 인증서 기반
 
-기본적으로 Event Grid 모듈은 인증서 기반 인증만 허용 하도록 구성 되어 있습니다. 시작 시 Event Grid 모듈은 IoT Edge 보안 디먼에서 "TrustBundle"을 검색 하 고이를 사용 하 여 클라이언트 인증서의 유효성을 검사 합니다. 이 체인으로 확인 되지 않는 클라이언트 인증서는와 함께 `UnAuthorized`거부 됩니다.
+기본적으로 Event Grid 모듈은 인증서 기반 인증만 허용 하도록 구성 되어 있습니다. 시작 시 Event Grid 모듈은 IoT Edge 보안 디먼에서 "TrustBundle"을 검색 하 고이를 사용 하 여 클라이언트 인증서의 유효성을 검사 합니다. 이 체인으로 확인 되지 않는 클라이언트 인증서는와 함께 거부 됩니다 `UnAuthorized` .
 
 ### <a name="certificate-based-client-authentication"></a>인증서 기반 클라이언트 인증
 
 인증서 기반 인증은 기본적으로 설정 되어 있습니다. **Inbound__clientAuth__clientCert__enabled**속성을 통해 인증서 기반 인증을 사용 하지 않도록 선택할 수 있습니다. 다음 표에서는 가능한 값을 캡처합니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ----------------  | ------------ |
 | true | 기본값 클라이언트 인증서를 제공 하려면 모든 요청이 Event Grid 모듈에 있어야 합니다. 또한 **inbound__clientAuth__clientCert__source**를 구성 해야 합니다.
 | false | 클라이언트에 인증서를 강제로 표시 하지 않습니다.
 
 다음 표에서는 **inbound__clientAuth__clientCert__source** 에 대 한 가능한 값을 캡처합니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ---------------- | ------------ |
 | IoT Edge | 기본값 IoT Edge의 Trustbundle을 사용 하 여 모든 클라이언트 인증서의 유효성을 검사 합니다.
 
 클라이언트에서 자체 서명 된 경우 기본적으로 Event Grid 모듈은 이러한 요청을 거부 합니다. **Inbound__clientAuth__clientCert__allowUnknownCA** 속성을 통해 자체 서명 된 클라이언트 인증서를 허용 하도록 선택할 수 있습니다. 다음 표에서는 가능한 값을 캡처합니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ----------------  | ------------|
 | true | 기본값 자체 서명 된 인증서를 성공적으로 표시할 수 있습니다.
 | false | 자체 서명 된 인증서가 표시 되 면 요청이 실패 합니다.
@@ -83,11 +82,11 @@ Event Grid 모듈은 두 가지 유형의 클라이언트 인증을 지원 합�
 
 ### <a name="sas-key-based-client-authentication"></a>SAS 키 기반 클라이언트 인증
 
-인증서 기반 인증 외에도 Event Grid 모듈은 SAS 키 기반 인증을 수행할 수 있습니다. SAS 키는 들어오는 모든 호출의 유효성을 검사 하는 데 사용 해야 하는 Event Grid 모듈에 구성 된 암호와 같습니다. 클라이언트는 HTTP 헤더 ' aaaaas-키 '에서 암호를 지정 해야 합니다. 일치 하지 않는 `UnAuthorized` 경우 요청을 거부 합니다.
+인증서 기반 인증 외에도 Event Grid 모듈은 SAS 키 기반 인증을 수행할 수 있습니다. SAS 키는 들어오는 모든 호출의 유효성을 검사 하는 데 사용 해야 하는 Event Grid 모듈에 구성 된 암호와 같습니다. 클라이언트는 HTTP 헤더 ' aaaaas-키 '에서 암호를 지정 해야 합니다. `UnAuthorized`일치 하지 않는 경우 요청을 거부 합니다.
 
 SAS 키 기반 인증을 제어 하는 구성이 **inbound__clientAuth__sasKeys__enabled**되었습니다.
 
-| 가능한 값 | Description  |
+| 가능한 값 | 설명  |
 | ----------------  | ------------ |
 | true | SAS 키 기반 인증을 허용 합니다. **Inbound__clientAuth__sasKeys__key1** 또는 **inbound__clientAuth__sasKeys__key2** 필요
 | false | 기본값 SAS 키 기반 인증을 사용할 수 없습니다.
@@ -105,14 +104,14 @@ SAS 키 기반 인증을 제어 하는 구성이 **inbound__clientAuth__sasKeys_
 
 아웃 바운드 클라이언트 인증을 제어 하는 구성이 **outbound__clientAuth__clientCert__enabled**되었습니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ----------------  | ------------ |
 | true | 기본값 Event Grid 모듈의 모든 나가는 요청이 인증서를 제공 해야 합니다. **Outbound__clientAuth__clientCert__source**를 구성 해야 합니다.
 | false | Event Grid 모듈에서 인증서를 제공 하지 않아도 됩니다.
 
 인증서의 소스를 제어 하는 구성이 **outbound__clientAuth__clientCert__source**됩니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ---------------- | ------------ |
 | IoT Edge | 기본값 IoT Edge 보안 데몬에 의해 구성 된 모듈의 id 인증서를 사용 합니다.
 
@@ -122,21 +121,21 @@ Event Grid 구독자의 대상 유형 중 하나는 "Webhook"입니다. 기본�
 
 Webhook 대상 정책 **outbound__webhook__httpsOnly**을 제어 하기 위한 구성입니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ----------------  | ------------ |
 | true | 기본값 HTTPS 끝점을 사용 하는 구독자만 허용 합니다.
 | false | HTTP 또는 HTTPS 끝점을 사용 하 여 구독자를 허용 합니다.
 
-기본적으로 Event Grid 모듈은 구독자의 서버 인증서의 유효성을 검사 합니다. **Outbound__webhook__skipServerCertValidation**를 재정의 하 여 유효성 검사를 건너뛸 수 있습니다. 가능한 값은 다음과 같습니다.
+기본적으로 Event Grid 모듈은 구독자의 서버 인증서의 유효성을 검사 합니다. **Outbound__webhook__skipServerCertValidation**를 재정의 하 여 유효성 검사를 건너뛸 수 있습니다. 가능한 값은
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ----------------  | ------------ |
 | true | 구독자의 서버 인증서의 유효성을 검사 하지 않습니다.
 | false | 기본값 구독자의 서버 인증서 유효성을 검사 합니다.
 
 구독자의 인증서가 자체 서명 된 경우 기본적으로 Event Grid 모듈은 이러한 구독자를 거부 합니다. 자체 서명 된 인증서를 허용 하기 위해 **outbound__webhook__allowUnknownCA**를 재정의할 수 있습니다. 다음 표에서는 가능한 값을 캡처합니다.
 
-| 가능한 값 | Description |
+| 가능한 값 | 설명 |
 | ----------------  | ------------ |
 | true | 기본값 자체 서명 된 인증서를 성공적으로 표시할 수 있습니다.
 | false | 자체 서명 된 인증서가 표시 되 면 요청이 실패 합니다.

@@ -7,17 +7,16 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908073"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Monitor 로그의 모니터링 및 추적을 위한 쿼리 보기 및 만들기
 
 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 에서 결과를 생성 하는 기본 쿼리를 확인 하 고 특정 조건에 따라 결과를 필터링 하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다. 쿼리는 [Kusto 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)를 사용 하 여 다른 결과를 보려는 경우 편집할 수 있습니다. 자세한 내용은 [Azure Monitor 로그 쿼리](../azure-monitor/log-query/query-language.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Log Analytics 작업 영역. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
@@ -53,7 +52,7 @@ ms.locfileid: "76908073"
 
 1. 빈 쿼리 또는 사용 가능한 기존 쿼리에서 시작 합니다.
 
-   * 기존 쿼리를 사용할 수 있는지 확인 하려면 쿼리 도구 모음에서 **예제 쿼리** > **기록**을 선택 하 여 이전 쿼리 실행의 쿼리를 보여 줍니다. 또는 미리 작성 된 쿼리를 보여 주는 **쿼리 탐색기**를 선택 합니다.
+   * 기존 쿼리를 사용할 수 있는지 확인 하려면 쿼리 도구 모음에서 **예제 쿼리**  >  **기록**을 선택 하 여 이전 쿼리 실행의 쿼리를 보여 줍니다. 또는 미리 작성 된 쿼리를 보여 주는 **쿼리 탐색기**를 선택 합니다.
 
      예를 들어 Logic Apps B2B 솔루션은 다음과 같은 미리 작성 된 쿼리를 제공 합니다.
 

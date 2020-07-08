@@ -15,10 +15,9 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76842404"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인 한 Linux VM 시작 문제 해결
@@ -29,7 +28,7 @@ Secure Shell (SSH)를 사용 하 여 Azure Linux VM (가상 머신)에 연결할
 
 가능한 오류의 예는 다음과 같습니다.
 
-### <a name="example-1"></a>예 1 
+### <a name="example-1"></a>예제 1 
 
 ```
 Checking all file systems.
@@ -39,7 +38,7 @@ Checking all file systems.
 /dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY
 ```
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 ```
 EXT4-fs (sda1): INFO: recovery required on readonly filesystem

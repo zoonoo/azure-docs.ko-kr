@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76836459"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 제한-단일 서버
@@ -43,7 +42,7 @@ ms.locfileid: "76836459"
 > [!IMPORTANT]
 > 최상의 환경을 위해 pgBouncer와 같은 연결 풀을 사용 하 여 효율적으로 연결을 관리 하는 것이 좋습니다.
 
-유휴 상태 에서도 PostgreSQL 연결은 10MB의 메모리를 차지할 수 있습니다. 또한 새 연결을 만드는 데 시간이 걸립니다. 대부분의 응용 프로그램은이 상황을 복합어 하는 많은 단기 연결을 요청 합니다. 결과적으로 실제 워크 로드에 사용할 수 있는 리소스의 성능이 저하 될 수 있습니다. 유휴 연결을 줄이고 기존 연결을 다시 사용 하는 연결 풀러는 이러한 문제를 방지 하는 데 도움이 됩니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717)을 참조 하세요.
+유휴 상태 에서도 PostgreSQL 연결은 10MB의 메모리를 차지할 수 있습니다. 또한 새 연결을 만드는 데 시간이 걸립니다. 대부분의 애플리케이션은 많은 단기 연결을 요청합니다. 이는 이러한 상황을 복잡하게 만듭니다. 결과적으로 실제 워크로드에 사용할 수 있는 리소스가 줄어들어 성능이 저하됩니다. 유휴 연결을 줄이고 기존 연결을 다시 사용하는 연결 풀러는 이러한 문제를 방지하는 데 도움이 됩니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717)을 참조 하세요.
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 ### <a name="scale-operations"></a>크기 조정 작업

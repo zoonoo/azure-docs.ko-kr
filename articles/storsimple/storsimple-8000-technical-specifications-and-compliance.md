@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68965281"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 디바이스에 대한 기술 사양 및 규정 준수
@@ -35,7 +34,7 @@ StorSimple 디바이스에는 두 개의 100-240V 듀얼 팬, SBB 규격 PCM(전
 
 EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM을 사용합니다. 다음 표에서 PCM과 관련된 기술 사양을 보여줍니다.
 
-| 규격 | 580 W PCM(EBOD) | 764 W PCM(기본) |
+| 사양 | 580 W PCM(EBOD) | 764 W PCM(기본) |
 | --- | --- | --- |
 | 최대 출력 전원 |580W |764 |
 | 빈도 |50/60Hz |50/60Hz |
@@ -179,7 +178,7 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 전원 코드-미국(나열된 NRTL이어야 함)
 
-| 구성 요소 | 규격 |
+| 구성 요소 | 사양 |
 | --- | --- |
 | 코드 형식 |SV 또는 SVT, 최소 18 AWG, 3선, 최대 2.0m 길이 |
 | 플러그 |NEMA 5-15P 첨부 파일 형식 접지 플러그  등급 120V, 10A 또는 IEC 320 C14, 250V, 10A |
@@ -187,7 +186,7 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ### <a name="ac-power-cords---europe"></a>AC 전원 코드-유럽
 
-| 구성 요소 | 규격 |
+| 구성 요소 | 사양 |
 | --- | --- |
 | 코드 형식 |고주파, H05-VVF-3G1.0 |
 | 소켓 |IEC 320 C-13, 250V, 10A |

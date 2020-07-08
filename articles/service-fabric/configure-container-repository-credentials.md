@@ -5,15 +5,14 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934986"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>컨테이너 이미지를 다운로드 하기 위해 응용 프로그램에 대 한 리포지토리 자격 증명 구성
 
-응용 프로그램 매니페스트의 `ContainerHostPolicies` 섹션에를 `RepositoryCredentials` 추가 하 여 컨테이너 레지스트리 인증을 구성 합니다. 컨테이너 레지스트리에 대 한 계정 및 암호를 추가 합니다 (아래 예제에서는*myregistry.azurecr.io* ) .이를 통해 서비스는 리포지토리에서 컨테이너 이미지를 다운로드할 수 있습니다.
+`RepositoryCredentials`응용 프로그램 매니페스트의 섹션에를 추가 하 여 컨테이너 레지스트리 인증을 구성 `ContainerHostPolicies` 합니다. 컨테이너 레지스트리에 대 한 계정 및 암호를 추가 합니다 (아래 예제에서는*myregistry.azurecr.io* ) .이를 통해 서비스는 리포지토리에서 컨테이너 이미지를 다운로드할 수 있습니다.
 
 ```xml
 <ServiceManifestImport>
@@ -35,7 +34,7 @@ ms.locfileid: "76934986"
 
 Service Fabric를 사용 하면 응용 프로그램에서 기본 리포지토리 자격 증명으로 사용할 수 있는 클러스터 차원의 자격 증명을 구성할 수 있습니다.
 
-이 기능은 `true` 또는 `false` 값을 사용 하 여 applicationmanifest `UseDefaultRepositoryCredentials` 에 특성 `ContainerHostPolicies` 을 추가 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
+이 기능을 사용 하거나 사용 하지 않도록 설정 `UseDefaultRepositoryCredentials` 하려면 특성을 `ContainerHostPolicies` 또는 값을 사용 하 여 ApplicationManifest.xml에 추가 `true` `false` 합니다.
 
 ```xml
 <ServiceManifestImport>
@@ -49,14 +48,14 @@ Service Fabric를 사용 하면 응용 프로그램에서 기본 리포지토리
 </ServiceManifestImport>
 ```
 
-그런 다음 Service Fabric는 `Hosting` 섹션의 clustermanifest에 지정할 수 있는 기본 리포지토리 자격 증명을 사용 합니다.  `UseDefaultRepositoryCredentials`이 `true`인 경우 Service Fabric은 ClusterManifest에서 다음 값을 읽습니다.
+그런 다음 Service Fabric는 섹션의 ClusterManifest에 지정할 수 있는 기본 리포지토리 자격 증명을 사용 합니다 `Hosting` .  `UseDefaultRepositoryCredentials`이 `true`인 경우 Service Fabric은 ClusterManifest에서 다음 값을 읽습니다.
 
 * DefaultContainerRepositoryAccountName(문자열)
 * DefaultContainerRepositoryPassword(문자열)
 * IsDefaultContainerRepositoryPasswordEncrypted(bool)
 * DefaultContainerRepositoryPasswordType (문자열)
 
-다음은 ClusterManifestTemplate 파일의 `Hosting` 섹션 내에 추가할 수 있는 항목의 예입니다. 섹션 `Hosting` 은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 자세한 내용은 [Azure Service Fabric 클러스터 설정 변경](service-fabric-cluster-fabric-settings.md) 및 [Azure Service Fabric 애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
+다음은 ClusterManifestTemplate.js파일의 섹션 내에 추가할 수 있는 항목의 예입니다 `Hosting` . `Hosting`섹션은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 자세한 내용은 [Azure Service Fabric 클러스터 설정 변경](service-fabric-cluster-fabric-settings.md) 및 [Azure Service Fabric 애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
 
 ```json
 "fabricSettings": [
@@ -101,7 +100,7 @@ Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이�
 
     ![ACR에 VM 보안 주체 추가](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3. 그런 다음 응용 프로그램 매니페스트를 수정 합니다. `ContainerHostPolicies` 섹션에서 특성 `‘UseTokenAuthenticationCredentials=”true”`을 추가 합니다.
+3. 그런 다음 응용 프로그램 매니페스트를 수정 합니다. 섹션에서 `ContainerHostPolicies` 특성을 추가 `‘UseTokenAuthenticationCredentials=”true”` 합니다.
 
     ```xml
       <ServiceManifestImport>
@@ -116,7 +115,7 @@ Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이�
     ```
 
     > [!NOTE]
-    > True로 `UseDefaultRepositoryCredentials` 설정 된 플래그를 `UseTokenAuthenticationCredentials` true로 설정 하면 배포 중에 오류가 발생 합니다.
+    > True로 설정 된 플래그를 true `UseDefaultRepositoryCredentials` 로 설정 하면 `UseTokenAuthenticationCredentials` 배포 중에 오류가 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

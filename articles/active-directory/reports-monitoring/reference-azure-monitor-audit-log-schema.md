@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68987950"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)에서 Azure AD 감사 로그 스키마 해석
@@ -160,8 +159,8 @@ ms.locfileid: "68987950"
 | durationMS |  이 필드를 매핑 해제하고 안전하게 무시할 수 있습니다. |
 | callerIpAddress | 요청한 클라이언트의 IP 주소입니다. | 
 | correlationId | 클라이언트에서 전달한 선택적 GUID입니다. 이는 클라이언트 쪽 작업을 서버 쪽 작업과 상관 관계를 지정하는 데 도움이 될 수 있으며, 서비스에 걸쳐 있는 로그를 추적하는 경우에 유용합니다. |
-| ID | 요청할 때 제공된 토큰의 ID입니다. ID는 사용자 계정, 시스템 계정 또는 서비스 사용자일 수 있습니다. |
-| level | 메시지 유형입니다. 감사 로그의 경우 수준은 항상 *정보 제공*입니다. |
+| identity | 요청할 때 제공된 토큰의 ID입니다. ID는 사용자 계정, 시스템 계정 또는 서비스 사용자일 수 있습니다. |
+| 수준 | 메시지 유형입니다. 감사 로그의 경우 수준은 항상 *정보 제공*입니다. |
 | 위치 | 데이터 센터의 위치입니다. |
 | properties | 감사 로그와 관련된 지원되는 속성을 나열합니다. 자세한 내용은 다음 테이블을 참조하세요. | 
 

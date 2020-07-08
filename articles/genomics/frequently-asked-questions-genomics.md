@@ -10,10 +10,9 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76986039"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
@@ -22,10 +21,10 @@ ms.locfileid: "76986039"
 
 
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로를 실행할 어떻게 할까요? 있나요?
-Microsoft Genomics 서비스의 config.xml 파일에서에 대 `gatk4`한 process_name를 지정 합니다. 정기적인 청구 요금으로 요금이 청구 됩니다.
+Microsoft Genomics 서비스의 config.txt 파일에서 process_name를 지정 합니다 `gatk4` . 정기적인 청구 요금으로 요금이 청구 됩니다.
 
 ## <a name="how-do-i-enable-output-compression"></a>출력 압축을 사용 하도록 설정 어떻게 할까요??
-출력 압축에 대 한 선택적 인수를 사용 하 여 출력 .vcf 또는 gvcf를 압축할 수 있습니다. `-bgzip` 이는를 실행 하는 것 `-tabix` 과 같으며 .vcf 또는 gvcf 출력에서 (bgzip `.gz` output) 및 `.tbi` (tabix output) 파일을 생성 합니다. `bgzip`는 .vcf 또는 gvcf 파일을 압축 하 `tabix` 고 압축 된 파일에 대 한 인덱스를 만듭니다. 인수는 부울로, 기본적으로 .vcf 출력에 `false` 대해로 설정 되 고 `true` gcvf output의 경우로 설정 됩니다. 명령줄에서를 `-bz` 사용 하려면 또는 `--bgzip-output` as `true` (bgzip 및 tabix 실행) 또는 `false`을 지정 합니다. Config.xml 파일에서이 인수를 사용 하려면 파일에 또는 `bgzip_output: true` `bgzip_output: false` 를 추가 합니다.
+출력 압축에 대 한 선택적 인수를 사용 하 여 출력 .vcf 또는 gvcf를 압축할 수 있습니다. 이는를 실행 하는 것과 같으며 `-bgzip` `-tabix` .vcf 또는 gvcf 출력에서 `.gz` (bgzip output) 및 `.tbi` (tabix output) 파일을 생성 합니다. `bgzip`는 .vcf 또는 gvcf 파일을 압축 하 고 `tabix` 압축 된 파일에 대 한 인덱스를 만듭니다. 인수는 부울로, 기본적으로 `false` .vcf 출력에 대해로 설정 되 고 `true` gcvf output의 경우로 설정 됩니다. 명령줄에서를 사용 하려면 `-bz` 또는 `--bgzip-output` as `true` (bgzip 및 tabix 실행) 또는을 지정 `false` 합니다. config.txt 파일에서이 인수를 사용 하려면 `bgzip_output: true` `bgzip_output: false` 파일에 또는를 추가 합니다.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
 워크플로 API 요청을 수신하는 데 Microsoft Genomics 서비스의 99.9% 가용성을 보장합니다. 자세한 내용은 [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)를 참조하세요.
@@ -44,8 +43,8 @@ Microsoft Genomics는 워크플로당 처리된 기가베이스 수를 기준으
  |:--------------------|:-------------         |
  |`list`               |제출한 작업 목록을 반환합니다. 인수는 `msgen help list`을 참조하세요.  |
  |`submit`             |워크플로 요청을 서비스에 제출합니다. 인수는 `msgen help submit`을 참조하세요.|
- |`status`             |`--workflow-id`에 의해 지정된 워크플로의 상태를 반환합니다. `msgen help status`도 참조하세요. |
- |`cancel`             |`--workflow-id`에 의해 지정된 워크플로의 처리를 취소하기 위한 요청을 보냅니다. `msgen help cancel`도 참조하세요. |
+ |`status`             |`--workflow-id`에 의해 지정된 워크플로의 상태를 반환합니다. `msgen help status`을 참조하세요. |
+ |`cancel`             |`--workflow-id`에 의해 지정된 워크플로의 처리를 취소하기 위한 요청을 보냅니다. `msgen help cancel`을 참조하세요. |
 
 ## <a name="where-do-i-get-the-value-for---api-url-base"></a>`--api-url-base`에 대한 값을 어디에서 가져올 수 있나요?
 Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키**를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
@@ -63,7 +62,7 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 
 지원되는 참조는 다음과 같습니다.
 
- |참조              | `-pa/--process-args`의 값 |
+ |참고              | `-pa/--process-args`의 값 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -88,5 +87,5 @@ msgen은 다음 형식으로 구성 파일을 이해합니다.
 
 다음 리소스를 사용하여 Microsoft Genomics를 시작하세요.
 - 먼저 Microsoft Genomics 서비스를 통해 첫 번째 워크플로를 실행합니다. [Microsoft Genomics 서비스를 통해 워크플로 실행](quickstart-run-genomics-workflow-portal.md)
-- Microsoft Genomics 서비스에서 처리할 데이터를 전송 합니다. 쌍으로 연결 된 [fastq](quickstart-input-pair-FASTQ.md) | [bam](quickstart-input-BAM.md) | [다중 fastq 또는 bam](quickstart-input-multiple.md) 
+- Microsoft Genomics 서비스에서 처리할 데이터를 전송 합니다. 쌍으로 연결 된 [fastq](quickstart-input-pair-FASTQ.md)  |  [bam](quickstart-input-BAM.md)  |  [다중 fastq 또는 bam](quickstart-input-multiple.md) 
 

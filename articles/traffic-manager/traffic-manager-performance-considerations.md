@@ -12,15 +12,14 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938534"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사
 
-이 페이지에서는 Traffic Manager를 사용할 때의 성능 고려 사항에 대해 설명합니다. 다음과 같은 시나리오를 고려해 보세요.
+이 페이지에서는 Traffic Manager를 사용할 때의 성능 고려 사항에 대해 설명합니다. 다음 시나리오를 고려하세요.
 
 WestUS 및 EastAsia 지역에 웹 사이트 인스턴스가 있습니다. 인스턴스 중 하나가 트래픽 관리자 프로브에 대한 상태 검사를 실패합니다. 애플리케이션 트래픽은 정상 지역으로 전송됩니다. 이 장애 조치는 예상되는 동작이지만 성능은 이제 멀리 떨어진 지역으로 이동하는 트래픽의 대기 시간에 따라 문제가 될 수 있습니다.
 

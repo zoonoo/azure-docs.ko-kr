@@ -5,10 +5,9 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76989572"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
@@ -23,14 +22,14 @@ ms.locfileid: "76989572"
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>LA 작업 영역에 대 한 데이터 푸시의 빈도는 어떻게 되나요?
 
-자격 증명 모음의 진단 데이터는 일정 시간 동안 Log Analytics 작업 영역에 펌프 됩니다. 모든 이벤트는 Recovery Services 자격 증명 모음에서 푸시된 후 20 분에서 30 분 Log Analytics 작업 영역에 도착 합니다. 지연에 대 한 자세한 내용은 다음과 같습니다.
+자격 증명 모음에서 Log Analytics 작업 영역으로 전달되는 진단 데이터가 일부 지연되었습니다. 모든 이벤트는 Recovery Services 자격 증명 모음에서 푸시되고 20~30분 후에 Log Analytics 작업 영역에 도착합니다. 지연에 대한 세부 정보는 다음과 같습니다.
 
-* 모든 솔루션에서 백업 서비스의 기본 제공 경고는 생성 되는 즉시 푸시됩니다. 따라서 일반적으로 20 분에서 30 분 후에 Log Analytics 작업 영역에 나타납니다.
-* 모든 솔루션에서 주문형 백업 작업 및 복원 작업은 완료 되는 즉시 푸시됩니다.
-* SQL 백업을 제외한 모든 솔루션에 대해 예약 된 백업 작업은 완료 되는 즉시 푸시됩니다.
-* SQL 백업의 경우 로그 백업이 15 분 마다 발생할 수 있으므로 로그를 포함 하 여 완료 된 모든 예약 된 백업 작업에 대 한 정보는 6 시간 마다 일괄 처리 되 고 푸시됩니다.
-* 모든 솔루션에서 백업 항목, 정책, 복구 지점, 저장소 등의 기타 정보는 하루에 한 번 이상 푸시됩니다.
-* 백업 구성 변경 (예: 정책 변경 또는 정책 편집)은 관련 된 모든 백업 정보의 푸시를 트리거합니다.
+* 모든 솔루션에서 백업 서비스의 기본 제공 경고는 생성되는 즉시 푸시됩니다. 따라서 일반적으로 20~30분 후에는 Log Analytics 작업 영역에 표시됩니다.
+* 모든 솔루션에서 주문형 백업 작업 및 복원 작업은 완료되는 즉시 푸시됩니다.
+* SQL 백업을 제외한 모든 솔루션의 경우, 완료되는 즉시 예약된 백업 작업이 푸시됩니다.
+* SQL 백업의 경우, 로그 백업이 15분 간격으로 발생할 수 있으므로, 로그를 포함하여 모든 완료된 예약 백업 작업에 대한 정보가 6시간 간격으로 일괄 처리되고 푸시됩니다.
+* 모든 솔루션에서 백업 항목, 정책, 복구 지점, 스토리지 등과 같은 다른 정보는 최소한 하루 한 번 이상 푸시됩니다.
+* 백업 구성에 변경(예: 정책 변경 또는 정책 편집)이 있으면 모든 관련 백업 정보의 푸시가 트리거됩니다.
 
 ### <a name="how-long-can-i-retain-reporting-data"></a>보고 데이터는 얼마나 오래 보관할 수 있나요?
 

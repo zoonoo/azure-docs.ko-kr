@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76838261"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오에서 이미지의 정보를 처리 하 고 추출 하는 방법
@@ -29,7 +28,7 @@ Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한
 
 이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 대해 이미지 정규화를 사용 하도록 설정 하려면 기술를 해당 인덱서에 연결 해야 합니다.
 
-| 구성 매개 변수 | Description |
+| 구성 매개 변수 | 설명 |
 |--------------------|-------------|
 | imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>"GenerateNormalizedImagePerPage"로 설정 하 여 데이터 원본의 Pdf에 대해 각 페이지가 하나의 출력 이미지로 렌더링 되는 정규화 된 이미지 배열을 생성 합니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정 된 문서에서 최대 1000 개의 이미지가 추출 됩니다. 문서에 1000 개가 넘는 이미지가 있으면 첫 번째 1000이 추출 되 고 경고가 생성 됩니다. |
 |  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 허용 되는 최대값은 1만입니다. | 
@@ -60,7 +59,7 @@ Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한
 
 *imageAction*을 “none” 이외의 값으로 설정한 경우 새 *normalized_images* 필드에는 이미지 배열이 포함됩니다. 각 이미지는 다음 멤버가 포함된 복합 형식입니다.
 
-| 이미지 멤버       | Description                             |
+| 이미지 멤버       | 설명                             |
 |--------------------|-----------------------------------------|
 | 데이터               | JPEG 형식의 BASE64 인코딩된 정규화된 이미지 문자열입니다.   |
 | width              | 픽셀 단위로 정규화된 이미지의 너비입니다. |
@@ -213,7 +212,7 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
         }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 + [인덱서 만들기 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [이미지 분석 기술](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)

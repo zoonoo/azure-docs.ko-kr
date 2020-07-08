@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905971"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
@@ -17,11 +16,11 @@ ms.locfileid: "76905971"
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
-| 삭제 | 명명된 비밀 리소스의 지정된 값을 삭제합니다. |
+| delete | 명명된 비밀 리소스의 지정된 값을 삭제합니다. |
 | list | 지정된 비밀 리소스의 모든 값 이름을 나열합니다. |
-| show | 지정 된 비밀 리소스 값을 나열 합니다. |
+| 표시 | 지정 된 비밀 리소스 값을 나열 합니다. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
 명명된 비밀 리소스의 지정된 값을 삭제합니다.
@@ -30,14 +29,14 @@ ms.locfileid: "76905971"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --secret-name -n [필수] | 비밀 리소스의 이름입니다. |
 | --version -v     [필수] | 비밀 버전의 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -52,13 +51,13 @@ ms.locfileid: "76905971"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --secret-name -n [필수] | 비밀 리소스의 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -71,7 +70,7 @@ ms.locfileid: "76905971"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --secret-name -n [필수] | 비밀 리소스의 이름입니다. |
 | --version -v     [필수] | 비밀 버전의 이름입니다. |
@@ -79,7 +78,7 @@ ms.locfileid: "76905971"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841832"
 ---
 # <a name="rest-api"></a>REST API
@@ -164,7 +163,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 **응답**: HTTP 200, 빈 페이로드
 
 ## <a name="manage-event-subscriptions"></a>이벤트 구독 관리
-이 단원의 샘플은를 `EndpointType=Webhook;`사용 합니다. 에 대 한 `EndpointType=EdgeHub / EndpointType=EventGrid` json 샘플은 다음 섹션에 있습니다. 
+이 단원의 샘플은 `EndpointType=Webhook;` 를 사용 합니다. 에 대 한 json 샘플은 `EndpointType=EdgeHub / EndpointType=EventGrid` 다음 섹션에 있습니다. 
 
 ### <a name="put-event-subscription-create--update"></a>이벤트 구독 배치 (만들기/업데이트)
 
@@ -527,7 +526,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 
 **페이로드 필드 설명**
-- ```Id```필수입니다. 호출자가 채운 임의의 문자열 값일 수 있습니다. Event Grid은 중복 검색을 수행 하거나이 필드에 대 한 의미 체계를 적용 하지 않습니다.
+- ```Id```는 필수입니다. 호출자가 채운 임의의 문자열 값일 수 있습니다. Event Grid은 중복 검색을 수행 하거나이 필드에 대 한 의미 체계를 적용 하지 않습니다.
 - ```Topic```는 선택 사항 이지만 지정 된 경우 요청 URL의 topic_name와 일치 해야 합니다.
 - ```Subject```필수 이며 임의의 문자열 값일 수 있습니다.
 - ```EventType```필수 이며 임의의 문자열 값일 수 있습니다.
@@ -572,7 +571,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 ```
 
 ### <a name="set-up-topic-with-custom-schema"></a>사용자 지정 스키마를 사용 하 여 토픽 설정
-에서 `customschema`이벤트를 게시 해야 하는 항목을 설정 합니다.
+에서 이벤트를 게시 해야 하는 항목을 설정 `customschema` 합니다.
 
 ```json
     {
@@ -585,7 +584,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 ```
 
 ### <a name="set-up-topic-with-cloud-event-schema"></a>클라우드 이벤트 스키마를 사용 하 여 토픽 설정
-에서 `cloudeventschema`이벤트를 게시 해야 하는 항목을 설정 합니다.
+에서 이벤트를 게시 해야 하는 항목을 설정 `cloudeventschema` 합니다.
 
 ```json
     {
@@ -617,13 +616,13 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 }
 ```
 
-`endpointUrl` 특성에 대 한 제약 조건:
+특성에 대 한 제약 조건 `endpointUrl` :
 - Null이 아니어야 합니다.
 - 절대 URL 이어야 합니다.
 - EventGridModule 설정에서 outbound__webhook__httpsOnly true로 설정 된 경우에는 HTTPS 여야 합니다.
 - Outbound__webhook__httpsOnly false로 설정 하면 HTTP 또는 HTTPS가 될 수 있습니다.
 
-`eventDeliverySchema` 속성에 대 한 제약 조건:
+속성에 대 한 제약 조건 `eventDeliverySchema` :
 - 구독 항목의 입력 스키마와 일치 해야 합니다.
 - null일 수 있습니다. 기본적으로 토픽의 입력 스키마로 설정 됩니다.
 
@@ -672,8 +671,8 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 EndpointUrl
 - Null이 아니어야 합니다.
 - 절대 URL 이어야 합니다.
-- 경로 `/api/events` 는 요청 URL 경로에 정의 되어야 합니다.
-- 쿼리 문자열에 `api-version=2018-01-01` 가 있어야 합니다.
+- 경로는 `/api/events` 요청 URL 경로에 정의 되어야 합니다.
+- `api-version=2018-01-01`쿼리 문자열에가 있어야 합니다.
 - EventGridModule 설정에서 outbound__eventgrid__httpsOnly true로 설정 되어 있으면 (기본적으로 true 임) HTTPS 여야 합니다.
 - Outbound__eventgrid__httpsOnly false로 설정 된 경우 HTTP 또는 HTTPS가 될 수 있습니다.
 - Outbound__eventgrid__allowInvalidHostnames false (기본값은 false)로 설정 된 경우 다음 끝점 중 하나를 대상으로 해야 합니다.
@@ -690,7 +689,7 @@ TopicName:
 
 ## <a name="set-up-event-hubs-as-a-destination"></a>Event Hubs를 대상으로 설정
 
-이벤트 허브에 게시 하려면를로 `endpointType` `eventHub` 설정 하 고 다음을 제공 합니다.
+이벤트 허브에 게시 하려면를로 설정 하 `endpointType` `eventHub` 고 다음을 제공 합니다.
 
 * connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 이벤트 허브에 대 한 연결 문자열입니다.
 
@@ -712,7 +711,7 @@ TopicName:
 
 ## <a name="set-up-service-bus-queues-as-a-destination"></a>Service Bus 큐를 대상으로 설정
 
-Service Bus 큐에 게시 하려면를로 `endpointType` `serviceBusQueue` 설정 하 고 다음을 제공 합니다.
+Service Bus 큐에 게시 하려면를로 설정 하 `endpointType` `serviceBusQueue` 고 다음을 제공 합니다.
 
 * connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 Service Bus 큐에 대 한 연결 문자열입니다.
 
@@ -734,7 +733,7 @@ Service Bus 큐에 게시 하려면를로 `endpointType` `serviceBusQueue` 설�
 
 ## <a name="set-up-service-bus-topics-as-a-destination"></a>대상으로 Service Bus 항목 설정
 
-Service Bus 항목에 게시 하려면를로 `endpointType` `serviceBusTopic` 설정 하 고 다음을 제공 합니다.
+Service Bus 항목에 게시 하려면를로 설정 하 `endpointType` `serviceBusTopic` 고 다음을 제공 합니다.
 
 * connectionString: 공유 액세스 정책을 통해 생성 되는 대상으로 지정 된 특정 Service Bus 항목에 대 한 연결 문자열입니다.
 
@@ -756,7 +755,7 @@ Service Bus 항목에 게시 하려면를로 `endpointType` `serviceBusTopic` �
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>저장소 큐를 대상으로 설정
 
-저장소 큐에 게시 하려면를로 설정 하 `endpointType` 고 `storageQueue` 다음을 제공 합니다.
+저장소 큐에 게시 하려면를로 설정 하 `endpointType` `storageQueue` 고 다음을 제공 합니다.
 
 * queueName: 게시 하는 저장소 큐의 이름입니다.
 * connectionString: 저장소 큐가 있는 저장소 계정에 대 한 연결 문자열입니다.

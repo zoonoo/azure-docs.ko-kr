@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905822"
 ---
 # <a name="sfctl-property"></a>sfctl property
@@ -17,9 +16,9 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
-| 삭제 | 지정된 Service Fabric 속성을 삭제합니다. |
+| delete | 지정된 Service Fabric 속성을 삭제합니다. |
 | Get | 지정된 Service Fabric 속성을 가져옵니다. |
 | list | 지정된 이름에서 모든 Service Fabric 속성에 대한 정보를 가져옵니다. |
 | put | Service Fabric 속성을 만들거나 업데이트합니다. |
@@ -31,7 +30,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | 가져올 속성의 이름을 지정합니다. |
@@ -39,7 +38,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -54,7 +53,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | 가져올 속성의 이름을 지정합니다. |
@@ -62,7 +61,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -77,7 +76,7 @@ Service Fabric 이름에는 사용자 지정 정보를 저장하는 하나 이�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --name-id [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
@@ -86,7 +85,7 @@ Service Fabric 이름에는 사용자 지정 정보를 저장하는 하나 이�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -101,7 +100,7 @@ Service Fabric 속성을 만들거나 업데이트합니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | Service Fabric 속성의 이름입니다. |
@@ -111,7 +110,7 @@ Service Fabric 속성을 만들거나 업데이트합니다.
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

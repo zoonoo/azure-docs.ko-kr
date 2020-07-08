@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906200"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -17,10 +16,10 @@ ms.locfileid: "76906200"
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
 | create | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
-| 삭제 | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
+| delete | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
 | 배포됨 | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
 | deployed-health | Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다. |
 | deployed-list | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다. |
@@ -31,7 +30,7 @@ ms.locfileid: "76906200"
 | manifest | 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다. |
 | provision | 외부 저장소의 '. .sfpkg ' 패키지를 사용 하는 클러스터 또는 이미지 저장소의 응용 프로그램 패키지를 사용 하 여 Service Fabric 응용 프로그램 유형을 프로 비전 하거나 등록 합니다. |
 | report-health | Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 보냅니다. |
-| type | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
+| 형식 | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
 | type-list | Microsoft Azure Service Fabric 클러스터에서 애플리케이션의 유형 목록을 가져옵니다. |
 | unprovision | 클러스터에서 Microsoft Azure Service Fabric 애플리케이션 유형을 제거하거나 등록 취소합니다. |
 | 업그레이드 | Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다. |
@@ -45,7 +44,7 @@ ms.locfileid: "76906200"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --app-name    [필수] | '패브릭\:' URI 체계를 포함하는, 애플리케이션의 이름입니다. |
 | --app-type    [필수] | 애플리케이션 매니페스트에 있는 애플리케이션 유형 이름입니다. |
@@ -58,7 +57,7 @@ ms.locfileid: "76906200"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -73,7 +72,7 @@ ms.locfileid: "76906200"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --force-remove | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 애플리케이션이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 애플리케이션이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다. |
@@ -81,7 +80,7 @@ ms.locfileid: "76906200"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -96,7 +95,7 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name [필수] | 노드의 이름입니다. |
@@ -105,7 +104,7 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -120,7 +119,7 @@ Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id                     [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --node-name                          [필수] | 노드의 이름입니다. |
@@ -131,7 +130,7 @@ Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -146,7 +145,7 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --node-name [필수] | 노드의 이름입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
@@ -156,7 +155,7 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -171,7 +170,7 @@ Microsoft Azure Service Fabric 애플리케이션의 상태를 반환합니다. 
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id                 [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --deployed-applications-health-state-filter | 배포된 애플리케이션 상태 개체의 필터링이 상태를 기반으로 한 애플리케이션 상태 쿼리의 결과값으로 반환되도록 허용합니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 배포된 애플리케이션만 반환됩니다. 모든 배포된 애플리케이션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 배포된 애플리케이션의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
@@ -182,7 +181,7 @@ Microsoft Azure Service Fabric 애플리케이션의 상태를 반환합니다. 
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -197,7 +196,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --exclude-application-parameters | 애플리케이션 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다. |
@@ -205,7 +204,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -220,7 +219,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-definition-kind-filter | Service Fabric 애플리케이션을 정의하는 데 사용되는 메커니즘인 ApplicationDefinitionKind에서 필터링하는 데 사용합니다.  <br> - 기본 - 기본값으로, “All”을 선택할 때와 동일한 함수를 수행합니다. 값은 0입니다.  <br> - All - 입력과 일치하는 모든 ApplicationDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다.  <br> - ServiceFabricApplicationDescription - 입력과 일치하는 ApplicationDefinitionKind 값 ServiceFabricApplicationDescription을 검색하는 필터입니다. 값은 1입니다.  <br> - Compose - 입력과 일치하는 ApplicationDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다. |
 | --application-type-name | 쿼리할 애플리케이션을 필터링하는 데 사용되는 애플리케이션 유형 이름입니다. 이 값은 애플리케이션 유형 버전을 포함할 수 없습니다. |
@@ -231,7 +230,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -246,14 +245,14 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -268,7 +267,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 애플리케이션 유형의 버전입니다. |
@@ -276,7 +275,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -291,7 +290,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --애플리케이션-패키지-다운로드-URI | HTTP 또는 HTTPS 프로토콜을 사용하여 애플리케이션 패키지를 다운로드할 수 있는 ‘.sfpkg’ 애플리케이션 패키지의 경로입니다. <br><br> 프로비전 종류 외부 저장소에만 해당합니다. 애플리케이션 패키지는 파일을 다운로드하도록 가져오기 작업을 제공하는 외부 저장소에 저장할 수 있습니다. 지원되는 프로토콜은 HTTP 및 HTTPS이며, 경로는 읽기 권한을 허용해야 합니다. |
 | --애플리케이션-형식-빌드-경로 | 프로비전 종류 이미지 저장소에만 해당합니다. 이전 업로드 작업 중 지정된 이미지 저장소에 있는 애플리케이션 패키지에 대한 상대 경로입니다. |
@@ -303,7 +302,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -318,7 +317,7 @@ Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id  [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 'fabric\:/myapp/app1'인 경우 애플리케이션 ID가 6.0 이상에서는 'myapp\~app1'이고 이전 버전에서는 'myapp/app1'입니다. |
 | --health-property [필수] | 상태 정보의 속성입니다. <br><br> 엔터티는 서로 다른 속성에 대한 상태 보고서를 가질 수 있습니다. 속성은 문자열이며 보고자 유연성에서 보고서를 트리거하는 상태 조건을 분류하도록 허용하는 고정된 열거형이 아닙니다. 예를 들어 SourceId "LocalWatchdog"가 있는 보고자는 노드에서 사용 가능한 디스크의 상태를 모니터링할 수 있으므로 해당 노드에서 "AvailableDisk" 속성을 보고할 수 있습니다. 동일한 보고자는 노드 연결을 모니터링할 수 있으므로 동일한 노드에서 "Connectivity" 속성을 보고할 수 있습니다. Health 스토어에서 이러한 보고서는 지정된 노드에 대한 별도의 상태 이벤트로 처리됩니다. SourceId와 함께 속성은 상태 정보를 고유하게 식별합니다. |
@@ -333,7 +332,7 @@ Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -348,7 +347,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-type-name [필수] | 애플리케이션 유형의 이름입니다. |
 | --애플리케이션-유형-버전 | 애플리케이션 유형의 버전입니다. |
@@ -359,7 +358,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -374,7 +373,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-type-definition-kind-filter | Service Fabric 애플리케이션 유형을 정의하는 데 사용되는 메커니즘인 ApplicationTypeDefinitionKind에서 필터링하는 데 사용합니다.  <br> - 기본 - 기본값으로, “All”을 선택할 때와 동일한 함수를 수행합니다. 값은 0입니다.  <br> - All - 입력과 일치하는 모든 ApplicationTypeDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다.  <br> - ServiceFabricApplicationPackage - 입력과 일치하는 ApplicationTypeDefinitionKind 값 ServiceFabricApplicationPackage를 검색하는 필터입니다. 값은 1입니다.  <br> - Compose - 입력과 일치하는 ApplicationTypeDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
@@ -384,7 +383,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -399,7 +398,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 애플리케이션 매니페스트에서 정의된 애플리케이션 유형의 버전입니다. |
@@ -408,7 +407,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -423,7 +422,7 @@ Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --application-version [필수] | 애플리케이션 업그레이드를 위한 대상 애플리케이션 유형 버전(애플리케이션 매니페스트에 있음)입니다. |
@@ -445,7 +444,7 @@ Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -460,7 +459,7 @@ Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --upgrade-domain-name [필수] | 업그레이드를 다시 시작할 업그레이드 도메인의 이름입니다. |
@@ -468,7 +467,7 @@ Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업�
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -483,14 +482,14 @@ Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -505,14 +504,14 @@ Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -527,19 +526,19 @@ Microsoft Azure Service Fabric 애플리케이션 패키지를 이미지 저장�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --path [필수] | 로컬 애플리케이션 패키지 경로입니다. |
 | --압축 | 응용 프로그램 패키지 Service Fabric에만 적용 됩니다. 기본 위치나 압축 위치 매개 변수로 지정 된 위치에 압축 된 응용 프로그램 패키지를 포함 하는 새 폴더를 만든 다음 새로 만든 폴더를 업로드 합니다. <br><br> Sfctl에서 이미 압축 된 파일을 생성 한 경우이 플래그가 설정 되 면 덮어씁니다. 디렉터리가 응용 프로그램 패키지가 아닌 경우 오류가 반환 됩니다. 이미 압축 된 응용 프로그램 패키지인 경우 폴더는 그대로 복사 됩니다. 기본적으로 새로 만든 압축 된 응용 프로그램 패키지는 성공적으로 업로드 한 후에 삭제 됩니다. 업로드에 실패 한 경우 필요에 따라 압축 된 패키지를 수동으로 정리 하세요. 압축 된 위치 매개 변수가 존재 하지 않는 디렉터리를 참조 하는 경우에는 삭제 된 빈 디렉터리 제거 되지 않습니다. |
-| --압축 위치 | 압축 된 응용 프로그램 패키지를 저장할 위치입니다. <br><br> 위치를 제공 하지 않으면 압축 된 패키지는 경로 인수에 지정 된 부모 디렉터리 아래 sfctl_compressed_temp 이라는 새로 만든 폴더에 배치 됩니다. 예를 들어 path 인수의 값이 C\:/FolderA/AppPkg 인 경우 압축 된 패키지는 c\:/foldera/sfctl_compressed_temp/apppkg.에 추가 됩니다. |
-| --imagestore-string | 애플리케이션 패키지를 업로드할 대상 이미지 저장소입니다.  기본값\: fabric\:ImageStore. <br><br> 파일 위치에 업로드 하려면 ' file\:'을 사용 하 여이 매개 변수를 시작 합니다. 그렇지 않으면 값이 기본값과 같은 이미지 저장소 연결 문자열 이어야 합니다. |
+| --압축 위치 | 압축 된 응용 프로그램 패키지를 저장할 위치입니다. <br><br> 위치를 제공 하지 않으면 압축 된 패키지는 경로 인수에 지정 된 부모 디렉터리 아래 sfctl_compressed_temp 이라는 새로 만든 폴더에 배치 됩니다. 예를 들어 path 인수의 값이 C \: /FolderA/AppPkg 인 경우 압축 된 패키지는 c \: /Foldera/sfctl_compressed_temp/apppkg.에 추가 됩니다. |
+| --imagestore-string | 애플리케이션 패키지를 업로드할 대상 이미지 저장소입니다.  기본값\: fabric\:ImageStore. <br><br> 파일 위치에 업로드 하려면 ' file '을 사용 하 여이 매개 변수를 시작 \: 합니다. 그렇지 않으면 값이 기본값과 같은 이미지 저장소 연결 문자열 이어야 합니다. |
 | --압축 된 상태 | 업로드 완료 성공 시 생성 된 압축 패키지를 유지할지 여부입니다. <br><br> 설정 하지 않은 경우 성공적으로 완료 되 면 압축 된 앱 패키지가 삭제 됩니다. 업로드가 실패 한 경우 응용 프로그램 패키지는 항상 다시 업로드할 출력 디렉터리에 보관 됩니다. |
 | --show-progress | 큰 패키지에 대한 파일 업로드 진행률을 표시합니다. |
-| --timeout -t | 총 시간 제한 (초)입니다. 업로드 제한 시간이 경과 되 면 업로드가 실패 하 고 오류가 반환 됩니다. 이 제한 시간은 전체 응용 프로그램 패키지에 적용 되며, 개별 파일 시간 제한은 남은 시간 제한 기간과 같습니다. 시간 제한에는 응용 프로그램 패키지를 압축 하는 데 필요한 시간이 포함 되지 않습니다.  기본값\: 은 300입니다. |
+| --timeout -t | 총 시간 제한 (초)입니다. 업로드 제한 시간이 경과 되 면 업로드가 실패 하 고 오류가 반환 됩니다. 이 제한 시간은 전체 응용 프로그램 패키지에 적용 되며, 개별 파일 시간 제한은 남은 시간 제한 기간과 같습니다. 시간 제한에는 응용 프로그램 패키지를 압축 하는 데 필요한 시간이 포함 되지 않습니다.  기본값은 \: 300입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

@@ -17,10 +17,9 @@ ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76897042"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
@@ -196,7 +195,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 * Azure AD Connect에 대한 동기화 오류 보고서
 
-**새 기능:**
+**새로운 기능:**
 
 * AD FS용 Azure AD Connect Health의 IP 주소 필드는 잘못된 사용자 이름/암호를 사용하는 상위 50 사용자에 대한 보고서에 표시됩니다.
 
@@ -210,25 +209,25 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 * AD FS에 대한 Azure AD Connect Health 에이전트(version 2.6.91.1512)
 
-**새 기능:**
+**새로운 기능:**
 
 * [Azure AD Connect Health 에이전트에 대한 테스트 연결 도구](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)
 
 ## <a name="november-2015"></a>2015년 11월
-**새 기능:**
+**새로운 기능:**
 
 * [역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
 **새로운 미리 보기 기능:**
 
-* [동기화에 대 한 Azure AD Connect Health](how-to-connect-health-sync.md)입니다.
+* [동기화를 위한 Azure AD Connect Health](how-to-connect-health-sync.md).
 
 **수정된 문제:**
 
 * 에이전트를 등록하는 동안 표시된 오류에 대한 버그 수정.
 
 ## <a name="september-2015"></a>2015년 9월
-**새 기능:**
+**새로운 기능:**
 
 * AD FS에 대한 잘못된 사용자 이름 암호 보고서
 * 인증되지 않은 HTTP 프록시를 구성하는 지원
@@ -243,7 +242,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="june-2015"></a>2015년 6월
 **AD FS 및 AD FS 프록시에 대한 Azure AD Connect Health의 최초 릴리스.**
 
-**새 기능:**
+**새로운 기능:**
 
 * 전자 메일 알림으로 AD FS 및 AD FS 프록시 서버의 모니터링에 대한 경고.
 * AD FS 토폴로지 및 AD FS 성능 카운터의 패턴에 쉽게 액세스합니다.

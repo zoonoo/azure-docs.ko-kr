@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 101dcae5870322878cec48098f2efae32cc68c14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841733"
 ---
 # <a name="configure-webhook-subscriber-authentication"></a>웹후크 구독자 인증 구성
@@ -45,7 +44,7 @@ ms.locfileid: "76841733"
  ```
 
 >[!NOTE]
->일반적으로 자체 `outbound__webhook__allowUnknownCA` 서명 `true` 된 인증서를 사용 하는 것 처럼 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **false**로 설정 하는 것이 좋습니다.
+>`outbound__webhook__allowUnknownCA` `true` 일반적으로 자체 서명 된 인증서를 사용 하는 것 처럼 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **false**로 설정 하는 것이 좋습니다.
 
 ## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>HTTPS 구독자를 허용 하지만 인증서 유효성 검사를 건너뜁니다.
 
@@ -60,7 +59,7 @@ ms.locfileid: "76841733"
  ```
 
 >[!NOTE]
->인증 해야 하 `outbound__webhook__skipServerCertValidation` 는 `true` 인증서를 제시 하지 않을 수 있으므로 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **false** 로 설정 하는 것이 좋습니다.
+>`outbound__webhook__skipServerCertValidation` `true` 인증 해야 하는 인증서를 제시 하지 않을 수 있으므로 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **false** 로 설정 하는 것이 좋습니다.
 
 ## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>자체 서명 된 인증서를 사용 하 여 HTTP 및 HTTPS 모두 허용
 
@@ -75,4 +74,4 @@ ms.locfileid: "76841733"
  ```
 
 >[!NOTE]
->HTTP 구독자를 `outbound__webhook__httpsOnly` 먼저 `false` 불러올 수 있으므로 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **true** 로 설정 하는 것이 좋습니다.
+>`outbound__webhook__httpsOnly` `false` HTTP 구독자를 먼저 불러올 수 있으므로 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **true** 로 설정 하는 것이 좋습니다.

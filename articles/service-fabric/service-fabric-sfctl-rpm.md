@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76904937"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -17,10 +16,10 @@ ms.locfileid: "76904937"
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
 | approve-force | 지정된 복구 작업의 승인을 강제 적용합니다. |
-| 삭제 | 완료된 복구 작업을 삭제합니다. |
+| delete | 완료된 복구 작업을 삭제합니다. |
 | list | 지정된 필터와 일치하는 복구 작업 목록을 가져옵니다. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force
@@ -30,14 +29,14 @@ ms.locfileid: "76904937"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --task-id [필수] | 복구 작업의 ID입니다. |
 | --version | 복구 작업의 현재 버전 번호입니다. 0이 아닌 경우 이 값이 복구 작업의 실제 현재 버전과 일치하는 경우에만 요청이 성공합니다. 0이면 버전 검사가 수행되지 않습니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -52,14 +51,14 @@ ms.locfileid: "76904937"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --task-id [필수] | 삭제할 완료된 복구 작업의 ID입니다. |
 | --version | 복구 작업의 현재 버전 번호입니다. 0이 아닌 경우 이 값이 복구 작업의 실제 현재 버전과 일치하는 경우에만 요청이 성공합니다. 0이면 버전 검사가 수행되지 않습니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -74,7 +73,7 @@ ms.locfileid: "76904937"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --executor-filter | 클레임된 작업이 목록에 포함되어야 하는 복구 실행기의 이름입니다. |
 | --state-filter | 결과 목록에 포함되어야 하는 작업 상태를 지정하는 다음 값의 비트 OR입니다. <ul><li>1 - 생성됨</li><li>2-요청 됨</li><li>4-준비</li><li>8-승인 됨</li><li>16-실행 중</li><li>32-복원 중</li><li>64 - 완료됨</li></ul>
@@ -82,7 +81,7 @@ ms.locfileid: "76904937"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |

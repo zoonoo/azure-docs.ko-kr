@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77014269"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 축소
@@ -63,4 +62,4 @@ CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure에서 VMware VM 사용](quickstart-create-vmware-virtual-machine.md)
-* [사설 클라우드에](cloudsimple-private-cloud.md) 대 한 자세한 정보
+* [프라이빗 클라우드](cloudsimple-private-cloud.md)에 대해 자세히 알아보기

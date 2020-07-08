@@ -4,19 +4,18 @@ description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76963991"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획 비용 예측
 
 현재는 Azure Functions에서 실행 되는 앱에 대 한 호스팅 계획의 세 가지 유형이 있으며 각 계획에는 고유한 가격 책정 모델이 있습니다. 
 
-| 계획 | Description |
+| 계획 | 설명 |
 | ---- | ----------- |
-| [**소비율**](functions-scale.md#consumption-plan) | 함수 앱이 실행 되는 시간에 대해서만 요금이 청구 됩니다. 이 요금제에는 구독 별로 [무료 부여][가격 책정 페이지가] 포함 되어 있습니다.|
+| [**Consumption**](functions-scale.md#consumption-plan) | 함수 앱이 실행 되는 시간에 대해서만 요금이 청구 됩니다. 이 요금제에는 구독 별로 [무료 부여][가격 책정 페이지가] 포함 되어 있습니다.|
 | [**Premium**](functions-scale.md#premium-plan) | 는 소비 계획과 동일한 기능 및 크기 조정 메커니즘을 제공 하지만 향상 된 성능 및 VNET 액세스를 제공 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다. 자세한 내용은 [Azure Functions Premium 요금제](functions-premium-plan.md)를 참조 하세요. |
 | [**전용 (App Service)**](functions-scale.md#app-service-plan) <br/>(기본 계층 이상) | 전용 Vm 또는 격리에서 실행 해야 하는 경우 사용자 지정 이미지를 사용 하거나 과도 한 App Service 계획 용량을 사용 하려고 합니다. [정기적인 App Service 요금제 청구](https://azure.microsoft.com/pricing/details/app-service/)를 사용 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다.|
 
@@ -30,7 +29,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 단일 함수 실행의 실행 *비용은* *GB 초*단위로 측정 됩니다. 실행 비용은 메모리 사용량과 실행 시간을 결합 하 여 계산 됩니다. 더 많은 메모리를 소비 하는 함수를 사용 하 여 더 많은 비용을 위해 실행 하는 함수입니다. 
 
-함수에서 사용 되는 메모리 양이 일정 하 게 유지 되는 경우를 고려 합니다. 이 경우 비용을 계산 하는 것은 간단한 곱셈입니다. 예를 들어 함수가 3 초 동안 0.5 GB를 사용 한다고 가정 합니다. 실행 비용은 `0.5GB * 3s = 1.5 GB-seconds`입니다. 
+함수에서 사용 되는 메모리 양이 일정 하 게 유지 되는 경우를 고려 합니다. 이 경우 비용을 계산 하는 것은 간단한 곱셈입니다. 예를 들어 함수가 3 초 동안 0.5 GB를 사용 한다고 가정 합니다. 실행 비용은 `0.5GB * 3s = 1.5 GB-seconds` 입니다. 
 
 시간이 지남에 따라 메모리 사용이 변경 되기 때문에 계산은 기본적으로 시간에 따른 메모리 사용량의 정수 계열입니다.  시스템은 일정 한 간격으로 프로세스의 메모리 사용량 (자식 프로세스와 함께)을 샘플링 하 여이 계산을 수행 합니다. [가격 책정 페이지]에 설명 된 대로 메모리 사용량은 가장 가까운 128-MB 버킷으로 반올림 됩니다. 프로세스에서 160 MB를 사용 하는 경우 256 MB에 대해 요금이 청구 됩니다. 계산은 동일한 프로세스에서 여러 동시 함수 실행 인 동시성을 고려 합니다.
 
@@ -47,7 +46,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 | 관련 비용 | Description |
 | ------------ | ----------- |
-| **스토리지 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결 된 범용 [Azure Storage 계정이](../storage/common/storage-introduction.md#types-of-storage-accounts)있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용 되지만 저장소 트리거 및 바인딩에 사용할 수도 있습니다. 저장소 계정이 없는 경우 함수 앱을 만들 때 하나씩 만들어집니다. 자세히 알아보려면 [Storage 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조 하세요.|
+| **스토리지 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결 된 범용 [Azure Storage 계정이](../storage/common/storage-introduction.md#types-of-storage-accounts)있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용 되지만 저장소 트리거 및 바인딩에 사용할 수도 있습니다. 저장소 계정이 없는 경우 함수 앱을 만들 때 하나씩 만들어집니다. 자세한 내용은 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.|
 | **Application Insights** | 함수는 [Application Insights](../azure-monitor/app/app-insights-overview.md) 을 사용 하 여 함수 앱에 고성능 모니터링 환경을 제공 합니다. 필수는 아니지만 [Application Insights 통합을 사용 하도록 설정](functions-monitoring.md#enable-application-insights-integration)해야 합니다. 원격 분석 데이터의 무료 부여는 매달 포함 됩니다. 자세히 알아보려면 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조 하세요. |
 | **네트워크 대역폭** | 동일한 지역에 있는 Azure 서비스 간의 데이터 전송에 대해서는 지불 하지 않습니다. 그러나 다른 지역 또는 Azure 외부로 아웃 바운드 데이터 전송에 대 한 비용을 발생 시킬 수 있습니다. 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조 하세요. |
 
@@ -57,7 +56,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 + **트리거 및 바인딩**: [함수 바인딩에](functions-triggers-bindings.md) 대 한 입력을 읽고 출력을 쓰는 데 걸리는 시간은 실행 시간으로 계산 됩니다. 예를 들어 함수가 출력 바인딩을 사용 하 여 Azure storage 큐에 메시지를 쓰는 경우 실행 시간에는 함수 비용 계산에 포함 된 메시지를 큐에 쓰는 데 걸리는 시간이 포함 됩니다. 
 
-+ **비동기 실행**: 함수가 비동기 요청 (`await` c #의 경우)의 결과를 기다리는 시간을 실행 시간으로 계산 합니다. GB 초 계산은 함수의 시작 및 종료 시간과 해당 기간 동안의 메모리 사용을 기반으로 합니다. CPU 작업을 기준으로 해당 시간에 발생 하는 것은 계산에서 제외 됩니다. 비동기 작업 중에 [Durable Functions](durable/durable-functions-overview.md)를 사용 하 여 비용을 절감할 수 있습니다. Orchestrator 함수에서 기다립니다에 소요 된 시간에 대해서는 요금이 청구 되지 않습니다.
++ **비동기 실행**: 함수가 비동기 요청 (c #의 경우)의 결과를 기다리는 시간을 `await` 실행 시간으로 계산 합니다. GB 초 계산은 함수의 시작 및 종료 시간과 해당 기간 동안의 메모리 사용을 기반으로 합니다. CPU 작업을 기준으로 해당 시간에 발생 하는 것은 계산에서 제외 됩니다. 비동기 작업 중에 [Durable Functions](durable/durable-functions-overview.md)를 사용 하 여 비용을 절감할 수 있습니다. Orchestrator 함수에서 기다립니다에 소요 된 시간에 대해서는 요금이 청구 되지 않습니다.
 
 ## <a name="view-execution-data"></a>실행 데이터 보기
 
@@ -69,9 +68,9 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-getting-started.md) 를 사용 하 여 소비 계획 함수 앱에 대 한 비용 관련 데이터를 그래픽 형식으로 볼 수 있습니다. 
 
-1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 **서비스**에서 **모니터** 를 검색 `monitor` 하 고 선택 합니다.
+1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 `monitor` **서비스**에서 **모니터** 를 검색 하 고 선택 합니다.
 
-1. 왼쪽에서 **메트릭** > **을 선택한**다음 이미지 아래의 설정을 사용 하 여 함수 앱을 선택 합니다.
+1. 왼쪽에서 메트릭을 선택한 **Metrics**  >  **Select a resource**다음 이미지 아래의 설정을 사용 하 여 함수 앱을 선택 합니다.
 
     ![함수 앱 리소스 선택](media/functions-consumption-costing/select-a-resource.png)
 
@@ -97,13 +96,13 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 실행 단위 수가 실행 수보다 훨씬 크므로 차트에는 실행 단위만 표시 됩니다.
 
-이 차트에서는 2 시간 동안 사용 `Function Execution Units` 된 총 11억1000만 (MB)를 표시 합니다. GB-초로 변환 하려면 1024000으로 나눕니다. 이 예제에서 함수 앱은 GB- `1110000000 / 1024000 = 1083.98` 초를 사용 했습니다. 이 값을 사용 하 여 실행 시간에 대 한 무료 권한을 이미 사용 하 고 있다고 가정 하 여이 두 시간에 대 한 비용을 제공 하는 [함수 가격 책정 페이지][가격 책정]페이지에서 현재 가격을 곱합니다. 
+이 차트에서는 `Function Execution Units` 2 시간 동안 사용 된 총 11억1000만 (MB)를 표시 합니다. GB-초로 변환 하려면 1024000으로 나눕니다. 이 예제에서 함수 앱은 `1110000000 / 1024000 = 1083.98` GB-초를 사용 했습니다. 이 값을 사용 하 여 실행 시간에 대 한 무료 권한을 이미 사용 하 고 있다고 가정 하 여이 두 시간에 대 한 비용을 제공 하는 [함수 가격 책정 페이지][가격 책정]페이지에서 현재 가격을 곱합니다. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
 [Azure CLI](/cli/azure/) 에는 메트릭을 검색 하는 명령이 있습니다. CLI는 로컬 명령 환경에서 사용 하거나 [Azure Cloud Shell](../cloud-shell/overview.md)를 사용 하 여 포털에서 직접 사용할 수 있습니다. 예를 들어 다음 [az monitor 메트릭 list](/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령은 이전에 사용 된 것과 동일한 기간에 매시간 데이터를 반환 합니다.
 
-명령을 실행 하는 `<AZURE_SUBSCRIPTON_ID>` AZURE 구독 ID로 바꾸어야 합니다.
+`<AZURE_SUBSCRIPTON_ID>`명령을 실행 하는 Azure 구독 ID로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
@@ -188,7 +187,7 @@ az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resour
   ]
 }
 ```
-이 특정 응답에서는에서로 `2019-09-11T21:46` `2019-09-11T23:18`의 응용 프로그램이 11억1000만 m b-밀리초 (1083.98 g b-초)를 사용 하는 것을 보여 줍니다.
+이 특정 응답에서는에서 `2019-09-11T21:46` 로의 `2019-09-11T23:18` 응용 프로그램이 11억1000만 m b-밀리초 (1083.98 g b-초)를 사용 하는 것을 보여 줍니다.
 
 ## <a name="determine-memory-usage"></a>메모리 사용량 확인
 
@@ -206,14 +205,14 @@ performanceCounters
 
 결과는 다음 예제와 같습니다.
 
-| 타임 \[스탬프 UTC\]          | name          | value       |
+| 타임 스탬프 \[ UTC\]          | name          | 값       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 AM | 프라이빗 바이트 | 209932288 |
-| 9/12/2019, 1:06:14\.994 AM | 프라이빗 바이트 | 212189184 |
-| 9/12/2019, 1:06:30\.010 AM | 프라이빗 바이트 | 231714816 |
-| 9/12/2019, 1:07:15\.040 AM | 프라이빗 바이트 | 210591744 |
-| 9/12/2019, 1:12:16\.285 AM | 프라이빗 바이트 | 216285184 |
-| 9/12/2019, 1:12:31\.376 AM | 프라이빗 바이트 | 235806720 |
+| 9/12/2019, 1:05:14 \. 947 AM | 프라이빗 바이트 | 209932288 |
+| 9/12/2019, 1:06:14 \. 994 AM | 프라이빗 바이트 | 212189184 |
+| 9/12/2019, 1:06:30 \. 010 AM | 프라이빗 바이트 | 231714816 |
+| 9/12/2019, 1:07:15 \. 040 AM | 프라이빗 바이트 | 210591744 |
+| 9/12/2019, 1:12:16 \. 285 AM | 프라이빗 바이트 | 216285184 |
+| 9/12/2019, 1:12:31 \. 376 AM | 프라이빗 바이트 | 235806720 |
 
 ## <a name="function-level-metrics"></a>함수 수준 메트릭
 
@@ -228,9 +227,9 @@ customMetrics
 
 | name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16\.087                     |
-| QueueTrigger MaxDurationMs | 90\.249                     |
-| QueueTrigger MinDurationMs | 8\.522                      |
+| QueueTrigger AvgDurationMs | 16 \. 087                     |
+| QueueTrigger MaxDurationMs | 90 \. 249                     |
+| QueueTrigger MinDurationMs | 8 \. 522                      |
 
 ## <a name="next-steps"></a>다음 단계
 

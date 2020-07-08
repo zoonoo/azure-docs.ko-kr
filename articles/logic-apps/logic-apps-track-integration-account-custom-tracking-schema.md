@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76903055"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Azure 논리 A에서 종단 간 워크플로를 모니터링 하는 사용자 지정 추적 스키마 만들기
@@ -51,18 +50,18 @@ Azure Logic Apps에는 워크플로의 일부에 대해 사용 하도록 설정�
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
-| sourceType | 예 | String | 허용 되는 값을 포함 하는 실행 원본의 `Microsoft.Logic/workflows`형식:,`custom` |
-| source | 예 | 문자열 또는 JToken | 원본 형식이 인 `Microsoft.Logic/workflows`경우 소스 정보는이 스키마를 따라야 합니다. 원본 형식이 `custom`이면 스키마는 jtoken입니다. |
+| sourceType | 예 | String | 허용 되는 값을 포함 하는 실행 원본의 형식: `Microsoft.Logic/workflows` ,`custom` |
+| source | 예 | 문자열 또는 JToken | 원본 형식이 인 경우 `Microsoft.Logic/workflows` 소스 정보는이 스키마를 따라야 합니다. 원본 형식이 이면 `custom` 스키마는 JToken입니다. |
 | systemId | 예 | String | 논리 앱 시스템 ID |
 | runId | 예 | String | 논리 앱 실행 ID |
 | operationName | 예 | String | 작업 이름 (예: action 또는 trigger)입니다. |
-| repeatItemScopeName | 예 | String | 동작이 `foreach`또는 `until` 루프 내에 있는 경우 항목 이름 반복 |
-| repeatItemIndex | 예 | 정수 | 동작이 `foreach` 또는 `until` 루프 내에 있고 반복 된 항목 인덱스 번호 임을 나타냅니다. |
-| trackingId | 아니요 | 문자열 | 메시지의 상관 관계를 위한 추적 ID |
-| correlationId | 아니요 | 문자열 | 메시지와 상관 관계를 연결 하는 상관 관계 ID |
-| clientRequestId | 아니요 | 문자열 | 클라이언트는이 속성을 채워서 메시지의 상관 관계를 지정할 수 있습니다. |
+| repeatItemScopeName | 예 | String | 동작이 `foreach` 또는 루프 내에 있는 경우 항목 이름 반복 `until` |
+| repeatItemIndex | 예 | 정수 | 동작이 `foreach` 또는 루프 내에 `until` 있고 반복 된 항목 인덱스 번호 임을 나타냅니다. |
+| trackingId | 예 | String | 메시지의 상관 관계를 위한 추적 ID |
+| correlationId | 예 | String | 메시지와 상관 관계를 연결 하는 상관 관계 ID |
+| clientRequestId | 예 | String | 클라이언트는이 속성을 채워서 메시지의 상관 관계를 지정할 수 있습니다. |
 | eventLevel | 예 | String | 이벤트 수준 |
 | eventTime | 예 | DateTime | UTC 형식의 이벤트 시간: *yyyy-mm-dd: mm: yyyy-mm-ddthh: MM: SS. 00000Z* |
 | recordType | 예 | String | 허용 되는 값만 포함 된 트랙 레코드의 유형입니다.`custom` |

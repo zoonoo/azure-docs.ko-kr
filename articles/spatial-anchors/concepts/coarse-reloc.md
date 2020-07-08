@@ -9,10 +9,9 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844397"
 ---
 # <a name="coarse-relocalization"></a>광역 위치 재결정
@@ -91,7 +90,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -105,7 +104,7 @@ cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
 cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 ```cpp
 // Create the sensor fingerprint provider
 PlatformLocationProvider sensorProvider = PlatformLocationProvider();
@@ -123,9 +122,9 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 |             | 실내 | 야외 |
 |-------------|---------|----------|
-| GPS         | 꺼짐 | 설정 |
-| WiFi        | 설정 | 설정 (선택 사항) |
-| 오류 있는 오류 | 설정 (주의 사항, 아래 참조) | 꺼짐 |
+| GPS         | 끄기 | 켜기 |
+| WiFi        | 켜기 | 설정 (선택 사항) |
+| 오류 있는 오류 | 설정 (주의 사항, 아래 참조) | 끄기 |
 
 
 ### <a name="enabling-gps"></a>GPS 사용
@@ -159,14 +158,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -272,7 +271,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -292,7 +291,7 @@ while (m_isRunning)
 sensorProvider->Stop();
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -345,14 +344,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->WifiEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -403,14 +402,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->BluetoothEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors();
@@ -467,7 +466,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -478,7 +477,7 @@ const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->KnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 std::vector<winrt::hstring> uuids;
@@ -559,7 +558,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -574,7 +573,7 @@ auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
 anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
@@ -592,9 +591,9 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-매개 `DistanceInMeters` 변수는 콘텐츠를 검색 하기 위해 앵커 그래프를 탐색 하는 정도를 제어 합니다. 모든 미터의 일정 한 밀도에서 앵커를 사용 하 여 일부 공간을 채운 경우를 가정 합니다. 또한 장치의 카메라는 단일 앵커를 관찰 하 고 서비스에서 성공적으로 찾았습니다. 현재 관찰 중인 단일 앵커 대신 가까이 배치 된 모든 앵커를 검색 하는 것이 가장 좋습니다. 사용자가 배치한 앵커를 그래프에 연결 했다고 가정할 경우, 서비스는 그래프의 가장자리를 따라 주변 앵커를 모두 검색할 수 있습니다. 그래프 트래버스의 양은에 의해 `DistanceInMeters`제어 됩니다. 찾은 앵커에 연결 된 모든 앵커를 지정 하는 것이 더 좋습니다 `DistanceInMeters`.
+`DistanceInMeters`매개 변수는 콘텐츠를 검색 하기 위해 앵커 그래프를 탐색 하는 정도를 제어 합니다. 모든 미터의 일정 한 밀도에서 앵커를 사용 하 여 일부 공간을 채운 경우를 가정 합니다. 또한 장치의 카메라는 단일 앵커를 관찰 하 고 서비스에서 성공적으로 찾았습니다. 현재 관찰 중인 단일 앵커 대신 가까이 배치 된 모든 앵커를 검색 하는 것이 가장 좋습니다. 사용자가 배치한 앵커를 그래프에 연결 했다고 가정할 경우, 서비스는 그래프의 가장자리를 따라 주변 앵커를 모두 검색할 수 있습니다. 그래프 트래버스의 양은에 의해 제어 됩니다. `DistanceInMeters` 찾은 앵커와 연결 된 모든 앵커를 지정 하는 것이 보다 가깝습니다 `DistanceInMeters` .
 
-의 `MaxResultCount` 값이 크면 성능에 부정적인 영향을 줄 수 있습니다. 응용 프로그램에 대 한 적절 한 값으로 설정 합니다.
+의 값이 크면 `MaxResultCount` 성능에 부정적인 영향을 줄 수 있습니다. 응용 프로그램에 대 한 적절 한 값으로 설정 합니다.
 
 마지막으로 센서 기반 조회를 사용 하도록 세션에 지시 해야 합니다.
 
@@ -622,13 +621,13 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndk"></a>[C + + NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-winrt"></a>[C + + WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -648,7 +647,7 @@ GPS를 사용 하 여 쿼리할 때 동일한 추론을 적용 합니다. 장치
 
 아래 표는 각 센서 유형에 대해 예상 되는 검색 공간을 예상 합니다.
 
-| 센서      | 검색 공간 반지름 (근사값) | 세부 정보 |
+| 센서      | 검색 공간 반지름 (근사값) | 설명 |
 |-------------|:-------:|---------|
 | GPS         | 20 m-30 m | 다른 요소 간의 GPS 불확실성에 의해 결정 됩니다. 보고 된 숫자는 7 미터의-GPS를 사용 하는 휴대폰의 GPS 정확도에 대해 예상 됩니다. |
 | WiFi        | 50 m-100 m | 무선 액세스 지점의 범위에 따라 결정 됩니다. 빈도, 전송기 강도, 물리적 장애물, 간섭 등에 따라 달라 집니다. |
@@ -662,7 +661,7 @@ GPS를 사용 하 여 쿼리할 때 동일한 추론을 적용 합니다. 장치
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | 해당 없음 | [Locationmanager][3] API (GPS 및 네트워크 모두)를 통해 지원 됨 | [Cllocationmanager][4] api를 통해 지원 됨 |
-| WiFi        | 3 초 마다 한 번의 검색 속도로 지원 됨 | 지원됩니다. API 수준 28부터 WiFi 검색은 2 분 마다 4 개의 호출로 제한 됩니다. Android 10에서는 개발자 설정 메뉴에서 제한을 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Android 설명서][5]를 참조 하세요. | 해당 없음-공용 API 없음 |
+| WiFi        | 3 초 마다 한 번의 검색 속도로 지원 됨 | 지원됨. API 수준 28부터 WiFi 검색은 2 분 마다 4 개의 호출로 제한 됩니다. Android 10에서는 개발자 설정 메뉴에서 제한을 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Android 설명서][5]를 참조 하세요. | 해당 없음-공용 API 없음 |
 | 오류 있는 오류 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 |
 
 ## <a name="next-steps"></a>다음 단계

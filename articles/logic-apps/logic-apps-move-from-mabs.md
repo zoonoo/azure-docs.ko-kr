@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905444"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps 앱 및 솔루션 마이그레이션
@@ -32,7 +31,7 @@ BizTalk Services는 다음 두 하위 서비스로 구성됩니다.
 
 다음 표에서는 BizTalk Services 기능을 Logic Apps에 매핑하고 있습니다.
 
-| BizTalk Services   | Logic Apps            | 목적                      |
+| BizTalk Services   | Logic Apps            | 용도                      |
 | ------------------ | --------------------- | ---------------------------- |
 | 커넥터          | 커넥터             | 데이터 보내기 및 받기   |
 | 브리지             | 논리 앱             | 파이프라인 프로세서           |

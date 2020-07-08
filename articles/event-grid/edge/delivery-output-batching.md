@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841750"
 ---
 # <a name="output-batching"></a>출력 일괄 처리
@@ -77,16 +76,16 @@ Event Grid는 단일 배달 요청에서 둘 이상의 이벤트를 전달 하�
 
 다음 배포 시간 설정은 이벤트 구독을 만들 때 허용 되는 최대값을 제어 합니다.
 
-| 속성 이름 | Description |
+| 속성 이름 | 설명 |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | 노브에 허용 되는 `PreferredBatchSizeInKilobytes` 최대값입니다. 기본값 `1033`.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | 노브에 허용 되는 `MaxEventsPerBatch` 최대값입니다. 기본값 `50`.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | 노브에 허용 되는 최대값 `PreferredBatchSizeInKilobytes` 입니다. 기본값 `1033` .
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | 노브에 허용 되는 최대값 `MaxEventsPerBatch` 입니다. 기본값 `50` .
 
 ## <a name="configuring-runtime-default-values"></a>런타임 기본값 구성
 
 다음 배포 시간 설정은 이벤트 구독에 지정 되지 않은 경우 각 노브의 런타임 기본값을 제어 합니다. 다시 말해, 일괄 처리 동작을 켜려면 이벤트 구독에서 하나 이상의 노브를 설정 해야 합니다.
 
-| 속성 이름 | Description |
+| 속성 이름 | 설명 |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | 만 `MaxEventsPerBatch` 지정 된 경우 최대 배달 요청 크기입니다. 기본값 `1_058_576`.
-| `broker__defaultMaxEventsPerBatch` | 만 `MaxBatchSizeInBytes` 지정 된 경우 일괄 처리에 추가할 최대 이벤트 수입니다. 기본값 `10`.
+| `broker__defaultMaxBatchSizeInBytes` | 만 지정 된 경우 최대 배달 요청 크기 `MaxEventsPerBatch` 입니다. 기본값 `1_058_576` .
+| `broker__defaultMaxEventsPerBatch` | 만 지정 된 경우 일괄 처리에 추가할 최대 이벤트 수 `MaxBatchSizeInBytes` 입니다. 기본값 `10` .

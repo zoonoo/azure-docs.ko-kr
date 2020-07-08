@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76989912"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 문자 검색 (미리 보기)
@@ -40,7 +39,7 @@ Video Indexer 계정의 유형에 따라 다양 한 기능 집합을 사용할 �
 
 ### <a name="trial-vs-paid"></a>평가판 및 유료
 
-|기능|평가판|유료|
+|기능|평가판|지급|
 |---|---|---|
 |Custom Vision 계정|Video Indexer 하 여 백그라운드에서 관리 됩니다. |Custom Vision 계정이 Video Indexer에 연결 되어 있습니다.|
 |애니메이션 모델 수|하나|계정 당 최대 100 모델 (Custom Vision 제한).|

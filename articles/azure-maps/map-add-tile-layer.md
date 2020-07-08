@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988603"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
@@ -24,7 +23,7 @@ ms.locfileid: "76988603"
 
 * X, Y, Zoom 표기법-X는 열이 고 Y는 타일 그리드에서 타일의 행 위치 이며 확대/축소는 확대/축소 수준을 기반으로 하는 값입니다.
 * Quadkey notation-x, y 및 zoom 정보를 단일 문자열 값으로 결합 합니다. 이 문자열 값은 단일 타일에 대 한 고유 식별자가 됩니다.
-* 경계 상자-경계 상자 좌표 형식으로 이미지를 지정 `{west},{south},{east},{north}`합니다. 이 형식은 일반적으로 [WMS (웹 매핑 서비스)](https://www.opengeospatial.org/standards/wms)에서 사용 됩니다.
+* 경계 상자-경계 상자 좌표 형식으로 이미지를 지정 합니다. `{west},{south},{east},{north}` 이 형식은 일반적으로 [WMS (웹 매핑 서비스)](https://www.opengeospatial.org/standards/wms)에서 사용 됩니다.
 
 > [!TIP]
 > [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)는 맵에서 큰 데이터 세트를 시각화하는 좋은 방법입니다. 이미지에서 타일 계층을 생성할 수 있을 뿐만 아니라 벡터 데이터도 타일 계층으로 렌더링 될 수 있습니다. 지도 컨트롤은 벡터 데이터를 타일 계층으로 렌더링 하 여 파일 크기가 표시 하는 벡터 데이터 보다 작은 타일을 로드 하기만 하면 됩니다. 이 기술은 일반적으로 지도에 수백만 개의 데이터 행을 렌더링 하는 데 사용 됩니다.
@@ -36,11 +35,11 @@ ms.locfileid: "76988603"
 * `{z}` - 타일의 확대/축소 수준입니다. 또한 `{x}` 및 `{y}`가 필요합니다.
 * `{quadkey}` - Bing Maps 타일 시스템 명명 규칙에 따라 타일 Quadkey 식별자입니다.
 * `{bbox-epsg-3857}` - EPSG 3857 공간 참조 시스템에서 `{west},{south},{east},{north}` 형식을 사용하는 경계 상자 문자열입니다.
-* `{subdomain}`-하위 도메인 값에 대 한 자리 표시자 (지정 `subdomain` 된 경우)가 추가 됩니다.
+* `{subdomain}`-하위 도메인 값에 대 한 자리 표시자 (지정 된 경우) `subdomain` 가 추가 됩니다.
 
 ## <a name="add-a-tile-layer"></a>타일 계층 추가
 
- 이 샘플에서는 타일 집합을 가리키는 타일 계층을 만드는 방법을 보여 줍니다. 이 샘플에서는 x, y, zoom 바둑판식 배열 시스템을 사용 합니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다. 이 동작은 `labels` 계층 아래에 타일 계층을 삽입 하 여 구현할 수 있습니다.
+ 이 샘플에서는 타일 집합을 가리키는 타일 계층을 만드는 방법을 보여 줍니다. 이 샘플에서는 x, y, zoom 바둑판식 배열 시스템을 사용 합니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다. 이 동작은 계층 아래에 타일 계층을 삽입 하 여 구현할 수 있습니다 `labels` .
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -52,7 +51,7 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
+다음은 위의 기능을 실행하는 전체 코드 샘플입니다.
 
 <br/>
 

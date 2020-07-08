@@ -4,10 +4,9 @@ description: Azure Container Instances의 비정상 컨테이너를 다시 시�
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934170"
 ---
 # <a name="configure-liveness-probes"></a>활동성 프로브 구성
@@ -63,9 +62,9 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>시작 명령
 
-배포에는 컨테이너가 `command` 처음 실행 되기 시작할 때 실행 되는 시작 명령을 정의 하는 속성이 포함 되어 있습니다. 이 속성은 문자열 배열을 허용 합니다. 이 명령은 비정상 상태를 입력 하는 컨테이너를 시뮬레이션 합니다.
+배포에는 `command` 컨테이너가 처음 실행 되기 시작할 때 실행 되는 시작 명령을 정의 하는 속성이 포함 되어 있습니다. 이 속성은 문자열 배열을 허용 합니다. 이 명령은 비정상 상태를 입력 하는 컨테이너를 시뮬레이션 합니다.
 
-먼저 bash 세션을 시작 하 고 `healthy` `/tmp` 디렉터리 내에 라는 파일을 만듭니다. 그런 다음 파일을 삭제 하기 전에 30 초 동안 대기한 다음 10 분의 절전 모드로 전환 합니다.
+먼저 bash 세션을 시작 하 고 디렉터리 내에 라는 파일을 만듭니다 `healthy` `/tmp` . 그런 다음 파일을 삭제 하기 전에 30 초 동안 대기한 다음 10 분의 절전 모드로 전환 합니다.
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
@@ -73,7 +72,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="liveness-command"></a>활동성 명령
 
-이 배포는 선거의 `livenessProbe` check 역할을 `exec` 하는 선거의 명령을 지 원하는를 정의 합니다. 이 명령이 0이 아닌 값으로 종료 되 면 컨테이너는 종료 되 고 다시 시작 되며,이 `healthy` 경우 파일을 찾을 수 없습니다. 이 명령이 종료 코드 0으로 성공적으로 종료 되 면 아무 동작도 수행 되지 않습니다.
+이 배포는 `livenessProbe` `exec` 선거의 check 역할을 하는 선거의 명령을 지 원하는를 정의 합니다. 이 명령이 0이 아닌 값으로 종료 되 면 컨테이너는 종료 되 고 다시 시작 되며,이 경우 파일을 찾을 수 없습니다 `healthy` . 이 명령이 종료 코드 0으로 성공적으로 종료 되 면 아무 동작도 수행 되지 않습니다.
 
 `periodSeconds` 속성은 활동성 명령을 5초마다 실행해야 한다고 지정합니다.
 
@@ -87,7 +86,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ![포털 비정상 이벤트][portal-unhealthy]
 
-Azure Portal 이벤트를 보면 형식의 `Unhealthy` 이벤트는 선거의 명령이 실패 한 경우 트리거됩니다. 후속 이벤트는 형식으로, `Killing`다시 시작을 시작 하기 위해 컨테이너 삭제를 나타내는 형식입니다. 컨테이너의 다시 시작 횟수는이 이벤트가 발생할 때마다 증가 합니다.
+Azure Portal 이벤트를 보면 형식의 이벤트는 `Unhealthy` 선거의 명령이 실패 한 경우 트리거됩니다. 후속 이벤트는 형식으로 `Killing` , 다시 시작을 시작 하기 위해 컨테이너 삭제를 나타내는 형식입니다. 컨테이너의 다시 시작 횟수는이 이벤트가 발생할 때마다 증가 합니다.
 
 다시 시작은 내부에서 완료 되므로 공용 IP 주소 및 노드 별 내용과 같은 리소스가 유지 됩니다.
 
@@ -97,7 +96,7 @@ Azure Portal 이벤트를 보면 형식의 `Unhealthy` 이벤트는 선거의 �
 
 ## <a name="liveness-probes-and-restart-policies"></a>활동성 프로브 및 다시 시작 정책
 
-다시 시작 정책은 활동성 프로브에 의해 트리거되는 다시 시작 동작보다 우선합니다. 예를 들어 `restartPolicy = Never` *및* 선거의 프로브를 설정 하는 경우 실패 한 선거의 검사로 인해 컨테이너 그룹이 다시 시작 되지 않습니다. 컨테이너 그룹은 대신의 `Never`컨테이너 그룹의 다시 시작 정책을 준수 합니다.
+다시 시작 정책은 활동성 프로브에 의해 트리거되는 다시 시작 동작보다 우선합니다. 예를 들어 `restartPolicy = Never` *및* 선거의 프로브를 설정 하는 경우 실패 한 선거의 검사로 인해 컨테이너 그룹이 다시 시작 되지 않습니다. 컨테이너 그룹은 대신의 컨테이너 그룹의 다시 시작 정책을 준수 합니다 `Never` .
 
 ## <a name="next-steps"></a>다음 단계
 

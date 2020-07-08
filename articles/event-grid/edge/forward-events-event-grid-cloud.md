@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844720"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>자습서: Event Grid 클라우드에 이벤트 전달
@@ -25,7 +24,7 @@ ms.locfileid: "76844720"
 
  이 자습서를 완료 하려면 [edge](concepts.md) 및 [Azure](../concepts.md)에 대 한 Event Grid 개념을 이해 해야 합니다. 추가 대상 형식은 [이벤트 처리기](event-handlers.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -34,9 +33,9 @@ ms.locfileid: "76844720"
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>클라우드에서 event grid 토픽 및 구독 만들기
 
-[이 자습서](../custom-event-quickstart-portal.md)를 수행 하 여 클라우드에서 event grid 토픽 및 구독을 만듭니다. 자습서의 `topicURL`뒷부분 `sasKey`에서 사용할 `topicName` 새로 만든 토픽의, 및를 적어둡니다.
+[이 자습서](../custom-event-quickstart-portal.md)를 수행 하 여 클라우드에서 event grid 토픽 및 구독을 만듭니다. 자습서의 `topicURL` `sasKey` `topicName` 뒷부분에서 사용할 새로 만든 토픽의, 및를 적어둡니다.
 
-예를 들어 미국 서 부에 라는 `testegcloudtopic` 토픽을 만든 경우 값은 다음과 같습니다.
+예를 들어 미국 서 부에 라는 토픽을 만든 경우 `testegcloudtopic` 값은 다음과 같습니다.
 
 * **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
 * **TopicName**:`testegcloudtopic`
@@ -44,7 +43,7 @@ ms.locfileid: "76844720"
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Edge에서 event grid 토픽을 만듭니다.
 
-1. 다음 콘텐츠를 사용 하 여 topic3를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠를 사용 하 여 topic3.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
     ```json
         {
@@ -85,7 +84,7 @@ ms.locfileid: "76844720"
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. 다음 콘텐츠를 사용 하 여 subscription3를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠를 사용 하 여 subscription3.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
    ```json
         {
@@ -105,7 +104,7 @@ ms.locfileid: "76844720"
    >[!NOTE]
    > **Endpointurl** 은 클라우드의 EVENT GRID 토픽 url을 지정 합니다. **SasKey** 는 Event Grid 클라우드 토픽의 키를 참조 합니다. **TopicName** 의 값을 사용 하 여 나가는 모든 이벤트를 Event Grid에 스탬프를 지정할 수 있습니다. 이는 Event Grid 도메인 항목에 게시할 때 유용할 수 있습니다. Event Grid 도메인 항목에 대 한 자세한 내용은 [이벤트 도메인](../event-domains.md) 을 참조 하세요.
 
-    예를 들면 다음과 같습니다.
+    예제:
   
     ```json
         {
@@ -157,7 +156,7 @@ ms.locfileid: "76844720"
 
 ## <a name="publish-an-event-at-the-edge"></a>에 지에 이벤트 게시
 
-1. 다음 콘텐츠를 사용 하 여 event3를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
+1. 다음 콘텐츠를 사용 하 여 event3.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
     ```json
         [

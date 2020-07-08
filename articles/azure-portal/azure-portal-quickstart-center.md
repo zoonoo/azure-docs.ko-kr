@@ -1,5 +1,5 @@
 ---
-title: Azure 빠른 시작 센터 시작
+title: Azure Quickstart Center 시작
 description: Azure 빠른 시작 센터 단계별 환경을 사용 하 여 Azure를 시작 하세요. 설정, 마이그레이션 및 혁신에 대해 알아봅니다.
 services: azure-portal
 keywords: ''
@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76900696"
 ---
-# <a name="get-started-with-the-azure-quickstart-center"></a>Azure 빠른 시작 센터 시작
+# <a name="get-started-with-the-azure-quickstart-center"></a>Azure Quickstart Center 시작
 
 Azure 빠른 시작 센터는 Azure에 대 한 지식을 개선 하려는 모든 사용자가 사용할 수 있는 Azure Portal의 단계별 경험입니다. Azure를 처음 접하는 조직의 경우 클라우드 환경을 등록 하 고 설정 하는 가장 빠른 방법입니다.
 
@@ -36,7 +35,7 @@ Azure 빠른 시작 센터에는 시작 하기 위한 세 가지 옵션이 있�
 
 1. Azure Portal 메뉴에서 **모든 서비스** 를 선택 합니다.
 
-1. **일반** > **빠른 시작 센터**를 선택 합니다.
+1. **일반**  >  **빠른 시작 센터**를 선택 합니다.
 
 Azure 빠른 시작 센터에서 수행할 수 있는 작업에 대 한 자세한 내용은 다음 비디오를 참조 하세요.
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]

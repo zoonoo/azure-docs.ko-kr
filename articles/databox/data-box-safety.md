@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68985940"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Azure Data Box의 안전한 설치 및 작동
@@ -27,13 +26,13 @@ Azure Data Box를 사용하기 전에 이 문서의 모든 보안 정보를 읽�
 | 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험 아이콘](./media/data-box-safety/warning_icon.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
-| ![경고 아이콘](./media/data-box-safety/warning_icon.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
-| ![경고 아이콘](./media/data-box-safety/warning_icon.png) **주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고 아이콘 ](./media/data-box-safety/warning_icon.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
+| ![경고 아이콘 ](./media/data-box-safety/warning_icon.png) **주의!** |피하지 않을 경우 최소 또는 보통 수준의 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
 | ![참고 아이콘](./media/data-box-safety/notice_icon.png) **고지:** |중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
 | ![감전 아이콘](./media/data-box-safety/electrical_shock_hazard_icon.png) **감전 위험** |높은 전압. |
 | ![무거운 무게 아이콘](./media/data-box-safety/heavy_weight_hazard_icon.png) **무거운 무게** | |
 | ![사용자 서비스 가능 부품 없음 아이콘](./media/data-box-safety/no_user_serviceable_parts_icon.png) **사용자 서비스 가능 부품 없음** |제대로 교육을 받지 않은 경우 액세스하지 마세요. |
-| ![안전 주의 사항 읽기](./media/data-box-safety/read_safety_and_health_information_icon.png) 아이콘 **먼저 모든 지침 읽기** | |
+| ![안전 주의 사항 읽기 아이콘 ](./media/data-box-safety/read_safety_and_health_information_icon.png) **먼저 모든 지침 읽기** | |
 | ![기울어짐 위험 아이콘](./media/data-box-safety/tip_hazard_icon.png) **기울어짐 위험** | |
 
 ## <a name="handling-precautions"></a>취급 주의 사항
@@ -54,7 +53,7 @@ Azure Data Box를 사용하기 전에 이 문서의 모든 보안 정보를 읽�
 * 디바이스가 기울어지지 않도록 디바이스를 평평하고 단단하고 안정적인 곳에 배치하세요.
 * 랙 탑재 장비는 선반 또는 작업 공간에 사용하면 안 됩니다. 랙 탑재 장비 위에 Data Box를 올려 놓지 마세요. 확장된 랙 탑재 장치에 부하를 추가하면 장치가 기울어져서 부상, 사망 또는 제품 손상 사고가 발생할 위험이 있습니다.
 
-![경고 아이콘](./media/data-box-safety/warning_icon.png) **경고!**
+![경고 아이콘 ](./media/data-box-safety/warning_icon.png) **경고!**
 
 * 디바이스 주변 공기가 원활하게 순환되도록 디바이스를 작업 영역에 설치하세요.
 * 온도가 조절되고 전도성 오염 물질이 없는 실내 영역에 디바이스를 설치하고 디바이스 주변 공기를 적절하게 순환해 주세요.
@@ -120,7 +119,7 @@ Microsoft의 명시적 승인 없이 디바이스를 변경 또는 수정할 경
 
 이 디바이스는 FCC 규칙 파트 15 및 Industry Canada 라이선스 면제 RSS 표준을 따릅니다. 작동 시 다음 두 조건이 적용됩니다. (1) 이 디바이스는 해로운 간섭을 일으키지 않을 것입니다. (2) 이 디바이스는 오작동을 일으킬 수 있는 간섭을 포함하여 모든 간섭을 받습니다.
 
-![Canada](./media/data-box-safety/canada.png)
+![캐나다](./media/data-box-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 
@@ -142,7 +141,7 @@ Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
 ![배터리 폐기 아이콘](./media/data-box-safety/battery_disposal_icon.png)
 
-제품, 제품의 배터리 또는 제품 패키지에 표시된 이 기호는 제품과 배터리를 일반 쓰레기와 함께 폐기하면 안 된다는 것을 의미합니다. 사용자에게는 배터리와 전기 및 전자 제품을 재활용할 수 있도록 해당 수거 지점에 가져다 놓을 책임이 있습니다. 이렇게 별도로 수거 및 재활용하면 자연 리소스를 절약할 수 있으며, 적절하게 폐기하지 않을 시 배터리와 전기 및 전자 제품에 함유된 유해 물질이 사람의 건강과 환경에 미칠 수 있는 악영향을 차단할 수 있습니다. 폐 배터리와 전기 및 전자 폐기물을 수거하는 위치는 현지 시청/지방 자치 사무실, 가정 폐기물 폐기 서비스 부서 또는 제품을 구입한 상점에 문의하세요. WASTE에 대 한 자세한 내용은 *erecycle\@microsoft.com* 에 문의 하세요.
+제품, 제품의 배터리 또는 제품 패키지에 표시된 이 기호는 제품과 배터리를 일반 쓰레기와 함께 폐기하면 안 된다는 것을 의미합니다. 사용자에게는 배터리와 전기 및 전자 제품을 재활용할 수 있도록 해당 수거 지점에 가져다 놓을 책임이 있습니다. 이렇게 별도로 수거 및 재활용하면 자연 리소스를 절약할 수 있으며, 적절하게 폐기하지 않을 시 배터리와 전기 및 전자 제품에 함유된 유해 물질이 사람의 건강과 환경에 미칠 수 있는 악영향을 차단할 수 있습니다. 폐 배터리와 전기 및 전자 폐기물을 수거하는 위치는 현지 시청/지방 자치 사무실, 가정 폐기물 폐기 서비스 부서 또는 제품을 구입한 상점에 문의하세요. WASTE에 대 한 자세한 내용은 *erecycle \@ microsoft.com* 에 문의 하세요.
 
 이 제품은 코인 셀을 포함하고 있습니다.
 

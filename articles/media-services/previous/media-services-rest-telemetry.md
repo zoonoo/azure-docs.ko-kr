@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774876"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST를 사용하여 Azure Media Services 원격 분석 구성
@@ -34,7 +33,7 @@ ms.locfileid: "76774876"
 - 알림 엔드포인트 가져오기
 - 모니터링을 위한 알림 엔드포인트 만들기 
 
-    알림 끝점을 만들려면 EndPointType을 AzureTable (2)로 설정 하 고 endPontAddress를 저장소 테이블 (예: https:\//telemetryvalidationstore.table.core.windows.net/)로 설정 합니다.
+    알림 끝점을 만들려면 EndPointType을 AzureTable (2)로 설정 하 고 endPontAddress를 저장소 테이블 (예: https: \/ /telemetryvalidationstore.table.core.windows.net/)로 설정 합니다.
   
 - 모니터링 구성 가져오기
 
@@ -126,7 +125,7 @@ ms.locfileid: "76774876"
     }
 
 > [!NOTE]
-> "Https:\//telemetryvalidationstore.table.core.windows.net" 값을 저장소 계정으로 변경 해야 합니다.
+> "Https: \/ /telemetryvalidationstore.table.core.windows.net" 값을 저장소 계정으로 변경 해야 합니다.
 
 ### <a name="response"></a>응답
 
