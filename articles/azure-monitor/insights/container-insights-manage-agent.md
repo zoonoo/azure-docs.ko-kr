@@ -2,13 +2,13 @@
 title: 컨테이너용 Azure Monitor 에이전트를 관리하는 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor에서 사용되는 컨테이너화된 Log Analytics 에이전트를 통해 가장 일반적인 유지 관리 작업을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: ce014d27c6acc473c4a435dfed4757fb0884f4fe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/15/2020
+ms.openlocfilehash: ca0fa88cf27db15d45a2c855a1af351764c48fde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887511"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 관리하는 방법
 
@@ -68,7 +68,7 @@ $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
-Log Analytics 작업 영역이 Azure 중국에 있는 경우 다음 명령을 실행합니다.
+Log Analytics 작업 영역이 Azure 중국 21Vianet에 있는 경우 다음 명령을 실행 합니다.
 
 ```
 $ helm upgrade --name myrelease-1 \
@@ -93,6 +93,20 @@ $ helm upgrade --name myrelease-1 \
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
+### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Azure Arc의 업그레이드 에이전트 사용 Kubernetes
+
+다음 명령을 수행 하 여 프록시 끝점 없이 Azure Arc 사용 Kubernetes 클러스터에서 에이전트를 업그레이드 합니다.
+
+```
+$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```
+
+다음 명령을 수행 하 여 프록시 끝점이 지정 된 경우 에이전트를 업그레이드 합니다. 프록시 끝점에 대 한 자세한 내용은 [프록시 끝점 구성](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint)을 참조 하세요.
+
+```
+helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>컨테이너에서 환경 변수 수집을 사용하지 않도록 설정하는 방법

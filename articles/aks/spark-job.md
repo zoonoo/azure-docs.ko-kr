@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 962d0d6dd51bb30f5df9ca0b609acf932777ebcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887515"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
-[Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-latest-release]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
+[Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-kubernetes-earliest-version]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -25,6 +25,7 @@ ms.locfileid: "80877630"
 * [Docker 허브][docker-hub] 계정 또는 [Azure Container Registry][acr-create].
 * Azure CLI 개발 시스템에 [설치][azure-cli] 됩니다.
 * 시스템에 설치된 [JDK 8][java-install].
+* 시스템에 설치 된 [Apache Maven][maven-install] .
 * 시스템에 설치된 SBT([Scala 빌드 도구][sbt-install]).
 * 시스템에 설치된 Git 명령줄 도구
 
@@ -46,7 +47,7 @@ az group create --name mySparkCluster --location eastus
 az ad sp create-for-rbac --name SparkSP
 ```
 
-크기 `Standard_D3_v2`, appId 및 암호 값으로 전달 되는 노드를 사용 하 여 AKS 클러스터를 만들고, 서비스 주체 및 클라이언트 암호 매개 변수로 전달 합니다.
+크기, appId 및 암호 값으로 전달 되는 노드를 사용 하 여 AKS 클러스터를 만들고, `Standard_D3_v2` 서비스 주체 및 클라이언트 암호 매개 변수로 전달 합니다.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -293,7 +294,7 @@ Pi is roughly 3.152155760778804
 
 위의 예제에서는 Spark jar 파일을 Azure Storage에 업로드했습니다. 또 다른 옵션은 jar 파일을 사용자 지정된 Docker 이미지로 패키징하는 것입니다.
 
-이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. 및 `ENTRYPOINT` 선언 `ADD` 사이 `jar` `WORKDIR` 에 Spark 작업에 대 한 문을 추가 합니다.
+이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `ADD`및 선언 사이에 Spark 작업에 대 한 문을 추가 `jar` `WORKDIR` `ENTRYPOINT` 합니다.
 
 jar 경로를 개발 시스템의 `SparkPi-assembly-0.1.0-SNAPSHOT.jar` 파일 위치로 업데이트합니다. 개발자 고유의 사용자 지정 jar 파일을 사용해도 됩니다.
 
@@ -340,9 +341,10 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: https://aka.ms/azure-jdks
+[maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
-[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 

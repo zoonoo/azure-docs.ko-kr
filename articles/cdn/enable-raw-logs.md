@@ -7,15 +7,15 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888649"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Azure CDN HTTP 원시 로그
 원시 로그는 감사 및 문제 해결에 중요한 작업 및 오류에 관한 풍부한 정보를 제공합니다. 원시 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 가시성을 제공합니다. 원시 로그는 리소스 작업의 레코드를 제공합니다.
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면: 
 
-1. Azure Portal 메뉴에서 **모든 리소스** >>  **\<your-CDN-profile>** 를 선택합니다.
+1. Azure Portal 메뉴에서 **모든 리소스**를 선택  >>  **\<your-CDN-profile>** 합니다.
 
 2. **모니터링**에서 **진단 설정**을 선택합니다.
 

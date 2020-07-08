@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84816730"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,9 +27,9 @@ ms.locfileid: "81399003"
 
 | 환경 | 장점 | 단점 |
 | --- | --- | --- |
-| [클라우드 기반 Azure Machine Learning 계산 인스턴스 (미리 보기)](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조 하세요. |
+| [클라우드 기반 Azure Machine Learning 계산 인스턴스 (미리 보기)](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
-| [Azure Databricks](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행하는 데 적합합니다. | 실험적 기계 학습 또는 작은 규모의 실험 및 워크플로를 위한 과잉. Azure Databricks에 대해 발생 하는 추가 비용입니다. [가격 정보](https://azure.microsoft.com/pricing/details/databricks/)를 참조 하세요. |
+| [Azure Databricks](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행하는 데 적합합니다. | 실험적 기계 학습 또는 작은 규모의 실험 및 워크플로를 위한 과잉. Azure Databricks에 대해 발생 하는 추가 비용입니다. [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요. |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | 클라우드 기반 계산 인스턴스 (Python 및 SDK는 사전 설치 됨)와 비슷하지만 널리 사용 되는 추가 데이터 과학 및 기계 학습 도구가 미리 설치 되어 있습니다. 쉽게 확장 하 고 다른 사용자 지정 도구 및 워크플로와 결합할 수 있습니다. | 클라우드 기반 계산 인스턴스와 비교 하 여 더 느린 시작 환경을 제공 합니다. |
 
 또한이 문서에서는 다음 도구에 대 한 추가 사용 팁을 제공 합니다.
@@ -38,9 +38,9 @@ ms.locfileid: "81399003"
 
 * [Visual Studio Code](#vscode): Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#compute-instance), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
+Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#compute-instance), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
 
 [로컬 컴퓨터](#local)에 대 한 SDK 환경을 설치 하려면 [Jupyter Notebook 서버](#jupyter) 또는 [Visual Studio Code](#vscode) 도 필요 합니다.
 
@@ -59,7 +59,7 @@ Azure Machine Learning [계산 인스턴스 (미리 보기)](concept-compute-ins
 
 계산 인스턴스를 설치 하거나 구성할 수 없습니다.  Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. [설정 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 사용 하 여 지금 사용해 보세요.
 
-[계산 인스턴스에](concept-compute-instance.md)대해 자세히 알아보세요.
+패키지를 설치 하는 방법을 비롯 하 여 계산 인스턴스에 대해 자세히 알아보려면 [계산 인스턴스](concept-compute-instance.md)를 참조 하세요.
 
 계산 요금이 발생 하지 않도록 하려면 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
 
@@ -136,7 +136,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 ## <a name="local-computer"></a><a id="local"></a>로컬 컴퓨터
 
-로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 Anaconda 환경을 만들고 SDK를 설치 합니다. 아래 예를 살펴보세요.
+로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 Anaconda 환경을 만들고 SDK를 설치 합니다. 예를 들면 다음과 같습니다.
 
 1. 아직 없는 경우 [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 버전)을 다운로드 하 여 설치 합니다.
 
@@ -145,7 +145,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
     다음 명령을 실행 하 여 환경을 만듭니다.
 
     ```bash
-    conda create -n myenv python=3.6.5
+    conda create -n myenv python=3.7.7
     ```
 
     그런 다음 환경을 활성화 합니다.
@@ -154,7 +154,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
     conda activate myenv
     ```
 
-    이 예제에서는 python 3.6.5를 사용 하 여 환경을 만들지만 특정 subversions을 선택할 수 있습니다. SDK 호환성은 특정 주 버전에서 보장 되지 않을 수 있습니다 (3.5 + 권장). 오류가 발생 하는 경우 Anaconda 환경에서 다른 버전/subversion을 사용해 보는 것이 좋습니다. 구성 요소 및 패키지를 다운로드하는 동안에 환경을 만드는 데 몇 분 정도 걸립니다.
+    이 예제에서는 python 3.7.7를 사용 하 여 환경을 만들지만 특정 subversions을 선택할 수 있습니다. SDK 호환성은 특정 주 버전에서 보장 되지 않을 수 있습니다 (3.5 + 권장). 오류가 발생 하는 경우 Anaconda 환경에서 다른 버전/subversion을 사용해 보는 것이 좋습니다. 구성 요소 및 패키지를 다운로드하는 동안에 환경을 만드는 데 몇 분 정도 걸립니다.
 
 1. 새 환경에서 다음 명령을 실행 하 여 환경 관련 IPython 커널을 사용 하도록 설정 합니다. 이렇게 하면 Anaconda 환경 내에서 Jupyter 노트북을 사용할 때 예상 되는 커널 및 패키지 가져오기 동작이 보장 됩니다.
 
@@ -170,7 +170,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 1. 다음 명령을 사용 하 여 패키지를 설치 합니다.
 
-    이 명령은 노트북 및 `automl` 기타 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 합니다. `automl` 추가는 대형 설치 이며 자동화 된 기계 학습 실험을 실행 하지 않으려는 경우 괄호에서 제거할 수 있습니다. 또한 `automl` 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
+    이 명령은 노트북 및 기타 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 `automl` 합니다. `automl`추가는 대형 설치 이며 자동화 된 기계 학습 실험을 실행 하지 않으려는 경우 괄호에서 제거할 수 있습니다. `automl`또한 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
 
     ```bash
     pip install azureml-sdk[notebooks,automl]
@@ -189,13 +189,13 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 1. Machine learning 실험을 위한 다른 패키지를 설치 합니다.
 
-    다음 명령 중 하나를 사용 하 여 * \<새 패키지>* 를 설치 하려는 패키지로 바꿉니다. 를 통해 `conda install` 패키지를 설치 하려면 패키지가 현재 채널의 일부 여야 합니다. 새 채널은 Anaconda 클라우드에 추가할 수 있습니다.
+    다음 명령 중 하나를 사용 하 여를 *\<new package>* 설치 하려는 패키지로 바꿉니다. 를 통해 패키지를 설치 `conda install` 하려면 패키지가 현재 채널의 일부 여야 합니다. 새 채널은 Anaconda 클라우드에 추가할 수 있습니다.
 
     ```bash
     conda install <new package>
     ```
 
-    또는를 통해 `pip`패키지를 설치할 수 있습니다.
+    또는를 통해 패키지를 설치할 수 있습니다 `pip` .
 
     ```bash
     pip install <new package>
@@ -234,7 +234,7 @@ Jupyter Notebook 환경에서 이러한 구성 요소를 사용 하도록 설정
     azureml.core.VERSION
     ```
 
-1. 모듈을 가져오는 데 문제가 발생 하 여를 `ModuleNotFoundError`수신 하는 데 문제가 발생 하는 경우 노트북 셀에서 다음 코드를 실행 하 여 Jupyter 커널이 사용자 환경에 맞는 올바른 경로에 연결 되어 있는지 확인 합니다.
+1. 모듈을 가져오는 데 문제가 발생 하 여를 수신 하는 데 문제가 발생 하는 경우 `ModuleNotFoundError` 노트북 셀에서 다음 코드를 실행 하 여 Jupyter 커널이 사용자 환경에 맞는 올바른 경로에 연결 되어 있는지 확인 합니다.
 
     ```python
     import sys
@@ -285,7 +285,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 다음 설정을 사용합니다.
 
-| 설정 |적용 대상| 값 |
+| Setting |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |always| yourclustername |
 | Databricks Runtime |always|비 ML 런타임 6.5 (scala 2.11, spark 2.4.3) |
@@ -299,11 +299,11 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Databricks 라이브러리에 올바른 SDK 설치
 클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다.
 
-1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. 라이브러리 **만들기** > **Library**를 선택 합니다.
+1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. 라이브러리 **만들기**  >  **Library**를 선택 합니다.
 
 1. 옵션을 **하나만** 선택 하십시오. 다른 SDK 설치는 지원 되지 않습니다.
 
-   |SDK&nbsp;패키지&nbsp;추가 기능|원본|PyPi&nbsp;이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK &nbsp; 패키지 추가 기능 &nbsp;|원본|PyPi &nbsp; 이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks의 경우| Python 업로드 Egg 또는 PyPI | azureml-sdk[databricks]|
    |Databricks-<br> 자동화 된 ML 기능| Python 업로드 Egg 또는 PyPI | azureml-sdk [automl]|
@@ -329,17 +329,17 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 설치에 성공 하면 가져온 라이브러리는 다음 중 하 나와 같아야 합니다.
 
-Databricks 용 자동화 된 machine learning ![Azure Machine Learning sdk를 사용 **_하지 않는_** Databricks 용 sdk](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+Databricks 용 자동화 된 machine learning Azure Machine Learning SDK를 사용 **_하지 않는_** DATABRICKS 용 sdk ![](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machine learning Sdk를 **사용 하** 는 Databricks 용 sdk](./media/how-to-configure-environment/automlonadb.png)
+Databricks에 자동화 된 machine learning이 설치 된 자동화 된 machine learning sdk를 **사용 하** 는 DATABRICKS 용 sdk ![](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>다양한 콘텐츠 살펴보기
 
 사용해보기:
 + 많은 샘플 노트북을 사용할 수 있지만 ** [이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
 
-+ 작업 영역에서 직접 이러한 샘플을 가져옵니다. 다음을 참조 ![하세요.](./media/how-to-configure-environment/azure-db-screenshot.png)
-![가져오기 패널 가져오기 선택](./media/how-to-configure-environment/azure-db-import.png)
++ 작업 영역에서 직접 이러한 샘플을 가져옵니다. 다음을 참조 하세요. ![ ](./media/how-to-configure-environment/azure-db-screenshot.png)
+ ![ 가져오기 패널 가져오기 선택](./media/how-to-configure-environment/azure-db-import.png)
 
 + [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.
 
@@ -361,9 +361,9 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
 
 다음과 같은 세 가지 방법으로 구성 파일을 만들 수 있습니다.
 
-* ** [Write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:를 사용 하 여 *config.xml* 파일을 작성 합니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
+* ** [Ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:를 사용 하 여 파일 *에config.js* 를 작성 합니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
-* **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)의 작업 영역 **개요** 섹션에서 **config.xml 다운로드** 를 선택 합니다.
+* **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)의 작업 영역 **개요** 섹션에서 **config.js켜기** 를 선택 합니다.
 
      ![Azure portal](./media/how-to-configure-environment/configure.png)
 
@@ -384,7 +384,7 @@ Databricks에 자동화 된 machine learning이 ![설치 된 자동화 된 machi
         print('Workspace not found')
     ```
 
-    이 코드는 구성 파일을. p s */구성* 파일에 씁니다.
+    이 코드는 파일 *의 azureml/config.js* 에 구성 파일을 씁니다.
 
 ## <a name="next-steps"></a>다음 단계
 

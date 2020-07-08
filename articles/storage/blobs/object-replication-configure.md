@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888108"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -28,7 +28,9 @@ ms.locfileid: "84170633"
 
 개체 복제를 구성하기 전에 원본 및 대상 스토리지 계정이 아직 없는 경우 만듭니다. 두 계정 모두 범용 v2 스토리지 계정이어야 합니다. 자세한 내용은 [Azure Storage 계정 만들기](../common/storage-account-create.md)를 참조하세요.
 
-또한 다음 기능 미리 보기에 등록했는지 확인합니다.
+스토리지 계정은 최대 두 개의 대상 계정에 대한 원본 계정으로 사용할 수 있습니다. 그리고 대상 계정에는 세 개 이상의 원본 계정이 있을 수 있습니다. 원본 및 대상 계정이 모두 다른 지역에 있을 수 있습니다. 각 대상 계정에 데이터를 복제하도록 별도의 복제 정책을 구성할 수 있습니다.
+
+시작 하기 전에 다음 기능 미리 보기에 등록 했는지 확인 합니다.
 
 - [개체 복제(미리 보기)](object-replication-overview.md)
 - [Blob 버전 관리(미리 보기)](versioning-overview.md)
@@ -41,7 +43,7 @@ Azure Portal에서 개체 복제를 구성하기 전에 해당 스토리지 계�
 Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 원본 스토리지 계정으로 이동합니다.
-1. **설정**에서 **개체 복제**를 선택합니다.
+1. **Blob service**에서 **개체 복제**를 선택 합니다.
 1. **복제 설정**을 선택합니다.
 1. 대상 구독 및 스토리지 계정을 선택합니다.
 1. **컨테이너 쌍** 섹션에서 원본 계정에서 원본 컨테이너를 선택하고 대상 계정에서 대상 컨테이너를 선택합니다. 복제 정책에 따라 최대 10개의 컨테이너 쌍을 만들 수 있습니다.

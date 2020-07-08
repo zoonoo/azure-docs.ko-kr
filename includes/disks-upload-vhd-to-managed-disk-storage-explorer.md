@@ -9,15 +9,15 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74013791"
 ---
 Storage 탐색기 1.10.0를 사용 하면 사용자가 관리 디스크를 업로드, 다운로드 및 복사 하 고 스냅숏을 만들 수 있습니다. 이러한 추가 기능으로 인해 Storage 탐색기를 사용 하 여 온-프레미스에서 Azure로 데이터를 마이그레이션하고 Azure 지역 간에 데이터를 마이그레이션할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 완료 하려면 다음이 필요 합니다.
 - Azure 구독
@@ -42,7 +42,7 @@ Storage 탐색기 Azure에 연결 되지 않은 경우 리소스를 관리 하�
 
 1. 목록에서 구독을 선택하고 **적용**을 클릭합니다.
 
-    ![구독 선택](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
+    ![구독을 선택합니다.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
 
 ## <a name="upload-a-managed-disk-from-an-on-prem-vhd"></a>온-프레미스 VHD에서 관리 디스크 업로드
 

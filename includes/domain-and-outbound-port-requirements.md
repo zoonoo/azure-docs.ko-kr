@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: abnarain
 ms.openlocfilehash: 6af6795fefb41f1d8f2b56e0aa1fb367fc18cee2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74559293"
 ---
-| 도메인 이름                  | 아웃바운드 포트 | Description                              |
+| 도메인 이름                  | 아웃바운드 포트 | 설명                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Azure Data Factory의 데이터 이동 서비스에 연결 하기 위해 자체 호스팅 통합 런타임에 필요 합니다. |
 | `*.frontend.clouddatahub.net` | 443            | 자체 호스팅 통합 런타임에서 Data Factory 서비스에 연결하는 데 필요합니다. |

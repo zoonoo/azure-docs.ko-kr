@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463495"
 ---
 Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 이러한 25000 무료 월별 전자 메일을 통해 고급 보고 및 분석과 [모든 api][all APIs] (WEB, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스를 보려면 [SendGrid 솔루션][SendGrid Solutions] 페이지를 방문하세요.
@@ -26,13 +26,13 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
     ![sendgrid-create][sendgrid-create]
 5. Azure 설정에서 사용자의 SendGrid 서비스를 식별하기 위한 **이름**을 입력합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
 6. **암호**를 입력하고 확인합니다.
-7. **구독**을 선택 합니다.
+7. **구독**을 선택합니다.
 8. 새 **리소스 그룹**을 만들거나 기존 그룹을 선택합니다.
 9. **가격 책정 계층** 섹션에서 등록할 SendGrid 플랜을 선택합니다.
 
     ![sendgrid-pricing][sendgrid-pricing]
 10. 프로모션 코드를 갖고 있는 경우 **프로모션 코드**를 입력합니다.
-11. **연락처 정보**를 입력합니다.
+11. **연락처 정보**를 입력 합니다.
 12. **약관**을 검토 하 고 동의 합니다.
 13. 구매를 확인 하면 **배포 성공** 팝업이 표시 되 고 계정이 나열 됩니다.
 

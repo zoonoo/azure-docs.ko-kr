@@ -1,15 +1,14 @@
 ---
 title: Azure VM의 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure Backup을 사용하여 Azure 가상 머신의 SQL Server 데이터베이스를 백업하는 방법을 알아봅니다.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3fd94dc6332d96f875c164dfeadff3a8ab2cad4e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817543"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -34,9 +33,10 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하세요.
 
 1. SQL Server 인스턴스를 호스트하는 VM과 동일한 지역 및 구독에서 [Recovery Services 자격 증명 모음](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)을 식별하거나 만듭니다.
-2. VM에 [네트워크 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)이 있는지 확인합니다.
-3. SQL Server 데이터베이스의 이름이 [Azure Backup 데이터베이스 명명 지침](#database-naming-guidelines-for-azure-backup)에 따라 지정되었는지 확인합니다.
-4. 데이터베이스에 사용할 수 있는 다른 백업 솔루션이 없는지 확인합니다. 데이터베이스를 백업하기 전에 다른 모든 SQL Server 백업을 사용하지 않도록 설정합니다.
+1. VM에 [네트워크 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)이 있는지 확인합니다.
+1. SQL Server 데이터베이스의 이름이 [Azure Backup 데이터베이스 명명 지침](#database-naming-guidelines-for-azure-backup)에 따라 지정되었는지 확인합니다.
+1. SQL Server VM 이름 및 리소스 그룹 이름의 결합 된 길이가 ARM (Azure Resource Manager) Vm의 84 문자 (또는 클래식 Vm의 77 문자)를 초과 하지 않는지 확인 합니다. 이 제한은 서비스에서 일부 문자를 예약했기 때문에 발생합니다.
+1. 데이터베이스에 사용할 수 있는 다른 백업 솔루션이 없는지 확인합니다. 데이터베이스를 백업하기 전에 다른 모든 SQL Server 백업을 사용하지 않도록 설정합니다.
 
 > [!NOTE]
 > Azure VM과 이 VM에서 실행되는 SQL Server 데이터베이스에 대한 Azure Backup을 충돌 없이 사용하도록 설정할 수 있습니다.
@@ -258,13 +258,13 @@ VM에서 실행되는 데이터베이스를 검색하는 방법:
 14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
 
 > [!NOTE]
-> 각 로그 백업은 이전의 전체 백업에 연결되어 복구 체인을 형성합니다. 이 전체 백업은 마지막 로그 백업의 보존 기간이 만료될 때까지 유지됩니다. 따라서 모든 로그가 복구될 수 있도록 전체 백업이 추가 기간 동안 보존될 수 있습니다. 사용자에게 주별 전체 백업, 일별 차등 및 2시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30일 동안 유지됩니다. 하지만 다음 전체 백업이 실행된 후(즉, 30 + 7일 후)에만 주별 전체 백업을 완전히 정리/삭제할 수 있습니다. 예를 들어 주별 전체 백업이 11월 16일에 실행되고 보존 정책에 따라 12월 16일까지 유지된다고 가정하겠습니다. 이 전체 백업에 대한 마지막 로그 백업은 예약된 다음 전체 백업일(11월 22일) 이전에 실행됩니다. 이 로그는 12월 22일까지 사용할 수 있으며, 11월 16일 전체 백업본은 그때까지 삭제할 수 없습니다. 따라서 11월 16일 전체 백업본은 12월 22일까지 유지됩니다.
+> 각 로그 백업은 이전의 전체 백업에 연결되어 복구 체인을 형성합니다. 이 전체 백업은 마지막 로그 백업의 보존 기간이 만료될 때까지 유지됩니다. 따라서 모든 로그가 복구될 수 있도록 전체 백업이 추가 기간 동안 보존될 수 있습니다. 사용자에게 주별 전체 백업, 일별 차등 및 2시간 로그가 있다고 가정해 보겠습니다. 모든 항목은 30일 동안 유지됩니다. 하지만 다음 전체 백업이 실행된 후(즉, 30 + 7일 후)에만 주별 전체 백업을 완전히 정리/삭제할 수 있습니다. 예를 들어 주별 전체 백업이 11월 16일에 실행되고 보존 정책에 따라이는 Dec 년 12 월까지 유지 되어야 합니다. 이 전체 백업에 대한 마지막 로그 백업은 예약된 다음 전체 백업일(11월 22일) 이전에 실행됩니다. 이 로그는 12월 22일까지 사용할 수 있으며, 11월 16일 전체 백업본은 그때까지 삭제할 수 없습니다. 따라서 11월 16일 전체 백업본은 12월 22일까지 유지됩니다.
 
 ## <a name="enable-auto-protection"></a>자동 보호 사용  
 
 자동 보호를 사용하도록 설정하면 모든 기존 데이터베이스와 이후 데이터베이스가 독립 실행형 SQL Server 인스턴스 또는 Always On 가용성 그룹에 자동으로 백업됩니다.
 
-* 자동 보호를 위해 한 번에 선택할 수 있는 데이터베이스의 수는 제한되지 않습니다.
+* 한 번에 자동 보호를 위해 선택할 수 있는 데이터베이스 수에는 제한이 없습니다. 검색은 일반적으로 8 시간 마다 실행 됩니다. 그러나 **db** 다시 검색 옵션을 선택 하 여 수동으로 검색을 실행 하는 경우 새 데이터베이스를 즉시 검색 하 고 보호할 수 있습니다.
 * 자동 보호를 사용하도록 설정하면 인스턴스에서 선택적으로 데이터베이스를 보호하거나 보호 대상에서 제외할 수 없습니다.
 * 인스턴스에 이미 보호된 데이터베이스가 포함되어 있는 경우 해당 데이터베이스는 자동 보호를 설정한 후에도 해당 정책에 따라 보호된 상태로 유지됩니다. 나중에 추가된 모든 보호되지 않은 데이터베이스에는 자동 보호 설정 당시에 정의된 단일 정책만 적용됩니다. 이는 **구성 백업**에 나열되어 있습니다. 그러나 자동으로 보호되는 데이터베이스와 연결된 정책을 나중에 변경할 수 있습니다.  
 

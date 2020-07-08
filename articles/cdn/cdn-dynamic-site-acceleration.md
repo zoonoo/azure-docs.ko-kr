@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 26559adf183a5e008d77b87654a1bd4dabebbca0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bae131c086e8fbf062015ee27c563bb988731cad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888534"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -169,7 +169,7 @@ DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤�
 
 규칙 엔진에 액세스하려면
     
-1. **CDN 프로필** 페이지에서 **관리**를 선택 합니다.  
+1. **CDN 프로필** 페이지에서 **관리**를 선택합니다.  
     
     ![CDN 프로필 관리 단추](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 

@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: ebbb0dd059ce2bcf4a3bc260ed6d426d5be09dfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1946da6a18956b420684f4c2ffe86f35d0084eaf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260261"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887308"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 제거
 ## <a name="overview"></a>개요
@@ -52,7 +52,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
    > 
    > 
 4. 가장자리 노드에서 제거하려는 자산을 선택합니다.  모든 자산을 지우려면 **모두 제거** 확인란을 클릭 합니다.  그렇지 않은 경우 제거하려는 각 자산의 경로를 **경로** 텍스트 상자에 입력합니다. 경로에 지원되는 형식은 아래와 같습니다.
-    1. **단일 URL 제거**: 파일 확장명을 사용 하거나 사용 하지 않고 전체 URL을 지정 하 여 개별 자산을 제거 합니다`/pictures/strasbourg.png`(예:,).`/pictures/strasbourg`
+    1. **단일 URL 제거**: 파일 확장명을 사용 하거나 사용 하지 않고 전체 URL을 지정 하 여 개별 자산을 제거 합니다 (예 `/pictures/strasbourg.png` :,).`/pictures/strasbourg`
     2. **와일드 카드 제거**: 별표(\*)를 와일드 카드로 사용할 수 있습니다. 경로에 `/*`가 포함된 엔드포인트의 모든 폴더, 하위 폴더 및 파일을 제거하거나 폴더를 지정하고 맨 뒤에 `/*`를 붙여(예: `/pictures/*`) 특정 폴더의 모든 하위 폴더 및 파일을 제거합니다.  와일드 카드 제거는 현재 Akamai의 Azure CDN에서 지원되지 않습니다. 
     3. **루트 도메인 제거**: 경로에 "/"가 포함된 엔드포인트의 루트를 제거합니다.
    
@@ -73,7 +73,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
 > 
 > 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure CDN 엔드포인트에 자산 미리 로드](cdn-preload-endpoint.md)
 * [Azure CDN REST API 참조 - 엔드포인트 제거 또는 미리 로드](/rest/api/cdn/endpoints)
 

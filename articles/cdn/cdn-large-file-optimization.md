@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 28b3c4faf62bcd9f9495810927ece03e2dadc1fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260533"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887659"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
@@ -130,7 +130,7 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 최대 파일 크기 | 150GB 
 원본 서버 특성 | 바이트 범위 요청을 지원해야 함 
 
-## <a name="additional-considerations"></a>기타 고려 사항
+## <a name="additional-considerations"></a>추가 고려 사항
 
 이 최적화 형식을 사용할 때 추가로 고려해야 할 다음 몇 가지 측면이 있습니다.
 

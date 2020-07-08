@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888060"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>블록 Blob에 대한 개체 복제(미리 보기)
 
@@ -44,7 +44,7 @@ ms.locfileid: "83800759"
 
 개체 복제를 구성하면 Azure Storage 리소스 공급자를 통해 원본 계정 및 대상 계정 모두에 복제 정책이 만들어집니다. 복제 정책은 정책 ID로 식별됩니다. 복제가 발생하려면 원본 및 대상 계정의 정책이 동일한 정책 ID를 가져야 합니다.
 
-스토리지 계정은 최대 두 개의 대상 계정에 대한 원본 계정으로 사용할 수 있습니다. 원본 및 대상 계정이 모두 다른 지역에 있을 수 있습니다. 각 대상 계정에 데이터를 복제하도록 별도의 복제 정책을 구성할 수 있습니다.
+스토리지 계정은 최대 두 개의 대상 계정에 대한 원본 계정으로 사용할 수 있습니다. 그리고 대상 계정에는 세 개 이상의 원본 계정이 있을 수 있습니다. 원본 및 대상 계정이 모두 다른 지역에 있을 수 있습니다. 각 대상 계정에 데이터를 복제하도록 별도의 복제 정책을 구성할 수 있습니다.
 
 ### <a name="replication-rules"></a>복제 규칙
 
@@ -54,7 +54,7 @@ ms.locfileid: "83800759"
 
 하나 이상의 필터를 복제 규칙의 일부로 지정하여 접두사를 기준으로 블록 Blob을 필터링할 수도 있습니다. 접두사를 지정하면 원본 컨테이너에서 해당 접두사와 일치하는 Blob만 대상 컨테이너에 복사됩니다.
 
-원본 및 대상 컨테이너가 모두 있어야 규칙에서 지정할 수 있습니다. 복제 정책을 만든 후에 대상 컨테이너는 읽기 전용이 됩니다. 대상 컨테이너에 대한 쓰기 시도가 실패하고 오류 코드 409(충돌)가 발생합니다. 그러나 대상 컨테이너의 Blob에서 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출하여 이를 다른 액세스 계층으로 이동할 수 있습니다. 예를 들어 대상 컨테이너의 Blob을 보관 계층으로 이동하여 비용을 절감할 수 있습니다.
+원본 및 대상 컨테이너가 모두 있어야 규칙에서 지정할 수 있습니다. 복제 정책을 만든 후에 대상 컨테이너는 읽기 전용이 됩니다. 대상 컨테이너에 대한 쓰기 시도가 실패하고 오류 코드 409(충돌)가 발생합니다. 그러나 대상 컨테이너의 blob에 대 한 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출 하 여 보관 계층으로 이동할 수 있습니다. 보관 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조 하세요.
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
@@ -73,7 +73,9 @@ ms.locfileid: "83800759"
 
 ### <a name="prerequisites-for-object-replication"></a>개체 복제를 위한 필수 구성 요소
 
-개체를 복제하려면 다음 Azure Storage 기능을 사용하도록 설정해야 합니다.
+개체를 복제하려면 다음 Azure Storage 기능을 사용하도록 설정해야 합니다. 
+- [변경 피드](storage-blob-change-feed.md)
+- [버전 관리](versioning-overview.md)
 
 개체 복제를 구성하기 전에 해당 필수 구성 요소를 사용하도록 설정합니다. 원본 계정에서 변경 피드를 사용하도록 설정하고 원본 및 대상 계정 모두에서 Blob 버전 관리를 사용하도록 설정해야 합니다. 이러한 기능을 사용하도록 설정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -157,3 +159,5 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 ## <a name="next-steps"></a>다음 단계
 
 - [개체 복제 구성(미리 보기)](object-replication-configure.md)
+- [Azure Blob 스토리지의 변경 피드 지원(미리 보기)](storage-blob-change-feed.md)
+- [Blob 버전 관리 설정 및 관리](versioning-enable.md)

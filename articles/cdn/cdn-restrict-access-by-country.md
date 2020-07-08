@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/19/2018
 ms.author: allensu
-ms.openlocfilehash: 7ae7224efdaa281106dfbe2118ab0092c8284c6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fba1f0b1f8160dece41c312b61cbc8ae9571436d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887027"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>국가/지역별 Azure CDN 콘텐츠 제한
 
@@ -59,8 +59,8 @@ ms.locfileid: "81260159"
 - **차단**: 지정 된 국가/지역의 사용자는 재귀 경로에서 요청 된 자산에 대 한 액세스를 거부 합니다. 해당 위치에 대해 다른 국가/지역 필터링 옵션이 구성 되지 않은 경우 다른 모든 사용자에 게 액세스가 허용 됩니다.
 
 예를 들어 */Photos/Strasbourg/* 경로 차단에 대한 지역 필터링 규칙은 다음 파일을 필터링합니다.     
-*http\<:\//endpoint> azureedge.net/Photos/Strasbourg/1000.jpg*
-*http\//:\<endpoint>. azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http: \/ / \<endpoint> . azureedge.net/Photos/Strasbourg/1000.jpg* 
+ *http: \/ / \<endpoint> . azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>국가/지역 정의
 **국가 코드** 목록에서 차단 하거나 경로에 대해 허용 하려는 국가/지역을 선택 합니다. 

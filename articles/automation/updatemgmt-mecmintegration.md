@@ -5,14 +5,14 @@ services: automation
 ms.subservice: update-management
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/11/2019
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 2bcf2518ab7f4e5a3648b508e42868fd5bb1a863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817216"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Windows Endpoint Configuration Manager와 업데이트 관리 통합
 
@@ -20,7 +20,10 @@ PC, 서버 및 모바일 디바이스를 관리하기 위해 Microsoft Endpoint 
 
 Windows Endpoint Configuration Manager에서 소프트웨어 업데이트 배포를 만들고 미리 준비하여 관리되는 Windows 서버를 보고 및 업데이트하고, [업데이트 관리](automation-update-management.md)를 사용하여 완료된 업데이트 배포에 대한 자세한 상태를 확인할 수 있습니다. Windows Endpoint Configuration Manager를 사용하여 업데이트 규정 준수 보고를 수행하지만 Windows 서버를 통해 업데이트 배포를 관리하지 않는 경우, 보안 업데이트가 Azure Automation 업데이트 관리로 관리되는 동안 Configuration Manager에 계속 보고할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+>[!NOTE]
+>업데이트 관리는 Windows Server 2008 r 2의 업데이트 평가 및 패치를 지원 하지만이 운영 체제를 실행 하는 Configuration Manager 끝점에서 관리 하는 클라이언트는 지원 하지 않습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Automation 계정에 추가된 [Azure Automation 업데이트 관리](automation-update-management.md)가 있어야 합니다.
 * 현재 Windows Endpoint Configuration Manager 환경에서 관리되는 Windows 서버는 업데이트 관리를 사용하도록 설정되어 있는 Log Analytics 작업 영역에 보고해야 합니다.

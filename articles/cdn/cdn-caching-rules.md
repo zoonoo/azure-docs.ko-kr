@@ -10,15 +10,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
-ms.openlocfilehash: 874ec75fb9173b6cee50bf8880510464fa13e9d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887864"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어
 
@@ -29,7 +29,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 - 캐싱 규칙: 이 문서에서는 CDN(콘텐츠 배달 네트워크) 캐싱 규칙을 사용하여 전역적으로 그리고 사용자 지정 조건(예: URL 경로 및 파일 확장명)에 따라 기본 캐시 만료 동작을 설정하거나 수정하는 방법을 설명합니다. Azure CDN에는 두 가지 유형의 캐싱 규칙이 제공됩니다.
 
-   - 전역 캐싱 규칙: 엔드포인트에 대한 모든 요청에 영향을 주는 하나의 전역 캐싱 규칙을 프로파일의 각 엔드포인트에 설정할 수 있습니다. 전역 캐싱 규칙은 설정된 경우 모든 HTTP 캐시 지시문 헤더를 재정의합니다.
+   - 글로벌 캐싱 규칙: 엔드포인트에 대한 모든 요청에 영향을 주는 하나의 글로벌 캐싱 규칙을 프로파일의 각 엔드포인트에 설정할 수 있습니다. 전역 캐싱 규칙은 설정된 경우 모든 HTTP 캐시 지시문 헤더를 재정의합니다.
 
    - 사용자 지정 캐싱 규칙: 프로필의 각 엔드포인트에 대해 하나 이상의 사용자 지정 캐싱 규칙을 설정할 수 있습니다. 사용자 지정 캐싱 규칙은 설정되면 특정 경로 및 파일 확장명과 일치하고, 순서대로 처리되며, 전역 캐싱 규칙을 재정의합니다. 
 
@@ -103,7 +103,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
    - 캐싱 동작: **누락된 경우 설정**
    - 캐시 만료 기간: 3일
 
-이러한 규칙이 설정 되 면 azureedge.net/home/index.html _ &lt;끝점&gt;_ 에 대 한 요청은 사용자 지정 캐싱 규칙 #2를 트리거합니다 .이 규칙은 **누락 된 경우 설정** , 3 일 경우 설정 됩니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
+이러한 규칙을 설정 하는 경우 azureedge.net/home/index.html _ &lt; 끝점 &gt; _에 대 한 요청은 사용자 지정 캐싱 규칙 #2를 트리거합니다 .이는 **누락 된 경우 설정** , 3 일 경우 설정입니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
 
 > [!NOTE] 
 > 규칙을 변경하기 전에 캐시된 파일은 원본 캐시 기간 설정을 유지합니다. 캐시 기간을 다시 설정하려면 [파일을 제거](cdn-purge-endpoint.md)해야 합니다. 
@@ -113,7 +113,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 > - **Verizon의 Azure CDN Standard** 프로필의 경우 일반적으로 10분 후 전파가 완료됩니다.  
 >
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [캐싱 작동 방식](cdn-how-caching-works.md)
 - [자습서: Azure CDN 캐싱 규칙 설정](cdn-caching-rules-tutorial.md)

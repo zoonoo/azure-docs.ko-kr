@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/11/2018
 ms.author: allensu
-ms.openlocfilehash: a0df9cecc4ccd09db3f6b07fa6fd4c5283753aa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1521d08ef9d431bbe8b3fd3a578297d440ed56b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887209"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 표준 계층
 > [!div class="op_single_selector"]

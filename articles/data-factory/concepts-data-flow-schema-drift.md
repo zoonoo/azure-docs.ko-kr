@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886638"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>데이터 흐름 매핑의 스키마 드리프트
 
@@ -37,7 +37,7 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 ## <a name="schema-drift-in-source"></a>원본에서 스키마 드리프트
 
-원본 정의에서 데이터 흐름으로 들어오는 열은 원본 프로젝션에 없는 경우 "데이터베이스가 드리프트"로 정의 됩니다. 원본 변환의 프로젝션 탭에서 원본 프로젝션을 볼 수 있습니다. 원본에 대 한 데이터 집합을 선택 하면 ADF가 자동으로 데이터 집합에서 스키마를 가져와 해당 데이터 집합 스키마 정의에서 프로젝트를 만듭니다.
+원본 정의에서 데이터 흐름으로 들어오는 열은 원본 프로젝션에 없는 경우 "데이터베이스가 드리프트"로 정의 됩니다. 원본 변환의 프로젝션 탭에서 원본 프로젝션을 볼 수 있습니다. 원본에 대 한 데이터 집합을 선택 하면 ADF가 자동으로 데이터 집합에서 스키마를 가져오고 해당 데이터 집합 스키마 정의에서 프로젝션을 만듭니다.
 
 원본 변환에서 스키마 드리프트는 데이터 집합 스키마를 정의 하지 않은 읽기 열로 정의 됩니다. 스키마 드리프트를 사용 하도록 설정 하려면 원본 변환에서 **스키마 드리프트 허용** 을 선택 합니다.
 
@@ -59,7 +59,7 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 데이터 흐름에 데이터베이스가 드리프트 열이 있는 경우 다음 방법을 사용 하 여 변환에서 열에 액세스할 수 있습니다.
 
-* 이름 또는 `byPosition` 위치 `byName` 번호로 열을 명시적으로 참조 하려면 및 식을 사용 합니다.
+* `byPosition` `byName` 이름 또는 위치 번호로 열을 명시적으로 참조 하려면 및 식을 사용 합니다.
 * 이름, 스트림, 위치 또는 형식의 조합에 대해 일치 하도록 파생 열 또는 집계 변환에 열 패턴을 추가 합니다.
 * 패턴을 통해 데이터베이스가 드리프트 열을 열 별칭과 일치 시키려면 Select 또는 Sink 변환에 규칙 기반 매핑을 추가 합니다.
 

@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84883982"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -87,7 +87,7 @@ CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계�
 
 5. 진단 로그 설정 만들기를 완료한 후 **저장**을 선택합니다.
 
-### <a name="logging-with-azure-monitor"></a>Azure Monitor로 로깅
+### <a name="logging-with-azure-monitor"></a>Azure Monitor를 사용하여 로깅
 
 Azure Monitor를 사용 하 여 로그를 저장 하려면 다음 단계를 수행 합니다.
 
@@ -189,7 +189,7 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 
 **필드 설명:**
 
-|값|Description|
+|값|설명|
 |-------|---------|
 |구독 ID    |GUID 형식에서 Azure 구독의 ID입니다.|
 |리소스 그룹 이름 |CDN 리소스가 속한 리소스 그룹의 이름입니다.|
@@ -238,7 +238,7 @@ Azure Monitor 모니터링 솔루션을 추가 하려면 다음 단계를 따르
 
 2. **새로 만들기** 페이지의 **Marketplace** 아래에서 **모니터링 + 관리**를 선택합니다.
 
-    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
+    ![마켓플레이스](./media/cdn-diagnostics-log/14_Marketplace.png)
 
 3. **모니터링 + 관리** 창에서 **모두 표시**를 선택합니다.
 
@@ -323,7 +323,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 다음 표에는 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준/프리미엄**에 대한 핵심 분석 로그에서 사용할 수 있는 메트릭 목록이 표시됩니다. 모든 공급자의 모든 메트릭을 사용할 수 있는 것은 아니지만 이러한 차이는 미미합니다. 이 표에는 지정된 메트릭을 공급자에서 사용할 수 있는지 여부도 나와 있습니다. 메트릭은 트래픽이 있는 해당 CDN 엔드포인트에 대해서만 사용할 수 있습니다.
 
 
-|메트릭                     | Description | Microsoft | Verizon | Akamai |
+|메트릭                     | 설명 | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | 이 기간 동안의 요청 적중의 총 수입니다. | 예 | 예 |예 |
 | RequestCountHttpStatus2xx | 2xx HTTP 코드(예: 200, 202)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
@@ -441,7 +441,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 
 ```
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN 보조 포털을 통한 핵심 분석](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)

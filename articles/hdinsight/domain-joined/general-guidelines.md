@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be6c1fdc5deb6d541656c198469822dae0a5f7c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77463207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887887"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 일반 정보 및 지침
 
@@ -43,9 +43,9 @@ ms.locfileid: "77463207"
 
 * 권한 부여를 사용 하는 서비스를 통해 데이터 액세스를 수행 하는 경우:
   * 요청 컨텍스트가 제공 되 면 레인저 권한 부여 플러그 인이 호출 됩니다.
-  * 레인저는 서비스에 대해 구성 된 정책을 적용 합니다. 레인저 정책이 실패 하면 액세스 확인이 파일 시스템으로 지연 됩니다. MapReduce와 같은 일부 서비스는 요청을 제출 하는 동일한 사용자가 소유 하 고 있는 파일/폴더가 있는지만 확인 합니다. Hive와 같은 서비스는 소유권 일치 또는 적절 한 파일 시스템 권한 (`rwx`)을 확인 합니다.
+  * 레인저는 서비스에 대해 구성 된 정책을 적용 합니다. 레인저 정책이 실패 하면 액세스 확인이 파일 시스템으로 지연 됩니다. MapReduce와 같은 일부 서비스는 요청을 제출 하는 동일한 사용자가 소유 하 고 있는 파일/폴더가 있는지만 확인 합니다. Hive와 같은 서비스는 소유권 일치 또는 적절 한 파일 시스템 권한 ( `rwx` )을 확인 합니다.
 
-* Hive의 경우 생성/업데이트/삭제 권한을 수행할 수 있는 권한을 보유 하는 것 외에도 사용자에 `rwx`게 저장소 및 모든 하위 디렉터리의 디렉터리에 대 한 권한이 있어야 합니다.
+* Hive의 경우 생성/업데이트/삭제 권한을 수행할 수 있는 권한을 보유 하는 것 외에도 사용자에 게 `rwx` 저장소 및 모든 하위 디렉터리의 디렉터리에 대 한 권한이 있어야 합니다.
 
 * 정책을 개인 대신 그룹 (권장)에 적용할 수 있습니다.
 
@@ -66,14 +66,14 @@ ms.locfileid: "77463207"
 
 ### <a name="default-hdfs-permissions"></a>기본 HDFS 사용 권한
 
-* 기본적으로 사용자는 HDFS의 **/** 폴더에 대 한 액세스 권한이 없습니다. 액세스를 성공적으로 수행 하려면 저장소 blob 소유자 역할에 있어야 합니다.
-* Mapreduce 및 기타에 대 한 준비 디렉터리의 경우 사용자 특정 디렉터리가 만들어지고 권한이 제공 `sticky _wx` 됩니다. 사용자는 아래에 파일과 폴더를 만들 수 있지만 다른 항목은 볼 수 없습니다.
+* 기본적으로 사용자는 HDFS의 폴더에 대 한 액세스 권한이 없습니다 **/** . 액세스를 성공적으로 수행 하려면 저장소 blob 소유자 역할에 있어야 합니다.
+* Mapreduce 및 기타에 대 한 준비 디렉터리의 경우 사용자 특정 디렉터리가 만들어지고 권한이 제공 됩니다 `sticky _wx` . 사용자는 아래에 파일과 폴더를 만들 수 있지만 다른 항목은 볼 수 없습니다.
 
 ### <a name="url-auth"></a>URL 인증
 
 Url 인증을 사용 하는 경우:
 
-* 구성에는 url 인증에 포함 된 접두사 (예 `adl://`:)가 포함 됩니다.
+* 구성에는 url 인증에 포함 된 접두사 (예:)가 포함 됩니다 `adl://` .
 * 이 url에 대 한 액세스 권한이 있는 경우에는 사용자가 허용 목록에 있는지 확인 합니다.
 * 레인저는 세분화 된 정책을 확인 하지 않습니다.
 
@@ -119,7 +119,7 @@ HDInsight는 너무 많은 오류 요소, 자격 증명 공유, DNS 권한 등�
 
 ### <a name="azure-ad-ds-instance"></a>Azure AD DS 인스턴스
 
-* 을 사용 하 여 인스턴스 `.onmicrosoft.com domain`를 만듭니다. 이러한 방식으로 도메인을 처리 하는 여러 DNS 서버가 없습니다.
+* 을 사용 하 여 인스턴스를 만듭니다 `.onmicrosoft.com domain` . 이러한 방식으로 도메인을 처리 하는 여러 DNS 서버가 없습니다.
 * LDAPS에 대해 자체 서명 된 인증서를 만들고 Azure AD DS에 업로드 합니다.
 * 클러스터를 배포 하는 데 피어 링 가상 네트워크를 사용 합니다 (HDInsight ESP 클러스터를 배포 하는 많은 팀이 있는 경우 도움이 됨). 이렇게 하면 도메인 컨트롤러를 사용 하 여 가상 네트워크에서 포트 (NSGs)를 열 필요가 없습니다.
 * 가상 네트워크에 대 한 DNS를 적절히 구성 합니다. 호스트 파일 항목 없이 Azure AD DS 도메인 이름이 확인 되어야 합니다.
@@ -159,6 +159,17 @@ Windows Server VM에 Active Directory 관리 도구를 설치 하는 방법에 �
 * NSGs가 너무 제한적 이어서 도메인 가입을 방지 합니다.
 * 관리 Id에 충분 한 권한이 없습니다.
 * 클러스터 이름은 처음 6 자 (다른 라이브 클러스터 또는 삭제 된 클러스터)에서 고유 하지 않습니다.
+
+## <a name="authentication-setup-and-configuration"></a>인증 설정 및 구성
+
+### <a name="user-principal-name-upn"></a>UPN(사용자 계정 이름)
+
+* 모든 서비스에 대해 소문자를 사용 하십시오.-Upn은 ESP 클러스터에서 대/소문자를 구분 하지 않습니다.
+* UPN 접두사는 Azure AD-DS에서 두 SAMAccountName 모두와 일치 해야 합니다. 메일 필드와 일치 하지 않아도 됩니다.
+
+### <a name="ldap-properties-in-ambari-configuration"></a>Ambari 구성의 LDAP 속성
+
+HDInsight 클러스터 구성에 영향을 주는 Ambari 속성의 전체 목록은 [AMBARI LDAP Authentication Setup](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

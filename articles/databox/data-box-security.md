@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77911733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817708"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -45,7 +45,6 @@ Data Box는 인증된 엔터티만 데이터를 확인, 수정 또는 삭제할 
 Data Box 디바이스는 다음 기능을 통해 보호됩니다.
 
 - 충격, 운송 과정의 부적절한 취급 및 환경 상황으로부터 디바이스를 보호하는 견고한 디바이스 케이스 
-- 운송 중의 디바이스 변조를 확인할 수 있는 봉인(변조 시 훼손됨)
 - 추가적인 디바이스 작동을 방지하는 하드웨어 및 소프트웨어 변조 검색 기능
 - Data Box용 소프트웨어만 실행 가능
 - 잠긴 상태로 부팅됨
@@ -57,7 +56,7 @@ Data Box 디바이스는 다음 기능을 통해 보호됩니다.
 Data Box 내부에서/외부로 전송되는 데이터는 다음 기능을 통해 보호됩니다.
 
 - 미사용 데이터용 AES 256비트 암호화
-- 처리 중인 데이터에 암호화된 프로토콜 사용 가능
+- 처리 중인 데이터에 암호화된 프로토콜 사용 가능 데이터 서버에서 데이터를 복사할 때 데이터를 보호 하려면 암호화와 함께 SMB 3.0을 사용 하는 것이 좋습니다.
 - Azure로의 업로드가 완료되면 디바이스에서 안전한 데이터 지우기 수행 데이터 지우기는 [NIST 800-88r1 표준의 ATA 하드 디스크 드라이브에 대한 부록 A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)의 지침에 따릅니다. 데이터 지우기 이벤트는 [주문 기록](data-box-logs.md#download-order-history)에 기록됩니다.
 
 ### <a name="data-box-service-protection"></a>Data Box 서비스 보호
@@ -100,7 +99,7 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 Data Box에서 구현되는 보안 지침은 다음과 같습니다. 
 
-|지침   |Description   |
+|지침   |설명   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | 방수/방진         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 배송 중의 부적절한 취급으로부터 장치 보호          |

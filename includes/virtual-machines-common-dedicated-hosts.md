@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79129558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84902648"
 ---
 ## <a name="limitations"></a>제한 사항
 
-- 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
+- 가상 머신 확장 집합은 현재 전용 호스트에서 지원되지 않습니다.
 
 ## <a name="benefits"></a>이점 
 
@@ -32,7 +32,7 @@ ms.locfileid: "79129558"
 
 ![전용 호스트에 대 한 새 리소스를 표시 합니다.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
-**호스트 그룹** 은 전용 호스트의 컬렉션을 나타내는 리소스입니다. 지역 및 가용성 영역에서 호스트 그룹을 만들고 여기에 호스트를 추가 합니다.
+**호스트 그룹**은 전용 호스트의 모음을 나타내는 리소스입니다. 영역 및 가용성 영역에서 호스트 그룹을 만들고 여기에 호스트를 추가합니다.
 
 **호스트** 는 Azure 데이터 센터의 물리적 서버에 매핑되는 리소스입니다. 실제 서버는 호스트를 만들 때 할당 됩니다. 호스트는 호스트 그룹 내에 만들어집니다. 호스트에는 만들 수 있는 VM 크기를 설명 하는 SKU가 있습니다. 각 호스트는 동일한 크기의 시계열에서 여러 Vm을 호스트할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 
 ### <a name="use-availability-zones-for-fault-isolation"></a>오류 격리를 위해 가용성 영역 사용
 
-가용성 영역은 Azure 지역 내에서 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 호스트 그룹은 단일 가용성 영역에서 만들어집니다. 만든 후에는 모든 호스트가 해당 영역 내에 배치 됩니다. 영역에서 고가용성을 얻으려면 여러 호스트 그룹 (영역 당 하나)을 만들고 그에 따라 호스트를 분산 해야 합니다.
+가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 호스트 그룹은 단일 가용성 영역에서 만들어집니다. 만든 후에는 모든 호스트가 해당 영역 내에 배치 됩니다. 영역에서 고가용성을 얻으려면 여러 호스트 그룹 (영역 당 하나)을 만들고 그에 따라 호스트를 분산 해야 합니다.
 
 호스트 그룹을 가용성 영역에 할당 하는 경우 해당 호스트에서 만든 모든 Vm을 동일한 영역에 만들어야 합니다.
 
@@ -71,8 +71,7 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 
 **유지 관리 제어** 는 고객에 게 전용 호스트에서 예약 된 일반 플랫폼 업데이트를 건너뛰고 35 일의 시작 기간 내에 선택할 때 적용할 수 있는 옵션을 제공 합니다.
 
-> [!NOTE]
->  유지 관리 제어는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 ** [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) 또는 [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)을 사용 하 여 유지 관리 제어로 업데이트 제어**를 참조 하세요.
+자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](https://docs.microsoft.com/azure/virtual-machines/maintenance-control)를 참조 하세요.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
@@ -106,7 +105,7 @@ SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅
 
 하드웨어 생성 *유형* 입니다. 동일한 VM 시리즈에 대 한 다른 하드웨어 유형은 서로 다른 CPU 공급 업체에서 제공 되며 CPU 생성 및 코어 수가 서로 다릅니다. 
 
-크기와 하드웨어 유형은 지역에 따라 다릅니다. 자세한 내용은 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing) 를 참조 하세요.
+크기와 하드웨어 유형은 지역에 따라 다릅니다. 자세히 알아보려면 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing)를 참조하세요.
 
 
 ## <a name="host-life-cycle"></a>호스트 수명 주기
@@ -118,6 +117,6 @@ Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트
 |----------|----------------|
 | 호스트 사용 가능     | 호스트와 관련 하 여 알려진 문제가 없습니다.   |
 | 확인 중인 호스트  | Microsoft에서 찾고 있는 호스트에 몇 가지 문제가 있습니다. 이는 Azure에서 식별 된 문제의 범위 및 근본 원인을 파악 하는 데 필요한 전환 상태입니다. 호스트에서 실행 중인 가상 컴퓨터에 영향을 줄 수 있습니다. |
-| 호스트 보류 할당 취소   | Azure에서 호스트를 다시 정상 상태로 복원할 수 없으며이 호스트에서 가상 컴퓨터를 다시 배포 하 라는 메시지가 표시 됩니다. 을 `autoReplaceOnFailure` 사용 하는 경우 가상 머신은 정상 하드웨어로 *서비스를 치료* 합니다. 그렇지 않으면 가상 컴퓨터가 실패 하는 호스트에서 실행 중일 수 있습니다.|
+| 호스트 보류 할당 취소   | Azure에서 호스트를 다시 정상 상태로 복원할 수 없으며이 호스트에서 가상 컴퓨터를 다시 배포 하 라는 메시지가 표시 됩니다. `autoReplaceOnFailure`을 사용 하는 경우 가상 머신은 정상 하드웨어로 *서비스를 치료* 합니다. 그렇지 않으면 가상 컴퓨터가 실패 하는 호스트에서 실행 중일 수 있습니다.|
 | 호스트 할당 취소  | 모든 가상 머신이 호스트에서 제거 되었습니다. 하드웨어 회전이 중단 되었으므로 더 이상이 호스트에 대 한 요금이 청구 되지 않습니다.   |
 

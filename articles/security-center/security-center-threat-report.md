@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center 위협 인텔리전스 보고서 | Microsoft Docs
-description: 이 문서는 조사하는 중에 Azure Security Center 위협 인텔리전스 보고서를 사용하여 보안 경고에 관한 자세한 정보를 확인하는 데 도움이 됩니다.
+description: 이 페이지를 사용 하 여 보안 경고에 대 한 자세한 정보를 확인 하는 동안 Azure Security Center 위협 인텔리전스 보고서를 사용 하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,22 +11,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4fdbab4a69fac1376779f37d5fa69fef587bf52
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888217"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure Security Center 위협 인텔리전스 보고서
-이 문서에서는 Azure Security Center 위협 인텔리전스 보고서를 사용하여 보안 경고를 생성한 위협에 관한 자세한 정보를 확인하는 방식에 대해 설명합니다.
+
+이 페이지에서는 Azure Security Center의 위협 인텔리전스 보고서를 통해 보안 경고를 트리거한 위협에 대해 자세히 알아볼 수 있는 방법에 대해 설명 합니다.
+
 
 ## <a name="what-is-a-threat-intelligence-report"></a>위협 인텔리전스 보고서란?
+
 Security Center 위협 방지는 Azure 리소스, 네트워크 및 연결 된 파트너 솔루션의 보안 정보를 모니터링 하는 방식으로 작동 합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 자세한 내용은 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md#detect-threats)을 참조 하세요.
 
-Security Center에서 위협을 식별하면 [보안 경고](security-center-managing-and-responding-alerts.md)를 트리거하며, 여기에는 수정 제안을 포함하여 특정 이벤트와 관련된 자세한 정보가 포함되어 있습니다. 인시던트 대응 팀이 위협을 조사하고 수정하도록 지원하기 위해 Security Center에는 아래와 같은 정보를 비롯하여 감지된 위협에 대한 정보가 포함된 위협 인텔리전스 보고서가 있습니다.
+Security Center에서 위협을 식별 하는 경우 수정 제안을 포함 하 여 이벤트에 대 한 자세한 정보를 포함 하는 [보안 경고](security-center-managing-and-responding-alerts.md)를 트리거합니다. 인시던트 대응 팀이 위협을 조사 하 고 수정 하는 데 도움을 주는 Security Center 검색 된 위협에 대 한 정보가 포함 된 위협 인텔리전스 보고서를 제공 합니다 보고서에는 다음과 같은 정보가 포함 됩니다.
 
 * 공격자의 ID 또는 연결(이 정보가 제공되는 경우)
 * 공격자의 목표
@@ -38,36 +41,39 @@ Security Center에서 위협을 식별하면 [보안 경고](security-center-man
 
 > [!NOTE]
 > 세부 수준이 맬웨어 활동 및 유행에 기반하기 때문에 특정 보고서의 정보 량은 다양하게 변합니다.
->
->
 
 Security Center에는 세 가지 유형의 위협 보고서가 있는데 공격에 따라 달라질 수 있습니다. 제공되는 보고서는 다음과 같습니다.
 
-* **그룹 활동 보고서** - 공격자 및 이들의 목표와 전술에 대해 자세히 설명합니다.
+* **활동 그룹 보고서**: 공격자, 목표 및 전술에 대 한 심층 다이브을 제공 합니다.
 * **캠페인 보고서**: 특정 공격 캠페인의 세부 정보에 중점을 둡니다.
 * **위협 요약 보고서**: 이전 두 보고서의 모든 항목을 포함하고 있습니다.
 
-이러한 유형의 정보는 공격의 출처, 공격자의 동기 및 이 문제를 완화하기 위한 조치를 파악하기 위한 지속적인 조사가 있는 인시던트 대응 프로세스에서 유용합니다.
+이 유형의 정보는 공격 원본, 공격자의 동기 및 나중에이 문제를 완화 하기 위해 수행할 작업을 이해 하는 데 지속적으로 조사 하는 사고 대응 프로세스 중에 유용 합니다.
+
+
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>어떻게 위협 인텔리전스 보고서에 액세스하는가?
-**보안 경고** 타일을 확인하여 현재 경고를 검토할 수 있습니다. Azure Portal을 열고 다음 단계를 수행하여 각 경고에 대한 세부 정보를 확인합니다.
 
-1. 보안 센터 대시보드에서 **보안 경고** 타일을 봅니다.
-2. 해당 타일을 클릭하여 경고에 대한 자세한 정보를 포함한 **보안 경고** 블레이드를 연 다음 자세한 정보를 가져오려는 보안 경고를 클릭합니다.
+1. Security Center의 사이드바에서 **보안 경고** 페이지를 엽니다.
+1. 경고를 선택 합니다. 
+    경고에 대 한 자세한 내용이 포함 된 경고 정보 페이지가 열립니다. 아래에는 **랜 섬 웨어 표시기 검색** 된 경고 세부 정보 페이지가 있습니다.
 
-    ![보안 경고](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. 이 경우 **의심 스러운 프로세스 실행** 블레이드에서 아래 그림에 표시 된 것 처럼 경고에 대 한 세부 정보를 표시 합니다.
+    [![랜 섬 웨어 표시기 검색 된 경고 정보 페이지](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
 
-    ![보안 경고 세부 정보](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. 각 보안 경고에 제공되는 정보 량은 경고 유형에 따라 달라집니다. **보고서** 필드에는 위협 인텔리전스 보고서에 대 한 링크가 있습니다. 해당 링크를 클릭하면 다른 브라우저 창에서 PDF 파일을 표시합니다.
+1. 보고서에 대 한 링크를 선택 하면 기본 브라우저에서 PDF가 열립니다.
 
-   ![스토리지 선택](./media/security-center-threat-report/security-center-threat-report-fig3.png)
+    [![잠재적으로 안전 하지 않은 작업 경고 세부 정보 페이지](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
 
-여기서는 해당 보고서의 PDF 파일을 다운로드하여 감지된 보안 문제에 대해 자세히 파악하고 제공된 정보에 기반한 조치를 수행할 수 있습니다.
+    필요에 따라 PDF 보고서를 다운로드할 수 있습니다. 
 
-## <a name="see-also"></a>참고 항목
-이 문서에서는 보안 경고에 대해 조사하는 중에 Azure Security Center 위협 인텔리전스 보고서를 사용 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
+    >[!TIP]
+    > 각 보안 경고에 제공되는 정보 량은 경고 유형에 따라 달라집니다.
 
-* [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md)로 설정합니다. 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
+
+
+## <a name="next-steps"></a>다음 단계
+
+이 페이지에서는 보안 경고를 조사할 때 위협 인텔리전스 보고서를 여는 방법에 대해 설명 했습니다. 관련 정보는 다음 페이지를 참조 하세요.
+
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 인시던트 처리](security-center-incident.md)

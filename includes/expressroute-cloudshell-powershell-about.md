@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ff5a42150140035105298802a7ce8b4d0e25959c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75436926"
 ---
 Azure PowerShell 또는 CLI를 로컬로 설치 하는 대신 Azure Cloud Shell를 사용 하 여 대부분의 PowerShell cmdlet 및 CLI 명령을 실행할 수 있습니다. Azure Cloud Shell는 일반적인 Azure tools를 미리 설치 하 고 계정에서 사용 하도록 구성 된 무료 대화형 셸입니다.

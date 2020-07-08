@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bab78d60e5007d9c3eb61afa7bc63a9b44e47aa1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888024"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -37,19 +37,19 @@ Azure Storage 데이터 이동 라이브러리는 blob 및 파일의 고성능 �
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure storage 계정](storage-account-create.md)
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 1. [.NET Core 설치 가이드](https://www.microsoft.com/net/core)를 방문하여 .NET Core를 설치합니다. 사용자 환경을 선택할 때 명령줄 옵션을 선택합니다.
 2. 명령줄에서 프로젝트에 대한 디렉터리를 만듭니다. 이 디렉터리로 이동한 다음 `dotnet new console -o <sample-project-name>`를 입력하여 C# 콘솔 프로젝트를 만듭니다.
 3. Visual Studio Code에서 이 디렉터리를 엽니다. 이 단계는 Windows에서 `code .`를 입력하여 명령줄을 통해 빠르게 수행할 수 있습니다.
-4. Visual Studio Code Marketplace에서 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)을 설치합니다. Visual Studio Code를 다시 시작합니다.
+4. Visual Studio Code Marketplace에서 [c # 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) 을 설치 합니다. Visual Studio Code를 다시 시작합니다.
 5. 이 시점에서 두 가지 프롬프트가 표시됩니다. 하나는 "빌드 및 디버그에 필요한 자산"을 추가하는 것입니다. "예"를 클릭합니다. 또 다른 프롬프트는 해결되지 않은 종속성을 복원하는 것입니다. "복원"을 클릭합니다.
 6. `.vscode` 아래에서 `launch.json`을 수정하여 외부 터미널을 콘솔로 사용합니다. 이 설정은 `"console": "externalTerminal"`로 읽어야 합니다.
 7. Visual Studio Code를 사용하면 .NET Core 애플리케이션을 디버그할 수 있습니다. `F5` 키를 눌러 애플리케이션을 실행하고 설정이 작동하는지 확인합니다. 콘솔에 "Hello World!" 가 표시됩니다.
 
 ## <a name="add-the-data-movement-library-to-your-project"></a>프로젝트에 데이터 이동 라이브러리 추가
 
-1. `<project-name>.csproj` 파일의 `dependencies` 섹션에 최신 버전의 데이터 이동 라이브러리를 추가 합니다. 이 문서를 작성한 시점에서 해당 버전은 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`입니다.
+1. 파일의 섹션에 최신 버전의 데이터 이동 라이브러리를 추가 합니다 `dependencies` `<project-name>.csproj` . 이 문서를 작성한 시점에서 해당 버전은 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`입니다.
 2. 프로젝트를 복원하기 위해 프롬프트가 표시됩니다. "복원" 단추를 클릭합니다. 또한 프로젝트 디렉터리의 루트에 `dotnet restore` 명령을 입력하여 명령줄에서 프로젝트를 복원할 수도 있습니다.
 
 다음과 같이 `<project-name>.csproj`를 수정합니다.
@@ -525,7 +525,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, true, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)
