@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833692"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "83736163"
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
-실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 작업 유형으로 분류, 회귀 및 예측을 지원합니다. [작업 유형](how-to-define-task-type.md)에 대해 자세히 알아보세요.
+실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 작업 유형으로 분류, 회귀 및 예측을 지원합니다. [작업 유형](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)에 대해 자세히 알아보세요.
 
 자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다.
 
@@ -58,12 +58,10 @@ ms.locfileid: "83736163"
 [임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[DNN 선형 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[고속 선형 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[자동 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[온라인 그라데이션 하강 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|[평균 퍼셉트론 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
-|[선형 SVM 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
+[평균 퍼셉트론 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[온라인 그라데이션 하강 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[자동 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[고속 선형 회귀 변수](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
+|[선형 SVM 분류자](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
 
 `AutoMLConfig` 생성자에서 `task` 매개 변수를 사용하여 실험 유형을 지정합니다.
 
@@ -117,13 +115,14 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="train-and-validation-data"></a>데이터 학습 및 유효성 검사
 
-별도의 학습 및 유효성 검사 세트를 `AutoMLConfig` 생성자에서 직접 지정할 수 있습니다.
+생성자에서 다음 옵션을 사용 하 여 별도의 학습 및 유효성 검사 집합을 직접 지정할 수 있습니다 `AutoMLConfig` . AutoML 실험의 [데이터 분할 및 교차 유효성 검사를 구성 하는 방법](how-to-configure-cross-validation-data-splits.md) 에 대해 자세히 알아보세요. 
 
 ### <a name="k-folds-cross-validation"></a>K 접기 교차 유효성 검사
 
 `n_cross_validations` 설정을 사용하여 교차 유효성 검사의 수를 지정합니다. 학습 데이터 집합은 무작위로 동일한 크기의 `n_cross_validations` 접기로 분할됩니다. 각 교차 유효성 검사 라운드 중에 접기 중 하나는 나머지 접기에 대해 학습된 모델의 유효성 검사에 사용됩니다. 이 프로세스는 각 접기가 유효성 검사 집합으로 한 번 사용될 때까지 `n_cross_validations` 라운드 동안 반복됩니다. 모든 `n_cross_validations` 라운드에 걸친 평균 점수가 보고되고 해당 모델이 전체 학습 데이터 세트에 대해 다시 학습됩니다.
 
 autoML이 교차 유효성 검사를 적용하여 [과잉 맞춤 모델을 방지](concept-manage-ml-pitfalls.md#prevent-over-fitting)하는 방법을 알아보세요.
+
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>몬테카를로 교차 유효성 검사(반복 무작위 하위 샘플링)
 
 `validation_size`를 사용하여 유효성 검사에 사용해야 하는 학습 데이터 세트의 비율을 지정하고, `n_cross_validations`를 사용하여 교차 유효성 검사의 수를 지정합니다. 각 교차 유효성 검사 라운드 중에 나머지 데이터에 대해 학습된 모델의 유효성 검사를 위해 `validation_size` 크기의 하위 집합이 무작위로 선택됩니다. 마지막으로, 모든 `n_cross_validations` 라운드에 걸친 평균 점수가 보고되고 해당 모델이 전체 학습 데이터 집합에 대해 다시 학습됩니다. 몬테카를로는 시계열 예측을 지원하지 않습니다.
@@ -196,15 +195,15 @@ autoML이 교차 유효성 검사를 적용하여 [과잉 맞춤 모델을 방�
 
 ### <a name="data-featurization"></a>데이터 기능화
 
-모든 자동화된 Machine Learning 실험에서, 스케일이 다른 기능에 중요한 *특정* 알고리즘을 지원할 수 있도록 데이터가 [자동으로 스케일링 및 정규화](concept-automated-ml.md#preprocess)됩니다.  그러나 누락 값 대체, 인코딩, 변환 등의 추가 기능화를 사용하도록 설정할 수도 있습니다. [포함된 기능화에 대해 자세히 알아보세요](how-to-use-automated-ml-for-ml-models.md#featurization).
+모든 자동화된 Machine Learning 실험에서, 스케일이 다른 기능에 중요한 *특정* 알고리즘을 지원할 수 있도록 데이터가 [자동으로 스케일링 및 정규화](how-to-configure-auto-features.md#)됩니다.  그러나 누락 값 대체, 인코딩, 변환 등의 추가 기능화를 사용하도록 설정할 수도 있습니다.
 
-실험을 구성할 때 고급 설정 `featurization`을 사용하도록 설정할 수 있습니다. 다음 표는 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서 기능화에 허용되는 설정을 보여줍니다.
+개체에서 실험을 구성할 때 `AutoMLConfig` 설정을 사용 하거나 사용 하지 않도록 설정할 수 있습니다 `featurization` . 다음 표는 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서 기능화에 허용되는 설정을 보여줍니다.
 
 |기능화 구성 | Description |
 | ------------- | ------------- |
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 지정된 기능화 단계를 사용해야 한다는 것을 나타냅니다. [기능화를 사용자 지정하는 방법을 알아보세요](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'auto'`| 전처리의 일부로 [데이터 가드 레일 및 기능화 단계](how-to-configure-auto-features.md#featurization)가 자동으로 수행된다는 것을 나타냅니다. **기본 설정**|
 |`"featurization": 'off'`| 기능화 단계를 자동으로 수행하면 안 된다는 것을 나타냅니다.|
-|`"featurization": 'auto'`| 전처리의 일부로 [데이터 가드 레일 및 기능화 단계](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options)가 자동으로 수행된다는 것을 나타냅니다.|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 지정된 기능화 단계를 사용해야 한다는 것을 나타냅니다. [기능화를 사용자 지정하는 방법을 알아보세요](how-to-configure-auto-features.md#customize-featurization).|
 
 > [!NOTE]
 > 자동화된 Machine Learning 기능화 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 기능화 단계가 입력 데이터에 자동으로 적용됩니다.
@@ -345,6 +344,8 @@ run = experiment.submit(automl_config, show_output=True)
 
 Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있습니다. 자세한 내용은 [모델 추적 및 평가](how-to-track-experiments.md#view-run-details)를 참조하세요.
 
+웹 서비스에 배포할 모델을 다운로드 하거나 등록 하는 방법에 대 한 자세한 내용은 모델을 배포 하는 [방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+
 ## <a name="understand-automated-ml-models"></a>자동화된 ML 모델의 이해
 
 자동화된 ML을 사용하여 생성되는 모든 모델은 다음 단계를 거치게 됩니다.
@@ -361,7 +362,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>자동화된 기능 엔지니어링
 
-`"featurization": 'auto'`일 때 발생하는 전처리 및 [자동화된 기능 엔지니어링](concept-automated-ml.md#preprocess) 목록을 참조하세요.
+`"featurization": 'auto'`일 때 발생하는 전처리 및 [자동화된 기능 엔지니어링]() 목록을 참조하세요.
 
 다음 예를 살펴보세요.
 + 입력 기능으로 A(숫자), B(숫자), C(숫자), D(날짜/시간)가 있습니다.
@@ -430,36 +431,9 @@ best_run, fitted_model = automl_run.get_output()
    |Dropped|입력 기능이 삭제되었는지 아니면 사용되었는지 여부를 나타냅니다.|
    |EngineeringFeatureCount|자동화된 기능 엔지니어링 변환을 통해 생성된 기능의 수입니다.|
    |변환|엔지니어링된 기능을 생성하기 위해 입력 기능에 적용된 변환 목록입니다.|
-   
-### <a name="customize-feature-engineering"></a>기능 엔지니어링 사용하 지정
-기능 엔지니어링을 사용자 지정하려면  `"featurization": FeaturizationConfig`를 지정합니다.
-
-지원되는 사용자 지정은 다음과 같습니다.
-
-|사용자 지정|정의|
-|--|--|
-|열 용도 업데이트|지정된 열의 기능 유형을 재정의합니다.|
-|변환기 매개 변수 업데이트 |지정된 변환기에 대한 매개 변수를 업데이트합니다. 현재는 Imputer(평균, 가장 빈번 및 중앙값) 및 HashOneHotEncoder를 지원합니다.|
-|삭제 열 |기능화에서 삭제할 열입니다.|
-|블록 변환기| 기능화 프로세스에 사용할 블록 변환기입니다.|
-
-다음과 같이 API 호출을 사용하여 FeaturizationConfig 개체를 만듭니다.
-```python
-featurization_config = FeaturizationConfig()
-featurization_config.blocked_transformers = ['LabelEncoder']
-featurization_config.drop_columns = ['aspiration', 'stroke']
-featurization_config.add_column_purpose('engine-size', 'Numeric')
-featurization_config.add_column_purpose('body-style', 'CategoricalHash')
-#default strategy mean, add transformer param for for 3 columns
-featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
-featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
-```
-
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>하이퍼 매개 변수 값을 사용한 스케일링/정규화 및 알고리즘:
 
-파이프라인에 대한 스케일링/정규화 및 알고리즘/하이퍼 매개 변수 값을 이해하려면 fitted_model.steps를 사용합니다. [스케일링/정규화에 대해 자세히 알아보세요](concept-automated-ml.md#preprocess). 샘플 출력은 다음과 같습니다.
+파이프라인에 대한 스케일링/정규화 및 알고리즘/하이퍼 매개 변수 값을 이해하려면 fitted_model.steps를 사용합니다. [스케일링/정규화에 대해 자세히 알아보세요](). 샘플 출력은 다음과 같습니다.
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
@@ -536,6 +510,9 @@ class_prob = fitted_model.predict_proba(X_test)
 특히 자동화된 Machine Learning 실험 내에서 해석력 기능을 사용하도록 설정하는 방법에 대한 코드 샘플은 [방법](how-to-machine-learning-interpretability-automl.md)을 참조하세요.
 
 자동화된 Machine Learning 외부의 다른 SDK 영역에서 모델 설명 및 기능 중요도를 사용하는 방법에 대한 일반적인 내용은 해석력에 대한 [개념](how-to-machine-learning-interpretability.md) 문서를 참조하세요.
+
+> [!NOTE]
+> ForecastTCN 모델은 현재 설명 클라이언트에서 지원 되지 않습니다. 이 모델은 최상의 모델로 반환 되 고 주문형 설명 실행을 지원 하지 않는 경우 설명 대시보드를 반환 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

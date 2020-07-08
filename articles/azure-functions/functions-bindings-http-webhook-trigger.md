@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833794"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -497,7 +498,9 @@ public HttpResponseMessage<String> HttpTrigger(
 
 기본적으로 HTTP 트리거용 함수를 만드는 경우 폼의 경로를 사용하여 이 함수의 주소를 지정할 수 있습니다.
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 HTTP 트리거의 입력 바인딩에서 선택적 `route` 속성을 사용하여 이 경로를 사용자 지정할 수 있습니다. 예를 들어 다음 *function.json* 파일은 HTTP 트리거에 대한 `route` 속성을 정의합니다.
 
@@ -634,12 +637,14 @@ public class HttpTriggerJava {
 
 ---
 
-기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. [host.json](functions-host-json.md) 파일에서 `http.routePrefix` 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
+기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. [host.json](functions-host-json.md) 파일에서 `extensions.http.routePrefix` 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```
@@ -749,9 +754,6 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ## <a name="function-access-keys"></a><a name="authorization-keys"></a>함수 액세스 키
 
-> [!IMPORTANT]
-> 키가 있으면 개발 중에 HTTP 엔드포인트를 난독 처리할 수는 있지만, 프로덕션 환경에서 HTTP 트리거를 보호할 수는 없습니다. 자세히 알아보려면 [프로덕션 환경에서 HTTP 엔드포인트 보호](#secure-an-http-endpoint-in-production)를 참조하세요.
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>키 확보
@@ -766,7 +768,9 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 대다수 HTTP 트리거 템플릿을 사용할 때는 요청에 API 키가 필요합니다. 따라서 HTTP 요청은 일반적으로 다음 URL과 같습니다.
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 위에 나와 있는 것처럼 쿼리 문자열 변수 `code`에 키를 포함할 수 있습니다. `x-functions-key` HTTP 헤더에 키를 포함할 수도 있습니다. 키 값은 함수에 대해 정의된 모든 function 키 또는 모든 호스트 키일 수 있습니다.
 
@@ -809,6 +813,14 @@ Slack webhook은 함수 전용 키를 지정하는 대신 사용자를 위한 �
 
 * **쿼리 문자열**: 공급자에서 `clientid` 쿼리 문자열 매개 변수에 키 이름을 전달합니다(예: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`).
 * **요청 헤더**: 공급자에서 `x-functions-clientid` 헤더에 키 이름을 전달합니다.
+
+## <a name="content-types"></a>내용 유형
+
+비 C # 함수에 이진 및 폼 데이터를 전달 하려면 적절 한 content-type 헤더를 사용 해야 합니다. 지원 되는 콘텐츠 형식은 `octet-stream` 이진 데이터 및 [다중 파트 형식](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)에 포함 됩니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+비 C # 함수에서 content-type을 사용 하 여 전송 된 요청 `image/jpeg` 은 `string` 함수에 전달 된 값을 반환 합니다. 이와 같은 경우에는 `string` 값을 바이트 배열로 수동으로 변환 하 여 원시 이진 데이터에 액세스할 수 있습니다.
 
 ## <a name="limits"></a>제한
 

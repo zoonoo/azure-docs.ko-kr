@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839010"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>주요 트랜잭션 (지역<sup>1</sup>당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션 수):
 
@@ -28,7 +28,7 @@ ms.locfileid: "81768761"
 >
 > 제한 임계값은 가중치가 적용 되며 합계에 적용 됩니다. 예를 들어 앞의 표에 나와 있는 것 처럼 RSA HSM 키에 대 한 GET 작업을 수행할 때 2048 비트 키와 비교 하 여 4096 비트 키를 사용 하는 것이 8 배 더 비쌉니다. 1000/125 = 8 이기 때문입니다.
 >
-> 지정 된 10 초 간격으로 Azure Key Vault 클라이언트는 조정 HTTP 상태 코드 *only one* 를 `429` 발생 하기 전에 다음 작업 중 하나만 수행할 수 있습니다.
+> 지정 된 10 초 간격으로 Azure Key Vault 클라이언트는 *only one* `429` 조정 HTTP 상태 코드를 발생 하기 전에 다음 작업 중 하나만 수행할 수 있습니다.
 > - 2000 RSA 2048 비트 소프트웨어-키 가져오기 트랜잭션
 > - 1000 RSA 2048 비트 HSM-키 가져오기 트랜잭션
 > - 125 RSA 4096 비트 HSM-키 가져오기 트랜잭션
@@ -46,7 +46,10 @@ ms.locfileid: "81768761"
 
 ### <a name="azure-private-link-integration"></a>Azure 개인 링크 통합
 
+> [!NOTE]
+> 구독 당 프라이빗 엔드포인트를 사용하도록 설정된 키 자격 증명 모듬의 수는 조정할 수 있는 제한입니다. 아래에 표시된 제한은 기본 제한입니다. 서비스에 대한 한도 증가를 요청하려면 akv-privatelink@microsoft.com에 전자 메일을 보내 주세요. 이러한 요청은 사례별 기준으로 승인합니다.
+
 | 리소스 | 제한 |
 | -------- | ----- |
 | 키 자격 증명 모음 당 개인 끝점 | 64 |
-| 구독 당 개인 끝점을 포함 하는 주요 자격 증명 모음 | 64 |
+| 구독 당 개인 끝점을 포함 하는 주요 자격 증명 모음 | 400 |

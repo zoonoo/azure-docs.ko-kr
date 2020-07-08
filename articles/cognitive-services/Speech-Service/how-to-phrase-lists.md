@@ -1,7 +1,7 @@
 ---
 title: 구 목록-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 텍스트 인식 결과를 개선 하기 위해 개체를 `PhraseListGrammar` 사용 하 여 문구 목록에 음성 서비스를 제공 하는 방법을 알아봅니다.
+description: '`PhraseListGrammar`음성 텍스트 인식 결과를 개선 하기 위해 개체를 사용 하 여 문구 목록에 음성 서비스를 제공 하는 방법을 알아봅니다.'
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
-ms.openlocfilehash: d6418a863e8af75e4f2f063d9e6151e19a0e7e6e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7347fee0cd8bdaae73467a84806819c913599a51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977586"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834015"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>음성 텍스트에 대 한 구 목록
 
@@ -31,7 +31,7 @@ ms.locfileid: "82977586"
 
 ## <a name="how-to-use-phrase-lists"></a>구 목록을 사용 하는 방법
 
-아래 샘플에서는 개체를 `PhraseListGrammar` 사용 하 여 구 목록을 작성 하는 방법을 보여 줍니다.
+아래 샘플에서는 개체를 사용 하 여 구 목록을 작성 하는 방법을 보여 줍니다 `PhraseListGrammar` .
 
 ::: zone pivot="programming-language-csharp"
 
@@ -91,7 +91,7 @@ phraseListGrammar.addPhrase("Move to Ted");
 >[!Note]
 > 음성 서비스에서 음성을 일치 시키는 데 사용할 수 있는 최대 문구 목록은 1024 구입니다.
 
-Clear ()를 호출 `PhraseListGrammar` 하 여와 관련 된 구를 지울 수도 있습니다.
+`PhraseListGrammar`Clear ()를 호출 하 여와 관련 된 구를 지울 수도 있습니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -134,7 +134,7 @@ phraseListGrammar.clear();
 ::: zone-end
 
 > [!NOTE]
-> `PhraseListGrammar` 개체에 대 한 변경 내용은 다음 인식에 적용 되거나 음성 서비스에 다시 연결 된 후 적용 됩니다.
+> 개체에 대 한 변경 내용은 `PhraseListGrammar` 다음 인식에 적용 되거나 음성 서비스에 다시 연결 된 후 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

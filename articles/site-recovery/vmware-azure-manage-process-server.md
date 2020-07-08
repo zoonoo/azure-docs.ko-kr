@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846573"
 ---
 # <a name="manage-process-servers"></a>프로세스 서버 관리
 
@@ -47,8 +47,8 @@ ms.locfileid: "79257252"
 
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. **컴퓨터 선택**을 클릭 하 고 현재에서 대상 프로세스 서버로 이동 하려는 컴퓨터를 선택 합니다. 평균 데이터 변경의 세부 정보는 각 가상 머신에 대해 표시됩니다. 그런 다음 **확인**을 클릭합니다. 
-3. 자격 증명 모음에서 작업의 진행 상황을 **모니터링** > **Site Recovery 작업**을 모니터링 합니다.
+2. **컴퓨터 선택**을 클릭 하 고 현재에서 대상 프로세스 서버로 이동 하려는 컴퓨터를 선택 합니다. 평균 데이터 변경의 세부 정보는 각 가상 머신에 대해 표시됩니다. 그런 후 **OK**를 클릭합니다. 
+3. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업**을 모니터링 합니다.
 
 변경 내용이 포털에 반영 되는 데 약 15 분이 소요 됩니다. 더 빠른 효과를 위해 [구성 서버를 새로 고칩니다](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
@@ -63,7 +63,7 @@ ms.locfileid: "79257252"
 
     ![스위치](media/vmware-azure-manage-process-server/Switch.PNG)
 
-5. 자격 증명 모음에서 작업의 진행 상황을 **모니터링** > **Site Recovery 작업**을 모니터링 합니다.
+5. 자격 증명 모음에서 작업의 진행 상황을 **모니터링**  >  **Site Recovery 작업**을 모니터링 합니다.
 
 변경 내용이 포털에 반영 되는 데 약 15 분이 소요 됩니다. 더 빠른 효과를 위해 [구성 서버를 새로 고칩니다](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 

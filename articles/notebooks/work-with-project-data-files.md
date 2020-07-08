@@ -3,18 +3,18 @@ title: Azure Notebooks 미리 보기를 사용 하 여 프로젝트로 데이터
 description: 외부 원본에서 Azure Notebooks Preview 프로젝트로 데이터를 가져오는 방법 및 프로젝트에서 데이터를 내보내는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834117"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Azure Notebooks 미리 보기 프로젝트에서 데이터 파일 작업
 
-데이터는 많은 Jupyter Notebook, 특히 데이터 과학에 사용되는 Notebook의 핵심 요소입니다. Azure notebooks를 사용하면 간편하게 다양한 소스의 데이터를 프로젝트로 가져와서 Notebook에서 사용할 수 있습니다. 뿐만 아니라 Notebook에서 생성하는 데이터는 프로젝트에 저장되며, 이 데이터를 다운로드하여 다른 곳에 사용할 수 있습니다.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+데이터는 많은 Jupyter Notebook, 특히 데이터 과학에 사용되는 Notebook의 핵심 요소입니다. Azure notebooks를 사용하면 간편하게 다양한 소스의 데이터를 프로젝트로 가져와서 Notebook에서 사용할 수 있습니다. 뿐만 아니라 Notebook에서 생성하는 데이터는 프로젝트에 저장되며, 이 데이터를 다운로드하여 다른 곳에 사용할 수 있습니다.
 
 실행 중인 Notebook의 **데이터** 메뉴에서는 현재 Notebook 세션에 임시 파일뿐 아니라 프로젝트의 파일까지 사용하는 **업로드** 및 **다운로드** 명령을 제공합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "75646979"
 
 ### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Notebook의 [파일] 메뉴에서 파일 가져오기
 
-1. 실행 중인 노트북 내에서 **파일** > **업로드** 명령을 선택 합니다.
+1. 실행 중인 노트북 내에서 **파일**  >  **업로드** 명령을 선택 합니다.
 
     ![Notebook 내의 파일 업로드 메뉴 명령](media/file-menu-upload.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "75646979"
 
 1. 나타나는 **업로드 상태** 팝업의 드롭다운 목록에서 **대상 폴더**를 선택합니다.
 
-    - 세션 폴더 (*~/* ): 현재 노트북 세션에 파일을 업로드 하지만 프로젝트에 파일을 만들지 않습니다. 세션 폴더는 피어-프로젝트 폴더이지만, 세션이 종료된 후에는 유지되지 않습니다. 코드에서 세션 파일에 액세스하려면 파일 이름의 접두사로 상대 경로 *../* 를 붙입니다.
+    - 세션 폴더 ( *~/* ): 현재 노트북 세션에 파일을 업로드 하지만 프로젝트에 파일을 만들지 않습니다. 세션 폴더는 피어-프로젝트 폴더이지만, 세션이 종료된 후에는 유지되지 않습니다. 코드에서 세션 파일에 액세스하려면 파일 이름의 접두사로 상대 경로 *../* 를 붙입니다.
 
         세션 폴더를 사용하면 실험에 유용하며 장기적으로 필요할 수도 있고 필요하지 않을 수도 있는 파일 때문에 프로젝트가 복잡해지지 않도록 방지할 수 있습니다. 또한 프로젝트의 파일과 이름이 같은 파일을 충돌 없이, 이름을 변경하지 않고 세션 폴더에 업로드할 수 있습니다. 예를 들어 프로젝트에 이미 *data.csv* 버전이 하나 있는데, 다른 버전의 *data.csv*를 실험하려 한다고 가정해 봅시다. 세션 폴더에 파일을 업로드하면 프로젝트의 파일에 있는 데이터 대신 업로드된 파일의 데이터(*../data.csv*를 사용하여 코드에서 참조)를 사용하여 Notebook을 실행할 수 있습니다.
 
@@ -100,7 +100,7 @@ pandas `write_csv` 함수 같은 파일을 만드는 코드를 사용하는 경�
 
 ## <a name="export-files-from-the-data-menu-in-a-notebook"></a>Notebook의 [데이터] 메뉴에서 파일 내보내기
 
-1. **파일** > **다운로드** 메뉴 명령을 선택 합니다.
+1. **파일**  >  **다운로드** 메뉴 명령을 선택 합니다.
 
     ![Notebook 내의 데이터 다운로드 메뉴 명령](media/file-menu-download.png)
 

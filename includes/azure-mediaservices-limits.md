@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: media-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 2fe091a4ff0295ecadfd69ba3f2d4ca59e9612e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838840"
 ---
 >[!NOTE]
 >수정 되지 않은 리소스의 경우 할당량 증가를 요청 하는 지원 티켓을 엽니다. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.

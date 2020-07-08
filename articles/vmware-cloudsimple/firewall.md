@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244668"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846875"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>사설 클라우드에 대 한 방화벽 테이블 및 규칙 설정
 
@@ -49,7 +49,7 @@ ms.locfileid: "79244668"
     * 방화벽 테이블을 만들 때 **규칙 추가** 를 클릭 합니다.
     * **네트워크 > 방화벽 테이블** 페이지에서 특정 방화벽 테이블을 선택 하 고 **새 방화벽 규칙 만들기**를 클릭 합니다.
 2. 규칙을 다음과 같이 설정 합니다.
-    * **이름**. 규칙에 이름을 지정 합니다.
+    * **이름** - 규칙에 이름을 지정 합니다.
     * **우선 순위**입니다. 규칙에 우선 순위를 할당 합니다. 숫자가 낮은 규칙이 먼저 실행 됩니다.
     * **트래픽 유형**입니다. 규칙이 사설 클라우드, 인터넷 또는 VPN 트래픽 (상태 비저장) 인지 또는 공용 IP 주소 (상태 저장)에 대 한 것인지 선택 합니다.
     * **프로토콜**. 규칙이 적용 되는 프로토콜 (TCP, UDP 또는 any protocol)을 선택 합니다.
@@ -72,7 +72,7 @@ ms.locfileid: "79244668"
 
 방화벽 테이블을 정의한 후에는 테이블의 규칙에 적용 되는 서브넷을 지정할 수 있습니다.
 
-1. **네트워크** > **방화벽 테이블** 페이지에서 방화벽 테이블을 선택 합니다.
+1. **네트워크**  >  **방화벽 테이블** 페이지에서 방화벽 테이블을 선택 합니다.
 2. **연결 된 vlan/서브넷** 탭을 엽니다.
 3. **VLAN/서브넷에 연결을**클릭 합니다.
 4. 사설 클라우드 및 VLAN을 선택 합니다. 연결 된 서브넷 이름 및 CIDR 블록이 표시 됩니다.

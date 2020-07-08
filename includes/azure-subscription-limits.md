@@ -1,20 +1,7 @@
 ---
-title: 파일 포함
-description: 포함 파일
-services: billing
-author: rothja
-ms.service: cost-management-billing
-ms.topic: include
-ms.date: 05/18/2018
-ms.author: jroth
-ms.custom: include file
-ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76021268"
+ 제목: 포함 파일 설명: 파일 작성자 포함: rothja. 서비스: azure-resource manager ms. 토픽: ms. 날짜: 05/18/2018. 작성자: jroth: 포함 파일
 ---
+
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 vCPU<sup>1</sup> |20 |10000 |

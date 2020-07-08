@@ -4,11 +4,11 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276453"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846773"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -16,7 +16,7 @@ ms.locfileid: "79276453"
 
 ## <a name="connection-limit"></a>연결 제한
 
-함수 앱은 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)에서 실행 되므로 사용 가능한 연결 수는 부분적으로 제한 됩니다. 샌드박스에서 코드에 적용 하는 제한 사항 중 하나는 현재 인스턴스당 600 활성 (총 1200) 연결 인 아웃 바운드 연결 수에 대 한 제한입니다. 이 한도에 도달 하면 함수 런타임에서는 로그에 다음 메시지를 기록 합니다 `Host thresholds exceeded: Connections`. 자세한 내용은 [함수 서비스 제한](functions-scale.md#service-limits)을 참조 하세요.
+함수 앱은 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)에서 실행 되므로 사용 가능한 연결 수는 부분적으로 제한 됩니다. 샌드박스에서 코드에 적용 하는 제한 사항 중 하나는 현재 인스턴스당 600 활성 (총 1200) 연결 인 아웃 바운드 연결 수에 대 한 제한입니다. 이 한도에 도달 하면 함수 런타임에서는 로그에 다음 메시지를 기록 합니다 `Host thresholds exceeded: Connections` . 자세한 내용은 [함수 서비스 제한](functions-scale.md#service-limits)을 참조 하세요.
 
 이 제한은 인스턴스당입니다. [크기 조정 컨트롤러에서 함수 앱 인스턴스를 추가](functions-scale.md#how-the-consumption-and-premium-plans-work) 하 여 더 많은 요청을 처리 하면 각 인스턴스에 독립적인 연결 제한이 있습니다. 즉, 전역 연결 제한이 없으며 모든 활성 인스턴스에서 600 개가 넘는 활성 연결을 가질 수 있습니다.
 
@@ -52,13 +52,13 @@ public static async Task Run(string input)
 }
 ```
 
-.NET의 [Httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 에 대 한 일반적인 질문은 "클라이언트를 삭제 해야 하나요?"입니다. 일반적으로를 사용 하는 경우를 구현 `IDisposable` 하는 개체를 삭제 합니다. 그러나 정적 클라이언트는 함수가 종료 될 때 사용 하지 않으므로 삭제 하지 않습니다. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
+.NET의 [Httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 에 대 한 일반적인 질문은 "클라이언트를 삭제 해야 하나요?"입니다. 일반적으로를 사용 하는 경우를 구현 하는 개체를 삭제 `IDisposable` 합니다. 그러나 정적 클라이언트는 함수가 종료 될 때 사용 하지 않으므로 삭제 하지 않습니다. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
 
 ### <a name="http-agent-examples-javascript"></a>HTTP 에이전트 예제 (JavaScript)
 
-더 나은 연결 관리 옵션을 제공 하기 때문에 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) `node-fetch` 모듈 등의 네이티브가 아닌 메서드 대신 네이티브 클래스를 사용 해야 합니다. 연결 매개 변수는 `http.agent` 클래스의 옵션을 통해 구성 됩니다. HTTP 에이전트에서 사용할 수 있는 자세한 옵션은 [새 에이전트 (\[\]옵션)](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)를 참조 하세요.
+더 나은 연결 관리 옵션을 제공 하기 때문에 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) 모듈 등의 네이티브가 아닌 메서드 대신 네이티브 클래스를 사용 해야 합니다 `node-fetch` . 연결 매개 변수는 클래스의 옵션을 통해 구성 됩니다 `http.agent` . HTTP 에이전트에서 사용할 수 있는 자세한 옵션은 [새 에이전트 ( \[ 옵션 \] )](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)를 참조 하세요.
 
-에서 `http.request()` 사용 `http.globalAgent` 하는 전역 클래스는 이러한 값을 모두 해당 기본값으로 설정 합니다. 함수에서 연결 제한을 구성하는 방법은 최대 수를 전역적으로 설정하는 것이 좋습니다. 다음 예제에서는 함수 앱에 대한 소켓의 최대 수를 설정합니다.
+에서 사용 하는 전역 `http.globalAgent` 클래스는 `http.request()` 이러한 값을 모두 해당 기본값으로 설정 합니다. 함수에서 연결 제한을 구성하는 방법은 최대 수를 전역적으로 설정하는 것이 좋습니다. 다음 예제에서는 함수 앱에 대한 소켓의 최대 수를 설정합니다.
 
 ```js
 http.globalAgent.maxSockets = 200;

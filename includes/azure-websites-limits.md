@@ -1,23 +1,23 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 505e2d8eec20853fba3743b40cbe289585d14d61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 469138da19248bc7872028508f3080de5fae4a52
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839006"
 ---
-| 리소스 | 무료 | Shared | Basic | Standard | 프리미엄(v2) | 격리 </th> |
+| 리소스 | 무료 | 공유됨 | Basic | Standard | 프리미엄(v2) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Azure App Service 요금제](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> 당 [웹, 모바일 또는 API 앱](https://azure.microsoft.com/services/app-service/) |10 |100 |무제한<sup>2</sup> |무제한<sup>2</sup> |무제한<sup>2</sup> |무제한<sup>2</sup>|
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) |지역당 10개 |리소스 그룹 당 10 |리소스 그룹당 100 |리소스 그룹당 100 |리소스 그룹당 100 |리소스 그룹당 100|
-| 컴퓨팅 인스턴스 유형 |Shared |Shared |전용<sup>3</sup> |전용<sup>3</sup> |전용<sup>3</sup></p> |전용<sup>3</sup>|
+| 컴퓨팅 인스턴스 유형 |공유됨 |공유됨 |전용<sup>3</sup> |전용<sup>3</sup> |전용<sup>3</sup></p> |전용<sup>3</sup>|
 | [규모 확장](../articles/app-service/manage-scale-up.md) (최대 인스턴스) |1개 공유됨 |1개 공유됨 |3개 전용됨<sup>3</sup> |10개 전용됨<sup>3</sup> |30 전용<sup>3</sup>|100개 전용됨<sup> 4</sup>|
-| 스토리지<sup>5</sup> |1GB<sup>5</sup> |1GB<sup>5</sup> |10GB<sup>5</sup> |50GB<sup>5</sup> |250GB<sup>5</sup></p> |1TB<sup>5</sup>|
+| 스토리지<sup>5</sup> |1GB<sup>5</sup> |1GB<sup>5</sup> |10GB<sup>5</sup> |50GB<sup>5</sup> |250GB<sup>5</sup> <br/><br/> 250 GB 이상이 면 지원 요청을 제출 합니다. |1TB<sup>5</sup> <br/><br/> 사용 가능한 저장소 할당량은 999 GB입니다. |
 | CPU 시간 (5 분)<sup>6</sup> |3분 |3분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a>|
 | CPU 시간(일)<sup>6</sup> |60분 |240분 |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |무제한, 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/) 으로 지불</a> |
 | 메모리(1시간) |App Service 요금제 당 1024 MB |앱 당 1024 MB |해당 없음 |해당 없음 |해당 없음 |해당 없음 |
@@ -45,7 +45,7 @@ ms.locfileid: "78304935"
 <sup>4</sup> 요청 시 추가가 허용 됩니다.  
 <sup>5</sup> 저장소 제한은 동일한 App service 계획의 모든 앱에서 전체 콘텐츠 크기입니다. 단일 리소스 그룹 및 지역에 있는 모든 App service 계획의 모든 앱에 대 한 전체 콘텐츠 크기는 500GB를 초과할 수 없습니다.  
 <sup>6</sup>이러한 리소스는 전용 인스턴스의 실제 리소스(인스턴스 크기 및 인스턴스 수)에 의해 제한됩니다.  
-<sup>7</sup>두 인스턴스의 Basic 계층으로 앱을 조정하면 두 인스턴스 각각에 대해 동시에 350개가 연결됩니다. 표준 계층 이상에서는 웹 소켓에 이론적 제한이 없지만 다른 요소는 웹 소켓 수를 제한할 수 있습니다. 예를 들어 허용 되는 최대 동시 요청 수 `maxConcurrentRequestsPerCpu`(에 의해 정의 됨)는 작은 vm 당 7500, 중간 vm 당 15000 (7500 x 2 코어) 및 큼 vm 당 75000 (18750 x 4 코어)입니다.  
+<sup>7</sup>두 인스턴스의 Basic 계층으로 앱을 조정하면 두 인스턴스 각각에 대해 동시에 350개가 연결됩니다. 표준 계층 이상에서는 웹 소켓에 이론적 제한이 없지만 다른 요소는 웹 소켓 수를 제한할 수 있습니다. 예를 들어 허용 되는 최대 동시 요청 수 (에 의해 정의 됨 `maxConcurrentRequestsPerCpu` )는 작은 vm 당 7500, 중간 vm 당 15000 (7500 x 2 코어) 및 큼 vm 당 75000 (18750 x 4 코어)입니다.  
 <sup>8</sup> 최대 IP 연결은 인스턴스당, 인스턴스 크기: B1/S1/P1V2 instance 당 1920, B2/S2/P2V2 8064 인스턴스당 3968/S3/P3V2가 인스턴스당 인스턴스 크기에 따라 달라 집니다.  
 <sup>9</sup> 지원 요청을 통해 구독 당 App Service Certificate 할당량 한도를 최대 제한인 200로 늘릴 수 있습니다.  
 <sup>10</sup> App Service 격리 Sku는 Azure Load Balancer를 통해 내부적으로 ILB (부하 분산) 될 수 있으므로 인터넷에서 공용 연결이 없습니다. 그 결과, ILB 격리 App Service의 일부 기능은 ILB 네트워크 엔드포인트와 직접 액세스되는 컴퓨터에서 사용해야 합니다.  

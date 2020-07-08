@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846663"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 다음 도구가 사용됩니다.
 
 * [Azure 리소스 관리자](../azure-resource-manager/management/overview.md)

@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834066"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용 하는 서버 리스 이벤트 기반 아키텍처
 
 Azure Functions는 [변경 피드에](change-feed.md)연결 하는 가장 간단한 방법을 제공 합니다. Azure Cosmos 컨테이너의 변경 피드에서 새 이벤트 마다 자동으로 트리거되는 작은 사후 Azure Functions 만들 수 있습니다.
 
-![Cosmos DB에 대 한 Azure Functions 트리거를 사용 하는 서버 리스 이벤트 기반 함수](./media/change-feed-functions/functions.png)
+:::image type="content" source="./media/change-feed-functions/functions.png" alt-text="Cosmos DB에 대 한 Azure Functions 트리거를 사용 하는 서버 리스 이벤트 기반 함수" border="false":::
 
 [Cosmos DB에 대 한 Azure Functions 트리거](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md)를 사용 하면 [작업자 인프라](./change-feed-processor.md)를 유지 관리할 필요 없이 [변경 피드 프로세서](./change-feed-processor.md)의 크기 조정 및 안정적인 이벤트 감지 기능을 활용할 수 있습니다. 이벤트 소싱 파이프라인의 나머지 부분에 대해 걱정 하지 않고 Azure 함수의 논리에만 집중 하세요. 트리거를 다른 [Azure Functions 바인딩과](../azure-functions/functions-triggers-bindings.md#supported-bindings)혼합할 수도 있습니다.
 
@@ -37,7 +37,7 @@ Azure Functions는 [변경 피드에](change-feed.md)연결 하는 가장 간단
 Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 Azure 함수를 만드는 작업은 이제 모든 Azure Functions IDE 및 CLI 통합에서 지원 됩니다.
 
 * Visual studio 사용자를 위한 [Visual Studio 확장](../azure-functions/functions-develop-vs.md) 입니다.
-* Visual Studio Code 사용자를 위한 [Visual Studio Code 확장](/azure/javascript/tutorial-vscode-serverless-node-01) .
+* Visual Studio Code 사용자를 위한 [Visual Studio Code 확장](/azure/developer/javascript/tutorial-vscode-serverless-node-01) .
 * 그리고 마지막으로 [핵심 CLI 도구](../azure-functions/functions-run-local.md#create-func) 를 통해 플랫폼 간 IDE를 독립적으로 사용할 환경을 제공 합니다.
 
 ## <a name="run-your-trigger-locally"></a>로컬에서 트리거 실행
