@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722021"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process 및 Azure DevOps Services를 통해 Azure에서 데이터 과학 코드 테스트
@@ -128,7 +127,7 @@ ms.locfileid: "76722021"
     
     ![빌드 및 에이전트 선택](./media/code-test/select_agent.PNG)
 
-    e. 왼쪽 **+** 창에서를 선택 하 여이 빌드 단계에 대 한 작업을 추가 합니다. Python 스크립트 **test1.py** 을 실행 하 여 모든 검사를 완료 하기 때문에이 작업은 PowerShell 명령을 사용 하 여 python 코드를 실행 합니다.
+    e. **+** 왼쪽 창에서를 선택 하 여이 빌드 단계에 대 한 작업을 추가 합니다. Python 스크립트 **test1.py** 을 실행 하 여 모든 검사를 완료 하기 때문에이 작업은 PowerShell 명령을 사용 하 여 python 코드를 실행 합니다.
     
     ![선택된 PowerShell이 포함된 “작업 추가” 창](./media/code-test/add_task_powershell.PNG)
 
@@ -138,7 +137,7 @@ ms.locfileid: "76722021"
     
     ![PowerShell 세부 정보](./media/code-test/powershell_scripts.PNG)
 
-    g. **큐 & 저장** 을 선택 하 여 빌드 파이프라인 프로세스를 완료 합니다.
+    예: **큐 & 저장** 을 선택 하 여 빌드 파이프라인 프로세스를 완료 합니다.
 
     ![“저장 및 큐” 단추](./media/code-test/save_and_queue_build_definition.PNG)
 

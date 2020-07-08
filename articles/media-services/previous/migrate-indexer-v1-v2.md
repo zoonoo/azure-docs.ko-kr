@@ -14,15 +14,14 @@ ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2268c074480f99ca23117ca2ffd2c87c1dbb10a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513238"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Media Indexer에서 Media Indexer 2에서 Video Indexer으로 마이그레이션
 
-[Azure Media Indexer](media-services-index-content.md) media 프로세서 및 [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜는이 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
+[Azure Media Indexer](media-services-index-content.md) media 프로세서 및 [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 Azure Media Services Video Indexer Azure 미디어 분석, Azure Cognitive Search, Cognitive Services (예: Face API, Microsoft Translator, Computer Vision API, Custom Speech Service)를 기반으로 합니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다. 에서 사용할 수 Video Indexer 시나리오, 제공 하는 기능 및 시작 하는 방법에 대 한 자세한 내용은 [비디오 및 오디오 모델 Video Indexer](../video-indexer/video-indexer-overview.md)을 참조 하세요. 
 
@@ -75,9 +74,9 @@ Video Indexer, Azure Media Services v3 AudioAnalyzerPreset 및 Cognitive Service
 
 * Cognitive Services Speech Services는 키워드 추출을 지원 하지 않습니다. 그러나 Video Indexer 및 Media Services v3 AudioAnalyzerPreset는 JSON 파일 형식에서 보다 강력한 키워드 집합을 제공 합니다. 
 
-## <a name="need-help"></a>도움이 필요하십니까?
+## <a name="need-help"></a>도움 필요 시
 
-[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동하여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

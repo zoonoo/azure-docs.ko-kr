@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720013"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 역할 및 작업
@@ -116,7 +115,7 @@ TDSP (팀 데이터 과학 프로세스)는 Microsoft에서 개발한 프레임 
 워크플로 단계는 세 가지 작업으로 그룹화 할 수 있습니다.
 
 - 스 프린트 계획을 수행 하는 프로젝트 리드
-- 데이터 과학자 분기에서 `git` 작업 항목을 처리 하는 아티팩트를 개발 합니다.
+- 데이터 과학자 `git` 분기에서 작업 항목을 처리 하는 아티팩트를 개발 합니다.
 - 프로젝트 책임자 또는 다른 팀 멤버가 코드 검토를 수행 하 고 작업 분기를 마스터 분기에 병합 합니다.
 
 프로젝트 실행 워크플로에 대 한 자세한 지침은 [데이터 과학 프로젝트의 Agile 개발](agile-development.md)을 참조 하세요.

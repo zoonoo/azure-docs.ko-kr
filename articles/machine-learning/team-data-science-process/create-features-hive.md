@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721781"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
@@ -27,7 +26,7 @@ ms.locfileid: "76721781"
 
 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)
@@ -89,14 +88,14 @@ Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니�
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-이 Hive 쿼리에서는 * \<datetime 필드>* 기본 날짜/시간 형식으로 되어 있다고 가정 합니다.
+이 Hive 쿼리에서는 *\<datetime field>* 가 기본 날짜/시간 형식으로 되어 있다고 가정 합니다.
 
 날짜/시간 필드가 기본 형식이 아닌 경우 먼저 날짜/시간 필드를 Unix 타임스탬프로 변환한 후 Unix 타임스탬프를 기본 형식의 날짜/시간 문자열로 변환해야 합니다. 날짜/시간이 기본 형식으로 변환되면 포함된 날짜/시간 UDF를 적용하여 기능을 추출할 수 있습니다.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-이 쿼리에서 * \<datetime 필드>* 의 패턴이 *03/26/2015 12:04:39*인 경우 * \<datetime 필드> '의 패턴* 은 이어야 `'MM/dd/yyyy HH:mm:ss'`합니다. 이를 테스트하려면 다음 명령을 실행합니다.
+이 쿼리에서 *\<datetime field>* 가 *03/26/2015 12:04:39*와 같은 패턴을 갖는 경우 * \<pattern of the datetime field> '* 은 이어야 합니다 `'MM/dd/yyyy HH:mm:ss'` . 이를 테스트하려면 다음 명령을 실행합니다.
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -130,7 +129,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
         and dropoff_latitude between 30 and 90
         limit 10;
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 Javascript에서 함수 `toRad()` 는 각도를 라디안으로 변환 하는 pi/180 *lat_or_lon*뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 Javascript에서 함수는 `toRad()` 각도를 라디안으로 변환 하는 pi/180 *lat_or_lon*뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
 
 ![작업 영역 만들기](./media/create-features-hive/atan2new.png)
 

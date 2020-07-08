@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 디바이스 SDK 플랫폼 지원 | Microsoft Docs
-description: 'C, .NET (c #), Java, node.js 및 Python의 GitHub에서 오픈 소스 장치 Sdk를 사용 하 여 장치를 Azure IoT Hub 및 DPS (장치 프로 비전 서비스)에 연결할 수 있습니다.'
+description: 'C, .NET (c #), Java, Node.js 및 Python의 GitHub에서 오픈 소스 장치 Sdk를 사용 하 여 장치를 Azure IoT Hub 및 DPS (장치 프로 비전 서비스)에 연결할 수 있습니다.'
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76045127"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
-Microsoft는 Azure IoT Hub 지원 장치의 universe를 지속적으로 확장 하기 위해 노력 하 고 있습니다. Microsoft는 GitHub에 오픈 소스 장치 Sdk를 게시 하 여 장치를 Azure IoT Hub 및 장치 프로 비전 서비스에 연결할 수 있도록 지원 합니다. 장치 Sdk는 C, .NET (c #), Java, node.js 및 Python에 사용할 수 있습니다. Microsoft는 각 SDK를 테스트 하 여 [Microsoft sdk 및 장치 플랫폼 지원](#microsoft-sdks-and-device-platform-support) 섹션에서 설명 하는 지원 되는 구성에서 실행 되는지 확인 합니다.
+Microsoft는 Azure IoT Hub 지원 장치의 universe를 지속적으로 확장 하기 위해 노력 하 고 있습니다. Microsoft는 GitHub에 오픈 소스 장치 Sdk를 게시 하 여 장치를 Azure IoT Hub 및 장치 프로 비전 서비스에 연결할 수 있도록 지원 합니다. 장치 Sdk는 C, .NET (c #), Java, Node.js 및 Python에 사용할 수 있습니다. Microsoft는 각 SDK를 테스트 하 여 [Microsoft sdk 및 장치 플랫폼 지원](#microsoft-sdks-and-device-platform-support) 섹션에서 설명 하는 지원 되는 구성에서 실행 되는지 확인 합니다.
 
 장치 Sdk 외에도 Microsoft는 고객과 개발자가 자신의 장치를 Azure IoT에 연결할 수 있는 몇 가지 다른 수단을 제공 합니다.
 
@@ -30,7 +29,7 @@ Microsoft는 Azure IoT Hub 지원 장치의 universe를 지속적으로 확장 �
 
 ## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft Sdk 및 장치 플랫폼 지원
 
-Microsoft는 C, .NET (c #), node.js, Java 및 Python 언어로 GitHub에 오픈 소스 Sdk를 게시 합니다. 이 섹션에는 Sdk 및 해당 종속성이 나열 되어 있습니다. Sdk는 이러한 종속성을 충족 하는 모든 장치 플랫폼에서 지원 됩니다.
+Microsoft는 C, .NET (c #), Node.js, Java 및 Python 언어로 GitHub에 오픈 소스 Sdk를 게시 합니다. 이 섹션에는 Sdk 및 해당 종속성이 나열 되어 있습니다. Sdk는 이러한 종속성을 충족 하는 모든 장치 플랫폼에서 지원 됩니다.
 
 나열 된 각 Sdk에 대해 Microsoft:
 
@@ -69,7 +68,7 @@ Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.
 
 [Azure IoT Hub .net (c #) 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp) 는로 테스트 되 고 다음과 같은 구성을 지원 합니다.
 
-| OS                                   | Standard                                                   |
+| OS                                   | 표준                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop 및 Server Sku   | .NET Core 2.1, .NET Framework 4.5.1 또는 .NET Framework 4.7 |
@@ -78,7 +77,7 @@ Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-[Azure IoT Hub node.js 장치 SDK](https://github.com/Azure/azure-iot-sdk-node) 는를 사용 하 여 테스트 하 고 다음 구성을 지원 합니다.
+[Azure IoT Hub Node.js 장치 SDK](https://github.com/Azure/azure-iot-sdk-node) 는를 사용 하 여 테스트 하 고 다음 구성을 지원 합니다.
 
 | OS                  | 노드 버전    |
 |---------------------|-----------------|
@@ -122,7 +121,7 @@ Microsoft는 Azure IoT 테스트와 인증 된 장치로 Azure IoT universe를 �
 
 IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 HTTPS 요청 및 응답을 보내고 받을 수 있는 모든 응용 프로그램에서 [IOT HUB REST api](https://docs.microsoft.com/rest/api/iothub/) 를 사용 하 여 IoT Hub에 직접 연결할 수 있습니다.
 
-## <a name="support-and-other-resources"></a>지원 및 기타 리소스
+## <a name="support-and-other-resources"></a>지원 및 다른 리소스
 
 Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 지원을 검색 하는 몇 가지 방법이 있습니다. 다음 채널 중 하나를 시도할 수 있습니다.
 
@@ -134,7 +133,7 @@ Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 지�
 
 * [Java SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-java/issues)
 
-* [Node.js SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-node/issues)
+* [Azure IoT Hub Node.js SDK 문제](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Python SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-python/issues)
 

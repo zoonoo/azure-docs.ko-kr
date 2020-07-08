@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981157"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 및 Azure Functions를 사용 하 여 첫 번째 서버 리스 앱 빌드
@@ -64,7 +63,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
    ![Visual Studio에서 새 프로젝트 만들기](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic**을 선택합니다. 그런 다음 **클라우드** > **Azure 리소스 그룹**을 선택 합니다.
+1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic**을 선택합니다. 그런 다음 **클라우드**  >  **Azure 리소스 그룹**을 선택 합니다.
 
    > [!NOTE]
    > **클라우드** 범주 또는 **azure 리소스 그룹** 프로젝트가 없는 경우 Azure SDK for Visual Studio를 설치 했는지 확인 합니다.
@@ -90,7 +89,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
    ![Azure 빠른 시작 템플릿 선택](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio에서 리소스 그룹 프로젝트용 솔루션을 만들고 엽니다. 
-   선택한 Azure 빠른 시작 템플릿은 리소스 그룹 프로젝트 내에 azuredeploy 라는 배포 템플릿을 만듭니다. 이 배포 템플릿에는 HTTP 요청에 의해 트리거되고 Azure 함수를 호출 하 고 결과를 HTTP 응답으로 반환 하는 간단한 논리 앱에 대 한 정의가 포함 되어 있습니다.
+   선택한 Azure 빠른 시작 템플릿은 리소스 그룹 프로젝트 내에 azuredeploy.js이라는 배포 템플릿을 만듭니다. 이 배포 템플릿에는 HTTP 요청에 의해 트리거되고 Azure 함수를 호출 하 고 결과를 HTTP 응답으로 반환 하는 간단한 논리 앱에 대 한 정의가 포함 되어 있습니다.
 
    ![새 서버리스 솔루션](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
@@ -100,7 +99,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
 Visual Studio의 논리 앱 디자이너에서 논리 앱을 열려면 Azure에 이미 배포 된 Azure 리소스 그룹이 있어야 합니다. 그러면 디자이너에서 리소스 및 서비스에 대한 연결을 논리 앱에 만들 수 있습니다. 이 작업의 경우 다음 단계에 따라 Visual Studio에서 Azure Portal 솔루션을 배포 합니다.
 
-1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서**새로** **배포** > 를 선택 합니다.
+1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서 새로 **배포**를 선택  >  **New**합니다.
 
    ![리소스 그룹에 대한 새 배포 만들기](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
@@ -119,9 +118,9 @@ Visual Studio의 논리 앱 디자이너에서 논리 앱을 열려면 Azure에 
 
 배포 후 논리 앱을 편집 하려면 Visual Studio에서 논리 앱 디자이너를 사용 하 여 논리 앱을 엽니다.
 
-1. 솔루션 탐색기에서 azuredeploy. json 파일의 바로 가기 메뉴에서 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다.
+1. 솔루션 탐색기에서 azuredeploy.js파일의 바로 가기 메뉴에서 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다.
 
-   ![논리 앱 디자이너에서 azuredeploy를 엽니다.](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+   ![논리 앱 디자이너에서 azuredeploy.js열기](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
    > [!TIP]
    > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
@@ -140,7 +139,7 @@ JavaScript, Python, F #, PowerShell, 일괄 처리 또는 Bash를 사용 하 여
 
 ## <a name="deploy-functions-from-visual-studio"></a>Visual Studio에서 함수 배포
 
-배포 템플릿은 azuredeploy json 파일의 변수로 지정 된 Git 리포지토리에서 솔루션에 있는 모든 Azure 함수를 배포 합니다. 솔루션에서 함수 프로젝트를 만들고 작성 하는 경우 프로젝트를 Git 소스 제어 (예: GitHub 또는 Azure DevOps)에 체크 인 한 다음 템플릿이 Azure 함수를 배포 하도록 `repo` 변수를 업데이트할 수 있습니다.
+배포 템플릿은 파일의 azuredeploy.js변수에 지정 된 Git 리포지토리에서 솔루션에 있는 모든 Azure 함수를 배포 합니다. 솔루션에서 함수 프로젝트를 만들고 작성 하는 경우 프로젝트를 Git 소스 제어 (예: GitHub 또는 Azure DevOps)에 체크 인 한 다음 `repo` 템플릿이 Azure 함수를 배포 하도록 변수를 업데이트할 수 있습니다.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>논리 앱 관리 및 실행 기록 보기
 

@@ -4,17 +4,16 @@ description: 이 문서에서는 응용 프로그램 암호에 대 한 service f
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76545486"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
 
 클라우드 응용 프로그램을 빌드할 때 일반적인 문제는 응용 프로그램에 필요한 비밀을 안전 하 게 저장 하는 방법입니다. 예를 들어, 컨테이너 리포지토리 자격 증명을 keyvault에 저장 하 고 응용 프로그램 매니페스트에서 참조할 수 있습니다. Service Fabric KeyVaultReference는 관리 Id Service Fabric를 사용 하며 keyvault 암호를 쉽게 참조할 수 있습니다. 이 문서의 나머지 부분에서는 Service Fabric KeyVaultReference를 사용 하는 방법에 대해 자세히 설명 하 고 몇 가지 일반적인 사용법을 포함 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 응용 프로그램에 대 한 관리 Id (MIT)
     
@@ -22,9 +21,9 @@ ms.locfileid: "76545486"
 
 - 중앙 비밀 저장소 (CSS).
 
-    CSS (중앙 비밀 저장소)는 Service Fabric의 암호화 된 로컬 비밀 캐시입니다. CSS는 중요 한 데이터 (예: 암호, 토큰, 키 등)를 메모리에 암호화 된 상태로 유지 하는 로컬 암호 저장소 캐시입니다. 인출 되 면 KeyVaultReference는 CSS로 캐시 됩니다.
+    CSS (중앙 비밀 저장소)는 Service Fabric의 암호화 된 로컬 비밀 캐시입니다. CSS는 중요한 데이터(예: 암호, 토큰, 키 등)를 메모리에 암호화된 상태로 유지하는 로컬 비밀 저장소 캐시입니다. 인출 되 면 KeyVaultReference는 CSS로 캐시 됩니다.
 
-    아래를 클러스터 구성에 추가 `fabricSettings` 하 여 KeyVaultReference 지원에 필요한 모든 기능을 사용 하도록 설정 합니다.
+    아래를 클러스터 구성에 추가 하 여 `fabricSettings` KeyVaultReference 지원에 필요한 모든 기능을 사용 하도록 설정 합니다.
 
     ```json
     "fabricSettings": 
@@ -88,16 +87,16 @@ ms.locfileid: "76545486"
 ## <a name="keyvault-secret-as-application-parameter"></a>응용 프로그램 매개 변수로 keyvault 비밀
 응용 프로그램이 keyvault에 저장 된 백 엔드 데이터베이스 암호를 읽어야 하는 Service Fabric KeyVaultReference support를 사용 하면 쉽게 할 수 있습니다. 아래 예제에서는 `DBPassword` Service Fabric KeyVaultReference 지원을 사용 하 여 keyvault에서 비밀을 읽습니다.
 
-- 설정 .xml에 섹션을 추가 합니다.
+- 섹션을 추가 settings.xml
 
-    형식 `DBPassword` `KeyVaultReference` 및 값을 사용 하 여 매개 변수 정의`<KeyVaultURL>`
+    `DBPassword`형식 `KeyVaultReference` 및 값을 사용 하 여 매개 변수 정의`<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- 에서 ApplicationManifest .xml의 새 섹션을 참조 합니다.`<ConfigPackagePolicies>`
+- ApplicationManifest.xml의 새 섹션을 참조 하십시오.`<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -115,7 +114,7 @@ ms.locfileid: "76545486"
 
 - 응용 프로그램에서 KeyVaultReference 사용
 
-    서비스 인스턴스화에 대 한 Service Fabric는 응용 프로그램의 관리 되는 id를 사용 하 여 KeyVaultReference 매개 변수를 확인 합니다. 아래 `<Section  Name=dbsecrets>` 에 나열 된 각 매개 변수는 고 environmentvariable SecretPath가 가리키는 폴더 아래에 있는 파일입니다. 다음 c # 코드 조각에서는 응용 프로그램에서 DBPassword를 읽는 방법을 보여 줍니다.
+    서비스 인스턴스화에 대 한 Service Fabric는 응용 프로그램의 관리 되는 id를 사용 하 여 KeyVaultReference 매개 변수를 확인 합니다. 아래에 나열 된 각 매개 변수 `<Section  Name=dbsecrets>` 는 고 environmentvariable SecretPath가 가리키는 폴더 아래에 있는 파일입니다. 다음 c # 코드 조각에서는 응용 프로그램에서 DBPassword를 읽는 방법을 보여 줍니다.
 
     ```C#
     string secretPath = Environment.GetEnvironmentVariable("SecretPath");
@@ -126,7 +125,7 @@ ms.locfileid: "76545486"
     }
     ```
     > [!NOTE] 
-    > 컨테이너 시나리오의 경우 탑재 지점을 사용 하 여 `secrets` 가 탑재 되는 위치를 제어할 수 있습니다.
+    > 컨테이너 시나리오의 경우 탑재 지점을 사용 하 여가 탑재 되는 위치를 제어할 수 있습니다 `secrets` .
 
 ## <a name="keyvault-secret-as-environment-variable"></a>환경 변수로 keyvault 비밀
 

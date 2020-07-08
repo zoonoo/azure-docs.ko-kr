@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76264036"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
@@ -89,7 +88,7 @@ ms.locfileid: "76264036"
     }
     ```
 
-    c. `CreateTopic`은 Service Bus 항목을 만드는 데 사용됩니다.
+    다. `CreateTopic`은 Service Bus 항목을 만드는 데 사용됩니다.
 
     ```csharp
     public static void CreateTopic(string connectionString)
@@ -158,7 +157,7 @@ ms.locfileid: "76264036"
     }
     ```
 
-    c. `CreateSubscription`은 백 엔드 시스템이 메시지를 보내는 항목에 대한 Service Bus 구독을 만드는 데 사용됩니다. 비즈니스 시나리오에 따라 이 구성 요소는 해당 항목에 대한 하나 이상의 구독을 만듭니다(예: 일부는 HR 시스템에서, 일부는 재무 시스템 등에서 메시지를 수신할 수 있음).
+    다. `CreateSubscription`은 백 엔드 시스템이 메시지를 보내는 항목에 대한 Service Bus 구독을 만드는 데 사용됩니다. 비즈니스 시나리오에 따라 이 구성 요소는 해당 항목에 대한 하나 이상의 구독을 만듭니다(예: 일부는 HR 시스템에서, 일부는 재무 시스템 등에서 메시지를 수신할 수 있음).
 
     ```csharp
     static void CreateSubscription(string connectionString)
@@ -234,7 +233,7 @@ ms.locfileid: "76264036"
 
     ![][3]
 
-    g. [Azure Portal]에 로그인할 때 다음과 같이 표시되어야 하므로 작업이 “계속 실행”되도록 구성합니다.
+    예: [Azure Portal]에 로그인할 때 다음과 같이 표시되어야 하므로 작업이 “계속 실행”되도록 구성합니다.
 
     ![][4]
 
@@ -244,7 +243,7 @@ ms.locfileid: "76264036"
 
     b. 애플리케이션이 토스트 알림을 받을 수 있는지 확인합니다.
 
-    c. 앱 시작 시 다음 Notification Hubs 등록 코드가 호출되었는지 확인합니다(`HubName` 및 `DefaultListenSharedAccessSignature` 값 교체 후).
+    다. 앱 시작 시 다음 Notification Hubs 등록 코드가 호출되었는지 확인합니다(`HubName` 및 `DefaultListenSharedAccessSignature` 값 교체 후).
 
     ```csharp
     private async void InitNotificationsAsync()

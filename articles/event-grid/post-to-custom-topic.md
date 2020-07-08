@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721560"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
@@ -103,7 +102,7 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 
 |결과  |응답  |
 |---------|---------|
-|성공  | 200 정상  |
+|Success  | 200 정상  |
 |이벤트 데이터의 형식이 잘못되었습니다. | 400 잘못된 요청 |
 |잘못된 액세스 키 | 401 권한 없음 |
 |잘못된 엔드포인트 | 404 찾을 수 없음 |

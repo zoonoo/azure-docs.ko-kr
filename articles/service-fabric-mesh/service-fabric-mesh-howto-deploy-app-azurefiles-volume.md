@@ -7,10 +7,9 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76718823"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에서 Azure Files 기반 볼륨 사용 
@@ -19,7 +18,7 @@ ms.locfileid: "76718823"
 
 서비스에 볼륨을 탑재하려면 Service Fabric Mesh 애플리케이션에 볼륨 리소스를 만든 다음, 사용자 서비스에서 해당 볼륨을 참조합니다.  볼륨 리소스를 선언하고 서비스 리소스에서 참조하는 작업은 [YAML 기반 리소스 파일](#declare-a-volume-resource-and-update-the-service-resource-yaml) 또는 [JSON 기반 배포 템플릿](#declare-a-volume-resource-and-update-the-service-resource-json)에서 수행할 수 있습니다. 볼륨을 탑재하기 전에 먼저 Azure Storage 계정을 만들고 [Azure Files에 파일 공유](/azure/storage/files/storage-how-to-create-file-share)를 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 > [!NOTE]
 > **WINDOWS RS5 개발 컴퓨터에 대 한 배포의 알려진 문제:** Azurefile 볼륨의 탑재를 방지 하는 RS5 Windows 컴퓨터에 Powershell cmdlet SmbGlobalMapping에 대 한 오픈 버그가 있습니다. 다음은 AzureFile 기반 볼륨이 로컬 개발 컴퓨터에 탑재 될 때 발생 하는 샘플 오류입니다.
 ```

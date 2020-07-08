@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76714421"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스의 프로젝트 리드 작업
@@ -36,7 +35,7 @@ ms.locfileid: "76714421"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos를 사용 하 여 TDSP 프로젝트를 설정 합니다. 팀에서 다른 코드 호스팅 플랫폼을 사용 하는 경우 프로젝트 리더 작업은 동일 하지만 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md) 와 [팀 리더가](team-lead-tasks.md) 다음과 같은 리소스 및 권한을 설정 했다고 가정 합니다.
 
@@ -57,7 +56,7 @@ ms.locfileid: "76714421"
 
 팀의 **Myteam** 프로젝트에서 프로젝트 리포지토리를 만들려면 다음을 수행 합니다.
 
-1. *Https:\//\<서버 이름\<>/조직 이름>/\<팀 이름>*(예: **https:\//dev.azure.com/DataScienceUnit/MyTeam**)에서 팀의 프로젝트 **요약** 페이지로 이동한 다음 왼쪽 탐색 모음에서 **리포지토리** 를 선택 합니다. 
+1. Https: (예 * \/ / \<server name> / : \<organization name> / https \<team name> * **: \/ /dev.azure.com/DataScienceUnit/MyTeam**)에서 팀의 프로젝트 **요약** 페이지로 이동한 다음 왼쪽 탐색 모음에서 **리포지토리** 를 선택 합니다. 
    
 1. 페이지 맨 위에서 리포지토리 이름을 선택 하 고 드롭다운에서 **새 리포지토리** 를 선택 합니다.
    
@@ -83,7 +82,7 @@ ms.locfileid: "76714421"
    
    ![가져오기 선택](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 **teamtemplate** 리포지토리의 url을 입력 합니다. URL은 *https\//\<: 서버 이름>/\<조직 이름>/\<팀 이름>/_git/\<팀 템플릿 리포지토리 이름>* 입니다. 예: **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
+1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 **teamtemplate** 리포지토리의 url을 입력 합니다. URL은 *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name> *입니다. 예: **https: \/ /dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
    
 1. **가져오기**를 선택합니다. 팀 템플릿 리포지토리의 콘텐츠를 프로젝트 리포지토리로 가져옵니다. 
    

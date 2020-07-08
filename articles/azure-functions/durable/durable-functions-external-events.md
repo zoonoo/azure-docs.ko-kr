@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76262965"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>지속성 함수의 외부 이벤트 처리(Azure Functions)
@@ -20,7 +19,7 @@ ms.locfileid: "76262965"
 
 ## <a name="wait-for-events"></a>이벤트 대기
 
-[오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger) `WaitForExternalEvent` (.Net `waitForExternalEvent` ) 및 (JavaScript) 메서드를 사용 하면 오 케 스트레이 터 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
+`WaitForExternalEvent` `waitForExternalEvent` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger) (.Net) 및 (JavaScript) 메서드를 사용 하면 오 케 스트레이 터 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -42,7 +41,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -93,7 +92,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -141,7 +140,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 .NET에서 이벤트 페이로드를 필요한 `T` 형식으로 변환할 수 없으면 예외가 throw됩니다.
 
@@ -173,7 +172,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>이벤트 보내기
 
-[오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `RaiseEventAsync` (.Net `raiseEvent` ) 또는 (javascript) 메서드는 (.net) 또는 `waitForExternalEvent` (javascript `WaitForExternalEvent` )가 대기 하는 이벤트를 보냅니다.  `RaiseEventAsync` 메서드는 *eventName* 및 *eventData*를 매개 변수로 사용합니다. 이벤트 데이터는 JSON 직렬화 가능해야 합니다.
+`RaiseEventAsync` `raiseEvent` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) (.Net) 또는 (javascript) 메서드는 `WaitForExternalEvent` (.net) 또는 (javascript)가 대기 하는 이벤트를 보냅니다 `waitForExternalEvent` .  `RaiseEventAsync` 메서드는 *eventName* 및 *eventData*를 매개 변수로 사용합니다. 이벤트 데이터는 JSON 직렬화 가능해야 합니다.
 
 다음은 오케스트레이터 함수 인스턴스에 "승인" 이벤트를 보내는 큐 트리거 함수 예제입니다. 오케스트레이션 인스턴스 ID는 큐 메시지 본문에서 가져옵니다.
 
@@ -190,7 +189,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x `OrchestrationClient` Durable Functions의 경우 `DurableClient` 특성 대신 특성을 사용 해야 하며 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. `IDurableOrchestrationClient` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 코드는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 `OrchestrationClient` 특성 대신 특성을 사용 해야 `DurableClient` 하며 `DurableOrchestrationClient` 대신 매개 변수 형식을 사용 해야 합니다 `IDurableOrchestrationClient` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

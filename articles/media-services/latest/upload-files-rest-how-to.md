@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705771"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>REST를 사용 하 여 Media Services v3 계정에 파일 업로드
@@ -39,7 +38,7 @@ Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일�
 
 이 섹션에서는 새 자산을 만드는 방법을 보여 줍니다.
 
-1.  -> 자산**만들기 또는 업데이트 자산** **을 선택 합니다**.
+1. 자산 **Assets**  ->  **만들기 또는 업데이트 자산**을 선택 합니다.
 2. **보내기**를 누릅니다.
 
     ![자산 만들기](./media/upload-files/postman-create-asset.png)
@@ -50,7 +49,7 @@ Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일�
 
 이 섹션에서는 만든 자산에 대해 생성된 SAS URL을 가져오는 방법을 보여 줍니다. 읽기/쓰기 권한을 사용하여 SAS URL을 만든 후 디지털 파일을 자산 컨테이너에 업로드하는 데 사용할 수 있습니다.
 
-1.  -> 자산**url 나열 자산을**선택 **합니다**.
+1. 자산 **Assets**  ->  **url 나열 자산을**선택 합니다.
 2. **보내기**를 누릅니다.
 
     ![파일 업로드](./media/upload-files/postman-create-sas-locator.png)

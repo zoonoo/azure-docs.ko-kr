@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277181"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Application Gateway와 Azure Security Center 간의 통합 개요
@@ -30,7 +29,7 @@ Application Gateway WAF는 악용 및 취약성으로부터 웹 애플리케이�
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>기존 리소스에 웹 애플리케이션 방화벽 추가
 
-**모든 서비스** > **보안 + ID** > **Security Center** 으로 이동 하 고 **Security Center 개요**에서 **응용 프로그램**을 클릭 합니다. **Security Center - 애플리케이션**의 표에는 Security Center를 통해 구독에서 검색한 애플리케이션 목록이 있습니다.
+**모든 서비스**  >  **보안 + ID**  >  **Security Center** 으로 이동 하 고 **Security Center 개요**에서 **응용 프로그램**을 클릭 합니다. **Security Center - 애플리케이션**의 표에는 Security Center를 통해 구독에서 검색한 애플리케이션 목록이 있습니다.
 
 ![웹 애플리케이션][3]
 
@@ -50,7 +49,7 @@ Security Center를 통해 애플리케이션 게이트웨이에 웹 애플리케
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>기존 웹 애플리케이션 방화벽에 리소스 추가
 
-**모든 서비스** > **보안 + ID** > **Security Center** 으로 이동 하 고 **Security Center 개요**에서 **파트너 솔루션**을 클릭 합니다. 기존 Security Center 인식 애플리케이션 게이트웨이가 **파트너 솔루션** 페이지에 표시됩니다.
+**모든 서비스**  >  **보안 + ID**  >  **Security Center** 으로 이동 하 고 **Security Center 개요**에서 **파트너 솔루션**을 클릭 합니다. 기존 Security Center 인식 애플리케이션 게이트웨이가 **파트너 솔루션** 페이지에 표시됩니다.
 
 ![파트너 솔루션][7]
 
@@ -66,7 +65,7 @@ Security Center에서는 애플리케이션 게이트웨이에 추가한 애플�
 
 ## <a name="security-alerts"></a>보안 경고
 
-Security Center 내에서 **검색** > **보안 경고**로 이동 합니다.  여기서 애플리케이션 게이트웨이에 대한 WAF 경고를 찾습니다. 경고는 WAF 규칙으로 분류됩니다.
+Security Center 내에서 **검색**  >  **보안 경고**로 이동 합니다.  여기서 애플리케이션 게이트웨이에 대한 WAF 경고를 찾습니다. 경고는 WAF 규칙으로 분류됩니다.
 
 ![보안 경고][8]
 

@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720472"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 모델링 단계
@@ -38,7 +37,7 @@ ms.locfileid: "76720472"
 * 대상에 대해 가장 정확하게 예측하는 정보 제공용 Machine Learning 모델을 만듭니다.
 * 프로덕션 환경에 적합한 Machine Learning 모델을 만듭니다.
 
-## <a name="how-to-do-it"></a>수행 방법
+## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 설명하는 세 가지 기본 작업은 다음과 같습니다.
 
   * **기능 엔지니어링**: 모델 학습을 용이하게 하기 위해 원시 데이터로부터 데이터 기능을 만듭니다.
@@ -69,7 +68,7 @@ ms.locfileid: "76720472"
 
 여러 알고리즘 및 매개 변수 스윕을 통해 실행하여 기본 모델을 생성할 수 있는 [자동화된 모델링 및 보고 도구](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling)에 TDSP를 제공합니다. 또한 각 모델의 성능과 변수 중요도를 포함한 매개 변수 조합을 요약한 기본 모델링 보고서를 생성합니다. 이 프로세스는 추가 기능 엔지니어링을 진행할 수 있으므로 반복적입니다. 
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 이 단계에서 생성되는 아티팩트는 다음과 같습니다.
 
    * [기능 집합](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): 모델링을 위해 개발 된 기능은 **데이터 정의** 보고서의 **기능 집합** 섹션에 설명 되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.

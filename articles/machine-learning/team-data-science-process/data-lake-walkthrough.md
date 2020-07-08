@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76717918"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 엔드투엔드 연습
@@ -158,7 +157,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>데이터 수집: 공용 blob에서 데이터 읽기
 
-Azure blob에서 데이터의 위치는 **\_wasb://container\@name\_Blob storage\_account\_name.blob.core.windows.net/blob_name** 로 참조 되며 **추출기 ()** 를 사용 하 여 추출할 수 있습니다. Wasb 주소의 컨테이너\_이름\@blob\_storage\_계정\_이름에 대해 다음 스크립트에서 사용자 고유의 컨테이너 이름 및 저장소 계정 이름을 대체 합니다. 파일 이름이 동일한 형식 이므로 **\_여행\_\{\*\}데이터 .csv** 를 사용 하 여 12 개의 여행 파일을 모두 읽을 수 있습니다.
+Azure blob에서 데이터의 위치는 **wasb://container \_ name \@ blob \_ storage \_ account \_ name.blob.core.windows.net/blob_name** 로 참조 되며 **Extractors.Csv ()** 를 사용 하 여 추출할 수 있습니다. \_ \@ Wasb 주소의 컨테이너 이름 blob \_ storage 계정 이름에 대해 다음 스크립트에서 사용자 고유의 컨테이너 이름 및 저장소 계정 이름을 대체 \_ \_ 합니다. 파일 이름이 동일한 형식 이므로 **여행 \_ 데이터 \_ \{ \* \} .csv** 를 사용 하 여 12 개의 여행 파일을 모두 읽을 수 있습니다.
 
     ///Read in Trip data
     @trip0 =
@@ -181,7 +180,7 @@ Azure blob에서 데이터의 위치는 **\_wasb://container\@name\_Blob storage
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **Wasb//container_name\@blob_storage_account_name**를 사용 하 여 Azure Data Lake Storage에 대해 **swebhdfs://data_lake_storage_name. azuredatalakestorage/Folder_name/file_name**_ 또는 Azure Blob Storage 계정으로 처리 된 데이터를 저장할 수 있습니다.
+첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **Wasb//container_name \@ blob_storage_account_name**를 사용 하 여 Azure Data Lake Storage에 대해 **swebhdfs://data_lake_storage_name. azuredatalakestorage/folder_name/File_name**_ 또는 Azure Blob Storage 계정으로 처리 된 데이터를 저장할 수 있습니다.
 
     // change data types
     @trip =
@@ -569,7 +568,7 @@ Python을 사용하여 기계 학습 모델을 빌드 및 배포하려면 로컬
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>웹 서비스 API 구축 및 Python에서 사용
 기계 학습 모델을 빌드한 후 운영하려고 합니다. 여기서는 예로 이진 로지스틱 모델을 사용합니다. 로컬 컴퓨터의 scikit 버전이 0.15.1 인지 확인 합니다 (Azure Machine Learning Studio는 이미이 버전에 해당).
 
-* Azure Machine Learning Studio (클래식) 설정에서 작업 영역 자격 증명을 찾습니다. Azure Machine Learning Studio에서 **설정** --> **이름** --> **권한 부여 토큰**을 클릭 합니다.
+* Azure Machine Learning Studio (클래식) 설정에서 작업 영역 자격 증명을 찾습니다. Azure Machine Learning Studio에서 **설정**  -->  **이름**  -->  **권한 부여 토큰**을 클릭 합니다.
 
     ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -612,7 +611,7 @@ Azure Machine Learning Studio (클래식)는 Azure Data Lake Storage에서 직�
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>HDInsight에서 Hive 테이블 만들기
-이제 이전 단계에서 Azure Data Lake Storage에 저장 된 데이터를 사용 하 여 HDInsight 클러스터의 Azure Machine Learning Studio (클래식)에서 사용할 Hive 테이블을 만듭니다. 방금 만든 HDInsight 클러스터로 이동합니다. **설정** --> **속성****Cluster AAD Identity** --> **ADLS Access**Cluster AAD Identity ADLS Access를 클릭 하 고, 읽기, 쓰기 및 실행 권한이 있는 목록에 Azure Data Lake Storage 계정이 추가 되었는지 확인 합니다. --> 
+이제 이전 단계에서 Azure Data Lake Storage에 저장 된 데이터를 사용 하 여 HDInsight 클러스터의 Azure Machine Learning Studio (클래식)에서 사용할 Hive 테이블을 만듭니다. 방금 만든 HDInsight 클러스터로 이동합니다. **설정**  -->  **속성**  -->  **Cluster AAD Identity**  -->  **ADLS Access**를 클릭 하 고, 읽기, 쓰기 및 실행 권한이 있는 목록에 Azure Data Lake Storage 계정이 추가 되었는지 확인 합니다.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -675,7 +674,7 @@ Azure Machine Learning Studio (클래식)는 Azure Data Lake Storage에서 직�
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-실험을 만든 후 **웹 서비스** --> **예측 웹 서비스** 설정을 클릭 합니다.
+실험을 만든 후 **웹 서비스**  -->  **예측 웹 서비스** 설정을 클릭 합니다.
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
@@ -690,7 +689,7 @@ Azure Machine Learning Studio (클래식)는 Azure Data Lake Storage에서 직�
 ## <a name="summary"></a>요약
 이 연습을 완료 하면 Azure Data Lake에서 확장성 있는 종단 간 솔루션을 빌드하기 위한 데이터 과학 환경을 만들었습니다. 이 환경은 모델 학습을 통한 데이터 획득부터 웹 서비스로 모델 배포에 이르는 데이터 과학 프로세스의 정식 단계를 통해 가져온 대형 공용 데이터 세트를 분석하는 데 사용되었습니다. U-SQL은 데이터를 처리 하 고 탐색 하 고 샘플링 하는 데 사용 되었습니다. Python 및 Hive는 Azure Machine Learning Studio (클래식)에서 예측 모델을 빌드하고 배포 하는 데 사용 되었습니다.
 
-## <a name="whats-next"></a>새로운 기능
+## <a name="whats-next"></a>다음 단계
 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 토픽에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.
 
 * [실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용](sqldw-walkthrough.md)

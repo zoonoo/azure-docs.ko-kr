@@ -14,19 +14,18 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
 ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76514326"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Media Services를 사용 하 여 인코딩할 때 비디오를 하위 클립-REST
 
-[작업](https://docs.microsoft.com/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 이 기능은 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용 하 여 작성 된 모든 [변환](https://docs.microsoft.com/rest/api/media/transforms) 에 적용 됩니다. 
+[작업](https://docs.microsoft.com/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 이 기능은 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용하여 빌드된 모든 [변환](https://docs.microsoft.com/rest/api/media/transforms)과 함께 작동합니다. 
 
 이 항목의 REST 예제에서는 인코딩 작업을 전송할 때 비디오를 트리밍하는 작업을 만듭니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
@@ -39,7 +38,7 @@ ms.locfileid: "76514326"
 
 ## <a name="create-a-subclipping-job"></a>서브 클립 작업 만들기
 
-1. 다운로드 한 postman 컬렉션에서 **변환 및 작업** -> **하위 클리핑으로 작업 만들기**를 선택 합니다.
+1. 다운로드 한 postman 컬렉션에서 **변환 및 작업**  ->  **하위 클리핑으로 작업 만들기**를 선택 합니다.
     
     **PUT** 요청은 다음과 같습니다.
     

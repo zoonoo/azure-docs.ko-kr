@@ -9,10 +9,9 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: ce566080c6ddbc4784365ceda6011c3f6612732a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76276861"
 ---
 # <a name="connect-time-series-insights-to-power-bi"></a>Power BI에 Time Series Insights 연결  
@@ -21,7 +20,7 @@ ms.locfileid: "76276861"
 
 Azure Time Series Insights은 이제 [Power BI](https://powerbi.microsoft.com/)와 원활 하 게 통합 되어 스트리밍 데이터에 대 한 보다 강력한 시각화 및 대시보드 기능을 제공 하 고 조직 전체에서 정보 및 결과를 공유할 수 있습니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-more-about-integrating-azure-time-series-insights-with-power-bibr"></a>Power BI와 Azure Time Series Insights 통합에 대해 자세히 알아보세요.</br>
 

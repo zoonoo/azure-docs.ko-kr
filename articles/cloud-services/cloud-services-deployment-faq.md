@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75980638"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 배포 문제: FAQ(질문과 대답)
@@ -54,7 +53,7 @@ ms.locfileid: "75980638"
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>구독 또는 서비스에서 제한/할당량/제한 조건으로 인해 클라우드 서비스를 배포하는 데 실패하는 이유는 무엇인가요?
 할당하는 데 필요한 리소스가 지역/데이터 센터 수준에서 서비스에 허용되는 기본 또는 최대 할당량을 초과하는 경우 클라우드 서비스의 배포에 실패할 수 있습니다. 자세한 내용은 [Cloud Services 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits)을 참조하세요.
 
-포털에서 구독에 대한 현재 사용량/할당량도 추적할 수 있습니다. Azure Portal => 구독=> \<적절한 구독=> “사용량 + 할당량”
+포털에서 구독에 대 한 현재 사용량/할당량을 추적할 수도 있습니다. Azure Portal => Subscription => \<appropriate subscription>   => "사용량 + 할당량".
 
 Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure 리소스 사용량 API(미리 보기)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview)을 참조하세요.
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
 ms.openlocfilehash: a76c9aaabf984723e2b60a7cd42425c9b29c916a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76710821"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Azure SignalR Service에서 Event Grid로 이벤트를 보내는 방법
@@ -162,7 +161,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>레지스트리 이벤트 보기
 
-이제 클라이언트가 SignalR 서비스에 연결 되었습니다. Event Grid Viewer 웹 앱으로 이동 하면 `ClientConnectionConnected` 이벤트가 표시 됩니다. 클라이언트를 종료 하면 `ClientConnectionDisconnected` 이벤트도 표시 됩니다.
+이제 클라이언트가 SignalR 서비스에 연결 되었습니다. Event Grid Viewer 웹 앱으로 이동 하면 이벤트가 표시 됩니다 `ClientConnectionConnected` . 클라이언트를 종료 하면 이벤트도 표시 됩니다 `ClientConnectionDisconnected` .
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 48dec3a87ab540af224ae4ac59dd37cee7c9d0ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76271335"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>StorSimple 가상 배열 업데이트 1.0 릴리스 정보
@@ -47,7 +46,7 @@ ms.locfileid: "76271335"
 
 다음 표에서는 이 릴리스에서 수정된 문제를 간략하게 설명합니다.
 
-| 아니요. | 기능 | 문제 |
+| 아니요. | 기능 | 문제점 |
 | --- | --- | --- |
 | 1 |AAD 기반 인증| 이 릴리스에는 AAD가 StorSimple 디바이스 관리자로 인증할 수 있도록 하는 변경 내용이 포함되어 있습니다.|
 | 2 |가비지 수집| 이 문제는 디바이스 및 스토리지 계정이 다른 지역에 있고 고객이 간헐적인 네트워크 오류를 보고하여 청구에 영향을 미치는 경우 고객 사이트에서 보고되었습니다. 이 릴리스에서는 이 문제가 해결되었습니다. |
@@ -58,7 +57,7 @@ ms.locfileid: "76271335"
 
 다음 표에서는 이전 릴리스에서 언급된 문제 릴리스를 포함하여 StorSimple 가상 배열에 대해 알려진 문제를 간략하게 제공합니다.
 
-| 아니요. | 기능 | 문제 | 해결 방법/설명 |
+| 아니요. | 기능 | 문제점 | 해결 방법/설명 |
 | --- | --- | --- | --- |
 | **1.** |업데이트 |미리 보기 릴리스에서 만든 가상 배열은 지원되는 일반 사용 가능 버전으로 업데이트될 수 없습니다. |이러한 가상 배열은 재해 복구(DR) 워크플로를 사용하여 일반 사용 가능 릴리스로 장애 조치되어야 합니다. |
 | **2.** |프로비전된 데이터 디스크 |특정한 크기의 데이터 디스크를 프로비전하고 해당 StorSimple 가상 배열을 만들고 나면, 데이터 크기를 확장하거나 축소하지 말아야 합니다. 이를 시도하면 디바이스의 로컬 계층에서 모든 데이터가 손실됩니다. | |

@@ -9,15 +9,14 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 1c625e628f53d156ad56a1c69df1c23aec9120ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548716"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
-Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈을 개발, 배포 및 유지 관리 하는 방법을 이해 하려면 모듈의 네 가지 개념적 요소를 고려 합니다.
+Azure IoT Edge를 사용 하 여 *모듈*형태로에 지에 비즈니스 논리를 배포 하 고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈을 개발, 배포 및 유지 관리 하는 방법을 이해 하려면 모듈의 네 가지 개념적 요소를 고려 합니다.
 
 * **모듈 이미지**는 모듈을 정의하는 소프트웨어가 포함된 패키지입니다.
 * **모듈 인스턴스**는 IoT Edge 디바이스에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.

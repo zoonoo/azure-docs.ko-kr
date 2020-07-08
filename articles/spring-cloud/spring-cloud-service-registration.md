@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76278851"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>스프링 클라우드 서비스 검색 및 등록
@@ -19,8 +18,8 @@ ms.locfileid: "76278851"
 
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>스프링 클라우드 서비스 레지스트리를 사용 하 여 응용 프로그램 등록
 
-응용 프로그램에서 스프링 클라우드 서비스 레지스트리를 사용 하 여 서비스 등록과 검색을 관리 하려면 먼저 응용 프로그램의 *pom .xml* 파일에 몇 가지 종속성이 포함 되어야 합니다.
-*Netflix-eureka* 에 대 한 *종속성을 포함* *합니다.* --------------------------
+응용 프로그램에서 스프링 클라우드 서비스 레지스트리를 사용 하 여 서비스 등록과 검색을 관리 하려면 먼저 응용 프로그램의 *pom.xml* 파일에 몇 가지 종속성이 포함 되어야 합니다.
+*Netflix-eureka* 에 대 한 종속성을 포함 하 여 *pom.xml* 에 대 한 *종속성을 포함* 합니다.
 
 ```xml
     <dependency>

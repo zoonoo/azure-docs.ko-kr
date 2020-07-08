@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76314541"
 ---
 # <a name="apply-sql-transformation"></a>SQL 변환 적용
@@ -33,7 +32,7 @@ SQL 변환 적용 모듈을 사용 하 여 다음을 수행할 수 있습니다.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>SQL 변환 적용을 구성 하는 방법  
 
-모듈은 최대 세 개의 데이터 집합을 입력으로 사용할 수 있습니다. 각 입력 포트에 연결 된 데이터 집합을 참조 하는 경우, 및 `t1` `t2` `t3`이름을 사용 해야 합니다. 테이블 숫자는 입력 포트의 인덱스를 나타냅니다.  
+모듈은 최대 세 개의 데이터 집합을 입력으로 사용할 수 있습니다. 각 입력 포트에 연결 된 데이터 집합을 참조 하는 경우, 및 이름을 사용 해야 합니다 `t1` `t2` `t3` . 테이블 숫자는 입력 포트의 인덱스를 나타냅니다.  
   
 나머지 매개 변수는 SQLite 구문을 사용하는 SQL 쿼리입니다. **SQL 스크립트** 텍스트 상자에 여러 줄을 입력할 때는 세미콜론을 사용 하 여 각 문을 종료 합니다. 그렇지 않으면 줄바꿈이 공백으로 변환됩니다.  
 
@@ -45,7 +44,7 @@ SQL 변환 적용 모듈을 사용 하 여 다음을 수행할 수 있습니다.
 
 -   포트 1에는 항상 입력이 필요 합니다.  
   
--   공백 또는 기타 특수 문자를 포함 하는 열 식별자의 경우 `SELECT` 또는 `WHERE` 절에서 열을 참조할 때 항상 열 식별자를 대괄호 또는 큰따옴표로 묶어야 합니다.  
+-   공백 또는 기타 특수 문자를 포함 하는 열 식별자의 경우 또는 절에서 열을 참조할 때 항상 열 식별자를 대괄호 또는 큰따옴표로 묶어야 `SELECT` `WHERE` 합니다.  
   
 ### <a name="unsupported-statements"></a>지원 되지 않는 문  
 
@@ -53,7 +52,7 @@ SQLite는 대부분의 ANSI SQL 표준을 지원하지만 상용 관계형 데�
   
 - SQLite에서는 대부분의 관계형 데이터베이스 시스템에서와 같이 열에 형식을 할당하는 것이 아니라 값의 동적 형식 지정을 사용합니다. SQLite는 약하게 형식화되며 암시적 형식 변환을 허용합니다.  
   
-- `LEFT OUTER JOIN`는 구현 되지만 또는 `RIGHT OUTER JOIN` `FULL OUTER JOIN`은 구현 되지 않습니다.  
+- `LEFT OUTER JOIN`는 구현 되지만 또는은 구현 되지 않습니다 `RIGHT OUTER JOIN` `FULL OUTER JOIN` .  
 
 - `RENAME TABLE` 및 `ADD COLUMN` 문을 `ALTER TABLE` 명령과 함께 사용할 수 있지만 `DROP COLUMN`, `ALTER COLUMN`, `ADD CONSTRAINT` 등의 다른 절은 지원되지 않습니다.  
   
@@ -64,4 +63,4 @@ SQLite는 대부분의 ANSI SQL 표준을 지원하지만 상용 관계형 데�
     
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

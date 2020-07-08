@@ -5,25 +5,24 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76261486"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
 [지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머*를 제공합니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 대신, 오케스트레이터 함수에 사용해야 합니다.
 
-[오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.net) 메서드 또는 `CreateTimer` `createTimer` (JavaScript) 메서드를 호출 하 여 지 속성 타이머를 만듭니다. 메서드는 지정 된 날짜와 시간에 완료 되는 작업을 반환 합니다.
+`CreateTimer` `createTimer` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.net) 메서드 또는 (JavaScript) 메서드를 호출 하 여 지 속성 타이머를 만듭니다. 메서드는 지정 된 날짜와 시간에 완료 되는 작업을 반환 합니다.
 
 ## <a name="timer-limitations"></a>타이머 제한 사항
 
 오후 4:30 시에 만료 되는 타이머를 만들 때 기본 지 속성 작업 프레임 워크는 4:30 pm 에서만 표시 되는 메시지를 큐 합니다. Azure Functions 소비 계획에서 실행 하는 경우 새로 표시 되는 타이머 메시지는 함수 앱이 적절 한 VM에서 활성화 되도록 합니다.
 
 > [!NOTE]
-> * 지 속성 타이머는 현재 7 일로 제한 됩니다. 지연 시간이 더 길면 `while` 루프의 타이머 api를 사용 하 여 시뮬레이션할 수 있습니다.
-> * 영 속 `CurrentUtcDateTime` 타이머의 `DateTime.UtcNow` 화재 시간을 `currentUtcDateTime` 계산할 때 `Date.now` .net `Date.UTC` 또는 대신 또는 JavaScript에서 대신를 사용 합니다. 자세한 내용은 [orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md) 문서를 참조 하세요.
+> * 지 속성 타이머는 현재 7 일로 제한 됩니다. 지연 시간이 더 길면 루프의 타이머 Api를 사용 하 여 시뮬레이션할 수 있습니다 `while` .
+> * `CurrentUtcDateTime` `DateTime.UtcNow` `currentUtcDateTime` `Date.now` `Date.UTC` 영 속 타이머의 화재 시간을 계산할 때 .net 또는 대신 또는 JavaScript에서 대신를 사용 합니다. 자세한 내용은 [orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md) 문서를 참조 하세요.
 
 ## <a name="usage-for-delay"></a>지연 사용
 
@@ -46,7 +45,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -104,7 +103,7 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x를 대상으로 합니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -135,7 +134,7 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!WARNING]
-> 코드가 완료 `CancellationTokenSource` 될 때까지 기다리지 않는 `cancel()` 경우 (.net `TimerTask` ) 또는 반환 된 (JavaScript)에 대 한 호출을 사용 하 여 지 속성 타이머를 취소 합니다. 지 속성 작업 프레임 워크는 처리 중인 모든 작업이 완료 되거나 취소 될 때까지 오케스트레이션의 상태를 "완료 됨"으로 변경 하지 않습니다.
+> `CancellationTokenSource` `cancel()` `TimerTask` 코드가 완료 될 때까지 기다리지 않는 경우 (.net) 또는 반환 된 (JavaScript)에 대 한 호출을 사용 하 여 지 속성 타이머를 취소 합니다. 지 속성 작업 프레임 워크는 처리 중인 모든 작업이 완료 되거나 취소 될 때까지 오케스트레이션의 상태를 "완료 됨"으로 변경 하지 않습니다.
 
 이 취소 메커니즘은 진행 중인 작업 함수 또는 하위 오케스트레이션 실행을 종료 하지 않습니다. 대신 단순히 오케스트레이터 함수를 사용하여 결과를 무시하고 계속 진행할 수 있습니다. 함수 앱이 소비 계획을 사용 하는 경우 중단 된 작업 함수에서 사용 하는 시간 및 메모리에 대 한 요금이 계속 청구 됩니다. 기본적으로 소비 계획에서 실행되는 함수의 시간 제한은 5분입니다. 이 제한을 초과하면 모든 실행을 중지하고 런어웨이 청구 상황을 방지하기 위해 Azure Functions 호스트가 재활용됩니다. [함수 시간 제한은 구성 가능](../functions-host-json.md#functiontimeout)합니다.
 

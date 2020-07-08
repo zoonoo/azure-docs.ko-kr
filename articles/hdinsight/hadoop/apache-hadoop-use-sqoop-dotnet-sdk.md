@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/14/2020
 ms.openlocfilehash: f0f767273a40bc91b1d49477c896b0b157623106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157069"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop에 대해 .NET SDK를 사용하여 Apache Sqoop 작업 실행
@@ -23,21 +22,21 @@ Azure HDInsight .NET SDK를 사용 하 여 hdinsight에서 Apache Sqoop 작업�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [HDInsight에서 Hadoop과 함께 Apache Sqoop 사용](./hdinsight-use-sqoop.md)에서 [테스트 환경 설정](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) 완료
+* [HDInsight에서 Hadoop과 함께 Apache Sqoop 사용](./hdinsight-use-sqoop.md)에서 [테스트 환경 설정](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) 완료.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
 
-* Sqoop 사용에 대해 잘 알고 있어야 합니다. 자세한 내용은 [Sqoop 사용자 가이드](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)를 참조 하세요.
+* Sqoop에 익숙해야 합니다. 자세한 내용은 [Sqoop 사용자 가이드](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)를 참조하세요.
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight 클러스터에서 Sqoop 사용
 
-HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .NET에서 HDInsight 클러스터 작업을 더 쉽게 수행할 수 있습니다. 이 섹션에서는 c # 콘솔 응용 프로그램을 만들어를 필수 구성 `hivesampletable` 요소에서 만든 Azure SQL Database 테이블로 내보냅니다.
+HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .NET에서 HDInsight 클러스터 작업을 더 쉽게 수행할 수 있습니다. 이 섹션에서는 c # 콘솔 응용 프로그램을 만들어를 `hivesampletable` 필수 구성 요소에서 만든 Azure SQL Database 테이블로 내보냅니다.
 
-## <a name="set-up"></a>설정
+## <a name="set-up"></a>설치
 
 1. Visual Studio를 시작 하 고 c # 콘솔 응용 프로그램을 만듭니다.
 
-1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 로 이동 하 여 다음 명령을 실행 합니다.
+1. **도구**  >  **NuGet 패키지 관리자**  >  **패키지 관리자 콘솔** 로 이동 하 여 다음 명령을 실행 합니다.
 
     ```
     Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -45,9 +44,9 @@ HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .N
 
 ## <a name="sqoop-export"></a>Sqoop 내보내기
 
-Hive에서 SQL Server 합니다.  이 예에서는 Hive `hivesampletable` 테이블의 데이터를 SQL Database의 `mobiledata` 테이블로 내보냅니다.
+Hive에서 SQL Server로  이 예제에서는 Hive `hivesampletable` 테이블의 데이터를 SQL Database의 `mobiledata` 테이블로 내보냅니다.
 
-1. Program.cs 파일에서 다음 코드를 사용 합니다. 코드를 편집 하 여, 및 `ExistingClusterName` `ExistingClusterPassword`에 대 한 값을 설정 합니다.
+1. Program.cs 파일에서 다음 코드를 사용 합니다. 코드를 편집 하 여, 및에 대 한 값을 설정 합니다 `ExistingClusterName` `ExistingClusterPassword` .
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
@@ -115,9 +114,9 @@ Hive에서 SQL Server 합니다.  이 예에서는 Hive `hivesampletable` 테이
 
 ## <a name="sqoop-import"></a>Sqoop 가져오기
 
-SQL Server에서 Azure Storage. 이 예는 수행 된 위의 내보내기에 종속 됩니다.  이 예에서는 SQL Database의 `mobiledata` 테이블에서 클러스터의 기본 저장소 `wasb:///tutorials/usesqoop/importeddata` 계정에 있는 디렉터리로 데이터를 가져옵니다.
+SQL Server에서 Azure Storage로 이 예는 수행 된 위의 내보내기에 종속 됩니다.  이 예에서는 `mobiledata` SQL Database의 테이블에서 `wasb:///tutorials/usesqoop/importeddata` 클러스터의 기본 저장소 계정에 있는 디렉터리로 데이터를 가져옵니다.
 
-1. `//sqoop start //sqoop end` 블록에서 위의 코드를 다음 코드로 바꿉니다.
+1. 블록에서 위의 코드를 `//sqoop start //sqoop end` 다음 코드로 바꿉니다.
 
     ```csharp
     var tableName = "mobiledata";
@@ -135,13 +134,13 @@ SQL Server에서 Azure Storage. 이 예는 수행 된 위의 내보내기에 종
 
 Linux 기반 HDInsight에에 대한 제한 사항은 다음과 같습니다.
 
-* 대량 내보내기: Microsoft SQL Server 또는 Azure SQL Database로 데이터를 내보내는 데 사용 되는 Sqoop 커넥터는 현재 대량 삽입을 지원 하지 않습니다.
+* 대량 내보내기: Microsoft SQL Server 또는 Azure SQL Database로 데이터를 내보내는 데 사용되는 Sqoop 커넥터는 현재 대량 삽입을 지원하지 않습니다.
 
-* 일괄 처리: `-batch` 스위치를 사용 하 여 sqoop는 삽입 작업을 일괄 처리 하는 대신 여러 삽입 작업을 수행 합니다.
+* 일괄 처리: 스위치를 사용 하 여 `-batch` Sqoop는 삽입 작업을 일괄 처리 하는 대신 여러 삽입 작업을 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Sqoop을 사용 하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
+이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight에서 Apache Oozie 사용](../hdinsight-use-oozie-linux-mac.md): Oozie 워크플로에서 sqoop 작업을 사용 합니다.
-* [HDInsight에 데이터 업로드](../hdinsight-upload-data.md): HDInsight 또는 Azure Blob Storage에 데이터를 업로드하는 다른 방법을 찾습니다.
+* [HDInsight에서 Apache Oozie 사용](../hdinsight-use-oozie-linux-mac.md): Oozie 워크플로에서 Sqoop 작업을 사용합니다.
+* [HDInsight에 데이터 업로드](../hdinsight-upload-data.md): HDInsight 또는 Azure Blob 스토리지에 데이터를 업로드하는 다른 방법을 찾습니다.

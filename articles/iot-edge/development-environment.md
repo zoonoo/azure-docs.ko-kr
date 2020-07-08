@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511096"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IoT Edge를 위한 개발 및 테스트 환경 준비
@@ -49,11 +48,11 @@ Visual Studio Code용 Azure IoT Edge 확장은 C#의 Azure 함수뿐만 아니�
 
 IoT Edge 확장 외에도 개발을 위한 추가 확장을 설치하면 유용할 수 있습니다. 예를 들어 [Visual Studio Code용 Docker 지원](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 사용하여 이미지, 컨테이너 및 레지스트리를 관리할 수 있습니다. 또한 지원되는 모든 주요 언어 모듈에는 개발 시 도움이 될 수 있는 Visual Studio Code용 확장이 있습니다.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 일부 언어 및 서비스용 모듈 템플릿에는 Visual Studio Code를 사용하여 개발 컴퓨터에서 프로젝트 폴더를 빌드하는 데 필요한 필수 구성 요소가 있습니다.
 
-| 모듈 템플릿 | 필수 요소 |
+| 모듈 템플릿 | 필수 조건 |
 | --------------- | ------------ |
 | Azure 기능 | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |

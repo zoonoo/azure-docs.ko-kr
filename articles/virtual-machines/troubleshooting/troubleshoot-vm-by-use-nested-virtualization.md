@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76119621"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩 된 가상화를 사용 하 여 잘못 된 Azure VM 문제 해결
@@ -42,13 +41,13 @@ ms.locfileid: "76119621"
 
 2.  복구 VM을 만든 후 복구 VM에 데스크톱을 원격 연결합니다.
 
-3.  서버 관리자에서 **관리** > **역할 및 기능 추가**를 선택 합니다.
+3.  서버 관리자에서 **관리**  >  **역할 및 기능 추가**를 선택 합니다.
 
 4.  **설치 유형** 섹션에서 **역할 기반 또는 기능 기반 설치**를 선택합니다.
 
 5.  **대상 서버 선택** 섹션에서 복구 VM이 선택되어 있는지 확인합니다.
 
-6.  **Hyper-v 역할** > **기능 추가**를 선택 합니다.
+6.  **Hyper-v 역할**  >  **기능 추가**를 선택 합니다.
 
 7.  **기능** 섹션에서 **다음**을 선택합니다.
 
@@ -74,7 +73,7 @@ ms.locfileid: "76119621"
 
 4.  Hyper-V 관리자 열기: **서버 관리자**에서 **Hyper-V 역할**을 선택합니다. 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hyper-V 관리자**를 선택합니다.
 
-5.  Hyper-v 관리자에서 복구 VM을 마우스 오른쪽 단추로 클릭 하 고 **새** > **가상 머신** > **다음**을 선택 합니다.
+5.  Hyper-v 관리자에서 복구 VM을 마우스 오른쪽 단추로 클릭 하 고 **새**  >  **가상 머신**  >  **다음**을 선택 합니다.
 
 6.  VM에 대한 이름을 입력한 후 **다음**을 선택합니다.
 
@@ -101,7 +100,7 @@ ms.locfileid: "76119621"
     ![이미지 탑재에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-15. **적용**을 선택한 다음 **확인**을 선택합니다.
+15. **적용** 및 **확인**을 차례로 선택합니다.
 
 16. VM을 두 번 클릭한 다음 시작합니다.
 

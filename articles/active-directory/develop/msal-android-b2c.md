@@ -14,10 +14,9 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696524"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
@@ -34,7 +33,7 @@ Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구�
 - 프로필 편집
     * 이름의`B2C_1_EditProfile`
 
-앱에 대 한 구성 파일은 2 `authorities`를 선언 합니다. 각 정책에 대해 하나씩입니다. 각 `type` 기관의 속성은 `B2C`입니다.
+앱에 대 한 구성 파일은 2를 선언 `authorities` 합니다. 각 정책에 대해 하나씩입니다. `type`각 기관의 속성은 `B2C` 입니다.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -81,7 +80,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>대화형으로 토큰 획득
 
-MSAL을 사용 하 여 대화형으로 토큰을 가져오려면 `AcquireTokenParameters` 인스턴스를 빌드하고 `acquireToken` 메서드에 제공 합니다. 아래 토큰 요청은 `default` 권한을 사용 합니다.
+MSAL을 사용 하 여 대화형으로 토큰을 가져오려면 `AcquireTokenParameters` 인스턴스를 빌드하고 `acquireToken` 메서드에 제공 합니다. 아래 토큰 요청은 권한을 사용 합니다 `default` .
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -112,7 +111,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>토큰 자동 갱신
 
-MSAL을 사용 하 여 토큰을 자동으로 획득 `AcquireTokenSilentParameters` 하려면 인스턴스를 빌드하여 `acquireTokenSilentAsync` 메서드에 제공 합니다. `acquireToken` 메서드와 달리 토큰을 자동 `authority` 으로 얻으려면를 지정 해야 합니다.
+MSAL을 사용 하 여 토큰을 자동으로 획득 하려면 인스턴스를 빌드하여 `AcquireTokenSilentParameters` 메서드에 제공 `acquireTokenSilentAsync` 합니다. 메서드와 달리 `acquireToken` `authority` 토큰을 자동으로 얻으려면를 지정 해야 합니다.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -139,7 +138,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>정책 지정
 
-B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 또는 `fromAuthority` `acquireToken` `acquireTokenSilent` 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다.  예를 들면 다음과 같습니다.
+B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예를 들어:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -157,7 +156,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 대신 `AADB2C90118` 오류 코드가 앱에 반환됩니다. 앱은 암호를 재설정 하는 특정 사용자 흐름을 실행 하 여이 오류 코드를 처리 해야 합니다.
 
-암호 다시 설정 오류 코드를 catch 하기 위해 내에서 다음 구현을 사용할 수 있습니다 `AuthenticationCallback`.
+암호 다시 설정 오류 코드를 catch 하기 위해 내에서 다음 구현을 사용할 수 있습니다 `AuthenticationCallback` .
 
 ```java
 new AuthenticationCallback() {
@@ -185,7 +184,7 @@ new AuthenticationCallback() {
 
 ## <a name="use-iauthenticationresult"></a>IAuthenticationResult 사용
 
-토큰 획득이 성공 하면 `IAuthenticationResult` 개체를 반환 합니다. 여기에는 액세스 토큰, 사용자 클레임 및 메타 데이터가 포함 됩니다.
+토큰 획득이 성공 하면 개체를 반환 `IAuthenticationResult` 합니다. 여기에는 액세스 토큰, 사용자 클레임 및 메타 데이터가 포함 됩니다.
 
 ### <a name="get-the-access-token-and-related-properties"></a>액세스 토큰 및 관련 속성 가져오기
 
@@ -227,15 +226,15 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken 클레임
 
-IdToken에서 반환 된 클레임은 MSAL이 아니라 STS (보안 토큰 서비스)에 의해 채워집니다. 사용 된 IdP (id 공급자)에 따라 일부 클레임이 없을 수도 있습니다. 일부 IdPs는 현재 클레임을 `preferred_username` 제공 하지 않습니다. 이 클레임은 캐싱에 대해 MSAL에서 사용 되므로 자리 표시자 값 `MISSING FROM THE TOKEN RESPONSE`가 대신 사용 됩니다. B2C IdToken 클레임에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims)를 참조 하세요.
+IdToken에서 반환 된 클레임은 MSAL이 아니라 STS (보안 토큰 서비스)에 의해 채워집니다. 사용 된 IdP (id 공급자)에 따라 일부 클레임이 없을 수도 있습니다. 일부 IdPs는 현재 클레임을 제공 하지 않습니다 `preferred_username` . 이 클레임은 캐싱에 대해 MSAL에서 사용 되므로 자리 표시자 값가 `MISSING FROM THE TOKEN RESPONSE` 대신 사용 됩니다. B2C IdToken 클레임에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims)를 참조 하세요.
 
 ## <a name="managing-accounts-and-policies"></a>계정 및 정책 관리
 
-B2C는 각 정책을 별도의 기관으로 처리 합니다. 따라서 각 정책에서 반환 된 액세스 토큰, 새로 고침 토큰 및 ID 토큰은 서로 교환할 수 없습니다. 즉, 각 정책은 다른 정책을 호출 `IAccount` 하는 데 사용할 수 없는 토큰을 포함 하는 별도의 개체를 반환 합니다.
+B2C는 각 정책을 별도의 기관으로 처리 합니다. 따라서 각 정책에서 반환 된 액세스 토큰, 새로 고침 토큰 및 ID 토큰은 서로 교환할 수 없습니다. 즉, 각 정책은 `IAccount` 다른 정책을 호출 하는 데 사용할 수 없는 토큰을 포함 하는 별도의 개체를 반환 합니다.
 
-각 정책은 각 사용자 `IAccount` 의 캐시에를 추가 합니다. 사용자가 응용 프로그램에 로그인 하 고 두 개의 정책을 호출 하는 경우 두 개의 `IAccount`를 갖게 됩니다. 캐시에서이 사용자를 제거 하려면 각 정책에 대해 `removeAccount()` 를 호출 해야 합니다.
+각 정책은 `IAccount` 각 사용자의 캐시에를 추가 합니다. 사용자가 응용 프로그램에 로그인 하 고 두 개의 정책을 호출 하는 경우 두 개의를 갖게 됩니다 `IAccount` . 캐시에서이 사용자를 제거 하려면 `removeAccount()` 각 정책에 대해를 호출 해야 합니다.
 
-에서 정책 `acquireTokenSilent`에 대 한 토큰을 갱신 하는 경우 정책 `IAccount` 에 대 한 이전 호출에서 반환 된 것과 `AcquireTokenSilentParameters`동일한를 제공 합니다. 다른 정책에서 반환 된 계정을 제공 하면 오류가 발생 합니다.
+에서 정책에 대 한 토큰을 갱신 하는 경우 정책에 대 한 `acquireTokenSilent` `IAccount` 이전 호출에서 반환 된 것과 동일한를 제공 `AcquireTokenSilentParameters` 합니다. 다른 정책에서 반환 된 계정을 제공 하면 오류가 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263764"
 ---
 # <a name="notification-hubs-security"></a>Notification Hubs 보안
@@ -48,7 +47,7 @@ Notification Hubs는 SAS ( *공유 액세스 서명* ) 라는 엔터티 수준 �
 
 다른 엔터티와 마찬가지로 알림 허브 작업은 **수신**, **보내기**및 **관리**의 세 가지 보안 클레임에 대해 허용 됩니다.
 
-| 클레임   | Description                                          | 허용되는 연산 |
+| 클레임   | 설명                                          | 허용되는 연산 |
 | ------- | ---------------------------------------------------- | ------------------ |
 | 수신 대기  | 단일 등록 만들기/업데이트, 읽기 및 삭제 | 등록 만들기/업데이트<br><br>등록 읽기<br><br>핸들에 대한 모든 등록 읽기<br><br>등록 삭제 |
 | 보내기    | 알림 허브로 메시지 보내기                | 메시지 보내기 |
@@ -68,7 +67,7 @@ Notification Hubs는 허브에 직접 구성 된 공유 키로 생성 된 SAS �
 2. **모든 리소스**를 선택합니다.
 3. 클레임을 만들거나 SAS 키를 보려는 알림 허브의 이름을 선택 합니다.
 4. 왼쪽 메뉴에서 **액세스 정책**을 선택 합니다.
-5. 새 **정책** 을 선택 하 여 새 보안 클레임을 만듭니다. 정책에 이름을 지정 하 고 부여할 사용 권한을 선택 합니다. 그런 다음 **확인**을 선택합니다.
+5. 새 **정책** 을 선택 하 여 새 보안 클레임을 만듭니다. 정책에 이름을 지정 하 고 부여할 사용 권한을 선택 합니다. 그런 다음, **확인**을 선택합니다.
 6. 새 SAS 키를 포함 한 전체 연결 문자열은 액세스 정책 창에 표시 됩니다. 나중에 사용 하기 위해이 문자열을 클립보드로 복사할 수 있습니다.
 
 특정 정책에서 SAS 키를 추출 하려면 원하는 SAS 키가 포함 된 정책 옆의 **복사** 단추를 선택 합니다. 이 값을 임시 위치에 붙여넣은 다음, 연결 문자열의 SAS 키 부분을 복사 합니다. 이 예제에서는 **mytestnamespace1**라는 Notification Hubs 네임 스페이스와 **policy2**이라는 정책을 사용 합니다. SAS 키는 **Sharedaccesskey**에서 지정한 문자열의 끝 부분에 있는 값입니다.

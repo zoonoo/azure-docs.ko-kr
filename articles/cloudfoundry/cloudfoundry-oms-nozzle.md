@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277351"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
@@ -67,7 +66,7 @@ UAA 명령줄 클라이언트를 설정 하기 전에 RubyGems가 설치 되어 
    * **위치**: 위치를 입력합니다.
    * **가격 책정 계층**: **확인**을 클릭하여 완료합니다.
 
-자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조 하세요.
+자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조하세요.
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 모니터링 템플릿을 통해 Log Analytics 작업 영역을 만들려면:
 
@@ -183,7 +182,7 @@ Log Analytics 작업 영역을 수동으로 만든 경우 다음 단계에 따�
 
 ### <a name="1-import-the-oms-view"></a>1. OMS 보기 가져오기
 
-OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 이동 하 여 omsview 파일 중 하나를 선택 합니다. 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
+OMS 포털에서 **뷰 디자이너**가져오기 찾아보기로 이동 하 여  >  **Import**  >  **Browse**omsview 파일 중 하나를 선택 합니다. 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
 
 **뷰 디자이너**를 통해 새 뷰를 만들거나 이러한 뷰를 사용자 지정할 수 있습니다.
 
@@ -193,7 +192,7 @@ OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 �
 
 [경고를 작성](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)하고 필요에 따라 쿼리와 임계값을 사용자 지정할 수 있습니다. 권장되는 경고는 다음과 같습니다.
 
-| 검색 쿼리                                                                  | 경고 생성 조건 | Description                                                                       |
+| 검색 쿼리                                                                  | 경고 생성 조건 | 설명                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | 결과 수 < 1   | **bbs.Domain.cf-apps**는 cf-apps 도메인이 최신 상태인지 여부를 나타냅니다. 즉 Cloud Controller로부터의 CF App 요청이 실행을 위해 bbs.LRPsDesired(Diego에 적합한 AI)로 동기화되는지 여부를 나타냅니다. 수신되는 데이터가 없으면 지정한 기간에 cf-apps 도메인이 최신 상태가 아닌 것입니다. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | 결과 수 > 0   | Diego 셀의 경우 값이 0이면 정상 상태이고 1이면 비정상 상태입니다. 지정한 기간에 비정상 Diego 셀이 여러 개 검색되면 경고를 설정합니다. |

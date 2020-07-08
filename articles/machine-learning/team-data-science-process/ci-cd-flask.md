@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721832"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Azure Pipelines, Docker 및 Kubernetes를 사용 하 여 AI 앱에 대 한 CI/CD 파이프라인 만들기
@@ -60,7 +59,7 @@ GitHub에서 [소스 코드](https://github.com/Azure/DevOps-For-AI-Apps) 및 [�
 10. 앱에 대 한 사용자 요청은 DNS 서버를 통해 이동 합니다.
 11. DNS 서버는 부하 분산 장치에 요청을 전달 하 고 응답을 다시 사용자에 게 보냅니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [TDSP(Team Data Science Process)](/azure/machine-learning/team-data-science-process/)
 - [AML(Azure Machine Learning)](/azure/machine-learning/)

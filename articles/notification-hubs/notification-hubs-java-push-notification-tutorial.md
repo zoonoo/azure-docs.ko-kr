@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263866"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
@@ -316,7 +315,7 @@ Amazon Kindle Fire의 경우 예제:
     hub.sendNotification(n);
     ```
 
-* **OWA(Outlook Web Access)**
+* **Android**
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
@@ -374,7 +373,7 @@ Amazon Kindle Fire의 경우 예제:
 
 ## <a name="next-steps"></a><a name="next-steps"></a>다음 단계
 
-이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 수행할 수 있습니다.
+이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음과 같은 작업을 할 수 있습니다.
 
 * 전체 SDK 코드가 포함된 전체 [Java SDK]를 다운로드합니다.
 * 다음 샘플을 사용해 봅니다.

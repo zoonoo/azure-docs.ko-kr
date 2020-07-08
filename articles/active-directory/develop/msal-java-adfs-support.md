@@ -14,10 +14,9 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 3d834a8d1524595304c22fed9897094622dfd93f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696217"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Java 용 MSAL에서 Active Directory Federation Services 지원
@@ -32,7 +31,7 @@ Java 용 MSAL은 azure ad (관리 되는 사용자)에서 관리 되는 사용�
 
 ## <a name="acquire-a-token-interactively-for-a-federated-user"></a>페더레이션된 사용자에 대해 대화형으로 토큰 획득
 
-또는를 사용 `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` `AuthorizationCodeParameters` 하 여 또는 `DeviceCodeParameters`를 호출 하는 경우 사용자 환경은 일반적으로 다음과 같습니다.
+또는를 사용 하 여 또는를 호출 하는 경우 `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` `AuthorizationCodeParameters` `DeviceCodeParameters` 사용자 환경은 일반적으로 다음과 같습니다.
 
 1. 사용자가 자신의 계정 ID를 입력 합니다.
 2. Azure AD에는 "조직의 페이지로 이동"이 잠깐 표시 되 고 사용자는 id 공급자의 로그인 페이지로 리디렉션됩니다. 로그인 페이지는 일반적으로 조직의 로고를 사용 하 여 사용자 지정 됩니다.
@@ -44,7 +43,7 @@ Java 용 MSAL은 azure ad (관리 되는 사용자)에서 관리 되는 사용�
 
 ## <a name="acquire-a-token-via-username-and-password"></a>사용자 이름 및 암호를 통해 토큰 획득
 
-또는 `ConfidentialClientApplication.AcquireToken()` 와 함께 `PublicClientApplication.AcquireToken()` `IntegratedWindowsAuthenticationParameters` `UsernamePasswordParameters`또는를 사용 하 여 토큰을 획득 하는 경우 Java 용 msal은 사용자 이름에 따라 연락할 id 공급자를 가져옵니다. Java 용 MSAL은 id 공급자 로부터 [SAML 1.1 토큰](reference-saml-tokens.md) 토큰을 가져온 다음 JWT (JSON Web Token)를 반환 하는 Azure AD에 제공 합니다.
+또는와 함께 또는를 사용 하 여 토큰을 획득 하는 경우 `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` `IntegratedWindowsAuthenticationParameters` `UsernamePasswordParameters` Java 용 msal은 사용자 이름에 따라 연락할 id 공급자를 가져옵니다. Java 용 MSAL은 id 공급자 로부터 [SAML 1.1 토큰](reference-saml-tokens.md) 토큰을 가져온 다음 JWT (JSON Web Token)를 반환 하는 Azure AD에 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

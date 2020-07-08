@@ -9,10 +9,9 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76272089"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
@@ -101,7 +100,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 9. 새 폴더가 **데이터 저장소 브라우저**의 왼쪽 창에 표시됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. 업로드 아이콘 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) 을 클릭 하 고 **파일 업로드**를 선택 합니다.
+10. 업로드 아이콘을 클릭 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) 하 고 **파일 업로드**를 선택 합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. 다운로드한 VMDK 파일을 찾아서 가리킵니다. 두 가지 파일이 있습니다. 업로드할 파일을 선택합니다.
@@ -169,10 +168,10 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
+33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **Finish**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **마침**을 클릭합니다.
+34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **Finish**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
 35. 오른쪽 창에서 가상 컴퓨터를 선택한 상태에서 **요약** 탭으로 이동 합니다. 가상 컴퓨터에 대 한 설정을 검토 합니다.
@@ -237,7 +236,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 
 로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 다음 워크플로를 참조하세요.
 
-* 진단 테스트를 실행하여 [웹 UI 설정 문제를 해결](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)합니다.
+* 진단 테스트를 실행 하 여 [웹 UI 설정 문제를 해결](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)합니다.
 * [로그 패키지를 생성하고 로그 파일을 살펴봅니다](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>다음 단계

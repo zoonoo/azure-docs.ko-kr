@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76710342"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계
@@ -37,7 +36,7 @@ ms.locfileid: "76710342"
 * 모델 대상의 역할을 하며 관련 메트릭이 프로젝트의 성공 여부를 결정하는 데 사용되는 주요 변수를 지정합니다.
 * 비즈니스가 액세스할 수 있거나 가져와야 하는 관련 데이터 원본을 식별합니다.
 
-## <a name="how-to-do-it"></a>수행 방법
+## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 설명하는 두 가지 기본 작업은 다음과 같습니다. 
 
    * **목표 정의**: 고객 및 기타 이해 관계자와 협력하여 비즈니스 문제를 이해하고 파악합니다. 데이터 과학 기술이 목표로 삼을 수 있는 비즈니스 목표를 정의하는 질문을 작성합니다.
@@ -74,7 +73,7 @@ ms.locfileid: "76710342"
 
 예를 들어 문제를 해결하고 프로젝트 목표를 달성하기 위해 기존 시스템에서 다른 종류의 데이터를 더 수집하고 기록해야 한다고 사실을 확인할 수 있습니다. 이 경우 외부 데이터 원본을 찾거나 새 데이터를 수집하도록 시스템을 업데이트할 수 있습니다.
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 이 단계의 결과물은 다음과 같습니다.
 
    * 기본 [문서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): tdsp 프로젝트 구조 정의에서 표준 템플릿을 제공 합니다. 실무 문서입니다. 새로운 결과를 발견했으며 비즈니스 요구 사항이 달라질 때 프로젝트 전체에서 템플릿을 업데이트합니다. 검색 프로세스를 진행하면서 이 문서에서 반복적으로 더 자세히 추가하는 것이 핵심입니다. 고객 및 기타 이해 관계자가 변경 작업을 수행하도록 만들고 변경 이유를 명확하게 전달해야 합니다.  

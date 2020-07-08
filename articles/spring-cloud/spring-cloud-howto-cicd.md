@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: brendm
 ms.openlocfilehash: f329fb5472c5a2eab6f22a2e81b19d90e7045330
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76278521"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>Azure 스프링 클라우드 용 CI/CD
@@ -25,7 +24,7 @@ Azure DevOps 프로젝트에 대 한 Azure Resource Manager 서비스 연결을 
 
 ### <a name="deploy-artifacts"></a>아티팩트 배포
 
-일련의 `tasks`를 사용 하 여 프로젝트를 빌드하고 배포할 수 있습니다. 이 코드 조각은 먼저 응용 프로그램을 빌드하는 Maven 작업을 정의 하 고, Azure 스프링 클라우드 Azure CLI 확장을 사용 하 여 JAR 파일을 배포 하는 두 번째 작업을 정의 합니다.
+일련의를 사용 하 여 프로젝트를 빌드하고 배포할 수 있습니다 `tasks` . 이 코드 조각은 먼저 응용 프로그램을 빌드하는 Maven 작업을 정의 하 고, Azure 스프링 클라우드 Azure CLI 확장을 사용 하 여 JAR 파일을 배포 하는 두 번째 작업을 정의 합니다.
 
 ```yaml
 steps:

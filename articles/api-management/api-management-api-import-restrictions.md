@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
 ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513374"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
@@ -50,22 +49,22 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>OpenAPI 버전 3
 
--   여러 `servers` 개를 지정 하면 API Management에서 첫 번째 HTTPs URL을 선택 하려고 시도 합니다. HTTPs URL이 없으면 첫 번째 HTTP URL이 선택됩니다. HTTP URL도 없으면 서버 URL은 비어 있게 됩니다.
+-   여러 개 `servers` 를 지정 하면 API Management에서 첫 번째 HTTPS URL을 선택 하려고 시도 합니다. HTTPs URL이 없으면 첫 번째 HTTP URL이 선택됩니다. HTTP URL도 없으면 서버 URL은 비어 있게 됩니다.
 -   `Examples`는 지원 되지 않지만 `example` 는입니다.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI 가져오기, 업데이트 및 내보내기 메커니즘
 
 ### <a name="add-new-api-via-openapi-import"></a>OpenAPI 가져오기를 통해 새 API 추가
 
-OpenAPI 문서에 있는 각 작업에 대해 Azure 리소스 이름 및 표시 이름을 각각 및 `operationId` `summary` 로 설정 하 여 새 작업이 생성 됩니다. `operationId`값은 아래에 설명 된 규칙에 따라 정규화 됩니다. `summary`값은 있는 그대로 가져오고 길이는 300 자로 제한 됩니다.
+OpenAPI 문서에 있는 각 작업에 대해 Azure 리소스 이름 및 표시 이름을 각각 및로 설정 하 여 새 작업이 생성 `operationId` 됩니다 `summary` . `operationId`값은 아래에 설명 된 규칙에 따라 정규화 됩니다. `summary`값은 있는 그대로 가져오고 길이는 300 자로 제한 됩니다.
 
-가 `operationId` 지정 되지 않은 경우 (즉, 존재 `null`하지 않거나, 비어 있지 않은 경우), HTTP 메서드와 경로 템플릿을 결합 하 여 Azure 리소스 이름 값이 생성 됩니다 ( `get-foo`예:).
+가 지정 되지 않은 경우 (즉, `operationId` 존재 하지 않거나, 비어 있지 않은 경우 `null` ), HTTP 메서드와 경로 템플릿을 결합 하 여 Azure 리소스 이름 값이 생성 됩니다 (예:) `get-foo` .
 
-가 `summary` 지정 되지 않은 경우 (즉, 없거나 비어 `null`있지 않은 경우) `display name` 값이로 `operationId`설정 됩니다. 을 `operationId` 지정 하지 않으면 HTTP 메서드와 경로 템플릿을 결합 하 여 표시 이름 값이 생성 됩니다 (예:) `Get - /foo`.
+가 지정 되지 않은 경우 (즉, 없거나 `summary` 비어 있지 않은 경우 `null` ) `display name` 값이로 설정 됩니다 `operationId` . 을 `operationId` 지정 하지 않으면 HTTP 메서드와 경로 템플릿을 결합 하 여 표시 이름 값이 생성 됩니다 (예:) `Get - /foo` .
 
 ### <a name="update-an-existing-api-via-openapi-import"></a>OpenAPI 가져오기를 통해 기존 API 업데이트
 
-가져오는 동안 기존 API는 OpenAPI 문서에 설명 된 API와 일치 하도록 변경 됩니다. OpenAPI 문서의 각 작업은 기존 작업의 Azure 리소스 이름과 해당 `operationId` 값을 비교 하 여 기존 작업과 일치 합니다.
+가져오는 동안 기존 API는 OpenAPI 문서에 설명 된 API와 일치 하도록 변경 됩니다. OpenAPI 문서의 각 작업은 기존 작업 `operationId` 의 Azure 리소스 이름과 해당 값을 비교 하 여 기존 작업과 일치 합니다.
 
 일치 하는 항목이 있으면 기존 작업의 속성이 "내부"로 업데이트 됩니다.
 
@@ -75,20 +74,20 @@ OpenAPI 문서에 있는 각 작업에 대해 Azure 리소스 이름 및 표시 
 
 가져오기를 보다 예측 가능 하 게 만들려면 다음 지침을 따르세요.
 
-- 모든 작업에 대해 `operationId` 속성을 지정 해야 합니다.
-- 초기 가져오기 후 `operationId` 에는 변경 하지 않습니다.
-- 및 HTTP `operationId` 메서드 또는 경로 템플릿을 동시에 변경 하지 마십시오.
+- `operationId`모든 작업에 대해 속성을 지정 해야 합니다.
+- `operationId`초기 가져오기 후에는 변경 하지 않습니다.
+- `operationId`및 HTTP 메서드 또는 경로 템플릿을 동시에 변경 하지 마십시오.
 
 ### <a name="export-api-as-openapi"></a>OpenAPI로 API 내보내기
 
-각 작업에 대해 Azure 리소스 이름을로 내보내고 `operationId`표시 이름을로 내보냅니다. `summary`
+각 작업에 대해 Azure 리소스 이름을로 내보내고 `operationId` 표시 이름을로 내보냅니다 `summary` .
 OperationId의 정규화 규칙
 
 - 소문자로 변환합니다.
-- 영숫자가 아닌 문자의 각 시퀀스를 단일 대시로 바꿉니다. 예를 `GET-/foo/{bar}?buzz={quix}` 들어는로 `get-foo-bar-buzz-quix-`변환 됩니다.
-- 예를 들어 양쪽에서 대시를 트리밍하는 `get-foo-bar-buzz-quix-` 경우`get-foo-bar-buzz-quix`
+- 영숫자가 아닌 문자의 각 시퀀스를 단일 대시로 바꿉니다. 예를 들어 `GET-/foo/{bar}?buzz={quix}` 는로 변환 됩니다 `get-foo-bar-buzz-quix-` .
+- 예를 들어 양쪽에서 대시를 트리밍하 `get-foo-bar-buzz-quix-` 는 경우`get-foo-bar-buzz-quix`
 - 크기를 조정 하면 76 문자, 4 자는 리소스 이름에 대 한 최대 한도 미만으로 잘립니다.
-- 필요한 경우 중복 제거 접미사에 대해 나머지 네 문자를 형식으로 사용 `-1, -2, ..., -999`합니다.
+- 필요한 경우 중복 제거 접미사에 대해 나머지 네 문자를 형식으로 사용 `-1, -2, ..., -999` 합니다.
 
 
 ## <a name="wsdl"></a><a name="wsdl"> </a>WSDL

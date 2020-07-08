@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.openlocfilehash: 916c54c3739d1164e4e9c1db67aa1f4e0dbd0c6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157793"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>HDInsight 4.0 Apache Spark에 Azure HDInsight 3.6 Apache Storm 마이그레이션
@@ -39,7 +38,7 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 |---|---|---|---|
 |**이벤트 처리 보장**|최소 한 번 <br> 정확히 한 번 (Trident) |[정확히 한 번](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[정확히 한 번](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**처리 모델**|실시간 <br> 마이크로 일괄 처리 (Trident) |마이크로 일괄 처리 |마이크로 일괄 처리 |
-|**이벤트 시간 지원**|[예](https://storm.apache.org/releases/2.0.0/Windowing.html)|예|[예](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
+|**이벤트 시간 지원**|[예](https://storm.apache.org/releases/2.0.0/Windowing.html)|아니요|[예](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**언어**|Java 등|Scala, Java, Python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark 스트리밍 및 Spark 구조적 스트리밍
@@ -57,7 +56,7 @@ Spark 구조적 스트리밍은 Spark 스트리밍 (i 스트림)을 대체 합�
 
 Storm 토폴로지는 DAG(방향성 비순환 그래프)에서 정렬된 여러 구성 요소로 구성됩니다. 그래프의 구성 요소 간에 데이터가 흐릅니다. 각 구성 요소는 하나 이상의 데이터 스트림을 사용하며, 선택적으로 하나 이상의 스트림을 내보낼 수 있습니다.
 
-|구성 요소 |Description |
+|구성 요소 |설명 |
 |---|---|
 |Spout|데이터를 토폴로지로 가져옵니다. 하나 이상의 스트림을 토폴로지에 내보냅니다.|
 |화살표|Spout 또는 다른 볼트에서 내보낸 스트림을 사용 합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 스토리지에 데이터를 쓰는 역할을 수행합니다.|
@@ -67,7 +66,7 @@ Storm 토폴로지는 DAG(방향성 비순환 그래프)에서 정렬된 여러 
 
 스톰은 다음 세 가지 디먼 구성 되어 있으며,이로 인해 스톰 클러스터가 작동 합니다.
 
-|데몬 |Description |
+|데몬 |설명 |
 |---|---|
 |Nimbus|Hadoop JobTracker와 마찬가지로 클러스터 주위에 코드를 배포 하 고 컴퓨터에 작업을 할당 하 고 오류를 모니터링 하는 일을 담당 합니다.|
 |Zookeeper|클러스터 조정에 사용 됩니다.|

@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721356"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process 그룹 관리자 작업
@@ -51,13 +50,13 @@ ms.locfileid: "76721356"
    
 1. 서비스 약관, 개인 정보 취급 방침 및 규정 준수에 동의 하 라는 메시지가 표시 되 면 **계속**을 선택 합니다.
    
-1. 등록 대화 상자에서 Azure DevOps 조직의 이름을 지정 하 고 호스트 지역 할당을 수락 하거나 드롭다운 및 다른 지역을 선택 합니다. 그런 다음 **계속**을 선택합니다. 
+1. 등록 대화 상자에서 Azure DevOps 조직의 이름을 지정 하 고 호스트 지역 할당을 수락 하거나 드롭다운 및 다른 지역을 선택 합니다. 그런 다음, **계속**을 선택합니다. 
 
 1. **시작할 프로젝트 만들기**에서 *groupcommon*을 입력 하 고 **프로젝트 만들기**를 선택 합니다. 
    
    ![프로젝트 만들기](./media/group-manager-tasks/create-project.png)
 
-**Groupcommon** 프로젝트 **요약** 페이지가 열립니다. 페이지 URL은 *https\//\<: servername>/\<조직 이름>/tgcommon*입니다.
+**Groupcommon** 프로젝트 **요약** 페이지가 열립니다. 페이지 URL은 *https: \/ / \<servername> / \<organization-name> /groupcommon*입니다.
 
 ![프로젝트 요약 페이지](./media/group-manager-tasks/project-summary.png)
 
@@ -121,13 +120,13 @@ TDSP 팀 리포지토리를 가져오려면:
    
    ![가져오기 선택](./media/group-manager-tasks/import-repo.png)
    
-1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**에 대해 *https\/:/github.com/Azure/Azure-TDSP-ProjectTemplate.git* 를 입력 합니다. 그런 다음 **가져오기**를 선택 합니다. Microsoft TDSP 팀 ProjectTemplate 리포지토리의 콘텐츠를 GroupProjectTemplate 리포지토리로 가져옵니다. 
+1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**에 대해 *https: \/ /github.com/Azure/Azure-TDSP-ProjectTemplate.git* 를 입력 합니다. 그런 다음 **가져오기**를 선택 합니다. Microsoft TDSP 팀 ProjectTemplate 리포지토리의 콘텐츠를 GroupProjectTemplate 리포지토리로 가져옵니다. 
    
    ![Microsoft TDSP 팀 리포지토리 가져오기](./media/group-manager-tasks/import-repo-2.png)
    
 1. **리포지토리** 페이지의 맨 위에서 드롭다운 하 고 **grouputilities** 리포지토리를 선택 합니다.
    
-1. 가져오기 프로세스를 반복 하 여 Microsoft TDSP 팀 **유틸리티** 리포지토리 ( *https:\//Github.com/Azure/Azure-TDSP-Utilities.git*)의 콘텐츠를 **grouputilities** 리포지토리로 가져옵니다. 
+1. 가져오기 프로세스를 반복 하 여 Microsoft TDSP 팀 **유틸리티** 리포지토리 ( *https: \/ /github.com/Azure/Azure-TDSP-Utilities.git*)의 콘텐츠를 **grouputilities** 리포지토리로 가져옵니다. 
    
 이제 두 개의 그룹 리포지토리에는 Microsoft TDSP 팀의 해당 하는 리포지토리에서 모든 파일이 포함 *됩니다.* 
 
@@ -215,7 +214,7 @@ git push
 ```
 
 > [!NOTE]
-> Git 리포지토리에 처음 커밋하는 경우 `git commit` 명령을 실행 하기 전에 전역 매개 변수 *user.name* 및 *user. email* 을 구성 해야 할 수 있습니다. 다음 두 명령을 실행합니다.
+> Git 리포지토리에 처음 커밋하는 경우 명령을 실행 하기 전에 전역 매개 변수 *user.name* 및 *user. email* 을 구성 해야 할 수 있습니다. `git commit` 다음 두 명령을 실행합니다.
 > 
 > `git config --global user.name <your name>`
 > 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76312263"
 ---
 # <a name="evaluate-recommender"></a>추천 평가
@@ -65,7 +64,7 @@ ms.locfileid: "76312263"
 -   세 번째 열은 해당 사용자-항목 등급을 포함 합니다.  
   
 > [!IMPORTANT] 
-> 평가에 성공 하려면 열 이름이 각각 `User`, `Item`및 `Rating`여야 합니다.  
+> 평가에 성공 하려면 열 이름이 `User` 각각, 및 여야 합니다 `Item` `Rating` .  
   
 추천 평가는 "그라운드" 데이터 집합의 등급을 점수가 매겨진 데이터 집합의 예측 등급과 비교 합니다. 그런 다음 평균 절대 오차 (MAE)와 근본 평균 제곱 오차 (RMSE)를 계산 합니다.
 
@@ -81,7 +80,7 @@ ms.locfileid: "76312263"
 이 데이터 집합을 연결 하기 전에 가장 관련성이 높은 항목을 먼저 가져오도록 데이터 집합을 정렬 하는 것이 좋습니다.  
 
 > [!IMPORTANT] 
-> 추천 평가가 작동 하려면 열 `User`이름이, `Item 1`, `Item 2`등 `Item 3` 이어야 합니다.  
+> 추천 평가가 작동 하려면 열 이름이 `User` ,, 등 이어야 합니다 `Item 1` `Item 2` `Item 3` .  
   
 추천 평가는 평균 정규화 된 NDCG (할인 된 누적 획득)를 계산 하 고 출력 데이터 집합에 반환 합니다.  
   
@@ -90,4 +89,4 @@ ms.locfileid: "76312263"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

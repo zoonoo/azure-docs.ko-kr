@@ -17,10 +17,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548869"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
@@ -148,7 +147,7 @@ SRE는 리소스 키트 도구 이며 Azure AD Connect 동기화와 함께 설�
 
 동기화 규칙에는 설명, 범위 지정 필터, 조인 규칙 및 변환의 네 가지 구성 섹션이 있습니다.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 첫 번째 섹션은 이름 및 설명과 같은 기본 정보를 제공합니다.
 
 ![동기화 규칙 편집기의 설명 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)

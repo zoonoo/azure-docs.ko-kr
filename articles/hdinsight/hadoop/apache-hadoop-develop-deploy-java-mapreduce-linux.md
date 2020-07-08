@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/16/2020
 ms.openlocfilehash: a37a8bb45c11d5b74f3059a153806e3d083cf452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76311957"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발
 
 Apache Maven을 사용하여 Java 기반 MapReduce 애플리케이션을 만든 다음, Azure HDInsight의 Hadoop으로 실행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)입니다.
 
@@ -44,13 +43,13 @@ cd C:\HDI
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    이 명령은 `artifactID` 매개 변수에 지정 된 이름으로 디렉터리를 만듭니다 (이 예제에서는**wordcountjava** ). 이 디렉터리에는 다음 항목이 포함 됩니다.
+    이 명령은 매개 변수에 지정 된 이름으로 디렉터리를 만듭니다 `artifactID` (이 예제에서는**wordcountjava** ). 이 디렉터리에는 다음 항목이 포함 됩니다.
 
     * `pom.xml` - [프로젝트 개체 모델(POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
     * src\main\java\org\apache\hadoop\examples: 응용 프로그램 코드를 포함 합니다.
     * src\test\java\org\apache\hadoop\examples: 응용 프로그램에 대 한 테스트를 포함 합니다.
 
-1. 생성 된 예제 코드를 제거 합니다. 다음 명령을 입력 `App.java` 하 여 생성 된 `AppTest.java`테스트 및 응용 프로그램 파일을 삭제 합니다.
+1. 생성 된 예제 코드를 제거 합니다. `AppTest.java` `App.java` 다음 명령을 입력 하 여 생성 된 테스트 및 응용 프로그램 파일을 삭제 합니다.
 
     ```cmd
     cd wordcountjava
@@ -60,7 +59,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>프로젝트 개체 모델 업데이트
 
-pom.xml 파일에 대한 전체 참조를 보려면 https://maven.apache.org/pom.html을 참조하세요. 아래 `pom.xml` 명령을 입력 하 여를 엽니다.
+pom.xml 파일에 대한 전체 참조를 보려면 https://maven.apache.org/pom.html을 참조하세요. `pom.xml`아래 명령을 입력 하 여를 엽니다.
 
 ```cmd
 notepad pom.xml
@@ -68,7 +67,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>종속성 추가
 
-에서 `pom.xml` `<dependencies>` 섹션에 다음 텍스트를 추가 합니다.
+에서 `pom.xml` 섹션에 다음 텍스트를 추가 합니다 `<dependencies>` .
 
 ```xml
 <dependency>
@@ -102,7 +101,7 @@ notepad pom.xml
 
 Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 지정할 수 있습니다. 이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다.
 
-`pom.xml` 파일에 다음 코드를 추가 하 고 파일을 저장 한 후 닫습니다. 이 텍스트는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어 `</dependencies>`와 `</project>` 사이에 있어야 합니다.
+파일에 다음 코드를 추가 하 고 `pom.xml` 파일을 저장 한 후 닫습니다. 이 텍스트는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어 `</dependencies>`와 `</project>` 사이에 있어야 합니다.
 
 ```xml
 <build>
@@ -147,7 +146,7 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 
 ## <a name="create-the-mapreduce-application"></a>MapReduce 애플리케이션 만들기
 
-1. 다음 명령을 입력 하 여 새 파일 `WordCount.java`을 만들고 엽니다. 프롬프트에서 **예** 를 선택 하 여 새 파일을 만듭니다.
+1. 다음 명령을 입력 하 여 새 파일을 만들고 엽니다 `WordCount.java` . 프롬프트에서 **예** 를 선택 하 여 새 파일을 만듭니다.
 
     ```cmd
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java

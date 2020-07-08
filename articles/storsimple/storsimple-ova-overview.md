@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76273881"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
@@ -69,7 +68,7 @@ StorSimple은 애플리케이션을 수정하지 않고 사용자와 서버를 �
 
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-|시나리오     |워크로드     |지원됨      |제한               | 적용 가능한 버전|
+|시나리오     |작업     |지원됨      |제한 사항               | 적용 가능한 버전|
 |-------------|-------------|---------------|---------------------------|--------------------|
 |원격 사무실/지사(ROBO)  |파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
 |클라우드 보관  |보관 파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |

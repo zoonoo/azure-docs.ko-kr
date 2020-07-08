@@ -12,10 +12,9 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76046293"
 ---
 # <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Azure Container Instances 배포 및 관리
@@ -31,7 +30,7 @@ Logic Apps 트리거에 대 한 응답으로 컨테이너 작업 실행과 같�
 
 이 커넥터는 작업만 제공 하므로 논리 앱을 시작 하려면 **되풀이** 트리거와 같은 별도의 트리거를 사용 하 여 정기적 일정에 따라 컨테이너 작업을 실행 합니다. 또는 Outlook 전자 메일 도착과 같은 이벤트 후에 컨테이너 그룹 배포를 트리거해야 할 수도 있습니다. 
 
-논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md) 을 검토 하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -54,7 +53,7 @@ Logic Apps 트리거에 대 한 응답으로 컨테이너 작업 실행과 같�
      또는
 
    * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. 검색 상자에 필터로 "컨테이너 인스턴스"를 입력 합니다. 작업 목록 아래에서 원하는 Azure Container Instance 커넥터 작업을 선택 합니다.
 

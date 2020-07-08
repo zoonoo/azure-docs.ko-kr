@@ -4,10 +4,9 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705448"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
@@ -49,7 +48,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
    ![백업 정책 선택](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. **백업 사용**을 클릭합니다. 이렇게 하면 백업 정책이 VM에 연결됩니다.
+7. **백업 사용**을 클릭 합니다. 이렇게 하면 백업 정책이 VM에 연결됩니다.
 
     ![Backup 사용 단추](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
@@ -64,7 +63,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
 ## <a name="run-a-backup-immediately"></a>백업 즉시 실행
 
-1. 즉시 백업을 실행 하려면 VM 메뉴 **에서 backup** > **backup**을 클릭 합니다.
+1. 즉시 백업을 실행 하려면 VM 메뉴 **에서 backup**  >  **backup**을 클릭 합니다.
 
     ![백업 실행](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
@@ -79,11 +78,11 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 이 문서의 지침에 따라 Azure Backup Recovery Services 자격 증명 모음을 설정하고 자격 증명 모음에서 백업을 사용하도록 설정하여 Azure VM에 대해 백업을 설정합니다.
 
 >[!NOTE]
-> **이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.**
+> **이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.**
 >
->현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 백업 및 복원 요구에 효율적이 고 비용 효율적인 솔루션을 제공 합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크의 데이터가 포함 되어 있으므로 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음 둘 다의 복원에 적용 됩니다.
+>현재 Azure Backup은 Virtual Machine 백업 솔루션을 함께 사용하여 VM의 모든 디스크(운영 체제 및 데이터)를 백업하는 작업을 지원합니다. 디스크 제외 기능을 사용하면 VM의 여러 데이터 디스크에서 하나 또는 여러 개를 백업하는 옵션을 사용할 수 있습니다. 이는 사용자의 백업 및 복원 요구 사항을 충족하는 능률적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함된 디스크의 데이터가 포함되므로 복원 작업을 수행하는 동안 지정된 복구 지점에서 복원된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅샷과 자격 증명 모음의 복원 모두에 적용됩니다.
 >
->**미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com**
+>**미리 보기에 가입하려면 AskAzureBackupTeam@microsoft.com으로 문의해 주세요.**
 
 ## <a name="next-steps"></a>다음 단계
 

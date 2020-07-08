@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981925"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
@@ -23,7 +22,7 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **Basic** | **일반 용도** | **메모리에 최적화** |
+| **기능** | **기본** | **일반 용도** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |

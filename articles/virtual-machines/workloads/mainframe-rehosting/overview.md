@@ -11,10 +11,9 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76289801"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
@@ -76,7 +75,7 @@ IBM DB2 pureScale 환경은 Azure에 대 한 데이터베이스 클러스터를 
 
 메인프레임 워크 로드를 Azure IaaS (infrastructure as a service)로 마이그레이션하는 경우 Azure Vm을 포함 하 여 여러 유형의 주문형 확장 컴퓨팅 리소스에서 선택할 수 있습니다. Azure는 다양 한 [Linux](/azure/virtual-machines/linux/overview) 및 [Windows](/azure/virtual-machines/windows/overview) vm을 제공 합니다.
 
-### <a name="compute"></a>컴퓨팅
+### <a name="compute"></a>Compute
 
 Azure 계산 전원은 잘를 메인프레임 용량과 비교 합니다. 메인프레임 워크 로드를 Azure로 이동 하는 것을 고려 하는 경우 100만 명령 (MIPS)의 메인프레임 메트릭을 가상 Cpu와 비교 합니다. 
 

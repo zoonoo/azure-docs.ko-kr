@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981632"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
@@ -35,7 +34,7 @@ C# 토폴로지도 .NET 4.5를 대상으로 해야 합니다.
 
 ## <a name="how-to-work-with-event-hubs"></a>Event Hubs 작동 방법
 
-Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 있는 Java 구성 요소 집합을 제공합니다. 에서 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)이러한 구성 요소의 HDInsight 3.6 호환 버전을 포함 하는 JAR (Java archive) 파일을 찾을 수 있습니다.
+Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 있는 Java 구성 요소 집합을 제공합니다. 에서 이러한 구성 요소의 HDInsight 3.6 호환 버전을 포함 하는 JAR (Java archive) 파일을 찾을 수 있습니다 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) .
 
 > [!IMPORTANT]  
 > 구성 요소는 Java로 작성되지만 C# 토폴로지에서 쉽게 사용할 수 있습니다.
@@ -113,7 +112,7 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-event-hubs-components"></a>Event Hubs 구성 요소 다운로드
 
-에서 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)Event Hubs spout 및 볼트 구성 요소를 다운로드 합니다.
+에서 Event Hubs spout 및 볼트 구성 요소를 다운로드 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 합니다.
 
 `eventhubspout`라는 디렉터리를 만들고 이 디렉터리에 파일을 저장합니다.
 
@@ -123,7 +122,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가** 를 선택 하 여 다음 정책을 만듭니다.
 
-   | 속성 | 사용 권한 |
+   | 이름 | 사용 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |
@@ -140,7 +139,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 3. **EventHubExample**를 엽니다. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | 키 | 값 |
+   | Key | 값 |
    | --- | --- |
    | EventHubPolicyName |기록기(*보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |기록기 정책에 대한 키 |
@@ -156,7 +155,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 2. **EventHubReader**에 대한 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | 키 | 값 |
+   | Key | 값 |
    | --- | --- |
    | EventHubPolicyName |판독기(*수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |판독기 정책에 대한 키 |

@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720489"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 배포 단계
@@ -33,10 +32,10 @@ ms.locfileid: "76720489"
 ![TDSP 수명 주기](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>목표
+## <a name="goal"></a>Goal
 데이터 파이프라인이 포함된 모델을 최종 사용자 승인을 위해 프로덕션 또는 이와 유사한 환경에 배포합니다. 
 
-## <a name="how-to-do-it"></a>수행 방법
+## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 처리되는 주요 작업은 다음과 같습니다.
 
 **모델 운영**: 모델 및 파이프라인을 프로덕션 또는 이와 유사한 환경에 애플리케이션을 사용하도록 배포합니다.
@@ -52,7 +51,7 @@ ms.locfileid: "76720489"
 
 Azure Machine Learning 웹 서비스를 사용하는 모델 운영의 예는 [Azure Machine Learning 웹 서비스 배포](../studio/deploy-a-machine-learning-web-service.md)를 참조하세요. 프로덕션 모델 및 배포되는 데이터 파이프라인에 원격 분석 및 모니터링을 구현하는 것이 좋습니다. 이 연습은 후속 시스템 상태 보고 및 문제 해결에 도움이 됩니다.  
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 
 * 시스템 상태 및 주요 메트릭을 표시하는 상태 대시보드
 * 배포 세부 정보가 포함된 최종 모델링 보고서
