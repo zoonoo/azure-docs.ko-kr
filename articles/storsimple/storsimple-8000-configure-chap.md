@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f0c022de69823aedbbb34eb369de350b4999c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514355"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 CHAP 구성
 
@@ -141,7 +141,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
 
-## <a name="additional-considerations"></a>기타 고려 사항
+## <a name="additional-considerations"></a>추가 고려 사항
 
 **빠른 연결** 기능은 CHAP를 사용할 수 있는 연결을 지원하지 않습니다. CHAP를 사용하도록 설정한 경우 **대상** 탭에 있는 **연결** 단추를 사용하여 대상에 연결해야 합니다.
 

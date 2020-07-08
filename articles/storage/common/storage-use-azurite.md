@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.topic: how-to
+ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512145"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Azurite 에뮬레이터를 사용 하 여 로컬 Azure Storage 개발 및 테스트 (미리 보기)
 
@@ -70,7 +70,7 @@ Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 �
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>NPM를 사용 하 여 Azurite 설치 및 실행
 
-이 설치 방법을 사용 하려면 [node.js 버전 8.0 이상이](https://nodejs.org) 설치 되어 있어야 합니다. Npm (node Package Manager)는 모든 node.js 설치에 포함 된 패키지 관리 도구입니다. Node.js를 설치한 후 다음 명령을 실행 하 여 `npm` Azurite를 설치 합니다.
+이 설치 방법을 사용 하려면 [Node.js 버전 8.0 이상 버전이](https://nodejs.org) 설치 되어 있어야 합니다. Npm (Node Package Manager)는 모든 Node.js 설치에 포함 된 패키지 관리 도구입니다. Node.js를 설치한 후 다음 명령을 실행 `npm` 하 여 Azurite를 설치 합니다.
 
 ```console
 npm install -g azurite
@@ -355,7 +355,7 @@ Azurite는 기본적으로 분 마다 사용자 지정 계정 이름과 키를 �
 
 ### <a name="connection-strings"></a>연결 문자열
 
-응용 프로그램에서 Azurite에 연결 하는 가장 쉬운 방법은 *UseDevelopmentStorage = true*바로 가기를 참조 하는 응용 프로그램의 구성 파일에서 연결 문자열을 구성 하는 것입니다. 다음은 *app.config* 파일에 있는 연결 문자열의 예입니다.
+응용 프로그램에서 Azurite에 연결 하는 가장 쉬운 방법은 *UseDevelopmentStorage = true*바로 가기를 참조 하는 응용 프로그램의 구성 파일에서 연결 문자열을 구성 하는 것입니다. *app.config* 파일에 있는 연결 문자열의 예는 다음과 같습니다.
 
 ```xml
 <appSettings>

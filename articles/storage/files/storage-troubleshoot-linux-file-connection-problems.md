@@ -3,16 +3,16 @@ title: Linux에서 Azure Files 문제 해결 | Microsoft Docs
 description: Linux에서 Azure Files 문제 해결
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512001"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -80,7 +80,7 @@ ms.locfileid: "80159492"
 
 Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
-**\<파일 이름> [사용 권한 거부 됨] 디스크 할당량이 초과 되었습니다.**
+**\<filename>[사용 권한 거부 됨] 디스크 할당량 초과**
 
 ### <a name="cause"></a>원인
 
@@ -106,14 +106,14 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 - copy 메서드를 다음과 같이 올바르게 사용합니다.
     - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 를 사용 합니다.
     - Cp 또는 dd를 병렬로 사용 하 여 복사 속도를 향상 시킬 수 있습니다. 스레드 수는 사용 사례 및 워크 로드에 따라 달라 집니다. 다음 예에서는 6을 사용 합니다. 
-    - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`를 사용 합니다.
+    - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` 를 사용 합니다.
     - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - 오픈 소스 타사 도구:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) -파일을 정렬 하 고 파티션으로 압축 합니다.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -fpart와 복사 도구를 사용 하 여 src_dir에서 dst_url로 데이터를 마이그레이션하는 여러 인스턴스를 생성 합니다.
         - GNU coreutils를 기반으로 하는 [다중](https://github.com/pkolano/mutil) 다중 스레드 cp 및 md5sum.
-- 모든 쓰기를 확장 하는 대신 파일 크기를 미리 설정 하면 파일 크기가 알려져 있는 시나리오에서 복사 속도를 향상 시키는 데 도움이 됩니다. 쓰기 확장을 피해 야 하는 경우 명령을 사용 `truncate - size <size><file>` 하 여 대상 파일 크기를 설정할 수 있습니다. `dd if=<source> of=<target> bs=1M conv=notrunc`그러면 대상 파일의 크기를 반복 해 서 업데이트 하지 않고 원본 파일이 복사 됩니다. 예를 들어 복사 하려는 모든 파일의 대상 파일 크기를 설정할 수 있습니다 (공유가/mnt/share 아래에 탑재 되어 있다고 가정).
+- 모든 쓰기를 확장 하는 대신 파일 크기를 미리 설정 하면 파일 크기가 알려져 있는 시나리오에서 복사 속도를 향상 시키는 데 도움이 됩니다. 쓰기 확장을 피해 야 하는 경우 명령을 사용 하 여 대상 파일 크기를 설정할 수 있습니다 `truncate - size <size><file>` . `dd if=<source> of=<target> bs=1M conv=notrunc`그러면 대상 파일의 크기를 반복 해 서 업데이트 하지 않고 원본 파일이 복사 됩니다. 예를 들어 복사 하려는 모든 파일의 대상 파일 크기를 설정할 수 있습니다 (공유가/mnt/share 아래에 탑재 되어 있다고 가정).
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - 그런 다음 쓰기를 병렬로 확장 하지 않고 파일을 복사 합니다.`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
@@ -206,7 +206,7 @@ Linux/Unix 플랫폼에서 파일 1 및 파일 2의 소유자가 다른 경우 *
 
 ### <a name="cause"></a>원인
 
-COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행됩니다. 이 명령은 또한 소유하지 않은 파일의 타임 스탬프를 유지하지 않습니다.
+COPYFILE의 force 플래그 **f** 는 Unix에서 **cp-p-f** 를 실행 하는 결과입니다. 이 명령은 또한 소유하지 않은 파일의 타임 스탬프를 유지하지 않습니다.
 
 ### <a name="workaround"></a>해결 방법
 

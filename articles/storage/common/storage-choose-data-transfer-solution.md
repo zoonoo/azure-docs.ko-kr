@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: df261dbf8af8ffdb4ccb10626594626150245748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514434"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>데이터 전송을 위한 Azure 솔루션 선택
 
@@ -35,7 +35,7 @@ ms.locfileid: "82176399"
 
     - **그래픽 인터페이스** - 때때로 몇 개의 파일만 전송하며 데이터 전송을 자동화하지 않아도 되는 경우 Azure Portal에서 Azure Storage Explorer, 웹 기반 탐색 도구 등의 그래픽 인터페이스 도구를 선택할 수 있습니다.
     - **스크립팅 또는 프로그래밍 방식 전송** - Microsoft에서 제공하는 최적화된 소프트웨어 도구를 사용하거나 REST API/SDK를 직접 호출할 수 있습니다. 사용 가능한 스크립팅 가능 도구는 AzCopy, Azure PowerShell 및 Azure CLI입니다. 프로그래밍 인터페이스의 경우 .NET, Java, Python, Node/JS, C++, Go, PHP 또는 Ruby용 SDK 중 하나를 사용합니다.
-    - **온-프레미스 디바이스** - 데이터 센터에 상주하며 네트워크를 통해 데이터 전송을 최적화하는 물리적 또는 가상 디바이스를 제공합니다. 이 디바이스는 자주 사용하는 파일의 로컬 캐시도 제공합니다. 물리적 디바이스는 Data Box Edge이고, 가상 디바이스는 Data Box Gateway입니다. 둘 다 온-프레미스에서 영구적으로 실행되며, 네트워크를 통해 Azure에 연결됩니다.
+    - **온-프레미스 디바이스** - 데이터 센터에 상주하며 네트워크를 통해 데이터 전송을 최적화하는 물리적 또는 가상 디바이스를 제공합니다. 이 디바이스는 자주 사용하는 파일의 로컬 캐시도 제공합니다. 물리적 장치는 Azure Stack Edge이 고 가상 장치는 Data Box Gateway입니다. 둘 다 온-프레미스에서 영구적으로 실행되며, 네트워크를 통해 Azure에 연결됩니다.
     - **관리되는 데이터 파이프라인** - 여러 Azure 서비스, 온-프레미스 또는 둘 다의 조합 간에 정기적으로 파일을 전송하려면 클라우드 파이프라인을 설정할 수 있습니다. Azure Data Factory를 사용하여 데이터 파이프라인을 설정 및 관리하고, 분석을 위해 데이터를 이동 및 변환합니다.
 
 다음 시각적 개체는 전송에 사용 가능한 네트워크 대역폭, 전송하려는 데이터 크기 및 전송 빈도에 따라 다양한 Azure 데이터 전송 도구를 선택하는 지침을 보여 줍니다.
@@ -72,12 +72,12 @@ Azure Portal에서 Azure Storage 계정으로 이동 하 여 **데이터 전송*
 
 - [Azure Storage Explorer 소개](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [AzCopy의 개요 읽기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
-- [빠른 시작: PowerShell을 사용 하 여 blob 업로드, 다운로드 및 나열](../blobs/storage-quickstart-blobs-powershell.md)
-- [빠른 시작: Azure CLI을 사용 하 여 blob 만들기, 다운로드 및 나열](../blobs/storage-quickstart-blobs-cli.md)
+- [빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열](../blobs/storage-quickstart-blobs-powershell.md)
+- [빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열](../blobs/storage-quickstart-blobs-cli.md)
 - 자세한 정보:
 
     - [오프라인 전송을 위한 Azure Data Box, Azure Data Box Disk 및 Azure Data Box Heavy](https://docs.microsoft.com/azure/databox/)
-    - [온라인 전송을 위한 Azure Data Box Gateway 및 Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/)
+    - [온라인 전송에 대해 Edge를 Azure Data Box Gateway 하 고 Azure Stack](https://docs.microsoft.com/azure/databox-online/)합니다.
 - [Azure Data Factory 알아보기](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
 - REST API를 사용하여 데이터 전송
 

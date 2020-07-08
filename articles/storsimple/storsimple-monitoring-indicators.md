@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60630612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512983"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>StorSimple 모니터링 표시기를 사용하여 디바이스 관리
 
@@ -227,19 +227,19 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 | SBB 모듈이 PCM 오류 발견 |오류 |S1 |모듈 결함 |
 | PCM 제거됨 |구성 오류 |없음 |모듈 결함 |
 | 인클로저 구성 오류 |결함 - 중요 |S1 |모듈 결함 |
-| 저온 경보 |Warning |S1 |모듈 결함 |
-| 고온 경보 |Warning |S1 |모듈 결함 |
+| 저온 경보 |경고 |S1 |모듈 결함 |
+| 고온 경보 |경고 |S1 |모듈 결함 |
 | 과열 경보 |결함 - 중요 |S1 |모듈 결함 |
 | I2C 버스 오류 |결함 - 중복 손실 |S1 |모듈 결함 |
 | Ops 패널 통신 오류(I2C) |결함 - 중요 |S1 |모듈 결함 |
 | 컨트롤러 오류 |결함 - 중요 |S1 |모듈 결함 |
 | SBB 인터페이스 모듈 결함 |결함 - 중요 |S1 |모듈 결함 |
 | SBB 인터페이스 모듈 결함 - 남은 기능 모듈 없음 |결함 - 중요 |S4 |모듈 결함 |
-| SBB 인터페이스 모듈 제거됨 |Warning |없음 |모듈 결함 |
+| SBB 인터페이스 모듈 제거됨 |경고 |없음 |모듈 결함 |
 | 드라이브 전원 컨트롤 결함 |경고 - 드라이브 전원 손실 없음 |S1 |모듈 결함 |
 | 드라이브 전원 컨트롤 결함 |결함 - 중요, 드라이브 전원 손실 |S1 |모듈 결함 |
-| 드라이브 제거됨 |Warning |없음 |모듈 결함 |
-| 전원 부족 |Warning |none |모듈 결함 |
+| 드라이브 제거됨 |경고 |없음 |모듈 결함 |
+| 전원 부족 |경고 |없음 |모듈 결함 |
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 하드웨어 구성 요소 및 상태](storsimple-8000-monitor-hardware-status.md)에 대해 자세히 알아보세요.

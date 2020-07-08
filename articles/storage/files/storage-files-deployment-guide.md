@@ -3,23 +3,23 @@ title: Azure Files를 배포하는 방법 | Microsoft Docs
 description: Azure Files를 배포하는 방법을 처음부터 끝까지 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510805"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
 
 이 문서의 단계를 수행하기 전에 [Azure Files 배포 계획](storage-files-planning.md)을 읽는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 이미 다음 단계를 완료했다고 가정합니다.
 
 - 원하는 지역에서 원하는 복원력 및 암호화 옵션을 사용하여 Azure Storage 계정을 만들었습니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.

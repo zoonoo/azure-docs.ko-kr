@@ -5,17 +5,17 @@ description: 가상 네트워크에서 저장소 계정에 안전 하 게 액세
 services: storage
 author: santoshc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513281"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점 사용
 
@@ -79,17 +79,17 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| 속성                                                  | Type  | 값                                                 |
+| 이름                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<저장소 서비스 공용 끝점\>                   |
-| \<저장소 서비스 공용 끝점\>                   | A     | \<저장소 서비스 공용 IP 주소\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
 앞에서 설명한 것 처럼 저장소 방화벽을 사용 하 여 공용 끝점을 통해 VNet 외부의 클라이언트에 대 한 액세스를 거부 하거나 제어할 수 있습니다.
 
 StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| 속성                                                  | Type  | 값                                                 |
+| 이름                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
@@ -103,7 +103,7 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 
 저장소 서비스에 대 한 개인 끝점의 권장 DNS 영역 이름은 다음과 같습니다.
 
-| 저장소 서비스        | 영역 이름                            |
+| 스토리지 서비스        | 영역 이름                            |
 | :--------------------- | :----------------------------------- |
 | Blob service           | `privatelink.blob.core.windows.net`  |
 | Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
@@ -114,7 +114,7 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 
 전용 끝점을 지원 하기 위해 자체 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure 가상 네트워크에서 리소스에 대한 이름 확인](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Azure 가상 네트워크의 리소스 이름 확인](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
 - [전용 끝점에 대 한 DNS 구성](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>가격 책정
@@ -137,9 +137,9 @@ Azure Storage에 대 한 개인 끝점에 대 한 다음과 같은 알려진 문
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>프라이빗 엔드포인트가 있는 서브넷의 네트워크 보안 그룹 규칙
 
-현재 개인 끝점에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙 및 사용자 정의 경로를 구성할 수 없습니다. 개인 끝점을 호스트 하는 서브넷에 적용 된 NSG 규칙은 개인 끝점에 적용 됩니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
+현재 개인 끝점에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙 및 사용자 정의 경로를 구성할 수 없습니다. 개인 끝점을 호스트 하는 서브넷에 적용 된 NSG 규칙은 개인 끝점 보다 다른 끝점 (예: Nic)에만 적용 됩니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage 방화벽 및 가상 네트워크 구성](storage-network-security.md)
-- [Blob 저장소에 대 한 보안 권장 사항](../blobs/security-recommendations.md)
+- [Blob Storage에 대한 보안 권장 사항](../blobs/security-recommendations.md)

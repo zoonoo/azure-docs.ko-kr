@@ -3,15 +3,15 @@ title: StorSimple 8000 시리즈 지원 패키지 만들기
 description: StorSimple 8000 시리즈 디바이스용 지원 패키지를 만들고, 암호 해독 및 편집하는 방법을 알아봅니다.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514045"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
 
@@ -23,7 +23,7 @@ StorSimple 지원 패키지는 StorSimple 디바이스 문제를 해결하는 �
 
 ## <a name="create-a-support-package"></a>지원 패키지 만들기
 
-경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 다음은 그 예입니다.
+경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 예를 들어:
 
 * Microsoft 지원과 공유하기 전에 로그 파일에서 중요한 정보를 제거해야 하는 경우
 * 연결 문제로 인해 패키지를 업로드하는 데 문제가 발생하는 경우
@@ -66,12 +66,12 @@ Export-HcsSupportPackage cmdlet으로 다음 매개 변수를 사용할 수 있�
 
 | 매개 변수 | 필수/선택 | 설명 |
 | --- | --- | --- |
-| `-Path` |필수 |지원 패키지가 배치된 네트워크 공유 폴더의 위치를 제공하는 데 사용합니다. |
-| `-EncryptionPassphrase` |필수 |지원 패키지를 암호화하기 위해 암호를 제공하는 데 사용합니다. |
-| `-Credential` |Optional |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
-| `-Force` |Optional |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
-| `-PackageTag` |Optional |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
-| `-Scope` |Optional |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller**를 지정합니다. |
+| `-Path` |필요한 공간 |지원 패키지가 배치된 네트워크 공유 폴더의 위치를 제공하는 데 사용합니다. |
+| `-EncryptionPassphrase` |필요한 공간 |지원 패키지를 암호화하기 위해 암호를 제공하는 데 사용합니다. |
+| `-Credential` |선택 사항 |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
+| `-Force` |선택 사항 |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
+| `-PackageTag` |선택 사항 |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
+| `-Scope` |선택 사항 |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller**를 지정합니다. |
 
 ## <a name="edit-a-support-package"></a>지원 패키지 편집
 

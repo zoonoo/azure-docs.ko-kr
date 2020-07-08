@@ -3,15 +3,15 @@ title: Azure HPC 캐시 데이터 수집-수동 복사
 description: Azure HPC 캐시에서 cp 명령을 사용 하 여 Blob 저장소 대상으로 데이터를 이동 하는 방법
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 1d5f8e6b59a4ae0149f219738952b47ce399c2ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a5fdc3b76c330619601e171c152d7a2e583ae90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514489"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 캐시 데이터 수집-수동 복사 방법
 
@@ -37,7 +37,7 @@ cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1
 
 파일 이름을 예측할 수 있는 경우 식을 사용 하 여 병렬 복사 스레드를 만들 수 있습니다.
 
-예를 들어 디렉터리에에서 `0001` 로 순차적으로 `1000`번호가 매겨진 1000 파일이 포함 되어 있는 경우 다음 식을 사용 하 여 각각 100 파일을 복사 하는 10 개의 병렬 스레드를 만들 수 있습니다.
+예를 들어 디렉터리에에서로 순차적으로 번호가 매겨진 1000 파일이 포함 되어 있는 경우 `0001` `1000` 다음 식을 사용 하 여 각각 100 파일을 복사 하는 10 개의 병렬 스레드를 만들 수 있습니다.
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -114,7 +114,7 @@ cp /mnt/source/file8* /mnt/destination3/ & \
 
 마지막으로, 클라이언트 기능에 도달한 경우 더 많은 복사 스레드 또는 추가 탑재 지점을 추가해도 추가 파일 수/초 또는 바이트 수/초가 증가하지 않습니다. 이 경우 자체의 파일 복사 프로세스 집합을 실행할 동일한 탑재 지점 집합을 사용하여 다른 클라이언트를 배포할 수 있습니다.
 
-예제:
+예:
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &

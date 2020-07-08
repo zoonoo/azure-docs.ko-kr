@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65204258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514292"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 웹 프록시 구성
 
@@ -87,7 +87,7 @@ ms.locfileid: "65204258"
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>cmdlet를 통해 웹 프록시를 구성하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    
@@ -109,7 +109,7 @@ ms.locfileid: "65204258"
 
 #### <a name="to-enable-web-proxy"></a>웹 프록시를 활성화하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
     `Enable-HcsWebProxy`
    

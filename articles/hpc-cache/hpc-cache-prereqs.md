@@ -3,19 +3,35 @@ title: Azure HPC 캐시 필수 조건
 description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: d7a5bfe56a17ecc2377be7b59dcbe3254d813a0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513245"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
 Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용자 환경이 이러한 요구 사항을 충족 하는지 확인 합니다.
+
+## <a name="video-overviews"></a>비디오 개요
+
+시스템의 구성 요소와 함께 작동 하는 데 필요한 항목에 대 한 간략 한 개요를 보려면 다음 비디오를 시청 하세요.
+
+비디오 이미지를 클릭 하거나 시청할 링크를 클릭 합니다.
+
+* [작동 방법](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) -Azure HPC 캐시가 저장소 및 클라이언트와 상호 작용 하는 방법을 설명 합니다.
+
+  [![비디오 미리 보기 이미지: Azure HPC 캐시: 작동 방법 (비디오 페이지를 방문 하려면 클릭)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+
+* [필수 조건](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) -NAS 저장소, Azure Blob storage, 네트워크 액세스 및 클라이언트 액세스를 위한 요구 사항 설명
+
+  [![비디오 미리 보기 이미지: Azure HPC 캐시: 필수 구성 요소 (비디오 페이지를 방문 하려면 클릭)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+
+이 문서의 나머지 부분에서 특정 권장 사항을 읽어 보세요.
 
 ## <a name="azure-subscription"></a>Azure 구독
 
@@ -103,7 +119,7 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
 
   저장소 시스템의 설정을 확인 하려면 다음 절차를 따르세요.
 
-  * 저장소 시스템 `rpcinfo` 에 명령을 실행 하 여 필요한 포트를 확인 합니다. 아래 명령은 포트를 나열 하 고 테이블에 관련 결과의 형식을 지정 합니다. ( *<storage_IP>* 용어 대신 시스템의 IP 주소를 사용 합니다.)
+  * `rpcinfo`저장소 시스템에 명령을 실행 하 여 필요한 포트를 확인 합니다. 아래 명령은 포트를 나열 하 고 테이블에 관련 결과의 형식을 지정 합니다. ( *<storage_IP>* 용어 대신 시스템의 IP 주소를 사용 합니다.)
 
     NFS 인프라가 설치 된 모든 Linux 클라이언트에서이 명령을 실행할 수 있습니다. 클러스터 서브넷 내에서 클라이언트를 사용 하는 경우 서브넷과 저장소 시스템 간의 연결을 확인 하는 데도 도움이 될 수 있습니다.
 
@@ -111,9 +127,9 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
-  ``rpcinfo`` 쿼리에서 반환 된 모든 포트가 Azure HPC 캐시의 서브넷에서 무제한 트래픽을 허용 하는지 확인 합니다.
+  쿼리에서 반환 된 모든 포트가 ``rpcinfo`` AZURE HPC 캐시의 서브넷에서 무제한 트래픽을 허용 하는지 확인 합니다.
 
-  * `rpcinfo` 명령을 사용할 수 없는 경우 일반적으로 사용 되는 포트에서 인바운드 및 아웃 바운드 트래픽을 허용 하는지 확인 합니다.
+  * 명령을 사용할 수 없는 경우 `rpcinfo` 일반적으로 사용 되는 포트에서 인바운드 및 아웃 바운드 트래픽을 허용 하는지 확인 합니다.
 
     | 프로토콜 | 포트  | 서비스  |
     |----------|-------|----------|
@@ -127,10 +143,10 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
 
   * 방화벽 설정을 확인 하 여 필요한 모든 포트에서 트래픽을 허용 하는지 확인 합니다. 데이터 센터의 온-프레미스 방화벽 뿐만 아니라 Azure에서 사용 되는 방화벽을 확인 해야 합니다.
 
-* **디렉터리 액세스:** 저장소 시스템 `showmount` 에서 명령을 사용 하도록 설정 합니다. Azure HPC 캐시는이 명령을 사용 하 여 저장소 대상 구성이 유효한 내보내기를 가리키는지 확인 하 고 여러 탑재에서 동일한 하위 디렉터리에 액세스 하지 않도록 합니다 (파일 충돌 위험).
+* **디렉터리 액세스:** `showmount`저장소 시스템에서 명령을 사용 하도록 설정 합니다. Azure HPC 캐시는이 명령을 사용 하 여 저장소 대상 구성이 유효한 내보내기를 가리키는지 확인 하 고 여러 탑재에서 동일한 하위 디렉터리에 액세스 하지 않도록 합니다 (파일 충돌 위험).
 
   > [!NOTE]
-  > NFS 저장소 시스템에서 NetApp의 ONTAP 9.2 운영 체제를 사용 하는 경우을 **사용 하도록 설정 `showmount`하지 마십시오 **. [Microsoft 서비스 및 지원 서비스](hpc-cache-support-ticket.md) 에 도움을 요청 하세요.
+  > NFS 저장소 시스템에서 NetApp의 ONTAP 9.2 운영 체제를 사용 하는 경우을 **사용 하도록 설정 `showmount` 하지 마십시오 **. [Microsoft 서비스 및 지원 서비스](hpc-cache-support-ticket.md) 에 도움을 요청 하세요.
 
   NFS 저장소 대상 [문제 해결 문서의](troubleshoot-nas.md#enable-export-listing)디렉터리 목록 액세스에 대해 자세히 알아보세요.
 

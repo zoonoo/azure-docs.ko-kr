@@ -4,16 +4,16 @@ description: Azure Import/Export 서비스에 대한 소프트웨어 및 하드�
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512411"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -50,7 +50,7 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 각 작업은 하나의 스토리지 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 스토리지 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure 가져오기 내보내기 서비스는 [Virtual Network 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md) 기능이 사용 하도록 설정 된 저장소 계정을 지원 하지 않습니다. 
+> Azure 가져오기 내보내기 서비스는 [Virtual Network 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)   기능이 사용 하도록 설정 된 저장소 계정을 지원 하지 않습니다. 
 
 ## <a name="supported-storage-types"></a>지원되는 스토리지 형식
 
@@ -72,17 +72,19 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 다음 디스크 목록은 Import/Export 서비스에서 사용하도록 지원됩니다.
 
 
-|디스크 유형  |Size  |지원됨 |
+|디스크 유형  |크기  |지원됨 |
 |---------|---------|---------|
 |SSD    |   2.5"      |SATA III          |
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
 
 지원 되지 않는 디스크 유형은 다음과 같습니다.
+
 - USBs.
 - 기본 제공 USB 어댑터를 사용 하는 외부 HDD.
 - 외부 HDD의 대/소문자를 포함 하는 디스크입니다.
 
 단일 가져오기/내보내기 작업은 다음을 포함합니다.
+
 - 최대 10개의 HDD/SSD.
 - 모든 규모의 HDD/SSD 혼합.
 
@@ -90,9 +92,6 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 
 하드 드라이브를 준비하고 WAImportExport 도구를 사용하여 데이터를 복사하는 경우, 외부 USB 어댑터를 사용할 수 있습니다. 대부분의 기성품 USB 3.0 이상 어댑터가 작동해야 합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-* [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)
 * [AzCopy 명령줄 유틸리티를 사용 하 여 데이터 전송](storage-use-azcopy.md)
-* [Azure 가져오기 내보내기 REST API 샘플](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

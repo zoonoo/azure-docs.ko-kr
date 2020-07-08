@@ -3,16 +3,16 @@ title: Azure Files 성능 문제 해결 가이드
 description: Azure 파일 공유와 관련 된 해결 방법의 알려진 성능 문제
 author: gunjanj
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511956"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
@@ -113,7 +113,7 @@ Linux에서 SMB 클라이언트를 구현 하는 것과 관련 하 여 알려진
 ### <a name="workaround"></a>해결 방법
 
 - 가능 하면 짧은 시간 내에 동일한 디렉터리에 대 한 과도 한 열기/닫기 핸들을 사용 하지 마십시오.
-- Linux Vm의 경우 **actimeo =\<sec>** 를 탑재 옵션으로 지정 하 여 디렉터리 항목 캐시 제한 시간을 늘립니다. 기본적으로 1 초 이므로 3 또는 5와 같은 큰 값이 도움이 될 수 있습니다.
+- Linux Vm의 경우 **actimeo = \<sec> ** 를 탑재 옵션으로 지정 하 여 디렉터리 항목 캐시 제한 시간을 늘립니다. 기본적으로 1 초 이므로 3 또는 5와 같은 큰 값이 도움이 될 수 있습니다.
 - Linux Vm의 경우 커널을 4.20 이상으로 업그레이드 합니다.
 
 ## <a name="low-iops-on-centosrhel"></a>CentOS/RHEL의 낮은 IOPS
@@ -187,7 +187,7 @@ IO를 많이 사용 하는 작업에 대 한 Azure Files 액세스 하는 데 �
 6. **신호 논리 구성** 블레이드에서 **응답 유형** 차원으로 이동 하 여 **차원 값** 드롭다운을 클릭 하 고 **SUCCESSWITHTHROTTLING** (SMB) 또는 **ClientThrottlingError** (REST)를 선택 합니다. 
 
   > [!NOTE]
-  > SuccessWithThrottling 또는 ClientThrottlingError 차원 값이 나열 되지 않은 경우 리소스가 제한 되지 않았음을 의미 합니다.  차원 값을 추가 하려면 **차원 값** 드롭다운 **+** 옆에 있는를 클릭 하 고 **SuccessWithThrottling** 또는 **ClientThrottlingError**를 입력 한 다음 **확인** 을 클릭 하 고 #6 단계를 반복 합니다.
+  > SuccessWithThrottling 또는 ClientThrottlingError 차원 값이 나열 되지 않은 경우 리소스가 제한 되지 않았음을 의미 합니다.  차원 값을 추가 하려면 **+** **차원 값** 드롭다운 옆에 있는를 클릭 하 고 **SuccessWithThrottling** 또는 **ClientThrottlingError**를 입력 한 다음 **확인** 을 클릭 하 고 #6 단계를 반복 합니다.
 
 7. **파일 공유** 차원으로 이동 하 여 **차원 값** 드롭다운을 클릭 하 고 경고를 표시 하려는 파일 공유를 선택 합니다. 
 

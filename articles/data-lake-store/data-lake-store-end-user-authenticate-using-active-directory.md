@@ -3,16 +3,16 @@ title: 최종 사용자 인증-Azure AD를 사용 하 여 Data Lake Storage Gen1
 description: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5a0c3e1df5cd283ad08f905ed0bd4f329dcfcc7e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511304"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 
     ![AAD 도메인 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
+* Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
 
 ## <a name="end-user-authentication"></a>최종 사용자 인증
 이 인증 메커니즘은 최종 사용자가 Azure AD를 통해 응용 프로그램에 로그인 하려는 경우 권장 되는 방법입니다. 애플리케이션은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 애플리케이션이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
@@ -74,11 +74,11 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 이 링크에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 애플리케이션 유형으로 **네이티브**를 선택해야 합니다.
 
-![웹 앱 만들기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "네이티브 앱 만들기")
+![웹앱 만들기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "네이티브 앱 만들기")
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>2단계: 애플리케이션 ID 및 리디렉션 URI 가져오기
 
-애플리케이션 ID를 검색하려면 [애플리케이션 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
+애플리케이션 ID를 검색하려면 [애플리케이션 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
 
 리디렉션 URI를 검색하려면 다음 단계를 수행합니다.
 

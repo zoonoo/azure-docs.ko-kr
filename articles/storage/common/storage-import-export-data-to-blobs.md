@@ -4,16 +4,16 @@ description: Azure Portal에서 가져오기 및 내보내기 작업을 만들�
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 570c663861361a19190f6fb5d608b6aa029a0885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514212"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -33,8 +33,8 @@ ms.locfileid: "80282497"
 * Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
 * Windows 시스템에서 [최신 WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659) 합니다. 최신 버전의 도구에는 BitLocker 키에 대 한 외부 보호기 및 업데이트 된 잠금 해제 모드 기능을 허용 하기 위한 보안 업데이트가 있습니다.
 
-  * `waimportexportv1` 기본 폴더에 압축을 풉니다. `C:\WaImportExportV1`)을 입력합니다.
-* FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에 `adbops@microsoft.com`는 Azure Data Box 운영 팀에 문의 하세요.  
+  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
+* FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .  
   * 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   * 내보내기 작업의 추적 번호를 생성합니다.
   * 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
@@ -77,17 +77,17 @@ ms.locfileid: "80282497"
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |Description  |
+    |옵션  |설명  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID입니다. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
-    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. `D:\`)을 입력합니다.         |
+    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
-    |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우이 `BlockBlob` 고, 페이지 blob의 경우 `PageBlob`입니다.         |
+    |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우이 `BlockBlob` 고, 페이지 blob의 경우 `PageBlob` 입니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
-    |/enablecontentmd5:     |사용 하도록 설정 하면 MD5가 계산 되어 각 blob에 대 한 `Content-md5` 속성으로 설정 됩니다. 데이터를 Azure에 업로드 한 후 필드를 `Content-md5` 사용 하려는 경우에만이 옵션을 사용 합니다. <br> 이 옵션은 기본적으로 발생 하는 데이터 무결성 검사에는 영향을 주지 않습니다. 이 설정은 클라우드로 데이터를 업로드 하는 데 걸리는 시간을 증가 시킵니다.          |
+    |/enablecontentmd5:     |사용 하도록 설정 하면 MD5가 계산 되어 `Content-md5` 각 blob에 대 한 속성으로 설정 됩니다. `Content-md5`데이터를 Azure에 업로드 한 후 필드를 사용 하려는 경우에만이 옵션을 사용 합니다. <br> 이 옵션은 기본적으로 발생 하는 데이터 무결성 검사에는 영향을 주지 않습니다. 이 설정은 클라우드로 데이터를 업로드 하는 데 걸리는 시간을 증가 시킵니다.          |
 8. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
 
     > [!IMPORTANT]

@@ -3,19 +3,22 @@ title: Azure HPC 캐시 저장소 대상 업데이트
 description: Azure HPC 캐시 저장소 대상을 편집 하는 방법
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/08/2020
-ms.author: rohogue
-ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: v-erkel
+ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75866997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513846"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
 
 캐시의 **저장소** 대상 페이지에서 저장소 대상을 제거 하거나 수정할 수 있습니다.
+
+> [!TIP]
+> [AZURE HPC 캐시 관리 비디오](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) 에서는 저장소 대상을 편집 하는 방법을 보여 줍니다.
 
 ## <a name="remove-a-storage-target"></a>저장소 대상 제거
 

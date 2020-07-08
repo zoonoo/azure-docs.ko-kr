@@ -3,15 +3,15 @@ title: StorSimple 8000 시리즈에 대 한 지원 티켓 또는 사례 만들�
 description: StorSimple 8000 시리즈 디바이스에서 지원 요청을 로깅하고 지원 세션을 시작하는 방법을 알아봅니다.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514251"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 
@@ -56,7 +56,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 4. **새 지원 요청** 블레이드에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보** 블레이드에서 다음 단계를 수행합니다.
 
    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
-   2. 연락처 정보에서 이름, 전자 메일, 선택적 연락처, 국가/지역을 입력 합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
+   2. 연락처 정보에서 이름, 메일, 선택적 연락처, 국가/지역을 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
    3. **만들기**를 클릭합니다.
    
        ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

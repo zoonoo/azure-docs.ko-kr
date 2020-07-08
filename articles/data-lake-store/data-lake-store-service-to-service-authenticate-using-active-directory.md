@@ -3,15 +3,15 @@ title: 서비스 간 인증-Data Lake Storage Gen1-Azure
 description: Azure Active Directory를 사용 하 여 Azure Data Lake Storage Gen1에서 서비스 간 인증을 수행 하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 74ad40eb7f7483bb010cf8eb002776893c50a256
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515153"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -38,19 +38,19 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 
 이전 연결에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 애플리케이션 형식으로 **웹앱/API**를 선택해야 합니다.
 
-![웹 앱 만들기](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "웹앱 만들기")
+![웹앱 만들기](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "웹앱 만들기")
 
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>2단계: 애플리케이션 ID, 인증 키 및 테넌트 ID 가져오기
 프로그래밍 방식으로 로그인하는 경우 애플리케이션에 대한 ID가 필요합니다. 애플리케이션이 자체 자격 증명에서 실행되는 경우 인증 키도 필요합니다.
 
-* 애플리케이션에 대한 애플리케이션 ID 및 인증 키(클라이언트 비밀이라고도 함)를 검색하는 방법에 대한 지침은 [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
+* 애플리케이션에 대한 애플리케이션 ID 및 인증 키(클라이언트 비밀이라고도 함)를 검색하는 방법에 대한 지침은 [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
 
-* 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
+* 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>3단계: Azure Data Lake Storage Gen1 계정 파일 또는 폴더에 Microsoft Azure AD 애플리케이션 할당
 
 
-1. [Azure Portal](https://portal.azure.com)에 로그온 합니다. 앞에서 만든 Azure Active Directory 애플리케이션에 연결할 Data Lake Storage Gen1 계정을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 앞에서 만든 Azure Active Directory 애플리케이션에 연결할 Data Lake Storage Gen1 계정을 엽니다.
 2. Data Lake Storage Gen1 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
    
     ![Data Lake Storage Gen1 계정에서 디렉터리 만들기](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "데이터 레이크 계정에서 디렉터리 만들기")

@@ -4,21 +4,21 @@ description: Windows Virtual Desktop 리소스를 관리하기 위해 Azure Reso
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: abe9b060793983e42ab432924ca5d6d7f43d307d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615241"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514233"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 관리 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
 
 이 문서의 지침은 Azure Resource Manager 템플릿을 사용하여 UI를 배포하는 방법을 설명합니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "82615241"
 
 앱을 사용하려면 Windows Virtual Desktop과 상호 작용하도록 동의가 필요하므로 이 도구는 B2B 시나리오를 지원하지 않습니다. AAD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도구를 배포해야 합니다.
 
-이 관리 도구는 샘플입니다. Microsoft에서 중요한 보안 및 품질 업데이트를 제공할 것입니다. [소스 코드는 GitHub에서 받을 수 있습니다](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 고객과 파트너는 각자 비즈니스 요구 사항에 맞게 도구를 사용자 지정할 수 있습니다.
+이 관리 도구는 샘플입니다. Microsoft에서 중요한 보안 및 품질 업데이트를 제공할 것입니다. [소스 코드는 GitHub에서 사용할 수 있습니다](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 고객과 파트너는 각자 비즈니스 요구 사항에 맞게 도구를 사용자 지정할 수 있습니다.
 
 다음 브라우저는 관리 도구와 호환됩니다.
 - Google Chrome 68 이상
@@ -40,7 +40,7 @@ ms.locfileid: "82615241"
 
 - Azure MFA(Multi-Factor Authentication)를 사 용하지 않도록 설정
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
-- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
+- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
 관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Windows Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "82615241"
 
 1. [GitHub Azure RDS 템플릿 페이지](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy)로 이동합니다.
 2. Azure에 템플릿을 배포합니다.
-    - Enterprise 구독에서 배포하는 경우 아래로 스크롤하여 **Azure에 배포**를 선택합니다. 
+    - Enterprise 구독에서 배포하는 경우 아래로 스크롤하여 **Azure에 배포**를 선택합니다.
     - 클라우드 솔루션 공급자 구독에서 배포하는 경우 다음 지침에 따라 Azure에 배포합니다.
         1. 아래로 스크롤하여 **Azure에 배포**를 마우스 오른쪽 단추로 클릭한 다음, **링크 위치 복사**를 선택합니다.
         2. 메모장 같은 텍스트 편집기를 열고 링크를 붙여넣습니다.
@@ -71,11 +71,13 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 
 로그인하여 관리 도구를 사용하려면 관리 도구와 연결된 새 Azure AD 애플리케이션의 사용 조건에 동의해야 합니다. 동의하면 관리 도구가 현재 도구에 로그인한 사용자를 대신하여 Windows Virtual Desktop 관리를 호출할 수 있습니다.
 
-![UI 관리 도구에 동의할 때 제공되는 권한을 보여주는 스크린샷.](../media/management-ui-delegated-permissions.png)
+> [!div class="mx-imgBorder"]
+> ![UI 관리 도구에 동의할 때 제공되는 권한을 보여주는 스크린샷.](../media/management-ui-delegated-permissions.png)
 
 도구에 로그인할 때 사용 가능한 사용자를 확인하려면 [Azure Active Directory 사용자 설정 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)로 이동하여 **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음**의 값을 적어 둡니다.
 
-![사용자가 해당 사용자에 대해서만 애플리케이션에 동의할 수 있는지 여부를 보여주는 스크린샷.](../media/management-ui-user-consent-allowed.png)
+> [!div class="mx-imgBorder"]
+> ![사용자가 해당 사용자에 대해서만 애플리케이션에 동의할 수 있는지 여부를 보여주는 스크린샷.](../media/management-ui-user-consent-allowed.png)
 
 - 이 값을 **예**로 설정하면 Azure Active Directory에서 아무 사용자 계정으로 로그인하여 해당 사용자에게만 동의를 제공할 수 있습니다. 그러나 나중에 다른 사용자로 관리 도구에 로그인하는 경우 같은 동의 과정을 다시 반복해야 합니다.
 - 이 값을 **아니요**로 설정하면 Azure Active Directory에서 글로벌 관리자로 로그인하여 디렉터리의 모든 사용자에게 관리자 동의를 제공해야 합니다. 다른 사용자에게는 동의 프롬프트가 표시되지 않습니다.
@@ -83,11 +85,12 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 
 동의하는 데 사용할 사용자를 결정한 후에는 다음 지침에 따라 도구에 대해 동의합니다.
 
-1. Azure 리소스로 이동 하 여 템플릿에서 제공한 이름 (예: Apr3UX)으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. 예를 <https://rdmimgmtweb-210520190304.azurewebsites.net>들면입니다.
+1. Azure 리소스로 이동 하 여 템플릿에서 제공한 이름 (예: Apr3UX)으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. 예를 들면 <https://rdmimgmtweb-210520190304.azurewebsites.net> 입니다.
 2. 적절한 Azure Active Directory 사용자 계정을 사용하여 로그인합니다.
 3. 글로벌 관리자로 인증하면 **조직 대신 동의** 확인란을 선택할 수 있습니다. **동의**를 선택하여 동의합니다.
-   
-   ![사용자 또는 관리자에게 표시되는 전체 동의 페이지를 보여주는 스크린샷.](../media/management-ui-consent-page.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![사용자 또는 관리자에게 표시되는 전체 동의 페이지를 보여주는 스크린샷.](../media/management-ui-consent-page.png)
 
 그러면 관리 도구로 이동됩니다.
 
@@ -99,9 +102,9 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 
 1. 템플릿에서 제공한 이름을 가진(예: Apr3UX) Azure App Services 리소스를 선택하고, 해당 리소스와 연결된 URL(예: <https://rdmimgmtweb-210520190304.azurewebsites.net>)로 이동합니다.
 2. Windows Virtual Desktop 자격 증명을 사용하여 로그인합니다.
-3. 테넌트 그룹을 선택하라는 메시지가 표시되면 드롭다운 목록에서 **기본 테넌트 그룹**을 선택합니다.
+3. 테 넌 트 그룹을 선택 하 라는 메시지가 표시 되 면 드롭다운 목록에서 **기본 테 넌 트 그룹** 을 선택 합니다.
 4. **기본 테넌트 그룹**을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
-  
+
   > [!NOTE]
   > 사용자 지정 테넌트 그룹이 있는 경우 드롭다운 목록에서 선택하지 말고 수동으로 이름을 입력합니다.
 

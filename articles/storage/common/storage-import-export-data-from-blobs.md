@@ -4,16 +4,16 @@ description: Azure Portal에서 내보내기 작업을 만들어 Azure Blob에�
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513506"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
 
@@ -27,7 +27,7 @@ ms.locfileid: "80282514"
 - Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
-- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에 `adbops@microsoft.com`는 Azure Data Box 운영 팀에 문의 하세요.
+- FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .
   - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   - 내보내기 작업의 추적 번호를 생성합니다.
   - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
@@ -39,7 +39,7 @@ ms.locfileid: "80282514"
 
 다음 단계를 수행하여 Azure Portal에서 내보내기 작업을 만듭니다.
 
-1. https://portal.azure.com/에 로그온합니다.
+1. <https://portal.azure.com/>에 로그온합니다.
 2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기**로 차례로 이동합니다.
 
     ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -90,7 +90,7 @@ ms.locfileid: "80282514"
         > [!TIP]
         > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
 
-7. **요약**에서:
+7. **요약**:
 
     - 작업에 대한 세부 정보를 검토합니다.
     - 작업 이름과 Azure로의 배송 디스크에 제공되는 Azure 데이터 센터 배송 주소를 기록합니다.
@@ -129,7 +129,11 @@ ms.locfileid: "80282514"
 
 WAImportExport 도구의 버전 1.4.0.300을 사용 하는 경우 다음 명령을 사용 하 여 드라이브 잠금을 해제 합니다.
 
-    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+다음은 샘플 입력의 예입니다.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 이전 버전의 도구를 사용 하는 경우 BitLocker 대화 상자를 사용 하 여 드라이브 잠금을 해제 합니다.
 
@@ -140,25 +144,25 @@ WAImportExport 도구의 버전 1.4.0.300을 사용 하는 경우 다음 명령�
 이 *선택적인* 단계는 내보내기 작업에 필요한 드라이브 수를 결정하는 데 도움이 됩니다. [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템에서 이 단계를 수행합니다.
 
 1. Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다.
-2. `waimportexportv1` 기본 폴더에 압축을 풉니다. `C:\WaImportExportV1`)을 입력합니다.
+2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
 3. 관리 권한이 있는 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. 선택한 Blob에 필요한 디스크 수를 확인하려면 다음 명령을 실행합니다.
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     다음 표에는 매개 변수가 나와 있습니다.
 
-    |명령줄 매개 변수|Description|  
+    |명령줄 매개 변수|설명|  
     |--------------------------|-----------------|  
     |**/logdir**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
-    |**/sn**|필수 사항입니다. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
+    |**/sn**|필수 요소. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
     |**/sk**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|  
     |**/csas:**|스토리지 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
-    |**/ExportBlobListFile:**|필수 사항입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
-    |**/DriveSize:**|필수 사항입니다. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|  
+    |**/ExportBlobListFile:**|필수 요소. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
+    |**/DriveSize:**|필수 요소. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|  
 
     [PreviewExport 명령 예제](#example-of-previewexport-command)를 참조하세요.
 
@@ -205,7 +209,7 @@ Number of drives needed:        3
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | Description |
+   | 선택기 | Blob 경로 | 설명 |
    | --- | --- | --- |
    | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |

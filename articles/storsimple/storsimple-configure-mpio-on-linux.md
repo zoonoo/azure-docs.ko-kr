@@ -4,15 +4,15 @@ description: CentOS 6.6를 실행하는 Linux 호스트에 연결된 StorSimple�
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76278355"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511604"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 디바이스에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 디바이스 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -338,7 +338,7 @@ A. 두 개의 경로를 라우팅할 수 있으며 동일한 서브넷에 있는
 
 17. 사용 가능한 경로를 나열하는 경우 어떤 출력도 나타나지 않습니다.
 
-A. 일반적으로 다중 경로인 경로를 표시 하지 않는 것은 다중 경로 디먼의 문제를 제안 하며,이는 `multipath.conf` 파일에 문제가 있을 가능성이 높습니다.
+A. 일반적으로 다중 경로인 경로를 표시 하지 않는 것은 다중 경로 디먼의 문제를 제안 하며,이는 파일에 문제가 있을 가능성이 높습니다 `multipath.conf` .
 
 또한 다중 경로 목록의 응답이 디스크가 없음을 의미할 수 있으므로 대상에 연결한 후에 일부 디스크를 실제로 볼 수 있는지 확인 하는 것이 좋습니다.
 
@@ -413,7 +413,7 @@ A. 디바이스를 허용 목록에 추가되었는지를 확인하려면 다음
 자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| 유형 | 명령 | Description |
+| 형식 | 명령 | 설명 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |

@@ -1,23 +1,23 @@
 ---
 title: 일시 삭제 사용 - Azure 파일 공유
-description: 데이터 복구를 수행하고 실수로 삭제하는 경우를 방지하기 위해 Azure 파일 공유에서 일시 삭제를 사용하도록 설정하는 방법을 알아봅니다.
+description: 데이터 복구를 위해 Azure 파일 공유에서 일시 삭제 (미리 보기)를 사용 하도록 설정 하 고 실수로 인 한 삭제를 방지 하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 05/26/2020
+ms.topic: how-to
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 755ccd266b8a88471bf7dbc0d2deb790f35f3457
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510824"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Azure 파일 공유에서 일시 삭제 사용
 
-이제 Azure Storage는 이제 애플리케이션 또는 다른 스토리지 계정 사용자에 의해 잘못 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 파일 공유에 대한 일시 삭제를 제공합니다. 일시 삭제에 대해 자세히 알아보려면 [Azure 파일 공유의 우발적 삭제를 방지하는 방법](storage-files-prevent-file-share-deletion.md)을 참조하세요.
+Azure Storage는 파일 공유 (미리 보기)에 대 한 일시 삭제를 제공 하므로 응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 삭제할 때 데이터를 보다 쉽게 복구할 수 있습니다. 일시 삭제에 대해 자세히 알아보려면 [Azure 파일 공유의 우발적 삭제를 방지하는 방법](storage-files-prevent-file-share-deletion.md)을 참조하세요.
 
 다음 섹션에서는 기존 스토리지 계정에서 Azure 파일 공유에 대해 일시 삭제를 사용하도록 설정하고 사용하는 방법을 보여 줍니다.
 
@@ -97,3 +97,7 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
+
+## <a name="next-steps"></a>다음 단계
+
+다른 형태의 데이터 보호 및 복구에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](storage-snapshots-files.md)문서를 참조 하세요.

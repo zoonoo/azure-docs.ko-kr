@@ -5,21 +5,20 @@ services: storsimple
 documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61481977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514028"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>StorSimple 디바이스 비활성화 및 삭제
 
@@ -36,28 +35,29 @@ ms.locfileid: "61481977"
 >
 > 공장 재설정 프로세스는 디바이스에 로컬로 저장된 모든 데이터를 삭제합니다. 따라서 디바이스를 비활성화하기 전에 모든 데이터의 클라우드 스냅샷을 만들어야 합니다. 이 클라우드 스냅샷을 사용하면 이후 단계에서 모든 데이터를 복구할 수 있습니다.
 
+> [!NOTE]
+>
+> - StorSimple 실제 디바이스 또는 클라우드 어플라이언스를 비활성화하기 전에 삭제된 볼륨 컨테이너의 데이터가 디바이스에서 실제로 삭제되었는지 확인합니다. 클라우드 소비량 차트를 모니터링할 수 있으며, 백업을 삭제하여 클라우드 사용량이 감소했음이 확인되면 디바이스 비활성화를 진행할 수 있습니다. 이 삭제를 수행하기 전에 디바이스를 비활성화하면 데이터가 스토리지 계정에서 고립되어 비용이 발생합니다.
+>
+> - StorSimple의 물리적 디바이스 또는 클라우드 어플라이언스를 비활성화하려면 먼저 해당 디바이스에 의존하는 클라이언트와 호스트를 중지하거나 삭제해야 합니다.
+>
+> - 장치에서 데이터를 삭제 하기 전에 볼륨 컨테이너와 연결 된 저장소 계정의 저장소 계정이 나 컨테이너가 이미 삭제 된 경우 오류를 수신 하 고 데이터를 삭제 하지 못할 수 있습니다. 저장소 계정이 나 컨테이너를 삭제 하기 전에 장치에서 데이터를 삭제 하는 것이 좋습니다. 그러나이 경우에는 데이터가 저장소 계정에서 이미 제거 된 것으로 가정 하 고 장치 비활성화 및 삭제를 진행 해야 합니다.
+
 이 자습서를 읽은 후에 다음을 수행할 수 있습니다.
 
-* 디바이스를 비활성화하고 데이터를 삭제합니다.
-* 디바이스를 비활성화하고 데이터를 유지합니다.
-
-> [!NOTE]
-> StorSimple의 물리적 디바이스 또는 클라우드 어플라이언스를 비활성화하려면 먼저 해당 디바이스에 의존하는 클라이언트와 호스트를 중지하거나 삭제해야 합니다.
-
+- 디바이스를 비활성화하고 데이터를 삭제합니다.
+- 디바이스를 비활성화하고 데이터를 유지합니다.
 
 ## <a name="deactivate-and-delete-data"></a>데이터 비활성화 및 삭제
 
 디바이스를 완전히 삭제하고 디바이스의 데이터를 보존하지 않으려는 경우 다음 단계를 완료합니다.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>디바이스를 비활성화하고 데이터를 삭제하려면
+### <a name="to-deactivate-the-device-and-delete-the-data"></a>디바이스를 비활성화하고 데이터를 삭제하려면
 
-1. 디바이스를 비활성화하려면 먼저 디바이스와 연결된 모든 볼륨 컨테이너(및 볼륨)를 삭제해야 합니다. 연결된 백업을 삭제한 후에만 볼륨 컨테이너를 삭제할 수 있습니다.
-
-    > [!NOTE]
-    > StorSimple 실제 디바이스 또는 클라우드 어플라이언스를 비활성화하기 전에 삭제된 볼륨 컨테이너의 데이터가 디바이스에서 실제로 삭제되었는지 확인합니다. 클라우드 소비량 차트를 모니터링할 수 있으며, 백업을 삭제하여 클라우드 사용량이 감소했음이 확인되면 디바이스 비활성화를 진행할 수 있습니다. 이 삭제를 수행하기 전에 디바이스를 비활성화하면 데이터가 스토리지 계정에서 고립되어 비용이 발생합니다.
+1. 디바이스를 비활성화하려면 먼저 디바이스와 연결된 모든 볼륨 컨테이너(및 볼륨)를 삭제해야 합니다. 연결된 백업을 삭제한 후에만 볼륨 컨테이너를 삭제할 수 있습니다. StorSimple 물리적 장치 또는 클라우드 어플라이언스를 비활성화 하기 전에 위 개요의 참고 사항을 참조 하세요.
 
 2. 다음과 같이 디바이스를 비활성화합니다.
-   
+
    1. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스**를 클릭합니다. **디바이스** 블레이드에서 비활성화하려는 디바이스를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **비활성화**를 클릭합니다.
 
         ![StorSimple 디바이스 비활성화](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
@@ -79,7 +79,8 @@ ms.locfileid: "61481977"
 
 디바이스는 삭제하지만 데이터는 유지하고 싶은 경우 다음 단계를 완료합니다.
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>디바이스를 비활성화하고 데이터를 유지하려면
+### <a name="to-deactivate-a-device-and-retain-the-data"></a>디바이스를 비활성화하고 데이터를 유지하려면
+
 1. 디바이스를 비활성화합니다. 디바이스의 모든 볼륨 컨테이너 및 스냅샷은 유지됩니다.
    
    1. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스**를 클릭합니다. **디바이스** 블레이드에서 비활성화하려는 디바이스를 선택하고 마우스 오른쪽 단추를 클릭한 다음, **비활성화**를 클릭합니다.
@@ -99,7 +100,6 @@ ms.locfileid: "61481977"
        ![StorSimple 디바이스 비활성화](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. 삭제가 완료되면 알림이 표시됩니다. 디바이스 목록도 삭제를 반영하도록 업데이트됩니다.
 
-     
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>클라우드 어플라이언스 비활성화 및 삭제
 
 StorSimple Cloud Appliance를 포털에서 비활성화하면 가상 컴퓨터 및 프로비전할 때 만든 리소스의 할당이 취소되고 삭제됩니다. 클라우드 어플라이언스가 비활성화된 후 이전 상태로 복원할 수 없습니다.

@@ -3,20 +3,20 @@ title: Windows에서 Azure Files 문제 해결 | Microsoft Docs
 description: Windows에서 Azure Files 문제 해결
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
-ms.date: 01/02/2019
+ms.topic: troubleshooting
+ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a5fa0be104c3a7b7e035f82d2fed80d4781701
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383897"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511985"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
-이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 를 사용 하 여 Windows 클라이언트 환경에 올바른 필수 구성 요소가 있는지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure Files 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure Files 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
+이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)   를 사용 하 여 Windows 클라이언트 환경에 올바른 필수 구성 요소가 있는지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure Files 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure Files 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재할 때 오류 5 발생
@@ -67,7 +67,7 @@ ms.locfileid: "81383897"
 
 방화벽 또는 ISP가 포트 445를 차단하는지 확인하려면 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 도구 또는 `Test-NetConnection` cmdlet을 사용합니다. 
 
-`Test-NetConnection` Cmdlet을 사용 하려면 Azure PowerShell 모듈이 설치 되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps) 를 참조 하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 스토리지 계정과 관련된 이름으로 바꿔야 합니다.
+Cmdlet을 사용 하려면 `Test-NetConnection` Azure PowerShell 모듈이 설치 되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps) 를 참조 하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 스토리지 계정과 관련된 이름으로 바꿔야 합니다.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -99,16 +99,16 @@ ms.locfileid: "81383897"
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
 #### <a name="solution-1---use-azure-file-sync"></a>해결 방법 1 - Azure 파일 동기화 사용
-Azure File Sync 온-프레미스 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환할 수 있습니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. Azure File Sync 포트 443을 통해 작동 하므로 포트 445이 차단 된 클라이언트에서 Azure Files에 액세스 하는 해결 방법으로 사용할 수 있습니다. [Azure File Sync를 설정 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync 온-프레미스 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환할 수 있습니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. Azure 파일 동기화는 포트 443을 통해 작동하므로 포트 445가 차단된 클라이언트에서 Azure Files에 액세스하는 방법으로 사용할 수 있습니다. [Azure File Sync를 설정 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>해결 방법 2 - VPN 사용
-특정 저장소 계정에 대 한 VPN을 설정 하 여 트래픽은 인터넷을 통하지 않고 보안 터널을 통해 이동 합니다. 지침에 따라 Windows에서 Azure Files 액세스 하도록 [VPN을 설정](storage-files-configure-p2s-vpn-windows.md) 합니다.
+특정 저장소 계정에 대 한 VPN을 설정 하 여 트래픽은 인터넷을 통하지 않고 보안 터널을 통해 이동 합니다. [VPN 설정 지침](storage-files-configure-p2s-vpn-windows.md)에 따라 Windows에서 Azure Files에 액세스합니다.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>해결 방법 3 - ISP/IT 관리자의 도움을 받아 포트 445의 차단 해제
 IT 부서 또는 ISP와 협력 하 여 [AZURE IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대 한 포트 445 아웃 바운드를 엽니다.
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>해결 방법 4 - Storage Explorer/Powershell 같은 REST API 기반 도구 사용
-SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포트 443 (표준 tcp)을 통해 작동 합니다. 다양 한 UI 환경을 가능 하 게 하는 REST API를 사용 하 여 작성 되는 다양 한 도구가 있습니다. [Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 중 하나입니다. [Storage 탐색기를 다운로드 하 여 설치](https://azure.microsoft.com/features/storage-explorer/) 하 고 Azure Files에서 지원 되는 파일 공유에 연결 합니다. [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) 을 사용 하 여 사용자 REST API 수도 있습니다.
+SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포트 443(표준 TCP)을 통해 작동합니다. 다양한 UI 환경을 가능하게 하는 REST API를 사용하여 작성된 다양한 도구가 있습니다. [Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 중 하나입니다. [Storage Explorer를 다운로드하여 설치하고](https://azure.microsoft.com/features/storage-explorer/) Azure Files에서 지원하는 파일 공유에 연결합니다. [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) 을 사용 하 여 사용자 REST API 수도 있습니다.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>원인 2: NTLMv1가 사용 됩니다.
 
@@ -219,7 +219,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
 ### <a name="solution"></a>솔루션
-비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx)에 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
+비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx) 을 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>내 스토리지 계정에 슬래시(/)가 포함되는 경우 net use 명령이 실패합니다.
@@ -255,7 +255,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 -   애플리케이션을 포함하는 동일한 사용자 계정에서 드라이브를 탑재합니다. PsExec와 같은 도구를 사용할 수 있습니다.
 - net use 명령의 사용자 이름 및 암호 매개 변수에 스토리지 계정 이름 및 키를 전달합니다.
-- cmdkey 명령을 사용하여 자격 증명 관리자에 자격 증명을 추가합니다. 대화형 로그인을 통해 또는를 사용 하 `runas`여 서비스 계정 컨텍스트 아래의 명령줄에서이를 수행 합니다.
+- cmdkey 명령을 사용하여 자격 증명 관리자에 자격 증명을 추가합니다. 대화형 로그인을 통해 또는를 사용 하 여 서비스 계정 컨텍스트 아래의 명령줄에서이를 수행 `runas` 합니다.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - 매핑된 드라이브 문자를 사용하지 않고 직접 공유를 매핑합니다. 일부 애플리케이션은 드라이브 문자에 제대로 연결되지 않을 수 있으므로 전체 UNC 경로를 사용하는 것이 더 안정적일 수 있습니다. 
@@ -330,9 +330,9 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 ### <a name="self-diagnostics-steps"></a>자체 진단 단계
 먼저 [AZURE FILES AD 인증을 사용 하도록 설정](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable)하는 네 단계를 모두 수행 했는지 확인 합니다.
 
-둘째, [저장소 계정 키를 사용 하 여 Azure 파일 공유를 탑재](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)해 보세요. 탑재 하지 못한 경우 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 를 다운로드 하 여 클라이언트 실행 환경의 유효성을 검사 하 고, Azure Files에 대 한 액세스 실패를 야기 하는 호환 되지 않는 클라이언트 구성을 검색 하 고, 자체 픽스 및 진단 추적을 수집 하는 방법에 대 한 규범적인 지침을 제공 합니다.
+둘째, [저장소 계정 키를 사용 하 여 Azure 파일 공유를 탑재](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)해 보세요. 탑재 하지 못한 경우 [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 를 다운로드 하 여 클라이언트 실행 환경의 유효성을 검사 하 고, Azure Files에 대 한 액세스 실패를 야기 하는 호환 되지 않는 클라이언트 구성을 검색 하 고, 자체 픽스 및 진단 추적을 수집 하는 방법에 대 한 규범적인 지침을 제공 합니다.
 
-셋째, AzStorageAccountAuth cmdlet을 실행 하 여 로그온 한 AD 사용자를 사용 하 여 AD 구성에 대 한 기본 검사 집합을 수행할 수 있습니다. 이 cmdlet은 [AzFilesHybrid v 0.1.2 + 버전](https://github.com/Azure-Samples/azure-files-samples/releases)에서 지원 됩니다. 대상 저장소 계정에 대 한 소유자 권한이 있는 AD 사용자를 사용 하 여이 cmdlet을 실행 해야 합니다.  
+셋째, AzStorageAccountAuth cmdlet을 실행 하 여 로그온 한 AD 사용자를 사용 하 여 AD 구성에 대 한 기본 검사 집합을 수행할 수 있습니다. 이 cmdlet은 [AzFilesHybrid v0.1.2 이상 버전](https://github.com/Azure-Samples/azure-files-samples/releases)에서 지원됩니다. 대상 스토리지 계정에 대한 소유자 권한이 있는 AD 사용자를 통해 이 cmdlet을 실행해야 합니다.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -342,12 +342,24 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 이 cmdlet은 아래에서 이러한 검사를 순서 대로 수행 하 고 오류에 대 한 지침을 제공 합니다.
 1. CheckPort445Connectivity: SMB 연결에 대해 포트 445가 열려 있는지 확인 합니다.
 2. CheckDomainJoined: 클라이언트 컴퓨터가 AD에 도메인에 가입 되어 있는지 확인 합니다.
-3. CheckADObject: 로그온 한 사용자에 게 저장소 계정이 연결 된 AD 도메인의 올바른 표현이 있는지 확인 합니다.
+3. CheckADObject: 저장소 계정을 나타내고 올바른 SPN (서비스 사용자 이름)을 포함 하는 개체가 Active Directory에 있는지 확인 합니다.
 4. CheckGetKerberosTicket: 저장소 계정에 연결 하기 위해 Kerberos 티켓을 가져오려고 시도 합니다. 
-5. CheckADObjectPasswordIsCorrect: 저장소 계정을 나타내는 AD id에 구성 된 암호가 저장소 계정 kerb 키의 암호와 일치 하는지 확인 합니다.
-6. CheckSidHasAadUser: 로그온 한 AD 사용자가 Azure AD와 동기화 되었는지 확인 합니다.
+5. CheckADObjectPasswordIsCorrect: 저장소 계정을 나타내는 AD id에 구성 된 암호가 storage 계정 kerb1 또는 kerb2 key와 일치 하는지 확인 합니다.
+6. CheckSidHasAadUser: 로그온 한 AD 사용자가 Azure AD와 동기화 되었는지 확인 합니다. 특정 AD 사용자가 Azure AD에 동기화 되었는지 여부를 확인 하려면 입력 매개 변수에서-UserName 및-Domain을 지정 하면 됩니다.
+7. CheckAadUserHasSid: Azure AD 사용자에 게 AD의 SID가 있는지 확인 합니다 .이 검사를 수행 하려면 사용자가 매개 변수-ObjectId를 사용 하 여 Azure AD 사용자의 개체 Id를 입력 해야 합니다. 
+8. CheckStorageAccountDomainJoined: 저장소 계정의 속성을 확인 하 여 AD 인증을 사용 하도록 설정 하 고 계정의 AD 속성이 채워지는지 확인 합니다.
 
-이 진단 cmdlet을 확장 하 여 더 나은 문제 해결 지침을 제공 하기 위해 적극적으로 노력 하 고 있습니다.
+## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 여 디렉터리/파일 수준 사용 권한 (Windows Acl)을 구성할 수 없습니다.
+
+### <a name="symptom"></a>증상
+
+탑재 된 파일 공유에서 파일 탐색기를 사용 하 여 Windows Acl을 구성 하려고 할 때 아래에 설명 된 증상이 발생할 수 있습니다.
+- 보안 탭에서 편집 권한을 클릭 하면 권한 마법사가 로드 되지 않습니다. 
+- 새 사용자 또는 그룹을 선택 하려고 하면 도메인 위치에 올바른 AD DS 도메인이 표시 되지 않습니다. 
+
+### <a name="solution"></a>솔루션
+
+[Icacls 도구](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 를 사용 하 여 디렉터리/파일 수준 사용 권한을 해결 방법으로 구성 하는 것이 좋습니다. 
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

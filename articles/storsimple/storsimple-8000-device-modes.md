@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7b0ea489c1d70ab86d677aad666ea6728fa76b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60576094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511611"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>StorSimple 디바이스에서 디바이스 모드 변경
 
@@ -122,7 +122,7 @@ StorSimple 디바이스를 유지 관리 모드(표준 모드에서)에 배치�
 #### <a name="to-exit-maintenance-mode"></a>유지 관리 모드를 종료하려면
 
 1. 디바이스 직렬 콘솔에 로그온합니다. 배너 메시지에서 디바이스가 유지 관리 모드에 있는지 확인합니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
     `Exit-HcsMaintenanceMode`
 3. 경고 메시지와 확인 메시지가 표시됩니다. **Y** 를 입력하여 유지 관리 모드를 종료합니다.

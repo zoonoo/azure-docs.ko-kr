@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60631586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514603"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에서 DATA 0 네트워크 인터페이스 설정 수정
 
@@ -39,7 +39,7 @@ StorSimple 디바이스의 Windows PowerShell 인터페이스에 연결하고 �
 
 #### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>설정 마법사를 통해 DATA 0 네트워크 설정을 수정하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시 되 면 **장치 관리자 암호**를 제공 합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
     `Invoke-HcsSetupWizard`
 3. 디바이스의 DATA 0 인터페이스 구성을 도와주는 설치 마법사가 나타납니다. IP 주소, 게이트웨이 및 네트워크 마스크에 대한 새 값을 제공합니다.
@@ -52,7 +52,7 @@ StorSimple 디바이스의 Windows PowerShell 인터페이스에 연결하고 �
 
 #### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Set-HcsNetInterface cmdlet을 통해 DATA 0 네트워크 설정을 수정하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 디바이스 관리자 암호를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
     `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
    

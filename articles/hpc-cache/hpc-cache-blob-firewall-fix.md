@@ -3,15 +3,15 @@ title: 저장소 방화벽 설정 문제 해결
 description: 저장소 계정 네트워크 방화벽 설정은 azure HPC 캐시에서 Azure Blob 저장소 대상을 만들 때 오류가 발생할 수 있습니다. 이 문서에서는 소프트웨어 수정이 준비 될 때까지 제한 사항에 대 한 해결 방법을 제공 합니다.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/7/2019
 ms.author: rohogue
-ms.openlocfilehash: 6643662d498db8cbcffcb120a9ceabc46cfc04cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11e57e5d101e35c55dbaa39615dfe48511a8b87c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74174409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513833"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Blob 스토리지 계정 방화벽 설정 해결
 

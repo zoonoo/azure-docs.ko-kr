@@ -4,16 +4,16 @@ description: Azure Import/Export 도구를 사용할 때 발생하는 일반적�
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 4eeeb538bcd39eed40a92dd45e7ba7bed25558e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc9d338579385001d33669ed06ff71e590571502
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514150"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Azure Import/Export 도구 문제 해결
 Microsoft Azure Import/Export 도구는 문제가 발생하는 경우 오류 메시지를 반환합니다. 이 항목에는 사용자가 실행할 수 있는 몇 가지 일반적인 문제가 나와 있습니다.  

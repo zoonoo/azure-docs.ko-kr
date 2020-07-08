@@ -3,15 +3,15 @@ title: Azure Data Lake Storage Gen1 성능 조정-MapReduce
 description: Azure Data Lake Storage Gen1 MapReduce 성능 조정 지침
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: a645049665bc1d51efa94a879b9d2e4e5529282f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27dadb7ef5b93f5d6b674116ca8bba1d6e2597fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73904583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510923"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 MapReduce 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
@@ -27,7 +27,7 @@ ms.locfileid: "73904583"
 
 MapReduce 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상시키기 위해 구성할 수 있는 가장 중요한 매개 변수가 있습니다.
 
-|매개 변수      | Description  |
+|매개 변수      | 설명  |
 |---------|---------|
 |`Mapreduce.map.memory.mb`  |  각 매퍼에 할당할 메모리의 양입니다.  |
 |`Mapreduce.job.maps`     |  작업당 맵 태스크 수입니다.  |
@@ -36,7 +36,7 @@ MapReduce 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상�
 
 ### <a name="mapreducemapmemory--mapreducereducememory"></a>Mapreduce. memory/Mapreduce. 메모리를 줄입니다.
 
-지도 및/또는 감소 작업에 필요한 메모리 양에 따라이 숫자를 조정 합니다. Yarn 구성을 통해 Ambari에서 및 `mapreduce.map.memory` `mapreduce.reduce.memory` 의 기본값을 볼 수 있습니다. Ambari에서 YARN로 이동 하 여 **Configs** 탭을 봅니다. YARN 메모리가 표시 됩니다.
+지도 및/또는 감소 작업에 필요한 메모리 양에 따라이 숫자를 조정 합니다. `mapreduce.map.memory` `mapreduce.reduce.memory` Yarn 구성을 통해 Ambari에서 및의 기본값을 볼 수 있습니다. Ambari에서 YARN로 이동 하 여 **Configs** 탭을 봅니다. YARN 메모리가 표시 됩니다.
 
 ### <a name="mapreducejobmaps--mapreducejobreduces"></a>Mapreduce/Mapreduce. 작업을 축소 합니다.
 

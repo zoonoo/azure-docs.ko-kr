@@ -3,16 +3,16 @@ title: 대량 파일 공유 사용 및 만들기-Azure Files
 description: 이 문서에서는 많은 파일 공유를 사용 하도록 설정 하 고 만드는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/20/2019
+ms.topic: how-to
+ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510731"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대량 파일 공유 사용 및 만들기
 
@@ -21,10 +21,10 @@ ms.locfileid: "82858571"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Azure CLI를 사용 하려는 경우 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
-- Azure PowerShell를 사용 하려는 경우 [최신 버전을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)합니다.
+- Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
+- Azure PowerShell을 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)하세요.
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>제한 사항
 
 지금은 LRS (로컬 중복 저장소) 또는 ZRS (영역 중복 저장소)를 사용 하 여 파일 공유를 사용할 수 있습니다. GZRS (지역 중복 저장소), GRS (지역 중복 저장소), 읽기 액세스 지역 중복 저장소 (RA-GRS) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 사용할 수 없습니다.
 
@@ -32,10 +32,10 @@ ms.locfileid: "82858571"
 
 ## <a name="create-a-new-storage-account"></a>새 스토리지 계정 만들기
 
-### <a name="portal"></a>포털
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Portal에서 **모든 서비스**를 선택 합니다. 
+1. Azure Portal에서 **모든 서비스**를 선택합니다. 
 1. 리소스 목록에서 **저장소 계정**을 입력 합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **저장소 계정**을 선택 합니다.
 1. 표시 되는 **저장소 계정** 창에서 **추가**를 선택 합니다.
 1. 저장소 계정을 만드는 데 사용할 구독을 선택 합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "82858571"
    |필드  |값  |
    |---------|---------|
    |배포 모델     |리소스 관리자         |
-   |성능     |Standard         |
+   |성능     |표준         |
    |계정 종류     |StorageV2(범용 v2)         |
    |액세스 계층     |핫         |
 
@@ -62,33 +62,34 @@ ms.locfileid: "82858571"
 
 1. **만들기**를 선택합니다.
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 먼저, 대량 파일 공유를 사용 하도록 설정할 수 있도록 [최신 버전의 Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 합니다.
 
-대량 파일 공유를 사용 하는 저장소 계정을 만들려면 다음 명령을 사용 합니다. , `<yourStorageAccountName>` `<yourResourceGroup>`및 `<yourDesiredRegion>` 을 사용자의 정보로 바꿉니다.
+대량 파일 공유를 사용 하는 저장소 계정을 만들려면 다음 명령을 사용 합니다. `<yourStorageAccountName>`, `<yourResourceGroup>` 및을 사용자의 `<yourDesiredRegion>` 정보로 바꿉니다.
 
 ```azurecli-interactive
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 먼저, [최신 버전의 PowerShell을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) 하 여 대량 파일 공유를 사용 하도록 설정 합니다.
 
-대량 파일 공유를 사용 하는 저장소 계정을 만들려면 다음 명령을 사용 합니다. , `<yourStorageAccountName>` `<yourResourceGroup>`및 `<yourDesiredRegion>` 을 사용자의 정보로 바꿉니다.
+대량 파일 공유를 사용 하는 저장소 계정을 만들려면 다음 명령을 사용 합니다. `<yourStorageAccountName>`, `<yourResourceGroup>` 및을 사용자의 `<yourDesiredRegion>` 정보로 바꿉니다.
 
 ```powershell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
+---
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>기존 계정에서 대량 파일 공유 사용
 
 기존 계정에서 대량 파일 공유를 사용 하도록 설정할 수도 있습니다. 대량 파일 공유를 사용 하도록 설정 하는 경우 GZRS, GRS, RA-GRS 또는 RA-GZRS로 변환할 수 없습니다. 이 저장소 계정에서 대량 파일 공유를 사용 하도록 설정 하는 것은 취소할 수 없습니다.
 
-### <a name="portal"></a>포털
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)를 열고 대량 파일 공유를 사용 하도록 설정할 저장소 계정으로 이동 합니다.
 1. 저장소 계정을 열고 **구성**을 선택 합니다.
@@ -97,31 +98,35 @@ New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 ![Azure Portal에서 기존 저장소 계정에 대해 사용 옵션 단추를 선택 합니다.](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
-이제 저장소 계정에서 대량 파일 공유를 사용 하도록 설정 했습니다. 다음으로, 용량 및 규모 증가를 활용 하기 위해 기존 공유의 할당량을 업데이트 해야 합니다.
+이제 저장소 계정에서 대량 파일 공유를 사용 하도록 설정 했습니다. 다음으로, 용량 및 규모 증가를 활용 하기 위해 [기존 공유의 할당량을 업데이트](#expand-existing-file-shares) 해야 합니다.
 
-"계정에 대 한 대량 파일 공유를 아직 사용할 수 없습니다." 라는 오류 메시지가 표시 되 면 해당 지역은 롤아웃 완료 중 일 수 있습니다. 대량 파일 공유에 대 한 긴급 한 요구 사항이 있는 경우 지원 담당자에 게 문의 하세요.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="cli"></a>CLI
-
-기존 계정에서 대량 파일 공유를 사용 하도록 설정 하려면 다음 명령을 사용 합니다. 및 `<yourStorageAccountName>` `<yourResourceGroup>` 을 사용자의 정보로 바꿉니다.
+기존 계정에서 대량 파일 공유를 사용 하도록 설정 하려면 다음 명령을 사용 합니다. `<yourStorageAccountName>`및을 `<yourResourceGroup>` 사용자의 정보로 바꿉니다.
 
 ```azurecli-interactive
 az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+이제 저장소 계정에서 대량 파일 공유를 사용 하도록 설정 했습니다. 다음으로, 용량 및 규모 증가를 활용 하기 위해 [기존 공유의 할당량을 업데이트](#expand-existing-file-shares) 해야 합니다.
 
-기존 계정에서 대량 파일 공유를 사용 하도록 설정 하려면 다음 명령을 사용 합니다. 및 `<yourStorageAccountName>` `<yourResourceGroup>` 을 사용자의 정보로 바꿉니다.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+기존 계정에서 대량 파일 공유를 사용 하도록 설정 하려면 다음 명령을 사용 합니다. `<yourStorageAccountName>`및을 `<yourResourceGroup>` 사용자의 정보로 바꿉니다.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
+이제 저장소 계정에서 대량 파일 공유를 사용 하도록 설정 했습니다. 다음으로, 용량 및 규모 증가를 활용 하기 위해 [기존 공유의 할당량을 업데이트](#expand-existing-file-shares) 해야 합니다.
+
+---
+
 ## <a name="create-a-large-file-share"></a>대량 파일 공유 만들기
 
 저장소 계정에서 큰 파일 공유를 사용 하도록 설정한 후 할당량을 높게 설정 하 여 해당 계정에서 파일 공유를 만들 수 있습니다. 
 
-### <a name="portal"></a>포털
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 대량 파일 공유를 만드는 것은 표준 파일 공유 만들기와 거의 동일 합니다. 주요 차이점은 최대 100 TiB 할당량을 설정할 수 있다는 것입니다.
 
@@ -131,17 +136,17 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 ![이름 및 할당량 상자를 표시 하는 Azure Portal UI](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-대량 파일 공유를 만들려면 다음 명령을 사용 합니다. , `<yourStorageAccountName>` `<yourStorageAccountKey>`및 `<yourFileShareName>` 을 사용자의 정보로 바꿉니다.
+대량 파일 공유를 만들려면 다음 명령을 사용 합니다. `<yourStorageAccountName>`, `<yourStorageAccountKey>` 및을 사용자의 `<yourFileShareName>` 정보로 바꿉니다.
 
 ```azurecli-interactive
 az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-대량 파일 공유를 만들려면 다음 명령을 사용 합니다. , `<YourStorageAccountName>` `<YourStorageAccountKey>`및 `<YourStorageAccountFileShareName>` 을 사용자의 정보로 바꿉니다.
+대량 파일 공유를 만들려면 다음 명령을 사용 합니다. `<YourStorageAccountName>`, `<YourStorageAccountKey>` 및을 사용자의 `<YourStorageAccountFileShareName>` 정보로 바꿉니다.
 
 ```powershell
 ##Config
@@ -151,12 +156,13 @@ $shareName="<YourStorageAccountFileShareName>"
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 New-AzStorageShare -Name $shareName -Context $ctx
 ```
+---
 
 ## <a name="expand-existing-file-shares"></a>기존 파일 공유 확장
 
 저장소 계정에서 큰 파일 공유를 사용 하도록 설정한 후에는 해당 계정의 기존 파일 공유를 더 높은 할당량으로 확장할 수도 있습니다. 
 
-### <a name="portal"></a>포털
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. 저장소 계정에서 **파일 공유**를 선택 합니다.
 1. 파일 공유를 마우스 오른쪽 단추로 클릭 한 다음 **할당량**을 선택 합니다.
@@ -164,17 +170,17 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 ![기존 파일 공유의 할당량이 있는 Azure Portal UI](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-할당량을 최대 크기로 설정 하려면 다음 명령을 사용 합니다. , `<yourStorageAccountName>` `<yourStorageAccountKey>`및 `<yourFileShareName>` 을 사용자의 정보로 바꿉니다.
+할당량을 최대 크기로 설정 하려면 다음 명령을 사용 합니다. `<yourStorageAccountName>`, `<yourStorageAccountKey>` 및을 사용자의 `<yourFileShareName>` 정보로 바꿉니다.
 
 ```azurecli-interactive
 az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-할당량을 최대 크기로 설정 하려면 다음 명령을 사용 합니다. , `<YourStorageAccountName>` `<YourStorageAccountKey>`및 `<YourStorageAccountFileShareName>` 을 사용자의 정보로 바꿉니다.
+할당량을 최대 크기로 설정 하려면 다음 명령을 사용 합니다. `<YourStorageAccountName>`, `<YourStorageAccountKey>` 및을 사용자의 `<YourStorageAccountFileShareName>` 정보로 바꿉니다.
 
 ```powershell
 ##Config
@@ -185,6 +191,7 @@ $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAcco
 # update quota
 Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

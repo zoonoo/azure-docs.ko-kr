@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514081"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>StorSimple 디바이스의 컨트롤러 모듈 교체
 ## <a name="overview"></a>개요
@@ -195,7 +195,7 @@ StorSimple 디바이스에서 결함이 있는 모듈을 꺼낸 후 팩터리 �
    > [!NOTE]
    > 컨트롤러 및 LED가 활성화되는 데 최대 5분 정도 걸릴 수 있습니다.
   
-5. 교체에 성공 했는지 확인 하려면 Azure Portal에서 장치로 이동한 다음**하드웨어 상태** **모니터링** > 으로 이동 하 고 컨트롤러 0과 컨트롤러 1이 모두 정상 상태 인지 확인 합니다 (상태는 녹색).
+5. 교체에 성공 했는지 확인 하려면 Azure Portal에서 장치로 이동한 다음 하드웨어 상태 **모니터링**으로 이동 하  >  **Hardware health**고 컨트롤러 0과 컨트롤러 1이 모두 정상 상태 인지 확인 합니다 (상태는 녹색).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>디바이스의 활성 컨트롤러 식별
 처음 디바이스를 등록하거나 컨트롤러를 교체하는 경우와 같이 StorSimple 디바이스에서 활성 컨트롤러를 찾아야 하는 경우가 많습니다. 활성 컨트롤러는 모든 디스크 펌웨어 및 네트워킹 작업을 처리합니다. 다음 방법 중 하나를 사용하여 활성 컨트롤러를 식별할 수 있습니다.
@@ -207,7 +207,7 @@ StorSimple 디바이스에서 결함이 있는 모듈을 꺼낸 후 팩터리 �
 아래에서는 이러한 각 절차에 대해 설명합니다.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Azure Portal을 사용하여 활성 컨트롤러 식별
-Azure Portal에서 장치로 이동한 다음**하드웨어 상태**를 **모니터링** > 하 고 **컨트롤러** 섹션으로 스크롤합니다. 여기서 활성 컨트롤러를 확인할 수 있습니다.
+Azure Portal에서 장치로 이동한 다음 **Monitor**  >  **하드웨어 상태**를 모니터링 하 고 **컨트롤러** 섹션으로 스크롤합니다. 여기서 활성 컨트롤러를 확인할 수 있습니다.
 
 ![Azure Portal에서 활성 컨트롤러 식별](./media/storsimple-controller-replacement/IC752072.png)
 
