@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: e055f2d7b98df9357ecdee5e044305e35935682e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7826df83506083e2db1bdb011704cb0fef628801
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81791642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85378427"
 ---
 함수 트리거를 사용 하 여 이벤트 허브 이벤트 스트림으로 전송 된 이벤트에 응답 합니다. 트리거를 설정 하려면 기본 이벤트 허브에 대 한 읽기 권한이 있어야 합니다. 함수가 트리거되면 함수에 전달 된 메시지는 문자열로 형식화 됩니다.
 
@@ -22,13 +22,13 @@ ms.locfileid: "81791642"
 * 10 개 파티션
 * 1000 각 파티션에 100 메시지를 포함 하 여 모든 파티션에 균등 하 게 분산 된 이벤트
 
-함수를 처음 사용하는 경우 함수 인스턴스가 하나만 있습니다. 첫 번째 함수 인스턴스 `Function_0`를 호출 해 보겠습니다. 이 `Function_0` 함수에는 10 개의 모든 파티션에 대 한 임대를 보유 하는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 의 단일 인스턴스가 있습니다. 이 인스턴스는 파티션 0-9에서 이벤트를 읽습니다. 이 지점부터 다음 중 하나가 발생합니다.
+함수를 처음 사용하는 경우 함수 인스턴스가 하나만 있습니다. 첫 번째 함수 인스턴스를 호출 해 보겠습니다 `Function_0` . `Function_0`이 함수에는 10 개의 모든 파티션에 대 한 임대를 보유 하는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 의 단일 인스턴스가 있습니다. 이 인스턴스는 파티션 0-9에서 이벤트를 읽습니다. 이 지점부터 다음 중 하나가 발생합니다.
 
-* **새 함수 인스턴스가 필요 하지 않습니다**. `Function_0` 는 함수 크기 조정 논리가 적용 되기 전에 모든 1000 이벤트를 처리할 수 있습니다. 이 경우 모든 1000 메시지는에 의해 `Function_0`처리 됩니다.
+* **새 함수 인스턴스가 필요 하지 않습니다**. `Function_0` 는 함수 크기 조정 논리가 적용 되기 전에 모든 1000 이벤트를 처리할 수 있습니다. 이 경우 모든 1000 메시지는에 의해 처리 됩니다 `Function_0` .
 
-* **추가 함수 인스턴스가 추가 됩니다**. 함수 크기 조정 논리에서 처리할 수 있는 `Function_0` 것 보다 더 많은 메시지가 있는 것으로 확인 되 면 새 함수 앱`Function_1`인스턴스 ()가 만들어집니다. 이 새 함수에는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)의 연결 된 인스턴스도 있습니다. 기본 Event Hubs 새 호스트 인스턴스가 메시지 읽기를 시도 하 고 있음을 감지 하면 호스트 인스턴스 간에 파티션의 부하를 분산 합니다. 예를 들어, 파티션 0-4는 `Function_0`에, 파티션 5-9는 `Function_1`에 할당할 수 있습니다.
+* **추가 함수 인스턴스가 추가 됩니다**. 함수 크기 조정 논리에서 `Function_0` 처리할 수 있는 것 보다 더 많은 메시지가 있는 것으로 확인 되 면 새 함수 앱 인스턴스 ( `Function_1` )가 만들어집니다. 이 새 함수에는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)의 연결 된 인스턴스도 있습니다. 기본 Event Hubs 새 호스트 인스턴스가 메시지 읽기를 시도 하 고 있음을 감지 하면 호스트 인스턴스 간에 파티션의 부하를 분산 합니다. 예를 들어, 파티션 0-4는 `Function_0`에, 파티션 5-9는 `Function_1`에 할당할 수 있습니다.
 
-* **N 개 이상의 함수 인스턴스가 추가**됨: 함수 크기 조정 논리에서 및 `Function_0` `Function_1` 둘 다가 처리할 수 있는 것 보다 많은 메시지를 `Functions_N` 갖도록 결정 하는 경우 새 함수 앱 인스턴스가 생성 됩니다.  응용 프로그램은 `N` 이 (가) 이벤트 허브 파티션 수보다 큰 지점에 생성 됩니다. 이 예에서 Event Hubs는 다시 파티션을 부하 분산합니다(이 경우, 인스턴스 `Function_0`...`Functions_9`로).
+* **N 개 이상의 함수 인스턴스가 추가**됨: 함수 크기 조정 논리에서 및 둘 `Function_0` 다 `Function_1` 가 처리할 수 있는 것 보다 많은 메시지를 갖도록 결정 하는 경우 새 `Functions_N` 함수 앱 인스턴스가 생성 됩니다.  응용 프로그램은 `N` 이 (가) 이벤트 허브 파티션 수보다 큰 지점에 생성 됩니다. 이 예에서 Event Hubs는 다시 파티션을 부하 분산합니다(이 경우, 인스턴스 `Function_0`...`Functions_9`로).
 
 크기 조정이 발생 하면 `N` 인스턴스는 이벤트 허브 파티션 수보다 큰 숫자입니다. 이 패턴은 다른 인스턴스에서 사용할 수 있게 되 면 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스를 사용 하 여 파티션에 대 한 잠금을 가져올 수 있도록 하는 데 사용 됩니다. 함수 인스턴스가 실행 될 때 사용 되는 리소스에 대해서만 요금이 청구 됩니다. 즉, 이러한 오버 프로 비전에 대해 요금이 청구 되지 않습니다.
 
@@ -88,13 +88,13 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](../articles/azure-functions/functions-reference-csharp.md)를 보여줍니다. 함수는 이벤트 허브 트리거의 메시지 본문을 기록합니다.
 
 다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다.
 
-### <a name="version-2x-and-higher"></a>2.x 이상 버전
+### <a name="version-2x-and-higher"></a>2\.x 이상 버전
 
 ```json
 {
@@ -175,7 +175,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다.
 
-### <a name="version-2x-and-higher"></a>2.x 이상 버전
+### <a name="version-2x-and-higher"></a>2\.x 이상 버전
 
 ```json
 {
@@ -214,7 +214,7 @@ module.exports = function (context, myEventHubMessage) {
 
 일괄 처리에서 이벤트를 수신하려면 다음 예제에 표시된 대로 *function.json* 파일에서 `cardinality`를 `many`로 설정합니다.
 
-### <a name="version-2x-and-higher"></a>2.x 이상 버전
+### <a name="version-2x-and-higher"></a>2\.x 이상 버전
 
 ```json
 {
@@ -325,17 +325,17 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 전체 예제는 [트리거 - C# 예제](#example)를 참조하세요.
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-특성은 c # 스크립트에서 지원 되지 않습니다.
+C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -343,19 +343,19 @@ Java [함수 런타임 라이브러리](https://docs.microsoft.com/java/api/over
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
-다음 표에서는 *함수. json* 파일 및 `EventHubTrigger` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `EventHubTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | 해당 없음 | `eventHubTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**방향도** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 이벤트 항목을 나타내는 변수의 이름입니다. |
 |**path** |**EventHubName** | Functions 1.x에만 해당합니다. 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. |
-|**eventHubName** |**EventHubName** | 함수 2.x 이상 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. 앱 설정% eventHubName%를 통해 참조할 수 있습니다. |
+|**eventHubName** |**EventHubName** | 함수 2.x 이상 이벤트 허브의 이름입니다. 이벤트 허브 이름이 연결 문자열에 있는 경우 해당 값은 런타임 시 이 속성을 재정의합니다. [앱 설정을](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) 통해 참조할 수 있습니다.`%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | 허브에서 이벤트를 구독하는 데 사용되는 [소비자 그룹](../articles/event-hubs/event-hubs-features.md#event-consumers)을 설정하는 선택적 속성입니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다. |
-|**카디널리티(cardinality)** | 해당 없음 | JavaScript의 경우. `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략 하거나로 `one`설정 하면 단일 메시지가 함수에 전달 됩니다. |
+|**카디널리티** | 해당 없음 | 모든 비 C # 언어에 사용 됩니다. `many`로 설정하여 일괄 처리할 수 있도록 합니다.  생략 하거나로 설정 하면 `one` 단일 메시지가 함수에 전달 됩니다.<br><br>C #에서이 속성은 트리거에 형식에 대 한 배열이 있을 때마다 자동으로 할당 됩니다.|
 |**connection** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 [네임 스페이스](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)에 대 한 **연결 정보** 단추를 클릭 하 여이 연결 문자열을 복사 합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -376,7 +376,7 @@ Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-fu
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#example)를 참조하세요.
 
-## <a name="hostjson-properties"></a>host. json 속성
+## <a name="hostjson-properties"></a>속성 host.js
 <a name="host-json"></a>
 
 [host.json](../articles/azure-functions/functions-host-json.md#eventhub) 파일에는 Event Hubs 트리거 동작을 제어하는 설정이 포함됩니다. Azure Functions 버전에 따라 구성이 달라 집니다.
