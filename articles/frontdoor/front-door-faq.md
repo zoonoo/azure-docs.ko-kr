@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809474"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -46,7 +46,7 @@ Azure 전면 도어는 DSA (동적 사이트 가속), TLS/SSL 오프 로딩 및 
 
 - 프런트 도어는 글로벌 수준 에서만 경로 기반 부하 분산을 수행할 수 있지만 VNET (가상 네트워크) 내에서 트래픽 부하를 분산 하려는 경우에는 Application Gateway를 사용 해야 합니다.
 - 프런트 도어는 v m/컨테이너 수준에서 작동 하지 않으므로 연결 드레이닝을 수행할 수 없습니다. 그러나 Application Gateway를 사용 하면 연결 드레이닝을 수행할 수 있습니다. 
-- Application Gateway AFD를 통해 100% TLS/SSL 오프 로드를 수행 하 고 VNET (가상 네트워크) 내에서 HTTP 요청만 라우팅할 수 있습니다.
+- 전면 도어 뒤에 Application Gateway 하면 100% TLS/SSL 오프 로드를 수행 하 고 VNET (가상 네트워크) 내에서 HTTP 요청만 라우팅할 수 있습니다.
 - 전면 도어 및 Application Gateway는 모두 세션 선호도를 지원 합니다. Front 도어가 사용자 세션의 후속 트래픽을 지정 된 지역의 동일한 클러스터 또는 백 엔드로 전달할 수 있지만, Application Gateway는 트래픽을 클러스터 내의 동일한 서버로 선호도 수 있습니다.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>프런트 도어 뒤에 Azure Load Balancer을 배포할 수 있나요?
@@ -98,7 +98,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
     > [!WARNING]
     > 앞 도어의 백 엔드 IP 공간은 나중에 변경 될 수 있지만,이를 위해 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)와 통합 될 예정입니다. 변경 또는 업데이트에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 구독 하는 것이 좋습니다.
 
--    API 버전 `2020-01-01` 이상을 사용 하 여 Front 문에 대해 가져오기 작업을 수행 합니다. API 호출에서 `frontdoorID` 필드를 찾습니다. 프런트 도어로 보낸 들어오는 헤더 '**x-y**'를 필드 `frontdoorID`의 값을 사용 하 여 백 엔드로 필터링 합니다. 
+-    API 버전 이상을 사용 하 여 Front 문에 대해 가져오기 작업을 수행 `2020-01-01` 합니다. API 호출에서 필드를 찾습니다 `frontdoorID` . 프런트 도어로 보낸 들어오는 헤더 '**x-y**'를 필드의 값을 사용 하 여 백 엔드로 필터링 합니다 `frontdoorID` . 또한 `Front Door ID` 전방 도어 포털 페이지의 개요 섹션에서 값을 찾을 수 있습니다. 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Front 도어가 지속 되는 동안 애니캐스트 IP가 변경 될 수 있나요?
 
@@ -213,7 +213,7 @@ Azure Portal 또는 [azure REST API](https://docs.microsoft.com/rest/api/frontdo
 
 상태 프로브 또는 전달 요청에 대해 백 엔드에 대 한 HTTPS 연결에 성공 하는 경우 HTTPS 트래픽이 실패할 수 있는 두 가지 이유가 있을 수 있습니다.
 
-1. **인증서 주체 이름 불일치**: HTTPS 연결의 경우 백 엔드는 백 엔드 호스트 이름과 일치 하는 주체 이름을 가진 유효한 CA에서 인증서를 제공 하는 것으로 예상 합니다. 예를 들어 백 엔드 호스트 이름이로 `myapp-centralus.contosonews.net` 설정 되 고, TLS 핸드셰이크 중에 백 엔드에 표시 되는 인증서가 `myapp-centralus.contosonews.net` 주체 `*myapp-centralus*.contosonews.net` 이름에도 그렇지 않은 경우, 전면 도어는 연결을 거부 하 고 오류를 생성 합니다. 
+1. **인증서 주체 이름 불일치**: HTTPS 연결의 경우 백 엔드는 백 엔드 호스트 이름과 일치 하는 주체 이름을 가진 유효한 CA에서 인증서를 제공 하는 것으로 예상 합니다. 예를 들어 백 엔드 호스트 이름이로 설정 되 `myapp-centralus.contosonews.net` 고, TLS 핸드셰이크 중에 백 엔드에 표시 되는 인증서가 `myapp-centralus.contosonews.net` 주체 이름에도 그렇지 않은 경우 `*myapp-centralus*.contosonews.net` , 전면 도어는 연결을 거부 하 고 오류를 생성 합니다. 
     1. **해결**방법: 규정 준수 관점에서 권장 되지 않지만, 앞면 도어에 대해 인증서 주체 이름 확인을 사용 하지 않도록 설정 하 여이 오류를 해결할 수 있습니다. 이는 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.
 2. **잘못 된 ca의 백 엔드 호스팅 인증서**: 전방 도어를 사용 하는 백 엔드에서 [유효한 ca](/azure/frontdoor/front-door-troubleshoot-allowed-ca) 의 인증서만 사용할 수 있습니다. 내부 Ca 또는 자체 서명 된 인증서의 인증서는 허용 되지 않습니다.
 

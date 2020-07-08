@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73903695"
 ---
 그러나 Azure 테 넌 트 외부에서 이미지를 공유 하려는 경우에는 쉽게 공유할 수 있도록 앱 등록을 만들어야 합니다.  앱 등록을 사용 하면 다음과 같은 보다 복잡 한 공유 시나리오를 사용할 수 있습니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "73903695"
 1. 페이지 맨 위에 있는 메뉴에서 **새 등록** 을 선택 합니다.
 1. **이름**에 *myGalleryApp*를 입력 합니다.
 1. **지원 되는 계정 유형**에서 **조직 디렉터리와 개인 Microsoft 계정의 계정**을 선택 합니다.
-1. **URI 리디렉션**에서을 입력 *https://www.microsoft.com* 한 다음 **등록**을 선택 합니다. 앱 등록을 만든 후 개요 페이지가 열립니다.
+1. **URI 리디렉션**에서을 입력 한 *https://www.microsoft.com* 다음 **등록**을 선택 합니다. 앱 등록을 만든 후 개요 페이지가 열립니다.
 1. 개요 페이지에서 **응용 프로그램 (클라이언트) ID** 를 복사 하 고 나중에 사용 하기 위해 저장 합니다.   
 1. **인증서 & 암호**를 선택 하 고 **새 클라이언트 암호**를 선택 합니다.
 1. **설명**에 *공유 이미지 갤러리 교차 테 넌 트 앱 암호*를 입력 합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "73903695"
 
 ## <a name="give-tenant-2-access"></a>테 넌 트 2 액세스 권한 부여
 
-브라우저를 사용 하 여 로그인을 요청 하 여 테 넌 트 2에 응용 프로그램 액세스 권한을 부여 합니다. * \<Tenant2 ID>* 를 이미지 갤러리를 공유 하려는 테 넌 트의 테 넌 트 id로 바꿉니다. * \<응용 프로그램 (클라이언트) id>* 를 사용자가 만든 앱 등록의 응용 프로그램 id로 바꿉니다. 대체를 수행한 후 URL을 브라우저에 붙여 넣고 로그인 프롬프트에 따라 테 넌 트 2에 로그인 합니다.
+브라우저를 사용 하 여 로그인을 요청 하 여 테 넌 트 2에 응용 프로그램 액세스 권한을 부여 합니다. 을 *\<Tenant2 ID>* 이미지 갤러리를 공유 하려는 테 넌 트의 테 넌 트 ID로 바꿉니다. 을 *\<Application (client) ID>* 만든 앱 등록의 응용 프로그램 ID로 바꿉니다. 대체를 수행한 후 URL을 브라우저에 붙여 넣고 로그인 프롬프트에 따라 테 넌 트 2에 로그인 합니다.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 
@@ -60,5 +60,5 @@ https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Appl
 1. 유형 **선택** 에서 *myGalleryApp* 를 선택 하 고 목록에 표시 되 면 선택 합니다. 작업이 완료되면 **저장**을 선택합니다.
 
 > [!NOTE]
-> 동일한 관리 되는 이미지를 사용 하 여 다른 이미지 버전을 만들려면 먼저 이미지 버전이 빌드되고 복제 될 때까지 기다려야 합니다.
+> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 

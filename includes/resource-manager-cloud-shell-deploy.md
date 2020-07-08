@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74451546"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell에서 템플릿 배포
@@ -25,7 +25,7 @@ ms.locfileid: "74451546"
 
    ![스토리지 계정 선택](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. **Blob**을 선택 합니다.
+1. **Blob**을 선택합니다.
 
    ![Blob 선택](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 

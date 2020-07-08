@@ -4,14 +4,14 @@ description: 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 �
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: b2a83b226a4b2ddbbd554783de6a2b5c85c92f0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809452"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Azure Portal를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합 구성
 
@@ -36,13 +36,13 @@ ms.locfileid: "80349719"
 > [!NOTE]
 > 다음 단계에서는 **Myvnet** 이라는 가상 네트워크와 **Myvnet** 라는 Azure 부하 분산 장치를 이전에 배포 했다고 가정 합니다.
 
-1. 화면 왼쪽 상단에서 **리소스** > **만들기 계산** > **가상 머신 확장 집합** 을 클릭 하거나 marketplace 검색에서 **가상 머신 확장 집합** 을 검색 합니다.
+1. 화면 왼쪽 상단에서 **리소스 만들기**  >  **계산**  >  **가상 머신 확장 집합** 을 클릭 하거나 marketplace 검색에서 **가상 머신 확장 집합** 을 검색 합니다.
 
 2. **만들기**를 선택합니다.
 
 3. **가상 머신 확장 집합 만들기**에서를 입력 하거나 **기본** 설정 탭에서이 정보를 선택 합니다.
 
-    | 설정                        | 값                                                                                                 |
+    | Setting                        | 값                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
     | **프로젝트 세부 정보**            |                                                                                                       |
     | Subscription                   | Azure 구독 선택                                                                        |
@@ -54,7 +54,7 @@ ms.locfileid: "80349719"
     | **인스턴스 세부 정보**           |                                                                                                       |
     | 이미지                          | **Ubuntu Server 18.04 LTS** 를 선택 합니다.                                                                    |
     | Azure 스폿 인스턴스            | **아니요**를 선택합니다.                                                                                         |
-    | Size                           | 기본값 유지                                                                                      |
+    | 크기                           | 기본값 유지                                                                                      |
     | **관리자 계정**      |                                                                                                       |
     | 인증 유형            | **암호** 선택                                                                                   |
     | 사용자 이름                       | 관리자 사용자 이름 입력        |
@@ -64,16 +64,16 @@ ms.locfileid: "80349719"
 
     :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="가상 머신 확장 집합을 만듭니다." border="true":::
 
-4. **네트워킹** 탭을 선택 합니다.
+4. **네트워킹** 탭을 선택합니다.
 
 5. **네트워킹** 탭에서 다음 정보를 입력 하거나 선택 합니다.
 
-     설정                           | 값                                                    |
+     Setting                           | 값                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Virtual Network 구성** |                                                          |
     | 가상 네트워크                   | **Myvnet** 또는 기존 가상 네트워크를 선택 합니다.      |
     | **부하 분산**                |                                                          |
-    | 부하 분산 장치 사용               | **예**를 선택합니다.                                           |
+    | 부하 분산 장치 사용               | **Yes**를 선택합니다.                                           |
     | **부하 분산 설정**       |                                                          |
     | 부하 분산 옵션            | **Azure 부하 분산 장치** 선택                           |
     | 부하 분산 장치 선택            | **Myloadbalancer** 또는 기존 부하 분산 장치를 선택 합니다. |
@@ -94,4 +94,4 @@ ms.locfileid: "80349719"
 이 문서에서는 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 배포 했습니다.  가상 머신 확장 집합 및 부하 분산 장치에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [Azure Load Balancer란?](load-balancer-overview.md)
-- [가상 머신 확장 집합이란?](../virtual-machine-scale-sets/overview.md)
+- [가상 머신 크기 집합이란?](../virtual-machine-scale-sets/overview.md)

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Basic 내부 Load Balancer를 표준 공�
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: df7b8e6243bc45b5d5bdd8a9a72e81b0946454ff
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6b4d2a5cf441eb702bc33fc862fec9cc28a998b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809362"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결 필요
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요. 표준 내부 Load Balancer는 아웃 바운드 연결을 제공 하지 않으므로 표준 공용 Load Balancer를 대신 만들 수 있는 솔루션을 제공 합니다.
@@ -47,10 +47,10 @@ ms.locfileid: "82858403"
 
 로컬 PowerShell 환경 설정 및 기본 설정에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
 
-* Azure Az 모듈이 설치 되어 있지 않거나 Azure Az 모듈을 제거 하는 것이 아닌 경우 `Install-Script` 옵션을 사용 하 여 스크립트를 실행 하는 것이 가장 좋습니다.
+* Azure Az 모듈이 설치 되어 있지 않거나 Azure Az 모듈을 제거 하는 것이 아닌 경우 옵션을 사용 하 여 스크립트를 실행 하는 것이 가장 좋습니다 `Install-Script` .
 * Azure Az modules를 유지 해야 하는 경우에는 스크립트를 다운로드 하 여 직접 실행 하는 것이 가장 좋습니다.
 
-Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-InstalledModule -Name az`합니다. 설치 된 Az modules가 표시 되지 않으면 메서드를 `Install-Script` 사용할 수 있습니다.
+Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-InstalledModule -Name az` 합니다. 설치 된 Az modules가 표시 되지 않으면 메서드를 사용할 수 있습니다 `Install-Script` .
 
 ### <a name="install-using-the-install-script-method"></a>Install-Script 메서드를 사용 하 여 설치
 
@@ -68,9 +68,9 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
 
 스크립트를 실행하려면
 
-1. 를 `Connect-AzAccount` 사용 하 여 Azure에 연결 합니다.
+1. `Connect-AzAccount`를 사용 하 여 Azure에 연결 합니다.
 
-1. 를 `Import-Module Az` 사용 하 여 Az 모듈을 가져옵니다.
+1. `Import-Module Az`를 사용 하 여 Az 모듈을 가져옵니다.
 
 1. 필수 매개 변수를 검사 합니다.
 
@@ -132,7 +132,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
   
-에 slbupgradesupport@microsoft.com전자 메일을 보내거나 Azure 지원으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
+에 전자 메일을 보내거나 slbupgradesupport@microsoft.com Azure 지원으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

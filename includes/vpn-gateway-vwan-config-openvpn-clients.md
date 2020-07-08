@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80986703"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Windows 클라이언트
@@ -92,7 +92,7 @@ ms.locfileid: "80986703"
 
 9. **OpenVPN에 복사** 옵션이 표시 되지 않으면 **자세히** 를 누릅니다.
 
-    ![추가](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
+    ![자세히](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
 
 10. **OpenVPN에 복사를 탭 합니다** . 
 
@@ -164,7 +164,7 @@ ms.locfileid: "80986703"
     sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. GUI를 사용하여 연결하려면 시스템 설정으로 이동합니다.
-13. 새 **+** VPN 연결을 추가 하려면 클릭 합니다.
+13. **+** 새 VPN 연결을 추가 하려면 클릭 합니다.
 14. **VPN 추가**에서 **파일에서 가져오기...** 를 선택합니다.
 15. 프로필 파일을 찾아보고 **열기**를 두 번 클릭하거나 선택합니다.
 16. **VPN 추가** 창에서 **추가**를 클릭합니다.

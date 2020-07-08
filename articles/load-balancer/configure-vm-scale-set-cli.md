@@ -4,14 +4,14 @@ description: 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 �
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: a7f44a21dd404c556d6f3d8444fa70583cd71c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d734e5242ff2a250d332de78cfa3b7f017a3fff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809456"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-cli"></a>Azure CLI를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합 구성
 
@@ -86,5 +86,5 @@ az vmss create \
 이 문서에서는 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 배포 했습니다.  가상 머신 확장 집합 및 부하 분산 장치에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [Azure Load Balancer란?](load-balancer-overview.md)
-- [가상 머신 확장 집합이란?](../virtual-machine-scale-sets/overview.md)
+- [가상 머신 크기 집합이란?](../virtual-machine-scale-sets/overview.md)
                                 
