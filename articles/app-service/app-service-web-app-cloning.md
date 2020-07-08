@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.custom: seodec18
 ms.openlocfilehash: e7ad45ea4cb1049ed7eeb454162e23e81ed35019
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255196"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
@@ -35,13 +34,13 @@ $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-
 New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-`New-AzWebApp` 명령을 사용 하 여 미국 중 북부 지역에서 새 앱을 만들고 기존 App Service 계획에 연결할 수 있습니다. 그뿐 아니라 원본 앱과 동일한 리소스 그룹을 사용하거나 다음 명령에 표시된 것처럼 새 리소스 그룹을 정의할 수 있습니다.
+명령을 사용 하 여 `New-AzWebApp` 미국 중 북부 지역에서 새 앱을 만들고 기존 App Service 계획에 연결할 수 있습니다. 그뿐 아니라 원본 앱과 동일한 리소스 그룹을 사용하거나 다음 명령에 표시된 것처럼 새 리소스 그룹을 정의할 수 있습니다.
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-연결된 모든 배포 슬롯을 포함하여 기존 앱을 복제하려면 `IncludeSourceWebAppSlots` 매개 변수를 사용해야 합니다.  `IncludeSourceWebAppSlots` 매개 변수는 모든 슬롯을 포함 하 여 전체 앱을 복제 하는 경우에만 지원 됩니다. 다음 PowerShell 명령은 `New-AzWebApp` 명령에서 해당 매개 변수를 사용하는 방법을 보여 줍니다.
+연결된 모든 배포 슬롯을 포함하여 기존 앱을 복제하려면 `IncludeSourceWebAppSlots` 매개 변수를 사용해야 합니다.  `IncludeSourceWebAppSlots`매개 변수는 모든 슬롯을 포함 하 여 전체 앱을 복제 하는 경우에만 지원 됩니다. 다음 PowerShell 명령은 `New-AzWebApp` 명령에서 해당 매개 변수를 사용하는 방법을 보여 줍니다.
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
 ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921167"
 ---
 # <a name="module-k-means-clustering"></a>모듈: K-클러스터링을 의미 합니다.
@@ -101,7 +100,7 @@ K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니�
 
 8.  학습 전에 기능을 정규화 하려면 **기능 정규화** 옵션을 선택 합니다.
   
-     학습 전에 정규화를 적용 하는 경우 데이터 요소는 MinMaxNormalizer를 통해 `[0,1]` 로 정규화 됩니다.
+     학습 전에 정규화를 적용 하는 경우 데이터 요소는 MinMaxNormalizer를 통해로 정규화 됩니다 `[0,1]` .
 
 10. 모델을 학습시킵니다.  
   
@@ -145,4 +144,4 @@ K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

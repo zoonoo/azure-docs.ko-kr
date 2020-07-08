@@ -9,10 +9,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 59d385ba7de5bf7bceae4dc8ddadbca813046094
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78269722"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60408.1-4/9/2019
@@ -40,7 +39,7 @@ Azure Key Vault 및 Azure Traffic Manager에 대 한 새로운 스텐실 및 위
 
 ### <a name="support-links-have-been-updated"></a>지원 링크가 업데이트 되었습니다.
 
-도구 내의 모든 지원 링크가 MSDN 포럼 대신 사용자에 [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) 게 직접 업데이트 되었습니다.
+도구 내의 모든 지원 링크가 MSDN 포럼 대신 사용자에 게 직접 업데이트 되었습니다 [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) .
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 

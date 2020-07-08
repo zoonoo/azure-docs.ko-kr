@@ -7,10 +7,9 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78192203"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>실시간으로 Azure Spring Cloud 앱 로그 스트림
@@ -22,7 +21,7 @@ Azure 스프링 클라우드를 사용 하면 Azure CLI의 로그 스트리밍�
 * 응용 프로그램을 실행 하는 **Azure 스프링 클라우드의** 인스턴스 (예: [스프링 클라우드 앱](./spring-cloud-quickstart-launch-app-cli.md)).
 
 > [!NOTE]
->  ASC CLI 확장은 버전 0.2.0에서 0.2.1로 업데이트 됩니다. 이 변경 `az spring-cloud app log tail`내용은 로그 스트리밍에 대 한 명령 구문에 영향을 줍니다 .은로 `az spring-cloud app logs`대체 되었습니다. 명령은 이후 릴리스에서 `az spring-cloud app log tail` 더 이상 사용 되지 않습니다. 버전 0.2.0를 사용 하는 경우 0.2.1로 업그레이드할 수 있습니다. 먼저 명령을 사용 하 여 이전 버전을 제거 `az extension remove -n spring-cloud`합니다.  그런 다음 명령을 통해 0.2.1를 설치 `az extension add -n spring-cloud`합니다.
+>  ASC CLI 확장은 버전 0.2.0에서 0.2.1로 업데이트 됩니다. 이 변경 내용은 로그 스트리밍에 대 한 명령 구문에 영향을 줍니다. `az spring-cloud app log tail` 은로 대체 되었습니다 `az spring-cloud app logs` . 명령은 `az spring-cloud app log tail` 이후 릴리스에서 더 이상 사용 되지 않습니다. 버전 0.2.0를 사용 하는 경우 0.2.1로 업그레이드할 수 있습니다. 먼저 명령을 사용 하 여 이전 버전을 제거 `az extension remove -n spring-cloud` 합니다.  그런 다음 명령을 통해 0.2.1를 설치 `az extension add -n spring-cloud` 합니다.
 
 ## <a name="use-cli-to-tail-logs"></a>CLI를 사용 하 여 비상 로그
 
@@ -50,7 +49,7 @@ az spring-cloud app logs -n auth-service
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>여러 인스턴스를 사용 하는 앱에 대 한 비상 로그
-이라는 `auth-service`앱에 대 한 인스턴스가 여러 개 있는 경우 `-i/--instance` 옵션을 사용 하 여 인스턴스 로그를 볼 수 있습니다. 
+이라는 앱에 대 한 인스턴스가 여러 개 있는 경우 `auth-service` 옵션을 사용 하 여 인스턴스 로그를 볼 수 있습니다 `-i/--instance` . 
 
 먼저, 다음 명령을 사용 하 여 앱 인스턴스 이름을 가져올 수 있습니다.
 
@@ -66,7 +65,7 @@ auth-service-default-12-75cc4577fc-pw7hb  Running   UP
 auth-service-default-12-75cc4577fc-8nt4m  Running   UP
 auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
-그런 다음 옵션 `-i/--instance` 옵션을 사용 하 여 앱 인스턴스의 로그를 스트리밍할 수 있습니다.
+그런 다음 옵션 옵션을 사용 하 여 앱 인스턴스의 로그를 스트리밍할 수 있습니다 `-i/--instance` .
 
 ```
 az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb

@@ -10,10 +10,9 @@ ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
 ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206523"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>알려진 문제 및 Azure Data Science Virtual Machine 문제 해결
@@ -24,7 +23,7 @@ ms.locfileid: "78206523"
 
 ### <a name="installing-packages-with-pip-breaks-dependencies-on-linux"></a>Linux에서 pip 중단 종속성이 있는 패키지 설치
 
-패키지 `sudo pip install` 를 설치할 `pip install` 때 대신를 사용 합니다.
+`sudo pip install`패키지를 설치할 때 대신를 사용 `pip install` 합니다.
 
 ## <a name="disk-encryption-issues"></a>디스크 암호화 문제
 

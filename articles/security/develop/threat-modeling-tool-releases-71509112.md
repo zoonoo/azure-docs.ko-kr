@@ -9,10 +9,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78269907"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA 릴리스 7.1.50911.2 - 9/12/2018
@@ -49,7 +48,7 @@ Preview의 “OneDrive에 저장”, “OneDrive에서 열기” 및 “링크 �
 
 ### <a name="users-of-high-resolution-screens-may-experience-small-text-in-the-threat-properties"></a>고해상도 화면의 사용자에게는 위협 속성에 작은 텍스트가 표시될 수 있습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 도구의 분석 보기에서, Windows의 가독성을 위해 기본적으로 확대되도록 설정된 고해상도 화면이 사용자에게 있는 경우 위협의 “가능한 완화 방법” 섹션에 작은 텍스트가 표시될 수 있습니다.
 
@@ -61,7 +60,7 @@ Preview의 “OneDrive에 저장”, “OneDrive에서 열기” 및 “링크 �
 
 ### <a name="files-in-the-recently-opened-models-section-of-the-main-window-may-fail-to-open"></a>주 창의 “최근에 열린 모델” 섹션에 있는 파일이 열리지 않을 수 있음
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 Preview 릴리스의 “OneDrive에서 열기” 기능이 제거되었습니다. OneDrive에 저장된 “최근에 열린 모델”이 있는 사용자에게 다음 오류가 표시됩니다.
 

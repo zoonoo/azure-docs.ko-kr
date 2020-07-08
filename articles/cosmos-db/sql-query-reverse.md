@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22e1c8a5f4350bd2f966ee48f96368c648a4a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302171"
 ---
 # <a name="reverse-azure-cosmos-db"></a>REVERSE (Azure Cosmos DB)
@@ -26,7 +25,7 @@ REVERSE(<str_expr>)
 ## <a name="arguments"></a>인수
   
 *str_expr*  
-   는 문자열 식입니다.  
+   문자열 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   
@@ -34,7 +33,7 @@ REVERSE(<str_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는 쿼리에서를 사용 `REVERSE` 하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서를 사용 하는 방법을 보여 줍니다 `REVERSE` .  
   
 ```sql
 SELECT REVERSE("Abc") AS reverse  

@@ -14,10 +14,9 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78274711"
 ---
 # <a name="application-security-groups"></a>애플리케이션 보안 그룹
@@ -32,15 +31,15 @@ ms.locfileid: "78274711"
 
 이 규칙은 인터넷에서 웹 서버로 가는 트래픽을 허용하기 위해 필요합니다. 인터넷의 인바운드 트래픽을 **DenyAllInbound** 기본 보안 규칙에서 거부하기 때문에 *AsgLogic* 또는 *AsgDb* 애플리케이션 보안 그룹에 대한 규칙을 추가하지 않아도 됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
-| 100 | 인터넷 | * | AsgWeb | 80 | TCP | Allow |
+| 100 | 인터넷 | * | AsgWeb | 80 | TCP | 허용 |
 
 ## <a name="deny-database-all"></a>Deny-Database-All
 
 **AllowVNetInBound** 기본 보안 규칙은 동일한 가상 네트워크의 리소스 간 통신을 모두 허용하므로, 모든 리소스에서 들어오는 트래픽을 거부하려면 이 규칙이 필요합니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 모두 | 거부 |
 
@@ -48,9 +47,9 @@ ms.locfileid: "78274711"
 
 이 규칙은 *AsgLogic* 애플리케이션 보안 그룹에서 *AsgDb* 애플리케이션 보안 그룹으로 가는 트래픽을 허용합니다. 이 규칙의 우선 순위는 *Deny-Database-All* 규칙의 우선 순위보다 높습니다. 결과적으로 이 규칙이 *Deny-Database-All* 규칙보다 먼저 처리되므로 *AsgLogic* 애플리케이션 보안 그룹의 트래픽은 허용되는 반면, 그 외의 트래픽은 모두 차단됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | 허용 |
 
 원본 또는 대상으로 애플리케이션 보안 그룹을 지정하는 규칙은 애플리케이션 보안 그룹의 멤버인 네트워크 인터페이스에만 적용됩니다. 네트워크 인터페이스가 애플리케이션 보안 그룹의 멤버가 아닌 경우에는 네트워크 보안 그룹이 서브넷과 연결되어도 규칙이 네트워크 인터페이스에 적용되지 않습니다.
 
@@ -66,4 +65,4 @@ ms.locfileid: "78274711"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [네트워크 보안 그룹 만들기](tutorial-filter-network-traffic.md)에 대해 알아보세요.
+* [네트워크 보안 그룹을 만드는](tutorial-filter-network-traffic.md)방법에 대해 알아봅니다.

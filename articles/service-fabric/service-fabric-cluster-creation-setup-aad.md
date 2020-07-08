@@ -4,10 +4,9 @@ description: Service Fabric 클러스터에 대한 클라이언트를 인증하�
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78193386"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
@@ -38,7 +37,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 
 스크립트를 사용 하 여 클러스터에 대 한 액세스를 제어 하는 두 개의 Azure AD 응용 프로그램 (웹 응용 프로그램과 네이티브 응용 프로그램)을 만듭니다. 클러스터를 나타내는 응용 프로그램을 만든 후 Service Fabric: 읽기 전용 및 관리자에 [의해 지원 되는 역할](service-fabric-cluster-security-roles.md)에 대 한 사용자를 만듭니다.
 
-`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다.  또한 사용자의 사용자 이름과 암호를 지정합니다. 다음은 그 예입니다.
+`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다.  또한 사용자의 사용자 이름과 암호를 지정합니다. 예를 들어:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -49,7 +48,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 > [!NOTE]
 > 국가별 클라우드(예: Azure Government, Azure 중국, Azure 독일)의 경우 `-Location` 매개 변수도 지정해야 합니다.
 
-PowerShell 명령을 `Get-AzureSubscription`실행 하 여 *TenantId* 를 찾을 수 있습니다. 이 명령을 실행하면 모든 구독에 대한 TenantId가 표시됩니다.
+PowerShell 명령을 실행 하 여 *TenantId* 를 찾을 수 있습니다 `Get-AzureSubscription` . 이 명령을 실행하면 모든 구독에 대한 TenantId가 표시됩니다.
 
 *ClusterName*은 스크립트로 만든 Azure AD 애플리케이션의 접두사로 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. 단순히 Azure AD 아티팩트를, 함께 사용할 Service Fabric 패브릭 클러스터에 쉽게 매핑하기 위한 것입니다.
 
@@ -76,7 +75,7 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인�
 Azure AD를 설정하고 사용하는 작업은 매우 어려울 수 있습니다. 문제를 디버깅하기 위해 수행할 수 있는 작업에 대한 일부 포인터는 다음과 같습니다.
 
 ### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer에 인증서를 선택하라는 메시지가 표시
-#### <a name="problem"></a>문제점
+#### <a name="problem"></a>문제
 Service Fabric Explorer에서 Azure AD에 로그인한 후 브라우저가 홈 페이지로 돌아가지만 인증서를 선택하라는 메시지가 표시됩니다.
 
 ![SFX 인증서 대화 상자][sfx-select-certificate-dialog]
@@ -88,14 +87,14 @@ Azure AD 클러스터 애플리케이션에서 사용자에게 역할이 할당�
 Azure AD 설정 지침을 따르고 사용자 역할을 할당합니다. 또한 `SetupApplications.ps1`에서처럼 “앱에 액세스하려면 사용자 할당 필요”를 살펴보는 것이 좋습니다.
 
 ### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>“지정된 자격 증명이 올바르지 않다”는 오류가 표시되면서 PowerShell 연결 실패
-#### <a name="problem"></a>문제점
+#### <a name="problem"></a>문제
 PowerShell을 사용하여 “AzureActiveDirectory”보안 모드로 클러스터에 연결할 때, Azure AD 로그인 후 연결이 실패하고 “지정된 자격 증명이 올바르지 않다"는 오류가 표시됨
 
 #### <a name="solution"></a>솔루션
 이 솔루션은 이전과 동일합니다.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>로그인할 때 Service Fabric Explorer가 실패를 반환함: "AADSTS50011"
-#### <a name="problem"></a>문제점
+#### <a name="problem"></a>문제
 Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS50011: 회신 주소 &lt;url&gt;이 애플리케이션 &lt;guid&gt;에 대해 구성된 회신 주소와 일치하지 않습니다."라는 실패를 반환합니다.
 
 ![SFX 회신 주소가 일치하지 않습니다.][sfx-reply-address-not-match]
@@ -109,14 +108,14 @@ Service Fabric Explorer를 나타내는 클러스터(웹) 애플리케이션이 
 ![웹 응용 프로그램 회신 URL][web-application-reply-url]
 
 ### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>PowerShell을 통해 Azure AD 인증을 사용 하 여 클러스터에 연결 하면 "AADSTS50011"에 로그인 할 때 오류가 발생 합니다.
-#### <a name="problem"></a>문제점
-PowerShell을 통해 Azure AD를 사용 하 여 Service Fabric 클러스터에 연결 하려고 하면 로그인 페이지에서 오류를 반환 합니다. "AADSTS50011: 요청에 지정 된 회신 url이 응용 프로그램 &lt;에 대해 구성 된 회신 url과 일치 하지 않습니다&gt;."
+#### <a name="problem"></a>문제
+PowerShell을 통해 Azure AD를 사용 하 여 Service Fabric 클러스터에 연결 하려고 하면 로그인 페이지에서 오류를 반환 합니다. "AADSTS50011: 요청에 지정 된 회신 url이 응용 프로그램에 대해 구성 된 회신 url과 일치 하지 않습니다 &lt; &gt; ."
 
 #### <a name="reason"></a>이유
 위의 문제와 마찬가지로 PowerShell은 azure ad에 대해 인증을 시도 하며,이는 Azure ad 응용 프로그램 **회신 url** 목록에 나열 되지 않은 리디렉션 URL을 제공 합니다.  
 
 #### <a name="solution"></a>솔루션
-이전 문제와 동일한 프로세스를 사용 하지만 URL은 명령줄 인증에 대 한 특수 리디렉션으로 `urn:ietf:wg:oauth:2.0:oob`설정 해야 합니다.
+이전 문제와 동일한 프로세스를 사용 하지만 URL은 `urn:ietf:wg:oauth:2.0:oob` 명령줄 인증에 대 한 특수 리디렉션으로 설정 해야 합니다.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>PowerShell 통해 Azure AD 인증을 사용하여 클러스터 연결
 Service Fabric 클러스터에 연결하려면 다음 PowerShell 명령 예제를 사용합니다.

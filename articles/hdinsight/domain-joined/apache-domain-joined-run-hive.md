@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196929"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
@@ -27,7 +26,7 @@ Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알�
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Apache Ranger 관리 UI에 연결
 **Ranger 관리 UI에 연결하려면**
 
-1. 브라우저에서의 레인저 관리 UI로 이동 합니다. `https://CLUSTERNAME.azurehdinsight.net/Ranger/` 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. 브라우저에서의 레인저 관리 UI로 이동 합니다 `https://CLUSTERNAME.azurehdinsight.net/Ranger/` . 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 
    > [!NOTE]  
    > Ranger는 다른 Apache Hadoop 클러스터가 아닌 자격 증명을 사용합니다. 브라우저가 캐시된 Hadoop 자격 증명을 사용하지 않도록 방지하려면 새 InPrivate 브라우저 창을 사용하여 Ranger 관리 UI에 연결합니다.
@@ -83,7 +82,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
 [Hive ODBC 데이터 원본 만들기](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)에서 지침을 찾을 수 있습니다.  
 
- | 속성  |Description |
+ | 속성  |설명 |
  | --- | --- |
  | 데이터 원본 이름 | 데이터 원본에 이름 지정 |
  | 호스트 | CLUSTERNAME.azurehdinsight.net를 입력 합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
@@ -142,7 +141,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
         SELECT * FROM "HIVE"."default"."hivesampletable"
 
-    to:
+    다음과 같이 변경합니다.
 
         SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
 

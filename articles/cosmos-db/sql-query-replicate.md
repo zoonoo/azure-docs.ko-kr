@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302188"
 ---
 # <a name="replicate-azure-cosmos-db"></a>복제 (Azure Cosmos DB)
@@ -26,7 +25,7 @@ REPLICATE(<str_expr>, <num_expr>)
 ## <a name="arguments"></a>인수
   
 *str_expr*  
-   는 문자열 식입니다.
+   문자열 식입니다.
   
 *num_expr*  
    숫자 식입니다. *Num_expr* 음수 이거나 한정 되지 않은 경우 결과가 정의 되지 않습니다.
@@ -40,7 +39,7 @@ REPLICATE(<str_expr>, <num_expr>)
 
 ## <a name="examples"></a>예
   
-  다음 예제에서는 쿼리에서를 사용 `REPLICATE` 하는 방법을 보여 줍니다.
+  다음 예제에서는 쿼리에서를 사용 하는 방법을 보여 줍니다 `REPLICATE` .
   
 ```sql
 SELECT REPLICATE("a", 3) AS replicate

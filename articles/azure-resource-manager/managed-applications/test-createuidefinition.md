@@ -6,15 +6,14 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78250186"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 포털 인터페이스 테스트
 
-관리 되는 응용 프로그램에 대 한 [createUiDefinition. json 파일을 만든](create-uidefinition-overview.md) 후 사용자 환경을 테스트 해야 합니다. 테스트를 간소화 하려면 포털에서 파일을 로드 하는 샌드박스 환경을 사용 합니다. 실제로 관리되는 애플리케이션을 배포할 필요는 없습니다. 샌드박스는 현재 전체 화면 포털 환경에서 사용자 인터페이스를 제공 합니다. 또는 인터페이스를 테스트 하는 데 스크립트를 사용할 수 있습니다. 두 방법은 모두 이 문서에 나와 있습니다. 샌드박스는 인터페이스를 미리 보는 데 권장 되는 방법입니다.
+관리 되는 응용 프로그램에 대 한 [파일에 createUiDefinition.js를 만든](create-uidefinition-overview.md) 후 사용자 환경을 테스트 해야 합니다. 테스트를 간소화 하려면 포털에서 파일을 로드 하는 샌드박스 환경을 사용 합니다. 실제로 관리되는 애플리케이션을 배포할 필요는 없습니다. 샌드박스는 현재 전체 화면 포털 환경에서 사용자 인터페이스를 제공 합니다. 또는 인터페이스를 테스트 하는 데 스크립트를 사용할 수 있습니다. 두 방법은 모두 이 문서에 나와 있습니다. 샌드박스는 인터페이스를 미리 보는 데 권장 되는 방법입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,7 +27,7 @@ ms.locfileid: "78250186"
 
    ![샌드박스 표시](./media/test-createuidefinition/show-sandbox.png)
 
-1. 빈 정의를 createUiDefinition. json 파일의 내용으로 바꿉니다. **미리 보기**를 선택합니다.
+1. 빈 정의를 파일에 createUiDefinition.js의 콘텐츠로 바꿉니다. **미리 보기**를 선택합니다.
 
    ![미리 보기 선택](./media/test-createuidefinition/select-preview.png)
 

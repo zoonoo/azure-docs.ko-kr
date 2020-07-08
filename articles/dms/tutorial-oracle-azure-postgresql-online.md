@@ -13,17 +13,16 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255572"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS (미리 보기)를 사용 하 여 Azure Database for PostgreSQL 온라인으로 Oracle 마이그레이션
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 온-프레미스 또는 가상 머신에서 호스팅되는 Oracle 데이터베이스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉 애플리케이션에 대한 가동 중지 시간을 최소화하면서 마이그레이션을 완료할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **HR** 샘플 데이터베이스를 Oracle 11g의 온-프레미스 또는 가상 머신 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 >
 > * ora2pg 도구를 사용하여 마이그레이션 작업을 평가합니다.
@@ -43,7 +42,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 문서에서는 Oracle에서 Azure Database for PostgreSQL로의 온라인 마이그레이션을 수행하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -186,7 +185,7 @@ ora2pg를 실행하여 각 데이터베이스 개체를 .sql 파일로 내보낼
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -221,7 +220,7 @@ Azure Database Migration Service를 통해 데이터 이동을 시작하기 전�
     ![포털 구독 표시](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> 원본 테이블 이름을 이름이 다른 테이블에 매핑해야 하는 경우 전자 메일 [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) 을 사용 하 여 프로세스를 자동화 하는 스크립트를 제공할 수 있습니다.
+> 원본 테이블 이름을 이름이 다른 테이블에 매핑해야 하는 경우 전자 메일을 사용 하 여 [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) 프로세스를 자동화 하는 스크립트를 제공할 수 있습니다.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>PostgreSQL 테이블 스키마가 없는 경우
 
@@ -239,7 +238,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
     Oracle 원본의 스키마 이름과 Azure Database for PostgreSQL의 스키마 이름이 일치하면 Azure Database Migration Service는 *대상과 동일한 대/소문자를 사용하여 테이블 스키마를 생성*합니다.
 
-    다음은 그 예입니다.
+    예를 들어:
 
     | 원본 Oracle 스키마 | 대상 PostgreSQL Database.Schema | DMS 생성 schema.table.column |
     | ------------- | ------------- | ------------- |
@@ -249,7 +248,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
     | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *대/소문자를 혼합하여 매핑할 수 없음 |
 
-    * 대상 PostgreSQL에서 혼합 사례 스키마와 테이블 이름을 만들려면를 문의 하세요 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 대상 PostgreSQL에서 대/소문자 혼합 스키마를 설정하는 스크립트를 제공받을 수 있습니다.
+    * 대상 PostgreSQL에서 혼합 사례 스키마와 테이블 이름을 만들려면를 문의 하세요 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com) . 대상 PostgreSQL에서 대/소문자 혼합 스키마를 설정하는 스크립트를 제공받을 수 있습니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
@@ -261,7 +260,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
     ![리소스 공급자 보기](media/tutorial-oracle-azure-postgresql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색 한 다음 **microsoft.datamigration**의 오른쪽에서 **등록**을 선택 합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-oracle-azure-postgresql-online/portal-register-resource-provider.png)
 
@@ -322,7 +321,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
 ## <a name="upload-oracle-oci-driver"></a>Oracle OCI 드라이버를 업로드 합니다.
 
-1. **저장**을 선택한 다음, **OCI 드라이버 설치** 화면에서 Oracle 계정에 로그인 하 고 **instantclient-basiclite-windows. x64-12.2.0.1.0** (37128586 바이트) (SHA1 Checksum: 865082268) 드라이버를 [여기](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)에서 다운로드 합니다.
+1. **저장**을 선택한 다음, **OCI 드라이버 설치** 화면에서 Oracle 계정에 로그인 하 고 [여기](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)에서 드라이버 **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** (37128586 바이트) (SHA1 Checksum: 865082268)를 다운로드 합니다.
 2. 드라이버를 공유 폴더에 다운로드합니다.
 
    폴더가 최소 읽기 전용 액세스 권한으로 지정한 사용자 이름과 공유되는지 확인합니다. Azure Database Migration Service는 사용자가 지정한 사용자 이름을 가장하여 OCI 드라이버를 Azure에 업로드하기 위해 공유에 액세스하여 이를 읽습니다.

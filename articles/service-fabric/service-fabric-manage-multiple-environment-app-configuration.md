@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196982"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 애플리케이션 관리
@@ -41,7 +40,7 @@ Azure Service Fabric 클러스터를 사용하면 하나의 컴퓨터에서 수�
 Service Fabric에서 명명된 애플리케이션 인스턴스를 만들 때 매개 변수를 전달하는 옵션을 사용할 수 있습니다. 이렇게 하는 방법은 애플리케이션 인스턴스를 만드는 방법에 따라 달라집니다.
 
   - PowerShell에서 cmdlet은 [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) 응용 프로그램 매개 변수를 hashtable로 사용 합니다.
-  - Sfctl을 사용 하 [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 여 명령은 매개 변수를 JSON 문자열로 사용 합니다. install.sh 스크립트는 sfctl을 사용합니다.
+  - Sfctl을 사용 하 여 [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 명령은 매개 변수를 JSON 문자열로 사용 합니다. install.sh 스크립트는 sfctl을 사용합니다.
   - Visual Studio에서는 애플리케이션 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Azure DevOps Services 또는 Azure DevOps Server를 사용 하 여 Visual Studio에서 게시할 때 사용 됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
 
 ## <a name="next-steps"></a>다음 단계

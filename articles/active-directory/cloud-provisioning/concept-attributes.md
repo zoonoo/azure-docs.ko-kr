@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78299332"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Azure AD 스키마 이해
@@ -42,7 +41,7 @@ Azure AD에는 다음과 같은 두 가지 유형의 속성이 있습니다.
 
 특성 동기화는 직접적인 일 수 있습니다. 여기서 Azure AD의 값은 온-프레미스 특성의 값으로 직접 설정 됩니다. 또는 프로그래밍 식이 동기화를 처리할 수도 있습니다. 값을 채우도록 일부 논리 또는 결정을 수행 해야 하는 경우 프로그래밍 식이 필요 합니다.
 
-예를 들어 메일 특성 "john.smith@contoso.com"을 사용 하 여 "@contoso.com" 부분을 제거 하 고 "john. smith" 값만 전달 해야 하는 경우 다음과 같은 항목을 사용 합니다.
+예를 들어 메일 특성 ""을 사용 하 여 " john.smith@contoso.com " 부분을 제거 하 @contoso.com 고 "john. smith" 값만 전달 해야 하는 경우 다음과 같은 항목을 사용 합니다.
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
@@ -75,8 +74,8 @@ Azure AD에는 다음과 같은 두 가지 유형의 속성이 있습니다.
 1.  [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)로 이동 합니다.
 1.  전역 관리자 계정으로 로그인 합니다.
 1.  왼쪽에서 **권한 수정** 을 선택 하 고 **디렉터리. ReadWrite** 가 *동의한*인지 확인 합니다.
-1.  쿼리 `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`를 실행 합니다. 이 쿼리는 서비스 사용자의 필터링 된 목록을 반환 합니다.
-1.  의 `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` `"id"`값을 찾아 확인 합니다.
+1.  쿼리를 실행 `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')` 합니다. 이 쿼리는 서비스 사용자의 필터링 된 목록을 반환 합니다.
+1.  `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"`의 값을 찾아 확인 `"id"` 합니다.
     ```
     "value": [
             {
@@ -149,8 +148,8 @@ Azure AD에는 다음과 같은 두 가지 유형의 속성이 있습니다.
                 "passwordCredentials": []
             },
     ```
-1. 값 `{Service Principal id}` 으로 대체 하 고 쿼리 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`를 실행 합니다.
-1. 의 `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` `"id"`값을 찾아 확인 합니다.
+1. `{Service Principal id}`값으로 대체 하 고 쿼리를 실행 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/` 합니다.
+1. `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"`의 값을 찾아 확인 `"id"` 합니다.
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -241,11 +240,11 @@ Azure AD에는 다음과 같은 두 가지 유형의 속성이 있습니다.
                 ]
             }
     ```
-1. 이제 쿼리 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`를 실행 합니다.
+1. 이제 쿼리를 실행 `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema` 합니다.
  
     예: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
-   및 `{Service Principal Id}` `{AD2ADD Provisioning Id}` 을 사용자의 값으로 바꿉니다.
+   `{Service Principal Id}`및을 `{AD2ADD Provisioning Id}` 사용자의 값으로 바꿉니다.
 
 1. 이 쿼리는 스키마를 반환 합니다.
 

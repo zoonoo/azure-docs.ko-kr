@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78296384"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
@@ -34,7 +33,7 @@ StringToObject(<str_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는가 서로 `StringToObject` 다른 형식에서 동작 하는 방법을 보여 줍니다. 
+  다음 예제에서는가 `StringToObject` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다. 
   
  유효한 입력을 사용 하는 예제는 다음과 같습니다.
 
@@ -56,7 +55,7 @@ SELECT
 ```
 
  입력이 잘못 된 예는 다음과 같습니다.
-쿼리 내에서 유효 하더라도 유효한 개체로 구문 분석 되지 않습니다. 개체의 문자열에 있는 문자열은 "\\{" a ":\\\\" str\\"}"로 이스케이프 되거나, 닫는 따옴표는 단일 ' {"a": "str"} ' 여야 합니다.
+쿼리 내에서 유효 하더라도 유효한 개체로 구문 분석 되지 않습니다. 개체의 문자열에 있는 문자열은 "{ \\ " a \\ ": \\ " str \\ "}"로 이스케이프 되거나, 닫는 따옴표는 단일 ' {"a": "str"} ' 여야 합니다.
 
 속성 이름을 둘러싼 작은따옴표는 유효한 JSON이 아닙니다.
 

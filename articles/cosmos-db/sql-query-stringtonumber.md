@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78296425"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
@@ -34,7 +33,7 @@ StringToNumber(<str_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는가 서로 `StringToNumber` 다른 형식에서 동작 하는 방법을 보여 줍니다. 
+  다음 예제에서는가 `StringToNumber` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다. 
 
 공백은 숫자 앞 이나 뒤에만 사용할 수 있습니다.
 

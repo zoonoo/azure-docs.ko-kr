@@ -9,13 +9,12 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 422b814f1d9738ca4f03d08dfecc6761b764f997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196028"
 ---
-# <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지 원하는 오픈 소스 플랫폼
+# <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼
 
 이 문서에는 Data Lake Storage Gen2를 지 원하는 오픈 소스 플랫폼이 나열 되어 있습니다.  
 
@@ -37,6 +36,6 @@ ms.locfileid: "78196028"
 ## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2에서 알려진 문제](data-lake-storage-known-issues.md)
-- [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob storage 기능](data-lake-storage-supported-blob-storage-features.md)
-- [Azure Data Lake Storage Gen2를 지 원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)
+- [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능](data-lake-storage-supported-blob-storage-features.md)
+- [Azure Data Lake Storage Gen2를 지원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)
 - [Azure Data Lake Storage에 대한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)

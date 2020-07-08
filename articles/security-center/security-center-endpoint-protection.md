@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
 ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78208545"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
@@ -55,7 +54,7 @@ Azure Security Center은 [지원 되](security-center-services.md#endpoint-suppo
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center endpoint protection
 
-* **SCEPMpModule ("$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** 를 가져오고, **amserviceenabled = false** 를 사용 하 여 **MProtComputerStatus** 결과를 실행 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 합니다. Security Center
+* **SCEPMpModule ("$env:P Rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** 를 가져오고 **amserviceenabled = false** 를 사용 하 여 **MProtComputerStatus** 결과를 실행 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 합니다. Security Center
 
 * **MprotComputerStatus** 실행 되 고 다음 중 하나가 발생할 때 **"컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
 
@@ -181,4 +180,4 @@ Microsoft 맬웨어 방지 확장 로그는 **%Systemdrive%\WindowsAzure\Logs\Pl
 
 ### <a name="support"></a>Support(지원)
 
-자세한 내용은 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 azure 전문가에 게 문의 하세요. 또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 지원 받기를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+자세한 내용은 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 azure 전문가에 게 문의 하세요. 또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

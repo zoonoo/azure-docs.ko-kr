@@ -16,10 +16,9 @@ ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255469"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
@@ -54,7 +53,7 @@ Azure VM 자동 다시 시작 또는 서비스 복구는 다음 두 수준에서
 Azure에서 제공하는 호스트 및 VM 모니터링을 사용하면 정상 Azure 호스트에서 호스트 문제가 발생한 Azure VM을 자동으로 다시 시작합니다. 
 
 >[!IMPORTANT]
->Azure 서비스 복구 과정에서 게스트 OS의 커널이 비상 상태인 Linux VM은 다시 시작되지 않습니다. 일반적으로 사용되는 Linux 릴리스의 기본 설정은 Linux 커널이 비상 상태인 VM 또는 서버를 자동으로 다시 시작하지 않는 것입니다. 대신 커널 디버거를 연결하여 분석할 수 있도록 OS의 커널 비상 상태를 유지할 것을 예상합니다. Azure는 이러한 동작을 인식하여 게스트 OS가 이러한 상태인 VM을 자동으로 다시 시작하지 않습니다. 이러한 경우가 매우 드물다는 가정입니다. VM 다시 시작을 사용하도록 설정하는 기본 동작을 덮어쓸 수 있습니다. 기본 동작을 변경하려면 /etc/sysctl.conf에 'kernel.panic' 매개 변수를 사용합니다. 이 매개 변수에 설정하는 시간은 초 단위입니다. 일반적인 권장 값은 이 매개 변수를 통해 재부팅을 트리거하기 전에 20~30초 동안 기다리는 것입니다. <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>도 참조하세요.
+>Azure 서비스 복구 과정에서 게스트 OS의 커널이 비상 상태인 Linux VM은 다시 시작되지 않습니다. 일반적으로 사용되는 Linux 릴리스의 기본 설정은 Linux 커널이 비상 상태인 VM 또는 서버를 자동으로 다시 시작하지 않는 것입니다. 대신 커널 디버거를 연결하여 분석할 수 있도록 OS의 커널 비상 상태를 유지할 것을 예상합니다. Azure는 이러한 동작을 인식하여 게스트 OS가 이러한 상태인 VM을 자동으로 다시 시작하지 않습니다. 이러한 경우가 매우 드물다는 가정입니다. VM 다시 시작을 사용하도록 설정하는 기본 동작을 덮어쓸 수 있습니다. 기본 동작을 변경하려면 /etc/sysctl.conf에 'kernel.panic' 매개 변수를 사용합니다. 이 매개 변수에 설정하는 시간은 초 단위입니다. 일반적인 권장 값은 이 매개 변수를 통해 재부팅을 트리거하기 전에 20~30초 동안 기다리는 것입니다. <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>을 참조하세요.
 
 이 시나리오에서 사용하는 두 번째 기능은 VM을 다시 부팅한 후 다시 시작한 VM에서 실행되는 HANA 서비스가 자동으로 시작된다는 것입니다. [HANA 서비스 자동 다시 시작](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)은 다양한 HANA 서비스의 Watchdog 서비스를 통해 설정할 수 있습니다.
 

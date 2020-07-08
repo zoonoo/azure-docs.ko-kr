@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
 ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206863"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터에 대 한 OS 패치 일정 구성
@@ -55,7 +54,7 @@ Run 'do-release-upgrade' to upgrade it
 
 스크립트 [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) 는 여러 유형의 업데이트를 설치 하 고 VM을 다시 시작 하는 옵션을 제공 합니다.
 
-스크립트 `install-updates-schedule-reboots` 는 다음 표에 설명 된 대로 두 개의 숫자 매개 변수를 허용 합니다.
+`install-updates-schedule-reboots`스크립트는 다음 표에 설명 된 대로 두 개의 숫자 매개 변수를 허용 합니다.
 
 | 매개 변수 | 허용되는 값 | 정의 |
 | --- | --- | --- |

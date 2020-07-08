@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302205"
 ---
 # <a name="replace-azure-cosmos-db"></a>REPLACE (Azure Cosmos DB)
@@ -40,7 +39,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는 쿼리에서를 사용 `REPLACE` 하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서를 사용 하는 방법을 보여 줍니다 `REPLACE` .  
   
 ```sql
 SELECT REPLACE("This is a Test", "Test", "desk") AS replace

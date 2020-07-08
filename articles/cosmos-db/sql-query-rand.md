@@ -8,16 +8,15 @@ ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: e44878b6d65725f08aeca4eb07088315ae2bb78a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302222"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
  [0, 1)에서 임의로 생성 된 숫자 값을 반환 합니다.
  
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
   
 ```sql
 RAND ()  
@@ -29,7 +28,7 @@ RAND ()
 
 ## <a name="remarks"></a>설명
 
-  `RAND`는 비결정 함수입니다. 의 `RAND` 반복적인 호출은 동일한 결과를 반환 하지 않습니다.
+  `RAND`는 비결정 함수입니다. 의 반복적인 호출은 `RAND` 동일한 결과를 반환 하지 않습니다.
 
 ## <a name="examples"></a>예
   

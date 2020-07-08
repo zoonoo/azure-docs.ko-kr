@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255254"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
@@ -41,7 +40,7 @@ Azure에서 지원 되는 SAP 소프트웨어를 찾는 방법에 대 한 정보
 
 ## <a name="azure-backup-service"></a>Azure Backup 서비스
 
-표시 되는 첫 번째 시나리오는 Azure Backup 서비스가 SAP HANA `backint` 인터페이스를 사용 하 여 SAP HANA 데이터베이스에서를 사용 하 여 스트리밍 백업을 수행 하는 시나리오입니다. 또는 Azure Backup 서비스에 대 한 보다 일반적인 기능을 사용 하 여 응용 프로그램 일치 디스크 스냅숏을 만들고이를 Azure Backup 서비스로 전송 합니다.
+표시 되는 첫 번째 시나리오는 Azure Backup 서비스가 SAP HANA 인터페이스를 사용 하 여 `backint` SAP HANA 데이터베이스에서를 사용 하 여 스트리밍 백업을 수행 하는 시나리오입니다. 또는 Azure Backup 서비스에 대 한 보다 일반적인 기능을 사용 하 여 응용 프로그램 일치 디스크 스냅숏을 만들고이를 Azure Backup 서비스로 전송 합니다.
 
 Azure Backup는 [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5)라는 소유 SAP HANA 인터페이스를 사용 하 여 SAP HANA에 대 한 백업 솔루션으로 인증 됩니다. 솔루션에 대 한 자세한 내용, 해당 기능 및 사용 가능한 Azure 지역에 대 한 자세한 내용은 [Azure vm의 SAP HANA 데이터베이스 백업에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)문서를 참조 하세요. HANA에 대 한 Azure Backup 서비스에 대 한 자세한 내용 및 원칙은 [Azure vm의 SAP HANA 데이터베이스 백업에 대 한](https://docs.microsoft.com/azure/backup/sap-hana-db-about)문서를 참조 하세요. 
 
@@ -116,12 +115,12 @@ Azure에서 Azure blob snapshot&#39;기능이 여러 디스크 간에 파일 시
 > 여러 데이터베이스 컨테이너를 사용 하는 배포의 SAP HANA에 대 한 디스크 스냅숏 기반 백업, 최소 버전의 HANA 2.0 SP04 필요
 > 
 
-Azure storage는 스냅숏 프로세스 중에 VM에 연결 된 여러 디스크 또는 볼륨에서 파일 시스템 일관성을 제공 하지 않습니다. 즉, 응용 프로그램에서 스냅숏에서 응용 프로그램 일관성을 전달 해야 합니다 .이 경우에는 SAP HANA 자체입니다. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) 에는 저장소 스냅숏으로 SAP HANA 백업에 대 한 중요 한 정보가 있습니다. 예를 들어 XFS 파일 시스템을 사용 하는 경우 응용 프로그램 일관성을 제공 하기 위해 저장소 스냅숏을 시작 하기 전에 **\_XFS freeze** 를 실행 해야 합니다 (XFS 고정에 **\_** 대 한 자세한 내용은 [\_XFS 고정 (8)-Linux 매뉴얼 페이지](https://linux.die.net/man/8/xfs_freeze) 참조).
+Azure storage는 스냅숏 프로세스 중에 VM에 연결 된 여러 디스크 또는 볼륨에서 파일 시스템 일관성을 제공 하지 않습니다. 즉, 응용 프로그램에서 스냅숏에서 응용 프로그램 일관성을 전달 해야 합니다 .이 경우에는 SAP HANA 자체입니다. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) 에는 저장소 스냅숏으로 SAP HANA 백업에 대 한 중요 한 정보가 있습니다. 예를 들어 XFS 파일 시스템을 사용 하는 경우 응용 프로그램 일관성을 제공 하기 위해 저장소 스냅숏을 시작 하기 전에 **XFS \_ freeze** 를 실행 해야 합니다 (XFS 고정에 대 한 자세한 내용은 [XFS 고정 \_ (8)-Linux 매뉴얼 페이지](https://linux.die.net/man/8/xfs_freeze) ** \_ 참조).**
 
 다음 단계에서는 네 개의 Azure 가상 디스크를 확장하는 XFS 파일 시스템이 있다고 가정하여 HANA 데이터 영역을 나타내는 일관된 스냅샷을 제공합니다.
 
 1. HANA 데이터 스냅숏 만들기 준비
-1. 모든 디스크/볼륨의 파일 시스템을 고정 합니다 (예: **xfs\_freeze**사용).
+1. 모든 디스크/볼륨의 파일 시스템을 고정 합니다 (예: **xfs \_ freeze**사용).
 1. Azure에서 필요한 모든 Blob 스냅샷 만들기
 1. 파일 시스템 고정 취소(unfreeze)
 1. HANA 데이터 스냅숏 확인 (스냅숏이 삭제 됨)

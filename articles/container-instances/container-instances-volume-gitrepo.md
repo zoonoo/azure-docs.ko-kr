@@ -4,10 +4,9 @@ description: gitRepo 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78252096"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container Instances에서 gitRepo 볼륨 탑재
@@ -23,7 +22,7 @@ ms.locfileid: "78252096"
 
 *gitRepo* 볼륨을 탑재할 때 세 개의 속성을 설정하여 볼륨을 구성할 수 있습니다.
 
-| 속성 | 필수 | Description |
+| 속성 | 필수 | 설명 |
 | -------- | -------- | ----------- |
 | `repository` | 예 | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
 | `directory` | 아니요 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
@@ -33,7 +32,7 @@ ms.locfileid: "78252096"
 
 [Azure CLI](/cli/azure)로 컨테이너 인스턴스를 배포할 때 gitRepo 볼륨을 탑재하려면 `--gitrepo-url` 및 `--gitrepo-mount-path` 매개 변수를 [az container create][az-container-create] 명령에 제공합니다. 선택적으로 복제할 볼륨 내 디렉터리(`--gitrepo-dir`)와 복제된 수정 작업의 커밋 해시(`--gitrepo-revision`)를 지정할 수 있습니다.
 
-이 예제 명령은 Microsoft [aci-helloworld][aci-helloworld] 샘플 응용 프로그램 `/mnt/aci-helloworld` 을 컨테이너 인스턴스의에 복제 합니다.
+이 예제 명령은 Microsoft [aci-helloworld][aci-helloworld] 샘플 응용 프로그램을 컨테이너 인스턴스의에 복제 합니다 `/mnt/aci-helloworld` .
 
 ```azurecli-interactive
 az container create \

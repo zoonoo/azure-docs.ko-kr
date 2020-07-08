@@ -9,17 +9,16 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: d4a97a10b8055af4401dbe163723b1fb38a5d12f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78269667"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60702.1-7/2/2019
 
 TMT (Microsoft Threat Modeling Tool 버전 7.1.60702.1)는 7 월 2 2019에 출시 되었으며 다음과 같은 변경 내용이 포함 되어 있습니다.
 
-- 향상된 접근성 기능
+- 내게 필요한 옵션 기능 향
 - 버그 수정
 - 오픈 소스 커뮤니티 제공 스텐실 집합 포함
 

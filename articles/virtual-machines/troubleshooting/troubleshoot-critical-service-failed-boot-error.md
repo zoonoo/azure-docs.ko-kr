@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921456"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
@@ -108,14 +107,14 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 1. 복구 VM에 OS 디스크를 연결합니다.
 2. 연결한 OS 디스크에서 **\windows\system32\config**로 이동 합니다. 롤백이 필요한 경우 모든 파일을 백업으로 복사 합니다.
 3. **레지스트리 편집기**(regedit.exe)를 시작합니다.
-4. **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일** > **로드 하이브**를 선택 합니다.
+4. **HKEY_LOCAL_MACHINE** 키를 선택합니다. 메뉴에서 **파일**  >  **로드 하이브**를 선택 합니다.
 5. 연결한 OS 디스크에서 **\windows\system32\config\SYSTEM** 폴더를 찾습니다. Hive 이름으로 **BROKENSYSTEM**을 입력합니다. 새 레지스트리 Hive는 **HKEY_LOCAL_MACHINE** 키 아래에 표시됩니다.
 6. **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl**로 이동하여 값을 다음과 같이 변경합니다.
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일** > **언로드 하이브**를 선택 합니다.
+7.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일**  >  **언로드 하이브**를 선택 합니다.
 8.  디버그 모드로 부팅되도록 BCD 설정을 수정합니다. 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
 
     ```cmd

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271369"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 권한 있는 컨테이너 실행
@@ -29,9 +28,9 @@ Azure Red Hat OpenShift 클러스터에서 임의의 권한 있는 컨테이너�
 대부분의 보안 제품에 대 한 설명서에서는 클러스터 관리자 권한이 있다고 가정 합니다.
 고객 관리자에 게 Azure Red Hat OpenShift에 대 한 모든 권한이 없습니다. 클러스터 전체 리소스를 수정 하는 데 필요한 권한은 제한 됩니다.
 
-먼저를 실행 `oc get scc`하 여 사용자가 고객 관리자로 클러스터에 로그인 했는지 확인 합니다. Customer admin 그룹의 멤버인 모든 사용자에 게는 클러스터에서 SCCs (보안 컨텍스트 제약 조건)를 볼 수 있는 권한이 있습니다.
+먼저를 실행 하 여 사용자가 고객 관리자로 클러스터에 로그인 했는지 확인 `oc get scc` 합니다. Customer admin 그룹의 멤버인 모든 사용자에 게는 클러스터에서 SCCs (보안 컨텍스트 제약 조건)를 볼 수 있는 권한이 있습니다.
 
-그런 다음 `oc` 이진 버전이 인지 확인 `3.11.154`합니다.
+그런 다음 `oc` 이진 버전이 인지 확인 `3.11.154` 합니다.
 ```
 oc version
 oc v3.11.154
@@ -74,9 +73,9 @@ oc adm policy add-scc-to-user hostaccess system:serviceaccount:aqua-security:aqu
 ### <a name="step-2-deploy-the-aqua-server-database-and-gateway"></a>2 단계: 바다색 서버, 데이터베이스 및 게이트웨이 배포
 바다색 문서에 설명 된 단계에 따라 바다색-콘솔. yaml을 설치 합니다.
 
-제공 `aqua-console.yaml`된를 수정 합니다.  `kind: ClusterRole` 및 `kind: ClusterRoleBinding`라는 레이블이 지정 된 상위 두 개체를 제거 합니다.  사용자 관리자에 게 및 `ClusterRole` `ClusterRoleBinding` 개체를 수정할 수 있는 권한이 없기 때문에 이러한 리소스는 생성 되지 않습니다.
+제공 된를 수정 `aqua-console.yaml` 합니다.  및 라는 레이블이 지정 된 상위 두 개체를 제거 합니다 `kind: ClusterRole` `kind: ClusterRoleBinding` .  사용자 관리자에 게 및 개체를 수정할 수 있는 권한이 없기 때문에 이러한 리소스는 생성 되지 않습니다 `ClusterRole` `ClusterRoleBinding` .
 
-두 번째 수정은의 `kind: Route` 부분에 대 한 것입니다 `aqua-console.yaml`. `aqua-console.yaml` 파일의 `kind: Route` 개체에 대해 다음 yaml를 바꿉니다.
+두 번째 수정은의 부분에 대 한 것입니다 `kind: Route` `aqua-console.yaml` . 파일의 개체에 대해 다음 yaml를 바꿉니다 `kind: Route` `aqua-console.yaml` .
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -115,13 +114,13 @@ Enforcers를 배포할 때 다음 필드를 설정 합니다.
 | -------------- | ------------- |
 | 오케스트레이터   | OpenShift     |
 | ServiceAccount | 바다색-계정  |
-| 프로젝트        | 바다색-보안 |
+| Project        | 바다색-보안 |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Twistlock Sma Cloud/에 대 한 제품별 단계
 
 수정 하려는 기본 지침은 기본 [Sma 클라우드 배포 설명서](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html) 에서 확인할 수 있습니다.
 
-"설치 하는 `twistcli` 방법"에 설명 된 대로 도구를 설치 하 여 시작 합니다.
+"설치 하는 방법" `twistcli` 에 설명 된 대로 도구를 설치 하 여 시작 합니다.
 
 새 OpenShift 프로젝트 만들기
 ```
@@ -135,10 +134,10 @@ oc new-project twistlock
 
 ### <a name="install-console"></a>콘솔 설치
 
-2 `oc create -f twistlock_console.yaml` 단계에서 네임 스페이스를 만들 때 오류가 발생 합니다.
-`oc new-project` 명령을 사용 하 여 이전에 만든 네임 스페이스를 안전 하 게 무시할 수 있습니다.
+`oc create -f twistlock_console.yaml`2 단계에서 네임 스페이스를 만들 때 오류가 발생 합니다.
+명령을 사용 하 여 이전에 만든 네임 스페이스를 안전 하 게 무시할 수 있습니다 `oc new-project` .
 
-저장소 `azure-disk` 형식에 사용 합니다.
+`azure-disk`저장소 형식에 사용 합니다.
 
 ### <a name="create-an-external-route-to-console"></a>콘솔에 대 한 외부 경로 만들기
 
@@ -177,7 +176,7 @@ Twistlock 설명서를 따르세요.
 
 ### <a name="install-defender"></a>Defender 설치
 
-2 `oc create -f defender.yaml` 단계에서는 클러스터 역할 및 클러스터 역할 바인딩을 만들 때 오류가 발생 합니다.
+`oc create -f defender.yaml`2 단계에서는 클러스터 역할 및 클러스터 역할 바인딩을 만들 때 오류가 발생 합니다.
 이런 예외는 무시할 수 있습니다.
 
 방어자는 계산 노드에만 배포 됩니다. 노드 선택기를 사용 하 여 제한할 필요가 없습니다.

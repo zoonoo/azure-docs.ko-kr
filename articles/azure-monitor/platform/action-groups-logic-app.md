@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206239"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
@@ -110,7 +109,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 12. Microsoft Teams 작업을 구성합니다. **Logic Apps 디자이너**에서 Office 365 계정에 인증할 것을 요청합니다. 메시지를 전송할 **팀 ID** 및 **채널 ID**를 선택합니다.
 
-13. 동적 콘텐츠의 \<fields\>에 정적 텍스트 및 참조의 조합을 사용하여 메시지를 구성합니다. 다음 텍스트를 잘라내어 **메시지** 필드에 붙여넣습니다.
+13. 정적 텍스트와 동적 콘텐츠에서의 참조를 조합 하 여 메시지를 구성 \<fields\> 합니다. 다음 텍스트를 잘라내어 **메시지** 필드에 붙여넣습니다.
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,7 +118,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
       resourceId: <resourceId>
     ```
 
-    그런 다음, \<fields\>를 검색하여 동일한 이름의 동적 콘텐츠 태그로 바꿉니다.
+    그런 다음를 검색 하 여 \<fields\> 동일한 이름의 동적 콘텐츠 태그로 바꿉니다.
 
     > [!NOTE]
     > **상태**라는 두 개의 동적 필드가 있습니다. 메시지에 이러한 필드를 모두 추가합니다. **activityLog** 속성 모음에서 하나를 사용하고 다른 필드는 삭제합니다. **상태** 필드 위로 커서를 가져가면 다음 스크린샷에 표시된 것과 같이 정규화된 필드 참조가 나타납니다.

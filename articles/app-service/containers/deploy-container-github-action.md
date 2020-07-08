@@ -7,25 +7,24 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: d5f175d887cec1d5b5e567d3f716e6492f4516dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78246964"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
-[GitHub 작업](https://help.github.com/en/articles/about-github-actions) 을 통해 자동화 된 소프트웨어 개발 수명 주기 워크플로를 유연 하 게 빌드할 수 있습니다. [컨테이너에 대 한 Azure App Service 작업](https://github.com/Azure/webapps-container-deploy)을 사용 하면 GitHub 작업을 사용 하 여 [App Service에 앱을 사용자 지정 컨테이너로](https://azure.microsoft.com/services/app-service/containers/) 배포 하도록 워크플로를 자동화할 수 있습니다.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions)를 사용하면 자동화된 소프트웨어 개발 수명 주기 워크플로를 유연성 있게 빌드할 수 있습니다. [컨테이너에 대 한 Azure App Service 작업](https://github.com/Azure/webapps-container-deploy)을 사용 하면 GitHub 작업을 사용 하 여 [App Service에 앱을 사용자 지정 컨테이너로](https://azure.microsoft.com/services/app-service/containers/) 배포 하도록 워크플로를 자동화할 수 있습니다.
 
 > [!IMPORTANT]
-> GitHub 동작은 현재 베타 버전입니다. 먼저 GitHub 계정을 사용 하 여 [미리 보기에 참여 하려면 등록](https://github.com/features/actions) 해야 합니다.
+> GitHub Actions는 현재 베타 버전입니다. 먼저 GitHub 계정을 사용하여 [미리 보기에 조인하려면 가입](https://github.com/features/actions)해야 합니다.
 > 
 
-워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 yaml (.yml) 파일에 의해 정의 됩니다. 이 정의는 워크플로를 구성 하는 다양 한 단계와 매개 변수를 포함 합니다.
+워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다.
 
 Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같은 세 개의 섹션이 있습니다.
 
-|단원  |작업  |
+|섹션  |작업  |
 |---------|---------|
 |**인증** | 1. 서비스 주체를 정의 합니다. <br /> 2. GitHub 비밀을 만듭니다. |
 |**빌드** | 1. 환경을 설정 합니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
@@ -33,7 +32,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/)에서 [az ad sp create-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용 하 여 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) 를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/) 를 사용 하거나 **사용해 보기** 단추를 선택 하 여이 명령을 실행할 수 있습니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure/)에서 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 이 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -56,15 +55,15 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 ```
 
 > [!IMPORTANT]
-> 최소한의 액세스 권한을 부여 하는 것이 항상 좋은 방법입니다. 위의 Az CLI 명령에서 범위를 특정 App Service 앱 및 컨테이너 이미지가 푸시되는 Azure Container Registry으로 제한할 수 있습니다.
+> 항상 최소한의 액세스 권한을 부여하는 것이 좋습니다. 위의 Az CLI 명령에서 범위를 특정 App Service 앱 및 컨테이너 이미지가 푸시되는 Azure Container Registry으로 제한할 수 있습니다.
 
-## <a name="configure-the-github-secret"></a>GitHub 암호 구성
+## <a name="configure-the-github-secret"></a>GitHub 비밀 구성
 
-아래 예제에서는 배포에 대 한 Azure 서비스 주체와 같은 사용자 수준 자격 증명을 사용 합니다. 암호를 구성 하는 단계를 수행 합니다.
+아래 예제에서는 배포에 대 한 Azure 서비스 주체와 같은 사용자 수준 자격 증명을 사용 합니다. 비밀을 구성하는 단계를 수행합니다.
 
-1. [GitHub](https://github.com/)에서 리포지토리를 찾아보고, **설정 > 비밀을 선택 하 > 새 비밀을 추가 합니다** .
+1. [GitHub](https://github.com/)에서 리포지토리를 검색하고 **설정 > 비밀 > 새 비밀 추가**를 선택합니다.
 
-2. 아래 `az cli` 명령의 내용을 비밀 변수 값으로 붙여넣습니다. `AZURE_CREDENTIALS`)을 입력합니다.
+2. 아래 `az cli` 명령의 내용을 비밀 변수 값으로 붙여넣습니다. 예: `AZURE_CREDENTIALS`.
 
     
     ```azurecli
@@ -75,7 +74,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
     # Replace {subscription-id}, {resource-group} with the subscription, resource group details
     ```
 
-3. 이제 분기의 워크플로 파일에서 Azure 로그인 동작 `.github/workflows/workflow.yml` 의 암호를 비밀로 바꿉니다.
+3. 이제 분기의 워크플로 파일에서 `.github/workflows/workflow.yml` Azure 로그인 동작의 암호를 비밀로 바꿉니다.
 
 4. 마찬가지로 컨테이너 레지스트리 자격 증명에 대해 다음과 같은 추가 암호를 정의 하 고 Docker 로그인 작업에서 설정 합니다. 
 
@@ -121,17 +120,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>App Service 컨테이너에 배포
 
-App Service의 사용자 지정 컨테이너에 이미지를 배포 하려면 `azure/webapps-container-deploy@v1` 작업을 사용 합니다. 이 작업에는 5 개의 매개 변수가 있습니다.
+App Service의 사용자 지정 컨테이너에 이미지를 배포 하려면 작업을 사용 `azure/webapps-container-deploy@v1` 합니다. 이 작업에는 5 개의 매개 변수가 있습니다.
 
 | **매개 변수**  | **설명**  |
 |---------|---------|
-| **앱 이름** | 하다 App Service 앱의 이름 | 
-| **슬롯-이름** | 필드 프로덕션 슬롯이 아닌 기존 슬롯을 입력 하세요. |
+| **app-name** | (필수) App Service 앱의 이름 | 
+| **slot-name** | (선택 사항) 프로덕션 슬롯이 아닌 기존 슬롯 입력 |
 | **images** | 하다 정규화 된 컨테이너 이미지 이름을 지정 합니다. 예: ' myregistry.azurecr.io/nginx:latest ' 또는 ' python: 3.7.2-알파인/'. 다중 컨테이너 앱의 경우 여러 개의 컨테이너 이미지 이름을 제공할 수 있습니다 (여러 줄로 구분). |
 | **구성-파일** | 필드 Docker 작성 파일의 경로입니다. 는 정규화 된 경로 이거나 기본 작업 디렉터리에 대 한 상대 경로 여야 합니다. 다중 컨테이너 앱에 필요 합니다. |
-| **컨테이너-명령** | 필드 시작 명령을 입력 합니다. 예: dotnet 실행 또는 dotnet 파일 이름 .dll |
+| **컨테이너-명령** | 필드 시작 명령을 입력 합니다. 예: dotnet 실행 또는 dotnet filename.dll |
 
-다음은 App Service의 사용자 지정 컨테이너에 node.js 앱을 빌드하고 배포 하는 샘플 워크플로입니다.
+App Service의 사용자 지정 컨테이너에 Node.js 앱을 빌드하고 배포 하는 샘플 워크플로는 다음과 같습니다.
 
 ```yaml
 on: [push]
@@ -173,15 +172,15 @@ jobs:
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub에서 다양 한 리포지토리로 그룹화 된 일련의 작업을 찾을 수 있습니다. 여기에는 CI/CD 용 GitHub를 사용 하 고 Azure에 앱을 배포 하는 데 도움이 되는 설명서와 예제가 포함 되어 있습니다.
+GitHub에서 다양한 리포지토리로 그룹화된 일련의 작업을 찾을 수 있습니다. 각 리포지토리에는 CI/CD에 GitHub를 사용하고 Azure에 앱을 배포하는 데 도움이 되는 문서 및 예제가 포함됩니다.
 
 - [Azure 로그인](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 
-- [컨테이너에 대 한 Azure WebApp](https://github.com/Azure/webapps-container-deploy)
+- [컨테이너용 Azure WebApp](https://github.com/Azure/webapps-container-deploy)
 
-- [Docker 로그인/로그 아웃](https://github.com/Azure/docker-login)
+- [Docker 로그인/로그아웃](https://github.com/Azure/docker-login)
 
 - [워크플로를 트리거하는 이벤트](https://help.github.com/en/articles/events-that-trigger-workflows)
 

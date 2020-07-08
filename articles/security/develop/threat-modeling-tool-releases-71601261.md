@@ -9,10 +9,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/25/2019
 ms.openlocfilehash: 7d0be8d7243331264c10a407e3d78370ea798928
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78269768"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019/1/29
@@ -49,7 +48,7 @@ ms.locfileid: "78269768"
 
 ### <a name="unsupported-systems"></a>지원되지 않는 시스템
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 Windows 10 Enterprise LTSB(버전 1507)와 같이 .NET 4.7.1 이상을 설치할 수 없는 Windows 10 시스템 사용자는 업그레이드 후에 도구를 열 수 없습니다. 이러한 이전 버전 Windows는 Threat Modeling Tool용으로 더 이상 지원되지 않는 플랫폼이므로 최신 업데이트를 설치하면 안 됩니다.
 

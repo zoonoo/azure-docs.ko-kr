@@ -12,10 +12,9 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78183978"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
@@ -26,20 +25,20 @@ ms.locfileid: "78183978"
 
 ## <a name="200"></a>2.0.0
 
-- 자체 어설션 페이지 (`selfasserted`)
+- 자체 어설션 페이지 ( `selfasserted` )
   - 사용자 지정 정책의 [표시 컨트롤](display-controls.md) 에 대 한 지원이 추가 되었습니다.
 
 ## <a name="120"></a>1.2.0
 
 - 모든 페이지
   -  접근성 수정
-  - 이제 [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) 특성 `data-preload="true"` 을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
+  - 이제 `data-preload="true"` [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
     - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
-    - 페이지를 로드 하기 전에 `script` 태그를 가져오고 실행 하는 순서를 제어 합니다.
-  - 전자 메일 필드는 `type=email` 지금 이며 모바일 키보드는 올바른 제안 사항을 제공 합니다.
+    - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
+  - 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
   - Chrome 변환 지원
 - 통합 및 자체 어설션된 페이지
-  - 이제 사용자 이름/전자 메일 및 암호 필드에 `form` HTML 요소를 사용 하 여 Edge 및 internet EXPLORER (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
+  - 이제 사용자 이름/전자 메일 및 암호 필드에 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
 
 ## <a name="110"></a>1.1.0
 
