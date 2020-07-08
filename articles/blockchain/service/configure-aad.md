@@ -2,14 +2,14 @@
 title: Azure Active Directory 액세스 구성-Azure Blockchain 서비스
 description: Azure Active Directory 액세스를 사용 하 여 Azure Blockchain 서비스를 구성 하는 방법
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74455856"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208776"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Azure Blockchain 서비스에 대 한 Azure Active Directory 액세스를 구성 하는 방법
 
@@ -17,7 +17,7 @@ ms.locfileid: "74455856"
 
 Azure AD는 클라우드 기반 id 관리 기능을 제공 하며 전체 엔터프라이즈에서 단일 id를 사용 하 고 Azure에서 응용 프로그램에 액세스할 수 있습니다. Azure Blockchain 서비스는 Azure AD와 통합 되며 ID 페더레이션, Single Sign-On 및 multi-factor authentication과 같은 혜택을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal를 사용 하 여 블록 체인 구성원 만들기](create-member.md)
 
@@ -37,7 +37,7 @@ Azure AD는 클라우드 기반 id 관리 기능을 제공 하며 전체 엔터�
     |-----------------|---------|
     | Azure AD 사용자   | `kim@contoso.onmicrosoft.com` |
     | Azure AD 그룹  | `sales@contoso.onmicrosoft.com` |
-    | 애플리케이션 UI  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
+    | 애플리케이션 ID  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
     ![역할 할당 추가](./media/configure-aad/add-role-assignment.png)
 
@@ -63,7 +63,7 @@ git clone https://github.com/Microsoft/azure-blockchain-connector.git
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Azure AD 사용자 계정을 사용 하 여 연결
 
-1. 다음 명령을 실행 하 여 Azure AD 사용자 계정을 사용 하 여 인증 합니다. MyAADDirectory \<\> 을 Azure AD 도메인으로 바꿉니다. `yourdomain.onmicrosoft.com`)을 입력합니다.
+1. 다음 명령을 실행 하 여 Azure AD 사용자 계정을 사용 하 여 인증 합니다. \<myAADDirectory\>을 AZURE AD 도메인으로 바꿉니다. 예: `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Azure AD에서 응용 프로그램을 등록 하는 방법에 대 한 자세한 
 
 Azure AD 인증 팝업 디스플레이가 가능 하지 않은 모바일 장치 또는 텍스트 기반 브라우저의 경우 Azure AD는 일회성 암호를 생성 합니다. 암호를 복사 하 고 다른 환경에서 Azure AD 인증을 진행할 수 있습니다.
 
-암호를 생성 하려면 **aadauthcode** 를 **aaddevice**로 바꿉니다. MyAADDirectory \<\> 을 Azure AD 도메인으로 바꿉니다. `yourdomain.onmicrosoft.com`)을 입력합니다.
+암호를 생성 하려면 **aadauthcode** 를 **aaddevice**로 바꿉니다. \<myAADDirectory\>을 AZURE AD 도메인으로 바꿉니다. 예: `yourdomain.onmicrosoft.com`
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

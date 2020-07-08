@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e8a70955b36f11727019fe430f62e84d4f0c93c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248312"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
 > [!NOTE]
@@ -28,12 +28,12 @@ ms.locfileid: "74931326"
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)를 참조하세요. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012, 2013 또는 2015
-* [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드 하 여 설치 합니다.
+* [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션을 만듭니다.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
@@ -50,7 +50,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```powershell
     Get-AzSubscription
     ```
-4. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. ** &lt;NameOfAzureSubscription** &gt; 을 Azure 구독의 이름으로 바꿉니다.
+4. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **&lt;NameOfAzureSubscription**&gt;을 Azure 구독의 이름으로 바꿉니다.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -59,7 +59,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
    > [!IMPORTANT]
    > 이 명령의 출력에서 **SubscriptionId** 및 **TenantId**를 적어둡니다.
 
-5. PowerShell에서 다음 명령을 실행 하 여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
+5. PowerShell에서 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
 
     ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -109,14 +109,14 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 1. Visual Studio 2012/2013/2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
-   1. **Visual Studio** 2012/2013/2015를 시작 합니다.
+   1. **Visual Studio** 2012/2013/2015를 실행합니다.
    2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
-   3. **템플릿**을 확장 하 고 **Visual c #** 을 선택 합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
+   3. **템플릿**을 확장하고 **Visual C#** 를 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
    4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 애플리케이션**을 선택합니다.
-   5. 이름에 **DataFactoryAPITestApp** 를 입력 합니다.
+   5. 이름에 **DataFactoryAPITestApp** 을 입력합니다.
    6. **C:\ADFGetStarted**를 [위치]로 선택합니다.
    7. **확인**을 클릭하여 프로젝트를 만듭니다.
-2. **도구**를 클릭 하 고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭 합니다.
+2. **도구**를 클릭하고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭합니다.
 3. **패키지 관리자 콘솔**에서 다음 단계를 수행합니다.
    1. 다음 명령을 실행하여 Data Factory 패키지를 설치합니다. `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Azure Active Directory 패키지를 설치하려면 다음 명령을 실행합니다(코드에서 Active Directory API를 사용함). `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -137,7 +137,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
         </appSettings>
     </configuration>
     ```
-5. App.config 파일에서 ** &lt;응용 프로그램 id&gt;**, ** &lt;암호&gt;**, ** &lt;구독 id&gt;** 및 ** &lt;테 넌 트 id&gt; ** 의 값을 고유한 값으로 업데이트 합니다.
+5. App.Config 파일에서 ** &lt; 응용 프로그램 &gt; id**, ** &lt; 암호 &gt; **, ** &lt; 구독 id &gt; **및 ** &lt; 테 넌 트 id &gt; ** 의 값을 고유한 값으로 업데이트 합니다.
 6. 프로젝트의 **Program.cs** 파일에 다음 **using** 문을 추가합니다.
 
     ```csharp
@@ -445,7 +445,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     }
     ```
 
-15. 솔루션 탐색기에서 프로젝트 **DataFactoryAPITestApp**을 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
+15. 솔루션 탐색기에서 프로젝트: **DataFactoryAPITestApp**를 확장 하 고 **참조**를 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**를 클릭 합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
 15. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 16. 이 시작 자습서에서는 Microsoft Azure File Storage 사용에 대한 기본 사항을 설명합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
@@ -453,7 +453,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     John, Doe
     Jane, Doe
     ```
-17. 메뉴에서 **디버그** -> **디버깅 시작** 을 클릭 하 여 샘플을 실행 합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
+17. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 18. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
     * 연결된 서비스: **AzureStorageLinkedService**
     * 데이터 세트: **DatasetBlobSource** 및 **DatasetBlobDestination**
@@ -500,6 +500,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Blob Storage에서 Azure SQL 데이터베이스로 데이터를 복사하는 .NET SDK를 사용하여 파이프라인을 만드는 다음 예제를 살펴봅니다. 
+Azure blob 저장소에서 Azure SQL Database로 데이터를 복사 하는 .NET SDK를 사용 하 여 파이프라인을 만드는 다음 예제를 참조 하세요. 
 
 - [Blob Storage에서 SQL Database로 데이터를 복사하는 파이프라인 만들기](data-factory-copy-activity-tutorial-using-dotnet-api.md)

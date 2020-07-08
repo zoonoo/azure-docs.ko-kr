@@ -6,17 +6,17 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d680283250cc323c833f388f6b20d7fe6fa132d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211054"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Azure Functions를 사용 하 여 Azure Synapse Analytics SQL 풀에서 계산 리소스 관리
 
@@ -29,7 +29,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 템플릿을 배포하려면 다음 정보가 필요합니다.
 
 - SQL 풀 인스턴스가 있는 리소스 그룹의 이름입니다.
-- SQL 풀 인스턴스가 있는 논리 서버의 이름
+- SQL 풀 인스턴스가 있는 서버의 이름
 - SQL 풀 인스턴스의 이름입니다.
 - Azure Active Directory의 테넌트 ID(디렉터리 ID)
 - 구독 ID
@@ -97,11 +97,11 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 현재는 템플릿에 크기 조정 함수가 두 개밖에 없습니다. 이러한 함수를 사용하면 강화 및 규모 축소를 각각 하루에 한 번만 수행할 수 있습니다. 하루에 여러 번 규모를 축소하거나 주말에 다른 크기 조정 동작을 수행하는 등 더 세밀한 제어가 필요한 경우 또 다른 트리거를 추가해야 합니다.
 
-1. 빈 함수를 만듭니다. 함수 위치 *+* 근처의 단추를 선택 하 여 함수 템플릿 창을 표시 합니다.
+1. 빈 함수를 만듭니다. 함수 *+* 위치 근처의 단추를 선택 하 여 함수 템플릿 창을 표시 합니다.
 
    ![새 함수 만들기](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. 언어에서 *Javascript*를 선택한 후 *TimerTrigger*를 선택합니다.
+2. 언어에서 *JavaScript*를 선택한 다음, *타이머 트리거*를 선택 합니다.
 
    ![새 함수 만들기](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 5. 다음과 같이 작업 변수를 원하는 동작으로 설정합니다.
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
@@ -141,7 +141,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 매일 오전 8시에 DW600으로 강화하고 오후 8시에 DW200으로 규모 축소합니다.
 
-| 함수  | 일정     | 작업(Operation)                                |
+| 기능  | 일정     | 연산                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -150,7 +150,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 매일 오전 8시에 DW1000으로 강화하고, 오후 4시에 규모를 DW600으로 한 번 축소하고, 오후 10시에 DW200으로 축소합니다.
 
-| 함수  | 일정     | 작업(Operation)                                |
+| 기능  | 일정     | 연산                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -160,7 +160,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 평일 오전 8시에 DW1000으로 강화하고, 오후 4시에 DW600으로 규모 축소합니다. 금요일 오후 11시에 일시 중지하고 월요일 오전 7시에 다시 시작합니다.
 
-| 함수  | 일정       | 작업(Operation)                                |
+| 기능  | 일정       | 연산                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |

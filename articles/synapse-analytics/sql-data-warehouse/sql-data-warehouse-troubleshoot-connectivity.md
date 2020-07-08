@@ -6,17 +6,17 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 33cc0c33f90d68ac3396f1366d4ff8437563eda1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213893"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Synapse SQL 풀의 연결 문제 해결
 
@@ -50,11 +50,11 @@ SQL 풀의 상태는 여기에 표시됩니다. 서비스가 **사용 가능**�
 
 ## <a name="check-your-firewall-settings"></a>방화벽 설정 확인
 
-SQL 풀 데이터베이스는 포트 1433을 통해 통신합니다.  회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)에서 찾을 수 있습니다.
+SQL 풀 데이터베이스는 포트 1433을 통해 통신합니다.  회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않는 한 [논리 서버](../../azure-sql/database/logical-servers.md) 에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)에서 찾을 수 있습니다.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>VNet/Service Endpoint 설정 확인
 
-40914 및 40615 오류를 수신하는 경우 [여기에 오류 설명 및 해결 방법](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)을 참조하세요.
+40914 및 40615 오류를 수신하는 경우 [여기에 오류 설명 및 해결 방법](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)을 참조하세요.
 
 ## <a name="check-for-the-latest-drivers"></a>최신 드라이버 확인
 
@@ -109,7 +109,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="common-error-messages"></a>일반적인 오류 메시지
 
-40914 및 40615 오류는 [여기에 오류 설명 및 해결 방법](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)을 참조하세요.
+40914 및 40615 오류는 [여기에 오류 설명 및 해결 방법](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615)을 참조하세요.
 
 ## <a name="still-having-connectivity-issues"></a>여전히 연결 문제가 있나요?
 

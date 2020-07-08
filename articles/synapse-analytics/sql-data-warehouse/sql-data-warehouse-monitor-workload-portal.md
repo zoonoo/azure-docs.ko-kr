@@ -6,24 +6,24 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211564"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크 로드 모니터링-Azure Portal
 
 이 문서에서는 Azure Portal를 사용 하 여 워크 로드를 모니터링 하는 방법을 설명 합니다. 여기에는 [SYNAPSE SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)에 대 한 log analytics를 사용 하 여 쿼리 실행 및 워크 로드 추세를 조사 하는 Azure Monitor 로그 설정이 포함 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독: Azure 구독이 없는 경우 시작 하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+- Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - SQL 풀: SQL 풀에 대 한 로그를 수집 합니다. 프로 비전 된 SQL 풀이 없는 경우 [sql 풀 만들기](load-data-from-azure-blob-storage-using-polybase.md)의 지침을 참조 하세요.
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기

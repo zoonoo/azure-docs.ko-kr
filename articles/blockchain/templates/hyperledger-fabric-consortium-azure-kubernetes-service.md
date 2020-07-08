@@ -1,15 +1,15 @@
 ---
 title: Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트워크를 배포 하 고 구성 하는 방법
-ms.date: 01/08/2020
-ms.topic: article
-ms.reviewer: v-umha
-ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/04/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209711"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -190,7 +190,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > 컨소시엄의 피어 Orgs 수에 따라 피어 명령을 반복 하 고 환경 변수를 적절 하 게 설정 해야 할 수 있습니다.
 
-**Azure storage 계정 설정에 대 한 아래 환경 변수를 설정 합니다.**
+**Azure Storage 계정을 설정 하기 위해 아래 환경 변수를 설정 합니다.**
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -200,7 +200,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Azure storage 계정 만들기에 대해 아래 단계를 따르세요. Azure storage 계정이 이미 생성 된 경우 다음 단계를 건너뜁니다.
+Azure Storage 계정을 만들려면 아래 단계를 따르세요. 이미 Azure Storage 계정을 만든 경우에는 다음 단계를 건너뜁니다.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -208,7 +208,7 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Azure storage 계정에서 파일 공유를 만드는 다음 단계를 수행 합니다. 파일 공유를 이미 만든 경우에는 다음 단계를 건너뜁니다.
+Azure Storage 계정에서 파일 공유를 만들려면 아래 단계를 따르세요. 파일 공유를 이미 만든 경우에는 다음 단계를 건너뜁니다.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -273,10 +273,10 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
 ```
 
-`<anchorPeersList>`앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예를 들면 다음과 같습니다.
+`<anchorPeersList>`앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예제:
 
-  - Peer1 `<anchorPeersList>` 노드만 앵커 피어로 설정 하려면 "peer1"로 설정 합니다.
-  - Peer1 `<anchorPeersList>` 및 peer3 노드를 앵커 피어로 설정 하려면 "peer1" "peer3"로 설정 합니다.
+  - `<anchorPeersList>`Peer1 노드만 앵커 피어로 설정 하려면 "peer1"로 설정 합니다.
+  - `<anchorPeersList>`Peer1 및 peer3 노드를 앵커 피어로 설정 하려면 "peer1" "peer3"로 설정 합니다.
 
 ### <a name="consortium-management-commands"></a>컨소시엄 관리 명령
 
@@ -284,12 +284,12 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 > 컨소시엄 작업을 시작 하기 전에 클라이언트 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.  
 
 채널 및 컨소시엄에서 피어 조직을 추가 하기 위해 지정 된 순서에서 아래 명령을 실행 합니다.
-1.  피어 조직 클라이언트에서 azure storage에 피어 조직 MSP 업로드
+1.  피어 조직 클라이언트에서 Azure Storage에 피어 조직 MSP 업로드
 
       ```bash
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
       ```
-2.  가져오므로 조직 클라이언트에서 azure storage에서 피어 조직 MSP를 다운로드 한 다음 명령을 실행 하 여 채널/컨소시엄에서 피어 조직을 추가 합니다.
+2.  가져오므로 조직 클라이언트에서 Azure Storage의 피어 조직 MSP를 다운로드 한 다음 명령을 실행 하 여 채널/컨소시엄에서 피어 조직을 추가 합니다.
 
       ```bash
       ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
@@ -297,13 +297,13 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  가져오므로 조직 클라이언트에서이 연결 프로필을 사용 하 여 피어 조직이 가져오므로 노드에 연결할 수 있도록 azure storage에 가져오므로 연결 프로필을 업로드 합니다.
+3.  가져오므로 조직 클라이언트에서이 연결 프로필을 사용 하 여 피어 조직이 가져오므로 노드에 연결할 수 있도록 Azure Storage에 가져오므로 연결 프로필을 업로드 합니다.
 
       ```bash
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  피어 조직 클라이언트에서 azure storage에서 가져오므로 연결 프로필을 다운로드 한 다음 명령을 실행 하 여 채널에서 피어 노드를 추가 합니다.
+4.  피어 조직 클라이언트에서 가져오므로 연결 프로필을 Azure Storage에서 다운로드 한 다음 명령을 실행 하 여 채널에서 피어 노드를 추가 합니다.
 
       ```bash
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
@@ -358,8 +358,8 @@ ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 cha
 
 다음 단계를 수행 합니다.  
 
-1.  PeerOrg1 `ORGNAME` 및 `USER_IDENTITY` issue `./azhlf chaincode install` 명령으로 설정 합니다.  
-2.  PeerOrg2 `ORGNAME` 및 `USER_IDENTITY` issue `./azhlf chaincode install` 명령으로 설정 합니다.  
+1.  `ORGNAME` `USER_IDENTITY` PeerOrg1 및 issue 명령으로 설정 `./azhlf chaincode install` 합니다.  
+2.  `ORGNAME` `USER_IDENTITY` PeerOrg2 및 issue 명령으로 설정 `./azhlf chaincode install` 합니다.  
 
 ### <a name="instantiate-chaincode"></a>Chaincode 인스턴스화  
 
@@ -368,7 +368,7 @@ ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 cha
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
-각각 및 `<instantiateFunc>` `<instantiateFuncArgs>` 에서 인스턴스화 함수 이름 및 공백으로 구분 된 인수 목록을 전달 합니다. 예를 들어 chaincode_example02에서로 설정 된 chaincode을 "a" " `<instantiateFunc>` 2000 `init`" `<instantiateFuncArgs>` "b" "1000"로 설정 합니다.
+각각 및에서 인스턴스화 함수 이름 및 공백으로 구분 된 인수 목록을 전달 `<instantiateFunc>` `<instantiateFuncArgs>` 합니다. 예를 들어 chaincode_example02에서로 설정 된 chaincode을 `<instantiateFunc>` `init` `<instantiateFuncArgs>` "a" "2000" "b" "1000"로 설정 합니다.
 
 > [!NOTE]
 > 채널의 한 피어 조직에서 한 번 명령을 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 chaincode은 채널의 모든 피어 조직에 있는 모든 피어 노드에서 인스턴스화됩니다.  
@@ -382,7 +382,7 @@ ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 cha
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
- `<invokeFunction>` 각각 `<invokeFuncArgs>`및 에서 호출 함수 이름 및 공백으로 구분 된 인수 목록을 전달 합니다. Chaincode_example02를 계속 진행 하 여 호출 작업을 "a" "b `<invokeFunction>` " `invoke` " `<invokeFuncArgs>` 10"으로 설정 합니다.  
+각각 및에서 호출 함수 이름 및 공백으로 구분 된 인수 목록을 전달  `<invokeFunction>`    `<invokeFuncArgs>`   합니다. Chaincode_example02를 계속 진행 하 여 호출 작업을  `<invokeFunction>`    `invoke`    `<invokeFuncArgs>`   "a" "b" "10"으로 설정 합니다.  
 
 >[!NOTE]
 > 채널의 한 피어 조직에서 한 번 명령을 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 세계 상태는 채널에 있는 모든 피어 조직의 모든 피어 노드에서 업데이트 됩니다.  
@@ -395,7 +395,7 @@ ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 cha
 ```bash
 ./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
 ```
- `<queryFunction>` 각각 `<queryFuncArgs>`및 에서 쿼리 함수 이름 및 공백으로 구분 된 인수 목록을 전달 합니다. 다시 chaincode_example02로 이동 chaincode을 참조로 가져와 세계 상태에서 "a"의 값을 "a"로 `<queryFunction>`  `query`  `<queryArgs>` 설정 합니다.  
+각각 및에서 쿼리 함수 이름 및 공백으로 구분 된 인수 목록을 전달  `<queryFunction>`    `<queryFuncArgs>`   합니다. 다시 chaincode_example02로 이동 chaincode을 참조로 가져와 세계 상태에서 "a"의 값을  `<queryFunction>`    `query`  `<queryArgs>` "a"로 설정 합니다.  
 
 ## <a name="troubleshoot"></a>문제 해결
 
@@ -418,3 +418,17 @@ SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```
+
+## <a name="support-and-feedback"></a>지원 및 피드백
+
+Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.microsoft.com/blog/topics/blockchain/)를 방문하여 Azure Blockchain 엔지니어링 팀의 블록체인 서비스 제공 및 정보를 최신 상태로 유지하세요.
+
+제품 피드백을 제공하거나 새로운 기능을 요청하려면 [블록체인에 대한 Azure 피드백 포럼](https://aka.ms/blockchainuservoice)을 통해 아이디어를 게시하거나 투표하세요.
+
+### <a name="community-support"></a>커뮤니티 지원
+
+Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
+
+- [Microsoft Q&Azure Blockchain 서비스에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
+- [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

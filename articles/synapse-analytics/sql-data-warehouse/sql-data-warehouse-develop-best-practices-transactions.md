@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213502"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Synapse SQL에서 트랜잭션 최적화
 
@@ -117,7 +117,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## <a name="optimizing-updates"></a>업데이트 최적화
 
-UPDATE는 전체 로깅 작업입니다.  테이블이 나 파티션에서 많은 수의 행을 업데이트 해야 하는 경우에는 [Ctas](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 와 같이 최소 로깅 작업을 사용 하는 것이 훨씬 효율적일 수 있습니다.
+UPDATE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
 
 아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 CTAS로 변환되었습니다.
 
@@ -407,14 +407,14 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>일시 중지 및 크기 조정 지침
 
-Synapse SQL을 사용 하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 확장할](sql-data-warehouse-manage-compute-overview.md) 수 있습니다. SQL 풀을 일시 중지 하거나 크기를 조정 하는 경우 진행 중인 모든 트랜잭션이 즉시 종료 된다는 것을 이해 하는 것이 중요 합니다. 열려 있는 모든 트랜잭션을 롤백합니다. 일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 취소 하면 SQL 풀을 일시 중지 하거나 크기를 조정 하는 데 걸리는 시간에 영향을 줄 수 있습니다.
+Synapse SQL을 사용 하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 확장할](sql-data-warehouse-manage-compute-overview.md) 수 있습니다. SQL 풀을 일시 중지하거나 규모를 조정하면 진행 중인 모든 트랜잭션이 즉시 종료되고 열려 있는 모든 트랜잭션이 롤백됩니다. 일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 실행 취소하면 SQL 풀을 일시 중지하거나 크기 조정하는 데 걸리는 시간에 영향을 줄 수 있습니다.
 
 > [!IMPORTANT]
 > `UPDATE` 및 `DELETE`는 전체 로깅 작업이므로 이러한 실행 취소/다시 실행 작업이 최소 로깅에 비해 훨씬 오래 걸릴 수 있습니다.
 
-가장 좋은 시나리오는 SQL 풀을 일시 중지 하거나 크기를 조정 하기 전에 비행 데이터 수정 트랜잭션이 완료 되도록 하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
+가장 좋은 시나리오는 진행 중인 데이터 수정 트랜잭션이 완료된 후 SQL 풀을 일시 중지하거나 크기 조정하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
 
-* [Ctas](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 를 사용 하 여 장기 실행 작업 다시 작성
+* [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 실행 시간이 긴 작업을 다시 작성
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계

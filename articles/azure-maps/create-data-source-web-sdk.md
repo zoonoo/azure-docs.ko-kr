@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c23e659463364c5e1a497ead138abb4c696627a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207501"
 ---
 # <a name="create-a-data-source"></a>데이터 소스 만들기
 
@@ -22,11 +22,52 @@ Azure Maps 웹 SDK는 데이터 원본에 데이터를 저장 합니다. 데이�
 
 **GeoJSON 데이터 원본**
 
-GeoJSON 기반 데이터 소스는 클래스를 `DataSource` 사용 하 여 데이터를 로컬에서 로드 하 고 저장 합니다. GeoJSON 네임 스페이스의 도우미 클래스를 사용 하 여 수동으로 데이터를 만들거나 만들 수 [있습니다.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) 클래스 `DataSource` 는 로컬 또는 원격 GeoJSON 파일을 가져오기 위한 함수를 제공 합니다. 원격 GeoJSON 파일은 CORs 사용 끝점에서 호스팅되어야 합니다. 클래스 `DataSource` 는 클러스터링 지점 데이터에 대 한 기능을 제공 합니다. 그리고 `DataSource` 클래스를 사용 하 여 데이터를 쉽게 추가, 제거 및 업데이트할 수 있습니다.
+GeoJSON 기반 데이터 소스는 클래스를 사용 하 여 데이터를 로컬에서 로드 하 고 저장 `DataSource` 합니다. GeoJSON 네임 스페이스의 도우미 클래스를 사용 하 여 수동으로 데이터를 만들거나 만들 수 [있습니다.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) `DataSource`클래스는 로컬 또는 원격 GeoJSON 파일을 가져오기 위한 함수를 제공 합니다. 원격 GeoJSON 파일은 CORs 사용 끝점에서 호스팅되어야 합니다. `DataSource`클래스는 클러스터링 지점 데이터에 대 한 기능을 제공 합니다. 그리고 클래스를 사용 하 여 데이터를 쉽게 추가, 제거 및 업데이트할 수 있습니다 `DataSource` . 다음 코드는 Azure Maps에서 GeoJSON 데이터를 만드는 방법을 보여 줍니다.
 
+```Javascript
+//Create raw GeoJSON object.
+var rawGeoJson = {
+     "type": "Feature",
+     "geometry": {
+         "type": "Point",
+         "coordinates": [-100, 45]
+     },
+     "properties": {
+         "custom-property": "value"
+     }
+};
+
+//Create GeoJSON using helper classes (less error prone).
+var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
+    "custom-property": "value"
+}); 
+```
+
+데이터 원본을 만든 후에는 `map.sources` [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager)인 속성을 통해 지도에 데이터 원본을 추가할 수 있습니다. 다음 코드에서는를 만들어 맵에 추가 하는 방법을 보여 줍니다 `DataSource` .
+
+```javascript
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+```
+
+다음 코드는 GeoJSON 데이터를에 추가할 수 있는 여러 가지 방법을 보여 줍니다 `DataSource` .
+
+```Javascript
+//GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
+
+//Add geoJSON object to data source. 
+dataSource.add(geoJsonData);
+
+//Load geoJSON data from URL. URL should be on a CORs enabled endpoint.
+dataSource.importDataFromUrl(geoJsonUrl);
+
+//Overwrite all data in data source.
+dataSource.setShapes(geoJsonData);
+```
 
 > [!TIP]
-> 의 모든 데이터를 덮어쓰도록 할 수 있습니다 `DataSource`. `clear` Then `add` 함수를 호출 하면 맵이 두 번 다시 렌더링 되어 약간의 지연이 발생할 수 있습니다. 대신 `setShapes` 함수를 사용 하 여 데이터 원본의 모든 데이터를 제거 하 고 바꾸고 지도의 단일 다시 렌더링만 트리거합니다.
+> 의 모든 데이터를 덮어쓰도록 할 수 있습니다 `DataSource` . Then 함수를 호출 하면 `clear` `add` 맵이 두 번 다시 렌더링 되어 약간의 지연이 발생할 수 있습니다. 대신 함수를 사용 하 여 `setShapes` 데이터 원본의 모든 데이터를 제거 하 고 바꾸고 지도의 단일 다시 렌더링만 트리거합니다.
 
 **벡터 타일 원본**
 
@@ -37,15 +78,7 @@ GeoJSON 기반 데이터 소스는 클래스를 `DataSource` 사용 하 여 데�
  - 클라이언트에 새 스타일을 적용할 수 있으므로 벡터 맵에서 데이터의 스타일을 변경 하는 경우 데이터를 다시 다운로드할 필요가 없습니다. 반면 래스터 타일 계층의 스타일을 변경 하는 경우 일반적으로 서버에서 타일을 로드 한 다음 새 스타일을 적용 해야 합니다.
  - 데이터가 벡터 형식으로 전달 되므로 데이터를 준비 하는 데 필요한 서버 쪽 처리가 줄어듭니다. 따라서 최신 데이터를 더 빨리 사용할 수 있습니다.
 
-벡터 원본을 사용 하는 모든 계층은 값을 `sourceLayer` 지정 해야 합니다.
-
-데이터 원본을 만든 후에는 `map.sources` [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager)인 속성을 통해 지도에 데이터 원본을 추가할 수 있습니다. 다음 코드에서는를 `DataSource` 만들어 맵에 추가 하는 방법을 보여 줍니다.
-
-```javascript
-//Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
-```
+벡터 원본을 사용 하는 모든 계층은 값을 지정 해야 합니다 `sourceLayer` .
 
 Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-tile-spec)(개방형 표준)을 준수 합니다.
 

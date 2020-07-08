@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207892"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -34,7 +34,7 @@ ms.locfileid: "80335903"
 
 개발자 포털은 다음과 같은 두 가지 방법으로 빌드할 수 있습니다.
 
-- **관리 버전** -포털을 편집 하 고 사용자 지정 합니다 .이 포털은 API Management 인스턴스에 빌드되고 URL `<your-api-management-instance-name>.developer.azure-api.net`을 통해 액세스할 수 있습니다. 관리 되는 포털에 액세스 하 고 사용자 지정 하는 방법을 알아보려면 [이 설명서 문서](api-management-howto-developer-portal-customize.md) 를 참조 하세요.
+- **관리 버전** -포털을 편집 하 고 사용자 지정 합니다 .이 포털은 API Management 인스턴스에 빌드되고 URL을 통해 액세스할 수 `<your-api-management-instance-name>.developer.azure-api.net` 있습니다. 관리 되는 포털에 액세스 하 고 사용자 지정 하는 방법을 알아보려면 [이 설명서 문서](api-management-howto-developer-portal-customize.md) 를 참조 하세요.
 - **자체 호스팅 버전** -API Management 인스턴스 외부에서 포털을 배포 하 고 자체 호스트 합니다. 이 방법을 사용 하면 포털의 코드 베이스를 편집 하 고 제공 된 핵심 기능을 확장할 수 있습니다. 예를 들어 타사 시스템과 통합 하기 위한 사용자 지정 위젯을 구현할 수 있습니다. 이 시나리오에서는 포털의 유지 관리자 이며 포털을 최신 버전으로 업그레이드할 책임이 있습니다. 세부 정보 및 지침은 [포털의 소스 코드와][1] 위젯을 구현 하는 방법 [에 대 한 자습서][3]를 포함 하는 GitHub 리포지토리를 참조 하세요. 관리 되는 [버전에 대 한 자습서](api-management-howto-developer-portal-customize.md) 는 관리 되는 버전 및 자체 호스팅 버전에 공통 된 포털의 관리 패널을 안내 합니다.
 
 ## <a name="portal-architectural-concepts"></a>포털 아키텍처 개념
@@ -64,11 +64,11 @@ ms.locfileid: "80335903"
 
 포털은 [용지 비트 프레임 워크](https://paperbits.io/)의 조정 된 포크를 기반으로 합니다. 원래 용지 비트 기능은 API Management 특정 위젯 (예: Api 목록, 제품 목록) 및 콘텐츠 저장 및 검색을 위한 API Management 서비스에 대 한 커넥터를 제공 하도록 확장 되었습니다.
 
-## <a name="frequently-asked-questions"></a><a name="faq"></a>질문과 대답
+## <a name="frequently-asked-questions"></a><a name="faq"></a> 질문과 대답
 
 이 섹션에서는 일반적인 특성의 개발자 포털에 대 한 일반적인 질문에 답변 합니다. 자체 호스팅 버전과 관련 된 질문은 [GitHub 리포지토리의 wiki 섹션](https://github.com/Azure/api-management-developer-portal/wiki)을 참조 하세요.
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/>포털의 미리 보기 버전에서 마이그레이션하려면 어떻게 해야 하나요?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>포털의 미리 보기 버전에서 마이그레이션하려면 어떻게 해야 하나요?
 
 개발자 포털의 미리 보기 버전을 사용 하 여 API Management 서비스에서 미리 보기 콘텐츠를 프로 비전 했습니다. 사용자 환경을 개선 하기 위해 일반적으로 사용할 수 있는 버전에서 기본 콘텐츠가 크게 수정 되었습니다. 또한 새로운 위젯을 포함 합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "80335903"
 
 ![포털 콘텐츠 다시 설정](media/api-management-howto-developer-portal/reset-content.png)
 
-자체 호스팅 버전을 사용 하는 경우 GitHub 리포지토리에서 `scripts/cleanup.bat` 및 `scripts/generate.bat` 를 사용 하 여 기존 콘텐츠를 제거 하 고 새 콘텐츠를 프로 비전 합니다. 포털의 코드를 GitHub 리포지토리에서 최신 릴리스로 업그레이드 해야 합니다.
+자체 호스팅 버전을 사용 하는 경우 `scripts/cleanup.bat` GitHub 리포지토리에서 및를 사용 `scripts/generate.bat` 하 여 기존 콘텐츠를 제거 하 고 새 콘텐츠를 프로 비전 합니다. 포털의 코드를 GitHub 리포지토리에서 최신 릴리스로 업그레이드 해야 합니다.
 
 포털의 콘텐츠를 다시 설정 하지 않으려는 경우 페이지 전체에서 새로 사용 가능한 위젯을 사용 하는 것을 고려할 수 있습니다. 기존 위젯은 자동으로 최신 버전으로 업데이트 되었습니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "80335903"
 
 대부분의 경우-아니요.
 
-API Management 서비스가 내부 VNet에 있는 경우 개발자 포털은 네트워크 내 에서만 액세스할 수 있습니다. 관리 끝점의 호스트 이름은 포털의 관리 인터페이스에 액세스 하는 데 사용 하는 컴퓨터에서 서비스의 내부 VIP로 확인 되어야 합니다. 관리 끝점이 DNS에 등록 되어 있는지 확인 합니다. 잘못 된 구성의 경우 오류가 표시 됩니다 `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+API Management 서비스가 내부 VNet에 있는 경우 개발자 포털은 네트워크 내 에서만 액세스할 수 있습니다. 관리 끝점의 호스트 이름은 포털의 관리 인터페이스에 액세스 하는 데 사용 하는 컴퓨터에서 서비스의 내부 VIP로 확인 되어야 합니다. 관리 끝점이 DNS에 등록 되어 있는지 확인 합니다. 잘못 된 구성의 경우 오류가 표시 됩니다 `Unable to start the portal. See if settings are specified correctly in the configuration (...)` .
 
 API Management 서비스가 내부 VNet에 있고 인터넷에서 Application Gateway를 통해 액세스 하는 경우 개발자 포털 및 API Management의 관리 끝점에 대 한 연결을 사용 하도록 설정 해야 합니다.
 
@@ -150,8 +150,8 @@ CORS를 수동으로 사용 하도록 설정할 수도 있습니다.
 
 1. **전역 수준에서 수동으로 적용** 링크를 클릭 하 여 생성 된 정책 코드를 확인 합니다.
 2. Azure Portal API Management 서비스의 **api** 섹션에서 **모든 api** 로 이동 합니다.
-3. **인바운드 처리** 섹션 **</>** 의 아이콘을 클릭 합니다.
-4. XML 파일의 **<inbound>** 섹션에 정책을 삽입 합니다. **<origin>** 값이 개발자 포털의 도메인과 일치 하는지 확인 합니다.
+3. **</>** **인바운드 처리** 섹션의 아이콘을 클릭 합니다.
+4. **<inbound>** XML 파일의 섹션에 정책을 삽입 합니다. **<origin>** 값이 개발자 포털의 도메인과 일치 하는지 확인 합니다.
 
 > [!NOTE]
 > 
@@ -163,13 +163,13 @@ CORS를 수동으로 사용 하도록 설정할 수도 있습니다.
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>개발자 포털을 편집 하는 데 필요한 권한은 무엇 인가요?
 
-관리 모드에서 포털을 `Oops. Something went wrong. Please try again later.` 열 때 오류가 표시 되 면 필요한 권한 (RBAC)이 없을 수 있습니다.
+`Oops. Something went wrong. Please try again later.`관리 모드에서 포털을 열 때 오류가 표시 되 면 필요한 권한 (RBAC)이 없을 수 있습니다.
 
-이전 포털에서는 사용자가 포털 `Microsoft.ApiManagement/service/getssotoken/action` 에 액세스할 수 있도록 서비스`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`범위 ()에서 사용 권한이 필요 했습니다. 새 포털에는 범위 `Microsoft.ApiManagement/service/users/token/action` `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`에서 사용 권한이 필요 합니다.
+이전 포털에서는 `Microsoft.ApiManagement/service/getssotoken/action` `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` 사용자가 포털에 액세스할 수 있도록 서비스 범위 ()에서 사용 권한이 필요 했습니다. 새 포털에는 범위에서 사용 권한이 필요 합니다 `Microsoft.ApiManagement/service/users/token/action` `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
-다음 PowerShell 스크립트를 사용 하 여 필요한 권한이 있는 역할을 만들 수 있습니다. `<subscription-id>` 매개 변수를 변경 해야 합니다. 
+다음 PowerShell 스크립트를 사용 하 여 필요한 권한이 있는 역할을 만들 수 있습니다. 매개 변수를 변경 해야 `<subscription-id>` 합니다. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -185,17 +185,17 @@ $customRole.AssignableScopes.Add('/subscriptions/<subscription-id>')
 New-AzRoleDefinition -Role $customRole 
 ```
  
-역할을 만든 후에는 Azure Portal에서 **Access Control (IAM)** 섹션의 모든 사용자에 게 역할을 부여할 수 있습니다. 사용자에 게이 역할을 할당 하면 서비스 범위에서 사용 권한이 할당 됩니다. *사용자가 서비스에서 사용자를* 대신 하 여 SAS 토큰을 생성할 수 있습니다. 최소한이 역할은 서비스 관리자에 게 할당 해야 합니다. 다음 PowerShell 명령은 사용자에 게 불필요 한 권한이 부여 되지 않도록 사용자 `user1` 에 게 역할을 할당 하 여 가장 낮은 범위에서 사용자에 게 역할을 할당 하는 방법을 보여 줍니다. 
+역할을 만든 후에는 Azure Portal에서 **Access Control (IAM)** 섹션의 모든 사용자에 게 역할을 부여할 수 있습니다. 사용자에 게이 역할을 할당 하면 서비스 범위에서 사용 권한이 할당 됩니다. *사용자가 서비스에서 사용자를* 대신 하 여 SAS 토큰을 생성할 수 있습니다. 최소한이 역할은 서비스 관리자에 게 할당 해야 합니다. 다음 PowerShell 명령은 `user1` 사용자에 게 불필요 한 권한이 부여 되지 않도록 사용자에 게 역할을 할당 하 여 가장 낮은 범위에서 사용자에 게 역할을 할당 하는 방법을 보여 줍니다. 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 
 사용자에 게 사용 권한이 부여 된 후에는 사용자가 로그 아웃 한 후 Azure Portal 다시 로그인 하 여 새 사용 권한을 적용 해야 합니다.
 
-### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>`Unable to start the portal. See if settings are specified correctly (...)` 오류가 표시 됩니다.
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>오류가 표시 됩니다. `Unable to start the portal. See if settings are specified correctly (...)`
 
-에 대 `GET` `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` 한 호출이 실패 하면이 오류가 표시 됩니다. 호출은 포털의 관리 인터페이스에 의해 브라우저에서 실행 됩니다.
+에 대 한 호출이 실패 하면이 오류가 표시 됩니다 `GET` `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` . 호출은 포털의 관리 인터페이스에 의해 브라우저에서 실행 됩니다.
 
 API Management 서비스가 VNet에 있는 경우 위의 VNet 연결 질문을 참조 하세요.
 

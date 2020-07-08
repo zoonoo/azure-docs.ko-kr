@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 12f91633834ee98582eaad886b48eb8619378265
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3c0d7924fb550761d050c9c404b1065c7d3cf72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411664"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211496"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 풀에 대 한 디자인 결정 및 코딩 기술 
  이 문서에서는 Azure Synapse의 SQL 풀에 대 한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해 하는 데 도움이 되는 추가 리소스를 찾을 수 있습니다.
@@ -41,7 +41,7 @@ ms.locfileid: "81411664"
 * [뷰](sql-data-warehouse-develop-views.md)
 * [임시 테이블](sql-data-warehouse-tables-temporary.md)
 * [동적 SQL](sql-data-warehouse-develop-dynamic-sql.md)
-* [반복](sql-data-warehouse-develop-loops.md)
+* [루프로](sql-data-warehouse-develop-loops.md)
 * [그룹화 방법 옵션](sql-data-warehouse-develop-group-by-options.md)
 * [변수 할당](sql-data-warehouse-develop-variable-assignment.md)
 

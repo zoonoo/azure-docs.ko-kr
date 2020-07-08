@@ -1,15 +1,15 @@
 ---
 title: Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 description: Ethereum Authority consortium 솔루션을 사용 하 여 Azure에서 다중 구성원 컨소시엄 Ethereum 네트워크를 배포 하 고 구성 합니다.
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75387682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210119"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 
@@ -76,7 +76,7 @@ Id 저장소는 생성 된 Ethereum id를 안전 하 게 보관 하는 각 멤�
 
 [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택 합니다.
 
-**Blockchain** > **Ethereum 인증 기관 Consortium (미리 보기)** 를 선택 합니다.
+**Blockchain**  >  **Ethereum 인증 기관 Consortium (미리 보기)** 를 선택 합니다.
 
 ### <a name="basics"></a>기본 사항
 
@@ -84,9 +84,9 @@ Id 저장소는 생성 된 Ethereum id를 안전 하 게 보관 하는 각 멤�
 
 ![기본 사항](./media/ethereum-poa-deployment/basic-blade.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
-새 네트워크를 만들거나 기존 네트워크에 가입 | 새 consortium 네트워크를 만들거나 기존 컨소시엄 네트워크에 가입할 수 있습니다. 기존 네트워크를 조인 하려면 추가 매개 변수가 필요 합니다. | 새로 만들기
+새 네트워크를 만들거나 기존 네트워크에 가입 | 새 consortium 네트워크를 만들거나 기존 컨소시엄 네트워크에 가입할 수 있습니다. 기존 네트워크를 조인 하려면 추가 매개 변수가 필요 합니다. | Create new
 메일 주소 | 배포가 완료 되 면 배포에 대 한 정보를 사용 하 여 전자 메일 알림을 받게 됩니다. | 유효한 전자 메일 주소
 VM 사용자 이름 | 배포 된 각 VM의 관리자 사용자 이름 | 1-64 영숫자 문자
 인증 유형 | 가상 머신을 인증하는 방법. | 암호
@@ -103,7 +103,7 @@ Subscription | 컨소시엄 네트워크를 배포하는 구독 |
 
 ![배포 지역](./media/ethereum-poa-deployment/deployment-regions.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 지역 수|컨소시엄 네트워크를 배포하는 지역 수| 2
 첫 번째 지역 | 컨소시엄 네트워크를 배포하는 첫 번째 지역 | 미국 서부 2
@@ -117,7 +117,7 @@ Subscription | 컨소시엄 네트워크를 배포하는 구독 |
 
 ![네트워크 크기 및 성능](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 부하가 분산된 유효성 검사기 노드 수 | 네트워크의 일부로 프로 비전 할 유효성 검사기 노드의 수입니다. | 2
 유효성 검사기 노드 스토리지 성능 | 배포 된 각 유효성 검사기 노드에 대 한 관리 디스크의 유형입니다. 가격 책정에 대 한 자세한 내용은 [저장소 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요. | 표준 SSD
@@ -139,7 +139,7 @@ F16s|프리미엄 SSD|high|high|low
 
 ![Ethereum 설정](./media/ethereum-poa-deployment/ethereum-settings.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 컨소시엄 멤버 ID | 컨소시엄 네트워크에 참여 하는 각 멤버와 연결 된 ID입니다. 이는 충돌을 방지 하기 위해 IP 주소 공간을 구성 하는 데 사용 됩니다. 개인 네트워크의 경우 구성원 ID는 동일한 네트워크에 있는 여러 조직에서 고유 해야 합니다.  고유 멤버 ID는 같은 조직이 여러 지역에 배포하는 경우에도 필요합니다. 충돌이 발생 하지 않도록 하기 위해 다른 조인 멤버와 공유 해야 하므로이 매개 변수의 값을 기록해 둡니다. 유효한 범위는 0에서 255 까지입니다. | 0
 네트워크 ID | 배포하는 컨소시엄 Ethereum 네트워크의 네트워크 ID입니다. 각 Ethereum 네트워크에는 공용 네트워크에 대한 ID를 1로 하는 자체의 네트워크 ID가 있습니다. 유효한 범위는 5에서 999999999 까지입니다. | 10101010
@@ -158,10 +158,10 @@ F16s|프리미엄 SSD|high|high|low
 
 ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 모니터링 | 모니터링을 사용 하도록 설정 하는 옵션 | 사용 하도록 설정
-기존 Azure Monitor 로그에 연결 | 새 Azure Monitor 로그 인스턴스를 만들거나 기존 인스턴스에 조인 하는 옵션 | 새로 만들기
+기존 Azure Monitor 로그에 연결 | 새 Azure Monitor 로그 인스턴스를 만들거나 기존 인스턴스에 조인 하는 옵션 | Create new
 위치 | 새 인스턴스가 배포 되는 지역입니다. | 미국 동부
 기존 log analytics 작업 영역 ID (기존 Azure Monitor 로그에 연결 = 기존 조인)|기존 Azure Monitor logs 인스턴스의 작업 영역 ID||해당 없음
 기존 log analytics 기본 키 (기존 Azure Monitor 로그에 연결 = 기존 조인)|기존 Azure Monitor logs 인스턴스에 연결 하는 데 사용 되는 기본 키입니다.||해당 없음
@@ -327,7 +327,7 @@ ParityLog_CL
 
 1. **저장**을 선택합니다. 변경 내용을 적용 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-제공 된 관리자 사용자 이름 및 암호/s s p 키를 사용 하 여 SSH를 통해 유효성 검사기 노드의 가상 컴퓨터에 원격으로 연결할 수 있습니다. 첫 번째 유효성 검사기 노드에 액세스 하는 SSH 명령이 템플릿 배포 출력에 나열 됩니다. 다음은 그 예입니다.
+제공 된 관리자 사용자 이름 및 암호/s s p 키를 사용 하 여 SSH를 통해 유효성 검사기 노드의 가상 컴퓨터에 원격으로 연결할 수 있습니다. 첫 번째 유효성 검사기 노드에 액세스 하는 SSH 명령이 템플릿 배포 출력에 나열 됩니다. 예를 들어:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
@@ -335,7 +335,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 추가 트랜잭션 노드를 가져오려면 포트 번호를 1 씩 증가 시킵니다.
 
-둘 이상의 지역에 배포 하는 경우 명령을 해당 지역에서 부하 분산 장치의 DNS 이름이 나 IP 주소로 변경 합니다. 다른 지역의 dns 이름 또는 IP 주소를 찾으려면 명명 규칙 ** \* \* \* \* \*-lbpip-reg\# ** 를 사용 하 여 리소스를 찾고 해당 dns 이름 및 ip 주소 속성을 확인 합니다.
+둘 이상의 지역에 배포 하는 경우 명령을 해당 지역에서 부하 분산 장치의 DNS 이름이 나 IP 주소로 변경 합니다. 다른 지역의 dns 이름 또는 IP 주소를 찾으려면 명명 규칙 ** \* \* \* \* \* -lbpip-reg \# ** 를 사용 하 여 리소스를 찾고 해당 dns 이름 및 ip 주소 속성을 확인 합니다.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Azure Traffic Manager 부하 분산
 
@@ -558,7 +558,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 #### <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Truffle 및 Web3에 필요 합니다. 설치 옵션을 선택 하 여 경로에 Python을 포함 합니다.
-* Truffle v 5.0.5 `npm install -g truffle@v5.0.5`를 설치 합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/)를 포함한 여러 도구를 설치해야 합니다. 자세한 내용은 [Truffle 설명서](https://github.com/trufflesuite/truffle)를 참조 하세요.
+* Truffle v 5.0.5 `npm install -g truffle@v5.0.5` 를 설치 합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/)를 포함한 여러 도구를 설치해야 합니다. 자세한 내용은 [Truffle 설명서](https://github.com/trufflesuite/truffle)를 참조 하세요.
 
 ### <a name="create-truffle-project"></a>Truffle 프로젝트 만들기
 
@@ -566,8 +566,8 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 1. 명령 프롬프트 또는 셸을 엽니다.
 1. `HelloWorld`라는 폴더를 만듭니다.
-1. 디렉터리를 새 `HelloWorld` 폴더로 변경 합니다.
-1. 명령을 `truffle init`사용 하 여 새 Truffle 프로젝트를 초기화 합니다.
+1. 디렉터리를 새 폴더로 변경 `HelloWorld` 합니다.
+1. 명령을 사용 하 여 새 Truffle 프로젝트를 초기화 `truffle init` 합니다.
 
     ![새 Truffle 프로젝트 만들기](./media/ethereum-poa-deployment/create-truffle-project.png)
 
@@ -575,7 +575,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 Truffle 프로젝트의 **계약** 하위 디렉터리에서 스마트 계약을 만듭니다.
 
-1. Truffle 프로젝트의 **계약** 하위 디렉터리 `postBox.sol` 에 있는 라는 파일을 만듭니다.
+1. `postBox.sol`Truffle 프로젝트의 **계약** 하위 디렉터리에 있는 라는 파일을 만듭니다.
 1. **Postbox**에 다음 농담 코드를 추가 합니다.
 
     ```javascript
@@ -600,7 +600,7 @@ Truffle 프로젝트에는 blockchain 네트워크 연결 정보에 대 한 구�
 > 네트워크를 통해 Ethereum 개인 키를 보내지 마세요. 각 트랜잭션을 로컬에서 먼저 서명한 다음, 네트워크를 통해 서명된 트랜잭션을 보내도록 합니다.
 
 1. [Blockchain 네트워크를 배포할 때 사용 되는 Ethereum 관리자 계정](#ethereum-settings)에 대 한 니모닉 구가 필요 합니다. MetaMask를 사용 하 여 계정을 만든 경우 MetaMask에서 니모닉을 검색할 수 있습니다. MetaMask 확장의 오른쪽 위에 있는 관리자 계정 아이콘을 선택 하 고 **설정 > 보안 & 개인 정보 > 초기값 단어**를 표시 합니다.
-1. Truffle 프로젝트 `truffle-config.js` 의 내용을 다음 콘텐츠로 바꿉니다. 자리 표시자 끝점 및 니모닉 값을 바꿉니다.
+1. `truffle-config.js`Truffle 프로젝트의 내용을 다음 콘텐츠로 바꿉니다. 자리 표시자 끝점 및 니모닉 값을 바꿉니다.
 
     ```javascript
     const HDWalletProvider = require("truffle-hdwallet-provider");
@@ -623,11 +623,11 @@ Truffle 프로젝트에는 blockchain 네트워크 연결 정보에 대 한 구�
     };
     ```
 
-1. Truffle HD 지갑 공급자를 사용 하 고 있으므로 명령을 `npm install truffle-hdwallet-provider --save`사용 하 여 프로젝트에 모듈을 설치 합니다.
+1. Truffle HD 지갑 공급자를 사용 하 고 있으므로 명령을 사용 하 여 프로젝트에 모듈을 설치 합니다 `npm install truffle-hdwallet-provider --save` .
 
 Truffle는 마이그레이션 스크립트를 사용 하 여 블록 체인 네트워크에 스마트 계약을 배포 합니다. 새 스마트 계약을 배포 하려면 마이그레이션 스크립트가 필요 합니다.
 
-1. 새 마이그레이션을 추가 하 여 새 계약을 배포 합니다. Truffle 프로젝트 `2_deploy_contracts.js` 의 migration **하위 디렉터리에 파일을 만듭니다** .
+1. 새 마이그레이션을 추가 하 여 새 계약을 배포 합니다. `2_deploy_contracts.js`Truffle 프로젝트의 migration **migrations** 하위 디렉터리에 파일을 만듭니다.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -647,8 +647,8 @@ Truffle는 마이그레이션 스크립트를 사용 하 여 블록 체인 네�
 
 이제 스마트 계약이 배포 되었으므로 트랜잭션을 전송 하 여 함수를 호출할 수 있습니다.
 
-1. Truffle 프로젝트 디렉터리에서 라는 `sendtransaction.js`새 파일을 만듭니다.
-1. **Sendtransaction**에 다음 콘텐츠를 추가 합니다.
+1. Truffle 프로젝트 디렉터리에서 라는 새 파일을 만듭니다 `sendtransaction.js` .
+1. **sendtransaction.js**에 다음 콘텐츠를 추가 합니다.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -718,6 +718,20 @@ SSH 포트는 보안상의 이유로 표시되지 않습니다. [이 가이드](
 ### <a name="how-do-i-subscribe-to-smart-contract-events"></a>스마트 계약 이벤트를 구독하려면 어떻게 해야 하나요?
 
 Ethereum 인증 증명에서는 이제 웹 소켓을 지원합니다.  배포 출력을 확인 하 여 웹 소켓 URL 및 포트를 찾습니다.
+
+## <a name="support-and-feedback"></a>지원 및 피드백
+
+Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.microsoft.com/blog/topics/blockchain/)를 방문하여 Azure Blockchain 엔지니어링 팀의 블록체인 서비스 제공 및 정보를 최신 상태로 유지하세요.
+
+제품 피드백을 제공하거나 새로운 기능을 요청하려면 [블록체인에 대한 Azure 피드백 포럼](https://aka.ms/blockchainuservoice)을 통해 아이디어를 게시하거나 투표하세요.
+
+### <a name="community-support"></a>커뮤니티 지원
+
+Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
+
+* [Microsoft Q&Azure Blockchain 서비스에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
+* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>다음 단계
 

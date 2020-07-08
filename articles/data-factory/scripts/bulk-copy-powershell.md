@@ -10,16 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: efc79f82a2181099f832da0d4a17fc370bf4f7f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0fedd2a304c73347b7ec72818b5289c1df2e561
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74929860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248623"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
-이 샘플 PowerShell 스크립트는 Azure SQL Data Warehouse에 Azure SQL 데이터베이스에 있는 여러 테이블의 데이터를 복사합니다.
+이 샘플 PowerShell 스크립트는 Azure SQL Database의 여러 테이블에서 Azure SQL data warehouse로 데이터를 복사 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

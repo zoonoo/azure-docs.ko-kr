@@ -9,14 +9,15 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: synapse-analytics
 ms.topic: article
+ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f2af826473bfd13f8100796a540d41cbedbb037
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207722"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Gen2로 SQL 풀 업그레이드
 
@@ -33,7 +34,7 @@ Microsoft는 SQL 풀 실행에 대 한 초급 수준의 비용을 줄이는 데 
 
 | **지역** | **하위 Gen2 사용 가능** | **자동 업그레이드 시작** |
 |:--- |:--- |:--- |
-| 캐나다 동부 |2020 년 6 월 1 일 |2020 년 7 월 1 일 |
+| 캐나다 동부 |2020년 6월 1일 |2020 년 7 월 1 일 |
 | 중국 동부 |\* |\* |
 | 중국 북부 |\* |\* |
 | 독일 중부 |\* |\* |

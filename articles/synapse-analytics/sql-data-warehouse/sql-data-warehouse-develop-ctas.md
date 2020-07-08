@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 8e1b75dfc6a979956ff4a2868027bb769bf7c4ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633541"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213485"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -38,7 +38,7 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-...를 선택 합니다. 을 (를) 사용 하면 작업의 일부로 배포 메서드나 인덱스 유형을 변경할 수 없습니다. ROUND_ROBIN 기본 `[dbo].[FactInternetSales_new]` 배포 유형 및 클러스터형 COLUMNSTORE 인덱스의 기본 테이블 구조를 사용 하 여 만듭니다.
+...를 선택 합니다. 을 (를) 사용 하면 작업의 일부로 배포 메서드나 인덱스 유형을 변경할 수 없습니다. `[dbo].[FactInternetSales_new]`ROUND_ROBIN 기본 배포 유형 및 클러스터형 COLUMNSTORE 인덱스의 기본 테이블 구조를 사용 하 여 만듭니다.
 
 반면 CTAS를 사용 하면 테이블 데이터의 배포와 테이블 구조 유형을 모두 지정할 수 있습니다. 이전 예제를 CTAS로 변환 하려면 다음을 수행 합니다.
 
@@ -59,9 +59,9 @@ FROM    [dbo].[FactInternetSales];
 
 ## <a name="use-ctas-to-copy-a-table"></a>CTAS를 사용하여 테이블 복사
 
-CTAS의 가장 일반적인 사용 중 하나는 DDL을 변경 하기 위해 테이블의 복사본을 만드는 것입니다. 원래 테이블을로 `ROUND_ROBIN`만들었으며 이제 열에 배포 된 테이블로 변경 하 려 한다고 가정해 보겠습니다. CTAS는 배포 열을 변경 하는 방법입니다. CTAS를 사용 하 여 분할, 인덱싱 또는 열 유형을 변경할 수도 있습니다.
+CTAS의 가장 일반적인 사용 중 하나는 DDL을 변경 하기 위해 테이블의 복사본을 만드는 것입니다. 원래 테이블을로 만들었으며 `ROUND_ROBIN` 이제 열에 배포 된 테이블로 변경 하 려 한다고 가정해 보겠습니다. CTAS는 배포 열을 변경 하는 방법입니다. CTAS를 사용 하 여 분할, 인덱싱 또는 열 유형을 변경할 수도 있습니다.
 
-의 배포 열을 지정 하지 않고의 `ROUND_ROBIN`기본 배포 유형을 사용 하 여이 테이블을 만든 경우를 가정해 보겠습니다 `CREATE TABLE`.
+의 `ROUND_ROBIN` 배포 열을 지정 하지 않고의 기본 배포 유형을 사용 하 여이 테이블을 만든 경우를 가정해 보겠습니다 `CREATE TABLE` .
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -91,7 +91,7 @@ CREATE TABLE FactInternetSales
     CustomerPONumber nvarchar(25));
 ```
 
-이제를 사용 하 여 `Clustered Columnstore Index`이 테이블의 새 복사본을 만들어 클러스터형 Columnstore 테이블의 성능을 활용할 수 있습니다. 이 열에 대 한 조인을 예측 하 `ProductKey`고 조인 하는 동안 데이터 이동을 방지 하려는 경우에도이 테이블을에 배포 하려고 `ProductKey`합니다. 마지막으로, 이전 파티션을 삭제 하 여 오래 `OrderDateKey`된 데이터를 신속 하 게 삭제할 수 있도록 분할을 추가 하려고 합니다. 다음은 이전 테이블을 새 테이블에 복사 하는 CTAS 문입니다.
+이제를 사용 하 여이 테이블의 새 복사본을 만들어 `Clustered Columnstore Index` 클러스터형 Columnstore 테이블의 성능을 활용할 수 있습니다. 이 `ProductKey` 열에 대 한 조인을 예측 하 고 조인 하는 동안 데이터 이동을 방지 하려는 경우에도이 테이블을에 배포 하려고 합니다 `ProductKey` . 마지막으로, `OrderDateKey` 이전 파티션을 삭제 하 여 오래 된 데이터를 신속 하 게 삭제할 수 있도록 분할을 추가 하려고 합니다. 다음은 이전 테이블을 새 테이블에 복사 하는 CTAS 문입니다.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-Synapse SQL은 `FROM` `UPDATE` 문의 절에서 ANSI 조인을 지원 하지 않으므로 앞의 예제를 수정 하지 않고 사용할 수 없습니다.
+Synapse SQL은 문의 절에서 ANSI 조인을 지원 하지 `FROM` `UPDATE` 않으므로 앞의 예제를 수정 하지 않고 사용할 수 없습니다.
 
 CTAS와 암시적 조인의 조합을 사용 하 여 이전 예제를 바꿀 수 있습니다.
 
@@ -208,9 +208,9 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Delete 문에 대한 ANSI 조인 대체
 
-경우에 따라 데이터를 삭제 하는 가장 좋은 방법은 CTAS를 사용 `DELETE` 하는 것입니다. 특히 ANSI 조인 구문을 사용 하는 문의 경우입니다. Synapse SQL은 `FROM` `DELETE` 문의 절에서 ANSI 조인을 지원 하지 않기 때문입니다. 데이터를 삭제 하는 대신 유지 하려는 데이터를 선택 합니다.
+경우에 따라 데이터를 삭제 하는 가장 좋은 방법은 CTAS를 사용 하는 것입니다 `DELETE` . 특히 ANSI 조인 구문을 사용 하는 문의 경우입니다. Synapse SQL은 문의 절에서 ANSI 조인을 지원 하지 않기 때문입니다 `FROM` `DELETE` . 데이터를 삭제 하는 대신 유지 하려는 데이터를 선택 합니다.
 
-다음은 변환 `DELETE` 된 문의 예입니다.
+다음은 변환 된 문의 예입니다 `DELETE` .
 
 ```sql
 CREATE TABLE dbo.DimProduct_upsert
@@ -232,9 +232,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 
 ## <a name="replace-merge-statements"></a>Merge 문 대체
 
-CTAS를 사용 하 여 merge 문을 최소한 부분적으로 바꿀 수 있습니다. `INSERT` 및 `UPDATE` 을 단일 문으로 결합할 수 있습니다. 삭제 된 레코드는 모두 결과에서 생략 `SELECT` 하도록 문에서 제한 되어야 합니다.
+CTAS를 사용 하 여 merge 문을 최소한 부분적으로 바꿀 수 있습니다. 및을 단일 문으로 결합할 수 있습니다 `INSERT` `UPDATE` . 삭제 된 레코드는 모두 `SELECT` 결과에서 생략 하도록 문에서 제한 되어야 합니다.
 
-다음은에 대 한 예제 `UPSERT`입니다.
+다음은에 대 한 예제입니다 `UPSERT` .
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -387,7 +387,7 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-쿼리가 완벽 하 게 실행 됩니다. 이 문제는 파티션 전환을 수행 하려고 할 때 발생 합니다. 테이블 정의가 일치 하지 않습니다. 테이블 정의를 일치 시키려면 열 null 허용 여부 특성을 유지 하는 `ISNULL` 함수를 추가 하도록 ctas를 수정 합니다.
+쿼리가 완벽 하 게 실행 됩니다. 이 문제는 파티션 전환을 수행 하려고 할 때 발생 합니다. 테이블 정의가 일치 하지 않습니다. 테이블 정의를 일치 시키려면 `ISNULL` 열 null 허용 여부 특성을 유지 하는 함수를 추가 하도록 CTAS를 수정 합니다.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]

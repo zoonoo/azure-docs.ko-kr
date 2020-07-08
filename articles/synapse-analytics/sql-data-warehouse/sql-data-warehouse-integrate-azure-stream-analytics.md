@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213349"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Azure Stream Analytics 사용
 
@@ -62,7 +62,7 @@ Azure Portal에서 Stream Analytics 작업으로 이동 하 고 **작업 토폴�
 
 ![완료 된 SQL Database 양식](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 테스트를 실행 하려면 먼저 데이터 웨어하우스에 테이블을 만들어야 합니다.  SSMS (SQL Server Management Studio) 또는 원하는 쿼리 도구를 사용 하 여 다음 테이블 생성 스크립트를 실행 합니다.
 
@@ -102,7 +102,7 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 Stream Analytics 작업 Azure Portal에서 작업 이름을 클릭 합니다.  ***출력 세부 정보*** 창에서 ***테스트*** 단추를 클릭 합니다.
 
-![테스트 단추 데이터베이스에 대 한 연결이](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) 성공 하면 포털에 알림이 표시 됩니다.
+![테스트 단추 ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) 데이터베이스에 대 한 연결이 성공 하면 포털에 알림이 표시 됩니다.
 
 ### <a name="step-6"></a>6단계
 

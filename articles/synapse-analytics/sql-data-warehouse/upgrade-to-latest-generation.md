@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210697"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Azure Synapse Analytics SQL 풀을 업그레이드 하 여 성능 최적화
 
@@ -110,7 +110,7 @@ SQL 풀을 최신 세대의 Azure 하드웨어 및 저장소 아키텍처로 업
 ## <a name="start-the-upgrade"></a>업그레이드 시작
 
 1. Azure Portal에서 계산에 최적화 된 Gen1 SQL 풀로 이동 합니다. 업그레이드할 계산에 최적화 된 Gen1 계층 SQL 풀이 일시 중지 된 경우 [sql 풀을 다시 시작](pause-and-resume-compute-portal.md)합니다.
-2. 작업 탭에서 Gen2 카드에서 **업그레이드를** 선택 합니다 ![Upgrade_1.](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+2. 작업 탭에서 Gen2 카드에서 **업그레이드를** 선택 합니다 ![ Upgrade_1.](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > [작업] 탭 아래 **Gen2로 업그레이드** 카드가 표시되지 않으면 구독 유형이 현재 지역으로 제한됩니다.
@@ -238,7 +238,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> 복원이 완료된 후에 데이터베이스를 구성하려면 [복구 후 데이터베이스 구성](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)을 참조하세요.
+> 복원이 완료된 후에 데이터베이스를 구성하려면 [복구 후 데이터베이스 구성](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)을 참조하세요.
 
 원본 데이터베이스가 TDE를 사용할 수 있는 경우 복구된 데이터베이스도 TDE를 사용할 수 있습니다.
 

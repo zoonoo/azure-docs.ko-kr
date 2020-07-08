@@ -2,20 +2,20 @@
 title: Azure Blockchain 서비스 컨소시엄 구성원 관리-PowerShell
 description: Azure PowerShell를 사용 하 여 Azure Blockchain Service consortium 멤버를 관리 하는 방법을 알아봅니다.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: zeyadr
-ms.openlocfilehash: e819dd39481b58d446384a5e2253c548ce0c267c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77505989"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211343"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>PowerShell을 사용 하 여 Azure Blockchain 서비스의 컨소시엄 구성원 관리
 
 PowerShell을 사용 하 여 Azure Blockchain 서비스의 blockchain consortium 구성원을 관리할 수 있습니다. 관리자 권한이 있는 구성원은 blockchain 컨소시엄의 모든 참가자에 대해 역할을 초대, 추가, 제거 및 변경할 수 있습니다. 사용자 권한이 있는 구성원은 blockchain 컨소시엄의 모든 참가자를 보고 멤버 표시 이름을 변경할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Portal](create-member.md)를 사용 하 여 블록 체인 멤버를 만듭니다.
 * Consortia, 멤버 및 노드에 대 한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조 하세요.
@@ -55,7 +55,7 @@ $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account addr
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
 ```
 
-멤버 * \<계정 암호\> * 를 멤버를 만들 때 사용한 구성원 계정 암호로 바꿉니다.
+*\<Member account password\>* 멤버를 만들 때 사용한 멤버 계정 암호로 대체 합니다.
 
 Azure Portal에서 다른 값을 찾습니다.
 
@@ -64,14 +64,14 @@ Azure Portal에서 다른 값을 찾습니다.
 
     ![멤버 개요](./media/manage-consortium-powershell/member-overview.png)
 
-    * \<멤버 계정\> * 및 *\> rootcontract 주소를 포털의 값으로 바꿉니다. \<*
+    *\<Member account\>* 및를 *\<RootContract address\>* 포털의 값으로 바꿉니다.
 
 1. 끝점 주소에 대해 **트랜잭션 노드**를 선택 하 고 **기본 트랜잭션 노드**를 선택 합니다. 기본 노드의 이름은 blockchain 멤버와 동일 합니다.
-1. **연결 문자열**을 선택 합니다.
+1. **연결 문자열**을 선택합니다.
 
     ![연결 문자열](./media/manage-consortium-powershell/connection-strings.png)
 
-    * \<끝점 주소\> * 를 **https (액세스 키 1)** 또는 **https (액세스 키 2)** 의 값으로 바꿉니다.
+    를 *\<Endpoint address\>* **Https (액세스 키 1)** 또는 **https (액세스 키 2)** 의 값으로 바꿉니다.
 
 ## <a name="manage-the-network-and-smart-contracts"></a>네트워크 및 스마트 계약 관리
 
@@ -83,7 +83,7 @@ Azure Portal에서 다른 값을 찾습니다.
 
 `Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
 | RootContractAddress | 컨소시엄 관리 스마트 계약의 루트 계약 주소 | 예 |
 | Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
@@ -100,7 +100,7 @@ Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address
 
 `Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
 | ManagedAccountAddress | Blockchain 구성원 계정 주소 | 예 |
 | ManagedAccountPassword | 계정 주소 암호 | 예 |
@@ -117,7 +117,7 @@ Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAc
 
 `New-Web3Connection [-RemoteRPCEndpoint <String>]`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
 | RemoteRPCEndpoint | Blockchain 구성원 끝점 주소 | 예 |
 
@@ -137,9 +137,9 @@ New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 
 `Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
-| 속성 | 세부 정보를 검색할 Blockchain 서비스 멤버의 이름입니다. 이름을 입력 하면 멤버의 세부 정보를 반환 합니다. 이름을 생략 하면 모든 컨소시엄 멤버 목록이 반환 됩니다. | 아니요 |
+| 이름 | 세부 정보를 검색할 Blockchain 서비스 멤버의 이름입니다. 이름을 입력 하면 멤버의 세부 정보를 반환 합니다. 이름을 생략 하면 모든 컨소시엄 멤버 목록이 반환 됩니다. | 아니요 |
 | 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
 | Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
 
@@ -168,9 +168,9 @@ Role           : ADMIN
 
 `Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
-| 속성 | 제거할 멤버 이름 | 예 |
+| 이름 | 제거할 멤버 이름 | 예 |
 | 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
 | Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | 예 |
 | Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
@@ -194,9 +194,9 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
  -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
-| 속성 | Blockchain 멤버의 이름 | 예 |
+| 이름 | Blockchain 멤버의 이름 | 예 |
 | DisplayName | 새 표시 이름 | 아니요 |
 | 계정 주소 | 계정 주소 | 아니요 |
 | 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
@@ -224,7 +224,7 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 초대할 구성원의 Azure 구독 ID | 예 |
 | 역할 | 컨소시엄 역할입니다. 값은 관리자 또는 사용자 일 수 있습니다. 관리자는 consortium 관리자 역할입니다. 사용자는 consortium 구성원 역할입니다. | 예 |
@@ -246,7 +246,7 @@ $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subs
 
 `Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 초대할 멤버의 Azure 구독 ID입니다. 구독 ID를 제공 하는 경우 구독 ID의 초대 정보를 반환 합니다. 구독 ID를 생략 하면 모든 멤버 초대 목록이 반환 됩니다. | 아니요 |
 | 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
@@ -277,7 +277,7 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
  -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 해지할 멤버의 Azure 구독 ID | 예 |
 | 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
@@ -301,7 +301,7 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 초대할 구성원의 Azure 구독 ID | 예 |
 | 역할 | 초대에 대 한 새 컨소시엄 역할입니다. 값은 **사용자** 또는 **관리자**일 수 있습니다. | 예 |

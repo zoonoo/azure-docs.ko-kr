@@ -5,18 +5,18 @@ services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 3efd8a776542616a9ceefba331b06406540905a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211972"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 워크 로드 중요도 관리 및 모니터링
 
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-카탈로그 뷰 [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에는 분류자를 만들 때 사용 된 매개 변수에 대 한 정보가 포함 되어 있습니다.  아래 쿼리는 ExecutiveReports를 사용 하 여 값에 ```membername``` 대 한 매개 변수에 ExecReportsClassifier를 만들었음을 보여 줍니다.
+카탈로그 뷰 [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에는 분류자를 만들 때 사용 된 매개 변수에 대 한 정보가 포함 되어 있습니다.  아래 쿼리는 ```membername``` ExecutiveReports를 사용 하 여 값에 대 한 매개 변수에 ExecReportsClassifier를 만들었음을 보여 줍니다.
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -59,7 +59,7 @@ SELECT c.name,cd.classifier_type, classifier_value
 
 ![쿼리 결과](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
 
-잘못 된 분류 문제 해결을 간소화 하려면 작업 분류자를 만들 때 리소스 클래스 역할 매핑을 제거 하는 것이 좋습니다. 아래 코드는 기존 리소스 클래스 역할 멤버 자격을 반환 합니다. 해당 하는 리소스 ```membername``` 클래스에서 반환 된 각에 대해 sp_droprolemember를 실행 합니다.
+잘못 된 분류 문제 해결을 간소화 하려면 작업 분류자를 만들 때 리소스 클래스 역할 매핑을 제거 하는 것이 좋습니다. 아래 코드는 기존 리소스 클래스 역할 멤버 자격을 반환 합니다. ```membername```해당 하는 리소스 클래스에서 반환 된 각에 대해 sp_droprolemember를 실행 합니다.
 다음은 작업 분류자를 삭제 하기 전에 존재 여부를 확인 하는 예제입니다.
 
 ```sql
@@ -71,7 +71,7 @@ GO
 ## <a name="next-steps"></a>다음 단계
 
 - 분류에 대 한 자세한 내용은 [작업 분류](sql-data-warehouse-workload-classification.md)를 참조 하세요.
-- 중요도에 대 한 자세한 내용은 [워크 로드 중요도](sql-data-warehouse-workload-importance.md) 를 참조 하세요.
+- 중요도에 대한 자세한 내용은 [워크로드 중요도](sql-data-warehouse-workload-importance.md)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [워크 로드 중요도 구성으로 이동](sql-data-warehouse-how-to-configure-workload-importance.md)

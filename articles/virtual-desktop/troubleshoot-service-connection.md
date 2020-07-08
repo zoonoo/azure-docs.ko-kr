@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 05/20/2020
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 56a31caeefb3589527fdbbac118fa3a544a0d1a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208896"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Windows Virtual Desktop 서비스 연결
 
@@ -33,15 +33,17 @@ ms.locfileid: "83747706"
 
 사용자는 원격 데스크톱 클라이언트를 시작하고 인증할 수 있지만 웹 검색 피드에 아이콘이 표시되지 않습니다.
 
-다음 명령줄을 사용하여 문제를 보고하는 사용자가 애플리케이션 그룹에 할당되었는지 확인합니다.
+1. 다음 명령줄을 사용하여 문제를 보고하는 사용자가 애플리케이션 그룹에 할당되었는지 확인합니다.
 
-```PowerShell
-Get-AzRoleAssignment -SignInName <userupn>
-```
+     ```powershell
+     Get-AzRoleAssignment -SignInName <userupn>
+     ```
 
-사용자가 올바른 자격 증명을 사용하여 로그인하고 있는지 확인합니다.
+2. 사용자가 올바른 자격 증명을 사용하여 로그인하고 있는지 확인합니다.
 
-웹 클라이언트를 사용하는 경우 캐시된 자격 증명 문제가 없는지 확인합니다.
+3. 웹 클라이언트를 사용하는 경우 캐시된 자격 증명 문제가 없는지 확인합니다.
+
+4. 사용자가 AD (Azure Active Directory) 사용자 그룹의 일부인 경우에는 사용자 그룹이 메일 그룹 대신 보안 그룹 인지 확인 합니다. Windows 가상 데스크톱은 Azure AD 메일 그룹을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

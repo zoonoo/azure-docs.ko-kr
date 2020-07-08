@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211179"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics SQL 풀에 데이터 로드
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>SQL 풀에서 빈 데이터 웨어하우스 만들기
 
-SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. SQL 풀은 azure [리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [azure sql 논리 서버](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)내에서 만들어집니다.
+SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. SQL 풀은 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [논리 sql server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)내에서 생성 됩니다.
 
 빈 SQL 풀을 만들려면 다음 단계를 수행 합니다.
 
@@ -58,26 +58,26 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 1. 다음 정보를 사용 하 여 **프로젝트 세부 정보** 섹션을 작성 합니다.
 
-   | 설정 | 예제 | Description |
+   | 설정 | 예제 | 설명 |
    | ------- | --------------- | ----------- |
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
 
 1. **Sql 풀 정보**에서 sql 풀의 이름을 제공 합니다. 그런 다음 드롭다운에서 기존 서버를 선택 하거나 **서버** 설정 아래에서 **새로 만들기** 를 선택 하 여 새 서버를 만듭니다. 다음 정보로 양식을 작성합니다.
 
-    | 설정 | 제안 값 | Description |
+    | Setting | 제안 값 | Description |
     | ------- | --------------- | ----------- |
     |**SQL 풀 이름**|SampleDW| 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요. |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
-    | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.|
+    | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
     | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
-    ![데이터베이스 서버 만들기](./media/load-data-wideworldimportersdw/create-database-server.png)
+    ![서버 만들기](./media/load-data-wideworldimportersdw/create-database-server.png)
 
 1. **성능 수준을 선택**합니다. 기본적으로 슬라이더는 **DW1000c**로 설정 됩니다. 슬라이더를 위아래로 이동 하 여 원하는 성능 크기를 선택 합니다.
 
-    ![데이터베이스 서버 만들기](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![서버 2 만들기](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 1. **추가 설정** 페이지에서 **기존 데이터 사용** 을 없음으로 설정 하 고 *SQL_Latin1_General_CP1_CI_AS*의 기본값에서 **데이터 정렬을** 그대로 둡니다.
 
@@ -87,10 +87,10 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결 하지 못하도록 하는 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다.
+Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결 하지 못하도록 하는 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다.
 
 > [!NOTE]
-> Azure Synapse Analytics SQL 풀은 1433 포트를 통해 통신 합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
+> Azure Synapse Analytics SQL 풀은 1433 포트를 통해 통신 합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 서버에 연결할 수 없습니다.
 >
 
 1. 배포가 완료 되 면 탐색 메뉴의 검색 상자에서 풀 이름을 검색 하 고 SQL 풀 리소스를 선택 합니다. 서버 이름을 선택합니다.
@@ -100,7 +100,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 1. 서버 이름을 선택합니다.
     ![서버 이름](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. **방화벽 설정 표시**를 선택합니다. SQL 풀 서버에 대 한 **방화벽 설정** 페이지가 열립니다.
+1. **방화벽 설정 표시**를 선택합니다. 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
     ![서버 설정](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -108,9 +108,9 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 
     ![서버 방화벽 규칙](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. **저장**을 선택합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+1. **저장**을 선택합니다. 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
-이제 클라이언트 IP 주소를 사용 하 여 SQL server에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 serveradmin 계정을 사용합니다.  
+이제 클라이언트 IP 주소를 사용 하 여 서버에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 serveradmin 계정을 사용합니다.  
 
 > [!IMPORTANT]
 > SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **꺼짐**을 클릭한 다음 **저장**을 클릭하여 모든 Azure 서비스에 대한 방화벽을 사용하지 않도록 설정합니다.
@@ -123,7 +123,7 @@ Azure Synapse Analytics 서비스는 서버 수준에서 외부 응용 프로그
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 
@@ -1087,7 +1087,7 @@ SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
 
 3. 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 
-4. 만든 SQL 서버를 제거하려면 이전 이미지에서 **sample-svr.database.windows.net**을 클릭한 다음, **삭제**를 클릭합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
+4. 만든 서버를 제거 하려면 이전 이미지에서 **sample-svr.database.windows.net** 을 클릭 한 다음 **삭제**를 클릭 합니다.  서버를 삭제하면 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해야 합니다.
 
 5. 리소스 그룹을 제거하려면 **SampleRG**를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 

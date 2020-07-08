@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210629"
 ---
 # <a name="data-warehouse-units-dwus"></a>DWUs (데이터 웨어하우스 단위)
 
@@ -72,7 +72,7 @@ CREATE DATABASE mySQLDW
 
 DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 웨어하우스를 사용할 필요가 없는 경우 컴퓨팅을 일시 중지할 수 있습니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.  
 
-각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
+각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
 
 ## <a name="capacity-limits"></a>용량 제한
 
@@ -107,7 +107,7 @@ SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 �
 현재 DWU 설정을 보려면:
 
 1. Visual Studio에서 SQL Server 개체 탐색기를 엽니다.
-2. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
+2. 논리 SQL 서버와 연결된 마스터 데이터베이스에 연결합니다.
 3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다.
 
 ```sql
@@ -149,7 +149,7 @@ T-SQL을 사용하여 현재 DWU 설정을 보고, 설정을 변경하고, 진�
 
 DWU를 변경하려면
 
-1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
+1. 서버와 연결된 마스터 데이터베이스에 연결합니다.
 2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000c로 설정합니다.
 
 ```Sql
@@ -185,7 +185,7 @@ Azure Portal에서 스케일 아웃 작업에 대한 데이터베이스 상태�
 
 DWU 변경 상태를 확인하려면:
 
-1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
+1. 서버와 연결된 마스터 데이터베이스에 연결합니다.
 2. 다음 쿼리를 제출하여 데이터베이스 상태를 확인합니다.
 
 ```sql

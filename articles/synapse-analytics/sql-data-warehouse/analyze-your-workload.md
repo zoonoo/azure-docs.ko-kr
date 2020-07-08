@@ -6,21 +6,21 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208402"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 워크 로드 분석
 
-Azure Synapse Analytics에서 Synapse SQL 작업을 분석 하기 위한 기술입니다.
+Azure Synapse Analytics에서 Synapse SQL 작업을 분석 하기 위한 기술입니다. 
 
 ## <a name="resource-classes"></a>리소스 클래스
 
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-DMV `sys.dm_pdw_resource_waits` 는 지정 된 쿼리에 대 한 대기 정보를 표시 합니다. 리소스 대기 시간은 리소스가 제공 될 때까지 기다리는 시간을 측정 합니다. 신호 대기 시간은 기본 SQL 서버에서 CPU로 쿼리를 예약 하는 데 걸리는 시간입니다.
+`sys.dm_pdw_resource_waits`DMV는 지정 된 쿼리에 대 한 대기 정보를 표시 합니다. 리소스 대기 시간은 리소스가 제공 될 때까지 기다리는 시간을 측정 합니다. 신호 대기 시간은 기본 SQL 서버에서 CPU로 쿼리를 예약 하는 데 걸리는 시간입니다.
 
 ```sql
 SELECT  [session_id]
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 사용자 및 보안을 관리 하는 방법에 대 한 자세한 내용은 [SYNAPSE SQL에서 데이터베이스 보안](sql-data-warehouse-overview-manage-security.md)을 참조 하세요. 더 큰 리소스 클래스가 클러스터된 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.
+데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [Synapse SQL에서 데이터베이스 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상 시킬 수 있는 방법에 대 한 자세한 내용은 [인덱스를 다시 작성 하 여 세그먼트 품질 향상](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조 하세요.

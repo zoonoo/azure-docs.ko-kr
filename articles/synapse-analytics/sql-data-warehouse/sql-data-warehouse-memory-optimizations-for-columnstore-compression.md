@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2cbe9b94c4698a93b93c032ee4dcb421a78e59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211662"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
@@ -90,8 +90,8 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 한 개의 행 그룹을 압축하는 데 필요한 최대 메모리는 대략적으로 다음과 같습니다.
 
 - 72MB +
-- \#행 \* \#열 \* 8 바이트 +
-- \#행 \* \#의 짧은 문자열-열 \* 32 바이트 +
+- \#행 \* \# 열 \* 8 바이트 +
+- \#행 \* \# 의 짧은 문자열-열 \* 32 바이트 +
 - 압축 사전인 경우 \#long-string-columns \* 16MB
 
 > [!NOTE]

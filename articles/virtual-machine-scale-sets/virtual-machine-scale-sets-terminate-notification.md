@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림
+title: Azure 가상 머신 확장 집합 인스턴스에 대한 종료 알림
 description: Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림을 사용 하도록 설정 하는 방법을 알아봅니다.
 author: avirishuv
 ms.author: avverma
@@ -9,14 +9,14 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207518"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 종료 알림
 확장 집합 인스턴스는 인스턴스 종료 알림을 수신 하도록 옵트인 (opt in) 하 고 미리 정의 된 지연 시간 제한을 종료 작업으로 설정할 수 있습니다. 종료 알림은 다시 부팅 및 다시 배포와 같은 작업에 대 한 알림을 제공 하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송 됩니다. 솔루션은 Scheduled Events 목록에 또 다른 이벤트 (종료 – 종료)를 추가 하 고, terminate 이벤트의 연결 된 지연은 확장 집합 모델 구성에서 사용자에 의해 지정 된 지연 제한에 따라 달라 집니다.
 
 기능에 등록 되 면 인스턴스를 삭제 하기 전에 확장 집합 인스턴스는 지정 된 제한 시간이 만료 될 때까지 기다릴 필요가 없습니다. 종료 알림을 받은 후에는 언제 든 지 종료 시간 제한이 만료 되기 전에 인스턴스를 삭제 하도록 선택할 수 있습니다.
@@ -178,9 +178,9 @@ POST 요청 본문에 필요한 json은 다음과 같습니다. 요청에 StartR
 
 확장 집합의 모든 VM이 해당 VM과 관련 된 EventID만 승인 하는지 확인 합니다. VM은 [인스턴스 메타 데이터를 통해](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name)자체 vm 이름을 가져올 수 있습니다. 이 이름은 "{scale-set-name} _ {instance-id}" 형식을 사용 하며 위에서 설명한 쿼리 응답의 ' Resources ' 섹션에 표시 됩니다.
 
-[PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) 및 [Python](../virtual-machines/linux/scheduled-events.md#python-sample)을 사용 하 여 이벤트 쿼리 및 응답에 대 한 샘플 스크립트를 참조할 수도 있습니다.
+[이벤트를](../virtual-machines/linux/scheduled-events.md#python-sample)쿼리하고 이벤트에 응답 하는 예제 스크립트를 참조할 수도 있습니다.
 
-## <a name="tips-and-best-practices"></a>팁과 모범 사례
+## <a name="tips-and-best-practices"></a>팁 및 모범 사례
 -   ' 삭제 ' 작업에 대 한 알림만 종료 – 확장 집합에서 *scheduledEventsProfile* 을 사용 하도록 설정한 경우 모든 삭제 작업 (수동 삭제 또는 자동 크기 조정 시작 된 확장)에서 종료 이벤트를 생성 합니다. 다시 부팅, 이미지로 다시 설치, 다시 배포 및 중지/할당 취소와 같은 다른 작업은 종료 이벤트를 생성 하지 않습니다. 우선 순위가 낮은 Vm에 대해서는 종료 알림을 사용 하도록 설정할 수 없습니다.
 -   시간 제한에 대 한 필수 대기 없음 – 이벤트를 받은 후 이벤트의 *NotBefore* 시간이 만료 되기 전에 언제 든 지 terminate 작업을 시작할 수 있습니다.
 -   제한 시간에 필수 삭제 – 이벤트가 생성 된 후 시간 제한 값을 확장 하는 기능이 없습니다. 제한 시간이 만료 되 면 보류 중인 종료 이벤트가 처리 되 고 VM이 삭제 됩니다.

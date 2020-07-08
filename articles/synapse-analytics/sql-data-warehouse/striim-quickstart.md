@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e963d62df8d2c416726852ee3d46daf1cd22936e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208555"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 제품 설치 안내서
 
@@ -30,7 +30,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 구성][configure]
 
-배포 되 면 Azure Portal에서 \<vm 이름>-masternode를 클릭 하 고 연결을 클릭 한 다음 vm 로컬 계정을 사용 하 여 로그인을 복사 합니다. 
+배포되면 Azure Portal에서 \<VM Name>-masternode를 클릭하고 연결을 클릭한 다음, VM 로컬 계정을 사용하여 로그인을 복사합니다. 
 
 ![SQL Data Warehouse에 Striim 연결][connect]
 
@@ -56,7 +56,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 클러스터 시작][start-striim]
 
-이제 즐겨 찾는 브라우저를 열고 DNS 이름> \<: 9080으로 이동 합니다.
+이제 즐겨 찾는 브라우저를 열고 \<DNS Name>:9080으로 이동합니다.
 
 ![로그인 화면으로 이동][navigate]
 
