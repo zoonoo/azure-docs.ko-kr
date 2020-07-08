@@ -2,21 +2,21 @@
 title: 격리의 응용 프로그램 프로 비전 상태 | Microsoft Docs
 description: 자동 사용자 프로 비전을 위해 응용 프로그램을 구성한 경우 격리의 프로 비전 상태와이를 지우는 방법에 대해 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/28/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593933"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024573"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 응용 프로그램 프로 비전
 
@@ -28,11 +28,11 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 응용 프로그램이 격리 되어 있는지 여부를 확인 하는 방법에는 다음 세 가지가 있습니다.
   
-- Azure Portal에서 **Azure Active Directory** > **Enterprise 응용** > &lt;프로그램*응용 프로그램 이름*&gt; > **프로 비전** 으로 이동 하 고, 격리 메시지의 진행률 표시줄을 검토 합니다.   
+- Azure Portal에서 **Azure Active Directory**  >  **Enterprise 응용**프로그램  >  &lt; *응용 프로그램 이름* &gt;  >  **프로 비전** 으로 이동 하 고, 격리 메시지의 진행률 표시줄을 검토 합니다.   
 
   ![격리 상태를 보여 주는 프로 비전 상태 표시줄](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- Azure Portal에서 **Azure Active Directory** > **감사 로그** 로 이동 하 여 **작업: 격리** 에서 필터 > 하 고 격리 기록을 검토 합니다. 위에서 설명한 대로 진행률 표시줄의 보기는 프로 비전이 현재 격리 되어 있는지 여부를 보여 주지만 감사 로그를 사용 하 여 응용 프로그램에 대 한 격리 기록을 볼 수 있습니다. 
+- Azure Portal에서 **Azure Active Directory**  >  **감사 로그** 로 이동 하 여 **작업: 격리** 에서 필터 > 하 고 격리 기록을 검토 합니다. 위에서 설명한 대로 진행률 표시줄의 보기는 프로 비전이 현재 격리 되어 있는지 여부를 보여 주지만 감사 로그를 사용 하 여 응용 프로그램에 대 한 격리 기록을 볼 수 있습니다. 
 
 - Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) 를 사용 하 여 프로 비전 작업의 상태를 프로그래밍 방식으로 가져옵니다.
 
@@ -66,7 +66,7 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 - 응용 프로그램의 프로 비전 설정을 확인 하 여 [유효한 관리자 자격 증명을 입력](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning)했는지 확인 합니다. Azure AD는 대상 응용 프로그램을 사용 하 여 트러스트를 설정할 수 있어야 합니다. 유효한 자격 증명을 입력 하 고 계정에 필요한 사용 권한이 있는지 확인 합니다.
 
-- [프로 비전 로그](../reports-monitoring/concept-provisioning-logs.md) 를 검토 하 여 격리를 발생 시키는 오류를 자세히 조사 하 고 오류를 해결 합니다. **작업** 섹션의 **Azure Active Directory** &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 로 이동 하 여 Azure Portal의 프로 비전 로그에 액세스 합니다.
+- [프로 비전 로그](../reports-monitoring/concept-provisioning-logs.md) 를 검토 하 여 격리를 발생 시키는 오류를 자세히 조사 하 고 오류를 해결 합니다. **Azure Active Directory** &gt; 작업 섹션의 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** **Activity** 로 이동 하 여 Azure Portal의 프로 비전 로그에 액세스 합니다.
 
 문제를 해결 한 후 프로 비전 작업을 다시 시작 합니다. 특성 매핑 또는 범위 지정 필터와 같은 응용 프로그램의 프로 비전 설정에 대 한 특정 변경 사항은 자동으로 자동으로 프로 비전을 다시 시작 합니다. 응용 프로그램의 **프로 비전** 페이지에 있는 진행률 표시줄에는 프로 비전이 마지막으로 시작 된 시간을 나타냅니다. 프로 비전 작업을 수동으로 다시 시작 해야 하는 경우 다음 방법 중 하나를 사용 합니다.  
 
@@ -75,3 +75,6 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 - Microsoft Graph를 사용 하 여 [프로 비전 작업을 다시 시작](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)합니다. 다시 시작 하는 작업을 완전히 제어할 수 있습니다. Escrows (격리 상태를 적용 하는 에스크로 카운터를 다시 시작 하려면)를 선택 취소 하거나 격리 (격리에서 응용 프로그램을 제거 하려면)를 지우거 나 워터 마크를 지울 수 있습니다. 다음 요청을 사용합니다.
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+       
+"{Id}"를 응용 프로그램 ID의 값으로 바꾸고 "{jobId}"를 [동기화 작업의 id](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal)로 바꿉니다. 
+
