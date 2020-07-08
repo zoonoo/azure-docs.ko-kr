@@ -4,15 +4,15 @@ description: Azure Application Gateway의 백 엔드 상태 문제를 해결하�
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808187"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 ==================================================
@@ -81,7 +81,7 @@ BackendAddressPoolsText : [
 **세부 정보** 열에 표시되는 메시지는 문제에 대한 보다 자세한 인사이트를 제공하고, 이에 따라 문제 해결을 시작할 수 있습니다.
 
 > [!NOTE]
-> 기본 프로브 요청은 \<프로토콜\>://127.0.0.1:\<포트\>/ 형식으로 전송됩니다. 예를 들어 포트 80에 대한 http 프로브의 경우 http://127.0.0.1:80 입니다. 200~399의 HTTP 상태 코드만 정상으로 간주됩니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속됩니다. Application Gateway가 다른 프로토콜, 호스트 이름 또는 경로를 검색하고 다른 상태 코드를 정상으로 인식하기를 원하면 사용자 지정 프로브를 구성하고 HTTP 설정과 연결합니다.
+> 기본 프로브 요청은 \<protocol\> ://127.0.0.1:/형식으로 전송 됩니다. \<port\> 예를 들어 포트 80에 대한 http 프로브의 경우 http://127.0.0.1:80 입니다. 200~399의 HTTP 상태 코드만 정상으로 간주됩니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속됩니다. Application Gateway가 다른 프로토콜, 호스트 이름 또는 경로를 검색하고 다른 상태 코드를 정상으로 인식하기를 원하면 사용자 지정 프로브를 구성하고 HTTP 설정과 연결합니다.
 
 <a name="error-messages"></a>오류 메시지
 ------------------------
@@ -170,7 +170,7 @@ BackendAddressPoolsText : [
 
 **메시지:** 백 엔드의 HTTP 응답의 상태 코드가 프로브 설정과 일치하지 않습니다. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
 
-**원인:** TCP 연결을 설정하고 TLS 핸드셰이크를 수행한 후(TLS를 사용하도록 설정된 경우) Application Gateway는 프로브를 백 엔드 서버에 HTTP GET 요청으로 보냅니다. 앞에서 설명한 것처럼 기본 프로브는 \<프로토콜\>://127.0.0.1:\<포트\>/로 하고 200~399 범위의 응답 상태 코드를 정상으로 간주합니다. 서버에서 다른 상태 코드를 반환하는 경우 이 메시지와 함께 비정상으로 표시됩니다.
+**원인:** TCP 연결을 설정하고 TLS 핸드셰이크를 수행한 후(TLS를 사용하도록 설정된 경우) Application Gateway는 프로브를 백 엔드 서버에 HTTP GET 요청으로 보냅니다. 앞에서 설명한 대로 기본 프로브는 \<protocol\> ://127.0.0.1:/에 대 한 것으로 \<port\> , r 200 ~ 399의 응답 상태 코드를 정상으로 간주 합니다. 서버에서 다른 상태 코드를 반환하는 경우 이 메시지와 함께 비정상으로 표시됩니다.
 
 **해결 방법:** 백 엔드 서버의 응답 코드에 따라 다음 단계를 수행할 수 있습니다. 몇 가지 일반적인 상태 코드는 다음과 같습니다.
 
@@ -209,7 +209,7 @@ BackendAddressPoolsText : [
 
 #### <a name="backend-server-certificate-invalid-ca"></a>백 엔드 서버 인증서의 잘못된 CA
 
-**메시지:** 백 엔드에서 사용되는 서버 인증서가 잘 알려진 CA(인증 기관)에서 서명하지 않았습니다. 백 엔드에서 사용되는 서버 인증서의 루트 인증서를 업로드하여 Application Gateway의 백 엔드를 허용 목록에 추가합니다.
+**메시지:** 백 엔드에서 사용되는 서버 인증서가 잘 알려진 CA(인증 기관)에서 서명하지 않았습니다. 백 엔드에서 사용 되는 서버 인증서의 루트 인증서를 업로드 하 여 Application Gateway 백 엔드를 허용 합니다.
 
 **원인:** Application Gateway v2를 사용하는 엔드투엔드 SSL을 사용하려면 백 엔드 서버의 인증서를 확인하여 서버가 정상 상태인지 확인해야 합니다.
 TLS/SSL 인증서를 신뢰할 수 있도록 하려면 Application Gateway의 신뢰할 수 있는 저장소에 포함된 CA에서 백 엔드 서버의 인증서를 발급해야 합니다. 인증서가 신뢰할 수 있는 CA에서 발급되지 않은 경우(예: 자체 서명된 인증서 사용) 사용자는 발급자의 인증서를 Application Gateway에 업로드해야 합니다.

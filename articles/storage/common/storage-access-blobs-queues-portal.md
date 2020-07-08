@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e556e21238db5de7dddce13ea912dae30723fe8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b2de4f320801b20de5bcc9687a723dadb182ef8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807716"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Azure Portal를 사용 하 여 blob 또는 큐 데이터에 액세스
 
@@ -88,7 +88,7 @@ Azure AD 계정을 사용 하도록 전환 하려면 이미지에 강조 표시 
 
 Azure AD 계정에이를 볼 수 있는 권한이 없는 경우 목록에 blob이 표시 되지 않습니다. 액세스 키를 사용 하 여 인증 **키로 전환** 링크를 클릭 하 여 인증에 대 한 액세스 키를 다시 사용 합니다.
 
-### <a name="authenticate-with-your-azure-ad-account"></a>Azure AD 계정을 사용 하 여 인증
+### <a name="authenticate-with-your-azure-ad-account"></a>Azure AD 계정을 사용하여 인증
 
 Azure AD 계정을 사용 하 여 인증 하는 경우 포털에서 인증 방법으로 지정 된 **AZURE Ad 사용자 계정이** 표시 됩니다.
 

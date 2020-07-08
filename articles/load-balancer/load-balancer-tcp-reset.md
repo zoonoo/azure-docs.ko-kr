@@ -8,19 +8,19 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808473"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>유휴 상태에서 TCP를 다시 설정 하는 Load Balancer
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>유휴 상태에서 TCP를 재설정하는 Load Balancer
 
 [표준 Load Balancer](load-balancer-standard-overview.md)를 지정된 규칙에 대해 TCP Reset on Idle을 사용하도록 설정하여 시나리오용으로 예측 가능성이 더 높은 애플리케이션 동작을 만들 수 있습니다. Load Balancer의 기본 동작은 흐름의 유휴 시간이 초과되면 흐름을 자동으로 끊는 것입니다.  이 기능을 사용하도록 설정하면 Load Balancer가 유휴 시간 초과 시 양방향 TCP Reset(TCP RST 패킷)을 전송합니다.  이 패킷은 연결 시간이 초과되어 더 이상 연결을 사용할 수 없음을 애플리케이션 엔드포인트에 알립니다.  엔드포인트는 필요한 경우 새 연결을 즉시 설정할 수 있습니다.
 

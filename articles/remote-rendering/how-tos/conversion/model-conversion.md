@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 135c58a665779ffaad8750ffe618bdbe38639b66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808618"
 ---
 # <a name="convert-models"></a>모델 변환
 
@@ -38,6 +38,11 @@ Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할
     - 또는 *SAS (공유 액세스 서명)* 를 제공 합니다.
 
 모든 모델 데이터 (입력 및 출력)는 사용자가 제공 하는 Azure blob 저장소에 저장 됩니다. Azure 원격 렌더링은 자산 관리를 완벽 하 게 제어할 수 있도록 합니다.
+
+## <a name="pricing"></a>가격 책정
+
+변환 가격 책정에 대 한 자세한 내용은 [원격 렌더링 가격 책정](https://azure.microsoft.com/pricing/details/remote-rendering) 페이지를 참조 하세요.
+
 
 ## <a name="conversion-parameters"></a>변환 매개 변수
 

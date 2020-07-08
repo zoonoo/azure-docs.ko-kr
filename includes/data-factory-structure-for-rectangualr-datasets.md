@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182873"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>사각형 데이터 세트의 구조 정의 지정
@@ -16,12 +16,12 @@ ms.locfileid: "67182873"
 
 각 열에는 다음 속성이 포함됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name |열의 이름입니다. |예 |
-| type |열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. |아니요 |
-| culture |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "en-us"입니다. |아니요 |
-| format |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 형식 문자열입니다. |아니요 |
+| type |열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. |예 |
+| culture |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "en-us"입니다. |No |
+| format |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 형식 문자열입니다. |No |
 
 다음 샘플에서는 3개의 열 즉, userid, name 및 lastlogindate가 있는 테이블에 대한 구조 섹션 JSON을 보여줍니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "67182873"
 * Decimal
 * Byte[]
 * Bool
-* 문자열 
+* String 
 * Guid
 * DateTime
 * Datetimeoffset

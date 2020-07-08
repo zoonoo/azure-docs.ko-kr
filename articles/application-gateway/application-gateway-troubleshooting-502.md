@@ -4,18 +4,18 @@ description: 'Application Gateway 서버 오류 문제를 해결 하는 방법 �
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808150"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Start</a></span><span class="has-padding-small">가상 에이전트를 사용 하 여 <b>자동 진단을</b> 실행 하 여 문제를 빠르게 해결 합니다.</span> <span class="has-padding-small"> <sub>Privacy Statement</sub> 개인정보 <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
+
 Azure 애플리케이션 Gateway를 사용 하는 경우 잘못 된 게이트웨이 (502)의 문제를 해결 하는 방법에 대해 알아봅니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -106,14 +106,14 @@ DhcpOptions            : {
 
 다음과 같은 추가 속성이 추가 됩니다.
 
-| 프로브 속성 | Description |
+| 프로브 속성 | 설명 |
 | --- | --- |
 | 속성 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |
 | 호스트 |프로브에 보낼 호스트 이름입니다. 응용 프로그램 게이트웨이에서 다중 사이트를 구성한 경우에만 적용할 수 있습니다. VM 호스트 이름과 다릅니다. |
-| 경로 |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 \<protocol\>://\<host\>:\<port\>\<path\>로 전송됩니다. |
+| 경로 |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 \<protocol\> ://으로 전송 됩니다 \<host\> .\<port\>\<path\> |
 | 간격 |프로브 간격(초). 연속된 두 프로브 사이의 시간 간격입니다. |
-| 시간 제한 |프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시 됩니다. |
+| 시간 제한 |프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브가 실패로 표시됩니다. |
 | 비정상 임계값 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
 ### <a name="solution"></a>솔루션
@@ -121,8 +121,8 @@ DhcpOptions            : {
 앞의 테이블처럼 사용자 지정 상태 프로브를 올바르게 구성했는지 유효성을 검사합니다. 앞의 문제 해결 단계 외에도 다음 사항을 확인합니다.
 
 * 프로브가 [가이드](application-gateway-create-probe-ps.md)를 기준으로 올바르게 지정되어 있는지 확인합니다.
-* 응용 프로그램 게이트웨이가 단일 사이트에 대해 구성 된 경우 사용자 지정 프로브에서 달리 구성 되지 않은 경우 기본적 `127.0.0.1`으로 호스트 이름을로 지정 해야 합니다.
-* http://\<host\>:\<port\>\<path\>에 대한 호출은 HTTP 결과 코드 200을 반환해야 합니다.
+* 응용 프로그램 게이트웨이가 단일 사이트에 대해 구성 된 경우 `127.0.0.1` 사용자 지정 프로브에서 달리 구성 되지 않은 경우 기본적으로 호스트 이름을로 지정 해야 합니다.
+* Http://:에 대 한 호출이 \<host\> \<port\> \<path\> http 결과 코드 200을 반환 하는지 확인 합니다.
 * 간격, 시간 제한 및 Unhealtythreshold이 허용 범위 내에 있는지 확인 하십시오.
 * HTTPS 프로브를 사용하는 경우 백 엔드 서버 자체에서 대체(fallback) 인증서를 구성하여 백 엔드 서버에 SNI가 필요하지 않도록 합니다.
 

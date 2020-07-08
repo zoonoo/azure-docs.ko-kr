@@ -5,15 +5,15 @@ description: 이 문서에서는 Azure 애플리케이션 게이트웨이에서 
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f5f5c16f3d6aa1d7115e99cbae0dbd6cd926b25a
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5acf4ac1ec75d5cec057e4b66e3c6cbd8a463271
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808022"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>게이트웨이 세션 선호도 문제 Azure 애플리케이션 문제 해결
 
@@ -83,7 +83,7 @@ Internet Explorer에서 짧은 이름 URL을 사용 하 여 Application Gateway�
     **팁** Fiddler를 사용 하는 방법을 모르는 경우 맨 아래에 있는 "**네트워크 트래픽을 수집 하 고 웹 디버거를 사용 하 여 분석 합니다**." 옵션을 선택 합니다.
 
 2. 세션 로그를 확인 하 고 분석 하 여 클라이언트에서 제공한 쿠키에 ARRAffinity 세부 정보가 있는지 여부를 확인 합니다. 쿠키 집합 내에서 "**ARRAffinity =** *ARRAffinityValue*"와 같은 ARRAffinity 세부 정보를 찾지 못하면 클라이언트는 Application Gateway에서 제공 하는 arra 쿠키를 사용 하 여 응답 하지 않습니다.
-    다음은 그 예입니다.
+    예를 들어:
 
     ![문제 해결-세션-선호도-문제-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
@@ -97,7 +97,7 @@ Internet Explorer 및 기타 브라우저가 짧은 이름 URL이 포함 된 쿠
 
 #### <a name="resolution"></a>해결 방법
 
-이 이슈를 해결하려면 FQDN을 사용하여 Application Gateway에 액세스해야 합니다. 예를 들어 또는 [http://website.com](https://website.com/) [http://appgw.website.com](http://website.com/) 을 사용 합니다.
+이 이슈를 해결하려면 FQDN을 사용하여 Application Gateway에 액세스해야 합니다. 예를 들어 또는을 사용 [http://website.com](https://website.com/) [http://appgw.website.com](http://website.com/) 합니다.
 
 ## <a name="additional-logs-to-troubleshoot"></a>문제를 해결 하기 위한 추가 로그
 
@@ -161,7 +161,7 @@ Fiddler와 같은 웹 디버깅 도구는 인터넷 및 테스트 컴퓨터 간�
 
 원하는 웹 디버거를 사용 합니다. 이 샘플에서는 Fiddler를 사용 하 여 http 또는 https 트래픽을를 캡처 및 분석 하 고 지침을 따릅니다.
 
-1. 에서 <https://www.telerik.com/download/fiddler>Fiddler 도구를 다운로드 합니다.
+1. 에서 Fiddler 도구를 다운로드 <https://www.telerik.com/download/fiddler> 합니다.
 
     > [!NOTE]
     > 캡처 컴퓨터에 .NET 4가 설치 된 경우 Fiddler4를 선택 합니다. 그렇지 않으면 Fiddler2를 선택 합니다.
@@ -174,7 +174,7 @@ Fiddler와 같은 웹 디버깅 도구는 인터넷 및 테스트 컴퓨터 간�
 
     ![문제 해결-세션-선호도-문제-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. 일반적으로 암호 해독 된 https 트래픽을 확인 하 고 **도구** > **Fiddler 옵션**을 선택 하 여 https 암호 해독을 사용 하도록 설정 하 고 " **https 트래픽 암호 해독**" 확인란을 선택 하면 됩니다.
+4. 일반적으로 암호 해독 된 https 트래픽을 확인 하 고 **도구**Fiddler 옵션을 선택 하 여 https 암호 해독을 사용 하도록 설정 하  >  **Fiddler Options**고 " **https 트래픽 암호 해독**" 확인란을 선택 하면 됩니다.
 
     ![문제 해결-세션-선호도-문제-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -182,7 +182,7 @@ Fiddler와 같은 웹 디버깅 도구는 인터넷 및 테스트 컴퓨터 간�
 
     ![문제 해결-세션-선호도-문제-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
-6. 문제를 재현 한 후 **파일** > **Save** > **모든 세션**저장 ...을 선택 하 여 검토를 위해 파일을 저장 합니다. 
+6. 문제를 재현 한 후 **파일**  >  **Save**  >  **모든 세션**저장 ...을 선택 하 여 검토를 위해 파일을 저장 합니다. 
 
     ![문제 해결-세션-선호도-문제-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 

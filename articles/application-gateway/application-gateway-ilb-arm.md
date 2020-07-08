@@ -4,15 +4,15 @@ description: 이 페이지에서는 Azure Resource Manager용 ILB(내부 부하 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808131"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
@@ -76,7 +76,7 @@ Get-AzSubscription
 Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
@@ -142,7 +142,7 @@ $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -
 
 이 단계에서는 백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 Application Gateway 설정 "poolsetting01"을 구성합니다.
 
-### <a name="step-4"></a>4단계:
+### <a name="step-4"></a>4단계
 
 ```powershell
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80

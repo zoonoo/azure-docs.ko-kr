@@ -9,13 +9,13 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: ozgun
+ms.openlocfilehash: f69301bdbc0af9334858940fbfd3d7d0a0a63153
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807638"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced threat protection 구성
 
@@ -27,14 +27,14 @@ Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액�
 
 ## <a name="availability"></a>가용성
 
-Azure Storage에 대 한 Advanced threat protection은 현재 [Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에서만 사용할 수 있습니다. 고급 위협 방지를 지 원하는 계정 유형에는 범용 v2, 블록 blob 및 Blob 저장소 계정이 있습니다. Advanced threat protection은 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
+Azure Storage용 Advanced Threat Protection은 현재 [Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에만 사용할 수 있습니다. 고급 위협 방지를 지 원하는 계정 유형에는 범용 v2, 블록 blob 및 Blob 저장소 계정이 있습니다. Advanced threat protection은 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
 
 무료 30 일 평가판을 비롯 한 가격 정보는 [Azure Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
 
 
 ## <a name="set-up-advanced-threat-protection"></a>Advanced threat protection 설정
 
-다음 섹션에서 설명 하는 여러 가지 방법으로 advanced threat protection을 구성할 수 있습니다.
+다음 섹션에서 설명하는 여러 가지 방법으로 지능형 위협 방지를 구성할 수 있습니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -74,7 +74,7 @@ Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장�
 
 1. **저장소 계정에 Advanced Threat Protection 배포** 정책을 검색 합니다.
 
-     ![검색 정책](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+     ![정책 검색](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
 
 1. Azure 구독 또는 리소스 그룹을 선택 합니다.
 
@@ -93,7 +93,7 @@ Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 advanced th
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-다음 PowerShell cmdlet을 사용 합니다.
+다음 PowerShell cmdlet을 사용합니다.
 
 * [Advanced threat protection 사용](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
 * [Advanced threat protection 가져오기](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
@@ -128,4 +128,4 @@ Azure Security Center의 [보안 경고 타일](../../security-center/security-c
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Storage 계정의 로그](/rest/api/storageservices/About-Storage-Analytics-Logging) 에 대해 자세히 알아보기
-* [Azure Security Center](../../security-center/security-center-intro.md) 에 대 한 자세한 정보
+* [Azure Security Center](../../security-center/security-center-intro.md)에 대한 자세한 정보

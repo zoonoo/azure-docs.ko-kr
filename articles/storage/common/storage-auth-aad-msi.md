@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f3bac0d47a53da1ec4d1fa08b5f0933f5f65dc56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69e88aed1485d07bc4adc57abc0bda02a1def728
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808880"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 id를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한 부여
 
@@ -108,7 +108,7 @@ Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변�
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 코드 예제: 블록 Blob 만들기
 
-Azure Id 및 `using` Azure Storage 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
+`using`Azure id 및 Azure Storage 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
 
 ```csharp
 using Azure;

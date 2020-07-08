@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808539"
 ---
 # <a name="limitations"></a>제한 사항
 
@@ -26,9 +26,10 @@ ms.locfileid: "83759050"
 * 단일 형식(엔터티, CutPlaneComponent 등)에 대해 허용되는 총 개체: 16,777,215.
 * 허용되는 총 활성 평면 잘라내기: 8.
 
-## <a name="materials"></a>재질
+## <a name="geometry"></a>geometry
 
 * 자산에서 허용되는 총 재질: 65,535.
+* 단일 질감의 최대 차원: 16384 x 16384. 변환 프로세스를 통해 큰 소스 질감이 축소 됩니다.
 
 ## <a name="overall-number-of-polygons"></a>전체 다각형 수
 
@@ -39,12 +40,14 @@ ms.locfileid: "83759050"
 |표준| 2천만 |
 |프리미엄| 제한 없음 |
 
+이 제한 사항에 대 한 자세한 내용은 [VM 크기](../reference/vm-sizes.md) 챕터를 참조 하세요.
 
 ## <a name="platform-limitations"></a>플랫폼 제한 사항
 
 **Windows 10 Desktop**
 
 * UWP/x86은 유일하게 지원되는 UWP 플랫폼입니다. UWP/x64는 지원되지 않습니다.
+* Win32/x64는 유일 하 게 지원 되는 Win32 플랫폼입니다. Win32/x86은 지원 되지 않습니다.
 
 **Hololens 2**
 

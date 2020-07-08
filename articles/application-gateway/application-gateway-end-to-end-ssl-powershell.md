@@ -4,15 +4,15 @@ description: 이 문서에서는 PowerShell을 사용하여 Azure Application Ga
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/8/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808205"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 엔드투엔드 TLS 구성
 
@@ -167,7 +167,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    > [!NOTE]
    > 기본 프로브는 공용 키를 백엔드의 IP 주소에 바인딩된 *기본* TLS에서 가져오고 프로브가 받는 공용 키 값과 여기서 사용자가 제공한 공용 키 값을 비교합니다. 
    > 
-   > 백 엔드에서 호스트 헤더와 SNI(서버 이름 표시)를 사용하는 경우 검색된 공개 키는 트래픽이 흐르는 의도된 사이트가 아닐 수 있습니다. 확실하지 않은 경우 백 엔드 서버에서 https://127.0.0.1/ 을 방문하여 *기본* TLS 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. HTTPS 바인딩에서 호스트 헤더 및 SNI를 사용하고, 수동 브라우저 요청에서 백 엔드 서버의 https://127.0.0.1/ 로 응답 및 인증서를 받지 않은 경우 기본 TLS 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
+   > 백 엔드에서 호스트 헤더와 SNI(서버 이름 표시)를 사용하는 경우 검색된 공개 키는 트래픽이 흐르는 의도된 사이트가 아닐 수 있습니다. 확실하지 않은 경우 백 엔드 서버에서 https://127.0.0.1/ 을 방문하여 *기본* TLS 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. HTTPS 바인딩에서 호스트 헤더 및 SNI를 사용하고, 수동 브라우저 요청에서 백 엔드 서버의 https://127.0.0.1/ 로 응답 및 인증서를 받지 않은 경우 기본 TLS 바인딩을 설정해야 합니다. 이렇게 하지 않으면 프로브에 실패 하 고 백 엔드가 허용 되지 않습니다.
    
    Application Gateway의 SNI에 대한 자세한 내용은 [Application Gateway를 사용한 TLS 종료 및 엔드투엔드 TLS 개요](ssl-overview.md)를 참조하세요.
 
@@ -176,7 +176,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    ```
 
    > [!NOTE]
-   > 이전 단계에서 제공하는 인증서는 백 엔드에 있는 .pfx 인증서의 공개 키여야 합니다. 백 엔드 서버에 설치된 인증서(루트 인증서 제외)를 CER(Claim, Evidence, Reasoning) 형식으로 내보내고 이 단계에서 사용합니다. 이 단계에서는 Application Gateway를 통해 백 엔드를 허용 목록에 추가합니다.
+   > 이전 단계에서 제공하는 인증서는 백 엔드에 있는 .pfx 인증서의 공개 키여야 합니다. 백 엔드 서버에 설치된 인증서(루트 인증서 제외)를 CER(Claim, Evidence, Reasoning) 형식으로 내보내고 이 단계에서 사용합니다. 이 단계에서는 응용 프로그램 게이트웨이를 사용 하 여 백 엔드를 허용 합니다.
 
    Application Gateway v2 SKU를 사용하는 경우 인증 인증서 대신 신뢰할 수 있는 루트 인증서를 만듭니다. 자세한 내용은 [Application Gateway의 엔드투엔드 TLS 개요](ssl-overview.md#end-to-end-tls-with-the-v2-sku)를 참조하세요.
 

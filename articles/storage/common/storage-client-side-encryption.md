@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c07167a9f3a9194b7c45932ac749324429943ea9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93a142ddca360b3d85519a0531a221794ad3a892
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808812"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -61,7 +61,7 @@ Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure Storage�
 > 
 > 
 
-암호화 된 blob 다운로드 **에는 downloadto**/**BlobReadStream** 편의 메서드를 사용 하 여 전체 blob의 콘텐츠를 검색 하는 작업이 포함 됩니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
+암호화 된 blob 다운로드 **에는 downloadto** / **BlobReadStream** 편의 메서드를 사용 하 여 전체 blob의 콘텐츠를 검색 하는 작업이 포함 됩니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
 
 암호화 된 blob에서 임의의 범위 (**downloadrange** 메서드)를 다운로드 하려면 요청 된 범위를 성공적으로 암호를 해독 하는 데 사용할 수 있는 소량의 추가 데이터를 얻기 위해 사용자가 제공 하는 범위를 조정 해야 합니다.
 

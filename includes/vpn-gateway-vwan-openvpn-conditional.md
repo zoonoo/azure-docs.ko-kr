@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471549"
 ---
 조건부 액세스를 통해 응용 프로그램 별로 세분화 된 액세스 제어를 사용할 수 있습니다. 조건부 액세스를 사용 하려면 조건부 액세스 규칙이 적용 되는 사용자에 게 하나 이상의 라이선스가 적용 Azure AD Premium 해야 합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "77471549"
    - **사용자 및 그룹 선택**을 클릭합니다.
    - **사용자 및 그룹**을 확인 합니다.
    - **선택** 을 클릭 하 여 MFA의 영향을 받을 그룹 또는 사용자 집합을 선택 합니다.
-   - **완료**를 클릭합니다.
+   - **Done**을 클릭합니다.
 
    ![할당](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
 3. **새** 창에서 **액세스 제어-> 부여** 창으로 이동 합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "77471549"
    ![액세스 권한 부여-MFA](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
 4. **정책 사용** 섹션에서 다음을 수행 합니다.
 
-   - **켜기를**선택 합니다.
+   - **켜기**를 선택합니다.
    - **만들기**를 클릭합니다.
 
    ![정책 사용](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)

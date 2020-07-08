@@ -6,23 +6,26 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b8f15831c02a74bbba85ca4327369af6a4dbb2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808801"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용 하 여 node.js에서 큐 만들기 및 삭제
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용 하 여 Node.js에서 큐 만들기 및 삭제
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Microsoft Azure 큐 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Node.js API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다.
+
+> [!IMPORTANT]
+> 이 문서에서는 JavaScript 용 Azure Storage 클라이언트 라이브러리의 레거시 버전을 참조 합니다. 최신 버전을 시작 하려면 [빠른 시작: JavaScript 용 Azure Queue storage 클라이언트 라이브러리](storage-quickstart-queues-nodejs.md) 를 참조 하세요.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -83,7 +86,7 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 큐가 만들어지면 `result.created` 는 true가 됩니다. 큐가 있을 경우 `result.created` 는 false가 됩니다.
 
 ### <a name="filters"></a>필터
-**QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니처를 사용 하 여 메서드를 구현 하는 개체입니다.
+**QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
 
 ```javascript
 function handle (requestOptions, next)

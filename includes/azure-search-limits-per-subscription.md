@@ -8,10 +8,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: ee430241173a6c19e2a32e176f28411631d9cb19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80272925"
 ---
 구독 내에서 여러 서비스를 만들 수 있습니다. 각 항목은 특정 계층에서 프로 비전 할 수 있습니다. 각 계층에서 허용 되는 서비스 수에 의해서만 제한 됩니다. 예를 들어, 기본 계층에 최대 12개의 서비스를 만들고, 동일한 구독 내의 S1 계층에 12개의 다른 서비스를 만들 수 있습니다. 계층에 대 한 자세한 내용은 [Azure Cognitive Search에 대 한 SKU 또는 계층 선택](../articles/search/search-sku-tier.md)을 참조 하세요.

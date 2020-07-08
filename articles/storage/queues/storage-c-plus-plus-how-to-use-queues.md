@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 05/11/2017
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: 4fe543010df9514cb2b22c56482a4b592574e917
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: 0ae099e74db3137be49d59d01c83807108bf370f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75941772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809252"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

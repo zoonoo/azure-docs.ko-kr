@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 01/11/2018
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: 692c943e48c08771b5f1c60b66412270081cf0e6
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72302959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809214"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 Queue Storage를 사용하는 방법
 
@@ -37,7 +37,7 @@ Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위�
 
 ### <a name="install-via-composer"></a>작성기를 통해 설치
 
-1. 프로젝트의 루트에 **작성기. json** 이라는 파일을 만들고 다음 코드를 추가 합니다.
+1. 프로젝트의 루트에 **composer.js에** 이라는 파일을 만들고 다음 코드를 추가 합니다.
    
     ```json
     {

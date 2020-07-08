@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: fa0754505d887b77cc3d11ebde9c246d4a00eb59
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: d5e8f5e3939ade4e5344ef586a62b6a19082e34e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809034"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -35,7 +35,7 @@ Azure Storage에서 Azure Id 클라이언트 라이브러리를 사용 하 여 �
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 
-Azure Id 및 `using` Azure Storage 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
+`using`Azure id 및 Azure Storage 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
 
 ```csharp
 using System;

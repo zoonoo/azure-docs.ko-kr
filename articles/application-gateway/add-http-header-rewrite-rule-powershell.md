@@ -4,15 +4,15 @@ description: 이 문서에서는를 사용 하 여 Azure 애플리케이션 게�
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 47fe6a5247622e3ad3b3720955068580e0329913
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f205b3a604aa38854969f6f62cbce44f46fa7d25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "64947197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808247"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 HTTP 요청 및 응답 헤더 재작성-Azure PowerShell
 
@@ -22,7 +22,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-- 이 문서의 단계를 완료 하려면 Azure PowerShell를 로컬로 실행 해야 합니다. 또한 Az module version 1.0.0 이상을 설치 해야 합니다. 을 `Import-Module Az` 실행 `Get-Module Az` 하 고 설치한 버전을 확인 합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+- 이 문서의 단계를 완료 하려면 Azure PowerShell를 로컬로 실행 해야 합니다. 또한 Az module version 1.0.0 이상을 설치 해야 합니다. 을 실행 `Import-Module Az` `Get-Module Az` 하 고 설치한 버전을 확인 합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 - Application Gateway v2 SKU 인스턴스가 있어야 합니다. 헤더 재작성은 v1 SKU에서 지원 되지 않습니다. V2 SKU가 없는 경우 시작 하기 전에 [Application Gateway V2 sku](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) 인스턴스를 만듭니다.
 
 ## <a name="create-required-objects"></a>필수 개체 만들기
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>HTTP 헤더 재작성 규칙 구성을 지정 합니다.
 
-이 예제에서는 위치 헤더에 azurewebsites.net에 대 한 참조가 포함 될 때마다 HTTP 응답의 위치 헤더를 다시 작성 하 여 리디렉션 URL을 수정 합니다. 이렇게 하려면 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 조건을 추가 합니다. 패턴 `(https?):\/\/.*azurewebsites\.net(.*)$`을 사용 합니다. 헤더 값으로를 `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` 사용 합니다. 이 값은 location 헤더에서 *azurewebsites.net* 을 *contoso.com* 로 바꿉니다.
+이 예제에서는 위치 헤더에 azurewebsites.net에 대 한 참조가 포함 될 때마다 HTTP 응답의 위치 헤더를 다시 작성 하 여 리디렉션 URL을 수정 합니다. 이렇게 하려면 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 조건을 추가 합니다. 패턴을 사용 `(https?):\/\/.*azurewebsites\.net(.*)$` 합니다. `{http_resp_Location_1}://contoso.com{http_resp_Location_2}`헤더 값으로를 사용 합니다. 이 값은 location 헤더에서 *azurewebsites.net* 을 *contoso.com* 로 바꿉니다.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

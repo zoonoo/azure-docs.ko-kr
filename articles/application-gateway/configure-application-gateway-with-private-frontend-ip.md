@@ -5,15 +5,15 @@ description: 이 문서에서는 개인 프런트 엔드 IP 주소를 사용 하
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808122"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>ILB (내부 부하 분산 장치) 끝점을 사용 하 여 응용 프로그램 게이트웨이 구성
 
@@ -74,7 +74,7 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 25. 나머지 기본값을 적용 하 고 **추가**를 선택 합니다.
 26. **라우팅 규칙 추가** 페이지에서 **추가**를 선택 합니다.
 27. **다음: 태그**를 선택 합니다.
-28. **다음: 검토 + 만들기**를 선택 합니다.
+28. 완료되면 **다음: 리뷰 + 만들기**를 클릭합니다.
 29. 요약 페이지에서 설정을 검토 한 다음 **만들기** 를 선택 하 여 네트워크 리소스와 응용 프로그램 게이트웨이를 만듭니다. 애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공적으로 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
 ## <a name="add-backend-pool"></a>백 엔드 풀 추가

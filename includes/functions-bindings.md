@@ -6,16 +6,16 @@ ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 819eed1eb4e32469bf0572a6548f5a2a44091ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77279570"
 ---
 다음 표에서는 Azure Functions 런타임의 주 버전에서 지원 되는 바인딩을 보여 줍니다.
 
 
-| Type | 1.x | 2.x 이상<sup>1</sup> | 트리거 | 입력 | 출력 |
+| 형식 | 1.x | 2.x 이상<sup>1</sup> | 트리거 | 입력 | 출력 |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob 저장소](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
@@ -26,7 +26,7 @@ ms.locfileid: "77279570"
 | [Microsoft Graph<br/>Excel 테이블](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
 | [Microsoft Graph<br/>OneDrive 파일](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
 | [Microsoft Graph<br/>Outlook 이메일](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Microsoft Graph<br/>이벤트](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Microsoft Graph <br/> 이벤트](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
 | [Microsoft Graph<br/>인증 토큰](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|

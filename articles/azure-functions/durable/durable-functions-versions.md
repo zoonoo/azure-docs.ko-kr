@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152893"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807854"
 ---
 # <a name="durable-functions-versions-overview"></a>Durable Functions 버전 개요
 
@@ -50,19 +50,19 @@ Durable Functions 2.x에는 다음을 수행할 수 있는 새로운 [내구성�
 
 Durable Functions 2.x에는 몇 가지 주요 변경 사항이 도입 되었습니다. Durable Functions 1.x 응용 프로그램은 코드를 변경 하지 않고 Durable Functions 2.x와 호환 되지 않습니다. 이 섹션에서는 버전 1.x 함수를 2.x로 업그레이드할 때 수행 해야 하는 몇 가지 변경 사항을 설명 합니다.
 
-#### <a name="hostjson-schema"></a>Host. json 스키마
+#### <a name="hostjson-schema"></a>스키마 Host.js
 
-Durable Functions 2.x는 새 호스트 json 스키마를 사용 합니다. 1.x의 주요 변경 내용에는 다음이 포함 됩니다.
+Durable Functions 2.x는 스키마에 새 host.js를 사용 합니다. 1.x의 주요 변경 내용에는 다음이 포함 됩니다.
 
-* `"storageProvider"`저장소 관련 구성 `"azureStorage"` 에 대 한 및 하위 섹션입니다.
+* `"storageProvider"``"azureStorage"`저장소 관련 구성에 대 한 및 하위 섹션입니다.
 * `"tracing"`추적 및 로깅 구성의 경우
-* `"notifications"`event grid 알림 `"eventGrid"` 구성의 및 하위 섹션입니다.
+* `"notifications"``"eventGrid"`event grid 알림 구성의 및 하위 섹션입니다.
 
-자세한 내용은 [Durable Functions 호스트나 참조 설명서](durable-functions-bindings.md#durable-functions-2-0-host-json) 를 참조 하세요.
+자세한 내용은 [Durable Functions host.js참조 설명서](durable-functions-bindings.md#durable-functions-2-0-host-json) 를 참조 하세요.
 
 #### <a name="default-taskhub-name-changes"></a>기본 taskhub 이름 변경
 
-버전 1.x에서 작업 허브 이름이 호스트 json에 지정 되지 않은 경우 기본적으로 "DurableFunctionsHub"로 설정 되었습니다. 버전 2.x에서는 이제 기본 작업 허브 이름이 함수 앱의 이름에서 파생 됩니다. 따라서 2.x로 업그레이드할 때 작업 허브 이름을 지정 하지 않은 경우 코드는 새 작업 허브를 사용 하 여 작동 하 고 모든 진행 중인 오케스트레이션에 서 더 이상 응용 프로그램을 처리 하지 않습니다. 이 문제를 해결 하려면 작업 허브 이름을 v1. x 기본값을 "DurableFunctionsHub"로 명시적으로 설정 하거나 [가동 중지 시간 (제로) 배포 지침](durable-functions-zero-downtime-deployment.md) 에 따라 진행 중인 오케스트레이션의 주요 변경 사항을 처리 하는 방법에 대 한 자세한 내용을 확인할 수 있습니다.
+버전 1.x에서 작업 허브 이름이 host.js에 지정 되지 않은 경우 기본적으로 "DurableFunctionsHub"로 설정 되었습니다. 버전 2.x에서는 이제 기본 작업 허브 이름이 함수 앱의 이름에서 파생 됩니다. 따라서 2.x로 업그레이드할 때 작업 허브 이름을 지정 하지 않은 경우 코드는 새 작업 허브를 사용 하 여 작동 하 고 모든 진행 중인 오케스트레이션에 서 더 이상 응용 프로그램을 처리 하지 않습니다. 이 문제를 해결 하려면 작업 허브 이름을 v1. x 기본값을 "DurableFunctionsHub"로 명시적으로 설정 하거나 [가동 중지 시간 (제로) 배포 지침](durable-functions-zero-downtime-deployment.md) 에 따라 진행 중인 오케스트레이션의 주요 변경 사항을 처리 하는 방법에 대 한 자세한 내용을 확인할 수 있습니다.
 
 #### <a name="public-interface-changes-net-only"></a>공용 인터페이스 변경 (.NET만 해당)
 
@@ -77,8 +77,12 @@ Durable Functions 2.x는 새 호스트 json 스키마를 사용 합니다. 1.x�
 | `DurableActivityContext` 또는 `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-추상 기본 클래스가 가상 메서드를 포함 하는 경우 이러한 가상 메서드는에 `DurableContextExtensions`정의 된 확장 메서드로 대체 됩니다.
+추상 기본 클래스가 가상 메서드를 포함 하는 경우 이러한 가상 메서드는에 정의 된 확장 메서드로 대체 `DurableContextExtensions` 됩니다.
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>함수. json 변경 (JavaScript 및 c # 스크립트)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>변경 시 function.js(JavaScript 및 c # 스크립트)
 
-1.x Durable Functions에서 오케스트레이션 클라이언트 바인딩은의 `type` `orchestrationClient`를 사용 합니다. 버전 2.x는 대신을 `durableClient` 사용 합니다.
+1.x Durable Functions에서 오케스트레이션 클라이언트 바인딩은의를 사용 합니다 `type` `orchestrationClient` . 버전 2.x는 `durableClient` 대신을 사용 합니다.
+
+#### <a name="raise-event-changes"></a>이벤트 변경 발생
+
+1.x Durable Functions에서 [이벤트 발생](durable-functions-external-events.md#send-events) API를 호출 하 고 존재 하지 않는 인스턴스를 지정 하면 자동 오류가 발생 합니다. 2. x부터 존재 하지 않는 오케스트레이션에 이벤트를 발생 시키면 예외가 발생 합니다.

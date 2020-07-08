@@ -4,15 +4,15 @@ description: 클래식 배포 모델에서 PowerShell을 사용하여 Applicatio
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807278"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "81312546"
 이 문서에서는 PowerShell을 사용하여 기존 애플리케이션 게이트웨이에 사용자 지정 프로브를 추가합니다. 사용자 지정 프로브는 특정 상태 확인 페이지를 사용하는 애플리케이션이나 기본 웹 애플리케이션에서 성공적으로 응답을 제공하지 않는 애플리케이션에 유용합니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업 하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/management/deployment-models.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -136,16 +136,16 @@ Get-AzureApplicationGateway AppGwTest
 > [!IMPORTANT]
 > Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
-새 구성 항목 \<Probe\>를 추가하여 사용자 지정 프로브를 구성합니다.
+\<Probe\>사용자 지정 프로브를 구성 하기 위해 새 구성 항목이 추가 됩니다.
 
 구성 매개 변수:
 
-|매개 변수|Description|
+|매개 변수|설명|
 |---|---|
 |**이름** |사용자 지정 프로브에 대한 참조 이름입니다. |
 | **프로토콜** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
-| **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어 http:\//contoso.com/웹 사이트가 있는 경우 프로브 검사에 대 한 사용자 지정 프로브를 "http:\//contoso.com/path/custompath.htm"에 대해 구성 하 여 성공적인 http 응답을 받을 수 있습니다.|
-| **간격은** | 프로브 간격 확인을 구성합니다(단위: 초).|
+| **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어 http:/contoso.com/웹 사이트가 있는 경우 \/ 프로브 검사에 대 한 사용자 지정 프로브를 "http: \/ /contoso.com/path/custompath.htm"에 대해 구성 하 여 성공적인 http 응답을 받을 수 있습니다.|
+| **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|
 | **Timeout** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
 | **UnhealthyThreshold** | 백 엔드 인스턴스를 *unhealthy*(비정상) 플래그로 지정하는 데 필요한 실패한 HTTP 응답 수입니다.|
 

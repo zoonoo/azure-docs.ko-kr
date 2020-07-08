@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cherylmc
 ms.openlocfilehash: 622a2f69c2e7b82f2df10d6120ee2dd466961915
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77211424"
 ---
 레거시(이전) VPN 게이트웨이 SKU는 다음과 같습니다.
 
 * 기본값 (기본)
-* Standard
+* 표준
 * HighPerformance
 
 VPN Gateway는 UltraPerformance 게이트웨이 SKU를 사용하지 않습니다. UltraPerformance SKU에 대한 내용은 [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) 설명서를 참조하세요.

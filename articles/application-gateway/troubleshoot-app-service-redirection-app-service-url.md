@@ -5,15 +5,15 @@ description: 이 문서에서는 Azure 애플리케이션 Gateway를 사용할 �
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 961ed17bcef19b445c2546a557725bb6bd8653cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80293533"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806491"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>App Service 문제 해결 Application Gateway
 
@@ -77,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-이전 예제에서 응답 헤더의 상태 코드는 리디렉션에 대해 301입니다. Location 헤더에는 원래 호스트 이름 `www.contoso.com`대신 app service의 호스트 이름이 있습니다.
+이전 예제에서 응답 헤더의 상태 코드는 리디렉션에 대해 301입니다. Location 헤더에는 원래 호스트 이름 대신 app service의 호스트 이름이 있습니다 `www.contoso.com` .
 
 ## <a name="solution-rewrite-the-location-header"></a>해결 방법: 위치 헤더 다시 작성
 
@@ -98,9 +98,9 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
     ![App service 사용자 지정 도메인 목록](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- 앱 서비스에서 호스트 이름을 `www.contoso.com`받아들일 준비가 되었습니다. DNS에서 CNAME 항목을 변경 하 여 응용 프로그램 게이트웨이의 FQDN (예:)을 다시 가리키도록 `appgw.eastus.cloudapp.azure.com`합니다.
+- 앱 서비스에서 호스트 이름을 받아들일 준비가 되었습니다 `www.contoso.com` . DNS에서 CNAME 항목을 변경 하 여 응용 프로그램 게이트웨이의 FQDN (예:)을 다시 가리키도록 `appgw.eastus.cloudapp.azure.com` 합니다.
 
-- DNS 쿼리를 수행할 때 `www.contoso.com` 도메인이 application GATEWAY의 FQDN으로 확인 되는지 확인 합니다.
+- `www.contoso.com`DNS 쿼리를 수행할 때 도메인이 application gateway의 FQDN으로 확인 되는지 확인 합니다.
 
 - 사용자 지정 프로브를 설정 하 여 **백 엔드 HTTP 설정에서 호스트 이름 선택**을 사용 하지 않도록 설정 합니다. Azure Portal에서 프로브 설정의 확인란을 선택 취소 합니다. PowerShell에서 **AzApplicationGatewayProbeConfig** 명령에 **-PickHostNameFromBackendHttpSettings** 스위치를 사용 하지 마세요. 프로브의 호스트 이름 필드에 app service의 FQDN, example.azurewebsites.net를 입력 합니다. Application gateway에서 전송 된 프로브 요청은 호스트 헤더에이 FQDN을 포함 합니다.
 
@@ -111,7 +111,7 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
 - 사용자 지정 프로브를 백 엔드 HTTP 설정에 다시 연결 하 고 백 엔드가 정상 상태 인지 확인 합니다.
 
-- 이제 application gateway는 동일한 호스트 이름인 `www.contoso.com`를 app service에 전달 해야 합니다. 리디렉션이 동일한 호스트 이름에서 발생 합니다. 다음 예제 요청 및 응답 헤더를 확인 합니다.
+- 이제 application gateway는 동일한 호스트 이름인 `www.contoso.com` 를 app service에 전달 해야 합니다. 리디렉션이 동일한 호스트 이름에서 발생 합니다. 다음 예제 요청 및 응답 헤더를 확인 합니다.
 
 기존 설치를 위해 PowerShell을 사용 하 여 이전 단계를 구현 하려면 다음에 나오는 샘플 PowerShell 스크립트를 사용 합니다. 프로브 및 HTTP 설정 구성에서 **-PickHostname** 스위치를 사용 하지 않은 경우를 확인 합니다.
 

@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 0b6864c3304b86e80549297fc073a2e387000d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80272605"
 ---
 ```json
@@ -60,23 +60,23 @@ ms.locfileid: "80272605"
 
 |필드|데이터 형식|Description|
 |----|----|----|
-|**AlertDisplayName**|문자열|경고의 표시 이름입니다.|
-|**AlertType**|문자열|경고의 유형입니다. 동일한 유형의 경고는 동일한 값을 가져야 합니다. 이 필드는 경고 인스턴스가 아닌 경고 유형을 나타내는 키 문자열입니다. 동일한 검색 논리/분석의 모든 경고 인스턴스는 경고 유형에 대해 동일한 값을 가져야 합니다.|
-|**CompromisedEntity**|문자열|이 경고와 가장 관련 된 리소스의 표시 이름입니다.|
-|**설명**|문자열|경고에 대한 설명입니다.|
+|**AlertDisplayName**|String|경고의 표시 이름입니다.|
+|**AlertType**|String|경고의 유형입니다. 동일한 유형의 경고는 동일한 값을 가져야 합니다. 이 필드는 경고 인스턴스가 아닌 경고 유형을 나타내는 키 문자열입니다. 동일한 검색 논리/분석의 모든 경고 인스턴스는 경고 유형에 대해 동일한 값을 가져야 합니다.|
+|**CompromisedEntity**|String|이 경고와 가장 관련 된 리소스의 표시 이름입니다.|
+|**설명**|String|경고에 대한 설명입니다.|
 |**EndTimeUtc**|DateTime|경고에 포함 된 마지막 이벤트 또는 활동의 시간입니다.  필드는 UTC 표준 시간대 정보를 포함 하 여 ISO8601 형식을 준수 하는 문자열 이어야 합니다.|
-|**Entities**|IEnumerable (IEntity)|경고와 관련 된 엔터티의 목록입니다. 이 목록은 다양 한 형식의 여러 엔터티를 포함할 수 있습니다. 엔터티 형식은 엔터티 섹션에 정의 된 형식 중 하나일 수 있습니다. 아래 목록에 없는 엔터티를 보낼 수도 있지만 이러한 엔터티는 처리 될 수 없습니다 (경고는 새로운 유형의 엔터티를 사용 하 여 유효성 검사에 실패 하지 않음).|
+|**엔터티**|IEnumerable (IEntity)|경고와 관련 된 엔터티의 목록입니다. 이 목록은 다양 한 형식의 여러 엔터티를 포함할 수 있습니다. 엔터티 형식은 엔터티 섹션에 정의 된 형식 중 하나일 수 있습니다. 아래 목록에 없는 엔터티를 보낼 수도 있지만 이러한 엔터티는 처리 될 수 없습니다 (경고는 새로운 유형의 엔터티를 사용 하 여 유효성 검사에 실패 하지 않음).|
 |**ExtendedProperties**|Dictionary (String, String)|공급자는 선택적으로 여기에 사용자 지정 필드를 포함할 수 있습니다.|
 |**Intent**|열거형|경고 뒤에 있는 kill 체인 관련 의도입니다. 지원 되는 값 목록과 Azure Security Center 지원 되는 kill 체인 의도에 대 한 설명은 [의도](../articles/security-center/alerts-reference.md#intentions)를 참조 하세요.<br/>이 필드에는 여러 값 (쉼표로 구분)이 있을 수 있습니다.|
 |**IsIncident**|Bool|이 필드는 경고가 인시던트 (여러 경고의 복합 그룹) 인지 또는 단일 경고 인지를 결정 합니다. 필드의 기본값은 ' f a l s e '입니다 (단일 경고 임을 나타냄).|
 |**ProcessingEndTime**|DateTime|경고가 포함 된 원래 제품의 최종 사용자가 경고에 액세스할 수 있는 시간입니다.|
-|**ProductName**|문자열|이 경고를 게시 한 제품의 이름 (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS 등)입니다.|
-|**RemediationSteps**|목록<String>|경고를 재구성 하기 위해 수행할 수동 작업 항목입니다.|
+|**제품**|String|이 경고를 게시 한 제품의 이름 (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS 등)입니다.|
+|**RemediationSteps**|은<String>|경고를 재구성 하기 위해 수행할 수동 작업 항목입니다.|
 |**ResourceIdentifiers**|목록 (리소스 식별자)|이 경고에 대 한 리소스 식별자를 사용 하 여 경고를 올바른 제품 노출 그룹 (테 넌 트, 작업 영역, 구독 등)으로 보낼 수 있습니다. 경고 마다 다른 유형의 식별자가 여러 개 있을 수 있습니다.|
 |**심각도**|열거형|공급자가 보고 한 경고의 심각도입니다. 가능한 값: 정보, 낮음, 중간 및 높음|
 |**StartTimeUtc**|DateTime|경고에 포함 된 첫 번째 이벤트 또는 활동의 시간입니다. 필드는 UTC 표준 시간대 정보를 포함 하 여 ISO8601 형식을 준수 하는 문자열 이어야 합니다.|
-|**상태**|열거형|경고의 수명 주기 상태입니다.<br/>지원 되는 상태는 새로 만들기, 해결 됨, 해제 됨, 알 수 없음입니다.<br/>지원 되는 옵션 이외의 값을 지정 하는 경고에는 ' 알 수 없음 ' 상태가 할당 됩니다.<br/>값을 지정 하지 않는 경고에는 ' 신규 ' 상태가 할당 됩니다.|
-|**SystemAlertId**|문자열|경고 식별자입니다.|
+|**Status**|열거형|경고의 수명 주기 상태입니다.<br/>지원 되는 상태는 새로 만들기, 해결 됨, 해제 됨, 알 수 없음입니다.<br/>지원 되는 옵션 이외의 값을 지정 하는 경고에는 ' 알 수 없음 ' 상태가 할당 됩니다.<br/>값을 지정 하지 않는 경고에는 ' 신규 ' 상태가 할당 됩니다.|
+|**SystemAlertId**|String|경고 식별자입니다.|
 |**TimeGenerated**|DateTime|경고가 경고 공급자에 의해 생성 된 시간입니다. 내부 경고 공급자가 보고 하지 않으면 제품에서 제품 처리를 위해 받은 시간을 할당 하도록 선택할 수 있습니다.  필드는 UTC 표준 시간대 정보를 포함 하 여 ISO8601 형식을 준수 하는 문자열 이어야 합니다.|
-|**이름의**|문자열|경고를 발생 시키는 공급 업체의 이름입니다.|
+|**이름의**|String|경고를 발생 시키는 공급 업체의 이름입니다.|
 |||

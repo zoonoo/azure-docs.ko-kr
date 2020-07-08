@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: afdd9b1b063d0a82c8cdb27ef01b412daaa9f1df
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808827"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
 
@@ -27,7 +27,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
 
 **예상 완료 시간:** 45분
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [.NET 용 Azure Storage 공용 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -52,7 +52,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 3. **콘솔 앱(.NET Framework)** 를 선택합니다.
 4. **다음**을 선택합니다.
 5. **프로젝트 이름** 필드에 응용 프로그램의 이름을 입력 합니다.
-6. **만들기**를 선택합니다.
+6. **만들기**
 
 이 자습서의 모든 코드 예제는 콘솔 응용 프로그램의 **Program.cs** 파일의 **Main ()** 메서드에 추가 될 수 있습니다.
 
@@ -74,7 +74,7 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 아�
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
 1. **찾아보기** 선택
 1. 온라인에서 "Azure. Queue"를 검색 하 고 **설치** 를 선택 하 여 저장소 클라이언트 라이브러리와 해당 종속성을 설치 합니다. 이렇게 하면 큐 라이브러리의 종속성 인 Azure. Common 및 Azure Core 라이브러리도 설치 됩니다.
-1. 온라인에서 "ConfigurationManager"를 검색 하 고 **설치** 를 선택 하 여 Configuration Manager를 설치 합니다.
+1. 온라인에서 "System.Configuration.ConfigurationManager"를 검색 하 고 **설치** 를 선택 하 여 Configuration Manager를 설치 합니다.
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -89,7 +89,7 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 아�
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
 1. **찾아보기** 선택
 1. 온라인에서 "Microsoft. Azure. Queue"를 검색 하 고 **설치** 를 선택 하 여 저장소 클라이언트 라이브러리와 해당 종속성을 설치 합니다. 이렇게 하면 큐 라이브러리의 종속성 인 Microsoft Azure. Storage. Common library도 설치 됩니다.
-1. 온라인에서 "ConfigurationManager"를 검색 하 고 **설치** 를 선택 하 여 Azure Configuration Manager를 설치 합니다.
+1. 온라인에서 "Microsoft.Azure.ConfigurationManager"를 검색 하 고 **설치** 를 선택 하 여 Azure Configuration Manager를 설치 합니다.
 
 ---
 
@@ -116,7 +116,7 @@ NuGet을 사용 하 여 이러한 패키지를 가져올 수 있습니다. 아�
 
 샘플 코드에서 스토리지 계정에 대한 액세스 권한을 부여해야 합니다. 권한을 부여하려면 연결 문자열 형태로 스토리지 계정 자격 증명을 애플리케이션에 제공합니다. 스토리지 계정 자격 증명을 보려면:
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 스토리지 계정을 찾습니다.
 3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.
@@ -500,7 +500,7 @@ queue.Delete();
 - Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
   - [.NET을 사용하여 Azure Table Storage를 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md) 하여 구조화된 데이터를 저장합니다.
   - [.NET을 사용하여 Azure Blob Storage를 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 하여 구조화되지 않은 데이터를 저장합니다.
-  - [.NET(C#)을 사용하여 SQL Database에 연결](../../sql-database/sql-database-connect-query-dotnet-core.md)하여 관계형 데이터를 저장합니다.
+  - [.NET(C#)을 사용하여 SQL Database에 연결](../../azure-sql/database/connect-query-dotnet-core.md)하여 관계형 데이터를 저장합니다.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
 [.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

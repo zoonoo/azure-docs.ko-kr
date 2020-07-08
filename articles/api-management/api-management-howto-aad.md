@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a2038b44cf55f2a322b6bda202b8c33372f3716
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808285"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -84,11 +84,11 @@ ms.locfileid: "81868404"
 
 Azure AD 테 넌 트의 사용자에 대 한 액세스를 사용 하도록 설정한 후 API Management에 Azure AD 그룹을 추가할 수 있습니다. 따라서 Azure AD 그룹을 사용 하 여 제품 표시 여부를 제어할 수 있습니다.
 
-외부 Azure AD 그룹을 APIM에 추가 하려면 먼저 이전 섹션을 완료 해야 합니다. 또한 등록 한 응용 프로그램에는 다음 단계에 따라 권한으로 `Directory.Read.All` Microsoft Graph API에 대 한 액세스 권한을 부여 해야 합니다. 
+외부 Azure AD 그룹을 APIM에 추가 하려면 먼저 이전 섹션을 완료 해야 합니다. 또한 등록 한 응용 프로그램에는 다음 `Directory.Read.All` 단계에 따라 권한으로 MICROSOFT GRAPH API에 대 한 액세스 권한을 부여 해야 합니다. 
 
 1. 이전 섹션에서 만든 앱 등록으로 돌아갑니다.
 2. **API 권한**을 선택 하 고 **+ 권한 추가**를 클릭 합니다. 
-3. **Api 권한 요청** 창에서 **Microsoft api** 탭을 선택 하 고 **Microsoft Graph** 타일을 선택 합니다. **응용 프로그램 사용 권한**을 선택 하 고 **디렉터리**를 검색 한 다음 디렉터리를 선택 합니다. **All** 권한. 
+3. **Api 권한 요청** 창에서 **Microsoft api** 탭을 선택 하 고 아래로 스크롤한 다음 **Azure Active Directory 그래프** 타일을 선택 합니다. **응용 프로그램 사용 권한**을 선택 하 고 **디렉터리**를 검색 한 다음 디렉터리를 선택 합니다. **All** 권한. 
 4. 창의 맨 아래에 있는 **권한 추가** 를 클릭 한 다음이 디렉터리의 모든 사용자에 게 액세스 권한을 부여 하도록 **{tenantname}에 대 한 관리자 동의 부여** 를 클릭 합니다. 
 
 이제 API Management 인스턴스의 **그룹** 탭에서 외부 Azure AD 그룹을 추가할 수 있습니다.
@@ -103,7 +103,7 @@ Azure AD 테 넌 트의 사용자에 대 한 액세스를 사용 하도록 설�
  
 이제 구성된 Azure AD 인스턴스의 사용자는 개발자 포털에 로그인할 수 있습니다. 표시 유형을 갖고 있는 모든 그룹을 확인하고 여기에 가입할 수 있습니다.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/>개발자 포털-Azure AD 계정 인증 추가
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>개발자 포털-Azure AD 계정 인증 추가
 
 개발자 포털에서는 **로그인 단추: OAuth** 위젯을 사용 하 여 AAD로 로그인 할 수 있습니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함 되어 있습니다.
 

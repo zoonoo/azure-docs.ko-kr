@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95d25e4f26abc48f2a734cf8456739e6ef55b84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807687"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 RBAC 역할 할당
 
@@ -61,7 +61,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ### <a name="container-scope"></a>컨테이너 범위
 
-컨테이너에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수의 컨테이너 범위를 포함 하는 문자열을 지정 합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
+컨테이너에 범위가 지정 된 역할을 할당 하려면 매개 변수의 컨테이너 범위를 포함 하는 문자열을 지정 `--scope` 합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
@@ -77,7 +77,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="queue-scope"></a>큐 범위
 
-범위가 지정 된 역할을 큐에 할당 하려면 `--scope` 매개 변수의 큐 범위를 포함 하는 문자열을 지정 합니다. 큐의 범위는 다음과 같은 형식입니다.
+범위가 지정 된 역할을 큐에 할당 하려면 매개 변수의 큐 범위를 포함 하는 문자열을 지정 `--scope` 합니다. 큐의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
@@ -93,7 +93,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="storage-account-scope"></a>저장소 계정 범위
 
-저장소 계정에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수에 대 한 저장소 계정 리소스의 범위를 지정 합니다. 저장소 계정의 범위는 다음과 같은 형식입니다.
+저장소 계정에 범위가 지정 된 역할을 할당 하려면 매개 변수에 대 한 저장소 계정 리소스의 범위를 지정 합니다 `--scope` . 저장소 계정의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -109,7 +109,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="resource-group-scope"></a>리소스 그룹 범위
 
-리소스 그룹에 범위가 지정 된 역할을 할당 하려면 `--resource-group` 매개 변수의 리소스 그룹 이름 또는 ID를 지정 합니다. 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
+리소스 그룹에 범위가 지정 된 역할을 할당 하려면 매개 변수의 리소스 그룹 이름 또는 ID를 지정 합니다 `--resource-group` . 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -119,7 +119,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="subscription-scope"></a>구독 범위
 
-구독에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수에 대 한 구독의 범위를 지정 합니다. 구독의 범위는 다음과 같은 형식입니다.
+구독에 범위가 지정 된 역할을 할당 하려면 매개 변수에 대 한 구독의 범위를 지정 합니다 `--scope` . 구독의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>

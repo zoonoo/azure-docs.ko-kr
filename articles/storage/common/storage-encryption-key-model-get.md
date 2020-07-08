@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f16902a779fdb7c86fb7506711d2bce77ca9d05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809217"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>저장소 계정에 사용 중인 Azure Storage 암호화 키 모델 확인
 
@@ -57,7 +57,7 @@ $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
 $account.Encryption.KeySource
 ```
 
-**Keysource** 속성의 값이 `Microsoft.Storage`이면 계정은 Microsoft 관리 키를 사용 하 여 암호화 됩니다. **Keysource** 속성의 값이 `Microsoft.Keyvault`이면 계정은 고객 관리 키를 사용 하 여 암호화 됩니다.
+**Keysource** 속성의 값이 이면 `Microsoft.Storage` 계정은 Microsoft 관리 키를 사용 하 여 암호화 됩니다. **Keysource** 속성의 값이 이면 `Microsoft.Keyvault` 계정은 고객 관리 키를 사용 하 여 암호화 됩니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
@@ -71,11 +71,11 @@ key_source=$(az storage account show \
     --output tsv)
 ```
 
-**Keysource** 속성의 값이 `Microsoft.Storage`이면 계정은 Microsoft 관리 키를 사용 하 여 암호화 됩니다. **Keysource** 속성의 값이 `Microsoft.Keyvault`이면 계정은 고객 관리 키를 사용 하 여 암호화 됩니다.
+**Keysource** 속성의 값이 이면 `Microsoft.Storage` 계정은 Microsoft 관리 키를 사용 하 여 암호화 됩니다. **Keysource** 속성의 값이 이면 `Microsoft.Keyvault` 계정은 고객 관리 키를 사용 하 여 암호화 됩니다.
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md)
+- [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
 - [Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리](encryption-customer-managed-keys.md)

@@ -5,21 +5,21 @@ description: 이 문서에서는 기존 또는 새 응용 프로그램 게이트
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74075174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808100"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
 
 App service는 전용 배포가 아닌 다중 테 넌 트 서비스 이므로 들어오는 요청의 호스트 헤더를 사용 하 여 올바른 app service 끝점에 대 한 요청을 확인 합니다. 일반적으로 응용 프로그램의 DNS 이름은 app service 앞단에 application gateway와 연결 된 DNS 이름으로, 백엔드 app service의 도메인 이름과 다릅니다. 따라서 application gateway에서 받은 원래 요청의 호스트 헤더는 백 엔드 서비스의 호스트 이름과 동일 하지 않습니다. 이 때문에 응용 프로그램 게이트웨이에서 백 엔드에 대 한 요청에 있는 호스트 헤더를 백 엔드 서비스의 호스트 이름으로 변경 하지 않는 한 다중 테 넌 트 백 엔드는 해당 요청을 올바른 끝점으로 확인할 수 없습니다.
 
-Application Gateway는 요청이 Application Gateway에서 `Pick host name from backend address` 백 엔드로 라우팅될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 하는 스위치를 제공 합니다. 이 기능을 사용 하면 Azure app service 및 API management와 같은 다중 테 넌 트 백 엔드를 지원할 수 있습니다. 
+Application Gateway는 요청이 `Pick host name from backend address` Application Gateway에서 백 엔드로 라우팅될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 하는 스위치를 제공 합니다. 이 기능을 사용 하면 Azure app service 및 API management와 같은 다중 테 넌 트 백 엔드를 지원할 수 있습니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -59,13 +59,13 @@ Application Gateway는 요청이 Application Gateway에서 `Pick host name from 
 3. 사용 사례에 따라 프로토콜을 HTTP 또는 HTTPS로 선택 합니다. 
 
    > [!NOTE]
-   > HTTPS를 선택 하는 경우 app service가 신뢰할 수 있는 Azure 서비스 이므로 app service 백 엔드를 허용 목록 인증 인증서 또는 신뢰할 수 있는 루트 인증서를 업로드할 필요가 없습니다.
+   > HTTPS를 선택 하는 경우 app service가 신뢰할 수 있는 Azure 서비스 이므로 app service 백 엔드를 허용 하기 위해 인증 인증서 또는 신뢰할 수 있는 루트 인증서를 업로드할 필요가 없습니다.
 
-4. **App Service에 사용할** 확인란을 선택 합니다. 스위치 `Create a probe with pick host name from backend address` 및 `Pick host name from backend address` 는 자동으로 사용 하도록 설정 됩니다.`Pick host name from backend address` 는 요청이 Application Gateway에서 백 엔드로 전달 될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 합니다.  
+4. **App Service에 사용할** 확인란을 선택 합니다. 스위치 `Create a probe with pick host name from backend address` 및는 `Pick host name from backend address` 자동으로 사용 하도록 설정 됩니다.`Pick host name from backend address` 는 요청이 Application Gateway에서 백 엔드로 전달 될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 합니다.  
 
-   `Create a probe with pick host name from backend address`에서 자동으로 상태 프로브를 만들고이를이 HTTP 설정에 연결 합니다. 이 HTTP 설정에 대해 다른 상태 프로브를 만들 필요가 없습니다. 상태 프로브 목록에 이름이 <HTTP Setting name> <Unique GUID> 인 새 프로브가 추가 되었으며 이미 스위치가 `Pick host name from backend http settings enabled`있는지 확인할 수 있습니다.
+   `Create a probe with pick host name from backend address`에서 자동으로 상태 프로브를 만들고이를이 HTTP 설정에 연결 합니다. 이 HTTP 설정에 대해 다른 상태 프로브를 만들 필요가 없습니다. <HTTP Setting name> <Unique GUID> 상태 프로브 목록에 이름이 인 새 프로브가 추가 되었으며 이미 스위치가 있는지 확인할 수 있습니다 `Pick host name from backend http settings enabled` .
 
-   이미 하나 이상의 HTTP 설정이 App service에 사용 되 고 있는 경우 해당 HTTP 설정이 사용자가 만드는 항목에서 사용 하는 것과 동일한 프로토콜을 사용 하는 경우 `Create a probe with pick host name from backend address` 스위치 대신 사용자 지정 프로브 중 하나를 선택할 수 있는 드롭다운이 표시 됩니다. 이는 app service를 사용 하 여 HTTP 설정이 이미 있으므로 스위치 `Pick host name from backend http settings enabled` 를 포함 하는 상태 프로브도 존재 하기 때문입니다. 드롭다운에서 해당 사용자 지정 프로브를 선택 합니다.
+   이미 하나 이상의 HTTP 설정이 App service에 사용 되 고 있는 경우 해당 HTTP 설정이 사용자가 만드는 항목에서 사용 하는 것과 동일한 프로토콜을 사용 하는 경우 `Create a probe with pick host name from backend address` 스위치 대신 사용자 지정 프로브 중 하나를 선택할 수 있는 드롭다운이 표시 됩니다. 이는 app service를 사용 하 여 HTTP 설정이 이미 있으므로 스위치를 포함 하는 상태 프로브도 존재 하기 때문입니다 `Pick host name from backend http settings enabled` . 드롭다운에서 해당 사용자 지정 프로브를 선택 합니다.
 
 5. **확인** 을 클릭 하 여 HTTP 설정을 만듭니다.
 

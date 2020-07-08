@@ -4,15 +4,15 @@ description: 이 문서에서는 투구를 사용 하 여 Application Gateway �
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 3903ccd1c15765d06cd1794a40567e2c70062538
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f20302a4993da1754255254ce6d69c000750d4ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806773"
 ---
 # <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Helm을 사용하여 Application Gateway 수신 컨트롤러를 업그레이드하는 방법 
 
@@ -34,7 +34,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
         https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     ```
 
-## <a name="upgrade"></a>업그레이드
+## <a name="upgrade"></a>Upgrade
 
 1. 최신 릴리스를 얻으려면 AGIC 투구 리포지토리를 새로 고칩니다.
 
@@ -42,7 +42,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
     helm repo update
     ```
 
-1. 사용 가능한 `application-gateway-kubernetes-ingress` 차트 버전 보기:
+1. 사용 가능한 차트 버전 보기 `application-gateway-kubernetes-ingress` :
 
     ``` bash
     helm search -l application-gateway-kubernetes-ingress
@@ -71,7 +71,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    위의 샘플 응답에서의 투구 차트 설치는로 지정 `odd-billygoat`됩니다. 나머지 명령에는이 이름을 사용 합니다. 실제 배포 이름은 대부분 다를 수 있습니다.
+    위의 샘플 응답에서의 투구 차트 설치는로 지정 됩니다 `odd-billygoat` . 나머지 명령에는이 이름을 사용 합니다. 실제 배포 이름은 대부분 다를 수 있습니다.
 
 1. 투구 배포를 새 버전으로 업그레이드:
 
@@ -100,7 +100,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    `helm history` 명령의 샘플 출력에서 마지막으로 성공한 배포 `odd-billygoat` 를 성공한 것 처럼 보입니다.`1`
+    명령의 샘플 출력에서 `helm history` 마지막으로 성공한 배포를 성공한 것 처럼 보입니다. `odd-billygoat``1`
 
 1. 마지막으로 성공한 수정 버전으로 롤백:
 

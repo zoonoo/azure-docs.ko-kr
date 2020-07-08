@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75769672"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>REST API를 사용하여 ZIP 파일 배포 
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 이 요청은 업로드된 .zip 파일에서 푸시 배포를 트리거합니다. 
 
-현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시,, 및 `<deployment-user>` `<app-name>` 자리 `<deployment-password>`표시자를 바꿉니다.
+현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시,, `<deployment-user>` `<deployment-password>` 및 `<app-name>` 자리 표시자를 바꿉니다.
 
 ```bash
 $username = "<deployment-user>"

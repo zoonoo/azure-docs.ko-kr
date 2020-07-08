@@ -5,16 +5,16 @@ description: Azure Portal를 사용 하 여 종단 간 TLS 암호화를 사용 �
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6f86f32e64bbbe79ea5a403d04f7d6c29ee6b980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808028"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>포털에서 Application Gateway를 사용 하 여 종단 간 TLS 구성
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Application gateway를 사용 하 여 종단 간 TLS를 구성 하려면 게이트웨이에 대 한 인증서가 필요 합니다. 백 엔드 서버에도 인증서가 필요 합니다. 게이트웨이 인증서는 TLS 프로토콜 사양과 호환 되는 대칭 키를 파생 하는 데 사용 됩니다. 대칭 키는 게이트웨이로 전송 된 트래픽을 암호화 하 고 암호 해독 하는 데 사용 됩니다. 
+Application gateway를 사용 하 여 종단 간 TLS를 구성 하려면 게이트웨이에 대 한 인증서가 필요 합니다. 백 엔드 서버에도 인증서가 필요 합니다. 게이트웨이 인증서는 TLS 프로토콜 사양과 호환 되는 대칭 키를 파생 하는 데 사용 됩니다. 이렇게 파생된 대칭 키는 게이트웨이로 전송되는 트래픽을 암호화하고 암호를 해독하는 데 사용됩니다. 
 
 종단 간 TLS 암호화의 경우 응용 프로그램 게이트웨이에서 올바른 백 엔드 서버를 허용 해야 합니다. 이 액세스를 허용 하려면 응용 프로그램 게이트웨이에 대 한 인증 인증서 (v1) 또는 신뢰할 수 있는 루트 인증서 (v2) 라고도 하는 백 엔드 서버의 공용 인증서를 업로드 합니다. 인증서를 추가 하면 application gateway가 알려진 백 엔드 인스턴스만 통신 합니다. 이 구성은 종단 간 통신의 보안을 강화 합니다.
 

@@ -5,17 +5,17 @@ description: Azure CLI를 사용 하 여 Azure Active Directory 자격 증명으
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bad97f9bc9eaa3aad02dfcb5e82d2171e93f2dac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "75371992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809022"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "75371992"
 
 Azure CLI를 사용 하 여 Azure AD 자격 증명으로 SAS를 보호 하려면 먼저 최신 버전의 Azure CLI를 설치 했는지 확인 합니다. Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
-Azure CLI를 사용 하 여 사용자 위임 SAS를 만들려면 버전 2.0.78 이상을 설치 했는지 확인 합니다. 설치 된 버전을 확인 하려면 `az --version` 명령을 사용 합니다.
+Azure CLI를 사용 하 여 사용자 위임 SAS를 만들려면 버전 2.0.78 이상을 설치 했는지 확인 합니다. 설치 된 버전을 확인 하려면 명령을 사용 `az --version` 합니다.
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>Azure AD 자격 증명으로 로그인
 
@@ -60,7 +60,7 @@ Azure CLI를 사용 하 여 사용자 위임 SAS를 만들 때 SAS에 서명 하
 
 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일 이므로 시작 시간의 7 일 이내에 SAS에 대 한 만료 시간을 지정 해야 합니다. 사용자 위임 키가 만료 된 후에는 SAS가 유효 하지 않으므로 만료 시간이 7 일을 초과 하는 SAS는 7 일 동안만 유효 합니다.
 
-사용자 위임 SAS를 만들 때 `--auth-mode login` 및 `--as-user parameters` 가 필요 합니다. Azure Storage *login* 에 대 한 `--auth-mode` 요청이 Azure AD 자격 증명으로 인증 되도록 매개 변수에 대 한 로그인을 지정 합니다. 반환 된 `--as-user` sas가 사용자 위임 sas 여야 함을 나타내려면 매개 변수를 지정 합니다.
+사용자 위임 SAS를 만들 때 및가 `--auth-mode login` `--as-user parameters` 필요 합니다. Azure Storage *login* 에 대 한 `--auth-mode` 요청이 Azure AD 자격 증명으로 인증 되도록 매개 변수에 대 한 로그인을 지정 합니다. 반환 된 `--as-user` sas가 사용자 위임 sas 여야 함을 나타내려면 매개 변수를 지정 합니다.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>컨테이너에 대 한 사용자 위임 SAS 만들기
 
@@ -92,7 +92,7 @@ Azure CLI를 사용 하 여 blob에 대 한 사용자 위임 SAS를 만들려면
 
 Blob에서 사용자 위임 SAS에 대해 지원 되는 권한은 추가, 만들기, 삭제, 읽기 및 쓰기입니다. 권한은 단독으로 지정 하거나 조합 하 여 지정할 수 있습니다. 이러한 사용 권한에 대 한 자세한 내용은 [사용자 위임 SAS 만들기](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
 
-다음 구문은 blob에 대 한 사용자 위임 SAS를 반환 합니다. 이 예에서는 SAS `--full-uri` 토큰이 추가 된 blob URI를 반환 하는 매개 변수를 지정 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
+다음 구문은 blob에 대 한 사용자 위임 SAS를 반환 합니다. 이 예에서는 `--full-uri` SAS 토큰이 추가 된 BLOB URI를 반환 하는 매개 변수를 지정 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az storage blob generate-sas \

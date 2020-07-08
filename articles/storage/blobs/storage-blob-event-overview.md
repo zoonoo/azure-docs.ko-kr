@@ -7,13 +7,13 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooks
-ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: dineshm
+ms.openlocfilehash: 8f51b6f94ae8a245471757d256a923570582bb12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809064"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -36,10 +36,10 @@ Blob storage 이벤트를 시도 하려면 다음 빠른 시작 문서를 참조
 Azure 함수를 사용 하 여 Blob 저장소 이벤트에 대응 하는 자세한 예제를 보려면 다음 문서를 참조 하세요.
 
 - [자습서: Azure Data Lake Storage Gen2 이벤트를 사용 하 여 Databricks 델타 테이블을 업데이트](data-lake-storage-events.md)합니다.
-- [자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
+- [자습서: Event Grid을 사용 하 여 업로드 된 이미지 크기 조정 자동화](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Kind **StorageV2 (범용 v2)**, **Blockblobstorage**및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
+> Kind **StorageV2 (범용 v2)**, **Blockblobstorage**및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **Storage (범용 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.
 
 ## <a name="the-event-model"></a>이벤트 모델
 
@@ -60,7 +60,7 @@ Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscription
 
 Blob 이벤트는 이벤트 유형, 컨테이너 이름 또는 생성/삭제 된 개체의 이름으로 [필터링 할 수 있습니다](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) . Event Grid 필터는 주체의 시작 또는 끝과 일치 하므로 일치 하는 제목이 있는 이벤트는 구독자에 게 전달 됩니다.
 
-필터를 적용 하는 방법에 대 한 자세한 내용은 [Event Grid에 대 한 필터 이벤트](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조 하세요.
+필터를 적용하는 방법에 대한 자세한 내용은 [Event Grid에 대한 이벤트 필터링](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)을 참조하세요.
 
 Blob Storage 이벤트의 제목은 다음 형식을 사용합니다.
 
@@ -102,7 +102,7 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 > * blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다. 
 > * Blob에 액세스하려면 `CloudBlockBlob` 및 `CloudAppendBlob` 생성자에 URL 필드를 사용합니다.
 > * 이해할 수 없는 필드는 무시합니다. 이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.
-> * 블록 Blob이 완전히 커밋된 경우에만 **Microsoft. 저장소에 생성** 된 이벤트를 `CopyBlob`트리거하도록 하려면, `PutBlob` `PutBlockList` 또는 `FlushWithClose` REST API 호출에 대 한 이벤트를 필터링 합니다. 이러한 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft. 저장소로 생성** 된 이벤트를 트리거합니다. 필터를 만드는 방법에 대 한 자세한 내용은 [Event Grid에 대 한 필터 이벤트](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조 하세요.
+> * 블록 Blob이 완전히 커밋된 경우에만 **Microsoft. 저장소에 생성** 된 이벤트를 트리거하도록 하려면 `CopyBlob` , `PutBlob` `PutBlockList` 또는 REST API 호출에 대 한 이벤트를 필터링 `FlushWithClose` 합니다. 이러한 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft. 저장소로 생성** 된 이벤트를 트리거합니다. 필터를 만드는 방법에 대 한 자세한 내용은 [Event Grid에 대 한 필터 이벤트](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,15 +4,15 @@ description: 이 문서에서는 기존 Application Gateway를 사용 하 여 Ap
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 949f1b3ee3db72e1c541c3dd4c5f74f364f1b514
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807094"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>기존 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러) 설치
 
@@ -32,7 +32,7 @@ AGIC는 Kubernetes [수신](https://kubernetes.io/docs/concepts/services-network
 - [고급 네트워킹](https://docs.microsoft.com/azure/aks/configure-azure-cni) 을 사용 하는 [AKS](https://azure.microsoft.com/services/kubernetes-service/)
 - AKS와 동일한 가상 네트워크의 [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant)
 - AKS 클러스터에 설치 된 [AAD Pod id](https://github.com/Azure/aad-pod-identity)
-- [Cloud Shell](https://shell.azure.com/) 는 CLI, `az` `kubectl`및 `helm` 가 설치 된 Azure Shell 환경입니다. 이러한 도구는 아래 명령에 필요 합니다.
+- [Cloud Shell](https://shell.azure.com/) 는 `az` CLI, 및가 설치 된 Azure Shell 환경입니다 `kubectl` `helm` . 이러한 도구는 아래 명령에 필요 합니다.
 
 AGIC를 설치 하기 전에 __Application Gateway의 구성을 백업__ 하세요.
   1. [Azure Portal](https://portal.azure.com/) 사용 하 여 `Application Gateway` 인스턴스로 이동
@@ -41,10 +41,10 @@ AGIC를 설치 하기 전에 __Application Gateway의 구성을 백업__ 하세�
 다운로드 한 zip 파일에는 JSON 템플릿, bash 및 앱 게이트웨이를 복원 하는 데 사용할 수 있는 PowerShell 스크립트가 포함 됩니다.
 
 ## <a name="install-helm"></a>Helm 설치
-[투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 는 Kubernetes 패키지 관리자입니다. `application-gateway-kubernetes-ingress` 패키지를 설치 하는 데 활용할 것입니다.
+[투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 는 Kubernetes 패키지 관리자입니다. 패키지를 설치 하는 데 활용할 것 `application-gateway-kubernetes-ingress` 입니다.
 [Cloud Shell](https://shell.azure.com/) 를 사용 하 여 투구 설치:
 
-1. [투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 를 설치 하 고 다음을 실행 `application-gateway-kubernetes-ingress` 하 여 투구 패키지를 추가 합니다.
+1. [투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 를 설치 하 고 다음을 실행 하 여 투구 패키지를 추가 합니다 `application-gateway-kubernetes-ingress` .
 
     - *RBAC 사용* AKS 클러스터
 
@@ -79,19 +79,19 @@ AGIC는 Kubernetes API 서버 및 Azure Resource Manager와 통신 합니다. �
 다음으로 Azure id를 만들고 사용 권한을 ARM에 부여 해야 합니다.
 [Cloud Shell](https://shell.azure.com/) 를 사용 하 여 다음 모든 명령을 실행 하 고 id를 만듭니다.
 
-1. **AKS 노드와 동일한 리소스 그룹에**Azure id를 만듭니다. 올바른 리소스 그룹을 선택 하는 것이 중요 합니다. 아래 명령에 필요한 리소스 그룹은 AKS 포털 창에서 참조 되는 것이 *아닙니다* . `aks-agentpool` 가상 컴퓨터의 리소스 그룹입니다. 일반적으로 리소스 그룹은으로 `MC_` 시작 하 고 AKS의 이름을 포함 합니다. 예를 들면 다음과 같습니다.`MC_resourceGroup_aksABCD_westus`
+1. **AKS 노드와 동일한 리소스 그룹에**Azure id를 만듭니다. 올바른 리소스 그룹을 선택 하는 것이 중요 합니다. 아래 명령에 필요한 리소스 그룹은 AKS 포털 창에서 참조 되는 것이 *아닙니다* . 가상 컴퓨터의 리소스 그룹입니다 `aks-agentpool` . 일반적으로 리소스 그룹은으로 시작 하 `MC_` 고 AKS의 이름을 포함 합니다. 예를 들면 다음과 같습니다.`MC_resourceGroup_aksABCD_westus`
 
     ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
-1. 아래의 역할 할당 명령에 대해 새로 만든 id에 `principalId` 대해를 가져와야 합니다.
+1. 아래의 역할 할당 명령에 대해 `principalId` 새로 만든 id에 대해를 가져와야 합니다.
 
     ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Application Gateway에 대 `Contributor` 한 id 액세스를 제공 합니다. 이 경우 다음과 같이 표시 되는 Application Gateway ID가 필요 합니다.`/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
+1. `Contributor`Application Gateway에 대 한 id 액세스를 제공 합니다. 이 경우 다음과 같이 표시 되는 Application Gateway ID가 필요 합니다.`/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
 
     다음을 사용 하 여 구독에서 Application Gateway Id 목록을 가져옵니다.`az network application-gateway list --query '[].id'`
 
@@ -102,7 +102,7 @@ AGIC는 Kubernetes API 서버 및 Azure Resource Manager와 통신 합니다. �
         --scope <App-Gateway-ID>
     ```
 
-1. Application Gateway 리소스 그룹 `Reader` 에 대 한 id 액세스를 제공 합니다. 리소스 그룹 ID는와 같습니다 `/subscriptions/A/resourceGroups/B`. 다음을 사용 하 여 모든 리소스 그룹을 가져올 수 있습니다.`az group list --query '[].id'`
+1. `Reader`Application Gateway 리소스 그룹에 대 한 id 액세스를 제공 합니다. 리소스 그룹 ID는와 같습니다 `/subscriptions/A/resourceGroups/B` . 다음을 사용 하 여 모든 리소스 그룹을 가져올 수 있습니다.`az group list --query '[].id'`
 
     ```azurecli
     az role assignment create \
@@ -120,7 +120,7 @@ Kubernetes 암호를 통해 ARM에 AGIC 액세스를 제공할 수도 있습니�
 az ad sp create-for-rbac --sdk-auth | base64 -w0
 ```
 
-2. Base64 인코딩 JSON blob을 `helm-config.yaml` 파일에 추가 합니다. 에 대 한 `helm-config.yaml` 자세한 내용은 다음 섹션에 있습니다.
+2. Base64 인코딩 JSON blob을 파일에 추가 `helm-config.yaml` 합니다. 에 대 한 자세한 내용은 `helm-config.yaml` 다음 섹션에 있습니다.
 ```yaml
 armAuth:
     type: servicePrincipal
@@ -130,7 +130,7 @@ armAuth:
 ## <a name="install-ingress-controller-as-a-helm-chart"></a>수신 컨트롤러를 투구 차트로 설치
 처음 몇 단계에서는 Kubernetes 클러스터에 투구의 Tiller을 설치 합니다. [Cloud Shell](https://shell.azure.com/) 를 사용 하 여 AGIC 투구 패키지를 설치 합니다.
 
-1. 투구 리포지토리 `application-gateway-kubernetes-ingress` 를 추가 하 고 투구 업데이트를 수행 합니다.
+1. `application-gateway-kubernetes-ingress`투구 리포지토리를 추가 하 고 투구 업데이트를 수행 합니다.
 
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
@@ -196,15 +196,15 @@ armAuth:
         apiServerAddress: <aks-api-server-address>
     ```
 
-1. 투구-config.xml을 편집 하 고 및 `appgw` `armAuth`에 대 한 값을 입력 합니다.
+1. 투구-config.xml을 편집 하 고 및에 대 한 값을 `appgw` 입력 `armAuth` 합니다.
     ```bash
     nano helm-config.yaml
     ```
 
     > [!NOTE] 
-    > `<identity-resource-id>` 및 `<identity-client-id>` 는 이전 섹션에서 설정 하는 Azure AD id의 속성입니다. 다음 명령을 실행 하 여이 정보를 검색할 수 있습니다 `az identity show -g <resourcegroup> -n <identity-name>`. 여기서 `<resourcegroup>` 는 최상위 수준의 AKS 클러스터 개체 Application Gateway 및 관리 되는 id가 배포 되는 리소스 그룹입니다.
+    > `<identity-resource-id>`및는 `<identity-client-id>` 이전 섹션에서 설정 하는 Azure AD id의 속성입니다. 다음 명령을 실행 하 여이 정보를 검색할 수 있습니다. `az identity show -g <resourcegroup> -n <identity-name>` 여기서 `<resourcegroup>` 는 최상위 수준의 AKS 클러스터 개체 Application Gateway 및 관리 되는 id가 배포 되는 리소스 그룹입니다.
 
-1. 이전 단계의 `helm-config.yaml` 구성을 `application-gateway-kubernetes-ingress` 사용 하 여 투구 차트 설치
+1. `application-gateway-kubernetes-ingress`이전 단계의 구성을 사용 하 여 투구 차트 설치 `helm-config.yaml`
 
     ```bash
     helm install -f <helm-config.yaml> application-gateway-kubernetes-ingress/ingress-azure
@@ -248,9 +248,9 @@ Azure 애플리케이션 Gateway를 사용 하 여 HTTP 또는 HTTPS를 통해 A
   - `dev.contoso.com`-Application Gateway 및 AGIC를 사용 하 여 새 AKS에서 호스트 됩니다.
   - `prod.contoso.com`- [Azure 가상 머신 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/) 에서 호스트 됩니다.
 
-AGIC는 기본 설정을 사용 하 여 가리키는 Application Gateway의 100% 소유권을 가정 합니다. AGIC는 모든 App Gateway의 구성을 덮어씁니다. Kubernetes 수신에서 정의 하지 않고 (Application Gateway) `prod.contoso.com` 에 대 한 수신기를 수동으로 만드는 경우 AGIC은 몇 초 내에 `prod.contoso.com` 구성을 삭제 합니다.
+AGIC는 기본 설정을 사용 하 여 가리키는 Application Gateway의 100% 소유권을 가정 합니다. AGIC는 모든 App Gateway의 구성을 덮어씁니다. `prod.contoso.com`Kubernetes 수신에서 정의 하지 않고 (Application Gateway)에 대 한 수신기를 수동으로 만드는 경우 AGIC은 `prod.contoso.com` 몇 초 내에 구성을 삭제 합니다.
 
-AGIC를 설치 하 고 가상 `prod.contoso.com` 머신 확장 집합 컴퓨터 에서도 제공 하려면를 구성 `dev.contoso.com` 하도록 AGIC를 제한 해야 합니다. 다음 [CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)를 인스턴스화하여이 작업을 쉽게 수행 합니다.
+AGIC를 설치 하 고 `prod.contoso.com` 가상 머신 확장 집합 컴퓨터 에서도 제공 하려면를 구성 하도록 AGIC를 제한 해야 합니다 `dev.contoso.com` . 다음 [CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)를 인스턴스화하여이 작업을 쉽게 수행 합니다.
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -263,12 +263,12 @@ spec:
 EOF
 ```
 
-위의 명령은 개체를 `AzureIngressProhibitedTarget` 만듭니다. 이렇게 하면 AGIC (버전 0.8.0부터 이상)에서에 대 한 `prod.contoso.com` Application Gateway 구성이 있는지 인식 하 고 해당 호스트 이름과 관련 된 구성을 변경 하지 않도록 명시적으로 지시 합니다.
+위의 명령은 개체를 만듭니다 `AzureIngressProhibitedTarget` . 이렇게 하면 AGIC (버전 0.8.0부터 이상)에서에 대 한 Application Gateway 구성이 있는지 인식 하 `prod.contoso.com` 고 해당 호스트 이름과 관련 된 구성을 변경 하지 않도록 명시적으로 지시 합니다.
 
 
 ### <a name="enable-with-new-agic-installation"></a>새 AGIC 설치를 사용 하도록 설정
 AGIC (버전 0.8.0부터 이상)을 Application Gateway 구성의 하위 집합으로 제한 하려면 `helm-config.yaml` 템플릿을 수정 합니다.
-`appgw:` 섹션 아래에서 키를 `shared` 추가 하 고로 설정 `true`합니다.
+섹션 아래에서 `appgw:` 키를 추가 하 고로 `shared` 설정 `true` 합니다.
 
 ```yaml
 appgw:
@@ -279,7 +279,7 @@ appgw:
 ```
 
 투구 변경 내용을 적용 합니다.
-  1. 다음을 `AzureIngressProhibitedTarget` 사용 하 여 CRD가 설치 되어 있는지 확인 합니다.
+  1. `AzureIngressProhibitedTarget`다음을 사용 하 여 CRD가 설치 되어 있는지 확인 합니다.
       ```bash
       kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/ae695ef9bd05c8b708cedf6ff545595d0b7022dc/crds/AzureIngressProhibitedTarget.yaml
       ```
@@ -291,20 +291,20 @@ appgw:
           ingress-azure application-gateway-kubernetes-ingress/ingress-azure
       ```
 
-결과적으로 AKS에는 `AzureIngressProhibitedTarget` 라는 `prohibit-all-targets`새 인스턴스가 포함 됩니다.
+결과적으로 AKS에는 라는 새 인스턴스가 포함 됩니다 `AzureIngressProhibitedTarget` `prohibit-all-targets` .
 ```bash
 kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
 ```
 
-이름에서 `prohibit-all-targets`암시 하는 개체는 AGIC *에서 호스트 및* 경로에 대 한 구성을 변경 하는 것을 금지 합니다.
-를 사용 `appgw.shared=true` 하는 투구 설치는 AGIC를 배포 하지만 Application Gateway를 변경 하지는 않습니다.
+이름에서 암시 하는 개체는 `prohibit-all-targets` AGIC에서 호스트 및 경로에 대 *any* 한 구성을 변경 하는 것을 금지 합니다.
+를 사용 하 `appgw.shared=true` 는 투구 설치는 AGIC를 배포 하지만 Application Gateway를 변경 하지는 않습니다.
 
 
 ### <a name="broaden-permissions"></a>권한 넓히기
-는를 사용 `appgw.shared=true` 하는 투구 `prohibit-all-targets` 부터 AGIC 기본 블록은 어떠한 구성도 적용 하지 않습니다.
+는를 사용 하는 투구부터 `appgw.shared=true` `prohibit-all-targets` AGIC 기본 블록은 어떠한 구성도 적용 하지 않습니다.
 
 다음을 사용 하 여 AGIC 권한 넓히기:
-1. 특정 설정을 사용 `AzureIngressProhibitedTarget` 하 여 새를 만듭니다.
+1. `AzureIngressProhibitedTarget`특정 설정을 사용 하 여 새를 만듭니다.
     ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: "appgw.ingress.k8s.io/v1"
@@ -323,11 +323,11 @@ kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>기존 AGIC 설치를 사용 하도록 설정
-클러스터에 이미 작동 중인 AKS, Application Gateway 및 구성 된 AGIC 있다고 가정해 보겠습니다. 에 대 `prod.contosor.com` 한 수신이 있으며 AKS에서이에 대 한 트래픽을 처리 하 고 있습니다. 기존 Application Gateway에 추가 `staging.contoso.com` 하 고 [VM](https://azure.microsoft.com/services/virtual-machines/)에서 호스트 해야 합니다. 기존 Application Gateway를 다시 사용 하 고에 대 한 `staging.contoso.com`수신기 및 백 엔드 풀을 수동으로 구성 하겠습니다. 그러나 Application Gateway 구성 ( [포털](https://portal.azure.com), [ARM Api](https://docs.microsoft.com/rest/api/resources/) 또는 [terraform](https://www.terraform.io/)을 통해)을 수동으로 조정 하는 것은 AGIC의 전체 소유권 가정과 충돌 합니다. 변경 내용을 적용 하 고 나면 잠시 후 AGIC에서 덮어쓰거나 삭제 합니다.
+클러스터에 이미 작동 중인 AKS, Application Gateway 및 구성 된 AGIC 있다고 가정해 보겠습니다. 에 대 한 수신 `prod.contosor.com` 이 있으며 AKS에서이에 대 한 트래픽을 처리 하 고 있습니다. `staging.contoso.com`기존 Application Gateway에 추가 하 고 [VM](https://azure.microsoft.com/services/virtual-machines/)에서 호스트 해야 합니다. 기존 Application Gateway를 다시 사용 하 고에 대 한 수신기 및 백 엔드 풀을 수동으로 구성 하겠습니다 `staging.contoso.com` . 그러나 Application Gateway 구성 ( [포털](https://portal.azure.com), [ARM Api](https://docs.microsoft.com/rest/api/resources/) 또는 [terraform](https://www.terraform.io/)을 통해)을 수동으로 조정 하는 것은 AGIC의 전체 소유권 가정과 충돌 합니다. 변경 내용을 적용 하 고 나면 잠시 후 AGIC에서 덮어쓰거나 삭제 합니다.
 
 AGIC 구성의 하위 집합을 변경 하지 못하도록 방지할 수 있습니다.
 
-1. 개체를 `AzureIngressProhibitedTarget` 만듭니다.
+1. 개체를 만듭니다 `AzureIngressProhibitedTarget` .
     ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: "appgw.ingress.k8s.io/v1"
@@ -344,4 +344,4 @@ AGIC 구성의 하위 집합을 변경 하지 못하도록 방지할 수 있습�
     kubectl get AzureIngressProhibitedTargets
     ```
 
-3. 포털을 통해 Application Gateway 구성 수정-수신기, 라우팅 규칙, 백 엔드 등을 추가 합니다. 만든 새 개체 (`manually-configured-staging-environment`)는 AGIC가와 관련 된 Application Gateway 구성을 덮어쓸 수 `staging.contoso.com`없도록 합니다.
+3. 포털을 통해 Application Gateway 구성 수정-수신기, 라우팅 규칙, 백 엔드 등을 추가 합니다. 만든 새 개체 ()는 `manually-configured-staging-environment` AGIC가와 관련 된 Application Gateway 구성을 덮어쓸 수 없도록 `staging.contoso.com` 합니다.

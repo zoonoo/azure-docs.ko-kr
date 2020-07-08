@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.openlocfilehash: 7c524cb30b73c95329650924123b2ebc26a5d8a5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.reviewer: ozgun
+ms.openlocfilehash: 61f27d81cda2e57eb5730016dcc22252508fdd01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808997"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
 
@@ -44,7 +44,7 @@ ms.locfileid: "82856017"
 
 다음 스크린샷은 선택 된 컨테이너에 대 한 공용 액세스 수준을 변경 하는 방법을 보여 줍니다.
 
-![포털에서 공용 액세스 수준을 설정 하는 방법을 보여 주는 스크린샷](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![포털에서 공용 액세스 수준을 설정하는 방법을 보여 주는 스크린샷](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 > [!NOTE]
 > 개별 blob에 대 한 공용 액세스 수준을 변경할 수 없습니다. 공용 액세스 수준은 컨테이너 수준 에서만 설정 됩니다.

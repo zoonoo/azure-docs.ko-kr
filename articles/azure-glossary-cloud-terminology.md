@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276479"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807767"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -31,7 +31,7 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 
 ## <a name="account"></a>account
 Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. 계정이 기존 회사, 학교나 개인 Microsoft 계정 또는 Office 365 사용자 이름 및 암호 중 하나일 수 있지만 Azure 계정이라고 말합니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
-[Office 365 계정을 사용하여 Azure 구독에 등록](cost-management-billing/manage/office-365-account-for-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
+Microsoft 365 계정 및 [로그인에 사용할 수 있는 계정을](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) [사용 하 여 Azure 구독에 등록](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) 을 참조 하세요.
 
 ## <a name="api-app"></a>API 앱
 [App Service 앱](#app-service-app)에 대 한 다른 이름입니다.
@@ -94,7 +94,7 @@ Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털�
 국경을 넘지 않으면서 하나 이상의 데이터 센터를 포함하는 지역 내의 영역입니다. 가격 책정, 지역 서비스 및 제공 사항 유형은 지역 수준에서 노출됩니다. 지역은 일반적으로 최대 수백 킬로미터까지도 떨어질 수 있는 다른 지역과 쌍으로 연결되어 있습니다. 지역 쌍은 재해 복구 및 고가용성 시나리오에 대한 메커니즘으로 사용할 수 있습니다. *위치*라고도 합니다.  
 [Azure 지역](best-practices-availability-paired-regions.md)을 참조하세요.
 
-## <a name="resource"></a>리소스
+## <a name="resource"></a>resource
 Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 데이터베이스 또는 가상 머신과 같은 다양한 유형의 리소스를 배포할 수 있습니다.   
 [Azure Resource Manager 개요](azure-resource-manager/management/overview.md)를 참조하세요.
 
@@ -123,13 +123,13 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 
 ## <a name="storage-account"></a>스토리지 계정 만들기
 Azure Storage의 Azure Blob, 큐, 테이블 및 파일 서비스에 대한 액세스 권한을 제공하는 계정입니다. 스토리지 계정 이름은 Azure Storage 데이터 개체의 고유한 네임스페이스를 정의합니다.  
-[Azure Storage 계정 정보](storage/common/storage-create-storage-account.md)를 참조하세요.
+[Azure storage 계정 정보](storage/common/storage-create-storage-account.md) 를 참조 하세요.
 
 ## <a name="subscription"></a>subscription
 Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약입니다. 구독 가격 책정 및 관련 조건은 구독에 대해 선택된 제안에 따라 제어됩니다.
 [Microsoft 온라인 정기가입 계약](https://azure.microsoft.com/support/legal/subscription-agreement/) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-## <a name="tag"></a>tag
+## <a name="tag"></a>태그
 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있도록 하는 인덱싱 용어입니다. 복잡한 리소스 컬렉션이 있는 경우 태그를 사용하여 이러한 자산을 가장 적합한 방식으로 시각화할 수 있습니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다.  
 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
@@ -153,7 +153,7 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 ## <a name="web-app"></a>웹앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure 시작](https://azure.microsoft.com/get-started/)
 * [클라우드 리소스 센터](https://azure.microsoft.com/resources/)  
