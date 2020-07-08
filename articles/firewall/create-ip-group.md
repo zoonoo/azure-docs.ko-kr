@@ -4,20 +4,17 @@ description: IP 그룹을 사용 하 여 Azure 방화벽 규칙에 대 한 IP �
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: 7e8b2350b9e85d07ce1c399ce4536703ec998cbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77444538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602536"
 ---
-# <a name="create-ip-groups-preview"></a>IP 그룹 만들기 (미리 보기)
-
-> [!IMPORTANT]
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="create-ip-groups"></a>IP 그룹 만들기
 
 IP 그룹을 사용 하 여 Azure 방화벽 규칙에 대 한 IP 주소를 그룹화 및 관리할 수 있습니다. 단일 IP 주소, 여러 IP 주소 또는 하나 이상의 IP 주소 범위를 가질 수 있습니다.
 

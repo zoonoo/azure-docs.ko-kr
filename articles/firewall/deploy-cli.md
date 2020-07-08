@@ -6,13 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
-ms.topic: article
-ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73831978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602638"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 방화벽 배포 및 구성
 
@@ -25,7 +25,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
 
-이 문서에서는 쉽게 배포할 수 있도록 세 개의 서브넷이 있는 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 을 권장 합니다. 방화벽이 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
+이 문서에서는 쉽게 배포할 수 있도록 세 개의 서브넷이 있는 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 추천됩니다. 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
 
 * **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
 * **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
@@ -284,7 +284,7 @@ az network firewall network-rule create \
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   `www.google.com` 요청이 성공 하 고 `www.microsoft.com` 요청이 실패 합니다. 이는 방화벽 규칙이 예상 대로 작동 하 고 있음을 보여 줍니다.
+   `www.google.com`요청이 성공 하 고 `www.microsoft.com` 요청이 실패 합니다. 이는 방화벽 규칙이 예상 대로 작동 하 고 있음을 보여 줍니다.
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 

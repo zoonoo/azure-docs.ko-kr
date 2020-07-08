@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: ddd34295bfe64fdd336d8b237482b45f02e30201
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602587"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -74,11 +74,17 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 
 먼저 Azure Monitor Private Link 범위 리소스를 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기**로 이동하여 **Azure Monitor Private Link 범위**를 검색합니다. 
-2. **만들기**를 클릭합니다. 
-3. 구독 및 리소스 그룹을 선택합니다. 
-4. AMPLS 이름을 지정합니다. 누군가가 실수로 네트워크 보안 경계를 위반하지 않도록 범위를 사용하는 용도 및 보안 경계를 명확히 하는 이름을 사용하는 것이 가장 좋습니다. 예를 들어 "AppServerProdTelem"입니다. 
+1. Azure Portal에서 **리소스 만들기**로 이동하여 **Azure Monitor Private Link 범위**를 검색합니다.
+
+   ![Azure Monitor 개인 링크 범위 찾기](./media/private-link-security/ampls-find-1c.png)
+
+2. **만들기**를 클릭합니다.
+3. 구독 및 리소스 그룹을 선택합니다.
+4. AMPLS 이름을 지정합니다. 누군가가 실수로 네트워크 보안 경계를 위반하지 않도록 범위를 사용하는 용도 및 보안 경계를 명확히 하는 이름을 사용하는 것이 가장 좋습니다. 예를 들어 "AppServerProdTelem"입니다.
 5. **검토 + 만들기**를 클릭합니다. 
+
+   ![Azure Monitor 개인 링크 범위 만들기](./media/private-link-security/ampls-create-1d.png)
+
 6. 유효성 검사를 통과하도록 한 다음, **만들기**를 클릭합니다.
 
 ## <a name="connect-azure-monitor-resources"></a>Azure Monitor 리소스 연결
@@ -117,7 +123,7 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 
    a.    Azure Monitor 리소스에 연결하려는 **가상 네트워크** 및 **서브넷**을 선택합니다. 
  
-   b.    **프라이빗 DNS 영역과 통합**에 대해 **예**를 선택하고, 새 프라이빗 DNS 영역을 자동으로 만들도록 합니다. 
+   b.    **프라이빗 DNS 영역과 통합**에 대해 **예**를 선택하고, 새 프라이빗 DNS 영역을 자동으로 만들도록 합니다. 실제 DNS 영역은 아래 스크린샷에 표시 된 것과 다를 수 있습니다. 
  
    다.    **검토 + 만들기**를 클릭합니다.
  
@@ -162,9 +168,8 @@ Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요�
 
 > [!NOTE]
 > 작업 영역 기반 Application Insights를 완벽하게 보호하려면 Application Insights 리소스 및 기본 Log Analytics 작업 영역에 대한 액세스를 모두 잠가야 합니다.
-
-> [!NOTE]
-> 코드 수준 진단(프로파일러/디버거)은 현재 Private Link를 지원하지 않습니다.
+>
+> 코드 수준 진단 (프로파일러/디버거)에서는 개인 링크를 지원 하기 위해 고유한 저장소 계정을 제공 해야 합니다. 이 작업을 수행 하는 방법에 대 한 [설명서](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) 는 다음과 같습니다.
 
 ## <a name="use-apis-and-command-line"></a>API 및 명령줄 사용
 
@@ -174,7 +179,7 @@ Azure Resource Manager 템플릿과 명령줄 인터페이스를 사용하여 �
 
 네트워크 액세스를 관리하려면 [Log Analytics 작업 영역](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) 또는 [Application Insights 구성 요소](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest)에서 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
 
-## <a name="collect-custom-logs-over-private-link"></a>Private Link를 통한 사용자 지정 로그 수집
+## <a name="collect-custom-logs-over-private-link"></a>개인 링크를 통한 사용자 지정 로그 수집
 
 스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 수집하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다. [명령줄](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest)을 사용하여 이러한 계정을 설정하는 방법에 대한 자세한 내용을 참조하세요.
 
@@ -188,7 +193,7 @@ Log Analytics 작업 영역에 대한 보안 원격 분석 수집을 사용하�
 
 **Log Analytics Windows 에이전트**
 
-Log Analytics 에이전트 버전 18.20.18038.0 이상을 사용합니다.
+Log Analytics 에이전트 버전 10.20.18038.0 이상을 사용 합니다.
 
 **Log Analytics Linux 에이전트**
 
@@ -201,7 +206,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure portal
 
-Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 사용하려면 개인 네트워크에서 Azure Portal 및 Azure Monitor 확장에 액세스할 수 있어야 합니다. **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty 및 **AzureFrontdoor.Frontend** [서비스 태그](../../firewall/service-tags.md)를 방화벽에 추가합니다.
+Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 사용하려면 개인 네트워크에서 Azure Portal 및 Azure Monitor 확장에 액세스할 수 있어야 합니다. **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor**및 **AzureFrontDoor** [서비스 태그](../../firewall/service-tags.md) 를 방화벽에 추가 합니다.
 
 ### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 
@@ -220,7 +225,14 @@ Log Analytics 에이전트에서 솔루션 팩을 다운로드할 수 있도록 
 
 | 클라우드 환경 | 에이전트 리소스 | 포트 | Direction |
 |:--|:--|:--|:--|
-|Azure 공용     | scadvisor.blob.core.windows.net         | 443 | 아웃바운드
+|Azure 공용     | scadvisorcontent.blob.core.windows.net         | 443 | 아웃바운드
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  아웃바운드
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | 아웃바운드
 
+### <a name="browser-dns-settings"></a>브라우저 DNS 설정
+
+개인 링크를 통해 Azure Monitor 리소스에 연결 하는 경우 이러한 리소스에 대 한 트래픽은 네트워크에 구성 된 개인 끝점을 통과 해야 합니다. 개인 끝점을 사용 하도록 설정 하려면 [개인 끝점에 연결](#connect-to-a-private-endpoint)에 설명 된 대로 DNS 설정을 업데이트 합니다. 일부 브라우저는 사용자가 설정 하는 대신 자체 DNS 설정을 사용 합니다. 브라우저는 Azure Monitor 공용 끝점에 연결을 시도 하 고 개인 링크를 완전히 우회할 수 있습니다. 브라우저 설정이 이전 DNS 설정을 재정의 하거나 캐시 하지 않는지 확인 합니다. 
+
+## <a name="next-steps"></a>다음 단계
+
+- [개인 저장소](private-storage.md) 에 대 한 자세한 정보
