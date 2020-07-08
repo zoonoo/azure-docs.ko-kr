@@ -4,20 +4,18 @@ description: Azure Portal을 사용하여 DNS 영역을 관리할 수 있습니�
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
-ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689166"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
@@ -51,7 +49,7 @@ ms.locfileid: "76936773"
 
 ## <a name="list-dns-zones"></a>DNS 영역 나열
 
-Azure Portal에서 **더 많은 서비스** > **네트워킹** > **DNS 영역**으로 이동 합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. 열 **이름 서버**는 기본 보기에 없습니다. 이 열을 추가하려면 **열**을 클릭하고 **이름 서버**를 선택한 후 **완료**를 클릭합니다.
+Azure Portal에서 **더 많은 서비스**  >  **네트워킹**  >  **DNS 영역**으로 이동 합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. 열 **이름 서버**는 기본 보기에 없습니다. 이 열을 추가하려면 **열**을 클릭하고 **이름 서버**를 선택한 후 **완료**를 클릭합니다.
 
 ![DNS 영역 나열](./media/dns-operations-dnszones-portal/listzones.png)
 

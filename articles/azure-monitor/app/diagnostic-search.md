@@ -4,11 +4,10 @@ description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터�
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695660"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
@@ -56,12 +55,12 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 이벤트 유형은 다음과 같습니다.
 
-* **Trace** - Log4Net 추적,, nlog 및 호출을 포함 하 여[진단 로그](../../azure-monitor/app/asp-net-trace-logs.md) 를 추적 합니다.
+* **추적**  -  Log4Net 추적,, NLog 및 System.object를 포함 하는 [진단 로그](../../azure-monitor/app/asp-net-trace-logs.md) 를 호출 합니다.
 * **요청** - 페이지, 스크립트, 이미지, 스타일 파일 및 데이터를 포함하는 서버 애플리케이션이 수신하는 HTTP 요청입니다. 이러한 이벤트는 요청을 만들고 개요 차트에 응답하는 데 사용됩니다.
-* **페이지 보기 보고서**를 만드는 데 사용 되는[웹 클라이언트에서 보낸 원격 분석](../../azure-monitor/app/javascript.md)입니다. - 
+* **페이지 보기**  -  [웹 클라이언트에서 보낸 원격 분석](../../azure-monitor/app/javascript.md)으로 페이지 보기 보고서를 만드는 데 사용 됩니다.
 * **사용자 지정 이벤트** - [사용량을 모니터링](../../azure-monitor/app/api-custom-events-metrics.md)하기 위해 TrackEvent()에 호출을 삽입한 경우 여기에서 검색할 수 있습니다.
 * [서버에서](../../azure-monitor/app/asp-net-exceptions.md) **예외가** catch 되지 않은 예외 및 지 수 예외 ()를 사용 하 여 기록 하는 예외
-* **Dependency** - [서버 응용 프로그램에서](../../azure-monitor/app/asp-net-dependencies.md) REST api 또는 데이터베이스와 같은 다른 서비스에 대 한 종속성 호출과 [클라이언트 코드](../../azure-monitor/app/javascript.md)의 AJAX 호출이 있습니다.
+* **종속성**  -  [서버 응용 프로그램에서](../../azure-monitor/app/asp-net-dependencies.md) REST api 또는 데이터베이스와 같은 다른 서비스와 [클라이언트 코드](../../azure-monitor/app/javascript.md)의 AJAX 호출에 대 한 호출입니다.
 * **가용성** - [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)의 결과입니다.
 
 ## <a name="filter-on-property-values"></a>속성 값에서 필터링
@@ -92,7 +91,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 하위 문자열이 아닌 전체 단어를 검색합니다. 인용 부호를 사용하여 특수 문자를 묶습니다.
 
-| 문자열 | 찾을 수 *없음* | 있음 |
+| String | 찾을 수 *없음* | 있음 |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |미국|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -133,7 +132,7 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
 [Application Insights에 로그 및 사용자 지정 원격 분석을 보내는 방법에 대해 알아봅니다](../../azure-monitor/app/asp-net-trace-logs.md).
 
-## <a name="q--a"></a><a name="questions"></a>질문 및 답변
+## <a name="q--a"></a><a name="questions"></a>Q & A
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>얼마나 많은 데이터가 보존되나요?
 

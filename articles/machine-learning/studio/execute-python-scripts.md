@@ -5,21 +5,18 @@ description: Python 스크립트 실행 모듈을 사용 하 여 Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4afb6dca94642ab9b908a4f07ff5de56677626f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696306"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행 (클래식)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Python은 다양 한 데이터 과학자 도구 상자에 유용한 도구입니다. 데이터 탐색, 기능 추출, 모델 학습 및 유효성 검사, 배포 등 일반적인 기계 학습 워크플로의 모든 단계에서 사용 됩니다.
 
@@ -27,7 +24,7 @@ Python은 다양 한 데이터 과학자 도구 상자에 유용한 도구입니
 
 ## <a name="using-the-execute-python-script-module"></a>Python 스크립트 실행 모듈 사용
 
-Studio에서 Python (클래식)에 대 한 기본 인터페이스는 [Python 스크립트 실행][execute-python-script] 모듈을 통하는 것입니다. 최대 3 개의 입력을 허용 하 고 [R 스크립트 실행][execute-r-script] 모듈과 유사한 출력을 최대 두 개까지 생성 합니다. Python 코드는 라는 `azureml_main`특수 하 게 명명 된 진입점 함수를 통해 매개 변수 상자에 입력 됩니다.
+Studio에서 Python (클래식)에 대 한 기본 인터페이스는 [Python 스크립트 실행][execute-python-script] 모듈을 통하는 것입니다. 최대 3 개의 입력을 허용 하 고 [R 스크립트 실행][execute-r-script] 모듈과 유사한 출력을 최대 두 개까지 생성 합니다. Python 코드는 라는 특수 하 게 명명 된 진입점 함수를 통해 매개 변수 상자에 입력 됩니다 `azureml_main` .
 
 ![Python 스크립트 실행 모듈](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -35,7 +32,7 @@ Studio에서 Python (클래식)에 대 한 기본 인터페이스는 [Python 스
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니다. 함수 `azureml_main` 는 최대 두 개의 선택적 Pandas 데이터 프레임를 매개 변수로 받아들입니다.
+Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니다. `azureml_main`함수는 최대 두 개의 선택적 Pandas 데이터 프레임를 매개 변수로 받아들입니다.
 
 입력 포트와 함수 매개 변수 간의 매핑은 위치와 관련됩니다.
 
@@ -43,13 +40,13 @@ Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니�
 - 두 번째 입력(연결된 경우)은 함수의 두 번째 매개 변수에 매핑됩니다.
 - 세 번째 입력은 [추가 Python 모듈을 가져오는](#import-modules)데 사용 됩니다.
 
-입력 포트가 `azureml_main` 함수의 매개 변수에 매핑되는 방법에 대 한 자세한 의미 체계는 다음과 같습니다.
+입력 포트가 함수의 매개 변수에 매핑되는 방법에 대 한 자세한 의미 체계 `azureml_main` 는 다음과 같습니다.
 
 ![입력 포트 구성 및 결과 Python 서명의 표](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 ### <a name="output-return-values"></a>반환 값 출력
 
-함수 `azureml_main` 는 튜플, List 또는 NumPy 배열과 같은 Python [시퀀스](https://docs.python.org/2/c-api/sequence.html) 에서 패키지 된 단일 Pandas 데이터 프레임를 반환 해야 합니다. 이 시퀀스의 첫 번째 요소는 모듈의 첫 번째 출력 포트에 반환 됩니다. 모듈의 두 번째 출력 포트는 [시각화](#visualizations) 에 사용 되며 반환 값이 필요 하지 않습니다. 이 스키마는 다음과 같습니다.
+`azureml_main`함수는 튜플, list 또는 NumPy 배열과 같은 Python [시퀀스](https://docs.python.org/2/c-api/sequence.html) 에서 패키지 된 단일 Pandas 데이터 프레임를 반환 해야 합니다. 이 시퀀스의 첫 번째 요소는 모듈의 첫 번째 출력 포트에 반환 됩니다. 모듈의 두 번째 출력 포트는 [시각화](#visualizations) 에 사용 되며 반환 값이 필요 하지 않습니다. 이 스키마는 다음과 같습니다.
 
 ![입력 포트를 매개 변수에 매핑하고 출력 포트에 값 반환](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -62,7 +59,7 @@ Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니�
 | 문자열 및 숫자| 있는 그대로 변환 |
 | Pandas ' NA ' | ' 누락 값 '으로 변환 됨 |
 | 인덱스 벡터 | 않음 |
-| 문자열이 아닌 열 이름 | 열 `str` 이름에 대 한 호출 |
+| 문자열이 아닌 열 이름 | `str`열 이름에 대 한 호출 |
 | 중복 열 이름 | 숫자 접미사 (1), (2), (3) 등을 추가 합니다.
 
 **Python 함수의 모든 입력 데이터 프레임에는 항상 0부터 행 수에서 1을 뺀 값 까지의 64 비트 숫자 인덱스가 있습니다.*
@@ -81,9 +78,9 @@ Python을 실행 하는 데 사용 되는 백 엔드는 널리 사용 되는 과
 
 ![사용자 정의 Python 코드를 포함 하는 Zip 파일](./media/execute-python-scripts/figure5.png)
 
-Zip 파일을 데이터 집합으로 Studio (클래식)에 업로드 합니다. 그런 다음, 다음 그림에 표시 된 것 처럼 **Python 스크립트 실행** 모듈의 세 번째 입력 포트에 연결 하 여 Hello .zip 파일에서 python 코드를 사용 하는 실험을 만들고 실행 합니다.
+Zip 파일을 데이터 집합으로 Studio (클래식)에 업로드 합니다. 그런 다음, 다음 그림에 나와 있는 것 처럼 **Python 스크립트 실행** 모듈의 세 번째 입력 포트에 연결 하 여 Hello.zip 파일에서 python 코드를 사용 하는 실험을 만들고 실행 합니다.
 
-![Python 스크립트 실행 모듈에 대 한 입력으로 Hello .zip을 사용한 샘플 실험](./media/execute-python-scripts/figure6a.png)
+![Python 스크립트 실행 모듈에 대 한 입력으로 Hello.zip를 사용 하는 샘플 실험](./media/execute-python-scripts/figure6a.png)
 
 ![Zip 파일로 업로드 된 사용자 정의 Python 코드](./media/execute-python-scripts/figure6b.png)
 

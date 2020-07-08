@@ -5,15 +5,14 @@ ms.service: virtual-network
 documentationcenter: na
 author: anupamvi
 mms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: kumud
-ms.openlocfilehash: 39cb2f90b49725c78746df69505fad7160e1db92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8136ea2a567ac823f03941ebd4a67bed043ada07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689354"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준과 파트너
 이 문서에서는 Azure DDoS Protection 표준에서 사용 하도록 설정 된 파트너 기회에 대해 설명 합니다. 이 문서는 제품 관리자 및 비즈니스 개발 역할이 투자 경로를 이해 하 고 파트너 가치 제안을 이해 하는 데 도움을 주기 위해 작성 되었습니다.

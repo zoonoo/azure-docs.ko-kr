@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698005"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -44,7 +43,7 @@ Azure Functions에서 진단 및 모니터링을 수행하려면 [Application In
 * **extensionVersion**: 지속성 작업 확장의 버전입니다. 버전 정보는 확장에서 가능한 버그를 보고할 때 특히 중요 한 데이터입니다. 장기 실행 인스턴스는 실행되는 동안 업데이트가 발생하는 경우 여러 버전을 보고할 수 있습니다.
 * **sequenceNumber**: 이벤트에 대한 실행 시퀀스 번호. 타임스탬프와 결합하면 이벤트를 실행 시간 기준으로 정렬하는 데 도움이 됩니다. *인스턴스가 실행 중인 동안 호스트가 다시 시작되면 이 번호가 0으로 다시 설정되므로, 항상 가장 먼저 타임스탬프를 기준으로 정렬한 후 sequenceNumber를 기준으로 정렬해야 합니다.*
 
-Application Insights로 내보내지는 추적 데이터의 자세한 정도는 `logger` `logging` `host.json` 파일의 (함수 1.x) 또는 (함수 2.0) 섹션에서 구성할 수 있습니다.
+Application Insights로 내보내지는 추적 데이터의 자세한 정도는 `logger` 파일의 (함수 1.x) 또는 `logging` (함수 2.0) 섹션에서 구성할 수 있습니다 `host.json` .
 
 #### <a name="functions-10"></a>함수 1.0
 
@@ -276,7 +275,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-Durable Functions 2.0부터 .NET orchestrator 함수는 재생 중에 로그 문을 자동으로 필터링 `ILogger` 하는을 만드는 옵션도 있습니다. 이 자동 필터링은 API를 `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` 사용 하 여 수행 됩니다.
+Durable Functions 2.0부터 .NET orchestrator 함수는 `ILogger` 재생 중에 로그 문을 자동으로 필터링 하는을 만드는 옵션도 있습니다. 이 자동 필터링은 API를 사용 하 여 수행 됩니다 `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` .
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -305,7 +304,7 @@ Done!
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ## <a name="custom-status"></a>사용자 지정 상태
 
@@ -328,7 +327,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 `DurableOrchestrationContext` 해야 합니다. `IDurableOrchestrationContext` 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -374,12 +373,12 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 로컬에서 실행하는지 여부와 관계 없이 동일한 지원이 지속성 함수에 전달됩니다. 그러나 디버그할 때 고려해야 할 몇 가지 동작이 있습니다.
 
 * **재생**: 오 케 스트레이 터 함수는 새 입력을 받을 때 정기적으로 [재생](durable-functions-orchestrations.md#reliability) 됩니다. 이 동작은 오 케 스트레이 터 함수의 단일 *논리적* 실행으로 인해 특히 함수 코드의 초기에 설정 된 경우 동일한 중단점에 여러 번 도달할 수 있음을 의미 합니다.
-* 대기 **: 오**케 `await` 스트레이 터 함수에서이 발생할 때마다 지 속성 작업 프레임 워크 디스패처로 제어를 다시 생성 합니다. 특정 `await` 가 처음으로 발생 한 경우에는 연결 된 작업이 다시 시작 *되지* 않습니다. 작업이 다시 시작 되지 않기 때문에 (Visual Studio에서 F10) 대기 *를 단계별로 실행할* 수 없습니다. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
+* 대기 **: 오**케 스트레이 터 `await` 함수에서이 발생할 때마다 지 속성 작업 프레임 워크 디스패처로 제어를 다시 생성 합니다. 특정가 처음으로 발생 한 경우에는 `await` 연결 된 작업이 다시 시작 *되지* 않습니다. 작업이 다시 시작 되지 않기 때문에 (Visual Studio에서 F10) 대기 *를 단계별로 실행할* 수 없습니다. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
 * **메시징 시간 제한**: Durable Functions는 내부적으로 큐 메시지를 사용 하 여 orchestrator, activity 및 entity 함수의 실행을 구동 합니다. 다중 VM 환경에서 오랜 시간 동안 디버그하는 경우 다른 VM에서 메시지를 선택하여 중복 실행이 발생할 수 있습니다. 이 동작은 일반 큐 트리거 함수에도 적용되지만, 큐가 구현 세부 정보이므로 이 컨텍스트에서 지시하는 것이 중요합니다.
 * **중지 및 시작**: 지 속성 함수의 메시지는 디버그 세션 간에 유지 됩니다. 지 속성 함수를 실행 하는 동안 디버깅을 중지 하 고 로컬 호스트 프로세스를 종료 하면 이후 디버그 세션에서 해당 함수가 자동으로 다시 실행 될 수 있습니다. 이 동작은 예상과는 혼동 될 수 있습니다. 이 동작을 방지 하는 한 가지 방법은 디버그 세션 간의 [내부 저장소 큐](durable-functions-perf-and-scale.md#internal-queue-triggers) 에서 모든 메시지를 지우는 것입니다.
 
 > [!TIP]
-> Orchestrator 함수에서 중단점을 설정할 때 재생 되지 않는 실행 에서만 중단 하려면이 인 `IsReplaying` `false`경우에만 중단 되는 조건부 중단점을 설정할 수 있습니다.
+> Orchestrator 함수에서 중단점을 설정할 때 재생 되지 않는 실행 에서만 중단 하려면이 인 경우에만 중단 되는 조건부 중단점을 설정할 수 있습니다 `IsReplaying` `false` .
 
 ## <a name="storage"></a>스토리지
 

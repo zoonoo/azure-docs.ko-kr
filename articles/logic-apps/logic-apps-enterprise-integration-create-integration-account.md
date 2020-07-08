@@ -9,13 +9,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691761"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대 한 통합 계정 만들기 및 관리
+# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대한 통합 계정 만들기 및 관리
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 [엔터프라이즈 통합 및 B2B 솔루션](../logic-apps/logic-apps-enterprise-integration-overview.md)을 빌드하려면 먼저 통합 계정을 만들어야 합니다. 이 계정은 논리 앱 워크플로에서 정의하고 사용할 수 있는 통합 아티팩트에 대한 안전하고 확장 가능하며 관리할 수 있는 컨테이너를 제공하는 별도의 Azure 리소스입니다.
 
@@ -55,17 +54,17 @@ ms.locfileid: "79270330"
 
    ![통합 계정 세부 정보 제공](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
-   | **이름** | 예 | <*통합-계정 이름*> | 문자`-`, 숫자, 하이픈 (), 밑줄 (`_`), 괄호 (`(`, `)`) 및 마침표 (`.`)만 포함할 수 있는 통합 계정의 이름입니다. 이 예에서는 "Fabrikam-통합"을 사용 합니다. |
-   | **구독** | 예 | <*Azure-구독-이름*> | Azure 구독의 이름 |
-   | **리소스 그룹** | 예 | <*Azure-리소스 그룹-이름*> | 관련 리소스를 구성 하는 데 사용할 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 의 이름입니다. 이 예에서는 "FabrikamIntegration-RG" 라는 이름으로 새 리소스 그룹을 만듭니다. |
+   | **이름** | 예 | <*통합-계정 이름*> | 문자, 숫자, 하이픈 ( `-` ), 밑줄 ( `_` ), 괄호 ( `(` , `)` ) 및 마침표 ()만 포함할 수 있는 통합 계정의 이름 `.` 입니다. 이 예에서는 "Fabrikam-통합"을 사용 합니다. |
+   | **구독** | 예 | <*Azure-subscription-name*> | Azure 구독의 이름 |
+   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 관련 리소스를 구성 하는 데 사용할 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 의 이름입니다. 이 예에서는 "FabrikamIntegration-RG" 라는 이름으로 새 리소스 그룹을 만듭니다. |
    | **가격 책정 계층** | 예 | <*가격 책정 수준*> | 통합 계정에 대 한 가격 책정 계층으로, 나중에 변경할 수 있습니다. 이 예에서는 **Free**를 선택 합니다. 자세한 내용은 다음 항목을 참조하세요. <p>- [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **위치** | 예 | <*Azure-지역*> | 통합 계정 메타 데이터를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택 하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예에서는 "미국 서 부"를 사용 합니다. <p>**참고**: [ise (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)내에서 통합 계정을 만들려면 해당 ise를 위치로 선택 합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조 하세요. |
+   | **위치** | 예 | <*Azure-region*> | 통합 계정 메타 데이터를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택 하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예에서는 "미국 서 부"를 사용 합니다. <p>**참고**: [ise (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)내에서 통합 계정을 만들려면 해당 ise를 위치로 선택 합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조 하세요. |
    | **Log Analytics** | 아니요 | 꺼짐, 켜기 | 이 예에서는 **Off** 설정을 그대로 둡니다. |
    |||||
 
-1. 완료 되 면 **만들기**를 선택 합니다.
+1. 작업이 완료되면 **만들기**를 선택합니다.
 
    배포가 완료 되 면 Azure에서 통합 계정을 엽니다.
 
@@ -138,13 +137,13 @@ ms.locfileid: "79270330"
 
    ![Azure Cloud Shell 열기](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. 명령 프롬프트에서 [ **az resource** 명령을](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)입력 하 고를 원하는 상위 계층 `skuName` 으로 설정 합니다.
+1. 명령 프롬프트에서 [ **az resource** 명령을](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)입력 하 고 `skuName` 를 원하는 상위 계층으로 설정 합니다.
 
    ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
-   예를 들어 기본 계층이 있는 경우를로 `skuName` `Standard`설정할 수 있습니다.
+   예를 들어 기본 계층이 있는 경우를로 설정할 수 있습니다 `skuName` `Standard` .
 
    ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
@@ -162,13 +161,13 @@ ms.locfileid: "79270330"
 
    ![Azure Cloud Shell 열기](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. 명령 프롬프트에서 [ **az resource** 명령을](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) 입력 하 고 원하는 하위 계층 `skuName` 으로 설정 합니다.
+1. 명령 프롬프트에서 [ **az resource** 명령을](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) 입력 하 고 `skuName` 원하는 하위 계층으로 설정 합니다.
 
    ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
-   예를 들어 표준 계층이 있는 경우를로 `skuName` `Basic`설정할 수 있습니다.
+   예를 들어 표준 계층이 있는 경우를로 설정할 수 있습니다 `skuName` `Basic` .
 
    ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
@@ -178,7 +177,7 @@ ms.locfileid: "79270330"
 
 논리 앱을 다른 통합 계정에 연결 하거나 논리 앱과 함께 통합 계정을 더 이상 사용 하지 않으려면 Azure Resource Explorer를 사용 하 여 링크를 삭제 합니다.
 
-1. 브라우저 창을 열고 [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com)로 이동 합니다. 동일한 Azure 계정 자격 증명을 사용 하 여 로그인 합니다.
+1. 브라우저 창을 열고 [Azure Resource Explorer ( https://resources.azure.com) ](https://resources.azure.com)로 이동 합니다. 동일한 Azure 계정 자격 증명을 사용 하 여 로그인 합니다.
 
    ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
@@ -194,7 +193,7 @@ ms.locfileid: "79270330"
 
    !["데이터" 탭에서 "편집"을 선택 합니다.](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-1. 편집기에서 `integrationAccount` 개체를 찾고 해당 속성을 삭제 합니다 .이 형식을 가진 속성은 다음과 같습니다.
+1. 편집기에서 개체를 찾고 `integrationAccount` 해당 속성을 삭제 합니다 .이 형식을 가진 속성은 다음과 같습니다.
 
    ```json
    {
@@ -206,7 +205,7 @@ ms.locfileid: "79270330"
    },
    ```
 
-   다음은 그 예입니다.
+   예를 들어:
 
    !["IntegrationAccount" 개체 찾기](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

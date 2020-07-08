@@ -11,11 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689659"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
@@ -123,7 +122,7 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 
 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)에 설명된 대로 Traffic Manager는 클라이언트에서 직접 DNS 쿼리를 수신하지 않습니다. 대신, DNS 쿼리는 클라이언트를 사용하도록 구성한 재귀 DNS 서비스에서 제공됩니다. 따라서 지역을 결정하는 데 사용되는 IP 주소는 클라이언트의 IP 주소가 아니라 재귀 DNS 서비스의 IP 주소입니다. 실제로 이 IP 주소는 클라이언트에 유용한 프록시입니다.
 
-### <a name="faqs"></a>FAQ(질문과 대답)
+### <a name="faqs"></a>FAQ
 
 * [지리적 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
 
@@ -148,7 +147,7 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>다중값 트래픽 라우팅 방법
 **다중값** 트래픽 라우팅 방법을 사용하면 단일 DNS 쿼리 응답에 정상 상태의 여러 엔드포인트를 가져올 수 있습니다. 이렇게 하면 반환 된 끝점이 응답 하지 않을 경우 호출자가 다른 끝점을 사용 하 여 클라이언트 쪽 재시도를 수행할 수 있습니다. 이 패턴은 서비스의 가용성을 향상시키고 새 DNS 쿼리와 관련된 대기 시간을 줄여 정상 상태의 엔드포인트를 얻을 수 있습니다. 다중값 라우팅 방법은 ‘외부’ 유형의 모든 엔드포인트가 IPv4 또는 IPv6 주소로 지정된 경우에만 작동합니다. 쿼리가 이 프로필에 대해 수신되면 정상 상태의 모든 엔드포인트가 반환되고, 구성 가능한 최대 반환 수 제한이 적용됩니다.
 
-### <a name="faqs"></a>FAQ(질문과 대답)
+### <a name="faqs"></a>FAQ
 
 * [다중값 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
@@ -164,7 +163,7 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 
 특정 IP 공간에서 연결하는 사용자에게 다른 환경을 제공하기 위해 서브넷 라우팅을 사용할 수 있습니다. 예를 들어 서브넷 라우팅을 사용하면 고객은 회사 사무실의 모든 요청이 앱 내부용 버전을 테스트할 수 있는 다른 엔드포인트로 라우팅되도록 할 수 있습니다. 또 다른 시나리오는 특정 ISP에서 연결하는 사용자에게 다른 환경을 제공하려는 경우입니다(예: 지정된 ISP의 사용자 차단).
 
-### <a name="faqs"></a>FAQ(질문과 대답)
+### <a name="faqs"></a>FAQ
 
 * [서브넷 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
 

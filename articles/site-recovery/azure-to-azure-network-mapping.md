@@ -8,17 +8,16 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
 ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691206"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
 이 문서에서는 서로 다른 Azure 지역에 있는 Azure VNet(가상 네트워크)의 두 인스턴스를 매핑하는 방법과 네트워크 간에 IP 주소를 설정하는 방법을 설명합니다. 네트워크 매핑은 복제를 사용 하도록 설정할 때 원본 네트워크를 기반으로 하는 대상 네트워크 선택에 대 한 기본 동작을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 네트워크를 매핑하려면 원본 및 대상 Azure 지역에 [Azure VNet](../virtual-network/virtual-networks-overview.md)이 있어야 합니다. 
 

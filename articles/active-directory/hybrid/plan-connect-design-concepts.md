@@ -18,11 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698600"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
@@ -119,7 +118,7 @@ Azure AD Connect를 사용자 지정 모드로 설치하는 경우 Azure AD Conn
 
 ![사용자 지정 설치 - sourceAnchor 구성](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| 설정 | Description |
+| Setting | Description |
 | --- | --- |
 | Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [기본 설치에서 사용된 것과 동일한 sourceAnchor 특성 선택 논리](#express-installation)를 적용합니다. 기본 설치와 마찬가지로 사용자 정의 설치가 완료되면 마법사에서 원본 앵커 특성으로 선택된 특성을 사용자에게 알려줍니다. |
 | 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |

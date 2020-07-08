@@ -6,13 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668001"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
 
@@ -23,12 +22,9 @@ ms.locfileid: "83830994"
 * Log Analytics 작업 영역에 Automation 계정 연결(아직 연결되지 않은 경우)
 * 업데이트 관리 사용
 
-템플릿은 하나 이상의 Azure 또는 비 Azure VM을 자동으로 사용하도록 설정하지 않습니다.
+템플릿은 하나 이상의 Azure 또는 비 Azure Vm에서 업데이트 관리 사용 하도록 자동화 하지 않습니다.
 
-구독에서 지원되는 지역에 배포된 Log Analytics 작업 영역 및 Automation 계정이 이미 있는 경우에는 연결되지 않습니다. 작업 영역은 아직 업데이트 관리를 사용하도록 설정되어 있지 않습니다. 이 템플릿을 사용하여 성공적으로 링크를 만들고 VM에 대한 업데이트 관리를 배포합니다. 
-
->[!NOTE]
->Linux에서 업데이트 관리의 일부로 활성화된 **nxautomation** 사용자는 서명된 Runbook만 실행합니다.
+구독에서 지원되는 지역에 배포된 Log Analytics 작업 영역 및 Automation 계정이 이미 있는 경우에는 연결되지 않습니다. 이 템플릿을 사용 하 여 성공적으로 링크를 만들고 업데이트 관리를 배포 합니다.
 
 ## <a name="api-versions"></a>API 버전
 
@@ -36,8 +32,8 @@ ms.locfileid: "83830994"
 
 | 리소스 | 리소스 유형 | API 버전 |
 |:---|:---|:---|
-| 작업 영역 | workspaces | 2017-03-15-preview |
-| Automation 계정 | Automation | 2015-10-31 | 
+| 작업 영역 | workspaces | 2020-03-01-미리 보기 |
+| Automation 계정 | Automation | 2018-06-30 | 
 | 해결 방법 | solutions | 2015-11-01-preview |
 
 ## <a name="before-using-the-template"></a>템플릿을 사용하기 전에
@@ -49,9 +45,10 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서�
 JSON 템플릿은 다음을 묻는 메시지를 표시하도록 구성됩니다.
 
 * 작업 영역의 이름
-* 작업 영역을 만들 지역
-* Automation 계정의 이름
-* 계정을 만들 지역
+* 작업 영역을 만들 지역입니다.
+* 리소스 또는 작업 영역 권한을 사용 하도록 설정 합니다.
+* Automation 계정의 이름입니다.
+* 계정을 만들 지역입니다.
 
 JSON 템플릿은 환경에서 표준 구성으로 사용될 수 있는 다른 매개 변수에 대한 기본값을 지정합니다. 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
@@ -59,7 +56,6 @@ JSON 템플릿은 환경에서 표준 구성으로 사용될 수 있는 다른 �
 
 * sku - 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값
 * 데이터 보존 - 기본값 30일
-* 용량 예약 - 기본값 100GB
 
 >[!WARNING]
 >새 2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성할 때 유효한 유일한 Log Analytics 가격 책정 계층은 **PerGB2018**입니다.
@@ -114,18 +110,17 @@ Azure Automation 및 Azure Monitor를 처음 사용하는 경우 새 Automation 
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             }
         },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-            }
-        },
         "location": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -150,13 +145,11 @@ Azure Automation 및 Azure Monitor를 처음 사용하는 경우 새 Automation 
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -168,7 +161,7 @@ Azure Automation 및 Azure Monitor를 처음 사용하는 경우 새 Automation 
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "name": "[variables('Updates').name]",
                     "type": "Microsoft.OperationsManagement/solutions",
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
@@ -189,7 +182,7 @@ Azure Automation 및 Azure Monitor를 처음 사용하는 경우 새 Automation 
         },
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [],
@@ -201,10 +194,10 @@ Azure Automation 및 Azure Monitor를 처음 사용하는 경우 새 Automation 
             },
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -242,8 +235,7 @@ Azure Automation 및 Azure Monitor를 처음 사용하는 경우 새 Automation 
 ## <a name="next-steps"></a>다음 단계
 
 * VM에 업데이트 관리를 사용하려면 [Azure VM의 업데이트 및 패치 관리](automation-tutorial-update-management.md)를 참조하세요.
+
 * Log Analytics 작업 영역이 더 이상 필요하지 않은 경우 [업데이트 관리를 위해 Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-update-management.md)의 지침을 참조하세요.
+
 * 업데이트 관리에서 VM을 삭제하려면 [업데이트 관리에서 VM 제거](automation-remove-vms-from-update-management.md)를 참조하세요.
-* 일반적인 업데이트 관리 오류를 해결하려면 [업데이트 관리 문제 해결](troubleshoot/update-management.md)을 참조하세요.
-* Windows 업데이트 에이전트 문제를 해결하려면 [Windows 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues.md)을 참조하세요.
-* Linux 업데이트 에이전트 문제를 해결하려면 [Linux 업데이트 에이전트 문제 해결](troubleshoot/update-agent-issues-linux.md)을 참조하세요.

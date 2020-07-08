@@ -13,11 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689761"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,7 +33,7 @@ ms.locfileid: "79265715"
 > [!IMPORTANT]
 > 이 웹 커넥터는 현재 HTML 페이지에서 테이블 콘텐츠를 추출하도록 지원합니다. HTTP/s 엔드포인트에서 데이터를 검색하려면 [HTTP 커넥터](data-factory-http-connector.md)를 대신 사용합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 웹 테이블 커넥터를 사용하려면 자체 호스트 통합 런타임(즉, 데이터 관리 게이트웨이)을 설정하고 싱크 연결된 서비스에서 `gatewayName` 속성을 구성해야 합니다. 예를 들어, 웹 테이블에서 Azure Blob 스토리지로 복사하려면 다음과 같이 Azure Storage 연결된 서비스를 구성합니다.
 
@@ -70,7 +69,7 @@ ms.locfileid: "79265715"
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 웹 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **웹** |예 |
 | Url |웹 원본에 대한 URL입니다. |예 |
@@ -98,13 +97,13 @@ ms.locfileid: "79265715"
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **WebTable** 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |데이터 세트의 형식입니다. **데이터 집합** |예 |
-| path |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
+| 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
 | 인덱스 |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -163,7 +162,7 @@ ms.locfileid: "79265715"
 }
 ```
 
-**Azure Storage 연결 된 서비스**
+**Azure Storage 연결된 서비스**
 
 ```json
 {
@@ -205,7 +204,7 @@ ms.locfileid: "79265715"
 ```
 
 
-**Azure Blob 출력 데이터 집합**
+**Azure Blob 출력 데이터 세트**
 
 데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회)
 

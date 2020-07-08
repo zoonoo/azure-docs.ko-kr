@@ -8,11 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686667"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -32,7 +31,7 @@ ms.locfileid: "79249088"
 | | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|
 | 지원 되는 환경 | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
-| 에이전트 요구 사항  | None | None | Log Analytics 에이전트가 필요 합니다. |
+| 에이전트 요구 사항  | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
 | 수집되는 데이터 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<IIS logs><br>파일 기반 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
 | 데이터 전송 대상 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그 |
 
@@ -42,7 +41,7 @@ ms.locfileid: "79249088"
 | | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
 | 지원 되는 환경 | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
-| 에이전트 요구 사항  | None | None | None | Log Analytics 에이전트가 필요 합니다. |
+| 에이전트 요구 사항  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
 | 수집되는 데이터 | syslog<br>성능 | 성능 | syslog<br>성능| 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
 | 데이터 전송 대상 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그 |
 
@@ -118,5 +117,5 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 각 에이전트에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [Log Analytics 에이전트 개요](log-analytics-agent.md)
-- [Azure 진단 확장 개요](diagnostics-extension-overview.md)
+- [Azure Diagnostics 확장 개요](diagnostics-extension-overview.md)
 - [InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집](collect-custom-metrics-linux-telegraf.md)

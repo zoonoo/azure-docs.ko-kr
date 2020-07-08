@@ -5,21 +5,18 @@ description: 학습 실험을 예측 실험으로 변환 하 고, 배포를 준�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4cbc17e0352b9dfed3df9bbbd1480b9846f7ae75
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696391"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 분석 솔루션을 빌드 및 테스트할 수 있습니다. 그런 다음, 솔루션을 웹 서비스로 배포할 수 있습니다.
 
@@ -141,7 +138,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행**을 클릭합니다. 실험 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다.  Machine Learning Studio (클래식) 웹 서비스 포털의 배포 페이지가 열립니다.
 
 > [!NOTE] 
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털을 사용 하 여 웹 서비스 관리](manage-new-webservice.md)를 참조 하세요. 
 
 ### <a name="web-service-portal-deploy-experiment-page"></a>웹 서비스 포털 배포 실험 페이지
 

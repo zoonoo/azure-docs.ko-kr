@@ -7,11 +7,10 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692522"
 ---
 # <a name="manage-vmware-vcenter-server"></a>VMware vCenter Server 관리
 
@@ -26,7 +25,7 @@ VMware Vm을 Azure로 재해 복구 하는 동안 vCenter 서버 및 Vm에 대 �
 온-프레미스 VMware Vm에 대 한 재해 복구를 설정 하는 경우 Site Recovery vCenter Server/vSphere 호스트에 액세스할 수 있어야 합니다. 그러면 Site Recovery 프로세스 서버는 자동으로 Vm을 검색 하 고 필요에 따라 장애 조치 (failover)를 수행할 수 있습니다. 기본적으로 프로세스 서버는 Site Recovery 구성 서버에서 실행 됩니다. 구성 서버가 다음과 같이 vCenter Server/vSphere 호스트에 연결할 계정을 추가 합니다.
 
 1. 구성 서버에 로그인합니다.
-1. 바탕 화면 바로 가기를 사용 하 여 구성 서버 도구 (_cspsconfigtool .exe_)를 엽니다.
+1. 바탕 화면 바로 가기를 사용 하 여 구성 서버 도구 (_cspsconfigtool.exe_)를 엽니다.
 1. **계정 관리** 탭에서 **계정 추가**를 클릭 합니다.
 
    ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
@@ -48,25 +47,25 @@ VMware Vm을 Azure로 재해 복구 하는 동안 vCenter 서버 및 Vm에 대 �
 
 온-프레미스 VMware Vm에 대 한 재해 복구를 설정 하는 경우 다음과 같이 Site Recovery 자격 증명 모음에 Vm을 검색 하는 vCenter Server/vSphere 호스트를 추가 합니다.
 
-1. 자격 증명 모음 > **Site Recovery 인프라** > **구성**서버에서 구성 서버를 엽니다.
+1. 자격 증명 모음 > **Site Recovery 인프라**  >  **구성**서버에서 구성 서버를 엽니다.
 1. **세부 정보** 페이지에서 **vCenter**를 클릭 합니다.
 1. **Vcenter 추가**에서 vsphere 호스트 또는 vCenter server의 이름을 지정 합니다.
 1. 서버의 IP 주소 또는 FQDN을 지정 합니다.
 1. VMware 서버가 다른 포트에서 요청을 수신하도록 구성되지 않은 경우 포트를 443으로 그대로 둡니다.
-1. VMware vCenter 또는 vSphere ESXi 서버에 연결 하는 데 사용할 계정을 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+1. VMware vCenter 또는 vSphere ESXi 서버에 연결 하는 데 사용할 계정을 선택 합니다. 그런 후 **OK**를 클릭합니다.
 
 ## <a name="modify-credentials"></a>자격 증명 수정
 
 필요한 경우 다음과 같이 vCenter Server/vSphere 호스트에 연결 하는 데 사용 되는 자격 증명을 수정할 수 있습니다.
 
 1. 구성 서버에 로그인합니다.
-1. 바탕 화면 바로 가기를 사용 하 여 구성 서버 도구 (_cspsconfigtool .exe_)를 엽니다.
+1. 바탕 화면 바로 가기를 사용 하 여 구성 서버 도구 (_cspsconfigtool.exe_)를 엽니다.
 1. **계정 관리** 탭에서 **계정 추가**를 클릭합니다.
 
    ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 
 1. 새 계정 정보를 입력 하 고 **확인**을 클릭 합니다. 계정에는 [계정 권한](#account-permissions) 테이블에 나열 된 사용 권한이 필요 합니다.
-1. 자격 증명 모음 > **Site Recovery 인프라** > **구성**서버에서 구성 서버를 엽니다.
+1. 자격 증명 모음 > **Site Recovery 인프라**  >  **구성**서버에서 구성 서버를 엽니다.
 1. **자세히**에서 **서버 새로 고침**을 클릭 합니다.
 1. 서버 새로 고침 작업이 완료 되 면 vCenter Server를 선택 합니다.
 1. **요약**에서 **VCenter Server/vsphere 호스트 계정**에 새로 추가 된 계정을 선택 하 고 **저장**을 클릭 합니다.
@@ -75,9 +74,9 @@ VMware Vm을 Azure로 재해 복구 하는 동안 vCenter 서버 및 Vm에 대 �
 
 ## <a name="delete-a-vcenter-server"></a>vCenter Server 삭제
 
-1. 자격 증명 모음 > **Site Recovery 인프라** > **구성**서버에서 구성 서버를 엽니다.
+1. 자격 증명 모음 > **Site Recovery 인프라**  >  **구성**서버에서 구성 서버를 엽니다.
 1. **세부 정보** 페이지에서 vCenter 서버를 선택합니다.
-1. **삭제** 단추를 클릭합니다.
+1. **삭제** 단추를 클릭 합니다.
 
    ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
@@ -85,7 +84,7 @@ VMware Vm을 Azure로 재해 복구 하는 동안 vCenter 서버 및 Vm에 대 �
 
 VCenter Server의 IP 주소 또는 서버와 Site Recovery 간에 통신 하는 데 사용 되는 포트를 수정할 수 있습니다. 기본적으로 Site Recovery는 포트 443을 통해 vCenter Server/vSphere 호스트 정보에 액세스 합니다.
 
-1. 자격 증명 모음 > **Site Recovery 인프라** > **구성 서버**에서 vCenter Server 추가 된 구성 서버를 클릭 합니다.
+1. 자격 증명 모음 > **Site Recovery 인프라**  >  **구성 서버**에서 vCenter Server 추가 된 구성 서버를 클릭 합니다.
 1. **VCenter 서버**에서 수정 하려는 vCenter Server를 클릭 합니다.
 1. **요약**에서 IP 주소와 포트를 업데이트 하 고 변경 내용을 저장 합니다.
 
@@ -97,7 +96,7 @@ VCenter Server의 IP 주소 또는 서버와 Site Recovery 간에 통신 하는 
 
 새 vCenter Server을 사용 하도록 모든 Vm을 마이그레이션하려면 vCenter Server 할당 된 IP 주소만 업데이트 해야 합니다. 중복 된 항목이 생길 수 있으므로 다른 VMware 계정을 추가 하지 마세요. 다음과 같이 주소를 업데이트 합니다.
 
-1. 자격 증명 모음 > **Site Recovery 인프라** > **구성 서버**에서 vCenter Server 추가 된 구성 서버를 클릭 합니다.
+1. 자격 증명 모음 > **Site Recovery 인프라**  >  **구성 서버**에서 vCenter Server 추가 된 구성 서버를 클릭 합니다.
 1. **VCenter servers** 섹션에서 마이그레이션할 vCenter Server를 클릭 합니다.
 1. **요약**에서 새 vCenter Server IP 주소를 업데이트 하 고 변경 내용을 저장 합니다.
 1. IP 주소가 업데이트 되는 즉시 Site Recovery 새 vCenter Server에서 VM 검색 정보를 수신 하기 시작 합니다. 진행 중인 복제 작업에는 영향을 주지 않습니다.

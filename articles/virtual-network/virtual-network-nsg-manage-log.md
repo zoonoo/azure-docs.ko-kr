@@ -6,16 +6,15 @@ services: virtual-network
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: cfc1b933abbbc3736145ff3c6a600f48260538d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696034"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대 한 리소스 로깅
 
@@ -45,9 +44,9 @@ NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형�
 
 5. **진단 설정** 아래에서 다음 정보를 입력하거나 선택한 다음, **저장**을 선택합니다.
 
-    | 설정                                                                                     | 값                                                          |
+    | Setting                                                                                     | 값                                                          |
     | ---------                                                                                   |---------                                                       |
-    | 속성                                                                                        | 선택한 이름입니다.  예: *myNsgDiagnostics*      |
+    | Name                                                                                        | 선택한 이름입니다.  예: *myNsgDiagnostics*      |
     | **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 및 **Log Analytics에 보내기** | 여러 대상을 선택할 수 있습니다. 각각에 대해 자세히 알아보려면 [로그 대상](#log-destinations)을 참조하세요.                                                                                                                                           |
     | LOG                                                                                         | 둘 중 하나 또는 두 로그 범주를 선택합니다. 각 범주에 대해 기록된 데이터에 대해 자세히 알아보려면 [로그 범주](#log-categories)를 참조하세요.                                                                                                                                             |
 6. 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
@@ -56,7 +55,7 @@ NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우 [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 `Connect-AzAccount` Azure에 로그인 하려면도 실행 해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우 `Connect-AzAccount` [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 하려면도 실행 해야 합니다.
 
 리소스 로깅을 사용 하도록 설정 하려면 기존 NSG의 Id가 필요 합니다. 기존 NSG가 없는 경우 [AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)를 사용 하 여 만들 수 있습니다.
 

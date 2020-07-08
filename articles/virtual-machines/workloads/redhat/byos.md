@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/10/2020
+ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: 9ab578b4b688c02c9150dfb23fce53fbb82df405
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84694385"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -52,7 +51,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Azure Portal의 Red Hat 금색 이미지를 사용 합니다.
 
-1. Azure 구독이 Red Hat 골드 이미지에 대 한 액세스를 받은 후 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **리소스** > 만들기를**참조**하세요.
+1. Azure 구독이 Red Hat 골드 이미지에 대 한 액세스를 받은 후 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **리소스 만들기**를  >  **참조**하세요.
 
 1. 페이지 맨 위에 개인 제안이 있는 것을 볼 수 있습니다.
 
@@ -96,7 +95,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 
     OR
 
-    az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
+    az vm image terms accept --urn redhat:rhel-byos:rhel-lvm8:8.0.20190620
     ```
 
     >[!NOTE]
@@ -108,16 +107,19 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
 
     # Example:
-    az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest --validate
     ```
 
-1. 이전 예제와 같이 인수를 `--validate` 사용 하지 않고 동일한 명령을 실행 하 여 VM을 프로 비전 합니다.
+1. 이전 예제와 같이 인수를 사용 하지 않고 동일한 명령을 실행 하 여 VM을 프로 비전 `--validate` 합니다.
 
     ```azurecli
-    az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
+    az vm create -n <VM name> -g <resource group name> --image <image urn>
+
+    # Example:
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
-1. VM에 SSH를 적용 하 고, 자격이 없는 이미지가 있는지 확인 합니다. 이 단계를 수행 하려면를 `sudo yum repolist`실행 합니다. RHEL 8의 경우를 `sudo dnf repolist`사용 합니다. 출력에는 구독 관리자를 사용 하 여 Red Hat에 VM을 등록 하 라는 메시지가 표시 됩니다.
+1. VM에 SSH를 적용 하 고, 자격이 없는 이미지가 있는지 확인 합니다. 이 단계를 수행 하려면를 실행 `sudo yum repolist` 합니다. RHEL 8의 경우를 사용 `sudo dnf repolist` 합니다. 출력에는 구독 관리자를 사용 하 여 Red Hat에 VM을 등록 하 라는 메시지가 표시 됩니다.
 
 >[!NOTE]
 >RHEL 8에서 `dnf` 및 `yum` 는 서로 바꿔 사용할 수 있습니다. 자세한 내용은 [RHEL 8 관리자 가이드](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index)를 참조 하세요.
@@ -135,7 +137,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
     # Define user name and blank password
     $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
     $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
-    Get-AzureRmMarketplaceTerms -Publisher RedHat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
+    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
 
     # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroup -Location $location

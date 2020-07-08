@@ -4,20 +4,19 @@ titlesuffix: Azure Virtual Network
 description: 동일한 또는 다른 Azure Active Directory 테넌트의 서로 다른 Azure 구독에 존재하는 Resource Manager를 통해 생성된 가상 네트워크 간에 가상 네트워크 피어링을 만드는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: ''
-author: anavinahar
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
-ms.author: anavin
-ms.openlocfilehash: 242115ae454340fd0a8439b7b3c79b713409acc2
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 26d82d4381649bc86950b1898c5c5351a97ec697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688810"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>가상 네트워크 피어링 만들기 - Resource Manager, 서로 다른 구독 및 Azure Active Directory 테넌트
 

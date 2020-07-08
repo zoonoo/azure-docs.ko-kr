@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689047"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -43,9 +42,9 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 - 하위 수준 OS 버전인 경우 `%programFiles%\Microsoft Workplace Join\autoworkplace.exe` 명령을 실행합니다.
 
 **A:** 문제 해결 정보는 다음 문서를 참조 하세요.
-- [Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결](troubleshoot-device-dsregcmd.md)
+- [dsregcmd 명령을 사용하여 디바이스 문제 해결](troubleshoot-device-dsregcmd.md)
 - [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md)
-- [하위 수준 장치에 조인 된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
+- [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -100,7 +99,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
       Azure AD에서 등록 된 Windows 10 장치에 대해 다음 단계를 수행 합니다.
 
-      1. **설정** > **Accounts**계정 > **회사 또는 학교 액세스**로 이동 합니다. 
+      1. **설정**  >  **계정**  >  **회사 또는 학교 액세스**로 이동 합니다. 
       1. 계정을 선택 하 고 **연결 끊기**를 선택 합니다.
       1. "+ 연결"을 클릭 하 고 로그인 프로세스를 진행 하 여 장치를 다시 등록 합니다.
 
@@ -148,13 +147,13 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>Q: Azure AD 조인 장치를 장치에서 로컬로 가입을 어떻게 할까요? 하 시겠습니까?
 
-**A:** 순수한 Azure AD 조인 장치의 경우 오프 라인 로컬 관리자 계정이 있는지 확인 하거나 하나를 만들어야 합니다. Azure AD 사용자 자격 증명으로 로그인할 수 없습니다. 그런 다음 **설정** > **계정** > **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 취소 프로세스를 완료합니다.
+**A:** 순수한 Azure AD 조인 장치의 경우 오프 라인 로컬 관리자 계정이 있는지 확인 하거나 하나를 만들어야 합니다. Azure AD 사용자 자격 증명으로 로그인할 수 없습니다. 그런 다음 **설정**  >  **계정**  >  **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 취소 프로세스를 완료합니다.
 
 ---
 
 ### <a name="q-can-my-users-sign-in-to-azure-ad-joined-devices-that-are-deleted-or-disabled-in-azure-ad"></a>Q: 내 사용자가 Azure AD에서 삭제 되거나 사용 하지 않도록 설정 된 Azure AD 조인 장치에 로그인 할 수 있나요?
 
-**A:** 예로. Windows에는 이전에 로그인한 사용자가 네트워크 연결 없이도 신속하게 데스크톱에 액세스할 수 있게 해주는 캐시된 사용자 이름 및 암호 기능이 있습니다. 
+**A:** 예. Windows에는 이전에 로그인한 사용자가 네트워크 연결 없이도 신속하게 데스크톱에 액세스할 수 있게 해주는 캐시된 사용자 이름 및 암호 기능이 있습니다. 
 
 Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디바이스에서 그 사실을 알지 못합니다. 따라서 이전에 로그인한 사용자는 캐시된 사용자 이름 및 암호를 사용하여 데스크톱에 계속 액세스할 수 있습니다. 그러나 장치를 삭제 하거나 사용 하지 않도록 설정 하면 사용자는 장치 기반 조건부 액세스로 보호 되는 리소스에 액세스할 수 없습니다. 
 
@@ -175,6 +174,8 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 ### <a name="q-why-do-my-users-have-issues-on-azure-ad-joined-devices-after-changing-their-upn"></a>Q: UPN을 변경한 후 사용자에 게 Azure AD 조인 장치에서 문제가 발생 하는 이유는 무엇 인가요?
 
 **A:** 현재는 Azure AD 조인 장치에서 UPN 변경이 완전히 지원 되지 않습니다. 그러므로 이러한 디바이스에서 UPN을 변경하고 나면 Azure AD 인증이 실패합니다. 그러면 사용자의 디바이스에서 SSO 및 조건부 액세스 문제가 발생합니다. 이 경우 문제를 해결하려면 사용자가 새 UPN을 사용하여 "다른 사용자" 타일을 통해 Windows에 로그인해야 합니다. 현재 이 문제를 해결하기 위한 작업이 진행되고 있습니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다. 
+
+UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이트를 사용 하는 장치의 사용자는 Upn을 변경한 후에 문제가 발생 하지 않습니다.
 
 ---
 
@@ -253,7 +254,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 **A:** 문제 해결 정보는 다음 문서를 참조 하세요.
 
 - [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md)
-- [하위 수준 장치에 조인 된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
+- [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>Q: Azure AD 장치 목록에 Windows 10 하이브리드 Azure AD 조인 장치에 대 한 중복 Azure AD 등록 레코드가 표시 되는 이유는 무엇 인가요?
 
@@ -266,6 +267,8 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>Q: UPN을 변경한 후 사용자에 게 Windows 10 하이브리드 Azure AD 조인 장치에서 문제가 발생 하는 이유는 무엇 인가요?
 
 **A:** 현재 UPN 변경은 하이브리드 Azure AD 조인 장치에서 완전히 지원 되지 않습니다. 사용자는 디바이스에 로그인하여 온-프레미스 애플리케이션에 액세스할 수는 있지만 UPN을 변경하고 나면 Azure AD 인증이 실패합니다. 그러면 사용자의 디바이스에서 SSO 및 조건부 액세스 문제가 발생합니다. 이번에는 Azure AD에서 장치를 가입 해제 (승격 된 권한으로 "dsregcmd/leave" 실행) 하 고 다시 참가 (자동으로 발생) 하 여 문제를 해결 해야 합니다. 현재 이 문제를 해결하기 위한 작업이 진행되고 있습니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다. 
+
+UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이트를 사용 하는 장치의 사용자는 Upn을 변경한 후에 문제가 발생 하지 않습니다.
 
 ---
 
@@ -286,8 +289,8 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>Q: 로컬에서 장치에 대 한 Azure AD 등록 상태를 제거할 어떻게 할까요? 있나요?
 
 **은** 
-- Windows 10 Azure AD 등록 장치에 대해 **설정** > **계정** > **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
-- IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정** > **장치 등록** 을 사용 하 고 **장치 등록 취소**를 선택할 수 있습니다.
+- Windows 10 Azure AD 등록 장치에 대해 **설정**  >  **계정**  >  **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
+- IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정**  >  **장치 등록** 을 사용 하 고 **장치 등록 취소**를 선택할 수 있습니다.
 - MacOS의 경우 Microsoft Intune 회사 포털 응용 프로그램을 사용 하 여 관리에서 장치 등록을 취소 하 고 등록을 제거할 수 있습니다. 
 
 ---

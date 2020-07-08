@@ -3,15 +3,14 @@ title: Azure PowerShell를 사용 하 여 Azure NSG (네트워크 보안 그룹)
 description: Azure PowerShell를 사용 하 여 azure 네트워크 보안 그룹을 한 Azure 지역에서 다른 지역으로 이동 하려면 Azure Resource Manager 템플릿을 사용 합니다.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0cbd8f61cb1b4cb8eae6b30625fb3039ff75adde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 04abc051cec8a6fb38ce6aa8f5347ae06cb8bd1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75641471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688452"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure NSG (네트워크 보안 그룹)를 다른 지역으로 이동
 
@@ -41,9 +40,9 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="export-the-template-and-deploy-from-a-script"></a>템플릿을 내보내고 스크립트에서 배포
+### <a name="export-the-template-and-deploy-from-a-script"></a>템플릿 내보내기 및 스크립트에서 배포
 
-1. [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용 하 여 Azure 구독에 로그인 하 고 화면의 지시를 따릅니다.
+1. [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
     
     ```azurepowershell-interactive
     Connect-AzAccount
@@ -61,7 +60,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-4. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹의 이름으로 지정 됩니다.  **리소스 그룹-이름>. json 명령에서 내보낸 파일을 찾아 원하는 편집기에서 엽니다. \<**
+4. 다운로드한 파일 이름으로 리소스를 내보낸 리소스 그룹의 이름이 사용됩니다.  명령에서 내보낸 **\<resource-group-name>.json** 파일을 찾은 후 원하는 편집기에서 엽니다.
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -99,16 +98,16 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
             }
     ```
   
-7. 지역 위치 코드를 가져오려면 다음 명령을 실행 하 여 Azure PowerShell cmdlet [AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) 을 사용할 수 있습니다.
+7. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)을 사용할 수 있습니다.
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-8. 또한 선택 하는 경우 ** \<리소스 그룹 이름>** 의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
+8. 또한를 선택 하는 경우에는 ** \<resource-group-name> json** 의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적으로 선택 해야 합니다.
 
-    * **보안 규칙** - ** \<리소스 그룹 이름>. json** 파일의 **securityrules** 섹션에 규칙을 추가 하거나 제거 하 여 대상 nsg에 배포 되는 규칙을 편집할 수 있습니다.
+    * **보안 규칙** - ** \<resource-group-name> Json** 파일의 **securityrules** 섹션에 규칙을 추가 하거나 제거 하 여 대상 nsg에 배포 되는 규칙을 편집할 수 있습니다.
 
         ```json
            "resources": [
@@ -144,7 +143,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
             
         ```
 
-        대상 nsg에서 규칙의 추가 또는 제거를 완료 하려면 아래 예제 형식의 ** \<리소스 그룹 이름>. json** 파일의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
+        대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 다음과 같은 형식으로 ** \<resource-group-name> json** 파일의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
 
         ```json
            {
@@ -171,7 +170,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
             }
         ```
 
-9. ** \<리소스 그룹 이름> json** 파일을 저장 합니다.
+9. **\<resource-group-name>.json** 파일을 저장합니다.
 
 10. [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)를 사용 하 여 배포할 대상 nsg에 대 한 대상 지역에 리소스 그룹을 만듭니다.
     
@@ -179,7 +178,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 ** \<된 리소스 그룹 이름> json** 파일을 배포 합니다.
+11. [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용하여 이전 단계에서 만든 리소스 그룹에 편집된 **\<resource-group-name>.json** 파일을 배포합니다.
 
     ```azurepowershell-interactive
 
@@ -203,7 +202,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
 
 ## <a name="discard"></a>취소 
 
-배포 후 대상에서 NSG를 시작 하거나 삭제 하려는 경우 대상에 생성 된 리소스 그룹을 삭제 하면 이동 된 NSG가 삭제 됩니다.  리소스 그룹을 제거 하려면 [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)를 사용 합니다.
+배포 후 대상에서 NSG를 시작 하거나 삭제 하려는 경우 대상에 생성 된 리소스 그룹을 삭제 하면 이동 된 NSG가 삭제 됩니다.  리소스 그룹을 제거하려면 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)을 사용합니다.
 
 ```azurepowershell-interactive
 
@@ -229,7 +228,7 @@ Remove-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure 네트워크 보안 그룹을 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
+이 자습서에서는 Azure 네트워크 보안 그룹을 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
 - [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

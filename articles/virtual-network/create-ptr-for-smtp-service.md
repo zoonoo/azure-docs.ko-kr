@@ -8,17 +8,16 @@ author: genlin
 manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 6c37ba61005c9936e6421d06369d1f52b93ac264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0264ad93eb53e27d1dc76f2b20ad175a6ee2f8de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77201699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688690"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>SMTP 배너 검사를 위한 역방향 조회 영역 구성
 

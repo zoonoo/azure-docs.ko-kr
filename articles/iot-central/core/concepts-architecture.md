@@ -9,11 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695337"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
 
@@ -168,7 +167,7 @@ Azure IoT Central에는 다음과 같은 보안 기능이 있습니다.
 UI 셸은 응답성이 우수한 최신 HTML5 브라우저 기반 애플리케이션입니다.
 관리자는 사용자 지정 테마를 적용 하 고 사용자 지정 도움말 리소스를 가리키도록 도움말 링크를 수정 하 여 응용 프로그램의 UI를 사용자 지정할 수 있습니다. UI 사용자 지정에 대해 자세히 알아보려면 [Azure IOT CENTRAL Ui 사용자 지정](howto-customize-ui.md) 문서를 참조 하세요.
 
-운영자는 개인 설정 된 응용 프로그램 대시보드를 만들 수 있습니다. 여러 대시보드를 만들어 서로 다른 데이터를 표시 하 고 서로 전환할 수 있습니다.
+운영자는 개인 설정 된 응용 프로그램 대시보드를 만들 수 있습니다. 여러 대시보드를 만들어 서로 다른 데이터를 표시하고 서로 전환할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

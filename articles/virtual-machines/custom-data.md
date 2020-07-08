@@ -7,18 +7,15 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: HT
+ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678361"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>사용자 지정 데이터와 Azure Virtual Machines에서의 Cloud-Int
 
-## <a name="what-is-custom-data"></a>사용자 지정 데이터란?
-
-고객이 프로비저닝 시간에 Microsoft Azure Virtual Machine으로 스크립트나 다른 메타데이터를 삽입할 수 있는지 질문하는 경우가 종종 있습니다.  다른 클라우드에서는 이 개념을 사용자 데이터라고 하는 경우가 많습니다.  Microsoft Azure에는 사용자 지정 데이터라는 유사한 기능이 있습니다. 
+프로 비전 시 Microsoft Azure 가상 머신에 스크립트나 기타 메타 데이터를 삽입 해야 할 수 있습니다.  다른 클라우드에서는 이 개념을 사용자 데이터라고 하는 경우가 많습니다.  Microsoft Azure에는 사용자 지정 데이터라는 유사한 기능이 있습니다. 
 
 사용자 지정 데이터는 첫 부팅/최초 설정 시에만 VM에 제공되므로 이를 ‘프로비저닝’이라고 합니다. 프로비저닝은 VM Create 매개변수(예: 호스트 이름, 사용자 이름, 암호, 인증서, 사용자 지정 데이터, 키)를 VM에 제공하고 프로비저닝 에이전트(예: [Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 및 [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init))가 이를 처리하는 과정입니다. 
 

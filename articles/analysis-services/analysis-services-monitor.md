@@ -8,11 +8,10 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690379"
 ---
 # <a name="monitor-server-metrics"></a>서버 메트릭 모니터링
 
@@ -37,7 +36,7 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 
 모니터링 시나리오에 가장 적합한 메트릭을 확인하기 위해 이 테이블을 사용합니다. 동일한 단위의 메트릭만이 같은 차트에 표시될 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|Description|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|
 |CurrentConnections|연결: 현재 연결|개수|평균|현재 설정된 클라이언트 연결 수입니다.|
@@ -56,7 +55,7 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 |MemoryUsage|메모리: 메모리 사용량|바이트|평균|클리너 메모리 가격을 계산하는 데 사용되는 서버 프로세스의 메모리 사용량입니다. 메모리 매핑된 데이터 크기를 더한 카운터 Process\PrivateBytes와 동일하며 엔진 메모리 제한을 초과하여 메모리 내 분석 엔진(VertiPaq)에서 매핑하거나 할당하는 메모리를 무시합니다.|
 |private_bytes_metric|프라이빗 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 Analysis Services 엔진 프로세스와 매시업 컨테이너 프로세스가 할당 한 총 메모리 양입니다.|
 |virtual_bytes_metric|가상 바이트 |바이트|평균|Analysis Services 엔진 프로세스와 매시업 컨테이너 프로세스에서 사용 하는 가상 주소 공간의 현재 크기입니다.|
-|mashup_engine_private_bytes_metric|M 엔진 전용 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 할당 된 메모리 매시업 컨테이너 프로세스의 총 크기입니다.|
+|mashup_engine_private_bytes_metric|M 엔진 프라이빗 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 할당 된 메모리 매시업 컨테이너 프로세스의 총 크기입니다.|
 |mashup_engine_virtual_bytes_metric|M 엔진 가상 바이트 |바이트|평균|사용 중인 가상 주소 공간 매시업 컨테이너 프로세스의 현재 크기입니다.|
 |할당량|메모리: 할당량|바이트|평균|현재 메모리 할당량, 바이트 단위입니다. 메모리 할당량은 메모리 부여 또는 메모리 예약이라고도 합니다.|
 |QuotaBlocked|메모리: 차단된 할당량|개수|평균|다른 메모리 할당량이 해제될 때까지 차단되는 할당량 요청의 현재 수입니다.|
@@ -74,7 +73,7 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 |LongParsingBusyThreads|스레드: 긴 구문 분석 사용 중인 스레드|개수|평균|긴 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|
 |LongParsingIdleThreads|스레드: 긴 구문 분석 유휴 상태 스레드|개수|평균|긴 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|
 |LongParsingJobQueueLength|스레드: 긴 구문 분석 작업 큐 길이|개수|평균|긴 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|
-|ProcessingPoolIOJobQueueLength|스레드: 처리 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|
+|ProcessingPoolIOJobQueueLength|스레드: 처리 중인 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|
 |ProcessingPoolBusyIOJobThreads|스레드: 처리 풀 사용 중인 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업을 실행 중인 스레드 수입니다.|
 |ProcessingPoolBusyNonIOThreads|스레드: 처리 풀 사용 중인 비-I/O 스레드|개수|평균|처리 스레드 풀에서 비-I/O 작업을 실행 중인 스레드 수입니다.|
 |ProcessingPoolIdleIOJobThreads|스레드: 처리 풀 유휴 상태 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|

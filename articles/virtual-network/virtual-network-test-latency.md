@@ -9,25 +9,24 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74896370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687806"
 ---
 # <a name="test-vm-network-latency"></a>VM 네트워크 대기 시간 테스트
 
-가장 정확한 결과를 얻으려면 작업을 위해 설계 된 도구를 사용 하 여 Azure VM (가상 머신) 네트워크 대기 시간을 측정 합니다. SockPerf (Linux 용) 및 latte (Windows 용)와 같은 공개적으로 사용 가능한 도구는 응용 프로그램 대기 시간과 같은 다른 유형의 대기 시간을 제외 하 고 네트워크 대기 시간을 분리 하 고 측정할 수 있습니다. 이러한 도구는 응용 프로그램 성능에 영향을 주는 네트워크 트래픽 종류 (즉, TCP (전송 제어 프로토콜) 및 UDP (사용자 데이터 그램 프로토콜) 트래픽)에 중점을 둡니다. 
+가장 정확한 결과를 얻으려면 작업을 위해 설계 된 도구를 사용 하 여 Azure VM (가상 머신) 네트워크 대기 시간을 측정 합니다. SockPerf (Linux 용) 및 latte.exe (Windows 용)와 같은 공개적으로 사용 가능한 도구는 응용 프로그램 대기 시간과 같은 다른 유형의 대기 시간을 제외 하 고 네트워크 대기 시간을 분리 하 고 측정할 수 있습니다. 이러한 도구는 응용 프로그램 성능에 영향을 주는 네트워크 트래픽 종류 (즉, TCP (전송 제어 프로토콜) 및 UDP (사용자 데이터 그램 프로토콜) 트래픽)에 중점을 둡니다. 
 
 Ping과 같은 다른 일반적인 연결 도구는 대기 시간을 측정할 수 있지만 실제 작업에서 사용 되는 네트워크 트래픽을 표시 하지 않을 수 있습니다. 이러한 도구의 대부분은 ICMP (Internet Control Message Protocol)를 사용 하기 때문입니다. ICMP는 응용 프로그램 트래픽과 다르게 처리할 수 있으며 그 결과는 TCP 및 UDP를 사용 하는 작업에 적용 되지 않을 수 있습니다. 
 
-대부분의 응용 프로그램에서 사용 하는 프로토콜의 정확한 네트워크 대기 시간 테스트를 위해 SockPerf (Linux) 및 latte (Windows)에서 가장 관련성이 높은 결과를 생성 합니다. 이 문서에서는 이러한 도구를 모두 다룹니다.
+대부분의 응용 프로그램에서 사용 하는 프로토콜의 정확한 네트워크 대기 시간 테스트를 위해 SockPerf (Linux) 및 latte.exe (Windows 용)에서 가장 관련성이 높은 결과를 생성 합니다. 이 문서에서는 이러한 도구를 모두 다룹니다.
 
 ## <a name="overview"></a>개요
 
@@ -45,7 +44,7 @@ Ping과 같은 다른 일반적인 연결 도구는 대기 시간을 측정할 �
 ### <a name="tools-for-testing"></a>테스트용 도구
 대기 시간을 측정 하기 위한 두 가지 도구 옵션은 다음과 같습니다.
 
-* Windows 기반 시스템용: [latte (windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Windows 기반 시스템: [latte.exe (windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 * Linux 기반 시스템: [SockPerf (linux)](https://github.com/mellanox/sockperf)
 
 이러한 도구를 사용 하 여 TCP 또는 UDP 페이로드 배달 시간만 측정 되 고 ICMP (Ping) 또는 응용 프로그램에서 사용 되지 않으며 성능에 영향을 주지 않는 다른 패킷 유형이 아닌 것을 확인할 수 있습니다.
@@ -69,29 +68,29 @@ VM 구성을 만들 때 다음 권장 사항을 염두에 두어야 합니다.
 
 ## <a name="test-vms-that-are-running-windows"></a>Windows를 실행 하는 Vm 테스트
 
-### <a name="get-latteexe-onto-the-vms"></a>Vm에 latte 가져오기
+### <a name="get-latteexe-onto-the-vms"></a>Vm에 대 한 latte.exe 가져오기
 
-[최신 버전의 latte](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)를 다운로드 합니다.
+[최신 버전의 latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)을 다운로드 합니다.
 
-*C:\tools*와 같은 별도의 폴더에 latte를 저장 하는 것이 좋습니다.
+*C:\tools*와 같이 별도의 폴더에 latte.exe을 배치 하는 것이 좋습니다.
 
-### <a name="allow-latteexe-through-windows-defender-firewall"></a>Windows Defender 방화벽을 통해 latte를 허용 합니다.
+### <a name="allow-latteexe-through-windows-defender-firewall"></a>Windows Defender 방화벽을 통한 latte.exe 허용
 
-*수신기*에서 Windows Defender 방화벽에 대 한 허용 규칙을 만들어 latte 트래픽이 도착 하도록 허용 합니다. 특정 TCP 포트 인바운드를 허용 하는 대신 이름으로 전체 latte 프로그램을 허용 하는 것이 가장 쉽습니다.
+*수신기*에서 Windows Defender 방화벽에 대 한 허용 규칙을 만들어 latte.exe 트래픽이 도착할 수 있도록 허용 합니다. 특정 TCP 포트 인바운드를 허용 하는 대신 이름으로 전체 latte.exe 프로그램을 허용 하는 것이 가장 쉽습니다.
 
-다음 명령을 실행 하 여 Windows Defender 방화벽을 통해 latte를 허용 합니다.
+다음 명령을 실행 하 여 Windows Defender 방화벽을 통해 latte.exe 수 있습니다.
 
 ```cmd
 netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
-예를 들어 latte를 *c:\tools* 폴더에 복사한 경우 다음 명령이 수행 됩니다.
+예를 들어 latte.exe을 *c:\tools* 폴더에 복사한 경우 다음 명령이 수행 됩니다.
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>대기 시간 테스트 실행
 
-* *받는 사람*에서 latte를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
+* *받는 사람*에서 latte.exe를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
@@ -105,13 +104,13 @@ netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protoc
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* *보낸 사람*에서 latte를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
+* *보낸 사람*에서 latte.exe를 시작 합니다 (PowerShell이 아닌 CMD 창에서 실행).
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    결과 명령은&nbsp;*-c* 를 추가 하는 것을 제외 하 고는 *받는 사람에서*와 동일 합니다. *client*
+    결과 명령은 &nbsp; *-c* *client*를 추가 하는 것을 제외 하 고는 *받는 사람*에서와 동일 합니다.
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 

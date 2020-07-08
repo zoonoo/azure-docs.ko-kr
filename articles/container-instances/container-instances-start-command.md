@@ -4,15 +4,14 @@ description: Azure container instance를 배포할 때 컨테이너 이미지의
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84693059"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>컨테이너 인스턴스에서 명령줄을 설정 하 여 기본 명령줄 작업을 재정의 합니다.
 
-컨테이너 인스턴스를 만들 때 필요에 따라 기본 명령줄 명령 구운를 컨테이너 이미지로 재정의 하는 명령을 지정 합니다. 이 동작은에 대 한 `--entrypoint` `docker run`명령줄 인수와 유사 합니다.
+컨테이너 인스턴스를 만들 때 필요에 따라 기본 명령줄 명령 구운를 컨테이너 이미지로 재정의 하는 명령을 지정 합니다. 이 동작은 `--entrypoint` 에 대 한 명령줄 인수와 유사 `docker run` 합니다.
 
 컨테이너 인스턴스의 [환경 변수](container-instances-environment-variables.md) 를 설정 하는 것과 같이 시작 명령줄을 지정 하는 것은 작업 관련 구성을 사용 하 여 각 컨테이너를 동적으로 준비 해야 하는 batch 작업에 유용 합니다.
 
@@ -32,7 +31,7 @@ ms.locfileid: "79247125"
 
 * 컨테이너 구성에 따라 명령줄 실행 파일 또는 인수에 대 한 전체 경로를 설정 해야 할 수 있습니다.
 
-* 명령줄에서 장기 실행 태스크를 지정 하는지 아니면 한 번 실행 태스크가 지정 되는지에 따라 컨테이너 인스턴스에 대해 적절 한 [다시 시작 정책을](container-instances-restart-policy.md) 설정 합니다. 예를 들어 또는 `Never` `OnFailure` 의 다시 시작 정책은 한 번 실행 태스크에 권장 됩니다. 
+* 명령줄에서 장기 실행 태스크를 지정 하는지 아니면 한 번 실행 태스크가 지정 되는지에 따라 컨테이너 인스턴스에 대해 적절 한 [다시 시작 정책을](container-instances-restart-policy.md) 설정 합니다. 예를 들어 또는의 다시 시작 `Never` 정책은 `OnFailure` 한 번 실행 태스크에 권장 됩니다. 
 
 * 컨테이너 이미지의 기본 entrypoint 집합에 대 한 정보가 필요한 경우 [docker 이미지 검사](https://docs.docker.com/engine/reference/commandline/image_inspect/) 명령을 사용 합니다.
 
@@ -40,13 +39,13 @@ ms.locfileid: "79247125"
 
 명령줄 구문은 인스턴스를 만드는 데 사용 되는 Azure API 또는 도구에 따라 달라 집니다. 셸 환경을 지정 하는 경우 셸의 명령 구문 규칙도 관찰 됩니다.
 
-* [az container create][az-container-create] 명령: `--command-line` 매개 변수를 사용 하 여 문자열을 전달 합니다. 예: `--command-line "python myscript.py arg1 arg2"`).
+* [az container create][az-container-create] 명령: 매개 변수를 사용 하 여 문자열을 전달 `--command-line` 합니다. 예: `--command-line "python myscript.py arg1 arg2"` ).
 
-* [Get-azurermcontainergroup][new-azurermcontainergroup] Azure PowerShell cmdlet: `-Command` 매개 변수를 사용 하 여 문자열을 전달 합니다. 예: `-Command "echo hello"`.
+* [Get-azurermcontainergroup][new-azurermcontainergroup] Azure PowerShell cmdlet: 매개 변수를 사용 하 여 문자열을 전달 `-Command` 합니다. 예: `-Command "echo hello"`.
 
-* Azure Portal: 컨테이너 구성의 **명령 재정의** 속성에서 쉼표로 구분 된 문자열 목록 (따옴표 포함 안 함)을 제공 합니다. 예: `python, myscript.py, arg1, arg2`). 
+* Azure Portal: 컨테이너 구성의 **명령 재정의** 속성에서 쉼표로 구분 된 문자열 목록 (따옴표 포함 안 함)을 제공 합니다. 예: `python, myscript.py, arg1, arg2` ). 
 
-* 리소스 관리자 템플릿 또는 YAML 파일 또는 Azure Sdk 중 하나: 명령줄 속성을 문자열 배열로 지정 합니다. 예: 리소스 관리자 템플릿의 JSON `["python", "myscript.py", "arg1", "arg2"]` 배열입니다. 
+* 리소스 관리자 템플릿 또는 YAML 파일 또는 Azure Sdk 중 하나: 명령줄 속성을 문자열 배열로 지정 합니다. 예: `["python", "myscript.py", "arg1", "arg2"]` 리소스 관리자 템플릿의 JSON 배열입니다. 
 
   [Dockerfile](https://docs.docker.com/engine/reference/builder/) 구문에 익숙한 경우이 형식은 CMD 명령의 *exec* 형식과 비슷합니다.
 

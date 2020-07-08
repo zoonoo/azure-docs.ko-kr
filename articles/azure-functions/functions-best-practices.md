@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277779"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697693"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
 이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다.  
 
-## <a name="general-best-practices"></a>일반적인 유용한 정보
+## <a name="general-best-practices"></a>일반 모범 사례
 
 Azure Functions를 사용하여 서버가 없는 솔루션을 빌드하고 설계하는 방법의 모범 사례는 다음과 같습니다.
 
@@ -24,7 +23,7 @@ Azure Functions를 사용하여 서버가 없는 솔루션을 빌드하고 설�
 
 큰 장기 실행 함수는 예기치 않은 시간 초과 문제를 발생시킬 수 있습니다. 지정 된 호스팅 계획에 대 한 시간 제한에 대해 자세히 알아보려면 [함수 앱 시간 제한 기간](functions-scale.md#timeout)을 참조 하세요. 
 
-함수는 많은 node.js 종속성으로 인해 커질 수 있습니다. 또한 종속성을 가져올 때 로드 시간이 증가하여 예기치 않은 시간 초과가 발생할 수 있습니다. 종속성은 명시적 및 암시적으로 로드됩니다. 코드를 통해 로드되는 단일 모듈은 자체 추가 모듈을 로드할 수 있습니다. 
+함수는 많은 Node.js 종속성으로 인해 커질 수 있습니다. 또한 종속성을 가져올 때 로드 시간이 증가하여 예기치 않은 시간 초과가 발생할 수 있습니다. 종속성은 명시적 및 암시적으로 로드됩니다. 코드를 통해 로드되는 단일 모듈은 자체 추가 모듈을 로드할 수 있습니다. 
 
 큰 함수를 더 작은 함수 집합으로 리팩터링할 때마다 함께 작동하고 빠른 응답을 반환합니다. 예를 들어 webhook 또는 HTTP 트리거 함수는 특정 시간 제한 내에서 승인 응답이 필요할 수 있습니다. 웹 후크가 즉각적인 응답을 요구 하는 것이 일반적입니다. HTTP 트리거 페이로드를 큐 트리거 함수에 의해 처리되도록 큐에 전달할 수 있습니다. 이 방법을 사용 하면 실제 작업을 지연 하 고 즉각적인 응답을 반환할 수 있습니다.
 
@@ -74,7 +73,7 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 ### <a name="avoid-sharing-storage-accounts"></a>저장소 계정 공유 방지
 
-함수 앱을 만들 때이를 저장소 계정과 연결 해야 합니다. 저장소 계정 연결은 [Azurewebjobsstorage 응용 프로그램 설정](./functions-app-settings.md#azurewebjobsstorage)에서 유지 관리 됩니다. 
+함수 앱을 만들 때이를 저장소 계정과 연결 해야 합니다. 스토리지 계정 연결은 [AzureWebJobsStorage 애플리케이션 설정](./functions-app-settings.md#azurewebjobsstorage)에서 유지 관리됩니다. 
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
@@ -92,29 +91,29 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 비동기 프로그래밍은 특히 i/o 작업을 차단 하는 경우 권장 되는 모범 사례입니다.
 
-C #에서는 항상 `Result` `Wait` `Task` 인스턴스에 대해 속성 또는 호출 메서드를 참조 하지 않도록 합니다. 이 방법은 스레드를 소진시킬 수 있습니다.
+C #에서는 항상 `Result` 인스턴스에 대해 속성 또는 호출 메서드를 참조 하지 않도록 `Wait` `Task` 합니다. 이 방법은 스레드를 소진시킬 수 있습니다.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ### <a name="use-multiple-worker-processes"></a>여러 작업자 프로세스 사용
 
-기본적으로 함수에 대 한 모든 호스트 인스턴스는 단일 작업자 프로세스를 사용 합니다. 특히 Python과 같은 단일 스레드 런타임을 사용 하 여 성능을 향상 시키려면 [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 를 사용 하 여 호스트 당 작업자 프로세스 수를 늘립니다 (최대 10 개). 그런 다음 Azure Functions는 이러한 작업자 간에 동시 함수 호출을 균등 하 게 분산 하려고 시도 합니다. 
+기본적으로 함수에 대 한 모든 호스트 인스턴스는 단일 작업자 프로세스를 사용 합니다. 특히 Python과 같은 단일 스레드 런타임을 사용 하 여 성능을 향상 시키려면 [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 를 사용 하 여 호스트 당 작업자 프로세스 수를 늘립니다 (최대 10 개). 그러면 Azure Functions는 이러한 작업자 사이에 동시 함수 호출을 균등하게 분산하려고 시도합니다. 
 
-FUNCTIONS_WORKER_PROCESS_COUNT는 요구를 충족 하도록 응용 프로그램을 확장할 때 함수가 만드는 각 호스트에 적용 됩니다. 
+요구 사항을 충족하기 위해 애플리케이션을 스케일 아웃할 때 Functions가 만드는 각 호스트에 FUNCTIONS_WORKER_PROCESS_COUNT가 적용됩니다. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>가능하면 항상 일괄 처리로 메시지를 수신합니다.
 
 Event Hub와 같은 일부 트리거는 단일 호출에서 일괄 처리 메시지를 수신할 수 있습니다.  메시지를 일괄 처리하면 성능이 향상됩니다.  [host.json 참조 설명서](functions-host-json.md)에 설명된 대로 `host.json` 파일에서 최대 일괄 처리 크기를 구성할 수 있습니다.
 
-C # 함수의 경우 형식을 강력한 형식의 배열로 변경할 수 있습니다.  예를 들어 메서드 서명은 `EventData sensorEvent` 대신 `EventData[] sensorEvent`일 수 있습니다.  다른 언어의 경우에는 [다음과](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10)같이 일괄 처리를 사용 하도록 설정 하기 `function.json` 위해 `many` 에서 카디널리티 속성을로 명시적으로 설정 해야 합니다.
+C # 함수의 경우 형식을 강력한 형식의 배열로 변경할 수 있습니다.  예를 들어 메서드 서명은 `EventData sensorEvent` 대신 `EventData[] sensorEvent`일 수 있습니다.  다른 언어의 경우에는 `function.json` `many` [다음과](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10)같이 일괄 처리를 사용 하도록 설정 하기 위해에서 카디널리티 속성을로 명시적으로 설정 해야 합니다.
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>동시성을 처리하도록 호스트 동작 구성
 
 호스트 런타임 및 트리거 동작의 구성에 함수 앱의 `host.json` 파일을 사용할 수 있습니다.  동작을 일괄 처리하는 것 외에도 여러 트리거에 대한 동시성을 관리할 수 있습니다. 이러한 옵션의 값을 조정하면 호출된 함수의 요구에 맞게 각 인스턴스의 크기를 조정할 수 있습니다.
 
-호스트 json 파일의 설정은 함수의 *단일 인스턴스* 내에서 앱 내의 모든 함수에 적용 됩니다. 예를 들어 두 개의 HTTP 함수를 사용 하는 함수 앱과 [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) 요청이 25로 설정 된 경우 http 트리거 중 하나에 대 한 요청은 공유 25 개의 동시 요청에 계산 됩니다.  해당 함수 앱의 크기가 10 개의 인스턴스로 조정 된 경우 두 함수는 250 동시 요청을 효과적으로 허용 합니다 (10 개 인스턴스 * 인스턴스당 동시 요청 25 개). 
+host.json 파일의 설정은 함수의 *단일 인스턴스* 내에서 앱 내의 모든 함수에 적용 됩니다. 예를 들어 두 개의 HTTP 함수를 사용 하는 함수 앱과 [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) 요청이 25로 설정 된 경우 http 트리거 중 하나에 대 한 요청은 공유 25 개의 동시 요청에 계산 됩니다.  해당 함수 앱의 크기가 10 개의 인스턴스로 조정 된 경우 두 함수는 250 동시 요청을 효과적으로 허용 합니다 (10 개 인스턴스 * 인스턴스당 동시 요청 25 개). 
 
-다른 호스트 구성 옵션은 [host. json 구성 문서](functions-host-json.md)에서 찾을 수 있습니다.
+기타 호스트 구성 옵션은 [구성의host.js문서](functions-host-json.md)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

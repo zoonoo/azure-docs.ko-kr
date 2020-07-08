@@ -5,21 +5,18 @@ description: Azure Machine Learning Studio (클래식)을 사용 하려면 Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 7b01e7667392d475bcab70dcd3dfaad2c3956e8f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: ede84fefed7db9d2afcc0ad65833ab2c0fefbc03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696527"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Azure Machine Learning Studio (클래식) 작업 영역 만들기 및 공유
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (클래식)을 사용 하려면 Machine Learning Studio (클래식) 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 
@@ -56,7 +53,7 @@ Machine Learning Studio (클래식)에서 작업 영역을 열려면 작업 영�
 
 작업 영역이 배포 되 면 Machine Learning Studio (클래식)에서 작업 영역을 열 수 있습니다.
 
-1. 에서 [https://studio.azureml.net/](https://studio.azureml.net/)Machine Learning Studio (클래식)로 이동 합니다.
+1. 에서 Machine Learning Studio (클래식)로 이동 [https://studio.azureml.net/](https://studio.azureml.net/) 합니다.
 
 2. 오른쪽 위 모서리에서 작업 영역을 선택합니다.
 

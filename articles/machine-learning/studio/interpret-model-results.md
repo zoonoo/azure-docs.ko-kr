@@ -5,27 +5,25 @@ description: 모델 점수 매기기 출력을 사용하고 시각화하여 알�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: 23a201ef63a9a1a6bb5bd078867ccc1200893049
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: a99c1d71ed7e718d4d47ba55573a16466f62de5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687772"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 모델 결과 해석
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 이 항목에서는 Azure Machine Learning Studio (클래식)에서 예측 결과를 시각화 하 고 해석 하는 방법에 대해 설명 합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
 
 Azure Machine Learning Studio (클래식)에는 다음과 같은 네 가지 주요 종류의 기계 학습 모델이 있습니다.
 
 * 분류
-* 클러스터링
-* 재발
+* Clustering
+* 회귀
 * 추천 시스템
 
 이러한 모델을 기반으로 예측에 사용되는 모듈은 다음과 같습니다.
@@ -136,7 +134,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 
 그림 10. 다중 클래스 분류의 웹 서비스 결과
 
-## <a name="regression"></a>재발
+## <a name="regression"></a>회귀
 회귀 문제는 분류 문제와 다릅니다. 분류 문제에서는 붓꽃이 속한 클래스와 같이 개별 클래스를 예측하려고 합니다. 하지만 회귀 문제에서는 다음 예에서 볼 수 있듯이, 자동차 가격과 같은 연속 변수에 대해 예측하려고 합니다.
 
 **예제 실험**
@@ -173,7 +171,7 @@ Azure Machine Learning Studio (클래식)에는 이러한 각 분류 유형을 �
 
 그림 14. 자동차 가격 회귀 문제의 웹 서비스 결과
 
-## <a name="clustering"></a>클러스터링
+## <a name="clustering"></a>Clustering
 **예제 실험**
 
 Iri 데이터 집합을 다시 사용 하 여 클러스터링 실험을 작성 하겠습니다. 여기에서는 특징만 보유하고 클러스터링에 사용할 수 있도록 데이터 집합의 클래스 레이블을 필터링할 수 있습니다. 이 붓꽃 사용 사례에서는 학습 프로세스 중에 클러스터의 수를 2로 지정합니다. 즉, 꽃을 2클래스로 클러스터링합니다. 실험은 그림 15에 표시됩니다.

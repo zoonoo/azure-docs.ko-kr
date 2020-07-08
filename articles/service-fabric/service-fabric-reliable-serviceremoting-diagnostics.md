@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692566"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting에 대한 진단 및 성능 모니터링
 Reliable ServiceRemoting 런타임에서는 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 ServiceRemoting이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
@@ -19,7 +18,7 @@ Reliable ServiceRemoting 런타임에서는 [성능 카운터](https://msdn.micr
 ## <a name="performance-counters"></a>성능 카운터
 Reliable ServiceRemoting 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 | --- | --- |
 | Service Fabric 서비스 |Azure Service Fabric Remoting 서비스 전용 카운터. 예: 요청을 처리하는 데 걸린 평균 시간 |
 | Service Fabric 서비스 메서드 |Service Fabric Remoting 서비스에 의해 구현되는 메서드 전용 카운터. 예: 서비스 메서드가 호출되는 빈도 |
@@ -36,7 +35,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 형식 지정자 "D"를 사용 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ServiceReplicaOrInstanceId*는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 
@@ -57,7 +56,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 *ServiceRuntimeMethodId*는 내부 용도에 맞게 패브릭 서비스 런타임에 의해 생성되는 32비트 정수의 문자열 표현입니다. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 형식 지정자 "D"를 사용 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 하는 메서드를 통해 생성 됩니다.
+*ServiceFabricPartitionID* 는 성능 카운터 인스턴스와 연결 된 SERVICE FABRIC 파티션 ID의 문자열 표현입니다. 파티션 ID는 GUID 이며 해당 문자열 표현은 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 형식 지정자 "D"를 사용 하는 메서드를 통해 생성 됩니다.
 
 *ServiceReplicaOrInstanceId*는 성능 카운터 인스턴스와 연결된 Service Fabric 복제본/인스턴스 ID의 문자열 표현입니다.
 
@@ -74,7 +73,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | Description |
+| 범주의 이름입니다. | 카운터 이름 | 설명 |
 | --- | --- | --- |
 | Service Fabric 서비스 메서드 |초당 호출 수 |초당 서비스 메서드가 호출되는 횟수 |
 | Service Fabric 서비스 메서드 |호출당 평균 시간(밀리초) |서비스 메서드를 실행하는 데 걸린 시간(밀리초) |
@@ -83,7 +82,7 @@ Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다�
 ### <a name="service-request-processing-performance-counters"></a>서비스 요청 처리 성능 카운터
 클라이언트가 서비스 프록시 개체를 통해 메서드를 호출하면 요청 메시지가 네트워크를 통해 서비스 서비스에 전송됩니다. 서비스는 요청 메시지를 처리하고 응답을 다시 클라이언트로 보냅니다. Reliable ServiceRemoting 런타임은 서비스 요청 처리와 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | Description |
+| 범주의 이름입니다. | 카운터 이름 | 설명 |
 | --- | --- | --- |
 | Service Fabric 서비스 |미해결 요청 수 |서비스에서 처리 중인 요청 수 |
 | Service Fabric 서비스 |요청당 평균 시간(밀리초) |서비스에서 요청을 처리하는 데 걸린 시간(밀리초) |

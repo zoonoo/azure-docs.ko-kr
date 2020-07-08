@@ -14,11 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698515"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -38,7 +37,7 @@ DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI
 
  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -287,9 +286,9 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 [Azure Resource 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
 ### <a name="use-azure-cliazure-cli"></a>[Azure CLI] [Azure-CLI] 사용
-DSCForLinux 확장을 배포 하기 전에 섹션 3의 `public.json` 다른 `protected.json` 시나리오에 따라 및를 구성 합니다.
+DSCForLinux 확장을 배포 하기 전에 `public.json` `protected.json` 섹션 3의 다른 시나리오에 따라 및를 구성 합니다.
 
-#### <a name="classic"></a>클래식
+#### <a name="classic"></a>Classic
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
@@ -322,12 +321,12 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 > [!NOTE]
-> Azure Resource Manager 모드에서는 현재 `azure vm extension list` 에서 사용할 수 없습니다.
+> Azure Resource Manager 모드에서는 `azure vm extension list` 현재에서 사용할 수 없습니다.
 >
 
 ### <a name="use-azure-powershellazure-powershell"></a>[Azure PowerShell] [Azure-PowerShell] 사용
 
-#### <a name="classic"></a>클래식
+#### <a name="classic"></a>Classic
 
 다음을 실행 하 여 Azure 서비스 관리 모드에서 Azure 계정에 로그인 할 수 있습니다.
 
@@ -412,7 +411,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ### <a name="troubleshoot"></a>문제 해결
 
-확장 배포 상태에 대 한 데이터는 Azure Portal에서 Azure CLI를 사용 하 여 검색할 수 있습니다. 지정 된 VM에 대 한 확장의 배포 상태를 보려면 Azure CLI를 사용 하 여 다음 명령을 실행 합니다.
+확장 배포 상태에 대한 데이터는 Azure CLI를 사용하여 Azure Portal에서 검색할 수 있습니다. 지정 된 VM에 대 한 확장의 배포 상태를 보려면 Azure CLI를 사용 하 여 다음 명령을 실행 합니다.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -429,9 +428,9 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에 게 문의 하세요. 또는 Azure 지원 인시던트를 파일에 추가할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
+이 문서의 어디서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의하세요. 또는 Azure 지원 인시던트를 파일에 추가할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 확장에 대한 자세한 내용은 [Linux용 가상 머신 확장 및 기능](features-linux.md)을 참조하세요.

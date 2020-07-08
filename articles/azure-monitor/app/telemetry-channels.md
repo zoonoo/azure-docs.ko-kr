@@ -5,21 +5,20 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691954"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
 
-원격 분석 채널은 [Azure 애플리케이션 Insights sdk](../../azure-monitor/app/app-insights-overview.md)의 필수적인 부분입니다. Application Insights 서비스에 대 한 원격 분석의 버퍼링 및 전송을 관리 합니다. Sdk의 .NET 및 .NET Core 버전에는 두 가지 기본 제공 원격 분석 채널 ( `InMemoryChannel` 및 `ServerTelemetryChannel`)이 있습니다. 이 문서에서는 채널 동작을 사용자 지정 하는 방법을 비롯 하 여 각 채널에 대해 자세히 설명 합니다.
+원격 분석 채널은 [Azure 애플리케이션 Insights sdk](../../azure-monitor/app/app-insights-overview.md)의 필수적인 부분입니다. Application Insights 서비스에 대 한 원격 분석의 버퍼링 및 전송을 관리 합니다. Sdk의 .NET 및 .NET Core 버전에는 두 가지 기본 제공 원격 분석 채널 (및)이 있습니다. `InMemoryChannel` `ServerTelemetryChannel` 이 문서에서는 채널 동작을 사용자 지정 하는 방법을 비롯 하 여 각 채널에 대해 자세히 설명 합니다.
 
 ## <a name="what-are-telemetry-channels"></a>원격 분석 채널 이란?
 
-원격 분석 채널은 원격 분석 항목을 버퍼링 하 고 Application Insights 서비스로 전송 하 여 쿼리 및 분석을 위해 저장 합니다. 원격 분석 채널은 [`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) 인터페이스를 구현 하는 클래스입니다.
+원격 분석 채널은 원격 분석 항목을 버퍼링 하 고 Application Insights 서비스로 전송 하 여 쿼리 및 분석을 위해 저장 합니다. 원격 분석 채널은 인터페이스를 구현 하는 클래스입니다 [`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) .
 
-원격 `Send(ITelemetry item)` 분석 채널의 메서드는 모든 원격 분석 이니셜라이저 및 원격 분석 프로세서가 호출 된 후에 호출 됩니다. 따라서 원격 분석 프로세서에 의해 삭제 된 항목은 채널에 도달 하지 않습니다. `Send()`는 일반적으로 백 엔드에 항목을 즉시 보내지 않습니다. 일반적으로 메모리에 버퍼를 버퍼링 하 고 효율적인 전송을 위해 일괄 처리로 보냅니다.
+원격 분석 `Send(ITelemetry item)` 채널의 메서드는 모든 원격 분석 이니셜라이저 및 원격 분석 프로세서가 호출 된 후에 호출 됩니다. 따라서 원격 분석 프로세서에 의해 삭제 된 항목은 채널에 도달 하지 않습니다. `Send()`는 일반적으로 백 엔드에 항목을 즉시 보내지 않습니다. 일반적으로 메모리에 버퍼를 버퍼링 하 고 효율적인 전송을 위해 일괄 처리로 보냅니다.
 
 또한 [라이브 메트릭 스트림](live-stream.md) 에는 원격 분석의 라이브 스트리밍을 지 원하는 사용자 지정 채널이 있습니다. 이 채널은 일반 원격 분석 채널과 독립적 이며이 문서는 적용 되지 않습니다.
 
@@ -27,23 +26,23 @@ ms.locfileid: "79275699"
 
 Application Insights .NET 및 .NET Core Sdk는 두 개의 기본 제공 채널과 함께 제공 됩니다.
 
-* `InMemoryChannel`: 항목이 전송 될 때까지 메모리에 항목을 버퍼링 하는 간단한 채널입니다. 항목은 메모리에 버퍼링 되 고 30 초 마다 또는 500 항목이 버퍼링 될 때마다 플러시됩니다. 이 채널은 실패 후 원격 분석을 다시 시도 하지 않으므로 최소한의 안정성 보장을 제공 합니다. 또한이 채널은 디스크에 항목을 유지 하지 않으므로, 보내지 않은 모든 항목은 응용 프로그램이 종료 될 때 영구적으로 손실 됩니다 (정상 또는 그렇지 않음). 이 채널은 메모리 `Flush()` 내 원격 분석 항목을 동기적으로 강제 플러시하는 데 사용할 수 있는 메서드를 구현 합니다. 이 채널은 동기 플러시가 이상적인 단기 실행 응용 프로그램에 적합 합니다.
+* `InMemoryChannel`: 항목이 전송 될 때까지 메모리에 항목을 버퍼링 하는 간단한 채널입니다. 항목은 메모리에 버퍼링 되 고 30 초 마다 또는 500 항목이 버퍼링 될 때마다 플러시됩니다. 이 채널은 실패 후 원격 분석을 다시 시도 하지 않으므로 최소한의 안정성 보장을 제공 합니다. 또한이 채널은 디스크에 항목을 유지 하지 않으므로, 보내지 않은 모든 항목은 응용 프로그램이 종료 될 때 영구적으로 손실 됩니다 (정상 또는 그렇지 않음). 이 채널은 `Flush()` 메모리 내 원격 분석 항목을 동기적으로 강제 플러시하는 데 사용할 수 있는 메서드를 구현 합니다. 이 채널은 동기 플러시가 이상적인 단기 실행 응용 프로그램에 적합 합니다.
 
     이 채널은 대규모 Microsoft ApplicationInsights NuGet 패키지의 일부 이며, 다른 사용자가 구성 되지 않은 경우 SDK에서 사용 하는 기본 채널입니다.
 
-* `ServerTelemetryChannel`: 재시도 정책 및 로컬 디스크에 데이터를 저장 하는 기능이 있는 고급 채널입니다. 일시적인 오류가 발생 하는 경우이 채널은 원격 분석 전송을 다시 시도 합니다. 또한이 채널은 로컬 디스크 저장소를 사용 하 여 네트워크 중단 또는 높은 원격 분석 볼륨에서 디스크에 항목을 유지 합니다. 이러한 재시도 메커니즘과 로컬 디스크 저장소로 인해이 채널은 더 안정적으로 간주 되므로 모든 프로덕션 시나리오에 권장 됩니다. 이 채널은 공식 설명서에 따라 구성 된 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대 한 기본값입니다. 이 채널은 장기 실행 프로세스를 포함 하는 서버 시나리오에 최적화 되어 있습니다. 이 [`Flush()`](#which-channel-should-i-use) 채널에서 구현 하는 메서드는 동기화 되지 않습니다.
+* `ServerTelemetryChannel`: 재시도 정책 및 로컬 디스크에 데이터를 저장 하는 기능이 있는 고급 채널입니다. 일시적인 오류가 발생 하는 경우이 채널은 원격 분석 전송을 다시 시도 합니다. 또한이 채널은 로컬 디스크 저장소를 사용 하 여 네트워크 중단 또는 높은 원격 분석 볼륨에서 디스크에 항목을 유지 합니다. 이러한 재시도 메커니즘과 로컬 디스크 저장소로 인해이 채널은 더 안정적으로 간주 되므로 모든 프로덕션 시나리오에 권장 됩니다. 이 채널은 공식 설명서에 따라 구성 된 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대 한 기본값입니다. 이 채널은 장기 실행 프로세스를 포함 하는 서버 시나리오에 최적화 되어 있습니다. [`Flush()`](#which-channel-should-i-use)이 채널에서 구현 하는 메서드는 동기화 되지 않습니다.
 
     이 채널은 TelemetryChannel NuGet 패키지로 제공 되며, AspNetCore NuGet 패키지를 사용 하는 경우 자동으로 획득 됩니다 (예를 들어).
 
 ## <a name="configure-a-telemetry-channel"></a>원격 분석 채널 구성
 
-원격 분석 채널을 활성 원격 분석 구성으로 설정 하 여 구성 합니다. ASP.NET 응용 프로그램의 경우 구성에는 원격 분석 채널 인스턴스 `TelemetryConfiguration.Active`를로 설정 하거나 `ApplicationInsights.config`를 수정 하는 작업이 포함 됩니다. ASP.NET Core 응용 프로그램의 경우 구성에는 종속성 주입 컨테이너에 채널을 추가 하는 작업이 포함 됩니다.
+원격 분석 채널을 활성 원격 분석 구성으로 설정 하 여 구성 합니다. ASP.NET 응용 프로그램의 경우 구성에는 원격 분석 채널 인스턴스를로 설정 하거나를 수정 하는 작업이 포함 됩니다 `TelemetryConfiguration.Active` `ApplicationInsights.config` . ASP.NET Core 응용 프로그램의 경우 구성에는 종속성 주입 컨테이너에 채널을 추가 하는 작업이 포함 됩니다.
 
-다음 섹션에서는 다양 한 응용 프로그램 유형에 `StorageFolder` 서 채널에 대 한 설정을 구성 하는 예를 보여 줍니다. `StorageFolder`구성 가능한 설정 중 하나일 뿐입니다. 구성 설정의 전체 목록은이 문서의 뒷부분에 있는 [설정 섹션](telemetry-channels.md#configurable-settings-in-channels) 을 참조 하세요.
+다음 섹션에서는 `StorageFolder` 다양 한 응용 프로그램 유형에 서 채널에 대 한 설정을 구성 하는 예를 보여 줍니다. `StorageFolder`구성 가능한 설정 중 하나일 뿐입니다. 구성 설정의 전체 목록은이 문서의 뒷부분에 있는 [설정 섹션](telemetry-channels.md#configurable-settings-in-channels) 을 참조 하세요.
 
-### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대해 ApplicationInsights .config를 사용 하 여 구성
+### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대해 ApplicationInsights.config를 사용 하 여 구성
 
-[Applicationinsights](configuration-with-applicationinsights-config.md) 의 다음 섹션은를 사용자 지정 위치로 `ServerTelemetryChannel` 설정 하 여 `StorageFolder` 구성 된 채널을 보여 줍니다.
+[ApplicationInsights.config](configuration-with-applicationinsights-config.md) 에서 다음 섹션은를 `ServerTelemetryChannel` `StorageFolder` 사용자 지정 위치로 설정 하 여 구성 된 채널을 보여 줍니다.
 
 ```xml
     <TelemetrySinks>
@@ -60,7 +59,7 @@ Application Insights .NET 및 .NET Core Sdk는 두 개의 기본 제공 채널�
 
 ### <a name="configuration-in-code-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대 한 코드의 구성
 
-다음 코드는가 사용자 지정 위치로 설정 된 `StorageFolder` ' ServerTelemetryChannel ' 인스턴스를 설정 합니다. 일반적으로 Global.aspx.cs의 `Application_Start()` 메서드에서 응용 프로그램의 시작 부분에이 코드를 추가 합니다.
+다음 코드는가 `StorageFolder` 사용자 지정 위치로 설정 된 ' ServerTelemetryChannel ' 인스턴스를 설정 합니다. 일반적으로 Global.aspx.cs의 메서드에서 응용 프로그램의 시작 부분에이 코드를 추가 `Application_Start()` 합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -76,7 +75,7 @@ protected void Application_Start()
 
 ### <a name="configuration-in-code-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 코드의 구성
 
-클래스의 `ConfigureServices` 메서드를 다음과 `Startup.cs` 같이 수정 합니다.
+클래스의 메서드를 다음과 같이 수정 `ConfigureServices` 합니다 `Startup.cs` .
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -93,7 +92,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!IMPORTANT]
-> ASP.NET Core 응용 프로그램에는 `TelemetryConfiguration.Active` 를 사용 하 여 채널을 구성 하지 않는 것이 좋습니다.
+> ASP.NET Core 응용 프로그램에는를 사용 하 여 채널을 구성 `TelemetryConfiguration.Active` 하지 않는 것이 좋습니다.
 
 ### <a name="configuration-in-code-for-netnet-core-console-applications"></a>.NET/.NET Core 콘솔 응용 프로그램에 대 한 코드의 구성
 
@@ -108,9 +107,9 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 ## <a name="operational-details-of-servertelemetrychannel"></a>ServerTelemetryChannel의 작업 세부 정보
 
-`ServerTelemetryChannel`는 도착 항목을 메모리 내 버퍼에 저장 합니다. 항목은 30 초 마다, 또는 500 항목이 버퍼링 될 `Transmission` 때 인스턴스로 직렬화, 압축 및 저장 됩니다. 단일 `Transmission` 인스턴스는 최대 500 개 항목을 포함 하며 단일 HTTPS 호출을 통해 Application Insights 서비스에 전송 되는 원격 분석의 일괄 처리를 나타냅니다.
+`ServerTelemetryChannel`는 도착 항목을 메모리 내 버퍼에 저장 합니다. 항목은 `Transmission` 30 초 마다, 또는 500 항목이 버퍼링 될 때 인스턴스로 직렬화, 압축 및 저장 됩니다. 단일 `Transmission` 인스턴스는 최대 500 개 항목을 포함 하며 단일 HTTPS 호출을 통해 Application Insights 서비스에 전송 되는 원격 분석의 일괄 처리를 나타냅니다.
 
-기본적으로 최대 10 `Transmission` 개의 인스턴스를 병렬로 전송할 수 있습니다. 원격 분석이 더 빠른 속도로 도착 하거나 네트워크 또는 Application Insights 백 엔드가 느려지는 경우 `Transmission` 인스턴스는 메모리에 저장 됩니다. 이 메모리 `Transmission` 내 버퍼의 기본 용량은 5mb입니다. 메모리 내 용량이 초과 되 면 `Transmission` 인스턴스는 50 MB까지 로컬 디스크에 저장 됩니다. `Transmission`인스턴스는 네트워크 문제가 있는 경우에도 로컬 디스크에 저장 됩니다. 로컬 디스크에 저장 되는 항목만 응용 프로그램 작동 중단으로 유지 됩니다. 응용 프로그램이 다시 시작 될 때마다 전송 됩니다.
+기본적으로 최대 10 개의 인스턴스를 `Transmission` 병렬로 전송할 수 있습니다. 원격 분석이 더 빠른 속도로 도착 하거나 네트워크 또는 Application Insights 백 엔드가 느려지는 경우 `Transmission` 인스턴스는 메모리에 저장 됩니다. 이 메모리 내 버퍼의 기본 용량은 `Transmission` 5mb입니다. 메모리 내 용량이 초과 되 면 `Transmission` 인스턴스는 50 MB까지 로컬 디스크에 저장 됩니다. `Transmission`인스턴스는 네트워크 문제가 있는 경우에도 로컬 디스크에 저장 됩니다. 로컬 디스크에 저장 되는 항목만 응용 프로그램 작동 중단으로 유지 됩니다. 응용 프로그램이 다시 시작 될 때마다 전송 됩니다.
 
 ## <a name="configurable-settings-in-channels"></a>채널의 구성 가능한 설정
 
@@ -120,25 +119,25 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 * [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
 
-에 `ServerTelemetryChannel`가장 일반적으로 사용 되는 설정은 다음과 같습니다.
+에 가장 일반적으로 사용 되는 설정은 `ServerTelemetryChannel` 다음과 같습니다.
 
 1. `MaxTransmissionBufferCapacity`: 메모리의 버퍼 전송을 위해 채널에서 사용 하는 최대 메모리 양 (바이트)입니다. 이 용량에 도달 하면 새 항목이 로컬 디스크에 직접 저장 됩니다. 기본값은 5MB입니다. 높은 값을 설정 하면 디스크 사용이 감소 하지만 응용 프로그램이 충돌 하는 경우 메모리의 항목이 손실 됩니다.
 
-1. `MaxTransmissionSenderCapacity`: 동시에 Application Insights 하기 `Transmission` 위해 전송 되는 최대 인스턴스 수입니다. 기본값은 10입니다. 이 설정은 대규모 원격 분석을 생성할 때 권장 되는 더 높은 수로 구성할 수 있습니다. 높은 볼륨은 일반적으로 부하 테스트 중 또는 샘플링을 해제할 때 발생 합니다.
+1. `MaxTransmissionSenderCapacity`: 동시에 `Transmission` Application Insights 하기 위해 전송 되는 최대 인스턴스 수입니다. 기본값은 10입니다. 이 설정은 대규모 원격 분석을 생성할 때 권장 되는 더 높은 수로 구성할 수 있습니다. 높은 볼륨은 일반적으로 부하 테스트 중 또는 샘플링을 해제할 때 발생 합니다.
 
 1. `StorageFolder`: 필요에 따라 디스크에 항목을 저장 하기 위해 채널에서 사용 하는 폴더입니다. 다른 경로를 명시적으로 지정 하지 않으면 Windows 에서% LOCALAPPDATA% 또는% TEMP%가 사용 됩니다. Windows 이외의 환경에서는 유효한 위치를 지정 해야 합니다. 그렇지 않으면 원격 분석이 로컬 디스크에 저장 되지 않습니다.
 
 ## <a name="which-channel-should-i-use"></a>어떤 채널을 사용 해야 하나요?
 
-`ServerTelemetryChannel`는 장기 실행 응용 프로그램을 포함 하는 대부분의 프로덕션 시나리오에 권장 됩니다. 에서 `Flush()` `ServerTelemetryChannel` 구현 하는 메서드는 동기적이 지 않으며 메모리 나 디스크에서 보류 중인 모든 항목을 전송 하는 것도 보장 하지 않습니다. 응용 프로그램이 종료 되려고 하는 시나리오에서이 채널을 사용 하는 경우를 호출한 `Flush()`후 약간의 지연을 도입 하는 것이 좋습니다. 필요할 수 있는 정확한 지연 시간은 예측할 수 없습니다. 이는 메모리에 있는 항목 또는 `Transmission` 인스턴스의 수, 디스크의 수, 백 엔드에서 전송 되는 항목 수, 채널이 지 수 백오프 시나리오의 중간에 있는지 여부 등의 요소에 따라 달라 집니다.
+`ServerTelemetryChannel`는 장기 실행 응용 프로그램을 포함 하는 대부분의 프로덕션 시나리오에 권장 됩니다. `Flush()`에서 구현 하는 메서드는 `ServerTelemetryChannel` 동기적이 지 않으며 메모리 나 디스크에서 보류 중인 모든 항목을 전송 하는 것도 보장 하지 않습니다. 응용 프로그램이 종료 되려고 하는 시나리오에서이 채널을 사용 하는 경우를 호출한 후 약간의 지연을 도입 하는 것이 좋습니다 `Flush()` . 필요할 수 있는 정확한 지연 시간은 예측할 수 없습니다. 이는 메모리에 있는 항목 또는 인스턴스의 수 `Transmission` , 디스크의 수, 백 엔드에서 전송 되는 항목 수, 채널이 지 수 백오프 시나리오의 중간에 있는지 여부 등의 요소에 따라 달라 집니다.
 
-동기 플러시를 수행 해야 하는 경우를 사용 `InMemoryChannel`하는 것이 좋습니다.
+동기 플러시를 수행 해야 하는 경우를 사용 하는 것이 좋습니다 `InMemoryChannel` .
 
 ## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Application Insights 채널은 원격 분석 배달을 보장 하나요? 그렇지 않은 경우 원격 분석이 손실 될 수 있는 시나리오는 무엇입니까?
 
-짧은 대답은 기본 제공 채널이 백 엔드에 대 한 원격 분석 배달의 트랜잭션 형식 보증을 제공 하지 않는다는 것입니다. `ServerTelemetryChannel`는 신뢰할 수 있는 배달용 `InMemoryChannel` 과 비교 하 여 더 고급 이지만 원격 분석을 전송 하는 데에는 최상의 시도만 수행 합니다. 다음과 같은 일반적인 시나리오를 비롯 한 몇 가지 상황에서는 원격 분석이 여전히 손실 될 수 있습니다.
+짧은 대답은 기본 제공 채널이 백 엔드에 대 한 원격 분석 배달의 트랜잭션 형식 보증을 제공 하지 않는다는 것입니다. `ServerTelemetryChannel`는 신뢰할 수 있는 배달용과 비교 하 여 더 고급 `InMemoryChannel` 이지만 원격 분석을 전송 하는 데에는 최상의 시도만 수행 합니다. 다음과 같은 일반적인 시나리오를 비롯 한 몇 가지 상황에서는 원격 분석이 여전히 손실 될 수 있습니다.
 
 1. 응용 프로그램의 작동이 중단 되 면 메모리의 항목이 손실 됩니다.
 

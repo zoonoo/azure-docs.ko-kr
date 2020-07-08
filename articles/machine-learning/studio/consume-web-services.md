@@ -5,21 +5,18 @@ description: Azure Machine Learning Studio (클래식)에서 machine learning �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
-ms.date: 06/02/2017
-ms.openlocfilehash: b97fe6e55e2c36b6f101071e702952f529146281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.date: 05/29/2020
+ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696629"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스를 사용 하는 방법
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (클래식) 예측 모델을 웹 서비스로 배포 하면 REST API를 사용 하 여 it 데이터를 전송 하 고 예측을 얻을 수 있습니다. 데이터를 실시간으로 또는 일괄 처리 모드로 보낼 수 있습니다.
 
@@ -99,7 +96,7 @@ Machine Learning 웹 서비스에 연결 하려면 **WebApi** NuGet 패키지를
 **Visual Studio에서 WebApi NuGet을 설치 합니다.**
 
 1. UCI: Adult 2 클래스 데이터 세트에서 데이터 세트 다운로드 웹 서비스를 게시합니다.
-2. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭 합니다.
+2. **도구**  >  **NuGet 패키지 관리자**  >  **패키지 관리자 콘솔**을 클릭 합니다.
 3. **Install-Package Microsoft.AspNet.WebApi.Client**를 선택합니다.
 
 **코드 샘플을 실행하려면**
@@ -254,54 +251,46 @@ Machine Learning 웹 서비스에 연결하려면 **RCurl** 및 **rjson** 라이
 
 **완료된 요청은 다음과 같습니다.**
 ```r
-library("RCurl")
+library("curl")
+library("httr")
 library("rjson")
 
-# Accept TLS/SSL certificates issued by public Certificate Authorities
-options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+requestFailed = function(response) {
+    return (response$status_code >= 400)
+}
 
-h = basicTextGatherer()
-hdr = basicHeaderGatherer()
+printHttpResult = function(response, result) {
+    if (requestFailed(response)) {
+        print(paste("The request failed with status code:", response$status_code, sep=" "))
+    
+        # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
+        print(response$headers)
+    }
+    
+    print("Result:") 
+    print(fromJSON(result))  
+}
 
 req = list(
-    Inputs = list(
+        Inputs = list( 
             "input1" = list(
-                list(
-                        'column1' = "value1",
-                        'column2' = "value2",
-                        'column3' = "value3"
-                    )
-            )
-        ),
+                "ColumnNames" = list("Col1", "Col2", "Col3"),
+                "Values" = list( list( "0", "value", "0" ),  list( "0", "value", "0" )  )
+            )                ),
         GlobalParameters = setNames(fromJSON('{}'), character(0))
 )
 
 body = enc2utf8(toJSON(req))
-api_key = "<your-api-key>" # Replace this with the API key for the web service
+api_key = "abc123" # Replace this with the API key for the web service
 authz_hdr = paste('Bearer', api_key, sep=' ')
 
-h$reset()
-curlPerform(url = "<your-api-uri>",
-httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
-postfields=body,
-writefunction = h$update,
-headerfunction = hdr$update,
-verbose = TRUE
-)
+response = POST(url= "<your-api-uri>",
+        add_headers("Content-Type" = "application/json", "Authorization" = authz_hdr),
+        body = body)
 
-headers = hdr$value()
-httpStatus = headers["status"]
-if (httpStatus >= 400)
-{
-print(paste("The request failed with status code:", httpStatus, sep=" "))
+result = content(response, type="text", encoding="UTF-8")
 
-# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
-print(headers)
-}
-
-print("Result:")
-result = h$value()
-print(fromJSON(result))
+printHttpResult(response, result)
 ```
 
 ### <a name="javascript-sample"></a>JavaScript 샘플

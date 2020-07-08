@@ -10,18 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 54c4a673e654a0244183a84ffa841d553ae6db51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688623"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI를 사용 하는 가속화 된 네트워킹을 사용 하 여 Linux 가상 머신 만들기
 
@@ -97,7 +96,7 @@ az group create --name myResourceGroup --location centralus
 
 [Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 지원되는 Linux 지역을 선택합니다.
 
-[Az network vnet create](/cli/azure/network/vnet)를 사용 하 여 가상 네트워크를 만듭니다. 다음 예제에서는 하나의 서브넷을 포함한 *myVnet*이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 하나의 서브넷을 포함한 *myVnet*이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 az network vnet create \
@@ -109,7 +108,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
-[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *Mynetworksecuritygroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \

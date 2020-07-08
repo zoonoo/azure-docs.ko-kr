@@ -11,18 +11,17 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b593630d6702f66b1b877c15688b9aea0e227fca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235070"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688299"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -119,7 +118,7 @@ az network nsg rule create \
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[Az network vnet create](/cli/azure/network/vnet)를 사용 하 여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVirtualNetwork*라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVirtualNetwork*라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -196,7 +195,7 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후에는 반환된 �
 
 ## <a name="test-traffic-filters"></a>트래픽 필터 테스트
 
-다음 명령을 사용하여 *myVmMgmt* VM으로 SSH 세션을 만듭니다. * \<PublicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
+다음 명령을 사용하여 *myVmMgmt* VM으로 SSH 세션을 만듭니다. *\<publicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697343"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
@@ -33,7 +32,7 @@ Azure Functions 버전 2.x에서 [바인딩은](./functions-triggers-bindings.md
 
 ## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>로컬 개발용 확장 번들
 
-확장 번들은 함수 앱에 호환 되는 함수 바인딩 확장 집합을 추가할 수 있는 배포 기술입니다. 앱을 빌드할 때 미리 정의 된 확장 집합이 추가 됩니다. 번들에 정의 된 확장 패키지는 서로 호환 되므로 패키지 간의 충돌을 방지할 수 있습니다. 앱의 호스트나 json 파일에서 확장 번들을 사용 하도록 설정 합니다.  
+확장 번들은 함수 앱에 호환 되는 함수 바인딩 확장 집합을 추가할 수 있는 배포 기술입니다. 앱을 빌드할 때 미리 정의 된 확장 집합이 추가 됩니다. 번들에 정의 된 확장 패키지는 서로 호환 되므로 패키지 간의 충돌을 방지할 수 있습니다. 응용 프로그램의 host.js파일에서 확장 번들을 사용 하도록 설정 합니다.  
 
 버전 2.x 이상 버전의 함수 런타임에서 확장 번들을 사용할 수 있습니다. 로컬로 개발 하는 경우 최신 버전의 [Azure Functions Core Tools](functions-run-local.md#v2)을 사용 하 고 있는지 확인 합니다.
 
@@ -41,13 +40,13 @@ Azure Functions 버전 2.x에서 [바인딩은](./functions-triggers-bindings.md
 
 확장 번들을 사용 하지 않는 경우 바인딩 확장을 설치 하기 전에 로컬 컴퓨터에 .NET Core 2.x SDK를 설치 해야 합니다. 확장 번들은 로컬 개발을 위한 이러한 요구 사항을 제거 합니다. 
 
-확장 번들을 사용 하려면에 대 한 `extensionBundle`다음 항목을 포함 하도록 *호스트나 json* 파일을 업데이트 합니다.
+확장 번들을 사용 하려면에 대 한 다음 항목을 포함 하도록 파일 *의host.js* 를 업데이트 합니다 `extensionBundle` .
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>Visual\# Studio를 사용 하는 C 클래스 라이브러리
+## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Visual Studio를 사용 하는 C 클래스 라이브러리
 
 다음 예제와 같이 **Visual Studio**에서 패키지 관리자 콘솔을 사용 하 여 패키지 [를 설치할 수](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 있습니다.
 
@@ -59,7 +58,7 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 
 예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열 되어 있습니다. 런타임 1.x 또는 2.x 함수에 해당 하는 주 버전은 바인딩에 대 한 참조 문서에 지정 되어 있습니다.
 
-를 사용 `Install-Package` 하 여 바인딩을 참조 하는 경우에는 [확장 번들](#extension-bundles)을 사용할 필요가 없습니다. 이 방법은 Visual Studio에서 빌드된 클래스 라이브러리에만 적용 됩니다.
+`Install-Package`를 사용 하 여 바인딩을 참조 하는 경우에는 [확장 번들](#extension-bundles)을 사용할 필요가 없습니다. 이 방법은 Visual Studio에서 빌드된 클래스 라이브러리에만 적용 됩니다.
 
 ## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Visual Studio Code를 사용 하는 c # 클래스 라이브러리
 
@@ -71,7 +70,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 .NET Core CLI는 Azure Functions 2.x 개발에만 사용할 수 있습니다.
 
-필요한 `<BINDING_TYPE_NAME>` 바인딩을 포함 하는 패키지의 이름으로 대체 합니다. [지원 되](./functions-triggers-bindings.md#supported-bindings)는 바인딩 목록에서 원하는 바인딩 참조 문서를 찾을 수 있습니다.
+`<BINDING_TYPE_NAME>`필요한 바인딩을 포함 하는 패키지의 이름으로 대체 합니다. [지원 되](./functions-triggers-bindings.md#supported-bindings)는 바인딩 목록에서 원하는 바인딩 참조 문서를 찾을 수 있습니다.
 
 예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열 되어 있습니다. 런타임 1.x 또는 2.x 함수에 해당 하는 주 버전은 바인딩에 대 한 참조 문서에 지정 되어 있습니다.
 

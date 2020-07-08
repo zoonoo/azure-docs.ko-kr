@@ -14,11 +14,10 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689489"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -26,7 +25,7 @@ ms.locfileid: "79253963"
 
 Microsoft는 Windows용 Powershell DSC 확장을 게시하고 지원합니다. 확장은 PowerShell DSC 구성을 Azure VM에 업로드하고 적용합니다. DSC 확장은 PowerShell DSC를 호출하여 VM에서 받은 DSC 구성을 적용합니다. 이 문서에서는 Windows용 DSC 가상 머신 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -97,16 +96,16 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| 게시자 | Microsoft.Powershell.DSC | string |
+| publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>settings(설정) 속성 값
 
-| 속성 | 데이터 형식 | Description
+| 이름 | 데이터 형식 | Description
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | VM에 설치해야 하는 Windows Management Framework의 버전을 지정합니다. 이 속성을 'latest'로 설정하면 최신 업데이트 버전의 WMF가 설치됩니다. 현재 이 속성에는 '4.0', '5.0' 및 'latest' 값만 사용할 수 있습니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 'latest'입니다. |
 | settings.configuration.url | string | DSC 구성 zip 파일을 다운로드할 URL 위치를 지정합니다. 제공된 URL에 액세스하기 위해 SAS 토큰이 필요한 경우 protectedSettings.configurationUrlSasToken 속성을 SAS 토큰 값으로 설정해야 합니다. settings.configuration.script 및/또는 settings.configuration.function이 정의된 경우 이 속성이 필요합니다.
@@ -114,17 +113,17 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 | settings.configuration.function | string | DSC 구성의 이름을 지정합니다. 명명된 구성은 configuration.script에 정의된 스크립트에 있어야 합니다. settings.configuration.url 및/또는 settings.configuration.function이 정의된 경우 이 속성이 필요합니다.
 | settings.configurationArguments | 컬렉션 | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화되지 않습니다.
 | settings.configurationData.url | string | DSC 구성에 대한 입력으로 사용할 구성 데이터(.pds1) 파일을 다운로드할 URL을 지정합니다. 제공된 URL에 액세스하기 위해 SAS 토큰이 필요한 경우 protectedSettings.configurationDataUrlSasToken 속성을 SAS 토큰 값으로 설정해야 합니다.
-| settings.privacy.dataEnabled | string | 원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에는 Enable', 'Disable', " 또는 $null 값만 사용할 수 있습니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다.
-| settings.advancedOptions.forcePullAndApply | Bool | 이 설정은 Azure Automation DSC를 사용 하 여 노드를 등록 하는 확장을 사용 하는 환경을 개선 하도록 설계 되었습니다.  값이 `$true`이면 내선 번호는 성공/실패를 반환 하기 전에 서비스에서 끌어온 구성의 첫 번째 실행을 기다립니다.  값이 $false로 설정 된 경우 확장에 의해 반환 되는 상태는 노드가 Azure Automation 상태 구성에 성공적으로 등록 되었는지 여부를 참조 하 고 등록 하는 동안 노드 구성이 실행 되지 않습니다.
+| settings.privacy.dataEnabled | 문자열 | 원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에는 Enable', 'Disable', " 또는 $null 값만 사용할 수 있습니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다.
+| settings.advancedOptions.forcePullAndApply | Bool | 이 설정은 Azure Automation DSC를 사용 하 여 노드를 등록 하는 확장을 사용 하는 환경을 개선 하도록 설계 되었습니다.  값이 이면 `$true` 내선 번호는 성공/실패를 반환 하기 전에 서비스에서 끌어온 구성의 첫 번째 실행을 기다립니다.  값이 $false로 설정 된 경우 확장에 의해 반환 되는 상태는 노드가 Azure Automation 상태 구성에 성공적으로 등록 되었는지 여부를 참조 하 고 등록 하는 동안 노드 구성이 실행 되지 않습니다.
 | settings.advancedOptions.downloadMappings | 컬렉션 | WMF 및 .NET과 같은 종속성을 다운로드할 대체 위치를 정의합니다.
 
 ### <a name="protected-settings-property-values"></a>protectedSettings(보호된 설정) 속성 값
 
-| 속성 | 데이터 형식 | Description
+| 이름 | 데이터 형식 | Description
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationUrlSasToken | string | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
-| protectedSettings.configurationDataUrlSasToken | string | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
+| protectedSettings.configurationDataUrlSasToken | 문자열 | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
 
 
 ## <a name="template-deployment"></a>템플릿 배포
@@ -170,6 +169,6 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 | 1100 | 인수 오류 | 사용자가 제공한 입력에 문제가 있음을 나타냅니다. 이 오류 메시지는 특정 예외에서 제공됩니다.|
 
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 지원 받기를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

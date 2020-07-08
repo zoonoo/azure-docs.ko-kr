@@ -1,29 +1,28 @@
 ---
 title: 리소스를 찾을 수 없음 오류
-description: Azure Resource Manager 템플릿으로 배포할 때 리소스를 찾을 수 없을 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
+description: 리소스를 찾을 수 없는 경우 오류를 해결 하는 방법을 설명 합니다. Azure Resource Manager 템플릿을 배포 하거나 관리 작업을 수행 하는 경우 오류가 발생할 수 있습니다.
 ms.topic: troubleshooting
-ms.date: 01/21/2020
-ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667950"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Azure 리소스 찾을 수 없음 오류 해결
+# <a name="resolve-resource-not-found-errors"></a>리소스를 찾을 수 없음 오류 해결
 
-이 문서에서는 배포 중에 리소스를 찾을 수 없을 때 발생할 수 있는 오류에 대해 설명합니다.
+이 문서에서는 작업 중에 리소스를 찾을 수 없을 때 표시 되는 오류에 대해 설명 합니다. 일반적으로 리소스를 배포할 때이 오류가 표시 됩니다. 관리 작업을 수행할 때 필요한 리소스를 찾을 수 없는 Azure Resource Manager도이 오류가 표시 됩니다. 예를 들어 존재 하지 않는 리소스에 태그를 추가 하려고 하면이 오류가 표시 됩니다.
 
 ## <a name="symptom"></a>증상
 
-해석할 수 없는 리소스 이름이 포함된 템플릿인 경우 다음과 비슷한 오류 메시지가 표시됩니다.
+리소스를 찾을 수 없음을 나타내는 두 가지 오류 코드가 있습니다. **Notfound** 오류는 다음과 유사한 결과를 반환 합니다.
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-해석할 수 없는 리소스에 [reference](template-functions-resource.md#reference) 또는 [listKeys](template-functions-resource.md#listkeys) 함수를 사용하는 경우에는 다음과 같은 오류 메시지가 표시됩니다.
+**ResourceNotFound** 오류는 다음과 유사한 결과를 반환 합니다.
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +32,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>원인
 
-Resource Manager에서 리소스에 대한 속성을 검색해야 하지만 구독에서 해당 리소스를 식별할 수 없습니다.
+리소스 관리자 리소스의 속성을 검색 해야 하지만 구독에서 리소스를 찾을 수 없습니다.
 
-## <a name="solution-1---set-dependencies"></a>해결 방법 1 - 종속성 설정
+## <a name="solution-1---check-resource-properties"></a>해결 방법 1-리소스 속성 확인
 
-템플릿에서 누락된 리소스를 배포하려는 경우 종속성을 추가해야 하는지 여부를 확인합니다. 리소스 관리자는 가능한 경우 리소스를 병렬로 만들어 배포를 최적화합니다. 한 리소스가 다른 리소스 뒤에 배포되어야 하는 경우 템플릿에서 **dependsOn** 요소를 사용합니다. 예를 들어 웹앱을 배포할 때는 App Service 계획이 반드시 존재해야 합니다. 웹앱이 App Service 계획에 종속된다고 지정하지 않으면 Resource Manager에서 두 리소스를 모두 만듭니다. 웹앱에 속성을 설정하려고 할 때 App Service 계획 리소스가 아직 없기 때문에 이 리소스를 찾을 수 없다는 오류 메시지가 표시됩니다. 웹앱에서 종속성을 설정하면 이러한 오류를 방지할 수 있습니다.
+관리 작업을 수행 하는 동안이 오류가 표시 되 면 리소스에 대해 제공 하는 값을 확인 합니다. 확인할 세 가지 값은 다음과 같습니다.
+
+* 리소스 이름
+* 리소스 그룹 이름
+* Subscription
+
+PowerShell 또는 Azure CLI를 사용 하는 경우 리소스를 포함 하는 구독에서 명령을 실행 하 고 있는지 확인 합니다. [AzContext](/powershell/module/Az.Accounts/Set-AzContext) 또는 [az account set](/cli/azure/account#az-account-set)를 사용 하 여 구독을 변경할 수 있습니다. 또한 대부분의 명령은 현재 컨텍스트와 다른 구독을 지정할 수 있는 구독 매개 변수를 제공 합니다.
+
+속성을 확인 하는 데 문제가 있으면 [포털](https://portal.azure.com)에 로그인 합니다. 사용 하려는 리소스를 찾고 리소스 이름, 리소스 그룹 및 구독을 검사 합니다.
+
+## <a name="solution-2---set-dependencies"></a>솔루션 2-종속성 설정
+
+템플릿을 배포할 때이 오류가 발생 하는 경우 종속성을 추가 해야 할 수 있습니다. 리소스 관리자는 가능한 경우 리소스를 병렬로 만들어 배포를 최적화합니다. 한 리소스가 다른 리소스 뒤에 배포되어야 하는 경우 템플릿에서 **dependsOn** 요소를 사용합니다. 예를 들어 웹앱을 배포할 때는 App Service 계획이 반드시 존재해야 합니다. 웹앱이 App Service 계획에 종속된다고 지정하지 않으면 Resource Manager에서 두 리소스를 모두 만듭니다. 웹앱에 속성을 설정하려고 할 때 App Service 계획 리소스가 아직 없기 때문에 이 리소스를 찾을 수 없다는 오류 메시지가 표시됩니다. 웹앱에서 종속성을 설정하면 이러한 오류를 방지할 수 있습니다.
 
 ```json
 {
@@ -70,9 +81,13 @@ Resource Manager에서 리소스에 대한 속성을 검색해야 하지만 구�
 
    ![순차 배포](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>해결 방법 2 - 다른 리소스 그룹에서 리소스 가져오기
+## <a name="solution-3---get-external-resource"></a>해결 방법 3-외부 리소스 가져오기
 
-배포할 리소스 그룹과 다른 리소스 그룹에 리소스가 있는 경우 [resourceId 함수](template-functions-resource.md#resourceid)를 사용하여 정규화된 리소스 이름을 가져옵니다.
+템플릿을 배포할 때 다른 구독 또는 리소스 그룹에 존재 하는 리소스를 가져와야 하는 경우 [resourceId 함수](template-functions-resource.md#resourceid)를 사용 합니다. 이 함수는를 반환 하 여 리소스의 정규화 된 이름을 가져옵니다.
+
+ResourceId 함수의 구독 및 리소스 그룹 매개 변수는 선택 사항입니다. 제공 하지 않으면 기본적으로 현재 구독 및 리소스 그룹으로 지정 됩니다. 다른 리소스 그룹 또는 구독에서 리소스를 사용 하는 경우 해당 값을 제공 해야 합니다.
+
+다음 예제에서는 다른 리소스 그룹에 있는 리소스에 대 한 리소스 ID를 가져옵니다.
 
 ```json
 "properties": {
@@ -81,22 +96,39 @@ Resource Manager에서 리소스에 대한 속성을 검색해야 하지만 구�
 }
 ```
 
-## <a name="solution-3---check-reference-function"></a>해결 방법 3 - reference 함수 검사
-
-[reference](template-functions-resource.md#reference) 함수를 포함하는 식을 찾습니다. 리소스가 동일한 템플릿, 리소스 그룹 및 구독에 있는지 여부에 따라 제공하는 값이 다릅니다. 시나리오에 필요한 매개 변수 값을 제공하는지 다시 한 번 확인합니다. 리소스가 다른 리소스 그룹에 있으면 전체 리소스 ID를 제공합니다. 예를 들어 다른 리소스 그룹의 스토리지 계정을 참조하려면 다음을 사용합니다.
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
-```
-
 ## <a name="solution-4---get-managed-identity-from-resource"></a>해결 방법 4-리소스에서 관리 id 가져오기
 
 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 암시적으로 만드는 리소스를 배포 하는 경우 관리 되는 id의 값을 검색 하기 전에 해당 리소스가 배포 될 때까지 기다려야 합니다. 관리 id 이름을 [참조](template-functions-resource.md#reference) 함수에 전달 하는 경우 리소스와 id를 배포 하기 전에 리소스 관리자에서 참조를 확인 하려고 시도 합니다. 대신 id가 적용 되는 리소스의 이름을 전달 합니다. 이 방법을 사용 하면 리소스 관리자에서 참조 함수를 확인 하기 전에 리소스와 관리 되는 id가 배포 됩니다.
 
 참조 함수에서를 사용 `Full` 하 여 관리 되는 id를 비롯 한 모든 속성을 가져옵니다.
 
-예를 들어 가상 머신 확장 집합에 적용 되는 관리 되는 id에 대 한 테 넌 트 ID를 가져오려면 다음을 사용 합니다.
+패턴은 다음과 같습니다.
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+> [!IMPORTANT]
+> 패턴을 사용 하지 않습니다.
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> 템플릿이 실패 합니다.
+
+예를 들어 가상 컴퓨터에 적용 되는 관리 id의 보안 주체 ID를 가져오려면 다음을 사용 합니다.
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+또는 가상 머신 확장 집합에 적용 되는 관리 되는 id에 대 한 테 넌 트 ID를 가져오려면 다음을 사용 합니다.
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>해결 방법 5-함수 검사
+
+템플릿을 배포할 때 [reference](template-functions-resource.md#reference) 또는 [listkeys](template-functions-resource.md#listkeys) 함수를 사용 하는 식을 찾습니다. 리소스가 동일한 템플릿, 리소스 그룹 및 구독에 있는지 여부에 따라 제공하는 값이 다릅니다. 시나리오에 필요한 매개 변수 값을 제공 하 고 있는지 확인 합니다. 리소스가 다른 리소스 그룹에 있으면 전체 리소스 ID를 제공합니다. 예를 들어 다른 리소스 그룹의 스토리지 계정을 참조하려면 다음을 사용합니다.
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

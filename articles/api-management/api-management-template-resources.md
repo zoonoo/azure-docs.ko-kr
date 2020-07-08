@@ -14,11 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689990"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 종류의 리소스를 제공합니다.  
@@ -48,7 +47,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 지원 되는 지역화 옵션은 다음과 같습니다.
 
-| Locale    | 언어               |
+| 로캘    | 언어               |
 |-----------|------------------------|
 | "en"      | 영어              |
 | 양방향      | "Čeština"              |
@@ -113,13 +112,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="apisstrings"></a><a name="ApisStrings"></a>ApisStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a>AppDetailsStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|애플리케이션 미리 보기|  
 |WebApplicationsRequirementsHeader|요구 사항|  
@@ -128,29 +127,29 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a>ApplicationListStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|애플리케이션을 제거하시겠습니까?|  
 |WebDevelopersAppNotPublished|게시되지 않음|  
 |WebDevelopersAppNotSubmitted|제출되지 않음|  
 |WebDevelopersAppTableCategoryHeader|범주|  
-|WebDevelopersAppTableNameHeader|속성|  
+|WebDevelopersAppTableNameHeader|이름|  
 |WebDevelopersAppTableStateHeader|시스템 상태|  
 |WebDevelopersEditLink|편집|  
 |WebDevelopersRegisterAppLink|애플리케이션 등록|  
 |WebDevelopersRemoveLink|제거|  
-|WebDevelopersSubmitLink|Submit|  
+|WebDevelopersSubmitLink|전송|  
 |WebDevelopersYourApplicationsHeader|애플리케이션|  
   
 ###  <a name="appstrings"></a><a name="AppStrings"></a>AppStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |WebApplicationsHeader|애플리케이션|  
   
 ###  <a name="commonresources"></a><a name="CommonResources"></a>CommonResources  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |NoItemsToDisplay|결과를 찾을 수 없습니다.|  
 |GeneralExceptionMessage|오류가 발생했습니다. 일시적인 결함이나 버그일 수 있습니다. 다시 시도하세요.|  
@@ -161,13 +160,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="commonstrings"></a><a name="CommonStrings"></a>CommonStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |ButtonLabelCancel|취소|  
 |ButtonLabelSave|저장|  
 |GeneralExceptionMessage|오류가 발생했습니다. 일시적인 결함이나 버그일 수 있습니다. 다시 시도하세요.|  
 |NoItemsToDisplay|표시할 항목이 없습니다.|  
-|PagerButtonLabelFirst|처음|  
+|PagerButtonLabelFirst|첫째|  
 |PagerButtonLabelLast|마지막|  
 |PagerButtonLabelNext|다음|  
 |PagerButtonLabelPrevious|이전|  
@@ -179,13 +178,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |PasswordTooManyRepetitions|반복이 너무 많습니다.|  
 |PasswordSequenceFound|암호에 시퀀스가 포함되어 있습니다.|  
 |PagerLabelPageSize|페이지 크기|  
-|CurtainLabelLoading|로드 중...|  
+|CurtainLabelLoading|로딩...|  
 |TablePlaceholderNothingToDisplay|선택한 기간과 범위에 대한 데이터가 없습니다.|  
-|ButtonLabelClose|닫습니다|  
+|ButtonLabelClose|닫기|  
   
 ###  <a name="documentation"></a><a name="Documentation"></a>설명을  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|잘못된 헤더 ‘{0}’|  
 |WebDocumentationInvalidRequestErrorMessage|잘못된 요청 URL|  
@@ -327,13 +326,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |SectionHeadingRequestUrl|요청 URL|  
 |SectionHeadingResponse|응답|  
 |SectionHeadingRequestHeaders|요청 헤더|  
-|FormLabelSubtextOptional|선택적|  
+|FormLabelSubtextOptional|선택 사항|  
 |SectionHeadingCodeSamples|코드 샘플|  
-|TextblockOpenidConnectHeaderDescription|<i\> {0}</I\>에서 가져온 openid connect Connect ID 토큰입니다. 지원되는 권한 부여 유형: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|<i</I에서 가져온 Openid connect Connect ID 토큰 \> {0} \> 입니다. 지원되는 권한 부여 유형: <i\>{1}</i\>.|  
   
 ###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a>ErrorPageStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |LinkLabelBack|뒤로|  
 |LinkLabelHomePage|홈페이지|  
@@ -351,9 +350,9 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="issuesstrings"></a><a name="IssuesStrings"></a>IssuesStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
-|WebIssuesIndexTitle|문제|  
+|WebIssuesIndexTitle|Issues|  
 |WebIssuesNoActiveSubscriptions|활성 구독이 없습니다. 문제를 보고하려면 제품을 구독해야 합니다.|  
 |WebIssuesNotSignin|로그인하지 않습니다. {0}하여 문제를 보고하거나 의견을 게시해 주세요.|  
 |WebIssuesReportIssueButton|보고서 문제|  
@@ -362,7 +361,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a>NotFoundStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |LinkLabelHomePage|홈페이지|  
 |LinkLabelSendUsEmail|전자 메일 보내기|  
@@ -377,10 +376,10 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a>ProductDetailsStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |WebProductsAgreement|{0} 제품을 구독하면 `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`에 동의하는 것입니다.|  
-|WebProductsLegalTermsLink|사용 약관|  
+|WebProductsLegalTermsLink|사용 조건|  
 |WebProductsSubscribeButton|구독|  
 |WebProductsUsageLimitsHeader|사용 제한|  
 |WebProductsYouAreNotSubscribed|이 제품을 구독하고 있습니다.|  
@@ -399,13 +398,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="productsstrings"></a><a name="ProductsStrings"></a>ProductsStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
-|PageTitleProducts|Products|  
+|PageTitleProducts|제품|  
   
 ###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a>ProviderInfoStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|로그인은 현재 관리자에 의해 사용할 수 없도록 설정되어 있습니다.|  
 |TextboxExternalIdentitiesSigninInvitation|또는 다음 계정으로 로그인합니다.|  
@@ -413,7 +412,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="signinresources"></a><a name="SigninResources"></a>SigninResources  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |PrincipalNotFound|주체가 없거나 서명이 유효하지 않습니다.|  
 |ErrorSsoAuthenticationFailed|SSO 인증에 실패했습니다.|  
@@ -423,7 +422,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ValidationErrorSpecificEmailInvalid|메일 ‘{0}’이(가) 잘못되었습니다.|  
 |ValidationErrorPasswordInvalid|암호가 잘못되었습니다. 오류를 수정하고 다시 시도해 보세요.|  
 |PropertyTooShort|{0}이(가) 너무 짧습니다.|  
-|WebAuthenticationAddresserEmailInvalidErrorMessage|잘못된 전자 메일 주소입니다.|  
+|WebAuthenticationAddresserEmailInvalidErrorMessage|메일 주소가 잘못되었습니다.|  
 |ValidationMessageNewPasswordConfirmationRequired|새 암호 확인|  
 |ValidationErrorPasswordConfirmationRequired|암호 확인이 비어 있습니다.|  
 |WebAuthenticationEmailChangeNotice|변경 확인 메일이 {0}(으)로 가는 중입니다. 그 안에 있는 지침에 따라 새 전자 메일 주소를 확인하세요. 전자 메일이 몇 분 내에 받은 편지함에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
@@ -433,8 +432,8 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ValidationErrorEmailAlreadyExists|이미 있는 전자 메일|  
 |ValidationErrorEmailInvalid|잘못된 전자 메일 주소|  
 |TextboxLabelEmail|메일|  
-|ValidationErrorEmailRequired|전자 메일은 필수입니다.|  
-|WebAuthenticationErrorNoticeHeader|오류|  
+|ValidationErrorEmailRequired|메일은 필수 사항입니다.|  
+|WebAuthenticationErrorNoticeHeader|Error|  
 |WebAuthenticationFieldLengthErrorMessage|{0}은(는) {1}의 최대 길이여야 합니다.|  
 |TextboxLabelEmailFirstName|이름|  
 |ValidationErrorFirstNameRequired|이름은 필수입니다.|  
@@ -504,12 +503,12 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationNoAadTenantConfigured|서비스에 구성된 Azure Active Directory 테넌트가 없습니다.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`에 동의합니다.|  
 |TextblockUserRegistrationTermsProvided|`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`을(를) 검토하세요.|  
-|DialogHeadingTermsOfUse|사용 약관|  
+|DialogHeadingTermsOfUse|사용 조건|  
 |ValidationMessageConsentNotAccepted|계속하려면 먼저 사용 약관에 동의해야 합니다.|  
   
 ###  <a name="signinstrings"></a><a name="SigninStrings"></a>SigninStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|암호를 잊으셨습니까?|  
 |WebAuthenticationIfAdministrator|관리자이면 `<a href="{0}"\>here</a\>`에 로그인해야 합니다.|  
@@ -521,7 +520,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="signupstrings"></a><a name="SignupStrings"></a>SignupStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |PageTitleSignup|등록|  
 |WebAuthenticationAlreadyAMember|이미 회원이십니까?|  
@@ -531,7 +530,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a>SubscriptionListStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|이 구독을 취소하시겠습니까?|  
 |SubscriptionRenewConfirmation|이 구독을 갱신하시겠습니까?|  
@@ -543,7 +542,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ButtonLabelRenewSubscription|갱신|  
 |WebDevelopersSubscriptionRequested|{0}에 요청됨|  
 |WebDevelopersSubscriptionRequestedState|요청됨|  
-|WebDevelopersSubscriptionTableNameHeader|속성|  
+|WebDevelopersSubscriptionTableNameHeader|이름|  
 |WebDevelopersSubscriptionTableStateHeader|시스템 상태|  
 |WebDevelopersUsageStatisticsLink|분석 보고서|  
 |WebDevelopersYourSubscriptions|구독|  
@@ -554,7 +553,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a>SubscriptionStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |SectionHeadingCloseAccount|계정을 사용 중지하시겠습니까?|  
 |PageTitleDeveloperProfile|프로필|  
@@ -565,14 +564,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a>UpdateProfileStrings  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|프로필 업데이트|  
 |PageTitleUpdateProfile|계정 정보 업데이트|  
   
 ###  <a name="userprofile"></a><a name="UserProfile"></a>UserProfile  
   
-|속성|Text|  
+|이름|텍스트|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|계정 정보 변경|  
 |ButtonLabelChangePassword|암호 변경|  

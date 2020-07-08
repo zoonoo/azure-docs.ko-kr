@@ -4,7 +4,6 @@ description: 이 문서에서는 Azure Traffic Manager와 함께 사용할 수 �
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
-ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cd5c6968425c64bd670e56bbe7ae016c59662169
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698668"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 
@@ -91,7 +89,7 @@ Traffic Manager 포털, PowerShell, CLI 또는 REST API를 통해 엔드포인�
 
 프로필의 모든 엔드포인트가 비활성화되거나 프로필 자체가 비활성화된 경우 Traffic Manager은 'NXDOMAIN' 응답을 새 DNS 쿼리에 보냅니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 * [여러 구독에서 엔드포인트로 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 

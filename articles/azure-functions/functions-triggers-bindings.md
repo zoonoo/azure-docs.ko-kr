@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687653"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -44,11 +43,11 @@ ms.locfileid: "79276505"
 | 플랫폼 | 트리거 및 바인딩을 구성 하는 방법 ... |
 |-------------|--------------------------------------------|
 | C # 클래스 라이브러리 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c # 특성을 사용 하 여 메서드 및 매개 변수 데코레이팅 |
-| 기타 모든 항목 (Azure Portal 포함) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[함수인 json](./functions-reference.md) ([스키마](http://json.schemastore.org/function))을 업데이트 하는 중 |
+| 기타 모든 항목 (Azure Portal 포함) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[function.js](./functions-reference.md) 업데이트 ([스키마](http://json.schemastore.org/function)) |
 
 포털은이 구성에 대 한 UI를 제공 하지만 함수에서 **통합** 탭을 통해 사용할 수 있는 **고급 편집기** 를 열어 직접 파일을 편집할 수 있습니다.
 
-.NET에서 매개 변수 형식은 입력 데이터의 데이터 형식을 정의 합니다. 예를 들어를 `string` 사용 하 여 큐 트리거의 텍스트, 이진으로 읽을 바이트 배열 및 개체로 직렬화를 취소 하는 사용자 지정 형식을 바인딩합니다.
+.NET에서 매개 변수 형식은 입력 데이터의 데이터 형식을 정의 합니다. 예를 들어를 사용 `string` 하 여 큐 트리거의 텍스트, 이진으로 읽을 바이트 배열 및 개체로 직렬화를 취소 하는 사용자 지정 형식을 바인딩합니다.
 
 JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.json* 파일의 `dataType` 속성을 사용합니다. 예를 들어 이진 형식의 HTTP 요청 내용을 읽으려면 `dataType`을 `binary`로 설정합니다.
 
@@ -69,7 +68,7 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.jso
 
 - 트리거의 경우 방향은 언제나 `in`입니다
 - 입력 및 출력 바인딩은 `in`과 `out`을 사용합니다
-- 일부 바인딩은 특수 방향인 `inout`을 사용합니다. 를 사용 `inout`하는 경우 포털의 **통합** 탭을 통해 **고급 편집기** 만 사용할 수 있습니다.
+- 일부 바인딩은 특수 방향인 `inout`을 사용합니다. 를 사용 하는 경우 `inout` 포털의 **통합** 탭을 통해 **고급 편집기** 만 사용할 수 있습니다.
 
 [클래스 라이브러리의 특성](functions-dotnet-class-library.md)을 사용하여 트리거 및 바인딩을 구성하는 경우 방향은 특성 생성자에서 제공되거나 매개 변수 형식에서 유추됩니다.
 

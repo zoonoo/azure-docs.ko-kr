@@ -7,11 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690017"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -69,7 +68,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 9. 선택한 항목에 대해 상태 이벤트를 만들지 않으려는 경우 **이 테스트에서 검사되는 대상에서 상태 모니터링 사용**의 선택을 취소합니다. 
 10. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 선택한 네트워크 또는 서브네트워크 쌍에 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
-11. **저장** 을 선택하여 구성을 저장합니다. 
+11. **저장** 을 선택 하 여 구성을 저장 합니다. 
 
     ![서비스 연결 모니터 테스트 구성](media/network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 

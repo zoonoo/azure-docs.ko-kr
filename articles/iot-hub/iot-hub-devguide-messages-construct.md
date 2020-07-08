@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 77145c691f5b2b6364de64e491aac3c84495d464
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 3b32468c9795f603ac38854415bca9d653d7c101
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726131"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674980"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -75,11 +74,9 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 
 시스템 속성 이름은 메시지가 라우팅되는 엔드포인트에 따라 다릅니다. 이러한 이름에 대한 자세한 내용은 아래 표를 참조하세요.
 
-
 |시스템 속성 이름|Event Hubs|Azure Storage|Service Bus|Event Grid|
 |--------------------|----------|-------------|-----------|----------|
 |메시지 ID|message-id|messageId|MessageId|message-id|
-|Iot hub enqueued time|iothub-enqueuedtime|enqueuedTime|iothub-enqueuedtime|iothub-enqueuedtime|
 |User id|user-id|userId|UserId|user-id|
 |Connection device id|iothub-connection-device-id| connectionDeviceId|iothub-connection-device-id|iothub-connection-device-id|
 |Connection module id|iothub-connection-module-id|connectionModuleId|iothub-connection-module-id|iothub-connection-module-id|
@@ -87,7 +84,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 |Connection auth method|iothub-connection-auth-method|connectionAuthMethod|iothub-connection-auth-method|iothub-connection-auth-method|
 |contentType|content-type|contentType|ContentType|iothub-content-type|
 |contentEncoding|content-encoding|contentEncoding|ContentEncoding|iothub-content-encoding|
-|iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime|     |iothub-enqueuedtime|
+|iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime| 해당 없음 |iothub-enqueuedtime|
 |iothub-interface-name|iothub-interface-name|interfaceName|Iothub-interface-name|iothub-interface-name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 

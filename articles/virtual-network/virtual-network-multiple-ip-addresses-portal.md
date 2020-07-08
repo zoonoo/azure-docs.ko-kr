@@ -8,17 +8,16 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687976"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -52,8 +51,8 @@ ms.locfileid: "82146606"
 
 새 개인 IP 주소를 추가하려면 다음 단계를 완료합니다.
 
-1. 이 문서의 [핵심 단계](#coreadd) 섹션에 나오는 단계를 완료합니다.
-2. **추가**를 클릭합니다. 표시되는 **IP 구성 추가** 창에서 *고정* 개인 IP 주소가 *10.0.0.7*인 *IPConfig-4*라는 IP 구성을 만든 다음 **확인**을 클릭합니다.
+1. 이 문서의 [핵심 단계](#coreadd) 섹션에 있는 단계를 완료 하 고 VM 네트워크 인터페이스의 **IP 구성** 섹션에 있는지 확인 합니다.  기본값으로 표시 된 서브넷을 검토 합니다 (예: 10.0.0.0/24).
+2. **추가**를 클릭합니다. 표시 되는 **ip 구성 추가** 창에서 최종 8 진수의 새 숫자를 선택 하 여 새 *고정* 개인 ip 주소를 사용 하 여 *IPConfig-4* 라는 IP 구성을 만든 다음 **확인**을 클릭 합니다.  (10.0.0.0/24 서브넷의 경우 예제 IP가 *10.0.0.7*입니다.)
 
     > [!NOTE]
     > 고정 IP 주소를 추가할 경우 NIC가 연결된 서브넷의 사용하지 않은 유효한 주소를 지정해야 합니다. 선택한 주소를 사용할 수 없는 경우 포털에 IP 주소로 X가 표시되며 다른 주소를 선택해야 합니다.
@@ -75,7 +74,7 @@ ms.locfileid: "82146606"
 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. IP 구성에 연결하려는 IP 구성에 현재 연결되어 있지 않은 공용 IP 주소 리소스가 있는 경우 다음 단계를 건너뛰고 필요에 따라 이어지는 섹션 중 하나에 나와 있는 단계를 완료합니다. 사용 가능한 공용 IP 주소 리소스가 없는 경우 다음 단계를 완료하여 리소스를 하나 만듭니다.
 
 1. https://portal.azure.com의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
-3. 포털에서 **리소스** > 만들기**네트워킹** > **공용 IP 주소**를 클릭 합니다.
+3. 포털에서 **리소스 만들기**  >  **네트워킹**  >  **공용 IP 주소**를 클릭 합니다.
 4. 다음 그림과 같이 표시되는 **공용 IP 주소 만들기** 창에서 **이름**을 입력하고 **IP 주소 할당** 형식, **구독**, **리소스 그룹** 및 **위치**를 선택한 다음, **만들기**를 클릭합니다.
 
     ![공용 IP 주소 리소스 만들기](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)

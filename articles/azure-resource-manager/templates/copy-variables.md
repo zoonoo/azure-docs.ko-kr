@@ -3,12 +3,11 @@ title: 변수의 여러 인스턴스 정의
 description: 변수를 만들 때 Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 여러 번 반복 합니다.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678446"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>ARM 템플릿의 변수 반복
 
@@ -16,7 +15,7 @@ ms.locfileid: "82583379"
 
 [리소스](copy-resources.md), [리소스의 속성](copy-properties.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -240,7 +239,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {

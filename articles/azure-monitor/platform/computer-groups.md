@@ -7,11 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689013"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
 Azure Monitor의 컴퓨터 그룹을 사용 하 여 [로그 쿼리의](../log-query/log-query-overview.md) 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
@@ -21,7 +20,7 @@ Azure Monitor의 컴퓨터 그룹을 사용 하 여 [로그 쿼리의](../log-qu
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
-| 방법 | Description |
+| 메서드 | 설명 |
 |:--- |:--- |
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
@@ -46,9 +45,9 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 
 다음 표는 컴퓨터 그룹을 정의하는 속성을 설명합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:---|:---|
-| 속성   | 포털에 표시할 쿼리의 이름입니다. |
+| 이름   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |
 | 범주       | 포털에서 쿼리를 구성할 범주입니다. |
 
@@ -118,7 +117,7 @@ Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 �
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 대한 레코드가 Log Analytics 작업 영역에 생성됩니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 쿼리 기반의 컴퓨터 그룹에 대한 레코드는 만들어지지 않습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |
@@ -127,7 +126,7 @@ Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 
 | `GroupFullName` |원본 및 원본 이름을 포함하는 그룹에 대한 전체 경로입니다. |
 | `GroupSource` |그룹을 수집해 온 원본입니다. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | `GroupSourceName` |그룹을 수집해 온 원본의 이름입니다.  Active Directory의 경우 도메인 이름이 됩니다. |
-| `ManagementGroupName` |SCOM 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
+| `ManagementGroupName` |SCOM 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<workspace ID\>입니다. |
 | `TimeGenerated` |컴퓨터 그룹이 만들어졌거나 업데이트된 날짜 및 시간입니다. |
 
 ## <a name="next-steps"></a>다음 단계

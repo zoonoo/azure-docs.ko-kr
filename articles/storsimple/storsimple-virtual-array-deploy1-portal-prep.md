@@ -9,11 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254535"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698957"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
@@ -52,7 +51,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 * [StorSimple 가상 배열 파일 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
 * [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 여기에는 StorSimple 디바이스 관리자 서비스, StorSimple 가상 배열, 데이터 센터 네트워크에 대한 필수 조건이 제공됩니다.
 
@@ -127,7 +126,7 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 
 #### <a name="to-get-the-virtual-array-image"></a>가상 배열 이미지를 가져오려면
 
-1. 로그인은 [Azure 포털](https://portal.azure.com/)합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 2. Azure Portal에서 **찾아보기 &gt; StorSimple 디바이스 관리자**를 클릭합니다.
 3. 기존 StorSimple 디바이스 관리자 서비스를 선택합니다. **StorSimple 디바이스 관리자** 블레이드에서 **빠른 시작**을 클릭합니다. 
 4. Microsoft 다운로드 센터에서 다운로드하려는 이미지에 해당하는 링크를 클릭합니다. 이미지 파일은 약 4.8GB입니다.

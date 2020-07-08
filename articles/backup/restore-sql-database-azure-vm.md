@@ -4,11 +4,10 @@ description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 �
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687432"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -23,7 +22,7 @@ ms.locfileid: "79252455"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -95,7 +94,7 @@ ms.locfileid: "79252455"
 
 ### <a name="restore-and-overwrite"></a>복원 및 덮어쓰기
 
-1. **복원 구성** 메뉴의 **복원 위치**에서 **DB** > 로 덮어쓰기**확인**을 선택 합니다.
+1. **복원 구성** 메뉴의 **복원 위치**에서 **DB로 덮어쓰기**  >  **확인**을 선택 합니다.
 
     ![DB 덮어쓰기 선택](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
@@ -114,10 +113,10 @@ ms.locfileid: "79252455"
 
     >대상으로 등록 된 VM에 탑재 된 Azure 파일 공유에서 데이터베이스 백업 파일을 복원 하려면 NT 권한 없음이 파일 공유에 액세스할 수 있는지 확인 합니다. 아래 지정 된 단계를 수행 하 여 VM에 탑재 된 AFS에 대 한 읽기/쓰기 권한을 부여할 수 있습니다.
     >
-    >- 을 `PsExec -s cmd` 실행 하 여 NT 권한 없는 셸에 입력
+    >- `PsExec -s cmd`을 실행 하 여 NT 권한 없는 셸에 입력
     >   - `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>` 실행
     >   - 액세스 권한 확인`dir \\<storageacct>.file.core.windows.net\<filesharename>`
-    >- 백업 자격 증명 모음 `\\<storageacct>.file.core.windows.net\<filesharename>` 에서 경로로 복원 파일을 시작 합니다.<BR>
+    >- 백업 자격 증명 모음에서 경로로 복원 파일을 시작 합니다. `\\<storageacct>.file.core.windows.net\<filesharename>`<BR>
     Psexec를 통해 다운로드할 수 있습니다.<https://docs.microsoft.com/sysinternals/downloads/psexec>
 
 4. **확인**을 선택합니다.
@@ -142,7 +141,7 @@ ms.locfileid: "79252455"
     ![일정 열기](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. 날짜를 선택한 후에는 타임라인 그래프에 사용 가능한 복구 지점이 연속적인 범위로 표시됩니다.
-1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음 **확인**을 선택합니다.
+1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음, **확인**을 선택합니다.
 
     ![복원 시간 선택](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 

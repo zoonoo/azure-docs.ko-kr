@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257525"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699059"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Azure로 테스트 장애 조치 (failover) (재해 복구 드릴) 실행 
 
@@ -28,10 +27,10 @@ ms.locfileid: "79257525"
 ![테스트 장애 조치(Failover)](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. Azure Portal의 Site Recovery에서 **복구 계획** > *recoveryplan_name* > **테스트 장애 조치 (Failover)** 를 클릭 합니다.
+1. Azure Portal의 Site Recovery에서 **복구 계획**  >  *recoveryplan_name*  >  **테스트 장애 조치 (Failover)** 를 클릭 합니다.
 2. 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-    - **가장 최근에 처리됨**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 특정 VM에 대 한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점을** 확인 하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
-    - **최신 앱 일치**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 애플리케이션 일치 복구 지점으로 장애 조치합니다. 특정 VM에 대 한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점을** 확인 하세요.
+    - **가장 최근에 처리됨**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
+    - **최신 앱 일치**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 애플리케이션 일치 복구 지점으로 장애 조치합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요.
     - **최신**: 먼저 Site Recovery 서비스로 보낸 모든 데이터를 처리한 다음 각 VM에 대한 복구 지점을 만든 후에 해당 복구 지점에 장애 조치합니다. 이 옵션은 장애 조치(failover) 후에 생성된 VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
     - **최신 다중 VM 처리**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 이 설정이 사용하도록 설정된 VM은 최신 일반 다중 VM 일치 복구 지점으로 장애 조치(Failover)됩니다. 다른 VM은 처리된 최신 복구 지점으로 장애 조치(Failover)됩니다.  
     - **최신 다중 VM 앱 일치**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 복제 그룹에 속하는 VM은 공통된 최신 다중 VM 애플리케이션 일관성 복구 지점으로 장애 조치(failover)됩니다. 다른 VM은 최신 애플리케이션 일치 복구 지점으로 장애 조치(Failover)됩니다.
@@ -103,9 +102,9 @@ ms.locfileid: "79257525"
 
 장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 표에 요약된 요구 사항을 따르세요.
 
-**장애 조치(Failover)** | **위치** | **작업**
+**장애 조치(Failover)** | **위치** | **actions**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스 하려면 컴퓨터에서 rdp를 사용 하도록 설정 하 고, **도메인 및 개인** 네트워크의 **Windows 방화벽** -> **허용 되는 앱 및 기능**에서 rdp를 허용 해야 합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
+**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스 하려면 컴퓨터에서 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 허용 되는**앱 및 기능**에서 rdp를 허용 해야 합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
 **Windows를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM |  VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> 장애 조치된 VM 및 해당 VM이 연결된 Azure 서브넷에 대한 네트워크 보안 그룹 규칙에서 RDP 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단**을 확인하여 VM에 대한 스크린샷을 검토합니다.<br/><br/> 연결할 수 없는 경우 VM이 실행 중인지 확인 하 고 이러한 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토 합니다.
 **Linux를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
 **Linux를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> **부트 진단**에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>

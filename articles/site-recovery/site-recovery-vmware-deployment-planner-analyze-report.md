@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
 ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699195"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure에 대 한 VMware 재해 복구를 위한 Deployment Planner 보고서 분석
 
@@ -178,7 +177,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 디스크(VMDK)를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 값은 **예** 및 **예\*** 입니다. **예** \* 는 VM이 [premium ssd](../virtual-machines/windows/disks-types.md)에 적합 한 인스턴스에 대 한 것입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 다음은 그 예입니다.
+**VM 호환성**: 값은 **예** 및 **예\*** 입니다. **예** \* 는 VM이 [Premium ssd](../virtual-machines/windows/disks-types.md)에 적합 한 인스턴스에 대 한입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예를 들어:
 * 128GB 미만은 P10입니다.
 * 128GB ~ 256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -186,7 +185,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 * 1,025GB ~ 2,048GB는 P40입니다.
 * 2,049GB ~ 4,095GB는 P50입니다.
 
-예를 들어, 디스크의 워크 로드 특성이 P20 또는 P30 범주에 배치 되지만 크기가 더 낮은 프리미엄 저장소 디스크 유형에 매핑되는 경우 도구에서 해당 VM을 **예**\*로 표시 합니다. 또한 도구에서는 원본 디스크 크기를 권장 Premium Storage 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
+예를 들어, 디스크의 워크 로드 특성이 P20 또는 P30 범주에 배치 되지만 크기가 더 낮은 프리미엄 저장소 디스크 유형에 매핑되는 경우 도구에서 해당 VM을 **예**로 표시 합니다 \* . 또한 도구에서는 원본 디스크 크기를 권장 Premium Storage 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
 
 **스토리지 유형**: 표준 또는 프리미엄입니다.
 
@@ -267,7 +266,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |  디스크당 336GB
 프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 | 20 m b/초 | 디스크당 1684
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 | 20MB/s | 디스크당 1,684GB
 
 **원본 데이터 변동률** | **최대 제한**
 ---|---

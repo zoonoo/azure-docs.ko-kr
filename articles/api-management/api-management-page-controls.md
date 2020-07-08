@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690186"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 컨트롤을 제공합니다.  
@@ -41,7 +40,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 -   [앱-작업](#app-actions)  
 -   [기본-로그인](#basic-signin)  
 -   [페이징-컨트롤](#paging-control)  
--   [업체가](#providers)  
+-   [providers](#providers)  
 -   [검색-컨트롤](#search-control)  
 -   [sign-up](#sign-up)  
 -   [구독-단추](#subscribe-button)  
@@ -60,7 +59,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 ### <a name="parameters"></a>매개 변수  
   
-|매개 변수|Description|  
+|매개 변수|설명|  
 |---------------|-----------------|  
 |appId|애플리케이션의 ID입니다.|  
   
@@ -168,7 +167,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `sign-up` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
   
--   [등록](api-management-page-templates.md#SignUp)  
+-   [등록하세요](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
  `subscribe-button`은 사용자의 제품 구독에 대한 컨트롤을 제공합니다.  
@@ -187,7 +186,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `subscribe-button` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
   
--   [제품은](api-management-product-templates.md#Product)  
+-   [Product](api-management-product-templates.md#Product)  
   
 ##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a> subscription-cancel  
  `subscription-cancel` 컨트롤은 개발자 포털의 사용자 프로필 페이지에서 제품 구독 취소를 위한 컨트롤을 제공합니다.  
@@ -212,7 +211,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `subscription-cancel` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  
   
--   [제품은](api-management-product-templates.md#Product)
+-   [Product](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>다음 단계
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.

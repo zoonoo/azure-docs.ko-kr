@@ -17,11 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689217"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect 동기화: 아키텍처 이해
 이 항목에서는 Azure AD Connect 동기화에 대 한 기본 아키텍처에 대해 설명 합니다. 많은 측면에서이는 이전 MIIS 2003, ILM 2007 및 FIM 2010과 비슷합니다. Azure AD Connect 동기화는 이러한 기술이 진화된 모습입니다. 이러한 앞의 기술에 대해 잘 알고 있다면 이 항목의 내용 역시 이해하기 쉽습니다. 동기화를 처음 접하는 경우 이 항목이 도움이 될 것입니다. 하지만 Azure AD Connect 동기화(이 토픽에서는 동기화 엔진이라고 함)를 성공적으로 사용자 지정하기 위해 이 항목의 세부 내용을 알 필요는 없습니다.
@@ -224,7 +223,7 @@ ID 관리 프로세스는 서로 다른 연결된 데이터 원본 간에 ID 정
 아웃바운드 동기화에는 세 가지 프로세스가 있습니다.
 
 * **프로비전**
-* **프로비전 해제**
+* **프로 비전 해제**
 * **내보내기 특성 흐름**
 
 프로비전 및 프로비전 해제는 모두 개체 수준 작업입니다. 프로비전 해제는 프로비전에서만 시작할 수 있으므로 프로비전에 따라 결정됩니다. 프로비전 해제는 프로비전에서 메타버스 개체와 내보내기 개체 간의 연결을 제거할 때 트리거됩니다.

@@ -17,11 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692141"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
 
@@ -76,7 +75,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 자격 관리에는 자격 관리와 관련 된 다음과 같은 역할이 있습니다.
 
-| 자격 관리 역할 | Description |
+| 자격 관리 역할 | 설명 |
 | --- | --- |
 | 카탈로그 작성자 | 카탈로그를 만들고 관리 합니다. 일반적으로 전역 관리자가 아닌 IT 관리자 또는 리소스 컬렉션에 대 한 리소스 소유자입니다. 카탈로그를 만드는 사람은 자동으로 카탈로그의 첫 번째 카탈로그 소유자가 되며 카탈로그 소유자를 더 추가할 수 있습니다. 카탈로그 작성자는 소유 하지 않은 카탈로그를 관리 하거나 볼 수 없으며 소유 하지 않은 리소스를 카탈로그에 추가할 수 없습니다. 카탈로그 작성자가 다른 카탈로그를 관리 하거나 소유 하지 않은 리소스를 추가 해야 하는 경우 해당 카탈로그 또는 리소스의 공동 소유자가 되도록 요청할 수 있습니다. |
 | 카탈로그 소유자 | 기존 카탈로그를 편집 하 고 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자 이거나 카탈로그 소유자가 지정 하는 사용자입니다. |
@@ -84,14 +83,14 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 또한 액세스 패키지의 지정 된 승인자와 요청자는 역할이 아니라 권한도 갖습니다.
 
-| Right | Description |
+| 오른쪽 | 설명 |
 | --- | --- |
 | 승인자 | 패키지에 대 한 액세스 요청을 승인 하거나 거부 하기 위해 정책에서 권한을 부여 합니다. 단, 액세스 패키지 정의는 변경할 수 없습니다. |
 | Requestor | 액세스 패키지를 요청 하는 액세스 패키지의 정책에 의해 권한이 부여 됩니다. |
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| 작업 | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 |
+| Task | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 |
 | --- | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
@@ -128,8 +127,8 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | [Exchange 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [팀 서비스 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [SharePoint 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
-| [클라우드 응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [클라우드 애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
 
 태스크에 대 한 최소 권한 있는 역할을 확인 하려면 [Azure Active Directory에서 관리자 작업을 통해 관리자 역할](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)을 참조할 수도 있습니다.

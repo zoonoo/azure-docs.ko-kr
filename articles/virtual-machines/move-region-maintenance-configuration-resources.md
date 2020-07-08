@@ -1,19 +1,16 @@
 ---
 title: 유지 관리 구성과 연결 된 리소스를 다른 지역으로 이동
 description: VM 유지 관리 구성과 관련 된 리소스를 다른 Azure 지역으로 이동 하는 방법을 알아봅니다.
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 3e271e2467b495e79a93ce5eab5edee36e65e619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: baf7201176fc3d6c70881817ff21b44c2615241a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676894"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성의 리소스를 다른 지역으로 이동
 
@@ -25,7 +22,7 @@ ms.locfileid: "78304447"
 - 유지 관리 제어 구성을 이동 하지만 구성과 관련 된 리소스는 이동 하지 않으려면 [다음 지침](move-region-maintenance-configuration.md)을 따르세요.
 - 유지 관리 구성과 연결 된 리소스를 모두 이동 하려면 먼저 [다음 지침](move-region-maintenance-configuration.md)을 따르세요. 그런 다음이 문서의 지침을 따릅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 유지 관리 제어 구성과 연결 된 리소스 이동을 시작 하기 전에 다음을 수행 합니다.
 
@@ -38,7 +35,7 @@ ms.locfileid: "78304447"
     - PowerShell을 사용 하는 경우 연결 된 구성이 없는 리소스에 대 한 구성을 나열 하려고 하면 오류가 발생 합니다. 오류는 "작업이 실패 했습니다 (상태: ' 찾을 수 없음 ')와 유사 합니다. 세부 정보: 404 클라이언트 오류: url을 찾을 수 없습니다. "
 
     
-## <a name="prepare-to-move"></a>이동할 준비
+## <a name="prepare-to-move"></a>이동 준비
 
 1. 시작 하기 전에 이러한 변수를 정의 합니다. 각각에 대 한 예제를 제공 했습니다.
 

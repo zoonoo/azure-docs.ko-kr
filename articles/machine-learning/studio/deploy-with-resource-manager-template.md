@@ -5,21 +5,18 @@ description: Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8a6ec4c8f5e59546c0ec5ee3cdd128e70d89802b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696255"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 Azure Machine Learning Studio (클래식) 작업 영역 배포
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상호 연결된 구성 요소를 배포하고 메커니즘을 다시 시도하는 확장성 있는 방법을 제공하여 시간을 절약할 수 있습니다. 예를 들어 Azure Machine Learning Studio (클래식) 작업 영역을 설정 하려면 먼저 Azure storage 계정을 구성 하 고 작업 영역을 배포 해야 합니다. 수백 개의 작업 영역에 대해 이 작업을 수동으로 수행한다고 가정합니다. 보다 쉬운 방법은 Azure Resource Manager 템플릿을 사용 하 여 Studio (클래식) 작업 영역 및 모든 해당 종속성을 배포 하는 것입니다. 이 문서는 이 과정을 단계별로 안내합니다. Azure Resource Manager에 대한 개요는 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 
@@ -143,7 +140,7 @@ Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEa
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)에 대해 자세히 알아봅니다.
+* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)에 대해 자세히 알아보세요.
 * [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 살펴봅니다.
 * [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39)에 대한 이 동영상을 시청합니다.
 * [Resource Manager 템플릿 참조 도움말](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)을 참조하세요.
