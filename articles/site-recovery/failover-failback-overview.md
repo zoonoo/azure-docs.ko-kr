@@ -4,10 +4,9 @@ description: Azure Site Recovery 장애 조치 (failover) 및 장애 조치 (fai
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281809"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>온-프레미스 재해 복구 장애 조치 (failover)/장애 복구 정보
@@ -23,7 +22,7 @@ Site Recovery 장애 조치 (Failover) 및 장애 복구 (failback)는 4 단계�
 - **3 단계: azure에서 장애**조치 (failover): 온-프레미스 사이트가 다시 정상적으로 실행 되는 경우 다른 장애 조치 (failover)를 실행 하 여 azure vm을 온-프레미스 사이트로 장애 복구 (failback) 합니다. 장애 조치 (failover) 된 원본 위치 또는 대체 위치로 장애 복구 (failback) 할 수 있습니다.
 - **4 단계: 온-프레미스 컴퓨터**다시 보호: 장애 복구 (failback) 후에 Azure에 대 한 온-프레미스 컴퓨터의 복제를 다시 사용 하도록 설정 합니다.
 
-## <a name="failover"></a>장애 조치(Failover)
+## <a name="failover"></a>장애 조치
 
 BCDR (비즈니스 연속성 및 재해 복구) 전략의 일부로 장애 조치 (failover)를 수행 합니다.
 
@@ -43,9 +42,9 @@ BCDR (비즈니스 연속성 및 재해 복구) 전략의 일부로 장애 조�
 
 RDP/SSH를 사용 하 여 장애 조치 (failover) 후 생성 된 Azure Vm에 연결 하려면 여러 가지 요구 사항이 있습니다.
 
-**장애 조치(Failover)** | **위치** | **작업**
+**장애 조치(Failover)** | **위치** | **actions**
 --- | --- | ---
-**Azure VM (Windows (** | 장애 조치 (failover) 전 온-프레미스 컴퓨터 | **인터넷을 통한 액세스**: RDP를 사용 하도록 설정 합니다. TCP 및 UDP 규칙이 **공용**에 추가 되었는지 그리고 **Windows 방화벽** > **허용**되는 앱의 모든 프로필에 대해 RDP가 허용 되는지 확인 합니다.<br/><br/> **사이트 간 VPN을 통해 액세스**: 컴퓨터에서 RDP를 사용 하도록 설정 합니다. **도메인 및 개인** 네트워크의 **Windows 방화벽** -> **허용 되는 앱 및 기능**에서 RDP가 허용 되는지 확인 합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 (failover) 시 Windows 업데이트 시작 될 수 있으며 업데이트가 완료 될 때까지 VM에 로그온 할 수 없습니다.
+**Azure VM (Windows (** | 장애 조치 (failover) 전 온-프레미스 컴퓨터 | **인터넷을 통한 액세스**: RDP를 사용 하도록 설정 합니다. TCP 및 UDP 규칙이 **공용**에 추가 되었는지 그리고 **Windows 방화벽**허용 되는 앱의 모든 프로필에 대해 RDP가 허용 되는지 확인  >  **Allowed Apps**합니다.<br/><br/> **사이트 간 VPN을 통해 액세스**: 컴퓨터에서 RDP를 사용 하도록 설정 합니다. **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 허용 되는**앱 및 기능**에서 RDP가 허용 되는지 확인 합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 (failover) 시 Windows 업데이트 시작 될 수 있으며 업데이트가 완료 될 때까지 VM에 로그온 할 수 없습니다.
 **Windows를 실행하는 Azure VM** | 장애 조치 (failover) 후 Azure VM에서 |  VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> 장애 조치 (failover) 된 VM 및 연결 된 Azure 서브넷의 네트워크 보안 그룹 규칙은 RDP 포트에 대 한 들어오는 연결을 허용 해야 합니다.<br/><br/> **부트 진단**을 확인하여 VM에 대한 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인 하 고 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토 합니다.
 **Linux를 실행하는 Azure VM** | 장애 조치 (failover) 전 온-프레미스 컴퓨터 | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
 **Linux를 실행하는 Azure VM** | 장애 조치 (failover) 후 Azure VM에서 | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> **부트 진단**에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>
@@ -56,7 +55,7 @@ Site Recovery는 다른 장애 조치 (failover) 옵션을 제공 합니다.
 
 **장애 조치(Failover)** | **세부 정보** | **복구** | **워크플로**
 --- | --- | --- | ---
-**테스트 장애 조치(failover)** | 데이터 손실이 나 가동 중지 시간 없이 BCDR 전략의 유효성을 검사 하는 드릴을 실행 하는 데 사용 됩니다.| 진행 중인 복제 또는 프로덕션 환경에 영향을 주지 않고 Azure에서 VM의 복사본을 만듭니다. | 1. 단일 VM 또는 복구 계획의 여러 Vm에서 테스트 장애 조치 (failover)를 실행 합니다.<br/><br/> 2. 테스트 장애 조치 (failover)에 사용할 복구 지점을 선택 합니다.<br/><br/> 3. 장애 조치 (failover) 후 Azure VM이 생성 될 때 배치 될 Azure 네트워크를 선택 합니다. 네트워크는 테스트 장애 조치 (failover)에만 사용 됩니다.<br/><br/> 4. 정상적으로 작동 하는지 확인 합니다. Site Recovery는 드릴 하는 동안 Azure에서 만든 Vm을 자동으로 정리 합니다.
+**테스트 장애 조치** | 데이터 손실이 나 가동 중지 시간 없이 BCDR 전략의 유효성을 검사 하는 드릴을 실행 하는 데 사용 됩니다.| 진행 중인 복제 또는 프로덕션 환경에 영향을 주지 않고 Azure에서 VM의 복사본을 만듭니다. | 1. 단일 VM 또는 복구 계획의 여러 Vm에서 테스트 장애 조치 (failover)를 실행 합니다.<br/><br/> 2. 테스트 장애 조치 (failover)에 사용할 복구 지점을 선택 합니다.<br/><br/> 3. 장애 조치 (failover) 후 Azure VM이 생성 될 때 배치 될 Azure 네트워크를 선택 합니다. 네트워크는 테스트 장애 조치 (failover)에만 사용 됩니다.<br/><br/> 4. 정상적으로 작동 하는지 확인 합니다. Site Recovery는 드릴 하는 동안 Azure에서 만든 Vm을 자동으로 정리 합니다.
 **계획 된 장애 조치 (failover)-Hyper-v**  | 일반적으로 계획 된 가동 중지 시간에 사용 됩니다.<br/><br/> 원본 Vm이 종료 됩니다. 최신 데이터는 장애 조치 (failover)를 시작 하기 전에 동기화 됩니다. | 계획 된 워크플로의 데이터 손실이 0입니다. | 1. 가동 중지 시간 유지 관리 기간을 계획 하 고 사용자에 게 알립니다.<br/><br/> 2. 사용자 연결 앱을 오프 라인으로 전환 합니다.<br/><br/> 3. 최신 복구 지점으로 계획 된 장애 조치 (failover)를 시작 합니다. 컴퓨터가 종료 되지 않거나 오류가 발생 한 경우에는 장애 조치 (failover)가 실행 되지 않습니다.<br/><br/> 4. 장애 조치 (failover) 후 azure VM이 Azure에서 활성 상태 인지 확인 합니다.<br/><br/> 5. 장애 조치 (failover)를 커밋하여 완료 합니다. 커밋 작업은 모든 복구 지점이 삭제 됩니다.
 **장애 조치 (Failover)-Hyper-v** | 일반적으로 계획 되지 않은 중단이 발생 하거나 기본 사이트를 사용할 수 없는 경우에 실행 됩니다.<br/><br/> 필요에 따라 VM을 종료 하 고 장애 조치 (failover)를 시작 하기 전에 최종 변경 내용을 동기화 합니다.  | 앱에 대 한 최소 데이터 손실. | 1. BCDR 계획을 시작 합니다. <br/><br/> 2. 장애 조치 (failover)를 시작 합니다. 장애 조치 (failover)를 트리거하기 전에 Site Recovery VM을 종료 하 고 최신 변경 내용을 동기화/복제 해야 하는지 여부를 지정 합니다.<br/><br/> 3. 아래 표에 요약 된 여러 복구 지점 옵션에 대 한 장애 조치 (failover)를 수행할 수 있습니다.<br/><br/> VM을 종료 하는 옵션을 사용 하지 않거나 Site Recovery 종료할 수 없는 경우 최신 복구 지점이 사용 됩니다.<br/>장애 조치 (failover)는 컴퓨터를 종료할 수 없는 경우에도 실행 됩니다.<br/><br/> 4. 장애 조치 (failover) 후 azure VM이 Azure에서 활성 상태 인지 확인 합니다.<br/> 필요한 경우 24 시간 동안 보존 기간에서 다른 복구 지점을 선택할 수 있습니다.<br/><br/> 5. 장애 조치 (failover)를 커밋하여 완료 합니다. 커밋 작업은 사용 가능한 모든 복구 지점이 삭제 됩니다.
 **장애 조치 (Failover)-VMware** | 일반적으로 계획 되지 않은 중단이 발생 하거나 기본 사이트를 사용할 수 없는 경우에 실행 됩니다.<br/><br/> 필요에 따라 VM의 종료를 트리거하고 장애 조치 (failover)를 시작 하기 전에 최종 변경 내용을 동기화 하 고 복제 하도록 Site Recovery를 지정 합니다.  | 앱에 대 한 최소 데이터 손실. | 1. BCDR 계획을 시작 합니다. <br/><br/> 2. Site Recovery에서 장애 조치 (failover)를 시작 합니다. 장애 조치 (failover)를 실행 하기 전에 Site Recovery VM 종료 및 동기화를 시도해 야 하는지 여부를 지정 합니다.<br/> 장애 조치 (failover)는 컴퓨터를 종료할 수 없는 경우에도 실행 됩니다.<br/><br/> 3. 장애 조치 (failover) 후 azure VM이 Azure에서 활성 상태 인지 확인 합니다. <br/>필요한 경우 보존 기간 72 시간에서 다른 복구 지점을 선택할 수 있습니다.<br/><br/> 5. 장애 조치 (failover)를 커밋하여 완료 합니다. 커밋 작업은 모든 복구 지점이 삭제 됩니다.<br/> Windows Vm의 경우 장애 조치 중에 VMware 도구를 사용 하지 않도록 설정 Site Recovery.
@@ -78,8 +77,8 @@ Site Recovery는 다른 장애 조치 (failover) 옵션을 제공 합니다.
 
 **옵션** | **세부 정보**
 --- | ---
-**최신 (가장 낮은 RPO)** | 이 옵션은 가장 낮은 RPO (복구 지점 목표)를 제공 합니다. 먼저 Site Recovery 서비스로 보낸 모든 데이터를 처리 하 여 장애 조치 (failover) 전에 각 VM에 대 한 복구 지점을 만듭니다. 이 복구 지점에는 장애 조치 (failover)가 트리거될 때 Site Recovery에 복제 된 모든 데이터가 포함 됩니다.
-**가장 최근에 처리 됨**  | 이 옵션은 Vm을 Site Recovery에서 처리 된 최신 복구 지점으로 장애 조치 (failover) 합니다. 특정 VM에 대 한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점을** 확인 하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
+**최신 (가장 낮은 RPO)** | 이 옵션은 가장 낮은 RPO(복구 지점 목표)를 제공합니다. 먼저 Site Recovery 서비스로 보낸 모든 데이터를 처리 하 여 장애 조치 (failover) 전에 각 VM에 대 한 복구 지점을 만듭니다. 이 복구 지점에는 장애 조치 (failover)가 트리거될 때 Site Recovery에 복제 된 모든 데이터가 포함 됩니다.
+**가장 최근에 처리 됨**  | 이 옵션은 Vm을 Site Recovery에서 처리 된 최신 복구 지점으로 장애 조치 (failover) 합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
 **최신 앱 일치** |  이 옵션은 앱 일치 복구 지점을 사용 하도록 설정 된 경우 Vm을 Site Recovery에서 처리 된 최신 응용 프로그램 일치 복구 지점으로 장애 조치 (failover) 합니다. VM 설정에서 최신 복구 지점을 확인 합니다.
 **최신 다중 VM 처리 됨** | 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 이 설정이 사용하도록 설정된 VM은 최신 일반 다중 VM 일치 복구 지점으로 장애 조치(Failover)됩니다. 계획의 다른 Vm은 가장 최근에 처리 된 복구 지점으로 장애 조치 (failover) 됩니다.
 **최신 다중 VM 앱 일치** |  이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 복제 그룹에 속하는 VM은 공통된 최신 다중 VM 애플리케이션 일관성 복구 지점으로 장애 조치(failover)됩니다. 다른 VM은 최신 애플리케이션 일치 복구 지점으로 장애 조치(Failover)됩니다.

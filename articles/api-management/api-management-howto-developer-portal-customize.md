@@ -13,17 +13,16 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79244096"
 ---
 # <a name="access-and-customize-developer-portal"></a>개발자 포털 액세스 및 사용자 지정
 
 개발자 포털은 Api 설명서를 사용 하 여 자동으로 생성 되 고 완전히 사용자 지정할 수 있는 웹 사이트입니다. API 소비자는 api를 검색 하 고, api를 사용 하 고, 액세스를 요청 하는 방법을 배울 수 있습니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 개발자 포털의 관리 되는 버전에 액세스
@@ -36,9 +35,9 @@ ms.locfileid: "79244096"
 
 ![API Management 개발자 포털-관리자 모드](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 다음 빠른 시작: [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 를 완료 합니다.
+- 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md) 를 참조 하세요.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -68,7 +67,7 @@ ms.locfileid: "79244096"
 
 레이아웃은 페이지가 표시 되는 방식을 정의 합니다. 예를 들어 기본 콘텐츠에서 두 가지 레이아웃이 있습니다. 하나는 홈 페이지에, 다른 하나는 나머지 모든 페이지에 적용 됩니다.
 
-레이아웃은 URL 템플릿과 페이지 URL을 일치 시켜 페이지에 적용 됩니다. 예를 `/wiki/*` 들어 url 템플릿이 인 레이아웃은 url `/wiki/` `/wiki/getting-started` `/wiki/styles`에서 세그먼트가 있는 모든 페이지에 적용 됩니다 (, 등).
+레이아웃은 URL 템플릿과 페이지 URL을 일치 시켜 페이지에 적용 됩니다. 예를 들어 URL 템플릿이 인 레이아웃 `/wiki/*` 은 url에서 세그먼트가 있는 모든 페이지에 적용 됩니다 (, 등) `/wiki/` `/wiki/getting-started` `/wiki/styles` .
 
 위의 이미지에서 레이아웃에 속하는 콘텐츠는 파란색으로 표시 되 고 페이지는 빨강으로 표시 됩니다. 메뉴 섹션은 각각 표시 됩니다.
 
@@ -91,9 +90,9 @@ ms.locfileid: "79244096"
 방문자가 포털을 사용할 수 있도록 설정 하기 전에 자동으로 생성 된 콘텐츠를 개인 설정 해야 합니다. 권장 되는 변경 내용에는 홈 페이지의 레이아웃, 스타일 및 콘텐츠가 포함 됩니다.
 
 > [!NOTE]
-> `/404`통합 고려 사항으로 인해, `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish`,,,,,,,,,,, 등의 다른 URL에서 다음 페이지를 제거 하거나 이동할 수 없습니다. `/signin` `/signin-sso` `/signup`
+> 통합 고려 사항으로 인해,,,,,,,,,,,, 등의 다른 URL에서 다음 페이지를 제거 하거나 이동할 수 없습니다. `/404` `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin` `/signin-sso` `/signup`
 
-### <a name="home-page"></a>홈 페이지
+### <a name="home-page"></a>홈페이지
 
 기본 **홈** 페이지는 더미 콘텐츠로 채워집니다. 콘텐츠를 사용 하 여 전체 섹션을 제거 하거나 구조를 유지 하 고 요소를 하나씩 조정할 수 있습니다. 생성 된 텍스트와 이미지를 사용자 고유로 바꾸고 링크가 원하는 위치를 가리키는지 확인 합니다.
 
@@ -124,7 +123,7 @@ ms.locfileid: "79244096"
 
 ## <a name="visit-the-published-portal"></a>게시 된 포털 방문
 
-포털을 게시 한 후에는 관리 패널과 동일한 URL (예: `https://contoso-api.developer.azure-api.net`)에서 액세스할 수 있습니다. 별도의 브라우저 세션 (incognito/개인 검색 모드)에서 외부 방문자로 볼 수 있습니다.
+포털을 게시 한 후에는 관리 패널과 동일한 URL (예:)에서 액세스할 수 있습니다 `https://contoso-api.developer.azure-api.net` . 별도의 브라우저 세션 (incognito/개인 검색 모드)에서 외부 방문자로 볼 수 있습니다.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Api에 CORS 정책 적용
 

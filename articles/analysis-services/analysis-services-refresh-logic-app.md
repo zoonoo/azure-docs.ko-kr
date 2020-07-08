@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79126931"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
@@ -21,22 +20,22 @@ Azure Analysis Services에서 REST Api를 사용 하는 방법에 대 한 자세
 
 ## <a name="authentication"></a>인증
 
-모든 호출은 유효한 Azure Active Directory (OAuth 2) 토큰을 사용 하 여 인증 되어야 합니다.  이 문서의 예제에서는 SPN (서비스 주체)을 사용 하 여 Azure Analysis Services에 인증 합니다. 자세히 알아보려면 [Azure Portal를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
+모든 호출은 유효한 Azure Active Directory(OAuth 2) 토큰을 사용하여 인증되어야 합니다.  이 문서의 예제에서는 SPN (서비스 주체)을 사용 하 여 Azure Analysis Services에 인증 합니다. 자세히 알아보려면 [Azure Portal를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
 
 ## <a name="design-the-logic-app"></a>논리 앱 디자인
 
 > [!IMPORTANT]
 > 다음 예에서는 Azure Analysis Services 방화벽을 사용 하지 않는 것으로 가정 합니다. 방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 Azure Analysis Services 방화벽에서 허용 목록 해야 합니다. 지역별 Azure Logic Apps IP 범위에 대해 자세히 알아보려면 [Azure Logic Apps에 대 한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#configuration)를 참조 하세요.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
-#### <a name="create-a-service-principal-spn"></a>SPN (서비스 사용자) 만들기
+#### <a name="create-a-service-principal-spn"></a>SPN(서비스 사용자 이름) 만들기
 
-서비스 주체를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
+서비스 사용자 만들기에 대해 알아보려면 [Azure Portal을 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-#### <a name="configure-permissions-in-azure-analysis-services"></a>Azure Analysis Services에서 사용 권한 구성
+#### <a name="configure-permissions-in-azure-analysis-services"></a>Azure Analysis Services에서 권한 구성
  
-사용자가 만드는 서비스 주체에 서버에 대 한 서버 관리자 권한이 있어야 합니다. 자세히 알아보려면 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)를 참조하세요.
+직접 만든 서비스 사용자에게는 서버에 대한 서버 관리자 권한이 있어야 합니다. 자세히 알아보려면 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)를 참조하세요.
 
 ### <a name="configure-the-logic-app"></a>논리 앱 구성
 
@@ -64,18 +63,18 @@ HTTP 작업을 다음과 같이 구성 합니다.
 
 |속성  |값  |
 |---------|---------|
-|**방법**     |POST         |
-|**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
-|**헤더**     |   Content-type, application/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**메서드**     |POST         |
+|**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https: \/ /westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
+|**헤더**     |   Content-type, application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 [REST API-사후 게시/새로 고침을 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)을 참조 하세요. |
 |**인증**     |Active Directory OAuth         |
 |**테넌트**     |Azure Active Directory TenantId를 입력 합니다.         |
-|**그룹**     |https://* .casoms. net         |
+|**대상**     |https://* .casoms. net         |
 |**클라이언트 ID**     |서비스 사용자 이름 ClientID 입력         |
 |**자격 증명 유형**     |비밀         |
-|**기밀**     |서비스 사용자 이름 암호를 입력 하세요.         |
+|**비밀**     |서비스 사용자 이름 암호를 입력 하세요.         |
 
-예제:
+예:
 
 ![완료 된 HTTP 작업](./media/analysis-services-async-refresh-logic-app/7.png)
 

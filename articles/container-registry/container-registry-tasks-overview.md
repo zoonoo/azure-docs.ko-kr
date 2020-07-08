@@ -4,10 +4,9 @@ description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 
 ms.topic: article
 ms.date: 01/22/2020
 ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087280"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
@@ -56,7 +55,7 @@ GitHub 또는 Azure DevOps의 공용 또는 개인 Git 리포지토리로 코드
 
 ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 다음과 같은 트리거를 지원 합니다.
 
-| 트리거 | 기본적으로 사용하도록 설정됨 |
+| 트리거 | 기본적으로 사용 |
 | ------- | ------------------ |
 | Commit | 예 |
 | 끌어오기 요청 | 아니요 |
@@ -102,7 +101,7 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | Description | 예제 |
+| 컨텍스트 위치 | 설명 | 예제 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | 공용 또는 개인 GitHub 리포지토리의 마스터 (또는 다른 기본) 분기 내에 있는 파일입니다.  | `https://github.com/gituser/myapp-repo.git` |
@@ -117,7 +116,7 @@ ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-ta
 
 ## <a name="image-platforms"></a>이미지 플랫폼
 
-기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처 `--platform` 에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위한 태그를 지정 합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처 `--platform Linux/arm`를 지정 합니다 (예:). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예: `--platform Linux/arm64/v8`)에서 variant를 지정 합니다.
+기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. `--platform`다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위한 태그를 지정 합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처를 지정 합니다 (예: `--platform Linux/arm` ). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예:)에서 variant를 지정 합니다 `--platform Linux/arm64/v8` .
 
 | OS | Architecture|
 | --- | ------- | 

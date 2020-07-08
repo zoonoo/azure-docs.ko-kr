@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79080363"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
@@ -24,12 +23,12 @@ ACI의 데이터는 256 비트 AES 암호화를 사용 하 여 암호화 및 암
 
 Microsoft 관리 키를 사용 하 여 컨테이너 데이터의 암호화를 사용 하거나 사용자 고유의 키를 사용 하 여 암호화를 관리할 수 있습니다. 다음 표에서는 이러한 옵션을 비교 합니다. 
 
-|    |    Microsoft에서 관리 하는 키     |     고객 관리형 키     |
+|    |    Microsoft 관리형 키     |     고객 관리형 키     |
 |----|----|----|
 |    암호화/암호 해독 작업    |    Azure    |    Azure    |
-|    키 저장소    |    Microsoft 키 저장소    |    Azure Key Vault    |
+|    키 스토리지    |    Microsoft 키 저장소    |    Azure Key Vault    |
 |    키 회전 책임    |    Microsoft    |    Customer    |
-|    키 액세스    |    Microsoft만    |    Microsoft, 고객    |
+|    키 액세스    |    Microsoft 전용    |    Microsoft, 고객    |
 
 문서의 나머지 부분에서는 사용자의 키 (고객 관리 키)를 사용 하 여 ACI 배포 데이터를 암호화 하는 데 필요한 단계에 대해 설명 합니다. 
 
@@ -55,7 +54,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 서비스 주체를 성공적으로 만들 수 없는 경우:
 * 테 넌 트에서이 작업을 수행할 수 있는 권한이 있는지 확인 합니다.
-* 서비스 주체가 ACI에 배포 하기 위해 테 넌 트에 이미 있는지 확인 합니다. 대신를 실행 `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` 하 고 해당 서비스 주체를 사용 하 여이 작업을 수행할 수 있습니다.
+* 서비스 주체가 ACI에 배포 하기 위해 테 넌 트에 이미 있는지 확인 합니다. 대신를 실행 하 `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` 고 해당 서비스 주체를 사용 하 여이 작업을 수행할 수 있습니다.
 
 ### <a name="create-a-key-vault-resource"></a>Key Vault 리소스 만들기
 
@@ -83,7 +82,7 @@ ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정�
 
 * 키가 생성 되 면 키 자격 증명 모음 리소스 블레이드로 돌아가서 설정에서 **액세스 정책**을 클릭 합니다.
 * 키 자격 증명 모음에 대 한 "액세스 정책" 페이지에서 **액세스 정책 추가**를 클릭 합니다.
-* 키 *사용 권한을* 설정 하 여 **가져오기** 및 **래핑 해제 키** ![설정 키 사용 권한을 포함 합니다.](./media/container-instances-encrypt-data/set-key-permissions.png)
+* 키 *사용 권한을* 설정 하 여 **가져오기** 및 **래핑 해제 키** ![ 설정 키 사용 권한을 포함 합니다.](./media/container-instances-encrypt-data/set-key-permissions.png)
 * *보안 주체 선택*에서 **Azure Container Instance 서비스** 를 선택 합니다.
 * 아래쪽의 **추가** 를 클릭 합니다. 
 
@@ -97,12 +96,12 @@ ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정�
 > 고객이 관리 하는 키로 배포 데이터를 암호화 하는 것은 현재 롤아웃 중인 최신 API 버전 (2019-12-01)에서 사용할 수 있습니다. 배포 템플릿에서이 API 버전을 지정 합니다. 이 문제에 문제가 있는 경우 Azure 지원에 문의 하세요.
 
 키 자격 증명 모음 키 및 액세스 정책이 설정 되 면 ACI 배포 템플릿에 다음 속성을 추가 합니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
-* 에서 `resources`을로 `apiVersion` `2019-12-01`설정 합니다.
-* 배포 템플릿의 컨테이너 그룹 속성 섹션에서 다음 값을 포함 하는 `encryptionProperties`을 추가 합니다.
+* 에서을 `resources` `apiVersion` 로 설정 `2019-12-01` 합니다.
+* 배포 템플릿의 컨테이너 그룹 속성 섹션에서 다음 값을 포함 하는 `encryptionProperties` 을 추가 합니다.
   * `vaultBaseUrl`: key vault의 DNS 이름은 포털에 있는 주요 자격 증명 모음 리소스의 개요 블레이드에서 찾을 수 있습니다.
   * `keyName`: 이전에 생성 된 키의 이름입니다.
   * `keyVersion`: 키의 현재 버전입니다. 키 자체 (키 자격 증명 모음 리소스의 설정 섹션에 있는 "키" 아래)를 클릭 하 여 찾을 수 있습니다.
-* 컨테이너 그룹 속성에서 value `sku` `Standard`를 사용 하 여 속성을 추가 합니다. 속성 `sku` 은 API 버전 2019-12-01에 필요 합니다.
+* 컨테이너 그룹 속성에서 `sku` value를 사용 하 여 속성을 추가 `Standard` 합니다. `sku`속성은 API 버전 2019-12-01에 필요 합니다.
 
 다음 템플릿 코드 조각에서는 배포 데이터를 암호화 하는 다음과 같은 추가 속성을 보여 줍니다.
 

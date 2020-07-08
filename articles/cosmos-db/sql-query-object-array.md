@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246553"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
@@ -90,7 +89,7 @@ SQL API는 JSON 배열에 대 한 반복을 지원 하며, FROM 소스에 있는
     ]
 ```
 
-다음 쿼리는 `children` `Families` 컨테이너에서 반복을 수행 합니다. 출력 배열은 앞의 쿼리와 다릅니다. 이 예제에서는 `children`결과를 분할 하 고 단일 배열로 평면화 합니다.  
+다음 쿼리는 컨테이너에서 반복을 수행 합니다 `children` `Families` . 출력 배열은 앞의 쿼리와 다릅니다. 이 예제에서는 결과를 분할 하 `children` 고 단일 배열로 평면화 합니다.  
 
 ```sql
     SELECT *

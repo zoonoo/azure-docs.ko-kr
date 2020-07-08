@@ -8,21 +8,20 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969196"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>클라우드 초기화를 사용 하 여 Linux VM에서 스왑 파티션 구성
-이 문서에서는 [클라우드 초기화](https://cloudinit.readthedocs.io) 를 사용 하 여 다양 한 Linux 배포판에서 스왑 파티션을 구성 하는 방법을 보여 줍니다. 스왑 파티션은 기존에 필요한 배포를 기반으로 Linux 에이전트 (WALA)에 의해 구성 됩니다.  이 문서에서는 클라우드 초기화를 사용 하 여 프로 비전 하는 동안 요청 시 스왑 파티션을 작성 하는 프로세스에 대해 간략하게 설명 합니다.  클라우드 초기화가 Azure에서 기본적으로 작동 하는 방법 및 지원 되는 Linux 배포판에 대 한 자세한 내용은 [클라우드-초기화 개요](using-cloud-init.md) 를 참조 하세요.
+이 문서에서는 [클라우드 초기화](https://cloudinit.readthedocs.io) 를 사용 하 여 다양 한 Linux 배포판에서 스왑 파티션을 구성 하는 방법을 보여 줍니다. 스왑 파티션은 기존에 필요한 배포를 기반으로 Linux 에이전트 (WALA)에 의해 구성 됩니다.  이 문서에서는 클라우드 초기화를 사용 하 여 프로 비전 하는 동안 요청 시 스왑 파티션을 작성 하는 프로세스에 대해 간략하게 설명 합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
 ## <a name="create-swap-partition-for-ubuntu-based-images"></a>Ubuntu 기반 이미지에 대 한 스왑 파티션 만들기
 기본적으로 Azure에서 Ubuntu 갤러리 이미지는 스왑 파티션을 만들지 않습니다. 클라우드 초기화를 사용 하 여 VM 프로 비전 시간 동안 스왑 파티션 구성을 사용 하도록 설정 하려면 Ubuntu wiki의 [AzureSwapPartitions 문서](https://wiki.ubuntu.com/AzureSwapPartitions) 를 참조 하세요.
 
 ## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Red Hat 및 CentOS 기반 이미지에 대 한 스왑 파티션 만들기
 
-현재 셸에서 이름이 *cloud_init_swappart* 인 파일을 만들고 다음 구성을 붙여넣습니다. 이 예제에서는 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud_init_swappart.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. #1을 선택하여 **nano** 편집기를 사용합니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.  
+*cloud_init_swappart.txt* 이라는 현재 셸에서 파일을 만들고 다음 구성을 붙여넣습니다. 이 예제에서는 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud_init_swappart.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. #1을 선택하여 **nano** 편집기를 사용합니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.  
 
 ```yaml
 #cloud-config

@@ -6,10 +6,9 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79275101"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
@@ -28,13 +27,13 @@ Windows 및 Linux 용 Log Analytics 에이전트는 VM이 실행 되는 배포 �
 
 ### <a name="upgrade-windows-agent"></a>Windows 에이전트 업그레이드 
 
-Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트 또는 다른 자동화 솔루션에서 또는 MMASetup-\<Platform\>설치 마법사를 사용 하 여를 실행 합니다.  
+Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트 또는 다른 자동화 솔루션에서 실행 하거나 MMASetup-.msi 설치 마법사를 사용 하 여 실행 합니다 \<platform\> .  
 
 다음 단계를 수행 하 여 Log Analytics 작업 영역에서 최신 버전의 Windows 에이전트를 다운로드할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 **모든 서비스**를 클릭 합니다. 리소스 목록에서 **Log Analytics**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
+2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
 3. Log Analytics 작업 영역 목록에서 작업 영역을 선택 합니다.
 
@@ -46,11 +45,11 @@ Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 >Windows 용 Log Analytics 에이전트를 업그레이드 하는 동안에는 보고할 작업 영역을 구성 하거나 다시 구성 하는 작업을 지원 하지 않습니다. 에이전트를 구성 하려면 [작업 영역 추가 또는 제거](#adding-or-removing-a-workspace)에 나열 된 지원 되는 방법 중 하나를 수행 해야 합니다.
 >
 
-#### <a name="to-upgrade-using-the-setup-wizard"></a>설치 마법사를 사용 하 여 업그레이드 하려면
+#### <a name="to-upgrade-using-the-setup-wizard"></a>설치 마법사를 사용하여 업그레이드하려면
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **Mmasetup\<\>** 를 실행 하 여 설치 마법사를 시작 합니다.
+2. **Mmasetup- \<platform\> .exe** 를 실행 하 여 설치 마법사를 시작 합니다.
 
 3. 설치 마법사의 첫 페이지에서 **다음**을 클릭 합니다.
 
@@ -60,7 +59,7 @@ Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 6. **Microsoft Monitoring Agent 구성이 성공적으로 완료** 된 경우 페이지가 표시 되 면 **마침**을 클릭 합니다.
 
-#### <a name="to-upgrade-from-the-command-line"></a>명령줄에서 업그레이드 하려면
+#### <a name="to-upgrade-from-the-command-line"></a>명령줄에서 업그레이드하려면
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 

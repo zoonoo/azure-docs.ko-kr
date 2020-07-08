@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79266989"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
@@ -69,7 +68,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
   - 드라이버 정보
 
 - 하드웨어
-  - PCI 장치 [`*`]
+  - PCI 장치 [ `*` ]
 
 - 프로세스 및 메모리
   - 프로세스 목록 (작업 이름, 사용 된 메모리, 열린 파일)
@@ -103,7 +102,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/azure/[확장 폴더]/\*로그\*
+  - /var/log/azure/[확장 폴더]/ \* 로그\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
   - /etc/waagent.config
@@ -112,7 +111,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
 - [Azure 가상 머신 인스턴스 메타 데이터](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 >[!Note]
->[`*`] PCI 정보는 DEBIAN 및 SLES 배포판에서 아직 수집 되지 않습니다.
+>[ `*` ] PCI 정보는 Debian 및 SLES 배포판에서 아직 수집 되지 않습니다.
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>VM에서 PerfInsights Linux를 실행 합니다.
 
@@ -127,16 +126,16 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
 
     | 배포               | 버전                                         |
     |----------------------------|-------------------------------------------------|
-    | Oracle Linux 서버        | 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketplace 이미지)|
-    | CentOS                     | 6.5 [`*`], 7.6                                    |
-    | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
+    | Oracle Linux 서버        | 6.10 [ `*` ], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketplace 이미지)|
+    | CentOS                     | 6.5 [ `*` ], 7.6                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [ `*` ]                               |
     | Ubuntu                     | 14.04, 16.04, 18.04                               |
-    | Debian                     | 8, 9, 10 [`*`]                                    |
-    | SLES                       | 12 SP4 [`*`]                                      |
+    | Debian                     | 8, 9, 10 [ `*` ]                                    |
+    | SLES                       | 12 SP4 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
->[`*`] [알려진 문제](#known-issues) 섹션을 참조 하세요.
+>[ `*` ] [알려진 문제](#known-issues) 섹션을 참조 하세요.
 
 ### <a name="known-issues"></a>알려진 문제
 
@@ -173,7 +172,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. 파일이 포함 `perfinsights.py` 된 폴더로 이동한 다음를 실행 `perfinsights.py` 하 여 사용 가능한 명령줄 매개 변수를 확인 합니다.
+2. 파일이 포함 된 폴더로 이동한 `perfinsights.py` 다음를 실행 `perfinsights.py` 하 여 사용 가능한 명령줄 매개 변수를 확인 합니다.
 
     ```bash
     cd <the path of PerfInsights folder>
@@ -205,11 +204,11 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     >
     >Microsoft와 함께 사용 하는 지원 엔지니어의 요청에 따라 PerfInsights을 실행 하는 활성 지원 티켓이 있는 경우 **-s 또는--지원 요청** 옵션을 사용 하 여 지원 티켓 번호를 제공 해야 합니다.
 
-실행이 완료 되 면 출력 폴더가 지정 되지 않은 경우 PerfInsights와 동일한 폴더에 새 tar 파일이 표시 됩니다. 파일 이름은 **PerformanceDiagnostics\_yyyy-MM-\_dd hh-mm-ss-fff.zip release.tar.gz입니다** . 분석을 위해이 파일을 지원 에이전트로 전송 하거나 파일 내에서 보고서를 열어 결과와 권장 사항을 검토할 수 있습니다.
+실행이 완료 되 면 출력 폴더가 지정 되지 않은 경우 PerfInsights와 동일한 폴더에 새 tar 파일이 표시 됩니다. 파일 이름은 **PerformanceDiagnostics \_ YYYY-MM-dd \_ hh-mm-ss-fff.zip release.tar.gz입니다** . 분석을 위해이 파일을 지원 에이전트로 전송 하거나 파일 내에서 보고서를 열어 결과와 권장 사항을 검토할 수 있습니다.
 
 ## <a name="review-the-diagnostics-report"></a>진단 보고서 검토
 
-**\_PerformanceDiagnostics\_Hh-mm-ss-fff.zip release.tar.gz** 파일 내에서 PerfInsights의 결과를 자세히 설명 하는 HTML 보고서를 찾을 수 있습니다. 보고서를 검토 하려면 **\_PERFORMANCEDIAGNOSTICS yyyy-MM-\_dd hh-mm-ss-fff.zip release.tar.gz** 파일을 확장 한 다음 **PerfInsights report .html** 파일을 엽니다.
+**PerformanceDiagnostics \_ \_ hh-mm-ss-fff.zip release.tar.gz** 파일 내에서 PerfInsights의 결과를 자세히 설명 하는 HTML 보고서를 찾을 수 있습니다. 보고서를 검토 하려면 **PerformanceDiagnostics \_ YYYY-MM-dd \_ hh-mm-ss-fff.zip release.tar.gz** 파일을 확장 한 다음 **PerfInsights Report.html** 파일을 엽니다.
 
 ### <a name="overview-tab"></a>개요 탭
 
@@ -254,4 +253,4 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 메시지의 지침에 따라 파일 전송 작업 영역에 액세스합니다. 보안을 강화하기 위해 처음 사용할 때 암호를 변경해야 합니다.
 
-로그인 한 후 PerfInsights에 의해 수집 된 **\_\_PerformanceDiagnostics hh-mm-ss-fff.zip release.tar.gz** 파일을 업로드 하는 대화 상자가 표시 됩니다.
+로그인 한 후 PerfInsights에 의해 수집 된 **PerformanceDiagnostics \_ \_ hh-mm-ss-fff.zip release.tar.gz** 파일을 업로드 하는 대화 상자가 표시 됩니다.

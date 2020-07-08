@@ -7,10 +7,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087854"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
@@ -103,9 +102,9 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 **이전 수준:** 함수 접두사의 엄격한 유효성 검사는 없었습니다.
 
-**1.2 수준:** Azure Stream Analytics는 함수 접두사의 엄격한 유효성 검사를 수행 합니다. 기본 제공 함수에 접두사를 추가 하면 오류가 발생 합니다. 예를 들어`myprefix.ABS(…)` 은 지원 되지 않습니다.
+**1.2 수준:** Azure Stream Analytics는 함수 접두사의 엄격한 유효성 검사를 수행 합니다. 기본 제공 함수에 접두사를 추가 하면 오류가 발생 합니다. 예를 들어은 `myprefix.ABS(…)` 지원 되지 않습니다.
 
-기본 제공 집계에 접두사를 추가 하면 오류가 발생 하기도 합니다. 예를 들어 `myprefix.SUM(…)` 은 지원 되지 않습니다.
+기본 제공 집계에 접두사를 추가 하면 오류가 발생 하기도 합니다. 예를 들어은 `myprefix.SUM(…)` 지원 되지 않습니다.
 
 사용자 정의 함수에 "system" 접두사를 사용 하면 오류가 발생 합니다.
 
@@ -121,11 +120,11 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 다음은 그 예입니다.
+**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 예를 들어:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름의 대/소문자 구분 유지
 

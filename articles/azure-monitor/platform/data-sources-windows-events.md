@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79274685"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 이벤트 로그 데이터 원본
@@ -21,7 +20,7 @@ ms.locfileid: "79274685"
 ## <a name="configuring-windows-event-logs"></a>Windows 이벤트 로그 수집
 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Windows 이벤트 로그를 구성합니다.
 
-Azure Monitor에서는 설정에 지정된 Windows 이벤트 로그에서만 이벤트를 수집합니다.  로그 이름을 입력 하 고를 클릭 **+** 하 여 이벤트 로그를 추가할 수 있습니다.  각 로그의 경우 선택한 심각도의 이벤트만 수집됩니다.  수집하려는 특정 로그에 대한 심각도를 확인합니다.  이벤트를 필터링할 추가 조건을 제공할 수 없습니다.
+Azure Monitor에서는 설정에 지정된 Windows 이벤트 로그에서만 이벤트를 수집합니다.  로그 이름을 입력 하 고를 클릭 하 여 이벤트 로그를 추가할 수 있습니다 **+** .  각 로그의 경우 선택한 심각도의 이벤트만 수집됩니다.  수집하려는 특정 로그에 대한 심각도를 확인합니다.  이벤트를 필터링할 추가 조건을 제공할 수 없습니다.
 
 이벤트 로그 이름을 입력하면 Azure Monitor는 일반적인 이벤트 로그 이름을 제안합니다. 추가하려는 로그가 목록에 나타나지 않으면 로그의 전체 이름을 입력하여 추가할 수 있습니다. 이벤트 뷰어를 사용하여 로그의 전체 이름을 찾을 수 있습니다. 이벤트 뷰어에서 로그의 *속성*을 열고 *전체 이름* 필드에서 문자열을 복사합니다.
 
@@ -40,7 +39,7 @@ Azure Monitor에서는 이벤트가 생성될 때 모니터링되는 이벤트 �
 ## <a name="windows-event-records-properties"></a>Windows 이벤트 레코드 속성
 Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 있는 속성이 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터의 이름입니다. |
 | EventCategory |이벤트의 범주. |
@@ -55,7 +54,7 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 | 원본 |이벤트의 원본입니다. |
 | SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br> Linux – 모든 Linux 에이전트  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |Windows에서 이벤트가 만들어진 날짜 및 시간입니다. |
-| UserName |이벤트를 로깅한 계정의 사용자 이름입니다. |
+| 사용자 이름 |이벤트를 로깅한 계정의 사용자 이름입니다. |
 
 ## <a name="log-queries-with-windows-events"></a>Windows 이벤트로 로그 쿼리
 다음 표에서는 Windows 이벤트 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.

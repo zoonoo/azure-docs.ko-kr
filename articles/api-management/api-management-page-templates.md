@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79249543"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management의 페이지 템플릿
@@ -27,7 +26,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [로그인](#SignIn)  
   
--   [등록](#SignUp)  
+-   [등록하세요](#SignUp)  
   
 -   [페이지를 찾을 수 없음](#PageNotFound)  
   
@@ -104,7 +103,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [기본-로그인](api-management-page-controls.md#basic-signin)  
   
--   [업체가](api-management-page-controls.md#providers)  
+-   [providers](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>데이터 모델  
  [사용자 로그인](api-management-template-data-model-reference.md#UseSignIn) 엔터티입니다.  
@@ -185,7 +184,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="page-not-found"></a><a name="PageNotFound"></a> 페이지를 찾을 수 없음  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a>페이지를 찾을 수 없음  
  **페이지를 찾을 수 없음** 템플릿을 통해 개발자 포털에서 페이지를 찾을 수 없음 페이지를 사용자 지정할 수 있습니다.  
   
  ![찾을 수 없음 페이지](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM을 찾을 수 없음 페이지 개발자 포털 템플릿")  
@@ -227,7 +226,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|Type|Description|  
+|속성|형식|설명|  
 |--------------|----------|-----------------|  
 |referenceCode|string|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
 |errorCode|string|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  

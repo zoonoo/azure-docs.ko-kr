@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
 ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79282576"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
@@ -33,7 +32,7 @@ Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라�
 
 ### <a name="using-x509-securitycredentialstype"></a>X509 SecurityCredentialsType 사용
 
-.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509**를 지정할 수 있습니다. (.Net java) `X509Credentials` 형식[.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials) `SecurityCredentials` ([.net](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials))에 해당 합니다.
+.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509**를 지정할 수 있습니다. (.Net java `X509Credentials` [.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) 형식 `SecurityCredentials` ([.net](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx) / [java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials))에 해당 합니다.
 
 **X509** 참조는 인증서 저장소에서 인증서를 찾습니다. 다음 XML은 인증서의 위치를 지정하는 데 사용되는 매개 변수를 보여줍니다.
 
@@ -43,7 +42,7 @@ Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라�
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Linux에서 실행 되는 서비스에 대 한 **LocalMachine**/는 인증서의 기본 위치인 */var/lib/sfcerts* 디렉터리**를 가리킵니다.** Linux의 경우 **CertificateStoreLocation** 및 **CertificateStoreName**의 다른 조합은 정의되지 않습니다. 
+Linux에서 실행 되는 서비스에 대 한 **LocalMachine**는 / **My** 인증서의 기본 위치인 */var/lib/sfcerts* 디렉터리를 가리킵니다. Linux의 경우 **CertificateStoreLocation** 및 **CertificateStoreName**의 다른 조합은 정의되지 않습니다. 
 
 항상 **CertificateStoreLocation** 매개 변수에 대해 **LocalMachine**을 지정합니다. 기본값은 "My"이므로 **CertificateStoreName** 매개 변수를 지정할 필요가 없습니다. **X509** 참조를 사용하여 인증서 파일은 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 있어야 합니다.  
 

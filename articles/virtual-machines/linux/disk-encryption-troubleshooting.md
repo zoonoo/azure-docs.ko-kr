@@ -9,21 +9,20 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: eeacea9e3305865881747801100dc17770b7df63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970451"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
 이 가이드는 조직에서 Azure Disk Encryption을 사용하는 IT 전문가, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다. 이 문서는 디스크 암호화 관련 문제를 해결하는 데 도움을 드리기 위해 작성되었습니다.
 
-아래 단계를 수행 하기 전에 먼저 암호화 하려는 vm이 지원 되는 [vm 크기 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems)중 어느 것이 고 모든 필수 구성 요소를 충족 하는지 확인 합니다.
+아래 단계를 수행하기 전에 먼저 암호화하려는 VM이 [지원되는 VM 크기 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems)에 속하는지와 모든 필수 조건을 충족하는지 확인합니다.
 
-- [Vm에 대 한 추가 요구 사항](disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [VM에 대한 추가 요구 사항](disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [네트워킹 요구 사항](disk-encryption-overview.md#networking-requirements)
-- [암호화 키 저장소 요구 사항](disk-encryption-overview.md#encryption-key-storage-requirements)
+- [암호화 키 스토리지 요구 사항](disk-encryption-overview.md#encryption-key-storage-requirements)
 
  
 
@@ -70,7 +69,7 @@ Microsoft. OSTCExtensions. AzureDiskEncryptionForLinux 확장은 더 이상 사�
 
 Linux OS 디스크 암호화 시퀀스는 OS 드라이브를 일시적으로 탑재 해제합니다. 그런 다음 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 단위로 암호화를 수행합니다. Linux 디스크 암호화는 암호화를 진행 하는 동안 VM을 동시에 사용할 수 없습니다. VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 큰 차이를 만들 수 있습니다. 이러한 특성은 디스크 크기 및 스토리지 계정이 표준 또는 프리미엄(SSD) 스토리지인지 여부를 포함합니다.
 
-암호화 상태를 확인 하려면 [AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령에서 반환 된 **ProgressMessage** 필드를 폴링합니다. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 다음은 그 예입니다.
+암호화 상태를 확인 하려면 [AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령에서 반환 된 **ProgressMessage** 필드를 폴링합니다. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예를 들어:
 
 
 ```azurepowershell
@@ -101,11 +100,11 @@ VM을 다시 부팅하라는 메시지가 표시된 후, VM이 다시 시작된 
 
 ## <a name="troubleshooting-encryption-status"></a>암호화 상태 문제 해결 
 
-포털은 VM 내에서 암호화 되지 않은 경우에도 디스크를 암호화 된 상태로 표시할 수 있습니다.  낮은 수준의 명령을 사용 하 여 VM 내에서 디스크의 암호를 직접 해독 하는 데 더 높은 수준의 Azure Disk Encryption 관리 명령을 사용 하는 대신이 오류가 발생할 수 있습니다.  더 높은 수준의 명령은 VM 내에서 디스크의 암호를 해독 하는 것이 아니라 vm 외부의 중요 한 플랫폼 수준 암호화 설정 및 VM에 연결 된 확장 설정도 업데이트 합니다.  이러한 설정이 그대로 유지 되지 않으면 플랫폼이 암호화 상태를 보고 하거나 VM을 올바르게 프로 비전 할 수 없습니다.   
+포털은 VM 내에서 암호화되지 않은 경우에도 디스크를 암호화된 상태로 표시할 수 있습니다.  상위 수준의 Azure Disk Encryption 관리 명령을 사용하는 대신 낮은 수준의 명령을 사용하여 VM 내에서 디스크의 암호를 직접 해독하면 이 오류가 발생할 수 있습니다.  상위 수준의 명령은 VM 내에서 디스크의 암호를 해독할 뿐만 아니라 VM 외부에서 중요한 플랫폼 수준 암호화 설정 및 VM에 연결된 확장 설정도 업데이트합니다.  이러한 설정이 그대로 유지되지 않으면 플랫폼이 암호화 상태를 보고하거나 VM을 올바르게 프로비저닝할 수 없습니다.   
 
-PowerShell을 사용 하 여 Azure Disk Encryption를 사용 하지 않도록 설정 하려면 [AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) 뒤에 [AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension)을 사용 합니다. 암호화를 사용 하지 않도록 설정 하기 전에 AzVMDiskEncryptionExtension를 실행 하면 오류가 발생 합니다.
+PowerShell을 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려면 [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) 및 [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension)을 차례로 사용합니다. 암호화를 사용하지 않도록 설정하기 전에 Remove-AzVMDiskEncryptionExtension을 실행하면 오류가 발생합니다.
 
-CLI를 사용 하 여 Azure Disk Encryption를 사용 하지 않도록 설정 하려면 [az vm Encryption disable](/cli/azure/vm/encryption)을 사용 합니다. 
+CLI를 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption)을 사용합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79250089"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
@@ -51,7 +50,7 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 ### <a name="command-keys"></a>명령 키
 위의 SysRq 관리자 가이드에서:
 
-|명령| 함수
+|명령| 기능
 | ------| ----------- |
 |``b``  |   디스크를 동기화 또는 분리하지 않고 시스템을 즉시 재부팅합니다.
 |``c``  |   NULL 포인터 역참조에 의해 시스템 크래시를 수행합니다. 구성된 경우 크래시덤프가 수행됩니다.
@@ -98,7 +97,7 @@ SysRq의 배포 관련 설명서 및 SysRq “Crash” 명령을 수신하는 �
 - [크래시 로그 수집](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>NMI(마스크 불가능 인터럽트)
-NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재 프로그래머 및 시스템 관리자는 응답 하지 않는 시스템을 디버그 하거나 문제를 해결 하는 메커니즘으로 NMI를 사용 하는 경우가 많습니다.
+NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재, 프로그래머 및 시스템 관리자는 종종 응답하지 않는 시스템을 디버그하거나 문제를 해결하기 위한 메커니즘으로 NMI를 사용합니다.
 
 아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure 가상 머신에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다.  운영 체제가 NMI를 수신하는 메모리 덤프를 크래시하고 만들도록 Linux 운영 체제를 구성할 수 있습니다.
 

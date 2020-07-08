@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371650"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
@@ -60,7 +59,7 @@ Service Fabric의 목표는 오류를 자동으로 관리 하는 것입니다. �
 
 서비스 유형에 관계 없이, 어떤 이유로든 코드의 단일 복사본이 실패할 경우 단일 인스턴스를 실행하면 해당 서비스에 대해 가동 중지가 발생합니다. 
 
-단일 오류를 처리 하려면 기본적으로 둘 이상의 노드에서 서비스가 실행 되도록 하는 것이 가장 간단 합니다. 상태 비저장 서비스의 경우 `InstanceCount` 가 1 보다 큰지 확인 합니다. 상태 저장 서비스의 경우 최소 권장 사항은 및 `TargetReplicaSetSize` `MinReplicaSetSize` 가 모두 3으로 설정 되어 있다는 것입니다. 서비스 코드의 복사본을 더 많이 실행하면 서비스가 모든 단일 오류를 자동으로 처리할 수 있습니다. 
+단일 오류를 처리 하려면 기본적으로 둘 이상의 노드에서 서비스가 실행 되도록 하는 것이 가장 간단 합니다. 상태 비저장 서비스의 경우 `InstanceCount` 가 1 보다 큰지 확인 합니다. 상태 저장 서비스의 경우 최소 권장 사항은 `TargetReplicaSetSize` 및가 `MinReplicaSetSize` 모두 3으로 설정 되어 있다는 것입니다. 서비스 코드의 복사본을 더 많이 실행하면 서비스가 모든 단일 오류를 자동으로 처리할 수 있습니다. 
 
 ### <a name="handling-coordinated-failures"></a>조정된 오류 처리
 클러스터의 조정 된 오류는 계획 되거나 계획 되지 않은 인프라 오류와 변경 또는 계획 된 소프트웨어 변경으로 인해 발생할 수 있습니다. Service Fabric는 조정 된 오류를 *장애 도메인*으로 경험 하는 인프라 영역을 모델링 합니다. 조정 된 소프트웨어 변경을 경험 하는 영역은 *업그레이드 도메인*으로 모델링 됩니다. 장애 도메인, 업그레이드 도메인 및 클러스터 토폴로지에 대 한 자세한 내용은 [클러스터 리소스 관리자를 사용 하 여 Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)을 참조 하세요.
@@ -97,7 +96,7 @@ Azure에서 Service Fabric를 실행 하는 경우 장애 도메인 및 업그�
 #### <a name="stateless-services"></a>상태 비저장 서비스
 상태 비저장 서비스의 인스턴스 수는 실행 해야 하는 원하는 인스턴스 수를 나타냅니다. 인스턴스 중 하나 (또는 모두)가 실패 하면 다른 노드에 대체 인스턴스를 자동으로 만들어 응답을 Service Fabric. Service Fabric은 서비스를 원하는 인스턴스 수로 되돌릴 때까지 대체를 계속 만듭니다.
 
-예를 들어 상태 비저장 서비스의 `InstanceCount` 값이-1 인 것으로 가정 합니다. 이 값은 클러스터의 각 노드에서 하나의 인스턴스가 실행 되 고 있어야 함을 의미 합니다. 이러한 인스턴스 중 일부에 오류가 발생 하는 경우 Service Fabric는 서비스가 원하는 상태가 아닌 것을 감지 하 고 누락 된 노드에 인스턴스를 만들려고 시도 합니다.
+예를 들어 상태 비저장 서비스의 값이-1 인 것으로 가정 `InstanceCount` 합니다. 이 값은 클러스터의 각 노드에서 하나의 인스턴스가 실행 되 고 있어야 함을 의미 합니다. 이러한 인스턴스 중 일부에 오류가 발생 하는 경우 Service Fabric는 서비스가 원하는 상태가 아닌 것을 감지 하 고 누락 된 노드에 인스턴스를 만들려고 시도 합니다.
 
 #### <a name="stateful-services"></a>상태 저장 서비스
 상태 저장 서비스에는 다음과 같은 두 가지 유형이 있습니다.
@@ -125,12 +124,12 @@ Azure에서 Service Fabric를 실행 하는 경우 장애 도메인 및 업그�
 
    쿼럼 손실이 (자동으로 또는 관리 작업을 통해)로 선언 된 경우에는 Service Fabric 하 고 서비스를 이동 하 여 데이터가 실제로 손실 되었는지 확인 합니다. 이 시점에서 다른 복제본이 반환 되지 않는 것을 알 수 Service Fabric 있습니다. 이것은 쿼럼 손실의 자체 해결을 더 이상 기다리지 않기로 했을 때 이미 결정된 사항이었습니다. 서비스에 대한 최선의 작업 과정은 중단된 후 특정 관리 개입을 기다리는 것입니다.
    
-   Service Fabric에서 메서드를 `OnDataLossAsync` 호출 하는 경우 데이터 손실이 _의심_ 되기 때문에 항상입니다. Service Fabric은 이 호출이 _최상의_ 나머지 복제본으로 전달되도록 합니다. 가장 많이 진행된 복제본이 여기에 해당됩니다. 
+   Service Fabric에서 메서드를 호출 하는 경우 `OnDataLossAsync` 데이터 손실이 _의심_ 되기 때문에 항상입니다. Service Fabric은 이 호출이 _최상의_ 나머지 복제본으로 전달되도록 합니다. 가장 많이 진행된 복제본이 여기에 해당됩니다. 
    
    항상 _의심 스러운_ 데이터 손실이 있다고 생각 되는 이유는 쿼럼이 손실 될 때 남은 복제본이 주 데이터베이스와 동일한 상태가 될 수 있다는 것입니다. 그러나 비교할 상태가 없으면 Service Fabric 또는 운영자가 확인할 방법이 없습니다.     
    
    그렇다면 `OnDataLossAsync` 메서드의 일반적인 구현은 어떤 작업을 수행할까요?
-   1. 트리거된 구현 로그 `OnDataLossAsync` 는 필요한 모든 관리 경고를 발생 시킵니다.
+   1. 트리거된 구현 로그는 `OnDataLossAsync` 필요한 모든 관리 경고를 발생 시킵니다.
    1. 일반적으로 구현은 추가 결정 및 수동 작업을 일시 중지 하 고 대기 합니다. 이는 백업을 사용할 수 있는 경우에도 준비 해야 할 수 있기 때문입니다. 
    
       예를 들어 두 개의 다른 서비스가 정보를 조정 하는 경우 이러한 백업을 수정 하 여 복원이 수행 된 후에도 해당 두 서비스가 처리 하는 정보가 일치 하는지 확인 해야 할 수 있습니다. 
@@ -171,8 +170,8 @@ Azure에서 Service Fabric를 실행 하는 경우 장애 도메인 및 업그�
 > 특정 파티션에 대해 대상으로 지정 된 방식으로이 메서드를 사용 하는 것은 안전 _하지 않습니다_ . 
 >
 
-- 또는 `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API `Repair-ServiceFabricPartition -PartitionId` 를 사용 합니다. 이 API를 사용 하면 쿼럼 손실에서 이동할 파티션의 ID를 지정 하 고 잠재적으로 데이터가 손실 될 수 있습니다.
-- 클러스터에 서비스가 쿼럼 손실 상태로 전환 되 고 잠재적 _데이터 손실이 허용 되_는 경우가 자주 발생 하면 적절 한 [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) 값을 지정 하면 서비스에서 자동으로 복구 하는 데 도움이 될 수 있습니다. 복구를 수행 하기 전에 Service Fabric `QuorumLossWaitDuration` 는 제공 된 값 (기본값은 무한)을 대기 합니다. 예기치 않은 데이터 손실이 발생할 수 있으므로이 방법을 권장 *하지 않습니다* .
+- `Repair-ServiceFabricPartition -PartitionId`또는 API를 사용 `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` 합니다. 이 API를 사용 하면 쿼럼 손실에서 이동할 파티션의 ID를 지정 하 고 잠재적으로 데이터가 손실 될 수 있습니다.
+- 클러스터에 서비스가 쿼럼 손실 상태로 전환 되 고 잠재적 _데이터 손실이 허용 되_는 경우가 자주 발생 하면 적절 한 [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) 값을 지정 하면 서비스에서 자동으로 복구 하는 데 도움이 될 수 있습니다. 복구를 수행 하기 전에 Service Fabric는 제공 된 `QuorumLossWaitDuration` 값 (기본값은 무한)을 대기 합니다. 예기치 않은 데이터 손실이 발생할 수 있으므로이 방법을 권장 *하지 않습니다* .
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Service Fabric 클러스터의 가용성
 일반적으로 Service Fabric 클러스터는 단일 실패 지점이 없는 매우 분산 된 환경입니다. 한 노드의 오류는 클러스터에 대 한 가용성 또는 안정성 문제를 발생 시 키 지 않습니다. 주로 Service Fabric 시스템 서비스가 이전에 제공 된 것과 동일한 지침을 따르기 때문입니다. 즉, 기본적으로 세 개 이상의 복제본을 사용 하 여 실행 되 고, 상태 비저장 시스템 서비스는 모든 노드에서 실행 됩니다. 

@@ -7,24 +7,23 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79277311"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 Azure Queue storage 트리거 및 바인딩
 
 새 Azure 큐 저장소 메시지가 만들어지고 함수 내에서 큐 메시지를 작성할 수 Azure Functions.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |---------|---------|
 | 큐 저장소 데이터 변경으로 함수 실행 | [트리거](./functions-bindings-storage-queue-trigger.md) |
 | 큐 저장소 메시지 쓰기 |[출력 바인딩](./functions-bindings-storage-queue-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>함수 앱에 추가
 
-### <a name="functions-2x-and-higher"></a>함수 2.x 이상
+### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
 트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 

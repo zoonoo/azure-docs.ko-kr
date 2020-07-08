@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79366748"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 성능 모니터링
@@ -33,7 +32,7 @@ Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법�
 
 3. Windows 클러스터를 준비하는 경우 **Windows 서버**를 클릭하고 Linux 클러스터를 만드는 경우 **Linux 서버**를 클릭합니다. 이 페이지에는 `workspace ID` 및 `workspace key`(포털에 기본 키로 나열됨)가 표시됩니다. 두 가지 모두 다음 단계에서 필요합니다.
 
-4. 다음 `vmss extension set` API를 사용 하 여 클러스터에 Log Analytics 에이전트를 설치 하는 명령을 실행 합니다.
+4. 다음 API를 사용 하 여 클러스터에 Log Analytics 에이전트를 설치 하는 명령을 실행 합니다 `vmss extension set` .
 
     Windows 클러스터의 경우:
 
@@ -67,7 +66,7 @@ Azure Log Analytics 작업 영역을 배포하고 각 노드에 에이전트를 
 
 Log Analytics 에이전트를 추가했으니, Log Analytics 포털로 이동하여 수집하려는 성능 카운터를 선택합니다.
 
-1. Azure Portal에서 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfLog AnalyticsWorkspace\>** 를 선택합니다.
+1. Azure Portal에서 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric \<nameOfLog AnalyticsWorkspace\> **를 선택 합니다.
 
 2. **Log Analytics**를 클릭합니다.
 

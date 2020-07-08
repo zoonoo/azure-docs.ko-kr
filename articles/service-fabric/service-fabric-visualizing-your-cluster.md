@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79258188"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
@@ -37,7 +36,7 @@ Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>클러스터에서 Service Fabric Explorer 실행
 
-Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 모든 브라우저에서 클러스터의 HTTP 관리 끝점 (예: https:\//Clusterfqdn: 19080)으로 이동 합니다.
+Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 모든 브라우저에서 클러스터의 HTTP 관리 끝점 (예: https: \/ /Clusterfqdn: 19080)으로 이동 합니다.
 
 개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
 
@@ -47,7 +46,7 @@ Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포�
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 연결
-Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예: https\://mysfcluster.westus.cloudapp.azure.com:19080. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
+Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예: https \: //mysfcluster.westus.cloudapp.azure.com:19080. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
 
 ### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 인증서 또는 AAD(Azure Active Directory)를 사용하여 서비스 패브릭 클라이언트에 대한 클라이언트 액세스를 제어할 수 있습니다.
@@ -80,10 +79,10 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ### <a name="view-the-clusters-nodes"></a>클러스터의 노드 보기
 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
-예를 들어 응용 프로그램 인스턴스를 삭제 하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업** > **응용 프로그램 삭제**를 선택 합니다.
+예를 들어 응용 프로그램 인스턴스를 삭제 하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업**  >  **응용 프로그램 삭제**를 선택 합니다.
 
 ![Service Fabric Explorer에서 애플리케이션 삭제][sfx-delete-application]
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79256966"
 ---
 # <a name="manage-the-mobility-agent"></a>모바일 에이전트 관리 
@@ -29,7 +28,7 @@ Azure에 대 한 VMware Vm 및 물리적 서버 재해 복구를 위해 Azure Si
 
      ![복제된 항목 창](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. 알림을 클릭하고 **에이전트 업데이트**에서 Mobility 서비스를 업그레이드하려는 머신을 선택합니다. 그런 다음 **확인**을 클릭합니다.
+4. 알림을 클릭하고 **에이전트 업데이트**에서 Mobility 서비스를 업그레이드하려는 머신을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
      ![복제된 항목 VM 목록](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
@@ -66,7 +65,7 @@ Site Recovery를 배포하여 Mobility 서비스의 푸시 설치를 사용하�
 
 UI 또는 명령 프롬프트에서 제거합니다.
 
-- **UI에서**: 머신의 제어판에서 **프로그램**을 선택합니다. **모바일 서비스/마스터 대상 서버** > **제거**Microsoft Azure Site Recovery 선택 합니다.
+- **UI에서**: 머신의 제어판에서 **프로그램**을 선택합니다. **모바일 서비스/마스터 대상 서버 제거 Microsoft Azure Site Recovery**선택  >  **Uninstall**합니다.
 - **명령 프롬프트에서**: 머신에서 관리자 권한으로 명령 프롬프트 창을 엽니다. 다음 명령을 실행합니다. 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"

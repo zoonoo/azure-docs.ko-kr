@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 2902ff17ac14a48f1a11259339c2ab1bc4595980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79299263"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 데이터 암호화 문제 해결-단일 서버
@@ -21,7 +20,7 @@ ms.locfileid: "79299263"
 
 Azure Key Vault에서 고객이 관리 하는 키를 사용 하도록 데이터 암호화를 구성 하는 경우 서버에서 키에 대 한 지속적인 액세스가 필요 합니다. 서버 Azure Key Vault에서 고객이 관리 하는 키에 대 한 액세스 권한을 상실 하면 모든 연결을 거부 하 고, 적절 한 오류 메시지를 반환 하 고, Azure Portal에서 해당 상태를 ***액세스할*** 수 없음으로 변경 합니다.
 
-Azure Database for PostgreSQL 서버에 액세스할 수 없는 경우 서버를 삭제 하 여 비용을 절감할 수 있습니다. 키 자격 증명 모음에 대 한 액세스가 복원 되 고 서버를 사용할 수 있을 때까지 서버에 대 한 다른 작업은 허용 되지 않습니다. 또한 고객이 관리 하는 키로 암호화 된 경우 액세스할 수 `Yes`없는 서버에서 (고객 관리 `No` )에서 (서비스 관리)로 데이터 암호화 옵션을 변경할 수 없습니다. 서버를 다시 액세스 하려면 키를 수동으로 다시 유효성을 다시 검사 해야 합니다. 이 작업은 고객이 관리 하는 키에 대 한 권한이 해지 되는 동안 무단 액세스 로부터 데이터를 보호 하는 데 필요 합니다.
+Azure Database for PostgreSQL 서버에 액세스할 수 없는 경우 서버를 삭제 하 여 비용을 절감할 수 있습니다. 키 자격 증명 모음에 대 한 액세스가 복원 되 고 서버를 사용할 수 있을 때까지 서버에 대 한 다른 작업은 허용 되지 않습니다. 또한 `Yes` `No` 고객이 관리 하는 키로 암호화 된 경우 액세스할 수 없는 서버에서 (고객 관리)에서 (서비스 관리)로 데이터 암호화 옵션을 변경할 수 없습니다. 서버를 다시 액세스 하려면 키를 수동으로 다시 유효성을 다시 검사 해야 합니다. 이 작업은 고객이 관리 하는 키에 대 한 권한이 해지 되는 동안 무단 액세스 로부터 데이터를 보호 하는 데 필요 합니다.
 
 ## <a name="common-errors-causing-server-to-become-inaccessible"></a>서버에 액세스할 수 없게 하는 일반적인 오류
 

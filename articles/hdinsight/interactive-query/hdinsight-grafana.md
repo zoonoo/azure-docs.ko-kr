@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: cd515bfd1dc57e78a041ed96686e1ba692bf6d3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79082866"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
@@ -28,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="access-the-grafana-dashboard"></a>Grafana 대시보드에 액세스
 
-1. 웹 브라우저에서로 `https://CLUSTERNAME.azurehdinsight.net/grafana/` 이동 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/grafana/` 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 
 1. Hadoop 클러스터 사용자 자격 증명을 입력합니다.
 

@@ -5,10 +5,9 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969570"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
@@ -19,9 +18,9 @@ ms.locfileid: "78969570"
 
 시스템 상태 백업 문제 해결을 시작 하기 전에 아래 유효성 검사를 수행 하는 것이 좋습니다.
 
-- [MARS (Microsoft Azure Recovery Services) 에이전트가 최신 상태 인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [MARS(Microsoft Azure Recovery Services) 에이전트가 최신 상태인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
-- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작한 후 작업을 다시 시도 하세요.
+- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작하고 작업을 다시 시도
 - [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
 - [예약 백업은 실패하지만 수동 백업은 작동](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
@@ -40,7 +39,7 @@ ms.locfileid: "78969570"
 - Microsoft에서는 시스템 상태 복구를 사용하여 다른 하드웨어로 복구하는 방법을 권장하지 않습니다.
 - 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 합니다. Azure Vm에는이 기능을 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음 필수 구성 요소 검사를 수행 합니다.  
 
@@ -106,7 +105,7 @@ Windows Server 백업 상태를 확인 하려면 다음 단계를 수행 합니�
 
 - WSB PowerShell이 실행 중인지 확인
 
-  - 관리자 `Get-WBJob` 권한 PowerShell에서를 실행 하 고 다음 오류를 반환 하지 않는지 확인 합니다.
+  - `Get-WBJob`관리자 권한 PowerShell에서를 실행 하 고 다음 오류를 반환 하지 않는지 확인 합니다.
 
     > [!WARNING]
     > WBJob: ' WBJob ' 용어는 cmdlet, 함수, 스크립트 파일 또는 작동 가능한 프로그램의 이름으로 인식 되지 않습니다. 이름의 철자를 확인하거나 경로가 포함되어 있으면 경로가 올바른지 확인하고 다시 시도합니다.
@@ -120,12 +119,12 @@ Windows Server 백업 상태를 확인 하려면 다음 단계를 수행 합니�
       > [!NOTE]
       >X를 시스템 상태 백업 이미지를 저장 하려는 볼륨의 드라이브 문자로 바꿉니다.
 
-    - 관리자 권한 PowerShell에서 명령을 실행 `Get-WBJob` 하 여 작업의 상태를 주기적으로 확인 합니다.
-    - 백업 작업이 완료 된 후 명령을 실행 `Get-WBJob -Previous 1` 하 여 작업의 최종 상태를 확인 합니다.
+    - `Get-WBJob`관리자 권한 PowerShell에서 명령을 실행 하 여 작업의 상태를 주기적으로 확인 합니다.
+    - 백업 작업이 완료 된 후 명령을 실행 하 여 작업의 최종 상태를 확인 합니다. `Get-WBJob -Previous 1`
 
 작업이 실패 하는 경우에는 MARS 에이전트 시스템 상태 백업 실패가 발생 하는 WSB 문제를 나타냅니다.
 
-## <a name="common-errors"></a>일반 오류
+## <a name="common-errors"></a>일반적인 오류
 
 ### <a name="vss-writer-timeout-error"></a>VSS 기록기 시간 초과 오류
 
@@ -137,7 +136,7 @@ Windows Server 백업 상태를 확인 하려면 다음 단계를 수행 합니�
 
 | 증상 | 해결 방법
 | -- | --
-| -MARS 에이전트가 실패 했습니다. 오류 메시지: 시스템 파일을 포함 하는 볼륨의 디스크 공간이 부족 하 여 섀도 복사본 볼륨을 늘릴 수 없어서 백업에 실패 했습니다. <br/><br/> -다음 오류/경고 로그는 volsnap 시스템 이벤트 로그에 있습니다. "볼륨 C에 디스크 공간이 부족 합니다. C: 섀도 복사본에 대 한 섀도 복사본 저장소 크기를 증가 시키려면 볼륨 C: 볼륨 C:의 모든 섀도 복사본을 삭제 하는 위험 | -백업이 진행 되는 동안 섀도 복사본을 늘릴 수 있는 충분 한 공간이 있도록 이벤트 로그에서 강조 표시 된 볼륨의 공간을 확보 합니다. <br/><br/> -섀도 복사본 공간을 구성 하는 동안 섀도 복사본에 사용 되는 공간 크기를 제한할 수 있습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage) 를 참조 하세요.
+| -MARS 에이전트가 실패 했습니다. 오류 메시지: 시스템 파일을 포함 하는 볼륨의 디스크 공간이 부족 하 여 섀도 복사본 볼륨을 늘릴 수 없어서 백업에 실패 했습니다. <br/><br/> -다음 오류/경고 로그는 volsnap 시스템 이벤트 로그에 있습니다. "볼륨 C에 디스크 공간이 부족 합니다. C: 섀도 복사본에 대 한 섀도 복사본 저장소 크기를 증가 시키려면 볼륨 C: 볼륨 C:의 모든 섀도 복사본을 삭제 하는 위험 | -백업이 진행 되는 동안 섀도 복사본을 늘릴 수 있는 충분 한 공간이 있도록 이벤트 로그에서 강조 표시 된 볼륨의 공간을 확보 합니다. <br/><br/> -섀도 복사본 공간을 구성 하는 동안 섀도 복사본에 사용 되는 공간 크기를 제한할 수 있습니다. 자세한 내용은 관련 [문서](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)를 참조하세요.
 
 ### <a name="efi-partition-locked"></a>EFI 파티션 잠김
 

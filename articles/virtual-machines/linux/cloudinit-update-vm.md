@@ -7,14 +7,13 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cynthn
 ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969150"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 패키지 업데이트 및 설치
-이 문서에서는 [클라우드 초기화](https://cloudinit.readthedocs.io) 를 사용 하 여 Azure에서 프로 비전 하는 동안 Linux VM (가상 머신) 또는 가상 머신 확장 집합의 패키지를 업데이트 하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 클라우드 초기화가 Azure에서 기본적으로 작동 하는 방법 및 지원 되는 Linux 배포판에 대 한 자세한 내용은 [클라우드-초기화 개요](using-cloud-init.md) 를 참조 하세요.
+이 문서에서는 [클라우드 초기화](https://cloudinit.readthedocs.io) 를 사용 하 여 Azure에서 프로 비전 하는 동안 Linux VM (가상 머신) 또는 가상 머신 확장 집합의 패키지를 업데이트 하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
 ## <a name="update-a-vm-with-cloud-init"></a>cloud-init를 사용하여 VM 업데이트
 보안상의 이유로 최초 부팅에서 최신 업데이트를 적용하도록 VM을 구성하려 할 수 있습니다. cloud-init는 다양한 Linux 배포에서 작동하므로 패키지 관리자에 대해 `apt` 또는 `yum`을 지정할 필요가 없습니다. 그 대신 `package_upgrade`를 지정하고 cloud-init 프로세스가 사용 중인 배포에 적합한 메커니즘을 판단하게 합니다. 이 워크플로를 통해 전체 배포에서 동일한 cloud-init 스크립트를 사용할 수 있습니다.

@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367519"
 ---
 # <a name="enter-data-manually-module"></a>수동으로 데이터 입력 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 **데이터 직접 입력** 모듈을 사용 하 여 값을 입력 하 여 작은 데이터 집합을 만듭니다. 데이터 집합에는 여러 개의 열이 있을 수 있습니다.
   
@@ -57,7 +56,7 @@ ms.locfileid: "79367519"
   
    - **Arff**: 기존 arff 서식 파일에 붙여넣습니다. 값을 직접 입력 하는 경우 데이터 시작 부분에 선택적 헤더 및 필수 특성 필드를 추가 해야 합니다. 
 
-     예를 들어 다음 헤더 및 특성 행을 간단한 목록에 추가할 수 있습니다. 열 머리글은 `SampleText`입니다. 문자열 형식은 지원 되지 않습니다.
+     예를 들어 다음 헤더 및 특성 행을 간단한 목록에 추가할 수 있습니다. 열 머리글은 `SampleText` 입니다. 문자열 형식은 지원 되지 않습니다.
     
      ```text
      % Title: SampleText.ARFF  
@@ -96,4 +95,4 @@ ms.locfileid: "79367519"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

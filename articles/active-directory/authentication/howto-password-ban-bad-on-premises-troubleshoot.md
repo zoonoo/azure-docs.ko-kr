@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79263648"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>문제 해결: 온-프레미스 Azure AD 암호 보호
@@ -40,7 +39,7 @@ Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습
 
 1. 프록시 호스트 컴퓨터가 프록시 서비스에서 수신 하는 RPC 끝점 (동적 또는 정적)에 대 한 액세스를 차단 하 고 있습니다.
 
-   Azure AD 암호 보호 프록시 설치 관리자는 Azure AD 암호 보호 프록시 서비스에서 수신 대기 하는 인바운드 포트에 대 한 액세스를 허용 하는 Windows 방화벽 인바운드 규칙을 자동으로 만듭니다. 이 규칙을 나중에 삭제 하거나 사용 하지 않도록 설정 하면 DC 에이전트는 프록시 서비스와 통신할 수 없습니다. 다른 방화벽 제품 대신 builtin Windows 방화벽을 사용 하지 않도록 설정한 경우 Azure AD 암호 보호 프록시 서비스에서 수신 대기 하는 인바운드 포트에 대 한 액세스를 허용 하도록 방화벽을 구성 해야 합니다. 이 구성은 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 하 여 특정 정적 RPC 포트에서 수신 하도록 프록시 서비스가 구성 된 경우 더 구체적으로 지정할 수 있습니다.
+   Azure AD 암호 보호 프록시 설치 관리자는 Azure AD 암호 보호 프록시 서비스에서 수신 대기 하는 인바운드 포트에 대 한 액세스를 허용 하는 Windows 방화벽 인바운드 규칙을 자동으로 만듭니다. 이 규칙을 나중에 삭제 하거나 사용 하지 않도록 설정 하면 DC 에이전트는 프록시 서비스와 통신할 수 없습니다. 다른 방화벽 제품 대신 builtin Windows 방화벽을 사용 하지 않도록 설정한 경우 Azure AD 암호 보호 프록시 서비스에서 수신 대기 하는 인바운드 포트에 대 한 액세스를 허용 하도록 방화벽을 구성 해야 합니다. 이 구성은 cmdlet을 사용 하 여 특정 정적 RPC 포트에서 수신 하도록 프록시 서비스가 구성 된 경우 더 구체적으로 지정할 수 있습니다 `Set-AzureADPasswordProtectionProxyConfiguration` .
 
 1. 도메인 컨트롤러에서 컴퓨터에 로그온 할 수 있도록 프록시 호스트 컴퓨터가 구성 되어 있지 않습니다. 이 동작은 "네트워크에서이 컴퓨터 액세스" 사용자 권한 할당을 통해 제어 됩니다. 포리스트의 모든 도메인에 있는 모든 도메인 컨트롤러에이 권한을 부여 해야 합니다. 이 설정은 일반적으로 대규모 네트워크 강화 작업의 일부로 제약을 받습니다.
 
@@ -50,9 +49,9 @@ Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습
 
 1. 포리스트와 모든 프록시 서버가 동일한 Azure 테 넌 트에 등록 되었는지 확인 합니다.
 
-   및 PowerShell cmdlet을 실행 하 여이 요구 사항을 확인 한 다음 반환 된 `AzureTenant` 각 항목의 속성을 비교할 수 있습니다. `Get-AzureADPasswordProtectionDCAgent` `Get-AzureADPasswordProtectionProxy` 올바른 작업의 경우 보고 된 테 넌 트 이름은 모든 DC 에이전트와 프록시 서버에서 동일 해야 합니다.
+   및 PowerShell cmdlet을 실행 하 여이 요구 사항을 확인 `Get-AzureADPasswordProtectionProxy` `Get-AzureADPasswordProtectionDCAgent` 한 다음 반환 된 `AzureTenant` 각 항목의 속성을 비교할 수 있습니다. 올바른 작업의 경우 보고 된 테 넌 트 이름은 모든 DC 에이전트와 프록시 서버에서 동일 해야 합니다.
 
-   Azure 테 넌 트 등록 불일치 조건이 있는 경우 필요에 따라 `Register-AzureADPasswordProtectionProxy` 및/또는 `Register-AzureADPasswordProtectionForest` PowerShell cmdlet을 실행 하 여 모든 등록에 대해 동일한 azure 테 넌 트의 자격 증명을 사용 하 여이 문제를 해결할 수 있습니다.
+   Azure 테 넌 트 등록 불일치 조건이 있는 경우 필요에 따라 `Register-AzureADPasswordProtectionProxy` 및/또는 PowerShell cmdlet을 실행 하 여 `Register-AzureADPasswordProtectionForest` 모든 등록에 대해 동일한 azure 테 넌 트의 자격 증명을 사용 하 여이 문제를 해결할 수 있습니다.
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC 에이전트가 암호 정책 파일을 암호화 하거나 암호 해독할 수 없습니다.
 
@@ -166,7 +165,7 @@ No further messages will be logged until after the next reboot.
 > [!IMPORTANT]
 > 만료 된 공개 미리 보기 DC 에이전트는 즉시 최신 버전으로 업그레이드 하는 것이 좋습니다.
 
-업그레이드 해야 하는 사용자 환경에서 DC 에이전트를 검색 하는 쉬운 방법은 `Get-AzureADPasswordProtectionDCAgent` cmdlet을 실행 하는 것입니다. 예를 들면 다음과 같습니다.
+업그레이드 해야 하는 사용자 환경에서 DC 에이전트를 검색 하는 쉬운 방법은 cmdlet을 실행 하는 것입니다 `Get-AzureADPasswordProtectionDCAgent` . 예를 들면 다음과 같습니다.
 
 ```powershell
 PS C:\> Get-AzureADPasswordProtectionDCAgent
@@ -187,7 +186,7 @@ PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
 PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
 ```
 
-Azure AD 암호 보호 프록시 소프트웨어는 어떤 버전 에서도 시간이 제한 되지 않습니다. DC와 프록시 에이전트는 모두 릴리스 될 때 최신 버전으로 업그레이드 하는 것이 좋습니다. `Get-AzureADPasswordProtectionProxy` Cmdlet을 사용 하 여 DC 에이전트에 대 한 위의 예제와 비슷하게 업그레이드를 필요로 하는 프록시 에이전트를 찾을 수 있습니다.
+Azure AD 암호 보호 프록시 소프트웨어는 어떤 버전 에서도 시간이 제한 되지 않습니다. DC와 프록시 에이전트는 모두 릴리스 될 때 최신 버전으로 업그레이드 하는 것이 좋습니다. Cmdlet을 사용 하 여 `Get-AzureADPasswordProtectionProxy` DC 에이전트에 대 한 위의 예제와 비슷하게 업그레이드를 필요로 하는 프록시 에이전트를 찾을 수 있습니다.
 
 특정 업그레이드 절차에 대 한 자세한 내용은 [DC 에이전트 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) 및 [프록시 서비스 업그레이드](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) 를 참조 하세요.
 

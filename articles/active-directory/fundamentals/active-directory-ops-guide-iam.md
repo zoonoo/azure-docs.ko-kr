@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298617"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Azure Active Directory Id 및 액세스 관리 작업 참조 가이드
@@ -31,7 +30,7 @@ ms.locfileid: "79298617"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 될 수 없는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 사용자 환경을 유지 하기 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| 작업 | 소유자 |
+| Task | 소유자 |
 | :- | :- |
 | Azure 구독을 만드는 방법에 대 한 프로세스 정의 | 조직 마다 다름 |
 | Enterprise Mobility + Security 라이선스를 가져오는 사람 결정 | IAM 운영 팀 |

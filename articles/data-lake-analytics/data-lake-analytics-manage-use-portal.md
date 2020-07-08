@@ -10,10 +10,9 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79265702"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
@@ -30,7 +29,7 @@ ms.locfileid: "79265702"
 ### <a name="create-an-account"></a>계정 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스** > 만들기**인텔리전스 + 분석** > **Data Lake Analytics**를 클릭 합니다.
+2. **리소스 만들기**  >  **인텔리전스 + 분석**  >  **Data Lake Analytics**를 클릭 합니다.
 3. 다음 항목에 대한 값을 선택합니다. 
    1. **이름**: Data Lake Analytics 계정의 이름입니다.
    2. **구독**: 계정에 사용되는 Azure 구독입니다.
@@ -111,7 +110,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Data Lake Analytics 계정에 사용자 또는 보안 그룹 추가
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **액세스 제어 (IAM)** > **역할 할당 추가**를 클릭 합니다.
+2. **액세스 제어 (IAM)**  >  **역할 할당 추가**를 클릭 합니다.
 3. 원하는 역할을 선택합니다.
 4. 사용자를 추가합니다.
 5. **확인**을 클릭합니다.

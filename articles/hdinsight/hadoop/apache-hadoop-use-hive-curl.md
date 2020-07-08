@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 10a2f413142124db7547e68280a0d5e9abac9b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298753"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행
@@ -21,9 +20,9 @@ ms.locfileid: "79298753"
 
 WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoop과 함께 Apache Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+* HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 * REST 클라이언트 이 문서에서는 Windows PowerShell에서 [호출 WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) 를 사용 하 고 [Bash](https://docs.microsoft.com/windows/wsl/install-win10)에서 [말아 넘기기](https://curl.haxx.se/) 를 사용 합니다.
 
@@ -31,7 +30,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoo
 
 ## <a name="base-uri-for-rest-api"></a>Rest API에 대 한 기본 URI
 
-HDInsight에서 REST API에 대 한 기본 URI (Uniform Resource Identifier)는 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`이며, `CLUSTERNAME` 여기서은 클러스터의 이름입니다.  Uri의 클러스터 이름은 **대/소문자를 구분**합니다.  URI ()의 FQDN (`CLUSTERNAME.azurehdinsight.net`정규화 된 도메인 이름) 부분에 있는 클러스터 이름은 대/소문자를 구분 하지 않지만 uri에서 다른 항목은 대/소문자를 구분 합니다.
+HDInsight에서 REST API에 대 한 기본 URI (Uniform Resource Identifier)는 이며 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.  Uri의 클러스터 이름은 **대/소문자를 구분**합니다.  URI ()의 FQDN (정규화 된 도메인 이름) 부분에 있는 클러스터 이름은 `CLUSTERNAME.azurehdinsight.net` 대/소문자를 구분 하지 않지만 uri에서 다른 항목은 대/소문자를 구분 합니다.
 
 ## <a name="authentication"></a>인증
 
@@ -42,7 +41,7 @@ WebHCat에서 cURL 또는 다른 모든 REST 통신을 사용하는 경우 HDIns
 각 예제에 대해 자격 증명을 입력할 필요가 없도록 자격 증명을 유지 합니다.  클러스터 이름은 별도의 단계로 유지 됩니다.
 
 **A. Bash**  
-실제 암호로 대체 `PASSWORD` 하 여 아래 스크립트를 편집 합니다.  그런 다음 명령을 입력 합니다.
+실제 암호로 대체 하 여 아래 스크립트를 편집 `PASSWORD` 합니다.  그런 다음 명령을 입력 합니다.
 
 ```bash
 export password='PASSWORD'
@@ -58,7 +57,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 
 클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다.  여기에서 설명 하는 단계는 실제 대/소문자를 표시 한 다음 나중에 모든 예제에 대 한 변수에 저장 합니다.
 
-아래 스크립트를 편집 하 여 `CLUSTERNAME` 를 클러스터 이름으로 바꿉니다. 그런 다음 명령을 입력 합니다. FQDN의 클러스터 이름은 대/소문자를 구분 하지 않습니다.
+아래 스크립트를 편집 하 여를 `CLUSTERNAME` 클러스터 이름으로 바꿉니다. 그런 다음 명령을 입력 합니다. FQDN의 클러스터 이름은 대/소문자를 구분 하지 않습니다.
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')

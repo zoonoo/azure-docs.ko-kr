@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246111"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 사설 클라우드 vCenter 액세스의 이름 확인에 대 한 DNS 구성
@@ -23,7 +22,7 @@ ms.locfileid: "79246111"
 
 1. [Cloudsimple 포털](access-cloudsimple-portal.md)에 로그인 합니다.
 
-2. **리소스** > **사설** 클라우드로 이동 하 여 연결 하려는 사설 클라우드를 선택 합니다.
+2. **리소스**사설 클라우드로 이동 하 여  >  **Private Clouds** 연결 하려는 사설 클라우드를 선택 합니다.
 
 3. 사설 클라우드의 **요약** 페이지에 있는 **기본 정보**에서 사설 클라우드 DNS 서버 IP 주소를 복사 합니다.
 

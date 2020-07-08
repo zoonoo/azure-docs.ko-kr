@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367587"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터
@@ -38,7 +37,7 @@ Azure Cosmos DB는 다음 공간 데이터 형식을 지원 합니다.
 
 - Point
 - LineString
-- Polygon
+- 다각형
 - MultiPolygon
 
 ### <a name="points"></a>점
@@ -174,7 +173,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-SQL api를 사용 하 여 작업 하는 `Point`경우 `LineString` `Polygon` `MultiPolygon` `Microsoft.Azure.Cosmos.Spatial` 네임 스페이스 내에서,, 및 클래스를 사용 하 여 응용 프로그램 개체 내에 위치 정보를 포함할 수 있습니다. 이러한 클래스는 GeoJSON으로 공간 데이터 직렬화 및 역직렬화를 간소화하는 데 도움이 됩니다.
+SQL api를 사용 하 여 작업 하는 경우 `Point` `LineString` 네임 스페이스 내에서,, 및 클래스를 사용 하 여 `Polygon` `MultiPolygon` `Microsoft.Azure.Cosmos.Spatial` 응용 프로그램 개체 내에 위치 정보를 포함할 수 있습니다. 이러한 클래스는 GeoJSON으로 공간 데이터 직렬화 및 역직렬화를 간소화하는 데 도움이 됩니다.
 
 **.NET에서 지리 공간 데이터를 포함하는 문서 만들기**
 

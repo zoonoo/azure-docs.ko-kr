@@ -4,10 +4,9 @@ description: Azure Storage에서 응용 프로그램 데이터를 암호화 하 
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 7e5e809fe8b670ae6ec5bfd15e54f9a8019e76d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79408746"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 암호화
@@ -31,7 +30,7 @@ ms.locfileid: "79408746"
 
 ### <a name="configure-running-from-a-package-from-your-storage-account"></a>저장소 계정의 패키지에서 실행 구성
   
-Blob 저장소에 파일을 업로드 하 고 파일에 대 한 SAS URL이 있는 경우 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정을 sas url로 설정 합니다. 다음 예에서는 Azure CLI를 사용 하 여이 작업을 수행 합니다.
+Blob 저장소에 파일을 업로드 하 고 파일에 대 한 SAS URL이 있는 경우 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정을 SAS url로 설정 합니다. 다음 예에서는 Azure CLI를 사용 하 여이 작업을 수행 합니다.
 
 ```
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
@@ -43,7 +42,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 이제 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을 SAS 인코딩된 URL에 대 한 Key Vault 참조로 바꿀 수 있습니다. 그러면 추가 보안 계층을 제공 하는 Key Vault 암호화 된 SAS URL이 유지 됩니다.
 
-1. 다음 [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) 명령을 사용 하 여 Key Vault 인스턴스를 만듭니다.       
+1. 다음 명령을 사용 [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) 하 여 Key Vault 인스턴스를 만듭니다.       
 
     ```azurecli    
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
@@ -51,19 +50,19 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 1. 앱에 키 자격 증명 모음에 대 한 [액세스 권한을 부여 하려면 다음 지침을](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) 따르세요.
 
-1. 다음 [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) 명령을 사용 하 여 외부 URL을 키 자격 증명 모음에 암호로 추가 합니다.   
+1. 다음 명령을 사용 [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) 하 여 외부 URL을 키 자격 증명 모음에 암호로 추가 합니다.   
 
     ```azurecli    
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  다음 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용 하 여 값이 `WEBSITE_RUN_FROM_PACKAGE` 외부 URL에 대 한 Key Vault 참조로 응용 프로그램 설정을 만듭니다.
+1.  다음 명령을 사용 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 하 여 값이 `WEBSITE_RUN_FROM_PACKAGE` 외부 URL에 대 한 Key Vault 참조로 응용 프로그램 설정을 만듭니다.
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    는 `<secret-version>` 이전 `az keyvault secret set` 명령의 출력에 있습니다.
+    는 `<secret-version>` 이전 명령의 출력에 `az keyvault secret set` 있습니다.
 
 이 응용 프로그램 설정을 업데이트 하면 웹 앱이 다시 시작 됩니다. 앱이 다시 시작 되 면 Key Vault 참조를 사용 하 여 제대로 시작 되었는지 확인 합니다.
 
@@ -71,7 +70,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 저장소 계정의 SAS 키를 정기적으로 회전 하는 것이 좋습니다. 웹 앱이 실수로 액세스를 완화 하지 않도록 하려면 Key Vault에서 SAS URL도 업데이트 해야 합니다.
 
-1. Azure Portal에서 저장소 계정으로 이동 하 여 SAS 키를 회전 합니다. **설정** > **액세스 키**에서 아이콘을 클릭 하 여 SAS 키를 회전 합니다.
+1. Azure Portal에서 저장소 계정으로 이동 하 여 SAS 키를 회전 합니다. **설정**  >  **액세스 키**에서 아이콘을 클릭 하 여 SAS 키를 회전 합니다.
 
 1. 새 SAS URL을 복사 하 고 다음 명령을 사용 하 여 주요 자격 증명 모음에 업데이트 된 SAS URL을 설정 합니다.
 
@@ -85,7 +84,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    는 `<secret-version>` 이전 `az keyvault secret set` 명령의 출력에 있습니다.
+    는 `<secret-version>` 이전 명령의 출력에 `az keyvault secret set` 있습니다.
 
 ## <a name="how-to-revoke-the-web-apps-data-access"></a>웹 앱의 데이터 액세스를 취소 하는 방법
 
@@ -120,4 +119,4 @@ Azure Storage 계정과 관련 된 비용 및 모든 해당 송신 요금이 적
 ## <a name="next-steps"></a>다음 단계
 
 - [App Service에 대 한 참조 Key Vault](app-service-key-vault-references.md)
-- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](../storage/common/storage-service-encryption.md)
+- [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)

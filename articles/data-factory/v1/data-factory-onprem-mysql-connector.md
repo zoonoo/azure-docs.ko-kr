@@ -13,10 +13,9 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281289"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
@@ -65,12 +64,12 @@ ms.locfileid: "79281289"
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 MySQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesMySql** |예 |
 | 서버 |MySQL 서버의 이름입니다. |예 |
 | 데이터베이스 |MySQL 데이터베이스의 이름입니다. |예 |
-| 스키마 |데이터베이스에서 스키마의 이름입니다. |아니요 |
+| 스키마 |데이터베이스에서 스키마의 이름입니다. |예 |
 | authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |예 |
 | userName |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
 | password |지정한 사용자 계정의 암호를 지정합니다. |예 |
@@ -81,7 +80,7 @@ ms.locfileid: "79281289"
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **RelationalTable** 형식의 데이터 세트(MySQL 데이터 세트를 포함)에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -305,29 +304,29 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | bit |Decimal |
 | blob |Byte[] |
 | bool |부울 |
-| char |문자열 |
+| char |String |
 | date |DateTime |
 | Datetime |DateTime |
 | decimal |Decimal |
 | double precision |Double |
 | double |Double |
-| enum |문자열 |
+| enum |String |
 | float |Single |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
-| long varchar |문자열 |
+| long varchar |String |
 | longblob |Byte[] |
-| longtext |문자열 |
+| longtext |String |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |문자열 |
+| mediumtext |String |
 | numeric |Decimal |
 | real |Double |
-| set |문자열 |
+| set |String |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
 | text |String |
@@ -336,8 +335,8 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
-| tinytext |문자열 |
-| varchar |문자열 |
+| tinytext |String |
+| varchar |String |
 | year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑

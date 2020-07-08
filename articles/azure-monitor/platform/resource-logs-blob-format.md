@@ -8,10 +8,9 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79096785"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>저장소 계정에 보관 된 Azure Monitor 플랫폼 로그의 형식 변경 준비
@@ -25,7 +24,7 @@ ms.locfileid: "79096785"
 Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azure Monitor의 Log Analytics 작업 영역으로 리소스 로그와 활동 로그를 보낼 수 있는 기능을 제공 합니다. 시스템 성능 문제를 해결 하기 위해 **2018 년 11 월 1 일 12:00 자정 UTC** 에서 blob 저장소로 전송 되는 로그 데이터의 형식이 변경 되었습니다. Blob Storage에서 데이터를 읽는 도구가 있는 경우, 새 데이터 형식을 이해하도록 도구를 업데이트해야 합니다.
 
 * 12:00 2018 년 11 월 1 일 목요일 UTC 자정에 blob 형식이 [JSON 줄](http://jsonlines.org/)로 변경 되었습니다. 즉, 각 레코드가 줄 바꿈으로 구분되고 외부 레코드 배열 및 JSON 레코드 사이의 쉼표가 없습니다.
-* 모든 구독에서 한 번에 모든 진단 설정에 대해 blob 형식이 변경 되었습니다. 11 월 1 일에 내보내는 첫 번째 PT1H.JSON 파일은이 새 형식을 사용 했습니다. Blob 및 컨테이너 이름은 동일하게 유지됩니다.
+* 모든 구독에서 한 번에 모든 진단 설정에 대해 blob 형식이 변경 되었습니다. 11 월 1 일에 내보낸 파일의 첫 번째 PT1H.js는이 새 형식을 사용 했습니다. Blob 및 컨테이너 이름은 동일하게 유지됩니다.
 * 11 월 1 일 이전에 진단 설정을 다시 설정 하 여 현재 형식으로 데이터를 내보냅니다.
 * 이 변경 내용은 모든 공용 클라우드 지역에서 한 번에 발생 합니다. 변경 내용은 아직 21Vianet, Azure 독일 또는 Azure Government 클라우드에서 운영 하는 Microsoft Azure에서 발생 하지 않습니다.
 * 이 변경은 다음 데이터 형식에 영향을 줍니다.

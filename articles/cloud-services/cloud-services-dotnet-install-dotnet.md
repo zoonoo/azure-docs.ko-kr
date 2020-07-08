@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79214719"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
@@ -36,7 +35,7 @@ ms.locfileid: "79214719"
 
 *웹* 역할에 대한 설치 관리자를 추가하려면
   1. **솔루션 탐색기** 내 클라우드 서비스 프로젝트의 **역할** 아래에서 *웹* 역할을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 폴더**를 선택합니다. **Bin**이라는 폴더를 만듭니다.
-  2. Bin 폴더를 마우스 오른쪽 단추로 클릭 하 고**기존 항목** **추가** > 를 선택 합니다. .NET 설치 관리자를 선택하고 bin 폴더에 추가합니다.
+  2. Bin 폴더를 마우스 오른쪽 단추로 클릭 하 **Add**고  >  **기존 항목**추가를 선택 합니다. .NET 설치 관리자를 선택하고 bin 폴더에 추가합니다.
   
 *작업자* 역할에 대해 설치 관리자를 추가하려면
 * *작업자* 역할을 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 역할에 추가합니다. 
@@ -197,7 +196,7 @@ ms.locfileid: "79214719"
    EXIT /B 0
    ```
 
-3. 이 항목의 앞부분에서 설명한 대로 **솔루션 탐색기** 의**기존 항목** **추가** > 를 사용 하 여 각 역할에 install .cmd 파일을 추가 합니다. 
+3. **Add**  >  이 항목의 앞부분에서 설명한 대로 **솔루션 탐색기** 의**기존 항목** 추가를 사용 하 여 각 역할에 install .cmd 파일을 추가 합니다. 
 
     이 단계가 완료된 후에는 모든 역할에 .NET 설치 관리자 파일과 install.cmd 파일이 있습니다.
 
@@ -222,7 +221,7 @@ ms.locfileid: "79214719"
 ## <a name="deploy-your-cloud-service"></a>클라우드 서비스 배포
 클라우드 서비스를 배포하면 .NET Framework가 아직 설치되어 있지 않은 경우 시작 작업이 .NET Framework를 설치합니다. 프레임워크가 설치되고 있는 동안에는 클라우드 서비스 역할이 *사용 중* 상태입니다. 프레임워크 설치를 다시 시작해야 하는 경우 서비스 역할도 다시 시작될 수 있습니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [.NET Framework 설치][Installing the .NET Framework]
 * [설치된 .NET Framework 버전 확인][How to: Determine Which .NET Framework Versions Are Installed]
 * [.NET Framework 설치 문제 해결][Troubleshooting .NET Framework Installations]

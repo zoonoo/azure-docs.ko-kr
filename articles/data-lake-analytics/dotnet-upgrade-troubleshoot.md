@@ -10,10 +10,9 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
 ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79213592"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics .NET Framework v 4.7.2로 업그레이드 하 고 있습니다.
@@ -65,19 +64,19 @@ U-SQL 사용자 지정 어셈블리에서 .NET 코드에 대 한 .NET 호환성 
   - 제안 된 작업: System.threading.tasks.taskfactory.fromasync가 true를 올바르게 반환 하는지 확인 합니다.
 
 - DataObject.GetData가 이제 데이터를 UTF-8로 검색
-  - .NET Framework 4를 대상으로 하거나 .NET Framework 4.5.1 이하 버전에서 실행되는 앱의 경우, DataObject.GetData는 HTML 형식의 데이터를 ASCII 문자열로 검색합니다. 따라서 ASCII가 아닌 문자 (ASCII 코드가 0x7F 보다 큰 문자)는 임의의 두 문자로 표시 됩니다. #N # #N # .NET Framework 4.5 이상 버전을 대상으로 하며 .NET Framework 4.5.2에서 실행 되는 앱의 경우, 보다 큰 `DataObject.GetData` 문자를 올바르게 나타내는 u t f-8로 HTML 형식의 데이터를 검색 합니다.
+  - .NET Framework 4를 대상으로 하거나 .NET Framework 4.5.1 이하 버전에서 실행되는 앱의 경우, DataObject.GetData는 HTML 형식의 데이터를 ASCII 문자열로 검색합니다. 따라서 ASCII가 아닌 문자 (ASCII 코드가 0x7F 보다 큰 문자)는 임의의 두 문자로 표시 됩니다. #N # #N # .NET Framework 4.5 이상 버전을 대상으로 하며 .NET Framework 4.5.2에서 실행 되는 앱의 경우, `DataObject.GetData` 보다 큰 문자를 올바르게 나타내는 u t f-8로 HTML 형식의 데이터를 검색 합니다.
   - 영향을 받는 라이브러리: 인 글 o
   - 제안 된 작업: 검색 된 데이터가 원하는 형식 인지 확인 합니다.
 
 - 잘못된 서로게이트 쌍에서 XmlWriter가 throw함
   - .NET Framework 4.5.2 또는 이전 버전을 대상으로 하는 앱의 경우 예외 대체(fallback) 처리를 사용하여 잘못된 서로게이트 쌍을 작성해도 항상 예외가 발생하지는 않습니다. .NET Framework 4.6을 대상으로 하는 앱의 경우 잘못된 서로게이트 쌍을 쓰려고 하면 `ArgumentException`을 throw합니다.
-  - 영향을 받는 라이브러리: System.xml, system.xml. x m l. x m l.
+  - 영향을 받는 라이브러리: System.Xml, System.Xml. ReaderWriter
   - 제안 된 작업: 인수 예외를 발생 시키는 잘못 된 서로게이트 쌍을 작성 하 고 있지 않은지 확인 합니다.
 
 - HtmlTextWriter가 `<br/>` 요소를 올바르게 렌더링하지 않음
   - .NET Framework 4.6부터 `<BR />` 요소로 `HtmlTextWriter.RenderBeginTag()` 및 `HtmlTextWriter.RenderEndTag()`를 호출하면 (두 개가 아닌) 단 하나의 `<BR />`만 올바르게 삽입합니다.
   - 영향을 받는 라이브러리: System.web
-  - 제안 된 작업: 프로덕션 작업에 임의의 동작이 표시 `<BR />` 되지 않도록 원하는 금액을 삽입 하 고 있는지 확인 합니다.
+  - 제안 된 작업: `<BR />` 프로덕션 작업에 임의의 동작이 표시 되지 않도록 원하는 금액을 삽입 하 고 있는지 확인 합니다.
 
 - Null 인수를 사용한 CreateDefaultAuthorizationContext 호출이 변경되었습니다.
   - Null authorizationPolicies를 사용하는 `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)`에 대한 호출로 반환된 AuthorizationContext의 구현이 .NET Framework 4.6에서 변경되었습니다.
@@ -85,7 +84,7 @@ U-SQL 사용자 지정 어셈블리에서 .NET 코드에 대 한 .NET 호환성 
   - 제안 된 작업: null 권한 부여 정책이 있을 때 새로운 예상 동작을 처리 하 고 있는지 확인 합니다.
   
 - 이제 RSACng가 비표준 키 크기의 RSA 키를 올바르게 로드함
-  - 4.6.2 이전의 .NET Framework 버전의 경우, RSA 인증서의 비표준 키 크기를 가진 고객은 `GetRSAPublicKey()` 및 `GetRSAPrivateKey()` 확장 메서드를 통해 해당 키에 액세스할 수 없습니다. " `CryptographicException` 요청한 키 크기가 지원 되지 않습니다." 라는 메시지와 함께이 throw 됩니다. .NET Framework 4.6.2이 문제가 해결 되었습니다. 마찬가지로, `RSA.ImportParameters()` 및 `RSACng.ImportParameters()` 은을 throw `CryptographicException`하지 않고 비표준 키 크기로 작업 합니다.
+  - 4\.6.2 이전의 .NET Framework 버전의 경우, RSA 인증서의 비표준 키 크기를 가진 고객은 `GetRSAPublicKey()` 및 `GetRSAPrivateKey()` 확장 메서드를 통해 해당 키에 액세스할 수 없습니다. `CryptographicException`"요청한 키 크기가 지원 되지 않습니다." 라는 메시지와 함께이 throw 됩니다. .NET Framework 4.6.2이 문제가 해결 되었습니다. 마찬가지로, `RSA.ImportParameters()` 및은을 `RSACng.ImportParameters()` throw 하지 않고 비표준 키 크기로 작업 `CryptographicException` 합니다.
   - 영향을 받는 라이브러리: mscorlib, System. 핵심
   - 제안 된 작업: RSA 키가 예상 대로 작동 하는지 확인 합니다.
 
@@ -95,11 +94,11 @@ U-SQL 사용자 지정 어셈블리에서 .NET 코드에 대 한 .NET 호환성 
   - 제안 된 작업:
 
 - ClaimsIdentity 생성자 호출
-  - .NET Framework 4.6.2부터는 `T:System.Security.Principal.IIdentity` 매개 변수로 `T:System.Security.Claims.ClaimsIdentity` 생성자가 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성을 설정하는 방법이 변경되었습니다. `T:System.Security.Principal.IIdentity` 인수가 `T:System.Security.Claims.ClaimsIdentity` 개체이고 해당 `T:System.Security.Claims.ClaimsIdentity` 개체의 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성이 `null`이 아닌 경우 `M:System.Security.Claims.ClaimsIdentity.Clone` 메서드를 사용하여 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성이 연결됩니다. 프레임 워크 4.6.1 이전 버전에서 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성은 기존 참조로 연결 됩니다. 이러한 변경으로 인해 .NET Framework `P:System.Security.Claims.ClaimsIdentify.Actor` 4.6.2부터 새 `T:System.Security.Claims.ClaimsIdentity` 개체의 속성은 생성자 `P:System.Security.Claims.ClaimsIdentify.Actor` `T:System.Security.Principal.IIdentity` 인수의 속성과 같지 않습니다. .NET Framework 4.6.1 이전 버전에서는 이 속성이 같습니다.
+  - .NET Framework 4.6.2부터는 `T:System.Security.Principal.IIdentity` 매개 변수로 `T:System.Security.Claims.ClaimsIdentity` 생성자가 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성을 설정하는 방법이 변경되었습니다. `T:System.Security.Principal.IIdentity` 인수가 `T:System.Security.Claims.ClaimsIdentity` 개체이고 해당 `T:System.Security.Claims.ClaimsIdentity` 개체의 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성이 `null`이 아닌 경우 `M:System.Security.Claims.ClaimsIdentity.Clone` 메서드를 사용하여 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성이 연결됩니다. 프레임 워크 4.6.1 이전 버전에서 `P:System.Security.Claims.ClaimsIdentify.Actor` 속성은 기존 참조로 연결 됩니다. 이러한 변경으로 인해 .NET Framework 4.6.2부터 `P:System.Security.Claims.ClaimsIdentify.Actor` 새 개체의 속성은 `T:System.Security.Claims.ClaimsIdentity` `P:System.Security.Claims.ClaimsIdentify.Actor` 생성자 인수의 속성과 같지 않습니다 `T:System.Security.Principal.IIdentity` . .NET Framework 4.6.1 이전 버전에서는 이 속성이 같습니다.
   - 영향을 받는 라이브러리: mscorlib
   - 제안 된 작업: 새 런타임에서 ClaimsIdentity이 예상 대로 작동 하는지 확인 합니다.
 
 - DataContractJsonSerializer를 사용한 제어 문자의 serialization가 이제 ECMAScript V6 및 V8과 호환됨
   - .NET framework 4.6.2 이전 버전에서는 DataContractJsonSerializer가 ECMAScript V6 및 V8 표준과 호환 되는 방식으로 \b, \f 및 \t와 같은 특수 제어 문자를 직렬화 하지 않았습니다. .NET Framework 4.7부터는 이러한 제어 문자의 serialization가 ECMAScript V6 및 V8과 호환됩니다.
-  - 영향을 받는 라이브러리: System.object
+  - 영향을 받는 라이브러리: System.Runtime.Serialization.Js
   - 제안 된 작업: DataContractJsonSerializer와 동일한 동작을 보장 합니다.

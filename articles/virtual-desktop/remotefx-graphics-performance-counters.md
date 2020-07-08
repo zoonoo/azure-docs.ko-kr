@@ -9,10 +9,9 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79127561"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>원격 데스크톱의 그래픽 성능 문제 진단
@@ -35,7 +34,7 @@ ms.locfileid: "79127561"
 
 원격 세션 이름을 확인 한 후 다음 지침에 따라 원격 세션에 대 한 RemoteFX 그래픽 성능 카운터를 수집 합니다.
 
-1. **시작** > **관리 도구** > **성능 모니터**를 선택 합니다.
+1. **시작**  >  **관리 도구**  >  **성능 모니터**를 선택 합니다.
 2. **성능 모니터** 대화 상자에서 **모니터링 도구**를 확장 하 고 **성능 모니터**를 선택한 다음 **추가**를 선택 합니다.
 3. **카운터 추가** 대화 상자의 **사용 가능한 카운터** 목록에서 RemoteFX 그래픽에 대 한 섹션을 확장 합니다.
 4. 모니터링할 카운터를 선택 합니다.
