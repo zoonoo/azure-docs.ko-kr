@@ -1,21 +1,19 @@
 ---
-title: Azure에서 공유 이미지 문제 해결
+title: Azure의 공유 이미지 관련 문제 해결
 description: 공유 이미지 갤러리 문제 해결 방법을 설명합니다.
 author: axayjo
-manager: gwallace
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 04/17/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: ac0a691c19e0a99471e8bfafedaa6d0332b293ce
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 8285bc216b5b06a33d481dbca011e44e77df25de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678786"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>공유 이미지 갤러리 문제 해결
 

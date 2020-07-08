@@ -1,24 +1,13 @@
 ---
 title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Service Bus 엔터티 (큐, 토픽 및 구독)를 통해 액세스 하는 방법을 설명 합니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 62c00c92ddd8265b1174cc195bfa83d533ec20d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341401"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -28,7 +17,7 @@ ms.locfileid: "81461619"
 ## <a name="overview"></a>개요
 보안 주체 (사용자, 그룹 또는 응용 프로그램)가 Service Bus 엔터티에 대 한 액세스를 시도 하는 경우 요청에 권한이 부여 되어야 합니다. Azure AD를 사용 하 여 리소스에 대 한 액세스는 2 단계 프로세스입니다. 
 
- 1. 먼저, 보안 주체의 id가 인증 되 고 OAuth 2.0 토큰이 반환 됩니다. 토큰을 요청 하는 리소스 이름은 `https://servicebus.azure.net`입니다.
+ 1. 먼저, 보안 주체의 id가 인증 되 고 OAuth 2.0 토큰이 반환 됩니다. 토큰을 요청 하는 리소스 이름은 `https://servicebus.azure.net` 입니다.
  1. 그런 다음 토큰은 지정 된 리소스에 대 한 액세스 권한을 부여 하기 위해 Service Bus 서비스에 대 한 요청의 일부로 전달 됩니다.
 
 인증 단계를 수행 하려면 응용 프로그램 요청이 런타임에 OAuth 2.0 액세스 토큰을 포함 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 azure 함수 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 관리 id를 사용 하 여 리소스에 액세스할 수 있습니다. 

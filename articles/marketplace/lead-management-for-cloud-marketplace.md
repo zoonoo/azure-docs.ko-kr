@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 0d16a2fa91b498888ae5dafd1b254b51eca94ebc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801413"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>상업용 Marketplace에 대한 잠재 고객 관리
 
@@ -91,7 +90,7 @@ ms.locfileid: "83798583"
 **Marketplace에서 제품을 게시하기 위해 리드 대상을 구성해야 하나요?**
 
 예. Contact Me SaaS 앱을 게시하거나 컨설팅 서비스를 사용하는 경우에 이러한 구성이 필요합니다.  
- 
+
 **리드 구성이 올바른지 확인하려면 어떻게 해야 하나요?**
 
 제품 및 리드 대상을 설정한 후에 제품을 게시합니다. 리드 유효성 검사 단계에서 Marketplace는 제품에 구성된 리드 대상으로 테스트 리드를 보냅니다. 
@@ -100,6 +99,7 @@ ms.locfileid: "83798583"
 
 잠재 고객 대상에서 "MSFT_TEST"를 검색합니다. 샘플 테스트 잠재 고객 데이터는 다음과 같습니다. 
 
+```text
 company = MSFT_TEST_636573304831318844 
 
 country = US 
@@ -116,64 +116,50 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<제품 이름> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Offer Name> 
 
 oid = 00Do0000000ZHog 
 
 phone = 1234567890 
 
 title = MSFT_TEST_636573304831318844 
+```
 
 **라이브 제품이 있지만 잠재 고객이 보이지 않습니다.**
 
-각 리드는 선택한 리드 대상의 필드로 데이터가 전달되게 하며 리드는 **Source-Action|Offer** 형식으로 제공됩니다. 
+각 리드는 선택한 리드 대상의 필드로 데이터가 전달되게 하며 리드는 **Source-Action|Offer** 형식으로 제공됩니다.
 
-  원본::
+- 원본::
+  - AzureMarketplace
+  - AzurePortal
+  - TestDrive  
+  - SPZA (AppSource에 대 한 머리글자어)
 
-    "AzureMarketplace", 
-    "AzurePortal", 
-    "TestDrive",  
-    "SPZA" (acronym for AppSource) 
+- 작업:
+  - "INS"-설치를 나타냅니다. 고객이 제품을 구매하기 위해 단추를 누를 때마다 Azure Marketplace 또는 AppSource에 있습니다.
+  - "PLT"-파트너 Led 평가판을 나타냅니다. 고객이 [연락처] 단추를 누를 때마다 AppSource에 있습니다.
+  - "DNC"-연결 안 함을 의미 합니다. 앱 페이지에서 교차 목록에 올라 있는 파트너가 연락 요청을 받을 때마다 AppSource에 있습니다. 이 고객이 앱의 교차 목록에 올라 있다는 사실을 공유하지만 고객에게 연락할 필요는 없습니다.
+  - "만들기"-고객이 자신의 계정에 제품을 구매할 때마다 Azure Portal 내부에 있습니다.
+  - "StartTestDrive"-고객이 시험 드라이브를 시작할 때마다 테스트 드라이브용입니다.
 
-  작업:
+- 제품:
+  - "checkpoint. r77-10sg-byol",
+  - "bitnami",
+  - "docusign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a"
 
-    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+다음은 고객 정보의 샘플 데이터입니다.
 
-    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
-
-    "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account. 
-
-    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
-
-
-  제품:
-
-    "checkpoint.check-point-r77-10sg-byol", 
-    "bitnami.openedxcypress", 
-    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
-
- 
-
-  다음은 고객 정보의 샘플 데이터입니다.
-
-    { 
-
-    "FirstName":"John", 
-
-    "LastName":"Smith", 
-
-    "Email":"jsmith@microsoft.com", 
-
-    "Phone":"1234567890", 
-
-    "Country":"US", 
-
-    "Company":"Microsoft", 
-
-    "Title":"CTO" 
-
-    } 
+```json
+{ 
+"FirstName":"John",
+"LastName":"Smith",
+"Email":"jsmith@microsoft.com",
+"Phone":"1234567890",
+"Country":"US",
+"Company":"Microsoft",
+"Title":"CTO"
+}
+```
 
 [리드 정보](./partner-center-portal/commercial-marketplace-get-customer-leads.md)에서 자세히 알아보세요. 
 

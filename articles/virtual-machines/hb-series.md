@@ -1,18 +1,17 @@
 ---
-title: HB-시리즈-Azure Virtual Machines
+title: HB 시리즈
 description: HB 시리즈 Vm에 대 한 사양입니다.
-services: virtual-machines
-author: jonbeck7
+author: ju-shim
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 600f10e81742e9bb66c800b747fd7b2dc062754d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: b0ffd9af8df830c1bdacbfe3809d4086346679b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678565"
 ---
 # <a name="hb-series"></a>HB 시리즈
 
@@ -24,11 +23,11 @@ Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원됨
 
-실시간 마이그레이션: 지원 되지 않음
+실시간 마이그레이션: 지원되지 않음
 
-메모리 보존 업데이트: 지원 되지 않음
+메모리 보존 업데이트: 지원되지 않음
 
-| Size | vCPU | 프로세서 | 메모리(GB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 저장소 (GB) | 최대 데이터 디스크 수 | 최대 이더넷 Nic |
+| 크기 | vCPU | 프로세서 | 메모리(GB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 저장소 (GB) | 최대 데이터 디스크 수 | 최대 이더넷 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | 모두 | 700 | 4 | 1 |
 

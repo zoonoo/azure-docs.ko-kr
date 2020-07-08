@@ -4,16 +4,15 @@ description: ExpressRoute 회로에 대한 종단 간 연결의 유효성 검사
 services: expressroute
 author: rambk
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 58ae39e8dfdf918ae14ca9bb8dac28405828999e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 827d68a5f0f35e42acae1fa225646eb509f69c89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78330960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84729322"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. Express 경로는 연결 공급자가 일반적으로 지 원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장 합니다. Express 경로 연결은 일반적으로 다음과 같은 세 가지 고유한 네트워크 영역을 포함 합니다.

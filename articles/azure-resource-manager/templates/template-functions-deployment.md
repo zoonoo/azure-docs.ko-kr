@@ -3,12 +3,11 @@ title: 템플릿 함수-배포
 description: Azure Resource Manager 템플릿에서 배포 정보를 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677817"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배포 함수
 
@@ -16,8 +15,8 @@ ms.locfileid: "82203797"
 
 * [배포가](#deployment)
 * [개발](#environment)
-* [변수의](#parameters)
-* [변수](#variables)
+* [parameters](#parameters)
+* [variables](#variables)
 
 리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](template-functions-resource.md)를 참조하세요.
 
@@ -82,7 +81,7 @@ ms.locfileid: "82203797"
 }
 ```
 
-Azure 구독, 관리 그룹 또는 테 넌 트에 배포 하는 경우 반환 개체는 속성을 `location` 포함 합니다. 로컬 템플릿 또는 외부 템플릿을 배포할 때 위치 속성이 포함됩니다. 형식:
+Azure 구독, 관리 그룹 또는 테 넌 트에 배포 하는 경우 반환 개체는 속성을 포함 합니다 `location` . 로컬 템플릿 또는 외부 템플릿을 배포할 때 위치 속성이 포함됩니다. 형식:
 
 ```json
 {
@@ -108,10 +107,10 @@ Azure 구독, 관리 그룹 또는 테 넌 트에 배포 하는 경우 반환 �
 deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다른 템플릿에 연결할 수 있습니다.
 
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+"variables": {
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
-```  
+```
 
 포털의 배포 기록에서 템플릿을 다시 배포하는 경우 템플릿은 로컬 파일로 배포됩니다. `templateLink` 속성은 배포 함수에 반환되지 않습니다. 템플릿이 `templateLink`를 사용하여 다른 템플릿과의 링크를 설정하는 경우 포털을 사용하여 다시 배포하지 마세요. 대신 처음에 템플릿을 배포하는 데 사용한 명령을 사용하세요.
 
@@ -121,7 +120,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -140,7 +139,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
   "name": "deployment",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
@@ -264,9 +263,9 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| parameterName |예 |string |반환할 매개 변수의 이름입니다. |
+| parameterName |예 |문자열 |반환할 매개 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -277,7 +276,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 일반적으로 매개 변수를 사용하여 리소스 값을 설정합니다. 다음 예제에서는 웹 사이트의 이름을 배포 중에 전달된 매개 변수 값으로 설정합니다.
 
 ```json
-"parameters": { 
+"parameters": {
   "siteName": {
       "type": "string"
   }
@@ -298,7 +297,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringParameter": {
@@ -353,11 +352,11 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| stringOutput | 문자열 | 옵션 1 |
+| stringOutput | String | 옵션 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {“one”: “a”, “two”: “b”} |
 | arrayOutput | 배열 | [1, 2, 3] |
-| crossOutput | 문자열 | 옵션 1 |
+| crossOutput | String | 옵션 1 |
 
 매개 변수 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 
@@ -369,7 +368,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | variableName |예 |String |반환할 변수의 이름입니다. |
 
@@ -407,7 +406,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {
@@ -445,9 +444,9 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| exampleOutput1 | 문자열 | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | 배열 | [1, 2, 3, 4] |
-| exampleOutput3 | 문자열 | myVariable |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
 
 변수를 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿에서 변수](template-variables.md)를 참조 하세요.

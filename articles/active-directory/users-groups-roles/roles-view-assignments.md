@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04bd7788a9cc9657e14aedfb153182d6e53eb95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 20e566a450768fca81e29692f7c8d2da3ccf5201
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731565"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 할당 보기
 
@@ -31,7 +30,7 @@ ms.locfileid: "79259709"
 
 이 절차에서는 조직 전체 범위에서 역할의 할당을 확인 하는 방법을 설명 합니다.
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [azure ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. Azure AD 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로  [Azure AD 관리 센터](https://aad.portal.azure.com) 에 로그인합니다.
 1. **Azure Active Directory**를 선택 하 고 **역할 및 관리자**를 선택한 다음 역할을 선택 하 여 열고 해당 속성을 확인 합니다.
 1. **할당** 을 선택 하 여 역할에 대 한 할당을 확인 합니다.
 
@@ -80,7 +79,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 이 섹션에서는 조직 전체 범위에서 역할의 할당을 보는 방법을 설명 합니다.  Graph API를 사용 하 여 단일 응용 프로그램 범위 할당을 보려면 Graph API를 사용 하 [여 사용자 지정 역할 할당](roles-assign-graph.md)에서 작업을 사용할 수 있습니다.
 
-지정 된 역할 정의에 대 한 역할 할당을 가져오기 위한 HTTP 요청입니다.
+지정된 역할 정의에 대한 역할 할당을 가져오기 위한 HTTP 요청입니다.
 
 GET
 
@@ -104,8 +103,8 @@ HTTP/1.1 200 OK
 
 이 섹션에서는 단일 응용 프로그램 범위를 사용 하는 역할의 할당을 보는 방법을 설명 합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [azure ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **앱 등록**를 선택 하 고 앱 등록을 선택 하 여 해당 속성을 확인 합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 응용 프로그램** 을 선택 해야 할 수도 있습니다.
+1. Azure AD 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로  [Azure AD 관리 센터](https://aad.portal.azure.com) 에 로그인합니다.
+1. **앱 등록**를 선택 하 고 앱 등록을 선택 하 여 해당 속성을 확인 합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션**을 선택해야 할 수도 있습니다.
 
     ![앱 등록 페이지에서 앱 등록 만들기 또는 편집](./media/roles-create-custom/appreg-all-apps.png)
 

@@ -6,30 +6,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 900398a701659bff593df042db16890792e5cffd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801379"
 ---
-# <a name="monitoring-the-security-of-your-containers"></a>컨테이너의 보안 모니터링
+# <a name="monitor-the-security-of-your-containers"></a>컨테이너의 보안 모니터링
 
 이 페이지에서는 개념 섹션의 [컨테이너 보안 문서](container-security.md) 에 설명 된 컨테이너 보안 기능을 사용 하는 방법을 설명 합니다.
 
-Azure Security Center는 컨테이너 보안의 다음 세 가지 측면을 다룹니다.
-
-- **취약성 관리** -Security Center의 표준 가격 책정 계층 ( [가격 책정](/azure/security-center/security-center-pricing)참조)을 사용 하는 경우 새 이미지를 푸시할 때마다 ARM 기반 Azure Container Registry를 검색할 수 있습니다. 스캐너 (Qualys에서 제공)는 Security Center 권장 사항으로 결과를 제공 합니다.
-    자세한 지침은 아래 [취약성에 대 한 컨테이너 레지스트리 검색](#scanning-your-arm-based-container-registries-for-vulnerabilities) 을 참조 하세요.
-
-- **컨테이너의 docker 호스트 강화** -Security Center IaaS Linux Vm 또는 Docker를 실행 하는 다른 Linux 컴퓨터에서 호스트 되는 관리 되지 않는 컨테이너를 찾고, 컨테이너의 구성과 Ci (Internet Security) Docker 벤치 마크를 지속적으로 비교 합니다. 컨테이너가 컨트롤을 충족 하지 않는 경우 사용자에 게 경고를 Security Center 합니다. 잘못 된 구성으로 인 한 보안 위험에 대 한 지속적인 모니터링은 모든 보안 프로그램의 중요 한 구성 요소입니다. 
-    자세한 지침은 아래의 [컨테이너 Docker 호스트 강화](#hardening-your-containers-docker-hosts) 를 참조 하세요.
-
-- **Azure Kubernetes 서비스 클러스터 강화** Security Center-Azure Kubernetes service 클러스터의 구성에서 취약점을 발견할 경우 권장 사항을 제공 합니다. 나타날 수 있는 특정 권장 사항에 대 한 자세한 내용은 [Kubernetes 서비스 권장 사항](recommendations-reference.md#recs-containers)을 참조 하세요.
-
-- **런타임 보호** -Security Center 표준 가격 책정 계층을 사용할 경우 컨테이너 화 된 환경에 대 한 실시간 위협 방지를 사용할 수 있습니다. Security Center는 호스트 및 AKS 클러스터 수준에서 의심 스러운 활동에 대 한 경고를 생성 합니다. 나타날 수 있는 관련 보안 경고에 대 한 자세한 내용은 경고 참조 테이블의 [Azure Kubernetes 서비스 클러스터](alerts-reference.md#alerts-akscluster) 및 [컨테이너에 대 한 경고-호스트 수준](alerts-reference.md#alerts-containerhost) 섹션을 참조 하십시오.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>취약성에 대 한 ARM 기반 컨테이너 레지스트리 검색 
 
@@ -37,7 +25,7 @@ Azure Security Center는 컨테이너 보안의 다음 세 가지 측면을 다�
 
     1. Azure Security Center의 표준 가격 책정 계층에 있는지 확인 합니다.
 
-    1. **가격 책정 & 설정** 페이지에서 구독에 대 한 선택적 컨테이너 레지스트리 번들을 사용 하도록 ![설정 합니다. 컨테이너 레지스트리 번들을 사용 하도록 설정 합니다.](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. **가격 책정 & 설정** 페이지에서 구독에 대 한 선택적 컨테이너 레지스트리 번들을 사용 하도록 설정 합니다. ![ 컨테이너 레지스트리 번들을 사용 하도록 설정 합니다.](media/monitor-container-security/enabling-container-registries-bundle.png)
 
         이제 Security Center는 레지스트리에 푸시되는 이미지를 스캔할 준비가 되었습니다. 
 

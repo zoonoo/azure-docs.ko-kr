@@ -3,22 +3,21 @@ title: 템플릿 함수-비교
 description: Azure Resource Manager 템플릿에서 값을 비교하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 15afc4d721c6577de9fe3e78483fdbfae5b493c6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677834"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>ARM 템플릿의 비교 함수
 
 리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 비교를 수행 하기 위한 여러 함수를 제공 합니다.
 
-* [가용](#coalesce)
+* [coalesce](#coalesce)
 * [equals](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-* [작거나](#less)
+* [less](#less)
 * [lessOrEquals](#lessorequals)
 
 ## <a name="coalesce"></a>coalesce
@@ -29,7 +28,7 @@ ms.locfileid: "82203780"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
@@ -44,7 +43,7 @@ ms.locfileid: "82203780"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "objectToTest": {
@@ -90,10 +89,10 @@ ms.locfileid: "82203780"
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| stringOutput | 문자열 | default |
+| stringOutput | String | default |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | 배열 | [1] |
+| arrayOutput | 배열 |  [1] |
 | emptyOutput | Bool | True |
 
 ## <a name="equals"></a>equals
@@ -104,7 +103,7 @@ ms.locfileid: "82203780"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 첫 번째 값입니다. |
 | arg2 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 두 번째 값입니다. |
@@ -138,7 +137,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -210,7 +209,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -225,7 +224,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -237,7 +236,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |greater 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 비교에 사용할 두 번째 값입니다. |
@@ -252,7 +251,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -302,7 +301,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 두 번째 값입니다. |
@@ -317,7 +316,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -367,7 +366,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |less 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 비교에 사용할 두 번째 값입니다. |
@@ -382,7 +381,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -432,7 +431,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 두 번째 값입니다. |
@@ -447,7 +446,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {

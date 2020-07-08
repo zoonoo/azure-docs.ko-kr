@@ -4,15 +4,14 @@ description: Azure에서 실행 되는 가상 머신에 대 한 유지 관리 �
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677936"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>PowerShell을 사용 하 여 계획 된 유지 관리 처리
 
@@ -29,7 +28,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 MaintenanceRedeployStatus의 다음과 같은 속성이 반환됩니다. 
 
-| 값 | Description   |
+| 값 | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 이번에 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 셀프 서비스 기간의 시작 시간입니다. |

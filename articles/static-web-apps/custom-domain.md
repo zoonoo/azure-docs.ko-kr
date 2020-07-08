@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655244"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960302"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Azure Static Web Apps에서 사용자 지정 도메인 설정 미리 보기
 
@@ -29,11 +28,11 @@ ms.locfileid: "83655244"
 
 애플리케이션에 사용할 수 있는 몇 가지 유형의 DNS 구성이 있습니다.
 
-| 원하는 경우                            | 작업                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| `www.example.com` 지원                 | [CNAME 레코드 매핑](#map-a-cname-record)           |
-| `example.com` 지원                     | [루트 도메인 구성](#configure-a-root-domain) |
-| `www.example.com`으로 모든 하위 도메인 가리키기 | [와일드카드 매핑](#map-a-wildcard-domain)                   |
+| 원하는 경우                                 | 작업                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| 지원 `www.example.com` 또는`blog.example.net`| [CNAME 레코드 매핑](#map-a-cname-record)           |
+| `example.com` 지원                          | [루트 도메인 구성](#configure-a-root-domain) |
+| `www.example.com`으로 모든 하위 도메인 가리키기      | [와일드카드 매핑](#map-a-wildcard-domain)            |
 
 ## <a name="map-a-cname-record"></a>CNAME 레코드 매핑
 
@@ -80,7 +79,7 @@ CNAME 레코드는 하나의 도메인을 다른 도메인에 매핑합니다. C
 
 1. **유효성 검사** 단추를 클릭합니다.
 
-이제 사용자 지정 도메인이 구성되었으므로 DNS 공급자가 전 세계에 변경 내용을 전파하는 데 몇 시간이 걸릴 수 있습니다. [dnspropagation.net](https://dnspropagation.net)으로 이동하여 전파 상태를 확인할 수 있습니다. `www`를 포함하는 사용자 지정 도메인을 입력하고, 드롭다운에서 CNAME을 선택하고, **시작**을 선택합니다.
+이제 사용자 지정 도메인이 구성 되었으므로 DNS 공급자가 전 세계에 변경 내용을 전파 하는 데 몇 시간 정도 걸릴 수 있습니다. [dnspropagation.net](https://dnspropagation.net)으로 이동하여 전파 상태를 확인할 수 있습니다. `www`를 포함하는 사용자 지정 도메인을 입력하고, 드롭다운에서 CNAME을 선택하고, **시작**을 선택합니다.
 
 DNS 변경 내용이 채워지면 웹 사이트는 Static Web App의 자동 생성된 URL(예: _random-name-123456789c.azurestaticapps.net_)을 반환합니다.
 

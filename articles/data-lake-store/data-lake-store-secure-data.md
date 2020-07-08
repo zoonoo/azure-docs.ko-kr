@@ -9,15 +9,14 @@ editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1ae93dad9a18c18e330b4ff65924dd1db7a1faf0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515256"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
 Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니다.  사용자 및 보안 그룹의 데이터에 대한 액세스를 완전히 가능하게 하려면 RBAC(역할 기반 액세스 제어) 및 ACL(액세스 제어 목록) 모두를 설정해야 합니다.
@@ -29,7 +28,7 @@ Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니�
 
 이 문서에서는 Azure 포털을 사용하여 위의 작업을 수행하는 방법에 대한 지침을 제공합니다. Data Lake Storage Gen1이 계정 및 데이터 수준에서 보안을 구현하는 방법에 대한 자세한 내용은 [Azure Data Lake Storage Gen1의 보안](data-lake-store-security-overview.md)을 참조하세요. Data Lake Storage Gen1에서 ACL의 구현 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어 개요](data-lake-store-access-control.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -147,7 +146,7 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
    
     ![그룹에 권한 할당](./media/data-lake-store-secure-data/adl.remove.acl.png "그룹에 권한 할당")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

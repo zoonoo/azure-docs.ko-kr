@@ -6,12 +6,11 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7621867aad6baf517462983e35afb0b28223756
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341311"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화
 
@@ -54,16 +53,16 @@ Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 �
 
 1. Azure Database for PostgreSQL 단일 서버에 대 한 관리 id를 가져오는 방법에는 두 가지가 있습니다.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>관리 id를 사용 하 여 새 Azure Database for MySQL 서버를 만듭니다.
+    ### <a name="create-an-new-azure-database-for-postgresql-server-with-a-managed-identity"></a>관리 id를 사용 하 여 새 Azure Database for PostgreSQL 서버를 만듭니다.
 
     ```azurecli-interactive
-    az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
+    az postgres server create --name <server_name> -g <resource_group> --location <location> --storage-size <size>  -u <user> -p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled> --assign-identity
     ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>관리 id를 가져오기 위해 기존 Azure Database for MySQL 서버를 업데이트 합니다.
+    ### <a name="update-an-existing-the-azure-database-for-postgresql-server-to-get-a-managed-identity"></a>관리 id를 가져오기 위해 기존 Azure Database for PostgreSQL 서버를 업데이트 합니다.
 
     ```azurecli-interactive
-    az postgres server update –name <server name>  -g <resoure_group> --assign-identity
+    az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
 2. PostgreSQL 단일 서버 서버의 이름인 **주**서버에 대 한 **키 사용 권한** (**가져오기**, **래핑**, **래핑**해제)을 설정 합니다.
@@ -77,14 +76,14 @@ Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 �
 1. Azure Key Vault에서 만든 키를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화를 사용 하도록 설정 합니다.
 
     ```azurecli-interactive
-    az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key create --name <server_name> -g <resource_group> --kid <key_url>
     ```
 
     키 url:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>복원 또는 복제 서버에 데이터 암호화 사용
 
-Key Vault에 저장 된 고객의 관리 키를 사용 하 여 단일 서버를 암호화 Azure Database for PostgreSQL 한 후에는 새로 만든 서버 복사본도 암호화 됩니다. 로컬 또는 지역 복원 작업을 통해 또는 복제본 (로컬/지역 간) 작업을 통해이 새 복사본을 만들 수 있습니다. 따라서 암호화 된 PostgreSQL 단일 서버 서버에 대해 다음 단계를 사용 하 여 암호화 된 복원 된 서버를 만들 수 있습니다.
+Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for PostgreSQL Single 서버를 암호화한 후에는 새로 만든 서버 복사본도 암호화됩니다. 로컬 또는 지역 복원 작업을 통해 또는 복제본 (로컬/지역 간) 작업을 통해이 새 복사본을 만들 수 있습니다. 따라서 암호화 된 PostgreSQL 단일 서버 서버에 대해 다음 단계를 사용 하 여 암호화 된 복원 된 서버를 만들 수 있습니다.
 
 ### <a name="creating-a-restoredreplica-server"></a>복원/복제 서버 만들기
 
@@ -102,7 +101,7 @@ Key Vault에 저장 된 고객의 관리 키를 사용 하 여 단일 서버를 
 ### <a name="get-the-key-used"></a>사용 된 키를 가져옵니다.
 
     ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
     ```
 
     Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
@@ -131,7 +130,7 @@ Azure Portal 외에도 새 서버 및 기존 서버에 대해 Azure Resource Man
 ### <a name="for-an-existing-server"></a>기존 서버의 경우
 또한 Azure Resource Manager 템플릿을 사용 하 여 기존 Azure Database for PostgreSQL 단일 서버에서 데이터 암호화를 사용 하도록 설정할 수 있습니다.
 
-* 속성 개체의 `Uri` 속성 아래에서 이전에 복사한 Azure Key Vault 키의 리소스 ID를 전달 합니다.
+* 속성 개체의 속성 아래에서 이전에 복사한 Azure Key Vault 키의 리소스 ID를 전달 `Uri` 합니다.
 
 * API 버전으로 *2020-01-01-preview* 를 사용 합니다.
 

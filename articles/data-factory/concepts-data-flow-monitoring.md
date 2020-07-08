@@ -7,13 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833985"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958902"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
@@ -56,12 +55,31 @@ Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이
   * 클러스터 시작 시간: 데이터 흐름 실행을 위해 JIT Spark 컴퓨팅 환경을 확보하는 데 걸리는 시간입니다.
   * 변환 수: 흐름에서 실행 중인 변환 단계의 수입니다.
   
-![데이터 흐름 모니터링](media/data-flow/monitornew.png "Data Flow 모니터링 새로 만들기")  
+![데이터 흐름 모니터링](media/data-flow/monitornew.png "Data Flow 모니터링 새로 만들기")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>총 싱크 처리 시간 및 변환 처리 시간
+
+각 변환 단계에는 해당 단계가 완료 되는 데 소요 되는 총 시간이 포함 됩니다. 싱크를 클릭 하면 "싱크 처리 시간"이 표시 됩니다. 이 시간에는 대상 저장소에 데이터를 기록 하는 데 걸린 i/o 시간 *및* 변환 시간의 합계가 포함 됩니다. 싱크 처리 시간과 변환의 총 차이는 데이터를 쓰는 i/o 시간입니다.
+
+ADF 파이프라인 모니터링 보기의 데이터 흐름 작업에서 JSON 출력을 여는 경우 각 파티션 변환 단계에 대 한 자세한 타이밍을 볼 수도 있습니다. JSON은 각 파티션에 대 한 밀리초 타이밍을 포함 하는 반면 UX 모니터링 보기는 함께 추가 된 파티션의 집계 타이밍입니다.
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## <a name="monitor-icons"></a>모니터 아이콘
 
 이 아이콘은 변환 데이터가 클러스터에 이미 캐시되어 타이밍 및 실행 경로에서 고려되었음을 의미합니다.
 
-![데이터 흐름 모니터링](media/data-flow/mon004.png "Data Flow 모니터링")
+![데이터 흐름 모니터링](media/data-flow/mon005.png "Data Flow 모니터링")
 
 변환에 녹색 원 아이콘도 표시됩니다. 이 아이콘은 데이터가 이동되는 싱크 수를 나타냅니다.

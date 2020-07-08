@@ -2,18 +2,17 @@
 title: B-시리즈 간 급수 안정화-Azure Virtual Machines
 description: 버스터블 Azure VM 크기의 B-시리즈에 대해 설명합니다.
 services: virtual-machines
+ms.subservice: sizes
 author: ayshakeen
-manager: gwallace
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78161083"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678548"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -21,15 +20,15 @@ B 시리즈 Vm은 웹 서버, 개념 증명, 소규모 데이터베이스 및 �
 
 B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-실시간 마이그레이션: 지원 됨
+실시간 마이그레이션: 지원됨
 
-메모리 보존 업데이트: 지원 됨
+메모리 보존 업데이트: 지원됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
@@ -86,11 +85,11 @@ B16 특징:
 | 트래픽 없음 | 22:00 | 0 | 162 | 642 |
 | 트래픽 없음 | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup> 시간 내에 사용 된 크레딧/크레딧은 다음과 `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`같습니다.  
+<sup>1</sup> 시간 내에 사용 된 크레딧/크레딧 `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` 은 다음과 같습니다.  
 
 16 개의 vCPUs 및 64 GiB의 메모리를 포함 하는 D16s_v3의 경우 시간당 요금은 시간당 $0.936 (월간 $673.92)이 고, 16 개의 vCPUs 및 64 GiB memory가 있는 B16ms (월별 $0.794)입니다. <b>그러면 15% 절감 효과가 발생 합니다.</b>
 
-## <a name="q--a"></a>Q & A
+## <a name="q--a"></a>Q&A
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: VM에서 135% 기준 성능을 얻으려면 어떻게 할까요?
 

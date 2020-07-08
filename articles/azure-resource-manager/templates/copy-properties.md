@@ -3,12 +3,11 @@ title: 속성의 여러 인스턴스 정의
 description: Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 리소스에 대 한 속성을 만들 때 여러 번 반복 합니다.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678463"
 ---
 # <a name="property-iteration-in-arm-templates"></a>ARM 템플릿의 속성 반복
 
@@ -16,7 +15,7 @@ ms.locfileid: "82583400"
 
 [리소스](copy-resources.md), [변수](copy-variables.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -55,7 +54,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "numberOfDataDisks": {

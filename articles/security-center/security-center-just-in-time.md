@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b24e0487aef73ed7852cb4a64766a1f8d92aff94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887336"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677437"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-in-time 액세스를 사용 하 여 관리 포트 보호
 
@@ -211,7 +210,7 @@ PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공�
 
 1.    VM에 대한 Just-In-Time VM 액세스 정책을 보유하는 변수를 할당합니다.
 
-        $JitPolicy = (@ {id = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports = (@ {number = 22;        protocol = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"}, @ {number = 3389;        protocol = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"})})
+        $JitPolicy = (@ {id = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   ports = (@ {number = 22;        protocol = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"}, @ {number = 3389;        protocol = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"})})
 
 2.    VM Just-In-Time VM 액세스 정책을 배열에 삽입합니다.
     
@@ -228,7 +227,7 @@ PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공�
 PowerShell에서 다음 내용을 실행하세요.
 1.    VM 요청 액세스 속성을 구성합니다.
 
-        $JitPolicyVm 1 = (@ {id = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports = (@ {number = 22;      endTimeUtc = "2018-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("IPV4ADDRESS")})})
+        $JitPolicyVm 1 = (@ {id = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   ports = (@ {number = 22;      endTimeUtc = "2018-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("IPV4ADDRESS")})})
 2.    VM 액세스 요청 매개 변수를 배열에 삽입합니다.
 
         $JitPolicyArr = @ ($JitPolicyVm 1)
@@ -241,7 +240,7 @@ PowerShell에서 다음 내용을 실행하세요.
 
 ## <a name="automatic-cleanup-of-redundant-jit-rules"></a>중복 JIT 규칙 자동 정리 
 
-JIT 정책을 업데이트할 때마다 전체 규칙 집합의 유효성을 검사 하기 위해 정리 도구가 자동으로 실행 됩니다. 이 도구는 정책의 규칙과 NSG의 규칙 간 불일치를 검색 합니다. 정리 도구에서 불일치를 발견 하면 원인을 확인 하 고이에 대 한 안전한 경우 더 이상 필요 하지 않은 기본 제공 규칙을 제거 합니다. 클리너는 만든 규칙을 삭제 하지 않습니다.
+JIT 정책을 업데이트할 때마다 전체 규칙 집합의 유효성을 검사 하기 위해 정리 도구가 자동으로 실행 됩니다. 이 도구는 정책의 규칙과 NSG의 규칙 간 불일치를 검색합니다. 정리 도구에서 불일치를 발견 하면 원인을 확인 하 고이에 대 한 안전한 경우 더 이상 필요 하지 않은 기본 제공 규칙을 제거 합니다. 클리너는 만든 규칙을 삭제하지 않습니다.
 
 클리너를 통해 기본 제공 규칙을 제거할 수 있는 예제 시나리오는 다음과 같습니다.
 

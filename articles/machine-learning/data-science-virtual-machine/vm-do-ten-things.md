@@ -5,16 +5,16 @@ description: Windows Data Science Virtual Machine에서 데이터 탐색 및 모
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a2eba958ca2d4a90cb3706839d726fdd0a48ed4f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994071"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959282"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -42,7 +42,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure에 이미 저�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독이 필요합니다. [무료 평가판에 등록할](https://azure.microsoft.com/free/)수 있습니다.
+* Azure 구독이 필요합니다. [무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
 
 
@@ -55,24 +55,24 @@ R의 경우 시작 메뉴 또는 바탕 화면에서 찾을 수 있는 RStudio�
 
 Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 설치된 Visual Studio Community Edition 같은 IDE를 사용할 수 있습니다. 3.6 기본적으로 Conda (root environment)는 PTVS에서 구성 됩니다. Anaconda Python 2.7을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. **도구** > **python 도구** > **python 환경**으로 이동한 다음 Visual Studio Community Edition에서 **+ 사용자 지정** 을 선택 하 여 각 버전에 대 한 사용자 지정 환경을 만듭니다.
+1. **도구**  >  **python 도구**  >  **python 환경**으로 이동한 다음 Visual Studio Community Edition에서 **+ 사용자 지정** 을 선택 하 여 각 버전에 대 한 사용자 지정 환경을 만듭니다.
 1. 설명을 지정 하 고 환경 접두사 경로를 Anaconda Python 2.7에 대 한 **c:\anaconda\envs\python2** 로 설정 합니다.
-1. **자동 검색** > **적용** 을 선택 하 여 환경을 저장 합니다.
+1. **자동 검색**  >  **적용** 을 선택 하 여 환경을 저장 합니다.
 
 Python 환경을 만드는 방법에 대 한 자세한 내용은 [Ptvs 설명서](https://aka.ms/ptvsdocs) 를 참조 하세요.
 
-이제 새 Python 프로젝트를 만들도록 설정 되었습니다. **파일** > **새로 만들기** > **Project**프로젝트 > **Python** 으로 이동 하 여 빌드 중인 Python 응용 프로그램의 유형을 선택 합니다. **Python** 환경을 마우스 오른쪽 단추로 클릭 하 고 **python 환경 추가/제거**를 선택 하 여 현재 프로젝트에 대 한 python 환경을 원하는 버전 (python 2.7 또는 3.6)으로 설정할 수 있습니다. PTVS 사용에 대 한 자세한 내용은 [제품 설명서](https://aka.ms/ptvsdocs)에서 확인할 수 있습니다.
+이제 새 Python 프로젝트를 만들도록 설정 되었습니다. **파일**  >  **새로 만들기**프로젝트 Python으로 이동 하 여  >  **Project**  >  **Python** 빌드 중인 Python 응용 프로그램의 유형을 선택 합니다. **Python** 환경을 마우스 오른쪽 단추로 클릭 하 고 **python 환경 추가/제거**를 선택 하 여 현재 프로젝트에 대 한 python 환경을 원하는 버전 (python 2.7 또는 3.6)으로 설정할 수 있습니다. PTVS 사용에 대 한 자세한 내용은 [제품 설명서](https://aka.ms/ptvsdocs)에서 확인할 수 있습니다.
 
 ## <a name="use-jupyter-notebooks"></a>Jupyter Notebook 사용
 Jupyter Notebook는 데이터 탐색 및 모델링을 위한 브라우저 기반 IDE를 제공 합니다. Jupyter 노트북에서 Python 2, Python 3 또는 R (오픈 소스 및 Microsoft R Server 모두)을 사용할 수 있습니다.
 
-Jupyter Notebook를 시작 하려면 **시작** 메뉴 또는 바탕 화면에서 **Jupyter Notebook** 아이콘을 선택 합니다. DSVM 명령 프롬프트에서 기존 전자 필기장이 있거나 새 노트북을 만들 ```jupyter notebook``` 디렉터리에서 명령을 실행할 수도 있습니다.  
+Jupyter Notebook를 시작 하려면 **시작** 메뉴 또는 바탕 화면에서 **Jupyter Notebook** 아이콘을 선택 합니다. DSVM 명령 프롬프트에서 ```jupyter notebook``` 기존 전자 필기장이 있거나 새 노트북을 만들 디렉터리에서 명령을 실행할 수도 있습니다.  
 
-Jupyter를 시작한 후 DSVM에 미리 `/notebooks` 포장 된 예: 전자 필기장에 대 한 디렉터리로 이동 합니다. 이제 다음을 수행할 수 있습니다.
+Jupyter를 시작한 후 `/notebooks` DSVM에 미리 포장 된 예: 전자 필기장에 대 한 디렉터리로 이동 합니다. 이제 다음을 수행할 수 있습니다.
 
 * 전자 필기장을 선택 하 여 코드를 확인 합니다.
 * Shift + Enter를 선택 하 여 각 셀을 실행 합니다.
-* **셀** > **실행**을 선택 하 여 전체 노트북을 실행 합니다.
+* **셀**실행을 선택 하 여 전체 노트북을 실행  >  **Run**합니다.
 * Jupyter 아이콘 (왼쪽 위 모퉁이)을 선택 하 고 오른쪽에 있는 **새로 만들기** 단추를 선택한 다음 노트북 언어 (커널이 라고도 함)를 선택 하 여 새 노트북을 만듭니다.   
 
 > [!NOTE]
@@ -129,19 +129,19 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>R 모델 빌드 및 운영
-Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 실행할 단계는 다음과 같습니다.
+Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 수행하는 단계는 다음과 같습니다.
 
-1. 작업 영역 ID 및 인증 토큰을 제공 하는 설정 json 파일을 만듭니다. 
+1. 파일에 settings.js를 만들어 작업 영역 ID 및 인증 토큰을 제공 합니다. 
 2. 모델의 예측 함수에 대 한 래퍼를 작성 합니다.
-3. Azure Machine Learning ```publishWebService``` 라이브러리에서를 호출 하 여 함수 래퍼를 전달 합니다.  
+3. ```publishWebService```Azure Machine Learning 라이브러리에서를 호출 하 여 함수 래퍼를 전달 합니다.  
 
 다음 절차 및 코드 조각을 사용 하 여 Azure Machine Learning에서 모델을 웹 서비스로 설정, 빌드, 게시 및 사용할 수 있습니다.
 
-#### <a name="set-up"></a>설정
+#### <a name="set-up"></a>설치
 
-홈 디렉터리 아래에 라는 ```.azureml``` 디렉터리 아래에 있는 설정. json 파일을 만듭니다. Azure Machine Learning 작업 영역에서 매개 변수를 입력 합니다.
+홈 디렉터리 아래에 라는 디렉터리 아래의 파일에 settings.js를 만듭니다 ```.azureml``` . Azure Machine Learning 작업 영역에서 매개 변수를 입력 합니다.
 
-설정. json 파일 구조는 다음과 같습니다.
+다음은 파일 구조에 대 한 settings.js입니다.
 
 ```json
 {"workspace":{
@@ -171,7 +171,7 @@ ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema =
 ```
 
 #### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Azure Machine Learning에 배포된 모델 사용
-클라이언트 응용 프로그램에서 모델을 사용 하려면 Azure Machine Learning 라이브러리를 사용 하 여 게시 된 웹 서비스를 이름으로 조회 합니다. `services` API 호출을 사용 하 여 끝점을 확인 합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
+클라이언트 응용 프로그램에서 모델을 사용 하려면 Azure Machine Learning 라이브러리를 사용 하 여 게시 된 웹 서비스를 이름으로 조회 합니다. `services`API 호출을 사용 하 여 끝점을 확인 합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
 
 Azure Machine Learning 웹 서비스로 게시 된 모델을 사용 하려면 다음 코드를 사용 합니다.
 
@@ -248,7 +248,9 @@ DSVM은 클라이언트 도구와 함께 명령줄 및 GUI에 로드 되어 GitH
 
 GitHub 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명령을 사용합니다. 예를 들어 Microsoft에서 게시 한 데이터 과학 리포지토리를 현재 디렉터리에 다운로드 하려면 Git Bash에서 다음 명령을 실행할 수 있습니다.
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 다음 스크린샷은 Visual Studio에서 Git 및 GitHub 도구에 액세스 하는 방법을 보여 줍니다.
 
@@ -266,7 +268,7 @@ Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제�
 
    ![Azure Portal 저장소 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/create-azure-blob.png)
 
-* 명령줄 AzCopy 도구가 사전 설치 되어 있는지 확인 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```합니다. Azcopy를 포함 하는 디렉터리는 이미 PATH 환경 변수에 있으므로이 도구를 실행할 때 전체 명령 경로를 입력 하지 않아도 됩니다. AzCopy 도구에 대 한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조 하세요.
+* 명령줄 AzCopy 도구가 사전 설치 되어 있는지 확인 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` 합니다. azcopy.exe를 포함 하는 디렉터리는 PATH 환경 변수에 이미 있으므로이 도구를 실행할 때 전체 명령 경로를 입력 하지 않아도 됩니다. AzCopy 도구에 대 한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조 하세요.
 * Azure Storage Explorer 도구를 시작합니다. [Storage 탐색기 웹 페이지](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
    ![저장소 계정에 액세스 하 Azure Storage 탐색기 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -275,7 +277,9 @@ Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제�
 
 로컬 파일과 Blob 저장소 간에 데이터를 이동 하려면 명령줄 또는 PowerShell에서 AzCopy를 사용할 수 있습니다.
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 **C:\myfolder** 는 파일이 저장 된 경로, blob 저장소 계정 이름으로 **mystorageaccount** , 컨테이너 이름이 있는 **mycontainer** , blob 저장소 액세스 키를 사용 하는 **저장소 계정 키** 로 바꿉니다. [Azure Portal](https://portal.azure.com)에서 저장소 계정 자격 증명을 찾을 수 있습니다.
 
@@ -298,8 +302,8 @@ AzCopy 명령을 실행 하 여 Azure blob에 복사 하면 파일이 Azure Stor
 
 Azure Storage 탐색기를 사용 하 여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드 하려면 대상 컨테이너를 선택 하 고 **업로드** 단추를 선택 합니다. ![Azure Storage 탐색기 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
-* **파일 상자 오른쪽** 에 있는 줄임표 (**...**)를 선택 하 고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 다음 **업로드** 를 선택 하 여 파일 업로드를 시작 합니다. ![파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
+* 컨테이너에 데이터를 업로드 하려면 대상 컨테이너를 선택 하 고 **업로드** 단추를 선택 합니다. ![ Azure Storage 탐색기 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
+* **파일 상자 오른쪽** 에 있는 줄임표 (**...**)를 선택 하 고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 다음 **업로드** 를 선택 하 여 파일 업로드를 시작 합니다. ![ 파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-machine-learning-reader-module"></a>Azure blob에서 데이터 읽기: Machine Learning 판독기 모듈
 
@@ -359,7 +363,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 ![데이터의 처음 10개 행의 스크린샷](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
-### <a name="azure-data-lake"></a>Azure Data Lake
+### <a name="azure-data-lake"></a>Azure 데이터 레이크
 Azure Data Lake Storage는 빅 데이터 분석 워크 로드에 대 한 하이퍼 확장 리포지토리 이며, HDFS (Hadoop 분산 파일 시스템)와 호환 됩니다. Hadoop, Spark 및 Azure Data Lake Analytics와 작동합니다. 이 섹션에서는 Azure Data Lake Analytics를 사용 하 여 데이터를 Azure Data Lake Storage로 이동 하 고 분석을 실행 하는 방법을 알아봅니다.
 
 #### <a name="prerequisites"></a>사전 요구 사항
@@ -436,7 +440,7 @@ USING Outputters.Csv();
 
 Azure Data Lake 데이터 집합을 수집 한 후에는 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) 를 사용 하 여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-sql과 비슷하지만 사용자가 사용자 지정 모듈 및 사용자 정의 함수를 작성할 수 있도록 c #의 일부 기능을 결합 합니다. 이전 단계의 스크립트를 사용할 수 있습니다.
 
-쿼리가 서버에 전송 된 후에는 tripdata_summary 합니다. CSV가 Azure Data Lake 탐색기에 나타납니다. 파일을 마우스 오른쪽 단추로 클릭 하 여 데이터를 미리 볼 수 있습니다.
+쿼리가 서버에 전송 된 후에는 Azure Data Lake 탐색기에 tripdata_summary.CSV 표시 됩니다. 파일을 마우스 오른쪽 단추로 클릭 하 여 데이터를 미리 볼 수 있습니다.
 
 ![Data Lake 탐색기에서 CSV 파일의 스크린샷](./media/vm-do-ten-things/USQL_create_summary.png)
 
@@ -454,10 +458,10 @@ Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 �
 
 다음 필수 구성 요소 단계를 사용 하 여 DSVM에서 Azure Cosmos DB에 액세스 합니다.
 
-1. Azure Cosmos DB Python SDK는 DSVM에 이미 설치 되어 있습니다. 업데이트 하려면 명령 프롬프트에서 ```pip install pydocumentdb --upgrade``` 를 실행 합니다.
+1. Azure Cosmos DB Python SDK는 DSVM에 이미 설치 되어 있습니다. 업데이트 하려면 ```pip install pydocumentdb --upgrade``` 명령 프롬프트에서를 실행 합니다.
 2. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정 및 데이터베이스를 만듭니다.
 3. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=53595) 에서 Azure Cosmos DB 데이터 마이그레이션 도구를 다운로드 하 여 원하는 디렉터리에 추출 합니다.
-4. 다음 명령 매개 변수를 사용 하 여 [공용 blob](https://https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) 에 저장 된 JSON 데이터 (화산 데이터)를 마이그레이션 도구에 Azure Cosmos DB 가져옵니다. (Azure Cosmos DB 데이터 마이그레이션 도구를 설치한 디렉터리에서 node.js를 사용 합니다.) 다음 매개 변수를 사용 하 여 원본 및 대상 위치를 입력 합니다.
+4. 다음 명령 매개 변수를 사용 하 여 [공용 blob](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) 에 저장 된 JSON 데이터 (화산 데이터)를 마이그레이션 도구에 Azure Cosmos DB 가져옵니다. (Azure Cosmos DB 데이터 마이그레이션 도구를 설치한 디렉터리의 dtui.exe를 사용 합니다.) 다음 매개 변수를 사용 하 여 원본 및 대상 위치를 입력 합니다.
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
@@ -466,11 +470,11 @@ Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 �
 ## <a name="use-power-bi-reports-and-dashboards"></a>Power BI 보고서 및 대시보드 사용 
 Power BI Desktop의 이전 Azure Cosmos DB 예제에서 화산 JSON 파일을 시각화 하 여 데이터에 대 한 시각적 정보를 얻을 수 있습니다. 자세한 단계는 [Power BI 문서](../../cosmos-db/powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 다음과 같습니다.
 
-1. Power BI Desktop을 열고 **Get Data**를 선택합니다. URL을로 지정 `https://cahandson.blob.core.windows.net/samples/volcano.json`합니다.
+1. Power BI Desktop을 열고 **Get Data**를 선택합니다. URL을로 지정 `https://cahandson.blob.core.windows.net/samples/volcano.json` 합니다.
 2. 목록으로 가져온 JSON 레코드가 표시 됩니다. Power BI 사용할 수 있도록 목록을 테이블로 변환 합니다.
 4. 확장 (화살표) 아이콘을 선택 하 여 열을 확장 합니다.
 5. 위치가 **레코드** 필드 임을 확인 합니다. 레코드를 확장하고 좌표만 선택합니다. **좌표** 는 목록 열입니다.
-6. 목록 좌표 열을 쉼표로 구분 된 **LatLong** 열로 변환 하는 새 열을 추가 합니다. 수식을 ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```사용 하 여 좌표 목록 필드의 두 요소를 연결 합니다.
+6. 목록 좌표 열을 쉼표로 구분 된 **LatLong** 열로 변환 하는 새 열을 추가 합니다. 수식을 사용 하 여 좌표 목록 필드의 두 요소를 연결 ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})``` 합니다.
 7. **권한 상승** 열을 10 진수로 변환 하 고 **닫기** 및 **적용** 단추를 선택 합니다.
 
 앞의 단계를 수행 하는 대신 다음 코드를 붙여 넣을 수 있습니다. Power BI의 고급 편집기에 사용 되는 단계를 스크립팅 하 여 데이터 변환을 쿼리 언어로 작성 합니다.
@@ -508,9 +512,9 @@ in
 ## <a name="add-more-tools"></a>도구 더 추가
 DSVM에 미리 작성 된 도구는 많은 일반 데이터 분석 요구 사항을 해결할 수 있습니다. 환경을 하나씩 설치 하 고 구성할 필요가 없기 때문에 시간을 절약할 수 있습니다. 또한 사용 하는 리소스에 대해서만 비용을 지불 하기 때문에 비용을 절감할 수 있습니다.
 
-이 문서에서 프로 파일링 한 다른 Azure 데이터 및 분석 서비스를 사용 하 여 분석 환경을 향상 시킬 수 있습니다. 일부 경우에는 일부 독점 파트너 도구를 비롯 한 추가 도구가 필요할 수 있습니다. 가상 컴퓨터에 대 한 모든 관리 권한을 보유 하 여 필요한 새 도구를 설치할 수 있습니다. 또한 사전 설치되지 않은 추가 패키지를 Python 및 R에 설치할 수 있습니다. Python의 경우 또는 ```conda``` ```pip```중 하나를 사용할 수 있습니다. R의 경우 r 콘솔에서 ```install.packages()``` 을 사용 하거나, IDE를 사용 하 고 **패키지** > **설치 패키지**를 선택할 수 있습니다.
+이 문서에서 프로 파일링 한 다른 Azure 데이터 및 분석 서비스를 사용 하 여 분석 환경을 향상 시킬 수 있습니다. 일부 경우에는 일부 독점 파트너 도구를 비롯 한 추가 도구가 필요할 수 있습니다. 가상 컴퓨터에 대 한 모든 관리 권한을 보유 하 여 필요한 새 도구를 설치할 수 있습니다. 또한 사전 설치되지 않은 추가 패키지를 Python 및 R에 설치할 수 있습니다. Python의 경우 또는 중 하나를 사용할 수 있습니다 ```conda``` ```pip``` . R의 경우 ```install.packages()``` r 콘솔에서을 사용 하거나, IDE를 사용 하 고 **패키지**  >  **설치 패키지**를 선택할 수 있습니다.
 
-## <a name="deep-learning"></a>딥 러닝
+## <a name="deep-learning"></a>딥러닝
 
 프레임 워크 기반 샘플 외에도 DSVM에서 유효성이 확인 된 일련의 포괄적인 연습을 얻을 수 있습니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같은 도메인에서 심층 학습 응용 프로그램 개발을 바로 시작할 수 있습니다.   
 

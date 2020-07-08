@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194477"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
@@ -49,8 +48,8 @@ ms.locfileid: "80064988"
 -   (필요한 경우) 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가해 Service Bus를 허용 목록에 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 -   이제, 단일 블록 Blob에/에서 데이터를 최대 4.75TB까지 복사할 수 있습니다. 이 크기는 단일 블록 Blob에 대해 지원되는 최대값입니다. 이전에는 195GB까지로 제한되었습니다.
 -   복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제가 수정되었습니다.
--   멱등 기능을 사용하여 DocumentDB에서 온-프레미스 SQL Server로 복사하는 중에 범위를 벗어나는 인덱스 문제가 수정되었습니다.
--   SQL 정리 스크립트가 복사 마법사에서 온-프레미스 SQL Server와 작동하지 않는 문제가 수정되었습니다.
+-   수정 됨: 멱 등 성 기능을 사용 하 여 문서 DB에서 SQL Server로 복사 하는 동안 범위를 벗어난 문제가 발생 했습니다.
+-   수정 됨: SQL 정리 스크립트가 복사 마법사의 SQL Server에서 작동 하지 않습니다.
 -   끝에 공백이 있는 열 이름이 복사되지 않는 문제가 수정되었습니다.
 
 ## <a name="28662833"></a>2.8.66283.3
@@ -111,7 +110,7 @@ ms.locfileid: "80064988"
 *  이제 DB2 드라이버는 이미 지원되는 플랫폼(Linux, Unix 및 Windows)과 함께 i(AS/400)용 z/OS 및DB2를 지원합니다.
 *  온-프레미스 데이터 저장소에 대한 Azure Cosmos DB를 원본 또는 대상으로 사용하도록 지원합니다.
 *  이미 지원되는 범용 스토리지 계정과 함께 콜드/핫 Blob Storage에서/으로 데이터를 복사하도록 지원합니다.
-*  원격 로그인 권한이 있는 게이트웨이를 통해 온-프레미스 SQL Server에 연결할 수 있습니다.  
+*  원격 로그인 권한이 있는 게이트웨이를 통해 SQL Server에 연결할 수 있습니다.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
@@ -126,7 +125,7 @@ ms.locfileid: "80064988"
     *  재구성되고 간소화된 컨트롤입니다.
 
     *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 스토리지에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
-*  데이터 관리 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Machine Learning으로 직접 데이터를 수신할 수 있습니다.
+*  데이터 관리 게이트웨이를 사용 하 여 SQL Server 데이터베이스에서 직접 데이터를 Azure Machine Learning로 수신할 수 있습니다.
 
 *  성능 향상
 

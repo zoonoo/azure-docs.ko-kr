@@ -2,13 +2,12 @@
 title: Azure Application Insights의 종속성 추적 | Microsoft Docs
 description: Application Insights를 사용 하 여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램에서 종속성 호출을 모니터링 합니다.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.date: 06/26/2020
+ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445222"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -16,15 +15,15 @@ ms.locfileid: "82980850"
 
 ## <a name="automatically-tracked-dependencies"></a>자동으로 추적 되는 종속성
 
-.NET 및 .NET Core 용 Application Insights Sdk는 종속성 `DependencyTrackingTelemetryModule` 을 자동으로 수집 하는 원격 분석 모듈인과 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다. `DependencyTrackingTelemetryModule` 는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet 패키지로 제공 되며 nuget 패키지 `Microsoft.ApplicationInsights.Web` 또는 `Microsoft.ApplicationInsights.AspNetCore`중 하나를 사용 하는 경우 자동으로 가져옵니다.
+.NET 및 .NET Core 용 Application Insights Sdk는 `DependencyTrackingTelemetryModule` 종속성을 자동으로 수집 하는 원격 분석 모듈인과 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다. `DependencyTrackingTelemetryModule`는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget 패키지로 제공 되며 nuget 패키지 또는 중 하나를 사용 하는 경우 자동으로 `Microsoft.ApplicationInsights.Web` 가져옵니다 `Microsoft.ApplicationInsights.AspNetCore` .
 
  `DependencyTrackingTelemetryModule`는 현재 다음 종속성을 자동으로 추적 합니다.
 
-|종속성 |세부 정보|
+|종속성 |설명|
 |---------------|-------|
 |Http/Https | 로컬 또는 원격 http/https 호출 |
 |WCF 호출| Http 기반 바인딩을 사용 하는 경우에만 자동으로 추적 됩니다.|
-|SQL | 를 사용 하 `SqlClient`여 호출 합니다. SQL 쿼리 캡처는 [이](#advanced-sql-tracking-to-get-full-sql-query) 항목을 참조 하세요.  |
+|SQL | 를 사용 하 여 호출 `SqlClient` 합니다. SQL 쿼리 캡처는 [이](#advanced-sql-tracking-to-get-full-sql-query) 항목을 참조 하세요.  |
 |[Azure storage (Blob, 테이블, 큐)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Azure Storage 클라이언트를 사용 하 여 호출 합니다. |
 |[EventHub 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 버전 이상. |
 |[ServiceBus 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3.0.0 버전 이상. |
@@ -34,7 +33,7 @@ ms.locfileid: "82980850"
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>콘솔 앱에서 자동 종속성 추적 설정
 
-.NET 콘솔 앱에서 종속성을 자동으로 추적 하려면 Nuget 패키지 `Microsoft.ApplicationInsights.DependencyCollector`를 설치 하 고 `DependencyTrackingTelemetryModule` 다음과 같이 초기화 합니다.
+.NET 콘솔 앱에서 종속성을 자동으로 추적 하려면 Nuget 패키지를 설치 하 `Microsoft.ApplicationInsights.DependencyCollector` 고 다음과 같이 초기화 합니다 `DependencyTrackingTelemetryModule` .
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
@@ -78,9 +77,9 @@ SDK에서 자동으로 수집 되지 않는 종속성의 경우 표준 자동 �
     }
 ```
 
-또는는 `TelemetryClient` 다음과 같이 종속성 `StartOperation` 을 `StopOperation` 수동으로 추적 하는 데 사용할 수 있는 확장 메서드를 [here](custom-operations-tracking.md#outgoing-dependencies-tracking) 제공 합니다.
+또는는 `TelemetryClient` `StartOperation` `StopOperation` [다음과](custom-operations-tracking.md#outgoing-dependencies-tracking) 같이 종속성을 수동으로 추적 하는 데 사용할 수 있는 확장 메서드를 제공 합니다.
 
-표준 종속성 추적 모듈을 해제 하려면 ASP.NET 응용 프로그램에 대 한 DependencyTrackingTelemetryModule의 참조를 제거 [합니다.](../../azure-monitor/app/configuration-with-applicationinsights-config.md) ASP.NET Core 응용 프로그램의 경우 [여기](asp-net-core.md#configuring-or-removing-default-telemetrymodules)에 있는 지침을 따르세요.
+표준 종속성 추적 모듈을 해제 하려면 ASP.NET 응용 프로그램에 대 한 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 에서 DependencyTrackingTelemetryModule에 대 한 참조를 제거 합니다. ASP.NET Core 응용 프로그램의 경우 [여기](asp-net-core.md#configuring-or-removing-default-telemetrymodules)에 있는 지침을 따르세요.
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>웹 페이지에서 AJAX 호출 추적
 
@@ -88,11 +87,14 @@ SDK에서 자동으로 수집 되지 않는 종속성의 경우 표준 자동 �
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>전체 SQL 쿼리를 가져오기 위한 고급 SQL 추적
 
-SQL 호출의 경우 서버 및 데이터베이스의 이름은 항상 수집 되 고 수집 `DependencyTelemetry`된의 이름으로 저장 됩니다. 전체 SQL 쿼리 텍스트를 포함할 수 있는 ' data ' 라는 추가 필드가 있습니다.
+SQL 호출의 경우 서버 및 데이터베이스의 이름은 항상 수집 되 고 수집 된의 이름으로 저장 됩니다 `DependencyTelemetry` . 전체 SQL 쿼리 텍스트를 포함할 수 있는 ' data ' 라는 추가 필드가 있습니다.
 
-ASP.NET Core 응용 프로그램의 경우 전체 SQL 쿼리를 가져오는 데 필요한 추가 단계가 없습니다.
+ASP.NET Core 응용 프로그램의 경우 이제를 사용 하 여 SQL 텍스트 컬렉션을 옵트인 (opt in) 해야 합니다.
+```csharp
+services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
+```
 
-ASP.NET 응용 프로그램의 경우 전체 SQL 쿼리가 바이트 코드 계측의 도움을 사용 하 여 수집 됩니다. 여기에는 계측 엔진이 나 System.web 라이브러리 대신 [Microsoft. sqlclient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 해야 합니다. 아래에 설명 된 대로 추가 플랫폼별 단계가 필요 합니다.
+ASP.NET 응용 프로그램의 경우, 계측 엔진을 사용 하거나 System.web 라이브러리 대신 [Microsoft. sqlclient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 해야 하는 바이트 코드 계측을 통해 전체 SQL 쿼리 텍스트가 수집 됩니다. 전체 SQL 쿼리 컬렉션을 사용 하도록 설정 하는 플랫폼별 단계는 아래에 설명 되어 있습니다.
 
 | 플랫폼 | 전체 SQL 쿼리를 가져오는 데 필요한 단계 |
 | --- | --- |
@@ -101,7 +103,15 @@ ASP.NET 응용 프로그램의 경우 전체 SQL 쿼리가 바이트 코드 계�
 | Azure 클라우드 서비스 | [StatusMonitor를 설치 하기 위한 시작 작업](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) 추가 <br> 응용 프로그램은 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 또는 [ASP.NET Core 응용 프로그램](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 에 대 한 NuGet 패키지를 설치 하 여 빌드 시에 applicationinsights SDK로 등록 됩니다. |
 | IIS Express | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 합니다.
 
-위의 경우, 계측 엔진의 유효성을 검사 하는 올바른 방법은 수집 `DependencyTelemetry` 된의 SDK 버전이 ' rddp ' 인지 확인 하는 것입니다. ' rdddsd ' 또는 ' rddf '은 종속성이 DiagnosticSource 또는 EventSource 콜백을 통해 수집 되므로 전체 SQL 쿼리가 캡처되지 않습니다.
+위의 플랫폼별 단계 외에도 applicationInsights.config 파일을 다음과 같이 수정 **하 여 SQL 명령 컬렉션을 사용 하도록 명시적으로 옵트인 해야 합니다** .
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
+
+위의 경우, 계측 엔진의 유효성을 검사 하는 올바른 방법은 수집 된의 SDK 버전이 ' rddp ' 인지 확인 하는 것입니다 `DependencyTelemetry` . ' rdddsd ' 또는 ' rddf '은 종속성이 DiagnosticSource 또는 EventSource 콜백을 통해 수집 되므로 전체 SQL 쿼리가 캡처되지 않습니다.
 
 ## <a name="where-to-find-dependency-data"></a>종속성 데이터를 찾을 수 있는 위치
 
@@ -180,11 +190,11 @@ ASP.NET 응용 프로그램의 경우 전체 SQL 쿼리가 바이트 코드 계�
       on operation_Id
 ```
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*자동 종속성 수집기에서 종속성에 대 한 실패 한 호출을 보고 하는 방법*
 
-* 실패 한 종속성 호출의 ' 성공 ' 필드는 False로 설정 됩니다. `DependencyTrackingTelemetryModule`보고 `ExceptionTelemetry`하지 않습니다. 종속성에 대 한 전체 데이터 모델은 [여기](data-model-dependency-telemetry.md)에 설명 되어 있습니다.
+* 실패 한 종속성 호출의 ' 성공 ' 필드는 False로 설정 됩니다. `DependencyTrackingTelemetryModule`보고 하지 않습니다 `ExceptionTelemetry` . 종속성에 대 한 전체 데이터 모델은 [여기](data-model-dependency-telemetry.md)에 설명 되어 있습니다.
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 모든 Application Insights SDK와 마찬가지로 종속성 컬렉션 모듈도 오픈 소스 이기도 합니다. [공식 GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server)리포지토리에서 코드를 읽고 참여 하거나 문제를 보고 합니다.

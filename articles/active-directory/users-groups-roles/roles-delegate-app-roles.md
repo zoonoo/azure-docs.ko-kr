@@ -1,5 +1,5 @@
 ---
-title: 위임 응용 프로그램 관리 관리 perms-Azure AD | Microsoft Docs
+title: 위임 응용 프로그램 관리 관리자 권한-Azure AD | Microsoft Docs
 description: Azure Active Directory에서 응용 프로그램 액세스 관리에 대 한 권한 부여
 services: active-directory
 documentationcenter: ''
@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2527e4e630e7bf9cce0c68261bfa1c1797fbf795
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731820"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -60,8 +59,8 @@ ms.locfileid: "79253040"
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>엔터프라이즈 응용 프로그램에 소유자를 할당 하려면
 
-1. 조직의 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자에 게 적합 한 계정을 사용 하 여 [Azure AD 조직](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
-1. 조직의 [앱 등록 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 에서 앱을 선택 하 여 앱에 대 한 개요 페이지를 엽니다.
+1. [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)   조직의 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자에 게 적합 한 계정을 사용 하 여 Azure AD 조직에 로그인 합니다.
+1. 조직의 [앱 등록 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)에서 앱을   선택 하 여 앱에 대 한 개요 페이지를 엽니다.
 1. **소유자**를 선택하여 앱의 소유자 목록을 확인합니다.
 1. **추가**를 선택하여 앱에 추가할 소유자를 하나 이상 선택합니다.
 
@@ -74,8 +73,8 @@ ms.locfileid: "79253040"
 
 Azure AD에는 모든 응용 프로그램에 대해 Azure AD의 구성 관리에 대 한 액세스 권한을 부여 하기 위한 기본 제공 관리자 역할 집합이 있습니다. 이러한 역할은 IT 전문가에 게 응용 프로그램 구성과 관련이 없는 Azure AD의 다른 부분을 관리 하기 위한 액세스 권한을 부여 하지 않고도 광범위 한 응용 프로그램 구성 권한을 관리할 수 있는 권한을 부여 하는 데 권장 되는 방법입니다.
 
-- 애플리케이션 관리자: 이 역할의 사용자는 엔터프라이즈 애플리케이션, 애플리케이션 등록 및 애플리케이션 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 이 역할은 위임 된 권한에 동의할 수 있는 기능 및 Microsoft Graph를 제외한 응용 프로그램 권한을 부여 합니다. 이 역할에 할당 된 사용자는 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가 되지 않습니다.
-- 클라우드 애플리케이션 관리자: 이 역할의 사용자는 애플리케이션 관리자 역할과 동일한 권한을 가집니다. 애플리케이션 프록시를 관리하는 기능은 제외됩니다. 이 역할에 할당 된 사용자는 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가 되지 않습니다.
+- 애플리케이션 관리자: 이 역할의 사용자는 엔터프라이즈 애플리케이션, 애플리케이션 등록 및 애플리케이션 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 이 역할은 위임 된 권한에 동의할 수 있는 기능 및 Microsoft Graph를 제외한 응용 프로그램 권한을 부여 합니다. 이 역할에 할당된 사용자는 새 애플리케이션 등록 또는 엔터프라이즈 애플리케이션을 만들 때 소유자로 추가되지 않습니다.
+- 클라우드 애플리케이션 관리자: 이 역할의 사용자는 애플리케이션 관리자 역할과 동일한 권한을 가집니다. 애플리케이션 프록시를 관리하는 기능은 제외됩니다. 이 역할에 할당된 사용자는 새 애플리케이션 등록 또는 엔터프라이즈 애플리케이션을 만들 때 소유자로 추가되지 않습니다.
 
 자세한 내용 및 이러한 역할에 대 한 설명을 보려면 [사용 가능한 역할](directory-assign-admin-roles.md#available-roles)을 참조 하세요.
 

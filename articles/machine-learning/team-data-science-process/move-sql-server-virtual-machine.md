@@ -1,6 +1,6 @@
 ---
 title: SQL Server 가상 머신으로 데이터 이동 - Team Data Science Process
-description: 플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동합니다.
+description: 플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동 합니다.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b8a01b5f2f5ec64fea014468356408220f9c4f1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: be1abe415955b52cbd639faef703e5c2fbd257b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194378"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
 
@@ -174,18 +173,18 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 아래에서는 이러한 각 옵션에 대해 설명 합니다.
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사
-**Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사** 는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)을 참조하세요.
+**Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사** 는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)을 참조하세요.
 
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>플랫 파일로 내보내기
 [데이터의 대량 가져오기 및 내보내기(SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) 토픽에 설명된 대로 온-프레미스 SQL Server에서 데이터를 대량으로 내보내는 데 다양한 방법을 사용할 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
 
-1. 다음과 같이 bcp 유틸리티를 사용하여 온-프레미스 SQL Server에서 파일로 데이터를 내보냅니다.
+1. 다음과 같이 bcp 유틸리티를 사용 하 여 온-프레미스 SQL Server에서 파일로 데이터를 내보냅니다.
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
 2. 1단계에서 내보낸 테이블 스키마에 대해 `create database` 및 `create table`을 사용하여 Azure 기반의 SQL Server VM에 데이터베이스 및 테이블을 만듭니다.
 3. 내보내는/가져오는 데이터의 테이블 스키마를 설명하는 서식 파일을 만듭니다. 서식 파일의 세부 정보는 [서식 파일 만들기(SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx)에 설명되어 있습니다.
 
-    SQL Server 컴퓨터에서 BCP를 실행하는 경우 서식 파일 생성
+    SQL Server 컴퓨터에서 BCP를 실행 하는 경우 서식 파일 생성
 
         bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n
 
@@ -203,16 +202,16 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 SQL Server는 다음을 지원합니다.
 
 1. [데이터베이스 백업 및 복원 기능](https://msdn.microsoft.com/library/ms187048.aspx)(로컬 파일 백업 또는 blob로 bacpac 내보내기 모두 지원) 및 [데이터 계층 애플리케이션](https://msdn.microsoft.com/library/ee210546.aspx)(bacpac 사용).
-2. 복사된 데이터베이스를 사용하여 또는 기존 SQL Azure 데이터베이스에 복사하여 Azure에서 직접 SQL Server VM을 만드는 기능. 자세한 내용은 [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx)을 참조하세요.
+2. Azure에서 복사 된 데이터베이스를 사용 하 여 SQL Server Vm을 직접 만들거나 SQL Database의 기존 데이터베이스로 복사할 수 있습니다. 자세한 내용은 [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx)을 참조하세요.
 
 아래는 SQL Server Management Studio의 데이터베이스 백업/복원 옵션 스크린샷입니다.
 
 ![SQL Server 가져오기 도구][1]
 
 ## <a name="resources"></a>리소스
-[Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
+[Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)
 
-[Azure Virtual Machines의 SQL Server 개요](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+[Azure Virtual Machines의 SQL Server 개요](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 [1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png

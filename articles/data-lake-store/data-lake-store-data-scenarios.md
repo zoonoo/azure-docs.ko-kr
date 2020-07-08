@@ -10,12 +10,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: a8f9b66bf9a301888f2371fb1c58a4845c2232b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193683"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용
 
@@ -40,7 +39,7 @@ ms.locfileid: "79536159"
 
 | 데이터 원본 | 로컬 컴퓨터를 사용하여 |
 | --- | --- |
-| 수집 |<ul> <li>[Azure 포털](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 만들기](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| 수집 |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 만들기](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
@@ -78,7 +77,7 @@ ms.locfileid: "79536159"
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>온-프레미스 또는 IaaS Hadoop 클러스터에 저장된 데이터
 HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의 데이터를 저장할 수 있습니다. Hadoop 클러스터는 온-프레미스 배포 또는 Azure의 IaaS 클러스터에 있을 수 있습니다. 이러한 데이터를 일회성 또는 반복적인 방식으로 Azure Data Lake Storage Gen1에 복사해야 할 수도 있습니다. 이 작업을 수행하는 방법은 다양한 옵션이 있습니다. 다음은 이를 대체할 수 있는 방법 목록과 관련 절충 사항입니다.
 
-| 접근 방식 | 세부 정보 | 장점 | 고려 사항 |
+| 접근 방식 | 설명 | 장점 | 고려 사항 |
 | --- | --- | --- | --- |
 | ADF(Azure Data Factory)를 사용하여 데이터를 Hadoop 클러스터에서 Azure Data Lake Storage Gen1로 직접 복사합니다. |[ADF는 데이터 원본으로 HDFS 지원](../data-factory/connector-hdfs.md) |ADF는 HDFS에 대한 기본 지원과 일등급 엔드투엔드 관리 및 모니터링을 제공합니다. |온-프레미스 또는 IaaS 클러스터에 배포하려면 데이터 관리 게이트웨이가 필요합니다. |
 | Hadoop에서 데이터를 파일로 내보냅니다. 그런 다음, 적절한 메커니즘을 사용하여 파일을 Azure Data Lake Storage Gen1에 복사합니다. |파일을 Azure Data Lake Storage Gen1에 복사하는 데 사용할 수 있는 도구는 다음과 같습니다. <ul><li>[Windows OS용 Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Data Lake Storage Gen1 SDK를 사용하는 사용자 지정 앱</li></ul> |빠르게 시작할 수 있습니다. 맞춤 업로드를 수행할 수 있습니다. |여러 기술을 사용하는 다단계 절차입니다. 도구를 맞춤화할 수 있으므로 시간이 지날수록 관리와 모니터링이 어려워집니다. |
@@ -108,7 +107,7 @@ Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 
 ## <a name="download-data-from-data-lake-storage-gen1"></a>Data Lake Storage Gen1에서 데이터 다운로드
 다음과 같은 시나리오를 위해 Azure Data Lake Storage Gen1에서 데이터를 다운로드하거나 이동할 수도 있습니다.
 
-* 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 Data Lake Storage Gen1에서 Azure SQL Database 또는 온-프레미스 SQL Server로 데이터를 이동하려는 경우가 있습니다.
+* 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 Data Lake Storage Gen1에서 Azure SQL Database 또는 SQL Server으로 데이터를 이동 하는 경우가 있습니다.
 * 애플리케이션 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
 
 ![Data Lake Storage Gen1에서 송신 데이터](./media/data-lake-store-data-scenarios/egress-data.png "Data Lake Storage Gen1에서 송신 데이터")

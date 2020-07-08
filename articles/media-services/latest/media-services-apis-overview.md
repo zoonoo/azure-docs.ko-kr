@@ -13,12 +13,11 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515064"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Microsoft Azure Media Services v3 API로 개발
 
@@ -41,7 +40,7 @@ Microsoft Azure Media Services API를 사용하려면 REST API 요청을 하는 
 
 Microsoft Azure Active Directory 앱 및 서비스 주체를 만드는 경우 앱은 자체 테넌트에 있어야 합니다. 앱을 만든 후 앱 **기여자** 또는 **소유자** 역할에 Microsoft Azure Media Services 계정에 대한 액세스 권한을 제공합니다.
 
-Microsoft Azure Active Directory 앱을 만들 수 있는 권한이 있는지 확실하지 않은 경우 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)을 참조하세요.
+Microsoft Azure Active Directory 앱을 만들 수 있는 권한이 있는지 확실하지 않은 경우 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)을 참조하세요.
 
 다음 그림에서 숫자는 요청 흐름을 시간순으로 보여줍니다.
 

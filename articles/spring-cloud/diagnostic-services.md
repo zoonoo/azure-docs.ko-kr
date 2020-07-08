@@ -6,12 +6,11 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790588"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
@@ -28,7 +27,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 
 ## <a name="logs"></a>로그
 
-|로그 | Description |
+|로그 | 설명 |
 |----|----|
 | **ApplicationConsole** | 모든 고객 응용 프로그램의 콘솔 로그입니다. |
 | **SystemLogs** | 현재이 범주에는 [스프링 클라우드 구성 서버](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) 로그만 있습니다. |
@@ -44,7 +43,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 1. Azure Portal에서 Azure 스프링 클라우드 인스턴스로 이동 합니다.
 1. **진단 설정** 옵션을 선택한 다음 **진단 설정 추가**를 선택 합니다.
 1. 설정에 대 한 이름을 입력 하 고 로그를 보낼 위치를 선택 합니다. 다음 세 가지 옵션을 임의로 조합 하 여 선택할 수 있습니다.
-    * **저장소 계정에 보관**
+    * **스토리지 계정에 보관**
     * **이벤트 허브로 스트림**
     * **Log Analytics에 보내기**
 
@@ -105,7 +104,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
     | limit 50
     ```
 > [!NOTE]
-> `==`는 대/소문자를 `=~` 구분 하지만는 그렇지 않습니다.
+> `==`는 대/소문자를 구분 하지만 `=~` 는 그렇지 않습니다.
 
 Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [로그 쿼리 Azure Monitor](../azure-monitor/log-query/query-language.md)를 참조 하세요.
 
@@ -174,3 +173,31 @@ AppPlatformLogsforSpring
 ### <a name="learn-more-about-querying-application-logs"></a>응용 프로그램 로그 쿼리에 대 한 자세한 정보
 
 Azure Monitor Log Analytics를 사용 하 여 응용 프로그램 로그를 쿼리 하기 위한 광범위 한 지원을 제공 합니다. 이 서비스에 대해 자세히 알아보려면 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조 하세요. 응용 프로그램 로그를 분석 하는 쿼리를 작성 하는 방법에 대 한 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+
+## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
+
+### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>여러 줄 Java 스택 추적을 한 줄로 변환 하는 방법
+
+여러 줄 스택 추적을 한 줄로 변환 하는 방법에 대 한 해결 방법이 있습니다. Java 로그 출력을 수정 하 여 스택 추적 메시지를 다시 포맷 하 고 줄 바꿈 문자를 토큰으로 바꿀 수 있습니다. Java Logback 라이브러리를 사용 하는 경우 다음과 같이를 추가 하 여 스택 추적 메시지의 서식을 다시 지정할 수 있습니다 `%replace(%ex){'[\r\n]+', '\\n'}%nopex` .
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+그런 다음 아래와 같이 Log Analytics에서 다시 줄 바꿈 문자로 토큰을 바꿀 수 있습니다.
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+다른 Java 로그 라이브러리에 대해 동일한 전략을 사용할 수 있습니다.

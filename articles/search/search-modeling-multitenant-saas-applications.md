@@ -8,20 +8,23 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081112"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테 넌 트 SaaS 응용 프로그램 및 Azure Cognitive Search에 대 한 디자인 패턴
+
 다중 테넌트 애플리케이션은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 애플리케이션입니다. 이 문서에서는 Azure Cognitive Search로 빌드된 다중 테 넌 트 응용 프로그램의 테 넌 트 격리 전략에 대해 설명 합니다
 
 ## <a name="azure-cognitive-search-concepts"></a>Azure Cognitive Search 개념
-Azure Cognitive Search는 개발자가 인프라를 관리 하거나 정보를 검색 하지 않고도 풍부한 검색 환경을 응용 프로그램에 추가할 수 있습니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Cognitive Search API에 대 한 간단한 요청을 사용 하 여 데이터를 수정 하 고 검색할 수 있습니다. 서비스의 개요는 [이 문서](https://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 설명 하기 전에 Azure Cognitive Search의 몇 가지 개념을 이해 하는 것이 중요 합니다.
+[Azure Cognitive Search](search-what-is-azure-search.md) 는 개발자가 인프라를 관리 하거나 정보를 검색 하지 않고도 풍부한 검색 환경을 응용 프로그램에 추가할 수 있습니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Cognitive Search API에 대 한 간단한 요청을 사용 하 여 데이터를 수정 하 고 검색할 수 있습니다. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Search 서비스, 인덱스, 필드 및 문서
+
+디자인 패턴에 대해 설명 하기 전에 몇 가지 기본 개념을 이해 하는 것이 중요 합니다.
+
 Azure Cognitive Search를 사용 하는 경우 하나는 *검색 서비스*를 구독 합니다. 데이터가 Azure Cognitive Search에 업로드 되 면 검색 서비스 내의 *인덱스* 에 저장 됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
 
 검색 서비스 내의 각 인덱스는 많은 수의 사용자 지정 가능 *필드*로 정의되는 고유 스키마를 갖습니다. 데이터는 개별 *문서*형식으로 Azure Cognitive Search 인덱스에 추가 됩니다. 각 문서는 특정 인덱스에 업로드되어야 하고 해당 인덱스의 스키마를 결정해야 합니다. Azure Cognitive Search를 사용 하 여 데이터를 검색할 때 전체 텍스트 검색 쿼리는 특정 인덱스에 대해 실행 됩니다.  이러한 개념을 데이터베이스의 개념과 비교하려면 필드를 테이블의 열에, 문서를 행에 비유할 수 있습니다.
@@ -127,5 +130,5 @@ Azure Cognitive Search 다중 테 넌 트 시나리오를 모델링 하기 위�
 ## <a name="next-steps"></a>다음 단계
 Azure Cognitive Search는 많은 응용 프로그램에 적합 합니다. 다중 테 넌 트 응용 프로그램에 대 한 다양 한 디자인 패턴을 평가할 때 [다양 한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한을](search-limits-quotas-capacity.md) 고려 하 여 모든 규모의 응용 프로그램 워크 로드 및 아키텍처에 맞게 Azure Cognitive Search를 적절 하 게 조정 합니다.
 
-Azure Cognitive Search 및 다중 테 넌 트 시나리오에 대 한 질문 azuresearch_contact@microsoft.com은로 이동할 수 있습니다.
+Azure Cognitive Search 및 다중 테 넌 트 시나리오에 대 한 질문은로 이동할 수 있습니다 azuresearch_contact@microsoft.com .
 

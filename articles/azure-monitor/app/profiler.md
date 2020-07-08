@@ -6,12 +6,11 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 9dffa4d32980a16377f33a4ddb23987b3c2f3dd5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678592"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -25,9 +24,9 @@ Basic 서비스 계층 이상을 사용하여 Azure App Service에서 실행되�
 
 Application Insights Profiler는 App Services 런타임의 일부로 미리 설치됩니다. 아래 단계에서는 App Service에 이 기능을 사용하도록 설정하는 방법을 보여 줍니다. 빌드 시 애플리케이션에 App Insights SDK를 포함한 경우에도 다음 단계를 수행합니다.
 
-1. 앱 서비스에 "Always On" 설정을 사용합니다. App Service 구성 페이지의 일반 설정에서 설정을 업데이트할 수 있습니다.
-1. Azure Portal에서 **App Services** 창으로 이동합니다.
-1. **설정 > Application Insights** 창으로 이동합니다.
+1. App Service에 대 한 Azure 제어판으로 이동 합니다.
+1. 앱 서비스에 "Always On" 설정을 사용합니다. 이 설정은 **설정**, **구성** 페이지 (다음 단계의 스크린샷 참조)에서 찾을 수 있으며 **일반 설정** 탭을 클릭 합니다.
+1. **설정 > Application Insights** 페이지로 이동 합니다.
 
    ![App Services 포털에서 App Insights를 사용하도록 설정](./media/profiler/AppInsights-AppServices.png)
 
@@ -50,7 +49,7 @@ Azure App Service에 대한 앱 설정을 만들어 Application Insights Profile
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-[Azure Resource Manager 템플릿](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest)를 사용하여 이러한 값을 설정할 수 있습니다.
+[Azure Resource Manager 템플릿](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest)를 사용 하 여 이러한 값을 설정할 수 있습니다.
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>수동으로 다른 클라우드에 프로파일러를 사용하도록 설정
 

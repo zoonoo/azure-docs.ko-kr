@@ -4,12 +4,11 @@ description: Visual Studio 프로젝트 템플릿을 통해 Azure Batch에서 �
 ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: c4cdc3fa7b3238a83d55113c5f7dc551d637c8e2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779505"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959775"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
 
@@ -427,13 +426,13 @@ parameters.json이라는 리소스 파일을 찾고 있는 경우 이를 매개 
 Batch 솔루션 개발 시 다른 유용한 도구는 [Azure Batch 파일 규칙][nuget_package]입니다. Batch .NET 애플리케이션에서 .NET 클래스 라이브러리(현재 미리 보기 상태)를 사용하면 Azure Storage 간에 태스크 출력을 쉽게 저장하고 검색할 수 있습니다. [Azure Batch 작업 및 태스크 출력 보관](batch-task-output.md) 에는 라이브러리 및 사용법에 대한 자세한 내용이 포함되어 있습니다.
 
 
-[net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
+[net_jobmanagertask]: /dotnet/api/microsoft.azure.batch.jobmanagertask
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
-[process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
+[process_exitcode]: /dotnet/api/system.diagnostics.process.exitcode
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
 [vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
-[vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
+[vs_find_use_ext]: /visualstudio/ide/finding-and-using-visual-studio-extensions
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png

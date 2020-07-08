@@ -3,12 +3,11 @@ title: 템플릿이 있는 Key Vault 암호
 description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677868"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
@@ -18,7 +17,7 @@ ms.locfileid: "81458269"
 
 ## <a name="deploy-key-vaults-and-secrets"></a>키 자격 증명 모음 및 비밀 배포
 
-템플릿 배포 중에 키 자격 증명 모음에 액세스 `enabledForTemplateDeployment` 하려면 키 자격 증명 모음 `true`에서을로 설정 합니다.
+템플릿 배포 중에 키 자격 증명 모음에 액세스 하려면 `enabledForTemplateDeployment` 키 자격 증명 모음에서을로 설정 `true` 합니다.
 
 Key Vault 이미 있는 경우 템플릿 배포를 허용 하는지 확인 합니다.
 
@@ -92,14 +91,14 @@ Set-AzKeyVaultAccessPolicy `
 키 자격 증명 모음을 만들고 암호를 추가 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [CLI를 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-cli.md)
-- [PowerShell을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-powershell.md)
+- [PowerShell을 사용 하 여 암호 설정 및 검색](../../key-vault/secrets/quick-create-powershell.md)
 - [포털을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-portal.md)
 - [.NET을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-net.md)
 - [Node.js를 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>비밀 액세스 권한 부여
 
-템플릿을 배포 하는 사용자에 게는 리소스 `Microsoft.KeyVault/vaults/deploy/action` 그룹 및 주요 자격 증명 모음의 범위에 대 한 권한이 있어야 합니다. [소유자](../../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. 키 자격 증명 모음을 만든 경우에는 사용자에 게 권한이 부여 됩니다.
+템플릿을 배포 하는 사용자에 게는 `Microsoft.KeyVault/vaults/deploy/action` 리소스 그룹 및 주요 자격 증명 모음의 범위에 대 한 권한이 있어야 합니다. [소유자](../../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. 키 자격 증명 모음을 만든 경우에는 사용자에 게 권한이 부여 됩니다.
 
 다음 절차는 최소의 권한을 가진 역할을 만드는 방법과 사용자에게 할당하는 방법을 나타냅니다.
 
@@ -163,7 +162,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminLogin": {
@@ -201,7 +200,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "adminLogin": {
@@ -267,7 +266,7 @@ New-AzResourceGroupDeployment `
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "location": {
@@ -314,7 +313,7 @@ New-AzResourceGroupDeployment `
           "scope": "inner"
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {

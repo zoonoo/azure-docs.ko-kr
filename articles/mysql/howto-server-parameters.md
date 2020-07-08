@@ -5,19 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: bd0a867cce9b2a9ad793b491b9042034ef5810f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/11/2020
+ms.openlocfilehash: ba473942eea35ebcd5991b9b0dee4138d4963e16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605150"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099136"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에서 서버 매개 변수 구성
 
 MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다. 이 문서에서는 Azure Portal을 사용하여 이러한 매개 변수를 구성하는 방법을 설명합니다. 일부 서버 매개 변수를 조정할 수 있습니다.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Azure Portal의 서버 매개 변수로 이동
+## <a name="configure-server-parameters"></a>서버 매개 변수 구성
 
 1. Azure Portal에 로그인한 다음 Azure Database for MySQL 서버를 찾습니다.
 2. **설정** 섹션에서 **서버 매개 변수**를 클릭하여 Azure Database for MySQL 서버에 대한 서버 매개 변수 페이지를 엽니다.
@@ -29,41 +28,16 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 5. 매개 변수에 새 값을 저장한 경우 언제든지 **모두 기본값으로 다시 설정**을 선택하여 모든 항목을 기본값으로 되돌릴 수있습니다.
 ![모두 기본값으로 다시 설정](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>구성 가능한 서버 매개 변수 목록
+## <a name="setting-parameters-not-listed"></a>나열 되지 않은 매개 변수 설정
 
-지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용하여 정의를 가져오고 애플리케이션 요구 사항에 따라 서버 매개 변수를 구성합니다.
+업데이트 하려는 서버 매개 변수가 Azure Portal에 나열 되어 있지 않으면를 사용 하 여 연결 수준에서 매개 변수를 선택적으로 설정할 수 있습니다 `init_connect` . 서버에 연결 하는 각 클라이언트에 대 한 서버 매개 변수를 설정 합니다. 
 
-## <a name="non-configurable-server-parameters"></a>구성 불가능한 서버 매개 변수
+1. **설정** 섹션에서 **서버 매개 변수**를 클릭하여 Azure Database for MariaDB 서버의 매개 변수 페이지를 엽니다.
+2. 검색`init_connect`
+3. 서버 매개 변수를 다음 형식으로 추가 합니다. 값 열에 값을 추가 `SET parameter_name=YOUR_DESIRED_VALUE` 합니다.
 
-InnoDB 버퍼 풀 크기는 구성할 수 없으며 [가격 책정 계층](concepts-service-tiers.md)에 연결 됩니다.
-
-|**가격 책정 계층**|**vCore**|**InnoDB 버퍼 풀 크기 (MB <br>) (최대 2tb 저장소를 지 원하는 서버)**| **InnoDB 버퍼 풀 크기 (MB <br>) (최대 16tb의 저장소를 지 원하는 서버)**|
-|:---|---:|---:|---:|
-|Basic| 1| 832| |
-|Basic| 2| 2560| |
-|범용| 2| 3584| 7168|
-|범용| 4| 7680| 15360|
-|범용| 8| 15360| 30720|
-|범용| 16| 31232| 62464|
-|범용| 32| 62976| 125952|
-|범용| 64| 125952| 251904|
-|메모리 최적화| 2| 7168| 14336|
-|메모리 최적화| 4| 15360| 30720|
-|메모리 최적화| 8| 30720| 61440|
-|메모리 최적화| 16| 62464| 124928|
-|메모리 최적화| 32| 125952| 251904|
-
-이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
-
-|**매개 변수**|**고정 값**|
-| :------------------------ | :-------- |
-|기본 계층의 innodb_file_per_table|OFF|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256MB|
-|innodb_log_files_in_group|2|
-
-여기에 나열되지 않은 다른 서버 매개 변수는 버전 [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) 및 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html) 버전의 MySQL 기본값으로 설정됩니다.
+    예를 들어를로 설정 하 여 서버의 문자 집합을 변경할 수 있습니다. `init_connect``SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+4. **저장**을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="working-with-the-time-zone-parameter"></a>표준 시간대 매개 변수 작업
 
@@ -79,7 +53,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> 표준 시간대 테이블이 제대로 채워졌는지 확인 하려면 서버를 다시 시작 해야 합니다. 서버를 다시 시작 하려면 [Azure Portal](howto-restart-server-portal.md) 또는 [CLI](howto-restart-server-cli.md)를 사용 합니다.
+> 표준 시간대 테이블이 제대로 채워지도록 하려면 서버를 다시 시작해야 합니다. 서버를 다시 시작하려면 [Azure Portal](howto-restart-server-portal.md) 또는 [CLI](howto-restart-server-cli.md)를 사용합니다.
 
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 

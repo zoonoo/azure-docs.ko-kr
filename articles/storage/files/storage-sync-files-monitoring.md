@@ -3,16 +3,15 @@ title: Azure 파일 동기화 모니터링 | Microsoft Docs
 description: Azure 파일 동기화를 모니터링하는 방법을 설명합니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515207"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
@@ -39,11 +38,11 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 | 동기화되는 바이트 수 | 전송되는 데이터 크기(업로드 및 다운로드)입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 끝점 이름, 동기화 방향, 동기화 그룹 이름 |
 | 클라우드 계층화 회수 | 회수되는 데이터의 크기입니다.<br><br>**참고**:이 메트릭은 나중에 제거 될 예정입니다. 클라우드 계층화 회수 크기 메트릭을 사용 하 여 회수 된 데이터의 크기를 모니터링 합니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름 |
 | 클라우드 계층화 회수 크기 | 회수되는 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름, 동기화 그룹 이름 |
-| 응용 프로그램별 클라우드 계층화 회수 크기 | 응용 프로그램에서 회수 한 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 응용 프로그램 이름, 서버 이름, 동기화 그룹 이름 |
+| 애플리케이션별 클라우드 계층화 회수 크기 | 응용 프로그램에서 회수 한 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 응용 프로그램 이름, 서버 이름, 동기화 그룹 이름 |
 | 클라우드 계층화 회수 처리량 | 데이터 회수 처리량의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 이름, 동기화 그룹 이름 |
 | 동기화 상태가 아닌 파일 | 동기화할 수 없는 파일의 수입니다.<br><br>단위: 개수<br>집계 유형: 합계<br>적용 가능한 차원: 서버 끝점 이름, 동기화 방향, 동기화 그룹 이름 |
 | 동기화된 파일 수 | 전송되는 파일 수(업로드 및 다운로드)<br><br>단위: 개수<br>집계 유형: 합계<br>적용 가능한 차원: 서버 끝점 이름, 동기화 방향, 동기화 그룹 이름 |
-| 서버 온라인 상태 | 서버에서 수신된 하트비트의 수입니다.<br><br>단위: 개수<br>집계 형식: 최대<br>적용 가능한 차원: 서버 이름 |
+| 서버 온라인 상태 | 서버에서 수신된 하트비트의 수입니다.<br><br>단위: 개수<br>집계 유형: 최대<br>적용 가능한 차원: 서버 이름 |
 | 동기화 세션 결과 | 동기화 세션 결과입니다(1=정상 완료된 동기화 세션, 0=실패한 동기화 세션).<br><br>단위: 개수<br>집계 유형: 최대<br>적용 가능한 차원: 서버 끝점 이름, 동기화 방향, 동기화 그룹 이름 |
 
 ### <a name="alerts"></a>경고
@@ -68,7 +67,7 @@ Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용�
 ### <a name="registered-server-health"></a>등록 된 서버 상태
 
 - 등록 된 **서버** 상태가 **온라인**인 경우 서버는 서비스와 성공적으로 통신 하 고 있는 것입니다.
-- 등록 된 **서버** 상태가 **오프 라인으로 표시**되는 경우 서버에서 저장소 동기화 모니터 (AzureStorageSyncMonitor .exe) 프로세스가 실행 중인지 확인 합니다. 서버가 방화벽이 나 프록시 뒤에 있는 경우 [이 문서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) 를 참조 하 여 방화벽 및 프록시를 구성 합니다.
+- 등록 된 **서버** 상태가 **오프 라인으로 표시**되는 경우 서버의 저장소 동기화 모니터 (AzureStorageSyncMonitor.exe) 프로세스가 실행 중인지 확인 합니다. 서버가 방화벽이 나 프록시 뒤에 있는 경우 [이 문서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) 를 참조 하 여 방화벽 및 프록시를 구성 합니다.
 
 ### <a name="server-endpoint-health"></a>서버 끝점 상태
 

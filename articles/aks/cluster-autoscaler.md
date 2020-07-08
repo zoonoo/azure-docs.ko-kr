@@ -4,12 +4,11 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683547"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730019"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -99,7 +98,7 @@ az aks update \
 위의 예에서는 *myAKSCluster*의 단일 노드 풀에 있는 클러스터 자동 크기 조정기를 최소 *1*개 및 최대 *5*개 노드로 업데이트합니다.
 
 > [!NOTE]
-클러스터 자동 크기 조정기는 각 노드 풀에 설정된 최소 및 최대 개수에 따라 크기 조정을 결정하지만 이를 강제로 적용하지는 않습니다. 예를 들어 현재 노드 수가 3개인 경우 최소 개수를 5개로 설정하면 풀의 크기가 5개로 즉시 조정되지 않습니다. 노드 풀의 최소 개수를 현재 노드 수보다 큰 값으로 변경할 경우 이러한 새 제한이 적용되려면 새로운 추가 노드 2개가 필요하고 자동 크기 조정기 이벤트가 트리거되므로 예약이 불가한 Pod가 충분히 있어야 합니다. 이 조건을 만족하면 클러스터 자동 크기 조정기의 새 최소 개수 제한이 적용됩니다.
+> 클러스터 autoscaler는 각 노드 풀에 설정 된 최소 및 최대 개수에 따라 크기 조정을 결정 하지만 최소 또는 최대 개수를 업데이트 한 후에는이를 적용 하지 않습니다. 예를 들어 현재 노드 수가 3 인 경우 최소 개수를 5로 설정 하면 풀이 최대 5 개까지 즉시 확장 되지 않습니다. 노드 풀의 최소 개수에 현재 노드 수보다 큰 값이 있는 경우 새 추가 노드가 2 개 필요 하 고 autoscaler 이벤트를 트리거하는 예약 되지 않은 pod이 충분히 있는 경우 새 최소 또는 최대 설정이 적용 됩니다. 크기 조정 이벤트 후에는 새로운 개수 제한이 적용 됩니다.
 
 애플리케이션 및 서비스의 성능을 모니터링하고 클러스터 자동 크기 조정기 노드 수를 필요한 성능과 일치하도록 조정합니다.
 

@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 49577f5ac274b4e34fa07415e5495329ff650aa5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730750"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -262,7 +262,7 @@ def main(req):
 
 ## <a name="http-trigger-and-bindings"></a>HTTP 트리거 및 바인딩
 
-HTTP 트리거는 function.jon 파일에 정의됩니다. 바인딩의 `name`은 함수의 명명된 매개 변수와 일치해야 합니다.
+HTTP 트리거는 파일의 function.js에 정의 되어 있습니다. 바인딩의 `name`은 함수의 명명된 매개 변수와 일치해야 합니다.
 이전 예제에서는 바인딩 이름 `req`를 사용합니다. 이 매개 변수는 [HttpRequest] 개체이며 [HttpResponse] 개체가 반환됩니다.
 
 [HttpRequest] 개체에서 요청 헤더, 쿼리 매개 변수, 경로 매개 변수 및 메시지 본문을 가져올 수 있습니다.
@@ -629,6 +629,45 @@ from os import listdir
 
 프로젝트 폴더와 다른 별도의 폴더에 테스트를 유지하는 것이 좋습니다. 이렇게 하면 앱에서 테스트 코드를 배포하는 일이 없습니다.
 
+## <a name="preinstalled-libraries"></a>사전 설치 된 라이브러리
+
+Python 함수 런타임과 함께 제공 되는 몇 가지 라이브러리가 있습니다.
+
+### <a name="python-standard-library"></a>Python 표준 라이브러리
+
+Python 표준 라이브러리에는 각 Python 배포와 함께 제공 되는 기본 제공 Python 모듈 목록이 포함 되어 있습니다. 이러한 라이브러리의 대부분은 파일 i/o와 같은 시스템 기능에 액세스 하는 데 도움이 됩니다. Windows 시스템에서 이러한 라이브러리는 Python을 사용 하 여 설치 됩니다. Unix 기반 시스템에서 패키지 컬렉션에 의해 제공 됩니다.
+
+이러한 라이브러리의 전체 목록에 대 한 자세한 내용을 보려면 아래 링크를 방문 하세요.
+
+* [Python 3.6 표준 라이브러리](https://docs.python.org/3.6/library/)
+* [Python 3.7 표준 라이브러리](https://docs.python.org/3.7/library/)
+* [Python 3.8 표준 라이브러리](https://docs.python.org/3.8/library/)
+
+### <a name="azure-functions-python-worker-dependencies"></a>Azure Functions Python 작업자 종속성
+
+함수 Python 작업자에는 특정 라이브러리 집합이 필요 합니다. 함수에서 이러한 라이브러리를 사용할 수도 있지만 Python 표준의 일부가 아닙니다. 함수가 이러한 라이브러리를 사용 하는 경우 Azure Functions 외부에서 실행 될 때 코드에서 사용 하지 못할 수 있습니다. [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) 파일의 **install \_ requires** 섹션에서 종속성의 자세한 목록을 찾을 수 있습니다.
+
+### <a name="azure-functions-python-library"></a>Python 라이브러리 Azure Functions
+
+모든 Python worker 업데이트에는 [Azure Functions Python 라이브러리 (Azure. 함수)](https://github.com/Azure/azure-functions-python-library)의 새 버전이 포함 되어 있습니다. 이 접근 방식을 사용 하면 각 업데이트가 이전 버전과 호환 되므로 Python 함수 앱을 계속 해 서 업데이트할 수 있습니다. 이 라이브러리의 릴리스 목록은 [azure-함수 PyPi](https://pypi.org/project/azure-functions/#history)에서 찾을 수 있습니다.
+
+런타임 라이브러리 버전은 Azure에서 수정 되며 requirements.txt로 재정의할 수 없습니다. `azure-functions`requirements.txt의 항목은 lint 및 고객 인식에만 해당 됩니다. 
+
+런타임에 Python 함수 라이브러리의 실제 버전을 추적 하려면 다음 코드를 사용 합니다.
+
+```python
+getattr(azure.functions, '__version__', '< 1.2.1')
+```
+
+### <a name="runtime-system-libraries"></a>런타임 시스템 라이브러리
+
+Python worker Docker 이미지의 사전 설치 된 시스템 라이브러리 목록을 보려면 아래 링크를 따라 이동 하세요.
+
+|  함수 런타임  | Debian 버전 | Python 버전 |
+|------------|------------|------------|
+| 버전 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| 버전 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+
 ## <a name="cross-origin-resource-sharing"></a>크로스-원본 자원 공유
 
 [!INCLUDE [functions-cors](../../includes/functions-cors.md)]
@@ -637,7 +676,7 @@ CORS는 Python 함수 앱을 완벽하게 지원합니다.
 
 ## <a name="known-issues-and-faq"></a>알려진 문제 및 FAQ
 
-여러분의 소중한 피드백 덕분에 일반적인 문제 해결 가이드 목록을 유지할 수 있습니다.
+다음은 일반적인 문제에 대 한 문제 해결 가이드 목록입니다.
 
 * [ModuleNotFoundError 및 ImportError](recover-module-not-found.md)
 

@@ -8,16 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f50c7e8dcb33fd2ed95829286aaf815926d9fb3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80157632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678174"
 ---
 # <a name="export-your-application"></a>애플리케이션 내보내기
-
-
 
 이 문서에서는 솔루션 관리자가 IoT Central 응용 프로그램을 다시 사용할 수 있도록 내보내는 방법을 설명 합니다.
 
@@ -61,7 +58,6 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 
 - 디바이스
 - 사용자
-- 작업 정의
 - 연속 데이터 내보내기 정의
 
 응용 프로그램 템플릿에서 만든 모든 응용 프로그램에 이러한 항목을 수동으로 추가 합니다.
@@ -93,4 +89,4 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 응용 프로그램 템플릿을 사용 하는 방법을 배웠으므로 제안 된 다음 단계는 [Azure Portal에서 IoT Central를 관리](howto-manage-iot-central-from-portal.md) 하는 방법을 배우는 것입니다.
+이제 응용 프로그램 템플릿을 사용 하는 방법을 배웠으므로 제안 된 다음 단계는 [IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 모니터링](howto-monitor-application-health.md) 하는 방법을 알아보는 것입니다.

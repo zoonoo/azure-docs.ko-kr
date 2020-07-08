@@ -2,18 +2,16 @@
 title: Azure 클래식 CLI 명령
 description: 리소스를 관리 하는 Azure CLI (명령줄 인터페이스) 명령
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3e5fd1a6934d246463e3fd5ad24db7079ca088d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678429"
 ---
 # <a name="azure-classic-cli-commands"></a>Azure 클래식 CLI 명령 
 
@@ -1679,7 +1677,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>Tags
 **태그 추가**
 
     tag create [options] <name> <value>

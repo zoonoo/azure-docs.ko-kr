@@ -9,13 +9,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
-ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.date: 06/30/2020
+ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801535"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 
@@ -191,6 +190,10 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
     ![대상 조건을 위한 상자](media/monitor-visually/add-criteria-1.png)
 
     ![조건 목록](media/monitor-visually/add-criteria-2.png)
+
+    ![조건 목록](media/monitor-visually/add-criteria-3.png)
+
+    SSIS 패키지 실행 및 SSIS IR 시작/중지 작업 뿐만 아니라 ADF 엔터티 수/크기, 작업/파이프라인/트리거 실행, IR (Integration Runtime) CPU 사용률/메모리/노드 수/큐에 대 한 경고를 비롯 하 여 다양 한 메트릭에 대 한 경고를 만들 수 있습니다.
 
 1.  경고 논리를 구성합니다. 모든 파이프라인 및 해당 활동의 선택한 메트릭에 대해 경고를 만들 수 있습니다. 특정 활동 유형, 활동 이름, 파이프라인 이름 또는 오류 유형을 선택할 수도 있습니다.
 

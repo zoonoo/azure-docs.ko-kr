@@ -3,15 +3,14 @@ title: 구성 오류 코드 - Azure Stream Analytics
 description: 구성 오류 코드의 Azure Stream Analytics 문제를 해결합니다.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: de8eefd099f3691ae5e5eb5234ae8f76015dd68f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650063"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041118"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Azure Stream Analytics 구성 오류 코드
 

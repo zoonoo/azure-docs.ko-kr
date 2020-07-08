@@ -3,32 +3,31 @@ title: 템플릿 함수-배열
 description: 배열 작업을 위해 Azure Resource Manager 템플릿에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: f34ba74847ac394e37e6ef33f859304128daacde
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677851"
 ---
 # <a name="array-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배열 함수
 
 리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 배열을 사용 하기 위한 여러 함수를 제공 합니다.
 
-* [배열과](#array)
-* [사용한](#concat)
+* [array](#array)
+* [concat](#concat)
 * [contains](#contains)
 * [createArray](#createarray)
-* [비우려면](#empty)
-* [기본](#first)
-* [교집합](#intersection)
-* [최신](#last)
+* [empty](#empty)
+* [first](#first)
+* [intersection](#intersection)
+* [last](#last)
 * [length](#length)
 * [max](#max)
-* [일별](#min)
-* [벗어납니다](#range)
-* [킵](#skip)
-* [노트](#take)
-* [부분](#union)
+* [min](#min)
+* [range](#range)
+* [skip](#skip)
+* [take](#take)
+* [union](#union)
 
 값으로 구분되는 문자열 값의 배열을 가져오려면 [split](template-functions-string.md#split)을 참조하세요.
 
@@ -40,7 +39,7 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | convertToArray |예 |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
 
@@ -54,7 +53,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "intToConvert": {
@@ -93,7 +92,7 @@ ms.locfileid: "82203814"
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| intOutput | 배열 | [1] |
+| intOutput | 배열 |  [1] |
 | stringOutput | 배열 | ["efgh"] |
 | objectOutput | 배열 | [{"a": "b", "c": "d"}] |
 
@@ -105,10 +104,10 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
-| 추가 인수 |아니요 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
+| 추가 인수 |예 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 그러나 매개 변수에 대 한 배열과 문자열을 둘 다 제공할 수는 없습니다. 배열은 다른 배열과만 연결 됩니다.
 
@@ -122,7 +121,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstArray": {
@@ -163,7 +162,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -185,9 +184,9 @@ ms.locfileid: "82203814"
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>포함
 
 `contains(container, itemToFind)`
 
@@ -195,7 +194,7 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -210,7 +209,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -276,10 +275,10 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
-| 추가 인수 |아니요 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
+| 추가 인수 |예 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -291,7 +290,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "objectToTest": {
@@ -335,7 +334,7 @@ ms.locfileid: "82203814"
 | objectArray | 배열 | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | 배열 | [["one", "two", "three"]] |
 
-## <a name="empty"></a>비어 있음
+## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
@@ -343,7 +342,7 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -357,7 +356,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -408,7 +407,7 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -422,7 +421,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -449,8 +448,8 @@ ms.locfileid: "82203814"
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | one |
-| stringOutput | 문자열 | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 ## <a name="intersection"></a>교집합
 
@@ -460,11 +459,11 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아니요 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
+| 추가 인수 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -476,7 +475,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -526,7 +525,7 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -540,7 +539,7 @@ ms.locfileid: "82203814"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -567,8 +566,8 @@ ms.locfileid: "82203814"
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | three |
-| stringOutput | 문자열 | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 ## <a name="length"></a>length
 
@@ -578,7 +577,7 @@ ms.locfileid: "82203814"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
@@ -592,7 +591,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -665,7 +664,7 @@ int입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -679,7 +678,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -708,7 +707,7 @@ int입니다.
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-## <a name="min"></a>min
+## <a name="min"></a>분
 
 `min(arg1)`
 
@@ -716,7 +715,7 @@ int입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -730,7 +729,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -767,7 +766,7 @@ int입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | startIndex |예 |int |배열에서 첫 번째 정수입니다. StartIndex와 count의 합계는 2147483647 보다 크지 않아야 합니다. |
 | count |예 |int |배열에 있는 정수의 수입니다. 1만 까지의 음수가 아닌 정수 여야 합니다. |
@@ -782,7 +781,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "startingInt": {
@@ -818,7 +817,7 @@ int입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
@@ -833,7 +832,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -876,7 +875,7 @@ int입니다.
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["three"] |
-| stringOutput | 문자열 | two three |
+| stringOutput | String | two three |
 
 ## <a name="take"></a>take
 
@@ -886,7 +885,7 @@ int입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
@@ -901,7 +900,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -944,7 +943,7 @@ int입니다.
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["one", "two"] |
-| stringOutput | 문자열 | On |
+| stringOutput | String | On |
 
 ## <a name="union"></a>union
 
@@ -954,11 +953,11 @@ int입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아니요 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
+| 추가 인수 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -970,7 +969,7 @@ int입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {

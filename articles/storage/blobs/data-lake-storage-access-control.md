@@ -8,18 +8,17 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193529"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
 Azure Data Lake Storage Gen2는 Azure 역할 기반 액세스 제어 (RBAC) 및 POSIX와 같은 액세스 제어 목록 (Acl)을 모두 지 원하는 액세스 제어 모델을 구현 합니다. 이 문서에서는 Data Lake Storage Gen2의 액세스 제어 모델에 대한 기본 사항을 요약하고 있습니다.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
@@ -72,11 +71,11 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 |Java|[Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-python.md)|
 |PowerShell|[PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-powershell.md)|
-|Azure CLI|[Azure CLI를 사용 하 여의 디렉터리, 파일 및 Acl 관리 Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|Azure CLI|[Azure Data Lake Storage Gen2에서 Azure CLI를 사용하여 디렉터리, 파일 및 ACL 관리](data-lake-storage-directory-file-acl-cli.md)|
 |REST API |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> 보안 주체가 *서비스* 사용자 인 경우 관련 앱 등록의 개체 id가 아니라 서비스 주체의 개체 id를 사용 하는 것이 중요 합니다. 서비스 주체의 개체 ID를 가져오려면 Azure CLI를 연 후 다음 명령을 사용 `az ad sp show --id <Your App ID> --query objectId`합니다. 자리 표시자를 `<Your App ID>` 앱 등록의 앱 ID로 바꾸어야 합니다.
+> 보안 주체가 *서비스* 사용자 인 경우 관련 앱 등록의 개체 id가 아니라 서비스 주체의 개체 id를 사용 하는 것이 중요 합니다. 서비스 주체의 개체 ID를 가져오려면 Azure CLI를 연 후 다음 명령을 사용 `az ad sp show --id <Your App ID> --query objectId` 합니다. `<Your App ID>`자리 표시자를 앱 등록의 앱 ID로 바꾸어야 합니다.
 
 ### <a name="types-of-access-control-lists"></a>액세스 제어 목록의 유형
 
@@ -123,7 +122,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 저장소 계정에서 특정 작업을 수행 하는 데 필요한 사용 권한을 이해 하는 데 도움이 되는 몇 가지 일반적인 시나리오를 보여 줍니다.
 
-|    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    연산             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -321,7 +320,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 서비스 사용자에 대 한 Acl을 정의 하는 경우 만든 앱 등록에 대 한 *서비스 주체의* OID (개체 ID)를 사용 하는 것이 중요 합니다. 등록 된 앱에는 특정 Azure AD 테 넌 트에 별도의 서비스 주체가 있습니다. 등록 된 앱은 Azure Portal에 표시 되는 OID를 갖지만 *서비스 주체* 는 다른 (다른) oid를 가집니다.
 
-앱 등록에 해당 하는 서비스 주체의 OID를 가져오기 위해 `az ad sp show` 명령을 사용할 수 있습니다. 응용 프로그램 ID를 매개 변수로 지정 합니다. 앱 ID가 18218b12-1895-43e9-ad80-6e8fc1ea88ce 인 앱 등록에 해당 하는 서비스 주체의 OID를 가져오는 예제는 다음과 같습니다. Azure CLI에서 다음 명령을 실행합니다.
+앱 등록에 해당 하는 서비스 주체의 OID를 가져오기 위해 명령을 사용할 수 있습니다 `az ad sp show` . 응용 프로그램 ID를 매개 변수로 지정 합니다. 앱 ID가 18218b12-1895-43e9-ad80-6e8fc1ea88ce 인 앱 등록에 해당 하는 서비스 주체의 OID를 가져오는 예제는 다음과 같습니다. Azure CLI에서 다음 명령을 실행합니다.
 
 ```azurecli
 az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
@@ -348,6 +347,6 @@ ACL은 상속되지 않습니다. 그러나 기본 ACL을 사용하여 부모 �
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Data Lake Storage Gen2 개요](../blobs/data-lake-storage-introduction.md)

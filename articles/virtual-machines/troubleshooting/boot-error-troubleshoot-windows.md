@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678769"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM 종료가 "다시 시작 중", "종료 중" 또는 "서비스 중지"에 걸려 있습니다.
 
@@ -43,25 +42,25 @@ Windows에서는 시스템 유지 관리 작업을 수행 하 고 업데이트, 
 
 [직렬 콘솔](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) 을 사용 하 여 다음 단계를 완료 합니다.
 
-1. 관리 Powershell을 열고 중지할 때 중지 된 서비스를 확인 합니다.
+1. 관리 Powershell을 열고 중지할 때 응답을 중지 하는 서비스를 확인 합니다.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. 관리 CMD에서 정지 된 서비스의 PID를 가져옵니다.
+2. 관리 CMD에서 응답 하지 않는 서비스의 PID를 가져옵니다.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. 정지 된 프로세스 <STOPPING SERVICE>에서 메모리 덤프 샘플을 가져옵니다.
+3. 응답 하지 않는 프로세스에서 메모리 덤프 샘플을 가져옵니다 <STOPPING SERVICE> .
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. 이제 중지 된 프로세스를 중지 하 여 종료 프로세스의 잠금을 해제 합니다.
+4. 이제 응답 하지 않는 프로세스를 중지 하 여 종료 프로세스의 잠금을 해제 합니다.
 
    ``
    taskkill /PID <PID> /t /f

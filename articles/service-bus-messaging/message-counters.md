@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus-메시지 수
 description: Azure Resource Manager 및 Azure Service Bus NamespaceManager Api를 사용 하 여 큐 및 구독에 저장 된 메시지 수를 검색 합니다.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2020
-ms.author: aschhab
-ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: d0e1a7a5c6eb0b281b4e6ac08135f41f28ecbec8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891767"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341269"
 ---
 # <a name="message-counters"></a>메시지 카운터
 

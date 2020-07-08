@@ -2,13 +2,12 @@
 title: REST API 및 템플릿으로 리소스 배포
 description: Azure Resource Manager와 REST API를 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d7865ac6f9b2bb176ea5308e326dec0741a80962
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 06/04/2020
+ms.openlocfilehash: a2280d3bb406fd7e5c41558478363de68cbd44b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723122"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678412"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>ARM 템플릿 및 Resource Manager REST API를 사용하여 리소스 배포
 
@@ -73,7 +72,7 @@ ms.locfileid: "83723122"
    }
    ```
 
-1. 배포를 실행하기 전에 [템플릿 배포 유효성 검사](/rest/api/resources/deployments/validate) 작업을 실행하여 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
+1. 템플릿을 배포 하기 전에 템플릿이 사용자 환경에 적용 되는 변경 내용을 미리 볼 수 있습니다. [가상 작업](template-deploy-what-if.md) 을 사용 하 여 템플릿이 필요한 변경을 수행 하는지 확인 합니다. 이 경우에서 템플릿의 오류도 확인 합니다.
 
 1. 템플릿을 배포하려면 요청 URI에 구독 ID, 리소스 그룹의 이름, 배포 이름을 제공합니다.
 
@@ -133,7 +132,7 @@ ms.locfileid: "83723122"
       "properties": {
       "mode": "Incremental",
       "template": {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
           "storageAccountType": {

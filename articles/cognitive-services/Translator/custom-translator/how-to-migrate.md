@@ -9,12 +9,11 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.openlocfilehash: 02e6d776dbb47ee8e30409f6b8adc5a61fc5fe52
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992905"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958925"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -118,7 +117,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 프로젝트, 학습 및 문서에 대한 더 자세한 마이그레이션 보고서를 보려면 CSV로 세부 정보 내보내기 옵션이 있습니다.
 
-## <a name="implementation-notes"></a>구현 참고 사항
+## <a name="implementation-notes"></a>구현 노트
 * 사용자 지정 변환기에서 언어 쌍을 사용할 수 없는 시스템은 데이터에 액세스 하거나 사용자 지정 번역기를 통해 배포 취소할 수만 있습니다. 이러한 프로젝트는 프로젝트 페이지에서 "사용할 수 없음"으로 표시 됩니다. 사용자 지정 번역기를 사용 하 여 새 언어 쌍을 사용 하도록 설정 하면 프로젝트를 학습 하 고 배포할 수 있습니다. 
 * 허브에서 Custom Translator로 프로젝트를 마이그레이션하면 허브 학습 또는 프로젝트에 아무런 영향도 주지 않습니다. 마이그레이션하는 중에는 허브에서 프로젝트 또는 문서를 삭제하지 않으며 모델 배포를 취소하지 않습니다.
 * 프로젝트당 한 번만 마이그레이션할 수 있습니다. 프로젝트에서 마이그레이션을 반복해야 하는 경우 당사에 연락하세요.
@@ -134,14 +133,14 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
 | Text API 버전    | V2     | V3  |
-| SMT 사용자 지정    | 예    | 예 |
-| NMT 사용자 지정    | 예    | 예 |
-| 새로운 통합 Speech Service 사용자 지정    | 예    | 예 |
+| SMT 사용자 지정    | 예    | 아니요 |
+| NMT 사용자 지정    | 아니요    | 예 |
+| 새로운 통합 Speech Service 사용자 지정    | 아니요    | 예 |
 | 추적 없음 | 예 | 예 |
 
 ## <a name="new-languages"></a>새 언어
 
-Microsoft Translator에 대 한 새 언어 시스템을 만드는 데 사용 하는 커뮤니티 또는 조직인 경우 [custommt@microsoft.com](mailto:custommt@microsoft.com) 자세한 내용을 확인 하세요.
+번역기에 대 한 새 언어 시스템을 만드는 데 사용 하는 커뮤니티 또는 조직인 경우 [custommt@microsoft.com](mailto:custommt@microsoft.com) 자세한 내용을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

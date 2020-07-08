@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus 메시지 세션 | Microsoft Docs
 description: 이 문서에서는 세션을 사용하여 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리하는 방법을 설명합니다.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: aschhab
-ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341193"
 ---
 # <a name="message-sessions"></a>메시지 세션
 Microsoft Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. 세션은 **FIFO(선입 선출)** 및 **요청-응답** 패턴으로 사용할 수 있습니다. 이 문서에서는 Service Bus를 사용할 때 세션을 사용하여 이러한 패턴을 구현하는 방법을 보여 줍니다. 

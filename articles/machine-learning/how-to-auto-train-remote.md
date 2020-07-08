@@ -9,14 +9,13 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 1ab36683fcd95474428b0a005e1a39d4c8536d77
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612319"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959112"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -42,7 +41,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>리소스 만들기
 
-아직 없는 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) 경우 작업 영역 (`ws`)에 대상을 만듭니다.
+[`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py)아직 없는 경우 작업 영역 ()에 대상을 만듭니다 `ws` .
 
 **예상 시간**: AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
 
@@ -85,13 +84,13 @@ else:
 
 클러스터 이름 제한은 다음과 같습니다.
 + 64자보다 짧아야 합니다.
-+ 다음 문자를 포함할 수 없습니다. `\` ~ ! @ # $% ^ & * () = + _ [] {} \\ \\ |; : \' \\",  < > /? `
++ 다음 문자를 포함할 수 없습니다. `\` ~ ! @ # $% ^ & * () = + _ [] {} \\ \\ |;: \' \\ ",  < > /?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>TabularDataset 함수를 사용 하 여 데이터 액세스
 
-Training_data로 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 정의 되 고 레이블은의 자동화 된 ML에 전달 됩니다 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 기본적 `TabularDataset` 으로 `from_delimited_files`메서드는를 true `infer_column_types` 로 설정 하 여 열 형식을 자동으로 유추 합니다. 
+Training_data로 정의 되 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 고 레이블은의 자동화 된 ML에 전달 됩니다 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) . `TabularDataset`기본적으로 메서드는를 `from_delimited_files` true로 설정 하 여 `infer_column_types` 열 형식을 자동으로 유추 합니다. 
 
-수동으로 열 유형을 설정 하려면 `set_column_types` 인수를 설정 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
+수동으로 열 유형을 설정 하려면 인수를 설정 `set_column_types` 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 
 ```python
 from sklearn import datasets
@@ -164,37 +163,38 @@ remote_run = experiment.submit(automl_config, show_output=True)
 
 다음 예제와 비슷한 출력이 표시됩니다.
 
-    Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
-    ***********************************************************************************************
-    ITERATION: The iteration being evaluated.
-    PIPELINE:  A summary description of the pipeline being evaluated.
-    DURATION: Time taken for the current iteration.
-    METRIC: The result of computing score on the fitted pipeline.
-    BEST: The best observed score thus far.
-    ***********************************************************************************************
+```output
+Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
+***********************************************************************************************
+ITERATION: The iteration being evaluated.
+PIPELINE:  A summary description of the pipeline being evaluated.
+DURATION: Time taken for the current iteration.
+METRIC: The result of computing score on the fitted pipeline.
+BEST: The best observed score thus far.
+***********************************************************************************************
 
-     ITERATION     PIPELINE                               DURATION                METRIC      BEST
-             2      Standardize SGD classifier            0:02:36                  0.954     0.954
-             7      Normalizer DT                         0:02:22                  0.161     0.954
-             0      Scale MaxAbs 1 extra trees            0:02:45                  0.936     0.954
-             4      Robust Scaler SGD classifier          0:02:24                  0.867     0.954
-             1      Normalizer kNN                        0:02:44                  0.984     0.984
-             9      Normalizer extra trees                0:03:15                  0.834     0.984
-             5      Robust Scaler DT                      0:02:18                  0.736     0.984
-             8      Standardize kNN                       0:02:05                  0.981     0.984
-             6      Standardize SVM                       0:02:18                  0.984     0.984
-            10      Scale MaxAbs 1 DT                     0:02:18                  0.077     0.984
-            11      Standardize SGD classifier            0:02:24                  0.863     0.984
-             3      Standardize gradient boosting         0:03:03                  0.971     0.984
-            12      Robust Scaler logistic regression     0:02:32                  0.955     0.984
-            14      Scale MaxAbs 1 SVM                    0:02:15                  0.989     0.989
-            13      Scale MaxAbs 1 gradient boosting      0:02:15                  0.971     0.989
-            15      Robust Scaler kNN                     0:02:28                  0.904     0.989
-            17      Standardize kNN                       0:02:22                  0.974     0.989
-            16      Scale 0/1 gradient boosting           0:02:18                  0.968     0.989
-            18      Scale 0/1 extra trees                 0:02:18                  0.828     0.989
-            19      Robust Scaler kNN                     0:02:32                  0.983     0.989
-
+ ITERATION     PIPELINE                               DURATION                METRIC      BEST
+         2      Standardize SGD classifier            0:02:36                  0.954     0.954
+         7      Normalizer DT                         0:02:22                  0.161     0.954
+         0      Scale MaxAbs 1 extra trees            0:02:45                  0.936     0.954
+         4      Robust Scaler SGD classifier          0:02:24                  0.867     0.954
+         1      Normalizer kNN                        0:02:44                  0.984     0.984
+         9      Normalizer extra trees                0:03:15                  0.834     0.984
+         5      Robust Scaler DT                      0:02:18                  0.736     0.984
+         8      Standardize kNN                       0:02:05                  0.981     0.984
+         6      Standardize SVM                       0:02:18                  0.984     0.984
+        10      Scale MaxAbs 1 DT                     0:02:18                  0.077     0.984
+        11      Standardize SGD classifier            0:02:24                  0.863     0.984
+         3      Standardize gradient boosting         0:03:03                  0.971     0.984
+        12      Robust Scaler logistic regression     0:02:32                  0.955     0.984
+        14      Scale MaxAbs 1 SVM                    0:02:15                  0.989     0.989
+        13      Scale MaxAbs 1 gradient boosting      0:02:15                  0.971     0.989
+        15      Robust Scaler kNN                     0:02:28                  0.904     0.989
+        17      Standardize kNN                       0:02:22                  0.974     0.989
+        16      Scale 0/1 gradient boosting           0:02:18                  0.968     0.989
+        18      Scale 0/1 extra trees                 0:02:18                  0.828     0.989
+        19      Robust Scaler kNN                     0:02:32                  0.983     0.989
+```
 
 ## <a name="explore-results"></a>결과 탐색
 
@@ -220,7 +220,7 @@ remote_run.get_portal_url()
 
 작업 영역에서 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대해 자세히 알아보려면 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음 [노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) 은이 문서의 개념을 보여 줍니다.
 

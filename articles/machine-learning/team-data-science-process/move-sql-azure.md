@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database에 데이터 이동 - Team Data Science Process
-description: 플랫 파일 (CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장 된 데이터에서 Azure SQL Database 데이터를 이동 합니다.
+description: 플랫 파일 (CSV 또는 TSV 형식) 또는 SQL Server에 저장 된 데이터에서 Azure SQL Database로 데이터를 이동 합니다.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,18 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9a1424f2afe6c5153e208601b21dff9651880a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 99e637099e54698e9d6eabb14920251a9d4a81f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194385"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동
 
-이 문서에서는 플랫 파일 (CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장 된 데이터에서 Azure SQL Database로 데이터를 이동 하기 위한 옵션에 대해 간략하게 설명 합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
+이 문서에서는 플랫 파일 (CSV 또는 TSV 형식) 또는 SQL Server에 저장 된 데이터에서 Azure SQL Database로 데이터를 이동 하기 위한 옵션에 대해 간략하게 설명 합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
-Machine Learning을 위해 온-프레미스 SQL Server로 데이터를 이동하기 위한 옵션을 간략히 설명하는 토픽은 [Azure Virtual Machine의 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md)을 참조하세요.
+Machine Learning SQL Server으로 데이터를 이동 하는 옵션을 설명 하는 항목은 [Azure 가상 머신에서 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md)을 참조 하세요.
 
 다음 표에서는 Azure SQL Database로 데이터를 이동하는 옵션을 요약합니다.
 
@@ -41,7 +40,7 @@ Machine Learning을 위해 온-프레미스 SQL Server로 데이터를 이동하
 
 **데이터**: [NYC Taxi 데이터 세트](https://chriswhong.com/open-data/foil_nyc_taxi/)를 사용하여 마이그레이션 프로세스를 시연합니다. NYC Taxi 데이터 세트는 여정 데이터 및 요금에 대한 정보를 포함하며 Azure Blob Storage [NYC Taxi 데이터](https://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
 
-자신의 데이터 세트에 여기에 설명된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 세트를 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
+자신의 데이터 세트에 여기에 설명된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. SQL Server 데이터베이스에 NYC Taxi 데이터 집합을 업로드 하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명 된 절차를 따르세요.
 
 ## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>플랫 파일 원본에서 Azure SQL Database 데이터 이동
 대량 삽입 SQL 쿼리를 사용 하 여 플랫 파일 (CSV 또는 TSV 형식)의 데이터를 Azure SQL Database 이동할 수 있습니다.
@@ -49,8 +48,8 @@ Machine Learning을 위해 온-프레미스 SQL Server로 데이터를 이동하
 ### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>대량 삽입 SQL 쿼리
 대량 삽입 SQL 쿼리를 사용 하는 절차에 대 한 단계는 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터를 이동 하는 방향과 비슷합니다. 자세한 내용은 [대량 삽입 SQL 쿼리](move-sql-server-virtual-machine.md#insert-tables-bulkquery)를 참조하세요.
 
-## <a name="moving-data-from-on-premises-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>온-프레미스 SQL Server에서 Azure SQL Database로 데이터 이동
-원본 데이터가 온-프레미스 SQL Server에 저장 된 경우 데이터를 Azure SQL Database으로 이동할 수 있는 다양 한 가능성이 있습니다.
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>SQL Server에서 Azure SQL Database로 데이터 이동
+원본 데이터가 SQL Server에 저장 된 경우 데이터를 Azure SQL Database으로 이동할 수 있는 여러 가지 방법이 있습니다.
 
 1. [플랫 파일로 내보내기](#export-flat-file)
 2. [SQL Database 마이그레이션 마법사](#insert-tables-bcp)
@@ -69,6 +68,6 @@ SQL Database 마이그레이션 마법사를 사용 하는 단계는 [SQL Databa
 데이터베이스 백업 및 복원을 사용 하는 단계는 [데이터베이스 백업 및 복원](move-sql-server-virtual-machine.md#sql-backup)에 나열 된 방향과 비슷합니다.
 
 ### <a name="azure-data-factory"></a><a name="adf"></a>Azure 데이터 팩터리
-이 항목에서 Azure Data Factory (ADF)를 사용 하 여 Azure SQL Database로 데이터를 이동 하는 방법에 대해 알아봅니다 .이 항목에서는 [온-프레미스 SQL server에서 데이터를 Azure Data Factory로 SQL Azure로 이동](move-sql-azure-adf.md)합니다. 이 항목에서는 ADF를 사용 하 여 온-프레미스 SQL Server 데이터베이스에서 Azure SQL Database Azure Blob Storage를 통해 데이터로 데이터를 이동 하는 방법을 보여 줍니다.
+Azure Data Factory (ADF)를 사용 하 여 데이터를 Azure SQL Database으로 이동 하는 방법에 대해 알아봅니다 .이 항목에서는 [SQL Server에서 Azure Data Factory로 데이터를 SQL Azure로 이동](move-sql-azure-adf.md)합니다. 이 항목에서는 ADF를 사용 하 여 Azure Blob Storage를 통해 SQL Server 데이터베이스에서 Azure SQL Database로 데이터를 이동 하는 방법을 보여 줍니다.
 
 하이브리드 온-프레미스 및 클라우드 원본으로 데이터를 지속적으로 마이그레이션해야 하는 경우 ADF를 사용 하는 것이 좋습니다.  ADF는 데이터 변환이 필요한 경우에도 유용 하거나 마이그레이션 중에 새 비즈니스 논리를 필요로 하는 경우에도 유용 합니다. ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다.

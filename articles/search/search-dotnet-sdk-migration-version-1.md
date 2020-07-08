@@ -9,16 +9,15 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9cecb7b2a669b47bb79b022df786add65f5648f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72792390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080963"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK 버전 1.1로 업그레이드
 
-버전 1.0.2-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 1.1로 애플리케이션을 업그레이드할 수 있습니다.
+버전 1.0.2-preview 또는 이전 버전의 [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용하는 경우 이 문서를 통해 버전 1.1로 애플리케이션을 업그레이드할 수 있습니다.
 
 예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
@@ -173,7 +172,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         };
 
 ### <a name="model-class-changes"></a>모델 클래스 변경
-[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 다음은 그 예입니다.
+[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예를 들어:
 
 * `IndexDefinitionResponse`는 `AzureOperationResponse<Index>`로 대체되었습니다.
 * `DocumentSearchResponse`는 `DocumentSearchResult`로 이름이 변경되었습니다.

@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 57123abfe7f343a75d264d43afb88f9de1409e8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a8531ec2a3284eac64cb900f2d95ec02b9ffdd45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78207746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678089"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Azure 전용 호스트의 예약 인스턴스를 사용 하 여 비용 절감
 
@@ -38,11 +37,11 @@ VM 시리즈를 지 원하는 여러 Sku (다른 유형 포함)를 찾을 수 �
 
 예약 할인은 다음에 적용 되지 않습니다.
 
-- **클라우드** -예약은 독일 또는 중국 지역에서 구매할 수 없습니다.
+- **클라우드**   -예약은 독일 또는 중국 지역에서 구매할 수 없습니다.
 
-- **할당량 부족** -단일 구독으로 범위가 지정 된 예약에는 새 예약 인스턴스의 구독에서 사용할 수 있는 vcpu 할당량이 있어야 합니다. 예를 들어 대상 구독에 DSv3 시리즈에 대 한 10 개 vCPUs의 할당량 한도가 있는 경우이 시리즈를 지 원하는 예약 전용 호스트를 구입할 수 없습니다. 예약에 대 한 할당량 확인에는 구독에 이미 배포 된 Vm 및 전용 호스트가 포함 됩니다.  [할당량 증가 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) 을 만들어이 문제를 해결할 수 있습니다.
+- **할당량 부족**   -단일 구독으로 범위가 지정 된 예약은 새 예약 인스턴스의 구독에서 vCPU 할당량을 사용할 수 있어야 합니다. 예를 들어 대상 구독에 DSv3 시리즈에 대 한 10 개 vCPUs의 할당량 한도가 있는 경우이 시리즈를 지 원하는 예약 전용 호스트를 구입할 수 없습니다. 예약에 대 한 할당량 확인에는 구독에 이미 배포 된 Vm 및 전용 호스트가 포함 됩니다.  [할당량 증가 요청을 만들어](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)   이 문제를 해결할 수 있습니다.
 
-- **용량 제한** -드문 경우 지만 Azure는 지역에 용량이 부족 하 여 전용 호스트 sku의 하위 집합에 대 한 새 예약 구매를 제한 합니다.
+- **용량 제한**   -드문 경우 지만 Azure는 지역에 용량이 부족 하 여 전용 호스트 Sku의 하위 집합에 대 한 새 예약 구매를 제한 합니다.
 
 ## <a name="buy-a-reservation"></a>예약 구입
 
@@ -52,7 +51,7 @@ VM 시리즈를 지 원하는 여러 Sku (다른 유형 포함)를 찾을 수 �
 
 - 하나 이상의 EA 구독에 대 한 소유자 역할 또는 종 량 제 요금이 있는 구독 이어야 합니다.
 
-- Ea 구독의 경우 [ea 포털](https://ea.azure.com/)에서 **예약 된 인스턴스** 추가 옵션을 사용 하도록 설정 해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+- EA 구독의 경우 Ea 포털에서 **예약 된 인스턴스 추가**   옵션을 사용 하도록 [EA portal](https://ea.azure.com/)설정 해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
 
 - CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트는 예약 구매를 할 수 있습니다.
 
@@ -60,34 +59,34 @@ VM 시리즈를 지 원하는 여러 Sku (다른 유형 포함)를 찾을 수 �
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2.  **모든 서비스** \> **예약**을 선택 합니다.
+2.  **모든 서비스**   \>  **예약**을 선택 합니다.
 
-3.  **추가** 를 선택 하 여 새 예약을 구매 하 고 **전용 호스트**를 클릭 합니다.
+3.  **추가**   를 선택 하 여 새 예약을 구매 하 고 **전용 호스트**를 클릭 합니다.
 
 4. 필수 필드를 입력합니다. 선택 하는 특성과 일치 하는 전용 호스트 인스턴스를 실행 하면 예약 할인이 적용 됩니다. 할인을 받는 전용 호스트 인스턴스의 실제 수는 선택 된 범위와 수량에 따라 다릅니다.
 
-EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스를 빠르게 추가할 수 있습니다. 다른 구독 유형에 대해서는이 옵션을 사용할 수 없습니다.
+EA 계약이 있는 경우 추가 **옵션**을 사용   하 여 인스턴스를 빠르게 추가할 수 있습니다. 다른 구독 유형에 대해서는이 옵션을 사용할 수 없습니다.
 
 | **필드**           | **설명**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Subscription        | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 지불 방법에는 예약 비용이 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 Microsoft 고객 계약 또는 종 량 제 요금 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0017P)을 포함 하는 개별 구독 이어야 합니다. 요금은 금액 약정 잔액 (사용 가능한 경우) 또는 초과분로 청구 공제 됩니다. 종 량 제 요금이 있는 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다. |
-| 범위               | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Scope               | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | 지역              | 예약 범위에 해당하는 Azure 지역입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | 전용 호스트 크기 | 전용 호스트 인스턴스의 크기입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | 용어                | 1년 또는 3년입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | 수량            | 예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 전용 호스트 인스턴스 수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-- **단일 리소스 그룹 범위** -선택한 리소스 그룹의 일치 하는 리소스에만 예약 할인을 적용 합니다.
+- **단일 리소스 그룹 범위**   -선택한 리소스 그룹의 일치 하는 리소스에만 예약 할인을 적용 합니다.
 
-- **단일 구독 범위** -선택한 구독의 일치 하는 리소스에 예약 할인을 적용 합니다.
+- **단일 구독 범위**   -선택한 구독의 일치 하는 리소스에 예약 할인을 적용 합니다.
 
-- **공유 범위** -청구 컨텍스트에 있는 적격 구독의 일치 하는 리소스에 예약 할인을 적용 합니다. EA 고객의 경우 요금 청구 컨텍스트가 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
+- **공유 범위**   -청구 컨텍스트에 있는 적격 구독의 일치 하는 리소스에 예약 할인을 적용 합니다. EA 고객의 경우 요금 청구 컨텍스트가 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
 
 ## <a name="usage-data-and-reservation-utilization"></a>사용 현황 데이터 및 예약 사용률
 
 예약 할인이 적용되는 사용량의 경우 사용량 데이터의 유효 가격은 0입니다. 각 예약에 대해 예약 할인을 받은 VM 인스턴스를 확인할 수 있습니다.
 
-사용 현황 데이터에 예약 할인이 표시 되는 방법에 대 한 자세한 내용은 EA 고객 인 경우  [기업 등록에 대 한 Azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)를 참조 하세요. 개별 구독이 있는 경우 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)를 참조 하세요.
+사용 현황 데이터에 예약 할인이 표시 되는 방법에 대 한 자세한 내용은 EA 고객 인 경우 [기업 등록에 대 한 Azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)를 참조 하세요   . 개별 구독이 있는 경우 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)를 참조 하세요.
 
 ## <a name="change-a-reservation-after-purchase"></a>구매 후 예약 변경
 
@@ -109,9 +108,9 @@ EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스�
 
 - 수량
 
-- Duration
+- 기간
 
-그러나 변경을 수행 하려는 경우 예약을 *교환할* 수 있습니다.
+그러나 *exchange*   변경을 수행 하려는 경우 예약을 교환할 수 있습니다.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
@@ -127,13 +126,13 @@ EA 계약이 있는 경우 추가 **옵션** 을 사용 하 여 인스턴스�
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Reservations 이란?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Azure 예약이란?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
 
 - [Azure Dedicated Host 사용](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
 
 - [Dedicated Host 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Azure에서 예약 관리](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Azure에서 Reservations 관리](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 
 - [예약 할인이 적용되는 방식 이해](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
 

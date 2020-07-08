@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: a13c1ea7-6428-4234-84a6-0ebf51670a85
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-ms.openlocfilehash: 9edc0b552f5c2f38e646bc4b44dd8df5c16b0457
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 1ab72788c768568366f2627055015c74028330b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61408509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515242"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>StorSimple 가상 배열에 연결된 StorSimple 디바이스 관리자에 대한 디바이스 요약 블레이드 사용
 

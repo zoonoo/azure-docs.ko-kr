@@ -8,14 +8,13 @@ ms.author: trbye
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 4bb32418a9f6f556c3bcdfbdf8a70a10c4588218
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 72b0a3074bfdfb6b6038f6c63eb01a7b33d45ea6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646151"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959129"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,7 +54,7 @@ ms.locfileid: "83646151"
 
 모델| Description | 이점
 ----|----|---
-Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
+Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. 이 모델을 활용 하려면를 사용 하 여 로컬에 설치 `pip install fbprophet` 합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
 Auto-ARIMA(미리 보기)|ARIMA(자동 회귀 통합 이동 평균)는 데이터가 고정되어 있을 때 가장 잘 작동합니다. 즉, 평균 및 편차와 같은 통계 속성이 전체 세트에서 일정하게 유지됩니다. 예를 들어, 동전을 던질 때 앞면이 나올 확률은 오늘 던지든, 내일 던지든 또는 내년에 던지든 항상 50%입니다.| 과거의 값을 사용하여 미래의 값을 예측하므로 단변량 계열에 적합합니다.
 ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크를 처리하고 데이터의 비선형 로컬 및 전역 추세 뿐만 아니라 시계열 간 관계를 캡처하도록 디자인된 신경망 모델입니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
 
@@ -68,17 +67,19 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 
 자동화된 기계 학습 내의 예측 회귀 태스크 유형과 회귀 태스크 유형 간의 가장 중요한 차이점은 유효한 시계열을 나타내는 기능을 데이터에 포함하는 것입니다. 정규 시계열에는 잘 정의되고 일관된 빈도가 있으며 연속 시간 범위의 모든 샘플 요소에 값이 있습니다. `sample.csv` 파일의 다음 스냅샷을 살펴보세요.
 
-    day_datetime,store,sales_quantity,week_of_year
-    9/3/2018,A,2000,36
-    9/3/2018,B,600,36
-    9/4/2018,A,2300,36
-    9/4/2018,B,550,36
-    9/5/2018,A,2100,36
-    9/5/2018,B,650,36
-    9/6/2018,A,2400,36
-    9/6/2018,B,700,36
-    9/7/2018,A,2450,36
-    9/7/2018,B,650,36
+```output
+day_datetime,store,sales_quantity,week_of_year
+9/3/2018,A,2000,36
+9/3/2018,B,600,36
+9/4/2018,A,2300,36
+9/4/2018,B,550,36
+9/5/2018,A,2100,36
+9/5/2018,B,650,36
+9/6/2018,A,2400,36
+9/6/2018,B,700,36
+9/7/2018,A,2450,36
+9/7/2018,B,650,36
+```
 
 이 데이터 세트는 두 개의 서로 다른 매장, A와 B가 있는 회사의 일별 판매 데이터를 포함하는 간단한 예제입니다. 또한 모델에서 주간 계절성을 검색할 수 있도록 하는 `week_of_year`에 대한 기능이 제공됩니다. 필드 `day_datetime`은 일별 빈도가 있는 명확한 시계열을 나타내고, `sales_quantity` 필드는 예측을 실행하기 위한 대상 열입니다. Pandas 데이터 프레임으로 데이터를 읽어온 다음, `to_datetime` 함수를 사용하여 시계열이 `datetime` 형식인지 확인합니다.
 
@@ -271,9 +272,11 @@ rmse
 
 전체적인 모델 정확도를 확인했으므로 가장 현실적인 다음 단계는 모델을 사용하여 알 수 없는 미래 가치를 예측하는 것입니다. 테스트 세트 `test_data`와 형식은 같지만 날짜/시간이 미래인 데이터 세트를 제공하면 결과 예측 세트는 각 시계열 단계에 대해 예측된 값입니다. 데이터 세트의 마지막 시계열 레코드가 2018년 12월 31일에 대한 것이라고 가정합니다. 다음 날(또는 예측해야 하는 `max_horizon` 이하 기간)의 수요를 예측하려면 2019년 1월 1일의 각 매장에 대한 단일 시계열 레코드를 만듭니다.
 
-    day_datetime,store,week_of_year
-    01/01/2019,A,1
-    01/01/2019,A,1
+```output
+day_datetime,store,week_of_year
+01/01/2019,A,1
+01/01/2019,A,1
+```
 
 필요한 단계를 반복하여 이 미래 데이터를 데이터 프레임에 로드하고 `best_run.predict(test_data)`를 실행하여 미래 가치를 예측합니다.
 

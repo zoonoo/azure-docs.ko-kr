@@ -1,21 +1,18 @@
 ---
 title: 2023 년 3 월 1 일에 Azure 클래식 Vm을 사용 중지 하 고 있습니다.
 description: 문서는 클래식 VM 사용 중지에 대 한 개략적인 개요를 제공 합니다.
-services: virtual-machines
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: e56aa5ec073aadc2a16d53c266d33255a34077cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7488ef45d665d95a28f69b7af887b98dd5a76376
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678378"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 

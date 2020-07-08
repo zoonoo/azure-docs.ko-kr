@@ -3,12 +3,11 @@ title: 템플릿 함수-numeric
 description: Azure Resource Manager 템플릿에서 숫자 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: dc15ade453fc5ea4dc031ced0377892f4f8cf27d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677919"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿에 대 한 숫자 함수
 
@@ -20,8 +19,8 @@ ms.locfileid: "82192351"
 * [float](#float)
 * [int](#int)
 * [max](#max)
-* [일별](#min)
-* [연산을](#mod)
+* [min](#min)
+* [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
 
@@ -33,7 +32,7 @@ ms.locfileid: "82192351"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 |operand1 |예 |int |더할 첫 번째 숫자입니다. |
 |operand2 |예 |int |더할 두 번째 숫자입니다. |
@@ -48,7 +47,7 @@ ms.locfileid: "82192351"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -91,9 +90,9 @@ ms.locfileid: "82192351"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| loopName | 아니요 | string | 반복을 가져오기 위한 루프의 이름입니다. |
+| loopName | 예 | 문자열 | 반복을 가져오기 위한 루프의 이름입니다. |
 | offset |아니요 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
 ### <a name="remarks"></a>설명
@@ -156,7 +155,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용되는 정수입니다. 0 일 수 없습니다. |
@@ -171,7 +170,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -214,7 +213,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
@@ -248,7 +247,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
@@ -262,7 +261,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToConvert": {
@@ -295,7 +294,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -309,7 +308,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -338,7 +337,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-## <a name="min"></a>min
+## <a name="min"></a>분
 
 `min (arg1)`
 
@@ -346,7 +345,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -360,7 +359,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -397,7 +396,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용 되는 숫자는 0 일 수 없습니다. |
@@ -412,7 +411,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -455,7 +454,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |곱할 첫 번째 숫자입니다. |
 | operand2 |예 |int |곱할 두 번째 숫자입니다. |
@@ -470,7 +469,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -513,7 +512,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |빼는 피감수입니다. |
 | operand2 |예 |int |빼는 감수입니다. |
@@ -528,7 +527,7 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -566,4 +565,4 @@ Copy 사용에 대 한 자세한 내용은 다음을 참조 하세요.
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
-* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조 하세요.
+* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.

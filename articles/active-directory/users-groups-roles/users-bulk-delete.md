@@ -6,19 +6,18 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731505"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 삭제
 
@@ -26,29 +25,29 @@ Azure Active Directory (Azure AD) 포털을 사용 하 여 쉼표로 구분 된 
 
 ## <a name="understand-the-csv-template"></a>CSV 템플릿 이해
 
-CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대량으로 쉽게 삭제할 수 있습니다. 다운로드 한 CSV 템플릿은 다음 예제와 같이 표시 될 수 있습니다.
+CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대량으로 쉽게 삭제할 수 있습니다. 다운로드한 CSV 템플릿은 다음 예제와 같이 표시됩니다.
 
-![각 행과 열에 대 한 용도 및 값을 설명 하는 업로드 및 호출에 대 한 스프레드시트](./media/users-bulk-delete/understand-template.png)
+![업로드용 스프레드시트 및 각 행과 열의 용도 및 값에 대한 설명](./media/users-bulk-delete/understand-template.png)
 
 ### <a name="csv-template-structure"></a>CSV 템플릿 구조
 
-다운로드 된 CSV 템플릿의 행은 다음과 같습니다.
+다운로드된 CSV 템플릿의 행은 다음과 같습니다.
 
-- **버전 번호**: 버전 번호를 포함 하는 첫 번째 행은 CSV 업로드에 포함 되어야 합니다.
-- **열 제목**: &lt;열 머리글의 형식은 *항목 이름* &gt; [PropertyName] &lt; *Required 또는 blank*&gt;입니다. `User name [userPrincipalName] Required`)을 입력합니다. 템플릿의 일부 이전 버전에는 약간의 변형이 있을 수 있습니다.
-- **예제 행**: 템플릿에는 각 열에 대해 허용 되는 값의 예제 행이 포함 되어 있습니다. 예 행을 제거 하 고 자신의 항목으로 바꾸어야 합니다.
+- **버전 번호**: 버전 번호가 포함된 첫 번째 행은 CSV 업로드에 포함되어야 합니다.
+- **열 머리글**: 열 머리글의 형식은 &lt;*항목 이름*&gt; [PropertyName] &lt;*필수 또는 비워 둠*&gt;입니다. `User name [userPrincipalName] Required`)을 입력합니다. 템플릿의 일부 이전 버전은 약간 다를 수 있습니다.
+- **예제 행**: 템플릿에는 각 열에 대해 허용 가능한 값의 예제 행이 포함되어 있습니다. 예제 행을 제거하고 원하는 항목으로 바꾸어야 합니다.
 
 ### <a name="additional-guidance"></a>추가 지침
 
-- 업로드 템플릿의 처음 두 행은 제거 하거나 수정 하면 안 됩니다. 또는 업로드를 처리할 수 없습니다.
-- 먼저 필수 열이 나열 됩니다.
-- 템플릿에 새 열을 추가 하지 않는 것이 좋습니다. 추가 하는 추가 열은 무시 되 고 처리 되지 않습니다.
-- 최대한 자주 최신 버전의 CSV 템플릿을 다운로드 하는 것이 좋습니다.
+- 업로드 템플릿의 처음 두 행은 제거하거나 수정하면 안 됩니다. 이렇게 하면 업로드를 처리할 수 없습니다.
+- 필수 열이 먼저 나열됩니다.
+- 템플릿에 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
+- 가능한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
 
 ## <a name="to-bulk-delete-users"></a>사용자를 대량으로 삭제 하려면
 
-1. 조직의 사용자 관리자 계정으로 [AZURE AD 조직에 로그인](https://aad.portal.azure.com) 합니다.
-1. Azure AD에서 **사용자** > **대량 삭제**를 선택 합니다.
+1. 조직에서 사용자 관리자인 계정으로 [Azure AD 조직에 로그인](https://aad.portal.azure.com)합니다.
+1. Azure AD에서 **사용자**  >  **대량 삭제**를 선택 합니다.
 1. **사용자 대량 삭제** 페이지에서 **다운로드** 를 선택 하 여 사용자 속성의 올바른 CSV 파일을 받습니다.
 
    ![삭제 하려는 사용자를 나열 하는 로컬 CSV 파일을 선택 합니다.](./media/users-bulk-delete/bulk-delete.png)
@@ -62,7 +61,7 @@ CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대�
 1. 파일이 유효성 검사를 통과 하면 **제출** 을 선택 하 여 사용자를 삭제 하는 Azure 대량 작업을 시작 합니다.
 1. 삭제 작업이 완료 되 면 대량 작업이 성공 했다는 알림이 표시 됩니다.
 
-오류가 있는 경우 **대량 작업 결과** 페이지에서 결과 파일을 다운로드 하 고 볼 수 있습니다. 파일에는 각 오류의 이유가 포함 되어 있습니다.
+오류가 있는 경우 **대량 작업 결과** 페이지에서 결과 파일을 다운로드하고 볼 수 있습니다. 해당 파일에는 각 오류에 대한 이유가 포함되어 있습니다.
 
 ## <a name="check-status"></a>상태 확인
 

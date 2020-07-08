@@ -3,24 +3,23 @@ title: 템플릿 함수-논리적
 description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677392"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 템플릿에 대 한 논리 함수
 
 리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 비교를 수행 하기 위한 여러 함수를 제공 합니다.
 
-* [하거나](#and)
+* [and](#and)
 * [bool](#bool)
 * [if](#if)
-* [나타내지](#not)
-* [디스크나](#or)
+* [not](#not)
+* [or](#or)
 
-## <a name="and"></a>를 갖는
+## <a name="and"></a>및
 
 `and(arg1, arg2, ...)`
 
@@ -28,11 +27,11 @@ ms.locfileid: "82192317"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
-| 추가 인수 |아니요 |boolean |True인지 확인할 추가 인수입니다. |
+| 추가 인수 |예 |boolean |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -44,7 +43,7 @@ ms.locfileid: "82192317"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -66,7 +65,7 @@ ms.locfileid: "82192317"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -80,7 +79,7 @@ ms.locfileid: "82192317"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 
@@ -93,7 +92,7 @@ ms.locfileid: "82192317"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -134,7 +133,7 @@ ms.locfileid: "82192317"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | condition(조건) |예 |boolean |True 인지 false 인지 확인 하는 값입니다. |
 | trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
@@ -154,7 +153,7 @@ ms.locfileid: "82192317"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -177,17 +176,17 @@ ms.locfileid: "82192317"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
-| yesOutput | 문자열 | 예 |
-| noOutput | 문자열 | 아니요 |
+| yesOutput | String | 예 |
+| noOutput | String | no |
 | objectOutput | Object | { "test": "value1" } |
 
 다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로 유효한 식으로이 함수를 사용 하는 방법을 보여 줍니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -239,7 +238,7 @@ ms.locfileid: "82192317"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |변환할 값입니다. |
 
@@ -253,7 +252,7 @@ ms.locfileid: "82192317"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -275,7 +274,7 @@ ms.locfileid: "82192317"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -285,7 +284,7 @@ ms.locfileid: "82192317"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -300,7 +299,7 @@ ms.locfileid: "82192317"
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -312,11 +311,11 @@ ms.locfileid: "82192317"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 유형 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
-| 추가 인수 |아니요 |boolean |True인지 확인할 추가 인수입니다. |
+| 추가 인수 |예 |boolean |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -328,7 +327,7 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -350,7 +349,7 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

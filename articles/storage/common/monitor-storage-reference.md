@@ -9,12 +9,11 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195218"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960217"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Azure Storage 모니터링 데이터 참조
 
@@ -32,13 +31,17 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="account-level"></a>계정 수준
 
-| 메트릭 | Description |
+이 표에서는 [계정 수준 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts)보여 줍니다.
+
+| 메트릭 | 설명 |
 | ------------------- | ----------------- |
 | UsedCapacity | 스토리지 계정에서 사용한 스토리지 양입니다. 표준 스토리지 계정의 경우 이는 Blob, 테이블, 파일 및 큐에서 사용한 용량의 합계입니다. Premium Storage 계정 및 Blob Storage 계정의 경우 BlobCapacity와 같습니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
 #### <a name="blob-storage"></a>Blob Storage
 
-| 메트릭 | Description |
+다음 표에서는 [Blob storage 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices)보여 줍니다.
+
+| 메트릭 | 설명 |
 | ------------------- | ----------------- |
 | BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
 | BlobCount    | 스토리지 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
@@ -47,7 +50,9 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="table-storage"></a>Table Storage
 
-| 메트릭 | Description |
+다음 표에서는 [테이블 저장소 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices)보여 줍니다.
+
+| 메트릭 | 설명 |
 | ------------------- | ----------------- |
 | TableCapacity | 스토리지 계정에 사용한 Table Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | TableCount   | 스토리지 계정의 테이블 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
@@ -55,15 +60,19 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="queue-storage"></a>Queue Storage
 
-| 메트릭 | Description |
+다음 표에서는 [큐 저장소 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices)보여 줍니다.
+
+| 메트릭 | 설명 |
 | ------------------- | ----------------- |
 | QueueCapacity | 스토리지 계정에 사용한 Queue Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | QueueCount   | 스토리지 계정의 큐 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
-| QueueMessageCount | 스토리지 계정의 만료되지 않은 큐 메시지 수입니다. <br/><br/>단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
+| QueueMessageCount | 저장소 계정의 큐 서비스 큐 메시지의 대략적인 수입니다. <br/><br/>단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
 #### <a name="file-storage"></a>File Storage
 
-| 메트릭 | Description |
+다음 표에서는 [파일 저장소 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)보여 줍니다.
+
+| 메트릭 | 설명 |
 | ------------------- | ----------------- |
 | FileCapacity | 스토리지 계정에 사용한 File Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | FileCount   | 스토리지 계정의 파일 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
@@ -128,7 +137,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 }
 ```
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:---|
 |**time** | 스토리지에서 요청을 수신한 UTC(협정 세계시) 시간입니다. 예: `2018/11/08 21:09:36.6900118`|
 |**resourceId** | 스토리지 계정의 리소스 ID입니다. 예: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|

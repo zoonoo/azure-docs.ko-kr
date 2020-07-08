@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 SQL Server 데이터를 SQL Azure로 이동 - 팀 데이터 과학 프로세스
+title: Azure Data Factory 팀 데이터 과학 프로세스를 사용 하 여 SQL Database 데이터 SQL Server
 description: 온-프레미스와 클라우드의 데이터베이스 간에 데이터를 매일 이동하는 두 데이터 마이그레이션 활동으로 구성된 ADF 파이프라인을 설정합니다.
 services: machine-learning
 author: marktab
@@ -11,16 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194401"
 ---
-# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
+# <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Database SQL Server 데이터베이스에서 데이터 이동
 
-이 문서에서는 Azure Data Factory (ADF)를 사용 하 여 온-프레미스 SQL Server 데이터베이스에서 SQL Azure Azure Blob Storage 데이터베이스로 데이터를 이동 하는 방법을 보여 줍니다 .이 방법은 복제 된 준비 복사본의 이점을 제공 하는 지원 되는 레거시 방법 이지만, [최신 옵션에 대 한 데이터 마이그레이션 페이지를 살펴보는 것](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1)이 좋습니다.
+이 문서에서는 Azure Data Factory (ADF)를 사용 하 여 Azure Blob Storage를 통해 SQL Server 데이터베이스에서 Azure SQL Database로 데이터를 이동 하는 방법을 보여 줍니다 .이 방법은 복제 된 준비 복사본의 이점을 제공 하는 지원 되는 레거시 방법 이지만 [최신 옵션에 대 한 데이터 마이그레이션 페이지를 살펴보는 것](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1)이 좋습니다.
 
 Azure SQL Database로 데이터를 이동하는 다양한 옵션을 요약한 표는 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
 
@@ -37,13 +36,13 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다. ADF에 대한 자세한 내용은 [Azure 데이터 팩터리(ADF)](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
 ## <a name="the-scenario"></a><a name="scenario"></a>시나리오
-두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. 온-프레미스 SQL Database와 클라우드의 Azure SQL Database 간에 매일 데이터를 이동 합니다. 두 활동은 다음과 같습니다.
+두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. SQL Server 데이터베이스와 Azure SQL Database 간에 매일 데이터를 이동 합니다. 두 활동은 다음과 같습니다.
 
-* 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage 계정으로 데이터 복사
-* Azure Blob Storage 계정에서 Azure SQL Database로 데이터를 복사합니다.
+* SQL Server 데이터베이스에서 Azure Blob Storage 계정으로 데이터 복사
+* Azure Blob Storage 계정에서 Azure SQL Database로 데이터를 복사 합니다.
 
 > [!NOTE]
-> 여기에 표시 된 단계는 ADF 팀에서 제공 하는 보다 자세한 자습서에서 적용 됩니다. [온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) 는 해당 항목의 관련 섹션에 대 한 참조를 제공 합니다.
+> 여기에 나와 있는 단계는 ADF 팀에서 제공 하는 보다 자세한 자습서에서 조정 되었습니다. [SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) 해당 항목의 관련 섹션에 대 한 참조는 적절 한 경우 제공 됩니다.
 >
 >
 
@@ -60,10 +59,10 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 >
 >
 
-## <a name="upload-the-data-to-your-on-premises-sql-server"></a><a name="upload-data"></a> 온-프레미스 SQL Server에 데이터 업로드
+## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>SQL Server 인스턴스에 데이터 업로드
 [NYC Taxi 데이터 세트](https://chriswhong.com/open-data/foil_nyc_taxi/)를 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 세트는 Azure Blob Storage [NYC Taxi 데이터](https://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 세트 설명](sql-walkthrough.md#dataset)에 제공됩니다.
 
-자신의 데이터 세트에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 세트를 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
+자신의 데이터 세트에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 세트를 사용하여 설명된 대로 단계를 따릅니다. SQL Server 데이터베이스에 NYC Taxi 데이터 집합을 업로드 하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명 된 절차를 따르세요.
 
 ## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Azure Data Factory 만들기
 [Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
@@ -93,7 +92,7 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 
 테이블에서 JSON 기반 정의는 다음 이름을 사용합니다.
 
-* 온-프레미스 SQL Server의 **테이블 이름**은 *nyctaxi_data*
+* SQL Server의 **테이블 이름은** *nyctaxi_data*
 * Azure Blob Storage 계정의 **컨테이너 이름**은 *containername*
 
 이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
@@ -108,7 +107,7 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 >
 
 ### <a name="sql-on-premises-table"></a><a name="adf-table-onprem-sql"></a>SQL 온-프레미스 테이블
-온-프레미스 SQL Server에 대한 테이블 정의는 다음 JSON 파일에 지정됩니다.
+SQL Server에 대 한 테이블 정의는 다음 JSON 파일에 지정 되어 있습니다.
 
 ```json
 {
@@ -226,12 +225,12 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
         "activities":
         [
             {
                 "name": "CopyFromSQLtoBlob",
-                "description": "Copy data from on-premises SQL server to blob",
+                "description": "Copy data from SQL Server to blob",
                 "type": "CopyActivity",
                 "inputs": [ {"name": "OnPremSQLTable"} ],
                 "outputs": [ {"name": "OutputBlobTable"} ],

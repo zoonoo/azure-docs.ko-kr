@@ -2,13 +2,12 @@
 title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.date: 06/18/2020
+ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099265"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -83,7 +82,7 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "lockName":{
@@ -101,14 +100,14 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 }
 ```
 
-<a id="listkeys" />
-<a id="list" />
+<a id="listkeys"></a>
+<a id="list"></a>
 
 ## <a name="list"></a>list*
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-이 함수의 구문은 목록 작업의 이름에 따라 달라집니다. 각 구현은 목록 작업을 지원하는 리소스 종류의 값을 반환합니다. 작업 이름은 `list`로 시작해야 합니다. 일반적으로 사용되는 일부 함수는 `listKeys`, `listKeyValue` 및 `listSecrets`입니다.
+이 함수의 구문은 목록 작업의 이름에 따라 달라집니다. 각 구현은 목록 작업을 지원하는 리소스 종류의 값을 반환합니다. 작업 이름은 `list`로 시작해야 합니다. 몇 가지 일반적인 사용법은 `listKeys` , `listKeyValue` 및 `listSecrets` 입니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -120,7 +119,9 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 
 ### <a name="valid-uses"></a>올바른 용도
 
-list 함수는 리소스 정의의 속성과 템플릿 또는 배포의 출력 섹션에서만 사용할 수 있습니다. [속성 반복](copy-properties.md)와 함께 사용하는 경우 식이 리소스 속성에 할당되기 때문에 `input`에 list 함수를 사용할 수 있습니다. list 함수를 확인하기 전에 개수를 결정해야 하므로 `count`와 함께 사용할 수 없습니다.
+목록 함수는 리소스 정의의 속성에 사용할 수 있습니다. 템플릿의 출력 섹션에서 중요 한 정보를 노출 하는 list 함수를 사용 하지 마세요. 출력 값은 배포 기록에 저장 되며 악의적인 사용자가 검색할 수 있습니다.
+
+[속성 반복](copy-properties.md)와 함께 사용하는 경우 식이 리소스 속성에 할당되기 때문에 `input`에 list 함수를 사용할 수 있습니다. list 함수를 확인하기 전에 개수를 결정해야 하므로 `count`와 함께 사용할 수 없습니다.
 
 ### <a name="implementations"></a>구현
 
@@ -167,8 +168,8 @@ list 함수는 리소스 정의의 속성과 템플릿 또는 배포의 출력 �
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
@@ -284,71 +285,31 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 ### <a name="list-example"></a>목록 예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)에서는 출력 섹션의 스토리지 계정에서 기본 및 보조 키를 반환하는 방법을 보여줍니다. 또한 스토리지 계정에 대한 SAS 토큰을 반환합니다.
-
-SAS 토큰을 가져오려면 만료 시간에 대한 개체를 전달합니다. 만료 시간은 미래 시간이어야 합니다. 이 예제에서는 목록 함수를 사용하는 방법을 표시할 것입니다. 일반적으로 출력 값으로 SAS 토큰을 반환하지 않고 리소스 값에서 해당 토큰을 사용합니다. 출력 값은 배포 기록에 저장되므로 안전하지 않습니다.
+다음 예에서는 [배포 스크립트](deployment-script-template.md)의 값을 설정할 때 listkeys를 사용 합니다.
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagename": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "southcentralus"
-        },
-        "accountSasProperties": {
-            "type": "object",
-            "defaultValue": {
-                "signedServices": "b",
-                "signedPermission": "r",
-                "signedExpiry": "2018-08-20T11:00:00Z",
-                "signedResourceTypes": "s"
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2018-02-01",
-            "name": "[parameters('storagename')]",
-            "location": "[parameters('location')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "supportsHttpsTrafficOnly": false,
-                "accessTier": "Hot",
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
-            },
-            "dependsOn": []
-        }
-    ],
-    "outputs": {
-        "keys": {
-            "type": "object",
-            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
-        },
-        "accountSAS": {
-            "type": "object",
-            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
+"storageAccountSettings": {
+    "storageAccountName": "[variables('storageAccountName')]",
+    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+}
+```
+
+다음 예제에서는 매개 변수를 사용 하는 목록 함수를 보여 줍니다. 이 경우 함수는 **Listaccountsas**입니다. 만료 시간에 대 한 개체를 전달 합니다. 만료 시간은 미래 시간이어야 합니다.
+
+```json
+"parameters": {
+    "accountSasProperties": {
+        "type": "object",
+        "defaultValue": {
+            "signedServices": "b",
+            "signedPermission": "r",
+            "signedExpiry": "2020-08-20T11:00:00Z",
+            "signedResourceTypes": "s"
         }
     }
-}
+},
+...
+"sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
 listKeyValue 예제는 [빠른 시작: Azure App Configuration 및 Resource Manager 템플릿을 사용하여 자동화된 VM 배포](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values)를 참조하세요.
@@ -386,7 +347,7 @@ listKeyValue 예제는 [빠른 시작: Azure App Configuration 및 Resource Mana
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "providerNamespace": {
@@ -495,7 +456,7 @@ listKeyValue 예제는 [빠른 시작: Azure App Configuration 및 Resource Mana
 
 reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 설정할 수 없습니다. 루프에서 다른 속성을 설정하는 데는 이 함수를 사용할 수 있습니다. reference 함수가 확인되기 전에 해당 속성을 확인해야 하기 때문에 count 속성에 대해 참조가 차단됩니다.
 
-[중첩된 템플릿](linked-templates.md#nested-template)의 출력에 reference 함수를 사용하여 중첩된 템플릿에 배포된 리소스를 반환할 수는 없습니다. 대신 [연결된 템플릿](linked-templates.md#linked-template)을 사용합니다.
+중첩 된 템플릿의 출력 섹션에서 reference 함수 또는 list * 함수를 사용 하려면를 ```expressionEvaluationOptions``` [내부 범위](linked-templates.md#expression-evaluation-scope-in-nested-templates) 평가를 사용 하도록 설정 하거나 중첩 된 템플릿 대신 연결 된를 사용 하도록 설정 해야 합니다.
 
 조건부로 배포되는 리소스에서 **reference** 함수를 사용하는 경우 리소스가 배포되지 않은 경우에도 함수가 평가됩니다.  **reference** 함수가 존재하지 않는 리소스를 참조하는 경우 오류가 발생합니다. 리소스가 배포되는 경우에만 함수가 평가되도록 하려면 **if** 함수를 사용합니다. If 및 reference를 조건부로 배포된 리소스와 함께 사용하는 샘플 템플릿에 대해서는 [if 함수](template-functions-logical.md#if)를 참조하세요.
 
@@ -537,10 +498,20 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)는 일부 리소스에 대해 암시적으로 생성되는 [확장 리소스 종류](../management/extension-resource-types.md)입니다. 관리 ID가 템플릿에 명시적으로 정의되어 있지 않기 때문에 ID가 적용되는 리소스를 참조해야 합니다. `Full`을 사용하여 암시적으로 생성된 ID를 비롯한 모든 속성을 가져옵니다.
 
-예를 들어, 가상 머신 확장 집합에 적용되는 관리 ID에 대한 테넌트 ID를 가져오려면 다음을 사용합니다.
+패턴은 다음과 같습니다.
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+예를 들어 가상 컴퓨터에 적용 되는 관리 id의 보안 주체 ID를 가져오려면 다음을 사용 합니다.
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+또는 가상 머신 확장 집합에 적용 되는 관리 되는 id에 대 한 테 넌 트 ID를 가져오려면 다음을 사용 합니다.
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>참조 예제
@@ -549,7 +520,7 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": {
@@ -643,7 +614,7 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageResourceGroup": {
@@ -715,7 +686,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -753,9 +724,9 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 |:--- |:--- |:--- |:--- |
 | subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹 또는 구독의 범위에서 배포하는 경우에만 이 값을 제공합니다. |
 | resourceGroupName |예 |문자열 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹의 범위에 배포하는 경우에만 이 값을 제공합니다. |
-| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |문자열 |리소스의 이름입니다. |
-| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |string |리소스의 이름입니다. |
+| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 
@@ -817,7 +788,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -863,7 +834,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -925,7 +896,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -945,12 +916,12 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |문자열 |리소스의 이름입니다. |
-| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |string |리소스의 이름입니다. |
+| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 
@@ -972,7 +943,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -1027,11 +998,11 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |문자열 |리소스의 이름입니다. |
-| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |string |리소스의 이름입니다. |
+| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 

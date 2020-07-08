@@ -4,15 +4,14 @@ description: Azure에서 실행 되는 가상 컴퓨터에 대 한 유지 관리
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e65b2c94b5042f857a6ea5fc61136c572b780764
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77115690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678514"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>계획 된 유지 관리 알림 처리
 

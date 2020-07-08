@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus-메시지 만료
 description: 이 문서에서는 Azure Service Bus 메시지의 만료 및 라이브 시간에 대해 설명 합니다. 이러한 기한이 지나면 메시지가 더 이상 배달 되지 않습니다.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: ca789be91e835576ec06a422bdbbbf25eb775dac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76756337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341209"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 
@@ -74,7 +63,7 @@ Service Bus 큐, 토픽 및 구독을 임시 엔터티로 생성할 수 있습�
     - 전송 없음  
     - 토픽 업데이트 없음  
     - 예약된 메시지 없음 
-- Subscriptions
+- 구독
     - 수신 없음  
     - 구독 업데이트 없음  
     - 구독에 추가된 새 규칙 없음  

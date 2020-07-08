@@ -7,12 +7,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: a19a1b6e7416667079ab07fc5440ee8828c26bf4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76294371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081079"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 물리적 서버 평가
 
@@ -47,7 +46,7 @@ ms.locfileid: "76294371"
 **계획** | **제한**
 --- | --- 
 **Azure Migrate 프로젝트** | 프로젝트에서 최대 35000 대의 서버를 평가 합니다.
-**Azure Migrate 어플라이언스** | 어플라이언스는 최대 250 서버를 검색할 수 있습니다.<br/> 어플라이언스는 단일 Azure Migrate 프로젝트에만 연결할 수 있습니다.<br/> 모든 수의 어플라이언스를 단일 Azure Migrate 프로젝트에 연결할 수 있습니다. <br/><br/> 
+**Azure Migrate 어플라이언스** | 어플라이언스는 최대 1000 서버를 검색할 수 있습니다.<br/> 어플라이언스는 단일 Azure Migrate 프로젝트에만 연결할 수 있습니다.<br/> 모든 수의 어플라이언스를 단일 Azure Migrate 프로젝트에 연결할 수 있습니다. <br/><br/> 
 **그룹** | 단일 그룹에 최대 35000 대의 서버를 추가할 수 있습니다.
 **Azure Migrate 평가** | 단일 평가에서 최대 35000 대의 서버를 평가할 수 있습니다.
 

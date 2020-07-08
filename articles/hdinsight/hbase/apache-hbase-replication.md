@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e05cd861f899b700e68c151fcbaa6778dc43eb3a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435661"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959197"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -38,7 +37,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
@@ -180,7 +179,9 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
     이 명령은 다음 텍스트와 유사한 값을 반환합니다.
 
-        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```output
+    vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```
 
     `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__입니다. 나중에 사용하므로 이 값을 저장합니다.
 
@@ -227,7 +228,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
     응답은 다음 텍스트와 유사합니다.
 
-    ```
+    ```output
     Server:         10.2.0.4
     Address:        10.2.0.4#53
     
@@ -296,7 +297,7 @@ sudo service bind9 status
    3. **헤드**: 이 URL이 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
    4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
-          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata`
     
       > [!NOTE]
       > 원본 및 대상 클러스터 DNS 이름에 대한 FQDN 대신 호스트 이름을 사용합니다.
@@ -307,7 +308,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|Name|설명|
+|이름|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -316,7 +317,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|Name|설명|
+|이름|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
@@ -336,19 +337,19 @@ sudo service bind9 status
 
 - **두 클러스터 간의 모든 테이블에서 복제를 사용하도록 설정** - 이 시나리오에서는 테이블의 기존 데이터를 복사하거나 마이그레이션할 필요가 없으며 Phoenix 테이블을 사용하지 않습니다. 다음 매개 변수를 사용합니다.
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
 
 - **특정 테이블에서 복제를 사용하도록 설정** - table1, table2 및 table3에서 복제를 사용하도록 설정하려면 다음 매개 변수를 사용합니다.
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"`
 
 - **특정 테이블에서 복제를 사용 하도록 설정 하 고 기존 데이터를 복사**합니다. table1, table2 및 table3에서 복제를 사용하도록 설정하려면 다음 매개 변수를 사용합니다.
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
 - **모든 테이블에서 복제를 사용하도록 설정하고 원본에서 대상으로 Phoenix 메타데이터 복제** - Phoenix 메타데이터 복제는 완벽하지 않으므로 주의해서 사용하세요. 다음 매개 변수를 사용합니다.
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
 
 ## <a name="copy-and-migrate-data"></a>데이터 복사 및 마이그레이션
 
@@ -360,7 +361,7 @@ sudo service bind9 status
 
 [복제 사용](#enable-replication)에서 설명한 것과 동일한 절차에 따라 스크립트 동작을 호출할 수 있습니다. 다음 매개 변수를 사용합니다.
 
-    -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
+`-m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]`
 
 [스크립트](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh)의 `print_usage()` 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
 
@@ -368,22 +369,21 @@ sudo service bind9 status
 
 - **지금(현재 타임스탬프)까지 편집된 모든 행에 대한 특정 테이블(test1, test2 및 test3) 복사**:
 
-        -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
+  `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+
   또는
 
-        -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-
+  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
 - **지정된 시간 범위의 특정 테이블 복사**:
 
-        -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
-
+  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
 
 ## <a name="disable-replication"></a>복제 사용 안 함
 
 복제를 사용하지 않도록 설정하려면 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh)에 있는 다른 스크립트 동작 스크립트를 사용합니다. [복제 사용](#enable-replication)에서 설명한 것과 동일한 절차에 따라 스크립트 동작을 호출할 수 있습니다. 다음 매개 변수를 사용합니다.
 
-    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+`-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">`
 
 [스크립트](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh)의 `print_usage()` 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
 
@@ -391,14 +391,15 @@ sudo service bind9 status
 
 - **모든 테이블에서 복제를 사용하지 않도록 설정**:
 
-        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
+  `-m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all`
+
   또는
 
-        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+  `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 
 - **지정된 테이블(table1, table2 및 table3)에서 복제를 사용하지 않도록 설정**:
 
-        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+  `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 
 > [!NOTE]
 > 대상 클러스터를 삭제 하려는 경우 원본 클러스터의 피어 목록에서 제거 해야 합니다. 원본 클러스터의 hbase 셸에서 ' 1 ' remove_peer 명령을 실행 하 여이 작업을 수행할 수 있습니다. 이 문제가 발생 하면 원본 클러스터가 제대로 작동 하지 않을 수 있습니다.

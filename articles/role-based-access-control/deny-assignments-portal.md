@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790249"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure deny 할당 나열
 
@@ -42,7 +41,7 @@ ms.locfileid: "82734113"
 
 1. 나열할 관리 그룹 또는 구독을 클릭 합니다.
 
-1. **액세스 제어 (IAM)** 를 클릭 합니다.
+1. **액세스 제어(IAM)** 를 클릭합니다.
 
 1. **거부 할당** 탭을 클릭하거나 거부 할당 보기 타일의 **보기** 단추를 클릭합니다.
 
@@ -56,10 +55,10 @@ ms.locfileid: "82734113"
 
     |  |  |
     | --- | --- |
-    | **Name** | 거부 할당의 이름입니다. |
+    | **이름** | 거부 할당의 이름입니다. |
     | **주체 유형** | 사용자, 그룹, 시스템 정의 그룹 또는 서비스 주체입니다. |
-    | **거부됨**  | 거부 할당에 포함된 보안 주체의 이름입니다. |
-    | **Id** | 거부 할당의 고유 식별자입니다. |
+    | **거부**  | 거부 할당에 포함된 보안 주체의 이름입니다. |
+    | **ID** | 거부 할당의 고유 식별자입니다. |
     | **제외된 보안 주체** | 거부 할당에서 제외된 보안 주체가 있는지 여부입니다. |
     | **자식에 적용되지 않음** | 거부 할당이 하위 범위에 상속되는지 여부입니다. |
     | **시스템 보호됨** | 거부 할당이 Azure에서 관리되는지 여부입니다. 현재, 항상 예입니다. |
