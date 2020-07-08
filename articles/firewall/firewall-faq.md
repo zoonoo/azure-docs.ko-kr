@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791489"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078428"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -218,3 +219,7 @@ TCP ping은 실제로는 대상 FQDN에 연결하지 않습니다. 이러한 상
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Azure 방화벽에 대 한 TCP 유휴 시간 제한은 무엇 인가요?
 
 네트워크 방화벽의 표준 동작은 TCP 연결을 활성 상태로 유지 하 고 작업이 없는 경우 즉시 종료 하는 것입니다. Azure 방화벽 TCP 유휴 시간 제한은 4 분입니다. 이 설정은 구성할 수 없습니다. 비활성 기간이 시간 제한 값 보다 길면 TCP 또는 HTTP 세션이 유지 되지 않을 수 있습니다. 일반적인 방법은 TCP 연결 유지를 사용하는 것입니다. 이 방법은 더 오랜 기간 동안 연결을 활성 상태로 유지합니다. 자세한 내용은 [.net 예제](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_)를 참조 하십시오.
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>공용 IP 주소 없이 Azure 방화벽을 배포할 수 있나요?
+
+아니요, 현재 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포 해야 합니다.

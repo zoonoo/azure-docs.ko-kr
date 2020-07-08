@@ -12,11 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 2ff3df74c4cf3175fbbec5097a98c51e7f97ac16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84190516"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078020"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Always Encrypted 구성 
 
@@ -102,6 +103,8 @@ az keyvault create --name $vaultName --resource-group $resourceGroupName --locat
 az keyvault set-policy --name $vaultName --key-permissions create, get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
+
+---
 
 ## <a name="connect-with-ssms"></a>SSMS를 사용하여 연결
 
@@ -589,8 +592,9 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 �
    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    ```
 
-     이제 암호화된 열에서 일반 텍스트 데이터를 볼 수 있습니다.
-     ![새 콘솔 애플리케이션](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
+   이제 암호화된 열에서 일반 텍스트 데이터를 볼 수 있습니다.
+   
+   ![새 콘솔 애플리케이션](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## <a name="next-steps"></a>다음 단계
 
