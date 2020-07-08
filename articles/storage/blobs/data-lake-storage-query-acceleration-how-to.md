@@ -4,16 +4,15 @@ description: 쿼리 가속 (미리 보기)을 사용 하 여 저장소 계정에
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930083"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465867"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage 쿼리 가속 (미리 보기)을 사용 하 여 데이터 필터링
 
@@ -40,7 +39,7 @@ ms.locfileid: "82930083"
 
 - 범용 **v2** 저장소 계정입니다. [저장소 계정 만들기를](../common/storage-quickstart-create-account.md)참조 하세요.
 
-- [JDK(Java Development Kit)](/java/azure/jdk/?view=azure-java-stable), 버전 8 이상.
+- [JDK (Java Development Kit)](/java/azure/jdk/?view=azure-java-stable) 버전 8 이상
 
 - [Apache Maven](https://maven.apache.org/download.cgi). 
 
@@ -53,11 +52,11 @@ ms.locfileid: "82930083"
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-1. 쿼리 가속 패키지를 다운로드 합니다. 다음 링크를 사용 하 여 이러한 패키지를 포함 하는 압축 된 .zip 파일을 [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net)가져올 수 있습니다. 
+1. 쿼리 가속 패키지를 다운로드 합니다. 다음 링크를 사용 하 여 이러한 패키지를 포함 하는 압축 된 .zip 파일을 가져올 수 있습니다 [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net) . 
 
 2. 프로젝트 디렉터리에이 파일의 콘텐츠를 추출 합니다.
 
-3. 텍스트 편집기에서 프로젝트 파일 (*.csproj*)을 열고 이러한 패키지 참조를 \<프로젝트\> 요소 내에 추가 합니다.
+3. 텍스트 편집기에서 프로젝트 파일 (*.csproj*)을 열고 이러한 패키지 참조를 요소 내에 추가 \<Project\> 합니다.
 
    ```xml
    <ItemGroup>
@@ -67,7 +66,7 @@ ms.locfileid: "82930083"
    </ItemGroup>
    ```
 
-4. Preview SDK 패키지를 복원 합니다. 이 예제 명령은 `dotnet restore` 명령을 사용 하 여 미리 보기 SDK 패키지를 복원 합니다. 
+4. Preview SDK 패키지를 복원 합니다. 이 예제 명령은 명령을 사용 하 여 미리 보기 SDK 패키지를 복원 합니다 `dotnet restore` . 
 
    ```console
    dotnet restore --source C:\Users\contoso\myProject
@@ -81,12 +80,12 @@ ms.locfileid: "82930083"
 
 ### <a name="java"></a>[Java](#tab/java)
 
-1. 프로젝트의 루트에 디렉터리를 만듭니다. 루트 디렉터리는 **pom .xml** 파일이 들어 있는 디렉터리입니다.
+1. 프로젝트의 루트에 디렉터리를 만듭니다. 루트 디렉터리는 **pom.xml** 파일을 포함 하는 디렉터리입니다.
 
    > [!NOTE]
    > 이 문서의 예제에서는 디렉터리 이름이 **lib**라고 가정 합니다.
 
-2. 쿼리 가속 패키지를 다운로드 합니다. 다음 링크를 사용 하 여 이러한 패키지를 포함 하는 압축 된 .zip 파일을 [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java)가져올 수 있습니다. 
+2. 쿼리 가속 패키지를 다운로드 합니다. 다음 링크를 사용 하 여 이러한 패키지를 포함 하는 압축 된 .zip 파일을 가져올 수 있습니다 [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java) . 
 
 3. 이 .zip 파일의 파일을 만든 디렉터리에 추출 합니다. 이 예제에서는 해당 디렉터리 이름이 **lib**입니다. 
 
@@ -155,14 +154,14 @@ using Azure.Storage.QuickQuery;
 using Azure.Storage.QuickQuery.Models;
 ```
 
-쿼리 가속은 CSV 및 Json 형식의 데이터를 검색 합니다. 따라서 사용 하도록 선택한 모든 CSV 또는 Json 구문 분석 라이브러리에 대해 using 문을 추가 해야 합니다. 이 문서에 표시 된 예제에서는 NuGet에서 사용할 수 있는 [CsvHelper](https://www.nuget.org/packages/CsvHelper/) 라이브러리를 사용 하 여 CSV 파일을 구문 분석 합니다. 따라서 코드 파일의 맨 위에 `using` 이러한 문을 추가 합니다.
+쿼리 가속은 CSV 및 Json 형식의 데이터를 검색 합니다. 따라서 사용 하도록 선택한 모든 CSV 또는 Json 구문 분석 라이브러리에 대해 using 문을 추가 해야 합니다. 이 문서에 표시 된 예제에서는 NuGet에서 사용할 수 있는 [CsvHelper](https://www.nuget.org/packages/CsvHelper/) 라이브러리를 사용 하 여 CSV 파일을 구문 분석 합니다. 따라서 `using` 코드 파일의 맨 위에 이러한 문을 추가 합니다.
 
 ```csharp
 using CsvHelper;
 using CsvHelper.Configuration;
 ```
 
-이 문서에 나와 있는 예제를 컴파일하려면 이러한 `using` 문도 추가 해야 합니다.
+이 문서에 나와 있는 예제를 컴파일하려면 이러한 문도 추가 해야 `using` 합니다.
 
 ```csharp
 using System.Threading.Tasks;
@@ -190,15 +189,15 @@ import org.apache.commons.csv.*;
 
 ## <a name="retrieve-data-by-using-a-filter"></a>필터를 사용 하 여 데이터 검색
 
-SQL을 사용 하 여 쿼리 가속 요청에서 행 필터 조건자 및 열 프로젝션을 지정할 수 있습니다. 다음 코드는 저장소의 CSV 파일을 쿼리하고 세 번째 열이 값 `Hemingway, Ernest`과 일치 하는 모든 데이터 행을 반환 합니다. 
+SQL을 사용 하 여 쿼리 가속 요청에서 행 필터 조건자 및 열 프로젝션을 지정할 수 있습니다. 다음 코드는 저장소의 CSV 파일을 쿼리하고 세 번째 열이 값과 일치 하는 모든 데이터 행을 반환 합니다 `Hemingway, Ernest` . 
 
-- SQL 쿼리에서 키워드 `BlobStorage` 는 쿼리 중인 파일을 나타내는 데 사용 됩니다.
+- SQL 쿼리에서 키워드는 `BlobStorage` 쿼리 중인 파일을 나타내는 데 사용 됩니다.
 
-- 열 참조는 첫 번째 `_N` 열이 인 `_1`위치로 지정 됩니다. 원본 파일에 머리글 행이 포함 된 경우 머리글 행에 지정 된 이름으로 열을 참조할 수 있습니다. 
+- 열 참조는 `_N` 첫 번째 열이 인 위치로 지정 됩니다 `_1` . 원본 파일에 머리글 행이 포함 된 경우 머리글 행에 지정 된 이름으로 열을 참조할 수 있습니다. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-비동기 메서드 `BlobQuickQueryClient.QueryAsync` 는 쿼리 가속 API로 쿼리를 전송 하 고 결과를 [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) 개체로 응용 프로그램에 다시 스트리밍합니다.
+비동기 메서드는 쿼리 `BlobQuickQueryClient.QueryAsync` 가속 API로 쿼리를 전송 하 고 결과를 [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) 개체로 응용 프로그램에 다시 스트리밍합니다.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -260,7 +259,7 @@ class ProgressHandler : IProgress<long>
 
 ### <a name="java"></a>[Java](#tab/java)
 
-메서드 `BlobQuickQueryClient.openInputStream()` 는 쿼리 가속 API로 쿼리를 보낸 다음 그 결과를 다른 InputStream 개체와 같이 읽을 수 있는 `InputStream` 개체로 응용 프로그램에 다시 스트리밍합니다.
+메서드는 쿼리 `BlobQuickQueryClient.openInputStream()` 가속 API로 쿼리를 보낸 다음 그 결과를 `InputStream` 다른 InputStream 개체와 같이 읽을 수 있는 개체로 응용 프로그램에 다시 스트리밍합니다.
 
 ```java
 static void QueryHemingway(BlobClient blobClient) {
@@ -316,7 +315,7 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
 
 열의 하위 집합으로 결과의 범위를 지정할 수 있습니다. 이렇게 하면 지정 된 계산을 수행 하는 데 필요한 열만 검색할 수 있습니다. 따라서 네트워크를 통해 전송 되는 데이터가 줄어들기 때문에 응용 프로그램 성능을 향상 시키고 비용을 절감할 수 있습니다. 
 
-이 코드는 데이터 집합 `PublicationYear` 의 모든 책에 대 한 열만 검색 합니다. 또한 원본 파일의 머리글 행에 있는 정보를 사용 하 여 쿼리의 열을 참조 합니다.
+이 코드는 `PublicationYear` 데이터 집합의 모든 책에 대 한 열만 검색 합니다. 또한 원본 파일의 머리글 행에 있는 정보를 사용 하 여 쿼리의 열을 참조 합니다.
 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)

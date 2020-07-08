@@ -4,18 +4,17 @@ description: Azure Blob Storage의 변경 피드 로그 및 사용 방법에 대
 author: normesta
 ms.author: normesta
 ms.date: 11/04/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465187"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob Storage의 변경 피드 지원 (미리 보기)
+# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 스토리지의 변경 피드 지원(미리 보기)
 
 변경 피드의 목적은 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 하는 것입니다. 변경 피드는 이러한 변경 내용에 대 한 **순서**, **보장**, **내구성**, 변경 **불가능**, **읽기 전용** 로그를 제공 합니다. 클라이언트 응용 프로그램은 스트리밍 또는 일괄 처리 모드에서 언제 든 지 이러한 로그를 읽을 수 있습니다. 변경 피드를 사용 하면 Blob Storage 계정에서 발생 하는 변경 이벤트를 저렴 한 비용으로 처리 하는 효율적이 고 확장 가능한 솔루션을 빌드할 수 있습니다.
 
@@ -37,12 +36,12 @@ ms.locfileid: "83120422"
 
   - 변경 이벤트에 반응 하거나 만들어지거나 변경 된 개체를 기반으로 실행을 예약 하는 연결 된 응용 프로그램 파이프라인을 빌드합니다.
   
-변경 피드는 [블록 blob에 대 한 지정 시간 복원](point-in-time-restore-overview.md)에 대 한 필수 구성 요소입니다.
+변경 피드는 [블록 blob에 대 한](point-in-time-restore-overview.md) [개체 복제](object-replication-overview.md) 및 지정 시간 복원에 대 한 필수 구성 요소입니다.
 
 > [!NOTE]
 > 변경 피드는 blob에 발생 하는 변경 내용에 대 한 지속적이 고 순서가 지정 된 로그 모델을 제공 합니다. 변경 내용은 몇 분 이내에 변경 피드 로그에서 작성 되 고 사용 가능 합니다. 응용 프로그램이이 보다 훨씬 더 빠르게 이벤트에 반응 해야 하는 경우 [Blob Storage 이벤트](storage-blob-event-overview.md) 를 대신 사용 하는 것이 좋습니다. [Blob Storage 이벤트](storage-blob-event-overview.md) 는 Azure Functions 나 응용 프로그램이 Blob에 발생 하는 변경 내용에 신속 하 게 대응할 수 있도록 하는 실시간 일회성 이벤트를 제공 합니다. 
 
-## <a name="enable-and-disable-the-change-feed"></a>변경 피드 사용 및 사용 안 함
+## <a name="enable-and-disable-the-change-feed"></a>변경 피드를 사용하거나 사용하지 않도록 설정
 
 변경 내용 캡처 및 기록을 시작 하려면 저장소 계정에서 변경 피드를 사용 하도록 설정 해야 합니다. 변경 피드를 사용 하지 않도록 설정 하 여 변경 캡처를 중지 합니다. 포털 또는 PowerShell에서 Azure Resource Manager 템플릿을 사용 하 여 변경 내용을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
@@ -63,9 +62,9 @@ ms.locfileid: "83120422"
 
 Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 하도록 설정 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 저장소 계정을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다.
 
-2. **Blob Service**에서 **데이터 보호** 옵션으로 이동 합니다.
+2. **Blob Service** 아래의 **데이터 보호** 옵션으로 이동합니다.
 
 3. **Blob 변경 피드**에서 **사용** 을 클릭 합니다.
 
@@ -108,7 +107,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 기존
 
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
 
-2. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
+2. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
 
 3. **[사용자 지정 템플릿 배포](https://portal.azure.com/#create/Microsoft.Template)** 를 선택한 다음 **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
 
@@ -323,7 +322,7 @@ az provider register --namespace 'Microsoft.Storage'
 - 단일 변경에 대 한 이벤트 레코드 변경 내용은 변경 피드에서 두 번 이상 나타날 수 있습니다.
 - 시간 기반 보존 정책을 설정 하 여 변경 피드 로그 파일의 수명을 관리할 수 없으며 blob을 삭제할 수 없습니다.
 - `url`로그 파일의 속성은 현재 항상 비어 있습니다.
-- `LastConsumable`Segment. json 파일의 속성에는 변경 피드가 마무리 하는 첫 번째 세그먼트가 나열 되지 않습니다. 이 문제는 첫 번째 세그먼트가 완료 된 후에만 발생 합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 속성에서 정확 하 게 캡처됩니다 `LastConsumable` .
+- `LastConsumable`파일에 segments.js의 속성에는 변경 피드가 마무리 하는 첫 번째 세그먼트가 나열 되지 않습니다. 이 문제는 첫 번째 세그먼트가 완료 된 후에만 발생 합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 속성에서 정확 하 게 캡처됩니다 `LastConsumable` .
 - 현재 ListContainers API를 호출할 때 **$blobchangefeed** 컨테이너가 표시 되지 않으며 컨테이너가 Azure Portal 또는 Storage 탐색기에 표시 되지 않습니다. $Blobchangefeed 컨테이너에서 ListBlobs API를 직접 호출 하 여 콘텐츠를 볼 수 있습니다.
 - 이전에 [계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md) 를 시작한 저장소 계정은 로그 파일에 문제가 있을 수 있습니다. 이후 모든 계정 장애 조치 (failover)는 미리 보기 중에 로그 파일에 영향을 줄 수도 있습니다.
 

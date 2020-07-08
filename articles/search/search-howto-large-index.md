@@ -8,16 +8,15 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484571"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 대량 데이터 집합을 인덱싱하는 방법
 
-Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [두 가지 기본](search-what-is-data-import.md) 방법인 데이터를 프로그래밍 방식으로 인덱스에 *푸시하고* 지원 되는 데이터 원본에서 데이터를 *끌어올* [Azure Cognitive Search 인덱서](search-indexer-overview.md) 를 가리키도록 합니다.
+Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [두 가지 기본 방법](search-what-is-data-import.md)을 지원합니다. 즉, 프로그래밍 방식으로 데이터를 인덱스로 *푸시*하거나 지원되는 데이터 원본에서 [Azure Cognitive Search 인덱서](search-indexer-overview.md)를 가리켜서 데이터를 *풀*합니다.
 
 데이터 볼륨이 커지거나 처리 요구가 변경 됨에 따라 단순 또는 기본 인덱싱 전략이 더 이상 실용적이 지 않을 수 있습니다. Azure Cognitive Search의 경우 데이터 업로드 요청을 구조화 하는 방법에서 예약 된 작업 및 분산 된 작업에 대해 원본 관련 인덱서를 사용 하는 것에 이르기까지 더 큰 데이터 집합을 수용 하기 위한 여러 가지 방법이 있습니다.
 
@@ -52,38 +51,38 @@ Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [
 
 대용량 데이터 세트를 인덱싱하기 위한 가장 간단한 메커니즘 중 하나는 단일 요청에서 여러 문서 또는 레코드를 제출하는 것입니다. 전체 페이로드가 16MB 미만인 한 요청은 대량 업로드 작업에서 최대 1000개의 문서를 처리할 수 있습니다. 이러한 제한은 .NET SDK에서 [문서 추가 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 또는 [인덱스 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) 를 사용 하는지에 따라 적용 됩니다. 두 API의 경우 각 요청의 본문에 1000 문서를 패키지할 수 있습니다.
 
-일괄 처리를 사용 하 여 문서를 인덱싱하려면 인덱싱 성능이 크게 향상 됩니다. 데이터에 가장 적합 한 일괄 처리 크기를 결정 하는 것은 인덱싱 속도를 최적화 하는 핵심 구성 요소입니다. 최적의 일괄 처리 크기에 영향을 주는 두 가지 주요 요인은 다음과 같습니다.
-+ 인덱스의 스키마입니다.
-+ 데이터의 크기입니다.
+일괄 처리를 사용 하 여 문서를 인덱싱하려면 인덱싱 성능이 크게 향상 됩니다. 가장 적합한 데이터 일괄 처리 크기를 결정하는 것은 인덱싱 속도를 최적화하는 핵심 구성 요소입니다. 최적의 일괄 처리 크기에 영향을 주는 두 가지 주요 요소는 다음과 같습니다.
++ 인덱스의 스키마
++ 데이터의 크기
 
 최적의 일괄 처리 크기는 인덱스와 데이터에 따라 달라 지므로 가장 좋은 방법은 시나리오에 대 한 가장 빠른 인덱싱 속도의 결과를 확인 하기 위해 다른 일괄 처리 크기를 테스트 하는 것입니다. 이 [자습서](tutorial-optimize-indexing-push-api.md) 에서는 .net SDK를 사용 하 여 일괄 처리 크기를 테스트 하기 위한 샘플 코드를 제공 합니다. 
 
 ### <a name="number-of-threadsworkers"></a>스레드/작업자 수
 
-Azure Cognitive Search의 인덱싱 속도를 최대한 활용 하려면 여러 스레드를 사용 하 여 서비스에 동시에 일괄 처리 인덱싱 요청을 보내야 할 수 있습니다.  
+Azure Cognitive Search의 인덱싱 속도를 최대한 활용하려면 여러 스레드를 사용하여 일괄 처리 인덱싱 요청을 서비스에 동시에 보내야 할 수 있습니다.  
 
 최적 스레드 수는 다음에 의해 결정 됩니다.
 
 + 검색 서비스의 계층입니다.
 + 파티션 수
 + 일괄 처리 크기
-+ 인덱스의 스키마입니다.
++ 인덱스의 스키마
 
-이 샘플을 수정 하 고 다른 스레드 수로 테스트 하 여 시나리오에 적합 한 스레드 수를 결정할 수 있습니다. 그러나 여러 스레드가 동시에 실행 되는 동안에는 대부분의 효율성을 활용할 수 있습니다. 
+이 샘플을 수정하고 다양한 스레드 수로 테스트하여 시나리오에 가장 적합한 스레드 수를 결정할 수 있습니다. 그러나 여러 스레드가 동시에 실행되는 동안에는 대부분의 효율성 이점을 활용할 수 있어야 합니다. 
 
 > [!NOTE]
 > 검색 서비스의 계층을 늘리거나 파티션을 늘릴 때 동시 스레드 수도 늘려야 합니다.
 
-검색 서비스에 대 한 요청이 발생할 때 요청이 완전히 성공 하지 못했음을 나타내는 [HTTP 상태 코드가](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 발생할 수 있습니다. 인덱싱하는 동안 두 가지 일반적인 HTTP 상태 코드는 다음과 같습니다.
+검색 서비스에 대한 요청을 늘리면 요청이 완전히 성공하지 못했음을 나타내는 [HTTP 상태 코드](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)가 발생할 수 있습니다. 인덱싱 중에 발생하는 두 가지 일반적인 HTTP 상태 코드는 다음과 같습니다.
 
-+ **503 서비스를 사용할 수 없음** -이 오류는 시스템의 부하가 높은 상태 이며 지금은 요청을 처리할 수 없음을 의미 합니다.
-+ **207 다중 상태** -이 오류는 일부 문서가 성공 했지만 하나 이상의 오류가 발생 했음을 의미 합니다.
++ **503 서비스를 사용할 수 없음** - 이 오류는 시스템의 부하가 높고 요청을 현재 처리할 수 없음을 의미합니다.
++ **207 여러 상태** - 이 오류는 일부 문서가 성공했지만 하나 이상의 문서가 실패했음을 의미합니다.
 
 ### <a name="retry-strategy"></a>재시도 전략 
 
-오류가 발생 하는 경우 [지 수 백오프 재시도 전략](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)을 사용 하 여 요청을 다시 시도해 야 합니다.
+오류가 발생하면 [지수 백오프 다시 시도 전략](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)을 사용하여 요청을 다시 시도해야 합니다.
 
-Azure Cognitive Search의 .NET SDK는 503s 및 기타 실패 한 요청을 자동으로 다시 시도 하지만 207s를 다시 시도 하는 고유한 논리를 구현 해야 합니다. 다시 시도 전략을 구현 하는 데 사용할 수도 있는 오픈 소스 도구를 사용할 [수도 있습니다.](https://github.com/App-vNext/Polly)
+Azure Cognitive Search의 .NET SDK에서 503 및 기타 실패한 요청을 자동으로 다시 시도하지만 207을 다시 시도하는 사용자 고유의 논리를 구현해야 합니다. [Polly](https://github.com/App-vNext/Polly)와 같은 오픈 소스 도구를 사용하여 다시 시도 전략을 구현할 수도 있습니다.
 
 ### <a name="network-data-transfer-speeds"></a>네트워크 데이터 전송 속도
 
@@ -139,7 +138,7 @@ Azure Cognitive Search의 .NET SDK는 503s 및 기타 실패 한 요청을 자�
 
 1. [Azure Portal](https://portal.azure.com)의 검색 서비스 대시보드 **개요** 페이지에서 **가격 책정 계층**을 확인하여 병렬 인덱싱을 수용할 수 있는지 확인합니다. 기본 및 표준 계층 모두 여러 복제본이 제공됩니다.
 
-2. **설정** > **규모**에서 병렬 처리를 위해 [복제본을 늘립니다](search-capacity-planning.md) . 각 인덱서 작업에 대해 하나의 추가 복제본이 있습니다. 기존 쿼리 볼륨에 대해 충분한 수를 유지합니다. 인덱싱을 위해 쿼리 워크로드를 희생하는 것은 바람직한 절충안이 아닙니다.
+2. 서비스에서 검색 단위 수와 동시에 많은 인덱서를 실행할 수 있습니다. **설정**  >  **규모**에서 병렬 처리를 위해 복제본 또는 파티션 (각 인덱서 워크 로드에 대 한 추가 복제본 또는 파티션)을 [늘립니다](search-capacity-planning.md) . 기존 쿼리 볼륨에 대해 충분한 수를 유지합니다. 인덱싱을 위해 쿼리 워크로드를 희생하는 것은 바람직한 절충안이 아닙니다.
 
 3. Azure Cognitive Search 인덱서가 도달할 수 있는 수준에서 여러 컨테이너에 데이터를 배포 합니다. 여기에는 Azure SQL Database의 여러 테이블, Azure Blob Storage의 여러 컨테이너 또는 여러 컬렉션이 해당될 수 있습니다. 각 테이블 또는 컨테이너에 대해 하나의 데이터 원본 개체를 정의합니다.
 
@@ -156,7 +155,7 @@ Azure Cognitive Search의 .NET SDK는 503s 및 기타 실패 한 요청을 자�
 > [!Note]
 > 복제본을 늘릴 때 인덱스 크기가 상당히 증가할 것으로 예상되면 파티션 수를 늘리는 것이 좋습니다. 파티션은 인덱싱된 콘텐츠 조각을 저장합니다. 파티션이 많을수록 각 파티션이 저장해야 하는 조각이 줄어듭니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [인덱서 개요](search-indexer-overview.md)
 + [포털의 인덱싱](search-import-data-portal.md)

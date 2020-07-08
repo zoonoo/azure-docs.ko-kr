@@ -4,16 +4,15 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485098"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
-Azure Backup는 백업 요구 사항 및 인프라 토폴로지 (온-프레미스 vs Azure)를 기반으로 여러 백업 솔루션을 제공 합니다. 모든 백업 사용자 또는 관리자는 모든 솔루션에서 발생 하는 상황을 확인 하 고 중요 한 시나리오에서 알릴 예정입니다. 이 문서에서는 Azure Backup 서비스에서 제공 하는 모니터링 및 알림 기능에 대해 자세히 설명 합니다.
+Azure Backup는 백업 요구 사항 및 인프라 토폴로지 (온-프레미스 vs Azure)를 기반으로 여러 백업 솔루션을 제공 합니다. 모든 백업 사용자 또는 관리자는 모든 솔루션에서 발생 하는 상황을 확인 하 고 중요 한 시나리오에서 알림이 발생할 수 있습니다. 이 문서에서는 Azure Backup 서비스에서 제공 하는 모니터링 및 알림 기능에 대해 자세히 설명 합니다.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 백업 작업
 
@@ -27,7 +26,7 @@ Azure Backup은 Azure Backup으로 보호 되는 워크 로드에 대 한 기본
 
 - Azure VM 백업
 - Azure 파일 백업
-- SQL 및 SAP HANA 같은 Azure 워크 로드 백업
+- Azure 워크 로드 백업 (예: SQL 및 SAP HANA)
 - Azure Backup 에이전트(MAB)
 
 System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 작업은 표시 되지 않습니다.
@@ -59,11 +58,11 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 
 ### <a name="consolidated-alerts"></a>통합 된 경고
 
-SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 백업은 매우 자주 생성 될 수 있습니다 (정책에 따라 최대 15 분 마다). 따라서 로그 백업 실패가 매우 자주 발생 하는 경우도 있습니다 (최대 15 분까지). 이 시나리오에서는 각 실패 발생에 대해 경고가 발생 하는 경우 최종 사용자에 게 과부하가 발생 합니다. 따라서 첫 번째 발생에 대 한 경고를 보내고 후속 실패가 동일한 근본 원인으로 인해 발생 하는 경우 추가 경고가 생성 되지 않습니다. 첫 번째 경고가 실패 횟수로 업데이트 됩니다. 그러나 사용자가 경고를 비활성화 하는 경우 다음 번에 발생 하면 다른 경고가 트리거되고 해당 발생에 대 한 첫 번째 경고로 처리 됩니다. 이는 Azure Backup SQL 및 SAP HANA 백업에 대 한 경고 통합을 수행 하는 방법입니다.
+SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 백업은 매우 자주 생성 될 수 있습니다 (정책에 따라 최대 15 분 마다). 따라서 로그 백업 실패가 매우 자주 발생 하는 경우도 있습니다 (최대 15 분까지). 이 시나리오에서는 각 실패 발생에 대해 경고가 발생 하는 경우 최종 사용자에 게 과부하가 발생 합니다. 따라서 첫 번째 발생에 대 한 경고를 보내고 이후 실패가 동일한 근본 원인으로 인해 발생 하는 경우 추가 경고가 생성 되지 않습니다. 첫 번째 경고가 실패 횟수로 업데이트 됩니다. 그러나 사용자가 경고를 비활성화 하는 경우 다음 번에 발생 하면 다른 경고가 트리거되고 해당 발생에 대 한 첫 번째 경고로 처리 됩니다. 이는 Azure Backup SQL 및 SAP HANA 백업에 대 한 경고 통합을 수행 하는 방법입니다.
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>경고가 발생 하지 않는 경우의 예외
 
-오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 다음 창이 여기에 포함됩니다.
+오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - 사용자가 실행 중인 작업을 명시적으로 취소 함
 - 다른 백업 작업이 진행 중 이므로 작업이 실패 합니다 (이전 작업이 완료 될 때까지 기다려야 함).
@@ -77,8 +76,8 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 경고 심각도에 따라 다음과 같은 세 가지 유형으로 경고를 정의할 수 있습니다.
 
 - **중요**: 원칙적으로 모든 백업 또는 복구 오류 (예약 또는 사용자 트리거)가 경고를 생성 하 고 중요 한 경고로 표시 되며 백업 삭제와 같은 작업을 수행 합니다.
-- **경고**: 백업 작업이 성공 하지만 경고가 거의 없으면 경고 경고로 표시 됩니다.
-- **정보**: 현재는 Azure Backup 서비스에서 어떠한 정보 경고도 생성 하지 않습니다.
+- **경고**: 백업 작업이 성공 하지만 경고가 거의 없으면 경고 경고로 표시 됩니다. 경고 경고는 현재 Azure Backup 에이전트 백업에 대해서만 사용할 수 있습니다.
+- **정보**: 현재 Azure Backup 서비스에 의해 생성 된 정보 경고가 없습니다.
 
 ## <a name="notification-for-backup-alerts"></a>백업 경고에 대 한 알림
 

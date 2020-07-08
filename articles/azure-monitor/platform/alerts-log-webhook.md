@@ -7,12 +7,11 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84323674"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고가 생성 되](alerts-log.md)면 [작업 그룹을 사용](action-groups.md) 하 여 하나 이상의 작업을 수행 하는 옵션을 구성할 수 있습니다. 이 문서에서는 사용 가능한 다양 한 웹 후크 작업을 설명 하 고 사용자 지정 JSON 기반 webhook를 구성 하는 방법을 보여 줍니다.
@@ -44,19 +43,23 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 | *AlertThresholdOperator* |#thresholdoperator |보다 큼 또는 보다 작음을 사용 하는 경고 규칙에 대 한 임계값 연산자입니다. |
 | *AlertThresholdValue* |#thresholdvalue |경고 규칙에 대한 임계값입니다. |
 | *LinkToSearchResults* |#linktosearchresults |경고를 만든 쿼리에서 레코드를 반환 하는 분석 포털에 대 한 링크입니다. |
+| *LinkToSearchResultsAPI* |#linktosearchresultsapi |경고를 만든 쿼리에서 레코드를 반환 하는 분석 API에 대 한 링크입니다. |
+| *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |경고를 만든 차원 값 조합 별로 필터링 된 쿼리에서 레코드를 반환 하는 분석 포털에 대 한 링크입니다. |
+| *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |경고를 만든 차원 값 조합 별로 필터링 된 쿼리에서 레코드를 반환 하는 분석 API에 대 한 링크입니다. |
 | *ResultCount* |#searchresultcount |검색 결과의 레코드 수입니다. |
 | *검색 간격 종료 시간* |#searchintervalendtimeutc |UTC 형식의 쿼리에 대 한 종료 시간 (mm/dd/yyyy HH: mm: ss AM/PM 형식)입니다. |
 | *검색 간격* |#searchinterval |경고 규칙에 대 한 시간 창에 HH: mm: ss 형식을 사용 합니다. |
 | *검색 간격 시작 시간* |#searchintervalstarttimeutc |UTC 형식의 쿼리 시작 시간 (mm/dd/yyyy HH: mm: ss AM/PM 형식)입니다. 
 | *SearchQuery* |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
-| *SearchResults* |"IncludeSearchResults": true|"IncludeSearchResults": true가 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 된 경우 쿼리를 통해 JSON 테이블로 반환 되는 레코드는 처음 1000 레코드로 제한 됩니다. |
+| *SearchResults* |"IncludeSearchResults": true|처음 1000 레코드로 제한 되는 JSON 테이블로 쿼리를 통해 반환 된 레코드입니다. "IncludeSearchResults": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
+| *차원만* |"IncludeDimensions": true|JSON 섹션으로 해당 경고를 트리거한 차원 값 조합입니다. "IncludeDimensions": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
 | *경고 유형*| #alerttype | [메트릭 측정](alerts-unified-log.md#metric-measurement-alert-rules) 또는 [결과 수](alerts-unified-log.md#number-of-results-alert-rules)로 구성 된 로그 경고 규칙의 유형입니다.|
 | *WorkspaceID* |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
-| *응용 프로그램 ID* |#applicationid |Application Insights 앱의 ID입니다. |
+| *애플리케이션 ID* |#applicationid |Application Insights 앱의 ID입니다. |
 | *구독 ID* |#subscriptionid |사용 되는 Azure 구독의 ID입니다. 
 
 > [!NOTE]
-> *Linktosearchresults* 는 *searchquery*, *search Interval StartTime*및 URL의 *검색 간격 종료 시간과* 같은 매개 변수를 분석 섹션에서 볼 수 있도록 Azure Portal에 전달 합니다. Azure Portal의 URI 크기 제한은 약 2000 자입니다. 매개 변수 값이 제한을 초과 하면 포털에서 경고에 제공 된 링크를 열지 *않습니다* . 분석 포털에서 결과를 볼 수 있도록 정보를 수동으로 입력할 수 있습니다. 또는 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 또는 [Log Analytics REST API](/rest/api/loganalytics/) 를 사용 하 여 결과를 프로그래밍 방식으로 검색할 수 있습니다. 
+> 제공 된 링크는 URL의 *Searchquery*, *search Interval StartTime*및 *search interval 종료 시간과* 같은 매개 변수를 Azure Portal 또는 API에 전달 합니다.
 
 예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다. 이 webhook가 호출 하는 서비스에는이 매개 변수가 필요 합니다.
 
@@ -88,9 +91,9 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 
 ```json
 {
-    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule",
-    "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+    "SubscriptionId": "12345a-1234b-123c-123d-12345678e",
+    "AlertRuleName": "AcmeRule",
+    "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -98,28 +101,56 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
     "ResultCount": 2,
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+    "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
     "Description": "log alert rule",
     "Severity": "Warning",
-    "SearchResult":
+    "AffectedConfigurationItems": [
+        "INC-Gen2Alert"
+    ],
+    "Dimensions": [
         {
-        "tables":[
-                    {"name":"PrimaryResult","columns":
-                        [
-                        {"name":"$table","type":"string"},
-                        {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"}
-                        ],
-                    "rows":
-                        [
-                            ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
-                            ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
-                        ]
+            "name": "Computer",
+            "value": "INC-Gen2Alert"
+        }
+    ],
+    "SearchResult": {
+        "tables": [
+            {
+                "name": "PrimaryResult",
+                "columns": [
+                    {
+                        "name": "$table",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Computer",
+                        "type": "string"
+                    },
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
                     }
+                ],
+                "rows": [
+                    [
+                        "Fabrikam",
+                        "33446677a",
+                        "2018-02-02T15:03:12.18Z"
+                    ],
+                    [
+                        "Contoso",
+                        "33445566b",
+                        "2018-02-02T15:16:53.932Z"
+                    ]
                 ]
-        },
-    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+            }
+        ]
+    },
+    "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
     "AlertType": "Metric measurement"
- }
+}
  ```
 
 > [!NOTE]
@@ -131,39 +162,64 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
     
 ```json
 {
-    "schemaId":"Microsoft.Insights/LogAlert","data":
-    { 
-    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule",
-    "SearchQuery":"requests | where resultCode == \"500\"",
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "3",
-    "SearchResult":
-        {
-        "tables":[
-                    {"name":"PrimaryResult","columns":
+    "schemaId": "Microsoft.Insights/LogAlert",
+    "data": {
+        "SubscriptionId": "12345a-1234b-123c-123d-12345678e",
+        "AlertRuleName": "AcmeRule",
+        "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
+        "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+        "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+        "AlertThresholdOperator": "Greater Than",
+        "AlertThresholdValue": 0,
+        "ResultCount": 2,
+        "SearchIntervalInSeconds": 3600,
+        "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+        "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+        "Description": null,
+        "Severity": "3",
+        "Dimensions": [
+            {
+                "name": "IP",
+                "value": "1.1.1.1"
+            }
+        ],
+        "SearchResult": {
+            "tables": [
+                {
+                    "name": "PrimaryResult",
+                    "columns": [
+                        {
+                            "name": "$table",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "Timestamp",
+                            "type": "datetime"
+                        }
+                    ],
+                    "rows": [
                         [
-                        {"name":"$table","type":"string"},
-                        {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"}
+                            "Fabrikam",
+                            "33446677a",
+                            "2018-02-02T15:03:12.18Z"
                         ],
-                    "rows":
                         [
-                            ["Fabrikam","33446677a","2018-02-02T15:03:12.18Z"],
-                            ["Contoso","33445566b","2018-02-02T15:16:53.932Z"]
+                            "Contoso",
+                            "33445566b",
+                            "2018-02-02T15:16:53.932Z"
                         ]
-                    }
-                ]
+                    ]
+                }
+            ]
         },
-    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
-    "AlertType": "Number of results"
+        "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
+        "AlertType": "Metric measurement"
     }
 }
 ```

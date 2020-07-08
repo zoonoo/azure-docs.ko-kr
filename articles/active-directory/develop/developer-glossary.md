@@ -12,12 +12,11 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84308629"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft id 플랫폼 개발자 용어집
 
@@ -140,7 +139,7 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 권한 요청은 원하는 "위임 된 권한" 및 "응용 프로그램 사용 권한" (후자는 전역 관리자 역할의 멤버 자격이 필요 함)을 선택 하 여 [Azure Portal][AZURE-portal]의 응용 프로그램에 대 한 **API 사용 권한** 페이지에서 구성 됩니다. [공용 클라이언트](#client-application)는 자격 증명을 안전하게 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 애플리케이션 권한을 모두 요청할 수 있습니다. 클라이언트의 [애플리케이션 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][Graph-App-Resource]에 저장할 수 있습니다.
 
-## <a name="refresh-token"></a>토큰 새로 고침
+## <a name="refresh-token"></a>새로 고침 토큰
 
 액세스 토큰이 만료 되기 전에 새 [액세스 토큰](#access-token) 을 요청 하기 위해 [권한 부여 서버](#authorization-server)에서 발급 하 고 [클라이언트 응용 프로그램](#client-application) 에서 사용 하는 [보안 토큰](#security-token) 형식입니다. 일반적으로 [JWT (JSON Web Token 형식)][JWT]입니다.
 
@@ -202,7 +201,7 @@ Azure AD 디렉터리의 인스턴스는 Azure AD 테넌트라고 합니다. 다
 * 사용자 계정 및 등록된 애플리케이션의 인증
 * OAuth2 및 SAML을 포함한 다양한 프로토콜을 지원하는 데 필요한 REST 엔드포인트([권한 부여 엔드포인트](#authorization-endpoint), [토큰 엔드포인트](#token-endpoint) 및 [다중 테넌트 애플리케이션](#multi-tenant-application)에서 사용하는 "일반" 엔드포인트 포함)
 
-Azure AD 테넌트는 등록 시 Azure 및 Office 365 구독으로 생성/연결되어 구독에 대한 ID 및 액세스 관리 기능을 제공합니다. Azure 구독 관리자는 Azure Portal을 통해 Azure AD 테넌트를 추가로 만들 수도 있습니다. 테넌트에 대한 액세스 권한을 가질 수 있는 다양한 방법에 대한 자세한 내용은 [Azure Active Directory 테넌트를 얻는 방법][AAD-How-To-Tenant]을 참조하세요. 구독과 Azure AD 테넌트 간의 관계에 대한 자세한 내용은 [Azure Active Directory와 Azure 구독을 연결하는 방법][AAD-How-Subscriptions-Assoc]을 참조하세요.
+Azure AD 테넌트는 등록 시 Azure 및 Office 365 구독으로 생성/연결되어 구독에 대한 ID 및 액세스 관리 기능을 제공합니다. Azure 구독 관리자는 Azure Portal을 통해 Azure AD 테넌트를 추가로 만들 수도 있습니다. 테넌트에 대한 액세스 권한을 가질 수 있는 다양한 방법에 대한 자세한 내용은 [Azure Active Directory 테넌트를 얻는 방법][AAD-How-To-Tenant]을 참조하세요. 구독과 azure AD 테 넌 트 간의 관계에 대 한 자세한 내용 및 Azure AD 테 넌 트에 구독을 연결 하거나 추가 하는 방법에 대 한 지침은 [Azure Active Directory 테 넌 트에 azure 구독 연결 또는 추가][AAD-How-Subscriptions-Assoc] 를 참조 하세요.
 
 ## <a name="token-endpoint"></a>토큰 엔드포인트
 

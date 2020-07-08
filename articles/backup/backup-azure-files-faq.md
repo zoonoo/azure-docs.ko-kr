@@ -3,12 +3,11 @@ title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488701"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 
@@ -56,7 +55,7 @@ Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 �
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>삭제된 Azure 파일 공유에서 복구할 수 있나요?
 
-Azure 파일 공유가 삭제되면 삭제될 백업 목록이 표시되고 확인이 요청됩니다. 현재 삭제된 Azure 파일 공유는 복원할 수 없습니다.
+파일 공유가 일시 삭제 된 상태 이면 먼저 파일 공유의 삭제를 취소 하 여 복원 작업을 수행 해야 합니다. 삭제 취소 작업은 파일 공유를 특정 시점으로 복원할 수 있는 활성 상태로 전환 합니다. 파일 공유의 삭제를 취소 하는 방법을 알아보려면 [이 링크](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) 를 방문 하거나 [삭제 취소 파일 공유 스크립트](./scripts/backup-powershell-script-undelete-file-share.md)를 참조 하세요. 파일 공유가 영구적으로 삭제 되 면 콘텐츠와 스냅숏을 복원할 수 없습니다.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Azure 파일 공유에 대한 보호를 중지한 경우 백업에서 복원할 수 있나요?
 
@@ -157,8 +156,4 @@ Azure Backup에서 만든 모든 스냅샷은 포털의 스냅샷 보기, PowerS
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Backup의 다른 영역에 대한 자세한 내용은 다음 백업 FAQ를 참조하세요.
-
-- [Recovery Services 자격 증명 모음 FAQ](backup-azure-backup-faq.md)
-- [Azure VM 백업 FAQ](backup-azure-vm-backup-faq.md)
-- [Azure Backup 에이전트 FAQ](backup-azure-file-folder-backup-faq.md)
+- [Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결](troubleshoot-azure-files.md)

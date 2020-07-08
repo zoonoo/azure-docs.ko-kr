@@ -5,22 +5,21 @@ services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a70b8112af201a49e7eece8b689e75102ec55880
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b28765c9ac4fa664b84c456c31ee10e0e9e19003
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327557"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465933"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Spark, HDInsight & Azure Data Lake Storage Gen2
 
 Spark에서 성능을 조정할 때 클러스터에서 실행될 앱 수를 고려해야 합니다.  기본적으로 HDI 클러스터에서 4개의 앱을 동시에 실행할 수 있습니다(참고: 기본 설정은 변경될 수 있음).  사용할 앱 수를 줄여서 기본 설정을 재정의하고 해당 앱에 더 많은 클러스터를 사용하도록 할 수 있습니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.

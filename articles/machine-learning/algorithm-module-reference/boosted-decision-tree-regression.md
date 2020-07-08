@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: cb7f11f184ba8e19eb8786817da58edf8ddee44e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84448634"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>승격 된 의사 결정 트리 회귀 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 부스트를 사용 하는 회귀 트리의 앙상블을 만듭니다. *부스트* 는 각 트리가 이전 트리에 종속 됨을 의미 합니다. 알고리즘은 앞에 오는 트리의 나머지를 맞추는 방법으로 학습 합니다. 따라서 의사 결정 트리 앙상블이 승격되면 정확도는 개선되지만 적용 범위가 감소할 약간의 위험이 따릅니다.  
   
@@ -93,16 +92,16 @@ ms.locfileid: "82137096"
     > **매개 변수 범위** 옵션을 선택 하 고 매개 변수에 대해 단일 값을 입력 하는 경우 다른 매개 변수가 값 범위에서 변경 되더라도 지정한 단일 값은 스윕 전체에서 사용 됩니다.
     
 
-10. 파이프라인을 제출 합니다.  
+10. 파이프라인을 제출합니다.  
   
 ## <a name="results"></a>결과
 
 학습 완료 후:
 
-+ 모델을 점수 매기기에 사용 하려면 [점수 모델](./score-model.md)에 연결 하 여 새 입력 예제에 대 한 값을 예측 합니다.
++ 모델을 점수 매기기에 사용 하려면 모델을 [점수](./score-model.md)매기기 [에 연결 하](train-model.md) 여 새 입력 예제에 대 한 값을 예측 합니다.
 
 + 학습 된 모델의 스냅숏을 저장 하려면 **학습 된 모델** 의 오른쪽 패널에서 **출력** 탭을 선택 하 고 **데이터 집합 등록** 아이콘을 클릭 합니다. 학습 된 모델의 복사본은 모듈 트리에 모듈로 저장 되며 파이프라인의 연속 실행에서 업데이트 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

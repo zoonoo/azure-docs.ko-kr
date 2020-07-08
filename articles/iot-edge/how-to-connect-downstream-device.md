@@ -4,29 +4,28 @@ description: 다운스트림 또는 리프 장치를 Azure IoT Edge 게이트웨
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/08/2019
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309223"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
-이 문서에서는 다운스트림 장치와 IoT Edge 투명 게이트웨이 간에 트러스트 된 연결을 설정 하는 방법에 대 한 지침을 제공 합니다. 투명 게이트웨이 시나리오에서 하나 이상의 장치는 IoT Hub에 대 한 연결을 유지 하는 단일 게이트웨이 장치를 통해 메시지를 전달할 수 있습니다. 다운스트림 디바이스는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다.
+이 문서에서는 다운스트림 장치와 IoT Edge 투명 게이트웨이 간에 트러스트 된 연결을 설정 하는 방법에 대 한 지침을 제공 합니다. 투명 게이트웨이 시나리오에서 하나 이상의 장치는 IoT Hub에 대 한 연결을 유지 하는 단일 게이트웨이 장치를 통해 메시지를 전달할 수 있습니다.
 
-성공적인 투명 게이트웨이 연결을 설정 하는 세 가지 일반적인 단계가 있습니다. 이 문서에서는 세 번째 단계를 다룹니다.
+성공적인 투명 게이트웨이 연결을 설정하기 위한 세 가지 일반적인 단계가 있습니다. 이 문서에서는 세 번째 단계를 다룹니다.
 
-1. 게이트웨이 장치는 다운스트림 장치에 안전 하 게 연결 하 고, 다운스트림 장치에서 통신을 수신 하 고, 메시지를 적절 한 대상으로 라우팅합니다. 자세한 내용은 [투명 한 게이트웨이로 작동 하도록 IoT Edge 장치 구성](how-to-create-transparent-gateway.md)을 참조 하세요.
-2. 다운스트림 장치는 IoT Hub을 사용 하 여 인증 하 고 게이트웨이 장치를 통해 통신 하는 것을 알 수 있도록 장치 id가 필요 합니다. 자세한 내용은 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)을 참조 하세요.
-3. **다운스트림 장치는 게이트웨이 장치에 안전 하 게 연결 해야 합니다.**
+1. 다운스트림 장치를 안전 하 게 연결할 수 있도록 게이트웨이 장치를 서버로 구성 합니다. 다운스트림 장치에서 메시지를 수신 하 고 적절 한 대상으로 라우팅하는 게이트웨이를 설정 합니다. 자세한 내용은 [투명 게이트웨이로 작동하도록 IoT Edge 디바이스 구성](how-to-create-transparent-gateway.md)을 참조하세요.
+2. IoT Hub를 사용 하 여 인증할 수 있도록 다운스트림 장치에 대 한 장치 id를 만듭니다. 게이트웨이 장치를 통해 메시지를 보내도록 다운스트림 장치를 구성 합니다. 자세한 내용은 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)을 참조 하세요.
+3. **다운스트림 장치를 게이트웨이 장치에 연결 하 고 메시지 보내기를 시작 합니다.**
 
 이 문서에서는 다운스트림 디바이스 연결과 관련된 일반적인 문제를 식별하고, 다음을 통해 다운스트림 디바이스를 설정하는 방법을 안내합니다.
 
@@ -38,23 +37,23 @@ ms.locfileid: "82583303"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 에서 생성 된 **azure-iot-test-only** 인증서 파일을 사용 하 여 다운스트림 장치에서 사용 가능한 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다.
+* 장치 CA 인증서를 생성 하는 데 사용 된 루트 CA 인증서 파일을 사용 하 여 다운스트림 장치에서 사용할 수 있는 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다. 데모 인증서를 사용 하는 경우 루트 CA 인증서를 **azure-iot-test-only**라고 합니다.
 * [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)에 설명 된 대로 게이트웨이 장치를 가리키는 수정 된 연결 문자열이 있어야 합니다.
 
 ## <a name="prepare-a-downstream-device"></a>다운스트림 디바이스 준비
 
-다운스트림 디바이스는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다. 그러나 다른 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
+다운스트림 디바이스는 Azure IoT Hub 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다. 그러나 다른 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
 
 >[!NOTE]
->IoT Hub에 등록 된 id를 가진 IoT 장치는 [모듈](../iot-hub/iot-hub-devguide-module-twins.md) 쌍을 사용 하 여 단일 장치에서 다른 프로세스, 하드웨어 또는 기능을 격리할 수 있습니다. IoT Edge 게이트웨이는 대칭 키 인증을 사용 하지만 x.509 인증서 인증을 사용 하지 않는 다운스트림 모듈 연결을 지원 합니다.
+>IoT Hub에 등록 된 IoT 장치는 [모듈](../iot-hub/iot-hub-devguide-module-twins.md) 쌍을 사용 하 여 단일 장치에서 여러 프로세스, 하드웨어 또는 기능을 격리할 수 있습니다. IoT Edge 게이트웨이는 대칭 키 인증을 사용 하지만 x.509 인증서 인증을 사용 하지 않는 다운스트림 모듈 연결을 지원 합니다.
 
 다운스트림 디바이스를 IoT Edge 게이트웨이에 연결하려면 다음 두 가지 항목이 필요합니다.
 
 * 게이트웨이에 연결하기 위한 정보가 추가된 IoT Hub 디바이스 연결 문자열로 구성된 디바이스 또는 애플리케이션.
 
-    이 단계는 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)에 설명 되어 있습니다.
+    이 단계는 이전 문서에서 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md#retrieve-and-modify-connection-string)에 완료 되었습니다.
 
-* 장치 또는 응용 프로그램은 게이트웨이 장치에 대 한 TLS 연결의 유효성을 검사 하기 위해 게이트웨이의 **루트 CA** 인증서를 신뢰 해야 합니다.
+* 장치 또는 응용 프로그램은 게이트웨이 장치에 대 한 TLS (전송 계층 보안) 연결의 유효성을 검사 하기 위해 게이트웨이의 **루트 CA 인증서** 를 신뢰 해야 합니다.
 
     이 단계는이 문서의 나머지 부분에서 자세히 설명 합니다. 이 단계는 운영 체제의 인증서 저장소에 CA 인증서를 설치 하거나 Azure IoT Sdk를 사용 하 여 응용 프로그램 내에서 인증서를 참조 하 여 (특정 언어의 경우) 두 가지 방법 중 하나로 수행할 수 있습니다.
 
@@ -62,9 +61,9 @@ ms.locfileid: "82583303"
 
 IoT Edge에 다운스트림 디바이스를 안전하게 연결하는 문제는 인터넷을 통해 발생하는 다른 보안 클라이언트/서버 통신과 동일합니다. 클라이언트와 서버는 [TLS(전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security)를 사용하여 인터넷을 통해 안전하게 통신합니다. TLS는 인증서라고 하는 표준 [PKI(공용 키 인프라)](https://en.wikipedia.org/wiki/Public_key_infrastructure) 구문을 사용하여 빌드되었습니다. TLS는 매우 관련 된 사양 이며 두 끝점의 보안과 관련 된 광범위 한 항목을 다룹니다. 이 섹션에서는 장치를 IoT Edge 게이트웨이에 안전 하 게 연결 하는 것과 관련 된 개념을 요약 합니다.
 
-클라이언트를 서버에 연결할 때 서버에서는 *서버 인증서 체인*이라는 인증서의 체인을 제공합니다. 인증서 체인은 일반적으로 CA(루트 인증 기관) 인증서, 하나 이상의 중간 CA 인증서 및 마지막으로 자체 서버 인증서로 구성됩니다. 클라이언트는 전체 서버 인증서 체인을 암호화된 방식으로 확인하여 서버와의 신뢰를 설정합니다. 서버 인증서 체인의이 클라이언트 유효성 검사를 *서버 체인 유효성 검사*라고 합니다. 클라이언트는 *소유 증명*이라는 프로세스에서 서버 인증서와 연결 된 개인 키의 소유를 증명 하는 서비스를 요구 합니다. 서버 체인 유효성 검사와 소유 증명의 조합을 *서버 인증*이라고 합니다. 서버 인증서 체인의 유효성을 검사하려면 서버 인증서를 만드는(또는 발행하는) 데 사용된 루트 CA 인증서의 복사본이 클라이언트에 있어야 합니다. 일반적으로 웹 사이트에 연결할 때 브라우저는 일반적으로 사용되는 CA 인증서로 미리 구성되므로 클라이언트는 원활히 프로세스됩니다.
+클라이언트를 서버에 연결할 때 서버에서는 *서버 인증서 체인*이라는 인증서의 체인을 제공합니다. 인증서 체인은 일반적으로 CA(루트 인증 기관) 인증서, 하나 이상의 중간 CA 인증서 및 마지막으로 자체 서버 인증서로 구성됩니다. 클라이언트는 전체 서버 인증서 체인을 암호화된 방식으로 확인하여 서버와의 신뢰를 설정합니다. 서버 인증서 체인의이 클라이언트 유효성 검사를 *서버 체인 유효성 검사*라고 합니다. 클라이언트는 서버에서 *소유 증명*이라는 프로세스의 서버 인증서와 연결 된 개인 키의 소유를 증명 하는 데 문제가 발생 합니다. 서버 체인 유효성 검사와 소유 증명의 조합을 *서버 인증*이라고 합니다. 서버 인증서 체인의 유효성을 검사하려면 서버 인증서를 만드는(또는 발행하는) 데 사용된 루트 CA 인증서의 복사본이 클라이언트에 있어야 합니다. 일반적으로 웹 사이트에 연결할 때 브라우저는 일반적으로 사용되는 CA 인증서로 미리 구성되므로 클라이언트는 원활히 프로세스됩니다.
 
-디바이스를 Azure IoT Hub에 연결할 때 디바이스는 클라이언트이며 IoT Hub 클라우드 서비스는 서버입니다. IoT Hub 클라우드 서비스는 공개적으로 널리 사용되는 **Baltimore CyberTrust Root**라는 루트 CA 인증서로 지원됩니다. 대부분의 디바이스에 IoT Hub CA 인증서가 이미 설치되어 있으므로 많은 TLS 구현(OpenSSL Schannel, LibreSSL)은 자동으로 서버 인증서 유효성 검사 동안에 해당 인증서를 사용합니다. IoT Hub에 성공적으로 연결할 수 있는 디바이스는 IoT Edge 게이트웨이에 연결을 시도하는 문제가 있을 수 있습니다.
+디바이스를 Azure IoT Hub에 연결할 때 디바이스는 클라이언트이며 IoT Hub 클라우드 서비스는 서버입니다. IoT Hub 클라우드 서비스는 공개적으로 널리 사용되는 **Baltimore CyberTrust Root**라는 루트 CA 인증서로 지원됩니다. 대부분의 디바이스에 IoT Hub CA 인증서가 이미 설치되어 있으므로 많은 TLS 구현(OpenSSL Schannel, LibreSSL)은 자동으로 서버 인증서 유효성 검사 동안에 해당 인증서를 사용합니다. 그러나 IoT Hub에 성공적으로 연결 된 장치에서 IoT Edge 게이트웨이에 연결 하는 데 문제가 있을 수 있습니다.
 
 디바이스를 IoT Edge 게이트웨이에 연결할 때 다운스트림 디바이스는 클라이언트이고 게이트웨이 디바이스는 서버입니다. 연산자(또는 사용자)는 Azure IoT Edge를 사용하여 적합하다고 판단되는 게이트웨이 인증서 체인을 빌드할 수 있습니다. 연산자는 Baltimore와 같은 공용 CA 인증서를 사용하거나 자체 서명된(또는 내부) 루트 CA 인증서를 사용하도록 선택할 수도 있습니다. 공용 CA 인증서는 종종 이와 관련된 비용이 있으므로 일반적으로 프로덕션 시나리오에서 사용됩니다. 자체 서명된 CA 인증서는 개발 및 테스트에 대해 기본 설정됩니다. 소개에 나열 된 투명 게이트웨이 설정 문서에서는 자체 서명 된 루트 CA 인증서를 사용 합니다.
 
@@ -106,7 +105,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 또한 인증서를 설치 하려면 **다음을 사용 합니다.**
 
 1. 시작 표시줄에서 **컴퓨터 인증서 관리**를 검색하고 선택합니다. **certlm**이라는 유틸리티가 열립니다.
-2. **인증서-로컬 컴퓨터** > 의**신뢰할 수 있는 루트 인증 기관**으로 이동 합니다.
+2. **인증서-로컬 컴퓨터의**  >  **신뢰할 수 있는 루트 인증 기관**으로 이동 합니다.
 3. **인증서**를 마우스 오른쪽 단추로 클릭하고 **모든 태스크** > **가져오기**를 선택합니다. 인증서 가져오기 마법사가 열립니다.
 4. 지시에 따라 단계를 수행하고 인증서 파일(`<path>/azure-iot-test-only.root.ca.cert.pem`)을 가져옵니다. 완료되면 "가져오기에 성공했습니다." 메시지가 표시됩니다.
 
@@ -124,7 +123,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 * 다운스트림 디바이스의 어딘가에 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
 
-    예: `<path>/azure-iot-test-only.root.ca.cert.pem`
+    예: `<path>/azure-iot-test-only.root.ca.cert.pem`.
 
 ### <a name="nodejs"></a>NodeJS
 
@@ -186,7 +185,7 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 이 섹션에서는 Azure IoT Python 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다.
 
 1. [Python 용 Azure IoT 장치 SDK 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios)의 **send_message_downstream** 에 대 한 샘플을 가져옵니다.
-2. Python 스크립트 `IOTHUB_DEVICE_CONNECTION_STRING` 주석에 `IOTEDGE_ROOT_CA_CERT_PATH` 지정 된 대로 및 환경 변수를 설정 합니다.
+2. `IOTHUB_DEVICE_CONNECTION_STRING` `IOTEDGE_ROOT_CA_CERT_PATH` Python 스크립트 주석에 지정 된 대로 및 환경 변수를 설정 합니다.
 3. 장치에서 샘플을 실행 하는 방법에 대 한 추가 지침은 SDK 설명서를 참조 하세요.
 
 ## <a name="test-the-gateway-connection"></a>게이트웨이 연결 테스트
@@ -199,7 +198,7 @@ openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azu
 
 이 명령은 MQTTS (포트 8883)를 통한 연결을 테스트 합니다. 다른 프로토콜을 사용 하는 경우 필요에 따라 AMQPS (5671) 또는 HTTPS (433)에 대해 명령을 조정 합니다.
 
-체인의 모든 인증서에 대 한 정보를 포함 하 여이 명령의 출력은 길어질 수 있습니다. 연결에 성공 하면 또는 `Verification: OK` `Verify return code: 0 (ok)`와 같은 줄이 표시 됩니다.
+체인의 모든 인증서에 대 한 정보를 포함 하 여이 명령의 출력은 길어질 수 있습니다. 연결에 성공 하면 또는와 같은 줄이 표시 됩니다 `Verification: OK` `Verify return code: 0 (ok)` .
 
 ![게이트웨이 연결 확인](./media/how-to-connect-downstream-device/verification-ok.png)
 

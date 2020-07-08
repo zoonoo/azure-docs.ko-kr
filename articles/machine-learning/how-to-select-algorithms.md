@@ -5,17 +5,16 @@ description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: ad384896301e809940f6e99df2f5562cfdb6a6fe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 582d6077a4b84e5b2d8c0d69da7b00b807a355b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433147"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 알고리즘을 선택 하는 방법
 
@@ -46,27 +45,27 @@ Azure Machine Learning Algorithm 참고 자료 시트의 지침과 함께 솔루
 
 다음 표에는 분류, 회귀 및 클러스터링 제품군에서 알고리즘의 가장 중요 한 특성이 요약 되어 있습니다.
 
-| **알고리즘** | **높아집니다** | **학습 시간** | **선형성** | **매개 변수** | **참고 사항** |
+| **알고리즘** | **높아집니다** | **학습 시간** | **선형성** | **매개 변수** | **참고** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **분류 패밀리** | | | | | |
-| [2 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음  |Fast |예 |4 | |
-| [2 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |5 |더 느린 점수 매기기 시간을 표시 합니다. 누적 트리 예측의 디 어 지 잠금으로 인 한 더 느린 점수 매기기 시간 때문에 일대다 다중 클래스를 사용 하지 않는 것이 좋습니다. |
-| [2 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |6 |큰 메모리 공간 |
-| [2 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |8 | |
+| [2 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음  |빠름 |예 |4 | |
+| [2 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |5 |더 느린 점수 매기기 시간을 표시 합니다. 누적 트리 예측의 디 어 지 잠금으로 인 한 더 느린 점수 매기기 시간 때문에 일대다 다중 클래스를 사용 하지 않는 것이 좋습니다. |
+| [2 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |6 |큰 메모리 공간 |
+| [2 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
 | [2 클래스 평균 퍼셉트론](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |4 | |
-| [2 클래스 지원 벡터 컴퓨터](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |5 |큰 기능 집합의 적합 |
-| [다중 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
-| [다중 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |5 |더 느린 점수 매기기 시간 표시 |
-| [다중 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |6 | 적용 범위가 적은 몇 가지 위험으로 정확도를 향상 시키는 경향이 있습니다. |
-| [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |8 | |
+| [2 클래스 지원 벡터 컴퓨터](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |좋음 |빠름 |예 |5 |큰 기능 집합의 적합 |
+| [다중 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음 |빠름 |예 |4 | |
+| [다중 클래스 의사 결정 포리스트](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |5 |더 느린 점수 매기기 시간 표시 |
+| [다중 클래스 승격 된 의사 결정 트리](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |6 | 적용 범위가 적은 몇 가지 위험으로 정확도를 향상 시키는 경향이 있습니다. |
+| [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
 | [One-vs-all 다중 클래스](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |선택된 2클래스 메서드의 속성을 참조하세요. |
 | **회귀 제품군** | | | | | |
-| [선형 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
-| [의사 결정 포리스트 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|최고 |보통 |예 |5 | |
-| [승격 된 의사 결정 트리 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |6 |큰 메모리 공간 |
-| [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |8 | |
+| [선형 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |좋음 |빠름 |예 |4 | |
+| [의사 결정 포리스트 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|우수 |보통 |아니요 |5 | |
+| [승격 된 의사 결정 트리 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |6 |큰 메모리 공간 |
+| [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
 | **클러스터링 제품군** | | | | | |
-| [K-클러스터링을 의미 합니다.](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |최고 |보통 |예 |8 |클러스터링 알고리즘 |
+| [K-클러스터링을 의미 합니다.](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |우수 |보통 |예 |8 |클러스터링 알고리즘 |
 
 ## <a name="requirements-for-a-data-science-scenario"></a>데이터 과학 시나리오에 대 한 요구 사항
 

@@ -4,19 +4,18 @@ description: Azure AD ID 보호 다단계 인증 등록 정책을 구성하는 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84464337"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>방법: Azure Multi-Factor Authentication 등록 정책 구성
 
@@ -35,14 +34,14 @@ Azure Multi-Factor Authentication에 대 한 자세한 내용은 [azure Multi-Fa
 
 ## <a name="policy-configuration"></a>정책 구성
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
-1. **Azure Active Directory** > **Security**보안 > **id**보호 > **MFA 등록 정책**으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. **Azure Active Directory**  >  **보안**  >  **id 보호**  >  **MFA 등록 정책**으로 이동 합니다.
    1. **할당** 아래
       1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
          1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.
    1. **컨트롤** 에서
       1. **AZURE MFA 등록 필요** 확인란을 선택 했는지 확인 하 고 **선택**을 선택 합니다.
-   1. **정책을 적용 합니다** - **On** .
+   1. **정책 적용**  -  **설정**
    1. **저장**
 
 ## <a name="user-experience"></a>사용자 환경

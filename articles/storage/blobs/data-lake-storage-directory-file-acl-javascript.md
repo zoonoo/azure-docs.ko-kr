@@ -5,28 +5,27 @@ author: normesta
 ms.service: storage
 ms.date: 03/20/2020
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 04d0d23bdbdaeda6a4823c900badb3133ba9eeae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466071"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>JavaScript를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
 이 문서에서는 JavaScript를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
-[패키지 (노드 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
+[패키지 (노드 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-> * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
-> * Node.js 응용 프로그램에서이 패키지를 사용 하는 경우 node.js 8.0.0 이상이 필요 합니다.
+> * HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](data-lake-storage-quickstart-create-account.md)을 수행합니다.
+> * Node.js 응용 프로그램에서이 패키지를 사용 하는 경우 8.0.0 이상 Node.js 필요 합니다.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -36,7 +35,7 @@ ms.locfileid: "80061550"
 npm install @azure/storage-file-datalake
 ```
 
-이 문을 `storage-file-datalake` 코드 파일의 맨 위에 배치 하 여 패키지를 가져옵니다. 
+`storage-file-datalake`이 문을 코드 파일의 맨 위에 배치 하 여 패키지를 가져옵니다. 
 
 ```javascript
 const AzureStorageDataLake = require("@azure/storage-file-datalake");
@@ -67,7 +66,7 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 ```
 > [!NOTE]
-> 이 권한 부여 방법은 node.js 응용 프로그램에 대해서만 작동 합니다. 브라우저에서 코드를 실행 하려는 경우 AD (Azure Active Directory)를 사용 하 여 권한을 부여할 수 있습니다. 
+> 이 권한 부여 방법은 Node.js 응용 프로그램에만 적용 됩니다. 브라우저에서 코드를 실행 하려는 경우 AD (Azure Active Directory)를 사용 하 여 권한을 부여할 수 있습니다. 
 
 ### <a name="connect-by-using-azure-active-directory-ad"></a>Azure Active Directory (AD)를 사용 하 여 연결
 
@@ -94,7 +93,7 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 
 파일 시스템은 파일의 컨테이너 역할을 합니다. **FileSystemClient** 인스턴스를 가져온 다음 **FileSystemClient** 메서드를 호출 하 여 만들 수 있습니다.
 
-이 예에서는 라는 `my-file-system`파일 시스템을 만듭니다. 
+다음 예제에서는 `my-file-system`이라는 파일 시스템을 만듭니다. 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -112,7 +111,7 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 **Directoryclient** 인스턴스를 가져온 다음 **directoryclient. create** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
-이 예제에서는 라는 `my-directory` 디렉터리를 파일 시스템에 추가 합니다. 
+이 예제에서는 라는 디렉터리를 `my-directory` 파일 시스템에 추가 합니다. 
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {
@@ -128,7 +127,7 @@ async function CreateDirectory(fileSystemClient) {
 
 **Directoryclient. rename** 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
 
-이 예에서는 하위 디렉터리의 이름을 `my-directory-renamed`로 바꿉니다.
+이 예에서는 하위 디렉터리의 이름을로 바꿉니다 `my-directory-renamed` .
 
 ```javascript
 async function RenameDirectory(fileSystemClient) {
@@ -139,7 +138,7 @@ async function RenameDirectory(fileSystemClient) {
 }
 ```
 
-이 예에서는 라는 `my-directory-renamed` 디렉터리를 라는 `my-directory-2`디렉터리의 하위 디렉터리로 이동 합니다. 
+이 예에서는 라는 디렉터리를 `my-directory-renamed` 라는 디렉터리의 하위 디렉터리로 이동 `my-directory-2` 합니다. 
 
 ```javascript
 async function MoveDirectory(fileSystemClient) {
@@ -154,7 +153,7 @@ async function MoveDirectory(fileSystemClient) {
 
 **Directoryclient. delete** 메서드를 호출 하 여 디렉터리를 삭제 합니다.
 
-이 예에서는 라는 `my-directory`디렉터리를 삭제 합니다.   
+다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.   
 
 ```javascript
 async function DeleteDirectory(fileSystemClient) {
@@ -167,10 +166,10 @@ async function DeleteDirectory(fileSystemClient) {
 
 ## <a name="manage-a-directory-acl"></a>디렉터리 ACL 관리
 
-이 예제에서는 이름이 인 `my-directory`디렉터리의 ACL을 가져온 다음 설정 합니다. 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
+이 예제에서는 이름이 인 디렉터리의 ACL을 가져온 다음 설정 합니다 `my-directory` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
 
 > [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
 
 ```javascript
 async function ManageDirectoryACLs(fileSystemClient) {
@@ -221,9 +220,9 @@ async function ManageDirectoryACLs(fileSystemClient) {
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
-먼저 파일을 읽습니다. 이 예제에서는 node.js `fs` 모듈을 사용 합니다. 그런 다음 **FileClient** 인스턴스를 만든 다음 **FileClient** 메서드를 호출 하 여 대상 디렉터리에 파일 참조를 만듭니다. **FileClient** 메서드를 호출 하 여 파일을 업로드 합니다. **FileClient** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
+먼저 파일을 읽습니다. 이 예에서는 Node.js 모듈을 사용 `fs` 합니다. 그런 다음 **FileClient** 인스턴스를 만든 다음 **FileClient** 메서드를 호출 하 여 대상 디렉터리에 파일 참조를 만듭니다. **FileClient** 메서드를 호출 하 여 파일을 업로드 합니다. **FileClient** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
 
-이 예제에서는 라는 `my-directory`디렉터리에 텍스트 파일을 업로드 합니다.
+이 예제에서는 라는 디렉터리에 텍스트 파일을 업로드 `my-directory` 합니다.
 
 ```javascript
 async function UploadFile(fileSystemClient) {
@@ -249,10 +248,10 @@ async function UploadFile(fileSystemClient) {
 
 ## <a name="manage-a-file-acl"></a>파일 ACL 관리
 
-이 예제에서는 라는 `upload-file.txt`파일의 ACL을 가져온 다음 설정 합니다. 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
+이 예제에서는 라는 파일의 ACL을 가져온 다음 설정 합니다 `upload-file.txt` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
 
 > [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
 
 ```javascript
 async function ManageFileACLs(fileSystemClient) {
@@ -303,10 +302,10 @@ await fileClient.setAccessControl(acl);
 
 ## <a name="download-from-a-directory"></a>디렉터리에서 다운로드
 
-먼저 다운로드 하려는 파일을 나타내는 **FileSystemClient** 인스턴스를 만듭니다. **FileSystemClient** 메서드를 사용 하 여 파일을 읽습니다. 그런 다음 파일을 작성 합니다. 이 예제에서는 node.js `fs` 모듈을 사용 하 여이 작업을 수행 합니다. 
+먼저 다운로드 하려는 파일을 나타내는 **FileSystemClient** 인스턴스를 만듭니다. **FileSystemClient** 메서드를 사용 하 여 파일을 읽습니다. 그런 다음 파일을 작성 합니다. 이 예에서는 Node.js 모듈을 사용 하 여이 `fs` 작업을 수행 합니다. 
 
 > [!NOTE]
-> 이 파일 다운로드 방법은 node.js 응용 프로그램에 대해서만 작동 합니다. 브라우저에서 코드를 실행 하려면 브라우저에서이 작업을 수행 하는 방법에 대 한 예제는 JavaScript 추가 정보 파일 [Azure Storage 파일 Data Lake 클라이언트 라이브러리](https://www.npmjs.com/package/@azure/storage-file-datalake) 를 참조 하세요. 
+> 이 파일 다운로드 방법은 Node.js 응용 프로그램에 대해서만 작동 합니다. 브라우저에서 코드를 실행 하려면 브라우저에서이 작업을 수행 하는 방법에 대 한 예제는 JavaScript 추가 정보 파일 [Azure Storage 파일 Data Lake 클라이언트 라이브러리](https://www.npmjs.com/package/@azure/storage-file-datalake) 를 참조 하세요. 
 
 ```javascript
 async function DownloadFile(fileSystemClient) {
@@ -341,7 +340,7 @@ async function DownloadFile(fileSystemClient) {
 
 ## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
 
-이 예에서는 라는 `my-directory`디렉터리에 있는 각 디렉터리와 파일의 이름을 출력 합니다.
+이 예에서는 라는 디렉터리에 있는 각 디렉터리와 파일의 이름을 출력 `my-directory` 합니다.
 
 ```javascript
 async function ListFilesInDirectory(fileSystemClient) {
@@ -358,7 +357,7 @@ async function ListFilesInDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [패키지 (노드 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 * [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)

@@ -4,16 +4,15 @@ description: 프로덕션 배포를 준비 하려면 Azure IoT Edge 장치에서
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/02/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c18c3d560adb3c3cae54bda808ee5842c260fd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79539209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84308781"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
 
@@ -23,15 +22,15 @@ ms.locfileid: "79539209"
 
 IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 테스트할 수 있도록 장치가 임시 인증서로 설정 됩니다.
 이러한 임시 인증서는 90 일 후에 만료 되거나 컴퓨터를 다시 시작 하 여 다시 설정할 수 있습니다.
-장치를 프로덕션 시나리오로 이동할 준비가 되었거나 게이트웨이 시나리오를 만들려는 경우 고유한 인증서를 제공 해야 합니다.
+프로덕션 시나리오로 이동 하거나 게이트웨이 장치를 만들려는 경우 사용자 고유의 인증서를 제공 해야 합니다.
 이 문서에서는 IoT Edge 장치에 인증서를 설치 하는 단계를 보여 줍니다.
 
-IoT Edge 시나리오에서 다양 한 유형의 인증서 및 해당 역할에 대해 자세히 알아보려면 [Azure IoT Edge 인증서를 사용 하는 방법 이해](iot-edge-certs.md)를 참조 하세요.
+여러 종류의 인증서 및 해당 역할에 대 한 자세한 내용은 [Azure IoT Edge에서 인증서를 사용 하는 방법 이해](iot-edge-certs.md)를 참조 하세요.
 
 >[!NOTE]
 >이 문서 전체에서 사용 되는 "루트 CA" 라는 용어는 IoT 솔루션에 대 한 인증서 체인의 최상위 권한 공용 인증서를 나타냅니다. 게시 된 인증 기관의 인증서 루트나 조직의 인증 기관 루트를 사용할 필요는 없습니다. 대부분의 경우에는 실제로 중간 CA 공용 인증서입니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * [Windows](how-to-install-iot-edge-windows.md) 또는 [Linux](how-to-install-iot-edge-linux.md)에서 실행 되는 IoT Edge 장치
 * 루트 CA (인증 기관) 인증서가 Baltimore, Verisign, DigiCert 또는 GlobalSign과 같은 신뢰할 수 있는 상용 인증 기관에서 구매한 CA (인증 기관) 인증서가 있어야 합니다.
@@ -62,31 +61,31 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
 
 1. 3 개의 인증서 및 키 파일을 IoT Edge 장치에 복사 합니다.
 
-   [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 와 같은 서비스를 사용 하거나 [보안 복사 프로토콜과](https://www.ssh.com/ssh/scp/) 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
+   [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
 
 1. IoT Edge 보안 디먼 구성 파일을 엽니다.
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. Config.xml 파일의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 전체 경로로 설정 합니다. 네 줄 `#` 의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 다음은 그 예입니다.
+1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예를 들어:
 
    * Windows:
 
       ```yaml
       certificates:
-        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
-        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
-        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///C:/<path>/<device CA cert>"
+        device_ca_pk: "file:///C:/<path>/<device CA key>"
+        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
       ```
 
    * Linux:
 
       ```yaml
       certificates:
-        device_ca_cert: "<path>/device-ca.cert.pem"
-        device_ca_pk: "<path>/device-ca.key.pem"
-        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///<path>/<device CA cert>"
+        device_ca_pk: "file:///<path>/<device CA key>"
+        trusted_ca_certs: "file:///<path>/<root CA cert>"
       ```
 
 1. Linux 장치에서 사용자 **iotedge** 에 인증서가 포함 된 디렉터리에 대 한 읽기 권한이 있는지 확인 합니다.
@@ -125,7 +124,7 @@ certificates:
 
 Config.xml 파일에서 플래그를 지정한 후에는 다음 단계를 수행 합니다.
 
-1. `hsm` 폴더의 내용을 삭제 합니다.
+1. 폴더의 내용을 삭제 `hsm` 합니다.
 
    Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 

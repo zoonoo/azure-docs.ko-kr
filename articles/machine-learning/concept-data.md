@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
-ms.openlocfilehash: e41d00a31a0065e2923259cbb0bb36986cbb2ec8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84552635"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -37,7 +37,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 3. 기계 학습 실험에서 해당 데이터 집합을 사용 하려면 다음 중 하나를 수행할 수 있습니다.
     1. 모델 학습을 위해 실험의 계산 대상에 탑재 합니다.
 
-        **디스크나** 
+        **OR** 
 
     1. 자동화 된 기계 학습 (자동화 된 기계 학습) 실험 실행, 기계 학습 파이프라인 또는 [Azure Machine Learning 디자이너](concept-designer.md)와 같은 Azure Machine Learning 솔루션에서 직접 사용 하세요.
 
@@ -57,7 +57,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 + Azure Blob 컨테이너
 + Azure 파일 공유
-+ Azure Data Lake
++ Azure 데이터 레이크
 + Azure Data Lake Gen2
 + Azure SQL Database
 + Azure Database for PostgreSQL

@@ -4,22 +4,21 @@ description: Hive 성능 조정 지침을 Azure Data Lake Storage Gen2 합니다
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 66042568cede364c16302fbd85751de4113bbe0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9a54565f320ae45a4a8297a40027c5e6b3b25202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465969"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Hive, HDInsight & Azure Data Lake Storage Gen2
 
 서로 다른 여러 사용 사례 간에 적절한 성능을 제공하도록 기본 설정이 지정되었습니다.  I/O 집약적 쿼리의 경우 Azure Data Lake Storage Gen2를 사용하여 Hive를 튜닝함으로써 더 나은 성능을 얻을 수 있습니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md) 를 참조 하세요.

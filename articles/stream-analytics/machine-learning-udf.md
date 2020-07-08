@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83874079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488752"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 
@@ -24,7 +23,7 @@ Azure Stream Analytics 작업에서 UDF(사용자 정의 함수)로 기계 학�
 
 1. Azure Machine Learning을 사용하여 [모델을 웹 서비스로 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)합니다.
 
-2. 채점 스크립트에는 Azure Machine Learning에서 스키마 사양을 생성하는 데 사용되는 [샘플 입력 및 출력](../machine-learning/how-to-deploy-and-where.md#example-entry-script)이 있어야 합니다. Stream Analytics는 스키마를 사용하여 웹 서비스의 함수 시그니처를 이해합니다.
+2. 채점 스크립트에는 Azure Machine Learning에서 스키마 사양을 생성하는 데 사용되는 [샘플 입력 및 출력](../machine-learning/how-to-deploy-and-where.md#example-entry-script)이 있어야 합니다. Stream Analytics는 스키마를 사용하여 웹 서비스의 함수 시그니처를 이해합니다. 이 [샘플 swagger 정의](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) 를 참조로 사용 하 여 올바르게 설정 되었는지 확인할 수 있습니다.
 
 3. 웹 서비스가 JSON 직렬화된 데이터를 수락하고 반환하는지 확인합니다.
 

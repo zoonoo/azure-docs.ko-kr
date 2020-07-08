@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 93e120a0519e1fc61a716e606e088801fdf508dd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75360721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84556355"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
@@ -33,7 +33,7 @@ ms.locfileid: "75360721"
 ## <a name="what-are-python-web-and-worker-roles"></a>Python 웹 및 작업자 역할 정의
 Azure는 애플리케이션을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure App Service의 Web Apps 기능][execution model-web sites], [Azure Virtual Machines][execution model-vms] 및 [Azure Cloud Services][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)* 를 제공합니다. Cloud Service 내에서 웹 역할은 프런트 엔드 웹 애플리케이션을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
 
-자세한 내용은 [Cloud Service란?]을 참조하세요.
+자세한 내용은 [Cloud Service 란?]을 참조 하세요.
 
 > [!NOTE]
 > *간단한 웹 사이트를 빌드하려는 경우*
@@ -332,7 +332,7 @@ Python Tools for Visual Studio에서 웹 및 작업자 역할을 사용하는 �
 
 Azure Storage 또는 Service Bus를 사용하는 등 웹 및 작업자 역할에서 Azure 서비스를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Blob Service][Blob Service]
+* [Blob 서비스][Blob Service]
 * [테이블 서비스][Table Service]
 * [큐 서비스][Queue Service]
 * [Service Bus 큐][Service Bus Queues]

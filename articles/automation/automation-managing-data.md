@@ -1,20 +1,44 @@
 ---
-title: Azure Automation 데이터 관리
-description: 이 문서에서는 데이터 보존 및 백업을 비롯하여 Azure Automation의 데이터 관리에 대한 개념을 제공합니다.
+title: 데이터 보안 Azure Automation
+description: 이 문서는 Azure Automation 개인 정보를 보호 하 고 데이터를 보호 하는 방법을 알아봅니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343057"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
-이 문서는 Azure Automation 환경의 데이터 관리에 대한 여러 항목을 포함합니다.
+이 문서에는 Azure Automation 환경에서 데이터를 보호 하 고 보호 하는 방법을 설명 하는 여러 항목이 포함 되어 있습니다.
+
+## <a name="tls-12-enforcement-for-azure-automation"></a>Azure Automation에 대 한 TLS 1.2 적용
+
+Azure Automation 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2의 사용을 구성 하는 것이 좋습니다. 다음은 HTTPS를 통해 자동화 서비스와 통신 하는 메서드나 클라이언트의 목록입니다.
+
+* 웹 후크 호출
+
+* 업데이트 관리 및 변경 내용 추적 및 인벤토리에 의해 관리 되는 컴퓨터를 포함 하는 Hybrid Runbook Worker
+
+* DSC 노드
+
+이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 2020 년 9 월부터 TLS 1.2 이상 버전의 암호화 프로토콜을 적용 하기 시작 합니다.
+
+TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 자동으로 검색하고 활용할 수 있도록 플랫폼 수준 보안 기능을 중단할 수 있으므로 반드시 필요하지 않다면 에이전트가 TLS 1.2만을 사용하도록 명시적으로 설정하지 않는 것이 좋습니다.
+
+Hybrid Runbook Worker 역할에 대 한 종속성 인 Windows 및 Linux 용 Log Analytics 에이전트에 대 한 TLS 1.2 지원에 대 한 자세한 내용은 [Log Analytics 에이전트 개요-TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol)를 참조 하세요. 
+
+### <a name="platform-specific-guidance"></a>플랫폼별 지침
+
+|플랫폼/언어 | 지원 | 추가 정보 |
+| --- | --- | --- |
+|Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
+| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
+| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
+| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 
 ## <a name="data-retention"></a>데이터 보존
 
@@ -53,16 +77,16 @@ Azure Automation에서는 통합 모듈을 내보낼 수 없습니다. Automatio
 
 자격 증명의 암호 필드 또는 암호화된 변수 값은 cmdlet을 사용하여 검색할 수 없습니다. 이러한 값을 모르는 경우 Runbook에서 검색할 수 있습니다. 변수 값 검색은 [Azure Automation에서 변수 관리](shared-resources/variables.md)를 참조하세요. 자격 증명 값 검색을 자세히 알아보려면 [Azure Automation의 자격 증명 자산](shared-resources/credentials.md)을 참조하세요.
 
- ### <a name="dsc-configurations"></a>DSC 구성
+### <a name="dsc-configurations"></a>DSC 구성
 
 Azure Portal 또는 Windows PowerShell의 [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
 ) cmdlet을 사용하여 DSC 구성을 스크립트 파일로 내보낼 수 있습니다. 다른 Automation 계정에서 이러한 구성을 가져오고 사용할 수 있습니다.
 
 ## <a name="geo-replication-in-azure-automation"></a>Azure Automation의 지역에서 복제
 
-지역 복제는 Azure Automation 계정에서 표준입니다. 계정을 설정할 때 주 지역을 선택합니다. 내부 Automation 지역 복제 서비스는 자동으로 계정에 보조 지역을 할당합니다. 그런 다음 서비스는 주 지역에서 보조 지역으로 계정 데이터를 지속적으로 백업합니다. 주 지역 및 보조 지역의 전체 목록은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. 
+지역 복제는 Azure Automation 계정에서 표준입니다. 계정을 설정할 때 주 지역을 선택합니다. 내부 Automation 지역 복제 서비스는 자동으로 계정에 보조 지역을 할당합니다. 그런 다음 서비스는 주 지역에서 보조 지역으로 계정 데이터를 지속적으로 백업합니다. 주 지역 및 보조 지역의 전체 목록은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 
-Automation 지역 복제 서비스에 의해 생성된 백업은 Automation 자산, 구성 등의 전체 복사본입니다. 주 지역이 중단되고 데이터가 손실되는 경우 이 백업을 사용할 수 있습니다. 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한 경우 Microsoft는 복구를 시도합니다. 회사에서 주 데이터를 복구할 수 없는 경우 자동 장애 조치를 사용하고 Azure 구독을 통해 상황을 알립니다. 
+Automation 지역 복제 서비스에 의해 생성된 백업은 Automation 자산, 구성 등의 전체 복사본입니다. 주 지역이 중단되고 데이터가 손실되는 경우 이 백업을 사용할 수 있습니다. 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한 경우 Microsoft는 복구를 시도합니다. 회사에서 주 데이터를 복구할 수 없는 경우 자동 장애 조치를 사용하고 Azure 구독을 통해 상황을 알립니다.
 
 지역 실패가 발생하는 경우 Automation 지역 복제 서비스는 외부 고객에게 직접 액세스할 수 없습니다. 지역 실패가 발생하는 경우 Automation 구성 및 Runbook을 유지하고자 하는 경우 다음을 수행합니다.
 
@@ -77,4 +101,5 @@ Automation 지역 복제 서비스에 의해 생성된 백업은 Automation 자�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Automation의 보안 자산에 대한 자세한 내용은 [Azure Automation의 보안 자산 암호화](automation-secure-asset-encryption.md)를 참조하세요.
-* 지역 복제에 대한 자세한 내용은 [활성 지역 복제 만들기 및 사용](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication)을 참조하세요.
+
+* 지역 복제에 대한 자세한 내용은 [활성 지역 복제 만들기 및 사용](../sql-database/sql-database-active-geo-replication.md)을 참조하세요.

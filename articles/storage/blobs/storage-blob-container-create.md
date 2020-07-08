@@ -4,16 +4,15 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storag
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 24e754a583125c962e67f849edcec8f8609746a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84464915"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>.NET을 사용 하 여 Azure Storage에서 컨테이너 만들기 또는 삭제
 
@@ -119,7 +118,7 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 .NET에서 컨테이너를 삭제 하려면 다음 방법 중 하나를 사용 합니다.
 
-- [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
+- [삭제](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
@@ -185,7 +184,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [컨테이너 작업 만들기](/rest/api/storageservices/create-container)
 - [컨테이너 삭제 작업](/rest/api/storageservices/delete-container)

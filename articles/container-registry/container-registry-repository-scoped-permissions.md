@@ -1,14 +1,13 @@
 ---
 title: Azure Container Registry의 리포지토리에 대한 권한
-description: 레지스트리의 특정 리포지토리로 범위가 지정된 권한으로 토큰을 만들어 이미지를 풀하거나 푸시하거나 다른 작업을 수행합니다.
+description: 프리미엄 레지스트리에서 특정 리포지토리로 범위가 지정 된 토큰을 만들어 이미지를 끌어오거나 푸시 하거나 다른 작업을 수행 합니다.
 ms.topic: article
-ms.date: 02/13/2020
-ms.openlocfilehash: eeb2155e035dd4a3a7aa09f634c229676cd87db3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.date: 05/27/2020
+ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683478"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509409"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 권한이 있는 토큰 만들기
 
@@ -20,12 +19,13 @@ ms.locfileid: "83683478"
 * 특정 리포지토리에 대한 권한을 외부 조직에 제공합니다. 
 * 리포지토리 액세스를 조직의 다른 사용자 그룹으로 제한합니다. 예를 들어 특정 리포지토리를 대상으로 하는 이미지를 빌드하는 개발자에게 쓰기 및 읽기 권한을 제공하고, 해당 리포지토리에서 배포하는 팀에 읽기 권한을 제공합니다.
 
+이 기능은 **프리미엄** 컨테이너 레지스트리 서비스 계층에서 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 서비스 계층](container-registry-skus.md)을 참조하세요.
+
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 이 기능은 **프리미엄** 컨테이너 레지스트리에서 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 서비스 계층](container-registry-skus.md)을 참조하세요.
 * 리포지토리 범위 권한은 현재 Azure Active Directory ID(예: 서비스 주체 또는 관리 ID)에 할당할 수 없습니다.
 * [익명 풀 액세스](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)에 대해 사용하도록 설정된 레지스트리에서 범위 맵을 만들 수 없습니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "83683478"
     * 리포지토리 세트에 대해 동일한 권한이 있는 여러 토큰을 구성합니다.
     * 범위 맵에서 리포지토리 작업을 추가 또는 제거하거나 다른 범위 맵을 적용할 때 토큰 권한을 업데이트합니다. 
 
-  또한 Azure Container Registry는 적용할 수 있는 몇 가지 시스템 정의 범위 맵에 모든 리포지토리에 걸쳐 고정된 권한을 제공합니다.
+  또한 Azure Container Registry는 토큰을 만들 때 적용할 수 있는 여러 시스템 정의 범위 맵을 제공 합니다. 시스템 정의 범위 맵의 사용 권한은 레지스트리의 모든 리포지토리에 적용 됩니다.
 
 다음 이미지에서는 토큰과 범위 맵 간의 관계를 보여 줍니다. 
 
@@ -68,7 +68,7 @@ ms.locfileid: "83683478"
 
 ### <a name="create-token-and-specify-repositories"></a>토큰 만들기 및 리포지토리 지정
 
-[az acr token create][az-acr-token-create] 명령을 사용하여 토큰을 만듭니다. 토큰을 만들 때 각 리포지토리에서 하나 이상의 리포지토리 및 관련 작업을 지정할 수 있습니다. 리포지토리가 아직 레지스트리에 있을 필요는 없습니다. 기존 범위 맵을 지정하여 토큰을 만들려면 다음 섹션을 참조하세요.
+[az acr token create][az-acr-token-create] 명령을 사용하여 토큰을 만듭니다. 토큰을 만들 때 각 리포지토리에서 하나 이상의 리포지토리 및 관련 작업을 지정할 수 있습니다. 리포지토리가 아직 레지스트리에 있을 필요는 없습니다. 기존 범위 맵을 지정 하 여 토큰을 만들려면 [다음 섹션](#create-token-and-specify-scope-map)을 참조 하세요.
 
 다음 예제에서는 `samples/hello-world` 리포지토리에 대한 `content/write` 및 `content/read` 권한이 있는 토큰을 *myregistry* 레지스트리에 만듭니다. 이 명령은 기본적으로 기본 토큰 상태를 `enabled`로 설정하지만, 언제든지 해당 상태를 `disabled`로 업데이트할 수 있습니다.
 
@@ -78,7 +78,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-출력에는 생성된 두 개의 암호를 포함하여 토큰에 대한 세부 정보가 표시됩니다. 나중에 인증에 사용할 수 있도록 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
+출력에는 토큰에 대 한 세부 정보가 표시 됩니다. 기본적으로 두 개의 암호가 생성 됩니다. 나중에 인증에 사용할 수 있도록 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
 ```console
 {
@@ -111,6 +111,9 @@ az acr token create --name MyToken --registry myregistry \
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
+> [!NOTE]
+> 토큰 암호를 다시 생성 하 고 암호 만료 기간을 설정 하려면이 문서의 뒷부분에 나오는 [토큰 암호 다시 생성](#regenerate-token-passwords) 을 참조 하세요.
+
 출력에는 명령에서 만든 범위 맵에 대한 세부 정보가 포함됩니다. 여기서는 `MyToken-scope-map`이라는 범위 맵을 사용하여 동일한 리포지토리 작업을 다른 토큰에 적용할 수 있습니다. 또는 나중에 연결된 토큰의 권한을 변경하기 위해 범위 맵을 업데이트합니다.
 
 ### <a name="create-token-and-specify-scope-map"></a>토큰 만들기 및 범위 맵 지정
@@ -134,7 +137,10 @@ az acr token create --name MyToken \
   --scope-map MyScopeMap
 ```
 
-출력에는 생성된 두 개의 암호를 포함하여 토큰에 대한 세부 정보가 표시됩니다. 나중에 인증에 사용할 수 있도록 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
+출력에는 토큰에 대 한 세부 정보가 표시 됩니다. 기본적으로 두 개의 암호가 생성 됩니다. 나중에 인증에 사용할 수 있도록 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
+
+> [!NOTE]
+> 토큰 암호를 다시 생성 하 고 암호 만료 기간을 설정 하려면이 문서의 뒷부분에 나오는 [토큰 암호 다시 생성](#regenerate-token-passwords) 을 참조 하세요.
 
 ## <a name="create-token---portal"></a>토큰 만들기 - 포털
 
@@ -143,14 +149,16 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
 다음 예제에서는 토큰을 만들고, `samples/hello-world` 리포지토리에 대한 `content/write` 및 `content/read` 권한이 있는 범위 맵을 만듭니다.
 
 1. 포털에서 컨테이너 레지스트리로 이동합니다.
-1. **서비스** 아래에서 **토큰(미리 보기) > + 추가**를 선택합니다.
-  ![포털에서 토큰 만들기](media/container-registry-repository-scoped-permissions/portal-token-add.png)
+1. **리포지토리 권한**에서 **토큰 (미리 보기) > + 추가**를 선택 합니다.
+
+      :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="포털에서 토큰 만들기":::
 1. 토큰 이름을 입력합니다.
 1. **범위 맵** 아래에서 **새로 만들기**를 선택합니다.
 1. 범위 맵을 구성합니다.
     1. 범위 맵에 대한 이름 및 설명을 입력합니다. 
     1. **리포지토리** 아래에서 `samples/hello-world`를 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가**를 선택합니다.  
-    ![포털에서 범위 맵 만들기](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
+
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="포털에서 범위 맵 만들기":::
 
     1. 리포지토리 및 권한이 추가되면 **추가**를 선택하여 범위 맵을 추가합니다.
 1. 기본 토큰 **상태**를 **사용**으로 적용한 다음, **만들기**를 선택합니다.
@@ -159,26 +167,26 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
 
 ### <a name="add-token-password"></a>토큰 암호 추가
 
-토큰이 만들어지면 암호를 생성합니다. 레지스트리를 사용하여 인증하려면 토큰을 사용하도록 설정하고 유효한 암호를 사용해야 합니다.
-
-하나 또는 두 개의 암호를 생성하고 각 암호의 만료 날짜를 설정할 수 있습니다. 
+포털에서 만든 토큰을 사용 하려면 암호를 생성 해야 합니다. 하나 또는 두 개의 암호를 생성하고 각 암호의 만료 날짜를 설정할 수 있습니다. 
 
 1. 포털에서 컨테이너 레지스트리로 이동합니다.
-1. **서비스** 아래에서 **토큰(미리 보기)** 을 선택하고, 토큰을 선택합니다.
+1. **리포지토리 권한**에서 **토큰 (미리 보기)** 을 선택 하 고 토큰을 선택 합니다.
 1. 토큰 세부 정보에서 **password1** 또는 **password2**를 선택하고, [생성] 아이콘을 선택합니다.
-1. 암호 화면에서 필요에 따라 암호의 만료 날짜를 설정하고, **생성**을 선택합니다.
+1. 암호 화면에서 필요에 따라 암호의 만료 날짜를 설정하고, **생성**을 선택합니다. 만료 날짜를 설정 하는 것이 좋습니다.
 1. 암호가 생성되면 이를 복사하여 안전한 위치에 저장합니다. 화면을 닫으면 생성된 암호를 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
-    ![포털에서 토큰 암호 만들기](media/container-registry-repository-scoped-permissions/portal-token-password.png)
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="포털에서 토큰 암호 만들기":::
 
 ## <a name="authenticate-with-token"></a>토큰을 사용하여 인증
 
-사용자 또는 서비스에서 토큰을 사용하여 대상 레지스트리를 인증하는 경우 토큰 이름을 사용자 이름으로 제공하고 생성된 암호 중 하나를 제공합니다. 인증 방법은 구성된 작업 또는 토큰과 연결된 작업에 따라 달라집니다.
+사용자 또는 서비스에서 토큰을 사용하여 대상 레지스트리를 인증하는 경우 토큰 이름을 사용자 이름으로 제공하고 생성된 암호 중 하나를 제공합니다. 
+
+인증 방법은 구성된 작업 또는 토큰과 연결된 작업에 따라 달라집니다.
 
 |작업  |인증 방법  |
   |---------|---------|
-  |`content/delete`    | `az acr repository delete`(Azure CLI) |
-  |`content/read`     |  `docker login`<br/><br/>`az acr login`(Azure CLI)  |
+  |`content/delete`    | `az acr repository delete`(Azure CLI)<br/><br/>예: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
+  |`content/read`     |  `docker login`<br/><br/>`az acr login`(Azure CLI)<br/><br/>예: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
   |`content/write`     |  `docker login`<br/><br/>`az acr login`(Azure CLI)     |
   |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests`(Azure CLI)   |
   |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update`(Azure CLI) |
@@ -200,7 +208,7 @@ docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
 
 ### <a name="authenticate-using-token"></a>토큰을 사용하여 인증
 
-`docker login`을 실행하여 레지스트리를 통해 인증하고, 토큰 이름을 사용자 이름으로 제공하고, 해당 암호 중 하나를 제공합니다. 토큰에 `Enabled` 상태여야 합니다.
+`docker login`또는 `az acr login` 를 실행 하 여 이미지를 끌어오거나 가져오도록 레지스트리를 인증 합니다. 토큰 이름을 사용자 이름으로 제공 하 고 해당 암호 중 하나를 제공 합니다. 토큰에 `Enabled` 상태여야 합니다.
 
 다음 예제는 bash 셸 형식으로 지정되고, 환경 변수를 사용하여 값을 제공합니다.
 
@@ -231,7 +239,7 @@ docker push myregistry.azurecr.io/samples/hello-world:v1
 docker push myregistry.azurecr.io/samples/alpine:v1
 ```
 
-### <a name="change-pushpull-permissions"></a>푸시/풀 권한 변경
+### <a name="update-token-permissions"></a>토큰 권한 업데이트
 
 토큰의 권한을 업데이트하려면 연결된 범위 맵에서 권한을 업데이트합니다. 업데이트된 범위 맵은 연결된 모든 토큰에 즉시 적용됩니다. 
 
@@ -250,7 +258,7 @@ az acr scope-map update \
 Azure Portal에서 다음을 수행합니다.
 
 1. 컨테이너 레지스트리로 이동합니다.
-1. **서비스** 아래에서 **범위 맵(미리 보기)** 을 선택하고, 업데이트할 범위 맵을 선택합니다.
+1. **리포지토리 권한**에서 **범위 맵 (미리 보기)** 을 선택 하 고 업데이트할 범위 맵을 선택 합니다.
 1. **리포지토리** 아래에서 `samples/alpine`을 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가**를 선택합니다.
 1. **리포지토리** 아래에서 `samples/hello-world`를 선택하고, **권한** 아래에서 `content/write`를 선택 취소합니다. 그런 다음 **저장**을 선택합니다.
 
@@ -285,9 +293,9 @@ az acr scope-map update \
   --add samples/alpine content/delete
 ``` 
 
-포털을 사용하여 범위 맵을 업데이트하려면 이전 섹션을 참조하세요.
+포털을 사용 하 여 범위 맵을 업데이트 하려면 [이전 섹션](#update-token-permissions)을 참조 하세요.
 
-다음 [az acr repository delete][az-acr-repository-delete] 명령을 사용하여 `samples/alpine` 리포지토리를 삭제합니다. 이미지 또는 리포지토리를 삭제하기 위해 토큰은 `docker login`을 통해 인증하지 않습니다. 대신 토큰의 이름과 암호를 명령에 전달합니다. 다음 예제에서는 이 문서의 앞부분에서 만든 환경 변수를 사용합니다.
+다음 [az acr repository delete][az-acr-repository-delete] 명령을 사용하여 `samples/alpine` 리포지토리를 삭제합니다. 이미지 또는 리포지토리를 삭제 하려면 토큰의 이름과 암호를 명령에 전달 합니다. 다음 예제에서는 이 문서의 앞부분에서 만든 환경 변수를 사용합니다.
 
 ```azurecli
 az acr repository delete \
@@ -308,11 +316,11 @@ az acr scope-map update \
   --add samples/hello-world metadata/read 
 ```  
 
-포털을 사용하여 범위 맵을 업데이트하려면 이전 섹션을 참조하세요.
+포털을 사용 하 여 범위 맵을 업데이트 하려면 [이전 섹션](#update-token-permissions)을 참조 하세요.
 
 `samples/hello-world` 리포지토리에서 메타데이터를 읽으려면 [az acr repository show-manifests][az-acr-repository-show-manifests] 또는 [az acr repository show-tags][az-acr-repository-show-tags] 명령을 실행합니다. 
 
-메타데이터를 읽기 위해 토큰은 `docker login`을 통해 인증하지 않습니다. 대신 토큰의 이름과 암호를 두 명령 중 하나에 전달합니다. 다음 예제에서는 이 문서의 앞부분에서 만든 환경 변수를 사용합니다.
+메타 데이터를 읽으려면 토큰의 이름과 암호를 명령 중 하나에 전달 합니다. 다음 예제에서는 이 문서의 앞부분에서 만든 환경 변수를 사용합니다.
 
 ```azurecli
 az acr repository show-tags \
@@ -327,6 +335,7 @@ az acr repository show-tags \
   "v1"
 ]
 ```
+
 ## <a name="manage-tokens-and-scope-maps"></a>토큰 및 범위 맵 관리
 
 ### <a name="list-scope-maps"></a>범위 맵 나열
@@ -338,7 +347,7 @@ az acr scope-map list \
   --registry myregistry --output table
 ```
 
-출력에는 사용자가 정의한 범위 맵 및 토큰을 구성하는 데 사용할 수 있는 몇 가지 시스템 정의 범위 맵이 표시됩니다.
+출력은 3 개의 시스템 정의 범위 맵과 사용자에 의해 생성 된 다른 범위 맵으로 구성 됩니다. 토큰은 이러한 범위 맵 중 하나를 사용 하 여 구성할 수 있습니다.
 
 ```
 NAME                 TYPE           CREATION DATE         DESCRIPTION
@@ -351,22 +360,22 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>토큰 세부 정보 표시
 
-상태 및 암호 만료 날짜와 같은 토큰 세부 정보를 보려면 [az acr token show][az-acr-token-show] 명령을 실행하거나 포털의 **토큰(미리 보기)** 화면에서 토큰을 선택합니다. 다음은 그 예입니다.
+상태 및 암호 만료 날짜와 같은 토큰 세부 정보를 보려면 [az acr token show][az-acr-token-show] 명령을 실행하거나 포털의 **토큰(미리 보기)** 화면에서 토큰을 선택합니다. 예를 들어:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-[az acr token list][az-acr-token-list] 명령 또는 포털의 **토큰(미리 보기)** 화면을 사용하여 레지스트리에 구성된 모든 토큰을 나열합니다. 다음은 그 예입니다.
+[az acr token list][az-acr-token-list] 명령 또는 포털의 **토큰(미리 보기)** 화면을 사용하여 레지스트리에 구성된 모든 토큰을 나열합니다. 예를 들어:
 
 ```azurecli
 az acr token list --registry myregistry --output table
 ```
 
-### <a name="generate-passwords-for-token"></a>토큰 암호 생성
+### <a name="regenerate-token-passwords"></a>토큰 암호 다시 생성
 
-토큰 암호가 없거나 새 암호를 생성하려면 [az acr token credential generate][az-acr-token-credential-generate] 명령을 실행합니다. 
+토큰 암호를 생성 하지 않았거나 새 암호를 생성 하려는 경우 [az acr token credential generate][az-acr-token-credential-generate] 명령을 실행 합니다. 
 
 다음 예제에서는 만료 기간이 30일인 *MyToken* 토큰에 대해 password1의 새 값을 생성합니다. 암호를 `TOKEN_PWD` 환경 변수에 저장합니다. 이 예제는 bash 셸 형식으로 지정됩니다.
 

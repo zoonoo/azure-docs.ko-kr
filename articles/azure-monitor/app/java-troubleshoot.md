@@ -3,12 +3,11 @@ title: Java 웹 프로젝트에서 Application Insights 문제 해결
 description: 문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 04e98938bc5dd17816ae873f122073212275a414
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484790"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -26,14 +25,13 @@ ms.locfileid: "77657183"
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
 * 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. 최신 버전은 [방화벽 예외의 전체 목록](../../azure-monitor/app/ip-addresses.md)
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 애플리케이션 블레이드를 닫고 다시 엽니다.
-* 프로젝트의 리소스 폴더에 있는 `<SDKLogger />` applicationinsights .xml 파일의 루트 노드 아래에 요소를 추가 하 여 [로깅을 설정](#debug-data-from-the-sdk) 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
+* [Turn on logging](#debug-data-from-the-sdk) `<SDKLogger />` 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml 파일의 루트 노드 아래에 요소를 추가 하 여 로깅을 설정 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
 * 구성 파일이 없으면 출력 메시지를 확인하여 구성 파일이 검색되고 있는 위치를 확인하고, ApplicationInsights.xml이 그러한 검색 위치 중 한 위치에 있는지 확인합니다. 일반적으로 구성 파일을 Application Insights SDK JAR 주위에 배치할 수 있습니다. 예: Tomcat에서는 WEB-INF/classes 폴더를 의미합니다. 개발 중에 웹 프로젝트의 리소스 폴더에 ApplicationInsights.xml을 배치할 수 있습니다.
 * SDK의 알려진 문제에 대해서는 [GitHub 문제 페이지](https://github.com/Microsoft/ApplicationInsights-Java/issues)를 참조하세요.
 * 버전 충돌 문제를 방지하려면 동일한 버전의 Application Insights 코어, 웹, 에이전트 및 로깅 어펜더를 사용합니다.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
-* [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
 * 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격 책정을 열어 확인 합니다. 그렇다면 요금제를 업그레이드 하거나 추가 용량에 대 한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 * 최근에 SDK를 업그레이드했나요? 고유한 SDK jar만 프로젝트 디렉터리 내부에 있는지 확인합니다. 두 개의 서로 다른 SDK 버전이 있으면 안 됩니다.
 * 올바른 AI 리소스를 보고 있나요? 원격 분석이 필요한 리소스에 애플리케이션의 iKey를 일치합니다. 동일해야 합니다.
@@ -62,7 +60,7 @@ ms.locfileid: "77657183"
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 **원격 분석 수집을 사용하지 않도록 설정하려면 어떻게 해야 하나요?**
 
-코드:
+코드
 
 ```Java
 
@@ -109,7 +107,7 @@ API의 상황에 대한 자세한 정보를 가져오려면 ApplicationInsights.
 
 ### <a name="spring-boot-starter"></a>스프링 부팅 스타터
 
-Application Insights 스프링 부팅 스타터를 사용 하 여 스프링 부팅 앱에서 SDK 로깅을 사용 하도록 설정 하려면 `application.properties` 파일에 다음을 추가 합니다.
+Application Insights 스프링 부팅 스타터를 사용 하 여 스프링 부팅 앱에서 SDK 로깅을 사용 하도록 설정 하려면 파일에 다음을 추가 합니다 `application.properties` .
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -126,7 +124,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Java 에이전트
 
-JVM 에이전트 로깅을 사용 하도록 설정 하려면 [AI-Agent 파일](java-agent.md)을 업데이트 합니다.
+JVM 에이전트 로깅을 사용 하도록 설정 하려면 [AI-Agent.xml 파일](java-agent.md)을 업데이트 합니다.
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->

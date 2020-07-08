@@ -4,15 +4,14 @@ description: Azure Content Delivery Network (CDN)를 사용 하 여 Azure Storag
 author: normesta
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465221"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Azure CDN와 정적 웹 사이트 통합
 
@@ -41,7 +40,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
    정적 웹 사이트 엔드포인트를 찾으려면 스토리지 계정에 대한 **정적 웹 사이트** 설정으로 이동합니다.  기본 끝점을 복사 하 여 CDN 구성에 붙여넣습니다.
 
    > [!IMPORTANT]
-   > URL에서 프로토콜 식별자 (*예:* HTTPS)와 후행 슬래시를 제거 해야 합니다. 예를 들어 정적 웹 사이트 끝점이 인 `https://mystorageaccount.z5.web.core.windows.net/`경우 **원본 호스트 이름** 필드에 `mystorageaccount.z5.web.core.windows.net` 를 지정 합니다.
+   > URL에서 프로토콜 식별자 (*예:* HTTPS)와 후행 슬래시를 제거 해야 합니다. 예를 들어 정적 웹 사이트 끝점이 인 경우 `https://mystorageaccount.z5.web.core.windows.net/` `mystorageaccount.z5.web.core.windows.net` **원본 호스트 이름** 필드에를 지정 합니다.
 
    다음 이미지에서는 엔드포인트 구성의 예를 보여 줍니다.
 
@@ -53,7 +52,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 
     ![CDN 엔드포인트의 개요를 보여 주는 스크린샷](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-1. CDN 끝점이 프로 비전 되 면 CDN 끝점으로 이동 하면 이전에 정적 웹 사이트에 업로드 한 인덱스 .html 파일의 내용이 표시 됩니다.
+1. CDN 끝점이 프로 비전 되 면 CDN 끝점으로 이동 하면 이전에 정적 웹 사이트에 업로드 한 index.html 파일의 내용이 표시 됩니다.
 
 1. CDN 엔드포인트에 대한 원본 설정을 검토하려면 CDN 엔드포인트에 대한 **설정** 섹션 아래에서 **원본**으로 이동합니다. **원본 형식** 필드가 *사용자 지정 원본*으로 설정되어 있고 **원본 호스트 이름** 필드에 정적 웹 사이트 엔드포인트가 표시됩니다.
 
@@ -67,7 +66,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 * Azure Portal을 사용하여 CDN 엔드포인트를 사용하지 않도록 설정하거나 삭제합니다.
 * 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정합니다.
 
-Azure CDN에 이미 캐시 된 개체는 개체의 ttl (time-to-live) 기간이 만료 되거나 끝점이 [제거](../../cdn/cdn-purge-endpoint.md)될 때까지 캐시 된 상태로 유지 됩니다. TTL(Time-to-Live)이 만료되면 Azure CDN에서 CDN 엔드포인트가 여전히 유효하며 개체에 익명으로 액세스할 수 있는지 확인합니다. 그렇지 않으면 개체가 더 이상 캐시되지 않습니다.
+Azure CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료되거나 엔드포인트가 [삭제](../../cdn/cdn-purge-endpoint.md)될 때까지 캐시된 상태로 유지됩니다. TTL(Time-to-Live)이 만료되면 Azure CDN에서 CDN 엔드포인트가 여전히 유효하며 개체에 익명으로 액세스할 수 있는지 확인합니다. 그렇지 않으면 개체가 더 이상 캐시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

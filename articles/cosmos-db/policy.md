@@ -6,12 +6,11 @@ ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431997"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
 
@@ -79,21 +78,24 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 
 [사용자 지정 정책 정의 규칙](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule)에 이러한 속성 별칭 이름을 모두 사용할 수 있습니다.
 
-다음은 Azure Cosmos DB SQL 데이터베이스의 프로비전된 처리량이 허용되는 최대 제한인 400RU/s보다 큰지 확인하는 정책 정의의 예입니다. 사용자 지정 정책 정의에는 두 가지 규칙이 포함됩니다. 하나는 속성 별칭이 특정 형식인지 확인하는 규칙이고, 다른 하나는 형식이 특정 속성인지 확인하는 규칙입니다. 두 규칙 모두 별칭 이름을 사용합니다.
+다음은 Azure Cosmos DB 계정이 여러 쓰기 위치에 대해 구성 되었는지 확인 하는 정책 정의의 예입니다. 사용자 지정 정책 정의에는 두 가지 규칙이 포함 되어 있습니다. 하나는 특정 유형의 속성 별칭을 확인 하 고, 다른 하나는 유형의 특정 속성 (이 경우에는 다중 쓰기 위치 설정을 저장 하는 필드)에 대 한 규칙입니다. 두 규칙 모두 별칭 이름을 사용합니다.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
@@ -106,21 +108,26 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 
 [Azure Portal](../governance/policy/how-to/get-compliance-data.md#portal)에서 또는 [Azure CLI](../governance/policy/how-to/get-compliance-data.md#command-line) 또는 [Azure Monitor 로그](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs)를 통해 준수 결과 및 수정 세부 정보를 검토할 수 있습니다.
 
-다음 스크린샷에서는 두 가지 정책 할당 예제를 보여 줍니다. 한 할당은 기본 제공 정책 정의를 기반으로 하며, Azure Cosmos DB 리소스가 허용되는 Azure 지역에만 배포되는지 확인합니다. 다른 할당은 사용자 지정 정책 정의를 기반으로 합니다. 이 할당은 Azure Cosmos DB 리소스의 프로비전된 처리량이 지정된 최대 제한을 초과하지 않는지 확인합니다.
+다음 스크린샷에서는 두 가지 정책 할당 예제를 보여 줍니다.
 
-정책 할당이 배포된 후 준수 대시보드에 평가 결과가 표시됩니다. 이 결과가 표시되려면 정책 할당 배포 후 최대 30분이 걸릴 수 있습니다.
+한 할당은 기본 제공 정책 정의를 기반으로 하며, Azure Cosmos DB 리소스가 허용되는 Azure 지역에만 배포되는지 확인합니다. 리소스 준수는 범위 내 리소스에 대해 정책 평가 결과 (호환 또는 비호환)를 표시 합니다.
 
-스크린샷에는 다음과 같은 규정 준수 평가 결과가 나와 있습니다.
+다른 할당은 사용자 지정 정책 정의를 기반으로 합니다. 이 할당은 Cosmos DB 계정이 여러 쓰기 위치에 대해 구성 되었는지 확인 합니다.
 
-- 지정된 범위의 Azure Cosmos DB 계정 1개 중 0개가 리소스를 허용된 지역에 배포했는지 확인하기 위한 정책 할당을 준수합니다.
-- 지정된 범위의 Azure Cosmos DB 계정 2개 중 1개가 프로비전된 처리량이 지정된 최대 제한을 초과하는지 확인하기 위한 정책 할당을 준수합니다.
+정책 할당이 배포된 후 준수 대시보드에 평가 결과가 표시됩니다. 이 결과가 표시되려면 정책 할당 배포 후 최대 30분이 걸릴 수 있습니다. 또한 정책 할당을 만든 후 즉시 [요청 시 정책 평가 검색을 시작할 수 있습니다](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) .
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Azure Cosmos DB 기본 제공 정책 정의 검색":::
+스크린샷에서는 범위 내 Azure Cosmos DB 계정에 대 한 다음 준수 평가 결과를 보여 줍니다.
 
-비준수 리소스를 수정하려면 [Azure Policy로 재구성된](../governance/policy/how-to/remediate-resources.md) 문서를 참조하세요.
+- 두 계정 중 0은 VNet (Virtual Network) 필터링을 구성 해야 하는 정책을 준수 합니다.
+- 계정이 여러 쓰기 위치에 대해 구성 되어야 하는 정책을 준수 하는 두 계정의 0
+- 두 계정 중 0은 리소스가 허용 된 Azure 지역에 배포 된 정책을 준수 합니다.
+
+:::image type="content" source="./media/policy/compliance.png" alt-text="나열 된 Azure Policy 할당에 대 한 호환성 결과":::
+
+비준수 리소스를 재구성 하려면 Azure Policy를 사용 하 [여 리소스](../governance/policy/how-to/remediate-resources.md)를 관리 하는 방법을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cosmos DB용 샘플 사용자 지정 정책 정의 검토](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+- 위에 표시 된 다중 쓰기 위치 및 VNet 필터링 정책을 포함 하 여 [Azure Cosmos DB에 대 한 샘플 사용자 지정 정책 정의를 검토](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)합니다.
 - [Azure Portal에서 정책 할당 만들기](../governance/policy/assign-policy-portal.md)
 - [Azure Cosmos DB용 Azure Policy 기본 제공 정책 정의 검토](./policy-samples.md)

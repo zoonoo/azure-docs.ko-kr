@@ -4,16 +4,15 @@ description: Azure Data Lake Storage Gen2의 성능 튜닝에 대한 지침입�
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6cf551b95de8fc7fae83941e5109dfa823213af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465986"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen2 최적화
 
@@ -131,12 +130,12 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 위의 일반적인 지침 외에도 각 애플리케이션마다 특정 애플리케이션에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 애플리케이션에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
 
-| 워크로드 | 작업을 설정하는 매개 변수 |
+| 작업 | 작업을 설정하는 매개 변수 |
 |----------|------------------------|
 | [HDInsight의 Spark](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [HDInsight의 Hive](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
 | [HDInsight의 MapReduce](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-storage-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

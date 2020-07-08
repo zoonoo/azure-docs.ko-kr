@@ -6,13 +6,12 @@ ms.author: mhopkins
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.topic: how-to
+ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465493"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
@@ -82,7 +81,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 #import <AZSClient/AZSClient.h>
 ```
 
-Swift를 사용하는 경우 브리징 헤더를 만들고 \<AZSClient/AZSClient.h>를 가져와야 합니다.
+Swift를 사용 하는 경우 브리징 헤더를 만들고 여기에서 가져와야 합니다 \<AZSClient/AZSClient.h> .
 
 1. 헤더 파일 `Bridging-Header.h`를 만들고 위의 import 문을 추가합니다.
 2. *빌드 설정* 탭으로 이동하고 *Objective-C 브리징 헤더*를 검색합니다.

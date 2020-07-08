@@ -2,28 +2,25 @@
 title: Azure Kubernetes Service와 Azure NetApp Files 통합
 description: Azure Kubernetes Service와 Azure NetApp Files를 통합 하는 방법 알아보기
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
-ms.author: zarhoads
-ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465646"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure NetApp Files 통합
 
 [Azure NetApp Files][anf] 은 Azure에서 실행 되는 엔터프라이즈급의 고성능의 요금제 파일 저장소 서비스입니다. 이 문서에서는 Azure Kubernetes 서비스 (AKS)와 Azure NetApp Files를 통합 하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 > [!IMPORTANT]
 > 또한 AKS 클러스터 [는 Azure NetApp Files를 지 원하는 지역에][anf-regions]있어야 합니다.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -148,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-PersistentVolume를 `pv-nfs.yaml` 정의 하는을 만듭니다. 이전 `path` 명령의 *creationToken* 및 `server` *ipAddress* 로 대체 합니다. 다음은 그 예입니다.
+PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 예를 들어:
 
 ```yaml
 ---
@@ -180,7 +177,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>PersistentVolumeClaim 만들기
 
-PersistentVolume를 `pvc-nfs.yaml` 정의 하는을 만듭니다. 다음은 그 예입니다.
+PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 예를 들어:
 
 ```yaml
 apiVersion: v1
@@ -210,7 +207,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Pod를 사용 하 여 탑재
 
-PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 다음은 그 예입니다.
+PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 예를 들어:
 
 ```yaml
 kind: Pod
@@ -246,7 +243,7 @@ kubectl apply -f nginx-nfs.yaml
 kubectl describe pod nginx-nfs
 ```
 
-[Kubectl exec][kubectl-exec] 를 사용 하 여 pod에 연결 `df -h` 하 여 해당 볼륨이 탑재 되었는지 확인 합니다.
+[Kubectl exec][kubectl-exec] 를 사용 하 여 pod에 연결 하 여 해당 볼륨이 탑재 되었는지 확인 합니다 `df -h` .
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash

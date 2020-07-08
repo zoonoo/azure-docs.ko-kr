@@ -1,16 +1,15 @@
 ---
 title: 레지스트리 지역 복제
-description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다.
+description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다. 지역에서 복제는 프리미엄 기능 계층의 기능입니다.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508797"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 

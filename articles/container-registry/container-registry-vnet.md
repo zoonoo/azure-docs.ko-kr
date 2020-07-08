@@ -1,14 +1,13 @@
 ---
 title: 서비스 엔드포인트를 사용한 액세스 제한
-description: Azure Virtual Network의 서비스 엔드포인트를 사용하여 Azure Container Registry에 대한 액세스 제한
+description: Azure 가상 네트워크의 서비스 끝점을 사용 하 여 Azure container registry에 대 한 액세스를 제한 합니다. 서비스 끝점 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5a3cc9638fb12853e0e26f3806c17dc47f522249
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509290"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Azure Virtual Network의 서비스 엔드포인트를 사용하여 컨테이너 레지스트리에 대한 액세스 제한
 
@@ -34,7 +33,7 @@ ms.locfileid: "83685046"
 
 * 컨테이너 레지스트리가 아직 없는 경우, 하나(프리미엄 계층 필요)를 만들고 Docker Hub에서 `hello-world`와 같은 샘플 이미지를 밀어넣습니다. 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli]를 사용하여 레지스트리를 만듭니다. 
 
-* 다른 Azure 구독에서 서비스 엔드포인트를 사용하여 레지스트리 액세스를 제한하려면 해당 구독에서 Azure Container Registry에 대한 리소스 공급자를 등록합니다. 다음은 그 예입니다.
+* 다른 Azure 구독에서 서비스 엔드포인트를 사용하여 레지스트리 액세스를 제한하려면 해당 구독에서 Azure Container Registry에 대한 리소스 공급자를 등록합니다. 예를 들어:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -100,7 +99,7 @@ az network vnet subnet show \
 
 #### <a name="change-default-network-access-to-registry"></a>레지스트리에 대한 기본 네트워크 액세스 변경
 
-기본적으로 Azure Container Registry는 모든 네트워크에 있는 호스트로부터의 연결을 허용합니다. 선택한 네트워크로 액세스를 제한하려면 기본 작업을 액세스 거부로 변경합니다. 다음 [az acr update][az-acr-update] 명령에서 레지스트리 이름을 바꿉니다.
+기본적으로 Azure Container Registry는 모든 네트워크에 있는 호스트로부터의 연결을 허용합니다. 선택한 네트워크로 액세스를 제한하려면 기본 작업을 액세스 거부로 변경합니다. 다음 [az acr update][az-acr-update] 명령에서 레지스트리 이름을 대체합니다.
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny

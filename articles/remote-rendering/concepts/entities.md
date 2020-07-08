@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509205"
 ---
 # <a name="entities"></a>엔터티
 
@@ -25,6 +24,33 @@ ms.locfileid: "83758727"
 엔터티는 부모 요소에 의해 고유하게 소유됩니다. 즉, `Entity.Destroy()`로 부모 요소가 제거되면 그 자식 요소와 모든 연결된 [구성 요소](components.md)도 제거됩니다. 따라서 장면에서 모델을 제거하는 것은 모델의 루트 노드에서 `AzureSession.Actions.LoadModelAsync()` 또는 그 SAS 변형 `AzureSession.Actions.LoadModelFromSASAsync()`로 반환되는 `Destroy`를 호출하여 수행됩니다.
 
 엔터티는 서버가 콘텐츠를 로드하거나 사용자가 장면에 개체를 추가하려는 경우에 만들어집니다. 예를 들어, 사용자가 메시의 내부를 시각화하기 위해 잘린 평면을 추가하려는 경우, 평면을 배치하려는 곳에 엔터티를 만들고 여기에 잘린 평면 구성 요소를 추가하면 됩니다.
+
+## <a name="create-an-entity"></a>엔터티 만들기
+
+장면에 새 엔터티를 추가 하 여 모델을 로드 하기 위한 루트 개체로 전달 하거나 구성 요소를 연결 하려면 다음 코드를 사용 합니다.
+
+```cs
+Entity CreateNewEntity(AzureSession session)
+{
+    Entity entity = session.Actions.CreateEntity();
+    entity.Position = new LocalPosition(1, 2, 3);
+    return entity;
+}
+```
+
+```cpp
+ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+{
+    ApiHandle<Entity> entity(nullptr);
+    if (auto entityRes = session->Actions()->CreateEntity())
+    {
+        entity = entityRes.value();
+        entity->Position(Double3{ 1, 2, 3 });
+        return entity;
+    }
+    return entity;
+}
+```
 
 ## <a name="query-functions"></a>쿼리 함수
 

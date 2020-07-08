@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 6e0581912a619bec11be6d322e2987a4498c5170
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339368"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Azure Stack Edge 디바이스 반환 또는 바꾸기
 
@@ -22,6 +21,7 @@ ms.locfileid: "83743631"
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * 디바이스의 데이터 디스크에서 데이터 지우기
 > * 지원 티켓을 열어 디바이스 반환
 > * 디바이스 포장 및 픽업 예약

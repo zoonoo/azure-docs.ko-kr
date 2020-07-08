@@ -9,12 +9,11 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84310566"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -115,7 +114,7 @@ $vmssConfig = New-AzVmssConfig `
 
 **Q:** 할당량은 어떻게 관리 되나요?
 
-**A:** 스폿 인스턴스와 표준 인스턴스는 별도의 할당량 풀을 갖게 됩니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조하세요.
+**A:** 스폿 인스턴스와 표준 인스턴스는 별도의 할당량 풀을 갖게 됩니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요.
 
 
 **Q:** 추가 할당량을 요청할 수 있나요?
@@ -160,7 +159,7 @@ $vmssConfig = New-AzVmssConfig `
 | 종량제 통화 요금                | 예                               |
 | CSP(클라우드 서비스 공급자) | [파트너에 게 문의](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | 이점                     | 사용할 수 없음                     |
-| 후원                    | 사용할 수 없음                     |
+| 후원                    | 예                               |
 | 평가판                   | 사용할 수 없음                     |
 
 

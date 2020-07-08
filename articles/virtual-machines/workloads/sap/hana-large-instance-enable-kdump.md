@@ -13,12 +13,11 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16dc15b4369904643d0138a4b8e5b94c47868d31
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488888"
 ---
 # <a name="enable-kdump-service"></a>Kdump 서비스 사용
 
@@ -30,18 +29,34 @@ ms.locfileid: "82204937"
 |-----------------------------|--------------|-----------------------|-------------|
 |   입력 I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   입력 I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
+|   입력 I                    |  SuSE        |   SLES 12 SP2         |  S72        |
 |   입력 I                    |  SuSE        |   SLES 12 SP2         |  S72m       |
 |   입력 I                    |  SuSE        |   SLES 12 SP3         |  S72m       |
 |   입력 I                    |  SuSE        |   SLES 12 SP2         |  S96        |
 |   입력 I                    |  SuSE        |   SLES 12 SP3         |  S96        |
+|   입력 I                    |  SuSE        |   SLES 12 SP2         |  S192       |
+|   입력 I                    |  SuSE        |   SLES 12 SP3         |  S192       |
+|   입력 I                    |  SuSE        |   SLES 12 SP4         |  S192       |
+|   입력 I                    |  SuSE        |   SLES 12 SP2         |  S192m      |
+|   입력 I                    |  SuSE        |   SLES 12 SP3         |  S192m      |
+|   입력 I                    |  SuSE        |   SLES 12 SP4         |  S192m      |
+|   입력 I                    |  SuSE        |   SLES 12 SP2         |  S144       |
+|   입력 I                    |  SuSE        |   SLES 12 SP3         |  S144       |
+|   입력 I                    |  SuSE        |   SLES 12 SP2         |  S144m      |
+|   입력 I                    |  SuSE        |   SLES 12 SP3         |  S144m      |
+|   형식 II                   |  SuSE        |   SLES 12 SP2         |  S384       |
 |   형식 II                   |  SuSE        |   SLES 12 SP3         |  S384       |
-|   형식 II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
+|   형식 II                   |  SuSE        |   SLES 12 SP4         |  S384       |
+|   형식 II                   |  SuSE        |   SLES 12 SP2         |  S384xm     |
 |   형식 II                   |  SuSE        |   SLES 12 SP3         |  S384xm     |
 |   형식 II                   |  SuSE        |   SLES 12 SP4         |  S384xm     |
+|   형식 II                   |  SuSE        |   SLES 12 SP2         |  S576m      |
+|   형식 II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
+|   형식 II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Kdump 서비스는 `/var/crash` 디렉터리를 사용 하 여 덤프를 쓰고,이 디렉터리에 해당 하는 파티션에 덤프를 수용할 수 있는 충분 한 공간이 있는지 확인 합니다.
+- Kdump 서비스는 디렉터리를 사용 하 여 `/var/crash` 덤프를 쓰고,이 디렉터리에 해당 하는 파티션에 덤프를 수용할 수 있는 충분 한 공간이 있는지 확인 합니다.
 
 ## <a name="setup-details"></a>설정 정보
 
@@ -68,13 +83,12 @@ ms.locfileid: "82204937"
 - 커널 충돌 트리거
 
     ```bash
-    echo 1 > /proc/sys/kernel/sysrq
     echo c > /proc/sysrq-trigger
     ```
 
-- 시스템이 다시 부팅 되 면 디렉터리에서 `/var/crash` 커널 크래시 로그를 확인 합니다.
+- 시스템이 다시 부팅 되 면 `/var/crash` 디렉터리에서 커널 크래시 로그를 확인 합니다.
 
-- 에 `/var/crash` 현재 날짜의 디렉터리가 있으면 kdump를 사용 하도록 설정 합니다.
+- 에 `/var/crash` 현재 날짜의 디렉터리가 있으면 Kdump를 사용 하도록 설정 합니다.
 
 ## <a name="support-issue"></a>지원 문제
 

@@ -4,17 +4,16 @@ description: 데이터 수집 모듈을 사용하거나 사용하지 않도록 �
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 3375c24739da8663aa6a40deeb53e02e65d1f9bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dde2cbf227f085b751f6ad22e1f2fa95f38c5915
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485126"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
 
-구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 기본적으로 **> Application Insights 원격 분석 추가**를 지 원하는 Visual Studio 템플릿 프로젝트에서 자동화 된 환경을 사용 하는 경우 프로젝트 루트 폴더에 applicationinsights .config 파일이 생성 되 고이를 bin 폴더에 복사 합니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
+구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 기본적으로 **> Application Insights 원격 분석 추가**를 지 원하는 Visual Studio 템플릿 프로젝트에서 자동화 된 환경을 사용 하는 경우 ApplicationInsights.config 파일은 프로젝트 루트 폴더에 만들어지고 컴파일 시 bin 폴더에 복사 됩니다. 또한 [IIS 서버에서 상태 모니터][redfield]하 여 웹 앱에 추가 됩니다. Azure [웹 사이트](azure-web-apps.md) 또는 [azure VM 및 가상 머신 확장 집합에](azure-vm-vmss-apps.md) 대 한 확장이 사용 되는 경우 구성 파일은 무시 됩니다.
 
 [웹 페이지에서 SDK][client]를 제어할 동급의 파일은 없습니다.
 
@@ -69,7 +68,7 @@ HTTP 요청의 [응답 시간 및 결과 코드](../../azure-monitor/app/asp-net
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - [관찰되지 않은 작업 예외](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx)를 추적합니다.
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule`-관찰 되지 않은 작업 예외를 추적 합니다.
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - 작업자 역할, Windows 서비스 및 콘솔 애플리케이션에 대한 처리되지 않은 예외를 추적합니다.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지.
 

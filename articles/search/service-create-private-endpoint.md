@@ -8,16 +8,17 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0945743fb2cf3e37345ff562250e48511944cee6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466173"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 연결을 위한 개인 끝점 만들기
 
 이 문서에서는 Azure Portal를 사용 하 여 인터넷을 통해 액세스할 수 없는 새 Azure Cognitive Search 서비스 인스턴스를 만듭니다. 다음으로 동일한 가상 네트워크에 Azure 가상 머신을 구성 하 고이를 사용 하 여 개인 끝점을 통해 검색 서비스에 액세스 합니다.
+
+개인 끝점은 [Azure 개인 링크](../private-link/private-link-overview.md)에서 별도 서비스로 제공 됩니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/private-link/)를 참조 하세요.
 
 > [!Important]
 > Azure Portal 또는 [관리 REST API 버전 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/)을 사용 하 여 Azure Cognitive Search에 대 한 개인 끝점 지원을 구성할 수 있습니다. 서비스 끝점이 개인 인 경우 일부 포털 기능이 사용 하지 않도록 설정 됩니다. 서비스 수준 정보를 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 구성 요소 및 인덱스에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다.
@@ -42,9 +43,9 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Subscription | 구독 선택|
+    | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택 하 고 *myresourcegroup*을 입력 한 다음 **확인** 을 선택 합니다. |
-    | 속성 | *MyVirtualNetwork* 입력 |
+    | 이름 | *MyVirtualNetwork* 입력 |
     | 지역 | 원하는 지역 선택 |
     |||
 
@@ -58,7 +59,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. **새 Search Service-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | Value |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -79,12 +80,12 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. **개인 끝점 만들기**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | 위치 | **미국 서부**를 선택합니다.|
-    | 속성 |  *MyPrivateEndpoint*를 입력 합니다.  |
+    | 이름 |  *MyPrivateEndpoint*를 입력 합니다.  |
     | 대상 하위 리소스 | 기본 **Searchservice**를 그대로 둡니다. |
     | **네트워킹** |  |
     | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
@@ -112,7 +113,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | Value |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |

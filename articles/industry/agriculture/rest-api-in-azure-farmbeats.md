@@ -1,18 +1,17 @@
 ---
-title: 참조
+title: 참조 항목
 description: ''
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488038"
 ---
-# <a name="references"></a>참조
+# <a name="references"></a>참조 항목
 
 이 문서에서는 Azure FarmBeats Api에 대해 설명 합니다.
 
@@ -33,12 +32,12 @@ FarmBeats Api에는 Swagger 기술 설명서가 포함 되어 있습니다. 모�
 
 다음 표에는 FarmBeats Datahub의 모든 개체와 리소스가 요약 되어 있습니다.
 
-| 개체 및 리소스 | Description
+| 개체 및 리소스 | 설명
 --- | ---|
 팜 | 팜은 FarmBeats 시스템 내에서 관심 있는 실제 위치에 해당 합니다. 각 팜에는 팜 이름과 고유한 팜 ID가 있습니다. |
 디바이스  | 장치는 팜에 있는 물리적 장치에 해당 합니다. 각 장치에는 고유한 장치 ID가 있습니다. 일반적으로 장치는 팜 ID를 사용 하 여 팜으로 프로 비전 됩니다.
 DeviceModel  | DeviceModel은 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 장치 메타 데이터에 해당 합니다.
-센서  | 센서는 값을 기록 하는 실제 센서에 해당 합니다. 센서는 일반적으로 장치 ID를 사용 하 여 장치에 연결 됩니다.
+센서  | 센서는 값을 기록 하는 실제 센서에 해당 합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 SensorModel  | SensorModel은 제조업체, 센서 유형 (예: 아날로그 또는 디지털) 및 센서 측정 (예: 주변 온도 및 압력)과 같은 센서의 메타 데이터에 해당 합니다.
 원격 분석  | 원격 분석은 특정 센서 및 시간 범위에 대 한 원격 분석 메시지를 읽는 기능을 제공 합니다.
 작업  | 작업은 원하는 출력을 얻기 위해 FarmBeats 시스템에서 실행 되는 작업의 워크플로에 해당 합니다. 각 작업은 작업 ID 및 작업 유형과 연결 됩니다.
@@ -54,7 +53,7 @@ RoleAssignment  |RoleAssignment은 사용자 또는 서비스 주체에 역할�
 
 ### <a name="data-format"></a>데이터 형식
 
-JSON은 임의의 데이터 구조에 대 한 간단한 텍스트 표현을 제공 하는 공용 언어 독립적 데이터 형식입니다. 자세한 내용은 [JSON 웹 사이트](https://www.json.org/)를 참조 하세요.
+JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 공용 언어 독립적 데이터 형식입니다. 자세한 내용은 [JSON 웹 사이트](https://www.json.org/)를 참조 하세요.
 
 ## <a name="authentication-and-authorization"></a>인증 및 권한 부여
 
@@ -72,19 +71,19 @@ headers = {"Authorization": "Bearer " + **access_token**}
 Azure FarmBeats Datahub에 대 한 API 호출을 수행할 때 지정 해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
 
 
-**머리글이** | **설명 및 예**
+**머리글** | **설명 및 예**
 --- | ---
-콘텐츠 형식  | 요청 형식 (Content-type: application/<format>)입니다. Azure FarmBeats Datahub Api의 경우 형식은 JSON입니다. Content-Type: application/json
-권한 부여  | API 호출을 수행 하는 데 필요한 액세스 토큰을 지정 합니다. 권한 부여: 전달자 <액세스-토큰>
-수락 | 응답 형식입니다. Azure FarmBeats Datahub Api의 경우 형식은 JSON입니다. 수락: application/json
+콘텐츠 형식  | 요청 형식입니다(Content-Type: application/<format>). Azure FarmBeats Datahub Api의 경우 형식은 JSON입니다. Content-Type: application/json
+권한 부여  | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: Bearer <Access-Token>
+수락 | 응답 형식입니다. Azure FarmBeats Datahub Api의 경우 형식은 JSON입니다. Accept: application/json
 
 ### <a name="api-requests"></a>API 요청
 
 REST API 요청을 만들려면 HTTP (GET, POST, PUT 또는 DELETE) 메서드, API 서비스에 대 한 URL, 쿼리할 리소스에 대 한 URI, 데이터 전송, 업데이트 또는 삭제를 결합 한 다음 하나 이상의 HTTP 요청 헤더를 추가 합니다.
 
-API 서비스에 대 한 URL은 Datahub URL입니다 (예: https://\<azurewebsites.net>.
+API 서비스에 대 한 URL은 Datahub URL (예: https:// \<yourdatahub-website-name> . azurewebsites.net)입니다.
 
-필요에 따라 필터에 대 한 GET 호출에 쿼리 매개 변수를 포함 하 고, 크기를 제한 하 고, 응답의 데이터를 정렬할 수 있습니다.
+필요에 따라 GET 호출에 쿼리 매개 변수를 포함하여 응답에서 데이터를 필터링하고, 크기를 제한하고, 정렬할 수 있습니다.
 
 다음 샘플 요청은 장치 목록을 가져오는 데 사용 됩니다.
 
@@ -92,7 +91,7 @@ API 서비스에 대 한 URL은 Datahub URL입니다 (예: https://\<azurewebsit
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
-대부분 GET, POST 및 PUT 호출에는 JSON 요청 본문이 필요 합니다.
+대부분의 GET, POST 및 PUT 호출에는 JSON 요청 본문이 필요합니다.
 
 다음 샘플 요청은 장치를 만듭니다. 이 요청에는 요청 본문을 사용 하는 입력 JSON이 있습니다.
 
@@ -113,7 +112,7 @@ Azure FarmBeats Datahub Api는 표준 HTTP 오류를 반환 합니다. 가장 �
 
  |오류 코드             | Description |
  |---                    | --- |
- |200                    | 성공 |
+ |200                    | Success |
  |201                    | 만들기 (Post) 성공 |
  |400                    | 잘못된 요청. 요청에 오류가 있습니다. |
  |401                    | 권한이 없습니다. API 호출자에 게 리소스에 액세스할 수 있는 권한이 없습니다. |
@@ -147,7 +146,7 @@ Azure FarmBeats Datahub Api는 표준 HTTP 오류를 반환 합니다. 가장 �
 
 Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록을 통해 액세스할 수 있습니다. Azure Active Directory에서 앱 등록을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 하 여**새 등록****앱 등록** >  **Azure Active Directory** > 를 선택 합니다. 또는 기존 계정을 사용할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **Azure Active Directory**  >  **App registrations**  >  **새 등록**앱 등록 Azure Active Directory를 선택 합니다. 또는 기존 계정을 사용할 수 있습니다.
 2. 새 계정에 대해 다음을 수행 합니다.
 
     - 이름을 입력합니다.
@@ -162,9 +161,18 @@ Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록�
     - **개요**로 돌아가서 **로컬 디렉터리에서 응용 프로그램 관리**옆의 링크를 선택 합니다.
     - **속성** 으로 이동 하 여 **개체 ID**를 캡처합니다.
 
-4. Datahub Swagger (https://<yourdatahub>. azurewebsites.net/swagger/index.html)로 이동 하 고 다음을 수행 합니다.
+4. Datahub Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html)로 이동 하 고 다음을 수행 합니다.
     - **Roleassignment API**로 이동 합니다.
     - 게시를 수행 하 여 방금 만든 **개체 ID** 에 대 한 **roleassignment** 개체를 만듭니다.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
   > 사용자를 추가 하 고 등록을 Active Directory 하는 방법에 대 한 자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)을 참조 하세요.

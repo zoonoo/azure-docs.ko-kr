@@ -3,15 +3,14 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465255"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -118,7 +117,7 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-moni
     > 이 스크립트를 실행하려면 [Azure AD 애플리케이션 관리자 역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles)의 멤버여야 합니다.
     
     - PowerShell 스크립트의 Connect-AzureAD 호출을 수정하여 Azure AD 테넌트 ID를 사용합니다.
-    - PowerShell 스크립트의 변수 $myAzureADApplicationObjectId를 수정하여 Azure AD 애플리케이션의 개체 ID를 사용합니다.
+    - PowerShell 스크립트의 변수 $myAzureADApplicationObjectId 수정 하 여 Azure AD 응용 프로그램의 개체 ID를 사용 합니다.
     - 수정된 스크립트를 실행합니다.
     
 1. 작업 그룹 보안 웹후크 작업을 구성합니다.
@@ -217,7 +216,12 @@ Write-Host $myApp.AppRoles
 지원되는 국가/지역에 대한 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다.
 
 ### <a name="webhook"></a>웹후크
-웹후크는 다음 규칙을 사용하여 다시 시도됩니다. 웹후크 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 두 번째 다시 시도는 100초 후에 진행됩니다. 두 번 실패한 후에는 작업 그룹에서 30분 동안 엔드포인트를 호출하지 않습니다. 
+웹 후크는 다음 규칙을 사용 하 여 처리 됩니다.
+- Webhook 호출은 최대 3 회 시도 됩니다.
+- 제한 시간 내에 응답이 수신 되지 않거나 다음 HTTP 상태 코드 중 하나가 반환 되 면 (408, 429, 503 또는 504) 호출을 다시 시도 합니다.
+- 첫 번째 호출은 응답을 위해 10 초를 기다립니다.
+- 두 번째와 세 번째 시도는 응답에 대해 30 초 동안 대기 합니다.
+- 3 번의 webhook 호출이 실패 한 후에는 작업 그룹에서 15 분 동안 끝점을 호출 하지 않습니다.
 
 원본 IP 주소 범위
  - 13.72.19.232

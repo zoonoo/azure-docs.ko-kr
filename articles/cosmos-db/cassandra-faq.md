@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 7d4618382c31f0b1f2efa42fe87a6efe4bc85319
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 04708a307cd0eedfbe0510324930eb2327adf06e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449739"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>의 Cassandra API에 대 한 질문과 대답 Azure Cosmos DB
 
@@ -28,11 +27,11 @@ ms.locfileid: "82608254"
 - Apache Cassandra 같이 클러스터의 각 노드에 **num_tokens** 를 설정할 필요가 없습니다. Azure Cosmos DB는 노드와 토큰 범위를 완전히 관리 합니다.
 - Cassandra API는 완전히 관리 됩니다. Apache Cassandra에 사용 되는 복구 및 서비스 해제와 같은 **nodetool** 명령이 필요 하지 않습니다.
 
-## <a name="other-frequently-asked-questions"></a>기타 자주 묻는 질문
+## <a name="other-frequently-asked-questions"></a>기타 질문과 대답
 
 ### <a name="what-protocol-version-does-the-cassandra-api-support"></a>Cassandra API 지원 되는 프로토콜 버전은 무엇 인가요?
 
-Azure Cosmos DB에 대 한 Cassandra API는 CQL 버전 3(sp3)을 지원 합니다. CQL 호환성은 공용 [Apache Cassandra GitHub 리포지토리](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile)를 기반으로 합니다. 다른 프로토콜 지원에 대 한 의견이 있는 경우 [사용자 의견 피드백](https://feedback.azure.com/forums/263030-azure-cosmos-db) 을 통해 알려 주시기 바랍니다 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+Azure Cosmos DB에 대 한 Cassandra API는 CQL 버전 3(sp3)을 지원 합니다. CQL 호환성은 공용 [Apache Cassandra GitHub 리포지토리](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile)를 기반으로 합니다. 다른 프로토콜 지원에 대 한 의견이 있는 경우 [사용자 의견 피드백](https://feedback.azure.com/forums/263030-azure-cosmos-db) 을 통해 알려 주시기 바랍니다 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="why-is-choosing-throughput-for-a-table-a-requirement"></a>테이블 요구 사항에 대 한 처리량을 선택 해야 하는 이유는 무엇 인가요?
 
@@ -85,7 +84,7 @@ Azure Cosmos DB는 작업에 대한 상한을 사용하여 성능 및 대기 시
 
 Azure Cosmos DB는 SLA (서비스 수준 계약)를 기반으로 하는 시스템입니다. 대기 시간, 처리량, 가용성 및 일관성을 보장 하는 무제한 규모를 제공 합니다. 무제한 저장소는 분할을 주요 개념으로 사용 하는 수평 확장 데이터를 기반으로 합니다. 분할 개념은 [Azure Cosmos DB의 파티션 및 확장](partition-data.md) 문서에 잘 설명되어 있습니다.
 
-논리적 파티션당 엔터티 또는 항목 수에 대 한 10gb 제한을 준수 해야 합니다. 애플리케이션이 원활하게 확장할 수 있도록 하려면 단일 파티션에 대한 모든 정보를 저장 및 쿼리하여 핫 파티션을 만들지 *않는* 것이 좋습니다. 이 오류는 데이터가 왜곡 된 경우에만 발생할 수 있습니다. 즉, 하나의 파티션 키에 대해 많은 데이터가 있습니다 (10gb&nbsp;이상). 저장소 포털을 사용 하 여 데이터 배포를 찾을 수 있습니다. 이 오류를 해결 하는 방법은 테이블을 다시 만들고 세부적인 기본 (파티션 키)을 선택 하 여 데이터를 보다 효율적으로 배포할 수 있다는 것입니다.
+논리적 파티션당 엔터티 또는 항목 수에 대 한 10gb 제한을 준수 해야 합니다. 애플리케이션이 원활하게 확장할 수 있도록 하려면 단일 파티션에 대한 모든 정보를 저장 및 쿼리하여 핫 파티션을 만들지 *않는* 것이 좋습니다. 이 오류는 데이터가 왜곡 된 경우에만 발생할 수 있습니다. 즉, 하나의 파티션 키에 대해 많은 데이터가 있습니다 (10gb 이상 &nbsp; ). 저장소 포털을 사용 하 여 데이터 배포를 찾을 수 있습니다. 이 오류를 해결 하는 방법은 테이블을 다시 만들고 세부적인 기본 (파티션 키)을 선택 하 여 데이터를 보다 효율적으로 배포할 수 있다는 것입니다.
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>Cassandra API를 수백만 또는 수십억 개의 파티션 키로 키 값 저장소로 사용할 수 있나요?
 
@@ -101,11 +100,11 @@ Azure Cosmos DB은 데이터 및 제어 평면 작업 모두에 대 한 리소�
 
 ### <a name="what-is-the-maximum-number-of-tables-that-i-can-create"></a>만들 수 있는 테이블의 최대 수는 얼마 인가요?
 
-테이블 수에 대 한 물리적 제한은 없습니다. 일반적으로 수십 또는 수백이 아닌 많은 테이블이 생성 되어야 하는 많은 테이블이 있는 경우에는에 전자 메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)보냅니다.
+테이블 수에 대 한 물리적 제한은 없습니다. 일반적으로 수십 또는 수백이 아닌 많은 테이블이 생성 되어야 하는 많은 테이블이 있는 경우에는에 전자 메일을 보냅니다 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="what-is-the-maximum-number-of-keyspaces-that-i-can-create"></a>만들 수 있는 최대 보내주세요의 수는 얼마 인가요?
 
-키 공간 수는 메타 데이터 컨테이너 이기 때문에 실제 제한이 없습니다. 키 공간이 많은 경우로 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)전자 메일을 보내세요.
+키 공간 수는 메타 데이터 컨테이너 이기 때문에 실제 제한이 없습니다. 키 공간이 많은 경우로 전자 메일을 보내세요 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="can-i-bring-in-a-lot-of-data-after-starting-from-a-normal-table"></a>일반 테이블에서 시작한 후 많은 데이터를 가져올 수 있나요?
 
@@ -133,7 +132,7 @@ Azure Cosmos DB는 읽기, 쓰기 및 처리량에 대 한 성능 보장을 제�
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>처리량과 함께 인프라를 모니터링 하려면 어떻게 해야 하나요?
 
-Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음과 같습니다.
+Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음을 할 수 있습니다.
 
 - [Sla](monitor-accounts.md) 모니터링
 - [메트릭](use-metrics.md) 사용
@@ -141,7 +140,7 @@ Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생�
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Cassandra API에서 사용할 수 있는 클라이언트 Sdk는 무엇입니까?
 
-CQLv3를 사용 하는 Apache Cassandra SDK의 클라이언트 드라이버는 클라이언트 프로그램에 사용 되었습니다. 다른 드라이버를 사용 하는 경우 또는 문제가 발생 하는 경우에 메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)보냅니다.
+CQLv3를 사용 하는 Apache Cassandra SDK의 클라이언트 드라이버는 클라이언트 프로그램에 사용 되었습니다. 다른 드라이버를 사용 하는 경우 또는 문제가 발생 하는 경우에 메일을 보냅니다 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="are-composite-partition-keys-supported"></a>복합 파티션 키가 지원 되나요?
 
@@ -153,13 +152,13 @@ CQLv3를 사용 하는 Apache Cassandra SDK의 클라이언트 드라이버는 �
 
 ### <a name="can-i-pair-an-on-premises-apache-cassandra-cluster-with-the-cassandra-api"></a>온-프레미스 Apache Cassandra 클러스터를 Cassandra API와 쌍으로 연결할 수 있나요?
 
-현재 Azure Cosmos DB에는 작업의 오버 헤드 없이 클라우드 환경에 최적화 된 환경이 있습니다. 페어링이 필요한 경우 시나리오에 대 한 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) 설명과 함께에 메일을 보냅니다. 온-프레미스 또는 클라우드 Cassandra 클러스터를 Azure Cosmos DB Cassandra API와 연결 하는 데 도움이 되는 제품에 대해 노력 하 고 있습니다.
+현재 Azure Cosmos DB에는 작업의 오버 헤드 없이 클라우드 환경에 최적화 된 환경이 있습니다. 페어링이 필요한 경우 시나리오에 대 한 설명과 함께에 메일을 보냅니다 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) . 온-프레미스 또는 클라우드 Cassandra 클러스터를 Azure Cosmos DB Cassandra API와 연결 하는 데 도움이 되는 제품에 대해 노력 하 고 있습니다.
 
 ### <a name="does-the-cassandra-api-provide-full-backups"></a>Cassandra API에서 전체 백업을 제공 하나요?
 
 Azure Cosmos DB은 모든 Api에서 4 시간 간격으로 수행 되는 두 개의 무료 전체 백업을 제공 합니다. 따라서 백업 일정을 설정할 필요가 없습니다. 
 
-보존 및 빈도를 수정 하려면 전자 메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) 보내거나 지원 사례를 발생 시킵니다. 백업 기능에 대한 정보는 [Azure Cosmos DB로 자동 온라인 백업 및 복원](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) 문서에 나와 있습니다.
+보존 및 빈도를 수정 하려면 전자 메일을 보내거나 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) 지원 사례를 발생 시킵니다. 백업 기능에 대한 정보는 [Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md) 문서에 나와 있습니다.
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>지역에서 작동이 중지된 경우 Cassandra API 계정은 장애 조치(Failover)를 어떻게 처리하나요?
 

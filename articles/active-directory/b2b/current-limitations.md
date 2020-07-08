@@ -11,12 +11,11 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffee01488ecf658ce02a20a41252aca19288667c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 127f05298483dcf155000c2eda8f590fc069a1e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84337668"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 협업의 제한 사항
 Azure AD(Azure Active Directory) B2B 협업에는 이 문서에 설명된 제한 사항이 적용됩니다.
@@ -30,23 +29,23 @@ B2B 협업 흐름에서 해당 디렉터리에 사용자를 추가하고 초대 
 ## <a name="azure-ad-directories"></a>Azure AD 디렉터리
 Azure AD B2B에는 Azure AD 서비스 디렉터리 제한이 적용됩니다. 사용자가 만들 수 있는 디렉터리 수와 사용자 또는 게스트 사용자가 속할 수 있는 디렉터리 수에 대한 자세한 내용은 [Azure AD 서비스 한도 및 제한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)을 참조하세요.
 
-## <a name="national-clouds"></a>국가 클라우드
+## <a name="national-clouds"></a>국가별 클라우드
 [국가별 클라우드](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) 는 실제로 격리 된 Azure 인스턴스입니다. B2B 공동 작업은 국가별 클라우드 경계에서 지원 되지 않습니다. 예를 들어 Azure 테 넌 트가 공용 글로벌 클라우드에 있는 경우 해당 계정이 국가 클라우드에 있는 사용자를 초대할 수 없습니다. 사용자와 공동 작업을 하려면 다른 전자 메일 주소를 요청 하거나 디렉터리에서 구성원 사용자 계정을 만들어야 합니다.
 
 ## <a name="azure-us-government-clouds"></a>Azure 미국 정부 클라우드
-Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미국 정부 클라우드 내에 있고 B2B 공동 작업을 지 원하는 테 넌 트 간에만 지원 됩니다. Azure US 정부 클라우드의 일부가 아니거나 아직 B2B 공동 작업을 지원 하지 않는 테 넌 트에 사용자를 초대 하는 경우 초대가 실패 하거나 사용자가 초대를 교환할 수 없습니다. 기타 제한 사항에 대 한 자세한 내용은 [Azure Active Directory Premium P1 및 P2 변형](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)을 참조 하세요.
+Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 Azure 미국 정부 클라우드 내에 있고 B2B 공동 작업을 지 원하는 테 넌 트 간에 지원 됩니다. B2B 공동 작업을 지 원하는 Azure 미국 정부 테 넌 트는 Microsoft 또는 Google 계정을 사용 하 여 소셜 사용자와 공동 작업을 할 수도 있습니다. 사용자를 이러한 그룹 외부에 초대 하는 경우 (예: 사용자가 Azure 미국 정부 클라우드의 일부가 아니거나 아직 B2B 공동 작업을 지원 하지 않는 테 넌 트에 있는 경우) 초대가 실패 하거나 사용자가 초대를 교환할 수 없습니다. 기타 제한 사항에 대 한 자세한 내용은 [Azure Active Directory Premium P1 및 P2 변형](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)을 참조 하세요.
 
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Azure US 정부 테 넌 트에서 B2B 공동 작업을 사용할 수 있는지 어떻게 알 수 있나요?
 Azure 미국 정부 클라우드 테 넌 트가 B2B 공동 작업을 지원 하는지 확인 하려면 다음을 수행 합니다.
 
-1. 브라우저에서 다음 URL로 이동 하 여 * &lt;tenantname&gt;* 에 대 한 테 넌 트 이름을 대체 합니다.
+1. 브라우저에서 다음 URL로 이동 하 여 * &lt; tenantname &gt; *에 대 한 테 넌 트 이름을 대체 합니다.
 
    `https://login.microsoftonline.com/<tenantname>/v2.0/.well-known/openid-configuration`
 
-2. JSON `"tenant_region_scope"` 응답에서 찾기:
+2. `"tenant_region_scope"`JSON 응답에서 찾기:
 
-   - 표시 `"tenant_region_scope":"USGOV”` 되는 경우 B2B가 지원 됩니다.
-   - 표시 `"tenant_region_scope":"USG"` 되는 경우 B2B는 지원 되지 않습니다.
+   - `"tenant_region_scope":"USGOV”`표시 되는 경우 B2B가 지원 됩니다.
+   - `"tenant_region_scope":"USG"`표시 되는 경우 B2B는 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -54,4 +53,3 @@ Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 - [Azure AD B2B 협업이란?](what-is-b2b.md)
 - [B2B 협업 초대 위임](delegate-invitations.md)
-

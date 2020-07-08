@@ -3,12 +3,11 @@ title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft 
 description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성 및 관리를 자동화합니다.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: a6653582a990b97775976b757198f11b2a46c46b
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: c4e7c4fe14d829338e98a4b7e73726b1e605707c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697911"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485415"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 
@@ -473,5 +472,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [경고 설정](powershell-alerts.md)
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)
-* [GitHub에서 Azure로 배포](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

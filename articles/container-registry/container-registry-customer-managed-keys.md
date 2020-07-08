@@ -1,15 +1,14 @@
 ---
 title: 고객 관리형 키를 사용하여 저장 데이터 암호화
-description: Azure 컨테이너 레지스트리의 저장 데이터 암호화 및 Azure Key Vault에 저장된 고객 관리형 키를 사용하여 레지스트리를 암호화하는 방법을 알아봅니다.
+description: Azure container registry의 미사용 암호화 및에 저장 된 고객 관리 키를 사용 하 여 Premium registry를 암호화 하는 방법에 대해 알아봅니다 Azure Key Vault
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 393e51e687e95c1ff4c6a50429dd342005aad296
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683493"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509545"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 

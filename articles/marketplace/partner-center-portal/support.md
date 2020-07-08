@@ -1,5 +1,5 @@
 ---
-title: 파트너 센터에서 상용 Marketplace 포털에 대 한 지원 받기
+title: 파트너 센터에서 상용 marketplace 포털에 대 한 지원 받기
 description: 지원 요청을 파일 하는 방법을 비롯 하 여 파트너 센터의 지원 옵션에 대해 알아봅니다.
 author: qianw211
 ms.author: dsindona
@@ -7,14 +7,13 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: fd7582877a74aa998de3a6d0a0f38e56c3c3af91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a007fe80c7c95305d65819eaa7081a8ff69e1cfc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463691"
 ---
-# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 프로그램 지원
+# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 marketplace 프로그램 지원
 
 Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니다. 적절 한 적절 한 응답을 보장 하려면 올바른 지원 팀을 찾아야 합니다. 다음은 쿼리를 적절한 팀으로 라우팅하는 데 도움이 되는 시나리오입니다. 
 
@@ -40,7 +39,7 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 5. 다른 Microsoft 게시자의 지식을 활용 하 여 질문에 답변 하려면 **[Marketplace 파트너 커뮤니티 포럼](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** 을 선택 합니다. 
 
-6. **[추가 도움말](https://partner.microsoft.com/support/v2/?stage=1)** 을 선택 하 여 **새 지원 요청** 티켓을 엽니다.  
+6. **[추가 도움말](https://aka.ms/marketplacepublishersupport)** 을 선택 하 여 **새 지원 요청** 티켓을 엽니다.  
 
 ## <a name="how-to-open-a-support-ticket"></a>지원 티켓을 여는 방법
 

@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488939"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Azure virtual machines에 대해 영역에 영역 재해 복구를 사용 하도록 설정
 
@@ -20,7 +19,7 @@ ms.locfileid: "82891510"
 
 >[!NOTE]
 >
->- Site Recovery 현재 영역에 대 한 영역 재해 복구에 대 한 복구 계획을 지원 하지 않습니다. 
+>- 현재 Site Recovery는 포털을 통해 영역 간 재해 복구에 대 한 복구 계획을 지원 하지 않습니다. 영역 재해 복구 영역에 대 한 복구 계획을 활용 하려면 PowerShell 또는 REST API를 사용 하세요. 
 >- 영역 간 재해 복구에 대 한 지원은 현재 동남 아시아 및 영국 남부의 두 지역으로 제한 됩니다.  
 
 Site Recovery 서비스는 계획 되거나 계획 되지 않은 중단 중에 비즈니스 앱을 가동 및 실행 상태로 유지 하 여 비즈니스 연속성 및 재해 복구 전략에 기여 합니다. 지역 가동 중단이 발생 하는 경우 응용 프로그램을 계속 실행 하는 재해 복구 옵션을 권장 합니다.
@@ -88,7 +87,7 @@ Azure Portal 로그인 합니다.
 
 1. Azure Portal 메뉴에서 가상 머신을 선택하거나 모든 페이지에서가상 머신을 검색하여 선택합니다. 복제할 VM을 선택합니다. 영역 간 재해 복구의 경우이 VM은 이미 가용성 영역에 있어야 합니다.
 
-2. 작업에서 재해 복구를 선택 합니다.
+2. 작업에서 재해 복구를 선택합니다.
 
 3. 아래와 같이 기본 사항 탭에서 ' 예 '를 선택 하 고 ' 가용성 영역 간 재해 복구 '를 선택 합니다.
 
@@ -113,10 +112,13 @@ Azure Portal 로그인 합니다.
 RTO SLA는 전체 Site Recovery와 동일 합니다. 최대 2 시간의 RTO를 보장 합니다. RPO에 대해 정의 된 SLA는 없습니다.
 
 **3. 보조 영역에서 용량을 보장 하나요?**
-Site Recovery 팀 및 Azure 용량 관리 팀은 충분 한 인프라 용량을 계획 하 고 있습니다. 장애 조치 (failover)를 시작할 때 팀은 Site Recovery로 보호 되는 VM 인스턴스가 대상 영역에 배포 되도록 하는 데도 도움이 됩니다.
+Site Recovery 팀 및 Azure 용량 관리 팀은 충분한 인프라 용량을 계획하고 있습니다. 장애 조치 (failover)를 시작할 때 팀은 Site Recovery로 보호 되는 VM 인스턴스가 대상 영역에 배포 되도록 하는 데도 도움이 됩니다.
 
 **4. 지원 되는 운영 체제는 무엇 인가요?**
 영역 간 재해 복구는 Azure에서 Azure로 재해 복구와 동일한 운영 체제를 지원 합니다. [여기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)에서 지원 매트릭스를 참조 하세요.
+
+**5. 소스 및 대상 리소스 그룹이 동일할 수 있나요?**
+아니요, 다른 리소스 그룹으로 장애 조치 (failover) 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

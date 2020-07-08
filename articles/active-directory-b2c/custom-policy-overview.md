@@ -7,25 +7,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/06/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1a7cb964064e229ee29591ca14aa8ef33e393a7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484179"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-사용자 지정 정책은 Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 동작을 정의 하는 구성 파일입니다. 사용자 흐름은 가장 일반적인 ID 태스크에 대해 Azure AD B2C 포털에서 미리 정의됩니다. 사용자 지정 정책은 많은 다른 태스크를 완료하기 위해 ID 개발자가 완전히 편집할 수 있습니다.
+사용자 지정 정책은 Azure AD B2C(Azure Active Directory B2C) 테넌트의 동작을 정의하는 구성 파일입니다. 사용자 흐름은 가장 일반적인 ID 태스크에 대해 Azure AD B2C 포털에서 미리 정의됩니다. 사용자 지정 정책은 많은 다른 태스크를 완료하기 위해 ID 개발자가 완전히 편집할 수 있습니다.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>사용자 흐름 및 사용자 지정 정책 비교
 
-| | 사용자 흐름 | 사용자 지정 정책 |
+| Context | 사용자 흐름 | 사용자 지정 정책 |
 |-|-------------------|-----------------|
 | 대상 사용자 | ID 전문 지식이 있거나 없는 모든 애플리케이션 개발자 | ID 전문가, 시스템 통합 서비스, 컨설턴트 및 사내 ID 팀. Openid connect Connect 흐름에 익숙해지면 id 공급자 및 클레임 기반 인증을 이해 하 고 있습니다. |
 | 구성 방법 | 사용자에게 친숙한 UI(사용자 인터페이스)를 사용하는 Azure Portal | XML 파일 직접 편집 및 Azure Portal에 업로드 |
@@ -59,7 +58,7 @@ Azure AD B2C는 순서대로 ID 공급자, 사용자, 고객, 기타 시스템 �
 
 Id 경험 프레임 워크는 Openid connect Connect, OAuth, SAML 및 REST API 기반 시스템 간 클레임 교환의 경우와 같이 표준 프로토콜 형식에서 엔터티 사이에 신뢰를 오케스트레이션 하는 완전히 구성 가능한 정책 중심의 클라우드 기반 Azure 플랫폼입니다. 이 프레임워크는 HTML 및 CSS를 지원하는 사용자에게 친숙한 화이트 레이블 환경을 만듭니다.
 
-사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. XML 요소는 다른 요소 간에 클레임 스키마, 클레임 변환, 콘텐츠 정의, 클레임 공급자, 기술 프로필 및 사용자 경험 오케스트레이션 단계를 정의합니다. 사용자 지정 정책은 신뢰 당사자에서 호출할 때 ID 경험 프레임워크에서 실행하는 하나 이상의 XML 파일에 액세스할 수 있습니다. 사용자 지정 정책을 구성하는 개발자는 신뢰할 수 있는 관계를 세부적으로 신중하게 정의하여 메타데이터 엔드포인트, 정확한 클레임 정의 교환을 포함하고 ID 공급자 각각의 필요에 따라 암호, 키 및 인증서를 구성해야 합니다.
+사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. XML 요소는 다른 요소 간에 클레임 스키마, 클레임 변환, 콘텐츠 정의, 클레임 공급자, 기술 프로필 및 사용자 경험 오케스트레이션 단계를 정의합니다. 사용자 지정 정책은 신뢰 당사자에서 호출할 때 ID 경험 프레임워크에서 실행하는 하나 이상의 XML 파일에 액세스할 수 있습니다. 사용자 지정 정책을 구성하는 개발자는 신뢰할 수 있는 관계를 세부적으로 신중하게 정의하여 메타데이터 엔드포인트, 정확한 클레임 정의 교환을 포함하고 ID 공급자 각각의 필요에 따라 비밀, 키 및 인증서를 구성해야 합니다.
 
 ### <a name="inheritance-model"></a>상속 모델
 

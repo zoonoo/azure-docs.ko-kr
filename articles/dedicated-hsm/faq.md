@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84310388"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -115,7 +114,7 @@ Gemalto에서 제공한 HSM 클라이언트 도구/SDK/소프트웨어를 사용
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>Q: Dedicated HSM 클라이언트 소프트웨어에서 지원하는 운영 체제는 어떻게 되나요?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* 가상: VMware, hyperv, Xen, KVM
+* 가상: VMware, Hyper-v, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>Q: 여러 HSM의 여러 파티션이 포함된 고가용성 구성을 만들기 위해 클라이언트 애플리케이션을 구성하려면 어떻게 할까요?
 
@@ -242,7 +241,7 @@ Microsoft는 고객에게 할당된 HSM에 연결할 수 없습니다. 따라서
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q: HSM을 다시 부팅 해야 하는 경우 어떻게 해야 하나요?
 
-HSM은 명령줄 다시 부팅 옵션을 포함 하 고 있지만,이는 다시 부팅 중단 문제가 간헐적으로 발생 하며,이 때문에 Microsoft에서 장치를 물리적으로 다시 부팅 하도록 지원 요청을 발생 시키는 가장 안전한 다시 부팅에 권장 됩니다. 
+HSM에는 명령줄 다시 부팅 옵션이 있지만, 다시 부팅이 간헐적으로 응답을 중지 하는 문제가 발생 하 고 있습니다. 따라서 Microsoft에서 장치를 물리적으로 다시 부팅 하도록 지원 요청을 발생 시키는 것이 좋습니다. 
 
 ## <a name="cryptography-and-standards"></a>암호화 및 표준
 
@@ -286,7 +285,7 @@ Dedicated HSM 서비스는 SafeNet Luna Network HSM 7 어플라이언스를 프�
 
 프로비전 해제를 요청하기 전에 고객이 Gemalto에서 제공한 HSM 클라이언트 도구를 사용하여 HSM을 초기화해야 합니다.
 
-## <a name="performance-and-scale"></a>성능 및 확장
+## <a name="performance-and-scale"></a>성능 및 크기 조정
 
 ### <a name="q-how-many-cryptographic-operations-are-supported-per-second-with-dedicated-hsm"></a>Q: Dedicated HSM에서 지원하는 초당 암호화 작업 수는 어떻게 되나요?
 

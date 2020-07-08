@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: cd4cc90fb102d517a47ba458619e22b8921dd498
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aed015b67aa36e7678b31d7f2f047cb1e77c6a3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485309"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>VMware Vm을 온-프레미스 사이트로 장애 복구 (failback)
 
@@ -29,7 +28,7 @@ ms.locfileid: "75495333"
 
 ## <a name="run-a-failover-to-fail-back"></a>장애 복구 (failback) 실행
 
-1. Azure Vm이 다시 보호 되 고 온-프레미스 사이트로 복제 되는지 확인 합니다. 
+1. Azure Vm이 다시 보호 되 고 온-프레미스 사이트로 복제 되는지 확인 합니다.
     - 장애 복구 (failback)를 위해 VM에 하나 이상의 복구 지점이 필요 합니다.
     - 복구 계획을 장애 복구 (failback) 하는 경우 계획의 모든 컴퓨터에 하나 이상의 복구 지점이 있어야 합니다.
 2. 자격 증명 모음 > **복제 된 항목**에서 VM을 선택 합니다. VM > **계획 되지 않은 장애 조치 (Failover)** 를 마우스 오른쪽 단추로 클릭 합니다.

@@ -5,14 +5,13 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: a4770b3ae7c52b9a05ff704915a3e9f401fd1741
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: bf02bdc4d824a47bdaad4821ffc9562b9fe2dd40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84482627"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -24,7 +23,7 @@ Application Gateway는 메트릭 이라는 데이터 요소를 게시 하 여 Ap
 
 Application Gateway는 모두 밀리초 단위로 측정 되는 요청 및 응답과 관련 된 몇 가지 기본 제공 타이밍 메트릭을 제공 합니다. 
 
-![](./media/application-gateway-metrics/application-gateway-metrics.png)
+![Application Gateway에 대 한 타이밍 메트릭의 다이어그램입니다.](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -86,7 +85,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 - **현재 용량 단위**
 
-   트래픽 부하를 분산하는 데 사용되는 용량 단위 수입니다. 용량 단위 계산 단위, 영구 연결 및 처리량의 세 가지 택배 있습니다. 각 용량 단위는 1 개의 compute 단위 또는 2500 영구 연결 또는 2.22 Mbps 처리량으로 구성 됩니다.
+   트래픽 부하를 분산하는 데 사용되는 용량 단위 수입니다. 용량 단위 계산 단위, 영구 연결 및 처리량의 세 가지 택배 있습니다. 각 용량 단위는 최대 1개의 컴퓨팅 단위 또는 2,500개의 영구 연결 또는 2.22Mbps의 처리량으로 구성됩니다.
 
 - **현재 계산 단위**
 
@@ -100,7 +99,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   v2 SKU를 사용하는 경우 가격 책정 모델은 사용량에 따라 결정됩니다. 용량 단위는 고정 비용 외에 청구되는 소비 기반 비용을 측정합니다. 청구 된 *예상 용량 단위* 는 청구를 예상 하는 데 사용 하는 용량 단위 수를 나타냅니다. 이 값은 *현재 용량 단위*(트래픽 부하를 분산하는 데 필요한 용량 단위)와 *고정 청구 가능 용량 단위*(프로비저닝된 최소 용량 단위) 중에서 더 큰 값으로 계산됩니다.
 
-- **실패 한 요청**
+- **실패한 요청**
 
   Application Gateway에서 5xx 서버 오류 코드와 함께 제공 된 요청 수입니다. 여기에는 Application Gateway에서 생성 된 5xx 코드 뿐 아니라 백 엔드에서 생성 된 5xx 코드도 포함 됩니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
    
@@ -121,7 +120,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
    Application Gateway에서 제공하는 초당 바이트 수
 
-- **총 요청**
+- **총 요청 수**
 
    Application Gateway에서 처리 한 성공한 요청 수입니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
 
@@ -141,7 +140,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   상태 프로브에 의해 비정상으로 확인 된 백 엔드의 수입니다. 백 엔드 풀 기준으로 필터링 하 여 특정 백 엔드 풀의 비정상 호스트 수를 표시할 수 있습니다.
   
-- **정상 호스트 당 분당 요청 수**
+- **분당 요청 수/정상 호스트**
 
   백 엔드 풀의 각 정상 멤버에서 받은 평균 요청 수 (1 분)입니다. *BackendPool httpsettings 별* 차원을 사용 하 여 백 엔드 풀을 지정 해야 합니다.  
   
@@ -160,7 +159,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   Application Gateway와 설정된 현재 연결 수
 
-- **실패 한 요청**
+- **실패한 요청**
 
   Application Gateway에서 5xx 서버 오류 코드와 함께 제공 된 요청 수입니다. 여기에는 Application Gateway에서 생성 된 5xx 코드 뿐 아니라 백 엔드에서 생성 된 5xx 코드도 포함 됩니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
 
@@ -172,13 +171,13 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   Application Gateway에서 제공하는 초당 바이트 수
 
-- **총 요청**
+- **총 요청 수**
 
   Application Gateway에서 처리 한 성공한 요청 수입니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
 
-- **웹 응용 프로그램 방화벽 차단 된 요청 수**
+- **웹 애플리케이션 방화벽 차단 요청 수**
 - **웹 응용 프로그램 방화벽 차단 된 요청 배포**
-- **웹 응용 프로그램 방화벽 총 규칙 배포**
+- **웹 애플리케이션 방화벽 총 규칙 배포**
 
 ### <a name="backend-metrics"></a>백 엔드 메트릭
 

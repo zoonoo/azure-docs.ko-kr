@@ -5,15 +5,14 @@ author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 6c5f2a041f03d53e1ea7c3f981683f4b70d3963b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466003"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
 
@@ -27,7 +26,7 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터의 온-프레미스 HDFS �
 > * 장치를 Microsoft에 다시 배송 합니다.
 > * 파일 및 디렉터리에 대 한 액세스 권한 적용 (Data Lake Storage Gen2에만 해당)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 마이그레이션을 완료 하려면 이러한 항목이 필요 합니다.
 
@@ -59,11 +58,11 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
 2. 액세스 저장소 계정 및 데이터 업로드 대화 상자에서 **Blob service 끝점** 및 **저장소 계정 키**를 복사 합니다. Blob service 끝점에서 `https://` 및 후행 슬래시를 생략 합니다.
 
-    이 경우 끝점은 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`입니다. 예제는 [http를 통해 REST에 연결](/azure/databox/data-box-deploy-copy-data-via-rest)하는 방법을 참조 하세요. 
+    이 경우 끝점은 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` 입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` 입니다. 예제는 [http를 통해 REST에 연결](/azure/databox/data-box-deploy-copy-data-via-rest)하는 방법을 참조 하세요. 
 
      !["저장소 계정 액세스 및 데이터 업로드" 대화 상자](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. 각 노드에 끝점과 Data Box 또는 Data Box Heavy 노드 IP 주소를 `/etc/hosts` 추가 합니다.
+3. 각 노드에 끝점과 Data Box 또는 Data Box Heavy 노드 IP 주소를 추가 `/etc/hosts` 합니다.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -71,9 +70,9 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
     DNS에 다른 메커니즘을 사용 하는 경우 Data Box 끝점을 확인할 수 있는지 확인 해야 합니다.
 
-4. 셸 변수 `azjars` 를 `hadoop-azure` 및 `azure-storage` jar 파일의 위치로 설정 합니다. 이러한 파일은 Hadoop 설치 디렉터리에서 찾을 수 있습니다.
+4. 셸 변수를 `azjars` 및 jar 파일의 위치로 설정 `hadoop-azure` `azure-storage` 합니다. 이러한 파일은 Hadoop 설치 디렉터리에서 찾을 수 있습니다.
 
-    이러한 파일이 있는지 확인 하려면 명령을 사용 `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`합니다. 자리 표시자 `<hadoop_install_dir>` 를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
+    이러한 파일이 있는지 확인 하려면 명령을 사용 `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` 합니다. `<hadoop_install_dir>`자리 표시자를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
 
     예:
 
@@ -88,13 +87,13 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
     -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * 자리 표시자 `<blob_service_endpoint>` 를 blob service 끝점의 이름으로 바꿉니다.
+    * `<blob_service_endpoint>`자리 표시자를 blob service 끝점의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<account_key>` 를 계정의 액세스 키로 바꿉니다.
+    * `<account_key>`자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-    * 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+    * `<container-name>`자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<destination_directory>` 를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
+    * `<destination_directory>`자리 표시자를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
 
 6. 목록 명령을 실행 하 여 컨테이너 및 디렉터리를 만들었는지 확인 합니다.
 
@@ -105,11 +104,11 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-   * 자리 표시자 `<blob_service_endpoint>` 를 blob service 끝점의 이름으로 바꿉니다.
+   * `<blob_service_endpoint>`자리 표시자를 blob service 끝점의 이름으로 바꿉니다.
 
-   * 자리 표시자 `<account_key>` 를 계정의 액세스 키로 바꿉니다.
+   * `<account_key>`자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-   * 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+   * `<container-name>`자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
 7. Hadoop HDFS에서 이전에 만든 컨테이너에 Data Box Blob 저장소로 데이터를 복사 합니다. 복사할 디렉터리를 찾을 수 없는 경우이 명령은 자동으로 만듭니다.
 
@@ -123,19 +122,19 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
            wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * 자리 표시자 `<blob_service_endpoint>` 를 blob service 끝점의 이름으로 바꿉니다.
+    * `<blob_service_endpoint>`자리 표시자를 blob service 끝점의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<account_key>` 를 계정의 액세스 키로 바꿉니다.
+    * `<account_key>`자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-    * 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+    * `<container-name>`자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<exlusion_filelist_file>` 를 파일 제외 목록을 포함 하는 파일의 이름으로 바꿉니다.
+    * `<exlusion_filelist_file>`자리 표시자를 파일 제외 목록을 포함 하는 파일의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<source_directory>` 를 복사 하려는 데이터가 포함 된 디렉터리의 이름으로 바꿉니다.
+    * `<source_directory>`자리 표시자를 복사 하려는 데이터가 포함 된 디렉터리의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<destination_directory>` 를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
+    * `<destination_directory>`자리 표시자를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
 
-    `-libjars` 옵션 `hadoop-azure*.jar` 은 및 종속 `azure-storage*.jar` 파일을 `distcp`사용할 수 있도록 하는 데 사용 됩니다. 일부 클러스터에 대해이 문제가 이미 발생 했을 수 있습니다.
+    `-libjars`옵션은 `hadoop-azure*.jar` 및 종속 `azure-storage*.jar` 파일을 사용할 수 있도록 하는 데 사용 됩니다 `distcp` . 일부 클러스터에 대해이 문제가 이미 발생 했을 수 있습니다.
 
     다음 예에서는 `distcp` 명령을 사용 하 여 데이터를 복사 하는 방법을 보여 줍니다.
 
@@ -151,9 +150,9 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
   
     복사 속도를 향상 시키려면 다음을 수행 합니다.
 
-    * 매퍼 수를 변경해 보세요. 위의 예제는 = 4 `m` 매퍼를 사용 합니다.
+    * 매퍼 수를 변경해 보세요. 위의 예제는 `m` = 4 매퍼를 사용 합니다.
 
-    * 병렬로 여러 번 `distcp` 실행 해 보세요.
+    * 병렬로 여러 번 실행 해 보세요 `distcp` .
 
     * 규모가 작은 파일은 작은 파일 보다 성능이 뛰어납니다.
 
@@ -206,7 +205,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 
 ### <a name="generate-a-list-of-identities-and-map-them-to-azure-active-directory-add-identities"></a>Id 목록을 생성 하 고 id를 Azure Active Directory (추가) id에 매핑합니다.
 
-1. 스크립트를 `copy-acls.py` 다운로드 합니다. 이 문서의 [도우미 스크립트 다운로드 및 실행에 대 한에 지 노드 설정](#download-helper-scripts) 섹션을 참조 하세요.
+1. 스크립트를 다운로드 `copy-acls.py` 합니다. 이 문서의 [도우미 스크립트 다운로드 및 실행에 대 한에 지 노드 설정](#download-helper-scripts) 섹션을 참조 하세요.
 
 2. 이 명령을 실행 하 여 고유한 id 목록을 생성 합니다.
 
@@ -215,11 +214,11 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
-   이 스크립트는 추가 기반 id `id_map.json` 에 매핑해야 하는 id를 포함 하는 라는 파일을 생성 합니다.
+   이 스크립트 `id_map.json` 는 추가 기반 id에 매핑해야 하는 id를 포함 하는 라는 파일을 생성 합니다.
 
 3. 텍스트 편집기에서 `id_map.json` 파일을 엽니다.
 
-4. 파일에 표시 되는 각 JSON 개체에 대해 적절 한 `target` 매핑된 id를 사용 하 여 AAD UPN (사용자 계정 이름) 또는 OBJECTID (OID)의 특성을 업데이트 합니다. 작업을 완료 한 후 파일을 저장 합니다. 이 파일은 다음 단계에서 필요 합니다.
+4. 파일에 표시 되는 각 JSON 개체에 대해 `target` 적절 한 매핑된 id를 사용 하 여 AAD UPN (사용자 계정 이름) 또는 ObjectId (OID)의 특성을 업데이트 합니다. 작업을 완료 한 후 파일을 저장 합니다. 이 파일은 다음 단계에서 필요 합니다.
 
 ### <a name="apply-permissions-to-copied-files-and-apply-identity-mappings"></a>복사한 파일에 사용 권한 적용 및 id 매핑 적용
 
@@ -231,15 +230,15 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 
 * `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
-* 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+* `<container-name>`자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-* `<application-id>` 및 `<client-secret>` 자리 표시자를 서비스 주체를 만들 때 수집한 응용 프로그램 ID 및 클라이언트 암호로 바꿉니다.
+* `<application-id>`및 `<client-secret>` 자리 표시자를 서비스 주체를 만들 때 수집한 응용 프로그램 ID 및 클라이언트 암호로 바꿉니다.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>부록: 여러 Data Box 장치에서 데이터 분할
 
 데이터를 Data Box 장치로 이동 하기 전에 일부 도우미 스크립트를 다운로드 하 고, 데이터가 Data Box 장치에 맞게 구성 되어 있는지 확인 하 고, 불필요 한 파일을 제외 해야 합니다.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>도우미 스크립트를 다운로드 하 고에 지 노드를 설정 하 여 실행 합니다.
 
@@ -281,7 +280,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 
 데이터가 단일 Data Box 장치의 크기를 초과 하지 않는 경우 다음 섹션으로 진행할 수 있습니다.
 
-1. 상승 된 권한으로 이전 섹션 `generate-file-list` 의 지침에 따라 다운로드 한 스크립트를 실행 합니다.
+1. 상승 된 권한으로 `generate-file-list` 이전 섹션의 지침에 따라 다운로드 한 스크립트를 실행 합니다.
 
    명령 매개 변수에 대 한 설명은 다음과 같습니다.
 
@@ -323,7 +322,7 @@ DisCp 작업에서 일부 디렉터리를 제외 해야 합니다. 예를 들어
 
 DistCp 작업을 시작 하려는 온-프레미스 Hadoop 클러스터에서 제외 하려는 디렉터리 목록을 지정 하는 파일을 만듭니다.
 
-아래 예를 살펴보세요.
+예를 들면 다음과 같습니다.
 
 ```
 .*ranger/audit.*

@@ -5,12 +5,11 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 1242aa0e6c8255d778da55b0e574f3d12f61c381
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309648"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -27,6 +26,14 @@ Visual Studio의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변�
 CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 *‘TEMP’* 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 *‘TEMP’* 디렉터리는 일반적으로 `/tmp`입니다. 또한 [Azure CLI 구성 파일](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables)에서 로깅을 사용하도록 설정했는지 확인합니다.
 
 또한 Azure Dev Spaces는 단일 인스턴스 또는 Pod를 디버그할 때 가장 원활하게 작동합니다. `azds.yaml` 파일에는 Kubernetes가 서비스용으로 실행하는 Pod 수를 나타내는 설정인 *replicaCount*가 포함되어 있습니다. 지정된 서비스용으로 여러 개의 Pod를 실행하도록 애플리케이션을 구성하기 위해 *replicaCount*를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
+
+## <a name="common-issues-when-using-local-process-with-kubernetes"></a>Kubernetes에서 로컬 프로세스를 사용할 때 발생 하는 일반적인 문제
+
+### <a name="fail-to-restore-original-configuration-of-deployment-on-cluster"></a>클러스터의 원래 배포 구성을 복원 하지 못함
+
+Kubernetes를 사용 하 여 로컬 프로세스를 사용 하는 경우 Kubernetes client를 사용 하는 로컬 프로세스가 갑자기 충돌 하거나 종료 되 면 Kubernetes를 사용 하 여 로컬 프로세스가 리디렉션하는 서비스는 로컬 프로세스와 Kubernetes가 연결 되기 전에 원래 상태로 복원 되지 않을 수 있습니다.
+
+이 문제를 해결 하려면 클러스터에 서비스를 다시 배포 합니다.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Azure Dev Spaces를 사용하는 경우 일반적인 이슈
 
@@ -52,7 +59,7 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러를 만들지 못함
 
-Azure Dev Spaces 컨트롤러 이름은 31자보다 길 수 없습니다. AKS 클러스터에서 Dev Spaces를 사용하도록 설정하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31자를 초과하는 경우 오류가 표시됩니다. 다음은 그 예입니다.
+Azure Dev Spaces 컨트롤러 이름은 31자보다 길 수 없습니다. AKS 클러스터에서 Dev Spaces를 사용하도록 설정하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31자를 초과하는 경우 오류가 표시됩니다. 예를 들어:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
@@ -97,7 +104,7 @@ azure-cli                         2.0.60 *
 
 Azure Dev Spaces에서 AKS 클러스터의 API 서버에 연결할 수 없는 경우 이 오류가 표시될 수 있습니다.
 
-AKS 클러스터 API 서버에 대한 액세스가 잠겨 있거나 AKS 클러스터에 대해 [API 서버 인증 IP 주소 범위](../aks/api-server-authorized-ip-ranges.md)를 사용하도록 설정한 경우 클러스터를 [만들거나](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) [업데이트하여](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) [지역에 따른 추가 범위를 허용해야 합니다](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+AKS cluster API 서버에 대 한 액세스가 잠겨 있거나 AKS 클러스터에 대 한 [API 서버 권한이 부여 된 IP 주소 범위](../aks/api-server-authorized-ip-ranges.md) 를 사용 하도록 설정한 경우에는 [해당 지역을 기반으로 하는 추가 범위를 허용](configure-networking.md#aks-cluster-network-requirements) 하도록 클러스터도 [만들거나](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) [업데이트](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) 해야 합니다.
 
 kubectl 명령을 실행하여 API 서버를 사용할 수 있는지 확인합니다. API 서버를 사용할 수 없는 경우 AKS 지원에 문의하고 API 서버가 작동하고 있는 경우 다시 시도하세요.
 
@@ -150,7 +157,7 @@ Dev Spaces를 통해 빌드 또는 디버그하려는 서비스가 VM 노드에�
 
 이 이슈를 해결하려면 클러스터의 에이전트 노드를 다시 시작합니다.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"release azds-\<identifier\>-\<spacename\>-\<servicename\> 실패: 서비스 '\<servicename\>'이(가) 이미 있음" 또는 "\<servicename\>에 대한 끌어오기 액세스가 거부됨, 리포지토리가 존재하지 않거나 'docker login'이 필요할 수 있음" 오류 발생
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>오류 "release azds- \<identifier\> - \<spacename\> - \<servicename\> 실패: 서비스 ' \<servicename\> '이 (가) 이미 있습니다." 또는 "끌어오기 액세스가 거부 되었습니다. \<servicename\> 리포지토리가 없거나 ' docker 로그인 ' '이 필요할 수 있습니다.
 
 이러한 오류는 동일한 개발 공간 내에서 Dev Spaces 명령(예: `azds up` 및 `azds down`)과 함께 직접 Helm 명령(예: `helm install`, `helm upgrade` 또는 `helm delete`)을 함께 실행하는 경우에 발생할 수 있습니다. Dev Spaces에는 동일한 개발 공간에서 실행되는 고유한 Tiller 인스턴스와 충돌하는 자체 Tiller 인스턴스가 있기 때문에 이러한 오류가 발생합니다.
 
@@ -162,7 +169,7 @@ Dev Spaces를 통해 빌드 또는 디버그하려는 서비스가 VM 노드에�
 
 프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 이슈를 해결하려면 Azure Dev Spaces가 사용자 프로젝트에 생성한 _azds.yaml_ 파일을 엽니다. 사용할 Dockerfile을 가리키도록 *‘configurations: develop: build: dockerfile’* 을 업데이트합니다. 다음은 그 예입니다.
+이 이슈를 해결하려면 Azure Dev Spaces가 사용자 프로젝트에 생성한 _azds.yaml_ 파일을 엽니다. 사용할 Dockerfile을 가리키도록 *‘configurations: develop: build: dockerfile’* 을 업데이트합니다. 예를 들어:
 
 ```yaml
 ...
@@ -209,7 +216,7 @@ install:
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 자세한 로깅을 사용하도록 설정합니다.
 
-명령줄에서 `--verbose`를 사용하여 자세한 로깅을 사용하도록 설정합니다. `--output`을 사용하여 출력 형식을 지정할 수도 있습니다. 다음은 그 예입니다.
+명령줄에서 `--verbose`를 사용하여 자세한 로깅을 사용하도록 설정합니다. `--output`을 사용하여 출력 형식을 지정할 수도 있습니다. 예를 들어:
 
 ```cmd
 azds up --verbose --output json
@@ -259,7 +266,7 @@ Service cannot be started.
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>개발 머신에 연결할 때 네트워크 트래픽이 AKS 클러스터로 전달되지 않습니다.
 
-[Azure Dev Spaces를 사용하여 AKS 클러스터를 개발 머신에 연결](how-to/connect.md)하는 경우 개발 머신과 AKS 클러스터 간에 네트워크 트래픽이 전달되지 않는 이슈가 발생할 수 있습니다.
+[Azure Dev Spaces를 사용하여 AKS 클러스터를 개발 머신에 연결](how-to/local-process-kubernetes-vs-code.md)하는 경우 개발 머신과 AKS 클러스터 간에 네트워크 트래픽이 전달되지 않는 이슈가 발생할 수 있습니다.
 
 개발 머신을 AKS 클러스터에 연결하는 경우 Azure Dev Spaces는 개발 머신의 `hosts` 파일을 수정하여 AKS 클러스터와 개발 머신 간에 네트워크 트래픽을 전달합니다. Azure Dev Spaces는 호스트 이름으로 대체하려는 Kubernetes 서비스의 주소를 사용하여 `hosts`에 항목을 만듭니다. 이 항목은 개발 머신과 AKS 클러스터 간에 네트워크 트래픽을 보내기 위해 포트 전달과 함께 사용됩니다. 개발 머신의 서비스가 바꿀 Kubernetes 서비스의 포트와 충돌하는 경우 Azure Dev Spaces는 Kubernetes 서비스의 네트워크 트래픽을 전달할 수 없습니다. 예를 들어, *Windows BranchCache* 서비스는 일반적으로 *0.0.0.0:80*에 바인딩되므로 모든 로컬 IP의 포트 80에 충돌을 유발합니다.
 
@@ -272,9 +279,9 @@ Service cannot be started.
 * 선택적으로 *‘시작 유형’* 을 *‘사용 안 함’* 으로 설정하여 사용하지 않도록 설정할 수 있습니다.
 * *확인*을 클릭합니다.
 
-### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>"할당된 상태에서 pod:azds/azds-webhook-deployment-\<id\>에 대한 AzureAssignedIdentity를 찾을 수 없음" 오류 발생
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>"Pod: azds/azds에 대 한 AzureAssignedIdentity를 찾을 수 없음: \<id\> " 할당 된 상태 "오류
 
-[관리 ID](../aks/use-managed-identity.md) 및 [pod 관리 ID](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities)가 설치된 AKS 클러스터의 Azure Dev Spaces에서 서비스를 실행하는 경우 *차트 설치* 단계 후에 프로세스가 중단될 수 있습니다. *azds* 이름 공간에서 *azds-injector-webhook*를 검사하면 이 오류가 표시될 수 있습니다.
+[관리 id](../aks/use-managed-identity.md) 및 [pod 관리 id](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) 가 설치 된 AKS 클러스터에서 Azure Dev Spaces로 서비스를 실행 하는 경우 *차트 설치* 단계 후 프로세스가 응답 하지 않을 수 있습니다. *azds* 이름 공간에서 *azds-injector-webhook*를 검사하면 이 오류가 표시될 수 있습니다.
 
 Azure Dev Spaces가 클러스터에서 실행하는 서비스는 클러스터의 관리 ID를 활용하여 클러스터 외부의 Azure Dev Spaces 백 엔드 서비스와 통신합니다. Pod 관리 ID가 설치되면 클러스터의 노드에서 관리 ID 자격 증명에 대한 모든 호출을 [클러스터에 설치된 NMI(Node Managed Identity) DaemonSet](https://github.com/Azure/aad-pod-identity#node-managed-identity)로 리디렉션하는 네트워킹 규칙이 구성됩니다. 이 NMI DaemonSet은 호출 pod를 식별하고 pod에 요청된 관리 ID에 액세스하도록 적절히 레이블이 지정되었는지 확인합니다. Azure Dev Spaces는 클러스터에 pod 관리 ID가 설치되어 있는지와 Azure Dev Spaces 서비스에서 클러스터의 관리 ID에 액세스할 수 있도록 하는 데 필요한 구성을 수행할 수 없는지를 확인할 수 없습니다. Azure Dev Spaces 서비스는 클러스터의 관리 ID에 액세스하도록 구성되지 않았기 때문에 NMI DaemonSet은 관리 ID에 대한 AAD 토큰을 가져오도록 허용하지 않으며 Azure Dev Spaces 백 엔드 서비스와 통신하지 못합니다.
 
@@ -320,7 +327,7 @@ spec:
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-위 명령은 관리 ID에 대한 *clientId*와 *resourceId*를 출력합니다. 다음은 그 예입니다.
+위 명령은 관리 ID에 대한 *clientId*와 *resourceId*를 출력합니다. 예를 들어:
 
 ```json
 {
@@ -589,9 +596,10 @@ pod를 다시 시작하면 Azure Dev Spaces에서 기존 네임스페이스를 �
 | cloudflare.docker.com | HTTPS:443 | Linux alpine 및 기타 Azure Dev Spaces 이미지를 끌어옵니다. |
 | gcr.io | HTTP:443 | helm/tiller 이미지를 끌어옵니다.|
 | storage.googleapis.com | HTTP:443 | helm/tiller 이미지를 끌어옵니다.|
-| azds-<guid>.<location>.azds.io | HTTPS:443 | 컨트롤러에 대한 Azure Dev Spaces 백 엔드 서비스와 통신하는 데 사용됩니다. 정확한 FQDN은 %USERPROFILE%\.azds\settings.json의 "dataplaneFqdn"에서 찾을 수 있습니다.|
 
-### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>"구독 \<subscriptionId\>에서 \<cluster\> 클러스터를 찾을 수 없습니다." 오류 발생
+위의 Fqdn 및 [Azure Dev Spaces 인프라 서비스](../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations)모두와의 네트워크 트래픽을 허용 하도록 방화벽 또는 보안 구성을 업데이트 합니다.
+
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>"구독에서 클러스터를 찾을 수 없습니다. \<cluster\> \<subscriptionId\> " 오류
 
 kubeconfig 파일이 Azure Dev Spaces 클라이언트 쪽 도구에서 사용하려는 것과는 다른 클러스터 또는 구독을 대상으로 하는 경우 이 오류가 표시될 수 있습니다. Azure Dev Spaces 클라이언트 쪽 도구는 [하나 이상의 kubeconfig 파일](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)을 사용하여 클러스터를 선택하고 통신하는 *kubectl*의 동작을 복제합니다.
 

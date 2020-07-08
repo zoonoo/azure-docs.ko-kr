@@ -1,14 +1,13 @@
 ---
 title: 프라이빗 링크 설정
-description: 컨테이너 레지스트리에서 프라이빗 엔드포인트를 설정하고 로컬 가상 네트워크에서 프라이빗 링크를 통해 액세스를 사용합니다.
+description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 로컬 가상 네트워크에서 개인 링크를 통해 액세스를 사용 하도록 설정 합니다. 개인 링크 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509341"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Azure Container Registry에 대한 Azure Private Link 구성 
 
@@ -210,7 +209,7 @@ az network private-dns record-set a add-record \
 1. **네트워크 연결**에서 **프라이빗 엔드포인트** >  **+ 추가**를 선택합니다.
 1. 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | Subscription | 구독을 선택합니다. |
     | Resource group | 기존 그룹의 이름을 입력하거나 새 그룹을 만듭니다.|
@@ -246,7 +245,7 @@ az network private-dns record-set a add-record \
 5. 완료되면 **다음: 리소스**를 선택합니다.
 6. 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     |연결 방법  | **내 디렉터리의 Azure 리소스에 연결**을 선택합니다.|
     | Subscription| 구독을 선택합니다. |

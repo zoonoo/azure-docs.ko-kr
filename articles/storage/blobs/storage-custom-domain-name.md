@@ -4,17 +4,16 @@ titleSuffix: Azure Storage
 description: Azure Storage 계정의 Blob Storage 또는 웹 끝점에 사용자 지정 도메인을 매핑합니다.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465544"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑
 
@@ -23,9 +22,9 @@ ms.locfileid: "79370477"
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> 이 매핑은 하위 도메인 (예: `www.contoso.com`)에 대해서만 작동 합니다. 웹 끝점을 루트 도메인 (예: `contoso.com`)에서 사용할 수 있도록 하려면 Azure CDN를 사용 해야 합니다. 지침은이 문서의 HTTPS를 [사용 하 여 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 이 문서의 해당 섹션으로 이동 하 여 사용자 지정 도메인의 루트 도메인을 사용 하도록 설정 했기 때문에 HTTPS를 사용 하도록 설정 하는 단계는 선택 사항입니다. 
+> 이 매핑은 하위 도메인 (예:)에 대해서만 작동 `www.contoso.com` 합니다. 웹 끝점을 루트 도메인 (예:)에서 사용할 수 있도록 하려면 `contoso.com` Azure CDN를 사용 해야 합니다. 지침은이 문서의 HTTPS를 [사용 하 여 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 이 문서의 해당 섹션으로 이동 하 여 사용자 지정 도메인의 루트 도메인을 사용 하도록 설정 했기 때문에 HTTPS를 사용 하도록 설정 하는 단계는 선택 사항입니다. 
 
-<a id="enable-http" />
+<a id="enable-http"></a>
 
 ## <a name="map-a-custom-domain-with-only-http-enabled"></a>HTTP만 사용 하는 사용자 지정 도메인 매핑
 
@@ -33,7 +32,7 @@ ms.locfileid: "79370477"
 
 HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사용 하도록 설정 된 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 
 
-<a id="map-a-domain" />
+<a id="map-a-domain"></a>
 
 ### <a name="map-a-custom-domain"></a>사용자 지정 도메인 매핑
 
@@ -50,7 +49,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 : heavy_check_mark: 4 단계: 사용자 지정 도메인을 테스트 합니다.
 
-<a id="endpoint" />
+<a id="endpoint"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>1 단계: 저장소 끝점의 호스트 이름 가져오기 
 
@@ -71,7 +70,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
   
    나중에이 값을 따로 설정 합니다.
 
-<a id="create-cname-record" />
+<a id="create-cname-record"></a>
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>2 단계: 도메인 공급자를 사용 하 여 정식 이름 (CNAME) 레코드 만들기
 
@@ -87,11 +86,11 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
 
-   - 또는 `www` `photos`와 같은 하위 도메인 별칭입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다. 
+   - 또는와 같은 하위 도메인 `www` 별칭 `photos` 입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다. 
       
    - 이 문서 앞부분의 [저장소 끝점의 호스트 이름 가져오기](#endpoint) 섹션에서 가져온 호스트 이름 
 
-<a id="register" />
+<a id="register"></a>
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>3 단계: Azure에 사용자 지정 도메인 등록
 
@@ -105,7 +104,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 3. **도메인 이름** 텍스트 상자에 하위 도메인을 포함 하 여 사용자 지정 도메인의 이름을 입력 합니다.  
    
-   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우을 입력 `www.contoso.com`합니다. 하위 도메인이 *사진이*면을 입력 `photos.contoso.com`합니다.
+   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우을 입력 `www.contoso.com` 합니다. 하위 도메인이 *사진이*면을 입력 `photos.contoso.com` 합니다.
 
 4. 사용자 지정 도메인을 등록 하려면 **저장** 단추를 선택 합니다.
 
@@ -117,7 +116,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 예를 들어 *photos.contoso.com* 사용자 지정 하위 도메인의 *myforms* 컨테이너에서 웹 양식에 액세스하려면 `http://photos.contoso.com/myforms/applicationform.htm` URI를 사용할 수 있습니다.
 
-<a id="zero-down-time" />
+<a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>가동 중지 시간이 0 인 사용자 지정 도메인 매핑
 
@@ -136,7 +135,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 : heavy_check_mark: 5 단계: 사용자 지정 도메인을 테스트 합니다.
 
-<a id="endpoint-2" />
+<a id="endpoint-2"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>1 단계: 저장소 끝점의 호스트 이름 가져오기 
 
@@ -171,13 +170,13 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
 
-   - 또는 `www` `photos`와 같은 하위 도메인 별칭입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다.
+   - 또는와 같은 하위 도메인 `www` 별칭 `photos` 입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다.
 
      하위 `asverify` 도메인을 별칭에 추가 합니다. 예를 들어 `asverify.www` 또는 `asverify.photos`입니다.
        
    - 이 문서 앞부분의 [저장소 끝점의 호스트 이름 가져오기](#endpoint) 섹션에서 가져온 호스트 이름 
 
-     호스트 이름에 `asverify` 하위 도메인을 추가 합니다. 예: `asverify.mystorageaccount.blob.core.windows.net`
+     `asverify`호스트 이름에 하위 도메인을 추가 합니다. 예: `asverify.mystorageaccount.blob.core.windows.net`
 
 4. 사용자 지정 도메인을 등록 하려면 **저장** 단추를 선택 합니다.
 
@@ -197,7 +196,7 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 3. **도메인 이름** 텍스트 상자에 하위 도메인을 포함 하 여 사용자 지정 도메인의 이름을 입력 합니다.  
    
-   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우을 입력 `www.contoso.com`합니다. 하위 도메인이 *사진이*면을 입력 `photos.contoso.com`합니다.
+   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우을 입력 `www.contoso.com` 합니다. 하위 도메인이 *사진이*면을 입력 `photos.contoso.com` 합니다.
 
 4. **간접 CNAME 유효성 검사 사용** 확인란을 선택합니다.
 
@@ -219,7 +218,7 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
 
-   - 또는 `www` `photos`와 같은 하위 도메인 별칭입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다.
+   - 또는와 같은 하위 도메인 `www` 별칭 `photos` 입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다.
       
    - 이 문서 앞부분의 [저장소 끝점의 호스트 이름 가져오기](#endpoint-2) 섹션에서 가져온 호스트 이름 
 
@@ -295,7 +294,7 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
   ```
 ---
 
-<a id="enable-https" />
+<a id="enable-https"></a>
 
 ## <a name="map-a-custom-domain-with-https-enabled"></a>HTTPS를 사용 하도록 설정 된 사용자 지정 도메인 매핑
 

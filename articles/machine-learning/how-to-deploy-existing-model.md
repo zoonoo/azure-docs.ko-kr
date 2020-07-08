@@ -5,17 +5,17 @@ description: 서비스 외부에서 학습 된 모델에 Azure Machine Learning�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/17/2020
-ms.openlocfilehash: 924bd2fdba2359e6f1108c39802ad3ce95ebdf07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: df569ee4a392bae27431f526e0fbe010feab5a5d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472378"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557390"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Azure Machine Learning에서 기존 모델 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,27 +31,27 @@ Azure Machine Learning 외부에서 학습 된 machine learning 모델을 사용
 >
 > 배포 프로세스에 대 한 일반 정보는 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
     > [!TIP]
     > 이 문서의 Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 되어 있다고 가정 합니다.
     >
-    > CLI 예제에서는 및 `myworkspace` `myresourcegroup`의 자리 표시자를 사용 합니다. 이를 작업 영역 이름 및이를 포함 하는 리소스 그룹으로 바꿉니다.
+    > CLI 예제에서는 및의 자리 표시자를 사용 합니다 `myworkspace` `myresourcegroup` . 이를 작업 영역 이름 및이를 포함 하는 리소스 그룹으로 바꿉니다.
 
-* [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.  
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
 * 학습된 모델. 모델은 개발 환경에서 하나 이상의 파일에 유지 되어야 합니다.
 
     > [!NOTE]
-    > Azure Machine Learning 외부에서 학습 한 모델 등록을 보여 주기 위해이 문서의 예제 코드 조각은 Paolo Ripamonti의 Twitter 감정 분석 프로젝트 [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)에서 만든 모델을 사용 합니다.
+    > Azure Machine Learning 외부에서 학습 한 모델 등록을 보여 주기 위해이 문서의 예제 코드 조각은 Paolo Ripamonti의 Twitter 감정 분석 프로젝트에서 만든 모델을 사용 합니다 [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis) .
 
 ## <a name="register-the-models"></a>모델 등록
 
-모델을 등록 하면 작업 영역에서 모델에 대 한 메타 데이터를 저장 하 고, 버전을 추적 하 고, 추적할 수 있습니다. 다음 `models` Python 및 CLI 예제에서 디렉터리는 `model.h5`, `model.w2v` `encoder.pkl`, 및 `tokenizer.pkl` 파일을 포함 합니다. 이 예에서는 `models` 디렉터리에 포함 된 파일을 라는 `sentiment`새 모델 등록으로 업로드 합니다.
+모델을 등록 하면 작업 영역에서 모델에 대 한 메타 데이터를 저장 하 고, 버전을 추적 하 고, 추적할 수 있습니다. 다음 Python 및 CLI 예제에서 `models` 디렉터리는 `model.h5` ,, `model.w2v` `encoder.pkl` 및 `tokenizer.pkl` 파일을 포함 합니다. 이 예에서는 디렉터리에 포함 된 파일을 `models` 라는 새 모델 등록으로 업로드 합니다 `sentiment` .
 
 ```python
 from azureml.core.model import Model
@@ -70,7 +70,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 ```
 
 > [!TIP]
-> 또한 등록 된 모델에 `tags` 추가 `properties` 및 사전 개체를 설정할 수 있습니다. 이러한 값은 나중에 특정 모델을 식별 하는 데 사용할 수 있습니다. 예를 들어 프레임 워크, 학습 매개 변수 등이 사용 됩니다.
+> 또한 `tags` `properties` 등록 된 모델에 추가 및 사전 개체를 설정할 수 있습니다. 이러한 값은 나중에 특정 모델을 식별 하는 데 사용할 수 있습니다. 예를 들어 프레임 워크, 학습 매개 변수 등이 사용 됩니다.
 
 자세한 내용은 [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference를 참조 하세요.
 
@@ -81,7 +81,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 
 유추 구성은 배포 된 모델을 실행 하는 데 사용 되는 환경을 정의 합니다. 유추 구성은 모델을 배포할 때 모델을 실행 하는 데 사용 되는 다음 엔터티를 참조 합니다.
 
-* 항목 스크립트. 이 파일 (이라고 `score.py`함)은 배포 된 서비스가 시작 될 때 모델을 로드 합니다. 또한 데이터를 수신 하 고 모델에 전달한 다음 응답을 반환 하는 일을 담당 합니다.
+* 항목 스크립트. 이 파일 (이라고 함 `score.py` )은 배포 된 서비스가 시작 될 때 모델을 로드 합니다. 또한 데이터를 수신 하 고 모델에 전달한 다음 응답을 반환 하는 일을 담당 합니다.
 * Azure Machine Learning [환경](how-to-use-environments.md)입니다. 환경은 모델 및 항목 스크립트를 실행 하는 데 필요한 소프트웨어 종속성을 정의 합니다.
 
 다음 예제에서는 SDK를 사용 하 여 환경을 만든 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
@@ -111,7 +111,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 + [환경을 사용 하는 방법](how-to-use-environments.md)
 + [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 참조입니다.
@@ -127,7 +127,7 @@ CLI는 YAML 파일에서 유추 구성을 로드 합니다.
 }
 ```
 
-CLI를 사용 하 여 conda 환경은 유추 구성에서 참조 `myenv.yml` 하는 파일에 정의 됩니다. 다음 YAML은이 파일의 내용입니다.
+CLI를 사용 하 여 conda 환경은 `myenv.yml` 유추 구성에서 참조 하는 파일에 정의 됩니다. 다음 YAML은이 파일의 내용입니다.
 
 ```yaml
 name: inference_environment
@@ -146,12 +146,12 @@ dependencies:
 
 ### <a name="entry-script"></a>항목 스크립트
 
-항목 스크립트에는 `init()` 및 `run(data)`라는 두 개의 필수 함수만 있습니다. 이러한 함수는 시작 시 서비스를 초기화 하 고 클라이언트에서 전달 된 요청 데이터를 사용 하 여 모델을 실행 하는 데 사용 됩니다. 스크립트의 나머지 부분은 모델 로드 및 실행을 처리 합니다.
+항목 스크립트에는 및 라는 두 개의 필수 함수만 있습니다 `init()` `run(data)` . 이러한 함수는 시작 시 서비스를 초기화 하 고 클라이언트에서 전달 된 요청 데이터를 사용 하 여 모델을 실행 하는 데 사용 됩니다. 스크립트의 나머지 부분은 모델 로드 및 실행을 처리 합니다.
 
 > [!IMPORTANT]
 > 모든 모델에 대해 작동 하는 일반 항목 스크립트가 없습니다. 사용 되는 모델과 항상 관련이 있습니다. 모델을 로드 하는 방법, 모델에 필요한 데이터 형식 및 모델을 사용 하 여 데이터의 점수를 매기는 방법을 이해 해야 합니다.
 
-다음 Python 코드는 예제 항목 스크립트 (`score.py`)입니다.
+다음 Python 코드는 예제 항목 스크립트 ()입니다 `score.py` .
 
 ```python
 import os
@@ -258,7 +258,7 @@ Azure 클라우드에서 Azure Kubernetes Service와 같은 다른 계산 대상
 
 ## <a name="deploy-the-model"></a>모델 배포
 
-다음 예에서는 라는 `sentiment`등록 된 모델에 대 한 정보를 로드 한 다음 이라는 `sentiment`서비스로 배포 합니다. 배포 하는 동안 유추 구성 및 배포 구성은 서비스 환경을 만들고 구성 하는 데 사용 됩니다.
+다음 예에서는 라는 등록 된 모델에 대 한 정보를 로드 한 `sentiment` 다음 이라는 서비스로 배포 합니다 `sentiment` . 배포 하는 동안 유추 구성 및 배포 구성은 서비스 환경을 만들고 구성 하는 데 사용 됩니다.
 
 ```python
 from azureml.core.model import Model
@@ -273,7 +273,7 @@ print("scoring URI: " + service.scoring_uri)
 
 자세한 내용은 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 참조를 참조 하세요.
 
-CLI에서 모델을 배포 하려면 다음 명령을 사용 합니다. 이 명령은 `inferenceConfig.json` 및 `deploymentConfig.json` 파일에 저장 된 유추 및 배포`sentiment:1`구성을 사용 하 여 등록 된 모델 ()의 버전 1을 배포 합니다.
+CLI에서 모델을 배포 하려면 다음 명령을 사용 합니다. 이 명령은 `sentiment:1` 및 파일에 저장 된 유추 및 배포 구성을 사용 하 여 등록 된 모델 ()의 버전 1을 배포 합니다 `inferenceConfig.json` `deploymentConfig.json` .
 
 ```azurecli
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json

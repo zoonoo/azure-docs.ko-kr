@@ -11,23 +11,22 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d28f93f316ac2a63be6b3a8eb0b80678bd7607f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271406"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84483794"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
 이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
+> Microsoft는 2019년 7월 1일부터 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 신규 사용자의 다단계 인증이 필요한 고객은 클라우드 기반 Azure Multi-Factor Authentication을 사용해야 합니다. 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 >
 > Azure Multi-Factor Authentication 서버와 관련 하 여 아래에서 공유 하는 정보는 이미 MFA 서버를 실행 하는 사용자 에게만 적용 됩니다.
 >
-> 2018 년 9 월 1 일에 적용 되는 새 고객에 게는 소비 기반 라이선스를 더 이상 사용할 수 없습니다.
+> 2018년 9월 1일을 기준으로 새 고객은 소비 기반 라이선스를 더 이상 사용할 수 없습니다.
 > 2018 년 9 월 1 일부 터 새 인증 공급자를 더 이상 만들 수 없습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
 
 ## <a name="general"></a>일반
@@ -70,7 +69,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 * *759731*
 * *673801*
 
-동일한 번호를 사용 하 여 일관 된 SMS 또는 음성 기반 Multi-Factor Authentication 프롬프트를 전달 하는 것은 보장 되지 않습니다. 사용자가 관심을 내는 경우에 따라 경로를 조정 하 여 SMS 배달 기능을 개선 하기 위해 언제 든 지 짧은 코드를 추가 하거나 제거할 수 있습니다. 미국 및 캐나다 외의 국가 또는 지역에 대해서는 짧은 코드를 지원 하지 않습니다.
+동일한 번호를 사용 하 여 일관 된 SMS 또는 음성 기반 Multi-Factor Authentication 프롬프트를 전달 하는 것은 보장 되지 않습니다. 사용자를 위해 SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하면서 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. 미국 및 캐나다 외의 국가 또는 지역에 대해서는 짧은 코드를 지원 하지 않습니다.
 
 ## <a name="billing"></a>결제
 
@@ -163,7 +162,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>사용자가 비브라우저 앱에 로그인할 수 없으면 어떻게 하나요?
 
-조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-mfasettings.md#app-passwords)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](../user-help/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호*와 사용자 이름을 사용하여 로그인해야 합니다.
+조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-app-passwords.md)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](../user-help/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호*와 사용자 이름을 사용하여 로그인해야 합니다.
 
 조직에 레거시 클라이언트가 없는 경우 사용자가 앱 암호를 만들 수 있도록 허용 해서는 안 됩니다.
 
@@ -186,7 +185,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 Azure MFA 서버 v7.0 이상을 사용하는 단방향 SMS의 경우 레지스트리 키를 설정하여 시간 제한 설정을 구성할 수 있습니다. MFA 클라우드 서비스가 텍스트 메시지를 보내면 확인 코드(또는 일회용 암호)가 MFA 서버에 반환됩니다. MFA 서버는 코드를 기본적으로 300초 동안 메모리에 저장합니다. 300초가 경과하기 전에 사용자가 코드를 입력하지 않으면 인증이 거부됩니다. 기본 시간 제한 설정을 변경하려면 다음 단계를 사용합니다.
 
-1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor` 으로 이동합니다.
+1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor` 로 이동합니다.
 2. *Pfsvc_pendingSmsTimeoutSeconds* 라는 **DWORD** 레지스트리 키를 만들고 Azure MFA 서버에서 일회성 암호을 저장 하는 시간 (초)을 설정 합니다.
 
 >[!TIP]
@@ -240,7 +239,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 사용자에 게 다음 절차를 완료 하 여 Microsoft Authenticator에서 해당 계정을 제거한 다음 다시 추가 합니다.
 
 1. [Azure Portal 프로필](https://account.activedirectory.windowsazure.com/profile/) 로 이동 하 여 조직 계정으로 로그인 합니다.
-2. **추가 보안 인증**을 선택합니다.
+2. **추가 보안 확인**을 선택 합니다.
 3. Microsoft Authenticator 앱에서 기존 계정을 제거 합니다.
 4. **구성**을 클릭 한 다음 지침에 따라 Microsoft Authenticator를 다시 구성 합니다.
 

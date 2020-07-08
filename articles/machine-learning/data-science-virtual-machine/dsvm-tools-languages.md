@@ -6,16 +6,16 @@ keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557463"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -27,7 +27,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 | ------------- | ------------- |
 | 지원 되는 언어 버전 | Python 2.7 및 3.7 |
 | 지원 되는 DSVM 버전      | Windows Server 2016     |
-| DSVM에 구성/설치 방법  | 두 개의 `conda` 글로벌 환경을 만듭니다. <br /> *에 `root` `/anaconda/` 있는 환경은 Python 3.7입니다. <br/> *에 `python2` `/anaconda/envs/python2` 있는 환경은 Python 2.7입니다.       |
+| DSVM에 구성/설치 방법  | 두 개의 글로벌 `conda` 환경을 만듭니다. <br /> * `root` 에 있는 환경은 `/anaconda/` Python 3.7입니다. <br/> * `python2` 에 있는 환경은 `/anaconda/envs/python2` Python 2.7입니다.       |
 | 샘플에 대한 링크      | Python 용 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
 | DSVM의 관련 도구      | PySpark, R, 줄리아.      |
 
@@ -55,7 +55,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
   Visual Studio Community edition에 설치 된 PTVS (Visual Studio용 Python 도구)를 사용 합니다. 기본적으로 PTVS에서 자동으로 설정 되는 유일한 환경은 Python 3.6입니다. 
 
     > [!NOTE]
-    > PTVS에서 Python 2.7을 가리키도록 하려면 PTVS에서 사용자 지정 환경을 만들어야 합니다. Visual Studio Community Edition에서이 환경 경로를 설정 하려면 **도구** -> **python 도구** -> **python 환경** 으로 이동한 다음 **+ 사용자 지정**을 선택 합니다. 그런 다음 위치를 **c:\anaconda\envs\python2** 로 설정 하 고 **자동 검색**을 선택 합니다.
+    > PTVS에서 Python 2.7을 가리키도록 하려면 PTVS에서 사용자 지정 환경을 만들어야 합니다. Visual Studio Community Edition에서이 환경 경로를 설정 하려면 **도구**  ->  **python 도구**  ->  **python 환경** 으로 이동한 다음 **+ 사용자 지정**을 선택 합니다. 그런 다음 위치를 **c:\anaconda\envs\python2** 로 설정 하 고 **자동 검색**을 선택 합니다.
 
 * Jupyter에서 사용:
 
@@ -63,7 +63,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * Python 패키지 설치:
 
-  DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 관리자 권한으로 `activate` 명령을 사용 하 여 root 또는 python2 환경을 활성화 합니다. 그런 다음 또는 `conda` `pip` 와 같은 패키지 관리자를 사용 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+  DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 `activate` 관리자 권한으로 명령을 사용 하 여 root 또는 python2 환경을 활성화 합니다. 그런 다음 또는와 같은 패키지 관리자를 사용 `conda` `pip` 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 ## <a name="python-linux-edition"></a>Python (Linux 버전)
 
@@ -71,7 +71,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 | ------------- | ------------- |
 | 지원 되는 언어 버전 | Python 2.7 및 3.5 |
 | 지원 되는 DSVM 버전      | Linux   |
-| DSVM에 구성/설치 방법  | 두 개의 `conda` 글로벌 환경을 만듭니다. <br /> * `root`에 `/anaconda/` 있는 환경은 Python 2.7입니다. <br/> * `py35`에 `/anaconda/envs/py35`있는 환경은 Python 3.5입니다.       |
+| DSVM에 구성/설치 방법  | 두 개의 글로벌 `conda` 환경을 만듭니다. <br /> * `root`에 있는 환경은 `/anaconda/` Python 2.7입니다. <br/> * `py35`에 있는 환경은 `/anaconda/envs/py35` Python 3.5입니다.       |
 | 샘플에 대한 링크      | Python 용 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
 | DSVM의 관련 도구      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법    
@@ -100,7 +100,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * Python 패키지 설치:
 
-  DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 관리자 권한으로 `source activate` 명령을 사용 하거나 sudo 권한이 있는 사용자로 사용 하 여 root 또는 py35 환경을 활성화 합니다. 그런 다음 또는 `conda` `pip` 와 같은 패키지 관리자를 사용 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+  DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 `source activate` 관리자 권한으로 명령을 사용 하거나 sudo 권한이 있는 사용자로 사용 하 여 root 또는 py35 환경을 활성화 합니다. 그런 다음 또는와 같은 패키지 관리자를 사용 `conda` `pip` 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 
 ## <a name="r"></a>R
@@ -130,13 +130,13 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * R 패키지 설치:
 
-  R은 모든 사용자가 읽을 수 있는 전역 환경에서 DSVM에 설치 됩니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 R을 실행 합니다. 그런 다음 R 패키지 관리자 `install.packages()` 를 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+  R은 모든 사용자가 읽을 수 있는 전역 환경에서 DSVM에 설치 됩니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 R을 실행 합니다. 그런 다음 R 패키지 관리자를 실행 하 여 `install.packages()` 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 **Linux**:
 
 * 터미널에서 실행:
 
-  터미널을 열고를 실행 `R`합니다.  
+  터미널을 열고를 실행 `R` 합니다.  
 
 * IDE에서 사용:
 
@@ -148,7 +148,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * R 패키지 설치:
 
-  R은 모든 사용자가 읽을 수 있는 전역 환경에서 DSVM에 설치 됩니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 R을 실행 합니다. 그런 다음 R 패키지 관리자 `install.packages()` 를 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+  R은 모든 사용자가 읽을 수 있는 전역 환경에서 DSVM에 설치 됩니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 R을 실행 합니다. 그런 다음 R 패키지 관리자를 실행 하 여 `install.packages()` 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 
 ## <a name="julia"></a>Julia
@@ -166,10 +166,10 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * 명령 프롬프트에서 실행
 
-  명령 프롬프트를 열고를 실행 `julia`합니다.
+  명령 프롬프트를 열고를 실행 `julia` 합니다.
 * IDE에서 사용:
 
-  DSVM에 설치 되 고 바탕 화면 바로 가기로 사용할 수 있는 줄리아 IDE와 함께 사용 `Juno` 합니다.
+  `Juno`DSVM에 설치 되 고 바탕 화면 바로 가기로 사용할 수 있는 줄리아 IDE와 함께 사용 합니다.
 
 * Jupyter에서 사용:
 
@@ -177,16 +177,16 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * 줄리아 패키지 설치:
 
-  기본 줄리아 위치는 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 줄리아를 실행 합니다. 그런 다음,와 같은 `Pkg.add()` 줄리아 패키지 관리자 명령을 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+  기본 줄리아 위치는 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 줄리아를 실행 합니다. 그런 다음,와 같은 줄리아 패키지 관리자 명령을 실행 `Pkg.add()` 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 
 **Linux**:
 * 터미널에서 실행:
 
-  터미널을 열고를 실행 `julia`합니다.
+  터미널을 열고를 실행 `julia` 합니다.
 * IDE에서 사용:
 
-  DSVM에 설치 되 고 `Juno` **응용 프로그램** 메뉴 바로 가기로 사용할 수 있는 줄리아 IDE와 함께를 사용 합니다.
+  `Juno`DSVM에 설치 되 고 **응용 프로그램** 메뉴 바로 가기로 사용할 수 있는 줄리아 IDE와 함께를 사용 합니다.
 
 * Jupyter에서 사용:
 
@@ -194,14 +194,14 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * 줄리아 패키지 설치:
 
-  기본 줄리아 위치는 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 줄리아를 실행 합니다. 그런 다음,와 같은 `Pkg.add()` 줄리아 패키지 관리자 명령을 실행 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
+  기본 줄리아 위치는 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 위의 방법 중 하나를 사용 하 여 줄리아를 실행 합니다. 그런 다음,와 같은 줄리아 패키지 관리자 명령을 실행 `Pkg.add()` 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
 ## <a name="other-languages"></a>기타 언어
 
-**C #**: Windows에서 사용할 수 있고 Visual Studio Community edition 또는 `Developer Command Prompt for Visual Studio` `csc` 명령을 실행할 수 있는에서 액세스할 수 있습니다.
+**C #**: Windows에서 사용할 수 있고 Visual Studio Community edition 또는 `Developer Command Prompt for Visual Studio` 명령을 실행할 수 있는에서 액세스할 수 있습니다 `csc` .
 
-**Java**: OPENJDK는 Dsvm의 Linux 및 Windows 버전 둘 다에서 사용할 수 있으며 경로에 설정 됩니다. Java를 사용 하려면 Windows의 `javac` 명령 `java` 프롬프트 또는 Linux의 bash 셸에 또는 명령을 입력 합니다.
+**Java**: OPENJDK는 Dsvm의 Linux 및 Windows 버전 둘 다에서 사용할 수 있으며 경로에 설정 됩니다. Java를 사용 하려면 `javac` `java` Windows의 명령 프롬프트 또는 Linux의 bash 셸에 또는 명령을 입력 합니다.
 
-**Node.js**: NODE.JS는 Dsvm의 Linux 및 Windows 버전 둘 다에서 사용할 수 있으며 경로에 설정 됩니다. Node.js에 액세스 하려면 Windows의 명령 프롬프트 `node` 또는 `npm` Linux의 bash 셸에 또는 명령을 입력 합니다. Windows에서 node.js 응용 프로그램을 개발 하는 그래픽 IDE를 제공 하기 위해 node.js 도구의 Visual Studio 확장을 설치 합니다.
+**Node.js**: Node.js는 Dsvm의 Linux 및 Windows 버전 둘 다에서 사용할 수 있고 경로에 설정 됩니다. Node.js에 액세스 하려면 `node` `npm` Windows의 명령 프롬프트 또는 Linux의 bash 셸에 또는 명령을 입력 합니다. Windows에서는 Node.js 응용 프로그램을 개발 하기 위한 그래픽 IDE를 제공 하기 위해 Node.js tools 용 Visual Studio 확장이 설치 됩니다.
 
-**F #**: Windows에서 사용할 수 있고 Visual Studio Community edition 또는 `Developer Command Prompt for Visual Studio` `fsc` 명령을 실행할 수 있는에서 액세스할 수 있습니다.
+**F #**: Windows에서 사용할 수 있고 Visual Studio Community edition 또는 `Developer Command Prompt for Visual Studio` 명령을 실행할 수 있는에서 액세스할 수 있습니다 `fsc` .

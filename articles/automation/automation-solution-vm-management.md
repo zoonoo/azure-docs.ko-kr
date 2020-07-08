@@ -3,20 +3,22 @@ title: Azure Automation 작업 시간 외 VM 시작/중지 개요
 description: 이 문서에서는 일정에 따라 VM을 시작 또는 중시하고 Azure Monitor 로그에서 선제적으로 모니터링하는 작업 시간 외 VM 시작/중지 기능에 대해 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2f23f4045f0326ffea14ddeb4d588261872188f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424077"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
-작업 시간 외 VM 시작/중지 기능은 사용하도록 설정된 Azure VM을 시작하거나 중지합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다. 
+작업 시간 외 VM 시작/중지 기능은 사용 하도록 설정 된 Azure Vm을 시작 하거나 중지 합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다. 
 
-이 기능은 [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) cmdlet을 사용하여 VM을 시작하고 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0)을 사용하여 VM을 중지합니다.
+이 기능은 [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) cmdlet을 사용 하 여 vm을 시작 합니다. Vm을 중지 하는 데 [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 를 사용 합니다.
+
+> [!NOTE]
+> Runbook은 새 Azure Az module cmdlet을 사용 하도록 업데이트 되었지만 AzureRM prefix 별칭을 사용 합니다.
 
 > [!NOTE]
 > 작업 시간 외 VM 시작/중지는 사용 가능한 최신 버전의 Azure 모듈을 지원하도록 업데이트되었습니다. Microsoft는 AzureRM 모듈을 Az 모듈로 마이그레이션했기 때문에 Marketplace에서 받을 수 있는 이 기능의 업데이트된 버전에서는 AzureRM 모듈을 지원하지 않습니다.
@@ -73,7 +75,7 @@ VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하�
 
 VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지를 사용하도록 설정할 수 있습니다. 이 경우에는 앞 섹션에서 정의된 권한과 이 섹션에서 정의하는 권한이 모두 필요합니다. 다음과 같은 역할도 필요합니다.
 
-- 구독의 공동 관리자. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
+- 구독에 대 한 공동 관리자입니다. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
 - [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](manage-runas-account.md#permissions)을 참조하세요.
 - 구독에 대한 기여자 또는 다음과 같은 권한.
 
@@ -90,7 +92,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 
 ## <a name="components"></a>구성 요소
 
-작업 시간 외 VM 시작/중지 기능에는 미리 구성된 Runbook, 일정, Azure Monitor 로그와의 통합이 포함됩니다. 이러한 요소를 사용하여 비즈니스 요구 사항에 맞게 VM의 시작 및 중지를 맞춤 설정할 수 있습니다.
+작업 시간 외 VM 시작/중지 기능에는 미리 구성 된 runbook, 일정 및 Azure Monitor 로그와의 통합이 포함 됩니다. 이러한 요소를 사용하여 비즈니스 요구 사항에 맞게 VM의 시작 및 중지를 맞춤 설정할 수 있습니다.
 
 ### <a name="runbooks"></a>Runbook
 
@@ -104,7 +106,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |Runbook | 매개 변수 | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 부모 Runbook에서 호출됩니다. 이 Runbook은 AutoStop 시나리오에서 리소스 기준으로 경고를 만듭니다.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList`는 쉼표로 구분된 VM 목록입니다. `vm1, vm2, vm3`)을 입력합니다.<br> `WhatIf`는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList`는 쉼표로 구분 된 Vm 목록 (공백 없음)입니다 (예:) `vm1,vm2,vm3` .<br> `WhatIf`는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
 |AutoStop_Disable | None | AutoStop 경고 및 기본 일정을 사용하지 않도록 설정합니다.|
 |AutoStop_VM_Child | WebHookData | 부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 클래식 VM을 중지합니다.|
 |AutoStop_VM_Child_ARM | WebHookData |부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 VM을 중지합니다.  |
@@ -112,7 +114,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |ScheduledStartStop_Child | VMName <br> 작업: 시작 또는 중지 <br> ResourceGroupName | 부모 Runbook에서 호출됩니다. 예약된 중지에서 시작 또는 중지 작업을 실행합니다.|
 |ScheduledStartStop_Child_Classic | VMName<br> 작업: 시작 또는 중지<br> ResourceGroupName | 부모 Runbook에서 호출됩니다. 클래식 VM의 예약된 중지에서 시작 또는 중지 작업을 실행합니다. |
 |ScheduledStartStop_Parent | 작업: 시작 또는 중지 <br>VMList <br> WhatIf: True 또는 False | 구독의 모든 VM을 시작 또는 중지합니다. 이러한 대상이 지정된 리소스 그룹에서만 실행되도록 하려면 변수 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames`를 편집합니다. `External_ExcludeVMNames` 변수를 업데이트하여 특정 VM을 제외할 수도 있습니다.|
-|SequencedStartStop_Parent | 작업: 시작 또는 중지 <br> WhatIf: True 또는 False<br>VMList| 시작/중지 작업을 시퀀스하려는 각 VM에서 **sequencestart** 및 **sequencestop**이라는 태그를 만듭니다. 이 태그 이름은 대/소문자를 구분합니다. 태그 값은 시작하거나 중지하려는 순서에 해당하는 양의 정수(1, 2, 3)여야 합니다. <br>**참고**: VM은 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` 변수에 정의된 리소스 그룹에 있어야 합니다. 작업이 적용되려면 적절한 태그가 있어야 합니다.|
+|SequencedStartStop_Parent | 작업: 시작 또는 중지 <br> WhatIf: True 또는 False<br>VMList| 시작/중지 작업을 시퀀스하려는 각 VM에서 **sequencestart** 및 **sequencestop**이라는 태그를 만듭니다. 이 태그 이름은 대/소문자를 구분합니다. 태그의 값은 `1,2,3` 시작 또는 중지 하려는 순서에 해당 하는 양의 정수 목록 (예:) 이어야 합니다. <br>**참고**: VM은 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` 변수에 정의된 리소스 그룹에 있어야 합니다. 작업이 적용되려면 적절한 태그가 있어야 합니다.|
 
 ### <a name="variables"></a>variables
 
@@ -132,7 +134,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |External_AutoStop_TimeAggregationOperator | 조건 평가를 위해 선택된 기간 범위에 적용되는 시간 집계 연산자입니다. 허용되는 값은 `Average`, `Minimum`, `Maximum`, `Total`, `Last`입니다.|
 |External_AutoStop_TimeWindow | Azure에서 경고 트리거를 위해 선택된 메트릭을 분석하는 기간의 범위입니다. 이 매개 변수는 시간 간격 형식의 입력을 허용합니다. 가능한 값은 5분에서 6시간 사이입니다.|
 |External_EnableClassicVMs| 이 기능에서 클래식 VM이 대상으로 지정되었는지 여부를 지정하는 값입니다. 기본값은 True입니다. Azure CSP(클라우드 솔루션 공급자) 구독에서는 이 변수를 False로 설정하세요. 클래식 VM에는 [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)이 필요합니다.|
-|External_ExcludeVMNames | 제외할 VM 이름의 쉼표로 구분된 목록으로, 140개 VM으로 제한됩니다. 목록에 140개가 넘는 VM을 추가하면 제외하도록 설정된 VM이 우발적으로 시작되거나 중지될 수 있습니다.|
+|External_ExcludeVMNames | 제외할 VM 이름의 쉼표로 구분된 목록으로, 140개 VM으로 제한됩니다. 140 개 이상의 Vm을 목록에 추가 하는 경우 제외 하도록 지정 된 Vm이 실수로 시작 되거나 중지 될 수 있습니다.|
 |External_Start_ResourceGroupNames | 시작 작업의 대상으로 지정된 하나 이상의 리소스 그룹의 쉼표로 구분된 목록입니다.|
 |External_Stop_ResourceGroupNames | 중지 작업의 대상으로 지정된 하나 이상의 리소스 그룹의 쉼표로 구분된 목록입니다.|
 |External_WaitTimeForVMRetrySeconds |**SequencedStartStop_Parent** Runbook에 대해 VM에서 수행될 작업의 대기 시간(초)입니다. 이 변수를 사용하면 Runbook이 다음 작업을 진행하기 전에 지정된 시간(초) 동안 자녀 작업을 기다리도록 할 수 있습니다. 최대 대기 시간은 10800초(3시간)입니다. 기본값은 2100초입니다.|
@@ -170,7 +172,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 클라우드 서비스당 VM이 20개 이상인 경우에는 다음과 같은 권장 사항을 참조하세요.
 
 * 부모 Runbook **ScheduledStartStop_Parent**를 사용하여 여러 일정을 만들고 일정당 20개의 VM을 지정합니다. 
-* 일정 속성에서 `VMList` 매개 변수를 사용하여 VM 이름을 쉼표로 구분된 목록으로 지정합니다. 
+* 일정 속성에서 매개 변수를 사용 `VMList` 하 여 VM 이름을 쉼표로 구분 된 목록 (공백 없음)으로 지정 합니다. 
 
 이렇게 하지 않으면 이 기능에 대한 Automation 작업이 3시간 이상 실행될 경우 [공평 분배](automation-runbook-execution.md#fair-share) 제한에 따라 일시적으로 언로드되거나 중지됩니다.
 

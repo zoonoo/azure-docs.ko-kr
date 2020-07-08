@@ -6,12 +6,11 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6f2043b91f8345a638d6fc773230cd182fb0fead
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508848"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 개인 링크
 
@@ -46,6 +45,10 @@ Azure Database for MariaDB 인스턴스에 연결 하는 Azure VM 내에서 Aadb
 온-프레미스 컴퓨터에서 공용 끝점에 연결 하는 경우 서버 수준 방화벽 규칙을 사용 하 여 ip 기반 방화벽에 IP 주소를 추가 해야 합니다. 이 모델은 개발 또는 테스트 워크로드를 위해 개별 머신에 액세스할 수 있도록 하는 데 효과적이지만 프로덕션 환경에서는 관리하기가 어렵습니다.
 
 개인 링크를 사용 하 여 ER ( [Express Route](https://azure.microsoft.com/services/expressroute/) ), 개인 피어 링 또는 [VPN 터널](https://docs.microsoft.com/azure/vpn-gateway/)을 사용 하 여 개인 끝점에 대 한 프레미스 간 액세스를 사용 하도록 설정할 수 있습니다. 이후에는 공용 끝점을 통해 모든 액세스를 사용 하지 않도록 설정 하 고 IP 기반 방화벽을 사용 하지 않을 수 있습니다.
+
+> [!NOTE]
+> 경우에 따라 Azure Database for MariaDB와 VNet 서브넷이 서로 다른 구독에 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
+> - 두 구독 모두에 **DBforMariaDB** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
 ## <a name="configure-private-link-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 개인 링크 구성
 
@@ -96,15 +99,15 @@ Azure Database for MariaDB 인스턴스에 연결 하는 Azure VM 내에서 Aadb
 
 * [지점 및 사이트 간 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 * [사이트 간 VPN 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [Express 경로 회로](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [ExpressRoute 회로](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
 
-## <a name="private-link-combined-with-firewall-rules"></a>방화벽 규칙과 결합 된 개인 링크
+## <a name="private-link-combined-with-firewall-rules"></a>방화벽 규칙과 결합된 Private Link
 
-방화벽 규칙과 함께 개인 링크를 사용 하는 경우 다음과 같은 상황 및 결과가 발생할 수 있습니다.
+Private Link를 방화벽 규칙과 함께 사용하면 다음과 같은 상황 및 결과가 발생할 수 있습니다.
 
 * 방화벽 규칙을 구성 하지 않으면 기본적으로 트래픽이 Azure Database for MariaDB에 액세스할 수 없게 됩니다.
 
-* 공용 트래픽 또는 서비스 끝점을 구성 하 고 개인 끝점을 만드는 경우 해당 유형의 방화벽 규칙에 따라 들어오는 트래픽 유형이 서로 다릅니다.
+* 공용 트래픽 또는 서비스 엔드포인트를 구성하고 프라이빗 엔드포인트를 만들면 해당 유형의 방화벽 규칙이 다양한 유형의 수신 트래픽 유형에 권한을 부여합니다.
 
 * 공용 트래픽 또는 서비스 끝점을 구성 하지 않고 개인 끝점을 만드는 경우 전용 끝점을 통해서만 Azure Database for MariaDB에 액세스할 수 있습니다. 공용 트래픽 또는 서비스 끝점을 구성 하지 않은 경우 승인 된 모든 개인 끝점을 거부 하거나 삭제 한 후에는 어떤 트래픽도 Azure Database for MariaDB에 액세스할 수 없게 됩니다.
 
@@ -112,7 +115,7 @@ Azure Database for MariaDB 인스턴스에 연결 하는 Azure VM 내에서 Aadb
 
 Azure Database for MariaDB에 액세스 하기 위한 전용 끝점에 전적으로 의존 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ([방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
 
-이 설정이 *예*로 설정 되 면 개인 끝점을 통한 연결만 Azure Database for MariaDB 허용 됩니다. 이 설정이 *아니요*로 설정 된 경우 클라이언트는 방화벽 또는 VNet 서비스 끝점 설정에 따라 Azure Database for MariaDB에 연결할 수 있습니다. 또한 개인 네트워크 액세스 값이 설정 되 면 기존 방화벽과 VNet 서비스 끝점 규칙을 추가 및/또는 업데이트할 수 없습니다.
+이 설정이 *예*로 설정 되 면 개인 끝점을 통한 연결만 Azure Database for MariaDB 허용 됩니다. 이 설정이 *아니요*로 설정 된 경우 클라이언트는 방화벽 또는 VNet 서비스 끝점 설정에 따라 Azure Database for MariaDB에 연결할 수 있습니다. 또한 개인 네트워크 액세스 값이 설정 되 면 고객은 기존 ' 방화벽 규칙 ' 및 ' VNet 서비스 끝점 규칙 '을 추가 및/또는 업데이트할 수 없습니다.
 
 > [!Note]
 > 이 기능은 Azure Database for PostgreSQL 단일 서버가 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
@@ -130,3 +133,6 @@ Azure Database for MariaDB 보안 기능에 대해 자세히 알아보려면 다
 * Azure Database for MariaDB에 대 한 가상 네트워크 서비스 끝점을 구성 하는 방법을 알아보려면 [가상 네트워크에서 액세스 구성](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)을 참조 하세요.
 
 * Azure Database for MariaDB 연결에 대 한 개요는 [Azure Database for MariaDB 연결 아키텍처](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture) 를 참조 하세요.
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

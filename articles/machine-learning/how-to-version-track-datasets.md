@@ -5,18 +5,17 @@ description: 데이터 집합을 최대한 활용 하는 방법과 기계 학습
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
-ms.custom: ''
-ms.openlocfilehash: 5bd4436fc63fb570f052606ab557dbcf243cf5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: e0b2d7abb378a6717eb4444882ede54debdb5968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84555636"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +27,7 @@ ms.locfileid: "80476862"
 * 새 데이터를 다시 학습에 사용할 수 있는 경우
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 다음이 필요합니다.
 
@@ -52,7 +51,7 @@ ms.locfileid: "80476862"
 
 ### <a name="register-a-dataset-version"></a>데이터 집합 버전 등록
 
-다음 코드는 매개 변수를 `titanic_ds` `create_new_version` 로 `True`설정 하 여 새 버전의 데이터 집합을 등록 합니다. 작업 영역에 등록 된 `titanic_ds` 기존 데이터 집합이 없는 경우 코드는 이름을 `titanic_ds` 사용 하 여 새 데이터 집합을 만들고 해당 버전을 1로 설정 합니다.
+다음 코드는 `titanic_ds` 매개 변수를로 설정 하 여 새 버전의 데이터 집합을 등록 합니다 `create_new_version` `True` . `titanic_ds`작업 영역에 등록 된 기존 데이터 집합이 없는 경우 코드는 이름을 사용 하 여 새 데이터 집합을 만들고 `titanic_ds` 해당 버전을 1로 설정 합니다.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -63,9 +62,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>이름을 기준으로 데이터 집합 검색
 
-기본적으로 `Dataset` 클래스의 [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) 메서드는 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
+기본적으로 클래스의 [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
 
-다음 코드는 `titanic_ds` 데이터 집합의 버전 1을 가져옵니다.
+다음 코드는 데이터 집합의 버전 1을 가져옵니다 `titanic_ds` .
 
 ```Python
 from azureml.core import Dataset
@@ -156,9 +155,9 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>실험에서 데이터 집합 추적
 
-각 Machine Learning 실험의 경우 실험 `Run` 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다.
+각 Machine Learning 실험의 경우 실험 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다 `Run` .
 
-다음 코드에서는 메서드를 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) 사용 하 여 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
+다음 코드에서는 메서드를 사용 하 여 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
 
 ```Python
 # get input datasets
@@ -169,9 +168,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-을 사용 https://ml.azure.com/하 여 실험 `input_datasets` 에서을 찾을 수도 있습니다. 
+을 `input_datasets` 사용 하 여 실험에서을 찾을 수도 있습니다 https://ml.azure.com/ . 
 
-다음 이미지는 Azure Machine Learning studio에서 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 여 실험의 특정 실행에 대 한 **속성** 탭을 엽니다 `keras-mnist`.
+다음 이미지는 Azure Machine Learning studio에서 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 여 실험의 특정 실행에 대 한 **속성** 탭을 엽니다 `keras-mnist` .
 
 ![입력 데이터 집합](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -183,7 +182,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-등록 후에는 Python을 사용 하 여 데이터 집합에 등록 된 모델의 목록을 확인 하거나로 https://ml.azure.com/이동할 수 있습니다.
+등록 후에는 Python을 사용 하 여 데이터 집합에 등록 된 모델의 목록을 확인 하거나로 이동할 수 있습니다 https://ml.azure.com/ .
 
 다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
 

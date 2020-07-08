@@ -8,17 +8,16 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
-ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/05/2020
+ms.openlocfilehash: e2b4233f8f59a26e7da532fca48aecbb41857b66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488633"
 ---
 # <a name="apply-transformation-module"></a>변환 모듈 적용
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 이전에 계산 된 변환을 기반으로 입력 데이터 집합을 수정 합니다.
 
@@ -32,13 +31,13 @@ ms.locfileid: "78395268"
 
 1. **출력 + 로그** 탭을 선택 합니다.
 
-1. **저장 아이콘** 을 선택 하 여 **결과 변환을**저장 합니다.
+1. 변환 출력을 찾고 **등록 데이터 집합** 을 선택 하 여 모듈 팔레트의 **데이터 집합** 범주 아래에 모듈로 저장 합니다.
 
 ## <a name="how-to-use-apply-transformation"></a>변형 적용 사용 방법  
   
 1. 파이프라인에 **변환 적용** 모듈을 추가 합니다. 모듈 팔레트의 **모델 점수 매기기 & 평가** 섹션에서이 모듈을 찾을 수 있습니다. 
   
-1. 모듈 팔레트의 **데이터 집합** > **내 데이터** 집합에서 사용 하려는 저장 된 변환을 찾습니다.
+1. 모듈 팔레트의 **데이터 집합** 에서 사용 하려는 저장 된 변환을 찾습니다.
 
 1. 저장 된 변환의 출력을 **변환 적용** 모듈의 왼쪽 입력 포트에 연결 합니다.
 
@@ -50,4 +49,4 @@ ms.locfileid: "78395268"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

@@ -5,18 +5,18 @@ description: Azure Data Factory를 사용 하 여 데이터 수집 파이프라�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
-ms.openlocfilehash: 5b4ed40048aab815397c9726098880b2125b732c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 3e8d93c1f04dda9afbcfa0cab4e8fc9036ae7580
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78274789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84555672"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Azure Data Factory로 데이터 수집
 

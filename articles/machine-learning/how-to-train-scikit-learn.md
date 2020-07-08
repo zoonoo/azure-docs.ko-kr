@@ -5,17 +5,16 @@ description: Azure Machine Learning 기능 평가기 클래스를 사용 하 여
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: maxluk
 author: maxluk
 ms.date: 03/09/2020
-ms.custom: seodec18
-ms.openlocfilehash: bdd2cc400c3df75742689258caea8cb87ee8ccc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: a967bb1ac2c29b130ccd5e33b4aad768dd8daa6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557004"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,10 +25,10 @@ ms.locfileid: "78942269"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
- - Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
+ - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
 
     - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
     - 노트북 서버의 샘플 학습 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > ml-프레임 워크 > scikit-학습 > 학습 > 학습-하이퍼 매개 변수-조정-배포-학습** 폴더.
@@ -66,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) .
 
 `config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
 
@@ -82,16 +81,16 @@ ws = Workspace.from_config()
 project_folder = './sklearn-iris'
 os.makedirs(project_folder, exist_ok=True)
 
-exp = Experiment(workspace=ws, name='sklearn-iris')
+experiment = Experiment(workspace=ws, name='sklearn-iris')
 ```
 
 ### <a name="prepare-training-script"></a>학습 스크립트 준비
 
 이 자습서에서는 학습 스크립트 **train_iris py** 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
 
-Azure ML 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 train_iris** 스크립트는 스크립트 내에서 개체를 `Run` 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
+Azure ML 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 train_iris** 스크립트는 `Run` 스크립트 내에서 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
 
-제공 된 학습 스크립트는 `iris = datasets.load_iris()` 함수의 예제 데이터를 사용 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
+제공 된 학습 스크립트는 함수의 예제 데이터를 사용 `iris = datasets.load_iris()` 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
 
 **Py 학습 train_iris** 스크립트를 프로젝트 디렉터리에 복사 합니다.
 
@@ -126,9 +125,9 @@ except ComputeTargetException:
 
 ## <a name="create-a-scikit-learn-estimator"></a>Scikit 만들기-배우기 평가기
 
-[Scikit-배우기 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) 는 계산 대상에서 scikit 학습 작업을 시작 하는 간단한 방법을 제공 합니다. 단일 노드 CPU 교육을 [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 지 원하는 데 사용할 수 있는 클래스를 통해 구현 됩니다.
+[Scikit-배우기 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) 는 계산 대상에서 scikit 학습 작업을 시작 하는 간단한 방법을 제공 합니다. [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)단일 노드 CPU 교육을 지 원하는 데 사용할 수 있는 클래스를 통해 구현 됩니다.
 
-학습 스크립트에 추가 pip 또는 conda 패키지를 실행 해야 하는 경우 및 `pip_packages` `conda_packages` 인수를 통해 해당 이름을 전달 하 여 결과 docker 이미지에 패키지를 설치할 수 있습니다.
+학습 스크립트에 추가 pip 또는 conda 패키지를 실행 해야 하는 경우 및 인수를 통해 해당 이름을 전달 하 여 결과 docker 이미지에 패키지를 설치할 수 있습니다 `pip_packages` `conda_packages` .
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -141,13 +140,13 @@ script_params = {
 estimator = SKLearn(source_directory=project_folder, 
                     script_params=script_params,
                     compute_target=compute_target,
-                    entry_script='train_iris.py'
+                    entry_script='train_iris.py',
                     pip_packages=['joblib']
                    )
 ```
 
 
-Python 환경을 사용자 지정 하는 방법에 대 한 자세한 내용은 [학습 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요. 
+Python 환경을 사용자 지정하는 방법에 대한 자세한 내용은 [학습 및 배포 환경 만들기 및 관리](how-to-use-environments.md)를 참조하세요. 
 
 ## <a name="submit-a-run"></a>실행 제출
 
@@ -170,7 +169,7 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="save-and-register-the-model"></a>모델 저장 및 등록
 
-모델을 학습 한 후에는 작업 영역에 저장 하 고 등록할 수 있습니다. 모델 등록을 사용 하면 모델 [관리 및 배포](concept-model-management-and-deployment.md)를 간소화 하기 위해 작업 영역에 모델을 저장 하 고 버전을 지정할 수 있습니다.
+모델을 학습한 후에는 작업 영역에 저장하고 등록할 수 있습니다. 모델 등록을 사용하면 모델을 작업 영역에 저장하고 버전을 지정하여 [모델 관리 및 배포](concept-model-management-and-deployment.md)를 간소화할 수 있습니다.
 
 학습 스크립트 train_iris (py)에 다음 코드를 추가 하 여 모델을 저장 합니다. 
 
@@ -180,7 +179,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-다음 코드를 사용 하 여 작업 영역에 모델을 등록 합니다. 매개 변수 `model_framework` `model_framework_version`, 및 `resource_configuration`를 지정 하면 코드 없는 모델 배포를 사용할 수 있게 됩니다. 이렇게 하면 등록 된 모델에서 모델을 웹 서비스로 직접 배포할 수 있으며, 개체는 [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py) 웹 서비스에 대 한 계산 리소스를 정의 합니다.
+다음 코드를 사용 하 여 작업 영역에 모델을 등록 합니다. 매개 변수, 및를 지정 하면 `model_framework` `model_framework_version` `resource_configuration` 코드 없는 모델 배포를 사용할 수 있게 됩니다. 이렇게 하면 등록 된 모델에서 모델을 웹 서비스로 직접 배포할 수 있으며, [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py) 개체는 웹 서비스에 대 한 계산 리소스를 정의 합니다.
 
 ```Python
 from azureml.core import Model
@@ -199,7 +198,7 @@ model = run.register_model(model_name='sklearn-iris',
 
 ### <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
 
-기존 배포 경로 대신 scikit에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 모든 기본 제공 scikit 모델 형식에 대해 코드 모델 배포가 지원 되지 않습니다. 위에 `model_framework` `model_framework_version`표시 된 대로, 및 `resource_configuration` 매개 변수를 사용 하 여 모델을 등록 하면 단순히 [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 정적 함수를 사용 하 여 모델을 배포할 수 있습니다.
+기존 배포 경로 대신 scikit에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 모든 기본 제공 scikit 모델 형식에 대해 코드 모델 배포가 지원 되지 않습니다. 위에 표시 된 대로, 및 매개 변수를 사용 하 여 모델을 등록 하면 `model_framework` `model_framework_version` `resource_configuration` 단순히 정적 함수를 사용 하 여 모델을 배포할 수 있습니다 [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])
@@ -222,5 +221,5 @@ Azure Machine Learning의 배포에 [대 한 자세한 내용을](how-to-deploy-
 이 문서에서는 scikit 모델에 대해 학습 하 고 등록 했으며 배포 옵션에 대해 알아보았습니다. Azure Machine Learning에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
-* [hyperparameters 조정](how-to-tune-hyperparameters.md)
+* [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 * [Azure의 분산 심층 학습 교육에 대 한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)

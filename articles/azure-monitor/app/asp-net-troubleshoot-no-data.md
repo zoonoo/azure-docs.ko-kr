@@ -3,12 +3,11 @@ title: 데이터 없음 문제 해결 - .NET용 Application Insights
 description: Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485161"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -158,7 +157,6 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 * Windows Server 2008: 다음 업데이트를 설치했는지 확인합니다. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
-* [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
 * 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우

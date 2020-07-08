@@ -6,16 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: f1d8189068278b46e3ec3ea66875d79bb91e5e16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9c8f91cee01273aa2ed1cbfe1812130b600a094a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010208"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456745"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 
-Redis 출력 캐시 공급자는 출력 캐시 데이터에 대한 out-of-process 스토리지 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다.
+Redis 출력 캐시 공급자는 출력 캐시 데이터에 대한 out-of-process 스토리지 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다. ASP.NET Core 응용 프로그램의 경우 [ASP.NET Core에서 응답 캐싱을](https://docs.microsoft.com/aspnet/core/performance/caching/response)읽습니다. 
 
 Redis 출력 캐시 공급자를 사용하려면 먼저 캐시를 구성한 다음, Redis 출력 개시 공급자 NuGet 패키지를 사용하여 사용자의 ASP.NET 애플리케이션을 구성합니다. 이 항목에서는 Redis 출력 캐시 공급자를 사용할 수 있도록 애플리케이션을 구성하는 지침을 제공합니다. Azure Cache for Redis 인스턴스를 만들고 구성하는 방법에 대한 자세한 내용은 [캐시 만들기](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)를 참조하세요.
 
@@ -54,7 +53,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 | attribute | Type | 기본값 | Description |
 | --------- | ---- | ------- | ----------- |
 | *호스팅하기* | string | 호스트 | Redis 서버 IP 주소 또는 호스트 이름 |
-| *포트인* | 양의 정수 | 6379 (TLS/SSL 아님)<br/>6380 (TLS/SSL) | Redis 서버 포트 |
+| *port* | 양의 정수 | 6379 (TLS/SSL 아님)<br/>6380 (TLS/SSL) | Redis 서버 포트 |
 | *accessKey* | string | "" | Redis 권한 부여를 사용 하는 경우 서버 암호를 Redis 합니다. 기본적으로이 값은 빈 문자열입니다. 즉, Redis 서버에 연결할 때 세션 상태 공급자가 암호를 사용 하지 않습니다. **Redis 서버가 Azure Redis Cache와 같은 공개적으로 액세스할 수 있는 네트워크에 있는 경우 보안을 향상 시키기 위해 Redis 권한 부여를 사용 하도록 설정 하 고 보안 암호를 제공 해야 합니다.** |
 | *ssl* | boolean | **false** | TLS를 통해 Redis 서버에 연결할지 여부를 지정 합니다. Redis는 기본적으로이 값은 **false** 입니다. **기본적으로 SSL을 지 원하는 Azure Redis Cache를 사용 하는 경우 보안을 강화 하려면이를 true로 설정 해야 합니다.**<br/><br/>TLS가 아닌 포트는 새 캐시에 대해 기본적으로 사용 하지 않도록 설정 됩니다. TLS 포트를 사용 하려면이 설정에 대해 **true** 를 지정 합니다. TLS 포트가 아닌 포트를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [캐시 구성](cache-configure.md) 항목에서 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조 하세요. |
 | *databaseIdNumber* | 양의 정수 | 0 | *이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>사용할 Redis 데이터베이스를 지정 합니다. |
@@ -72,7 +71,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 ### <a name="setting-connectionstring"></a>*ConnectionString* 설정
 
-*ConnectionString* 의 값은 appsettings에 있는 경우 appsettings에서 실제 연결 문자열을 가져오는 데 키로 사용 됩니다. AppSettings 내에 없으면 *connectionstring* 의 값이 해당 섹션이 있는 경우 web.config **connectionString** 섹션에서 실제 연결 문자열을 가져오는 키로 사용 됩니다. AppSettings 또는 web.config **ConnectionString** 섹션에 연결 문자열이 없는 경우 Redis를 만들 때 *connectionstring* 의 리터럴 값이 연결 문자열로 사용 됩니다.
+*ConnectionString* 의 값은 appsettings에 있는 경우 appsettings에서 실제 연결 문자열을 가져오는 데 키로 사용 됩니다. AppSettings 내에서 찾을 수 없는 경우 *connectionstring* 의 값은 web.config **connectionstring** 섹션 (해당 섹션이 있는 경우)에서 실제 연결 문자열을 가져오는 키로 사용 됩니다. AppSettings 또는 web.config **connectionstring** 섹션에 연결 문자열이 없는 경우 Redis를 만들 때 *connectionstring* 의 리터럴 값이 연결 문자열로 사용 됩니다.
 
 다음 예에서는 *connectionString* 을 사용 하는 방법을 보여 줍니다.
 
@@ -84,7 +83,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 </connectionStrings>
 ```
 
-에서 `web.config`실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
+에서 `web.config` 실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -104,7 +103,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 </appSettings>
 ```
 
-에서 `web.config`실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
+에서 `web.config` 실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -193,7 +192,7 @@ namespace MyCompany.Redis
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-이전 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. OutputCache 지시문에 대 한 자세한 내용은를 참조 [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837)하십시오.
+이전 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. OutputCache 지시문에 대 한 자세한 내용은를 참조 하십시오 [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837) .
 
 이 단계를 수행하면, 애플리케이션은 Redis 출력 캐시 공급자를 사용하도록 구성됩니다.
 

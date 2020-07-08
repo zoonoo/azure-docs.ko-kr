@@ -3,12 +3,11 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484970"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -22,7 +21,7 @@ ms.locfileid: "83797538"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-- Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA, MARS(Microsoft Azure Recovery Services) 에이전트, MABS(Microsoft Azure Backup Server) 및 System Center DPM(Data Protection Manager)에서 Backup 보고서가 지원됩니다. Azure 파일 공유 백업에 대한 데이터는 현재 Backup 보고서에 표시되지 않습니다.
+- Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA, MARS(Microsoft Azure Recovery Services) 에이전트, MABS(Microsoft Azure Backup Server) 및 System Center DPM(Data Protection Manager)에서 Backup 보고서가 지원됩니다. Azure 파일 공유 백업의 경우 2020, 6 월 1 일 이후에 생성 된 모든 레코드에 대해 데이터가 표시 됩니다.
 - DPM 워크로드의 경우 DPM 버전 5.1.363.0 이상 및 에이전트 버전 2.0.9127.0 이상에서 Backup 보고서가 지원됩니다.
 - MABS 워크로드의 경우 MABS 버전 13.0.415.0 이상 및 에이전트 버전 2.0.9170.0 이상에서 Backup 보고서가 지원됩니다.
 - 사용자가 액세스할 수 있는 Log Analytics 작업 영역으로 데이터가 전송되는 모든 백업 항목, 자격 증명 모음, 구독 및 지역에서 Backup 보고서를 볼 수 있습니다. 자격 증명 모음 집합에 대한 보고서를 보려면 자격 증명 모음이 데이터를 보내는 Log Analytics 작업 영역에 대한 읽기 권한만 있으면 됩니다. 개별 자격 증명 모음에 대한 액세스 권한은 필요 없습니다.

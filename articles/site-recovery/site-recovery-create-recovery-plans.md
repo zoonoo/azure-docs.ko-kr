@@ -3,12 +3,11 @@ title: Azure Site Recovery에서 복구 계획 만들기/사용자 지정
 description: Azure Site Recovery 서비스를 사용한 재해 복구를 위한 복구 계획을 만들고 사용자 지정하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705839"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485333"
 ---
 # <a name="create-and-customize-recovery-plans"></a>복구 계획 만들기 및 사용자 지정
 
@@ -16,11 +15,11 @@ ms.locfileid: "76705839"
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
 
-1. Recovery Services 자격 증명 모음에서 **복구 계획 (Site Recovery)** > **+ 복구 계획**을 선택 합니다.
+1. Recovery Services 자격 증명 모음에서 **복구 계획 (Site Recovery)**  >  **+ 복구 계획**을 선택 합니다.
 2. **복구 계획 만들기**에서 계획의 이름을 지정합니다.
 3. 계획의 머신을 기반으로 하여 원본 및 대상을 선택하고 배포 모델에 대한 **리소스 관리자**를 선택합니다. 원본 위치에는 장애 조치(failover) 및 복구를 사용하도록 설정한 머신이 있어야 합니다. 
 
-    **장애 조치(Failover)** | **소스** | **대상** 
+    **장애 조치(Failover)** | **소스** | **Target** 
    --- | --- | ---
    Azure 간 | Azure 지역 선택 | Azure 지역 선택
    VMware에서 Azure로 | 구성 서버 선택 | Azure 선택
@@ -29,13 +28,13 @@ ms.locfileid: "76705839"
    Hyper-v (VMM에서 관리 됨)에서 Azure로  | VMM 서버를 선택 합니다. | Azure 선택
   
     다음 사항에 유의하세요.
-    -  원본 위치에서 Azure로 장애 조치 (failover) 하는 경우에만 복구 계획을 사용할 수 있습니다. Azure에서 장애 복구 (failback)를 위해 복구 계획을 사용할 수 없습니다.
-    - 원본 위치에는 장애 조치(failover) 및 복구를 사용하도록 설정한 머신이 있어야 합니다. 
-    - 복구 계획에는 원본 및 대상이 동일한 머신이 포함될 수 있습니다. 
+    - Azure로 장애 조치 (failover) 하 고 Azure에서 장애 복구 (failback) 할 복구 계획을 사용할 수 있습니다.
+    - 원본 위치에는 장애 조치(failover) 및 복구를 사용하도록 설정한 머신이 있어야 합니다.
+    - 복구 계획에는 원본 및 대상이 동일한 머신이 포함될 수 있습니다.
     - VMM에서 관리 하는 VMware Vm 및 Hyper-v Vm을 동일한 계획에 포함할 수 있습니다.
     - VMware Vm과 물리적 서버는 동일한 계획에 있을 수 있습니다.
 
-4. **항목 가상 머신 선택**에서 계획에 추가할 머신(또는 복제 그룹)을 선택합니다. 그런 다음 **확인**을 클릭합니다.
+4. **항목 가상 머신 선택**에서 계획에 추가할 머신(또는 복제 그룹)을 선택합니다. 그런 후 **OK**를 클릭합니다.
     - 머신이 계획의 기본 그룹(그룹 1)에 추가됩니다. 장애 조치(failover) 후 이 그룹의 모든 머신은 동시에 시작됩니다.
     - 지정된 원본 및 대상 위치에 있는 머신만 선택할 수 있습니다. 
 5. **확인**을 클릭하여 계획을 만듭니다.
@@ -51,7 +50,7 @@ ms.locfileid: "76705839"
 
 ## <a name="add-a-script-or-manual-action"></a>스크립트 또는 수동 작업 추가
 
-스크립트 또는 수동 작업을 추가하여 복구 계획을 사용자 지정할 수 있습니다. 다음 사항에 유의하세요.
+스크립트 또는 수동 작업을 추가하여 복구 계획을 사용자 지정할 수 있습니다. 다음 사항에 유의합니다.
 
 - Azure에 복제하는 경우, Azure Automation Runbook을 복구 계획에 통합할 수 있습니다. [자세히 알아보기](site-recovery-runbook-automation.md).
 - System Center VMM에서 관리하는 Hyper-V VM을 복제하는 경우, 온-프레미스 VMM 서버에서 스크립트를 만들고 복구 계획에 포함할 수 있습니다.
@@ -74,13 +73,13 @@ ms.locfileid: "76705839"
 2. **작업 삽입**에서 **스크립트** 또는 **수동 작업**을 선택합니다.
 3. 수동 작업을 추가 하려면 다음을 수행 합니다.
     1. 작업 이름과 작업 지침을 입력합니다. 장애 조치(failover)를 실행하는 사용자에게 이러한 지침이 표시됩니다.
-    1. 모든 장애 조치(failover) 유형(테스트, 장애 조치(failover), 계획된 장애 조치(failover)(관련된 경우))에 대해 수동 작업을 추가할지 여부를 지정합니다. 그런 다음 **확인**을 클릭합니다.
+    1. 모든 장애 조치(failover) 유형(테스트, 장애 조치(failover), 계획된 장애 조치(failover)(관련된 경우))에 대해 수동 작업을 추가할지 여부를 지정합니다. 그런 후 **OK**를 클릭합니다.
 4. 스크립트를 추가 하려면 다음을 수행 합니다.
-    1. VMM 스크립트를 추가하는 경우 **VMM 스크립트에 대한 장애 조치**를 선택하고 **스크립트 경로** 유형에서 공유에 대한 상대 경로를 입력합니다. 예를 들어 공유가 p> \msscvmmlibrary\rpscripts에 \\ \<있는 경우 경로: \RPScripts\RPScript.PS1.를 지정 합니다.
+    1. VMM 스크립트를 추가하는 경우 **VMM 스크립트에 대한 장애 조치**를 선택하고 **스크립트 경로** 유형에서 공유에 대한 상대 경로를 입력합니다. 예를 들어 공유가 \\\<VMMServerName>\MSSCVMMLibrary\RPScripts에 있는 경우 경로를 다음과 같이 지정합니다. \RPScripts\RPScript.PS1.
     1. Azure Automation Runbook을 추가하는 경우 Runbook이 위치한 **Azure Automation 계정**을 지정하고 적절한 **Azure Runbook 스크립트**를 선택합니다.
 5. 복구 계획의 테스트 장애 조치(failover)를 실행하여 스크립트가 예상대로 작동하는지 확인합니다.
 
-## <a name="watch-a-video"></a>비디오 보기
+## <a name="watch-a-video"></a>비디오 시청
 
 복구 계획을 작성하는 방법을 보여 주는 비디오를 시청합니다.
 

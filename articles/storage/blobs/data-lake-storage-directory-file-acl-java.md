@@ -5,31 +5,30 @@ author: normesta
 ms.service: storage
 ms.date: 03/20/2020
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 45870dd7d3035b6b49340fd6e8016794088e775a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15bdcbfc8e02ff06e09cb1e2a3d0621cb50e4da4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466105"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
 이 문서에서는 Java를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
-[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
+[패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-> * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
+> * HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](data-lake-storage-quickstart-create-account.md)을 수행합니다.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-시작 하려면 [이 페이지](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) 를 열고 최신 버전의 Java 라이브러리를 찾습니다. 그런 다음 텍스트 편집기에서 *pom .xml* 파일을 엽니다. 해당 버전을 참조 하는 종속성 요소를 추가 합니다.
+시작 하려면 [이 페이지](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) 를 열고 최신 버전의 Java 라이브러리를 찾습니다. 그런 다음 텍스트 편집기에서 *pom.xml* 파일을 엽니다. 해당 버전을 참조 하는 종속성 요소를 추가 합니다.
 
 AD (Azure Active Directory)를 사용 하 여 클라이언트 응용 프로그램을 인증 하려는 경우 Azure Secret Client 라이브러리에 종속성을 추가 합니다. [프로젝트에 비밀 클라이언트 라이브러리 패키지 추가를](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project)참조 하세요.
 
@@ -109,7 +108,7 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 
 파일 시스템은 파일의 컨테이너 역할을 합니다. **DataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
 
-이 예에서는 라는 `my-file-system`파일 시스템을 만듭니다. 
+다음 예제에서는 `my-file-system`이라는 파일 시스템을 만듭니다. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -123,7 +122,7 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 **DataLakeFileSystemClient** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
-이 예에서는 라는 `my-directory` 디렉터리를 파일 시스템에 추가한 다음 라는 `my-subdirectory`하위 디렉터리를 추가 합니다. 
+이 예에서는 라는 디렉터리를 `my-directory` 파일 시스템에 추가한 다음 라는 하위 디렉터리를 추가 `my-subdirectory` 합니다. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -143,7 +142,7 @@ static public DataLakeDirectoryClient CreateDirectory
 
 **DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
 
-이 예에서는 하위 디렉터리의 이름을 `my-subdirectory-renamed`로 바꿉니다.
+이 예에서는 하위 디렉터리의 이름을로 바꿉니다 `my-subdirectory-renamed` .
 
 ```java
 static public DataLakeDirectoryClient
@@ -157,7 +156,7 @@ static public DataLakeDirectoryClient
 }
 ```
 
-이 예에서는 라는 `my-subdirectory-renamed` 디렉터리를 라는 `my-directory-2`디렉터리의 하위 디렉터리로 이동 합니다. 
+이 예에서는 라는 디렉터리를 `my-subdirectory-renamed` 라는 디렉터리의 하위 디렉터리로 이동 `my-directory-2` 합니다. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory
@@ -175,7 +174,7 @@ static public DataLakeDirectoryClient MoveDirectory
 
 **DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리를 삭제 합니다.
 
-이 예에서는 라는 `my-directory`디렉터리를 삭제 합니다.   
+다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.   
 
 ```java
 static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -189,10 +188,10 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 
 ## <a name="manage-a-directory-acl"></a>디렉터리 ACL 관리
 
-이 예제에서는 이름이 인 `my-directory`디렉터리의 ACL을 가져온 다음 설정 합니다. 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
+이 예제에서는 이름이 인 디렉터리의 ACL을 가져온 다음 설정 합니다 `my-directory` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
 
 > [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
 
 ```java
 static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
@@ -236,7 +235,7 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 먼저 **DataLakeFileClient** 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. **DataLakeFileClient** 메서드를 호출 하 여 파일을 업로드 합니다. **DataLakeFileClient FlushAsync** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
 
-이 예제에서는 라는 `my-directory`디렉터리에 텍스트 파일을 업로드 합니다.
+이 예제에서는 라는 디렉터리에 텍스트 파일을 업로드 `my-directory` 합니다.
 
 ```java
 static public void UploadFile(DataLakeFileSystemClient fileSystemClient) 
@@ -286,10 +285,10 @@ static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="manage-a-file-acl"></a>파일 ACL 관리
 
-이 예제에서는 라는 `upload-file.txt`파일의 ACL을 가져온 다음 설정 합니다. 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
+이 예제에서는 라는 파일의 ACL을 가져온 다음 설정 합니다 `upload-file.txt` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
 
 > [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 사용 권한을 적용 하는 방법 및 변경의 영향에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조 하세요.
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
 
 ```java
 static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
@@ -359,7 +358,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
 
-이 예에서는 라는 `my-directory`디렉터리에 있는 각 파일의 이름을 인쇄 합니다.
+이 예에서는 라는 디렉터리에 있는 각 파일의 이름을 인쇄 `my-directory` 합니다.
 
 ```java
 static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -390,11 +389,11 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
 * [패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
 * [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
-* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+* [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)

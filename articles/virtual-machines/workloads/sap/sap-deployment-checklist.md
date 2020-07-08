@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ba229025608d183b886a17346a725bc64dc6b60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84556654"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -86,7 +85,7 @@ ms.locfileid: "80060057"
     - [SAP HANA 설치](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  고객, 시스템 통합 업체, Microsoft 및 기타 관련 당사자 간의 정기적인 설계 및 배포 검토 주기를 정의 합니다.
 
- 
+
 ## <a name="pilot-phase-strongly-recommended"></a>파일럿 단계 (강력히 권장)
  
 프로젝트를 계획 하 고 준비 하는 동안 파일럿을 실행할 수 있습니다. 파일럿 단계를 사용 하 여 계획 및 준비 단계 중에 수행 된 방법과 디자인을 테스트할 수도 있습니다. 그리고 파일럿 단계를 확장 하 여 개념 증명으로 만들 수 있습니다.
@@ -103,7 +102,7 @@ ms.locfileid: "80060057"
         - SAP 지원 정보, SAP HANA 하드웨어 디렉터리 및 SAP PAM의 리소스를 다시 검토 합니다. Azure에 대해 지원 되는 Vm, 해당 VM 유형에 지원 되는 OS 릴리스, 지원 되는 SAP 및 DBMS 릴리스를 변경 하지 않았는지 확인 합니다.
         - Azure에 배포하는 애플리케이션 및 인프라의 크기가 유효한지 다시 확인합니다. 기존 응용 프로그램을 이동 하는 경우에는 사용 하는 인프라 및 [sap 벤치 마크 웹 페이지](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) 에서 필요한 SAPS를 파생 하 고 [sap support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)에 나열 된 SAPS 번호와 비교할 수 있습니다. 또한 [이 문서는 SAPS 등급을](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) 염두에 두십시오.
         - 계획 단계에서 선택한 VM 유형의 최대 저장소 처리량 및 네트워크 처리량과 관련 하 여 Azure Vm의 크기를 평가 하 고 테스트 합니다. 데이터는 다음 위치에서 찾을 수 있습니다.
-           -  [Azure의 Windows 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
+           -  [Azure의 Windows 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
            -  [Azure의 Linux 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
    2. 저장할.
         - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
@@ -207,13 +206,13 @@ ms.locfileid: "80060057"
 11. [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위해 azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)에 설명 된 대로 vm이 올바른 [azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)에 배포 되었는지 확인 합니다.
 11. 작업을 적용 하기 전에 개념 증명 단계에 대해 나열 된 다른 모든 검사를 수행 합니다.
 12. 워크 로드가 적용 되 면 Azure에서 시스템의 리소스 소비를 기록 합니다. 이 소비량을 이전 플랫폼의 레코드와 비교 합니다. 큰 차이가 있는 경우 향후 배포의 VM 크기를 조정 합니다. 크기, 저장소 및 Vm의 네트워크 대역폭도 줄일 수 있습니다.
-    - [Azure의 Windows 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    - [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Azure에서 Linux 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. 시스템 복사 기능 및 프로세스를 시험해 보세요. 목표는 개발 시스템 또는 테스트 시스템을 쉽게 복사할 수 있도록 하는 것입니다. 따라서 프로젝트 팀은 새로운 시스템을 신속 하 게 가져올 수 있습니다. 이러한 작업에는 [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) 를 사용 하는 것이 좋습니다.
 14. 팀의 Azure 역할 기반 액세스, 권한 및 프로세스를 최적화 하 고 h) 하 여 의무를 분리 해야 합니다. 동시에 모든 팀이 Azure 인프라에서 해당 작업을 수행할 수 있는지 확인 합니다.
 15. 직원 들이 이러한 작업을 실행할 수 있도록 고가용성 및 재해 복구 절차를 수행 하 고, 테스트 하 고, 문서화 합니다. 단점을 파악 하 고 배포에 통합 하는 새로운 Azure 기능을 조정 합니다.
 
- 
+
 ## <a name="production-preparation-phase"></a>프로덕션 준비 단계 
 이 단계에서는 비프로덕션 배포 중에 경험을 얻은 내용을 수집 하 고 향후 프로덕션 배포에 적용 합니다. 또한 현재 호스팅 위치와 Azure 간의 데이터 전송 작업을 준비 해야 합니다.
 
@@ -295,7 +294,7 @@ ms.locfileid: "80060057"
 
 
 ## <a name="next-steps"></a>다음 단계
- 아래 문서를 참조하세요.
+아래 문서를 참조하세요.
 
 - [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [SAP NetWeaver에 대한 Azure Virtual Machines 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)

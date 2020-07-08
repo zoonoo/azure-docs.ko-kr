@@ -1,19 +1,18 @@
 ---
 title: 항목 및 이벤트 구독 모니터링-Azure Event Grid IoT Edge | Microsoft Docs
 description: 항목 및 이벤트 구독 모니터링
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84554350"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>항목 및 이벤트 구독 모니터링
 
@@ -21,7 +20,7 @@ Edge에서 Event Grid는 토픽 및 이벤트 구독에 대 한 여러 가지 �
 
 ## <a name="enable-metrics"></a>메트릭 사용
 
-컨테이너 만들기 옵션에서 `metrics__reporterType` 환경 변수를로 `prometheus` 설정 하 여 메트릭을 내보내도록 모듈을 구성 합니다.
+`metrics__reporterType`컨테이너 만들기 옵션에서 환경 변수를로 설정 하 여 메트릭을 내보내도록 모듈을 구성 `prometheus` 합니다.
 
  ```json
         {
@@ -40,7 +39,7 @@ Edge에서 Event Grid는 토픽 및 이벤트 구독에 대 한 여러 가지 �
         }
  ```    
 
-메트릭은 http 및 `5888/metrics` `4438/metrics` https에 대 한 모듈에서 사용할 수 있습니다. 예를 `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` 들어 http의 경우입니다. 이 시점에서 메트릭 모듈은이 [예제 아키텍처](https://github.com/veyalla/ehm)와 같이 메트릭을 수집 하도록 끝점을 폴링할 수 있습니다.
+메트릭은 `5888/metrics` http 및 https에 대 한 모듈에서 사용할 수 있습니다 `4438/metrics` . 예를 들어 `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` http의 경우입니다. 이 시점에서 메트릭 모듈은이 [예제 아키텍처](https://github.com/veyalla/ehm)와 같이 메트릭을 수집 하도록 끝점을 폴링할 수 있습니다.
 
 ## <a name="available-metrics"></a>사용 가능한 메트릭
 
@@ -48,7 +47,7 @@ Edge에서 Event Grid는 토픽 및 이벤트 구독에 대 한 여러 가지 �
 
 ### <a name="topic-metrics"></a>토픽 메트릭
 
-| 메트릭 | Description |
+| 메트릭 | 설명 |
 | ------ | ----------- |
 | EventsReceived | 토픽에 게시 된 이벤트 수
 | UnmatchedEvents | 이벤트 구독과 일치 하지 않고 삭제 된 항목에 게시 된 이벤트의 수입니다.
@@ -60,7 +59,7 @@ Edge에서 Event Grid는 토픽 및 이벤트 구독에 대 한 여러 가지 �
 
 ### <a name="event-subscription-metrics"></a>이벤트 구독 메트릭
 
-| 메트릭 | Description |
+| 메트릭 | 설명 |
 | ------ | ----------- |
 | DeliverySuccessCounts | 구성 된 끝점에 성공적으로 배달 된 이벤트 수
 | DeliveryFailureCounts | 구성 된 끝점에 배달 하지 못한 이벤트의 수입니다.
