@@ -123,7 +123,7 @@
           href: partitioning-overview.md
         - name: 분할 및 수평 확장
           href: partition-data.md
-        - name: 가상 파티션 키 만들기
+        - name: 가상 파티션 키
           href: synthetic-partition-keys.md
     - name: 프로비전된 처리량
       items:

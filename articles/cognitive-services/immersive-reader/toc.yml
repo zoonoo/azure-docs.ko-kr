@@ -11,6 +11,10 @@
       href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
+    - name: 몰입형 판독기(Android) 시작
+      href: tutorial-android.md
+    - name: 몰입형 판독기(iOS) 시작
+      href: tutorial-ios.md
     - name: 몰입형 판독기(Python) 시작
       href: tutorial-python.md
     - name: 여러 몰입형 판독기 리소스 사용

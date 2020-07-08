@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548674"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054443"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>복원 력 있는 솔루션 Azure DDoS Protection 설계
 
@@ -97,7 +97,7 @@ DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](/az
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS 완화 정책
 
-Azure Portal에서 **모니터링** > **메트릭**을 선택 합니다. **메트릭** 창에서 리소스 그룹, **공용 IP 주소**의 리소스 유형, Azure 공용 IP 주소를 차례로 선택합니다. **사용 가능한 메트릭** 창에 DDoS 메트릭이 표시됩니다.
+Azure Portal에서 **모니터링**  >  **메트릭**을 선택 합니다. **메트릭** 창에서 리소스 그룹, **공용 IP 주소**의 리소스 유형, Azure 공용 IP 주소를 차례로 선택합니다. **사용 가능한 메트릭** 창에 DDoS 메트릭이 표시됩니다.
 
 DDoS Protection 표준은 DDoS를 사용하도록 설정된 가상 네트워크에서 보호되는 리소스의 각 공용 IP에 대해 자동 조정된 세 가지 완화 정책(TCP SYN, TCP 및 UDP)을 적용합니다. **DDoS 완화를 트리거할 인바운드 패킷** 메트릭을 선택하여 정책 임계값을 볼 수 있습니다.
 
@@ -235,7 +235,7 @@ N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. �
 
 #### <a name="paas-web-application"></a>PaaS 웹 애플리케이션
 
-이 참조 아키텍처는 단일 지역에서 Azure App Service 애플리케이션을 실행하는 방법을 보여줍니다. 이 아키텍처는 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) 및 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용 하는 웹 응용 프로그램에 대 한 검증 된 사례 집합을 보여 줍니다.
+이 참조 아키텍처는 단일 지역에서 Azure App Service 애플리케이션을 실행하는 방법을 보여줍니다. 이 아키텍처는 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)   및 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용 하는 웹 응용 프로그램에 대 한 검증 된 사례 집합을 보여 줍니다.
 장애 조치(failover) 시나리오에 대해 대기 지역을 설정합니다.
 
 ![PaaS 웹 애플리케이션에 대한 참조 아키텍처 다이어그램](./media/ddos-best-practices/image11.png)
@@ -269,7 +269,5 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 ## <a name="next-steps"></a>다음 단계
 
 * [클라우드의 공동 책임](shared-responsibility.md)
-
 * [Azure DDoS Protection 제품 페이지](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Azure DDoS Protection 설명서](/azure/virtual-network/ddos-protection-overview)

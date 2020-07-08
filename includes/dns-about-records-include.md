@@ -4,18 +4,18 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73832044"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050261"
 ---
 ### <a name="record-names"></a>레코드 이름
 
-Azure DNS에서는 상대 이름을 사용하여 레코드를 지정합니다. FQDN (정규화 *된 도메인 이름)에는* 영역 이름이 포함 되지만 *상대* 이름은 포함 되지 않습니다. 예를 들어 영역의 `www` `contoso.com` 상대 레코드 이름은 정규화 된 레코드 이름을 `www.contoso.com`제공 합니다.
+Azure DNS에서는 상대 이름을 사용하여 레코드를 지정합니다. FQDN (정규화 *된 도메인 이름)에는* 영역 이름이 포함 되지만 *상대* 이름은 포함 되지 않습니다. 예를 들어 영역의 상대 레코드 이름은 정규화 `www` `contoso.com` 된 레코드 이름을 제공 합니다 `www.contoso.com` .
 
-*apex* 레코드는 DNS 영역의 루트(또는 *apex*)에 있는 DNS 레코드입니다. 예를 들어, DNS 영역 `contoso.com`에서 apex 레코드는 정규화 된 이름 `contoso.com` (이를 *naked* 도메인이 라고도 함)을 포함 합니다.  규칙에 따라 루트 레코드를 나타내는 데 '\@' 상대 이름을 사용합니다.
+*apex* 레코드는 DNS 영역의 루트(또는 *apex*)에 있는 DNS 레코드입니다. 예를 들어, DNS 영역에서 `contoso.com` apex 레코드는 정규화 된 이름 `contoso.com` (이를 *naked* 도메인이 라고도 함)을 포함 합니다.  규칙에 따라 루트 레코드를 나타내는 데 '\@' 상대 이름을 사용합니다.
 
 ### <a name="record-types"></a>레코드 유형
 
@@ -27,8 +27,10 @@ Azure DNS는 A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, TXT 등 일반적인 DN
 
 지정된 이름 및 형식을 가진 DNS 레코드를 두 개 이상 만들어야 하는 경우도 있습니다. 예를 들어 'www.contoso.com' 웹 사이트가 서로 다른 두 IP 주소에서 호스트된다고 가정합니다. 웹 사이트에는 각 IP 주소마다 하나씩, 두 개의 A 레코드가 있어야 합니다. 다음은 레코드 집합의 예제입니다.
 
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
+```dns
+www.contoso.com.        3600    IN    A    134.170.185.46
+www.contoso.com.        3600    IN    A    134.170.188.221
+```
 
 Azure DNS는 *레코드 집합*을 사용하여 모든 DNS 레코드를 관리합니다. 레코드 집합(*리소스* 레코드 집합이라고도 함)은 영역 내에서 동일한 이름과 형식을 가진 DNS 레코드의 컬렉션입니다. 대부분의 레코드 집합은 단일 레코드를 포함합니다. 그러나 레코드 집합에서 레코드를 둘 이상 포함하는 위와 같은 예제도 드물지 않습니다.
 

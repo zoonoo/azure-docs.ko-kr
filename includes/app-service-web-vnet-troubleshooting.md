@@ -4,25 +4,29 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 652d42d6e2d9e909c3a03bd82a3a36f91bc73807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419531"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050393"
 ---
-이 기능을 설정 하는 것은 쉽지만 사용자 환경이 문제가 없는 것은 아닙니다. 원하는 끝점에 액세스 하는 데 문제가 발생 하는 경우 응용 프로그램 콘솔에서 연결을 테스트 하는 데 사용할 수 있는 몇 가지 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이 고 다른 하나는 콘솔 Azure Portal입니다. 앱에서 Kudu 콘솔에 연결 하려면 **도구** > **Kudu**로 이동 합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 된 후 **디버그 콘솔** 탭으로 이동 합니다. 앱에서 Azure Portal 호스트 콘솔로 이동 하려면 **도구** > **콘솔**로 이동 합니다.
+이 기능을 설정 하는 것은 쉽지만 사용자 환경이 문제가 없는 것은 아닙니다. 원하는 끝점에 액세스 하는 데 문제가 발생 하는 경우 응용 프로그램 콘솔에서 연결을 테스트 하는 데 사용할 수 있는 몇 가지 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이 고 다른 하나는 콘솔 Azure Portal입니다. 앱에서 Kudu 콘솔에 연결 하려면 **도구**  >  **Kudu**로 이동 합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 된 후 **디버그 콘솔** 탭으로 이동 합니다. 앱에서 Azure Portal 호스트 콘솔로 이동 하려면 **도구**  >  **콘솔**로 이동 합니다.
 
 #### <a name="tools"></a>도구
-도구 **ping**, **nslookup**및 **tracert** 는 보안 제약 조건 때문에 콘솔을 통해 작동 하지 않습니다. Void를 채우기 위해 별도의 두 도구를 추가 합니다. DNS 기능을 테스트 하기 위해 **nameresolver**라는 도구를 추가 했습니다. 구문은 다음과 같습니다.
+도구 **ping**, **nslookup**및 **tracert** 는 보안 제약 조건 때문에 콘솔을 통해 작동 하지 않습니다. Void를 채우기 위해 별도의 두 도구를 추가 합니다. DNS 기능을 테스트 하기 위해 **nameresolver.exe**라는 도구를 추가 했습니다. 구문은 다음과 같습니다.
 
-    nameresolver.exe hostname [optional: DNS Server]
+```console
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 nameresolver를 사용하여 앱이 의존하는 호스트 이름을 확인합니다. 이렇게 하면 DNS에 잘못 구성 된 항목이 있는지 또는 DNS 서버에 대 한 액세스 권한이 있는지 테스트할 수 있습니다. 환경 변수 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 살펴보면 콘솔에서 앱이 사용 하는 DNS 서버를 볼 수 있습니다.
 
 다음 도구를 사용 하 여 호스트 및 포트 조합에 대 한 TCP 연결을 테스트할 수 있습니다. 이 도구는 **tcpping**이라고 하며, 구문은 다음과 같습니다.
 
-    tcpping.exe hostname [optional: port]
+```console
+tcpping.exe hostname [optional: port]
+```
 
 **Tcpping** 유틸리티는 특정 호스트 및 포트에 연결할 수 있는지를 알려 줍니다. 호스트 및 포트 조합에서 수신 대기 하는 응용 프로그램이 있고 앱에서 지정 된 호스트 및 포트에 대 한 네트워크 액세스 권한이 있는 경우에만 성공 여부를 표시할 수 있습니다.
 
@@ -62,7 +66,9 @@ nameresolver를 사용하여 앱이 의존하는 호스트 이름을 확인합�
 
 * 가상 네트워크의 VM에 연결 하 고 여기에서 리소스 호스트: 포트에 대 한 연결을 시도 합니다. TCP 액세스를 테스트하려면 **test-netconnection** PowerShell 명령을 사용합니다. 구문은 다음과 같습니다.
 
-      test-netconnection hostname [optional: -Port]
+```powershell
+test-netconnection hostname [optional: -Port]
+```
 
 * VM에서 응용 프로그램을 열고 **tcpping**을 사용 하 여 콘솔에서 해당 호스트 및 포트에 대 한 액세스를 테스트 합니다.
 

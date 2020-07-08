@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 39bff26baea622e6c0ed524ca68c3c8bae4e770d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ba46d4dbe90b696398ed4c78383e127861c1a066
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76021321"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050465"
 ---
 1. Azure SignalR Service 리소스를 만들려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다. 페이지의 왼쪽 상단에서 **+ 리소스 만들기**를 선택합니다. **Marketplace 검색** 텍스트 상자에 **SignalR Service**를 입력합니다.
 
@@ -36,4 +36,4 @@ ms.locfileid: "76021321"
 
     연결 문자열은 다음과 같은 양식입니다.
     
-        Endpoint=<service_endpoint>;AccessKey=<access_key>;
+    `Endpoint=<service_endpoint>;AccessKey=<access_key>;`

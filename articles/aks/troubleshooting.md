@@ -3,13 +3,13 @@ title: 일반적인 Azure Kubernetes Service 문제 해결
 description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 services: container-service
 ms.topic: troubleshooting
-ms.date: 05/16/2020
-ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 06/20/2020
+ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724997"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054392"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -20,7 +20,7 @@ AKS(Azure Kubernetes Service) 클러스터를 만들거나 관리할 때 경우�
 [Kubernetes 클러스터 문제 해결에 대한 공식 가이드](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)를 검색합니다.
 pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지니어가 게시한 [문제 해결 가이드](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)도 있습니다.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>만들기 또는 업그레이드 동안 "할당량 초과" 오류가 발생합니다. 어떻게 해야 하나요? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>만들기 또는 업그레이드 동안 "할당량 초과" 오류가 발생합니다.   어떻게 해야 합니까? 
 
  [더 많은 코어를 요청합니다](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
@@ -29,15 +29,38 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 노드당 최대 Pod 설정은 Azure Portal에서 AKS 클러스터를 배포하는 경우 기본적으로 30입니다.
 노드당 최대 Pod 설정은 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110입니다. Azure CLI의 최신 버전을 사용하도록 합니다. 이 설정은 `az aks create` 명령에서 `–-max-pods` 플래그를 사용하여 변경할 수 있습니다.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다. 어떻게 해야 하나요?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다.   어떻게 해야 합니까?
 
-Azure CNI 네트워크 플러그 인을 사용하는 경우 AKS는 노드당 "--max-pods" 매개 변수를 기반으로 하여 IP 주소를 할당합니다. 서브넷 크기는 노드당 최대 Pod 수 설정에 노드 수를 곱한 값보다 커야 합니다. 이를 간략히 설명하는 수식은 다음과 같습니다.
+이 오류는 리소스를 성공적으로 할당 하기 위해 클러스터에 사용 중인 서브넷의 CIDR 내에 더 이상 사용 가능한 Ip가 없음을 나타냅니다. Kubenet 클러스터의 경우 클러스터의 각 노드에 대 한 충분 한 IP 공간이 요구 사항에 해당 합니다. Azure CNI 클러스터의 경우 클러스터의 각 노드 및 pod에 대해 충분 한 IP 공간이 필요 합니다.
+[Pod에 ip를 할당 하려면 Azure CNI 디자인](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)에 대해 자세히 알아보세요.
 
-서브넷 크기 > 클러스터의 노드 수(향후 크기 조정 요구 사항 고려) * 노드 세트당 최대 Pod 수
+이러한 오류는 서브넷 크기 부족 등의 문제를 사전에 표시 하는 [AKS 진단](https://docs.microsoft.com/azure/aks/concepts-diagnostics) 에도 표시 됩니다.
 
-자세한 내용은 [클러스터에 대한 IP 주소 지정 계획](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)을 참조하세요.
+다음 3 개의 사례는 서브넷 크기 오류를 초래 합니다.
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>내 Pod가 CrashLoopBackOff 모드에서 중단됩니다. 어떻게 해야 하나요?
+1. AKS Scale 또는 AKS Nodepool scale
+   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 **보다 작은** 경우이 오류가 발생 합니다 `number of new nodes requested` .
+   1. Azure CNI를 사용 하는 경우이 `number of free IPs in the subnet` **보다 작은** 경우에 발생 합니다 `number of nodes requested times (*) the node pool's --max-pod value` .
+
+1. AKS Upgrade 또는 AKS Nodepool 업그레이드
+   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 보다 **작은** 경우이 오류가 발생 합니다 `number of buffer nodes needed to upgrade` .
+   1. Azure CNI를 사용 하는 경우이 `number of free IPs in the subnet` **보다 작은** 경우에 발생 합니다 `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+   
+   기본적으로 AKS 클러스터는 최대 서 수 (업그레이드 버퍼) 값을 1로 설정 하지만이 업그레이드 동작은 업그레이드를 완료 하는 데 필요한 사용 가능한 Ip 수를 늘리는 [노드 풀의 최대 서 수 값](upgrade-cluster.md#customize-node-surge-upgrade-preview) 을 설정 하 여 사용자 지정할 수 있습니다.
+
+1. AKS create 또는 AKS Nodepool 추가
+   1. Kubenet를 사용 하는 경우 `number of free IPs in the subnet` 가 보다 **작은** 경우이 오류가 발생 합니다 `number of nodes requested for the node pool` .
+   1. Azure CNI를 사용 하는 경우이 `number of free IPs in the subnet` **보다 작은** 경우에 발생 합니다 `number of nodes requested times (*) the node pool's --max-pod value` .
+
+새 서브넷을 만들어 다음 완화 방법을 수행할 수 있습니다. 새 서브넷을 만들 수 있는 권한은 기존 서브넷의 CIDR 범위를 업데이트할 수 없기 때문에 완화에 필요 합니다.
+
+1. 작업 목표를 위해 더 큰 CIDR 범위를 사용 하 여 새 서브넷을 다시 작성 합니다.
+   1. 원하는 겹치지 않는 새 범위를 사용 하 여 새 서브넷을 만듭니다.
+   1. 새 서브넷에 새 nodepool을 만듭니다.
+   1. 이전 서브넷에 상주 하는 이전 nodepool에서 pod을 드레이닝 합니다.
+   1. 이전 서브넷 및 이전 nodepool을 삭제 합니다.
+
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>내 Pod가 CrashLoopBackOff 모드에서 중단됩니다.   어떻게 해야 합니까?
 
 Pod가 해당 모드에서 중단되는 이유는 다양할 수 있습니다. 다음을 확인할 수 있습니다.
 
@@ -46,19 +69,26 @@ Pod가 해당 모드에서 중단되는 이유는 다양할 수 있습니다. �
 
 Pod 문제를 해결하는 방법에 대한 자세한 내용은 [애플리케이션 디버그](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods)를 참조하세요.
 
+## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>`TCP timeouts` `kubectl` API 서버에 연결 하는 또는 기타 타사 도구를 사용 하는 경우를 받고 있습니다.
+AKS에는 Slo (서비스 수준 목표) 및 Sla (서비스 수준 계약)를 보장 하기 위해 코어 수에 따라 수직으로 확장 되는 HA 제어 평면이 있습니다. 연결 시간이 초과 되는 경우 아래를 확인 합니다.
+
+- **모든 API 명령이 지속적으로 시간 초과 됩니까?** 매우 적은 경우에는 `tunnelfront` `aks-link` 노드 > 제어 평면 통신을 담당 하는 pod 또는 pod가 실행 중인 상태가 아닐 수 있습니다. 이 pod를 호스트 하는 노드가 과도 하 게 사용 되거나 스트레스 상태에 있지 않은지 확인 합니다. 자신의 [ `system` 노드 풀](use-system-pools.md)로 이동 하는 것이 좋습니다.
+- **[AKS 수신 트래픽 제한 문서](limit-egress-traffic.md)에 명시 된 모든 필수 포트, Fqdn 및 ip를 열었습니다.** 그렇지 않으면 여러 명령 호출이 실패할 수 있습니다.
+- **현재 IP에 [API Ip 권한 부여 범위가](api-server-authorized-ip-ranges.md)적용 되나요?** 이 기능을 사용 하는 경우 IP가 호출 차단 되는 범위에 포함 되지 않습니다. 
+- **클라이언트 또는 응용 프로그램이 API 서버에 대 한 호출을 누수 하나요?** 자주 get 호출 대신 watch를 사용 해야 하며 타사 응용 프로그램이 이러한 호출을 누출 하지 않도록 합니다. 예를 들어 Istio 믹서의 버그로 인해 내부적으로 비밀을 읽을 때마다 새 API 서버 감시 연결이 생성 됩니다. 이 동작은 정기적으로 발생 하므로 감시 연결을 신속 하 게 누적 하 고 결과적으로 API 서버가 크기 조정 패턴에 관계 없이 오버 로드 됩니다. https://github.com/istio/istio/issues/19481
+- **투구 배포에 많은 릴리스가 있나요?** 이 시나리오를 사용 하면 tiller는 노드에서 너무 많은 메모리를 사용 하 고 많은 양의를 사용 하 여 `configmaps` API 서버에서 불필요 한 급증을 일으킬 수 있습니다. `--history-max`에서을 구성 `helm init` 하 고 새 투구 3을 활용 하는 것이 좋습니다. 다음 문제에 대 한 자세한 내용: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+
+
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>기존 클러스터에서 RBAC(역할 기반 액세스 제어)를 사용하도록 설정하려고 합니다. 어떻게 하면 되나요?
 
 현재 기존 클러스터에서 RBAC(역할 기반 액세스 제어)를 사용하도록 설정할 수 없으므로 새 클러스터를 만들 때 이를 설정해야 합니다. `2020-03-01` 이후의 CLI, Portal 또는 API 버전을 사용하는 경우 기본적으로 RBAC를 사용하도록 설정됩니다.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>RBAC를 사용하도록 설정된 클러스터를 만들었으며 이제 Kubernetes 대시보드에 많은 경고가 표시됩니다. 이전에는 대시보드가 경고없이 잘 작동되었습니다. 어떻게 해야 하나요?
+## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>RBAC를 사용하도록 설정된 클러스터를 만들었으며 이제 Kubernetes 대시보드에 많은 경고가 표시됩니다. 이전에는 대시보드가 경고없이 잘 작동되었습니다.   어떻게 해야 합니까?
 
 경고가 발생하는 이유는 클러스터에서 RBAC를 사용하도록 설정되어 있고 대시보드에 대한 액세스가 기본적으로 제한되어 있기 때문입니다. 일반적으로 클러스터의 모든 사용자에게 기본적으로 대시보드를 노출하면 보안 위협이 초래될 수 있으므로 이렇게 하는 것이 적절합니다. 그래도 대시보드를 사용하도록 설정하려면 [이 블로그 게시물](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)의 단계를 따르세요.
-
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>대시보드에 연결할 수 없습니다. 어떻게 해야 하나요?
-
-클러스터 외부의 서비스에 액세스하는 가장 쉬운 방법은 `kubectl proxy`를 실행하는 것입니다. 그러면 localhost 포트 8001로 전송된 요청이 Kubernetes API 서버로 프록시됩니다. 여기에서 API 서버는 서비스로 프록시할 수 있습니다. `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`
-
-Kubernetes 대시보드가 표시되지 않으면 `kube-proxy` Pod가 `kube-system` 네임스페이스에서 실행되는지 여부를 확인합니다. 실행 중 상태가 아니면 pod를 삭제합니다. 그러면 다시 시작됩니다.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버 오류: 백 엔드 전화 접속 오류가 발생했습니다.: dial tcp…"라는 오류가 발생합니다. 어떻게 해야 하나요?
 
@@ -119,6 +149,7 @@ AKS 클러스터를 올바르게 만들려면 해당 문서의 *시작하기 전
 * AKS Node/*MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80자 이하여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름의 길이를 줄입니다. [노드 리소스 그룹 이름을 사용자 지정할 수도 있습니다](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix*는 영숫자 값으로 시작하고 끝나야 하며, 1-54자여야 합니다. 유효한 문자에는 영숫자 값 및 하이픈(-)이 포함됩니다. *dnsPrefix*에는 마침표(.)와 같은 특수 문자가 포함될 수 없습니다.
 * AKS 노드 풀 이름은 모두 소문자여야 하고, Linux 노드 풀의 경우 1-11자이고 Windows 노드 풀의 경우 1-6자여야 합니다. 이름은 문자로 시작해야 하며, 허용되는 문자는 문자와 숫자입니다.
+* Linux 노드에 대 한 관리자 사용자 이름을 설정 하는 *관리자 사용자 이름은*문자로 시작 해야 하 고 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있으며 최대 길이는 64 자입니다.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>클러스터를 만들거나, 업데이트하거나, 크기 조정하거나, 삭제하거나, 업그레이드하려고 오류가 발생합니다. 다른 작업이 진행 중이므로 해당 작업이 허용되지 않습니다.
 
@@ -166,14 +197,14 @@ AKS 클러스터의 송신 트래픽을 제한하는 경우 AKS에 대한 [필�
 
 Kubernetes 버전 1.10에서 Azure 디스크를 다시 탑재하면 MountVolume.WaitForAttach가 실패할 수 있습니다.
 
-Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 다음은 그 예입니다.
+Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 예를 들어:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-Windows의 경우 잘못된 DevicePath(LUN) 번호 오류가 표시될 수 있습니다. 다음은 그 예입니다.
+Windows의 경우 잘못된 DevicePath(LUN) 번호 오류가 표시될 수 있습니다. 예를 들어:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -379,7 +410,7 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 base64로 인코딩된 스토리지 계정 키를 사용하여 Azure 파일 비밀에서 `azurestorageaccountkey` 필드를 수동으로 업데이트하여 완화할 수 있습니다.
 
-스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 다음은 그 예입니다.
+스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 예를 들어:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
