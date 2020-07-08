@@ -4,12 +4,11 @@ description: X.509 인증서를 사용 하 여 보호 되는 Service Fabric 클�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: ecdeb5c9e30c176e2f3525f8efeb861d9210b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324745"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Service Fabric 클러스터의 인증서 관리
 
@@ -75,14 +74,15 @@ Service Fabric 클러스터의 보안 방식은 "클러스터 소유자가이를
 *그림 2.* 주체 일반 이름으로 선언 된 인증서의 발급 및 프로비저닝 흐름입니다.
 ![주체 일반 이름으로 선언 된 인증서 프로 비전][Image2]
 
-### <a name="certificate-enrollment"></a>인증서 등록
+### <a name="certificate-enrollment"></a> 인증서 등록
 이 항목은 Key Vault [설명서](../key-vault/create-certificate.md)에 자세히 설명 되어 있습니다. 연속성 및 간편한 참조를 위해 여기에 개요를 포함 하 고 있습니다. Azure를 컨텍스트로 계속 사용 하 고, Azure Key Vault을 비밀 관리 서비스로 사용 하 여, 권한 있는 인증서 요청자는 자격 증명 모음 소유자가 부여 하는 자격 증명 모음에 대해 적어도 인증서 관리 권한을 가져야 합니다. 그러면 요청자는 다음과 같이 인증서에 등록 합니다.
     - 인증서의 도메인/주체, 원하는 발급자, 키 유형과 길이, 원하는 키 사용 등을 지정 하는 Azure Key Vault (AKV)에서 인증서 정책을 만듭니다. 자세한 내용은 [Azure Key Vault의 인증서를](../key-vault/certificate-scenarios.md) 참조 하세요. 
     - 위에 지정 된 정책을 사용 하 여 동일한 자격 증명 모음에 인증서를 만듭니다. 이를 통해 자격 증명 모음 개체로 키 쌍을 생성 하 고, 개인 키로 서명 된 인증서 서명 요청을 생성 하 고, 서명 하기 위해 지정 된 발급자에 게 전달 됩니다.
     - 발급자 (인증 기관)가 서명 된 인증서를 사용 하 여 회신 하면 결과가 자격 증명 모음에 병합 되 고 인증서를 다음 작업에 사용할 수 있습니다.
       - {vaultUri}/certificates/{name}: 공개 키와 메타 데이터를 포함 하는 인증서
       - {vaultUri}/keys/{name}: 인증서의 개인 키를 암호화 작업에 사용할 수 있습니다 (래핑/래핑 해제, 서명/확인).
-      - {vaultUri}/secrets/{name}: 개인 키의 인증서를 포함 하 고 있으며, 보호 되지 않는 pfx 또는 pem 파일로 다운로드 하는 데 사용할 수 있습니다. 즉, 자격 증명 모음 인증서는 실제로 시간순으로 시간에 도달 하는 인증서 인스턴스의 시간 줄입니다. 정책을 공유 합니다. 인증서 버전은 정책의 수명 및 갱신 특성에 따라 만들어집니다. 자격 증명 모음 인증서는 주체 또는 도메인/DNS 이름을 공유 하지 않는 것이 좋습니다. 클러스터에서 서로 다른 자격 증명 모음 인증서의 인증서 인스턴스를 프로 비전 하는 데 방해가 될 수 있습니다. 단, 발급자, 키 사용 등과 같은 다른 특성은 동일 합니다.
+      - {vaultUri}/secrets/{name}: 개인 키가 포함 된 인증서를 보호 되지 않는 pfx 또는 pem 파일로 다운로드 하는 데 사용할 수 있습니다.  
+    자격 증명 모음 인증서는 실제로 정책을 공유 하는 시간순으로 인증서 인스턴스입니다. 인증서 버전은 정책의 수명 및 갱신 특성에 따라 만들어집니다. 자격 증명 모음 인증서는 주체 또는 도메인/DNS 이름을 공유 하지 않는 것이 좋습니다. 클러스터에서 서로 다른 자격 증명 모음 인증서의 인증서 인스턴스를 프로 비전 하는 데 방해가 될 수 있습니다. 단, 발급자, 키 사용 등과 같은 다른 특성은 동일 합니다.
 
 이 시점에서 인증서가 자격 증명 모음에 있으므로 사용할 준비가 됩니다. 이후:
 
@@ -202,7 +202,7 @@ Service Fabric의 인증서는 페더레이션 계층의 상호 인증에서 관
   ]
 ```   
 
-위의 예에서는 지문이 ```json [parameters('primaryClusterCertificateTP')] ``` 있는 인증서와 KEYVAULT URI ```json [parameters('clusterCertificateUrlValue')] ``` 에 있는 인증서가 손도장에 의해 클러스터의 유일한 인증서로 선언 됨을 언급 했습니다. 다음으로 인증서의 autorollover을 확인 하는 데 필요한 추가 리소스를 설정 합니다.
+위의 예에서는 지문이 있는 인증서 ```json [parameters('primaryClusterCertificateTP')] ``` 와 KeyVault URI에 있는 인증서 ```json [parameters('clusterCertificateUrlValue')] ``` 가 손도장에 의해 클러스터의 유일한 인증서로 선언 됨을 언급 했습니다. 다음으로 인증서의 autorollover을 확인 하는 데 필요한 추가 리소스를 설정 합니다.
 
 ### <a name="setting-up-prerequisite-resources"></a>필수 구성 요소 리소스 설정
 앞서 설명한 것 처럼 가상 머신 확장 집합 비밀으로 프로 비전 된 인증서는 자사 자사 id를 사용 하 고 배포 운영자를 대신 하 여 Microsoft Compute 리소스 공급자 서비스에 의해 자격 증명 모음에서 검색 됩니다. Autorollover의 경우 변경 됩니다. 관리 되는 id를 사용 하 여 가상 머신 확장 집합에 할당 되 고 자격 증명 모음 비밀에 대 한 사용 권한이 부여 되는 것으로 전환 됩니다.
@@ -414,7 +414,7 @@ Service Fabric의 인증서는 페더레이션 계층의 상호 인증에서 관
 이 섹션은 위에서 자세히 설명 하는 단계를 설명 하 고 중요 한 측면에 주목 하는 방법을 설명 하기 위한 것입니다.
 
 #### <a name="certificate-provisioning-explained"></a>인증서 프로 비전, 설명
-프로 비전 에이전트로 KVVM 확장은 미리 결정 된 빈도로 지속적으로 실행 됩니다. 관찰 된 인증서를 검색 하지 못할 경우 다음 줄에서 계속 진행 하 고 다음 주기까지 최대 절전 모드로 전환 합니다. 클러스터 부트스트랩 에이전트로 사용할 SFVM 확장에는 클러스터를 구성 하기 전에 선언 된 인증서가 필요 합니다. 즉,이는 KeyVaultVM 확장의 ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` ```json "requireInitialSync": true``` 설정에 따라 여기에 표시 되는 클러스터 인증서를 성공적으로 검색 한 후에도 sfvm 확장이 실행 될 수 있음을 의미 합니다. 이는 첫 번째 실행 (배포 후 또는 다시 부팅 후)에 대 한 KVVM 확장을 나타내며 모두 성공적으로 다운로드 될 때까지 관찰 된 인증서를 순환 해야 합니다. 이 매개 변수를 false로 설정 하면 클러스터 인증서를 검색 하는 데 실패 하는 것과 함께 클러스터 배포가 실패 합니다. 반대로 관찰 된 인증서의 잘못 된/잘못 된 목록과 초기 동기화를 요구 하면 KVVM 확장 오류가 발생 하 여 클러스터를 배포 하는 데 실패 하 게 됩니다.  
+프로 비전 에이전트로 KVVM 확장은 미리 결정 된 빈도로 지속적으로 실행 됩니다. 관찰 된 인증서를 검색 하지 못할 경우 다음 줄에서 계속 진행 하 고 다음 주기까지 최대 절전 모드로 전환 합니다. 클러스터 부트스트랩 에이전트로 사용할 SFVM 확장에는 클러스터를 구성 하기 전에 선언 된 인증서가 필요 합니다. 즉,이는 ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` KeyVaultVM 확장의 설정에 따라 여기에 표시 되는 클러스터 인증서를 성공적으로 검색 한 후에도 SFVM 확장이 실행 될 수 있음을 의미 합니다 ```json "requireInitialSync": true``` . 이는 첫 번째 실행 (배포 후 또는 다시 부팅 후)에 대 한 KVVM 확장을 나타내며 모두 성공적으로 다운로드 될 때까지 관찰 된 인증서를 순환 해야 합니다. 이 매개 변수를 false로 설정 하면 클러스터 인증서를 검색 하는 데 실패 하는 것과 함께 클러스터 배포가 실패 합니다. 반대로 관찰 된 인증서의 잘못 된/잘못 된 목록과 초기 동기화를 요구 하면 KVVM 확장 오류가 발생 하 여 클러스터를 배포 하는 데 실패 하 게 됩니다.  
 
 #### <a name="certificate-linking-explained"></a>인증서 연결, 설명
 KVVM 확장의 ' linkOnRenewal ' 플래그를 발견 했을 수 있으며 false로 설정 되어 있습니다. 여기서는이 플래그에 의해 제어 되는 동작과 클러스터 기능에 미치는 영향을 자세히 설명 합니다. 참고이 동작은 Windows에만 해당 됩니다.
@@ -441,7 +441,7 @@ TLS 연결을 설정 하는 데 사용 되는 인증서는 일반적으로 S-채
 
 이러한 인시던트를 완화 하기 위해 다음을 수행 하는 것이 좋습니다.
   - 여러 자격 증명 모음 인증서의 San을 혼합 하지 마세요. 각 자격 증명 모음 인증서는 고유한 용도를 제공 해야 하며, 주체와 SAN은 특이성와 함께이를 반영 해야 합니다.
-  - SAN 목록에 주체 일반 이름 (as, as, "CN =<subject common name>")을 포함 합니다.  
+  - SAN 목록에 주체 일반 이름 (as, as, "CN =")을 포함 합니다. <subject common name>  
   - 확실 하지 않은 경우 KVVM 확장을 사용 하 여 프로 비전 된 인증서에 대해 갱신 시 링크 사용 안 함 
 
 #### <a name="why-use-a-user-assigned-managed-identity-what-are-the-implications-of-using-it"></a>사용자 할당 관리 id를 사용 하는 이유 사용의 의미는 무엇 인가요?

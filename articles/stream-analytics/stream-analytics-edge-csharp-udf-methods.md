@@ -7,12 +7,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994479"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921854"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발 (미리 보기)
 
@@ -48,10 +47,10 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
 |---------|---------|
 |bigint | long |
 |float | double |
-|nvarchar(max) | 문자열 |
+|nvarchar(max) | string |
 |Datetime | DateTime |
-|레코드 | 사전\<문자열, 개체> |
-|Array | Object [] |
+|레코드 | Dictionary\<string, object> |
+|배열 | Object [] |
 
 데이터를 c #에서 Azure Stream Analytics로 마샬링해야 하 고 UDF의 출력 값에서 발생 하는 경우에도 마찬가지입니다. 다음 표에서는 지원 되는 형식을 보여 줍니다.
 
@@ -59,12 +58,12 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
 |---------|---------|
 |long  |  bigint   |
 |double  |  float   |
-|문자열  |  nvarchar(max)   |
+|string  |  nvarchar(max)   |
 |DateTime  |  dateTime   |
 |struct  |  레코드   |
 |개체  |  레코드   |
-|Object []  |  Array   |
-|사전\<문자열, 개체>  |  레코드   |
+|Object []  |  배열   |
+|Dictionary\<string, object>  |  레코드   |
 
 ## <a name="codebehind"></a>CodeBehind
 사용자 정의 함수는 **Script.asql** CodeBehind에 작성할 수 있습니다. Visual Studio 도구에서 CodeBehind 파일을 어셈블리 파일로 자동으로 컴파일합니다. 어셈블리는 Zip 파일로 패키지되고, Azure에 작업을 제출할 때 스토리지 계정에 업로드됩니다. [Stream Analytics Edge 작업에 대한 C# UDF](stream-analytics-edge-csharp-udf.md) 자습서에 따라 CodeBehind를 사용하여 C# UDF를 작성하는 방법을 알아볼 수 있습니다. 
@@ -139,12 +138,12 @@ C #에서 사용 되는 Azure Stream Analytics 값은 한 환경에서 다른 �
    |사용자 지정 코드 스토리지 설정 스토리지 계정|< 사용자 스토리지 계정 >|
    |사용자 지정 코드 스토리지 설정 컨테이너|< 사용자 스토리지 컨테이너 >|
    |사용자 지정 코드 어셈블리 소스|클라우드의 기존 어셈블리 패키지|
-   |사용자 지정 코드 어셈블리 소스|UserCustomCode .zip|
+   |사용자 지정 코드 어셈블리 소스|UserCustomCode.zip|
 
 ## <a name="user-logging"></a>사용자 로깅
 로깅 메커니즘을 사용 하면 작업이 실행 되는 동안 사용자 지정 정보를 캡처할 수 있습니다. 로그 데이터를 사용 하 여 실시간으로 사용자 지정 코드의 정확성을 디버그 하거나 평가할 수 있습니다.
 
-클래스 `StreamingContext` 를 사용 하면 함수를 `StreamingDiagnostics.WriteError` 사용 하 여 진단 정보를 게시할 수 있습니다. 아래 코드는 Azure Stream Analytics에 의해 노출 된 인터페이스를 보여 줍니다.
+`StreamingContext`클래스를 사용 하면 함수를 사용 하 여 진단 정보를 게시할 수 있습니다 `StreamingDiagnostics.WriteError` . 아래 코드는 Azure Stream Analytics에 의해 노출 된 인터페이스를 보여 줍니다.
 
 ```csharp
 public abstract class StreamingContext
@@ -158,7 +157,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`는 UDF 메서드에 입력 매개 변수로 전달 되 고 UDF 내에서 사용 하 여 사용자 지정 로그 정보를 게시할 수 있습니다. 아래 예제에서는 쿼리를 `MyUdfMethod` 통해 제공 되는 **데이터** 입력과 런타임 엔진에서 제공 하는 **컨텍스트** 입력을로 `StreamingContext`정의 합니다. 
+`StreamingContext`는 UDF 메서드에 입력 매개 변수로 전달 되 고 UDF 내에서 사용 하 여 사용자 지정 로그 정보를 게시할 수 있습니다. 아래 예제에서는 쿼리를 `MyUdfMethod` 통해 제공 되는 **데이터** 입력과 런타임 엔진에서 제공 하는 **컨텍스트** 입력을로 정의 합니다 `StreamingContext` . 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)
@@ -170,7 +169,7 @@ public static long MyUdfMethod(long data, StreamingContext context)
 }
 ```
 
-SQL `StreamingContext` 쿼리를 통해 값을 전달할 필요가 없습니다. Azure Stream Analytics는 입력 매개 변수가 있는 경우 자동으로 컨텍스트 개체를 제공 합니다. 다음 쿼리와 같이를 `MyUdfMethod` 사용 하면 변경 되지 않습니다.
+`StreamingContext`SQL 쿼리를 통해 값을 전달할 필요가 없습니다. Azure Stream Analytics는 입력 매개 변수가 있는 경우 자동으로 컨텍스트 개체를 제공 합니다. 다음 쿼리와 같이를 사용 하면 `MyUdfMethod` 변경 되지 않습니다.
 
 ```sql
 SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
@@ -186,6 +185,10 @@ UDF 미리 보기에는 현재 다음과 같은 제한 사항이 있습니다.
 * 포털에서 .NET Standard UDF를 사용하는 경우 Azure Portal 쿼리 편집기에서 오류를 표시합니다. 
 
 * 사용자 지정 코드는 Azure Stream Analytics 엔진과 컨텍스트를 공유하므로 사용자 지정 코드에서 Azure Stream Analytics 코드와 충돌하는 네임스페이스/dll_name이 있는 항목을 참조할 수 없습니다. 예를 들어 *Newtonsoft Json*은 참조할 수 없습니다.
+
+* 프로젝트에 포함 된 지원 파일은 작업을 클라우드에 게시할 때 사용 되는 사용자 지정 코드 zip 파일에 복사 됩니다. 하위 폴더의 모든 파일은 압축을 푼 경우 클라우드의 사용자 지정 코드 폴더의 루트에 직접 복사 됩니다. 압축을 푼 경우 zip은 "평면화" 됩니다.
+
+* 사용자 지정 코드는 빈 폴더를 지원 하지 않습니다. 프로젝트의 지원 파일에 빈 폴더를 추가 하지 마세요.
 
 ## <a name="next-steps"></a>다음 단계
 

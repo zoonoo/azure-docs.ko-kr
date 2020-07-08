@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770960"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 배포
@@ -22,11 +21,11 @@ Application Insights 에이전트 (이전의 명명 된 상태 모니터 V2)는 
 원격 분석은 앱을 [모니터링할](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) 수 있는 Azure Portal 전송 됩니다.
 
 > [!NOTE]
-> 이 모듈은 현재 IIS에서 호스트 되는 .NET 웹 앱의 코드 없는 계측만 지원 합니다. SDK를 사용 하 여 ASP.NET Core, Java 및 node.js 응용 프로그램을 계측 합니다.
+> 이 모듈은 현재 IIS에서 호스트 되는 .NET 웹 앱의 코드 없는 계측만 지원 합니다. SDK를 사용 하 여 ASP.NET Core, Java 및 Node.js 응용 프로그램을 계측 합니다.
 
 ## <a name="powershell-gallery"></a>PowerShell 갤러리
 
-Application Insights 에이전트는 https://www.powershellgallery.com/packages/Az.ApplicationMonitor에 있습니다.
+Application Insights 에이전트는에 https://www.powershellgallery.com/packages/Az.ApplicationMonitor 있습니다.
 
 ![PowerShell 갤러리](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -54,7 +53,7 @@ Application Insights 에이전트는 https://www.powershellgallery.com/packages/
 
 - 에이전트에서 프록시 설치를 지원 Application Insights 합니까?
 
-  *예*. Application Insights 에이전트를 다운로드 하는 방법에는 여러 가지가 있습니다. 컴퓨터에서 인터넷에 액세스할 수 있는 경우 매개 변수를 사용 `-Proxy` 하 여 PowerShell 갤러리에 등록할 수 있습니다.
+  *예*. Application Insights 에이전트를 다운로드 하는 방법에는 여러 가지가 있습니다. 컴퓨터에서 인터넷에 액세스할 수 있는 경우 매개 변수를 사용 하 여 PowerShell 갤러리에 등록할 수 있습니다 `-Proxy` .
 또한 모듈을 수동으로 다운로드 하 고 컴퓨터에 설치 하거나 직접 사용할 수 있습니다.
 이러한 각 옵션에 대 한 [자세한 지침은](status-monitor-v2-detailed-instructions.md)을 참조 하십시오.
 

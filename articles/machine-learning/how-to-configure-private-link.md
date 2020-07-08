@@ -5,28 +5,27 @@ description: Azure 개인 링크를 사용 하 여 가상 네트워크에서 Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 49565624cee70e40141ca7e8b57b2c26b950d20b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84666932"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성 (미리 보기)
 
 이 문서에서는 Azure Machine Learning 작업 영역에서 Azure 개인 링크를 사용 하는 방법에 대해 알아봅니다. 이 기능은 현재 미리 보기 상태 이며 미국 동부, 미국 서 부 2, 미국 남부 중부 지역에서 사용할 수 있습니다. 
 
-Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영역에 연결할 수 있습니다. 개인 끝점은 가상 네트워크 내의 개인 IP 주소 집합입니다. 그런 다음 개인 IP 주소를 통해서만 발생 하도록 작업 영역에 대 한 액세스를 제한할 수 있습니다. 개인 링크를 사용 하면 데이터 exfiltration의 위험을 줄일 수 있습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 링크](/azure/private-link/private-link-overview) 문서를 참조 하세요.
+Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음 개인 IP 주소를 통해서만 발생 하도록 작업 영역에 대 한 액세스를 제한할 수 있습니다. 개인 링크를 사용 하면 데이터 exfiltration의 위험을 줄일 수 있습니다. 프라이빗 엔드포인트에 대한 자세한 내용은 [Azure Private Link](/azure/private-link/private-link-overview) 문서를 참조하세요.
 
 > [!IMPORTANT]
 > Azure 개인 링크는 작업 영역을 삭제 하거나 계산 리소스를 관리 하는 것과 같은 Azure 제어 평면 (관리 작업)에 영향을 주지 않습니다. 예를 들어 계산 대상을 생성, 업데이트 또는 삭제 합니다. 이러한 작업은 일반적인 공용 인터넷을 통해 수행 됩니다.
 >
-> Azure Machine Learning compute 인스턴스 미리 보기는 개인 링크가 설정 된 작업 영역에서 지원 되지 않습니다.
+> Azure Machine Learning 컴퓨팅 인스턴스 미리 보기는 Private Link가 활성화된 작업 영역에서 지원되지 않습니다.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>개인 끝점을 사용 하는 작업 영역 만들기
 
@@ -51,7 +50,7 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 
 템플릿이 제출 되 고 프로 비전이 완료 되 면 작업 영역을 포함 하는 리소스 그룹에 개인 링크와 관련 된 세 가지 새 아티팩트 형식이 포함 됩니다.
 
-* 개인 끝점
+* 프라이빗 엔드포인트
 * Linux
 * 프라이빗 DNS 영역
 
@@ -62,16 +61,16 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 편집__ 화면에 도착 하면이 문서의 끝에 있는 템플릿 중 하나를 붙여넣습니다.
 1. __저장__을 선택하여 템플릿을 사용합니다. 다음 정보를 제공하고 나열된 사용 약관에 동의합니다.
 
-   * 구독: 이러한 리소스에 사용할 Azure 구독을 선택 합니다.
-   * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택 하거나 만듭니다.
-   * 작업 영역 이름: 생성 될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
-   * 위치: 리소스를 만들 위치를 선택 합니다.
+   * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.
+   * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택하거나 만듭니다.
+   * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
+   * 위치: 리소스가 생성될 위치를 선택합니다.
 
 자세한 내용은 [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)를 참조하세요.
 
 ### <a name="deploy-the-template-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 템플릿 배포
 
-이 예에서는이 문서의 끝에 있는 템플릿 중 하나를 현재 디렉터리에 있는 라는 `azuredeploy.json` 파일에 저장 했다고 가정 합니다.
+이 예에서는이 문서의 끝에 있는 템플릿 중 하나를 `azuredeploy.json` 현재 디렉터리에 있는 라는 파일에 저장 했다고 가정 합니다.
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -84,7 +83,7 @@ new-azresourcegroupdeployment -name exampledeployment `
 
 ### <a name="deploy-the-template-using-the-azure-cli"></a>Azure CLI를 사용 하 여 템플릿 배포
 
-이 예에서는이 문서의 끝에 있는 템플릿 중 하나를 현재 디렉터리에 있는 라는 `azuredeploy.json` 파일에 저장 했다고 가정 합니다.
+이 예에서는이 문서의 끝에 있는 템플릿 중 하나를 `azuredeploy.json` 현재 디렉터리에 있는 라는 파일에 저장 했다고 가정 합니다.
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -99,14 +98,13 @@ az group deployment create \
 
 ## <a name="using-a-workspace-over-a-private-endpoint"></a>개인 끝점에서 작업 영역 사용
 
-작업 영역에 대 한 통신은 가상 네트워크 에서만 허용 되므로 작업 영역을 사용 하는 모든 개발 환경은 가상 네트워크의 구성원 이어야 합니다. 예를 들어 가상 네트워크의 가상 머신 또는 VPN gateway를 사용 하 여 가상 네트워크에 연결 된 컴퓨터가 있습니다.
+작업 영역에 대 한 통신은 가상 네트워크 에서만 허용 되므로 작업 영역을 사용 하는 모든 개발 환경은 가상 네트워크의 구성원 이어야 합니다. 예를 들어 가상 네트워크의 가상 머신이 있습니다.
 
 > [!IMPORTANT]
 > 일시적인 연결 중단을 방지 하려면 개인 링크를 사용 하도록 설정한 후 작업 영역에 연결 하는 컴퓨터에서 DNS 캐시를 플러시하는 것이 좋습니다. 
 
 Azure Virtual Machines에 대 한 자세한 내용은 [Virtual Machines 설명서](/azure/virtual-machines/)를 참조 하세요.
 
-VPN gateway에 대 한 자세한 내용은 [vpn Gateway 란?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 참조 하세요.
 
 ## <a name="using-azure-storage"></a>Azure Storage 사용
 
@@ -127,7 +125,7 @@ VPN gateway에 대 한 자세한 내용은 [vpn Gateway 란?](/azure/vpn-gateway
 작업 영역에서 사용 하는 Azure Kubernetes 서비스를 보호 하려면 가상 네트워크 내에 배치 합니다. 자세한 내용은 [작업 영역에서 Azure Kubernetes Services 사용](how-to-enable-virtual-network.md#aksvnet)을 참조 하세요.
 
 > [!WARNING]
-> Azure Machine Learning은 개인 링크를 사용 하도록 설정 된 Azure Kubernetes 서비스 사용을 지원 하지 않습니다.
+> Azure Machine Learning은 프라이빗 링크가 활성화된 Azure Kubernetes Service 사용을 지원하지 않습니다.
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 

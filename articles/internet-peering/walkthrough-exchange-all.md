@@ -5,21 +5,20 @@ description: Exchange 피어링 연습
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: bb761afa6d8953b441b6c9541c43b73031719494
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec83778d034cfc512582eddf79995412dad405c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75775174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710731"
 ---
 # <a name="exchange-peering-walkthrough"></a>Exchange 피어링 연습
 
 이 섹션에서는 Exchange 피어 링을 설정 하 고 관리 하기 위해 수행 해야 하는 단계를 설명 합니다.
 
-## <a name="create-an-exchange-peering"></a>Exchange 피어 링 만들기
+## <a name="create-an-exchange-peering"></a>Exchange 피어링 만들기
 > [!div class="mx-imgBorder"]
 > ![Exchange 피어 링 워크플로 및 연결 상태](./media/exchange-peering.png)
 

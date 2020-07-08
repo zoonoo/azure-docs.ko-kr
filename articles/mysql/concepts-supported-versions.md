@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 197b3100190711a51cfe125fe1214a59c18e1491
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/3/2020
+ms.openlocfilehash: 4d5b858e2384ffc7dd531444aaff17ca3739b408
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536975"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84337702"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 
@@ -26,15 +25,15 @@ Azure Database for MySQL은 현재 다음 버전을 지원합니다.
 
 ## <a name="mysql-version-56"></a>MySQL 버전 5.6
 
-버그 수정 릴리스: 5.6.45
+버그 수정 릴리스: 5.6.47
 
-이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) 를 참조 하세요.
+이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) 를 참조 하세요.
 
 ## <a name="mysql-version-57"></a>MySQL 버전 5.7
 
-버그 수정 릴리스: 5.7.27
+버그 수정 릴리스: 5.7.29
 
-이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) 를 참조 하세요.
+이 버전의 향상 된 기능 및 수정 내용에 대 한 자세한 내용은 MySQL [릴리스 정보](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) 를 참조 하세요.
 
 ## <a name="mysql-version-80"></a>MySQL 버전 8.0
 

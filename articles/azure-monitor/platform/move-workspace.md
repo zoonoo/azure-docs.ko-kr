@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770801"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -38,6 +37,8 @@ Automation 계정 연결을 해제 하기 전에 제거 해야 하는 솔루션�
 - 작업이 없는 동안 VM 시작/중지
 - Azure Security Center
 
+>[!IMPORTANT]
+> - 작업 영역에서 사용 하도록 설정 되 면 Azure 센티널은 현재 해당 작업 영역을 다른 리소스 그룹이 나 구독으로 이동 하는 작업을 **지원 하지** 않습니다. 작업 영역을 이동해야 하는 경우 [Azure Sentinel](mailto:AzureSentinel@microsoft.com)에 문의하세요.
 
 ### <a name="delete-solutions-in-azure-portal"></a>Azure Portal에서 솔루션 삭제
 Azure Portal를 사용 하 여 솔루션을 제거 하려면 다음 절차를 따르십시오.

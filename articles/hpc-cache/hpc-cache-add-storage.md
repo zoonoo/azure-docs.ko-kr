@@ -3,15 +3,14 @@ title: Azure HPC 캐시에 저장소 추가
 description: Azure HPC 캐시가 장기 파일 저장소에 대해 온-프레미스 NFS 시스템 또는 Azure Blob 컨테이너를 사용할 수 있도록 저장소 대상을 정의 하는 방법
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513879"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -22,6 +21,10 @@ ms.locfileid: "82195046"
 저장소 내보내기는 캐시의 가상 네트워크에서 액세스할 수 있어야 합니다. 온-프레미스 하드웨어 저장소의 경우 NFS 저장소 액세스의 호스트 이름을 확인할 수 있는 DNS 서버를 설정 해야 할 수 있습니다. 자세한 내용은 [DNS 액세스](hpc-cache-prereqs.md#dns-access)를 참조 하세요.
 
 캐시를 만든 후 저장소 대상을 추가 합니다. 이 절차는 Azure Blob storage를 추가 하는지 아니면 NFS 내보내기를 추가 하는지에 따라 약간 다릅니다. 각각에 대 한 세부 정보는 아래와 같습니다.
+
+아래 이미지를 클릭 하 여 캐시를 만들고 저장소 대상을 추가 하는 [비디오 데모](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) 를 시청 하세요.
+
+[![비디오 미리 보기: Azure HPC 캐시: 설치 (비디오 페이지를 방문 하려면 클릭)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>저장소 대상 페이지 열기
 
@@ -70,7 +73,7 @@ RBAC 역할을 추가 하는 단계:
 
 1. 저장소 계정에 대 한 **액세스 제어 (IAM)** 페이지를 엽니다. ( **저장소 대상 추가** 페이지의 링크를 선택 하면 선택한 계정에 대해이 페이지가 자동으로 열립니다.)
 
-1. 페이지 맨 **+** 위에서를 클릭 하 고 **역할 할당 추가**를 선택 합니다.
+1. **+** 페이지 맨 위에서를 클릭 하 고 **역할 할당 추가**를 선택 합니다.
 
 1. 목록에서 "저장소 계정 참가자" 역할을 선택 합니다.
 
@@ -149,8 +152,8 @@ NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 �
 
 | 사용 모델 | 캐싱 모드 | 백 엔드 확인 | 최대 다시 쓰기 지연 |
 | ---- | ---- | ---- | ---- |
-| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기 | 안 함 | 없음 |
-| 쓰기 15% 초과 | 읽기/쓰기 | 안 함 | 1시간 |
+| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기 | Never | 없음 |
+| 쓰기 15% 초과 | 읽기/쓰기 | Never | 1시간 |
 | 클라이언트에서 캐시 무시 | 읽기 | 30초 | 없음 |
 
 ## <a name="next-steps"></a>다음 단계

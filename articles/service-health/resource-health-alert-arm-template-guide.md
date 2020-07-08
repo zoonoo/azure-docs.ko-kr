@@ -4,10 +4,9 @@ description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고�
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759006"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
@@ -161,7 +160,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 ],
 ```
 
-`"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+예: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Azure Portal로 이동하여 Azure 리소스를 볼 때 URL을 살펴보면 이 문자열을 얻을 수 있습니다.
 

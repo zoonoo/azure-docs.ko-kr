@@ -8,11 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710714"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
 
@@ -26,7 +25,7 @@ Site Recovery Deployment Planner는 호환 및 호환되지 않는 VM, VM당 디
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
-구성 요소 | 세부 정보
+구성 요소 | 설명
 --- | ---
 **복제** | **일일 최대 변경률**: 보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있습니다. 단일 프로세스 서버는 최대 2TB의 일일 변동률을 처리할 수 있습니다. 따라서 2TB는 보호된 머신에 지원되는 최대 일일 데이터 변경률입니다.<br /><br /> **최대 처리량**: 복제된 컴퓨터는 Azure에서 하나의 스토리지 계정에 속할 수 있습니다. 표준 Azure Storage 계정은 초당 최대 20,000개의 요청을 처리할 수 있습니다. 따라서 원본 머신 전반에서 IOPS(초당 입출력 작업)를 20,000으로 제한하는 것이 좋습니다. 예를 들어 원본 머신의 디스크가 5개이고 각 디스크가 원본 머신에서 120 IOPS(8K 크기)를 생성할 경우, 원본 머신은 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. (필요한 스토리지 계정 수는 총 원본 머신 IOPS를 20,000으로 나눈 값입니다.)
 **구성 서버** | 구성 서버는 보호된 머신에서 실행되는 모든 워크로드에서 일일 변경률 용량을 처리할 수 있어야 합니다. 구성 머신에는 Azure Storage에 데이터를 지속적으로 복제하기에 충분한 대역폭이 있어야 합니다.<br /><br /> 가장 좋은 방법은 보호하려는 머신과 동일한 네트워크 및 LAN 세그먼트에 구성 서버를 배치하는 것입니다. 구성 서버를 다른 네트워크에 배치할 수도 있지만 보호하려는 머신에 레이어 3 네트워크 가시성이 있어야 합니다.<br /><br /> 구성 서버에 권장하는 크기는 다음 섹션의 테이블에 요약되어 있습니다.
@@ -92,7 +91,7 @@ CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머�
 
     ![Azure Backup 속성 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-[Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet를 사용하여 제한을 설정할 수도 있습니다. 아래 예를 살펴보세요.
+[Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet를 사용하여 제한을 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -124,7 +123,7 @@ Site Recovery 인프라를 설정하기 전에 환경에 액세스하여 호환�
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>새 프로세스 서버를 사용하도록 컴퓨터 마이그레이션
 
-1. **설정** > **Site Recovery 서버**를 선택 합니다. 구성 서버를 선택한 다음, **프로세스 서버**를 확장합니다.
+1. **설정**  >  **Site Recovery 서버**를 선택 합니다. 구성 서버를 선택한 다음, **프로세스 서버**를 확장합니다.
 
     ![프로세스 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. 현재 사용 중인 프로세스 서버를 마우스 오른쪽 단추로 클릭한 다음, **전환**을 클릭합니다.
@@ -144,12 +143,12 @@ Linux 기반 가상 머신에 마스터 대상 서버를 추가하는 방법을 
 
 Windows 기반 가상 머신에 대해 마스터 대상 서버를 추가하려면:
 
-1. **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**로 이동 합니다.
+1. **Recovery Services 자격 증명 모음**  >  **Site Recovery 인프라**  >  **구성 서버**로 이동 합니다.
 2. 필요한 구성 서버를 선택한 다음, **마스터 대상 서버**를 선택합니다.
 
     ![마스터 대상 서버 추가 단추를 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. 통합 설치 파일을 다운로드 한 다음, VM에서 파일을 실행하여 마스터 대상 서버를 설치합니다.
-4. **마스터 대상** > 설치**다음**을 선택 합니다.
+4. **마스터 대상 설치**  >  **다음**을 선택 합니다.
 
     ![마스터 대상 설치 옵션 선택을 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. 기본 설치 위치를 선택한 다음, **설치**를 선택합니다.
@@ -163,7 +162,7 @@ Windows 기반 가상 머신에 대해 마스터 대상 서버를 추가하려�
     ![구성 서버에 대한 IP 주소와 암호를 입력하는 곳을 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. **등록**을 선택합니다. 등록을 마치면 **마침**을 선택합니다.
 
-등록이 성공적으로 완료 되 면 서버는 구성 서버의 마스터 대상 서버에서 **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**Azure Portal에 나열 됩니다.
+등록이 성공적으로 완료 되 면 서버는 구성 서버의 마스터 대상 서버에서 **Recovery Services 자격 증명 모음**  >  **Site Recovery 인프라**  >  **구성 서버**Azure Portal에 나열 됩니다.
 
  > [!NOTE]
  > [Windows용 마스터 대상 서버 통합 설치 파일](https://aka.ms/latestmobsvc)의 최신 버전을 다운로드하십시오.

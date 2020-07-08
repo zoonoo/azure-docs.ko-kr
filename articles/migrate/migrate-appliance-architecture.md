@@ -1,14 +1,13 @@
 ---
 title: Azure Migrate 어플라이언스 아키텍처
-description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
+description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: d55d123bb056b46b5e78dd8ac836eeaf9b42fe70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389021"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770903"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
@@ -16,25 +15,25 @@ ms.locfileid: "80389021"
 
 ## <a name="deployment-scenarios"></a>배포 시나리오
 
-Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 됩니다.
+Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같습니다.
 
-**시나리오** | **도구** | **사용 목적** 
+**시나리오** | **도구** | **용도** 
 --- | --- | ---
 **VMware VM 평가** | Azure Migrate: 서버 평가 | VMware Vm을 검색 합니다.<br/><br/> 컴퓨터 앱 및 종속성을 검색 합니다.<br/><br/> 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 하 고 Azure에 보냅니다.
-**VMware VM 마이그레이션 (에이전트 없는)** | Azure Migrate: 서버 마이그레이션 | VMware Vm 검색<br/><br/>  [에이전트 없는 마이그레이션을](server-migrate-overview.md)사용 하 여 VMware vm을 복제 합니다.
-**Hyper-v VM 평가** | Azure Migrate: 서버 평가 | Hyper-v Vm을 검색 합니다.<br/><br/> 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 하 고 Azure에 보냅니다.
+**VMware VM 마이그레이션 (에이전트 없는)** | Azure Migrate: 서버 마이그레이션 | VMware VM을 검색합니다.<br/><br/>  [에이전트 없는 마이그레이션을](server-migrate-overview.md)사용 하 여 VMware vm을 복제 합니다.
+**Hyper-V VM 평가** | Azure Migrate: 서버 평가 | Hyper-v Vm을 검색 합니다.<br/><br/> 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 하 고 Azure에 보냅니다.
 **물리적 머신** |  Azure Migrate: 서버 평가 |  물리적 서버를 검색 합니다.<br/><br/> 컴퓨터 메타 데이터 및 성능 메타 데이터를 수집 하 고 Azure에 보냅니다.
 
 ## <a name="appliance-components"></a>어플라이언스 구성 요소
 
 어플라이언스에는 많은 구성 요소가 있습니다.
 
-- **관리 앱**: 어플라이언스를 배포 하는 동안 사용자가 입력 하는 웹 앱입니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.
-- **검색 에이전트**: 에이전트에서 컴퓨터 구성 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다. 
-- **평가 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위해 컴퓨터를 평가 하는 데 사용 됩니다.
-- **DRA 에이전트**: VM 복제를 오케스트레이션 하 고 복제 된 컴퓨터와 Azure 간의 통신을 조정 합니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 VMware Vm을 복제 하는 경우에만 사용 됩니다.
-- **게이트웨이**: 복제 된 데이터를 Azure로 보냅니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 VMware Vm을 복제 하는 경우에만 사용 됩니다.
-- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
+- **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.
+- **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다. 
+- **평가 에이전트**: 성능 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.
+- **DRA 에이전트**: VM 복제를 오케스트레이션하고, 복제된 컴퓨터와 Azure 간의 통신을 조정합니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure에 복제할 때만 사용됩니다.
+- **게이트웨이**: 복제된 데이터를 Azure에 보냅니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure에 복제할 때만 사용됩니다.
+- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).
 
 
 
@@ -51,8 +50,8 @@ Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 �
 **동작** | **세부 정보** | **권한**
 --- | --- | ---
 **소스 공급자 등록** | 이러한 리소스 공급자는 어플라이언스 설정 중에 선택 하는 구독에 등록 됩니다. 예: Microsoft. OffAzure, microsoft. 마이그레이션 및 Microsoft.<br/><br/> 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. | 리소스 공급자를 등록하려면 구독에 대한 기여자 또는 소유자 역할이 필요합니다.
-**Azure AD 앱 만들기-통신** | Azure Migrate는 어플라이언스에서 실행 되는 에이전트와 Azure에서 실행 되는 각 서비스 간의 통신 (인증 및 권한 부여)을 위한 Azure Active Directory (Azure AD) 앱을 만듭니다.<br/><br/> 이 앱에는 모든 리소스에 대 한 Azure Resource Manager 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) 필요 합니다.
-**Azure AD 앱 만들기-주요 자격 증명 모음** | 이 앱은 VMware Vm을 Azure로 마이그레이션할 때만 생성 됩니다.<br/><br/> 에이전트 없는 마이그레이션을 위해 사용자의 구독에서 생성 된 키 자격 증명 모음에 액세스 하는 데만 사용 됩니다.<br/><br/> 검색을 어플라이언스에서 시작 하는 경우 Azure key vault (고객의 테 넌 트에서 만들어짐)에 대 한 RBAC 액세스 권한이 있습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) 필요 합니다.
+**Azure AD 앱 만들기-통신** | Azure Migrate는 어플라이언스에서 실행 되는 에이전트와 Azure에서 실행 되는 각 서비스 간의 통신 (인증 및 권한 부여)을 위한 Azure Active Directory (Azure AD) 앱을 만듭니다.<br/><br/> 이 앱에는 모든 리소스에 대 한 Azure Resource Manager 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) 필요 합니다.
+**Azure AD 앱 만들기-주요 자격 증명 모음** | 이 앱은 VMware Vm을 Azure로 마이그레이션할 때만 생성 됩니다.<br/><br/> 에이전트 없는 마이그레이션을 위해 사용자의 구독에서 생성 된 키 자격 증명 모음에 액세스 하는 데만 사용 됩니다.<br/><br/> 검색을 어플라이언스에서 시작 하는 경우 Azure key vault (고객의 테 넌 트에서 만들어짐)에 대 한 RBAC 액세스 권한이 있습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) 필요 합니다.
 
 
 
@@ -87,7 +86,7 @@ Azure Migrate 어플라이언스는 다음과 같은 시나리오에서 사용 �
 
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 
-어플라이언스를 실행 하는 Azure Migrate 에이전트가 업데이트 되 면 기기가 업그레이드 됩니다. 이는 기본적으로 어플라이언스에서 자동 업데이트를 사용 하기 때문에 자동으로 발생 합니다. 이 기본 설정을 변경 하 여 에이전트를 수동으로 업데이트할 수 있습니다.
+어플라이언스에서 실행되는 Azure Migrate 에이전트가 업데이트되면 어플라이언스가 업그레이드됩니다. 이는 기본적으로 어플라이언스에서 자동 업데이트를 사용 하기 때문에 자동으로 발생 합니다. 이 기본 설정을 변경 하 여 에이전트를 수동으로 업데이트할 수 있습니다.
 
 HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "자동 업데이트" 키를 0 (DWORD)로 설정 하 여 레지스트리에서 자동 업데이트를 해제 합니다.
 

@@ -10,10 +10,9 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
 ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758717"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
@@ -48,7 +47,7 @@ ms.locfileid: "81758717"
 
 - 장치가 [Mqtt keep-alive](iot-hub-mqtt-support.md#default-keep-alive-timeout)보다 오래 된 기본 네트워크 연결을 끊어 원격 유휴 시간 제한이 발생 했습니다. MQTT keep-alive 설정은 장치별로 다를 수 있습니다.
 
-- 장치에서 TCP/IP 수준 재설정을 보냈지만 응용 프로그램 수준을 `MQTT DISCONNECT`보내지 않았습니다. 기본적으로 장치는 기본 소켓 연결을 갑자기 닫았습니다. 경우에 따라이 문제는 이전 버전의 Azure IoT SDK에서 버그가 발생 한 경우에 발생 합니다.
+- 장치에서 TCP/IP 수준 재설정을 보냈지만 응용 프로그램 수준을 보내지 않았습니다 `MQTT DISCONNECT` . 기본적으로 장치는 기본 소켓 연결을 갑자기 닫았습니다. 경우에 따라이 문제는 이전 버전의 Azure IoT SDK에서 버그가 발생 한 경우에 발생 합니다.
 
 - 장치 쪽 응용 프로그램이 충돌 합니다.
 

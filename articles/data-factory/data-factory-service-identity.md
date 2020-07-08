@@ -8,14 +8,13 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416590"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037599"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -163,7 +162,7 @@ Azure Portal에서 또는 프로그래밍 방식으로 관리 되는 id를 검�
 - 관리 Id 테 넌 트
 - 관리 Id 응용 프로그램 ID
 
-관리 id 정보는 Azure Blob, Azure Data Lake Storage, Azure Key Vault 등 관리 되는 id 인증을 지 원하는 연결 된 서비스를 만들 때에도 표시 됩니다.
+관리 id 정보는 Azure Blob, Azure Data Lake Storage, Azure Key Vault 등의 관리 되는 id 인증을 지 원하는 연결 된 서비스를 만들 때에도 표시 됩니다.
 
 권한을 부여할 때 개체 ID 또는 데이터 팩터리 이름 (관리 id 이름)을 사용 하 여이 id를 찾습니다.
 
@@ -189,6 +188,61 @@ ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
 DisplayName           : ADFV2DemoFactory
 Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
+```
+
+### <a name="retrieve-managed-identity-using-rest-api"></a>REST API를 사용 하 여 관리 되는 id 검색
+
+다음과 같이 특정 데이터 팩터리를 가져올 때 관리 id 보안 주체 ID 및 테 넌 트 ID가 반환 됩니다.
+
+요청에서 아래 API를 호출 합니다.
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
+```
+
+**응답**: 아래 예제에서와 같이 응답을 받게 됩니다. "Id" 섹션이 그에 따라 채워집니다.
+
+```json
+{
+    "name":"<dataFactoryName>",
+    "identity":{
+        "type":"SystemAssigned",
+        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
+        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+    },
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+    "type":"Microsoft.DataFactory/factories",
+    "properties":{
+        "provisioningState":"Succeeded",
+        "createTime":"2020-02-12T02:22:50.2384387Z",
+        "version":"2018-06-01",
+        "factoryStatistics":{
+            "totalResourceCount":0,
+            "maxAllowedResourceCount":0,
+            "factorySizeInGbUnits":0,
+            "maxAllowedFactorySizeInGbUnits":0
+        }
+    },
+    "eTag":"\"03006b40-XXXX-XXXX-XXXX-5e43617a0000\"",
+    "location":"<region>",
+    "tags":{
+
+    }
+}
+```
+
+> [!TIP] 
+> ARM 템플릿에서 관리 되는 id를 검색 하려면 ARM JSON에 **출력** 섹션을 추가 합니다.
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.DataFactory/factories', parameters('<dataFactoryName>')), '2018-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계

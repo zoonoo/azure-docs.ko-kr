@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 2d506656343df6eaa58975bfeb921423c2e3314b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724822"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954134"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>파트너 센터의 상업용 Marketplace 포털 개요
 
@@ -34,7 +33,7 @@ ms.locfileid: "83724822"
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>게시 및 제품 관리 사용자 환경 개선
 
-파트너 센터로 전환하면 사용자 환경 개선 외에도 게시자가 새 기능을 사용할 수 있습니다.  자세한 내용은 [Cloud 파트너 포털에서 파트너 센터로 마이그레이션하기 위한 질문과 대답](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq)을 참조하세요.
+파트너 센터로 전환하면 사용자 환경 개선 외에도 게시자가 새 기능을 사용할 수 있습니다.  자세한 내용은 [Cloud 파트너 포털에서 파트너 센터로 마이그레이션하기 위한 질문과 대답](../cloud-partner-portal-migration-faq.md)을 참조하세요.
 
 ### <a name="account-and-user-management-updates"></a>계정 및 사용자 관리 업데이트
 
@@ -50,10 +49,10 @@ ms.locfileid: "83724822"
 
 ## <a name="view-the-roadmap-and-join-the-conversation"></a>로드맵 보기 및 대화 참여
 
-[Microsoft 상업용 Marketplace 로드맵](https://docs.microsoft.com/azure/marketplace/marketplace-roadmap)에 방문하여 최신 릴리스 및 향후 릴리스에 대해 자세히 알아보거나 [Microsoft 파트너 커뮤니티](https://www.microsoftpartnercommunity.com/)의 대화에 참여하세요.
+[Microsoft 상업용 Marketplace 로드맵](../marketplace-roadmap.md)에 방문하여 최신 릴리스 및 향후 릴리스에 대해 자세히 알아보거나 [Microsoft 파트너 커뮤니티](https://www.microsoftpartnercommunity.com/)의 대화에 참여하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Marketplace에 제품을 게시하려는 새 Microsoft 파트너는 [파트너 센터에서 상업용 Marketplace 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)를 참조하세요.
-- 이전에 Cloud 파트너 포털에서 제품을 게시한 기존 파트너는 [파트너 센터에서 상업용 Marketplace 계정 관리](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)를 참조하세요.
+- Marketplace에 제품을 게시하려는 새 Microsoft 파트너는 [파트너 센터에서 상업용 Marketplace 계정 만들기](create-account.md)를 참조하세요.
+- 이전에 Cloud 파트너 포털에서 제품을 게시한 기존 파트너는 [파트너 센터에서 상업용 Marketplace 계정 관리](manage-account.md)를 참조하세요.
 - 파트너 센터로 이동하는 Cloud Marketplace 관리에 대한 자세한 내용은 [파트너 커뮤니티 블로그 게시물](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)(데모 비디오 포함)을 참조하세요.

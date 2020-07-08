@@ -3,23 +3,22 @@ title: 풀에서 가상 파일 시스템 탑재
 description: Batch 풀에서 가상 파일 시스템을 탑재하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 4e51e8a1f11d670515893a83398a0c6d7c6e9a46
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816032"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954675"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Batch 풀에서 가상 파일 시스템 탑재
 
 Azure Batch에서는 이제 Windows 또는 Linux 컴퓨팅 노드의 Batch 풀에서 클라우드 스토리지 또는 외부 파일 시스템 탑재가 지원됩니다. 컴퓨팅 노드가 풀에 참가하면 가상 파일 시스템이 탑재되고 해당 노드에서 로컬 드라이브처럼 취급됩니다. Azure Files, Azure Blob 스토리지, [Avere vFXT 캐시](../avere-vfxt/avere-vfxt-overview.md)를 포함한 NFS(네트워크 파일 시스템) 또는 CIFS(Common Internet File System)와 같은 파일 시스템을 탑재합니다.
 
-이 문서에서는 [.NET용 Batch 관리 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet)를 사용하여 컴퓨팅 노드 풀에서 가상 파일 시스템을 탑재하는 방법을 알아봅니다.
+이 문서에서는 [.NET용 Batch 관리 라이브러리](/dotnet/api/overview/azure/batch?view=azure-dotnet)를 사용하여 컴퓨팅 노드 풀에서 가상 파일 시스템을 탑재하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 가상 파일 시스템 탑재는 2019-08-19부터 생성되는 Batch 풀에서 지원됩니다. 2019-08-19 이전에 만든 Batch 풀에서는 이 기능이 지원되지 않습니다.
 > 
-> 컴퓨팅 노드에 파일 시스템을 탑재하기 위한 API는 [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet) 라이브러리의 일부입니다.
+> 컴퓨팅 노드에 파일 시스템을 탑재하기 위한 API는 [Batch .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet) 라이브러리의 일부입니다.
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>풀에 탑재 시 이점
 
@@ -128,7 +127,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Common Internet File System
 
-CIFS(Common Internet File System)도 풀 노드에 탑재할 수 있으며, Azure Batch 노드에서 기존 파일 시스템을 쉽게 액세스하도록 허용합니다. CIFS는 네트워크 서버 파일 및 서비스를 요청하기 위해 개방형의 플랫폼 범용 메커니즘을 제공하는 파일 공유 프로토콜입니다. CIFS는 인터넷 및 인트라넷 파일 공유를 위한 Microsoft의 SMB(서버 메시지 블록) 프로토콜의 고급 버전을 기반으로 하며, Windows 노드에 외부 파일 시스템을 탑재하기 위해 사용됩니다. SMB에 대해 자세히 알아보려면 [파일 서버 및 SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview)를 참조하세요.
+CIFS(Common Internet File System)도 풀 노드에 탑재할 수 있으며, Azure Batch 노드에서 기존 파일 시스템을 쉽게 액세스하도록 허용합니다. CIFS는 네트워크 서버 파일 및 서비스를 요청하기 위해 개방형의 플랫폼 범용 메커니즘을 제공하는 파일 공유 프로토콜입니다. CIFS는 인터넷 및 인트라넷 파일 공유를 위한 Microsoft의 SMB(서버 메시지 블록) 프로토콜의 고급 버전을 기반으로 하며, Windows 노드에 외부 파일 시스템을 탑재하기 위해 사용됩니다. SMB에 대해 자세히 알아보려면 [파일 서버 및 SMB](/windows-server/storage/file-server/file-server-smb-overview)를 참조하세요.
 
 ```csharp
 new PoolAddParameter
@@ -153,7 +152,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>탑재 오류 진단
 
-탑재 구성이 실패하면 풀의 컴퓨팅 노드가 실패하고 노드 상태가 사용 불가로 전환됩니다. 탑재 구성 오류를 진단하려면 [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성에서 자세한 오류 정보를 조사합니다.
+탑재 구성이 실패하면 풀의 컴퓨팅 노드가 실패하고 노드 상태가 사용 불가로 전환됩니다. 탑재 구성 오류를 진단하려면 [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) 속성에서 자세한 오류 정보를 조사합니다.
 
 디버그를 위해 로그 파일을 가져오려면 [OutputFiles](batch-task-output-files.md)를 사용하여 `*.log` 파일을 업로드합니다. `*.log` 파일에는 `AZ_BATCH_NODE_MOUNTS_DIR` 위치에 있는 파일 시스템 탑재에 대한 정보가 포함됩니다. 탑재 로그 파일에는 각 탑재에 대해 `<type>-<mountDirOrDrive>.log` 형식이 사용됩니다. 예를 들어 `test`라는 탑재 디렉터리에서 `cifs` 탑재에는 `cifs-test.log`라는 탑재 로그 파일이 사용됩니다.
 
@@ -179,5 +178,5 @@ new PoolAddParameter
 
 - [Windows](../storage/files/storage-how-to-use-files-windows.md) 또는 [Linux](../storage/files/storage-how-to-use-files-linux.md)에서 Azure Files 공유 탑재에 대해 자세히 알아보세요.
 - [blobfuse](https://github.com/Azure/azure-storage-fuse) 가상 파일 시스템 사용 및 탑재에 대해 자세히 알아보세요.
-- [네트워크 파일 시스템 개요](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)를 보고 NFS 및 해당 애플리케이션에 대해 자세히 알아보세요.
-- [Microsoft SMB 프로토콜 및 CIFS 프로토콜 개요](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)를 보고 CIFS에 대해 자세히 알아보세요.
+- [네트워크 파일 시스템 개요](/windows-server/storage/nfs/nfs-overview)를 보고 NFS 및 해당 애플리케이션에 대해 자세히 알아보세요.
+- [Microsoft SMB 프로토콜 및 CIFS 프로토콜 개요](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)를 보고 CIFS에 대해 자세히 알아보세요.

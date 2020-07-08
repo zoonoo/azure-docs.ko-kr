@@ -10,13 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/2019
-ms.openlocfilehash: ad26fca94527864af10bb0051336c372ea65b3e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 06/12/2020
+ms.openlocfilehash: 4bdcb2b4008f54ff0d84594e6f3b5a7b76944e65
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81413792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987011"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -148,6 +147,7 @@ SAP ECC에서 데이터를 복사하려면 복사 작업의 `source` 섹션에�
 |:--- |:--- |:--- |
 | `type` | 복사 작업 `source` 섹션의 `type` 속성을 `SapEccSource`로 설정해야 합니다. | 예 |
 | `query` | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예를 들면 다음과 같습니다.<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 커넥터가 결합된 URL에서 데이터를 복사합니다.<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
+| `httpRequestTimeout` | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 지정 하지 않으면 기본값은 **00:30:00** (30 분)입니다. | 예 |
 
 ### <a name="example"></a>예제
 

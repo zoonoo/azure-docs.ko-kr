@@ -3,19 +3,18 @@ title: 되풀이 작업 및 워크플로 예약
 description: Azure Logic Apps 되풀이 트리거를 사용 하 여 되풀이 자동화 된 작업 및 워크플로 예약 및 실행
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 47bb4e4cc4902168631fa67f186d0b3259c94328
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322573"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Azure Logic Apps 되풀이 트리거를 사용 하 여 되풀이 작업 및 워크플로를 만들고 예약 하 고 실행 합니다.
 
-특정 일정에 따라 작업, 프로세스 또는 작업을 정기적으로 실행 하기 위해 기본 제공 **되풀이 일정** 트리거를 사용 하 여 논리 앱 워크플로를 시작할 수 있습니다. 워크플로를 시작 하기 위한 표준 시간대와 날짜 및 시간을 설정할 수 있으며 해당 워크플로를 반복 하기 위한 되풀이를 설정할 수 있습니다. 어떤 이유로 든 되풀이가 누락 되는 경우이 트리거는 예약 된 다음 간격으로 반복 됩니다. 기본 제공 일정 트리거 및 작업에 대 한 자세한 내용은 [Azure Logic Apps를 사용 하 여 되풀이 자동화, 작업 및 워크플로 예약 및 실행](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)을 참조 하세요.
+특정 일정에 따라 작업, 프로세스 또는 작업을 정기적으로 실행 하기 위해 기본 제공 **되풀이 일정** 트리거를 사용 하 여 논리 앱 워크플로를 시작할 수 있습니다. 워크플로를 시작 하기 위한 표준 시간대와 날짜 및 시간을 설정할 수 있으며 해당 워크플로를 반복 하기 위한 되풀이를 설정할 수 있습니다. 예를 들어, 중단 또는 사용 하지 않도록 설정 된 워크플로 등의 이유로 되풀이가 누락 되는 경우이 트리거는 누락 된 되풀이를 처리 하지 않고 예약 된 다음 간격에 되풀이를 다시 시작 합니다. 기본 제공 일정 트리거 및 작업에 대 한 자세한 내용은 [Azure Logic Apps를 사용 하 여 되풀이 자동화, 작업 및 워크플로 예약 및 실행](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)을 참조 하세요.
 
 다음은이 트리거가 지 원하는 몇 가지 패턴으로, 더 높은 되풀이 및 복잡 한 일정을 보여 주는 것입니다.
 
@@ -38,13 +37,13 @@ ms.locfileid: "83004698"
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [논리 앱](../logic-apps/logic-apps-overview.md)에 대 한 기본 지식. 논리 앱을 처음 접하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 대해 알아보세요.
+* [논리 앱](../logic-apps/logic-apps-overview.md)에 대한 기본 지식 논리 앱을 처음 사용하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아보세요.
 
 ## <a name="add-recurrence-trigger"></a>되풀이 트리거 추가
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
-1. 논리 앱 디자이너가 표시 되 면 검색 상자에를 필터로 `recurrence` 입력 합니다. 트리거 목록에서 논리 앱 워크플로에서 첫 번째 단계로이 트리거를 선택 합니다. **되풀이**
+1. 논리 앱 디자이너가 표시 되 면 검색 상자에를 `recurrence` 필터로 입력 합니다. 트리거 목록에서 논리 앱 워크플로에서 첫 번째 단계로이 트리거를 선택 합니다. **되풀이**
 
    !["되풀이" 트리거를 선택 합니다.](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
@@ -52,9 +51,9 @@ ms.locfileid: "83004698"
 
    ![간격 및 빈도 설정](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | 속성 | JSON 이름 | 필수 | Type | Description |
+   | 속성 | JSON 이름 | 필수 | Type | 설명 |
    |----------|-----------|----------|------|-------------|
-   | **간격은** | `interval` | 예 | 정수  | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 <br>-주: 1-71 주 <br>- 일: 1-500일 <br>- 시간: 1-12,000시간 <br>- 분: 1-72,000분 <br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
+   | **간격** | `interval` | 예 | 정수 | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 <br>-주: 1-71 주 <br>- 일: 1-500일 <br>- 시간: 1-12,000시간 <br>- 분: 1-72,000분 <br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
    | **빈도** | `frequency` | 예 | String | 되풀이 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** |
    ||||||
 
@@ -72,13 +71,13 @@ ms.locfileid: "83004698"
 
    ![고급 일정 옵션](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | 속성 | JSON 이름 | 필수 | Type | Description |
+   | 속성 | JSON 이름 | 필수 | Type | 설명 |
    |----------|-----------|----------|------|-------------|
    | **표준 시간대** | `timeZone` | 예 | String | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. |
    | **시작 시간** | `startTime` | 예 | String | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2020 년 9 월 18 일을 원하는 경우 "2020-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 "2020-09-18T14:00:00Z"를 지정 합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **요일 선택** | `weekDays` | 예 | 문자열 또는 문자열 배열 | “주”를 선택하는 경우 워크플로를 실행하려는 요일을 하나 이상 선택할 수 있습니다.**월요일**, **화요일**, **수요일**, **목요일**, **금요일**, **토요일** 및 **일요일** |
-   | **시간 선택** | `hours` | 예 | 정수 또는 정수 배열 | "일" 또는 "주"를 선택 하는 경우 워크플로를 실행 하려는 시간에 대해 0에서 23 사이의 정수를 하나 이상 선택할 수 있습니다. <p><p>예를 들어 "10", "12" 및 "14"를 지정 하면 하루 중 오전 10 시, 오후 12 시 및 오후 2 시가 되 고, 하루 중 분은 되풀이 시작 시간을 기준으로 계산 됩니다. 특정 시간 (분)을 설정 하려면 (예: 오전 10:00, 12:00 PM 및 2:00 PM **) 해당 분** 속성을 사용 하 여 해당 값을 지정 합니다. |
-   | **분 선택** | `minutes` | 예 | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. |
+   | **요일 선택** | `weekDays` | 아니요 | 문자열 또는 문자열 배열 | “주”를 선택하는 경우 워크플로를 실행하려는 요일을 하나 이상 선택할 수 있습니다.**월요일**, **화요일**, **수요일**, **목요일**, **금요일**, **토요일** 및 **일요일** |
+   | **시간 선택** | `hours` | 아니요 | 정수 또는 정수 배열 | "일" 또는 "주"를 선택 하는 경우 워크플로를 실행 하려는 시간에 대해 0에서 23 사이의 정수를 하나 이상 선택할 수 있습니다. <p><p>예를 들어 "10", "12" 및 "14"를 지정 하면 하루 중 오전 10 시, 오후 12 시 및 오후 2 시가 되 고, 하루 중 분은 되풀이 시작 시간을 기준으로 계산 됩니다. 특정 시간 (분)을 설정 하려면 (예: 오전 10:00, 12:00 PM 및 2:00 PM **) 해당 분** 속성을 사용 하 여 해당 값을 지정 합니다. |
+   | **분 선택** | `minutes` | 아니요 | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. |
    |||||
 
    예를 들어 오늘은 2020 년 9 월 4 일 금요일 이라고 가정 합니다. 다음 되풀이 트리거는 시작 날짜 및 시간 보다 더 *일찍* 발생 하지 않습니다. 즉, 8:00 오전 9 시 2020 오전 9 시입니다. 반면 되풀이 일정이 월요일에 한해서만 10:30 AM, 12:30 PM 및 2:30 PM으로 설정되어 있습니다. 따라서 트리거를 처음 실행 하 고 논리 앱 워크플로 인스턴스를 만드는 경우 월요일 오전 10:30 시에 실행 됩니다. 시작 시간이 작동하는 방법에 대한 자세한 내용은 [시작 시간 예](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time)를 참조하세요.

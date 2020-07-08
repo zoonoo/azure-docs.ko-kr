@@ -2,20 +2,19 @@
 title: Azure Blockchain 워크 벤치에서 사용자 관리
 description: Azure Blockchain Workbench에서 사용자를 관리하는 방법.
 ms.date: 05/09/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 78841ca830ae56f6c07f796bdde85f6a6ba9c921
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212737"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench의 사용자 관리
 
 Azure Blockchain Workbench에는 사용자 컨소시엄의 일부인 사용자 및 조직을 위한 사용자 관리가 포함됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Blockchain Workbench 배포가 필요합니다. 배포에 대한 자세한 내용은 [Azure Blockchain Workbench 배포](deploy.md)를 참조하세요.
 
@@ -81,11 +80,11 @@ Blockchain Workbench 애플리케이션을 사용하여 사용자 컨소시엄�
 1. 현재 구성원의 목록을 표시하려면 구성원 타일을 선택합니다.
 2. **구성원 추가**를 선택합니다.
 
-    ![구성원 추가](./media/manage-users/application-add-members.png)
+    ![멤버 추가](./media/manage-users/application-add-members.png)
 
 3. 사용자의 이름을 검색합니다.  Blockchain Workbench 테넌트에 있는 Azure AD 사용자만 나열됩니다. 사용자를 찾을 수 없는 경우 [Azure AD 사용자를 추가](#add-azure-ad-users)해야 합니다.
 
-    ![구성원 추가](./media/manage-users/find-user.png)
+    ![멤버 추가](./media/manage-users/find-user.png)
 
 4. 드롭다운 메뉴에서 **역할**을 선택합니다.
 
@@ -98,7 +97,7 @@ Blockchain Workbench 애플리케이션을 사용하여 사용자 컨소시엄�
 1. 현재 구성원의 목록을 표시하려면 구성원 타일을 선택합니다.
 2. 제거하려는 사용자의 경우 역할 드롭다운에서 **제거**를 선택합니다.
 
-    ![구성원 제거](./media/manage-users/application-remove-member.png)
+    ![멤버 제거](./media/manage-users/application-remove-member.png)
 
 #### <a name="change-or-add-role"></a>역할 변경 또는 추가
 

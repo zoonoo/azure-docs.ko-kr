@@ -7,18 +7,17 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: baf309a93f8ba976cb6511c05ba5032ad07a0fc9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83874047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392457"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가
 
@@ -68,7 +67,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가합니다.
 
-### <a name="resource-group-without-parameters"></a>리소스 그룹(매개 변수 없음)
+### <a name="resource-group-scope-without-parameters"></a>리소스 그룹 범위 (매개 변수 없음)
 
 다음 템플릿에서는 역할 할당을 추가하는 기본적인 방법을 보여 줍니다. 일부 값은 템플릿 내에서 지정됩니다. 다음 템플릿은 다음을 보여줍니다.
 
@@ -111,7 +110,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 ![리소스 그룹 범위의 역할 할당](./media/role-assignments-template/role-assignment-template.png)
 
-### <a name="resource-group-or-subscription"></a>리소스 그룹 또는 구독
+### <a name="resource-group-or-subscription-scope"></a>리소스 그룹 또는 구독 범위
 
 이전 템플릿은 그리 유연하지 않습니다. 다음 템플릿에서는 매개 변수를 사용하고 다양한 범위에서 사용할 수 있습니다. 다음 템플릿은 다음을 보여줍니다.
 
@@ -195,7 +194,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### <a name="resource"></a>리소스
+### <a name="resource-scope"></a>리소스 범위
 
 리소스 수준에서 역할 할당을 추가해야 하는 경우 역할 할당의 형식이 다릅니다. 역할을 할당할 리소스의 리소스 공급자 네임스페이스 및 리소스 종류를 제공합니다. 또한 역할 할당 이름에 리소스 이름을 포함합니다.
 

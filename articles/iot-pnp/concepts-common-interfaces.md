@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5773ec2b3ea88fa9a507b7c1b0b84bb7ea305a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770482"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT 플러그 앤 플레이 미리 보기 공통 인터페이스
 
-모든 IoT 플러그 앤 플레이 장치는 몇 가지 공통 인터페이스를 구현 해야 합니다. 공통 인터페이스는 일관 된 기능을 제공 하기 때문에 IoT 솔루션 혜택을 제공 합니다. [인증](tutorial-build-device-certification.md) 을 사용 하려면 장치에서 몇 가지 공통 인터페이스를 구현 해야 합니다. 공용 모델 리포지토리에서 일반적인 인터페이스 정의를 검색할 수 있습니다.
+모든 IoT 플러그 앤 플레이 디바이스는 일반적인 일부 인터페이스를 구현해야 합니다. 공통 인터페이스는 일관 된 기능을 제공 하기 때문에 IoT 솔루션 혜택을 제공 합니다. [인증](tutorial-build-device-certification.md) 을 사용 하려면 장치에서 몇 가지 공통 인터페이스를 구현 해야 합니다. 퍼블릭 모델 리포지토리에서 일반적인 인터페이스 정의를 검색할 수 있습니다.
 
 ## <a name="summary-of-common-interfaces"></a>공용 인터페이스 요약
 
@@ -24,12 +23,12 @@ ms.locfileid: "81770482"
 | -------- | -------- | -------- | -------- | -------- | -------- |
 | 모델 정보 | urn: azureiot: ModelDiscovery: Modeldiscovery: 1 | 장치에서 기능 모델 ID 및 인터페이스를 선언 합니다. 모든 IoT 플러그 앤 플레이 장치에 필요 합니다. | 예 | 아니요 |
 | 디지털 쌍 클라이언트 SDK 정보 | urn: azureiot: 클라이언트: SDKInformation: 1 | Azure에 장치를 연결 하기 위한 클라이언트 SDK [인증](tutorial-build-device-certification.md) 에 필요 | 예 | 아니요 |
-| 장치 정보 | urn: azureiot: DeviceManagement: DeviceInformation: 1 | 장치에 대 한 하드웨어 및 운영 체제 정보 [인증](tutorial-build-device-certification.md) 에 필요 | 예 | 예 |
+| 디바이스 정보 | urn: azureiot: DeviceManagement: DeviceInformation: 1 | 장치에 대 한 하드웨어 및 운영 체제 정보 [인증](tutorial-build-device-certification.md) 에 필요 | 예 | 예 |
 | 모델 정의 | urn: azureiot: ModelDiscovery: Modeldiscovery: 1 | 장치에서 해당 기능 모델 및 인터페이스에 대 한 전체 정의를 선언 합니다. 모델 리포지토리에서 모델 정의를 호스팅하지 않는 경우에는를 구현 해야 합니다. | 예 | 예 |
 | Digital Twin | urn: azureiot: ModelDiscovery: DigitalTwin: 1 | 솔루션 개발자가 디지털 쌍의 기능 모델 ID 및 인터페이스 Id를 검색 하는 데 사용할 수 있습니다. IoT 플러그 앤 플레이 장치에서이 인터페이스를 선언 하거나 구현 하지 않습니다. | 아니요 | 아니요 |
 
 - Azure IoT SDK에서 구현-Azure IoT SDK가 인터페이스에 선언 된 기능을 구현 하는지 여부입니다. Azure IoT SDK를 사용 하는 IoT 플러그 앤 플레이 장치는이 인터페이스를 구현할 필요가 없습니다.
-- 기능 모델에서 선언 해야 합니다. ' 예 ' 인 경우이 인터페이스는이 IoT 플러그 앤 플레이 장치 `"implements":` 에 대 한 장치 기능 모델의 섹션 내에서 선언 되어야 합니다.
+- 기능 모델에서 선언 해야 합니다. ' 예 ' 인 경우이 인터페이스는 `"implements":` 이 IoT 플러그 앤 플레이 장치에 대 한 장치 기능 모델의 섹션 내에서 선언 되어야 합니다.
 
 ## <a name="retrieve-interface-definitions-from-the-public-repository"></a>공용 리포지토리에서 인터페이스 정의 검색
 

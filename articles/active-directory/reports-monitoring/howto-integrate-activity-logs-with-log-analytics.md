@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,11 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0ef55f6f5117ffa77052118155afea716125a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a0c68bf11d81925c1b9c3e408434a6f7b1b2694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608996"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
 
@@ -51,7 +50,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 기능을 사용하려면 다음이 필요합니다.
 
@@ -68,7 +67,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **Azure Active Directory** > **진단**설정 -> **추가 진단**설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지**에서 **설정 내보내기**를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
+2. **Azure Active Directory**  >  **진단 설정**  ->  **추가 진단**설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지**에서 **설정 내보내기**를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
     
 3. **진단 설정** 메뉴에서 **Log Analytics 작업 영역에 보내기** 확인란을 선택한 다음, **구성**을 선택합니다.
 
@@ -87,4 +86,4 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor 로그를 사용하여 Azure AD 활동 로그 분석](howto-analyze-activity-logs-log-analytics.md)
-* [Azure Active Directory에 대 한 log analytics 보기 설치 및 사용](howto-install-use-log-analytics-views.md)
+* [Azure Active Directory용 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md)

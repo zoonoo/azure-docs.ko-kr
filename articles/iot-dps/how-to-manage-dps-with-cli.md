@@ -7,12 +7,11 @@ ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 03ec0b41ad910ff0d1dcdc17148e01ec94ea9fb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e49f71c100911d9186a0e4693ef133f548e7bc66
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78674508"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037973"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Azure CLI 및 IoT 확장을 사용하여 IoT Hub Device Provisioning Service를 관리하는 방법
 
@@ -32,7 +31,7 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
-[설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 환경에 Azure CLI를 설치합니다. 최소한 Azure CLI 버전은 2.0.70 이상 이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다.
+[설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 환경에 Azure CLI를 설치합니다. Azure CLI 버전이 2.0.70 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다.
 
 ### <a name="install-iot-extension"></a>IoT 확장 설치
 
@@ -48,46 +47,60 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 
 ### <a name="1-log-in-to-the-azure-account"></a>1. Azure 계정에 로그인 합니다.
   
-    az login
+```azurecli
+az login
+```
 
 ![로그인](./media/how-to-manage-dps-with-cli/login.jpg)
 
 ### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. eIoTHubBlogDemo에서 리소스 그룹 만들기
 
-    az group create -l eastus -n IoTHubBlogDemo
+```azurecli
+az group create -l eastus -n IoTHubBlogDemo
+```
 
 ![리소스 그룹 만들기](./media/how-to-manage-dps-with-cli/create-resource-group.jpg)
 
 
 ### <a name="3-create-two-device-provisioning-services"></a>3. 두 개의 장치 프로 비전 서비스 만들기
 
-    az iot dps create --resource-group IoTHubBlogDemo --name demodps
+```azurecli
+az iot dps create --resource-group IoTHubBlogDemo --name demodps
+```
 
 ![Device Provisioning 서비스 만들기](./media/how-to-manage-dps-with-cli/create-dps.jpg)
 
-    az iot dps create --resource-group IoTHubBlogDemo --name demodps2
+```azurecli
+az iot dps create --resource-group IoTHubBlogDemo --name demodps2
+```
 
 ### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4 .이 리소스 그룹의 기존 장치 프로 비전 서비스를 모두 나열 합니다.
 
-    az iot dps list --resource-group IoTHubBlogDemo
+```azurecli
+az iot dps list --resource-group IoTHubBlogDemo
+```
 
 ![Device Provisioning 서비스 나열](./media/how-to-manage-dps-with-cli/list-dps.jpg)
 
 
 ### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. 새로 만든 리소스 그룹 아래에 IoT Hub blogDemoHub를 만듭니다.
 
-    az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+```azurecli
+az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+```
 
 ![IoT Hub 만들기](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
 ### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. 장치 프로 비전 서비스에 기존 IoT Hub 하나 연결
 
-    az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
+```azurecli
+az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
+```
 
 ![허브 연결](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > * 디바이스 등록

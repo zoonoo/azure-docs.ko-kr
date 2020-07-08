@@ -11,12 +11,11 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710442"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -50,7 +49,7 @@ IoT Central는 [DPS (Azure IoT Hub 장치 프로 비전 서비스)](../../iot-dp
 
 ![개별 장치에 대 한 SAS 키](./media/concepts-get-connected/single-device-sas.png)
 
-자세히 알아보려면 [node.js 클라이언트 응용 프로그램을 만들어 Azure IoT Central 응용 프로그램에 연결](./tutorial-connect-device-nodejs.md) 자습서를 참조 하세요.
+자세히 알아보려면 [Azure IoT Central 응용 프로그램에 Node.js 클라이언트 응용 프로그램 만들기 및 연결](./tutorial-connect-device-nodejs.md) 자습서를 참조 하세요.
 
 ## <a name="connect-devices-at-scale-using-sas"></a>SAS를 사용 하 여 대규모로 장치 연결
 
@@ -93,11 +92,11 @@ X.509 인증서를 사용 하 여 장치를 연결 하기 전에 응용 프로�
 
 X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV 파일을 사용 하 여 [장치 id 및 장치 이름을 가져와](howto-manage-devices.md#import-devices)응용 프로그램에 장치를 등록 합니다. 장치 Id는 모두 소문자 여야 합니다.
 
-업로드 된 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 x.509 리프 인증서를 생성 합니다. 리프 인증서의 `CNAME` 값으로 **장치 ID** 를 사용 합니다. 장치 코드에는 응용 프로그램에 대 한 **id 범위** 값, **장치 id**및 해당 장치 인증서가 필요 합니다.
+업로드 된 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 x.509 리프 인증서를 생성 합니다. 리프 인증서의 값으로 **장치 ID** 를 사용 `CNAME` 합니다. 장치 코드에는 응용 프로그램에 대 한 **id 범위** 값, **장치 id**및 해당 장치 인증서가 필요 합니다.
 
 #### <a name="sample-device-code"></a>샘플 장치 코드
 
-[Azure IOT NODE.JS SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) 의 다음 샘플에서는 node.js 장치 클라이언트가 x.509 리프 인증서 및 DPS를 사용 하 여 IoT Central 응용 프로그램에 등록 하는 방법을 보여 줍니다.
+[Azure IoT Node.JS SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) 의 다음 샘플에서는 Node.js 장치 클라이언트에서 x.509 리프 인증서 및 DPS를 사용 하 여 IoT Central 응용 프로그램에 등록 하는 방법을 보여 줍니다.
 
 :::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
 
@@ -107,7 +106,7 @@ X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV �
 
 테스트 전용으로 다음 유틸리티를 사용 하 여 루트, 중간 및 장치 인증서를 생성할 수 있습니다.
 
-- [Azure IoT 장치 프로 비전 장치 SDK에 대 한 도구](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): x.509 인증서 및 키를 생성 하 고 확인 하는 데 사용할 수 있는 node.js 도구의 모음입니다.
+- [Azure IoT 장치 프로 비전 장치 SDK에 대 한 도구](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): x.509 인증서 및 키를 생성 및 확인 하는 데 사용할 수 있는 도구 Node.js 모음입니다.
 - DevKit 장치를 사용 하는 경우이 [명령줄 도구](https://aka.ms/iotcentral-docs-dicetool) 는 인증서를 확인 하기 위해 IoT Central 응용 프로그램에 추가할 수 있는 CA 인증서를 생성 합니다.
 - [샘플 및 자습서에 대 한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): 다음에 대 한 PowerShell 및 Bash 스크립트 컬렉션입니다.
   - 인증서 체인을 만듭니다.
@@ -148,7 +147,7 @@ X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV �
 
 1. IoT Central 응용 프로그램에 [루트 또는 중간 X. x.509 인증서를 추가 하 고 확인](#connect-devices-using-x509-certificates) 합니다.
 
-1. IoT Central 응용 프로그램에 추가한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 리프 인증서 `CNAME` 에서로 소문자 장치 id를 사용 합니다.
+1. IoT Central 응용 프로그램에 추가한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 리프 인증서에서로 소문자 장치 Id를 사용 `CNAME` 합니다.
 
 1. OEM은 장치 ID, 생성 된 리프 x.509 인증서 및 응용 프로그램 **ID 범위** 값을 사용 하 여 각 장치를 깜박입니다.
 
@@ -180,7 +179,7 @@ IoT Central은 개별 등록 다음과 같은 증명 메커니즘을 지원 합�
 - **X.509 인증서:** X.509 인증서를 사용 하 여 개별 등록을 만들려면 **장치 연결** 페이지에서 **개별 등록** 을 연결 방법으로 선택 하 고 **인증서 (x.509)** 를 메커니즘으로 선택 합니다. 개별 등록 항목에 사용 되는 장치 인증서에는 발급자와 주체 CN이 장치 ID로 설정 되어 있어야 합니다.
 
     > [!TIP]
-    > 테스트를 위해 [node.js 용 Azure IoT 장치 프로 비전 장치 SDK 용 도구](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) 를 사용 하 여 자체 서명 된 인증서를 생성할 수 있습니다.`node create_test_cert.js device "mytestdevice"`
+    > 테스트를 위해 [Node.js용 Azure IoT 장치 프로 비전 장치 SDK 용 도구](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) 를 사용 하 여 자체 서명 된 인증서를 생성할 수 있습니다.`node create_test_cert.js device "mytestdevice"`
 
 - **TPM (신뢰할 수 있는 플랫폼 모듈) 증명:** [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) 은 하드웨어 보안 모듈의 한 유형입니다. TPM을 사용 하는 것은 장치를 가장 안전 하 게 연결 하는 방법 중 하나입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용 하 고 있다고 가정 합니다. 소프트웨어 에뮬레이트된 Tpm은 프로토타입 또는 테스트에 적합 하지만 불연속, 펌웨어 또는 통합 된 Tpm과 동일한 수준의 보안을 제공 하지 않습니다. 프로덕션 환경에서 소프트웨어 Tpm을 사용 하지 마세요. TPM을 사용 하는 개별 등록을 만들려면 **장치 연결** 페이지를 열고 **개별 등록** 을 연결 방법으로 선택 하 고 **TPM** 을 메커니즘으로 선택 합니다. TPM 인증 키를 입력 하 고 장치 연결 정보를 저장 합니다.
 
@@ -261,7 +260,7 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 | 속성(쓰기 가능) | 디바이스 쌍 desired 및 reported 속성 |
 | 명령 | 직접 메서드 |
 
-장치 Sdk를 사용 하는 방법에 대 한 자세한 내용은 [Azure IoT Central 응용 프로그램에 DevDiv 키트 장치 연결](howto-connect-devkit.md) 예제 코드를 참조 하세요.
+장치 Sdk를 사용 하는 방법에 대 한 자세한 내용은 [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](howto-connect-devkit.md) 예제 코드를 참조 하세요.
 
 ### <a name="protocols"></a>프로토콜
 
@@ -281,8 +280,8 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 개발자 인 경우 몇 가지 제안 되는 다음 단계는 다음과 같습니다.
+디바이스 개발자라면 다음과 같은 몇 가지 단계를 살펴보세요.
 
-- [Azure CLI를 사용 하 여 장치 연결을 모니터링](./howto-monitor-devices-azure-cli.md) 하는 방법 알아보기
+- [Azure CLI를 사용하여 디바이스 연결을 모니터링](./howto-monitor-devices-azure-cli.md)하는 방법을 알아봅니다.
 - [Azure IoT Central 응용 프로그램에서 새 IoT 장치 유형을 정의](./howto-set-up-template.md) 하는 방법을 알아봅니다.
 - [Azure IoT Edge 장치 및 Azure IoT Central](./concepts-iot-edge.md) 에 대해 읽기

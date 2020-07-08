@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/27/2018
 ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 410570798e468244763c05b3275801427dc4b2fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68561878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604236"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
 
@@ -45,7 +44,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
     ![그룹의 속성 설정](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
 
-    - **그룹 이름입니다.** 기존 그룹 이름을 편집합니다.
+    - **그룹 이름.** 기존 그룹 이름을 편집합니다.
     
     - **그룹 설명.** 기존 그룹 설명을 편집합니다.
 

@@ -6,13 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/22/2020
-ms.openlocfilehash: 1418b26a2a498c43ff61f42b2761c59cbca5d0f4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 06/09/2020
+ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84661022"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기
 
@@ -35,8 +34,8 @@ ms.locfileid: "83837147"
 
 | 리소스 | 리소스 유형 | API 버전 |
 |:---|:---|:---|
-| 작업 영역 | workspaces | 2017-03-15-preview |
-| Automation 계정 | Automation | 2015-10-31 | 
+| 작업 영역 | workspaces | 2020-03-01-미리 보기 |
+| Automation 계정 | Automation | 2018-06-30 | 
 
 ## <a name="before-you-use-the-template"></a>템플릿을 사용하기 전에 확인해야 할 사항
 
@@ -48,14 +47,14 @@ JSON 템플릿은 다음을 묻는 메시지를 표시하도록 구성됩니다.
 
 * 작업 영역의 이름
 * 작업 영역을 만들 지역
-* Automation 계정의 이름
-* 계정을 만들 지역
+* 리소스 또는 작업 영역 권한을 사용 하도록 설정 합니다.
+* Automation 계정의 이름입니다.
+* Automation 계정을 만들 지역입니다.
 
 템플릿의 다음 매개 변수는 Log Analytics 작업 영역의 기본값으로 설정됩니다.
 
 * *sku*는 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값입니다.
 * *dataRetention*은 기본값이 30일입니다.
-* *capacityReservationLevel*은 기본값이 100GB입니다.
 
 >[!WARNING]
 >2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성하려면 유효한 유일한 Log Analytics 가격 책정 계층은 *PerGB2018*입니다.
@@ -63,7 +62,7 @@ JSON 템플릿은 다음을 묻는 메시지를 표시하도록 구성됩니다.
 
 JSON 템플릿은 환경에서 표준 구성으로 사용될 수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
-Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정보를 이해하는 것이 중요합니다. 새 자동화 계정에 연결된 Log Analytics 작업 영역을 만들고 구성하고 사용하려고 할 때 오류를 방지하는 데 도움이 될 수 있습니다. 
+Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정보를 이해하는 것이 중요합니다. 새 자동화 계정에 연결된 Log Analytics 작업 영역을 만들고 구성하고 사용하려고 할 때 오류를 방지하는 데 도움이 될 수 있습니다.
 
 * 액세스 제어 모드, 가격 책정 계층, 보존 및 용량 예약 수준과 같은 작업 영역 구성 옵션을 완전히 이해하려면 [추가 세부 정보](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace)를 검토하세요.
 
@@ -107,14 +106,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
             "minValue": 7,
             "maxValue": 730,
             "metadata": {
-                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can have only 7 days."
-            }
-        },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This applies only when retention is being set to 30 days."
+                "description": "Number of days to retain data."
             }
         },
         "location": {
@@ -122,6 +114,12 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -176,13 +174,11 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -194,7 +190,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
         "resources": [
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [
@@ -209,7 +205,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
             "resources": [
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('sampleGraphicalRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -229,7 +225,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePowerShellRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -249,7 +245,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePython2RunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -270,10 +266,10 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
                 ]
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"

@@ -7,22 +7,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b24b69716e472082abfdb388e7d79e88a8e23e64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0955cc8722c2a2b559935341cfd7e87bac6e4d3e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72754801"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954658"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB의 TCO (총 소유 비용)
 
 Azure Cosmos DB은 미세 조정된 다중 테넌시 및 리소스 거버넌스를 사용하여 디자인되었습니다. 이 디자인을 사용하면 Azure Cosmos DB가 훨씬 더 낮은 비용으로 작동할 수 있으므로 비용 절감에 도움이 됩니다. 현재 Azure Cosmos DB는 밀도가 지속적으로 증가하고 단일 클러스터 내에 수천 개의 고객 워크로드가 존재하는 가운데, 단일 컴퓨터에서 280개가 넘는 고객 워크로드를 지원합니다. 이 기능은 데이터 센터 내에 있는 단일 클러스터 및 여러 클러스터 간의 여러 다른 컴퓨터에서 고객 워크로드 복제본의 부하를 분산시킵니다. 자세히 알아보려면 [Azure Cosmos DB: 전역적으로 분산 된 데이터베이스의 경계선 푸시](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)를 참조 하세요. 리소스 거버넌스, 다중 테넌시 및 나머지 Azure 인프라 영역과의 네이티브 통합으로 인해 Azure Cosmos DB는 MongoDB, Cassandra 또는 IaaS에서 실행 중인 다른 OSS NoSQL보다 평균적으로 4~6배 더 저렴하고, 온-프레미스에서 실행되는 데이터베이스 엔진보다 최대 10배 더 저렴합니다. [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)(NoSQL 데이터베이스 클라우드 서비스의 총 소유 비용) 문서를 참조하세요.
 
-Apache Cassandra, MongoDB, HBase와 같은 OSS NoSQL 데이터베이스 솔루션은 온-프레미스용으로 디자인되었습니다. 이러한 솔루션은 관리되는 서비스로 제공될 경우 프로비전된 클러스터를 관리하고 지원을 모니터링하기 위한 테넌트 데이터베이스가 있는 Resource Manager 템플릿과 동일합니다. OSS NoSQL 아키텍처에는 상당한 크기의 운영 오버헤드가 필요하며, 전문 지식을 찾기가 어렵고 비용도 많이 들 수 있습니다. 반면에 Azure Cosmos DB는 완전 관리형 클라우드 서비스로, 개발자가 데이터베이스 인프라를 유지 및 관리하기보다 비즈니스 혁신에 초점을 맞출 수 있도록 합니다. 
+Apache Cassandra, MongoDB, HBase와 같은 OSS NoSQL 데이터베이스 솔루션은 온-프레미스용으로 디자인되었습니다. 이러한 솔루션은 관리되는 서비스로 제공될 경우 프로비전된 클러스터를 관리하고 지원을 모니터링하기 위한 테넌트 데이터베이스가 있는 Resource Manager 템플릿과 동일합니다. OSS NoSQL 아키텍처에는 상당한 크기의 운영 오버헤드가 필요하며, 전문 지식을 찾기가 어렵고 비용도 많이 들 수 있습니다. 반면에 Azure Cosmos DB는 완전 관리형 클라우드 서비스로, 개발자가 데이터베이스 인프라를 유지 및 관리하기보다 비즈니스 혁신에 초점을 맞출 수 있도록 합니다.
 
 클라우드 기본 데이터베이스 서비스인 Azure Cosmos DB와 달리, OSS NoSQL 데이터베이스 엔진은 리소스 거버넌스 또는 세분화된 다중 테넌시를 기본 아키텍처 원칙으로 사용하여 디자인 및 구축되지 않았습니다. Cassandra 및 MongoDB와 같은 OSS NoSQL 데이터베이스 엔진에서는 기본적으로 엔진이 실행 중인 가상 머신의 모든 리소스를 해당 용도로 사용할 수 있다고 가정합니다. 이러한 데이터베이스 엔진 대부분은 리소스 양이 특정 임계값 아래로 떨어지면 작동할 수 없습니다. 예를 들어, 소규모 VM 인스턴스의 경우도 일반적으로 더 높은 비용의 대규모 VM에 적합한 공급업체 권장 구성에 따라 사용할 수 있습니다. 따라서 OSS NoSQL 또는 다른 온-프레미스 데이터베이스 엔진을 호스트 하 고 초당 요청 수 또는 사용 된 저장소와 같은 소비 기반 요금 모델을 사용 하 여 사용할 수 있도록 설정할 수 없습니다.
 
-## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Azure Cosmos DB의 총 소유 비용 
+## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Azure Cosmos DB의 총 소유 비용
 
 Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인프라를 과도하게 프로비전할 필요가 없도록 합니다. Azure Cosmos DB 리소스는 특수한 구성 또는 라이선스가 필요 없는 상태로 제공됩니다. 결과적으로, Azure Cosmos DB 기반 애플리케이션은 OSS NoSQL 데이터베이스에 비해 총 소유 비용을 70%정도 절감하면서 실행할 수 있습니다. 실시간 몇 가지 예제를 보려면 [고객 사용 사례](https://customers.microsoft.com/en-us/search?sq=Cosmos%20DB&ff=&p=0&so=story_publish_date%20desc)를 참조하세요. Azure Cosmos DB 가격 책정 모델의 다른 이점은 다음과 같습니다.
 
@@ -30,7 +29,7 @@ Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인
 
 * **NoSQL DevOps 관리가 필요 하지 않습니다.** Azure Cosmos DB를 사용 하 여 배포를 관리 하 고 유지 관리, 크기 조정 또는 패치를 수행 하는 데 DevOps를 사용할 필요가 없습니다. OSS NoSQL 클러스터를 온-프레미스 또는 클라우드 인프라에 호스트한 상태로 수행하는 모든 워크로드를 실행할 수 있습니다.
 
-![Azure Cosmos DB 소유 비용](./media/total-cost-ownership/tco.png)
+:::image type="content" source="./media/total-cost-ownership/tco.png" alt-text="Azure Cosmos DB 소유 비용" border="false":::
 
 * **탄력적으로 크기 조정 기능:** Azure Cosmos DB 처리량은 확장 및 축소할 수 있으므로 사용량이 많지 않은 시간에 소유권의 비용을 줄일 수 있습니다. 클라우드 인프라에 배포된 OSS NoSQL 클러스터는 제한된 탄력성을 제공하며, 온-프레미스 배포는 본래부터 탄력적이지 않습니다. Azure Cosmos DB에서는 더 많은 처리량을 프로비전하는 경우 처리량이 비례적으로 확장될 수 있습니다. 어떤 규모에서든지 재무 SLA를 통해 99번째 백분위수로 이러한 확장이 보장됩니다.
 

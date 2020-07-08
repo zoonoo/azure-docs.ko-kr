@@ -9,12 +9,11 @@ ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609506"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Azure Logic Apps에서 IBM MQ 서버에 연결
 
@@ -94,7 +93,7 @@ MQ 작업을 추가할 때 MQ 연결이 아직 없는 경우 연결을 만들라
      > [!IMPORTANT]
      > **인증서 - 로컬 컴퓨터** > **신뢰할 수 있는 루트 인증 기관** 저장소에 인증서를 설치해야 합니다.
 
-* MQ 서버를 사용하려면 SSL 연결에 사용하려는 암호화 사양을 정의해야 합니다. 그러나 .NET의 SsLStream에서는 암호화 사양의 순서를 지정하는 것을 허용하지 않습니다. 이 제한을 해결하려면 커넥터가 SSL 협상에서 보내는 도구 모음의 첫 번째 암호화 사양과 일치하도록 MQ 서버 구성을 변경할 수 있습니다.
+* MQ 서버를 사용 하려면 TLS/SSL 연결에 사용 하려는 암호화 사양을 정의 해야 합니다. 그러나 .NET의 SslStream에서는 암호 사양의 순서를 지정 하는 것을 허용 하지 않습니다. 이 제한을 해결 하려면 커넥터가 TLS/SSL 협상에서 전송 하는 도구 모음의 첫 번째 암호화 사양과 일치 하도록 MQ 서버 구성을 변경할 수 있습니다.
 
   연결을 시도하면 MQ 서버는 다른 쪽 끝에서 잘못된 암호화 사양을 사용했으므로 연결이 실패했음을 나타내는 이벤트 메시지를 기록합니다. 이벤트 메시지에는 목록에서 맨 처음 표시되는 암호화 사양이 포함됩니다. 채널 구성의 암호화 사양을 이벤트 메시지의 암호화 사양과 일치하도록 업데이트합니다.
 

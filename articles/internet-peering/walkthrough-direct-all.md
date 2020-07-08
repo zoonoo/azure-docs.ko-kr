@@ -5,21 +5,20 @@ description: 직접 피어링 연습
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d88fcfc4d3e073bf544f2ca0f4d01dbe305b45da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e27fa26514d27d68aecdf9e28b36e2747dc8ffe2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75775512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710765"
 ---
 # <a name="direct-peering-walkthrough"></a>직접 피어링 연습
 
 이 섹션에서는 직접 피어 링을 설정 하 고 관리 하기 위해 수행 해야 하는 단계를 설명 합니다.
 
-## <a name="create-a-direct-peering"></a>직접 피어 링 만들기
+## <a name="create-a-direct-peering"></a>직접 피어링 만들기
 > [!div class="mx-imgBorder"]
 > ![직접 피어 링 워크플로 및 연결 상태](./media/direct-peering.png)
 

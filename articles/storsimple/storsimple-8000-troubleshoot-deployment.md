@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513720"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 디바이스 배포 문제 해결
 ## <a name="overview"></a>개요
@@ -77,16 +76,16 @@ ms.locfileid: "79267626"
 | 4 |Invoke-HcsSetupWizard: 클러스터 리소스가 실패했습니다. (HRESULT: 0x800713AE에서 예외 발생). |VIP가 중복되었습니다. 제공된 IP가 이미 사용 중입니다. |사용되지 않는 새 IP를 제공합니다. |
 | 5 |Invoke-HcsSetupWizard: 잘못된 IPv4 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv4 주소 지정][1]을 참조하세요. |
 | 6 |Invoke-HcsSetupWizard: 잘못된 IPv6 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv6 주소 지정][2]을 참조하세요. |
-| 7 |Invoke-HcsSetupWizard: 엔드포인트 매퍼에서 사용 가능한 엔드포인트가 더 이상 없습니다. (HRESULT: 0x800706D9에서 예외 발생). |클러스터 기능이 작동하지 않습니다. |다음 단계는 [Microsoft 지원에 문의 하세요](storsimple-8000-contact-microsoft-support.md) . |
+| 7 |Invoke-HcsSetupWizard: 엔드포인트 매퍼에서 사용 가능한 엔드포인트가 더 이상 없습니다. (HRESULT: 0x800706D9에서 예외 발생). |클러스터 기능이 작동하지 않습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>선택적 웹 프록시 설정 중 오류
 | 아니요. | 오류 메시지 | 가능한 원인 | 권장 조치 |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용 합니다. http://*\<IP 주소 또는 웹 프록시 서버의 FQDN>*:*\<TCP 포트 번호>* |
+| 1 |Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용 합니다. http:// *\<IP address or FQDN of the web proxy server>* :*\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: RPC 서버 사용 불가능(HRESULT: 0x800706ba에서 예외 발생) |근본 원인은 다음 중 하나입니다.<ol><li>클러스터가 켜지지 않았습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 명령은 수동 컨트롤러에서 실행되었습니다.</li></ol> |근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊긴 경우에는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)해야 합니다.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC 호출 실패함(HRESULT: 0x800706be에서 예외 발생) |클러스터의 작동이 중단되었습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다. |
 | 4 |Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없음(HRESULT: 0x8007138f에서 예외 발생) |클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. |디바이스를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터 리소스를 만듭니다. |
-| 5 |Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생) |클러스터 리소스가 온라인 상태가 아닙니다. |다음 단계는 [Microsoft 지원에 문의 하세요](storsimple-8000-contact-microsoft-support.md) . |
+| 5 |Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생) |클러스터 리소스가 온라인 상태가 아닙니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>디바이스 관리자 암호 관련 오류
 기본 디바이스 관리자 암호는 **Password1**입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 디바이스를 등록하는 경우 새 디바이스 관리자 암호를 입력해야 합니다. 
@@ -103,7 +102,7 @@ ms.locfileid: "79267626"
 
 디바이스 관리자 및 StorSimple Snapshot Manager 암호를 설정할 때 다음 오류 중 하나 이상이 발생할 수 있습니다.
 
-| 아니요. | 오류 메시지 | 권장 조치 |
+| 아니요. | 오류 메시지 | 권장 작업 |
 | --- | --- | --- |
 | 1 |암호는 최대 길이를 초과합니다. |디바이스 관리자 암호는 8자에서 15자 사이여야 합니다. |
 | 2 |암호가 필요한 길이에 맞지 않습니다. |디바이스 관리자 암호는 8자에서 15자 사이여야 합니다.|
@@ -132,14 +131,14 @@ Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스�
 | 2 |오류 350013: 디바이스를 등록 하는 중에 오류가 발생했습니다. 잘못된 서비스 등록 키 때문일 수 있습니다. | |올바른 서비스 등록 키로 디바이스를 다시 등록하세요. 자세한 내용은 [서비스 등록 키 받기](storsimple-8000-manage-service.md#get-the-service-registration-key)를 참조하세요. |
 | 3 |오류 350063: StorSimple 디바이스 관리자 서비스에 대한 인증은 통과했지만 등록에 실패했습니다. 잠시 후 작업을 다시 시도하세요. |이 오류는 ACS로 인증이 통과했지만 서비스에 대한 레지스터 호출이 실패했음을 나타냅니다. 간헐적인 네트워크 결함의 결과일 수 있습니다. |문제가 지속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 4 |350049 오류: 등록하는 동안 서비스에 연결할 수 없습니다. |서비스에 호출되면 웹 예외가 수신됩니다. 경우에 따라 작업을 나중에 다시 시도하여 수정될 수 있습니다. |IP 주소 및 DNS 이름을 확인한 다음 작업을 다시 시도합니다. 문제가 지속 되 면 [Microsoft 지원에 문의 하세요.](storsimple-8000-contact-microsoft-support.md) |
-| 5 |오류 350031: 디바이스가 이미 등록되었습니다. | |아무런 작업도 수행할 필요가 없습니다. |
+| 5 |오류 350031: 디바이스가 이미 등록되었습니다. | |필요한 작업이 없습니다. |
 | 6 |오류 350016: 디바이스 등록에 실패했습니다. | |등록 키가 올바른지 확인하세요. |
 | 7 |Invoke-HcsSetupWizard: 디바이스를 등록하는 동안 오류가 발생했습니다. 잘못된 IP 주소 또는 DNS 이름때문일 수 있습니다. 네트워크 설정을 확인하고 다시 시도하세요. 문제가 계속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. (오류 350050) |디바이스에 외부 네트워크를 ping할 수 있는지 확인합니다. 외부 네트워크에 연결되지 않은 경우 이 오류와 함께 등록이 실패할 수 있습니다. 이 오류는 다음 중 하나 이상의 조합일 수 있습니다:<ul><li>잘못된 IP</li><li>잘못된 서브넷</li><li>잘못된 게이트웨이</li><li>잘못된 DNS 설정</li></ul> |[단계별 문제 해결 예제](#step-by-step-storsimple-troubleshooting-example)의 단계를 참조하세요. |
 | 8 |Invoke-HcsSetupWizard: 내부 서비스 오류 [0x1FBE2]때문에 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |모든 사용자가 서비스 또는 에이전트에서 볼 수 없는 오류에 대해 발생한 일반 오류입니다. 가장 일반적인 이유가 ACS 인증 실패일 수 있습니다. 실패에 대한 가능한 원인은 NTP 서버 구성에 문제가 있고 디바이스의 시간이 올바르게 설정되지 않았기 때문일 수 있습니다. |시간을 수정하고(문제가 있는 경우) 등록 작업을 다시 시도하세요. Set-HcsSystem -Timezone 명령을 사용하여 표준 시간대를 조정하는 경우 표준 시간대의 각 단어 첫 글자를 대문자로 표시합니다(예: "Pacific Standard Time").  문제가 계속되면 다음 단계를 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 9 |경고: 디바이스를 활성화할 수 없습니다. 디바이스 관리자 및 StorSimple Snapshot Manager 암호가 변경되지 않습니다. |등록이 실패하면, 디바이스 관리자 및 StorSimple Snapshot Manager 암호가 변경되지 않습니다. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>StorSimple 배포 문제 해결을 위한 팁
-StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있는 여러 도구를 포함합니다. 여기에는 다음이 포함됩니다.
+StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있는 여러 도구를 포함합니다. 내용은 다음과 같습니다.
 
 * 지원 패키지 및 디바이스 로그
 * 문제 해결을 위해 특별히 설계된 Cmdlet

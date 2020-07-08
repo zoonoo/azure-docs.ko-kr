@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: dbaef6e0c81a9230b24aa1e85e7fdc421444047d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 41157f26e4f87e59d5a0276ff72012ae20b70fbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84986011"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정
 
@@ -26,7 +25,7 @@ ms.locfileid: "75863998"
 >
 >
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 
 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 

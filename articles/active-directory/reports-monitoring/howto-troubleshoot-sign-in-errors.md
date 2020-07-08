@@ -7,19 +7,18 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec5fe7f62e8537a7f687202d365eb37d43b48b78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608129"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>방법: Azure Active Directory 보고서를 사용하여 로그인 오류 문제 해결
 
@@ -32,7 +31,7 @@ Azure AD(Azure Active Directory)의 [ 로그인 보고서](concept-sign-ins.md)�
 
 또한 로그인 보고서는 조직의 사용자에 대한 로그인 실패 문제를 해결하는 데 도움이 될 수 있습니다. 이 가이드에서는 로그인 보고서에서 로그인 실패를 격리하고, 이를 사용하여 실패의 근본 원인을 파악하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 작업을 수행해야 합니다.
 

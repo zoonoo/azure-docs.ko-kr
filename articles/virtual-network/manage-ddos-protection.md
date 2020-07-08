@@ -5,23 +5,22 @@ description: Azure Monitor에서 Azure DDoS Protection 표준 원격 분석을 �
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: f208119ce80d6b728030ea96f13d6c3d0375e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711513"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
 
@@ -42,11 +41,11 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 3. **만들기**를 선택합니다.
 4. 값을 직접 입력 또는 선택하거나 다음 예의 값을 입력 또는 선택한 다음, **만들기**를 선택합니다.
 
-    |설정        |값                                              |
+    |Setting        |값                                              |
     |---------      |---------                                          |
-    |속성           | myDdosProtectionPlan                              |
+    |Name           | myDdosProtectionPlan                              |
     |Subscription   | 구독을 선택합니다.                         |
-    |Resource group | **새로 만들기**를 선택하고, *myResourceGroup*을 입력합니다. |
+    |Resource group | **새로 만들기** 를 선택 하 고 *myresourcegroup* 을 입력 합니다. |
     |위치       | 미국 동부                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>새 가상 네트워크에 대한 DDoS 사용
@@ -55,11 +54,11 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 2. **네트워킹**을 선택한 다음 **가상 네트워크**를 선택 합니다.
 3. 값을 직접 입력 또는 선택하거나 다음 예의 값을 입력 또는 선택하고, 나머지 기본값을 적용한 다음, **만들기**를 선택합니다.
 
-    | 설정         | 값                                                        |
+    | Setting         | 값                                                        |
     | ---------       | ---------                                                    |
-    | 속성            | myVirtualNetwork                                             |
+    | Name            | myVirtualNetwork                                             |
     | Subscription    | 구독을 선택합니다.                                    |
-    | Resource group  | **기존 사용**을 선택 하 고 **myresourcegroup** 을 선택 합니다. |
+    | Resource group  | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
     | 위치        | 미국 동부                                                      |
     | DDoS 보호 | **표준**을 선택한 다음, **DDoS 보호** 아래에서 **myDdosProtectionPlan**을 선택합니다. 선택한 계획은 가상 네트워크와 동일하거나 다른 구독에 있을 수 있지만, 두 구독은 모두 동일한 Azure Active Directory 테넌트에 연결되어야 합니다.|
 
@@ -105,9 +104,9 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 3. **공유 서비스** 아래에서 **메트릭**을 선택합니다.
 4. 값을 직접 입력 또는 선택하거나 다음 예의 값을 입력하고, 나머지 기본값을 적용한 다음, **확인**을 선택합니다.
 
-    |설정                  |값                                                                                               |
+    |Setting                  |값                                                                                               |
     |---------                |---------                                                                                           |
-    |속성                     | myDdosAlert                                                                                        |
+    |Name                     | myDdosAlert                                                                                        |
     |Subscription             | 경고를 받으려는 공용 IP 주소가 포함된 구독을 선택합니다.        |
     |Resource group           | 경고를 받으려는 공용 IP 주소가 포함된 리소스 그룹을 선택합니다.      |
     |리소스                 | 경고를 받으려는 공용 IP 주소가 포함된 공용 IP 주소를 선택합니다. DDoS는 가상 네트워크 내의 리소스에 할당된 공용 IP 주소를 모니터링합니다. 가상 네트워크에 공용 IP 주소가 있는 리소스가 없으면 먼저 공용 IP 주소를 사용하여 리소스를 만들어야 합니다. Azure App Service 환경 및 Azure VPN Gateway를 제외하고 [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 나열된 Resource Manager(클래식이 아님)를 통해 배포된 모든 리소스의 공용 IP 주소를 모니터링할 수 있습니다. 이 자습서를 계속 진행하려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 빠르게 만들면 됩니다.                   |
@@ -230,7 +229,7 @@ DDoS 공격 감지 및 완화에 대해 다음과 같은 두 가지 특정 경�
 
 DDoS 보호 계획을 사용하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 작업                                            | 속성                                     |
+| 작업                                            | 이름                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | DDoS 보호 계획 읽기              |
 | Microsoft.Network/ddosProtectionPlans/write       | DDoS 보호 계획 만들기 또는 업데이트  |

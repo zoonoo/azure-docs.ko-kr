@@ -7,7 +7,7 @@ manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -15,12 +15,11 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608928"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
@@ -32,7 +31,7 @@ Microsoft는 환경을 안전하게 유지하기 위해 최선을 다하고 있�
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>위험 플래그가 지정된 사용자 보고서에 액세스
 
-Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers)를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure AD가 없는 경우에서 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)무료로 등록할 수 있습니다. 
+Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers)를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure AD가 없는 경우에서 무료로 등록할 수 있습니다 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) . 
 
 위험 플래그가 지정된 사용자 보고서에서 각 사용자에 대해 다음과 같은 조치를 취할 수 있습니다.
 
@@ -75,7 +74,7 @@ Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** �
 
     f. 계정에서 암호 복잡성을 높게 설정합니다.
 
-    g. 사서함 감사를 사용하도록 설정합니다.
+    예: 사서함 감사를 사용하도록 설정합니다.
 
     h. 관리자가 검토할 수 있도록 감사 로그를 생성합니다.
 
@@ -92,4 +91,4 @@ Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Active Directory ID 보호](../active-directory-identityprotection.md)
-* [위험 플래그가 지정된 사용자](concept-user-at-risk.md)
+* [위험에 대한 플래그가 지정된 사용자](concept-user-at-risk.md)

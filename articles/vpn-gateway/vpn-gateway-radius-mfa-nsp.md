@@ -10,23 +10,22 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8c439113907c2eb28c41aed3c21c1d27398d5207
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75780371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987090"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
 
 이 문서에서는 NPS(네트워크 정책 서버)를 Azure VPN Gateway RADIUS 인증과 통합하여 지점과 사이트 간 VPN 연결에 MFA(Multi-Factor Authentication)를 제공하는 방법을 설명합니다. 
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어야 하며 이는 온-프레미스 또는 클라우드 환경에서 동기화되어야 합니다. 또한 사용자가 MFA에 대한 자동 등록 프로세스를 이미 완료해 놓아야 합니다.  자세한 내용은 [2단계 인증에 내 계정 설정](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 
@@ -65,13 +64,13 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
 
     ![RADIUS 클라이언트 고급 설정에 대 한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
-4. **정책** > **네트워크 정책**으로 이동 하 고 **Microsoft 라우팅 및 원격 액세스 서버 정책에 대 한 연결** 을 두 번 클릭 한 다음 **액세스 권한 부여**를 선택 하 고 **확인**을 클릭 합니다.
+4. **정책**  >  **네트워크 정책**으로 이동 하 고 **Microsoft 라우팅 및 원격 액세스 서버 정책에 대 한 연결** 을 두 번 클릭 한 다음 **액세스 권한 부여**를 선택 하 고 **확인**을 클릭 합니다.
 
 ### <a name="step-3-configure-the-virtual-network-gateway"></a>3단계 가상 네트워크 게이트웨이 구성
 
 1. [Azure Portal](https://portal.azure.com)에 로그온합니다.
 2. 만든 가상 네트워크 게이트웨이를 엽니다. 게이트웨이 유형이 **VPN**으로 설정되어 있고 VPN 유형이 **경로 기반**인지 확인합니다.
-3. **지점 및 사이트 구성** > **지금 구성**을 클릭 한 후 다음 설정을 지정 합니다.
+3. **지점 및 사이트 구성**  >  **지금 구성**을 클릭 한 후 다음 설정을 지정 합니다.
 
     - **주소 풀**: 1단계에서 만든 게이트웨이 서브넷을 입력합니다.
     - **인증 유형**: **RADIUS 인증**을 선택합니다.

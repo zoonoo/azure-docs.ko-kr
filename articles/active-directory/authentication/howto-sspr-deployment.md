@@ -11,19 +11,18 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338569"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
 > [!IMPORTANT]
 > 이 배포 계획은 Azure AD SSPR(셀프 서비스 암호 재설정)을 배포하기 위한 지침 및 모범 사례를 제공합니다.
 >
-> **사용자 및 최종 사용자가 계정으로 다시 돌아가야 하는 경우 [https://aka.ms/sspr](https://aka.ms/sspr)** 로 이동합니다.
+> **최종 사용자 인 경우 계정으로 다시 전환 해야 하는 경우으로 [https://aka.ms/sspr](https://aka.ms/sspr) 이동 **합니다.
 
 [SSPR(셀프 서비스 암호 재설정)](https://www.youtube.com/watch?v=tnb2Qf4hTP8)은 사용자가 IT 직원에게 문의하여 도움을 요청하지 않고도 자신의 암호를 재설정할 수 있는 Azure AD(Active Directory) 기능입니다. 사용자는 직접 언제 어디서든 빠르게 차단을 해제하고 작업을 계속 수행할 수 있습니다. 직원이 직접 차단 해제하도록 허용하면 조직은 가장 일반적인 암호 관련 문제에 소모되는 비생산적인 시간과 높은 지원 비용을 줄일 수 있습니다.
 

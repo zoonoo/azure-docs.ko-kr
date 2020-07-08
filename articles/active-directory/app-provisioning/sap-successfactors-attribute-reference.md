@@ -1,22 +1,21 @@
 ---
 title: SAP SuccessFactors 특성 참조
-description: SuccessFactors-HR 기반 프로 비전에서 지 원하는 SuccessFactors의 특성 알아보기
+description: SuccessFactors-HR 기반 프로비저닝에서 지원하는 SuccessFactors의 특성 알아보기
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: reference
 ms.workload: identity
 ms.date: 12/06/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781551"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>SAP SuccessFactors 특성 참조
 
@@ -71,7 +70,7 @@ ms.locfileid: "82593187"
 | 34 | 사용자                                   | nickname                     | 읽기           |
 | 35 | 사용자                                   | state                        | 읽기           |
 | 36 | 사용자                                   | timeZone                     | 읽기           |
-| 37 | 사용자                                   | username                     | 읽기           |
+| 37 | 사용자                                   | 사용자 이름                     | 읽기           |
 | 38 | 사용자                                   | zipCode                      | 읽기           |
 | 39 | PerPhone                               | areaCode                     | 읽기           |
 | 40 | PerPhone                               | countryCode                  | 읽기           |
@@ -92,26 +91,26 @@ ms.locfileid: "82593187"
 | 55 | EmpJob                                 | position                     | 읽기           |
 | 65 | EmpJob                                 | customString13               | 읽기           |
 | 56 | EmpJob                                 | managerId                    | 읽기           |
-| 57 | EmpJob\.BusinessUnit                   | businessUnit                 | 읽기           |
-| 58 | EmpJob\.BusinessUnit                   | businessUnitId               | 읽기           |
-| 59 | EmpJob\.회사                        | company                      | 읽기           |
-| 60 | EmpJob\.회사                        | companyId                    | 읽기           |
-| 61 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode           | 읽기           |
-| 62 | EmpJob\.CostCenter                     | costCenter                   | 읽기           |
-| 63 | EmpJob\.CostCenter                     | costCenterId                 | 읽기           |
-| 64 | EmpJob\.CostCenter                     | costCenterDescription        | 읽기           |
-| 65 | EmpJob\.부서                     | department                   | 읽기           |
-| 66 | EmpJob\.부서                     | departmentId                 | 읽기           |
-| 67 | EmpJob\.나누기                       | division                     | 읽기           |
-| 68 | EmpJob\.나누기                       | divisionId                   | 읽기           |
-| 69 | EmpJob\.jobcode                        | jobCode                      | 읽기           |
-| 70 | EmpJob\.jobcode                        | jobCodeId                    | 읽기           |
-| 71 | EmpJob\.위치                       | LocationName                 | 읽기           |
-| 72 | EmpJob\.위치                       | 주소록 주소        | 읽기           |
-| 73 | EmpJob\.위치                       | 지역 위치 도시           | 읽기           |
-| 74 | EmpJob\.위치                       | officeLocationCustomString4  | 읽기           |
-| 75 | EmpJob\.위치                       | officeLocationZipCode        | 읽기           |
-| 76 | EmpJob\.PayGrade                       | payGrade                     | 읽기           |
+| 57 | EmpJob \. BusinessUnit                   | businessUnit                 | 읽기           |
+| 58 | EmpJob \. BusinessUnit                   | businessUnitId               | 읽기           |
+| 59 | EmpJob \. 회사                        | company                      | 읽기           |
+| 60 | EmpJob \. 회사                        | companyId                    | 읽기           |
+| 61 | EmpJob \. Company \. CountryOfRegistration | twoCharCountryCode           | 읽기           |
+| 62 | EmpJob \. CostCenter                     | costCenter                   | 읽기           |
+| 63 | EmpJob \. CostCenter                     | costCenterId                 | 읽기           |
+| 64 | EmpJob \. CostCenter                     | costCenterDescription        | 읽기           |
+| 65 | EmpJob \. 부서                     | department                   | 읽기           |
+| 66 | EmpJob \. 부서                     | departmentId                 | 읽기           |
+| 67 | EmpJob \. 나누기                       | division                     | 읽기           |
+| 68 | EmpJob \. 나누기                       | divisionId                   | 읽기           |
+| 69 | EmpJob \. jobcode                        | jobCode                      | 읽기           |
+| 70 | EmpJob \. jobcode                        | jobCodeId                    | 읽기           |
+| 71 | EmpJob \. 위치                       | LocationName                 | 읽기           |
+| 72 | EmpJob \. 위치                       | 주소록 주소        | 읽기           |
+| 73 | EmpJob \. 위치                       | 지역 위치 도시           | 읽기           |
+| 74 | EmpJob \. 위치                       | officeLocationCustomString4  | 읽기           |
+| 75 | EmpJob \. 위치                       | officeLocationZipCode        | 읽기           |
+| 76 | EmpJob \. PayGrade                       | payGrade                     | 읽기           |
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | 읽기           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | 읽기           |
 
@@ -122,7 +121,7 @@ ms.locfileid: "82593187"
 | \# | SuccessFactors 엔터티                  | SuccessFactors 특성 | 기본 AD/Azure AD 특성 매핑   | 주석 처리                                                                            |
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
 | 1  | PerPerson                              | personIdExternal         | employeeId                              | 일치 특성으로 사용                                                                   |
-| 2  | PerPerson                              | perPersonUuid            | \[원본 앵커로 \- 사용 매핑되지 않음\] | 초기 동기화 중에 프로 비전 서비스는 personUuid를 기존 objectGuid\. 연결 합니다.  |
+| 2  | PerPerson                              | perPersonUuid            | \[\-원본 앵커로 사용 매핑되지 않음\] | 초기 동기화 중에 프로 비전 서비스는 personUuid를 기존 objectGuid\. 연결 합니다.  |
 | 3  | PerPersonal                            | displayName              | displayName                             | 해당 없음                                                                                           |
 | 4  | PerPersonal                            | firstName                | givenName                               | 해당 없음                                                                                           |
 | 5  | PerPersonal                            | lastName                 | sn                                      | 해당 없음                                                                                           |
@@ -130,14 +129,14 @@ ms.locfileid: "82593187"
 | 7  | 사용자                                   | city                     | l                                       | 해당 없음                                                                                           |
 | 8  | 사용자                                   | country                  | co                                      | 해당 없음                                                                                           |
 | 9  | 사용자                                   | state                    | st                                      | 해당 없음                                                                                           |
-| 10 | 사용자                                   | username                 | samAccountName                          | 해당 없음                                                                                           |
+| 10 | 사용자                                   | 사용자 이름                 | samAccountName                          | 해당 없음                                                                                           |
 | 11 | 사용자                                   | zipCode                  | postalCode                              | 해당 없음                                                                                           |
 | 12 | PerEmail                               | emailAddress             | mail                                    | 해당 없음                                                                                           |
 | 13 | EmpJob                                 | jobTitle                 | title                                   | 해당 없음                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | 해당 없음                                                                                           |
-| 15 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode       | c                                       | 해당 없음                                                                                           |
-| 16 | EmpJob\.부서                     | department               | department                              | 해당 없음                                                                                           |
-| 17 | EmpJob\.나누기                       | division                 | company                                 | 해당 없음                                                                                           |
-| 18 | EmpJob\.위치                       | 주소록 주소    | streetAddress                           | 해당 없음                                                                                           |
-| 19 | EmpJob\.위치                       | officeLocationZipCode    | postalCode                              | 해당 없음                                                                                           |
+| 15 | EmpJob \. Company \. CountryOfRegistration | twoCharCountryCode       | c                                       | 해당 없음                                                                                           |
+| 16 | EmpJob \. 부서                     | department               | department                              | 해당 없음                                                                                           |
+| 17 | EmpJob \. 나누기                       | division                 | company                                 | 해당 없음                                                                                           |
+| 18 | EmpJob \. 위치                       | 주소록 주소    | streetAddress                           | 해당 없음                                                                                           |
+| 19 | EmpJob \. 위치                       | officeLocationZipCode    | postalCode                              | 해당 없음                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | activeEmploymentsCount = 0 인 경우에는 account\. 사용 하지 않도록 설정 합니다.                                           |

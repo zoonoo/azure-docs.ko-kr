@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759773"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
@@ -35,11 +34,11 @@ ms.locfileid: "81759773"
 > 장치 및 솔루션 백 엔드에서 실행 하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT Sdk에 대 한 자세한 내용은 [Azure Iot sdk](iot-hub-devguide-sdks.md)를 참조 하세요.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Visual Studio.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
 ## <a name="create-a-hub"></a>허브 만들기
 
@@ -83,7 +82,7 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 모듈 ID 및 모듈 쌍은 공개 미리 보기로 제공됩니다. IoT Hub 시험판 장치 Sdk 에서만 사용할 수 있습니다. 이를 설치 하려면 다음 단계를 수행 합니다.
 
-1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **솔루션에 대 한 nuget 패키지 관리**를 엽니다.
+1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **솔루션에 대 한 nuget 패키지 관리**를 엽니다.
 
 1. **찾아보기**를 선택한 다음 **시험판 포함**을 선택 합니다. *Microsoft. Azure. Devices. 클라이언트*를 검색 합니다. 최신 버전을 선택하고 설치합니다.
 
@@ -93,7 +92,7 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 ### <a name="get-your-module-connection-string"></a>모듈 연결 문자열 가져오기
 
-콘솔 앱에 대 한 모듈 연결 문자열이 필요 합니다. 다음 단계를 수행하세요.
+콘솔 앱에 대 한 모듈 연결 문자열이 필요 합니다. 아래 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -107,7 +106,7 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 앱을 만들려면 다음 단계를 수행 합니다.
 
-1. Program.cs 파일의 `using` 맨 위에 다음 문을 추가 합니다 **Program.cs** .
+1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

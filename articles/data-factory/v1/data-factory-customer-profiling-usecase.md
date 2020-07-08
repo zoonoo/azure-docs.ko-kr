@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75969282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021894"
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  Cortana Intelligence에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics)를 참조하세요. 이 문서에서는 Azure 데이터 팩터리가 어떻게 일반적인 분석 문제를 해결할 수 있는지를 이해하기 시작하는 데 도움이 되는 간단한 사용 사례를 설명합니다.
@@ -38,7 +37,7 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 3. **샘플 파이프라인** 블레이드에서 배포할 **고객 프로파일링**을 클릭합니다.
 
     ![샘플 파이프라인 블레이드](./media/data-factory-samples/SampleTile.png)
-4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure Storage 계정 이름과 키, Azure SQL Server 이름, 데이터베이스, 사용자 ID, 암호 등입니다.
+4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure storage 계정 이름 및 키, 논리적 SQL server 이름, 데이터베이스, 사용자 ID, 암호 등이 있습니다.
 
     ![샘플 블레이드](./media/data-factory-samples/SampleBlade.png)
 5. 구성 설정 지정을 마쳤으면 **만들기** 를 클릭하여 샘플 파이프라인 및 파이프라인에서 사용되는 연결된 서비스/테이블을 만듭니다/배포합니다.

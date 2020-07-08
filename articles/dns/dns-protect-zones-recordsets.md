@@ -4,15 +4,14 @@ description: 이 학습 경로에서 dns Microsoft Azure dns 영역 및 레코�
 services: dns
 author: asudbring
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 89a945f146601084795b2e12a721a03a1b96aaea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 81a58657a4ab8f7403006ce02fb8f585feea86b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711275"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 

@@ -5,45 +5,55 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325136"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 요청 트리거 및 응답 작업을 사용하면 들어오는 HTTPS 요청을 수신하고 응답하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 논리 앱을 통해 다음을 수행할 수 있습니다.
 
 * 온-프레미스 데이터베이스에서 데이터에 대한 HTTPS 요청을 수신하고 응답합니다.
+
 * 외부 웹후크 이벤트가 발생하는 경우 워크플로를 트리거합니다.
+
 * 다른 논리 앱의 HTTPS 호출을 수신하고 응답합니다.
 
 요청 트리거는 논리 앱에 대한 인바운드 호출에 권한을 부여하기 위해 Azure AD OAuth([Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md))를 지원합니다. 이 인증을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Logic Apps에서 액세스 및 데이터 보안 - Azure AD OAuth 인증 사용](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth)을 참조하세요.
-
-> [!NOTE]
-> 요청 트리거는 *오직* 들어오는 호출에 대해서만 TLS(전송 계층 보안) 1.2를 지원합니다. 보내는 호출은 TLS 1.0, 1.1 및 1.2를 지원합니다. 자세한 내용은 [TLS 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조하세요.
->
-> TLS 핸드셰이크 오류가 발생하는 경우 TLS 1.2를 사용해야 합니다. 
-> 들어오는 호출의 경우 지원되는 암호 그룹은 다음과 같습니다.
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 가입](https://azure.microsoft.com/free/)할 수 있습니다.
 
 * [논리 앱](../logic-apps/logic-apps-overview.md)에 대한 기본 지식 논리 앱을 처음 사용하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아보세요.
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>TLS(전송 계층 보안)
+
+* 인바운드 호출은 TLS (Transport Layer Security) 1.2 *만* 지원 합니다. TLS 핸드셰이크 오류가 발생하는 경우 TLS 1.2를 사용해야 합니다. 자세한 내용은 [TLS 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조하세요. 아웃 바운드 호출은 대상 끝점의 기능을 기반으로 TLS 1.0, 1.1 및 1.2을 지원 합니다.
+
+* 인바운드 호출은 다음과 같은 암호 그룹을 지원 합니다.
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 
@@ -61,10 +71,10 @@ ms.locfileid: "83714970"
 
    ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {없음} | 예 | 논리 앱을 저장한 후에 생성되고 논리 앱을 호출하는 데 사용되는 엔드포인트 URL입니다. |
-   | **요청 본문 JSON 스키마** | `schema` | 예 | 들어오는 요청 본문의 속성 및 값을 설명하는 JSON 스키마입니다. |
+   | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 요청 본문의 속성 및 값을 설명하는 JSON 스키마입니다. |
    |||||
 
 1. **요청 본문 JSON 스키마** 상자에서 들어오는 요청의 본문을 설명하는 JSON 스키마를 선택적으로 입력합니다. 예를 들면 다음과 같습니다.
@@ -158,11 +168,19 @@ ms.locfileid: "83714970"
       }
       ```
 
+1. 인바운드 호출에 지정 된 스키마와 일치 하는 요청 본문이 있는지 확인 하려면 다음 단계를 수행 합니다.
+
+   1. 요청 트리거의 제목 표시줄에서 줄임표 단추 (**...**)를 선택 합니다.
+   
+   1. 트리거의 설정에서 **스키마 유효성 검사**를 켜고 **완료**를 선택 합니다.
+   
+      인바운드 호출의 요청 본문이 스키마와 일치 하지 않는 경우 트리거는 오류를 반환 합니다 `HTTP 400 Bad Request` .
+
 1. 추가 속성을 지정하려면 **새 매개 변수 추가** 목록을 열고 추가하려는 매개 변수를 선택합니다.
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
-   | **메서드** | `method` | 예 | 들어오는 요청에서 논리 앱을 호출하는 데 사용해야 하는 메서드 |
+   | **메서드** | `method` | 아니요 | 들어오는 요청에서 논리 앱을 호출하는 데 사용해야 하는 메서드 |
    | **상대 경로** | `relativePath` | 예 | 논리 앱의 엔드포인트의 URL이 수락할 수 있는 매개 변수에 대한 상대 경로입니다. |
    |||||
 
@@ -185,6 +203,9 @@ ms.locfileid: "83714970"
    이 단계에서는 논리 앱을 트리거하는 요청을 보내는 데 사용할 URL을 생성합니다. 이 URL을 복사하려면 URL 옆에 있는 복사 아이콘을 선택합니다.
 
    ![논리 앱을 트리거하는 데 사용할 URL](./media/connectors-native-reqres/generated-url.png)
+
+   > [!NOTE]
+   > **#** 요청 트리거를 호출할 때 해시 또는 파운드 기호 ()를 URI에 포함 하려면이 인코딩된 버전을 대신 사용 합니다.`%25%23`
 
 1. 논리 앱을 트리거하려면 생성된 URL에 HTTP POST를 보냅니다.
 
@@ -254,7 +275,7 @@ ms.locfileid: "83714970"
    | 속성 이름 | JSON 속성 이름 | 필수 | Description |
    |---------------|--------------------|----------|-------------|
    | **상태 코드** | `statusCode` | 예 | 응답에 반환할 상태 코드 |
-   | **헤더** | `headers` | 예 | 응답에 포함할 하나 이상의 헤더를 설명하는 JSON 개체입니다. |
+   | **헤더** | `headers` | 아니요 | 응답에 포함할 하나 이상의 헤더를 설명하는 JSON 개체입니다. |
    | **본문** | `body` | 예 | 응답 본문 |
    |||||
 

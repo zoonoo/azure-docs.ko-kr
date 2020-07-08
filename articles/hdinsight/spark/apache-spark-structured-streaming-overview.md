@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9e29d91aa3b146a8aacdccec01b67506d5e45bb3
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75548839"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037922"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 구조적 스트리밍 개요
 
@@ -62,11 +61,13 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 간단한 예제 쿼리에서는 장기 시간 범위를 기준으로 온도 판독값을 요약할 수 있습니다. 이 경우 데이터는 Azure Storage의 JSON 파일에 저장됩니다(HDInsight 클러스터의 기본 스토리지로 연결됨).
 
-    {"time":1469501107,"temp":"95"}
-    {"time":1469501147,"temp":"95"}
-    {"time":1469501202,"temp":"95"}
-    {"time":1469501219,"temp":"95"}
-    {"time":1469501225,"temp":"95"}
+```json
+{"time":1469501107,"temp":"95"}
+{"time":1469501147,"temp":"95"}
+{"time":1469501202,"temp":"95"}
+{"time":1469501219,"temp":"95"}
+{"time":1469501225,"temp":"95"}
+```
 
 이러한 JSON 파일은 HDInsight 클러스터 컨테이너 아래의 `temps` 하위 폴더에 저장됩니다.
 
@@ -74,41 +75,51 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 먼저 데이터 원본 및 해당 원본에 필요한 모든 설정을 설명하는 데이터 프레임을 구성합니다. 다음 예제에서는 Azure Storage의 JSON 파일에서 가져오고 읽기 시간에 스키마를 적용합니다.
 
-    import org.apache.spark.sql.types._
-    import org.apache.spark.sql.functions._
+```sql
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
 
-    //Cluster-local path to the folder containing the JSON files
-    val inputPath = "/temps/" 
+//Cluster-local path to the folder containing the JSON files
+val inputPath = "/temps/" 
 
-    //Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
-    val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
+//Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
+val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
 
-    //Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
-    val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath) 
+//Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
+val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
+``` 
 
 #### <a name="apply-the-query"></a>쿼리 적용
 
 다음으로, 스트리밍 데이터 프레임에 대해 원하는 작업이 포함된 쿼리를 적용합니다. 이 경우 집계는 모든 행을 1시간 범위로 그룹화한 다음, 해당 1시간 범위에서 최소, 평균 및 최대 온도를 계산합니다.
 
-    val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```sql
+val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```
 
 ### <a name="define-the-output-sink"></a>출력 싱크 정의
 
 다음으로, 각 트리거 간격 내에서 결과 테이블에 추가되는 행의 대상을 정의합니다. 다음 예제에서는 나중에 SparkSQL을 사용하여 쿼리할 수 있는 `temps` 메모리 내 테이블에 모든 행을 출력합니다. 전체 출력 모드를 사용하면 매번 모든 시간 범위에 대한 모든 행이 출력됩니다.
 
-    val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete") 
+```sql
+val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
+``` 
 
 ### <a name="start-the-query"></a>쿼리 시작
 
 스트리밍 쿼리를 시작하고 종료 신호를 받을 때까지 실행합니다.
 
-    val query = streamingOutDF.start()  
+```sql
+val query = streamingOutDF.start() 
+``` 
 
 ### <a name="view-the-results"></a>결과 보기
 
 쿼리가 실행되는 동안 동일한 SparkSession에서 쿼리 결과가 저장되는 `temps` 테이블에 대해 SparkSQL 쿼리를 실행할 수 있습니다.
 
-    select * from temps
+```sql
+select * from temps
+```
 
 이 쿼리는 다음과 유사한 결과를 생성 합니다.
 

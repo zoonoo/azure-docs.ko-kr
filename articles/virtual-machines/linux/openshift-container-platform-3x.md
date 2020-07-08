@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757889"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
@@ -241,18 +240,18 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 릴리스마다 다른 매개 변수를 사용할 수 있으므로, 사용하는 분기에 필요한 매개 변수를 확인합니다.
 
-### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.json. 매개 변수. json 파일 설명
+### <a name="azuredeployparametersjson-file-explained"></a>파일에 대 한 azuredeploy.Parameters.js설명
 
-| 속성 | Description | 유효한 옵션 | 기본값 |
+| 속성 | 설명 | 유효한 옵션 | 기본값 |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | 아티팩트에 대 한 URL (json, 스크립트 등) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | 아티팩트에 대 한 URL (json, 스크립트 등) |  |  https: \/ /raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 리소스를 배포할 Azure 지역 |  |  |
-| `masterVmSize` | 마스터 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_E2s_v3 |
-| `infraVmSize` | 인프라 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
-| `nodeVmSize` | 앱 노드 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
-| `cnsVmSize` | 컨테이너 기본 저장소 (CN) 노드 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_E4s_v3 |
+| `masterVmSize` | 마스터 VM의 크기입니다. 파일의 azuredeploy.js에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_E2s_v3 |
+| `infraVmSize` | 인프라 VM의 크기입니다. 파일의 azuredeploy.js에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
+| `nodeVmSize` | 앱 노드 VM의 크기입니다. 파일의 azuredeploy.js에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
+| `cnsVmSize` | 컨테이너 기본 저장소 (CN) 노드 VM의 크기입니다. 파일의 azuredeploy.js에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_E4s_v3 |
 | `osImageType` | 사용할 RHEL 이미지입니다. defaultgallery: 주문형 marketplace: 타사 이미지 | defaultgallery <br> Marketplace | defaultgallery |
-| `marketplaceOsImage` | Marketplace `osImageType` 인 경우 marketplace 제안의 ' 게시자 ', ' 제안 ', ' sku ', ' 버전 '에 대해 적절 한 값을 입력 합니다. 이 매개 변수는 개체 유형입니다. |  |  |
+| `marketplaceOsImage` | Marketplace 인 경우 `osImageType` marketplace 제안의 ' 게시자 ', ' 제안 ', ' sku ', ' 버전 '에 대해 적절 한 값을 입력 합니다. 이 매개 변수는 개체 유형입니다. |  |  |
 | `storageKind` | 사용할 저장소의 유형입니다.  | 관리<br> unmanaged | 관리 |
 | `openshiftClusterPrefix` | 모든 노드에 대 한 호스트 이름을 구성 하는 데 사용 되는 클러스터 접두사입니다.  1 ~ 007e; 20 자 |  | mycluster |
 | `minoVersion` | 배포할 OpenShift Container Platform 3.11의 부 버전입니다. |  | 69 |
@@ -276,7 +275,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `keyVaultName` | 만든 Key Vault의 이름입니다. |  |  |
 | `enableAzure` | Azure Cloud Provider 사용 | true <br> false | true |
 | `aadClientId` | 서비스 주체의 응용 프로그램 ID 라고도 하는 Azure Active Directory 클라이언트 ID |  |  |
-| `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | none |
+| `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | 없음 |
 | `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | default <br> 사용자 지정 | default |
 | `masterClusterDns` | ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다.`masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | ' Nipio '로 설정 되 면 `routingSubDomain` 는 nip.io를 사용 합니다.  라우팅에 사용 하려는 고유한 도메인이 있으면 ' 사용자 지정 '을 사용 합니다. | nipio <br> 사용자 지정 | nipio |

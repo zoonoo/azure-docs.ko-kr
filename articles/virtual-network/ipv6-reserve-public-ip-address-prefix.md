@@ -7,20 +7,19 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9a0dd56842174d89688c862397c373326ef50d1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eecfebc90c28b650af0cef4ee0e4ddc227af0e8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711496"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>공용 IPv6 주소 접두사 예약
-Azure Virtual Network (VNet)에 대 한 i p v 6을 사용 하면 가상 네트워크와 인터넷 간에 IPv6 및 IPv4 연결을 사용 하 여 Azure에서 응용 프로그램을 호스트할 수 있습니다. 개별 IPv6 주소를 예약 하는 것 외에도 사용에 대 한 Azure IPv6 주소의 연속 범위 (IP 접두사 라고도 함)를 예약할 수 있습니다. 이 문서에서는 Azure PowerShell 및 CLI를 사용 하 여 IPv6 공용 IP 주소 및 주소 범위를 만드는 방법을 설명 합니다.
+Azure VNet(가상 네트워크)용 IPv6을 사용하면 가상 네트워크 내부에서 또한 인터넷과 IPv6 및 IPv4 연결을 사용하여 Azure에서 애플리케이션을 호스트할 수 있습니다. 개별 IPv6 주소를 예약 하는 것 외에도 사용에 대 한 Azure IPv6 주소의 연속 범위 (IP 접두사 라고도 함)를 예약할 수 있습니다. 이 문서에서는 Azure PowerShell 및 CLI를 사용 하 여 IPv6 공용 IP 주소 및 주소 범위를 만드는 방법을 설명 합니다.
 
 
 ## <a name="create-a-single-reserved-ipv6-public-ip"></a>단일 예약 된 IPv6 공용 IP 만들기
@@ -87,7 +86,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
- Azure PowerShell를 사용 하 여 공용 IP를 만들 때 인수를 `-PublicIpPrefix` 추가 하 여 예약 된 접두사에서 고정 IPV6 공용 ip를 만듭니다. 다음 예에서는 접두사를 만들어 *$MyOwnIPv 6prefix*라는 PowerShell 변수에 저장 했다고 가정 합니다.
+ `-PublicIpPrefix`Azure PowerShell를 사용 하 여 공용 ip를 만들 때 인수를 추가 하 여 예약 된 접두사에서 고정 IPv6 공용 ip를 만듭니다. 다음 예에서는 접두사를 만들어 *$MyOwnIPv 6prefix*라는 PowerShell 변수에 저장 했다고 가정 합니다.
 
 ```azurepowershell:  
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \

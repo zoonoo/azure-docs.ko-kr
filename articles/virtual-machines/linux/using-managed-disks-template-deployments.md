@@ -6,18 +6,17 @@ documentationcenter: ''
 author: jboeshart
 manager: ''
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 9b6cb890c972b8fa86b823571511250cead08898
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 17ce6eda79ed1c612a45fa2af7e6d083ccabc78b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660708"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 Managed Disks 사용
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

@@ -3,12 +3,11 @@ title: 풀 노드에 애플리케이션 및 데이터 복사
 description: 풀 노드에 애플리케이션 및 데이터를 복사하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: e21b8551fb62c4335910fd05bb9590eaf6f7e35a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726828"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954896"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>풀 노드에 애플리케이션 및 데이터 복사
 
@@ -19,13 +18,13 @@ Azure Batch는 데이터 및 애플리케이션을 태스크에서 사용할 수
 예제: 
 - 시작 태스크 명령줄을 사용하여 애플리케이션 이동 또는 설치
 
-- Azure Storage 계정에서 특정 파일 또는 컨테이너의 목록을 지정합니다. 자세한 내용은 [REST 설명서의 add#resourcefile](https://docs.microsoft.com/rest/api/batchservice/pool/add#resourcefile) 참조
+- Azure Storage 계정에서 특정 파일 또는 컨테이너의 목록을 지정합니다. 자세한 내용은 [REST 설명서의 add#resourcefile](/rest/api/batchservice/pool/add#resourcefile) 참조
 
-- 풀에서 실행되는 모든 작업은 먼저 MyApplication.msi와 함께 설치해야 하는 MyApplication.exe를 실행합니다. 이 메커니즘을 사용하는 경우 시작 태스크의 **wait for success** 속성을 **true**로 설정해야 합니다. 자세한 내용은 [REST 설명서의 add#starttask](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) 참조
+- 풀에서 실행되는 모든 작업은 먼저 MyApplication.msi와 함께 설치해야 하는 MyApplication.exe를 실행합니다. 이 메커니즘을 사용하는 경우 시작 태스크의 **wait for success** 속성을 **true**로 설정해야 합니다. 자세한 내용은 [REST 설명서의 add#starttask](/rest/api/batchservice/pool/add#starttask) 참조
 
-- 풀의 **애플리케이션 패키지 참조**: 풀의 모든 노드에 설치해야 하는 애플리케이션 또는 데이터용입니다. 애플리케이션 패키지에 연결된 설치 명령은 없으나 시작 태스크를 사용하여 모든 설치 명령을 실행할 수 있습니다. 애플리케이션이 설치가 필요하지 않거나 많은 파일로 구성된 경우 이 메서드를 사용할 수 있습니다. 애플리케이션 패키지는 많은 수의 파일 참조를 작은 페이로드로 결합하므로 많은 수의 파일에 적합합니다. 100개가 넘는 개별 리소스 파일을 한 태스크에 포함하려는 경우, Batch 서비스가 단일 태스크에 대한 내부 시스템 제한에 대한 답이 될 수 있습니다. 같은 애플리케이션에 여러 다른 버전이 있어 그 중에 선택이 필요할 수 있는 엄격한 버전 관리 요구 사항이 있는 경우에도 애플리케이션 패키지를 사용합니다. 자세한 내용은 [Batch 애플리케이션 패키지를 사용하여 컴퓨팅 노드에 애플리케이션 배포](https://docs.microsoft.com/azure/batch/batch-application-packages)를 참조하세요.
+- 풀의 **애플리케이션 패키지 참조**: 풀의 모든 노드에 설치해야 하는 애플리케이션 또는 데이터용입니다. 애플리케이션 패키지에 연결된 설치 명령은 없으나 시작 태스크를 사용하여 모든 설치 명령을 실행할 수 있습니다. 애플리케이션이 설치가 필요하지 않거나 많은 파일로 구성된 경우 이 메서드를 사용할 수 있습니다. 애플리케이션 패키지는 많은 수의 파일 참조를 작은 페이로드로 결합하므로 많은 수의 파일에 적합합니다. 100개가 넘는 개별 리소스 파일을 한 태스크에 포함하려는 경우, Batch 서비스가 단일 태스크에 대한 내부 시스템 제한에 대한 답이 될 수 있습니다. 같은 애플리케이션에 여러 다른 버전이 있어 그 중에 선택이 필요할 수 있는 엄격한 버전 관리 요구 사항이 있는 경우에도 애플리케이션 패키지를 사용합니다. 자세한 내용은 [Batch 애플리케이션 패키지를 사용하여 컴퓨팅 노드에 애플리케이션 배포](./batch-application-packages.md)를 참조하세요.
 
-- **작업 준비 태스크 리소스 파일**: 작업을 실행하려면 설치해야 하지만 전체 풀에 설치할 필요는 없는 애플리케이션이나 데이터를 위한 것입니다. 예를 들어, 풀에 다양한 유형의 작업이 있고 한 작업 유형만 MyApplication.msi를 실행해야 하는 경우 설치 단계를 작업 준비 태스크에 넣는 것이 적합합니다. 작업 준비 태스크에 대한 자세한 내용은 [Batch 컴퓨팅 노드에서 작업 준비 및 작업 릴리스 실행](https://azure.microsoft.com/documentation/articles/batch-job-prep-release/)을 참조하세요.
+- **작업 준비 태스크 리소스 파일**: 작업을 실행하려면 설치해야 하지만 전체 풀에 설치할 필요는 없는 애플리케이션이나 데이터를 위한 것입니다. 예를 들어, 풀에 다양한 유형의 작업이 있고 한 작업 유형만 MyApplication.msi를 실행해야 하는 경우 설치 단계를 작업 준비 태스크에 넣는 것이 적합합니다. 작업 준비 태스크에 대한 자세한 내용은 [Batch 컴퓨팅 노드에서 작업 준비 및 작업 릴리스 실행](./batch-job-prep-release.md)을 참조하세요.
 
 - **태스크 리소스 파일**: 애플리케이션이나 데이터가 개별 태스크에만 관련된 경우에 해당합니다. 다음은 그 예입니다.  5개 태스크가 있고 각각 다른 파일을 처리한 다음, 출력을 Blob Storage에 기록합니다.  이 경우 태스크마다 고유한 입력 파일이 있으므로 **작업 리소스 파일** 컬렉션에서 입력 파일을 지정해야 합니다.
 

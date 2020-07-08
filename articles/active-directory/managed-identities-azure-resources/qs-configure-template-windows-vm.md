@@ -9,30 +9,29 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5540697e8e64586d73e34d253fb95e549fc0301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c7970f321f301cc394732b1557d65974e7902574
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609030"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>템플릿을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>템플릿을 사용 하 여 Azure VM에서 Azure 리소스에 대 한 관리 되는 id 구성
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로 관리 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
+Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 이 문서에서는 Azure Resource Manager 배포 템플릿을 사용하여 Azure VM에서 다음과 같은 Azure 리소스 관리 ID 작업을 수행하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Resource Manager 배포 템플릿 사용 방법을 잘 모르는 경우 [개요 섹션](overview.md)을 확인합니다. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
+- Azure Resource Manager 배포 템플릿 사용 방법을 잘 모르는 경우 [개요 섹션](overview.md)을 확인합니다. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
@@ -66,7 +65,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
 
 
 
-3. 완료되면 다음과 같은 모양으로 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 합니다.
+3. 완료 되 면 다음 섹션을 템플릿의 섹션에 추가 해야 합니다 `resource` .이 섹션은 다음과 유사 해야 합니다.
 
    ```JSON
    "resources": [
@@ -165,7 +164,7 @@ VM에서 시스템 할당 관리 ID를 제거하려면 계정에 [가상 머신 
 
    `apiVersion`이 `2017-12-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다.  
 
-다음 예제에서는 사용자 할당 관리 ID가 없는 VM에서 시스템 할당 관리 ID를 제거하는 방법을 보여 줍니다.
+다음 예제에서는 사용자 할당 관리 id가 없는 VM에서 시스템 할당 관리 id를 제거 하는 방법을 보여 줍니다.
 
  ```JSON
  {
@@ -230,7 +229,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    }
    ```
 
-3. 완료되면 다음과 같은 모양으로 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 합니다.
+3. 완료 되 면 다음 섹션을 템플릿의 섹션에 추가 해야 합니다 `resource` .이 섹션은 다음과 유사 해야 합니다.
 
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**    
 
@@ -336,13 +335,13 @@ VM에서 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여�
 
    VM에서 단일 사용자 할당 관리 ID를 제거하려면 `useraAssignedIdentities` 사전에서 제거합니다.
 
-   시스템 할당 관리 ID가 있는 경우에는 `identity` 값 아래 `type` 값에 보관합니다.
+   시스템 할당 관리 id가 있는 경우 값의 값을 유지 `type` `identity` 합니다.
 
    **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
 
    VM에서 단일 사용자 할당 관리 ID를 제거하려면 `identityIds` 배열에서 제거합니다.
 
-   시스템 할당 관리 ID가 있는 경우에는 `identity` 값 아래 `type` 값에 보관합니다.
+   시스템 할당 관리 id가 있는 경우 값의 값을 유지 `type` `identity` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

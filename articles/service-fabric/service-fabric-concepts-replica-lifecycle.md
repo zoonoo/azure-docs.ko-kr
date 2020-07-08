@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710748"
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 
 이 문서에서는 상태 저장 서비스의 복제본과 상태 비저장 서비스의 인스턴스 수명 주기에 대한 개요를 제공합니다.
