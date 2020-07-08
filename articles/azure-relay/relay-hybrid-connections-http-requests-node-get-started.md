@@ -1,25 +1,14 @@
 ---
 title: Azure Relay 하이브리드 연결-노드의 HTTP 요청
 description: Node에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 Node.js 콘솔 애플리케이션을 작성합니다.
-services: service-bus-relay
-documentationcenter: node
-author: clemensv
-manager: timlt
-editor: ''
-ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
-ms.service: service-bus-relay
-ms.devlang: tbd
 ms.topic: conceptual
-ms.tgt_pltfrm: node
-ms.workload: na
-ms.date: 11/01/2018
-ms.author: clemensv
-ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 4e40b16d71e8d651e687fa8dea93efeab7064ca9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211199"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316911"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Node에서 Relay 하이브리드 연결 HTTP 요청 시작
 

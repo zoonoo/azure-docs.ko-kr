@@ -1,23 +1,14 @@
 ---
 title: 질문과 대답-Azure Event Hubs Apache Kafka
 description: 이 문서에서는 서로 다른 프로토콜(AMQP, Apache Kafka 및 HTTPS)을 사용하는 소비자와 생산자가 Azure Event Hubs를 사용할 때 이벤트를 교환하는 방법을 보여 줍니다.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/01/2020
-ms.author: shvija
-ms.openlocfilehash: 0186b90e1d75c5dba6e1ca26e4ba079a3456cea4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 066024f657e011aac1449106ec32689f145c5534
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314184"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Faq (질문과 대답) Event Hubs Apache Kafka 
 이 문서에서는 Apache Kafka에 대 한 Event Hubs로 마이그레이션하는 데 대 한 몇 가지 질문과 대답을 제공 합니다.
@@ -39,7 +30,7 @@ Event Hubs에서 이벤트 허브 소비자 그룹과 Kafka 소비자 그룹 간
 
 - 자동으로 생성 됩니다.  Kafka 그룹은 Kafka 소비자 그룹 Api를 통해 관리할 수 있습니다.
 - Event Hubs 서비스에 오프셋을 저장할 수 있습니다.
-- 이는 실제로 오프셋 키-값 저장소의 키로 사용 됩니다. 및 `group.id` `topic-partition`의 고유 쌍의 경우 오프셋을 Azure Storage (3 x 복제)로 저장 합니다. Event Hubs 사용자는 Kafka 오프셋을 저장할 때 추가 저장소 비용이 발생 하지 않습니다. 오프셋은 Kafka 소비자 그룹 Api를 통해 manipulable, 오프셋 저장소 *계정은* 이벤트 허브 사용자에 게 직접 표시 되거나 manipulable 되지 않습니다.  
+- 이는 실제로 오프셋 키-값 저장소의 키로 사용 됩니다. 및의 고유 쌍의 `group.id` 경우 `topic-partition` 오프셋을 Azure Storage (3 x 복제)로 저장 합니다. Event Hubs 사용자는 Kafka 오프셋을 저장할 때 추가 저장소 비용이 발생 하지 않습니다. 오프셋은 Kafka 소비자 그룹 Api를 통해 manipulable, 오프셋 저장소 *계정은* 이벤트 허브 사용자에 게 직접 표시 되거나 manipulable 되지 않습니다.  
 - 네임 스페이스를 확장 합니다. 여러 항목에서 여러 응용 프로그램에 동일한 Kafka 그룹 이름을 사용 하는 것은 단일 응용 프로그램에만 균형을 다시 조정 해야 할 때마다 모든 응용 프로그램 및 해당 Kafka 클라이언트를 균형는 것을 의미 합니다.  그룹 이름을 신중 하 게 선택 합니다.
 - Event Hubs 소비자 그룹과 완전히 다릅니다. ' $Default '를 사용할 필요가 없으며 AMQP 워크 로드를 방해 하는 Kafka 클라이언트에 대해서도 걱정할 **필요가 없습니다.**
 - Azure Portal에서 볼 수 없습니다. 소비자 그룹 정보는 Kafka Api를 통해 액세스할 수 있습니다.

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ee69015b52024ba4edaaa414a0d9dda753510b3e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85313197"
 ---
 # <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge 장치 관리
 
@@ -71,7 +71,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 장치에서 계산 역할이 구성 된 경우 PowerShell 인터페이스를 통해 계산 로그를 가져올 수도 있습니다.
 
 1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 를 `Get-AzureDataBoxEdgeComputeRoleLogs` 사용 하 여 장치에 대 한 계산 로그를 가져옵니다.
+2. 를 사용 `Get-AzureDataBoxEdgeComputeRoleLogs` 하 여 장치에 대 한 계산 로그를 가져옵니다.
 
     다음 예에서는이 cmdlet을 사용 하는 방법을 보여 줍니다.
 
@@ -86,7 +86,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>계산 모듈 모니터링 및 문제 해결
 
-[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/azure-stack-edge-monitor-troubleshoot-compute.md)]
 
 ## <a name="exit-the-remote-session"></a>원격 세션 종료
 

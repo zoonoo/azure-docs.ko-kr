@@ -1,25 +1,14 @@
 ---
 title: Azure Relay Node API 개요 | Microsoft Docs
-description: 이 문서에서는 Azure Relay 서비스에 대 한 node.js API의 개요를 제공 합니다. 또한 hyco-ws-ws 노드 패키지를 사용 하는 방법을 보여 줍니다.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
-ms.service: service-bus-relay
-ms.devlang: na
+description: 이 문서에서는 Azure Relay 서비스의 Node.js API에 대 한 개요를 제공 합니다. 또한 hyco-ws-ws 노드 패키지를 사용 하는 방법을 보여 줍니다.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 71faa2ee143488483aff4300152aab6d1e2b2a88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316737"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 
@@ -29,7 +18,7 @@ ms.locfileid: "83211841"
 
 `require('ws')`이 `require('hyco-ws')` 대신 이 패키지를 사용할 수 있는 기존 애플리케이션을 사용하면 애플리케이션이 WebSocket 연결을 "방화벽 내부"에서 로컬로 및 하이브리드 연결을 통해 동시에 수신 대기할 수 있는 하이브리드 시나리오를 수행할 수 있습니다.
   
-## <a name="documentation"></a>문서
+## <a name="documentation"></a>설명서
 
 API는 [주 'ws' 패키지에 문서화되어](https://github.com/websockets/ws/blob/master/doc/ws.md) 있습니다. 이 문서에서는 이 패키지가 해당 기준과 어떻게 다른지를 설명합니다. 
 
@@ -143,7 +132,7 @@ function(headers)
 
 들어오는 연결이 수락되기 바로 전에 `headers` 이벤트가 발생하여 클라이언트에 전송할 헤더를 수정할 수 있게 합니다. 
 
-##### <a name="connection"></a>connection
+##### <a name="connection"></a>연결
 
 ```JavaScript
 function(socket)

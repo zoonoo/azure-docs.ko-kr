@@ -1,22 +1,14 @@
 ---
 title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 가상 네트워크에 Microsoft EventHub 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 11/26/2019
-ms.author: shvija
-ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315433"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -24,7 +16,7 @@ ms.locfileid: "81390274"
 
 하나 이상의 가상 네트워크 서브넷 서비스 끝점에 바인딩하기 위해 구성 된 경우 해당 Event Hubs 네임 스페이스는 더 이상 가상 네트워크에서 권한이 있는 모든 서브넷의 트래픽을 허용 하지 않습니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다. 
 
-메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다. 이 동작에 대 한 예외는 없습니다. 기본적으로 서비스 끝점을 사용 하도록 설정 하면 가상 `denyall` 네트워크와 연결 된 [IP 방화벽](event-hubs-ip-filtering.md) 에서 규칙을 사용할 수 있습니다. IP 방화벽의 특정 IP 주소를 추가 하 여 이벤트 허브 공용 끝점에 대 한 액세스를 사용할 수 있습니다. 
+메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다. 이 동작에 대 한 예외는 없습니다. 기본적으로 서비스 끝점을 사용 하도록 설정 하면 `denyall` 가상 네트워크와 연결 된 [IP 방화벽](event-hubs-ip-filtering.md) 에서 규칙을 사용할 수 있습니다. IP 방화벽의 특정 IP 주소를 추가 하 여 이벤트 허브 공용 끝점에 대 한 액세스를 사용할 수 있습니다. 
 
 >[!WARNING]
 > Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 방지할 수 있습니다.
@@ -32,7 +24,7 @@ ms.locfileid: "81390274"
 > 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않습니다.
 >
 > Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
-> - Azure Monitor (진단 설정)
+> - Azure Monitor(진단 설정)
 > - Azure Stream Analytics
 > - Azure Event Grid와 통합
 > - Azure IoT Hub 경로
@@ -65,10 +57,10 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 ## <a name="use-azure-portal"></a>Azure Portal 사용
 이 섹션에서는 Azure Portal를 사용 하 여 가상 네트워크 서비스 끝점을 추가 하는 방법을 보여 줍니다. 액세스를 제한 하려면이 Event Hubs 네임 스페이스에 대 한 가상 네트워크 서비스 끝점을 통합 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Event Hubs 네임 스페이스로** 이동 합니다.
-2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택 합니다. **모든 네트워크** 옵션을 선택 하는 경우 이벤트 허브는 모든 IP 주소의 연결을 허용 합니다. 이 설정은 0.0.0.0/0 IP 주소 범위를 허용 하는 규칙과 동일 합니다. 
+1. **Azure Portal**에서 [Event Hubs 네임스페이스](https://portal.azure.com)로 이동합니다.
+2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. **모든 네트워크** 옵션을 선택하면 이벤트 허브는 모든 IP 주소에서의 연결을 허용합니다. 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
-    ![방화벽-모든 네트워크 옵션을 선택 합니다.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![방화벽 - 모든 네트워크 옵션 선택됨](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. 특정 네트워크에 대 한 액세스를 restrct 페이지 위쪽에서 **선택한 네트워크** 옵션을 선택 합니다.
 2. 페이지의 **Virtual Network** 섹션에서 * * + 기존 가상 네트워크 추가 * * *를 선택 합니다. 새 VNet을 만들려면 **+ 새 가상 네트워크 만들기** 를 선택 합니다. 
 
@@ -83,7 +75,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
     > [!NOTE]
     > 서비스 끝점을 사용 하도록 설정할 수 없는 경우 리소스 관리자 템플릿을 사용 하 여 누락 된 가상 네트워크 서비스 끝점을 무시할 수 있습니다. 이 기능은 포털에서 사용할 수 없습니다.
-6. 도구 모음에서 **저장** 을 선택 하 여 설정을 저장 합니다. 확인이 포털 알림에 표시 될 때까지 몇 분 정도 기다립니다.
+6. 도구 모음에서 **저장**을 선택하여 설정을 저장합니다. 포털 알림에 확인이 표시될 때가지 몇 분 정도 기다립니다.
 
     ![네트워크 저장](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 

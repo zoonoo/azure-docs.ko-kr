@@ -1,21 +1,14 @@
 ---
 title: 관리 라이브러리 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 .NET에서 Azure Event Hubs 네임스페이스 및 엔터티를 관리하는 데 사용할 수 있는 라이브러리에 대한 정보를 제공합니다.
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: dotnet
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 431fe04461f422274697d1e91c4b56e914ce2d4e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.date: 06/23/2020
+ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60746661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312988"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs 관리 라이브러리
 

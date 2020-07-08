@@ -6,16 +6,16 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316073"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 
-Azure Cache for Redis는 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure Cache for Redis를 통해 세션 상태를 저장하는 데 사용할 수 있는 세션 상태 제공자를 제공합니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 캐시용 ASP.NET 애플리케이션을 구성합니다.
+Azure Cache for Redis는 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure Cache for Redis를 통해 세션 상태를 저장하는 데 사용할 수 있는 세션 상태 제공자를 제공합니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 캐시용 ASP.NET 애플리케이션을 구성합니다. ASP.NET Core 응용 프로그램의 경우 [ASP.NET Core에서 세션 및 상태 관리](https://docs.microsoft.com/aspnet/core/fundamentals/app-state)를 읽습니다.
 
 종종 실제 클라우드 앱에서 사용자 세션에 대한 일종의 상태를 저장을 회피하는 데 실용적이지 않지만 일부 접근 방법은 다른 항목 보다 성능 및 확장성에 더 많은 영향을 줍니다. 상태를 저장해야 하는 경우 가장 좋은 해결법은 상태의 크기를 작게 유지하고 쿠키에 저장하는 것입니다. 이것이 어려운 경우 다음 해결법은 분산된 메모리 내 캐시에 대해 공급자로 ASP.NET 세션 상태를 사용하는 것입니다. 성능 및 확장성 측면에서 최악의 해결법은 데이터베이스 지원 세션 상태 제공자를 사용하는 것입니다. 이 항목은 Azure Cache for Redis에 대해 ASP.NET 세션 상태 제공자를 사용하는 가이드를 제공합니다. 다른 세션 상태 옵션에 대한 내용은 [ASP.NET 세션 상태 옵션](#aspnet-session-state-options)을 참조하세요.
 
@@ -94,7 +94,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 * **operationTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 syncTimeout 설정을 무시할 수 있게 해 줍니다. 지정하지 않으면 기본 syncTimeout 설정인 1000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](https://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
 * **redisSerializerType** - 이 설정을 사용하면 Redis로 전송되는 세션 콘텐츠의 사용자 지정 serialization을 지정할 수 있습니다. 지정된 형식은 `Microsoft.Web.Redis.ISerializer`를 구현해야 하며 공용 매개 변수가 없는 생성자를 선언해야 합니다. 기본적으로 `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`가 사용됩니다.
 
-이러한 속성에 대한 자세한 내용은 [Redis에 대한 ASP.NET 세션 상태 제공자 발표](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)에서 원래 블로그 게시물 발표를 참조하세요.
+이러한 속성에 대한 자세한 내용은 [Redis에 대한 ASP.NET 세션 상태 제공자 발표](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/)에서 원래 블로그 게시물 발표를 참조하세요.
 
 Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석으로 처리하는 것을 기억하세요.
 

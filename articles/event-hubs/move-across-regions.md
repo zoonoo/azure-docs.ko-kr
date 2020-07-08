@@ -1,20 +1,14 @@
 ---
 title: Azure Event Hubs 네임 스페이스를 다른 지역으로 이동 | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs 네임 스페이스를 현재 지역에서 다른 지역으로 이동 하는 방법을 보여 줍니다.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 06/23/2020
+ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312959"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Azure Event Hubs 네임 스페이스를 다른 지역으로 이동
 기존 Event Hubs 네임 스페이스를 한 지역에서 다른 지역으로 이동 하려는 다양 한 시나리오가 있습니다. 예를 들어 테스트를 위한 동일한 구성으로 네임 스페이스를 만들 수 있습니다. [재해 복구 계획](event-hubs-geo-dr.md#setup-and-failover-flow)의 일부로 다른 지역에 보조 네임 스페이스를 만들 수도 있습니다.
@@ -24,8 +18,8 @@ ms.locfileid: "82690480"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 계정에서 사용 하는 서비스 및 기능이 대상 지역에서 지원 되는지 확인 합니다.
-- 미리 보기 기능에 대해 구독을 대상 지역에 대 한 허용 목록 확인 합니다.
+- 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
+- 미리 보기 기능의 경우 구독이 대상 지역에 대한 허용 목록에 추가되었는지 확인합니다.
 - 네임 스페이스에서 event hubs에 대해 **캡처 기능** 을 사용 하도록 설정한 경우 Event Hubs 네임 스페이스를 이동 하기 전에 [Azure Storage 또는 Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) 또는 [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) 계정을 이동 합니다. 이 문서에서 설명 하는 것과 유사한 단계를 수행 하 여 저장소 및 Event Hubs 네임 스페이스를 포함 하는 리소스 그룹을 다른 지역으로 이동할 수도 있습니다. 
 - Event Hubs 네임 스페이스가 **Event Hubs 클러스터**에 있는 경우이 문서의 단계를 진행 하기 전에 **대상 지역** 에 [전용 클러스터를 만듭니다](event-hubs-dedicated-cluster-create-portal.md) . [GitHub에서 빠른 시작 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) 사용 하 여 Event Hubs 클러스터를 만들 수도 있습니다. 템플릿에서 JSON의 네임 스페이스 부분을 제거 하 여 클러스터만 만듭니다. 
 
@@ -36,7 +30,7 @@ ms.locfileid: "82690480"
 
 2. **모든 리소스** 를 선택한 다음 Event Hubs 네임 스페이스를 선택 합니다.
 
-3. > **설정** > **템플릿 내보내기**를 선택 합니다.
+3. > **설정**  >  **템플릿 내보내기**를 선택 합니다.
 
 4. **템플릿 내보내기** 페이지에서 **다운로드** 를 선택 합니다.
 
@@ -54,15 +48,15 @@ ms.locfileid: "82690480"
 
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
 
-2. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
+2. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
 
-3. **템플릿 배포**를 선택합니다.
+3. **템플릿 배포**를 선택 합니다.
 
 4. **만들기**를 선택합니다.
 
-5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
+5. **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
 
-6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 **템플릿. json** 파일을 로드 합니다.
+6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 
 7. **저장** 을 선택 하 여 템플릿을 저장 합니다. 
 
@@ -85,7 +79,7 @@ ms.locfileid: "82690480"
               ```
               /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
               ```   
-        3. 네임 스페이스의 이벤트 허브가 저장소 계정을 사용 하 여 이벤트를 캡처하는 경우 리소스 그룹 이름 및 저장소 계정 `StorageAccounts_<original storage account name>_external` 필드를 지정 합니다. 
+        3. 네임 스페이스의 이벤트 허브가 저장소 계정을 사용 하 여 이벤트를 캡처하는 경우 리소스 그룹 이름 및 저장소 계정 필드를 지정 합니다 `StorageAccounts_<original storage account name>_external` . 
             
             ```
             /subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/<STORAGE'S RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>
@@ -111,7 +105,7 @@ Azure Portal를 사용 하 여 Event Hubs 네임 스페이스 (원본 또는 대
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Event Hubs 네임 스페이스를 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
+이 자습서에서는 Azure Event Hubs 네임 스페이스를 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
 - [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

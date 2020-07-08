@@ -1,18 +1,14 @@
 ---
 title: Azure Event Hubs에 대 한 네트워크 보안
-description: 이 문서에서는 개인 끝점에서 액세스를 구성 하는 방법을 설명 합니다.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
+description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 46e6a9ecc2ed09aed1076f12c1f61a966485bdad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: de4c5c6ddc658aab549ccf6960edbca3285e338d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422778"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312849"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 네트워크 보안 
 이 문서에서는 Azure Event Hubs에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
@@ -20,25 +16,25 @@ ms.locfileid: "80422778"
 - 서비스 태그
 - IP 방화벽 규칙
 - 네트워크 서비스 끝점
-- 전용 끝점 (미리 보기)
+- 프라이빗 엔드포인트(미리 보기)
 
 
 ## <a name="service-tags"></a>서비스 태그
-서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 있는 주소 접두사를 관리 하 고, 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 하 여 네트워크 보안 규칙에 대 한 빈번한 업데이트의 복잡성을 최소화 합니다. 서비스 태그에 대 한 자세한 내용은 [서비스 태그 개요](../virtual-network/service-tags-overview.md)를 참조 하세요.
+서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대 한 자세한 내용은 [서비스 태그 개요](../virtual-network/service-tags-overview.md)를 참조 하세요.
 
-서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에서 서비스 태그 이름 (예: **EventHub**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
+서비스 태그를 사용하여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에 대한 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본*또는 대상 필드에서 서비스 태그 이름 (예: **EventHub**)을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
-| 서비스 태그 | 목적 | 인바운드 또는 아웃 바운드를 사용할 수 있나요? | 지역별 일 수 있나요? | Azure 방화벽과 함께 사용할 수 있나요? |
+| 서비스 태그 | 목적 | 인바운드 또는 아웃바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **EventHub** | Azure Event Hubs. | 아웃바운드 | 예 | 예 |
+| **EventHub** | Azure Event Hubs입니다. | 아웃바운드 | 예 | 예 |
 
 
 ## <a name="ip-firewall"></a>IP 방화벽 
-기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한 인터넷에서 Event Hubs 네임 스페이스에 액세스할 수 있습니다. IP 방화벽을 사용 하면 [CIDR (클래스 없는 도메인 간 라우팅)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법에서 ipv4 주소 또는 ipv4 주소 범위 집합 으로만 제한할 수 있습니다.
+기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 Event Hubs 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
 
-이 기능은 잘 알려진 특정 사이트 에서만 Azure Event Hubs에 액세스할 수 있어야 하는 경우에 유용 합니다. 방화벽 규칙을 사용 하면 특정 IPv4 주소에서 시작 되는 트래픽을 허용 하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express 경로](/azure/expressroute/expressroute-faqs#supported-services)에 Event Hubs를 사용 하는 경우 온-프레미스 인프라 IP 주소의 트래픽만 허용 하는 **방화벽 규칙** 을 만들 수 있습니다. 
+이 기능은 잘 알려진 특정 사이트에서만 Azure Event Hub에 액세스할 수 있는 시나리오에서 유용합니다. 방화벽 규칙을 사용하면 특정 IPv4 주소에서 발생하는 트래픽을 허용하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services)와 함께 Event Hubs를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽만 허용하도록 **방화벽 규칙**을 만들 수 있습니다. 
 
-IP 방화벽 규칙은 Event Hubs 네임 스페이스 수준에서 적용 됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. Event Hubs 네임스페이스에서 허용된 IP 규칙과 일치하지 않는 IP 주소의 연결 시도는 권한이 없는 것으로 거부됩니다. 응답은 IP 규칙을 언급하지 않습니다. IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
+IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. Event Hubs 네임스페이스에서 허용된 IP 규칙과 일치하지 않는 IP 주소의 연결 시도는 권한이 없는 것으로 거부됩니다. 응답은 IP 규칙을 언급하지 않습니다. IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
 
 자세한 내용은 [이벤트 허브에 대 한 IP 방화벽을 구성 하는 방법](event-hubs-ip-filtering.md) 을 참조 하세요.
 
@@ -47,7 +43,7 @@ IP 방화벽 규칙은 Event Hubs 네임 스페이스 수준에서 적용 됩니
 
 하나 이상의 가상 네트워크 서브넷 서비스 끝점에 바인딩하기 위해 구성 된 경우 해당 Event Hubs 네임 스페이스는 더 이상 가상 네트워크에서 권한이 있는 모든 서브넷의 트래픽을 허용 하지 않습니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다. 
 
-메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다. 이 동작에 대 한 예외는 없습니다. 기본적으로 서비스 끝점을 사용 하도록 설정 하면 가상 `denyall` 네트워크와 연결 된 [IP 방화벽](event-hubs-ip-filtering.md) 에서 규칙을 사용할 수 있습니다. IP 방화벽의 특정 IP 주소를 추가 하 여 이벤트 허브 공용 끝점에 대 한 액세스를 사용할 수 있습니다. 
+메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다. 이 동작에 대 한 예외는 없습니다. 기본적으로 서비스 끝점을 사용 하도록 설정 하면 `denyall` 가상 네트워크와 연결 된 [IP 방화벽](event-hubs-ip-filtering.md) 에서 규칙을 사용할 수 있습니다. IP 방화벽의 특정 IP 주소를 추가 하 여 이벤트 허브 공용 끝점에 대 한 액세스를 사용할 수 있습니다. 
 
 > [!IMPORTANT]
 > 가상 네트워크는 Event Hubs의 **표준** 및 **전용** 계층에서 지원되며 **기본** 계층에서는 지원 되지 않습니다.
@@ -70,16 +66,16 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
 자세한 내용은 [이벤트 허브에 대 한 가상 네트워크 서비스 끝점을 구성 하는 방법](event-hubs-service-endpoints.md) 을 참조 하세요.
 
-## <a name="private-endpoints"></a>전용 끝점
+## <a name="private-endpoints"></a>프라이빗 엔드포인트
 
 Azure [개인 링크 서비스](../private-link/private-link-overview.md) 를 사용 하면 가상 네트워크의 **개인 끝점** 을 통해 azure 서비스 (예: azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 azure에서 호스트 되는 고객/파트너 서비스에 액세스할 수 있습니다.
 
-개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
+프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 **전용** 계층 에서만 지원 됩니다. 전용 계층에 대 한 자세한 내용은 [Event Hubs Dedicated 개요](event-hubs-dedicated-overview.md)를 참조 하세요. 
+> 이 기능은 **전용** 계층에서만 지원됩니다. 전용 계층에 대한 자세한 내용은 [Event Hubs Dedicated 개요](event-hubs-dedicated-overview.md)를 참조하세요. 
 >
-> 이 기능은 현재 **미리 보기**상태입니다. 
+> 이 기능은 현재 **미리 보기**로 제공됩니다. 
 
 
 자세한 내용은 [이벤트 허브에 대 한 개인 끝점을 구성 하는 방법](private-link-service.md) 을 참조 하세요.

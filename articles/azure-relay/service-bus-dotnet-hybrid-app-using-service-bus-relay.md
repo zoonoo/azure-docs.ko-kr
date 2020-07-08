@@ -1,25 +1,14 @@
 ---
 title: Azure Windows Communication Foundation (WCF) 릴레이 하이브리드 온-프레미스/클라우드 응용 프로그램 (.NET) | Microsoft Docs
 description: Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스를 노출하는 방법을 알아봅니다.
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus-relay
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: spelluru
-ms.openlocfilehash: b86d535e4cbc275b3ee777d7c70146f7711c502c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314406"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출
 
@@ -41,12 +30,12 @@ ms.locfileid: "83211594"
 > * Azure에 웹 앱을 배포 합니다.
 > * Azure에서 앱을 실행 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
-* [Visual Studio 2015 이상](https://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2019를 사용합니다.
+* [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2019를 사용합니다.
 * Azure SDK for .NET. [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>하이브리드 솔루션에 유용한 Azure 릴레이
@@ -224,7 +213,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     > [!NOTE]
     > 로 인해 발생 하는 오류는 `transportClientEndpointBehavior` 경고 일 뿐 이며이 예제에서는 차단 문제가 아닙니다.
 
-1. 계속 *app.config*의 `<appSettings>` 요소에서 연결 문자열 값을 포털에서 이전에 가져온 연결 문자열로 바꿉니다.
+1. 여전히 *App.config*의 `<appSettings>` 요소에서 연결 문자열 값을 포털에서 이전에 가져온 연결 문자열로 바꿉니다.
 
     ```xml
     <appSettings>
@@ -457,7 +446,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
     ![시작 URL][27]
 
-1. **파일**  >  **모두 저장**을 선택 합니다.
+1. **파일** > **모두 저장**을 선택합니다.
 1. **빌드**  >  **솔루션 다시**빌드를 선택 합니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행

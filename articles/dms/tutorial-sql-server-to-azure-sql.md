@@ -1,7 +1,7 @@
 ---
 title: '자습서: SQL 단일 데이터베이스에 SQL Server 오프 라인으로 마이그레이션'
 titleSuffix: Azure Database Migration Service
-description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 오프라인 마이그레이션하는 방법을 알아봅니다.
+description: Azure Database Migration Service를 사용 하 여 SQL Server에서 Azure SQL Database 오프 라인으로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: ff47246482bd0712ea4e741d44b12f2c6767380b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45a343fdbd41abf1388556131f1f53a675d8ab49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316225"
 ---
-# <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용 하 여 Azure SQL Database 오프 라인에서 단일 데이터베이스 또는 풀링된 데이터베이스로 SQL Server 마이그레이션
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션
 
-Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스에 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션합니다.
+Azure Database Migration Service를 사용 하 여 SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스에 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 >
 > - Data Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가합니다.
@@ -36,15 +36,15 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-이 문서에서는 SQL Server에서 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 오프라인 마이그레이션하는 방법을 설명합니다. 온라인 마이그레이션의 경우 [DMS를 사용하여 Azure SQL Database로 SQL Server 온라인 마이그레이션](tutorial-sql-server-azure-sql-online.md)을 참조하세요.
+이 문서에서는 SQL Server에서 Azure SQL Database 데이터베이스로의 오프 라인 마이그레이션을 설명 합니다. 온라인 마이그레이션의 경우 [DMS를 사용하여 Azure SQL Database로 SQL Server 온라인 마이그레이션](tutorial-sql-server-azure-sql-online.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [SQL Server 2016 이상](https://www.microsoft.com/sql-server/sql-server-downloads)을 다운로드하여 설치합니다.
 - 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
-- [Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started) 문서의 세부 지침에 따라 Azure SQL Database에 단일(또는 풀링된) 데이터베이스를 만듭니다.
+- Azure SQL Database에서 데이터베이스를 만듭니다 .이 작업은 [Azure Portal을 사용 하 여 Azure SQL Database에서 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started)문서의 세부 정보를 따라 수행 합니다.
 
     > [!NOTE]
     > SSIS(SQL Server Integration Services)를 사용하고 있고, SSIS 프로젝트/패키지(SSISDB)용 카탈로그 데이터베이스를 SQL Server에서 Azure SQL Database로 마이그레이션하려는 경우 ADF(Azure Data Factory)에서 SSIS를 프로비저닝할 때 대상 SSISDB가 자동으로 생성되고 관리됩니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
@@ -68,13 +68,13 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 - Azure Database Migration Service가 원본 SQL Server(기본적으로 1433 TCP 포트)에 액세스할 수 있도록 Windows 방화벽을 엽니다.
 - 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고, 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 - 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
-- 대상 데이터베이스에 대한 Azure Database Migration Service 액세스를 허용하도록 Azure SQL Database 서버에 서버 수준 IP [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용 되는 가상 네트워크의 서브넷 범위를 제공 합니다.
+- 대상 데이터베이스에 대 한 Azure Database Migration Service 액세스를 허용 Azure SQL Database에 대 한 서버 수준 IP [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) 을 만듭니다. Azure Database Migration Service에 사용 되는 가상 네트워크의 서브넷 범위를 제공 합니다.
 - 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에는 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있어야 합니다.
-- 대상 Azure SQL Database 인스턴스에 연결하는 데 사용되는 자격 증명에는 대상 Azure SQL 데이터베이스에 대한 CONTROL DATABASE 권한이 있어야 합니다.
+- 대상 Azure SQL Database 인스턴스에 연결 하는 데 사용 되는 자격 증명에 대상 데이터베이스에 대 한 CONTROL DATABASE 권한이 있는지 확인 하십시오.
 
 ## <a name="assess-your-on-premises-database"></a>온-프레미스 데이터베이스 평가
 
-온-프레미스 SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 데이터를 마이그레이션하려면 먼저 마이그레이션을 방해할 수 있는 차단 문제가 있는지 SQL Server 데이터베이스를 평가해야 합니다. Data Migration Assistant v3.3 이상에서 [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) 문서에 설명된 단계를 수행하여 온-프레미스 데이터베이스 평가를 완료합니다. 필수 단계의 요약은 다음과 같습니다.
+SQL Server 인스턴스에서 Azure SQL Database 단일 데이터베이스 또는 풀링된 데이터베이스로 데이터를 마이그레이션하려면 마이그레이션을 방해할 수 있는 차단 문제에 대 한 SQL Server 데이터베이스를 평가 해야 합니다. Data Migration Assistant v3.3 이상에서 [SQL Server 마이그레이션 평가 수행](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) 문서에 설명된 단계를 수행하여 온-프레미스 데이터베이스 평가를 완료합니다. 필수 단계의 요약은 다음과 같습니다.
 
 1. Data Migration Assistant에서 새로 만들기(+) 아이콘을 선택하고 **평가** 프로젝트 형식을 선택합니다.
 2. 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **SQL Server**를 선택하고, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Database**를 선택한 다음, **만들기**를 선택하여 프로젝트를 만듭니다.
@@ -97,10 +97,10 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
     ![데이터 마이그레이션 평가](media/tutorial-sql-server-to-azure-sql/dma-assessments.png)
 
-    Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스의 경우 평가를 통해 단일 데이터베이스 또는 풀링된 데이터베이스에 배포하는 것을 방해하는 기능 패리티 문제 및 마이그레이션 차단 문제를 식별합니다.
+    Azure SQL Database의 데이터베이스에 대 한 평가는 기능 패리티 문제와 마이그레이션 차단 문제를 식별 하 여 단일 데이터베이스 또는 풀링된 데이터베이스에 배포 합니다.
 
     - **SQL Server 기능 패리티** 범주는 포괄적인 권장 사항 집합, Azure에서 사용할 수 있는 대체 방법 및 마이그레이션 프로젝트에 대 한 작업을 계획 하는 데 도움이 되는 완화 단계를 제공 합니다.
-    - **호환성 문제** 범주는 온-프레미스 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 작업을 차단할 수 있는 호환성 문제를 반영하는 기능을 부분적으로 지원되거나 지원되지 않는 기능을 식별합니다. 해당 문제를 해결하는 데 도움이 되는 권장 사항도 제공됩니다.
+    - **호환성 문제** 범주는 Azure SQL Database으로 SQL Server 데이터베이스 마이그레이션을 차단할 수 있는 호환성 문제를 반영 하는 부분적으로 지원 되거나 지원 되지 않는 기능을 식별 합니다. 해당 문제를 해결하는 데 도움이 되는 권장 사항도 제공됩니다.
 
 6. 특정 옵션을 선택하여 마이그레이션 차단 문제와 기능 패리티 문제에 대한 평가 결과를 검토합니다.
 
@@ -109,7 +109,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 평가가 만족스럽고 선택한 데이터베이스가 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션하는 데 적합한 후보라고 판단되면 DMA를 사용하여 스키마를 Azure SQL Database로 마이그레이션합니다.
 
 > [!NOTE]
-> Data Migration Assistant에서 마이그레이션 프로젝트를 만들기 전에 필수 구성 요소에 설명된 대로 이미 Azure SQL 데이터베이스를 프로비저닝했어야 합니다. 이 자습서에서는 Azure SQL Database의 이름은 **AdventureWorksAzure**로 가정하지만, 원하는 이름으로 지정할 수 있습니다.
+> Data Migration Assistant에서 마이그레이션 프로젝트를 만들기 전에 필수 구성 요소에 설명 된 대로 Azure에서 데이터베이스를 이미 프로 비전 했는지를 알고 있어야 합니다. 이 자습서에서는 Azure SQL Database의 이름은 **AdventureWorksAzure**로 가정하지만, 원하는 이름으로 지정할 수 있습니다.
 
 > [!IMPORTANT]
 > SSIS를 사용하는 경우 DMA는 현재 원본 SSISDB 마이그레이션을 지원하지 않지만 Azure SQL Database에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
@@ -229,7 +229,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1. **저장**을 선택한 다음, **마이그레이션 대상 세부 정보** 화면에서 대상 Azure SQL Database Server에 대한 연결 세부 정보를 지정합니다. 대상은 Data Migration Assistant를 사용하여 **AdventureWorks2012** 스키마가 배포된 미리 프로비저닝된 Azure SQL Database입니다.
+1. **저장**을 선택 하 고 **마이그레이션 대상 세부 정보** 화면에서 대상 Azure SQL Database에 대 한 연결 세부 정보를 지정 합니다 .이 정보는 Data Migration Assistant를 사용 하 여 **AdventureWorks2012** 스키마가 배포 되는 미리 프로 비전 된 Azure SQL Database입니다.
 
     ![대상 선택](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
@@ -271,9 +271,9 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 2. 마이그레이션이 완료되면 **보고서 다운로드**를 선택하여 마이그레이션 프로세스와 관련된 세부 정보가 나열된 보고서를 받습니다.
 
-3. 대상 Azure SQL Database 서버의 대상 데이터베이스를 확인합니다.
+3. 대상 Azure SQL Database에서 대상 데이터베이스를 확인 합니다.
 
-### <a name="additional-resources"></a>추가 리소스
+### <a name="additional-resources"></a>추가 자료
 
 - [Azure Data Migration Service를 사용하는 SQL 마이그레이션](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) 실습 랩.
 - Azure SQL Database로 온라인 마이그레이션을 수행할 때 발생하는 알려진 문제 및 제한 사항에 대한 자세한 내용은 [Azure SQL Database 온라인 마이그레이션의 알려진 문제 및 해결 방법](known-issues-azure-sql-online.md) 문서를 참조하세요.

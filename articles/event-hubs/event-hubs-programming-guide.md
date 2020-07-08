@@ -1,20 +1,14 @@
 ---
 title: .NET 프로그래밍 가이드-Azure Event Hubs (레거시) | Microsoft Docs
 description: 이 문서에서는 Azure .NET SDK를 사용하여 Azure Event Hubs에 대한 코드를 작성하는 방법에 대한 정보를 제공합니다.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-ms.service: event-hubs
-ms.custom: seodec18
 ms.topic: article
-ms.date: 01/15/2020
-ms.author: shvija
-ms.openlocfilehash: d958c2d32c16874676f46bb216067fe2d7bbe784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314548"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Azure Event Hubs에 대 한 .NET 프로그래밍 가이드 (레거시 EventHubs 패키지)
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
@@ -62,7 +56,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="event-serialization"></a>이벤트 직렬화
 
-[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 다음은 그 예입니다.
+[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예를 들어:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -114,10 +108,10 @@ for (var i = 0; i < numMessagesToSend; i++)
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 다음은 그 예입니다.
+이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 예를 들어:
 
 > [!NOTE]
-> EventProcessorHost 및 관련 클래스는 **EventHubs** 패키지에 제공 됩니다. [이 문서의](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 지침에 따라 또는 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 실행 하 여 Visual Studio 프로젝트에 패키지를 추가`Install-Package Microsoft.Azure.EventHubs.Processor`합니다.
+> EventProcessorHost 및 관련 클래스는 **EventHubs** 패키지에 제공 됩니다. [이 문서의](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 지침에 따라 또는 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 실행 하 여 Visual Studio 프로젝트에 패키지를 추가 `Install-Package Microsoft.Azure.EventHubs.Processor` 합니다.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

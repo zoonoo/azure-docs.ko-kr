@@ -1,19 +1,14 @@
 ---
 title: Stream Analytics를 사용 하 여 Event Hubs Azure에서 데이터 처리 Microsoft Docs
 description: 이 문서에서는 Azure Stream Analytics 작업을 사용 하 여 Azure 이벤트 허브에서 데이터를 처리 하는 방법을 보여 줍니다.
-services: event-hubs
-author: spelluru
-manager: ''
-ms.author: spelluru
-ms.date: 07/09/2019
+ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
-ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69991939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312892"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용 하 여 이벤트 허브에서 데이터 처리 
 Azure Stream Analytics 서비스를 사용 하면 Azure Event Hubs에서 스트리밍 데이터를 쉽게 수집, 처리 및 분석할 수 있으므로 강력한 통찰력을 통해 실시간 작업을 지원할 수 있습니다. 이러한 통합을 통해 핫 경로 분석 파이프라인을 신속 하 게 만들 수 있습니다. Azure Portal를 사용 하 여 들어오는 데이터를 시각화 하 고 Stream Analytics 쿼리를 작성할 수 있습니다. 쿼리가 준비 되 면 몇 번의 클릭 만으로 프로덕션으로 이동할 수 있습니다. 

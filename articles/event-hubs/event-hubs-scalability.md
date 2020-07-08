@@ -1,25 +1,14 @@
 ---
 title: 확장성-Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 파티션 및 처리량 단위를 사용 하 여 Azure Event Hubs 크기를 조정 하는 방법에 대 한 정보를 제공 합니다.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 06/18/2019
-ms.author: shvija
-ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 6d1c7bc5a0206b634e5a85243f25b2c926762d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315484"
 ---
 # <a name="scaling-with-event-hubs"></a>Event Hubs로 크기 조정
 

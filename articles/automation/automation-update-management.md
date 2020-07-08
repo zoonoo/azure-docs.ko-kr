@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 05/22/2020
+ms.date: 06/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4c27fa26b19b870f90f2e7d6ecd34f1f3c083323
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316392"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -29,7 +29,7 @@ VM용 업데이트 관리는 다음과 같은 방법으로 사용하도록 설�
 신규 또는 기존 Automation 계정과 구독의 Log Analytics 작업 영역으로 업데이트 관리를 배포하는 데 도움이 되는 [Azure Resource Manager 템플릿](automation-update-management-deploy-template.md)이 있습니다.
 
 > [!NOTE]
-> 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다. 
+> 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다.
 
 ## <a name="about-update-management"></a>업데이트 관리에 대해 자세히 알아보기
 
@@ -68,21 +68,22 @@ Linux 머신에서는 기본적으로 1시간마다 준수 검사가 이루어�
 Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Runbook은 볼 수 없고 Runbook에는 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 머신에 대해 지정된 시간에 마스터 업데이트 Runbook을 시작하는 일정을 만듭니다. 이 마스터 Runbook은 각 에이전트에서 하위 Runbook을 시작하여 필수 업데이트를 설치합니다.
 
 업데이트 배포에 지정된 날짜 및 시간에 대상 머신은 배포를 병렬로 실행합니다. 설치 전에, 업데이트가 여전히 필요한지 확인하기 위한 검사가 수행됩니다. WSUS 클라이언트 머신의 경우 업데이트가 WSUS에서 승인되지 않았으면 업데이트 배포가 실패합니다.
+
 머신 하나를 둘 이상의 Log Analytics 작업 영역에서 업데이트 관리에 등록(멀티 호밍)하는 것은 지원되지 않습니다.
 
 ## <a name="clients"></a>클라이언트
 
 ### <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
-다음 표에는 업데이트 평가를 위해 지원되는 운영 체제가 나와 있습니다. 패치를 사용하려면 Hybrid Runbook Worker가 필요합니다. Hybrid Runbook Worker 요구 사항에 대한 자세한 내용은 [Windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md) 및 [Linux Hybrid Runbook Worker 배포](automation-linux-hrw-install.md)를 참조하세요.
+다음 표에는 업데이트 평가 및 패치를 위해 지원 되는 운영 체제가 나와 있습니다. 패치를 사용하려면 Hybrid Runbook Worker가 필요합니다. Hybrid Runbook Worker 요구 사항에 대한 자세한 내용은 [Windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md) 및 [Linux Hybrid Runbook Worker 배포](automation-linux-hrw-install.md)를 참조하세요.
 
 > [!NOTE]
 > Linux 머신의 업데이트 평가는 Automation 계정 및 Log Analytics 작업 영역 [매핑 테이블](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)에 안내된 대로 특정 지역에서만 지원됩니다. 
 
 |운영 체제  |메모  |
 |---------|---------|
-|Windows Server 2019(Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016(Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2(RTM 및 SP1 Standard)| 업데이트 관리는 이 운영 체제에 대한 평가만 지원합니다. Windows Server 2008 R2에서는 [Hybrid Runbook Worker](automation-windows-hrw-install.md)가 지원되지 않으므로 패치가 지원되지 않습니다. |
+|Windows Server 2019(Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016(Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 ||
+|Windows Server 2008 R2(RTM 및 SP1 Standard)| 업데이트 관리은이 운영 체제에 대 한 평가 및 패치를 지원 합니다. [Hybrid Runbook Worker](automation-windows-hrw-install.md) 는 Windows Server 2008 r 2에서 지원 됩니다. |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다. 분류 기반 패치를 사용하려면 `yum`에서 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환해야 합니다. CentOS의 분류 기반 패치에 대한 자세한 내용은 [Linux의 업데이트 분류](automation-view-update-assessments.md#linux-2)를 참조하세요.          |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
@@ -103,7 +104,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 ### <a name="client-requirements"></a>클라이언트 요구 사항
 
-아래에서는 운영 체제별 클라이언트 요구 사항에 대해 설명합니다. 추가 지침이 필요하면 [네트워크 계획](#ports)을 참조하세요.
+아래에서는 운영 체제별 클라이언트 요구 사항에 대해 설명합니다. 추가 지침이 필요하면 [네트워크 계획](#ports)을 참조하세요. TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
 
 #### <a name="windows"></a>Windows
 
@@ -165,7 +166,7 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 
 다음 표에서는 업데이트 관리에서 지원하는 연결된 원본에 대해 설명합니다.
 
-| 연결된 원본 | 지원됨 | Description |
+| 연결된 원본 | 지원됨 | 설명 |
 | --- | --- | --- |
 | Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
 | Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
@@ -187,10 +188,10 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 
 |Azure 공용  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|\*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net | *.azure-automation.us|
+|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+|`*.azure-automation.net` | `*.azure-automation.us`|
 
 Windows 머신의 경우 Windows 업데이트에 필요한 모든 엔드포인트로도 트래픽을 허용해야 합니다. 필요한 엔드포인트의 업데이트된 목록은 [HTTP/프록시 관련 문제](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)에서 확인할 수 있습니다. 로컬 [Windows 업데이트 서버](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)가 있는 경우 [WSUS 키](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)에 지정된 서버로도 트래픽을 허용해야 합니다.
 
@@ -224,13 +225,20 @@ Hybrid Runbook Worker에 필요한 포트에 대한 자세한 내용은 [Hybrid 
 |중요 업데이트 및 보안 업데이트     | 특정 문제 또는 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.         |
 |다른 업데이트     | 본질적으로 중요하지 않거나 보안 업데이트가 아닌 그 외의 모든 업데이트입니다.        |
 
+>[!NOTE]
+>Linux 컴퓨터에 대 한 업데이트 분류는 지원 되는 Azure 공용 클라우드 지역에서 사용 되는 경우에만 사용할 수 있습니다. 다음 국가 클라우드 지역에서 업데이트 관리를 사용 하는 경우:
+>* Azure 미국 정부
+>* 중국의 21Vianet
+>
+> Linux 업데이트 분류는 없으며 **다른 업데이트** 범주에 보고 됩니다. 업데이트 관리은 지원 되는 배포판, 특히 릴리스된 [OVAL](https://oval.mitre.org/) (개방형 취약성 및 평가 언어) 파일에 의해 게시 된 데이터를 사용 합니다. 인터넷 액세스는 이러한 국가별 클라우드에서 제한 되기 때문에 이러한 파일에 액세스 하 고 사용할 수 업데이트 관리.
+
 Linux의 경우 클라우드의 풍부한 데이터로 인해 평가 데이터가 표시되면서, 업데이트 관리가 클라우드에서 중요 업데이트와 보안 업데이트를 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포판과 달리, CentOS에서는 RTM 버전에서 이 정보를 사용할 수 없습니다. CentOS 머신이 다음 명령에 대해 보안 데이터를 반환하도록 구성된 경우 업데이트 관리에서는 분류에 따라 패치를 수행할 수 있습니다.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-현재는 CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드가 없습니다. 따라서 이러한 기능을 직접 사용하도록 설정했을 수 있는 고객에게만 최선의 지원이 제공됩니다. 
+현재는 CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드가 없습니다. 따라서 이러한 기능을 직접 사용하도록 설정했을 수 있는 고객에게만 최선의 지원이 제공됩니다.
 
 Red Hat Enterprise 버전 6의 업데이트를 분류하려면 yum-보안 플러그인을 설치해야 합니다. Red Hat Enterprise Linux 7에서는 플러그인이 이미 yum 자체에 포함되어 있으므로 아무것도 설치할 필요가 없습니다. 자세한 내용은 다음 Red Hat [기술 항목](https://access.redhat.com/solutions/10021)을 참조하세요.
 

@@ -1,24 +1,14 @@
 ---
 title: Azure Event Hubs-예외
 description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된 작업의 목록을 제공합니다.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/16/2020
-ms.author: shvija
-ms.openlocfilehash: d7f420b353361bdd4185958a1f66bfb68fd5decc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: ce9e1bcd1f9e4d196d03d55374af8b1c86651851
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314606"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs 메시징 예외-.NET
 이 섹션에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 

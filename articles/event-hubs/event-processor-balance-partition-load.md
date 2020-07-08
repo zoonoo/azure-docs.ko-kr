@@ -1,23 +1,14 @@
 ---
 title: 여러 인스턴스에 걸쳐 파티션 로드 균형 조정-Azure Event Hubs | Microsoft Docs
 description: 이벤트 프로세서와 Azure Event Hubs SDK를 사용 하 여 응용 프로그램의 여러 인스턴스에 걸쳐 파티션 부하를 분산 하는 방법을 설명 합니다.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/16/2020
-ms.author: shvija
-ms.openlocfilehash: e7f17c589b043a055bd541a0850d9efc8e1d96be
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 06/23/2020
+ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314979"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>응용 프로그램의 여러 인스턴스에 걸쳐 파티션 로드 균형 조정
 이벤트 처리 응용 프로그램의 크기를 조정 하기 위해 응용 프로그램의 여러 인스턴스를 실행 하 고 부하의 균형을 유지 하도록 할 수 있습니다. 이전 버전에서는 [EventProcessorHost](event-hubs-event-processor-host.md) 를 통해 프로그램의 여러 인스턴스 간에 부하를 분산 하 고 수신 시 검사점 이벤트를 분산할 수 있었습니다. 최신 버전 (5.0 이상)에서는 **EventProcessorClient** (.Net 및 Java) 또는 **EventHubConsumerClient** (Python 및 JavaScript)를 사용 하 여 동일한 작업을 수행할 수 있습니다. 개발 모델은 이벤트를 사용 하 여 더 간단 하 게 만들 수 있습니다. 이벤트 처리기를 등록 하 여 관심 있는 이벤트를 구독할 수 있습니다.
@@ -27,7 +18,7 @@ ms.locfileid: "82628864"
 > [!NOTE]
 > Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](https://msdn.microsoft.com/library/dn568101.aspx) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
 
-## <a name="example-scenario"></a>예제 시나리오 
+## <a name="example-scenario"></a>예제 시나리오
 
 예제 시나리오로 100,000호의 집을 모니터링하는 보안 회사를 가정합니다. 1 분 마다 각 홈에 설치 된 동작 탐지기, 도어/window 열린 센서, 유리 브레이크 감지기 등의 다양 한 센서에서 데이터를 가져옵니다. 회사는 거주자가 거의 실시간으로 해당 집의 활동을 모니터링하는 웹 사이트를 제공합니다.
 
@@ -44,7 +35,7 @@ ms.locfileid: "82628864"
 
 ## <a name="event-processor-or-consumer-client"></a>이벤트 프로세서 또는 소비자 클라이언트
 
-이러한 요구 사항을 충족 하기 위해 솔루션을 직접 빌드할 필요는 없습니다. Azure Event Hubs Sdk는이 기능을 제공 합니다. .NET 또는 Java Sdk에서는 이벤트 프로세서 클라이언트 (EventProcessorClient)를 사용 하 고 Python 및 Java 스크립트 Sdk에서는 EventHubConsumerClient을 사용 합니다. 이전 버전의 SDK에서는 이러한 기능을 지 원하는 이벤트 프로세서 호스트 (EventProcessorHost) 였습니다.
+이러한 요구 사항을 충족 하기 위해 솔루션을 직접 빌드할 필요는 없습니다. Azure Event Hubs Sdk는이 기능을 제공 합니다. .NET 또는 Java Sdk에서는 이벤트 프로세서 클라이언트 (EventProcessorClient)를 사용 하 고 Python 및 JavaScript Sdk에서는 EventHubConsumerClient을 사용 합니다. 이전 버전의 SDK에서는 이러한 기능을 지 원하는 이벤트 프로세서 호스트 (EventProcessorHost) 였습니다.
 
 대부분의 프로덕션 시나리오에서는 이벤트 프로세서 클라이언트를 사용 하 여 이벤트를 읽고 처리 하는 것이 좋습니다. 프로세서 클라이언트는 진행 상태를 검사 하는 수단을 제공 하는 동시에 성능 및 내결함성 방식으로 이벤트 허브의 모든 파티션에서 이벤트를 처리 하기 위한 강력한 환경을 제공 하기 위한 것입니다. 또한 이벤트 프로세서 클라이언트는 지정 된 이벤트 허브에 대 한 소비자 그룹의 컨텍스트 내에서 협조적으로 작업할 수 있습니다. 클라이언트는 그룹에 대 한 인스턴스를 사용할 수 있거나 사용할 수 없게 되 면 작업의 분산 및 분산을 자동으로 관리 합니다.
 
@@ -54,7 +45,7 @@ ms.locfileid: "82628864"
 
 각 이벤트 프로세서에는 검사점 저장소에서 항목을 추가 하거나 업데이트 하 여 고유한 식별자와 파티션에 대 한 클레임 소유권이 제공 됩니다. 모든 이벤트 프로세서 인스턴스는이 저장소와 정기적으로 통신 하 여 자체 처리 상태를 업데이트 하 고 다른 활성 인스턴스에 대해 알아봅니다. 그런 다음이 데이터를 사용 하 여 활성 프로세서 간에 부하를 분산 합니다. 새 인스턴스는 처리 풀에 조인 하 여 확장할 수 있습니다. 오류가 발생 하거나 규모를 축소 하 여 인스턴스가 중단 되 면 파티션 소유권이 다른 활성 프로세서로 정상적으로 전송 됩니다.
 
-검사점 저장소의 파티션 소유권 레코드는 Event Hubs 네임 스페이스, 이벤트 허브 이름, 소비자 그룹, 이벤트 프로세서 식별자 (소유자 라고도 함), 파티션 id 및 마지막으로 수정한 시간을 추적 합니다.
+검사점 저장소의 파티션 소유권 레코드 Event Hubs 네임 스페이스, 이벤트 허브 이름, 소비자 그룹, 이벤트 프로세서 식별자 (소유자 라고도 함), 파티션 ID 및 마지막으로 수정한 시간을 추적 합니다.
 
 
 
@@ -92,7 +83,7 @@ ms.locfileid: "82628864"
 
 ## <a name="thread-safety-and-processor-instances"></a>스레드 안전성 및 프로세서 인스턴스
 
-기본적으로 이벤트 프로세서 또는 소비자는 스레드로부터 안전 하며 동기 방식으로 동작 합니다. 파티션에 대 한 이벤트가 도착할 때 이벤트를 처리 하는 함수가 호출 됩니다. 후속 메시지 및이 함수에 대 한 호출은 메시지 펌프가 다른 스레드의 백그라운드에서 계속 실행 될 때 내부적으로 큐에 대기 합니다. 스레드 보안은 스레드로부터 안전한 컬렉션에 대한 필요성을 제거하고 성능을 크게 향상시킵니다.
+기본적으로 이벤트를 처리 하는 함수는 지정 된 파티션에 대해 순차적으로 호출 됩니다. 이벤트 펌프가 다른 스레드의 백그라운드에서 계속 실행 될 때 동일한 파티션 큐에서이 함수에 대 한 후속 이벤트와 호출은 내부적으로 진행 됩니다. 서로 다른 파티션의 이벤트는 동시에 처리할 수 있으며 파티션 간에 액세스 되는 모든 공유 상태는 동기화 되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 빠른 시작을 참조 하세요.
