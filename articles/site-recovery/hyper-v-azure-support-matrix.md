@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da2cc3dade843b1ea207eb4ec5bf33a41a289d7e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851471"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -30,11 +30,15 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 
-**서버** | **요구 사항** | **세부 정보**
+**Server** | **요구 사항** | **세부 정보**
 --- | --- | ---
-Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016 (server core 설치 포함), 최신 업데이트가 포함 된 Windows Server 2012 R2 | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요. 
-Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.<br/><br/> 참고: Windows Server 2019 호스트의 경우 대체 위치로 장애 복구 (Failback)가 지원 되지 않습니다.
+Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016, 최신 업데이트가 포함 된 Windows Server 2012 R2 (Windows Server 2019를 제외 하 고 이러한 운영 체제의 Server core 설치 포함) | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요.
+Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (Virtual Machine Manager 2019를 제외 하 고 이러한 운영 체제의 server core 설치 포함) | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.
 
+> [!NOTE]
+>
+> - 온-프레미스 서버에 .NET Framework 4.6.2 이상이 있는지 확인 합니다.
+> - Virtual Machine Manager를 사용 하거나 사용 하지 않고 실행 되는 대체 위치나 원래 위치로 장애 조치 (Failover) 및 장애 복구 (failback)는 Windows Server 2019 Server core 버전에서 지원 되지 않습니다.
 
 ## <a name="replicated-vms"></a>복제된 VM
 
@@ -51,8 +55,8 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 
 **동작** | **세부 정보**
 --- | ---
-복제된 Hyper-V VM에서 디스크 크기 조정 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
-복제된 Hyper-V VM에서 디스크 추가 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 네트워크 구성
 
@@ -90,7 +94,7 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 스토리지
 
-**저장소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
+**스토리지** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
 NFS | 해당 없음 | 해당 없음
 SMB 3.0 | 예 | 예
@@ -99,7 +103,7 @@ SAN(ISCSI) | 예 | 예
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 스토리지
 
-**저장소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
+**스토리지** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | 예 | 예
@@ -131,8 +135,9 @@ RDM | 해당 없음 | 해당 없음
 핫 스토리지| 아니요 | 아니요
 블록 Blob | 아니요 | 아니요
 미사용 암호화(SSE)| 예 | 예
-미사용 암호화 (CMK) <br></br> (관리 디스크에 대 한 장애 조치 (failover)에만 해당)| 예 (PowerShell Az 3.3.0 모듈을 통해) | 예 (PowerShell Az 3.3.0 모듈을 통해)
+미사용 암호화(CMK) <br></br> (관리 디스크에 대 한 장애 조치 (failover)에만 해당)| 예 (PowerShell Az 3.3.0 모듈을 통해) | 예 (PowerShell Az 3.3.0 모듈을 통해)
 Premium Storage | 예 | 예
+Standard Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
 방화벽이 설정 된 Azure Storage 계정 | 예. 대상 저장소 및 캐시 | 예. 대상 저장소 및 캐시
 저장소 계정 수정 | 아니요. 복제를 사용 하도록 설정한 후에는 대상 Azure Storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 합니다. | 아니요

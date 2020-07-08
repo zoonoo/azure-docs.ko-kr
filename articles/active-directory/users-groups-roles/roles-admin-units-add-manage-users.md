@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c2c5c083115440e1e4da203f39f2b32734458c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b76ac103b873026dce3d3f8f92e54dc3afc14c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850938"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory 관리 단위에서 사용자 추가 및 관리
 
 Azure Active Directory (Azure AD)에서 관리 단위 (AU)에 사용자를 추가 하 여 관리 범위를 세부적으로 제어할 수 있습니다.
 
-PowerShell 사용을 준비 하 고 관리 장치 관리를 Microsoft Graph 하는 단계는 [시작](roles-admin-units-manage.md#get-started)을 참조 하세요.
+PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하는 단계는 [시작](roles-admin-units-manage.md#get-started)을 참조하세요.
 
 ## <a name="add-users-to-an-au"></a>AU에 사용자 추가
 
@@ -41,7 +41,7 @@ PowerShell 사용을 준비 하 고 관리 장치 관리를 Microsoft Graph 하�
 
     1. 포털에서 Azure AD로 이동 하 여 왼쪽 창에서 관리 단위를 선택 하 고 사용자를 할당할 관리 단위를 선택할 수 있습니다. 왼쪽 창에서 모든 사용자를 선택한 후 구성원 추가를 선택 합니다. 그런 다음 오른쪽 창에서 관리 단위에 할당할 사용자를 하나 이상 선택할 수 있습니다.
 
-        ![관리 단위를 선택한 후 구성원 추가를 선택 합니다.](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
+        ![관리 단위를 선택한 다음, 구성원 추가](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
 1. 대량 할당
 
@@ -51,26 +51,32 @@ PowerShell 사용을 준비 하 고 관리 장치 관리를 Microsoft Graph 하�
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```powershell
+$administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
+Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```
 
-위의 예에서는 AzureADAdministrativeUnitMember cmdlet을 사용 하 여 관리 단위에 사용자를 추가 합니다. 사용자를 추가할 관리 단위의 개체 ID 이며 추가 될 사용자의 개체 ID는 인수로 사용 됩니다. 강조 표시 된 섹션은 특정 환경에 필요한 대로 변경할 수 있습니다.
+위의 예에서는 AzureADAdministrativeUnitMember cmdlet을 사용 하 여 관리 단위에 사용자를 추가 합니다. 사용자를 추가할 관리 단위의 개체 ID 이며 추가 될 사용자의 개체 ID는 인수로 사용 됩니다. 강조 표시된 섹션은 특정 환경의 요구에 따라 달라질 수 있습니다.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    Http request
-    POST /administrativeUnits/{Admin Unit id}/members/$ref
-    Request body
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
-    }
+```http
+Http request
+POST /administrativeUnits/{Admin Unit id}/members/$ref
+Request body
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
+}
+```
 
 예제:
 
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
-    }
+```http
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
+}
+```
 
 ## <a name="list-administrative-units-for-a-user"></a>사용자의 관리 단위 나열
 
@@ -86,27 +92,33 @@ Azure Portal에서 Azure AD > 사용자로 이동 하 여 사용자의 프로필
 
 ### <a name="powershell"></a>PowerShell
 
-    Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```powershell
+Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```http
+https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```
 
 ## <a name="remove-a-single-user-from-an-au"></a>AU에서 단일 사용자 제거
 
 ### <a name="azure-portal"></a>Azure portal
 
-관리 단위에서 사용자를 제거 하는 방법에는 두 가지가 있습니다. Azure Portal에서 **Azure AD** > **사용자**로 이동 하 여 사용자의 프로필을 열 수 있습니다. 사용자를 선택 하 여 사용자의 프로필을 엽니다. 사용자를 제거 하려는 관리 단위를 선택 하 고 **관리 단위에서 제거**를 선택 합니다.
+관리 단위에서 사용자를 제거 하는 방법에는 두 가지가 있습니다. Azure Portal에서 **Azure AD**사용자로 이동 하 여 사용자의 프로필을 열 수 있습니다  >  **Users**. 사용자를 선택 하 여 사용자의 프로필을 엽니다. 사용자를 제거 하려는 관리 단위를 선택 하 고 **관리 단위에서 제거**를 선택 합니다.
 
 ![사용자 프로필에서 관리 단위에서 사용자 제거](./media/roles-admin-units-add-manage-users/user-remove-admin-units.png)
 
-사용자를 제거 하려는 관리 단위를 선택 하 여 **Azure AD** > **관리 단위** 에서 사용자를 제거할 수도 있습니다. 사용자를 선택 하 고 **구성원 제거**를 선택 합니다.
+사용자를 제거 하려는 관리 단위를 선택 하 여 **Azure AD**  >  **관리 단위** 에서 사용자를 제거할 수도 있습니다. 사용자를 선택 하 고 **구성원 제거**를 선택 합니다.
   
 ![관리 단위 수준에서 사용자 제거](./media/roles-admin-units-add-manage-users/admin-units-remove-user.png)
 
 ### <a name="powershell"></a>PowerShell
 
-    Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```powershell
+Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

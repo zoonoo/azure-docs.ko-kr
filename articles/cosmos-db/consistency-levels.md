@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: e5966f142ece32f148c56edb5b0ef5dfd88603aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851695"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 
@@ -21,7 +21,7 @@ Azure Cosmos DB는 두 가지의 극단적인 일관성 모델이 아니라 선�
 
 Azure Cosmos DB를 통해 개발자는 일관성 스펙트럼에 대해 잘 정의 된 5 가지 일관성 수준에서 선택할 수 있습니다. 이러한 수준에는 *강력*, *제한 된 부실*, *세션*, *일관 된 접두사*및 *최종* 일관성이 포함 됩니다. 수준은 잘 정의 되 고 직관적 이며 특정 실제 시나리오에 사용할 수 있습니다. 각 수준은 [가용성 및 성능 장단점](consistency-levels-tradeoffs.md) 을 제공 하며 sla를 통해 지원 됩니다. 다음 이미지는 다양 한 일관성 수준을 스펙트럼으로 보여 줍니다.
 
-![스펙트럼으로 일관성](./media/consistency-levels/five-consistency-levels.png)
+:::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="스펙트럼으로 일관성" border="false" :::
 
 일관성 수준은 지역에 구애 받지 않으며 읽기 및 쓰기가 처리 되는 지역, Azure Cosmos 계정에 연결 된 지역 수 또는 계정이 단일 또는 다중 쓰기 지역으로 구성 되었는지 여부에 관계 없이 모든 작업에 대해 보장 됩니다.
 
@@ -31,7 +31,7 @@ Azure Cosmos DB를 통해 개발자는 일관성 스펙트럼에 대해 잘 정�
 
 ## <a name="configure-the-default-consistency-level"></a>기본 일관성 수준 구성
 
-언제든지 Azure Cosmos 계정의 기본 일관성 수준을 구성할 수 있습니다. 계정에 구성 된 기본 일관성 수준은 해당 계정의 모든 Azure Cosmos 데이터베이스 및 컨테이너에 적용 됩니다. 컨테이너 또는 데이터베이스에 대해 실행된 모든 읽기 및 쿼리는 기본적으로 지정된 일관성 수준을 사용합니다. 자세히 알아보려면 [기본 일관성 수준을 구성](how-to-manage-consistency.md#configure-the-default-consistency-level)하는 방법을 참조하세요.
+언제든지 Azure Cosmos 계정의 기본 일관성 수준을 구성할 수 있습니다. 계정에 구성 된 기본 일관성 수준은 해당 계정의 모든 Azure Cosmos 데이터베이스 및 컨테이너에 적용 됩니다. 컨테이너 또는 데이터베이스에 대해 실행된 모든 읽기 및 쿼리는 기본적으로 지정된 일관성 수준을 사용합니다. 자세히 알아보려면 [기본 일관성 수준을 구성](how-to-manage-consistency.md#configure-the-default-consistency-level)하는 방법을 참조하세요. 특정 요청에 대 한 기본 일관성 수준을 재정의할 수도 있습니다. 자세한 내용은 [기본 일관성 수준을 재정의](how-to-manage-consistency.md?#override-the-default-consistency-level) 하는 방법 문서를 참조 하세요.
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>일관성 수준과 연결된 보장
 
@@ -43,9 +43,9 @@ Azure Cosmos DB에서 제공하는 포괄적인 SLA는 읽기 요청의 100%가 
 
   다음 그림은 악기 노트와의 강력한 일관성을 보여 줍니다. "미국 서 부 2" 지역에 데이터를 쓴 후 다른 지역의 데이터를 읽으면 최신 값을 얻게 됩니다.
 
-  ![video](media/consistency-levels/strong-consistency.gif)
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="비디오":::
 
-- **제한 된 부실**: 읽기는 일관 된 접두사 보증을 보장 합니다. 읽기는 항목의 " *K"* 버전 (즉, "업데이트") 또는 *"T"* 시간 간격에 따라 쓰기 뒤에 지연 될 수 있습니다. 즉, 제한 된 부실을 선택 하는 경우 "부실"은 다음 두 가지 방법으로 구성할 수 있습니다.
+- **제한 된 부실**: 읽기는 일관 된 접두사 보증을 보장 합니다. 읽기는 항목의 *"K"* 버전 (즉, "업데이트") 또는 *"T"* 시간 간격 ("업데이트")에 따라 쓰기 뒤에 지연 될 수 있습니다. 즉, 제한 된 부실을 선택 하는 경우 "부실"은 다음 두 가지 방법으로 구성할 수 있습니다.
 
 - 항목의 버전 (*K*) 수입니다.
 - 읽기가 쓰기 뒤에 지연 될 수 있는 시간 간격 (*T*)입니다.
@@ -61,7 +61,7 @@ Azure Cosmos DB에서 제공하는 포괄적인 SLA는 읽기 요청의 100%가 
 
   제한 된 부실은 일반적으로 낮은 쓰기 대기 시간을 예상 하지만 총 글로벌 주문 보증이 필요한 전 세계적으로 분산 된 응용 프로그램에 의해 선택 됩니다. 제한 된 부실은 그룹 공동 작업 및 공유, 주식 시세, 게시-구독/큐 등을 갖춘 응용 프로그램에 적합 합니다. 다음 그림은 음악 메모와의 제한 된 부실 일관성을 보여 줍니다. "미국 서 부 2" 지역에 데이터를 쓴 후 "미국 동부 2" 및 "오스트레일리아 동부" 지역은 구성 된 최대 지연 시간 또는 최대 작업을 기반으로 작성 된 값을 읽습니다.
 
-  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="비디오":::
 
 - **세션**: 단일 클라이언트 세션에서 읽기는 일관 된 접두사, 단조 읽기, 단조 쓰기, 읽기/쓰기 및 쓰기-쓰기를 보장 합니다. 이는 단일 "writer" 세션을 가정 하거나 여러 작성기에 대해 세션 토큰을 공유 하는 것으로 가정 합니다.
 
@@ -72,13 +72,13 @@ Azure Cosmos DB에서 제공하는 포괄적인 SLA는 읽기 요청의 100%가 
 - 다중 마스터 계정에 대 한 단일 지역에 쓰는 클라이언트의 일관성 = 일관적인 접두사
 - 다중 마스터 계정에 대 한 여러 지역에 쓰는 클라이언트의 일관성 = 최종
 
-  세션 일관성은 단일 지역 뿐만 아니라 전 세계적으로 분산 된 응용 프로그램 모두에 대해 널리 사용 되는 일관성 수준입니다. 최종 일관성과 유사 하 게 쓰기 대기 시간, 가용성 및 읽기 처리량을 제공 하지만, 사용자의 컨텍스트에서 작동 하도록 작성 된 응용 프로그램의 요구에 맞는 일관성 보장도 제공 합니다. 다음 그림은 악기 노트와의 세션 일관성을 보여 줍니다. "미국 서 부 2 작성기" 및 "미국 서 부 2 판독기"는 동일한 세션 (세션 A)을 사용 하 고 있으므로 동일한 데이터를 동시에 읽을 수 있습니다. "오스트레일리아 동부" 지역은 "세션 B"를 사용 하는 반면 나중에 쓰기와 동일한 순서로 데이터를 받습니다.
+  세션 일관성은 단일 지역 뿐만 아니라 전 세계적으로 분산 된 응용 프로그램 모두에서 가장 널리 사용 되는 일관성 수준입니다. 최종 일관성과 유사 하 게 쓰기 대기 시간, 가용성 및 읽기 처리량을 제공 하지만, 사용자의 컨텍스트에서 작동 하도록 작성 된 응용 프로그램의 요구에 맞는 일관성 보장도 제공 합니다. 다음 그림은 악기 노트와의 세션 일관성을 보여 줍니다. "미국 서 부 2 작성기" 및 "미국 서 부 2 판독기"는 동일한 세션 (세션 A)을 사용 하 고 있으므로 동일한 데이터를 동시에 읽을 수 있습니다. "오스트레일리아 동부" 지역은 "세션 B"를 사용 하는 반면 나중에 쓰기와 동일한 순서로 데이터를 받습니다.
 
-  ![video](media/consistency-levels/session-consistency.gif)
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="비디오":::
 
-- **일관적인 접두사**: 반환 되는 업데이트에는 간격이 없는 모든 업데이트의 일부 접두사가 포함 됩니다. 일관적인 접두사 일관성 수준에 따라 읽기가 잘못 된 쓰기를 볼 필요가 없습니다.
+- **일관적인 접두사**: 반환 되는 업데이트에는 간격이 없는 모든 업데이트의 일부 접두사가 포함 됩니다. 일관 된 접두사 일관성 수준에 따라 읽기가 잘못 된 쓰기를 표시 하지 않습니다.
 
-쓰기가 `A, B, C` 순서로 수행된 경우 클라이언트는 `A`, `A,B` 또는 `A,B,C`를 볼 수 있지만 `A,C` 또는 `B,A,C`처럼 잘못된 것은 볼 수 없습니다. 일관 된 접두사는 최종 일관성과 비교할 수 있는 쓰기 대기 시간, 가용성 및 읽기 처리량을 제공 하지만 순서가 중요 한 시나리오의 요구 사항에 적합 한 주문 보장도 제공 합니다. 
+쓰기를 순서 대로 수행 `A, B, C` 하는 경우 클라이언트는, 또는 중 하나를 볼 `A` `A,B` `A,B,C` 뿐만 아니라 또는와 같이 순서가 잘못 된 순열은 표시 하지 않습니다 `A,C` `B,A,C` . 일관 된 접두사는 최종 일관성과 비교할 수 있는 쓰기 대기 시간, 가용성 및 읽기 처리량을 제공 하지만 순서가 중요 한 시나리오의 요구 사항에 적합 한 주문 보장도 제공 합니다. 
 
 다음은 일관 된 접두사에 대 한 일관성 보장입니다.
 
@@ -89,14 +89,14 @@ Azure Cosmos DB에서 제공하는 포괄적인 SLA는 읽기 요청의 100%가 
 
 다음 그림은 음악 메모와의 일관성 접두사 일관성을 보여 줍니다. 모든 지역에서 읽기는 순서가 잘못 된 쓰기를 표시 하지 않습니다.
 
-  ![video](media/consistency-levels/consistent-prefix.gif)
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="비디오":::
 
 - **최종**: 읽기에 대 한 순서가 보장 되지 않습니다. 추가적인 쓰기가 없는 경우 복제본이 결국 통합됩니다.  
 최종 일관성은 클라이언트에서 이전에 읽은 값 보다 오래 된 값을 읽을 수 있기 때문에 가장 약한 형태의 일관성입니다. 최종 일관성은 응용 프로그램에서 순서를 보장 하지 않아도 되는 경우에 적합 합니다. 예를 들면, 좋아요, 좋아요 또는 비 스레드된 주석의 개수가 포함 됩니다. 다음 그림은 악기 노트와의 최종 일관성을 보여 줍니다.
 
-  ![video](media/consistency-levels/eventual-consistency.gif)
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="비디오":::
 
-## <a name="additional-reading"></a>추가 참조 자료
+## <a name="additional-reading"></a>추가 참조 항목
 
 일관성 개념에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 760f5c6c929aa082993683d7a466a71c6484289a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5d977fe0b7459af35f678e77681d3b27c31431cc
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67148349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849177"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Azure Data Box Disk의 데이터 복사 문제 해결
 
@@ -32,7 +32,9 @@ ms.locfileid: "67148349"
 
 Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없습니다. 이 시나리오는 dislocker으로 암호 해독한 드라이브에서 지원되지 않습니다. 다음 명령을 사용하여 디바이스를 다시 탑재했을 수 있습니다.
 
-    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
+```
+# mount -o remount, rw /mnt/DataBoxDisk/mountVol1
+```
 
 다시 탑재에 성공했더라도 데이터가 유지되지 않습니다.
 
@@ -40,14 +42,14 @@ Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없
 
 Linux 시스템에서 다음 단계를 수행 합니다.
 
-1. Ntfsfix 유틸리티에 대 한 패키지를 `ntfsprogs` 설치 합니다.
+1. `ntfsprogs`Ntfsfix 유틸리티에 대 한 패키지를 설치 합니다.
 2. 잠금 해제 도구에서 드라이브에 대해 제공 된 탑재 위치를 분리 합니다. 탑재 지점의 수는 드라이브 마다 다를 수 있습니다.
 
     ```
     unmount /mnt/DataBoxDisk/mountVol1
     ```
 
-3. 해당 `ntfsfix` 경로에 대해를 실행 합니다. 강조 표시 된 숫자는 2 단계와 동일 해야 합니다.
+3. `ntfsfix`해당 경로에 대해를 실행 합니다. 강조 표시 된 숫자는 2 단계와 동일 해야 합니다.
 
     ```
     ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
@@ -91,7 +93,7 @@ Linux 시스템에서 다음 단계를 수행 합니다.
 |---------|---------|
 |나타납니다 볼륨에 대 한 BitLocker 암호 검색: m <br>메시지가 볼륨 m의 BitLocker 키를 검색 하는 동안 예외가 발생 했습니다.<br> 시퀀스에 요소가 없습니다.|이 오류는 대상 Data Box Disk가 오프라인인 경우 발생합니다. <br> 온라인 디스크에 `diskmgmt.msc` 도구를 사용합니다.|
 |[오류] 예외가 발생함: WMI 작업 실패:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=제공된 복구 암호의 형식이 잘못되었습니다. <br>BitLocker 복구 암호는 48자릿수입니다. <br>복구 암호 형식이 올바른지 확인하고 다시 시도하십시오.|Data Box Disk 잠금 해제 도구를 사용하여 먼저 디스크 잠금을 해제하고 명령을 다시 시도합니다. 자세한 내용은 다음을 참조하세요. <li> [Windows 클라이언트에 대한 Data Box Disk 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) </li><li> [Linux 클라이언트에 대한 Data Box Disk 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client) </li>|
-|[오류] 예외가 발생함: 대상 드라이이브에 DriveManifest.xml 파일이 존재합니다. <br> 이는 다른 저널 파일을 사용하여 대상 드라이브가 준비되었을 수 있음을 나타냅니다. <br>동일한 드라이브에 데이터를 더 추가하려면 이전 저널 파일을 사용합니다. 새 가져오기 작업을 위해 기존 데이터를 삭제 하 고 대상 드라이브를 다시 사용 하려면 드라이브에서 *DriveManifest* 을 삭제 합니다. 이 명령을 새 저널 파일을 사용하여 다시 실행합니다.| 이 오류는 다수의 가져오기 세션에 대해 동일한 드라이브 집합을 사용하려고 할 때 수신됩니다. <br> 하나의 드라이브 집합은 하나의 분할 및 복사 세션에만 사용하십시오.|
+|[오류] 예외가 발생함: 대상 드라이이브에 DriveManifest.xml 파일이 존재합니다. <br> 이는 다른 저널 파일을 사용하여 대상 드라이브가 준비되었을 수 있음을 나타냅니다. <br>동일한 드라이브에 데이터를 더 추가하려면 이전 저널 파일을 사용합니다. 새 가져오기 작업을 위해 기존 데이터를 삭제 하 고 대상 드라이브를 다시 사용 하려면 드라이브에서 *DriveManifest.xml* 을 삭제 합니다. 이 명령을 새 저널 파일을 사용하여 다시 실행합니다.| 이 오류는 다수의 가져오기 세션에 대해 동일한 드라이브 집합을 사용하려고 할 때 수신됩니다. <br> 하나의 드라이브 집합은 하나의 분할 및 복사 세션에만 사용하십시오.|
 |[오류] 예외가 발생함: CopySessionId importdata-sept-test-1은 이전 복사 세션을 참조하며 새 복사 세션에 재사용 할 수 없습니다.|이 오류는 새 작업에 대해 이전에 성공적으로 완료된 직업과 동일한 작업 이름을 사용하려고 시도하면 보고됩니다.<br> 새 작업에 대해 고유한 이름을 제공하십시오.|
 |[정보] 대상 파일 또는 디렉터리 이름이 NTFS 길이 한도를 초과합니다. |이 메시지는 파일 경로가 길어서 대상 파일의 이름이 바뀐 경우 보고됩니다.<br> 이 동작을 제어하려면 `config.json` 파일에서 disposition 옵션을 수정하십시오.|
 |[오류] 예외가 발생함: JSON 이스케이프 시퀀스가 잘못되었습니다. |이 메시지는 config.json에 유효하지 않은 형식이 있을 때 보고됩니다. <br> 파일을 저장하기 전에 [JSONlint](https://jsonlint.com/)를 사용하여 `config.json`의 유효성을 검사하십시오.|

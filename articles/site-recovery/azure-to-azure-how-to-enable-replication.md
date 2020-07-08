@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75973701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851167"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Azure Vm을 다른 Azure 지역에 복제
 
@@ -38,7 +38,7 @@ ms.locfileid: "75973701"
 
      ![복제 사용](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
-3. **Virtual Machines > 가상 컴퓨터를 선택**하 고 복제 하려는 각 VM을 클릭 하 여 선택 합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 클릭합니다.
+3. **Virtual Machines > 가상 컴퓨터를 선택**하 고 복제 하려는 각 VM을 클릭 하 여 선택 합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
     ![복제 활성화](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. **설정**에서 대상 사이트 설정을 선택적으로 구성할 수 있습니다.
@@ -113,12 +113,13 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
     - Linux Vm이 복제 그룹의 일부가 되도록 하려면 특정 Linux 버전에 대 한 지침에 따라 포트 20004의 아웃 바운드 트래픽을 수동으로 열어야 합니다.
 ![복제 활성화](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
-5. **대상 리소스** > 만들기**복제 사용**을 클릭 합니다.
+5. **대상 리소스 만들기**  >  **복제 사용**을 클릭 합니다.
 6. VM이 복제에 대해 사용하도록 설정된 후 **복제된 항목**에서 VM 상태를 확인할 수 있습니다.
 
 >[!NOTE]
->초기 복제 중 상태가 새로 고쳐질 때까지 시간이 걸릴 수 있습니다(진행률 없음). 최신 작업 상태를 가져오려면 **새로 고침** 단추를 클릭합니다.
 >
+> - 초기 복제 중 상태가 새로 고쳐질 때까지 시간이 걸릴 수 있습니다(진행률 없음). 최신 작업 상태를 가져오려면 **새로 고침** 단추를 클릭합니다.
+> - 최근 60 분 내에 복구 지점이 생성 되지 않은 경우 가상 컴퓨터의 복제 상태가 중요 한 상태가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

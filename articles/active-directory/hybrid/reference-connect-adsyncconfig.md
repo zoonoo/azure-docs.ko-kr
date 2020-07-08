@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850971"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncConfig.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
@@ -1080,28 +1080,19 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ### <a name="description"></a>설명
 Set-ADSyncRestrictedPermissions 함수는 제공된 계정에 대한 권한을 강화합니다.
 권한 강화에 포함되는 단계는 다음과 같습니다.
-1.
-지정된 개체에서 상속을 사용하지 않도록 설정합니다.
-2.
-특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다.
+1. 지정된 개체에서 상속을 사용하지 않도록 설정합니다.
+2. 특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다.
 SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
-3.
-다음과 같은 특정 권한을 할당합니다.
+3. 다음과 같은 특정 권한을 할당합니다.
 
-        Type    Name                                        Access              Applies To
-        =============================================================================================
-        Allow   SYSTEM                                      Full Control        This object
-        Allow   Enterprise Admins                           Full Control        This object
-        Allow   Domain Admins                               Full Control        This object
-        Allow   Administrators                              Full Control        This object
-
-        Allow   Enterprise Domain Controllers               List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
-
-        Allow   Authenticated Users                         List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
+   | Type | 속성 | 액세스 권한 | 적용 대상 |
+   |------|------|--------|------------|
+   | 허용 | SYSTEM | 모든 권한 | 이 개체 |
+   | Allow | 엔터프라이즈 관리자 | 모든 권한 | 이 개체 |
+   | Allow | 도메인 관리자 | 모든 권한 | 이 개체 | 
+   | Allow | 관리자 | 모든 권한 | 이 개체 |
+   | Allow | 엔터프라이즈 도메인 컨트롤러 | 내용 보기 <br> 모든 속성 읽기 <br> 읽기 권한 | 이 개체 |
+   | Allow | 인증된 사용자 | 내용 보기 <br> 모든 속성 읽기 <br> 읽기 권한 | 이 개체 |
 
 ### <a name="examples"></a>예제
 

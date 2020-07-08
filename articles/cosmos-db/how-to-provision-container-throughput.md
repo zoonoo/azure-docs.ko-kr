@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 컨테이너 처리량 프로비전
 description: Azure Portal, CLI, PowerShell 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB의 컨테이너 수준에서 처리량을 프로비저닝하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9167df9c763f4004324a3435ba1a2b0fd0171ac4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851682"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너에서 표준(수동) 처리량 프로비전
 
@@ -31,7 +31,7 @@ ms.locfileid: "83655338"
    * 프로비저닝하려는 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    ![새 컬렉션이 강조 표시된 데이터 탐색기 스크린샷](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="새 컬렉션이 강조 표시된 데이터 탐색기 스크린샷":::
 
 ## <a name="azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell
 
@@ -46,9 +46,9 @@ ms.locfileid: "83655338"
 ## <a name="net-sdk"></a>.NET SDK
 
 > [!Note]
-> Cassandra API를 제외한 모든 Cosmos DB API의 처리량을 프로비저닝할 때 Cosmos SDKs for SQL API를 사용합니다.
+> Cosmos Sdk for SQL API를 사용 하 여 Cassandra 및 MongoDB API를 제외한 모든 Cosmos DB Api에 대 한 처리량을 프로 비전 합니다.
 
-### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>SQL, MongoDB, Gremlin 및 Table API
+### <a name="sql-gremlin-and-table-apis"></a><a id="dotnet-most"></a>SQL, Gremlin 및 Table Api
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -97,6 +97,27 @@ offer.content.offerThroughput = 2000;
 
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
+```
+
+### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>MongoDB API
+
+```csharp
+// refer to MongoDB .NET Driver
+// https://docs.mongodb.com/drivers/csharp
+
+// Create a new Client
+String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+mongoUrl = new MongoUrl(mongoConnectionString);
+mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
+mongoClient = new MongoClient(mongoClientSettings);
+
+// Change the database name
+mongoDatabase = mongoClient.GetDatabase("testdb");
+
+// Change the collection name, throughput value then update via MongoDB extension commands
+// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
+
+var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Cassandra API

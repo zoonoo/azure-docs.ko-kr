@@ -1,18 +1,19 @@
 ---
-title: Shared Image Gallery를 사용하여 사용자 지정 풀 만들기
-description: 사용자 지정 이미지는 Batch 워크로드를 실행하도록 컴퓨팅 노드를 구성하는 효율적인 방법입니다.
+title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
+description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하도록 계산 노드를 구성 하는 효율적인 방법입니다.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851719"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Shared Image Gallery를 사용하여 사용자 지정 풀 만들기
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
-Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원되는 Azure Marketplace 이미지를 사용하여 가상 머신의 풀을 만들거나 [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md)를 사용하여 사용자 지정 이미지를 만들 수 있습니다.
+Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원 되는 Azure Marketplace 이미지를 사용 하 여 가상 머신 풀을 만들거나 [공유 이미지 갤러리 이미지](../virtual-machines/windows/shared-image-galleries.md)를 사용 하 여 사용자 지정 이미지를 만들 수 있습니다.
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Shared Image Gallery의 이점
 
@@ -29,7 +30,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 - **애플리케이션 미리 설치**. OS 디스크에 애플리케이션을 미리 설치하는 것은 시작 작업을 사용하여 컴퓨팅 노드를 프로비저닝한 후에 애플리케이션을 설치하는 것보다 효율성은 높고 오류 발생 가능성은 낮습니다.
 - **많은 데이터를 한 번에 복사** 관리되는 공유 이미지를 관리되는 이미지의 데이터 디스크에 복사하여 관리되는 공유 이미지의 정적 데이터 부분을 만듭니다. 이 작업은 한 번만 수행하며 풀의 각 노드에서 데이터를 사용할 수 있게 됩니다.
 - **풀을 더 큰 크기로 확장** Shared Image Gallery를 사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다.
-- **사용자 지정 이미지보다 우수한 성능** 공유 이미지를 사용하는 경우 풀이 안정된 상태에 도달하는 데 걸리는 시간은 최대 25% 더 빠르며, VM 유휴 대기 시간은 최대 30% 더 짧습니다.
+- **관리 되는 이미지만 사용자 지정 이미지로 사용 하는 것 보다 성능이 향상 됩니다.** 공유 이미지 사용자 지정 이미지 풀의 경우, 안정 된 상태에 도달 하는 시간은 최대 25% fasterm, VM 유휴 대기 시간은 최대 30% 짧습니다.
 - **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대한 정보, 사용 중인 OS 및 이미지 사용에 대한 정보가 포함되어 있습니다. 이미지를 그룹화하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -44,9 +45,11 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 > [!NOTE]
 > 공유 이미지는 Batch 계정과 동일한 구독에 있어야 합니다. Batch 계정과 동일한 지역에 복제본이 있는 경우 이미지는 다른 지역에 있을 수 있습니다.
 
-## <a name="prepare-a-custom-image"></a>사용자 지정 이미지 준비
+Azure AD 응용 프로그램을 사용 하 여 공유 이미지 갤러리 이미지를 사용 하 여 사용자 지정 이미지 풀을 만드는 경우 해당 응용 프로그램에는 공유 이미지에 대 한 액세스 권한을 부여 하는 [azure 기본 제공 역할이](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) 부여 되어 있어야 합니다. 공유 이미지를 탐색 하 고, **액세스 제어 (IAM)** 를 선택 하 고, 응용 프로그램에 대 한 역할 할당을 추가 하 여 Azure Portal에서이 액세스 권한을 부여할 수 있습니다.
 
-Azure의 다음에서 사용자 지정 이미지를 준비할 수 있습니다.
+## <a name="prepare-a-shared-image"></a>공유 이미지 준비
+
+Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 공유 이미지를 준비할 수 있습니다.
 
 - Azure VM의 OS 및 데이터 디스크의 스냅샷
 - 관리 디스크를 사용하는 일반화된 Azure VM
@@ -59,7 +62,7 @@ Azure의 다음에서 사용자 지정 이미지를 준비할 수 있습니다.
 
 ### <a name="prepare-a-vm"></a>VM 준비
 
-이미지용으로 새 VM을 만드는 경우 Batch에서 지원하는 자사 Azure Marketplace 이미지를 관리되는 이미지의 기본 이미지로 사용합니다. 자사 이미지만 기본 이미지로 사용할 수 있습니다. Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 전체 목록을 가져오려면 [노드 에이전트 SKU 나열](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 작업을 참조하세요.
+이미지용으로 새 VM을 만드는 경우 Batch에서 지원하는 자사 Azure Marketplace 이미지를 관리형 이미지의 기본 이미지로 사용합니다. 자사 이미지만 기본 이미지로 사용할 수 있습니다. Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 전체 목록을 가져오려면 [노드 에이전트 SKU 나열](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 작업을 참조하세요.
 
 > [!NOTE]
 > 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) VM을 참조하세요.

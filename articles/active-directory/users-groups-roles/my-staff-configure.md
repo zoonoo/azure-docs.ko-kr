@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 791f2e9bf825bb0a1d1ce555c9fbd879106213df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850900"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>내 직원 (미리 보기)을 사용 하 여 사용자 관리
 
@@ -26,7 +26,7 @@ ms.locfileid: "82995836"
 
 조직의 직원을 구성 하기 전에이 설명서 및 [사용자 설명서](../user-help/my-staff-team-manager.md) 를 검토 하 여 사용자에 게이 기능의 기능과 영향을 이해 하는 것이 좋습니다. 사용자 설명서를 활용 하 여 새로운 경험을 위해 사용자를 학습 하 고 준비 하 고 성공적으로 롤아웃 되도록 도울 수 있습니다.
 
-사용자를 위한 SMS 기반 인증은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+사용자를 위한 SMS 기반 인증은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="how-my-staff-works"></a>내 직원의 작업 방식
 
@@ -34,27 +34,27 @@ ms.locfileid: "82995836"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
+이 문서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
 
   * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 구독과 연결 된 Azure Active Directory 테 넌 트입니다.
+* 구독과 연결된 Azure Active Directory 테넌트.
 
   * 필요한 경우 [Azure Active Directory 테넌트를 만들거나](../fundamentals/sign-up-organization.md)[Azure 구독을 계정에 연결합니다](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 * SMS 기반 인증을 사용 하도록 설정 하려면 Azure AD 테 넌 트에서 *전역 관리자* 권한이 필요 합니다.
-* 문자 메시지 인증 방법 정책에서 사용 하도록 설정 된 각 사용자는 사용 하지 않는 경우에도 사용이 허가 되어야 합니다. 사용 하도록 설정 된 각 사용자에 게는 다음 Azure AD 또는 Microsoft 365 라이선스 중 하나가 있어야 합니다.
+* 문자 메시지 인증 방법 정책에서 설정된 각 사용자는 이 방법을 사용하지 않더라도 라이선스가 있어야 합니다. 사용 하도록 설정 된 각 사용자에 게는 다음 Azure AD 또는 Microsoft 365 라이선스 중 하나가 있어야 합니다.
 
   * [Azure AD Premium P1 또는 P2](https://azure.microsoft.com/pricing/details/active-directory/)
-  * [Microsoft 365 (M365) F1 또는 F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
-  * [EMS (Enterprise Mobility + Security) e3 또는 e5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) 또는 [Microsoft 365 (M365) e3 또는 e5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
+  * [M365(Microsoft 365) F1 또는 F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [EMS(Enterprise Mobility + Security) E3 또는 E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) 또는 [M365(Microsoft 365) E3 또는 E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>내 직원을 사용 하도록 설정 하는 방법
 
 Au를 구성한 후에는 내 직원에 게 액세스 하는 사용자에 게이 범위를 적용할 수 있습니다. 관리자 역할이 할당 된 사용자만 내 직원에 액세스할 수 있습니다. 내 직원을 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
 
 1. 사용자 관리자 권한으로 Azure Portal에 로그인 합니다.
-2. **Azure Active Directory** > **사용자 설정** > 사용자**기능** > 미리 보기**사용자 기능 미리 보기 설정 관리**로 이동 합니다.
+2. **Azure Active Directory**  >  **사용자 설정**사용자 기능 미리 보기  >  **User feature previews**  >  **사용자 기능 미리 보기 설정 관리**로 이동 합니다.
 3. **관리자는 내 직원에 액세스할 수 있으며**모든 사용자, 선택한 사용자 또는 사용자 액세스 권한 없음을 선택할 수 있습니다.
 
 > [!Note]
@@ -71,16 +71,17 @@ Azure AD 조건부 액세스 정책을 사용 하 여 내 직원 포털을 보�
 1. [Microsoft Graph 베타 PowerShell cmdlet](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1)을 설치 합니다.
 1. 다음 명령을 실행합니다.
 
-        Connect-Graph -Scopes "Directory.AccessAsUser.All"
-        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-
+   ```powershell
+   Connect-Graph -Scopes "Directory.AccessAsUser.All"
+   New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+   ```
 1. 내 직원 클라우드 응용 프로그램에 적용 되는 조건부 액세스 정책을 만듭니다.
 
     ![내 직원 앱에 대 한 조건부 액세스 정책 만들기](media/my-staff-configure/conditional-access.png)
 
 ## <a name="using-my-staff"></a>내 직원 사용
 
-사용자가 내 직원으로 이동 하면 관리 권한이 있는 [관리 단위의](directory-administrative-units.md) 이름이 표시 됩니다. [내 직원 사용자 설명서](../user-help/my-staff-team-manager.md)에서 "위치" 라는 용어를 사용 하 여 관리 단위를 참조 합니다. 관리자의 권한에 AU 범위가 없으면 조직 전체에 사용 권한이 적용 됩니다. 직원을 사용 하도록 설정 하 고 관리 역할이 할당 된 사용자는를 통해 [https://mystaff.microsoft.com](https://mystaff.microsoft.com)액세스할 수 있습니다. AU를 선택 하 여 해당 AU의 사용자를 확인 하 고 사용자를 선택 하 여 자신의 프로필을 열 수 있습니다.
+사용자가 내 직원으로 이동 하면 관리 권한이 있는 [관리 단위의](directory-administrative-units.md) 이름이 표시 됩니다. [내 직원 사용자 설명서](../user-help/my-staff-team-manager.md)에서 "위치" 라는 용어를 사용 하 여 관리 단위를 참조 합니다. 관리자의 권한에 AU 범위가 없으면 조직 전체에 사용 권한이 적용 됩니다. 직원을 사용 하도록 설정 하 고 관리 역할이 할당 된 사용자는를 통해 액세스할 수 있습니다 [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . AU를 선택 하 여 해당 AU의 사용자를 확인 하 고 사용자를 선택 하 여 자신의 프로필을 열 수 있습니다.
 
 ## <a name="reset-a-users-password"></a>사용자의 암호 다시 설정
 
@@ -130,5 +131,5 @@ Azure Active Directory 포털의 내 직원에서 수행 된 작업에 대 한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[내 직원 사용자 설명서](../user-help/my-staff-team-manager.md)
-[관리 단위 설명서](directory-administrative-units.md)
+[내 직원 사용자 설명서](../user-help/my-staff-team-manager.md) 
+ [관리 단위 설명서](directory-administrative-units.md)

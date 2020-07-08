@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c42c0dd3848ec913f991e4b07612669c5a25c9f1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.openlocfilehash: 8e3791da8f8a990f62de0052e1662fd6037e936b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849292"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
 
@@ -36,14 +36,18 @@ ms.locfileid: "83197277"
 
 1. Azure AD Preview 모듈 설치
 
-        Install-module AzureADPreview
+    ```powershell
+    Install-module AzureADPreview
+    ```
 
 1. 계속하기 전에 필요한 역할 권한을 갖고 있는지 확인하세요. 역할 할당 또는 역할 설정 업데이트 등의 관리 작업을 수행하려면 전역 관리자 또는 권한 있는 역할 관리자 역할이 있는지 확인하세요. 본인의 할당만 활성화하려는 경우에는 기본 사용자 권한만 있으면 됩니다.
 
 1. Azure AD에 연결합니다.
 
-        $AzureAdCred = Get-Credential  
-        Connect-AzureAD -Credential $AzureAdCred
+    ```powershell
+    $AzureAdCred = Get-Credential  
+    Connect-AzureAD -Credential $AzureAdCred
+    ```
 
 1. **Azure Active Directory** > **속성** > **Directory ID**로 이동하여 Azure AD 조직의 테넌트 ID를 찾습니다. cmdlet 섹션에서 resourceId를 입력해야 할 때마다 이 ID를 사용합니다.
 
@@ -58,7 +62,9 @@ ms.locfileid: "83197277"
 
 roleDefinitionId는 Azure AD 조직과 관련이 있으며 역할 관리 API에서 반환하는 roleDefinitionId와는 다릅니다.
 
-    Get-AzureADMSPrivilegedRoleDefinition -ProviderId aadRoles -ResourceId 926d99e7-117c-4a6a-8031-0cc481e9da26
+```powershell
+Get-AzureADMSPrivilegedRoleDefinition -ProviderId aadRoles -ResourceId 926d99e7-117c-4a6a-8031-0cc481e9da26
+```
 
 결과:
 
@@ -68,15 +74,21 @@ roleDefinitionId는 Azure AD 조직과 관련이 있으며 역할 관리 API에�
 
 다음 cmdlet을 사용하여 Azure AD 조직의 모든 역할 할당을 검색합니다.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
+```
 
 다음 cmdlet을 사용하여 특정 사용자의 모든 역할 할당을 검색합니다. 이 목록을 Azure AD 포털에서는 "내 역할"이라고 합니다. 여기서 유일한 차이점은 주체 ID의 필터를 추가했다는 것입니다. 이 컨텍스트에서 주체 ID는 사용자 ID 또는 그룹 ID입니다.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 
+```
 
 다음 cmdlet을 사용하여 특정 역할의 모든 역할 할당을 검색합니다. 여기서 roleDefinitionId는 이전 cmdlet에서 반환된 ID입니다.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "roleDefinitionId eq '0bb54a22-a3df-4592-9dc7-9e1418f0f61c'"
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "roleDefinitionId eq '0bb54a22-a3df-4592-9dc7-9e1418f0f61c'"
+```
 
 cmdlet의 결과로 아래의 역할 할당 개체 목록이 생성됩니다. 주체 ID는 역할이 할당된 사용자의 사용자 ID입니다. 할당 상태는 활성 또는 적격 중 하나입니다. 사용자가 활성 상태이고 LinkedEligibleRoleAssignmentId 필드에 ID가 있으면 역할이 현재 활성화되었다는 뜻입니다.
 
@@ -88,14 +100,18 @@ cmdlet의 결과로 아래의 역할 할당 개체 목록이 생성됩니다. �
 
 다음 cmdlet을 사용하여 적격 할당을 만듭니다.
 
-    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'ff690580-d1c6-42b1-8272-c029ded94dec' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "dsasdsas" 
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'ff690580-d1c6-42b1-8272-c029ded94dec' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "dsasdsas" 
+```
 
 할당의 시작 및 종료 시간을 정의하는 일정은 다음 예제처럼 만들 수 있는 개체입니다.
 
-    $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
-    $schedule.Type = "Once"
-    $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-    $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+```powershell
+$schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
+$schedule.Type = "Once"
+$schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+$schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+```
 > [!Note]
 > endDateTime 값이 null로 설정되면 영구적 할당이라는 의미입니다.
 
@@ -103,7 +119,9 @@ cmdlet의 결과로 아래의 역할 할당 개체 목록이 생성됩니다. �
 
 다음 cmdlet을 사용하여 적격 할당을 활성화합니다.
 
-    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas" 
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas"
+``` 
 
 이 cmdlet은 역할 할당을 만드는 cmdlet과 거의 동일합니다. cmdlet 간의 주요 차이점은 –Type 매개 변수에서 활성화는 "adminAdd"가 아닌 "userAdd"라는 점입니다. 다른 차이점으로 –AssignmentState 매개 변수는 "Eligible"이 아닌 "Active"입니다.
 
@@ -116,7 +134,9 @@ cmdlet의 결과로 아래의 역할 할당 개체 목록이 생성됩니다. �
 
 다음 cmdlet을 사용하여 Azure AD 조직의 모든 역할 설정을 가져옵니다.
 
-    Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+```powershell
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+```
 
 설정에는 네 가지 주요 개체가 있습니다. 이러한 개체 중 세 개만 현재 PIM에서 사용됩니다. UserMemberSettings는 활성화 설정이고, AdminEligibleSettings는 적격 할당에 대한 할당 설정이고, AdminmemberSettings는 활성 할당에 대한 할당 설정입니다.
 
@@ -124,12 +144,16 @@ cmdlet의 결과로 아래의 역할 할당 개체 목록이 생성됩니다. �
 
 역할 설정을 업데이트하려면 특정 역할의 기존 설정 개체를 가져와서 변경해야 합니다.
 
-    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-    $setting.UserMemberSetting.justificationRule = '{"required":false}'
+```powershell
+$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+$setting.UserMemberSetting.justificationRule = '{"required":false}'
+```
 
 그런 다음, 아래와 같이 특정 역할의 개체 중 하나에 설정을 적용할 수 있습니다. 여기서 ID는 목록 역할 설정 cmdlet의 결과에서 검색할 수 있는 역할 설정 ID입니다.
 
-    Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+```powershell
+Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+```
 
 ## <a name="next-steps"></a>다음 단계
 

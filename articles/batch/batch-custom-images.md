@@ -1,21 +1,23 @@
 ---
-title: 관리형 이미지에서 사용자 지정 풀 프로비전
-description: 관리형 이미지 리소스에서 Batch 풀을 만들어 애플리케이션의 소프트웨어 및 데이터를 사용하여 컴퓨팅 노드를 프로비저닝합니다.
+title: 관리 되는 이미지를 사용 하 여 사용자 지정 이미지 풀 만들기
+description: 응용 프로그램에 대 한 소프트웨어 및 데이터를 사용 하 여 계산 노드를 프로 비전 하기 위해 관리 되는 이미지에서 Batch 사용자 지정 이미지 풀을 만듭니다.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851291"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>관리형 이미지를 사용하여 가상 머신 풀 만들기
+# <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>관리 되는 이미지를 사용 하 여 사용자 지정 이미지 풀 만들기
 
-Batch 풀의 VM(가상 머신)에 대한 사용자 지정 이미지를 만들려면 관리형 이미지를 사용하여 [Shared Image Gallery](batch-sig-images.md)를 만들면 됩니다. 관리형 이미지만 사용하는 것도 지원되지만 2019-08-01 이하의 API 버전에 대해서만 지원됩니다.
+Batch 풀의 Vm (가상 머신)에 대 한 사용자 지정 이미지 풀을 만들려면 관리 되는 이미지를 사용 하 여 [공유 이미지 갤러리 이미지](batch-sig-images.md)를 만듭니다. 관리형 이미지만 사용하는 것도 지원되지만 2019-08-01 이하의 API 버전에 대해서만 지원됩니다. 
 
 > [!IMPORTANT]
 > 대부분의 경우 Shared Image Gallery를 사용하여 사용자 지정 이미지를 만들어야 합니다. Shared Image Gallery를 사용하면 풀을 더 빠르게 프로비저닝하고, 더 많은 수의 VM을 확장하고, VM을 프로비저닝할 때 안정성을 개선할 수 있습니다. 자세히 알아보려면 [Shared Image Gallery를 사용하여 사용자 지정 풀 만들기](batch-sig-images.md)를 참조하세요.
+
+이 항목에서는 관리 되는 이미지만 사용 하 여 사용자 지정 이미지 풀을 만드는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -26,7 +28,7 @@ Batch 풀의 VM(가상 머신)에 대한 사용자 지정 이미지를 만들려
 
 - **Azure AD(Azure Active Directory) 인증**. Batch 클라이언트 API는 Azure AD 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.
 
-## <a name="prepare-a-custom-image"></a>사용자 지정 이미지 준비
+## <a name="prepare-a-managed-image"></a>관리 되는 이미지 준비
 
 Azure의 다음에서 관리형 이미지를 준비할 수 있습니다.
 
@@ -57,7 +59,7 @@ Azure의 다음에서 관리형 이미지를 준비할 수 있습니다.
 
 스냅샷에서 관리되는 이미지를 만들려면 [az image create](/cli/azure/image) 명령과 같은 Azure 명령줄 도구를 사용합니다. OS 디스크 스냅샷을 지정하고 필요에 따라 데이터 디스크 스냅샷을 하나 이상 지정하여 이미지를 만들 수 있습니다.
 
-## <a name="create-a-pool-from-a-custom-image"></a>사용자 지정 이미지에서 풀 만들기
+## <a name="create-a-pool-from-a-managed-image"></a>관리 되는 이미지에서 풀 만들기
 
 관리형 이미지의 리소스 ID를 찾았으면 해당 이미지에서 사용자 지정 이미지 풀을 만듭니다. 다음 단계에서는 Batch Service 또는 Batch Management를 사용하여 사용자 지정 이미지 풀을 만드는 방법을 보여줍니다.
 
