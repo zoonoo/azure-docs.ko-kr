@@ -5,15 +5,14 @@ description: P2S 인증서 인증용 Windows, Linux, Linux(strongSwan) 및 Mac O
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: d15efee635e131d658cd650b7f80eb9e670a0dea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d917bc1d52cc2a43e87affcc9c5e3c2ab533da07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984876"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -78,7 +77,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
  Azure에 연결할 모든 Mac에서 원시 IKEv2 VPN 클라이언트를 수동으로 구성해야 합니다. Azure는 원시 Azure 인증서 인증을 위해 mobileconfig 파일을 제공하지 않습니다. **일반**에는 구성에 필요한 모든 정보가 포함됩니다. 다운로드에 Generic 폴더가 보이지 않으면 IKEv2가 터널 유형으로 선택되지 않았을 가능성이 큽니다. VPN gateway 기본 SKU는 IKEv2를 지원 하지 않습니다. IKEv2가 선택되면 zip 파일을 다시 생성하여 Generic 폴더를 검색합니다.<br>Generic 폴더에 포함되는 파일은 다음과 같습니다.
 
-* **Vpnsettings.xml**-서버 주소, 터널 유형 등의 중요 한 설정이 포함 되어 있습니다. 
+* **VpnSettings.xml**-서버 주소, 터널 유형 등의 중요 한 설정이 포함 되어 있습니다. 
 * **VpnServerRoot**는 P2S 연결을 설정 하는 동안 Azure VPN Gateway의 유효성을 검사 하는 데 필요한 루트 인증서를 포함 합니다.
 
 다음 단계에 따라 인증서 인증을 위한 Mac VPN 기본 클라이언트를 구성합니다. Azure에 연결할 모든 Mac에서 다음 단계를 완료해야 합니다.
@@ -96,7 +95,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
    **인터페이스** 값은 'VPN'이고, **VPN 유형** 값은 'IKEv2'입니다. **서비스 이름** 필드에 프로필 이름을 지정한 다음 **만들기**를 클릭하여 VPN 클라이언트 연결 프로필을 만듭니다.
 
-   ![네트워크](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. **Generic** 폴더의 **VpnSettings.xml** 파일에서 **VpnServer** 태그 값을 복사합니다. 이 값을 프로필의 **서버 주소** 및 **원격 ID** 필드에 붙여넣습니다.
 
    ![서버 정보](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -113,7 +112,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
    ![인증서(certificate)](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **ID 선택**은 선택할 수 있는 인증서의 목록을 표시합니다. 적절한 인증서를 선택한 다음 **계속**을 클릭합니다.
 
-   ![ID](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. **로컬 ID** 필드에서 인증서 이름(6단계에서 사용한 이름)을 지정합니다. 이 예에서는 "ikev2Client.com"입니다. 그런 다음 **적용** 단추를 클릭하여 변경 내용을 저장합니다.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -143,7 +142,7 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
 2. **설정**을 선택한 다음 **네트워크**를 선택 합니다.
 
    ![연결 편집](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. 단추를 **+** 클릭 하 여 새 연결을 만듭니다.
+3. 단추를 클릭 **+** 하 여 새 연결을 만듭니다.
 
    ![연결 추가](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
 4. 메뉴에서 **IPsec/IKEv2 (strongSwan)** 를 선택 하 고를 두 번 클릭 합니다. 이 단계에서 연결의 이름을 지정할 수 있습니다.

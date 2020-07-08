@@ -6,20 +6,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: e7351e2f39c7e4eed84f4a47e3eeb2214a062a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e92b0679111a6d5c6173da04c5061c95956125b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322964"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>사용자 지정 Ambari DB를 사용 하 여 HDInsight 클러스터 설정
 
 Apache Ambari는 Apache Hadoop 클러스터의 관리 및 모니터링을 간소화 합니다. Ambari는 사용 하기 쉬운 웹 UI 및 REST API을 제공 합니다. Ambari는 HDInsight 클러스터에 포함 되어 있으며 클러스터를 모니터링 하 고 구성을 변경 하는 데 사용 됩니다.
 
-[Hdinsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)하는 것과 같은 다른 문서에 설명 된 대로 정상적인 클러스터 만들기에서 Ambari는 hdinsight에서 관리 하는 [S0 Azure SQL database](../sql-database/sql-database-dtu-resource-limits-single-databases.md#standard-service-tier) 에 배포 되 고 사용자가 액세스할 수 없습니다.
+[Hdinsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)하는 것과 같은 다른 문서에 설명 된 대로 정상적인 클러스터 만들기에서 Ambari는 hdinsight에서 관리 되 고 사용자가 액세스할 수 없는 [S0 Azure SQL Database](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) 에 배포 됩니다.
 
 사용자 지정 Ambari DB 기능을 사용 하면 관리 하는 외부 데이터베이스에 새 클러스터를 배포 하 고 Ambari를 설정할 수 있습니다. 배포는 Azure Resource Manager 템플릿을 사용 하 여 수행 됩니다. 이 기능에는 다음과 같은 이점이 있습니다.
 
@@ -38,16 +37,17 @@ Apache Ambari는 Apache Hadoop 클러스터의 관리 및 모니터링을 간소
 
 사용자 지정 Ambari DB에는 다음과 같은 요구 사항이 있습니다.
 
+- 데이터베이스 이름에는 하이픈 또는 공백을 포함할 수 없습니다.
 - 기존 Azure SQL DB 서버 및 데이터베이스가 있어야 합니다.
 - Ambari 설치를 위해 제공 하는 데이터베이스는 비어 있어야 합니다. 기본 dbo 스키마에는 테이블이 없어야 합니다.
 - 데이터베이스에 연결 하는 데 사용 되는 사용자에 게는 데이터베이스에 대 한 SELECT, CREATE TABLE 및 INSERT 권한이 있어야 합니다.
-- Ambari를 호스트 하는 Azure SQL server에서 [azure 서비스에](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-portal-steps) 대 한 액세스를 허용 하는 옵션을 설정 합니다.
-- SQL Server에서 HDInsight 서비스의 관리 IP 주소를 허용 해야 합니다. SQL server 방화벽에 추가 해야 하는 IP 주소 목록은 [HDInsight 관리 ip 주소](hdinsight-management-ip-addresses.md) 를 참조 하세요.
+- Ambari를 호스트할 서버에서 [Azure 서비스에](../azure-sql/database/vnet-service-endpoint-rule-overview.md#azure-portal-steps) 대 한 액세스를 허용 하는 옵션을 설정 합니다.
+- HDInsight 서비스의 관리 IP 주소는 방화벽 규칙에서 허용 해야 합니다. 서버 수준 방화벽 규칙에 추가 해야 하는 IP 주소 목록은 [HDInsight 관리 ip 주소](hdinsight-management-ip-addresses.md) 를 참조 하세요.
 
 외부 데이터베이스에서 Apache Ambari DB를 호스트 하는 경우 다음 사항에 주의 하십시오.
 
 - Ambari를 보유 하는 Azure SQL DB의 추가 비용을 담당 하 게 됩니다.
-- 사용자 지정 Ambari DB를 주기적으로 백업 합니다. Azure SQL Database는 자동으로 백업을 생성 하지만 백업 보존 시간 프레임은 다릅니다. 자세한 내용은 [자동 SQL 데이터베이스 백업에 대해 알아보기](../sql-database/sql-database-automated-backups.md)를 참조하세요.
+- 사용자 지정 Ambari DB를 주기적으로 백업 합니다. Azure SQL Database는 자동으로 백업을 생성 하지만 백업 보존 시간 프레임은 다릅니다. 자세한 내용은 [자동 SQL 데이터베이스 백업에 대해 알아보기](../azure-sql/database/automated-backups-overview.md)를 참조하세요.
 
 ## <a name="deploy-clusters-with-a-custom-ambari-db"></a>사용자 지정 Ambari DB를 사용 하 여 클러스터 배포
 

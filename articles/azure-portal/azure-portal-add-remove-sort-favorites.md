@@ -6,16 +6,15 @@ keywords: 즐겨찾기, 포털
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: d6b580accb02efb6a44c0c245af583d2e3850409
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764131"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>즐겨찾기 추가, 제거 및 다시 정렬
 
@@ -23,7 +22,7 @@ ms.locfileid: "76310818"
 
 ## <a name="add-a-favorite"></a>즐겨찾기 추가
 
-**즐겨찾기** 아래에 나열 된 항목은 **모든 서비스**에서 선택 됩니다. 서비스 이름 위로 마우스를 이동 하 여 서비스와 관련 된 정보 및 리소스를 표시 합니다. 서비스 이름 옆에 ![채워진 별 아이콘이](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) 채워진 별 아이콘이 **즐겨찾기** 목록에 표시 됨을 나타냅니다. **즐겨찾기** 목록에 서비스를 추가 하려면 별표 아이콘을 선택 합니다.
+**즐겨찾기** 아래에 나열 된 항목은 **모든 서비스**에서 선택 됩니다. 서비스 이름 위로 마우스를 이동 하 여 서비스와 관련 된 정보 및 리소스를 표시 합니다. 서비스 이름 옆에 채워진 별 아이콘이 채워진 별 ![ 아이콘이 ](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) **즐겨찾기** 목록에 표시 됨을 나타냅니다. **즐겨찾기** 목록에 서비스를 추가 하려면 별표 아이콘을 선택 합니다.
 
 ### <a name="add-cost-management--billing-to-favorites"></a>즐겨찾기에 Cost Management + 청구 추가
 

@@ -8,24 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984888"
 ---
 # <a name="create-python-model-module"></a>Python 모델 모듈 만들기
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학습 되지 않은 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning designer 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다. 
 
 모델을 만든 후에는 [모델 학습](train-model.md) 을 사용 하 여 Azure Machine Learning의 다른 학습자 같은 데이터 집합에 대 한 모델 학습을 수행할 수 있습니다. 학습 된 모델을 [점수 모델](score-model.md) 에 전달 하 여 예측을 만들 수 있습니다. 그런 다음 학습 된 모델을 저장 하 고 점수 매기기 워크플로를 웹 서비스로 게시할 수 있습니다.
 
 > [!WARNING]
-> 현재는 Python 모델의 점수가 매겨진 결과를 전달 하 여 [모델을 평가할](evaluate-model.md)수 없습니다. 모델을 평가 해야 하는 경우 사용자 지정 Python 스크립트를 작성 하 고 [Python 스크립트 실행](execute-python-script.md) 모듈을 사용 하 여 실행할 수 있습니다.  
+> 현재이 모듈을 연결 하 여 **모델 Hyperparameters** 모듈을 튜닝 하거나 Python 모델의 점수가 매겨진 결과를 전달 하 여 모델을 [평가할](evaluate-model.md)수 없습니다. 하이퍼 매개 변수를 조정 하거나 모델을 평가 해야 하는 경우 [Python 스크립트 실행](execute-python-script.md) 모듈을 사용 하 여 사용자 지정 python 스크립트를 작성할 수 있습니다.
 
 
 ## <a name="configure-the-module"></a>모듈 구성
@@ -133,4 +132,4 @@ Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

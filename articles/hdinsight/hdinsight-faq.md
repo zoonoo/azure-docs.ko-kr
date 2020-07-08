@@ -9,12 +9,11 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022217"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -44,6 +43,14 @@ HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apac
 
 [Azure HDInsight 클러스터의 리소스 종류를](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters)참조 하세요.
 
+### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>대량 HDInsight 클러스터를 만들기 위한 모범 사례는 무엇 인가요?
+
+1. 클러스터 확장성을 개선 하기 위해 [사용자 지정 AMBARI DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) 를 사용 하 여 HDInsight 클러스터를 설정 하는 것이 좋습니다.
+2. [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) 를 사용 하 여 HDInsight 클러스터를 만들어 Azure Data Lake Storage Gen2의 더 높은 대역폭과 기타 성능 특성을 활용할 수 있습니다.
+3. 헤드 노드는 이러한 노드에서 실행 되는 여러 마스터 서비스를 수용할 만큼 충분히 커야 합니다.
+4. 대화형 쿼리와 같은 일부 특정 워크 로드에도 더 큰 아웃 청구 노드가 필요 합니다. 최소 8 개의 코어 Vm을 고려 하세요.
+5. Hive 및 Spark의 경우 [외부 Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores)를 사용 합니다.
+
 ## <a name="individual-components"></a>개별 구성 요소
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>클러스터에 추가 구성 요소를 설치할 수 있나요?
@@ -68,7 +75,7 @@ HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apac
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Ambari에서 표준 시간대를 변경 어떻게 할까요??
 
-1. 에서 `https://CLUSTERNAME.azurehdinsight.net`AMBARI 웹 UI를 엽니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. 에서 Ambari 웹 UI를 엽니다 `https://CLUSTERNAME.azurehdinsight.net` . 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 2. 오른쪽 위 모서리에서 관리를 선택 합니다. 설정. 
 
    ![Ambari 설정](media/hdinsight-faq/ambari-settings.png)
@@ -79,9 +86,9 @@ HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apac
 
 ## <a name="metastore"></a>메타 저장소
 
-### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>기존 metastore에서 Azure SQL Server로 마이그레이션하려면 어떻게 해야 하나요? 
+### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-database"></a>기존 metastore에서 Azure SQL Database로 마이그레이션하려면 어떻게 해야 하나요? 
 
-SQL Server에서 Azure SQL Server로 마이그레이션하려면 [자습서: DMS를 사용 하 여 오프 라인 Azure SQL Database에서 단일 데이터베이스 또는 풀링된 데이터베이스로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-azure-sql.md)을 참조 하세요.
+SQL Server에서 Azure SQL Database로 마이그레이션하려면 [자습서: DMS를 사용 하 여 오프 라인 Azure SQL Database에서 단일 데이터베이스 또는 풀링된 데이터베이스로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-azure-sql.md)을 참조 하세요.
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>클러스터가 삭제 될 때 Hive metastore 삭제 됩니까?
 
@@ -133,7 +140,7 @@ Hive metastore는 Hive 서버에서 사용 하는 데이터 원본에 대 한 �
 
 - 에 지 노드: [HDInsight의 Apache Hadoop 클러스터에서 빈에 지 노드 사용](hdinsight-apps-use-edge-node.md)에 설명 된 대로 클러스터에 다른에 지 노드를 추가할 수 있습니다.
 
-- 독립 실행형 노드: 독립 실행형 가상 컴퓨터를 동일한 서브넷에 추가 하 고 개인 끝점을 사용 하 여 해당 가상 컴퓨터에서 클러스터에 액세스할 `https://<CLUSTERNAME>-int.azurehdinsight.net`수 있습니다. 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.
+- 독립 실행형 노드: 독립 실행형 가상 컴퓨터를 동일한 서브넷에 추가 하 고 개인 끝점을 사용 하 여 해당 가상 컴퓨터에서 클러스터에 액세스할 수 있습니다 `https://<CLUSTERNAME>-int.azurehdinsight.net` . 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>에 지 노드의 로컬 디스크에 데이터를 저장 해야 하나요?
 
@@ -180,9 +187,9 @@ Vm을 도메인에 가입 시키려면 도메인 컨트롤러가 있어야 합�
 
 감사 요구 사항에 대 한 자세한 내용은 [Azure Monitor 로그를 사용 하 여 HDInsight 클러스터 모니터링](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)에 설명 된 대로 Azure Monitor 로그를 사용 하도록 권장 합니다.
 
-### <a name="can-i-disable-clamscan-on-my-cluster"></a>내 클러스터에서 `Clamscan` 사용 하지 않도록 설정할 수 있나요?
+### <a name="can-i-disable-clamscan-on-my-cluster"></a>내 클러스터에서 사용 하지 않도록 설정할 수 `Clamscan` 있나요?
 
-`Clamscan`는 HDInsight 클러스터에서 실행 되 고 Azure security (azsecd)에서 클러스터를 바이러스 공격 으로부터 보호 하기 위해 사용 하는 바이러스 백신 소프트웨어입니다. 사용자가 기본 `Clamscan` 구성을 변경 하지 않는 것이 좋습니다.
+`Clamscan`는 HDInsight 클러스터에서 실행 되 고 Azure security (azsecd)에서 클러스터를 바이러스 공격 으로부터 보호 하기 위해 사용 하는 바이러스 백신 소프트웨어입니다. 사용자가 기본 구성을 변경 하지 않는 것이 좋습니다 `Clamscan` .
 
 이 프로세스는 다른 프로세스를 방해 하거나 다른 프로세스를 벗어나지 않습니다. 항상 다른 프로세스로 생성 됩니다. CPU 급증은 `Clamscan` 시스템이 유휴 상태일 때만 표시 되어야 합니다.  
 
@@ -203,7 +210,7 @@ LLAP은 보안상의 이유로 활성화 됩니다 (Apache 레인저). 대규모
 
 ### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>ESP 클러스터를 만든 후 추가 AAD 그룹을 추가 하려면 어떻게 해야 하나요?
 이러한 목표를 달성 하는 방법에는 다음 두 가지가 있습니다. 1-클러스터를 만들 때 클러스터를 다시 만들고 추가 그룹을 추가할 수 있습니다. AAD에서 범위 동기화를 사용 하는 경우 그룹 B가 범위 지정 동기화에 포함 되어 있는지 확인 합니다.
-2-그룹을 ESP 클러스터를 만드는 데 사용 된 이전 그룹의 중첩 된 하위 그룹으로 추가 합니다. 예를 들어 그룹 `A`을 사용 하 여 ESP 클러스터를 만든 경우 나중에 그룹 `B` 을 중첩 된 하위 그룹으로 추가 하 `A` 고 약 1 시간 후에 클러스터에서 자동으로 동기화 되 고 사용할 수 있습니다. 
+2-그룹을 ESP 클러스터를 만드는 데 사용 된 이전 그룹의 중첩 된 하위 그룹으로 추가 합니다. 예를 들어 그룹을 사용 하 여 ESP 클러스터를 만든 경우 `A` 나중에 그룹을 중첩 된 하위 그룹으로 추가 하 `B` `A` 고 약 1 시간 후에 클러스터에서 자동으로 동기화 되 고 사용할 수 있습니다. 
 
 ## <a name="storage"></a>스토리지
 
@@ -241,7 +248,7 @@ done
 ```
  
 > [!NOTE]
-> 파일 *이름 .txt* 는 blob 컨테이너에 있는 파일의 절대 경로를 포함 합니다.
+> 파일 *filenames.txt* 는 blob 컨테이너에 있는 파일의 절대 경로를 가집니다.
  
 ### <a name="are-there-any-ranger-plugins-for-storage"></a>저장소에 대 한 레인저 플러그 인이 있나요?
 
@@ -276,14 +283,14 @@ Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이�
 
 다음 REST 끝점을 사용 하 여 JSON 형식으로 필요한 정보를 가져올 수 있습니다. 기본 인증 헤더를 사용 하 여 요청을 만듭니다.
 
-- `Tez Query View`: *https:\//\<클러스터 이름> azurehdinsight.net/ws/v1/timeline/HIVE_QUERY_ID/*
-- `Tez Dag View`: *https:\//\<클러스터 이름> azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/*
+- `Tez Query View`: *https: \/ / \<cluster name> . azurehdinsight.net/ws/v1/timeline/HIVE_QUERY_ID/*
+- `Tez Dag View`: *https: \/ / \<cluster name> . azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Azure Active Directory 사용자를 사용 하 여 HDI 클러스터에서 구성 정보를 검색 어떻게 할까요??
 
 AAD 사용자와 적절 한 인증 토큰을 협상 하려면 다음 형식을 사용 하 여 게이트웨이를 진행 합니다.
 
-* https://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https:// `<cluster dnsname>` . azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Ambari Restful API를 사용 하 여 YARN 성능을 모니터링할 어떻게 할까요? 있습니까?
 

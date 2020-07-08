@@ -11,12 +11,11 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336868"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -98,7 +97,7 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
     ![단계 보기](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  새 작업을 만듭니다. **Azure 리소스 그룹 배포**를 검색하고 **추가**를 선택합니다.
+    b.  새 작업을 만듭니다. **ARM 템플릿 배포**를 검색 한 다음 **추가**를 선택 합니다.
 
     다.  배포 작업에서 대상 Data Factory에 대한 구독, 리소스 그룹 및 위치를 선택합니다. 필요한 경우 자격 증명을 제공합니다.
 
@@ -361,6 +360,14 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -395,6 +402,7 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -413,7 +421,11 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
                     "connectionString": "|:-connectionString:secureString"
                 }
             }
@@ -570,27 +582,7 @@ Git를 구성한 경우에는 연결된 템플릿이 생성되어 linkedTemplate
 
 Git가 구성되지 않은 경우 **ARM 템플릿** 목록에서 **ARM 템플릿 내보내기**를 통해 연결된 템플릿에 액세스할 수 있습니다.
 
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>CI/CD에서 Azure-SSIS Integration Runtime 제외
-
-개발 팩터리에 Azure SSIS Integration Runtime이 있는 경우 아래 시나리오의 CI/CD 프로세스에서 모든 Azure SSIS Integration Runtime을 제외할 수 있습니다.
-
-- Azure-SSIS IR 인프라는 복잡하며 각 환경에 따라 달라집니다.  
-- 동일한 이름을 가진 각 환경에 Azure-SSIS IR을 수동으로 설정합니다. 그러지 않으면 Azure-SSIS IR과 관련된 작업이 있는 경우 게시하지 못합니다.
-
-Azure-SSIS Integration Runtime을 제외하려면:
-
-1. 협업 분기의 루트 폴더에 publish_config.json 파일을 추가합니다(없는 경우).
-1. 아래 설정을 publish_config.json에 추가합니다. 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-협업 분기에서 게시하는 경우 생성된 Resource Manager 템플릿에서 Azure-SSIS Integration Runtime이 제외됩니다.
-
-## <a name="hotfix-production-branch"></a>핫픽스 프로덕션 분기
+## <a name="hotfix-production-environment"></a>핫픽스 프로덕션 환경
 
 팩터리를 프로덕션에 배포하고 즉시 해결해야 하는 버그가 있지만 현재의 협업 분기를 배포할 수 없는 경우 핫픽스를 배포해야 할 수 있습니다. 이 접근 방식을 QFE(Quick-Fix Engineering)라고 합니다.
 
@@ -631,7 +623,7 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 - 기본적으로 Data Factory는 커밋의 cherry-pick 또는 리소스의 선택적 게시를 허용할 수 없습니다. 게시에는 Data Factory에서의 모든 변경 내용이 포함됩니다.
 
     - Data Factory 엔터티는 서로 종속됩니다. 예를 들어, 트리거는 파이프라인에 종속되고, 파이프라인은 데이터 세트 및 다른 파이프라인에 종속됩니다. 리소스 하위 집합을 선택적으로 게시하면 예기치 않은 동작 및 오류가 발생할 수 있습니다.
-    - 선택적으로 게시해야 하는 경우 핫픽스를 사용하는 것이 좋습니다. 자세한 내용은 [핫픽스 프로덕션 분기](#hotfix-production-branch)를 참조하세요.
+    - 선택적으로 게시해야 하는 경우 핫픽스를 사용하는 것이 좋습니다. 자세한 내용은 [핫픽스 프로덕션 환경](#hotfix-production-environment)을 참조 하세요.
 
 -   프라이빗 분기에서 게시할 수 없습니다.
 
@@ -734,8 +726,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84321499"
 ---
 # <a name="network-security-groups"></a>네트워크 보안 그룹
 <a name="network-security-groups"></a>
 
 Azure 네트워크 보안 그룹을 사용 하 여 azure 가상 네트워크에서 azure 리소스에 대 한 네트워크 트래픽을 필터링 할 수 있습니다. 네트워크 보안 그룹에는 여러 유형의 Azure 리소스에 대 한 인바운드 네트워크 트래픽 또는 아웃 바운드 네트워크 트래픽을 허용 하거나 거부 하는 [보안 규칙이](#security-rules) 포함 되어 있습니다. 규칙마다 원본 및 대상, 포트, 프로토콜을 지정할 수 있습니다.
+
 이 문서에서는 네트워크 보안 그룹 규칙의 속성, 적용 되는 [기본 보안 규칙](#default-security-rules) 및 [강화 된 보안 규칙](#augmented-security-rules)을 만들기 위해 수정할 수 있는 규칙 속성을 설명 합니다.
 
 ## <a name="security-rules"></a><a name="security-rules"></a>보안 규칙
@@ -32,9 +32,9 @@ Azure 네트워크 보안 그룹을 사용 하 여 azure 가상 네트워크에�
 
 |속성  |설명  |
 |---------|---------|
-|속성|네트워크 보안 그룹 내에서 고유한 이름입니다.|
+|이름|네트워크 보안 그룹 내에서 고유한 이름입니다.|
 |우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
-|원본 또는 대상| 아무 또는 개별 IP 주소, CIDR(클래스 없는 도메인 간 라우팅) 블록(예: 10.0.0.0/24), [서비스 태그](service-tags-overview.md) 또는 [애플리케이션 보안 그룹](#application-security-groups)입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 개인 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 개인 IP 주소로 변환한 후에, 그리고 Azure가 개인 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. Azure [IP 주소](virtual-network-ip-addresses-overview-arm.md)에 대해 자세히 알아보세요. 범위, 서비스 태그 또는 애플리케이션 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정 하는 기능 (여러 서비스 태그 또는 응용 프로그램 그룹을 지정할 수 없음)은 [보강 된 보안 규칙](#augmented-security-rules)이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다. [Azure 배포 모델](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.|
+|원본 또는 대상| 임의 또는 개별 IP 주소, CIDR(Classless Inter-Domain Routing) 블록(예: 10.0.0.0/24), 서비스 태그 또는 애플리케이션 보안 그룹입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 개인 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 개인 IP 주소로 변환한 후에, 그리고 Azure가 개인 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. . 범위, 서비스 태그 또는 애플리케이션 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정 하는 기능 (여러 서비스 태그 또는 응용 프로그램 그룹을 지정할 수 없음)은 [보강 된 보안 규칙](#augmented-security-rules)이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다.|
 |프로토콜     | TCP, UDP, ICMP 또는 Any입니다.|
 |Direction| 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다.|
 |포트 범위     |개별 포트나 포트의 범위를 지정할 수 있습니다. 예를 들어 80 또는 10000-10005과 같이 지정할 수 있습니다. 범위를 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 동일한 보안 규칙에 여러 개의 포트 또는 포트 범위를 지정할 수 없습니다.   |
@@ -53,19 +53,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|액세스|
+|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|모두|Allow|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|모두|허용|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|액세스|
+|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|모두|Allow|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|모두|허용|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|액세스|
+|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|모두|거부|
 
@@ -73,19 +73,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 모두 | Allow |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 모두 | 허용 |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | 인터넷 | 0-65535 | 모두 | Allow |
+| 65001 | 0.0.0.0/0 | 0-65535 | 인터넷 | 0-65535 | 모두 | 허용 |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 모두 | 거부 |
 
@@ -99,7 +99,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 #### <a name="service-tags"></a>서비스 태그
 
-서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. 네트워크 보안 규칙에 대 한 빈번한 업데이트의 복잡성을 최소화 하는 데 도움이 됩니다.
+서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. 네트워크 보안 규칙에 대 한 빈번한 업데이트의 복잡성을 최소화 하는 데 도움이 됩니다.
 
 자세한 내용은 [Azure 서비스 태그](service-tags-overview.md)를 참조 하세요. 저장소 서비스 태그를 사용 하 여 네트워크 액세스를 제한 하는 방법에 대 한 예제는 [PaaS 리소스에 대 한 네트워크 액세스 제한](tutorial-restrict-network-access-to-resources.md)을 참조 하세요.
 
@@ -148,7 +148,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 > 네트워크 보안 그룹은 서브넷 또는 클래식 배포 모델에 배포 된 가상 머신 및 클라우드 서비스, 리소스 관리자 배포 모델의 서브넷 또는 네트워크 인터페이스에 연결 됩니다. Azure 배포 모델에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 > [!TIP]
-> 특별한 이유가 없다면 네트워크 보안 그룹을 서브넷 또는 네트워크 인터페이스 중 한 쪽에만 연결하는 것이 좋습니다. 서브넷에 연결된 네트워크 보안 그룹의 규칙이 네트워크 인터페이스에 연결된 네트워크 보안 그룹의 규칙과 충돌할 수 있으므로 예기치 않은 통신 문제가 발생할 수 있습니다.
+> 특별 한 이유가 없는 경우 네트워크 보안 그룹을 서브넷 또는 네트워크 인터페이스에 연결 하는 것이 좋습니다. 서브넷에 연결된 네트워크 보안 그룹의 규칙이 네트워크 인터페이스에 연결된 네트워크 보안 그룹의 규칙과 충돌할 수 있으므로 예기치 않은 통신 문제가 발생할 수 있습니다.
 
 ## <a name="azure-platform-considerations"></a>Azure 플랫폼 고려 사항
 

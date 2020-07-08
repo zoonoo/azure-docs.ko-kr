@@ -4,15 +4,14 @@ description: Azure Cosmos DB 요청의 SQL 쿼리 성능을 계측 및 디버깅
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69614827"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392134"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -38,7 +37,7 @@ Azure Cosmos DB에 쿼리를 실행하는 경우 SDK는 다음 논리 단계를 
 
 SDK는 쿼리 실행을 위한 다양한 옵션을 제공합니다. 예를 들어 .NET에서는 이러한 옵션을 `FeedOptions` 클래스에서 사용할 수 있습니다. 다음 표에서 이러한 옵션 및 쿼리 실행 시간이 어떻게 영향을 주는지 설명합니다. 
 
-| 옵션 | Description |
+| 옵션 | 설명 |
 | ------ | ----------- |
 | `EnableCrossPartitionQuery` | 둘 이상의 파티션 간에 실행되어야 하는 쿼리에 대해 true로 설정해야 합니다. 개발 시간 중에 성능을 고려하여 균형을 유지할 수 있는 명시적인 플래그입니다. |
 | `EnableScanInQuery` | 인덱싱을 옵트아웃(opt out)했지만 검색을 통해 쿼리를 실행하려는 경우 true로 설정해야 합니다. 요청된 필터 경로에 인덱싱이 사용되지 않는 경우에만 적용 가능합니다. | 
@@ -124,14 +123,14 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 쿼리에서 반환된 키 응답 헤더는 다음을 포함합니다.
 
-| 옵션 | Description |
+| 옵션 | 설명 |
 | ------ | ----------- |
 | `x-ms-item-count` | 응답에 반환된 항목 수입니다. 제공된 `x-ms-max-item-count`, 최대 응답 페이로드 크기 내에 적합할 수 있는 항목 수, 프로비전된 처리량 및 쿼리 실행 시간에 종속적입니다. |  
 | `x-ms-continuation:` | 추가 결과가 제공되는 경우 쿼리의 실행을 다시 시작하기 위한 연속 토큰입니다. | 
 | `x-ms-documentdb-query-metrics` | 실행에 대한 쿼리 통계입니다. 다양한 쿼리 실행 단계에서 소요한 시간에 대한 통계 정보를 포함하는 구분된 문자열입니다. `x-ms-documentdb-populatequerymetrics`가 `True`로 설정되면 반환됩니다. | 
 | `x-ms-request-charge` | 쿼리에서 사용한 [요청 단위](request-units.md) 수입니다. | 
 
-REST API 요청 헤더 및 옵션에 대한 자세한 내용은 [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api)(REST API를 사용하여 리소스 쿼리)를 참조하세요.
+REST API 요청 헤더 및 옵션에 대한 자세한 내용은 [Querying resources using the REST API](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api)(REST API를 사용하여 리소스 쿼리)를 참조하세요.
 
 ## <a name="best-practices-for-query-performance"></a>쿼리 성능에 대한 모범 사례
 Azure Cosmos DB 쿼리 성능에 영향을 주는 가장 일반적인 요소는 다음과 같습니다. 이 문서에서 이러한 각 항목에 대해 자세히 살펴보겠습니다.
@@ -237,7 +236,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| 메트릭 | 단위 | Description | 
+| 메트릭 | 단위 | 설명 | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | 밀리초 | 쿼리 실행 시간 | 
 | `queryCompileTimeInMs` | 밀리초 | 쿼리 컴파일 시간  | 
@@ -249,9 +248,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | 밀리초 | 문서를 로드하는 데 소요된 시간  | 
 | `systemFunctionExecuteTimeInMs` | 밀리초 | 시스템(기본 제공) 함수를 실행하는 데 소요된 총 시간(밀리초)  | 
 | `userFunctionExecuteTimeInMs` | 밀리초 | 사용자 정의 함수를 실행하는 데 소요된 총 시간(밀리초) | 
-| `retrievedDocumentCount` | 개수 | 검색된 총 문서 수  | 
+| `retrievedDocumentCount` | count | 검색된 총 문서 수  | 
 | `retrievedDocumentSize` | 바이트 | 검색된 총 문서 크기(바이트)  | 
-| `outputDocumentCount` | 개수 | 출력 문서 수 | 
+| `outputDocumentCount` | count | 출력 문서 수 | 
 | `writeOutputTimeInMs` | 밀리초 | 쿼리 실행 시간(밀리초) | 
 | `indexUtilizationRatio` | 비율(<=1) | 로드된 문서 수에 대한 필터에 의해 일치하는 문서 수의 비율  | 
 
@@ -259,7 +258,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 몇 가지 샘플 쿼리 및 쿼리 실행에서 반환된 일부 메트릭을 해석하는 방법은 다음과 같습니다. 
 
-| 쿼리 | 샘플 메트릭 | Description | 
+| 쿼리 | 샘플 메트릭 | 설명 | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | 검색된 문서 수는 TOP 절에 맞게 100+1입니다. 쿼리 시간은 검색이므로 대부분 `WriteOutputTime` 및 `DocumentLoadTime`에서 소요됩니다. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | 이제 RetrievedDocumentCount가 더 높아집니다(TOP 절에 맞게 500+1). | 

@@ -11,10 +11,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 90fd3680cfdc4ecd1dcb0ce33b63f8d76dd8bfae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759476"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포 문제 해결
@@ -37,9 +36,9 @@ ansible 플레이북 호스트에 대해 SSH를 수행합니다. OKD 템플릿(�
 
 ## <a name="log-files"></a>로그 파일
 
-호스트 준비 스크립트의 로그 파일 (stderr 및 stdout)은 모든 호스트의에 `/var/lib/waagent/custom-script/download/0` 있습니다. 호스트를 준비하는 동안 오류가 발생한 경우 이 로그 파일을 보고 오류를 확인합니다.
+호스트 준비 스크립트의 로그 파일 (stderr 및 stdout)은 `/var/lib/waagent/custom-script/download/0` 모든 호스트의에 있습니다. 호스트를 준비하는 동안 오류가 발생한 경우 이 로그 파일을 보고 오류를 확인합니다.
 
-준비 스크립트가 성공적으로 실행 되 면 ansible 플레이 북 호스트의 `/var/lib/waagent/custom-script/download/1` 디렉터리에 있는 로그 파일을 검사 해야 합니다. OpenShift를 실제로 설치하는 동안 오류가 발생한 경우 stdout 파일에 오류가 표시됩니다. 추가 지원을 받으려면 이 정보를 사용하여 고객 지원팀에 문의하세요.
+준비 스크립트가 성공적으로 실행 되 면 `/var/lib/waagent/custom-script/download/1` ansible 플레이 북 호스트의 디렉터리에 있는 로그 파일을 검사 해야 합니다. OpenShift를 실제로 설치하는 동안 오류가 발생한 경우 stdout 파일에 오류가 표시됩니다. 추가 지원을 받으려면 이 정보를 사용하여 고객 지원팀에 문의하세요.
 
 예제 출력
 
@@ -114,5 +113,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 일부 오류의 경우 다음 명령을 사용하여 자세한 정보를 가져올 수도 있습니다.
 
-1. systemctl 상태 \<서비스>
+1. systemctl status \<service>
 2. journalctl -xe

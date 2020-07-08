@@ -3,24 +3,23 @@ title: 홈 영역 검색을 사용 하 여 로그인 자동 가속 구성
 description: 자동 가속 및 도메인 힌트를 포함 하 여 페더레이션 사용자에 대 한 Azure Active Directory 인증에 대 한 홈 영역 검색 정책을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763587"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -81,8 +80,8 @@ Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 �
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>자동 가속에 대한 홈 영역 검색 정책
 일부 애플리케이션은 인증 요청을 구성하는 방법을 제공하지 않습니다. 이 경우 도메인 힌트를 사용하여 자동 가속을 제어할 수는 없습니다. 동일한 동작을 얻기 위해 정책을 통해 자동 가속을 구성할 수 있습니다.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>레거시 애플리케이션에 직접 인증 사용
-애플리케이션에서 AAD 라이브러리와 대화형 로그인을 사용하여 사용자를 인증하는 것이 가장 좋습니다. 라이브러리는 페더레이션 사용자 흐름을 처리합니다.  레거시 애플리케이션에서 페더레이션을 인식하도록 작성되지 않는 경우도 있습니다. 이 경우 홈 영역 검색을 수행하지 않으며, 올바른 페더레이션된 엔드포인트와 상호 작용하여 사용자를 인증하지 않습니다. HRD 정책을 사용하도록 선택하는 경우 사용자 이름/암호 자격 증명을 제출하는 특정 레거시 애플리케이션에서 이 정책을 통해 Azure Active Directory에서 직접 인증할 수 있습니다. 암호 해시 동기화를 사용하도록 설정해야 합니다. 
+## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>레거시 응용 프로그램에 대해 페더레이션된 사용자의 직접 ROPC 인증 사용
+애플리케이션에서 AAD 라이브러리와 대화형 로그인을 사용하여 사용자를 인증하는 것이 가장 좋습니다. 라이브러리는 페더레이션 사용자 흐름을 처리합니다.  경우에 따라 레거시 응용 프로그램, 특히 ROPC를 사용 하는 응용 프로그램은 사용자 이름 및 암호를 Azure AD에 직접 제출 하 고 페더레이션을 이해 하기 위해 작성 되지 않습니다. 이 경우 홈 영역 검색을 수행하지 않으며, 올바른 페더레이션된 엔드포인트와 상호 작용하여 사용자를 인증하지 않습니다. 을 선택 하는 경우 HRD 정책을 사용 하 여 사용자 이름/암호 자격 증명을 제출 하는 특정 레거시 응용 프로그램을 사용 하도록 설정할 수 있습니다 .이는 ROPC 권한 부여를 사용 하 여 Azure Active Directory에서 직접 인증 암호 해시 동기화를 사용하도록 설정해야 합니다. 
 
 > [!IMPORTANT]
 > 암호 해쉬 동기화가 사용되고 온-프레미스 IdP에서 구현된 정책 없이 이 애플리케이션을 인증할 수 있는 경우에만 직접 인증을 사용하도록 설정하세요. 어떤 이유로든 암호 해시 동기화를 해제하거나 AD Connect를 통해 디렉터리 동기화를 해제하는 경우 오래된 암호 해시를 사용하여 직접 인증할 수 없도록 방지하기 위해 이 정책을 제거해야 합니다.
@@ -110,7 +109,7 @@ Azure Active Directory PowerShell cmdlet을 사용 하 여 HRD 정책을 만들�
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```

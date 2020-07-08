@@ -1,29 +1,19 @@
 ---
 title: Apache Kafka에 대 한 Azure Event Hubs 문제 해결
 description: 이 문서에서는 Apache Kafka에 대해 Azure Event Hubs 문제를 해결 하는 방법을 보여 줍니다.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/01/2020
-ms.author: shvija
-ms.openlocfilehash: 12ddc5fa74b7a1b42bbd64fde9ec3410b1c1e425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322679"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Event Hubs에 대 한 Apache Kafka 문제 해결 가이드
 이 문서에서는 Apache Kafka에 대해 Event Hubs를 사용할 때 발생할 수 있는 문제에 대 한 문제 해결 팁을 제공 합니다. 
 
 ## <a name="server-busy-exception"></a>서버 작업 중 예외
-Kafka 제한으로 인해 서버 사용 중 예외가 발생할 수 있습니다. AMQP 클라이언트를 사용 하면 서비스를 제한할 때 **서버 사용 중** 예외가 즉시 반환 Event Hubs. "나중에 다시 시도" 메시지와 동일 합니다. Kafka에서 메시지는 완료 되기 전에 지연 됩니다. 지연 길이는 생성/인출 응답에서 `throttle_time_ms` 밀리초로 반환 됩니다. 대부분의 경우 이러한 지연 된 요청은 Event Hubs 대시보드의 ServerBusy 예외로 기록 되지 않습니다. 대신 응답의 `throttle_time_ms` 값을 처리량이 프로 비전 된 할당량을 초과 했음을 나타내는 표시기로 사용 해야 합니다.
+Kafka 제한으로 인해 서버 사용 중 예외가 발생할 수 있습니다. AMQP 클라이언트를 사용 하면 서비스를 제한할 때 **서버 사용 중** 예외가 즉시 반환 Event Hubs. "나중에 다시 시도" 메시지와 동일 합니다. Kafka에서 메시지는 완료 되기 전에 지연 됩니다. 지연 길이는 `throttle_time_ms` 생성/인출 응답에서 밀리초로 반환 됩니다. 대부분의 경우 이러한 지연 된 요청은 Event Hubs 대시보드의 ServerBusy 예외로 기록 되지 않습니다. 대신 응답의 값을 `throttle_time_ms` 처리량이 프로 비전 된 할당량을 초과 했음을 나타내는 표시기로 사용 해야 합니다.
 
 트래픽이 과도 한 경우 서비스는 다음과 같은 동작을 수행 합니다.
 
@@ -35,11 +25,11 @@ Kafka 제한으로 인해 서버 사용 중 예외가 발생할 수 있습니다
 ## <a name="no-records-received"></a>받은 레코드 없음
 소비자가 레코드를 받고 지속적으로 균형을 재조정 하지 않는 것을 볼 수 있습니다. 이 시나리오에서 소비자는 레코드를 받고 지속적으로 균형을 다시 조정 하지 않습니다. 예외 나 오류는 발생 하지 않지만, Kafka logs는 소비자가 그룹에 다시 참가 하 고 파티션을 할당 하려고 하는 것을 중지 하 고 있음을 보여 줍니다. 몇 가지 가능한 원인은 다음과 같습니다.
 
-- `request.timeout.ms` 이 6만의 권장 값 이상 인지 확인 하 고, `session.timeout.ms` 최소 권장 값은 3만입니다. 이러한 설정을 너무 낮게 설정 하면 소비자 시간 초과가 발생 하 여 다시 잔액을 초래 하 게 됩니다 .이로 인해 시간 초과가 발생 하 여 더 많은 균형을 유지 하 게 됩니다. 
+- 이 `request.timeout.ms` 6만의 권장 값 이상 인지 확인 하 고, `session.timeout.ms` 최소 권장 값은 3만입니다. 이러한 설정을 너무 낮게 설정 하면 소비자 시간 초과가 발생 하 여 다시 잔액을 초래 하 게 됩니다 .이로 인해 시간 초과가 발생 하 여 더 많은 균형을 유지 하 게 됩니다. 
 - 구성이 권장 되는 값과 일치 하는 경우 계속 해 서 지속적으로 균형을 조정 하는 것을 볼 수 있습니다. 문제를 쉽게 해결할 수 있도록 문제에 전체 구성을 포함 해야 합니다.
 
 ## <a name="compressionmessage-format-version-issue"></a>압축/메시지 형식 버전 문제
-Kafka는 압축을 지원 하 고 현재 Kafka에 대 한 Event Hubs는 그렇지 않습니다. 메시지 형식 버전을 언급 하는 오류 (예: `The message format version on the broker does not support the request.`)는 클라이언트가 압축 된 Kafka 메시지를 broker로 보내려고 할 때 발생 합니다.
+Kafka는 압축을 지원 하 고 현재 Kafka에 대 한 Event Hubs는 그렇지 않습니다. 메시지 형식 버전을 언급 하는 오류 (예: `The message format version on the broker does not support the request.` )는 클라이언트가 압축 된 Kafka 메시지를 broker로 보내려고 할 때 발생 합니다.
 
 압축 된 데이터가 필요한 경우 broker에 전송 하기 전에 데이터를 압축 하 고 수신 후에 압축을 푸는 것이 올바른 해결 방법입니다. 메시지 본문은 서비스에 대 한 바이트 배열인 것 이므로 클라이언트 쪽 압축/압축 풀기로 인해 문제가 발생 하지 않습니다.
 
@@ -66,8 +56,8 @@ Event Hubs에서 Kafka을 사용할 때 문제가 발생 하는 경우 다음 �
 ## <a name="limits"></a>제한
 Apache Kafka와 Event Hubs Kafka을 비교 합니다. 대부분의 경우 Kafka 에코 시스템에 대 한 Event Hubs에는 Apache Kafka에서 수행 하는 것과 동일한 기본값, 속성, 오류 코드 및 일반 동작이 있습니다. 이러한 두 값이 명시적으로 다른 인스턴스 (또는 Kafka이 아닌 제한이 적용 되는 Event Hubs)는 아래에 나열 되어 있습니다.
 
-- `group.id` 속성의 최대 길이는 256 자입니다.
-- 최대 크기는 1024 `offset.metadata.max.bytes` 바이트입니다.
+- 속성의 최대 길이는 `group.id` 256 자입니다.
+- 최대 크기는 `offset.metadata.max.bytes` 1024 바이트입니다.
 - 오프셋 커밋은 최대 내부 로그 크기인 1mb를 사용 하는 파티션당 4 개의 calls/second로 제한 됩니다.
 
 

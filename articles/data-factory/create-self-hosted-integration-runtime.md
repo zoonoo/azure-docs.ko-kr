@@ -10,13 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/13/2020
-ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655884"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -56,13 +55,13 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 Azure Data Factory UI를 사용 하 여 자체 호스팅 IR을 만들려면 다음 단계를 사용 합니다.
 
-1. Azure Data Factory UI의 **시작** 페이지에서 맨 왼쪽 창의 **작성자** 탭을 선택 합니다.
+1. Azure Data Factory UI의 **시작하기** 페이지의 맨 왼쪽 창에서 [관리 탭](https://docs.microsoft.com/azure/data-factory/author-management-hub)을 선택합니다.
 
-   ![홈 페이지 작성자 단추](media/doc-common-process/get-started-page-author-button.png)
+   ![홈 페이지 관리 단추](media/doc-common-process/get-started-page-manage-button.png)
 
-1. 왼쪽 창의 맨 아래에서 **연결** 을 선택 하 고 **연결** 창에서 **통합 런타임** 을 선택 합니다. **+ 새로 만들기**를 선택 합니다.
+1. 왼쪽 창에서 **통합 런타임**을 선택한 다음, **+새로 만들기**를 선택합니다.
 
-   ![Integration Runtime 만들기](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+   ![Integration Runtime 만들기](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. **Integration runtime 설정** 페이지에서 **Azure, 자체 호스팅**을 차례로 선택 하 고 **계속**을 선택 합니다. 
 
@@ -97,7 +96,7 @@ Azure 가상 컴퓨터에서 자체 호스트 ir 설치를 자동화 하려면 [
 
 명령줄을 사용 하 여 기존 자체 호스팅 IR을 설정 하거나 관리할 수 있습니다. 이 사용은 특히 자체 호스팅 IR 노드의 설치 및 등록을 자동화 하는 데 도움이 될 수 있습니다.
 
-Dmgcmd는 자체 호스팅 설치 관리자에 포함 되어 있습니다. 일반적으로 C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ 폴더에 있습니다. 이 응용 프로그램은 다양 한 매개 변수를 지원 하며, 자동화를 위해 일괄 처리 스크립트를 사용 하 여 명령줄을 통해 호출할 수 있습니다.
+Dmgcmd.exe은 자체 호스팅 설치 관리자에 포함 되어 있습니다. 일반적으로 C:\Program Files\Microsoft Integration Runtime\4.0\Shared\ 폴더에 있습니다. 이 응용 프로그램은 다양 한 매개 변수를 지원 하며, 자동화를 위해 일괄 처리 스크립트를 사용 하 여 명령줄을 통해 호출할 수 있습니다.
 
 다음과 같이 응용 프로그램을 사용 합니다.
 
@@ -151,7 +150,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 자체 호스팅 통합 런타임을 사용 하 여 Azure 가상 네트워크 내에서 데이터 통합을 지원 합니다.
 - Azure ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. 자체 호스팅 integration runtime을 사용 하 여 서비스를 데이터 원본에 연결 합니다.
 - 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
-- FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`함)으로 변경 합니다.
+- FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -163,7 +162,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
   + Windows Server 2012
   + Windows Server 2012 R2
   + Windows Server 2016
-  + 시작
+  + Windows Server 2019
    
    도메인 컨트롤러에 자체 호스팅 통합 런타임 설치가 지원 되지 않습니다.
 - .NET Framework 4.6.1 이상이 필요합니다. Windows 7 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 경우 .NET Framework 4.6.1 이상을 설치합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
@@ -173,7 +172,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 복사 작업 실행은 특정 빈도로 발생 합니다. 컴퓨터의 프로세서 및 RAM 사용량은 최대 및 유휴 시간과 동일한 패턴을 따릅니다. 리소스 사용량은 이동 하는 데이터의 양에 따라 크게 달라 집니다. 여러 복사 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가하는 것을 볼 수 있습니다.
 - Parquet, ORC 또는 Avro 형식의 데이터를 추출 하는 동안 태스크가 실패할 수 있습니다. Parquet에 대 한 자세한 내용은 [Azure Data Factory Parquet 형식](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)을 참조 하세요. 파일 생성은 자체 호스팅 통합 컴퓨터에서 실행 됩니다. 정상적으로 작동 하려면 파일을 만들려면 다음 필수 구성 요소가 필요 합니다.
     - [Visual C++ 2010 재배포 가능 패키지](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) 패키지 (x64)
-    - Jre (Java Runtime) 버전 8 (예: [OpenJDK 도입](https://adoptopenjdk.net/)) `JAVA_HOME` 환경 변수가 설정 되어 있는지 확인 합니다.
+    - Jre (Java Runtime) 버전 8 (예: [OpenJDK 도입](https://adoptopenjdk.net/)) `JAVA_HOME`환경 변수가 설정 되어 있는지 확인 합니다.
 
 ## <a name="installation-best-practices"></a>설치 모범 사례
 
@@ -220,7 +219,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 > 각 노드를 연결 하기 위해 자체 호스팅 통합 런타임을 새로 만들 필요는 없습니다. 자체 호스팅 통합 런타임을 다른 컴퓨터에서 설치하고 동일한 인증 키를 사용하여 등록할 수 있습니다.
 
 > [!NOTE]
-> 고가용성 및 확장성을 위해 다른 노드를 추가 하기 전에 첫 번째 노드에서 **인트라넷에 원격으로 액세스** 옵션을 사용 하도록 설정 해야 합니다. 이렇게 하려면 **Microsoft Integration Runtime Configuration Manager** > **설정** > **인트라넷에 원격 액세스**를 선택 합니다.
+> 고가용성 및 확장성을 위해 다른 노드를 추가 하기 전에 첫 번째 노드에서 **인트라넷에 원격으로 액세스** 옵션을 사용 하도록 설정 해야 합니다. 이렇게 하려면 **Microsoft Integration Runtime Configuration Manager**  >  **설정**  >  **인트라넷에 원격 액세스**를 선택 합니다.
 
 ### <a name="scale-considerations"></a>크기 조정 고려 사항
 
@@ -255,7 +254,7 @@ Integration runtime 노드 간의 통신을 보호 하는 데 사용 하는 TLS/
 >
 > 자체 호스팅 IR에서 다른 데이터 저장소로 전송 되는 데이터 이동은이 인증서의 설정 여부에 관계 없이 항상 암호화 된 채널 내에서 발생 합니다.
 
-## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 공유 자체 호스팅 통합 런타임 만들기
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 
 데이터 팩터리에 이미 설치한 기존의 자체 호스팅 통합 런타임 인프라를 재사용할 수 있습니다. 이렇게 다시 사용 하면 기존 공유 자체 호스팅 IR을 참조 하 여 다른 데이터 팩터리에 연결 된 자체 호스팅 통합 런타임을 만들 수 있습니다.
 
@@ -352,8 +351,8 @@ Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바�
 이 대화 상자에는 세 가지 구성 옵션이 있습니다.
 
 - **프록시 사용 안 함**: 자체 호스팅 통합 런타임이 클라우드 서비스에 연결 하는 데 프록시를 명시적으로 사용 하지 않습니다.
-- **시스템 프록시 사용**: 자체 호스팅 통합 런타임에서는 diahost 및 diahost에서 구성 된 프록시 설정을 사용 합니다. 이러한 파일에 프록시 구성이 지정 되어 있지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다.
-- **사용자 지정 프록시 사용**: diahost 및 diahost의 구성을 사용 하는 대신 자체 호스팅 통합 런타임에 사용할 HTTP 프록시 설정을 구성 합니다. **주소** 및 **포트** 값은 필수입니다. **사용자 이름** 및 **암호** 값은 프록시의 인증 설정에 따라 선택 사항입니다. 모든 설정은 자체 호스팅 통합 런타임d에서 Windows DPAPI를 사용하여 암호화되며 컴퓨터에 로컬로 저장됩니다.
+- **시스템 프록시 사용**: 자체 호스팅 통합 런타임은 diahost.exe.config 및 diawp.exe.config에 구성 된 프록시 설정을 사용 합니다. 이러한 파일에 프록시 구성이 지정 되어 있지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다.
+- **사용자 지정 프록시 사용**: diahost.exe.config 및 diawp.exe.config의 구성을 사용 하는 대신 자체 호스팅 통합 런타임에 사용할 HTTP 프록시 설정을 구성 합니다. **주소** 및 **포트** 값은 필수입니다. **사용자 이름** 및 **암호** 값은 프록시의 인증 설정에 따라 선택 사항입니다. 모든 설정은 자체 호스팅 통합 런타임d에서 Windows DPAPI를 사용하여 암호화되며 컴퓨터에 로컬로 저장됩니다.
 
 업데이트 된 프록시 설정을 저장 하면 integration runtime 호스트 서비스가 자동으로 다시 시작 됩니다.
 
@@ -362,7 +361,7 @@ Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바�
 1. **Microsoft 통합 런타임 구성 관리자**를 엽니다.
 1. **설정** 탭을 선택 합니다.
 1. **Http 프록시**에서 **변경** 링크를 선택 하 여 **http 프록시 설정** 대화 상자를 엽니다.
-1. **다음**을 선택합니다. 그러면 프록시 설정을 저장 하 고 integration runtime 호스트 서비스를 다시 시작할 수 있는 권한을 요청 하는 경고가 표시 됩니다.
+1. **새로 만들기**를 선택합니다. 그러면 프록시 설정을 저장 하 고 integration runtime 호스트 서비스를 다시 시작할 수 있는 권한을 요청 하는 경고가 표시 됩니다.
 
 구성 관리자 도구를 사용 하 여 HTTP 프록시를 확인 하 고 업데이트할 수 있습니다.
 
@@ -373,11 +372,11 @@ Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바�
 
 ### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성
 
-HTTP 프록시에 대해 **시스템 프록시 사용** 옵션을 선택 하는 경우 자체 호스팅 통합 런타임은 diahost 및 diahost .exe .config에서 프록시 설정을 사용 합니다. 이러한 파일에서 프록시를 지정 하지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.
+HTTP 프록시에 대해 **시스템 프록시 사용** 옵션을 선택 하는 경우 자체 호스팅 통합 런타임에서 diahost.exe.config 및 diawp.exe.config의 프록시 설정을 사용 합니다. 이러한 파일에서 프록시를 지정 하지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.
 
-1. 파일 탐색기에서 원래 파일의 백업으로 C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config의 안전한 복사본을 만듭니다.
+1. 파일 탐색기에서 Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config의 안전한 복사본을 원본 파일의 백업으로 만듭니다.
 1. 관리자 권한으로 실행 하는 메모장을 엽니다.
-1. 메모장에서 C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config. 텍스트 파일을 엽니다.
+1. 메모장에서 C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config 텍스트 파일을 엽니다.
 1. 다음 코드에 표시 된 것 처럼 기본 **system.net** 태그를 찾습니다.
 
     ```xml
@@ -395,7 +394,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 옵션을 선택 하는 
     </system.net>
     ```
 
-    프록시 태그를 통해 추가 속성은와 같은 `scriptLocation`필수 설정을 지정할 수 있습니다. 구문은 [ \<프록시\> 요소 (네트워크 설정)](https://msdn.microsoft.com/library/sa91de1e.aspx) 를 참조 하세요.
+    프록시 태그를 통해 추가 속성은와 같은 필수 설정을 지정할 수 있습니다 `scriptLocation` . 구문은 [ \<proxy\> 요소 (네트워크 설정)](https://msdn.microsoft.com/library/sa91de1e.aspx) 를 참조 하세요.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
@@ -416,7 +415,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 옵션을 선택 하는 
 다음과 같은 오류 메시지가 표시 되는 경우 방화벽 또는 프록시 서버가 잘못 구성 된 것일 수 있습니다. 이러한 구성을 통해 자체 호스팅 통합 런타임이 Data Factory에 연결 하 여 자신을 인증할 수 없습니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
 
 * 자체 호스팅 통합 런타임을 등록 하려고 하면 다음과 같은 오류 메시지가 표시 됩니다. "이 Integration Runtime 노드를 등록 하지 못했습니다. 인증 키가 올바르며 integration service 호스트 서비스가이 컴퓨터에서 실행 되 고 있는지 확인 하십시오. "
-* 통합 런타임 구성 관리자를 열 때 상태가 **연결 끊김** 또는 **연결 중**으로 표시됩니다. Windows 이벤트 로그를 볼 때 **이벤트 뷰어** > **응용 프로그램 및 서비스 로그** > **Microsoft Integration Runtime**에서 다음과 같은 오류 메시지가 표시 됩니다.
+* 통합 런타임 구성 관리자를 열 때 상태가 **연결 끊김** 또는 **연결 중**으로 표시됩니다. Windows 이벤트 로그를 볼 때 **이벤트 뷰어**  >  **응용 프로그램 및 서비스 로그**  >  **Microsoft Integration Runtime**에서 다음과 같은 오류 메시지가 표시 됩니다.
 
     ```
     Unable to connect to the remote server

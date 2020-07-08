@@ -4,23 +4,22 @@ description: 영역 루트에서 Azure DNS 별칭 레코드를 사용하여 부�
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710544"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>영역 루트에서 워크로드가 분산된 Azure 웹앱 호스트
 
-DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 애플리케이션 있는 애플리케이션 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 애플리케이션 소유자는 해결 방법을 사용해야 합니다. 애플리케이션 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. 예를 들어 contoso.com에서 www\.contoso.com로의 리디렉션이 있습니다. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
+DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 애플리케이션 있는 애플리케이션 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 애플리케이션 소유자는 해결 방법을 사용해야 합니다. 애플리케이션 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. 예를 들어 contoso.com에서 www contoso.com로의 리디렉션이 \. 있습니다. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
 
 별칭 레코드를 사용하면 이 문제가 더 이상 발생하지 않습니다. 이제 애플리케이션 소유자는 영역 apex 레코드에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리키도록 할 수 있습니다. 애플리케이션 소유자는 DNS 영역 내 다른 모든 도메인에 사용되는 Traffic Manager 프로필을 가리킬 수 있습니다.
 
-예를 들어 contoso.com 및 www\.contoso.com는 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. 단, Traffic Manager 프로필에 외부 엔드포인트만 구성되어 있어야 합니다.
+예를 들어 contoso.com 및 www \. contoso.com는 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. 단, Traffic Manager 프로필에 외부 엔드포인트만 구성되어 있어야 합니다.
 
 이 문서에서는 사용자 도메인 루트에 대한 별칭 레코드를 만들고, 웹앱에 대한 Traffic Manager 프로필 엔드포인트를 구성하는 방법을 알아봅니다.
 
@@ -43,7 +42,7 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 구성 정보에 대한 다음 표를 사용하여 리소스 그룹에 두 개의 웹 App Service 계획을 만듭니다. App Service 계획을 만드는 방법에 대한 자세한 내용은 [Azure에서 App Service 계획 관리](../app-service/app-service-plan-manage.md)를 참조하세요.
 
 
-|속성  |운영 체제  |위치  |가격 책정 계층  |
+|이름  |운영 체제  |위치  |가격 책정 계층  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|미국 동부|개발/테스트 D1-공유|
 |ASP-02     |Windows|미국 중부|개발/테스트 D1-공유|
@@ -58,7 +57,7 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 4. **만들기**를 선택합니다.
 5. 기본값을 적용하고, 다음 표를 사용하여 두 개의 웹앱을 구성합니다.
 
-   |속성<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|지역|App Service 계획/위치
+   |이름<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|지역|App Service 계획/위치
    |---------|---------|-|-|-------|
    |App-01|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 동부|ASP-01 (D1)|
    |App-02|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 중부|ASP-02 (D1)|
@@ -89,8 +88,8 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 
    |Type  |속성  |대상  |위치  |사용자 지정 헤더 설정|
    |---------|---------|---------|---------|---------|
-   |외부 엔드포인트     |End-01|App-01에 기록한 IP 주소|미국 동부|호스트:\<App-01에 기록한 URL\><br>예: **호스트:app-01.azurewebsites.net**|
-   |외부 엔드포인트     |End-02|App-02에 기록한 IP 주소|미국 중부|호스트:\<App-02에 기록한 URL\><br>예: **호스트:app-02.azurewebsites.net**
+   |외부 엔드포인트     |End-01|App-01에 기록한 IP 주소|미국 동부|호스팅하기\<the URL you recorded for App-01\><br>예: **호스트:app-01.azurewebsites.net**|
+   |외부 엔드포인트     |End-02|App-02에 기록한 IP 주소|미국 중부|호스팅하기\<the URL you recorded for App-02\><br>예: **호스트:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>DNS 영역 만들기
 
@@ -104,7 +103,7 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 2. **레코드 집합**을 선택합니다.
 3. 다음 표를 사용 하 여 레코드 집합을 추가 합니다. 값에 대해 이전에 기록한 실제 웹 앱 URL을 사용 합니다.
 
-   |속성  |Type  |값|
+   |이름  |Type  |값|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,7 +131,7 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 2. **레코드 집합**을 선택합니다.
 3. 다음 표를 사용하여 레코드 집합을 추가합니다.
 
-   |속성  |Type  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
+   |이름  |Type  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
    |---------|---------|---------|---------|-----|
    |@     |A|예|Azure 리소스|Traffic Manager - 프로필|
 

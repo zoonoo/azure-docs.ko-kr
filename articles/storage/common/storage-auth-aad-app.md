@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212629"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
@@ -58,7 +57,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
     ![저장소에 대 한 사용 권한을 보여 주는 스크린샷](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-이제 **API 권한** 창에는 등록 된 Azure AD 응용 프로그램이 Microsoft Graph 및 Azure Storage에 모두 액세스할 수 있는 것으로 표시 됩니다. Azure AD에 앱을 처음 등록할 때 Microsoft Graph에 대 한 권한이 자동으로 부여 됩니다.
+이제 **api 권한** 창에는 등록 된 Azure AD 응용 프로그램이 Microsoft Graph 및 Azure Storage api 모두에 대 한 액세스 권한이 있음을 보여 줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 Microsoft Graph에 대한 사용 권한이 부여됩니다.
 
 ![앱 사용 권한 등록을 보여 주는 스크린샷](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -213,7 +212,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
@@ -245,7 +244,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ### <a name="provide-values-in-the-settings-file"></a>설정 파일에 값 제공
 
-다음으로, 다음과 같이 사용자 고유의 값으로 *appsettings* 파일을 업데이트 합니다.
+다음으로, 다음과 같이 사용자 고유의 값으로 파일 *의appsettings.js* 를 업데이트 합니다.
 
 ```json
 {
@@ -284,8 +283,8 @@ CloudBlockBlob blob = new CloudBlockBlob(
 샘플을 실행 하려면 앱 등록에 대 한 암시적 권한 부여 흐름을 구성 해야 할 수 있습니다. 아래 단계를 수행합니다.
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
-1. 관리 섹션에서 **인증** 설정을 선택 합니다.
-1. 다음 그림에 표시 된 것 처럼 **고급 설정**의 **암시적 권한 부여** 섹션에서 확인란을 선택 하 여 액세스 토큰 및 ID 토큰을 사용 하도록 설정 합니다.
+1. **관리** 섹션에서 **인증** 설정을 선택 합니다.
+1. **암시적 권한 부여** 섹션에서 다음 이미지와 같이 ID 토큰을 사용 하도록 설정 하는 확인란을 선택 합니다.
 
     ![암시적 권한 부여 흐름에 대 한 설정을 사용 하도록 설정 하는 방법을 보여 주는 스크린샷](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
 
@@ -294,13 +293,13 @@ CloudBlockBlob blob = new CloudBlockBlob(
 샘플을 실행할 때 런타임에 할당 된 *localhost* 포트를 사용 하도록 앱 등록에 지정 된 리디렉션 URI를 업데이트 해야 하는 경우가 있습니다. 할당 된 포트를 사용 하도록 리디렉션 URI를 업데이트 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
-1. 관리 섹션에서 **인증** 설정을 선택 합니다.
+1. **관리** 섹션에서 **인증** 설정을 선택 합니다.
 1. **Uri 리디렉션**에서 다음 이미지와 같이 샘플 응용 프로그램에서 사용 하는 것과 일치 하도록 포트를 편집 합니다.
 
     ![앱 등록에 대 한 리디렉션 Uri를 보여 주는 스크린샷](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- Microsoft id 플랫폼에 대 한 자세한 내용은 [microsoft id 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)을 참조 하세요.
-- Azure storage에 대 한 RBAC 역할에 대해 자세히 알아보려면 [rbac를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)를 참조 하세요.
-- Azure Storage에서 Azure 리소스에 관리 id를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 인증](storage-auth-aad-msi.md)
+- [Microsoft ID 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)
+- [RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)
+- [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 인증](storage-auth-aad-msi.md)

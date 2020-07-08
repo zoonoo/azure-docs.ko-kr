@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770672"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
@@ -119,7 +118,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --sdk-auth
 ```
 
-스크립트에서를 사용 하 여 `az login --service-principal`로그인 하 고 보안 주체의 정보를 제공 합니다. 그런 다음를 사용 `az webapp config container set` 하 여 컨테이너 이름, 태그, 레지스트리 URL 및 레지스트리 암호를 설정할 수 있습니다. 컨테이너 CI 프로세스를 생성 하는 데 도움이 되는 몇 가지 유용한 링크는 다음과 같습니다.
+스크립트에서를 사용 하 여 로그인 하 `az login --service-principal` 고 보안 주체의 정보를 제공 합니다. 그런 다음를 사용 `az webapp config container set` 하 여 컨테이너 이름, 태그, 레지스트리 URL 및 레지스트리 암호를 설정할 수 있습니다. 컨테이너 CI 프로세스를 생성 하는 데 도움이 되는 몇 가지 유용한 링크는 다음과 같습니다.
 
 - [Circle CI에 Azure CLI 로그인 하는 방법](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
@@ -127,15 +126,15 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
 
 ### <a name="java"></a>Java
 
-Kudu [zipdeploy/](deploy-zip.md) API를 사용 하 여 JAR 응용 프로그램을 배포 하 고, WAR 응용 프로그램을 배포 [/](deploy-zip.md#deploy-war-file) 사용 합니다. Jenkins를 사용 하는 경우 배포 단계에서 직접 해당 Api를 사용할 수 있습니다. 자세한 내용은 [이 문서](../jenkins/execute-cli-jenkins-pipeline.md)를 참조 하세요.
+Kudu [zipdeploy/](deploy-zip.md) API를 사용 하 여 JAR 응용 프로그램을 배포 하 고, WAR 응용 프로그램을 배포 [/](deploy-zip.md#deploy-war-file) 사용 합니다. Jenkins를 사용 하는 경우 배포 단계에서 직접 해당 Api를 사용할 수 있습니다. 자세한 내용은 [이 문서](../jenkins/execute-cli-jenkins-pipeline.md)를 참조하세요.
 
 ### <a name="node"></a>노드
 
-기본적으로 Kudu는 노드 응용 프로그램 (`npm install`)에 대 한 빌드 단계를 실행 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 값이 인 `SCM_DO_BUILD_DURING_DEPLOYMENT`앱 설정을 만듭니다 `false`.
+기본적으로 Kudu는 노드 응용 프로그램 ()에 대 한 빌드 단계를 실행 `npm install` 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 값이 인 앱 설정을 만듭니다 `SCM_DO_BUILD_DURING_DEPLOYMENT` `false` .
 
 ### <a name="net"></a>.NET 
 
-기본적으로 Kudu는 .NET 응용 프로그램에 대 한 빌드 단계 (`dotnet build`)를 실행 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 값이 인 `SCM_DO_BUILD_DURING_DEPLOYMENT`앱 설정을 만듭니다 `false`.
+기본적으로 Kudu는 .NET 응용 프로그램에 대 한 빌드 단계 ( `dotnet build` )를 실행 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 값이 인 앱 설정을 만듭니다 `SCM_DO_BUILD_DURING_DEPLOYMENT` `false` .
 
 ## <a name="other-deployment-considerations"></a>기타 배포 고려 사항
 
@@ -156,4 +155,4 @@ App Service 계획에서 사용 가능한 CPU 또는 메모리의 90%를 초과 
 - **모범 사례** 홈 페이지 타일을 선택 합니다.
 - 모범 사례에 **대 한 모범 사례** 를 클릭 하 여 모범 사례에 대 한 응용 프로그램의 현재 상태를 확인 하는 **최적의 구성을 위한** 모범 사례를 & 합니다.
 
-또한이 링크를 사용 하 여 리소스에 대 한 App Service 진단을 직접 열 `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`수 있습니다.
+또한이 링크를 사용 하 여 리소스에 대 한 App Service 진단을 직접 열 수 있습니다 `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot` .

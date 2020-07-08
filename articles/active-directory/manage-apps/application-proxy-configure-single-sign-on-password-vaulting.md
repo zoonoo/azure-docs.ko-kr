@@ -3,23 +3,22 @@ title: Azure AD 애플리케이션 프록시를 사용하여 앱에 SSO(Single s
 description: Azure Portal에서 Azure AD 애플리케이션을 사용하여 게시된 온-프레미스 애플리케이션에 대한 SSO(Single sign-on)를 켭니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77025744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764777"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정
 
@@ -31,12 +30,12 @@ Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안�
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>애플리케이션에 대한 암호 보관 설정
 
-1. 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-1. **Azure Active Directory** > **Enterprise 응용 프로그램** > **모든 응용 프로그램**을 선택 합니다.
+1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Azure Active Directory**  >  **Enterprise 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
 1. 목록에서 SSO로 설정할 앱을 선택합니다.  
 1. **애플리케이션 프록시**를 선택합니다. 
 1. **사전 인증 유형** 을 **통과** 로 변경 하 고 **저장**을 선택 합니다. 나중에 다시 **Azure Active Directory** 형식으로 다시 전환할 수 있습니다. 
-1. **Single sign-on**을 선택 합니다.
+1. **Single Sign-On**을 선택합니다.
 
    ![앱의 개요 페이지에서 Single sign-on을 선택 합니다.](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
@@ -51,7 +50,7 @@ Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안�
 1. **사용자 및 그룹**을 선택 합니다.
 1. **사용자 추가**를 선택 하 여 응용 프로그램에 사용자를 할당 합니다. 
 1. 사용자에 대 한 자격 증명을 미리 정의 하려면 사용자 이름 앞의 확인란을 선택 하 고 **자격 증명 업데이트**를 선택 합니다.
-1. **모든 응용 프로그램****앱 등록** >  **Azure Active Directory** > 을 선택 합니다.
+1. **Azure Active Directory**  >  **App registrations**  >  **모든 응용 프로그램**앱 등록 Azure Active Directory을 선택 합니다.
 1. 목록에서 암호 SSO로 구성한 앱을 선택 합니다.
 1. **브랜딩**을 선택합니다. 
 1. 암호 SSO 페이지에서 로그온 **url** 을 사용 하 여 **홈 페이지 url** 을 업데이트 하 고 **저장**을 선택 합니다.  

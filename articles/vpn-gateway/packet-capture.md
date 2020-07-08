@@ -4,15 +4,14 @@ description: VPN 게이트웨이에서 사용할 수 있는 패킷 캡처 기능
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6edfe0228ce4cbe21ad4ae0eb8b7316a92f1da31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75353511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987144"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>VPN gateway에 대 한 패킷 캡처 구성
 

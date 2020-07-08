@@ -6,12 +6,11 @@ ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 36be05f72597ae9864eff812862589cafb1f5b0d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921190"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 
@@ -29,6 +28,9 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>다중 지역 계정 설정 시 모든 지역이 아닌 특정 지역에서만 Synapse Link를 사용하도록 선택할 수 있나요?
 미리 보기 릴리스에서 다중 지역 계정에 대해 Synapse Link를 사용하도록 설정하면 모든 지역에 분석 저장소가 생성됩니다. 기본 데이터는 트랜잭션 저장소의 처리량 및 트랜잭션 일관성을 위해 최적화됩니다.
+
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>Synapse Link 사용 계정에 대해 백업 및 복원이 지원 되나요?
+미리 보기에서 Synapse Link 사용 데이터베이스 계정의 경우 컨테이너의 백업 및 복원은 지원 되지 않습니다. 백업 및 복원 기능이 필요한 프로덕션 워크 로드가 있는 경우 해당 데이터베이스 계정에 대해 Synapse 링크를 사용 하도록 설정 하지 않는 것이 좋습니다. 
 
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>내 Azure Cosmos 계정에 대해 Synapse Link 기능을 사용하지 않도록 설정할 수 있나요?
 현재, 계정 수준에서 Synapse Link 기능을 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다.  기능을 해제하려면 계정을 삭제하고 새 Azure Cosmos 계정을 다시 만들어야 합니다.
@@ -104,10 +106,10 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 |Synapse 런타임 |현재 지원 |
 |---------|---------|
 |Synapse Spark 풀 | 읽기, 쓰기(트랜잭션 저장소를 통해), 테이블, 임시 뷰 |
-|Synapse SQL 서버리스    | 읽기, 보기(제어된 미리 보기)  |
+|서버를 사용 하지 않는 SQL server Synapse    | 읽기, 보기(제어된 미리 보기)  |
 |프로비저닝된 Synapse SQL   |  사용할 수 없음 |
 
-### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Azure Data Lake와 동일한 방식으로 Synapse Spark 테이블이 Synapse SQL 서버리스 테이블과 동기화되나요?
+### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Synapse Spark 테이블이 Azure Data Lake와 동일한 방식으로 Synapse SQL 서버 리스 테이블과 동기화 하나요?
 현재 이 기능은 사용할 수 없습니다.
 
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>분석 저장소에서 Spark 구조적 스트리밍을 수행할 수 있나요?
@@ -118,11 +120,11 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 ### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>Synapse Studio에서 분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너에 연결되어 있는지 어떻게 알 수 있나요?
 분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너에는 다음 아이콘이 있습니다.
 
-![분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="분석 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
 
 트랜잭션 저장소 컨테이너는 다음 아이콘으로 표시됩니다.
 
-![트랜잭션 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘](./media/synapse-link-frequently-asked-questions/transactional-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="트랜잭션 저장소를 사용하도록 설정된 Azure Cosmos DB 컨테이너- 아이콘":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Synapse Studio에서 Azure Cosmos DB 자격 증명을 어떻게 전달하나요?
 현재 Azure Cosmos DB 자격 증명은 Azure Cosmos DB 데이터베이스에 액세스할 수 있는 사용자가 연결된 서비스를 만드는 동안 전달됩니다. 이 저장소에 대한 액세스는 작업 영역에 액세스할 수 있는 다른 사용자가 사용할 수 있습니다.

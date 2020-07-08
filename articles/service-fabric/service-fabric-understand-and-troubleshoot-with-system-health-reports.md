@@ -1,16 +1,15 @@
 ---
 title: 시스템 상태 보고서를 사용하여 문제 해결
 description: Azure Service Fabric 구성 요소에서 보낸 상태 보고서와 클러스터 또는 애플리케이션 문제 해결에 대한 사용을 설명합니다.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392576"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -48,7 +47,7 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 * **Property**: **환경**으로 시작되고 노드 정보를 포함합니다.
 * **다음 단계**: 환경이 손실된 이유를 조사합니다. 예를 들어 클러스터 노드 간의 통신을 확인합니다.
 
-### <a name="rebuild"></a>다시 작성
+### <a name="rebuild"></a>다시 빌드
 
 FM(장애 조치(Failover) 관리자) 서비스는 클러스터 노드에 대한 정보를 관리합니다. FM이 해당 데이터를 잃어 데이터 손실이 발생하면 클러스터 노드에 대한 최신 업데이트 정보를 보장할 수 없습니다. 이 경우 시스템은 다시 빌드되고, System.FM은 상태를 다시 작성하기 위해 클러스터의 모든 노드에서 데이터를 수집합니다. 경우에 따라 네트워킹 또는 노드 문제로 인해 다시 빌드가 중지되거나 중단될 수도 있습니다. FMM(장애 조치(Failover) 관리자 마스터) 서비스에서도 마찬가지입니다. FMM은 모든 FM이 클러스터에 있는 위치를 추적하는 상태 비저장 시스템 서비스입니다. FMM의 기본 노드는 항상 0에 가장 가까운 ID가 있는 노드입니다. 노드가 삭제되면 다시 빌드가 트리거됩니다.
 이전 조건 중 하나가 발생하면 **System.FM** 또는 **System.FMM**에서 오류 보고서를 통해 플래그를 지정합니다. 다시 빌드는 두 단계 중 하나에서 중단될 수 있습니다.
@@ -639,30 +638,30 @@ HealthEvents          :
 
 속성과 텍스트가 API가 멈추었음을 나타냅니다. 중단된 API에 대해 수행할 다음 단계는 서로 다릅니다. *Istatefulservicereplica.open* 또는 *ISTATELESSSERVICEINSTANCE* 의 모든 API는 일반적으로 서비스 코드의 버그입니다. 다음 섹션에서는 [Reliable Services 모델로](service-fabric-reliable-services-lifecycle.md)변환 하는 방법을 설명 합니다.
 
-- **Istatefulservicereplica.open**:이 경고는, `CreateServiceInstanceListeners` `ICommunicationListener.OpenAsync`또는가 재정의 `OnOpenAsync` 된 경우에 대 한 호출이 중단 되었음을 나타냅니다.
+- **Istatefulservicereplica.open**:이 경고는 `CreateServiceInstanceListeners` , `ICommunicationListener.OpenAsync` 또는가 재정의 된 경우에 대 한 호출이 중단 되었음을 나타냅니다. `OnOpenAsync`
 
 - **IStatefulServiceReplica.Close** 및 **IStatefulServiceReplica.Abort**: 가장 일반적인 경우는 `RunAsync`에 전달된 취소 토큰을 허용하지 않는 서비스입니다. `ICommunicationListener.CloseAsync`를 나타내거나 재정의된 `OnCloseAsync`가 멈춘 경우를 나타낼 수도 있습니다.
 
 - **IStatefulServiceReplica.ChangeRole(S)** 및 **IStatefulServiceReplica.ChangeRole(N)**: 가장 일반적인 경우는 `RunAsync`에 전달된 취소 토큰을 허용하지 않는 서비스입니다. 이 시나리오에서 가장 좋은 방법은 복제본을 다시 시작 하는 것입니다.
 
-- **Istatefulservicereplica.open. istatefulservicereplica.changerole (P)**: 가장 일반적인 경우는 서비스에서 작업을 반환 하지 않았기 때문입니다 `RunAsync`.
+- **Istatefulservicereplica.open. istatefulservicereplica.changerole (P)**: 가장 일반적인 경우는 서비스에서 작업을 반환 하지 않았기 때문입니다 `RunAsync` .
 
-정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 다음은 그 예입니다.
+정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 예를 들어:
 
 - **IReplicator.CatchupReplicaSet**:이 경고는 다음 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 
-- **Ireplicator. BuildReplica (\<원격 ReplicaId>)**:이 경고는 빌드 프로세스에 문제가 있음을 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: 이 경고는 빌드 프로세스 중의 문제를 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
 
 ### <a name="replicator-system-health-reports"></a>복제자 시스템 상태 보고서
-**복제 큐가 가득 찼습니다**
-. 복제 큐가 가득 차면**시스템 복제기** 에서 경고를 보고 합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
+**복제 큐가 가득 찼습니다.** 
+ 복제 큐가 가득 차면 **시스템 복제기** 에서 경고를 보고 합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
 
 * **SourceId**: System.Replicator
 * **속성**: 복제본 역할에 따라 **PrimaryReplicationQueueStatus** 또는 **secondaryreplicationqueuestatus입니다**입니다.
 * **다음 단계**: 보고서가 기본 데이터베이스에 있는 경우 클러스터의 노드 간 연결을 확인합니다. 모든 연결이 정상이면 디스크 대기 시간이 길고 속도가 느린 보조 복제본이 하나 이상 있을 수 있으며, 이러한 복제본에 작업을 적용합니다. 보고서가 보조 복제본에 있으면 먼저 노드에서 디스크 사용량 및 성능을 확인합니다. 그런 다음, 저속 노드에서 주 복제본으로 나가는 연결을 확인합니다.
 
-**RemoteReplicatorConnectionStatus:**
-주 복제본의**system.object** 가 보조 (원격) 복제기에 대 한 연결이 정상이 아닌 경우 경고를 보고 합니다. 원격 복제자의 주소가 보고서 메시지에 표시되므로 잘못된 구성이 전달되었는지 또는 복제자 간에 네트워크 문제가 있는지를 더 편리하게 검색할 수 있습니다.
+**RemoteReplicatorConnectionStatus:** 
+ 보조 복제본에 대 한 연결이 정상이 아닌 경우 주 복제본의 **system.object** 가 경고를 보고 합니다. 원격 복제자의 주소가 보고서 메시지에 표시되므로 잘못된 구성이 전달되었는지 또는 복제자 간에 네트워크 문제가 있는지를 더 편리하게 검색할 수 있습니다.
 
 * **SourceId**: System.Replicator
 * **속성**: **RemoteReplicatorConnectionStatus**.

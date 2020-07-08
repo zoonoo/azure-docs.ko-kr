@@ -8,17 +8,16 @@ manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: e6eda3b522a5b46cd82ef29ae493891a624d3272
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764012"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
 
@@ -58,7 +57,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 대시보드에 타일을 추가 하려면 다음 단계를 수행 합니다.
 
-1. 페이지 ![머리글에서](./media/azure-portal-dashboards/dashboard-edit-icon.png) 편집 아이콘 **편집** 을 선택 합니다.
+1. ![ ](./media/azure-portal-dashboards/dashboard-edit-icon.png) 페이지 머리글에서 편집 아이콘 **편집** 을 선택 합니다.
 
     ![대시보드 강조 표시 편집의 스크린샷](./media/azure-portal-dashboards/dashboard-edit.png)
 
@@ -79,7 +78,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 타일의 크기를 변경 하거나 대시보드의 타일을 다시 정렬 하려면 다음 단계를 수행 합니다.
 
-1. 페이지 ![머리글에서](./media/azure-portal-dashboards/dashboard-edit-icon.png) 편집 아이콘 **편집** 을 선택 합니다.
+1. ![ ](./media/azure-portal-dashboards/dashboard-edit-icon.png) 페이지 머리글에서 편집 아이콘 **편집** 을 선택 합니다.
 
 1. 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택 합니다. 그런 다음 타일 크기를 선택 합니다. 크기를 지 원하는 타일의 오른쪽 아래 모서리에는 타일을 원하는 크기로 끌 수 있는 "핸들"이 포함 됩니다.
 
@@ -106,7 +105,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 대시보드의 데이터는 지난 24 시간 동안의 활동을 자동으로 표시 합니다. 이 타일에 대해 다른 시간 범위를 표시 하려면 다음 단계를 수행 합니다.
 
-1. 상황에 맞는 메뉴 또는 타일의 왼쪽 위 모퉁이 ![에 있는](./media/azure-portal-dashboards/dashboard-filter.png) 필터 아이콘 필터에서 **타일 데이터 사용자 지정** 을 선택 합니다.
+1. 상황 **Customize tile data** 에 맞는 메뉴 또는 ![ ](./media/azure-portal-dashboards/dashboard-filter.png) 타일의 왼쪽 위 모퉁이에 있는 필터 아이콘 필터에서 타일 데이터 사용자 지정을 선택 합니다.
 
     ![타일 상황에 맞는 메뉴의 스크린샷](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -126,7 +125,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 * 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택한 다음 **대시보드에서 제거**를 선택 합니다. 또는
 
-* 편집 ![아이콘](./media/azure-portal-dashboards/dashboard-edit-icon.png) **편집** 을 선택 하 여 사용자 지정 모드로 전환 합니다. 타일의 오른쪽 위 모서리를 마우스로 가리킨 다음 ![삭제 아이콘](./media/azure-portal-dashboards/dashboard-delete-icon.png) 삭제 아이콘을 선택 하 여 대시보드에서 타일을 제거 합니다.
+* ![편집 아이콘 ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **편집** 을 선택 하 여 사용자 지정 모드로 전환 합니다. 타일의 오른쪽 위 모서리를 마우스로 가리킨 다음 ![ 삭제 아이콘 삭제 아이콘을 선택 ](./media/azure-portal-dashboards/dashboard-delete-icon.png) 하 여 대시보드에서 타일을 제거 합니다.
 
    ![대시보드에서 타일을 제거 하는 방법을 보여 주는 스크린샷](./media/azure-portal-dashboards/dashboard-delete-tile.png)
 
@@ -136,7 +135,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. 대시보드 보기에 복사 하려는 대시보드가 표시 되는지 확인 합니다.
 
-1. 페이지 머리글에서 복제 아이콘 ![](./media/azure-portal-dashboards/dashboard-clone.png) **복제**를 선택 합니다.
+1. 페이지 머리글에서 ![ 복제 아이콘 복제를 선택 ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**합니다.
 
 1. 대시보드 복사본 ( *대시보드 이름의* **복제본** )이 편집 모드에서 열립니다. 이 문서의 이전 단계를 사용 하 여 대시보드 이름을 바꾸고 사용자 지정 합니다.
 
@@ -170,13 +169,13 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. 대시보드 이름 옆의 목록에서 삭제 하려는 대시보드를 선택 합니다.
 
-1. 페이지 ![머리글에서](./media/azure-portal-dashboards/dashboard-delete-icon.png) 삭제 아이콘 **삭제** 를 선택 합니다.
+1. ![ ](./media/azure-portal-dashboards/dashboard-delete-icon.png) 페이지 머리글에서 삭제 아이콘 **삭제** 를 선택 합니다.
 
-1. 개인 대시보드의 경우 확인 대화 상자에서 **확인** 을 선택 하 여 대시보드를 제거 합니다. 공유 대시보드의 경우 확인 대화 상자에서 확인란을 선택 하 여 게시 된 대시보드가 더 이상 다른 사용자에 게 표시 되지 않음을 확인 합니다. 그런 다음 **확인**을 선택 합니다.
+1. 개인 대시보드의 경우 확인 대화 상자에서 **확인** 을 선택 하 여 대시보드를 제거 합니다. 공유 대시보드의 경우 확인 대화 상자에서 확인란을 선택 하 여 게시 된 대시보드가 더 이상 다른 사용자에 게 표시 되지 않음을 확인 합니다. 그런 다음 **확인**을 선택합니다.
 
     ![삭제 확인 스크린샷](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [역할 기반 Access Control을 사용하여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)
-* [프로그래밍 방식으로 Azure 대시보드 만들기](azure-portal-dashboards-create-programmatically.md)
+* [Azure 대시보드를 프로그래밍 방식으로 만들기](azure-portal-dashboards-create-programmatically.md)

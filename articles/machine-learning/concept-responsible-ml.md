@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 3cef3c2179019f6d84de5596e61abaf8d7d3182c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920359"
 ---
 # <a name="responsible-machine-learning-ml"></a>Responsible ML(Machine Learning)
 
@@ -36,7 +35,7 @@ AI 및 자치 시스템이 사회 구조에 더 많이 통합됨에 따라 이�
 
 ## <a name="interpret-and-explain-model-behavior"></a>모델 동작 해석 및 설명
 
-시스템 개발자, 규제 기관, 사용자 및 비즈니스 의사 결정권자 같은 관련자는 시스템이 특정 결정을 내리는 이유를 이해하기 어려우므로 설명하기 어려운 시스템이나 블랙 박스 시스템은 문제가 될 수 있습니다. 일부 AI 시스템은 다른 시스템보다 더 설명하기 쉬우며, 정확도와 설명 가능성이 균형을 이루는 시스템도 있습니다.
+설명 하거나 불투명 한 시스템 시스템 개발자, 조정기, 사용자 및 비즈니스 의사 결정권자가 특정 결정을 내리는 이유를 이해 하기 위해 시스템 개발자, 조정기, 사용자 및 비즈니스 의사 결정권자에 게 어려운 문제가 발생할 수 있습니다. 일부 AI 시스템은 다른 시스템보다 더 설명하기 쉬우며, 정확도와 설명 가능성이 균형을 이루는 시스템도 있습니다.
 
 해석 가능한 AI 시스템을 빌드하려면 Microsoft에서 개발한 오픈 소스 패키지인 [InterpretML](https://github.com/interpretml/interpret)을 사용하세요. [Azure Machine Learning 내부에 InterpretML을 사용](how-to-machine-learning-interpretability.md)하여 [자동화된 기계 학습 모델](how-to-machine-learning-interpretability-automl.md)을 포함한 [기계 학습 모델을 해석하고 설명](how-to-machine-learning-interpretability-aml.md)할 수 있습니다.
 
@@ -61,11 +60,14 @@ AI 시스템의 불공정성을 줄이기 위한 두 가지 주요 단계는 평
 
 차등 비공개 시스템을 구현하기는 어렵습니다. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core)는 글로벌 차등 비공개 시스템을 빌드하기 위한 여러 구성 요소가 포함된 오픈 소스 프로젝트입니다. 차등 프라이버시 및 WhiteNoise 프로젝트에 대해 자세히 알아보려면 [차등 프라이버시 및 WhiteNoise를 사용하여 데이터 프라이버시 보호](./concept-differential-privacy.md) 문서를 참조하세요.
 
+> [!NOTE]
+> 도구 키트의 이름을 바꾸고 새 이름을 소개 하는 주입니다. 
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>데이터 시트를 사용하여 기계 학습 수명 주기 문서화
 
 기계 학습 프로세스에서 적절한 정보를 문서화하는 것은 각 단계에서 책임 있는 결정을 내리는 데 중요합니다. 데이터 시트는 기계 학습 수명 주기의 일부로 사용 및 생성되는 기계 학습 자산을 문서화하는 데 사용되는 방법입니다.
 
-모델은 "블랙 박스"로 간주되는 경향이 있으며 이에 대한 정보는 거의 없는 경우가 많습니다. 기계 학습 시스템은 점점 더 보편화되고 있고 의사 결정에 사용되고 있으므로 데이터 시트를 사용하면 더 책임 있는 기계 학습 시스템을 개발하는 데 한 발짝 다가갈 수 있습니다.
+모델은 "불투명 상자"로 간주 되는 경향이 있으며,이에 대 한 정보는 거의 없습니다. 기계 학습 시스템은 점점 더 보편화되고 있고 의사 결정에 사용되고 있으므로 데이터 시트를 사용하면 더 책임 있는 기계 학습 시스템을 개발하는 데 한 발짝 다가갈 수 있습니다.
 
 데이터 시트의 일부로 문서화할 수 있는 몇 가지 모델 정보는 다음과 같습니다.
 
@@ -80,4 +82,5 @@ Azure Machine Learning SDK를 사용하여 [모델에 대한 데이터 시트](h
 
 ## <a name="additional-resources"></a>추가 리소스
 
+- Homomorphic 암호화를 사용 하 여 [암호화 된 추론 웹 서비스를 배포](how-to-homomorphic-encryption-seal.md)합니다.
 - 기계 학습 시스템 설명서의 [ML 정보](https://www.partnershiponai.org/about-ml/) 지침 세트에 대해 자세히 알아보세요.

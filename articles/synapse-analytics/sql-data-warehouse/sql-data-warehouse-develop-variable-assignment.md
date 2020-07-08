@@ -6,17 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213332"
 ---
 # <a name="assign-variables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 변수 할당
 
@@ -24,7 +23,7 @@ ms.locfileid: "80633417"
 
 ## <a name="set-variables-with-declare"></a>DECLARE을 사용 하 여 변수 설정
 
-SQL 풀의 변수는 `DECLARE` 문 또는 `SET` 문을 사용 하 여 설정 됩니다. DECLARE을 사용 하 여 변수를 초기화 하는 것은 SQL 풀에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
+SQL 풀의 변수는 문 또는 문을 사용 하 여 설정 됩니다 `DECLARE` `SET` . DECLARE을 사용 하 여 변수를 초기화 하는 것은 SQL 풀에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
 
 ```sql
 DECLARE @v  int = 0

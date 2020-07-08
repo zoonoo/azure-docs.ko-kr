@@ -5,19 +5,18 @@ description: PowerShell을 사용 하 여 피어 ASN을 Azure 구독에 연결
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0ad9ae885a458da5df8975d5d13018fd92bbdaf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75908981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710782"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>PowerShell을 사용 하 여 피어 ASN을 Azure 구독에 연결
 
-피어 링 요청을 제출 하기 전에 먼저 다음 단계를 사용 하 여 ASN을 Azure 구독과 연결 해야 합니다.
+피어링 요청을 제출하기 전에 먼저 아래 단계를 사용하여 ASN을 Azure 구독과 연결해야 합니다.
 
 원한다 면 [포털](howto-subscription-association-portal.md)을 사용 하 여이 가이드를 완료할 수 있습니다.
 
@@ -29,8 +28,8 @@ ms.locfileid: "75908981"
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure 계정에 로그인하고 구독을 선택합니다.
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="register-for-peering-resource-provider"></a>피어 링 리소스 공급자 등록
-다음 명령을 사용 하 여 구독에서 피어 링 리소스 공급자를 등록 합니다. 이 작업을 실행 하지 않으면 피어 링을 설정 하는 데 필요한 Azure 리소스에 액세스할 수 없습니다.
+### <a name="register-for-peering-resource-provider"></a>피어링 리소스 공급자 등록
+다음 명령을 사용 하 여 구독에서 피어 링 리소스 공급자를 등록 합니다. 이 작업을 실행하지 않으면 피어링을 설정하는 데 필요한 Azure 리소스에 액세스할 수 없습니다.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
@@ -86,7 +85,7 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> 상태를 피어 링 요청을 제출 하기 전에 ValidationState가 "승인 됨"으로 전환 될 때까지 기다립니다. 이 승인에는 최대 12 시간이 걸릴 수 있습니다.
+> 피어링 요청을 제출하기 전에 ValidationState가 "승인됨"으로 전환될 때까지 기다립니다. 이 승인에는 최대 12시간이 걸릴 수 있습니다.
 
 ## <a name="modify-peerasn"></a>PeerAsn 수정
 언제 든 지 NOC 연락처 정보를 수정할 수 있습니다.
@@ -109,4 +108,4 @@ PeerASN 삭제는 현재 지원 되지 않습니다. PeerASN을 삭제 해야 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-자세한 내용은 [인터넷 피어 링 faq](faqs.md) (영문)를 참조 하세요.
+자세한 내용은 [인터넷 피어링 FAQ](faqs.md)를 방문하세요.

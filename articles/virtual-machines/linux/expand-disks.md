@@ -3,16 +3,15 @@ title: Linux VM에서 가상 하드 디스크 확장
 description: Azure CLI를 사용 하 여 Linux VM에서 가상 하드 디스크를 확장 하는 방법을 알아봅니다.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659732"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
@@ -28,7 +27,7 @@ ms.locfileid: "78945178"
 
 다음 샘플에서는 예제 매개 변수 이름(예: *myResourceGroup* 및 *myVM*)을 사용자의 고유한 값으로 바꿉니다.
 
-1. VM이 실행되고 있으면 가상 하드 디스크에 대한 작업을 수행할 수 없습니다. [az vm deallocate](/cli/azure/vm#az-vm-deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM의 할당을 취소합니다.
+1. VM이 실행되고 있으면 가상 하드 디스크에 대한 작업을 수행할 수 없습니다. [az vm deallocate](/cli/azure/vm#az-vm-deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *Myvm*에서 *MYVM* 이라는 VM의 할당을 취소 합니다.
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -133,7 +132,7 @@ ms.locfileid: "78945178"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 데이터 디스크가 크기 조정 되었는지 확인 하려면를 사용 `df -h`합니다. 다음 출력 예제에서는 데이터 드라이브(*/dev/sdc1*)가 이제 200GB임을 보여 줍니다.
+1. 데이터 디스크가 크기 조정 되었는지 확인 하려면를 사용 `df -h` 합니다. 다음 출력 예제에서는 데이터 드라이브(*/dev/sdc1*)가 이제 200GB임을 보여 줍니다.
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

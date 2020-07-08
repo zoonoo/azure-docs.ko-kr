@@ -3,25 +3,24 @@ title: 네이티브 클라이언트 앱 게시 - Azure AD | Microsoft Docs
 description: Azure AD 애플리케이션 프록시 커넥터와 통신하는 네이티브 클라이언트 앱을 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 442e1515159afc1df79bb6f5f1f747ce0800fef7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: ca5cdb592de29f8c5396a68a7c36e6994df906cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764811"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱이 프록시 애플리케이션과 상호 작용할 수 있도록 설정하는 방법
 
@@ -113,10 +112,10 @@ if (authResult != null)
 
 | 필요한 정보 | Azure AD 포털에서 이 정보를 찾는 방법 |
 | --- | --- |
-| \<테넌트 ID> | **Azure Active Directory** > **속성** > **디렉터리 ID** |
-| \<네이티브 앱의 앱 ID> | **애플리케이션 등록** > *네이티브 애플리케이션* > **개요** > **애플리케이션 ID** |
-| \<범위> | **애플리케이션 등록** > *네이티브 애플리케이션* > **API 사용 권한** > 사용 권한 API 클릭(user_impersonation) > **user_impersonation** 캡션이 포함된 패널이 오른쪽에 나타납니다. > 범위는 편집 상자에 있는 URL입니다.
-| \<프록시 앱 Url> | 외부 Url 및 API 경로
+| \<Tenant ID> | **Azure Active Directory** > **속성** > **디렉터리 ID** |
+| \<App ID of the Native app> | **애플리케이션 등록** > *네이티브 애플리케이션* > **개요** > **애플리케이션 ID** |
+| \<Scope> | **애플리케이션 등록** > *네이티브 애플리케이션* > **API 사용 권한** > 사용 권한 API 클릭(user_impersonation) > **user_impersonation** 캡션이 포함된 패널이 오른쪽에 나타납니다. > 범위는 편집 상자에 있는 URL입니다.
+| \<Proxy App Url> | 외부 Url 및 API 경로
 
 이러한 매개 변수를 사용하여 MSAL 코드를 편집한 후에는 사용자가 회사 네트워크 외부에 있는 경우에도 네이티브 클라이언트 애플리케이션에 인증할 수 있습니다.
 

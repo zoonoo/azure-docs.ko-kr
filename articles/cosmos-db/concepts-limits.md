@@ -6,12 +6,11 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391845"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -117,7 +116,7 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 
 ## <a name="per-request-limits"></a>요청당 제한
 
-Azure Cosmos DB는 컨테이너, 항목, 데이터베이스 등의 리소스에 대한 [CRUD 및 쿼리 작업](https://docs.microsoft.com/rest/api/cosmos-db/)을 지원합니다. 또한 컨테이너에 있는 파티션 키가 동일한 여러 항목에 대해 [트랜잭션 일괄 처리 요청](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch)을 지원합니다.
+Azure Cosmos DB는 컨테이너, 항목, 데이터베이스 등의 리소스에 대한 [CRUD 및 쿼리 작업](/rest/api/cosmos-db/)을 지원합니다. 또한 컨테이너에 있는 파티션 키가 동일한 여러 항목에 대해 [트랜잭션 일괄 처리 요청](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch)을 지원합니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |

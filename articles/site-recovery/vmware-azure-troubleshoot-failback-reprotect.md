@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309954"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
@@ -69,7 +68,7 @@ ms.locfileid: "75498096"
 
 ### <a name="error-code-78093"></a>오류 코드 78093
 
-**응답이 없는 상태에서 VM이 실행되지 않거나 액세스할 수 없습니다.**
+**VM이 실행 되 고 있지 않거나 응답 하지 않거나 액세스할 수 없습니다.**
 
 이 문제를 해결하려면:
 

@@ -10,10 +10,9 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81767020"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 디바이스 SDK - 직렬 변환기에 대한 자세한 정보
@@ -65,7 +64,7 @@ END_NAMESPACE(WeatherStation);
 
 **serializer** 라이브러리로 만든 모델에 다음 데이터 형식이 지원됩니다.
 
-| Type | Description |
+| 형식 | 설명 |
 | --- | --- |
 | double |배정밀도 부동 소수점 숫자 |
 | int |32비트 정수 |
@@ -316,7 +315,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-이 경우 **DECLARE\_STRUCT** 매크로를 제거 하 고 모델링 언어의 단순 유형을 사용 하 여 시나리오에서 데이터 항목을 정의 하기만 하면 됩니다.
+이 경우 **DECLARE \_ STRUCT** 매크로를 제거 하 고 모델링 언어의 단순 유형을 사용 하 여 시나리오에서 데이터 항목을 정의 하기만 하면 됩니다.
 
 일단 **시간** 이벤트는 무시하겠습니다. 그 외에 **온도**를 수신 하는 코드는 다음과 같습니다.
 
@@ -538,7 +537,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 **Serializer** 라이브러리를 사용 하는 경우 SDK에서 알아야 하는 중요 한 부분은 azure-c-공유 유틸리티 라이브러리에 있습니다.
 
-GitHub에서 Azure-iot-c 리포지토리를 복제 하 고 `git submodule update --init` 명령을 실행 한 경우 여기에서 공유 유틸리티 라이브러리를 찾을 수 있습니다.
+GitHub에서 Azure-iot-c 리포지토리를 복제 하 고 명령을 실행 한 경우 여기에서 `git submodule update --init` 공유 유틸리티 라이브러리를 찾을 수 있습니다.
 
 ```C
 .\\c-utility
@@ -556,9 +555,9 @@ azure-c-shared-utility\\macro\_utils\_h\_generator.
 
   ![Visual Studio 솔루션 maco_utils_h_generator의 스크린샷](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
 
-이 솔루션의 프로그램은 **macro\_utils.h** 파일을 생성합니다. SDK에 포함 된 기본\_매크로 유틸리티 파일이 있습니다. 이 솔루션을 사용하면 일부 매개 변수를 수정하고 이러한 매개 변수를 기반으로 헤더 파일을 다시 작성할 수 있습니다.
+이 솔루션의 프로그램은 **macro\_utils.h** 파일을 생성합니다. \_SDK에 포함 된 기본 매크로 유틸리티 파일이 있습니다. 이 솔루션을 사용하면 일부 매개 변수를 수정하고 이러한 매개 변수를 기반으로 헤더 파일을 다시 작성할 수 있습니다.
 
-와 관련 된 두 가지 주요 매개 변수는 **Narithmetic** 및 **nMacroParameters**입니다 .이는 매크로\_utils.tt에 있는 다음 두 줄에 정의 되어 있습니다.
+와 관련 된 두 가지 주요 매개 변수는 **Narithmetic** 및 **nMacroParameters**입니다 .이는 매크로 utils.tt에 있는 다음 두 줄에 정의 되어 있습니다 \_ .
 
 ```C
 <#int nArithmetic=1024;#>
@@ -654,7 +653,7 @@ serializer_init(NULL);
 
 **IoTHubClient\_CreateFromConnectionString**을 호출하기 바로 전에 수행합니다.
 
-마찬가지로 라이브러리를 사용 하 여 작업을 완료 한 후 마지막 호출은 **\_serializer deinit**로 설정 됩니다.
+마찬가지로 라이브러리를 사용 하 여 작업을 완료 한 후 마지막 호출은 **serializer \_ deinit**로 설정 됩니다.
 
 ```C
 serializer_deinit();

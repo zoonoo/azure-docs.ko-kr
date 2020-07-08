@@ -1,19 +1,14 @@
 ---
 title: Azure Event Hubs에 대한 액세스 권한 부여
 description: 이 문서에서는 Azure Event Hubs 리소스에 대 한 액세스 권한을 부여 하는 여러 옵션에 대 한 정보를 제공 합니다.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 18b8bd80eaec316fbaefadad0dd7a19418bfa838
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85323178"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Azure Event Hubs에 대한 액세스 권한 부여
 이벤트 허브에서 이벤트/데이터를 게시 하거나 사용할 때마다 클라이언트가 Event Hubs 리소스에 액세스 하려고 합니다. 보안 리소스에 대 한 모든 요청은 서비스에서 클라이언트에 데이터를 게시/사용 하는 데 필요한 권한이 있는지 확인할 수 있도록 권한을 부여 해야 합니다. 

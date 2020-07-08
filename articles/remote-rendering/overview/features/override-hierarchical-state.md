@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021333"
 ---
 # <a name="hierarchical-state-override"></a>계층 상태 재정의
 
@@ -27,23 +26,23 @@ ms.locfileid: "83758982"
 
 재정의할 수 있는 상태의 고정 집합은 다음과 같습니다.
 
-* **Hidden**: 장면 그래프의 각 메시가 숨겨지거나 표시됩니다.
-* **Tint color**: 렌더링된 개체는 개별 색조 색 및 색조 가중치를 사용하여 색을 칠할 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
+* **`Hidden`**: 장면 그래프의 각 망상이 숨겨지거나 표시 됩니다.
+* **`Tint color`**: 렌더링 된 개체는 개별 색조 색 및 색조 가중치를 사용 하 여 색 색조가 될 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
   
   ![색칠하기](./media/color-tint.png)
 
-* **See-through**: 예를 들어 개체의 내부 파트를 표시하기 위해 기하 도형은 약간 투명하게 렌더링됩니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
+* **`See-through`**: 개체의 내부 부분을 표시 하는 등의 방법으로 기 하 도형을 약간 투명 하 게 렌더링 합니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
 
   ![투명](./media/see-through.png)
 
   > [!IMPORTANT]
   > *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)가 사용될 때만 투명 효과가 나타납니다.
 
-* **Selected**: [윤곽 선택](outlines.md)을 사용하여 기하 도형을 렌더링합니다.
+* **`Selected`**: Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
 
   ![윤곽 선택](./media/selection-outline.png)
 
-* **DisableCollision**: 기하 도형은 [공간 쿼리](spatial-queries.md)에서 제외됩니다. **Hidden** 플래그는 collision을 끄기 때문에 이러한 두 플래그는 종종 함께 설정됩니다.
+* **`DisableCollision`**: 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
 
 ## <a name="hierarchical-overrides"></a>계층 재정의
 
@@ -87,7 +86,7 @@ component->SetState(
 
 ### <a name="tint-color"></a>색조 색
 
-색조 색 재정의는 on/off/inherit 상태와 색조 색 속성이 모두 약간 특별합니다. 색조 색의 알파 부분은 색조 효과의 가중치를 정의합니다. 0.0로 설정된 경우에는 색조 색을 볼 수 없으며 1.0로 설정된 경우 개체가 순수한 색조 색으로 렌더링됩니다. 중간 값의 경우 최종 색은 색조 색과 혼합됩니다. 색 애니메이션을 달성하기 위해 각 프레임 단위로 색조 색을 변경할 수 있습니다.
+`tint color`On/off/inherit 상태와 색조 색 속성이 모두 있으므로 재정의는 약간 특수 합니다. 색조 색의 알파 부분은 색조 효과의 가중치를 정의합니다. 0.0로 설정된 경우에는 색조 색을 볼 수 없으며 1.0로 설정된 경우 개체가 순수한 색조 색으로 렌더링됩니다. 중간 값의 경우 최종 색은 색조 색과 혼합됩니다. 색 애니메이션을 달성하기 위해 각 프레임 단위로 색조 색을 변경할 수 있습니다.
 
 ## <a name="performance-considerations"></a>성능 고려 사항
 

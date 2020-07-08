@@ -3,21 +3,20 @@ title: 포털을 사용하여 피어 ASN을 Azure 구독에 연결
 titleSuffix: Azure
 description: 포털을 사용하여 피어 ASN을 Azure 구독에 연결
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
-ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 5/18/2020
+ms.author: derekol
+ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710850"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>포털을 사용하여 피어 ASN을 Azure 구독에 연결
 
-피어링 요청을 제출하기 전에 먼저 아래 단계를 사용하여 ASN을 Azure 구독과 연결해야 합니다.
+인터넷 서비스 공급자나 인터넷 교환 공급자는 피어 링 요청을 제출 하기 전에 먼저 다음 단계를 사용 하 여 ASN을 Azure 구독과 연결 해야 합니다.
 
 원하는 경우 [PowerShell](howto-subscription-association-powershell.md)을 사용하여 이 가이드를 완료할 수 있습니다.
 
@@ -55,8 +54,7 @@ ms.locfileid: "83683969"
     > ![등록 완료](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>PeerAsn 만들기
-인터넷 서비스 공급자 또는 인터넷 교환 공급자는 ASN(자율 시스템 번호)을 Azure 구독과 연결하기 위한 새 PeerAsn 리소스를 만들 수 있습니다. 연결해야 하는 각 ASN에 대해 [PeerASN 페이지](https://go.microsoft.com/fwlink/?linkid=2129592) 연결로 이동하여 여러 ASN을 구독에 연결할 수 있습니다.
-
+인터넷 서비스 공급자나 인터넷 교환 공급자는 [피어 Asn 연결 페이지](https://go.microsoft.com/fwlink/?linkid=2129592) 에서 Asn (자치 시스템 번호)을 Azure 구독과 연결 하기 위한 새 peerasn 리소스를 만들 수 있습니다. 연결 해야 하는 각 ASN에 대해 **Peerasn** 을 만들어 여러 asns를 구독에 연결할 수 있습니다.
 
 1. **피어 ASN 연결** 페이지의 **기본 사항** 탭에서 아래와 같이 필드를 입력합니다.
 

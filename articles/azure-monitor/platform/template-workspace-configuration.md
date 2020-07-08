@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768123"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
@@ -42,7 +41,7 @@ ms.locfileid: "81768123"
 | 작업 영역   | workspaces    | 2017-03-15-preview |
 | 검색      | savedSearches | 2015-03-20 |
 | 데이터 원본 | datasources   | 2015-11-01-preview |
-| 솔루션    | solutions     | 2015-11-01-preview |
+| 해결 방법    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
@@ -51,13 +50,13 @@ ms.locfileid: "81768123"
 > [!WARNING]
 > 다음 템플릿은 Log Analytics 작업 영역을 만들고 데이터 컬렉션을 구성 합니다. 이로 인해 청구 설정이 변경 될 수 있습니다. [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](manage-cost-storage.md) 를 검토 하 여 Azure 환경에 적용 하기 전에 Log Analytics 작업 영역에서 수집 된 데이터에 대 한 청구를 이해 합니다.
 
-용량 예약의 경우 SKU `CapacityReservation` 와 속성 `capacityReservationLevel`에 대 한 값 (GB)을 지정 하 여 수집 데이터에 대 한 선택 된 용량 예약을 정의 합니다. 다음 목록에서는이를 구성할 때 지원 되는 값과 동작을 자세히 설명 합니다.
+용량 예약의 경우 SKU `CapacityReservation` 와 속성에 대 한 값 (GB)을 지정 하 여 수집 데이터에 대 한 선택 된 용량 예약을 정의 `capacityReservationLevel` 합니다. 다음 목록에서는이를 구성할 때 지원 되는 값과 동작을 자세히 설명 합니다.
 
 - 예약 제한을 설정한 후에는 31 일 이내에 다른 SKU로 변경할 수 없습니다.
 
 - 예약 값을 설정한 후에는 31 일 이내에만 값을 늘릴 수 있습니다.
 
-- 값 `capacityReservationLevel` 은 100의 배수로만 설정할 수 있으며 최대값은 5만입니다.
+- 값은 100의 배수로만 설정할 수 있으며 `capacityReservationLevel` 최대값은 5만입니다.
 
 - 예약 수준을 늘리면 타이머가 다시 설정 되 고이 업데이트에서 31 일이 지나면 타이머가 변경 되지 않습니다.  
 
@@ -153,7 +152,7 @@ ms.locfileid: "81768123"
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 변수를 인라인 값으로 전달 하는 대신 [리소스 관리자 매개 변수 파일](../../azure-resource-manager/templates/parameter-files.md) 을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요. 
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 변수를 인라인 값으로 전달하는 대신 [Resource Manager 매개 변수 파일](../../azure-resource-manager/templates/parameter-files.md)을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요. 
 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
 

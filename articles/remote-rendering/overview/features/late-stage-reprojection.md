@@ -5,12 +5,11 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022183"
 ---
 # <a name="late-stage-reprojection"></a>후기 단계 다시 프로젝션
 
@@ -24,7 +23,7 @@ Lsr ( *후반 단계 Reprojection* )은 사용자가 이동할 때 안정화 hol
 
 ## <a name="choose-lsr-mode-in-unity"></a>Unity에서 LSR 모드 선택
 
-Unity 편집기에서 *파일 > 빌드 설정*으로 이동 합니다. 왼쪽 아래에서 *플레이어 설정* 을 선택한 다음 *플레이어 > XR 설정 > 가상 현실 Sdk > Windows Mixed Reality* 에서 **깊이 버퍼 공유 사용** 이 선택 되어 있는지 확인 합니다.
+Unity 편집기에서로 이동 *:::no-loc text="File > Build Settings":::* 합니다. *:::no-loc text="Player Settings":::* 왼쪽 아래에서를 선택 하 고가 선택 *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* 되어 있는지 확인 합니다 **:::no-loc text="Enable Depth Buffer Sharing":::** .
 
 ![깊이 버퍼 공유 사용 플래그](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -44,9 +43,9 @@ Depth LSR가 작동 하려면 클라이언트 응용 프로그램에서 LSR 중�
 
 ### <a name="configure-planar-lsr-in-unity"></a>Unity에서 평면 LSR 구성
 
-평면 매개 변수는 모든 프레임을 통해 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`제공 해야 하는 *포커스 지점*이라고 하는에서 파생 됩니다. 자세한 내용은 [Unity Focus POINT API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) 를 참조 하세요. 포커스 지점을 설정 하지 않으면 대체 (fallback)가 선택 됩니다. 그러나 자동 대체는 자주 발생 하지 않는 결과를 초래 합니다.
+평면 매개 변수는 모든 프레임을 통해 제공 해야 하는 *포커스 지점*이라고 하는에서 파생 됩니다 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . 자세한 내용은 [Unity Focus POINT API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) 를 참조 하세요. 포커스 지점을 설정 하지 않으면 대체 (fallback)가 선택 됩니다. 그러나 자동 대체는 자주 발생 하지 않는 결과를 초래 합니다.
 
-원격 렌더링 호스트에서 계산 된 항목을 기반으로 하는 것이 적합할 수 있지만 포커스 지점을 직접 계산할 수 있습니다. 을 `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` (를) 호출 하 여를 가져옵니다. 포커스 지점을 표현할 좌표 프레임을 제공 하 라는 메시지가 표시 됩니다. 대부분의 경우 여기에서 `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` 결과를 제공 하는 것이 좋습니다.
+원격 렌더링 호스트에서 계산 된 항목을 기반으로 하는 것이 적합할 수 있지만 포커스 지점을 직접 계산할 수 있습니다. 을 (를) 호출 `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` 하 여를 가져옵니다. 포커스 지점을 표현할 좌표 프레임을 제공 하 라는 메시지가 표시 됩니다. 대부분의 경우 여기에서 결과를 제공 하는 것이 좋습니다 `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` .
 
 일반적으로 클라이언트와 호스트는 모두 클라이언트의 UI 요소와 같이 다른 쪽에서 인식 되지 않는 콘텐츠를 렌더링 합니다. 따라서 원격 포커스 지점을 로컬로 계산 된 것과 결합 하는 것이 적합할 수 있습니다.
 

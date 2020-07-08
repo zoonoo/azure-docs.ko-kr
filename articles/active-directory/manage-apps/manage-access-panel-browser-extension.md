@@ -3,25 +3,23 @@ title: IE 용 Azure 액세스 패널 확장 문제 해결 | Microsoft Docs
 description: 그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0269c87572e2a9242a54491103ae0fcc3637518
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 16abfbeacd972ee8b0ab55f09945e687c95f0093
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67723913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763264"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Internet Explorer 용 액세스 패널 확장 문제 해결
 
@@ -40,7 +38,7 @@ ms.locfileid: "67723913"
 
 1. [진단 도구를 다운로드 하려면이 링크를 선택 합니다.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 1. 파일을 열고 컴퓨터에 콘텐츠를 추출 합니다.
-1. 도구를 실행 하려면 *AccessPanelExtensionDiagnosticTool* 이라는 파일을 마우스 오른쪽 단추로 클릭 하 고 > **Microsoft Windows 기반 스크립트 호스트** **를 사용 하 여 열기**를 선택 합니다.
+1. 이 도구를 실행 하려면 *AccessPanelExtensionDiagnosticTool.js* 파일을 마우스 오른쪽 단추로 클릭 하 고 Microsoft Windows 기반 스크립트 호스트 **를 사용 하 여 열기**를 선택 합니다  >  **Microsoft Windows Based Script Host**.
 
     ![열기 > Microsoft Windows 기반 스크립트 호스트](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 

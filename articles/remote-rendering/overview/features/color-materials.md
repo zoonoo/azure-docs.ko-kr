@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021384"
 ---
 # <a name="color-materials"></a>색 재질
 
@@ -22,7 +21,7 @@ ms.locfileid: "80681078"
 
 이러한 속성은 모든 자료에 공통적입니다.
 
-* **Albedocolor:** 이 색을 *Albedomap* 또는 *vertex 색*과 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 `1` 조정 하 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
+* **Albedocolor:** 이 색을 *Albedomap* 또는 * :::no-loc text="vertex"::: colors*와 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 조정 하 `1` 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
 
   > [!NOTE]
   > 색 자료는 환경을 반영 하지 않으므로 완전히 투명 한 색 재질은 보이지 않게 됩니다. 이는 [.pbr 자료](pbr-materials.md)에서 다릅니다.
@@ -33,15 +32,15 @@ ms.locfileid: "80681078"
 
 * **textureCoordinateScale** 및 **textureCoordinateOffset:** 눈금은 UV 질감 좌표에 곱하고이에 오프셋을 추가 합니다. 질감을 늘이거나 이동 하는 데 사용할 수 있습니다. 기본 소수 자릿수는 (1, 1)이 고 offset은 (0, 0)입니다.
 
-* **useVertexColor:** 메시에 꼭 짓 점 색이 포함 되어 있고이 옵션을 사용 하는 경우 메시의 꼭 짓 점 색을 *Albedocolor* 및 *Albedocolor*에 곱합니다. 기본적으로 꼭 짓 점 색은 사용 하지 않도록 설정 됩니다.
+* **useVertexColor:** 메시에 :::no-loc text="vertex"::: 색이 포함 되어 있고이 옵션을 사용 하는 경우 망상의 :::no-loc text="vertex"::: 색을 *albedocolor* 및 *albedocolor*에 곱합니다. 기본적으로 *useVertexColor* 는 사용 되지 않습니다.
 
-* **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [단면 렌더링](single-sided-rendering.md)도 참조 하세요.
+* **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [ :::no-loc text="Single-sided"::: 렌더링](single-sided-rendering.md)도 참조 하세요.
 
 ## <a name="color-material-properties"></a>색 재질 속성
 
 다음 속성은 색 재질에만 적용 됩니다.
 
-* **vertexMix:** 과 `0` `1` 사이의이 값은 [망상](../../concepts/meshes.md) 의 꼭 짓 점 색이 최종 색에 기여 하는 정도를 지정 합니다. 기본값 1에서 꼭 짓 점 색은 albedo 색에 완전히 곱합니다. 값이 0 인 경우 꼭 짓 점 색은 완전히 무시 됩니다.
+* **vertexMix:** 과 사이의이 `0` 값 `1` 은 :::no-loc text="vertex"::: [망상](../../concepts/meshes.md) 의 색이 최종 색에 기여 하는 정도를 지정 합니다. 기본값 1에서 :::no-loc text="vertex"::: 색은 albedo 색에 완전히 곱합니다. 값이 0 이면 :::no-loc text="vertex"::: 색이 완전히 무시 됩니다.
 
 * **transparencyMode:** 다른 투명도 [모드를 구분 하는 경우](pbr-materials.md), 즉,
 

@@ -4,15 +4,14 @@ description: 리소스 관리자 및 Azure Portal을 사용하여 Vnet 간의 VP
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78674181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84985567"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -165,7 +164,7 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
 
      - **공유 키 (PSK)**:이 필드에는 연결에 대 한 공유 키를 입력 합니다. 이 키를 생성하거나 직접 만들 수 있습니다. 사이트 간 연결에 사용되는 키는 온-프레미스 디바이스 및 가상 네트워크 게이트웨이 연결에서 사용하는 키와 동일합니다. 개념은 비슷하지만, 여기서는 VPN 디바이스에 연결하지 않고 다른 가상 네트워크 게이트웨이를 연결합니다.
     
-4. **확인** 을 선택하여 변경 내용을 저장합니다.
+4. **확인**을 선택하여 변경 내용을 저장합니다.
 
 ## <a name="configure-the-vnet4-gateway-connection"></a>V 게이트웨이 연결 구성
 그런 다음 v에서 VNet1로의 연결을 만듭니다. 포털에서 v와 연결 된 가상 네트워크 게이트웨이를 찾습니다. 이전 섹션의 단계에 따라 값을 대체 하 여 v에서 VNet1로의 연결을 만듭니다. 동일한 공유 키를 사용하고 있는지 확인합니다.
@@ -178,7 +177,7 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
    ![연결 확인](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "연결 확인")
 3. **이름** 열에서 연결 중 하나를 선택 하 여 자세한 정보를 확인 합니다. 데이터 흐름이 시작되면 **데이터 입력** 및 **데이터 출력** 값이 보입니다.
 
-   ![상태](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "상태")
+   ![Status](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "상태")
 
 ## <a name="add-additional-connections"></a>연결 추가
 

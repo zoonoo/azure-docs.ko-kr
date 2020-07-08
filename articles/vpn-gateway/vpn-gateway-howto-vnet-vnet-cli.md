@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e93bae91827b2807ef577d7659924a5d37454fa4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987113"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -292,7 +291,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>7단계 - TestVNet5 만들기 및 구성
 
-이 단계는 새 구독인 구독5의 상황에서 수행해야 합니다. 이 부분은 구독을 소유한 다른 조직의 관리자가 수행할 수 있습니다. 구독 `az account list --all` 간에 전환 하려면 계정에 사용할 수 있는 구독을 나열 하려면를 사용 하 `az account set --subscription <subscriptionID>` 고 사용 하려는 구독으로 전환 하려면를 사용 합니다.
+이 단계는 새 구독인 구독5의 상황에서 수행해야 합니다. 이 부분은 구독을 소유한 다른 조직의 관리자가 수행할 수 있습니다. 구독 간에 전환 하려면 계정에 사용할 수 있는 구독을 나열 하려면를 사용 하 고 사용 하려는 `az account list --all` `az account set --subscription <subscriptionID>` 구독으로 전환 하려면를 사용 합니다.
 
 1. 구독 5에 연결되어 있는지 확인한 다음 리소스 그룹을 만듭니다.
 
@@ -331,7 +330,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>8단계 - 연결 만들기
 
-게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]** 로 표시된 두 개의 CLI 세션으로 나뉩니다. 구독 `az account list --all` 간에 전환 하려면 계정에 사용할 수 있는 구독을 나열 하려면를 사용 하 `az account set --subscription <subscriptionID>` 고 사용 하려는 구독으로 전환 하려면를 사용 합니다.
+게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]** 로 표시된 두 개의 CLI 세션으로 나뉩니다. 구독 간에 전환 하려면 계정에 사용할 수 있는 구독을 나열 하려면를 사용 하 고 사용 하려는 `az account list --all` `az account set --subscription <subscriptionID>` 구독으로 전환 하려면를 사용 합니다.
 
 1. **[구독 1]** 로그인하고 구독 1에 연결합니다. 다음 명령을 실행하여 출력에서 게이트웨이의 이름과 ID를 가져옵니다.
 

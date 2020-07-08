@@ -7,12 +7,11 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a1464acf2b4a620bf0e2dc91f362cc1739737176
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659181"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -41,9 +40,9 @@ ms.locfileid: "81393455"
 
 Event Grid 항목에는 원본이 이벤트를 보내는 엔드포인트가 제공됩니다. 게시자는 Event Grid 항목을 만들고 이벤트 원본에 항목이 하나 필요한지 또는 둘 이상 필요한지 여부를 결정합니다. 항목은 관련 이벤트의 컬렉션에 사용됩니다. 특정 이벤트 형식에 응답하려면 구독자가 구독할 토픽을 결정합니다.
 
-시스템 토픽은 Azure 서비스에서 제공하는 기본 제공 항목입니다. 게시자가 항목을 소유하기 때문에 Azure 구독에는 시스템 항목이 표시되지 않지만 항목을 구독할 수 있습니다. 구독하려면 이벤트로부터 받으려는 리소스에 대한 정보를 제공합니다. 리소스에 액세스 권한이 있기만 하면 해당 이벤트를 구독할 수 있습니다.
+시스템 항목은 Azure Storage, Azure Event Hubs 및 Azure Service Bus와 같은 Azure 서비스에서 제공 하는 기본 제공 항목입니다. Azure 구독에서 시스템 항목을 만들고 구독할 수 있습니다. 자세한 내용은 [시스템 항목 개요](system-topics.md)를 참조 하세요. 
 
-사용자 지정 토픽은 애플리케이션 및 타사 토픽입니다. 사용자 지정 항목을 만들거나 사용자 지정 항목에 대한 액세스가 할당되면 구독에 사용자 지정 항목이 표시됩니다.
+사용자 지정 토픽은 애플리케이션 및 타사 토픽입니다. 사용자 지정 항목을 만들거나 사용자 지정 항목에 대한 액세스가 할당되면 구독에 사용자 지정 항목이 표시됩니다. 자세한 내용은 [사용자 지정 항목](custom-topics.md)을 참조 하세요.
 
 애플리케이션을 디자인할 때는 만들려는 토픽 수를 유연하게 결정할 수 있습니다. 대규모 솔루션의 경우 관련된 이벤트의 각 범주에 대한 사용자 지정 토픽을 만듭니다. 사용자 계정을 수정하고 주문을 처리하는 것과 관련된 이벤트를 보내는 애플리케이션을 예로 들 수 있습니다. 이벤트 처리기가 이벤트의 두 범주 모두를 원할 가능성은 낮습니다. 두 개의 사용자 지정 토픽을 만들고 이벤트 처리기가 관심 있는 토픽에 구독할 수 있도록 합니다. 소규모 솔루션의 경우 모든 이벤트를 단일 토픽으로 전송할 수도 있습니다. 원하는 이벤트 유형에 대한 이벤트 구독자를 필터링할 수 있습니다.
 
@@ -87,5 +86,5 @@ Event Grid에서 이벤트가 구독자의 엔드포인트에서 수신되었는
 
 ## <a name="next-steps"></a>다음 단계
 
-* Event Grid에 대 한 소개는 [Event Grid 정보](overview.md)를 참조 하세요.
+* Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.
