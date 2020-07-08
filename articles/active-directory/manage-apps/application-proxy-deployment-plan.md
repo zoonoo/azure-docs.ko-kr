@@ -3,8 +3,8 @@ title: Azure Active Directory 응용 프로그램 프록시 배포 계획
 description: 조직 내 응용 프로그램 프록시 배포를 계획 하기 위한 종단 간 가이드
 services: active-directory
 documentationcenter: azure
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
-ms.openlocfilehash: a293bd33d3a25f26e5374184da42db335041284d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.author: kenwith
+ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367787"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 응용 프로그램 프록시 배포 계획
 
@@ -228,13 +227,13 @@ SSO (Single sign-on)를 사용 하 여 단일 응용 프로그램에 대해 원�
 
 이 옵션을 아니요로 설정 하면 사용자가 권한 없이 Azure AD 앱 프록시를 통해 온-프레미스 응용 프로그램에 액세스할 수 있으므로 주의 해 서 사용 합니다.
 
-응용 프로그램을 게시 한 후에는 브라우저에서 또는의 아이콘을 통해 외부 URL을 입력 하 여 액세스할 수 [https://myapps.microsoft.com](https://myapps.microsoft.com/)있어야 합니다.
+응용 프로그램을 게시 한 후에는 브라우저에서 또는의 아이콘을 통해 외부 URL을 입력 하 여 액세스할 수 있어야 합니다 [https://myapps.microsoft.com](https://myapps.microsoft.com/) .
 
 ### <a name="enable-pre-authentication"></a>사전 인증 사용
 
 외부 URL을 통해 응용 프로그램 프록시에 액세스 하는 응용 프로그램 프록시를 통해 응용 프로그램에 액세스할 수 있는지 확인 합니다.
 
-1. **Azure Active Directory** > **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** 으로 이동 하 고 관리 하려는 앱을 선택 합니다.
+1. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램** 으로 이동 하 고 관리 하려는 앱을 선택 합니다.
 
 2. **애플리케이션 프록시**를 선택합니다.
 
@@ -254,7 +253,7 @@ SSO를 수행 하는 것은 Azure AD가 리소스에 대 한 액세스를 요청
 
 ###  <a name="working-with-other-types-of-applications"></a>다른 유형의 응용 프로그램 작업
 
-Azure AD 응용 프로그램 프록시는[ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)(Azure AD 인증 라이브러리) 또는[Msal](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)(Microsoft Authentication Library)을 사용 하도록 개발 된 응용 프로그램을 지원할 수도 있습니다. 사용자를 대신 하 여 사전 인증을 수행 하기 위해 클라이언트 요청의 헤더 정보에서 받은 Azure AD 발급 토큰을 사용 하 여 네이티브 클라이언트 앱을 지원 합니다.
+Azure AD 응용 프로그램 프록시는 [MSAL (Microsoft 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)을 사용 하도록 개발 된 응용 프로그램을 지원할 수도 있습니다. 사용자를 대신 하 여 사전 인증을 수행 하기 위해 클라이언트 요청의 헤더 정보에서 받은 Azure AD 발급 토큰을 사용 하 여 네이티브 클라이언트 앱을 지원 합니다.
 
 응용 프로그램 프록시의 사용 가능한 구성에 대 한 자세한 내용은 [기본 및 모바일 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) 및 [클레임 기반 응용 프로그램](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) 게시를 참조 하세요.
 
@@ -318,7 +317,7 @@ Azure AD는 [감사 로그 및 보고서](../reports-monitoring/concept-provisio
 * [앱 페이지를 표시할 때 문제](application-proxy-page-appearance-broken-problem.md)
 * [너무 긴 애플리케이션 로드](application-proxy-page-load-speed-problem.md)
 * [애플리케이션 페이지에서 링크가 작동하지 않음](application-proxy-page-links-broken-problem.md)
-* [내 앱에 대해 열 포트](application-proxy-connectivity-ports-how-to.md)
+* [내 앱에 대해 열 포트](application-proxy-add-on-premises-application.md)
 * [내 앱에 대한 커넥터 그룹에서 작동하지 않는 커넥터](application-proxy-connectivity-no-working-connector.md)
 * [관리자 포털에서 구성](application-proxy-config-how-to.md)
 * [내 앱에 Single Sign-On 구성](application-proxy-config-sso-how-to.md)

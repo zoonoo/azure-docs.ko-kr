@@ -4,20 +4,18 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 5efa8b845952c8ab5b66b781fb534c3754239b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677436"
 ---
 ## <a name="attack-scenario"></a>공격 시나리오
 
 무차별 암호 대입 공격(brute force attack)은 일반적으로 VM에 대한 액세스 권한을 얻는 방법으로 관리 포트를 대상으로 합니다. 성공하면 공격자가 VM을 제어할 수 있으며 사용자 환경으로의 발판을 마련하게 됩니다.
 
 무차별 암호 대입 공격을 줄이기 위한 한 가지 방법은 포트가 열려 있는 시간의 양을 제한하는 것입니다. 관리 포트는 항상 열려 있지 않아도 됩니다. 예를 들어 관리 또는 유지 관리 작업을 수행 하기 위해 VM에 연결 되어 있는 동안에만 열려 있어야 합니다. Just-in-time을 사용 하는 경우 Security Center는 nsg ( [네트워크 보안 그룹](../articles/virtual-network/security-overview.md#security-rules) ) 및 Azure 방화벽 규칙을 사용 하 여 공격자의 대상이 될 수 없도록 관리 포트에 대 한 액세스를 제한 합니다.
-
-![Just-In-Time 시나리오](../articles/security-center/media/security-center-just-in-time/just-in-time-scenario.png)
 
 ## <a name="how-does-jit-access-work"></a>JIT 액세스는 어떻게 작동하나요?
 

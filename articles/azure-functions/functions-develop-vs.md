@@ -27,7 +27,7 @@ Visual Studio는 함수를 개발할 때 다음과 같은 이점을 제공 합�
 
 별도로 언급 하지 않는 한, 표시 되는 프로시저와 예제는 Visual Studio 2019에 대 한 것입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure Functions 도구. Azure 함수 도구를 추가 하려면 Visual Studio 설치에 **azure 개발** 워크 로드를 포함 합니다. Azure Functions 도구는 Visual Studio 2017부터 Azure 개발 워크 로드에서 사용할 수 있습니다.
 
@@ -140,7 +140,7 @@ C # 클래스 라이브러리 함수에서 함수에 사용 되는 바인딩은 
 
 바인딩 고유 특성은 진입점 메서드에 적용되는 각 바인딩 매개 변수에 적용됩니다. 특성은 매개 변수로 바인딩 정보를 사용합니다. 이전 예제에서 첫 번째 매개 변수는 `QueueTrigger` 큐 저장소 트리거 함수를 나타내는 특성이 적용 됩니다. 큐 이름 및 연결 문자열 설정 이름은 특성에 매개 변수로 전달 됩니다 `QueueTrigger` . 자세한 내용은 [Azure Functions의 Azure Queue Storage 바인딩](functions-bindings-storage-queue-trigger.md)을 참조하세요.
 
-위의 절차를 사용 하 여 함수 앱 프로젝트에 함수를 추가 합니다. 프로젝트에서 각 함수는 다른 트리거를 가질 수 있지만 함수에는 정확히 하나의 트리거만 있어야 합니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조 하세요.
+위의 절차를 사용 하 여 함수 앱 프로젝트에 함수를 추가 합니다. 프로젝트의 각 함수는 다른 트리거를 가질 수 있지만 함수에는 정확히 하나의 트리거가 있어야 합니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 
 ## <a name="add-bindings"></a>바인딩 추가
 

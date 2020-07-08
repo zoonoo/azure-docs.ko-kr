@@ -2,23 +2,23 @@
 title: Azure Active Directory Single Sign-On 배포 계획
 description: 조직에서 SSO를 계획, 배포 및 관리 하는 데 도움이 되는 가이드입니다.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 06/10/2020
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374444"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -32,7 +32,7 @@ SSO (Single sign-on)는 사용자가 Azure Active Directory (Azure AD)에서 응
 
 Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이상의 응용 프로그램이 있으므로 테 넌 트에 쉽게 통합할 수 있습니다.
 
-## <a name="licensing"></a>라이선싱
+## <a name="licensing"></a>라이선스
 
 - **AZURE AD 라이선스** -미리 통합 된 SaaS 응용 프로그램에 대 한 SSO는 무료입니다. 그러나 디렉터리의 개체 수와 배포 하려는 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항에 대 한 전체 목록은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조 하세요.
 - **응용 프로그램 라이선스** -비즈니스 요구 사항에 맞게 SaaS 응용 프로그램에 대 한 적절 한 라이선스가 필요 합니다. 응용 프로그램 소유자와 협력 하 여 응용 프로그램에 할당 된 사용자에 게 응용 프로그램 내에서 해당 역할에 대 한 적절 한 라이선스가 있는지 확인 합니다. Azure AD에서 역할에 따라 자동 프로 비전을 관리 하는 경우 Azure AD에서 할당 된 역할은 응용 프로그램 내에서 소유 하는 라이선스 수와 일치 해야 합니다. 응용 프로그램에서 소유 하는 라이선스 수가 잘못 되어 사용자의 프로 비전/업데이트 중에 오류가 발생할 수 있습니다.
@@ -163,7 +163,7 @@ MCAS에 대 한 자세한 내용은 [Microsoft Cloud App Security 개요](https:
 
 ### <a name="attribute-requirements"></a>특성 요구 사항
 
-Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미리 구성 된 특성 및 특성 매핑 집합이 있습니다. 일부 앱은 그룹과 같은 다른 유형의 개체를 관리 합니다. Azure AD에서 응용 프로그램에 대 한 사용자 특성 매핑을 계획 하 고 비즈니스 요구에 따라 [기본 특성 매핑을 사용자 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 합니다.
+Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미리 구성된 특성 및 특성 매핑 세트가 있습니다. 일부 앱은 그룹과 같은 다른 유형의 개체를 관리 합니다. Azure AD에서 응용 프로그램에 대 한 사용자 특성 매핑을 계획 하 고 비즈니스 요구에 따라 [기본 특성 매핑을 사용자 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 합니다.
 
 ### <a name="certificate-requirements"></a>인증서 요구 사항
 
@@ -194,8 +194,6 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
    응용 프로그램을 찾을 수 없는 경우 [사용자 지정 응용 프로그램 설명서](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)를 참조 하세요. Azure AD 갤러리에 없는 응용 프로그램을 추가 하는 방법에 대해 안내 합니다.
 
    필요에 따라 [Microsoft의 지침 설명서](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)를 사용 하 여 엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임을 사용할 수 있습니다. 응용 프로그램에 대 한 SAML 응답에서 받아야 하는 항목에 매핑되는지 확인 합니다. 구성 하는 동안 문제가 발생 하 [는 경우 SSO 통합을 디버그 하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)에 대 한 지침을 따르십시오.
-
-사용자 지정 응용 프로그램 온 보 딩은 Azure AD Premium P1 또는 P2 라이선스 기능입니다.
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>최종 사용자에 게 SSO 변경 통신 제공
 

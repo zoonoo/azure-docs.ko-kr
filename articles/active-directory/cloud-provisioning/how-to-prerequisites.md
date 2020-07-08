@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373865"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝에 대한 필수 조건
 이 문서에서는 ID 솔루션으로 Azure AD(Azure Active Directory) Connect 클라우드 프로비저닝을 선택하고 사용하는 방법에 대한 지침을 제공합니다.
@@ -26,8 +26,8 @@ ms.locfileid: "83870940"
 ## <a name="cloud-provisioning-agent-requirements"></a>클라우드 프로비저닝 에이전트 요구 사항
 Azure AD Connect 클라우드 프로비저닝을 사용하려면 다음이 필요합니다.
     
-- 게스트 사용자가 아닌 Azure AD 테넌트의 전역 관리자 계정
-- Windows 2012 R2 이상 버전을 사용하는 프로비저닝 에이전트에 대한 온-프레미스 서버
+- 게스트 사용자가 아닌 Azure AD 테 넌 트에 대 한 하이브리드 id 관리자 계정입니다.
+- Windows 2012 R2 이상 버전을 사용하는 프로비저닝 에이전트에 대한 온-프레미스 서버  이 서버는 [Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 기반으로 하는 계층 0 서버 여야 합니다.
 - 온-프레미스 방화벽 구성
 
 >[!NOTE]
@@ -37,7 +37,7 @@ Azure AD Connect 클라우드 프로비저닝을 사용하려면 다음이 필�
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서
 
-1. Azure AD 테넌트에서 클라우드 전용 전역 관리자 계정을 만듭니다. 이러한 방식으로 온-프레미스 서비스가 실패하거나 사용할 수 없게 되면 테넌트의 구성을 관리할 수 있습니다. [클라우드 전용 전역 관리자 계정 추가](../active-directory-users-create-azure-portal.md) 방법에 대해 자세히 알아봅니다. 테넌트에서 잠기지 않도록 하려면 이 단계를 완료하는 것이 중요합니다.
+1. Azure AD 테 넌 트에서 클라우드 전용 하이브리드 id 관리자 계정을 만듭니다. 이러한 방식으로 온-프레미스 서비스가 실패하거나 사용할 수 없게 되면 테넌트의 구성을 관리할 수 있습니다. [클라우드 전용 하이브리드 id 관리자 계정을 추가](../active-directory-users-create-azure-portal.md)하는 방법에 대해 알아봅니다. 테넌트에서 잠기지 않도록 하려면 이 단계를 완료하는 것이 중요합니다.
 1. Azure AD 테넌트에 [사용자 지정 도메인 이름](../active-directory-domains-add-azure-portal.md)을 하나 이상 추가합니다. 사용자는 이러한 도메인 이름 중 하나로 로그인할 수 있습니다.
 
 ### <a name="in-your-directory-in-active-directory"></a>Active Directory의 디렉터리에서

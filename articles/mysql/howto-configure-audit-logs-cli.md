@@ -5,22 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: d532e1990586d80d675a8ccb247c0c9f7908bb6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 813e86e8446932d1618fff1853cee8972570f43f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85363022"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Azure CLI에서 감사 로그 구성 및 액세스
 
 Azure CLI에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.md) 를 구성할 수 있습니다.
 
-> [!IMPORTANT]
-> 감사 로그 기능은 현재 미리 보기로 제공 됩니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
@@ -32,6 +29,9 @@ Azure CLI에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.md)
 > 이 방법 가이드에서는 Azure CLI 버전 2.0 이상을 사용해야 합니다. 버전을 확인하려면 Azure CLI 명령 프롬프트에서 `az --version`을 입력합니다. 설치하거나 업그레이드하려면 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
+
+>[!IMPORTANT]
+> 서버 성능이 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자를 기록 하는 것이 좋습니다.
 
 다음 단계를 사용 하 여 감사 로깅을 설정 하 고 구성 합니다.
 

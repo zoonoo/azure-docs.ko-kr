@@ -3,13 +3,13 @@ title: 프라이빗 Azure Kubernetes Service 클러스터 만들기
 description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
-ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 6/18/2020
+ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374528"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -71,11 +71,11 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 
 앞서 언급했듯이 VNet 피어링은 개인 클러스터에 액세스하는 한 가지 방법에 속합니다. VNet 피어링을 사용하려면 가상 네트워크와 프라이빗 DNS 영역 간에 링크를 설정해야 합니다.
     
-1. Azure Portal에서 MC_* 리소스 그룹으로 이동합니다.  
+1. Azure Portal에서 노드 리소스 그룹으로 이동 합니다.  
 2. 프라이빗 DNS 영역을 선택합니다.   
 3. 왼쪽 창에서 **가상 네트워크** 링크를 선택합니다.  
 4. VM의 가상 네트워크를 프라이빗 DNS 영역에 추가하는 새 링크를 만듭니다. DNS 영역 링크를 사용할 수 있을 때까지 몇 분 정도 걸립니다.  
-5. Azure Portal에서 MC_* 리소스 그룹으로 돌아갑니다.  
+5. Azure Portal에서 클러스터의 VNet을 포함 하는 리소스 그룹으로 이동 합니다.  
 6. 오른쪽 창에서 가상 네트워크를 선택합니다. 가상 네트워크 이름은 *aks-vnet-\** 형식으로 되어 있습니다.  
 7. 왼쪽 창에서 **피어링**을 선택합니다.  
 8. **추가**를 선택하고 VM의 가상 네트워크를 추가한 다음, 피어링을 만듭니다.  
@@ -91,7 +91,7 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 
 2. 프라이빗 DNS 영역은 클러스터 노드가 (3)과 연결된 VNet에만 연결됩니다. 즉, 연결된 VNet의 호스트만 프라이빗 엔드포인트를 확인할 수 있습니다. VNet에 사용자 지정 DNS가 구성되어 있지 않은 시나리오(기본값)에서 이 엔드포인트는 연결로 인해 프라이빗 DNS 영역에 있는 레코드를 확인할 수 있는 DNS의 168.63.129.16에 위치한 호스트 지점으로서 문제 없이 작동합니다.
 
-3. 클러스터를 포함하는 VNet에 사용자 지정 DNS 설정(4)이 있는 시나리오에서는 프라이빗 DNS 영역이 사용자 지정 DNS 확인자(5)를 포함하는 VNet에 연결되어 있지 않으면 클러스터 배포가 실패합니다. 이 링크는 클러스터를 프로비전하는 동안 프라이빗 영역이 생성되거나 Azure Policy나 그 외 이벤트 기반 배포 메커니즘(예: Azure Event Grid 및 Azure Functions)을 사용하여 영역 생성을 검색할 때 이 영역이 생성된 후에 수동으로 만들 수 있습니다.
+3. 클러스터를 포함하는 VNet에 사용자 지정 DNS 설정(4)이 있는 시나리오에서는 프라이빗 DNS 영역이 사용자 지정 DNS 확인자(5)를 포함하는 VNet에 연결되어 있지 않으면 클러스터 배포가 실패합니다. 이 링크는 클러스터를 프로 비전 하는 동안 또는 이벤트 기반 배포 메커니즘 (예: Azure Event Grid 및 Azure Functions)을 사용 하 여 영역 생성 검색 시 자동화를 통해 만들 때 수동으로 만들 수 있습니다.
 
 ## <a name="dependencies"></a>종속성  
 
@@ -100,9 +100,8 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 
 ## <a name="limitations"></a>제한 사항 
 * IP 권한이 부여된 범위는 개인 API 서버 엔드포인트에 적용할 수 없으며 공용 API 서버에만 적용됩니다.
-* 가용성 영역은 현재 특정 지역에 대해 지원됩니다. 이 문서의 시작 부분을 참조하세요. 
+* [가용성 영역][availability-zones] 은 현재 특정 지역에서 지원 됩니다. 
 * [Azure Private Link 서비스 제한][private-link-service]은 프라이빗 클러스터에 적용됩니다.
-* 프라이빗 Azure 가상 네트워크에서 프라이빗 ACI(Azure Container Instances)를 실행하는 프라이빗 클러스터의 가상 노드가 지원되지 않음
 * 프라이빗 클러스터를 사용하는 Azure DevOps Microsoft 호스팅 에이전트를 지원하지 않습니다. [자체 호스팅 에이전트][devops-agents]를 사용하는 것이 좋습니다. 
 * Azure Container Registry를 프라이빗 AKS와 함께 사용해야 하는 고객의 경우, Container Registry 가상 네트워크는 에이전트 클러스터 가상 네트워크와 피어링되어야 합니다.
 * 현재 Azure Dev Spaces를 지원하지 않습니다.
@@ -122,3 +121,4 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

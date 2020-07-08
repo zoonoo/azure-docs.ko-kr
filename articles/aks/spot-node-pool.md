@@ -2,17 +2,15 @@
 title: 미리 보기-Azure Kubernetes 서비스 (AKS) 클러스터에 별색 노드 풀 추가
 description: Azure Kubernetes 서비스 (AKS) 클러스터에 별색 노드 풀을 추가 하는 방법에 대해 알아봅니다.
 services: container-service
-author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: zarhoads
-ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77622050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374613"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>미리 보기-Azure Kubernetes 서비스 (AKS) 클러스터에 별색 노드 풀 추가
 
@@ -24,7 +22,7 @@ ms.locfileid: "77622050"
 
 이 문서에서는 기존 Azure Kubernetes 서비스 (AKS) 클러스터에 보조 노드 풀을 추가 합니다.
 
-이 문서에서는 Kubernetes 및 Azure Load Balancer 개념을 기본적으로 이해 하 고 있다고 가정 합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
+이 문서에서는 Kubernetes 및 Azure Load Balancer 개념을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
 이 기능은 현재 미리 보기로 제공됩니다.
 
@@ -43,9 +41,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="register-spotpoolpreview-preview-feature"></a>Spotpoolpreview 미리 보기 기능 등록
 
 별색 노드 풀을 사용 하는 AKS 클러스터를 만들려면 구독에서 *spotpoolpreview* 기능 플래그를 사용 하도록 설정 해야 합니다. 이 기능은 클러스터를 구성할 때 제공 되는 최신 서비스 기능 집합을 제공 합니다.
-
-> [!CAUTION]
-> 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
 
 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *spotpoolpreview* feature 플래그를 등록 합니다.
 
@@ -67,7 +62,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-별색 노드 풀을 사용 하는 AKS 클러스터를 만들려면 *AKS-preview* CLI 확장 버전 0.4.32 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+별색 노드 풀을 사용 하는 AKS 클러스터를 만들려면 *AKS-preview* CLI 확장 버전 0.4.32 이상이 필요 합니다. [az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치한 후 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 확인합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -111,7 +106,7 @@ az aks nodepool add \
 
 기본적으로 여러 노드 풀을 사용 하 여 클러스터를 만들 때 AKS 클러스터에서 *우선 순위가* *Regular* 인 노드 풀을 만듭니다. 위의 명령은 *최우선 순위의* 기존 AKS 클러스터에 보조 노드 풀을 추가 *합니다.* *지점* *우선 순위* 는 노드 풀을 별색 노드 풀로 만듭니다. *제거 정책* 매개 변수는 위의 예제에서 기본값 인 *Delete* 로 설정 됩니다. [제거 정책을][eviction-policy] *삭제*로 설정 하면 노드 풀의 기본 확장 집합에 있는 노드가 제거 될 때 삭제 됩니다. 제거 정책을 *할당*취소로 설정할 수도 있습니다. 제거 정책을 *할당*취소로 설정 하면 제거 시 기본 확장 집합의 노드가 중지 된 할당 취소 상태로 설정 됩니다. 중지 됨-할당 취소 된 상태에 있는 노드는 계산 할당량에 대해 계산 되며, 클러스터 크기 조정 또는 업그레이드에 문제가 발생할 수 있습니다. *우선 순위* 및 *제거 정책* 값은 노드 풀을 만드는 동안에만 설정할 수 있습니다. 이러한 값은 나중에 업데이트할 수 없습니다.
 
-또한이 명령은 [클러스터 autoscaler][cluster-autoscaler]사용 하도록 설정 합니다 .이는 별색 노드 풀에서 사용 하는 것이 좋습니다. 클러스터에서 실행 되는 작업에 따라 클러스터는 노드 풀의 노드 수를 확장 하 고 축소 autoscaler 합니다. 별색 노드 풀의 경우 클러스터 autoscaler 추가 노드가 여전히 필요한 경우 제거 후 노드 수를 확장 합니다. 노드 풀에 포함 될 수 있는 최대 노드 수를 변경 하는 경우 클러스터 autoscaler 연결 된 `maxCount` 값도 조정 해야 합니다. 클러스터 autoscaler를 사용 하지 않는 경우 제거 시 스폿 풀은 결국 0으로 줄어들고 추가 별색 노드를 수신 하기 위한 수동 작업이 필요 합니다.
+또한이 명령은 [클러스터 autoscaler][cluster-autoscaler]사용 하도록 설정 합니다 .이는 별색 노드 풀에서 사용 하는 것이 좋습니다. 클러스터에서 실행 되는 작업에 따라 클러스터는 노드 풀의 노드 수를 확장 하 고 축소 autoscaler 합니다. 별색 노드 풀의 경우 클러스터 autoscaler 추가 노드가 여전히 필요한 경우 제거 후 노드 수를 확장 합니다. 노드 풀에 포함 될 수 있는 최대 노드 수를 변경 하는 경우 `maxCount` 클러스터 autoscaler 연결 된 값도 조정 해야 합니다. 클러스터 autoscaler를 사용 하지 않는 경우 제거 시 스폿 풀은 결국 0으로 줄어들고 추가 별색 노드를 수신 하기 위한 수동 작업이 필요 합니다.
 
 > [!Important]
 > 일괄 처리 작업 및 테스트 환경과 같은 중단을 처리할 수 있는 별색 노드 풀 에서만 작업을 예약 합니다. 노드 제거를 처리할 수 있는 작업만 별색 노드 풀에서 예약 되도록 별색 노드 풀에 [taints 및 tolerations][taints-tolerations] 를 설정 하는 것이 좋습니다. 예를 들어 위의 command taint는 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 의 pod를 추가 하므로 해당 toleration가 있는만이 노드에 예약 됩니다.

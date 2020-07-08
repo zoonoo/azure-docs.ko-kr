@@ -9,33 +9,71 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3af18eb09fd9906a0caaebda0b786795400467f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367430"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)로 응용 프로그램 마이그레이션
 
-MSAL (Microsoft Authentication Library) 및 ADAL (Azure AD 인증 Library)은 azure ad 엔터티를 인증 하 고 Azure AD에서 토큰을 요청 하는 데 사용 됩니다. 지금까지 대부분의 개발자는 ADAL(Azure AD 인증 라이브러리)을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하기 위해 개발자 플랫폼(v1.0)에서 Azure AD를 사용했습니다. MSAL 사용:
+많은 개발자 들이 ADAL (Azure Active Directory Authentication Library)을 사용 하 여 응용 프로그램을 빌드하고 배포 했습니다. 이제 Azure AD 엔터티의 인증 및 권한 부여에 MSAL (Microsoft 인증 라이브러리)을 사용 하는 것이 좋습니다.
 
-- Microsoft id 플랫폼 끝점을 사용 하 여 광범위 한 Microsoft id 집합 (Azure AD id 및 Microsoft 계정, Azure AD B2C을 통해 소셜 및 로컬 계정)을 인증할 수 있습니다.
+ADAL 대신 MSAL 사용:
+
+- 더 광범위 한 id 집합을 인증할 수 있습니다.
+  - Azure AD id
+  - Microsoft 계정
+  - Azure AD B2C를 사용 하 여 소셜 및 로컬 계정
 - 사용자는 최상의 single sign-on 환경을 이용할 수 있습니다.
-- 응용 프로그램에서 증분 동의를 설정할 수 있으며 조건부 액세스를 지 원하는 것이 더 쉽습니다.
-- 혁신을 통해 혜택을 누릴 수 있습니다.
+- 응용 프로그램에서 증분 동의를 설정할 수 있습니다.
+- 조건부 액세스를 보다 쉽게 지원할 수 있습니다.
+- 혁신을 통해 혜택을 누릴 수 있습니다. 이제 모든 Microsoft 개발 노력이 MSAL에 초점을 맞추고 있으므로 ADAL에서 새로운 기능이 구현 되지 않습니다.
 
-**이제 Msal은 Microsoft id 플랫폼과 함께 사용 하기 위해 권장 되는 인증 라이브러리**입니다. ADAL에는 새로운 기능이 구현 되지 않습니다. 이러한 활동은 MSAL 향상에 중점을 두었습니다.
+**이제 Msal은 Microsoft id 플랫폼과 함께 사용할 수 있도록 권장 되는 인증 라이브러리**입니다.
 
-다음 문서에서는 MSAL과 ADAL 라이브러리 간의 차이점을 설명 하 고 MSAL으로 마이그레이션하는 데 도움이 되는 도움말을 설명 합니다.
-- [MSAL.NET으로 마이그레이션](msal-net-migration.md)
-- [MSAL.js로 마이그레이션](msal-compare-msal-js-and-adal-js.md)
+## <a name="migration-guidance"></a>마이그레이션 지침
+
+다음 문서는 MSAL으로 마이그레이션하는 데 도움이 될 수 있습니다.
+
 - [MSAL.Android로 마이그레이션](migrate-android-adal-msal.md)
 - [MSAL.iOS / macOS로 마이그레이션](migrate-objc-adal-msal.md)
+- [MSAL Java로 마이그레이션](migrate-adal-msal-java.md)
+- [MSAL.js로 마이그레이션](msal-compare-msal-js-and-adal-js.md)
+- [MSAL.NET으로 마이그레이션](msal-net-migration.md)
 - [MSAL Python으로 마이그레이션](migrate-python-adal-msal.md)
-- [Java용 MSAL로 마이그레이션](migrate-adal-msal-java.md)
 - [브로커를 사용하여 MSAL.NET으로 Xamarin 앱 마이그레이션](msal-net-migration-ios-broker.md)
+
+## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
+
+__Q: ADAL이 사용 되지 않나요?__  
+A: 예. 2020 6 월 30 일부 터 더 이상 ADAL에 새 기능을 추가 하지 않습니다. 2022 년 6 월 30 일까 야 ADAL에 중요 보안 픽스를 계속 해 서 추가 합니다.
+
+__Q: 어떤 앱이 ADAL을 사용 하 고 있는지 알 어떻게 할까요? 있나요?__  
+A: 응용 프로그램에 대 한 소스 코드가 있는 경우 위의 마이그레이션 가이드를 참조 하 여 앱에서 사용 하는 라이브러리와 MSAL으로 마이그레이션하는 방법을 확인할 수 있습니다. 응용 프로그램의 소스 코드에 액세스할 수 없는 경우 [지원 요청을 열어](developer-support-help-options.md#open-a-support-request) 등록 된 응용 프로그램의 목록과 각 응용 프로그램에서 사용 하는 라이브러리를 가져올 수 있습니다.
+
+__Q: 기존 ADAL 앱이 계속 작동 하나요?__  
+A: 기존 앱은 수정 하지 않고 계속 해 서 작동 합니다. 2022 년 6 월 30 일 이상으로 유지 하려는 경우에는 보안을 유지 하기 위해 MSAL으로 업데이트 하는 것이 좋습니다. 그러나 기존 기능을 유지 관리 하기 위해 MSAL으로 마이그레이션하는 것은 필요 하지 않습니다.
+
+__Q: MSAL으로 이동 하는 데 투자 해야 하는 이유는 무엇 인가요?__  
+A: MSAL에는 증분 동의, Single Sign-On 및 토큰 캐시 관리를 포함 하 여 ADAL에 없는 새로운 기능이 포함 되어 있습니다. 또한 ADAL과 달리 MSAL은 2022 년 6 월 30 일까 지 보안 패치를 계속 받을 수 있습니다. [자세히 알아보기](msal-overview.md).
+
+__Q: 앱을 ADAL에서 MSAL으로 이동 하는 데 도움이 되는 도구를 릴리스할 예정 인가요?__  
+A: 아니요. 라이브러리 간의 차이점으로 인해 MSAL을 개선 하는 데 사용할 수 있는 도구를 개발 하 고 유지 관리 하는 데에는 전용 리소스가 필요 합니다. 그러나 응용 프로그램에서 필요한 변경을 수행 하는 데 도움이 되는 이전 마이그레이션 가이드 집합을 제공 합니다.
+
+__Q: MSAL은 AD FS에서 어떻게 작동 하나요?__  
+A: MSAL.NET는 AD FS 2019에 대 한 인증을 위한 특정 시나리오를 지원 합니다. 앱이 이전 버전의 AD FS에서 직접 토큰을 획득 해야 하는 경우 ADAL에 남아 있어야 합니다. [자세히 알아보기](msal-net-adfs-support.md).
+
+__Q: 내 응용 프로그램을 마이그레이션하는 데 도움이 어떻게 할까요??__  
+A:이 문서의 [마이그레이션 지침](#migration-guidance) 섹션을 참조 하세요. 앱의 플랫폼에 대 한 가이드를 읽은 후 추가 질문이 있으면 태그를 사용 하 여 Stack Overflow에 게시 `[adal-deprecation]` 하거나 라이브러리의 GitHub 리포지토리에서 문제를 열 수 있습니다. 각 라이브러리 리포지토리의 링크는 MSAL 개요 문서의 [언어 및 프레임 워크](msal-overview.md#languages-and-frameworks) 섹션을 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Microsoft 인증 라이브러리 및 Microsoft Graph API를 사용 하도록 응용 프로그램 업데이트](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
+- [MSAL (Microsoft id 플랫폼)에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+- [MSAL 코드 샘플을 검토 합니다.](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)

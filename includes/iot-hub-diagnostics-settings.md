@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3cab4909937bbf5ccb0f72b194b08810c0487c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75750686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792043"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>진단 설정에 대한 로깅 사용
 
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-새 설정은 약 10분 후에 적용됩니다. 그런 다음, 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스의 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/platform-logs-overview.md)을 참조하세요.
+새 설정은 약 10분 후에 적용됩니다. 그런 다음, 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.

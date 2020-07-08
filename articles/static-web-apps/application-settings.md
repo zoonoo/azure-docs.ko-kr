@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36aa0a4a87e439c128c5247b6850100a7f2e826e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373671"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 애플리케이션 설정 구성 미리 보기
 
@@ -105,9 +105,11 @@ Azure Portal은 애플리케이션 설정을 만들고 업데이트하고 삭제
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Azure Static Web Apps 구성 보기":::
 
-1. **이름** 및 **값**을 입력합니다.
+1. **이름** 및 **값**을 입력 합니다.
 
 1. **확인**을 클릭합니다.
+
+1. **저장**을 클릭합니다.
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
@@ -156,7 +158,7 @@ Azure CLI 명령을 사용하려면 업로드를 실행하기 위해 계정과 �
 
 애플리케이션 설정은 Azure CLI를 통해 볼 수 있습니다.
 
-1. 터미널 또는 명령줄에서 다음 명령을 실행합니다. 자리 표시자 `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>`을 사용자의 값으로 바꿔야 합니다.
+- 터미널 또는 명령줄에서 다음 명령을 실행합니다. 자리 표시자 `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>`을 사용자의 값으로 바꿔야 합니다.
 
    ```bash
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"

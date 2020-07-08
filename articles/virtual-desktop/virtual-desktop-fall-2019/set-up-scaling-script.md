@@ -4,16 +4,16 @@ description: Azure Automation을 사용하여 Windows Virtual Desktop 세션 호
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362546"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 세션 호스트 크기 조정
 
@@ -33,7 +33,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 크기 조정 도구는 세션 호스트 VM 비용을 최적화하려는 고객을 위해 저비용 자동화 옵션을 제공합니다.
 
 크기 조정 도구를 사용하여 다음을 수행할 수 있습니다.
- 
+
 - 사용량이 많은 시간과 적은 시간을 기준으로 VM이 시작 및 중지되도록 예약합니다.
 - CPU 코어당 세션 수를 기준으로 VM을 스케일 아웃합니다.
 - 사용량이 적은 시간에는 VM을 스케일 인하여 실행 중인 세션 호스트 VM의 수를 최소로 유지합니다.
@@ -67,7 +67,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 - Windows Virtual Desktop 서비스를 사용하여 구성 및 등록된 세션 호스트 풀 VM
 - Azure 구독에 대한 [기여자 액세스](../../role-based-access-control/role-assignments-portal.md)를 갖는 사용자
 
-도구를 배포하는 데 사용할 머신에는 다음이 필요합니다. 
+도구를 배포하는 데 사용할 머신에는 다음이 필요합니다.
 
 - Windows PowerShell 5.1 이상
 - Microsoft Az PowerShell 모듈
@@ -106,7 +106,8 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 6. Azure Automation 계정을 설정한 후에는 Azure 구독에 로그인하고 다음 그림과 같이 Azure Automation 계정 및 관련 Runbook이 지정된 리소스 그룹에 표시되는지 확인합니다.
 
-![새로 만든 Automation 계정 및 Runbook을 보여 주는 Azure 개요 페이지 이미지.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![새로 만든 Automation 계정 및 Runbook을 보여 주는 Azure 개요 페이지 이미지.](../media/automation-account.png)
 
   웹후크가 제자리에 있는지 확인하려면 Runbook의 이름을 선택합니다. 그런 다음 Runbook의 리소스 섹션으로 이동하여 **웹후크**를 선택합니다.
 
@@ -180,21 +181,21 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -204,12 +205,12 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
@@ -236,11 +237,13 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
 
      스크립트를 실행하면 다음 그림에서처럼 Logic App이 리소스 그룹에 표시됩니다.
 
-     ![예제 Azure Logic App의 개요 페이지 이미지.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![예제 Azure Logic App의 개요 페이지 이미지.](../media/logic-app.png)
 
 실행 일정을 변경하려면(예: 되풀이 간격 또는 표준 시간대 변경) 자동 크기 조정 스케줄러로 이동하고 **편집**을 선택하여 Logic Apps 디자이너로 이동합니다.
 
-![Logic Apps 디자이너 이미지. 사용자가 되풀이 시간 및 웹후크 파일을 편집할 수 있는 되풀이 및 웹후크 메뉴가 열립니다.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Logic Apps 디자이너 이미지. 사용자가 되풀이 시간 및 웹후크 파일을 편집할 수 있는 되풀이 및 웹후크 메뉴가 열립니다.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>크기 조정 도구 관리
 
@@ -252,7 +255,8 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <appl
 
 선택한 Automation 계정 오른쪽의 “작업 통계” 아래에서 모든 Runbook 작업의 요약을 볼 수 있습니다. 창 왼쪽에서 **작업** 페이지를 열면 현재 작업 상태, 시작 시간 및 완료 시간이 표시됩니다.
 
-![작업 상태 페이지 스크린샷.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![작업 상태 페이지 스크린샷.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>로그 및 크기 조정 도구 출력 보기
 
@@ -260,5 +264,6 @@ Runbook을 열고 작업 이름을 선택하여 스케일 아웃 및 스케일 �
 
 Azure Automation 계정을 호스트하는 리소스 그룹의 Runbook(기본 이름은 WVDAutoScaleRunbook)으로 이동하여 **개요**를 선택합니다. 다음 그림에서처럼 개요 페이지의 최근 작업 아래에서 작업을 선택하면 크기 조정 도구 출력을 볼 수 있습니다.
 
-![크기 조정 도구의 출력 창 이미지.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![크기 조정 도구의 출력 창 이미지.](../media/tool-output.png)
 

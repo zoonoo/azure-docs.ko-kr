@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: bdb76954b1db8135d8a36d6658bb7fff274ac126
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c25e48bd46f0d37330f693cb4d6538e7bc29c4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588453"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367243"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>2 단계: CEF 메시지를 보내도록 보안 솔루션 구성
 
@@ -29,10 +29,11 @@ ms.locfileid: "77588453"
 
 보안 솔루션에 기존 커넥터가 이미 있는 경우 다음과 같이 커넥터 관련 지침을 사용 합니다.
 
+- [AI Vectra Detect](connect-ai-vectra-detect.md)
 - [Check Point](connect-checkpoint.md)
 - [시스코](connect-cisco.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
-- [Shift+f5](connect-f5.md)  
+- [F5 ASM](connect-f5.md)  
 - [Fortinet](connect-fortinet.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
@@ -40,6 +41,7 @@ ms.locfileid: "77588453"
 - [Zscaler](connect-zscaler.md)   
 
 ## <a name="configure-any-other-solution"></a>다른 솔루션 구성
+
 특정 보안 솔루션에 대 한 커넥터가 없는 경우 CEF 에이전트로 로그를 전달 하는 다음 일반 지침을 사용 합니다.
 
 1. CEF 메시지를 보내도록 솔루션을 구성 하는 방법에 대 한 단계는 특정 구성 문서로 이동 합니다. 솔루션이 나열 되지 않은 경우 어플라이언스에서 Log Analytics 에이전트에 따라 필요한 형식으로 필요한 로그를 Azure 센티널 Syslog 에이전트로 보내도록 이러한 값을 설정 해야 합니다. 이러한 매개 변수는 Azure 센티널 에이전트의 Syslog 디먼 에서도 수정할 수 있는 경우 어플라이언스에서 수정할 수 있습니다.
@@ -51,13 +53,12 @@ ms.locfileid: "77588453"
    > [!NOTE]
    > 이 솔루션은 Syslog RFC 3164 또는 RFC 5424을 지원 합니다.
 
-
-1. CEF 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면를 검색 `CommonSecurityLog`합니다.
+1. CEF 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면를 검색 `CommonSecurityLog` 합니다.
 
 1. 3 단계: [연결 유효성 검사](connect-cef-verify.md)로 계속 진행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 CEF 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats.md)을 시작합니다.
-

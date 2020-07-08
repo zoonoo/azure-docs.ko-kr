@@ -6,23 +6,23 @@ author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/20/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11c337f4838279771523a1f375b7349387d68f45
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582543"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374579"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>관리 되지 않는 Azure AD 조직에서 회사 또는 학교 계정 닫기
 
-관리 되지 않는 Azure AD (Active Directory) 조직의 사용자가 더 이상 해당 조직의 앱을 사용 하거나 해당 조직의 연결을 유지 관리할 필요가 없는 경우 언제 든 지 계정을 종료할 수 있습니다. 관리 되지 않는 조직에 전역 관리자가 없습니다. 관리 되지 않는 조직의 사용자는 관리자에 게 문의 하지 않고도 자신의 계정을 종료할 수 있습니다.
+관리 되지 않는 Azure Active Directory (Azure AD) 조직의 사용자가 더 이상 해당 조직의 앱을 사용 하거나 해당 조직의 연결을 유지 관리할 필요가 없는 경우 언제 든 지 계정을 종료할 수 있습니다. 관리 되지 않는 조직에 전역 관리자가 없습니다. 관리 되지 않는 조직의 사용자는 관리자에 게 문의 하지 않고도 자신의 계정을 종료할 수 있습니다.
 
 관리 되지 않는 조직의 사용자는 셀프 서비스 등록 중에 생성 되는 경우가 많습니다. 예는 무료 서비스에 등록 하는 조직의 정보 근로자 일 수 있습니다. 셀프 서비스 등록에 대 한 자세한 내용은 [Azure Active Directory에 대 한 셀프 서비스 등록 이란?](directory-self-service-signup.md)을 참조 하세요.
 
@@ -55,6 +55,6 @@ ms.locfileid: "82582543"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory에 대 한 셀프 서비스 등록 이란?](directory-self-service-signup.md)
+- [Azure Active Directory의 셀프 서비스 등록이란?](directory-self-service-signup.md)
 - [관리되지 않는 테넌트에서 사용자 삭제](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
 - [관리되지 않는 테넌트에 대한 시스템 생성 로그 액세스 및 내보내기](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

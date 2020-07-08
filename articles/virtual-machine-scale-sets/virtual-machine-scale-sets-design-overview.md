@@ -7,15 +7,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 06/01/2017
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0676a7d31d141e0c264119a54b77ec29a527374b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373984"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.

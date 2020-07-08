@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: 545d04bdede76a6ce25c9e4665f39c01ff6caa73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/24/2020
+ms.openlocfilehash: 0d678d900ec31b00d27eba19617d533c5010c1dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368001"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
 
@@ -31,37 +31,37 @@ ms.locfileid: "81531986"
 읽기 복제본 기능은 PostgreSQL 동기식 복제를 사용합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 마스터와 복제본 간에는 측정 가능한 지연이 발생합니다. 복제본의 데이터는 결과적으로 마스터의 데이터와 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
 
 ## <a name="cross-region-replication"></a>지역 간 복제
-마스터 서버에서 다른 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 재해 복구 계획 또는 사용자에 게 더 가까운 데이터 가져오기 등의 시나리오에 유용할 수 있습니다.
+마스터 서버의 다른 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 재해 복구 계획 또는 사용자에게 더 가까운 데이터 가져오기 등의 시나리오에 유용할 수 있습니다.
 
-[Azure Database for PostgreSQL 지역](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql)에 마스터 서버를 둘 수 있습니다. 마스터 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 마스터 영역에 따라 사용할 수 있는 복제본 영역을 보여 줍니다.
+>[!NOTE]
+> 기본 계층 서버는 동일한 지역 복제만 지원 합니다.
 
-[![복제본 영역 읽기](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[Azure Database for PostgreSQL 지역](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql)에 마스터 서버를 둘 수 있습니다. 마스터 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 마스터 지역에 따라 사용할 수 있는 복제본 지역을 보여 줍니다.
 
-### <a name="universal-replica-regions"></a>유니버설 복제본 영역
+[ ![읽기 복제본 지역](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+
+### <a name="universal-replica-regions"></a>유니버설 복제본 지역
 마스터 서버가 있는 위치에 관계 없이 항상 다음 지역에서 읽기 복제본을 만들 수 있습니다. 다음은 범용 복제본 지역입니다.
 
-오스트레일리아 동부, 오스트레일리아 남동쪽, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 미국 중 북부, 북부 유럽, 미국 동부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부.
-
-* 미국 서 부 2는 지역 간 복제 위치로 일시적으로 사용할 수 없습니다.
-
+오스트레일리아 동부, 오스트레일리아 남동쪽, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서 부, 대한민국 중부, 대한민국, 미국 중 북부, 북부 유럽, 미국 중 북부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부, 미국 서 부 2, 미국 서 부 2
 
 ### <a name="paired-regions"></a>쌍을 이루는 지역
-유니버설 복제본 영역 외에도 마스터 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 지역 쌍을 모를 경우 [Azure 쌍을 이루는 지역 문서](../best-practices-availability-paired-regions.md)에서 자세히 알아볼 수 있습니다.
+유니버설 복제본 지역 외에도 마스터 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 해당 지역의 쌍을 모르는 경우 [Azure 쌍을 이루는 지역 문서](../best-practices-availability-paired-regions.md)에서 자세히 알아볼 수 있습니다.
 
-재해 복구 계획에 지역 간 복제본을 사용 하는 경우 다른 지역 중 하나가 아닌 쌍을 이루는 지역에 복제본을 만드는 것이 좋습니다. 쌍을 이루는 지역은 동시 업데이트를 방지 하 고 물리적 격리 및 데이터 상주의 우선 순위를 지정 합니다.  
+재해 복구 계획에 지역 간 복제본을 사용하는 경우 다른 지역 중 하나가 아닌 쌍을 이루는 지역에 복제본을 만드는 것이 좋습니다. 쌍을 이루는 지역은 동시 업데이트를 방지하고 물리적 격리 및 데이터 보존의 우선 순위를 지정합니다.  
 
 다음 사항을 고려해 야 합니다. 
 
-* 지역별 가용성: Azure Database for PostgreSQL는 미국 서 부 2, 프랑스 중부, 아랍에미리트 북부 및 독일 중부에서 사용할 수 있습니다. 그러나 쌍을 이루는 지역에는 사용할 수 없습니다.
+* 지역별 가용성: Azure Database for PostgreSQL는 프랑스 중부, 아랍에미리트 북부 및 독일 중부에서 사용할 수 있습니다. 그러나 쌍을 이루는 지역에는 사용할 수 없습니다.
     
-* 단방향 쌍: 일부 Azure 지역은 한 방향 으로만 쌍을 이룹니다. 이러한 지역에는 인도 서 부, 브라질 남부가 포함 됩니다. 
-   즉, 인도 서 부의 마스터 서버는 남부 인도에서 복제본을 만들 수 있습니다. 그러나 인도 남부의 마스터 서버는 인도 서 부에서 복제본을 만들 수 없습니다. 이는 인도 서 부의 보조 지역이 남부 인도 이지만 남부 인도의 보조 지역은 인도 서 부가 아니기 때문입니다.
+* 단방향 쌍: 일부 Azure 지역은 한 방향으로만 쌍으로 연결됩니다. 이러한 지역에는 인도 서 부, 브라질 남부가 포함 됩니다. 
+   즉, 인도 서부의 마스터 서버는 인도 남부에서 복제본을 만들 수 있습니다. 그러나 인도 남부의 마스터 서버는 인도 서부에서 복제본을 만들 수 없습니다. 이는 인도 서부의 보조 지역은 인도 남부이지만 인도 남부의 보조 지역은 인도 서부가 아니기 때문입니다.
 
 
 ## <a name="create-a-replica"></a>복제본 만들기
 복제본 만들기 워크플로를 시작하면 빈 Azure Database for PostgreSQL 서버가 만들어집니다. 새 서버는 마스터 서버에 있는 데이터로 채워집니다. 생성 시간은 마스터의 데이터 양과 지난 주 전체 백업 이후의 시간에 따라 달라집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다.
 
-모든 복제본은 저장소 [자동 증가](concepts-pricing-tiers.md#storage-auto-grow)에 대해 사용 하도록 설정 됩니다. 자동 증가 기능을 사용 하면 복제본에 복제 된 데이터를 유지 하 고 저장소 오류로 인 한 복제의 중단을 방지할 수 있습니다.
+모든 복제본은 스토리지 [자동 증가](concepts-pricing-tiers.md#storage-auto-grow)에 대해 사용하도록 설정됩니다. 자동 증가 기능을 사용 하면 복제본에 복제 된 데이터를 유지 하 고 저장소 오류로 인 한 복제의 중단을 방지할 수 있습니다.
 
 읽기 복제본 기능은 PostgreSQL의 물리적 복제(논리 복제 아님)를 사용합니다. 복제 슬롯을 사용하는 스트리밍 복제가 기본 작동 모드입니다. 필요한 경우 따라잡기 위해 로그 전달이 사용됩니다.
 
@@ -85,7 +85,7 @@ Azure Database for PostgreSQL는 복제를 모니터링 하기 위한 두 가지
 
 **복제본 간 최대 지연** 수 메트릭은 마스터와 가장 지연 복제본 사이의 지연 시간 (바이트)을 보여 줍니다. 이 메트릭은 마스터 서버에서만 사용할 수 있습니다.
 
-**복제본 지연** 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 보여 줍니다. 마스터 서버에서 트랜잭션이 발생하지 않으면 메트릭은 이 지연 시간을 반영합니다. 이 메트릭은 복제본 서버에만 사용할 수 있습니다. 복제본 지연 시간은 `pg_stat_wal_receiver` 보기에서 계산 됩니다.
+**복제본 지연** 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 보여 줍니다. 마스터 서버에서 트랜잭션이 발생하지 않으면 메트릭은 이 지연 시간을 반영합니다. 이 메트릭은 복제본 서버에만 사용할 수 있습니다. 복제본 지연 시간은 보기에서 계산 됩니다 `pg_stat_wal_receiver` .
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -123,7 +123,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 [복제본에 대한 복제를 중지](howto-read-replicas-portal.md)하는 방법을 알아봅니다.
 
-## <a name="failover"></a>장애 조치(Failover)
+## <a name="failover"></a>장애 조치
 마스터 서버와 복제 서버 간에는 자동화 된 장애 조치 (failover)가 없습니다. 
 
 복제는 비동기 이므로 마스터와 복제본 사이에 지연이 발생 합니다. 지연 시간은 마스터 서버에서 실행 되는 워크 로드의 양과 데이터 센터 간의 대기 시간 등 여러 가지 요소에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 범위는 몇 초에서 몇 분 사이입니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연*시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
@@ -147,7 +147,15 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
-읽기 복제본을 만들기 전에, 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 매개 변수가 변경되면, 서버를 다시 시작해야 변경 사항이 적용됩니다. `azure.replication_support` 매개 변수는 범용 및 메모리 최적화 계층에만 적용됩니다.
+읽기 복제본과 [논리적 디코딩](concepts-logical.md) 은 모두 정보에 대 한 Postgres write 미리 로그 (WAL)에 따라 달라 집니다. 이러한 두 기능에는 Postgres의 다른 로깅 수준이 필요 합니다. 논리적 디코딩에는 읽기 복제본 보다 높은 수준의 로깅이 필요 합니다.
+
+올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.
+
+* **Off** -WAL에 최소 정보를 저장 합니다. 이 설정은 대부분의 Azure Database for PostgreSQL 서버에서 사용할 수 없습니다.  
+* **복제본** -보다 자세한 정보를 **해제**합니다. 이는 [읽기 복제본](concepts-read-replicas.md) 이 작동 하는 데 필요한 최소 수준의 로깅입니다. 이 설정은 대부분의 서버에서 기본값입니다.
+* **논리적** - **복제본**보다 자세한 정보를 표시 합니다. 논리적 디코딩을 작동 하기 위한 최소 로깅 수준입니다. 읽기 복제본도이 설정에서 작동 합니다.
+
+이 매개 변수를 변경한 후에는 서버를 다시 시작 해야 합니다. 내부적으로이 매개 변수는 Postgres 매개 변수, 및를 설정 합니다 `wal_level` `max_replication_slots` `max_wal_senders` .
 
 ### <a name="new-replicas"></a>새 복제본
 읽기 복제본은 새로운 Azure Database for PostgreSQL 서버로 생성됩니다. 기존 서버를 복제본으로 만들 수 없습니다. 다른 읽기 복제본의 복제본은 만들 수 없습니다.
@@ -164,8 +172,11 @@ PostgreSQL에서는 읽기 복제본의 `max_connections` 매개 변수 값이 �
 
 복제본을 만들 때 또는 나중에 마스터 서버에서 복제본으로의 방화벽 규칙, 가상 네트워크 규칙 및 매개 변수 설정이 상속 되지 않습니다.
 
+### <a name="basic-tier"></a>기본 계층
+기본 계층 서버는 동일한 지역 복제만 지원 합니다.
+
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) 에는 읽기 복제본의 `max_prepared_transactions` 매개 변수 값이 마스터 값 보다 크거나 같아야 합니다. 그렇지 않으면 복제본이 시작 되지 않습니다. 마스터에서 변경 `max_prepared_transactions` 하려면 먼저 복제본에서 변경 하십시오.
+[PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) 에는 `max_prepared_transactions` 읽기 복제본의 매개 변수 값이 마스터 값 보다 크거나 같아야 합니다. 그렇지 않으면 복제본이 시작 되지 않습니다. `max_prepared_transactions`마스터에서 변경 하려면 먼저 복제본에서 변경 하십시오.
 
 ### <a name="stopped-replicas"></a>중지된 복제본
 마스터 서버와 읽기 복제본 간의 복제를 중지하면 복제본이 다시 시작되어 변경 내용이 적용됩니다. 중지된 복제본은 읽기와 쓰기를 모두 허용하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.

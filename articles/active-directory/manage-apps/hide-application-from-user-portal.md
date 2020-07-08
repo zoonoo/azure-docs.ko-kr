@@ -1,29 +1,29 @@
 ---
-title: Azure AD의 사용자 환경에서 응용 프로그램 숨기기
-description: Azure Active Directory 액세스 패널 또는 Office 365 시작 관리자의 사용자 환경에서 애플리케이션을 숨기는 방법입니다.
+title: Azure AD의 사용자 환경에서 엔터프라이즈 응용 프로그램 숨기기
+description: Azure Active Directory access 패널 또는 Office 365 시작 관리자의 사용자 환경에서 Enterpise 응용 프로그램을 숨기는 방법입니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5718adf4fd76e2fbd0ff793dd2fa33ee08f7c0fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d21ba14fba24c9b8e0b460e56b93d0e5212bfb27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367702"
 ---
-# <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory의 최종 사용자로부터 애플리케이션 숨기기
+# <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory에서 최종 사용자의 엔터프라이즈 응용 프로그램 숨기기
 
 최종 사용자의 MyApps 패널 또는 Office 365 시작 관리자에서 애플리케이션을 숨기는 방법에 대한 지침입니다. 애플리케이션을 숨겨도 애플리케이션에 대한 사용자의 권한은 계속 유지됩니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 MyApps 패널 및 Office 365 시작 관리자에서 애플리케이션을 숨기려면 애플리케이션 관리자 권한이 필요합니다.
 
@@ -41,6 +41,9 @@ MyApps 패널 및 Office 365 애플리케이션 시작 관리자에서 애플리
 6.  **속성**을 클릭합니다. 
 7.  **사용자가 볼 수 있습니까?** 란 질문에 **아니요**를 클릭합니다.
 8.  **저장**을 클릭합니다.
+
+> [!NOTE]
+> 이러한 지침은 엔터프라이즈 응용 프로그램에만 적용 됩니다.
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Azure AD PowerShell을 사용 하 여 응용 프로그램 숨기기
 
@@ -62,10 +65,11 @@ MyApps 패널에서 모든 Office 365 애플리케이션을 숨기려면 다음 
 
 1.  [Azure Portal](https://portal.azure.com)에 디렉터리에 대한 글로벌 관리자 권한으로 로그인합니다.
 2.  **Azure Active Directory**를 선택합니다.
-3.  **사용자 설정**을 선택 합니다.
-4.  **엔터프라이즈 애플리케이션**에서 **최종 사용자가 해당 애플리케이션을 시작하고 보는 방법 관리**를 클릭합니다.
-5.  **사용자가 Office 365 포털에서 Office 365 앱만 볼 수 있음**에 대해 **예**를 클릭합니다.
-6.  **저장**을 클릭합니다.
+3.  **사용자**를 선택 합니다.
+4.  **사용자 설정**을 선택 합니다.
+5.  **엔터프라이즈 애플리케이션**에서 **최종 사용자가 해당 애플리케이션을 시작하고 보는 방법 관리**를 클릭합니다.
+6.  **사용자가 Office 365 포털에서 Office 365 앱만 볼 수 있음**에 대해 **예**를 클릭합니다.
+7.  **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [내 그룹 모두 보기](../fundamentals/active-directory-groups-view-azure-portal.md)

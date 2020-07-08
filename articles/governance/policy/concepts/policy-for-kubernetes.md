@@ -1,14 +1,14 @@
 ---
 title: 미리 보기 - Kubernetes용 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다. 이 기능은 미리 보기 기능입니다.
-ms.date: 05/20/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373627"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Kubernetes용 Azure Policy 클러스터 이해(미리 보기)
 
@@ -25,7 +25,7 @@ Kubernetes용 Azure Policy는 다음 클러스터 환경을 지원합니다.
 - [AKS 엔진](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Kubernetes용 Azure Policy는 미리 보기 상태이며 Linux 노드 풀 및 기본 제공 정책 정의만 지원합니다. 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceRegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된 제한된 미리 보기 정책 정의는 ‘더 이상 사용되지 않습니다’. 대신 업데이트된 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과가 사용됩니다.
+> Kubernetes용 Azure Policy는 미리 보기 상태이며 Linux 노드 풀 및 기본 제공 정책 정의만 지원합니다. 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceOPAConstraint** 및 **EnforceRegoPolicy** 효과를 사용 하는 제한 된 미리 보기 정책 정의와 관련 **Kubernetes 서비스** 범주는 _사용 되지_않습니다. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -35,6 +35,9 @@ Kubernetes 클러스터에서 Azure Policy를 사용하도록 설정하고 사�
    - [AKS(Azure Kubernetes Service)](#install-azure-policy-add-on-for-aks)
    - [Azure Arc 지원 Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [AKS 엔진](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > 설치와 관련 된 일반적인 문제는 [문제 해결-Azure Policy 추가 기능](../troubleshoot/general.md#add-on-installation-errors)을 참조 하세요.
 
 1. [Kubernetes용 Azure Policy 언어 이해](#policy-language)
 
@@ -49,9 +52,6 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
 1. Azure CLI 버전 2.0.62 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 1. 리소스 공급자 및 미리 보기 기능을 등록합니다.
-
-   > [!CAUTION]
-   > 구독에 기능을 등록하면 해당 기능의 등록을 취소할 수 없습니다. 일부 미리 보기 기능을 사용하도록 설정한 후에는 구독에서 생성된 모든 AKS 클러스터에 기본값이 사용될 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용하도록 설정하지 마세요. 별도의 구독을 사용하여 미리 보기 기능을 테스트하고 피드백을 수집하세요.
 
    - Azure Portal:
 
@@ -367,7 +367,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>정책 언어
 
-Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 정의의 언어를 따릅니다. _EnforceOPAConstraint_ 효과는 Kubernetes 클러스터를 관리하는 데 사용되며 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) 및 Gatekeeper v3 작업에 관련된 세부 속성을 사용합니다. 자세한 내용과 예제는 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 참조하세요.
+Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 정의의 언어를 따릅니다. 의 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes) 에서는 `Microsoft.Kubernetes.Data` Kubernetes 클러스터를 관리 하는 데 효과 [감사](./effects.md#audit) 및 [거부가](./effects.md#deny) 사용 됩니다. _Audit_ 및 _Deny_ [는 Opa 제약 조건 프레임 워크](https://github.com/open-policy-agent/frameworks/tree/master/constraint) 및 게이트 키퍼 v3 작업과 관련 된 **세부** 정보 속성을 제공 해야 합니다.
 
 정책 정의의 _details.constraintTemplate_ 및 _details.constraint_ 속성의 일부로, Azure Policy는 CRD([CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates))의 URI를 추가 기능에 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
 

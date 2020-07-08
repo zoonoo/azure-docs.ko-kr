@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/21/2020
+ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 3b65422a9baf33a2b55de9f1bdfcc85918616d65
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 999ab77538a145189e0576c920216fa55d8508f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85366828"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -196,6 +196,11 @@ ms.locfileid: "83800743"
    <pre><code>sudo pcs quorum expected-votes 2
    </code></pre>
 
+1. **[1]** 동시 fence 작업 허용
+
+   <pre><code>sudo pcs property set concurrent-fencing=true
+   </code></pre>
+
 ## <a name="create-stonith-device"></a>STONITH 디바이스 만들기
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
@@ -221,21 +226,26 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 ```json
 {
-  "Name": "Linux Fence Agent Role",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to power-off and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/powerOff/action",
-    "Microsoft.Compute/virtualMachines/start/action"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-  ]
+    "properties": {
+        "roleName": "Linux Fence Agent Role",
+        "description": "Allows to power-off and start virtual machines",
+        "assignableScopes": [
+            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/*/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -267,7 +277,13 @@ sudo pcs property set stonith-timeout=900
 > [!NOTE]
 > RHEL 호스트 이름 및 Azure 노드 이름이 동일하지 않은 경우에만 ‘pcmk_host_map’ 옵션이 명령에 필요합니다. 명령에서 굵은 섹션을 참조하세요.
 
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+op monitor interval=3600
+</code></pre>
+
+> [!IMPORTANT]
+> 모니터링 및 fence 작업은 deserialize 되지 않습니다. 결과적으로 모니터링 작업을 실행 하 고 동시에 펜스 이벤트를 실행 하는 경우 이미 실행 중인 모니터링 작업 때문에 클러스터 장애 조치 (failover)에 지연이 발생 하지 않습니다.  
 
 ### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** STONITH 디바이스를 사용하도록 설정
 
@@ -282,4 +298,4 @@ sudo pcs property set stonith-timeout=900
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(가상 머신)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
+* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.

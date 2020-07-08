@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
-ms.date: 02/26/2020
+ms.topic: reference
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 3ef482804c80602771963633bcc46feaf014c363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77916577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373831"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -32,9 +32,9 @@ Azure AD(Azure Active Directory) Connect 클라우드 프로비저닝에 대한 
 
 예상된 동작입니다. 이 실패는 Azure AD에 없는 사용자 개체로 인해 발생한 것입니다. 사용자가 Azure AD에 프로비저닝되면 이후 실행에서 암호 해시를 프로비저닝해야 합니다. 몇 번의 실행을 기다린 후에 암호 해시 동기화에 오류가 더 이상 없는지 확인합니다.
 
-**Q: Active Directory 인스턴스에 클라우드 프로비저닝에서 지원하지 않는 특성(예: 디렉터리 확장)이 있는 경우 어떻게 되나요?**
+**Q: Active Directory 인스턴스에 클라우드 프로 비전에서 지원 하지 않는 특성 (예: 디렉터리 확장)이 있는 경우 어떻게 되나요?**
 
-클라우드 프로비저닝은 지원되는 특성을 실행하고 프로비저닝합니다. 지원되지 않는 특성은 Azure AD에 프로비저닝되지 않습니다. Active Directory에서 디렉터리 확장을 검토하고 이러한 특성이 Azure AD로 이동할 필요가 없는지 확인합니다. 하나 이상의 특성이 필요한 경우 Azure AD Connect 동기화를 사용하거나 필요한 정보를 지원하는 특성 중 하나(예: 확장 특성 1-15)로 이동합니다.
+클라우드 프로비저닝은 지원되는 특성을 실행하고 프로비저닝합니다. 지원되지 않는 특성은 Azure AD에 프로비저닝되지 않습니다. Active Directory에서 디렉터리 확장을 검토 하 고 Azure AD로 이동 하는 이러한 특성이 필요 하지 않은지 확인 합니다. 하나 이상의 특성이 필요한 경우 Azure AD Connect 동기화를 사용하거나 필요한 정보를 지원하는 특성 중 하나(예: 확장 특성 1-15)로 이동합니다.
 
 **Q: Azure AD Connect 동기화와 클라우드 프로비저닝의 차이점은 무엇인가요?**
 
@@ -62,7 +62,7 @@ Azure AD Connect 동기화를 사용하면 온-프레미스 동기화 서버에�
 
 **Q: 다음 번에 로그온 할 때 동기화된 사용자가 암호를 변경해야 하는 경우 어떻게 되나요?**
 
-클라우드 프로비저닝에서 암호 해시 동기화를 사용하도록 설정하고 동기화된 사용자가 다음 번에 온-프레미스 AD에서 로그온할 때 암호를 변경해야 하는 경우 클라우드 프로비저닝은 암호 해시를 Azure AD로 변경하도록 프로비저닝하지 않습니다. 사용자가 암호를 변경하면 사용자 암호 해시가 AD에서 Azure AD로 프로비저닝됩니다.
+클라우드 프로 비전에서 암호 해시 동기화를 사용 하도록 설정 하 고 동기화 된 사용자가 온-프레미스 AD에서 다음 로그온 할 때 암호를 변경 해야 하는 경우, 클라우드 프로 비전은 Azure AD에 "변경 되지 않은" 암호 해시를 프로 비전 하지 않습니다. 사용자가 암호를 변경하면 사용자 암호 해시가 AD에서 Azure AD로 프로비저닝됩니다.
 
 **Q: 클라우드 프로비저닝에서 모든 개체에 대해 ms-ds-consistencyGUID의 쓰기 저장을 지원하나요?**
 
@@ -70,7 +70,7 @@ Azure AD Connect 동기화를 사용하면 온-프레미스 동기화 서버에�
 
 **Q: 클라우드 프로비저닝을 사용하여 사용자를 프로비저닝하지만, 구성을 삭제했습니다. Azure AD에서 이전에 동기화된 개체가 계속 표시되는 이유는 무엇인가요?** 
 
-구성을 삭제하는 경우 클라우드 프로비저닝은 Azure AD에서 동기화된 개체를 정리하지 않습니다. 이전 개체가 없는지 확인하려면 구성 범위를 빈 그룹 또는 조직 구성 단위로 변경합니다. 프로비저닝이 실행되고 개체가 정리되면 구성을 사용하지 않도록 설정하고 삭제합니다. 
+구성을 삭제 하는 경우 클라우드 프로 비전은 Azure AD에서 동기화 된 개체를 자동으로 제거 하지 않습니다. 이전 개체가 없는지 확인하려면 구성 범위를 빈 그룹 또는 조직 구성 단위로 변경합니다. 프로비저닝이 실행되고 개체가 정리되면 구성을 사용하지 않도록 설정하고 삭제합니다. 
 
 **Q:  Exchange 하이브리드가 지원되지 않는다는 것은 무슨 의미인가요?**
 
@@ -79,6 +79,10 @@ Exchange 하이브리드 배포 기능을 통해 온-프레미스 및 Office 365
 **Q:  Windows Server Core에 클라우드 프로저닝 에이전트를 설치할 수 있나요?**
 
 아니요, Server Core에 에이전트를 설치할 수 없습니다.
+
+**Q: 클라우드 프로 비전 에이전트에서 준비 서버를 사용할 수 있나요?**
+
+아니요, 스테이징 서버는 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

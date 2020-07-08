@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 41a6cc3a4fd604c4272783f528ed3d37372044fb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1a516374e0ac478b24fa1c3ced1627c4814f9bbd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367600"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>자습서: Juno Journey에 자동 사용자 프로비저닝 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "83647746"
 
 * [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-*  [Juno Journey 테넌트](https://www.junojourney.com/blank).
+*  [Juno Journey 테넌트](https://www.junojourney.com/getstarted).
 *  관리자 권한이 있는 Juno Journey의 사용자 계정.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획

@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/24/2017
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcb407735cff5a0c43d3a584ff37a0eabc178381
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367447"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 외부 공유 및 Azure Active Directory B2B 협업
+# <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Office 365 외부 공유 및 Azure Active Directory (Azure AD) B2B 공동 작업
 
-Office 365의 외부 공유(OneDrive, SharePoint Online, 통합 그룹 등) 기능과 Azure AD(Azure Active Directory) B2B 협업 기능은 기술적으로 동일합니다. Office 365 그룹의 게스트를 비롯한 모든 외부 공유(OneDrive/SharePoint Online 제외)는 이미 공유에 Azure AD B2B 협업 초대 API를 사용하고 있습니다.
+Azure AD B2B 공동 작업 및 Office 365 외부 공유 (OneDrive, SharePoint Online, 통합 그룹 등)에서 외부 사용자는 Azure AD B2B를 사용 하 여 인증 됩니다.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Azure AD B2B가 SharePoint Online의 외부 공유와 어떻게 다른가?
 
@@ -49,4 +49,4 @@ Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 
 * [역할에 B2B 협업 사용자 추가](add-guest-to-role.md)
 * [B2B 협업 초대 위임](delegate-invitations.md)
 * [동적 그룹 및 B2B 협업](use-dynamic-groups.md)
-* [Azure Active Directory B2B 협업 문제 해결](troubleshoot.md)
+* [B2B 공동 작업 Azure Active Directory 문제 해결](troubleshoot.md)

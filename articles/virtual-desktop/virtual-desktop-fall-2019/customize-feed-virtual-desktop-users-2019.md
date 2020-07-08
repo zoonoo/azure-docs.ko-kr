@@ -4,21 +4,21 @@ description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱 사
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a93aa35353940cfdbded1634448d4f6d2865c365
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 58f05b2f9f15166e161b31578b47cf06afcb13a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362580"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Windows Virtual Desktop 사용자용 피드를 사용자 지정
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다. 스프링 2020 업데이트에 도입 된 Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../customize-feed-for-virtual-desktop-users.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../customize-feed-for-virtual-desktop-users.md)를 참조하세요.
 
 사용자에 게 RemoteApp 및 원격 데스크톱 리소스가 인식할 수 있는 방식으로 표시 되도록 피드를 사용자 지정할 수 있습니다.
 
@@ -37,14 +37,18 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/get-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/get-rdsremoteapp.png)
 
 RemoteApp에 이름을 할당 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![이름 및 새 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/set-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![이름 및 새 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>원격 데스크톱에 대 한 표시 이름 사용자 지정
 
@@ -55,18 +59,22 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/get-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![Name 및 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/get-rdsremotedesktop.png)
 
 원격 데스크톱 리소스에 이름을 할당 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![이름 및 새 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/set-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![이름 및 새 FriendlyName이 강조 표시 된 PowerShell cmdlet RDSRemoteApp의 스크린샷](../media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 사용자에 대 한 피드를 사용자 지정 했으므로 Windows 가상 데스크톱 클라이언트에 로그인 하 여 테스트할 수 있습니다. 이렇게 하려면 Windows 가상 데스크톱 방법에 연결을 계속 진행 합니다.
-    
+
  * [Windows 10 또는 Windows 7에서 연결](../connect-windows-7-and-10.md)
- * [웹 브라우저에서 연결](connect-web-2019.md) 
+ * [웹 브라우저에서 연결](connect-web-2019.md)

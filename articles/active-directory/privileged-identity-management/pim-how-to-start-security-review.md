@@ -27,7 +27,7 @@ ms.locfileid: "84743884"
 
 이 문서에서는 권한 있는 Azure AD 역할에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 

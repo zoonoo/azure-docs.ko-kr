@@ -6,15 +6,15 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 06/01/2020
 ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d868d7d231f6dbe1952756917e5a7965d6cea2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80286186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686352"
 ---
 마켓플레이스에 제품을 나열 하 고 CRM (고객 관계 관리) 시스템을 연결 하 여 고객에 게 직접 연결 하 여 고객에 게 관심이 나 제품을 배포한 후 즉시 고객 연락처 정보를 받을 수 있도록 합니다.
 
@@ -22,7 +22,6 @@ ms.locfileid: "80286186"
 
 파트너 센터는 리드 관리를 위해 다음과 같은 CRM 시스템을 지원 합니다. 설치 지침에 대 한 링크를 선택 합니다.
 
-- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) -연락처 전자 메일, 컨테이너 이름 및 저장소 계정 연결 문자열을 제공 합니다. 
 - [Azure 테이블](../commercial-marketplace-lead-management-instructions-azure-table.md) -연락처 전자 메일 및 저장소 계정 연결 문자열을 제공 합니다. 
 - [DYNAMICS CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) -연락처 전자 메일, URL 및 인증 모드 (Office 365 또는 Azure Active Directory)를 제공 합니다.
 - [Https 끝점](../commercial-marketplace-lead-management-instructions-https.md) -연락처 전자 메일 및 HTTPS 끝점 URL을 제공 합니다. 

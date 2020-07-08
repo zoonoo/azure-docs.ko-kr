@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 04/05/2017
+ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4a972cab0559ff8a4bb22588c712515daa2fab16
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6939339ce8d0f324fbd9e14ba31d23a6febcfcbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373900"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Azure DSC 확장에 Virtual Machine Scale Sets 사용
 [Azure DSC(필요한 상태 구성)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 확장 처리기에 [Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md)를 사용할 수 있습니다. 가상 머신 확장 집합은 많은 수의 가상 머신을 배포 및 관리하는 방법을 제공하며 부하에 따라 탄력적으로 확장 및 축소될 수 있습니다. DSC는 VM이 온라인으로 전환되어 프로덕션 소프트웨어를 실행하도록 VM을 구성하는 데 사용합니다.

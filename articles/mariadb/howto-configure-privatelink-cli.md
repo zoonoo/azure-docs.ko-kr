@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: c28c5494c1cff2c198a94ea6b92003ae74ee2c8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08e7805d9eff1f53c43882f2180e298abd008346
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371803"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368331"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>CLI를 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "79371803"
 > [!NOTE]
 > 이 기능은 Azure Database for MariaDB 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
@@ -49,7 +49,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 만들거나 업데이트해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -72,7 +72,7 @@ az vm create \
 Az MariaDB server create 명령을 사용 하 여 Azure Database for MariaDB를 만듭니다. Azure 전체에서 고유 해야 하는 사용자의 경우에는 Fadb 서버 이름이 필요 합니다. 따라서 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿉니다. 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mariadb server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -82,20 +82,24 @@ az mariadb server create \
 --sku-name GP_Gen5_2
 ```
 
-참조는 다음 단계에서 aadb 서버 id를 ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` 사용 하는 것과 유사 합니다. 
+> [!NOTE]
+> 경우에 따라 Azure Database for MariaDB와 VNet 서브넷이 서로 다른 구독에 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
+> - 두 구독 모두에 **DBforMariaDB** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
 ## <a name="create-the-private-endpoint"></a>프라이빗 엔드포인트 만들기 
 Virtual Network에서 다음과 같이 Aadb 서버에 대 한 개인 끝점을 만듭니다. 
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MariaDB Server ID>" \  
-    --group-ids mariadbServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id") \    
+    --group-id mariadbServer \  
     --connection-name myConnection  
  ```
+
 
 ## <a name="configure-the-private-dns-zone"></a>프라이빗 DNS 영역 구성 
 에 대 한 사설 DNS 영역을 만들고, Virtual Network를 사용 하 여 연결 링크를 만듭니다. 
@@ -168,11 +172,11 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
     | Hostname | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
-    | 사용자 이름 | MariaDB 서버 생성 중에 제공 되는 사용자 이름 *username@servername* 을 입력 합니다. |
+    | 사용자 이름 | *username@servername*MariaDB 서버 생성 중에 제공 되는 사용자 이름을 입력 합니다. |
     | 암호 | MariaDB 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     ||
 
@@ -191,3 +195,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 개인 끝점 이란?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 에 대해 자세히 알아보세요.
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

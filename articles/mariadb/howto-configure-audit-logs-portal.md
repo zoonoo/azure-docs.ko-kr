@@ -5,28 +5,28 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: f05f26c54d9f3ea62180c598aada59d405c3c805
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362682"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Azure Portal에서 감사 로그 구성 및 액세스
 
 Azure Portal에서 [Azure Database for MariaDB 감사 로그](concepts-audit-logs.md) 및 진단 설정을 구성할 수 있습니다.
 
-> [!IMPORTANT]
-> 감사 로그 기능은 현재 미리 보기로 제공 됩니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
 - [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
+
+>[!IMPORTANT]
+> 서버 성능이 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자를 기록 하는 것이 좋습니다.
 
 감사 로깅을 사용 하도록 설정 하 고 구성 합니다.
 
@@ -53,7 +53,7 @@ Azure Portal에서 [Azure Database for MariaDB 감사 로그](concepts-audit-log
 
 1. 사이드바의 **모니터링** 섹션에서 **진단 설정**을 선택 합니다.
 
-1. "+ 진단 설정 추가" ![진단 설정 추가를 클릭 합니다.](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. "+ 진단 설정 추가" ![ 진단 설정 추가를 클릭 합니다.](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. 진단 설정 이름을 제공 합니다.
 

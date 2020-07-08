@@ -3,25 +3,25 @@ title: Azure AD 응용 프로그램 프록시의 와일드 카드 응용 프로�
 description: Azure Active Directory 애플리케이션 프록시에서 와일드카드 애플리케이션을 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367736"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
 
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 
 내부 및 외부 URL이 둘 다 다음 형식인 경우에는 와일드카드를 사용하여 애플리케이션을 게시할 수 있습니다.
 
-> http(s)://*.\<domain\>
+> http (s)://*입니다.\<domain\>
 
 예: `http(s)://*.adventure-works.com`
 
@@ -62,7 +62,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 1. Azure 내에서 확인 된 도메인을 만듭니다.
 1. 응용 프로그램 프록시에 PFX 형식의 TLS/SSL 인증서를 업로드 합니다.
 
-만들려는 애플리케이션에 대응할 와일드카드 인증서를 사용하는 것이 좋습니다. 또는 특정 애플리케이션만 나열하는 인증서를 사용할 수도 있습니다. 이 경우 인증서에 나열된 애플리케이션만 이 와일드카드 애플리케이션을 통해 액세스할 수 있습니다.
+만들려는 애플리케이션에 대응할 와일드카드 인증서를 사용하는 것이 좋습니다. 
 
 보안상의 이유로 하드 요구 사항이며, 외부 URL에 사용자 지정 도메인을 사용할 수 없는 애플리케이션에 대해서는 와일드카드를 지원하지 않습니다.
 
@@ -82,11 +82,11 @@ CNAME을 제대로 구성했는지 확인하려면 대상 엔드포인트 중 �
 
 와일드카드 애플리케이션의 경우 **내부 URL**은 `http(s)://*.<domain>` 형식이어야 합니다.
 
-![내부 URL의 경우 http (s)://* 형식을 사용 합니다. \<도메인>](./media/application-proxy-wildcard/22.png)
+![내부 URL의 경우 http (s)://* 형식을 사용 합니다. \< 도메인>](./media/application-proxy-wildcard/22.png)
 
 **외부 URL**을 구성하는 경우 `https://*.<custom domain>` 형식을 사용해야 합니다.
 
-![외부 URL에는 https://* 형식을 사용 합니다. \<사용자 지정 도메인>](./media/application-proxy-wildcard/21.png)
+![외부 URL에는 https://* 형식을 사용 합니다. \< 사용자 지정 도메인>](./media/application-proxy-wildcard/21.png)
 
 다른 와일드카드 위치, 다중 와일드카드 또는 기타 정규식 문자열은 지원되지 않으며 오류가 발생합니다.
 
@@ -156,7 +156,7 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 ![예제 구성에 의해 구현 된 구조를 보여 줍니다.](./media/application-proxy-wildcard/05.png)
 
-| 색상 | Description |
+| 색상 | 설명 |
 | ---   | ---         |
 | 파랑  | 응용 프로그램을 명시적으로 게시 하 고 Azure Portal에 표시 합니다. |
 | 회색  | 부모 애플리케이션을 통해 액세스할 수 있는 애플리케이션입니다. |

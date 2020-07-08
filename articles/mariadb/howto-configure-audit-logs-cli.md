@@ -5,22 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: e9716f0fa8e0ae44d614bbb28ed6846105e683d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 1dcad61ed94926aa2aa2237ea735287cd9c9f137
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362699"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Azure CLI에서 감사 로그 구성 및 액세스
 
 Azure CLI에서 [Azure Database for MariaDB 감사 로그](concepts-audit-logs.md) 를 구성할 수 있습니다.
 
-> [!IMPORTANT]
-> 감사 로그 기능은 현재 미리 보기로 제공 됩니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
@@ -33,6 +30,9 @@ Azure CLI에서 [Azure Database for MariaDB 감사 로그](concepts-audit-logs.m
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성
 
+>[!IMPORTANT]
+> 서버 성능이 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자를 기록 하는 것이 좋습니다.
+
 다음 단계를 사용 하 여 감사 로깅을 설정 하 고 구성 합니다. 
 
 1. **Audit_logs_enabled** 매개 변수를 "설정"으로 설정 하 여 감사 로그를 설정 합니다. 
@@ -40,7 +40,7 @@ Azure CLI에서 [Azure Database for MariaDB 감사 로그](concepts-audit-logs.m
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. **Audit_log_egitvents** 매개 변수를 업데이트 하 여 로깅할 [이벤트 유형을](concepts-audit-logs.md#configure-audit-logging) 선택 합니다.
+1. **Audit_log_events** 매개 변수를 업데이트 하 여 로깅할 [이벤트 유형을](concepts-audit-logs.md#configure-audit-logging) 선택 합니다.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```

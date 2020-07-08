@@ -9,12 +9,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5ee3b97eb835322a0ad6c8a69c20776a243713fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b22105486aabe8d79848d7ac621b9543815d106
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85366988"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Windows 확장
 
@@ -22,7 +22,7 @@ Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하
 
 VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나타납니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 지원되는 운영 체제 목록은 [Azure Backup에 지원되는 운영 체제](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)를 참조하세요.
@@ -37,7 +37,7 @@ VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나
   "name": "VMSnapshot",
   "location":"<myLocation>",
   "properties": {
-    "publisher": "Microsoft.RecoveryServices",
+    "publisher": "Microsoft.Azure.RecoveryServices",
     "type": "VMSnapshot",
     "typeHandlerVersion": "1.9",
     "autoUpgradeMinorVersion": true,
@@ -59,7 +59,7 @@ VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
@@ -108,6 +108,6 @@ C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot
 
 문제 해결 정보는 [Azure VM 백업 문제 해결 가이드](../../backup/backup-azure-vms-troubleshoot.md)에 있습니다.
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 지원 받기를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
