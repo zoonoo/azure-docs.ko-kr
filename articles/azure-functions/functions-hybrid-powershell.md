@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
 ms.openlocfilehash: 6034d1327d263eda49881af5eedf94ae06495128
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122275"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Azure Functions 및 App Service 하이브리드 연결에서 PowerShell을 사용 하 여 하이브리드 환경 관리
@@ -74,7 +73,7 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
     | ------------ | ---------------- | ----------- |
     | **[Storage 계정](../storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자와 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](../azure-functions/functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
     |**운영 체제**| 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
-    | **[계획 유형](../azure-functions/functions-scale.md)** | **앱 서비스 계획** | **App service 계획**을 선택 합니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](../azure-functions/functions-scale.md)을 관리해야 합니다.  |
+    | **[플랜 유형](../azure-functions/functions-scale.md)** | **앱 서비스 계획** | **App service 계획**을 선택 합니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](../azure-functions/functions-scale.md)을 관리해야 합니다.  |
 
     :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="함수 앱 호스팅을 만듭니다." border="true":::
 
@@ -82,7 +81,7 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
 
     | 설정      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../azure-functions/functions-monitoring.md)** | 기본값 | 가장 가까운 지원 영역에 동일한 *앱 이름*의 Application Insight 리소스를 만듭니다. 이 설정을 확장 하거나 **새로 만들기**를 선택 하 여 Application Insights 이름을 변경 하거나 데이터를 저장 하려는 [Azure 지리](https://azure.microsoft.com/global-infrastructure/geographies/) 에서 다른 지역을 선택할 수 있습니다. |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | 기본값 | 가장 가까운 지원 영역에 동일한 *앱 이름*의 Application Insight 리소스를 만듭니다. 이 설정을 확장하거나 **새로 만들기**를 선택하면 Application Insights 이름을 변경하거나 데이터를 저장하려는 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 다른 지역을 선택할 수 있습니다. |
 
     :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="함수 앱 모니터링을 만듭니다." border="true":::
 
@@ -90,7 +89,7 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
 
 1. **검토 + 만들기** 페이지에서 설정을 검토한 다음, **만들기**를 선택하여 함수 앱을 프로비저닝하고 배포합니다.
 
-1. 포털의 오른쪽 위 모퉁이에 있는 **알림** 아이콘을 선택 하 고 **배포 성공** 메시지를 시청 합니다.
+1. 포털의 오른쪽 위 모서리에 있는 **알림** 아이콘을 선택하고 **배포 성공** 메시지를 확인합니다.
 
 1. **리소스로 이동**을 선택하여 함수 앱을 봅니다. **대시보드에 고정**을 선택할 수도 있습니다. 고정하면 대시보드에서 이 함수 앱 리소스로 쉽게 돌아올 수 있습니다.
 

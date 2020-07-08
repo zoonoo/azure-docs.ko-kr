@@ -14,10 +14,9 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117124"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
@@ -35,7 +34,7 @@ HANA 설치를 시작 하기 전에 다음의 유효성을 검사 합니다.
 - [HLI 단위](#validate-the-hana-large-instance-units)
 - [운영 체제 구성](#operating-system)
 - [네트워크 구성](#networking)
-- [저장소 구성](#storage)
+- [스토리지 구성](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>HANA 대규모 인스턴스 단위 유효성 검사
@@ -144,8 +143,8 @@ Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권
 
 | 스토리지 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000 \< m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA log | /hana/log/SID/mnt0000 \< m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA data | /hana/data/SID/mnt0000\<m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA log | /hana/log/SID/mnt0000\<m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA log backup | /hana/log/backups | 스토리지 IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA shared | /hana/shared/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -198,7 +197,7 @@ hdbparam 프레임워크를 사용하여 SAP HANA 데이터베이스 설치 후 
 HANA 큰 인스턴스에 사용 되는 저장소에는 파일 크기 제한이 있습니다. [크기 제한은 파일당 16TB입니다](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) . EXT3 파일 시스템의 파일 크기 제한과 달리 HANA는 HANA 큰 인스턴스 저장소에서 적용 하는 저장소 제한을 암시적으로 인식 하지 못합니다. 결과적으로 파일 크기 제한인 16TB에 도달 하면 HANA는 새 데이터 파일을 자동으로 만들지 않습니다. HANA가 16gb를 초과 하 여 파일을 확장 하려고 하면 HANA에서 오류를 보고 하 고 인덱스 서버가 종료 될 때 충돌 합니다.
 
 > [!IMPORTANT]
-> Hana 큰 인스턴스 저장소의 16TB 파일 크기 제한을 초과 하 여 데이터 파일을 확장 하려는 HANA를 방지 하려면 SAP HANA global.asax 구성 파일에서 다음 매개 변수를 설정 해야 합니다.
+> Hana 큰 인스턴스 저장소의 16TB 파일 크기 제한을 초과 하 여 데이터 파일을 확장 하려는 HANA를 방지 하려면 SAP HANA global.ini 구성 파일에서 다음 매개 변수를 설정 해야 합니다.
 > 
 > - datavolume_striping = true
 > - datavolume_striping_size_gb = 15000

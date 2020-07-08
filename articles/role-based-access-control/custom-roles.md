@@ -16,16 +16,15 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a30ea70c623c8456ae97c8ca9475e4989784edf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995847"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
 > [!IMPORTANT]
-> 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
+> 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -119,13 +118,13 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 | --- | --- | --- | --- |
 | `Name`</br>`roleName` | 예 | String | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 관리 그룹 또는 구독 수준 리소스 이지만 동일한 Azure AD 디렉터리를 공유 하는 여러 구독에서 역할 정의를 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
 | `Id`</br>`name` | 예 | String | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
-| `IsCustom`</br>`roleType` | 예 | String | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 `true` 역할 `CustomRole` 에 대해 또는로 설정 합니다. 기본 제공 `false` 역할 `BuiltInRole` 에 대해 또는로 설정 합니다. |
+| `IsCustom`</br>`roleType` | 예 | String | 사용자 지정 역할인지 여부를 나타냅니다. `true` `CustomRole` 사용자 지정 역할에 대해 또는로 설정 합니다. `false` `BuiltInRole` 기본 제공 역할에 대해 또는로 설정 합니다. |
 | `Description`</br>`description` | 예 | String | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
 | `Actions`</br>`actions` | 예 | String[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
-| `NotActions`</br>`notActions` | 예 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
-| `DataActions`</br>`dataActions` | 예 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 `DataActions`하 여 사용자 지정 역할을 만드는 경우 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
-| `NotDataActions`</br>`notDataActions` | 예 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
-| `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에 `AssignableScopes` 는 하나의 관리 그룹만 정의할 수 있습니다. 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
+| `NotActions`</br>`notActions` | 아니요 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
+| `DataActions`</br>`dataActions` | 아니요 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 하 여 사용자 지정 역할을 만드는 경우 `DataActions` 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
+| `NotDataActions`</br>`notDataActions` | 아니요 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
+| `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
 
 ## <a name="steps-to-create-a-custom-role"></a>사용자 지정 역할을 만드는 단계
 
@@ -137,7 +136,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 1. 필요한 권한을 결정 합니다.
 
-    사용자 지정 역할을 만들 때 사용 권한을 정의 하는 데 사용할 수 있는 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요. `Actions` [역할 정의](role-definitions.md)의 또는 `NotActions` 속성에 작업을 추가 합니다. 데이터 작업을 수행 하는 경우 `DataActions` 또는 `NotDataActions` 속성에 해당 작업을 추가 합니다.
+    사용자 지정 역할을 만들 때 사용 권한을 정의 하는 데 사용할 수 있는 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요. `Actions` `NotActions` [역할 정의](role-definitions.md)의 또는 속성에 작업을 추가 합니다. 데이터 작업을 수행 하는 경우 또는 속성에 해당 작업을 추가 합니다 `DataActions` `NotDataActions` .
 
 1. 사용자 지정 역할을 만듭니다.
 
@@ -151,7 +150,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 기본 제공 역할과 마찬가지로, `AssignableScopes` 속성은 할당에 사용할 수 있는 역할에 대한 범위를 지정합니다. 또한 사용자 지정 역할에 대한 `AssignableScopes` 속성은 사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자도 제어합니다.
 
-| 작업 | 작업(Operation) | Description |
+| Task | 작업(Operation) | Description |
 | --- | --- | --- |
 | 사용자 지정 역할 만들기/삭제 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에서 사용할 사용자 지정 역할을 만들거나 삭제할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |
 | 사용자 지정 역할 업데이트 | `Microsoft.Authorization/ roleDefinitions/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에의 사용자 지정 역할을 업데이트할 수 있습니다. 예를 들어 관리 그룹, 구독 및 리소스 그룹의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 가 있습니다. |
@@ -163,9 +162,9 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 - 각 디렉터리에는 최대 **5000** 개의 사용자 지정 역할이 있을 수 있습니다.
 - Azure 독일 및 Azure 중국 21Vianet에는 각 디렉터리에 대해 최대 2000 개의 사용자 지정 역할이 있을 수 있습니다.
-- 루트 범위 ( `AssignableScopes` `"/"`)로 설정할 수 없습니다.
-- 사용자 지정 역할에 `AssignableScopes` 는 하나의 관리 그룹만 정의할 수 있습니다. 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
-- 를 사용 하 `DataActions` 는 사용자 지정 역할은 관리 그룹 범위에서 할당할 수 없습니다.
+- `AssignableScopes`루트 범위 ()로 설정할 수 없습니다 `"/"` .
+- 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
+- 를 사용 하는 사용자 지정 역할 `DataActions` 은 관리 그룹 범위에서 할당할 수 없습니다.
 - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인 하지 않습니다.
 
 사용자 지정 역할 및 관리 그룹에 대 한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)을 참조 하세요.
@@ -190,7 +189,7 @@ Azure PowerShell를 사용 하 여 사용자 지정 역할을 만들려면 다�
 }
 ```
 
-Azure PowerShell를 사용 하 여 사용자 지정 역할을 업데이트 하려면 다음 입력을 제공 해야 합니다. `Id` 속성이 추가 되었습니다. 
+Azure PowerShell를 사용 하 여 사용자 지정 역할을 업데이트 하려면 다음 입력을 제공 해야 합니다. `Id`속성이 추가 되었습니다. 
 
 ```json
 {

@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
 ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006327"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
@@ -25,7 +24,7 @@ ms.locfileid: "83006327"
 
 이 문서에서는 Azure Resource Manager 템플릿 배포를 사용 하 여 전송 파이프라인을 만들고 실행 합니다. Azure CLI는 저장소 암호와 같은 연결 된 리소스를 프로 비전 하는 데 사용 됩니다. Azure CLI 버전 2.2.0 이상을 권장 합니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-이 기능은 **프리미엄** 컨테이너 레지스트리 서비스 계층에서 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대 한 자세한 내용은 [Azure Container Registry 계층](container-registry-skus.md)을 참조 하세요.
+이 기능은 **프리미엄** 컨테이너 레지스트리 서비스 계층에서 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 계층](container-registry-skus.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
@@ -74,7 +73,7 @@ ms.locfileid: "83006327"
 
 *권장 토큰 권한*: 읽기, 쓰기, 나열, 추가. 
 
-다음 예제에서는 명령 출력이 '? ' 문자를 접두사로 하는 EXPORT_SAS 환경 변수에 할당 됩니다. 사용자 환경 `--expiry` 에 대 한 값을 업데이트 합니다.
+다음 예제에서는 명령 출력이 '? ' 문자를 접두사로 하는 EXPORT_SAS 환경 변수에 할당 됩니다. `--expiry`사용자 환경에 대 한 값을 업데이트 합니다.
 
 ```azurecli
 EXPORT_SAS=?$(az storage container generate-sas \
@@ -103,7 +102,7 @@ az keyvault secret set \
 
 *권장 토큰 권한*: 읽기, 삭제, 목록
 
-다음 예제에서는 명령 출력이 '? ' 문자를 접두사로 하는 IMPORT_SAS 환경 변수에 할당 됩니다. 사용자 환경 `--expiry` 에 대 한 값을 업데이트 합니다.
+다음 예제에서는 명령 출력이 '? ' 문자를 접두사로 하는 IMPORT_SAS 환경 변수에 할당 됩니다. `--expiry`사용자 환경에 대 한 값을 업데이트 합니다.
 
 ```azurecli
 IMPORT_SAS=?$(az storage container generate-sas \
@@ -132,7 +131,7 @@ Azure Resource Manager 템플릿 배포를 사용 하 여 소스 컨테이너 �
 
 ExportPipeline 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) 을 로컬 폴더에 복사 합니다.
 
-파일 `azuredeploy.parameters.json`에 다음 매개 변수 값을 입력 합니다.
+파일에 다음 매개 변수 값을 입력 합니다 `azuredeploy.parameters.json` .
 
 |매개 변수  |값  |
 |---------|---------|
@@ -144,7 +143,7 @@ ExportPipeline 리소스 관리자 [템플릿 파일](https://github.com/Azure/a
 
 ### <a name="export-options"></a>내보내기 옵션
 
-내보내기 `options` 파이프라인에 대 한 속성은 선택적 부울 값을 지원 합니다. 권장 되는 값은 다음과 같습니다.
+`options`내보내기 파이프라인에 대 한 속성은 선택적 부울 값을 지원 합니다. 권장 되는 값은 다음과 같습니다.
 
 |매개 변수  |값  |
 |---------|---------|
@@ -162,7 +161,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-명령 출력에서 파이프라인의 리소스 ID (`id`)를 기록해 둡니다. [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 다음은 그 예입니다. 
+명령 출력에서 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들어:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -178,7 +177,7 @@ Azure Resource Manager 템플릿 배포를 사용 하 여 대상 컨테이너 �
 
 ImportPipeline 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/tree/master/docs/image-transfer/ImportPipelines) 을 로컬 폴더에 복사 합니다.
 
-파일 `azuredeploy.parameters.json`에 다음 매개 변수 값을 입력 합니다.
+파일에 다음 매개 변수 값을 입력 합니다 `azuredeploy.parameters.json` .
 
 매개 변수  |값  |
 |---------|---------|
@@ -190,7 +189,7 @@ ImportPipeline 리소스 관리자 [템플릿 파일](https://github.com/Azure/a
 
 ### <a name="import-options"></a>가져오기 옵션
 
-가져오기 `options` 파이프라인의 속성은 선택적 부울 값을 지원 합니다. 권장 되는 값은 다음과 같습니다.
+`options`가져오기 파이프라인의 속성은 선택적 부울 값을 지원 합니다. 권장 되는 값은 다음과 같습니다.
 
 |매개 변수  |값  |
 |---------|---------|
@@ -208,7 +207,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID (`id`)를 기록해 둡니다. [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 다음은 그 예입니다. 
+가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들어:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -224,7 +223,7 @@ Azure Resource Manager 템플릿 배포를 사용 하 여 원본 컨테이너 �
 
 PipelineRun 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Export) 을 로컬 폴더에 복사 합니다.
 
-파일 `azuredeploy.parameters.json`에 다음 매개 변수 값을 입력 합니다.
+파일에 다음 매개 변수 값을 입력 합니다 `azuredeploy.parameters.json` .
 
 |매개 변수  |값  |
 |---------|---------|
@@ -232,7 +231,7 @@ PipelineRun 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/
 |pipelineRunName     |  실행에 대해 선택 하는 이름       |
 |pipelineResourceId     |  내보내기 파이프라인의 리소스 ID입니다.<br/>예: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |targetName     |  원본 저장소 계정으로 내보낸 아티팩트 blob에 대해 선택 하는 이름 (예: *myblob* )
-|아티팩트 | 태그 또는 매니페스트 다이제스트로 전송할 소스 아티팩트의 배열<br/>예: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
+|artifacts | 태그 또는 매니페스트 다이제스트로 전송할 소스 아티팩트의 배열<br/>예: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
 [Az deployment group create][az-deployment-group-create] 를 실행 하 여 PipelineRun 리소스를 만듭니다. 다음 예에서는 배포 *exportPipelineRun*의 이름을로 합니다.
 
@@ -268,13 +267,13 @@ azcopy copy \
 
 ## <a name="trigger-importpipeline-resource"></a>ImportPipeline 리소스 트리거
 
-ImportPipeline (기본값 `sourceTriggerStatus` )의 매개 변수를 사용 하도록 설정한 경우 blob이 대상 저장소 계정에 복사 된 후 파이프라인이 트리거됩니다. 아티팩트를 가져오는 데 몇 분 정도 걸릴 수 있습니다. 가져오기가 성공적으로 완료 되 면 대상 컨테이너 레지스트리의 리포지토리를 나열 하 여 아티팩트 가져오기를 확인 합니다. 예를 들어 [az acr repository list][az-acr-repository-list]를 실행 합니다.
+`sourceTriggerStatus`Importpipeline (기본값)의 매개 변수를 사용 하도록 설정한 경우 blob이 대상 저장소 계정에 복사 된 후 파이프라인이 트리거됩니다. 아티팩트를 가져오는 데 몇 분 정도 걸릴 수 있습니다. 가져오기가 성공적으로 완료 되 면 대상 컨테이너 레지스트리의 리포지토리를 나열 하 여 아티팩트 가져오기를 확인 합니다. 예를 들어 [az acr repository list][az-acr-repository-list]를 실행 합니다.
 
 ```azurecli
 az acr repository list --name <target-registry-name>
 ```
 
-가져오기 파이프라인의 `sourceTriggerStatus` 매개 변수를 사용 하도록 설정 하지 않은 경우 다음 섹션에 표시 된 것 처럼 importpipeline 리소스를 수동으로 실행 합니다. 
+가져오기 파이프라인의 매개 변수를 사용 하도록 설정 하지 않은 경우 `sourceTriggerStatus` 다음 섹션에 표시 된 것 처럼 importpipeline 리소스를 수동으로 실행 합니다. 
 
 ## <a name="create-pipelinerun-for-import-with-resource-manager-optional"></a>리소스 관리자를 사용 하 여 가져오기에 대 한 PipelineRun 만들기 (선택 사항) 
  
@@ -282,7 +281,7 @@ PipelineRun 리소스를 사용 하 여 대상 컨테이너 레지스트리에 �
 
 PipelineRun 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Import) 을 로컬 폴더에 복사 합니다.
 
-파일 `azuredeploy.parameters.json`에 다음 매개 변수 값을 입력 합니다.
+파일에 다음 매개 변수 값을 입력 합니다 `azuredeploy.parameters.json` .
 
 |매개 변수  |값  |
 |---------|---------|
@@ -327,7 +326,7 @@ az deployment group delete \
 ## <a name="troubleshooting"></a>문제 해결
 
 * **템플릿 배포 오류 또는 오류**
-  * 파이프라인 실행이 실패 하면 실행 리소스의 `pipelineRunErrorMessage` 속성을 확인 합니다.
+  * 파이프라인 실행이 실패 하면 `pipelineRunErrorMessage` 실행 리소스의 속성을 확인 합니다.
   * 일반적인 템플릿 배포 오류는 [ARM 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md) 을 참조 하세요.
 * **저장소 blob 내보내기 또는 가져오기 문제**
   * SAS 토큰이 만료 되었거나 지정 된 내보내기 또는 가져오기 실행에 대 한 권한이 부족 한 것일 수 있습니다.

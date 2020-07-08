@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
 ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995815"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>시간 이동 및 라이브 출력을 사용 하 여 주문형 비디오 재생 만들기
@@ -31,7 +30,7 @@ Azure Media Services [라이브 출력](https://docs.microsoft.com/rest/api/medi
 
 이 섹션에서는 이벤트 동안 DVR을 사용 하 여 ' 되감기 '에 사용할 수 있는 스트림의 부분을 제어 하는 방법을 설명 합니다.
 
-값 `archiveWindowLength` 은 뷰어가 현재 라이브 위치에서 이동할 수 있는 시간을 결정 합니다. 또한 `archiveWindowLength` 이 값은 클라이언트 매니페스트가 증가할 수 있는 기간을 결정 합니다.
+`archiveWindowLength`값은 뷰어가 현재 라이브 위치에서 이동할 수 있는 시간을 결정 합니다. `archiveWindowLength`또한이 값은 클라이언트 매니페스트가 증가할 수 있는 기간을 결정 합니다.
 
 축구 게임을 스트리밍하는 `ArchiveWindowLength` 중 이며 30 분의만 있는 경우를 가정 합니다. 경기 시작 45분 후에 이벤트를 보기 시작한 시청자는 최대 15분 마크까지 이전으로 탐색할 수 있습니다. 게임의 라이브 출력은 라이브 이벤트가 중지 될 때까지 계속 됩니다. ArchiveWindowLength 외부에 있는 콘텐츠는 저장소에서 지속적으로 삭제 되며 복구할 수 없습니다. 이 예제에서는 이벤트의 시작과 15 분 표시 사이에 있는 비디오가 DVR에서 제거 되었고 자산의 blob storage에 있는 컨테이너에서 제거 되었습니다. 아카이브는 복구할 수 없으며 Azure blob storage의 컨테이너에서 제거 됩니다.
 

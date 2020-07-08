@@ -13,15 +13,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83004741"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
-Azure API Management 서비스 인스턴스를 만들 때 Azure는의 `azure-api.net` 하위 도메인 (예: `apim-service-name.azure-api.net`)을 할당 합니다. 그러나 사용자 지정 도메인 이름 (예: **contoso.com**)을 사용 하 여 API Management 끝점을 노출할 수 있습니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 API Management 인스턴스에 의해 노출 된 끝점에 매핑하는 방법을 보여 줍니다.
+Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도메인 `azure-api.net` (예:)을 할당 `apim-service-name.azure-api.net` 합니다. 그러나 사용자 지정 도메인 이름 (예: **contoso.com**)을 사용 하 여 API Management 끝점을 노출할 수 있습니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 API Management 인스턴스에 의해 노출 된 끝점에 매핑하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
 > API Management는 [호스트 헤더](https://tools.ietf.org/html/rfc2616#section-14.23) 값이 기본 도메인 이름이 나 구성 된 사용자 지정 도메인 이름과 일치 하는 요청만 허용 합니다.
@@ -49,11 +48,11 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 `azure-api
 
     사용자 지정 도메인 이름을 할당할 수 있는 끝점은 여러 가지가 있습니다. 현재는 다음 엔드포인트를 사용할 수 있습니다.
 
-    - **게이트웨이** (기본값: `<apim-service-name>.azure-api.net`),
+    - **게이트웨이** (기본값: `<apim-service-name>.azure-api.net` ),
     - **포털**(기본값: `<apim-service-name>.portal.azure-api.net`),
     - **관리**(기본값: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (기본값: `<apim-service-name>.scm.azure-api.net`),
-    - **Newportal** (기본값: `<apim-service-name>.developer.azure-api.net`).
+    - **SCM** (기본값: `<apim-service-name>.scm.azure-api.net` ),
+    - **Newportal** (기본값: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > **게이트웨이** 끝점만 소비 계층의 구성에 사용할 수 있습니다.
@@ -64,11 +63,11 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 `azure-api
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.
 
-    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. `api.contoso.com`)을 입력합니다.
+    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 예: `api.contoso.com`.
     - **인증서**의 Key Vault에서 인증서를 선택 합니다. 유효한를 업로드할 수도 있습니다. 인증서가 암호로 보호 되는 경우 PFX 파일 및 **암호**를 제공 합니다.
 
     > [!NOTE]
-    > 와일드 카드 도메인 이름 (예 `*.contoso.com` :)은 소비 계층을 제외한 모든 계층에서 지원 됩니다.
+    > 와일드 카드 도메인 이름 (예:) `*.contoso.com` 은 소비 계층을 제외한 모든 계층에서 지원 됩니다.
 
     > [!TIP]
     > Azure Key Vault를 사용 하 여 [인증서를 관리](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) 하 고이를 autorenew로 설정 하는 것이 좋습니다.

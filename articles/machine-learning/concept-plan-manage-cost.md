@@ -11,10 +11,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996335"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
@@ -103,9 +102,9 @@ AmlCompute는 [할당량 (또는 제한) 구성과](how-to-manage-quotas.md#azur
 경우에 따라 학습 실행을 구성 하 여 기간을 제한 하거나 조기에 종료 해야 합니다. 예를 들어 Azure Machine Learning의 기본 제공 하이퍼 매개 변수 튜닝 또는 자동화 된 Machine Learning을 사용 하는 경우입니다.
 
 다음은 몇 가지 옵션입니다.
-* RunConfiguration에서 이라는 `max_run_duration_seconds` 매개 변수를 정의 하 여 사용자가 선택 하는 계산 (로컬 또는 원격 클라우드 계산)에서 실행이 확장 될 수 있는 최대 기간을 제어 합니다.
-* 하이퍼 [매개 변수 조정](how-to-tune-hyperparameters.md#early-termination)의 경우 산적 정책, 중간 중지 정책 또는 잘림 선택 정책에서 조기 종료 정책을 정의 합니다. 하이퍼 매개 변수 스윕을 추가로 제어 하려면 또는 `max_total_runs` `max_duration_minutes`와 같은 매개 변수를 사용 합니다.
-* [자동화 된 machine learning](how-to-configure-auto-train.md#exit)의 경우 플래그를 `enable_early_stopping` 사용 하 여 비슷한 종료 정책을 설정 합니다. 또한 및 `iteration_timeout_minutes` `experiment_timeout_minutes` 와 같은 속성을 사용 하 여 실행의 최대 기간 또는 전체 실험을 제어 합니다.
+* RunConfiguration에서 이라는 매개 변수를 정의 `max_run_duration_seconds` 하 여 사용자가 선택 하는 계산 (로컬 또는 원격 클라우드 계산)에서 실행이 확장 될 수 있는 최대 기간을 제어 합니다.
+* 하이퍼 [매개 변수 조정](how-to-tune-hyperparameters.md#early-termination)의 경우 산적 정책, 중간 중지 정책 또는 잘림 선택 정책에서 조기 종료 정책을 정의 합니다. 하이퍼 매개 변수 스윕을 추가로 제어 하려면 또는와 같은 매개 변수를 사용 `max_total_runs` `max_duration_minutes` 합니다.
+* [자동화 된 machine learning](how-to-configure-auto-train.md#exit)의 경우 플래그를 사용 하 여 비슷한 종료 정책을 설정 `enable_early_stopping` 합니다. 또한 및와 같은 속성 `iteration_timeout_minutes` `experiment_timeout_minutes` 을 사용 하 여 실행의 최대 기간 또는 전체 실험을 제어 합니다.
 
 ## <a name="use-low-priority-vms"></a>우선 순위가 낮은 VM 사용
 
@@ -117,7 +116,7 @@ Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 
 
 * 스튜디오에서 VM을 만들 때 **낮은 우선 순위** 를 선택 합니다.
 
-* Python SDK를 사용 하 여 프로 `vm_priority` 비전 구성에서 특성을 설정 합니다.  
+* Python SDK를 사용 하 여 `vm_priority` 프로 비전 구성에서 특성을 설정 합니다.  
 
     ```python
     compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
@@ -125,7 +124,7 @@ Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 
                                                                max_nodes=4)
     ```
 
-* CLI를 사용 하 여를 `vm-priority`설정 합니다.
+* CLI를 사용 하 여를 설정 합니다 `vm-priority` .
 
     ```azurecli-interactive
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority

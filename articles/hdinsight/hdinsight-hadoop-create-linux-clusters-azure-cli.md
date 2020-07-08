@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
 ms.openlocfilehash: 5cab7f962a829ab8609325e8bb1b35498568726c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82994176"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
@@ -44,14 +43,14 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
 
 2. 환경 변수를 설정합니다. 이 문서에서 변수를 사용 하는 것은 Bash를 기반으로 합니다. 다른 환경에서는 약간의 변형이 필요합니다. 클러스터 만들기에 사용할 수 있는 매개 변수의 전체 목록은 [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 를 참조 하세요.
 
-    |매개 변수 | Description |
+    |매개 변수 | 설명 |
     |---|---|
-    |`--workernode-count`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 변수 `clusterSizeInNodes` 를에 `--workernode-count`전달 된 값으로 사용 합니다. |
-    |`--version`| HDInsight 클러스터 버전입니다. 이 문서에서는 변수 `clusterVersion` 를에 `--version`전달 된 값으로 사용 합니다. 참고 항목: [지원 되는 HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)|
-    |`--type`| HDInsight 클러스터 유형 (예: hadoop, interactivehive, hbase, kafka, 폭풍, spark, rserver, mlservices).  이 문서에서는 변수 `clusterType` 를에 `--type`전달 된 값으로 사용 합니다. 참고 항목: [클러스터 형식 및 구성](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type)|
-    |`--component-version`|' Component = version ' 형식의 공백으로 구분 된 버전에 있는 다양 한 Hadoop 구성 요소의 버전입니다. 이 문서에서는 변수 `componentVersion` 를에 `--component-version`전달 된 값으로 사용 합니다. 참고 항목: [Hadoop 구성 요소](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)|
+    |`--workernode-count`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 변수를 `clusterSizeInNodes` 에 전달 된 값으로 사용 `--workernode-count` 합니다. |
+    |`--version`| HDInsight 클러스터 버전입니다. 이 문서에서는 변수를 `clusterVersion` 에 전달 된 값으로 사용 `--version` 합니다. 참고 항목: [지원 되는 HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)|
+    |`--type`| HDInsight 클러스터 유형 (예: hadoop, interactivehive, hbase, kafka, 폭풍, spark, rserver, mlservices).  이 문서에서는 변수를 `clusterType` 에 전달 된 값으로 사용 `--type` 합니다. 참고 항목: [클러스터 형식 및 구성](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type)|
+    |`--component-version`|' Component = version ' 형식의 공백으로 구분 된 버전에 있는 다양 한 Hadoop 구성 요소의 버전입니다. 이 문서에서는 변수를 `componentVersion` 에 전달 된 값으로 사용 `--component-version` 합니다. 참고 항목: [Hadoop 구성 요소](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)|
 
-    , `RESOURCEGROUPNAME` `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`및 `PASSWORD` 를 원하는 값으로 바꿉니다. 다른 변수의 값을 원하는 대로 변경 합니다. 그런 다음 CLI 명령을 입력 합니다.
+    `RESOURCEGROUPNAME`,, `LOCATION` `CLUSTERNAME` , 및를 `STORAGEACCOUNTNAME` `PASSWORD` 원하는 값으로 바꿉니다. 다른 변수의 값을 원하는 대로 변경 합니다. 그런 다음 CLI 명령을 입력 합니다.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -76,7 +75,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
         --name $resourceGroupName
     ```
 
-    유효한 위치 목록을 보려면 `az account list-locations` 명령을 사용한 다음 `name` 값의 위치 중 하나를 사용 합니다.
+    유효한 위치 목록을 보려면 `az account list-locations` 명령을 사용한 다음 값의 위치 중 하나를 사용 `name` 합니다.
 
 4. 아래 명령을 입력 하 여 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) .
 

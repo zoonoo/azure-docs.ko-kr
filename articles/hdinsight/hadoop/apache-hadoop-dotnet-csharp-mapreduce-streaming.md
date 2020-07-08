@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: 28817489af535ee45a6cc06cc5fe9d4fde9da8eb
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996825"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
@@ -23,7 +22,7 @@ Apache Hadoop 스트리밍을 사용 하면 스크립트나 실행 파일을 사
 
 ## <a name="net-on-hdinsight"></a>HDInsight에서.NET
 
-HDInsight 클러스터는 [Monohttps://mono-project.com) ](https://mono-project.com) 를 사용 하 여 .net 응용 프로그램을 실행 합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight에 포함 된 Mono 버전에 대 한 자세한 내용은 [다른 hdinsight 버전에서 사용할 수 있는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)를 참조 하세요.
+HDInsight 클러스터는 [Mono https://mono-project.com) ](https://mono-project.com) 를 사용 하 여 .net 응용 프로그램을 실행 합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight에 포함 된 Mono 버전에 대 한 자세한 내용은 [다른 hdinsight 버전에서 사용할 수 있는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)를 참조 하세요.
 
 .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
 
@@ -31,15 +30,15 @@ HDInsight 클러스터는 [Monohttps://mono-project.com) ](https://mono-project.
 
 이 문서의 스트리밍에 사용된 기본 프로세스는 다음과 같습니다.
 
-1. Hadoop은 STDIN에서 데이터를 매퍼 (이 예제에서는*매퍼 .exe* )에 전달 합니다.
+1. Hadoop은 STDIN의 매퍼 (이 예제에서는*mapper.exe* )에 데이터를 전달 합니다.
 2. 매퍼가 데이터를 처리하고 탭으로 구분된 키/값 쌍을 STDOUT으로 내보냅니다.
-3. Hadoop에서 출력을 읽은 다음 STDIN의 리 듀 서 (이 예제에서는*리 듀 서* )에 전달 합니다.
+3. Hadoop에서 출력을 읽은 다음 STDIN의 리 듀 서 (이 예제에서는*reducer.exe* )에 전달 합니다.
 4. 리듀서는 탭으로 구분된 키/값 쌍을 읽고 데이터를 처리한 다음 STDOUT에서 탭으로 구분된 키/값 쌍의 결과를 내보냅니다.
 5. Hadoop에서 이 출력을 읽습니다. 그런 다음 출력 디렉터리에 기록됩니다.
 
 스트리밍에 대한 자세한 내용은 [Hadoop 스트리밍](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Visual Studio.
 
@@ -47,11 +46,11 @@ HDInsight 클러스터는 [Monohttps://mono-project.com) ](https://mono-project.
 
 * 클러스터로 .exe 파일을 업로드하는 방법. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 클러스터의 기본 스토리지로 파일을 업로드합니다.
 
-* PowerShell을 사용 하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
+* PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요합니다.
 
-* HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+* HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* 클러스터 기본 스토리지에 대한 URI 체계입니다. 이 체계는 `wasb://` Azure Storage `abfs://` Azure Data Lake Storage Gen2 또는 `adl://` Azure Data Lake Storage Gen1에 대 한 것입니다. Azure Storage 또는 Data Lake Storage Gen2에 대해 보안 전송이 사용 되는 경우 URI는 각각 `wasbs://` 또는 `abfss://`입니다.
+* 클러스터 기본 스토리지에 대한 URI 체계입니다. 이 체계는 `wasb://` Azure Storage `abfs://` Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1에 대 한 것입니다 `adl://` . Azure Storage 또는 Data Lake Storage Gen2에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://` 각각 또는 `abfss://` 입니다.
 
 ## <a name="create-the-mapper"></a>매퍼 만들기
 
@@ -147,7 +146,7 @@ namespace reducer
 
 다음으로, *매퍼* 및 *리 듀 서* 응용 프로그램을 HDInsight 저장소에 업로드 해야 합니다.
 
-1. Visual Studio에서 **뷰** > **서버 탐색기**를 선택 합니다.
+1. Visual Studio에서 **뷰**  >  **서버 탐색기**를 선택 합니다.
 
 1. **Azure**를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결**...을 선택 하 여 로그인 프로세스를 완료 합니다.
 
@@ -165,9 +164,9 @@ namespace reducer
 
         ![맵 편집기에 대 한 HDInsight 업로드 아이콘, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-        **새 파일 업로드** 대화 상자에서 **파일 이름**아래에 있는 **찾아보기**를 선택 합니다. **Blob 업로드** 대화 상자에서 *매퍼* 프로젝트의 *bin\debug* 폴더로 이동한 다음 *매퍼* 파일을 선택 합니다. 마지막으로 **열기** 를 선택 하 고 **확인** 을 선택 하 여 업로드를 완료 합니다.
+        **새 파일 업로드** 대화 상자에서 **파일 이름**아래에 있는 **찾아보기**를 선택 합니다. **Blob 업로드** 대화 상자에서 *매퍼* 프로젝트의 *bin\debug* 폴더로 이동한 다음 *mapper.exe* 파일을 선택 합니다. 마지막으로 **열기** 를 선택 하 고 **확인** 을 선택 하 여 업로드를 완료 합니다.
 
-    * **Azure Data Lake Storage**의 경우 파일 목록에서 빈 영역을 마우스 오른쪽 단추로 클릭 한 다음 **업로드**를 선택 합니다. 마지막으로, *매퍼* 파일을 선택 하 고 **열기**를 선택 합니다.
+    * **Azure Data Lake Storage**의 경우 파일 목록에서 빈 영역을 마우스 오른쪽 단추로 클릭 한 다음 **업로드**를 선택 합니다. 마지막으로 *mapper.exe* 파일을 선택한 다음 **열기**를 선택 합니다.
 
     *mapper.exe* 업로드가 완료되면 *reducer.exe* 파일의 업로드 프로세스를 반복합니다.
 
@@ -218,10 +217,10 @@ namespace reducer
 
    다음 목록에서는 각 매개 변수 및 옵션이 나타내는 내용에 대해 설명 합니다.
 
-   |매개 변수 | Description |
+   |매개 변수 | 설명 |
    |---|---|
    |hadoop-streaming.jar|스트리밍 MapReduce 기능을 포함 하는 jar 파일을 지정 합니다.|
-   |-파일|이 작업에 대 한 *매퍼* 및 *리 듀 서* 파일을 지정 합니다. 각 `wasbs:///`파일 `adl:///`앞의 `abfs:///` , 또는 프로토콜 선언은 클러스터의 기본 저장소 루트에 대 한 경로입니다.|
+   |-파일|이 작업에 대 한 *mapper.exe* 및 *reducer.exe* 파일을 지정 합니다. `wasbs:///` `adl:///` `abfs:///` 각 파일 앞의, 또는 프로토콜 선언은 클러스터의 기본 저장소 루트에 대 한 경로입니다.|
    |-매퍼|매퍼를 구현 하는 파일을 지정 합니다.|
    |-리 듀 서|리 듀 서을 구현 하는 파일을 지정 합니다.|
    |-입력|입력 데이터를 지정 합니다.|
@@ -253,7 +252,7 @@ namespace reducer
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-이 스크립트는 클러스터 로그인 계정 이름과 암호와 HDInsight 클러스터 이름을 묻습니다. 작업이 완료 되 면 출력이 *.txt*라는 파일로 다운로드 됩니다. 다음 텍스트는 `output.txt` 파일의 데이터 예제입니다.
+이 스크립트는 클러스터 로그인 계정 이름과 암호와 HDInsight 클러스터 이름을 묻습니다. 작업이 완료 되 면 출력은 *output.txt*라는 파일로 다운로드 됩니다. 다음 텍스트는 `output.txt` 파일의 데이터 예제입니다.
 
 ```output
 you     1128

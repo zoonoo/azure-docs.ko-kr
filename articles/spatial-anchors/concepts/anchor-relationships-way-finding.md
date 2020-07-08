@@ -9,10 +9,9 @@ ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006011"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Azure 공간 앵커에서 앵커 관계 및 방법 찾기
@@ -73,7 +72,7 @@ ms.locfileid: "83006011"
 
 ### <a name="verify-anchor-connections"></a>앵커 연결 확인
 
-앱은 `NearAnchorCriteria` 에서을 설정 하 여 인접 앵커에 대해 쿼리를 실행 하 여 두 개의 앵커가 연결 되었는지 확인할 수 있습니다 `CloudSpatialAnchorWatcher`. 쿼리 결과가 대상 앵커를 포함 하는 경우 앵커 연결이 확인 됩니다. 앵커가 연결 되지 않은 경우 앱에서 다시 연결을 시도할 수 있습니다.
+앱은에서을 설정 하 여 인접 앵커에 대해 쿼리를 실행 하 여 두 개의 앵커가 연결 되었는지 확인할 수 있습니다 `NearAnchorCriteria` `CloudSpatialAnchorWatcher` . 쿼리 결과가 대상 앵커를 포함 하는 경우 앵커 연결이 확인 됩니다. 앵커가 연결 되지 않은 경우 앱에서 다시 연결을 시도할 수 있습니다.
 
 다음은 앵커가 연결에 실패할 수 있는 몇 가지 이유입니다.
 

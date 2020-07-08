@@ -7,23 +7,22 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005867"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 FROM 절
 
-FROM (`FROM <from_specification>`) 절은 쿼리에서 해당 소스가 필터링 되거나 나중에 투영 되지 않는 한 선택 사항입니다. 과 같은 `SELECT * FROM Families` 쿼리는 전체 `Families` 컨테이너에 대해를 열거 합니다. 컨테이너 이름을 사용 하는 대신 컨테이너에 대해 특수 식별자 루트를 사용할 수도 있습니다.
+FROM ( `FROM <from_specification>` ) 절은 쿼리에서 해당 소스가 필터링 되거나 나중에 투영 되지 않는 한 선택 사항입니다. 과 같은 쿼리는 `SELECT * FROM Families` 전체 컨테이너에 대해를 열거 `Families` 합니다. 컨테이너 이름을 사용 하는 대신 컨테이너에 대해 특수 식별자 루트를 사용할 수도 있습니다.
 
-절 `FROM` 은 쿼리당 다음 규칙을 적용 합니다.
+`FROM`절은 쿼리당 다음 규칙을 적용 합니다.
 
-* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 다음 `f` 은에 대 한 `Families`별칭입니다. AS는 식별자의 [별칭](sql-query-working-with-json.md#aliasing) 을 지정 하는 선택적 키워드입니다.  
+* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 다음 `f` 은에 대 한 별칭입니다 `Families` . AS는 식별자의 [별칭](sql-query-working-with-json.md#aliasing) 을 지정 하는 선택적 키워드입니다.  
 
-* 별칭을 지정 하면 원래 원본 이름을 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 식별자 `Families` 가 별칭이 지정 되 고 더 이상 확인할 수 없기 때문에는 구문상 유효 하지 않습니다.  
+* 별칭을 지정 하면 원래 원본 이름을 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 식별자가 별칭이 지정 되 `Families` 고 더 이상 확인할 수 없기 때문에는 구문상 유효 하지 않습니다.  
 
-* 엄격한 스키마 준수가 없는 경우 모호한 바인딩을 방지 하려면 모든 참조 된 속성을 정규화 해야 합니다. 예를 들어 `SELECT id FROM Families f` 속성이 `id` 바인딩되지 않았으므로는 구문상 유효 하지 않습니다.
+* 엄격한 스키마 준수가 없는 경우 모호한 바인딩을 방지 하려면 모든 참조 된 속성을 정규화 해야 합니다. 예를 들어 `SELECT id FROM Families f` 속성이 바인딩되지 않았으므로는 구문상 유효 하지 않습니다 `id` .
 
 ## <a name="syntax"></a>구문
   
@@ -81,7 +80,7 @@ FROM <from_specification>
   
 - `<container_expression> '.' property_name`  
   
-  `property_name` 속성에 액세스 하 여 문서를 검색 하도록 지정 합니다.  
+  속성에 액세스 하 여 문서를 검색 하도록 지정 합니다 `property_name` .  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -147,7 +146,7 @@ FROM 절을 통해 소스를 더 작은 하위 집합으로 줄일 수 있습니
     ]
 ```
 
-앞의 쿼리에서는 배열을 소스로 사용 했지만 개체를 원본으로 사용할 수도 있습니다. 이 쿼리는 결과에 포함 될 원본에서 정의 된 유효한 모든 JSON 값을 고려 합니다. 다음 예에서는 `address.state` 값이 `Families` 없는를 제외 합니다.
+앞의 쿼리에서는 배열을 소스로 사용 했지만 개체를 원본으로 사용할 수도 있습니다. 이 쿼리는 결과에 포함 될 원본에서 정의 된 유효한 모든 JSON 값을 고려 합니다. 다음 예에서는 `Families` 값이 없는를 제외 합니다 `address.state` .
 
 ```sql
     SELECT *
@@ -165,6 +164,6 @@ FROM 절을 통해 소스를 더 작은 하위 집합으로 줄일 수 있습니
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시작 하기](sql-query-getting-started.md)
+- [시작](sql-query-getting-started.md)
 - [SELECT 절](sql-query-select.md)
 - [WHERE 절](sql-query-where.md)

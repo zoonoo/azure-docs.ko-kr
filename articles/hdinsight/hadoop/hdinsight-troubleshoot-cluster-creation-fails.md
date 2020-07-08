@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
 ms.openlocfilehash: 14b449590f6ffc5e735faa26baadfcc4e526450c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996406"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결
@@ -29,7 +28,7 @@ ms.locfileid: "82996406"
 
 ## <a name="permissions-issues"></a>권한 이슈
 
-Azure Data Lake Storage Gen2를 사용 하 `AmbariClusterCreationFailedErrorCode`고 ":::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support.":::" 오류를 수신 하는 경우 Azure Portal를 열고 저장소 계정으로 이동한 다음 Access Control (IAM)에서 **저장소 blob 데이터 참가자** 또는 **저장소 blob 데이터 소유자** 역할에 구독에 할당 된 **사용자 관리 id** 에 대 한 액세스 권한을 할당 했는지 확인 합니다. 자세한 지침은 [Data Lake Storage Gen2 계정에서 관리 ID에 대한 권한 설정](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)을 참조하세요.
+Azure Data Lake Storage Gen2를 사용 하 고 "" 오류를 수신 하는 경우 `AmbariClusterCreationFailedErrorCode` :::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support."::: Azure Portal를 열고 저장소 계정으로 이동한 다음 Access Control (IAM)에서 **저장소 blob 데이터 참가자** 또는 **저장소 blob 데이터 소유자** 역할에 구독에 **할당 된 사용자 관리 id** 에 대 한 액세스 권한을 할당 했는지 확인 합니다. 자세한 지침은 [Data Lake Storage Gen2 계정에서 관리 ID에 대한 권한 설정](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)을 참조하세요.
 
 Azure Data Lake Storage Gen1를 사용 하는 경우 설치 및 [구성 지침을 참조 하십시오.](../hdinsight-hadoop-use-data-lake-store.md) Data Lake Storage Gen1은 HBase 클러스터에 대해 지원 되지 않으며 HDInsight 버전 4.0에서 지원 되지 않습니다.
 

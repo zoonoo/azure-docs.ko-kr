@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997101"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service에서 레코드 만들기 및 관리
@@ -49,7 +48,7 @@ ms.locfileid: "82997101"
 
    ![모니터링할 환경에 대 한 트리거 정보](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **환경** | 예 | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](https://docs.microsoft.com/power-platform/admin/environments-overview)를 참조 하세요. |
    | **엔터티 이름** | 예 | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
@@ -70,11 +69,11 @@ ms.locfileid: "82997101"
 
    ![레코드를 만들 환경에 대 한 작업 정보](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **조직 이름** | 예 | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
    | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
-   | **Subject** | 예,이 예제에서 선택한 엔터티를 기반으로 합니다. | 이 작업의 목표에 대 한 간단한 설명입니다. |
+   | **제목** | 예,이 예제에서 선택한 엔터티를 기반으로 합니다. | 이 작업의 목표에 대 한 간단한 설명입니다. |
    ||||
 
    1. **Subject** 속성의 경우 뒤에 공백을 사용 하 여이 텍스트를 입력 합니다.
@@ -87,9 +86,9 @@ ms.locfileid: "82997101"
 
       ![작업 레코드에서 사용할 트리거 출력 선택](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | 트리거 출력 | Description |
+      | 트리거 출력 | 설명 |
       |----------------|-------------|
-      | **이름** | 작업 레코드에서 기본 연락처로 사용할 잠재 고객 레코드의 첫 번째 이름입니다. |
+      | **First Name** | 작업 레코드에서 기본 연락처로 사용할 잠재 고객 레코드의 첫 번째 이름입니다. |
       | **성** | 작업 레코드에서 기본 연락처로 사용할 잠재 고객 레코드의 성입니다. |
       | **설명** | 전자 메일 주소 및 회사 전화 번호와 같은 작업 레코드에 포함할 기타 출력 |
       |||
@@ -126,7 +125,7 @@ ms.locfileid: "82997101"
 
    ![레코드 필터링을 위한 ODATA 필터 쿼리 입력](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-시스템 쿼리 옵션에 `$filter` 대 한 자세한 내용은 [Common Data Service 필터 결과](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results)를 참조 하세요.
+시스템 쿼리 옵션에 대 한 자세한 내용은 `$filter` [Common Data Service 필터 결과](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results)를 참조 하세요.
 
 ## <a name="list-records-based-on-an-order"></a>주문을 기준으로 레코드 나열
 
@@ -140,7 +139,7 @@ ms.locfileid: "82997101"
 
    ![레코드 순서 지정을 위한 ODATA 필터 쿼리 입력](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-시스템 쿼리 옵션에 `$orderby` 대 한 자세한 내용은 [Common Data Service 주문 결과](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results)를 참조 하세요.
+시스템 쿼리 옵션에 대 한 자세한 내용은 `$orderby` [Common Data Service 주문 결과](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results)를 참조 하세요.
 
 ## <a name="field-data-types"></a>필드 데이터 형식
 
@@ -153,14 +152,14 @@ ms.locfileid: "82997101"
 | 텍스트 필드 | 한 줄의 텍스트 | 에는 다음 속성과 같이 텍스트 데이터 형식의 텍스트 한 줄 또는 동적 콘텐츠가 필요 합니다. <p><p>- **한** <br>- **범주** |
 | 정수 필드 | 정수 | 에는 정수 데이터 형식의 정수 또는 동적 콘텐츠 (예: 다음 속성)가 필요 합니다. <p><p>- **완료율** <br>- **작업** |
 | 날짜 필드 | 날짜 및 시간 | 에는 MM/DD/YYY 형식의 날짜 또는 날짜 데이터 형식의 동적 콘텐츠 (예: 다음 속성)가 필요 합니다. <p><p>- **만든 시기** <br>- **시작 날짜** <br>- **실제 시작** <br>- **실제 끝** <br>- **기한** |
-| 다른 엔터티 레코드를 참조 하는 필드 | 기본 키 | 에는 GUID와 같은 레코드 ID와 조회 유형이 모두 필요 합니다. 즉, 동적 콘텐츠 목록의 값은 작동 하지 않습니다. 예를 들어 다음과 같은 속성이 있습니다. <p><p>- **Owner**: 유효한 사용자 id 또는 팀 레코드 id 여야 합니다. <br>- **소유자 유형**: 또는 `systemusers` `teams`와 같은 조회 유형 이어야 합니다. <p><p>- **관련**항목: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **형식에 대**한 자세한 내용은 각각 `accounts` 또는 `contacts`같은 조회 형식 이어야 합니다. <p><p>- **Customer**: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **고객 유형**: 또는 `accounts` `contacts`와 같은 조회 유형 이어야 합니다. |
+| 다른 엔터티 레코드를 참조 하는 필드 | 기본 키 | 에는 GUID와 같은 레코드 ID와 조회 유형이 모두 필요 합니다. 즉, 동적 콘텐츠 목록의 값은 작동 하지 않습니다. 예를 들어 다음과 같은 속성이 있습니다. <p><p>- **Owner**: 유효한 사용자 id 또는 팀 레코드 id 여야 합니다. <br>- **소유자 유형**: 또는와 같은 조회 유형 이어야 합니다 `systemusers` `teams` . <p><p>- **관련**항목: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **형식에 대**한 자세한 `accounts` 내용은 각각 또는 같은 조회 형식 이어야 합니다 `contacts` . <p><p>- **Customer**: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **고객 유형**: 또는와 같은 조회 유형 이어야 합니다 `accounts` `contacts` . |
 ||||
 
 이 예에서는 **새 레코드 만들기** 작업을 통해 다른 엔터티 레코드, 특히 사용자 레코드 및 계정 레코드와 연결 된 새 "작업" 레코드를 만드는 방법을 보여 줍니다. 작업은 관련 속성에 대해 예상 되는 데이터 형식과 일치 하는 값을 사용 하 여 해당 엔터티 레코드에 대 한 Id 및 조회 유형을 지정 합니다.
 
-* 사용자 ID를 지정 하는 **owner** 속성 및 `systemusers` 조회 유형을 지정 하는 **owner type** 속성에 따라 동작은 새 "Tasks" 레코드를 특정 사용자와 연결 합니다.
+* 사용자 ID를 지정 하는 **owner** 속성 및 조회 유형을 지정 하는 **owner type** 속성에 따라 `systemusers` 동작은 새 "Tasks" 레코드를 특정 사용자와 연결 합니다.
 
-* 레코드 ID를 지정 하는 **관련** 속성 및 `accounts` 조회 유형을 지정 하는 **관련 유형** 속성에 따라 동작은 새 "작업" 레코드를 특정 계정과 연결 합니다.
+* 레코드 ID를 지정 하는 **관련** 속성 및 조회 유형을 지정 하는 **관련 유형** 속성에 따라 `accounts` 동작은 새 "작업" 레코드를 특정 계정과 연결 합니다.
 
 ![Id 및 조회 유형과 연결 된 "작업" 레코드 만들기](./media/connect-common-data-service/create-new-record-task-properties.png)
 
@@ -170,4 +169,4 @@ ms.locfileid: "82997101"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Logic Apps에 대 한 다른 커넥터](../connectors/apis-list.md) 에 대해 알아보기
+* [Azure Logic Apps용 다른 커넥터](../connectors/apis-list.md)에 대해 자세히 알아보기

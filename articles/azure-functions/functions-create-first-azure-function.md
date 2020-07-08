@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ms.openlocfilehash: 030af8a289daaf03d17f8402e8d603e893657853
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123623"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
@@ -34,29 +33,29 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>HTTP 트리거 함수 만들기
 
-1. **함수** 창의 왼쪽 메뉴에서 **함수**를 선택 하 고 최상위 메뉴에서 **추가** 를 선택 합니다. 
+1. **Functions** 창의 왼쪽 메뉴에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다. 
  
-1. **새 함수** 창에서 **Http 트리거**를 선택 합니다.
+1. **새 함수** 창에서 **Http 트리거**를 선택합니다.
 
     ![HTTP 트리거 함수 선택](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. 새 **함수** 창에서 **새 함수의**기본 이름을 그대로 적용 하거나 새 이름을 입력 합니다. 
+1. **새 함수** 창에서 **새 함수**의 기본 이름을 적용하거나 새 이름을 입력합니다. 
 
-1. **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택한 다음 **함수 만들기**를 선택 합니다.
+1. **권한 부여 수준** 드롭다운 목록에서 **익명**을 선택한 다음, **함수 만들기**를 선택합니다.
 
     Azure에서 HTTP 트리거 함수를 만듭니다. 이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트** 를 선택 하 고 최상위 메뉴에서 **함수 URL 가져오기** 를 선택 합니다.
+1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트**를 선택한 다음, 상단 메뉴에서 **함수 URL 가져오기**를 선택합니다.
 
-    ![함수 URL 가져오기 선택](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+    ![[함수 URL 가져오기] 선택](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
 
-1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값** 을 선택 하 고 **클립보드로 복사** 아이콘을 선택 합니다. 
+1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값**을 선택한 다음, **클립보드에 복사** 아이콘을 선택합니다. 
 
     ![Azure Portal에서 함수 URL 복사](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. 이 URL의 끝에 쿼리 문자열 값을 추가 하 `?name=<your_name>` 고 enter 키를 눌러 요청을 실행 합니다. 
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `?name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
 
     다음 예에서는 브라우저의 응답을 보여 줍니다.
 
@@ -64,7 +63,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
     요청 URL에는 기본적으로 HTTP를 통해 함수에 액세스하는 데 필요한 키가 포함됩니다.
 
-1. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 추적 출력을 보려면 포털에서 **코드 + 테스트** 페이지로 돌아가서 페이지 맨 아래에 있는 **로그** 화살표를 확장 합니다.
+1. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 추적 출력을 보려면 포털의 **코드 + 테스트** 페이지로 돌아가서 페이지 하단에 있는 **로그** 화살표를 확장합니다.
 
    ![Azure Portal에서 함수 로그 뷰어.](./media/functions-create-first-azure-function/function-view-logs.png)
 

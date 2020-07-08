@@ -7,17 +7,16 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122779"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions에서 HTTP 끝점 사용자 지정
 
-이 문서에서는 Azure Functions를 사용 하 여 확장성이 뛰어난 Api를 빌드하는 방법을 알아봅니다. Azure Functions는 node.js, c # 등을 비롯 한 다양 한 언어로 끝점을 쉽게 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션과 함께 제공 됩니다. 이 문서에서는 API 디자인의 특정 작업을 처리 하도록 HTTP 트리거를 사용자 지정 합니다. 또한 Azure Functions 프록시와 통합 하 고 모의 Api를 설정 하 여 API를 확장할 준비를 합니다. 이러한 작업은 서버를 사용 하지 않는 계산 환경에서 수행 되므로 리소스 크기 조정에 대해 걱정할 필요가 없습니다. API 논리에만 집중할 수 있습니다.
+이 문서에서는 Azure Functions를 사용 하 여 확장성이 뛰어난 Api를 빌드하는 방법을 알아봅니다. Azure Functions는 Node.js, c # 등을 비롯 한 다양 한 언어로 끝점을 쉽게 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션과 함께 제공 됩니다. 이 문서에서는 API 디자인의 특정 작업을 처리 하도록 HTTP 트리거를 사용자 지정 합니다. 또한 Azure Functions 프록시와 통합 하 고 모의 Api를 설정 하 여 API를 확장할 준비를 합니다. 이러한 작업은 서버를 사용 하지 않는 계산 환경에서 수행 되므로 리소스 크기 조정에 대해 걱정할 필요가 없습니다. API 논리에만 집중할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -37,7 +36,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 1. 다음 표에 지정 된 HTTP 트리거 설정을 사용 합니다.
 
-    | 필드 | 샘플 값 | 설명 |
+    | 필드 | 샘플 값 | Description |
     |---|---|---|
     | 경로 템플릿 | /hello | 이 함수를 호출하는 데 사용할 경로 결정 |
     | 권한 부여 수준 | 익명 | 선택 사항: 함수가 API 키 없이 액세스할 수 있게 됩니다 |
@@ -62,7 +61,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
  
 1. URL의 쿼리 문자열에 매개 변수를 추가 합니다. 
 
-   정의합니다(예: `/api/hello/?name=John`).
+   예: `/api/hello/?name=John`.
  
 1. Enter 키를 눌러 작동 하는지 확인 합니다. "*Hello John*" 이라는 응답이 표시 되어야 합니다.
 
@@ -107,7 +106,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
     | 필드 | 샘플 값 | Description |
     |---|---|---|
-    | 속성 | HelloProxy | 관리에 대해서만 사용되는 이름 |
+    | 이름 | HelloProxy | 관리에 대해서만 사용되는 이름 |
     | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |
     | 백 엔드 URL | https://%HELLO_HOST%/api/hello | 요청을 프록시 처리할 엔드포인트를 지정합니다. |
 
@@ -128,7 +127,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
 왼쪽 탐색 영역에서 `proxies.json`을 선택합니다. 이 파일은 모든 프록시에 대 한 구성을 저장 합니다. [함수 배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)중 하나를 사용 하는 경우이 파일을 소스 제어에서 유지 관리 합니다. 이 파일에 대한 자세한 내용은 [프록시 고급 구성](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration)을 참조하세요.
 
-지금까지 수행한 경우에는 다음과 같이 프록시와 같이 표시 됩니다.
+지금까지 수행한 경우에는 proxies.js에 다음과 같이 표시 됩니다.
 
 ```json
 {
@@ -144,7 +143,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 }
 ```
 
-다음으로 모의 API를 추가 합니다. 프록시. json 파일을 다음 코드로 바꿉니다.
+다음으로 모의 API를 추가 합니다. 파일의 proxies.js를 다음 코드로 바꿉니다.
 
 ```json
 {

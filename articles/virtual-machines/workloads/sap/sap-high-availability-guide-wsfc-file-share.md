@@ -17,10 +17,9 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982975"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
@@ -70,10 +69,10 @@ SAP는 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스
 
 * SAP 중앙 서비스(자체 파일 구조와 메시지 및 큐에 넣기 프로세스를 포함)가 SAP 글로벌 호스트 파일과 분리됨
 * SAP 중앙 서비스가 SAP ASCS/SCS 인스턴스 아래에서 실행됨
-* SAP ASCS/SCS 인스턴스가 클러스터링되고, 이 인스턴스에 \<ASCS/SCS 가상 호스트 이름\> 가상 호스트 이름을 사용하여 액세스 가능
-* SAP 글로벌 파일이 SMB 파일 공유에 배치되고 \<SAP 글로벌 호스트\> 호스트 이름: \\\\&lt;SAP 글로벌 호스트&gt;\sapmnt\\&lt;SID&gt;\SYS\...를 사용하여 액세스됨
+* SAP ASCS/SCS 인스턴스는 클러스터형 이며 가상 호스트 이름을 사용 하 여 액세스할 수 \<ASCS/SCS virtual host name\> 있습니다.
+* Sap 글로벌 파일은 SMB 파일 공유에 배치 되 고 \<SAP global host\> 호스트 이름: \\ \\ &lt; sap global host &gt; \sapmnt \\ &lt; SID &gt; \sys \. .를 사용 하 여 액세스 됩니다.
 * SAP ASCS/SCS 인스턴스가 두 클러스터 노드의 로컬 디스크에 설치됨
-* \<ASCS/SCS 가상 호스트 이름\> 네트워크 이름이 &lt;SAP 글로벌 호스트&gt;와 다름.
+* \<ASCS/SCS virtual host name\>네트워크 이름이 &lt; SAP 글로벌 호스트와 다릅니다 &gt; .
 
 ![그림 2: SMB 파일 공유를 사용하는 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8004]
 
@@ -87,7 +86,7 @@ SMB 파일 공유의 필수 조건:
     * 파일 저장에 사용되는 디스크는 단일 장애 지점(Single Point Of Failure)이 될 수 없음
     * 서버 또는 VM 가동 중지 시간으로 인해 파일 공유의 가동 중지 시간이 발생하지 않아야 함
 
-SAP \<SID\> 클러스터 역할은 클러스터 공유 디스크 또는 일반 파일 공유 클러스터 리소스를 포함하지 않습니다.
+SAP \<SID\> 클러스터 역할은 클러스터 공유 디스크 또는 일반 파일 공유 클러스터 리소스를 포함 하지 않습니다.
 
 
 ![그림 3: 파일 공유를 사용하는 경우 SAP \<SID\> 클러스터 역할 리소스][sap-ha-guide-figure-8005]
@@ -137,17 +136,17 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 * 스토리지 공간 다이렉트 디스크 동기화에 필요한 VM 간의 양호한 네트워크 성능을 보장하려면 “높음” 네트워크 대역폭 이상의 VM 유형을 사용해야 합니다.
     자세한 내용은 [DSv2-시리즈][dv2-series] 및 [DS-시리즈][ds-series] 사양을 참조하세요.
 * 스토리지 풀에 할당되지 않은 용량을 일부 남겨 두는 것이 좋습니다. 스토리지 풀에 할당되지 않은 용량을 남겨 두면 드라이브에 장애가 발생하는 경우 “원본 위치”에서 복구하는 데 필요한 볼륨 용량이 확보됩니다. 이렇게 하면 데이터 안전성과 성능이 향상됩니다.  자세한 내용은 [볼륨 크기 선택][choosing-the-size-of-volumes-s2d]을 참조하세요.
-* \<SAP 글로벌 호스트\>와 같은 스케일 아웃 파일 공유 네트워크 이름에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다. 이 작업은 SAP ASCS/SCS 인스턴스의 \<ASCS/SCS 가상 호스트 이름\> 또는 DBMS를 위해 수행됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP 글로벌 호스트\>는 모든 클러스터 노드에서 로컬 IP 주소를 사용합니다.
+* 의 경우와 같이 스케일 아웃 파일 공유 네트워크 이름에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다 \<SAP global host\> . 이 작업은 \<ASCS/SCS virtual host name\> SAP ASCS/SCS 인스턴스 또는 DBMS에 대해 수행 됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP global host\>모든 클러스터 노드에 대해 로컬 IP 주소를 사용 합니다.
 
 
 > [!IMPORTANT]
-> \<SAP 글로벌 호스트\>를 가리키는 SAPMNT 파일 공유는 이름을 변경할 수 없습니다. SAP는 공유 이름 “sapmnt”만 지원합니다.
+> 을 가리키는 SAPMNT 파일 공유의 이름을 바꿀 수 없습니다 \<SAP global host\> . SAP는 공유 이름 “sapmnt”만 지원합니다.
 >
 > 자세한 내용은 [SAP Note 2492395 - 공유 이름 sapmnt를 변경할 수 있나요?][2492395]를 참조하세요.
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>2개의 클러스터에서 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유 구성
 
-하나의 클러스터에서 자체 SAP \<SID\> 클러스터 역할을 갖는 SAP ASCS/SCS 인스턴스를 배포할 수 있습니다. 이 경우 다른 클러스터 역할을 갖는 다른 클러스터에 스케일 아웃 파일 공유를 구성합니다.
+SAP ASCS/SCS 인스턴스를 고유한 SAP 클러스터 역할을 사용 하 여 하나의 클러스터에 배포할 수 있습니다 \<SID\> . 이 경우 다른 클러스터 역할을 갖는 다른 클러스터에 스케일 아웃 파일 공유를 구성합니다.
 
 > [!IMPORTANT]
 >이 시나리오에서 SAP ASCS/SCS 인스턴스는 UNC 경로 \\\\&lt;SAP 글로벌 호스트&gt;\sapmnt\\&lt;SID&gt;\SYS\.를 사용하여 SAP 글로벌 호스트에 액세스하도록 구성되었습니다.

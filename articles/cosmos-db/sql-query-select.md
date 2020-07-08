@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005947"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
 
-모든 쿼리는 `SELECT` ANSI SQL 표준에 따라 절과 선택적 [from](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성 됩니다. 일반적으로 `FROM` 절의 소스는 열거 되며 절은 `WHERE` 소스에 필터를 적용 하 여 JSON 항목의 하위 집합을 검색 합니다. 그런 `SELECT` 다음 절은 요청 된 JSON 값을 select 목록에 프로젝션 합니다.
+모든 쿼리는 `SELECT` ANSI SQL 표준에 따라 절과 선택적 [From](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성 됩니다. 일반적으로 절의 소스는 `FROM` 열거 되며 `WHERE` 절은 소스에 필터를 적용 하 여 JSON 항목의 하위 집합을 검색 합니다. `SELECT`그런 다음 절은 요청 된 JSON 값을 select 목록에 프로젝션 합니다.
 
 ## <a name="syntax"></a>구문
 
@@ -77,7 +76,7 @@ SELECT <select_specification>
   
 ## <a name="examples"></a>예
 
-`address` 다음 SELECT 쿼리 예제에서는 `Families` `id` 와 일치 하 `AndersenFamily`는을 반환 합니다.
+다음 SELECT 쿼리 예제에서는 `address` `Families` `id` 와 일치 하는을 반환 합니다 `AndersenFamily` .
 
 ```sql
     SELECT f.address
@@ -99,6 +98,6 @@ SELECT <select_specification>
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시작 하기](sql-query-getting-started.md)
+- [시작](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [WHERE 절](sql-query-where.md)

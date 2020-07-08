@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997257"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Azure HDInsight에 대 한 Enterprise Security Package
@@ -63,5 +62,5 @@ ms.locfileid: "82997257"
 
 * [HDInsight의 Apache Hadoop, Spark 등에 대한 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
 * [Windows PC의 HDInsight에서 Apache Hadoop 작업](hdinsight-hadoop-windows-tools.md)
-* [Azure HDInsight 버전과 관련 된 Hortonworks 릴리스 정보](./hortonworks-release-notes.md)
+* [Azure HDInsight 버전과 관련된 Hortonworks 릴리스 정보](./hortonworks-release-notes.md)
 * [HDInsight의 Apache 구성 요소](./hdinsight-component-versioning.md)

@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: d7ca2f07e4568257baf72f2f298631b86f776c2a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83119268"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
@@ -76,7 +75,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 });
 ```
 
-다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
+다음은 위의 기능을 실행하는 전체 코드 샘플입니다.
 
 <br/>
 
@@ -279,7 +278,7 @@ CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
 > [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)

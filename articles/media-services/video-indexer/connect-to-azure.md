@@ -11,15 +11,14 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005941"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
-Video Indexer 계정을 만들 때 무료 평가판 계정 (특정 개수의 무료 인덱싱 시간 (분)을 얻을 수 있음) 또는 유료 옵션 (할당량으로 제한 되지 않음)을 선택할 수 있습니다. 무료 평가판을 사용 Video Indexer 하면 웹 사이트 사용자에 게 최대 600 분의 무료 인덱싱이 제공 되며 API 사용자에 대 한 무료 인덱싱이 최대 2400 분까지 제공 됩니다. 유료 옵션을 사용 하면 Azure 구독 및 Azure Media Services 계정에 연결 된 Video Indexer 계정을 만들 수 있습니다. 미디어 계정 관련 요금 뿐만 아니라 인덱싱된 시간 (분)에 대 한 비용을 지불 합니다.
+Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용 하면 Azure 구독 및 Azure Media Services 계정에 연결 된 Video Indexer 계정을 만들 수 있습니다. 미디어 계정 관련 요금 뿐만 아니라 인덱싱된 시간 (분)에 대 한 비용을 지불 합니다.
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
 
@@ -61,7 +60,7 @@ Video Indexer 계정을 만들 때 무료 평가판 계정 (특정 개수의 무
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Azure에 연결
+## <a name="connect-to-azure"></a>Azure 연결
 
 > [!NOTE]
 > Azure 구독에서 인증서 기반 multi-factor authentication을 사용 하는 경우 필수 인증서가 설치 된 장치에서 다음 단계를 수행 하는 것이 중요 합니다.
@@ -131,7 +130,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
     2. [서비스 주체 인증 방법](../previous/media-services-portal-get-started-with-aad.md)을 선택합니다.
     3. 클라이언트 ID 및 클라이언트 암호 가져오기
 
-        **설정**->**키**를 선택 하 고, **설명을**추가 하 고, **저장**을 누르고, 키 값이 채워집니다.
+        **설정** -> **키**를 선택 하 고, **설명을**추가 하 고, **저장**을 누르고, 키 값이 채워집니다.
 
         키가 만료 되 면 계정 소유자는 Video Indexer 지원 담당자에 게 문의 하 여 키를 갱신 해야 합니다.
 
@@ -144,14 +143,14 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|Description|
+|Setting|설명|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
 |구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 선택 하 고 "구독"을 검색 합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
-|애플리케이션 UI|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
+|애플리케이션 ID|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
 |애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
 ## <a name="import-your-content-from-the-trial-account"></a>*평가판* 계정에서 콘텐츠 가져오기

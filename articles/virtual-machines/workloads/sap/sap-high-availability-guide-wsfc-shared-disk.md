@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982958"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링
@@ -60,15 +59,15 @@ Windows에서 SAP ASCS/SCS 인스턴스에는 SAP 중앙 서비스, SAP 메시�
 SAP ASCS/SCS 인스턴스에는 다음과 같은 구성 요소가 있습니다.
 
 * SAP 중앙 서비스에는 다음이 포함됩니다.
-    * 두 프로세스, 메시지 및 큐에 넣기 서버, \<ascs/SCS 가상 호스트 이름>, 이러한 두 프로세스에 액세스 하는 데 사용 됩니다.
-    * 파일 구조: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<인스턴스 번호\>
+    * 두 프로세스, 메시지 및 큐에 넣기 서버, 그리고 \<ASCS/SCS virtual host name> 이러한 두 프로세스에 액세스 하는 데 사용 됩니다.
+    * 파일 구조: S:\usr\sap \\ &lt; SID &gt; \ ASCS/SCS\<instance number\>
 
 
 * SAP 글로벌 호스트 이름:
   * 파일 구조: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * 다음 UNC 경로를 사용하여 이러한 글로벌 S:\usr\sap\\&lt;SID&gt;\SYS\. 파일에 액세스할 수 있도록 하는 sapmnt 파일 공유
 
-    \\\\Ascs/\>SCS 가상 호스트 이름 \sapmnt\\&lt;SID&gt;\sys\..를<합니다.
+    \\\\ASCS/SCS 가상 호스트 이름 \> \Sapmnt \\ &lt; SID &gt; \sys \. .를<합니다.
 
 
 ![그림 2: SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조 및 글로벌 호스트 sapmnt 파일 공유][sap-ha-guide-figure-8001]
@@ -83,7 +82,7 @@ _**그림 3:** 공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처_
 
 > [!IMPORTANT]
 > 이러한 두 구성 요소가 동일한 SAP ASCS/SCS 인스턴스에서 실행됩니다.
->* Sapmnt 파일 \<공유를 통해 sap 메시지 및 큐에 넣기 서버 프로세스와 sap 글로벌 호스트 파일에 액세스 하는 데 사용 되는 ascs/SCS 가상 호스트 이름> 합니다.
+>* \<ASCS/SCS virtual host name>Sapmnt 파일 공유를 통해 sap 메시지 및 큐에 넣기 서버 프로세스와 sap 글로벌 호스트 파일에 액세스 하는 데 사용 됩니다.
 >* 동일한 클러스터 공유 디스크 S가 공유됩니다.
 >
 

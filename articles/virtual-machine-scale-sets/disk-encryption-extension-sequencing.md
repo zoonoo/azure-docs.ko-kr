@@ -10,10 +10,9 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117260"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>가상 머신 확장 집합 확장 시퀀싱을 통한 Azure Disk Encryption 사용
@@ -155,7 +154,7 @@ Windows 기반 Azure VM에서 모니터링 및 진단 기능을 제공 하는 �
 ```
 
 자세한 내용은 다음을 참조 하세요.
-* 디스크를 포맷 하는 사용자 지정 셸 스크립트 뒤에 Azure Disk Encryption 확장을 적용 [합니다](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json) (linux).
+* 디스크를 포맷 하는 사용자 지정 셸 스크립트 뒤에 Azure Disk Encryption 확장 적용 (Linux): [deploy-extseq-linux-ADE-after-customscript.js](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
 ## <a name="next-steps"></a>다음 단계
