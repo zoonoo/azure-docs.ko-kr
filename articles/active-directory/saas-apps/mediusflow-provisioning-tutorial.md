@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd2217046a725f0bb0a05f1eb0afc5434bf3b6fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482414"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 MediusFlow 구성
 
@@ -52,15 +52,15 @@ ms.locfileid: "83662721"
 
 ## <a name="step-2-configure-mediusflow-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 MediusFlow 구성
 
-### <a name="activate-the-office-365-app-within-mediusflow"></a>MediusFlow 내에서 Office 365 앱 활성화
+### <a name="activate-the-microsoft-365-app-within-mediusflow"></a>MediusFlow 내에서 Microsoft 365 앱 활성화
 우선 다음 단계를 수행하여 MediusFlow 내에서 Azure AD 로그인 및 Azure AD 구성 기능에 대한 액세스를 사용하도록 설정합니다.
 
 #### <a name="user-login"></a>사용자 로그인
-Office 365/Azure AD에 대한 로그인 흐름을 사용하도록 설정하려면 [이 문서](https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) 를 참조하세요.
+Microsoft 365/Azure AD에 대 한 로그인 흐름을 사용 하도록 설정 하려면 [this] (문서를 참조 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) 하세요.
 
 #### <a name="user-transfer-configuration"></a>사용자 전송 구성
-Azure AD에서 프로비저닝할 사용자의 구성 포털을 사용하도록 설정하려면 [이 문서](
-https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup)를 참조하세요.
+Azure AD에서 프로 비전 할 사용자의 구성 포털을 사용 하도록 설정 하려면 [이](
+https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) 문서를 참조 하세요.
 
 #### <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
@@ -94,7 +94,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
     ![Authenticate](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
 
-8. MediusFlow에서 미리 정의된 역할, 회사 및 기타 일반 구성 세트를 사용하여 사용자를 가져오려면 먼저 이를 구성해야 합니다. 먼저 **새 구성 추가**를 클릭하여 구성을 추가합니다.
+8. MediusFlow에서 미리 정의 된 역할, 회사 및 기타 일반 구성 집합을 사용 하 여 가져온 사용자를 가져오려면 먼저 구성 해야 합니다. 먼저 **새 구성 추가**를 클릭하여 구성을 추가합니다.
 
     ![사용자 구성](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
 

@@ -6,22 +6,22 @@ manager: jillfra
 ms.workload: azure-vs
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 46fb0ad37b872a1d7ca72114f2f263df776aabf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7075fbd098736bb297f4a2e3a93aecca5b9182a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478861"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>내 WebAPI 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
 
 > [!div class="op_single_selector"]
 > - [시작](vs-active-directory-webapi-getting-started.md)
-> - [무슨 일이 있었나요](vs-active-directory-webapi-what-happened.md)
+> - [변경된 내용](vs-active-directory-webapi-what-happened.md)
 
 이 아티클에서는 [Visual Studio를 사용하여 Azure Active Directory의 연결된 서비스](vs-active-directory-add-connected-service.md)를 추가할 때 ASP.NET WebAPI, ASP.NET 단일 페이지 애플리케이션 및 ASP.NET Azure API 프로젝트의 정확한 변경 내용을 설명합니다. 이는 Visual Studio 2015의 ASP.NET Azure 모바일 서비스 프로젝트에도 적용됩니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "80886061"
 
 프로젝트 파일(*.NET 참조) 및 `packages.config`(NuGet 참조)에 영향을 줍니다.
 
-| 유형 | 참조 |
+| Type | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -44,7 +44,7 @@ ms.locfileid: "80886061"
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 참조는 다음과 같습니다.
 
-| 유형 | 참조 |
+| Type | 참조 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer(Visual Studio 2015만 해당) |
@@ -58,7 +58,7 @@ ms.locfileid: "80886061"
 
 다음 참조가 제거됩니다(Visual Studio 2015와 마찬가지로 ASP.NET 4 프로젝트만 해당).
 
-| 유형 | 참조 |
+| Type | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -127,5 +127,5 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory에 대 한 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

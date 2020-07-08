@@ -6,18 +6,18 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481836"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
 
 Azure Cosmos DB는 분할을 사용 하 여 응용 프로그램의 성능 요구에 맞게 데이터베이스의 개별 컨테이너를 확장 합니다. 분할에서 컨테이너의 항목은 *논리적 파티션*이라는 별개의 하위 집합으로 나뉩니다. 논리적 파티션은 컨테이너의 각 항목과 연결 된 *파티션 키* 의 값에 따라 형성 됩니다. 논리적 파티션의 모든 항목에는 동일한 파티션 키 값이 있습니다.
 
-예를 들어 컨테이너는 항목을 포함 합니다. 각 항목에는 `UserID` 속성에 대 한 고유한 값이 있습니다. 가 `UserID` 컨테이너의 항목에 대 한 파티션 키로 사용 되 고 고유 `UserID` 값이 1000 인 경우 해당 컨테이너에 대해 1000 논리 파티션이 만들어집니다.
+예를 들어 컨테이너는 항목을 포함 합니다. 각 항목에는 속성에 대 한 고유한 값이 있습니다 `UserID` . `UserID`가 컨테이너의 항목에 대 한 파티션 키로 사용 되 고 고유 값이 1000 `UserID` 인 경우 해당 컨테이너에 대해 1000 논리 파티션이 만들어집니다.
 
 항목의 논리적 파티션을 결정 하는 파티션 키 외에도 컨테이너의 각 항목에는 *항목 ID* (논리 파티션 내에서 고유)가 있습니다. 파티션 키와 *항목 ID* 를 결합 하면 항목을 고유 하 게 식별 하는 항목의 *인덱스가*생성 됩니다.
 
@@ -35,6 +35,14 @@ Azure Cosmos DB 해시 기반 분할을 사용 하 여 실제 파티션에 논�
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>파티션 키 선택
 
+파티션 키에는 **파티션 키 경로** 와 **파티션 키 값**의 두 가지 구성 요소가 있습니다. 예를 들어 항목 {"userId": "Andrew", "worksFor": "Microsoft"} 파티션 키로 "userId"를 선택 하는 경우 다음 두 가지 파티션 키 구성 요소가 있습니다.
+
+* 파티션 키 경로 (예: "/userId")입니다. 파티션 키 경로는 영숫자 및 밑줄 (_) 문자를 허용 합니다. 표준 경로 표기법 (/)을 사용 하 여 중첩 된 개체를 사용할 수도 있습니다.
+
+* 파티션 키 값 (예: "Andrew")입니다. 파티션 키 값은 문자열 또는 숫자 형식일 수 있습니다.
+
+파티션 키의 처리량, 저장소 및 길이에 대 한 제한 사항에 대 한 자세한 내용은 [Azure Cosmos DB 서비스 할당량](concepts-limits.md) 문서를 참조 하세요.
+
 파티션 키를 선택 하는 것은 Azure Cosmos DB에서 간단 하지만 중요 한 디자인 선택입니다. 파티션 키를 선택한 후에는 해당 키를 그대로 변경할 수 없습니다. 파티션 키를 변경 해야 하는 경우 새 파티션 키를 사용 하 여 새 컨테이너로 데이터를 이동 해야 합니다.
 
 **모든** 컨테이너에 대해 파티션 키는 다음을 수행 해야 합니다.
@@ -49,7 +57,7 @@ Azure Cosmos DB에서 [다중 항목 ACID 트랜잭션이](database-transactions
 
 대부분의 컨테이너에서 위의 기준은 파티션 키를 선택할 때 고려해 야 할 사항입니다. 그러나 읽기 작업이 많은 컨테이너의 경우 쿼리에 필터로 자주 나타나는 파티션 키를 선택 하는 것이 좋습니다. 필터 조건자에 파티션 키를 포함 하 여 쿼리 [를 관련 실제 파티션으로 효율적으로 라우팅할](how-to-query-container.md#in-partition-query) 수 있습니다.
 
-대부분의 워크 로드 요청이 쿼리이 고 대부분의 쿼리에 동일한 속성에 대 한 같음 필터가 있는 경우이 속성은 좋은 파티션 키를 선택할 수 있습니다. 예를 들어를 필터링 `UserID`하는 쿼리를 자주 실행 하는 경우 파티션 `UserID` 키로를 선택 하면 [파티션 간 쿼리](how-to-query-container.md#avoiding-cross-partition-queries)수가 줄어듭니다.
+대부분의 워크 로드 요청이 쿼리이 고 대부분의 쿼리에 동일한 속성에 대 한 같음 필터가 있는 경우이 속성은 좋은 파티션 키를 선택할 수 있습니다. 예를 들어를 필터링 하는 쿼리를 자주 실행 하는 경우 `UserID` `UserID` 파티션 키로를 선택 하면 [파티션 간 쿼리](how-to-query-container.md#avoiding-cross-partition-queries)수가 줄어듭니다.
 
 그러나 컨테이너가 작은 경우 파티션 간 쿼리의 성능 영향에 대해 걱정 하지 않아도 되는 물리적 파티션이 충분 하지 않을 수 있습니다. Azure Cosmos DB에서 대부분의 작은 컨테이너는 하나 또는 두 개의 실제 파티션만 필요 합니다.
 

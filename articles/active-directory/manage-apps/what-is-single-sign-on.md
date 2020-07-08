@@ -2,22 +2,22 @@
 title: 애플리케이션에 대한 Single Sign-On - Azure Active Directory | Microsoft Docs
 description: Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. Single Sign-On을 사용하므로 사용자는 모든 애플리케이션에 대한 암호를 기억할 필요가 없어 계정 관리가 간소화됩니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f46bcf412403d8f911e484e12a9d1f421b1666f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479711"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 
@@ -45,9 +45,9 @@ Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가
 | [OpenID Connect 및 OAuth](#openid-connect-and-oauth) | 클라우드 전용 | 새 애플리케이션을 개발하는 경우 OpenID Connect 및 OAuth를 사용합니다. 이 프로토콜은 애플리케이션 구성을 간소화하고, 사용하기 쉬운 SDK를 보유하며, 애플리케이션에서 MS Graph를 사용하도록 설정합니다.
 | [SAML](#saml-sso) | 클라우드 및 온-프레미스 | OpenID Connect 또는 OAuth를 사용하지 않는 기존 애플리케이션에 대해 언제나 사용 가능한 SAML을 선택합니다. SAML은 SAML 프로토콜 중 하나를 사용하여 인증하는 애플리케이션에 대해 작동합니다.|
 | [암호 기반](#password-based-sso) | 클라우드 및 온-프레미스 | 애플리케이션이 사용자 이름 및 암호를 사용하여 인증하는 경우 암호 기반을 선택합니다. 암호 기반 Single Sign-On을 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 스토리지하고 재생할 수 있습니다. 이 방법은 애플리케이션에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있습니다. |
-| [연결됨](#linked-sign-on) | 클라우드 및 온-프레미스 | 응용 프로그램이 다른 id 공급자 서비스에서 Single Sign-On 하도록 구성 된 경우 연결 된 로그온을 선택 합니다. 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 하지만 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수도 있습니다.|
+| [#B0](#linked-sign-on) | 클라우드 및 온-프레미스 | 응용 프로그램이 다른 id 공급자 서비스에서 Single Sign-On 하도록 구성 된 경우 연결 된 로그온을 선택 합니다. 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 하지만 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수도 있습니다.|
 | [사용 안 함](#disabled-sso) | 클라우드 및 온-프레미스 | 앱을 Single Sign-On에 대해 구성할 준비가 되지 않은 경우 사용 안 함 Single Sign-On을 선택합니다. 이 모드는 앱을 만들 때의 기본값입니다.|
-| [IWA(Windows 통합 인증)](#integrated-windows-authentication-iwa-sso) | 온-프레미스만 | IWA Single Sign-On 방법은 [IWA(Windows 통합 인증)](/aspnet/web-api/overview/security/integrated-windows-authentication)를 사용하는 애플리케이션 또는 클레임 인식 애플리케이션에 선택합니다. IWA의 경우 애플리케이션 프록시 커넥터는 애플리케이션에 사용자를 인증하는 데 KCD(Kerberos 제한된 위임)를 사용합니다. |
+| [Windows 통합 인증 (IWA)](#integrated-windows-authentication-iwa-sso) | 온-프레미스만 | IWA Single Sign-On 방법은 [IWA(Windows 통합 인증)](/aspnet/web-api/overview/security/integrated-windows-authentication)를 사용하는 애플리케이션 또는 클레임 인식 애플리케이션에 선택합니다. IWA의 경우 애플리케이션 프록시 커넥터는 애플리케이션에 사용자를 인증하는 데 KCD(Kerberos 제한된 위임)를 사용합니다. |
 | [헤더 기반](#header-based-sso) | 온-프레미스만 | 애플리케이션이 인증에 헤더를 사용하는 경우 헤더 기반 Single Sign-On을 사용합니다. 헤더 기반 Single Sign-On에는 Azure AD용 PingAccess가 필요합니다. 애플리케이션 프록시는 Azure AD를 사용하여 사용자를 인증한 다음, 커넥터 서비스를 통해 트래픽을 전달합니다.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect 및 OAuth
@@ -62,7 +62,7 @@ Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가
 
 ## <a name="saml-sso"></a>SAML SSO
 
-**SAML Single Sign-On**을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 사용자를 특정 애플리케이션 역할에 매핑할 수 있습니다.
+**SAML Single Sign-On**를 사용 하 여 azure ad는 사용자의 azure ad 계정을 사용 하 여 응용 프로그램에 인증 합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 사용자를 특정 애플리케이션 역할에 매핑할 수 있습니다.
 
 애플리케이션에서 지원하는 경우 SAML 기반 Single Sign-On을 선택합니다.
 
@@ -73,7 +73,7 @@ SAML 기반 Single Sign-On은 다음과 같은 프로토콜을 사용하는 애�
 
 SAML 기반 Single Sign-On에 대 한 SaaS 응용 프로그램을 구성 하려면 [saml 기반 Single Sign-On 구성](configure-single-sign-on-non-gallery-applications.md)을 참조 하세요. 또한 다양한 SaaS(Software as a Service) 애플리케이션에는 SAML 기반 Single Sign-On에 대한 구성을 단계별로 안내하는 [애플리케이션 관련 자습서](../saas-apps/tutorial-list.md)가 있습니다.
 
-WS 페더레이션을 위한 응용 프로그램을 구성 하려면 동일한 지침에 따라 SAML 기반 Single Sign-On에 대 한 응용 프로그램을 구성 합니다. [saml 기반 Single Sign-On 구성](configure-single-sign-on-non-gallery-applications.md)을 참조 하세요. Azure AD를 사용 하도록 응용 프로그램을 구성 하는 단계에서 WS-FEDERATION 끝점에 대 한 Azure AD 로그인 URL을 대체 해야 합니다 `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+WS 페더레이션을 위한 응용 프로그램을 구성 하려면 동일한 지침에 따라 SAML 기반 Single Sign-On에 대 한 응용 프로그램을 구성 합니다. [saml 기반 Single Sign-On 구성](configure-single-sign-on-non-gallery-applications.md)을 참조 하세요. Azure AD를 사용 하도록 응용 프로그램을 구성 하는 단계에서 WS-FEDERATION 끝점에 대 한 Azure AD 로그인 URL을 대체 해야 합니다 `https://login.microsoftonline.com/<tenant-ID>/wsfed` .
 
 SAML 기반 Single Sign-On에 대 한 온-프레미스 응용 프로그램을 구성 하려면 [응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 saml single sign-on](application-proxy-configure-single-sign-on-on-premises-apps.md)을 참조 하세요.
 

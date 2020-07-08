@@ -1,35 +1,35 @@
 ---
-title: Functions 2.x의 Azure Cosmos DB 바인딩
+title: 함수 2. xd 이상에 대 한 Azure Cosmos DB 바인딩
 description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
-ms.openlocfilehash: f258a7aff52796a53540706bc8413575d63c9e7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77605765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482176"
 ---
-# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-overview"></a>Azure Functions 2.x 개요의 Azure Cosmos DB 트리거 및 바인딩
+# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Functions 2.x 이상의 개요에 대 한 Azure Cosmos DB 트리거 및 바인딩
 
 > [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
 > * [버전 1](functions-bindings-cosmosdb.md)
-> * [버전 2](functions-bindings-cosmosdb-v2.md)
+> * [버전 2 이상](functions-bindings-cosmosdb-v2.md)
 
-이 문서 집합에서는 Azure Functions 2.x에서 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 바인딩으로 작업 하는 방법을 설명 합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
+이 문서 집합에서는 Azure Functions 2.x 이상에서 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 바인딩으로 작업 하는 방법을 설명 합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |---------|---------|
 | Azure Cosmos DB 문서를 만들거나 수정할 때 함수를 실행 합니다. | [트리거](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Azure Cosmos DB 문서 읽기 | [입력 바인딩](./functions-bindings-cosmosdb-v2-input.md) |
 | Azure Cosmos DB 문서에 변경 내용 저장  |[출력 바인딩](./functions-bindings-cosmosdb-v2-output.md) |
 
 > [!NOTE]
-> 이 참조는 [Azure Functions 버전](functions-versions.md)2.x에 대 한 것입니다.  Functions 1.x에서 이러한 바인딩을 사용하는 방법에 대한 내용은 [Azure Functions 1.x에 대한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb.md)을 참조하세요.
+> 이 참조는 [Azure Functions 버전 2.x 이상](functions-versions.md)에 대 한 것입니다.  Functions 1.x에서 이러한 바인딩을 사용하는 방법에 대한 내용은 [Azure Functions 1.x에 대한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb.md)을 참조하세요.
 >
-> 이 바인딩의 원래 이름은 DocumentDB입니다. Functions 버전 2.x에서는 트리거, 바인딩 및 패키지의 이름이 모두 Cosmos DB로 지정됩니다.
+> 이 바인딩의 원래 이름은 DocumentDB입니다. 함수 버전 2.x 이상에서 트리거, 바인딩 및 패키지는 모두 Cosmos DB 이름이 지정 됩니다.
 
 ## <a name="supported-apis"></a>지원되는 API
 
@@ -37,7 +37,7 @@ ms.locfileid: "77605765"
 
 ## <a name="add-to-your-functions-app"></a>함수 앱에 추가
 
-### <a name="functions-2x-and-higher"></a>함수 2.x 이상
+### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
 트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 

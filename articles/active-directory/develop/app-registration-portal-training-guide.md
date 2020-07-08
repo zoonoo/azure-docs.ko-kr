@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478164"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>새 Azure Portal 앱 등록 환경
 
@@ -77,7 +77,7 @@ Azure Portal의 새로운 환경은 이러한 기능을 별도의 페이지에 �
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>플랫폼/인증: 회신 Url/리디렉션 Uri
 이전 환경에서 앱은 웹, 네이티브 및 웹 API에 대 한 플랫폼 섹션을 포함 하 여 리디렉션 Url, 로그 아웃 URL 및 암시적 흐름을 구성 했습니다.
 
-새 환경에서는 앱\'인증 섹션에서 회신 url을 찾을 수 있습니다. 또한 리디렉션 Uri로 참조 되 고 리디렉션 Uri에 대 한 형식이 변경 되었습니다. 앱 유형 (웹 또는 공용 클라이언트-모바일 및 데스크톱)에 연결 해야 합니다. [자세한 정보](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+새 환경에서는 앱 인증 섹션에서 회신 Url을 찾을 수 있습니다 \' . 또한 리디렉션 Uri로 참조 되 고 리디렉션 Uri에 대 한 형식이 변경 되었습니다. 앱 유형 (웹 또는 공용 클라이언트-모바일 및 데스크톱)에 연결 해야 합니다. [자세한 정보](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 웹 Api는 API 페이지 노출에서 구성 됩니다.
 
@@ -106,7 +106,7 @@ Azure Portal의 새로운 환경은 이러한 기능을 별도의 페이지에 �
 
 -   API (oauth2Permissions) 및 권한 있는 클라이언트 응용 프로그램 (preAuthorizedApplications)에서 정의 된 범위는 API 노출 페이지를 통해 구성할 수 있습니다. 앱을 web API로 구성 하 고 사용 권한/범위를 노출 하는 방법에 대 한 자세한 내용은 [이 빠른](quickstart-configure-app-expose-web-apis.md)시작을 참조 하세요.
 
--   [응용 프로그램\'동의 프롬프트](application-consent-experience.md)에서 사용자에 게 표시 되는 게시자 도메인은 브랜딩 페이지에서 찾을 수 있습니다. 게시자 도메인을 구성 하는 방법에 대 한 자세한 내용은 [이 방법을](howto-configure-publisher-domain.md)참조 하세요.
+-   [응용 프로그램 \' 동의 프롬프트](application-consent-experience.md)에서 사용자에 게 표시 되는 게시자 도메인은 브랜딩 페이지에서 찾을 수 있습니다. 게시자 도메인을 구성 하는 방법에 대 한 자세한 내용은 [이 방법을](howto-configure-publisher-domain.md)참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -116,7 +116,7 @@ Azure Portal의 새로운 환경은 이러한 기능을 별도의 페이지에 �
 
 -   새 환경에서는 개인 Microsoft 계정을 사용 하 여 만든 라이브 SDK 앱을 아직 지원 하지 않습니다.
 
--   지원 되는 계정에 대 한 값 변경은 UI에서 지원 되지 않습니다. Azure AD 단일 테 넌 트와 다중 테\'넌 트 간을 전환 하지 않는 한 앱 매니페스트를 사용 해야 합니다.
+-   지원 되는 계정에 대 한 값 변경은 UI에서 지원 되지 않습니다. \'AZURE AD 단일 테 넌 트와 다중 테 넌 트 간을 전환 하지 않는 한 앱 매니페스트를 사용 해야 합니다.
 
    > [!NOTE]
    > Azure AD 테 넌 트에서 개인 Microsoft 계정 사용자이 고 테 넌 트 관리자가 Azure Portal에 대 한 액세스를 제한 한 경우 액세스가 거부 될 수 있습니다. 그러나 검색 표시줄에 앱 등록를 입력 하거나이를 고정 하 여 바로 가기를 사용 하는 경우 새 환경에 액세스할 수 있습니다.

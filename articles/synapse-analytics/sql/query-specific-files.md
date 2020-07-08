@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478419"
 ---
 # <a name="using-file-metadata-in-queries"></a>쿼리에서 파일 메타데이터 사용
 
@@ -22,7 +22,7 @@ SQL 주문형 쿼리 서비스는 [쿼리 폴더 및 여러 파일](query-folder
 
 경우에 따라 결과 집합의 특정 행과 상관 관계가 있는 파일 또는 폴더 원본을 알아야 할 수도 있습니다.
 
-`filepath` 및 `filename` 함수를 사용하여 결과 집합의 파일 이름 및/또는 경로를 반환할 수 있습니다. 또는 파일 이름 및/또는 폴더 경로를 기반으로 데이터를 필터링하는 데 사용할 수 있습니다. 이러한 함수는 구문 섹션 [filename 함수](develop-storage-files-overview.md#filename-function) 및 [filepath 함수](develop-storage-files-overview.md#filepath-function)에 설명되어 있습니다. 아래에서 샘플을 따라 간단한 설명을 찾을 수 있습니다.
+`filepath` 및 `filename` 함수를 사용하여 결과 집합의 파일 이름 및/또는 경로를 반환할 수 있습니다. 또는 파일 이름 및/또는 폴더 경로를 기반으로 데이터를 필터링하는 데 사용할 수 있습니다. 이러한 함수는 구문 섹션 [filename 함수](query-data-storage.md#filename-function) 및 [filepath 함수](query-data-storage.md#filepath-function)에 설명되어 있습니다. 아래에서 샘플을 따라 간단한 설명을 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

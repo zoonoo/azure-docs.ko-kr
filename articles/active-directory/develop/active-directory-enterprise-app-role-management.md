@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8db27819b7eef6cdf05ea3f6645ae930ebc4ef58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478623"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 디렉터리가 설치된 Azure AD 구독
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
@@ -62,7 +62,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       !["권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    c. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) **권한 수정**을 선택합니다.
+    다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) **권한 수정**을 선택합니다.
 
       ![권한 목록 및 "권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
@@ -88,7 +88,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       ![수정해야 하는 서비스 사용자 가져오기에 대한 쿼리](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. 서비스 주체 개체에서 **Approles** 속성을 추출 합니다.
+    예: 서비스 주체 개체에서 **Approles** 속성을 추출 합니다.
 
       ![appRoles 속성의 세부 정보](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
@@ -148,7 +148,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 8. **특성** 테이블을 업데이트하여 역할 클레임의 사용자 지정된 매핑을 정의합니다.
 
-9. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행 하 여 아래 표에 표시 된 것과 같이 SAML 토큰 특성을 추가 합니다.
+9. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
     | 특성 이름 | 특성 값 |
     | -------------- | ----------------|
@@ -167,7 +167,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       !["특성 추가" 창](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    c. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
+    다. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
 
     d. **네임스페이스** 상자를 비워 둡니다.
 
@@ -211,7 +211,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     b. 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
-    c. 필요에 따라 역할 설명, 역할 값 또는 역할 표시 이름을 업데이트하여 역할 값을 업데이트합니다.
+    다. 필요에 따라 역할 설명, 역할 값 또는 역할 표시 이름을 업데이트하여 역할 값을 업데이트합니다.
 
     d. 모든 필요한 역할을 업데이트 한 후 **쿼리 실행**을 선택합니다.
 
@@ -249,7 +249,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     b. 애플리케이션에서 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
-    c. 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
+    다. 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
 
     d. **쿼리 실행**을 선택합니다.
 

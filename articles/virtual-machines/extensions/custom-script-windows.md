@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: a8b1c53a5c060f2124a36b69365bdd9b62896b56
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478487"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -66,6 +66,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 * 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원하지 않지만, 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구(예: *Curl*)를 사용할 수 있습니다.
 * 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이 상황을 처리할 논리가 있어야 합니다.
 * 사용자 지정 스크립트 확장이 LocalSystem 계정으로 실행됩니다.
+* *Storageaccountname* 및 *storageAccountKey* 속성을 사용 하려는 경우 이러한 속성은 *protectedSettings*에서 배치 된 해야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -123,13 +124,13 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 | Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | 문자열 |
-| type | CustomScriptExtension | 문자열 |
+| publisher | Microsoft.Compute | string |
+| type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.10 | int |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | 문자열 |
-| storageAccountName(예) | examplestorageacct | 문자열 |
+| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| storageAccountName(예) | examplestorageacct | string |
 | storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
 | managedIdentity(예) | { } 또는 { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } 또는 { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json 개체 |
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791989"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481734"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -35,7 +35,7 @@ VNet을 다음에 사용합니다.
 
 * 하이브리드 클라우드 시나리오를 사용 하도록 설정 합니다. VNet은 유연성을 제공하여 다양한 하이브리드 클라우드 시나리오를 지원합니다. 메인프레임 및 Unix 시스템과 같은 모든 형식의 온-프레미스 시스템에 클라우드 기반 애플리케이션을 안전하게 연결할 수 있습니다.
 
-### <a name="how-do-i-get-started"></a>시작하는 방법
+### <a name="how-do-i-get-started"></a>시작하려면 어떻게 해야 하나요?
 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network/) 를 방문 하 여 시작 하세요. 이 콘텐츠는 모든 VNet 기능에 대한 개요 및 배포 정보를 제공합니다.
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>크로스-프레미스 연결 없이 VNet을 사용할 수 있습니까?
@@ -55,7 +55,14 @@ VNet을 다음에 사용합니다.
 * 네트워크 구성 파일(netcfg - 클래식 VNet 전용) [네트워크 구성 파일을 사용하여 VNet 구성](virtual-networks-using-network-configuration-file.md) 문서를 참조하세요.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>VNet 내에서 사용할 수 있는 주소 범위는 무엇입니까?
-[RFC 1918](https://tools.ietf.org/html/rfc1918)에 정의되어 있는 모든 IP 주소 범위를 사용할 수 있습니다. 예를 들어 10.0.0.0/16을 사용할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
+[RFC 1918](https://tools.ietf.org/html/rfc1918)에 열거 된 주소 범위를 사용 하는 것이 좋습니다 .이 주소 범위는 개인, 라우팅 불가능 주소 공간에 대해 IETF에서 따로 설정 되어 있습니다.
+* 10.0.0.0 - 10.255.255.255(10/8 접두사)
+* 172.16.0.0-172.31.255.255 (172.16/12 접두사)
+* 192.168.0.0 - 192.168.255.255(192.168/16 접두사)
+
+다른 주소 공간은 작동할 수 있지만 원치 않는 부작용이 발생할 수 있습니다.
+
+또한 다음 주소 범위를 추가할 수 없습니다.
 * 224.0.0.0/4(멀티캐스트)
 * 255.255.255.255/32(브로드캐스트)
 * 127.0.0.0/8(루프백)
@@ -131,7 +138,7 @@ VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니�
 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)을 참조하세요.
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>네트워크를 생성 한 후 DNS 서버를 수정할 수 있습니까?
-예. VNet에 대한 DNS 서버 목록을 언제든지 변경할 수 있습니다. DNS 서버 목록을 변경 하는 경우 새 DNS 설정을 적용 하려면 VNet에서 영향을 받는 모든 Vm에 대해 DHCP 임대 갱신을 수행 해야 합니다. Windows OS를 실행 하는 Vm의 경우 VM에 `ipconfig /renew` 직접 입력 하 여이 작업을 수행할 수 있습니다. 다른 OS 유형에 대 한 자세한 내용은 특정 OS 유형에 대 한 DHCP 임대 갱신 설명서를 참조 하세요. 
+예. VNet에 대한 DNS 서버 목록을 언제든지 변경할 수 있습니다. DNS 서버 목록을 변경 하는 경우 새 DNS 설정을 적용 하려면 VNet에서 영향을 받는 모든 Vm에 대해 DHCP 임대 갱신을 수행 해야 합니다. Windows OS를 실행 하는 Vm의 경우 VM에 직접 입력 하 여이 작업을 수행할 수 있습니다 `ipconfig /renew` . 다른 OS 유형에 대 한 자세한 내용은 특정 OS 유형에 대 한 DHCP 임대 갱신 설명서를 참조 하세요. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>Azure에서 제공하는 DNS란 무엇이며 VNet으로 작동합니까?
 Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DNS 서비스입니다. Azure는 이 서비스에 모든 VM 및 클라우드 서비스 역할 인스턴스를 등록합니다. 이 서비스는 동일한 클라우드 서비스 내에 포함된 VM 및 역할 인스턴스에 대한 호스트 이름 및 동일한 VNet에서 VM 및 역할 인스턴스에 대한 FQDN으로 이름 확인을 제공합니다. DNS에 대해 자세히 알아보려면 [VM 및 Cloud Services 역할 인스턴스에 대한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
@@ -184,11 +191,11 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ## <a name="azure-services-that-connect-to-vnets"></a>VNet에 연결하는 Azure 서비스
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
-예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
+예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [App Service 네트워킹 기능](../app-service/networking-features.md)
 * [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Azure Virtual Network와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service 액세스 제한](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 Cloud Services를 배포할 수 있습니까?
@@ -256,7 +263,7 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 -   Azure Batch
 - App Service 환경
 
-VNet 게이트웨이를 통해 Express 경로 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
+VNet 게이트웨이를 사용하여 ExpressRoute 또는 VNet 간을 통해 이러한 리소스에 연결할 수 있습니다.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>내 가상 네트워크가 다른 Azure Active Directory 테넌트의 구독에 속한 경우 VNet 피어링을 사용할 수 있나요?
 예. 현재 구독이 다른 Azure Active Directory 테넌트에 속한 경우 로컬 또는 글로벌 VNet 피어링을 설정할 수 없습니다. PowerShell 또는 CLI에서는 피어링을 설정할 수 있습니다. 포털은 아직 지원되지 않습니다.

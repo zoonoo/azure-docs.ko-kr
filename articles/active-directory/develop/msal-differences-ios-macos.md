@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41389bc5ed8580cd80dbc40e771c7f15241f5ae7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479405"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>iOS 및 macOS용 Microsoft 인증 라이브러리 차이점
 
@@ -33,7 +33,7 @@ MacOS 용 MSAL은 iOS에서 사용할 수 있는 기능의 하위 집합입니�
 
 MacOS 용 MSAL은 다음을 지원 하지 않습니다.
 
-- `ASWebAuthenticationSession`,, `SFSafariViewController`등의 다양 한 `SFAuthenticationSession`브라우저 유형
+- `ASWebAuthenticationSession`,, 등의 다양 한 브라우저 유형 `SFAuthenticationSession` `SFSafariViewController`
 - Microsoft Authenticator 앱을 통한 조정 된 인증은 macOS에 대해 지원 되지 않습니다.
 
 동일한 게시자의 앱 간에 키 집합 공유는 macOS 10.14 이전 버전에서 더 제한적입니다. [액세스 제어 목록을](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) 사용 하 여 키 집합을 공유 하는 앱의 경로를 지정 합니다. 사용자에 게 추가 키 집합 프롬프트가 표시 될 수 있습니다.

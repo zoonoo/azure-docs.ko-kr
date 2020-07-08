@@ -7,18 +7,18 @@ author: shoatman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479422"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 인증 라이브러리 구성 파일
 
@@ -30,14 +30,14 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 ### <a name="general-settings"></a>일반 설정
 
-| 속성 | 데이터 형식 | 필수 | 참고 |
+| 속성 | 데이터 형식 | 필요한 공간 | 메모 |
 |-----------|------------|-------------|-------|
 | `client_id` | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 클라이언트 ID |
 | `redirect_uri`   | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 리디렉션 URI |
-| `authorities` | 권한\<> 나열 | 아니요 | 앱에 필요한 권한 목록 |
-| `authorization_user_agent` | AuthorizationAgent (enum) | 아니요 | 가능한 값: `DEFAULT`, `BROWSER`,`WEBVIEW` |
+| `authorities` | 은\<Authority> | 아니요 | 앱에 필요한 권한 목록 |
+| `authorization_user_agent` | AuthorizationAgent (enum) | 아니요 | 가능한 값: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
 | `http` | HttpConfiguration | 아니요 | 구성 `HttpUrlConnection` `connect_timeout` 및`read_timeout` |
-| `logging` | LoggingConfiguration | 아니요 | 로깅 세부 정보 수준을 지정 합니다. 선택적 구성에는 `pii_enabled`부울 값을 사용 `log_level`하는 및,, 또는 `ERROR` `WARNING` `INFO` `VERBOSE`를 사용 하는가 포함 됩니다. |
+| `logging` | LoggingConfiguration | 아니요 | 로깅 세부 정보 수준을 지정 합니다. 선택적 구성에는 `pii_enabled` 부울 값을 사용 하는 및,, `log_level` `ERROR` `WARNING` `INFO` 또는를 사용 `VERBOSE` 하는가 포함 됩니다. |
 
 ### <a name="client_id"></a>client_id
 
@@ -49,7 +49,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 ### <a name="authorities"></a>권한
 
-사용자가 인식 하 고 신뢰 하는 기관 목록입니다. 여기에 나열 된 인증 기관 외에도, MSAL은 microsoft에 알려진 클라우드 및 기관의 목록을 가져오도록 Microsoft를 쿼리 합니다. 이 권한 목록에서 인증 유형 및와 `"audience"`같은 추가 선택적 매개 변수를 지정 합니다 .이 매개 변수는 앱의 등록을 기반으로 하 여 앱의 대상 그룹과 일치 해야 합니다. 다음은 기관의 예제 목록입니다.
+사용자가 인식 하 고 신뢰 하는 기관 목록입니다. 여기에 나열 된 인증 기관 외에도, MSAL은 microsoft에 알려진 클라우드 및 기관의 목록을 가져오도록 Microsoft를 쿼리 합니다. 이 권한 목록에서 인증 유형 및와 같은 추가 선택적 매개 변수를 지정 합니다 .이 매개 변수 `"audience"` 는 앱의 등록을 기반으로 하 여 앱의 대상 그룹과 일치 해야 합니다. 다음은 기관의 예제 목록입니다.
 
 ```javascript
 // Example AzureAD and Personal Microsoft Account
@@ -86,7 +86,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>AAD authority & 대상을 Microsoft identity platform 끝점에 매핑
 
-| 유형 | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 참고 |
+| 형식 | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 참고 |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`는 계정이 인에 대 한 테 넌 트 별칭입니다. 예: 특정 Azure Active Directory 테 넌 트 또는 Microsoft 계정 시스템 |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Contoso.com에 있는 계정만 토큰을 획득할 수 있습니다. 확인 된 도메인 또는 테 넌 트 GUID는 테 넌 트 ID로 사용 될 수 있습니다. |
@@ -97,23 +97,23 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 > [!NOTE]
 > MSAL에서는 인증 기관 유효성 검사를 사용 하거나 사용 하지 않도록 설정할 수 없습니다.
 > 구성 또는 메타 데이터를 통해 Microsoft에 알려진 권한을 개발자에 게 사용자에 게 알려 두는 것입니다.
-> MSAL에서 토큰에 대 한 요청을 알 수 없는 기관에 수신 `MsalClientException` 하는 `UnknownAuthority` 경우 형식의이 반환 됩니다.
+> MSAL에서 토큰에 대 한 요청을 알 수 없는 기관에 수신 하는 경우 `MsalClientException` 형식의이 `UnknownAuthority` 반환 됩니다.
 
 #### <a name="authority-properties"></a>인증 기관 속성
 
-| 속성 | 데이터 형식  | 필수 | 참고 |
+| 속성 | 데이터 형식  | 필요한 공간 | 메모 |
 |-----------|-------------|-----------|--------|
-| `type` | String | 예 | 앱이 대상으로 하는 대상 또는 계정 유형을 미러링합니다. 가능한 값: `AAD`,`B2C` |
-| `audience` | Object | 아니요 | Type =`AAD`인 경우에만 적용 됩니다. 앱이 대상으로 하는 id를 지정 합니다. 앱 등록의 값 사용 |
-| `authority_url` | String | 예 | Type =`B2C`인 경우에만 필요 합니다. 앱에서 사용 해야 하는 기관 URL 또는 정책을 지정 합니다.  |
+| `type` | String | 예 | 앱이 대상으로 하는 대상 또는 계정 유형을 미러링합니다. 가능한 값: `AAD` ,`B2C` |
+| `audience` | Object | 아니요 | Type = 인 경우에만 적용 됩니다 `AAD` . 앱이 대상으로 하는 id를 지정 합니다. 앱 등록의 값 사용 |
+| `authority_url` | String | 예 | Type = 인 경우에만 필요 `B2C` 합니다. 앱에서 사용 해야 하는 기관 URL 또는 정책을 지정 합니다.  |
 | `default` | boolean | 예 | 하나 이상의 `"default":true` 기관이 지정 된 경우 단일가 필요 합니다. |
 
 #### <a name="audience-properties"></a>대상 속성
 
-| 속성 | 데이터 형식  | 필수 | 참고 |
+| 속성 | 데이터 형식  | 필요한 공간 | 메모 |
 |-----------|-------------|------------|-------|
-| `type` | String | 예 | 앱이 대상으로 지정 하려는 대상 그룹을 지정 합니다. 가능한 값: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`,`AzureADMyOrg` |
-| `tenant_id` | String | 예 | 인 경우 `"type":"AzureADMyOrg"`에만 필요 합니다. 다른 `type` 값의 경우 선택 사항입니다. 이 도메인은와 같은 테 넌 트 `contoso.com`도메인 이거나와 `72f988bf-86f1-41af-91ab-2d7cd011db46`같은 테 넌 트 ID 일 수 있습니다. |
+| `type` | String | 예 | 앱이 대상으로 지정 하려는 대상 그룹을 지정 합니다. 가능한 값: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `tenant_id` | String | 예 | 인 경우에만 필요 `"type":"AzureADMyOrg"` 합니다. 다른 값의 경우 선택 사항 `type` 입니다. 이 도메인은와 같은 테 넌 트 도메인 `contoso.com` 이거나와 같은 테 넌 트 ID 일 수 있습니다. `72f988bf-86f1-41af-91ab-2d7cd011db46` |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -126,31 +126,31 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
-여러 국가 클라우드를 지 원하는 클라이언트의 경우 `true`를 지정 합니다. Microsoft id 플랫폼은 권한 부여 및 토큰 상환 중에 올바른 국가 클라우드로 자동으로 리디렉션됩니다. 와 연결 된 기관을 검사 하 여 로그인 한 계정의 국가별 클라우드를 확인할 수 있습니다 `AuthenticationResult`. 는 `AuthenticationResult` 토큰을 요청 하는 리소스의 국가별 클라우드 관련 끝점 주소를 제공 하지 않습니다.
+여러 국가 클라우드를 지 원하는 클라이언트의 경우를 지정 `true` 합니다. Microsoft id 플랫폼은 권한 부여 및 토큰 상환 중에 올바른 국가 클라우드로 자동으로 리디렉션됩니다. 와 연결 된 기관을 검사 하 여 로그인 한 계정의 국가별 클라우드를 확인할 수 있습니다 `AuthenticationResult` . 는 `AuthenticationResult` 토큰을 요청 하는 리소스의 국가별 클라우드 관련 끝점 주소를 제공 하지 않습니다.
 
 ### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
 
-Microsoft Identity broker와 호환 되는 브로커 리디렉션 URI를 사용 하 고 있는지 여부를 나타내는 부울입니다. 앱 내 `false` 에서 broker를 사용 하지 않으려면로 설정 합니다.
+Microsoft Identity broker와 호환 되는 브로커 리디렉션 URI를 사용 하 고 있는지 여부를 나타내는 부울입니다. `false`앱 내에서 broker를 사용 하지 않으려면로 설정 합니다.
 
-대상 그룹이로 `"MicrosoftPersonalAccount"`설정 된 AAD 기관을 사용 하는 경우 broker가 사용 되지 않습니다.
+대상 그룹이로 설정 된 AAD 기관을 사용 하는 경우 `"MicrosoftPersonalAccount"` broker가 사용 되지 않습니다.
 
 ### <a name="http"></a>http
 
 HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
-| 속성 | 데이터 형식 | 필수 | 참고 |
+| 속성 | 데이터 형식 | 필요한 공간 | 참고 |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | 아니요 | 시간 (밀리초) |
-| `read_timeout` | int | 아니요 | 시간 (밀리초) |
+| `connect_timeout` | Int | 아니요 | 시간 (밀리초) |
+| `read_timeout` | Int | 아니요 | 시간 (밀리초) |
 
 ### <a name="logging"></a>logging
 
 로깅에 대 한 전역 설정은 다음과 같습니다.
 
-| 속성 | 데이터 형식  | 필수 | 참고 |
+| 속성 | 데이터 형식  | 필요한 공간 | 참고 |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | 아니요 | 개인 데이터를 내보낼지 여부 |
-| `log_level`   | boolean | 아니요 | 출력할 로그 메시지 |
+| `log_level`   | 문자열 | No | 출력할 로그 메시지입니다. 지원 되는 로그 수준 `ERROR` 에는,, 및가 `WARNING` `INFO` `VERBOSE` 있습니다. |
 | `logcat_enabled` | boolean | 아니요 | 로깅 인터페이스 외에도 cat을 기록 하도록 출력할지 여부 |
 
 ### <a name="account_mode"></a>account_mode
@@ -160,7 +160,7 @@ HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 - `MULTIPLE`(기본값)
 - `SINGLE`
 
-이 설정과 `PublicClientApplication` 일치 하지 않는 계정 모드를 사용 하 여를 생성 하면 예외가 발생 합니다.
+`PublicClientApplication`이 설정과 일치 하지 않는 계정 모드를 사용 하 여를 생성 하면 예외가 발생 합니다.
 
 단일 계정과 여러 계정 간의 차이점에 대 한 자세한 내용은 [단일 및 여러 계정 앱](single-multi-account.md)을 참조 하세요.
 
@@ -340,8 +340,8 @@ MSAL과 함께 제공 되는 기본 MSAL 구성은 아래와 같습니다. [GitH
 
 ## <a name="how-to-use-a-configuration-file"></a>구성 파일을 사용 하는 방법
 
-1. 구성 파일을 만듭니다. 에서 `res/raw/auth_config.json`사용자 지정 구성 파일을 만드는 것이 좋습니다. 하지만 원하는 위치에 배치할 수 있습니다.
-2. 을 `PublicClientApplication`생성할 때 구성을 찾을 위치를 msal에 알려 주십시오. 예를 들면 다음과 같습니다.
+1. 구성 파일을 만듭니다. 에서 사용자 지정 구성 파일을 만드는 것이 좋습니다 `res/raw/auth_config.json` . 하지만 원하는 위치에 배치할 수 있습니다.
+2. 을 생성할 때 구성을 찾을 위치를 MSAL에 알려 주십시오 `PublicClientApplication` . 예를 들어:
 
    ```java
    //On Worker Thread

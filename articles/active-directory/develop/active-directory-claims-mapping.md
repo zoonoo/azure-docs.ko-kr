@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737506"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478402"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -325,6 +325,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 | 사용자 | jobtitle | 직위 |
 | 사용자 | employeeid | 직원 ID |
 | 사용자 | facsimiletelephonenumber | 팩스 번호 |
+| 사용자 | assignedroles | 사용자에 게 할당 된 앱 역할의 목록입니다.|
 | 애플리케이션, 리소스, 대상 그룹 | displayname | 표시 이름 |
 | 애플리케이션, 리소스, 대상 그룹 | objected | ObjectID |
 | 애플리케이션, 리소스, 대상 그룹 | tags | 서비스 주체 태그 |
@@ -384,7 +385,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 
-|원본|ID|Description|
+|원본|ID|설명|
 |-----|-----|-----|
 | 사용자 | mail|메일 주소|
 | 사용자 | userprincipalname|사용자 계정 이름|

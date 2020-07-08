@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482125"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -57,7 +57,7 @@ ms.locfileid: "83125709"
 
 연결 문자열은 세미콜론으로 구분 된 키-값 쌍으로 표시 되는 설정 목록으로 구성 됩니다.`key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>구문
+#### <a name="syntax"></a>Syntax
 
 - `InstrumentationKey`(예: 00000000-0000-0000-0000-000000000000)  연결 문자열은 **필수** 필드입니다.
 - `Authorization`(예: ikey) 이 설정은 현재 ikey 권한 부여만 지원 하기 때문에 선택 사항입니다.
@@ -149,7 +149,7 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 연결 문자열은 다음 SDK 버전에서 지원 됩니다.
 - .NET 및 .NET Core v 2.12.0
 - Java v 2.5.1 및 Java 3.0
-- Javascript v 2.3.0
+- JavaScript v 2.3.0
 - NodeJS v 1.5.0
 - Python v 1.0.0
 
@@ -165,7 +165,7 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 
 TelemetryConfiguration:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net 명시적으로 설정:
+.NET 명시적으로 설정:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.Net 구성 파일:
+.NET 구성 파일:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -182,8 +182,16 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
+명시적으로 설정 되는 NetCore:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
+    services.AddApplicationInsightsTelemetry(options: options);
+}
+```
 
-NetCore 구성. json: 
+NetCore config.js: 
 
 ```json
 {
@@ -212,7 +220,7 @@ ApplicationInsights.xml
 
 # <a name="javascript"></a>[JavaScript](#tab/js)
 
-중요: Javascript는 환경 변수 사용을 지원 하지 않습니다.
+중요: JavaScript는 환경 변수 사용을 지원 하지 않습니다.
 
 코드 조각 사용:
 

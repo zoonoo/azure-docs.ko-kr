@@ -6,17 +6,17 @@ services: active-directory
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 67dbf696903e7a930d75762deb00ad58ed1a4f69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cdcb5287434c72bf54337611d67de8d6f65d8d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479515"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
@@ -55,6 +55,6 @@ Microsoft Graph API의 기능에 액세스 하는 방법을 보여 주는 빠른
 
 ## <a name="tools"></a>도구
 
-Microsoft Graph 탐색기는 Microsoft Graph Api를 사용 하 여 요청을 빌드 및 테스트 하는 데 사용할 수 있는 웹 기반 도구입니다. 에서 Microsoft Graph 탐색기에 액세스할 수 있습니다 `https://developer.microsoft.com/graph/graph-explorer`.
+Microsoft Graph 탐색기는 Microsoft Graph Api를 사용 하 여 요청을 빌드 및 테스트 하는 데 사용할 수 있는 웹 기반 도구입니다. 에서 Microsoft Graph 탐색기에 액세스할 수 있습니다 `https://developer.microsoft.com/graph/graph-explorer` .
 
-Postman은 Microsoft Graph Api를 사용 하 여 요청을 빌드 및 테스트 하는 데 사용할 수 있는 도구입니다. Postman은에서 다운로드할 수 있습니다 `https://www.getpostman.com/`. Postman의 Microsoft Graph 상호 작용 하려면 Postman에서 Microsoft Graph 컬렉션을 사용 합니다. 자세한 내용은 [MICROSOFT GRAPH API를 사용 하 여 Postman 사용](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)을 참조 하세요.
+Postman은 Microsoft Graph Api를 사용 하 여 요청을 빌드 및 테스트 하는 데 사용할 수 있는 도구입니다. Postman은에서 다운로드할 수 있습니다 `https://www.getpostman.com/` . Postman의 Microsoft Graph 상호 작용 하려면 Postman에서 Microsoft Graph 컬렉션을 사용 합니다. 자세한 내용은 [MICROSOFT GRAPH API를 사용 하 여 Postman 사용](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)을 참조 하세요.
