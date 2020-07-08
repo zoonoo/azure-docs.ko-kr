@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318912"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "70139257"
 ## <a name="samples-on-github"></a>GitHub 샘플
 [GitHub Azure-DataFactory 리포지토리](https://github.com/azure/azure-datafactory) 에는 신속하게 Azure Data Factory 서비스의 규모를 확장하거나 스크립트를 수정하고 자체 애플리케이션에서 사용하는 데 도움이 되는 여러 샘플이 포함되어 있습니다. Samples\JSON 폴더에는 일반적인 시나리오에 대한 JSON 조각이 포함되어 있습니다.
 
-| 예제 | 설명 |
+| 샘플 | Description |
 |:--- |:--- |
 | [ADF 연습](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |이 샘플에서는 Azure Data Factory를 사용하여 로그 파일을 유용한 정보로 변환하는 엔드투엔드 연습을 제공합니다. <br/><br/>이 연습에서 Data Factory 파이프라인은 샘플 로그를 수집하고, 참조 데이터를 사용하여 로그의 데이터를 처리 및 보강하고, 데이터를 변환하여 최근 시작한 마케팅 캠페인의 효과를 평가합니다. |
 | [JSON 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |이 예제에서는 일반적인 시나리오에 대한 JSON 예제를 제공합니다. |
@@ -46,9 +46,9 @@ ms.locfileid: "70139257"
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿을 찾을 수 있습니다.
 
-| 템플릿 | Description |
+| 템플릿 | 설명 |
 | --- | --- |
-| [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |이 템플릿을 배포하면 지정된 Azure Blob 스토리지에서 Azure SQL 데이터베이스에 데이터를 복사하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
+| [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |이 템플릿을 배포 하면 지정 된 Azure blob 저장소의 데이터를 Azure SQL Database로 복사 하는 파이프라인이 있는 Azure 데이터 팩터리가 생성 됩니다. |
 | [Salesforce에서 Azure Blob Storage로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |이 템플릿을 배포하면 지정된 Salesforce 계정에서 Azure Blob Storage에 데이터를 복사하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
 | [Azure HDInsight 클러스터에서 Hive 스크립트를 실행하여 데이터 변환](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |이 템플릿을 배포하면 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 변환하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
 
@@ -62,7 +62,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 3. **샘플 파이프라인** 블레이드에서 배포할 **샘플**을 클릭합니다.
 
     ![샘플 파이프라인 블레이드](./media/data-factory-samples/SampleTile.png)
-4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure Storage 계정 이름 및 계정 키, Azure SQL Server 이름, 데이터베이스, 사용자 ID, 암호 등입니다.
+4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure storage 계정 이름 및 계정 키, 논리적 SQL server 이름, 데이터베이스, 사용자 ID, 암호 등이 있습니다.
 
     ![샘플 블레이드](./media/data-factory-samples/SampleBlade.png)
 5. 구성 설정 지정을 마쳤으면 **만들기** 를 클릭하여 샘플 파이프라인 및 파이프라인에서 사용되는 연결된 서비스/테이블을 만듭니다/배포합니다.
@@ -75,12 +75,12 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
     ![데이터 팩터리 블레이드](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio의 샘플
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 
 * Visual Studio 2013 또는 Visual Studio 2015
 * Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
-* Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013를 사용 하는 경우 다음 단계를 수행 하 여 플러그 인을 업데이트할 수도 있습니다. 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **visual studio 갤러리** -> **Microsoft Azure Data Factory tools for visual studio** -> **업데이트**를 클릭 합니다.
+* Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013를 사용 하는 경우 다음 단계를 수행 하 여 플러그 인을 업데이트할 수도 있습니다. 메뉴에서 **도구**  ->  **확장 및 업데이트**  ->  **온라인**  ->  **visual studio 갤러리**  ->  **Microsoft Azure Data Factory tools for visual studio**  ->  **업데이트**를 클릭 합니다.
 
 ### <a name="use-data-factory-templates"></a>데이터 팩터리 템플릿 사용
 1. 메뉴에서 **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
@@ -88,7 +88,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 
    1. **템플릿** 아래의 **데이터 팩터리**를 선택합니다.
    2. 오른쪽 창의 **데이터 팩터리 템플릿** 을 선택합니다.
-   3. 프로젝트의 **이름을** 입력 합니다.
+   3. 프로젝트의 **이름** 을 입력합니다.
    4. 프로젝트의 **위치** 를 선택합니다.
    5. **확인**을 클릭합니다.
 
@@ -104,7 +104,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
    4. 데이터 팩터리의 **리소스 그룹** 을 선택합니다.
    5. **지역**에서 **미국 서부**, **미국 동부** 또는 **북유럽**을 선택합니다.
    6. **다음**을 클릭합니다.
-6. **데이터 저장소 구성** 페이지에서 기존 **Azure SQL 데이터베이스** 및 **Azure 스토리지 계정**을 지정하거나, 데이터베이스/스토리지를 만들고 다음을 클릭합니다.
+6. **데이터 저장소 구성** 페이지에서 Azure SQL Database 및 **Azure storage 계정** (또는) **에서 기존 데이터베이스** 를 지정 하 고 데이터베이스/저장소를 만든 후 다음을 클릭 합니다.
 7. **컴퓨팅 구성** 페이지에서 기본값을 선택하고 **다음**을 클릭합니다.
 8. **요약** 페이지에서 모든 설정을 검토하고 **다음**을 클릭합니다.
 9. **배포 상태** 페이지에서 배포가 완료될 때까지 대기하고 **마침**을 클릭합니다.
@@ -113,7 +113,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 12. 다음 대화 상자가 표시됩니다.
 
     ![게시 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행합니다.
+13. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행 합니다.
 
     1. **기존 데이터 팩터리 사용** 옵션을 확인합니다.
     2. 템플릿을 사용할 때 선택한 **데이터 팩터리**를 선택합니다.

@@ -1,18 +1,18 @@
 ---
 title: 모든 환경에서 Java 응용 프로그램 모니터링-Azure Monitor Application Insights
-description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 응용 프로그램 맵
+description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508074"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319706"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기
 
-Java 코드 없는 응용 프로그램 모니터링은 모두 간단 하 고, 코드를 변경 하지 않고, 몇 가지 구성 변경 만으로 Java 에이전트를 사용 하도록 설정할 수 있습니다.
+Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입니다. 코드 변경이 없으며 Java 에이전트는 몇 가지 구성 변경만으로 활성화할 수 있습니다.
 
  Java 에이전트는 모든 환경에서 작동 하며 모든 Java 응용 프로그램을 모니터링할 수 있도록 합니다. 즉, 온-프레미스 Vm, 온-프레미스, Windows, Linux에서 Java 앱을 실행 하 고 있는지 여부에 관계 없이 Java 3.0 에이전트가 앱을 모니터링 하 게 됩니다.
 
@@ -24,13 +24,13 @@ Java 코드 없는 응용 프로그램 모니터링은 모두 간단 하 고, �
 
 **1. 에이전트를 다운로드 합니다.**
 
-[Applicationinsights-agent-3.0.0-PREVIEW. 4 jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar) 다운로드
+[Applicationinsights-agent-3.0.0-PREVIEW. 5. j m a를](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar) 다운로드 합니다.
 
 **2. JVM을 에이전트로 가리키기**
 
-응용 `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` 프로그램의 JVM 인수에를 추가 합니다.
+`-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar`응용 프로그램의 JVM 인수에를 추가 합니다.
 
-일반적인 JVM 인수에 `-Xmx512m` 는 `-XX:+UseG1GC`및가 포함 됩니다. 따라서이를 추가할 위치를 알고 있으면이를 추가할 위치를 이미 알고 있는 것입니다.
+일반적인 JVM 인수에는 및가 포함 됩니다 `-Xmx512m` `-XX:+UseG1GC` . 따라서이를 추가할 위치를 알고 있으면이를 추가할 위치를 이미 알고 있는 것입니다.
 
 응용 프로그램의 JVM 인수를 구성 하는 방법에 대 한 추가 도움말은 [3.0 미리 보기: JVM 인수 업데이트에 대 한 팁](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments)을 참조 하세요.
 
@@ -44,7 +44,7 @@ Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가�
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-또는 이라는 `ApplicationInsights.json`구성 파일을 만들고와 동일한 디렉터리 `applicationinsights-agent-3.0.0-PREVIEW.4.jar`에 배치 하 여 다음과 같은 내용을 포함 합니다.
+또는 이라는 구성 파일을 만들고와 `ApplicationInsights.json` 동일한 디렉터리에 배치 하 여 `applicationinsights-agent-3.0.0-PREVIEW.5.jar` 다음과 같은 내용을 포함 합니다.
 
 ```json
 {
@@ -68,7 +68,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 ## <a name="configuration-options"></a>구성 옵션
 
-`ApplicationInsights.json` 파일에서 다음을 추가로 구성할 수 있습니다.
+파일에서 `ApplicationInsights.json` 다음을 추가로 구성할 수 있습니다.
 
 * 클라우드 역할 이름
 * 클라우드 역할 인스턴스
@@ -132,7 +132,7 @@ Application Insights Java 3.0는 Application Insights Java SDK 2.x로 전송 되
 
 ## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Application Insights Java SDK 2.x를 사용 하 여 사용자 지정 원격 분석 보내기
 
-응용 `applicationinsights-core-2.6.0.jar` 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+`applicationinsights-core-2.6.0.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
 
 ```xml
   <dependency>

@@ -1,19 +1,14 @@
 ---
 title: 공유 액세스 서명을 사용 하 여 Azure Event Hubs에 대 한 액세스 인증
 description: 이 문서에서는 공유 액세스 서명을 사용 하 여 Event Hubs 리소스에 대 한 액세스를 인증 하는 방법을 보여 줍니다.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318048"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증
 공유 액세스 서명 (SAS)은 공유 액세스 서명을 보유 한 클라이언트에 부여 하는 액세스 유형에 대 한 세부적인 제어를 제공 합니다. 다음은 SAS에서 설정할 수 있는 몇 가지 컨트롤입니다. 
@@ -63,13 +58,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 토큰은 수신자가 동일한 매개 변수를 사용하여 해시를 다시 계산할 수 있도록 발급자가 유효한 서명 키를 소유하는지 확인하여 해시되지 않은 값을 포함합니다.
 
-리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 http://<namespace>. servicebus.windows.net/<entityPath> 이 `sb://<namespace>.servicebus.windows.net/<entityPath>;` 고, `http://contoso.servicebus.windows.net/eventhubs/eh1`그렇지 않으면입니다.
+리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 http:// <namespace> . servicebus.windows.net/ <entityPath> 이 고, 그렇지 않으면 `sb://<namespace>.servicebus.windows.net/<entityPath>;` `http://contoso.servicebus.windows.net/eventhubs/eh1` 입니다.
 
 URI는 %로 인코딩되어야 합니다.
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/eventhubs/eh1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
-SAS 토큰은 서명 문자열에 <resourceURI> 사용 된와 접두사로 추가 된 모든 리소스에 유효 합니다.
+SAS 토큰은 서명 문자열에 사용 된와 접두사로 추가 된 모든 리소스에 유효 <resourceURI> 합니다.
 
 > [!NOTE]
 > 공유 액세스 정책을 사용 하 여 Event Hubs에 대 한 액세스 토큰을 생성 합니다. 자세한 내용은 [공유 액세스 권한 부여 정책](authorize-access-shared-access-signature.md#shared-access-authorization-policies)을 참조 하세요.

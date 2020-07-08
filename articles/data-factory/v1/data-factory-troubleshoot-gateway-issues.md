@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319070"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "80065037"
 > [!NOTE]
 > 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
-게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 이동하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
+게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용 하 여 SQL Server 데이터베이스에서 Microsoft Azure Blob storage로 데이터를 이동 하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조 하세요.
 
 ## <a name="failed-to-install-or-register-gateway"></a>게이트웨이를 설치하거나 등록하지 못함
 ### <a name="1-problem"></a>1. 문제
@@ -186,7 +186,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 1. 오류가 지속되면 게이트웨이 서비스를 다시 시작합니다.
 
 ## <a name="failed-to-author-linked-service"></a>연결된 서비스를 작성하지 못함
-### <a name="problem"></a>문제점
+### <a name="problem"></a>문제
 포털에서 자격 증명 관리자를 사용하여 연결된 새 서비스에 대한 자격 증명을 입력하거나 연결된 기존 서비스에 대한 자격 증명을 업데이트하려고 할 때 이 오류가 표시될 수 있습니다.
 
 `Error: The data store '<Server>/<Database>' cannot be reached. Check connection settings for the data source.`
@@ -204,7 +204,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 문제를 해결하려면 다음 단계를 수행합니다.
 
 1. 데이터 관리 게이트웨이 구성 관리자를 시작합니다.
-2. **설정** 탭으로 전환 합니다.  
+2. **설정** 탭으로 전환합니다.  
 3. **변경** 단추를 클릭 하 여 TLS/SSL 인증서를 변경 합니다.
 
    ![인증서 변경 단추](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
@@ -213,7 +213,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
    ![인증서 지정](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
 ## <a name="copy-activity-fails"></a>복사 작업 실패
-### <a name="problem"></a>문제점
+### <a name="problem"></a>문제
 포털에서 파이프라인을 설정한 후 다음 "UserErrorFailedToConnectToSqlserver" 오류가 발생할 수 있습니다.
 
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
@@ -222,9 +222,9 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 이 오류는 여러 가지 이유로 발생할 수 있으며 그에 따라 완화하는 방법이 달라집니다.
 
 #### <a name="resolution"></a>해결 방법
-SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 클라이언트 쪽의 TCP/1433 포트를 통한 아웃바운드 TCP 연결을 허용합니다.
+SQL 데이터베이스에 연결 하기 전에 데이터 관리 게이트웨이 클라이언트 쪽에서 포트 TCP/1433을 통한 아웃 바운드 TCP 연결을 허용 합니다.
 
-대상 데이터베이스가 Azure SQL 데이터베이스인 경우 Azure에 대한 SQL Server 방화벽 설정도 확인합니다.
+대상 데이터베이스가 Azure SQL Database에 있는 경우 Azure에 대 한 SQL Server 방화벽 설정도 확인 합니다.
 
 온-프레미스 데이터 저장소에 대한 연결을 테스트하려면 다음 섹션을 참조하세요.
 
@@ -279,7 +279,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인할 수 있습니다.
 
 1. Windows **이벤트 뷰어**를 시작합니다.
-2. **응용 프로그램 및 서비스 로그** > **데이터 관리 게이트웨이** 폴더에서 로그를 찾습니다.
+2. **응용 프로그램 및 서비스 로그**  >  **데이터 관리 게이트웨이** 폴더에서 로그를 찾습니다.
 
    게이트웨이 관련 문제를 해결할 때는 이벤트 뷰어에서 오류 수준 이벤트를 찾아봅니다.
 

@@ -1,27 +1,19 @@
 ---
 title: Apache Kafka용 Akka Streams 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Akka streams 스트림을 Azure event hub에 연결 하는 방법에 대 한 정보를 제공 합니다.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 0b96f1448fd223aae2dde77c5c05a8c9bd74ee9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320210"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
 이 자습서에서는 프로토콜 클라이언트를 변경 하거나 사용자 고유의 클러스터를 실행 하지 않고 Akka streams 스트림을 이벤트 허브에 연결 하는 방법을 보여 줍니다. Apache Kafka용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
@@ -51,7 +43,7 @@ Event Hubs 서비스에서 보내거나 받으려면 Event Hubs 네임스페이�
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 
-이제 연결 문자열 Event Hubs 있으므로 Kafka 리포지토리의 Azure Event Hubs를 복제 하 고 하위 폴더로 이동 합니다 `akka` .
+이제 연결 문자열 Event Hubs 있으므로 Kafka 리포지토리의 Azure Event Hubs를 복제 하 고 `akka` 하위 폴더로 이동 합니다.
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -93,7 +85,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-생산자는 토픽 `test`에서 이벤트 허브로 이벤트를 보내기 시작 하 고 이벤트를 stdout에 출력 합니다.
+생산자는 토픽에서 이벤트 허브로 이벤트를 보내기 시작 하 `test` 고 이벤트를 stdout에 출력 합니다.
 
 ## <a name="run-akka-streams-consumer"></a>Akka Streams 소비자 실행
 
@@ -133,7 +125,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-이벤트 허브에 이벤트가 있는 경우 (예를 들어 생산자가 실행 중인 경우) 소비자는 토픽 `test`에서 이벤트를 수신 하기 시작 합니다. 
+이벤트 허브에 이벤트가 있는 경우 (예를 들어 생산자가 실행 중인 경우) 소비자는 토픽에서 이벤트를 수신 하기 시작 합니다 `test` . 
 
 Akka Streams에 대한 자세한 내용은 [Akka Streams Kafka 가이드](https://doc.akka.io/docs/akka-stream-kafka/current/home.html)를 확인하세요.
 

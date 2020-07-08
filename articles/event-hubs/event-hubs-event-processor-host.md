@@ -1,25 +1,14 @@
 ---
 title: 이벤트 프로세서 호스트를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트의 관리를 간소화하는 Azure Event Hubs의 이벤트 프로세서 호스트에 대해 설명합니다.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija
-ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372221"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320641"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
@@ -118,7 +107,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을 위해 제공되는 Azure Storage 계정을 통해 추적됩니다. 다음과 같이 간단한 테이블로 추적을 시각화할 수 있습니다. 제공된 스토리지 계정에서 Blob을 검사하여 실제 구현을 확인할 수 있습니다.
 
-| **소비자 그룹 이름** | **Partition ID** | **호스트 이름(소유자)** | **임대(또는 소유권) 획득 시간** | **파티션(검사점)의 오프셋** |
+| **소비자 그룹 이름** | **파티션 ID** | **호스트 이름(소유자)** | **임대(또는 소유권) 획득 시간** | **파티션(검사점)의 오프셋** |
 | --- | --- | --- | --- | --- |
 | $Default | 0 | 소비자\_VM3 | 2018-04-15T01:23:45 | 156 |
 | $Default | 1 | 소비자\_VM4 | 2018-04-15T01:22:13 | 734 |
@@ -206,7 +195,7 @@ Epoch를 사용 하 여 수신기를 만든 다음 동일한 소비자 그룹에
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-node-send-v2.md)
 * [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

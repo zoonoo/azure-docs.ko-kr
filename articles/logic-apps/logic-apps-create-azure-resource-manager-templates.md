@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317770"
 ---
-# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 배포를 자동화 하는 Azure Resource Manager 템플릿 만들기
+# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기
 
 논리 앱 만들기 및 배포를 자동화 하는 데 도움이 되도록이 문서에서는 논리 앱에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md) 만들 수 있는 방법에 대해 설명 합니다. 워크플로 정의 및 배포에 필요한 기타 리소스를 포함 하는 템플릿의 구조 및 구문에 대 한 개요는 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
 
@@ -45,7 +45,7 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을
 
 [LogicAppTemplate 모듈과](https://github.com/jeffhollan/LogicAppTemplateCreator)함께 Azure PowerShell를 사용 하 여 리소스 관리자 템플릿을 만들 수 있습니다. 이 오픈 소스 모듈은 논리 앱 및 논리 앱이 사용 하는 모든 연결을 먼저 평가 합니다. 그런 다음 모듈은 배포에 필요한 매개 변수를 사용 하 여 템플릿 리소스를 생성 합니다.
 
-예를 들어 Azure Service Bus 큐에서 메시지를 수신 하 고 Azure SQL database에 데이터를 업로드 하는 논리 앱이 있다고 가정 합니다. 모듈은 모든 오케스트레이션 논리를 보존 하 고 SQL 및 Service Bus 연결 문자열을 매개 변수화 하 여 배포 요구 사항에 따라 해당 값을 제공 하 고 변경할 수 있습니다.
+예를 들어 Azure Service Bus 큐에서 메시지를 받고 Azure SQL Database 데이터를 업로드 하는 논리 앱이 있다고 가정 합니다. 모듈은 모든 오케스트레이션 논리를 보존 하 고 SQL 및 Service Bus 연결 문자열을 매개 변수화 하 여 배포 요구 사항에 따라 해당 값을 제공 하 고 변경할 수 있습니다.
 
 다음 샘플에서는 Azure Resource Manager 템플릿, Azure DevOps Azure Pipelines 및 Azure PowerShell를 사용 하 여 논리 앱을 만들고 배포 하는 방법을 보여 줍니다.
 
@@ -76,7 +76,7 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을
 
 LogicAppTemplate 모듈에서 모든 Azure 테 넌 트 및 구독 액세스 토큰을 사용 하려면 Azure Resource Manager API를 호출 하는 간단한 명령줄 도구인 [Azure Resource Manager 클라이언트 도구](https://github.com/projectkudu/ARMClient)를 설치 합니다.
 
-이 도구를 사용 `Get-LogicAppTemplate` 하 여 명령을 실행 하는 경우 명령은 먼저 ARMClient 도구를 통해 액세스 토큰을 가져오고, 토큰을 PowerShell 스크립트로 파이프 하 고, 템플릿을 JSON 파일로 만듭니다. 도구에 대 한 자세한 내용은 [Azure Resource Manager 클라이언트 도구에 대 한이 문서](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)를 참조 하세요.
+이 도구를 사용 하 여 명령을 실행 하는 경우 `Get-LogicAppTemplate` 명령은 먼저 ARMClient 도구를 통해 액세스 토큰을 가져오고, 토큰을 PowerShell 스크립트로 파이프 하 고, 템플릿을 JSON 파일로 만듭니다. 도구에 대 한 자세한 내용은 [Azure Resource Manager 클라이언트 도구에 대 한이 문서](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)를 참조 하세요.
 
 ### <a name="generate-template-with-powershell"></a>PowerShell을 사용 하 여 템플릿 생성
 
@@ -86,7 +86,7 @@ LogicAppTemplate 모듈을 설치 하 고 [Azure CLI](https://docs.microsoft.com
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-[Azure Resource Manager 클라이언트 도구의](https://github.com/projectkudu/ARMClient)토큰에서 파이프에 대 한 권장 사항을 따르려면 AZURE 구독 ID를 대신 `$SubscriptionId` 하 여 다음 명령을 실행 합니다.
+[Azure Resource Manager 클라이언트 도구의](https://github.com/projectkudu/ARMClient)토큰에서 파이프에 대 한 권장 사항을 따르려면 AZURE 구독 ID를 대신 하 여 다음 명령을 실행 합니다 `$SubscriptionId` .
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -104,7 +104,7 @@ Azure Key Vault 참조 (정적 전용)를 사용 하 여 추출 하려면 다음
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필요한 공간 | 설명 |
 |------------|----------|-------------|
 | TemplateFile | 예 | 템플릿 파일에 대 한 파일 경로입니다. |
 | KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |

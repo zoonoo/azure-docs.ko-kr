@@ -3,24 +3,24 @@ title: 내 애플리케이션 목록에 예기치 않은 애플리케이션 | Mi
 description: 테넌트에서 모든 애플리케이션을 보는 방법 및 엔터프라이즈 애플리케이션의 모든 애플리케이션 목록에 애플리케이션을 표시하는 방법 이해
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65781105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317465"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>내 애플리케이션 목록에 예기치 않은 애플리케이션
 
@@ -28,7 +28,7 @@ ms.locfileid: "65781105"
 
 ## <a name="how-to-see-all-applications-in-your-tenant"></a>테넌트에서 모든 애플리케이션을 보는 방법
 
-테넌트에서 모든 애플리케이션을 보려면 **필터** 컨트롤을 사용하여 **모든 애플리케이션** 목록에 **모든 애플리케이션**을 표시해야 합니다. 다음 단계를 수행하세요.
+테넌트에서 모든 애플리케이션을 보려면 **필터** 컨트롤을 사용하여 **모든 애플리케이션** 목록에 **모든 애플리케이션**을 표시해야 합니다. 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
@@ -66,7 +66,7 @@ ms.locfileid: "65781105"
 
 5. [V2.0 애플리케이션 레지스트리 포털](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)을 사용하여 사용자 지정 개발된 애플리케이션을 만들어 새 애플리케이션 등록을 추가하는 경우
 
-6. Visual Studio의 [ASP.net 인증 방법](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) 또는 [연결된 서비스](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)를 사용하여 개발 중인 애플리케이션을 추가하는 경우
+6. Visual Studio의 [ASP.net 인증 방법](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) 또는 [연결된 서비스](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)를 사용하여 개발 중인 애플리케이션을 추가하는 경우
 
 7. [Azure AD PowerShell 모듈](/powershell/azure/install-adv2?view=azureadps-2.0)을 사용하여 서비스 주체 개체를 만드는 경우
 
@@ -100,7 +100,7 @@ ms.locfileid: "65781105"
 
 5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-   * 여기에 표시 하려는 응용 프로그램이 표시 되지 않으면 **모든 응용 프로그램 목록** 의 맨 위에 있는 **필터** 컨트롤을 사용 하 고 **표시** 옵션을 **모든 응용 프로그램** 으로 설정 합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6. 삭제하려는 애플리케이션을 선택합니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "65781105"
 
 **전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화**하려면 다음 단계를 따릅니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 

@@ -1,24 +1,14 @@
 ---
 title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: c16dd4345e62fa9e826e657cce9a752186ec1b82
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 06/23/2020
+ms.openlocfilehash: 5b646c1a0730b046dd3e66a5d5324b659999f83a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628660"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320709"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -49,14 +39,14 @@ AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. �
 
 ![Event Hubs](./media/event-hubs-features/partition_keys.png)
 
-Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 파티션으로 순서대로 배달되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않은 경우 오류가 발생합니다.
+Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 파티션으로 순서대로 배달되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않으면 오류가 발생합니다.
 
 ### <a name="publisher-policy"></a>게시자 정책
 
 Event Hubs는 *게시자 정책*을 통한 이벤트 게시자에 대한 세부적 제어를 사용합니다. 게시자 정책은 많은 수의 독립 이벤트 게시자를 지원하도록 설계된 런타임 기능입니다. 게시자 정책을 사용하여 다음 메커니즘을 사용하여 Event Hub로 이벤트를 게시하는 경우 각 게시자는 자체 고유 식별자를 사용합니다.
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 ```
 
 시간에 앞서 게시자 이름을 미리 만들 필요가 없지만, 독립 게시자 ID를 보장하기 위해 이벤트를 게시하는 경우 사용하는 SAS 토큰과 일치해야 합니다. 게시자 정책을 사용할 때 **PartitionKey** 값은 게시자 이름으로 설정됩니다. 제대로 작동하려면 이 값이 일치해야 합니다.
@@ -85,12 +75,13 @@ Event Hubs는 네임 스페이스 및 이벤트 허브 수준에서 사용할 �
 
 소비자 그룹당 파티션에는 최대 5개의 동시 판독기가 있을 수 있습니다. 하지만 **소비자 그룹당 파티션에는 활성 수신기를 하나만 포함하는 것이 좋습니다.** 각 판독기는 단일 파티션 내에서 모든 메시지를 받습니다. 동일한 파티션에 여러 판독기가 있는 경우 중복 메시지를 처리합니다. 사소하지 않을 수도 있는 이 문제는 코드에서 처리해야 합니다. 그러나 일부 시나리오에서는 유효한 방법입니다.
 
+Azure Sdk에서 제공 하는 일부 클라이언트는 각 파티션에 단일 판독기가 있는지와 이벤트 허브에 대 한 모든 파티션을 읽을 수 있는지 확인 하는 세부 정보를 자동으로 관리 하는 지능형 소비자 에이전트입니다. 이렇게 하면 코드에서 이벤트 허브에서 읽는 이벤트를 처리 하는 데 집중할 수 있으므로 파티션의 여러 세부 정보를 무시할 수 있습니다. 자세한 내용은 [파티션에 연결](#connect-to-a-partition)을 참조 하세요.
 
-다음은 소비자 그룹 URI 규칙의 예입니다.
+다음 예제에서는 소비자 그룹 URI 규칙을 보여 줍니다.
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
 ```
 
 다음 그림에서는 아키텍처를 처리하는 Event Hubs 스트림을 보여 줍니다.
@@ -122,7 +113,12 @@ Event Hubs는 네임 스페이스 및 이벤트 허브 수준에서 사용할 �
 
 #### <a name="connect-to-a-partition"></a>파티션에 연결
 
-파티션에 연결할 때 일반적으로 임대 메커니즘을 사용하여 판독기 연결을 특정 파티션으로 조정합니다. 이러한 방식으로, 소비자 그룹의 모든 파티션에 활성 판독기가 하나만 있을 수 있습니다. .NET 클라이언트의 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 클래스를 사용하면 판독기의 검사점 지정, 임대 및 관리가 간편해집니다. 이벤트 프로세서 호스트는 지능형 소비자 에이전트입니다.
+파티션에 연결할 때 일반적으로 임대 메커니즘을 사용 하 여 판독기 연결을 특정 파티션으로 조정 하는 것이 좋습니다. 이러한 방식으로 소비자 그룹의 모든 파티션에는 활성 판독기가 하나만 있을 수 있습니다. Event Hubs Sdk 내의 클라이언트를 사용 하 여 판독기의 검사점, 임대 및 관리를 간소화 합니다 .이는 지능형 소비자 에이전트 역할을 합니다. 이러한 항목은 다음과 같습니다.
+
+- .NET 용 [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient)
+- Java 용 [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient)
+- Python 용 [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient)
+- JavaScript/TypeScript 용 [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient)
 
 #### <a name="read-events"></a>읽기 이벤트
 
@@ -142,13 +138,11 @@ AMQP 1.0 세션 및 링크는 특정 파티션에 대해 열린 후, 이벤트�
 Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 
 - Event Hubs 시작
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [.NET](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-* [Event Hubs 샘플][]
-
-[Event Hubs 샘플]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+* [Event Hubs 샘플](event-hubs-samples.md)

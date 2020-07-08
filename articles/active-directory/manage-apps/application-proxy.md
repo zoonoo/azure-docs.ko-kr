@@ -2,23 +2,23 @@
 title: 온-프레미스 앱에 대 한 원격 액세스-Azure AD 응용 프로그램 프록시
 description: Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스를 제공합니다. Azure AD에 Single Sign-On 되면 사용자는 외부 URL 또는 내부 애플리케이션 포털을 통해 클라우드와 온-프레미스 애플리케이션에 모두 액세스할 수 있습니다. 예를 들어 애플리케이션 프록시는 원격 데스크톱, SharePoint, Teams, Tableau, Qlik 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 24e18f5b1766f0dde5e677ac40d24edd5597a20d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 84cd6f9d7612cc6cf5829c03c398dd65a6eec412
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609955"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318031"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스
 
@@ -40,8 +40,8 @@ Azure AD 애플리케이션 프록시는:
 * 인증을 위해 [Windows 통합 인증](application-proxy-configure-single-sign-on-with-kcd.md)을 사용하는 웹 애플리케이션
 * 폼 기반 또는 [헤더 기반](application-proxy-configure-single-sign-on-with-ping-access.md) 액세스를 사용하는 웹 애플리케이션
 * 여러 디바이스에서 다양한 애플리케이션을 표시하려는 웹 API
-* [원격 데스크톱 게이트웨이](application-proxy-integrate-with-remote-desktop-services.md) 뒤에서 호스트되는 애플리케이션
-* ADAL(Active Directory 인증 라이브러리)과 통합되는 리치 클라이언트 앱
+* [원격 데스크톱 게이트웨이](application-proxy-integrate-with-remote-desktop-services.md) 뒤에 호스트 되는 응용 프로그램
+* MSAL(Microsoft Authentication Library)과 통합되는 리치 클라이언트 앱
 
 애플리케이션 프록시는 Single Sign-On을 지원합니다. 지원되는 방법에 대한 자세한 내용은 [Single Sign-On 방법 선택](what-is-single-sign-on.md#choosing-a-single-sign-on-method)을 참조하세요.
 
@@ -60,7 +60,7 @@ Azure AD 애플리케이션 프록시는:
 5. 커넥터는 온-프레미스 애플리케이션에 요청을 보냅니다.
 6. 응답은 커넥터 및 애플리케이션 프록시 서비스를 통해 사용자에게 전송됩니다.
 
-| 구성 요소 | Description |
+| 구성 요소 | 설명 |
 | --------- | ----------- |
 | 엔드포인트  | 엔드포인트는 URL 또는 [최종 사용자 포털](end-user-experiences.md)입니다. 사용자는 외부 URL에 액세스하여 네트워크 외부에서 애플리케이션에 연결할 수 있습니다. 네트워크 내 사용자는 URL 또는 최종 사용자 포털을 통해 애플리케이션에 액세스할 수 있습니다. 사용자가 이러한 엔드포인트 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 애플리케이션에 라우팅됩니다.|
 | Azure AD | Azure AD는 클라우드에 저장된 테넌트 디렉터리를 사용하여 인증을 수행합니다. |
@@ -72,4 +72,3 @@ Azure AD 애플리케이션 프록시는:
 ## <a name="next-steps"></a>다음 단계
 응용 프로그램 프록시 사용을 시작 하려면 [자습서: 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](application-proxy-add-on-premises-application.md)를 참조 하세요.
 
-최신 뉴스 및 업데이트는 [애플리케이션 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)를 참조하세요.

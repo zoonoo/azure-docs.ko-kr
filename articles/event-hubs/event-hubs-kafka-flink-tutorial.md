@@ -1,27 +1,21 @@
 ---
 title: Apache Kafka용 Apache Flink 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure 이벤트 허브에 Apache Flink를 연결 하는 방법에 대 한 정보를 제공 합니다.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 2e5a2924cdc00c1cc057d71c40645085df4bae6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 43cbf99a6ba2c0384ceffc10b01916f6ad22b26a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320141"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
 이 자습서에서는 프로토콜 클라이언트를 변경 하거나 자체 클러스터를 실행 하지 않고도 Apache Flink를 이벤트 허브에 연결 하는 방법을 보여 줍니다. Azure Event Hubs는 [Apache Kafka 버전 1.0를](https://kafka.apache.org/10/documentation.html)지원 합니다.
 
 Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 프레임워크의 에코시스템입니다. Event Hubs은 Azure 에코 시스템의 확장성, 일관성 및 지원과 함께 Kafka의 유연성을 결합 합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
@@ -87,7 +81,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 ```
 
-이제 생산자는 토픽 `test` 에서 이벤트 허브로 이벤트를 보내고 stdout에 이벤트를 인쇄 하기 시작 합니다.
+이제 생산자는 토픽에서 이벤트 허브로 이벤트를 보내고 stdout에 이벤트를 인쇄 하기 시작 합니다 `test` .
 
 ## <a name="run-flink-consumer"></a>Flink 소비자 실행
 
@@ -118,7 +112,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
 
-이벤트 허브에 이벤트가 있는 경우 (예: 생산자가 실행 중인 경우) 소비자는 이제 토픽 `test`에서 이벤트를 수신 하기 시작 합니다.
+이벤트 허브에 이벤트가 있는 경우 (예: 생산자가 실행 중인 경우) 소비자는 이제 토픽에서 이벤트를 수신 하기 시작 합니다 `test` .
 
 Flink를 Kafka에 연결하는 방법에 대한 자세한 내용은 [Flink의 Kafka 커넥터 가이드](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html)를 확인하세요.
 
@@ -129,5 +123,5 @@ Kafka에 대 한 Event Hubs에 대해 자세히 알아보려면 다음 문서를
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [Kafka Connect를 이벤트 허브와 통합](event-hubs-kafka-connect-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [Akka streams 스트림을 이벤트 허브에 연결](event-hubs-kafka-akka-streams-tutorial.md)
 - [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)

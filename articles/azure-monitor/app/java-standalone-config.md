@@ -3,12 +3,12 @@ title: 어디서 나 Java 응용 프로그램 모니터링 Azure Monitor Applica
 description: 앱을 계측 하지 않고 모든 환경에서 실행 중인 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링을 코드 없는. 분산 추적 및 응용 프로그램 맵을 사용 하 여 문제 d의 근본 원인을 찾습니다.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319689"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>구성 옵션-Azure Monitor Application Insights 용 Java 독립 실행형 에이전트
 
@@ -33,14 +33,14 @@ ms.locfileid: "82509213"
 
 ## <a name="configuration-file-path"></a>구성 파일 경로
 
-기본적으로 Java 3.0 미리 보기 Application Insights 구성 파일의 이름을로 지정 `ApplicationInsights.json`하 고와 동일한 디렉터리에 배치 합니다. `applicationinsights-agent-3.0.0-PREVIEW.4.jar`
+기본적으로 Java 3.0 미리 보기 Application Insights 구성 파일의 이름을로 지정 하 `ApplicationInsights.json` 고와 동일한 디렉터리에 배치 합니다 `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
 
 다음 중 하나를 사용 하 여 사용자 고유의 구성 파일 경로를 지정할 수 있습니다.
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE`환경 변수 또는
 * `applicationinsights.configurationFile`Java 시스템 속성
 
-상대 경로를 지정 하면 `applicationinsights-agent-3.0.0-PREVIEW.4.jar` 가 있는 디렉터리를 기준으로 확인 됩니다.
+상대 경로를 지정 하면가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
 
 ## <a name="connection-string"></a>연결 문자열
 
@@ -48,7 +48,7 @@ ms.locfileid: "82509213"
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="연결 문자열 Application Insights":::
 
-환경 변수 `APPLICATIONINSIGHTS_CONNECTION_STRING`를 사용 하 여 연결 문자열을 설정할 수도 있습니다.
+환경 변수를 사용 하 여 연결 문자열을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_CONNECTION_STRING` .
 
 ## <a name="cloud-role-name"></a>클라우드 역할 이름
 
@@ -68,7 +68,7 @@ ms.locfileid: "82509213"
 
 클라우드 역할 이름이 설정 되지 않은 경우 Application Insights 리소스의 이름을 사용 하 여 응용 프로그램 맵의 구성 요소에 레이블을 지정할 수 있습니다.
 
-환경 변수 `APPLICATIONINSIGHTS_ROLE_NAME`를 사용 하 여 클라우드 역할 이름을 설정할 수도 있습니다.
+환경 변수를 사용 하 여 클라우드 역할 이름을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_ROLE_NAME` .
 
 ## <a name="cloud-role-instance"></a>클라우드 역할 인스턴스
 
@@ -86,13 +86,13 @@ ms.locfileid: "82509213"
 }
 ```
 
-환경 변수 `APPLICATIONINSIGHTS_ROLE_INSTANCE`를 사용 하 여 클라우드 역할 인스턴스를 설정할 수도 있습니다.
+환경 변수를 사용 하 여 클라우드 역할 인스턴스를 설정할 수도 있습니다 `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
 
 ## <a name="application-log-capture"></a>응용 프로그램 로그 캡처
 
 Application Insights Java 3.0 미리 보기는 Log4j, Logback 및 java를 통해 응용 프로그램 로깅을 자동으로 캡처합니다.
 
-기본적으로 수준 이상에서 `WARN` 수행 되는 모든 로깅을 캡처합니다.
+기본적으로 수준 이상에서 수행 되는 모든 로깅을 캡처합니다 `WARN` .
 
 이 임계값을 변경 하려면 다음을 수행 합니다.
 
@@ -110,15 +110,15 @@ Application Insights Java 3.0 미리 보기는 Log4j, Logback 및 java를 통해
 }
 ```
 
-이러한 값은 `ApplicationInsights.json` 파일 `threshold` 에 지정할 수 있는 유효한 값 이며, 여러 로깅 프레임 워크에서 로깅 수준에 해당 하는 방법입니다.
+이러한 `threshold` 값은 파일에 지정할 수 있는 유효한 값 `ApplicationInsights.json` 이며, 여러 로깅 프레임 워크에서 로깅 수준에 해당 하는 방법입니다.
 
 | `threshold`  | Log4j  | Logback | 7월     |
 |--------------|--------|---------|---------|
 | OFF          | OFF    | OFF     | OFF     |
 | 심각한        | 심각한  | 오류   | SEVERE  |
 | 오류/심각 | 오류  | 오류   | SEVERE  |
-| 경고/경고 | 게   | 게    | WARNING |
-| INFO         | INFO   | INFO    | INFO    |
+| 경고/경고 | 게   | 게    | 경고 |
+| 정보         | 정보   | 정보    | 정보    |
 | CONFIG       | DEBUG  | DEBUG   | CONFIG  |
 | 디버그/자세히   | DEBUG  | DEBUG   | FINE    |
 | FINER        | DEBUG  | DEBUG   | FINER   |
@@ -237,7 +237,7 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 
 Application Insights 자체와 관련 된 문제를 발견 하 고 진단 하는 데 도움이 될 수 있습니다.
 
-기본적으로이 구성에 해당 하는 수준 `warn`으로 콘솔에 기록 합니다.
+기본적으로 `warn` 이 구성에 해당 하는 수준으로 콘솔에 기록 합니다.
 
 ```json
 {
@@ -252,7 +252,7 @@ Application Insights 자체와 관련 된 문제를 발견 하 고 진단 하는
 }
 ```
 
-유효한 `OFF`수준은, `ERROR`, `WARN`, `INFO` `DEBUG`, 및 `TRACE`입니다.
+유효한 수준은 `OFF` , `ERROR` ,, `WARN` , `INFO` `DEBUG` 및 `TRACE` 입니다.
 
 콘솔에 로그인 하는 대신 파일에 로그인 하려면 다음을 수행 합니다.
 
@@ -271,4 +271,4 @@ Application Insights 자체와 관련 된 문제를 발견 하 고 진단 하는
 }
 ```
 
-파일 로깅을 사용 하는 경우 파일에 도달 `maxSizeMB`하면 현재 로그 파일 뿐 아니라 가장 최근에 완료 된 로그 파일만 유지 하 게 됩니다.
+파일 로깅을 사용 하는 경우 파일에 도달 하면 `maxSizeMB` 현재 로그 파일 뿐 아니라 가장 최근에 완료 된 로그 파일만 유지 하 게 됩니다.
