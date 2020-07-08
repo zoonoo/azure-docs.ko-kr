@@ -3,15 +3,15 @@ title: StorSimple 볼륨 관리 (업데이트 3)
 description: StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508251"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
 
@@ -163,7 +163,7 @@ StorSimple 8000 시리즈 디바이스를 배포하는 동안 [볼륨을 만들�
 
 7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
    
-   1. **컴퓨터 관리** ->**디스크 관리**로 이동 합니다.
+   1. **컴퓨터 관리**  -> **디스크 관리**로 이동 합니다.
    2. **디스크 관리**를 마우스 오른쪽 단추로 클릭하고 **디스크 다시 검사**를 선택합니다.
    3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 클릭합니다.
    4. 기본값을 그대로 적용하여 마법사를 완료합니다. 마법사가 완료되면 볼륨에 증가된 크기가 표시되어야 합니다.

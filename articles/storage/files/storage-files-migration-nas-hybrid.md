@@ -3,16 +3,16 @@ title: Azure File Sync로의 온-프레미스 NAS 마이그레이션
 description: Azure File Sync 및 Azure 파일 공유를 사용 하 여 온-프레미스 NAS (네트워크 연결 저장소) 위치에서 하이브리드 클라우드 배포로 파일을 마이그레이션하는 방법에 대해 알아봅니다.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7b0c7a30580d3863a78e85b8b45287a598bbf394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510308"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure File Sync를 사용 하 여 NAS (네트워크 연결 저장소)에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -124,7 +124,7 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /UNILOG:\<파일 이름\>
+      /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
       로그 파일에 대 한 상태를 유니코드로 출력 합니다 (기존 로그 덮어쓰기).

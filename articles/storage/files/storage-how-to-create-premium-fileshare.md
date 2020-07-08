@@ -3,16 +3,16 @@ title: 프리미엄 Azure 파일 공유 만들기
 description: 이 문서에서는 프리미엄 Azure 파일 공유를 만드는 방법에 대해 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79529110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509985"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>프리미엄 Azure 파일 공유를 만드는 방법
 프리미엄 파일 공유는 SSD (반도체 디스크) 저장소 미디어에 제공 되며, 호스팅 데이터베이스 및 HPC (고성능 컴퓨팅)를 포함 한 IO 집약적 작업에 유용 합니다. 프리미엄 파일 공유는 FileStorage 계정 이라고 하는 특수 한 용도의 저장소 계정 종류에서 호스팅됩니다. 프리미엄 파일 공유는 높은 성능 및 엔터프라이즈급 응용 프로그램을 위한 것으로, 일관성 낮은 대기 시간, 높은 IOPS 및 높은 처리량의 공유를 제공 합니다.
@@ -46,6 +46,9 @@ ms.locfileid: "79529110"
 1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
 1. 스토리지 계정의 위치를 선택하거나 기본 위치를 사용합니다.
 1. **성능을** 위해 **프리미엄**을 선택 합니다.
+
+    **계정 종류** 드롭다운에서 사용 가능한 옵션을 사용 하려면 **Premium** for **FileStorage** 를 선택 해야 합니다.
+
 1. **계정 종류** 를 선택 하 고 **FileStorage**를 선택 합니다.
 1. **복제** 를 기본값인 **LRS (로컬 중복 저장소)** 로 설정 된 상태로 둡니다.
 

@@ -5,17 +5,17 @@ description: Azure Storage REST API를 사용 하 여 공유 키 권한 부여�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/01/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509186"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증을 사용 하 여 REST API 작업 호출
 
@@ -65,7 +65,7 @@ REST API에 대 한 호출은 클라이언트에서 수행 하는 요청과 서�
 
 **요청 메서드**: GET. 이 동사는 요청 개체의 속성으로 지정되는 HTTP 메서드입니다. 호출하는 API에 따라 이 동사의 다른 값으로 HEAD, PUT 및 DELETE가 포함됩니다.
 
-**요청 URI**: `https://myaccount.blob.core.windows.net/?comp=list`.요청 URI는 blob storage 계정 끝점 `http://myaccount.blob.core.windows.net` 및 리소스 문자열 `/?comp=list`에서 생성 됩니다.
+**요청 URI**: `https://myaccount.blob.core.windows.net/?comp=list` .요청 URI는 blob storage 계정 끝점 `http://myaccount.blob.core.windows.net` 및 리소스 문자열에서 생성 됩니다 `/?comp=list` .
 
 [URI 매개 변수](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers를 호출할 때 사용할 수 있는 추가 쿼리 매개 변수가 있습니다. 이러한 매개 변수 중 일부는 필터링에 사용되는 호출 *timeout*(초) 및 *prefix*입니다.
 
@@ -130,7 +130,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-및 `x-ms-date` `x-ms-version`에 대 한 요청 헤더를 추가 합니다. 코드의 이 위치는 호출에 필요한 추가 요청 헤더를 추가하는 위치이기도 합니다. 이 예에는 추가 헤더가 없습니다. 추가 헤더를 전달 하는 API의 예로는 컨테이너 ACL 설정 작업이 있습니다. 이 API 호출은 "x-y-공용-액세스" 라는 헤더와 액세스 수준에 대 한 값을 추가 합니다.
+및에 대 한 요청 헤더를 추가 `x-ms-date` `x-ms-version` 합니다. 코드의 이 위치는 호출에 필요한 추가 요청 헤더를 추가하는 위치이기도 합니다. 이 예에는 추가 헤더가 없습니다. 추가 헤더를 전달 하는 API의 예로는 컨테이너 ACL 설정 작업이 있습니다. 이 API 호출은 "x-y-공용-액세스" 라는 헤더와 액세스 수준에 대 한 값을 추가 합니다.
 
 ```csharp
 // Add the request headers for x-ms-date and x-ms-version.
@@ -177,7 +177,7 @@ httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetA
 
 SendAsync 호출을 만들 때 [Fiddler](https://www.telerik.com/fiddler) 같은 네트워크 감지기를 실행하면 요청 및 응답 정보를 볼 수 있습니다. 살펴보겠습니다. 스토리지 계정의 이름은 *contosorest*입니다.
 
-**요구**
+**요청:**
 
 ```
 GET /?comp=list HTTP/1.1
@@ -488,7 +488,7 @@ SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 
 다음 값은 [Fiddler](https://www.telerik.com/fiddler)에서 얻습니다.
 
-**요구**
+**요청:**
 
 ```
 GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=list HTTP/1.1

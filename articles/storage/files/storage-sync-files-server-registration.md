@@ -3,16 +3,16 @@ title: Azure 파일 동기화에 등록된 서버 관리 | Microsoft Docs
 description: Azure 파일 동기화 스토리지 동기화 서비스에서 Windows Server를 등록 및 등록 취소하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509509"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure 파일 동기화에 등록된 서버 관리
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -22,7 +22,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>스토리지 동기화 서비스로 서버 등록/등록 취소
 Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유(*클라우드 엔드포인트*라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트*를 서버에 만들 수 있습니다. 
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 스토리지 동기화 서비스를 사용하여 서버를 등록하려면 먼저 필요한 필수 구성 요소를 갖춘 서버를 준비해야 합니다.
 
 * 서버에서 지원되는 Windows Server 버전을 실행해야 합니다. 자세한 내용은 [Azure 파일 동기화 시스템 요구 사항 및 상호 운용성](storage-sync-files-planning.md#windows-file-server-considerations)을 참조하세요.
@@ -76,9 +76,6 @@ Azure 파일 동기화의 *동기화 그룹*에서 서버를 *서버 엔드포�
 > 서버가 장애 조치(failover) 클러스터의 멤버인 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다.
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>서버 등록 UI를 사용하여 서버 등록
-> [!Important]  
-> CSP(클라우드 솔루션 공급자) 구독은 서버 등록 UI를 사용할 수 없습니다. 대신 PowerShell을 사용합니다(이 섹션 아래).
-
 1. Azure 파일 동기화 에이전트 설치를 완료한 후 바로 서버 등록 UI가 시작되지 않은 경우에는 `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`를 실행하여 수동으로 해당 UI를 시작할 수 있습니다.
 2. *로그인*을 클릭하여 Azure 구독에 액세스합니다. 
 
@@ -96,7 +93,7 @@ Azure 파일 동기화의 *동기화 그룹*에서 서버를 *서버 엔드포�
 > 서버가 장애 조치(failover) 클러스터의 멤버인 경우 각 서버는 서버 등록을 실행해야 합니다. Azure Portal에서 등록된 서버로 표시되면 Azure 파일 동기화에서 자동으로 각 노드를 동일한 장애 조치 클러스터의 멤버로 인식하여 적절하게 그룹화합니다.
 
 #### <a name="register-the-server-with-powershell"></a>PowerShell로 서버 등록
-PowerShell을 통해 서버 등록을 수행할 수도 있습니다. 다음은 CSP(클라우드 솔루션 공급자) 구독에 지원되는 유일한 서버 등록 방법입니다.
+PowerShell을 통해 서버 등록을 수행할 수도 있습니다. 
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
@@ -161,7 +158,7 @@ Azure 파일 동기화는 거의 데이터 센터에서 실행되는 유일한 �
 `StorageSyncNetworkLimit`cmdlets을 사용하여 Azure 파일 동기화의 네트워크 사용률을 조절할수 있습니다.
 
 > [!Note]  
-> 계층화된 파일에 액세스하거나 Invoke-StorageSyncFileRecall cmdlet을 사용하는 경우 네트워크 제한이 적용되지 않습니다.
+> 계층화 된 파일에 액세스 하는 경우 네트워크 제한이 적용 되지 않습니다.
 
 예를 들어 Azure 파일 동기화에서 작업 주간 동안 오전 9시에서 오후 5시(17:00) 사이에 10Mbps를 초과하여 사용하지 않도록 새 스로틀 제한을 만들 수 있습니다. 
 

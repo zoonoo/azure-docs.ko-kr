@@ -3,16 +3,16 @@ title: Java를 사용하여 Azure Files 개발 | Microsoft Docs
 description: Azure Files를 사용하여 파일 데이터를 저장하는 Java 애플리케이션 및 서비스를 개발하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54f545c2d4f897f85ab3e5fd10d07666e93e4f41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73837468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509679"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -228,7 +228,7 @@ if ( file.deleteIfExists() ) {
 * [Java 용 Azure Storage SDK](https://github.com/azure/azure-storage-java)
 * [Android용 Azure Storage SDK](https://github.com/azure/azure-storage-android)
 * [Azure Storage 클라이언트 SDK 참조](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md)
 * [Azure Files 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

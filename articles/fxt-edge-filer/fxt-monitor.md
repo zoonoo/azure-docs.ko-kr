@@ -3,15 +3,15 @@ title: Azure FXT Edge Filer 모니터링
 description: Azure FXT Edge 필터 하이브리드 저장소 캐시에 대 한 하드웨어 상태를 모니터링 하는 방법
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 3f422339af2040ad81c585c0e193e6cb3667b135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72254876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509441"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Azure FXT Edge 필터 하드웨어 상태 모니터링
 
@@ -60,7 +60,7 @@ Azure FXT Edge 필터 하이브리드 저장소 캐시 시스템은 관리자가
 
 이러한 솔루션을 시도한 후에도 오류가 계속 발생 하면 [지원 담당자에 게 문의 하세요](fxt-support-ticket.md) . 
 
-| 아이콘 | Description | 오류 조건 | 가능한 해결 방법 |
+| 아이콘 | 설명 | 오류 조건 | 가능한 해결 방법 |
 |----------------|---------------|--------------------|----------------------|
 | ![드라이브 아이콘](media/fxt-monitor/fxt-hd-icon.jpg) | 드라이브 상태 | 드라이브 오류 | 시스템 이벤트 로그를 확인 하 여 드라이브에 오류가 있는지 확인 하십시오. <br>적절 한 온라인 진단 테스트를 실행 합니다. 시스템을 다시 시작 하 고 embedded 진단 (ePSA)을 실행 하거나 <br>드라이브가 RAID 배열에 구성 된 경우 시스템을 다시 시작 하 고 호스트 어댑터 구성 유틸리티 프로그램을 입력 합니다. |
 |![온도 아이콘](media/fxt-monitor/fxt-temp-icon.jpg) | 온도 상태 | 열 오류-예를 들어 팬에 오류가 발생 했거나 주변 온도가 범위를 벗어난 경우 | 다음 주소 지정 가능 조건을 확인 합니다. <br>냉각 팬이 없거나 실패 했습니다. <br>시스템의 덮개, air 공기 흐름판, 메모리 모듈 공백 또는 뒤로 필러 대괄호가 제거 되었습니다. <br>앰비언트 온도가 너무 높습니다. <br>외부 공기 흐름이 방해 됨 |

@@ -3,16 +3,16 @@ title: Linux에서 Azure Files 사용 | Microsoft Docs
 description: Linux에서 SMB를 통해 Azure 파일 공유를 탑재하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fcc9876caf0c002650ab30b7eaed7dc44e2f135e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509849"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -22,13 +22,13 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 | | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
-| Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
+| RHEL(Red Hat Enterprise Linux) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ | 10개 이상 |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
-위의 표에 나열 되지 않은 Linux 배포를 사용 하는 경우 linux 배포판에서 Linux 커널 버전을 확인 하 여 암호화를 사용 하 여 SMB 3.0을 지원 하는지 확인할 수 있습니다. 암호화가 포함 된 SMB 3.0이 Linux 커널 버전 4.11에 추가 되었습니다. 이 `uname` 명령은 사용 중인 Linux 커널의 버전을 반환 합니다.
+위의 표에 나열 되지 않은 Linux 배포를 사용 하는 경우 linux 배포판에서 Linux 커널 버전을 확인 하 여 암호화를 사용 하 여 SMB 3.0을 지원 하는지 확인할 수 있습니다. 암호화가 포함 된 SMB 3.0이 Linux 커널 버전 4.11에 추가 되었습니다. `uname`이 명령은 사용 중인 Linux 커널의 버전을 반환 합니다.
 
 ```bash
 uname -r
@@ -47,13 +47,13 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    **Fedora**, **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 `dnf` 합니다.
+    **Fedora**, **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 합니다 `dnf` .
 
     ```bash
     sudo dnf install cifs-utils
     ```
 
-    이전 버전의 **Red Hat Enterprise Linux** 및 **CentOS**에서는 패키지 관리자를 `yum` 사용 합니다.
+    이전 버전의 **Red Hat Enterprise Linux** 및 **CentOS**에서는 패키지 관리자를 사용 합니다 `yum` .
 
     ```bash
     sudo yum install cifs-utils 
@@ -94,12 +94,12 @@ uname -r
     회사 네트워크에서 포트 445을 열 수 없거나 ISP에 의해 차단 된 경우 VPN 연결 또는 Express 경로를 사용 하 여 포트 445를 해결할 수 있습니다. 자세한 내용은 [Azure 파일 공유에 대 한 직접 액세스에 대 한 네트워킹 고려 사항](storage-files-networking-overview.md)을 참조 하세요.
 
 ## <a name="mounting-azure-file-share"></a>Azure 파일 공유 탑재
-Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 탑재 지점으로 사용할 디렉터리를 만들어야 합니다. 탑재 지점은 Linux 시스템의 어디에 나 만들 수 있지만/mnt.에서이를 만드는 일반적인 규칙입니다. 탑재 지점 후 `mount` 명령을 사용 하 여 Azure 파일 공유에 액세스 합니다.
+Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 탑재 지점으로 사용할 디렉터리를 만들어야 합니다. 탑재 지점은 Linux 시스템의 어디에 나 만들 수 있지만/mnt.에서이를 만드는 일반적인 규칙입니다. 탑재 지점 후 명령을 사용 하 여 `mount` Azure 파일 공유에 액세스 합니다.
 
 원하는 경우 동일한 Azure 파일 공유를 여러 탑재 위치에 탑재할 수 있습니다.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>요청 시 `mount`를 사용하여 Azure 파일 공유 탑재
-1. **탑재 지점에 대 한 폴더 만들기**:, `<your-resource-group>` `<your-storage-account>`및 `<your-file-share>` 을 사용자 환경에 맞는 적절 한 정보로 바꿉니다.
+1. **탑재 지점에 대 한 폴더 만들기**: `<your-resource-group>` , `<your-storage-account>` 및을 `<your-file-share>` 사용자 환경에 맞는 적절 한 정보로 바꿉니다.
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -111,7 +111,7 @@ Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 �
     sudo mkdir -p $mntPath
     ```
 
-1. **Mount 명령을 사용 하 여 Azure 파일 공유를 탑재**합니다. 아래 예제에서는 로컬 Linux 파일 및 폴더 사용 권한 기본 0755를 사용 합니다 .이는 소유자 (파일/디렉터리 Linux 소유자 기반)에 대 한 읽기, 쓰기 및 실행, 소유자 그룹의 사용자에 대 한 읽기 및 실행, 시스템에서 다른 사용자에 대 한 읽기 및 실행을 의미 합니다. `uid` 및 `gid` 탑재 옵션을 사용 하 여 탑재의 사용자 id 및 그룹 id를 설정할 수 있습니다. 및 `dir_mode` `file_mode` 를 사용 하 여 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요. 
+1. **Mount 명령을 사용 하 여 Azure 파일 공유를 탑재**합니다. 아래 예제에서는 로컬 Linux 파일 및 폴더 사용 권한 기본 0755를 사용 합니다 .이는 소유자 (파일/디렉터리 Linux 소유자 기반)에 대 한 읽기, 쓰기 및 실행, 소유자 그룹의 사용자에 대 한 읽기 및 실행, 시스템에서 다른 사용자에 대 한 읽기 및 실행을 의미 합니다. `uid`및 `gid` 탑재 옵션을 사용 하 여 탑재의 사용자 id 및 그룹 id를 설정할 수 있습니다. `dir_mode`및를 사용 하 여 `file_mode` 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요. 
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -134,7 +134,7 @@ Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 �
 Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath`를 사용하여 공유를 탑재 해제할 수 있습니다.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>`/etc/fstab`을 사용하여 Azure 파일 공유에 대한 영구 탑재 지점 만들기
-1. **탑재 지점에 대 한 폴더 만들기**: 탑재 지점에 대 한 폴더는 파일 시스템의 어느 위치에 나 만들 수 있지만이를/mnt. 아래에 만드는 것이 일반적인 규칙입니다. 예를 들어 다음 명령을 사용 하 여 새 디렉터리를 만들고 `<your-resource-group>`, `<your-storage-account>`및 `<your-file-share>` 를 사용자 환경에 적절 한 정보로 바꿉니다.
+1. **탑재 지점에 대 한 폴더 만들기**: 탑재 지점에 대 한 폴더는 파일 시스템의 어느 위치에 나 만들 수 있지만이를/mnt. 아래에 만드는 것이 일반적인 규칙입니다. 예를 들어 다음 명령을 사용 하 여 새 디렉터리를 만들고 `<your-resource-group>` , `<your-storage-account>` 및를 `<your-file-share>` 사용자 환경에 적절 한 정보로 바꿉니다.
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -173,7 +173,7 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. 다음 **명령을 사용 하 여에 `/etc/fstab`다음 줄을 추가 **합니다. 아래 예제에서는 소유자 (파일/디렉터리 Linux 소유자 기반)에 대 한 읽기, 쓰기 및 실행을 의미 하 고, 소유자 그룹의 사용자에 대해 읽기 및 실행 하 고, 시스템에서 다른 사용자에 대해 읽기 및 실행을 의미 하는 로컬 Linux 파일 및 폴더 사용 권한 기본 0755 `uid` 및 `gid` 탑재 옵션을 사용 하 여 탑재의 사용자 id 및 그룹 id를 설정할 수 있습니다. 및 `dir_mode` `file_mode` 를 사용 하 여 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요.
+1. 다음 **명령을 사용 하 여에 `/etc/fstab` 다음 줄을 추가 **합니다. 아래 예제에서는 소유자 (파일/디렉터리 Linux 소유자 기반)에 대 한 읽기, 쓰기 및 실행을 의미 하 고, 소유자 그룹의 사용자에 대해 읽기 및 실행 하 고, 시스템에서 다른 사용자에 대해 읽기 및 실행을 의미 하는 로컬 Linux 파일 및 폴더 사용 권한 기본 0755 `uid`및 `gid` 탑재 옵션을 사용 하 여 탑재의 사용자 id 및 그룹 id를 설정할 수 있습니다. `dir_mode`및를 사용 하 여 `file_mode` 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -205,11 +205,11 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
     sudo apt update
     sudo apt install autofs
     ```
-    **Fedora**, **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 `dnf` 합니다.
+    **Fedora**, **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 합니다 `dnf` .
     ```bash
     sudo dnf install autofs
     ```
-    이전 버전의 **Red Hat Enterprise Linux** 및 **CentOS**에서는 패키지 관리자를 `yum` 사용 합니다.
+    이전 버전의 **Red Hat Enterprise Linux** 및 **CentOS**에서는 패키지 관리자를 사용 합니다 `yum` .
     ```bash
     sudo yum install autofs 
     ```
@@ -244,9 +244,9 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
 ## <a name="securing-linux"></a>Linux 보안
 Linux에서 Azure 파일 공유를 탑재 하려면 포트 445에 액세스할 수 있어야 합니다. 많은 조직에서 SMB 1에 내재된 보안 위험 때문에 포트 445를 차단합니다. CIFS (Common Internet File System) 라고도 하는 SMB 1은 많은 Linux 배포판에 포함 된 레거시 파일 시스템 프로토콜입니다. SMB 1은 구식 프로토콜로 비효율적이며 무엇보다도 보안성이 떨어집니다. Azure Files SMB 1을 지원 하지 않으며 Linux 커널 버전 4.18부터 Linux를 사용 하지 않도록 설정 하는 것이 좋습니다. 프로덕션 환경에서 SMB 파일 공유를 사용 하기 전에 Linux 클라이언트에서 항상 SMB 1을 사용 하지 않도록 설정 하는 [것이 좋습니다](https://aka.ms/stopusingsmb1) .
 
-Linux 커널 4.18부터 레거시 이유로 호출 `cifs` 되는 SMB 커널 모듈은 라는 `disable_legacy_dialects`새 모듈 매개 변수 (종종 다양 한 외부 설명서로 *parm* 라고도 함)를 노출 합니다. Linux 커널 4.18에 도입 되었지만 일부 공급 업체는이 변경 내용을 지원 되는 이전 커널로 변경 했습니다. 편의를 위해 다음 표에서는 일반적인 Linux 배포판에서이 모듈 매개 변수의 가용성을 자세히 설명 합니다.
+Linux 커널 4.18부터 레거시 이유로 호출 되는 SMB 커널 모듈은 `cifs` 라는 새 모듈 매개 변수 (종종 다양 한 외부 설명서로 *parm* 라고도 함)를 노출 `disable_legacy_dialects` 합니다. Linux 커널 4.18에 도입 되었지만 일부 공급 업체는이 변경 내용을 지원 되는 이전 커널로 변경 했습니다. 편의를 위해 다음 표에서는 일반적인 Linux 배포판에서이 모듈 매개 변수의 가용성을 자세히 설명 합니다.
 
-| 배포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
+| 분포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | 아니요 |
 | Ubuntu 18.04 | 예 |
@@ -265,7 +265,7 @@ Linux 커널 4.18부터 레거시 이유로 호출 `cifs` 되는 SMB 커널 모�
 | SUSE Linux Enterprise 15 | 아니요 |
 | SUSE Linux Enterprise 15.1 | 아니요 |
 
-Linux 배포판에서 다음 명령을 통해 module 매개 변수를 `disable_legacy_dialects` 지원 하는지 확인할 수 있습니다.
+Linux 배포판에서 `disable_legacy_dialects` 다음 명령을 통해 module 매개 변수를 지원 하는지 확인할 수 있습니다.
 
 ```bash
 sudo modinfo -p cifs | grep disable_legacy_dialects
@@ -283,7 +283,7 @@ Smb 1을 사용 하지 않도록 설정 하기 전에 smb 모듈이 현재 시�
 lsmod | grep cifs
 ```
 
-모듈을 언로드하려면 먼저 모든 SMB 공유 (위에 설명 된 `umount` 대로 명령을 사용 하 여)를 분리 합니다. 다음 명령을 사용 하 여 시스템에서 탑재 된 모든 SMB 공유를 식별할 수 있습니다.
+모듈을 언로드하려면 먼저 모든 SMB 공유 (위에 설명 된 대로 명령을 사용 하 여)를 분리 `umount` 합니다. 다음 명령을 사용 하 여 시스템에서 탑재 된 모든 SMB 공유를 식별할 수 있습니다.
 
 ```bash
 mount | grep cifs
@@ -295,19 +295,19 @@ mount | grep cifs
 sudo modprobe -r cifs
 ```
 
-`modprobe` 명령을 사용 하 여 SMB 1이 언로드된 모듈을 수동으로 로드할 수 있습니다.
+명령을 사용 하 여 SMB 1이 언로드된 모듈을 수동으로 로드할 수 있습니다 `modprobe` .
 
 ```bash
 sudo modprobe cifs disable_legacy_dialects=Y
 ```
 
-마지막으로에서 `/sys/module/cifs/parameters`로드 된 매개 변수를 살펴보면 SMB 모듈이 매개 변수와 함께 로드 되었는지 확인할 수 있습니다.
+마지막으로에서 로드 된 매개 변수를 살펴보면 SMB 모듈이 매개 변수와 함께 로드 되었는지 확인할 수 있습니다 `/sys/module/cifs/parameters` .
 
 ```bash
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-Ubuntu 및 Debian 기반 배포에서 SMB 1을 영구적으로 사용 하지 않도록 설정 하려면 설정으로 호출 `/etc/modprobe.d/local.conf` 되는 다른 모듈에 대 한 사용자 지정 옵션이 아직 없는 경우 새 파일을 만들어야 합니다. 다음 명령을 사용 하 여이 작업을 수행할 수 있습니다.
+Ubuntu 및 Debian 기반 배포에서 SMB 1을 영구적으로 사용 하지 않도록 설정 하려면 설정으로 호출 되는 다른 모듈에 대 한 사용자 지정 옵션이 아직 없는 경우 새 파일을 만들어야 합니다 `/etc/modprobe.d/local.conf` . 다음 명령을 사용 하 여이 작업을 수행할 수 있습니다.
 
 ```bash
 echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
@@ -323,6 +323,6 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Azure Files 배포에 대한 계획](storage-files-planning.md)
+* [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 * [FAQ](../storage-files-faq.md)
 * [문제 해결](storage-troubleshoot-linux-file-connection-problems.md)

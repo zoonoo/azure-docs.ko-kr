@@ -9,24 +9,24 @@ editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: ced075395c4f2a51308d5d3b0cbe4c0153a17816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931478"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508829"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>StorSimple 스냅샷 관리자에서 MMC 메뉴 작업 사용
 
 ## <a name="overview"></a>개요
 StorSimple 스냅샷 관리자에서 모든 작업 메뉴에 나열된 다음과 같은 작업 및 **작업** 창의 모든 변형을 확인할 수 있습니다.
 
-* 보기
+* View
 * 여기에서 창 새로 만들기 
 * 새로 고침 
 * 목록 내보내기 
@@ -34,13 +34,13 @@ StorSimple 스냅샷 관리자에서 모든 작업 메뉴에 나열된 다음과
 
 이러한 작업은 Microsoft Management Console(MMC)의 일부로, StorSimple 스냅샷 관리자 특정 메뉴가 아닙니다. 이 자습서에서는 이러한 작업 및 StorSimple 스냅샷 관리자에서 각 작업을 사용하는 방법에 대해 설명합니다.
 
-## <a name="view"></a>보기
+## <a name="view"></a>View
 **뷰** 옵션을 사용하여 **결과** 창 뷰와 콘솔 창 뷰를 변경할 수 있습니다. 
 
 #### <a name="to-change-the-results-pane-view"></a>결과 창 보기를 변경하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 원하는 노드를 마우스 오른쪽 단추로 클릭하거나 노드를 확장하고 **결과** 창에서 항목을 마우스 오른쪽 단추로 클릭한 다음 **뷰** 옵션을 클릭합니다. 
-3. **결과** 창에 나타나는 열을 추가하거나 제거하려면 **열 추가/제거**를 클릭합니다. **열 추가/제거** 대화 상자가 나타납니다.
+3. **결과** 창에 나타나는 열을 추가하거나 제거하려면 **열 추가/제거**를 클릭합니다. **열 추가/제거** 대화 상자가 표시됩니다.
    
     ![결과 창에 열 추가 또는 제거](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png) 
 4. 다음과 같이 양식을 완료합니다.

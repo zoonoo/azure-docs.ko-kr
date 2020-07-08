@@ -3,16 +3,16 @@ title: Windows에서 Azure 파일 공유 사용 | Microsoft Docs
 description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/07/2018
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509781"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -41,41 +41,8 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항 
-* **스토리지 계정 이름**: Azure 파일 공유를 탑재하려면 스토리지 계정의 이름이 필요합니다.
 
-* **스토리지 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 스토리지 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
-
-* **445 포트가 열려 있는지 확인**: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. [차단된 포트 445를 해결하는 다양한 방법에 대해 여기](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)에서 알아볼 수 있습니다.
-
-    다음 PowerShell 코드는 Azure PowerShell 모듈이 설치된 것으로 가정합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 스토리지 계정과 관련된 이름으로 바꿔야 합니다.
-
-    ```powershell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-    ```
-
-    연결되면 다음 출력이 표시됩니다.
-
-    ```
-    ComputerName     : <storage-account-host-name>
-    RemoteAddress    : <storage-account-ip-address>
-    RemotePort       : 445
-    InterfaceAlias   : <your-network-interface>
-    SourceAddress    : <your-ip-address>
-    TcpTestSucceeded : True
-    ```
-
-    > [!Note]  
-    > 위의 명령은 스토리지 계정의 현재 IP 주소를 반환합니다. 이 IP 주소가 동일하게 유지된다는 보장이 없으며, 언제든지 변경될 수 있습니다. 이 IP 주소를 스크립트로 또는 방화벽 구성으로 하드 코딩하지 마세요. 
+445 포트가 열려 있는지 확인: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. 방화벽에서 cmdlet을 사용 하 여 포트 445을 차단 하 고 있는지 확인할 수 있습니다 `Test-NetConnection` . 차단 된 445 포트를 해결 하는 방법에 대 한 자세한 내용은 Windows 문제 해결 가이드의 [원인 1: 포트 445이 차단 되었습니다](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) . 섹션을 참조 하세요.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 Windows에서 Azure 파일 공유를 사용하려면 Azure 파일 공유를 탑재하거나(드라이브 문자 또는 탑재 지점 경로에 할당한다는 의미) [UNC 경로](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx)를 통해 액세스해야 합니다. 
@@ -84,97 +51,31 @@ Windows에서 Azure 파일 공유를 사용하려면 Azure 파일 공유를 탑�
 
 SMB 파일 공유를 기대하는 LOB 애플리케이션을 Azure로 전환하는 일반적인 패턴은 Azure VM에서 전용 Windows 파일 서버를 실행하는 대신 Azure 파일 공유를 사용하는 것입니다. Azure 파일 공유를 사용하도록 기간 업무 앱을 마이그레이션할 때 고려해야 하는 중요한 사항 중 하나로, 많은 기간 업무 앱은 VM 관리 계정이 아니라 시스템 권한이 제한된 전용 서비스 계정 하에서 실행됩니다. 따라서 관리 계정이 아닌 서비스 계정의 Azure 파일 공유에 대한 자격 증명을 탑재/저장해야 합니다.
 
-### <a name="persisting-azure-file-share-credentials-in-windows"></a>Windows에서 Azure 파일 공유 자격 증명 유지  
-[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 유틸리티를 사용하면 스토리지 계정 자격 증명을 Windows 내에 저장할 수 있습니다. 즉, UNC 경로를 통해 Azure 파일 공유에 액세스하려고 시도하거나 Azure 파일 공유를 탑재하려고 시도할 때 자격 증명을 지정할 필요가 없습니다. 스토리지 계정의 자격 증명을 저장하려면 다음 PowerShell 명령을 실행하고, `<your-storage-account-name>` 및 `<your-resource-group-name>`을(를) 적절하게 바꿉니다.
+### <a name="mount-the-azure-file-share"></a>Azure 파일 공유 탑재
 
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
+Azure Portal은 파일 공유를 호스트에 직접 탑재 하는 데 사용할 수 있는 스크립트를 제공 합니다. 제공 된 스크립트를 사용 하는 것이 좋습니다.
 
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+다음 스크립트를 가져오려면
 
-# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
-# consume the appropriate values from the storage account variables. The value given to the add parameter of the
-# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
-# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
-    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)")
-```
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 탑재 하려는 파일 공유가 포함 된 저장소 계정으로 이동 합니다.
+1. **파일 공유**를 선택 합니다.
+1. 탑재할 파일 공유를 선택 합니다.
 
-list 매개 변수를 사용하여 cmdkey 유틸리티가 스토리지 계정의 자격 증명을 저장했는지 확인할 수 있습니다.
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="예 들어":::
 
-```powershell
-cmdkey /list
-```
+1. **연결**을 선택합니다.
 
-Azure 파일 공유의 자격 증명이 성공적으로 저장된 경우 예상되는 출력은 다음과 같습니다(목록에 추가 키가 저장될 수 있음).
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="파일 공유에 대 한 연결 아이콘의 스크린샷":::
 
-```
-Currently stored credentials:
+1. 공유를 탑재할 드라이브 문자를 선택 합니다.
+1. 제공 된 스크립트를 복사 합니다.
 
-Target: Domain:target=<storage-account-host-name>
-Type: Domain Password
-User: AZURE\<your-storage-account-name>
-```
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="예제 텍스트":::
 
-이제 추가 자격 증명을 입력하지 않고도 공유를 탑재하거나 액세스할 수 있습니다.
+1. 파일 공유를 탑재 하려는 호스트의 셸에 스크립트를 붙여넣고 실행 합니다.
 
-#### <a name="advanced-cmdkey-scenarios"></a>고급 cmdkey 시나리오
-cmdkey와 관련하여 고려해야 할 두 가지 시나리오가 더 있습니다. 하나는 서비스 계정 같은 다른 사용자의 계정을 머신에 저장하는 것이고, 다른 하나는 PowerShell 원격을 사용하여 원격 머신에 자격 증명을 저장하는 것입니다.
-
-다른 사용자의 자격 증명을 머신에 저장하는 방법은 간단합니다. 계정에 로그인할 때 다음 PowerShell 명령을 실행하기만 하면 됩니다.
-
-```powershell
-$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
-Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
-```
-
-서비스 계정(또는 사용자 계정)의 사용자 컨텍스트에서 새 PowerShell 창이 열립니다. 그러면 [위](#persisting-azure-file-share-credentials-in-windows)에서 설명한 대로 cmdkey 유틸리티를 사용할 수 있습니다.
-
-하지만 PowerShell 원격을 사용하여 원격 머신에 자격 증명을 저장하는 것은 불가능합니다. cmdkey는 추가의 경우에도 사용자가 PowerShell 원격을 통해 로그인 할 때 저장된 자격 증명에 액세스하는 것을 허용하지 않기 때문입니다. [원격 데스크톱](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows)을 사용하여 머신에 로그인하는 것이 좋습니다.
-
-### <a name="mount-the-azure-file-share-with-powershell"></a>PowerShell을 사용하여 Azure 파일 공유 탑재
-일반(관리자 권한이 아닌) PowerShell 세션에서 다음 명령을 실행하여 Azure 파일 공유를 탑재합니다. `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` 및 `<desired-drive-letter>`을(를) 적절한 정보로 바꿉니다.
-
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
-$fileShareName = "<your-file-share-name>"
-
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object { 
-    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
-}
-
-if ($fileShare -eq $null) {
-    throw [System.Exception]::new("Azure file share not found")
-}
-
-# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
-# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
-# hosts for Azure file shares (and other storage resources).
-$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
-New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
-```
-
-> [!Note]  
-> `New-PSDrive` cmdlet에서 `-Persist` 옵션을 사용하면 자격 증명이 저장되는 경우 부팅 시에만 파일 공유를 다시 탑재할 수 있습니다. [앞에서 설명한 대로](#persisting-azure-file-share-credentials-in-windows) cmdkey를 사용하여 자격 증명을 저장할 수 있습니다. 
-
-원하는 경우 다음 PowerShell cmdlet을 사용하여 Azure 파일 공유를 분리할 수 있습니다.
-
-```powershell
-Remove-PSDrive -Name <desired-drive-letter>
-```
+이제 Azure 파일 공유를 탑재 했습니다.
 
 ### <a name="mount-the-azure-file-share-with-file-explorer"></a>파일 탐색기를 통해 Azure 파일 공유 탑재
 > [!Note]  
@@ -182,7 +83,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. 파일 탐색기를 엽니다. [시작] 메뉴에서 열거나 Win+E 바로 가기 키를 눌러서 열 수 있습니다.
 
-1. 창 왼쪽에 있는 **이 PC** 항목으로 이동합니다. 이렇게 하면 리본에서 사용할 수 있는 메뉴가 변경됩니다. [컴퓨터] 메뉴 아래에서 **네트워크 드라이브 연결**을 선택합니다.
+1. 창의 왼쪽에 있는 **이 PC** 로 이동 합니다. 이렇게 하면 리본에서 사용할 수 있는 메뉴가 변경됩니다. [컴퓨터] 메뉴 아래에서 **네트워크 드라이브 연결**을 선택합니다.
     
     !["네트워크 드라이브 연결" 드롭다운 메뉴의 스크린샷](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
@@ -201,7 +102,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 1. Azure 파일 공유를 분리할 준비가 되면 파일 탐색기의 **네트워크 위치** 아래에서 공유 항목을 마우스 오른쪽 단추로 클릭하고 **연결 해제**를 선택하여 Azure 파일 공유를 탑재 해제할 수 있습니다.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Windows에서 공유 스냅샷에 액세스
-Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅샷을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) 및 [Azure CLI](storage-how-to-use-files-cli.md)에서 공유 스냅샷을 만들 수 있습니다.
+Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅샷을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md)또는 [Azure Portal](storage-how-to-use-files-portal.md)를 사용 하 여 공유 스냅숏을 만들 수 있습니다.
 
 #### <a name="list-previous-versions"></a>이전 버전 나열
 복원해야 하는 항목 또는 부모 항목을 찾습니다. 해당 항목을 두 번 클릭하여 원하는 디렉터리로 이동합니다. 마우스 오른쪽 단추로 클릭하고 메뉴에서 **속성**을 선택합니다.

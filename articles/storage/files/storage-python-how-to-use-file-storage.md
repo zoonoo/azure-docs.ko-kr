@@ -3,16 +3,17 @@ title: Python을 사용하여 Azure Files용으로 개발 | Microsoft Docs
 description: Azure Files를 사용하여 파일 데이터를 저장하는 Python 애플리케이션 및 서비스를 개발하는 방법에 대해 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509645"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -47,7 +48,7 @@ pip install azure-storage-file
 대체 설치 방법을 확인하려면 [GitHub의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
 
 ## <a name="view-the-sample-application"></a>샘플 애플리케이션 보기
-f Azure Files에서 Python을 사용 하는 방법을 보여 주는 샘플 응용 프로그램을 보고 실행 하려면 [Azure Storage: python에서 Azure Files 시작](https://github.com/Azure-Samples/storage-file-python-getting-started)을 참조 하세요. 
+Azure Files에서 Python을 사용 하는 방법을 보여 주는 샘플 응용 프로그램을 보고 실행 하려면 [Azure Storage: python에서 Azure Files 시작](https://github.com/Azure-Samples/storage-file-python-getting-started)을 참조 하세요. 
 
 샘플 애플리케이션을 실행하려면 `azure-storage-file` 및 `azure-storage-common` 패키지를 둘 다 설치해야 합니다.
 
@@ -180,5 +181,5 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 이제 Python으로 Azure Files를 조작하는 방법을 배웠으므로 다음 링크를 통해 자세한 내용을 알아보세요.
 
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
-* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

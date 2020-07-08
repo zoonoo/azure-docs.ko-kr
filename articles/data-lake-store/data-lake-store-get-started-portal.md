@@ -3,15 +3,15 @@ title: Azure Data Lake Storage Gen1 시작-포털
 description: Azure Portal를 사용 하 여 Data Lake Storage Gen1 계정을 만들고 계정에서 기본 작업을 수행 합니다.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509203"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -26,7 +26,7 @@ ms.locfileid: "79265585"
 
 Azure Portal 사용 하 여 Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법에 대해 알아봅니다. 자세한 내용은 [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -40,7 +40,7 @@ Azure Portal 사용 하 여 Data Lake Storage Gen1 계정을 만들고 폴더 �
 
     ![새 Data Lake Storage Gen1 계정 만들기](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "새 Data Lake Storage Gen1 계정 만들기")
 
-   * **이름**. Data Lake Storage Gen1 계정의 고유한 이름을 입력합니다.
+   * **이름** - Data Lake Storage Gen1 계정의 고유한 이름을 입력합니다.
    * **구독**. 새 Data Lake Storage Gen1 계정을 만들려는 구독을 선택합니다.
    * **리소스 그룹**. 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 리소스 그룹을 만듭니다. 리소스 그룹은 애플리케이션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure의 리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)을 참조하세요.
    * **위치**: Data Lake Storage Gen1 계정을 만들려는 위치를 선택합니다.
