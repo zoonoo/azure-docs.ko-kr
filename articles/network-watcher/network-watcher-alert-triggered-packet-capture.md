@@ -8,17 +8,17 @@ author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738059"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
 
@@ -35,9 +35,9 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 최신 버전의 [Azure PowerShell](/powershell/azure/install-Az-ps)입니다.
+* 최신 버전의 [Azure PowerShell](/powershell/azure/install-Az-ps)
 * Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
 * [Windows 확장](../virtual-machines/windows/extensions-nwa.md) 또는 [Linux 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)이 있고 Network Watcher와 동일한 지역에 기존 가상 머신이 있음
 
@@ -91,7 +91,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
     |---|---|---|
     |**시나리오**|실험적|시나리오 유형|
     |**함수 이름 지정**|AlertPacketCapturePowerShell|함수의 이름|
-    |**권한 수준**|함수|함수에 대한 권한 부여 수준|
+    |**권한 부여 수준**|기능|함수에 대한 권한 부여 수준|
 
 ![함수 예제][functions1]
 
@@ -120,7 +120,7 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
      ![PowerShell 폴더][functions5]
 
-1. **함수 앱 설정** > 선택**App Service 편집기로 이동**합니다.
+1. **함수 앱 설정**선택  >  **App Service 편집기로 이동**합니다.
 
     ![함수 앱 설정][functions2]
 
@@ -138,7 +138,7 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
 1. **Az. Network** 하위 폴더를 마우스 오른쪽 단추로 클릭 하 고 **파일 업로드**를 선택 합니다. 
 
-6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음 **확인**을 선택합니다. 
+6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음, **확인**을 선택합니다. 
 
 7. **Az. Accounts** 및 **az .resources**에 대해 이러한 단계를 반복 합니다.
 
@@ -246,7 +246,7 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>환경 변수 저장
 
-1. 함수 앱으로 돌아갑니다. 그런 다음 **함수 앱 설정** > **앱 설정 구성**을 선택 합니다.
+1. 함수 앱으로 돌아갑니다. 그런 다음 **함수 앱 설정**  >  **앱 설정 구성**을 선택 합니다.
 
     ![앱 설정 구성][functions11]
 
@@ -348,9 +348,9 @@ $Encryptedpassword
   |**설명**|전송된 TCP 세그먼트가 임계값을 초과함|경고 규칙에 대한 설명입니다.|
   |**메트릭**|전송된 TCP 세그먼트| 경고를 트리거하는 데 사용할 메트릭입니다. |
   |**조건**|초과| 메트릭을 평가할 때 사용할 조건입니다.|
-  |**고대비**|100| 경고를 트리거하는 메트릭의 값입니다. 이 값은 사용자 환경에 적합한 값으로 설정해야 합니다.|
+  |**임계값**|100| 경고를 트리거하는 메트릭의 값입니다. 이 값은 사용자 환경에 적합한 값으로 설정해야 합니다.|
   |**기간**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
-  |**Webhook**|[함수 앱에서 웹후크 URL]| 이전 단계에서 만든 함수 앱의 웹후크 URL입니다.|
+  |**웹후크**|[함수 앱에서 웹후크 URL]| 이전 단계에서 만든 함수 앱의 웹후크 URL입니다.|
 
 > [!NOTE]
 > 기본적으로 TCP 세그먼트 메트릭은 사용되지 않도록 설정됩니다. [모니터링 및 진단 사용](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)을 방문하여 추가 메트릭을 설정하는 방법에 대해 자세히 알아보세요.

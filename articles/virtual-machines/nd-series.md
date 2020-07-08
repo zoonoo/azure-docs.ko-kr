@@ -1,18 +1,18 @@
 ---
 title: ND 시리즈-Azure Virtual Machines
 description: ND 시리즈 Vm에 대 한 사양입니다.
-services: virtual-machines
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 163dc0d6ecd4f91273a82b04ce186f7a8df868af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 6b29125087bd60041f85b1b5023646b039bd6a4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79465059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736954"
 ---
 # <a name="nd-series"></a>ND 시리즈
 
@@ -22,14 +22,14 @@ Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
 
-실시간 마이그레이션: 지원 되지 않음
+실시간 마이그레이션: 지원되지 않음
 
-메모리 보존 업데이트: 지원 되지 않음
+메모리 보존 업데이트: 지원되지 않음
 
 > [!IMPORTANT]
 > 이 VM 시리즈의 경우 구독에서 지역별 vCPU (코어) 할당량은 처음에 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-supportability/resource-manager-core-quotas-request.md) 합니다.
 >
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|
 | Standard_ND6s    | 6  | 112 | 736  | 1 | 24 | 12 | 20000/200 | 4 |
 | Standard_ND12s   | 12 | 224 | 1474 | 2 | 48 | 24 | 40000/400 | 8 |

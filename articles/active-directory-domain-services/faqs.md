@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4a9081b3d3c1c925efb4cc80201e6154752dc628
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734778"
 ---
 # <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
 이 페이지는 Azure Active Directory Domain Services에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 * [단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [클래식 가상 네트워크에서 Azure AD Domain Services를 사용 하도록 설정할 수 있나요?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -58,6 +58,8 @@ ms.locfileid: "82926972"
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>페더레이션된 Azure AD 디렉터리에서 Azure AD Domain Services를 사용할 수 있습니까? 암호 해시를 Azure AD와 동기화하지 않았습니다. 이 디렉터리에 Azure AD Domain Services를 사용할 수 있습니까?
 아니요. NTLM 또는 Kerberos를 통해 사용자를 인증 하려면 사용자 계정의 암호 해시에 액세스 해야 Azure AD Domain Services. 페더레이션된 디렉터리에서 암호 해시는 Azure AD 디렉터리에 저장 되지 않습니다. 따라서 Azure AD Domain Services는 이러한 Azure AD 디렉터리에서 작동 하지 않습니다.
 
+그러나 암호 해시 동기화에 Azure AD Connect를 사용 하는 경우 암호 해시 값이 Azure AD에 저장 되므로 Azure AD Domain Services를 사용할 수 있습니다.
+
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Azure AD Domain Services를 내 구독 내의 여러 가상 네트워크에서 사용할 수 있나요?
 서비스 자체는이 시나리오를 직접 지원 하지 않습니다. 관리되는 도메인은 한 번에 하나의 가상 네트워크에서만 사용할 수 있습니다. 그러나 다른 가상 네트워크에 Azure AD Domain Services를 노출 하기 위해 여러 가상 네트워크 간의 연결을 구성할 수 있습니다. 자세한 내용은 VPN 게이트웨이 또는 [가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md)을 [사용 하 여 Azure에서 가상 네트워크를 연결 하는 방법](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) 을 참조 하세요.
 
@@ -74,7 +76,7 @@ ms.locfileid: "82926972"
 아니요. [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 초대 프로세스를 사용하여 Azure AD 디렉터리에 초대된 게스트 사용자는 Azure AD Domain Services 관리되는 도메인과 동기화됩니다. 그러나 이러한 사용자에 대 한 암호는 Azure AD 디렉터리에 저장 되지 않습니다. 따라서 Azure AD Domain Services는 이러한 사용자에 대 한 NTLM 및 Kerberos 해시를 관리 되는 도메인으로 동기화 할 방법이 없습니다. 이러한 사용자는 컴퓨터에 로그인 하거나 관리 되는 도메인에 컴퓨터를 가입 시킬 수 없습니다.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>기존 Azure AD Domain Services 관리 되는 도메인을 다른 구독, 리소스 그룹, 지역 또는 가상 네트워크로 이동할 수 있나요?
-아니요. 관리 되는 Azure AD Domain Services 도메인을 만든 후에는 인스턴스를 다른 리소스 그룹, 가상 네트워크, 구독 등으로 이동할 수 없습니다. Azure AD DS 인스턴스를 배포할 때 가장 적합 한 구독, 리소스 그룹, 지역 및 가상 네트워크를 선택 합니다.
+아니요. Azure AD Domain Services 관리 되는 도메인을 만든 후에는 관리 되는 도메인을 다른 리소스 그룹, 가상 네트워크, 구독 등으로 이동할 수 없습니다. 관리 되는 도메인을 배포할 때 가장 적절 한 구독, 리소스 그룹, 지역 및 가상 네트워크를 선택 합니다.
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>고가용성 옵션을 포함 Azure AD Domain Services?
 
@@ -97,7 +99,7 @@ ms.locfileid: "82926972"
 아니요. 원격 데스크톱을 사용 하 여 관리 되는 도메인에 대 한 도메인 컨트롤러에 연결할 수 있는 권한이 없습니다. *AAD DC 관리자* 그룹의 멤버는 adac (Active Directory 관리 센터) 또는 ad PowerShell과 같은 ad 관리 도구를 사용 하 여 관리 되는 도메인을 관리할 수 있습니다. 이러한 도구는 관리 되는 도메인에 가입 된 Windows Server에서 *원격 서버 관리 도구* 기능을 사용 하 여 설치 됩니다. 자세한 내용은 [관리 VM을 만들어 Azure AD Domain Services 관리 되는 도메인 구성 및](tutorial-create-management-vm.md)관리를 참조 하세요.
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Azure AD Domain Services를 사용 하도록 설정 했습니다. 이 도메인에 도메인 가입 컴퓨터를 사용하려면 사용자 계정은 무엇입니까?
-Azure AD DS 관리 되는 도메인의 일부인 모든 사용자 계정은 VM에 가입할 수 있습니다. *AAD DC Administrators* 그룹의 구성원에 게는 관리 되는 도메인에 가입 된 컴퓨터에 대 한 원격 데스크톱 액세스가 부여 됩니다.
+관리 되는 도메인의 일부인 모든 사용자 계정은 VM에 가입할 수 있습니다. *AAD DC Administrators* 그룹의 구성원에 게는 관리 되는 도메인에 가입 된 컴퓨터에 대 한 원격 데스크톱 액세스가 부여 됩니다.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Azure AD Domain Services에서 제공하는 관리되는 도메인에 대한 도메인 관리자 권한이 부여됩니까?
 아니요. 관리 되는 도메인에 대 한 관리 권한이 부여 되지 않았습니다. 도메인 *관리자* 및 *엔터프라이즈 관리자* 권한은 도메인 내에서 사용할 수 없습니다. 온-프레미스 Active Directory 도메인 관리자 또는 엔터프라이즈 관리자 그룹의 멤버에 게는 관리 되는 도메인에 대 한 도메인/엔터프라이즈 관리자 권한도 부여 되지 않습니다.
@@ -158,4 +160,4 @@ Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 �
 
 Azure AD Domain Services에 대 한 자세한 내용은 [Azure Active Directory Domain Services 무엇입니까?](overview.md)를 참조 하세요.
 
-시작 하려면 [Azure Active Directory Domain Services 인스턴스 만들기 및 구성](tutorial-create-instance.md)을 참조 하세요.
+시작 하려면 [Azure Active Directory Domain Services 관리 되는 도메인 만들기 및 구성](tutorial-create-instance.md)을 참조 하세요.

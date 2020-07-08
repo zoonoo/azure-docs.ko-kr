@@ -3,21 +3,21 @@ title: Azure 개인 링크를 사용 하 여 Azure Cosmos 계정에 연결
 description: 개인 끝점을 만들어 VM에서 Azure Cosmos 계정에 안전 하 게 액세스 하는 방법을 알아봅니다.
 author: malopMSFT
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737719"
 ---
-# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 개인적으로 Azure Cosmos 계정에 연결
+# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Azure Private Link를 사용하여 Azure Cosmos 계정에 비공개로 연결
 
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
 
-이 문서에서는 Azure Portal를 사용 하 여 개인 끝점으로 azure 가상 네트워크 및 Azure Cosmos 계정에서 VM을 만드는 방법에 대해 알아봅니다. 그런 다음 VM에서 Azure Cosmos 계정에 안전 하 게 액세스할 수 있습니다.
+이 문서에서는 Azure Portal을 사용하여 프라이빗 엔드포인트가 있는 Azure 가상 네트워크 및 Azure Cosmos 계정에서 VM을 만드는 방법에 대해 알아봅니다. 그러면 VM에서 Azure Cosmos 계정에 안전하게 액세스할 수 있습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -36,19 +36,19 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 | **\<resource-group-name>**  | myResourceGroup|
 | **\<virtual-network-name>** | myVirtualNetwork         |
 | **\<region-name>**          | 미국 중서부     |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>가상 머신 만들기
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**계산** > **가상 머신**를 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**  >  **계산**  >  **가상 머신**를 선택 합니다.
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -126,7 +126,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 이 섹션에서는 개인 끝점을 사용 하 여 개인적으로 Azure Cosmos 계정에 연결 합니다. 
 
-1. IP 주소와 DNS 매핑을 포함 하려면 가상 컴퓨터 *Myvm*에 로그인 하 고, `c:\Windows\System32\Drivers\etc\hosts` 파일을 열고, 이전 단계의 DNS 정보를 다음 형식으로 포함 합니다.
+1. IP 주소와 DNS 매핑을 포함 하려면 가상 컴퓨터 *Myvm*에 로그인 하 고, 파일을 열고, `c:\Windows\System32\Drivers\etc\hosts` 이전 단계의 DNS 정보를 다음 형식으로 포함 합니다.
 
    [개인 IP 주소] [계정 엔드포인트]. documents. .com
 
@@ -147,7 +147,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. 이전에 복사한 정보를 붙여넣어 연결 문자열을 입력 합니다.
 
-1. **다음**을 선택합니다.
+1. **새로 만들기**를 선택합니다.
 
 1. **연결**을 선택합니다.
 
@@ -165,7 +165,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. **리소스 그룹 삭제**를 선택합니다.
 
-1. **리소스 그룹 이름 입력** 에 *myresourcegroup* 을 입력 하 고 **삭제**를 선택 합니다.
+1. **리소스 그룹 이름 입력**에 대해 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

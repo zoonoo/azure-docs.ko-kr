@@ -4,15 +4,15 @@ description: 이 문서에서는 ExpressRoute에서 공용 피어링을 Microsof
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f6b3ec93498ab58ba67a2ca08199feaa2da73ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738365"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>공용 피어링을 Microsoft 피어링으로 이동
 
@@ -22,7 +22,7 @@ Azure 공용 피어 링에는 각 BGP 세션에 연결 된 1 개의 NAT IP 주�
 
 공용 피어링을 사용하도록 설정하면 모든 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다. Microsoft 피어 링은 WAN과 함께 Microsoft Azure 서비스에서 연결을 시작할 수 있는 양방향 연결입니다. 라우팅 도메인 및 피어 링에 대 한 자세한 내용은 [express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조 하세요.
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 
 Microsoft 피어링에 연결하려면 NAT를 설정하고 관리해야 합니다. 연결 공급자에서 NAT를 관리 서비스로 설정하고 관리할 수 있습니다. Microsoft 피어링에서 Azure PaaS 및 Azure SaaS 서비스에 액세스하려는 경우 NAT IP 풀의 크기를 올바르게 조정해야 합니다. ExpressRoute용 NAT에 대한 자세한 내용은 [Microsoft 피어링에 대한 NAT 요구 사항](expressroute-nat.md#nat-requirements-for-microsoft-peering)을 참조하세요. Azure Express 경로 (Microsoft 피어 링)를 통해 Microsoft에 연결 하는 경우 Microsoft에 대 한 여러 링크가 있습니다. 한 가지 링크는 기존 인터넷 연결이고 다른 하나는 ExpressRoute를 통한 연결입니다. Microsoft에 대한 일부 트래픽은 인터넷을 통과할 수 있지만 ExpressRoute를 통해 돌아옵니다. 혹은 그 반대입니다.
 
@@ -33,7 +33,7 @@ Microsoft 피어링에 연결하려면 NAT를 설정하고 관리해야 합니�
 
 Microsoft 피어 링을 구성 하기 전에 비대칭 라우팅에 대 한 주의 사항은 [여러 네트워크 경로를 사용 하는 비대칭 라우팅](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) 을 참조 하세요.
 
-* 공용 피어링을 사용하고 있고 현재 [Azure Storage](../storage/common/storage-network-security.md)나 [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md)에 액세스하는 데 사용되는 공용 IP 주소에 대한 IP 네트워크 규칙이 있는 경우, Microsoft 피어링으로 구성된 NAT IP 풀이 Azure 스토리지 계정 또는 Azure SQL 계정의 공용 IP 주소 목록에 포함되어 있는지 확인해야 합니다.<br>
+* 공용 피어링을 사용하고 있고 현재 [Azure Storage](../storage/common/storage-network-security.md)나 [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md)에 액세스하는 데 사용되는 공용 IP 주소에 대한 IP 네트워크 규칙이 있는 경우, Microsoft 피어링으로 구성된 NAT IP 풀이 Azure 스토리지 계정 또는 Azure SQL 계정의 공용 IP 주소 목록에 포함되어 있는지 확인해야 합니다.<br>
 * 가동 중지 없이 Microsoft 피어링으로 이동하려면 이 문서의 단계를 제시된 순서대로 사용하십시오.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Microsoft 피어 링 만들기
@@ -91,4 +91,4 @@ Azure Portal에서 모든 ExpressRoute 회로 및 피어링 목록을 확인할 
 
 ## <a name="next-steps"></a>다음 단계
 
-Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md)를 참조 하십시오.
+ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.

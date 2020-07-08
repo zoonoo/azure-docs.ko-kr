@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5330c427088734b049b2cb4f7735ac0099a52b47
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736675"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -37,10 +37,10 @@ Windows 가상 데스크톱 배포에서 담당 하는 보안 요구 사항은 �
 |세션 호스트 OS|예|
 |배포 구성|예|
 |네트워크 컨트롤|예|
-|가상화 제어 평면|예|
-|물리적 호스트|예|
-|실제 네트워크|예|
-|물리적 데이터 센터|예|
+|가상화 제어 평면|아니요|
+|물리적 호스트|아니요|
+|실제 네트워크|아니요|
+|물리적 데이터 센터|아니요|
 
 고객이 책임을 지지 않는 보안 요구는 Microsoft에서 처리 합니다.
 
@@ -70,7 +70,7 @@ Azure Security Center Standard를 사용 하 여 다음을 수행할 수 있습�
 
 Windows 가상 데스크톱에는 여러 가지 기본 제공 보안 컨트롤이 있습니다. 이 섹션에서는 사용자와 데이터를 안전 하 게 유지 하는 데 사용할 수 있는 보안 컨트롤에 대해 알아봅니다.
 
-### <a name="require-multi-factor-authentication"></a>Multi-Factor Authentication 필요
+### <a name="require-multi-factor-authentication"></a>다단계 인증 필요
 
 Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-factor authentication을 요구 하면 전체 배포의 보안이 향상 됩니다. 자세한 내용은 [Windows 가상 데스크톱에 대 한 Azure Multi-Factor Authentication 사용](set-up-mfa.md)을 참조 하세요.
 
@@ -137,7 +137,7 @@ FSLogix 또는 VHD 파일을 탑재 하는 기타 솔루션과 같은 프로필 
 
 ### <a name="manage-office-pro-plus-security"></a>Office Pro Plus 보안 관리
 
-세션 호스트를 보호 하는 것 외에도 내부에서 실행 되는 응용 프로그램을 보호 하는 것이 중요 합니다. Office Pro Plus는 세션 호스트에 배포 된 가장 일반적인 응용 프로그램 중 하나입니다. Office 배포 보안을 향상 시키려면 Enterprise 용 Microsoft 365 앱에 대 한 [보안 정책 관리자](/DeployOffice/overview-of-security-policy-advisor) 를 사용 하는 것이 좋습니다. 이 도구는 더 많은 보안을 위해 배포에 적용할 수 있는 정책을 식별 합니다. 보안 정책 관리자는 보안과 생산성에 미치는 영향에 따라 정책을 권장 합니다.
+세션 호스트를 보호 하는 것 외에도 내부에서 실행 되는 응용 프로그램을 보호 하는 것이 중요 합니다. Office Pro Plus는 세션 호스트에 배포 된 가장 일반적인 응용 프로그램 중 하나입니다. Office 배포 보안을 향상 시키려면 enterprise 용 Microsoft 365 앱에 대 한 [보안 정책 관리자](/DeployOffice/overview-of-security-policy-advisor) 를 사용 하는 것이 좋습니다. 이 도구는 더 많은 보안을 위해 배포에 적용할 수 있는 정책을 식별 합니다. 보안 정책 관리자는 보안과 생산성에 미치는 영향에 따라 정책을 권장 합니다.
 
 ### <a name="other-security-tips-for-session-hosts"></a>세션 호스트에 대 한 기타 보안 팁
 

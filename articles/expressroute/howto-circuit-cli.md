@@ -4,15 +4,15 @@ description: 이 문서에서는 CLI를 사용하여 ExpressRoute 회로를 만�
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b967e1d8751a9c6a5214fef5241d57e954ad9f17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56af984ef83d2e237f0aa05af5cfef4dd6205256
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738331"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -118,7 +118,7 @@ az network express-route list-service-providers
 
 연결 공급자가 나열되었는지 확인하려면 응답을 확인합니다. 나중에 회로를 만들 때 필요한 다음 정보를 적어 둡니다.
 
-* 속성
+* 이름
 * PeeringLocations
 * BandwidthsOffered
 

@@ -4,15 +4,15 @@ description: 개인 끝점을 사용 하 여 Azure에서 저장소 계정에 개
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ccbb685ceb406fd7a52edf793b53d9e1c32630b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737328"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트를 사용하여 스토리지 계정에 비공개로 연결
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
@@ -21,7 +21,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 이 섹션에서는 개인 링크 리소스 (이 예제에서는 저장소 계정)에 액세스 하는 데 사용 되는 VM을 호스트 하는 가상 네트워크 및 서브넷을 만듭니다.
@@ -37,20 +37,20 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myVirtualNetwork          |
 | **\<region-name>**          | 미국 중서부      |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>가상 머신 만들기
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**계산** > **가상 머신**를 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**  >  **계산**  >  **가상 머신**를 선택 합니다.
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -94,11 +94,11 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 ## <a name="create-your-private-endpoint"></a>개인 끝점 만들기
 이 섹션에서는 개인 끝점을 사용 하 여 개인 저장소 계정을 만듭니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**저장소** > **저장소 계정**을 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**  >  **저장소**  >  **저장소 계정**을 선택 합니다.
 
 1. **저장소 계정 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -116,13 +116,13 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 5. **저장소 계정 만들기-네트워킹**에서 **개인 끝점 추가**를 선택 합니다. 
 6. **개인 끝점 만들기**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     |위치|**WestCentralUS**를 선택합니다.|
-    |속성|*myPrivateEndpoint*를 입력합니다.  |
+    |Name|*myPrivateEndpoint*를 입력합니다.  |
     |저장소 하위 리소스|기본 **Blob**을 그대로 둡니다. |
     | **네트워킹** |  |
     | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
@@ -168,7 +168,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 이 섹션에서는 개인 끝점을 사용 하 여 저장소 계정에 비공개로 연결 합니다.
 
 1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
-2. Enter `nslookup mystorageaccount.blob.core.windows.net` 키를 누르면 다음과 비슷한 메시지가 표시 됩니다.
+2. Enter 키 `nslookup mystorageaccount.blob.core.windows.net` 를 누르면 다음과 비슷한 메시지가 표시 됩니다.
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -181,9 +181,9 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 4. 마우스 오른쪽 단추를 클릭 하 여 **저장소 계정** 을 선택 합니다.
 5. **Azure storage에 연결을**선택 합니다.
 6. **연결 문자열 사용을**선택 합니다.
-7. **다음**을 선택합니다.
+7. **새로 만들기**를 선택합니다.
 8. 이전에 복사한 정보를 붙여넣어 연결 문자열을 입력 합니다.
-9. **다음**을 선택합니다.
+9. **새로 만들기**를 선택합니다.
 10. **연결**을 선택합니다.
 11. Mystorageaccount에서 Blob 컨테이너 찾아보기 
 12. 생략할 폴더를 만들거나 *mystorageaccount*에 파일을 업로드 합니다. 
@@ -199,7 +199,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 개인 끝점, 저장소 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
 1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다. 
 2. **리소스 그룹 삭제**를 선택합니다. 
-3. **리소스 그룹 이름 입력** 에 *myresourcegroup* 을 입력 하 고 **삭제**를 선택 합니다. 
+3. **리소스 그룹 이름 입력**에 대해 *myResourceGroup*을 입력하고 **삭제**를 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 가상 네트워크와 저장소 계정 및 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 저장소 계정에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](private-endpoint-overview.md)을 참조 하세요.

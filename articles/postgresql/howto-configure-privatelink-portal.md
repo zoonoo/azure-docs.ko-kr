@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40e30d4011a52342c6fb610b19f70c8523a0331f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736716"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
 
@@ -32,12 +32,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 이 섹션에서는 Private Link 리소스에 액세스하는 데 사용되는 VM을 호스트하는 Virtual Network와 서브넷을 만듭니다.
 
-1. 화면 왼쪽 위에서 **리소스** > 만들기**네트워킹** > **가상 네트워크**를 선택 합니다.
+1. 화면 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **가상 네트워크**를 선택 합니다.
 2. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *MyVirtualNetwork*를 입력 합니다. |
+    | Name | *MyVirtualNetwork*를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **가상 머신 만들기 - 네트워킹**에서 다음 정보를 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 가상 네트워크 | 기본값인 **MyVirtualNetwork**를 그대로 둡니다.  |
     | 주소 공간 | 기본값인 **10.1.0.0/24**를 그대로 둡니다.|
@@ -95,15 +95,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
 
+> [!NOTE]
+> Azure Database for PostgreSQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
+> - 두 구독 모두에 **DBforPostgreSQL** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
+
 ## <a name="create-an-azure-database-for-postgresql-single-server"></a>단일 서버 Azure Database for PostgreSQL 만들기
 
 이 섹션에서는 Azure에서 Azure Database for PostgreSQL 서버를 만듭니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서**Azure Database for PostgreSQL** **리소스** > **데이터베이스** > 만들기를 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 Azure Database for PostgreSQL **리소스 데이터베이스 만들기**를 선택  >  **Databases**  >  **Azure Database for PostgreSQL**합니다.
 
 1. **Azure Database for PostgreSQL 배포 옵션**에서 **단일 서버** 를 선택 하 고 다음 정보를 제공 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -126,26 +130,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 PostgreSQL 서버를 만들고 여기에 개인 끝점을 추가 합니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**네트워킹** > **개인 링크**를 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **개인 링크**를 선택 합니다.
 2. **Private Link 센터 - 개요**의 **서비스에 대한 프라이빗 연결 설정** 옵션에서 **시작**을 선택합니다.
 
     ![개인 링크 개요](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
 1. **개인 끝점 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 세부 정보** |  |
-    | 속성 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | Name | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**서유럽**를 선택합니다.|
     |||
 5. 완료되면 **다음: 리소스**를 선택합니다.
 6. **프라이빗 엔드포인트 만들기 - 리소스**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     |연결 방법  | 내 디렉터리의 Azure 리소스에 연결하도록 선택합니다.|
     | Subscription| 구독을 선택합니다. |
@@ -154,7 +158,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |대상 하위 리소스 |*PostgresqlServer* 선택|
     |||
 7. 완료되면 **다음: 구성**을 선택합니다.
-8. **개인 끝점 만들기-구성**에서 다음 정보를 입력 하거나 선택 합니다.
+8. **프라이빗 엔드포인트 만들기 - 구성**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
@@ -165,6 +169,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. |
     |프라이빗 DNS 영역 |*(New) privatelink* 를 선택 합니다. |
     |||
+
+    > [!Note] 
+    > 서비스의 미리 정의 된 개인 DNS 영역을 사용 하거나 기본 설정 DNS 영역 이름을 제공 합니다. 자세한 내용은 [Azure 서비스 DNS 영역 구성](../private-link/private-endpoint-dns.md) 을 참조 하세요.
 
 1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
 2. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다. 
@@ -219,11 +226,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 서버 유형| **PostgreSQL**를 선택 합니다.|
     | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |
-    | 사용자 이름 | PostgreSQL 서버를 username@servername 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
+    | 사용자 이름 | username@servernamePostgreSQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
     |암호 |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     |SSL|**필수**를 선택 합니다.|
     ||
@@ -239,10 +246,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="clean-up-resources"></a>리소스 정리
 개인 끝점, PostgreSQL 서버 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 포함 된 모든 리소스를 삭제 합니다.
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myresourcegroup* 을 입력 하 고 검색 결과에서 *myresourcegroup* 을 선택 합니다.
+1.  *myResourceGroup*   포털 맨 위에 있는 **검색** 상자에 myresourcegroup을 입력 하 고 검색 결과에서 *myresourcegroup*을 선택   합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
 3. **리소스 그룹 이름 입력** 에 myresourcegroup을 입력 하 고 **삭제**를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 방법에서는 가상 네트워크, Azure Database for PostgreSQL 단일 서버 및 개인 액세스를 위한 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 PostgreSQL 서버에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)을 참조 하세요.
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

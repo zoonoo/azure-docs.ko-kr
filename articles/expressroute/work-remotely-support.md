@@ -4,15 +4,15 @@ description: 이 페이지에서는 Azure Express 경로를 활용 하 여 COVID
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/22/2020
 ms.author: ajitbhu
-ms.openlocfilehash: 2fe990fd9c5922dd2e059dbb212cd8bb1cd3726e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18b30380ede0c95c7d039749a4d47f65e5824058
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80336662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738076"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Azure Express 경로를 사용 하 여 원격 사용자를 지 원하는 하이브리드 연결 만들기
 

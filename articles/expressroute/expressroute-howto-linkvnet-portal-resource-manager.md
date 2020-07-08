@@ -4,16 +4,16 @@ description: Azure Express 경로 회로에 VNet을 연결 합니다. 작업 단
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737073"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.locfileid: "79272917"
 1. ExpressRoute 회로 및 Azure 프라이빗 피어링이 성공적으로 구성되었는지 확인합니다. [Express 경로 회로 만들기](expressroute-howto-circuit-arm.md) 의 지침에 따라 [express 경로 회로에 대 한 피어 링을 만들고 수정](expressroute-howto-routing-arm.md)합니다. ExpressRoute 회로가 다음 이미지와 같이 표시됩니다.
 
    [![ExpressRoute 회로 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "회로 보기")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
-2. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결** > **추가** 를 클릭 하 여 **연결 추가** 페이지를 연 다음 값을 구성 합니다.
+2. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결**  >  **추가** 를 클릭 하 여 **연결 추가** 페이지를 연 다음 값을 구성 합니다.
 
    [![연결 추가 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "연결 추가 스크린샷")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. 연결이 성공적으로 구성되면 연결 개체가 연결에 대한 정보를 표시합니다.
@@ -136,4 +136,4 @@ ExpressRoute 회로와 가상 네트워크의 연결을 삭제하여 권한 부�
 연결에 대한 페이지에서 **삭제** 아이콘을 선택하여 연결을 삭제하고 ExpressRoute 회로에 대한 VNet 연결을 해제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md)를 참조 하십시오.
+ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.

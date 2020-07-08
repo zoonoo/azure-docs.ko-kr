@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/18/2020
-ms.openlocfilehash: 3098ca0d3d5e41c298d3058ffa84fcf129648281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730149"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
 
@@ -25,7 +25,7 @@ ms.locfileid: "81399477"
 
 이 자습서에서는 Azure Portal를 사용 하 여 데이터 팩터리를 만듭니다. 그런 다음 데이터 복사 도구를 사용 하 여 Azure Blob storage에서 Azure Blob storage로 새로운 파일 및 변경 된 파일만 증분 복사 하는 파이프라인을 만듭니다. 을 사용 `LastModifiedDate` 하 여 복사할 파일을 결정 합니다.
 
-Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본 저장소의 모든 파일을 검색 하 고, 파일 `LastModifiedDate`필터를 기준으로 적용 하 고, 마지막으로 새 파일이 나 업데이트 된 파일만 대상 저장소에 복사 합니다. Data Factory에서 많은 수의 파일을 검색 하는 경우에는 긴 기간이 계속 될 것입니다. 파일 검색은 복사 되는 데이터의 양이 감소 하더라도 시간이 많이 소요 됩니다.
+Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본 저장소의 모든 파일을 검색 하 고, 파일 필터를 기준으로 적용 하 `LastModifiedDate` 고, 마지막으로 새 파일이 나 업데이트 된 파일만 대상 저장소에 복사 합니다. Data Factory에서 많은 수의 파일을 검색 하는 경우에는 긴 기간이 계속 될 것입니다. 파일 검색은 복사 되는 데이터의 양이 감소 하더라도 시간이 많이 소요 됩니다.
 
 > [!NOTE]
 > Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -52,7 +52,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 왼쪽 창에서 **리소스 만들기**를 선택합니다. **분석** > **Data Factory**선택:
+1. 왼쪽 창에서 **리소스 만들기**를 선택합니다. **분석**  >  **Data Factory**선택:
 
    ![Data Factory 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -92,11 +92,11 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     b. **작업 흐름 또는 작업 일정**에서 **일정에 따라 정기적으로 실행**을 선택 합니다.
 
-    c. **트리거 유형**에서 **연속 창**을 선택 합니다.
+    다. **트리거 유형**에서 **연속 창**을 선택 합니다.
 
     d. **되풀이**에서 **15 분**을 입력 합니다.
 
-    e. **다음**을 선택합니다.
+    e. **새로 만들기**를 선택합니다.
 
     Data Factory 지정 된 작업 이름을 사용 하 여 파이프라인을 만듭니다.
 
@@ -110,7 +110,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     ![Azure 블로그 저장소 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    c. **새 연결 된 서비스 (Azure Blob Storage)** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트 한 후 **만들기**를 선택 합니다.
+    다. **새 연결 된 서비스 (Azure Blob Storage)** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트 한 후 **만들기**를 선택 합니다.
 
     d. 새 연결 된 서비스를 선택 하 고 **다음**을 선택 합니다.
 
@@ -124,7 +124,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     b. **파일 로드 동작**에서 **증분 로드: LastModifiedDate**를 선택 합니다.
 
-    c. **이진 복사** 를 선택 하 고 **다음**을 선택 합니다.
+    다. **이진 복사** 를 선택 하 고 **다음**을 선택 합니다.
 
      ![입력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
@@ -136,7 +136,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     ![출력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
-    b. **다음**을 선택합니다.
+    b. **새로 만들기**를 선택합니다.
 
 7. **설정** 페이지에서 **다음**을 선택합니다.
 
@@ -150,7 +150,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
 10. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. 응용 프로그램이 **모니터** 탭으로 전환 됩니다. 파이프라인의 상태를 볼 수 있습니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래의 링크를 선택 하 여 작업 실행 세부 정보를 보거나 파이프라인을 다시 실행 합니다.
 
-    ![목록 새로 고침 및 작업 실행 세부 정보 보기](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![목록 새로 고침 및 작업 실행 세부 정보 보기](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
 11. 파이프라인에는 하나의 활동 (복사 활동)만 있으므로 하나의 항목만 표시 됩니다. 복사 작업에 대 한 자세한 내용을 보려면 **작업 이름** 열에서 **세부 정보** 링크 (안경 아이콘)를 선택 합니다. 속성에 대 한 자세한 내용은 [복사 작업 개요](copy-activity-overview.md)를 참조 하세요.
 
@@ -160,23 +160,21 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     ![원본 컨테이너 또는 대상 컨테이너에 파일이 없습니다.](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. 빈 텍스트 파일을 만들고 이름을 **file1 .txt**로 만듭니다. 저장소 계정의 원본 컨테이너에이 텍스트 파일을 업로드 합니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같이 다양 한 도구를 사용 하 여 이러한 작업을 수행할 수 있습니다.
+12. 빈 텍스트 파일을 만들고 이름을 **file1.txt**로 합니다. 저장소 계정의 원본 컨테이너에이 텍스트 파일을 업로드 합니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같이 다양 한 도구를 사용 하 여 이러한 작업을 수행할 수 있습니다.
 
-    ![File1을 만들어 원본 컨테이너에 업로드 합니다.](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    ![file1.txt를 만들고 원본 컨테이너에 업로드 합니다.](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
 13. **파이프라인 실행** 보기로 돌아가려면 **모든 파이프라인 실행**을 선택 하 고 동일한 파이프라인이 자동으로 다시 트리거될 때까지 기다립니다.  
 
-    ![모든 파이프라인 실행 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
-
 14. 두 번째 파이프라인 실행이 완료 되 면 앞에서 설명한 것과 동일한 단계를 수행 하 여 작업 실행 세부 정보를 검토 합니다.  
 
-    원본 컨테이너에서 Blob 저장소 계정의 대상 컨테이너로 하나의 파일 (file1 .txt)이 복사 된 것을 볼 수 있습니다.
+    원본 컨테이너에서 Blob 저장소 계정의 대상 컨테이너로 하나의 파일 (file1.txt)이 복사 된 것을 볼 수 있습니다.
 
-    ![file1 .txt가 원본 컨테이너에서 대상 컨테이너로 복사 되었습니다.](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    ![원본 컨테이너에서 대상 컨테이너로 file1.txt 복사 됨](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 
-15. 다른 빈 텍스트 파일을 만들고 이름을 **file2. t x t**. 이 텍스트 파일을 Blob storage 계정의 원본 컨테이너에 업로드 합니다.
+15. 다른 빈 텍스트 파일을 만들고 이름을 **file2.txt**로 합니다. 이 텍스트 파일을 Blob storage 계정의 원본 컨테이너에 업로드 합니다.
 
-16. 두 번째 텍스트 파일에 대해 13 단계와 14 단계를 반복 합니다. 이 파이프라인을 실행 하는 동안 새 파일 (file2 .txt)만 원본 컨테이너에서 저장소 계정의 대상 컨테이너로 복사 된 것을 확인할 수 있습니다.  
+16. 두 번째 텍스트 파일에 대해 13 단계와 14 단계를 반복 합니다. 이 파이프라인을 실행 하는 동안 새 파일 (file2.txt)만 원본 컨테이너에서 저장소 계정의 대상 컨테이너로 복사 된 것을 볼 수 있습니다.  
 
     [Azure Storage 탐색기](https://storageexplorer.com/) 를 사용 하 여 파일을 검색 하는 파일을 한 개만 복사 했는지 확인할 수도 있습니다.
 

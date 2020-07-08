@@ -4,16 +4,16 @@ description: 사이트 간 VPN Gateway를 사용하여 ExpressRoute Microsoft �
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 571ed0201fea11f6770ec3aa7e72db10d49e7b01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738161"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
@@ -91,7 +91,7 @@ ExpressRoute 회로를 통해 Microsoft 피어링을 성공적으로 만들고 �
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-다음 부분 출력은 12076 243.229.34에서 68 접두사를 받았습니다 (MSEE) \*.
+다음 부분 출력은 12076 243.229.34에서 68 접두사를 받았습니다 \* (MSEE).
 
 ```
 ...

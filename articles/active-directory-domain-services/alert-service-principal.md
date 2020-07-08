@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734999"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services의 서비스 주체 경고
 
-[서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)는 Azure 플랫폼에서 Azure AD DS 관리형 도메인을 관리, 업데이트 및 유지 관리하는 데 사용하는 애플리케이션입니다. 서비스 주체가 삭제되면 Azure AD DS 관리형 도메인의 기능에 영향을 줍니다.
+[서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 는 azure 플랫폼에서 Azure Active Directory Domain Services (azure AD DS) 관리 되는 도메인을 관리, 업데이트 및 유지 관리 하는 데 사용 하는 응용 프로그램입니다. 서비스 사용자가 삭제 되 면 관리 되는 도메인의 기능에 영향을 줍니다.
 
 이 문서를 통해 서비스 주체 관련 구성 경고 문제를 해결할 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "83845970"
 
 *Azure AD Domain Services가 제대로 작동하는 데 필요한 서비스 주체가 Azure AD 디렉터리에서 삭제되었습니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.*
 
-필요한 서비스 주체가 삭제되면 Azure 플랫폼은 자동화된 관리 작업을 수행할 수 없습니다. Azure AD DS 관리형 도메인은 업데이트를 올바르게 적용하거나 백업을 수행할 수 없습니다.
+필요한 서비스 주체가 삭제되면 Azure 플랫폼은 자동화된 관리 작업을 수행할 수 없습니다. 관리 되는 도메인은 업데이트를 올바르게 적용 하거나 백업을 수행할 수 없습니다.
 
 ### <a name="check-for-missing-service-principals"></a>누락된 서비스 주체에 대한 확인
 
@@ -64,18 +64,18 @@ ms.locfileid: "83845970"
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-Azure AD DS 관리형 도메인의 상태는 2시간 내에 자동으로 업데이트되고 경고가 제거됩니다.
+관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Microsoft AAD 네임스페이스 다시 등록
 
 애플리케이션 ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022* 또는 *d87dcbc6-a371-462e-88e3-28ad15ec4e64*가 Azure AD 디렉터리에서 누락된 경우 다음 단계를 완료하여 *Microsoft.AAD* 리소스 공급자를 다시 등록합니다.
 
 1. Azure Portal에서 **구독**을 검색하고 선택합니다.
-1. Azure AD DS 관리형 도메인과 연결된 구독을 선택합니다.
+1. 관리 되는 도메인과 연결 된 구독을 선택 합니다.
 1. 왼쪽 탐색 영역에서 **리소스 공급자**를 선택합니다.
 1. *Microsoft.AAD*를 검색한 다음, **다시 등록**을 선택합니다.
 
-Azure AD DS 관리형 도메인의 상태는 2시간 내에 자동으로 업데이트되고 경고가 제거됩니다.
+관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>경고 AADDS105: 암호 동기화 애플리케이션이 만료됨
 
@@ -105,7 +105,7 @@ Azure AD DS는 Azure AD에서 사용자 계정 및 자격 증명을 자동으로
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-두 애플리케이션을 모두 삭제하면 Azure 플랫폼이 자동으로 해당 애플리케이션을 다시 만들고 암호 동기화를 다시 시작하려고 합니다. Azure AD DS 관리형 도메인의 상태는 2시간 내에 자동으로 업데이트되고 경고가 제거됩니다.
+두 애플리케이션을 모두 삭제하면 Azure 플랫폼이 자동으로 해당 애플리케이션을 다시 만들고 암호 동기화를 다시 시작하려고 합니다. 관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

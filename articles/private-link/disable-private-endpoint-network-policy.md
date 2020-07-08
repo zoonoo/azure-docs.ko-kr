@@ -4,15 +4,15 @@ description: 개인 끝점에 대 한 네트워크 정책을 사용 하지 않�
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: b5ab62e7ab57d32a11a45713519633034deb6a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4c04033f3fb5ff523f0d80bb6c978955f4c9ec2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737515"
 ---
 # <a name="disable-network-policies-for-private-endpoints"></a>전용 끝점에 대 한 네트워크 정책 사용 안 함
 
@@ -20,7 +20,7 @@ NSG (네트워크 보안 그룹)와 같은 네트워크 정책은 전용 끝점�
  
 포털을 사용 하 여 개인 끝점을 만들 때이 설정은 만들기 프로세스의 일부로 자동으로 사용 하지 않도록 설정 됩니다. 다른 클라이언트를 사용 하는 배포에는이 설정을 변경 하는 추가 단계가 필요 합니다. Cloud shell을 사용 하 여 Azure PowerShell Azure CLI의 로컬 설치 또는 Azure Portal에서 설정을 사용 하지 않도록 설정 하거나 Azure Resource Manager 템플릿을 사용할 수 있습니다.  
  
-다음 예에서는 *Myresourcegroup*이라는 리소스 `PrivateEndpointNetworkPolicies` 그룹에서 호스트 되는 *기본* 서브넷을 사용 하 여 *myVirtualNetwork* 이라는 가상 네트워크에 대해를 사용 하지 않도록 설정 하는 방법을 설명 합니다.
+다음 예에서는 `PrivateEndpointNetworkPolicies` *myresourcegroup*이라는 리소스 그룹에서 호스트 되는 *기본* 서브넷을 사용 하 여 *myVirtualNetwork* 이라는 가상 네트워크에 대해를 사용 하지 않도록 설정 하는 방법을 설명 합니다.
 
 ## <a name="using-azure-powershell"></a>Azure PowerShell 사용
 이 섹션에서는 Azure PowerShell를 사용 하 여 서브넷 개인 끝점 정책을 사용 하지 않도록 설정 하는 방법을 설명 합니다.

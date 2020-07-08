@@ -3,30 +3,28 @@ title: AMD GPU 드라이버 확장-Azure Windows Vm
 description: NVv4 시리즈 Vm에서 Windows를 실행 하는 AMD GPU 드라이버를 설치 하는 Microsoft Azure 확장입니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 0819eec5275fa9783fff363cabbd8c3ed22b7cd6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119555"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736971"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows 용 AMD GPU 드라이버 확장
 
 이 문서에서는 Windows [NVv4 시리즈](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) VM에서 AMD GPU 드라이버를 배포 하기 위한 VM 확장에 대 한 개요를 제공 합니다. 이 확장을 사용 하 여 AMD 드라이버를 설치 하는 경우 [Amd 최종 사용자 사용권 계약](https://amd.com/radeonsoftwarems)의 약관에 동의 하 고 동의 하는 것입니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
-드라이버의 수동 설치 및 현재 지원 되는 버전에 대 한 지침은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup)에서 제공 됩니다.
+드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup)에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -69,10 +67,10 @@ AMD GPU 드라이버의 Microsoft Azure 확장을 사용 하려면 대상 VM이 
 
 ### <a name="properties"></a>속성
 
-| 이름 | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| 게시자 | Microsoft.HpcCompute | 문자열 |
+| publisher | Microsoft.HpcCompute | 문자열 |
 | type | AmdGpuDriverWindows | 문자열 |
 | typeHandlerVersion | 1.0 | int |
 
@@ -169,7 +167,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 ### <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 지원 받기를 선택 합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 확장에 대한 자세한 내용은 [Windows용 가상 머신 확장 및 기능](features-windows.md)을 참조하세요.

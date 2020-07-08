@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733401"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용 하 Azure AD Domain Services의 보안 감사 이벤트 검토
+# <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용 하 Azure Active Directory Domain Services의 보안 감사 이벤트 검토
 
 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인의 상태를 이해 하는 데 도움이 되도록 보안 감사 이벤트를 사용 하도록 설정할 수 있습니다. 그런 다음 텍스트, 분석 쿼리 및 매개 변수를 다양 한 대화형 보고서에 결합 하는 Azure Monitor 통합 문서를 사용 하 여 이러한 보안 감사 이벤트를 검토할 수 있습니다. Azure AD DS에는 감사 이벤트를 살펴보고 환경을 관리할 수 있는 보안 개요 및 계정 작업을 위한 통합 문서 템플릿이 포함 되어 있습니다.
 
@@ -24,14 +24,14 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인의 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
+이 문서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
+    * 필요한 경우 자습서를 완료 하 여 [관리 되는 Azure Active Directory Domain Services 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Log Analytics 작업 영역에 데이터를 스트리밍하는 Azure Active Directory Domain Services 관리 되는 도메인에 대해 사용 하도록 설정 된 보안 감사 이벤트입니다.
     * 필요한 경우 [Azure Active Directory Domain Services에 대 한 보안 감사를 사용 하도록 설정][enable-security-audits]합니다.
 

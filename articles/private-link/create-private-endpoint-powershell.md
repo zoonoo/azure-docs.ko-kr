@@ -4,20 +4,20 @@ description: Azure 개인 링크에 대 한 자세한 정보
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737379"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 만들기
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 
 
-이 빠른 시작에서는 Azure PowerShell을 통해 Azure Virtual Network에 VM을 만들고, Azure 프라이빗 엔드포인트를 사용하는 SQL Database Server를 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database Server에 안전하게 액세스할 수 있습니다.
+이 빠른 시작에서는 Azure PowerShell를 사용 하 여 Azure 개인 끝점이 있는 논리 SQL 서버인 Azure Virtual Network에서 VM을 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database에 안전하게 액세스할 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 ```
 
 > [!CAUTION]
-> `PrivateEndpointNetworkPoliciesFlag` 매개 변수를 사용 가능한 다른 플래그와 혼동 하기 쉽습니다. `PrivateLinkServiceNetworkPoliciesFlag`이러한 플래그는 긴 단어이 고 모양은 동일 하기 때문입니다.  올바른를 `PrivateEndpointNetworkPoliciesFlag`사용 하 고 있는지 확인 합니다.
+> `PrivateEndpointNetworkPoliciesFlag`매개 변수를 사용 가능한 다른 플래그와 혼동 하기 쉽습니다 `PrivateLinkServiceNetworkPoliciesFlag` . 이러한 플래그는 긴 단어이 고 모양은 동일 하기 때문입니다.  올바른를 사용 하 고 있는지 확인 `PrivateEndpointNetworkPoliciesFlag` 합니다.
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>서브넷을 Virtual Network 연결
 
@@ -98,9 +98,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## <a name="create-a-sql-database-server"></a>SQL Database Server 만들기 
+## <a name="create-a-logical-sql-server"></a>논리 SQL 서버 만들기 
 
-AzSqlServer 명령을 사용 하 여 SQL Database 서버를 만듭니다. SQL Database 서버의 이름은 Azure에서 고유 해야 하므로 괄호 안의 자리 표시자 값을 고유한 값으로 바꿉니다.
+AzSqlServer 명령을 사용 하 여 논리 SQL server를 만듭니다. 서버의 이름은 Azure 전체에서 고유해야 하므로 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 바꿉니다.
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -120,7 +120,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-private-endpoint"></a>Private Endpoint 만들기
 
-Virtual Network에서 SQL Database 서버에 대 한 개인 끝점 ( [AzPrivateLinkServiceConnection 사용)](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
+[AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)를 사용 하는 Virtual Network의 서버에 대 한 개인 끝점: 
 
 ```azurepowershell
 
@@ -142,7 +142,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
 ``` 
 
 ## <a name="configure-the-private-dns-zone"></a>프라이빗 DNS 영역 구성 
-SQL Database 서버 도메인에 대 한 개인 DNS 영역을 만들고 가상 네트워크를 사용 하 여 연결 링크를 만듭니다. 
+SQL Database 도메인에 대한 프라이빗 DNS 영역을 만들고, Virtual Network와 연결 링크를 만들고, DNS 영역 그룹을 만들어 프라이빗 엔드포인트를 프라이빗 DNS 영역과 연결합니다.
 
 ```azurepowershell
 
@@ -153,19 +153,11 @@ $link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup"
   -ZoneName "privatelink.database.windows.net"`
   -Name "mylink" `
   -VirtualNetworkId $virtualNetwork.Id  
- 
-$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
- 
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
-foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
-Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
-$recordName = $fqdn.split('.',2)[0] 
-$dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  `
--ResourceGroupName "myResourceGroup" -Ttl 600 `
--PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
-} 
-} 
+
+$config = New-AzPrivateDnsZoneConfig -Name "privatelink.database.windows.net" -PrivateDnsZoneId $zone.ResourceId
+
+$privateDnsZoneGroup = New-AzPrivateDnsZoneGroup -ResourceGroupName "myResourceGroup" `
+ -PrivateEndpointName "myPrivateEndpoint" -name "MyZoneGroup" -PrivateDnsZoneConfig $config
 ``` 
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
@@ -195,10 +187,10 @@ mstsc /v:<publicIpAddress>
 3. **확인**을 선택합니다. 
 4. 인증서 경고가 표시될 수도 있습니다. 표시되는 경우 **예** 또는 **계속**을 선택합니다. 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>VM에서 SQL Database Server에 비공개 액세스
+## <a name="access-sql-database-privately-from-the-vm"></a>VM에서 비공개로 SQL Database에 액세스
 
 1. myVM의 원격 데스크톱에서 PowerShell을 엽니다.
-2. `nslookup myserver.database.windows.net`를 입력합니다. 을 SQL server `myserver` 이름으로 바꾸어야 합니다.
+2. `nslookup myserver.database.windows.net`를 입력합니다. 을 `myserver` SQL server 이름으로 바꾸어야 합니다.
 
     다음과 유사한 메시지가 표시됩니다.
     
@@ -211,7 +203,7 @@ mstsc /v:<publicIpAddress>
     Aliases:   myserver.database.windows.net
     ```
     
-3. SQL Server Management Studio를 설치합니다.
+3. [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)를 설치합니다.
 4. **서버에 연결**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
@@ -228,7 +220,7 @@ mstsc /v:<publicIpAddress>
 8. *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 
-개인 끝점, SQL Database 서버 및 VM을 사용 하 여 완료 한 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 해당 그룹에 포함 된 모든 리소스를 제거 합니다.
+개인 끝점, SQL Database 및 VM을 사용 하 여 완료 한 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 해당 그룹에 포함 된 모든 리소스를 제거 합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

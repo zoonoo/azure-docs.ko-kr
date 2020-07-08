@@ -1,19 +1,19 @@
 ---
-title: Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 연결
-description: Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 연결
+title: Azure 프라이빗 엔드포인트를 사용하여 비공개로 웹앱에 연결
+description: Azure 프라이빗 엔드포인트를 사용하여 비공개로 웹앱에 연결
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
-ms.topic: article
-ms.date: 03/12/2020
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737396"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Azure 개인 끝점 (미리 보기)을 사용 하 여 개인적으로 웹 앱에 연결
 
@@ -23,11 +23,11 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 자세한 내용은 [Azure 웹 앱에 대 한 개인 끝점 사용][privatenedpointwebapp]을 참조 하세요.
 
 > [!Note]
->미리 보기는 모든 PremiumV2 Windows 및 Linux Web Apps의 미국 동부 및 미국 서 부 2 지역에서 사용할 수 있습니다. 
+>미리 보기는 PremiumV2 Windows 및 Linux Web Apps 및 탄력적 프리미엄 기능을 위한 공용 지역에서 사용할 수 있습니다. 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="virtual-network-and-virtual-machine"></a>가상 네트워크 및 가상 컴퓨터
 
@@ -37,7 +37,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 이 섹션에서는 가상 네트워크 및 서브넷을 만듭니다.
 
-1. 화면의 왼쪽 위에서 **리소스** > 만들기**네트워킹** > **가상 네트워크** 를 선택 하거나 검색 상자에서 **virtual network** 를 검색 합니다.
+1. 화면의 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **가상 네트워크** 를 선택 하거나 검색 상자에서 **virtual network** 를 검색 합니다.
 
 1. **가상 네트워크 만들기**에서 기본 사항 탭에 다음 정보를 입력 하거나 선택 합니다.
 
@@ -60,7 +60,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ### <a name="create-virtual-machine"></a>가상 머신 만들기
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**계산** > **가상 머신** 을 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**  >  **계산**  >  **가상 머신** 을 선택 합니다.
 
 1. 가상 머신 만들기 - 기본 사항에서 다음 정보를 입력하거나 선택합니다.
 
@@ -89,7 +89,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ### <a name="web-app"></a>웹앱
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**웹** > **웹 앱** 을 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**  >  **웹**  >  **웹 앱** 을 선택 합니다.
 
 1. 웹 앱 만들기-기본에서 다음 정보를 입력 하거나 선택 합니다.
 
@@ -102,7 +102,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ### <a name="create-the-private-endpoint"></a>개인 끝점 만들기
 
-1. 웹 앱 속성에서 **설정** > **네트워킹** 을 선택 하 고 **"개인 끝점 연결 구성"** 을 클릭 합니다.
+1. 웹 앱 속성에서 **설정**  >  **네트워킹** 을 선택 하 고 **"개인 끝점 연결 구성"** 을 클릭 합니다.
 
    > [!div class="mx-imgBorder"]
    >![웹 앱 네트워킹][7]
@@ -120,8 +120,8 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 1. 개인 끝점 만들기를 검토 합니다.
 
    > [!div class="mx-imgBorder"]
-   >![개인][10]
-   >![끝점의 최종 보기 검토][11]
+   >![][10]
+   > ![ 개인 끝점의 최종 보기 검토][11]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
@@ -136,7 +136,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
    > [!div class="mx-imgBorder"]
    >![RDP 파일 다운로드][13]
 
-1. downloaded.rdp 파일을 엽니다.
+1. 다운로드 한 .rdp 파일을 엽니다.
 
 - 메시지가 표시되면 연결을 선택합니다.
 - VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
@@ -174,7 +174,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 1. MyVM에서 공용 IP를 통해 웹 앱에 액세스할 수 없는지 확인 합니다. 브라우저를 열고 웹 앱 이름을 붙여 넣습니다. 403 금지 된 오류 페이지가 있어야 합니다.
 
    > [!div class="mx-imgBorder"]
-   >![것][17]
+   >![Forbidden][17]
 
 > [!Important]
 > 이 기능이 미리 보기 상태 이므로 DNS 항목을 수동으로 관리 해야 합니다.

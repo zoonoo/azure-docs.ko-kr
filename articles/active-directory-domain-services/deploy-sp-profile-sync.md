@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: a684a669c491e35b5c6b62dd318b4fe61edeb52b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734795"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대 한 사용자 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 구성
 
@@ -26,14 +26,14 @@ SharePoint Server에는 사용자 프로필을 동기화 하는 서비스가 포
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
+이 문서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
+    * 필요한 경우 자습서를 완료 하 여 [관리 되는 Azure Active Directory Domain Services 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료 하 여 [관리 VM을 만듭니다][tutorial-create-management-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
@@ -42,10 +42,10 @@ SharePoint Server에는 사용자 프로필을 동기화 하는 서비스가 포
 
 ## <a name="service-accounts-overview"></a>서비스 계정 개요
 
-Azure AD DS 관리 되는 도메인에서 **AAD DC 서비스 계정** 이라는 보안 그룹이 *사용자* OU (조직 구성 단위)의 일부로 존재 합니다. 이 보안 그룹의 구성원에게 다음 권한이 위임됩니다.
+관리 되는 도메인에서 **AAD DC 서비스 계정** 이라는 보안 그룹이 *사용자* OU (조직 구성 단위)의 일부로 존재 합니다. 이 보안 그룹의 구성원에게 다음 권한이 위임됩니다.
 
 - 루트 DSE에 대 한 **디렉터리 변경 내용 복제** 권한
-- *구성* 명명 컨텍스트 (`cn=configuration` 컨테이너)에 대 한 **디렉터리 변경 내용 복제** 권한입니다.
+- *구성* 명명 컨텍스트 (컨테이너)에 대 한 **디렉터리 변경 내용 복제** 권한 `cn=configuration` 입니다.
 
 또한 **AAD DC 서비스 계정** 보안 그룹은 기본 제공 그룹인 **Windows 이전 2000 호환 액세스**의 멤버입니다.
 
@@ -58,11 +58,11 @@ SharePoint Server의 서비스 계정에는 디렉터리에 변경 내용을 복
 Azure AD DS management VM에서 다음 단계를 완료 합니다.
 
 > [!NOTE]
-> Azure AD DS 관리 되는 도메인에서 그룹 멤버 자격을 편집 하려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
+> 관리 되는 도메인의 그룹 멤버 자격을 편집 하려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. 그룹 멤버 자격을 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
+1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
 1. **사용자** OU를 선택 하 고 *AAD DC 서비스 계정* 보안 그룹을 선택 합니다.
 1. **멤버**를 선택 하 고 **추가 ...** 를 선택 합니다.
 1. SharePoint 서비스 계정의 이름을 입력 하 고 **확인**을 선택 합니다. 다음 예제에서 SharePoint 서비스 계정의 이름은 *spadmin*입니다.

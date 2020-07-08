@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5728a8e254074cd96ae1f13cb053220f347e3983
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737634"
 ---
-# <a name="data-storage-optimization"></a>데이터 스토리지 최적화
+# <a name="data-storage-optimization-for-apache-spark"></a>Apache Spark에 대 한 데이터 저장소 최적화
 
 이 문서에서는 Azure HDInsight에서 효율적인 Apache Spark 작업 실행을 위해 데이터 스토리지를 최적화하는 전략을 설명합니다.
 

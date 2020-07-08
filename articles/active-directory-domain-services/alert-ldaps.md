@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
-ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 68798cf98bf01697e5d854f5b539c1c381642c3c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71258041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735033"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: 보안 LDAP 경고 Azure Active Directory Domain Services
 
@@ -32,7 +32,7 @@ LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Dire
 
 ### <a name="resolution"></a>해결 방법
 
-보안 LDAP를 사용 하도록 설정 하는 경우 특정 IP 주소에 대 한 인바운드 LDAPS 액세스를 제한 하는 추가 규칙을 만드는 것이 좋습니다. 이러한 규칙은 무차별 암호 대입 공격 으로부터 Azure AD DS 관리 되는 도메인을 보호 합니다. 보안 LDAP에 대 한 TCP 포트 636 액세스를 제한 하도록 네트워크 보안 그룹을 업데이트 하려면 다음 단계를 완료 합니다.
+보안 LDAP를 사용 하도록 설정 하는 경우 특정 IP 주소에 대 한 인바운드 LDAPS 액세스를 제한 하는 추가 규칙을 만드는 것이 좋습니다. 이러한 규칙은 무차별 암호 대입 공격 으로부터 관리 되는 도메인을 보호 합니다. 보안 LDAP에 대 한 TCP 포트 636 액세스를 제한 하도록 네트워크 보안 그룹을 업데이트 하려면 다음 단계를 완료 합니다.
 
 1. Azure Portal에서 **네트워크 보안 그룹**을 검색 하 고 선택 합니다.
 1. *Contoso.com-NSG*와 같이 관리 되는 도메인과 연결 된 네트워크 보안 그룹을 선택한 다음 **인바운드 보안 규칙** 을 선택 합니다.
@@ -43,7 +43,7 @@ LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Dire
 1. 규칙의 우선 순위를 지정 하 고 *RestrictLDAPS*와 같은 이름을 입력 합니다.
 1. 준비가 되 면 **추가** 를 선택 하 여 규칙을 만듭니다.
 
-Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
+관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.
 
 > [!TIP]
 > Azure AD DS를 원활 하 게 실행 하는 데 필요한 유일한 규칙은 TCP 포트 636입니다. 자세히 알아보려면 [Azure AD DS 네트워크 보안 그룹 및 필요한 포트](network-considerations.md#network-security-groups-and-required-ports)를 참조 하세요.
@@ -60,7 +60,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 계속 되 면 [Azure 지원 요청을 열어][azure-support] 추가 문제 해결 지원을 요청 하세요.
+문제가 여전히 발생하는 경우 추가 문제 해결 지원을 위해 [Azure 지원 요청을 엽니다][azure-support].
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

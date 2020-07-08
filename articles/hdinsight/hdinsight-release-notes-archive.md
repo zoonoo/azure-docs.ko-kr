@@ -8,30 +8,82 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2019
-ms.openlocfilehash: 094d9fe7425a6192ce2af94c3ea18cac20ff9ded
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aff3ae34f391ac50dc4333fc2dcc3622e1bf479f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720336"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738008"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
-
-> [!IMPORTANT]  
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 관리 문서](hdinsight-component-versioning.md)를 참조하세요.
 
 ## <a name="summary"></a>요약
 
 Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다.
 
+## <a name="release-date-01092020"></a>릴리스 날짜: 2020년 1월 9일
+
+이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+
+### <a name="new-features"></a>새로운 기능
+#### <a name="tls-12-enforcement"></a>TLS 1.2 적용
+TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워크를 통해 통신 보안을 제공하는 암호화 프로토콜입니다. [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)에 대해 자세히 알아봅니다. HDInsight는 퍼블릭 HTTP 엔드포인트에서 TLS 1.2를 사용하지만 TLS 1.1은 이전 버전과의 호환성을 위해 계속 지원됩니다. 
+
+이 릴리스에서 고객은 퍼블릭 클러스터 엔드포인트를 통한 모든 연결에 대해서만 TLS 1.2를 옵트인(opt in)할 수 있습니다. 이를 지원하기 위해 새 속성 **minSupportedTlsVersion**이 도입되었으며 클러스터를 만드는 동안 이 속성을 지정할 수 있습니다. 이 속성을 설정하지 않으면 클러스터는 현재 동작처럼 TLS 1.0, 1.1 및 1.2를 계속 지원합니다. 고객은 이 속성의 값을 "1.2"로 설정할 수 있습니다. 이렇게 하면 클러스터는 TLS 1.2 이상만 지원합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하세요.
+
+#### <a name="bring-your-own-key-for-disk-encryption"></a>디스크 암호화를 위한 사용자 고유 키 가져오기
+HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. 이 릴리스부터는 디스크 암호화에 대해 BYOK(Bring Your Own Key)를 수행하고 Azure Key Vault를 사용하여 관리할 수 있습니다. BYOK 암호화는 추가 비용 없이 클러스터를 만드는 동안 진행되는 1단계 구성입니다. Azure Key Vault를 통해 HDInsight를 관리 ID로 등록하고 클러스터를 만들 때 암호화 키를 추가합니다. 자세한 내용은 [고객 관리형 키 디스크 암호화](https://docs.microsoft.com/azure/hdinsight/disk-encryption)를 참조하세요.
+
+### <a name="deprecation"></a>사용 중단
+이 릴리스의 사용 중단은 없습니다. 예정된 사용 중단을 대비하려면 [예정된 변경](#upcoming-changes)을 참조하세요.
+
+### <a name="behavior-changes"></a>동작 변경 내용
+이 릴리스에 대한 동작 변경은 없습니다. 예정된 변경을 대비하려면 [예정된 변경](#upcoming-changes)을 참조하세요.
+
+### <a name="upcoming-changes"></a>예정된 변경
+이후 릴리스에서는 다음과 같은 변경이 수행됩니다. 
+
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터의 Spark 2.1 및 2.2 사용 중단
+2020년 7월 1일부터 고객은 HDInsight 3.6의 Spark 2.1 및 2.2를 사용하여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 3.6의 Spark 2.3으로 전환하는 것이 좋습니다. 자세한 내용은 [Apache Spark 2.1 및 2.2 워크 로드를 2.3 및 2.4로 마이그레이션](./spark/migrate-versions.md)을 참조 하세요.
+
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>HDInsight 4.0 Spark 클러스터의 Spark 2.3 사용 중단
+2020년 7월 1일부터 고객은 HDInsight 4.0의 Spark 2.3을 사용하여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Spark 2.4로 전환하는 것이 좋습니다. 자세한 내용은 [Apache Spark 2.1 및 2.2 워크 로드를 2.3 및 2.4로 마이그레이션](./spark/migrate-versions.md)을 참조 하세요.
+
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>HDInsight 4.0 Kafka 클러스터의 Kafka 1.1 사용 중단
+1 2020 년 7 월부터 고객은 HDInsight 4.0의 Kafka 1.1를 사용 하 여 새 Kafka 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Kafka 2.1로 전환하는 것이 좋습니다. 자세한 내용은 [Azure HDInsight 4.0로 Apache Kafka 워크 로드 마이그레이션](./kafka/migrate-versions.md)을 참조 하세요.
+
+#### <a name="hbase-20-to-216"></a>HBase 2.0-2.1.6
+예정된 HDInsight 4.0 릴리스에서 HBase 버전은 버전 2.0에서 2.1.6로 업그레이드됩니다.
+
+#### <a name="spark-240-to-244"></a>Spark 2.4.0-2.4.4
+예정된 HDInsight 4.0 릴리스에서 Spark 버전은 버전 2.4.0에서 2.4.4로 업그레이드됩니다.
+
+#### <a name="kafka-210-to-211"></a>Kafka 2.1.0-2.1.1
+예정된 HDInsight 4.0 릴리스에서 Kafka 버전은 버전 2.1.0에서 2.1.1로 업그레이드됩니다.
+
+#### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>헤드 노드에는 최소 4코어 VM이 필요합니다. 
+HDInsight 클러스터의 고가용성 및 안정성을 보장하기 위해 헤드 노드에는 최소 4코어 VM이 필요합니다. 2020년 4월 6일부터 고객은 새 HDInsight 클러스터에 대한 헤드 노드로 4코어 이상의 VM만 선택할 수 있습니다. 기존 클러스터는 정상적으로 계속 실행됩니다. 
+
+#### <a name="esp-spark-cluster-node-size-change"></a>ESP Spark 클러스터 노드 크기 변경 
+예정된 릴리스에서 ESP Spark 클러스터에 허용되는 최소 노드 크기가 Standard_D13_V2로 변경됩니다. A 시리즈 VM은 비교적 낮은 CPU와 메모리 용량 때문에 ESP 클러스터 이슈를 유발할 수 있습니다. A 시리즈 VM은 새 ESP 클러스터를 만드는 데 사용되지 않습니다.
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 예정된 릴리스에서 HDInsight는 Azure Virtual Machine Scale Sets를 대신 사용합니다. Azure Virtual Machine Scale Sets에 대해 자세히 알아보세요.
+
+### <a name="bug-fixes"></a>버그 수정
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. HDInsight 4.0 및 HDInsight 3.6의 최신 구성 요소 버전을 여기에서 찾을 수 있습니다.
+
 ## <a name="release-date-12172019"></a>릴리스 날짜: 12/17/2019
 
-이 릴리스는 HDInsight 3.6 및 4.0에 모두 적용 됩니다.
+이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="service-tags"></a>서비스 태그
-서비스 태그는 azure 서비스에 대 한 네트워크 액세스를 쉽게 제한할 수 있도록 하 여 Azure virtual machines 및 Azure virtual network에 대 한 보안을 간소화 합니다. NSG (네트워크 보안 그룹) 규칙에서 서비스 태그를 사용 하 여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공 합니다. NSGs (네트워크 보안 그룹)에 대 한 HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags)를 참조 하세요.
+서비스 태그는 azure 서비스에 대 한 네트워크 액세스를 쉽게 제한할 수 있도록 하 여 Azure virtual machines 및 Azure virtual network에 대 한 보안을 간소화 합니다. NSG (네트워크 보안 그룹) 규칙에서 서비스 태그를 사용 하 여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공 합니다. NSGs (네트워크 보안 그룹)에 대 한 HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags)를 참조하세요.
 
 #### <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
 이제 HDInsight를 사용 하 여 Apache Ambari에 대 한 고유한 SQL DB를 사용할 수 있습니다. 이 사용자 지정 Ambari DB는 Azure Portal 또는 resource manager 템플릿을 통해 구성할 수 있습니다.  이 기능을 사용 하 여 처리 및 용량 요구 사항에 적합 한 SQL DB를 선택할 수 있습니다. 비즈니스 증가 요구 사항에 맞게 쉽게 업그레이드할 수도 있습니다. 자세한 내용은 [사용자 지정 AMBARI DB를 사용 하 여 HDInsight 클러스터 설정](hdinsight-custom-ambari-db.md)을 참조 하세요.
@@ -39,23 +91,23 @@ Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분�
 ![사용자 지정 Ambari DB](./media/hdinsight-release-notes/custom-ambari-db.png)
 
 ### <a name="deprecation"></a>사용 중단
-이 릴리스에 대 한 결함 없습니다. 예정 된 결함을 준비 하려면 예정 된 [변경 내용](#upcoming-changes)을 참조 하세요.
+이 릴리스의 사용 중단은 없습니다. 예정된 사용 중단을 대비하려면 [예정된 변경](#upcoming-changes)을 참조하세요.
 
-### <a name="behavior-changes"></a>동작 변경
-이 릴리스에 대 한 동작은 변경 되지 않습니다. 예정 된 동작 변경 내용을 준비 하려면 예정 된 [변경 내용](#upcoming-changes)을 참조 하세요.
+### <a name="behavior-changes"></a>동작 변경 내용
+이 릴리스에 대한 동작 변경은 없습니다. 예정 된 동작 변경 내용을 준비 하려면 예정 된 [변경 내용](#upcoming-changes)을 참조 하세요.
 
 ### <a name="upcoming-changes"></a>예정된 변경
-이후 릴리스에서는 다음과 같은 변경이 수행 됩니다. 
+이후 릴리스에서는 다음과 같은 변경이 수행됩니다. 
 
 #### <a name="transport-layer-security-tls-12-enforcement"></a>TLS (Transport Layer Security) 1.2 적용
-TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워크를 통해 통신 보안을 제공하는 암호화 프로토콜입니다. 자세한 내용은 [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)을 참조 하세요. Azure HDInsight 클러스터는 공용 HTTPS 끝점에서 TLS 1.2 연결을 허용 하지만 이전 클라이언트와의 호환성을 위해 TLS 1.1은 계속 지원 됩니다.
+TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워크를 통해 통신 보안을 제공하는 암호화 프로토콜입니다. 자세한 내용은 [전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)을 참조하세요. Azure HDInsight 클러스터는 공용 HTTPS 끝점에서 TLS 1.2 연결을 허용 하지만 이전 클라이언트와의 호환성을 위해 TLS 1.1은 계속 지원 됩니다.
 
 다음 릴리스에서부터 TLS 1.2 연결만 수락 하도록 새 HDInsight 클러스터를 옵트인 하 고 구성할 수 있습니다. 
 
 이후에는 6/30/2020부터 시작 하 여 Azure HDInsight는 모든 HTTPS 연결에 TLS 1.2 이상 버전을 적용 합니다. 모든 클라이언트에서 TLS 1.2 이상 버전을 처리할 수 있도록 준비 하는 것이 좋습니다.
 
-#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합으로 이동
-이제 HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 프로 비전 합니다. 2020 년 2 월 (정확한 날짜는 나중에 전달 됨)부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 2020 년 2 월 (정확한 날짜는 나중에 전달 됨)부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
 
 #### <a name="esp-spark-cluster-node-size-change"></a>ESP Spark 클러스터 노드 크기 변경 
 예정 된 릴리스에서는 다음을 수행 합니다.
@@ -66,7 +118,7 @@ TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워�
 예정 된 HDInsight 4.0 릴리스에서 HBase 버전은 버전 2.0에서 2.1로 업그레이드 됩니다.
 
 ### <a name="bug-fixes"></a>버그 수정
-HDInsight는 계속 해 서 클러스터 안정성과 성능을 향상 시킵니다. 
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
 
 ### <a name="component-version-change"></a>구성 요소 버전 변경
 HDInsight 3.6 지원이 2020 년 12 월 31 일까 지 확장 되었습니다. 자세한 내용은 [지원 되는 HDInsight 버전](hdinsight-component-versioning.md#supported-hdinsight-versions)에서 찾아볼 수 있습니다.
@@ -80,14 +132,14 @@ HDInsight 3.6의 Apache Zeppelin: 0.7.0-->0.7.3.
 ### <a name="new-regions"></a>새 지역
 
 #### <a name="uae-north"></a>아랍에미리트 북부
-아랍에미리트 북부의 관리 Ip는 `65.52.252.96` 및 `65.52.252.97`입니다.
+아랍에미리트 북부의 관리 Ip는 `65.52.252.96` 및입니다. `65.52.252.97`
 
 
 ## <a name="release-date-11072019"></a>릴리스 날짜: 11/07/2019
 
-이 릴리스는 HDInsight 3.6 및 4.0에 모두 적용 됩니다.
+이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="hdinsight-identity-broker-hib-preview"></a>HDInsight Identity Broker (기타) (미리 보기)
 
@@ -125,7 +177,7 @@ F 시리즈 Vm (가상 머신)은 간단한 처리 요구 사항으로 HDInsight
 #### <a name="dv1-virtual-machine-deprecation"></a>Dv1 가상 컴퓨터 사용 중단
 이 릴리스에서는 HDInsight에서 Dv1 Vm을 사용 하는 것이 더 이상 사용 되지 않습니다. Dv1에 대 한 고객 요청은 자동으로 Dv2에 제공 됩니다. Dv1 및 Dv2 Vm 간에는 가격 차이가 없습니다.
 
-### <a name="behavior-changes"></a>동작 변경
+### <a name="behavior-changes"></a>동작 변경 내용
 
 #### <a name="cluster-managed-disk-size-change"></a>클러스터 관리 디스크 크기 변경
 HDInsight는 클러스터에 관리 되는 디스크 공간을 제공 합니다. 이 릴리스에서는 새로 만든 클러스터의 각 노드에 대 한 관리 디스크 크기가 128 GB로 변경 되었습니다.
@@ -133,8 +185,8 @@ HDInsight는 클러스터에 관리 되는 디스크 공간을 제공 합니다.
 ### <a name="upcoming-changes"></a>예정된 변경
 향후 릴리스에서는 다음과 같이 변경 됩니다. 
 
-#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합으로 이동
-이제 HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 프로 비전 합니다. 12 월부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 12 월부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
 
 #### <a name="hbase-20-to-21"></a>HBase 2.0 ~ 2.1
 예정 된 HDInsight 4.0 릴리스에서 HBase 버전은 버전 2.0에서 2.1로 업그레이드 됩니다.
@@ -143,7 +195,7 @@ HDInsight는 클러스터에 관리 되는 디스크 공간을 제공 합니다.
 A 시리즈 Vm은 비교적 낮은 CPU와 메모리 용량으로 인해 ESP 클러스터 문제를 일으킬 수 있습니다. 향후 릴리스에서는 A 시리즈 Vm이 새 ESP 클러스터를 만드는 데 사용 되지 않습니다.
 
 ### <a name="bug-fixes"></a>버그 수정
-HDInsight는 계속 해 서 클러스터 안정성과 성능을 향상 시킵니다. 
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
 
 ### <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스에 대 한 구성 요소 버전은 변경 되지 않습니다. HDInsight 4.0 및 HDInsight 3.6의 최신 구성 요소 버전은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)에서 찾을 수 있습니다.
@@ -250,7 +302,7 @@ HDInsight 3.6의 경우 다음을 수행 합니다.
 
 다음 단계를 수행합니다.
 
-1. 복제를 수행 하기 전에 대상 4.0 클러스터로 이동 하 여를 `sqlline.py`실행 합니다. 이 명령은 4.0에만 있는와 `SYSTEM.MUTEX` `SYSTEM.LOG` 같은 Phoenix 테이블을 생성 합니다.
+1. 복제를 수행 하기 전에 대상 4.0 클러스터로 이동 하 여를 실행 `sqlline.py` 합니다. 이 명령은 `SYSTEM.MUTEX` 4.0에만 있는와 같은 Phoenix 테이블을 생성 합니다 `SYSTEM.LOG` .
 1. 다음 테이블을 삭제 합니다.
     1. `SYSTEM.FUNCTION`
     1. `SYSTEM.SEQUENCE`
@@ -264,7 +316,7 @@ Apache Storm 및 ML 서비스는 HDInsight 4.0에서 사용할 수 없습니다.
 
 ## <a name="release-date-04142019"></a>릴리스 날짜: 04/14/2019
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 새로운 업데이트와 기능은 다음 범주로 분류됩니다.
 
@@ -344,7 +396,7 @@ Apache Storm 및 ML 서비스는 HDInsight 4.0에서 사용할 수 없습니다.
 
 -   [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265): hadoop-auth pom.xml에서 json-smart를 명시적으로 제외합니다.
 
--   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#close가 ScheduledThreadPoolExecutors을 해제 하지 않습니다.
+-   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache \# close가 ScheduledThreadPoolExecutors을 해제 하지 않습니다.
 
 -   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): FSDatasetImpl 잠금이 있는 stopWriter()를 호출하면 다른 스레드(cmccabe)가 차단될 수 있습니다.
 
@@ -464,13 +516,13 @@ HDP 2.6.4에서는 Hadoop Common 2.7.3 및 다음 Apache 패치를 제공합니�
 
 -   [HBASE-19393](https://issues.apache.org/jira/browse/HBASE-19393): SSL을 사용하여 HBase UI에 액세스하는 동안 "HTTP 413 헤더가 가득 찼음" 오류가 발생합니다.
 
--   [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395): \[testMasterOpsWhileSplitting\] TestEndToEndSplitTransaction NPE를 사용 하 여 실패 합니다.
+-   [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395): \[ \] testMasterOpsWhileSplitting TestEndToEndSplitTransaction NPE를 사용 하 여 실패 합니다.
 
 -   [HBASE-19421](https://issues.apache.org/jira/browse/HBASE-19421): branch-1에서 Hadoop 3.0.0에 대해 컴파일하지 않습니다.
 
 -   [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934): 복제본 읽기가 활성화되고 지역 분할 후 온라인 스냅샷을 가져오는 경우 HBaseSnapshotException이 발생합니다.
 
--   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008): \[영역을\] 분할 한 후 스냅숏을 복원할 때 백 포팅하 nullpointerexception
+-   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008): \[ \] 영역을 분할 한 후 스냅숏을 복원할 때 백 포팅하 nullpointerexception
 
 #### <a name="hive"></a>Hive
 
@@ -532,7 +584,7 @@ HDP 2.6.4에서는 Hadoop Common 2.7.3 및 다음 Apache 패치를 제공합니�
 
 -   [*HIVE-17845*](https://issues.apache.org/jira/browse/HIVE-17845): 대상 테이블 열이 소문자가 아니면 삽입이 실패합니다.
 
--   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): 컴팩 터에 의해 트리거되는 열에 대 한 통계 분석 &gt; 은 파티션 열이 1 인 형식이 잘못 된 SQL을 생성 합니다.
+-   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): 컴팩 터에 의해 트리거되는 열에 대 한 통계 분석은 파티션 열이 1 인 형식이 잘못 된 SQL을 생성 &gt; 합니다.
 
 -   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): Hive WebHCat 보안 주체 구성 최적화
 
@@ -638,7 +690,7 @@ HDP 2.6.4에서는 Hadoop Common 2.7.3 및 다음 Apache 패치를 제공합니�
 
 -   [*HIVE-17845*](https://issues.apache.org/jira/browse/HIVE-17845): 대상 테이블 열이 소문자가 아니면 삽입이 실패합니다.
 
--   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): 컴팩 터에 의해 트리거되는 열에 대 한 통계 분석 &gt; 은 파티션 열이 1 인 형식이 잘못 된 SQL을 생성 합니다.
+-   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): 컴팩 터에 의해 트리거되는 열에 대 한 통계 분석은 파티션 열이 1 인 형식이 잘못 된 SQL을 생성 &gt; 합니다.
 
 -   [*HIVE-18006*](https://issues.apache.org/jira/browse/HIVE-18006): HLLDenseRegister의 메모리 공간을 최적화합니다.
 
@@ -1048,7 +1100,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 
 -   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): Mac OS X에서 ClientPortBindTest가 실패합니다.
 
--   [사육](https://issues.apache.org/jira/browse/ZOOKEEPER-1901)JDK8 \[\] -1901: AsyncOps 테스트에서 비교할 자식을 정렬 합니다.
+-   [사육 JDK8-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[ \] AsyncOps 테스트에서 비교할 자식을 정렬 합니다.
 
 -   [ZOOKEEPER-2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): 보안 취약성으로 인해 Netty 버전을 업그레이드합니다(CVE-2014-3488).
 
@@ -1335,7 +1387,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 | BUG-93512              | [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | java.lang.RuntimeException: 응답 코드 500 - Spark 작업을 실행하여 Phoenix 쿼리 서버에 연결하고 데이터를 로드합니다.                         |
 | BUG-93550              | 해당 없음                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Zeppelin %spark.r이 스칼라 버전 불일치로 인해 spark1에서 작동하지 않습니다.                                                                      |
 | BUG-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive에서 HiveMetaStore를 실행하는 ID로 소유되지 않은 폴더에 포함된 테이블을 압축하지 못합니다.                                |
-| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1d 스트레스 테스트 후 &gt;에는 노트북 및 인터프리터가 zeppelin에 저장 되지 않습니다.                                                       |
+| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 1d 스트레스 테스트 후에는 노트북 및 인터프리터가 zeppelin에 저장 되지 않습니다. &gt;                                                       |
 | BUG-93932              | [ATLAS-2320](https://issues.apache.org/jira/browse/ATLAS-2320)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 쿼리의 "\*" 분류에서 500 내부 서버 예외를 throw합니다.                                                                           |
 | BUG-93948              | [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NM이 로그 집계(part\#1)에서 누수로 인해 OOM과 함께 중단됩니다.                                                                                 |
 | BUG-93965              | [ATLAS-2229](https://issues.apache.org/jira/browse/ATLAS-2229)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | DSL 검색: orderby 문자열이 아닌 특성에서 예외를 throw합니다.                                                                                     |
@@ -1558,9 +1610,9 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 
 - **Spark 2.3**
 
-  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[OptimizeMetadataOnlyQuery\] 규칙으로 인해 발생 하는 SQL 잘못 된 결과
+  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523) \] \[ \]OptimizeMetadataOnlyQuery 규칙으로 인해 발생 하는 SQL의 잘못 된 결과
 
-  -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] stream stream의 버그 자체 조인
+  -   \[[*SPARK-23406*](https://issues.apache.org/jira/browse/SPARK-23406) \] 스트림 스트림 자체 조인의 버그
 
   -   Azure Data Lake Storage (Gen2)가 클러스터의 기본 저장소 인 경우 Spark 샘플 노트북을 사용할 수 없습니다.
 
@@ -1607,7 +1659,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
     
   **영향을 받는 구성 요소:** Ranger
     
-  **문제에 대한 설명**
+  **문제 설명**
     
   사용자가 사용자 지정 정책 조건을 사용 하 여 정책을 만들려고 하며 식이나 텍스트에 특수 문자가 포함 된 경우 정책 적용이 작동 하지 않습니다. 특수 문자는 데이터베이스에 정책을 저장하기 전에 ASCII 문자로 변환됩니다.
     

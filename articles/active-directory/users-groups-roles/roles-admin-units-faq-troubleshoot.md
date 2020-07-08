@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 022658306d6e4d69174cc616d230cfe4892f1204
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0db710385448ed3cdd54e3cbe692ea8b610741af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732245"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD 관리 단위: 문제 해결 및 FAQ
 
 Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 au (관리 단위)로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다. 일반 작업에 대 한 샘플 PowerShell 스크립트는 [관리 단위 작업](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 **Q: 관리 단위를 만들 수 없는 이유는 무엇입니까?**
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
 
 **Q: PowerShell 및 Graph API에서 지원 되는 관리 단위는 무엇입니까?**
 
-**A:** 예로. [PowerShell cmdlet 설명서](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) 및 [샘플 스크립트](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview)에서 관리 단위에 대 한 지원을 찾을 수 있습니다. 
+**A:** 예. [PowerShell cmdlet 설명서](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) 및 [샘플 스크립트](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview)에서 관리 단위에 대 한 지원을 찾을 수 있습니다. 
 
 Microsoft Graph에서 [administrativeUnit 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) 에 대 한 지원을 찾습니다.
 

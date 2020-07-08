@@ -9,18 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: d926a9f686f0f4c39203b8a217a7c608cfad926e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52d33e7292ebe7b27eede2b89aa605780f826392
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737617"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)
 
@@ -402,9 +402,9 @@ Azure Portal에서 연결 모니터에 테스트 그룹을 만들려면 다음 �
    
        구독 수준에서 계층의 다른 수준으로 드릴 다운할 수 있습니다.
 
-      **Subscription** > **에이전트를 사용 하 여** 구독**리소스 그룹** > **vnet** > **서브넷** > vm
+      **구독**  >  **리소스 그룹**  >  **Vnet**  >  **서브넷**  >  **에이전트를 사용 하는 vm**
 
-      **묶는** 방법 필드의 값을 변경 하 여 다른 수준에서 트리를 시작할 수도 있습니다. 예를 들어 가상 네트워크를 기준으로 그룹화 하는 경우 에이전트를 사용 하 여 **vnet** > **서브넷** > **vm**계층 구조에 에이전트가 있는 vm이 표시 됩니다.
+      **묶는** 방법 필드의 값을 변경 하 여 다른 수준에서 트리를 시작할 수도 있습니다. 예를 들어 가상 네트워크를 기준으로 그룹화 하는 경우 에이전트를 사용 하 여 **vnet**  >  **서브넷**  >  **vm**계층 구조에 에이전트가 있는 vm이 표시 됩니다.
 
       ![원본 추가 패널 및 Azure 에이전트 탭을 표시 하는 연결 모니터의 스크린샷](./media/connection-monitor-2-preview/add-azure-sources.png)
 
@@ -444,7 +444,7 @@ Azure Portal에서 연결 모니터에 테스트 그룹을 만들려면 다음 �
 
     * **이름** – 테스트 구성의 이름을로 설정 합니다.
     * **프로토콜** – TCP, ICMP 또는 HTTP를 선택 합니다. HTTP를 HTTPS로 변경 하려면 **http** 를 프로토콜로 선택 하 고 포트를 **443** 로 선택 합니다.
-        * **네트워크 테스트 구성 만들기** –이 확인란은 **프로토콜** 필드에서 **HTTP** 를 선택한 경우에만 표시 됩니다. 구성의 다른 곳에서 지정한 것과 동일한 소스와 대상을 사용 하는 다른 테스트 구성을 만들려면이 상자를 선택 합니다. 새로 만든 테스트 구성의 이름은 `<the name of your test configuration>_networkTestConfig`입니다.
+        * **네트워크 테스트 구성 만들기** –이 확인란은 **프로토콜** 필드에서 **HTTP** 를 선택한 경우에만 표시 됩니다. 구성의 다른 곳에서 지정한 것과 동일한 소스와 대상을 사용 하는 다른 테스트 구성을 만들려면이 상자를 선택 합니다. 새로 만든 테스트 구성의 이름은 `<the name of your test configuration>_networkTestConfig` 입니다.
         * **경로 추적 사용 안 함** –이 필드는 프로토콜이 TCP 또는 ICMP 인 테스트 그룹에 적용 됩니다. 원본에서 토폴로지 및 홉 단위 RTT를 검색 하지 못하게 하려면이 상자를 선택 합니다.
     * **대상 포트** – 선택한 대상 포트를 사용 하 여이 필드를 사용자 지정할 수 있습니다.
     * **테스트 빈도** –이 필드를 사용 하 여 원본에서 지정한 프로토콜 및 포트의 대상을 ping 하는 빈도를 선택할 수 있습니다. 30 초, 1 분, 5 분, 15 분 또는 30 분을 선택할 수 있습니다. 원본은 사용자가 선택한 값을 기준으로 대상에 대 한 연결을 테스트 합니다.  예를 들어 30 초를 선택 하면 소스는 30 초 동안 한 번 이상 대상에 대 한 연결을 확인 합니다.
@@ -477,7 +477,7 @@ Azure Portal에서 연결 모니터에 테스트 그룹을 만들려면 다음 �
 | 11 | C | E | 구성 1 |
 | 12 | C | E | 구성 2 |
 
-### <a name="scale-limits"></a> 확장 한도
+### <a name="scale-limits"></a>크기 제한
 
 연결 모니터의 크기 제한은 다음과 같습니다.
 
@@ -573,7 +573,7 @@ RTT 추세 및 연결 모니터에 대해 실패 한 검사 비율을 보려면 
 
 1. 시간 간격을 변경 하 여 더 많은 데이터를 표시 합니다.
 1. 소스, 대상 또는 테스트 구성을 보려면 보기를 변경 합니다. 
-1. 실패 한 테스트에 따라 소스를 선택 하 고 실패 한 상위 5 개 테스트를 조사 합니다. 예를 들어 소스 **별로** > **Sources** 보기를 선택 하 고 > **대상** **별로 보기**를 선택 하 여 연결 모니터에서 관련 테스트를 조사할 수 있습니다.
+1. 실패 한 테스트에 따라 소스를 선택 하 고 실패 한 상위 5 개 테스트를 조사 합니다. 예를 들어 소스 **별로 보기**를 선택  >  **Sources** 하 고 대상 **별로 보기**를 선택  >  **Destinations** 하 여 연결 모니터에서 관련 테스트를 조사할 수 있습니다.
 
    ![실패 한 상위 5 개 테스트에 대 한 성능 메트릭을 보여 주는 스크린샷](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
@@ -616,10 +616,10 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 메트릭을 사용 하는 경우 리소스 종류를 Microsoft. Network/networkWatchers/connectionMonitors로 설정 합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | 실패한 프로브 % | 백분율 | 평균 | 연결 모니터링 프로브 비율이 실패 했습니다. | 차원 없음 |
-| AverageRoundtripMs | 평균 왕복 시간 (밀리초) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 연결 모니터링 프로브에 대 한 평균 네트워크 RTT입니다. |             차원 없음 |
+| AverageRoundtripMs | 평균 왕복 시간(ms) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 연결 모니터링 프로브에 대 한 평균 네트워크 RTT입니다. |             차원 없음 |
 | ChecksFailedPercent (미리 보기) | % 검사 실패 (미리 보기) | 백분율 | 평균 | 테스트에 대해 실패 한 검사의 백분율입니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
 | RoundTripTimeMs (미리 보기) | 왕복 시간 (ms) (미리 보기) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 검사에 대 한 RTT 이 값은 평균이 아닙니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
 

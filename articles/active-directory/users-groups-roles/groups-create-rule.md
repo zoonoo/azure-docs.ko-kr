@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 4855db7678a8cdea9bdad19ac0a8ec33503ff983
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728419"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 만들기 또는 업데이트
 
@@ -28,19 +28,19 @@ Azure Active Directory (Azure AD)에서 규칙을 사용 하 여 사용자 또�
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
 
-Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하는 규칙 작성기를 제공 합니다. 규칙 작성기는 최대 5 개 식의 생성을 지원 합니다. 규칙 작성기를 사용 하면 몇 가지 간단한 식으로 규칙을 보다 쉽게 만들 수 있지만 모든 규칙을 재현 하는 데 사용할 수는 없습니다. 규칙 작성기에서 만들려는 규칙을 지원 하지 않는 경우 텍스트 상자를 사용할 수 있습니다.
+Azure AD는 중요한 규칙을 더 신속하게 만들고 업데이트하는 규칙 작성기를 제공합니다. 규칙 작성기는 최대 5개의 식을 생성하는 작업을 지원합니다. 규칙 작성기를 사용하면 몇 가지 간단한 식으로 하나의 규칙을 보다 쉽게 만들 수 있으며, 다만 모든 규칙을 재현하는 데 규칙 작성기를 사용할 수는 없습니다. 사용자가 만들려는 규칙을 규칙 작성기에서 지원하지 않는 경우, 텍스트 상자를 사용할 수 있습니다.
 
-텍스트 상자를 사용 하 여 구성 하는 데 권장 되는 고급 규칙 또는 구문의 예는 다음과 같습니다.
+텍스트 상자를 사용하여 생성하는 것이 바람직한 고급 규칙 또는 구문의 일부 예는 다음과 같습니다.
 
-- 5 개 이상의 식이 있는 규칙
-- 부하 직원 규칙
-- [연산자 우선 순위](groups-dynamic-membership.md#operator-precedence) 설정
-- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예를 들어`(user.proxyAddresses -any (_ -contains "contoso"))`
+- 6개 이상의 식이 있는 규칙
+- 직접 보고 규칙
+- [연산자 선행 규칙](groups-dynamic-membership.md#operator-precedence) 설정
+- [복잡한 식이 있는 규칙](groups-dynamic-membership.md#rules-with-complex-expressions)(예: `(user.proxyAddresses -any (_ -contains "contoso"))`)
 
 > [!NOTE]
-> 규칙 작성기가 텍스트 상자에 생성 된 일부 규칙을 표시 하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시 될 수 있습니다. 규칙 빌더는 지원 되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경 하지 않습니다.
+> 규칙 작성기가 텍스트 상자에 생성된 일부 규칙을 표시하지 못할 수도 있습니다. 규칙 작성기에서 규칙을 표시할 수 없을 때 메시지가 표시될 수 있습니다. 규칙 작성기는 지원되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경하지 않습니다.
 
-![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-create-rule/update-dynamic-group-rule.png)
+![동적 그룹 멤버 관리 규칙 추가](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 멤버 자격 규칙에 대 한 구문, 지원 되는 속성, 연산자 및 값의 예는 [Azure Active Directory의 그룹에 대 한 동적 멤버 자격 규칙](groups-dynamic-membership.md)을 참조 하세요.
 
@@ -54,7 +54,7 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 
 1. **그룹** 페이지에서 새 그룹에 대 한 이름 및 설명을 입력 합니다. 사용자 또는 장치 중 하나에 대 한 **멤버 자격 유형을** 선택한 다음 **동적 쿼리 추가**를 선택 합니다. 규칙 작성기는 최대 5 개의 식을 지원 합니다. 5 개 이상의 식을 추가 하려면 텍스트 상자를 사용 해야 합니다.
 
-   ![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![동적 그룹 멤버 관리 규칙 추가](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. 멤버 자격 쿼리에 사용할 수 있는 사용자 지정 확장 속성을 보려면 다음을 수행 합니다.
    1. **사용자 지정 확장 속성 가져오기** 선택
@@ -67,11 +67,11 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 ## <a name="to-update-an-existing-rule"></a>기존 규칙을 업데이트 하려면
 
 1. Azure ad 조직의 전역 관리자, 그룹 관리자, Intune 관리자 또는 사용자 관리자 역할에 있는 계정을 사용 하 여 [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **그룹** > **모든 그룹**을 선택 합니다.
+1. **그룹**  >  **모든 그룹**을 선택 합니다.
 1. 그룹을 선택 하 여 해당 프로필을 엽니다.
 1. 그룹에 대 한 프로필 페이지에서 **동적 멤버 자격 규칙**을 선택 합니다. 규칙 작성기는 최대 5 개의 식을 지원 합니다. 5 개 이상의 식을 추가 하려면 텍스트 상자를 사용 해야 합니다.
 
-   ![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-create-rule/update-dynamic-group-rule.png)
+   ![동적 그룹 멤버 관리 규칙 추가](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 1. 멤버 자격 규칙에 사용할 수 있는 사용자 지정 확장 속성을 보려면 다음을 수행 합니다.
    1. **사용자 지정 확장 속성 가져오기** 선택
@@ -98,7 +98,7 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 
 **마지막으로 업데이트된 멤버 자격** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.
 
-- &lt;**날짜 및 시간**&gt;: 멤버 자격을 마지막으로 업데이트 한 시간입니다.
+- &lt;**날짜 및 시간** &gt; : 멤버 자격을 마지막으로 업데이트 한 시간입니다.
 - **진행 중**: 업데이트가 현재 진행 중입니다.
 - **알 수 없음**: 마지막 업데이트 시간을 검색할 수 없습니다. 새 그룹 일 수 있습니다.
 

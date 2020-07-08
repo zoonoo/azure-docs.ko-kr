@@ -5,19 +5,25 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/11/2020
+ms.openlocfilehash: 7b66f227469328767f23c6858fda15803832704b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737566"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
-이 문서에서는 마스터 서버와 복제 서버를 구성 하 여 Azure Database for MySQL에서 입력 데이터 복제를 설정 하는 방법을 설명 합니다. 이 문서에서는 사용자에 게 MySQL 서버 및 데이터베이스를 사용 하는 이전 경험이 있다고 가정 합니다.
+이 문서에서는 마스터 서버와 복제 서버를 구성 하 여 Azure Database for MySQL에서 [입력 데이터 복제](concepts-data-in-replication.md) 를 설정 하는 방법을 설명 합니다. 이 문서에서는 사용자에 게 MySQL 서버 및 데이터베이스를 사용 하는 이전 경험이 있다고 가정 합니다.
 
-Azure Database for MySQL 서비스에서 복제본을 만들기 위해 입력 데이터 복제는 master MySQL server 온-프레미스, Vm (가상 머신) 또는 클라우드 데이터베이스 서비스에서 데이터를 동기화 합니다.
+> [!NOTE]
+> 바이어스-무료 통신
+>
+> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+>
+
+Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md) 는 master MySQL server 온-프레미스, vm (가상 머신) 또는 클라우드 데이터베이스 서비스에서 데이터를 동기화 합니다. 내부 데이터 복제는 MySQL에 네이티브인 이진 로그(binlog) 파일 위치 기반 복제를 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
 이 문서의 단계를 수행 하기 전에 데이터 복제의 [제한 사항 및 요구 사항을](concepts-data-in-replication.md#limitations-and-considerations) 검토 합니다.
 
@@ -57,9 +63,9 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 입력 �
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   "ON" [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) 값을 사용 하 여 변수를 반환 하는 경우에는 서버에서 이진 로깅이 사용 됩니다. 
+   [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin)"ON" 값을 사용 하 여 변수를 반환 하는 경우에는 서버에서 이진 로깅이 사용 됩니다. 
 
-   값 `log_bin` 이 "OFF"로 반환 되는 경우 my.cnf 파일을 편집 하 여 이진 로깅을 설정 하 `log_bin=ON` 고 변경 내용을 적용 하려면 서버를 다시 시작 합니다.
+   `log_bin`값이 "OFF"로 반환 되는 경우 my.cnf 파일을 편집 하 여 이진 로깅을 설정 하 `log_bin=ON` 고 변경 내용을 적용 하려면 서버를 다시 시작 합니다.
 
 3. 마스터 서버 설정
 
@@ -121,7 +127,7 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 입력 �
 
 6. 이진 로그 파일 이름 및 오프셋 가져오기
 
-   [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) 명령을 실행 하 여 현재 이진 로그 파일 이름과 오프셋을 확인 합니다.
+   명령을 실행 [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) 하 여 현재 이진 로그 파일 이름과 오프셋을 확인 합니다.
     
    ```sql
    show master status;
@@ -207,13 +213,13 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 입력 �
 
 1. 복제 상태 확인
 
-   복제 서버 [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) 에서 명령을 호출 하 여 복제 상태를 확인 합니다.
+   [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html)복제 서버에서 명령을 호출 하 여 복제 상태를 확인 합니다.
     
    ```sql
    show slave status;
    ```
 
-   및 `Slave_IO_Running` `Slave_SQL_Running` 의 상태가 "yes" `Seconds_Behind_Master` 이 고 값이 "0" 이면 복제가 정상적으로 작동 합니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값이 “0”이 아니면 복제본이 업데이트를 처리 중인 것입니다. 
+   및의 상태가 `Slave_IO_Running` `Slave_SQL_Running` "yes"이 고 값 `Seconds_Behind_Master` 이 "0" 이면 복제가 정상적으로 작동 합니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값이 “0”이 아니면 복제본이 업데이트를 처리 중인 것입니다. 
 
 ## <a name="other-stored-procedures"></a>기타 저장 프로시저
 

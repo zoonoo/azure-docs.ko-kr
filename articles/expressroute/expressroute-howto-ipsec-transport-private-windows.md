@@ -4,16 +4,16 @@ description: GPO 및 OU를 사용하는 ExpressRoute 프라이빗 피어링을 �
 services: expressroute
 author: fabferri
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74022004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737260"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
 
@@ -161,7 +161,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 2. **이름:** 필드에 IP 필터 목록의 이름을 입력합니다. 예: **azure-onpremises-HTTP8080** 그런 다음 **추가**를 클릭 합니다.
 
    [![25]][25]
-3. **IP Filter Description and Mirrored property**(IP 필터 설명 및 미러된 속성) 페이지에서 **Mirrored**(미러됨)을 선택합니다. 미러됨 설정은 양방향으로 이동하는 패킷을 일치시키며 양방향 통신을 허용합니다. 그런 후 **Next** 를 클릭합니다.
+3. **IP Filter Description and Mirrored property**(IP 필터 설명 및 미러된 속성) 페이지에서 **Mirrored**(미러됨)을 선택합니다. 미러됨 설정은 양방향으로 이동하는 패킷을 일치시키며 양방향 통신을 허용합니다. **다음**을 클릭합니다.
 
    [![26]][26]
 4. **IP 트래픽 원본** 페이지의 **원본 주소:** 드롭다운에서 **특정 IP 주소 또는 서브넷**을 선택합니다. 
@@ -314,7 +314,7 @@ $req = $null
 
 ## <a name="next-steps"></a>다음 단계
 
-Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md)를 참조 하십시오.
+ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
 <!--Image References-->
 

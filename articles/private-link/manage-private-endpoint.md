@@ -4,15 +4,15 @@ description: Azure에서 개인 끝점 연결을 관리 하는 방법 알아보�
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75452974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737498"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>프라이빗 엔드포인트 연결 관리
 Azure 개인 링크는 개인 링크 서비스 소비자가 서비스를 사용 하기 위해 서비스 공급자에 대 한 연결을 요청할 수 있는 승인 호출 흐름 모델에서 작동 합니다. 그러면 서비스 공급자가 소비자의 연결을 허용할지 여부를 결정할 수 있습니다. Azure 개인 링크를 통해 서비스 공급자는 해당 리소스에 대 한 개인 끝점 연결을 관리할 수 있습니다. 이 문서에서는 개인 끝점 연결을 관리 하는 방법에 대 한 지침을 제공 합니다.
@@ -28,7 +28,7 @@ Azure 개인 링크는 개인 링크 서비스 소비자가 서비스를 사용 
 
 |서비스 공급자 작업   |서비스 소비자 전용 끝점 상태   |Description   |
 |---------|---------|---------|
-|없음    |    Pending     |    연결이 수동으로 만들어지고 개인 링크 리소스 소유자의 승인 보류 중입니다.       |
+|None    |    Pending     |    연결이 수동으로 만들어지고 개인 링크 리소스 소유자의 승인 보류 중입니다.       |
 |승인    |  승인됨       |  연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다.     |
 |거부     | 거부됨        | Private Link 리소스 소유자가 연결을 거부했습니다.        |
 |제거    |  연결 끊김       | 개인 링크 리소스 소유자가 연결을 제거 했습니다. 개인 끝점은 정보를 제공 하 고 정리를 위해 삭제 해야 합니다.        |
@@ -36,7 +36,7 @@ Azure 개인 링크는 개인 링크 서비스 소비자가 서비스를 사용 
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Azure PaaS 리소스에서 프라이빗 엔드포인트 연결 관리
 포털은 Azure PaaS 리소스에서 개인 끝점 연결을 관리 하는 데 선호 되는 방법입니다. 현재 Azure PaaS 리소스에 대 한 연결을 관리 하기 위해 PowerShell/CLI를 지원 하지 않습니다.
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. 개인 링크 센터로 이동 합니다.
 3. **리소스**에서 개인 끝점 연결을 관리 하려는 리소스 종류를 선택 합니다.
 4. 각 리소스 유형에 대해 연결 된 개인 끝점 연결의 수를 볼 수 있습니다. 필요에 따라 리소스를 필터링 할 수 있습니다.
@@ -51,14 +51,14 @@ Azure PowerShell 및 Azure CLI은 Microsoft 파트너 서비스나 고객 소유
   
 다음 PowerShell 명령을 사용 하 여 개인 끝점 연결을 관리 합니다.  
 #### <a name="get-private-link-connection-states"></a>개인 링크 연결 상태 가져오기 
-`Get-AzPrivateLinkService` Cmdlet을 사용 하 여 개인 끝점 연결 및 해당 상태를 가져옵니다.  
+Cmdlet을 사용 `Get-AzPrivateLinkService` 하 여 개인 끝점 연결 및 해당 상태를 가져옵니다.  
 ```azurepowershell
 Get-AzPrivateLinkService -Name myPrivateLinkService -ResourceGroupName myResourceGroup 
  ```
  
 #### <a name="approve-a-private-endpoint-connection"></a>개인 끝점 연결 승인 
  
-`Approve-AzPrivateEndpointConnection` Cmdlet을 사용 하 여 개인 끝점 연결을 승인 합니다. 
+Cmdlet을 사용 `Approve-AzPrivateEndpointConnection` 하 여 개인 끝점 연결을 승인 합니다. 
  
 ```azurepowershell
 Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
@@ -66,20 +66,20 @@ Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceG
  
 #### <a name="deny-private-endpoint-connection"></a>개인 끝점 연결 거부 
  
-`Deny-AzPrivateEndpointConnection` Cmdlet을 사용 하 여 개인 끝점 연결을 거부 합니다. 
+Cmdlet을 사용 `Deny-AzPrivateEndpointConnection` 하 여 개인 끝점 연결을 거부 합니다. 
 ```azurepowershell
 Deny-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService 
 ```
 #### <a name="remove-private-endpoint-connection"></a>개인 끝점 연결 제거 
  
-`Remove-AzPrivateEndpointConnection` Cmdlet을 사용 하 여 개인 끝점 연결을 제거 합니다. 
+Cmdlet을 사용 `Remove-AzPrivateEndpointConnection` 하 여 개인 끝점 연결을 제거 합니다. 
 ```azurepowershell
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```
  
 ### <a name="azure-cli"></a>Azure CLI 
  
-개인 `az network private-link-service update` 끝점 연결을 관리 하는 데 사용 합니다. 연결 상태는 ```azurecli connection-status``` 매개 변수에 지정 됩니다. 
+`az network private-link-service update`개인 끝점 연결을 관리 하는 데 사용 합니다. 연결 상태는 매개 변수에 지정 됩니다 ```azurecli connection-status``` . 
 ```azurecli
 az network private-link-service connection update -g myResourceGroup -n myPrivateEndpointConnection1 --service-name myPLS --connection-status Approved 
 ```
@@ -87,5 +87,5 @@ az network private-link-service connection update -g myResourceGroup -n myPrivat
    
 
 ## <a name="next-steps"></a>다음 단계
-- [개인 끝점에 대 한 자세한 정보](private-endpoint-overview.md)
+- [프라이빗 엔드포인트에 대해 자세히 알아보기](private-endpoint-overview.md)
  

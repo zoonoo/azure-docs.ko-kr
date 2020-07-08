@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6ff12ce5fec8fcc49fa21ef5f3009fc2283300c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40dd985b7cf09ddc2a902630cec3f0c74a1edbe1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734608"
 ---
-# <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리 불일치 문제 해결
+# <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>기존 Azure Active Directory Domain Services 관리 되는 도메인에 대해 일치 하지 않는 디렉터리 오류 해결
 
 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에 일치 하지 않는 테 넌 트 오류가 표시 되는 경우 해결 될 때까지 관리 되는 도메인을 관리할 수 없습니다. 이 오류는 기본 Azure 가상 네트워크를 다른 Azure AD 디렉터리로 이동 하는 경우에 발생 합니다.
 
@@ -26,7 +26,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에 
 
 ## <a name="what-causes-this-error"></a>이 오류의 원인은 무엇 인가요?
 
-Azure AD DS 관리 되는 도메인 및 가상 네트워크가 서로 다른 두 Azure AD 테 넌 트에 속할 경우 디렉터리 불일치 오류가 발생 합니다. 예를 들어 Contoso의 Azure AD 테 넌 트에서 실행 되는 *aaddscontoso.com* 라는 azure AD DS 관리 되는 도메인이 있을 수 있습니다. 그러나 관리 되는 도메인에 대 한 Azure 가상 네트워크는 Fabrikam Azure AD 테 넌 트의 일부입니다.
+Azure AD DS 관리 되는 도메인 및 가상 네트워크가 서로 다른 두 Azure AD 테 넌 트에 속할 경우 디렉터리 불일치 오류가 발생 합니다. 예를 들어 Contoso의 Azure AD 테 넌 트에서 실행 되는 *aaddscontoso.com* 라는 관리 되는 도메인이 있을 수 있습니다. 그러나 관리 되는 도메인에 대 한 Azure 가상 네트워크는 Fabrikam Azure AD 테 넌 트의 일부입니다.
 
 Azure는 RBAC (역할 기반 액세스 제어)를 사용 하 여 리소스에 대 한 액세스를 제한 합니다. Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 하면 자격 증명 해시가 관리 되는 도메인에 동기화 됩니다. 이 작업을 수행 하려면 Azure AD 디렉터리의 테 넌 트 관리자 여야 하며 자격 증명에 대 한 액세스를 제어 해야 합니다. Azure 가상 네트워크에 리소스를 배포 하 고 트래픽을 제어 하려면 Azure AD DS를 배포 하는 가상 네트워크에 대 한 관리 권한이 있어야 합니다.
 
@@ -41,13 +41,13 @@ RBAC가 일관 되 게 작동 하 고 Azure AD DS에서 사용 하는 모든 리
 
 ### <a name="valid-configuration"></a>유효한 구성
 
-다음 배포 시나리오에서 contoso Azure AD DS 관리 되는 도메인은 Contoso Azure AD 테 넌 트에서 사용 하도록 설정 됩니다. 관리 되는 도메인은 Contoso Azure AD 테 넌 트가 소유 하는 Azure 구독에 속한 가상 네트워크에 배포 됩니다. 관리 되는 도메인과 가상 네트워크는 모두 동일한 Azure AD 테 넌 트에 속합니다. 이 예제 구성은 유효 하 고 완벽 하 게 지원 됩니다.
+다음 배포 시나리오에서 contoso 관리 되는 도메인은 Contoso Azure AD 테 넌 트에서 사용 하도록 설정 됩니다. 관리 되는 도메인은 Contoso Azure AD 테 넌 트가 소유 하는 Azure 구독에 속한 가상 네트워크에 배포 됩니다. 관리 되는 도메인과 가상 네트워크는 모두 동일한 Azure AD 테 넌 트에 속합니다. 이 예제 구성은 유효 하 고 완벽 하 게 지원 됩니다.
 
 ![동일한 Azure AD 테 넌 트의 관리 되는 도메인 및 가상 네트워크 부분을 사용 하는 유효한 Azure AD DS 테 넌 트 구성](./media/getting-started/valid-tenant-config.png)
 
 ### <a name="mismatched-tenant-configuration"></a>테넌트 구성 불일치
 
-이 예제 배포 시나리오에서 contoso azure AD DS 관리 되는 도메인은 Contoso Azure AD 테 넌 트에서 사용 하도록 설정 됩니다. 그러나 관리 되는 도메인은 Fabrikam Azure AD 테 넌 트가 소유 하는 Azure 구독에 속한 가상 네트워크에 배포 됩니다. 관리 되는 도메인과 가상 네트워크는 서로 다른 두 Azure AD 테 넌 트에 속합니다. 이 예제 구성은 일치 하지 않는 테 넌 트 이며 지원 되지 않습니다. 가상 네트워크는 관리 되는 도메인과 동일한 Azure AD 테 넌 트로 이동 해야 합니다.
+이 예제 배포 시나리오에서 contoso 관리 되는 도메인은 Contoso Azure AD 테 넌 트에서 사용 하도록 설정 됩니다. 그러나 관리 되는 도메인은 Fabrikam Azure AD 테 넌 트가 소유 하는 Azure 구독에 속한 가상 네트워크에 배포 됩니다. 관리 되는 도메인과 가상 네트워크는 서로 다른 두 Azure AD 테 넌 트에 속합니다. 이 예제 구성은 일치 하지 않는 테 넌 트 이며 지원 되지 않습니다. 가상 네트워크는 관리 되는 도메인과 동일한 Azure AD 테 넌 트로 이동 해야 합니다.
 
 ![테넌트 구성 불일치](./media/getting-started/mismatched-tenant-config.png)
 
@@ -55,8 +55,8 @@ RBAC가 일관 되 게 작동 하 고 Azure AD DS에서 사용 하는 모든 리
 
 다음 두 옵션은 디렉터리 불일치 오류를 해결 합니다.
 
-* 기존 Azure AD 디렉터리에서 [azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 합니다. 사용 하려는 가상 네트워크와 동일한 Azure AD 디렉터리에서 [대체 Azure AD DS 관리 되는 도메인을 만듭니다](tutorial-create-instance.md) . 준비가 되 면 삭제 된 도메인에 이전에 조인 된 모든 컴퓨터를 다시 만든 관리 되는 도메인에 가입 시킵니다.
-* 가상 네트워크가 포함 된 [azure 구독](../cost-management-billing/manage/billing-subscription-transfer.md) 을 azure AD DS 관리 되는 도메인과 동일한 azure AD 디렉터리로 이동 합니다.
+* 기존 Azure AD 디렉터리에서 [관리 되는 도메인을 삭제](delete-aadds.md) 합니다. 사용 하려는 가상 네트워크와 동일한 Azure AD 디렉터리에 [대체 관리 되는 도메인을 만듭니다](tutorial-create-instance.md) . 준비가 되 면 삭제 된 도메인에 이전에 조인 된 모든 컴퓨터를 다시 만든 관리 되는 도메인에 가입 시킵니다.
+* 가상 네트워크가 포함 된 [azure 구독](../cost-management-billing/manage/billing-subscription-transfer.md) 을 관리 되는 도메인과 동일한 azure AD 디렉터리로 이동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

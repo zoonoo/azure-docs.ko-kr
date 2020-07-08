@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735101"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -53,7 +53,7 @@ Windows 10 Enterprise 다중 세션은 현재 하이브리드 Azure AD 조인으
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Windows 10 Enterprise 다중 세션 이미지는 어디서 찾을 수 있나요?
 
-Windows 10 Enterprise 다중 세션은 Azure 갤러리에 있습니다. 이를 찾으려면 Azure Portal으로 이동 하 여 가상 데스크톱 릴리스에 대 한 Windows 10 Enterprise를 검색 합니다. Office Pro Plus와 통합 된 이미지의 경우 Azure Portal으로 이동 하 여 Microsoft Windows 10 + Office 365 ProPlus를 검색 합니다.
+Windows 10 Enterprise 다중 세션은 Azure 갤러리에 있습니다. 이를 찾으려면 Azure Portal으로 이동 하 여 가상 데스크톱 릴리스에 대 한 Windows 10 Enterprise를 검색 합니다. Enterprise 용 Microsoft 365 Apps와 통합 된 이미지의 경우 Azure Portal로 이동 하 여 **Microsoft Windows 10 + Microsoft 365 Apps for enterprise**를 검색 합니다.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>어떤 Windows 10 Enterprise 다중 세션 이미지를 사용 해야 하나요?
 
@@ -92,7 +92,7 @@ Microsoft Store 앱을 사용 하지 않도록 설정 하 여 사용자가 이�
 스토어 앱을 사용 하지 않도록 설정 하려면:
 
 1. 새 그룹 정책을 만듭니다.
-2. **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소**를 선택 합니다.
+2. **컴퓨터 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**를 선택 합니다.
 3. **Store**를 선택합니다.
 4. **응용 프로그램 스토어**를 선택 합니다.
 5. **사용 안 함**을 선택한 다음, **확인**을 선택 합니다.

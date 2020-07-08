@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/11/2020
+ms.openlocfilehash: 0b23b01faf1b6ba09f1c55db2ddabd1696e452be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738110"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
-이 문서에서는 마스터 서버와 복제 서버를 구성 하 여 Azure Database for MariaDB에서 입력 데이터 복제를 설정 하는 방법을 설명 합니다. 이 문서에서는 사용자에 게 몇 가지 이전 경험이 있는 사용자가 있다고 가정 합니다.
+이 문서에서는 마스터 서버와 복제 서버를 구성 하 여 Azure Database for MariaDB에서 [입력 데이터 복제](concepts-data-in-replication.md) 를 설정 하는 방법을 설명 합니다. 이 문서에서는 사용자에 게 몇 가지 이전 경험이 있는 사용자가 있다고 가정 합니다.
 
-Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 데이터 복제는 마스터, Vm (가상 컴퓨터) 또는 클라우드 데이터베이스 서비스에서 마스터의 데이터를 동기화 합니다.
+Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md) 는 마스터, vm (가상 컴퓨터) 또는 클라우드 데이터베이스 서비스에서 마스터의 데이터를 동기화 합니다. 입력 데이터 복제는 MariaDB에 네이티브인 이진 로그(binlog) 파일 위치 기반 복제를 기반으로 합니다. binlog 복제에 대해 자세히 알아보려면 [binlog 복제 개요](https://mariadb.com/kb/en/library/replication-overview/)를 참조하세요.
 
 이 문서의 단계를 수행 하기 전에 데이터 복제의 [제한 사항 및 요구 사항을](concepts-data-in-replication.md#limitations-and-considerations) 검토 합니다.
 
@@ -42,6 +42,12 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
 
    [Azure Portal](howto-manage-firewall-portal.md) 또는 [Azure CLI](howto-manage-firewall-cli.md)를 사용하여 방화벽 규칙을 업데이트합니다.
 
+> [!NOTE]
+> 바이어스-무료 통신
+>
+> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+>
+
 ## <a name="configure-the-master-server"></a>마스터 서버 구성
 
 다음 단계는 온-프레미스, VM 또는 클라우드 데이터베이스 서비스에서 호스트 되는 입력 데이터 복제에 대해 온-프레미스에 호스트 된 Aadb 서버를 준비 하 고 구성 합니다. 이 서버는 입력 데이터 복제의 마스터입니다.
@@ -60,13 +66,13 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   변수가 [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) 값 `ON`을 반환 하는 경우 서버에서 이진 로깅이 사용 됩니다.
+   변수가 값을 반환 하는 경우 [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) `ON` 서버에서 이진 로깅이 사용 됩니다.
 
-   에서 `log_bin` 값 `OFF`을 반환 하 `log_bin=ON` 는 경우 이진 로깅을 설정 하도록 **my.cnf** 파일을 편집 합니다. 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
+   에서 `log_bin` 값을 반환 `OFF` 하는 경우 이진 로깅을 설정 하도록 **my.cnf** 파일을 편집 합니다 `log_bin=ON` . 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
 
 3. 마스터 서버 설정을 구성 합니다.
 
-    입력 데이터 복제 마스터 서버와 `lower_case_table_names` 복제 서버 간에 매개 변수가 일치 해야 합니다. `lower_case_table_names` 매개 변수는 기본적 `1` 으로 Azure Database for MariaDB로 설정 됩니다.
+    입력 데이터 복제 `lower_case_table_names` 마스터 서버와 복제 서버 간에 매개 변수가 일치 해야 합니다. `lower_case_table_names`매개 변수는 `1` 기본적으로 Azure Database for MariaDB로 설정 됩니다.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -78,7 +84,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
    
    마스터 서버에서 사용자 계정을 추가 하는 방법에 대 한 자세한 내용은 [Mariadb 설명서](https://mariadb.com/kb/en/library/create-user/)를 참조 하세요.
 
-   다음 명령을 사용 하 여 새 복제 역할은 마스터 자체를 호스트 하는 컴퓨터 뿐 아니라 모든 컴퓨터에서 마스터에 액세스할 수 있습니다. 이 액세스의 경우 사용자를 만들기 위해 명령에 **syncuser\@'% '** 를 지정 합니다.
+   다음 명령을 사용 하 여 새 복제 역할은 마스터 자체를 호스트 하는 컴퓨터 뿐 아니라 모든 컴퓨터에서 마스터에 액세스할 수 있습니다. 이 액세스의 경우 사용자를 만들기 위해 명령에 **syncuser \@ '% '** 를 지정 합니다.
    
    MariaDB 설명서에 대해 자세히 알아보려면 [계정 이름 지정](https://mariadb.com/kb/en/library/create-user/#account-names)을 참조 하세요.
 
@@ -128,7 +134,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
 
 6. 현재 이진 로그 파일 이름 및 오프셋을 가져옵니다.
 
-   현재 이진 로그 파일 이름과 오프셋을 확인 하려면 명령을 [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)실행 합니다.
+   현재 이진 로그 파일 이름과 오프셋을 확인 하려면 명령을 실행 [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) 합니다.
     
    ```sql
    show master status;
@@ -141,7 +147,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
    
 7. GTID 위치를 가져옵니다 (선택 사항, GTID를 사용 하는 복제에 필요).
 
-   함수 [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) 를 실행 하 여 해당 binlog 파일 이름 및 오프셋에 대 한 gtid 위치를 가져옵니다.
+   함수를 실행 [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) 하 여 해당 binlog 파일 이름 및 오프셋에 대 한 GTID 위치를 가져옵니다.
   
     ```sql
     select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
@@ -177,7 +183,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
 
    모든 데이터 내부 복제 기능은 저장 프로시저에 의해 수행됩니다. [데이터 내부 복제 저장 프로시저](reference-data-in-stored-procedures.md)에서 모든 프로시저를 확인할 수 있습니다. 저장 프로시저는 MySQL 셸 또는 MySQL 워크 벤치에서 실행할 수 있습니다.
 
-   두 서버를 연결 하 고 복제를 시작 하려면 Azure DB for MariaDB 서비스에서 대상 복제본 서버에 로그인 합니다. 그런 다음, Azure DB for MariaDB 서버에서 `mysql.az_replication_change_master` 또는 `mysql.az_replication_change_master_with_gtid` 저장 프로시저를 사용 하 여 외부 인스턴스를 마스터 서버로 설정 합니다.
+   두 서버를 연결 하 고 복제를 시작 하려면 Azure DB for MariaDB 서비스에서 대상 복제본 서버에 로그인 합니다. 그런 다음, `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` Azure DB For MariaDB 서버에서 또는 저장 프로시저를 사용 하 여 외부 인스턴스를 마스터 서버로 설정 합니다.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -204,7 +210,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
 
    - SSL을 사용한 복제
 
-       다음 명령을 실행 `@cert` 하 여 변수를 만듭니다.
+       `@cert`다음 명령을 실행 하 여 변수를 만듭니다.
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
@@ -227,7 +233,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
 
 2. 복제를 시작 합니다.
 
-   `mysql.az_replication_start` 저장 프로시저를 호출 하 여 복제를 시작 합니다.
+   `mysql.az_replication_start`저장 프로시저를 호출 하 여 복제를 시작 합니다.
 
    ```sql
    CALL mysql.az_replication_start;
@@ -235,19 +241,19 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 입력 
 
 3. 복제 상태를 확인 합니다.
 
-   복제 서버 [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/) 에서 명령을 호출 하 여 복제 상태를 확인 합니다.
+   [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/)복제 서버에서 명령을 호출 하 여 복제 상태를 확인 합니다.
     
    ```sql
    show slave status;
    ```
 
-   `Slave_IO_Running` 및 `Slave_SQL_Running` 가 상태 `yes`이 고 값 `Seconds_Behind_Master` 이 이면 `0`복제가 작동 하는 것입니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값 `0`이가 아니면 복제본이 업데이트를 처리 하는 것입니다.
+   `Slave_IO_Running`및가 `Slave_SQL_Running` 상태이 `yes` 고 값 `Seconds_Behind_Master` 이 이면 `0` 복제가 작동 하는 것입니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값이가 아니면 `0` 복제본이 업데이트를 처리 하는 것입니다.
 
 4. 해당 서버 변수를 업데이트 하 여 데이터 인 복제를 안전 하 게 만듭니다 (GTID를 사용 하지 않는 복제에만 필요).
     
-    MariaDB의 기본 복제 제한으로 인해 GTID 시나리오를 제외 [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) 하 [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) 고 복제 시 및 변수를 설정 해야 합니다.
+    MariaDB의 기본 복제 제한으로 인해 [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) GTID 시나리오를 제외 하 고 복제 시 및 변수를 설정 해야 합니다 [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) .
 
-    슬레이브 서버의 `sync_master_info` 및 `sync_relay_log_info` 변수를 확인 하 여 데이터 인 복제가 안정적인 지 확인 하 고 변수를로 `1`설정 합니다.
+    슬레이브 서버의 `sync_master_info` 및 변수를 확인 `sync_relay_log_info` 하 여 데이터 인 복제가 안정적인 지 확인 하 고 변수를로 설정 `1` 합니다.
     
 ## <a name="other-stored-procedures"></a>기타 저장 프로시저
 
