@@ -5,25 +5,25 @@ documentationcenter: ''
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cab29fbe9e33cc12336fa1b81ed4aa37f91a7f5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387306"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>초대 링크 또는 전자 메일 없이 B2B 공동 작업 게스트 사용자 추가
 
 이제 공유 앱에 대한 직접 링크를 전송하여 게스트 사용자를 초대할 수 있습니다. 이 방법을 사용하면 게스트 사용자가 특별한 경우를 제외하고 초대 이메일을 사용하지 않아도 됩니다. 게스트 사용자는 앱 링크를 클릭하고, 개인 정보 보호 방침을 확인 및 수락한 다음, 자연스럽게 앱에 액세스합니다. 자세한 내용은 [B2B 협업 초대 상환](redemption-experience.md)을 참조하세요.   
 
-이 새로운 방법이 제공되기 전에는 UI나 PowerShell을 통해 초대자(조직 또는 파트너 조직 소속)를 **게스트 초대자** 디렉터리 역할에 추가한 다음, 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 추가하여 초대 이메일 없이 게스트 사용자를 초대할 수 있었습니다. PowerShell을 사용하는 경우 초대 이메일을 모두 억제할 수 있습니다. 다음은 그 예입니다.
+이 새로운 방법이 제공되기 전에는 UI나 PowerShell을 통해 초대자(조직 또는 파트너 조직 소속)를 **게스트 초대자** 디렉터리 역할에 추가한 다음, 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 추가하여 초대 이메일 없이 게스트 사용자를 초대할 수 있었습니다. PowerShell을 사용하는 경우 초대 이메일을 모두 억제할 수 있습니다. 예를 들어:
 
 1. 호스트 조직(예: WoodGrove)의 한 사용자가 파트너 조직(예: Sam@litware.com)의 한 사용자를 게스트로 초대합니다.
 2. 호스트 조직의 관리자는 Sam이 파트너 조직(Litware)의 다른 사용자를 식별하고 추가할 수 있도록 하는 [정책을 설정](delegate-invitations.md)합니다. Sam은 **게스트 초대자** 역할에 추가되어야 합니다.

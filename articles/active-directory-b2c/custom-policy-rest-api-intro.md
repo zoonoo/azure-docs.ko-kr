@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388938"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 REST API 클레임 교환 통합
 
@@ -32,6 +32,9 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 - **사용자 지정 비즈니스 논리 실행**. 푸시 알림을 보내고, 회사 데이터베이스를 업데이트하고, 사용자 마이그레이션 프로세스를 실행하고, 사용 권한을 관리하고, 데이터베이스를 감사하고, 다른 워크플로를 수행할 수 있습니다.
 
 ![RESTful 서비스 클레임 교환 다이어그램](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
+
+> [!NOTE]
+> RESTful 서비스에서 Azure AD B2C 하는 속도가 느리거나 응답이 없으면 시간이 30 초이 고 재시도 횟수가 2 회 됩니다 (총 3 회 시도). 시간 제한 및 다시 시도 횟수 설정은 현재 구성할 수 없습니다.
 
 ## <a name="calling-a-restful-service"></a>RESTful 서비스 호출
 
@@ -142,7 +145,7 @@ REST API는 안전하게 보호되고 [RESTful 기술 프로필](restful-technic
 ## <a name="localize-the-rest-api"></a>REST API 지역화
 RESTful 기술 프로필에서 현재 세션의 언어/로캘을 전송하고, 필요한 경우 지역화된 오류 메시지를 발생시킬 수 있습니다. [클레임 확인자](claim-resolver-overview.md)를 사용하여 사용자 언어와 같은 컨텍스트 클레임을 보낼 수 있습니다. 다음 예제에서는 이 시나리오를 나타내는 RESTful 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -162,7 +165,7 @@ RESTful 기술 프로필에서 현재 세션의 언어/로캘을 전송하고, �
 
 ## <a name="handling-error-messages"></a>오류 메시지 처리
 
-REST API가 "CRM 시스템에서 사용자를 찾을 수 없습니다."와 같은 오류 메시지를 반환해야 할 수 있습니다. 오류가 발생하면 REST API는 HTTP 409 오류 메시지(충돌 응답 상태 코드)를 반환해야 합니다. 자세한 내용은 [RESTful 기술 프로필](restful-technical-profile.md#returning-error-message)을 참조하세요.
+REST API가 "CRM 시스템에서 사용자를 찾을 수 없습니다."와 같은 오류 메시지를 반환해야 할 수 있습니다. 오류가 발생하면 REST API는 HTTP 409 오류 메시지(충돌 응답 상태 코드)를 반환해야 합니다. 자세한 내용은 [RESTful 기술 프로필](restful-technical-profile.md#returning-validation-error-message)을 참조하세요.
 
 이 작업은 유효성 검사 기술 프로필에서 REST API 기술 프로필을 호출하는 방식으로만 수행할 수 있습니다. 이렇게 하면 사용자가 페이지의 데이터를 수정하고 페이지 제출 시 유효성 검사를 다시 실행할 수 있습니다.
 

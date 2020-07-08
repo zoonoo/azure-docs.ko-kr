@@ -7,16 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/26/2019
+ms.topic: reference
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388717"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 
@@ -40,7 +41,7 @@ Azure AD B2C는 미국, 유럽 또는 아시아 태평양 지역에 사용자 �
 
 데이터 상주는 [Azure AD B2C 테 넌 트를 만들](tutorial-create-tenant.md)때 선택 하는 국가/지역에 따라 결정 됩니다.
 
-![미리 보기 테 넌 트의 스크린샷](./media/data-residency/data-residency-b2c-tenant.png)
+![국가 또는 지역을 선택 하는 테 넌 트 만들기 폼의 스크린샷](./media/data-residency/data-residency-b2c-tenant.png)
 
 데이터는 **미국** 에 거주 하는 국가/지역에 있습니다.
 
@@ -68,4 +69,4 @@ Preview B2C 테 넌 트에서 프로덕션 규모 B2C 테 넌 트로의 **마이
 
 미리 보기 B2C 테 넌 트를 삭제 하 고 동일한 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들 때 알려진 문제가 있습니다. *다른 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들어야*합니다.
 
-![미리 보기 테 넌 트의 스크린샷](./media/data-residency/preview-b2c-tenant.png)
+![미리 보기 테 넌 트 형식의 스크린샷.](./media/data-residency/preview-b2c-tenant.png)

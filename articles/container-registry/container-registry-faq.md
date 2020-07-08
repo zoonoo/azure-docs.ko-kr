@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682820"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390366"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -220,7 +220,7 @@ ACR은 다양한 수준의 권한을 제공하는 [사용자 지정 역할](cont
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  또는 해당 애플리케이션 ID로 식별된 서비스 주체에게 역할을 할당합니다.
+  또는 해당 응용 프로그램 ID로 식별 되는 서비스 사용자에 게 역할을 할당 합니다.
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -269,6 +269,7 @@ ACR은 다양한 수준의 권한을 제공하는 [사용자 지정 역할](cont
 - [Azure Portal에서 내 리포지토리 또는 태그를 모두 나열하지 않는 이유는 무엇인가요?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Azure Portal에서 리포지토리 또는 태그를 가져오지 못하는 이유는 무엇인가요?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [허용되지 않은 작업으로 인해 풀 또는 푸시 요청이 실패하는 이유는 무엇인가요?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [리포지토리 형식이 잘못 되었거나 지원 되지 않습니다.](#repository-format-is-invalid-or-unsupported)
 - [Windows에서 http 추적을 수집하려면 어떻게 하나요?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>`az acr check-health`를 사용하여 상태 검사
@@ -438,6 +439,13 @@ Microsoft Edge/IE 브라우저를 사용하는 경우 최대 100개의 리포지
 * 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](https://aka.ms/acr/skus)으로 업그레이드하세요.
 * 이미지 또는 리포지토리가 잠겨 있어 삭제하거나 업데이트할 수 없습니다. [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) 명령을 사용하여 현재 특성을 볼 수 있습니다.
 * 이미지가 격리 모드에 있는 경우 일부 작업이 허용되지 않습니다. [격리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)에 대해 자세히 알아보세요.
+* 레지스트리가 [저장소 용량 한도](container-registry-skus.md#service-tier-features-and-limits)에 도달 했을 수 있습니다.
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>리포지토리 형식이 잘못 되었거나 지원 되지 않습니다.
+
+리포지토리 작업에서 리포지토리 이름을 지정할 때 "지원 되지 않는 리포지토리 형식", "잘못 된 형식" 또는 "요청 된 데이터가 없습니다."와 같은 오류가 표시 되는 경우 이름의 철자 및 대/소문자를 확인 합니다. 유효한 리포지토리 이름에는 소문자 영숫자, 마침표, 대시, 밑줄 및 슬래시만 포함할 수 있습니다. 
+
+전체 리포지토리 명명 규칙은 [Open Container 이니셔티브 배포 사양](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview)을 참조 하세요.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 수집하려면 어떻게 하나요?
 
@@ -495,7 +503,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 예 |
 | Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | 예 | 예 |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 예 |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 아니요 |
 | BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | 예 | 예 |
 
 ## <a name="run-error-message-troubleshooting"></a>실행 오류 메시지 문제 해결

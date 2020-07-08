@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387680"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure AD B2C 사용자 지정 정책 관리
 
@@ -27,7 +27,7 @@ Azure PowerShell은 Azure AD B2C 테 넌 트에서 명령줄 및 스크립트 �
 * Azure AD B2C 테 넌 트에 새 정책 업로드
 * 테 넌 트에서 사용자 지정 정책 삭제
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
@@ -37,7 +37,7 @@ Azure PowerShell은 Azure AD B2C 테 넌 트에서 명령줄 및 스크립트 �
 
 Azure AD B2C 테 넌 트에서 사용자 지정 정책에 대 한 작업을 수행 하려면 먼저 [AzureAD][Connect-AzureAD] 명령을 사용 하 여 PowerShell 세션을 테 넌 트에 연결 해야 합니다.
 
-Azure AD B2C 테 넌 트의 이름 `{b2c-tenant-name}` 으로 대체 하 여 다음 명령을 실행 합니다. 디렉터리에서 [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할이 할당 된 계정으로 로그인 합니다.
+`{b2c-tenant-name}`Azure AD B2C 테 넌 트의 이름으로 대체 하 여 다음 명령을 실행 합니다. 디렉터리에서 [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할이 할당 된 계정으로 로그인 합니다.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
@@ -112,7 +112,7 @@ PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 </TrustFrameworkPolicy>
 ```
 
-정책 콘텐츠를 로컬로 편집 하려면 명령 출력을 `-OutputFilePath` 인수를 사용 하는 파일로 파이프 한 다음 원하는 편집기에서 파일을 엽니다.
+정책 콘텐츠를 로컬로 편집 하려면 명령 출력을 인수를 사용 하는 파일로 파이프 한 `-OutputFilePath` 다음 원하는 편집기에서 파일을 엽니다.
 
 파일에 출력을 보내는 예제 명령:
 
@@ -125,7 +125,7 @@ Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -OutputFilePath C:\RP
 
 만들거나 다운로드 한 정책 파일을 편집한 후에는 [AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] 명령을 사용 하 여 Azure AD B2C에 업데이트 된 정책을 게시할 수 있습니다.
 
-Azure AD B2C 테 넌 트 `Set-AzureADMSTrustFrameworkPolicy` 에 이미 있는 정책의 ID를 사용 하 여 명령을 실행 하는 경우 해당 정책의 콘텐츠를 덮어씁니다.
+`Set-AzureADMSTrustFrameworkPolicy`Azure AD B2C 테 넌 트에 이미 있는 정책의 ID를 사용 하 여 명령을 실행 하는 경우 해당 정책의 콘텐츠를 덮어씁니다.
 
 ```PowerShell
 Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]

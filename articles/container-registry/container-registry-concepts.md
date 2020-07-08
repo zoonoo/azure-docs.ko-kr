@@ -2,13 +2,13 @@
 title: 리포지토리 & 이미지 정보
 description: Azure 컨테이너 레지스트리, 리포지토리 및 컨테이너 이미지의 주요 개념을 소개 합니다.
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390451"
 ---
 # <a name="about-registries-repositories-and-images"></a>레지스트리, 리포지토리 및 이미지 정보
 
@@ -24,13 +24,11 @@ Docker 컨테이너 이미지 외에도 Azure Container Registry은 OCI (Open Co
 
 Azure container registry의 아티팩트 주소에는 다음과 같은 요소가 포함 됩니다. 
 
-`[loginUrl]/[namespace]/[artifact:][tag]`
+`[loginUrl]/[repository:][tag]`
 
 * **loginUrl** -레지스트리 호스트의 정규화 된 이름입니다. Azure container registry의 레지스트리 호스트는 *myregistry*. azurecr.io (모두 소문자) 형식으로 되어 있습니다. Docker 또는 다른 클라이언트 도구를 사용 하 여 Azure container registry에 아티팩트를 끌어오거나 푸시할 때 loginUrl를 지정 해야 합니다. 
-* 작업 그룹 또는 응용 프로그램의 경우와 같이 관련 된 이미지 또는 아티팩트의 **네임 스페이스로** 구분 된 논리적 그룹화
-* **아티팩트** -특정 이미지 또는 아티팩트의 리포지토리의 이름입니다.
-* **태그** -리포지토리에 저장 된 특정 버전의 이미지 또는 아티팩트
-
+* **리포지토리** -하나 이상의 관련 이미지 또는 아티팩트 (예: 응용 프로그램 또는 기본 운영 체제에 대 한 이미지)의 논리적 그룹 이름입니다. *네임 스페이스* 경로를 포함할 수 있습니다. 
+* 저장소에 저장 된 특정 버전의 이미지 또는 아티팩트의 **태그** 식별자입니다.
 
 예를 들어 Azure container registry에 있는 이미지의 전체 이름은 다음과 같습니다.
 
@@ -40,20 +38,24 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 
 ## <a name="repository-name"></a>리포지토리 이름
 
-컨테이너 레지스트리는 *리포지토리*를 관리 하 고, 동일한 이름의 컨테이너 이미지 또는 다른 아티팩트의 컬렉션을 관리 하 고, 다른 태그를 사용 합니다. 예를 들어, 다음 3개의 이미지가 "helloworld acr" 리포지토리에 있습니다.
+*리포지토리* 는 컨테이너 이미지 또는 이름이 같지만 태그가 다른 다른 아티팩트의 컬렉션입니다. 예를 들어, 다음 3개의 이미지가 "helloworld acr" 리포지토리에 있습니다.
 
 
 - *acr-helloworld: 최신*
 - *acr-helloworld: v1*
 - *acr-helloworld: v2*
 
-리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시로 구분 된 리포지토리 이름을 사용 하 여 이미지를 그룹화 할 수 있습니다. 예를 들면 다음과 같습니다.
+리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시 (/)로 구분 된 이름을 사용 하 여 조직에서 관련 리포지토리 및 아티팩트 소유권을 식별할 수 있습니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다. 예:
 
 - *marketing/campaign10-18/웹: v2*
 - *marketing/campaign10-18/api: v3*
 - *marketing/campaign10-18/전자 메일-보낸 사람: v2*
 - *제품-반환/웹 제출: 20180604*
 - *제품 반환/레거시-통합자: 20180715*
+
+리포지토리 이름에는 소문자 영숫자, 마침표, 대시, 밑줄 및 슬래시만 포함할 수 있습니다. 
+
+전체 리포지토리 명명 규칙은 [Open Container 이니셔티브 배포 사양](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview)을 참조 하세요.
 
 ## <a name="image"></a>이미지
 
@@ -63,9 +65,11 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 
 이미지 또는 다른 아티팩트의 *태그* 는 해당 버전을 지정 합니다. 리포지토리 내의 단일 아티팩트에는 하나 이상의 태그를 할당할 수 있으며 "태그가 지정 되지 않은" 경우도 있습니다. 즉, 이미지의 모든 태그를 삭제할 수 있는 반면 이미지의 데이터 (레이어)는 레지스트리에 남아 있습니다.
 
-리포지토리(또는 리포지토리 및 네임스페이스)와 태그는 이미지의 이름을 정의합니다. 밀어넣기 및 끌어오기 작업에서 해당 이름을 지정하여 이미지를 밀어넣고 끌어올 수 있습니다.
+리포지토리(또는 리포지토리 및 네임스페이스)와 태그는 이미지의 이름을 정의합니다. 밀어넣기 및 끌어오기 작업에서 해당 이름을 지정하여 이미지를 밀어넣고 끌어올 수 있습니다. 태그는 `latest` Docker 명령에서 제공 하지 않는 경우 기본적으로 사용 됩니다.
 
 컨테이너 이미지에 태그를 표시 하는 방법은 시나리오에 따라 개발 하거나 배포 하는 방법을 안내 합니다. 예를 들어 기본 이미지를 유지 하 고 이미지 배포를 위한 고유한 태그를 유지 하는 데 안정적인 태그를 사용할 수 있습니다. 자세한 내용은 [컨테이너 이미지 태그 지정 및 버전 관리에 대 한 권장 사항](container-registry-image-tag-version.md)을 참조 하세요.
+
+태그 명명 규칙에 대해서는 [Docker 설명서](https://docs.docker.com/engine/reference/commandline/tag/)를 참조 하세요.
 
 ### <a name="layer"></a>계층
 

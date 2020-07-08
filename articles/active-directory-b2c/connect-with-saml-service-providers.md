@@ -7,17 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff5d8ecaaeff67e1a97c4afd4ca8119f8ac7c1e1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: b9ea9e756587af124ca94518d9f15271310ddee3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389381"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -119,7 +119,7 @@ SAML 서비스 공급자와 연결된 메타데이터 엔드포인트가 아직 
 
 `IssuerUri` 메타데이터의 값을 변경할 수 있습니다. 이것은 Azure AD B2C에서 SAML 응답으로 반환되는 발급자 URI입니다. SAML 어설션 유효성 검사 중 발급자 URI를 수락하도록 신뢰 당사자 애플리케이션을 구성해야 합니다.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
@@ -165,7 +165,7 @@ SAML 서비스 공급자와 연결된 메타데이터 엔드포인트가 아직 
 
 1. 아래와 같이 정책의 `PolicyId` 및 `PublicPolicyUri`를 _B2C_1A_signup_signin_saml_ 및 `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml`로 변경합니다.
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -178,7 +178,7 @@ SAML 서비스 공급자와 연결된 메타데이터 엔드포인트가 아직 
 
 1. `<RelyingParty>` 요소 바로 앞에 다음 XML 코드 조각을 추가합니다. 이 XML은 _SignUpOrSignIn_ 사용자 경험의 오케스트레이션 단계 번호 7을 덮어씁니다. 시작 팩의 다른 폴더에서 시작했거나 오케스트레이션 단계를 추가 또는 제거하여 사용자 경험을 사용자 지정한 경우 `order` 요소의 번호가 토큰 발급자 단계의 사용자 경험에 지정된 번호와 일치하는지 확인합니다. 예를 들어 다른 시작 팩 폴더에서 해당 단계 번호는 `LocalAccounts`의 경우 4, `SocialAccounts`의 경우 6, `SocialAndLocalAccountsWithMfa`의 9입니다.
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="SignUpOrSignIn">
         <OrchestrationSteps>
@@ -190,7 +190,7 @@ SAML 서비스 공급자와 연결된 메타데이터 엔드포인트가 아직 
 
 1. `<RelyingParty>` 요소의 전체 `<TechnicalProfile>` 요소를 다음 기술 프로필 XML로 바꿉니다.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="SAML2"/>
@@ -210,7 +210,7 @@ SAML 서비스 공급자와 연결된 메타데이터 엔드포인트가 아직 
 
 최종 신뢰 당사자 정책 파일은 다음과 같이 표시됩니다.
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -265,12 +265,12 @@ Azure AD B2C 정책 IDP 메타데이터는 SAML 프로토콜에서 SAML ID 공�
 
 ## <a name="4-setup-application-in-the-azure-ad-b2c-directory"></a>4. Azure AD B2C 디렉터리에서 애플리케이션 설정
 
-### <a name="41-register-your-application-in-azure-active-directory"></a>4.1 Azure Active Directory에 애플리케이션 등록
+### <a name="41-register-your-application-in-azure-ad-b2c"></a>4.1 Azure AD B2C에 응용 프로그램 등록
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
+1. **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
 1. 애플리케이션의 **이름**을 입력합니다. 예: *SAMLApp1*.
 1. **지원되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택합니다.
 1. **리디렉션 URI**에서 **웹**을 선택한 다음, `https://localhost`를 입력합니다. 이 값은 나중에 애플리케이션 등록 매니페스트에서 수정합니다.
@@ -297,7 +297,7 @@ SAML 메타데이터 URL 및 애플리케이션 등록 매니페스트에 *둘 �
 
 SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `samlMetadataUrl`에 대해 다음 값을 사용합니다.
 
-```JSON
+```json
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
@@ -309,7 +309,7 @@ SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `samlMe
 
 SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `replyUrlsWithType`의 `url` 속성을 다음 JSON 코드 조각에 표시된 값으로 설정합니다.
 
-```JSON
+```json
 "replyUrlsWithType":[
   {
     "url":"https://samltestapp2.azurewebsites.net/SP/AssertionConsumer",
@@ -324,7 +324,7 @@ SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `replyU
 
 SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `logoutUrl`을 `https://samltestapp2.azurewebsites.net/logout`으로 설정된 대로 유지합니다.
 
-```JSON
+```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 90b107b2335bd5f08eeb0b9aa66c7a9db9b74eb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388564"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Amazon 계정으로 로그인하도록 설정
 
@@ -27,14 +27,14 @@ ms.locfileid: "82900431"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료합니다.
-- Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)하나 만듭니다.
+- Amazon 계정이 아직 없는 경우에서 하나 만듭니다 [https://www.amazon.com/](https://www.amazon.com/) .
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Amazon developer console에서 앱 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션 id 공급자로 사용 하려면 [Amazon 개발자 서비스 및 기술](https://developer.amazon.com)에서 응용 프로그램을 만들어야 합니다. Amazon 계정이 아직 없는 경우에서 [https://www.amazon.com/](https://www.amazon.com/)등록할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션 id 공급자로 사용 하려면 [Amazon 개발자 서비스 및 기술](https://developer.amazon.com)에서 응용 프로그램을 만들어야 합니다. Amazon 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://www.amazon.com/](https://www.amazon.com/) .
 
 > [!NOTE]  
-> 아래의 **8 단계** 에서 다음 url을 사용 하 여 `your-tenant-name` 를 테 넌 트의 이름으로 바꿉니다. 테 넌 트 이름을 입력 하는 경우 Azure AD B2C에 대 문자가 대문자로 정의 된 경우에도 모든 소문자를 사용 합니다.
+> 아래의 **8 단계** 에서 다음 url을 사용 하 여를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다. 테 넌 트 이름을 입력 하는 경우 Azure AD B2C에 대 문자가 대문자로 정의 된 경우에도 모든 소문자를 사용 합니다.
 > - **허용 되는 원본**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com` 
 > - **허용 되는 반환 url**에 대해 다음을 입력 합니다.`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
 
@@ -124,7 +124,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 사용자 경험 ID의 이름을 바꿉니다. `SignUpSignInAmazon`)을 입력합니다.
+5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInAmazon`.
 
 ### <a name="display-the-button"></a>단추 표시
 
@@ -133,7 +133,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
 2. **ClaimsProviderSelects** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `AmazonExchange`)으로 설정합니다.
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AmazonExchange" />
     ```
 
@@ -144,17 +144,17 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정을 페더레이션
 1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
 2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 
-    **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 ID로 업데이트 합니다. `Amazon-OAuth`)을 입력합니다.
+    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. `Amazon-OAuth`)을 입력합니다.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
+Azure AD B2C와의 통신은 B2C 테넌트에서 등록하는 애플리케이션을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
@@ -163,7 +163,7 @@ Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그�
 만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInAmazon.xml*로 바꿉니다.
-2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. `SignUpSignInAmazon`)을 입력합니다.
+2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예들 들어 `SignUpSignInAmazon`입니다.
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_amazon`으로 업데이트할 수 있습니다.
 4. 새로 만든 사용자 경험의 ID(SignUpSignAmazon)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음, 목록에서 새 정책을 선택합니다.

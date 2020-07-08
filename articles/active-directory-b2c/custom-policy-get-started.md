@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32ec55a2ed6e0158a05f81067dc834fdc1e6e765
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389295"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -74,22 +74,9 @@ Azure AD B2C 테넌트에 이러한 두 애플리케이션을 한 번만 등록�
 
 ### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 애플리케이션 등록
 
-Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 **앱 등록(레거시)** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
+Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록** 환경을 사용할 수 있습니다.
 
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
-1. **Azure Active Directory** 개요 메뉴의 **관리**에서 **앱 등록(레거시)** 을 선택합니다.
-1. **새 애플리케이션 등록**을 선택합니다.
-1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
-1. **애플리케이션 종류**로 **웹앱/API**를 선택합니다.
-1. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다. 이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
-1. **만들기**를 선택합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
-
-#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
-
-1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
+1. **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
 1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
 1. **지원되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택합니다.
 1. **리디렉션 URI**에서 **웹**을 선택한 후 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다.
@@ -111,21 +98,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 **앱 등록
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 애플리케이션 등록
 
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
-
-1. **앱 등록(레거시)** 아래에서 **새 애플리케이션 등록**을 선택합니다.
-1. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
-1. **애플리케이션 종류**로 **네이티브**를 선택합니다.
-1. **리디렉션 URI**에 `myapp://auth`를 입력합니다.
-1. **만들기**를 선택합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
-1. **설정**을 선택한 후 **필요한 권한**, **추가**를 차례로 선택합니다.
-1. **API 선택**을 클릭하고 **IdentityExperienceFramework**를 검색하여 선택한 후 **선택**을 클릭합니다.
-1. **IdentityExperienceFramework 액세스** 옆의 확인란을 선택한 다음 **선택**, **완료**를 차례로 클릭합니다.
-1. **권한 부여**을 선택하고 **예**를 선택하여 확인합니다.
-
-#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
-
-1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
+1. **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
 1. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
 1. **지원되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택합니다.
 1. **리디렉션 URI** 아래에서 드롭다운을 사용하여 **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 를 선택합니다.
@@ -137,7 +110,6 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 **앱 등록
 다음으로, 애플리케이션을 퍼블릭 클라이언트로 처리하도록 지정합니다.
 
 1. **관리**에서 **인증**을 선택합니다.
-1. **새 환경을 체험해 보세요.** (표시되는 경우)를 선택합니다.
 1. **고급 설정**에서 **애플리케이션을 퍼블릭 클라이언트로 처리**(**예** 선택)를 사용하도록 설정합니다. 애플리케이션 매니페스트에 **"allowPublicClient": true**가 설정되었는지 확인합니다. 
 1. **저장**을 선택합니다.
 
@@ -151,7 +123,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 **앱 등록
 1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
 1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
 1. **수락**을 선택합니다.
-1. **새로 고침**을 선택한 다음, 두 범위 모두 **상태** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
+1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. 범위 offline_access, openid connect 및 user_impersonation에 대 한 **상태** 아래에 나타납니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
 
 * * *
 

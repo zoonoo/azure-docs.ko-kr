@@ -6,19 +6,21 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: ''
-ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: e1dd20514fcb14e411fbb7efee4157b670d462b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80056418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389703"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
 이 문서에서는 Azure Functions에서 타이머 트리거를 사용하는 방법을 설명합니다. 타이머 트리거를 사용하면 일정에 따라 함수를 실행할 수 있습니다. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+타이머 트리거 함수를 수동으로 실행 하는 방법에 대 한 자세한 내용은 [비 HTTP 트리거 함수 수동 실행](./functions-manually-run-non-http.md)을 참조 하세요.
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -36,7 +38,7 @@ ms.locfileid: "80056418"
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-다음 예제에서는 분이 5로 나눌 때마다 실행 되는 [c # 함수](functions-dotnet-class-library.md) 를 보여 줍니다 (예: 함수가 18:57:00에서 시작 하는 경우 다음 성능은 19:00:00에 있습니다). 개체 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 는 함수에 전달 됩니다.
+다음 예제에서는 분이 5로 나눌 때마다 실행 되는 [c # 함수](functions-dotnet-class-library.md) 를 보여 줍니다 (예: 함수가 18:57:00에서 시작 하는 경우 다음 성능은 19:00:00에 있습니다). [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)개체는 함수에 전달 됩니다.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -50,9 +52,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-다음 예에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. 개체 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 는 함수에 전달 됩니다.
+다음 예에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)개체는 함수에 전달 됩니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -111,7 +113,7 @@ module.exports = function (context, myTimer) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 해당 구성이 *함수인 json* 파일에 설명 된 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 * __init__py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다. 
+다음 예제에서는 파일 *의function.js* 에 설명 된 구성의 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 * __init__py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다. 
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -166,7 +168,7 @@ public void keepAlive(
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) 특성을 사용합니다.
 
-특성의 생성자는 CRON 식 또는 `TimeSpan`을 사용합니다. 함수 앱이 `TimeSpan` App Service 계획에서 실행 되는 경우에만를 사용할 수 있습니다. `TimeSpan`는 소비 또는 탄력적 프리미엄 함수에서 지원 되지 않습니다.
+특성의 생성자는 CRON 식 또는 `TimeSpan`을 사용합니다. `TimeSpan`함수 앱이 App Service 계획에서 실행 되는 경우에만를 사용할 수 있습니다. `TimeSpan`는 소비 또는 탄력적 프리미엄 함수에서 지원 되지 않습니다.
 
 다음 예제는 CRON 식을 보여줍니다.
 
@@ -182,17 +184,17 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-특성은 c # 스크립트에서 지원 되지 않습니다.
+C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -211,25 +213,25 @@ public void keepAlive(
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
-다음 표에서는 *함수. json* 파일 및 `TimerTrigger` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `TimerTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | 해당 없음 | "timerTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**방향도** | 해당 없음 | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**direction** | 해당 없음 | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
-|**일정과**|**ScheduleExpression**|[CRON 식](#ncrontab-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. 앱 설정에 일정 식을 배치 하 고이 속성을 "% ScheduleAppSetting%" 예제와 같이 기호에서 **%** 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
-|**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 앱이 함수 변경으로 인해 다시 시작 되 고 함수 앱이 확장 될 때 따라서 **Runonstartup** 은 특히 프로덕션에서로 설정 하 `true`는 경우 거의 없습니다. |
-|**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정 하지 않은 경우 되풀이 간격이 `true` 1 분 보다 크거나 같은 일정의 경우 기본값은입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
+|**일정과**|**ScheduleExpression**|[CRON 식](#ncrontab-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. 앱 설정에 일정 식을 배치 하 고이 속성을 **%** "% ScheduleAppSetting%" 예제와 같이 기호에서 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
+|**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 앱이 함수 변경으로 인해 다시 시작 되 고 함수 앱이 확장 될 때 따라서 **Runonstartup** 은 특히 프로덕션에서로 설정 하는 경우 거의 없습니다 `true` . |
+|**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정 하지 않은 경우 `true` 되풀이 간격이 1 분 보다 크거나 같은 일정의 경우 기본값은입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
 > 프로덕션 환경에서는 **runOnStartup**을 `true`로 설정하지 않는 것이 좋습니다. 이 설정을 사용하면 매우 예측할 수 없는 시간에 코드가 실행됩니다. 특정 프로덕션 환경에서 이러한 추가 실행으로 인해 소비 계획에서 호스팅되는 앱의 비용이 상당히 높아질 수 있습니다. 예를 들어 **Runonstartup** 을 사용 하도록 설정 하면 함수 앱이 확장 될 때마다 트리거가 호출 됩니다. 프로덕션 환경에서 **runOnStartup**을 사용하도록 설정하기 전에 함수의 프로덕션 동작을 완전히 이해했는지 확인하세요.   
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 타이머 트리거 함수를 호출 하면 timer 개체가 함수에 전달 됩니다. 다음 JSON은 타이머 개체의 예제 표현입니다.
 
@@ -256,7 +258,7 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|Type  |예제  |트리거될 때  |
+|형식  |예제  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>"0 5 * * * *"</nobr>|hh:05:00에서 hh는 매시간임(시간당 한 번)|
 |모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm:00에서 mm은 해당 시간의 매분임(하루 60번)|
@@ -319,7 +321,7 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 |"24:00:00" | 매일        |
 |"1.00:00:00" | 매일        |
 
-## <a name="scale-out"></a>스케일 아웃
+## <a name="scale-out"></a>확장
 
 함수 앱이 여러 인스턴스로 확장하는 경우 모든 인스턴스에서 타이머 트리거 함수의 단일 인스턴스만을 실행합니다.
 
@@ -327,10 +329,10 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 
 App service에 배포 되지 않은 함수 앱에서 저장소 계정을 공유 하는 경우 각 앱에 호스트 ID를 명시적으로 할당 해야 할 수 있습니다.
 
-| Functions 버전 | 설정                                              |
+| Functions 버전 | Setting                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2.x 이상  | `AzureFunctionsWebHost__hostid`환경 변수 |
-| 1.x               | `id`*호스트. json*                                  |
+| 1.x               | `id`의 *host.js*                                  |
 
 식별 값을 생략 하거나 각 함수 앱의 식별 구성을 다른 값으로 수동으로 설정할 수 있습니다.
 

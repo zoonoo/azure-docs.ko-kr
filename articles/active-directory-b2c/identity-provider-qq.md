@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b0f15124c64e5cca54112987d486ddadaca79452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d230bc8a1e9bf388e1cca4e3a3a691223146d734
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387986"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 
@@ -23,7 +23,7 @@ ms.locfileid: "78187990"
 
 ## <a name="create-a-qq-application"></a>QQ 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 id 공급자로 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. 아직 QQ 계정이 없는 경우에는에서 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)등록할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 id 공급자로 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. 아직 QQ 계정이 없는 경우에는에서 등록할 수 있습니다 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
 
 ### <a name="register-for-the-qq-developer-program"></a>QQ 개발자 프로그램 등록
 
@@ -48,10 +48,10 @@ Azure Active Directory B2C (Azure AD B2C)에서 QQ 계정을 id 공급자로 사
 ## <a name="configure-qq-as-an-identity-provider"></a>QQ를 ID 공급자로 구성
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
-1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
 1. **Id 공급자**를 선택한 다음 **Qq (미리 보기)** 를 선택 합니다.
-1. **이름을**입력 합니다. 예를 들어 *Qq*입니다.
+1. **이름**을 입력합니다. 예를 들어 *Qq*입니다.
 1. **클라이언트 ID**에 대해 이전에 만든 qq 응용 프로그램의 앱 ID를 입력 합니다.
 1. **클라이언트 암호**의 경우 기록한 앱 키를 입력 합니다.
 1. **저장**을 선택합니다.

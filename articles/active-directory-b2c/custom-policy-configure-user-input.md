@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389363"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
@@ -35,20 +35,20 @@ ms.locfileid: "79473679"
 1. 각 로그인의 Azure AD B2C 디렉터리에서 도시 클레임을 읽습니다.
 1. 로그인 또는 등록 후에 신뢰 당사자 응용 프로그램에 도시를 반환 합니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료합니다. 소셜 및 로컬 계정을 사용 하 여 등록 및 로그인 하는 데 사용 되는 사용자 지정 정책이 있어야 합니다.
 
 ## <a name="define-a-claim"></a>클레임 정의
 
-클레임은 Azure AD B2C 정책 실행 중에 데이터의 임시 저장소를 제공 합니다. 클레임 [스키마](claimsschema.md) 는 클레임을 선언 하는 위치입니다. 다음 요소는 클레임을 정의하는 데 사용됩니다.
+클레임은 Azure AD B2C 정책 실행 중에 데이터의 임시 저장소를 제공 합니다. [클레임 스키마](claimsschema.md)에서 클레임을 선언합니다. 다음 요소는 클레임을 정의하는 데 사용됩니다.
 
 - **DisplayName** - 사용자에게 표시되는 레이블을 정의하는 문자열입니다.
 - [DataType](claimsschema.md#datatype) -클레임의 유형입니다.
 - **UserHelpText** - 사용자가 필요한 내용을 파악할 수 있도록 도와줍니다.
 - [Userinputtype](claimsschema.md#userinputtype) -입력란, 라디오 선택, 드롭다운 목록 또는 다중 선택과 같은 입력 컨트롤의 유형입니다.
 
-정책의 확장 파일을 엽니다. 예를 <em> `SocialAndLocalAccounts/` </em>들면입니다.
+정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
 
 1. [BuildingBlocks](buildingblocks.md) 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. [ClaimsSchema](claimsschema.md) 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "79473679"
 - **SelfAsserted-** 페더레이션 계정 처음 사용자 로그인
 - **SelfAsserted-ProfileUpdate** -프로필 흐름 편집
 
-등록 하는 동안 도시 클레임을 수집 하려면 `LocalAccountSignUpWithLogonEmail` 기술 프로필에 대 한 출력 클레임으로 추가 해야 합니다. 확장 파일에서이 기술 프로필을 재정의 합니다. 전체 출력 클레임 목록을 지정 하 여 화면에 클레임이 표시 되는 순서를 제어 합니다. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 ClaimsProviders를 추가 합니다.
+등록 하는 동안 도시 클레임을 수집 하려면 기술 프로필에 대 한 출력 클레임으로 추가 해야 합니다 `LocalAccountSignUpWithLogonEmail` . 확장 파일에서이 기술 프로필을 재정의 합니다. 전체 출력 클레임 목록을 지정 하 여 화면에 클레임이 표시 되는 순서를 제어 합니다. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 ClaimsProviders를 추가 합니다.
 
 ```xml
 <ClaimsProvider>
@@ -98,7 +98,7 @@ ms.locfileid: "79473679"
 <ClaimsProvider>
 ```
 
-페더레이션된 계정으로 초기 로그인 한 후 도시 클레임을 수집 하려면 `SelfAsserted-Social` 기술 프로필에 대 한 출력 클레임으로 추가 해야 합니다. 로컬 및 페더레이션된 계정 사용자가 나중에 프로필 데이터를 편집할 수 있도록 하려면 출력 클레임을 `SelfAsserted-ProfileUpdate` 기술 프로필에 추가 합니다. 확장 파일에서 이러한 기술 프로필을 재정의 합니다. 출력 클레임의 전체 목록을 지정 하 여 화면에 클레임이 표시 되는 순서를 제어 합니다. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 ClaimsProviders를 추가 합니다.
+페더레이션된 계정으로 초기 로그인 한 후 도시 클레임을 수집 하려면 기술 프로필에 대 한 출력 클레임으로 추가 해야 합니다 `SelfAsserted-Social` . 로컬 및 페더레이션된 계정 사용자가 나중에 프로필 데이터를 편집할 수 있도록 하려면 출력 클레임을 기술 프로필에 추가 합니다 `SelfAsserted-ProfileUpdate` . 확장 파일에서 이러한 기술 프로필을 재정의 합니다. 출력 클레임의 전체 목록을 지정 하 여 화면에 클레임이 표시 되는 순서를 제어 합니다. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 ClaimsProviders를 추가 합니다.
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -128,7 +128,7 @@ ms.locfileid: "79473679"
 ## <a name="read-and-write-a-claim"></a>클레임 읽기 및 쓰기
 
 다음 기술 프로필은 Active Directory Azure Active Directory 데이터를 읽고 쓰는 [기술 프로필](active-directory-technical-profile.md)입니다.  
-를 `PersistedClaims` 사용 하 여 사용자 프로필 `OutputClaims` 에 데이터를 쓰고 해당 Active Directory 기술 프로필 내에서 사용자 프로필의 데이터를 읽습니다.
+`PersistedClaims`를 사용 하 여 사용자 프로필에 데이터를 쓰고 `OutputClaims` 해당 Active Directory 기술 프로필 내에서 사용자 프로필의 데이터를 읽습니다.
 
 확장 파일에서 이러한 기술 프로필을 재정의 합니다. **ClaimsProviders** 요소를 찾습니다.  다음과 같이 새 ClaimsProviders를 추가 합니다.
 
@@ -170,9 +170,9 @@ ms.locfileid: "79473679"
 </ClaimsProvider>
 ```
 
-## <a name="include-a-claim-in-the-token"></a>토큰에 클레임 포함 
+## <a name="include-a-claim-in-the-token"></a>토큰에 클레임 포함하기 
 
-도시 클레임을 신뢰 당사자 응용 프로그램에 다시 반환 하려면 출력 클레임을 <em> `SocialAndLocalAccounts/` </em> 파일에 추가 합니다. 사용자 경험에 성공 하면 출력 클레임이 토큰에 추가 되 고 응용 프로그램으로 전송 됩니다. 신뢰 당사자 섹션 내에서 기술 프로필 요소를 수정 하 여 출력 클레임으로 도시를 추가 합니다.
+도시 클레임을 신뢰 당사자 응용 프로그램에 다시 반환 하려면 출력 클레임을 파일에 추가 <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> 합니다. 사용자 경험에 성공 하면 출력 클레임이 토큰에 추가 되 고 응용 프로그램으로 전송 됩니다. 신뢰 당사자 섹션 내에서 기술 프로필 요소를 수정 하 여 출력 클레임으로 도시를 추가 합니다.
  
 ```xml
 <RelyingParty>
@@ -198,7 +198,7 @@ ms.locfileid: "79473679"
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure ad 테 넌 트가 포함 된 디렉터리를 선택 하 여 azure ad 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
+2. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **ID 경험 프레임워크**를 선택합니다.
 5. **사용자 지정 정책 업로드**를 선택한 후 변경한 두 정책 파일을 업로드합니다.

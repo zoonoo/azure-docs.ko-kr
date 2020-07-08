@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ab196e894fc53b1243ac363f9863d5c7d4e328f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389006"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 구성
 
@@ -31,13 +31,13 @@ Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자�
 
 ## <a name="add-the-elements"></a>요소 추가
 
-암호 복잡성을 구성 하려면 [조건자 유효성 검사](predicates.md#predicatevalidations)에 대 한 참조를 사용 하 여 `newPassword` 및 `reenterPassword` [클레임 형식을](claimsschema.md) 재정의 합니다. PredicateValidations 요소는 조건부 집합을 그룹화 하 여 클레임 유형에 적용할 수 있는 사용자 입력 유효성 검사를 구성 합니다. 정책의 확장 파일을 엽니다. 예를 <em> `SocialAndLocalAccounts/` </em>들면입니다.
+암호 복잡성을 구성 하려면 `newPassword` `reenterPassword` [조건자 유효성 검사](predicates.md#predicatevalidations)에 대 한 참조를 사용 하 여 및 [클레임 형식을](claimsschema.md) 재정의 합니다. PredicateValidations 요소는 조건부 집합을 그룹화 하 여 클레임 유형에 적용할 수 있는 사용자 입력 유효성 검사를 구성 합니다. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
 
 1. [BuildingBlocks](buildingblocks.md) 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. [ClaimsSchema](claimsschema.md) 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
-1. 및 클레임을 ClaimsSchema 요소에 추가 합니다. **ClaimsSchema** `newPassword` `reenterPassword`
+1. `newPassword`및 `reenterPassword` 클레임을 **ClaimsSchema** 요소에 추가 합니다.
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -46,9 +46,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자�
     </ClaimType>
     ```
 
-1. [조건자](predicates.md) 는 클레임 형식의 값을 확인 하 고 true 또는 false를 반환 하는 기본 유효성 검사를 정의 합니다. 유효성 검사는 지정 된 메서드 요소 및 메서드와 관련 된 매개 변수 집합을 사용 하 여 수행 됩니다. 요소를 닫은 직후 BuildingBlocks 요소에 다음 조건자를 추가 합니다. **BuildingBlocks** `</ClaimsSchema>`
+1. [조건자](predicates.md) 는 클레임 형식의 값을 확인 하 고 true 또는 false를 반환 하는 기본 유효성 검사를 정의 합니다. 유효성 검사는 지정 된 메서드 요소 및 메서드와 관련 된 매개 변수 집합을 사용 하 여 수행 됩니다. 요소를 닫은 직후 **BuildingBlocks** 요소에 다음 조건자를 추가 합니다 `</ClaimsSchema>` .
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -84,9 +84,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자�
     </Predicates>
     ```
 
-1. 요소를 닫은 직후 BuildingBlocks 요소에 다음 조건자 유효성 검사를 추가 합니다. **BuildingBlocks** `</Predicates>`
+1. 요소를 닫은 직후 **BuildingBlocks** 요소에 다음 조건자 유효성 검사를 추가 합니다 `</Predicates>` .
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -109,9 +109,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자�
     </PredicateValidations>
     ```
 
-1. 다음 기술 프로필은 Active Directory Azure Active Directory 데이터를 읽고 쓰는 [기술 프로필](active-directory-technical-profile.md)입니다. 확장 파일에서 이러한 기술 프로필을 재정의 합니다. 를 `PersistedClaims` 사용 하 여 강력한 암호 정책을 사용 하지 않도록 설정 합니다. **ClaimsProviders** 요소를 찾습니다.  다음과 같이 다음과 같은 클레임 공급자를 추가 합니다.
+1. 다음 기술 프로필은 Active Directory Azure Active Directory 데이터를 읽고 쓰는 [기술 프로필](active-directory-technical-profile.md)입니다. 확장 파일에서 이러한 기술 프로필을 재정의 합니다. `PersistedClaims`를 사용 하 여 강력한 암호 정책을 사용 하지 않도록 설정 합니다. **ClaimsProviders** 요소를 찾습니다.  다음과 같이 다음과 같은 클레임 공급자를 추가 합니다.
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -140,7 +140,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자�
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 경험 프레임워크**를 선택합니다.
 5. 사용자 지정 정책 페이지에서 **정책 업로드**를 클릭합니다.
-6. **정책이 있는 경우 덮어쓰기**를 선택 하 고 *trustframeworkextensions.xml* 파일을 검색 한 다음 선택 합니다.
+6. **정책이 있는 경우 덮어쓰기**를 선택 하 고 *TrustFrameworkExtensions.xml* 파일을 검색 한 다음 선택 합니다.
 7. **업로드**를 클릭합니다.
 
 ### <a name="run-the-policy"></a>정책 실행

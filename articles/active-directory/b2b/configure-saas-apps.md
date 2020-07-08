@@ -4,7 +4,7 @@ description: Azure Active Directory B2B 협업을 위한 코드 및 PowerShell �
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387353"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 협업용 SaaS 앱 구성
 
@@ -81,12 +81,12 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
    ![Single Sign-On 구성 설정을 보여 주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
 
-   a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 명명 규칙 *https://.box.com*을 따라야 합니다.  
+   a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 명명 규칙을 따라야 합니다 *https://.box.com* .  
    **식별자**는 이 앱에 적용되지 않지만 여전히 필수 필드로 표시됩니다.
 
    b. **사용자 식별자** 상자에 **user.mail**(게스트 계정의 SSO에 대한)을 입력합니다.
 
-   c. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
+   다. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
 
    d. ID 공급자로 Azure AD를 사용하도록 Box.com 테넌트를 구성하려면 메타데이터 파일을 다운로드하여 로컬 드라이브에 저장합니다.
 

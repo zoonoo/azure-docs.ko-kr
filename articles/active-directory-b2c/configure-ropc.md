@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389601"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -50,9 +50,9 @@ ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고�
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
 선호하는 API 개발 애플리케이션을 사용하여 API 호출을 생성하고, 응답을 검토하여 사용자 흐름을 디버그합니다. 다음 표의 정보를 POST 요청의 본문으로 사용하여 이와 같은 호출을 작성합니다.
-- *\<tenant-name>.onmicrosoft.com*을 B2C 테넌트의 이름으로 바꿉니다.
-- *\<B2C_1A_ROPC_Auth>* 를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
-- *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3&gt;* 을 등록의 애플리케이션 ID로 바꿉니다.
+- * \<tenant-name> ONMICROSOFT.COM* 을 B2C 테 넌 트의 이름으로 바꿉니다.
+- *\<B2C_1A_ROPC_Auth>* 을 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
+- 를 *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* 등록의 응용 프로그램 ID로 바꿉니다.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 

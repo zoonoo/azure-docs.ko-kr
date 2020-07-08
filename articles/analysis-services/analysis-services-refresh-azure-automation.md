@@ -6,31 +6,27 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389975"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
 Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 형식 모델에서 자동 데이터 새로 고침 작업을 수행할 수 있습니다.  
 
-이 문서의 예에서는 [PowerShell SqlServer 모듈](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps)을 사용합니다.
-
-모델 새로 고침을 보여주는 샘플 PowerShell Runbook이 이 문서의 뒷부분에서 제공됩니다.  
+이 문서의 예제에서는 [SqlServer PowerShell 모듈](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps)을 사용 합니다. 모델 새로 고침을 보여주는 샘플 PowerShell Runbook이 이 문서의 뒷부분에서 제공됩니다.  
 
 ## <a name="authentication"></a>인증
 
-모든 호출은 유효한 Azure Active Directory(OAuth 2) 토큰을 사용하여 인증되어야 합니다.  이 문서의 예에서는 SPN(서비스 사용자 이름)을 사용하여 Azure Analysis Services에 인증합니다.
-
-서비스 사용자를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+모든 호출은 유효한 Azure Active Directory(OAuth 2) 토큰을 사용하여 인증되어야 합니다.  이 문서의 예제에서는 SPN (서비스 주체)을 사용 하 여 Azure Analysis Services에 인증 합니다. 자세히 알아보려면 [Azure Portal를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!IMPORTANT]
-> 다음 예에서는 Azure Analysis Services 방화벽을 사용하지 않는다고 가정합니다. 방화벽을 사용하는 경우에는 요청 개시 장치의 공용 IP 주소가 방화벽의 허용 목록에 있어야 합니다.
+> 다음 예에서는 Azure Analysis Services 방화벽을 사용하지 않는다고 가정합니다. 방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 방화벽 규칙에 포함 해야 합니다.
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>PowerShell 갤러리에서 SqlServer 모듈을 설치합니다.
 

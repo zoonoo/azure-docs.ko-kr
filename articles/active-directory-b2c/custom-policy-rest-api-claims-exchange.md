@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 997a6941e2ccc26dabe1a593fe938094099bc98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388989"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>연습: Azure Active Directory B2C에서 REST API 클레임 교환을 사용자 지정 정책에 추가하기
 
@@ -123,7 +123,7 @@ REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [
 1. `<ClaimsProviders>` 요소를 닫은 후 확장 파일에 `<UserJourneys>`를 붙여넣습니다.
 1. `<UserJourney Id="SignUpOrSignIn">`를 찾고 마지막 오케스트레이션 앞에 다음 오케스트레이션 단계를 추가합니다.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -133,7 +133,7 @@ REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [
 
 1. `Order`를 `8`로 변경하여 마지막 오케스트레이션 단계를 리팩터링합니다. 최종 두 가지 오케스트레이션 단계는 다음과 같습니다.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90d9c6a2ebf445ba492f2e1634e57910cd235aed
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 7defc33f8e3e2daca60fa5c15c41c62333ffc2d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389261"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -101,7 +101,7 @@ ms.locfileid: "83679259"
 | [일회용 암호](one-time-password-technical-profile.md) |  | X |  |  |
 | 로컬 디렉터리로서의 [Azure Active Directory](active-directory-technical-profile.md) |  |  | X |  |
 | 이메일 확인을 위한 Azure 이메일 하위 시스템 |  |  | X |  |
-| [타사 이메일 서비스 공급자](custom-email.md) |  |X  |  |  |
+| [타사 이메일 서비스 공급자](custom-email-mailjet.md) |  |X  |  |  |
 | [다중 언어 지원](localization.md)|  |  | X |  |
 | [조건자 유효성 검사](predicates.md) |  |  | X | 예: 암호 복잡성 |
 | [표시 컨트롤](display-controls.md) |  |X  |  |  |

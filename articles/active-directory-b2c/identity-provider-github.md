@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7435abf2740800184a6de1aad07bca53cd56cf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba2441ae48c99d63ae637d2b80069058a04c5ef9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188208"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388190"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인
 
@@ -24,7 +24,7 @@ ms.locfileid: "78188208"
 
 ## <a name="create-a-github-oauth-application"></a>GitHub OAuth 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 GitHub 계정을 [id 공급자로](authorization-code-flow.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. 아직 GitHub 계정이 없는 경우에는에서 [https://www.github.com/](https://www.github.com/)등록할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 GitHub 계정을 [id 공급자로](authorization-code-flow.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. 아직 GitHub 계정이 없는 경우에는에서 등록할 수 있습니다 [https://www.github.com/](https://www.github.com/) .
 
 1. GitHub 자격 증명을 사용하여 [GitHub Developer](https://github.com/settings/developers) 웹 사이트에 로그인합니다.
 1. **OAuth 앱**, **새 OAuth 앱**을 차례로 선택합니다.
@@ -35,11 +35,11 @@ Azure Active Directory B2C (Azure AD B2C)에서 GitHub 계정을 [id 공급자�
 
 ## <a name="configure-a-github-account-as-an-identity-provider"></a>GitHub 계정을 ID 공급자로 구성
 
-1. [Azure Portal](https://portal.azure.com/) 에 Azure AD B2C 테 넌 트의 전역 관리자로 로그인 합니다.
+1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **Id 공급자**를 선택한 다음 **GitHub (미리 보기)** 를 선택 합니다.
-1. **이름을**입력 합니다. 예: *GitHub*.
+1. **이름**을 입력합니다. 예: *GitHub*.
 1. **클라이언트 id**에 대해 이전에 만든 GitHub 응용 프로그램의 클라이언트 id를 입력 합니다.
 1. **클라이언트 암호**에 대해 기록한 클라이언트 암호를 입력 합니다.
 1. **저장**을 선택합니다.

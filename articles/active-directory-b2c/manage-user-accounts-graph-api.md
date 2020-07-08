@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7eea37cbd926046c6b923b003cd47e0a0c2b0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387629"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리
 
@@ -52,22 +52,22 @@ Microsoft Graph를 사용 하면 Microsoft Graph API에서 만들기, 읽기, �
 
 소비자, 파트너 또는 시민 일 수 있는 고객 계정은 다음과 같은 id 형식에 연결할 수 있습니다.
 
-- **로컬** id-사용자 이름 및 암호는 Azure AD B2C 디렉터리에 로컬로 저장 됩니다. 이러한 id를 "로컬 계정"으로 지칭 하는 경우가 많습니다.
+- **로컬** id-사용자 이름 및 암호는 Azure AD B2C 디렉터리에 로컬로 저장 됩니다. 이러한 ID는 "로컬 계정"으로 참조하는 경우가 많습니다.
 - **페더레이션된** id- *소셜* 계정 또는 *엔터프라이즈* 계정이 라고도 하며, 사용자의 ID는 Facebook, Microsoft, ADFS 또는 Salesforce와 같은 페더레이션된 id 공급자를 통해 관리 됩니다.
 
 고객 계정을 가진 사용자는 여러 id를 사용 하 여 로그인 할 수 있습니다. 예: 사용자 이름, 전자 메일, 직원 ID, 정부 ID 및 기타. 단일 계정에는 동일한 암호를 사용 하 여 로컬 및 소셜의 id가 여러 개 있을 수 있습니다.
 
-Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [objectIdentity][graph-objectIdentity]형식의 user 특성에 저장 됩니다. 컬렉션 `identities` 은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다.
+Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [objectIdentity][graph-objectIdentity]형식의 user 특성에 저장 됩니다. `identities`컬렉션은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다.
 
-| 속성   | 유형 |설명|
+| 속성   | 형식 |설명|
 |:---------------|:--------|:----------|
-|signInType|string| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 `emailAddress`계정:, `emailAddress1` `emailAddress2` `emailAddress3` `userName`,,, 또는 원하는 다른 모든 형식 소셜 계정은로 `federated`설정 되어야 합니다.|
-|발급자|string|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 `federated`경우)의 경우이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름 `contoso.onmicrosoft.com`입니다 (예:). 소셜 id (여기서 **signInType** 는 `federated`)의 경우 값은 발급자의 이름입니다 (예:).`facebook.com`|
-|issuerAssignedId|string|발급자에 의해 사용자에 게 할당 된 고유 식별자를 지정 합니다. **발급자** 와 **issuerAssignedId** 의 조합은 테 넌 트 내에서 고유 해야 합니다. 로컬 계정의 경우 **signInType** 가 또는 `emailAddress` `userName`로 설정 되 면 사용자의 로그인 이름을 나타냅니다.<br>**SignInType** 가로 설정 된 경우: <ul><li>`emailAddress`(또는와 `emailAddress` 같이 `emailAddress1`시작) **issuerAssignedId** 는 유효한 전자 메일 주소 여야 합니다.</li><li>`userName`(또는 다른 값) **issuerAssignedId** 는 [전자 메일 주소의 유효한 로컬 부분](https://tools.ietf.org/html/rfc3696#section-3) 이어야 합니다.</li><li>`federated`, **issuerAssignedId** 는 페더레이션된 계정 고유 식별자를 나타냅니다.</li></ul>|
+|signInType|string| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,, `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3` `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다 `federated` .|
+|발급자|string|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우 `federated` 값은 발급자의 이름입니다 (예:).`facebook.com`|
+|issuerAssignedId|string|발급자에 의해 사용자에 게 할당 된 고유 식별자를 지정 합니다. **발급자** 와 **issuerAssignedId** 의 조합은 테 넌 트 내에서 고유 해야 합니다. 로컬 계정의 경우 **signInType** 가 또는로 설정 되 `emailAddress` 면 `userName` 사용자의 로그인 이름을 나타냅니다.<br>**SignInType** 가로 설정 된 경우: <ul><li>`emailAddress`(또는 like로 `emailAddress` 시작 `emailAddress1` ) **issuerAssignedId** 는 유효한 전자 메일 주소 여야 합니다.</li><li>`userName`(또는 다른 값) **issuerAssignedId** 는 [전자 메일 주소의 유효한 로컬 부분](https://tools.ietf.org/html/rfc3696#section-3) 이어야 합니다.</li><li>`federated`, **issuerAssignedId** 는 페더레이션된 계정 고유 식별자를 나타냅니다.</li></ul>|
 
 로그인 이름이 있는 로컬 계정 id, 로그인으로 전자 메일 주소, 소셜 id를 사용 하는 다음 **id** 속성 
 
- ```JSON
+ ```json
  "identities": [
      {
        "signInType": "userName",
@@ -91,11 +91,11 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 ### <a name="password-profile-property"></a>암호 프로필 속성
 
-로컬 id의 경우 **Passwordprofile** 속성이 필요 하며 사용자의 암호를 포함 합니다. 속성 `forceChangePasswordNextSignIn` 은로 `false`설정 해야 합니다.
+로컬 id의 경우 **Passwordprofile** 속성이 필요 하며 사용자의 암호를 포함 합니다. `forceChangePasswordNextSignIn`속성은로 설정 해야 합니다 `false` .
 
 페더레이션된 (소셜) id의 경우 **Passwordprofile** 속성이 필요 하지 않습니다.
 
-```JSON
+```json
 "passwordProfile" : {
     "password": "password-value",
     "forceChangePasswordNextSignIn": false
@@ -108,7 +108,7 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 사용자 마이그레이션 시나리오에서 마이그레이션하려는 계정이 Azure AD B2C에 의해 적용 되는 [강력한 암호](../active-directory/authentication/concept-sspr-policy.md) 강도 보다 약한 암호 강도의 경우 강력한 암호 요구 사항을 사용 하지 않도록 설정할 수 있습니다. 기본 암호 정책을 변경하려면 `passwordPolicies` 속성을 `DisableStrongPassword`로 설정합니다. 예를 들어 다음과 같이 사용자 만들기 요청을 수정할 수 있습니다.
 
-```JSON
+```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
@@ -116,9 +116,9 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 모든 고객 지향 응용 프로그램에는 수집할 정보에 대 한 고유한 요구 사항이 있습니다. Azure AD B2C 테 넌 트에는 지정 된 이름, 성, 도시 및 우편 번호와 같은 속성에 저장 되는 기본 제공 정보 집합이 제공 됩니다. Azure AD B2C를 사용 하 여 각 고객 계정에 저장 된 속성 집합을 확장할 수 있습니다. 사용자 지정 특성을 정의 하는 방법에 대 한 자세한 내용은 사용자 지정 [특성 (사용자 흐름)](user-flow-custom-attributes.md) 및 [사용자 지정 특성 (사용자 지정 정책)](custom-policy-custom-attributes.md)을 참조 하세요.
 
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트 하는 것을 지원 합니다. Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 예를 들면 다음과 같습니다.
+Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 다음은 그 예입니다.
 
-```JSON
+```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
@@ -135,7 +135,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 
 1. [Visual Studio](https://visualstudio.microsoft.com) 또는 [Visual Studio Code](https://code.visualstudio.com)에서 프로젝트를 엽니다.
 1. `src/appsettings.json`를 엽니다.
-1. `appSettings` 섹션에서을 테 넌 `your-b2c-tenant` 트 `Application (client) ID` 의 이름으로 바꾸고,을 관리 응용 `Client secret` 프로그램 등록 값으로 바꿉니다 (이 문서의 [관리 응용 프로그램 등록](#register-a-management-application) 섹션 참조).
+1. 섹션에서 `appSettings` 을 `your-b2c-tenant` 테 넌 트의 이름으로 바꾸고,을 `Application (client) ID` `Client secret` 관리 응용 프로그램 등록 값으로 바꿉니다 (이 문서의 [관리 응용 프로그램 등록](#register-a-management-application) 섹션 참조).
 1. 리포지토리의 로컬 클론 내에서 콘솔 창을 열고 `src` 디렉터리로 전환한 다음 프로젝트를 빌드합니다.
     ```console
     cd src
@@ -155,9 +155,9 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 
 Microsoft Graph API에 대 한 모든 요청에는 인증을 위한 액세스 토큰이 필요 합니다. 이 솔루션은 Microsoft Graph SDK에 사용할 MSAL (Microsoft 인증 라이브러리)의 인증 시나리오 기반 래퍼를 제공 하는 [Microsoft Graph. Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet 패키지를 사용 합니다.
 
-Program.cs `RunAsync` 파일의 메서드 _Program.cs_ 는 다음과 같습니다.
+`RunAsync` _Program.cs_ 파일의 메서드는 다음과 같습니다.
 
-1. Appsettings 파일에서 응용 프로그램 설정을 읽습니다 _._
+1. 파일 _의appsettings.js_ 에서 응용 프로그램 설정을 읽습니다.
 1. [OAuth 2.0 클라이언트 자격 증명 부여](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) 흐름을 사용 하 여 인증 공급자를 초기화 합니다. 클라이언트 자격 증명 부여 흐름을 사용 하 여 앱은 Microsoft Graph API를 호출 하는 액세스 토큰을 가져올 수 있습니다.
 1. 인증 공급자를 사용 하 여 Microsoft Graph 서비스 클라이언트를 설정 합니다.
 
@@ -202,7 +202,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Microsoft Graph sdk를 사용 하 여 API 호출을 수행](https://docs.microsoft.com/graph/sdks/create-requests) 하면 Microsoft Graph에서 정보를 읽고 쓰고,를 사용 `$select` 하 여 반환 된 속성을 제어 하 고, 사용자 지정 쿼리 매개 `$filter` 변수 `$orderBy` 를 제공 하 고, 쿼리 매개 변수를 사용 하는 방법에 대 한 정보가
+[Microsoft Graph sdk를 사용 하 여 API 호출을 수행](https://docs.microsoft.com/graph/sdks/create-requests) 하면 Microsoft Graph에서 정보를 읽고 쓰고,를 사용 하 여 `$select` 반환 된 속성을 제어 하 고, 사용자 지정 쿼리 매개 변수를 제공 하 고, `$filter` `$orderBy` 쿼리 매개 변수를 사용 하는 방법에 대 한 정보가
 
 ## <a name="next-steps"></a>다음 단계
 

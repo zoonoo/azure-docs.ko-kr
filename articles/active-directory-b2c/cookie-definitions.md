@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b984b75b3a12606aa0d82c7e7b399d5dce59df33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389346"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Azure AD B2C에 대 한 쿠키 정의
 
@@ -24,11 +24,11 @@ ms.locfileid: "78189517"
 
 ## <a name="samesite"></a>SameSite
 
-Microsoft Azure AD B2C 서비스는 `SameSite=None` `Secure` 특성에 대 한 지원을 포함 하 여 SameSite 브라우저 구성과 호환 됩니다.
+Microsoft Azure AD B2C 서비스는 특성에 대 한 지원을 포함 하 여 SameSite 브라우저 구성과 호환 됩니다 `SameSite=None` `Secure` .
 
 사이트에 대 한 액세스를 보호 하기 위해 웹 브라우저에서는 별도로 지정 하지 않는 한 모든 쿠키를 외부 액세스 로부터 보호 해야 한다고 가정 하는 새로운 보안 기본 모델을 도입 합니다. Chrome 브라우저는이 변경 내용을 구현 하기 위한 첫 번째 방법으로, [2020 년 2 월에 chrome 80](https://www.chromium.org/updates/same-site)부터 시작 합니다. Chrome에서 변경을 준비 하는 방법에 대 한 자세한 내용은 [개발자: Get Ready For New SameSite = None을 참조 하세요. Chromium 블로그의 보안 쿠키 설정](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 
-개발자는 새 쿠키 설정인 `SameSite=None`를 사용 하 여 사이트 간 액세스를 위한 쿠키를 지정 해야 합니다. `SameSite=None` 특성이 있는 경우에는 HTTPS 연결을 `Secure` 통해서만 사이트 간 쿠키에 액세스할 수 있도록 추가 특성을 사용 해야 합니다. Azure AD B2C를 사용 하는 응용 프로그램을 포함 하 여 모든 응용 프로그램의 유효성을 검사 하 고 테스트 합니다.
+개발자는 새 쿠키 설정인 `SameSite=None` 를 사용 하 여 사이트 간 액세스를 위한 쿠키를 지정 해야 합니다. 특성이 있는 경우에는 `SameSite=None` `Secure` HTTPS 연결을 통해서만 사이트 간 쿠키에 액세스할 수 있도록 추가 특성을 사용 해야 합니다. Azure AD B2C를 사용 하는 응용 프로그램을 포함 하 여 모든 응용 프로그램의 유효성을 검사 하 고 테스트 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -39,7 +39,7 @@ Microsoft Azure AD B2C 서비스는 `SameSite=None` `Secure` 특성에 대 한 �
 
 다음 표에서는 Azure AD B2C에 사용 되는 쿠키를 나열 합니다.
 
-| Name | 도메인 | 만료 | 목적 |
+| 이름 | 도메인 | 만료 | 용도 |
 | ----------- | ------ | -------------------------- | --------- |
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | [브라우저 세션](session-behavior.md) 의 끝 | 테 넌 트 간에 사용자 멤버 자격 데이터를 저장 합니다. 사용자가 구성원 인 테 넌 트 (관리자 또는 사용자)입니다. |
 | `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | 요청을 적절 한 프로덕션 인스턴스로 라우팅하는 데 사용 됩니다. |

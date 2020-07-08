@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389312"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 고객 등록 중에 전자 메일 확인 사용 안 함
 
@@ -28,17 +28,17 @@ ms.locfileid: "79136145"
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>자체 어설션된 기술 프로필에 메타 데이터 추가
 
-**LocalAccountSignUpWithLogonEmail** 기술 프로필은 등록 흐름 중에 호출 되는 [자체 어설션](self-asserted-technical-profile.md)입니다. 전자 메일 확인을 사용 하지 않도록 설정 `EnforceEmailVerification` 하려면 메타 데이터를 false로 설정 합니다. 확장 파일의 LocalAccountSignUpWithLogonEmail 기술 프로필을 재정의 합니다. 
+**LocalAccountSignUpWithLogonEmail** 기술 프로필은 등록 흐름 중에 호출 되는 [자체 어설션](self-asserted-technical-profile.md)입니다. 전자 메일 확인을 사용 하지 않도록 설정 하려면 `EnforceEmailVerification` 메타 데이터를 false로 설정 합니다. 확장 파일의 LocalAccountSignUpWithLogonEmail 기술 프로필을 재정의 합니다. 
 
-1. 정책의 확장 파일을 엽니다. 예를 <em> `SocialAndLocalAccounts/` </em>들면입니다.
+1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
 1. `ClaimsProviders` 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
-1. `ClaimsProviders` 요소에 다음 클레임 공급자를 추가 합니다.
+1. 요소에 다음 클레임 공급자를 추가 합니다 `ClaimsProviders` .
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
       </Metadata>
@@ -50,7 +50,7 @@ ms.locfileid: "79136145"
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure ad 테 넌 트가 포함 된 디렉터리를 선택 하 여 azure ad 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
+2. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **ID 경험 프레임워크**를 선택합니다.
 5. **사용자 지정 정책 업로드**를 선택한 후 변경한 두 정책 파일을 업로드합니다.

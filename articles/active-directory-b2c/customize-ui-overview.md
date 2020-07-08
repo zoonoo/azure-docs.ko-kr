@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388904"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -61,7 +61,7 @@ ms.locfileid: "80666862"
 
 그런 다음 목록에서 템플릿을 선택 합니다. 각 템플릿에 대 한 로그인 페이지의 예는 다음과 같습니다.
 
-| 바다색 | 슬레이트 회색 | 클래식 |
+| 바다색 | 슬레이트 회색 | Classic |
 |:-:|:-:|:-:|
 |![등록 로그인 페이지에서 렌더링 된 대양 Blue 템플릿의 예](media/customize-ui-overview/template-ocean-blue.png)|![로그인 페이지에서 렌더링 되는 슬레이트 회색 템플릿의 예](media/customize-ui-overview/template-slate-gray.png)|![등록 로그인 페이지에서 렌더링 된 클래식 템플릿의 예](media/customize-ui-overview/template-classic.png)|
 
@@ -155,7 +155,7 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용 하 여 고객 으로부터 추가 정보를 수집 해야 하는 경우에 사용 됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
 | Multi-Factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
-| 오류 | 고객에게 오류 정보를 제공합니다. |
+| Error | 고객에게 오류 정보를 제공합니다. |
 
 ## <a name="company-branding-preview"></a>회사 브랜딩 (미리 보기)
 
@@ -171,7 +171,7 @@ Azure Active Directory [회사 브랜딩을](../active-directory/fundamentals/cu
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
 1. **관리**에서 **회사 브랜딩**을 선택 합니다.
 1. [조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가](../active-directory/fundamentals/customize-branding.md)의 단계를 따릅니다.
 
@@ -186,7 +186,7 @@ Azure AD B2C에서 회사 브랜딩을 구성할 때 다음 사항을 염두에 
 회사 브랜딩을 구성 했으면 사용자 흐름에서 사용 하도록 설정 합니다.
 
 1. Azure Portal 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다.
-1. **정책**에서 **사용자 흐름 (정책)** 을 선택 합니다.
+1. **정책**에서 **사용자 흐름(정책)** 을 선택합니다.
 1. 회사 브랜딩을 사용 하도록 설정할 사용자 흐름을 선택 합니다. 회사 브랜딩은 *로그인 v1* 및 *프로필 편집 v1* 사용자 흐름 유형에 대해 **지원 되지 않습니다** .
 1. **사용자 지정**에서 **페이지 레이아웃**을 선택한 다음 브랜드를 지정할 레이아웃을 선택 합니다. 예를 들어 **통합 등록 또는 로그인 페이지**를 선택 합니다.
 1. **페이지 레이아웃 버전 (미리 보기)** 의 경우 버전 **1.2.0** 이상을 선택 합니다.
@@ -202,7 +202,7 @@ Azure AD B2C에서 회사 브랜딩을 구성할 때 다음 사항을 염두에 
 
 ### <a name="use-company-branding-assets-in-custom-html"></a>사용자 지정 HTML에서 회사 브랜딩 자산 사용
 
-사용자 지정 HTML에서 회사 브랜딩 자산을 사용 하려면 `<div id="api">` 태그 외부에 다음 태그를 추가 합니다.
+사용자 지정 HTML에서 회사 브랜딩 자산을 사용 하려면 태그 외부에 다음 태그를 추가 합니다 `<div id="api">` .
 
 ```HTML
 <img data-tenant-branding-background="true" />
@@ -213,19 +213,19 @@ Azure AD B2C에서 회사 브랜딩을 구성할 때 다음 사항을 염두에 
 
 ## <a name="localize-content"></a>콘텐츠 지역화
 
-Azure AD B2C 테넌트에서 [사용자 언어 지정](user-flow-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C Openid connect Connect 매개 `ui-locales` 변수를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
+Azure AD B2C 테넌트에서 [사용자 언어 지정](user-flow-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C Openid connect Connect 매개 변수를 끝점으로 전달할 수 있습니다 `ui_locales` . 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
 
 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정합니다. 와일드 카드 값 `{Culture:RFC5646}`을 사용하는 경우 적합한 구조를 호출합니다.
 
 예를 들어 사용자 지정 페이지 URI는 다음과 같습니다.
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
 다음에서 콘텐츠를 당겨 프랑스어로 페이지를 로드할 수 있습니다.
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 

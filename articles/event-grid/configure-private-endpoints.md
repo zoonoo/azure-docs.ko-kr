@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 816d1f762698deeed38afe01899916b491809db2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390468"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성
 [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하 여 공용 인터넷을 통하지 않고 [개인 링크](../private-link/private-link-overview.md) 를 통해 안전 하 게 항목 및 도메인에 대 한 가상 네트워크에서 직접 이벤트를 수신 하도록 허용할 수 있습니다. 개인 끝점은 토픽 또는 도메인에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. 개념에 대 한 자세한 내용은 [네트워크 보안](network-security.md)을 참조 하세요.
@@ -37,43 +37,43 @@ ms.locfileid: "82890823"
     5. 그런 다음 페이지 아래쪽에서 **다음: 리소스 >** 단추를 선택 합니다. 
 
       ![개인 끝점-기본 페이지](./media/configure-private-endpoints/basics-page.png)
-3. **리소스** 페이지에서 다음 단계를 수행 합니다. 
+3. **리소스** 페이지에서 다음 단계를 수행합니다. 
     1. 연결 방법의 경우 **내 디렉터리에서 Azure 리소스에 연결**을 선택 하는 경우 다음 단계를 수행 합니다. 이 예제에서는 디렉터리의 Azure 리소스에 연결 하는 방법을 보여 줍니다. 
         1. **토픽/도메인이** 존재 하는 **Azure 구독** 을 선택 합니다. 
         1. **리소스 유형**에서 **리소스 종류**에 대 한 **microsoft Eventgrid/토픽** 또는 **microsoft eventgrid/도메인** 을 선택 합니다.
         2. **리소스**의 경우 드롭다운 목록에서 토픽/도메인을 선택 합니다. 
         3. 선택한 리소스 종류에 따라 **대상 하위 리소스가** **토픽** 또는 **도메인** 으로 설정 되어 있는지 확인 합니다.    
-        4. 페이지 맨 아래에 있는 **다음: 구성 >** 단추를 선택 합니다. 
+        4. 완료되면 **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다. 
 
             ![개인 끝점-리소스 페이지](./media/configure-private-endpoints/resource-page.png)
     2. **리소스 ID 또는 별칭을 사용 하 여 리소스에 연결**을 선택 하는 경우 다음 단계를 수행 합니다.
         1. 리소스의 ID를 입력 합니다. 예: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`  
         2. **리소스**에 대해 **토픽** 또는 **도메인**을 입력 합니다. 
         3. 필드 요청 메시지를 추가 합니다. 
-        4. 페이지 맨 아래에 있는 **다음: 구성 >** 단추를 선택 합니다. 
+        4. 완료되면 **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다. 
 
             ![개인 끝점-리소스 페이지](./media/configure-private-endpoints/connect-azure-resource-id.png)
-4. **구성** 페이지에서 개인 끝점을 배포 하려는 가상 네트워크의 서브넷을 선택 합니다. 
-    1. **가상 네트워크**를 선택 합니다. 현재 선택한 구독 및 위치에 있는 가상 네트워크만 드롭다운 목록에 나열 됩니다. 
-    2. 선택한 가상 네트워크에서 **서브넷** 을 선택 합니다. 
-    3. 페이지 맨 아래에 있는 **다음: 태그 >** 단추를 선택 합니다. 
+4. **구성** 페이지에서 프라이빗 엔드포인트를 배포하려는 가상 네트워크의 서브넷을 선택합니다. 
+    1. **가상 네트워크**를 선택합니다. 드롭다운 목록에 현재 선택한 구독 및 위치의 가상 네트워크만 나열됩니다. 
+    2. 선택한 가상 네트워크의 **서브넷**을 선택합니다. 
+    3. 완료되면 **다음: 태그 >** 단추를 페이지의 아래쪽에서 선택합니다. 
 
     ![개인 끝점-구성 페이지](./media/configure-private-endpoints/configuration-page.png)
-5. **태그** 페이지에서 개인 끝점 리소스와 연결 하려는 태그 (이름 및 값)를 만듭니다. 그런 다음 페이지 아래쪽에서 **검토 + 만들기** 단추를 선택 합니다. 
-6. **검토 + 만들기**에서 모든 설정을 검토 하 고 **만들기** 를 선택 하 여 개인 끝점을 만듭니다. 
+5. **태그** 페이지에서 프라이빗 엔드포인트 리소스와 연결하려는 태그(이름 및 값)를 만듭니다. 그런 다음 페이지 아래쪽에서 **검토 + 만들기** 단추를 선택합니다. 
+6. **검토 + 만들기**에서 모든 설정을 검토하고 **만들기**를 선택하여 프라이빗 엔드포인트를 만듭니다. 
 
     ![개인 끝점-검토 & 만들기 페이지](./media/configure-private-endpoints/review-create-page.png)
     
 
 ### <a name="manage-private-link-connection"></a>프라이빗 링크 연결 관리
 
-프라이빗 엔드포인트를 만들 때 연결이 승인되어야 합니다. 개인 끝점을 만드는 리소스가 디렉터리에 있는 경우 충분 한 권한이 있는 경우 연결 요청을 승인할 수 있습니다. 다른 디렉터리의 Azure 리소스에 연결 하는 경우 해당 리소스의 소유자가 연결 요청을 승인할 때까지 기다려야 합니다.
+프라이빗 엔드포인트를 만들 때 연결이 승인되어야 합니다. 프라이빗 엔드포인트를 만드는 리소스가 디렉터리에 있는 경우 충분한 사용 권한이 있다면 연결 요청을 승인할 수 있습니다. 다른 디렉터리의 Azure 리소스에 연결하는 경우 해당 리소스의 소유자가 연결 요청을 승인할 때까지 기다려야 합니다.
 
 다음 네 가지 프로비저닝 상태가 있습니다.
 
-| 서비스 작업 | 서비스 소비자 프라이빗 엔드포인트 상태 | 설명 |
+| 서비스 작업 | 서비스 소비자 프라이빗 엔드포인트 상태 | Description |
 |--|--|--|
-| 없음 | Pending | 연결이 수동으로 만들어지며 개인 링크 리소스 소유자의 승인이 보류 중입니다. |
+| None | Pending | 연결이 수동으로 만들어지며 개인 링크 리소스 소유자의 승인이 보류 중입니다. |
 | 승인 | 승인됨 | 연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다. |
 | 거부 | 거부됨 | Private Link 리소스 소유자가 연결을 거부했습니다. |
 | 제거 | 연결 끊김 | Private Link 리소스 소유자가 연결을 제거했습니다. 프라이빗 엔드포인트는 정보를 제공하므로 정리를 위해 삭제해야 합니다. |
@@ -84,7 +84,7 @@ ms.locfileid: "82890823"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 검색 표시줄에 **Event Grid 토픽** 또는 **Event Grid 도메인**을 입력 합니다.
 1. 관리 하려는 **토픽** 또는 **도메인** 을 선택 합니다.
-1. **네트워킹** 탭을 선택 합니다.
+1. **네트워킹** 탭을 선택합니다.
 1. 보류 중인 연결이 있는 경우 프로 비전 상태에 **보류 중** 으로 표시 된 연결이 표시 됩니다. 
 
 ### <a name="to-approve-a-private-endpoint"></a>개인 끝점을 승인 하려면
@@ -141,7 +141,7 @@ az network private-endpoint create \
 예제에 사용 된 매개 변수에 대 한 설명은 [az network private endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create)에 대 한 설명서를 참조 하세요. 이 예에서는 다음과 같은 몇 가지 사항을 주의 해야 합니다. 
 
 - `private-connection-resource-id`에서 **토픽** 또는 **도메인**의 리소스 ID를 지정 합니다. 앞의 예제에서는 type: 토픽을 사용 합니다.
-- 에 `group-ids`대해 또는 `topic` `domain`를 지정 합니다. 위의 예에서는 `topic` 가 사용 됩니다. 
+- 에 대해 `group-ids` 또는를 지정 `topic` `domain` 합니다. 위의 예에서는 `topic` 가 사용 됩니다. 
 
 개인 끝점을 삭제 하려면 다음 예제와 같이 [az network private-endpoint delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) 메서드를 사용 합니다.
 
@@ -185,7 +185,7 @@ az network private-endpoint create \
 예제에 사용 된 매개 변수에 대 한 설명은 [az network private endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create)에 대 한 설명서를 참조 하세요. 이 예에서는 다음과 같은 몇 가지 사항을 주의 해야 합니다. 
 
 - `private-connection-resource-id`에서 **토픽** 또는 **도메인**의 리소스 ID를 지정 합니다. 앞의 예제에서는 type: 토픽을 사용 합니다.
-- 에 `group-ids`대해 또는 `topic` `domain`를 지정 합니다. 위의 예에서는 `topic` 가 사용 됩니다. 
+- 에 대해 `group-ids` 또는를 지정 `topic` `domain` 합니다. 위의 예에서는 `topic` 가 사용 됩니다. 
 
 개인 끝점을 삭제 하려면 다음 예제와 같이 [az network private-endpoint delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) 메서드를 사용 합니다.
 
@@ -313,7 +313,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>PowerShell 사용
 이 섹션에서는 PowerShell을 사용 하 여 토픽 또는 도메인에 대 한 개인 끝점을 만드는 방법을 보여 줍니다. 
 
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>필수 조건
 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기를 사용](../active-directory/develop/howto-create-service-principal-portal.md) 하 여 Azure Active Directory 응용 프로그램을 만들고 **디렉터리 (테 넌 트) id**, **응용 프로그램 (클라이언트) id**및 **응용 프로그램 (클라이언트) 암호**에 대 한 값을 적어 둡니다. 
 
 ### <a name="prepare-token-and-headers-for-rest-api-calls"></a>REST API 호출에 대 한 토큰 및 헤더 준비 
@@ -437,7 +437,7 @@ Invoke-RestMethod -Method 'Get'  `
 }
 ```
 
-### <a name="approve-a-private-endpoint-connection"></a>개인 끝점 연결 승인
+### <a name="approve-a-private-endpoint-connection"></a>프라이빗 엔드포인트 연결 승인
 다음 샘플 PowerShell 코드 조각은 개인 끝점을 승인 하는 방법을 보여 줍니다. 
 
 > [!NOTE]
@@ -459,7 +459,7 @@ Invoke-RestMethod -Method 'Get'  `
 
 ```
 
-### <a name="reject-a-private-endpoint-connection"></a>개인 끝점 연결 거부
+### <a name="reject-a-private-endpoint-connection"></a>프라이빗 엔드포인트 연결 거부
 다음 예제에서는 PowerShell을 사용 하 여 개인 끝점을 거부 하는 방법을 보여 줍니다. 이전 GET 명령의 결과에서 개인 끝점에 대 한 GUID를 가져올 수 있습니다. 
 
 > [!NOTE]
@@ -484,4 +484,5 @@ Invoke-RestMethod -Method 'Get'
 API를 통해 거부 된 후에도 연결을 승인할 수 있습니다. Azure Portal 사용 하는 경우 거부 된 끝점은 승인할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-IP 방화벽 설정을 구성 하는 방법에 대 한 자세한 내용은 [Azure Event Grid 토픽 또는 도메인에 대 한 ip 방화벽 구성](configure-firewall.md)을 참조 하세요.
+* IP 방화벽 설정을 구성 하는 방법에 대 한 자세한 내용은 [Azure Event Grid 토픽 또는 도메인에 대 한 ip 방화벽 구성](configure-firewall.md)을 참조 하세요.
+* 네트워크 연결 문제를 해결 하려면 [네트워크 연결 문제 해결](troubleshoot-network-connectivity.md) 을 참조 하세요.

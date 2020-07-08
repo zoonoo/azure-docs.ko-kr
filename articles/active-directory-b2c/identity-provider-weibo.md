@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e99b5717cdcc32d8fd138d1edf5fe1bd3283c70e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08aa7e4af6dc5d5e5bff470bc4c5d023e25b3014
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387884"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
 
@@ -24,7 +24,7 @@ ms.locfileid: "78187902"
 
 ## <a name="create-a-weibo-application"></a>Weibo 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 id 공급자로 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. Weibo 계정이 아직 없는 경우에서 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us)등록할 수 있습니다.
+Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 id 공급자로 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. Weibo 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Weibo 계정 자격 증명을 사용하여 [Weibo 개발자 포털](https://open.weibo.com/)에 로그인합니다.
 1. 로그인한 후 오른쪽 위 모서리의 표시 이름을 선택합니다.
@@ -49,11 +49,11 @@ Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 id 공급자로 
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Weibo 계정을 ID 공급자로 구성
 
-1. [Azure Portal](https://portal.azure.com/) 에 Azure AD B2C 테 넌 트의 전역 관리자로 로그인 합니다.
+1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **Id 공급자**를 선택한 다음 **Weibo (미리 보기)** 를 선택 합니다.
-1. **이름을**입력 합니다. 예를 들면 *Weibo*입니다.
+1. **이름**을 입력합니다. 예를 들면 *Weibo*입니다.
 1. **클라이언트 ID**에 대해 앞에서 만든 Weibo 응용 프로그램의 앱 키를 입력 합니다.
-1. **클라이언트 암호**의 경우 기록한 앱 암호를 입력 합니다.
+1. **클라이언트 암호**에는 기록한 앱 비밀을 입력합니다.
 1. **저장**을 선택합니다.

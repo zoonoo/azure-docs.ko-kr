@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387527"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Azure Portal를 사용 하 여에서 소비자 사용자를 만들고 삭제 Azure AD B2C
 
@@ -29,8 +29,8 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 수동으로 소비
 
 [Azure AD B2C의 사용자 계정 개요](user-overview.md)에 설명 된 대로 Azure AD B2C 디렉터리에서 만들 수 있는 사용자 계정에는 다음 세 가지 유형이 있습니다.
 
-* Work
-* Guest
+* 작업
+* 게스트
 * 소비자
 
 이 문서에서는 Azure Portal에서 **소비자 계정** 으로 작업 하는 방법을 집중적으로 설명 합니다. 작업 및 게스트 계정을 만들고 삭제 하는 방법에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자 추가 또는 삭제](../active-directory/fundamentals/add-users-azure-active-directory.md)를 참조 하세요.
@@ -40,10 +40,10 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 수동으로 소비
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **관리**에서 **사용자**를 선택합니다.
+1. **관리** 아래에서 **사용자**를 선택합니다.
 1. **새 사용자**를 선택합니다.
 1. **사용자 Azure AD B2C 만들기**를 선택 합니다.
-1. **로그인 방법을** 선택 하 고 새 사용자에 대 한 **전자 메일** 주소 또는 **사용자 이름을** 입력 합니다. 여기에서 선택 하는 로그인 방법은 Azure AD B2C 테 넌 트의 *로컬 계정* id 공급자에 대해 지정한 설정과 일치 해야 합니다 (Azure AD B2C 테 넌 트에서**id 공급자** **관리** > 참조).
+1. **로그인 방법을** 선택 하 고 새 사용자에 대 한 **전자 메일** 주소 또는 **사용자 이름을** 입력 합니다. 여기에서 선택 하는 로그인 방법은 Azure AD B2C 테 넌 트의 *로컬 계정* id 공급자에 대해 지정한 설정과 일치 해야 합니다 ( **Manage**  >  Azure AD B2C 테 넌 트에서**id 공급자** 관리 참조).
 1. 사용자의 **이름을** 입력 합니다. 일반적으로 사용자의 전체 이름 (지정 된 및 성)입니다.
 1. 필드 사용자가 로그인 할 수 있는 기능을 지연 시키려는 경우 **로그인을 차단할** 수 있습니다. 나중에 Azure Portal에서 사용자의 **프로필** 을 편집 하 여 로그인을 사용 하도록 설정할 수 있습니다.
 1. **암호 자동 생성** 을 선택 하거나 **암호를 만듭니다**.를 선택 합니다.

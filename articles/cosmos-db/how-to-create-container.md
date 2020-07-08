@@ -1,24 +1,24 @@
 ---
 title: Azure Cosmos DB에서 컨테이너 만들기
-description: Azure Portal, .Net, Java, Python, node.js 및 기타 Sdk를 사용 하 여 Azure Cosmos DB에서 컨테이너를 만드는 방법에 대해 알아봅니다.
+description: Azure Portal, .Net, Java, Python, Node.js 및 기타 Sdk를 사용 하 여 Azure Cosmos DB에서 컨테이너를 만드는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 809ebe848e38a7c99c96ef44f130da917fb35942
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 22c51497a9c9a331f1337134fbaf7c781b9c8ba7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390893"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 
 이 문서에서는 Azure Cosmos 컨테이너(컬렉션, 테이블 또는 그래프)를 만드는 여러 가지 방법을 설명합니다. 이를 위해 Azure Portal, Azure CLI 또는 지원되는 SDK를 사용할 수 있습니다. 이 문서에서는 컨테이너를 만들고 파티션 키를 지정하고 처리량을 프로비저닝하는 방법을 보여줍니다.
 
 > [!NOTE]
-> 컨테이너를 만들 때 이름은 같지만 대/소문자가 다른 두 개의 컨테이너를 만들지 않아야 합니다. Azure 플랫폼의 일부 부분에서 대/소문자를 구분 하지 않으므로이로 인해 이러한 이름을 가진 컨테이너에 대 한 원격 분석 및 작업의 혼동/충돌이 발생할 수 있습니다.
+> 컨테이너를 만들 때 이름은 같지만 대/소문자가 다른 두 개의 컨테이너를 만들지 않도록 해야 합니다. Azure 플랫폼의 일부 부분에서는 대/소문자를 구분하지 않으므로 이로 인해 이러한 이름을 가진 컨테이너에 대한 원격 분석 및 작업의 혼동/충돌이 발생할 수 있습니다.
 
 ## <a name="create-a-container-using-azure-portal"></a>Azure Portal을 사용하여 컨테이너 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "82161625"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    ![새 컨테이너가 강조 표시 된 데이터 탐색기 창의 스크린샷](./media/how-to-create-container/partitioned-collection-create-sql.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="새 컨테이너가 강조 표시 된 데이터 탐색기 창의 스크린샷":::
 
 ### <a name="azure-cosmos-db-api-for-mongodb"></a><a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
@@ -52,7 +52,7 @@ ms.locfileid: "82161625"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    ![MongoDB API에 대 한 Azure Cosmos DB API, 컨테이너 추가 대화 상자 스크린샷](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="MongoDB API에 대 한 Azure Cosmos DB API, 컨테이너 추가 대화 상자 스크린샷":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>Cassandra API
 
@@ -68,7 +68,7 @@ ms.locfileid: "82161625"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    ![Cassandra API, 테이블 추가 대화 상자의 스크린샷](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Cassandra API, 테이블 추가 대화 상자의 스크린샷":::
 
 > [!NOTE]
 > Cassandra API의 경우 기본 키가 파티션 키로 사용됩니다.
@@ -88,7 +88,7 @@ ms.locfileid: "82161625"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    ![Gremlin API, 그래프 추가 대화 상자의 스크린샷](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Gremlin API, 그래프 추가 대화 상자의 스크린샷":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>테이블 API
 
@@ -102,7 +102,7 @@ ms.locfileid: "82161625"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    ![Table API, 테이블 추가 대화 상자의 스크린샷](./media/how-to-create-container/partitioned-collection-create-table.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Table API, 테이블 추가 대화 상자의 스크린샷":::
 
 > [!Note]
 > Table API의 경우 새 행을 추가할 때마다 파티션 키가 지정됩니다.
@@ -132,6 +132,8 @@ ms.locfileid: "82161625"
 * [Powershell을 사용 하 여 Table API 테이블 만들기](./scripts/powershell/table/ps-table-create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>.NET SDK를 사용하여 컨테이너 만들기
+
+컬렉션을 만들 때 시간 제한 예외가 발생 하면 읽기 작업을 수행 하 여 컬렉션이 성공적으로 만들어졌는지 확인 합니다. 읽기 작업은 컬렉션 만들기 작업이 성공할 때까지 예외를 throw 합니다. 만들기 작업에서 지원 되는 상태 코드 목록은 [Azure Cosmos DB에 대 한 HTTP 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조 하세요.
 
 ### <a name="sql-api-and-gremlin-api"></a><a id="dotnet-sql-graph"></a>SQL API 및 Gremlin API
 
@@ -171,5 +173,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 * [Azure Cosmos DB에서 분할](partitioning-overview.md)
 * [Azure Cosmos DB의 요청 단위](request-units.md)
-* [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [Azure Cosmos 계정 작업](account-overview.md)
