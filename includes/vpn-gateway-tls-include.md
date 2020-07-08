@@ -9,10 +9,10 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182029"
 ---
 1. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하여 상승된 권한으로 명령 프롬프트를 엽니다.
