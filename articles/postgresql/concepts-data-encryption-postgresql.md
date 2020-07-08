@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 4ef5d89ea58c5c27f4344633afa2fe8048948719
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849480"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025593"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용하여 Azure Database for PostgreSQL Single 서버 데이터 암호화
-
-> [!NOTE]
-> 현재는 이 기능을 사용하려면 액세스를 요청해야 합니다. 액세스 요청은 AskAzureDBforPostgreSQL@service.microsoft.com에 문의하세요.
 
 Azure Database for PostgreSQL Single 서버 데이터에 고객 관리형 키를 사용한 암호화를 적용하면 저장 데이터 보호에 BYOK(Bring Your Own Key)를 사용할 수 있습니다. 또한 조직이 키 및 데이터 관리에서 업무 분리를 구현할 수도 있습니다. 고객 관리 암호화를 사용하여 사용자가 키 수명 주기, 키 사용 권한 및 키 작업 감사를 담당합니다.
 
@@ -129,6 +126,19 @@ Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for P
 * 마스터 Azure Database for PostgreSQL Single 서버에서 복원된 서버 또는 읽기 복제본 만들기 프로세스를 시작합니다.
 * 새로 만든 서버(복원된 서버/복제본)의 고유 ID에 아직 Key Vault에 대한 권한이 부여되지 않았으므로 액세스할 수 없음 상태로 유지합니다.
 * 복원된/복제본 서버의 데이터 암호화 설정에서 고객 관리형 키의 유효성을 다시 검사합니다. 이렇게 하면 Key Vault에 저장된 키에 대한 래핑 및 래핑 해제 권한이 새로 만든 서버에 부여됩니다.
+
+## <a name="limitations"></a>제한 사항
+
+Azure Database for PostgreSQL의 경우 CMK (customers 관리 키)를 사용 하 여 미사용 데이터 암호화에 대 한 지원에는 몇 가지 제한 사항이 있습니다.
+
+* 이 기능에 대 한 지원은 **범용** 및 메모리 액세스에 **최적화** 된 가격 책정 계층으로 제한 됩니다.
+* 이 기능은 최대 16TB의 스토리지를 지원하는 지역 및 서버에서만 지원됩니다. 최대 16TB의 저장소를 지 원하는 Azure 지역 목록은 [여기](concepts-pricing-tiers.md#storage) 설명서의 저장소 섹션을 참조 하세요.
+
+    > [!NOTE]
+    > - 위에 나열 된 지역에서 만든 모든 새 PostgreSQL 서버를 **사용할 수**있습니다. PITR (특정 시점 복원) 서버 또는 읽기 복제본은 이론적으로는 ' 신규 '입니다.
+    > - 프로 비전 된 서버에서 최대 16TB를 지원 하는지 확인 하기 위해 포털의 가격 책정 계층 블레이드로 이동 하 여 프로 비전 된 서버에서 지 원하는 최대 저장소 크기를 확인할 수 있습니다. 슬라이더를 최대 4TB까지 이동할 수 있는 경우 서버에서 고객 관리 키를 사용 하 여 암호화를 지원 하지 않을 수 있습니다. 그러나 데이터는 서비스 관리 키를 사용 하 여 항상 암호화 됩니다. AskAzureDBforPostgreSQL@service.microsoft.com궁금한 점이 있으면에 문의 하세요.
+
+* 암호화는 RSA 2048 암호화 키 에서만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,16 +5,17 @@ description: Azure Machine Learning 레이블 지정 프로젝트에서 데이�
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.topic: conceptual
+ms.subservice: core
+ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 657b1dbb169d80a3e5563dd1a4fa52eac2278aae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655774"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025729"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>레이블을 사용 하 여 Azure Machine Learning 데이터 집합 만들기 및 탐색 (미리 보기)
 
 이 문서에서는 Azure Machine Learning 데이터 레이블 지정 프로젝트에서 데이터 레이블을 내보내고 데이터 탐색을 위한 pandas 데이터 프레임 또는 이미지 변환을 위한 Torchvision 데이터 세트와 같은 인기 있는 형식으로 로드하는 방법을 알아봅니다. 
 
