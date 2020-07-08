@@ -10,12 +10,11 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77157510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84015303"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Azure Cloud Services에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
@@ -47,7 +46,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 애플리케이션 데이터 원본에 따라 애플리케이션 데이터 원본에 대한 복구 절차를 확인해야 할 수 있습니다.
 
 * Azure Storage 데이터 원본의 경우 응용 프로그램에 대해 선택한 중복성 모델에 따라 사용할 수 있는 옵션을 확인 하려면 [중복성 Azure Storage](../storage/common/storage-redundancy.md) 를 참조 하세요.
-* SQL Database 원본에 대해서는 [개요: SQL Database를 사용한 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md) 를 참조하여 애플리케이션에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
+* SQL Database 원본에 대해서는 [개요: SQL Database를 사용한 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) 를 참조하여 애플리케이션에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
 
 
 ## <a name="option-3-wait-for-recovery"></a>옵션 3: 복구 대기

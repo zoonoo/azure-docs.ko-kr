@@ -5,13 +5,12 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84170276"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -148,7 +147,7 @@ ms.locfileid: "83005501"
 
 * [GET parameters](#get-parameters) 또는 URL 매개 변수를 통해 값을 허용 합니다.
 
-  이러한 값은 끝점의 URL에서 이름-값 쌍으로 전달 됩니다. 이 옵션의 경우 요청 트리거에서 GET 메서드를 사용 해야 합니다. 후속 작업에서 식에 함수를 `triggerOutputs()` 사용 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다.
+  이러한 값은 끝점의 URL에서 이름-값 쌍으로 전달 됩니다. 이 옵션의 경우 요청 트리거에서 GET 메서드를 사용 해야 합니다. 후속 작업에서 식에 함수를 사용 하 여 매개 변수 값을 트리거 출력으로 가져올 수 있습니다 `triggerOutputs()` .
 
 * 요청 트리거의 매개 변수에 대 한 [상대 경로를 통해 값을 허용](#relative-path) 합니다.
 
@@ -164,21 +163,21 @@ ms.locfileid: "83005501"
 
 1. 요청 트리거 아래에 매개 변수 값을 사용 하려는 작업을 추가 합니다. 이 예에서는 **응답** 작업을 추가 합니다.
 
-   1. 요청 트리거에서 **새 단계** > **작업 추가**를 선택 합니다.
+   1. 요청 트리거에서 **새 단계**  >  **작업 추가**를 선택 합니다.
    
    1. **작업 선택** 아래의 검색 상자에 `response`을 필터로 입력합니다. 작업 목록에서 **응답** 작업을 선택 합니다.
 
-1. 매개 변수 값 `triggerOutputs()` 을 검색 하는 식을 작성 하려면 다음 단계를 수행 합니다.
+1. `triggerOutputs()`매개 변수 값을 검색 하는 식을 작성 하려면 다음 단계를 수행 합니다.
 
    1. 동적 콘텐츠 목록이 표시 되도록 응답 작업의 **본문** 속성 내부를 클릭 하 고 **식**을 선택 합니다.
 
-   1. **식** 상자에이 식을 입력 하 고을 매개 `parameter-name` 변수 이름으로 바꾸고 **확인**을 선택 합니다.
+   1. **식** 상자에이 식을 입력 하 `parameter-name` 고을 매개 변수 이름으로 바꾸고 **확인**을 선택 합니다.
 
       `triggerOutputs()['queries']['parameter-name']`
 
       ![트리거에 "triggerOutputs ()" 식을 추가 합니다.](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
 
-      **Body** 속성에서 식은 `triggerOutputs()` 토큰으로 확인 됩니다.
+      **Body** 속성에서 식은 토큰으로 확인 `triggerOutputs()` 됩니다.
 
       !["TriggerOutputs ()" 식이 확인 되었습니다.](./media/logic-apps-http-endpoint/trigger-outputs-expression-token.png)
 
@@ -190,11 +189,11 @@ ms.locfileid: "83005501"
 
       `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
 
-      예를 들어 이라는 `postalCode`매개 변수에 대 한 값을 전달 하려고 한다고 가정 합니다. **Body** 속성은 후행 공백을 사용 하 `Postal Code: ` 여 문자열을 지정 하 고 그 뒤에 해당 하는 식을 지정 합니다.
+      예를 들어 이라는 매개 변수에 대 한 값을 전달 하려고 한다고 가정 `postalCode` 합니다. **Body** 속성은 후행 공백을 사용 하 여 문자열을 지정 하 고 그 뒤에 해당 하는 식을 지정 합니다 `Postal Code: ` .
 
       ![트리거에 대 한 예제 "triggerOutputs ()" 식을 추가 합니다.](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
 
-1. 호출 가능 끝점을 테스트 하려면 요청 트리거에서 콜백 URL을 복사 하 고 다른 브라우저 창에 URL을 붙여넣습니다. URL에서 물음표 (`?`) 뒤에 나오는 매개 변수 이름과 값을 다음 형식으로 url에 추가 하 고 enter 키를 누릅니다.
+1. 호출 가능 끝점을 테스트 하려면 요청 트리거에서 콜백 URL을 복사 하 고 다른 브라우저 창에 URL을 붙여넣습니다. URL에서 물음표 () 뒤에 나오는 매개 변수 이름과 값을 다음 형식으로 URL에 추가 하 `?` 고 enter 키를 누릅니다.
 
    `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
@@ -204,15 +203,18 @@ ms.locfileid: "83005501"
 
    ![요청을 콜백 URL로 보내는 응답](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-1. URL 내의 다른 위치에 매개 변수 이름과 값을 넣으려면 앰퍼샌드 (`&`)를 접두사로 사용 해야 합니다. 예를 들면 다음과 같습니다.
+1. URL 내의 다른 위치에 매개 변수 이름과 값을 넣으려면 앰퍼샌드 ()를 접두사로 사용 해야 합니다 `&` . 예를 들면 다음과 같습니다.
 
    `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
 
-   이 예제에서는 URL 내의 서로 다른 위치에 있는 샘플 매개 변수 `postalCode=123456` 이름 및 값을 사용 하는 콜백 URL을 보여 줍니다.
+   이 예제에서는 `postalCode=123456` url 내의 서로 다른 위치에 있는 샘플 매개 변수 이름 및 값을 사용 하는 콜백 URL을 보여 줍니다.
 
    * 첫 번째 위치:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
    * 두 번째 위치:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+> [!NOTE]
+> URI에 해시 또는 파운드 기호 ()를 포함 하려는 경우에는 **#** 이 인코딩된 버전을 대신 사용 합니다.`%25%23`
 
 <a name="relative-path"></a>
 
@@ -222,21 +224,21 @@ ms.locfileid: "83005501"
 
    ![트리거에 "상대 경로" 속성 추가](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. **상대 경로** 속성에서 URL에 허용 하려는 JSON 스키마의 매개 변수에 대 한 상대 경로를 지정 `/address/{postalCode}`합니다 (예:).
+1. **상대 경로** 속성에서 URL에 허용 하려는 JSON 스키마의 매개 변수에 대 한 상대 경로를 지정 합니다 (예:) `/address/{postalCode}` .
 
    ![매개 변수에 대 한 상대 경로를 지정 합니다.](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 1. 요청 트리거 아래에 매개 변수 값을 사용 하려는 작업을 추가 합니다. 이 예에서는 **응답** 작업을 추가 합니다.
 
-   1. 요청 트리거에서 **새 단계** > **작업 추가**를 선택 합니다.
+   1. 요청 트리거에서 **새 단계**  >  **작업 추가**를 선택 합니다.
 
    1. **작업 선택** 아래의 검색 상자에 `response`을 필터로 입력합니다. 작업 목록에서 **응답** 작업을 선택 합니다.
 
 1. 응답 동작의 **Body** 속성에서 트리거의 상대 경로에 지정한 매개 변수를 나타내는 토큰을 포함 합니다.
 
-   예를 들어 응답 작업을 반환 `Postal Code: {postalCode}`하려고 한다고 가정 합니다.
+   예를 들어 응답 작업을 반환 하려고 한다고 가정 `Postal Code: {postalCode}` 합니다.
 
-   1. **본문** 속성에 후행 공백을 사용 `Postal Code: ` 하 여을 입력 합니다. 동적 콘텐츠 목록이 열려 있는 상태로 유지 되도록 편집 상자 내에 커서를 둡니다.
+   1. **본문** 속성에 `Postal Code: ` 후행 공백을 사용 하 여을 입력 합니다. 동적 콘텐츠 목록이 열려 있는 상태로 유지 되도록 편집 상자 내에 커서를 둡니다.
 
    1. 동적 콘텐츠 목록의 **HTTP 요청이 수신** 되는 경우 섹션에서 **postalCode** 토큰을 선택 합니다.
 
@@ -252,15 +254,18 @@ ms.locfileid: "83005501"
 
    `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. 호출 가능 끝점을 테스트 하려면 요청 트리거에서 업데이트 된 콜백 URL을 복사 하 고 URL을 다른 브라우저 창에 붙여넣은 다음 URL `{postalCode}` 에서을로 `123456`바꾸고 enter 키를 누릅니다.
+1. 호출 가능 끝점을 테스트 하려면 요청 트리거에서 업데이트 된 콜백 URL을 복사 하 고 URL을 다른 브라우저 창에 붙여넣은 `{postalCode}` 다음 url에서을로 바꾸고 `123456` enter 키를 누릅니다.
 
    브라우저는 다음 텍스트와 함께 응답을 반환 합니다.`Postal Code: 123456`
 
    ![요청을 콜백 URL로 보내는 응답](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
+> [!NOTE]
+> URI에 해시 또는 파운드 기호 ()를 포함 하려는 경우에는 **#** 이 인코딩된 버전을 대신 사용 합니다.`%25%23`
+
 ## <a name="call-logic-app-through-endpoint-url"></a>끝점 URL을 통해 논리 앱 호출
 
-끝점을 만든 후에는 끝점의 전체 URL에 HTTPS `POST` 요청을 전송 하 여 논리 앱을 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
+끝점을 만든 후에는 `POST` 끝점의 전체 URL에 HTTPS 요청을 전송 하 여 논리 앱을 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
 
 <a name="generated-tokens"></a>
 
@@ -268,7 +273,7 @@ ms.locfileid: "83005501"
 
 요청 트리거에서 JSON 스키마를 제공 하는 경우 논리 앱 디자이너는 해당 스키마의 속성에 대 한 토큰을 생성 합니다. 논리 앱 워크플로를 통해 데이터를 전달하는 데 해당 토큰을 사용할 수 있습니다.
 
-예를 들어,와 `"suite"`같은 속성을 JSON 스키마에 추가 하는 경우 논리 앱의 이후 단계에서 해당 속성에 대 한 토큰을 사용할 수 있습니다. 다음은 완료된 JSON 스키마입니다.
+예를 들어,와 같은 속성을 `"suite"` JSON 스키마에 추가 하는 경우 논리 앱의 이후 단계에서 해당 속성에 대 한 토큰을 사용할 수 있습니다. 다음은 완료된 JSON 스키마입니다.
 
 ```json
    {
@@ -302,7 +307,7 @@ ms.locfileid: "83005501"
 
 요청을 받을 수 있는 다른 논리 앱을 추가하여 Logic Apps에서 워크플로를 중첩할 수 있습니다. 이러한 논리 앱을 포함 하려면 다음 단계를 수행 합니다.
 
-1. 다른 논리 앱을 호출 하려는 단계 아래에서 **새 단계** > **작업 추가**를 선택 합니다.
+1. 다른 논리 앱을 호출 하려는 단계 아래에서 **새 단계**  >  **작업 추가**를 선택 합니다.
 
 1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `logic apps`을 입력합니다. 작업 목록에서 **Logic Apps 워크플로 선택**을 선택 합니다.
 
@@ -316,9 +321,9 @@ ms.locfileid: "83005501"
 
 ## <a name="reference-content-from-an-incoming-request"></a>들어오는 요청의 콘텐츠 참조
 
-들어오는 요청의 콘텐츠 형식이 인 `application/json`경우 들어오는 요청에서 속성을 참조할 수 있습니다. 그렇지 않으면이 콘텐츠는 다른 Api에 전달할 수 있는 단일 이진 단위로 처리 됩니다. 논리 앱의 워크플로 내에서이 콘텐츠를 참조 하려면 먼저 해당 콘텐츠를 변환 해야 합니다.
+들어오는 요청의 콘텐츠 형식이 인 경우 `application/json` 들어오는 요청에서 속성을 참조할 수 있습니다. 그렇지 않으면이 콘텐츠는 다른 Api에 전달할 수 있는 단일 이진 단위로 처리 됩니다. 논리 앱의 워크플로 내에서이 콘텐츠를 참조 하려면 먼저 해당 콘텐츠를 변환 해야 합니다.
 
-예를 들어 `application/xml` 형식으로 콘텐츠를 전달 하는 경우 [ `@xpath()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#xpath) 사용 하 여 XPath 추출을 수행 하거나, [ `@json()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#json) 사용 하 여 XML을 JSON으로 변환할 수 있습니다. 지원 되는 [콘텐츠 형식을](../logic-apps/logic-apps-content-type.md)사용 하는 방법에 대해 자세히 알아보세요.
+예를 들어 형식으로 콘텐츠를 전달 하는 경우 `application/xml` [ `@xpath()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#xpath) 사용 하 여 XPath 추출을 수행 하거나, [ `@json()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#json) 사용 하 여 XML을 JSON으로 변환할 수 있습니다. 지원 되는 [콘텐츠 형식을](../logic-apps/logic-apps-content-type.md)사용 하는 방법에 대해 자세히 알아보세요.
 
 들어오는 요청의 출력을 가져오려면 [ `@triggerOutputs` 식을](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs)사용할 수 있습니다. 예를 들어 다음 예제와 같은 출력을 가정 합니다.
 
@@ -333,7 +338,7 @@ ms.locfileid: "83005501"
 }
 ```
 
-구체적으로 `body` 속성에 액세스 하려면 [ `@triggerBody()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) 바로 가기로 사용할 수 있습니다.
+구체적으로 속성에 액세스 하려면 `body` [ `@triggerBody()` 식을](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) 바로 가기로 사용할 수 있습니다.
 
 ## <a name="respond-to-requests"></a>요청에 응답
 
@@ -345,13 +350,13 @@ ms.locfileid: "83005501"
 
 ### <a name="construct-the-response"></a>응답 생성
 
-응답 본문에는 여러 헤더와 모든 형식의 콘텐츠를 포함할 수 있습니다. 예를 들어이 응답의 헤더는 응답의 콘텐츠 형식이이 `application/json` 고 본문에 요청 트리거에 대 한이 항목의 `town` 앞부분 `postalCode` 에서 설명한 JSON 스키마에 따라 및 속성에 대 한 값이 포함 되도록 지정 합니다.
+응답 본문에는 여러 헤더와 모든 형식의 콘텐츠를 포함할 수 있습니다. 예를 들어이 응답의 헤더는 응답의 콘텐츠 형식이이 `application/json` 고 본문에 `town` `postalCode` 요청 트리거에 대 한이 항목의 앞부분에서 설명한 JSON 스키마에 따라 및 속성에 대 한 값이 포함 되도록 지정 합니다.
 
 ![HTTPS 응답 작업에 대 한 응답 콘텐츠 제공](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 응답 속성:
 
-| 속성 (표시) | Property(JSON) | Description |
+| 속성 (표시) | 속성(JSON) | Description |
 |--------------------|-----------------|-------------|
 | **상태 코드** | `statusCode` | 들어오는 요청에 대 한 응답에서 사용할 HTTPS 상태 코드입니다. 이 코드는 2xx, 4xx 또는 5xx로 시작하는 모든 유효한 상태 코드가 될 수 있습니다. 하지만 3xx 상태 코드는 허용되지 않습니다. |
 | **헤더** | `headers` | 응답에 포함할 하나 이상의 헤더입니다. |
@@ -378,7 +383,7 @@ ms.locfileid: "83005501"
 }
 ```
 
-## <a name="q--a"></a>Q & A
+## <a name="q--a"></a>Q&A
 
 #### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
 

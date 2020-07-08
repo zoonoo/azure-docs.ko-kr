@@ -5,12 +5,11 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 28c61e637a37c158dcd80c0f02b748b4813945fb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826845"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171126"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Automation 계정에서 변경 내용 추적 및 인벤토리 사용
 
@@ -37,17 +36,13 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 
     ![변경 내용 추적 및 인벤토리 사용](media/automation-enable-changes-from-auto-acct/onboardsolutions.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>범위 구성 확인
-
-변경 내용 추적 및 인벤토리는 작업 영역 내의 범위 구성을 사용하고 변경 내용을 수신할 컴퓨터를 대상으로 합니다. 범위 구성은 기능 범위를 특정 컴퓨터로 제한하는 데 사용되는 하나 이상의 저장된 검색 그룹입니다. 자세한 내용은 [변경 내용 추적 및 인벤토리의 범위 구성 작업](automation-scope-configurations-change-tracking.md)을 참조하세요.
-
 ## <a name="enable-azure-vms"></a>Azure VM을 사용하도록 설정
 
 1. Automation 계정의 **구성 관리**에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
 2. **+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. Azure VM은 Automation 계정 위치와 상관없이 모든 지역에 있을 수 있습니다. 
 
-3. **사용**을 클릭하여 컴퓨터 그룹의 저장된 기능 검색에 선택한 VM을 추가합니다. 자세한 내용은 [변경 내용 추적 및 인벤토리의 범위 구성 작업](automation-scope-configurations-change-tracking.md)을 참조하세요.
+3. **사용**을 클릭하여 컴퓨터 그룹의 저장된 기능 검색에 선택한 VM을 추가합니다. 자세한 내용은 [제한 변경 내용 추적 및 인벤토리 배포 범위](automation-scope-configurations-change-tracking.md)를 참조 하세요.
 
     ![Azure VM을 사용하도록 설정](media/automation-enable-changes-from-auto-acct/enable-azure-vms.png)
 
@@ -73,15 +68,11 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다.
 
 4. 사용 가능한 모든 향후 머신에서 기능을 사용하려면 **사용 가능한 모든 향후 머신에서 사용**을 선택합니다. 이 옵션은 저장된 검색과 범위 구성을 작업 영역에서 삭제하고, 해당 작업 영역에 보고하는 모든 Azure 및 비 Azure 머신에 대한 기능을 엽니다. 이 작업을 선택하면 남아 있는 범위 구성이 없으므로 **머신 관리** 단추가 영구적으로 비활성화됩니다.
 
-5. 필요한 경우 최초 저장된 검색을 다시 추가하여 범위 구성을 다시 추가할 수 있습니다. 자세한 내용은 [변경 내용 추적 및 인벤토리의 범위 구성 작업](automation-scope-configurations-change-tracking.md)을 참조하세요.
+5. 필요한 경우 최초 저장된 검색을 다시 추가하여 범위 구성을 다시 추가할 수 있습니다. 자세한 내용은 [제한 변경 내용 추적 및 인벤토리 배포 범위](automation-scope-configurations-change-tracking.md)를 참조 하세요.
 
 6. 하나 이상의 머신에서 기능을 사용하려면 **선택한 머신에서 사용**을 선택하고 해당 기능에 대해 사용하려는 각 머신 옆에 있는 **추가**를 클릭합니다. 이 작업은 선택한 머신 이름을 컴퓨터 그룹에서 저장된 기능 검색 쿼리에 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 이 기능에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리 관리](change-tracking-file-contents.md)를 참조하세요.
-* 범위 구성에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리의 범위 구성 작업](automation-scope-configurations-change-tracking.md)을 참조하세요.
-* 이 기능을 사용하여 사용자 환경에 설치된 소프트웨어를 식별하는 방법에 대한 자세한 내용은 [VM에 설치된 소프트웨어 검색](automation-tutorial-installed-software.md)을 참조하세요.
-* 기능을 사용하도록 설정할 때 Automation 계정을 Log Analytics 작업 영역에 통합하지 않으려는 경우 [Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-change-tracking.md)를 참조하세요.
-* VM에 대한 변경 내용을 배포하는 작업이 완료되면 [변경 내용 추적 및 인벤토리에서 VM 제거](automation-remove-vms-from-change-tracking.md)에 설명된 대로 제거할 수 있습니다.
-* 기능의 일반적인 문제를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](troubleshoot/change-tracking.md)을 참조하세요.
+* 기능을 사용 하려면 [변경 내용 추적 및 인벤토리 관리](change-tracking-file-contents.md)를 참조 하세요.
+* 이 기능의 일반적인 문제를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](troubleshoot/change-tracking.md)을 참조하세요.

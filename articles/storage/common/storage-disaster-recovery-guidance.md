@@ -1,5 +1,5 @@
 ---
-title: 재해 복구 및 저장소 계정 장애 조치 (failover)
+title: 재해 복구 및 저장소 계정 장애 조치(failover)
 titleSuffix: Azure Storage
 description: Azure Storage 지역 중복 저장소 계정에 대 한 계정 장애 조치 (failover)를 지원 합니다. 계정 장애 조치(failover)의 경우 기본 엔드포인트를 사용할 수 없는 경우 스토리지 계정에 대해 장애 조치(failover) 프로세스를 시작할 수 있습니다.
 services: storage
@@ -10,14 +10,13 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857782"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84169222"
 ---
-# <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치 (failover)
+# <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
 Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노력합니다. 그러나 계획되지 않은 서비스 중단이 발생할 수 있습니다. 응용 프로그램에 복원 력이 필요한 경우 Microsoft는 지역 중복 저장소를 사용 하 여 두 번째 지역에 데이터를 복사 하도록 권장 합니다. 또한 고객은 지역 서비스 중단을 처리하기 위해 재해 복구 계획을 설정하는 것이 좋습니다. 재해 복구 계획의 중요한 부분은 기본 엔드포인트를 사용할 수 없는 경우 보조 엔드포인트로의 장애 조치(failover)를 준비하는 것입니다.
 
@@ -26,8 +25,6 @@ Azure Storage 지역 중복 저장소 계정에 대 한 계정 장애 조치 (fa
 계정 장애 조치 (failover)는 Azure Resource Manager 배포를 사용 하는 범용 v1, 범용 v2 및 Blob storage 계정 유형에 사용할 수 있습니다. 계정 장애 조치 (failover)는 모든 공용 지역에 대해 지원 되지만 지금은 소 버린 또는 국가별 클라우드에서 사용할 수 없습니다.
 
 이 문서에서는 계정 장애 조치(failover)와 관련된 개념 및 프로세스를 설명하고 고객에게 최소의 영향만 미치고 복구할 수 있게 스토리지 계정을 준비하는 방법을 논의합니다. Azure Portal 또는 PowerShell에서 계정 장애 조치 (failover)를 시작 하는 방법을 알아보려면 [계정 장애 조치 (failover) 시작](storage-initiate-account-failover.md)을 참조 하세요.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -104,6 +101,8 @@ DNS 항목이 업데이트 되 고 요청이 새 기본 끝점으로 전달 되 
 
 모범 사례로, 마지막 동기화 시간을 사용하여 예상되는 데이터 손실을 예측할 수 있도록 애플리케이션을 디자인합니다. 예를 들어, 모든 쓰기 작업을 기록하는 경우 마지막 쓰기 작업의 시간을 마지막 동기화 시간과 비교하여 보조 지역과 동기화되지 않은 쓰기를 확인할 수 있습니다.
 
+**마지막 동기화 시간** 속성을 확인 하는 방법에 대 한 자세한 내용은 [저장소 계정에 대 한 마지막 동기화 시간 속성 확인](last-sync-time-get.md)을 참조 하세요.
+
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>원래 주 지역으로 장애 복구(Failback)할 때 주의
 
 주 지역에서 보조 지역으로 장애 조치(failover)한 후에 스토리지 계정이 새 주 지역에서 로컬로 중복되도록 구성됩니다. 그런 다음 지역 중복에 대 한 계정을 다시 구성할 수 있습니다. 장애 조치 (failover) 후 지리적 중복성을 위해 계정을 다시 구성 하는 경우 새 주 지역에서 즉시 새 보조 지역으로 데이터를 복사 하기 시작 합니다 .이는 원래 장애 조치 (failover) 전의 기본 영역입니다. 그러나 주 데이터베이스의 기존 데이터가 새 보조 데이터베이스로 완전히 복사 되기까지 다소 시간이 걸릴 수 있습니다.
@@ -116,7 +115,7 @@ DNS 항목이 업데이트 되 고 요청이 새 기본 끝점으로 전달 되 
 
 Azure Portal, PowerShell, Azure CLI 또는 Azure Storage 리소스 공급자 API에서 계정 장애 조치(failover)를 시작할 수 있습니다. 장애 조치 (failover)를 시작 하는 방법에 대 한 자세한 내용은 [계정 장애 조치 시작](storage-initiate-account-failover.md)을 참조 하세요.
 
-## <a name="additional-considerations"></a>기타 고려 사항
+## <a name="additional-considerations"></a>추가 고려 사항
 
 이 섹션에서 설명 하는 추가 고려 사항을 검토 하 여 장애 조치 (failover)를 강제할 때 응용 프로그램 및 서비스에 어떤 영향을 미치는지 이해 합니다.
 
@@ -171,8 +170,9 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 저장소 계정이 RA-GRS 또는 RA-GZRS에 대해 구성 된 경우 응용 프로그램은 보조 지역에서 읽을 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-- [지리적 중복을 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](geo-redundant-design.md)
+- [지리적 중복성을 사용하여 고가용성 애플리케이션 설계](geo-redundant-design.md)
 - [계정 장애 조치(failover) 시작](storage-initiate-account-failover.md)
-- [자습서: Blob storage를 사용 하 여 고가용성 응용 프로그램 빌드](../blobs/storage-create-geo-redundant-storage.md)
+- [저장소 계정에 대한 마지막 동기화 시간 속성 확인](last-sync-time-get.md)
+- [자습서: Blob Storage에서 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md)

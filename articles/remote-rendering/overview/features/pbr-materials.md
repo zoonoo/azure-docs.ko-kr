@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021316"
 ---
 # <a name="pbr-materials"></a>PBR 재질
 
@@ -26,7 +25,7 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 이러한 속성은 모든 자료에 공통적입니다.
 
-* **Albedocolor:** 이 색을 *Albedomap* 또는 *vertex 색*과 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 `1` 조정 하 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
+* **Albedocolor:** 이 색을 *Albedomap* 또는 * :::no-loc text="vertex "::: colors*와 같은 다른 색과 곱합니다. 재질에서 *투명도* 를 사용 하는 경우 알파 채널을 사용 하 여 불투명도를 조정 하 `1` 고 완전히 불투명 하며 `0` 의미를 완전히 투명 하 게 나타냅니다. 기본값은 흰색입니다.
 
   > [!NOTE]
   > 완벽 하 게 깨끗 한 투명 한 부분과 같이, .PBR 재질은 완전히 투명 한 경우에도 환경을 반영 합니다. Sun과 같은 밝은 스폿은 여전히 반사에서 볼 수 있습니다. 이는 [색 재질](color-materials.md)마다 다릅니다.
@@ -37,9 +36,9 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 * **textureCoordinateScale** 및 **textureCoordinateOffset:** 눈금은 UV 질감 좌표에 곱하고이에 오프셋을 추가 합니다. 질감을 늘이거나 이동 하는 데 사용할 수 있습니다. 기본 소수 자릿수는 (1, 1)이 고 offset은 (0, 0)입니다.
 
-* **useVertexColor:** 메시에 꼭 짓 점 색이 포함 되어 있고이 옵션을 사용 하는 경우 메시의 꼭 짓 점 색을 *Albedocolor* 및 *Albedocolor*에 곱합니다. 기본적으로 꼭 짓 점 색은 사용 하지 않도록 설정 됩니다.
+* **useVertexColor:** 메시에 :::no-loc text="vertex"::: 색이 포함 되어 있고이 옵션을 사용 하는 경우 망상의 :::no-loc text="vertex"::: 색을 *albedocolor* 및 *albedocolor*에 곱합니다. 기본적으로 *useVertexColor* 는 사용 되지 않습니다.
 
-* **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 또한의 경우에는 뒷면의 경우에도 해당 재질 조명이 적절 하 게 계산 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [단면 렌더링](single-sided-rendering.md)도 참조 하세요.
+* **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 또한의 경우에는 뒷면의 경우에도 해당 재질 조명이 적절 하 게 계산 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [ :::no-loc text="Single-sided"::: 렌더링](single-sided-rendering.md)도 참조 하세요.
 
 ## <a name="pbr-material-properties"></a>.PBR 재질 속성
 
@@ -47,11 +46,11 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 * **baseColor:** .PBR 재질에서 *albedo 색* 을 *기본 색*이라고 합니다. Azure 원격 렌더링에서 *albedo color* 속성은 이미 공통 재질 속성을 통해 제공 되므로 추가 기본 색 속성은 없습니다.
 
-* **황삭** 및 **roughnessMap:** 황삭는 표면의 황삭 또는 부드러운 정도를 정의 합니다. 황삭 표면에서는 부드러운 표면 보다 더 많은 방향으로 조명을 분산 하 여 반사를 선명 하 게 만듭니다. 값 범위는에서 사이 `0.0` 입니다 `1.0`. 가 `roughness` 와 `0.0`같으면 리플렉션이 선명 하 게 됩니다. 가 `roughness` 와 `0.5`같으면 리플렉션이 흐릿하게 됩니다.
+* **황삭** 및 **roughnessMap:** 황삭는 표면의 황삭 또는 부드러운 정도를 정의 합니다. 황삭 표면에서는 부드러운 표면 보다 더 많은 방향으로 조명을 분산 하 여 반사를 선명 하 게 만듭니다. 값 범위는에서 사이 `0.0` 입니다 `1.0` . 가 `roughness` 와 같으면 `0.0` 리플렉션이 선명 하 게 됩니다. 가 `roughness` 와 같으면 `0.5` 리플렉션이 흐릿하게 됩니다.
 
   황삭 값과 황삭 맵이 모두 제공 되는 경우 최종 값은 두 값의 곱이 됩니다.
 
-* **metalness** 및 **metalnessMap:** 물리학에서이 속성은 표면이 conductive 인지 또는 dielectric 인지에 해당 합니다. Conductive 자료는 다른 반사 속성을 가지 며, albedo 색 없이 반사 되는 경향이 있습니다. 이 속성은 .PBR 재질에서 주변 환경을 반영 하는 화면 크기에 영향을 줍니다. 값의 범위 `0.0` 는 `1.0`에서 사이입니다. Metalness가 인 `0.0`경우 albedo 색은 완전히 표시 되 고 재질은 플라스틱 또는 ceramics와 같이 보입니다. Metalness이 인 `0.5`경우에는 칠해진 금속 처럼 보입니다. Metalness가 인 `1.0`경우 표면은 거의 완전히 해당 albedo 색을 상실 하 고 주변만을 반영 합니다. 예를 들어 `metalness` 가이 `1.0` 고 `roughness` 가 `0.0` 이면 표면은 실제 미러 처럼 보입니다.
+* **metalness** 및 **metalnessMap:** 물리학에서이 속성은 표면이 conductive 인지 또는 dielectric 인지에 해당 합니다. Conductive 자료는 다른 반사 속성을 가지 며, albedo 색 없이 반사 되는 경향이 있습니다. 이 속성은 .PBR 재질에서 주변 환경을 반영 하는 화면 크기에 영향을 줍니다. 값의 범위는에서 사이 `0.0` `1.0` 입니다. Metalness가 인 경우 `0.0` albedo 색은 완전히 표시 되 고 재질은 플라스틱 또는 ceramics와 같이 보입니다. Metalness이 인 경우 `0.5` 에는 칠해진 금속 처럼 보입니다. Metalness가 인 경우 `1.0` 표면은 거의 완전히 해당 albedo 색을 상실 하 고 주변만을 반영 합니다. 예를 들어 `metalness` 가이 `1.0` 고 `roughness` 가 이면 `0.0` 표면은 실제 미러 처럼 보입니다.
 
   Metalness 값과 metalness map을 모두 제공 하면 최종 값이 두 값의 곱입니다.
 
@@ -61,7 +60,7 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 * **Normalmap:** 세분화 된 세부 정보를 시뮬레이션 하기 위해 [일반적인 맵을](https://en.wikipedia.org/wiki/Normal_mapping) 제공할 수 있습니다.
 
-* **occlusionMap** 및 **aoscale:** [앰비언트 폐색](https://en.wikipedia.org/wiki/Ambient_occlusion) 은 폐색 영역에 그림자를 추가 하 여 crevices를 사용 하는 개체를 보다 사실적으로 보입니다. 폐색 값의 범위 `0.0` 는 `1.0`에서 사이 `0.0` 입니다. 여기서는 폐색 ( `1.0` 어둡기를 의미)이 고 occlusions 없음을 의미 합니다. 2D 질감이 폐색 맵으로 제공 되는 경우 효과가 활성화 되 고 *Aoscale* 이 승수 역할을 합니다.
+* **occlusionMap** 및 **aoscale:** [앰비언트 폐색](https://en.wikipedia.org/wiki/Ambient_occlusion) 은 폐색 영역에 그림자를 추가 하 여 crevices를 사용 하는 개체를 보다 사실적으로 보입니다. 폐색 값의 범위 `0.0` `1.0` 는에서 사이 `0.0` 입니다. 여기서는 폐색 (어둡기를 의미)이 고 occlusions 없음을 `1.0` 의미 합니다. 2D 질감이 폐색 맵으로 제공 되는 경우 효과가 활성화 되 고 *Aoscale* 이 승수 역할을 합니다.
 
   ![폐색 맵](./media/boom-box-ao2.gif)
 
@@ -69,7 +68,7 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
   투명 한 기 하 도형은 렌더링 하는 데 비용이 많이 듭니다. 트리의 리프와 같이 표면에 구멍이 필요한 경우에는 대신 알파 클리핑을 사용 하는 것이 좋습니다.
 
-  ![위의](./media/transparency.png) 이미지에서 투명도 확인은 가장 오른쪽 구가 완전히 투명 하 게 표시 되는 방식 이지만 리플렉션이 계속 표시 됩니다.
+  ![](./media/transparency.png)위의 이미지에서 투명도 확인은 가장 오른쪽 구가 완전히 투명 하 게 표시 되는 방식 이지만 리플렉션이 계속 표시 됩니다.
 
   > [!IMPORTANT]
   > 런타임에 불투명에서 투명으로 전환 되어야 하는 재질은 *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)를 사용 해야 합니다. 이 제한은 시작할 때 투명 자료로 변환 되는 재질에는 적용 되지 않습니다.

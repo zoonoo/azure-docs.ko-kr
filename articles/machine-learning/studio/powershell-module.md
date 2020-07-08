@@ -9,20 +9,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 6afd222730a9864e0b8edd681b1ce919b03c3be8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117555"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 용 PowerShell 모듈 (클래식)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 PowerShell 모듈을 사용 하 여 작업 영역, 데이터 집합 및 웹 서비스와 같은 사용자의 Studio (클래식) 리소스 및 자산을 프로그래밍 방식으로 관리할 수 있습니다.
 
-세 가지 Powershell 모듈을 사용 하 여 Studio (클래식) 리소스와 상호 작용할 수 있습니다.
+세 가지 PowerShell 모듈을 사용 하 여 Studio (클래식) 리소스와 상호 작용할 수 있습니다.
 
 * [Azure PowerShell Az](#az-rm)(2018년 출시) - cmdlet 이름은 다르지만 AzureRM의 모든 기능이 포함되어 있습니다.
 * 2016에서 릴리스된 [AzureRM](#az-rm) PowerShell Az로 바뀜

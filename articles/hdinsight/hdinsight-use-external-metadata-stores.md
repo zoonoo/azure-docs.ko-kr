@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: d956a9c93280ac22c4707f22c0769853f0f36c83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84015151"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -38,7 +37,7 @@ HDInsight의 Apache Hive 메타스토어는 Apache Hadoop 아키텍처의 핵심
 
 * 기본 metastore을 다른 클러스터와 공유할 수 없습니다.
 
-* 기본 metastore는 DTU(데이터베이스 트랜잭션 단위)가 5개로 제한되는 기본 Azure SQL DB를 사용합니다.
+* 기본 metastore는 5 개의 DTU (데이터베이스 트랜잭션 단위) 제한이 있는 기본 Azure SQL Database를 사용 합니다.
 이 기본 metastore 일반적으로 비교적 간단한 작업에 사용 됩니다. 여러 클러스터가 필요 하지 않으며 클러스터의 수명 주기 이상으로 유지 되는 메타 데이터가 필요 하지 않은 워크 로드입니다.
 
 * 프로덕션 워크 로드의 경우 외부 metastore 마이그레이션하는 것이 좋습니다. 자세한 내용은 아래 섹션을 참조 하세요.
@@ -53,7 +52,7 @@ HDInsight는 프로덕션 클러스터에 권장되는 사용자 지정 metastor
 
 * 사용자 지정 metastore를 사용하면 해당 metastore에 여러 클러스터 및 클러스터 유형을 첨부할 수 있습니다. 예를 들어 HDInsight의 여러 대화형 쿼리, Hive 및 Spark 클러스터에서 단일 metastore를 공유할 수 있습니다.
 
-* 선택한 성능 수준에 따라 metastore(Azure SQL DB) 비용을 지불합니다.
+* 선택한 성능 수준에 따라 metastore (Azure SQL Database) 비용에 대 한 비용을 지불 합니다.
 
 * 필요에 따라 metastore를 확장할 수 있습니다.
 
@@ -63,9 +62,9 @@ HDInsight는 프로덕션 클러스터에 권장되는 사용자 지정 metastor
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>사용자 지정 metastore 만들기 및 구성 Azure SQL Database
 
-HDInsight 클러스터에 대 한 사용자 지정 Hive metastore를 설정 하기 전에 기존 Azure SQL Database을 만들거나 만듭니다.  자세한 내용은 [빠른 시작: AZURE SQL DB에서 단일 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)를 참조 하세요.
+HDInsight 클러스터에 대 한 사용자 지정 Hive metastore를 설정 하기 전에 기존 Azure SQL Database을 만들거나 만듭니다.  자세한 내용은 [빠른 시작: Azure SQL Database에서 단일 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)를 참조 하세요.
 
-클러스터를 만드는 동안 HDInsight 서비스는 외부 metastore에 연결 하 여 자격 증명을 확인 해야 합니다. Azure 서비스 및 리소스에서 서버에 액세스할 수 있도록 Azure SQL Database 방화벽 규칙을 구성 합니다. **서버 방화벽 설정**을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 합니다. 그런 다음 **공용 네트워크 액세스 거부**아래에서 **아니요** 를 **선택 하 고,** Azure 서비스 및 리소스에서 Azure SQL Database 서버 또는 데이터베이스에 대 한 **이 서버에 액세스 하도록 허용** 합니다 .를 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) 를 참조 하세요.
+클러스터를 만드는 동안 HDInsight 서비스는 외부 metastore에 연결 하 여 자격 증명을 확인 해야 합니다. Azure 서비스 및 리소스에서 서버에 액세스할 수 있도록 Azure SQL Database 방화벽 규칙을 구성 합니다. **서버 방화벽 설정**을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 합니다. 그런 다음 **공용 네트워크 액세스 거부**아래에서 **아니요** 를 **선택 하 고,** **Azure 서비스 및 리소스에서** Azure SQL Database에 대 한이 서버에 액세스 하도록 허용 합니다 .를 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) 를 참조 하세요.
 
 SQL 저장소에 대 한 개인 끝점은 지원 되지 않습니다.
 
@@ -87,7 +86,7 @@ SQL 저장소에 대 한 개인 끝점은 지원 되지 않습니다.
 
 * 여러 HDInsight 클러스터가 별개의 데이터에 액세스하도록 하려는 경우에는 각 클러스터의 metastore용으로 별도의 데이터베이스를 사용합니다. 여러 HDInsight 클러스터에서 metastore 하나를 공유하는 경우 클러스터는 같은 메타데이터 및 기본 사용자 데이터 파일을 사용합니다.
 
-* 사용자 지정 metastore를 정기적으로 백업합니다. Azure SQL Database는 백업을 자동으로 생성하지만 백업 보존 기간은 각기 다릅니다. 자세한 내용은 [자동 SQL 데이터베이스 백업에 대해 알아보기](../sql-database/sql-database-automated-backups.md)를 참조하세요.
+* 사용자 지정 metastore를 정기적으로 백업합니다. Azure SQL Database는 백업을 자동으로 생성하지만 백업 보존 기간은 각기 다릅니다. 자세한 내용은 [자동 SQL 데이터베이스 백업에 대해 알아보기](../azure-sql/database/automated-backups-overview.md)를 참조하세요.
 
 * 동일한 지역에서 metastore 및 HDInsight 클러스터를 찾습니다. 이 구성은 최고 성능과 가장 낮은 네트워크 송신 요금을 제공 합니다.
 
@@ -97,9 +96,9 @@ SQL 저장소에 대 한 개인 끝점은 지원 되지 않습니다.
 
 * 여러 클러스터 간에 metastore 하나를 공유하는 경우 모든 클러스터의 HDInsight 버전이 같은지 확인해야 합니다. 각 Hive 버전이 사용하는 metastore 데이터베이스 스키마는 서로 다릅니다. 예를 들어 Hive 2.1 및 Hive 3.1 버전이 지정 된 클러스터에서 metastore를 공유할 수 없습니다.
 
-* HDInsight 4.0에서 Spark 및 Hive는 SparkSQL 또는 Hive 테이블에 액세스 하기 위해 독립적인 카탈로그를 사용 합니다. Spark에서 만든 테이블은 Spark 카탈로그에 있습니다. Hive에서 만든 테이블은 Hive 카탈로그에 있습니다. 이 동작은 Hive 및 Spark 공유 공통 카탈로그가 있는 HDInsight 3.6와는 다릅니다. HDInsight 4.0의 hive 및 Spark 통합은 HWC (Hive 웨어하우스 커넥터)에 의존 합니다. HWC는 Spark와 Hive 간의 브리지로 작동 합니다. [Hive 웨어하우스 커넥터에 대해 알아봅니다](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
+* HDInsight 4.0에서 Spark 및 Hive는 SparkSQL 또는 Hive 테이블에 액세스하기 위해 독립적인 카탈로그를 사용합니다. Spark에서 만든 테이블은 Spark 카탈로그에 있습니다. Hive에서 만든 테이블은 Hive 카탈로그에 있습니다. 이 동작은 Hive 및 Spark 공유 공통 카탈로그가 있는 HDInsight 3.6과는 다릅니다. HDInsight 4.0의 Hive 및 Spark 통합은 HWC(Hive Warehouse Connector)에 의존합니다. HWC는 Spark와 Hive 간에 브리지 역할을 합니다. [Hive 웨어하우스 커넥터에 대해 알아봅니다](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 
-* HDInsight 4.0에서 Hive와 Spark 간에 metastore을 공유 하려는 경우 metastore 속성 (기본값: Spark 클러스터의 hive)을 변경 하 여이 작업을 수행할 수 있습니다. Ambari 고급 spark2에서이 속성을 찾을 수 있습니다. Metastore의 공유는 외부 hive 테이블에 대해서만 작동 한다는 것을 이해 하는 것이 중요 합니다. 내부/관리 되는 hive 테이블 또는 ACID 테이블이 있는 경우이 작업은 작동 하지 않습니다.  
+* HDInsight 4.0에서 Hive와 Spark 간에 metastore을 공유하려는 경우 Spark 클러스터에서 metastore.catalog.default 속성을 hive로 변경하면 됩니다. Ambari 고급 spark2-hive-site-override에서 이 속성을 찾을 수 있습니다. metastore의 공유는 외부 hive 테이블에서만 작동합니다. 내부/관리형 hive 테이블 또는 ACID 테이블이 있는 경우에는 이 공유가 작동하지 않습니다.  
 
 ## <a name="apache-oozie-metastore"></a>Apache Oozie metastore
 

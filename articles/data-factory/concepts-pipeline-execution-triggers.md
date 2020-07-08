@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562205"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83997012"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 
@@ -236,14 +235,14 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 다음 표에서는 되풀이 및 트리거 예약과 관련된 주요 스키마 요소에 대한 개괄적인 개요를 제공합니다.
 
 | JSON 속성 | 설명 |
-|:--- |:--- |
+| --- | --- |
 | **startTime** | 날짜-시간 값입니다. 기본 일정의 경우 **startTime** 속성의 값이 첫 번째 되풀이 항목에 적용됩니다. 복잡한 일정의 경우 트리거는 특정 **startTime** 값 이후에 시작합니다. |
 | **endTime** | 트리거의 종료 날짜 및 시간입니다. 트리거는 지정된 종료 날짜 및 시간 이후에 실행되지 않습니다. 속성에 대한 값은 이전에 있을 수 없습니다. <!-- This property is optional. --> |
 | **표준** | 표준 시간대입니다. 현재는 UTC 표준 시간대만 지원됩니다. |
 | **방법** | 트리거에 대한 되풀이 규칙을 지정하는 recurrence 개체입니다. recurrence 개체는 **frequency**, **interval**, **endTime**, **count** 및 **schedule** 요소를 지원합니다. recurrence 개체가 정의된 경우 **frequency** 요소는 필수입니다. 되풀이 개체의 다른 요소는 선택적입니다. |
 | **주기와** | 트리거가 되풀이되는 빈도 단위입니다. 지원되는 값은 "minute", "hour", "day", "week" 및 "month"입니다. |
-| **interval** | **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. **frequency** 값은 트리거가 실행되는 빈도를 결정합니다. 예를 들어 **interval**이 3이고 **frequency**가 "week"인 경우 트리거가 매 3주마다 다시 발생합니다. |
-| **일정과** | 트리거에 대한 되풀이 일정입니다. 지정된 **frequency** 값을 가진 트리거는 되풀이 일정을 기반으로 되풀이를 변경합니다. **schedule** 속성에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 되풀이에 대한 수정 내용이 포함됩니다.
+| **간격은** | **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. **frequency** 값은 트리거가 실행되는 빈도를 결정합니다. 예를 들어 **interval**이 3이고 **frequency**가 "week"인 경우 트리거가 매 3주마다 다시 발생합니다. |
+| **일정과** | 트리거에 대한 되풀이 일정입니다. 지정된 **frequency** 값을 가진 트리거는 되풀이 일정을 기반으로 되풀이를 변경합니다. **schedule** 속성에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 되풀이에 대한 수정 내용이 포함됩니다. |
 
 ### <a name="schedule-trigger-example"></a>일정 트리거 예제
 
@@ -281,19 +280,19 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | 문자열 | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **방법** | object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | number | 아니요 | 1 | 1~1000 | `"interval":10` |
-| **endTime** | 문자열 | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **일정과** | object | 아니요 | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예제 |
+| --- | --- | --- | --- | --- | --- |
+| **startTime** | string | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **방법** | 개체 | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **간격은** | number | 아니요 | 1 | 1~1000 | `"interval":10` |
+| **endTime** | string | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **일정과** | 개체 | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.
 
 | startTime 값 | 일정 없이 되풀이 | 일정대로 되풀이 |
-|:--- |:--- |:--- |
+| --- | --- | --- |
 | **시작 시간이 과거** | 시작 시간 이후 미래의 첫 번째 실행 시간을 계산하고 해당 시간에 실행합니다.<br /><br />이어지는 후속 실행은 마지막 실행 시간에서 계산하여 실행합니다.<br /><br />이 테이블 다음에 나오는 예제를 참조하세요. | 트리거는 지정 된 시작 시간 _보다 더 일찍 시작 되지 않습니다_ . 첫 번째 되풀이 항목은 시작 시간부터 계산되는 일정에 따라 실행됩니다.<br /><br />되풀이 일정에 따라 후속 실행을 수행합니다. |
 | **시작 시간이 미래 또는 현재** | 지정된 시작 시간에 한 번 실행됩니다.<br /><br />이어지는 후속 실행은 마지막 실행 시간에서 계산하여 실행합니다. | 트리거는 지정된 시작 시간 _이후에_ 시작합니다. 시작 시간에서 계산된 일정에 따라 첫 번째 되풀이 항목을 실행합니다.<br /><br />되풀이 일정에 따라 후속 실행을 수행합니다. |
 
@@ -315,20 +314,17 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 다음 테이블에서는 **일정** 요소의 세부 정보를 설명합니다.
 
 | JSON 요소 | 설명 | 유효한 값 |
-|:--- |:--- |:--- |
-| **내** | 트리거가 실행될 시간(분)입니다. |- 정수<br />- 정수 배열|
-| **시간의** | 트리거가 실행될 일(시간)입니다. |- 정수<br />- 정수 배열|
-| **평일** | 트리거가 실행될 요일입니다. 값은 주 단위 빈도로만 지정할 수 있습니다.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- 날짜 값의 배열(최대 배열 크기: 7)<br /><br />일 값은 대/소문자를 구분 하지 않습니다.|
-| **monthlyOccurrences** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. |- **monthlyOccurrence** 개체의 배열: `{ "day": day, "occurrence": occurrence }`<br />- **day** 특성은 트리거가 실행되는 요일입니다. 예를 들어 `{Sunday}`의 **day** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 매주 일요일을 의미합니다. **day** 특성은 필수입니다.<br />- **occurrence** 특성은 월 중 지정된 **day**의 되풀이 항목입니다. 예를 들어 `{Sunday, -1}`의 **day** 및 **occurrence** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 마지막 일요일을 의미합니다. **occurrence** 특성은 선택 사항입니다.|
-| **monthDays** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. |- 1 이상 및 31 이하의 모든 값<br />- 1 이하 및 31 이상의 모든 값<br />- 값의 배열|
+| --- | --- | --- |
+| **내** | 트리거가 실행될 시간(분)입니다. |- 정수<br />- 정수 배열 |
+| **시간의** | 트리거가 실행될 일(시간)입니다. |- 정수<br />- 정수 배열 |
+| **평일** | 트리거가 실행될 요일입니다. 값은 주 단위 빈도로만 지정할 수 있습니다.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- 날짜 값의 배열(최대 배열 크기: 7)<br /><br />일 값은 대/소문자를 구분 하지 않습니다. |
+| **monthlyOccurrences** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. |- **monthlyOccurrence** 개체의 배열: `{ "day": day, "occurrence": occurrence }`<br />- **day** 특성은 트리거가 실행되는 요일입니다. 예를 들어 `{Sunday}`의 **day** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 매주 일요일을 의미합니다. **day** 특성은 필수입니다.<br />- **occurrence** 특성은 월 중 지정된 **day**의 되풀이 항목입니다. 예를 들어 `{Sunday, -1}`의 **day** 및 **occurrence** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 마지막 일요일을 의미합니다. **occurrence** 특성은 선택 사항입니다. |
+| **monthDays** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. |- 1 이상 및 31 이하의 모든 값<br />- 1 이하 및 31 이상의 모든 값<br />- 값의 배열 |
 
 ## <a name="tumbling-window-trigger"></a>연속 창 트리거
 연속 창 트리거는 상태를 유지하면서 지정된 시작 시간부터 주기적 시간 간격으로 실행되는 트리거 유형입니다. 연속 창은 고정된 크기의 겹치지 않고 연속적인 일련의 시간 간격입니다.
 
 연속 창 트리거 및 예제에 대 한 자세한 내용은 [연속 창 트리거 만들기](how-to-create-tumbling-window-trigger.md)를 참조 하세요.
-
-> [!NOTE]
-> 연속 창 트리거 실행은 *트리거된 파이프라인 실행이 완료 될 때까지 기다립니다* . 해당 실행 상태는 트리거된 파이프라인 실행의 상태를 반영 합니다. 예를 들어 트리거된 파이프라인 실행이 취소 되 면 해당 연속 창 트리거 실행이 취소 됨으로 표시 됩니다. 이는 파이프라인 실행이 시작 되는 동안 성공으로 표시 되는 일정 트리거의 "발생 및 잊어버린" 동작과 다릅니다.
 
 ## <a name="event-based-trigger"></a>이벤트 기반 트리거
 
@@ -342,7 +338,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 이 예에서는 **interval** 값이 1이 고 **frequency** 값이 일정 정의에 따라 올바른 것으로 가정 합니다. 예를 들어 **frequency** 값으로 "day"를 사용할 수 없으며, **schedule** 개체의 **monthDays**를 수정할 수도 있습니다. 이러한 종류의 제한 사항은 앞 섹션의 표에서 설명하고 있습니다.
 
 | 예제 | 설명 |
-|:--- |:--- |
+| --- | --- |
 | `{"hours":[5]}` | 매일 오전 5시에 실행됩니다. |
 | `{"minutes":[15], "hours":[5]}` | 매일 오전 5시 15분에 실행됩니다. |
 | `{"minutes":[15], "hours":[5,17]}` | 매일 오전 5시 15분 및 오후 5시 15분에 실행됩니다. |
@@ -373,15 +369,18 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ## <a name="trigger-type-comparison"></a>트리거 형식 비교
 연속 창 트리거와 일정 트리거는 둘 다 시간 하트비트에서 작동합니다. 어떻게 다를까요?
 
+> [!NOTE]
+> 연속 창 트리거 실행은 *트리거된 파이프라인 실행이 완료 될 때까지 기다립니다* . 해당 실행 상태는 트리거된 파이프라인 실행의 상태를 반영 합니다. 예를 들어 트리거된 파이프라인 실행이 취소 되 면 해당 연속 창 트리거 실행이 취소 됨으로 표시 됩니다. 이는 파이프라인 실행이 시작 되는 동안 성공으로 표시 되는 일정 트리거의 "발생 및 잊어버린" 동작과 다릅니다.
+
 다음 표는 연속 창 트리거와 일정 트리거의 비교를 제공합니다.
 
-|  | 연속 창 트리거 | 일정 트리거 |
-|:--- |:--- |:--- |
-| **백필 시나리오** | 지원됩니다. 이전의 창에 대해 파이프라인 실행을 예약할 수 있습니다. | 지원 안 됨 파이프라인 실행은 현재 시간 및 미래 시간의 기간에서만 실행될 수 있습니다. |
-| **안정성** | 100% 신뢰성 파이프라인 실행은 간격 없이 지정된 시작 날짜에서 모든 창에 대해 예약될 수 있습니다. | 낮은 신뢰성 |
-| **다시 시도 기능** | 지원됩니다. 실패한 파이프라인 실행에는 0의 기본 다시 시도 정책 또는 트리거 정의에서 사용자가 지정한 정책이 있습니다. 동시성/서버/제한 제한 (즉, 상태 코드 400: 사용자 오류, 429: 너무 많은 요청 및 500: 내부 서버 오류)으로 인해 파이프라인이 실행 되지 않으면 자동으로 다시 시도 합니다. | 지원 안 됨 |
-| **동시성** | 지원됩니다. 사용자는 트리거에 대한 동시성 제한을 명시적으로 설정할 수 있습니다. 동시에 트리거되는 1~50개의 파이프라인 실행을 허용합니다. | 지원 안 됨 |
-| **시스템 변수** | **WindowStart** 및 **WindowEnd** 시스템 변수의 사용을 지원합니다. 사용자는 트리거 정의에서 트리거 시스템 변수로 `triggerOutputs().windowStartTime` 및 `triggerOutputs().windowEndTime`에 액세스할 수 있습니다. 값은 각각 창 시작 시간 및 창 종료 시간으로 사용됩니다. 예를 들어 매 시간 실행되는 연속 창 트리거의 경우 창 오전 1시~오전 2시에 대해 정의는 `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` 및 `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`입니다. | 지원 안 됨 |
+| 항목 | 연속 창 트리거 | 일정 트리거 |
+| --- | --- | --- |
+| **백필 시나리오** | 지원됨. 이전의 창에 대해 파이프라인 실행을 예약할 수 있습니다. | 지원되지 않습니다. 파이프라인 실행은 현재 시간 및 미래 시간의 기간에서만 실행될 수 있습니다. |
+| **신뢰성** | 100% 신뢰성 파이프라인 실행은 간격 없이 지정된 시작 날짜에서 모든 창에 대해 예약될 수 있습니다. | 낮은 신뢰성 |
+| **다시 시도 기능** | 지원됨. 실패한 파이프라인 실행에는 0의 기본 다시 시도 정책 또는 트리거 정의에서 사용자가 지정한 정책이 있습니다. 동시성/서버/제한 제한 (즉, 상태 코드 400: 사용자 오류, 429: 너무 많은 요청 및 500: 내부 서버 오류)으로 인해 파이프라인이 실행 되지 않으면 자동으로 다시 시도 합니다. | 지원되지 않습니다. |
+| **동시성** | 지원됨. 사용자는 트리거에 대한 동시성 제한을 명시적으로 설정할 수 있습니다. 동시에 트리거되는 1~50개의 파이프라인 실행을 허용합니다. | 지원되지 않습니다. |
+| **시스템 변수** | @trigger() ScheduledTime 및 @trigger (). startTime과 함께 **Windowstart** 및 **windowstart** 시스템 변수를 사용할 수도 있습니다. 사용자는 트리거 정의에서 트리거 시스템 변수로 `triggerOutputs().windowStartTime` 및 `triggerOutputs().windowEndTime`에 액세스할 수 있습니다. 값은 각각 창 시작 시간 및 창 종료 시간으로 사용됩니다. 예를 들어 매 시간 실행되는 연속 창 트리거의 경우 창 오전 1시~오전 2시에 대해 정의는 `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` 및 `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`입니다. | 는 default @trigger (). scheduledTime 및 @trigger () startTime 변수만 지원 합니다. |
 | **파이프라인-트리거 관계** | 일대일 관계를 지원합니다. 하나의 파이프라인만 트리거될 수 있습니다. | 다대다 관계를 지원합니다. 다중 트리거는 단일 파이프라인을 시작할 수 있습니다. 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

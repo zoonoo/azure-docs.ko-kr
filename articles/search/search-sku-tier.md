@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84119213"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -41,7 +40,7 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 
 선택한 계층에 따라 청구 요금이 결정 됩니다. Azure Portal의 다음 스크린샷은 사용 가능한 계층, 가격 책정 (포털 및 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 찾을 수 있음)을 보여 줍니다. 가장 일반적인 계층은 **무료**, **기본**및 **표준** 입니다.
 
-**Free** 는 빠른 시작 및 자습서를 포함 하 여 더 작은 프로젝트에 대해 제한 된 검색 서비스를 만듭니다. 내부적으로 여러 구독자 간에 공유 되는 복제본 및 파티션입니다. 무료 서비스를 확장 하거나 중요 한 작업을 실행할 수 없습니다.
+**Free** 는 빠른 시작 및 자습서를 포함 하 여 더 작은 프로젝트에 대해 제한 된 검색 서비스를 만듭니다. 내부적으로 복제본과 파티션은 여러 구독자 간에 공유 됩니다. 무료 서비스를 확장 하거나 중요 한 작업을 실행할 수 없습니다.
 
 **기본** 및 **표준은** 가장 일반적으로 사용 되는 청구 가능 계층으로, **표준** 을 기본값으로 사용 합니다. 사용자의 제어에 따라 전용 리소스를 사용 하 여 대규모 프로젝트를 배포 하 고 성능을 최적화 하 고 용량을 설정할 수 있습니다.
 
@@ -83,9 +82,9 @@ Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방�
 
 [AI 보강](cognitive-search-concept-intro.md)의 경우 azure Cognitive Search와 동일한 지역에 종 량 제 처리를 위한 S0 가격 책정 계층에서 [청구 가능한 azure Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)하도록 계획 해야 합니다. 연결 Cognitive Services와 관련 된 고정 비용은 없습니다. 필요한 처리에 대해서만 비용을 지불 하면 됩니다.
 
-| 작업(Operation) | 청구 영향 |
+| 연산 | 청구 영향 |
 |-----------|----------------|
-| 문서 크랙, 텍스트 추출 | 무료 |
+| 문서 크랙, 텍스트 추출 | Free |
 | 문서 크랙, 이미지 추출 | 문서에서 추출 된 이미지의 수에 따라 요금이 청구 됩니다. [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageaction** 은 이미지 추출을 트리거하는 매개 변수입니다. **Imageaction** 이 "none" (기본값)으로 설정 된 경우 이미지 추출에 대 한 요금이 청구 되지 않습니다. 이미지 추출 율은 Azure Cognitive Search에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명 되어 있습니다.|
 | [기본 제공 인지 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용 하 여 작업을 수행한 것과 동일한 요금으로 청구 됩니다. |
 | 사용자 지정 기술 | 사용자 지정 기술은 사용자가 제공 하는 기능입니다. 사용자 지정 기술 사용 비용은 사용자 지정 코드가 다른 요금제 서비스를 호출 하는지 여부에 따라 전적으로 달라 집니다. |

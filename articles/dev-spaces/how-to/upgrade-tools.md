@@ -7,7 +7,6 @@ description: Azure Dev Spaces 명령줄 도구, Visual Studio Code 확장 및 Vi
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
 ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "83873477"

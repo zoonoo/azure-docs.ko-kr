@@ -2,13 +2,12 @@
 title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft Docs
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.date: 05/26/2020
+ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84147973"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -24,7 +23,7 @@ ms.locfileid: "83744853"
 * [분석](../../azure-monitor/app/analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
 * [Power BI에서 데이터를 탐색](../../azure-monitor/app/export-power-bi.md )하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
-* [Powershell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport) 설정에 액세스할 수도 있습니다.
+* [PowerShell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)설정에 액세스할 수도 있습니다.
 
 연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](../../azure-monitor/app/data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
 
@@ -33,8 +32,6 @@ ms.locfileid: "83744853"
 연속 내보내기는 다음 Azure 스토리지 기능/구성을 **지원하지 않습니다**.
 
 * Azure Blob 스토리지와 함께 [VNET/Azure Storage 방화벽](https://docs.microsoft.com/azure/storage/common/storage-network-security) 사용.
-
-* Azure Blob 스토리지에 대한 [변경 불가능한 스토리지](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -53,7 +50,8 @@ ms.locfileid: "83744853"
 
 4. 스토리지에서 컨테이너를 만들거나 선택합니다.
 
-내보내기를 만들면 진행을 시작합니다. 내보내기를 만든 후에는 도착하는 데이터만 받게 됩니다.
+> [!NOTE]
+> 내보내기를 만들면 새로 수집 데이터가 Azure Blob storage로 전달 되기 시작 합니다. 연속 내보내기는 연속 내보내기가 활성화 된 후 생성/수집 새 원격 분석만 전송 합니다. 연속 내보내기를 사용 하도록 설정 하기 전에 있던 데이터는 내보내지 않으며, 연속 내보내기를 사용 하 여 이전에 만든 데이터를 소급 내보낼 수 있는 방법은 지원 되지 않습니다.
 
 데이터가 스토리지에 표시되려면 1시간 정도 지연될 수 있습니다.
 

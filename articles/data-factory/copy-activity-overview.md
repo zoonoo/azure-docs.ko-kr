@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 2557ce7be44f0505b96df06cd2b44a2fa3ce3fdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84187679"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -49,13 +48,13 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
 
-### <a name="supported-file-formats"></a>지원 파일 형식
+### <a name="supported-file-formats"></a>지원되는 파일 형식
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 복사 작업을 사용 하 여 두 파일 기반 데이터 저장소 간에 파일을 있는 그대로 복사할 수 있습니다 .이 경우 데이터는 직렬화 나 deserialization 없이 효율적으로 복사 됩니다. 또한 지정 된 형식의 파일을 구문 분석 하거나 생성할 수도 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
-* 온-프레미스 SQL Server 데이터베이스에서 데이터를 복사 하 고 Parquet 형식으로 Azure Data Lake Storage Gen2에 씁니다.
+* SQL Server 데이터베이스에서 데이터를 복사 하 고 Parquet 형식으로 Azure Data Lake Storage Gen2에 씁니다.
 * 온-프레미스 파일 시스템에서 텍스트 (CSV) 형식의 파일을 복사 하 여 Avro 형식으로 Azure Blob 저장소에 씁니다.
 * 온-프레미스 파일 시스템에서 압축 된 파일을 복사 하 여 즉시 압축을 풀고 압축을 푼 파일을 Azure Data Lake Storage Gen2에 기록 합니다.
 * Azure Blob storage에서 Gzip CSV (압축 텍스트) 형식으로 데이터를 복사 하 여 Azure SQL Database에 기록 합니다.
@@ -75,7 +74,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 2. **원본 및 싱크에 대 한 데이터 집합을 만듭니다.** 구성 정보 및 지원 되는 속성은 원본 및 싱크 커넥터 문서의 "데이터 집합 속성" 섹션을 참조 하세요.
 3. **복사 작업을 사용 하 여 파이프라인을 만듭니다.** 다음 섹션에서 예제를 제공합니다.
 
-### <a name="syntax"></a>구문
+### <a name="syntax"></a>Syntax
 
 복사 작업의 다음 템플릿에는 지원 되는 속성의 전체 목록이 포함 되어 있습니다. 시나리오에 적합한 속성을 지정하세요.
 
@@ -127,10 +126,10 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 #### <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | Description | 필수 여부 |
+| 속성 | 설명 | 필수 여부 |
 |:--- |:--- |:--- |
-| type | 복사 활동의 경우를로 설정 합니다.`Copy` | 예 |
-| inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
+| 형식 | 복사 활동의 경우를로 설정 합니다.`Copy` | 예 |
+| 입력 | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
 | outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 출력만 지원 합니다. | 예 |
 | typeProperties | 속성을 지정 하 여 복사 작업을 구성 합니다. | 예 |
 | source | 복사 원본 유형 및 데이터 검색을 위한 해당 속성을 지정 합니다.<br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | 예 |
@@ -140,7 +139,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 | parallelCopies | 원본에서 데이터를 읽고 싱크에 데이터를 쓸 때 복사 작업에서 사용할 병렬 처리를 지정 합니다.<br/>자세한 내용은 [병렬 복사](copy-activity-performance-features.md#parallel-copy)를 참조 하세요. | 아니요 |
 | 보존 | 데이터를 복사 하는 동안 메타 데이터/Acl을 유지할지 여부를 지정 합니다. <br/>자세한 내용은 [메타 데이터 유지](copy-activity-preserve-metadata.md)를 참조 하세요. |아니요 |
 | enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 Blob 저장소에서 중간 데이터를 준비할 지 여부를 지정 합니다.<br/>유용한 시나리오 및 구성 세부 정보에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy)를 참조 하세요. | 아니요 |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 원본에서 싱크로 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 방법을 선택 합니다.<br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조 하세요. | 아니요 |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 원본에서 싱크로 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 방법을 선택 합니다.<br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조 하세요. | 예 |
 
 ## <a name="monitoring"></a>모니터링
 
@@ -183,7 +182,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 ## <a name="add-additional-columns-during-copy"></a>복사 하는 동안 다른 열 추가
 
-원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 다음은 그 예입니다.
+원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예를 들어:
 
 - 파일 기반 원본에서 복사 하는 경우 데이터를 가져온 파일에서 추적할 추가 열로 상대 파일 경로를 저장 합니다.
 - ADF 식으로 열을 추가 하 고, 파이프라인 이름/파이프라인 id와 같은 ADF 시스템 변수를 연결 하거나, 업스트림 활동의 출력에서 다른 동적 값을 저장 합니다.
@@ -196,13 +195,13 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 >[!TIP]
 >이 기능은 최신 데이터 집합 모델에서 작동 합니다. UI에서이 옵션이 표시 되지 않으면 새 데이터 집합을 만들어 보세요.
 
-프로그래밍 방식으로 구성 하려면 복사 작업 `additionalColumns` 원본에 속성을 추가 합니다.
+프로그래밍 방식으로 구성 하려면 `additionalColumns` 복사 작업 원본에 속성을 추가 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
-| additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>`additionalColumns` 배열의 각 개체는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 `value` 해당 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`**-예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **식**<br>- **정적 값** | 아니요 |
+| additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`**-예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **식**<br>- **정적 값** | 아니요 |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -250,4 +249,4 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 - [동일한 Azure Blob storage 계정의 한 위치에서 다른 위치로 데이터를 복사 합니다.](quickstart-create-data-factory-dot-net.md)
 - [Azure Blob 저장소에서 Azure SQL Database로 데이터 복사](tutorial-copy-data-dot-net.md)
-- [온-프레미스 SQL Server 데이터베이스에서 Azure로 데이터 복사](tutorial-hybrid-copy-powershell.md)
+- [SQL Server 데이터베이스에서 Azure로 데이터 복사](tutorial-hybrid-copy-powershell.md)

@@ -6,18 +6,17 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ef8145f0b447f24265ff4576884b0977190b063e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84020356"
 ---
 # <a name="compose-dsc-configurations"></a>DSC 구성 작성
 
 하나를 초과하는 DSC(필요한 상태 구성)를 사용하여 리소스를 관리해야 하는 경우 최상의 경로는 [복합 리소스](/powershell/scripting/dsc/resources/authoringresourcecomposite)를 사용하는 것입니다. 복합 리소스는 다른 구성 내에서 DSC 리소스로 사용되는 중첩되고 매개 변수화된 구성입니다. 복합 리소스를 사용하면 복잡한 구성을 만드는 동시에 기본 복합 리소스를 개별적으로 관리하고 빌드할 수 있습니다.
 
-Azure Automation은 [복합 리소스 가져오기 및 컴파일](automation-dsc-compile.md)을 사용합니다. 복합 리소스를 Automation 계정으로 가져온 후에는 Azure Portal의 **State Configuration(DSC)** 기능을 통해 Azure Automation State Configuration을 사용할 수 있습니다.
+Azure Automation은 [복합 리소스 가져오기 및 컴파일](automation-dsc-compile.md)을 사용합니다. 복합 리소스를 Automation 계정으로 가져온 후에는 Azure Portal의 **DSC (상태 구성)** 기능을 통해 Azure Automation 상태 구성을 사용할 수 있습니다.
 
 ## <a name="compose-a-configuration"></a>구성 작성
 

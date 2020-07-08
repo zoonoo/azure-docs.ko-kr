@@ -8,12 +8,11 @@ ms.topic: conceptual
 description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78295830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83996927"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
@@ -26,14 +25,6 @@ Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재
 여러 지역에서 AKS 클러스터에 대해 Dev Spaces를 사용하도록 설정하면 Azure 지역 하나에서 오류가 발생하더라도 Dev Spaces 사용을 즉시 다시 시작할 수 있습니다.
 
 여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)을 참조하세요.
-
-### <a name="enable-dev-spaces-via-the-azure-portal"></a>Azure Portal을 통해 Dev Spaces를 사용하도록 설정
-
-Azure Portal의 각 클러스터 설정에서 **Dev Spaces** 메뉴 항목을 선택 합니다. 그런 다음 개발 공간을 사용 하도록 설정 하 고 저장 하는 옵션을 선택 합니다.
-
-![Azure Portal을 통해 Dev Spaces를 사용하도록 설정](../media/common/enable-dev-spaces.jpg)
-
-각 클러스터에 대해 이 프로세스를 반복합니다.
 
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Azure CLI를 통해 Dev Spaces를 사용하도록 설정
 
@@ -75,7 +66,7 @@ azds space select -n <space name>
 
 Visual Studio를 사용 중이라면 다음 단계를 수행하여 기존 프로젝트에 사용되는 클러스터를 전환할 수 있습니다.
 
-1. Visual Studio에서 프로젝트를 엽니다.
+1. Visual Studio에서 새 프로젝트를 엽니다.
 1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 1. 왼쪽 창에서 **디버그**를 클릭합니다.
 1. 디버그 속성 페이지에서 **프로필** 드롭다운 목록을 클릭하고 **Azure Dev Spaces**를 선택합니다.

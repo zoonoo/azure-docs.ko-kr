@@ -4,12 +4,11 @@ description: AVS(Azure VMware Solution)에 대한 일반적인 질문에 대한 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873309"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84112696"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>AVS(Azure VMware Solution) 미리 보기에 대한 질문과 대답
 
@@ -67,34 +66,7 @@ AVS 솔루션 고객은 모든 Azure 서비스를 사용할 수 있습니다. �
 
 예, Azure VMware Solution은 HCX와 같은 익숙한 VMware 도구를 사용하여 마이그레이션하는 것을 지원합니다. 새 솔루션으로 마이그레이션하는 데 관심이 있는 고객은 담당 Microsoft 계정 팀과 함께 옵션 및 사용 가능한 지원을 살펴보세요.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**기존 Azure VMware Solution의 호스트 할당량 증가를 요청하려면 어떻게 할까요?**
 
-[지원 요청을 제출](..\azure-portal\supportability\how-to-create-azure-support-request.md)하여 할당량 증가를 요청할 수 있습니다. 할당량 관리 팀이 3영업일 이내에 요청을 평가하여 승인합니다.  
-
-> [!IMPORTANT]
-> 할당량 증가를 요청하려면 먼저 Azure Portal에서 [ **Microsoft.AVS** 리소스 공급자를 등록](tutorial-create-private-cloud.md)해야 합니다.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> 리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types)을 참조하세요.
-
-1. Azure Portal의 **도움말 + 지원**에서 **새 지원 요청**을 작성하고, 티켓에 대한 다음 정보를 제공합니다.
-   - **문제 유형:** 기술
-   - **구독:** 구독 ID
-   - **서비스:**  Azure VMware 솔루션 
-   - **요약:** 할당량 증가
-   - **문제 유형:** 용량 관리 문제
-   - **문제 하위 유형:** 호스트 할당량/용량을 추가하기 위한 고객 요청
-
-1. 지원 티켓의 [설명]에 있는 [세부 정보] 탭에서 다음 정보를 입력합니다.
-   - 추가 노드 수   
-   - 노드 SKU
-   - 지역
-
-   > [!NOTE] 
-   > 기본적으로 최소 4개 노드가 부여됩니다.
-
-1. **검토 + 만들기**를 클릭하여 요청을 제출합니다.
 
 ## <a name="compute-network-and-storage"></a>컴퓨팅, 네트워크 및 스토리지
 
@@ -164,7 +136,7 @@ ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습�
 
 **프라이빗 클라우드에서 VMware 소프트웨어를 업그레이드 및 업데이트하는 일정이 어떻게 되나요?**
 
-소프트웨어가 최신 버전의 소프트웨어 번들 형식 VMware보다 한 버전 이상 뒤쳐지지 않도록 유지하기 위해 수행하는 것이 프라이빗 클라우드 소프트웨어 번들 업그레이드입니다. 프라이빗 클라우드 소프트웨어 버전이 개별 소프트웨어 구성 요소(ESXi, NSX-T, vCenter, VSAN)의 최신 버전과 다를 수 있습니다.
+사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 소프트웨어 번들의 최신 릴리스 중 한 버전의 소프트웨어를 유지 하기 위해 수행 됩니다. 프라이빗 클라우드 소프트웨어 버전이 개별 소프트웨어 구성 요소(ESXi, NSX-T, vCenter, VSAN)의 최신 버전과 다를 수 있습니다.
 
 **프라이빗 클라우드 소프트웨어 스택은 얼마나 자주 업데이트되나요?**
 
@@ -233,6 +205,35 @@ AVS 지원은 Microsoft에서에서 제공합니다. 미리 보기 지침에 따
 **AVS 프라이빗 클라우드를 만들려면 어떤 계정이 필요한가요?**
 
 Azure 구독의 Azure 계정이 필요합니다.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??**
+
+[지원 요청을 제출](..\azure-portal\supportability\how-to-create-azure-support-request.md)하여 할당량 증가를 요청할 수 있습니다. 할당량 관리 팀이 3영업일 이내에 요청을 평가하여 승인합니다.  
+
+> [!IMPORTANT]
+> 할당량 증가를 요청하려면 먼저 Azure Portal에서  **Microsoft.AVS** 리소스 공급자를 등록해야 합니다.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> 리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조하세요.
+
+1. Azure Portal의 **도움말 + 지원**에서 **새 지원 요청**을 작성하고, 티켓에 대한 다음 정보를 제공합니다.
+   - **문제 유형:** 기술
+   - **구독:** 구독 ID
+   - **서비스:**  Azure VMware 솔루션 
+   - **요약:** 할당량 증가
+   - **문제 유형:** 용량 관리 문제
+   - **문제 하위 유형:** 호스트 할당량/용량을 추가하기 위한 고객 요청
+
+1. 지원 티켓의 [설명]에 있는 [세부 정보] 탭에서 다음 정보를 입력합니다.
+   - 추가 노드 수   
+   - 노드 SKU
+   - 지역
+
+   > [!NOTE] 
+   > 기본적으로 최소 4개 노드가 부여됩니다.
+
+1. **검토 + 만들기**를 클릭하여 요청을 제출합니다.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

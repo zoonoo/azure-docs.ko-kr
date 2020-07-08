@@ -12,12 +12,11 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 90a39b8fe3604a05f1d35a875ae4e34491b47d72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 483f60138dcaa6252999b9d15e846fbd1c68e9a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77648532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021520"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 SSIS 패키지를 Azure SQL Database 다시 배포
 
@@ -26,7 +25,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 사용하는 SSIS 버전이 2012 이전인 경우 SSIS 프로젝트/패키지를 프로젝트 배포 모델로 재배포하기 전에 먼저 SSMS에서 시작할 수도 있는 Integration Services 프로젝트 변환 마법사를 사용하여 변환해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)을 참조하세요.
 
 > [!NOTE]
-> DMS (Azure Database Migration Service)는 현재 원본 SSISDB를 Azure SQL Database 서버로 마이그레이션하는 것을 지원 하지 않지만 다음 프로세스를 사용 하 여 SSIS 프로젝트/패키지를 다시 배포할 수 있습니다.
+> DMS (Azure Database Migration Service)는 현재 Azure SQL Database에 대 한 원본 SSISDB의 마이그레이션을 지원 하지 않지만 다음 프로세스를 사용 하 여 SSIS 프로젝트/패키지를 다시 배포할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]
@@ -39,20 +38,20 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 이러한 단계를 완료하려면 다음이 필요합니다.
 
 * SSMS 버전 17.2 이상
-* SSISDB를 호스트할 대상 데이터베이스 서버의 인스턴스 아직 없는 경우 SQL Server (논리 서버 전용) [양식](https://ms.portal.azure.com/#create/Microsoft.SQLServer)으로 이동 하 여 Azure Portal를 사용 하 여 Azure SQL Database 서버를 만듭니다 (데이터베이스 제외).
-* SSIS는 [Azure Data Factory에서 Azure-SSIS Integration Runtime 프로 비전](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)문서에 설명 된 대로 Azure SQL Database 서버 인스턴스에서 호스팅하는 대상 SSISDB와 IR (Azure-SSIS Integration Runtime)을 포함 하는 AZURE DATA FACTORY (ADF)에서 프로 비전 되어야 합니다.
+* SSISDB를 호스트할 대상 데이터베이스 서버의 인스턴스 아직 없는 경우 SQL Server (논리 서버 전용) [양식](https://ms.portal.azure.com/#create/Microsoft.SQLServer)으로 이동 하 여 Azure Portal를 사용 하 여 [논리 SQL server](../azure-sql/database/logical-servers.md) (데이터베이스 제외)를 만듭니다.
+* SSIS는 [Azure Data Factory에서 Azure-SSIS Integration Runtime 프로 비전](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)문서에 설명 된 대로 SQL Database에서 호스트 하는 대상 SSISDB를 사용 하 여 AZURE-SSIS INTEGRATION RUNTIME (IR)를 포함 하는 AZURE DATA FACTORY (ADF)에서 프로 비전 되어야 합니다.
 
 ## <a name="assess-source-ssis-projectspackages"></a>원본 SSIS 프로젝트/패키지 평가
 
-원본 SSISDB의 평가는 데이터베이스 Migration Assistant (DMA) 또는 Azure Database Migration Service (DMS)에 통합 되지 않지만 SSIS 프로젝트/패키지는 Azure SQL Database 서버에서 호스트 되는 대상 SSISDB에 다시 배포 될 때 평가/유효성 검사 됩니다.
+원본 SSISDB의 평가는 아직 DMA (데이터베이스 Migration Assistant) 또는 DMS (Azure Database Migration Service)에 통합 되지 않지만 SSIS 프로젝트/패키지는 Azure SQL Database에 의해 호스팅되는 대상 SSISDB에 다시 배포 될 때 평가/유효성을 검사 합니다.
 
 ## <a name="migrate-ssis-projectspackages"></a>SSIS 프로젝트/패키지 마이그레이션
 
-SSIS 프로젝트/패키지를 Azure SQL Database 서버로 마이그레이션하려면 다음 단계를 수행 합니다.
+SSIS 프로젝트/패키지를 Azure SQL Database로 마이그레이션하려면 다음 단계를 수행 합니다.
 
 1. SSMS를 연 다음, **옵션**을 선택하여 **서버에 연결** 대화 상자를 표시합니다.
 
-2. **로그인** 탭에서 대상 SSISDB를 호스트 하는 Azure SQL Database 서버에 연결 하는 데 필요한 정보를 지정 합니다.
+2. **로그인** 탭에서 대상 SSISDB를 호스트 하는 서버에 연결 하는 데 필요한 정보를 지정 합니다.
 
     ![SSIS 로그인 탭](media/how-to-migrate-ssis-packages/dms-ssis-login-tab.png)
 
@@ -78,10 +77,10 @@ SSIS 프로젝트/패키지를 Azure SQL Database 서버로 마이그레이션�
 
     ![배포 마법사 원본 선택 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
  
-8. **다음**을 선택합니다.
+8. **새로 만들기**를 선택합니다.
 9. **대상 선택** 페이지에서 프로젝트에 대한 대상을 지정합니다.
 
-    a. 서버 이름 텍스트 상자에 정규화 된 Azure SQL Database 서버 이름 (<server_name> database.windows.net)을 입력 합니다.
+    a. 서버 이름 텍스트 상자에 정규화 된 서버 이름 (<server_name> database.windows.net)을 입력 합니다.
 
     b. 인증 정보를 제공한 다음, **연결**을 선택합니다.
 
@@ -96,7 +95,7 @@ SSIS 프로젝트/패키지를 Azure SQL Database 서버로 마이그레이션�
 
     ![배포 마법사 유효성 검사 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-validate-page.png)
 
-11. **다음**을 선택합니다.
+11. **새로 만들기**를 선택합니다.
 
 12. **검토** 페이지에서 배포 설정을 검토합니다.
 

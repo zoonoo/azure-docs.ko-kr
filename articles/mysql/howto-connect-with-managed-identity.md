@@ -6,12 +6,11 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: fd11fd32c4c6901302d1f7960ad38ad426e6a3a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 156d960571f4d5f28f64823ecbe8f0465739bb23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84141724"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>관리 ID를 사용하여 Azure Database for MySQL에 연결
 
@@ -22,6 +21,9 @@ ms.locfileid: "83663271"
 > * VM의 사용자가 할당한 ID를 나타내는 사용자를 데이터베이스에 만들기
 > * VM ID를 사용하여 액세스 토큰을 가져와서 Azure Database for MySQL 서버를 쿼리하는 데 사용
 > * C# 예제 애플리케이션에서 토큰 검색 구현
+
+> [!IMPORTANT]
+> 관리 Id로 연결 하는 것은 MySQL 5.7 이상 에서만 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -74,7 +76,7 @@ CREATE AADUSER 'myuser' IDENTIFIED BY 'CLIENT_ID';
 
 ## <a name="retrieving-the-access-token-from-azure-instance-metadata-service"></a>Azure Instance Metadata Service에서 액세스 토큰 검색
 
-이제 애플리케이션에서 Azure Instance Metadata 서비스를 통해 액세스 토큰을 검색하여 데이터베이스를 인증하는 데 사용할 수 있습니다.
+이제 애플리케이션에서 Azure Instance Metadata Service를 통해 액세스 토큰을 검색하여 데이터베이스를 인증하는 데 사용할 수 있습니다.
 
 이 토큰 검색은 `http://169.254.169.254/metadata/identity/oauth2/token`에 대한 HTTP 요청을 수행하고 다음 매개 변수를 전달하여 수행됩니다.
 

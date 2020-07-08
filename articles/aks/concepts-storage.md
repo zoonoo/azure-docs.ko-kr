@@ -4,12 +4,11 @@ description: 볼륨, 영구적 볼륨, 스토리지 클래스 및 클레임을 �
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77595997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171381"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 스토리지 옵션
 
@@ -55,10 +54,12 @@ PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kub
 
 Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위해 *StorageClass*를 만들 수 있습니다. StorageClass는 *reclaimPolicy*도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure Storage 리소스의 동작을 제어합니다. 기본 스토리지 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
 
-AKS에서 만드는 두 가지 초기 StorageClass는 다음과 같습니다.
+AKS에서 4 개의 초기 StorageClasses 생성 됩니다.
 
-- *default* - Azure Standard Storage를 사용하여 Managed Disk를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
+- *기본값* -Azure standardssd 저장소를 사용 하 여 관리 디스크를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
 - *managed-premium* - Azure Premium 스토리지를 사용하여 Managed Disk를 만듭니다. 회수 정책은 다시 사용 하는 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
+- *azurefile* -azure Standard storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 원본 Azure 파일 공유가 삭제 되 면이를 사용 하는 영구 볼륨이 삭제 됨을 나타냅니다.
+- *azurefile-premium* -azure premium storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 원본 Azure 파일 공유가 삭제 되 면이를 사용 하는 영구 볼륨이 삭제 됨을 나타냅니다.
 
 영구적 볼륨에 대해 지정된 StorageClass가 없는 경우 기본 StorageClass가 사용됩니다. 영구적 볼륨을 요청하는 경우 필요한 스토리지를 적절하게 사용하도록 주의해야 합니다. `kubectl`을 사용하여 추가로 필요한 StorageClass를 만들 수 있습니다. 다음 예제에서는 Premium Managed Disks를 사용하고, Pod가 삭제되면 기본 Azure Disk를 *유지*해야 한다고 지정합니다.
 
@@ -120,7 +121,7 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-관련 모범 사례는 [AKS의 저장소 및 백업에 대 한 모범 사례][operator-best-practices-storage]를 참조 하세요.
+관련 모범 사례는 [AKS에서 스토리지 및 백업에 대한 모범 사례][operator-best-practices-storage]를 참조하세요.
 
 Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만드는 방법을 알아보려면 다음 방법 문서를 참조하세요.
 

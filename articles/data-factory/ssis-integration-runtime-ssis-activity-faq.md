@@ -11,12 +11,11 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84118090"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -32,13 +31,13 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
 
 ## <a name="common-errors-causes-and-solutions"></a>일반적인 오류, 원인 및 해결 방법
 
-### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>오류 메시지: "연결 제한 시간이 만료 되었습니다." 또는 "서비스에서 요청을 처리 하는 동안 오류가 발생 했습니다. 다시 시도하세요”와 같은 오류로 인해 실패합니다.
+### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>오류 메시지: "연결 제한 시간이 만료 되었습니다." 또는 "서비스에서 요청을 처리 하는 동안 오류가 발생 했습니다. 다시 시도하세요."
 
 가능한 원인 및 권장 되는 작업은 다음과 같습니다.
 * 데이터 원본 또는 대상이 오버 로드 됩니다. 데이터 원본 또는 대상에 대 한 부하를 확인 하 고 용량이 충분 한지 확인 합니다. 예를 들어 Azure SQL Database 사용 하는 경우 데이터베이스가 시간 초과 될 가능성이 있는 경우 확장 하는 것이 좋습니다.
 * 특히 연결이 지역 간 이거나 온-프레미스와 Azure 사이에 있는 경우 SSIS 통합 런타임과 데이터 원본 또는 대상 간의 네트워크가 불안정 합니다. 다음 단계를 수행 하 여 SSIS 패키지에서 재시도 패턴을 적용 합니다.
   * SSIS 패키지가 부작용 (예: 데이터 손실 또는 데이터 중복) 없이 실패 시 다시 실행할 수 있는지 확인 합니다.
-  * **일반** 탭에서 **SSIS 패키지 실행** 작업의 **다시 시도** 및 **재시도 간격** 을 구성 ![합니다. 일반 탭에서 속성을 설정 합니다.](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * **일반** 탭에서 **SSIS 패키지 실행** 작업의 **다시 시도** 및 **재시도 간격** 을 구성 합니다. ![ 일반 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * ADO.NET 및 OLE DB 원본 또는 대상 구성 요소에 대해 SSIS 패키지 또는 SSIS 작업에서 연결 관리자의 **ConnectRetryCount** 및 **ConnectRetryInterval** 를 설정 합니다.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>오류 메시지: "ADO NET 원본에서 연결을 획득 하지 못했습니다. '" "SQL Server에 대 한 연결을 설정 하는 동안 네트워크 관련 또는 인스턴스 관련 오류가 발생 했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. "
@@ -74,10 +73,10 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
 * 잠재적인 원인 & 권장 조치:
   * SSIS 작업이 파일 시스템 (패키지 파일 또는 프로젝트 파일)에서 패키지를 실행 하는 경우 SSIS 작업에서 제공한 패키지 액세스 자격 증명을 사용 하 여 프로젝트, 패키지 또는 구성 파일에 액세스할 수 없는 경우이 오류가 발생 합니다.
     * Azure 파일을 사용 하는 경우:
-      * \\ \\ \<파일 경로는 저장소 계정 이름\>. file.core.windows.net\\\<파일 공유 경로로 시작 해야 합니다.\>
+      * 파일 경로는. file.core.windows.net로 시작 해야 합니다 \\ \\ \<storage account name\> .\\\<file share path\>
       * 도메인은 "Azure" 여야 합니다.
-      * 사용자 이름은 저장소 계정 \<이름 이어야 합니다.\>
-      * 암호는 저장소 액세스 \<키 여야 합니다.\>
+      * 사용자 이름은 이어야 합니다.\<storage account name\>
+      * 암호는\<storage access key\>
     * 온-프레미스 파일을 사용 하는 경우 Azure SSIS 통합 런타임에서 온-프레미스 파일 공유에 액세스할 수 있도록 VNet, 패키지 액세스 자격 증명 및 권한이 올바르게 구성 되어 있는지 확인 하세요.
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>오류 메시지: "파일 이름 ' ... ' 연결에 지정 된가 잘못 되었습니다. "
@@ -95,20 +94,20 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>오류 메시지: "' SSISDB ' 데이터베이스가 크기 할당량에 도달 했습니다."
 
-Azure SQL 데이터베이스에 만든 SSISDB 데이터베이스 또는 SSIS 통합 런타임을 만들 때 관리되는 인스턴스가 할당량에 도달했기 때문일 수 있습니다. 다음과 같이 작업해 보세요.
-* 데이터베이스의 DTU를 늘리는 것이 좋습니다. 자세한 내용은 [Azure SQL Database 서버의 SQL Database 리소스 한도](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)를 참조하세요.
+Azure SQL Database 또는 SQL Managed Instance에서 만든 SSISDB 데이터베이스가 할당량에 도달 했기 때문일 수 있습니다. 다음과 같이 작업해 보세요.
+* 데이터베이스의 DTU를 늘리는 것이 좋습니다. [논리 서버에 대 한 SQL Database 제한](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)에서 세부 정보를 찾을 수 있습니다.
 * 패키지에서 많은 로그를 생성할지 여부를 확인합니다. 많은 로그를 생성할 경우 이러한 로그를 정리하도록 탄력적 작업을 구성할 수 있습니다. 자세한 내용은 [Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md)를 참조하세요.
 
 ### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>오류 메시지: "데이터베이스에 대 한 요청 제한은 ... 및에 도달 했습니다. "
 
-SSIS integration runtime에서 많은 패키지가 병렬로 실행 되는 경우이 오류는 SSISDB가 요청 제한에 도달 했기 때문에 발생할 수 있습니다. 이 문제를 해결 하려면 SSISDB의 DTC를 늘려야 합니다. 자세한 내용은 [Azure SQL Database 서버의 SQL Database 리소스 한도](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)를 참조하세요.
+SSIS integration runtime에서 많은 패키지가 병렬로 실행 되는 경우이 오류는 SSISDB가 요청 제한에 도달 했기 때문에 발생할 수 있습니다. 이 문제를 해결 하려면 SSISDB의 DTC를 늘려야 합니다. [논리 서버에 대 한 SQL Database 제한](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)에서 세부 정보를 찾을 수 있습니다.
 
 ### <a name="error-message-ssis-operation-failed-with-unexpected-operation-status-"></a>오류 메시지: "예기치 않은 작업 상태를 포함 하 여 SSIS 작업이 실패 했습니다."
 
 오류는 일반적으로 일시적인 문제로 인해 발생 하므로 패키지 실행을 다시 실행 해 보십시오. 다음 단계를 수행 하 여 SSIS 패키지에서 재시도 패턴을 적용 합니다.
 
 * SSIS 패키지가 부작용 (예: 데이터 손실 또는 데이터 중복) 없이 실패 시 다시 실행할 수 있는지 확인 합니다.
-* **일반** 탭에서 **SSIS 패키지 실행** 작업의 **다시 시도** 및 **재시도 간격** 을 구성 ![합니다. 일반 탭에서 속성을 설정 합니다.](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* **일반** 탭에서 **SSIS 패키지 실행** 작업의 **다시 시도** 및 **재시도 간격** 을 구성 합니다. ![ 일반 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * ADO.NET 및 OLE DB 원본 또는 대상 구성 요소에 대해 SSIS 패키지 또는 SSIS 작업에서 연결 관리자의 **ConnectRetryCount** 및 **ConnectRetryInterval** 를 설정 합니다.
 
 ### <a name="error-message-there-is-no-active-worker"></a>오류 메시지: "활성 작업자는 없습니다."
@@ -157,7 +156,7 @@ Azure SSIS 통합 런타임이 자체 호스팅 통합 런타임을 사용 하 �
   * 실행 로그는 [SSMS 보고서](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) 또는 SSIS 패키지 실행 작업에서 지정한 로그 폴더에서 찾을 수 있습니다.
   * vNet은 다른 방법으로 온-프레미스 데이터에 액세스 하는 데도 사용할 수 있습니다. 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md) 에서 찾을 수 있습니다.
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>오류 메시지: "준비 작업 상태: 실패 준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "SSIS Executor 종료 코드:-1. \ n", "LogLocation": "... \\SSISTelemetry\\executionlog\\... "," effectiveIntegrationRuntime ":" ... "," executionlog ": ...," durationInQueue ": {" integrationRuntimeQueue ": ...}}"
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>오류 메시지: "준비 작업 상태: 실패 준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "SSIS Executor 종료 코드:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ executionlog \\ ... "," effectiveIntegrationRuntime ":" ... "," executionlog ": ...," durationInQueue ": {" integrationRuntimeQueue ": ...}}"
 
 Visual C++ 런타임이 자체 호스팅 integration runtime 컴퓨터에 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir) 에서 찾을 수 있습니다.
 
@@ -179,7 +178,7 @@ Visual C++ 런타임이 자체 호스팅 integration runtime 컴퓨터에 설치
   * 노드당 노드 수와 최대 병렬 실행을 설정 하는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 AZURE SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조 하세요.
 * SSIS 통합 런타임이 중지 되었거나 비정상 상태입니다. SSIS 통합 런타임 상태 및 오류를 확인 하는 방법에 대 한 자세한 내용은 [AZURE ssis integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime)을 참조 하세요.
 
-또한 일반 탭에서 속성 ![설정의](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png) **일반** 탭에서 시간 제한을 설정 하는 것이 좋습니다.
+또한 일반 탭에서 속성 설정의 **일반** 탭에서 시간 제한을 설정 하는 것이 좋습니다 ![ ](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png) .
 
 ### <a name="poor-performance-in-package-execution"></a>패키지 실행의 성능 저하
 

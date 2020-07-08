@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80130831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021503"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -173,7 +172,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 클라우드 데이터 저장소에는 게이트웨이 시스템의 IP 주소를 허용 목록에 추가해야 합니다. 이러한 데이터 저장소 중 일부는 기본적으로 IP 주소의 허용 목록을 요구하지 않을 수 있습니다. 
 
-- [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)

@@ -13,7 +13,6 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
 ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/26/2020
 ms.locfileid: "83860616"
@@ -216,7 +215,7 @@ Blob Storage의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바로
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> TEXTFILE 테이블 \<데이터베이스 이름\>.\<외부 텍스트 파일 테이블 이름\>에 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서는 반환된 데이터 집합의 필드로 파티션 변수를 선택합니다. \<데이터베이스 이름\>.\<ORC 테이블 이름\>에 삽입은 실패하는데, \<데이터베이스 이름\>.\<ORC 테이블 이름\>에는 테이블 스키마의 필드로 해당 파티션 변수가 포함되어 있지 않기 때문입니다. 이 경우 \<데이터베이스 이름\>.\<ORC 테이블 이름\>에 삽입할 필드를 다음과 같이 구체적으로 선택해야 합니다.
+> TEXTFILE 테이블 \<데이터베이스 이름\>.\<외부 텍스트 파일 테이블 이름\>에 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서는 반환된 데이터 집합의 필드로 파티션 변수를 선택합니다. \<데이터베이스 이름\>.\<ORC 테이블 이름\>에 삽입은 실패하는데, \<데이터베이스 이름\>.\<ORC 테이블 이름\>에는 테이블 스키마의 필드로 해당 파티션 변수가 포함되어 있지 않기 때문입니다. 이 경우 \<데이터베이스 이름\>.\<ORC 테이블 이름\>에 삽입할 필드를 다음과 같이 구체적으로 선택해야 합니다. 모든 데이터가 *\<데이터베이스 이름\>.\<ORC 테이블 이름\>* 에 삽입된 후 다음 쿼리를 사용할 때 *\<외부 텍스트 파일 테이블 이름\>* 을 삭제하는 것이 안전합니다. 이 절차를 모두 수행했다면 이제 ORC 형식의 데이터를 사용할 수 있는 테이블이 준비되었을 것입니다. In this case, you need to specifically select the fields to be inserted to <bpt id="p1">*</bpt><ph id="ph1">\&lt;database name\&gt;</ph>.<ph id="ph2">\&lt;ORC table name\&gt;</ph><ept id="p1">*</ept> as follows:
 >
 >
 
@@ -225,8 +224,8 @@ Blob Storage의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바로
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-모든 데이터가 *\<데이터베이스 이름\>.\<ORC 테이블 이름\>* 에 삽입된 후 다음 쿼리를 사용할 때 *\<외부 텍스트 파일 테이블 이름\>* 을 삭제하는 것이 안전합니다.
+It is safe to drop the <bpt id="p1">*</bpt><ph id="ph1">\&lt;external text file table name\&gt;</ph><ept id="p1">*</ept> when using the following query after all data has been inserted into <bpt id="p2">*</bpt><ph id="ph2">\&lt;database name\&gt;</ph>.<ph id="ph3">\&lt;ORC table name\&gt;</ph><ept id="p2">*</ept>:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
-이 절차를 모두 수행했다면 이제 ORC 형식의 데이터를 사용할 수 있는 테이블이 준비되었을 것입니다.  
+After following this procedure, you should have a table with data in the ORC format ready to use.  

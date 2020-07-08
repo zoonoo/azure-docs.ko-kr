@@ -10,12 +10,11 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 6f2983b375e3eeb73a0372e123d4d2763b3c65ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 5dd8e483751010a6090e0ec415c40d381e978fd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84118818"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Azure의 SSIS 패키지에서 Windows 인증으로 데이터 저장소 및 파일 공유 액세스
 
@@ -25,16 +24,16 @@ Windows 인증을 사용하여 Azure Data Factory(ADF)의 Azure-SSIS Integration
 
 | 연결 방법 | 유효 범위 | 설정 단계 | 패키지의 액세스 방법 | 자격 증명 집합 및 연결된 리소스 수 | 연결된 리소스 유형 | 
 |---|---|---|---|---|---|
-| 작업 수준 실행 컨텍스트 설정 | SSIS 패키지 실행 작업별 | ADF 파이프라인에서 SSIS 패키지 작업 실행으로 SSIS 패키지를 실행할 때 "실행 방법/다음 계정으로 실행" 컨텍스트를 설정하도록 **Windows 인증** 속성을 구성합니다.<br/><br/> 자세한 내용은 [SSIS 패키지 실행 작업 구성](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)을 참조하세요. | 파일 공유 또는 Azure Files를 사용 하는 경우와 같이 UNC 경로를 통해 패키지에서 직접 리소스에 `\\YourFileShareServerName\YourFolderName` 액세스 합니다.`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | 모든 연결된 리소스에 하나의 자격 증명 집합만 지원 | - 온-프레미스/Azure VM의 파일 공유<br/><br/> - Azure Files, [Azure 파일 공유 사용](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 참조 <br/><br/> - Windows 인증을 사용하는 온프레미스SQL Server/Azure VM<br/><br/> - Windows 인증을 사용하는 기타 리소스 |
-| 카탈로그 수준 실행 컨텍스트 설정 | Azure-SSIS IR 마다 이지만 활동 수준 실행 컨텍스트를 설정할 때 재정의 됩니다 (위 참조). | SSISDB `catalog.set_execution_credential` 저장 프로시저를 실행하여 “실행 방법/다음 계정으로 실행” 컨텍스트를 설정합니다.<br/><br/> 자세한 내용은 아래에서 이 문서의 나머지 부분을 참조하세요. | 파일 공유 또는 Azure Files를 사용 하는 경우와 같이 UNC 경로를 통해 패키지에서 직접 리소스에 `\\YourFileShareServerName\YourFolderName` 액세스 합니다.`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | 모든 연결된 리소스에 하나의 자격 증명 집합만 지원 | - 온-프레미스/Azure VM의 파일 공유<br/><br/> - Azure Files, [Azure 파일 공유 사용](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 참조 <br/><br/> - Windows 인증을 사용하는 온프레미스SQL Server/Azure VM<br/><br/> - Windows 인증을 사용하는 기타 리소스 |
-| `cmdkey` 명령을 통해 자격 증명 유지 | Azure-SSIS IR 당, 작업/카탈로그 수준 실행 컨텍스트를 설정할 때 재정의 됩니다 (위 참조). | Azure-SSIS IR `cmdkey` 를 프로 비전 할 때 사용자 지정`main.cmd`설치 스크립트 ()에서 명령을 실행 합니다. 예를 들어 파일 공유를 사용 하거나 `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` Azure Files `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey`를 사용 하는 경우입니다.<br/><br/> 자세한 내용은 [Azure-SSIS IR 설정 사용자 지정](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)을 참조하세요. | 파일 공유 또는 Azure Files를 사용 하는 경우와 같이 UNC 경로를 통해 패키지에서 직접 리소스에 `\\YourFileShareServerName\YourFolderName` 액세스 합니다.`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | 다양한 연결된 리소스에 여러 자격 증명 집합 지원 | - 온-프레미스/Azure VM의 파일 공유<br/><br/> - Azure Files, [Azure 파일 공유 사용](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 참조 <br/><br/> - Windows 인증을 사용하는 온프레미스SQL Server/Azure VM<br/><br/> - Windows 인증을 사용하는 기타 리소스 |
+| 작업 수준 실행 컨텍스트 설정 | SSIS 패키지 실행 작업별 | ADF 파이프라인에서 SSIS 패키지 작업 실행으로 SSIS 패키지를 실행할 때 "실행 방법/다음 계정으로 실행" 컨텍스트를 설정하도록 **Windows 인증** 속성을 구성합니다.<br/><br/> 자세한 내용은 [SSIS 패키지 실행 작업 구성](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)을 참조하세요. | 파일 공유 또는 Azure Files를 사용 하는 경우와 같이 UNC 경로를 통해 패키지에서 직접 리소스에 액세스 `\\YourFileShareServerName\YourFolderName` 합니다.`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | 모든 연결된 리소스에 하나의 자격 증명 집합만 지원 | - 온-프레미스/Azure VM의 파일 공유<br/><br/> - Azure Files, [Azure 파일 공유 사용](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 참조 <br/><br/> - Windows 인증을 사용하는 온프레미스SQL Server/Azure VM<br/><br/> - Windows 인증을 사용하는 기타 리소스 |
+| 카탈로그 수준 실행 컨텍스트 설정 | Azure-SSIS IR 마다 이지만 활동 수준 실행 컨텍스트를 설정할 때 재정의 됩니다 (위 참조). | SSISDB `catalog.set_execution_credential` 저장 프로시저를 실행하여 “실행 방법/다음 계정으로 실행” 컨텍스트를 설정합니다.<br/><br/> 자세한 내용은 아래에서 이 문서의 나머지 부분을 참조하세요. | 파일 공유 또는 Azure Files를 사용 하는 경우와 같이 UNC 경로를 통해 패키지에서 직접 리소스에 액세스 `\\YourFileShareServerName\YourFolderName` 합니다.`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | 모든 연결된 리소스에 하나의 자격 증명 집합만 지원 | - 온-프레미스/Azure VM의 파일 공유<br/><br/> - Azure Files, [Azure 파일 공유 사용](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 참조 <br/><br/> - Windows 인증을 사용하는 온프레미스SQL Server/Azure VM<br/><br/> - Windows 인증을 사용하는 기타 리소스 |
+| `cmdkey` 명령을 통해 자격 증명 유지 | Azure-SSIS IR 당, 작업/카탈로그 수준 실행 컨텍스트를 설정할 때 재정의 됩니다 (위 참조). | `cmdkey`Azure-SSIS IR를 프로 비전 할 때 사용자 지정 설치 스크립트 ()에서 명령을 실행 합니다. 예를 들어 `main.cmd` 파일 공유를 사용 하거나 Azure Files를 사용 하는 경우입니다 `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` . `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey`<br/><br/> 자세한 내용은 [Azure-SSIS IR 설정 사용자 지정](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)을 참조하세요. | 파일 공유 또는 Azure Files를 사용 하는 경우와 같이 UNC 경로를 통해 패키지에서 직접 리소스에 액세스 `\\YourFileShareServerName\YourFolderName` 합니다.`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | 다양한 연결된 리소스에 여러 자격 증명 집합 지원 | - 온-프레미스/Azure VM의 파일 공유<br/><br/> - Azure Files, [Azure 파일 공유 사용](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 참조 <br/><br/> - Windows 인증을 사용하는 온프레미스SQL Server/Azure VM<br/><br/> - Windows 인증을 사용하는 기타 리소스 |
 | 패키지 실행 시간에 드라이브 탑재(비지속적) | 패키지별 | 패키지의 제어 흐름 시작 부분에 추가되는 프로세스 실행 태스크로 `net use` 명령을 실행합니다(예: `net use D: \\YourFileShareServerName\YourFolderName`). | 매핑된 드라이브를 통해 파일 공유에 액세스 | 다양한 파일 공유에 여러 드라이브 지원 | - 온-프레미스/Azure VM의 파일 공유<br/><br/> - Azure Files, [Azure 파일 공유 사용](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 참조 |
 |||||||
 
 > [!WARNING]
 > 위의 방법 중 하나를 사용 하 여 Windows 인증을 사용 하는 데이터 저장소에 액세스 하지 않는 경우 Windows 인증에 종속 된 패키지는 해당 패키지에 액세스할 수 없으며 런타임에 실패 합니다. 
 
-이 문서의 나머지 부분에서는 Windows 인증을 사용하여 데이터 저장소에 액세스하는 패키지를 Azure-SSIS IR에서 실행하도록 Azure SQL Database 서버/관리형 인스턴스에서 호스트되는 SSIS 카탈로그(SSISDB)를 구성하는 방법을 설명합니다. 
+이 문서의 나머지 부분에서는 Windows 인증을 사용 하 여 데이터 저장소에 액세스 하는 Azure-SSIS IR에서 패키지를 실행 하기 위해 SQL Database/SQL Managed Instance에서 호스팅되는 SSIS 카탈로그 (SSISDB)를 구성 하는 방법을 설명 합니다. 
 
 ## <a name="you-can-only-use-one-set-of-credentials"></a>자격 증명 집합을 하나만 사용 가능
 
@@ -44,7 +43,7 @@ SSIS 패키지에서 Windows 인증을 사용하는 경우 한 집합의 자격 
 
 패키지에서 Windows 인증을 사용하여 온-프레미스 데이터 저장소에 액세스할 수 있는 도메인 자격 증명을 제공하려면 다음을 수행합니다.
 
-1. SSMS(SQL Server Management Studio) 또는 다른 도구를 사용하여 SSISDB를 호스트하는 SQL Database 서버/관리형 인스턴스에 연결합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
+1. SSMS (SQL Server Management Studio) 또는 다른 도구를 사용 하 여 SSISDB를 호스트 하는 SQL Database/SQL Managed Instance에 연결 합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
 
 2. SSISDB를 현재 데이터베이스로 사용하여 쿼리 창을 엽니다.
 
@@ -60,7 +59,7 @@ SSIS 패키지에서 Windows 인증을 사용하는 경우 한 집합의 자격 
 
 활성 도메인 자격 증명을 보려면 다음을 수행합니다.
 
-1. SSMS나 다른 도구를 사용하여 SSISDB를 호스트하는 SQL Database 서버/관리형 인스턴스에 연결합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
+1. SSMS 또는 다른 도구를 사용 하 여 SSISDB를 호스트 하는 SQL Database/SQL Managed Instance에 연결 합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
 
 2. SSISDB를 현재 데이터베이스로 사용하여 쿼리 창을 엽니다.
 
@@ -75,7 +74,7 @@ SSIS 패키지에서 Windows 인증을 사용하는 경우 한 집합의 자격 
 ### <a name="clear-domain-credentials"></a>도메인 자격 증명 지우기
 이 문서의 설명에 따라 제공한 자격 증명을 지우고 제거하려면 다음을 수행합니다.
 
-1. SSMS나 다른 도구를 사용하여 SSISDB를 호스트하는 SQL Database 서버/관리형 인스턴스에 연결합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
+1. SSMS 또는 다른 도구를 사용 하 여 SSISDB를 호스트 하는 SQL Database/SQL Managed Instance에 연결 합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
 
 2. SSISDB를 현재 데이터베이스로 사용하여 쿼리 창을 엽니다.
 
@@ -140,7 +139,7 @@ Azure에서 실행 중인 패키지에서 온-프레미스 파일 공유에 액�
 
 Azure에서 실행 중인 패키지에서 Azure VM의 파일 공유에 액세스하려면 다음을 수행합니다.
 
-1. SSMS나 다른 도구를 사용하여 SSISDB를 호스트하는 SQL Database 서버/관리형 인스턴스에 연결합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
+1. SSMS 또는 다른 도구를 사용 하 여 SSISDB를 호스트 하는 SQL Database/SQL Managed Instance에 연결 합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
 
 2. SSISDB를 현재 데이터베이스로 사용하여 쿼리 창을 엽니다.
 
@@ -156,7 +155,7 @@ Azure Files에 대한 자세한 내용은 [Azure Files](https://azure.microsoft.
 
 Azure에서 실행 중인 패키지에서 Azure Files의 파일 공유에 액세스하려면 다음을 수행합니다.
 
-1. SSMS나 다른 도구를 사용하여 SSISDB를 호스트하는 SQL Database 서버/관리형 인스턴스에 연결합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
+1. SSMS 또는 다른 도구를 사용 하 여 SSISDB를 호스트 하는 SQL Database/SQL Managed Instance에 연결 합니다. 자세한 내용은 [Azure에서 SSISDB에 연결](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)을 참조하세요.
 
 2. SSISDB를 현재 데이터베이스로 사용하여 쿼리 창을 엽니다.
 

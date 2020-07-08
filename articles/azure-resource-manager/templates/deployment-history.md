@@ -3,17 +3,18 @@ title: 배포 기록
 description: 포털, PowerShell, Azure CLI 및 REST API를 사용하여 Azure Resource Manager 배포 작업을 확인하는 방법을 설명합니다.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.date: 05/26/2020
+ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117841"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 기록 보기
 
-Azure Resource Manager를 사용하면 배포 기록을 보고 이전 배포의 특정 작업을 검토할 수 있습니다. 배포된 리소스를 보고 오류에 대한 정보를 가져올 수 있습니다.
+Azure Resource Manager를 사용 하 여 배포 기록을 볼 수 있습니다. 이전 배포의 특정 작업을 검사하고 어떤 리소스가 배포되었는지 확인할 수 있습니다. 이 기록에는 오류에 대 한 정보가 포함 됩니다.
+
+리소스 그룹에 대 한 배포 기록은 800 배포로 제한 됩니다. 한도에 도달 하면 배포는 기록에서 자동으로 삭제 됩니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조 하세요.
 
 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](common-deployment-errors.md)을 참조하세요.
 
@@ -117,7 +118,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 
 1. 배포 요약에서 **작업 세부 정보**를 선택합니다.
 
-    ![배포 작업 선택](./media/deployment-history/get-operation-details.png)
+    ![작업 세부 정보 선택](./media/deployment-history/get-operation-details.png)
 
 1. 배포 단계에 대한 세부 정보가 표시됩니다. 오류가 발생하면 세부 정보에 오류 메시지가 포함됩니다.
 
@@ -210,6 +211,6 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 ## <a name="next-steps"></a>다음 단계
 
 * 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](common-deployment-errors.md)을 참조하세요.
-* 활동 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법에 대해 알아보려면 [활동 로그를 보고 Azure 리소스 관리](../management/view-activity-logs.md)를 참조하세요.
+* 배포 기록에서 배포를 관리 하는 방법에 대 한 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조 하세요.
 * 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](deploy-powershell.md)를 참조하세요.
 

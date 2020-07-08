@@ -11,19 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592082"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83996689"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>연속 창에 따라 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 연속 창 트리거를 만들고 시작 및 모니터링하는 단계를 제공합니다. 트리거 및 지원되는 형식에 대한 일반적인 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
 
-연속 창 트리거는 상태를 유지하면서 지정된 시작 시간부터 주기적 시간 간격으로 실행되는 트리거 유형입니다. 연속 창은 고정된 크기의 겹치지 않고 연속적인 일련의 시간 간격입니다. 연속 창 트리거는 파이프라인과 1:1 관계이며 단일 파이프라인만 참조할 수 있습니다.
+연속 창 트리거는 상태를 유지하면서 지정된 시작 시간부터 주기적 시간 간격으로 실행되는 트리거 유형입니다. 연속 창은 고정된 크기의 겹치지 않고 연속적인 일련의 시간 간격입니다. 연속 창 트리거는 파이프라인과 1:1 관계이며 단일 파이프라인만 참조할 수 있습니다. 연속 창 트리거는 복잡 한 시나리오에 대 한 기능 모음을 제공 하는 일정 트리거 ([다른 연속 창 트리거에](#tumbling-window-trigger-dependency)대 한 종속성, [실패 한 작업](tumbling-window-trigger-dependency.md#monitor-dependencies) 다시 실행 및 [파이프라인에 대 한 사용자 재시도 설정](#user-assigned-retries-of-pipelines))에 대 한 더 많은 가중치 대안입니다. Schedule 트리거와 연속 창 트리거의 차이점을 추가로 이해 하려면 [여기](concepts-pipeline-execution-triggers.md#trigger-type-comparison)를 방문 하세요.
 
 ## <a name="data-factory-ui"></a>Data Factory UI
 
@@ -94,12 +93,12 @@ ms.locfileid: "82592082"
 
 다음 테이블은 연속 창 트리거의 되풀이 및 일정 계획과 관련된 주요 JSON 요소의 대략적인 개요를 제공합니다.
 
-| JSON 요소 | 설명 | Type | 허용되는 값 | 필수 |
+| JSON 요소 | 설명 | 형식 | 허용되는 값 | 필수 |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | 트리거의 유형입니다. 형식은 고정 값 "TumblingWindowTrigger"입니다. | String | "TumblingWindowTrigger" | 예 |
-| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**: 이 요소는 \<readOnly>입니다. | String | "시작된," "중지된," "사용 안 함" | 예 |
+| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**:이 요소는 \<readOnly> 입니다. | String | "시작된," "중지된," "사용 안 함" | 예 |
 | **주기와** | 트리거를 되풀이하는 빈도 단위(시간 또는 분)를 나타내는 문자열입니다. **startTime** 날짜 값이 **frequency** 값보다 더 세부적인 경우 **startTime** 날짜는 시간 경계를 계산할 때 고려됩니다. 예를 들어, **frequency** 값이 시간이고 **startTime** 값이 2017-09-01T10:10:10Z이면 첫 번째 기간은 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)입니다. | String | "minute," "hour"  | 예 |
-| **interval** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "시간"인 경우 트리거가 세 시간마다 되풀이됩니다. <br/>**참고**: 최소 창 간격은 5 분입니다. | 정수 | 양의 정수입니다. | 예 |
+| **간격은** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "시간"인 경우 트리거가 세 시간마다 되풀이됩니다. <br/>**참고**: 최소 창 간격은 5 분입니다. | 정수 | 양의 정수입니다. | 예 |
 | **startTime**| 첫 번째 발생이며 과거일 수 있습니다. 첫 번째 트리거 간격은 (**startTime**, **startTime** + **interval**)입니다. | DateTime | DateTime 값입니다. | 예 |
 | **endTime**| 마지막 발생이며 과거일 수 있습니다. | DateTime | DateTime 값입니다. | 예 |
 | **연기할** | 시간에서 데이터 처리의 시작 지점을 지연하는 시간입니다. 예상 실행 시간 및 **delay** 시간 후에 파이프라인이 실행되기 시작됩니다. **delay**는 새 실행을 트리거하기 전에 트리거가 기한 이후 대기하는 기간을 정의합니다. **delay**는 **startTime** 시간을 변경하지 않습니다. 예를 들어 00:10:00이라는 **delay** 값은 10분을 지연한다는 의미입니다. | Timespan<br/>(hh:mm:ss)  | 기본값이 00:00:00인 시간 범위 값입니다. | 아니요 |
@@ -146,13 +145,19 @@ ms.locfileid: "82592082"
 그런 다음 파이프라인 정의에서 **WindowStart** 및 **WindowEnd** 값을 사용하려면 "MyWindowStart" 및 "MyWindowEnd" 매개 변수를 적절하게 사용합니다.
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>백필 시나리오에서 Windows 실행 순서
-특히 백필 시나리오에서 실행할 시간이 여러 개인 경우 시간의 실행 순서는 결정적이며 가장 오래된 간격부터 최신 간격으로 실행됩니다. 현재 이 동작을 수정할 수 없습니다.
+
+StartTime 트리거가 과거 인 경우이 수식, M = (CurrentTime)/TriggerSliceSize를 기반으로 하는 트리거는 나중에 실행을 실행 하기 전에 트리거 동시성을 보장 하는 {M} 백필 (이전)을 병렬로 실행 합니다. Windows의 실행 순서는 결정적 이며 가장 오래 된 간격부터 최신 간격입니다. 현재 이 동작을 수정할 수 없습니다.
 
 ### <a name="existing-triggerresource-elements"></a>기존 TriggerResource 요소
-기존 **TriggerResource** 요소에 다음과 같은 사항을 적용합니다.
 
-* 트리거의 **frequency** 요소에 대한 값(또는 시간 크기)이 변경되는 경우 이미 처리된 시간 상태가 다시 설정되지 *않습니다*. 트리거는 새로운 시간 크기를 사용하여 실행되는 마지막 기간의 시간에 계속 실행됩니다.
+기존 **Triggerresource** 요소의 업데이트에는 다음 사항이 적용 됩니다.
+
+* 트리거를 만든 후에는 해당 트리거의 **frequency** **요소 (** 또는 창 크기) 값을 변경할 수 없습니다. TriggerRun 다시 수행 및 종속성 평가의 적절 한 작동을 위해 필요 합니다.
 * 트리거의 **endTime** 요소에 대한 값이 변경(추가 또는 업데이트)되는 경우 이미 처리된 시간 상태가 다시 설정되지 *않습니다*. 트리거는 새 **endTime** 값을 사용합니다. 시간 전에 새 **endTime** 값이 이미 실행되는 경우 트리거가 중지됩니다. 그렇지 않으면 새 **endTime** 값이 발견될 때 트리거가 중지됩니다.
+
+### <a name="user-assigned-retries-of-pipelines"></a>사용자가 파이프라인의 재시도를 할당
+
+파이프라인 오류가 발생할 경우 연속 window 트리거는 사용자 개입 없이 동일한 입력 매개 변수를 사용 하 여 참조 된 파이프라인의 실행을 자동으로 다시 시도할 수 있습니다. 이는 트리거 정의에서 "retryPolicy" 속성을 사용 하 여 지정할 수 있습니다.
 
 ### <a name="tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성
 
@@ -164,7 +169,7 @@ ms.locfileid: "82592082"
 
 이 섹션에서는 Azure PowerShell을 사용하여 트리거를 만들고 시작하고 모니터링하는 방법을 보여 줍니다.
 
-1. 다음 콘텐츠를 사용 하 여 C:\ADFv2QuickStartPSH\ 폴더에 **Mytrigger. json** 이라는 json 파일을 만듭니다.
+1. 다음 콘텐츠를 사용 하 여 C:\ADFv2QuickStartPSH\ 폴더에 **MyTrigger.js** 이라는 JSON 파일을 만듭니다.
 
     > [!IMPORTANT]
     > JSON 파일을 저장하기 전에 **startTime** 요소의 값을 현재 UTC 시간으로 설정합니다. **endTime** 요소의 값을 현재 UTC 시간의 한 시간 이후로 설정합니다.

@@ -7,12 +7,11 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: da29785547d1b6eb4b38d07f020ba885dc5137ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7bd0afe4d0ea01671c996a0f536151d943e4fca7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84013013"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>' 말아 '를 사용 하 여 HDInsight에서 Apache Sqoop 작업 실행
 
@@ -24,15 +23,15 @@ Sqoop 작업을 실행하고 모니터링하며 결과를 검색하는 원시 HT
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [HDInsight에서 Hadoop과 함께 Apache Sqoop 사용](./hdinsight-use-sqoop.md)에서 [테스트 환경 설정](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) 완료
+* [HDInsight에서 Hadoop과 함께 Apache Sqoop 사용](./hdinsight-use-sqoop.md)에서 [테스트 환경 설정](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) 완료.
 
-* Azure SQL Database를 쿼리 하는 클라이언트입니다. [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) 또는 [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)를 사용 하는 것이 좋습니다.
+* Azure SQL Database를 쿼리 하는 클라이언트입니다. [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) 또는 [Visual Studio Code](../../azure-sql/database/connect-query-vscode.md)를 사용 하는 것이 좋습니다.
 
 * [말아](https://curl.haxx.se/). Curl은 HDInsight 클러스터에서(로) 데이터를 전송하는 도구입니다.
 
 * [jq](https://stedolan.github.io/jq/). jq 유틸리티는 REST 요청에서 반환된 JSON 데이터를 처리하는 데 사용합니다.
 
-* Sqoop 사용에 대해 잘 알고 있어야 합니다. 자세한 내용은 [Sqoop 사용자 가이드](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)를 참조 하세요.
+* Sqoop에 익숙해야 합니다. 자세한 내용은 [Sqoop 사용자 가이드](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)를 참조하세요.
 
 ## <a name="submit-apache-sqoop-jobs-by-using-curl"></a>Curl을 사용하여 Apache Sqoop 작업 제출
 
@@ -41,7 +40,7 @@ Azure Storage에서 Apache Sqoop 작업을 사용 하 여 데이터를 SQL Serve
 > [!NOTE]  
 > WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
 
-이 섹션의 명령에 대해를 클러스터 `USERNAME` 에 인증할 사용자로 바꾸고,를 사용자 계정의 암호로 바꿉니다 `PASSWORD` . `CLUSTERNAME`을 클러스터의 이름으로 바꿉니다.
+이 섹션의 명령에 대해를 `USERNAME` 클러스터에 인증할 사용자로 바꾸고,를 `PASSWORD` 사용자 계정의 암호로 바꿉니다. `CLUSTERNAME`을 클러스터의 이름으로 바꿉니다.
 
 REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
@@ -91,7 +90,7 @@ REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentic
        {"id":"job_1415651640909_0026"}
        ```
 
-1. 작업 상태를 확인하려면 다음 명령을 사용합니다. `JOBID`를 이전 단계에서 반환된 값으로 바꿉니다. 예를 들어 반환 값이 `{"id":"job_1415651640909_0026"}` `JOBID` 인 경우는 `job_1415651640909_0026`입니다. 필요에 따라 `jq` 의 위치를 수정 합니다.
+1. 작업 상태를 확인하려면 다음 명령을 사용합니다. `JOBID`를 이전 단계에서 반환된 값으로 바꿉니다. 예를 들어 반환 값이 인 경우는 `{"id":"job_1415651640909_0026"}` `JOBID` `job_1415651640909_0026` 입니다. 필요에 따라의 위치를 수정 `jq` 합니다.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -104,7 +103,7 @@ REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentic
    > [!NOTE]  
    > 이 Curl 요청은 작업에 관한 정보가 있는 JSON(JavaScript Object Notation) 문서를 반환합니다. jq는 상태 값을 검색하는 데만 사용됩니다.
 
-1. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `wasb:///example/data/sqoop/curl`)가 포함됩니다. 이 주소는 HDInsight 클러스터에서 사용 하는 기본 `example/data/sqoop/curl` 저장소 컨테이너의 디렉터리에 작업의 출력을 저장 합니다.
+1. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `wasb:///example/data/sqoop/curl`)가 포함됩니다. 이 주소는 `example/data/sqoop/curl` HDInsight 클러스터에서 사용 하는 기본 저장소 컨테이너의 디렉터리에 작업의 출력을 저장 합니다.
 
     Azure Portal을 사용하여 stderr 및 stdout Blob에 액세스할 수 있습니다.
 

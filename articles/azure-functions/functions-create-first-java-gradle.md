@@ -5,12 +5,11 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a366a199338539ba8e599bd5f406838f4e7bd21c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83996649"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle를 사용 하 여 Azure에 함수 만들기 및 게시
 
@@ -42,7 +41,7 @@ git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
 cd azure-functions-samples-java/
 ```
 
-를 `build.gradle` 열고 Azure에 `appName` 배포할 때 도메인 이름 충돌을 방지 하기 위해 다음 섹션의를 고유한 이름으로 변경 합니다. 
+를 열고 `build.gradle` `appName` Azure에 배포할 때 도메인 이름 충돌을 방지 하기 위해 다음 섹션의를 고유한 이름으로 변경 합니다. 
 
 ```gradle
 azurefunctions {
@@ -60,7 +59,7 @@ azurefunctions {
 텍스트 편집기에서 *src/main/java* 경로에서 새 Function.java 파일을 열고 생성된 코드를 검토합니다. 이 코드는 요청의 본문을 에코하는 [HTTP 트리거](functions-bindings-http-webhook.md) 함수입니다. 
 
 > [!div class="nextstepaction"]
-> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
@@ -93,14 +92,16 @@ curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
 예상 출력은 다음과 같습니다.
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
-로컬로 실행하는 경우 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys)는 필요하지 않습니다.  
+> [!NOTE]
+> AuthLevel을 or로 설정 `FUNCTION` 하 `ADMIN` 는 경우 로컬에서 실행 하는 경우 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys) 가 필요 하지 않습니다.  
+
 터미널에서 `Ctrl+C`를 사용하여 함수 코드를 중지합니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=local-run)
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
@@ -128,10 +129,10 @@ gradle azureFunctionsDeploy
 
 또한 배포는 프로젝트 파일을 패키지하고 패키지에서 실행 모드가 활성화되어 [zip 배포](functions-deployment-technologies.md#zip-deploy)를 사용하여 새 함수 앱에 배포합니다.
 
-게시한 HTTP 트리거에서 `authLevel = AuthorizationLevel.FUNCTION`을 사용하기 때문에 HTTP를 통해 함수 엔드포인트를 호출하려면 함수 키를 가져와야 합니다. 함수 키를 가져오는 가장 쉬운 방법은 [Azure Portal]에서 가져오는 것입니다.
+샘플 프로젝트의 HTTP 트리거에 대 한 authLevel은 `ANONYMOUS` 로,이를 통해 인증을 건너뜁니다. 그러나 또는와 같은 다른 authLevel을 사용 하는 경우 `FUNCTION` `ADMIN` HTTP를 통해 함수 끝점을 호출 하는 함수 키를 가져와야 합니다. 함수 키를 가져오는 가장 쉬운 방법은 [Azure Portal]에서 가져오는 것입니다.
 
 > [!div class="nextstepaction"]
-> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>HTTP 트리거 URL 가져오기
 
@@ -139,9 +140,9 @@ Azure Portal에서 함수 키를 사용하여 함수를 트리거하는 데 필�
 
 1. [Azure Portal]로 이동하여 로그인하고, 함수 앱의 _appName_을 페이지 맨 위에 있는 **검색**에 입력하고 enter 키를 누릅니다.
  
-1. 함수 앱에서 **Functions(읽기 전용)** 를 확장하고, 함수를 선택한 다음, 오른쪽 위에 있는 **</> 함수 URL 가져오기**를 선택합니다. 
+1. 함수 앱 **에서 함수를 선택 하**고 함수를 선택한 다음 **</> 오른쪽 위에 있는 함수 Url 가져오기** 를 클릭 합니다. 
 
-    ![Azure Portal에서 함수 URL 복사](./media/functions-create-java-maven/get-function-url-portal.png)
+    :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Azure Portal에서 함수 URL 복사":::
 
 1. **기본(함수 키)** 을 선택하고 **복사**를 선택합니다. 
 
@@ -152,17 +153,17 @@ Azure Portal에서 함수 키를 사용하여 함수를 트리거하는 데 필�
 `cURL`을 사용하여 Azure에서 실행되는 함수 앱을 확인하려면 아래 샘플의 URL을 포털에서 복사한 URL로 바꿉니다.
 
 ```console
-curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpExample?code=zYRohsTwBlZ68YF.... --data AzureFunctions
+curl -w "\n" http://azure-functions-sample-demo.azurewebsites.net/api/HttpExample --data AzureFunctions
 ```
 
 이는 요청 본문에 `AzureFunctions`를 사용하여 POST 요청을 함수 엔드포인트로 보냅니다. 다음 응답이 표시됩니다.
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
 > [!div class="nextstepaction"]
-> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+> [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=verify-deployment)
 
 ## <a name="next-steps"></a>다음 단계
 

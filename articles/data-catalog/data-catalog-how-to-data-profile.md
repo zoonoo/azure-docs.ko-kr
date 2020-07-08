@@ -6,12 +6,11 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 698da509be2f375925459bbdd4a35d21c6ff4407
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68950232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171228"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 소스를 프로 파일링 하는 방법
 
@@ -45,7 +44,7 @@ ms.locfileid: "68950232"
 > 애플리케이션으로 데이터를 통합하는 방법을 설명하기 위해 자산에 문서를 추가할 수도 있습니다. [데이터 원본을 문서화하는 방법](data-catalog-how-to-documentation.md)을 참조하세요.
 >
 
-<a name="howto"/>
+<a name="howto"></a>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>데이터 원본을 등록할 때 데이터 프로필을 포함하는 방법
 

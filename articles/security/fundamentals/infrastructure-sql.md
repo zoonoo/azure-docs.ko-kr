@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021860"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database 보안 기능    
 Azure SQL Database는 Azure에서 관계형 데이터베이스 서비스를 제공합니다. 고객 데이터를 보호하고 고객이 관계형 데이터베이스 서비스에서 기대하는 강력한 보안 기능을 제공하기 위해 SQL Database에는 자체의 보안 기능 집합이 있습니다. 이러한 기능은 Azure에서 상속된 제어를 기반으로 합니다.
@@ -31,13 +30,13 @@ Azure SQL Database는 Azure에서 관계형 데이터베이스 서비스를 제�
 Azure SQL Database는 TCP/1433 기본 포트를 통해서만 데이터베이스에 액세스해야 하는 TDS(Tabular Data Stream) 프로토콜만 지원합니다.
 
 ### <a name="azure-sql-database-firewall"></a>Azure SQL Database 방화벽
-고객의 데이터를 보호하기 위해 Azure SQL Database에는 아래와 같이 SQL Database 서버에 대한 모든 액세스를 차단하는 방화벽 기능이 기본적으로 포함되어 있습니다.
+고객 데이터를 보호 하기 위해 Azure SQL Database에는 아래와 같이 기본적으로 SQL Database에 대 한 모든 액세스를 차단 하는 방화벽 기능이 포함 되어 있습니다.
 
 ![Azure SQL Database 방화벽](./media/infrastructure-sql/sql-database-firewall.png)
 
 게이트웨이 방화벽은 고객이 허용 가능한 IP 주소 범위를 세밀하게 제어할 수 있는 주소 제한 기능을 제공합니다. 방화벽은 각 요청의 원래 IP 주소에 따라 액세스 권한을 부여합니다.
 
-고객은 관리 포털을 사용하거나 Azure SQL Database Management REST API를 사용하여 프로그래밍 방식으로 방화벽을 구성할 수 있습니다. Azure SQL Database 게이트웨이 방화벽은 기본적으로 Azure SQL 데이터베이스 인스턴스에 대한 모든 고객 TDS 액세스를 차단합니다. 고객은 원본/대상 인터넷 주소, 프로토콜 및 포트 번호를 통한 Azure SQL Database 연결을 허용하려면 ACL(액세스 제어 목록)을 사용하여 액세스를 구성해야 합니다.
+고객은 관리 포털을 사용하거나 Azure SQL Database Management REST API를 사용하여 프로그래밍 방식으로 방화벽을 구성할 수 있습니다. Azure SQL Database 게이트웨이 방화벽은 기본적으로 모든 고객 TDS 액세스를 Azure SQL Database 하는 것을 방지 합니다. 고객은 원본/대상 인터넷 주소, 프로토콜 및 포트 번호를 통한 Azure SQL Database 연결을 허용하려면 ACL(액세스 제어 목록)을 사용하여 액세스를 구성해야 합니다.
 
 ### <a name="dosguard"></a>DoSGuard
 DoSGuard라는 SQL Database 게이트웨이 서비스를 사용하면 DoS(서비스 거부) 공격을 줄일 수 있습니다. DoSGuard는 IP 주소에서 실패한 로그인을 활발히 추적합니다. 특정 기간 내에 특정 IP 주소에서 로그인 실패가 여러 번 발생하면 미리 정의된 기간 동안 서비스의 모든 리소스에 액세스할 수 없도록 해당 IP 주소가 차단됩니다.

@@ -8,12 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4146553d59607e1512d8f15391d143d44815cea9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74084747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84016477"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -37,8 +36,8 @@ SQL Server 인스턴스를 복구 하는 BCDR 기술의 선택은 다음 표에 
 Azure IaaS (infrastructure as a service) VM (가상 머신) 또는 온-프레미스에서 SQL Server.| [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | 보조 복제본을 주 복제본으로 만드는 데 걸린 시간입니다. | 보조 복제본에 대 한 복제는 비동기 이기 때문에 데이터 손실이 발생 합니다.
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [장애 조치(failover) 클러스터링(Always On FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | 노드 간 장애 조치 (failover)에 소요 된 시간입니다. | Always On FCI는 공유 저장소를 사용 하므로 장애 조치 (failover) 시 저장소 인스턴스의 동일한 뷰를 사용할 수 있습니다.
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [데이터베이스 미러링 (성능 우선 모드)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | 미러 서버를 웜 대기 서버로 사용 하는 서비스를 강제 적용 하는 데 걸린 시간입니다. | 복제는 비동기적이며, 미러 데이터베이스에 주 데이터베이스보다 약간 뒤처질 수 있습니다. 지연 시간은 일반적으로 작습니다. 하지만 주 서버 또는 미러 서버의 시스템 부하가 많은 경우에는 크기가 커질 수 있습니다.<br/><br/>로그 전달은 데이터베이스 미러링을 보완할 수 있습니다. 비동기 데이터베이스 미러링의 좋은 대안입니다.
-SQL as Azure의 PaaS (platform as a service)<br/><br/>이 배포 유형은 탄력적 풀 및 Azure SQL Database 서버를 포함 합니다. | 활성 지리적 복제 | 장애 조치 (failover)가 트리거된 후 30 초<br/><br/>보조 데이터베이스 중 하나에 대해 장애 조치 (failover)가 활성화 되 면 다른 모든 보조 데이터베이스는 새 주 데이터베이스에 자동으로 연결 됩니다. | RPO는 5 초입니다.<br/><br/>활성 지역 복제는 SQL Server의 Always On 기술을 사용 합니다. Snapshot 격리를 사용 하 여 주 데이터베이스의 커밋된 트랜잭션을 보조 데이터베이스로 비동기적으로 복제 합니다.<br/><br/>보조 데이터에는 부분적 트랜잭션이 포함 되지 않을 수 있습니다.
-Azure에서 활성 지역 복제를 사용 하 여 구성 된 SQL as PaaS.<br/><br/>이 배포 유형은 SQL Database 관리 되는 인스턴스, 탄력적 풀 및 SQL Database 서버를 포함 합니다. | 자동 장애 조치 그룹 | 1 시간의 RTO | RPO는 5 초입니다.<br/><br/>자동 장애 조치 그룹은 활성 지역 복제의 맨 위에 그룹 의미 체계를 제공 합니다. 하지만 동일한 비동기 복제 메커니즘이 사용 됩니다.
+SQL as Azure의 PaaS (platform as a service)<br/><br/>이 배포 유형에는 단일 데이터베이스 및 탄력적 풀이 포함 됩니다. | 활성 지리적 복제 | 장애 조치 (failover)가 트리거된 후 30 초<br/><br/>보조 데이터베이스 중 하나에 대해 장애 조치 (failover)가 활성화 되 면 다른 모든 보조 데이터베이스는 새 주 데이터베이스에 자동으로 연결 됩니다. | RPO는 5 초입니다.<br/><br/>활성 지역 복제는 SQL Server의 Always On 기술을 사용 합니다. Snapshot 격리를 사용 하 여 주 데이터베이스의 커밋된 트랜잭션을 보조 데이터베이스로 비동기적으로 복제 합니다.<br/><br/>보조 데이터에는 부분적 트랜잭션이 포함 되지 않을 수 있습니다.
+Azure에서 활성 지역 복제를 사용 하 여 구성 된 SQL as PaaS.<br/><br/>이 배포 유형에는 SQL Database 관리 되는 인스턴스, 탄력적 풀 및 단일 데이터베이스가 포함 됩니다. | 자동 장애 조치 그룹 | 1 시간의 RTO | RPO는 5 초입니다.<br/><br/>자동 장애 조치 그룹은 활성 지역 복제의 맨 위에 그룹 의미 체계를 제공 합니다. 하지만 동일한 비동기 복제 메커니즘이 사용 됩니다.
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| Azure Site Recovery 복제 | RTO는 일반적으로 15 분 미만입니다. 자세한 내용은 [Site Recovery에서 제공 하는 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)를 읽어 보세요. | 응용 프로그램 일관성을 위해 1 시간, 크래시 일관성의 경우 5 분 더 낮은 RPO를 찾고 있는 경우 다른 BCDR 기술을 사용 합니다.
 
 > [!NOTE]
@@ -71,8 +70,8 @@ SQL Server를 제대로 실행 하려면 보조 복구 사이트에서 Active Di
 
 연결 고려 사항을 위해 응용 프로그램을 디자인 하는 방법을 이해 하려면 다음 예제를 참조 하세요.
 
-* [클라우드 재해 복구를 위한 응용 프로그램 디자인](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* [탄력적 풀 재해 복구 전략](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+* [클라우드 재해 복구를 위한 응용 프로그램 디자인](../azure-sql/database/designing-cloud-solutions-for-disaster-recovery.md)
+* [탄력적 풀 재해 복구 전략](../azure-sql/database/disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
 ### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>3 단계: Always On, 활성 지역 복제 및 자동 장애 조치 (failover) 그룹과 상호 운용
 
@@ -162,6 +161,6 @@ Site Recovery는 응용 프로그램에 독립적입니다. Site Recovery은 지
 ## <a name="next-steps"></a>다음 단계
 
 * [Site Recovery 아키텍처](site-recovery-components.md)에 대해 자세히 알아보세요.
-* Azure의 SQL Server 보조 Azure 지역에서 복구를 위한 [고가용성 솔루션](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) 에 대해 자세히 알아보세요.
-* SQL Database는 보조 Azure 지역에서 복구 하기 위한 [비즈니스 연속성](../sql-database/sql-database-business-continuity.md) 및 [고가용성](../sql-database/sql-database-high-availability.md) 옵션에 대해 자세히 알아보세요.
-* 온-프레미스에 있는 SQL Server 컴퓨터의 경우 Azure Virtual Machines에서 복구에 대 한 [고가용성 옵션](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) 에 대해 자세히 알아보세요.
+* Azure의 SQL Server 보조 Azure 지역에서 복구를 위한 [고가용성 솔루션](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions) 에 대해 자세히 알아보세요.
+* SQL Database는 보조 Azure 지역에서 복구 하기 위한 [비즈니스 연속성](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) 및 [고가용성](../azure-sql/database/high-availability-sla.md) 옵션에 대해 자세히 알아보세요.
+* 온-프레미스에 있는 SQL Server 컴퓨터의 경우 Azure Virtual Machines에서 복구에 대 한 [고가용성 옵션](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions) 에 대해 자세히 알아보세요.

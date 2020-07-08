@@ -4,19 +4,18 @@ description: 조건부 액세스에서 보고서 전용 모드를 사용 하 여
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83994972"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>보고서 전용 모드에서 조건부 액세스 정책 구성
 
@@ -26,7 +25,7 @@ ms.locfileid: "82690368"
 > 조직에 아직 없는 경우 [AZURE AD와 Azure Monitor 통합을 설정](#set-up-azure-monitor-integration-with-azure-ad)합니다. 이 프로세스는 먼저 데이터를 검토할 수 있게 되기 전에 수행 해야 합니다.
 
 1. 조건부 액세스 관리자, 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory** > **Security**보안 > **조건부 액세스**로 이동 합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
 1. 필요에 따라 정책 조건을 구성 하 고 필요한 권한 부여 컨트롤을 구성 합니다.
 1. **정책 사용** 에서 **보고서 전용** 모드로 전환을 설정 합니다.
@@ -40,7 +39,7 @@ Azure AD 로그인 로그에서 보고서 전용 결과를 봅니다.
 특정 로그인에 대 한 보고서 전용 정책의 결과를 보려면 다음을 수행 합니다.
 
 1. 보고서 판독기, 보안 읽기 권한자, 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory** > **로그인**으로 이동 합니다.
+1. **Azure Active Directory**  >  **로그인**으로 이동 합니다.
 1. 로그인을 선택 하거나 필터를 추가 하 여 결과를 좁힙니다.
 1. **세부 정보** 서랍에서 **보고서 전용** 탭을 선택 하 여 로그인 중에 평가 된 정책을 확인 합니다.
 
@@ -61,7 +60,7 @@ Azure AD 로그인 로그에서 보고서 전용 결과를 봅니다.
 Azure AD 로그를 Azure Monitor와 통합 하면 새 조건부 액세스 insights 통합 문서를 사용 하 여 조건부 액세스 정책의 영향을 모니터링할 수 있습니다.
 
 1. 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory** > **통합 문서**를 찾습니다.
+1. **Azure Active Directory**  >  **통합 문서**를 찾습니다.
 1. **조건부 액세스 정보**를 선택 합니다.
 1. **조건부 액세스 정책** 드롭다운에서 하나 이상의 정책을 선택 합니다. 기본적으로 사용 하도록 설정 된 모든 정책이 선택 됩니다.
 1. 시간 범위를 선택 합니다. 시간 범위가 사용 가능한 데이터 집합을 초과 하면 보고서에 사용 가능한 데이터가 모두 표시 됩니다. **조건부 액세스 정책** 및 **시간 범위** 매개 변수를 설정 하면 보고서가 로드 됩니다.
@@ -87,6 +86,6 @@ Azure AD 로그를 Azure Monitor와 통합 하면 새 조건부 액세스 insigh
 
 ## <a name="next-steps"></a>다음 단계
 
-[조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+[조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
 Azure AD 통합 문서에 대 한 자세한 내용은 [Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법](../reports-monitoring/howto-use-azure-monitor-workbooks.md)문서를 참조 하세요.

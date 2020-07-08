@@ -13,12 +13,11 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0023bcc4a7c31a0e337683fa3d3080a45445fc49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117902"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 
@@ -49,7 +48,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 ### <a name="create-your-adf"></a>ADF 만들기
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
-2. 왼쪽 메뉴에서 **새로 만들기** 를 클릭 하 고 **데이터 + 분석**를 클릭 한 다음 **Data Factory**를 클릭 합니다. 
+2. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
    
@@ -62,7 +61,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
    `Data factory name MyAzureSsisDataFactory is not available`
       
 4. ADF를 만들려는 Azure **구독**을 선택합니다. 
-5. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
+5. **리소스 그룹**에 대해 다음 단계 중 하나를 수행 합니다.
      
    - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
    - **새로 만들기**를 선택하고 새 리소스 그룹의 이름을 입력합니다.   
@@ -91,7 +90,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
    
 2. **작업** 도구 상자에서 **일반** 메뉴를 펼치고, **웹** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 작업 속성 창의 **일반** 탭에서 작업 이름을 **startMyIR**로 변경합니다. **설정** 탭으로 전환하고, 다음 작업을 수행합니다.
 
-    1. **Url**에 대해 다음 url을 입력 하 고, `{subscriptionId}`,, 및 `{resourceGroupName}` `{factoryName}` `{integrationRuntimeName}` 을 IR에 대 한 실제 값으로 대체 하 여 Azure-SSIS IR를 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` 시작 하는 REST API에 대 한 url을 입력 합니다. 또는 해당 모니터링 페이지의 ir에 대 한 리소스 ID를 & 복사 하 여 ADF UI/앱의 다음 부분을 교체할 수도 있습니다.`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. **Url**에 대해 다음 url을 입력 하 고,,, 및을 IR에 대 한 실제 값으로 대체 하 여 Azure-SSIS IR를 시작 하는 REST API에 대 한 url을 입력 합니다. `{subscriptionId}` `{resourceGroupName}` `{factoryName}` `{integrationRuntimeName}` `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` 또는 해당 모니터링 페이지의 ir에 대 한 리소스 ID를 & 복사 하 여 ADF UI/앱의 다음 부분을 교체할 수도 있습니다.`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ADF SSIS IR 리소스 ID](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -104,7 +103,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
   
 3. 첫 번째 파이프라인을 복제하여 두 번째 파이프라인을 만들고, 작업 이름을 **stopMyIR**로 변경하고 다음 속성을 바꿉니다.
 
-    1. **Url**에 대해 Azure-SSIS IR를 중지 `{subscriptionId}`하 고, `{resourceGroupName}` `{factoryName}`, 및 `{integrationRuntimeName}` 을 IR에 대 한 실제 값으로 대체 하는 REST API에 다음 URL을 입력 합니다.`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
+    1. **Url**에 대해 Azure-SSIS IR를 중지 하 고 `{subscriptionId}` ,, 및을 `{resourceGroupName}` `{factoryName}` `{integrationRuntimeName}` IR에 대 한 실제 값으로 대체 하는 REST API에 다음 URL을 입력 합니다.`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. **본문**에 `{"message":"Stop my IR"}`를 입력합니다. 
 
@@ -133,12 +132,12 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     
 2. 세 번째 파이프라인을 테스트하려면 SSMS(SQL Server Management Studio)를 시작합니다. **서버에 연결** 창에서 다음 작업을 수행합니다. 
 
-    1. **서버 이름**의 경우 **&lt;Azure SQL Database 서버 이름&gt;.database.windows.net**을 입력합니다.
+    1. **서버 이름**에 ** &lt; 서버 이름 &gt; . database.windows.net**을 입력 합니다.
     2. **옵션 >>** 을 선택합니다.
     3. **데이터베이스에 연결**에 대해 **SSISDB**를 선택합니다.
     4. **연결**을 선택합니다. 
-    5. **Integration Services 카탈로그** -> **SSISDB** -SSIS 프로젝트 > **패키지**를 > 폴더 > **프로젝트** > 합니다. 
-    6. 실행할 지정 된 SSIS 패키지를 마우스 오른쪽 단추로 클릭 하 고 **보고서** -> **표준 보고서** -> **모든 실행**을 선택 합니다. 
+    5. **Integration Services 카탈로그**  ->  **SSISDB** -SSIS 프로젝트 > **패키지**를 > 폴더 > **프로젝트** > 합니다. 
+    6. 실행할 지정 된 SSIS 패키지를 마우스 오른쪽 단추로 클릭 하 고 **보고서**  ->  **표준 보고서**  ->  **모든 실행**을 선택 합니다. 
     7. 실행되었는지 확인합니다. 
 
    ![SSIS 패키지 실행 확인](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
@@ -163,7 +162,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     4. **되풀이**에 트리거 일정을 입력합니다. 다음 예제에서는 **매일** 한 번입니다. 
     5. **종료**에서 **종료 없음**을 선택하거나 **날짜**를 선택한 후 종료 날짜 및 시간을 입력합니다. 
     6. 전체 ADF 설정을 게시하는 즉시 트리거가 활성화되도록 **활성화됨**을 선택합니다. 
-    7. **다음**을 선택합니다.
+    7. **새로 만들기**를 선택합니다.
 
    ![트리거 -> 새로 만들기/편집](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
     
@@ -244,7 +243,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 ### <a name="import-adf-modules"></a>ADF 모듈 가져오기
 
-1. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈** 을 선택 하 고 모듈 목록에 **az. DataFactory** + **az. Profile** 이 있는지 확인 합니다.
+1. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈** 을 선택 하 고 모듈 목록에 **az. DataFactory**  +  **az. Profile** 이 있는지 확인 합니다.
 
    ![필요한 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 

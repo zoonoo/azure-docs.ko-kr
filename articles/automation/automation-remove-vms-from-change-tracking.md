@@ -5,16 +5,17 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 22cb49c414e21e5c47330f2c67fc2cf30e3364b2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 8e9b80c60c098e4daf247db07fa48baa322aa7f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84169457"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리에서 VM 제거
 
 사용자 환경의 VM에 대한 변경 내용을 다 배포했으면 [변경 내용 추적 및 인벤토리](change-tracking.md) 기능에서 제거할 수 있습니다.
+
+## <a name="to-remove-your-vms"></a>Vm을 제거 하려면
 
 1. Automation 계정의 **Configuration Management**에서 **변경 내용 추적** 또는 **인벤토리**를 선택합니다.
 
@@ -24,15 +25,15 @@ ms.locfileid: "83836671"
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. Log Analytics 작업 영역의 **일반**에서 저장된 검색에 액세스합니다.
+3. **일반**아래의 Log Analytics 작업 영역에서 범위 구성에 대해 저장 된 검색에 액세스 합니다 `MicrosoftDefaultScopeConfig-ChangeTracking` .
 
-4. 저장된 검색 `MicrosoftDefaultComputerGroup`의 경우 오른쪽에 있는 줄임표를 클릭하고 **편집**을 선택합니다. 
+4. 저장된 검색 `MicrosoftDefaultComputerGroup`의 오른쪽에 있는 줄임표를 클릭하고 **편집**을 선택합니다. 
 
-5. VM의 UUID를 제거합니다.
+5. 해당 VM의 UUID를 제거합니다.
 
-6. 제거할 다른 VM에도 이 단계를 반복합니다.
+6. 제거할 다른 VM에 대해 이 단계를 반복합니다.
 
-7. 편집이 완료되면 저장된 검색을 저장합니다. 
+7. 편집을 완료했으면 저장된 검색을 저장합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70995109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84142149"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Azure NetApp Files 비용 모델 
 
@@ -50,6 +49,8 @@ Azure NetApp Files는 프로 비전 된 저장소 용량에 대해 요금이 청
 ## <a name="overage-in-capacity-consumption"></a>용량 소비의 초과분  
 
 풀의 사용 된 총 용량이 프로 비전 된 용량을 초과 하면 데이터 쓰기는 계속 허용 됩니다.  유예 기간 (1 시간) 후에 사용 된 풀 용량이 여전히 프로 비전 된 용량을 초과 하는 경우 프로 비전 된 용량이 총 사용 용량 보다 클 때까지 풀 크기가 자동으로 1 TiB 증가 됩니다.  예를 들어 위의 그림에서 볼륨 3이 계속 증가 하 고 실제 소비가 1.2 TiB에 도달한 경우 유예 기간이 지나면 풀 크기가 자동으로 5 TiB으로 조정 됩니다.  결과적으로 프로 비전 된 풀 용량 (5 TiB)이 사용 된 용량 (4.2 TiB)을 초과 합니다.  
+
+용량 풀 크기는 볼륨의 수요를 충족 하기 위해 자동으로 증가 하지만 볼륨 크기가 줄어들면 자동으로 감소 되지 않습니다. 볼륨 크기를 줄인 후 용량 풀의 크기를 축소 하려면 (예: 볼륨의 데이터 정리 이후) 용량 풀 크기를 _수동으로_ 줄여야 합니다.
 
 ## <a name="manual-changes-of-the-pool-size"></a>풀 크기의 수동 변경 내용  
 

@@ -9,12 +9,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81412956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84187284"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 
@@ -83,11 +82,11 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 
 -    프로젝트/패키지의 SSISDB (SSIS 데이터베이스)를 호스트 하는 Azure SQL Database의 세 가지 구성/변형 지원:
 -    가상 네트워크 서비스 끝점을 사용 하 여 SQL Database
--    관리되는 인스턴스
+-    SQL Managed Instance
 -    탄력적 풀
 -    Azure SSIS 통합 런타임을 가상 네트워크 서비스 엔드포인트/MI/온-프레미스 데이터 액세스를 사용 하 여 SQL Database에 대해 구성 된 가상 네트워크에 삽입/조인할 수 있도록 하는, 향후에는 클래식 가상 네트워크를 기반으로 하는 Azure Resource Manager 가상 네트워크가 지원 되지 않습니다. 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md)을 참조 하세요.
 -    Azure 리소스에 대 한 Data Factory 관리 id로 azure AD 인증을 허용 하 여 SSISDB에 연결할 수 있는 azure AD (Azure Active Directory) 인증 및 SQL 인증 지원
--    Azure 하이브리드 혜택 옵션을 사용 하 여 비용을 크게 절감할 수 있도록 온-프레미스 SQL Server 라이선스 가져오기 지원
+-    Azure 하이브리드 혜택 옵션을 사용 하 여 비용을 크게 절감할 수 있도록 기존 SQL Server 라이선스를 가져오기 위한 지원
 -    고급/프리미엄 기능, 추가 구성 요소/확장을 설치 하기 위한 사용자 지정 설치 인터페이스 및 파트너 에코 시스템을 사용할 수 있는 Azure SSIS 통합 런타임의 Enterprise Edition에 대 한 지원입니다. 자세한 내용은 [Enterprise Edition, 사용자 지정 설정 및 ADF의 SSIS에 대 한 타사 확장성](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/)을 참조 하세요. 
 -    Data Factory에서 SSIS를 보다 긴밀 하 게 통합 하 여 Data Factory 파이프라인에서 SSIS 패키지 작업을 호출 하 고 실행 하 고 SSMS를 통해 예약할 수 있습니다. 자세한 내용은 [ADF 파이프라인에서 SSIS 작업을 사용 하 여 ETL/ELT 워크플로 현대화 및 확장](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)(영문)을 참조 하세요.
 
@@ -109,7 +108,7 @@ Data Factory에서 사용할 수 있는 Integration Runtimes 인스턴스의 수
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Azure Data Factory의 최상위 개념은 무엇인가요?
 Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data Factory)가 있을 수 있습니다. Azure Data Factory는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼으로서 함께 작동하는 네 가지 핵심 구성 요소로 구성됩니다.
 
-### <a name="pipelines"></a>파이프라인
+### <a name="pipelines"></a>Pipelines
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어 Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 이점은 각 작업을 개별적으로 관리하는 대신, 파이프라인을 사용하여 여러 작업을 하나의 집합으로 관리할 수 있다는 것입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.
 
 ### <a name="data-flows"></a>데이터 흐름
@@ -126,7 +125,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 연결된 서비스는 Data Factory에서 다음 두 가지 용도로 사용됩니다.
 
-- 온-프레미스 SQL Server 인스턴스, Oracle 데이터베이스 인스턴스 또는 Azure Blob Storage 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소*를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록에 대해서는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.
+- SQL Server 인스턴스, Oracle 데이터베이스 인스턴스, 파일 공유 또는 Azure Blob storage 계정을 포함 하지만이에 국한 되지 않는 *데이터 저장소* 를 나타냅니다. 지원되는 데이터 저장소 목록에 대해서는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.
 - 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [Azure Data Factory에서 데이터 변환](transform-data.md)을 참조하세요.
 
 ### <a name="triggers"></a>트리거

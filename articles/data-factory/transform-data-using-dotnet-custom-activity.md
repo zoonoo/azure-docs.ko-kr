@@ -11,11 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84019965"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 
@@ -36,8 +35,8 @@ Data Factory에서 지원하지 않는 데이터 저장소 간에 데이터를 �
 Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 * [Azure Batch 기본 사항](../batch/batch-technical-overview.md) 입니다.
-* [AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet을 사용 하 여 Azure Batch 계정 (또는) [Azure Portal](../batch/batch-account-create-portal.md) 를 만들어 Azure Portal를 사용 하 여 Azure Batch 계정을 만들 수 있습니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 문서를 참조하세요.
-* Azure Batch 풀을 만드는 [AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet
+* Azure Batch 계정을 만드는 [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet 또는 Azure Portal을 사용하여 Azure Batch 계정을 만드는 [Azure Portal](../batch/batch-account-create-portal.md). 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 문서를 참조하세요.
+* [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet을 사용하여 Azure Batch 풀을 만듭니다.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 연결된 서비스
 
@@ -100,13 +99,13 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다.
 
-| 속성              | Description                              | 필수 |
+| 속성              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | 파이프라인의 작업 이름입니다.     | 예      |
-| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
 | type                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 예      |
 | linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  | 예      |
-| command               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
+| 명령을 사용합니다.               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
 | resourceLinkedService | 사용자 지정 애플리케이션이 저장된 스토리지 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요 &#42;       |
 | folderPath            | 사용자 지정 애플리케이션 및 모든 해당 종속성 폴더에 대한 경로입니다.<br/><br/>종속성이 하위 폴더(즉, *folderPath* 아래의 계층 폴더 구조)에 저장된 경우, 해당 파일이 Azure Batch에 복사될 때 폴더 구조가 손쉽게 평면화됩니다. 즉, 모든 파일이 하위 폴더가 없는 단일 폴더에 복사됩니다. 이 동작을 해결하려면 파일을 압축하고 압축 파일을 복사한 다음, 원하는 위치에서 사용자 지정 코드로 압축을 푸세요. | 아니요 &#42;       |
 | referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 아니요       |
@@ -301,16 +300,16 @@ Activity Error section:
 다운스트림 작업에서 stdout.txt의 콘텐츠를 사용하려는 경우 "\@activity('MyCustomActivity').output.outputs[0]" 식에서 stdout.txt 파일의 경로를 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예제에서는 Linkedservices.json 및 datasets.json, json 및 데이터 집합을 경로에 `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` 저장 합니다. 필요한 경우 개별적으로 정리해야 합니다.
+> - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예에서는 on, linkedServices.json 및 datasets.js의 activity.js경로에 저장 됩니다 `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` . 필요한 경우 개별적으로 정리해야 합니다.
 > - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 프라이빗 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 애플리케이션 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다.
 
 ## <a name="pass-outputs-to-another-activity"></a>다른 활동으로 출력 전달
 
-사용자 지정 활동의 코드에서 사용자 지정 값을 다시 Azure Data Factory에 보낼 수 있습니다. 그럼으로써 사용자 애플리케이션에서 `outputs.json`에 해당 값을 작성할 수 있습니다. Data Factory는 `outputs.json`의 콘텐츠를 복사하여 `customOutput` 속성 값으로 작업 출력에 추가합니다. 크기 제한은 2MB입니다. 다운스트림 활동에서의 `outputs.json` 내용을 사용 하려는 경우 식을 `@activity('<MyCustomActivity>').output.customOutput`사용 하 여 값을 가져올 수 있습니다.
+사용자 지정 활동의 코드에서 사용자 지정 값을 다시 Azure Data Factory에 보낼 수 있습니다. 그럼으로써 사용자 애플리케이션에서 `outputs.json`에 해당 값을 작성할 수 있습니다. Data Factory는 `outputs.json`의 콘텐츠를 복사하여 `customOutput` 속성 값으로 작업 출력에 추가합니다. 크기 제한은 2MB입니다. 다운스트림 활동에서의 내용을 사용 하려는 경우 `outputs.json` 식을 사용 하 여 값을 가져올 수 있습니다 `@activity('<MyCustomActivity>').output.customOutput` .
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString 출력 검색
 
-이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 다음은 그 예입니다.
+이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들어:
 
 ```json
 "extendedProperties": {
@@ -327,7 +326,7 @@ Activity Error section:
 
 ## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a>v2 사용자 지정 활동 및 버전 1(사용자 지정) DotNet 작업 비교
 
-Azure Data Factory 버전 1에서는 `Execute` `IDotNetActivity` 인터페이스의 메서드를 구현 하는 클래스를 사용 하 여 .net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현 합니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 세트 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현으로 인해 버전 1 DotNet 활동 코드는 .NET Framework 4.5.2를 대상으로 해야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다.
+Azure Data Factory 버전 1에서는 인터페이스의 메서드를 구현 하는 클래스를 사용 하 여 .NET 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현 `Execute` `IDotNetActivity` 합니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 세트 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현으로 인해 버전 1 DotNet 활동 코드는 .NET Framework 4.5.2를 대상으로 해야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다.
 
 Azure Data Factory V2 사용자 지정 작업에서는 .NET 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이 구현을 구성하려면 `Command` 속성과 `folderPath` 속성을 함께 지정합니다. 사용자 지정 작업은 `folderpath`에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다.
 
@@ -342,7 +341,7 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
 |사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.NET DLL을 구현 하 여      |
 |사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows (.NET Framework 4.5.2)      |
 |스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.NET DLL의 구현이 필요 합니다.      |
-|필요한 데이터 세트      |Optional      |작업을 연결하고 정보를 전달하는 데 필요      |
+|필요한 데이터 세트      |선택 사항      |작업을 연결하고 정보를 전달하는 데 필요      |
 |작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 세트) 및 ExtendedProperties(사용자 지정 속성)를 통해      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 세트를 통해      |
 |사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.NET SDK (.NET 프레임 4.5.2)를 통해      |
 |로깅      |STDOUT에 직접 작성      |.NET DLL에서로 거 구현      |
@@ -383,9 +382,9 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 * [U-SQL 작업](transform-data-using-data-lake-analytics.md)
 * [Hive 작업](transform-data-using-hadoop-hive.md)
-* [Pig 활동](transform-data-using-hadoop-pig.md)
+* [Pig 작업](transform-data-using-hadoop-pig.md)
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
-* [일괄 처리 실행 작업 Machine Learning](transform-data-using-machine-learning.md)
+* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

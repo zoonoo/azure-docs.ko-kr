@@ -8,12 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a384db9c3c0b4beee6063fd503abadcb4c6b5158
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74424011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84016953"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>U SQL 개발자를 위한 Apache Spark 코드 이해
 
@@ -42,9 +41,9 @@ Spark는 Scala, Java, Python, .NET 등의 여러 언어 바인딩을 제공 하�
 
 U-SQL 스크립트는 다음 처리 패턴을 따릅니다.
 
-1. `EXTRACT` 문을 사용 하 여 구조화 되지 않은 파일, 위치 또는 파일 집합 지정, 기본 제공 또는 사용자 정의 추출기와 desired 스키마 또는 U-SQL 테이블 (관리 또는 외부 테이블)에서 데이터를 읽습니다. 행 집합으로 표시 됩니다.
+1. 문을 사용 하 여 구조화 되지 않은 파일, `EXTRACT` 위치 또는 파일 집합 지정, 기본 제공 또는 사용자 정의 추출기와 desired 스키마 또는 U-SQL 테이블 (관리 또는 외부 테이블)에서 데이터를 읽습니다. 행 집합으로 표시 됩니다.
 2. 행 집합은 행 집합에 U-SQL 식을 적용 하 고 새 행 집합을 생성 하는 여러 개의 U-SQL 문으로 변환 됩니다.
-3. 마지막으로 결과 행 집합은 위치 및 기본 제공 또는 사용자 `OUTPUT` 정의 outputter를 지정 하는 문을 사용 하 여 각 파일에 출력 되거나 U-SQL 테이블로 출력 됩니다.
+3. 마지막으로 결과 행 집합은 `OUTPUT` 위치 및 기본 제공 또는 사용자 정의 outputter를 지정 하는 문을 사용 하 여 각 파일에 출력 되거나 U-SQL 테이블로 출력 됩니다.
 
 스크립트는 지연 계산 됩니다. 즉, 각 추출 및 변환 단계가 식 트리로 구성 되 고 전역적으로 계산 됩니다 (데이터 흐름).
 
@@ -100,13 +99,13 @@ Spark는 각각 자체 Python 및 R 통합, pySpark 및 SparkR를 제공 하 고
 
 ## <a name="transform-typed-values"></a>형식화 된 값 변환
 
-U-SQL의 유형 시스템은 .NET 유형 시스템을 기반으로 하 고 Spark에는 호스트 언어 바인딩의 영향을 받는 자체 형식 시스템이 있으므로, 작동 하는 형식이 가까워야 하 고 특정 형식에 대해 형식 범위, 전체 자릿수 및/또는 소수 자릿수가 약간 다를 수 있는지 확인 해야 합니다. 또한 U-SQL 및 Spark는 값 `null` 을 다르게 처리 합니다.
+U-SQL의 유형 시스템은 .NET 유형 시스템을 기반으로 하 고 Spark에는 호스트 언어 바인딩의 영향을 받는 자체 형식 시스템이 있으므로, 작동 하는 형식이 가까워야 하 고 특정 형식에 대해 형식 범위, 전체 자릿수 및/또는 소수 자릿수가 약간 다를 수 있는지 확인 해야 합니다. 또한 U-SQL 및 Spark는 `null` 값을 다르게 처리 합니다.
 
 ### <a name="data-types"></a>데이터 형식
 
 다음 표에서는 지정 된 Scala 및 PySpark에서 지정 된 U SQL 형식에 해당 하는 형식에 대해 설명 합니다.
 
-| U-SQL | Spark |  스칼라 | PySpark |
+| U-SQL | Spark |  Scala | PySpark |
 | ------ | ------ | ------ | ------ |
 |`byte`       ||||
 |`sbyte`      |`ByteType` |`Byte` | `ByteType`|
@@ -143,7 +142,7 @@ Spark에서 NULL은 값을 알 수 없음을 나타냅니다. Spark NULL 값은 
 
 이 동작은 `null` 가 값과 다른 값과는 다른 c # 의미 체계를 따르는 U-SQL과는 다릅니다.  
 
-따라서을 사용 `SELECT` `WHERE column_name = NULL` 하는 SparkSQL 문은에 `column_name`NULL 값이 있어도 0 행을 반환 하지만, U n-SQL에서는 `column_name` 가로 `null`설정 된 행을 반환 합니다. 마찬가지로를 사용 `SELECT` `WHERE column_name != NULL` 하는 Spark 문은에 `column_name`null이 아닌 값이 있어도 0 행을 반환 하지만, U n-SQL에서는 null이 아닌 행을 반환 합니다. 따라서 U-SQL null 검사 의미 체계가 필요한 경우에는 각각 [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) 및 [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) 을 사용 해야 합니다 (또는 그에 상응 하는 DSL).
+따라서을 `SELECT` 사용 하는 SparkSQL 문은 `WHERE column_name = NULL` 에 NULL 값이 있어도 0 행을 반환 하지만 `column_name` , U n-SQL에서는 `column_name` 가로 설정 된 행을 반환 합니다 `null` . 마찬가지로를 `SELECT` 사용 하는 Spark 문은 `WHERE column_name != NULL` 에 null이 아닌 값이 있어도 0 행을 반환 하지만, `column_name` U n-SQL에서는 null이 아닌 행을 반환 합니다. 따라서 U-SQL null 검사 의미 체계가 필요한 경우에는 각각 [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) 및 [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) 을 사용 해야 합니다 (또는 그에 상응 하는 DSL).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Transform U SQL catalog 개체
 
@@ -160,8 +159,8 @@ T-SQL 카탈로그가 프로젝트와 팀에서 데이터 및 코드 개체를 �
 U-SQL의 핵심 언어가 행 집합을 변환 하 고 있으며 SQL을 기반으로 합니다. 다음은 U-SQL에서 제공 되는 가장 일반적인 행 집합 식의 완전 하지 않은 목록입니다.
 
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ 집계 +`HAVING`/`ORDER BY`+`FETCH`
-- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN` 식
-- `CROSS`/`OUTER``APPLY` 식
+- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`식
+- `CROSS`/`OUTER``APPLY`식
 - `PIVOT`/`UNPIVOT`산술식
 - `VALUES`행 집합 생성자
 
@@ -170,33 +169,33 @@ U-SQL의 핵심 언어가 행 집합을 변환 하 고 있으며 SQL을 기반�
 또한 U-SQL은와 같은 다양 한 SQL 기반 스칼라 식을 제공 합니다.
 
 - `OVER`창 화 식
-- 다양 한 기본 제공 집계 및 순위 함수 (`SUM`등) `FIRST`
-- 가장 익숙한 SQL `CASE`스칼라 식 중 일부는, `LIKE`, (`NOT`) `IN`, `AND` `OR` 등입니다.
+- 다양 한 기본 제공 집계 및 순위 함수 ( `SUM` 등 `FIRST` )
+- 가장 익숙한 SQL 스칼라 식 중 일부는 `CASE` , `LIKE` , ( `NOT` ), 등 `IN` `AND` `OR` 입니다.
 
-Spark는 대부분의 이러한 식에 대해 DSL 및 SparkSQL 형식에 동일한 식을 제공 합니다. Spark에서 기본적으로 지원 되지 않는 일부 식은 기본 Spark 식과 의미상 동등한 패턴의 조합을 사용 하 여 다시 작성 해야 합니다. 예를 들어 `OUTER UNION` ,은 프로젝션 및 공용 구조체의 상응 하는 조합으로 변환 되어야 합니다.
+Spark는 대부분의 이러한 식에 대해 DSL 및 SparkSQL 형식에 동일한 식을 제공 합니다. Spark에서 기본적으로 지원 되지 않는 일부 식은 기본 Spark 식과 의미상 동등한 패턴의 조합을 사용 하 여 다시 작성 해야 합니다. 예를 들어, `OUTER UNION` 은 프로젝션 및 공용 구조체의 상응 하는 조합으로 변환 되어야 합니다.
 
 NULL 값을 다르게 처리 하기 때문에 두 열에 모두 NULL 값이 포함 된 경우에는 두 열에 모두 NULL 값이 포함 되는 반면, Spark의 조인은 명시적 null 검사를 추가 하지 않으면 이러한 열과 일치 하지 않습니다.
 
 ## <a name="transform-other-u-sql-concepts"></a>다른 U-SQL 개념 변환
 
-또한 U-SQL은 SQL Server 데이터베이스, 매개 변수, 스칼라 및 람다 식 변수, 시스템 변수, `OPTION` 힌트에 대 한 페더레이션된 쿼리와 같은 다양 한 다른 기능 및 개념을 제공 합니다.
+또한 U-SQL은 SQL Server 데이터베이스, 매개 변수, 스칼라 및 람다 식 변수, 시스템 변수, 힌트에 대 한 페더레이션된 쿼리와 같은 다양 한 다른 기능 및 개념을 제공 `OPTION` 합니다.
 
 ### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>SQL Server 데이터베이스/외부 테이블에 대 한 페더레이션된 쿼리
 
-U-SQL은 데이터 원본 및 외부 테이블 뿐만 아니라 Azure SQL Database에 대 한 직접 쿼리를 제공 합니다. Spark는 동일한 개체 추상화를 제공 하지 않지만 SQL 데이터베이스를 쿼리 하는 데 사용할 수 있는 [Azure SQL Database에 대 한 spark 커넥터](../sql-database/sql-database-spark-connector.md) 를 제공 합니다.
+U-SQL은 데이터 원본 및 외부 테이블 뿐만 아니라 Azure SQL Database에 대 한 직접 쿼리를 제공 합니다. Spark는 동일한 개체 추상화를 제공 하지 않지만 SQL 데이터베이스를 쿼리 하는 데 사용할 수 있는 [Azure SQL Database에 대 한 spark 커넥터](../azure-sql/database/spark-connector.md) 를 제공 합니다.
 
 ### <a name="u-sql-parameters-and-variables"></a>U-SQL 매개 변수 및 변수
 
 매개 변수 및 사용자 변수의 개념은 Spark 및 해당 호스팅 언어와 동일 합니다.
 
-예를 들어 Scala에서 `var` 키워드를 사용 하 여 변수를 정의할 수 있습니다.
+예를 들어 Scala에서 키워드를 사용 하 여 변수를 정의할 수 있습니다 `var` .
 
 ```
 var x = 2 * 3;
 println(x)
 ```
 
-U-SQL의 시스템 변수 (로 시작 하 `@@`는 변수)는 다음과 같은 두 가지 범주로 나눌 수 있습니다.
+U-SQL의 시스템 변수 (로 시작 하는 변수 `@@` )는 다음과 같은 두 가지 범주로 나눌 수 있습니다.
 
 - 스크립트 동작에 영향을 주는 특정 값으로 설정할 수 있는 설정 가능한 시스템 변수
 - 시스템 및 작업 수준 정보를 조회 하는 정보 시스템 변수
@@ -208,8 +207,8 @@ U-SQL의 시스템 변수 (로 시작 하 `@@`는 변수)는 다음과 같은 �
 U-SQL은 쿼리 최적화 프로그램 및 실행 엔진에 힌트를 제공 하는 여러 가지 구문을 제공 합니다.  
 
 - U-SQL 시스템 변수 설정
-- 데이터 `OPTION` 또는 계획 힌트를 제공 하기 위해 행 집합 식과 연결 된 절입니다.
-- 조인 식의 구문에 있는 조인 힌트 (예: `BROADCASTLEFT`)
+- `OPTION`데이터 또는 계획 힌트를 제공 하기 위해 행 집합 식과 연결 된 절입니다.
+- 조인 식의 구문에 있는 조인 힌트 (예: `BROADCASTLEFT` )
 
 Spark의 비용 기반 쿼리 최적화 프로그램은 힌트를 제공 하 고 쿼리 성능을 조정 하는 고유한 기능을 제공 합니다. 해당 설명서를 참조 하세요.
 

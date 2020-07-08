@@ -7,12 +7,11 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84014539"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기
 
@@ -36,7 +35,7 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
 1. 포털의 왼쪽 위에서 **리소스 만들기**를 선택 합니다. **Waf**를 검색 하 고, **웹 응용 프로그램 방화벽**을 선택 하 고, **만들기**를 선택 합니다.
 2. **WAF 정책 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력 하거나 선택 하 고 나머지 설정에 대 한 기본값을 적용 한 다음 **검토 + 만들기**를 선택 합니다.
 
-   |설정  |값  |
+   |Setting  |값  |
    |---------|---------|
    |정책     |지역 WAF (Application Gateway)|
    |Subscription     |구독 이름 선택|
@@ -44,7 +43,7 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
    |정책 이름     |WAF 정책의 고유한 이름을 입력 합니다.|
 3. **연결** 탭에서 다음 설정 중 하나를 입력 한 다음 **추가**를 선택 합니다.
 
-   |설정  |값  |
+   |Setting  |값  |
    |---------|---------|
    |Application Gateway 연결     |Application Gateway 프로필 이름을 선택 합니다.|
    |수신기 연결     |Application Gateway 수신기의 이름을 선택한 다음 **추가**를 선택 합니다.|
@@ -57,19 +56,19 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
 
 ## <a name="configure-waf-rules-optional"></a>WAF 규칙 구성 (선택 사항)
 
-WAF 정책을 만들 때 기본적으로 *검색* 모드에 있습니다. 검색 모드에서 WAF는 모든 요청을 차단 하지 않습니다. 대신 일치 WAF 규칙이 WAF 로그에 로깅됩니다. 작동 중인 WAF를 보려면 모드 설정을 *방지*로 변경할 수 있습니다. 방지 모드에서는 선택한 CRS 규칙 집합에 정의 된 일치 규칙이 차단 및/또는 WAF 로그에 기록 됩니다.
+WAF 정책을 만들 때 기본적으로 *검색* 모드에 있습니다. 검색 모드에서는 WAF가 요청을 차단하지 않습니다  . 대신 일치 WAF 규칙이 WAF 로그에 로깅됩니다. 작동 중인 WAF를 보려면 모드 설정을 *방지*로 변경할 수 있습니다. 방지 모드에서는 선택한 CRS 규칙 집합에 정의 된 일치 규칙이 차단 및/또는 WAF 로그에 기록 됩니다.
 
 ## <a name="managed-rules"></a>관리 규칙
 
 Azure 관리 되는 OWASP 규칙은 기본적으로 사용 하도록 설정 되어 있습니다. 규칙 그룹 내에서 개별 규칙을 사용 하지 않도록 설정 하려면 해당 규칙 그룹 내의 규칙을 확장 하 고, 규칙 번호 앞의 확인란을 선택 하 고, 위의 탭에서 **사용 안 함** 을 선택 합니다.
 
-[![관리 규칙](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
+[![관리 규칙 ](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>사용자 지정 규칙
 
 사용자 지정 규칙을 만들려면 **사용자** 지정 규칙 탭에서 **사용자 지정 규칙 추가** 를 선택 합니다. 그러면 사용자 지정 규칙 구성 페이지가 열립니다. 다음 스크린샷에서는 쿼리 문자열에 *blockme*텍스트가 포함 된 경우 요청을 차단 하도록 구성 된 예제 사용자 지정 규칙을 보여 줍니다.
 
-[![사용자 지정 규칙](../media/create-waf-policy-ag/edit-custom-rule.png) 편집](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
+[![사용자 지정 규칙 ](../media/create-waf-policy-ag/edit-custom-rule.png) 편집](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate-your-waf-config-to-a-waf-policy"></a><a name="migrate"></a>Waf 구성을 WAF 정책으로 마이그레이션
 
@@ -81,7 +80,7 @@ Azure 관리 되는 OWASP 규칙은 기본적으로 사용 하도록 설정 되�
 
 포털에서이를 살펴보면 WAF가 있는 상태를 확인할 수 있습니다. WAF 설정이 표시 되 고 Application Gateway 보기에서 변경할 수 있는 경우 WAF는 상태 1입니다.
 
-[![Waf 구성](../media/create-waf-policy-ag/waf-configure.png)](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
+[![Waf 구성 ](../media/create-waf-policy-ag/waf-configure.png)](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 **웹 응용 프로그램 방화벽** 을 선택 하 고 연결 된 정책을 표시 하는 경우 waf는 상태 2 또는 상태 3입니다. 정책으로 이동한 후 사용자 지정 규칙 및 연결 된 응용 프로그램 게이트웨이 **만** 표시 되 면 사용자 지정 규칙만 정책입니다.
 
@@ -97,9 +96,20 @@ Azure 관리 되는 OWASP 규칙은 기본적으로 사용 하도록 설정 되�
 
 사용자 지정 규칙만 WAF 정책에 대 한 편집은 사용 하지 않도록 설정 됩니다. 규칙 사용 안 함, 제외 추가 등 WAF 설정을 편집 하려면 새 최상위 방화벽 정책 리소스로 마이그레이션해야 합니다.
 
-이렇게 하려면 *웹 응용 프로그램 방화벽 정책을* 만들고 선택한 Application Gateway 및 수신기에 연결 합니다. 이 새 정책은 현재 WAF 구성의 경우와 동일 **해야** 합니다. 즉, 모든 사용자 지정 규칙, 제외, 사용 하지 않는 규칙 등은 사용자가 만드는 새 정책에 복사 해야 합니다. Application Gateway 연결 된 정책이 있으면 WAF 규칙 및 설정을 계속 해 서 변경할 수 있습니다. Azure PowerShell를 사용 하 여이 작업을 수행할 수도 있습니다. 자세한 내용은 [WAF 정책을 기존 Application Gateway에 연결](associate-waf-policy-existing-gateway.md)을 참조 하세요.
+이렇게 하려면 *웹 응용 프로그램 방화벽 정책을* 만들고 선택한 Application Gateway 및 수신기에 연결 합니다. 이 새 정책은 현재 WAF 구성의 경우와 동일 해야 합니다. 즉, 모든 사용자 지정 규칙, 제외, 사용 하지 않는 규칙 등은 사용자가 만드는 새 정책에 복사 해야 합니다. Application Gateway 연결 된 정책이 있으면 WAF 규칙 및 설정을 계속 해 서 변경할 수 있습니다. Azure PowerShell를 사용 하 여이 작업을 수행할 수도 있습니다. 자세한 내용은 [WAF 정책을 기존 Application Gateway에 연결](associate-waf-policy-existing-gateway.md)을 참조 하세요.
 
 필요에 따라 마이그레이션 스크립트를 사용 하 여 WAF 정책으로 마이그레이션할 수 있습니다. 자세한 내용은 [Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 정책 마이그레이션](migrate-policy.md)을 참조 하세요.
+
+## <a name="force-mode"></a>강제 모드
+
+현재 구성에 정확히 일치 하는 정책으로 모든 항목을 복사 하지 않으려는 경우 WAF를 "force" 모드로 설정할 수 있습니다. 다음 Azure PowerShell 코드를 실행 하면 WAF가 force 모드로 전환 됩니다. 그런 다음 구성에 정확히 동일한 설정이 없더라도 waf 정책을 WAF에 연결할 수 있습니다. 
+
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -Name <your Application Gateway name> -ResourceGroupName <your Resource Group name>
+$appgw.ForceFirewallPolicyAssociation = $true
+```
+
+그런 다음 응용 프로그램 게이트웨이에 WAF 정책을 연결 하는 단계를 procees. 자세한 내용은 [WAF 정책을 기존 Application Gateway에 연결](associate-waf-policy-existing-gateway.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

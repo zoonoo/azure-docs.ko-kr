@@ -1,26 +1,24 @@
 ---
 title: Azure Functions에서 지원되는 언어
-description: 어떤 언어가 지원되는 언어(GA)이고 어떤 언어가 실험적 또는 미리 보기인지 알아봅니다.
+description: 지원 되는 언어 (GA) 및 미리 보기 상태인 언어와 함수 개발을 다른 언어로 확장 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74942259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83994904"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
-이 문서에서는 Azure Functions에서 사용할 수 있는 언어에 대해 제공되는 지원 수준을 설명합니다.
+이 문서에서는 Azure Functions에서 사용할 수 있는 언어에 대해 제공되는 지원 수준을 설명합니다. 기본적으로 지원 되지 않는 언어를 사용 하 여 함수를 만드는 전략에 대해서도 설명 합니다.
 
 ## <a name="levels-of-support"></a>지원 수준
 
-세 가지 지원 수준이 있습니다.
+지원 되는 두 가지 수준은 다음과 같습니다.
 
 * **일반 공급(GA)** - 완전하게 지원되며 프로덕션용으로 승인되었습니다.
 * **미리 보기** - 아직 지원되지 않지만 향후 GA 상태가 될 예정입니다.
-* **실험적** - 지원되지 않으며 향후 중단될 수 있습니다. 최종 미리 보기 또는 GA 상태가 보장되지 않습니다.
 
 ## <a name="languages-by-runtime-version"></a>런타임 버전별 언어 
 
@@ -28,15 +26,11 @@ ms.locfileid: "74942259"
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### <a name="experimental-languages"></a>실험적 언어
+## <a name="custom-handlers-preview"></a>사용자 지정 처리기 (미리 보기) 
 
-버전 1.x에서 실험적 언어는 제대로 확장되지 않고 모든 바인딩을 지원하지도 않습니다.
+사용자 지정 처리기는 Azure Functions 호스트에서 이벤트를 수신 하는 간단한 웹 서버입니다. HTTP 기본 형식을 지 원하는 모든 언어는 사용자 지정 처리기를 구현할 수 있습니다. 즉, 사용자 지정 처리기를 사용 하 여 공식적으로 지원 되지 않는 언어로 함수를 만들 수 있습니다. 자세히 알아보려면 [Azure Functions 사용자 지정 처리기 (미리 보기)](functions-custom-handlers.md)를 참조 하세요.
 
-실험적 기능에 대해서는 공식적인 지원이 없으므로 기반으로 사용하지 말아야 합니다. 실험적 언어 관련 문제에 대한 지원 사례를 열 수는 없습니다. 
-
-이후 런타임 버전은 실험적 언어를 지원 하지 않습니다. 프로덕션 환경에서 언어를 지원할 수 있는 경우만 새 언어에 대한 지원을 추가합니다. 
-
-### <a name="language-extensibility"></a>언어 확장성
+## <a name="language-extensibility"></a>언어 확장성
 
 버전 2.x부터 런타임은 [언어 확장성](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility)을 제공 하도록 설계 되었습니다. 2.x 런타임의 JavaScript 및 Java 언어는 이 확장성을 사용하여 빌드됩니다.
 

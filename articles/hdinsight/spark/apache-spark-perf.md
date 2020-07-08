@@ -7,12 +7,11 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: f92a351087670ce0b37921a496eabfa883a3b1fc
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 0b152f7882c7d7a3bab762253da0febc0257ceae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117957"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>HDInsight에서 Apache Spark 작업 최적화
 
@@ -22,16 +21,16 @@ ms.locfileid: "83780102"
 
 Apache Spark 작업의 성능은 여러 요인에 따라 달라집니다. 이러한 성능 요소에는 데이터가 저장되는 방법, 클러스터가 구성되는 방식, 데이터를 처리할 때 사용되는 작업 등이 포함됩니다.
 
-여기서 직면할 수 있는 일반적인 문제에는 크기가 다른 실행기, 장기 실행 작업, 카티전 작업으로 이어지는 작업 등으로 인한 메모리 제약이 포함됩니다.
+발생할 수 있는 일반적인 문제에는 잘못 된 실행 기, 장기 실행 작업, 데카르트 연산이 발생 하는 태스크 등의 메모리 제약 조건이 있습니다.
 
-이러한 문제(예: 캐싱)를 해결하는 데 도움이 될 뿐만 아니라 데이터 기울이기를 허용하는 다양한 전략들도 있습니다.
+캐싱과 같은 이러한 문제를 해결 하 고 데이터 기울이기를 허용 하는 많은 최적화도 있습니다.
 
-다음의 각 문서에서는 Spark 최적화의 다른 측면에 대한 일반적인 문제 및 해결 방법을 확인할 수 있습니다.
+다음의 각 문서에서 Spark 최적화의 여러 측면에 대 한 정보를 찾을 수 있습니다.
 
-* [데이터 스토리지 최적화](optimize-data-storage.md)
-* [데이터 처리 최적화](optimize-data-processing.md)
-* [메모리 사용량 최적화](optimize-memory-usage.md)
-* [클러스터 구성 최적화](optimize-cluster-configuration.md)
+* [Apache Spark 데이터 스토리지 최적화](optimize-data-storage.md)
+* [Apache Spark에 대한 데이터 처리 최적화](optimize-data-processing.md)
+* [Apache Spark에 대한 메모리 사용량 최적화](optimize-memory-usage.md)
+* [Apache Spark에 대 한 HDInsight 클러스터 구성 최적화](optimize-cluster-configuration.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,18 +4,17 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84016851"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 웹 애플리케이션의 성능을 자동으로 분석하고 잠재적 문제에 대해 경고할 수 있습니다. 스마트 검색 알림 중 하나를 수신했으므로 읽어볼 수 있습니다.
 
-이 기능에는 [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md) 또는 [Node.js](../../azure-monitor/app/nodejs.md) 및 [웹 페이지 코드](../../azure-monitor/app/javascript.md)에서 Application Insights용 앱을 구성하는 것 외에는 특별한 설정이 필요하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
+이 기능을 사용 하려면 [지원 되는 언어](../../azure-monitor/app/platforms.md)에 대 한 Application Insights 앱을 구성 하는 것 외에 특별 한 설정이 필요 하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>스마트 검색 알림은 언제 제공되나요?
 

@@ -8,12 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84020611"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 검사점 및 재생 개념
 이 문서에서는 Azure Stream Analytics의 내부 검사점 및 재생 개념과 이러한 개념이 작업 복구에 미치는 영향에 대해 설명합니다. Stream Analytics 작업이 실행될 때마다 상태 정보가 내부적으로 유지 관리됩니다. 이러한 상태 정보는 정기적으로 검사점에 저장됩니다. 일부 시나리오에서는 작업 실패 또는 업그레이드가 발생하는 경우 검사점 정보가 작업을 복구하는 데 사용됩니다. 다른 상황에서는 검사점을 복구에 사용할 수 없으며 재생이 필요합니다.
@@ -58,7 +57,7 @@ Microsoft는 경우에 따라 Azure 서비스에서 Stream Analytics 작업을 �
 
 3. 시작 시간과 첫 번째 출력이 생성되는 시점 사이의 시간을 측정합니다. 시간은 서비스 업그레이드 중에 작업이 지연되는 시간을 대략적으로 나타냅니다.
 
-4. 지연 시간이 너무 길면 작업을 분할하고 SU 수를 늘려 로드가 더 많은 노드로 분산되도록 합니다. 또는 쿼리의 시간 범위를 줄이고, 다운스트림 싱크(예: Azure SQL 데이터베이스 사용)의 Stream Analytics 작업에서 생성되는 출력에 대해 추가 집계 또는 다른 상태 저장 처리를 수행하는 것이 좋습니다.
+4. 지연 시간이 너무 길면 작업을 분할하고 SU 수를 늘려 로드가 더 많은 노드로 분산되도록 합니다. 또는 쿼리에서 창 크기를 줄이고 다운스트림 싱크에서 Stream Analytics 작업에 의해 생성 된 출력에서 추가 집계 또는 기타 상태 저장 처리를 수행 하는 것이 좋습니다 (예: Azure SQL Database 사용).
 
 중요 업무용 작업을 업그레이드하는 동안 일반적인 서비스 안정성 문제가 발생하면 쌍을 이루는 Azure 지역에서 중복 작업을 실행하는 것이 좋습니다. 자세한 내용은 [서비스 업데이트 도중 Stream Analytics 작업 안정성 보장](stream-analytics-job-reliability.md)을 참조하세요.
 

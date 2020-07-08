@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1340c205477b256e3d96ff7ccacb64e575725c2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84188301"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "80065397"
 
 데이터 관리 게이트웨이는 클라우드 및 온-프레미스 데이터 저장소 간에 데이터를 복사하기 위해 온-프레미스 환경에 설치해야 하는 클라이언트 에이전트입니다. Data Factory에서 지원하는 온-프레미스 데이터 저장소는 [지원되는 데이터 소스](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 섹션에 나와 있습니다.
 
-이 문서는 [온-프레미스 및 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에서 설명하는 연습을 보완하는 정보를 제공합니다. 이 연습에서는 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 이동하는 파이프라인을 만듭니다. 이 문서는 데이터 관리 게이트웨이에 대한 자세한 정보를 제공합니다.
+이 문서는 [온-프레미스 및 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에서 설명하는 연습을 보완하는 정보를 제공합니다. 이 연습에서는 게이트웨이를 사용 하 여 SQL Server 데이터베이스에서 Azure blob으로 데이터를 이동 하는 파이프라인을 만듭니다. 이 문서는 데이터 관리 게이트웨이에 대한 자세한 정보를 제공합니다.
 
 여러 온-프레미스 컴퓨터를 게이트웨이와 연결하여 데이터 관리 게이트웨이의 규모를 확장할 수 있습니다. 노드에서 동시에 실행할 수 있는 데이터 이동 작업의 수를 늘려 강화할 수 있습니다. 이 기능은 단일 노드가 있는 논리 게이트웨이에서도 사용할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 데이터 관리 게이트웨이 확장](data-factory-data-management-gateway-high-availability-scalability.md) 문서를 참조하세요.
 
@@ -71,7 +70,7 @@ ms.locfileid: "80065397"
 * 데이터 저장소가 **Azure IaaS VM**의 클라우드에 있더라도 **게이트웨이를 사용**해야 합니다.
 
 ## <a name="installation"></a>설치
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 * 지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 현재 도메인 컨트롤러에 데이터 관리 게이트웨이를 설치하도록 지원되지 않습니다.
 * .NET Framework 4.5.1 이상이 필요합니다. Windows 7 컴퓨터에 게이트웨이를 설치하는 경우 .NET Framework 4.5 이상을 설치하세요. 자세한 내용은 [.NET Framework 시스템 요구 사항](https://msdn.microsoft.com/library/8z6watww.aspx)을 참조하세요.
 * 게이트웨이 컴퓨터에 권장 되는 **구성은** 최소 2ghz, 4 개 코어, 8gb RAM 및 80 gb 디스크입니다.
@@ -161,10 +160,10 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 예를 들어 **온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크로**복사 하려면 다음 단계를 수행 합니다.
 
 * Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 **1433** 에서 아웃 바운드 **TCP** 통신을 허용 합니다.
-* Azure SQL Server의 방화벽 설정을 구성하여 허용된 IP 주소 목록에 게이트웨이 컴퓨터의 IP 주소를 추가합니다.
+* 논리 SQL server의 방화벽 설정을 구성 하 여 허용 된 IP 주소 목록에 게이트웨이 컴퓨터의 IP 주소를 추가 합니다.
 
 > [!NOTE]
-> 방화벽이 아웃바운드 포트 1433을 허용하지 않으면 게이트웨이는 Azure SQL에 직접 액세스할 수 없습니다. 이 경우에 SQL Azure Database/SQL Azure DW에 [준비된 복사](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy)를 사용할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS(포트 443)만 필요합니다.
+> 방화벽이 아웃바운드 포트 1433을 허용하지 않으면 게이트웨이는 Azure SQL에 직접 액세스할 수 없습니다. 이 경우 SQL Database/SQL Managed Instance/SQL Azure DW에 대해 [준비 된 복사](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) 를 사용할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS(포트 443)만 필요합니다.
 >
 >
 
@@ -180,15 +179,15 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 이 대화 상자에는 세 가지 구성 옵션이 있습니다.
 
 * **프록시 사용 안 함**: 게이트웨이가 클라우드 서비스에 연결하는 데 프록시를 명시적으로 사용하지 않습니다.
-* **시스템 프록시 사용**: 게이트웨이에서는 diahost 및 diahost에 구성 된 프록시 설정을 사용 합니다. Diahost .config 및 diahost에서 프록시가 구성 되지 않은 경우 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다.
-* **사용자 지정 프록시 사용**: diahost 및 diahost .exe .config에서 구성을 사용 하는 대신 게이트웨이에 사용할 HTTP 프록시 설정을 구성 합니다. 주소와 포트가 필요 합니다. 사용자 이름 및 암호는 프록시 인증 설정에 따라 입력할 수 있습니다. 모든 설정은 게이트웨이의 자격 증명 인증서를 사용하여 암호화되며 게이트웨이 호스트 컴퓨터에 로컬로 저장됩니다.
+* **시스템 프록시 사용**: 게이트웨이는 diahost.exe.config 및 diawp.exe.config에 구성 된 프록시 설정을 사용 합니다. diahost.exe.config 및 diawp.exe.config에 프록시가 구성 되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다.
+* **사용자 지정 프록시 사용**: diahost.exe.config 및 diawp.exe.config에서 구성을 사용 하는 대신 게이트웨이에 사용할 HTTP 프록시 설정을 구성 합니다. 주소와 포트가 필요 합니다. 사용자 이름 및 암호는 프록시 인증 설정에 따라 입력할 수 있습니다. 모든 설정은 게이트웨이의 자격 증명 인증서를 사용하여 암호화되며 게이트웨이 호스트 컴퓨터에 로컬로 저장됩니다.
 
 업데이트된 프록시 설정을 저장하고 나면 데이터 관리 게이트웨이 호스트 서비스가 자동으로 다시 시작됩니다.
 
 게이트웨이를 올바르게 등록한 후 프록시 설정을 확인하거나 업데이트하려면 데이터 관리 게이트웨이 구성 관리자를 사용합니다.
 
 1. **데이터 관리 게이트웨이 구성 관리자**를 시작합니다.
-2. **설정** 탭으로 전환 합니다.
+2. **설정** 탭으로 전환합니다.
 3. **HTTP 프록시** 섹션에서 **변경** 링크를 클릭하여 **HTTP 프록시 설정** 대화 상자를 시작합니다.
 4. **다음** 단추를 클릭하면 프록시 설정을 저장하고 게이트웨이 호스트 서비스를 다시 시작하기 위한 권한이 필요하다는 경고 대화 상자가 표시됩니다.
 
@@ -202,10 +201,10 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 >
 
 ### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성
-HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택 하는 경우 게이트웨이는 diahost 및 diahost .exe .config에서 프록시 설정을 사용 합니다. Diahost .config 및 diahost에서 프록시를 지정 하지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.
+HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택 하는 경우 게이트웨이는 diahost.exe.config 및 diawp.exe.config에서 프록시 설정을 사용 합니다. diahost.exe.config 및 diawp.exe.config에 프록시가 지정 되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결 합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.
 
-1. 파일 탐색기에서 *C\\\\\\: Program Files Microsoft 데이터 관리 Gateway\\2.0\\Shared\\diahost* 를 복사 하 여 원본 파일을 백업 합니다.
-2. 관리자 권한으로 notepad.exe 실행을 시작 하 고 텍스트 파일 *\\\\C\\: Program Files Microsoft 데이터 관리 Gateway\\2.0\\Shared\\diahost*를 엽니다. 다음 코드와 같이 system.net에 대 한 기본 태그를 찾을 수 있습니다.
+1. 파일 탐색기에서 원본 파일을 백업 하는 *C: \\ \\ Program Files \\ Microsoft 데이터 관리 Gateway \\ 2.0 \\ Shared \\diahost.exe.config* 의 안전한 복사본을 만듭니다.
+2. 관리자 권한으로 실행 Notepad.exe 시작 하 고 텍스트 파일 *C: \\ \\ Program Files \\ Microsoft 데이터 관리 Gateway \\ 2.0 \\ Shared \\diahost.exe.config*를 엽니다. 다음 코드와 같이 system.net에 대 한 기본 태그를 찾을 수 있습니다.
 
     ```
     <system.net>
@@ -231,7 +230,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택 하는 
 3. 구성 파일을 원래 위치에 저장한 다음 데이터 관리 게이트웨이 호스트 서비스를 다시 시작하면 변경 내용이 적용됩니다. 서비스를 다시 시작하려면 제어판의 서비스 애플릿을 사용하거나, **데이터 관리 게이트웨이 구성 관리자**에서 **서비스 중지** 단추를 클릭한 후 **서비스 시작**을 클릭합니다. 서비스가 시작되지 않으면 잘못된 XML 태그 구문이 편집된 애플리케이션 구성 파일에 추가되었을 가능성이 높습니다.
 
 > [!IMPORTANT]
-> Diahost와 diahost .exe를 **모두** 업데이트 해야 합니다.
+> diahost.exe.config와 diawp.exe.config를 **모두** 업데이트 하는 것을 잊지 마십시오.
 
 이러한 사항 외에 Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
 
@@ -279,7 +278,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 [단일 노드 게이트웨이의 경우]
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. *C:\\\\\\Program Files\\Microsoft Integration Runtime 3.0\\powershellscript\\ * 폴더로 전환 합니다.
+2. *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3.0 \\ powershellscript \\ * 폴더로 전환 합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     ```powershell
@@ -292,7 +291,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
     ```
    [다중 노드 고가용성 및 확장성 있는 게이트웨이의 경우](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. *C:\\\\\\Program Files\\Microsoft Integration Runtime 3.0\\powershellscript\\ * 폴더로 전환 합니다.
+2. *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3.0 \\ powershellscript \\ * 폴더로 전환 합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     고가용성 기능이 있는 게이트웨이의 경우, 추가 AuthKey 매개 변수가 필요합니다.
@@ -309,9 +308,9 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다.
-2. *C\\:\\Program Files\\Microsoft 데이터 관리 Gateway\\2.0\\Shared*폴더에서 실행 파일 *configmanager* 를 실행 합니다.
+2. *C: \\ \\ Program Files \\ Microsoft 데이터 관리 Gateway \\ 2.0 \\ Shared*폴더에 있는 실행 파일 *ConfigManager.exe* 를 실행 합니다.
 
-### <a name="home-page"></a>홈 페이지
+### <a name="home-page"></a>홈페이지
 홈 페이지를 통해 다음 작업을 수행할 수 있습니다.
 
 * 게이트웨이의 상태를 봅니다(클라우드 서비스에 연결되어 있는지 등).
@@ -362,9 +361,9 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.
 
-모니터링 속성 | Description
+모니터링 속성 | 설명
 :------------------ | :----------
-속성 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
+이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요.
 버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만).
 사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅샷입니다.
@@ -383,17 +382,17 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다.
 오프라인 | 노드가 오프라인 상태입니다.
 업그레이드 중 | 노드가 자동 업데이트 중입니다.
-제한적 | 연결 문제로 인해 제한되는 상태입니다. 8050 HTTP 포트 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다.
+제한됨 | 연결 문제로 인해 제한되는 상태입니다. 8050 HTTP 포트 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다.
 비활성 | 노드의 구성이 다른 주 노드의 구성과 다릅니다.<br/><br/> 다른 노드에 연결할 수 없을 때 노드가 비활성 상태일 수 있습니다.
 
 다음 표에서는 **논리 게이트웨이**에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다.
 
-상태 | 주석
+상태 | 의견
 :----- | :-------
 등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
 온라인 | 게이트웨이 노드가 온라인 상태입니다.
 오프라인 | 온라인 상태의 노드가 없습니다.
-제한적 | 이 게이트웨이의 모든 노드가 정상 상태가 아닙니다. 이 상태는 일부 노드가 중단되었을 수 있다는 경고입니다. <br/><br/>디스패처/작업자 노드의 자격 증명 동기화 문제 일 수 있습니다.
+제한됨 | 이 게이트웨이의 모든 노드가 정상 상태가 아닙니다. 이 상태는 일부 노드가 중단되었을 수 있다는 경고입니다. <br/><br/>디스패처/작업자 노드의 자격 증명 동기화 문제 일 수 있습니다.
 
 ## <a name="scale-up-gateway"></a>게이트웨이 강화
 노드에서 실행할 수 있는 **동시 데이터 이동 작업** 수를 구성하여 온-프레미스 및 클라우드 데이터 저장소 간에 데이터를 이동하는 기능을 강화할 수 있습니다.
@@ -510,7 +509,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell에서 *C:\\\\\\Program Files\\Microsoft Integration Runtime 3.0\\powershellscript\\*폴더로 전환 합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 *RegisterGateway.ps1* 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
+1. Azure PowerShell에서 *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3.0 \\ powershellscript \\ *폴더로 전환 합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 *RegisterGateway.ps1* 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -518,7 +517,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     ```
     Agent registration is successful!
     ```
-    IsRegisterOnRemoteMachine 매개 변수를 사용하여 원격 컴퓨터에서 게이트웨이를 등록할 수 있습니다. 예제:
+    IsRegisterOnRemoteMachine 매개 변수를 사용하여 원격 컴퓨터에서 게이트웨이를 등록할 수 있습니다. 예:
 
     ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
@@ -543,4 +542,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 이 연습에서는 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 이동하는 파이프라인을 만듭니다.
+* [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 이 연습에서는 게이트웨이를 사용 하 여 SQL Server 데이터베이스에서 Azure blob으로 데이터를 이동 하는 파이프라인을 만듭니다.

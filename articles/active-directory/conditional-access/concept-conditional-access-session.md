@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671897"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83993860"
 ---
 # <a name="conditional-access-session"></a>조건부 액세스: 세션
 
@@ -40,7 +39,7 @@ ms.locfileid: "78671897"
 조건부 액세스 앱 제어를 통해 사용자는 액세스 및 세션 정책에 따라 실시간으로 앱 액세스 및 세션을 모니터링하고 제어할 수 있습니다. 액세스 및 세션 정책은 Cloud App Security 포털에서 사용되어 필터를 자세히 구체화하고 사용자에 대해 수행할 작업을 설정합니다. 액세스 및 세션 정책을 사용하면 다음을 수행할 수 있습니다.
 
 - 데이터 exfiltration 방지: 관리 되지 않는 장치와 같은 중요 한 문서의 다운로드, 잘라내기, 복사 및 인쇄를 차단할 수 있습니다.
-- 다운로드 시 보호: 중요 한 문서의 다운로드를 차단 하는 대신 문서가 Azure Information Protection로 레이블을 지정 하 고 보호 하도록 요구할 수 있습니다. 이 작업을 수행 하면 문서가 보호 되 고 잠재적으로 위험한 세션에서 사용자 액세스가 제한 됩니다.
+- 다운로드 시 보호: 중요 한 문서의 다운로드를 차단 하는 대신 문서가 Azure Information Protection로 레이블을 지정 하 고 보호 하도록 요구할 수 있습니다. 이 작업을 수행하면 문서가 보호되고 잠재적으로 위험한 세션에서 사용자 액세스가 제한됩니다.
 - 레이블이 지정 되지 않은 파일 업로드 방지: 중요 한 파일을 업로드, 배포 및 사용 하기 전에 파일에 올바른 레이블 및 보호가 있는지 확인 하는 것이 중요 합니다. 사용자가 콘텐츠를 분류 하기 전까지 중요 한 내용이 포함 된 레이블이 없는 파일이 업로드 되지 않도록 차단할 수 있습니다.
 - 사용자 세션의 준수 모니터링: 위험한 사용자가 앱에 로그인 하 고 해당 작업이 세션 내에서 기록 되 면 해당 사용자가 모니터링 됩니다. 사용자 동작을 조사하고 분석하여 나중에 세션 정책을 적용해야 하는 위치와 조건을 이해할 수 있습니다.
 - 액세스 차단: 몇 가지 위험 요소에 따라 특정 앱 및 사용자에 대 한 액세스를 세부적으로 차단할 수 있습니다. 예를 들어 장치 관리의 형태로 클라이언트 인증서를 사용 하는 경우이를 차단할 수 있습니다.
@@ -48,7 +47,7 @@ ms.locfileid: "78671897"
 
 자세한 내용은 [추천 앱에 대 한 조건부 액세스 앱 제어 배포](/cloud-app-security/proxy-deployment-aad)문서를 참조 하세요.
 
-## <a name="sign-in-frequency-preview"></a>로그인 빈도 (미리 보기)
+## <a name="sign-in-frequency"></a>로그인 빈도
 
 로그인 빈도는 리소스에 액세스 하려고 할 때 사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 기간을 정의 합니다.
 
@@ -66,7 +65,7 @@ ms.locfileid: "78671897"
 
 자세한 내용은 [조건부 액세스를 사용 하 여 인증 세션 관리 구성](howto-conditional-access-session-lifetime.md#user-sign-in-frequency)문서를 참조 하세요.
 
-## <a name="persistent-browser-session-preview"></a>영구 브라우저 세션 (미리 보기)
+## <a name="persistent-browser-session"></a>영구 브라우저 세션
 
 영구 브라우저 세션을 사용 하면 사용자가 브라우저 창을 닫았다가 다시 연 후 로그인 상태를 유지할 수 있습니다.
 
@@ -74,6 +73,6 @@ ms.locfileid: "78671897"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+- [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
 - [보고서 전용 모드](concept-conditional-access-report-only.md)

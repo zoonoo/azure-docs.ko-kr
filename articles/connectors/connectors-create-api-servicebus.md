@@ -7,12 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76261622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84141996"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -35,13 +34,13 @@ ms.locfileid: "76261622"
 
 * Service Bus 네임스페이스 및 메시징 엔터티(예: 큐). 이러한 항목과 논리 앱은 동일한 Azure 구독을 사용 해야 합니다. 이러한 항목에 없는 경우 [Service Bus 네임스페이스 및 큐를 만드는](../service-bus-messaging/service-bus-create-namespace-portal.md) 방법을 알아봅니다.
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * Service Bus 네임 스페이스 및 메시징 엔터티를 사용 하는 논리 앱입니다. 논리 앱과 service bus는 동일한 Azure 구독을 사용 해야 합니다. Service Bus 트리거를 사용 하 여 워크플로를 시작 하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). 워크플로에서 Service Bus 작업을 사용 하려면 [되풀이 트리거와](../connectors/connectors-native-recurrence.md)같은 다른 트리거를 사용 하 여 논리 앱을 시작 합니다.
 
 <a name="permissions-connection-string"></a>
 
-## <a name="check-permissions"></a>권한 확인
+## <a name="check-permissions"></a>사용 권한 확인
 
 논리 앱에 Service Bus 네임스페이스에 액세스하기 위한 권한이 있는지 확인합니다.
 
@@ -114,7 +113,7 @@ ms.locfileid: "76261622"
 
 1. 작업을 추가 하려는 단계 아래에서 **새 단계**를 선택 합니다.
 
-   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가**를 선택 합니다.
 
 1. **작업 선택**아래의 검색 상자에 "azure service bus"를 필터로 입력 합니다. 작업 목록에서 원하는 작업을 선택 합니다. 
 
@@ -152,11 +151,21 @@ ms.locfileid: "76261622"
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
+<a name="sequential-convoy"></a>
+
+## <a name="send-correlated-messages-in-order"></a>상관 관계가 지정 된 메시지를 순서 대로 보냅니다.
+
+관련 메시지를 특정 순서로 보내야 하는 경우에는 [Azure Service Bus 커넥터](../connectors/connectors-create-api-servicebus.md)를 사용 하 여 [ *순차 호위 (convoy* ) 패턴](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) 을 사용할 수 있습니다. 상관 관계가 지정 된 메시지에는 Service Bus [세션](../service-bus-messaging/message-sessions.md) 의 ID와 같은 해당 메시지 간의 관계를 정의 하는 속성이 있습니다.
+
+논리 앱을 만들 때 순차 호위 (convoy) 패턴을 구현 하는 **service bus 세션 템플릿을 사용 하 여 상관 관계가 지정 된 순서 대로 배달을** 선택할 수 있습니다. 자세한 내용은 [순서 대로 관련 메시지 보내기](../logic-apps/send-related-messages-sequential-convoy.md)를 참조 하세요.
+
+<a name="connector-reference"></a>
+
 ## <a name="connector-reference"></a>커넥터 참조
 
 Service Bus 커넥터는 Service Bus에서 커넥터 캐시로 최대 1500 개의 고유 세션을 저장할 수 있습니다. 세션 수가이 한도를 초과 하면 이전 세션이 캐시에서 제거 됩니다. 자세한 내용은 [메시지 세션](../service-bus-messaging/message-sessions.md)을 참조 하세요.
 
-커넥터의 OpenAPI (이전의 Swagger) 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 기타 기술 정보는 커넥터의 [참조 페이지를 참조](/connectors/servicebus/)하세요. Azure Service Bus 메시징에 대 한 자세한 내용은 [Azure Service Bus 정의](../service-bus-messaging/service-bus-messaging-overview.md)를 참조 하세요.
+커넥터의 Swagger 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 기타 기술 세부 정보는 [커넥터 참조 페이지를 참조](/connectors/servicebus/)하세요. Azure Service Bus 메시징에 대 한 자세한 내용은 [Azure Service Bus 정의](../service-bus-messaging/service-bus-messaging-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

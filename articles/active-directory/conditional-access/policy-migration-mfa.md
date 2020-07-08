@@ -4,19 +4,18 @@ description: 이 문서에서는 Azure Portal에서 다단계 인증이 필요�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/04/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d637ac464b689a25ce5d5a79cf47da0c85d38d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74846035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83993731"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Azure Portal에서 클래식 정책 마이그레이션
 
@@ -32,7 +31,7 @@ ms.locfileid: "74846035"
 
 ## <a name="open-a-classic-policy"></a>클래식 정책 열기
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **보안** > **조건부 액세스**로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**  >  **보안**  >  **조건부 액세스**로 이동 합니다.
 1. **클래식 정책**을 선택 합니다.
 
    ![클래식 정책 보기](./media/policy-migration-mfa/12.png)
@@ -41,7 +40,7 @@ ms.locfileid: "74846035"
 
 ## <a name="create-a-new-conditional-access-policy"></a>새 조건부 액세스 정책 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **보안** > **조건부 액세스**로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**  >  **보안**  >  **조건부 액세스**로 이동 합니다.
 1. 새 조건부 액세스 정책을 만들려면 **새 정책**을 선택 합니다.
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 정책 이름을 입력합니다.
 1. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.

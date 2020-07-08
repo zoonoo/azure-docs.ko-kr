@@ -9,12 +9,11 @@ ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7e818a80f9df97ce4e5f5b8f1ef9385d2e6b0ecc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022336"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -203,7 +202,7 @@ ms.locfileid: "83827763"
 
 - **원인**: Azure SQL Database에 연결하려고 할 경우 오류 메시지로 "IP 주소가 '...'인 클라이언트가 서버에 액세스할 수 없습니다."가 표시되면 일반적으로 Azure SQL Database 방화벽 문제 때문인 것입니다.
 
-- **권장 사항**:  Azure SQL Server 방화벽 구성에서 "Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용" 옵션을 사용하도록 설정합니다. 참조 문서: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure
+- **권장 사항**: 논리 SQL server 방화벽 구성에서 "Azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용" 옵션을 사용 하도록 설정 합니다. 참조 문서: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure
 
 
 ### <a name="error-code--sqloperationfailed"></a>오류 코드:  SqlOperationFailed

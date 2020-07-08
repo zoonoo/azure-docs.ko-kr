@@ -5,12 +5,11 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3739f8691a144f183e72af19233f776a24066cbc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84118786"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -31,7 +30,7 @@ Azure Portal에서 Automation 계정을 만드는 경우 **실행** 계정이 �
 Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
 
 * Automation 계정을 만들려면 Azure AD 사용자 계정을 `Microsoft.Automation` 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-* Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
+* Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록** 를 **아니요**로 설정 하면이 작업을 수행 하는 사용자에 게 적어도 Azure AD의 응용 프로그램 개발자 역할이 있어야 합니다.
 
 사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 Automation 계정 추가 창에 `You do not have permissions to create.` 메시지가 표시됩니다.
 

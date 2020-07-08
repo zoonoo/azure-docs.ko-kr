@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: twooley
-ms.openlocfilehash: c9451afaefdd220b5f87d4650c7844f06926b03a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e591a6c1fbf91bb034ec57673f79c549bbec4672
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84170089"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스 업데이트
 > [!NOTE]
@@ -84,22 +83,22 @@ StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이�
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1단계: 직렬 콘솔에 연결 <a name="step1">
+### <a name="step-1-connect-to-the-serial-console"></a>1단계: 직렬 콘솔에 연결 <a name="step1"></a>
 먼저,  PuTTY와 같은 애플리케이션을 사용하여 직렬 콘솔에 액세스합니다. 다음 절차는 PuTTY를 사용하여 직렬 콘솔에 연결하는 방법을 설명합니다.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2단계: 유지 관리 모드 시작 <a name="step2">
+### <a name="step-2-enter-maintenance-mode"></a>2단계: 유지 관리 모드 시작 <a name="step2"></a>
 콘솔에 연결한 후, 설치할 업데이트가 있는지 여부를 결정하고 유지 관리 모드로 전환하여 설치합니다.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates-a-namestep3"></a>3단계: 프로그램 업데이트 설치 <a name="step3">
+### <a name="step-3-install-your-updates"></a>3단계: 프로그램 업데이트 설치 <a name="step3"></a>
 다음으로 업데이트를 설치합니다.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>4단계: 유지 관리 모드 종료 <a name="step4">
+### <a name="step-4-exit-maintenance-mode"></a>4단계: 유지 관리 모드 종료 <a name="step4"></a>
 마지막으로, 유지 관리 모드를 종료합니다.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

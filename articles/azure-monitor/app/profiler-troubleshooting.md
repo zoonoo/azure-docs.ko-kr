@@ -6,12 +6,11 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81640957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84148347"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -70,9 +69,9 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
     |앱 설정    | 값    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스용 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
 * **ApplicationInsightsProfiler3** 웹 작업이 실행되고 있어야 합니다. 웹 작업을 확인하려면 다음 단계를 수행합니다.
@@ -87,7 +86,7 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
       ![profiler-webjob-log]
 
-프로파일러가 작동 하지 않는 이유를 알 수 없는 경우 로그를 다운로드 하 여 팀에 보내 도움을 serviceprofilerhelp@microsoft.com받을 수 있습니다. 
+프로파일러가 작동 하지 않는 이유를 알 수 없는 경우 로그를 다운로드 하 여 팀에 보내 도움을 받을 수 있습니다 serviceprofilerhelp@microsoft.com . 
     
 ### <a name="manual-installation"></a>수동 설치
 
@@ -102,9 +101,9 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 
     |앱 설정    | 값    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스용 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>너무 많은 활성 프로파일링 세션
 
@@ -114,7 +113,7 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 
 Profiler를 사용하는 Web Apps 리소스에 웹앱을 다시 배포하는 경우 다음과 같은 메시지가 표시될 수 있습니다.
 
-*디렉터리가 비어 있지 않음 '\\d\\:\\home\\site\\wwwroot App_Data job '*
+*디렉터리가 비어 있지 않음 ' d: \\ home \\ site \\ wwwroot \\ App_Data \\ job '*
 
 스크립트 또는 Azure DevOps 배포 파이프라인에서 웹 배포를 실행하는 경우 이 오류가 발생합니다. 솔루션은 웹 배포 작업에 다음과 같은 배포 매개 변수를 더 추가합니다.
 
@@ -128,7 +127,7 @@ Profiler를 사용하는 Web Apps 리소스에 웹앱을 다시 배포하는 경
 
 Profiler는 웹앱에서 지속적인 웹 작업으로 실행됩니다. [Azure Portal](https://portal.azure.com)에서 웹 앱 리소스를 열 수 있습니다. **WebJobs** 창에서 **ApplicationInsightsProfiler**의 상태를 확인합니다. 실행되지 않는 경우 **로그**를 열어 자세한 정보를 찾습니다.
 
-## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Profiler 및 Azure Diagnostics 문제 해결
+## <a name="troubleshoot-vms-and-cloud-services"></a>Vm 및 Cloud Services 문제 해결
 
 >**Cloud Services에 대 한 WAD에서 제공 되는 프로파일러의 버그가 수정 되었습니다.** Cloud Services에 대 한 최신 버전의 WAD (1.12.2.0)는 최신 버전의 App Insights SDK와 함께 작동 합니다. 클라우드 서비스 호스트는 WAD를 자동으로 업그레이드 하지만 즉시 실행 되지 않습니다. 강제로 업그레이드 하려면 서비스를 다시 배포 하거나 노드를 다시 부팅 하면 됩니다.
 
@@ -141,27 +140,45 @@ Azure Diagnostics를 통해 Profiler가 올바르게 구성되어 있는지 여�
 
 Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음 단계를 수행합니다.
 
-1. VM (가상 컴퓨터)에 로그인 한 다음이 위치에서 로그 파일을 엽니다. 드라이브는 c: 또는 d: 이며 플러그 인 버전은 다를 수 있습니다.
-
-    ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
-    ```
-    또는
+1. VM (가상 컴퓨터)에 로그인 한 다음이 위치에서 로그 파일을 엽니다. 컴퓨터에서 플러그 인 버전이 최신 버전이 될 수 있습니다.
+    
+    Vm의 경우:
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
+    ```
+    
+    Cloud Services의 경우:
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
 
 1. 해당 파일에서 **WadCfg** 문자열을 검색하면 Azure Diagnostics를 구성하기 위해 VM에 전달된 설정을 확인할 수 있습니다. Profiler 싱크에서 사용하는 iKey가 올바른지 확인할 수 있습니다.
 
-1. Profiler를 시작하는 데 사용되는 명령줄을 확인합니다. 프로파일러를 시작 하는 데 사용 되는 인수는 다음 파일에 있습니다. (C: 또는 d: 드라이브를 사용할 수 있습니다.
+1. Profiler를 시작하는 데 사용되는 명령줄을 확인합니다. 프로파일러를 시작 하는 데 사용 되는 인수는 다음 파일에 있습니다. 드라이브는 c: 또는 d: 이며 디렉터리를 숨길 수도 있습니다.
 
+    Vm의 경우:
+    ```
+    C:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+    
+    Cloud Services:
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
 
 1. Profiler 명령줄의 ikey가 올바른지 확인합니다. 
 
-1. 위의 *config.json* 파일에 있는 경로를 사용하여 Profiler 로그 파일을 확인합니다. 이 파일에는 Profiler가 사용하는 설정을 나타내는 디버그 정보가 표시됩니다. 또한 Profiler의 상태 및 오류 메시지도 표시됩니다.  
+1. 파일 *의 이전config.js* 에 있는 경로를 사용 하 여 **BootstrapN**라는 프로파일러 로그 파일을 확인 합니다. 이 파일에는 Profiler가 사용하는 설정을 나타내는 디버그 정보가 표시됩니다. 또한 Profiler의 상태 및 오류 메시지도 표시됩니다.  
+
+    Vm의 경우 파일은 일반적으로 다음 위치에 있습니다.
+    ```
+    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
+
+    Cloud Services의 경우:
+    ```
+    C:\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
 
     응용 프로그램에서 요청을 수신 하는 동안 프로파일러가 실행 중인 경우 *iKey에서 검색 된 작업*인 다음 메시지가 표시 됩니다. 
 

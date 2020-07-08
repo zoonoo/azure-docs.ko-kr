@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84017667"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -70,12 +69,12 @@ ms.locfileid: "81417898"
 -------- | ----------- | -------------- | --------
 name | 웹 작업의 이름입니다. | String | 예
 type | **WebActivity**로 설정해야 합니다. | String | 예
-메서드 | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
+method | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
 url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | 예
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
 본문 | 엔드포인트에 전송된 페이로드를 나타냅니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | POST/PUT 메서드에 필요합니다.
 인증 | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아니요
-데이터 세트 | 엔드포인트에 전달되는 데이터 세트의 목록입니다. | 데이터 세트 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
+datasets | 엔드포인트에 전달되는 데이터 세트의 목록입니다. | 데이터 세트 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 linkedServices | 엔드포인트에 전달되는 연결된 서비스 목록입니다. | 연결된 서비스 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 
 > [!NOTE]
@@ -83,9 +82,9 @@ linkedServices | 엔드포인트에 전달되는 연결된 서비스 목록입�
 
 다음 표에서는 JSON 콘텐츠에 대한 요구 사항을 보여 줍니다.
 
-| 값 형식 | 요청 본문 | 응답 본문 |
+| 값 유형 | 요청 본문 | 응답 본문 |
 |---|---|---|
-|JSON 개체 | 지원됨 | 지원됨 |
+|JSON 개체 | 지원 여부 | 지원됨 |
 |JSON 배열 | 지원됨 <br/>(현재 JSON 배열은 버그로 인해 작동하지 않습니다. 수정이 진행 중입니다.) | 지원되지 않음 |
 | JSON 값 | 지원됨 | 지원되지 않음 |
 | 비-JSON 형식 | 지원되지 않음 | 지원되지 않음 |
@@ -161,7 +160,7 @@ POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전�
 ```
 
 ## <a name="example"></a>예제
-이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 세트를 엔드포인트에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용하여 Azure SQL Server에 연결하고 SQL Server의 인스턴스 이름을 반환합니다.
+이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 세트를 엔드포인트에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용 하 여 논리 SQL server에 연결 하 고 SQL server 인스턴스의 이름을 반환 합니다.
 
 ### <a name="pipeline-definition"></a>파이프라인 정의
 
@@ -257,7 +256,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요.
 
-- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
