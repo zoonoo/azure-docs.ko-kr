@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857004"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다.
@@ -142,11 +142,13 @@ Azure Cache for Redis 지속성을 사용하면 Redis에 저장된 데이터를 
 ### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>Import/Export 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?
 작업을 시작하기 전에 **데이터 가져오기**나 **데이터 내보내기** 블레이드에 15분 넘게 머무르는 경우 다음 예제와 유사한 오류 메시지를 받게 됩니다.
 
-    The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```output
+The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```
 
 이를 해결하려면, 15분이 지나기 전에 가져오기 또는 내보내기 작업을 시작하세요.
 
-### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Azure Blob Storage로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?
+### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Azure Blob Storage로 데이터를 내보내다가 오류가 발생했습니다. 무슨 일이 일어났나요?
 내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

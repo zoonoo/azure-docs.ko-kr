@@ -3,16 +3,16 @@ title: Python-서비스 간 인증-Data Lake Storage Gen1
 description: Azure Active Directory를 사용하여 Python으로 Azure Data Lake Storage Gen1 서비스 간 인증을 수행하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: has-adal-ref
-ms.openlocfilehash: 449159f6857cb2120f4570a8c20cd82fd11016a2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 279397f7eac62c1286db96d837539be196c838f8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857146"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python을 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -82,30 +82,34 @@ pip install azure-datalake-store
 
 이 코드 조각을 사용 하 여 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등의 Data Lake Storage Gen1에 대 한 계정 관리 작업을 위해 Azure AD를 사용 하 여 인증 합니다. 다음 코드 조각은 기존 Azure AD "웹 앱" 응용 프로그램의 응용 프로그램/서비스 사용자에 대 한 클라이언트 암호를 사용 하 여 비 대화형으로 응용 프로그램을 인증 하는 데 사용할 수 있습니다.
 
-    authority_host_uri = 'https://login.microsoftonline.com'
-    tenant = '<TENANT>'
-    authority_uri = authority_host_uri + '/' + tenant
-    RESOURCE = 'https://management.core.windows.net/'
-    client_id = '<CLIENT_ID>'
-    client_secret = '<CLIENT_SECRET>'
+```python
+authority_host_uri = 'https://login.microsoftonline.com'
+tenant = '<TENANT>'
+authority_uri = authority_host_uri + '/' + tenant
+RESOURCE = 'https://management.core.windows.net/'
+client_id = '<CLIENT_ID>'
+client_secret = '<CLIENT_SECRET>'
 
-    context = adal.AuthenticationContext(authority_uri, api_version=None)
-    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
-    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
+context = adal.AuthenticationContext(authority_uri, api_version=None)
+mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
+armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
+```
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>파일 시스템 작업을 위해 클라이언트 암호로 서비스 간 인증
 
 다음 코드 조각을 사용 하 여 폴더 만들기, 파일 업로드 등의 Data Lake Storage Gen1에 대 한 파일 시스템 작업에 대해 Azure AD를 사용 하 여 인증 합니다. 다음 코드 조각은 응용 프로그램/서비스 주체에 대 한 클라이언트 암호를 사용 하 여 비 대화형으로 응용 프로그램을 인증 하는 데 사용할 수 있습니다. 기존 Azure AD "Web App" 애플리케이션과 함께 사용합니다.
 
-    tenant = '<TENANT>'
-    RESOURCE = 'https://datalake.azure.net/'
-    client_id = '<CLIENT_ID>'
-    client_secret = '<CLIENT_SECRET>'
+```python
+tenant = '<TENANT>'
+RESOURCE = 'https://datalake.azure.net/'
+client_id = '<CLIENT_ID>'
+client_secret = '<CLIENT_SECRET>'
 
-    adlCreds = lib.auth(tenant_id = tenant,
-                    client_secret = client_secret,
-                    client_id = client_id,
-                    resource = RESOURCE)
+adlCreds = lib.auth(tenant_id = tenant,
+                client_secret = client_secret,
+                client_id = client_id,
+                resource = RESOURCE)
+```
 
 <!-- ## Service-to-service authentication with certificate for account management
 

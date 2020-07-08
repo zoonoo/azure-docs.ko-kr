@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b95ee80a7a99009918f4869b62a3e3768e6e58d3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856965"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -100,7 +100,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 * **네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층에서 표준 또는 기본 계층보다 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [다음 표](#cache-performance)를 참조하세요.
 * **처리량**: 프리미엄 계층에서 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
 * **고가용성/SLA**: Azure Cache for Redis는 표준/프리미엄 캐시를 99.9% 이상의 시간 동안 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)을 참조하세요. SLA에서는 캐시 엔드포인트에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
-* **Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라 문제로 인해 데이터 손실이 발생할 수 있습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Cache for Redis는 Redis 지속성에서 RDB 및 AOF(출시 예정) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
+* **Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure Storage 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라 문제로 인해 데이터 손실이 발생할 수 있습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Redis 용 Azure Cache는 Redis 지 속성에서 RDB 및 AOF (미리 보기) 옵션을 제공 합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 * **Redis 클러스터**: 120GB보다 큰 캐시를 만들거나 여러 Redis 노드에 걸쳐 데이터를 분할하려면 프리미엄 계층에서 사용할 수 있는 Redis 클러스터링을 사용할 수 있습니다. 각 노드는 고가용성을 위해 주/복제본 캐시 쌍으로 구성됩니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
 * **향상된 보안 및 네트워크 격리**: Azure VNET(Virtual Network) 배포는 액세스를 추가로 제한하는 서브넷, 액세스 제어 정책 및 기타 기능을 포함하여 Azure Cache for Redis에 대한 향상된 보안 및 격리를 제공합니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 * **Redis 구성**: 표준과 프리미엄 계층 모두에서 Redis for Keyspace 알림을 구성할 수 있습니다.
@@ -213,22 +213,23 @@ Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은
 ### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 로컬 에뮬레이터가 있나요?
 Azure Cache for Redis에 대한 로컬 에뮬레이터는 없지만 다음 예제와 같이 로컬 머신의 [Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/)에서 redis-server.exe의 MSOpenTech 버전을 실행하고 이에 연결하여 로컬 캐시 에뮬레이터와 비슷한 환경을 얻을 수 있습니다.
 
-    private static Lazy<ConnectionMultiplexer>
-          lazyConnection = new Lazy<ConnectionMultiplexer>
-        (() =>
-        {
-            // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-            return ConnectionMultiplexer.Connect("127.0.0.1:6379");
-        });
+```csharp
+private static Lazy<ConnectionMultiplexer>
+      lazyConnection = new Lazy<ConnectionMultiplexer>
+    (() =>
+    {
+        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+    });
 
-        public static ConnectionMultiplexer Connection
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
-
+    }
+```
 
 원하는 경우 선택적으로 온라인 Azure Cache for Redis의 [기본 캐시 설정](cache-configure.md#default-redis-server-configuration)과 더 가깝게 일치하도록 [redis.conf](https://redis.io/topics/config) 파일을 구성할 수 있습니다.
 
@@ -289,7 +290,7 @@ Redis 서버는 기본적으로 TLS를 지원하지 않지만 Azure Cache for Re
 >
 >
 
-`redis-cli`와 같은 Redis 도구는 TLS 포트에서 작동하지 않지만, [Redis용 ASP.NET 세션 상태 제공자 미리 보기 릴리스 발표](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물의 지침에 따라 `stunnel`과 같은 유틸리티를 사용하면 TLS 포트에 도구를 안전하게 연결할 수 있습니다.
+`redis-cli`와 같은 Redis 도구는 TLS 포트에서 작동하지 않지만, [Redis용 ASP.NET 세션 상태 제공자 미리 보기 릴리스 발표](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/) 블로그 게시물의 지침에 따라 `stunnel`과 같은 유틸리티를 사용하면 TLS 포트에 도구를 안전하게 연결할 수 있습니다.
 
 Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행할 수 있나요?](#cache-commands) 섹션을 참조하세요.
 
@@ -366,10 +367,12 @@ CLR ThreadPool에는 두 가지 유형의 스레드 - "작업자" 및 "I/O 완�
 
 StackExchange.Redis(빌드 1.0.450 이상)의 예제 오류 메시지를 살펴보는 경우 ThreadPool 통계를 인쇄하는 것을 볼 수 있습니다(아래 IOCP 및 작업자 세부 정보 참조).
 
+```output
     System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
     queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
 
 이전 예에서 IOCP 스레드의 경우 사용 중인 6개의 스레드가 있고 시스템이 최소 4개의 스레드를 허용하도록 구성되어 있는 것을 확인할 수 있습니다. 이 경우 클라이언트는 6 > 4로 인해 두 500ms 지연을 볼 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 6aa66ddc52665c22310fb58977fd516eea4e806a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6b9db450139c22fdf2df0875f36c65cdf684dfb3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856694"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
 이 페이지에서는 Azure ExpressRoute를 사용하여 작업할 때 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다.
@@ -40,78 +40,90 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
 
 이 샘플에서는 단일 VLAN ID가 있는 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. VLAN ID는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     encapsulation dot1Q <VLAN_ID>
-     ip address <IPv4_Address><Subnet_Mask>
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ encapsulation dot1Q <VLAN_ID>
+ ip address <IPv4_Address><Subnet_Mask>
+```
 
 **QinQ 인터페이스 정의**
 
 이 샘플에서는 두 개의 VLAN ID가 있는 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. 외부 VLAN ID(s-tag)는 사용되는 경우 모든 피어링에서 동일하게 유지됩니다. 안쪽의 VLAN ID(c-tag)는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
-     ip address <IPv4_Address><Subnet_Mask>
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ ip address <IPv4_Address><Subnet_Mask>
+```
 
 ### <a name="set-up-ebgp-sessions"></a>eBGP 세션 설정
 모든 피어링에 대해 Microsoft와 BGP 세션을 설정해야 합니다. 다음 샘플을 사용하여 BGP 세션을 설정합니다. 하위 인터페이스에 사용한 IPv4 주소가 a.b.c.d인 경우 BGP 인접 라우터(Microsoft)의 IP 주소는 a.b.c.d+1입니다. BGP 인접 라우터에 대한 IPv4 주소의 마지막 옥텟은 항상 짝수입니다.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-     neighbor <IP#2_used_by_Azure> activate
-     exit-address-family
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+ neighbor <IP#2_used_by_Azure> activate
+ exit-address-family
+!
+```
 
 ### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>BGP 세션을 통해 알릴 접두사 설정
 다음 샘플을 사용하여 선택 접두사를 Microsoft에 알리도록 라우터를 구성합니다.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      network <Prefix_to_be_advertised> mask <Subnet_mask>
-      neighbor <IP#2_used_by_Azure> activate
-     exit-address-family
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  network <Prefix_to_be_advertised> mask <Subnet_mask>
+  neighbor <IP#2_used_by_Azure> activate
+ exit-address-family
+!
+```
 
 ### <a name="route-maps"></a>경로 맵
 경로 맵과 접두사 목록을 사용하여 네트워크에 전파되는 접두사를 필터링합니다. 다음 샘플을 참조하여 적절한 접두사 목록이 설정되었는지 확인합니다.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      network <Prefix_to_be_advertised> mask <Subnet_mask>
-      neighbor <IP#2_used_by_Azure> activate
-      neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
-     exit-address-family
-    !
-    route-map <MS_Prefixes_Inbound> permit 10
-     match ip address prefix-list <MS_Prefixes>
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  network <Prefix_to_be_advertised> mask <Subnet_mask>
+  neighbor <IP#2_used_by_Azure> activate
+  neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
+ exit-address-family
+!
+route-map <MS_Prefixes_Inbound> permit 10
+ match ip address prefix-list <MS_Prefixes>
+!
+```
 
 ### <a name="configure-bfd"></a>BFD 구성
 
 두 위치(하나는 인터페이스 수준에서, 다른 하나는 BGP 수준)에서 BFD를 구성합니다. 여기서의 예제는 QinQ 인터페이스에 대한 것입니다. 
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     bfd interval 300 min_rx 300 multiplier 3
-     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
-     ip address <IPv4_Address><Subnet_Mask>
-    
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      neighbor <IP#2_used_by_Azure> activate
-      neighbor <IP#2_used_by_Azure> fall-over bfd
-     exit-address-family
-    !
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ bfd interval 300 min_rx 300 multiplier 3
+ encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ ip address <IPv4_Address><Subnet_Mask>
+
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  neighbor <IP#2_used_by_Azure> activate
+  neighbor <IP#2_used_by_Azure> fall-over bfd
+ exit-address-family
+!
+```
 
 
 ## <a name="juniper-mx-series-routers"></a>Juniper MX 시리즈 라우터
@@ -123,6 +135,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
 
 이 샘플에서는 단일 VLAN ID가 있는 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. VLAN ID는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
+```console
     interfaces {
         vlan-tagging;
         <Interface_Number> {
@@ -134,12 +147,14 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
             }
         }
     }
+```
 
 
 **QinQ 인터페이스 정의**
 
 이 샘플에서는 두 개의 VLAN ID가 있는 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. 외부 VLAN ID(s-tag)는 사용되는 경우 모든 피어링에서 동일하게 유지됩니다. 안쪽의 VLAN ID(c-tag)는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
+```console
     interfaces {
         <Interface_Number> {
             flexible-vlan-tagging;
@@ -151,10 +166,12 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
             }                               
         }                                   
     }                           
+```
 
 ### <a name="set-up-ebgp-sessions"></a>eBGP 세션 설정
 모든 피어링에 대해 Microsoft와 BGP 세션을 설정해야 합니다. 다음 샘플을 사용하여 BGP 세션을 설정합니다. 하위 인터페이스에 사용한 IPv4 주소가 a.b.c.d인 경우 BGP 인접 라우터(Microsoft)의 IP 주소는 a.b.c.d+1입니다. BGP 인접 라우터에 대한 IPv4 주소의 마지막 옥텟은 항상 짝수입니다.
 
+```console
     routing-options {
         autonomous-system <Customer_ASN>;
     }
@@ -167,10 +184,12 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
             }                               
         }                                   
     }
+```
 
 ### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>BGP 세션을 통해 알릴 접두사 설정
 다음 샘플을 사용하여 선택 접두사를 Microsoft에 알리도록 라우터를 구성합니다.
 
+```console
     policy-options {
         policy-statement <Policy_Name> {
             term 1 {
@@ -192,11 +211,12 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
             }                               
         }                                   
     }
-
+```
 
 ### <a name="route-policies"></a>경로 정책
 경로 맵과 접두사 목록을 사용하여 네트워크에 전파되는 접두사를 필터링할 수 있습니다. 다음 샘플을 참조하여 적절한 접두사 목록이 설정되었는지 확인합니다.
 
+```console
     policy-options {
         prefix-list MS_Prefixes {
             <IP_Prefix_1/Subnet_Mask>;
@@ -223,10 +243,12 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
             }                               
         }                                   
     }
+```
 
 ### <a name="configure-bfd"></a>BFD 구성
 프로토콜 BGP 섹션에서만 BFD를 구성합니다.
 
+```console
     protocols {
         bgp { 
             group <Group_Name> { 
@@ -239,10 +261,12 @@ Microsoft에 연결하는 모든 라우터에서 피어링당 하나의 하위 �
             }                               
         }                                   
     }
+```
 
 ### <a name="configure-macsec"></a>MACSec 구성
 MACSec 구성의 경우 CAK(Connectivity Association Key) 및 CKN(Connectivity Association Key 이름)은 PowerShell 명령을 통해 구성된 값과 일치해야 합니다.
 
+```console
     security {
         macsec {
             connectivity-association <Connectivity_Association_Name> {
@@ -260,6 +284,7 @@ MACSec 구성의 경우 CAK(Connectivity Association Key) 및 CKN(Connectivity A
             }
         }
     }
+```
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md) 를 참조하세요.

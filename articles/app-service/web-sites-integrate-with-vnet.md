@@ -4,29 +4,25 @@ description: Azure 가상 네트워크로 Azure App Service와 앱 통합
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 7b6b310cdc03cb45fba6ba06dbcf2add9818f6cf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857039"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
-이 문서에서는 Azure App Service VNet 통합 기능 및 앱으로 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 설정 방법을 설명합니다. [Azure VNet(Virtual Network)][VNETOverview]으로 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다.
+이 문서에서는 Azure App Service VNet 통합 기능 및 앱으로 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 설정 방법을 설명합니다. [Azure VNet(Virtual Network)][VNETOverview]으로 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. VNet 통합 기능을 사용 하면 앱에서 VNet을 통해 또는의 리소스에 액세스할 수 있습니다. VNet 통합을 사용 하면 앱을 개인적으로 액세스할 수 없습니다.
 
-Azure App Service에는 두 가지 종류가 있습니다.
+Azure App Service VNet 통합 기능에는 두 가지 변형이 있습니다.
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>VNet 통합 사용
-
-> [!NOTE]
-> Linux 앱 메뉴에서 "네트워킹" 블레이드를 사용하지 않도록 설정(회색으로 표시)한 경우 해당 기능은 현재 사용할 수 없습니다.
->
 
 1. App Service 포털에서 **네트워킹**으로 이동합니다. **VNet 통합**에서 **구성하려면 클릭**을 선택하세요.
 
@@ -75,8 +71,8 @@ App Service의 앱은 작업자 역할에서 호스팅 됩니다. 기본 및 더
 
 필수 게이트웨이 VNet 통합을 사용할 수 없습니다.
 
-* Linux 앱을 사용합니다.
 * Azure ExpressRoute와 연결된 VNet 사용.
+* Linux 앱에서
 * 서비스 엔드포인트의 보안 리소스에 액세스합니다.
 * ExpressRoute와 지점 및 사이트 간 또는 사이트 간 VPN을 모두 지원하는 동시 존재 게이트웨이.
 
@@ -155,25 +151,27 @@ VNet에 정의된 경로는 트래픽을 앱에서 VNet으로 전달하는 데 �
 
 CLI 지원은 지역 VNet 통합에서 이용할 수 있습니다. 다음 명령에 액세스하여[Azure CLI 에이전트][installCLI]를 설치합니다.
 
-        az webapp vnet-integration --help
+```azurecli
+az webapp vnet-integration --help
 
-        Group
-            az webapp vnet-integration : Methods that list, add, and remove virtual network integrations
-            from a webapp.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            add    : Add a regional virtual network integration to a webapp.
-            list   : List the virtual network integrations on a webapp.
-            remove : Remove a regional virtual network integration from webapp.
+Group
+    az webapp vnet-integration : Methods that list, add, and remove virtual network
+    integrations from a webapp.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a regional virtual network integration to a webapp.
+    list   : List the virtual network integrations on a webapp.
+    remove : Remove a regional virtual network integration from webapp.
 
-        az appservice vnet-integration --help
+az appservice vnet-integration --help
 
-        Group
-            az appservice vnet-integration : A method that lists the virtual network integrations used in an
-            appservice plan.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            list : List the virtual network integrations used in an appservice plan.
+Group
+    az appservice vnet-integration : A method that lists the virtual network
+    integrations used in an appservice plan.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    list : List the virtual network integrations used in an appservice plan.
+```
 
 필수 게이트웨이 VNet 통합의 경우, PowerShell을 사용하여 Azure 가상 네트워크와 App Service를 통합할 수 있습니다. 실행 준비 스크립트의 경우, [Azure App Service에서 Azure Virtual Network에 앱 연결](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)을 참조하세요.
 

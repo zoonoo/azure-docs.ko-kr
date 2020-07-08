@@ -2,13 +2,13 @@
 title: Azure 위임 리소스 관리에 고객 등록
 description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 05/26/2020
-ms.topic: conceptual
-ms.openlocfilehash: a6cdfea7e0520aa704e70a12784f7a7ba5d6aa6d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.topic: how-to
+ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920929"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -189,7 +189,7 @@ az role definition list --name "<roleName>" | grep name
 }
 ```
 
-위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId**를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 하나 이상의 기본 제공 역할을 포함해야 합니다. 이 권한 부여에서 만든 사용자는 고객 테넌트의 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 이러한 기본 제공 역할을 할당할 수 있습니다. 이러한 역할 할당은 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요합니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
+위 예제의 마지막 권한 부여는 사용자 액세스 관리자 역할이 있는 **principalId**를 추가합니다(18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). 이 역할을 할당할 때 **delegatedRoleDefinitionIds** 속성 및 하나 이상의 기본 제공 역할을 포함해야 합니다. 이 권한 부여에서 만든 사용자는 고객 테넌트의 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 이러한 기본 제공 역할을 할당할 수 있습니다. 이러한 역할 할당은 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요합니다.  또한 사용자는 지원 인시던트를 만들 수 있습니다.  사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 배포
 
@@ -198,9 +198,9 @@ az role definition list --name "<roleName>" | grep name
 이 배포는 구독 수준 배포이므로 Azure Portal에서 시작할 수 없습니다. 이 배포는 아래와 같이 PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 구독 수준 배포는 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> 구독 수준 배포는 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](../../role-based-access-control/built-in-roles.md#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
-> [CSP(클라우드 솔루션 공급자) 프로그램](../concepts/cloud-solution-provider.md)를 통해 구독을 만든 경우 서비스 공급자 테넌트에서 [관리 에이전트](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) 역할이 있는 모든 사용자가 배포를 수행할 수 있습니다.
+> [CSP(클라우드 솔루션 공급자) 프로그램](../concepts/cloud-solution-provider.md)를 통해 구독을 만든 경우 서비스 공급자 테넌트에서 [관리 에이전트](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) 역할이 있는 모든 사용자가 배포를 수행할 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 

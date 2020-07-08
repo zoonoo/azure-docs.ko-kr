@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 51716bdd6ab7f5b5102ccba3e6d57855dee5df33
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73904619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855918"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>성능에 대 한 Azure Data Lake Storage Gen1 조정
 
@@ -65,15 +65,11 @@ Azure에서 온-프레미스 컴퓨터 또는 Vm을 사용 하 고 있는지 여
 
 Hive 및 ADLA 워크 로드의 경우 시계열 데이터의 파티션 정리를 통해 일부 쿼리가 데이터의 하위 집합만 읽을 수 있으므로 성능이 향상 됩니다.
 
-시계열 데이터를 수집 하는 이러한 파이프라인은 파일 및 폴더에 대 한 구조적 이름 지정으로 파일을 저장 하는 경우가 많습니다. 다음은 날짜별로 구성 된 데이터에 대 한 일반적인 예입니다.
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+시계열 데이터를 수집 하는 이러한 파이프라인은 파일 및 폴더에 대 한 구조적 이름 지정으로 파일을 저장 하는 경우가 많습니다. 다음은 날짜별로 구조화 된 데이터에 대 한 일반적인 예입니다. *\dataset\yyyy\mm\dd\ datafile_YYYY_MM_DD. tsv*.
 
 datetime 정보가 폴더 및 파일 이름 둘 다에 나타납니다.
 
-날짜 및 시간의 일반적인 패턴은 다음과 같습니다.
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+날짜 및 시간에 대 한 일반적인 패턴은 *\dataset\yyyy\mm\dd\hh\mm\ datafile_YYYY_MM_DD_HH_mm. tsv*입니다.
 
 앞에서 설명했듯이, 더 큰 파일 크기와 각 폴더에 포함된 적절한 파일 수의 요건에 맞는 폴더 및 파일 구성을 선택해야 합니다.
 
@@ -128,14 +124,14 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 위의 일반적인 지침 외에도 각 애플리케이션마다 특정 애플리케이션에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 애플리케이션에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
 
-| 워크로드               | 작업을 설정하는 매개 변수                                                         |
+| 작업               | 작업을 설정하는 매개 변수                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
 | [HDInsight의 Spark](data-lake-store-performance-tuning-spark.md)  | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [HDInsight의 Hive](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [HDInsight의 MapReduce](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-store-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

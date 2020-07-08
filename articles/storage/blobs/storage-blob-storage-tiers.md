@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919916"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층
 
-Azure storage는 blob 개체 데이터를 가장 비용 효율적인 방식으로 저장할 수 있는 다양 한 액세스 계층을 제공 합니다. 사용 가능한 액세스 계층은 다음과 같습니다.
+Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. 사용 가능한 액세스 계층은 다음과 같습니다.
 
 - 자주 액세스 하는 데이터를 저장 하기 위한 **핫** 최적화.
 - 자주 액세스 하지 않으며 30 일 동안 저장 되는 데이터를 저장 하기 위한 **쿨** 최적화입니다.
@@ -59,9 +59,9 @@ Blob storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성�
 
 ## <a name="archive-access-tier"></a>보관 액세스 계층
 
-보관 액세스 계층의 저장소 비용은 가장 낮습니다. 그러나 핫 및 쿨 계층에 비해 데이터 검색 비용이 더 높습니다. 보관 계층의 데이터를 검색 하는 데 몇 시간 정도 걸릴 수 있습니다. 데이터는 최소 180 일 동안 보관 계층에 유지 되거나 초기 삭제 요금이 적용 되어야 합니다.
+보관 액세스 계층의 저장소 비용은 가장 낮습니다. 그러나 핫 및 쿨 계층에 비해 데이터 검색 비용이 더 높습니다. 데이터는 최소 180 일 동안 보관 계층에 유지 되거나 초기 삭제 요금이 적용 되어야 합니다. 보관 계층의 데이터는 리하이드레이션의 우선 순위에 따라 검색 하는 데 몇 시간 정도 걸릴 수 있습니다. 작은 개체의 경우 우선 순위가 높은 리하이드레이션 1 시간 이내에 보관에서 개체를 검색할 수 있습니다. 자세한 내용은 [리하이드레이션 blob data in archive 계층](storage-blob-rehydration.md) 을 참조 하세요.
 
-Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태 이며 읽거나 덮어쓰거나 수정할 수 없습니다. 보관에서 blob을 읽거나 다운로드 하려면 먼저 온라인 계층으로 리하이드레이션 해야 합니다. 보관 저장소에서 blob의 스냅숏을 만들 수 없습니다. 그러나 Blob 메타데이터는 온라인 상태로 유지되며 사용할 수 있으므로 Blob 및 해당 속성을 나열할 수 있습니다. 보관에 있는 blob의 경우 유효한 유일한 작업은 GetBlobProperties, Getblobproperties, ListBlobs, SetBlobTier, CopyBlob 및 DeleteBlob입니다. 자세한 내용은 [리하이드레이션 blob data in archive 계층](storage-blob-rehydration.md) 을 참조 하세요.
+Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태 이며 읽거나 덮어쓰거나 수정할 수 없습니다. 보관에서 blob을 읽거나 다운로드 하려면 먼저 온라인 계층으로 리하이드레이션 해야 합니다. 보관 저장소에서 blob의 스냅숏을 만들 수 없습니다. 그러나 blob 메타 데이터는 온라인 상태를 유지 하므로 blob, 해당 속성, 메타 데이터 및 blob 인덱스 태그를 나열할 수 있습니다. 보관 중에는 blob 메타 데이터를 설정 또는 수정할 수 없습니다. 그러나 blob 인덱스 태그를 설정 하 고 수정할 수 있습니다. 보관에 있는 blob의 경우 유효한 유일한 작업은 GetBlobProperties, Getblobproperties, SetBlobTags, Getblobproperties, FindBlobsByTags, ListBlobs, Setblobtags, CopyBlob 및 DeleteBlob입니다.
 
 보관 액세스 계층의 예제 사용 시나리오는 다음과 같습니다.
 
@@ -82,7 +82,7 @@ Blob 수준 계층화를 사용 하면 blob [배치](/rest/api/storageservices/p
 마지막 Blob 계층 변경 시간은 **액세스 계층 변경 시간** Blob 속성을 통해 노출됩니다. 핫 또는 쿨 계층의 blob을 덮어쓸 때 새로 만든 blob은 새 blob 액세스 계층이 생성 시 명시적으로 설정 되지 않으면 덮어쓴 blob의 계층을 상속 합니다. Blob이 보관 계층에 있는 경우 덮어쓸 수 없으므로 동일한 blob을 업로드 하는 것은이 시나리오에서 허용 되지 않습니다. 
 
 > [!NOTE]
-> 보관 스토리지 및 Blob 수준 계층화는 블록 Blob만 지원합니다. 또한 스냅숏이 있는 블록 blob의 계층을 현재 변경할 수 없습니다.
+> 보관 스토리지 및 Blob 수준 계층화는 블록 Blob만 지원합니다.
 
 ### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
 
@@ -133,7 +133,7 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 
 ## <a name="quickstart-scenarios"></a>빠른 시작 시나리오
 
-이 섹션에서는 Azure Portal 및 powershell을 사용 하 여 다음 시나리오를 보여 줍니다.
+이 섹션에서는 Azure Portal 및 PowerShell을 사용 하 여 다음 시나리오를 보여 줍니다.
 
 - GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경하는 방법입니다.
 - GPv2 또는 Blob Storage 계정의 계층을 변경하는 방법입니다.
@@ -143,7 +143,7 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 # <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
+1. Azure Portal에서 **모든 리소스**를 검색하여 선택합니다.
 
 1. 사용자의 스토리지 계정을 선택합니다.
 
@@ -155,8 +155,8 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 
 ![저장소 계정 계층 변경](media/storage-tiers/account-tier.png)
 
-# <a name="powershell"></a>[슬래시](#tab/azure-powershell)
-다음 PowerShell 스크립트를 사용 하 여 계정 계층을 변경할 수 있습니다. 변수 `$rgName` 는 리소스 그룹 이름으로 초기화 해야 합니다. 변수 `$accountName` 는 저장소 계정 이름으로 초기화 해야 합니다. 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+다음 PowerShell 스크립트를 사용 하 여 계정 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화해야 합니다. `$accountName` 변수는 스토리지 계정 이름으로 초기화해야 합니다. 
 ```powershell
 #Initialize the following with your resource group and storage account names
 $rgName = ""
@@ -171,22 +171,22 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 # <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
+1. Azure Portal에서 **모든 리소스**를 검색하여 선택합니다.
 
 1. 사용자의 스토리지 계정을 선택합니다.
 
-1. 컨테이너를 선택 하 고 blob을 선택 합니다.
+1. 컨테이너를 선택한 다음 Blob을 선택합니다.
 
-1. **Blob 속성**에서 **계층 변경**을 선택 합니다.
+1. **Blob 속성**에서 **계층 변경**을 선택합니다.
 
 1. **핫**, **쿨**또는 **보관** 액세스 계층을 선택 합니다. Blob이 현재 보관 된 상태이 고 온라인 계층으로 리하이드레이션 하는 경우 **표준** 또는 **높음**의 리하이드레이션 우선 순위를 선택할 수도 있습니다.
 
-1. 아래쪽에서 **저장** 을 선택 합니다.
+1. 아래쪽에서 **저장**을 선택합니다.
 
 ![저장소 계정 계층 변경](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershell"></a>[슬래시](#tab/azure-powershell)
-다음 PowerShell 스크립트를 사용 하 여 blob 계층을 변경할 수 있습니다. 변수 `$rgName` 는 리소스 그룹 이름으로 초기화 해야 합니다. 변수 `$accountName` 는 저장소 계정 이름으로 초기화 해야 합니다. 변수 `$containerName` 는 컨테이너 이름으로 초기화 해야 합니다. 변수 `$blobName` 는 blob 이름으로 초기화 해야 합니다. 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+다음 PowerShell 스크립트를 사용 하 여 blob 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화해야 합니다. `$accountName` 변수는 스토리지 계정 이름으로 초기화해야 합니다. `$containerName` 변수는 컨테이너 이름으로 초기화해야 합니다. `$blobName` 변수는 Blob 이름으로 초기화해야 합니다. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -252,7 +252,7 @@ Blob 수준 계층화와 함께 핫 및 쿨 액세스 계층은 모든 지역에
 
 **핫, 쿨 및 보관 계층 간에 작업은 동일한가요?**
 
-핫 및 쿨 간의 모든 작업은 100% 일치합니다. GetBlobProperties, Getblobproperties, ListBlobs, SetBlobTier 포함 된 유효한 모든 보관 작업 및 DeleteBlob는 핫 및 쿨의 100%와 일치 합니다. Blob 데이터는 다시 사용할 때까지 보관 계층에서 읽거나 수정할 수 없습니다. 보관 중에는 blob 메타 데이터 읽기 작업만 지원 됩니다.
+핫 및 쿨 간의 모든 작업은 100% 일치합니다. GetBlobProperties, Getblobproperties, SetBlobTags, Getblobproperties, FindBlobsByTags, ListBlobs, Setblobtags 및 DeleteBlob을 비롯 한 모든 유효한 보관 작업은 핫 및 쿨와 100% 일치 합니다. Blob 데이터는 다시 사용할 때까지 보관 계층에서 읽거나 수정할 수 없습니다. 보관 중에는 blob 메타 데이터 읽기 작업만 지원 됩니다. 그러나 보관 중에는 blob 인덱스 태그를 읽거나 설정 하거나 수정할 수 있습니다.
 
 **보관 계층에서 핫 또는 쿨 계층으로 blob을 리하이드레이션 때 리하이드레이션이 완료 되 면 어떻게 알 수 있나요?**
 
@@ -283,5 +283,5 @@ GPv2 및 Blob 저장소 계정에서 핫, 쿨 및 보관 평가
 - [보관 계층에서 blob 데이터 리하이드레이션에 대 한 자세한 정보](storage-blob-rehydration.md)
 - [프리미엄 성능이 앱에 이익이 되는지 확인](storage-blob-performance-tiers.md)
 - [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](../common/storage-enable-and-view-metrics.md)
-- [지역별 Blob storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)
+- [지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)
 - [데이터 전송 가격 확인](https://azure.microsoft.com/pricing/details/data-transfers/)

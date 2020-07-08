@@ -5,15 +5,15 @@ description: 가상 WAN의 글로벌 전송 네트워크 아키텍처에 대해 
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195672"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856379"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -47,7 +47,7 @@ Azure 가상 WAN 아키텍처에서 가상 WAN 허브는 Azure 지역에 프로 
 
 스포크 (분기, Vnet, 사용자) 수가 가장 많은 지역에서 단일 가상 WAN 허브를 만든 다음 다른 지역의 스포크를 허브에 연결 하 여 가상 WAN을 설정할 수 있습니다. 이는 엔터프라이즈 공간이 대부분의 원격 스포크를 가진 한 지역에 있는 경우 좋은 옵션입니다.  
   
-## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>허브 간 연결 (미리 보기)
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>허브 간 연결
 
 엔터프라이즈 클라우드 공간은 여러 클라우드 지역에 걸쳐 있을 수 있으며, 물리적 사이트 및 사용자에 게 가장 가까운 지역에서 클라우드에 액세스 하는 것이 최적 (대기 시간)입니다. 글로벌 전송 네트워크 아키텍처의 핵심 원리 중 하나는 모든 클라우드 및 온-프레미스 네트워크 끝점 간에 지역 간 연결을 사용 하도록 설정 하는 것입니다. 즉, 한 지역의 클라우드에 연결 된 분기의 트래픽은 [Azure 글로벌 네트워크](https://azure.microsoft.com/global-infrastructure/global-network/)에서 사용 하도록 설정 된 허브 간 연결을 사용 하 여 다른 지역에 있는 다른 분기 또는 VNet에 도달할 수 있습니다.
 

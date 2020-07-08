@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855889"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -167,7 +167,7 @@ ID 보안 점수는 Microsoft에서 게시하는 권장 보안 컨트롤 세트�
 * Microsoft Authenticator를 통해 모든 사용자에게 MFA 요구
 * 레거시 인증 프로토콜을 제한합니다.
 
-이 방법은 모든 라이선스 계층에 사용할 수 있지만, 기존 조건부 액세스 정책과는 혼합할 수 없습니다. Azure AD 보안 기본값에서 자세한 정보를 찾을 수 있습니다.
+이 방법은 모든 라이선스 계층에 사용할 수 있지만, 기존 조건부 액세스 정책과는 혼합할 수 없습니다. [AZURE AD 보안 기본값](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) 에서 자세한 정보를 찾을 수 있습니다.
 
 **옵션 2**: [사용자 상태를 변경하여 Multi-Factor Authentication을 사용하도록 설정합니다](../../active-directory/authentication/howto-mfa-userstates.md).   
 **혜택**: 2단계 인증을 요구하는 기존 메서드입니다. 이 기능은 [클라우드의 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버](/azure/active-directory/authentication/concept-mfa-whichversion)에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 때마다 2단계 인증을 수행해야 하며, 이 방법은 조건부 액세스 정책을 재정의합니다.
@@ -189,7 +189,7 @@ Multi-Factor Authentication을 사용할 위치를 확인하려면 [우리 조�
 이 방법은 Azure AD Identity Protection 위험 평가를 사용하여 모든 클라우드 애플리케이션에 대한 사용자 및 로그인 위험에 따라 2단계 인증이 필요한지 결정합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview)에서 이 방법에 대한 자세한 내용을 찾을 수 있습니다.
 
 > [!Note]
-> 옵션 1 - 사용자 상태를 변경하여 Multi-Factor Authentication을 사용하면 조건부 액세스 정책이 재정의됩니다. 옵션 2 및 3에서는 조건부 액세스 정책을 사용하므로 옵션 1과 함께 사용할 수 없습니다.
+> 옵션 2, 사용자 상태를 변경 하 여 Multi-Factor Authentication를 사용 하도록 설정 하는 것은 조건부 액세스 정책을 무시 합니다. 옵션 3과 4는 조건부 액세스 정책을 사용 하므로 옵션 2를 사용할 수 없습니다.
 
 2단계 인증과 같은 추가적인 ID 보호 계층을 추가하지 않는 조직은 자격 증명 도난 공격에 취약합니다. 자격 증명 도난 공격으로 인해 데이터 손상이 발생할 수 있습니다.
 

@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터에서 내부 프라이빗 네트워크용 NGINX 수신 컨트롤러를 설치하고 구성하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: 749c9904244dd702e41a63e0266c5ff6b1344261
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 07/02/2020
+ms.openlocfilehash: 8f1a538364284863cbfe3786213434b14918f214
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920227"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 내부 가상 네트워크에 대한 수신 컨트롤러 만들기
 
@@ -59,6 +59,9 @@ controller:
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
     --namespace ingress-basic \
@@ -68,7 +71,13 @@ helm install nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-NGINX 수신 컨트롤러에 대해 Kubernetes 부하 분산 장치 서비스를 만든 경우 다음 예제 출력에 표시된 대로 내부 IP 주소를 할당합니다.
+NGINX 수신 컨트롤러에 대해 Kubernetes 부하 분산 장치 서비스를 만들면 내부 IP 주소가 할당 됩니다. 공용 IP 주소를 얻으려면 `kubectl get service` 명령을 사용합니다.
+
+```console
+kubectl get service -l app=nginx-ingress --namespace ingress-basic
+```
+
+다음 예제 출력과 같이 IP 주소를 서비스에 할당 하는 데 몇 분 정도 걸립니다.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -82,7 +91,7 @@ nginx-ingress-default-backend    ClusterIP      10.0.192.145   <none>        80/
 
 ## <a name="run-demo-applications"></a>데모 애플리케이션 실행
 
-작동 중인 수신 컨트롤러를 확인 하려면 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행 합니다. 이 예제에서는를 사용 `kubectl apply` 하 여 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 합니다.
+작동 중인 수신 컨트롤러를 확인 하려면 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행 합니다. 이 예제에서는 `kubectl apply` 를 사용 하 여 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 합니다.
 
 *Aks* 파일을 만들고 다음 예제 yaml에 복사 합니다.
 
@@ -160,7 +169,7 @@ spec:
     app: ingress-demo
 ```
 
-다음을 사용 하 여 `kubectl apply`두 개의 데모 응용 프로그램을 실행 합니다.
+다음을 사용 하 여 두 개의 데모 응용 프로그램을 실행 합니다 `kubectl apply` .
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -201,6 +210,12 @@ spec:
 
 `kubectl apply -f hello-world-ingress.yaml` 명령을 사용하여 수신 리소스를 만듭니다.
 
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+다음 예제 출력에서는 수신 리소스가 생성 된 것을 보여 줍니다.
+
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
@@ -221,7 +236,7 @@ kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
 apt-get update && apt-get install -y curl
 ```
 
-이제를 사용 하 여 `curl`Kubernetes 수신 컨트롤러의 주소에 액세스 *http://10.240.0.42*합니다 (예:). 이 문서의 첫 번째 단계에서 수신 컨트롤러를 배포할 때 지정한 고유한 내부 IP 주소를 제공합니다.
+이제를 사용 하 여 Kubernetes 수신 컨트롤러의 주소에 액세스 `curl` 합니다 (예:) *http://10.240.0.42* . 이 문서의 첫 번째 단계에서 수신 컨트롤러를 배포할 때 지정한 고유한 내부 IP 주소를 제공합니다.
 
 ```console
 curl -L http://10.240.0.42
@@ -259,7 +274,7 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임 스페이스 및 모든 리소스 삭제
 
-전체 샘플 네임 스페이스를 삭제 하려면 `kubectl delete` 명령을 사용 하 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
+전체 샘플 네임 스페이스를 삭제 하려면 명령을 사용 하 `kubectl delete` 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -267,7 +282,13 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>리소스를 개별적으로 삭제
 
-또는 만든 개별 리소스를 삭제 하는 것이 더 세부적인 방법입니다. `helm list` 명령을 사용 하 여 투구 릴리스를 나열 합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
+또는 만든 개별 리소스를 삭제 하는 것이 더 세부적인 방법입니다. 명령을 사용 하 여 투구 릴리스를 나열 `helm list` 합니다. 
+
+```console
+helm list --namespace ingress-basic
+```
+
+다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
 
 ```
 $ helm list --namespace ingress-basic
@@ -276,7 +297,13 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
-`helm uninstall` 명령을 사용 하 여 릴리스를 제거 합니다. 다음 예제에서는 NGINX 수신 배포를 제거 합니다.
+명령을 사용 하 여 릴리스를 제거 합니다 `helm uninstall` .
+
+```console
+helm uninstall nginx-ingress --namespace ingress-basic
+```
+
+다음 예제에서는 NGINX 수신 배포를 제거 합니다.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic

@@ -6,18 +6,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857200"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
 이 자습서에서는 원격으로 [디버그 모드](https://docs.microsoft.com/visualstudio/debugger/)를 실행하거나 애플리케이션 로그 및 웹 서버 로그를 확인하여 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
-다음 내용을 배웁니다.
+다음에 대해 알아봅니다.
 
 * Visual Studio에서 사용할 수 있는 앱 관리 기능
 * Visual Studio 원격 뷰를 사용하여 원격 앱에서 빠르게 변경하는 방법
@@ -125,7 +125,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
     }
     ```
 
-1. `ViewBag.Message` 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
+1. 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/) `ViewBag.Message` 합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 클릭 합니다.
 
@@ -271,7 +271,7 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Queue Storage 작업을 하는 방법 - 로그를 쓰는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요. 로그를 보고 Azure에 저장하는 방법을 제어하기 위한 다음 지침은 WebJob에서 만들어진 애플리케이션 로그에도 적용됩니다.
 
 ### <a name="add-tracing-statements-to-the-application"></a>애플리케이션에 추적 문 추가
-1. *Controllers\ homecontroller.cs* `Index`를 열고, `About`및 `Contact` 메서드를에 대 한 `Trace` `using` `System.Diagnostics`문과 문을 추가 하기 위해 다음 코드로 바꿉니다.
+1. *Controllers\ homecontroller.cs*를 열고 `Index` , `About` 및 `Contact` 메서드를 `Trace` `using` 에 대 한 문과 문을 추가 하기 위해 다음 코드로 바꿉니다 `System.Diagnostics` .
 
     ```csharp
     public ActionResult Index()
@@ -337,7 +337,7 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
     ```
 
 1. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
-1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가한 후 enter 키를 누릅니다. url은와 유사 `http://localhost:53370/trace.axd`합니다.
+1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가한 후 enter 키를 누릅니다. url은와 유사 `http://localhost:53370/trace.axd` 합니다.
 1. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -348,7 +348,9 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
 
     기본적으로 `trace.axd` 는 로컬에서만 사용할 수 있습니다. 원격 앱에서 사용할 수 있도록 하려면, 다음 예제에 표시된 것처럼 *Web.config* 파일의 `trace` 요소에 `localOnly="false"`를 추가하면 됩니다.
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```
 
     그러나 프로덕션 앱에서 `trace.axd`를 사용하도록 설정하는 것은 보안상의 이유로 권장되지 않습니다. 다음 섹션에서는 App Service 앱에서 추적 로그를 읽는 가장 쉬운 방법을 확인할 수 있습니다.
 

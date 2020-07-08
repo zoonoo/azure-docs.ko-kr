@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71846538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856951"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Azure 가상 머신에서 32비트 운영 체제 지원
 
-이제 Microsoft Azure를 사용 하 여 사용자가 32 비트 Windows 운영 체제를 Azure에 제공할 수 있습니다. 이러한 운영 체제 중 일부는 이미 수명 지원 계약의 끝에 도달 했으므로 Microsoft는 추가 지원을 제공 하지 않을 수 있습니다. Microsoft Azure VM (가상 컴퓨터)에서 실행 되는 Linux 기반 또는 BSD (Berkeley Software 배포판) 기반 운영 체제에 대해서도 지원이 제공 되지 않습니다.
+이제 Microsoft Azure를 사용 하 여 사용자가 32 비트 Windows 운영 체제를 Azure에 제공할 수 있습니다. 특수화 된 Vhd만 지원 되며 일반화 된 이미지는 Azure에서 작동 하지 않습니다. 이러한 운영 체제 중 일부는 이미 수명 지원 계약의 끝에 도달 했으므로 Microsoft는 추가 지원을 제공 하지 않을 수 있습니다. Microsoft Azure VM (가상 컴퓨터)에서 실행 되는 Linux 기반 또는 BSD (Berkeley Software 배포판) 기반 운영 체제에 대해서도 지원이 제공 되지 않습니다.
 
 ## <a name="more-information"></a>추가 정보
 
@@ -43,4 +43,4 @@ Azure virtual machines에서 지원 되는 운영 체제에 대 한 자세한 �
 
 이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의 하세요.
 
-또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
+또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.

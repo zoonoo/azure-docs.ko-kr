@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 843cd74c85c619dbbd2b11a32fccf75d030b5613
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855947"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure(온-프레미스 포함) 컴퓨터에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 데이터는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사하는 Log Analytics 에이전트를 사용하여 수집됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다.
@@ -199,7 +199,7 @@ Log Analytics 에이전트가 VM에 직접 설치되어 있는 경우(Azure 확�
 <br>
 Linux 컴퓨터의 경우 에이전트 멀티 호밍은 아직 지원되지 않습니다. 따라서 기존 에이전트 설치가 탐지되면 자동 프로비저닝이 발생하지 않고 컴퓨터의 구성이 변경되지 않습니다.
 <br>
-2019-03-17 이전에 Security Center에 온보딩된 구독에 있는 기존 컴퓨터의 경우 기존 에이전트가 탐지되면 Log Analytics 에이전트 확장이 설치되지 않으며 컴퓨터에 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결하려면 "컴퓨터의 모니터링 에이전트 상태 문제 해결" 권장 사항을 참조하세요
+Security Center 등록 구독에 있는 기존 컴퓨터의 경우 2019 3 월 이전에는 기존 에이전트가 검색 될 때 Log Analytics 에이전트 확장이 설치 되지 않으며 컴퓨터에는 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결하려면 "컴퓨터의 모니터링 에이전트 상태 문제 해결" 권장 사항을 참조하세요
 
   
 - System Center Operations Manager 에이전트가 컴퓨터에 설치되어 있음<br>
@@ -237,58 +237,44 @@ Log Analytics 에이전트를 수동으로 설치하는 방법에는 여러 가�
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Operations Management Suite VM 확장 배포 
 
 Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Log Analytics 에이전트를 수동으로 설치할 수 있습니다.
-1. [자동 프로비전 – 끄기]를 선택합니다.
-2. 작업 영역을 만들고 Log Analytics 에이전트를 설정할 작업 영역의 가격 책정 계층을 설정합니다.
 
-   a.  Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
-     
-   b.  에이전트를 연결하려는 작업 영역을 선택합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
-       ![작업 영역 선택][8]
-3. 가격 책정 계층을 설정합니다.
-   ![가격 책정 계층 선택][9] 
-   >[!NOTE]
-   >작업 영역에서 **보안** 또는 **SecurityCenterFree** 솔루션이 이미 설정된 경우 가격 책정이 자동으로 설정됩니다. 
+1. 자동 프로비저닝을 사용 하지 않도록 설정 합니다.
+
+1. 필요에 따라 작업 영역을 만듭니다.
+
+1. Log Analytics 에이전트를 설치 하는 작업 영역을 표준 가격 책정 계층으로 설정 합니다.
+
+    1. Security Center의 메뉴에서 **가격 책정 & 설정**을 선택 합니다.
+
+    1. 에이전트를 설치 하는 작업 영역을 설정 합니다. 작업 영역이 Security Center에서 사용하는 구독과 동일한 구독에 있어야 하고 작업 영역에 대한 읽기/쓰기 권한이 있어야 합니다.
+
+    1. 표준 가격 책정 계층을 설정 하 고 **저장**을 선택 합니다.
+
+        ![작업 영역을 표준 가격 책정 계층으로 설정](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+
+       >[!NOTE]
+       >작업 영역에서 **보안** 또는 **SecurityCenterFree** 솔루션이 이미 설정된 경우 가격 책정이 자동으로 설정됩니다. 
    > 
 
-4. Resource Manager 템플릿을 사용하여 새 VM에 에이전트를 배포하려면 OMS 가상 머신 확장을 설치합니다.
+1. 리소스 관리자 템플릿을 사용 하 여 새 Vm에 에이전트를 배포 하려는 경우 Log Analytics 에이전트를 설치 합니다.
 
-   a.  [Windows용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-windows.md)
+   a.  [Windows 용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Linux용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-linux.md)
-5. 기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다.
+   b.  [Linux 용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-linux.md)
+
+1. 기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다.
 
    > [!NOTE]
    > **이벤트 및 성능 데이터 수집**은 선택 사항입니다.
    >
-6. PowerShell을 사용하여 확장을 배포하려면 다음 PowerShell 예제를 사용합니다.
-   
-   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-   
-   1. **Log Analytics**로 이동하여 **고급 설정**을 클릭합니다.
-    
-      ![로그 분석 설정][11]
 
-   2. **WorkspaceID** 및 **기본 키** 값을 복사합니다.
-  
-      ![값 복사][12]
+1. PowerShell을 사용 하 여 확장을 배포 하려면 virtual machines 설명서의 지침을 사용 합니다.
 
-   3. 공용 구성 및 프라이빗 구성을 다음 값으로 채웁니다.
-     
-           $PublicConf = @{
-               "workspaceId"= "<WorkspaceID value>"
-           }
- 
-           $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>"
-           }
+    - [Windows 컴퓨터의 경우](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-      - Windows VM에 설치하는 경우:
-        
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
-    
-      - Linux VM에 설치하는 경우:
-        
-            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+    - [Linux 컴퓨터의 경우](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+
+
 
 > [!NOTE]
 > PowerShell을 사용하여 Security Center를 온보드하는 방법에 대한 지침은 [PowerShell을 사용하여 Azure Security Center의 온보딩 자동화](security-center-powershell-onboarding.md)를 참조하세요.

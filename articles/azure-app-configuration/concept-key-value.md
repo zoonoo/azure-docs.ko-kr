@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77523607"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856682"
 ---
 # <a name="keys-and-values"></a>키 및 값
 
 Azure App Configuration은 구성 데이터를 키-값 쌍으로 저장합니다. 키-값 쌍은 개발자가 사용 하는 응용 프로그램 설정을 간단 하 고 유연 하 게 표현한 것입니다.
 
-## <a name="keys"></a>구성
+## <a name="keys"></a>키
 
 키는 키-값 쌍에 대 한 식별자 역할을 하며 해당 값을 저장 하 고 검색 하는 데 사용 됩니다. `/` 또는 `:`과 같은 문자 구분 기호를 사용하여 키를 계층 구조 네임스페이스에 구성하는 일반적인 방식입니다. 응용 프로그램에 가장 적합 한 규칙을 사용 합니다. App Configuration은 전체적으로 키를 처리합니다. 키를 구문 분석하여 키 이름을 구성하는 방법을 파악하거나 규칙을 적용하지 않습니다.
 
@@ -25,19 +25,23 @@ Azure App Configuration은 구성 데이터를 키-값 쌍으로 저장합니다
 
 * 구성 요소 서비스에 따라
 
+```aspx
         AppName:Service1:ApiEndpoint
         AppName:Service2:ApiEndpoint
+```
 
 * 배포 지역에 따라
 
+```aspx
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+```
 
-응용 프로그램 프레임 워크 내에서 구성 데이터를 사용 하는 경우 키 값에 대 한 특정 명명 스키마를 지시할 수 있습니다. 예를 들어 Java의 스프링 클라우드 프레임 워크 `Environment` 는 스프링 응용 프로그램에 설정을 제공 하는 리소스를 정의 합니다.  이러한 매개 변수는 *응용 프로그램 이름* 및 *프로필*을 포함 하는 변수에 의해 매개 변수화 됩니다. Spring Cloud 관련 구성 데이터에 대한 키는 일반적으로 구분 기호로 구분된 이러한 두 가지 요소로 시작합니다.
+응용 프로그램 프레임 워크 내에서 구성 데이터를 사용 하는 경우 키 값에 대 한 특정 명명 스키마를 지시할 수 있습니다. 예를 들어 Java의 스프링 클라우드 프레임 워크는 `Environment` 스프링 응용 프로그램에 설정을 제공 하는 리소스를 정의 합니다.  이러한 매개 변수는 *응용 프로그램 이름* 및 *프로필*을 포함 하는 변수에 의해 매개 변수화 됩니다. Spring Cloud 관련 구성 데이터에 대한 키는 일반적으로 구분 기호로 구분된 이러한 두 가지 요소로 시작합니다.
 
 App Configuration에 저장된 키는 대/소문자를 구분하는 유니코드 기반의 문자열입니다. *app1* 및 *App1* 키는 App Configuration 저장소에서 고유합니다. 일부 프레임워크에서 구성 키의 대/소문자를 구분하지 않고 처리하므로 애플리케이션 내에서 구성 설정을 사용하는 경우 이 점에 유념하세요. 키를 구분 하는 데 대/소문자를 사용 하지 않는 것이 좋습니다.
 
-`*`, `,`및 `\`를 제외 하 고 키 이름에 임의의 유니코드 문자를 사용할 수 있습니다.  이러한 예약 문자 중 하나를 포함 해야 하는 경우를 사용 `\{Reserved Character}`하 여 이스케이프 합니다. 
+, 및를 제외 하 고 키 이름에 임의의 유니코드 문자를 사용할 수 있습니다 `*` `,` `\` .  이러한 예약 문자 중 하나를 포함 해야 하는 경우를 사용 하 여 이스케이프 `\{Reserved Character}` 합니다. 
 
 키-값 쌍에는 10kb의 결합 된 크기 제한이 있습니다. 이 제한에는 키의 모든 문자, 해당 값 및 모든 연결된 선택적 특성이 포함됩니다. 이 제한 내에 키의 여러 계층 구조 수준이 있을 수 있습니다.
 
@@ -53,13 +57,15 @@ App Configuration에 저장된 키는 대/소문자를 구분하는 유니코드
 
 ### <a name="label-keys"></a>레이블 키
 
-App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 수 있습니다. 레이블은 동일한 키를 사용하여 키 값을 구분하는 데 사용됩니다. *A* 및 *B* 레이블이 지정된 *app1* 키는 App Configuration 저장소에서 별도의 키 2개를 구성합니다. 기본적으로 키 값에는 레이블이 없습니다. 레이블 없이 키 값을 명시적으로 참조 하려면 (URL `\0` 인코딩 `%00`)를 사용 합니다.
+App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 수 있습니다. 레이블은 동일한 키를 사용하여 키 값을 구분하는 데 사용됩니다. *A* 및 *B* 레이블이 지정된 *app1* 키는 App Configuration 저장소에서 별도의 키 2개를 구성합니다. 기본적으로 키 값에는 레이블이 없습니다. 레이블 없이 키 값을 명시적으로 참조 하려면 `\0` (URL 인코딩)를 사용 `%00` 합니다.
 
 레이블은 키의 변형을 만드는 편리한 방법을 제공합니다. 레이블의 일반적인 용도는 같은 키에 여러 환경을 지정하는 것입니다.
 
+```aspx
     Key = AppName:DbEndpoint & Label = Test
     Key = AppName:DbEndpoint & Label = Staging
     Key = AppName:DbEndpoint & Label = Production
+```
 
 ### <a name="version-key-values"></a>키 값 버전 관리
 
@@ -71,7 +77,7 @@ App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 �
 
 각 키 값은 해당 키와 `null`일 수 있는 레이블로 고유하게 식별됩니다. 패턴을 지정하여 App Configuration 저장소에 키 값을 쿼리합니다. App Configuration 저장소는 패턴, 해당 값 및 특성과 일치하는 모든 키 값을 반환합니다. App Configuration에 대한 REST API 호출에서 사용하는 키 패턴은 다음과 같습니다.
 
-| 키 | |
+| Key | |
 |---|---|
 | `key`은 생략 또는 `key=*` | 모든 키와 일치 |
 | `key=abc` | **abc** 키 이름과 정확하게 일치 |

@@ -2,13 +2,13 @@
 title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
 ms.date: 03/30/2020
-ms.topic: conceptual
-ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919142"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
@@ -44,7 +44,7 @@ ms.locfileid: "81458814"
 
 - 다른 자동화에 사용 되는 기존 서비스 사용자에 게이 역할을 할당 하는 대신이 기능에만 사용할 [새 서비스 사용자 계정을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md) .
 - 이 서비스 주체에 게 위임 된 고객 리소스에 대 한 액세스 권한이 없어야 합니다.
-- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) 하 고 [Azure Key Vault에 안전](../../key-vault/general/best-practices.md)하 게 저장 합니다.
+- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) 하 고 [Azure Key Vault에 안전](../../key-vault/general/best-practices.md)하 게 저장 합니다.
 - 서비스 사용자를 대신 하 여 작업할 수 있는 액세스 권한이 있는 사용자를 제한 합니다.
 
 다음 방법 중 하나를 사용 하 여 루트 범위를 할당 합니다.
@@ -73,7 +73,7 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 관리 테 넌 트의 루트 범위에 대 한 액세스를 모니터링 하는 새 서비스 사용자 계정을 만든 후 테 넌 트의 위임 작업을 쿼리하고 보고 하는 데 사용할 수 있습니다. 
 
-[이 Azure PowerShell 스크립트](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) 를 사용 하 여 추가 되거나 제거 된 위임 (또는 성공 하지 않은 시도)에 대해 지난 1 일간의 활동 및 보고서를 쿼리할 수 있습니다. [테 넌 트 활동 로그](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) 데이터를 쿼리 한 다음 추가 또는 제거 된 위임에 대해 보고 하는 다음 값을 생성 합니다.
+[이 Azure PowerShell 스크립트](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) 를 사용 하 여 추가 되거나 제거 된 위임 (또는 성공 하지 않은 시도)에 대해 지난 1 일간의 활동 및 보고서를 쿼리할 수 있습니다. [테 넌 트 활동 로그](/rest/api/monitor/TenantActivityLogs/List) 데이터를 쿼리 한 다음 추가 또는 제거 된 위임에 대해 보고 하는 다음 값을 생성 합니다.
 
 - **DelegatedResourceId**: 위임 된 구독 또는 리소스 그룹의 ID입니다.
 - **Customertenantid**: 고객 테 넌 트 ID

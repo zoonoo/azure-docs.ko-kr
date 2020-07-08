@@ -8,17 +8,17 @@ manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60612699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855706"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합
 
@@ -46,17 +46,17 @@ Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 
 
 **Data Lake Storage 공용 IP 주소** – 대상 Data Lake Storage Gen1 계정에 공용 IP 주소를 사용합니다. Data Lake Storage Gen1 계정의 IP 주소를 식별하기 위해 계정의 [DNS 이름을 확인](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity)합니다. 각 주소에 대해 별도의 항목을 만듭니다.
 
-    ```azurecli
-    # Create a route table for your resource group.
-    az network route-table create --resource-group $RgName --name $RouteTableName
-    
-    # Create route table rules for Data Lake Storage public IP addresses.
-    # There's one rule per Data Lake Storage public IP address. 
-    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
-    
-    # Update the virtual network, and apply the newly created route table to it.
-    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-    ```
+```azurecli
+# Create a route table for your resource group.
+az network route-table create --resource-group $RgName --name $RouteTableName
+
+# Create route table rules for Data Lake Storage public IP addresses.
+# There's one rule per Data Lake Storage public IP address. 
+az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+
+# Update the virtual network, and apply the newly created route table to it.
+az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+```
 
 ## <a name="data-exfiltration-from-the-customer-virtual-network"></a>고객 가상 네트워크으로부터 데이터 반출
 
@@ -81,7 +81,7 @@ Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 
   
 - 가상 네트워크에서 사용된 Data Lake Storage Gen1 계정에서 파일 및 폴더 데이터는 포털에서 액세스할 수 없습니다. 이 제한 사항에는 가상 네트워크 내부의 VM 및 데이터 탐색기를 사용하는 등의 작업으로부터의 액세스가 포함됩니다. 계정 관리 작업은 계속 작동합니다. 가상 네트워크에서 사용된 Data Lake Storage 계정에서 파일 및 폴더 데이터는 포털 이외 모든 리소스를 통해 액세스할 수 있습니다. 이러한 리소스가 포털에서 발생하지 않은 경우 SDK 액세스, PowerShell 스크립트 및 기타 Azure 서비스를 포함합니다. 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>1단계: Azure AD 서비스 엔드포인트를 사용하도록 가상 네트워크 구성
 

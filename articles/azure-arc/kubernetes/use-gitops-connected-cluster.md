@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 지원 클러스터 구성에 GitOps 사용(미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 954c77503e8adacc4cd27b25b68b50cac1f80458
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779722"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856989"
 ---
 # <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Azure Arc 지원 구성에 GitOps 사용(미리 보기)
 
@@ -167,7 +167,7 @@ az k8sconfiguration show --resource-group AzureArcTest --name cluster-config --c
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 {
   "complianceStatus": {
-    "complianceState": "Compliant",
+    "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
     "message": "...",
     "messageLevel": "3"
@@ -201,8 +201,8 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 프로비전 프로세스가 진행되는 동안 `sourceControlConfiguration`이 몇 가지 상태 변경을 거칩니다. 위의 `az k8sconfiguration show ...` 명령을 사용하여 진행률을 모니터링합니다.
 
 1. `complianceStatus` -> `Pending`: 초기 및 진행 중인 상태를 나타냅니다.
-1. `complianceStatus` -> `Compliant`: `config-agent`가 클러스터를 성공적으로 구성하고 오류 없이 `flux`를 배포할 수 있었습니다.
-1. `complianceStatus` -> `Noncompliant`: `config-agent`가 `flux`를 배포하는 동안 오류가 발생했습니다. `complianceStatus.message` 응답 본문에서 세부 정보를 확인할 수 있습니다.
+1. `complianceStatus` -> `Installed`: `config-agent`가 클러스터를 성공적으로 구성하고 오류 없이 `flux`를 배포할 수 있었습니다.
+1. `complianceStatus` -> `Failed`: `config-agent`가 `flux`를 배포하는 동안 오류가 발생했습니다. `complianceStatus.message` 응답 본문에서 세부 정보를 확인할 수 있습니다.
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>프라이빗 git 리포지토리에서 구성 적용
 

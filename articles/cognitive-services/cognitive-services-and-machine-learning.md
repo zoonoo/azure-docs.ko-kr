@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856727"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -73,7 +73,7 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 
 ### <a name="no-additional-training-data-required"></a>추가 학습 데이터가 필요 하지 않음
 
-완전히 학습 된 모델을 제공 하는 서비스를 _블랙 박스_로 처리할 수 있습니다. 작동 방식 또는 학습에 사용 된 데이터를 알 필요가 없습니다. 데이터를 완벽 하 게 학습 된 모델로 가져와 예측을 얻을 수 있습니다. 
+완전히 학습 된 모델을 제공 하는 서비스를 _불투명 상자로_취급할 수 있습니다. 작동 방식 또는 학습에 사용 된 데이터를 알 필요가 없습니다. 데이터를 완벽 하 게 학습 된 모델로 가져와 예측을 얻을 수 있습니다. 
 
 ### <a name="some-or-all-training-data-required"></a>일부 또는 모든 학습 데이터가 필요 합니다.
 

@@ -3,15 +3,15 @@ title: REST를 사용 하 여 Azure Data Lake Storage Gen1 계정 관리
 description: WebHDFS REST API를 사용 하 여 Azure Data Lake Storage Gen1 계정에서 계정 관리 작업을 수행 합니다.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8a106b55fb90f320b90c81216a205dd10a9bf934
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: fc3f3fb0b6bb67239d6c1952d3e128076ce45aaf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857188"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -38,37 +38,45 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기
 이 작업은 [여기](https://docs.microsoft.com/rest/api/datalakestore/accounts/create)에 정의된 REST API 호출을 기반으로 합니다.
 
-다음 cURL 명령을 사용합니다. ** \<Yourstoragegen1name>** 를 Data Lake Storage Gen1 이름으로 바꿉니다.
+다음 cURL 명령을 사용합니다. **\<yourstoragegen1name>** 을 Data Lake Storage Gen1 이름으로 바꿉니다.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+```console
+curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+```
 
 위 명령에서 \<`REDACTED`\>을 이전에 검색한 권한 부여 토큰으로 바꿉니다. 이 명령에 대한 요청 페이로드는 위의 `-d` 매개 변수에 대해 제공된 **input.json** 파일에 포함됩니다. input.json 파일의 내용은 다음 코드 조각과 유사합니다.
 
-    {
-    "location": "eastus2",
-    "tags": {
-        "department": "finance"
-        },
-    "properties": {}
-    }    
+```json
+{
+"location": "eastus2",
+"tags": {
+    "department": "finance"
+    },
+"properties": {}
+}
+```
 
 ## <a name="delete-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 삭제
 이 작업은 [여기](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete)에 정의된 REST API 호출을 기반으로 합니다.
 
-다음 cURL 명령을 사용하여 Data Lake Storage Gen1 계정을 삭제합니다. ** \<Yourstoragegen1name>** 를 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+다음 cURL 명령을 사용하여 Data Lake Storage Gen1 계정을 삭제합니다. **\<yourstoragegen1name>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
 
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
+```console
+curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
+```
 
 다음 코드 조각과 유사한 출력이 표시됩니다.
 
-    HTTP/1.1 200 OK
-    ...
-    ...
+```output
+HTTP/1.1 200 OK
+...
+...
+```
 
 ## <a name="next-steps"></a>다음 단계
 * [REST API를 사용한 Data Lake Storage Gen1에서의 파일 시스템 작업](data-lake-store-data-operations-rest-api.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
 

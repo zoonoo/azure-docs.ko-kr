@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856838"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Custom Speech 정확도 평가
 
@@ -23,7 +23,7 @@ ms.locfileid: "84629051"
 
 ## <a name="what-is-word-error-rate-wer"></a>WER (단어 오류 요금) 란?
 
-모델 정확도를 측정 하는 산업 표준은 WER ( *단어 오류 요금* )입니다. WER은 인식 중에 식별 된 잘못 된 단어 수를 계산 하 고, 사용자 레이블 성적 증명서에 제공 된 단어의 총 수로 나눕니다. 마지막으로,이 숫자에는 WER를 계산 하기 위해 100%가 곱해집니다.
+모델 정확도를 측정 하는 산업 표준은 WER ( *단어 오류 요금* )입니다. WER은 인식 중에 식별 된 잘못 된 단어 수를 계산 하 고, 사람이 레이블 지정 된 성적 증명서에 제공 된 총 단어 수로 나눕니다 (아래에 N 표시). 마지막으로,이 숫자에는 WER를 계산 하기 위해 100%가 곱해집니다.
 
 ![WER 수식](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -69,7 +69,7 @@ Microsoft의 음성 텍스트 기준선 모델 또는 학습 된 사용자 지�
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)

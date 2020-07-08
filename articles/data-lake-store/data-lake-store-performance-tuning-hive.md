@@ -3,15 +3,15 @@ title: 성능 조정-Azure Data Lake Storage Gen1의 Hive
 description: HdInsight 및 Azure Data Lake Storage Gen1의 Hive에 대 한 성능 조정 지침
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 2e44332ddab9387c05a45d15101ccd2bdec3ada4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690518"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855761"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Hive 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
@@ -55,17 +55,15 @@ I/O 집약적인 워크로드의 경우 Tez 컨테이너 크기를 줄여 더 �
 
 병렬 처리에서 실행 중인 동시 태스크 수는 총 YARN 메모리의 제약을 받습니다.  YARN 컨테이너 수에 따라 실행할 수 있는 동시 태스크 수가 결정됩니다.  노드당 YARN 메모리를 찾으려면 Ambari로 이동할 수 있습니다.  YARN으로 이동 하 여 Configs 탭을 확인 합니다.  YARN 메모리가이 창에 표시 됩니다.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+> Total YARN memory = nodes * YARN memory per node Number of YARN container = Total YARN memory/Tez 컨테이너 크기
+
 Data Lake Storage Gen1을 사용하여 성능을 개선하기 위한 핵심은 가능한 동시성을 늘리는 것입니다.  Tez가 생성할 태스크 수를 자동으로 계산하므로 설정할 필요가 없습니다.   
 
 ## <a name="example-calculation"></a>계산 예
 
 8 노드 D14 클러스터가 있다고 가정해 보겠습니다.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+> Total YARN memory = nodes * YARN memory per 노드당 memory = 8 node * 96GB = 768GB의 YARN 컨테이너 수 = 768GB/3072MB = 256
 
 ## <a name="limitations"></a>제한 사항
 

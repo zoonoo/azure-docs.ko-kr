@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f707ccaaf150f4dbd799ca56bf823968a6889a4b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76748915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856565"
 ---
 이 문서에서는 Azure Vm (가상 머신)의 가용성 기능에 대 한 개요를 제공 합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "76748915"
 
 ### <a name="availability-zones"></a>가용성 영역
 
-[가용성 영역](../articles/availability-zones/az-overview.md) vm에서 응용 프로그램 및 데이터의 가용성을 유지 관리 하는 데 사용할 수 있는 제어 수준을 확장 합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 
+[가용성 영역](../articles/availability-zones/az-overview.md)은 VM에 있는 애플리케이션 및 데이터의 가용성을 유지해야 하는 컨트롤 수준을 확장합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 
 
 각 가용성 영역에는 고유한 소스, 네트워크 및 냉각 장치가 있습니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 앱과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다. 
 
@@ -48,17 +48,6 @@ ms.locfileid: "76748915"
 ## <a name="virtual-machines-scale-sets"></a>Virtual Machines 크기 집합 
 
 Azure virtual machine scale sets를 사용 하 여 부하 분산 된 Vm 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 크기 집합은 응용 프로그램에 고가용성을 제공 하 고 다양 한 Vm을 중앙에서 관리, 구성 및 업데이트할 수 있도록 합니다. 항상 사용 가능한 응용 프로그램을 제공 하 고 [99.95% AZURE SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족 하기 위해 확장 집합 내에서 두 개 이상의 vm을 만드는 것이 좋습니다. 크기 집합 자체에 대 한 비용은 없으며 만든 각 VM 인스턴스에만 요금을 지불 합니다. 단일 VM이 [Azure 프리미엄 SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd)를 사용하는 경우, 계획되지 않은 유지 관리 이벤트에 대해 Azure SLA가 적용됩니다. 규모 집합의 가상 머신은 여러 업데이트 도메인 및 장애 도메인에 배포 하 여 데이터 센터 중단, 계획 되거나 계획 되지 않은 유지 관리 이벤트로 인해 중단에 대 한 가용성 및 복원 력을 최대화할 수 있습니다. 확장 집합의 가상 머신은 단일 가용성 영역 또는 지역적으로 배포할 수도 있습니다. 가용성 영역 배포 옵션은 오케스트레이션 모드에 따라 다를 수 있습니다.
-
-### <a name="preview-orchestration-mode-preview"></a>미리 보기: 오케스트레이션 모드 미리 보기
-Virtual machines 크기 집합을 사용 하 여 오케스트레이션 모드를 지정할 수 있습니다.  이제 가상 머신 확장 집합 오케스트레이션 모드 (미리 보기)를 사용 하 여 확장 집합에서 확장 집합 구성 모델의 외부에서 명시적으로 생성 된 가상 머신 또는 구성 모델에 따라 암시적으로 만든 가상 머신 인스턴스를 오케스트레이션 할지 여부를 선택할 수 있습니다. VM 오케스트레이션 모델에서 지역 또는 가용성 영역에 명시적으로 정의 된 Virtual Machines 그룹화 할 수 있는 오케스트레이션 모드를 선택 합니다. 가용성 영역에 배포 된 가상 머신은 Vm에 대 한 영역 격리를 제공 합니다. 이러한 Vm은 가용성 영역 경계에 바인딩되고 지역의 다른 가용성 영역에서 발생할 수 있는 오류에는 적용 되지 않습니다. 
-
-|   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
-|----|----|----|
-| VM 구성 모델| 없음 VirtualMachineProfile은 확장 집합 모델에서 정의 되지 않습니다. | 필수 사항입니다. VirtualMachineProfile이 확장 집합 모델에 채워집니다. |
-| 확장 집합에 새 VM 추가| VM을 만들 때 vm은 확장 집합에 명시적으로 추가 됩니다. | Vm 구성 모델, 인스턴스 수 및 자동 크기 조정 규칙에 따라 vm이 암시적으로 생성 되 고 확장 집합에 추가 됩니다. |
-| 가용성 영역| 단일 가용성 영역에서 지역 배포 또는 Vm을 지원 합니다.| 는 지역 배포 또는 여러 가용성 영역을 지원 합니다. 영역 분산 전략을 정의할 수 있습니다. |
-| 장애 도메인| 장애 도메인 수를 정의할 수 있습니다. 지역 지원 및 5 가용성 영역에 따라 2 또는 3입니다. 할당 된 VM 장애 도메인은 할당 취소 및 다시 시작을 포함 하 여 VM 수명 주기와 함께 지속 됩니다. | 는 비 영역 배포의 경우 1, 2 또는 3 장애 도메인을 정의 하 고, 가용성 영역 배포에는 5 개를 정의할 수 있습니다. 할당 된 VM 장애 도메인은 VM 수명 주기에 유지 되지 않으며, 할당 시 가상 머신에 장애 도메인이 할당 됩니다. |
-| 업데이트 도메인| 해당 없음. 업데이트 도메인은 장애 도메인에 자동으로 매핑됩니다.| 해당 없음. 업데이트 도메인은 장애 도메인에 자동으로 매핑됩니다. |
 
 **장애 도메인 및 업데이트 도메인**
 

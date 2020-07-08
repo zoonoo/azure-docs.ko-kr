@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247541"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921605"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure에서 Cloud Services 배포 시 할당 실패 문제 해결
 ## <a name="summary"></a>요약
@@ -41,7 +41,7 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
 ### <a name="error-message"></a>오류 메시지
 다음과 같은 오류 메시지가 표시될 수 있습니다.
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "ConstrainedAllocationFailed 코드를 사용 하 여 Azure 작업 ' {operation id} '이 (가) 실패 했습니다. 세부 정보: 할당 하지 못했습니다. 요청에서 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.”
 
 ### <a name="common-issues"></a>일반적인 문제
 다음은 할당 요청이 단일 클러스터에 고정되도록 하는 일반적인 할당 시나리오입니다.

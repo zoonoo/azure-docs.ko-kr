@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7d7e04c526f7327a000ac26e255d2c8363c01f5c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918770"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -69,8 +69,8 @@ ms.locfileid: "83871247"
 IoT Hub의 [IP 필터](iot-hub-ip-filtering.md)도 기본 제공 엔드포인트에 대한 공용 액세스를 제어하지 않습니다. IoT 허브에 대한 공용 네트워크 액세스를 완전히 차단하려면 다음을 수행해야 합니다. 
 
 1. IoT Hub에 대한 프라이빗 엔드포인트 액세스 구성
-1. IP 필터로 모든 IP를 차단하여 공용 네트워크 액세스 끄기
-1. [데이터가 기본 제공 이벤트 허브 엔드포인트로 데이터를 보내지 않도록 라우팅을 설정](iot-hub-devguide-messages-d2c.md)하여 기본 제공 이벤트 허브 엔드포인트 끄기
+1. [공용 네트워크 액세스를 끄거나](iot-hub-public-network-access.md) ip 필터를 사용 하 여 모든 ip 차단
+1. [데이터를 전송 하지 않도록 라우팅을 설정](iot-hub-devguide-messages-d2c.md) 하 여 기본 제공 이벤트 허브 끝점 사용을 중지 합니다.
 1. [대체 경로](iot-hub-devguide-messages-d2c.md#fallback-route) 끄기
 1. [신뢰할 수 있는 Microsoft 서비스](#egress-connectivity-from-iot-hub-to-other-azure-resources)를 사용하여 다른 Azure 리소스에 대한 송신 구성
 
@@ -91,6 +91,76 @@ IoT Hub는 Azure Blob Storage, 이벤트 허브, 서비스 버스 리소스에 �
 1. **상태**에서 **켜기**를 선택하고 **저장**을 클릭합니다.
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="IoT Hub의 관리 ID를 켜는 방법을 보여 주는 스크린샷":::
+
+### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>ARM 템플릿을 사용 하 여 만들 때 IoT Hub에 관리 id 할당
+
+리소스 프로 비전 시간에 관리 되는 id를 IoT hub에 할당 하려면 아래 ARM 템플릿을 사용 합니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "sku": {
+                "name": "<your-hubs-SKU-name>",
+                "tier": "<your-hubs-SKU-tier>",
+                "capacity": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+리소스, 및에 대 한 값을 대체 한 후 `name` `location` Azure CLI를 사용 하 `SKU.name` `SKU.tier` 여 다음을 사용 하 여 기존 리소스 그룹에 리소스를 배포할 수 있습니다.
+
+```azurecli-interactive
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+```
+
+리소스를 만든 후 Azure CLI를 사용 하 여 허브에 할당 된 관리 서비스 id를 검색할 수 있습니다.
+
+```azurecli-interactive
+az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
+```
 
 ### <a name="pricing-for-managed-identity"></a>관리 ID의 가격
 

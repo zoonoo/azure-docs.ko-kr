@@ -3,15 +3,15 @@ title: Data Lake Storage Gen1-포털을 사용 하 여 Azure HDInsight 클러스
 description: Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight Hadoop 클러스터 만들기 및 사용
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856819"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "79265572"
 
 Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Data Lake Storage Gen1 계정을 사용하는 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다. 추가 저장소는 HDInsight 클러스터에 대 한 선택 사항 이지만 추가 저장소 계정에 비즈니스 데이터를 저장 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -130,7 +130,7 @@ Data Lake Storage Gen1 계정 루트 수준에서 사용 권한을 할당 하려
 
 1. 페이지 아래쪽에서 **선택**을 클릭합니다.
 1. **실행** 을 선택 하 여 사용 권한을 할당 합니다.
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 HDInsight 클러스터 루트 수준에서 사용 권한을 할당 하려면:
 
@@ -140,7 +140,7 @@ HDInsight 클러스터 루트 수준에서 사용 권한을 할당 하려면:
 1. 폴더에 권한을 설정합니다.  기본적으로 읽기, 쓰기 및 실행이 모두 선택되어 있습니다.
 1. 페이지 아래쪽에서 **선택**을 클릭합니다.
 1. **실행**을 선택합니다.
-1. **완료**를 선택합니다.
+1. **완료** 를 선택합니다.
 
 Data Lake Storage Gen1을 추가 스토리지로 사용하는 경우 HDInsight 클러스터에서 액세스하려는 폴더에만 권한을 할당해야 합니다. 예를 들어 아래 스크린샷에서는 Data Lake Storage Gen1 계정의 **mynewfolder** 폴더에만 액세스 권한을 제공합니다.
 
@@ -170,7 +170,9 @@ Data Lake Storage Gen1 계정에서 데이터를 사용하는 경우 다음과 �
 
 예를 들어 Data Lake Storage Gen1을 기본 스토리지로 사용하여 만든 클러스터에서 데이터 경로는 *adl://&lt;data_lake_storage_gen1_account_name&gt;/azuredatalakestore.net/path/to/file*입니다. Data Lake Storage Gen1 계정에 저장된 샘플 데이터에서 테이블을 만드는 Hive 쿼리는 다음 문과 같습니다.
 
-    CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```console
+CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```
 
 설명:
 
@@ -195,7 +197,7 @@ Spark 클러스터를 사용하여 Data Lake Storage Gen1 계정에 저장된 �
 
 Data Lake Storage Gen1 계정을 사용하면 Storm 토폴로지에서 데이터를 쓸 수 있습니다. 이 시나리오를 수행하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm에 Azure Data Lake Storage Gen1 사용](../hdinsight/storm/apache-storm-write-data-lake-store.md)을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)

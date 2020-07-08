@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae829336c5328bec4b620217c34c69fa5931b3a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856857"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -59,24 +59,26 @@ VNet(Virtual Network) 지원은 캐시를 만드는 중에 **새 Azure Cache for
 
 VNet을 사용하는 경우 Azure Cache for Redis 인스턴스에 연결하려면 다음 예제와 같이 캐시의 호스트 이름을 연결 문자열에 지정합니다.
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-    });
+```csharp
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+});
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
+```
 
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure Cache for Redis VNet FAQ
 Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 나와 있는 목록은 다음과 같습니다.
 
 * Azure Cache for Redis 및 VNet과 관련된 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
-* [캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [내 캐시가 VNET에서 작동 하는지 확인 하려면 어떻게 해야 하나요?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * VNET에서 내 Azure Cache for Redis에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?
 * [표준 또는 기본 캐시에 VNet을 사용할 수 있나요?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * 일부 서브넷에서만 Azure Cache for Redis를 만드는 데 실패하는 이유는 무엇인가요?
@@ -98,7 +100,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 아웃 바운드 포트 요구 사항은 9 가지가 있습니다. 이러한 범위의 아웃 바운드 요청은 캐시가 작동 하는 데 필요한 다른 서비스 또는 노드 간 통신용 Redis 서브넷 내부에 대 한 아웃 바운드입니다. 지리적 복제의 경우 기본 캐시와 보조 캐시의 서브넷 간 통신을 위한 추가 아웃 바운드 요구 사항이 있습니다.
 
-| 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | Direction | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
 | 443 | 아웃바운드 | TCP | Azure Key Vault에 대 한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault <sup>1</sup> |
@@ -124,7 +126,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
 
-| 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | Direction | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
@@ -141,7 +143,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 가상 네트워크에서 처음에는 충족되지 않을 수 있는 Azure Cache for Redis에 대한 네트워크 연결 요구 사항이 있습니다. Azure Cache for Redis는 가상 네트워크 내에서 사용할 때 다음 항목이 모두 제대로 작동하도록 요구합니다.
 
-* 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. 여기에는 Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트 뿐만 아니라 **다른** Azure 지역에 있는 스토리지 엔드포인트도 포함됩니다. 다음 DNS 도메인에서 Azure Storage 엔드포인트는 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net* 
+* 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. 여기에는 Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트 뿐만 아니라 **다른** Azure 지역에 있는 스토리지 엔드포인트도 포함됩니다. Azure Storage 끝점은 다음 DNS 도메인에서 확인 됩니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*및 *file.core.windows.net* 
 * *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. TLS/SSL 기능을 지원 하려면이 연결이 필요 합니다.
 * 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
 * 다음 DNS 도메인에서 확인되는 다음 Azure 모니터링 엔드포인트에 대한 아웃바운드 네트워크 연결: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net
@@ -157,7 +159,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 - 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필요한 캐시 종속성에 연결할 수 없는 경우 캐시가 다시 시작되지 않을 수 있습니다.
 - Azure Portal의 캐시 상태에 보고된 대로 캐시 노드가 다시 시작되었으면 다음 테스트를 수행할 수 있습니다.
-  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 다음은 그 예입니다.
+  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예를 들어:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +182,7 @@ IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다.
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 다음은 그 예입니다.
+DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들어:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: e7efdb7244e2c7e4651a4507b538123f8d320c1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da0c00f0b4a8f2c49996fbcb9b34ee4a1ab65273
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650778"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856647"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항
 
@@ -40,7 +40,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 **해결 방법**
 
-다음 단계를 사용하세요.
+다음 단계를 사용합니다.
 
 1. 아래 쿼리를 사용하여 원본 스키마의 임시 테이블을 찾습니다.
 
@@ -66,7 +66,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 **해결 방법**
 
-다음 단계를 사용하세요.
+다음 단계를 사용합니다.
 
 1. 아래 쿼리를 사용하여 hierarchyid 데이터 형식의 열을 포함하는 사용자 테이블을 찾습니다.
 
@@ -82,7 +82,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 **해결 방법**
 
-다음 단계를 사용하세요.
+다음 단계를 사용합니다.
 
 1. 아래 쿼리를 사용하여 원본 데이터베이스에서 현재 활성화된 트리거를 찾습니다.
 
@@ -142,7 +142,9 @@ Azure Database Migration Service은 원본 타임 스탬프 값을 마이그레�
 
 다음 텍스트를 포함 하는 오류 메시지와 함께 마이그레이션이 실패 합니다.
 
-     “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
+```output
+"** encountered a fatal error", "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode.
+```
 
 **해결 방법**
 
@@ -154,7 +156,9 @@ Azure Database Migration Service는 오프 라인 Azure SQL Database 마이그�
 
 다음 텍스트를 포함 하는 오류 메시지와 함께 마이그레이션이 실패 합니다.
 
-    Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```output
+Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```
 
 **해결 방법**
 

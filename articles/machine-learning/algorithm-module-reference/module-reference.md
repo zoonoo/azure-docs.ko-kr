@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 53cfb983579c8a02ed6c1d80ff4821efa5950298
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848214"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856906"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)에 대한 알고리즘 및 모듈 참조
 
@@ -34,7 +34,7 @@ ms.locfileid: "83848214"
 
 | 기능 | Description | 모듈 |
 | --- |--- | --- |
-| 데이터 입력 및 출력 | 클라우드 소스에서 파이프라인으로 데이터를 이동합니다. 파이프라인을 실행하거나 클라우드 스토리지를 사용하여 파이프라인 간에 데이터를 교환하는 동안 결과 또는 중간 데이터를 Azure Storage, SQL 데이터베이스 또는 Hive에 씁니다.  | [수동으로 데이터 입력](enter-data-manually.md) <br/> [데이터 내보내기](export-data.md) <br/> [데이터 가져오기](import-data.md) |
+| 데이터 입력 및 출력 | 클라우드 소스에서 파이프라인으로 데이터를 이동합니다. 파이프라인을 실행 하는 동안 Azure Storage, SQL Database 또는 Hive에 결과 또는 중간 데이터를 쓰거나, 클라우드 저장소를 사용 하 여 파이프라인 간에 데이터를 교환 합니다.  | [수동으로 데이터 입력](enter-data-manually.md) <br/> [데이터 내보내기](export-data.md) <br/> [데이터 가져오기](import-data.md) |
 | 데이터 변환 | 데이터의 표준화 또는 범주화, 차원 감소 및 다양한 파일 형식 간의 데이터 변환 등 기계 학습에 고유한 데이터에 대한 작업입니다.| [열 추가](add-columns.md) <br/> [행 추가](add-rows.md) <br/> [수학 연산 적용](apply-math-operation.md) <br/> [SQL 변환 적용](apply-sql-transformation.md) <br/> [누락 데이터 정리](clean-missing-data.md) <br/> [값 잘라내기](clip-values.md) <br/> [CSV로 변환](convert-to-csv.md) <br/> [데이터 세트로 변환](convert-to-dataset.md) <br/> [표시기 값으로 변환](convert-to-indicator-values.md) <br/> [메타데이터 편집](edit-metadata.md) <br/> [Bin으로 데이터 그룹화](group-data-into-bins.md) <br/> [데이터 조인](join-data.md) <br/> [데이터 정규화](normalize-data.md) <br/> [파티션 및 샘플](partition-and-sample.md)  <br/> [중복 행 제거](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [열 변환 선택](select-columns-transform.md) <br/> [데이터 세트의 열 선택](select-columns-in-dataset.md) <br/> [데이터 분할](split-data.md) |
 | 기능 선택 | 분석 모델을 빌드하는 데 사용할 관련된 유용한 기능의 하위 집합을 선택합니다. | [필터 기반 기능 선택](filter-based-feature-selection.md) <br/> [순열 기능 중요도](permutation-feature-importance.md) |
 | 통계 함수 | 데이터 과학과 관련된 다양한 통계 방법을 제공합니다. | [데이터 요약](summarize-data.md)|
@@ -51,12 +51,13 @@ ms.locfileid: "83848214"
 
 | 기능 | Description | 모듈 |
 | --- |--- | --- |
-| 모델 학습 | 알고리즘을 통해 데이터를 실행합니다. |  [클러스터링 모델 학습](train-clustering-model.md) <br/> [모델 학습](train-model.md)  <br/> [모델 하이퍼 매개 변수 튜닝](tune-model-hyperparameters.md) |
-| 모델 채점 및 평가 | 학습된 모델의 정확도를 측정합니다. | [변환 적용](apply-transformation.md) <br/> [클러스터에 데이터 할당](assign-data-to-clusters.md) <br/> [모델 교차 유효성 검사](cross-validate-model.md) <br/> [모델 평가](evaluate-model.md) <br/> [모델 채점](score-model.md) |
+| 모델 학습 | 알고리즘을 통해 데이터를 실행합니다. |  [클러스터링 모델 학습](train-clustering-model.md) <br/> [모델 학습](train-model.md) <br/> [Pytorch 모델 학습](train-pytorch-model.md) <br/> [모델 하이퍼 매개 변수 튜닝](tune-model-hyperparameters.md) |
+| 모델 채점 및 평가 | 학습된 모델의 정확도를 측정합니다. | [변환 적용](apply-transformation.md) <br/> [클러스터에 데이터 할당](assign-data-to-clusters.md) <br/> [모델 교차 유효성 검사](cross-validate-model.md) <br/> [모델 평가](evaluate-model.md) <br/> [이미지 모델 채점](score-image-model.md) <br/> [모델 채점](score-model.md) |
 | Python 언어 | 코드를 작성하고 이를 모듈에 포함하여 Python을 파이프라인과 통합합니다. | [Python 모델 만들기](create-python-model.md) <br/> [Python 스크립트 실행](execute-python-script.md) |
 | R 언어 | 코드를 작성하고 이를 모듈에 포함하여 R을 파이프라인과 통합합니다. | [R 스크립트 실행](execute-r-script.md) |
-| 텍스트 분석 | 구조화된 텍스트와 구조화되지 않은 텍스트를 모두 사용하기 위한 특수한 계산 도구를 제공합니다. |  [Word를 벡터로 변환](convert-word-to-vector.md) <br/> [텍스트에서 N Gram 기능 추출](extract-n-gram-features-from-text.md) <br/> [기능 해싱](feature-hashing.md) <br/> [텍스트 전처리](preprocess-text.md) <br/> [잠재적 Dirichlet 할당](latent-dirichlet-allocation.md) |
-| 권장 | 권장 사항 모델을 빌드합니다. | [추천 평가](evaluate-recommender.md) <br/> [SVD 추천 점수 매기기](score-svd-recommender.md) <br/> [SVD 추천 학습](train-SVD-recommender.md) |
+| 텍스트 분석 | 구조화된 텍스트와 구조화되지 않은 텍스트를 모두 사용하기 위한 특수한 계산 도구를 제공합니다. |  [Word를 벡터로 변환](convert-word-to-vector.md) <br/> [텍스트에서 N Gram 기능 추출](extract-n-gram-features-from-text.md) <br/> [기능 해싱](feature-hashing.md) <br/> [텍스트 전처리](preprocess-text.md) <br/> [잠재적 Dirichlet 할당](latent-dirichlet-allocation.md) <br/> [Vowpal Wabbit 모델 점수 매기기](score-vowpal-wabbit-model.md) <br/> [Vowpal Wabbit 모델 학습](train-vowpal-wabbit-model.md)|
+| Computer Vision | 이미지 데이터 전처리 및 이미지 인식 관련 모듈. |  [이미지 변환 적용](apply-image-transformation.md) <br/> [이미지 디렉터리로 변환](convert-to-image-directory.md) <br/> [이미지 변환 시작](init-image-transformation.md) <br/> [이미지 디렉터리 분할](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| 권장 | 권장 사항 모델을 빌드합니다. | [추천 평가](evaluate-recommender.md) <br/> [SVD 추천 점수 매기기](score-svd-recommender.md) <br/> [와이드 및 딥 추천 점수 매기기](score-wide-and-deep-recommender.md)<br/> [SVD 추천 학습](train-SVD-recommender.md) <br/> [와이드 및 딥 추천 학습](train-wide-and-deep-recommender.md)|
 | 이상 감지 | 변칙 검색 모델을 빌드합니다. | [PCA 기반 변칙 검색](pca-based-anomaly-detection.md) <br/> [변칙 검색 모델 학습](train-anomaly-detection-model.md) |
 
 

@@ -3,12 +3,12 @@ title: 기본 이미지 업데이트-작업
 description: 응용 프로그램 컨테이너 이미지에 대 한 기본 이미지와 기본 이미지 업데이트가 Azure Container Registry 작업을 트리거할 수 있는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918511"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>ACR 작업의 기본 이미지 업데이트 정보
 
@@ -37,9 +37,16 @@ Dockerfile의 이미지 빌드의 경우 ACR 태스크는 다음 위치의 기�
 * Docker Hub의 공용 리포지토리 
 * Microsoft 컨테이너 레지스트리의 공용 리포지토리
 
-`FROM` 문에 지정 된 기본 이미지가 이러한 위치 중 하나에 있는 경우 ACR 작업은 기본이 업데이트 될 때마다 이미지가 다시 작성 되도록 후크를 추가 합니다.
+문에 지정 된 기본 이미지가 `FROM` 이러한 위치 중 하나에 있는 경우 ACR 작업은 기본이 업데이트 될 때마다 이미지가 다시 작성 되도록 후크를 추가 합니다.
 
-## <a name="additional-considerations"></a>기타 고려 사항
+## <a name="base-image-notifications"></a>기본 이미지 알림
+
+기본 이미지를 업데이트 하는 시간과 종속 작업이 트리거되는 시간 사이의 시간은 기본 이미지 위치에 따라 달라 집니다.
+
+* **Docker 허브 또는 MCR의 공용 리포지토리의 기본 이미지** -공용 리포지토리의 기본 이미지의 경우 ACR 태스크는 10 분에서 60 분 사이의 임의 간격으로 이미지 업데이트를 확인 합니다. 종속 태스크는 그에 따라 실행 됩니다.
+* **Azure container registry의 기본 이미지** -azure container registry의 기본 이미지에 대해 ACR 작업은 기본 이미지가 업데이트 될 때 실행을 즉시 트리거합니다. 기본 이미지는 작업이 실행 되는 동일한 ACR에 있거나 모든 지역의 다른 ACR에 있을 수 있습니다.
+
+## <a name="additional-considerations"></a>추가 고려 사항
 
 * **응용 프로그램 이미지에 대 한 기본 이미지** -현재 ACR 작업은 응용 프로그램 (*런타임*) 이미지에 대 한 기본 이미지 업데이트만 추적 합니다. 다중 단계 Dockerfiles에서 사용되는 중간(*buildtime*) 이미지에 대한 기본 이미지 업데이트는 추적하지 않습니다.  
 
@@ -51,7 +58,7 @@ Dockerfile의 이미지 빌드의 경우 ACR 태스크는 다음 위치의 기�
 
 * **종속성을 추적 하기 위한 트리거** -ACR 작업에서 컨테이너 이미지의 종속성을 확인 하 고 추적할 수 있도록 하려면 (기본 이미지 포함), 먼저 **하나 이상의**이미지를 빌드하기 위해 작업을 트리거해야 합니다. 예를 들어 [az acr task run][az-acr-task-run] 명령을 사용하여 작업을 수동으로 트리거합니다.
 
-* **기본 이미지에 대 한 안정적인 태그** -기본 이미지 업데이트에 대 한 작업을 트리거하려면 기본 이미지에와 *stable* `node:9-alpine`같은 안정적인 태그가 있어야 합니다. 안정적인 최신 릴리스에 OS 및 프레임워크 패치로 업데이트되는 기본 이미지의 경우 이 태그를 지정하는 것이 일반적입니다. 기본 이미지가 새 버전 태그로 업데이트되면 작업을 트리거하지 않습니다. 이미지 태그 지정에 대한 자세한 내용은 [모범 사례 지침](container-registry-image-tag-version.md)을 참조하세요. 
+* **기본 이미지에 대 한 안정적인 태그** -기본 이미지 업데이트에 대 한 작업을 트리거하려면 기본 이미지에와 같은 *안정적인* 태그가 있어야 합니다 `node:9-alpine` . 안정적인 최신 릴리스에 OS 및 프레임워크 패치로 업데이트되는 기본 이미지의 경우 이 태그를 지정하는 것이 일반적입니다. 기본 이미지가 새 버전 태그로 업데이트되면 작업을 트리거하지 않습니다. 이미지 태그 지정에 대한 자세한 내용은 [모범 사례 지침](container-registry-image-tag-version.md)을 참조하세요. 
 
 * **기타 작업 트리거** -기본 이미지 업데이트로 트리거된 작업에서 [소스 코드 커밋](container-registry-tutorial-build-task.md) 또는 [일정](container-registry-tasks-scheduled.md)에 따라 트리거를 사용 하도록 설정할 수도 있습니다. 기본 이미지 업데이트는 [여러 단계 태스크](container-registry-tasks-multi-step.md)를 트리거할 수도 있습니다.
 

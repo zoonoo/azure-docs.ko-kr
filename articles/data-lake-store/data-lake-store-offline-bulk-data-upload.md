@@ -3,15 +3,15 @@ title: Azure Data Lake Storage Gen1-오프 라인 메서드로 대량 데이터 
 description: Import/Export 서비스를 사용 하 여 Azure Blob 저장소에서 Azure Data Lake Storage Gen1로 데이터를 복사 합니다.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: aa3eb0bcd9ddd2a094563efe326f7af7e9e8708a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: d04a5c0e53e9a5db8bba03a5a9e9d95b87a8b5a3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73839303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855670"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>데이터의 오프 라인 복사본에 대 한 Azure Import/Export 서비스를 사용 하 여 Data Lake Storage Gen1
 
@@ -24,24 +24,23 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 저장소 계정**.
+* **Azure Storage 계정**
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
 Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 **200GB 미만의 복사본**으로 분할해야 합니다. 200GB보다 큰 파일인 경우 가져오기 도구를 작동할 수 없기 때문입니다. 이 문서에서는 파일을 각각 100 GB 청크로 분할 합니다. [Cygwin](https://cygwin.com/install.html)을 사용하면 이렇게 수행할 수 있습니다. Cygwin은 Linux 명령을 지원합니다. 이 경우 다음 명령을 사용합니다.
 
-    split -b 100m 319GB.tsv
+```console
+split -b 100m 319GB.tsv
+```
 
 분할 작업에서는 아래와 같은 이름의 파일을 만듭니다.
 
-    319GB.tsv-part-aa
-
-    319GB.tsv-part-ab
-
-    319GB.tsv-part-ac
-
-    319GB.tsv-part-ad
+* *319GB. tsv-aa*
+* *319GB. tsv-ab*
+* *319GB. tsv-ac*
+* *319GB. tsv-ad*
 
 ## <a name="get-disks-ready-with-data"></a>데이터와 함께 디스크 준비
 

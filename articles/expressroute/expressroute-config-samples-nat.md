@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 3393c661240ae5619597256a6691ae43608d622b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74072105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856710"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>NAT 설정 및 관리를 위한 라우터 구성 샘플
 
@@ -30,59 +30,71 @@ ms.locfileid: "74072105"
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA 방화벽
 ### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>고객 네트워크에서 Microsoft로의 트래픽을 위한 PAT 구성
-    object network MSFT-PAT
-      range <SNAT-START-IP> <SNAT-END-IP>
+
+```console
+object network MSFT-PAT
+  range <SNAT-START-IP> <SNAT-END-IP>
 
 
-    object-group network MSFT-Range
-      network-object <IP> <Subnet_Mask>
+object-group network MSFT-Range
+  network-object <IP> <Subnet_Mask>
 
-    object-group network on-prem-range-1
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-1
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem-range-2
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-2
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem
-      network-object object on-prem-range-1
-      network-object object on-prem-range-2
+object-group network on-prem
+  network-object object on-prem-range-1
+  network-object object on-prem-range-2
 
-    nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+```
 
 ### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Microsoft에서 고객 네트워크로 트래픽 PAT 구성
 
 **인터페이스 및 방향:**
 
-    Source Interface (where the traffic enters the ASA): inside
-    Destination Interface (where the traffic exits the ASA): outside
+원본 인터페이스 (트래픽이 GLOBAL.ASA로 들어가는 위치): 대상 인터페이스 내부 (트래픽이이를 종료 하는 위치): 외부
 
-**구성**
+**구성:**
 
 NAT 풀:
 
-    object network outbound-PAT
-        host <NAT-IP>
+```console
+object network outbound-PAT
+    host <NAT-IP>
+```
 
 대상 서버:
 
-    object network Customer-Network
-        network-object <IP> <Subnet-Mask>
+```console
+object network Customer-Network
+    network-object <IP> <Subnet-Mask>
+```
 
-고객 IP 주소에 대한 개체 그룹
+고객 IP 주소에 대 한 개체 그룹:
 
-    object-group network MSFT-Network-1
-        network-object <MSFT-IP> <Subnet-Mask>
+```console
+object-group network MSFT-Network-1
+    network-object <MSFT-IP> <Subnet-Mask>
 
-    object-group network MSFT-PAT-Networks
-        network-object object MSFT-Network-1
+object-group network MSFT-PAT-Networks
+    network-object object MSFT-Network-1
+```
 
 NAT 명령:
 
-    nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```console
+nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```
 
 
 ## <a name="juniper-srx-series-routers"></a>Juniper SRX 시리즈 라우터
 ### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. 클러스터에 대 한 중복 이더넷 인터페이스 만들기
+
+```console
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -112,17 +124,50 @@ NAT 명령:
             }
         }
     }
-
+```
 
 ### <a name="2-create-two-security-zones"></a>2. 두 개의 보안 영역을 만듭니다.
 * 내부 네트워크에 대한 신뢰 영역 및 에지 라우터 방향의 외부 네트워크에 대한 신뢰할 수 없는 영역
 * 영역에 적절한 인터페이스 할당
 * 인터페이스에서 서비스 허용
 
-    security {       zones {           security-zone Trust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth0.100;               }           }           security-zone Untrust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth1.100;               }           }       }   }
+```console
+    security {
+        zones {
+            security-zone Trust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth0.100;
+                }
+            }
+            security-zone Untrust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth1.100;
+                }
+            }
+        }
+    }
+```
 
 
 ### <a name="3-create-security-policies-between-zones"></a>3. 영역 간에 보안 정책 만들기
+
+```console
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -151,12 +196,13 @@ NAT 명령:
             }
         }
     }
-
+```
 
 ### <a name="4-configure-nat-policies"></a>4. NAT 정책 구성
 * 두 NAT 풀을 만듭니다. 하나는 Microsoft로의 NAT 트래픽 아웃바운드에 사용되며 다른 하나는 Microsoft에서 고객에게로의 NAT 트래픽 아웃바운드에 사용됩니다.
 * 각 트래픽에 대해 NAT를 수행하기 위한 규칙 만들기
-  
+
+```console
        security {
            nat {
                source {
@@ -211,11 +257,14 @@ NAT 명령:
                }
            }
        }
+```
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. 각 방향에서 선택적 접두사를 알리도록 BGP를 구성 합니다.
 [라우팅 구성 샘플](expressroute-config-samples-routing.md) 페이지의 샘플을 참조 하세요.
 
 ### <a name="6-create-policies"></a>6. 정책 만들기
+
+```console
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -309,6 +358,7 @@ NAT 명령:
             }
         }
     }
+```
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md) 를 참조하세요.

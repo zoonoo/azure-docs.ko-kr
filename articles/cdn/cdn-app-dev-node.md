@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c83323ff7b951892b96d49f3173c022592aac331
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67594143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920181"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -44,7 +44,9 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 애플리케이션을 저장할 폴더를 만듭니다.  현재 경로에 있는 Node.js 도구를 포함한 콘솔에서 새 폴더에 현재 위치를 설정하고 다음을 실행하여 프로젝트를 초기화합니다.
 
-    npm init
+```console
+npm init
+```
 
 그런 다음 프로젝트를 초기화하는 일련의 질문이 나타납니다.  **진입점**의 경우 이 자습서에서는 *app.js*를 사용합니다.  다음 예제에서 다른 선택 항목을 볼 수 있습니다.
 
@@ -52,8 +54,10 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 프로젝트는 *packages.json* 파일을 사용하여 초기화됩니다.  이 프로젝트에서는 NPM 패키지에 포함된 일부 Azure 라이브러리를 사용할 것입니다.  Node.js용 Azure 클라이언트 런타임(ms-rest-azure) 및 Node.js용 Azure CDN 클라이언트 라이브러리(azure-arm-cd)를 사용할 것입니다.  해당 사항을 종속성으로 프로젝트에 추가하겠습니다.
 
-    npm install --save ms-rest-azure
-    npm install --save azure-arm-cdn
+```console
+npm install --save ms-rest-azure
+npm install --save azure-arm-cdn
+```
 
 패키지 설치가 완료된 후에 *package.json* 파일은 이 예제와 유사하게 표시됨(버전 번호가 달라질 수 있음):
 
@@ -86,7 +90,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  다음을 추가합니다.  필요에 따라 ** &lt;꺾쇠 괄호&gt;** 를 포함 하 여 자리 표시자를 사용자 고유의 값으로 바꾸어야 합니다.
+2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다.  다음을 추가합니다.  **&lt;꺽쇠 괄호&gt;** 를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
    
     ``` javascript
     //Tenant app constants
@@ -119,7 +123,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    ** &lt;꺾쇠 괄호&gt; ** 안의 항목을 올바른 정보로 바꾸어야 합니다.  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
+    ** &lt; 꺾쇠 괄호 &gt; ** 안의 항목을 올바른 정보로 바꾸어야 합니다.  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
 4. Node.js 콘솔 애플리케이션에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
    
    ```javascript
