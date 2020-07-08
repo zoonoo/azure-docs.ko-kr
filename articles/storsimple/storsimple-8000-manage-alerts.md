@@ -3,15 +3,15 @@ title: StorSimple 8000 시리즈 장치에 대 한 경고 보기 및 관리
 description: StorSimple 경고 조건 및 심각도, 경고 알림을 구성하는 방법, StorSimple 디바이스 관리자 서비스를 사용하여 경고를 관리하는 방법을 설명합니다.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830046"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 
@@ -48,11 +48,11 @@ StorSimple 디바이스는 다양한 조건에 대한 응답으로 경고를 생
 > [!NOTE]
 > 디바이스 당 최대 20개의 메일 주소를 입력할 수 있습니다.
 
-디바이스에 메일 알림을 사용하도록 설정한 후에 알림 목록의 멤버는 중요한 경고가 발생할 때마다 메일 메시지를 받게 됩니다. 이 메시지는 *noreply\@mail.windowsazure.com* 에서 전송 되며 경고 조건을 설명 합니다. 받는 사람은 **구독 취소**를 클릭하여 메일 알림 목록에서 자신을 제거할 수 있습니다.
+디바이스에 메일 알림을 사용하도록 설정한 후에 알림 목록의 멤버는 중요한 경고가 발생할 때마다 메일 메시지를 받게 됩니다. 이 메시지는 *noreply \@ mail.windowsazure.com* 에서 전송 되며 경고 조건을 설명 합니다. 받는 사람은 **구독 취소**를 클릭하여 메일 알림 목록에서 자신을 제거할 수 있습니다.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>디바이스에 경고하는 메일 알림을 사용하려면
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. 디바이스 목록에서 구성하려는 디바이스를 선택하고 클릭합니다.
-2. 장치의 **설정** > **일반** 으로 이동 합니다.
+2. 장치의 **설정**  >  **일반** 으로 이동 합니다.
 
    ![경고 블레이드](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
@@ -60,7 +60,7 @@ StorSimple 디바이스는 다양한 조건에 대한 응답으로 경고를 생
    
    1. **전자 메일 알림 보내기** 필드에서 **예**를 선택합니다.
    2. 서비스 관리자 및 모든 공동 관리자가 경고 알림을 받도록 하려면 **메일 서비스 관리자** 필드에서 **예**를 선택합니다.
-   3. **다른 메일 받는 사람** 필드에 경고 알림을 받을 다른 모든 받는 사람의 메일 주소를 입력합니다. *사용자\@somewhere.com*형식으로 이름을 입력 합니다. 세미콜론을 사용하여 메일 주소를 구분합니다. 디바이스당 최대 20개의 메일 주소를 구성할 수 있습니다. 
+   3. **다른 메일 받는 사람** 필드에 경고 알림을 받을 다른 모든 받는 사람의 메일 주소를 입력합니다. *사용자 \@ somewhere.com*형식으로 이름을 입력 합니다. 세미콜론을 사용하여 메일 주소를 구분합니다. 디바이스당 최대 20개의 메일 주소를 구성할 수 있습니다. 
       
 3. 테스트 전자 메일 알림을 보내려면 **테스트 전자 메일 보내기**를 클릭합니다. 테스트 알림을 전달하여 StorSimple Device Manager 서비스가 상태 메시지를 표시합니다.
 
@@ -120,6 +120,7 @@ Microsoft 지원에 정보를 보내야 할 경우 텍스트 파일에 알림 �
 * [성능 경고](#performance-alerts)
 * [보안 경고](#security-alerts)
 * [지원 패키지 경고](#support-package-alerts)
+* [인클로저 환경 경고](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>클라우드 연결 경고
 
@@ -192,9 +193,9 @@ StorSimple 프로덕션 디바이스에서 클라우드 연결에 실패하면 �
 | 경고 텍스트 | 이벤트 | 자세한 내용 / 권장 작업 |
 |:--- |:--- |:--- |
 | StorSimple 서비스를 시작하지 못했습니다. |데이터 경로 오류 |문제가 지속되면 Microsoft 지원에 문의하세요. |
-| 'Data0'에 대한 중복 IP 주소가 검색되었습니다. | |시스템에서 IP 주소 '10.0.0.1'에 대한 충돌을 발견했습니다. * \<장치 1>* 장치에서 네트워크 리소스 ' Data0 '이 (가) 오프 라인 상태입니다. 이 IP 주소가 이 네트워크의 다른 엔터티에서 사용되지 않음을 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. 이 문제 해결에 대한 도움은 네트워크 관리자에게 문의합니다. 문제가 지속되면 Microsoft 지원에 문의하세요. |
-| 'Data0'에 대한 IPv4(또는 IPv6) 주소가 오프라인 상태입니다. | |IP 주소가 '10.0.0.1'이고 접두사 길이가 ‘22’면서 * \<장치 1>* 장치에서 접두사 길이 ' 22 '가 오프 라인 상태입니다. 이 인터페이스가 연결된 스위치 포트가 작동하는지 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. |
-| 인증 서비스에 연결할 수 없습니다. |데이터 경로 오류 |인증에 사용되는 URL에 연결할 수 없습니다. 방화벽 규칙에 StorSimple 디바이스에 대해 지정된 URL 패턴이 포함되어 있는지 확인합니다. Azure Portal의 URL 패턴에 대 한 자세한 내용은 https:\//aka.ms/ss-8000-network-reqs를 참조 하세요. Azure Government 클라우드를 사용 하는 경우 https:\//AKA.MS/SS8000-GOV-NETWORK-REQS의 URL 패턴으로 이동 합니다.|
+| 'Data0'에 대한 중복 IP 주소가 검색되었습니다. | |시스템에서 IP 주소 '10.0.0.1'에 대한 충돌을 발견했습니다. 장치에서 네트워크 리소스 ' Data0 '이 ( *\<device1>* 가) 오프 라인 상태입니다. 이 IP 주소가 이 네트워크의 다른 엔터티에서 사용되지 않음을 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. 이 문제 해결에 대한 도움은 네트워크 관리자에게 문의합니다. 문제가 지속되면 Microsoft 지원에 문의하세요. |
+| 'Data0'에 대한 IPv4(또는 IPv6) 주소가 오프라인 상태입니다. | |IP 주소가 '10.0.0.1'이고 접두사 길이가 ‘22’면서 및 장치에서 접두사 길이 ' 22 ' *\<device1>* 가 오프 라인 상태입니다. 이 인터페이스가 연결된 스위치 포트가 작동하는지 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. |
+| 인증 서비스에 연결할 수 없습니다. |데이터 경로 오류 |인증에 사용되는 URL에 연결할 수 없습니다. 방화벽 규칙에 StorSimple 디바이스에 대해 지정된 URL 패턴이 포함되어 있는지 확인합니다. Azure Portal의 URL 패턴에 대 한 자세한 내용은 https:/aka.ms/ss-8000-network-reqs를 참조 하세요 \/ . Azure Government 클라우드를 사용 하는 경우 https:/aka.ms/ss8000-gov-network-reqs의 URL 패턴으로 이동 \/ 합니다.|
 
 ### <a name="performance-alerts"></a>성능 경고
 
@@ -219,7 +220,12 @@ StorSimple 프로덕션 디바이스에서 클라우드 연결에 실패하면 �
 |:--- |:--- |:--- |
 | 지원 패키지를 만들지 못했습니다. |StorSimple가 패키지를 생성할 수 없습니다. |이 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. 문제가 해결되면 경고 페이지에서 이 경고를 지웁니다. |
 
+### <a name="enclosure-environment-alerts"></a>인클로저 환경 경고
+
+| 경고 텍스트 | 이벤트 | 자세한 내용 / 권장 작업 |
+|:--- |:--- |:--- |
+| 하드웨어 구성 요소 주변 온도 센서가 상태를 실패 한 것으로 보고 합니다.  | 엔클로저 유형: 기본 인클로저 | 이 경고는 StorSimple 주변의 주변광이 허용 범위를 초과 하는 경우에 트리거됩니다. 데이터 센터의 AC 환풍구에서 주변 온도 또는 공기를 벗어난 주변을 확인 합니다. 온도가 정상으로 반환 되 면 시간이 경과 된 후 경고가 자동으로 지워집니다. 문제가 지속되면 Microsoft 지원에 문의하세요.   |
+
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 오류 및 디바이스 배포 문제 해결](storsimple-8000-troubleshoot-deployment.md)에 대해 자세히 알아봅니다.
-

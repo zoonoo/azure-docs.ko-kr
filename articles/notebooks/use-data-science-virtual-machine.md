@@ -6,21 +6,21 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830312"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines 사용
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 기본적으로 프로젝트는 **무료 계산** 계층에서 실행 됩니다 .이는 악성을 방지 하기 위해 4gb의 메모리와 1gb의 데이터로 제한 됩니다. Azure 구독에서 프로비전한 다른 가상 머신을 사용하여 이러한 제한 사항을 무시할 수 있습니다. 이러한 목적을 위해 **Ubuntu (Linux 용 Data Science Virtual Machine)** 이미지를 사용 하는 Azure Data Science Virtual Machine (dsvm)를 선택 하는 것이 가장 좋습니다. 이러한 DSVM은 Azure Notebooks 하는 데 필요한 모든 항목으로 미리 구성 되며 Azure Notebooks의 **실행** 드롭다운 목록에 자동으로 표시 됩니다.
 
 > [!Note]
 > Azure Notebooks은 Linux Ubuntu 이미지를 사용 하 여 만든 DSVMs 에서만 지원 됩니다. 노트북은 Windows 2012, Windows 2016 또는 Linux CentOS 이미지에서 지원 되지 않습니다.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>DSVM 인스턴스 만들기
 

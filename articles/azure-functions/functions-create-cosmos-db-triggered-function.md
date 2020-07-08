@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83123764"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829842"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
@@ -115,11 +115,13 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 1. 새 문서의 콘텐츠를 다음 콘텐츠로 바꾼 다음, **저장**을 선택합니다.
 
-        {
-            "id": "task1",
-            "category": "general",
-            "description": "some task"
-        }
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
+    }
+    ```
 
 1. 포털에서 함수를 포함하고 있는 첫 번째 브라우저 탭으로 전환합니다. 함수 로그를 확장하고 새 문서가 함수를 트리거했는지 확인합니다. `task1` 문서 ID 값이 로그에 기록되었는지 살펴봅니다. 
 

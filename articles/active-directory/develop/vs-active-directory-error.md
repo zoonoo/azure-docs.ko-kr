@@ -6,16 +6,16 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 4b39aa77ea3895a606ad34a3bc9b70dba924a23f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 5cefc59a6072a945be493487c09b1cc7f9827475
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886095"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830573"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory의 연결된 서비스를 사용하여 오류 진단
 
@@ -33,16 +33,20 @@ ms.locfileid: "80886095"
 
 MVC 프로젝트에서 이 연결된 서비스는 이전에 서비스를 사용한 결과에 따라 다음과 같은 설정을 확인합니다.
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:AADInstance" value="" />
-    <add key="ida:PostLogoutRedirectUri" value="" />
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:AADInstance" value="" />
+<add key="ida:PostLogoutRedirectUri" value="" />
+```
 
 또한 이 연결된 서비스는 이전에 서비스를 사용한 결과에 따라 다음과 같은 Web API 프로젝트 설정을 확인합니다.
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:Audience" value="" />
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:Audience" value="" />
+```
 
 ## <a name="incompatible-authentication-code"></a>호환되지 않는 인증 코드
 

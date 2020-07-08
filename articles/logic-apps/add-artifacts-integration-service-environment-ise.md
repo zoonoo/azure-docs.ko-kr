@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79164879"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830029"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 리소스 추가
 
 [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만든 후에는 Azure 가상 네트워크의 리소스에 액세스할 수 있도록 논리 앱, 통합 계정 및 커넥터와 같은 리소스를 추가 합니다. 예를 들어 ISE를 만든 후에 사용할 수 있는 관리 되는 ISE 커넥터는 논리 앱 디자이너에 자동으로 표시 되지 않습니다. 이러한 ISE 커넥터를 사용 하려면 먼저 [해당 커넥터를 사용자의 ise에 추가 하 고 배포](#add-ise-connectors-environment) 하 여 논리 앱 디자이너에 표시 해야 합니다.
 
 > [!IMPORTANT]
-> 논리 앱과 통합 계정이 ISE에서 함께 작동 하려면 둘 다 해당 위치와 *동일한 ise* 를 사용 해야 합니다.
+> 논리 앱과 통합 계정이 ISE에서 함께 작동하려면 둘 다 각자 위치와 동일한 ISE를 사용해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -26,7 +26,7 @@ ms.locfileid: "79164879"
 
 * 논리 앱을 실행 하기 위해 만든 ISE입니다. ISE가 없으면 [먼저 ise를 만듭니다](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
-* ISE에 배포 된 리소스를 만들거나 추가 하거나 업데이트 하려면 해당 ISE에 소유자 또는 참가자 역할을 할당 하거나 ISE와 연결 된 azure 구독 또는 Azure 리소스 그룹을 통해 상속 된 사용 권한을 보유 해야 합니다. 소유자, 참여자 또는 상속 된 사용 권한이 없는 사용자의 경우 통합 서비스 환경 참여자 역할 또는 통합 서비스 환경 개발자 역할에 할당 될 수 있습니다. RBAC (역할 기반 액세스 제어)에 대 한 자세한 내용은 [Azure 리소스에 대 한 rbac (역할 기반 액세스 제어](../role-based-access-control/overview.md)) 란?을 참조 하세요.
+* ISE에 배포 된 리소스를 만들거나 추가 하거나 업데이트 하려면 해당 ISE에 소유자 또는 참가자 역할을 할당 하거나 ISE와 연결 된 azure 구독 또는 Azure 리소스 그룹을 통해 상속 된 사용 권한을 보유 해야 합니다. 소유자, 참여자 또는 상속 된 사용 권한이 없는 사용자의 경우 통합 서비스 환경 참여자 역할 또는 통합 서비스 환경 개발자 역할에 할당 될 수 있습니다. 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/overview.md)란?을 참조 하세요.
 
 <a name="create-logic-apps-environment"></a>
 
@@ -34,7 +34,7 @@ ms.locfileid: "79164879"
 
 ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 다음 단계를 수행 합니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **논리 앱** > **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **논리 앱**  >  **추가**를 선택 합니다.
 
    ![ISE에 새 논리 앱 추가](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -42,7 +42,7 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
    ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 만들 논리 앱의 이름 |
    | **구독** | 예 | 사용할 Azure 구독의 이름입니다. |
@@ -66,7 +66,7 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
 ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **통합 계정** > **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **통합 계정**  >  **추가**를 선택 합니다.
 
    ![ISE에 새 통합 계정 추가](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -74,7 +74,7 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
    ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 만들려는 통합 계정의 이름입니다. |
    | **구독** | 예 | 사용 하려는 Azure 구독의 이름입니다. |
@@ -113,7 +113,7 @@ ISE를 만든 후 사용할 수 있게 되는 Microsoft 관리 커넥터는 논�
 
 ISE에서 사용자 지정 커넥터를 사용 하려면 ISE 내에서 직접 사용자 지정 커넥터를 만듭니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **사용자 지정 커넥터** > **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **사용자 지정 커넥터**  >  **추가**를 선택 합니다.
 
    ![사용자 지정 커넥터 만들기](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 

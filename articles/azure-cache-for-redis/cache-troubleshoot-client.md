@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829672"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Azure Cache for Redis 클라이언트 쪽 문제 해결
 
@@ -41,10 +41,12 @@ ms.locfileid: "79277948"
 
 나쁜 `ThreadPool` 설정과 결합된 트래픽 폭주는 Redis 서버에서 이미 보냈으나 클라이언트 쪽에서 아직 소비되지 않은 데이타의 처리 지연이 발생할 수 있습니다.
 
-[예제 `ThreadPoolLogger`를 ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs)사용 `ThreadPool` 하 여 시간이 지남에 따라 통계가 어떻게 변화 하는지 모니터링 합니다. 아래와 같이 `TimeoutException` stackexchange의 메시지를 사용 하 여 자세히 조사할 수 있습니다.
+`ThreadPool` [예제 `ThreadPoolLogger` 를 ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs)사용 하 여 시간이 지남에 따라 통계가 어떻게 변화 하는지 모니터링 합니다. `TimeoutException`아래와 같이 Stackexchange의 메시지를 사용 하 여 자세히 조사할 수 있습니다.
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 위의 예외에는 몇 가지 흥미로운 문제가 있습니다.
 
@@ -57,7 +59,7 @@ ms.locfileid: "79277948"
 
 높은 클라이언트 CPU 사용량은 시스템이 요청 된 작업을 수행할 수 없음을 나타냅니다. 캐시가 응답을 신속 하 게 전송 하더라도 클라이언트는 적절 한 시간 내에 응답을 처리 하지 못할 수 있습니다.
 
-Azure Portal 또는 컴퓨터의 성능 카운터를 통해 사용 가능한 메트릭을 사용 하 여 클라이언트의 시스템 전체 CPU 사용량을 모니터링 합니다. 단일 프로세스의 CPU 사용량이 낮지만 시스템 차원의 CPU가 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의 해야 합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다. CPU가 높으면 [트래픽 버스트](#traffic-burst) 섹션 `in: XXX` 에 설명 `TimeoutException` 된 대로 오류 메시지에 높은 값이 발생할 수도 있습니다.
+Azure Portal 또는 컴퓨터의 성능 카운터를 통해 사용 가능한 메트릭을 사용 하 여 클라이언트의 시스템 전체 CPU 사용량을 모니터링 합니다. 단일 프로세스의 CPU 사용량이 낮지만 시스템 차원의 CPU가 높을 수 있기 때문에 *프로세스* CPU를 모니터링 하지 않도록 주의 해야 합니다. CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다. CPU `in: XXX` `TimeoutException` 가 높으면 [트래픽 버스트](#traffic-burst) 섹션에 설명 된 대로 오류 메시지에 높은 값이 발생할 수도 있습니다.
 
 > [!NOTE]
 > StackExchange.Redis 1.1.603 이상은 `TimeoutException` 오류 메시지에 `local-cpu` 매트릭을 포함합니다. [StackExchange.Redis NuGet 패키지](https://www.nuget.org/packages/StackExchange.Redis/)최신 버전을 사용 중인지 확인합니다. 제한 시간에 더욱 견고하도록 만들기 위해 코드 속의 버그를 지속적으로 수정하고 있으므로 최신 버전을 갖는 것이 중요합니다.
@@ -72,7 +74,7 @@ Azure Portal 또는 컴퓨터의 성능 카운터를 통해 사용 가능한 메
 
 클라이언트 컴퓨터의 아키텍처에 따라, 클라이언트 컴퓨터는 어느 정도의 네트워크 대역폭을 사용할 수 있는지에 제한이 있습니다. 클라이언트에서 네트워크 용량을 오버 로드 하 여 사용 가능한 대역폭을 초과 하면 서버에서 데이터를 전송 하는 속도 만큼 속도가 클라이언트 쪽에서 처리 되지 않습니다. 이 경우 시간이 초과될 수 있습니다.
 
-[예제 `BandwidthLogger`를 ](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs)사용 하 여 시간에 따라 대역폭 사용량이 어떻게 변화 하는지 모니터링 합니다. 이 코드는 (Azure 웹 사이트와 같이) 권한이 제한된 일부 환경에서 성공적으로 실행되지 않을 수도 있습니다.
+[예제 `BandwidthLogger` 를 ](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs)사용 하 여 시간에 따라 대역폭 사용량이 어떻게 변화 하는지 모니터링 합니다. 이 코드는 (Azure 웹 사이트와 같이) 권한이 제한된 일부 환경에서 성공적으로 실행되지 않을 수도 있습니다.
 
 이를 완화 하려면 네트워크 대역폭 사용량을 줄이거나 클라이언트 VM 크기를 네트워크 용량이 더 많은 것으로 늘리십시오.
 

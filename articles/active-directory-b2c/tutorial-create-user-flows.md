@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 06/07/2019
+ms.topic: how-to
+ms.date: 07/01/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63c15b13134f17cd2e1d0bf7b8d11a168dca5b2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829964"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -41,12 +41,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 등록 및 로그인 사용자 흐름은 단일 구성으로 가입 및 로그인 환경을 둘 다 처리합니다. 애플리케이션 사용자는 컨텍스트에 따라 올바른 경로로 안내됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 
     ![B2C 테 넌 트, 디렉터리 및 구독 창, Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
-1. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
-1. **정책**에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
+1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
+1. **정책**에서 **사용자 흐름**을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
 
     ![새 사용자 흐름 단추가 강조 표시 된 포털의 사용자 흐름 페이지](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -59,11 +59,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![속성이 강조 표시 된 Azure Portal에서 사용자 흐름 만들기 페이지](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-1. **사용자 특성 및 클레임**에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 표시**를 선택 하 고 **국가/지역**, **표시 이름**및 **우편 번호**에 대 한 특성 및 클레임을 선택 합니다. **확인**을 클릭합니다.
+1. **사용자 특성 및 클레임**에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 보기**를 선택하고 **국가/지역**, **표시 이름** 및 **우편 번호**의 특성 및 클레임을 선택합니다. **확인**을 클릭합니다.
 
     ![3 개의 클레임이 선택 된 특성 및 클레임 선택 페이지](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. **만들기**를 클릭하여 사용자 흐름을 추가합니다. 접두사 *B2C_1*이 이름을 자동으로 추가됩니다.
+1. **만들기**를 클릭하여 사용자 흐름을 추가합니다. *B2C_1* 의 접두사가 자동으로 이름 앞에 붙습니다.
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 애플리케이션에서 프로필을 편집할 수 있도록 하려면 프로필 편집 사용자 흐름을 사용합니다.
 
-1. Azure AD B2C 테 넌 트 개요 페이지의 메뉴에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
+1. Azure AD B2C 테 넌 트 개요 페이지의 메뉴에서 **사용자 흐름**을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
 1. **권장** 탭에서 **프로필 편집** 사용자 흐름을 선택 합니다.
 1. 사용자 흐름의 **이름을** 입력 합니다. 예를 들어 *profileediting1*과 같습니다.
 1. **ID 공급자**로 **로컬 계정 로그인**을 선택합니다.
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 응용 프로그램 사용자가 암호를 재설정할 수 있도록 하려면 암호 재설정 사용자 흐름을 사용 합니다.
 
-1. Azure AD B2C 테 넌 트 개요 메뉴에서 **사용자 흐름 (정책)** 을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
+1. Azure AD B2C 테 넌 트 개요 메뉴에서 **사용자 흐름**을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
 1. **권장** 탭에서 **암호 재설정** 사용자 흐름을 선택 합니다.
 1. 사용자 흐름의 **이름을** 입력 합니다. 예를 들어 *passwordreset1*과 같습니다.
 1. **ID 공급자**에서 **메일 주소를 사용하여 암호 재설정**을 사용하도록 설정합니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4541874a9e8fc4111e5c65d02f07535c4d14f9f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829876"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>사설 클라우드 환경을 보호 하는 방법
 
@@ -29,16 +29,16 @@ CloudSimple 서비스를 만들려면 Azure 구독에 대 한 **소유자** 또�
 
 리소스 그룹에 대 한 **소유자** 또는 **참가자** 권한이 있는 사용자만 CloudSimple 서비스를 보고 cloudsimple 포털을 시작 합니다.
 
-RBAC에 대 한 자세한 내용은 [Azure 리소스에 대 한 rbac (역할 기반 액세스 제어) 란?](../role-based-access-control/overview.md)을 참조 하세요.
+자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../role-based-access-control/overview.md)을 참조 하세요.
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>사설 클라우드 vCenter 용 RBAC
 
-사설 클라우드를 `CloudOwner@cloudsimple.local` 만들 때 vCenter SSO 도메인에 기본 사용자가 만들어집니다.  CloudOwner 사용자에 게 vCenter를 관리할 권한이 있습니다. 다른 사용자에 게 액세스를 제공 하기 위해 추가 id 소스가 vCenter SSO에 추가 됩니다.  미리 정의 된 역할 및 그룹은 사용자를 추가 하는 데 사용할 수 있는 vCenter에 설정 됩니다.
+`CloudOwner@cloudsimple.local`사설 클라우드를 만들 때 VCENTER SSO 도메인에 기본 사용자가 만들어집니다.  CloudOwner 사용자에 게 vCenter를 관리할 권한이 있습니다. 다른 사용자에 게 액세스를 제공 하기 위해 추가 id 소스가 vCenter SSO에 추가 됩니다.  미리 정의 된 역할 및 그룹은 사용자를 추가 하는 데 사용할 수 있는 vCenter에 설정 됩니다.
 
 ### <a name="add-new-users-to-vcenter"></a>VCenter에 새 사용자 추가
 
-1. 사설 클라우드의 **CloudOwner\@cloudsimple. 로컬** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
-2. **CloudOwner\@cloudsimple. local** 을 사용 하 여 vCenter에 로그인 합니다.
+1. 사설 클라우드의 **CloudOwner \@ cloudsimple. 로컬** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
+2. **CloudOwner \@ cloudsimple. local** 을 사용 하 여 vCenter에 로그인 합니다.
 3. [VCenter Single Sign-on 사용자를 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html)합니다.
 4. [VCenter Single Sign-On 그룹](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 사용자를 추가 합니다.
 
@@ -51,8 +51,8 @@ RBAC에 대 한 자세한 내용은 [Azure 리소스에 대 한 rbac (역할 기
 * 사설 클라우드 vCenter에서 [id 공급자로 Active Directory를 사용](set-vcenter-identity.md) 합니다.
 * 사설 클라우드 vCenter에서 [AZURE AD를 id 공급자로 사용](azure-ad.md)
 
-1. 사설 클라우드의 **CloudOwner\@cloudsimple. 로컬** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
-2. **CloudOwner\@cloudsimple. local** 을 사용 하 여 vCenter에 로그인 합니다.
+1. 사설 클라우드의 **CloudOwner \@ cloudsimple. 로컬** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
+2. **CloudOwner \@ cloudsimple. local** 을 사용 하 여 vCenter에 로그인 합니다.
 3. Id 공급자의 사용자를 [vCenter Single Sign-On 그룹](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 추가 합니다.
 
 ## <a name="secure-network-on-your-private-cloud-environment"></a>사설 클라우드 환경의 보안 네트워크

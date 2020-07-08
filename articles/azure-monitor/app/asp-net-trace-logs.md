@@ -3,12 +3,12 @@ title: Application Insights에서 .NET 추적 로그 탐색
 description: 추적, NLog 또는 Log4Net에서 생성된 로그를 검색합니다.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: bcd21286a547e0b0a6b5b93e8b05921e8e8cc1e2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829536"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 검색
 
@@ -73,11 +73,15 @@ NuGet 패키지는 필요한 어셈블리를 설치하고 해당하는 경우 we
 ## <a name="insert-diagnostic-log-calls"></a>진단 로그 호출 삽입
 System.Diagnostics.Trace를 사용하는 경우 일반적인 호출 방법은 다음과 같습니다.
 
-    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```csharp
+System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```
 
 log4net 또는 NLog를 원하는 경우 다음을 사용합니다.
 
+```csharp
     logger.Warn("Slow response - database01");
+```
 
 ## <a name="use-eventsource-events"></a>EventSource 이벤트 사용
 Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
@@ -133,17 +137,21 @@ Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어
 
 다음은 그 예입니다.
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
+```csharp
+var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+telemetry.TrackTrace("Slow response - database01");
+```
 
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
 
 메시지에 심각도 수준을 추가할 수도 있습니다. 또한 다른 원격 분석처럼, 다른 추적 세트에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다.
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow database response",
-                   SeverityLevel.Warning,
-                   new Dictionary<string,string> { {"database", db.ID} });
+  ```csharp
+  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+  telemetry.TrackTrace("Slow database response",
+                 SeverityLevel.Warning,
+                 new Dictionary<string,string> { {"database", db.ID} });
+  ```
 
 이를 통해 [Search][diagnostic]에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
 

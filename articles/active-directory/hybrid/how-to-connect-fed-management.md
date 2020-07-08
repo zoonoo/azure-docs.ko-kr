@@ -12,18 +12,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331975"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830930"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 이 문서에서는 Azure AD(Azure Active Directory) Connect를 사용하여 AD FS(Active Directory Federation Services)를 관리 및 사용자 지정하는 방법을 설명합니다. 또한 AD FS 팜의 완벽한 구성을 위해 수행해야 할 수 있는 다른 일반적인 AD FS 작업을 포함합니다.
@@ -192,7 +192,9 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 > [!NOTE]
 > 로고의 권장 크기는 파일 크기가 10KB 이하인 260x35 \@ 96dpi입니다.
 
-    Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```azurepowershell-interactive
+Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```
 
 > [!NOTE]
 > *TargetName* 매개 변수가 필요합니다. AD FS와 함께 제공되는 기본 테마의 이름은 Default입니다.
@@ -200,7 +202,9 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 ## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>로그인 설명 추가 
 **로그인 페이지**에 로그인 페이지 설명을 추가하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
 
-    Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```azurepowershell-interactive
+Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>AD FS 클레임 규칙 수정 
 AD FS는 사용자 지정 클레임 규칙을 만드는 데 사용할 수 있는 다양한 클레임 언어를 지원합니다. 자세한 내용은 [클레임 규칙 언어의 역할](https://technet.microsoft.com/library/dd807118.aspx)을 참조하세요.
@@ -214,8 +218,10 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 
 **규칙 1: 쿼리 특성**
 
-    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
-    => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```claim-rule-language
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
+=> add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```
 
 이 규칙에서는 Active Directory의 사용자에 대해 **ms-ds-consistencyguid** 및 **objectGuid**의 값을 쿼리합니다. AD FS 배포에서 적절한 저장소 이름으로 저장소 이름을 변경합니다. 또한 **objectGuid** 및 **ms-ds-consistencyguid**에 대해 정의된 대로 페더레이션에 대한 적절한 클레임 형식으로 클레임 형식을 변경합니다.
 
@@ -223,23 +229,29 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 
 **규칙 2: 사용자에 대한 ms-ds-consistencyguid가 있는지 확인**
 
-    NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
-    => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```claim-rule-language
+NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
+=> add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```
 
 이 규칙은 단순히 사용자에 대해 채워진 **ms-ds-consistencyguid**가 없는 경우 **useguid**로 설정된 **idflag**라는 임시 플래그를 정의합니다. 이 이면에 숨겨진 논리는 AD FS가 빈 클레임을 허용하지 않는다는 사실입니다. 따라서 규칙 1에 `http://contoso.com/ws/2016/02/identity/claims/objectguid` 및 `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` 클레임을 추가할 때는 해당 사용자에 대해 값이 입력되는 경우에만 **msdsconsistencyguid** 클레임으로 마칩니다. 채워지지 않은 경우 AD FS는 빈 값을 갖는 것을 확인하고 즉시 삭제합니다. 모든 개체에는 **objectGuid**가 있으므로 규칙 1이 실행된 후 항상 클레임이 발생합니다.
 
 **규칙 3: 있는 경우 변경이 불가능한 ID로 ms-ds-consistencyguid 발급**
 
-    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```claim-rule-language
+c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```
 
 이는 암시적 **Exist** 확인입니다. 클레임에 대한 값이 있으면 변경이 불가능한 ID로 이를 발급합니다. 이전 예제는 **nameidentifier** 클레임을 사용합니다. 사용자 환경에서 변경이 불가능한 ID에 대한 적절한 클레임 유형으로 변경해야 합니다.
 
 **규칙 4: ms-ds-consistencyGuid가 없는 경우 변경이 불가능한 ID로 objectGuid 발급**
 
-    c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
-    && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```claim-rule-language
+c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
+&& c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```
 
 이 규칙에서는 단순히 임시 플래그 **idflag**를 확인합니다. 해당 값에 따라 클레임 발급 여부를 결정합니다.
 
