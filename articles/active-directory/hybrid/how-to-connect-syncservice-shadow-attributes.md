@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60384711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356664"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 동기화 서비스 섀도 특성
 대부분의 특성은 온-프레미스 Active Directory에 있을 때와 동일한 방식으로 Azure AD에 표현됩니다. 하지만 일부 특성은 조작 방법이 특별하며 Azure AD의 특성 값이 Azure AD Connect가 동기화하는 값과 다를 수 있습니다.
@@ -58,7 +58,7 @@ proxyAddresses에서도 확인된 도메인만 포함하기 위한 동일한 프
 | 온-프레미스 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-이 경우 해당 도메인이 확인 되지 않았기 때문에 **smtp: abbie.\@spencer fabrikam.com** 가 제거 되었습니다. 그러나 Exchange는 **SIP: abbie.\@spencer fabrikamonline.com**도 추가 했습니다. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
+이 경우 해당 도메인이 확인 되지 않았기 때문에 **smtp: abbie. spencer \@ fabrikam.com** 가 제거 되었습니다. 그러나 Exchange는 **SIP: abbie. spencer \@ fabrikamonline.com**도 추가 했습니다. Fabrikam은 Lync/Skype 온-프레미스를 사용하지 않지만 Azure AD와 Exchange Online은 그에 대한 준비를 합니다.
 
 proxyAddresses에 대한 이 논리를 **ProxyCalc**라고 합니다. 다음과 같은 경우 사용자에 대한 모든 변경 내용과 함께 ProxyCalc가 호출됩니다.
 
@@ -76,4 +76,4 @@ ProxyCalc는 사용자에 대한 변경 내용을 처리하는 데 다소 시간
 
 ## <a name="see-also"></a>참고 항목
 * [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
-* [Azure Active Directory와 온-프레미스 Id 통합](whatis-hybrid-identity.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)

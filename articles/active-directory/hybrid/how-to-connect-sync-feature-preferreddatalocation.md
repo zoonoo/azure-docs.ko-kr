@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357412"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
 이 항목의 목적은 Azure Active Directory (Azure AD) Connect 동기화에서 기본 데이터 위치에 대 한 특성을 구성 하는 방법을 안내 하는 것입니다. 누군가가 Office 365에서 다중 지역 기능을 사용 하는 경우이 특성을 사용 하 여 사용자의 Office 365 데이터의 지리적 위치를 지정 합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -44,16 +44,16 @@ Office 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있나�
 | --- | --- |
 | 아시아 태평양 | APC |
 | 오스트레일리아 | AUS |
-| Canada | CAN |
+| 캐나다 | CAN |
 | 유럽 연합 | EUR |
 | 프랑스 | FRA |
 | 인도 | IND |
 | 일본 | JPN |
 | 한국 | KOR |
-| 남아프리카 | ZAF |
+| 남아프리카 공화국 | ZAF |
 | 스위스 | 요청한 |
-| 아랍에미리트 | ARE |
-| United Kingdom | GBR |
+| 아랍에미리트연합국 | ARE |
+| 영국 | GBR |
 | 미국 | NAM |
 
 * 지역이 이 표에 없는 경우(예: 남아메리카) 다중 지역에 사용할 수 없습니다.
@@ -62,7 +62,7 @@ Office 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있나�
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원
 
-Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 특히 다음에 대한 내용을 설명합니다.
+Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 특히:
 
 * Azure AD Connector의 **User** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 * 메타버스의 **Person** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
@@ -138,16 +138,16 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 1. **시작** > **동기화 규칙 편집기**로 이동하여 **동기화 규칙 편집기**를 시작합니다.
 2. **방향** 검색 필터를 **인바운드**로 설정합니다.
 3. 새 인바운드 규칙을 만들려면 **새 규칙 추가**를 선택합니다.
-4. **설명** 탭 아래에서 다음 구성을 제공 합니다.
+4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
     | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | Name | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
+    | 속성 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
     | 설명 | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **사용자** |  |
     | 메타버스 개체 유형 | **Person** |  |
-    | 링크 형식 | **연결** |  |
+    | 링크 형식 | **Join** |  |
     | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
 
 5. 모든 개체를 포함 하려면 **범위 지정 필터** 를 비워 둡니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
@@ -167,28 +167,28 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 1. **동기화 규칙 편집기**로 이동 합니다.
 2. **방향** 검색 필터를 **아웃바운드**로 설정합니다.
 3. **새 규칙 추가**를 선택합니다.
-4. **설명** 탭 아래에서 다음 구성을 제공 합니다.
+4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
     | 특성 | 값 | 세부 정보 |
     | ----- | ------ | --- |
-    | Name | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
-    | 설명 | *설명 제공* ||
+    | 속성 | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
+    | Description | *설명 제공* ||
     | 연결된 시스템 | *Azure AD 커넥터에 선택* ||
     | 연결된 시스템 개체 유형 | **사용자** ||
     | 메타버스 개체 유형 | **Person** ||
-    | 링크 형식 | **연결** ||
+    | 링크 형식 | **Join** ||
     | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
 
 5. **범위 지정 필터** 탭으로 이동 하 여 다음 두 절이 있는 단일 범위 지정 필터 그룹을 추가 합니다.
 
-    | 특성 | 연산자 | 값 |
+    | attribute | 연산자 | 값 |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 사용자 |
     | cloudMastered | NOTEQUAL | True |
 
     범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예제에서는 "Out to Azure AD – User Identity" OOB (기본 제공) 동기화 규칙에서 동일한 범위 지정 필터를 사용 합니다. 이를 통해 온-프레미스 Active Directory에서 동기화 되지 않은 **사용자** 개체에 동기화 규칙이 적용 되지 않습니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 
-6. **변환** 탭으로 이동하여 다음 변환 규칙을 구현합니다.
+6. **변환** 탭으로 이동 하 여 다음 변환 규칙을 구현 합니다.
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
@@ -234,7 +234,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 
         a. **범위**를 **보류 중인 내보내기**로 설정합니다.<br>
         b. **추가, 수정 및 삭제**를 포함한 세 개의 확인란을 모두 선택합니다.<br>
-        c. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색**을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
+        다. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색**을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
         d. 필요한 변경 내용인지 확인합니다.
 
 6. **AZURE AD Connector** 에서 **내보내기** 실행

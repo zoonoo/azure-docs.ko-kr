@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5585f0cd04dca4145f0322db9d625e35372b24b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78298346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356885"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원 력은 Microsoft의 동기화 도구 중 하나를 실행할 때 **UserPrincipalName** 및 SMTP **proxyaddress** 충돌로 인 한 마찰을 제거 하는 Azure Active Directory의 기능입니다.
@@ -40,7 +40,7 @@ ms.locfileid: "78298346"
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>중복 특성 복원력으로 동작
 중복 특성으로 개체 프로비전 또는 업데이트에 완전히 실패하는 대신 Azure Active Directory는 고유성 제약 조건을 위반하는 중복 특성을 “격리합니다”. 이 특성이 UserPrincipalName과 같은 프로비전에 필요한 경우 서비스는 자리 표시자 값을 할당합니다. 이러한 임시 값의 형식은  
-_** \@ \<Originalprefix>+\<4DigitNumber>initialtenantdomain>. onmicrosoft.com. \<**_
+_** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
 
 복원 력 프로세스 특성은 UPN 및 SMTP **Proxyaddress** 값만 처리 합니다.
 
@@ -116,7 +116,7 @@ _** \@ \<Originalprefix>+\<4DigitNumber>initialtenantdomain>. onmicrosoft.com. \
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>제한된 수량 또는 모두
-1. **MaxResults \<Int>** 를 사용 하 여 쿼리를 특정 개수의 값으로 제한할 수 있습니다.
+1. **MaxResults\<Int>** 는 특정 값으로 쿼리를 제한하는 데 사용할 수 있습니다.
 2. **All** 은 많은 오류가 있는 경우 검색되는 모든 결과를 확인하기 위해 사용할 수 있습니다.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
@@ -145,11 +145,11 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 **핵심 동작:**
 
 1. 특정 특성 구성이 있는 개체는 격리되는 중복 특성과 달리 내보내기 오류가 계속 수신됩니다.  
-   다음은 그 예입니다.
+   예를 들어:
    
-    a. 새 사용자는 **\@Joe Contoso.com** 및 proxyaddress **SMTP\@: Joe CONTOSO.COM** 의 UPN을 사용 하 여 AD에서 만들어집니다.
+    a. 새 사용자는 **joe \@ Contoso.com** 및 proxyaddress **smtp: Joe \@ contoso.com** 의 UPN을 사용 하 여 AD에서 만들어집니다.
    
-    b. 이 개체의 속성이 기존 그룹과 충돌 합니다. 여기서 ProxyAddress는 **SMTP: Joe\@contoso.com**입니다.
+    b. 이 개체의 속성이 기존 그룹과 충돌 합니다. 여기서 ProxyAddress는 **SMTP: Joe \@ contoso.com**입니다.
    
     다. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
 2. 두 그룹이 동일한 SMTP 주소로 온-프레미스가 생성되는 경우 하나는 첫 번째 시도에서 표준 중복 **ProxyAddress** 오류로 프로비전하지 못합니다. 그러나 다음 동기화 주기 시 중복 값은 제대로 격리됩니다.
@@ -157,22 +157,22 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 **Office 포털 보고서**:
 
 1. UPN 충돌 집합에서 두 개체에 대한 자세한 오류 메시지는 같습니다. 이는 실제로 하나에만 변경된 데이터가 있는 경우 둘 모두 해당 UPN을 변경 / 격리했음을 나타냅니다.
-2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 다음은 그 예입니다.
+2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예를 들어:
    
-    a. **사용자 A는** 먼저 **UPN = User\@contoso.com**를 사용 하 여 동기화 됩니다.
+    a. **사용자 A는** 먼저 **UPN = User \@ contoso.com**를 사용 하 여 동기화 됩니다.
    
-    b. **사용자 B** 는 **UPN =\@User contoso.com**다음에 동기화 하려고 시도 합니다.
+    b. **사용자 B** 는 **UPN = User \@ contoso.com**다음에 동기화 하려고 시도 합니다.
    
-    다. **사용자 B** UPN이 **User1234\@contoso.onmicrosoft.com** 로 변경 되 **고\@사용자 contoso.com** 가 **DirSyncProvisioningErrors**에 추가 됩니다.
+    다. **사용자 B** UPN이 **User1234 \@ contoso.onmicrosoft.com** 로 변경 되 고 **사용자 \@ contoso.com** 가 **DirSyncProvisioningErrors**에 추가 됩니다.
    
-    d. 사용자 **b** 의 오류 메시지에는 사용자 **A** 가 이미 UPN으로 **사용자\@contoso.com** 있음을 표시 하지만 **사용자 b의** 고유한 displayName이 표시 됩니다.
+    d. 사용자 **b** 의 오류 메시지에는 사용자 **A** 가 이미 UPN으로 **사용자 \@ contoso.com** 있음을 표시 하지만 **사용자 b의** 고유한 displayName이 표시 됩니다.
 
 **ID 동기화 오류 보고서**:
 
 *이 문제를 해결하는 방법에 대한 단계*의 링크가 잘못되었습니다.  
     ![활성 사용자](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "활성 사용자")  
 
-을 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)가리켜야 합니다.
+을 가리켜야 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) 합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)

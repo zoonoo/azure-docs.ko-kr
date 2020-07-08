@@ -7,17 +7,17 @@ manager: daveba
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357871"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -243,7 +243,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
  5. **확인**을 클릭하여 저장합니다.
 ![온-프레미스 AD 커넥터 스키마에 원본 특성 추가](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>3단계: Azure AD 커넥터 스키마에 UserType 추가
+### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>3 단계: Azure AD 커넥터 스키마에 UserType 특성 추가
 기본적으로 UserType 특성은 Azure AD Connect 공간으로 가져오지 않습니다. 가져온 특성 목록에 UserType 특성을 추가하려면 다음을 수행합니다.
 
  1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
@@ -340,7 +340,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
 1. **온-프레미스 AD 커넥터**에서 **전체 가져오기**를 실행합니다
 
-   1. Synchronization Service Manager에 있는 **작업** 탭으로 이동합니다.
+   1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
    2. **온-프레미스 AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **실행**을 선택합니다.
    3. 팝업 대화 상자에서 **전체 가져오기**를 선택하고 **확인**을 클릭합니다.
    4. 작업이 완료될 때까지 기다립니다.

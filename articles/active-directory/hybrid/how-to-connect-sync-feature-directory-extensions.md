@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77917916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357463"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [확장](https://docs.microsoft.com/graph/extensibility-overview
@@ -60,14 +60,14 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 
 이 앱을 보려면 **모든 응용 프로그램** 을 선택 해야 합니다.
 
-특성에는 **확장명이 \_{ApplicationId}\_** 인 접두사가 붙습니다. ApplicationId는 Azure AD 테 넌 트의 모든 특성에 대해 동일한 값을 갖습니다. 이 항목의 다른 모든 시나리오에는이 값이 필요 합니다.
+특성에는 **확장명이 \_ {ApplicationId} \_ **인 접두사가 붙습니다. ApplicationId는 Azure AD 테 넌 트의 모든 특성에 대해 동일한 값을 갖습니다. 이 항목의 다른 모든 시나리오에는이 값이 필요 합니다.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Microsoft Graph API를 사용 하 여 특성 보기
 
 이제 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer#)를 사용 하 여 Microsoft Graph API를 통해 이러한 특성을 사용할 수 있습니다.
 
 >[!NOTE]
-> Microsoft Graph API에서 반환할 특성을 요청 해야 합니다. 다음과 `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`같은 특성을 명시적으로 선택 합니다..
+> Microsoft Graph API에서 반환할 특성을 요청 해야 합니다. 다음과 같은 특성을 명시적으로 선택 `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` 합니다..
 >
 > 자세한 내용은 [Microsoft Graph: 쿼리 매개 변수 사용](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter)을 참조하세요.
 

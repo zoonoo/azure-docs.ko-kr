@@ -5,21 +5,21 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/12/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357854"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
-단계적 롤아웃 방법을 사용하여 페더레이션 인증에서 클라우드 인증으로 마이그레이션할 수 있습니다. 이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
+스테이징 된 롤아웃 방법을 사용 하 여 전체 도메인에 대 한 사용을 방지할 수 있습니다.  이를 통해 Azure Multi-Factor Authentication (MFA), 조건부 액세스, 누출 된 자격 증명에 대 한 Id 보호, Id 관리 등의 클라우드 인증 기능을 통해 사용자 그룹을 선택적으로 테스트할 수 있습니다.  이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
     
 -  현재 온-프레미스 Multi-Factor Authentication 서버를 사용하고 있습니다. 
 -  인증에 스마트 카드를 사용하고 있습니다. 
@@ -38,8 +38,8 @@ ms.locfileid: "83644163"
 -   도메인이 페더레이션된 Azue AD(Azure Active Directory) 테넌트가 있습니다.
 
 -   다음 두 옵션 중 하나로 전환하기로 결정했습니다.
-    - **옵션 A** - *암호 해시 동기화(동기화)*  + *Seamless SSO(Single Sign-On)*
-    - **옵션 B** - *통과 인증* + *Seamless SSO*
+    - **옵션 A**  -  *암호 해시 동기화 (동기화)*  +  *SSO (원활한 Single Sign-On)*.  자세한 내용은 [암호 해시 동기화 란 무엇](whatis-phs.md) 이며 [원활한 SSO 란?](how-to-connect-sso.md) 을 참조 하세요.
+    - **옵션 B**  -  *통과 인증*  +  *원활한 SSO*.  자세한 내용은 [통과 인증 이란?](how-to-connect-pta.md) 을 참조 하세요.  
     
     *Seamless SSO*는 선택 사항이지만, 이 옵션을 사용하여 회사 네트워크 내부에서 도메인에 조인된 머신을 실행하는 사용자에게 자동 로그인 환경을 구현하는 것이 좋습니다.
 
@@ -76,12 +76,12 @@ ms.locfileid: "83644163"
     - 단계적 롤아웃에는 동적 그룹이 *지원되지 않습니다*.
     - 그룹 내의 연락처 개체는 그룹이 추가되는 것을 차단합니다.
 
-- 여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션에서 관리형으로 전환하지 않습니다.
+- 여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션에서 관리형으로 전환하지 않습니다.  도메인에 대 한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](plan-migrate-adfs-password-hash-sync.md) 및 [페더레이션에서 통과 인증으로 마이그레이션](plan-migrate-adfs-pass-through-authentication.md) 을 참조 하세요.
+
+
 
 - 단계적 롤아웃에 대한 보안 그룹을 처음 추가하면 UX 시간 제한을 방지하기 위해 사용자 수가 200명으로 제한됩니다. 그룹을 추가한 후에는 필요한 만큼 사용자를 그룹에 추가할 수 있습니다.
 
->[!NOTE]
-> 테넌트 엔드포인트는 로그인 힌트를 전송하지 않으므로 단계적 롤아웃을 지원하지 않습니다.  SAML 애플리케이션은 테넌트 엔드포인트를 사용하며, 마찬가지로 단계적 롤아웃을 지원하지 않습니다.
 
 ## <a name="get-started-with-staged-rollout"></a>단계적 롤아웃 시작
 

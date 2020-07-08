@@ -11,22 +11,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: e31f5e6afb3b586cd8eb20db8d1ca34e95de86cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60348731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356800"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
 Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에서 업그레이드하는 방법을 찾습니다. 다음 단계는 Azure AD Connect의 다른 버전 또는 Azure AD Sync에서 업그레이드하는 경우에 작동하지 않습니다.
 
-Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다. 특히, 이러한 영역이 DirSync와 다르기 때문에 다음에 대해 참고해야 합니다.
+Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료해야 합니다. 특히, 이러한 영역이 DirSync와 다르기 때문에 다음에 대해 참고해야 합니다.
 
 * .NET 및 PowerShell의 필수 버전 서버에는 DirSync에서보다 최신 버전이 필요합니다.
 * 프록시 서버 구성입니다. 프록시 서버를 사용하여 인터넷에 연결하는 경우 업그레이드하기 전에 이 설정을 구성해야 합니다. DirSync을 설치하는 사용자를 위해 구성된 프록시 서버를 항상 사용하지만 Azure AD Connect는 대신 컴퓨터 설정을 사용합니다.
@@ -101,7 +101,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
      ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * DirSync에 전체 SQL Server를 사용하는 경우 대신 다음 페이지가 표시됩니다.  
      ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
-     DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버와 관련된 정보는 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음**을 클릭하여 설치를 계속합니다.
+     DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버와 관련된 정보는 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음**을 클릭하여 설치를 계속 진행합니다.
    * 50,000개 이상의 개체가 있는 경우 대신 다음 화면이 표시됩니다.  
      ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      현재 위치 업그레이드를 진행하려면 **이 컴퓨터에서 계속 DirSync 업그레이드합니다.** 라는 메시지 옆에 있는 확인란을 클릭합니다.
