@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261072"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
@@ -37,7 +37,8 @@ ms.locfileid: "79277649"
 
 함수를 로컬로 실행 중인 경우 앱 설정 값은 *local.settings.json* 파일에서 가져옵니다.
 
-트리거 및 바인딩의 `connection` 속성은 특수한 경우이며, 백분율 기호 없이 앱 설정으로 값을 자동 확인합니다. 
+> [!NOTE]
+> `connection`트리거와 바인딩의 속성은 특수 한 경우 이며 백분율 기호 없이 앱 설정으로 값을 자동으로 확인 합니다. 
 
 다음 예제는 `%input-queue-name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 Azure Queue Storage 트리거입니다.
 

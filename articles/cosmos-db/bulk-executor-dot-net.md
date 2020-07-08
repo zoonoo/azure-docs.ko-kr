@@ -5,16 +5,16 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260664"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행자 .NET 라이브러리를 사용 하 여 Azure Cosmos DB에서 대량 작업을 수행 합니다.
 
@@ -23,17 +23,17 @@ ms.locfileid: "80478855"
 
 > 현재 대량 실행자 라이브러리를 사용 하 고 최신 SDK에서 대량 지원으로 마이그레이션하려는 경우 [마이그레이션 가이드](how-to-migrate-from-bulk-executor-library.md) 의 단계를 사용 하 여 응용 프로그램을 마이그레이션합니다.
 
-이 자습서에서는 대량 실행자 .NET 라이브러리를 사용 하 여 Azure Cosmos 컨테이너에 문서를 가져오고 업데이트 하는 방법에 대 한 지침을 제공 합니다. 대량 실행자 라이브러리 및이 라이브러리를 사용 하 여 대규모 처리량 및 저장소를 활용 하는 방법에 대 한 자세한 내용은 [bulk executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조 하세요. 이 자습서에서는 무작위로 생성 된 문서를 Azure Cosmos 컨테이너로 대량으로 가져오는 샘플 .NET 응용 프로그램이 표시 됩니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
+이 자습서에서는 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos 컨테이너에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. 대량 실행자 라이브러리 및이 라이브러리를 사용 하 여 대규모 처리량 및 저장소를 활용 하는 방법에 대 한 자세한 내용은 [bulk executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조 하세요. 이 자습서에서는 무작위로 생성 된 문서를 Azure Cosmos 컨테이너로 대량으로 가져오는 샘플 .NET 응용 프로그램이 표시 됩니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
 
 현재 대량 실행자 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정 에서만 지원 됩니다. 이 문서에서는 SQL API 계정에서 bulk executor .NET 라이브러리를 사용 하는 방법을 설명 합니다. Gremlin API 계정으로 bulk executor .NET 라이브러리를 사용 하는 방법에 대 한 자세한 내용은 [Azure Cosmos DB GREMLIN API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Visual Studio 2019이 아직 설치 되지 않은 경우 [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드 하 여 사용할 수 있습니다. Visual Studio를 설치 하는 동안 "Azure 개발"을 사용 하도록 설정 했는지 확인 합니다.
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-* Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/). 또는 `https://localhost:8081` 끝점과 함께 [Azure Cosmos DB 에뮬레이터](https://docs.microsoft.com/azure/cosmos-db/local-emulator) 를 사용할 수 있습니다. 기본 키는 [인증 요청](local-emulator.md#authenticating-requests)에 제공됩니다.
+* Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/). 또는 끝점과 함께 [Azure Cosmos DB 에뮬레이터](https://docs.microsoft.com/azure/cosmos-db/local-emulator) 를 사용할 수 있습니다 `https://localhost:8081` . 기본 키는 [인증 요청](local-emulator.md#authenticating-requests)에 제공됩니다.
 
 * .NET 빠른 시작 문서의 [데이터베이스 계정 만들기](create-sql-api-dotnet.md#create-account) 섹션에 설명된 단계를 사용하여 Azure Cosmos DB SQL API 계정을 만듭니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "80478855"
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-복제 된 리포지토리에는 "대량 Importsample" 및 "BulkUpdateSample" 라는 두 개의 샘플이 포함 되어 있습니다. 샘플 응용 프로그램 중 하나를 열고, Azure Cosmos DB 계정의 연결 문자열을 사용 하 여 app.config 파일의 연결 문자열을 업데이트 하 고, 솔루션을 빌드하고 실행할 수 있습니다.
+복제 된 리포지토리에는 "대량 Importsample" 및 "BulkUpdateSample" 라는 두 개의 샘플이 포함 되어 있습니다. 샘플 응용 프로그램 중 하나를 열고, Azure Cosmos DB 계정의 연결 문자열로 App.config 파일에서 연결 문자열을 업데이트 하 고, 솔루션을 빌드하고 실행할 수 있습니다.
 
 "대량 Importsample" 응용 프로그램은 임의의 문서를 생성 하 여 Azure Cosmos 계정으로 대량으로 가져옵니다. “BulkUpdateSample” 애플리케이션은 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 문서를 대량으로 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다.
 
@@ -63,7 +63,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   대량 가져오기는 App.config 파일에 지정 된 데이터베이스 이름, 컨테이너 이름 및 처리량 값을 사용 하 여 새 데이터베이스 및 컨테이너를 만듭니다.
+   대량 가져오기는 데이터베이스 이름, 컨테이너 이름 및 App.config 파일에 지정 된 처리량 값을 사용 하 여 새 데이터베이스 및 컨테이너를 만듭니다.
 
 3. 다음으로 DocumentClient 개체가 직접 TCP 연결 모드를 사용하여 초기화됩니다.  
 
@@ -120,15 +120,15 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    |NumberOfDocumentsImported(long)   |  대량 가져오기 API 호출에 제공 된 총 문서에서 성공적으로 가져온 총 문서 수입니다.       |
    |TotalRequestUnitsConsumed(double)   |   대량 가져오기 API 호출에서 사용된 총 요청 단위(RU)입니다.      |
    |TotalTimeTaken(TimeSpan)    |   대량 가져오기 API 호출에서 실행을 완료 하는 데 소요 된 총 시간입니다.      |
-   |BadInputDocuments (목록\<개체>)   |     대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 반환 된 문서를 수정 하 고 가져오기를 다시 시도 하세요. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).    |
+   |BadInputDocuments(List\<object>)   |     대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 반환 된 문서를 수정 하 고 가져오기를 다시 시도 하세요. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Azure Cosmos 계정에서 데이터 대량 업데이트
 
-BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습니다. 이 예제에서는 `Name` 필드를 새 값으로 설정 하 고 기존 문서에서 `Description` 필드를 제거 합니다. 지원 되는 업데이트 작업의 전체 집합은 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)를 참조 하세요.
+BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습니다. 이 예제에서는 `Name` 필드를 새 값으로 설정 하 고 `Description` 기존 문서에서 필드를 제거 합니다. 지원 되는 업데이트 작업의 전체 집합은 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)를 참조 하세요.
 
 1. “BulkUpdateSample” 폴더로 이동하고 “BulkUpdateSample.sln” 파일을 엽니다.  
 
-2. 해당 하는 필드 업데이트 작업과 함께 업데이트 항목을 정의 합니다. 이 예 `SetUpdateOperation` 에서는를 사용 하 여 `Name` 필드를 업데이트 하 고 `UnsetUpdateOperation` 모든 문서에서 `Description` 필드를 제거 합니다. 특정 값으로 문서 필드 증가와 같은 다른 작업을 수행하거나, 배열 필드에 특정 값을 푸시하거나, 배열 필드에서 특정 값을 제거할 수 있습니다. 대량 업데이트 API에서 제공하는 다른 방법을 알아보려면 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)를 참조하세요.
+2. 해당 하는 필드 업데이트 작업과 함께 업데이트 항목을 정의 합니다. 이 예에서는를 사용 하 여 `SetUpdateOperation` 필드를 업데이트 하 `Name` 고 `UnsetUpdateOperation` `Description` 모든 문서에서 필드를 제거 합니다. 특정 값으로 문서 필드 증가와 같은 다른 작업을 수행하거나, 배열 필드에 특정 값을 푸시하거나, 배열 필드에서 특정 값을 제거할 수 있습니다. 대량 업데이트 API에서 제공하는 다른 방법을 알아보려면 [API 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)를 참조하세요.
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -176,11 +176,11 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
 
 * 최상의 성능을 위해 Azure Cosmos 계정의 쓰기 지역과 동일한 지역에 있는 Azure 가상 머신에서 응용 프로그램을 실행 합니다.  
 
-* 특정 Azure Cosmos 컨테이너에 해당 하는 `BulkExecutor` 단일 가상 머신 내에서 전체 응용 프로그램에 대해 단일 개체를 인스턴스화하는 것이 좋습니다.  
+* `BulkExecutor`특정 Azure Cosmos 컨테이너에 해당 하는 단일 가상 머신 내에서 전체 응용 프로그램에 대해 단일 개체를 인스턴스화하는 것이 좋습니다.  
 
 * 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용 하므로 내부적으로 여러 작업을 생성 하 여 발생 합니다. 대량 작업 API 호출을 실행 하는 응용 프로그램 프로세스 내에서 여러 동시 작업을 생성 하지 않도록 합니다. 단일 가상 머신에서 실행 되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우 (컨테이너의 처리량이 100만 r u/초 > 경우) 대량 작업 API 호출을 동시에 실행 하는 별도의 가상 머신을 만드는 것이 좋습니다.  
 
-* 대상 Cosmos `InitializeAsync()` 컨테이너의 파티션 맵을 인출 하기 위해 대량 실행자 개체를 인스턴스화한 후 메서드가 호출 되는지 확인 합니다.  
+* `InitializeAsync()`대상 Cosmos 컨테이너의 파티션 맵을 인출 하기 위해 대량 실행자 개체를 인스턴스화한 후 메서드가 호출 되는지 확인 합니다.  
 
 * 애플리케이션의 App.Config에서 성능 향상을 위해 **gcServer**를 사용할 수 있도록 설정되었는지 확인합니다.
   ```xml  
@@ -188,7 +188,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
     <gcServer enabled="true" />
   </runtime>
   ```
-* 라이브러리는 로그 파일 또는 콘솔에 수집할 수 있는 추적을 내보냅니다. 둘 다 사용 하도록 설정 하려면 다음 코드를 응용 프로그램의 App.config 파일에 추가 합니다.
+* 라이브러리는 로그 파일 또는 콘솔에 수집할 수 있는 추적을 내보냅니다. 둘 다 사용 하도록 설정 하려면 응용 프로그램의 App.Config 파일에 다음 코드를 추가 합니다.
 
   ```xml
   <system.diagnostics>

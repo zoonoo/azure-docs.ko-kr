@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 RU(요청 단위) 요금 찾기
 description: Azure Cosmos 컨테이너에 대해 실행한 작업의 RU(요청 단위) 요금을 알아보는 방법을 배웁니다.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: e5420b9b765fffcf7b4ccd6775d05795b1b13871
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261837"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 요금 알아보기
 
@@ -37,7 +37,7 @@ SQL API를 사용하는 경우 Azure Cosmos 컨테이너에 대해 실행한 작
 
 1. **쿼리 통계**를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
 
-![Azure Portal의 SQL 쿼리 요청 요금 스크린샷](./media/find-request-unit-charge/portal-sql-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Azure Portal의 SQL 쿼리 요청 요금 스크린샷":::
 
 ### <a name="use-the-net-sdk"></a>.NET SDK 사용
 
@@ -149,7 +149,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-자세한 내용은 [빠른 시작: AZURE COSMOS DB SQL API 계정을 사용 하 여 node.js 앱 빌드](create-sql-api-nodejs.md)를 참조 하세요. 
+자세한 내용은 [빠른 시작: AZURE COSMOS DB SQL API 계정을 사용 하 여 Node.js 앱 빌드](create-sql-api-nodejs.md)를 참조 하세요. 
 
 ### <a name="use-the-python-sdk"></a>Python SDK 사용
 
@@ -187,7 +187,7 @@ RU 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이�
 
 1. **쿼리 통계**를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
 
-![Azure Portal의 MongoDB 쿼리 요청 요금 스크린샷](./media/find-request-unit-charge/portal-mongodb-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Azure Portal의 MongoDB 쿼리 요청 요금 스크린샷":::
 
 ### <a name="use-the-mongodb-net-driver"></a>MongoDB .NET 드라이버 사용
 
@@ -231,7 +231,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-자세한 내용은 [빠른 시작: 기존 MongoDB node.js 웹 앱을 Azure Cosmos DB로 마이그레이션](create-mongodb-nodejs.md)을 참조 하세요.
+자세한 내용은 [빠른 시작: 기존 MongoDB Node.js 웹 앱을 Azure Cosmos DB로 마이그레이션](create-mongodb-nodejs.md)을 참조 하세요.
 
 ## <a name="cassandra-api"></a>Cassandra API
 
@@ -311,7 +311,7 @@ RU 사용량을 최적화하는 방법에 대한 자세한 내용은 다음 문�
 * [Azure Cosmos DB의 요청 단위 및 처리량](request-units.md)
 * [Azure Cosmos DB의 프로비저닝된 처리량 비용 최적화](optimize-cost-throughput.md)
 * [Azure Cosmos DB의 쿼리 비용 최적화](optimize-cost-queries.md)
-* [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
-* [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)
+* [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [컨테이너의 처리량 프로비전](how-to-provision-container-throughput.md)
 * [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)

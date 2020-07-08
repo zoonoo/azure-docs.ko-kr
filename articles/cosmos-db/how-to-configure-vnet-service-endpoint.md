@@ -3,15 +3,15 @@ title: Azure Cosmos 계정에 대 한 가상 네트워크 기반 액세스 구�
 description: 이 문서에서는 Azure Cosmos DB의 가상 네트워크 서비스 엔드포인트에 필요한 단계를 설명합니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 03/26/2020
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: mjbrown
-ms.openlocfilehash: 442623880c1b95f3d7e038ae44832b74853d2c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a061676714c35b4e8868ce3df9c71be05297ba99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261667"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 액세스 구성
 
@@ -42,17 +42,17 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 1. Azure 가상 네트워크를 추가할 **구독**을 선택합니다. Azure Cosmos DB 계정에 대한 액세스를 제공하려는 Azure **가상 네트워크** 및 **서브넷**을 선택합니다. 다음으로, **사용**을 선택하여 선택한 네트워크가 "Microsoft.AzureCosmosDB"에 대한 서비스 엔드포인트를 사용하도록 설정합니다. 완료 되 면 **추가**를 선택 합니다.
 
-   ![Virtual Network 및 서브넷 선택](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Virtual Network 및 서브넷 선택":::
 
 1. Azure Cosmos DB 계정을 가상 네트워크에서 액세스할 수 있도록 활성화한 후에 선택한 이 서브넷의 트래픽만 허용합니다. 추가한 가상 네트워크 및 서브넷은 다음 스크린샷에 표시된 것처럼 표시됩니다.
 
-   ![성공적으로 구성된 가상 네트워크 및 서브넷](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="성공적으로 구성된 가상 네트워크 및 서브넷":::
 
 > [!NOTE]
 > 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하려면 다음 구독 사용 권한이 필요합니다.
 >   * 가상 네트워크를 포함한 구독: 네트워크 기여자
 >   * Azure Cosmos DB 계정을 포함한 구독: DocumentDB 계정 기여자
->   * 가상 네트워크와 Azure Cosmos DB 계정이 서로 다른 구독에 있는 경우 가상 네트워크를 포함 하는 구독에도 리소스 공급자가 `Microsoft.DocumentDB` 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 문서를 참조 하세요.
+>   * 가상 네트워크와 Azure Cosmos DB 계정이 서로 다른 구독에 있는 경우 가상 네트워크를 포함 하는 구독에도 리소스 공급자가 등록 되어 있는지 확인 `Microsoft.DocumentDB` 합니다. 리소스 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md) 문서를 참조 하세요.
 
 리소스 공급자에 구독을 등록 하기 위한 지침은 다음과 같습니다.
 
@@ -66,7 +66,7 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 1. 새 가상 네트워크를 만드는 데 필요한 세부 정보를 제공한 다음, **만들기**를 선택합니다. “Microsoft.AzureCosmosDB”가 활성화된 서비스 엔드포인트와 함께 서브넷이 생성됩니다.
 
-   ![새 가상 네트워크에 대한 가상 네트워크 및 서브넷을 선택합니다.](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="새 가상 네트워크에 대한 가상 네트워크 및 서브넷을 선택합니다.":::
 
 Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스에서 사용 되거나 Stream analytics 또는 Power BI에서 액세스 되는 경우 **글로벌 Azure 데이터 센터 내에서 연결 허용**을 선택 하 여 액세스를 허용 합니다.
 
@@ -80,7 +80,7 @@ Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스�
 
 1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 가상 네트워크 또는 서브넷 옆에 있는 **...** 를 선택하고, **제거**를 선택합니다.
 
-   ![가상 네트워크 제거](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="가상 네트워크 제거":::
 
 1. **저장**을 선택하여 변경 내용을 적용합니다.
 
@@ -202,7 +202,7 @@ az cosmosdb create \
 
 ### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Cosmos 계정을 백 엔드 서브넷에 독립적으로 연결 및 구성
 
-이 샘플은 Azure Cosmos 계정을 서비스 끝점에 대 한 서브넷이 아직 구성 되지 않은 기존 새 가상 네트워크에 연결 하는 방법을 보여 주기 위해 작성 되었습니다. 매개 변수를 `--ignore-missing-vnet-service-endpoint` 사용 하 여이 작업을 수행 합니다. 이렇게 하면 가상 네트워크의 서브넷에 대 한 구성이 완료 되기 전에 Cosmos 계정에 대 한 구성이 오류 없이 완료 될 수 있습니다. 서브넷 구성이 완료되면 구성된 서브넷을 통해 Cosmos 계정에 액세스할 수 있게 됩니다.
+이 샘플은 Azure Cosmos 계정을 서비스 끝점에 대 한 서브넷이 아직 구성 되지 않은 기존 새 가상 네트워크에 연결 하는 방법을 보여 주기 위해 작성 되었습니다. 매개 변수를 사용 하 여이 작업을 수행 `--ignore-missing-vnet-service-endpoint` 합니다. 이렇게 하면 가상 네트워크의 서브넷에 대 한 구성이 완료 되기 전에 Cosmos 계정에 대 한 구성이 오류 없이 완료 될 수 있습니다. 서브넷 구성이 완료되면 구성된 서브넷을 통해 Cosmos 계정에 액세스할 수 있게 됩니다.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
@@ -257,6 +257,10 @@ az network vnet subnet update \
    --vnet-name $vnetName \
    --service-endpoints Microsoft.AzureCosmosDB
 ```
+
+## <a name="port-range-when-using-direct-mode"></a>직접 모드를 사용 하는 경우의 포트 범위
+
+직접 모드 연결을 통해 Azure Cosmos 계정을 사용 하 여 서비스 끝점을 사용 하는 경우 TCP 포트 범위 (1만 ~ 2만)가 열려 있는지 확인 해야 합니다.
 
 ## <a name="migrating-from-an-ip-firewall-rule-to-a-virtual-network-acl"></a><a id="migrate-from-firewall-to-vnet"></a>IP 방화벽 규칙에서 가상 네트워크 ACL로 마이그레이션
 

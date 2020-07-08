@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: d594d5a9dd263817023d2b5987c03aa50828191c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261191"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 
@@ -30,23 +30,25 @@ Azure Automation에서 VM에 대한 업데이트 관리, 변경 내용 추적 �
 |**US**||
 |EastUS<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestCentralUS|WestCentralUS|
 |**캐나다**||
 |CanadaCentral|CanadaCentral|
 |**아시아 태평양**||
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
+|ChinaEast2<sup>2</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**유럽**||
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
+|USGovArizona<sup>2</sup>|USGovArizona|
 
 <sup>1</sup> Automation 계정에 대한 Log Analytics 작업 영역의 EastUS 매핑은 정확한 지역 간 매핑이 아니라 올바른 매핑입니다.
 
-<sup>2</sup> 용량 제한으로 인해 새 리소스를 만들 때 지역을 사용할 수 없습니다. 여기에는 Automation 계정 및 Log Analytics 작업 영역이 포함됩니다. 그러나 지역에서 기존에 연결된 리소스는 계속 작동해야 합니다.
+<sup>2</sup> 이 영역에서는 업데이트 관리만 지원 되며 지금은 변경 내용 추적 및 인벤토리 같은 다른 기능을 사용할 수 없습니다.
 
 ## <a name="unlink-a-workspace"></a>작업 영역 연결 해제
 

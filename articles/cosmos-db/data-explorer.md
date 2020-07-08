@@ -3,15 +3,15 @@ title: Azure Cosmos DB 탐색기를 사용하여 데이터 관리
 description: Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261888"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
 
@@ -41,7 +41,7 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
    계정을 열 때 사용할 액세스 유형을 선택하고 **열기**를 클릭합니다. 탐색기를 연 후의 환경은 Azure Portal의 데이터 탐색기 탭과 동일합니다.   
 
-   ![Azure Cosmos DB 탐색기 열기](./media/data-explorer/open-data-explorer-with-access-url.png)
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Azure Cosmos DB 탐색기 열기":::
 
 ## <a name="known-issues"></a>알려진 문제
 

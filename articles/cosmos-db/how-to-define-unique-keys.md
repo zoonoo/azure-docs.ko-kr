@@ -3,15 +3,16 @@ title: Azure Cosmos 컨테이너의 고유 키 정의
 description: Azure Portal, PowerShell, .Net, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 056cd77104fe73f19588f3d13e11dc06fd93c3f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261548"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
 
@@ -33,7 +34,7 @@ ms.locfileid: "82871014"
 
 1. 필요한 경우 **+ 고유 키 추가**를 클릭하여 더 많은 고유 키 항목을 추가합니다.
 
-    ![Azure Portal의 고유 키 제약 조건 항목 스크린샷](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Azure Portal의 고유 키 제약 조건 항목 스크린샷":::
 
 ## <a name="use-powershell"></a>PowerShell 사용
 

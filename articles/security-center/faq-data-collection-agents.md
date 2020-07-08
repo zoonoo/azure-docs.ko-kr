@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 79b6d7f84cd54979421357efa94c5c6de38fb4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849045"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261395"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -39,6 +39,25 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 > Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+## <a name="what-is-the-log-analytics-agent"></a>Log Analytics 에이전트는 무엇 인가요?
+
+보안 취약점 및 위협을 모니터링 하려면 Azure Security Center [Log Analytics 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) 에 따라 달라 집니다 .이 에이전트는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트입니다. 
+
+에이전트를 Microsoft Monitoring Agent (또는 "MMA") 라고도 합니다. 
+
+에이전트는 연결 된 컴퓨터에서 다양 한 보안 관련 구성 세부 정보 및 이벤트 로그를 수집한 다음 추가 분석을 위해 Log Analytics 작업 영역에 데이터를 복사 합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다.
+
+다음 페이지에 설명 된 대로 컴퓨터에서 에이전트에 대해 지원 되는 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
+
+* [Windows에서 지원 되는 운영 체제에 대 한 Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+
+* [Linux 지원 운영 체제에 대 한 Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+
+[Log Analytics 에이전트가 수집 하는 데이터](security-center-enable-data-collection.md)에 대해 자세히 알아보세요.
+
+
 
 
 ## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>Log Analytics 에이전트 설치의 자동 프로비저닝을 위한 VM의 요건은 무엇입니까?
@@ -65,6 +84,14 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 - 일본에 있는 VM의 경우 작업 영역 위치는 일본입니다.
 - 중국에 있는 VM의 경우 작업 영역 위치는 중국입니다.
 - 오스트레일리아에 있는 VM의 경우 작업 영역 위치는 오스트레일리아입니다.
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Log Analytics 에이전트에서 수집 하는 데이터는 무엇 인가요?
+
+에이전트에서 모니터링 하는 응용 프로그램 및 서비스의 전체 목록은 [Azure Monitor에서 모니터링 하는 기능](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services)을 참조 하세요.
+
+> [!IMPORTANT]
+> Azure 방화벽과 같은 일부 서비스의 경우 로깅을 사용 하도록 설정 하 고 번잡 리소스 (예: 로그를 *자세한 정보*로 설정)를 선택한 경우 Log Analytics 작업 영역 저장소 요구에 상당한 영향을 줄 수 있습니다. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?
@@ -201,9 +228,17 @@ Log Analytics 에이전트를 수동으로 제거할 수 있습니다. Security 
 
 ## <a name="how-do-i-disable-data-collection"></a>데이터 컬렉션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
-자동 프로비전은 기본적으로 해제되어 있습니다. 보안 정책에서 자동 프로비저닝 설정을 해제하여 언제든지 리소스에서 자동 프로비저닝을 사용하지 않도록 설정할 수 있습니다. 시스템 업데이트, OS 취약성 및 엔드포인트 보호에 대한 보안 경고와 권장 사항을 받으려면 자동 프로비저닝을 사용하는 것이 좋습니다.
+시스템 업데이트, OS 취약성 및 엔드포인트 보호에 대한 보안 경고와 권장 사항을 받으려면 자동 프로비저닝을 사용하는 것이 좋습니다. 기본적으로 자동 프로 비전은 사용 하지 않도록 설정 되어 있습니다.
 
-데이터 수집을 해제하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책 선택**을 차례로 선택합니다. 자동 프로비저닝을 사용하지 않도록 설정할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집**이 열립니다. **자동 프로비전**에서 **끔**을 선택합니다.
+사용 하도록 설정 했지만 이제 사용 하지 않도록 설정 하려는 경우:
+
+1. [Azure Portal](https://portal.azure.com)에서 **Security Center** 를 열고 **보안 정책**을 선택 합니다.
+
+1. 자동 프로비저닝을 사용 하지 않도록 설정할 구독을 선택 합니다.
+
+    **보안 정책-데이터 수집이** 열립니다.
+
+1. **자동 프로비전**에서 **끔**을 선택합니다.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>데이터 컬렉션을 사용하도록 설정하려면 어떻게 해야 하나요?
@@ -233,9 +268,6 @@ Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경
 에이전트는 시스템 리소스의 명목 양을 소비하며 성능에 거의 영향을 미치지 않습니다. 성능 영향과 에이전트 및 확장에 대한 자세한 내용은 [계획 및 작업 가이드](security-center-planning-and-operations-guide.md#data-collection-and-storage)를 참조하세요.
 
 
-## <a name="where-is-my-data-stored"></a>내 데이터는 어디에 저장되나요?
-
-이 에이전트에서 수집된 데이터는 구독 또는 새 작업 영역에 연결된 기존 Log Analytics 작업 영역 중 하나에 저장됩니다. 자세한 내용은 [데이터 보안](security-center-data-security.md)을 참조하세요.
 
 
 <!--Image references-->

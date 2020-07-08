@@ -3,15 +3,16 @@ title: Azure Cosmos DB의 인덱싱 정책 관리
 description: 인덱싱 정책을 관리 하 고, 인덱싱에서 속성을 포함 하거나 제외 하는 방법, 다른 Azure Cosmos DB Sdk를 사용 하 여 인덱싱을 정의 하는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: b913ba58252f4cb84d010aea39d371316582bd6d
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261514"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -42,7 +43,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
     }
 ```
 
-이 인덱싱 정책은, ```kind``` ```dataType```및를 기본값으로 수동으로 설정 하는 아래와 ```precision``` 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
+이 인덱싱 정책은, 및를 기본값으로 수동으로 설정 하는 아래 ```kind``` ```dataType``` 와 동일 ```precision``` 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
 
 ```json
     {
@@ -96,7 +97,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
     }
 ```
 
-이 인덱싱 정책은, ```kind``` ```dataType```및를 기본값으로 수동으로 설정 하는 아래와 ```precision``` 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
+이 인덱싱 정책은, 및를 기본값으로 수동으로 설정 하는 아래 ```kind``` ```dataType``` 와 동일 ```precision``` 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
 
 ```json
     {
@@ -175,7 +176,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
 개별 속성에 대한 경로를 포함 또는 제외하는 것 외에, 복합 인덱스를 지정할 수도 있습니다. 여러 속성에 대해 `ORDER BY` 절이 있는 쿼리를 수행하려면 해당 속성에 [복합 인덱스](index-policy.md#composite-indexes)가 필요합니다. 또한 복합 인덱스는 필터가 있고 다른 속성에 ORDER BY 절이 있는 쿼리에 대 한 성능상의 이점을 제공 합니다.
 
 > [!NOTE]
-> 복합 경로에는 해당 `/?` 경로의 스칼라 값만 인덱싱되어 있으므로 암시적가 있습니다. `/*` 와일드 카드는 복합 경로에서 지원 되지 않습니다. 복합 경로에 `/?` 또는 `/*` 를 지정 하면 안 됩니다.
+> 복합 경로 `/?` 에는 해당 경로의 스칼라 값만 인덱싱되어 있으므로 암시적가 있습니다. `/*`와일드 카드는 복합 경로에서 지원 되지 않습니다. `/?` `/*` 복합 경로에 또는를 지정 하면 안 됩니다.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>(name asc, age desc)에 대해 정의된 복합 인덱스:
 
@@ -323,7 +324,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 ### <a name="no-indexing"></a>인덱싱 안 함
 
-이 정책은 인덱싱이 해제 됩니다. 가 `indexingMode` 로 `none`설정 된 경우에는 컨테이너에서 TTL을 설정할 수 없습니다.
+이 정책은 인덱싱이 해제 됩니다. `indexingMode`가로 설정 된 경우에는 `none` 컨테이너에서 TTL을 설정할 수 없습니다.
 
 ```json
     {
@@ -361,7 +362,7 @@ Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 �
 
 1. 완료되면 **저장**을 클릭합니다.
 
-![Azure Portal을 사용하여 인덱싱 관리](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Azure Portal를 사용 하 여 인덱싱 관리":::
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
@@ -375,7 +376,7 @@ Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 �
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-`DocumentCollection` [.Net SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 의 개체는를 `IndexingPolicy` `IndexingMode` 변경 하 고 및를 `IncludedPaths` `ExcludedPaths`추가 또는 제거할 수 있는 속성을 노출 합니다.
+`DocumentCollection` [.Net SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 의 개체는 `IndexingPolicy` 를 변경 하 `IndexingMode` 고 및를 추가 또는 제거할 수 있는 속성을 노출 합니다 `IncludedPaths` `ExcludedPaths` .
 
 ```csharp
 // Retrieve the container's details
@@ -405,7 +406,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-`ContainerProperties` [.Net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (사용법에 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)의 개체는 `IndexingPolicy` 를 `IndexingMode` 변경 하 고 및를 `IncludedPaths` `ExcludedPaths`추가 하거나 제거할 수 있는 속성을 노출 합니다.
+`ContainerProperties` [.Net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (사용법에 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)의 개체는 `IndexingPolicy` 를 변경 하 `IndexingMode` 고 및를 추가 하거나 제거할 수 있는 속성을 노출 합니다 `IncludedPaths` `ExcludedPaths` .
 
 ```csharp
 // Retrieve the container's details
@@ -429,7 +430,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-인덱스 변환 진행률 `RequestOptions` 을 추적 하려면 `PopulateQuotaInfo` 속성 `true`을 설정 하는 개체를 전달 하 고 `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색 합니다.
+인덱스 변환 진행률을 추적 하려면 속성을 설정 하는 개체를 전달 하 `RequestOptions` `PopulateQuotaInfo` `true` 고 응답 헤더에서 값을 검색 `x-ms-documentdb-collection-index-transformation-progress` 합니다.
 
 ```csharp
 // retrieve the container's details

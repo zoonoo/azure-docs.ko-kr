@@ -3,15 +3,15 @@ title: 변경 피드 프로세서 시작 시간을 구성하는 방법 - Azure C
 description: 특정 날짜와 시간부터 읽기를 시작하도록 변경 피드 프로세서를 구성하는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3d9af1b8cbda3f0fa2ff4650fef4602f7812f79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77586277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261718"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>변경 피드 프로세서 시작 시간을 구성하는 방법
 

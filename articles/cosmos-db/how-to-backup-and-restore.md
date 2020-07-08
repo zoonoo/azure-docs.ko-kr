@@ -3,16 +3,16 @@ title: 백업에서 Azure Cosmos DB 데이터를 복원하는 방법
 description: 이 문서에서는 백업에서 Azure Cosmos DB 데이터를 복원하는 방법, 데이터 복원을 위해 Azure 지원에 문의하는 방법, 데이터가 복원된 후 수행해야 하는 단계를 설명합니다.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1a0075f9b4fc3ff919d4db4bd440a5435d711c83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70240773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261735"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Azure Cosmos DB의 백업에서 데이터 복원 
 
@@ -43,7 +43,7 @@ ms.locfileid: "70240773"
 
 다음 스크린샷은 Azure Portal을 사용하여 데이터를 복원하기 위해 컨테이너(컬렉션/그래프/테이블)에 대한 지원 요청을 만드는 방법을 보여줍니다. 요청의 우선 순위를 지정하는 데 도움이 되도록 데이터의 유형, 복원의 목적, 데이터가 삭제된 시간과 같은 추가 정보를 제공합니다.
 
-![Azure Portal을 사용하여 백업 지원 요청 만들기](./media/how-to-backup-and-restore/backup-support-request-portal.png)
+:::image type="content" source="./media/how-to-backup-and-restore/backup-support-request-portal.png" alt-text="Azure Portal을 사용하여 백업 지원 요청 만들기":::
 
 ## <a name="post-restore-actions"></a>복원 후 작업
 

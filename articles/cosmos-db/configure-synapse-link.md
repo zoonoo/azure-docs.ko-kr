@@ -3,15 +3,15 @@ title: Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
 description: Azure Cosmos 계정에 대해 synapse 링크를 사용하도록 설정하고, 분석 저장소가 사용하도록 설정된 컨테이너를 만들고, Azure Cosmos 데이터베이스를 synapse 작업 영역에 연결하고, 쿼리를 실행하는 방법을 알아봅니다.
 author: SriChintala
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: 24f6f77f1371157ca1b57cfd85ac196cace822fc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262041"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
 
@@ -40,11 +40,11 @@ Azure Cosmos DB용 Synapse Link를 사용하여 분석 쿼리를 실행하려면
 
 1. 기능 목록에서 **Synapse Link**를 선택합니다.
 
-   ![Synapse Link 미리 보기 기능 찾기](./media/configure-synapse-link/find-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Synapse Link 미리 보기 기능 찾기":::
 
 1. 그런 다음, 계정에서 synapse link를 사용하도록 설정하라는 메시지를 표시합니다. 사용을 선택합니다.
 
-   ![Synapse Link 기능 사용](./media/configure-synapse-link/enable-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Synapse Link 기능 사용":::
 
 1. 이제 계정이 Synapse Link를 사용하도록 설정되었습니다. 다음으로 트랜잭션 저장소에서 분석 저장소로 작업 데이터 복제를 자동으로 시작하도록 분석 저장소 사용 컨테이너를 만드는 방법을 참조하세요.
 
@@ -67,7 +67,7 @@ Azure Cosmos DB용 Synapse Link를 사용하여 분석 쿼리를 실행하려면
 
 1. **새 컨테이너**를 선택하고 데이터베이스, 컨테이너, 파티션 키 및 처리량 정보에 대한 이름을 입력합니다. **분석 저장소** 옵션을 설정합니다. 분석 저장소를 사용하도록 설정하면 `AnalyicalTTL` 속성이 기본값 -1(무한 보존)로 설정된 컨테이너가 만들어집니다. 레코드의 모든 기록 버전을 유지하는 분석 저장소입니다.
 
-   ![Azure Cosmos 컨테이너에 대한 분석 저장소 설정](./media/configure-synapse-link/create-container-analytical-store.png)
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Azure Cosmos 컨테이너에 대한 분석 저장소 설정":::
 
 1. 이 계정에 대해 이전에 Synapse Link를 사용하도록 설정하지 않은 경우 분석 저장소를 사용하도록 설정된 컨테이너를 만들기 위한 필수 구성 요소이므로 그렇게 하라는 메시지가 표시됩니다. 메시지가 표시되면 **Synapse Link 사용**을 선택합니다.
 
@@ -195,7 +195,7 @@ Synapse Spark를 사용하여 쿼리하는 방법에 대해 [Azure Cosmos DB 분
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Azure Synpase Link 시작 - 샘플
 
-[GitHub](https://aka.ms/cosmosdb-synapselink-samples)에서 Azure Synapse Link를 시작하기 위한 샘플을 찾을 수 있습니다. 이 샘플은 IoT 및 소매 시나리오를 사용하여 엔드투엔드 솔루션을 보여 줍니다.
+[GitHub](https://aka.ms/cosmosdb-synapselink-samples)에서 Azure Synapse 링크를 시작 하는 샘플을 찾을 수 있습니다. 이 샘플은 IoT 및 소매 시나리오를 사용하여 엔드투엔드 솔루션을 보여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

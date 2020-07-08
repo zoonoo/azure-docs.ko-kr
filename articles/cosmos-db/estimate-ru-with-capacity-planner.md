@@ -3,15 +3,15 @@ title: Azure Cosmos DB capacity planner를 사용 하 여 비용 추정
 description: Azure Cosmos DB capacity planner를 사용 하 여 워크 로드에 필요한 처리량 (r u/초)과 비용을 예측할 수 있습니다. 이 문서에서는 새 버전의 capacity planner를 사용 하 여 필요한 처리량과 비용을 예측 하는 방법을 설명 합니다.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: f10ace47f774e31b586f7736f5fb8e5dfea0c948
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68707631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261854"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Azure Cosmos DB capacity planner를 사용 하 여 r u/초 예측
 
@@ -41,7 +41,7 @@ Capacity planner는 두 가지 모드에서 사용할 수 있습니다.
 
 필요한 세부 정보를 채운 후 **계산**을 선택 합니다. **비용 예측** 탭은 저장소 및 프로 비전 된 처리량에 대 한 총 비용을 보여 줍니다. 이 탭에서 **자세한 정보 표시** 링크를 확장 하 여 읽기 및 쓰기 요청에 필요한 처리량을 파악할 수 있습니다. 필드의 값을 변경할 때마다 **계산** 을 선택 하 여 예상 비용을 다시 계산 합니다. 
 
-![Capacity planner 기본 모드](./media/estimate-ru-with-capacity-planner/basic-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Capacity planner 기본 모드":::
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-advanced-mode"></a>고급 모드를 사용 하 여 프로 비전 된 처리량 및 비용 예측
 
@@ -62,7 +62,7 @@ Capacity planner는 두 가지 모드에서 사용할 수 있습니다.
 
 또한 **예상 값 저장** 단추를 사용 하 여 현재 추정치를 포함 하는 CSV 파일을 다운로드할 수 있습니다. 
 
-![Capacity planner 고급 모드](./media/estimate-ru-with-capacity-planner/advanced-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Capacity planner 고급 모드":::
 
 Azure Cosmos DB capacity planner에 표시 된 가격은 처리량 및 저장소에 대 한 공용 가격 책정 요금을 기준으로 예상 됩니다. 모든 가격은 미국 달러 단위로 표시 됩니다. 지역별 모든 요금을 보려면 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.  
 
@@ -70,7 +70,7 @@ Azure Cosmos DB capacity planner에 표시 된 가격은 처리량 및 저장소
 
 Azure Cosmos capacity 계산기는 지점 읽기 (예: 단일 항목 읽기, ID 및 파티션 키 값을 기준으로 문서) 및 작업에 대 한 쓰기를 가정 합니다. 쿼리에 필요한 처리량을 예측 하려면 Cosmos 컨테이너에 있는 대표 데이터 집합에 대해 쿼리를 실행 하 고이에 대 한 [비용을 확보](find-request-unit-charge.md)하세요. 필요한 총 r u/초를 얻기 위해 실행 될 것으로 예상 되는 쿼리 수에 따라 지 수 비용을 곱합니다. 
 
-예를 들어, 워크 로드에 쿼리가 ``SELECT * FROM c WHERE c.id = 'Alice'`` 필요한 경우 초당 100 번 실행 되 고 쿼리의 사용 요금은 10 RUs 인 경우 이러한 요청을 처리 하려면 100 query/sec * 10 r u/쿼리 = 1000 r u/초를 사용 해야 합니다. 작업에서 발생 하는 읽기 또는 쓰기에 필요한 r o s/s를 추가 합니다.
+예를 들어, 워크 로드에 쿼리가 필요한 경우 ``SELECT * FROM c WHERE c.id = 'Alice'`` 초당 100 번 실행 되 고 쿼리의 사용 요금은 10 RUs 인 경우 이러한 요청을 처리 하려면 100 query/sec * 10 r u/쿼리 = 1000 r u/초를 사용 해야 합니다. 작업에서 발생 하는 읽기 또는 쓰기에 필요한 r o s/s를 추가 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

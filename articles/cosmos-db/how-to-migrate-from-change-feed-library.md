@@ -3,15 +3,15 @@ title: 변경 피드 프로세서 라이브러리에서 Azure Cosmos DB .NET V3 
 description: 변경 피드 프로세서 라이브러리를 사용 하 여 Azure Cosmos DB SDK V3로 응용 프로그램을 마이그레이션하는 방법에 대해 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261412"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>변경 피드 프로세서 라이브러리에서 Azure Cosmos DB .NET V3 SDK로 마이그레이션
 
@@ -22,9 +22,9 @@ ms.locfileid: "77588886"
 .NET V3 SDK에는 몇 가지 주요 변경 사항이 포함 되어 있으며, 다음은 응용 프로그램을 마이그레이션하는 주요 단계입니다.
 
 1. 인스턴스를 `DocumentCollectionInfo` 모니터링 되 `Container` 는 및 임대 컨테이너에 대 한 참조로 변환 합니다.
-1. 를 사용 하 `WithProcessorOptions` 여 [시작 시간](how-to-configure-change-feed-start-time.md)에 대해 `WithLeaseConfiguration` 및 `WithPollInterval` `WithStartTime` 를 사용 하 고 `WithMaxItems` 최대 항목 수를 정의 하려면를 사용 하는 사용자 지정을 업데이트 해야 합니다.
-1. 에 구성 `processorName` 된 `GetChangeFeedProcessorBuilder` 값과 일치 하도록 on을 `ChangeFeedProcessorOptions.LeasePrefix`설정 하거나, `string.Empty` 그렇지 않으면를 사용 합니다.
-1. 변경 내용은로 `IReadOnlyList<Document>`더 이상 전달 되지 않습니다. 대신 `IReadOnlyCollection<T>` 에서 정의 해야 하는 `T` 형식이 며 기본 항목 클래스가 더 이상 없습니다.
+1. 를 사용 하 여 `WithProcessorOptions` `WithLeaseConfiguration` 시작 시간에 대해 및를 사용 하 `WithPollInterval` `WithStartTime` [for start time](how-to-configure-change-feed-start-time.md)고 `WithMaxItems` 최대 항목 수를 정의 하려면를 사용 하는 사용자 지정을 업데이트 해야 합니다.
+1. 에 `processorName` 구성 된 `GetChangeFeedProcessorBuilder` 값과 일치 하도록 on을 설정 `ChangeFeedProcessorOptions.LeasePrefix` 하거나, `string.Empty` 그렇지 않으면를 사용 합니다.
+1. 변경 내용은로 더 이상 전달 되지 않습니다 `IReadOnlyList<Document>` . 대신에서 `IReadOnlyCollection<T>` 정의 해야 하는 `T` 형식이 며 기본 항목 클래스가 더 이상 없습니다.
 1. 변경 내용을 처리 하기 위해 더 이상 구현이 필요 하지 않으며 대신 [대리자를 정의](change-feed-processor.md#implementing-the-change-feed-processor)해야 합니다. 대리자는 정적 함수 이거나 실행 간에 상태를 유지 해야 하는 경우 고유한 클래스를 만들고 인스턴스 메서드를 대리자로 전달할 수 있습니다.
 
 예를 들어, 변경 피드 프로세서를 빌드하는 원래 코드는 다음과 같습니다.

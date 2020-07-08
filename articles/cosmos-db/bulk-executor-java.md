@@ -5,22 +5,22 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/28/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260596"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 
 이 자습서에서는 Azure Cosmos DB의 대량 실행자 Java 라이브러리를 사용 하 여 Azure Cosmos DB 문서를 가져오고 업데이트 하는 방법에 대 한 지침을 제공 합니다. Bulk Executor 라이브러리와 방대한 처리량 및 스토리지를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 무작위 문서를 생성 하는 Java 응용 프로그램을 빌드하고 Azure Cosmos 컨테이너로 대량으로 가져옵니다. 가져온 후 문서의 일부 속성을 대량 업데이트합니다. 
 
-현재 대량 실행자 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정 에서만 지원 됩니다. 이 문서에서는 SQL API 계정에서 대량 실행 기 Java 라이브러리를 사용 하는 방법을 설명 합니다. Bulk Executor .NET 라이브러리 사용에 대해 알아보려면 [Azure Cosmos DB Gremlin API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조하세요.
+현재 대량 실행자 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정 에서만 지원 됩니다. 이 문서에서는 SQL API 계정에서 대량 실행 기 Java 라이브러리를 사용 하는 방법을 설명 합니다. Bulk Executor .NET 라이브러리 사용에 대해 알아보려면 [Azure Cosmos DB Gremlin API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조하세요. 설명 된 대량 실행자 라이브러리는 [Azure Cosmos DB java SYNC SDK](sql-api-sdk-java.md) v 2에만 사용할 수 있으며 java 대량 지원을 위한 현재 권장 솔루션입니다. 이 버전은 현재 2.x, 4.x 또는 기타 상위 SDK 버전에서 사용할 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -118,8 +118,8 @@ ms.locfileid: "80985646"
    |int getNumberOfDocumentsImported()  |   대량 가져오기 API 호출에 적용된 문서 중에서 성공적으로 가져온 총 문서 수입니다.      |
    |double getTotalRequestUnitsConsumed()   |  대량 가져오기 API 호출에서 사용된 총 요청 단위(RU)입니다.       |
    |Duration getTotalTimeTaken()   |    실행을 완료하기까지 대량 가져오기 API 호출에서 사용하는 총 시간입니다.     |
-   |GetErrors> 목록\<예외 () |  대량 가져오기 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.       |
-   |개체\<> getBadInputDocuments () 목록 표시  |    대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).     |
+   |List\<Exception> getErrors() |  대량 가져오기 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.       |
+   |List\<Object> getBadInputDocuments()  |    대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).     |
 
 5. 대량 가져오기 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
@@ -182,7 +182,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
    |int getNumberOfDocumentsUpdated()  |   대량 업데이트 API 호출에 적용된 문서 중에서 성공적으로 업데이트된 총 문서 수입니다.      |
    |double getTotalRequestUnitsConsumed() |  대량 업데이트 API 호출에서 사용한 총 요청 단위(RU)입니다.       |
    |Duration getTotalTimeTaken()  |   실행을 완료하기까지 대량 업데이트 API 호출에서 사용하는 총 시간입니다.      |
-   |GetErrors> 목록\<예외 ()   |       대량 업데이트 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.      |
+   |List\<Exception> getErrors()   |       대량 업데이트 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.      |
 
 3. 대량 업데이트 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 

@@ -6,14 +6,14 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70241235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260494"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API에 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "70241235"
 ## <a name="prerequisites"></a>사전 요구 사항
 * [Azure Cosmos DB Cassandra API 계정을 프로 비전 합니다.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Spark 환경 선택 프로 비전 [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | 기타].
+* Spark 환경 선택 프로 비전 [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | 기타].
 
 ## <a name="dependencies-for-connectivity"></a>연결에 대한 종속성
 * **Cassandra용 Spark 커넥터:** Spark 커넥터는 Azure Cosmos DB Cassandra API에 연결하는 데 사용됩니다.  Spark 및 Spark 환경의 Scala 버전과 호환되는 [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)에 위치한 커넥터의 버전을 식별하고 사용합니다.

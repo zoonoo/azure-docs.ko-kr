@@ -3,21 +3,21 @@ title: Cosmos DB에 대해 독립적인 Azure Functions 트리거를 여러 개 
 description: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거를 구성하여 이벤트 기반 아키텍처를 만드는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77604949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261599"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
 
 이 문서에서는 병렬로 작동하고 변경 내용에 독립적으로 반응하는 여러 개의 Cosmos DB용 Azure Functions 트리거를 구성하는 방법에 대해 설명합니다.
 
-![Cosmos DB용 Azure Functions 트리거와 함께 작동하고 임대 컨테이너를 공유하는 서버리스 이벤트 기반 함수](./media/change-feed-functions/multi-trigger.png)
+:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Cosmos DB용 Azure Functions 트리거와 함께 작동하고 임대 컨테이너를 공유하는 서버리스 이벤트 기반 함수" border="false":::
 
 ## <a name="event-based-architecture-requirements"></a>이벤트 기반 아키텍처 요구 사항
 

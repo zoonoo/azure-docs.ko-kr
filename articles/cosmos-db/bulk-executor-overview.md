@@ -3,16 +3,16 @@ title: Azure Cosmos DB 대량 실행기 라이브러리 개요
 description: Azure Cosmos DB에서 대량 가져오기를 통해 대량 작업을 수행하고 Bulk Executor 라이브러리에서 제공하는 API를 대량 업데이트합니다.
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985595"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260613"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -42,7 +42,7 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 스토
 
 문서를 가져오기 또는 업데이트하는 대량 작업이 엔터티의 일괄 처리로 트리거되는 경우 처음에 Azure Cosmos DB 파티션 키 범위에 해당하는 버킷에 섞입니다. 파티션 키 범위에 해당하는 각 버킷 내에서 미니 일괄 처리로 나뉘고 각 미니 일괄 처리는 서버 쪽에서 커밋되는 페이로드로 작동합니다. 대량 실행기 라이브러리는 파티션 키 범위 내 및 전반 모두에서 이러한 미니 일괄 처리를 동시에 실행할 수 있도록 최적화되어 빌드되었습니다. 다음 이미지에서는 대량 실행기가 다른 파티션 키로 데이터를 일괄 처리하는 방법을 보여줍니다.  
 
-![Bulk Executor 아키텍처](./media/bulk-executor-overview/bulk-executor-architecture.png)
+:::image type="content" source="./media/bulk-executor-overview/bulk-executor-architecture.png" alt-text="Bulk Executor 아키텍처" :::
 
 대량 실행자 라이브러리를 사용 하면 컬렉션에 할당 된 처리량을 최대 활용할 수 있습니다. 각 Azure Cosmos DB 파티션 키 범위에 대해  [AIMD 스타일 정체 제어 메커니즘](https://tools.ietf.org/html/rfc5681)을 사용하여 속도 제한 및 제한 시간을 효율적으로 처리합니다. 
 

@@ -3,15 +3,15 @@ title: 대량 실행자 라이브러리에서 Azure Cosmos DB .NET V3 SDK의 대
 description: 대량 실행자 라이브러리를 사용 하 여 Azure Cosmos DB SDK V3에서 대량 지원으로 응용 프로그램을 마이그레이션하는 방법에 대해 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261429"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>대량 실행자 라이브러리에서 Azure Cosmos DB .NET V3 SDK의 대량 지원으로 마이그레이션
 
@@ -19,7 +19,7 @@ ms.locfileid: "82146299"
 
 ## <a name="enable-bulk-support"></a>대량 지원 사용
 
-[Allow대량 실행](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) 구성을 통해 `CosmosClient` 인스턴스에서 대량 지원을 사용 하도록 설정 합니다.
+`CosmosClient` [Allow대량 실행](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) 구성을 통해 인스턴스에서 대량 지원을 사용 하도록 설정 합니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
@@ -33,21 +33,21 @@ SDK에는 입력 매개 변수로 문서 또는 작업 목록을 사용 하는 �
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-대량 가져오기를 수행 하려면 (BulkImportAsync를 사용 하는 것과 유사)를 동시에 `CreateItemAsync`호출 해야 합니다. 다음은 그 예입니다.
+대량 가져오기를 수행 하려면 (BulkImportAsync를 사용 하는 것과 유사)를 동시에 호출 해야 `CreateItemAsync` 합니다. 예를 들어:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-대량 *업데이트* 를 수행 하려는 경우 ( [BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)사용과 유사) 항목 값을 업데이트 한 후 메서드를 동시에 `ReplaceItemAsync` 호출 해야 합니다. 다음은 그 예입니다.
+대량 *업데이트* 를 수행 하려는 경우 ( [BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)사용과 유사) `ReplaceItemAsync` 항목 값을 업데이트 한 후 메서드를 동시에 호출 해야 합니다. 예를 들어:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-대량 *삭제* ( [BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)사용과 유사)를 수행 하려는 경우에는 각 항목의 `id` 및 파티션 키를 사용 하 여 동시 `DeleteItemAsync`에 호출 해야 합니다. 다음은 그 예입니다.
+대량 *삭제* ( [BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)사용과 유사)를 수행 하려는 경우에는 `DeleteItemAsync` `id` 각 항목의 및 파티션 키를 사용 하 여 동시에 호출 해야 합니다. 예를 들어:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
 ## <a name="capture-task-result-state"></a>작업 결과 상태 캡처
 
-위의 코드 예제에서는 작업의 동시 목록을 만들고 각 작업에 대해 `CaptureOperationResponse` 메서드를 호출 했습니다. 이 메서드는 오류를 캡처하고 [요청 단위 사용](request-units.md)을 추적 하 여 *유사한 응답 스키마* 를 대량 실행자로 유지할 수 있도록 하는 확장입니다.
+위의 코드 예제에서는 작업의 동시 목록을 만들고 `CaptureOperationResponse` 각 작업에 대해 메서드를 호출 했습니다. 이 메서드는 오류를 캡처하고 [요청 단위 사용](request-units.md)을 추적 하 여 *유사한 응답 스키마* 를 대량 실행자로 유지할 수 있도록 하는 확장입니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
@@ -61,7 +61,7 @@ SDK에는 입력 매개 변수로 문서 또는 작업 목록을 사용 하는 �
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
 
-메서드 `ExecuteAsync` 는 모든 작업이 완료 될 때까지 기다렸다가 다음과 같이 사용할 수 있습니다.
+`ExecuteAsync`메서드는 모든 작업이 완료 될 때까지 기다렸다가 다음과 같이 사용할 수 있습니다.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 
@@ -80,7 +80,7 @@ SDK에는 입력 매개 변수로 문서 또는 작업 목록을 사용 하는 �
 
 ## <a name="retry-configuration"></a>구성 다시 시도
 
-대량 실행자 라이브러리에는 [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) 의 `0` `MaxRetryWaitTimeInSeconds` 및 `MaxRetryAttemptsOnThrottledRequests` 를로 설정 하 여 컨트롤을 라이브러리에 위임 하는 방법에 대해 언급 한 [지침이](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) 있습니다.
+대량 실행자 라이브러리에 [guidance](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) 는 `MaxRetryWaitTimeInSeconds` RetryOptions의 및를로 설정 하 여 컨트롤을 `MaxRetryAttemptsOnThrottledRequests` 라이브러리에 위임 [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) 하는 방법에 대해 언급 한 지침이 `0` 있습니다.
 
 .NET SDK를 대량으로 지원 하기 위해 숨겨진 동작은 없습니다. [CosmosClientOptions MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) 및 [CosmosClientOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests)를 통해 재시도 옵션을 직접 구성할 수 있습니다.
 
@@ -91,7 +91,7 @@ SDK에는 입력 매개 변수로 문서 또는 작업 목록을 사용 하는 �
 
 .NET SDK를 사용 하는 다른 작업과 마찬가지로 stream Api를 사용 하면 성능이 향상 되 고 불필요 한 serialization이 방지 됩니다. 
 
-Stream Api를 사용 하는 것은 사용 하는 데이터의 특성이 바이트 스트림 (예: 파일 스트림)의 특성과 일치 하는 경우에만 가능 합니다. `CreateItemStreamAsync`이러한 경우, `ReplaceItemStreamAsync`또는 `DeleteItemStreamAsync` 메서드를 사용 하 고 대신 (대신 `ResponseMessage` `ItemResponse`)로 작업 하는 경우 처리량이 증가할 수 있습니다.
+Stream Api를 사용 하는 것은 사용 하는 데이터의 특성이 바이트 스트림 (예: 파일 스트림)의 특성과 일치 하는 경우에만 가능 합니다. 이러한 경우 `CreateItemStreamAsync` , 또는 메서드를 사용 하 `ReplaceItemStreamAsync` `DeleteItemStreamAsync` 고 대신 (대신)로 작업 하는 경우 `ResponseMessage` 처리량이 `ItemResponse` 증가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

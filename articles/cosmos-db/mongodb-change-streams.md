@@ -4,22 +4,22 @@ description: Azure Cosmos DB의 API for MongoDB에서 변경 스트림을 사용
 author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
-ms.date: 11/16/2019
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: srchi
-ms.openlocfilehash: cc6b74a56d2a538d35e324090832e6c7e03e609f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 2028a8048830587195271675997bf4c880a3fae1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260766"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 변경 스트림
 
 Azure Cosmos DB의 API for MongoDB의 [변경 피드](change-feed.md) 지원은 변경 스트림 API를 사용하여 제공됩니다. 변경 스트림 API를 사용하여 애플리케이션에서 컬렉션 또는 단일 분할된 데이터베이스의 항목에 대한 변경 내용을 가져올 수 있습니다. 나중에 결과에 따라 추가 작업을 수행할 수 있습니다. 컬렉션의 항목에 대한 변경 내용은 수정 시간 순서대로 캡처되고 분할된 데이터베이스 키당 정렬 순서가 보장됩니다.
 
-[!NOTE]
-변경 스트림을 사용하려면 Azure Cosmos DB의 API for MongoDB 버전 3.6 이상을 사용하여 계정을 만듭니다. 이전 버전에 대해 변경 스트림 예제를 실행하는 경우 `Unrecognized pipeline stage name: $changeStream` 오류가 표시될 수 있습니다.
+> [!NOTE]
+> 변경 스트림을 사용하려면 Azure Cosmos DB의 API for MongoDB 버전 3.6 이상을 사용하여 계정을 만듭니다. 이전 버전에 대해 변경 스트림 예제를 실행하는 경우 `Unrecognized pipeline stage name: $changeStream` 오류가 표시될 수 있습니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -61,6 +61,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
+
 # <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
@@ -81,6 +82,52 @@ while (enumerator.MoveNext()){
 
 enumerator.Dispose();
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
+다음 예제에서는 Java에서 스트림 변경 기능을 사용 하는 방법을 보여 줍니다. 전체 예제는이 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)를 참조 하세요. 또한이 예제에서는 메서드를 사용 하 여 `resumeAfter` 마지막 읽기부터 모든 변경 내용을 검색 하는 방법을 보여 줍니다. 
+
+```java
+Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));
+
+// Pick the field you are most interested in
+Bson project = Aggregates.project(fields(include("_id", "ns", "documentKey", "fullDocument")));
+
+// This variable is for second example
+BsonDocument resumeToken = null;
+
+// Now time to build the pipeline
+List<Bson> pipeline = Arrays.asList(match, project);
+
+//#1 Simple example to seek changes
+
+// Create cursor with update_lookup
+MongoChangeStreamCursor<ChangeStreamDocument<org.bson.Document>> cursor = collection.watch(pipeline)
+        .fullDocument(FullDocument.UPDATE_LOOKUP).cursor();
+
+Document document = new Document("name", "doc-in-step-1-" + Math.random());
+collection.insertOne(document);
+
+while (cursor.hasNext()) {
+    // There you go, we got the change document.
+    ChangeStreamDocument<Document> csDoc = cursor.next();
+
+    // Let is pick the token which will help us resuming
+    // You can save this token in any persistent storage and retrieve it later
+    resumeToken = csDoc.getResumeToken();
+    //Printing the token
+    System.out.println(resumeToken);
+    
+    //Printing the document.
+    System.out.println(csDoc.getFullDocument());
+    //This break is intentional but in real project feel free to remove it.
+    break;
+}
+
+cursor.close();
+
+```
+---
 
 ## <a name="changes-within-a-single-shard"></a>단일 분할된 데이터베이스가 포함된 변경 내용
 

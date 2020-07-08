@@ -2,20 +2,20 @@
 title: 에서 작업의 처리량 사용을 모니터링 Azure Cosmos DB
 description: Azure Cosmos DB에서 작업의 처리량 또는 요청 단위 사용을 모니터링 하는 방법에 대해 알아봅니다. Azure Cosmos DB 계정의 소유자는 더 많은 요청 단위를 가져오는 작업을 파악할 수 있습니다.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
-ms.openlocfilehash: 4ea195dfbf9eddbf10680196c9c75646b45380ae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260749"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Azure Cosmos DB에서 작업의 처리량 또는 요청 단위 사용을 모니터링 하는 방법
 
-Azure Cosmos DB Azure Monitor는 계정을 모니터링 하 고 대시보드를 만드는 메트릭 보기를 제공 합니다. Azure Cosmos DB 메트릭은 기본적으로 수집 되며,이 기능을 사용 하면 명시적으로 모든 항목을 사용 하거나 구성할 필요가 없습니다. **Total Request unit** 메트릭은 여러 유형의 작업에 대 한 요청 단위 사용을 가져오는 데 사용 됩니다. 나중에 대부분의 처리량을 사용 하는 작업을 분석할 수 있습니다. 기본적으로 처리량 데이터는 1 분 간격으로 집계 됩니다. 그러나 시간 세분성 옵션을 변경 하 여 집계 단위를 변경할 수 있습니다.
+Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를 만들 수 있는 메트릭 보기를 제공합니다. Azure Cosmos DB 메트릭은 기본적으로 수집되며, 아무것도 명시적으로 활성화하거나 구성할 필요가 없습니다. **Total Request unit** 메트릭은 여러 유형의 작업에 대 한 요청 단위 사용을 가져오는 데 사용 됩니다. 나중에 대부분의 처리량을 사용 하는 작업을 분석할 수 있습니다. 기본적으로 처리량 데이터는 1 분 간격으로 집계 됩니다. 그러나 시간 세분성 옵션을 변경 하 여 집계 단위를 변경할 수 있습니다.
 
 요청 단위 사용 데이터를 분석 하는 방법에는 다음 두 가지가 있습니다.
 
@@ -38,15 +38,15 @@ Azure Cosmos DB Azure Monitor는 계정을 모니터링 하 고 대시보드를 
 
 1. 왼쪽 탐색 모음에서 **모니터** 를 선택 하 고 **메트릭**을 선택 합니다.
 
-   ![Azure Monitor의 메트릭 창](./media/monitor-request-unit-usage/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/monitor-metrics-blade.png" alt-text="Azure Monitor의 메트릭 창":::
 
-1. **메트릭** 창에서 리소스 > **선택** 하 > 필요한 **구독**및 **리소스 그룹**을 선택 합니다. **리소스 종류**에 대해 **Azure Cosmos DB 계정**을 선택 하 고, 기존 Azure Cosmos 계정 중 하나를 선택 하 고, **적용**을 선택 합니다.
+1. **메트릭** 창 > **리소스 선택**에서 필요한 **구독** 및 **리소스 그룹**을 선택합니다. **리소스 유형**으로 **Azure Cosmos DB 계정**을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용**을 선택합니다.
 
-   ![Azure Cosmos DB 계정을 선택 하 여 메트릭 보기](./media/monitor-request-unit-usage/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Azure Cosmos DB 계정을 선택 하 여 메트릭 보기":::
 
-1. 다음으로 사용 가능한 메트릭 목록에서 **총 요청 단위** 메트릭을 선택 합니다. 이 목록에서 사용할 수 있는 모든 메트릭에 대해 자세히 알아보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조 하세요. 이 예에서는 **총 요청 단위** 및 **평균** 을 집계 값으로 선택 하겠습니다. 이러한 세부 정보 외에도 메트릭의 **시간 범위** 와 **시간 세분성** 을 선택할 수 있습니다. 최대는 지난 30 일 동안의 메트릭을 볼 수 있습니다.  필터를 적용 하면 필터를 기반으로 차트가 표시 됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
+1. 다음으로 사용 가능한 메트릭 목록에서 **총 요청 단위** 메트릭을 선택 합니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예에서는 **총 요청 단위** 및 **평균** 을 집계 값으로 선택 하겠습니다. 이러한 세부 정보 외에 메트릭의 **시간 범위**와 **시간 단위**를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
 
-   ![Azure Portal에서 메트릭 선택](./media/monitor-request-unit-usage/request-unit-usage-metric.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Azure Portal에서 메트릭 선택":::
 
 ## <a name="filters-for-request-unit-usage"></a>요청 단위 사용에 대 한 필터
 
@@ -54,13 +54,13 @@ Azure Cosmos DB Azure Monitor는 계정을 모니터링 하 고 대시보드를 
 
 합계 (합계) 또는 평균을 기준으로 각 작업의 요청 단위 사용을 가져오려면 **분할 적용** 을 선택 하 고 다음 이미지에 표시 된 것 처럼 **작업 유형** 및 필터 값을 선택 합니다.
 
-   ![Azure monitor에서 작업에 대 한 Cosmos DB 요청 단위](./media/monitor-request-unit-usage/request-unit-usage-operations.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Azure monitor에서 작업에 대 한 Cosmos DB 요청 단위":::
 
 컬렉션 별 요청 단위 사용을 확인 하려면 **분할 적용** 을 선택 하 고 컬렉션 이름을 필터로 선택 합니다. 대시보드 내에서 컬렉션을 선택 하 여 다음과 같은 채팅을 보게 됩니다. 그런 다음 특정 컬렉션 이름을 선택 하 여 자세한 정보를 볼 수 있습니다.
 
-   ![Azure monitor에서 컬렉션에의 한 모든 작업에 대 한 Cosmos DB 요청 단위](./media/monitor-request-unit-usage/request-unit-usage-collection.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Azure monitor에서 컬렉션에의 한 모든 작업에 대 한 Cosmos DB 요청 단위":::
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure에서 [진단 설정을](cosmosdb-monitor-resource-logs.md) 사용 하 여 Azure Cosmos DB 데이터를 모니터링 합니다.
-* [Azure Cosmos DB 제어 평면 작업 감사](audit-control-plane-logs.md)
+* Azure에서 [진단 설정](cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB 데이터를 모니터링합니다.
+* [Azure Cosmos DB 컨트롤 플레인 작업 감사](audit-control-plane-logs.md)

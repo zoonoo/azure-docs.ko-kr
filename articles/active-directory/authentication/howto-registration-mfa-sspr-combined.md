@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40266f1b340ebe0ab665c576ff3be0e62ba7c705
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7feb69b2ea53794b780a983ed8ab4ba5874ac022
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260851"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Azure Active Directory에서 결합된 보안 정보 등록 사용
 
@@ -48,6 +48,9 @@ Internet Explorer에서 사이트 간 할당 목록을 구성한 경우 다음 �
 ## <a name="conditional-access-policies-for-combined-registration"></a>결합된 등록에 대한 조건부 액세스 정책
 
 이제 조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록하는 시기 및 방법에 대한 보안을 설정할 수 있습니다. 이 기능은 [결합된 등록 기능](../authentication/concept-registration-mfa-sspr-combined.md)을 사용하도록 설정한 조직에서 사용할 수 있습니다. 이 기능은 HR 온보딩 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure Multi-Factor Authentication 및 SSPR에 사용자를 등록하려는 조직에서 사용하도록 설정할 수 있습니다.
+
+> [!NOTE]
+> 이 정책은 사용자가 결합 된 등록 페이지에 액세스 하는 경우에만 적용 됩니다. 이 정책은 사용자가 다른 응용 프로그램에 액세스할 때 MFA 등록을 적용 하지 않습니다. [Azure Id 보호-Mfa 정책 구성](../identity-protection/howto-identity-protection-configure-mfa-policy.md)을 사용 하 여 mfa 등록 정책을 만들 수 있습니다.
 
 조건부 액세스에서 신뢰할 수 있는 위치를 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건이란?](../conditional-access/location-condition.md#named-locations) 문서를 참조하세요.
 

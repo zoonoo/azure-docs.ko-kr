@@ -5,15 +5,15 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261769"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할된 그래프 사용
 
@@ -21,7 +21,7 @@ Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장�
 
 컨테이너가 크기가 20mb를 초과 하거나 요청 단위 (초당 요청 단위)를 1만 할당 하려는 경우 **분할이 필요** 합니다. [Azure Cosmos DB 분할 메커니즘과](partition-data.md) 동일한 일반적인 원칙은 아래에 설명 된 몇 가지 그래프 특정 최적화와 함께 적용 됩니다.
 
-![그래프 분할.](./media/graph-partitioning/graph-partitioning.png)
+:::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="그래프 분할." border="false":::
 
 ## <a name="graph-partitioning-mechanism"></a>그래프 분할 메커니즘
 
@@ -29,9 +29,9 @@ Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장�
 
 - **꼭짓점 및 가장자리는 모두 JSON 문서로 저장됩니다**.
 
-- **꼭짓점에는 파티션 키가 필요합니다**. 이 키는 해시 알고리즘을 통해 꼭짓점이 저장되는 파티션을 결정합니다. 파티션 키 속성 이름은 새 컨테이너를 만들 때 정의 되 고 형식은 `/partitioning-key-name`입니다.
+- **꼭짓점에는 파티션 키가 필요합니다**. 이 키는 해시 알고리즘을 통해 꼭짓점이 저장되는 파티션을 결정합니다. 파티션 키 속성 이름은 새 컨테이너를 만들 때 정의 되 고 형식은 `/partitioning-key-name` 입니다.
 
-- **모서리는 원본 꼭짓점과 함께 저장됩니다**. 즉, 각 꼭짓점의 경우 해당 파티션 키는 돌출된 모서리와 함께 저장되는 위치를 정의합니다. 이 최적화는 그래프 쿼리에서 카디널리티를 `out()` 사용할 때 파티션 간 쿼리를 방지 하기 위해 수행 됩니다.
+- **모서리는 원본 꼭짓점과 함께 저장됩니다**. 즉, 각 꼭짓점의 경우 해당 파티션 키는 돌출된 모서리와 함께 저장되는 위치를 정의합니다. 이 최적화는 그래프 쿼리에서 카디널리티를 사용할 때 파티션 간 쿼리를 방지 하기 위해 수행 됩니다 `out()` .
 
 - **가장자리는 가리키는 꼭 짓 점에 대 한 참조를 포함**합니다. 모든 가장자리는 가리키는 꼭 짓 점의 파티션 키와 Id를 사용 하 여 저장 됩니다. 이렇게 계산 하면 모든 `out()` 방향 쿼리가 항상 제한 된 분할 된 쿼리가 되며, 이러한 쿼리는 항상 사용 되지 않습니다. 
 
@@ -76,7 +76,7 @@ Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장�
 
 - **꼭짓점을 쿼리할 때 항상 파티션 키 값을 지정합니다**. 알려진 분할에서 꼭짓점을 가져오면 성능을 달성할 수 있습니다. Edge에는 대상 꼭 짓 점에 대 한 참조 ID와 파티션 키가 포함 되므로 모든 후속 인접 작업은 항상 파티션으로 범위가 지정 됩니다.
 
-- **가능한 경우 모서리를 쿼리할 때마다 돌출된 방향을 사용합니다**. 위에서 언급한 것처럼 모서리는 돌출 방향의 원본 꼭짓점과 함께 저장됩니다. 따라서 이 패턴을 염두에 두고 데이터 및 쿼리를 설계하면 교차 파티션 쿼리를 다시 정렬할 가능성이 최소화됩니다. 이와 반대로 쿼리는 `in()` 항상 비용이 많이 드는 팬 아웃 쿼리가 됩니다.
+- **가능한 경우 모서리를 쿼리할 때마다 돌출된 방향을 사용합니다**. 위에서 언급한 것처럼 모서리는 돌출 방향의 원본 꼭짓점과 함께 저장됩니다. 따라서 이 패턴을 염두에 두고 데이터 및 쿼리를 설계하면 교차 파티션 쿼리를 다시 정렬할 가능성이 최소화됩니다. 이와 반대로 `in()` 쿼리는 항상 비용이 많이 드는 팬 아웃 쿼리가 됩니다.
 
 - 파티션 **간에 데이터를 균등 하 게 분산 하는 파티션 키를 선택**합니다. 이러한 선택은 솔루션의 데이터 모델에 크게 좌우됩니다. [Azure Cosmos DB에서 분할 및 확장](partition-data.md)에서 해당 파티션 키를 만드는 방법에 대해 자세히 알아봅니다.
 
