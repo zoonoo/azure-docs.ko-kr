@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주�
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 270fa8de3346063d047b38132438f8097d87689d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744111"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057435"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -22,11 +22,16 @@ ms.locfileid: "83744111"
 ## <a name="general"></a>일반
 
 ### <a name="what-does-site-recovery-do"></a>Site Recovery의 기능은 무엇입니까?
+
 Site Recovery는 온-프레미스 가상 머신 및 물리적 서버에서 Azure로, 그리고 온-프레미스 컴퓨터에서 보조 데이터 센터로의 지역 간 Azure VM 복제 작업을 오케스트레이션 및 자동화하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. [자세히 알아보기](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>Docker 디스크가 있는 가상 머신을 보호할 수 있나요?
 
 아니요, 이것은 지원되지 않는 시나리오입니다.
+
+### <a name="what-does-site-recovery-do-to-ensure-data-integrity"></a>데이터 무결성을 보장 하기 위해 Site Recovery 하는 작업은 무엇 인가요?
+
+데이터 무결성을 보장 하기 위해 Site Recovery에서 수행 하는 다양 한 측정값이 있습니다. HTTPS 프로토콜을 사용 하 여 모든 서비스 간에 보안 연결이 설정 됩니다. 이렇게 하면 모든 맬웨어 또는 외부 엔터티가 데이터를 조작할 수 없습니다. 사용 되는 또 다른 측정값은 체크섬을 사용 하는 것입니다. 원본 및 대상 간의 데이터 전송은 데이터의 체크섬을 계산 하 여 실행 됩니다. 이렇게 하면 전송 된 데이터가 일관 되 게 유지 됩니다.
 
 ## <a name="service-providers"></a>서비스 공급자
 
@@ -128,7 +133,7 @@ Site Recovery를 사용하여 지원되는 VM 또는 물리적 서버에서 실�
 
 ### <a name="is-disaster-recovery-supported-for-azure-vms"></a>Azure VM에 재해 복구가 지원되나요?
 
-예, Site Recovery는 Azure 지역 간 Azure VM에 대해 재해 복구를 지원합니다. Azure VM 재해 복구에 대한 [일반적인 질문을 검토하세요](azure-to-azure-common-questions.md).
+예, Site Recovery는 Azure 지역 간 Azure VM에 대해 재해 복구를 지원합니다. Azure VM 재해 복구에 대한 [일반적인 질문을 검토하세요](azure-to-azure-common-questions.md). 동일한 대륙의 두 Azure 지역 간에 복제 하려면 azure DR 제품을 사용 하세요. 구성 서버/프로세스 서버 및 Express 경로 연결을 설정할 필요가 없습니다.
 
 ### <a name="is-disaster-recovery-supported-for-vmware-vms"></a>VMware VM에 재해 복구가 지원되나요?
 
@@ -195,7 +200,40 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 * [VMware VM 및 물리적 서버를 복제하기 위한 용량 계획](site-recovery-plan-capacity-vmware.md)
 * [Azure에 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Linux 서버에서 응용 프로그램 일관성을 사용 하 여 복제를 사용 하도록 설정할 수 있나요? 
+예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 다음과 같습니다.
 
+1. 컴퓨터에 루트로 로그인 합니다.
+2. Azure Site Recovery 모바일 에이전트 설치 위치로 디렉터리를 변경 합니다. 기본값은 "/usr/local/ASR"입니다.<br>
+    `# cd /usr/local/ASR`
+3. 설치 위치에서 디렉터리를 "VX/scripts"로 변경 합니다.<br>
+    `# cd VX/scripts`
+4. 루트 사용자에 대 한 execute 권한이 있는 "customscript.sh" 라는 bash 셸 스크립트를 만듭니다.<br>
+    a. 스크립트는 "--pre" 및 "--post"를 지원 해야 합니다 (이중 대시 참고) 명령줄 옵션<br>
+    b. 사전 옵션을 사용 하 여 스크립트를 호출 하는 경우 응용 프로그램 입/출력을 고정 하 고 사후 옵션을 사용 하 여 호출 하면 응용 프로그램 입/출력을 재개 해야 합니다.<br>
+    다. 샘플 템플릿-<br>
+
+    `# cat customscript.sh`<br>
+
+```
+    #!/bin/bash
+
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 [--pre | --post]"
+        exit 1
+    elif [ "$1" == "--pre" ]; then
+        echo "Freezing app IO"
+        exit 0
+    elif [ "$1" == "--post" ]; then
+        echo "Thawed app IO"
+        exit 0
+    fi
+```
+
+5. 앱 일관성을 요구 하는 응용 프로그램에 대 한 사전 및 사후 단계의 입력/출력 고정 및 고정 해제 명령을 추가 합니다. 이러한 스크립트를 지정 하 여 추가 하 고 사전 및 사후 옵션을 사용 하 여 "customscript.sh"에서 호출 하도록 선택할 수 있습니다.
+
+>[!Note]
+>사용자 지정 스크립트를 지원 하려면 Site Recovery 에이전트 버전이 9.24 이상 이어야 합니다.
 
 ## <a name="failover"></a>장애 조치
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Azure로 장애 조치(failover)하는 경우 장애 조치(failover) 후에 어떻게 Azure VM에 액세스하나요?

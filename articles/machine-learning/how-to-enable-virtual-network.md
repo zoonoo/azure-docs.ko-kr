@@ -5,40 +5,25 @@ description: 격리된 Azure Virtual Network를 사용하여 Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/11/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 17c6e10b213cb1f3d2b20433a5511c27960cdb06
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.date: 06/30/2020
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816304"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057809"
 ---
-# <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>프라이빗 가상 네트워크를 통해 기계 학습 수명 주기 보호
+# <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure Virtual Network(vnet) 내에서 Azure Machine Learning의 실험/학습 작업과 유추/채점 작업을 격리하는 방법을 알아봅니다. 기본 또는 실험적 사용 사례에는 필요하지 않은 일부 고급 보안 설정, 정보에 대해서도 알아봅니다.
+이 문서에서는 Azure Virtual Network (vnet) 내에서 Azure Machine Learning 교육 및 유추 작업을 격리 하 여 machine learning 수명 주기를 보호 하는 방법을 알아봅니다. Azure Machine Learning은 계산 [대상이](concept-compute-target.md)라고도 하는 계산 리소스에 대 한 다른 Azure 서비스를 사용 하 여 모델을 학습 하 고 배포 합니다. 대상은 가상 네트워크 내에서 만들 수 있습니다. 예를 들어 Azure Machine Learning 컴퓨팅을 사용하여 모델을 교육한 다음, 이 모델을 AKS(Azure Kubernetes Service)에 배포할 수 있습니다. 
 
-> [!WARNING]
-> 기본 스토리지가 가상 네트워크에 있으면 Azure Machine Learning의 다음을 비롯한 스튜디오 웹 환경을 사용할 수 없습니다.
-> - 끌어서 놓기 디자이너
-> - 자동화된 Machine Learning을 위한 UI
-> - 데이터 레이블 지정을 위한 UI
-> - 데이터 세트에 대한 UI
-> - Notebooks
-> 
-> 사용하려고 하면 다음 오류와 유사한 메시지가 표시됩니다. `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
-
-## <a name="what-is-a-vnet"></a>VNET이란?
-
-**가상 네트워크**는 공용 인터넷에서 Azure 리소스를 격리하는 보안 경계의 역할을 합니다. Azure 가상 네트워크를 온-프레미스 네트워크에 연결할 수도 있습니다. 네트워크에 조인하면 모델을 안전하게 교육하고, 배포한 모델에 액세스하여 유추할 수 있습니다.
-
-Azure Machine Learning은 모델을 교육하고 배포하는 [컴퓨팅 대상](concept-compute-target.md)이라고도 하는 컴퓨팅 리소스에 다른 Azure 서비스를 사용합니다. 대상은 가상 네트워크 내에서 만들 수 있습니다. 예를 들어 Azure Machine Learning 컴퓨팅을 사용하여 모델을 교육한 다음, 이 모델을 AKS(Azure Kubernetes Service)에 배포할 수 있습니다. 
-
+__가상 네트워크__는 공용 인터넷에서 Azure 리소스를 격리하는 보안 경계의 역할을 합니다. Azure 가상 네트워크를 온-프레미스 네트워크에 연결할 수도 있습니다. 네트워크에 조인하면 모델을 안전하게 교육하고, 배포한 모델에 액세스하여 유추할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,16 +55,176 @@ Azure Machine Learning은 모델을 교육하고 배포하는 [컴퓨팅 대상]
 > 
 
 > [!WARNING]
-> Azure Machine Learning 컴퓨팅 인스턴스 미리 보기는 Private Link가 활성화된 작업 영역에서 지원되지 않습니다.
 > 
+> Azure Machine Learning 컴퓨팅 인스턴스 미리 보기는 Private Link가 활성화된 작업 영역에서 지원되지 않습니다.
+>
 > Azure Machine Learning은 프라이빗 링크가 활성화된 Azure Kubernetes Service 사용을 지원하지 않습니다. 대신 가상 네트워크에서 Azure Kubernetes Service를 사용할 수 있습니다. 자세한 내용은 [Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호](how-to-enable-virtual-network.md)를 참조하세요.
 
 
 <a id="amlcompute"></a>
 
-## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>컴퓨팅 클러스터 및 인스턴스
+## <a name="machine-learning-studio"></a>Machine Learning studio
 
-가상 네트워크에서 [관리형 Azure Machine Learning **컴퓨팅 대상**](concept-compute-target.md#azure-machine-learning-compute-managed) 또는 [Azure Machine Learning 컴퓨팅 **인스턴스**](concept-compute-instance.md) 중에 하나를 사용하려면 다음 네트워크 요구 사항을 충족해야 합니다.
+데이터가 가상 네트워크에 저장 된 경우 작업 영역 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 studio에서 데이터에 액세스 권한을 부여 해야 합니다.
+
+Studio 액세스 권한을 부여 하지 못한 경우이 오류가 표시 되 `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 고 다음 작업을 사용 하지 않도록 설정 합니다.
+
+* Studio에서 데이터를 미리 봅니다.
+* 디자이너에서 데이터를 시각화 합니다.
+* AutoML 실험을 제출 합니다.
+* 레이블 지정 프로젝트를 시작 합니다.
+
+스튜디오는 가상 네트워크의 다음 데이터 저장소 형식에서 데이터를 읽을 수 있도록 지원 합니다.
+
+* Azure Blob
+* Azure Data Lake Storage Gen1
+* Azure Data Lake Storage Gen2
+* Azure SQL Database
+
+### <a name="add-resources-to-the-virtual-network"></a>가상 네트워크에 리소스 추가 
+
+동일한 가상 네트워크에 작업 영역 및 저장소 계정을 추가 하 여 서로 액세스할 수 있도록 합니다.
+
+1. 작업 영역을 가상 네트워크에 연결 하려면 [Azure 개인 링크를 사용 하도록 설정](how-to-configure-private-link.md)합니다.
+
+1. 저장소 계정을 가상 네트워크에 연결 하려면 [방화벽 및 가상 네트워크 설정을 구성](#use-a-storage-account-for-your-workspace)합니다.
+
+### <a name="configure-a-datastore-to-use-managed-identity"></a>관리 id를 사용 하도록 데이터 저장소 구성
+
+작업 영역 및 저장소 서비스 계정을 가상 네트워크에 추가한 후에는 관리 id를 사용 하 여 데이터에 액세스 하도록 데이터 저장소를 구성 해야 합니다. 이러한 단계는 Azure 리소스 기반 액세스 제어 (RBAC)를 사용 하 여 저장소 서비스에 작업 영역 관리 id를 __판독기__ 로 추가 합니다. __읽기 권한자__ 액세스를 통해 작업 영역에서 방화벽 설정을 검색 하 고 데이터가 가상 네트워크를 떠나지 않도록 할 수 있습니다.
+
+1. 스튜디오에서 __Datastores__를 선택 합니다.
+
+1. 새 데이터 저장소를 만들려면 __+ 새 데이터 저장소__를 선택 합니다. 기존 항목을 업데이트 하려면 데이터 저장소를 선택 하 고 __자격 증명 업데이트__를 선택 합니다.
+
+1. 데이터 저장소 설정에서 __작업 영역 관리 id를 사용 하 여 저장소에 액세스할 Azure Machine Learning 서비스 허용__에 대해 __예__ 를 선택 합니다.
+
+> [!NOTE]
+> 이러한 변경 내용을 적용 하는 데 최대 10 분이 걸릴 수 있습니다.
+
+### <a name="azure-blob-storage-blob-data-reader"></a>Azure Blob storage Blob 데이터 판독기
+
+__Azure blob storage__의 경우 blob storage에서 데이터를 읽을 수 있도록 작업 영역 관리 Id도 [blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 로 추가 됩니다.
+
+
+### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 access control
+
+RBAC 및 POSIX 스타일의 Acl (액세스 제어 목록)을 모두 사용 하 여 가상 네트워크 내에서 데이터 액세스를 제어할 수 있습니다.
+
+RBAC를 사용 하려면 [Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할에 작업 영역 관리 id를 추가 합니다. 자세한 내용은 [역할 기반 액세스 제어](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control)를 참조하세요.
+
+Acl을 사용 하려면 다른 보안 원칙과 마찬가지로 작업 영역 관리 id에 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조 하세요.
+
+
+### <a name="azure-data-lake-storage-gen1-access-control"></a>Azure Data Lake Storage Gen1 access control
+
+Azure Data Lake Storage Gen1는 POSIX 스타일의 액세스 제어 목록만 지원 합니다. 다른 보안 주체와 마찬가지로 리소스에 작업 영역 관리 id 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen1의 Access control](../data-lake-store/data-lake-store-access-control.md)을 참조 하세요.
+
+
+### <a name="azure-sql-database-contained-user"></a>포함 된 사용자 Azure SQL Database
+
+관리 id를 사용 하 여 Azure SQL Database에 저장 된 데이터에 액세스 하려면 관리 되는 id에 매핑되는 SQL 포함 된 사용자를 만들어야 합니다. 외부 공급자에서 사용자를 만드는 방법에 대 한 자세한 내용은 [AZURE AD id에 매핑된 포함 된 사용자 만들기](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)를 참조 하세요.
+
+SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql)사용 하 여 해당 사용자에 게 사용 권한을 부여 합니다.
+
+### <a name="connect-to-the-studio"></a>스튜디오에 연결
+
+가상 네트워크 내의 리소스 (예: 계산 인스턴스 또는 가상 머신)에서 studio에 액세스 하는 경우 가상 네트워크에서 스튜디오로의 아웃 바운드 트래픽을 허용 해야 합니다. 
+
+예를 들어 NSG (네트워크 보안 그룹)를 사용 하 여 아웃 바운드 트래픽을 제한 하는 경우 __AzureFrontDoor__의 __서비스 태그__ 대상에 규칙을 추가 합니다.
+
+## <a name="use-a-storage-account-for-your-workspace"></a>작업 영역에 대한 스토리지 계정 사용
+
+> [!IMPORTANT]
+> Azure Machine Learning의 _기본 스토리지 계정_이나 기본이 아닌 스토리지 계정 모두를 가상 네트워크에 배치할 수 있습니다.
+>
+> 기본 스토리지 계정은 작업 영역을 만들 때 자동으로 프로비저닝됩니다.
+>
+> 기본이 아닌 스토리지 계정의 경우 [`Workspace.create()`함수](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)의 `storage_account` 매개 변수를 사용하여 Azure 리소스 ID로 사용자 지정 스토리지 계정을 지정할 수 있습니다.
+
+가상 네트워크의 작업 영역에 Azure storage 서비스를 사용 하려면 다음 단계를 사용 합니다.
+
+1. 가상 네트워크 뒤에 컴퓨팅 리소스(예: Machine Learning 컴퓨팅 인스턴스 또는 클러스터)를 만들거나 컴퓨팅 리소스를 작업 영역(예: HDInsight 클러스터, 가상 머신 또는 Azure Kubernetes 서비스 클러스터)에 연결합니다. 컴퓨팅 리소스는 실험 또는 모델 배포용으로 사용할 수 있습니다.
+
+   자세한 내용은 이 문서에서 [Machine Learning 컴퓨팅 사용](#amlcompute), [가상 머신 또는 HDInsight 클러스터 사용](#vmorhdi), [Azure Kubernetes 서비스 사용](#aksvnet) 섹션을 참조하세요.
+
+1. Azure Portal에서 작업 영역에서 사용 하려는 저장소 서비스로 이동 합니다.
+
+   [![Azure Machine Learning 작업 영역에 연결된 스토리지](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+
+1. Storage 서비스 계정 페이지에서 __방화벽 및 가상 네트워크__를 선택 합니다.
+
+   ![Azure Portal에 있는 Azure Storage 페이지의 "방화벽 및 가상 네트워크" 영역](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+
+1. __방화벽 및 가상 네트워크__ 페이지에서 다음 작업을 수행합니다.
+    - __선택한 네트워크__를 선택합니다.
+    - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택합니다. 이 작업을 수행 하면 계산이 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
+
+        > [!IMPORTANT]
+        > 스토리지 계정은 학습 또는 유추에 사용되는 컴퓨팅 인스턴스 또는 클러스터와 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
+
+    - __신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다__ 확인란을 선택합니다.
+
+    > [!IMPORTANT]
+    > Azure Machine Learning SDK를 사용하는 경우 개발 환경에서 Azure Storage 계정에 연결할 수 있어야 합니다. 스토리지 계정이 가상 네트워크 내에 있는 경우 방화벽에서 개발 환경 IP 주소의 액세스를 반드시 허용해야 합니다.
+    >
+    > 스토리지 계정에 액세스가 가능하도록 설정하려면 개발 클라이언트의 웹 브라우저에서 스토리지 계정에 대한 __방화벽 및 가상 네트워크__를 방문하세요. 그런 다음, __클라이언트 IP 주소 추가__ 확인란을 사용하여 클라이언트의 IP 주소를 __주소 범위__에 추가합니다. __주소 범위__ 필드를 사용하여 개발 환경의 IP 주소를 수동으로 입력할 수도 있습니다. 클라이언트의 IP 주소가 추가되고 나면 SDK를 사용하여 스토리지 계정에 액세스할 수 있습니다.
+
+   [![Azure Portal의 "방화벽 및 가상 네트워크" 창](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## <a name="use-datastores-and-datasets"></a>데이터 저장소 및 데이터 집합 사용
+
+이 섹션에서는 SDK 환경의 데이터 저장소 및 데이터 집합 사용에 대해 설명 합니다. 스튜디오 환경에 대 한 자세한 내용은 [Machine Learning studio](#machine-learning-studio)섹션을 참조 하세요.
+
+기본적으로 Azure Machine Learning는 SDK를 사용 하 여 데이터에 액세스 하려고 할 때 데이터 유효성 및 자격 증명 확인을 수행 합니다. 데이터가 가상 네트워크 뒤에 있는 경우 데이터에 액세스할 수 없고 해당 검사에 실패 하는 Azure Machine Learning. 이를 방지 하려면 유효성 검사를 건너뛰는 데이터 저장소 및 데이터 집합을 만들어야 합니다.
+
+### <a name="use-a-datastore"></a>데이터 저장소 사용
+
+ Azure Data Lake Store Gen1 및 Azure Data Lake Store Gen2는 기본적으로 유효성 검사를 건너뛰고 추가 작업이 필요 하지 않습니다. 그러나 다음 서비스의 경우 유사한 구문을 사용 하 여 데이터 저장소 유효성 검사를 건너뛸 수 있습니다.
+
+- Azure Blob 스토리지
+- Azure 파일 공유
+- PostgreSQL
+- Azure SQL Database
+
+다음 코드 샘플은 새 Azure Blob 데이터 저장소 및 집합을 만듭니다 `skip_validation=True` .
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+### <a name="use-a-dataset"></a>데이터 세트 사용
+
+데이터 집합 유효성 검사를 건너뛰는 구문은 다음과 같은 데이터 집합 형식에 대해 유사 합니다.
+- 구분 된 파일
+- JSON 
+- Parquet
+- SQL
+- 파일
+
+다음 코드는 새 JSON 데이터 집합을 만들고를 설정 `validate=False` 합니다.
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
+
+
+## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>컴퓨팅 클러스터 및 인스턴스 
+
+가상 네트워크에서 [관리형 Azure Machine Learning __컴퓨팅 대상__](concept-compute-target.md#azure-machine-learning-compute-managed) 또는 [Azure Machine Learning 컴퓨팅 __인스턴스__](concept-compute-instance.md) 중에 하나를 사용하려면 다음 네트워크 요구 사항을 충족해야 합니다.
 
 > [!div class="checklist"]
 > * 가상 네트워크가 Azure Machine Learning 작업 영역과 동일한 구독 및 지역에 있어야 합니다.
@@ -102,7 +247,9 @@ Azure Machine Learning은 모델을 교육하고 배포하는 [컴퓨팅 대상]
 
 ### <a name="required-ports"></a><a id="mlcports"></a> 필수 포트
 
-Machine Learning 컴퓨팅은 현재 Azure Batch 서비스를 사용하여 지정된 가상 네트워크에 VM을 프로비전합니다. 서브넷은 Batch 서비스에서의 인바운드 통신을 허용해야 합니다. 이 통신을 사용하여 Machine Learning 컴퓨팅 노드에서 실행을 예약하고 Azure Storage 및 기타 리소스와 통신합니다. Batch 서비스는 VM에 연결된 NIC(네트워크 인터페이스) 수준에서 NSG(네트워크 보안 그룹)를 추가합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
+공용 인터넷으로/에서 네트워크 트래픽을 제한 하 여 가상 네트워크를 보호 하려는 경우 Azure Batch 서비스에서 인바운드 통신을 허용 해야 합니다.
+
+Batch 서비스는 VM에 연결된 NIC(네트워크 인터페이스) 수준에서 NSG(네트워크 보안 그룹)를 추가합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
 
 - __BatchNodeManagement__의 __서비스 태그__ 포트 29876 및 29877의 인바운드 TCP 트래픽
 
@@ -116,9 +263,10 @@ Machine Learning 컴퓨팅은 현재 Azure Batch 서비스를 사용하여 지�
 
 - __AzureMachineLearning__의 __서비스 태그__ 포트 44224의 컴퓨팅 인스턴스 인바운드 TCP 트래픽
 
-Batch 구성 NSG에서 인바운드 또는 아웃바운드 규칙을 수정하거나 추가할 경우 주의가 필요합니다. NSG가 컴퓨팅 노드에 대한 통신을 차단하는 경우 컴퓨팅 서비스는 컴퓨팅 노드의 상태를 사용 불가로 설정합니다.
-
-Azure Batch 서비스는 자체 NSG를 구성하기 때문에 서브넷 수준에서 NSG를 지정할 필요는 없습니다. 그러나 지정된 서브넷에 연결된 NSG 또는 방화벽이 있는 경우 앞서 언급한 것처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다.
+> [!IMPORTANT]
+> Batch 구성 NSG에서 인바운드 또는 아웃바운드 규칙을 수정하거나 추가할 경우 주의가 필요합니다. NSG가 컴퓨팅 노드에 대한 통신을 차단하는 경우 컴퓨팅 서비스는 컴퓨팅 노드의 상태를 사용 불가로 설정합니다.
+>
+> Azure Batch 서비스는 자체 NSG를 구성하기 때문에 서브넷 수준에서 NSG를 지정할 필요는 없습니다. 그러나 Azure Machine Learning 계산을 포함 하는 서브넷에 연결 된 NSGs 또는 방화벽이 있는 경우 앞에 나열 된 트래픽만 허용 해야 합니다.
 
 Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
@@ -146,7 +294,10 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 [![Machine Learning 컴퓨팅에 대한 아웃바운드 NSG 규칙](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Microsoft 제공 Docker 이미지를 사용하고 사용자 관리형 종속성을 사용하도록 설정할 계획이면 __MicrosoftContainerRegistry.Region_Name__의 __서비스 태그__도 사용해야 합니다(예: MicrosoftContainerRegistry.EastUS).
+> Microsoft에서 제공 하는 기본 Docker 이미지를 사용 하 고 사용자 관리 종속성을 사용 하도록 계획 하는 경우 다음 __서비스 태그도__사용 해야 합니다.
+>
+> * __MicrosoftContainerRegistry__
+> * __AzureFrontDoor.FirstParty__
 >
 > 이 구성은 학습 스크립트의 일부에 다음 코드 조각과 비슷한 코드가 있는 경우 필요합니다.
 >
@@ -253,45 +404,11 @@ except ComputeTargetException:
 
 만들기 프로세스가 완료되면 실험에서 클러스터를 사용하여 모델을 학습시킵니다. 자세한 내용은 [학습의 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
 
-## <a name="use-a-storage-account-for-your-workspace"></a>작업 영역에 대한 스토리지 계정 사용
+### <a name="access-data-in-a-compute-instance-notebook"></a>계산 인스턴스 노트북에서 데이터 액세스
 
-가상 네트워크의 작업 영역에 Azure 스토리지 계정을 사용하려면 다음 단계를 사용합니다.
+Azure 계산 인스턴스에서 노트북을 사용 하는 경우 노트북이 동일한 가상 네트워크 및 서브넷 뒤에 있는 계산 리소스에서 실행 되 고 있는지 확인 해야 합니다. 
 
-1. 가상 네트워크 뒤에 컴퓨팅 리소스(예: Machine Learning 컴퓨팅 인스턴스 또는 클러스터)를 만들거나 컴퓨팅 리소스를 작업 영역(예: HDInsight 클러스터, 가상 머신 또는 Azure Kubernetes 서비스 클러스터)에 연결합니다. 컴퓨팅 리소스는 실험 또는 모델 배포용으로 사용할 수 있습니다.
-
-   자세한 내용은 이 문서에서 [Machine Learning 컴퓨팅 사용](#amlcompute), [가상 머신 또는 HDInsight 클러스터 사용](#vmorhdi), [Azure Kubernetes 서비스 사용](#aksvnet) 섹션을 참조하세요.
-
-1. Azure Portal에서 작업 영역에 연결된 스토리지로 이동합니다.
-
-   [![Azure Machine Learning 작업 영역에 연결된 스토리지](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
-
-1. **Azure Storage** 페이지에서 __방화벽 및 가상 네트워크__를 선택합니다.
-
-   ![Azure Portal에 있는 Azure Storage 페이지의 "방화벽 및 가상 네트워크" 영역](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-
-1. __방화벽 및 가상 네트워크__ 페이지에서 다음 작업을 수행합니다.
-    - __선택한 네트워크__를 선택합니다.
-    - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택합니다. 이 작업을 수행하면 컴퓨팅이 상주하는 가상 네트워크가 추가됩니다(1단계 참조).
-
-        > [!IMPORTANT]
-        > 스토리지 계정은 학습 또는 유추에 사용되는 컴퓨팅 인스턴스 또는 클러스터와 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
-
-    - __신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다__ 확인란을 선택합니다.
-
-    > [!IMPORTANT]
-    > Azure Machine Learning SDK를 사용하는 경우 개발 환경에서 Azure Storage 계정에 연결할 수 있어야 합니다. 스토리지 계정이 가상 네트워크 내에 있는 경우 방화벽에서 개발 환경 IP 주소의 액세스를 반드시 허용해야 합니다.
-    >
-    > 스토리지 계정에 액세스가 가능하도록 설정하려면 개발 클라이언트의 웹 브라우저에서 스토리지 계정에 대한 __방화벽 및 가상 네트워크__를 방문하세요. 그런 다음, __클라이언트 IP 주소 추가__ 확인란을 사용하여 클라이언트의 IP 주소를 __주소 범위__에 추가합니다. __주소 범위__ 필드를 사용하여 개발 환경의 IP 주소를 수동으로 입력할 수도 있습니다. 클라이언트의 IP 주소가 추가되고 나면 SDK를 사용하여 스토리지 계정에 액세스할 수 있습니다.
-
-   [![Azure Portal의 "방화벽 및 가상 네트워크" 창](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-> [!IMPORTANT]
-> Azure Machine Learning의 _기본 스토리지 계정_이나 기본이 아닌 스토리지 계정 모두를 가상 네트워크에 배치할 수 있습니다.
->
-> 기본 스토리지 계정은 작업 영역을 만들 때 자동으로 프로비저닝됩니다.
->
-> 기본이 아닌 스토리지 계정의 경우 [`Workspace.create()`함수](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)의 `storage_account` 매개 변수를 사용하여 Azure 리소스 ID로 사용자 지정 스토리지 계정을 지정할 수 있습니다.
-
+계산 인스턴스는 생성 하는 동안 동일한 가상 네트워크에 있도록 구성 해야 합니다. **고급 설정**  >  **가상 네트워크 구성**합니다. 기존 계산 인스턴스를 가상 네트워크에 추가할 수 없습니다.
 
 <a id="aksvnet"></a>
 
@@ -363,7 +480,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 > [!IMPORTANT]
 > Azure Kubernetes 서비스 클러스터를 만들 때는 개인 IP를 사용하도록 설정할 수 없습니다. 기존 클러스터에 대한 업데이트로 활성화해야 합니다.
 
-다음 코드 조각은 **새 AKS 클러스터를 만든** 다음, 개인 IP/내부 부하 분산 장치를 사용하도록 업데이트하는 방법을 보여줍니다.
+다음 코드 조각은 __새 AKS 클러스터를 만든__ 다음, 개인 IP/내부 부하 분산 장치를 사용하도록 업데이트하는 방법을 보여줍니다.
 
 ```python
 import azureml.core
@@ -427,14 +544,69 @@ az rest --method put --uri https://management.azure.com/subscriptions/<subscript
 } 
 ```
 
-> [!NOTE]
-> 현재 기존 클러스터에서 __attach__ 작업을 수행할 때는 부하 분산 장치를 구성할 수 없습니다. 먼저 클러스터를 연결한 다음, 업데이트 작업을 수행하여 부하 분산 장치를 변경해야 합니다.
+__기존 클러스터__ 를 작업 영역에 연결 하는 경우 연결 작업 후에 부하 분산 장치를 구성할 때까지 기다려야 합니다.
 
+클러스터를 연결 하는 방법에 대 한 자세한 내용은 [기존 AKS 클러스터 연결](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster)을 참조 하세요.
+
+기존 클러스터를 연결한 후에는 개인 IP를 사용 하도록 클러스터를 업데이트할 수 있습니다.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute
+
+# ws = workspace object. Creation not shown in this snippet
+aks_target = AksCompute(ws,"myaks")
+
+# Change to the name of the subnet that contains AKS
+subnet_name = "default"
+# Update AKS configuration to use an internal load balancer
+update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+aks_target.update(update_config)
+# Wait for the operation to complete
+aks_target.wait_for_completion(show_output = True)
+```
+
+__네트워크 참가자 역할__
+
+> [!IMPORTANT]
+> 이전에 만든 가상 네트워크를 제공 하 여 AKS 클러스터를 만들거나 연결 하는 경우 AKS 클러스터에 대 한 SP (서비스 사용자) 또는 관리 _id를 가상_ 네트워크를 포함 하는 리소스 그룹에 부여 해야 합니다. 내부 부하 분산 장치를 개인 IP로 변경 하기 전에이 작업을 수행 해야 합니다.
+>
+> 네트워크 참가자로 id를 추가 하려면 다음 단계를 사용 합니다.
+
+1. AKS에 대 한 서비스 주체 또는 관리 id ID를 찾으려면 다음 Azure CLI 명령을 사용 합니다. `<aks-cluster-name>`을 클러스터의 이름으로 바꿉니다. `<resource-group-name>`을 _AKS 클러스터를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    이 명령이 값을 반환 하는 경우 `msi` 다음 명령을 사용 하 여 관리 되는 id의 보안 주체 ID를 식별 합니다.
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. 가상 네트워크를 포함 하는 리소스 그룹의 ID를 찾으려면 다음 명령을 사용 합니다. `<resource-group-name>`을 _가상 네트워크를 포함_하는 리소스 그룹의 이름으로 바꿉니다.
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. 서비스 주체 또는 관리 되는 id를 네트워크 참가자로 추가 하려면 다음 명령을 사용 합니다. 를 `<SP-or-managed-identity>` 서비스 주체 또는 관리 id에 대해 반환 된 id로 바꿉니다. 을 `<resource-group-id>` 가상 네트워크를 포함 하는 리소스 그룹에 대해 반환 된 ID로 바꿉니다.
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
 AKS에서 내부 부하 분산 장치를 사용하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service에서 내부 부하 분산 장치 사용](/azure/aks/internal-lb)을 참조하세요.
 
 ## <a name="use-azure-container-instances-aci"></a>ACI(Azure Container Instances) 사용
 
 Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니다. Azure Machine Learning이 가상 네트워크 내에 ACI를 만들 수 있도록 설정하려면 배포에 사용되는 서브넷에 __서브넷 위임__을 활성화해야 합니다.
+
+> [!WARNING]
+> 가상 네트워크에서 Azure Container Instances를 사용 하는 경우 가상 네트워크가 Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있어야 합니다.
+>
+> 가상 네트워크 내에서 Azure Container Instances를 사용 하는 경우 작업 영역에 대 한 Azure Container Registry (ACR)는 가상 네트워크에도 있을 수 없습니다.
 
 가상 네트워크의 ACI를 작업 영역으로 사용하려면 다음 단계를 사용하세요.
 
@@ -547,22 +719,6 @@ Azure Firewall과 함께 Azure Machine Learning을 사용하는 방법에 대한
     ]
     }
     ```
-    
-## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
-
-Azure Data Lake Storage Gen 2는 Azure Blob Storage를 기반으로 하는 빅 데이터 분석을 위한 일련의 기능입니다. Azure Machine Learning으로 모델을 교육하는 데 사용되는 데이터를 저장하는 데 사용할 수 있습니다. 
-
-Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake Storage Gen 2를 사용하려면 다음 단계를 참조하세요.
-
-1. Azure Data Lake Storage gen 2 계정을 만듭니다. 자세한 내용은 [Azure Data Lake Storage Gen2 스토리지 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조하세요
-
-1. 이전 섹션 [작업 영역에 대한 스토리지 계정 사용](#use-a-storage-account-for-your-workspace)의 2~4 단계를 사용하여 계정을 가상 네트워크에 배치합니다.
-
-가상 네트워크 내에서 Data Lake Storage Gen 2와 Azure Machine Learning을 사용하는 경우 다음 지침을 따르십시오.
-
-* __SDK를 사용하여 데이터 세트를 만들고__ 코드를 실행하는 시스템이 __가상 네트워크에 없는 경우__ `validate=False` 매개 변수를 사용합니다. 이 매개 변수는 시스템이 스토리지 계정과 동일한 가상 네트워크에 없으면 실패하는 유효성 검사를 건너뜁니다. 자세한 내용은 [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 메서드를 참조하세요.
-
-* Azure Machine Learning 컴퓨팅 인스턴스 또는 컴퓨팅 클러스터를 사용하여 데이터 세트를 사용하는 모델을 교육하는 경우 스토리지 계정과 동일한 가상 네트워크에 있어야 합니다.
 
 ## <a name="key-vault-instance"></a>Key Vault 인스턴스 
 
@@ -577,7 +733,7 @@ Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake 
 
    [![Azure Machine Learning 작업 영역과 연결된 키 자격 증명 모음](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
-1. **Key Vault** 페이지의 왼쪽 창에서 __방화벽 및 가상 네트워크__를 선택합니다.
+1. __Key Vault__ 페이지의 왼쪽 창에서 __방화벽 및 가상 네트워크__를 선택합니다.
 
    ![Key Vault 창의 "방화벽 및 가상 네트워크" 섹션](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 

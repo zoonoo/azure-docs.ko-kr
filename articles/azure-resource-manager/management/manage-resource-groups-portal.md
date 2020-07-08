@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632985"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057554"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -44,7 +44,7 @@ ms.locfileid: "80632985"
    - **지역**: **미국 중부**와 같은 Azure 위치를 선택 합니다.
 
      ![리소스 그룹 만들기](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
-5. **검토 + 만들기** 선택
+5. **검토 및 만들기**를 선택합니다.
 6. **만들기**를 선택합니다. 리소스 그룹을 만드는 데 몇 초 정도 걸립니다.
 7. 상단 메뉴에서 **새로 고침** 을 선택 하 여 리소스 그룹 목록을 새로 고친 다음 새로 만든 리소스 그룹을 선택 하 여 엽니다. 또는 위쪽에서 **알림**(벨 아이콘)을 선택 하 고 **리소스 그룹으로 이동** 을 선택 하 여 새로 만든 리소스 그룹을 엽니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "80632985"
 
 잠금은 조직의 다른 사용자가 실수로 Azure 구독, 리소스 그룹 또는 리소스와 같은 중요 한 리소스를 삭제 하거나 수정 하는 것을 방지 합니다. 
 
-1. 삭제 하려는 리소스 그룹을 엽니다.  [리소스 그룹 열기](#open-resource-groups)를 참조 하세요.
+1. 잠글 리소스 그룹을 엽니다.  [리소스 그룹 열기](#open-resource-groups)를 참조 하세요.
 2. 왼쪽 창에서 **잠금**을 선택 합니다.
 3. 리소스 그룹에 잠금을 추가 하려면 **추가**를 선택 합니다.
 4. **잠금 이름**, **잠금 유형**및 **메모**를 입력 합니다. 잠금 유형에는 **읽기**전용 및 **삭제가**포함 됩니다.
@@ -111,5 +111,5 @@ ms.locfileid: "80632985"
 
 - Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조 하세요.
 - 리소스 관리자 템플릿 구문에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../templates/template-syntax.md)를 참조 하세요.
-- 템플릿을 개발 하는 방법을 알아보려면 단계별 [자습서](/azure/azure-resource-manager/)를 참조 하세요.
+- 템플릿을 개발 하는 방법을 알아보려면 단계별 [자습서](../index.yml)를 참조 하세요.
 - Azure Resource Manager 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조 하세요.

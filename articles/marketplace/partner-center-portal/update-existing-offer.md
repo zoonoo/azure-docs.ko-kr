@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80285149"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057962"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 기존 제품 업데이트
 
@@ -37,20 +37,29 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 > [!IMPORTANT]
 > 제품 미리 보기를 사용할 수 있게 되 면 검토 하 고 **live live** 를 선택 하 여 원하는 대상 (공용 또는 개인)에 업데이트 된 제품을 게시 해야 합니다.
 
+## <a name="add-a-plan-to-an-existing-offer"></a>기존 제품에 요금제 추가
+
+이미 게시 한 기존 제품 내에서 새 계획을 추가 하려면 다음을 수행 합니다.
+
+1. 기존 제품에 대 한 **제품 개요** 페이지를 열고 **계획 개요** 페이지로 이동한 다음 **새 계획 만들기**를 선택 합니다.
+1. **기존 계획 가격 책정 모델**을 사용 하 여 [지침](./create-new-saas-offer.md#plan-overview) 에 따라 새 계획을 만듭니다.
+1. 계획 이름을 변경한 후에는 **초안 저장** 을 선택 합니다. 
+1. 업데이트를 게시할 준비가 되 면 **게시** 를 선택 합니다. **[검토 및 게시](#review-and-publish-an-updated-offer)** 페이지가 열리고 업데이트에 대 한 완료 상태를 제공 합니다.
+
 ## <a name="update-a-plan-within-an-existing-offer"></a>기존 제품 내에서 요금제 업데이트
 
 이미 게시 한 기존 제품 내에서 계획을 변경 하려면 다음을 수행 합니다.
 
-- 기존 제품에 대 한 **제안 개요** 페이지가 열려 있는 상태에서 변경 하려는 계획을 선택 합니다. 계획 **개요** 목록에서 계획에 액세스할 수 없는 경우 **모든 계획 보기**를 선택 합니다.
-- 계획 **이름**, **가격 책정 모델**또는 **가용성**을 선택할 수 있습니다. *현재 요금제는 영어 (미국)로만 제공 됩니다*.
-- 계획 이름, 설명, 가격 또는 대상의 가용성을 변경한 후에 **저장** 을 선택 합니다. 
-- 업데이트를 게시할 준비가 되 면 **게시** 를 선택 합니다. **[검토 및 게시](#review-and-publish-an-updated-offer)** 페이지가 열리고 업데이트에 대 한 완료 상태가 제공 됩니다.
+1. 기존 제품에 대 한 **제품 개요** 페이지를 열고 변경 하려는 계획을 선택 합니다. 계획 **개요** 목록에서 요금제에 액세스할 수 없는 경우 **모든 계획 보기**를 선택 합니다.
+1. 계획 **이름**, **가격 책정 모델**또는 **가용성**을 선택할 수 있습니다. *현재 요금제는 영어 (미국)로만 제공 됩니다*.
+1. 계획 이름, 설명 또는 대상의 가용성을 변경한 후에 **저장** 을 선택 합니다. 
+1. 업데이트를 게시할 준비가 되 면 **게시** 를 선택 합니다. **[검토 및 게시](#review-and-publish-an-updated-offer)** 페이지가 열리고 업데이트에 대 한 완료 상태를 제공 합니다.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Marketplace 제품에 대 한 변경 내용 비교
 
-[게시](#compare-changes-to-published-offer) 또는 [미리 보기](#compare-changes-to-a-preview-offer) 제품에 대 한 변경 내용을 **비교**를 사용 하 여 라이브 상태로 만들기 전에 감사할 수 있습니다.
+**비교**를 사용 하 여 [게시](#compare-changes-to-published-offer) 또는 [미리 보기](#compare-changes-to-a-preview-offer) 제품에 대 한 변경 내용을 라이브 상태로 만들기 전에 감사할 수 있습니다.
 
->[!NOTE]
+> [!NOTE]
 > 게시 된 제품은 미리 보기 또는 라이브 상태에 성공적으로 게시 된 제품입니다.
 
 일반적인 감사 정보는 다음을 참조 하세요.
@@ -122,9 +131,9 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 
 **게시 진행 중** 상태의 제안을 취소 하려면:
 
-- 제품 이름을 선택 하 여 **제품 개요** 페이지를 엽니다.
-- 페이지의 오른쪽 위 모서리에서 **게시 취소** 를 선택 합니다.
-- 제안을 게시 하지 않을 것인지 확인 합니다.
+1. 제품 이름을 선택 하 여 **제품 개요** 페이지를 엽니다.
+1. 페이지의 오른쪽 위 모서리에서 **게시 취소** 를 선택 합니다.
+1. 제안을 게시 하지 않을 것인지 확인 합니다.
 
 나중에 제품을 게시 하려는 경우에는에서 게시 프로세스를 시작 해야 합니다.
 

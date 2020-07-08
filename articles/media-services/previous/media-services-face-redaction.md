@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e150ec037bab0010c5505c880c4cac456118b35
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74900311"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058013"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집 
 ## <a name="overview"></a>개요
@@ -129,9 +129,11 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 예제 foo_IDList.txt
  
-     1
-     2
-     3
+```output
+1
+2
+3
+```
 
 ## <a name="blur-types"></a>흐리게 형식
 
@@ -153,9 +155,9 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 ![중간](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>높음
+#### <a name="high"></a>높은
 
-![높음](./media/media-services-face-redaction/blur3.png)
+![높은](./media/media-services-face-redaction/blur3.png)
 
 #### <a name="box"></a>Box
 
@@ -191,7 +193,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정 하 고 [.net으로 개발 Media Services](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
+개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
 #### <a name="example"></a>예제
 

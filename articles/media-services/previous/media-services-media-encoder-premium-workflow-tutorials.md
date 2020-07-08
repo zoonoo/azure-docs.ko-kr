@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251012"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057469"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
 ## <a name="overview"></a>개요
@@ -187,7 +187,7 @@ AVC 인코딩된 비디오 스트림 및 AAC 인코딩된 오디오 스트림을
 
 식 편집기는 리터럴 값을 입력할 수 있게 하고 이는 하나 이상의 변수와 결합됩니다. 변수는 달러 기호로 시작합니다. $ 키를 누르면 사용 가능한 변수를 선택할 수 있는 드롭다운 상자가 편집기에 표시됩니다. 이 경우에 출력 디렉터리 변수 및 기본 입력 파일 이름 변수의 조합을 사용합니다.
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![채워진 식 편집기](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -265,16 +265,16 @@ Azure Media Services 동적 패키징과 호환성을 위해 멀티플렉서의 
 
 파일 출력 이름 지정은 디자이너에서 식을 통해 제어될 수 있습니다. 파일 출력 구성 요소 중 하나에 대한 속성 창을 열고 파일 속성에 대한 식 편집기를 엽니다. 다음 식을 통해 첫 번째 출력 파일을 구성했습니다( [MXF에서 단일 비트 전송률 MP4 출력으로](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)이동하기 위한 자습서를 참조).
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 즉, 작성할 출력 디렉터리 및 원본 파일 기본 이름 등 두 개의 변수로 파일 이름을 결정합니다. 전자는 워크플로 루트에서 속성으로 노출되고 후자는 들어오는 파일에 의해 결정됩니다. 출력 디렉터리는 로컬 테스트에 사용합니다. 워크플로가 Azure Media Services에서 클라우드 기반 미디어 프로세서에 의해 실행되는 경우 워크플로 엔진이 이 속성을 재정의합니다.
 출력 파일 모두에 일관된 출력 명명을 부여하려면 첫 번째 파일 명명 식을 다음과 같이 변경합니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 그리고 두 번째를 다음과 같이 변경합니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 중간 테스트 실행을 실행하여 MP4 출력 파일이 모두 제대로 생성되도록 합니다.
 
@@ -287,7 +287,7 @@ Azure Media Services 동적 패키징과 호환성을 위해 멀티플렉서의 
 
 세 번째 출력 파일 구성 요소를 만들어서 muxer에서 아웃바운드 스트림을 출력하고 파일 명명 식을 다음과 같이 구성합니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![파일 출력을 생성하는 오디오 Muxer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -319,7 +319,7 @@ MP4의 집합에 매니페스트 파일을 생성하는 작업은 "AMS 매니페
 
 다른 파일 출력 구성 요소와 마찬가지로 .ism 파일 출력 이름을 식으로 구성합니다.
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 완료된 워크플로는 아래와 같습니다.
 
@@ -342,11 +342,11 @@ MP4의 집합에 매니페스트 파일을 생성하는 작업은 "AMS 매니페
 
 예를 들어 첫 번째 비디오 파일에 대한 파일 출력 구성 요소는 다음 식으로 구성됩니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 반면 두 번째 출력 비디오의 경우 다음과 같은 식을 사용합니다.
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 대신 이러한 중복을 제거하고 더 구성 가능하게 된다면 간결하며 오류가 발생할 가능성이 적고 더 편리해질 것입니다. 다행히 다음과 같은 작업이 가능합니다. 워크플로 루트에서 사용자 지정 속성을 만드는 기능과 함께 디자이너의 식 기능이 추가된 편리한 계층을 제공합니다.
 
@@ -391,7 +391,7 @@ MP4의 집합에 매니페스트 파일을 생성하는 작업은 "AMS 매니페
 ### <a name="have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>게시된 속성 값을 사용하는 출력 파일 이름 생성
 생성된 파일 이름을 하드 코딩하는 대신 각 그래프 루트에 게시한 비트 전송률 속성을 사용하는 각 출력 파일 구성 요소의 파일 이름 식을 변경할 수 있습니다. 첫 번째 파일 출력을 시작하고 파일 속성을 찾아서 다음과 같이 식을 편집합니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 식 창에서 키보드에 달러 기호를 눌러서 이 식의 다른 매개 변수를 액세스하고 입력할 수 있습니다. 사용 가능한 매개 변수 중 하나는 이전에 게시한 video1bitrate 속성입니다.
 
@@ -401,11 +401,11 @@ MP4의 집합에 매니페스트 파일을 생성하는 작업은 "AMS 매니페
 
 두 번째 비디오에 대한 파일 출력에 동일한 작업을 수행합니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 그리고 오디오 전용 파일 출력에도 수행합니다.
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 이제 비디오 또는 오디오 파일에 대한 비트 전송률을 변경하면 해당하는 인코더를 다시 구성하고 비트 전송률 기반 파일 이름 규칙을 모두 자동으로 적용합니다.
 
@@ -462,11 +462,11 @@ MP4 비디오와 다르게 JPG 인코더 구성 요소는 여러 개의 파일�
 
 *장면 검색 JPG 파일 기록기 소개*
 
-다음 식을 사용하여 출력 폴더 경로 속성을 구성합니다. ${ROOT_outputWriteDirectory}
+식을 사용 하 여 출력 폴더 경로 속성을 구성 합니다.`${ROOT_outputWriteDirectory}`
 
 그리고 다음으로 파일 이름 접두사 속성을 구성합니다.
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 접두사는 미리 보기 파일이 명명되는 방법을 결정합니다. 스트림에서 미리 보기의 위치를 나타내는 숫자가 뒤에 붙습니다.
 
@@ -551,11 +551,11 @@ AVC 인코더 및 스피커 위치 할당자를 미디어 파일 입력에 직�
 
 오디오 트리밍 시작 시간을 다음과 같이 구성합니다.
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 그리고 종료 시간을 다음과 같습니다.
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a name="finished-workflow"></a><a id="time_based_trim_finish"></a>완료된 워크플로
 ![완료된 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -591,7 +591,7 @@ processInputScript의 선택을 취소하고 realizeScript에 대한 편집기�
 
 realizeScript의 컨텍스트에서 간단한 Hello World Groovy 스크립트를 작성해 보겠습니다. 편집기에 다음을 입력합니다.
 
-    node.log("hello world");
+`node.log("hello world");`
 
 이제 로컬 테스트 실행을 실행합니다. 실행한 후에 로그 속성을 검사합니다(스크립팅된 구성 요소의 시스템 탭을 통해).
 
@@ -601,7 +601,7 @@ realizeScript의 컨텍스트에서 간단한 Hello World Groovy 스크립트를
 
 로그 메서드를 호출하는 노드 개체는 현재 "노드" 또는 스크립트하는 구성 요소를 나타냅니다. 이러한 모든 구성 요소에는 로깅 데이터를 출력 하는 기능이 있으며 시스템 탭을 통해 사용할 수 있습니다. 이 경우 문자열 리터럴 "hello 세계"를 출력 합니다. 중요한 것은 스크립트가 실제로 수행하는 작업에 대한 통찰력을 제공하는 중요한 디버깅 도구라는 것을 증명할 수 있어야 합니다.
 
-또한 스크립트 환경 내에서 다른 구성 요소의 속성에 액세스합니다. 다음과 같이 해보세요.
+또한 스크립트 환경 내에서 다른 구성 요소의 속성에 액세스합니다. 다음을 실행해보세요.
 
 ```java
     //inspect current node:
@@ -761,7 +761,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 *결과 클립 목록 로깅*
 
-비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, in 및 out 지점만 처음 설정 하는 경우에만 xml이 변환 되 고, 다른 모든 경우에는 guard 절 (if (`clipListXML.indexOf("<trim>") == -1`))이 이미 있는 경우 다른 trim 요소를 추가 하지 못하게 됩니다.
+비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, in 및 out 지점만 처음 설정 하는 경우에만 xml이 변환 되 고, 다른 모든 경우에는 guard 절 (if ( `clipListXML.indexOf("<trim>") == -1` ))이 이미 있는 경우 다른 trim 요소를 추가 하지 못하게 됩니다.
 
 워크플로를 편리하게 로컬로 테스트하려는 가장 좋은 방법은 자르기 요소가 이미 있는지 조사하는 정리 코드를 추가하는 것입니다. 그렇다면 새 값으로 xml을 수정하여 계속하기 전에 제거할 수 있습니다. 일반 문자열 조작을 사용하지 않고 구문 분석하는 실제 xml 개체 모델을 통해이 작업을 수행하는 것이 안전합니다.
 

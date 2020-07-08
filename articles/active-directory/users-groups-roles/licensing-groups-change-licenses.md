@@ -8,20 +8,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 07/07/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94c0d1efa83af53804be89a9e86f4cafd5bc0ae0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025896"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057758"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Azure Active Directory에서 사용자 또는 그룹에 대 한 라이선스 할당 변경
 
@@ -46,10 +46,10 @@ ms.locfileid: "74025896"
 **라이선스 할당 업데이트** 페이지에서 일부 확인란을 사용할 수 없는 경우 그룹 라이선스에서 상속 되므로 변경할 수 없는 서비스를 나타냅니다.
 
 1. Azure AD 조직의 라이선스 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-1. **Azure Active Directory** > **사용자**를 선택 하 고 사용자에 대 한 **프로필** 페이지를 엽니다.
+1. **Azure Active Directory**  >  **사용자**를 선택 하 고 사용자에 대 한 **프로필** 페이지를 엽니다.
 1. **라이선스**를 선택합니다.
 1. **할당** 을 선택 하 여 사용자 또는 그룹에 대 한 라이선스 할당을 편집 합니다. **할당** 페이지에서 라이선스 할당 충돌을 해결할 수 있습니다.
-1. Office 366 E3의 확인란을 선택 하 고 최소한 사용자에 게 할당 된 모든 E1 서비스가 선택 되어 있는지 확인 합니다.
+1. Office 365 E3의 확인란을 선택 하 고 최소한 사용자에 게 할당 된 모든 E1 서비스가 선택 되어 있는지 확인 합니다.
 1. Office 365 E1의 확인란을 선택 취소 합니다.
 
     ![Office 365 E1의 선택을 취소 하 고 Office 365 E3을 선택한 사용자에 대 한 라이선스 할당 페이지](media/licensing-groups-change-licenses/update-user-license-assignments.png)
@@ -61,10 +61,10 @@ Azure AD는 새 라이선스를 적용 하 고 이전 라이선스를 동시에 
 ## <a name="change-group-license-assignments"></a>그룹 라이선스 할당 변경
 
 1. Azure AD 조직의 라이선스 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-1. **Azure Active Directory** > **그룹**을 선택 하 고 그룹에 대 한 **개요** 페이지를 엽니다.
+1. **Azure Active Directory**  >  **그룹**을 선택 하 고 그룹에 대 한 **개요** 페이지를 엽니다.
 1. **라이선스**를 선택합니다.
 1. **할당** 명령을 선택 하 여 사용자 또는 그룹에 대 한 라이선스 할당을 편집 합니다.
-1. Office 366 E3의 확인란을 선택 합니다. 서비스 연속성을 유지 하려면 사용자에 게 이미 할당 된 모든 E1 서비스를 선택 했는지 확인 합니다.
+1. Office 365 E3의 확인란을 선택 합니다. 서비스 연속성을 유지 하려면 사용자에 게 이미 할당 된 모든 E1 서비스를 선택 했는지 확인 합니다.
 1. Office 365 E1의 확인란을 선택 취소 합니다.
 
     ![사용자 또는 그룹 라이선스 페이지에서 할당 명령 선택](media/licensing-groups-change-licenses/update-group-license-assignments.png)

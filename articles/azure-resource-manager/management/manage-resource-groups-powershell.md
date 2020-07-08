@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f18eea697e875cc926e8fbaa0f61cf2d4639be0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248360"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057520"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -74,7 +74,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 [기존 리소스 그룹에 리소스 배포를](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group)참조 하세요.
 
-리소스 그룹 배포의 유효성을 검사 하려면 [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0)을 참조 하세요.
+리소스 그룹 배포의 유효성을 검사 하려면 [AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0)을 참조 하세요.
 
 ## <a name="deploy-a-resource-group-and-resources"></a>리소스 그룹 및 리소스 배포
 
@@ -181,7 +181,7 @@ Export-AzResourceGroup `
 ]
 ```
 
-템플릿을 내보낼 때 `-IncludeParameterDefaultValue` 매개 변수를 사용 하는 경우 템플릿 매개 변수는 현재 값으로 설정 된 기본값을 포함 합니다. 기본 값을 사용 하거나 다른 값을 전달 하 여 기본값을 덮어쓸 수 있습니다.
+`-IncludeParameterDefaultValue`템플릿을 내보낼 때 매개 변수를 사용 하는 경우 템플릿 매개 변수는 현재 값으로 설정 된 기본값을 포함 합니다. 기본 값을 사용 하거나 다른 값을 전달 하 여 기본값을 덮어쓸 수 있습니다.
 
 ```json
 "parameters": {
@@ -196,7 +196,7 @@ Export-AzResourceGroup `
 }
 ```
 
-템플릿을 내보낼 때 매개 `-SkipResourceNameParameterization` 변수를 사용 하는 경우 리소스 이름에 대 한 매개 변수가 템플릿에 포함 되지 않습니다. 대신 리소스 이름이 현재 값으로 리소스에 직접 설정 됩니다. 배포 하는 동안 이름을 사용자 지정할 수 없습니다.
+`-SkipResourceNameParameterization`템플릿을 내보낼 때 매개 변수를 사용 하는 경우 리소스 이름에 대 한 매개 변수가 템플릿에 포함 되지 않습니다. 대신 리소스 이름이 현재 값으로 리소스에 직접 설정 됩니다. 배포 하는 동안 이름을 사용자 지정할 수 없습니다.
 
 ```json
 "resources": [
@@ -223,5 +223,5 @@ Export-AzResourceGroup `
 
 - Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조 하세요.
 - 리소스 관리자 템플릿 구문에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../templates/template-syntax.md)를 참조 하세요.
-- 템플릿을 개발 하는 방법을 알아보려면 단계별 [자습서](/azure/azure-resource-manager/)를 참조 하세요.
+- 템플릿을 개발 하는 방법을 알아보려면 단계별 [자습서](../index.yml)를 참조 하세요.
 - Azure Resource Manager 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조 하세요.

@@ -4,12 +4,12 @@ description: IntelliJ IDEA를 사용하여 첫 번째 Azure Resource Manager 템
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80153355"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057452"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>IntelliJ 아이디어를 사용 하 여 ARM 템플릿 만들기 및 배포
 
@@ -21,7 +21,7 @@ IntelliJ 아이디어와 IDE에서 직접 템플릿을 편집 하 고 업데이�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -86,4 +86,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [초보자용 자습서](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Azure 개발자 센터에서 Java 방문](https://docs.microsoft.com/azure/java)
+> [Azure 개발자 센터에서 Java 방문](/azure/java)

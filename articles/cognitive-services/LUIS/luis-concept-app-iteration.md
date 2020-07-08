@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/06/2020
 ms.author: diberry
-ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683121"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057877"
 ---
 # <a name="iterative-app-design-for-luis"></a>LUIS에 대 한 반복적인 앱 디자인
 
@@ -107,11 +107,22 @@ HTTPS 예측 끝점에서 게시 된 LUIS 앱을 테스트할 수 있습니다. 
 
 LUIS 앱의 [끝점](luis-glossary.md#endpoint)에서는 학습 된 버전을 자동으로 사용할 수 없습니다. LUIS 앱 끝점에서 사용할 수 있도록 버전을 [게시](luis-how-to-publish-app.md) 하거나 다시 게시 해야 합니다. **스테이징** 및 **프로덕션**에 게시 하 여 끝점에서 사용할 수 있는 두 가지 버전의 앱을 제공할 수 있습니다. 응용 프로그램의 더 많은 버전을 끝점에서 사용할 수 있어야 하는 경우 버전을 내보내고 새 앱으로 다시 가져와야 합니다. 새 앱에는 다른 앱 ID가 포함됩니다.
 
-### <a name="import-and-export-a-version"></a>버전 가져오기 및 내보내기
+### <a name="import-a-version"></a>버전 가져오기
 
-앱 수준에서 버전을 가져올 수 있습니다. 해당 버전은 활성 버전이 되며 `versionId` 응용 프로그램 파일의 속성에서 버전 ID를 사용 합니다. 버전 수준에서 기존 앱으로 가져올 수도 있습니다. 새 버전이 활성 버전이 됩니다.
+버전을 새 버전으로 **가져올** 수 있습니다.
+* 앱, 새 앱 ID 사용
+* 기존 응용 프로그램의 버전
 
-버전은 앱 또는 버전 수준 에서도 내보낼 수 있습니다. 유일한 차이는 앱 수준에서 내보낸 버전이 현재 활성 버전이지만, 버전 수준에서는 **[설정](luis-how-to-manage-versions.md)** 페이지에서 내보낼 버전을 선택할 수 있다는 것입니다.
+해당 버전은 활성 버전이 되며 `versionId` 응용 프로그램 파일의 속성에서 버전 ID를 사용 합니다.
+
+### <a name="export-a-version"></a>버전 내보내기
+
+버전은 LUIS 포털에서 앱 수준 또는 버전 수준으로 **내보낼** 수 있습니다.
+
+* 앱 수준- **내 앱** 페이지에서 앱을 선택 하 고 **내보내기** 를 선택 합니다.
+* 버전 수준- **내 앱** 페이지에서 앱 링크를 선택 하 고 **관리**, **버전** 선택을 선택 합니다.
+
+유일한 차이점은 앱 수준, 내보낸 버전은 현재 활성 버전 이지만 버전 수준에서는 **[설정](luis-how-to-manage-versions.md)** 페이지에서 내보낼 버전을 선택할 수 있습니다.
 
 내보낸 파일에는 다음이 포함 **되지 않습니다** .
 
@@ -132,7 +143,7 @@ LUIS는 Azure 리소스 수준 권한을 제공 하 여 앱에 대 한 참가자
 
 각 작성자는 자신의 앱 버전을 변경 합니다. 작성자가 모델에 만족 하면 새 버전을 JSON 파일로 내보냅니다.
 
-내보낸 앱, json 또는. n a n 파일은 변경 내용에 대해 비교할 수 있습니다. 파일을 결합 하 여 새 버전의 단일 파일을 만듭니다. `versionId`새 병합 된 버전을 나타내기 위해 속성을 변경 합니다. 해당 버전을 원래 앱으로 가져옵니다.
+내보낸 앱 `.json` 또는 `.lu` 파일은 변경 내용에 대해 비교할 수 있습니다. 파일을 결합 하 여 새 버전의 단일 파일을 만듭니다. `versionId`새 병합 된 버전을 나타내기 위해 속성을 변경 합니다. 해당 버전을 원래 앱으로 가져옵니다.
 
 이 방법을 사용하면 하나의 활성 버전, 하나의 스테이지 버전 및 하나의 게시된 버전을 사용할 수 있습니다. 활성 버전의 결과를 [대화형 테스트 창](luis-interactive-test.md)에서 게시 된 버전 (스테이지 또는 프로덕션)과 비교할 수 있습니다.
 
@@ -150,4 +161,4 @@ LUIS는 Azure 리소스 수준 권한을 제공 하 여 앱에 대 한 참가자
 
 ## <a name="next-steps"></a>다음 단계
 
-[협업](luis-concept-keys.md) 개념을 알아봅니다.
+[협업](luis-how-to-azure-subscription.md) 개념을 알아봅니다.

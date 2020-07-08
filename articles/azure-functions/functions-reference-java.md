@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Java 개발자 참조
 description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648238"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057605"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -50,20 +50,6 @@ mvn archetype:generate \
 
 이 아키타입 사용을 시작하려면 [Java 빠른 시작](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)을 참조하세요. 
 
-## <a name="create-kotlin-functions-preview"></a>Kotlin 함수 만들기(미리 보기)
-
-Kotlin 함수를 생성하는 Maven 아키타입도 있습니다. 현재 미리 보기로 제공되는 이 아키타입은 다음 _groupId_:_artifactId_로 게시됩니다. [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-다음 명령은 이 아키타입을 사용하여 새 Java 함수 프로젝트를 생성합니다.
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-이 아키타입 사용을 시작하려면 [Kotlin 빠른 시작](functions-create-first-kotlin-maven.md)을 참조하세요.
-
 ## <a name="folder-structure"></a>폴더 구조
 
 Azure Functions Java 프로젝트의 폴더 구조는 다음과 같습니다.
@@ -90,8 +76,6 @@ FunctionsProject
  | - pom.xml
 ```
 
-‘* Kotlin 프로젝트는 여전히 Maven이므로 매우 비슷해 보임’
-
 공유 [host.json](functions-host-json.md) 파일을 사용하여 함수 앱을 구성할 수 있습니다. 각 함수에는 자체 코드 파일(.java)과 바인딩 구성 파일(function.json)이 있습니다.
 
 하나의 프로젝트에 둘 이상의 함수를 넣을 수 있습니다. 함수를 별도의 jar에 넣지 않도록 하세요. 대상 디렉터리의 `FunctionApp`이 Azure의 함수 앱에 배포됩니다.
@@ -105,7 +89,7 @@ FunctionsProject
 > [!IMPORTANT] 
 > Azure Blob Storage, Azure Queue Storage 또는 Azure Table 스토리지 트리거를 로컬로 실행하려면 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
 
-예제:
+예:
 
 ```java
 public class Function {
@@ -391,7 +375,7 @@ public class Function {
 
 ## <a name="execution-context"></a>실행 컨텍스트
 
-`azure-functions-java-library`에 정의된 `ExecutionContext`에는 함수 런타임과 통신하는 도우미 메서드가 포함되어 있습니다.
+`azure-functions-java-library`에 정의된 `ExecutionContext`에는 함수 런타임과 통신하는 도우미 메서드가 포함되어 있습니다. 자세한 내용은 [ExecutionContext 참조 문서](/java/api/com.microsoft.azure.functions.executioncontext)를 참조 하세요.
 
 ### <a name="logger"></a>로거
 
