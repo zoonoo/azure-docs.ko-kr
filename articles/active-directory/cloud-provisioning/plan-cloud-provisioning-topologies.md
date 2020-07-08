@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77620866"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>지원 되는 토폴로지 및 시나리오 Azure AD Connect 클라우드 프로 비전
@@ -50,7 +49,7 @@ ms.locfileid: "77620866"
 이 시나리오는 토폴로지가 다중 포리스트 시나리오와 유사 하지만이는 기존 Azure AD Connect 환경을 포함 하지만 Azure AD Connect 클라우드 프로 비전을 사용 하 여 새 포리스트를 가져오는 것입니다.  이 시나리오의 예는 [자습서: 단일 AZURE AD 테 넌 트를 포함 하는 기존 포리스트](tutorial-existing-forest.md) 를 참조 하세요.
 
 ## <a name="piloting-azure-ad-connect-cloud-provisioning-in-an-existing-hybrid-ad-forest"></a>기존 하이브리드 AD 포리스트에서 클라우드 프로 비전 Azure AD Connect 파일럿
-![단일 포리스트 및 단일 테 넌 트](media/plan-cloud-provisioning-topologies/migrate.png) 에 대 한 토폴로지 파일럿 시나리오는 동일한 포리스트에 Azure AD Connect와 Azure AD Connect 클라우드 프로 비전을 모두 포함 하 고 그에 따라 사용자 및 그룹의 범위를 지정 합니다. 참고: 개체는 도구 중 하나 에서만 범위 내에 있어야 합니다. 
+![단일 포리스트 및 단일 테 넌 트에 대 한 토폴로지 ](media/plan-cloud-provisioning-topologies/migrate.png) 파일럿 시나리오는 동일한 포리스트에 Azure AD Connect와 Azure AD Connect 클라우드 프로 비전을 모두 포함 하 고 그에 따라 사용자 및 그룹의 범위를 지정 합니다. 참고: 개체는 도구 중 하나 에서만 범위 내에 있어야 합니다. 
 
 이 시나리오에 대 한 예는 [자습서: 기존 동기화 된 AD 포리스트에 Azure AD Connect 클라우드 프로 비전 파일럿](tutorial-pilot-aadc-aadccp.md) 을 참조 하세요.
 

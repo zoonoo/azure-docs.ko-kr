@@ -7,21 +7,20 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595368"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Kubernetes service에 배포 하는 GitHub 작업
 
-[GitHub 작업](https://help.github.com/en/articles/about-github-actions) 을 통해 자동화 된 소프트웨어 개발 수명 주기 워크플로를 유연 하 게 빌드할 수 있습니다. Kubernetes 작업 [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) 은 Azure Kubernetes Service 클러스터에 대 한 배포를 용이 하 게 합니다. 작업은 [azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master), [azure/k8s](https://github.com/Azure/k8s-create-secret/tree/master) 등의 다른 작업에서 사용할 수 있는 대상 AKS 클러스터 컨텍스트를 설정 하거나 kubectl 명령을 실행 합니다.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions)를 사용하면 자동화된 소프트웨어 개발 수명 주기 워크플로를 유연성 있게 빌드할 수 있습니다. Kubernetes 작업은 [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) Azure Kubernetes Service 클러스터에 대 한 배포를 용이 하 게 합니다. 작업은 [azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master), [azure/k8s](https://github.com/Azure/k8s-create-secret/tree/master) 등의 다른 작업에서 사용할 수 있는 대상 AKS 클러스터 컨텍스트를 설정 하거나 kubectl 명령을 실행 합니다.
 
-워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 yaml (.yml) 파일에 의해 정의 됩니다. 이 정의는 워크플로를 구성 하는 다양 한 단계와 매개 변수를 포함 합니다.
+워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다.
 
 AKS를 대상으로 하는 워크플로의 경우 파일에는 다음 세 개의 섹션이 있습니다.
 
-|단원  |작업  |
+|섹션  |작업  |
 |---------|---------|
 |**인증** | ACR (개인 컨테이너 레지스트리)에 로그인 합니다. |
 |**빌드** | 컨테이너 이미지를 빌드 & 푸시합니다.  |
@@ -31,7 +30,7 @@ AKS를 대상으로 하는 워크플로의 경우 파일에는 다음 세 개의
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/)에서 [az ad sp create-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용 하 여 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) 를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/) 를 사용 하거나 **사용해 보기** 단추를 선택 하 여이 명령을 실행할 수 있습니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure/)에서 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 이 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -48,7 +47,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
     (...)
   }
 ```
-GitHub에서 인증 하는 데 사용할 수 있는이 JSON 개체를 복사 합니다.
+GitHub에서 인증하는 데 사용할 수 있는 이 JSON 개체를 복사합니다.
 
 ## <a name="configure-the-github-secrets"></a>GitHub 암호 구성
 
@@ -58,7 +57,7 @@ GitHub에서 인증 하는 데 사용할 수 있는이 JSON 개체를 복사 합
 
     ![secrets](media/kubernetes-action/secrets.png)
 
-2. 위의 `az cli` 명령 내용을 secret 변수의 값으로 붙여넣습니다. `AZURE_CREDENTIALS`)을 입력합니다.
+2. 위의 `az cli` 명령 내용을 secret 변수의 값으로 붙여넣습니다. 예: `AZURE_CREDENTIALS`.
 
 3. 마찬가지로 컨테이너 레지스트리 자격 증명에 대해 다음과 같은 추가 암호를 정의 하 고 Docker 로그인 작업에서 설정 합니다. 
 
@@ -71,7 +70,7 @@ GitHub에서 인증 하는 데 사용할 수 있는이 JSON 개체를 복사 합
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>컨테이너 이미지를 빌드하고 Azure Kubernetes Service 클러스터에 배포
 
-컨테이너 이미지의 빌드 및 푸시는 작업을 사용 하 `Azure/docker-login@v1` 여 수행 됩니다. 컨테이너 이미지를 AKS에 배포 하려면 `Azure/k8s-deploy@v1` 작업을 사용 해야 합니다. 이 작업에는 5 개의 매개 변수가 있습니다.
+컨테이너 이미지의 빌드 및 푸시는 작업을 사용 하 여 수행 됩니다 `Azure/docker-login@v1` . 컨테이너 이미지를 AKS에 배포 하려면 작업을 사용 해야 `Azure/k8s-deploy@v1` 합니다. 이 작업에는 5 개의 매개 변수가 있습니다.
 
 | **매개 변수**  | **설명**  |
 |---------|---------|

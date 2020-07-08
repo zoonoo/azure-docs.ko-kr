@@ -10,13 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77505568"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
+# <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
 작업 영역은 Azure Machine Learning의 최상위 리소스 이며 Azure Machine Learning를 사용할 때 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다.  작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행의 기록이 유지 됩니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.  
 
@@ -79,7 +78,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 | 노트북 VM 만들기 |   | **&check;** | |     |
 
 > [!WARNING]
-> Azure Machine Learning 작업 영역을 다른 구독으로 이동 하거나 소유 하는 구독을 새 테 넌 트로 이동 하는 것은 지원 되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
+> Azure Machine Learning 작업 영역을 다른 구독으로 이동하거나 소유하는 구독을 새 테넌트로 이동하는 것은 지원되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a>작업 영역 만들기
 
@@ -93,7 +92,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 * Visual Studio Code에서 작업 하는 경우 [VS Code 확장](tutorial-setup-vscode-extension.md)을 사용 합니다.
 
 > [!NOTE]
-> 작업 영역 이름은 대/소문자를 구분 하지 않습니다.
+> 작업 영역 이름은 대/소문자를 구분하지 않습니다.
 
 ## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Enterprise edition으로 업그레이드
 
@@ -113,7 +112,7 @@ Azure Portal를 사용 하 여 [기본에서 Enterprise edition으로 작업 영
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning를 시작 하려면 다음을 참조 하세요.
+Azure Machine Learning을 시작하려면 다음을 참조하세요.
 
 + [Azure Machine Learning 개요](overview-what-is-azure-ml.md)
 + [작업 영역 만들기](how-to-manage-workspace.md)

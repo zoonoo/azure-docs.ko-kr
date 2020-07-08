@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77538537"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Azure 프라이빗 엔드포인트 연결 문제 해결
@@ -45,7 +44,7 @@ Azure 개인 끝점은 개인 링크 서비스에 안전 하 게 연결 되는 �
 
     b. 왼쪽 창에서 **개인 끝점**을 선택 합니다.
     
-      ![전용 끝점](./media/private-endpoint-tsg/private-endpoints.png)
+      ![프라이빗 엔드포인트](./media/private-endpoint-tsg/private-endpoints.png)
 
     다. 진단 하려는 개인 끝점을 필터링 하 고 선택 합니다.
 

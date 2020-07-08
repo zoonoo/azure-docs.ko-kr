@@ -14,10 +14,9 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77615078"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
@@ -145,8 +144,8 @@ halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 **계속** 을 클릭 합니다.
 
-예상 ![값 = 배포 된 노드 수 (이 경우 2) yast-Cluster-Security **다음**
-![yast-cluster-configure-csync2를](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 클릭 합니다. 노드 이름](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 추가를 클릭 한 다음 "제안 된 파일 추가"를 클릭 합니다.
+예상 값 = 배포 된 노드 수 (이 경우 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) **다음** 
+ ![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 노드 이름 추가를 클릭 한 다음 "제안 된 파일 추가"를 클릭 합니다.
 
 “csync2 켜기”를 클릭합니다.
 
@@ -160,8 +159,8 @@ IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합
 
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-**Next**
-다음![yast-cluster-service를 클릭 합니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+**다음** 을 클릭 
+ ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 기본 옵션(부팅 꺼짐)에서 부팅할 때 Pacemaker가 시작되도록 “켜기”로 변경해야 합니다. 설정 요구 사항에 따라 선택할 수 있습니다.
 **다음**을 클릭하면 클러스터 구성이 완료됩니다.
@@ -257,7 +256,7 @@ systemctl start pacemaker
 ```
 crm_mon
 ```
-![](media/HowToHLI/HASetupWithStonith/crm-mon.png) crm-mon hawk에 로그인 하 여 클러스터 상태 *https://\<노드 IP>:7630*을 확인할 수도 있습니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) hawk에 로그인하여 클러스터 상태를 확인할 수도 있습니다. *https://\<node IP>:7630*. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. 클러스터 속성 및 리소스 구성 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
@@ -322,7 +321,7 @@ crm configure load update crm-vip.txt
 *crm_mon* 명령을 실행하면 다음 두 리소스를 확인할 수 있습니다.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-*Https://\<노드의 IP 주소>:7630/cib/live/state* 에서 상태를 확인할 수도 있습니다.
+또한 *https://\<node IP address>:7630/cib/live/state*에서 상태를 확인할 수 있습니다.
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,11 +333,11 @@ Service pacemaker stop
 이제 **노드 2**에서 Pacemaker 서비스를 중단하고 리소스를 **노드 1**에 대해 장애 조치합니다.
 
 **장애 조치 (failover) 전**  
-![Before-failover](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **장애 조치(failover) 후**  
-![after-failover](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![crm-mon-after-failover](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. 문제 해결

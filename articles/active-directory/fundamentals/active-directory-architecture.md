@@ -14,10 +14,9 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77368074"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처란?
@@ -79,7 +78,7 @@ Azure AD의 파티션 디자인은 엔터프라이즈 AD 디자인에 비해 단
 
 쓰기는 승인 되기 전에 두 개 이상의 데이터 센터에 지속적으로 커밋됩니다. 이는 먼저 주 복제본에서 쓰기를 커밋한 다음 하나 이상의 다른 데이터 센터에 쓰기를 즉시 복제 하는 경우에 발생 합니다. 이렇게 쓰기 작업을 수행 하면 주 복제본을 호스팅하는 데이터 센터의 잠재적인 치명적인 손실로 인해 데이터가 손실 되지 않습니다.
 
-Azure AD는 장애 조치(failover) 시에 데이터가 손실되지 않도록 [RTO(복구 시간 목표)](https://en.wikipedia.org/wiki/Recovery_time_objective)를 0으로 유지합니다. 여기에는 다음 항목이 포함됩니다.
+Azure AD는 장애 조치(failover) 시에 데이터가 손실되지 않도록 [RTO(복구 시간 목표)](https://en.wikipedia.org/wiki/Recovery_time_objective)를 0으로 유지합니다. 다음 내용이 포함됩니다.
 
 * 토큰 발급 및 디렉터리 읽기
 * 디렉터리 쓰기에는 5분 정도의 RTO만 허용

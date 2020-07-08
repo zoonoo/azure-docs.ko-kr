@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77566151"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에서 VMware 가상 머신 만들기
@@ -96,13 +95,13 @@ VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 �
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>VCenter에 사용자 및 id 소스 추가 (선택 사항)
 
-CloudSimple은 사용자 이름 `cloudowner@cloudsimple.local`으로 기본 vCenter 사용자 계정을 할당 합니다. 시작 하려면 추가 계정 설정이 필요 하지 않습니다.  CloudSimple은 일반적으로 일반적인 작업을 수행 하는 데 필요한 권한을 관리자에 게 할당 합니다.  온-프레미스 active directory 또는 Azure AD를 사설 클라우드의 [추가 id 원본](set-vcenter-identity.md) 으로 설정 합니다.
+CloudSimple은 사용자 이름으로 기본 vCenter 사용자 계정을 할당 `cloudowner@cloudsimple.local` 합니다. 시작 하려면 추가 계정 설정이 필요 하지 않습니다.  CloudSimple은 일반적으로 일반적인 작업을 수행 하는 데 필요한 권한을 관리자에 게 할당 합니다.  온-프레미스 active directory 또는 Azure AD를 사설 클라우드의 [추가 id 원본](set-vcenter-identity.md) 으로 설정 합니다.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>DNS 및 DHCP 서버 만들기 (선택 사항)
 
-사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공 하려면 적절 한 DHCP 및 DNS 인프라가 필요 합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하도록 vCenter의 가상 머신을 구성할 수 있습니다.
+사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하도록 vCenter의 가상 머신을 구성할 수 있습니다.
 
-전제 조건
+사전 요구 사항
 
 * VLAN이 구성 된 분산 포트 그룹
 
@@ -139,7 +138,7 @@ CloudSimple 포털의 네트워크 페이지를 사용 하 여 Vm에 대 한 방
 5. 원하는 경우 슬라이더를 사용 하 여 유휴 시간 제한을 변경 합니다.
 6. 공용 IP 주소를 할당 하려는 로컬 IP 주소를 입력 합니다.
 7. 원하는 경우 연결 된 DNS 이름을 입력 합니다.
-8. **완료**를 클릭합니다.
+8. **Done**을 클릭합니다.
 
     ![공용 IP](media/quick-create-pc-public-ip.png)
 

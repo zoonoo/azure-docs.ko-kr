@@ -6,17 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77462108"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Azure Functions HTTP 트리거 및 바인딩 개요
 
 서버 리스 Api를 빌드하고 [웹 후크에](https://en.wikipedia.org/wiki/Webhook)응답 하기 위해 HTTP 요청을 통해 Azure Functions를 호출할 수 있습니다.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |---------|---------|
 | HTTP 요청에서 함수 실행 | [트리거](./functions-bindings-http-webhook-trigger.md) |
 | 함수에서 HTTP 응답 반환 |[출력 바인딩](./functions-bindings-http-webhook-output.md) |
@@ -25,7 +24,7 @@ ms.locfileid: "77462108"
 
 ## <a name="add-to-your-functions-app"></a>함수 앱에 추가
 
-### <a name="functions-2x-and-higher"></a>함수 2.x 이상
+### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
 트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 

@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77252230"
 ---
 # <a name="automate-mobility-service-installation"></a>모바일 서비스 설치 자동화
@@ -31,7 +30,7 @@ Azure에 대 한 온-프레미스 VMware Vm 및 물리적 서버의 재해 복�
 - 에이전트 설치를 여러 서버에 동시에 확장 해야 합니다.
 - 계획 된 유지 관리 기간 동안 설치 및 업그레이드를 예약 하려고 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 설치를 자동화 하려면 다음 항목이 필요 합니다.
 
@@ -77,7 +76,7 @@ Azure에 대 한 온-프레미스 VMware Vm 및 물리적 서버의 재해 복�
 
 1. 이러한 설치 파일을 네트워크 공유에 복사 합니다.
 
-   - Windows의 경우 _MobSvcWindows_에 _Microsoft ASR_UA_version_Windows_GA_date_Release_ 를 복사 합니다.
+   - Windows의 경우 _MobSvcWindows_에 _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ 를 복사 합니다.
    - Linux의 경우 _MobSvcLinux_에 다음 파일을 복사 합니다.
      - _Microsoft ASR_UARHEL6 -64release_
      - _Microsoft ASR_UARHEL7 -64release_
@@ -88,15 +87,15 @@ Azure에 대 한 온-프레미스 VMware Vm 및 물리적 서버의 재해 복�
 
 1. 다음 절차에 설명 된 대로 Windows 또는 Linux 폴더에 코드를 복사 합니다. 다음을 가정 합니다.
 
-   - 구성 서버의 IP 주소는 `192.168.3.121`입니다.
-   - 보안 네트워크 파일 공유는 `\\ContosoSecureFS\MobilityServiceInstallers`입니다.
+   - 구성 서버의 IP 주소는 `192.168.3.121` 입니다.
+   - 보안 네트워크 파일 공유는 `\\ContosoSecureFS\MobilityServiceInstallers` 입니다.
 
 ### <a name="copy-code-to-the-windows-folder"></a>Windows 폴더에 코드 복사
 
 다음 코드를 복사 합니다.
 
-- _MobSvcWindows_ 폴더에 코드를 _설치 .bat_로 저장 합니다.
-- 이 스크립트 `[CSIP]` 의 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
+- _install.bat_으로 _MobSvcWindows_ 폴더에 코드를 저장 합니다.
+- `[CSIP]`이 스크립트의 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
 - 이 스크립트는 모바일 서비스 에이전트의 새로 설치 및 이미 설치 된 에이전트의 업데이트를 지원 합니다.
 
 ```DOS
@@ -199,7 +198,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 다음 코드를 복사 합니다.
 
 - _MobSvcLinux_ 폴더의 코드를 _install_linux. sh_로 저장 합니다.
-- 이 스크립트 `[CSIP]` 의 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
+- `[CSIP]`이 스크립트의 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
 - 이 스크립트는 모바일 서비스 에이전트의 새로 설치 및 이미 설치 된 에이전트의 업데이트를 지원 합니다.
 
 ```Bash
@@ -338,15 +337,15 @@ cd /tmp
 
 ### <a name="create-a-package"></a>패키지 만들기
 
-1. Configuration Manager 콘솔에 로그인 하 고 **소프트웨어 라이브러리** > **응용 프로그램 관리** > **패키지**로 이동 합니다.
-1. 패키지 > **패키지 만들기**를 마우스 오른쪽 **단추로 클릭 합니다**.
+1. Configuration Manager 콘솔에 로그인 하 고 **소프트웨어 라이브러리**  >  **응용 프로그램 관리**  >  **패키지**로 이동 합니다.
+1. **패키지**  >  **패키지 만들기**를 마우스 오른쪽 단추로 클릭 합니다.
 1. 이름, 설명, 제조업체, 언어, 버전 등 패키지 정보를 제공 합니다.
 1. **이 패키지에 소스 파일이 포함 되어**있습니다 .를 선택 합니다.
 1. **찾아보기**를 클릭 하 고 관련 설치 관리자 (_MobSvcWindows_ 또는 _MobSvcLinux_)를 포함 하는 네트워크 공유 및 폴더를 선택 합니다. 그다음에 **다음**을 선택합니다.
 
    ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. **만들려는 프로그램 유형 선택** 페이지에서 **표준 프로그램** > **다음**을 선택 합니다.
+1. **만들려는 프로그램 유형 선택** 페이지에서 **표준 프로그램**  >  **다음**을 선택 합니다.
 
    ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
@@ -392,7 +391,7 @@ cd /tmp
    - 불필요한 재부팅을 방지하려면 매월 유지 관리 시간 또는 소프트웨어 업데이트 시간에 패키지 설치를 예약합니다.
 
 1. **배포 지점의** 페이지에서 설정을 구성 하 고 마법사를 완료 합니다.
-1. Configuration Manager 콘솔에서 배포 진행률을 모니터링 합니다. **모니터링** > **Deployments**배포 > _패키지 이름\>으로 이동\<_ 합니다.
+1. Configuration Manager 콘솔에서 배포 진행률을 모니터링 합니다. **모니터링**  >  **배포**로 이동  >  _\<your package name\>_ 합니다.
 
 ### <a name="uninstall-the-mobility-service"></a>모바일 서비스 제거
 

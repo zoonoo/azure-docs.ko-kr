@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588521"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Azure 센티널에 Azure Stack 가상 머신 연결
@@ -36,7 +35,7 @@ Azure Stack에서 실행 되는 가상 머신에 **Azure Monitor, 업데이트 �
 
 1. 새 브라우저 탭에서 [Azure Stack 포털](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal)에 로그인 합니다.
 2. **Virtual machines** 페이지로 이동 하 여 Azure 센티널로 보호할 가상 머신을 선택 합니다. Azure Stack에서 가상 컴퓨터를 만드는 방법에 대 한 자세한 내용은 [Azure Stack 포털을 사용 하 여 Windows SERVER Vm 만들기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Azure Stack 포털을 사용 하 여 Linux 서버 vm 만들기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal)를 참조 하세요.
-3. **확장**을 섡택합니다. 이 가상 머신에 설치된 가상 머신 확장 목록이 표시됩니다.
+3. **확장**을 선택합니다. 이 가상 머신에 설치된 가상 머신 확장 목록이 표시됩니다.
 4. **추가** 탭을 클릭 합니다. **새 리소스** 메뉴 블레이드가 열리고 사용 가능한 가상 머신 확장의 목록이 표시 됩니다. 
 5. **Azure Monitor, 업데이트 및 구성 관리** 확장을 선택 하 고 **만들기**를 클릭 합니다. **설치 확장** 구성 창이 열립니다.
 

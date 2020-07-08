@@ -14,10 +14,9 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617195"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>가상 네트워크를 HANA 대규모 인스턴스에 연결
@@ -35,7 +34,7 @@ Azure 가상 네트워크를 만든 후 해당 네트워크를 Azure 대규모 �
   - Azure Portal을 사용하는 경우 새 **가상 네트워크 게이트웨이**를 추가한 다음, 게이트웨이 유형으로 **ExpressRoute**를 선택합니다.
   - PowerShell을 사용하는 경우 먼저 최신 [Azure PowerShell SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 사용합니다. 
  
-다음 명령은 ExpressRoute 게이트웨이를 만듭니다. 뒤에 오는 _$_ 텍스트는 특정 정보로 업데이트 해야 하는 사용자 정의 변수입니다.
+다음 명령은 ExpressRoute 게이트웨이를 만듭니다. 뒤에 오는 텍스트는 _$_ 특정 정보로 업데이트 해야 하는 사용자 정의 변수입니다.
 
 ```powershell
 # These Values should already exist, update to match your environment

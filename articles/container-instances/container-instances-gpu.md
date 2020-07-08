@@ -4,10 +4,9 @@ description: GPU 리소스를 사용 하 여 계산 집약적인 컨테이너 �
 ms.topic: article
 ms.date: 02/19/2020
 ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77525290"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
@@ -59,7 +58,7 @@ GPU 리소스를 배포할 때 앞의 표에 표시 된 최대 값까지 워크 
 
 * **가격 책정** - GPU 리소스가 없는 컨테이너 그룹과 마찬가지로, Azure는 GPU 리소스가 있는 컨테이너 그룹의 *기간* 동안 사용된 리소스 비용을 청구합니다. 이 기간은 컨테이너의 첫 번째 이미지를 끌어온 시점부터 컨테이너 그룹이 종료되는 시점 사이의 시간으로 계산됩니다. 컨테이너 그룹을 배포하는 시간은 포함되지 않습니다.
 
-  [가격 정보](https://azure.microsoft.com/pricing/details/container-instances/)를 참조 하세요.
+  [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/container-instances/)를 참조하세요.
 
 * **CUDA 드라이버** - GPU 리소스가 있는 컨테이너 인스턴스는 NVIDIA CUDA 드라이버 및 컨테이너 런타임이 미리 프로비전되므로, CUDA 워크로드용으로 개발된 컨테이너 이미지를 사용할 수 있습니다.
 
@@ -91,7 +90,7 @@ properties:
   restartPolicy: OnFailure
 ```
 
-[Az container create][az-container-create] 명령을 사용 하 여 컨테이너 그룹을 배포 하 고 `--file` 매개 변수에 대 한 yaml 파일 이름을 지정 합니다. GPU 리소스를 지원하는 *eastus*처럼 리소스 그룹의 이름과 컨테이너 그룹의 위치를 제공해야 합니다.  
+[Az container create][az-container-create] 명령을 사용 하 여 컨테이너 그룹을 배포 하 고 매개 변수에 대 한 yaml 파일 이름을 지정 `--file` 합니다. GPU 리소스를 지원하는 *eastus*처럼 리소스 그룹의 이름과 컨테이너 그룹의 위치를 제공해야 합니다.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
@@ -209,7 +208,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 다음은 그 예입니다.
+GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예를 들어:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

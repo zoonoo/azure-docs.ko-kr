@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77539470"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Azure Private Link 연결 문제 해결
@@ -81,7 +80,7 @@ Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통
 
        ![표시 유형 정보 확인](./media/private-link-tsg/pls-overview-pane-visibility.png)
 
-    g. **개요** 탭에서 **부하 분산 장치** 정보를 검토 합니다.
+    예: **개요** 탭에서 **부하 분산 장치** 정보를 검토 합니다.
      - 부하 분산 장치 링크를 선택 하 여 부하 분산 장치로 이동할 수 있습니다.
 
        ![부하 분산 장치 정보 확인](./media/private-link-tsg/pls-overview-pane-ilb.png)

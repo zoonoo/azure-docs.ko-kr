@@ -7,17 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77201274"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 PostgreSQL 확장-단일 서버
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용 하 여 데이터베이스에서 로드 하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드 된 후 확장은 기본 제공 기능 처럼 작동 합니다.
 
 ## <a name="how-to-use-postgresql-extensions"></a>PostgreSQL 확장을 사용하는 방법
-PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 psql 도구에서 [CREATE extension](https://www.postgresql.org/docs/current/sql-createextension.html) 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
+PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)   psql 도구에서 CREATE extension 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
 
 Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하위 집합을 지원 합니다. 이 정보를 `SELECT * FROM pg_available_extensions;`를 실행하여 얻을 수도 있습니다. 나열 된 확장 이외의 확장은 지원 되지 않습니다. Azure Database for PostgreSQL에서 사용자 고유의 확장을 만들 수 없습니다.
 
@@ -215,7 +214,7 @@ pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을
 현재는 다른 Azure Database for PostgreSQL 서버에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL의 아웃 바운드 연결이 지원 되지 않습니다.
 
 ## <a name="uuid"></a>uuid
-[Uuid-ossp 확장](https://www.postgresql.org/docs/current/uuid-ossp.html)에서 `uuid_generate_v4()` 를 사용 하려는 경우 성능 이점을 위해 [pgcrypto 확장](https://www.postgresql.org/docs/current/pgcrypto.html) 에서 `gen_random_uuid()` 와 비교 하는 것이 좋습니다.
+`uuid_generate_v4()` [Uuid-ossp 확장](https://www.postgresql.org/docs/current/uuid-ossp.html)에서를 사용 하려는 경우 `gen_random_uuid()` 성능 이점을 위해 [pgcrypto 확장](https://www.postgresql.org/docs/current/pgcrypto.html) 에서와 비교 하는 것이 좋습니다.
 
 ## <a name="pgaudit"></a>pgAudit
 [Pgaudit 확장](https://github.com/pgaudit/pgaudit/blob/master/README.md) 은 세션 및 개체 감사 로깅을 제공 합니다. Azure Database for PostgreSQL에서이 확장을 사용 하는 방법을 알아보려면 [감사 개념 문서](concepts-audit.md)를 참조 하세요. 
@@ -223,7 +222,7 @@ pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을
 ## <a name="pg_prewarm"></a>pg_prewarm
 Pg_prewarm 확장은 관계형 데이터를 캐시로 로드 합니다. 캐시를 미리 준비 하는 것은 다시 시작 후 쿼리를 처음 실행 하는 경우 응답 시간이 더 나은 것을 의미 합니다. Postgres 10이 하에서는 prewarming [함수](https://www.postgresql.org/docs/10/pgprewarm.html)를 사용 하 여 사전 준비를 수동으로 수행 합니다.
 
-Postgres 11 이상에서 사전 준비를 [자동으로](https://www.postgresql.org/docs/current/pgprewarm.html)수행 하도록 구성할 수 있습니다. `shared_preload_libraries` 매개 변수 목록에 pg_prewarm를 포함 하 고 서버를 다시 시작 하 여 변경 내용을 적용 해야 합니다. [Azure Portal](howto-configure-server-parameters-using-portal.md), [CLI](howto-configure-server-parameters-using-cli.md), REST API 또는 ARM 템플릿에서 매개 변수를 설정할 수 있습니다. 
+Postgres 11 이상에서 사전 준비를 [자동으로](https://www.postgresql.org/docs/current/pgprewarm.html)수행 하도록 구성할 수 있습니다. 매개 변수 목록에 pg_prewarm를 포함 하 `shared_preload_libraries` 고 서버를 다시 시작 하 여 변경 내용을 적용 해야 합니다. [Azure Portal](howto-configure-server-parameters-using-portal.md), [CLI](howto-configure-server-parameters-using-cli.md), REST API 또는 ARM 템플릿에서 매개 변수를 설정할 수 있습니다. 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB는 PostgreSQL에 대 한 확장으로 패키지 되는 시계열 데이터베이스입니다. TimescaleDB는 시계열 워크 로드에 대 한 시간 기반 분석 함수, 최적화 및 크기 조정 Postgres를 제공 합니다.
@@ -231,7 +230,7 @@ TimescaleDB는 PostgreSQL에 대 한 확장으로 패키지 되는 시계열 데
 [TimescaleDB에 대 한 자세한](https://docs.timescale.com/latest)정보, 시간 간격의 등록 상표 [, inc.](https://www.timescale.com/). Azure Database for PostgreSQL는 날짜 표시줄의 오픈 소스 버전을 제공 합니다. 이 버전에서 사용할 수 있는 날짜/시간 기능에 대 한 자세한 내용은 날짜/시간 [제품 비교](https://www.timescale.com/products/)를 참조 하세요.
 
 ### <a name="installing-timescaledb"></a>TimescaleDB 설치
-TimescaleDB를 설치 하려면 서버의 공유 프리 로드 라이브러리에 포함 해야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경 하려면 **서버를 다시 시작** 해야 합니다. [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 하 여 매개 변수를 변경할 수 있습니다.
+TimescaleDB를 설치 하려면 서버의 공유 프리 로드 라이브러리에 포함 해야 합니다. Postgres의 매개 변수를 변경 하려면 `shared_preload_libraries` **서버를 다시 시작** 해야 합니다. [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 하 여 매개 변수를 변경할 수 있습니다.
 
 [Azure Portal](https://portal.azure.com/)사용:
 
@@ -258,7 +257,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 이제 TimescaleDB hypertable을 처음 [부터 새로](https://docs.timescale.com/getting-started/creating-hypertables) 만들거나 [PostgreSQL에서 기존 시계열 데이터](https://docs.timescale.com/getting-started/migrating-data)를 마이그레이션할 수 있습니다.
 
 ### <a name="restoring-a-timescale-database"></a>시간 간격 데이터베이스 복원
-Pg_dump 및 pg_restore를 사용 하 여 시간 간격 데이터베이스를 복원 하려면 대상 데이터베이스에서 및 `timescaledb_pre_restore()` `timescaledb_post restore()`라는 두 개의 도우미 프로시저를 실행 해야 합니다.
+Pg_dump 및 pg_restore를 사용 하 여 시간 간격 데이터베이스를 복원 하려면 대상 데이터베이스에서 및 라는 두 개의 도우미 프로시저를 실행 해야 `timescaledb_pre_restore()` `timescaledb_post restore()` 합니다.
 
 먼저 대상 데이터베이스를 준비 합니다.
 

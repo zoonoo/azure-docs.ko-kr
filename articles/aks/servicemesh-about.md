@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77594314"
 ---
 # <a name="about-service-meshes"></a>서비스 메시 정보
@@ -67,7 +66,7 @@ ms.locfileid: "77594314"
 - **지원 되** 는 Kubernetes, virtual machines
 - **다중 클러스터** 게이트웨이, 페더레이션
 
-## <a name="selection-criteria"></a>선택 기준
+## <a name="selection-criteria"></a>선택 조건
 
 서비스 메시를 선택 하기 전에 요구 사항 및 서비스 메시를 설치 하는 이유를 이해 해야 합니다. 다음 질문을 해 보세요.
 

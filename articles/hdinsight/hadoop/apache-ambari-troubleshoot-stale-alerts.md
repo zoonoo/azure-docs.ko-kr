@@ -8,17 +8,16 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77539113"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Ambari 부실 경고
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제
+## <a name="issue"></a>문제점
 
 Apache Ambari UI에서 다음과 같은 경고가 표시 될 수 있습니다.
 
@@ -74,7 +73,7 @@ Ambari 오래 된 경고와 관련 된 문제를 해결 하려면 다음 방법�
 
 Ambari 에이전트가 구성 된 경고가 해당 일정을 누락 하는 것으로 보고 하기 전에 유예 기간이 있습니다. 경고가 예약 된 시간을 누락 했지만 유예 기간 내에 실행 된 경우 오래 된 경고가 생성 되지 않습니다.
 
-기본값 `alert_grace_period` 은 5 초입니다. /Etc/ambari-agent/conf/ambari-agent.ini.에서이 설정을 구성할 수 있습니다. 오래 된 경고가 정기적으로 발생 하는 호스트의 경우 값을 10으로 늘립니다. 그런 다음 Ambari 에이전트를 다시 시작 합니다.
+기본값은 `alert_grace_period` 5 초입니다. /Etc/ambari-agent/conf/ambari-agent.ini에서이 설정을 구성할 수 있습니다. 오래 된 경고가 정기적으로 발생 하는 호스트의 경우 값을 10으로 늘립니다. 그런 다음 Ambari 에이전트를 다시 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -82,7 +81,7 @@ Ambari 에이전트가 구성 된 경고가 해당 일정을 누락 하는 것�
 
 * Azure [커뮤니티 지원](https://azure.microsoft.com/support/community/)에서 azure 전문가의 답변을 받으세요.
 
-* Twitter를 [@AzureSupport](https://twitter.com/azuresupport) 사용 하 여 연결 합니다. 사용자 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* Twitter를 사용 하 여 연결 [@AzureSupport](https://twitter.com/azuresupport) 합니다. 사용자 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
 * 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출 합니다. 가져오려면 포털 메뉴에서 도움말 (**?**)을 선택 하거나 **도움말 + 지원** 창을 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 
 

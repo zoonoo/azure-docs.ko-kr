@@ -14,10 +14,9 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77616877"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원
@@ -31,7 +30,7 @@ ms.locfileid: "77616877"
 >[!NOTE]
 >OS 백업 스크립트는 서버에 미리 설치되어 있는 ReaR 소프트웨어를 사용합니다.  
 
-Microsoft `Service Management` 팀에서 프로 비전을 완료 한 후에는 기본적으로 서버는 운영 체제의 파일 시스템 수준을 백업 하는 두 개의 백업 일정으로 구성 됩니다. 다음 명령을 사용 하 여 백업 작업의 일정을 확인할 수 있습니다.
+Microsoft 팀에서 프로 비전을 완료 한 후에는 `Service Management` 기본적으로 서버는 운영 체제의 파일 시스템 수준을 백업 하는 두 개의 백업 일정으로 구성 됩니다. 다음 명령을 사용 하 여 백업 작업의 일정을 확인할 수 있습니다.
 ```
 #crontab –l
 ```
@@ -99,4 +98,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-다음 스크린샷은 전체 백업 복원 ( ![RearToolConfiguration)을 보여 줍니다.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+다음 스크린샷은 전체 백업의 복원을 보여 줍니다. ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

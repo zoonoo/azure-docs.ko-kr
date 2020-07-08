@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
 ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471183"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
@@ -23,9 +22,9 @@ Azure Monitor 로그를 사용 하 여 HDInsight에서 Apache Kafka 생성 된 �
 
 ## <a name="logs-location"></a>로그 위치
 
-클러스터의 Apache Kafka 로그는에 `/var/log/kafka`있습니다. 관리 디스크를 사용 하는지 여부에 관계 없이 kafka 로그가 클러스터 수명 주기 간에 저장 되거나 지속 되지 않습니다. 다음 표에서는 사용 가능한 로그를 보여 줍니다.
+클러스터의 Apache Kafka 로그는에 있습니다 `/var/log/kafka` . 관리 디스크를 사용 하는지 여부에 관계 없이 kafka 로그가 클러스터 수명 주기 간에 저장 되거나 지속 되지 않습니다. 다음 표에서는 사용 가능한 로그를 보여 줍니다.
 
-|로그 |Description |
+|로그 |설명 |
 |---|---|
 |kafka.|Kafka 프로세스의 stdout 및 stderr 이 파일에서 Kafka 시작 및 종료 로그를 찾을 수 있습니다.|
 |server .log|주 Kafka 서버 로그입니다. 모든 Kaf\broker 로그는 여기에서 종료 됩니다.|
@@ -52,7 +51,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
 
 2. 왼쪽 메뉴의 **일반**에서 **로그**를 선택 합니다. 여기서 Kafka에서 수집한 데이터를 검색할 수 있습니다. 쿼리 창에 쿼리를 입력 한 다음 **실행**을 선택 합니다. 다음은 검색 예제입니다.
 
-* 디스크 사용량:
+* 디스크 사용:
 
     ```kusto
     Perf
@@ -68,7 +67,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* 초당 들어오는 메시지: (클러스터 이름 `your_kafka_cluster_name` 으로 대체)
+* 초당 들어오는 메시지: ( `your_kafka_cluster_name` 클러스터 이름으로 대체)
 
     ```kusto
     metrics_kafka_CL 
@@ -76,7 +75,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* 초당 수신 바이트: (를 작업자 `wn0-kafka` 노드 호스트 이름으로 대체 합니다.)
+* 초당 수신 바이트: (를 `wn0-kafka` 작업자 노드 호스트 이름으로 대체 합니다.)
 
     ```kusto
     metrics_kafka_CL 
@@ -84,7 +83,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* 초당 나가는 바이트: (클러스터 이름 `your_kafka_cluster_name` 으로 대체)
+* 초당 나가는 바이트: ( `your_kafka_cluster_name` 클러스터 이름으로 대체)
 
     ```kusto
     metrics_kafka_CL 
@@ -94,7 +93,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
 
     `*`를 입력하여 기록된 모든 종류를 검색할 수도 있습니다. 현재 다음 로그를 쿼리에 사용할 수 있습니다.
 
-    | 로그 형식 | Description |
+    | 로그 형식 | 설명 |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |

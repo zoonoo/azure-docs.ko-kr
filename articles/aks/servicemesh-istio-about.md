@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593903"
 ---
 # <a name="istio"></a>Istio
@@ -20,7 +19,7 @@ ms.locfileid: "77593903"
 
 ## <a name="architecture"></a>Architecture
 
-Istio는 [엔보이][envoy-proxy]기반 사이드카 구성 된 데이터 평면을 제공 합니다. 이러한 지능형 프록시는 사용자가 선택한 앱 및 워크 로드에서 모든 네트워크 트래픽을 제어 합니다.
+Istio는 [엔보이][envoy-proxy]기반 사이드카 구성 된 데이터 평면을 제공 합니다. 이러한 지능형 프록시는 메시된 앱 및 워크로드에서 들어오고 나가는 모든 네트워크 트래픽을 제어합니다.
 
 컨트롤 평면은 다음 [구성 요소][what-is-istio]를 통해 구성, 정책 및 원격 분석을 관리 합니다.
 
@@ -32,18 +31,18 @@ Istio는 [엔보이][envoy-proxy]기반 사이드카 구성 된 데이터 평면
 
 - **교정쇄** -구성 요소에 대 한 구성을 추상화 하 고 제공 합니다.
 
-다음 아키텍처 다이어그램에서는 데이터 평면 및 컨트롤 평면 내의 여러 구성 요소가 상호 작용 하는 방식을 보여 줍니다.
+다음 아키텍처 다이어그램에서는 데이터 평면 및 제어 평면 내의 여러 구성 요소가 상호 작용하는 방식을 보여 줍니다.
 
 
 ![Istio 구성 요소 및 아키텍처에 대 한 개요입니다.](media/servicemesh/istio/about-architecture.png)
 
 
-## <a name="selection-criteria"></a>선택 기준
+## <a name="selection-criteria"></a>선택 조건
 
 작업에 대해 Istio를 평가할 때 다음 영역을 이해 하 고 고려해 야 합니다.
 
 - [디자인 목표](#design-goals)
-- [기능](#capabilities)
+- [Capabilities](#capabilities)
 - [시나리오](#scenarios)
 
 

@@ -4,10 +4,9 @@ description: Azure Backup Server (MABS)를 사용 하 여 VMware vCenter/ESXi �
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212343"
 ---
 # <a name="restore-vmware-virtual-machines"></a>VMware 가상 컴퓨터 복원
@@ -46,7 +45,7 @@ ms.locfileid: "77212343"
 
       ![복구 유형 선택](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
-8. **요약** 화면에서 설정을 검토하고 **복구**를 클릭하여 복구 프로세스를 시작합니다. 복구 **상태** 화면에 복구 작업의 진행 상태가 표시 됩니다.
+8. **요약** 화면에서 설정을 검토하고 **복구**를 클릭하여 복구 프로세스를 시작합니다. **복구 상태** 화면에 복구 작업의 진행 상태가 표시됩니다.
 
 ## <a name="restore-an-individual-file-from-a-vm"></a>VM에서 개별 파일 복원
 
@@ -76,7 +75,7 @@ ms.locfileid: "77212343"
     ![파일을 복구할 위치 지정](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
 9. **복구 옵션 지정** 화면에서 적용할 보안 설정을 선택합니다. 네트워크 대역폭 사용량 제한을 수정하도록 선택할 수 있지만, 제한은 기본적으로 사용되지 않습니다. 또한 **SAN 복구** 및 **알림**이 사용하도록 설정되지 않습니다.
-10. **요약** 화면에서 설정을 검토하고 **복구**를 클릭하여 복구 프로세스를 시작합니다. 복구 **상태** 화면에 복구 작업의 진행 상태가 표시 됩니다.
+10. **요약** 화면에서 설정을 검토하고 **복구**를 클릭하여 복구 프로세스를 시작합니다. **복구 상태** 화면에 복구 작업의 진행 상태가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

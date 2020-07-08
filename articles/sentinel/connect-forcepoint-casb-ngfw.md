@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588232"
 ---
 # <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Azure 센티널에 Forcepoint 제품 연결
@@ -44,7 +43,7 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 
 2. CommonSecurityLog를 검색 하 여 DeviceVendor 이름에 ' Forcepoint '가 포함 된 Log Analytics에서 관련 스키마를 사용 합니다. 
 
-3. [3 단계: 연결 유효성 검사](connect-cef-verify.md)로 계속 진행 합니다.
+3. [단계 3: 연결 유효성 검사](connect-cef-verify.md)로 계속 진행합니다.
 
 
 
@@ -56,4 +55,4 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
 
-- [통합 문서를 사용](tutorial-monitor-your-data.md) 하 여 데이터를 모니터링 합니다.
+- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.

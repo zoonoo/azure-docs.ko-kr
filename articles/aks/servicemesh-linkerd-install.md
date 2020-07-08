@@ -7,10 +7,9 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593735"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 Linkerd 설치
@@ -20,9 +19,9 @@ ms.locfileid: "77593735"
 이 문서에서는 Linkerd를 설치 하는 방법을 보여 줍니다. Linkerd `linkerd` 클라이언트 이진 파일은 클라이언트 컴퓨터에 설치 되 고 linkerd 구성 요소는 AKS의 Kubernetes 클러스터에 설치 됩니다.
 
 > [!NOTE]
-> 이 지침은 Linkerd 버전 `stable-2.6.0`을 참조 합니다.
+> 이 지침은 Linkerd 버전 `stable-2.6.0` 을 참조 합니다.
 >
-> Linkerd `stable-2.6.x` 는 Kubernetes 버전 `1.13+`에 대해 실행할 수 있습니다. [GitHub-Linkerd 릴리스에서][linkerd-github-releases]추가 안정 및에 지 linkerd 버전을 찾을 수 있습니다.
+> Linkerd는 `stable-2.6.x` Kubernetes 버전에 대해 실행할 수 있습니다 `1.13+` . [GitHub-Linkerd 릴리스에서][linkerd-github-releases]추가 안정 및에 지 linkerd 버전을 찾을 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -35,7 +34,7 @@ ms.locfileid: "77593735"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 설명 된 단계에서는 AKS 클러스터 (RBAC를 사용 하 여 Kubernetes `1.13` 이상)를 만들고 클러스터와의 `kubectl` 연결을 설정 했다고 가정 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
+이 문서에 설명 된 단계에서는 AKS 클러스터 ( `1.13` RBAC를 사용 하 여 Kubernetes 이상)를 만들고 `kubectl` 클러스터와의 연결을 설정 했다고 가정 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
 모든 Linkerd pod는 Linux 노드에서 실행 되도록 예약 되어야 합니다 .이 설정은 아래에 자세히 설명 된 설치 방법의 기본값입니다. 추가 구성은 필요 하지 않습니다.
 
@@ -117,19 +116,19 @@ linkerd-version
 Status check results are √
 ```
 
-이제 Linkerd 구성 요소를 설치 합니다. `linkerd` 및 `kubectl` 이진 파일을 사용 하 여 linkerd 구성 요소를 AKS 클러스터에 설치 합니다. 네임 `linkerd` 스페이스는 자동으로 생성 되 고 구성 요소는이 네임 스페이스에 설치 됩니다.
+이제 Linkerd 구성 요소를 설치 합니다. `linkerd`및 `kubectl` 이진 파일을 사용 하 여 Linkerd 구성 요소를 AKS 클러스터에 설치 합니다. `linkerd`네임 스페이스는 자동으로 생성 되 고 구성 요소는이 네임 스페이스에 설치 됩니다.
 
 ```console
 linkerd install | kubectl apply -f -
 ```
 
-Linkerd는 많은 개체를 배포 합니다. 위의 `linkerd install` 명령 출력의 목록이 표시 됩니다. Linkerd 구성 요소의 배포는 클러스터 환경에 따라 완료 하는 데 약 1 분이 소요 됩니다.
+Linkerd는 많은 개체를 배포 합니다. 위의 명령 출력의 목록이 표시 됩니다 `linkerd install` . Linkerd 구성 요소의 배포는 클러스터 환경에 따라 완료 하는 데 약 1 분이 소요 됩니다.
 
 이제 Linkerd를 AKS 클러스터에 배포 했습니다. Linkerd가 성공적으로 배포 되었는지 확인 하려면 다음 섹션으로 이동 하 여 [linkerd 설치의 유효성을 검사](#validate-the-linkerd-installation)해 보겠습니다.
 
 ## <a name="validate-the-linkerd-installation"></a>Linkerd 설치 유효성 검사
 
-리소스가 성공적으로 만들어졌는지 확인 합니다. [Kubectl get svc][kubectl-get] 및 [kubectl get pod][kubectl-get] 명령을 사용 하 여 다음 `linkerd install` 명령 `linkerd` 으로 linkerd 구성 요소가 설치 된 네임 스페이스를 쿼리 합니다.
+리소스가 성공적으로 만들어졌는지 확인 합니다. [Kubectl get svc][kubectl-get] 및 [kubectl get pod][kubectl-get] 명령을 사용 하 여 `linkerd` 다음 명령으로 linkerd 구성 요소가 설치 된 네임 스페이스를 쿼리 합니다 `linkerd install` .
 
 ```console
 kubectl get svc --namespace linkerd --output wide

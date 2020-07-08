@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 3e6dfd5882e49ad903e8cff6f0ec7f3d6bd4a8b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77619620"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
@@ -19,7 +18,7 @@ Azure Database for PostgreSQL은 자동으로 서버 백업을 만들어 사용�
 
 ## <a name="backups"></a>Backup
 
-Azure Database for PostgreSQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원 되는 최대 저장소 크기에 따라 전체 및 차등 백업 (4 TB의 최대 저장소 서버) 또는 스냅숏 백업 (최대 16tb, 최대 저장소 서버)을 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+Azure Database for PostgreSQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원되는 최대 스토리지 크기에 따라 전체 및 차등 백업(최대 4TB 스토리지 서버) 또는 스냅샷 백업(최대 16TB 스토리지 서버)을 수행합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
 이러한 백업 파일은 내보낼 수 없습니다. 백업은 Azure Database for PostgreSQL의 복원 작업에만 사용할 수 있습니다. [Pg_dump](howto-migrate-using-dump-and-restore.md) 를 사용 하 여 데이터베이스를 복사할 수 있습니다.
 
@@ -46,8 +45,8 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 사용할 수 있는 두 가지 유형의 복원이 있습니다.
 
-- **특정 시점 복원**은 백업 중복 옵션에서 사용할 수 있으며, 원본 서버와 동일한 지역에 새 서버를 만듭니다.
-- **지역 복원**은 지역 중복 스토리지를 위해 서버를 구성하고 이 서버를 다른 지역으로 복원할 수 있는 경우에만 사용할 수 있습니다.
+- 지정 **시간 복원은** 백업 중복성 옵션 중 하나에서 사용할 수 있으며, 원본 서버와 동일한 지역에 새 서버를 만듭니다.
+- 지역 **복원은** 지역 중복 저장소에 대해 서버를 구성 하 고 다른 지역으로 서버를 복원할 수 있는 경우에만 사용할 수 있습니다.
 
 예상 복구 시간은 데이터베이스 크기, 트랜잭션 로그 크기, 네트워크 대역폭 및 동일한 지역에서 동시에 복구되는 데이터베이스의 총 수를 포함한 여러 요소에 따라 달라집니다. 복구 시간은 일반적으로 12시간 미만입니다.
 

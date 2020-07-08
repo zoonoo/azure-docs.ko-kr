@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77482975"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>클라우드 폴더에서 Azure App Service로 콘텐츠 동기화
@@ -22,7 +21,7 @@ ms.locfileid: "77482975"
 
 콘텐츠 동기화를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
 
-왼쪽 메뉴에서 **Deployment Center** > **OneDrive** 또는 **Dropbox** > **권한 부여**를 클릭 합니다. 표시되는 인증 메시지를 따릅니다. 
+왼쪽 메뉴에서 **Deployment Center**  >  **OneDrive** 또는 **Dropbox**  >  **권한 부여**를 클릭 합니다. 표시되는 인증 메시지를 따릅니다. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -54,7 +53,7 @@ ms.locfileid: "77482975"
 
 콘텐츠 동기화를 사용하지 않도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
 
-왼쪽 메뉴에서 **배포 센터** > **연결 끊기**를 클릭 합니다.
+왼쪽 메뉴에서 **배포 센터**  >  **연결 끊기**를 클릭 합니다.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

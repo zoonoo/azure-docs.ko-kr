@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617133"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
@@ -682,7 +681,7 @@ SAP Python 스크립트에서 제공되는 SAP HANA 랜드스케이프 상태를
 
 불필요한 장애 조치를 방지하기 위해 몇 가지 재시도가 있습니다. 클러스터는 **Ok** 상태, 반환 값이 **4**가 **error** 및 반환 값 **1**로 변경되는 경우에만 반응합니다. 따라서 **SAPHanaSR-showAttr**의 출력에 **offline** 상태의 VM이 표시되면 맞습니다. 단, 주와 보조를 전환할 작업은 아직 없습니다. SAP HANA에서 오류를 반환하지 않는 한 클러스터 작업은 트리거되지 않습니다.
 
-다음과 같이 SAP Python 스크립트를 호출 하 여 SAP HANA 가로 상태를 사용자 ** \<HANA SID\>adm** 으로 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
+다음과 같이 SAP Python 스크립트를 호출 하 여 SAP HANA 가로 상태를 사용자 ** \<HANA SID\> adm** 으로 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -945,7 +944,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 클러스터 솔루션은 메뉴와 그래픽에 셸 수준의 모든 명령이 있는 것을 선호하는 사용자를 위해 GUI를 제공하는 다음과 같은 브라우저 인터페이스를 제공합니다.
-Browser 인터페이스를 사용 하려면 ** \<node\> ** 를 다음 URL의 실제 SAP HANA 노드로 바꿉니다. 그런 다음, 클러스터의 자격 증명을 입력합니다(사용자 **클러스터**).
+Browser 인터페이스를 사용 하려면을 **\<node\>** 다음 URL의 실제 SAP HANA 노드로 바꿉니다. 그런 다음, 클러스터의 자격 증명을 입력합니다(사용자 **클러스터**).
 
 <pre><code>
 https://&ltnode&gt:7630

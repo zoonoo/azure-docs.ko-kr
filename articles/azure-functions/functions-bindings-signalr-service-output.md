@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530251"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Azure Functions에 대 한 SignalR 서비스 출력 바인딩
@@ -21,7 +20,7 @@ Azure SignalR Service를 사용하여 하나 이상의 메시지를 보내려면
 
 출력 바인딩을 사용 하 여 그룹을 관리할 수도 있습니다.
 
-설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](functions-bindings-signalr-service.md)를 참조 하세요.
+설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-signalr-service.md)를 참조하세요.
 
 ## <a name="broadcast-to-all-clients"></a>모든 클라이언트에 브로드캐스트
 
@@ -44,7 +43,7 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -176,7 +175,7 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 예제 function.json:
 
@@ -311,7 +310,7 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 예제 function.json:
 
@@ -425,7 +424,7 @@ public SignalRMessage sendMessage(
 
 ## <a name="group-management"></a>그룹 관리
 
-SignalR 서비스를 사용 하면 사용자를 그룹에 추가할 수 있습니다. 그런 다음 그룹에 메시지를 보낼 수 있습니다. `SignalR` 출력 바인딩을 사용 하 여 사용자의 그룹 멤버 자격을 관리할 수 있습니다.
+SignalR 서비스를 사용 하면 사용자를 그룹에 추가할 수 있습니다. 그런 다음 그룹에 메시지를 보낼 수 있습니다. `SignalR`출력 바인딩을 사용 하 여 사용자의 그룹 멤버 자격을 관리할 수 있습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -476,15 +475,15 @@ public static Task RemoveFromGroup(
 ```
 
 > [!NOTE]
-> `ClaimsPrincipal` 올바르게 바인딩되도록 하려면 Azure Functions에서 인증 설정을 구성 해야 합니다.
+> `ClaimsPrincipal`올바르게 바인딩되도록 하려면 Azure Functions에서 인증 설정을 구성 해야 합니다.
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 ### <a name="add-user-to-a-group"></a>그룹에 사용자 추가
 
 다음 예에서는 그룹에 사용자를 추가 합니다.
 
-예제 *함수. json*
+*function.js의* 예
 
 ```json
 {
@@ -522,7 +521,7 @@ public static Task Run(
 
 다음 예에서는 그룹에서 사용자를 제거 합니다.
 
-예제 *함수. json*
+*function.js의* 예
 
 ```json
 {
@@ -557,7 +556,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> `ClaimsPrincipal` 올바르게 바인딩되도록 하려면 Azure Functions에서 인증 설정을 구성 해야 합니다.
+> `ClaimsPrincipal`올바르게 바인딩되도록 하려면 Azure Functions에서 인증 설정을 구성 해야 합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -565,7 +564,7 @@ public static Task Run(
 
 다음 예에서는 그룹에 사용자를 추가 합니다.
 
-예제 *함수. json*
+*function.js의* 예
 
 ```json
 {
@@ -593,7 +592,7 @@ module.exports = async function (context, req) {
 
 다음 예에서는 그룹에서 사용자를 제거 합니다.
 
-예제 *함수. json*
+*function.js의* 예
 
 ```json
 {
@@ -623,7 +622,7 @@ module.exports = async function (context, req) {
 
 다음 예에서는 그룹에 사용자를 추가 합니다.
 
-예제 *함수. json*
+*function.js의* 예
 
 ```json
 {
@@ -650,7 +649,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 다음 예에서는 그룹에서 사용자를 제거 합니다.
 
-예제 *함수. json*
+*function.js의* 예
 
 ```json
 {
@@ -725,25 +724,25 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-다음 표에서는 *함수. json* 파일 및 `SignalRConnectionInfo` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `SignalRConnectionInfo` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type**| 해당 없음 | `signalRConnectionInfo`로 설정해야 합니다.|
-|**방향도**| 해당 없음 | `in`로 설정해야 합니다.|
+|**direction**| 해당 없음 | `in`로 설정해야 합니다.|
 |**name**| 해당 없음 | 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
-|**Id**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
+|**Id**|**Id**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |
 
 ### <a name="signalr"></a>SignalR
 
-다음 표에서는 *함수. json* 파일 및 `SignalR` 특성에서 설정 하는 바인딩 구성 속성에 대해 설명 합니다.
+다음 표에서는 *function.json* 파일 및 `SignalR` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type**| 해당 없음 | `signalR`로 설정해야 합니다.|
-|**방향도**| 해당 없음 | `out`로 설정해야 합니다.|
+|**direction**| 해당 없음 | `out`로 설정해야 합니다.|
 |**name**| 해당 없음 | 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |

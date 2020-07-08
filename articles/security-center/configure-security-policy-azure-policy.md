@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77430944"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>REST API를 사용 하 여 Azure Policy에서 보안 정책 구성
@@ -136,7 +135,7 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 
 ## <a name="next-steps"></a>다음 단계
 
-기타 관련 자료는 다음 문서를 참조 하세요. 
+기타 관련 자료는 다음 문서를 참조하세요. 
 
 - [사용자 지정 보안 정책](custom-security-policies.md)
 - [보안 정책 개요](tutorial-security-policy.md)

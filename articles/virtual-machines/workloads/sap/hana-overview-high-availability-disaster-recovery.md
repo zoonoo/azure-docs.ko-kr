@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0585c1251ba18e1390f3eee28a989edee6eb8591
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77616940"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
@@ -40,7 +39,7 @@ Azure의 SAP HANA(대규모 인스턴스)는 네 개의 지정학적 영역(미�
 
 다음 표에는 현재 지원되는 고가용성 및 재해 복구 방법과 조합이 제공되어 있습니다.
 
-| HANA 큰 인스턴스에서 지원되는 시나리오 | 고가용성 옵션 | 재해 복구 옵션 | 주석 |
+| HANA 큰 인스턴스에서 지원되는 시나리오 | 고가용성 옵션 | 재해 복구 옵션 | 의견 |
 | --- | --- | --- | --- |
 | 단일 노드 | 사용할 수 없습니다. | 전용 DR 설치.<br /> 다목적 DR 설치. | |
 | 호스트 자동 장애 조치(failover): 스케일 아웃(대기 모드 유무 상관 없음)<br /> 1+1 포함 | 활성 역할의 대기에서 가능.<br /> HANA에서 역할 전환 제어. | 전용 DR 설치.<br /> 다목적 DR 설치.<br /> 스토리지 복제를 사용하여 DR 동기화. | HANA 볼륨 세트가 모든 노드에 연결됨.<br /> DR 사이트에는 동일한 수의 노드가 있어야 함. |

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fa8b2da683d68a337df38e13726f22c5af43540a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77565930"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager를 사용 하 여 사설 클라우드를 재해 복구 대상으로 설정
@@ -146,7 +145,7 @@ VSphere 복제 6.5에 대 한 자세한 설치 지침은 VMware 문서 [VMware v
 
 CloudSimple 포털에서 권한을 에스컬레이션 한 후 cloudowner 사용자 자격 증명을 사용 하 여 vCenter에 로그인 합니다.
 
-VCenter에서 새 사용자 `srm-soln-admin`를 만들고 vcenter의 administrators 그룹에 추가 합니다.
+VCenter에서 새 사용자를 만들고 `srm-soln-admin` vcenter의 administrators 그룹에 추가 합니다.
 Cloudowner 사용자로 vCenter에서 로그 아웃 하 고 *srm-* 사용자로 로그인 합니다.
 
 #### <a name="cloudsimple-portal-configure-firewall-rules-for-vra"></a>CloudSimple 포털: vRA에 대 한 방화벽 규칙 구성

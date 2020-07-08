@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
 ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77604678"
 ---
 # <a name="adaptive-application-controls"></a>적응 애플리케이션 컨트롤
@@ -67,7 +66,7 @@ ms.locfileid: "77604678"
 
    ![권장](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-   이 목록에는 다음과 같은 정보가 포함됩니다.
+   목록에는 다음이 포함됩니다.
 
    - **그룹 이름**: 구독 및 그룹의 이름입니다.
    - **Vm 및 컴퓨터**: 그룹의 가상 머신 수
@@ -105,7 +104,7 @@ ms.locfileid: "77604678"
 
    ![그룹](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-   이 목록에는 다음과 같은 정보가 포함됩니다.
+   목록에는 다음이 포함됩니다.
 
    - **그룹 이름**: 구독 및 그룹의 이름입니다.
    - **Vm 및 컴퓨터**: 그룹의 가상 머신 수
@@ -177,7 +176,7 @@ Azure Security Center를 사용하면 권장되지 않는 VM 그룹에서도 애
 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure Vm에서 실행 되는 응용 프로그램을 허용 목록 하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). 다양한 유형의 보안 경고에 대해 알아봅니다.
+* [Azure Security Center의 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) 다양한 유형의 보안 경고에 대해 알아봅니다.
 * [Azure Security Center 문제 해결 가이드를 참조](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide)하세요. Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

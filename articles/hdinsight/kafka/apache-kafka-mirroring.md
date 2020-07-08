@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425887"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
@@ -90,8 +89,8 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
 클라이언트에서 도메인 이름 대신 broker IP 주소를 사용 하 여 연결할 수 있도록 IP 광고를 구성 합니다.
 
-1. 기본 클러스터에 대 한 Ambari 대시보드로 이동 `https://PRIMARYCLUSTERNAME.azurehdinsight.net`합니다.
-1. **서비스** > **kafka**을 선택 합니다. **CliSelectck** 탭을 차례로 탭 합니다.
+1. 기본 클러스터에 대 한 Ambari 대시보드로 이동 `https://PRIMARYCLUSTERNAME.azurehdinsight.net` 합니다.
+1. **서비스**  >  **kafka**을 선택 합니다. **CliSelectck** 탭을 차례로 탭 합니다.
 1. 아래쪽 **kafka-env 템플릿** 섹션에 다음 구성 줄을 추가 합니다. **저장**을 선택합니다.
 
     ```
@@ -105,13 +104,13 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 1. **구성 저장** 화면에서 메모를 입력 하 고 **저장**을 클릭 합니다.
 1. 구성 경고를 표시 하는 메시지가 표시 되 면 **계속**을 클릭 합니다.
 1. **구성 변경 내용 저장**에서 **확인을** 선택 합니다.
-1. 다시 시작 **필요** 알림에서**모든 영향을** **다시 시작을 선택 합니다.** >  **모두 다시 시작 확인**을 선택 합니다.
+1. 다시 **Restart**시작  >  **필요** 알림에서**모든 영향을** 다시 시작을 선택 합니다. **모두 다시 시작 확인**을 선택 합니다.
 
     ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>모든 네트워크 인터페이스에서 수신 대기 하도록 Kafka을 구성 합니다.
     
-1. **Services**서비스 > **kafka**에서 **Configs** 탭을 그대로 유지 합니다. **Kafka Broker** 섹션에서 **listeners** 속성을로 `PLAINTEXT://0.0.0.0:9092`설정 합니다.
+1. **Configs** **서비스**  >  **kafka**에서 Configs 탭을 그대로 유지 합니다. **Kafka Broker** 섹션에서 **listeners** 속성을로 설정 `PLAINTEXT://0.0.0.0:9092` 합니다.
 1. **저장**을 선택합니다.
 1. **다시 시작**을 선택 하 고 **모두 다시 시작을 확인**합니다.
 
@@ -136,7 +135,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-1. 다음 명령을 사용 하 여 기본 클러스터에 대 한 Apache 사육 사 호스트가 포함 된 변수를 만듭니다. 과 같은 문자열 `ZOOKEEPER_IP_ADDRESS1` 은 이전에 기록 된 실제 IP 주소 (예: `10.23.0.11` 및 `10.23.0.7`)로 바꾸어야 합니다. 사용자 지정 DNS 서버에서 FQDN 확인을 사용 하는 경우 [다음 단계](apache-kafka-get-started.md#getkafkainfo) 에 따라 broker 및 사육 사 이름을 가져옵니다.
+1. 다음 명령을 사용 하 여 기본 클러스터에 대 한 Apache 사육 사 호스트가 포함 된 변수를 만듭니다. 과 같은 문자열은 `ZOOKEEPER_IP_ADDRESS1` 이전에 기록 된 실제 IP 주소 (예: 및)로 바꾸어야 합니다 `10.23.0.11` `10.23.0.7` . 사용자 지정 DNS 서버에서 FQDN 확인을 사용 하는 경우 [다음 단계](apache-kafka-get-started.md#getkafkainfo) 에 따라 broker 및 사육 사 이름을 가져옵니다.
 
     ```bash
     # get the zookeeper hosts for the primary cluster
@@ -181,7 +180,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-1. `consumer.properties` 파일은 **기본** 클러스터와의 통신을 구성 하는 데 사용 됩니다. 파일을 만들려면 다음 명령을 사용합니다.
+1. `consumer.properties`파일은 **기본** 클러스터와의 통신을 구성 하는 데 사용 됩니다. 파일을 만들려면 다음 명령을 사용합니다.
 
     ```bash
     nano consumer.properties
@@ -210,7 +209,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. `producer.properties` 파일은 **보조** 클러스터를 전달 하는 데 사용 됩니다. 파일을 만들려면 다음 명령을 사용합니다.
+1. `producer.properties`파일은 **보조** 클러스터를 전달 하는 데 사용 됩니다. 파일을 만들려면 다음 명령을 사용합니다.
 
     ```bash
     nano producer.properties
@@ -250,9 +249,9 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
         항목을 자동으로 만들도록 보조 클러스터를 구성 하려면 다음 단계를 수행 합니다.
 
-        1. 보조 클러스터에 대 한 Ambari 대시보드로 이동 `https://SECONDARYCLUSTERNAME.azurehdinsight.net`합니다.
-        1. **서비스** > **kafka**을 클릭 합니다. **Configs** 탭을 클릭합니다.
-        1. __필터__ 필드에 값을 입력 `auto.create`합니다. 이렇게 하면 속성 목록이 필터링되고 `auto.create.topics.enable` 설정이 표시됩니다.
+        1. 보조 클러스터에 대 한 Ambari 대시보드로 이동 `https://SECONDARYCLUSTERNAME.azurehdinsight.net` 합니다.
+        1. **서비스**  >  **kafka**을 클릭 합니다. **Configs** 탭을 클릭합니다.
+        1. __필터__ 필드에 값을 입력 `auto.create` 합니다. 이렇게 하면 속성 목록이 필터링되고 `auto.create.topics.enable` 설정이 표시됩니다.
         1. `auto.create.topics.enable` 값을 true로 변경하고 __저장__을 선택합니다. 메모를 추가 하 고 __저장__ 을 다시 선택 합니다.
         1. __Kafka__ 서비스를 선택 하 고, __다시 시작__을 선택한 다음, __영향을 받는 모두 다시 시작__을 선택 합니다. 메시지가 표시 되 면 __모두 다시 시작 확인__을 선택 합니다.
 
@@ -268,10 +267,10 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     이 예제에 사용된 매개 변수는 다음과 같습니다.
 
-    |매개 변수 |Description |
+    |매개 변수 |설명 |
     |---|---|
-    |--consumer|소비자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *기본* kafka 클러스터에서 읽는 소비자를 만드는 데 사용 됩니다.|
-    |--생산자 .config|생산자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *보조* kafka 클러스터에 쓰는 생산자를 만드는 데 사용 됩니다.|
+    |--consumer.config|소비자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *기본* kafka 클러스터에서 읽는 소비자를 만드는 데 사용 됩니다.|
+    |--producer.config|생산자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *보조* kafka 클러스터에 쓰는 생산자를 만드는 데 사용 됩니다.|
     |--허용 목록|MirrorMaker가 기본 클러스터에서 보조로 복제 하는 항목의 목록입니다.|
     |--num 스트림입니다.|생성할 소비자 스레드 수입니다.|
 
@@ -292,7 +291,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    항목 목록에는 MirrorMaster가 `testtopic`기본 클러스터에서 보조 항목으로 항목을 미러링 하는 경우 생성 되는가 포함 됩니다. 항목에서 검색 된 메시지는 기본 클러스터에 입력 한 메시지와 동일 합니다.
+    항목 목록에는 MirrorMaster가 `testtopic` 기본 클러스터에서 보조 항목으로 항목을 미러링 하는 경우 생성 되는가 포함 됩니다. 항목에서 검색 된 메시지는 기본 클러스터에 입력 한 메시지와 동일 합니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
@@ -307,5 +306,5 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 * [Apache Kafka MirrorMaker 문서](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)(cwiki.apache.org)
 * [Kafka 미러 작성자 모범 사례](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)
-* [HDInsight에서 Apache Kafka와 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
 * [Azure Virtual Network를 통해 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md)

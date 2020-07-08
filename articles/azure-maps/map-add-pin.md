@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209701"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
@@ -23,7 +22,7 @@ ms.locfileid: "77209701"
 기호 계층은 WebGL을 사용하여 렌더링됩니다. 기호 계층을 사용 하 여 지도에서 많은 지점의 컬렉션을 렌더링 합니다. HTML 표식과 비교할 때 기호 계층은 더 나은 성능으로 많은 수의 point 데이터를 지도에 렌더링 합니다. 그러나 기호 계층은 스타일 지정을 위한 기존 CSS 및 HTML 요소를 지원 하지 않습니다.  
 
 > [!TIP]
-> 기본적으로 기호 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을로 `['==', ['geometry-type'], 'Point']` 설정 하거나 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 원하는 경우 MultiPoint 기능도 포함할 수 있습니다.
+> 기본적으로 기호 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 속성을로 설정 `['==', ['geometry-type'], 'Point']` 하거나 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 원하는 경우 MultiPoint 기능도 포함할 수 있습니다.
 
 지도 이미지 스프라이트 관리자는 기호 계층에 사용 되는 사용자 지정 이미지를 로드 합니다. 다음 이미지 형식을 지원 합니다.
 
@@ -56,12 +55,12 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 지도에 추가할 수 있는 점 데이터에는 다음 네 가지 유형이 있습니다.
 
-- GeoJSON Point geometry-이 개체는 점의 좌표를 포함 하 고 다른 것은 포함 하지 않습니다. `atlas.data.Point` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
-- GeoJSON MultiPoint geometry-이 개체는 여러 점의 좌표를 포함 하 고 다른 요소는 포함 하지 않습니다. `atlas.data.MultiPoint` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
-- GeoJSON 기능-이 개체는 모든 GeoJSON 기 하 도형 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. `atlas.data.Feature` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
+- GeoJSON Point geometry-이 개체는 점의 좌표를 포함 하 고 다른 것은 포함 하지 않습니다. `atlas.data.Point`도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
+- GeoJSON MultiPoint geometry-이 개체는 여러 점의 좌표를 포함 하 고 다른 요소는 포함 하지 않습니다. `atlas.data.MultiPoint`도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
+- GeoJSON 기능-이 개체는 모든 GeoJSON 기 하 도형 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. `atlas.data.Feature`도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
 - `atlas.Shape`클래스는 GeoJSON 기능과 비슷합니다. 둘 다 GeoJSON geometry 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. GeoJSON 개체가 데이터 원본에 추가 되는 경우 계층에서 쉽게 렌더링할 수 있습니다. 그러나 해당 GeoJSON 개체의 좌표 속성이 업데이트 되는 경우 데이터 원본 및 맵은 변경 되지 않습니다. JSON 개체에 업데이트를 트리거하는 메커니즘이 없기 때문입니다. Shape 클래스는 포함 된 데이터를 업데이트 하는 함수를 제공 합니다. 변경 내용이 적용 되 면 데이터 원본 및 맵이 자동으로 알림 및 업데이트 됩니다. 
 
-다음 코드 샘플에서는 GeoJSON Point geometry를 만들고 `atlas.Shape` 클래스에 전달 하 여 쉽게 업데이트할 수 있게 합니다. 맵의 중심은 처음에 기호를 렌더링 하는 데 사용 됩니다. Click 이벤트가 맵에 추가 됩니다. 이렇게 하면 마우스의 좌표가 shapes `setCoordinates` 함수에서 사용 됩니다. 마우스 좌표는 click 이벤트가 발생 했을 때 기록 됩니다. 그런 다음에서 `setCoordinates` 지도의 기호 위치를 업데이트 합니다.
+다음 코드 샘플에서는 GeoJSON Point geometry를 만들고 클래스에 전달 하 여 `atlas.Shape` 쉽게 업데이트할 수 있게 합니다. 맵의 중심은 처음에 기호를 렌더링 하는 데 사용 됩니다. Click 이벤트가 맵에 추가 됩니다. 이렇게 하면 마우스의 좌표가 shapes 함수에서 사용 됩니다 `setCoordinates` . 마우스 좌표는 click 이벤트가 발생 했을 때 기록 됩니다. 그런 다음에서 `setCoordinates` 지도의 기호 위치를 업데이트 합니다.
 
 <br/>
 
@@ -69,7 +68,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> 기본적으로 기호 레이어는 겹치는 기호를 숨겨 기호 렌더링을 최적화 합니다. 확대 하는 동안 숨겨진 기호가 표시 됩니다. 이 기능을 사용 하지 않도록 설정 하 고 모든 기호를 항상 렌더링 `allowOverlap` 하려면 `iconOptions` 옵션의 속성을 `true`로 설정 합니다.
+> 기본적으로 기호 레이어는 겹치는 기호를 숨겨 기호 렌더링을 최적화 합니다. 확대 하는 동안 숨겨진 기호가 표시 됩니다. 이 기능을 사용 하지 않도록 설정 하 고 모든 기호를 항상 렌더링 하려면 `allowOverlap` 옵션의 속성을 `iconOptions` 로 설정 `true` 합니다.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>기호 계층에 사용자 지정 아이콘 추가
 
@@ -81,7 +80,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> Azure Maps 웹 SDK는 기호 계층과 함께 사용할 수 있는 몇 가지 사용자 지정 가능 이미지 템플릿을 제공 합니다. 자세한 내용은 [이미지 템플릿 사용 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
+> Azure Maps Web SDK는 기호 계층으로 사용할 수 있는 몇 가지 사용자 지정 가능한 이미지 템플릿을 제공합니다. 자세한 내용은 [이미지 템플릿을 사용하는 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조하세요.
 
 ## <a name="customize-a-symbol-layer"></a>기호 계층 사용자 지정 
 
@@ -93,7 +92,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> 기호 계층이 있는 텍스트만 렌더링 하려면 아이콘 옵션의 `image` 속성을로 `'none'`설정 하 여 아이콘을 숨길 수 있습니다.
+> 기호 계층이 있는 텍스트만 렌더링 하려면 `image` 아이콘 옵션의 속성을로 설정 하 여 아이콘을 숨길 수 있습니다 `'none'` .
 
 ## <a name="next-steps"></a>다음 단계
 

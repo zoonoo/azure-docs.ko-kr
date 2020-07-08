@@ -9,10 +9,9 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77368312"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
@@ -545,6 +544,6 @@ $rule3 = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 규칙을 만든 후 WAF 로그를 보는 방법에 대해 알아볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조 하세요.
+사용자 지정 규칙을 만든 후 WAF 로그를 보는 방법에 대해 알아볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조하세요.
 
 [fig1]: ../media/create-custom-waf-rules/1.png

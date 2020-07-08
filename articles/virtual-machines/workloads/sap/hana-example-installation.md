@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617203"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Azure의 SAP HANA(대규모 인스턴스)에 HANA 설치
@@ -39,7 +38,7 @@ HANA 대규모 인스턴스 유닛은 인터넷에 직접 연결되지 않습니
 
 SAP Marketplace에 액세스할 수 있는 SAP S-사용자 또는 다른 사용자가 필요합니다.
 
-1. 로그인한 후, [SAP Service Marketplace](https://support.sap.com/en/index.html)로 이동합니다. **소프트웨어** > **설치 다운로드 및** > **사전순으로**업그레이드를 선택 합니다. 그런 다음 **H – SAP HANA platform edition** > **SAP HANA platform edition 2.0** > **설치**에서를 선택 합니다. 다음 스크린샷에 표시된 것처럼 파일을 다운로드합니다.
+1. 로그인한 후, [SAP Service Marketplace](https://support.sap.com/en/index.html)로 이동합니다. **소프트웨어**  >  **설치 다운로드 및**  >  **사전순으로**업그레이드를 선택 합니다. 그런 다음 **H – SAP HANA platform edition**  >  **SAP HANA platform edition 2.0**  >  **설치**에서를 선택 합니다. 다음 스크린샷에 표시된 것처럼 파일을 다운로드합니다.
 
    ![다운로드할 파일의 스크린샷](./media/hana-installation/image16_download_hana.PNG)
 

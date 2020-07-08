@@ -10,10 +10,9 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209299"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell을 사용 하 여 Azure Cognitive Search 서비스 관리
@@ -42,7 +41,7 @@ Windows, Linux 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud
 
 ## <a name="check-versions-and-load-modules"></a>버전 확인 및 모듈 로드
 
-이 문서의 예는 대화형 이며 높은 권한이 필요 합니다. Azure PowerShell ( **Az** module)이 설치 되어 있어야 합니다. 자세한 내용은 [Install Azure PowerShell](/powershell/azure/overview)를 참조 하세요.
+이 문서의 예는 대화형 이며 높은 권한이 필요 합니다. Azure PowerShell ( **Az** module)이 설치 되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/overview)를 참조하세요.
 
 ### <a name="powershell-version-check-51-or-later"></a>PowerShell 버전 확인 (5.1 이상)
 
@@ -193,11 +192,11 @@ Tags
 
 [**AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 는 관리 [API 키](search-security-api-keys.md)를 롤오버 하는 데 사용 됩니다. 각 서비스에서 인증 된 액세스에 대해 두 개의 관리 키가 생성 됩니다. 모든 요청에 키가 필요 합니다. 두 관리 키는 기능적으로 동일 하며, 모든 정보를 검색 하거나 개체를 만들고 삭제할 수 있는 기능을 사용 하 여 검색 서비스에 대 한 모든 쓰기 권한을 부여 합니다. 다른 키를 대체할 때 사용할 수 있도록 두 개의 키가 있습니다. 
 
-`primary` 또는 `secondary` 키로 지정 된 한 번에 하나씩만 다시 생성할 수 있습니다. 중단 없는 서비스의 경우 기본 키를 롤링 하는 동안 보조 키를 사용 하도록 모든 클라이언트 코드를 업데이트 해야 합니다. 작업이 진행 되는 동안에는 키를 변경 하지 마세요.
+또는 키로 지정 된 한 번에 하나씩만 다시 생성할 수 `primary` 있습니다 `secondary` . 중단 없는 서비스의 경우 기본 키를 롤링 하는 동안 보조 키를 사용 하도록 모든 클라이언트 코드를 업데이트 해야 합니다. 작업이 진행 되는 동안에는 키를 변경 하지 마세요.
 
 짐작할 수 있듯이 클라이언트 코드를 업데이트 하지 않고 키를 다시 생성 하면 이전 키를 사용 하는 요청이 실패 합니다. 모든 새 키를 다시 생성 해도 서비스에서 영구적으로 잠기지 않으며 포털을 통해 서비스에 계속 액세스할 수 있습니다. 기본 및 보조 키를 다시 생성 한 후 새 키를 사용 하도록 클라이언트 코드를 업데이트할 수 있으며 그에 따라 작업이 다시 시작 됩니다.
 
-API 키에 대 한 값은 서비스에 의해 생성 됩니다. 사용할 Azure Cognitive Search에 대 한 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 고정 문자열 `primary` 또는 `secondary`입니다. 
+API 키에 대 한 값은 서비스에 의해 생성 됩니다. 사용할 Azure Cognitive Search에 대 한 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 고정 문자열 `primary` 또는 `secondary` 입니다. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

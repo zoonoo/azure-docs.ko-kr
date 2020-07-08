@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 99bd1ac156b12a5be7b8c5c17eb5b568b7070a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77463220"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight의 레인저 및 Apache Ambari의 LDAP 동기화
@@ -33,9 +32,9 @@ Ambari와 레인저는 서로 다른 두 가지 용도를 제공 하므로 사�
 
 ## <a name="ambari-user-sync-and-configuration"></a>Ambari 사용자 동기화 및 구성
 
-헤드 노드에서 cron 작업 `/opt/startup_scripts/start_ambari_ldap_sync.py`은 1 시간 마다 실행 되어 사용자 동기화를 예약 합니다. Cron 작업은 Ambari rest Api를 호출 하 여 동기화를 수행 합니다. 이 스크립트는 동기화 할 사용자 및 그룹 목록을 전송 합니다. 사용자는 지정 된 그룹에 속할 수 없으며 둘 다 개별적으로 지정 됩니다. Ambari는 sAMAccountName을 사용자 이름으로, 모든 그룹 구성원을 전이적으로 동기화 합니다.
+헤드 노드에서 cron 작업은 `/opt/startup_scripts/start_ambari_ldap_sync.py` 1 시간 마다 실행 되어 사용자 동기화를 예약 합니다. Cron 작업은 Ambari rest Api를 호출 하 여 동기화를 수행 합니다. 이 스크립트는 동기화 할 사용자 및 그룹 목록을 전송 합니다. 사용자는 지정 된 그룹에 속할 수 없으며 둘 다 개별적으로 지정 됩니다. Ambari는 sAMAccountName을 사용자 이름으로, 모든 그룹 구성원을 전이적으로 동기화 합니다.
 
-로그는에 `/var/log/ambari-server/ambari-server.log`있어야 합니다. 자세한 내용은 [Ambari 로깅 수준 구성](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html)을 참조 하세요.
+로그는에 있어야 합니다 `/var/log/ambari-server/ambari-server.log` . 자세한 내용은 [Ambari 로깅 수준 구성](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html)을 참조 하세요.
 
 Data Lake 클러스터에서 게시 사용자 만들기 후크는 동기화 된 사용자에 대 한 홈 폴더를 만드는 데 사용 되며 홈 폴더의 소유자로 설정 됩니다. 사용자가 Ambari에 올바르게 동기화 되지 않은 경우 사용자는 준비 및 기타 임시 폴더에 액세스할 때 오류가 발생할 수 있습니다.
 
@@ -64,16 +63,16 @@ Azure AD에서 그룹 멤버 자격을 관리할 수 없는 경우 다음 두 �
 
 ### <a name="update-ranger-sync-filter"></a>레인저 동기화 필터 업데이트
 
-LDAP 필터는 Ambari UI의 레인저 사용자-동기화 구성 섹션에서 찾을 수 있습니다. 기존 필터는 형식이 `(|(userPrincipalName=bob@contoso.com)(userPrincipalName=hdiwatchdog-core01@CONTOSO.ONMICROSOFT.COM)(memberOf:1.2.840.113556.1.4.1941:=CN=hadoopgroup,OU=AADDC Users,DC=contoso,DC=onmicrosoft,DC=com))`됩니다. 끝에 조건자를 추가 하 고 검색 명령 또는 ldp.exe 또는 이와 유사한 `net ads` 항목을 사용 하 여 필터를 테스트 합니다.
+LDAP 필터는 Ambari UI의 레인저 사용자-동기화 구성 섹션에서 찾을 수 있습니다. 기존 필터는 형식이 됩니다 `(|(userPrincipalName=bob@contoso.com)(userPrincipalName=hdiwatchdog-core01@CONTOSO.ONMICROSOFT.COM)(memberOf:1.2.840.113556.1.4.1941:=CN=hadoopgroup,OU=AADDC Users,DC=contoso,DC=onmicrosoft,DC=com))` . 끝에 조건자를 추가 하 고 `net ads` 검색 명령 또는 ldp.exe 또는 이와 유사한 항목을 사용 하 여 필터를 테스트 합니다.
 
 ## <a name="ranger-user-sync-logs"></a>레인저 사용자 동기화 로그
 
-레인저 사용자 동기화는 헤드 노드 중 하나에서 발생할 수 있습니다. 로그는에 `/var/log/ranger/usersync/usersync.log`있습니다. 로그의 자세한 정도를 높이려면 다음 단계를 수행 합니다.
+레인저 사용자 동기화는 헤드 노드 중 하나에서 발생할 수 있습니다. 로그는에 `/var/log/ranger/usersync/usersync.log` 있습니다. 로그의 자세한 정도를 높이려면 다음 단계를 수행 합니다.
 
 1. Ambari에 로그인 합니다.
 1. 레인저 구성 섹션으로 이동 합니다.
 1. Advanced **usersync-log4j** 섹션으로 이동 합니다.
-1. `log4j.rootLogger` 을 수준으로 `DEBUG` 변경 합니다 (변경 후 처럼 `log4j.rootLogger = DEBUG,logFile,FilterLog`표시 되어야 함).
+1. `log4j.rootLogger`을 수준으로 변경 합니다 `DEBUG` (변경 후 처럼 표시 되어야 함 `log4j.rootLogger = DEBUG,logFile,FilterLog` ).
 1. 구성을 저장 하 고 레인저를 다시 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계

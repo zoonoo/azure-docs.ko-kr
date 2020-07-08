@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 1c25543b16c3486a8f6a445427346382faaaa09a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77586135"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure IoT Hub 바인딩
@@ -19,7 +18,7 @@ ms.locfileid: "77586135"
 > [!IMPORTANT]
 > 다음 코드 샘플에서는 이벤트 허브 API를 사용 하지만 지정 된 구문은 IoT Hub 함수에 적용 됩니다.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |--------|------|
 | IoT hub 이벤트 스트림으로 전송 된 이벤트에 응답 합니다. | [트리거](./functions-bindings-event-iot-trigger.md) |
 | IoT 이벤트 스트림에 이벤트를 씁니다. | [출력 바인딩](./functions-bindings-event-iot-output.md) |

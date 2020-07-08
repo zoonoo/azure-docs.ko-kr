@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77468765"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
@@ -40,13 +39,13 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 - 요청 URL 길이는 6144 자로 제한 됩니다. 쿼리 문자열 URL 길이는 4096 자로 제한 됩니다.
 - 바이트 배열이 포함 된 업로드 크기 옵션은 2GB로 제한 됩니다.
 - 바이트 배열 옵션은 30 분 후에 시간 초과 됩니다.
-- `videoURL` Param에 제공 된 URL을 인코딩해야 합니다.
+- Param에 제공 된 URL을 `videoURL` 인코딩해야 합니다.
 - 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
 - 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer 합니다.
 - URL에 액세스할 수 있어야 합니다 (예: 공용 URL). 
 
     개인 URL 인 경우 요청에서 액세스 토큰을 제공 해야 합니다.
-- URL은 `www.youtube.com` 페이지에 대 한 링크와 같은 웹 페이지가 아닌 유효한 미디어 파일을 가리켜야 합니다.
+- URL은 페이지에 대 한 링크와 같은 웹 페이지가 아닌 유효한 미디어 파일을 가리켜야 합니다 `www.youtube.com` .
 - 유료 계정에서는 분당 최대 50 영화를 업로드할 수 있으며 평가판 계정에는 분당 최대 5 개의 영화를 업로드할 수 있습니다.
 
 > [!Tip]
@@ -93,31 +92,31 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성:    
     
-        |속성|Description|
+        |이름|Description|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
-    - 예: https:\//test.com/notifyme?projectName=MyProject&id = 1234abcd&State = 처리 됨
+    - 예: https: \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&state = 처리 됨
 - 비디오에서 식별된 사용자
   - 속성
     
-      |속성|Description|
+      |이름|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
       |knownPersonId|얼굴 모델 내에서 고유한 사람 ID|
       |personName|사람의 이름|
         
-    - 예: https:\//test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
+    - 예: https: \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>메모
+##### <a name="notes"></a>참고
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.
 
 #### <a name="indexingpreset"></a>indexingPreset
 
-원시 또는 외부 녹음에 백그라운드 노이즈가 있는 경우 이 매개변수를 사용합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 지정할 수 있는 값은 다음과 같습니다.
+원시 또는 외부 녹음에 백그라운드 노이즈가 있는 경우 이 매개변수를 사용합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 다음 값을 지정할 수 있습니다.
 
 - `AudioOnly` – 오디오만(비디오 무시) 사용하여 인사이트를 인덱싱하고 추출합니다.
 - `VideoOnly`-비디오만 사용 하 여 정보 인덱싱 및 추출 (오디오 무시)
@@ -126,7 +125,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 > [!NOTE]
 > Video Indexer는 최대 두 개의 오디오 트랙을 포함 합니다. 파일에 더 많은 오디오 트랙이 있는 경우 하나의 트랙으로 처리 됩니다.<br/>
-트랙을 별도로 인덱싱 하려면 관련 오디오 파일을 추출 하 고로 `AudioOnly`인덱스를 만들어야 합니다.
+트랙을 별도로 인덱싱 하려면 관련 오디오 파일을 추출 하 고로 인덱스를 만들어야 `AudioOnly` 합니다.
 
 가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
 
@@ -164,9 +163,9 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
     API 키를 가져오려면 다음 흐름을 진행 합니다.
 
-    * https://api-portal.videoindexer.ai/로 이동합니다.
+    * https://api-portal.videoindexer.ai/ 로 이동합니다.
     * 로그인
-    * **제품** -> **Authorization**권한 -> 부여**권한 부여 구독** 으로 이동
+    * **제품**  ->  **권한**부여  ->  **권한 부여 구독** 으로 이동
     * **기본 키** 를 복사 합니다.
 * 비디오 URL – 인덱싱할 비디오/오디오 파일의 URL입니다. URL은 미디어 파일을 가리켜야 합니다(HTML 페이지는 지원되지 않음). 파일은 URI의 일부로 제공되는 액세스 토큰으로 보호할 수 있으며, 파일을 제공하는 엔드포인트는 TLS 1.2 이상으로 보호해야 합니다. URL은 인코딩해야 합니다.
 
@@ -344,11 +343,11 @@ public class AccountContractSlim
 }
 ```
 
-### <a name="common-errors"></a>일반 오류
+### <a name="common-errors"></a>일반적인 오류
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|Description|
+|상태 코드|ErrorType(응답 본문 내)|설명|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

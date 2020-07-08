@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: dcfc6ea4afe23424e72c625518356be52f62bc81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77602198"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Azure Media Services v3 미리 설정 및 Video Indexer 비교 
@@ -31,10 +30,10 @@ ms.locfileid: "77602198"
 
 |기능|Video Indexer API |Media Services v3 API의<br/>비디오 분석기 및 오디오 분석기 미리 설정|
 |---|---|---|
-|미디어 인사이트|[향상된 기능](video-indexer-output-json-v2.md) |[기본 항목](../latest/intelligence-concept.md)|
+|미디어 인사이트|[향상된 기능](video-indexer-output-json-v2.md) |[기본 사항](../latest/intelligence-concept.md)|
 |환경|지원되는 기능의 전체 목록 보기: <br/> [개요](video-indexer-overview.md)|비디오 인사이트만 반환합니다.|
 |결제|[Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|규정 준수|최신 규정 준수 업데이트를 보려면 [Azure 준수 제공 .pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 여 "Video Indexer"을 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|최신 규정 준수 업데이트를 보려면 [Azure 준수 제공 .pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 여 "Media Services"을 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|
+|규정 준수|최신 규정 준수 업데이트는 [Azure 준수 Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 고 "Video Indexer"를 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|최신 규정 준수 업데이트는 [Azure 준수 Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 고 "Media Services"를 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|
 |평가판|미국 동부|사용할 수 없음|
 |지역 가용성|[지역별 Cognitive Services 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) 참조|[지역별 Media Services 가용성을](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)참조 하세요.|
 

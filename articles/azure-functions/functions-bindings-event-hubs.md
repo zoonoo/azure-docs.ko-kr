@@ -7,17 +7,16 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 543b566300ce56bc2d765087f9a9e269c5b0cc99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77586175"
 ---
 # <a name="azure-event-hubs-trigger-and-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Hubs 트리거 및 바인딩
 
 이 문서에서는 Azure Functions에 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 바인딩을 사용하는 방법에 대해 설명합니다. Azure Functions는 Event Hubs에 대한 트리거 및 출력 바인딩을 지원합니다.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |--------|------|
 | 이벤트 허브 이벤트 스트림으로 전송 된 이벤트에 응답 합니다. | [트리거](./functions-bindings-event-hubs-trigger.md) |
 | 이벤트 스트림에 이벤트를 씁니다. | [출력 바인딩](./functions-bindings-event-hubs-output.md) |

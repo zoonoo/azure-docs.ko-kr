@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564647"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
@@ -24,7 +23,7 @@ Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터�
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법을 완료하려면 이미 원격 모니터링 솔루션이 배포되어 있어야 합니다.
 
@@ -51,13 +50,13 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **리소스** > 만들기**사물 인터넷** > **Time Series Insights**를 선택 합니다.
+1. **리소스 만들기**  >  **사물 인터넷**  >  **Time Series Insights**를 선택 합니다.
 
     ![새로운 Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
 1. Time Series Insights 환경을 만들려면 다음 표에 있는 값을 사용합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 환경 이름 | 다음 스크린샷에서는 **contorosrmtsi**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 선택합니다. |
     | Subscription | 드롭다운에서 Azure 구독을 선택합니다. |
@@ -86,7 +85,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 
 1. IoT Hub를 새 이벤트 원본으로 구성하려면 다음 표에 있는 값을 사용합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 이벤트 원본 이름 | 다음 스크린샷에서는 **contosorm-iot-hub**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 사용합니다. |
     | 원본 | **IoT Hub** |
@@ -213,7 +212,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 1. **ContosoRM** 애플리케이션을 검색하여 클릭합니다.
 
-1. **설정** > **키** 로 이동한 다음 응용 프로그램에 대 한 새 키를 만듭니다. 키 값을 안전한 위치에 복사해야 합니다.
+1. **설정**  >  **키** 로 이동한 다음 응용 프로그램에 대 한 새 키를 만듭니다. 키 값을 안전한 위치에 복사해야 합니다.
 
 1. 최신 태그를 사용 하 여 GitHub 리포지토리에서 [최신 docker 작성 yaml 파일](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) 을 가져옵니다. 
 

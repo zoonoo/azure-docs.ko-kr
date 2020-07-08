@@ -8,10 +8,9 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523801"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Azure 앱 구성 이벤트에 대응
@@ -29,7 +28,7 @@ Azure 앱 구성 이벤트는 다양 한 재시도 정책 및 배달 못 한 편
 ## <a name="available-azure-app-configuration-events"></a>사용 가능한 Azure 앱 구성 이벤트
 Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Azure 앱 구성 이벤트 구독에는 다음 두 가지 유형의 이벤트가 포함 될 수 있습니다.  
 
-> |이벤트 이름|Description|
+> |이벤트 이름|설명|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|키-값이 만들어지거나 바뀔 때 발생 합니다.|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|키 값이 삭제 될 때 발생 합니다.|
@@ -37,7 +36,7 @@ Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)�
 ## <a name="event-schema"></a>이벤트 스키마
 Azure 앱 구성 이벤트에는 데이터 변경 내용에 응답 하는 데 필요한 모든 정보가 포함 되어 있습니다. EventType 속성이 "Microsoft AppConfiguration"로 시작 하므로 앱 구성 이벤트를 식별할 수 있습니다. Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)에 설명되어 있습니다.  
 
-> |속성|Type|Description|
+> |속성|형식|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |토픽|string|이벤트를 내보내는 앱 구성의 전체 Azure Resource Manager id입니다.|
 > |subject|string|이벤트의 키인 키-값의 URI입니다.|
@@ -45,11 +44,11 @@ Azure 앱 구성 이벤트에는 데이터 변경 내용에 응답 하는 데 �
 > |eventType|string|"KeyValueModified" 또는 "Microsoft. AppConfiguration. KeyValueDeleted".|
 > |Id|string|이 이벤트의 고유 식별자입니다.|
 > |dataVersion|string|데이터 개체의 스키마 버전입니다.|
-> |metadataVersion|string|최상위 속성의 스키마 버전입니다.|
-> |데이터|개체|Azure 앱 구성 별 이벤트 데이터의 컬렉션입니다.|
+> |metadataVersion|문자열|최상위 속성의 스키마 버전입니다.|
+> |데이터|object|Azure 앱 구성 별 이벤트 데이터의 컬렉션입니다.|
 > |data. key|string|수정 되거나 삭제 된 키-값의 키입니다.|
 > |데이터. 레이블|string|수정 되거나 삭제 된 키-값의 레이블 (있는 경우)입니다.|
-> |data. etag|string|새 `KeyValueModified` 키 값의 etag에 대 한입니다. 삭제 `KeyValueDeleted` 된 키-값의 etag에 대 한입니다.|
+> |data. etag|string|`KeyValueModified`새 키 값의 etag에 대 한입니다. `KeyValueDeleted`삭제 된 키-값의 etag에 대 한입니다.|
 
 KeyValueModified 이벤트의 예는 다음과 같습니다.
 ```json

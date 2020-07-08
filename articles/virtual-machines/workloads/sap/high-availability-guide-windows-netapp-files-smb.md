@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
 ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77591356"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 응용 프로그램용 SMB (Azure NetApp Files)를 사용 하는 Windows의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
@@ -59,7 +58,7 @@ ms.locfileid: "77591356"
 
 이 문서에서는 [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)에서 [SMB](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 를 사용 하 여 가상 머신을 배포 하 고 구성 하 고, 클러스터 프레임 워크를 설치 하 고, Windows vm에 항상 사용 가능한 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명 합니다.  
 
-데이터베이스 계층은이 문서에 자세히 설명 되어 있지 않습니다. Azure [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 가 이미 만들어져 있다고 가정 합니다.  
+데이터베이스 레이어는 이 문서에서 자세히 다루지 않습니다. Azure [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 가 이미 만들어져 있다고 가정 합니다.  
 
 다음 SAP Note 및 문서를 먼저 읽어 보세요.
 
@@ -81,13 +80,13 @@ ms.locfileid: "77591356"
 * [ASCS 클러스터 구성에서 프로브 포트 추가](sap-high-availability-installation-wsfc-file-share.md)
 * [장애 조치 (Failover) 클러스터에 (A) SCS 인스턴스 설치](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Azure NetApp Files에 대한 SMB 볼륨 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
-* [Azure NetApp Files를 사용 하 여 Microsoft Azure에서 NetApp SAP 응용 프로그램][anf-sap-applications-azure]
+* [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 
 ## <a name="overview"></a>개요
 
 SAP는 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스를 클러스터링하기 위한 새로운 접근 방법을 개발했습니다. 이것은 클러스터 공유 디스크의 대안이 됩니다. 클러스터 공유 디스크를 사용 하는 대신 SMB 파일 공유를 사용 하 여 SAP 글로벌 호스트 파일을 배포할 수 있습니다. Azure NetApp Files은 Active Directory를 사용 하 여 NTFS ACL이 있는 SMBv3 (NFS와 함께)를 지원 합니다. Azure NetApp Files는 PaaS 서비스 이므로 자동으로 항상 사용 가능 합니다. 이러한 기능은 SAP global 용 SMB 파일 공유를 호스트 하는 데 적합 한 옵션 Azure NetApp Files 합니다.  
 [AD (Azure Active Directory) 도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/overview) 와 [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 가상 머신으로 Azure에 있거나 Express 경로 또는 S2S VPN을 통해 온-프레미스에 있을 수 있습니다. 이 문서에서는 Azure VM에서 도메인 컨트롤러를 사용 합니다.  
-SAP Netweaver central services에 대 한 HA (고가용성)에는 공유 저장소가 필요 합니다. 지금까지 Windows에서이를 위해 SOFS 클러스터를 빌드하거나 SIOS와 같은 클러스터 공유 디스크 s/w를 사용 해야 했습니다. 이제 Azure NetApp Files에 배포 된 공유 저장소를 사용 하 여 SAP Netweaver HA를 달성할 수 있습니다. 공유 저장소에 Azure NetApp Files를 사용 하면 SOFS 또는 SIOS가 필요 하지 않습니다.  
+SAP Netweaver 중앙 서비스의 HA(고가용성)를 위해서는 공유 스토리지가 필요합니다. 지금까지 Windows에서이를 위해 SOFS 클러스터를 빌드하거나 SIOS와 같은 클러스터 공유 디스크 s/w를 사용 해야 했습니다. 이제 Azure NetApp Files에 배포된 공유 스토리지를 사용하여 SAP Netweaver HA를 실현할 수 있습니다. 공유 저장소에 Azure NetApp Files를 사용 하면 SOFS 또는 SIOS가 필요 하지 않습니다.  
 
 > [!NOTE]
 > 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.  
@@ -147,7 +146,7 @@ SAP에서 다음 소프트웨어가 필요 합니다.
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>첫 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스를 설치 합니다.
 
-1. 첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product** > **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > 고가용성 시스템 > ascs/SCS 인스턴스 > 첫 번째 클러스터 노드로 이동 합니다.  
+1. 첫 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product**  >  **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > 고가용성 시스템 > ascs/SCS 인스턴스 > 첫 번째 클러스터 노드로 이동 합니다.  
 
 2. SWPM에서 클러스터 공유 구성으로 **파일 공유 클러스터** 를 선택 합니다.  
 3. **SAP 시스템 클러스터 매개 변수**단계에서 메시지가 표시 되 면 **파일 공유 호스트 이름**으로 이미 만든 Azure NetApp Files SMB 공유의 호스트 이름을 입력 합니다.  이 예제에서 SMB 공유 호스트 이름은 **anfsmb-9562**입니다. 
@@ -158,11 +157,11 @@ SAP에서 다음 소프트웨어가 필요 합니다.
 > [!TIP]
 > SWPM에서 필수 구성 요소 검사기의 결과로 교환 크기 조건이 충족 되지 않는 것으로 표시 되는 경우 내 컴퓨터>시스템 속성>성능 설정> 고급> 가상 메모리> 변경으로 이동 하 여 스왑 크기를 조정할 수 있습니다.  
 
-4. PowerShell을 사용 하 여 SAP 클러스터 `SAP-SID-IP` 리소스, 프로브 포트를 구성 합니다. [프로브 포트 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761)에 설명 된 대로 SAP ASCS/SCS 클러스터 노드 중 하나에서이 구성을 실행 합니다.
+4. PowerShell을 사용 하 여 SAP 클러스터 리소스, 프로브 포트를 구성 합니다 `SAP-SID-IP` . [프로브 포트 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761)에 설명 된 대로 SAP ASCS/SCS 클러스터 노드 중 하나에서이 구성을 실행 합니다.
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>두 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스를 설치 합니다.
 
-1. 두 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product** > **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > 고가용성 시스템 > ascs/SCS 인스턴스 > 추가 클러스터 노드로 이동 합니다.  
+1. 두 번째 클러스터 노드에 SAP ASCS/SCS 인스턴스를 설치 합니다. SAP swpm 설치 도구를 시작한 다음 **Product**  >  **DBMS** > 설치 > 응용 프로그램 서버 abap (또는 Java) > 고가용성 시스템 > ascs/SCS 인스턴스 > 추가 클러스터 노드로 이동 합니다.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 
@@ -177,9 +176,9 @@ SAP에서 다음 소프트웨어가 필요 합니다.
 ### <a name="fail-over-from-cluster-node-a-to-cluster-node-b-and-back"></a>클러스터 노드 A에서 클러스터 노드 B로 장애 조치 (failover)
 이 테스트 시나리오에서는 노드 A로 클러스터 노드 sapascs1를 참조 하 고 노드 B로 노드 sapascs2를 클러스터링 합니다.
 
-1. 클러스터 리소스가 노드 A에서 실행 되 고 있는지 확인 하십시오 ![. 그림 1: 장애 조치 (failover) 테스트 이전에 노드 a에서 실행 중인 Windows Server 장애 조치 (failover) 클러스터 리소스](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
+1. 클러스터 리소스가 노드 A에서 실행 되 고 있는지 확인 합니다. ![ 그림 1: 장애 조치 (failover) 테스트 이전에 노드 A에서 실행 되는 Windows Server 장애 조치 (failover) 클러스터 리소스](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
 
-2. 클러스터 노드 A를 다시 시작 합니다. SAP 클러스터 리소스가 클러스터 노드 B로 이동 합니다. ![그림 2: 장애 조치 (failover) 테스트 후 노드 b에서 실행 되는 Windows Server 장애 조치 (failover) 클러스터 리소스](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
+2. 클러스터 노드 A를 다시 시작 합니다. SAP 클러스터 리소스가 클러스터 노드 B로 이동 됩니다. ![ 그림 2: 장애 조치 (failover) 테스트 후 노드 B에서 실행 되는 Windows Server 장애 조치 (failover) 클러스터 리소스](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
 
 
 ## <a name="lock-entry-test"></a>잠금 항목 테스트

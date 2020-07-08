@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562125"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
@@ -38,7 +37,7 @@ ms.locfileid: "77562125"
 
 이 샘플에는 Weather Underground API를 사용하여 특정 위치의 현재 기상 조건을 확인하는 작업이 포함됩니다.
 
-가장 먼저 필요한 것은 Weather Underground 계정입니다. 에서 [https://www.wunderground.com/signup](https://www.wunderground.com/signup)무료로 만들 수 있습니다. 계정이 있으면 API 키를 확보해야 합니다. 이 작업을 수행 하려면를 [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)방문 하 고 키 설정을 선택 합니다. Stratus Developer 계획은 무료이며 이 샘플을 실행하기에 충분합니다.
+가장 먼저 필요한 것은 Weather Underground 계정입니다. 에서 무료로 만들 수 있습니다 [https://www.wunderground.com/signup](https://www.wunderground.com/signup) . 계정이 있으면 API 키를 확보해야 합니다. 이 작업을 수행 하려면를 방문 하 [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1) 고 키 설정을 선택 합니다. Stratus Developer 계획은 무료이며 이 샘플을 실행하기에 충분합니다.
 
 API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
@@ -50,7 +49,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E3_Monitor`: 정기적 [orchestrator function](durable-functions-bindings.md#orchestration-trigger) 으로를 호출 `E3_GetIsClear` 하는 오 케 스트레이 터 함수입니다. `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
+* `E3_Monitor`: 정기적으로를 호출 하는 오 케 스트레이 터 [함수](durable-functions-bindings.md#orchestration-trigger) 입니다 `E3_GetIsClear` . `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
 * `E3_GetIsClear`: 위치에 대 한 현재 날씨 조건을 확인 하는 [작업 함수](durable-functions-bindings.md#activity-trigger) 입니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
@@ -60,7 +59,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-오 케 스트레이 터가 해당 위치에서 분명 하 게 표시 되는 경우 오 케 스트레이 터는 모니터링할 위치와 메시지를 보낼 전화 번호를 요구 합니다. 이 데이터는 orchestrator에 강력한 형식의 `MonitorRequest` 개체로 전달 됩니다.
+오 케 스트레이 터가 해당 위치에서 분명 하 게 표시 되는 경우 오 케 스트레이 터는 모니터링할 위치와 메시지를 보낼 전화 번호를 요구 합니다. 이 데이터는 orchestrator에 강력한 형식의 개체로 전달 됩니다 `MonitorRequest` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -114,7 +113,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> 예제 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치 해야 합니다.
+> `Microsoft.Azure.WebJobs.Extensions.Twilio`예제 코드를 실행 하려면 Nuget 패키지를 설치 해야 합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

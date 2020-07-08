@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77585110"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>자습서: 의심 스러운 위협을 검색 하는 사용자 지정 분석 규칙 만들기
 
- [데이터 원본을](quickstart-onboard.md) Azure 센티널에 연결한 후 사용자 환경에서 특정 기준을 검색 하 고 조건이 일치 하는 경우 조사를 통해 인시던트를 생성할 수 있는 사용자 지정 규칙을 만들 수 있습니다. 이 자습서에서는 사용자 지정 규칙을 만들어 Azure 센티널에서 위협을 검색 하는 방법을 안내 합니다.
+ [데이터 원본을](quickstart-onboard.md)   Azure 센티널에 연결한 후 사용자 환경에서 특정 기준을 검색 하 고 조건이 일치 하는 경우 조사를 통해 인시던트를 생성할 수 있는 사용자 지정 규칙을 만들 수 있습니다. 이 자습서에서는 사용자 지정 규칙을 만들어 Azure 센티널에서 위협을 검색 하는 방법을 안내 합니다.
 
 이 자습서는 Azure 센티널로 위협을 검색 하는 데 도움이 됩니다.
 > [!div class="checklist"]
@@ -59,7 +58,7 @@ ms.locfileid: "77585110"
      \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
       > [!NOTE]
-      > 쿼리 길이는 1 ~ 007e; 1만 자 여야 하며 "search \*" 또는 "union \*"을 포함할 수 없습니다.
+      > 쿼리 길이는 1 ~ 007e; 1만 자 여야 하며 "search \* " 또는 "union"을 포함할 수 없습니다 \* .
 
     1. **엔터티 매핑** 섹션을 사용 하 여 쿼리 결과의 매개 변수를 Azure 센티널에서 인식할 수 있는 엔터티로 연결 합니다. 이러한 엔터티는 **인시던트 설정** 탭에서 인시던트에 경고를 그룹화 하는 등 추가 분석을 위한 기반을 형성 합니다.
     1. **쿼리 일정** 섹션에서 다음 매개 변수를 설정 합니다.

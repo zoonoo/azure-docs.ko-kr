@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564587"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Azure AD를 CloudSimple 사설 클라우드에서 vCenter에 대 한 id 공급자로 사용
@@ -86,13 +85,13 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
     | **옵션** | **설명** |
     |------------|-----------------|
     | **이름** | Id 원본의 이름입니다. |
-    | **사용자의 기본 DN** | 사용자의 기본 고유 이름입니다.  Azure AD의 경우 다음 `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 을 사용 합니다 `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`. 예:|
+    | **사용자의 기본 DN** | 사용자의 기본 고유 이름입니다.  Azure AD의 경우 다음을 사용 `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 합니다. 예: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **도메인 이름** | 도메인의 FQDN (예: example.com)입니다. 이 텍스트 상자에 IP 주소를 제공 하지 마십시오. |
     | **도메인 별칭** | *(선택 사항)* 도메인 NetBIOS 이름입니다. SSPI 인증을 사용 하는 경우 Active Directory 도메인의 NetBIOS 이름을 id 원본의 별칭으로 추가 합니다. |
-    | **그룹의 기본 DN** | 그룹에 대 한 기본 고유 이름입니다. Azure AD의 경우 다음 `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 을 사용 합니다. 예:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **주 서버 URL** | 도메인에 대 한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br>형식을 `ldaps://hostname:port`사용 합니다. 포트는 일반적으로 LDAPS 연결의 636입니다. <br><br>주 또는 보조 LDAP URL에서를 사용 `ldaps://` 하는 경우 Active Directory 서버의 LDAPS 끝점에 대 한 신뢰를 설정 하는 인증서가 필요 합니다. |
+    | **그룹의 기본 DN** | 그룹에 대 한 기본 고유 이름입니다. Azure AD의 경우 다음을 사용 합니다. `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 예:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **주 서버 URL** | 도메인에 대 한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br> `ldaps://hostname:port` 양식을 사용합니다. 포트는 일반적으로 LDAPS 연결의 636입니다. <br><br> `ldaps://`   주 또는 보조 LDAP URL에서를 사용 하는 경우 ACTIVE DIRECTORY 서버의 LDAPS 끝점에 대 한 신뢰를 설정 하는 인증서가 필요 합니다. |
     | **보조 서버 URL** | 장애 조치 (failover)에 사용 되는 보조 도메인 컨트롤러 LDAP 서버의 주소입니다. |
-    | **인증서 선택** | Active Directory LDAP 서버 또는 openldap 서버 id 원본에서 LDAPS를 사용 하려는 경우 URL 텍스트 상자에를 입력 `ldaps://` 하면 인증서 선택 단추가 표시 됩니다. 보조 URL은 필요 하지 않습니다. |
+    | **인증서 선택** | Active Directory LDAP 서버 또는 OpenLDAP 서버 id 원본에서 LDAPS를 사용 하려는 경우  `ldaps://`   URL 텍스트 상자에를 입력 하면 인증서 선택 단추가 표시 됩니다. 보조 URL은 필요 하지 않습니다. |
     | **사용자 이름** | 도메인에서 사용자 및 그룹의 기본 DN에 대 한 읽기 전용 액세스 권한이 있는 사용자의 ID입니다. |
     | **암호** | 사용자 이름으로 지정 된 사용자의 암호입니다. |
 

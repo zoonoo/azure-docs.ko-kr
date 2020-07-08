@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425863"
 ---
 # <a name="agent-based-migration-architecture"></a>에이전트 기반 마이그레이션 아키텍처
@@ -109,7 +108,7 @@ VMware Vm을 복제 하는 경우 [vmware에 대 한 Site Recovery Deployment Pl
 --- | --- | --- | --- 
 4개 vCPU(2개 소켓 * 2코어 \@ 2.5GHz) 8GB 메모리 | 300GB | 250GB 이하 | 최대 85 대의 컴퓨터 
 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 | 600GB | 251GB~1TB    | 86-150 컴퓨터.
-12 개 vCPUs (2 개 소켓 * \@ 6 코어 2.5 g h z), 24gb 메모리 | 1TB | 1-2TB | 151-225 컴퓨터.
+12 개 vCPUs (2 개 소켓 * 6 코어 \@ 2.5 g h z), 24gb 메모리 | 1TB | 1-2TB | 151-225 컴퓨터.
 
 ## <a name="throttle-upload-bandwidth"></a>업로드 대역폭을 제한 합니다.
 

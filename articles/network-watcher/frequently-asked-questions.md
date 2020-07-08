@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
 ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471859"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
@@ -104,7 +103,7 @@ NSG 흐름 로그는 추가 구성이 필요 없이 서비스 끝점과 호환 �
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>흐름 로그 버전 1 & 2의 차이점은 무엇 인가요?
-흐름 로그 버전 2에는 전송 되는 바이트와 패킷에 대 한 정보를 저장 하 & *흐름 상태의* 개념이 도입 되었습니다. [자세히](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)알아보세요.
+흐름 로그 버전 2에는 전송 되는 바이트와 패킷에 대 한 정보를 저장 하 & *흐름 상태의* 개념이 도입 되었습니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
 ## <a name="next-steps"></a>다음 단계
  - Network Watcher 시작 하는 데 도움이 되는 몇 가지 자습서는 [설명서 개요 페이지](https://docs.microsoft.com/azure/network-watcher/) 를 참조 하세요.

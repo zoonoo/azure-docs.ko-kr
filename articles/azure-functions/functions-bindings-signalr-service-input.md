@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530264"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Azure Functions에 대 한 SignalR Service 입력 바인딩
@@ -18,7 +17,7 @@ ms.locfileid: "77530264"
 
 이 바인딩을 사용 하 여 SignalR 클라이언트 SDK에서 사용할 수 있는 "negotiate" 함수를 만드는 방법에 대 한 자세한 내용은 SignalR 서비스 개념 설명서의 [Azure Functions 개발 및 구성 문서](../azure-signalr/signalr-concept-serverless-development-config.md) 를 참조 하세요.
 
-설정 및 구성 세부 정보에 대 한 자세한 내용은 [개요](functions-bindings-signalr-service.md)를 참조 하세요.
+설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-signalr-service.md)를 참조하세요.
 
 ## <a name="example"></a>예제
 
@@ -36,9 +35,9 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-다음 예제에서는 *함수 json* 파일의 SignalR 연결 정보 입력 바인딩과 바인딩을 사용 하 여 연결 정보를 반환 하는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
+다음 예에서는 *function.js파일의* SignalR 연결 정보 입력 바인딩과 바인딩을 사용 하 여 연결 정보를 반환 하는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -94,7 +93,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 *함수 json* 파일의 SignalR 연결 정보 입력 바인딩과 바인딩을 사용 하 여 연결 정보를 반환 하는 [Python 함수](functions-reference-python.md) 를 보여 줍니다.
+다음 예에서는 *function.js파일의* SignalR 연결 정보 입력 바인딩과 바인딩을 사용 하 여 연결 정보를 반환 하는 [Python 함수](functions-reference-python.md) 를 보여 줍니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -151,7 +150,7 @@ App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-바인딩 식을 사용 하 `UserId` 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 [binding expression](./functions-bindings-expressions-patterns.md)수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}`.
+바인딩 `UserId` [식을](./functions-bindings-expressions-patterns.md)사용 하 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` .
 
 ```cs
 [FunctionName("negotiate")]
@@ -166,9 +165,9 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-바인딩 식을 사용 하 `userId` 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 [binding expression](./functions-bindings-expressions-patterns.md)수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}`.
+바인딩 `userId` [식을](./functions-bindings-expressions-patterns.md)사용 하 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` .
 
 예제 function.json:
 
@@ -199,7 +198,7 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-바인딩 식을 사용 하 `userId` 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 [binding expression](./functions-bindings-expressions-patterns.md)수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}`.
+바인딩 `userId` [식을](./functions-bindings-expressions-patterns.md)사용 하 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` .
 
 예제 function.json:
 
@@ -226,7 +225,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-바인딩 식을 사용 하 `userId` 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 [binding expression](./functions-bindings-expressions-patterns.md)수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}`.
+바인딩 `userId` [식을](./functions-bindings-expressions-patterns.md)사용 하 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` .
 
 예제 function.json:
 
@@ -258,7 +257,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-바인딩 식을 사용 하 `userId` 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 [binding expression](./functions-bindings-expressions-patterns.md)수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}`.
+바인딩 `userId` [식을](./functions-bindings-expressions-patterns.md)사용 하 여 두 헤더의 값에 대 한 바인딩의 속성을 설정할 수 있습니다. `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` .
 
 ```java
 @FunctionName("negotiate")

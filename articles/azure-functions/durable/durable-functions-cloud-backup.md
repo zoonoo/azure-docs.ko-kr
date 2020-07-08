@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562193"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
@@ -31,7 +30,7 @@ ms.locfileid: "77562193"
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E2_BackupSiteContent`:를 호출 `E2_GetFileList` 하 여 백업할 파일 목록을 가져온 다음를 `E2_CopyFileToBlob` [호출 하 여](durable-functions-bindings.md#orchestration-trigger) 각 파일을 백업 합니다.
+* `E2_BackupSiteContent`:를 [orchestrator function](durable-functions-bindings.md#orchestration-trigger) 호출 하 `E2_GetFileList` 여 백업할 파일 목록을 가져온 다음를 호출 하 여 `E2_CopyFileToBlob` 각 파일을 백업 합니다.
 * `E2_GetFileList`: 디렉터리에 있는 파일의 목록을 반환 하는 [작업 함수](durable-functions-bindings.md#activity-trigger) 입니다.
 * `E2_CopyFileToBlob`: 단일 파일을 Azure Blob Storage 백업 하는 작업 함수입니다.
 
@@ -51,13 +50,13 @@ ms.locfileid: "77562193"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=16-42)]
 
-`await Task.WhenAll(tasks);` 줄에 유의하세요. 이 `E2_CopyFileToBlob` 함수에 대 한 개별 호출은 모두 병렬로 실행 될 수 있는 대기 *되지* 않았습니다. 이 작업 배열을 `Task.WhenAll`에 전달하면 *모든 복사 작업이 완료될 때까지* 완료되지 않는 작업을 다시 가져옵니다. .NET의 TPL(작업 병렬 라이브러리)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 가상 컴퓨터에서 동시에 실행 될 수 있으며 Durable Functions 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행 되도록 하는 것입니다.
+`await Task.WhenAll(tasks);` 줄에 유의하세요. 이 함수에 대 한 개별 호출은 모두 `E2_CopyFileToBlob` 병렬로 실행 될 수 있는 대기 *되지* 않았습니다. 이 작업 배열을 `Task.WhenAll`에 전달하면 *모든 복사 작업이 완료될 때까지* 완료되지 않는 작업을 다시 가져옵니다. .NET의 TPL(작업 병렬 라이브러리)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 가상 컴퓨터에서 동시에 실행 될 수 있으며 Durable Functions 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행 되도록 하는 것입니다.
 
 `Task.WhenAll`에서 기다린 후에 모든 함수 호출이 완료되고 값을 다시 반환했습니다. `E2_CopyFileToBlob`을 호출할 때마다 업로드된 바이트 수가 반환되므로 총 바이트 수를 계산하는 것은 이러한 반환 값을 모두 추가하는 문제입니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-함수는 orchestrator 함수에 대해 표준 *함수인 json* 을 사용 합니다.
+함수는 orchestrator 함수에 대해 표준 *function.js* 를 사용 합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/function.json)]
 
@@ -65,12 +64,12 @@ ms.locfileid: "77562193"
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
-`yield context.df.Task.all(tasks);` 줄에 유의하세요. `E2_CopyFileToBlob` 함수에 대 한 개별 호출을 모두 생성 *하지 않았으므로* 병렬로 실행할 수 있습니다. 이 작업 배열을 `context.df.Task.all`에 전달하면 *모든 복사 작업이 완료될 때까지* 완료되지 않는 작업을 다시 가져옵니다. JavaScript를 사용 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) 하는 데 익숙한 경우이는 새로운 사용자가 아닙니다. 차이점은 이러한 작업이 여러 가상 컴퓨터에서 동시에 실행 될 수 있으며 Durable Functions 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행 되도록 하는 것입니다.
+`yield context.df.Task.all(tasks);` 줄에 유의하세요. 함수에 대 한 개별 호출을 모두 `E2_CopyFileToBlob` 생성 *하지 않았으므로* 병렬로 실행할 수 있습니다. 이 작업 배열을 `context.df.Task.all`에 전달하면 *모든 복사 작업이 완료될 때까지* 완료되지 않는 작업을 다시 가져옵니다. JavaScript를 사용 하는 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) 데 익숙한 경우이는 새로운 사용자가 아닙니다. 차이점은 이러한 작업이 여러 가상 컴퓨터에서 동시에 실행 될 수 있으며 Durable Functions 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행 되도록 하는 것입니다.
 
 > [!NOTE]
 > 작업은 개념상 JavaScript 프라미스와 비슷하지만 오케스트레이터 함수는 `Promise.all` 및 `Promise.race` 대신 `context.df.Task.all` 및 `context.df.Task.any`를 사용하여 작업 병렬 처리를 관리해야 합니다.
 
-에서 `context.df.Task.all`생성 된 후에는 모든 함수 호출이 완료 되 고 값을 다시 반환 했습니다. `E2_CopyFileToBlob`을 호출할 때마다 업로드된 바이트 수가 반환되므로 총 바이트 수를 계산하는 것은 이러한 반환 값을 모두 추가하는 문제입니다.
+에서 생성 된 후 `context.df.Task.all` 에는 모든 함수 호출이 완료 되 고 값을 다시 반환 했습니다. `E2_CopyFileToBlob`을 호출할 때마다 업로드된 바이트 수가 반환되므로 총 바이트 수를 계산하는 것은 이러한 반환 값을 모두 추가하는 문제입니다.
 
 ---
 
@@ -86,7 +85,7 @@ ms.locfileid: "77562193"
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`E2_GetFileList` 의 *함수 json* 파일은 다음과 같습니다.
+파일 *에* 대 한function.js는 `E2_GetFileList` 다음과 같습니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/function.json)]
 
@@ -108,7 +107,7 @@ ms.locfileid: "77562193"
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=56-81)]
 
 > [!NOTE]
-> 예제 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet 패키지를 설치 해야 합니다.
+> `Microsoft.Azure.WebJobs.Extensions.Storage`예제 코드를 실행 하려면 NuGet 패키지를 설치 해야 합니다.
 
 함수는 Azure Functions 바인딩의 몇 가지 고급 기능 (즉, [ `Binder` 매개 변수](../functions-dotnet-class-library.md#binding-at-runtime)사용)을 사용 하지만이 연습의 목적을 위해 이러한 세부 사항을 걱정 하지 않아도 됩니다.
 

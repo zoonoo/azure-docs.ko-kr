@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: f1707c7f8d6324678c8bf5a470bbded1e58c719e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77470720"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Azure HDInsight의 WASB 파일 작업 디버그
@@ -26,11 +25,11 @@ WASB 드라이버가 Azure Storage 시작 하는 작업을 이해 하려는 경�
 
 ## <a name="turn-on-wasb-debug-log-for-file-operations"></a>파일 작업에 대 한 WASB 디버그 로그 설정
 
-1. 웹 브라우저에서로 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`이동 합니다. 여기서 `CLUSTERNAME` 은 Spark 클러스터의 이름입니다.
+1. 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` `CLUSTERNAME` 합니다. 여기서은 Spark 클러스터의 이름입니다.
 
 1. **Advanced spark2-log4j**로 이동 합니다.
 
-    1. 을 `log4j.appender.console.Threshold=INFO` 로 `log4j.appender.console.Threshold=DEBUG`수정 합니다.
+    1. `log4j.appender.console.Threshold=INFO`을로 수정 `log4j.appender.console.Threshold=DEBUG` 합니다.
 
     1. `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`를 추가합니다.
 
@@ -42,7 +41,7 @@ WASB 드라이버가 Azure Storage 시작 하는 작업을 이해 하려는 경�
 
 ## <a name="additional-logging"></a>추가 로깅
 
-위의 로그는 파일 시스템 작업에 대 한 높은 수준의 이해를 제공 해야 합니다. 위의 로그가 여전히 유용한 정보를 제공 하지 않거나 blob storage api 호출을 조사 하려는 경우에를 추가 `fs.azure.storage.client.logging=true` `core-site`합니다. 이 설정은 wasb 저장소 드라이버에 대 한 java sdk 로그를 사용 하도록 설정 하 고 blob storage server에 대 한 각 호출을 인쇄 합니다. 디스크를 빠르게 채우고 프로세스를 늦출 수 있으므로 조사 후 설정을 제거 합니다.
+위의 로그는 파일 시스템 작업에 대 한 높은 수준의 이해를 제공 해야 합니다. 위의 로그가 여전히 유용한 정보를 제공 하지 않거나 blob storage api 호출을 조사 하려는 경우에를 추가 `fs.azure.storage.client.logging=true` `core-site` 합니다. 이 설정은 wasb 저장소 드라이버에 대 한 java sdk 로그를 사용 하도록 설정 하 고 blob storage server에 대 한 각 호출을 인쇄 합니다. 디스크를 빠르게 채우고 프로세스를 늦출 수 있으므로 조사 후 설정을 제거 합니다.
 
 백 엔드가 Azure Data Lake 기반으로 하는 경우 구성 요소 (예: spark/tez/hdfs)에 대해 다음 log4j 설정을 사용 합니다.
 
@@ -55,14 +54,14 @@ log4j.appender.adlsFile.layout=org.apache.log4j.PatternLayout
 log4j.appender.adlsFile.layout.ConversionPattern=%p\t%d{ISO8601}\t%r\t%c\t[%t]\t%m%n
 ```
 
-로그에 대 한에서 `/var/log/adl/adl.log` 로그를 찾습니다.
+로그에 대 한에서 로그를 찾습니다 `/var/log/adl/adl.log` .
 
 ## <a name="next-steps"></a>다음 단계
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
-* 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

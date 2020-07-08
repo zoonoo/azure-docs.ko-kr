@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 583511194fb100add1d5fc4ea9c06a869cf652b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212275"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
@@ -36,22 +35,22 @@ ms.locfileid: "77212275"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전에
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대 한 [지원 요구 사항을](azure-to-azure-support-matrix.md) 검토 합니다.
 - Azure PowerShell `Az` 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure 구독에 로그인
 
-`Connect-AzAccount` Cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+Cmdlet을 사용 하 여 Azure 구독에 로그인 `Connect-AzAccount` 합니다.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Azure 구독을 선택합니다. `Get-AzSubscription` Cmdlet을 사용 하 여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. `Set-AzContext` Cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
+Azure 구독을 선택합니다. Cmdlet을 사용 `Get-AzSubscription` 하 여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다 `Set-AzContext` .
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -59,7 +58,7 @@ Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 ## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>복제할 가상 컴퓨터의 세부 정보를 가져옵니다.
 
-이 문서에서는 미국 동부 지역에 있는 가상 머신을 복제 하 여 미국 서 부 2 지역에서 복구 합니다. 복제 되는 가상 컴퓨터에는 OS 디스크와 단일 데이터 디스크가 있습니다. 예제에 사용 되는 가상 컴퓨터의 이름은 `AzureDemoVM`입니다.
+이 문서에서는 미국 동부 지역에 있는 가상 머신을 복제 하 여 미국 서 부 2 지역에서 복구 합니다. 복제 되는 가상 컴퓨터에는 OS 디스크와 단일 데이터 디스크가 있습니다. 예제에 사용 되는 가상 컴퓨터의 이름은 `AzureDemoVM` 입니다.
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -115,7 +114,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Recovery Services 자격 증명 모음을 만듭니다. 이 예제에서는 라는 `a2aDemoRecoveryVault` Recovery Services 자격 증명 모음이 미국 서 부 2 지역에 생성 됩니다.
+Recovery Services 자격 증명 모음을 만듭니다. 이 예제에서는 라는 Recovery Services 자격 증명 모음이 `a2aDemoRecoveryVault` 미국 서 부 2 지역에 생성 됩니다.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -170,7 +169,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 - 패브릭 개체는 지역당 하나만 만들 수 있습니다.
 - 이전에 Azure Portal에서 VM에 대해 Site Recovery 복제를 사용하도록 설정한 경우 Site Recovery에서 패브릭 개체를 자동으로 만듭니다. 특정 지역의 패브릭 개체가 있으면 새 개체를 만들 수 없습니다.
 
-시작 하기 전에 Site Recovery 작업이 비동기적으로 실행 되는 것을 이해 해야 합니다. 작업을 시작하면 Azure Site Recovery 작업이 제출되고 작업 추적 개체가 반환됩니다. 작업 추적 개체를 사용 하 여 작업의 최신 상태 (`Get-AzRecoveryServicesAsrJob`)를 가져오고 작업 상태를 모니터링할 수 있습니다.
+시작 하기 전에 Site Recovery 작업이 비동기적으로 실행 되는 것을 이해 해야 합니다. 작업을 시작하면 Azure Site Recovery 작업이 제출되고 작업 추적 개체가 반환됩니다. 작업 추적 개체를 사용 하 여 작업의 최신 상태 ( `Get-AzRecoveryServicesAsrJob` )를 가져오고 작업 상태를 모니터링할 수 있습니다.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -603,7 +602,7 @@ Errors           : {}
 
 ## <a name="reprotect-and-fail-back-to-the-source-region"></a>다시 보호 및 원본 영역으로 장애 복구
 
-장애 조치 (failover) 후 원래 지역으로 돌아갈 준비가 되 면 `Update-AzRecoveryServicesAsrProtectionDirection` cmdlet을 사용 하 여 복제 보호 된 항목에 대 한 역방향 복제를 시작 합니다.
+장애 조치 (failover) 후 원래 지역으로 돌아갈 준비가 되 면 cmdlet을 사용 하 여 복제 보호 된 항목에 대 한 역방향 복제를 시작 합니다 `Update-AzRecoveryServicesAsrProtectionDirection` .
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -620,7 +619,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 ## <a name="disable-replication"></a>복제 사용 안 함
 
-`Remove-AzRecoveryServicesAsrReplicationProtectedItem` Cmdlet을 사용 하 여 복제를 비활성화할 수 있습니다.
+Cmdlet을 사용 하 여 복제를 비활성화할 수 있습니다 `Remove-AzRecoveryServicesAsrReplicationProtectedItem` .
 
 ```azurepowershell
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
