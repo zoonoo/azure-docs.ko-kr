@@ -5,16 +5,16 @@ description: Azure CLI를 사용하여 새 Azure Machine Learning 작업 영역�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
-ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 06/25/2020
+ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617784"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392712"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ az extension add -n azure-cli-ml
 Azure Machine Learning 작업 영역은 다음과 같은 Azure 서비스 또는 엔터티를 사용합니다.
 
 > [!IMPORTANT]
-> 기존 Azure 서비스를 지정하지 않으면 작업 영역을 만드는 동안 서비스가 자동으로 생성됩니다. 항상 리소스 그룹을 지정해야 합니다.
+> 기존 Azure 서비스를 지정하지 않으면 작업 영역을 만드는 동안 서비스가 자동으로 생성됩니다. 항상 리소스 그룹을 지정해야 합니다. 사용자 고유의 저장소 계정을 연결 하는 경우 Azure Blob 및 Azure 파일 기능을 모두 사용 하도록 설정 하 고 계층 구조 네임 스페이스 (ADLS Gen 2)를 사용 하지 않도록 설정 해야 합니다. 작업 영역이 datastores로 생성 된 후에는 언제 든 지 사용자 고유의 저장소 계정을 연결할 수 있습니다.
 
 | 서비스 | 기존 인스턴스를 지정하는 매개 변수 |
 | ---- | ---- |
@@ -317,7 +317,7 @@ Azure Machine Learning의 RBAC(역할 기반 액세스 제어)에 대한 자세�
 
 ## <a name="sync-keys-for-dependent-resources"></a>종속 리소스의 키 동기화
 
-작업 영역에서 사용하는 리소스 중 하나에 대한 액세스 키를 변경하는 경우 다음 명령을 사용하여 새 키와 작업 영역을 동기화합니다.
+작업 영역에서 사용 하는 리소스 중 하나에 대 한 액세스 키를 변경 하는 경우 작업 영역이 새 키로 동기화 되는 데 약 1 시간이 소요 됩니다. 작업 영역에서 새 키를 즉시 동기화 하도록 하려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

@@ -7,15 +7,15 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 0db6c2c346a6eb6ef016340fcfc2974c85958e6c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c64d947c13cf067d4ffc2b32ed655960143ad1c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391777"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 구성 (미리 보기)
-기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한, 항목 및 도메인은 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용 하면 [CIDR (클래스 없는 도메인 간 라우팅)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법에서 ipv4 주소 또는 ipv4 주소 범위 집합 으로만 제한할 수 있습니다. 다른 IP 주소에서 시작 된 게시자는 거부 되며 403 (사용할 수 없음) 응답을 받게 됩니다. Event Grid에서 지 원하는 네트워크 보안 기능에 대 한 자세한 내용은 [Event Grid 네트워크 보안](network-security.md)을 참조 하세요.
+기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한, 항목 및 도메인은 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다. 다른 IP 주소에서 시작 된 게시자는 거부 되며 403 (사용할 수 없음) 응답을 받게 됩니다. Event Grid에서 지 원하는 네트워크 보안 기능에 대 한 자세한 내용은 [Event Grid 네트워크 보안](network-security.md)을 참조 하세요.
 
 이 문서에서는 Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 설정을 구성 하는 방법을 설명 합니다.
 
@@ -280,3 +280,4 @@ Invoke-RestMethod -Method 'Get'
 * 이벤트 배달 모니터링에 대한 정보는 [Event Grid 메시지 배달 모니터링](monitor-event-delivery.md)을 참조하세요.
 * 인증 키에 대한 자세한 내용은 [Event Grid 보안 및 인증](security-authentication.md)을 참조하세요.
 * Azure Event Grid 구독을 만드는 방법에 대한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조하세요.
+* 네트워크 연결 문제를 해결 하려면 [네트워크 연결 문제 해결](troubleshoot-network-connectivity.md) 을 참조 하세요.

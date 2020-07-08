@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413164"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -22,7 +22,7 @@ Microsoft Azure 서비스는 전역적으로 클라우드 작업을 효율적으
 
 Azure에서 지역 및 가용성 영역에 대 한 이해를 돕기 위해 주요 용어 또는 개념을 이해 하는 데 도움이 됩니다.
 
-| 용어 또는 개념 | 설명 |
+| 용어 또는 개념 | Description |
 | --- | --- |
 | region | 대기 시간이 정의 된 경계 내에 배포 되 고 전용 지역의 짧은 대기 시간 네트워크를 통해 연결 되는 데이터 센터 집합입니다. |
 | geography | 하나 이상의 Azure 지역이 포함 된 전 세계 영역입니다. 지리는 데이터 상주 및 준수 경계를 유지 하는 불연속 시장을 정의 합니다. 지리적 위치를 통해 특정 데이터 상주 및 준수 요구 사항이 있는 고객은 데이터와 애플리케이션을 가깝게 유지할 수 있습니다. 지리적 위치는 전용 고용량 네트워킹 인프라에 대 한 연결을 통해 전체 지역 장애를 견딜 수 있는 내결함성이 있습니다. |
@@ -43,7 +43,7 @@ Azure에서 지역 및 가용성 영역에 대 한 이해를 돕기 위해 주�
 
 가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 단일 지점 오류에서 보호하기 위해 가용성 영역에서 애플리케이션 및 데이터를 복제합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
-Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인의 조합입니다. 예를 들어 Azure 지역의 3개 영역에 VM을 3개 이상 만들면 장애 도메인 3개와 업데이트 도메인 3개에 VM이 효과적으로 분산됩니다. Azure 플랫폼은 업데이트 도메인에 분산된 VM을 인식하여 다른 영역에 있는 VM이 동시에 업데이트되지 않게 합니다.
+Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인의 조합입니다. 예를 들어 Azure 지역의 3개 영역에 VM을 3개 이상 만들면 장애 도메인 3개와 업데이트 도메인 3개에 VM이 효과적으로 분산됩니다. Azure 플랫폼은 여러 영역에 있는 Vm이 동시에 업데이트 되도록 예약 되지 않았는지 확인 하기 위해 업데이트 도메인에서이 배포를 인식 합니다.
 
 영역 내에서 컴퓨팅, 스토리지, 네트워킹 및 데이터 리소스를 공동 배치하고 다른 영역에 복제하여 애플리케이션 아키텍처에 고가용성을 빌드합니다. 가용성 영역을 지원하는 Azure 서비스는 다음의 두 범주로 나뉩니다.
 
@@ -92,11 +92,11 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 기본 | 일반 | 특수화 |
 > | --- | --- | --- |
 > | 계정 저장소 | API Management | FHIR용 Azure API |
-> | Application Gateway | 앱 구성 | Azure Blockchain 서비스 |
+> | Application Gateway | App Configuration | Azure Blockchain 서비스 |
 > | Azure Backup | App Service | Azure Blueprints |
 > | Azure Cosmos DB | Automation | Azure Database for MariaDB |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure 전용 HSM |
-> | Azure ExpressRoute | Azure Analysis Services | Azure Dev 공간 |
+> | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
 > | Azure SQL Database | Azure Bastion | Azure Digital Twins |
 > | Cloud Services | Azure Cache for Redis | Azure Lab Services |
 > | Cloud Services: Av2 시리즈 | Azure Cognitive Search | Azure NetApp Files |
@@ -105,7 +105,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Cloud Services: Ev3 시리즈 | Azure Database for MySQL | Azure VMware Solution by CloudSimple |
 > | Cloud Services: 인스턴스 수준 Ip | Azure Database for PostgreSQL | Cloud Services: A8-A11 (계산 집약적) |
 > | Cloud Services: 예약된 IP | Azure Database Migration Service | Cloud Services: G 시리즈 |
-> | 디스크 스토리지 | Azure Databricks | Cloud Services: H 시리즈 |
+> | Disk Storage | Azure Databricks | Cloud Services: H 시리즈 |
 > | Event Hubs | Azure DDoS Protection | Cognitive Services: 변칙 탐지기 |
 > | Key Vault | Azure DevTest Labs | Cognitive Services: Custom Vision |
 > | 부하 분산 장치 | Azure Firewall Manager | Cognitive Services: Speaker Recognition |
@@ -118,8 +118,8 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Virtual Machines: DSv2 시리즈 | Azure Private Link | Remote Rendering |
 > | Virtual Machines: DSv3 시리즈 | Azure Red Hat OpenShift | Spatial Anchors |
 > | Virtual Machines: Dv2 시리즈 | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Dv3 시리즈 | Azure 스프링 클라우드 서비스 | 비디오 인덱서 |
-> | Virtual Machines: ESv3 시리즈 | Azure Stack 허브 | Virtual Machines: A8-A11 (계산 집약적) |
+> | Virtual Machines: Dv3 시리즈 | Azure 스프링 클라우드 서비스 | Video Indexer |
+> | Virtual Machines: ESv3 시리즈 | Azure Stack Hub | Virtual Machines: A8-A11 (계산 집약적) |
 > | Virtual Machines: Ev3 시리즈 | Azure Stream Analytics | Virtual Machines: DASv4 시리즈 |
 > | Virtual Machines: F 시리즈 | Azure Synapse Analytics | Virtual Machines: DAv4 시리즈 |
 > | Virtual Machines: FS 시리즈 | Azure SignalR Service | Virtual Machines: DCsv2 시리즈 |
@@ -148,7 +148,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > |  | 울트라 디스크 저장소 |  |
 > |  | Virtual Machines: Fsv2 시리즈 |  |
 > |  | Virtual Machines: M 시리즈 |  |
-> |  | 가상 WAN |  |
+> |  | Virtual WAN |  |
 
 ###  <a name="services-resiliency"></a>서비스 복원 력
 
@@ -166,7 +166,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 - [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM 부하 분산](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM 부하 분산](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [영역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)
-- [SQL 데이터베이스](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [SQL 데이터베이스](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Event Hubs 지리적 재해 복구](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus 지리적 재해 복구](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [영역 중복 가상 네트워크 게이트웨이 만들기](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

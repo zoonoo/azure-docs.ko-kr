@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392236"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -146,7 +146,7 @@ Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메트릭과 메타데
 
 고객 관리형 키를 사용하여 구독에서 Cosmos DB 인스턴스를 프로비저닝하려면 다음 작업을 수행합니다.
 
-* 구독에 Azure Machine Learning 및 Azure Cosmos DB 리소스 공급자가 아직 등록되지 않은 경우 등록합니다.
+* 아직 수행 하지 않은 경우 MachineLearning 및 Microsoft.DocumentDB 리소스 공급자를 구독에 등록 합니다.
 
 * 구독에 대한 기여자 권한으로 Machine Learning 앱(ID 및 액세스 관리에서)에 권한을 부여합니다.
 
@@ -176,6 +176,11 @@ Cosmos DB의 고객 관리형 키에 대한 자세한 내용은 [Azure Cosmos DB
 레지스트리(Azure Container Registry)의 모든 컨테이너 이미지는 미사용 상태에서 암호화됩니다. Azure는 이미지를 저장하기 전에 이미지를 자동으로 암호화하고 Azure Machine Learning이 이미지를 끌어올 때 암호를 해독합니다.
 
 자체(고객 관리형) 키를 사용하여 Azure Container Registry를 암호화하려면 작업 영역을 프로비저닝하는 동안 자체 ACR을 생성하여 첨부하거나 작업 영역을 프로비저닝할 때 생성되는 기본 인스턴스를 암호화해야 합니다.
+
+> [!IMPORTANT]
+> Azure Machine Learning Azure Container Registry에서 관리자 계정을 사용 하도록 설정 해야 합니다. 컨테이너 레지스트리를 만들 때 기본적으로이 설정은 사용 되지 않습니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](/azure/container-registry/container-registry-authentication#admin-account)을 참조 하십시오.
+>
+> 작업 영역에 대해 Azure Container Registry가 만들어지면 이를 삭제하지 마세요. 삭제하면 Azure Machine Learning 작업 영역이 중단됩니다.
 
 기존 Azure Container Registry를 사용하여 작업 영역을 만드는 예는 다음 문서를 참조하세요.
 

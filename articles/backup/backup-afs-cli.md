@@ -3,12 +3,12 @@ title: Azure CLI를 사용 하 여 Azure 파일 공유 백업
 description: Azure CLI를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391097"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>CLI를 사용 하 여 Azure 파일 공유 백업
 
@@ -22,7 +22,7 @@ Azure CLI (명령줄 인터페이스)는 Azure 리소스를 관리 하기 위한
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0.18 이상을 사용해야 합니다. CLI 버전을 찾으려면를 `run az --version`검색 합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0.18 이상을 사용해야 합니다. CLI 버전을 찾으려면를 검색 `run az --version` 합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -42,7 +42,7 @@ Recovery services 자격 증명 모음을 만들려면 다음 단계를 따르�
     eastus      AzureFiles
     ```
 
-2. [Az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet을 사용 하 여 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정합니다.
+1. [Az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet을 사용 하 여 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정합니다.
 
     다음 예제에서는 미국 동부 지역에 *azurefilesvault* 라는 recovery services 자격 증명 모음을 만듭니다.
 
@@ -54,28 +54,6 @@ Recovery services 자격 증명 모음을 만들려면 다음 단계를 따르�
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. 자격 증명 모음 저장소에 사용할 중복성 유형을 지정 합니다. [로컬 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) 또는 [지역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)를 사용할 수 있습니다.
-
-    다음 예에서는 [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet을 사용 하 여 *azurefilesvault* 에 대 한 저장소 중복성 옵션을 **Georedundant** 로 설정 합니다.
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    자격 증명 모음이 성공적으로 만들어졌는지 확인 하려면 [az backup vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) cmdlet을 사용 하 여 자격 증명 모음에 대 한 세부 정보를 가져올 수 있습니다. 다음 예에서는 위의 단계에서 만든 *azurefilesvault* 의 세부 정보를 표시 합니다.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    출력은 다음 응답과 유사 합니다.
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Azure 파일 공유에 대 한 백업 사용
@@ -108,7 +86,7 @@ Name                                  ResourceGroup
 * **--name** 은 요청 시 백업을 트리거할 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) 명령을 사용 합니다.
 * **--유지-** 복구 지점을 보존할 시점까지 날짜를 지정 합니다. 값은 UTC 시간 형식 (dd-mm-yyyy)으로 설정 해야 합니다.
 
-다음 예제에서는 azuresfiles에 대 한 *20-01-2020*보존이 있는 *afsaccount* 저장소 계정에서 *azuresfiles* 파일 공유에 대 한 요청 시 백업을 트리거합니다.
+다음 예에서는 보관이 포함 된 *afsaccount* 저장소 계정에서 *azurefiles 파일* 공유에 대 한 요청 시 백업을 트리거하고 *20-01-2020*까지 트리거합니다.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table
@@ -125,4 +103,4 @@ Name                                  ResourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 * [CLI를 사용 하 여 Azure 파일 공유를 복원](restore-afs-cli.md) 하는 방법 알아보기
-* [CLI를 사용 하 여 Azure 파일 공유 ackups를 관리](manage-afs-backup-cli.md) 하는 방법 알아보기
+* [CLI를 사용 하 여 Azure 파일 공유 백업을 관리](manage-afs-backup-cli.md) 하는 방법을 알아봅니다.

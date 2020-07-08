@@ -3,14 +3,14 @@ title: Azure Portal의 Azure 파일 공유 백업
 description: Azure Portal를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391159"
 ---
-# <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 Azure 파일 공유 백업
+# <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 
 이 문서에서는 Azure Portal를 사용 하 여 [Azure 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)를 백업 하는 방법을 설명 합니다.
 
@@ -26,27 +26,6 @@ ms.locfileid: "82978031"
 * 파일 공유가 지원 되는 [저장소 계정 유형](azure-file-share-support-matrix.md)중 하나에 있는지 확인 하세요.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>저장소 복제 수정
-
-기본적으로 자격 증명 모음은 [GRS (지역 중복 저장소)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)를 사용 합니다.
-
-* 자격 증명 모음이 기본 백업 메커니즘인 경우 GRS를 사용 하는 것이 좋습니다.
-* [LRS (로컬 중복 저장소)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 를 저렴 한 옵션으로 사용할 수 있습니다.
-
-저장소 복제 유형을 수정 하려면:
-
-1. 새 자격 증명 모음에서 **설정** 섹션의 **속성** 을 선택 합니다.
-
-1. **속성** 페이지의 **백업 구성**에서 **업데이트**를 선택 합니다.
-
-1. 저장소 복제 유형을 선택 하 고 **저장**을 선택 합니다.
-
-    ![백업 구성 업데이트](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> 자격 증명 모음을 설정 하 고 백업 항목을 포함 한 후에는 저장소 복제 유형을 수정할 수 없습니다. 이 작업을 수행 하려는 경우 자격 증명 모음을 다시 만들어야 합니다.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>파일 공유 검색 및 백업 구성
 
@@ -148,7 +127,7 @@ ms.locfileid: "82978031"
 
 1. **확인** 을 선택 하 여 실행 되는 주문형 백업 작업을 확인 합니다.
 
-1. 포털 알림을 모니터링 하 여 백업 작업 실행 완료에 대 한 추적을 유지 합니다. 자격 증명 모음 대시보드에서 작업 진행률을 모니터링할 수 있습니다. 진행 중인 **백업 작업** > **을**선택 합니다.
+1. 포털 알림을 모니터링 하 여 백업 작업 실행 완료에 대 한 추적을 유지 합니다. 자격 증명 모음 대시보드에서 작업 진행률을 모니터링할 수 있습니다. 진행 중인 **백업 작업**  >  **을**선택 합니다.
 
 >[!NOTE]
 >Azure Backup는 해당 계정의 파일 공유에 대 한 보호를 구성할 때 저장소 계정을 잠급니다. 이렇게 하면 백업 된 파일 공유와 함께 저장소 계정이 실수로 삭제 되는 것을 방지할 수가 있습니다.

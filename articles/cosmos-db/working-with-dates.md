@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 174279e4bd241ee9b336fc1ce7e0af389d2297a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f31ee7f7d60a3bf0ab56b9ed8aa7fd25774e06c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412552"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
 
@@ -21,9 +21,9 @@ Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을
 
 ## <a name="storing-datetimes"></a>날짜/시간 저장
 
-Azure Cosmos DB는-string, number, boolean, null, array, object 등의 JSON 형식을 지원 합니다. DateTime 형식을 직접 지원 하지 않습니다. 현재 Azure Cosmos DB는 날짜 지역화를 지원 하지 않습니다. 따라서 DateTimes를 문자열로 저장 해야 합니다. Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.fffffffZ` 의 DateTime 문자열에 권장 되는 형식은 ISO 8601 UTC 표준을 따릅니다. Azure Cosmos DB의 모든 날짜를 UTC로 저장 하는 것이 좋습니다. 날짜 문자열을이 형식으로 변환 하면 날짜를 사전순으로 정렬할 수 있습니다. 비 UTC 날짜를 저장 한 경우에는 클라이언트 쪽에서 논리를 처리 해야 합니다. 현지 DateTime을 UTC로 변환 하려면 오프셋을 JSON에서 속성으로 인식/저장 해야 하며 클라이언트는이 오프셋을 사용 하 여 UTC 날짜/시간 값을 계산할 수 있습니다.
+Azure Cosmos DB는-string, number, boolean, null, array, object 등의 JSON 형식을 지원 합니다. DateTime 형식을 직접 지원 하지 않습니다. 현재 Azure Cosmos DB는 날짜 지역화를 지원 하지 않습니다. 따라서 DateTimes를 문자열로 저장 해야 합니다. Azure Cosmos DB의 DateTime 문자열에 권장 되는 형식은 `yyyy-MM-ddTHH:mm:ss.fffffffZ` ISO 8601 UTC 표준을 따릅니다. Azure Cosmos DB의 모든 날짜를 UTC로 저장 하는 것이 좋습니다. 날짜 문자열을이 형식으로 변환 하면 날짜를 사전순으로 정렬할 수 있습니다. 비 UTC 날짜를 저장 한 경우에는 클라이언트 쪽에서 논리를 처리 해야 합니다. 현지 DateTime을 UTC로 변환 하려면 오프셋을 JSON에서 속성으로 인식/저장 해야 하며 클라이언트는이 오프셋을 사용 하 여 UTC 날짜/시간 값을 계산할 수 있습니다.
 
-Datetime 문자열을 필터로 사용 하는 범위 쿼리는 DateTime 문자열이 모두 UTC이 고 길이가 동일한 경우에만 지원 됩니다. Azure Cosmos DB [Getcurrentdatetime](sql-query-getcurrentdatetime.md) 시스템 함수는 현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 형식 `YYYY-MM-DDThh:mm:ss.fffffffZ`으로 반환 합니다.
+Datetime 문자열을 필터로 사용 하는 범위 쿼리는 DateTime 문자열이 모두 UTC이 고 길이가 동일한 경우에만 지원 됩니다. Azure Cosmos DB [Getcurrentdatetime](sql-query-getcurrentdatetime.md) 시스템 함수는 현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 형식으로 반환 `yyyy-MM-ddTHH:mm:ss.fffffffZ` 합니다.
 
 대부분의 애플리케이션에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
 
