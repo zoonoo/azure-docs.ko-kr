@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 description: 이 문서에서는 Azure Backup에 대해 이전 및 새 진단 이벤트를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 4efc00da96493c751c4a85dbdcc280d1ca0ef5ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854811"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 
@@ -28,6 +28,8 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 이�
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
+
+[레거시 이벤트](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) azurebackupreport를 사용 하는 경우 가장 이른에서 위의 이벤트를 사용 하도록 전환 하는 것이 좋습니다.
 
 자세한 내용은 [Azure Backup 진단 이벤트에 대 한 데이터 모델](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)을 참조 하세요.
 
@@ -112,7 +114,7 @@ Azure Backup 및 Azure Site Recovery 이벤트는 동일한 Recovery Services �
 
 ![Site Recovery 이벤트](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
-요약하면
+요약:
 
 * 이미 Azure 진단를 사용 하 Log Analytics 진단이 설정 되어 있고 그 위에 사용자 지정 쿼리를 작성 한 경우 새 이벤트의 데이터를 사용 하도록 쿼리를 마이그레이션할 때까지 해당 설정을 *그대로* 유지 합니다.
 * 새 테이블에도 등록 하려면 **새** 진단 설정을 만들고, **리소스 관련**을 선택 하 고, 6 개의 새 이벤트를 선택 합니다.

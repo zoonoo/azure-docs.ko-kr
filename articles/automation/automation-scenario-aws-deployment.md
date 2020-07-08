@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4dcc095648111348a6935225a6aa10798109f76e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: d67e2639c2d4b168babeb7c29ef977d39d9e11cb
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855298"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Runbook을 사용하여 Amazon Web Services VM 배포
 
@@ -64,7 +64,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
 
 8. AWS 구독에서 이미지 이름 목록을 검색하려면 PowerShell ISE를 시작하고 AWS PowerShell 모듈을 가져옵니다. ISE 환경의 `Get-AutomationPSCredential`을 `AWScred = Get-Credential`로 바꿔 AWS에 인증합니다. 이 문은 자격 증명을 요청하는 메시지를 표시합니다. 그러면 사용자 이름으로 액세스 키 ID, 암호로 보안 액세스 키를 입력하면 됩니다. 
 
-        ```powershell
+      ```powershell
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
         Import-Module AWSPowerShell
@@ -78,7 +78,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
         Set-DefaultAWSRegion -Region $AwsRegion
    
         Get-EC2ImageByName -ProfileName AWSProfile
-        ```
+      ```
         
     다음과 같은 출력이 반환됩니다.<br><br>
    ![AWS 이미지 가져오기](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  

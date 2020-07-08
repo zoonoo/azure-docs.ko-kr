@@ -2,23 +2,21 @@
 title: Azure 지원 요청을 만드는 방법 | Microsoft Docs
 description: 지원이 필요한 고객은 Azure Portal을 사용하여 셀프 서비스 솔루션을 찾고, 지원 요청을 만들고 관리할 수 있습니다.
 services: Azure Supportability
-author: ganganarayanan
+author: mgblythe
 manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.topic: article
-ms.date: 03/31/2020
-ms.author: kfollis
-ms.openlocfilehash: 0bd1191c0b92203b100b1713971119ec828352ea
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 06/25/2020
+ms.author: mblythe
+ms.openlocfilehash: d8a480481e47995f9f819122a3e8cc0b0a21a254
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851902"
 ---
-# <a name="how-to-create-an-azure-support-request"></a>Azure 지원 요청을 만드는 방법
-
-## <a name="overview"></a>개요
+# <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
 Azure를 통해 지원 티켓이라고도 하는 지원 요청을 만들고 관리할 수 있습니다. 이 문서에서 설명하는 것처럼 [Azure Portal](https://portal.azure.com)에서 요청을 만들고 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support)를 사용하여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
 
@@ -28,14 +26,14 @@ Azure를 통해 지원 티켓이라고도 하는 지원 요청을 만들고 관�
 >* 상업적 사용을 위한 Azure Portal: [https://portal.azure.com](https://portal.azure.com)
 >* 독일 Azure Portal: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >* 미국 정부에 대한 Azure Portal: [https://portal.azure.us](https://portal.azure.us)
->
->
 
-고객의 의견에 따라 다음 세 가지 기본 목표에 초점을 맞춰 지원 요청 환경을 업데이트했습니다.
+지원 요청 환경은 세 가지 주요 목표를 중점적으로 다룹니다.
 
 * **간소화**: 지원 및 문제 해결을 찾기 쉽게 하고 지원 요청을 제출하는 방법을 간소화했습니다.
 * **통합**: Azure 리소스 문제를 해결할 때 컨텍스트를 전환하지 않고도 지원 요청을 쉽게 시작할 수 있습니다.
-* **효율성**: 지원 에이전트가 문제를 효율적으로 해결하는 데 필요한 주요 정보를 수집합니다.
+* **효율성**: 지원 담당 엔지니어가 문제를 효율적으로 해결하는 데 필요한 주요 정보를 수집합니다.
+
+Azure에서는 청구, 할당량 조정, 계정 이전 등을 비롯한 구독 관리에 대해서는 무제한 지원을 제공합니다. 기술 지원의 경우 지원 계획이 필요합니다. 자세한 내용은 [지원 플랜 비교](https://azure.microsoft.com/support/plans)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -43,7 +41,7 @@ Azure Portal에서 **도움말 + 지원**으로 이동할 수 있습니다. Azur
 
 ### <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-지원 요청을 만들려면 구독 수준에서 [소유자](../../role-based-access-control/built-in-roles.md#owner), [기여자](../../role-based-access-control/built-in-roles.md#contributor) 또는 [지원 요청 기여자](../../role-based-access-control/built-in-roles.md#support-request-contributor) 역할에 할당되어야 합니다. AAD(Azure Active Directory) 시나리오와 같이 구독 없이 지원 요청을 만들려면 [관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)여야 합니다.
+지원 요청을 만들려면 구독 수준에서 [소유자](../../role-based-access-control/built-in-roles.md#owner), [기여자](../../role-based-access-control/built-in-roles.md#contributor) 또는 [지원 요청 기여자](../../role-based-access-control/built-in-roles.md#support-request-contributor) 역할에 할당되어야 합니다. Azure Active Directory 시나리오와 같이 구독 없이 지원 요청을 만들려면 [관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)여야 합니다.
 
 ### <a name="go-to-help--support-from-the-global-header"></a>글로벌 헤더에서 도움말 + 지원으로 이동합니다.
 
@@ -53,7 +51,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
    ![도움말 및 지원](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-2. **새 지원 요청**을 선택합니다. 메시지에 따라 문제에 대한 정보를 제공합니다. 몇 가지 가능한 솔루션을 제안하고, 문제에 대한 세부 정보를 수집하며, 지원 요청을 제출 및 추적할 수 있게 지원합니다.
+1. **새 지원 요청**을 선택합니다. 프롬프트에 따라 문제에 대 한 정보를 제공 합니다. 몇 가지 가능한 솔루션을 제안하고, 문제에 대한 세부 정보를 수집하며, 지원 요청을 제출 및 추적할 수 있게 지원합니다.
 
    ![새 지원 요청](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
 
@@ -65,7 +63,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
    ![컨텍스트 내](./media/how-to-create-azure-support-request/incontext2lower.png)
 
-2. 메시지에 따라 발생한 문제에 대한 정보를 제공합니다. 리소스에서 지원 요청 프로세스를 시작하면 일부 옵션이 미리 선택됩니다.
+1. 메시지에 따라 발생한 문제에 대한 정보를 제공합니다. 리소스에서 지원 요청 프로세스를 시작하면 일부 옵션이 미리 선택됩니다.
 
 ## <a name="create-a-support-request"></a>지원 요청 만들기
 
@@ -75,14 +73,9 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 지원 요청 프로세스의 첫 번째 단계에서는 문제 및 지원 계획에 대한 기본 정보를 수집합니다.
 
-**새 지원 요청**의 **기본 사항** 탭에서 선택기를 사용하여 문제에 대한 정보 제공을 시작합니다. 먼저 문제 유형에 대한 몇 가지 일반 범주를 확인하고 관련 구독을 선택합니다. 서비스를 선택합니다(예: **Windows를 실행하는 가상 머신**). 가상 머신의 이름 등과 같은 리소스를 선택합니다. 나름대로 문제를 설명한 다음, **문제 유형을 선택**하여 더 구체적인 정보를 얻을 수 있습니다.
+**새 지원 요청**의 **기본 사항** 탭에서 선택기를 사용하여 문제에 대한 정보 제공을 시작합니다. 먼저 문제 유형에 대한 몇 가지 일반 범주를 확인하고 관련 구독을 선택합니다. 서비스 (예: Windows를 **실행 하는 가상 컴퓨터**)를 선택 합니다. 가상 머신의 이름 등과 같은 리소스를 선택합니다. 고유한 단어에 문제를 설명 하 고 **문제 유형** 및 **문제 하위 유형** 을 선택 하 여 보다 구체적인 정보를 얻습니다.
 
 ![기본 사항 블레이드](./media/how-to-create-azure-support-request/basics2lower.png)
-
-> [!NOTE]
-> Azure에서는 청구, 할당량 조정, 계정 이전 등을 비롯한 구독 관리에 대해서는 무제한 지원을 제공합니다. 기술 지원의 경우 지원 계획이 필요합니다. [지원 계획에 대해 자세히 알아보세요](https://azure.microsoft.com/support/plans).
->
->
 
 ### <a name="solutions"></a>솔루션
 
@@ -90,42 +83,35 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 ### <a name="details"></a>세부 정보
 
-이제 문제에 대한 추가 세부 정보를 수집합니다. 이 단계에서 철저하고 자세한 정보를 제공하면 지원 요청을 올바른 에이전트에게 전달하는 데 도움이 됩니다.
+이제 문제에 대한 추가 세부 정보를 수집합니다. 이 단계에서 철저 하 고 자세한 정보를 제공 하 여 지원 요청을 올바른 엔지니어에 게 라우트할 수 있습니다.
 
-가능하면 문제가 시작된 시기와 문제를 재현 하는 단계를 알려 주세요. 로그 파일 또는 진단의 출력과 같은 파일을 업로드할 수 있습니다.
+1. 가능하면 문제가 시작된 시기와 문제를 재현 하는 단계를 알려 주세요. 로그 파일 또는 진단의 출력과 같은 파일을 업로드할 수 있습니다. 파일 업로드에 대 한 자세한 내용은 [파일 업로드 지침](how-to-manage-azure-support-request.md#file-upload-guidelines)을 참조 하세요.
 
-문제에 대한 모든 정보를 제공한 후 지원을 받는 방법을 선택합니다. **세부 정보**의 **지원 방법** 섹션에서 영향의 심각도를 선택합니다. 원하는 연락 방법, 적당한 연락 시간, 지원 언어를 입력합니다.
+1. 문제에 대한 모든 정보를 제공한 후 지원을 받는 방법을 선택합니다. **세부 정보**의 **지원 방법** 섹션에서 영향의 심각도를 선택합니다. 최대 심각도 수준은 [지원 계획](https://azure.microsoft.com/support/plans)에 따라 달라 집니다.
 
-다음으로 사용자에게 연락하는 방법을 알 수 있게 **연락처 정보** 섹션을 입력합니다.
+    기본적으로 **진단 정보 공유** 옵션이 선택 되어 있습니다. 이렇게 하면 azure 지원에서 Azure 리소스의 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 를 수집할 수 있습니다. 경우에 따라 가상 컴퓨터의 메모리에 대 한 액세스를 요청 하는 것과 같이 기본적으로 선택 되지 않는 두 번째 질문이 있습니다.
+
+1. 원하는 연락 방법, 적당한 연락 시간, 지원 언어를 입력합니다.
+
+1. 다음으로 사용자에게 연락하는 방법을 알 수 있게 **연락처 정보** 섹션을 입력합니다.
 
 ### <a name="review--create"></a>검토 + 만들기
 
-각 탭에 필요한 모든 정보를 입력한 다음, **검토 + 만들기**를 선택합니다. 고객 지원팀에 보낼 세부 정보를 확인합니다. 필요에 따라 변경하려면 탭으로 돌아갑니다. 지원 요청이 완료되면 **만들기**를 선택합니다.
+각 탭에 필요한 모든 정보를 입력한 다음, **검토 + 만들기**를 선택합니다. 지원 하기 위해 보낼 세부 정보를 확인 합니다. 필요에 따라 변경하려면 탭으로 돌아갑니다. 지원 요청이 완료되면 **만들기**를 선택합니다.
 
-지원 에이전트가 사용자가 지정한 방법으로 연락 드릴 것입니다. 최초 응답 시간에 대한 자세한 정보는 [지원 범위 및 응답성](https://azure.microsoft.com/support/plans/response/)을 참조하세요.
+지원 엔지니어가 지정 된 방법을 사용 하 여 연락을 드립니다. 초기 응답 시간에 대 한 자세한 내용은 [지원 범위 및 응답성](https://azure.microsoft.com/support/plans/response/)을 참조 하세요.
 
-## <a name="all-support-requests"></a>모든 지원 요청
 
-**도움말 + 지원** >  **모든 지원 요청**으로 이동하여 지원 요청의 세부 정보 및 상태를 볼 수 있습니다.
+## <a name="next-steps"></a>다음 단계
 
-![모든 지원 요청](./media/how-to-create-azure-support-request/allrequestslower.png)
-
-이 페이지에서 **구독**, **만든** 날짜(UTC) 및 **상태**를 기준으로 지원 요청을 필터링할 수 있습니다. 또한 이 페이지에서 지원 요청을 정렬 및 검색할 수 있습니다.
-
-심각도, 지원 에이전트가 응답하는 데 걸리는 예상 시간 등 세부 정보를 확인할 지원 요청을 선택합니다.
-
-요청의 심각도를 변경하려면 **비즈니스 영향**을 선택합니다. 할당할 심각도 목록에서 선택합니다.
-
-> [!NOTE]
-> 최대 심각도 수준은 지원 계획에 따라 다릅니다. [지원 계획에 대해 자세히 알아보세요](https://azure.microsoft.com/support/plans).
->
->
 Azure의 자가 지원 옵션에 대한 자세한 정보를 보려면 다음 비디오를 확인하세요.
 
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
-## <a name="next-steps"></a>다음 단계
+자세한 내용은 다음 링크를 참조 하세요.
 
+* [Azure 지원 요청을 관리 하는 방법](how-to-manage-azure-support-request.md)
+* [Azure 지원 티켓 REST API](/rest/api/support)
 * [피드백 및 제안 보내기](https://feedback.azure.com/forums/266794-support-feedback)
 * [Twitter](https://twitter.com/azuresupport)에서 연계
 * [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure)에서 동료들의 도움 받기

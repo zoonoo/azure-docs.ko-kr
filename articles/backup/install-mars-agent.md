@@ -3,12 +3,12 @@ title: MARS (Microsoft Azure Recovery Services) 에이전트 설치
 description: Windows 컴퓨터를 백업 하는 MARS (Microsoft Azure Recovery Services) 에이전트를 설치 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855229"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>MARS 에이전트 Azure Backup를 설치 합니다.
 
@@ -40,9 +40,9 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## <a name="modify-storage-replication"></a>저장소 복제 수정
+## <a name="modify-storage-replication"></a>스토리지 복제 수정
 
-기본적으로 자격 증명 모음은 [GRS (지역 중복 저장소)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)를 사용 합니다.
+기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)를 사용합니다.
 
 * 자격 증명 모음이 기본 백업 메커니즘인 경우 GRS를 사용 하는 것이 좋습니다.
 * [LRS (로컬 중복 저장소)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 를 사용 하 여 Azure storage 비용을 줄일 수 있습니다.
@@ -58,7 +58,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
     ![백업 구성 업데이트](./media/backup-afs/backup-configuration.png)
 
 > [!NOTE]
-> 자격 증명 모음을 설정 하 고 백업 항목을 포함 한 후에는 저장소 복제 유형을 수정할 수 없습니다. 이 작업을 수행 하려는 경우 자격 증명 모음을 다시 만들어야 합니다.
+> 자격 증명 모음을 설정하고 백업 항목을 포함한 후에는 스토리지 복제 유형을 수정할 수 없습니다. 이 작업을 수행 하려는 경우 자격 증명 모음을 다시 만들어야 합니다.
 >
 
 ### <a name="verify-internet-access"></a>인터넷 액세스 확인
@@ -66,11 +66,12 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 컴퓨터의 인터넷 액세스가 제한 된 경우 컴퓨터 또는 프록시의 방화벽 설정에서 다음 Url 및 IP 주소를 허용 하는지 확인 합니다.
 
 * URL
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * IP 주소
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 공용 피어 링을 사용 하려면 먼저 다음 도메인 및 주소에 대 한 액세스를 확인 합니다.
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -89,7 +91,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 Microsoft 피어 링을 사용 하려면 다음 서비스, 지역 및 관련 커뮤니티 값을 선택 합니다.
 
-* Azure Active Directory (12076:5060)
+* Azure Active Directory(12076:5060)
 * Recovery Services 자격 증명 모음의 위치에 따라 Azure 지역
 * Recovery Services 자격 증명 모음의 위치에 따라 Azure Storage
 
@@ -100,7 +102,7 @@ Microsoft 피어 링을 사용 하려면 다음 서비스, 지역 및 관련 커
 
 위의 모든 Url 및 IP 주소는 포트 443에서 HTTPS 프로토콜을 사용 합니다.
 
-### <a name="private-endpoints"></a>전용 끝점
+### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
 [!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
@@ -133,7 +135,7 @@ MARS 에이전트를 다운로드 하 여 백업 하려는 컴퓨터에 설치�
 
 ## <a name="install-and-register-the-agent"></a>에이전트 설치 및 등록
 
-1. 백업 하려는 컴퓨터에서 *Marsagentinstaller .exe* 파일을 실행 합니다.
+1. 백업 하려는 컴퓨터에서 *MARSagentinstaller.exe* 파일을 실행 합니다.
 1. MARS 에이전트 설치 마법사에서 **설치 설정**을 선택 합니다. 여기에서 에이전트를 설치할 위치를 선택 하 고 캐시 위치를 선택 합니다. **다음**을 선택합니다.
    * Azure Backup은 캐시를 사용 하 여 데이터 스냅숏을 Azure로 보내기 전에 저장 합니다.
    * 캐시 위치에는 백업할 데이터 크기의 5% 이상에 해당 하는 여유 공간이 있어야 합니다.
@@ -149,7 +151,7 @@ MARS 에이전트를 다운로드 하 여 백업 하려는 컴퓨터에 설치�
 
 1. **설치**의 경우 필수 구성 요소를 검토 하 고 **설치**를 선택 합니다.
 1. 에이전트가 설치 되 면 **등록 진행을**선택 합니다.
-1. **서버 등록 마법사** > **자격 증명 모음 식별**에서 다운로드 한 자격 증명 파일을 찾아 선택 합니다. **다음**을 선택합니다.
+1. **서버 등록 마법사**  >  **자격 증명 모음 식별**에서 다운로드 한 자격 증명 파일을 찾아 선택 합니다. **다음**을 선택합니다.
 
     ![서버 등록 마법사를 사용 하 여 자격 증명 모음 자격 증명 추가](./media/backup-configure-vault/register1.png)
 

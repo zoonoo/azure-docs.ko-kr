@@ -2,13 +2,13 @@
 title: GitHub Actions를 사용하여 Resource Manager 템플릿 배포
 description: GitHub Actions를 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.date: 07/02/2020
+ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854743"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>GitHub Actions를 사용하여 Azure Resource Manager 템플릿 배포
 
@@ -82,7 +82,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 
 ## <a name="create-workflow"></a>워크플로 만들기
 
-워크플로 파일은 리포지토리의 루트에 있는 **.github/workflow** 폴더에 저장해야 합니다. 워크플로 파일 확장명은 **.yml** 또는 **.yaml**일 수 있습니다.
+워크플로 파일은 리포지토리의 루트에 있는 **github/** workflow 폴더에 저장 해야 합니다. 워크플로 파일 확장명은 **.yml** 또는 **.yaml**일 수 있습니다.
 
 워크플로 파일을 만든 다음, 파일을 리포지토리로 푸시/업로드하거나 다음 절차를 수행할 수 있습니다.
 

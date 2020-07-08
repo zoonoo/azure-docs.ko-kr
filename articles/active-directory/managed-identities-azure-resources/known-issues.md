@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855129"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -32,6 +32,24 @@ ms.locfileid: "83714052"
 
 > [!NOTE]
 > Azure 리소스에 대한 관리 ID는 이전에 MSI(관리 서비스 ID)로 알려진 서비스에 대한 새 이름입니다.
+
+
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>관리 되는 id가 있는 리소스는 어떻게 찾을 수 있나요?
+
+다음 Azure CLI 명령을 사용 하 여 시스템 할당 관리 id가 있는 리소스 목록을 찾을 수 있습니다. 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### <a name="do-managed-identities-have-a-backing-app-object"></a>관리 id에 지원 앱 개체가 있나요?
+
+아니요. 관리 되는 id와 Azure AD 앱 등록은 디렉터리에서 동일 하지 않습니다. 
+
+응용 프로그램 개체와 서비스 주체 개체 라는 두 가지 구성 요소가 앱 등록. Azure 리소스에 대 한 관리 되는 Id에는 서비스 주체 개체와 같은 구성 요소 중 하나만 있습니다. 
+
+관리 id에는 디렉터리에 응용 프로그램 개체가 없으므로 MS graph에 대해 앱 사용 권한을 부여 하는 데 일반적으로 사용 됩니다. 대신 관리 되는 id에 대 한 MS graph 권한은 서비스 사용자에 게 직접 부여 해야 합니다.  
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Azure 리소스에 대한 관리 ID가 Azure Cloud Services에서 작동하나요?
 
@@ -114,6 +132,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
  - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
  - 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
+
+자세한 내용은 [azure 구독을 다른 AZURE AD 디렉터리에 전송 (미리 보기)](../../role-based-access-control/transfer-subscription.md)을 참조 하세요.
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>사용자가 할당한 관리 ID를 다른 리소스 그룹/구독으로 이동
 
