@@ -7,18 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 9b39cbab71808aaf09f7dc38b3be77f6f35ab598
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 6e889fef16d8ad80d52810207f0328a765ca9cfe
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982686"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958500"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 
 이 문서에서는 상업적 marketplace에서 사용할 수 있는 제품 유형을 설명 합니다. Marketplace에 제품을 제공하는 데 사용된 메타데이터, 아티팩트 및 기타 콘텐츠를 포함한 제품 구조는 *제품 유형*에 의해 정의됩니다.
 
-제품을 만들기 전에 [게시 옵션을 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)한 후 제품을 제공 하는 데 사용할 제품 유형을 선택 해야 합니다. 제품 유형은 게시하려는 솔루션, 앱 또는 서비스 제품의 유형뿐만 아니라 Microsoft 제품 및 서비스에 대한 맞춤도 해당됩니다.
+제품을 만들기 전에 [게시 옵션을 결정](determine-your-listing-type.md)한 후 제품을 제공 하는 데 사용할 제품 유형을 선택 해야 합니다. 제품 유형은 게시하려는 솔루션, 앱 또는 서비스 제품의 유형뿐만 아니라 Microsoft 제품 및 서비스에 대한 맞춤도 해당됩니다.
 
 서로 다른 게시 옵션, 작업 호출, 프로 비전 또는 가격 책정을 사용 하도록 설정 하는 여러 가지 방법으로 단일 제품 유형을 구성할 수 있습니다. 제품 유형의 게시 옵션과 구성은 제품 자격 및 기술 요구 사항에도 맞춥니다.
 
@@ -28,9 +27,9 @@ ms.locfileid: "82982686"
 
 Azure Marketplace 제품 유형은 아래 표에 나열되어 있습니다.
 
-| **제안 유형**    | **설명**  |
+| **제품 유형**    | **설명**  |
 | :------------------- | :-------------------|
-| [**가상 머신**](./marketplace-virtual-machines.md) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
+| [**가상 컴퓨터**](./marketplace-virtual-machines.md) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
 | [**솔루션 템플릿**](./marketplace-solution-templates.md) | 솔루션에 단일 VM 이외에 추가 배포 및 구성 자동화가 필요한 경우 솔루션 템플릿 (Azure 응용 프로그램이 라고도 함) 제품 유형을 사용 합니다. 솔루션 템플릿은 Vm을 비롯 하 여 다양 한 종류의 Azure 리소스를 사용할 수 있습니다.  |
 | [**관리 되는 응용 프로그램**](./marketplace-managed-apps.md) | 다음 조건이 필요한 경우 Azure 앱: 관리되는 앱 제품 형식을 사용합니다. <br> <ul> <li> VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. </li> <li>사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. </li> <ul> |
 | [**SaaS 애플리케이션**](./partner-center-portal/create-new-saas-offer.md) | SaaS 앱 제품 유형을 사용하면 고객이 SaaS 기반, 기술 솔루션을 구독으로 구매할 수 있습니다. |

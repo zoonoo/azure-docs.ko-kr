@@ -3,19 +3,18 @@ title: 실제 예제를 사용 하 여 Azure Cosmos DB에서 데이터 모델링
 description: Azure Cosmos DB Core API를 사용하여 실제 예제를 모델링하고 분할하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: af5211e82820c1052b9ea17ce1fbdb0ebd5b9f3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75445388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800378"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 
-이 문서는 실제 데이터 설계 연습을 처리하는 방법을 보여 주기 위해 [데이터 모델링](modeling-data.md), [분할](partitioning-overview.md) 및 [프로비저닝된 처리량](request-units.md)과 같은 여러 Azure Cosmos DB 개념을 기반으로 하여 작성되었습니다.
+이 문서는 [데이터 모델링](modeling-data.md), [분할](partitioning-overview.md)및 [프로 비전 된 처리량](request-units.md) 과 같은 여러 가지 Azure Cosmos DB 개념을 기반으로 하 여 실제 데이터 디자인 연습을 처리 하는 방법을 보여 줍니다.
 
 일반적으로 관계형 데이터베이스를 사용하는 경우 데이터 모델을 설계하는 방법에 대한 습관과 직관을 구축했을 수 있습니다. 특정 제약 조건뿐만 아니라 Azure Cosmos DB의 고유한 장점으로 인해 이러한 모범 사례의 대부분은 제대로 변환되지 않고 최적이 아닌 솔루션으로 끌어들일 수 있습니다. 이 문서의 목표는 항목 모델링에서 엔터티 공동 배치 및 컨테이너 분할에 이르기까지 Azure Cosmos DB의 실제 사용 사례를 모델링하는 전체 프로세스를 안내하는 것입니다.
 
@@ -65,10 +64,12 @@ ms.locfileid: "75445388"
 
 다음 컨테이너는 사용자 항목만 저장합니다.
 
-    {
-      "id": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "username": "<username>"
+}
+```
 
 이 컨테이너를 `id`로 분할합니다. 즉, 해당 컨테이너 내의 각 논리 파티션에는 하나의 항목만 포함됩니다.
 
@@ -76,32 +77,34 @@ ms.locfileid: "75445388"
 
 다음 컨테이너는 게시물, 댓글 및 좋아요를 호스팅합니다.
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "creationDate": "<post-creation-date>"
+}
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 이 컨테이너를 `postId`로 분할합니다. 즉, goekd 컨테이너 내의 각 논리 파티션에는 하나의 게시물, 해당 게시물에 대한 모든 댓글 및 해당 게시물에 대한 모든 좋아요가 포함됩니다.
 
@@ -122,7 +125,7 @@ ms.locfileid: "75445388"
 
 이 요청은 `users` 컨테이너에서 항목을 만들거나 업데이트할 때 쉽게 구현할 수 있습니다. 요청은 `id` 파티션 키를 통해 모든 파티션에 잘 전달됩니다.
 
-![users 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C1.png" alt-text="users 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -132,7 +135,7 @@ ms.locfileid: "75445388"
 
 `users` 컨테이너에서 해당 항목을 읽어 사용자를 검색합니다.
 
-![users 컨테이너에서 단일 항목 검색](./media/how-to-model-partition-example/V1-Q1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="users 컨테이너에서 단일 항목 검색" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -142,7 +145,7 @@ ms.locfileid: "75445388"
 
 **[C1]** 과 마찬가지로 `posts` 컨테이너에 쓰기만 하면 됩니다.
 
-![posts 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="posts 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -152,7 +155,7 @@ ms.locfileid: "75445388"
 
 `posts` 컨테이너에서 해당 문서를 검색하는 것으로 시작합니다. 그러나 이것만으로는 충분하지 않습니다. 사양에 따라 게시물 작성자의 사용자 이름과 이 게시물에 대한 댓글 및 좋아요의 수를 집계해야 합니다. 이를 위해 실행할 3개의 SQL 쿼리가 추가로 필요합니다.
 
-![게시물 검색 및 추가 데이터 집계](./media/how-to-model-partition-example/V1-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="게시물 검색 및 추가 데이터 집계" border="false":::
 
 각 추가 쿼리는 정확히 성능과 확장성을 최대화하기 위해 해당 컨테이너의 파티션 키를 필터링합니다. 하지만 결국에는 4개의 작업을 수행하여 하나의 게시물을 반환해야 하므로 이 부분은 다음 반복에서 개선됩니다.
 
@@ -164,7 +167,7 @@ ms.locfileid: "75445388"
 
 먼저 특정 사용자에 해당하는 게시물을 가져오는 SQL 쿼리를 사용하여 원하는 게시물을 검색해야 합니다. 하지만 작성자의 사용자 이름과 댓글 및 좋아요의 수를 집계하는 추가 쿼리를 실행해야 합니다.
 
-![사용자에 대한 모든 게시물 검색 및 추가 데이터 집계](./media/how-to-model-partition-example/V1-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="사용자에 대한 모든 게시물 검색 및 추가 데이터 집계" border="false":::
 
 이 구현에는 다음과 같이 많은 단점이 있습니다.
 
@@ -179,7 +182,7 @@ ms.locfileid: "75445388"
 
 댓글은 해당 항목을 `posts` 컨테이너에 기록함으로써 만들어집니다.
 
-![posts 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="posts 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -189,7 +192,7 @@ ms.locfileid: "75445388"
 
 먼저 해당 게시물에 대한 모든 댓글을 가져오는 쿼리로 시작하고, 각 댓글에 대한 사용자 이름도 개별적으로 집계해야 합니다.
 
-![게시물에 대한 모든 댓글 검색 및 추가 데이터 집계](./media/how-to-model-partition-example/V1-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="게시물에 대한 모든 댓글 검색 및 추가 데이터 집계" border="false":::
 
 주 쿼리는 컨테이너의 파티션 키를 필터링하지만, 사용자 이름을 개별적으로 집계하면 전체 성능이 저하됩니다. 이 부분은 나중에 개선됩니다.
 
@@ -201,7 +204,7 @@ ms.locfileid: "75445388"
 
 **[C3]** 과 마찬가지로 해당 항목을 `posts` 컨테이너에 만듭니다.
 
-![posts 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="posts 컨테이너에 단일 항목 쓰기" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -211,7 +214,7 @@ ms.locfileid: "75445388"
 
 **[Q4]** 와 마찬가지로 해당 게시물에 대한 좋아요를 쿼리한 다음, 해당 사용자 이름을 집계합니다.
 
-![게시물에 대한 모든 좋아요 검색 및 추가 데이터 수집](./media/how-to-model-partition-example/V1-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="게시물에 대한 모든 좋아요 검색 및 추가 데이터 수집" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -221,9 +224,9 @@ ms.locfileid: "75445388"
 
 `posts` 컨테이너를 쿼리하여 만든 날짜를 내림차순으로 정렬한 최근 게시물을 가져온 다음, 각 게시물에 대한 사용자 이름과 댓글 및 좋아요의 수를 집계합니다.
 
-![최근 게시물 검색 및 추가 데이터 집계](./media/how-to-model-partition-example/V1-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="최근 게시물 검색 및 추가 데이터 집계" border="false":::
 
-다시 한 번, 초기 쿼리는 `posts` 컨테이너의 파티션 키를 필터링 하지 않으며,이로 인해 비용이 많이 드는 팬이 트리거됩니다. 훨씬 더 큰 결과 집합을 대상으로 하 고 `ORDER BY` 절을 사용 하 여 결과를 정렬 하는 것과 마찬가지로이는 훨씬 더 악화 됩니다. 그러면 요청 단위 측면에서 비용이 더 많이 듭니다.
+다시 한 번, 초기 쿼리는 컨테이너의 파티션 키를 필터링 하지 않으며 `posts` ,이로 인해 비용이 많이 드는 팬이 트리거됩니다. 훨씬 더 큰 결과 집합을 대상으로 하 고 절을 사용 하 여 결과를 정렬 하는 것과 마찬가지로이는 훨씬 더 악화 됩니다 `ORDER BY` . 그러면 요청 단위 측면에서 비용이 더 많이 듭니다.
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -244,39 +247,43 @@ ms.locfileid: "75445388"
 
 다음 예제에서는 게시물 작성자의 사용자 이름, 댓글 수 및 좋아요 수를 추가하도록 게시물 항목을 수정합니다.
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 또한 댓글 및 좋아요 항목을 만든 사용자의 사용자 이름을 추가하도록 해당 항목을 수정합니다.
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "userUsername": "<comment-author-username>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+```json
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "userUsername": "<comment-author-username>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "userUsername": "<liker-username>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "userUsername": "<liker-username>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 ### <a name="denormalizing-comment-and-like-counts"></a>댓글 및 좋아요 수 비정규화
 
@@ -328,7 +335,7 @@ function createComment(postId, comment) {
 
 다음 예제에서는 사용자가 자신의 사용자 이름을 업데이트할 때마다 `users` 컨테이너의 변경 피드를 사용하여 반응합니다. 이 경우 `posts` 컨테이너에 대해 다른 저장 프로시저를 호출하여 변경 내용을 전파합니다.
 
-![posts 컨테이너에 사용자 이름 비정규화](./media/how-to-model-partition-example/denormalization-1.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="posts 컨테이너에 사용자 이름 비정규화" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -368,7 +375,7 @@ function updateUsernames(userId, username) {
 
 이제 비정규화가 완료되었으므로 해당 요청을 처리하기 위해 하나의 항목만 가져오면 됩니다.
 
-![posts 컨테이너에서 단일 항목 검색](./media/how-to-model-partition-example/V2-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="posts 컨테이너에서 단일 항목 검색" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -378,7 +385,7 @@ function updateUsernames(userId, username) {
 
 여기서 다시, 사용자 이름을 가져온 추가 요청을 줄이고 파티션 키를 필터링하는 단일 쿼리로 끝낼 수 있습니다.
 
-![게시물에 대한 모든 댓글 검색](./media/how-to-model-partition-example/V2-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="게시물에 대한 모든 댓글 검색" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -388,7 +395,7 @@ function updateUsernames(userId, username) {
 
 좋아요를 나열하는 경우와 똑같은 상황입니다.
 
-![게시물에 대한 모든 좋아요 검색](./media/how-to-model-partition-example/V2-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="게시물에 대한 모든 좋아요 검색" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -402,7 +409,7 @@ function updateUsernames(userId, username) {
 
 이 요청은 이미 V2에서 도입된 향상된 기능의 이점으로 인해 추가 쿼리를 줄일 수 있습니다.
 
-![사용자에 대한 모든 게시물 검색](./media/how-to-model-partition-example/V2-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="사용자에 대한 모든 게시물 검색" border="false":::
 
 그러나 나머지 쿼리에서는 아직 `posts` 컨테이너의 파티션 키를 필터링하지 않습니다.
 
@@ -417,38 +424,40 @@ function updateUsernames(userId, username) {
 
 이제 `users` 컨테이너에는 다음 두 종류의 항목이 포함되어 있습니다.
 
-    {
-      "id": "<user-id>",
-      "type": "user",
-      "userId": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "type": "user",
+    "userId": "<user-id>",
+    "username": "<username>"
+}
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
-다음 사항에 유의하세요.
+다음 사항에 유의합니다.
 
 - 사용자와 게시물을 구분하기 위해 `type` 필드를 사용자 항목에 도입했습니다.
 - `userId` 필드도 사용자 항목에 추가되었습니다. 이 필드는 `id` 필드와 중복되지만, 이제 `users` 컨테이너가 `userId`(앞서와 같이 `id`가 아님)로 분할되므로 필요합니다.
 
 이 비정규화를 달성하기 위해 변경 피드를 다시 한번 사용합니다. 이번에는 `posts` 컨테이너의 변경 피드에 반응하여 새 게시물이나 업데이트된 게시물을 `users` 컨테이너로 발송합니다. 그리고 게시물을 나열하면 전체 콘텐츠를 반환할 필요가 없으므로 이 프로세스에서 해당 콘텐츠를 자를 수 있습니다.
 
-![users 컨테이너에 게시물 비정규화](./media/how-to-model-partition-example/denormalization-2.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="users 컨테이너에 게시물 비정규화" border="false":::
 
 이제 쿼리를 `users` 컨테이너로 라우팅하여 해당 컨테이너의 파티션 키를 필터링할 수 있습니다.
 
-![사용자에 대한 모든 게시물 검색](./media/how-to-model-partition-example/V3-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="사용자에 대한 모든 게시물 검색" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -458,30 +467,32 @@ function updateUsernames(userId, username) {
 
 여기서 비슷한 상황을 처리해야 합니다. V2에 도입된 비정규화에서 남겨진 불필요한 추가 쿼리를 줄인 후에도 나머지 쿼리에서는 컨테이너의 파티션 키를 필터링하지 않습니다.
 
-![최근 게시물 검색](./media/how-to-model-partition-example/V2-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="최근 게시물 검색" border="false":::
 
 동일한 접근 방식에 따라 이 요청의 성능과 확장성을 최대화하려면 하나의 파티션만 적중해야 합니다. 이는 제한된 수의 항목만 반환해야 하므로 고려할 수 있습니다. 블로깅 플랫폼의 홈페이지를 채우기 위해 전체 데이터 세트에 대해 페이지를 매길 필요 없이 100개의 최근 게시물을 가져오기만 하면 됩니다.
 
 따라서 이 마지막 요청을 최적화하기 위해 전적으로 이 요청을 처리하는 데 전념하는 세 번째 컨테이너를 설계했습니다. 게시물을 새 `feed` 컨테이너에 비정규화합니다.
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 이 컨테이너는 항목에서 항상 `post`인 `type`으로 분할됩니다. 이렇게 하면 이 컨테이너의 모든 항목이 동일한 파티션에 배치됩니다.
 
 비정규화를 달성하기 위해 앞에서 도입한 변경 공급 파이프라인에 후크하여 게시물을 새 컨테이너로 발송하기만 하면 됩니다. 명심해야 할 한 가지 중요한 점은 100개의 최근 게시물만 저장해야 한다는 것입니다. 그렇지 않으면 컨테이너의 콘텐츠가 파티션의 최대 크기를 초과할 수 있습니다. 이 작업은 컨테이너에 문서가 추가될 때마다 [사후 트리거](stored-procedures-triggers-udfs.md#triggers)를 호출하여 수행됩니다.
 
-![feed 컨테이너에 게시물 비정규화](./media/how-to-model-partition-example/denormalization-3.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="feed 컨테이너에 게시물 비정규화" border="false":::
 
 컬렉션을 자르는 사후 트리거의 본문은 다음과 같습니다.
 
@@ -532,7 +543,7 @@ function truncateFeed() {
 
 마지막 단계는 쿼리를 새 `feed` 컨테이너로 다시 라우팅하는 것입니다.
 
-![최근 게시물 검색](./media/how-to-model-partition-example/V3-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="최근 게시물 검색" border="false":::
 
 | **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
@@ -545,12 +556,12 @@ function truncateFeed() {
 | | V1 | V2 | V3 |
 | --- | --- | --- | --- |
 | **C1** | 7ms/5.71RU | 7ms/5.71RU | 7ms/5.71RU |
-| **[Q1]** | 2ms/1RU | 2ms/1RU | 2ms/1RU |
+| **사분기** | 2ms/1RU | 2ms/1RU | 2ms/1RU |
 | **있다면** | 9ms/8.76RU | 9ms/8.76RU | 9ms/8.76RU |
-| **[Q2]** | 9ms/19.54RU | 2ms/1RU | 2ms/1RU |
-| **[Q3]** | 130ms/619.41RU | 28ms/201.54RU | 4ms/6.46RU |
+| **2** | 9ms/19.54RU | 2ms/1RU | 2ms/1RU |
+| **Q3** | 130ms/619.41RU | 28ms/201.54RU | 4ms/6.46RU |
 | **소모** | 7ms/8.57RU | 7ms/15.27RU | 7ms/15.27RU |
-| **[Q4]** | 23ms/27.72RU | 4ms/7.72RU | 4ms/7.72RU |
+| **4** | 23ms/27.72RU | 4ms/7.72RU | 4ms/7.72RU |
 | **C4** | 6ms/7.05RU | 7ms/14.67RU | 7ms/14.67RU |
 | **[Q5]** | 59ms/58.92RU | 4ms/8.92RU | 4ms/8.92RU |
 | **[Q6]** | 306ms/2063.54RU | 83ms/532.33RU | 9ms/16.97RU |
@@ -575,4 +586,4 @@ function truncateFeed() {
 
 - [데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md)
 - [Azure Cosmos DB에서 분할](partitioning-overview.md)
-- [Azure Cosmos DB의 변경 피드](change-feed.md)
+- [Azure Cosmos DB에서 피드 변경](change-feed.md)

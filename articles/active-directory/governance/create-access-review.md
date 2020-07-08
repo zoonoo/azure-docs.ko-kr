@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/08/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e01951b6147cfc39fe6c46035db822071bda3aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 661339545f2c3f01ffd2e07b0fad08de8ac90278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078873"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
@@ -28,7 +27,7 @@ ms.locfileid: "80984076"
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자
@@ -53,9 +52,9 @@ ms.locfileid: "80984076"
 
     ![액세스 검토 만들기 - 시작 및 종료 날짜](./media/create-access-review/start-end-dates.png)
 
-1. 액세스 검토를 반복 하려면 **빈도** 설정을 **한 시간** 에서 **매주**, **매월**, **분기별**, **반기**또는 **매년**으로 변경 합니다. **기간** 슬라이더 또는 텍스트 상자를 사용 하 여 검토자의 입력을 위해 되풀이 계열의 각 검토가 열리는 일 수를 정의 합니다. 예를 들어 검토가 겹치는 상황을 방지하기 위해 월별 검토에 대해 설정할 수 있는 최대 기간은 27일입니다.
+1. 액세스 검토를 반복 하려면 **빈도** 설정을 **한 시간** 에서 **매주**, **매월**, **분기별**, **반기**또는 **매년**으로 변경 합니다. **기간** 슬라이더 또는 텍스트 상자를 사용하여 검토자의 입력에 대해 반복 시리즈의 각 검토가 열릴 일수를 정의합니다. 예를 들어 검토가 겹치는 상황을 방지하기 위해 월별 검토에 대해 설정할 수 있는 최대 기간은 27일입니다.
 
-1. **종료** 설정을 사용하여 되풀이 액세스 검토 시리즈를 종료하는 방법을 지정합니다. 이 시리즈는 세 가지 방법으로 종료할 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 횟수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자는 다른 사용자 관리자 또는 다른 전역 관리자가 **설정**의 날짜를 변경 하 여 만든 후 해당 날짜에 끝나도록 계열을 중지할 수 있습니다.
+1. **종료** 설정을 사용하여 되풀이 액세스 검토 시리즈를 종료하는 방법을 지정합니다. 이 시리즈는 세 가지 방법으로 종료할 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 횟수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자, 다른 사용자 관리자 또는 다른 전역 관리자는 해당 날짜에 종료되도록 **설정**에서 날짜를 변경하여 생성 후 시리즈를 중지할 수 있습니다.
 
 1. **사용자** 섹션에서 액세스 검토가 적용 되는 사용자를 지정 합니다. 액세스 검토는 애플리케이션에 할당된 그룹 구성원이거나 사용자일 수 있습니다. 구성원이거나 애플리케이션에 대한 액세스 권한이 있는 모든 사용자를 검토하는 대신, 액세스 검토 범위를 자세히 지정하여 구성원이거나 앱에 할당된 게스트 사용자로만 제한하여 검토할 수 있습니다.
 
@@ -148,6 +147,6 @@ API를 사용하여 액세스 검토를 만들 수도 있습니다. Azure Portal
 
 ## <a name="next-steps"></a>다음 단계
 
-- [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)
+- [그룹 또는 애플리케이션에 대한 액세스 검토](perform-access-review.md)
 - [그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.](review-your-access.md)
-- [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)
+- [그룹 또는 애플리케이션의 액세스 검토 완료](complete-access-review.md)

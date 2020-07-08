@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 87c915330fdc0d59d0d32c0747c7dc7647c342ba
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 8f32313529da965573a6c9884daee678e3bc64cc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700971"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958602"
 ---
 # <a name="create-an-azure-container-offer"></a>Azure 컨테이너 제품 만들기
 
@@ -20,7 +19,7 @@ ms.locfileid: "83700971"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-빠른 시작, 자습서 및 샘플에 대해서는 [Azure Container Instances 설명서](https://docs.microsoft.com/azure/container-instances)를 참조하세요.
+빠른 시작, 자습서 및 샘플에 대해서는 [Azure Container Instances 설명서](../../container-instances/index.yml)를 참조하세요.
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
 
@@ -43,7 +42,7 @@ ms.locfileid: "83700971"
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
+- [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - 확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +54,9 @@ ms.locfileid: "83700971"
 
 자세한 내용은 다음 자습서를 참조하세요.
 
-- [자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-- [자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+- [자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기](../../container-instances/container-instances-tutorial-prepare-app.md)
+- [자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포](../../container-registry/container-registry-tutorial-quick-task.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [컨테이너 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer)
+- [컨테이너 제품 만들기](create-azure-container-offer.md)

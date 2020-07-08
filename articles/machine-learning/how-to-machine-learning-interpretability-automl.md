@@ -5,16 +5,15 @@ description: 자동화 된 ML 모델이 기능 중요도를 결정 하 고 Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
-ms.openlocfilehash: e0ec6cbc4cea926dfc50cdae247aea5d765c20ca
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430538"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretability: 자동화 된 machine learning의 모델 설명
 
@@ -22,7 +21,7 @@ ms.locfileid: "82691212"
 
 이 문서에서는 Azure Machine Learning의 ML (자동화 된 기계 학습)에 대 한 설명을 가져오는 방법에 대해 알아봅니다. 자동화 된 ML은 엔지니어링 된 기능 중요도를 이해 하는 데 도움이 됩니다. 
 
-1.0.85 이후의 모든 SDK 버전은 `model_explainability=True` 기본적으로 설정 되어 있습니다. SDK 버전 1.0.85 및 이전 버전에서는 사용자가 모델 interpretability `model_explainability=True` 을 사용 `AutoMLConfig` 하기 위해 개체에서를 설정 해야 합니다. 
+1.0.85 이후의 모든 SDK 버전 `model_explainability=True` 은 기본적으로 설정 되어 있습니다. SDK 버전 1.0.85 및 이전 버전에서는 사용자가 `model_explainability=True` `AutoMLConfig` 모델 interpretability을 사용 하기 위해 개체에서를 설정 해야 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -32,16 +31,16 @@ ms.locfileid: "82691212"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Interpretability 기능. 을 `pip install azureml-interpret azureml-contrib-interpret` 실행 하 여 필요한 패키지를 가져옵니다.
+- Interpretability 기능. `pip install azureml-interpret azureml-contrib-interpret`을 실행 하 여 필요한 패키지를 가져옵니다.
 - 자동화 된 ML 실험 빌드에 대 한 지식. Azure Machine Learning SDK를 사용 하는 방법에 대 한 자세한 내용은이 [회귀 모델 자습서](tutorial-auto-train-models.md) 를 완료 하거나 [자동화 된 ML 실험을 구성](how-to-configure-auto-train.md)하는 방법을 참조 하세요.
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>최상의 모델을 위한 학습 중에 Interpretability
 
-에서 설명 하는 설명을 `best_run`검색 합니다. 여기에는 엔지니어링 된 기능에 대 한 설명이 포함 됩니다.
+에서 설명 하는 설명을 검색 합니다 `best_run` . 여기에는 엔지니어링 된 기능에 대 한 설명이 포함 됩니다.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>아티팩트 저장소에서 엔지니어링 된 기능 중요도 다운로드
 
-를 사용 `ExplanationClient` 하 여의 아티팩트 저장소에서 엔지니어링 된 기능 설명을 다운로드할 수 있습니다 `best_run`. 
+를 사용 `ExplanationClient` 하 여의 아티팩트 저장소에서 엔지니어링 된 기능 설명을 다운로드할 수 있습니다 `best_run` . 
 
 ```python
 from azureml.explain.model._internal.explanation_client import ExplanationClient
@@ -63,7 +62,7 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>모델 설명 설정
 
-를 `automl_setup_model_explanations` 사용 하 여 엔지니어링 된 설명을 가져옵니다. 에서 `fitted_model` 다음 항목을 생성할 수 있습니다.
+`automl_setup_model_explanations`를 사용 하 여 엔지니어링 된 설명을 가져옵니다. 에서 `fitted_model` 다음 항목을 생성할 수 있습니다.
 
 - 학습 된 또는 테스트 샘플의 주요 데이터
 - 엔지니어링 된 기능 이름 목록
@@ -81,13 +80,13 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>기능 중요도에 대 한 모방 설명 초기화
 
-AutoML 모델에 대 한 설명을 생성 하려면 `MimicWrapper` 클래스를 사용 합니다. 다음 매개 변수를 사용 하 여 MimicWrapper를 초기화할 수 있습니다.
+AutoML 모델에 대 한 설명을 생성 하려면 클래스를 사용 `MimicWrapper` 합니다. 다음 매개 변수를 사용 하 여 MimicWrapper를 초기화할 수 있습니다.
 
 - 설명 설정 개체
 - 작업 영역
-- 자동화 된 `fitted_model` ML 모델을 설명 하는 서로게이트 모델
+- 자동화 된 ML 모델을 설명 하는 서로게이트 모델 `fitted_model`
 
-또한 MimicWrapper는 엔지니어링 된 `automl_run` 설명이 업로드 될 개체를 사용 합니다.
+또한 MimicWrapper는 `automl_run` 엔지니어링 된 설명이 업로드 될 개체를 사용 합니다.
 
 ```python
 from azureml.explain.model.mimic_wrapper import MimicWrapper
@@ -104,7 +103,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>엔지니어링 된 기능 중요도를 계산 하 고 시각화 하는 데 MimicExplainer 사용
 
-변환 된 테스트 샘플 `explain()` 을 사용 하 여 MimicWrapper에서 메서드를 호출 하 여 생성 된 엔지니어링 된 기능에 대 한 기능 중요도를 가져올 수 있습니다. 을 사용 `ExplanationDashboard` 하 여 자동화 된 ML featurizers 생성 된 엔지니어링 기능의 기능 중요도 값의 대시보드 시각화를 볼 수도 있습니다.
+`explain()`변환 된 테스트 샘플을 사용 하 여 MimicWrapper에서 메서드를 호출 하 여 생성 된 엔지니어링 된 기능에 대 한 기능 중요도를 가져올 수 있습니다. 을 사용 하 여 `ExplanationDashboard` 자동화 된 ML featurizers 생성 된 엔지니어링 기능의 기능 중요도 값의 대시보드 시각화를 볼 수도 있습니다.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -117,7 +116,7 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>모델 및 점수 매기기 설명을 등록 합니다.
 
-를 `TreeScoringExplainer` 사용 하 여 유추 시간에 엔지니어링 된 기능 중요도 값을 계산 하는 점수 매기기 설명을 만듭니다. 이전에 계산 된를 `feature_map` 사용 하 여 점수 매기기 설명를 초기화 합니다. 
+를 사용 `TreeScoringExplainer` 하 여 유추 시간에 엔지니어링 된 기능 중요도 값을 계산 하는 점수 매기기 설명을 만듭니다. 이전에 계산 된를 사용 하 여 점수 매기기 설명를 초기화 합니다 `feature_map` . 
 
 점수 매기기 설명을 저장 한 다음 모델 및 점수 매기기 설명를 모델 관리 서비스에 등록 합니다. 다음 코드를 실행합니다.
 

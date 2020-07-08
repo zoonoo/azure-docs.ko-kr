@@ -6,14 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834767"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040778"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -159,7 +158,7 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭| *TwitterStream* | 입력의 별칭을 기입합니다. |
-   |Subscription  | \<구독\> |  사용할 Azure 구독을 선택합니다. |
+   |Subscription  | \<Your subscription\> |  사용할 Azure 구독을 선택합니다. |
    |이벤트 허브 네임스페이스 | *asa-twitter-eventhub* |
    |이벤트 허브 이름 | *socialtwitter-eh* | 기존 항목 사용을 선택합니다. 그런 다음, 직접 만든 이벤트 허브를 선택합니다.|
    |이벤트 압축 유형| GZip | 데이터 압축 유형입니다.|

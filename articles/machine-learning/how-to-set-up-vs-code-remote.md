@@ -5,16 +5,15 @@ description: Azure Machine Learning를 사용 하 여 코드를 대화형으로 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77169746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433124"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>VS Code 원격을 사용 하 여 Azure Machine Learning 계산 인스턴스에서 대화형으로 디버그
 
@@ -25,7 +24,7 @@ ms.locfileid: "77169746"
 
 + [원격 Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview) 개발을 통해 컨테이너, 원격 컴퓨터 또는 WSL (Linux 용 Windows 하위 시스템)을 모든 기능을 갖춘 개발 환경으로 사용할 수 있습니다. 
 
-## <a name="prerequisite"></a>필수 요소  
+## <a name="prerequisite"></a>필수 조건  
 
 Windows 플랫폼에서 아직 없는 경우 [OpenSSH 호환 SSH 클라이언트를 설치](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) 해야 합니다. 
 
@@ -34,7 +33,7 @@ Windows 플랫폼에서 아직 없는 경우 [OpenSSH 호환 SSH 클라이언트
 
 ## <a name="get-ip-and-ssh-port"></a>IP 및 SSH 포트 가져오기 
 
-1. Azure Machine Learning studio ()로 이동 https://ml.azure.com/합니다.
+1. Azure Machine Learning studio ()로 이동 https://ml.azure.com/ 합니다.
 
 2. [작업 영역](concept-workspace.md)을 선택 합니다.
 1. **계산 인스턴스** 탭을 클릭 합니다.
@@ -70,7 +69,7 @@ Windows 플랫폼에서 아직 없는 경우 [OpenSSH 호환 SSH 클라이언트
 
 ## <a name="add-instance-as-a-host"></a>인스턴스를 호스트로 추가 
 
-편집기에서 파일 `~/.ssh/config` (Linux) 또는 `C:\Users<username>.ssh\config` (Windows)를 열고 다음과 같은 새 항목을 추가 합니다.
+`~/.ssh/config`편집기에서 파일 (Linux) 또는 `C:\Users<username>.ssh\config` (Windows)를 열고 다음과 같은 새 항목을 추가 합니다.
 
 ```
 Host azmlci1 
@@ -86,7 +85,7 @@ Host azmlci1
 
 필드에 대 한 자세한 내용은 다음과 같습니다. 
 
-|필드|Description|
+|필드|설명|
 |----|---------|
 |호스트|계산 인스턴스에 대해 원하는 약어를 사용 합니다. |
 |HostName|계산 인스턴스의 IP 주소입니다. |
@@ -94,7 +93,7 @@ Host azmlci1
 |사용자|다음이 필요 합니다. `azureuser` |
 |IdentityFile|는 개인 키를 저장 한 파일을 가리켜야 합니다. |
 
-이제 위에서 사용한 약어를 사용 하 여 계산 인스턴스로 ssh를 실행할 수 있습니다 `ssh azmlci1`. 
+이제 위에서 사용한 약어를 사용 하 여 계산 인스턴스로 ssh를 실행할 수 있습니다 `ssh azmlci1` . 
 
 ## <a name="connect-vs-code-to-the-instance"></a>인스턴스에 VS Code 연결 
 
@@ -114,4 +113,4 @@ Host azmlci1
 
 이제 원격 Visual Studio Code 설정 했으므로 계산 인스턴스를 Visual Studio Code의 원격 계산으로 사용 하 여 코드를 대화형으로 디버그할 수 있습니다. 
 
-[자습서: 첫 번째 ML 모델 학습](tutorial-1st-experiment-sdk-train.md) 은 통합 된 노트북으로 계산 인스턴스를 사용 하는 방법을 보여 줍니다.
+[자습서: 첫 번째 ML 모델 학습](tutorial-1st-experiment-sdk-train.md)에서는 통합 Notebook으로 컴퓨팅 인스턴스를 사용하는 방법을 보여 줍니다.

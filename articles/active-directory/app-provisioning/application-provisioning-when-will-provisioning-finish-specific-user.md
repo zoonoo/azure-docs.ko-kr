@@ -2,21 +2,20 @@
 title: 특정 사용자가 앱에 액세스할 수 있는 시기를 확인 합니다.
 description: 매우 중요한 사용자가 Azure AD를 사용하여 사용자를 프로비저닝하도록 구성한 애플리케이션에 액세스할 수 있는 시기를 찾는 방법
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782027"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>사용자 프로 비전 상태를 확인 합니다.
 
@@ -35,7 +34,7 @@ Azure AD 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대
 
 프로 비전 주기가 완료 된 후 **날짜 통계** 섹션에는 마지막 주기의 완료 날짜 및 기간과 함께 날짜에 프로 비전 된 사용자 및 그룹의 누적 수가 표시 됩니다. **활동 ID** 는 가장 최근의 프로 비전 주기를 고유 하 게 식별 합니다. **작업 ID** 는 프로 비전 작업의 고유 식별자 이며, 테 넌 트의 앱에만 적용 됩니다.
 
-프로 비전 진행률은 Azure Portal ** &gt; Azure Active Directory Enterprise &gt; \[Apps 응용 프로그램 이름\] &gt; 프로 비전** 탭에서 볼 수 있습니다.
+프로 비전 진행률은 Azure Portal **Azure Active Directory &gt; Enterprise Apps &gt; \[ 응용 프로그램 이름 \] &gt; 프로 비전** 탭에서 볼 수 있습니다.
 
 ![프로 비전 페이지 진행률 표시줄](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -43,7 +42,7 @@ Azure AD 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대
 
 선택한 사용자에 대 한 프로 비전 상태를 확인 하려면 Azure AD의 [프로 비전 로그 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 를 참조 하세요. 사용자 프로 비전 서비스에 의해 실행 되는 모든 작업은 Azure AD 프로 비전 로그에 기록 됩니다. 여기에는 원본 및 대상 시스템에 대 한 모든 읽기 및 쓰기 작업과 각 작업 중에 읽거나 쓴 사용자 데이터가 포함 됩니다.
 
-**작업** 섹션에서 **Azure Active Directory** &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다. 원본 시스템이 나 대상 시스템에서 사용자의 이름 또는 식별자를 기반으로 프로 비전 데이터를 검색할 수 있습니다. 자세한 내용은 [로그 프로 비전 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요. 
+**Azure Active Directory** &gt; 작업 섹션에서 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** **Activity** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다. 원본 시스템이 나 대상 시스템에서 사용자의 이름 또는 식별자를 기반으로 프로 비전 데이터를 검색할 수 있습니다. 자세한 내용은 [로그 프로 비전 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요. 
 
 프로 비전 로그는 프로 비전 서비스에서 수행 하는 모든 작업을 기록 합니다. 예를 들면 다음과 같습니다.
 
@@ -100,4 +99,4 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 - 성능이 문제가 되 고 테 넌 트에서 대부분의 사용자 및 그룹을 프로 비전 하려는 경우 범위 지정 필터를 사용 합니다. 범위 지정 필터를 사용하면 특정 특성 값에 따라 사용자를 필터링하여 프로비저닝 서비스가 Azure AD에서 추출하는 데이터를 미세 조정할 수 있습니다. 범위 지정 필터에 대한 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비전 및 프로비전 해제](user-provisioning.md)
+[Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화](user-provisioning.md)

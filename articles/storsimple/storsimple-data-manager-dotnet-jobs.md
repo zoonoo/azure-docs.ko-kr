@@ -3,15 +3,14 @@ title: Microsoft Azure StorSimple Data Manager 작업에 .NET SDK 사용
 description: .NET SDK를 사용하여 StorSimple 데이터 관리자 작업을 시작하는 방법에 대해 알아보기
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 316eddc98de78974bb2583f91ced635b148686c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514894"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작
 
@@ -83,7 +82,7 @@ ms.locfileid: "76270734"
 
        ![dll 2 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
-5. 다음 **using** 문을 프로젝트의 소스 파일 (Program.cs)에 추가 합니다.
+5. 다음 **using** 문을 프로젝트의 원본 파일(Program.cs)에 추가합니다.
 
     ```
     using System;

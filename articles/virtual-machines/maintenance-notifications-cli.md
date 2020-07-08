@@ -4,15 +4,14 @@ description: Azure CLI를 사용 하 여 Azure에서 실행 되는 가상 머신
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 289733c4cee23a37c26df0b613a470925756f0eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77920895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674842"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Azure CLI를 사용 하 여 계획 된 유지 관리 알림 처리
 
@@ -28,7 +27,7 @@ az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintena
 
 ## <a name="start-maintenance"></a>유지 관리 시작
 
-이 true로 설정 된 경우 `IsCustomerInitiatedMaintenanceAllowed` 다음 호출은 VM에 대 한 유지 관리를 시작 합니다.
+이 true로 설정 된 경우 다음 호출은 VM에 대 한 유지 관리를 시작 합니다 `IsCustomerInitiatedMaintenanceAllowed` .
 
 ```azurecli-interactive
 az vm perform-maintenance -g myResourceGroup -n myVM 

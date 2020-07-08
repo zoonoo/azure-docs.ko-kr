@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4aec156821a7d38907602cc1def0459dbf996b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447563"
 ---
 # <a name="train-model-module"></a>모델 학습 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 분류 또는 회귀 모델을 학습 합니다. 학습은 모델을 정의 하 고 해당 매개 변수를 설정한 후에 발생 하며 태그가 지정 된 데이터가 필요 합니다. 또한 **학습 모델** 을 사용 하 여 기존 모델을 새 데이터로 다시 학습 수 있습니다. 
 
@@ -62,9 +61,9 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용 하는 과
     > [!TIP] 
     > 열 선택기를 사용 하는 데 문제가 있는 경우 팁에 대 한 [데이터 집합에서 열 선택](./select-columns-in-dataset.md) 문서를 참조 하세요. 여기에는 규칙 및 **이름** 옵션과 **함께** 를 사용 하기 위한 몇 가지 일반적인 시나리오와 팁이 설명 되어 있습니다.
   
-5.  파이프라인을 제출 합니다. 데이터가 많은 경우 다소 시간이 걸릴 수 있습니다.
+5.  파이프라인을 제출합니다. 데이터가 많은 경우 다소 시간이 걸릴 수 있습니다.
 
-## <a name="results"></a><a name="bkmk_results"></a>검색
+## <a name="results"></a>결과
 
 모델을 학습 한 후:
 
@@ -76,4 +75,4 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용 하는 과
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

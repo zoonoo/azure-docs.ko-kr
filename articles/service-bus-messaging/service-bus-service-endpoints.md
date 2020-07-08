@@ -1,21 +1,13 @@
 ---
 title: Azure Service Bus에 대 한 가상 네트워크 서비스 끝점 구성
 description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
-services: service-bus
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
-ms.author: aschhab
-ms.openlocfilehash: d1766ffb579bb1a86da91ac73a396ce0d008f89e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117627"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340980"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Azure Service Bus에 대 한 가상 네트워크 서비스 끝점 구성
 
@@ -63,10 +55,10 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 ## <a name="use-azure-portal"></a>Azure Portal 사용
 이 섹션에서는 Azure Portal를 사용 하 여 가상 네트워크 서비스 끝점을 추가 하는 방법을 보여 줍니다. 액세스를 제한 하려면이 Event Hubs 네임 스페이스에 대 한 가상 네트워크 서비스 끝점을 통합 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Service Bus 네임 스페이스로** 이동 합니다.
-2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택 합니다. 기본적으로 **모든 네트워크** 옵션이 선택 되어 있습니다. 네임 스페이스는 모든 IP 주소의 연결을 허용 합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **Service Bus 네임스페이스**로 이동합니다.
+2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. 기본적으로 **모든 네트워크** 옵션이 선택되어 있습니다. 네임 스페이스는 모든 IP 주소의 연결을 허용 합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
-    ![방화벽-모든 네트워크 옵션을 선택 합니다.](./media/service-endpoints/firewall-all-networks-selected.png)
+    ![방화벽 - 모든 네트워크 옵션 선택됨](./media/service-endpoints/firewall-all-networks-selected.png)
 1. 페이지 맨 위에서 **선택한 네트워크** 옵션을 선택 합니다.
 2. 페이지의 **Virtual Network** 섹션에서 **+ 기존 가상 네트워크 추가**를 선택 합니다. 
 
@@ -81,7 +73,7 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 
     > [!NOTE]
     > 서비스 끝점을 사용 하도록 설정할 수 없는 경우 리소스 관리자 템플릿을 사용 하 여 누락 된 가상 네트워크 서비스 끝점을 무시할 수 있습니다. 이 기능은 포털에서 사용할 수 없습니다.
-6. 도구 모음에서 **저장** 을 선택 하 여 설정을 저장 합니다. 확인이 포털 알림에서 표시 될 때까지 몇 분 정도 기다립니다. **저장** 단추를 사용 하지 않도록 설정 해야 합니다. 
+6. 도구 모음에서 **저장**을 선택하여 설정을 저장합니다. 확인이 포털 알림에서 표시 될 때까지 몇 분 정도 기다립니다. **저장** 단추를 사용 하지 않도록 설정 해야 합니다. 
 
     ![네트워크 저장](./media/service-endpoints/save-vnet.png)
 

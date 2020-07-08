@@ -10,18 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/30/2020
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0eae4f53283c33f3d7372a606f8c0a3ac27d079
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9ef2faf2a1d1a131dc5f2a01d3fa46cc61a06fb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078808"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 요청 및 승인 설정 변경
 
@@ -37,8 +36,8 @@ ms.locfileid: "80655945"
 
 | 시나리오 | 정책 수 |
 | --- | --- |
-| 내 디렉터리의 모든 사용자에 게 액세스 패키지에 대 한 동일한 요청 및 승인 설정을 포함 하려고 합니다. | 1 |
-| 연결 된 특정 조직의 모든 사용자가 액세스 패키지를 요청할 수 있도록 하려고 합니다. | 1 |
+| 내 디렉터리의 모든 사용자에 게 액세스 패키지에 대 한 동일한 요청 및 승인 설정을 포함 하려고 합니다. | 하나 |
+| 연결 된 특정 조직의 모든 사용자가 액세스 패키지를 요청할 수 있도록 하려고 합니다. | 하나 |
 | 내 디렉터리의 사용자와 내 디렉터리의 사용자가 액세스 패키지를 요청 하도록 허용 합니다. | 여러 |
 | 일부 사용자에 대해 다른 승인 설정을 지정 하려고 합니다. | 여러 |
 | 일부 사용자가 패키지 할당을 액세스 하 여 다른 사용자가 액세스를 확장할 수 있도록 하려고 합니다. | 여러 |

@@ -4,18 +4,17 @@ description: Application Insights를 사용 하 여 사용자 고유의 저장�
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
-ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249740"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 응용 프로그램에 대 한 소스 맵 지원
 
 Application Insights는 사용자 고유의 저장소 계정 Blob 컨테이너에 대 한 원본 맵의 업로드를 지원 합니다.
-원본 맵은 종단 간 트랜잭션 세부 정보 페이지에서 찾은 호출 스택을 제거 하는 데 사용할 수 있습니다. [JAVASCRIPT sdk][ApplicationInsights-JS] 또는 [node.js SDK][ApplicationInsights-Node.js] 를 통해 전송 되는 모든 예외는 원본 맵으로 사용 하지 않도록 설정할 수 있습니다.
+원본 맵은 종단 간 트랜잭션 세부 정보 페이지에서 찾은 호출 스택을 제거 하는 데 사용할 수 있습니다. [JAVASCRIPT sdk][ApplicationInsights-JS] 또는 [Node.js SDK][ApplicationInsights-Node.js] 에서 전송 하는 모든 예외는 원본 맵으로 사용 하지 않도록 설정할 수 있습니다.
 
 ![저장소 계정과 연결 하 여 호출 스택 제거](./media/source-map-support/details-unminify.gif)
 
@@ -24,14 +23,16 @@ Application Insights는 사용자 고유의 저장소 계정 Blob 컨테이너�
 기존 저장소 계정 또는 blob 컨테이너가 이미 있는 경우이 단계를 건너뛸 수 있습니다.
 
 1. [새 스토리지 계정 만들기][create storage account]
-2. 저장소 계정 내에 [blob 컨테이너를 만듭니다][create blob container] . 원본 맵에 공개적으로 액세스할 수 없도록 하려면 "공용 액세스 `Private`수준"을로 설정 해야 합니다.
+2. 저장소 계정 내에 [blob 컨테이너를 만듭니다][create blob container] . 원본 맵에 공개적으로 액세스할 수 없도록 하려면 "공용 액세스 수준"을로 설정 해야 `Private` 합니다.
 
 > [!div class="mx-imgBorder"]
 >![컨테이너 액세스 수준을 개인으로 설정 해야 합니다.](./media/source-map-support/container-access-level.png)
 
 ## <a name="push-your-source-maps-to-your-blob-container"></a>Blob 컨테이너에 소스 맵 푸시
 
-구성 된 Blob 컨테이너에 원본 맵을 자동으로 업로드 하도록 구성 하 여 연속 배포 파이프라인을 저장소 계정과 통합 해야 합니다. 원본 맵은 Blob 컨테이너의 하위 폴더에 업로드 하면 안 됩니다. 현재 원본 맵은 루트 폴더 에서만 인출 됩니다.
+구성 된 Blob 컨테이너에 원본 맵을 자동으로 업로드 하도록 구성 하 여 연속 배포 파이프라인을 저장소 계정과 통합 해야 합니다.
+
+소스 맵은 & 배포 된 것과 동일한 폴더 구조를 사용 하 여 Blob Storage 컨테이너에 업로드할 수 있습니다. 일반적인 사용 사례는 배포 폴더를 해당 버전 (예:)으로 접두사로 사용 하는 것 `1.2.3/static/js/main.js` 입니다. 이라는 Azure Blob 컨테이너를 통해 unminifying 때 `sourcemaps` 에 있는 원본 맵을 인출 하려고 시도 `sourcemaps/1.2.3/static/js/main.js.map` 합니다.
 
 ### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Azure Pipelines를 통해 소스 맵 업로드 (권장)
 
@@ -74,8 +75,8 @@ Application Insights 리소스에 연결 된 저장소 계정 또는 Blob 컨테
 ### <a name="source-map-not-found"></a>원본 맵을 찾을 수 없습니다.
 
 1. 해당 하는 원본 맵이 올바른 blob 컨테이너에 업로드 되었는지 확인 합니다.
-2. 원본 맵 파일에 매핑되는 JavaScript 파일의 이름이로 지정 되어 있는지 확인 `.map`합니다.
-    - 예 `/static/js/main.4e2ca5fa.chunk.js` 를 들어는 이라는 blob을 검색 합니다.`main.4e2ca5fa.chunk.js.map`
+2. 원본 맵 파일에 매핑되는 JavaScript 파일의 이름이로 지정 되어 있는지 확인 `.map` 합니다.
+    - 예를 들어는 `/static/js/main.4e2ca5fa.chunk.js` 이라는 blob을 검색 합니다.`main.4e2ca5fa.chunk.js.map`
 3. 브라우저의 콘솔에서 오류를 기록 하 고 있는지 확인 합니다. 지원 티켓에이를 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,11 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449518"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
 
@@ -86,6 +85,10 @@ ms.locfileid: "83656616"
 
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>자동 크기 조정을 사용하는 경우 공유 처리량 데이터베이스당 허용된 컨테이너 수는 몇 개인가요?
 Azure Cosmos DB는 공유 처리량 데이터베이스에서 최대 25개의 컨테이너를 허용하며, 이는 자동 크기 조정 또는 표준(수동) 처리량을 사용하는 데이터베이스에 적용됩니다. 
+
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>데이터베이스 일관성 수준에 대 한 자동 크기 조정의 영향은 무엇 인가요?
+데이터베이스의 일관성 수준에 대 한 자동 크기 조정에는 영향을 주지 않습니다.
+사용 가능한 일관성 수준에 대 한 자세한 내용은 [일관성 수준](consistency-levels.md) 문서를 참조 하세요.
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>각 최대 RU/s 옵션과 관련된 스토리지 제한은 무엇인가요?  
 각 최대 RU/s에 대한 스토리지 제한(GB)은 다음과 같습니다. 데이터베이스 또는 컨테이너의 최대 RU/s / 100. 예를 들어 최대 RU/s가 20,000RU/s이면 리소스가 200GB 스토리지를 지원할 수 있습니다. 사용 가능한 최대 RU/s 및 스토리지 옵션은 [자동 크기 조정 제한](provision-throughput-autoscale.md#autoscale-limits) 문서를 참조하세요. 

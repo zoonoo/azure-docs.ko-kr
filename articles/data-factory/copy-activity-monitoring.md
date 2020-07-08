@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249706"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -26,7 +25,7 @@ ms.locfileid: "81417847"
 
 ## <a name="monitor-visually"></a>시각적으로 모니터링
 
-Azure Data Factory에서 파이프라인을 만들어 게시 한 후에는 트리거와 연결 하거나 임시 실행을 수동으로 시작할 수 있습니다. Azure Data Factory 사용자 환경에서 기본적으로 모든 파이프라인 실행을 모니터링할 수 있습니다. [시각적 모니터 Azure Data Factory](monitor-visually.md)에서 일반적인 Azure Data Factory 모니터링에 대해 알아봅니다.
+Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리거와 연결하거나 임시 실행을 수동으로 시작할 수 있습니다. Azure Data Factory 사용자 환경에서 기본적으로 모든 파이프라인 실행을 모니터링할 수 있습니다. [시각적 모니터 Azure Data Factory](monitor-visually.md)에서 일반적인 Azure Data Factory 모니터링에 대해 알아봅니다.
 
 복사 작업 실행을 모니터링 하려면 데이터 팩터리 **작성자 & 모니터링** UI로 이동 합니다. **모니터** 탭에서 파이프라인 실행 목록이 표시 되 면 파이프라인 **이름** 링크를 클릭 하 여 파이프라인 실행의 활동 실행 목록에 액세스 합니다.
 
@@ -48,19 +47,19 @@ Azure Data Factory에서 파이프라인을 만들어 게시 한 후에는 트�
 
 ## <a name="monitor-programmatically"></a>프로그래밍 방식으로 모니터링
 
-복사 작업 실행 세부 정보 및 성능 특성도 UI 모니터링 보기를 렌더링 하는 데 사용 되는 **복사 작업 실행 결과** > **출력** 섹션에도 반환 됩니다. 다음은 반환 될 수 있는 속성의 전체 목록입니다. 복사 시나리오에 적용 되는 속성만 볼 수 있습니다. 일반적인 방법으로 작업 실행을 모니터링 하는 방법에 대 한 자세한 내용은 [Azure data factory를 프로그래밍 방식으로 모니터링](monitor-programmatically.md)을 참조 하세요.
+복사 작업 실행 세부 정보 및 성능 특성도 UI 모니터링 보기를 렌더링 하는 데 사용 되는 **복사 작업 실행 결과**  >  **출력** 섹션에도 반환 됩니다. 다음은 반환 될 수 있는 속성의 전체 목록입니다. 복사 시나리오에 적용 되는 속성만 볼 수 있습니다. 일반적인 방법으로 작업 실행을 모니터링 하는 방법에 대 한 자세한 내용은 [Azure data factory를 프로그래밍 방식으로 모니터링](monitor-programmatically.md)을 참조 하세요.
 
-| 속성 이름  | Description | 출력 단위 |
+| 속성 이름  | 설명 | 출력 단위 |
 |:--- |:--- |:--- |
 | DataRead | 원본에서 읽은 실제 데이터 양입니다. | Int64 값 (바이트) |
-| DataWritten | 싱크에 기록/커밋된 데이터의 실제 탑재입니다. 크기는 각 데이터 저장소에서 `dataRead` 데이터를 저장 하는 방법과 관련 되므로 크기와 다를 수 있습니다. | Int64 값 (바이트) |
+| DataWritten | 싱크에 기록/커밋된 데이터의 실제 탑재입니다. 크기는 `dataRead` 각 데이터 저장소에서 데이터를 저장 하는 방법과 관련 되므로 크기와 다를 수 있습니다. | Int64 값 (바이트) |
 | filesRead | 파일 기반 소스에서 읽은 파일 수입니다. | Int64 값(단위 없음) |
 | filesWritten | 파일 기반 싱크에 대해 작성/커밋된 파일 수입니다. | Int64 값(단위 없음) |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
 | sinkPeakConnections | 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
-| rowsRead | 원본에서 읽은 행 수입니다 (이진 복사에는 적용 되지 않음). | Int64 값(단위 없음) |
-| rowsCopied | 싱크로 복사 된 행 수입니다 (이진 복사에는 적용 되지 않음). | Int64 값(단위 없음) |
-| rowsSkipped | 건너뛴 호환 되지 않는 행의 수입니다. 을 true로 설정 `enableSkipIncompatibleRow` 하 여 호환 되지 않는 행을 건너뛰도록 설정할 수 있습니다. | Int64 값(단위 없음) |
+| rowsRead | 원본에서 읽은 행 수입니다. 원본 및 싱크 데이터 집합이 이진 형식 형식 이거나 설정이 동일한 다른 형식 형식인 경우를 제외 하 고 파일을 있는 그대로 복사 하는 경우에는이 메트릭이 적용 되지 않습니다. | Int64 값(단위 없음) |
+| rowsCopied | 싱크로 복사 된 행의 수입니다. 원본 및 싱크 데이터 집합이 이진 형식 형식 이거나 설정이 동일한 다른 형식 형식인 경우를 제외 하 고 파일을 있는 그대로 복사 하는 경우에는이 메트릭이 적용 되지 않습니다.  | Int64 값(단위 없음) |
+| rowsSkipped | 건너뛴 호환 되지 않는 행의 수입니다. 을 true로 설정 하 여 호환 되지 않는 행을 건너뛰도록 설정할 수 있습니다 `enableSkipIncompatibleRow` . | Int64 값(단위 없음) |
 | copyDuration | 복사 실행의 지속 시간입니다. | Int32 값 (초) |
 | throughput | 데이터 전송 률입니다. | 부동 소수점 수 (KBps) |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int32 값 (단위 없음) |
@@ -68,14 +67,14 @@ Azure Data Factory에서 파이프라인을 만들어 게시 한 후에는 트�
 | sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용할지 여부를 지정 합니다. | 부울 |
 | redshiftUnload | Redshift에서 데이터를 복사할 때 언로드가 사용 되는지 여부입니다. | 부울 |
 | hdfsDistcp | HDFS에서 데이터를 복사할 때 DistCp를 사용할지 여부를 지정 합니다. | 부울 |
-| effectiveIntegrationRuntime | 작업을 실행 하는 데 사용 되는 IR (통합 런타임) 또는 런타임 형식 `<IR name> (<region if it's Azure IR>)`입니다. | 텍스트(문자열) |
+| effectiveIntegrationRuntime | 작업을 실행 하는 데 사용 되는 IR (통합 런타임) 또는 런타임 형식 `<IR name> (<region if it's Azure IR>)` 입니다. | 텍스트(문자열) |
 | usedDataIntegrationUnits | 복사 중 효율적인 데이터 통합 단위입니다. | Int32 값 |
 | usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값 |
-| redirectRowPath | `redirectIncompatibleRowSettings` 속성에서 구성 하는 blob 저장소에서 건너뛴 호환 되지 않는 행의 로그 경로입니다. [내결함성](copy-activity-overview.md#fault-tolerance)을 참조 하세요. | 텍스트(문자열) |
+| redirectRowPath | 속성에서 구성 하는 blob 저장소에서 건너뛴 호환 되지 않는 행의 로그 경로입니다 `redirectIncompatibleRowSettings` . [내결함성](copy-activity-overview.md#fault-tolerance)을 참조 하세요. | 텍스트(문자열) |
 | executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다. 복사 성능을 이해 하 고 문제를 해결 하는 데 도움이 되는 방법을 더 잘 이해 하려면 [시각적 개체 모니터링](#monitor-visually) 섹션을 참조 하세요. | 배열 |
 | perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips) 을 참조 하세요. | 배열 |
 
-**예제:**
+**예:**
 
 ```json
 "output": {
@@ -153,6 +152,6 @@ Azure Data Factory에서 파이프라인을 만들어 게시 한 후에는 트�
 ## <a name="next-steps"></a>다음 단계
 다른 복사 작업 문서를 참조하세요.
 
-\-[복사 작업 개요](copy-activity-overview.md)
+\- [복사 작업 개요](copy-activity-overview.md)
 
 \- [복사 작업 성능](copy-activity-performance.md)

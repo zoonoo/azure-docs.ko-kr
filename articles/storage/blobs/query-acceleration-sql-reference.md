@@ -10,12 +10,11 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193400"
 ---
 # <a name="query-acceleration-sql-language-reference-preview"></a>쿼리 가속 SQL 언어 참조 (미리 보기)
 
@@ -32,7 +31,7 @@ ms.locfileid: "81772120"
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-CSV 형식 데이터의 경우 *테이블* 은 이어야 `BlobStorage`합니다.  즉, REST 호출에 지정 된 blob에 대해 쿼리가 실행 됩니다.
+CSV 형식 데이터의 경우 *테이블* 은 이어야 합니다 `BlobStorage` .  즉, REST 호출에 지정 된 blob에 대해 쿼리가 실행 됩니다.
 JSON 형식 데이터의 경우 *테이블* 은 "테이블 설명자"입니다.   이 문서의 [테이블 설명자](#table-descriptors) 섹션을 참조 하세요.
 
 다음 예에서는 WHERE *식이* true를 반환 하는 각 행에 대해이 문은 각 프로젝션 식의 평가에서 만들어진 새 행을 반환 합니다.
@@ -54,7 +53,7 @@ SELECT aggregate_expression FROM table [WHERE expression] [LIMIT limit]
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## <a name="data-types"></a>데이터 형식
 
@@ -68,7 +67,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 CSV 형식 데이터에서 값을 읽는 경우 모든 값을 문자열로 읽습니다.  캐스트 식을 사용 하 여 문자열 값을 다른 형식으로 변환할 수 있습니다.  컨텍스트에 따라 값이 암시적으로 다른 형식으로 캐스팅 될 수 있습니다. 자세한 내용은 [데이터 형식 우선 순위 (transact-sql)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017)를 참조 하세요.
 
-## <a name="expressions"></a>표현식
+## <a name="expressions"></a>식
 
 ### <a name="referencing-fields"></a>참조 필드
 
@@ -100,7 +99,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 다음은 몇 가지 예입니다.
 
-|함수|예제|결과|
+|기능|예제|결과|
 |---|---|---|
 |CHARACTER_LENGTH|``SELECT CHARACTER_LENGTH('abcdefg') from BlobStorage`` |``7``|
 |CHAR_LENGTH|``SELECT CHAR_LENGTH(_1) from BlobStorage``|``1``|
@@ -109,7 +108,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-[LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) 함수를 사용 하면 패턴을 검색할 수 있습니다. 다음은 [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) 함수를 사용 하 여 데이터 문자열 ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``을 검색 하는 몇 가지 예입니다.
+[LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) 함수를 사용 하면 패턴을 검색할 수 있습니다. 다음은 [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) 함수를 사용 하 여 데이터 문자열을 검색 하는 몇 가지 예입니다 ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
 
 |쿼리|예제|
 |--|--|
@@ -129,7 +128,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 #### <a name="date_add-function"></a>DATE_ADD 함수
 
-쿼리 가속 SQL 언어는 ``DATE_ADD`` 함수에 대해 연도, 월, 일, 시, 분, 초를 지원 합니다.
+쿼리 가속 SQL 언어는 함수에 대해 연도, 월, 일, 시, 분, 초를 지원 ``DATE_ADD`` 합니다.
 
 예:
 
@@ -140,7 +139,7 @@ DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 
 #### <a name="date_diff-function"></a>DATE_DIFF 함수
 
-쿼리 가속 SQL 언어는 ``DATE_DIFF`` 함수에 대해 연도, 월, 일, 시, 분, 초를 지원 합니다.
+쿼리 가속 SQL 언어는 함수에 대해 연도, 월, 일, 시, 분, 초를 지원 ``DATE_DIFF`` 합니다.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -149,7 +148,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 #### <a name="extract-function"></a>EXTRACT 함수
 
-``DATE_ADD`` 함수에 대해 지원 되는 날짜 부분이 아닌 추출의 경우 쿼리 가속 SQL 언어는 날짜 부분으로 timezone_hour 및 timezone_minute를 지원 합니다.
+함수에 대해 지원 되는 날짜 부분이 아닌 추출의 경우 ``DATE_ADD`` 쿼리 가속 SQL 언어는 날짜 부분으로 timezone_hour 및 timezone_minute를 지원 합니다.
 
 예:
 
@@ -167,7 +166,7 @@ TO_STRING(TimeStamp , format)
 TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
-다음 표에서는 ``TO_STRING`` 함수의 출력 형식을 지정 하는 데 사용할 수 있는 문자열에 대해 설명 합니다.
+다음 표에서는 함수의 출력 형식을 지정 하는 데 사용할 수 있는 문자열에 대해 설명 합니다 ``TO_STRING`` .
 
 |형식 문자열    |출력                               |
 |-----------------|-------------------------------------|
@@ -178,14 +177,14 @@ TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 |MM               |0으로 채워진 월 0 – 01               |
 |MMM              |약어. 연간 월-1 월            |
 |MMMM             |전체 월 – 월                      |
-|d                |월간 일자 (1-31)                  |
+|일                |월간 일자 (1-31)                  |
 |dd               |0으로 채워진 월 0 일 (01-31)     |
 |a                |AM 또는 PM                             |
 |h                |하루 중 시간 (1-12)                   |
 |hh               |0으로 채워진 시간 od 일 (01-12)     |
 |H                |하루 중 시간 (0-23)                   |
 |HH               |0으로 채워진 시간 (00-23)      |
-|m                |시간의 분 (0-59)                |
+|분                |시간의 분 (0-59)                |
 |MM               |0으로 채워진 분 (00-59)           |
 |s                |분의 초 (0-59)             |
 |ss               |0으로 채워진 초 (00-59)          |
@@ -211,16 +210,16 @@ TO_TIMESTAMP('2007T')
 ```
 
 > [!NOTE]
-> 함수를 ``UTCNOW`` 사용 하 여 시스템 시간을 가져올 수도 있습니다.
+> 함수를 사용 하 여 ``UTCNOW`` 시스템 시간을 가져올 수도 있습니다.
 
 
 ## <a name="aggregate-expressions"></a>집계 식
 
 SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 포함 될 수 있습니다.  다음 집계 식이 지원 됩니다.
 
-|식|Description|
+|식|설명|
 |--|--|
-|[COUNT (\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |조건자 식과 일치 하는 레코드 수를 반환 합니다.|
+|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |조건자 식과 일치 하는 레코드 수를 반환 합니다.|
 |[COUNT (식)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |식이 null이 아닌 레코드 수를 반환 합니다.|
 |[AVERAGE (expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |식의 null이 아닌 값에 대 한 평균을 반환 합니다.|
 |[MIN (expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |식의 null이 아닌 최소 값을 반환 합니다.|
@@ -229,13 +228,13 @@ SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 �
 
 ### <a name="missing"></a>누락
 
-``IS MISSING`` 연산자는 쿼리 가속 SQL 언어가 지 원하는 유일한 비표준입니다.  JSON 데이터의 경우 특정 입력 레코드에서 필드가 누락 되 면 식 필드가 ``IS MISSING`` 부울 값 true로 평가 됩니다.
+``IS MISSING``연산자는 쿼리 가속 SQL 언어가 지 원하는 유일한 비표준입니다.  JSON 데이터의 경우 특정 입력 레코드에서 필드가 누락 되 면 식 필드가 ``IS MISSING`` 부울 값 true로 평가 됩니다.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## <a name="table-descriptors"></a>테이블 설명자
 
-CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage`입니다.  다음은 그 예입니다.
+CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage` 입니다.  예를 들어:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -279,7 +278,7 @@ JSON 쿼리의 경우 FROM 절의 일부에서 경로를 언급할 수 있습니
 }
 ```
 
-위의 데이터에서 `warehouses` JSON 개체에만 관심이 있을 수 있습니다. 개체 `warehouses` 는 JSON 배열 형식 이므로 from 절에서이를 언급할 수 있습니다. 예제 쿼리는 다음과 같을 수 있습니다.
+위의 데이터에서 JSON 개체에만 관심이 있을 수 있습니다 `warehouses` . `warehouses`개체는 JSON 배열 형식 이므로 from 절에서이를 언급할 수 있습니다. 예제 쿼리는 다음과 같을 수 있습니다.
 
 ```sql
 SELECT latitude FROM BlobStorage[*].warehouses[*]
@@ -287,22 +286,22 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 쿼리가 모든 필드를 가져오지만 위도만 선택 합니다.
 
-`dimensions` JSON 개체 값에만 액세스 하려는 경우 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 다음은 그 예입니다.
+JSON 개체 값에만 액세스 하려는 경우 `dimensions` 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 예를 들어:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
 ```
 
-또한 `dimensions` 개체의 멤버에 대 한 액세스를 제한 합니다. Json 필드의 다른 멤버 및 JSON 개체의 내부 값에 액세스 하려는 경우 다음 예제와 같이 쿼리를 사용할 수 있습니다.
+또한 개체의 멤버에 대 한 액세스를 제한 `dimensions` 합니다. Json 필드의 다른 멤버 및 JSON 개체의 내부 값에 액세스 하려는 경우 다음 예제와 같이 쿼리를 사용할 수 있습니다.
 
 ```sql
 SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage 및 BlobStorage [\*] 모두는 전체 개체를 참조 합니다. 그러나 FROM 절에 경로가 있는 경우 BlobStorage [\*]. 경로를 사용 해야 합니다.
+> BlobStorage 및 BlobStorage [ \* ] 모두는 전체 개체를 참조 합니다. 그러나 FROM 절에 경로가 있는 경우 BlobStorage [ \* ]. 경로를 사용 해야 합니다.
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## <a name="syssplit"></a>Sys. 분할
 
@@ -321,7 +320,7 @@ CSV 데이터 레코드를 다운로드 한 다음 일괄 처리로 처리 하�
 >[!NOTE]
 > Split_size는 10mb (10485760) 이상 이어야 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure Data Lake Storage 쿼리 가속 (미리 보기)](data-lake-storage-query-acceleration.md)
 - [Azure Data Lake Storage 쿼리 가속 (미리 보기)을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)

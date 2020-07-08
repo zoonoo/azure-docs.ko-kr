@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476429"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040336"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 리소스 포리스트에 대해 트러스트 관계가 작동 하는 방법
 
@@ -26,6 +25,10 @@ Active Directory Domain Services (AD DS)는 도메인 및 포리스트 트러스
 AD DS에서 제공 하는 액세스 제어 메커니즘과 Windows 분산 보안 모델은 도메인 및 포리스트 트러스트 작업을 위한 환경을 제공 합니다. 이러한 트러스트가 제대로 작동 하려면 모든 리소스 또는 컴퓨터에 해당 컴퓨터가 있는 도메인의 DC에 대 한 직접 신뢰 경로가 있어야 합니다.
 
 트러스트 경로는 트러스트 된 도메인 기관에 대 한 인증 된 RPC (원격 프로시저 호출) 연결을 사용 하 여 Net Logon 서비스에 의해 구현 됩니다. 또한 보안 채널은 도메인간 트러스트 관계를 통해 다른 AD DS 도메인으로 확장 됩니다. 이 보안 채널은 사용자 및 그룹의 Sid (보안 식별자)를 비롯 하 여 보안 정보를 가져오고 확인 하는 데 사용 됩니다.
+
+Azure AD DS에 트러스트가 적용 되는 방법에 대 한 개요는 [리소스 포리스트 개념 및 기능][create-forest-trust]을 참조 하세요.
+
+Azure AD DS에서 트러스트 사용을 시작 하려면 [포리스트 트러스트를 사용 하는 관리 되는 도메인을 만듭니다][tutorial-create-advanced].
 
 ## <a name="trust-relationship-flows"></a>신뢰 관계 흐름
 
@@ -58,7 +61,7 @@ AD DS 포리스트의 모든 도메인 트러스트는 양방향 전이적 트�
 
 포리스트에 새 도메인을 만들 때마다 새 도메인과 해당 부모 도메인 간에 양방향 전이적 트러스트 관계가 자동으로 생성 됩니다. 자식 도메인이 새 도메인에 추가 되는 경우 트러스트 경로는 도메인 계층 구조를 통해 위쪽으로 이동 하 여 새 도메인과 해당 부모 도메인 간에 만들어진 초기 트러스트 경로를 확장 합니다. 전이적 트러스트 관계는 형성될 때 도메인 트리를 통해 위쪽으로 향하면서 도메인 트리의 모든 도메인 간에 전이적 트러스트를 만듭니다.
 
-인증 요청은 이러한 신뢰 경로를 따르고 포리스트의 모든 도메인에 있는 계정을 포리스트의 다른 도메인에서 인증할 수 있습니다. 적절한 사용 권한이 있는 계정은 단일 로그온 프로세스를 사용하여 포리스트에 있는 모든 도메인의 리소스에 액세스할 수 있습니다.
+인증 요청은 이러한 신뢰 경로를 따르고 포리스트의 모든 도메인에 있는 계정을 포리스트의 다른 도메인에서 인증할 수 있습니다. 단일 로그인 프로세스를 사용 하 여 적절 한 권한이 있는 계정은 포리스트에 있는 모든 도메인의 리소스에 액세스할 수 있습니다.
 
 ## <a name="forest-trusts"></a>포리스트 트러스트
 
@@ -70,7 +73,7 @@ AD DS 포리스트의 모든 도메인 트러스트는 양방향 전이적 트�
 
 다음 다이어그램에서는 단일 조직의 세 AD DS 포리스트 간에 두 개의 개별 포리스트 트러스트 관계를 보여 줍니다.
 
-![단일 조직 내의 포리스트 트러스트 관계 다이어그램](./media/concepts-forest-trust/forest-trusts.png)
+![단일 조직 내의 포리스트 트러스트 관계 다이어그램](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 이 예제 구성은 다음과 같은 액세스를 제공 합니다.
 
@@ -128,7 +131,7 @@ Kerberos V5 인증 프로토콜은 클라이언트 인증 및 권한 부여 정�
 
 2. 신뢰 경로에서 현재 도메인과 다음 도메인 간에 전이적 트러스트 관계가 존재 하나요?
     * 그렇다면 클라이언트를 트러스트 경로의 다음 도메인으로 보냅니다.
-    * 그렇지 않으면 클라이언트에 게 로그온 거부 메시지를 보냅니다.
+    * 그렇지 않으면 클라이언트에 게 로그인 거부 메시지를 보냅니다.
 
 ### <a name="ntlm-referral-processing"></a>NTLM 조회 처리
 
@@ -152,7 +155,7 @@ NTLM 인증 프로토콜은 클라이언트 인증 및 권한 부여 정보에 �
 
 포리스트 트러스트가 처음 설정 되 면 각 포리스트는 파트너 포리스트에 있는 모든 신뢰할 수 있는 네임 스페이스를 수집 하 고 해당 정보를 [트러스트 된 도메인 개체](#trusted-domain-object)에 저장 합니다. 신뢰할 수 있는 네임 스페이스에는 도메인 트리 이름, UPN (사용자 계정 이름) 접미사, SPN (서비스 사용자 이름) 접미사 및 다른 포리스트에서 사용 되는 SID (보안 ID) 네임 스페이스가 포함 됩니다. TDO 개체가 글로벌 카탈로그에 복제 됩니다.
 
-인증 프로토콜이 포리스트 트러스트 경로를 따르도록 하려면 먼저 리소스 컴퓨터의 SPN (서비스 사용자 이름)을 다른 포리스트의 위치로 확인 해야 합니다. SPN은 다음 중 하나일 수 있습니다.
+인증 프로토콜이 포리스트 트러스트 경로를 따르도록 하려면 먼저 리소스 컴퓨터의 SPN (서비스 사용자 이름)을 다른 포리스트의 위치로 확인 해야 합니다. SPN은 다음 이름 중 하나일 수 있습니다.
 
 * 호스트의 DNS 이름입니다.
 * 도메인의 DNS 이름입니다.
@@ -162,9 +165,9 @@ NTLM 인증 프로토콜은 클라이언트 인증 및 권한 부여 정보에 �
 
 다음 다이어그램과 단계는 Windows를 실행 하는 컴퓨터에서 다른 포리스트에 있는 컴퓨터의 리소스에 액세스 하려고 할 때 사용 되는 Kerberos 인증 프로세스에 대 한 자세한 설명을 제공 합니다.
 
-![포리스트 트러스트를 통한 Kerberos 프로세스 다이어그램](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![포리스트 트러스트를 통한 Kerberos 프로세스 다이어그램](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
-1. *User1* 은 *europe.tailspintoys.com* 도메인의 자격 증명을 사용 하 여 *Workstation1* 에 로그온 합니다. 그런 다음 사용자는 *usa.wingtiptoys.com* 포리스트에 있는 *FileServer1* 의 공유 리소스에 대 한 액세스를 시도 합니다.
+1. *User1* 은 *europe.tailspintoys.com* 도메인의 자격 증명을 사용 하 여 *Workstation1* 에 로그인 합니다. 그런 다음 사용자는 *usa.wingtiptoys.com* 포리스트에 있는 *FileServer1* 의 공유 리소스에 대 한 액세스를 시도 합니다.
 
 2. *Workstation1* 도메인 컨트롤러의 Kerberos KDC에 연결 하 고, *ChildDC1*를 연결 하 고, *FileServer1* SPN에 대 한 서비스 티켓을 요청 합니다.
 
@@ -228,7 +231,7 @@ TDO에 포함 된 정보는 도메인 트러스트 또는 포리스트 트러스
 
 암호가 잘못 되어 새 암호를 사용 하는 인증이 실패 하는 경우 트러스팅 도메인 컨트롤러는 이전 암호를 사용 하 여 인증을 시도 합니다. 이전 암호를 사용 하 여 성공적으로 인증 하는 경우 15 분 내에 암호 변경 프로세스를 다시 시작 합니다.
 
-트러스트 암호 업데이트는 30 일 이내에 트러스트의 양쪽 도메인 컨트롤러에 복제 해야 합니다. 30 일 후에 트러스트 암호가 변경 된 경우 도메인 컨트롤러는 해당 암호를 사용 하는 경우 신뢰 측에서 트러스트를 사용할 수 없으며 신뢰할 수 있는 쪽에서 보안 채널을 만들 수 없습니다.
+트러스트 암호 업데이트는 30 일 이내에 트러스트의 양쪽 도메인 컨트롤러에 복제 해야 합니다. 30 일 후에 트러스트 암호가 변경 되 고 도메인 컨트롤러에 N-2 암호만 있는 경우 트러스팅 측의 트러스트를 사용할 수 없으며 신뢰할 수 있는 쪽에서 보안 채널을 만들 수 없습니다.
 
 ## <a name="network-ports-used-by-trusts"></a>트러스트에 사용 되는 네트워크 포트
 
@@ -276,7 +279,7 @@ LSA 보안 하위 시스템은 개체에 대 한 액세스의 유효성을 검�
 
 리소스 포리스트에 대해 자세히 알아보려면 [Azure AD DS에서 포리스트 트러스트가 작동 하는 방법][concepts-trust] 을 참조 하세요.
 
-리소스 포리스트를 사용 하 여 Azure AD DS 관리 되는 도메인 만들기를 시작 하려면 [azure AD DS 관리 되는 도메인 만들기 및 구성][tutorial-create-advanced]을 참조 하세요. 그런 다음 [온-프레미스 도메인 (미리 보기)에 대 한 아웃 바운드 포리스트 트러스트를 만들][create-forest-trust]수 있습니다.
+리소스 포리스트를 사용 하 여 관리 되는 도메인을 만드는 작업을 시작 하려면 [Azure AD DS 관리 되는 도메인 만들기 및 구성][tutorial-create-advanced]을 참조 하세요. 그런 다음, [온-프레미스 도메인(미리 보기)에 대한 아웃바운드 포리스트 트러스트를 만들 수 있습니다][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

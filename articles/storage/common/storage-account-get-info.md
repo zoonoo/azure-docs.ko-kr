@@ -8,13 +8,12 @@ ms.author: mhopkins
 ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: 1495ed55c24a0f94b911d60d1db0f32940ea134a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 0a8eca9e7b3e890b67daf915ffe733dd54ef5896
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515043"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>.NET을 사용 하 여 저장소 계정 유형 및 SKU 이름 가져오기
 
@@ -24,9 +23,9 @@ ms.locfileid: "79137061"
 
 ## <a name="about-account-type-and-sku-name"></a>계정 유형 및 SKU 이름 정보
 
-**계정 유형**: 올바른 계정 유형에는 `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`및 `StorageV2`가 포함 됩니다. [Azure storage 계정 개요](storage-account-overview.md) 에는 다양 한 저장소 계정에 대 한 설명을 포함 하 여 자세한 정보가 포함 되어 있습니다.
+**계정 유형**: 올바른 계정 유형에는 `BlobStorage` , `BlockBlobStorage` , `FileStorage` , `Storage` 및가 포함 됩니다 `StorageV2` . [Azure storage 계정 개요](storage-account-overview.md) 에는 다양 한 저장소 계정에 대 한 설명을 포함 하 여 자세한 정보가 포함 되어 있습니다.
 
-**Sku 이름**: 유효한 sku 이름에 `Premium_LRS`는 `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS` `Standard_RAGZRS`,, 및 `Standard_ZRS`가 포함 됩니다. SKU 이름은 대/소문자를 구분 하며, 지 수 [클래스](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet)의 문자열 필드입니다.
+**Sku 이름**: 유효한 sku 이름 `Premium_LRS` 에는,, `Premium_ZRS` `Standard_GRS` , `Standard_GZRS` , `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` `Standard_ZRS` ,, 및가 포함 됩니다. SKU 이름은 대/소문자를 구분 하며, 지 수 [클래스](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet)의 문자열 필드입니다.
 
 ## <a name="retrieve-account-information"></a>계정 정보 검색
 

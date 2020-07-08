@@ -7,12 +7,11 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 87a8291387d50fae7027d007eedf49fa55b39b74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052771"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -85,7 +84,7 @@ App Service에는 서비스를 관리 하는 데 사용 되는 여러 끝점이 
 
 ### <a name="access-restrictions"></a>액세스 제한 
 
-액세스 제한 기능을 사용 하면 사용 중인 IP 주소에 따라 **인바운드** 요청을 필터링 할 수 있습니다. 필터링 작업은 앱이 실행 되는 작업자 역할에서 업스트림 인 프런트 엔드 역할에 대해 수행 됩니다. 프런트 엔드 역할은 작업자의 업스트림 이므로 액세스 제한 기능을 앱에 대 한 네트워크 수준 보호로 간주할 수 있습니다. 이 기능을 사용 하면 우선 순위에 따라 평가 되는 허용 및 거부 주소 블록 목록을 작성할 수 있습니다. Azure 네트워킹에 존재 하는 NSG (네트워크 보안 그룹) 기능과 유사 합니다.  ASE 또는 다중 테 넌 트 서비스에서이 기능을 사용할 수 있습니다. ILB ASE와 함께 사용 하는 경우 개인 주소 블록에서 액세스를 제한할 수 있습니다.
+액세스 제한 기능을 사용 하면 원래 IP 주소에 따라 **인바운드** 요청을 필터링 할 수 있습니다. 필터링 작업은 앱이 실행 되는 작업자 역할에서 업스트림 인 프런트 엔드 역할에 대해 수행 됩니다. 프런트 엔드 역할은 작업자의 업스트림 이므로 액세스 제한 기능을 앱에 대 한 네트워크 수준 보호로 간주할 수 있습니다. 이 기능을 사용 하면 우선 순위에 따라 평가 되는 허용 및 거부 주소 블록 목록을 작성할 수 있습니다. Azure 네트워킹에 존재 하는 NSG (네트워크 보안 그룹) 기능과 유사 합니다.  ASE 또는 다중 테 넌 트 서비스에서이 기능을 사용할 수 있습니다. ILB ASE와 함께 사용 하는 경우 개인 주소 블록에서 액세스를 제한할 수 있습니다.
 
 ![액세스 제한](media/networking-features/access-restrictions.png)
 
@@ -114,7 +113,7 @@ Azure Virtual Network (VNet)의 리소스에서만 연결할 수 있도록 앱�
 ### <a name="private-endpoint-preview"></a>개인 끝점 (미리 보기)
 
 개인 끝점은 Azure 개인 링크를 통해 웹 앱에 안전 하 게 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 웹 앱을 VNet에 효과적으로 제공 합니다. 이 기능은 웹 앱에 대 한 **인바운드** 흐름에만 해당 됩니다.
-[Azure 웹 앱 (미리 보기)에 대 한 개인 끝점 사용][privateendpoints]
+[Azure 웹앱용 프라이빗 엔드포인트 사용(미리 보기)][privateendpoints]
  
 ### <a name="hybrid-connections"></a>하이브리드 연결
 

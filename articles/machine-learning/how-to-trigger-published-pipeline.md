@@ -8,15 +8,14 @@ ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 32b3e153a98ca7de91e0dd05258414780b39dec4
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: b56b07bce558a65df79a23eaf1948aac8e4fabad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433759"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>논리 앱에서 Machine Learning 파이프라인 실행 트리거
 
@@ -67,7 +66,7 @@ ms.locfileid: "82857966"
 
   다음 설정을 사용 하 여 작업을 구성 합니다.
 
-  | 설정 | 값 | 
+  | Setting | 값 | 
   |---|---|
   | HTTP 동작 | POST |
   | URI |[필수 구성 요소로](#prerequisites) 찾은 게시 된 파이프라인에 대 한 끝점입니다. |
@@ -88,7 +87,7 @@ ms.locfileid: "82857966"
     },
     ```
 
-    `DataStoreName` 작업 영역에 추가한를 [필수 구성 요소로](#prerequisites)사용 합니다.
+    `DataStoreName`작업 영역에 추가한를 [필수 구성 요소로](#prerequisites)사용 합니다.
      
     > [!div class="mx-imgBorder"]
     > ![HTTP 설정](media/how-to-trigger-published-pipeline/http-settings.png)

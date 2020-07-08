@@ -4,15 +4,14 @@ description: 이 문서에서는 Azure 애플리케이션 게이트웨이에서 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248686"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 재작성
 
@@ -60,30 +59,30 @@ Application Gateway 서버 변수를 사용 하 여 서버에 대 한 유용한 
 
 Application gateway는 다음 서버 변수를 지원 합니다.
 
-| 변수 이름 | 설명                                                  |
+| 변수 이름 | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | I P 1, IP2, P 3 등의 형식으로 추가 된 ( `client_ip` 이 표의 뒷부분에 나오는 설명 참조) 변수와 함께 X로 전달 된 클라이언트 요청 헤더 필드입니다. X 전달-For 필드가 클라이언트 요청 헤더에 없으면 `add_x_forwarded_for_proxy` 변수는 `$client_ip` 변수와 같습니다. 이 변수는 헤더에 포트 정보가 없는 IP 주소만 포함 되도록 Application Gateway에 의해 설정 된 X 전달 된 헤더를 다시 작성 하려는 경우에 특히 유용 합니다. |
+| add_x_forwarded_for_proxy  | `client_ip`I p 1, IP2, p 3 등의 형식으로 추가 된 (이 표의 뒷부분에 나오는 설명 참조) 변수와 함께 X로 전달 된 클라이언트 요청 헤더 필드입니다. X 전달-For 필드가 클라이언트 요청 헤더에 없으면 `add_x_forwarded_for_proxy` 변수는 `$client_ip` 변수와 같습니다. 이 변수는 헤더에 포트 정보가 없는 IP 주소만 포함 되도록 Application Gateway에 의해 설정 된 X 전달 된 헤더를 다시 작성 하려는 경우에 특히 유용 합니다. |
 | ciphers_supported          | 클라이언트에서 지 원하는 암호화 목록입니다.          |
 | ciphers_used               | 설정 된 TLS 연결에 사용 되는 암호화 문자열입니다. |
 | client_ip                  | 응용 프로그램 게이트웨이에서 요청을 받은 클라이언트의 IP 주소입니다. 응용 프로그램 게이트웨이와 원래 클라이언트 앞에 역방향 프록시가 있는 경우 *client_ip* 는 역방향 프록시의 ip 주소를 반환 합니다. |
 | client_port                | 클라이언트 포트입니다.                                                  |
 | client_tcp_rtt             | 클라이언트 TCP 연결에 대 한 정보입니다. TCP_INFO 소켓 옵션을 지 원하는 시스템에서 사용할 수 있습니다. |
 | client_user                | HTTP 인증을 사용 하는 경우 인증을 위해 제공 되는 사용자 이름입니다. |
-| host                       | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*에서 호스트 값은 *contoso.com* 입니다. |
+| host                       | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* 호스트 값은 *contoso.com* 입니다. |
 | cookie_*이름*              | *이름* 쿠키입니다.                                            |
 | http_method                | URL 요청을 만드는 데 사용 되는 메서드입니다. 예를 들어 GET 또는 POST입니다. |
 | http_status                | 세션 상태입니다. 예: 200, 400 또는 403.                       |
 | http_version               | 요청 프로토콜입니다. 일반적으로 HTTP/1.0, HTTP/1.1 또는 HTTP/2.0입니다. |
-| query_string               | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*에서 query_string 값은 *id = 123&title = fabrikam* 입니다. |
+| query_string               | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* query_string 값은 *id = 123&title = fabrikam* 입니다. |
 | received_bytes             | 요청 (요청 줄, 헤더 및 요청 본문 포함)의 길이입니다. |
 | request_query              | 요청 줄의 인수입니다.                                |
 | request_scheme             | 요청 체계: http 또는 https.                            |
-| request_uri                | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*에서 request_uri 값은 */article.aspx? id = 123&title = fabrikam* 입니다.   |
+| request_uri                | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* request_uri 값은 */article.aspx? id = 123&title = fabrikam* 입니다.   |
 | sent_bytes                 | 클라이언트에 전송 된 바이트 수입니다.                             |
 | server_port                | 요청을 수락한 서버 포트입니다.                 |
 | ssl_connection_protocol    | 설정 된 TLS 연결의 프로토콜입니다.        |
 | ssl_enabled                | TLS 모드에서 연결이 작동 하는 경우 "On"입니다. 그렇지 않으면 빈 문자열입니다. |
-| uri_path                   | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*에서 uri_path 값은 */article.aspx* 입니다.  |
+| uri_path                   | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path 값은 */article.aspx* 입니다.  |
 
 ## <a name="rewrite-configuration"></a>구성 재작성
 
@@ -131,8 +130,8 @@ Location 헤더의 호스트 이름을 application gateway의 도메인 이름�
 
 호스트 이름을 교체 하는 단계는 다음과 같습니다.
 
-1. 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 다시 쓰기 규칙을 만듭니다. 패턴 `(https?):\/\/.*azurewebsites\.net(.*)$`을 입력 합니다.
-1. 응용 프로그램 게이트웨이의 호스트 이름을 포함 하도록 위치 헤더를 다시 작성 하는 작업을 수행 합니다. 헤더 값으로를 `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` 입력 하 여이 작업을 수행 합니다.
+1. 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 다시 쓰기 규칙을 만듭니다. 패턴을 입력 `(https?):\/\/.*azurewebsites\.net(.*)$` 합니다.
+1. 응용 프로그램 게이트웨이의 호스트 이름을 포함 하도록 위치 헤더를 다시 작성 하는 작업을 수행 합니다. 헤더 값으로를 입력 하 여이 작업을 수행 `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` 합니다.
 
 ![위치 헤더 수정](media/rewrite-http-headers/app-service-redirection.png)
 
@@ -156,13 +155,13 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 ## <a name="limitations"></a>제한 사항
 
-- 응답에 이름이 같은 헤더가 두 개 이상 있는 경우 해당 헤더 중 하나의 값을 다시 작성 하면 응답의 다른 헤더가 삭제 됩니다. 이는 일반적으로 응답에 두 개 이상의 쿠키 헤더를 사용할 수 있으므로 설정-쿠키 헤더에서 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이와 함께 app service를 사용 하 고 응용 프로그램 게이트웨이에서 쿠키 기반 세션 선호도를 구성 하는 경우입니다. 이 경우 응답에는 app service에서 사용 하는 두 개의 설정-쿠키 헤더 (예:)와 application `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` gateway 선호도 ( `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`예:)가 포함 됩니다. 이 시나리오에서 Set 쿠키 헤더 중 하나를 다시 작성 하면 응답에서 다른 Set 쿠키 헤더가 제거 될 수 있습니다.
+- 응답에 이름이 같은 헤더가 두 개 이상 있는 경우 해당 헤더 중 하나의 값을 다시 작성 하면 응답의 다른 헤더가 삭제 됩니다. 이는 일반적으로 응답에 두 개 이상의 쿠키 헤더를 사용할 수 있으므로 설정-쿠키 헤더에서 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이와 함께 app service를 사용 하 고 응용 프로그램 게이트웨이에서 쿠키 기반 세션 선호도를 구성 하는 경우입니다. 이 경우 응답에는 app service에서 사용 하는 두 개의 설정-쿠키 헤더 (예:) `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` 와 application gateway 선호도 (예:)가 포함 `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` 됩니다. 이 시나리오에서 Set 쿠키 헤더 중 하나를 다시 작성 하면 응답에서 다른 Set 쿠키 헤더가 제거 될 수 있습니다.
 
 - 응용 프로그램 게이트웨이가 요청을 리디렉션하거나 사용자 지정 오류 페이지를 표시 하도록 구성 된 경우에는 다시 작성이 지원 되지 않습니다.
 
 - 연결, 업그레이드 및 호스트 헤더 재작성은 현재 지원 되지 않습니다.
 
-- 헤더 이름에는 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)에 정의 된 대로 영숫자 문자와 특정 기호가 포함 될 수 있습니다. 현재 헤더 이름에 밑줄 (\_) 특수 문자를 지원 하지 않습니다.
+- 헤더 이름에는 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)에 정의 된 대로 영숫자 문자와 특정 기호가 포함 될 수 있습니다. 현재 \_ 헤더 이름에 밑줄 () 특수 문자를 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

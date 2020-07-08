@@ -1,21 +1,13 @@
 ---
 title: Azure Service Bus를 사용 하 여 성능 향상을 위한 모범 사례
 description: broker 저장 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 03/12/2020
-ms.author: aschhab
-ms.openlocfilehash: 267965ee41280a677050d1676285dda8734bc044
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: e0a6e54c1e941d7b7ff244ac40066a564e2ebbc4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341109"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -53,11 +45,11 @@ AMQP는 Service Bus에 대 한 연결을 유지 하기 때문에 가장 효율�
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
-또는 [`IQueueClient`][QueueClient] [`IMessageSender`][MessageSender]의 구현과 같은 Service Bus 클라이언트 개체는 종속성 주입을 위해 단일 항목 (또는 한 번 인스턴스화하고 공유 됨)로 등록 되어야 합니다. 메시지를 보낸 후, 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 다음, 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않는 것이 좋습니다. 메시징 팩터리를 닫을 경우 Service Bus 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업에 대해 다중 스레드에서 이러한 클라이언트 개체를 안전하게 사용할 수 있습니다.
+또는의 구현과 같은 Service Bus 클라이언트 개체는 [`IQueueClient`][QueueClient] [`IMessageSender`][MessageSender] 종속성 주입을 위해 단일 항목 (또는 한 번 인스턴스화하고 공유 됨)로 등록 되어야 합니다. 메시지를 보낸 후, 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 다음, 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않는 것이 좋습니다. 메시징 팩터리를 닫을 경우 Service Bus 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업에 대해 다중 스레드에서 이러한 클라이언트 개체를 안전하게 사용할 수 있습니다.
 
 # <a name="windowsazureservicebus-sdk"></a>[ServiceBus SDK Windowsazure.servicebus](#tab/net-framework-sdk)
 
-또는 `QueueClient` `MessageSender`와 같은 Service Bus 클라이언트 개체는 연결에 대 한 내부 관리도 제공 하는 [messagingfactory][MessagingFactory] 개체를 통해 생성 됩니다. 메시지를 보낸 후, 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 다음, 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않는 것이 좋습니다. 메시징 팩터리를 닫을 경우 Service Bus 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업에 대해 다중 스레드에서 이러한 클라이언트 개체를 안전하게 사용할 수 있습니다.
+또는와 같은 Service Bus 클라이언트 개체 `QueueClient` 는 `MessageSender` 연결에 대 한 내부 관리도 제공 하는 [messagingfactory][MessagingFactory] 개체를 통해 생성 됩니다. 메시지를 보낸 후, 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 다음, 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않는 것이 좋습니다. 메시징 팩터리를 닫을 경우 Service Bus 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업에 대해 다중 스레드에서 이러한 클라이언트 개체를 안전하게 사용할 수 있습니다.
 
 ---
 
@@ -115,7 +107,7 @@ Console.WriteLine("All messages sent");
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
-전체 <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">소스 코드 예제 <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>는 GitHub 리포지토리를 참조 하세요.
+전체 <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">소스 코드 예제 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>는 GitHub 리포지토리를 참조 하세요.
 
 ```csharp
 var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
@@ -139,11 +131,11 @@ receiver.RegisterMessageHandler(
     });
 ```
 
-개체 `MessageReceiver` 는 연결 문자열, 큐 이름 및 피킹 (peeking) 수신 모드를 사용 하 여 인스턴스화됩니다. 그런 다음 `receiver` 인스턴스를 사용 하 여 메시지 처리기를 등록 합니다.
+`MessageReceiver`개체는 연결 문자열, 큐 이름 및 피킹 (peeking) 수신 모드를 사용 하 여 인스턴스화됩니다. 그런 다음 `receiver` 인스턴스를 사용 하 여 메시지 처리기를 등록 합니다.
 
 # <a name="windowsazureservicebus-sdk"></a>[ServiceBus SDK Windowsazure.servicebus](#tab/net-framework-sdk)
 
-전체 <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">소스 코드 예제 <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>는 GitHub 리포지토리를 참조 하세요.
+전체 <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">소스 코드 예제 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>는 GitHub 리포지토리를 참조 하세요.
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString(connectionString);
@@ -163,7 +155,7 @@ receiver.OnMessageAsync(
     });
 ```
 
-는 `MessagingFactory` 연결 문자열 `factory` 에서 개체를 만듭니다. `factory` 인스턴스를 사용 하 여 `MessageReceiver` 가 인스턴스화됩니다. 그런 다음 `receiver` 인스턴스를 사용 하 여 메시지 처리기를 등록 합니다.
+는 `MessagingFactory` `factory` 연결 문자열에서 개체를 만듭니다. 인스턴스를 사용 하 여 `factory` `MessageReceiver` 가 인스턴스화됩니다. 그런 다음 `receiver` 인스턴스를 사용 하 여 메시지 처리기를 등록 합니다.
 
 ---
 
@@ -187,7 +179,7 @@ Service Bus는 수신 및 삭제 작업에 대한 트랜잭션을 지원하지 �
 
 기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
 
-일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 다음은 그 예입니다.
+일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예를 들어:
 
 ```csharp
 var settings = new MessagingFactorySettings
@@ -203,7 +195,7 @@ var factory = MessagingFactory.Create(namespaceUri, settings);
 일괄 처리는 청구 가능 메시징 작업의 수에 영향을 주지 않으며 [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)을 사용하여 Service Bus 클라이언트 프로토콜에 대해서만 사용할 수 있습니다. HTTP 프로토콜은 일괄 처리를 지원하지 않습니다.
 
 > [!NOTE]
-> 를 `BatchFlushInterval` 설정 하면 일괄 처리가 응용 프로그램의 관점에서 암시적으로 수행 됩니다. 예: 응용 프로그램에서 `SendAsync` 및 `CompleteAsync` 를 호출 하 고 특정 일괄 처리를 수행 하지 않습니다.
+> 를 설정 하면 `BatchFlushInterval` 일괄 처리가 응용 프로그램의 관점에서 암시적으로 수행 됩니다. 예: 응용 프로그램에서 `SendAsync` 및를 `CompleteAsync` 호출 하 고 특정 일괄 처리를 수행 하지 않습니다.
 >
 > 다음 메서드 호출을 활용 하 여 명시적 클라이언트 쪽 일괄 처리를 구현할 수 있습니다.
 > ```csharp
@@ -226,7 +218,7 @@ var factory = MessagingFactory.Create(namespaceUri, settings);
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
-일괄 처리 된 저장소 액세스를 사용 하지 않도록 설정 하려면 인스턴스가 필요 `ManagementClient`합니다. `EnableBatchedOperations` 속성을로 `false`설정 하는 큐 설명에서 큐를 만듭니다.
+일괄 처리 된 저장소 액세스를 사용 하지 않도록 설정 하려면 인스턴스가 필요 `ManagementClient` 합니다. 속성을로 설정 하는 큐 설명에서 큐를 만듭니다 `EnableBatchedOperations` `false` .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -243,7 +235,7 @@ var queue = await managementClient.CreateQueueAsync(queueDescription);
 
 # <a name="windowsazureservicebus-sdk"></a>[ServiceBus SDK Windowsazure.servicebus](#tab/net-framework-sdk)
 
-일괄 처리 된 저장소 액세스를 사용 하지 않도록 설정 하려면 인스턴스가 필요 `NamespaceManager`합니다. `EnableBatchedOperations` 속성을로 `false`설정 하는 큐 설명에서 큐를 만듭니다.
+일괄 처리 된 저장소 액세스를 사용 하지 않도록 설정 하려면 인스턴스가 필요 `NamespaceManager` 합니다. 속성을로 설정 하는 큐 설명에서 큐를 만듭니다 `EnableBatchedOperations` `false` .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -264,7 +256,7 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 
 ## <a name="prefetching"></a>프리페치
 
-[프리페치](service-bus-prefetch.md) 를 통해 큐 또는 구독 클라이언트는 수신 작업을 수행할 때 서비스에서 추가 메시지를 로드할 수 있습니다. 클라이언트는 이러한 메시지를 로컬 캐시에 저장합니다. 캐시 크기는 또는 `QueueClient.PrefetchCount` `SubscriptionClient.PrefetchCount` 속성에 의해 결정 됩니다. 프리페치를 사용할 수 있는 각 클라이언트는 각각의 캐시를 유지합니다. 캐시는 클라이언트 사이에서 공유되지 않습니다. 클라이언트가 수신 작업을 시작할 때 캐시가 비어 있으면 서비스에서 메시지의 배치를 전송합니다. 배치의 크기는 캐시의 크기와 256KB 중 더 작은 값입니다. 클라이언트가 수신 작업을 시작할 때 캐시에 메시지가 포함되어 있으면 캐시에서 해당 메시지를 가져옵니다.
+[프리페치](service-bus-prefetch.md) 를 통해 큐 또는 구독 클라이언트는 수신 작업을 수행할 때 서비스에서 추가 메시지를 로드할 수 있습니다. 클라이언트는 이러한 메시지를 로컬 캐시에 저장합니다. 캐시 크기는 또는 속성에 의해 결정 됩니다 `QueueClient.PrefetchCount` `SubscriptionClient.PrefetchCount` . 프리페치를 사용할 수 있는 각 클라이언트는 각각의 캐시를 유지합니다. 캐시는 클라이언트 사이에서 공유되지 않습니다. 클라이언트가 수신 작업을 시작할 때 캐시가 비어 있으면 서비스에서 메시지의 배치를 전송합니다. 배치의 크기는 캐시의 크기와 256KB 중 더 작은 값입니다. 클라이언트가 수신 작업을 시작할 때 캐시에 메시지가 포함되어 있으면 캐시에서 해당 메시지를 가져옵니다.
 
 메시지가 프리페치되는 경우 서비스는 프리페치된 메시지를 잠급니다. 잠금을 사용하면 프리페치된 메시지를 다른 수신기가 받을 수 없습니다. 잠금이 만료되기 전에 수신기가 메시지를 완료할 수 없는 경우 다른 수신기가 메시지를 사용할 수 있습니다. 프리페치된 메시지의 복사본은 캐시에 남아 있습니다. 만료 및 캐시된 복사본을 사용하는 수신기가 해당 메시지를 완료하려고 하면 예외를 수신합니다. 기본적으로 메시지 잠금은 60초 후에 만료됩니다. 이 값은 5분으로 연장할 수 있습니다. 만료된 메시지를 사용하지 못하도록 하려면 캐시 크기가 언제나 잠금 시간 초과 간격 이내에 클라이언트가 사용할 수 있는 메시지 수보다 작아야 합니다.
 
@@ -278,14 +270,14 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 
 # <a name="microsoftazureservicebus-sdk"></a>[ServiceBus SDK](#tab/net-standard-sdk)
 
-자세한 내용은 다음 `PrefetchCount` 속성을 참조 하세요.
+자세한 내용은 다음 속성을 참조 하세요 `PrefetchCount` .
 
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[ServiceBus SDK Windowsazure.servicebus](#tab/net-framework-sdk)
 
-자세한 내용은 다음 `PrefetchCount` 속성을 참조 하세요.
+자세한 내용은 다음 속성을 참조 하세요 `PrefetchCount` .
 
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -297,13 +289,13 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 > [!NOTE]
 > Windowsazure.servicebus SDK는 배치 함수를 노출 하지 않으므로이 섹션은 ServiceBus SDK에만 적용 됩니다.
 
-여러 메시지를 함께 프리페치 하는 개념은 일괄 처리 (`ReceiveBatch`)에서 메시지를 처리 하는 것과 비슷한 의미를 가지 지만 이러한 기능을 함께 사용할 때는 몇 가지 사소한 차이점이 있습니다.
+여러 메시지를 함께 프리페치 하는 개념은 일괄 처리 ()에서 메시지를 처리 하는 것과 비슷한 의미를 가지 지만 이러한 기능을 `ReceiveBatch` 함께 사용할 때는 몇 가지 사소한 차이점이 있습니다.
 
-프리페치는 클라이언트 (`QueueClient` 및 `SubscriptionClient`)의 구성 (또는 모드)이 고 `ReceiveBatch` 작업은 요청-응답 의미 체계가 있습니다.
+프리페치는 클라이언트 (및)의 구성 (또는 모드) `QueueClient` 이 `SubscriptionClient` 고 `ReceiveBatch` 작업은 요청-응답 의미 체계가 있습니다.
 
 이러한 기능을 함께 사용 하는 동안 다음과 같은 경우를 고려 합니다.
 
-* 프리페치는 수신 해야 하는 메시지 수보다 크거나 같아야 합니다 `ReceiveBatch`.
+* 프리페치는 수신 해야 하는 메시지 수보다 크거나 같아야 합니다 `ReceiveBatch` .
 * 프리페치는 초당 처리 된 메시지 수의 최대 n/3 배까지 가능 합니다. 여기서 n은 기본 잠금 기간입니다.
 
 Greedy 접근 방식 (예: 프리페치 수를 매우 높음)으로 설정 하면 메시지가 특정 받는 사람에 게 잠겨 있기 때문에 몇 가지 문제가 있습니다. 위에서 언급 한 임계값과 알려지고 실험적으로가 일치 하는 항목을 식별 하기 위해 프리페치 값을 사용해 보는 것이 좋습니다.
@@ -317,7 +309,7 @@ Greedy 접근 방식 (예: 프리페치 수를 매우 높음)으로 설정 하�
 > [!NOTE]
 > 이 섹션은 ServiceBus SDK에만 적용 됩니다. ServiceBus SDK는이 기능을 노출 하지 Windowsazure.servicebus.
 
-Service Bus에는 [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] **프로덕션 구성에서 사용해 서는 안**되는, 개발 전용으로 사용 되는 기능이 하나 있습니다.
+Service Bus에는 **프로덕션 구성에서 사용해 서는 안**되는, 개발 전용으로 사용 되는 기능이 하나 [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] 있습니다.
 
 항목에 새 규칙이 나 필터를 추가 하는 경우를 사용 [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] 하 여 새 필터 식이 예상 대로 작동 하는지 확인할 수 있습니다.
 
@@ -355,7 +347,7 @@ Service Bus에는 [`TopicDescription.EnableFilteringMessagesBeforePublishing`][T
 
 목표: 발신기 수가 많은 큐 또는 토픽의 처리량 극대화 각 발신기는 보통 속도의 메시지를 전송합니다. 수신기의 수가 작습니다.
 
-Service Bus는 메시지 엔터티에 대해 최대 1,000개의 동시 연결을 지원합니다(AMQP를 사용할 경우 5,000개). 이 제한은 네임스페이스 수준에서 적용되며, 큐/토픽/구독은 네임스페이스당 동시 연결 수로 제한됩니다. 큐의 경우 이 숫자는 발신기와 수신기 사이에 공유됩니다. 발신기에 1,000개 연결이 모두 필요할 경우 큐를 토픽 및 단일 구독으로 대체합니다. 토픽은 발신기로부터 최대 1,000개의 동시 연결을 지원하는 반면, 구독은 수신기로부터 추가 1,000개의 동시 연결을 지원합니다. 1,000개보다 많은 동시 발신기가 필요할 경우 발신기는 HTTP를 통해 Service Bus 프로토콜에 메시지를 전송해야 합니다.
+Service Bus는 메시징 엔터티에 대해 최대 1000의 동시 연결을 사용 하도록 설정 합니다. 이 제한은 네임스페이스 수준에서 적용되며, 큐/토픽/구독은 네임스페이스당 동시 연결 수로 제한됩니다. 큐의 경우 이 숫자는 발신기와 수신기 사이에 공유됩니다. 발신기에 1,000개 연결이 모두 필요할 경우 큐를 토픽 및 단일 구독으로 대체합니다. 토픽은 발신기로부터 최대 1,000개의 동시 연결을 지원하는 반면, 구독은 수신기로부터 추가 1,000개의 동시 연결을 지원합니다. 1,000개보다 많은 동시 발신기가 필요할 경우 발신기는 HTTP를 통해 Service Bus 프로토콜에 메시지를 전송해야 합니다.
 
 처리량을 최대화하려면 다음 단계를 수행합니다.
 

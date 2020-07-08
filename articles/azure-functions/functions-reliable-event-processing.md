@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75561870"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676134"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions 신뢰할 수 있는 이벤트 처리
 
@@ -91,7 +90,7 @@ Azure Functions는 성공 또는 실패에 관계 없이 스트림의 포인터�
 
 구현 세부 정보는 다를 수 있지만 인스턴스 간에 상태를 공유 하려면 저장소 메커니즘이 필요 합니다. Azure Storage, Redis cache 또는 함수 컬렉션에서 액세스할 수 있는 다른 계정에 상태를 저장 하도록 선택할 수 있습니다.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 또는 지 [속성 엔터티](./durable/durable-functions-overview.md) 는 워크플로 및 회로 상태를 관리 하는 자연스럽 게 적합 합니다. 다른 서비스도 작동할 수 있지만이 예제에서는 논리 앱이 사용 됩니다. 논리 앱을 사용 하 여 회로 차단기 패턴을 구현 하는 데 필요한 제어를 제공 하는 함수 실행을 일시 중지 하 고 다시 시작할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 또는 지 [속성 함수](./durable/durable-functions-overview.md) 는 워크플로 및 회로 상태를 관리 하는 자연스럽 게 적합 합니다. 다른 서비스도 작동할 수 있지만이 예제에서는 논리 앱이 사용 됩니다. 논리 앱을 사용 하 여 회로 차단기 패턴을 구현 하는 데 필요한 제어를 제공 하는 함수 실행을 일시 중지 하 고 다시 시작할 수 있습니다.
 
 ### <a name="define-a-failure-threshold-across-instances"></a>인스턴스 간 오류 임계값 정의
 
@@ -123,7 +122,7 @@ Azure Logic Apps는 다른 서비스에 대 한 기본 제공 커넥터, 기능 
 ## <a name="resources"></a>리소스
 
 - [안정적인 이벤트 처리 샘플](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Azure Durable Functions 회로 차단기](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Azure 지 속성 엔터티 회로 차단기](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -131,4 +130,4 @@ Azure Logic Apps는 다른 서비스에 대 한 기본 제공 커넥터, 기능 
 
 - [Azure Functions 오류 처리](./functions-bindings-error-pages.md)
 - [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
-- [Azure Logic Apps와 통합되는 함수 만들기](./functions-twitter-email.md)
+- [Azure Logic Apps와 통합하는 함수 만들기](./functions-twitter-email.md)

@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 56d8cad05a42da8de680ade487dddee9a97aab3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447614"
 ---
-# <a name="score-model-module"></a>모델 점수 매기기 모듈
+# <a name="score-model"></a>모델 채점
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
 이 모듈을 사용 하 여 학습 된 분류 또는 회귀 모델을 사용 하 여 예측을 생성 합니다.
 
@@ -30,7 +29,7 @@ ms.locfileid: "80364181"
 
     데이터는 사용 중인 학습 된 모델의 형식과 호환 되는 형식 이어야 합니다. 입력 데이터 집합의 스키마도 일반적으로 모델을 학습 하는 데 사용 되는 데이터의 스키마와 일치 해야 합니다.
 
-3. 파이프라인을 제출 합니다.
+3. 파이프라인을 제출합니다.
 
 ## <a name="results"></a>결과
 
@@ -52,4 +51,4 @@ ms.locfileid: "80364181"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

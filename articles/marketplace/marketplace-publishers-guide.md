@@ -7,19 +7,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7ddea556ea4a9c7c0306ebdf1eca1f60769c5318
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657862"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958177"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>상업용 마켓플레이스 게시 가이드
 
 이 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com)라는 상업용 마켓플레이스 상점에서 애플리케이션 및 서비스를 나열하여 Microsoft와의 파트너 사업을 성장시키는 방법을 배우도록 도와주기 위해 작성되었습니다.
 
 >[!Note]
->여기서 Marketplace는 Azure Marketplace와 AppSource를 둘 다 나타냅니다.  자세한 내용은 [하나의 마켓플레이스, 두 개의 상점](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)을 참조하세요.
+>여기서 Marketplace는 Azure Marketplace와 AppSource를 둘 다 나타냅니다.  자세한 내용은 [하나의 마켓플레이스, 두 개의 상점](comparing-appsource-azure-marketplace.md)을 참조하세요.
 
 이 가이드는 다음 항목을 설명합니다. 
 *   Marketplace의 정의 및 작동 방식 
@@ -62,7 +61,7 @@ Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시�
 
 *   공동 판매: Marketplace를 통해 Microsoft와 함께 판매를 시작하고 가속화할 수 있습니다. 프로그램 및 지원에 액세스하여 Microsoft 팀과의 공동 판매를 촉진합니다.
 
-일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)을 참조하세요.
+일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법](partner-center-portal/create-account.md)을 참조하세요.
 
 [상업용 마켓플레이스의 이점](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)에 대해 자세히 알아보세요.
 

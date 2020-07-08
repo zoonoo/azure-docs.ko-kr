@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75893906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84434377"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
 
@@ -65,4 +64,16 @@ Microsoft Azure Site Recovery Provider(DRA)를 업그레이드하는 경우 통�
 
 1. 작업 관리자를 사용하여 설치 진행 상황을 모니터링합니다. CX_THIRDPARTY_SETUP.EXE에 대한 프로세스가 작업 관리자에 더 이상 표시되지 않는 경우 다음 단계로 진행합니다.
 1. C:\thirdparty가 있고 폴더에 RRD 라이브러리가 들어 있는지 확인합니다.
-1. 통합 설치를 다운로드한 폴더로 돌아가서 MicrosoftAzureSiteRecoveryUnifiedSetup.exe를 실행하여 업그레이드를 완료합니다. 
+1. 통합 설치를 다운로드한 폴더로 돌아가서 MicrosoftAzureSiteRecoveryUnifiedSetup.exe를 실행하여 업그레이드를 완료합니다.
+
+## <a name="upgrade-failure-due-to-master-target-installation-failure"></a>마스터 대상 설치 오류로 인 한 업그레이드 실패
+
+DRA (Microsoft Azure Site Recovery 공급자)를 업그레이드 하는 경우 설치 위치가 존재 하지 않거나 1gb의 사용 가능한 공간이 없거나 고정 드라이브에 존재 하지 않는 오류로 인해 마스터 대상 설치가 실패 합니다.
+
+레지스트리 키의 매개 변수에 대 한 null 값 때문일 수 있습니다. 문제를 해결 하려면
+
+1. 레지스트리 편집기 (regedit.exe)를 시작 하 고 HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed 된 제품 \ 4 분기를 엽니다.
+1. ' InstallDirectory ' 키 값을 검사 합니다.Null 인 경우 현재 설치 디렉터리 값을 추가 합니다.
+1. 마찬가지로 레지스트리 편집기에서 HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed 된 제품 \ 5 분기를 엽니다.
+1. ' InstallDirectory ' 키 값을 검사 하 고 현재 설치 디렉터리 값을 추가 합니다.
+1. 통합 설치 관리자를 다시 실행 합니다.

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: c3b514c79be87cd136375b4853226426965f4185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456796"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>IoT 장치에서 보안 에이전트 선택 및 배포
 
@@ -44,7 +43,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 
 |     | C 기반 보안 에이전트 | C # 기반 보안 에이전트 |
 | --- | ----------- | --------- |
-| 오픈 소스 | [GitHub](https://aka.ms/iot-security-github-cs) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 | [GitHub](https://aka.ms/iot-security-github-c) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 |
+| 오픈 소스 | [GitHub](https://aka.ms/iot-security-github-c) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 | [GitHub](https://aka.ms/iot-security-github-cs) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 |
 | 개발 언어    | C | C# |
 | 지원 되는 Windows 플랫폼 | 아니요 | 예 |
 | Windows 필수 조건 | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
@@ -60,7 +59,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 
 ## <a name="security-agent-installation-guidelines"></a>보안 에이전트 설치 지침
 
-**Windows**의 경우: 설치 securityagent. ps1 스크립트는 관리자 PowerShell 창에서 실행 해야 합니다.
+**Windows**의 경우: 설치 SecurityAgent.ps1 스크립트는 관리자 PowerShell 창에서 실행 해야 합니다.
 
 **Linux**: InstallSecurityAgent.sh은 수퍼유저로 실행 해야 합니다. 설치 명령에 "sudo"를 접두사로 사용 하는 것이 좋습니다.
 
@@ -90,14 +89,14 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 
 |IoT 에이전트에 대 한 Azure Security Center |운영 체제 |아키텍처 |
 |--------------|------------|--------------|
-|C|Ubuntu 16.04 |    x64|
+|C|Ubuntu 16.04 |    X64|
 |C|Ubuntu 18.04 |    x64, ARMv7|
 |C|Debian 9 |    x64, x86|
-|C#|Ubuntu 16.04     |x64|
+|C#|Ubuntu 16.04     |X64|
 |C#|Ubuntu 18.04    |x64, ARMv7|
-|C#|Debian 9    |x64|
+|C#|Debian 9    |X64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core, 빌드 17763    |x64|
+|C#|Windows 10 IoT Core, 빌드 17763    |X64|
 |
 
 ## <a name="next-steps"></a>다음 단계

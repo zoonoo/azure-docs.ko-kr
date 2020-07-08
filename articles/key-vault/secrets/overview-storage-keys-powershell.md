@@ -8,16 +8,15 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449314"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell를 사용 하 여 저장소 계정 키 관리
 
-Azure storage 계정은 계정 이름과 키를 구성 하는 자격 증명을 사용 합니다. 키가 자동으로 생성 되 고 암호화 키가 아닌 암호로 사용 됩니다. Key Vault 저장소 계정 키를 Key Vault 비밀으로 저장 하 여 관리 합니다. 
+Azure storage 계정은 계정 이름과 키를 구성 하는 자격 증명을 사용 합니다. 키가 자동으로 생성 되 고 암호화 키가 아닌 암호로 사용 됩니다. Key Vault 저장소 계정에 주기적으로 다시 생성 하 여 저장소 계정 키를 관리 하 고 저장소 계정의 리소스에 대 한 위임 된 액세스를 위해 공유 액세스 서명 토큰을 제공 합니다.
 
 Key Vault 관리 저장소 계정 키 기능을 사용 하 여 Azure storage 계정으로 키를 나열 (동기화) 하 고 키를 주기적으로 다시 생성 (회전) 할 수 있습니다. 저장소 계정 및 클래식 저장소 계정에 대 한 키를 관리할 수 있습니다.
 
@@ -43,19 +42,19 @@ Azure AD 테 넌 트는 등록 된 각 응용 프로그램을 [서비스 사용�
 
 Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응용 프로그램입니다. Key Vault은 각 Azure 클라우드에서 동일한 응용 프로그램 ID로 등록 됩니다.
 
-| 테넌트 | 클라우드 | 애플리케이션 UI |
+| 테넌트 | 클라우드 | 애플리케이션 ID |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-az-ps?view=azps-2.6.0)합니다.
 - [주요 자격 증명 모음 만들기](quick-create-powershell.md)
-- [Azure storage 계정을 만듭니다](../../storage/common/storage-account-create.md?tabs=azure-powershell). 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
+- [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md?tabs=azure-powershell) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 
 ## <a name="manage-storage-account-keys"></a>저장소 계정 키 관리
@@ -122,7 +121,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Key Vault가 이미 스토리지 계정의 역할에 추가되었다면 *"역할 할당이 이미 있습니다."* 오류가 표시됩니다. 또한 Azure Portal에서 스토리지 계정 “액세스 제어(IAM)” 페이지를 사용하여 역할 할당을 확인할 수도 있습니다.  
+Key Vault가 이미 스토리지 계정의 역할에 추가되었다면 *"역할 할당이 이미 있습니다."* 오류가 발생합니다. 또한 Azure Portal에서 스토리지 계정 “액세스 제어(IAM)” 페이지를 사용하여 역할 할당을 확인할 수도 있습니다.  
 
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>관리 스토리지 계정에 사용자 계정 권한 부여
 

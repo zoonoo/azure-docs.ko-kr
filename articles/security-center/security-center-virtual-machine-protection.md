@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799737"
 ---
 # <a name="protect-your-machines-and-applications"></a>컴퓨터 및 응용 프로그램 보호
 Azure Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 권장 사항을 만듭니다.
@@ -127,7 +126,7 @@ App Service 정보를 보려면 Security Center의 표준 가격 책정 계층�
 
 **App Services**에는 App Service 환경 목록과 Security Center에서 수행된 평가에 기반한 상태 요약이 있습니다.
 
-![App Services](./media/security-center-virtual-machine-recommendations/app-services.png)
+![앱 서비스](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 표시 되는 응용 프로그램 서비스에는 다음 세 가지 유형이 있습니다.
 
@@ -163,15 +162,13 @@ App Service 정보를 보려면 Security Center의 표준 가격 책정 계층�
 
 ![컨테이너 호스트](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) 컨테이너 호스트-docker를 실행 하는 Vm 
 
-![Kubernetes 서비스](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) AKS (Azure Kubernetes Service) 클러스터
+![Kubernetes service ](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) AKS (Azure Kubernetes service) 클러스터. [Security Center의 AKS 번들에 대 한 자세한 정보](azure-kubernetes-service-integration.md)
 
-![컨테이너 레지스트리](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) ACR (Azure Container Registry) 레지스트리-표준 가격 책정 계층에 있고 Azure Container Registry 번들을 사용 하는 경우에만 표시 됩니다.
+![](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)ACR (Container registry Azure Container Registry) 레지스트리. [Security Center의 ACR 번들에 대해 알아보기](azure-container-registry-integration.md)
 
 컨테이너 보안 기능을 사용 하는 방법에 대 한 지침은 [컨테이너의 보안 모니터링](monitor-container-security.md)을 참조 하세요.
 
-Azure Container Registry 번들의 이점은 [여기](azure-container-registry-integration.md) 에 설명 되어 있습니다.
 
-Kubernetes Services 번들의 이점은 [여기](azure-kubernetes-service-integration.md) 에 설명 되어 있습니다.
 
 [![컨테이너 탭](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
@@ -199,7 +196,7 @@ Security Center는 Docker 구성을 검색하고 평가된 모든 실패 규칙 
 
 
 ## <a name="next-steps"></a>다음 단계
-다른 Azure 리소스 유형에 적용 되는 권장 사항에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [Azure Security Center의 보안 권장 사항에 대 한 전체 참조 목록](recommendations-reference.md)
 * [Azure Security Center에서 ID 및 액세스 모니터링](security-center-identity-access.md)

@@ -7,16 +7,15 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5c6956c38d15213d84b43b24784d2bb2b3a1963f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: dac1d66242dc88c1b2d96c7af1930e36f225ff4e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638571"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040506"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -39,7 +38,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 1. *TrustFrameworkExtensions.xml* 파일을 엽니다.
 2. 아직 없는 경우 **ClaimsSchema** 요소와 해당 자식 요소를 **BuildingBlocks** 요소 아래의 첫 번째 요소로 추가합니다.
 
-    ```XML
+    ```xml
     <ClaimsSchema>
       <ClaimType Id="logonIdentifier">
         <DisplayName>User name or email address that the user can use to sign in</DisplayName>
@@ -62,7 +61,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 
 3. **ClaimsSchema** 뒤에 **ClaimsTransformations** 요소와 해당 자식 요소를 **BuildingBlocks** 요소에 추가합니다.
 
-    ```XML
+    ```xml
     <ClaimsTransformations>
       <ClaimsTransformation Id="CreateSubjectClaimFromObjectID" TransformationMethod="CreateStringClaim">
         <InputParameters>
@@ -88,7 +87,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 
 4. `Local Account SignIn`의 **DisplayName**이 있는 **ClaimsProvider** 요소를 찾아 다음 기술 프로필을 추가합니다.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
       <DisplayName>Local Account SignIn</DisplayName>
       <Protocol Name="OpenIdConnect" />
@@ -110,8 +109,8 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
         <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="password" />
         <InputClaim ClaimTypeReferenceId="scope" DefaultValue="openid" />
         <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
-        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="00000000-0000-0000-0000-000000000000" />
-        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="00000000-0000-0000-0000-000000000000" />
+        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppId" />
+        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppId" />
       </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid" />
@@ -128,7 +127,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 
 5. 다음 **ClaimsProvider** 요소를 기술 프로필과 함께 **ClaimsProviders** 요소에 추가합니다.
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -182,7 +181,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 
 6. **UserJourneys** 요소와 해당 자식 요소를 **TrustFrameworkPolicy** 요소에 추가합니다.
 
-    ```XML
+    ```xml
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
       <OrchestrationSteps>
@@ -230,7 +229,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 3. **DefaultUserJourney**의 **ReferenceId** 특성 값을 `ResourceOwnerPasswordCredentials`로 변경합니다.
 4. 다음 클레임만 포함되도록 **OutputClaims** 요소를 변경합니다.
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
     <OutputClaim ClaimTypeReferenceId="displayName" DefaultValue="" />
@@ -267,7 +266,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
 
 실제 POST 요청은 다음 예제와 같이 표시됩니다.
 
-```HTTPS
+```https
 POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -277,7 +276,7 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 
 offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
     "token_type": "Bearer",
@@ -309,7 +308,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 성공적인 응답은 다음 예제와 비슷합니다.
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhT...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQn...",

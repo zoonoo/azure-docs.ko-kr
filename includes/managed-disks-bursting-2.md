@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 850ace7af15ab37ab9a4a124d20ed4588771f4d4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242085"
 ---
 ## <a name="common-scenarios"></a>일반적인 시나리오
 다음 시나리오는 버스트에서 크게 이점을 누릴 수 있습니다.
@@ -24,9 +23,11 @@ ms.locfileid: "82594549"
 ## <a name="bursting-flow"></a>버스트 흐름
 버스트 크레딧 시스템은 가상 머신 수준과 디스크 수준에서 동일한 방식으로 적용 됩니다. 리소스 (VM 또는 디스크)는 완전히 보충 크레딧을 시작 합니다. 이러한 크레딧을 통해 최대 버스트 속도로 30 분 동안 버스트를 수행할 수 있습니다. 버스트 크레딧은 리소스가 성능 디스크 저장소 제한에서 실행 되는 경우 누적 됩니다. 리소스가 성능 제한을 초과 하 여 사용 하는 모든 IOPS 및 MB/s에 대해 크레딧을 축적 하기 시작 합니다. 리소스에서 버스트에 사용할 크레딧을 계산 하 고 워크 로드에 추가 성능이 필요한 경우 리소스는 해당 크레딧을 사용 하 여 성능 제한을 초과 하 여 수요를 충족 하는 데 필요한 디스크 IO 성능을 제공할 수 있습니다.
 
+
+
 ![버스트 버킷 다이어그램](media/managed-disks-bursting/bucket-diagram.jpg)
 
-버스트 누적에 대해 기억해 야 할 한 가지 사항은 리소스는 사용 되지 않는 IOPS를 기준으로 하 고 성능 금액 보다 낮은 m/s를 기준으로 하기 때문입니다. 즉, 더 높은 기준 성능 제품은 낮은 기준 제품을 실행 하는 것 보다 버스트 속도를 더 빠르게 계산 합니다. 예를 들어, 활동이 없는 P1 디스크 유휴 상태는 초당 120 IOPS를 계산 하는 반면, P20 디스크는 초당 2300 IOPS를 발생 하 고 작업을 하지 않고 유휴 상태를 계산 합니다.
+30 분 버스트를 사용 하는 방법에 대 한 최대입니다. 30 분 동안이를 하루 종일 또는 산발적으로 사용할 수 있습니다. 제품이 배포 되 면 준비가 완료 되 면 크레딧을 depletes 하는 것이 좋습니다. 즉, 크레딧 전체를 보충 하는 데 하루 미만이 소요 됩니다. 사용자의 재량에 따라 버스트 크레딧을 축적 하 고 소비할 수 있으며 30 분 버킷을 다시 버스트에 다시 사용할 필요가 없습니다. 버스트 누적에 대해 기억해 야 할 한 가지 사항은 리소스는 사용 되지 않는 IOPS를 기준으로 하 고 성능 금액 보다 낮은 m/s를 기준으로 하기 때문입니다. 즉, 더 높은 기준 성능 제품은 낮은 기준 제품을 실행 하는 것 보다 버스트 속도를 더 빠르게 계산 합니다. 예를 들어, 활동이 없는 P1 디스크 유휴 상태는 초당 120 IOPS를 계산 하는 반면, P20 디스크는 초당 2300 IOPS를 발생 하 고 작업을 하지 않고 유휴 상태를 계산 합니다.
 
 ## <a name="bursting-states"></a>버스트 상태
 버스트를 사용 하 여 리소스를 사용할 수 있는 세 가지 상태가 있습니다.
@@ -70,7 +71,7 @@ ms.locfileid: "82594549"
 - 2 P10 데이터 디스크 
     - 프로 비전 된 MB/s: 250
 
- 초기 부팅 후 응용 프로그램은 VM에서 실행 되 고 중요 하지 않은 워크 로드를 포함 합니다. 이 워크 로드에는 모든 디스크에 균등 하 게 분산 되는 30mb ![/s가 필요 합니다. 버스트 vm 비 버스트 디스크 유휴 상태](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ 초기 부팅 후 응용 프로그램은 VM에서 실행 되 고 중요 하지 않은 워크 로드를 포함 합니다. 이 워크 로드에는 모든 디스크에 균등 하 게 분산 되는 30mb/s가 필요 합니다. ![ 버스트 vm 비 버스트 디스크 유휴 상태](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
 그런 다음 응용 프로그램에서 600 m b/s가 필요한 일괄 처리 된 작업을 처리 해야 합니다. 이 수요를 충족 하는 Standard_L8s_v2 버스트 된 다음 디스크에 대 한 요청은 P50 디스크에 고르게 분산 됩니다.
 

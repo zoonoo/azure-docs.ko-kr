@@ -7,12 +7,11 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: afe97fd1736fbaa6858adb2fc658b4ab34546f84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456849"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -127,7 +126,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 
 * ID
 * 항목
-* 주체
+* 제목
 * EventType
 * DataVersion
 * 이벤트 데이터(예: Data.key1)
@@ -147,7 +146,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 값은 다음이 될 수 있습니다.
 
 * number
-* 문자열
+* string
 * boolean
 * array
 
@@ -155,7 +154,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 
 고급 필터링에는 다음과 같은 제한이 있습니다.
 
-* 이벤트 그리드 구독당 5개의 고급 필터
+* 5 이벤트 그리드 구독 당 모든 필터의 고급 필터 및 25 필터 값
 * 문자열 값당 512자
 * **in** 및 **not in** 연산자에 대한 5개의 값
 * 문자에 ** `.` (점)** 이 있는 키입니다. 예를 들어 `http://schemas.microsoft.com/claims/authnclassreference` 또는 `john.doe@contoso.com`입니다. 현재는 키에 이스케이프 문자를 사용할 수 없습니다. 

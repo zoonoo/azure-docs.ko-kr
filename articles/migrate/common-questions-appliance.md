@@ -2,13 +2,12 @@
 title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078983"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -37,7 +36,7 @@ Azure Migrate 어플라이언스에 대 한 자세한 내용은 다음과 같습
 
 - VMware Vm 및 Hyper-v Vm에 대 한 템플릿 사용 (VMware의 경우 OVA 템플릿, hyper-v의 경우 VHD).
 - 템플릿을 사용 하지 않으려는 경우 또는 Azure Government 중인 경우 PowerShell 스크립트를 사용 하 여 VMware 또는 Hyper-v에 대 한 어플라이언스를 배포할 수 있습니다.
-- 물리적 서버의 경우 항상 스크립트를 사용 하 여 어플라이언스를 배포 합니다.
+- 물리적 서버의 경우 항상 스크립트를 사용하여 어플라이언스를 배포합니다.
 
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>어플라이언스는 Azure에 어떻게 연결 되나요?
@@ -107,7 +106,7 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 또는 서버는 몇 개입니까?
 
-단일 어플라이언스를 사용 하 여 최대 1만 개의 VMware Vm, 최대 5000 대의 Hyper-v Vm 및 최대 250 대의 물리적 서버를 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v 평가를 확장](scale-hyper-v-assessment.md)하 고, [VMware 평가를 확장](scale-vmware-assessment.md)하 고, [물리적 서버 평가](scale-physical-assessment.md)를 확장 하는 방법에 대해 알아보세요.
+단일 어플라이언스를 사용 하 여 최대 1만 개의 VMware Vm, 최대 5000 대의 Hyper-v Vm 및 최대 1000 대의 물리적 서버를 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v 평가를 확장](scale-hyper-v-assessment.md)하 고, [VMware 평가를 확장](scale-vmware-assessment.md)하 고, [물리적 서버 평가](scale-physical-assessment.md)를 확장 하는 방법에 대해 알아보세요.
 
 ## <a name="can-i-delete-an-appliance"></a>어플라이언스를 삭제할 수 있나요?
 

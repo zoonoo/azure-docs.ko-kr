@@ -2,13 +2,12 @@
 title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift. x 구성 | Microsoft Docs
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: e04ef42971756cffe0906e1ddfb8406e876588bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800514"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성
 
@@ -30,11 +29,49 @@ ms.locfileid: "82204137"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
+
+- [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
+
+    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
 - 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버 여야 하 고 컨테이너에 대 한 Azure Monitor로 구성 된 Log Analytics 작업 영역의 구성원 인 [*Log Analytics 참가자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
 
 - 모니터링 데이터를 보려면 컨테이너에 대해 Azure Monitor 구성 된 Log Analytics 작업 영역에 대 한 [*Log Analytics 읽기 권한자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할 권한의 멤버입니다.
+
+## <a name="identify-your-log-analytics-workspace-id"></a>Log Analytics 작업 영역 ID 식별
+
+ 기존 Log Analytics 작업 영역과 통합 하려면 먼저 Log Analytics 작업 영역의 전체 리소스 ID를 식별 합니다. 작업 영역의 리소스 ID는 `workspaceResourceId` Azure Resource Manager 템플릿 메서드를 사용 하 여 모니터링을 사용 하도록 설정 하는 경우 매개 변수에 필요 합니다.
+
+1. 다음 명령을 실행 하 여 액세스 권한이 있는 모든 구독을 나열 합니다.
+
+    ```azurecli
+    az account list --all -o table
+    ```
+
+    출력은 다음과 같이 표시됩니다.
+
+    ```azurecli
+    Name                                  CloudName    SubscriptionId                        State    IsDefault
+    ------------------------------------  -----------  ------------------------------------  -------  -----------
+    Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
+    ```
+
+1. **SubscriptionId**의 값을 복사 합니다.
+
+1. 다음 명령을 실행 하 여 Log Analytics 작업 영역을 호스팅하는 구독으로 전환 합니다.
+
+    ```azurecli
+    az account set -s <subscriptionId of the workspace>
+    ```
+
+1. 다음 명령을 실행 하 여 구독의 작업 영역 목록을 기본 JSON 형식으로 표시 합니다.
+
+    ```
+    az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
+    ```
+
+1. 출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID**로 복사 합니다.
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 새 클러스터에서 사용
 
@@ -54,7 +91,7 @@ ms.locfileid: "82204137"
 
 - [AZURE AD 보안 그룹](../../openshift/howto-aad-app-configuration.md#create-an-azure-ad-security-group) 하나를 만드는 단계를 수행 하 고 나 서 이미 만든 그룹입니다.
 
-- 기존 Log Analytics 작업 영역의 리소스 ID입니다.
+- 기존 Log Analytics 작업 영역의 리소스 ID입니다. 이 정보를 가져오는 방법에 대해 알아보려면 [Log Analytics 작업 영역 ID 식별](#identify-your-log-analytics-workspace-id) 을 참조 하세요.
 
 - 클러스터에 만들 마스터 노드의 수입니다.
 
@@ -70,18 +107,16 @@ ms.locfileid: "82204137"
 
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
-Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 사용 하도록 설정 하기 전에 Log Analytics 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)에서 설정할 수 있습니다.
-
 1. 다음 명령을 사용 하 여 모니터링 추가 기능을 사용 하 여 클러스터를 만들려면 Azure Resource Manager 템플릿 및 매개 변수 파일을 다운로드 하 여 로컬 폴더에 저장 합니다.
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
 
 2. Azure에 로그인
 
     ```azurecli
-    az login    
+    az login
     ```
 
     여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꿔서 실행합니다.
@@ -92,7 +127,7 @@ Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 사용 하도록 �
     az group create -g <clusterResourceGroup> -l <location>
     ```
 
-4. JSON 매개 변수 파일 **newClusterWithMonitoringParam** 를 편집 하 고 다음 값을 업데이트 합니다.
+4. **newClusterWithMonitoringParam.js** JSON 매개 변수 파일을 편집 하 고 다음 값을 업데이트 합니다.
 
     - *location*
     - *clusterName*
@@ -149,7 +184,7 @@ Azure에 배포 된 Azure Red Hat OpenShift 클러스터의 모니터링을 사�
 
 - 클러스터가 배포 되는 리소스 그룹입니다.
 
-- Log Analytics 작업 영역.
+- Log Analytics 작업 영역. 이 정보를 가져오는 방법에 대해 알아보려면 [Log Analytics 작업 영역 ID 식별](#identify-your-log-analytics-workspace-id) 을 참조 하세요.
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 
@@ -159,18 +194,16 @@ Azure에 배포 된 Azure Red Hat OpenShift 클러스터의 모니터링을 사�
 
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
-Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 사용 하도록 설정 하기 전에 Log Analytics 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)에서 설정할 수 있습니다.
-
 1. 다음 명령을 사용 하 여 모니터링 추가 기능으로 클러스터를 업데이트 하려면 템플릿 및 매개 변수 파일을 다운로드 합니다.
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
 
 2. Azure에 로그인
 
     ```azurecli
-    az login    
+    az login
     ```
 
     여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꿔서 실행합니다.
@@ -187,7 +220,7 @@ Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 사용 하도록 �
     az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. AraResoruceLocation JSON 매개 **변수 파일을** 편집 하 고 *Araresourceid* 및 *araResoruceLocation*값을 업데이트 합니다. **workspaceResourceId** 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다.
+5. **existingClusterParam.js** JSON 매개 변수 파일을 편집 하 고 *Aroresourceid* 및 *aroresourceid*값을 업데이트 합니다. **workspaceResourceId** 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다.
 
 6. Azure CLI를 사용 하 여 배포 하려면 다음 명령을 실행 합니다.
 

@@ -6,19 +6,18 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3faca8d1a2538ed03a917d6db8d54323fe626369
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 65a6a622a0d3fac7b28cc699d860068f12b780fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81533689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728608"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 멤버를 대량 다운로드
 
@@ -26,8 +25,8 @@ Azure Active Directory (Azure AD) 포털을 사용 하 여 조직의 그룹 멤�
 
 ## <a name="to-bulk-download-group-membership"></a>그룹 구성원을 대량으로 다운로드 하려면
 
-1. 조직의 사용자 관리자 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다. 그룹 소유자는 자신이 소유한 그룹의 멤버를 대량으로 다운로드할 수도 있습니다.
-1. Azure AD에서 **그룹** > **모든 그룹**을 선택 합니다.
+1. 조직의 사용자 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그룹 소유자는 자신이 소유한 그룹의 멤버를 대량으로 다운로드할 수도 있습니다.
+1. Azure AD에서 **그룹** > **모든 그룹**을 선택합니다.
 1. 구성원이 다운로드 될 그룹을 열고 **구성원**을 선택 합니다.
 1. **구성원** 페이지에서 **구성원 다운로드** 를 선택 하 여 그룹 구성원을 나열 하는 CSV 파일을 다운로드 합니다.
 
@@ -45,5 +44,5 @@ Azure Active Directory (Azure AD) 포털을 사용 하 여 조직의 그룹 멤�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [그룹 구성원 대량 가져오기](groups-bulk-import-members.md)
+- [그룹 멤버 대량 가져오기](groups-bulk-import-members.md)
 - [그룹 구성원 대량 제거](groups-bulk-download-members.md)

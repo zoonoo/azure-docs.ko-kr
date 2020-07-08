@@ -5,20 +5,19 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: common
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515017"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
 
-저장소 계정을 이동 하려면 다른 지역에 저장소 계정의 복사본을 만듭니다. 그런 다음 AzCopy 또는 원하는 다른 도구를 사용 하 여 해당 계정으로 데이터를 이동 합니다.
+스토리지 계정을 이동하려면 다른 지역에 스토리지 계정의 복사본을 만듭니다. 그런 다음 AzCopy 또는 원하는 다른 도구를 사용 하 여 해당 계정으로 데이터를 이동 합니다.
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -31,13 +30,13 @@ ms.locfileid: "83198498"
 > * 새 저장소 계정으로 데이터를 이동 합니다.
 > * 원본 영역에서 리소스를 삭제 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 계정에서 사용 하는 서비스 및 기능이 대상 지역에서 지원 되는지 확인 합니다.
+- 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 
-- 미리 보기 기능에 대해 구독을 대상 지역에 대 한 허용 목록 확인 합니다.
+- 미리 보기 기능의 경우 구독이 대상 지역에 대한 허용 목록에 추가되었는지 확인합니다.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## <a name="prepare"></a>준비
 
@@ -45,11 +44,11 @@ ms.locfileid: "83198498"
 
 ### <a name="export-a-template"></a>템플릿 내보내기
 
-이 템플릿에는 저장소 계정을 설명 하는 설정이 포함 되어 있습니다. 
+이 템플릿에는 스토리지 계정을 설명하는 설정이 포함되어 있습니다. 
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal를 사용 하 여 템플릿을 내보내려면:
+Azure Portal을 사용하여 템플릿을 내보내려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -67,7 +66,7 @@ Azure Portal를 사용 하 여 템플릿을 내보내려면:
 
 PowerShell을 사용 하 여 템플릿을 내보내려면:
 
-1. [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용 하 여 Azure 구독에 로그인 하 고 화면의 지시를 따릅니다.
+1. [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -95,7 +94,7 @@ PowerShell을 사용 하 여 템플릿을 내보내려면:
 
 ### <a name="modify-the-template"></a>템플릿 수정 
 
-저장소 계정 이름 및 지역을 변경 하 여 템플릿을 수정 합니다.
+스토리지 계정 이름 및 지역을 변경하여 템플릿을 수정합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -103,19 +102,19 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
 
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
 
-2. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
+2. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
 
-3. **템플릿 배포**를 선택합니다.
+3. **템플릿 배포**를 선택 합니다.
 
     ![Azure Resource Manager 템플릿 라이브러리](./media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. **만들기**를 선택합니다.
 
-5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
+5. **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
 
-6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 **템플릿. json** 파일을 로드 합니다.
+6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 
-7. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
+7. 파일 **의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -143,7 +142,7 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
 
 PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
+1. 파일 **의template.js** 에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예에서는 저장소 계정 이름의 기본값을로 설정 `mytargetaccount` 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +155,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
     },
     ``` 
 
-2. **템플릿. json** 파일의 **location** 속성을 대상 영역으로 편집 합니다. 이 예에서는 대상 지역을로 설정 `eastus` 합니다.
+2. 파일 **의template.js** **위치** 속성을 대상 지역으로 편집 합니다. 이 예에서는 대상 지역을로 설정 `eastus` 합니다.
 
     ```json
     "resources": [{
@@ -174,15 +173,15 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
     ```
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## <a name="move"></a>이동
 
-템플릿을 배포 하 여 대상 지역에 새 저장소 계정을 만듭니다. 
+템플릿을 배포하여 대상 지역에 새 스토리지 계정을 만듭니다. 
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. **템플릿. json** 파일을 저장 합니다.
+1. 파일 **에template.js** 을 저장 합니다.
 
 2. 속성 값을 입력 하거나 선택 합니다.
 
@@ -213,30 +212,30 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
    ```
 ---
 
-### <a name="configure-the-new-storage-account"></a>새 저장소 계정 구성
+### <a name="configure-the-new-storage-account"></a>새 스토리지 계정 구성
 
-일부 기능은 템플릿으로 내보내지 않으므로 새 저장소 계정에 추가 해야 합니다. 
+일부 기능은 템플릿으로 내보내지 않으므로 새 스토리지 계정에 추가해야 합니다. 
 
-다음 표에서는 이러한 기능을 새 저장소 계정에 추가 하기 위한 지침과 함께 보여 줍니다.
+다음 표에 이러한 기능과 함께 새 스토리지 계정에 이 기능을 추가하기 위한 지침이 나와 있습니다.
 
 | 기능    | 지침    |
 |--------|-----------|
 | **수명 주기 관리 정책** | [Azure Blob Storage 수명 주기 관리](../blobs/storage-lifecycle-management-concepts.md) |
-| **정적 웹 사이트** | [Azure Storage에서 정적 웹 사이트를 호스팅합니다.](../blobs/storage-blob-static-website-how-to.md) |
-| **이벤트 구독** | [Blob Storage 이벤트에 대응](../blobs/storage-blob-event-overview.md) |
-| **경고** | [Azure Monitor를 사용 하 여 활동 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-activity-log.md) |
-| **CDN(콘텐츠 배달 네트워크)** | [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스](../blobs/storage-https-custom-domain-cdn.md) |
+| **정적 웹 사이트** | [Azure Storage에서 정적 웹 사이트 호스트](../blobs/storage-blob-static-website-how-to.md) |
+| **이벤트 구독** | [Blob Storage 이벤트에 응답](../blobs/storage-blob-event-overview.md) |
+| **경고** | [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../../azure-monitor/platform/alerts-activity-log.md) |
+| **CDN(콘텐츠 전송 네트워크)** | [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
 > 원본 저장소 계정에 대 한 CDN을 설정 하는 경우 기존 CDN의 원본을 새 계정의 주 blob service 끝점 (또는 기본 정적 웹 사이트 끝점)으로 변경 하면 됩니다. 
 
-### <a name="move-data-to-the-new-storage-account"></a>새 저장소 계정으로 데이터 이동
+### <a name="move-data-to-the-new-storage-account"></a>새 스토리지 계정으로 데이터 이동
 
-AzCopy은 데이터를 이동 하는 데 선호 되는 도구입니다. 성능에 최적화 되어 있습니다.  더 빠른 방법 중 하나는 저장소 서버 간에 데이터를 직접 복사 하 여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용 하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용 하거나 사용자 지정 스크립트의 일부로 사용 합니다. [AzCopy 시작](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+AzCopy은 데이터를 이동 하는 데 선호 되는 도구입니다. 성능에 최적화되어 있습니다.  더 빠른 방법 중 하나는 스토리지 서버 간에 데이터를 직접 복사하여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용하거나 사용자 지정 스크립트의 일부로 사용합니다. [AzCopy 시작](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 Azure Data Factory를 사용 하 여 데이터를 이동할 수도 있습니다. 직관적인 사용자 인터페이스를 제공 합니다. Azure Data Factory를 사용 하려면 다음 링크 중 하나를 참조 하세요.. 
 
-  - [Azure Data Factory를 사용 하 여 Azure Blob storage 간 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+  - [Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
   - [Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
@@ -247,11 +246,11 @@ Azure Data Factory를 사용 하 여 데이터를 이동할 수도 있습니다.
 
 배포 후에는 다시 시작 하려는 경우 대상 저장소 계정을 삭제 하 고이 문서의 [준비](#prepare) 및 [이동](#move) 섹션에 설명 된 단계를 반복할 수 있습니다.
 
-변경 내용을 커밋하고 저장소 계정의 이동을 완료 하려면 원본 저장소 계정을 삭제 합니다.
+변경 내용을 커밋하고 스토리지 계정의 이동을 완료하려면 원본 스토리지 계정을 삭제합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal를 사용 하 여 저장소 계정을 제거 하려면 다음을 수행 합니다.
+Azure Portal을 사용하여 스토리지 계정을 제거하려면:
 
 1. Azure Portal에서 왼쪽의 메뉴를 확장 하 여 서비스의 메뉴를 열고 **저장소 계정** 을 선택 하 여 저장소 계정 목록을 표시 합니다.
 
@@ -270,7 +269,7 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure storage 계정을 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
+이 자습서에서는 Azure storage 계정을 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
 - [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

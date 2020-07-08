@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782815"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
 
@@ -46,7 +45,7 @@ ms.locfileid: "77919484"
 뷰와 작업은 기본적으로 동일 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
 - **보안 정책 관리**: 한 보기에서 [정책을](tutorial-security-policy.md)사용 하 여 많은 리소스의 보안 상태를 관리 하 고, 보안 권장 사항을 사용 하 여 작업을 수행 하 고, 보안 관련 데이터를 수집 및 관리 합니다.
-- **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 가시성을 통해 모든 테 넌 트의 전반적인 보안 상태를 확인 하 고 각 테 넌 트의 [보안 점수](security-center-secure-score.md) 와 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 향상 시킬 수 있습니다.
+- **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 가시성을 통해 모든 테 넌 트의 전반적인 보안 상태를 확인 하 고 각 테 넌 트의 [보안 점수](secure-score-security-controls.md) 와 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 향상 시킬 수 있습니다.
 - **권장 사항**수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장](security-center-recommendations.md) 사항을 모니터링 하 고 수정 합니다. 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
 - **경고 관리**: 다른 테 넌 트 전체에서 [경고](security-center-alerts-overview.md) 를 검색 합니다. 조치 가능한 [수정 단계](security-center-managing-and-responding-alerts.md)를 준수 하지 않는 리소스에 대 한 조치를 취합니다.
 
@@ -56,5 +55,5 @@ ms.locfileid: "77919484"
 이 문서에서는 Security Center에서 교차 테 넌 트 관리를 작동 하는 방법을 설명 합니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center 사용](security-center-monitoring.md) 하 여 보안 상태를 강화 하 고 Azure 리소스의 상태를 모니터링 하는 방법을 알아보세요.
-* [Azure Security Center FAQ](faq-general.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [AZURE SECURITY CENTER FAQ](faq-general.md) -서비스 사용에 대 한 질문과 대답을 찾습니다.
 * [엔터프라이즈 시나리오의 Azure Lighthouse에 대해 알아보기](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) -azure Lighthouse에서 여러 azure AD 테 넌 트를 사용 하는 엔터프라이즈 내에서 교차 테 넌 트 관리를 간소화 하는 방법을 알아봅니다.

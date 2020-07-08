@@ -9,15 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675205"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,6 +126,8 @@ __Python 스크립트 실행__ 모듈을 사용하여 디자이너 실험에 로
         run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
 
         # Log the mean absolute error to the parent run to see the metric in the run details page.
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
         run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
     
         return dataframe1,
@@ -207,9 +208,11 @@ __Python 스크립트 실행__ 모듈을 사용하여 디자이너 실험에 로
 
 실험에서 실행이 완료되면 기록된 실험 실행 기록을 찾아볼 수 있습니다. [Azure Machine Learning 스튜디오](https://ml.azure.com)에서 기록에 액세스할 수 있습니다.
 
-실험 탭으로 이동하여 실험을 선택합니다. 실험 실행 대시보드로 이동하여 각 실행에 대해 기록된 추적 메트릭과 차트를 볼 수 있습니다. 이 경우 MSE와 알파 값을 기록했습니다.
+실험 탭으로 이동하여 실험을 선택합니다. 실험 실행 대시보드로 이동하여 각 실행에 대해 기록된 추적 메트릭과 차트를 볼 수 있습니다. 
 
-  ![Azure Machine Learning 스튜디오에서 세부 정보 실행](./media/how-to-track-experiments/experiment-dashboard.png)
+실행 목록 테이블을 편집 하 여 실행에 대해 기록 된 마지막 값, 최소값 또는 최대값을 표시할 수 있습니다. 실행 목록에서 여러 실행을 선택 하거나 선택 취소할 수 있으며, 선택한 실행이 차트를 데이터로 채웁니다. 새 차트를 추가 하거나 차트를 편집 하 여 여러 실행에서 기록 된 메트릭 (최소, 최대, 마지막 또는 모든 값)을 비교할 수도 있습니다. 데이터를 더 효과적으로 탐색 하기 위해 차트를 최대화할 수도 있습니다.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Azure Machine Learning 스튜디오에서 세부 정보 실행":::
 
 특정 실행으로 드릴다운하여 해당 출력 또는 로그를 보거나 제출한 실험의 스냅샷을 다운로드하여 다른 사용자와 실험 폴더를 공유할 수 있습니다.
 

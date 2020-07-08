@@ -10,12 +10,11 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: cd787881957d78f179107e46b2650de4618c7724
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282327"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958738"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -37,15 +36,17 @@ DSVM에서 지원 되는 데이터 플랫폼 도구는 다음과 같습니다.
 > SQL Server Developer Edition은 개발 및 테스트 목적 으로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스나 SQL Server VM 중 하나가 필요합니다.
 
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
-데이터베이스 서버는 이미 미리 구성 되어 있으며 SQL Server와 관련 된 Windows 서비스 ( `SQL Server (MSSQLSERVER)`예:)가 자동으로 실행 되도록 설정 되어 있습니다. 수동 단계에서는 Microsoft Machine Learning Server를 사용 하 여 데이터베이스 내 분석을 설정 해야 합니다. SSMS (SQL Server Management Studio)에서 일회성 작업으로 다음 명령을 실행 하 여 분석을 사용 하도록 설정할 수 있습니다. 컴퓨터 관리자로 로그인 한 후에이 명령을 실행 하 여 SSMS에서 새 쿼리를 열고 선택한 데이터베이스가 `master`다음과 같은지 확인 합니다.
+데이터베이스 서버는 이미 미리 구성 되어 있으며 SQL Server와 관련 된 Windows 서비스 (예: `SQL Server (MSSQLSERVER)` )가 자동으로 실행 되도록 설정 되어 있습니다. 수동 단계에서는 Microsoft Machine Learning Server를 사용 하 여 데이터베이스 내 분석을 설정 해야 합니다. SSMS (SQL Server Management Studio)에서 일회성 작업으로 다음 명령을 실행 하 여 분석을 사용 하도록 설정할 수 있습니다. 컴퓨터 관리자로 로그인 한 후에이 명령을 실행 하 여 SSMS에서 새 쿼리를 열고 선택한 데이터베이스가 다음과 같은지 확인 합니다 `master` .
 
-        CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```sql
+CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```
 
-        (Replace %COMPUTERNAME% with your VM name.)
-       
-SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL Server Management Studio"를 검색 하거나 Windows 검색을 사용 하 여 검색 하 고 실행할 수 있습니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 **Windows 인증** 을 선택 ```localhost``` 하 고 컴퓨터 이름 또는 **SQL Server 이름** 필드에 사용 합니다.
+% COMPUTERNAME%을 VM 이름으로 바꿉니다.
+
+SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL Server Management Studio"를 검색 하거나 Windows 검색을 사용 하 여 검색 하 고 실행할 수 있습니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 **Windows 인증** 을 선택 하 고 컴퓨터 이름 또는 ```localhost``` **SQL Server 이름** 필드에 사용 합니다.
 
 ### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법
 
@@ -55,7 +56,7 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>DSVM에 구성 및 설치 하는 방법 
 
- SQL Server은 표준 방식으로 설치 됩니다. 그것은 `C:\Program Files\Microsoft SQL Server`에서 찾을 수 있습니다. 데이터베이스 내 Machine Learning Server 인스턴스는에 `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`있습니다. 또한 DSVM에는에 `C:\Program Files\Microsoft\R Server\R_SERVER`설치 되는 별도의 독립 실행형 Machine Learning Server 인스턴스가 있습니다. 이러한 두 Machine Learning Server 인스턴스는 라이브러리를 공유 하지 않습니다.
+ SQL Server은 표준 방식으로 설치 됩니다. 그것은 `C:\Program Files\Microsoft SQL Server`에서 찾을 수 있습니다. 데이터베이스 내 Machine Learning Server 인스턴스는에 `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES` 있습니다. 또한 DSVM에는에 설치 되는 별도의 독립 실행형 Machine Learning Server 인스턴스가 있습니다 `C:\Program Files\Microsoft\R Server\R_SERVER` . 이러한 두 Machine Learning Server 인스턴스는 라이브러리를 공유 하지 않습니다.
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (독립 실행형)
@@ -69,24 +70,26 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 | DSVM의 관련 도구       | PySpark, Scala<br/>Jupyter (Spark/PySpark 커널)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>사용 방법
-`spark-submit` 또는 `pyspark` 명령을 실행 하 여 명령줄에서 Spark 작업을 제출할 수 있습니다. 또한 Spark 커널로 새 노트북을 만듦으로써 Jupyter 노트북을 만들 수 있습니다.
+또는 명령을 실행 하 여 명령줄에서 Spark 작업을 제출할 수 `spark-submit` 있습니다 `pyspark` . 또한 Spark 커널로 새 노트북을 만듦으로써 Jupyter 노트북을 만들 수 있습니다.
 
 DSVM에서 사용할 수 있는 SparkR, Sparklyr 및 Microsoft Machine Learning Server와 같은 라이브러리를 사용 하 여 R에서 Spark를 사용할 수 있습니다. 앞의 표에서 샘플에 대한 포인터를 참조하세요.
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 Ubuntu Linux DSVM 버전에서 Microsoft Machine Learning Server Spark 컨텍스트를 실행 하기 전에 로컬 단일 노드 Hadoop HDFS 및 Yarn 인스턴스를 사용 하도록 설정 하려면 일회성 설치 단계를 완료 해야 합니다. 기본적으로 Hadoop 서비스는 설치되지만 DSVM에서 사용하지 않도록 설정됩니다. 이 기능을 사용 하도록 설정 하려면 처음에 루트로 다음 명령을 실행 합니다.
 
-    echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
-    cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
-    chmod 0600 ~hadoop/.ssh/authorized_keys
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
-    chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
-    systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```bash
+echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
+cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
+chmod 0600 ~hadoop/.ssh/authorized_keys
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
+chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
+systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```
 
-을 실행 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```하 여 더 이상 필요 하지 않은 경우 Hadoop 관련 서비스를 중지할 수 있습니다.
+을 실행 하 여 더 이상 필요 하지 않은 경우 Hadoop 관련 서비스를 중지할 수 있습니다 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` .
 
-원격 Spark 컨텍스트 (DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 하 고 테스트 하는 방법을 보여 주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공 되 고 사용할 수 있습니다.
+원격 Spark 컨텍스트 (DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 하 고 테스트 하는 방법을 보여 주는 샘플은 디렉터리에서 제공 되 고 사용할 수 있습니다 `/dsvm/samples/MRS` .
 
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>DSVM에 구성 및 설치 하는 방법 
@@ -97,7 +100,7 @@ Ubuntu Linux DSVM 버전에서 Microsoft Machine Learning Server Spark 컨텍스
 
 Microsoft MMLSpark 기계 학습 라이브러리를 사용 하 여 Azure Blob storage 또는 Azure Data Lake Storage에서 데이터에 액세스 하는 라이브러리는 $SPARK _HOME/jars.에 미리 설치 되어 있습니다. 이러한 JAR은 Apache Spark가 시작될 때 자동으로 로드됩니다. 기본적으로 Spark는 로컬 디스크의 데이터를 사용 합니다. 
 
-Blob 저장소 또는 Azure Data Lake Storage에 저장 된 데이터에 액세스 하기 위해 DSVM의 Spark 인스턴스에서 $SPARK _HOME/conf/core-site.xml.template.에 있는 템플릿을 기반 `core-site.xml` 으로 파일을 만들고 구성 해야 합니다. 또한 Blob storage에 액세스 하 고 Azure Data Lake Storage 하는 데 적절 한 자격 증명이 있어야 합니다. 템플릿 파일은 Blob 저장소 및 Azure Data Lake Storage 구성에 대 한 자리 표시자를 사용 합니다.
+Blob 저장소 또는 Azure Data Lake Storage에 저장 된 데이터에 액세스 하기 위해 DSVM의 Spark 인스턴스에서는 `core-site.xml` $SPARK _HOME/sv/core-site.xml 템플릿에 있는 템플릿을 기반으로 파일을 만들고 구성 해야 합니다. 또한 Blob storage에 액세스 하 고 Azure Data Lake Storage 하는 데 적절 한 자격 증명이 있어야 합니다. 템플릿 파일은 Blob 저장소 및 Azure Data Lake Storage 구성에 대 한 자리 표시자를 사용 합니다.
 
 Azure Data Lake Storage 서비스 자격 증명을 만드는 방법에 대 한 자세한 내용은 [Azure Data Lake Storage Gen1 인증](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)을 참조 하세요. Blob 저장소 또는 Azure Data Lake Storage에 대 한 자격 증명을 core-site.xml 파일에 입력 한 후에는 wasb://또는 adl://의 URI 접두사를 통해 해당 원본에 저장 된 데이터를 참조할 수 있습니다.
 

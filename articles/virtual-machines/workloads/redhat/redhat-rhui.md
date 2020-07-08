@@ -11,12 +11,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b46e8efb252224f83603000777b2e342f7e7ab9d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 19503fa2257f42cf896dbfb831d4165e329134b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85250352"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -83,7 +82,7 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
 >[!NOTE]
 > EUS는 RHEL Extras에서 지원되지 않습니다. 즉, 일반적으로 RHEL 특별 채널에서 사용할 수 있는 패키지를 설치하는 경우 EUS에서 이 작업을 수행할 수 없습니다. Red Hat Extras 제품 수명 주기는 [여기](https://access.redhat.com/support/policy/updates/extras/)에 자세히 설명되어 있습니다.
 
-이 문서 작성 당시에는 RHEL 7.4 이하 버전에 대한 EUS 지원이 종료되었습니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/support/policy/updates/errata/)의 "Red Hat Enterprise Linux 추가 기능 지원 중단" 섹션을 참조하세요.
+이 문서 작성 당시에는 RHEL 7.4 이하 버전에 대한 EUS 지원이 종료되었습니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/support/policy/updates/errata/#Long_Support) 의 "Red Hat Enterprise Linux Extended Maintenance" 섹션을 참조 하세요.
 * RHEL 7.4 EUS 지원이 2019년 8월 31일에 종료됩니다.
 * RHEL 7.5 EUS 지원이 2020년 4월 30일에 종료됩니다.
 * RHEL 7.6 EUS 지원이 2020년 10월 31일에 종료됩니다.
@@ -164,6 +163,11 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 51.5.243.77
 51.4.228.145
 ```
+>[!NOTE]
+>2020 년 1 월부터 새 Azure 미국 정부 이미지는 위의 Azure Global 헤더에 언급 된 공용 IP를 사용 하 게 됩니다.
+
+>[!NOTE]
+>또한 Azure 독일은 공개 독일 지역에서 더 이상 사용 되지 않습니다. Azure 독일 고객에 대 한 권장 사항은 [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers)의 단계를 사용 하 여 공용 RHUI를 가리키기 시작 하는 것입니다.
 
 ## <a name="azure-rhui-infrastructure"></a>Azure RHUI 인프라
 

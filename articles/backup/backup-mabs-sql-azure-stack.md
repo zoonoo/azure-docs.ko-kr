@@ -3,12 +3,11 @@ title: Azure Stack에 SQL Server 워크로드 백업
 description: 이 문서에서는 Azure Stack에서 SQL Server 데이터베이스를 보호 하도록 MABS (Microsoft Azure Backup Server)를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74172303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84192976"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
 
@@ -38,7 +37,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![선택하는 보호 그룹 종류 - '서버'](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. **그룹 멤버 선택** 화면에서, 사용 가능한 멤버 목록에 다양한 데이터 원본이 표시됩니다. 폴더 **+** 를 확장 하 고 하위 폴더를 표시 하려면 클릭 합니다. 확인란을 클릭하여 항목을 선택합니다.
+4. **그룹 멤버 선택** 화면에서, 사용 가능한 멤버 목록에 다양한 데이터 원본이 표시됩니다. **+** 폴더를 확장 하 고 하위 폴더를 표시 하려면 클릭 합니다. 확인란을 클릭하여 항목을 선택합니다.
 
     ![SQL DB를 선택합니다.](./media/backup-azure-backup-sql/pg-databases.png)
 
@@ -65,7 +64,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
 
-    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 Azure Backup Server로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이 때문에 대역폭 혼잡을 방지하기 위해 최초 백업을 **수동**(이동식 미디어 사용)으로 전송해도 되고, **네트워크를 통해 자동으로 전송**(지정된 시간에)해도 됩니다.
+    초기 백업 복사본을 사용 하려면 프로덕션 서버 (SQL Server 컴퓨터)에서 Azure Backup Server로 전체 데이터 원본 (SQL Server 데이터베이스)을 전송 해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이 때문에 대역폭 혼잡을 방지하기 위해 최초 백업을 **수동**(이동식 미디어 사용)으로 전송해도 되고, **네트워크를 통해 자동으로 전송**(지정된 시간에)해도 됩니다.
 
     초기 백업을 완료하면 백업의 나머지 부분은 초기 백업 복사본의 증분 백업입니다. 증분 백업은 크기가 작으며 네트워크를 통해 간편하게 전송될 수 있습니다.
 
@@ -73,7 +72,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![일관성 확인](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server는 백업 시점의 무결성을 지속적으로 확인합니다. Azure Backup Server는 프로덕션 서버(이 시나리오에서는 SQL Server 컴퓨터)의 백업 파일과 해당 파일에 대한 백업 데이터의 체크섬을 계산합니다. 충돌이 있는 경우 Azure Backup Server에 백업된 파일이 손상된 것으로 가정합니다. Azure Backup Server는 체크섬 불일치에 해당하는 블록을 전송하여 백업된 데이터를 균형 있게 조정합니다. 일관성 검사는 많은 성능이 필요한 작업이므로 일관성 검사를 예약하거나 자동으로 실행할 수 있습니다.
+    Azure Backup Server는 백업 시점의 무결성을 지속적으로 확인합니다. Azure Backup Server 프로덕션 서버 (이 시나리오에서는 SQL Server 컴퓨터)에서 백업 파일의 체크섬을 계산 하 고 해당 파일의 백업 된 데이터를 계산 합니다. 충돌이 있는 경우 Azure Backup Server에 백업된 파일이 손상된 것으로 가정합니다. Azure Backup Server는 체크섬 불일치에 해당하는 블록을 전송하여 백업된 데이터를 균형 있게 조정합니다. 일관성 검사는 많은 성능이 필요한 작업이므로 일관성 검사를 예약하거나 자동으로 실행할 수 있습니다.
 
 10. 데이터 원본에 온라인 보호를 지정하려면 데이터베이스를 Azure에 보호되도록 선택하고 **다음**을 클릭합니다.
 
@@ -96,7 +95,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![보존 정책](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    이 예제에 대한 설명:
+    이 예제에서:
 
     * Backup은 매일 한 번 오후 12시 및 오후 8시에 수행되며(화면의 아래쪽 부분) 180일 동안 유지됩니다.
     * 토요일 오후 12시에 수행되는 백업은 104주 동안 유지됩니다.

@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9b2a47cde4d79671aada7c280c2bffd9bb8fe759
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: c0b043bdb20cad508950a11853403958340acadf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84434207"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Azure Maps Indoor Maps 모듈 사용
 
@@ -33,12 +32,12 @@ Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다
 
 전역적으로 호스팅되는 Azure Content Delivery Network 버전의 *Azure Maps Indoor* 모듈을 사용하려면, HTML 파일의 `<head>` 요소에 다음 JavaScript 및 스타일시트를 참조합니다.
 
-  ```html
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-    <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
-  ```
+```html
+<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+```
 
  또는 *Azure Maps Indoor* 모듈을 다운로드할 수 있습니다. *Azure Maps Indoor* 모듈은 Azure Maps 서비스에 액세스하기 위한 클라이언트 라이브러리를 포함합니다. 아래 단계에 따라 *Indoor* 모듈을 웹 애플리케이션에 설치하고 로드합니다.  
   
@@ -47,8 +46,8 @@ Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다
   2. NPM 패키지를 설치합니다. 콘솔에서 관리자 권한을 사용해야 합니다.
 
       ```powershell
-        >npm install azure-maps-control
-        >npm install azure-maps-indoor
+      >npm install azure-maps-control
+      >npm install azure-maps-indoor
       ```
 
   3. HTML 파일의 `<head>` 요소에서 *Azure Maps Indoor* 모듈 JavaScript 및 스타일시트를 참조합니다.
@@ -63,16 +62,20 @@ Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다
 먼저 *Map* 개체를 만듭니다. *Map* 개체는 다음 단계에서 *Indoor Manager* 개체를 인스턴스화하는 데 사용됩니다.  아래 코드는 *Map* 개체를 인스턴스화하는 방법을 보여줍니다.
 
 ```javascript
-  const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
+const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
-  const map = new atlas.Map("map-id", {
-    //use your facility's location
-    center: [-122.13315, 47.63637],
-    //or, you can use bounds: [#,#,#,#] and replace # with your map's bounds
-    style: "blank",
-    subscriptionKey,
-    zoom: 19,
-  });
+const map = new atlas.Map("map-id", {
+  //use your facility's location
+  center: [-122.13315, 47.63637],
+  //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
+  style: "blank",
+  view: 'Auto',
+  authOptions: { 
+      authType: 'subscriptionKey',
+      subscriptionKey: subscriptionKey
+  },
+  zoom: 19,
+});
 ```
 
 ## <a name="instantiate-the-indoor-manager"></a>Indoor Manager 인스턴스화
@@ -92,7 +95,6 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 제공한 상태 데이터의 폴링이 가능하도록 설정하려면 `statesetId`를 제공하고 `indoorManager.setDynamicStyling(true)`을 호출해야 합니다. 폴링 상태 데이터를 사용하면 *state* 또는 동적 속성의 상태를 동적으로 업데이트할 수 있습니다. 예를 들어 room과 같은 기능에는 `occupancy`라는 동적 속성(*상태*)이 있을 수 있습니다. 애플리케이션은 시각 맵 내부의 변화를 반영하기 위해 *state* 변경 사항이 있는지 폴링할 수 있습니다. 아래 코드는 상태 폴링을 사용하도록 설정하는 방법을 보여줍니다.
 
 ```javascript
-
 const tilesetId = "";
 const statesetId = "";
 
@@ -104,7 +106,6 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 if (statesetId.length > 0) {
     indoorManager.setDynamicStyling(true);
 }
-
 ```
 
 ## <a name="indoor-level-picker-control"></a>Indoor Level Picker 컨트롤
@@ -123,14 +124,14 @@ indoorManager.setOptions({ levelControl });
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
 
-    //code that you want to run after a level has been changed
-    console.log("The level has changed: ", eventData);
-
+  //code that you want to run after a level has been changed
+  console.log("The level has changed: ", eventData);
 });
+
 map.events.add("facilitychanged", indoorManager, (eventData) => {
 
-    //code that you want to run after a facility has been changed
-    console.log("The facility has changed: ", eventData);
+  //code that you want to run after a facility has been changed
+  console.log("The facility has changed: ", eventData);
 });
 ```
 
@@ -149,7 +150,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 4. *Map* 개체를 초기화합니다. *Map* 개체는 다음과 같은 옵션을 지원합니다.
     - `Subscription key`는 Azure Maps 기본 구독 키입니다.
     - `center`는 실내 맵 가운데 위치의 위도와 경도를 정의합니다. `bounds` 값을 제공하지 않으려면 `center` 값을 제공합니다. 형식은 `center`: [-122.13315, 47.63637]과 같이 표시되어야 합니다.
-    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. 형식은 `bounds`: [#,#,#,#]과 같이 표시되어야 합니다.
+    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. 형식은 `bounds` [# 서 부, # 남부, # 동부, # 북부]로 표시 되어야 합니다.
     - `style`을 사용하면 배경색을 설정할 수 있습니다. 흰색 배경을 표시하려면 `style`을 "blank"로 정의합니다.
     - `zoom`을 사용하면 맵의 최소 및 최대 확대/축소 수준을 지정할 수 있습니다.
 
@@ -168,10 +169,13 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, user-scalable=no" />
       <title>Indoor Maps App</title>
-       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+        
       <style>
         html,
         body {
@@ -191,16 +195,20 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
     <body>
       <div id="map-id"></div>
       <script>
-        const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
+        const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
         const tilesetId = "<your tilesetId>";
         const statesetId = "<your statesetId>";
 
         const map = new atlas.Map("map-id", {
           //use your facility's location
           center: [-122.13315, 47.63637],
-          //or, you can use bounds: [ # , # , # , # ] and replace # with your Map bounds
+          //or, you can use bounds: [# west, # south, # east, # north] and replace # with your Map bounds
           style: "blank",
-          subscriptionKey,
+          view: 'Auto',
+          authOptions: { 
+              authType: 'subscriptionKey',
+              subscriptionKey: subscriptionKey
+          },
           zoom: 19,
         });
 

@@ -1,23 +1,22 @@
 ---
-title: Python
+title: 디자이너에서 Python 스크립트 실행
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 디자이너에서 Python을 사용하여 데이터를 변환하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.custom: designer
-ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: designer, tracking-python
+ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644461"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041016"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 Python 코드 실행
+# <a name="run-python-code-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 Python 코드 실행
 
 이 문서에서는 [Python 스크립트 실행](algorithm-module-reference/execute-python-script.md) 모듈을 사용하여 Azure Machine Learning 디자이너에 사용자 지정 논리를 추가하는 방법에 대해 알아봅니다. 다음 방법에서는 Pandas 라이브러리를 사용하여 간단한 기능 엔지니어링을 수행합니다.
 

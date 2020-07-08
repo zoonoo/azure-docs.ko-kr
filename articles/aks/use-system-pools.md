@@ -3,17 +3,17 @@ title: Azure Kubernetes 서비스에서 시스템 노드 풀 사용 (AKS)
 description: AKS (Azure Kubernetes Service)에서 시스템 노드 풀을 만들고 관리 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/28/2020
-ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.author: mlearned
+ms.openlocfilehash: 9b6270f81e7af8bd508d29510698e6cf9a5a2010
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052653"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 시스템 노드 풀 관리 (AKS)
 
-Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 시스템 노드 풀 및 사용자 노드 풀은 AKS 클러스터에 대 한 두 개의 서로 다른 노드 풀 모드입니다. 시스템 노드 풀은 CoreDNS 및 tunnelfront와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다. 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 모든 AKS 클러스터에 하나 이상의 노드를 포함 하는 시스템 노드 풀이 하나 이상 있어야 합니다. 
+Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 시스템 노드 풀 및 사용자 노드 풀은 AKS 클러스터에 대 한 두 개의 서로 다른 노드 풀 모드입니다. 시스템 노드 풀은 CoreDNS 및 tunnelfront와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다. 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 모든 AKS 클러스터에 하나 이상의 노드를 포함 하는 시스템 노드 풀이 하나 이상 있어야 합니다.
 
 > [!Important]
 > 프로덕션 환경에서 AKS 클러스터에 대 한 단일 시스템 노드 풀을 실행 하는 경우 노드 풀에 대해 세 개 이상의 노드를 사용 하는 것이 좋습니다.
@@ -29,7 +29,7 @@ Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀
 * [Azure Kubernetes 서비스 (AKS)의 할당량, 가상 머신 크기 제한 및 지역 가용성][quotas-skus-regions]을 참조 하세요.
 * AKS 클러스터는 가상 머신 확장 집합을 VM 유형으로 빌드해야 합니다.
 * 노드 풀의 이름에는 소문자 영숫자만 사용할 수 있으며 소문자 문자로 시작 해야 합니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 합니다. Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
-* 2020-03-01 이상의 API 버전을 사용 하 여 노드 풀 모드를 설정 해야 합니다.
+* 2020-03-01 이상의 API 버전을 사용 하 여 노드 풀 모드를 설정 해야 합니다. 2020-03-01 보다 오래 된 API 버전에서 만든 클러스터는 사용자 노드 풀만 포함 하지만 [풀 모드 업데이트 단계](#update-existing-cluster-system-and-user-node-pools)를 수행 하 여 시스템 노드 풀을 포함 하도록 마이그레이션할 수 있습니다.
 * 노드 풀의 모드는 필수 속성 이며 ARM 템플릿 또는 직접 API 호출을 사용 하는 경우 명시적으로 설정 해야 합니다.
 
 ## <a name="system-and-user-node-pools"></a>시스템 및 사용자 노드 풀
@@ -56,7 +56,7 @@ Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀
 
 새 AKS 클러스터를 만들 때 단일 노드를 사용 하 여 시스템 노드 풀을 자동으로 만듭니다. 초기 노드 풀의 기본값은 시스템 형식 모드입니다. Az aks nodepool add를 사용 하 여 새 노드 풀을 만드는 경우 mode 매개 변수를 명시적으로 지정 하지 않으면 해당 노드 풀은 사용자 노드 풀입니다.
 
-다음 예제에서는 *e미국* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *미국 동부* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -115,7 +115,10 @@ az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepoo
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>시스템 및 사용자 노드 풀 업데이트
+## <a name="update-existing-cluster-system-and-user-node-pools"></a>기존 클러스터 시스템 및 사용자 노드 풀 업데이트
+
+> [!NOTE]
+> 2020-03-01 이상의 API 버전을 사용 하 여 시스템 노드 풀 모드를 설정 해야 합니다. 2020-03-01 보다 오래 된 API 버전에서 만든 클러스터는 그 결과로 사용자 노드 풀만 포함 합니다. 시스템 노드 풀 기능 및 이전 클러스터의 혜택을 받으려면 최신 Azure CLI 버전에서 다음 명령을 사용 하 여 기존 노드 풀의 모드를 업데이트 합니다.
 
 시스템 및 사용자 노드 풀의 모드를 변경할 수 있습니다. AKS 클러스터에 다른 시스템 노드 풀이 이미 있는 경우에만 사용자 풀로 시스템 노드 풀을 변경할 수 있습니다.
 

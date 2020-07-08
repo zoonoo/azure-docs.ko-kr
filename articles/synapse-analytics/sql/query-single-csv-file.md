@@ -5,16 +5,15 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f264a62428f919fe23797171926ddf63c585c42b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214454"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
@@ -179,6 +178,37 @@ WHERE
 
 > [!NOTE]
 > "Slov,enia"의 쉼표가 국가/지역 이름의 일부가 아니라 필드 구분 기호로 처리되기 때문에 ESCAPECHAR를 지정하지 않으면 이 쿼리는 실패합니다. "Slov,enia"는 두 개의 열로 처리됩니다. 따라서 특정 행에는 다른 행보다 하나의 열이 더 있고, WITH 절에서 정의한 것보다 하나의 열이 더 있습니다.
+
+### <a name="escaping-quoting-characters"></a>따옴표 이스케이프 문자
+
+다음 쿼리에서는 헤더 행이 있는 파일을 읽는 방법을 보여 줍니다. 여기에는 Unix 스타일의 줄 바꿈 및 쉼표로 구분 된 열과 값 내 이스케이프 된 큰따옴표 문자를 사용 합니다. 다른 예와 비교하면 파일의 위치가 다르다는 것을 알 수 있습니다.
+
+파일 미리 보기:
+
+![다음 쿼리에서는 헤더 행이 있는 파일을 읽는 방법을 보여 줍니다. 여기에는 Unix 스타일의 줄 바꿈 및 쉼표로 구분 된 열과 값 내 이스케이프 된 큰따옴표 문자를 사용 합니다.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
 
 ## <a name="tab-delimited-files"></a>탭으로 구분된 파일
 

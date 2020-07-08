@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658883"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340879"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자에 대 한 Azure Monitor 로그
 
@@ -19,7 +18,7 @@ Azure Monitor의 Log Analytics 작업 영역을 통해 MSPs (관리 서비스 �
 
 대기업은 서비스 공급자와 많은 유사성을 공유하는데, 특히 중앙 IT 팀이 다양한 사업부의 IT 관리를 담당한다는 점이 그렇습니다. 간단한 설명을 위해 이 문서에서는 *서비스 공급자*라는 용어를 사용하지만 기업 및 기타 고객에 대해서도 같은 기능을 사용할 수 있습니다.
 
-[CSP (클라우드 솔루션 공급자)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 프로그램의 일부인 파트너 및 서비스 공급자의 경우 Azure Monitor의 Log Analytics는 azure CSP 구독에서 사용할 수 있는 azure 서비스 중 하나입니다.
+[CSP (클라우드 솔루션 공급자)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) 프로그램의 일부인 파트너 및 서비스 공급자의 경우 Azure Monitor의 Log Analytics는 azure CSP 구독에서 사용할 수 있는 azure 서비스 중 하나입니다.
 
 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview)의 azure 위임 된 리소스 관리 기능을 통해 고객 리소스를 관리 하는 서비스 공급자가 Azure Monitor의 Log Analytics 사용할 수도 있습니다.
 
@@ -64,7 +63,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 중앙 집중식 아키텍처의 단점은 다음과 같습니다.
 
 * 이 아키텍처는 에이전트 기반 VM 데이터에만 적용 가능하고, PaaS, SaaS 및 Azure 패브릭 데이터 원본을 다루지 않습니다.
-* 단일 작업 영역으로 병합된 고객 간에 데이터를 구분하기가 어려울 수 있습니다. 이렇게 하려면 유일한 방법은 컴퓨터의 FQDN(정규화된 도메인 이름)을 사용하거나 Azure 구독 ID를 통해서 수행하는 것입니다. 
+* 단일 작업 영역으로 병합된 고객 간에 데이터를 구분하기가 어려울 수 있습니다. 이렇게 하려면 유일한 방법은 컴퓨터의 FQDN(정규화된 도메인 이름)을 사용하거나 Azure 구독 ID를 통해서 수행하는 것입니다.
 * 모든 고객의 모든 데이터는 단일 청구서 및 동일한 보존 및 구성 설정을 사용하여 동일한 지역에 저장됩니다.
 * Azure Diagnostics 및 Azure 감사 로그와 같은 Azure 패브릭 및 PaaS 서비스에는 리소스와 동일한 테넌트에 있는 작업 영역이 필요합니다. 따라서 중앙 작업 영역에 로그를 보낼 수 없습니다.
 * 모든 고객의 모든 VM 에이전트는 동일한 작업 영역 ID 및 키를 사용하여 중앙 작업 영역에 인증됩니다. 다른 고객을 방해하지 않고 특정 고객의 로그를 차단하는 방법은 없습니다.
@@ -77,13 +76,13 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](../../azure-monitor/platform/data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)를 사용하는 것입니다.
 
-2. 중앙 위치로 Power BI: Power BI 여러 작업 영역에서 Log Analytics 작업 영역과 [Power BI](../../azure-monitor/platform/powerbi.md)간의 통합을 사용 하 여 데이터를 내보낼 때 중앙 위치로 작동할 수 있습니다. 
+2. 중앙 위치로 Power BI: Power BI 여러 작업 영역에서 Log Analytics 작업 영역과 [Power BI](../../azure-monitor/platform/powerbi.md)간의 통합을 사용 하 여 데이터를 내보낼 때 중앙 위치로 작동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Resource Manager 템플릿](template-workspace-configuration.md)을 사용하여 작업 영역 생성 및 구성 자동화
 
-* [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화 
+* [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화
 
 * [경고](../../azure-monitor/platform/alerts-overview.md)를 사용하여 기존 시스템과 통합
 

@@ -1,19 +1,18 @@
 ---
 title: 인증 및 권한 부여
 description: 앱 또는 서비스가 Azure Spatial Anchors에 인증할 수 있는 다양한 방법과 Azure Spatial Anchors에 대한 액세스를 제어하는 제어 수준에 대해 알아봅니다.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456507"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
@@ -39,7 +38,6 @@ Azure AD 인증 토큰은 다음 두 가지 방법으로 가져올 수 있습니
 가장 간단한 시작 방법은 계정 키를 사용하여 Azure Spatial Anchors 계정에 액세스하는 것입니다. Azure Portal에서 계정 키를 찾을 수 있습니다. 계정으로 이동하여 "키" 탭을 선택합니다.
 
 ![Azure Spatial Anchors에 대한 인증 개요](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Spatial Anchors 계정에 동시에 액세스할 수 있는 두 개의 유효한 키를 사용할 수 있습니다. 계정에 액세스하는 데 사용하는 키를 정기적으로 업데이트하는 것이 좋습니다. 두 개의 유효한 키를 사용하면 가동 중지 시간 없이 이러한 업데이트를 사용할 수 있습니다. 기본 키와 보조 키만 교대로 업데이트하면 됩니다.
 
@@ -175,13 +173,14 @@ Azure AD 액세스 토큰은 [MSAL 라이브러리](../../active-directory/devel
         1.  Azure Portal에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.
         2.  **새 애플리케이션 등록**을 선택합니다.
         3.  애플리케이션 이름을 입력하고 애플리케이션 유형으로 **웹앱/API**를 선택한 후 서비스의 인증 URL을 입력합니다. 그런 다음 **만들기**를 누릅니다.
-        4.  해당 애플리케이션에서 **설정**을 누른 다음 **키** 탭을 선택합니다. 키 이름을 입력하고 기간을 선택한 후 **저장**을 누릅니다. 웹 서비스의 코드에 이 키 값을 포함시켜야 하므로 이때 표시되는 키 값을 저장해야 합니다.
+        4.  해당 응용 프로그램에서 **설정**을 클릭 한 다음 **인증서 및 암호** 탭을 선택 합니다. 새 클라이언트 암호를 만들고, 기간을 선택 하 고, **추가**를 누릅니다. 웹 서비스의 코드에 포함 해야 하므로 비밀 값을 저장 해야 합니다.
     2.  애플리케이션 및/또는 사용자에게 리소스에 대한 액세스 권한을 부여합니다.
         1.  Azure Portal의 Spatial Anchors 리소스로 이동합니다.
         2.  **액세스 제어(IAM)** 탭으로 전환합니다.
         3.  **역할 할당 추가**를 누릅니다.
         1.  [역할을 선택합니다.](#role-based-access-control)
         2.  **선택** 필드에 만든 애플리케이션의 이름을 입력하고 액세스 권한을 할당합니다. 앱의 사용자에게 Spatial Anchors 계정에 다른 역할을 지정하려면 Azure AD에서 여러 애플리케이션을 등록하고 각 사용자에게 별도 역할을 할당해야 합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다.
+        3.  참고- **역할 할당 추가** 선택에서 **할당 액세스** 를 "Azure AD 사용자, 그룹 또는 서비스 사용자"로 설정 하려고 합니다.
     3.  **저장**을 누릅니다.
 2.  코드에서(참고: GitHub에 포함된 서비스 샘플을 사용할 수 있음):
     1.  고유의 Azure AD 애플리케이션의 애플리케이션 ID, 애플리케이션 비밀 및 리디렉션 URI를 MSAL의 클라이언트 ID, 비밀 및 RedirectUri 매개 변수로 사용해야 합니다.

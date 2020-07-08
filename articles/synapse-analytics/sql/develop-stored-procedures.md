@@ -6,18 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a431df1ff4ef0984d1197933e7ca78979fa23089
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430982"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958381"
 ---
-# <a name="using-stored-procedures-in-sql-pool"></a>SQL 풀에서 저장 프로시저 사용
+# <a name="use-stored-procedures-in-sql-pool"></a>SQL 풀에서 저장 프로시저 사용
 
 솔루션 개발을 위한 Synapse SQL 풀 (데이터 웨어하우스)에서 저장 프로시저를 구현 하기 위한 팁입니다.
 
@@ -68,7 +67,7 @@ EXEC prc_nesting
 ```
 
 > [!NOTE]
-> SQL 풀은 현재 [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 지원 하지 않습니다. 중첩 수준을 추적해야 합니다. 8개의 중첩 수준을 초과할 가능성은 없지만 초과하는 경우 이 한도 내에서 중첩 수준에 맞도록 코드를 다시 작업해야 합니다.
+> SQL 풀은 현재 [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 지원 하지 않습니다. 중첩 수준을 추적해야 합니다. 8개의 중첩 수준을 초과할 가능성은 없지만 초과하는 경우 이 한도 내에서 중첩 수준에 맞도록 코드를 다시 작업해야 합니다.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
@@ -78,7 +77,7 @@ SQL 풀에서는 INSERT 문을 사용 하 여 저장 프로시저의 결과 집�
 
 SQL 풀에서 구현 되지 않은 Transact-sql 저장 프로시저의 몇 가지 측면이 있습니다.
 
-다음 창이 여기에 포함됩니다.
+아래에 이 계정과 키의 예제가 나와 있습니다.
 
 * 임시 저장 프로시저
 * 숫자가 매겨진 저장 프로시저

@@ -11,12 +11,11 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431919"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -129,7 +128,7 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>모듈 이미지의 디버그 버전 사용 안 함
 
-테스트 시나리오에서 프로덕션 시나리오로 전환하는 경우 배포 매니페스트에서 디버그 구성을 제거해야 합니다. 배포 매니페스트에 있는 모든 모듈 이미지가 ** \.디버그** 접미사를 포함 하지 않는지 확인 합니다. 디버깅을 위해 모듈의 포트를 노출하는 만들기 옵션을 추가한 경우 해당 만들기 옵션도 제거합니다.
+테스트 시나리오에서 프로덕션 시나리오로 전환하는 경우 배포 매니페스트에서 디버그 구성을 제거해야 합니다. 배포 매니페스트에 있는 모든 모듈 이미지가 ** \. 디버그** 접미사를 포함 하지 않는지 확인 합니다. 디버깅을 위해 모듈의 포트를 노출하는 만들기 옵션을 추가한 경우 해당 만들기 옵션도 제거합니다.
 
 ## <a name="container-management"></a>컨테이너 관리
 
@@ -151,7 +150,7 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 * 첫 번째 스크립트는 서비스 사용자를 만듭니다. 서비스 사용자 ID와 서비스 주체 암호를 출력 합니다. 이러한 값을 레코드에 안전 하 게 저장 합니다.
 
-* 두 번째 스크립트는 필요한 경우 나중에 실행할 수 있는 서비스 주체에 게 부여할 역할 할당을 만듭니다. `role` 매개 변수에 대 한 **acrpull** 사용자 역할을 적용 하는 것이 좋습니다. 역할 목록은 [Azure Container Registry 역할 및 사용 권한](../container-registry/container-registry-roles.md)을 참조 하세요.
+* 두 번째 스크립트는 필요한 경우 나중에 실행할 수 있는 서비스 주체에 게 부여할 역할 할당을 만듭니다. 매개 변수에 대 한 **Acrpull** 사용자 역할을 적용 하는 것이 좋습니다 `role` . 역할 목록은 [Azure Container Registry 역할 및 사용 권한](../container-registry/container-registry-roles.md)을 참조 하세요.
 
 서비스 주체를 사용 하 여 인증 하려면 첫 번째 스크립트에서 가져온 서비스 사용자 ID와 암호를 제공 합니다. 배포 매니페스트에서 이러한 자격 증명을 지정 합니다.
 
@@ -181,7 +180,7 @@ Docker pull 명령이 포함 된 이미지를 가져와 개인 레지스트리�
 | [Azure IoT Edge 에이전트](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge 허브](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
-그런 다음 edgeAgent 및 edgeHub 시스템 모듈에 대 한 배포. template 파일의 이미지 참조를 업데이트 해야 합니다. 을 `mcr.microsoft.com` 두 모듈의 레지스트리 이름 및 서버로 바꿉니다.
+그런 다음 edgeAgent 및 edgeHub 시스템 모듈에 대 한 deployment.template.js파일에서 이미지 참조를 업데이트 해야 합니다. 을 `mcr.microsoft.com` 두 모듈의 레지스트리 이름 및 서버로 바꿉니다.
 
 * EdgeAgent
 
@@ -216,9 +215,9 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 다음 검사 목록은 방화벽 규칙의 시작점입니다.
 
-   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용법 |
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용량 |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Microsoft 컨테이너 레지스트리 |
+   | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
    | \*.azurecr.io | 443 | 개인 및 타사 컨테이너 레지스트리 |
    | \*.blob.core.windows.net | 443 | Blob 저장소에서 Azure Container Registry 이미지 델타 다운로드 |
@@ -226,6 +225,10 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
    | \*.docker.io  | 443 | Docker 허브 액세스 (옵션) |
 
 이러한 방화벽 규칙 중 일부는 Azure Container Registry에서 상속 됩니다. 자세한 내용은 [방화벽 뒤에 있는 Azure container registry에 액세스 하는 규칙 구성](../container-registry/container-registry-firewall-access-rules.md)을 참조 하세요.
+
+> [!NOTE]
+> **2020 년 6 월 15** 일부 터 REST 및 데이터 끝점 사이에 일관 된 FQDN을 제공 하기 위해 Microsoft Container Registry 데이터 끝점은에서로 변경 됩니다. `*.cdn.mscr.io``*.data.mcr.microsoft.com`  
+> 자세한 내용은 [Microsoft Container Registry 클라이언트 방화벽 규칙 구성](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md) 을 참조 하세요.
 
 공용 컨테이너 레지스트리에 대 한 액세스를 허용 하도록 방화벽을 구성 하지 않으려는 경우 [개인 레지스트리의 런타임 컨테이너 저장](#store-runtime-containers-in-your-private-registry)에 설명 된 대로 개인 컨테이너 레지스트리에 이미지를 저장할 수 있습니다.
 
@@ -255,7 +258,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-set-global-limits-that-apply-to-all-container-modules"></a>옵션: 모든 컨테이너 모듈에 적용 되는 전역 제한 설정
 
-컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 파일의 크기 및 수 `json-file` 에 대 한 제한으로 로그 드라이버를 (권장)로 설정 합니다.
+컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 `json-file` 파일의 크기 및 수에 대 한 제한으로 로그 드라이버를 (권장)로 설정 합니다.
 
 ```JSON
 {
@@ -267,7 +270,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 }
 ```
 
-이 정보를 이라는 `daemon.json` 파일에 추가 (또는 추가) 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
+이 정보를 이라는 파일에 추가 (또는 추가) 하 `daemon.json` 고 장치 플랫폼의 올바른 위치에 배치 합니다.
 
 | 플랫폼 | 위치 |
 | -------- | -------- |
@@ -278,7 +281,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대해 로그 설정 조정
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들어:
 
 ```yml
 "createOptions": {
@@ -296,7 +299,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="additional-options-on-linux-systems"></a>Linux 시스템에 대 한 추가 옵션
 
-* 기본 로깅 드라이버로를 설정 `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) `journald` 하 여 저널에 로그를 보내도록 컨테이너 엔진을 구성 합니다.
+* `systemd`기본 로깅 드라이버로를 설정 하 여 [저널](https://docs.docker.com/config/containers/logging/journald/) 에 로그를 보내도록 컨테이너 엔진을 구성 `journald` 합니다.
 
 * Logrotate 도구를 설치 하 여 장치에서 오래 된 로그를 주기적으로 제거 합니다. 다음 파일 사양을 사용합니다.
 

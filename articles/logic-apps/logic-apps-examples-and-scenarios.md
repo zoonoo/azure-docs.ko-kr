@@ -6,16 +6,15 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: ad5cc696892764ce68d4714ead98b8afd9c37669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 786655f8e8ee7e21f2615361b0bb1ea336ccb479
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84190730"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용 하면 온-프레미스 SQL SERVER 또는 SAP에서 Azure Cognitive Services에 이르는 [수백 개의 바로 사용 가능한 커넥터](../connectors/apis-list.md)를 제공 하 여 다양 한 서비스를 오케스트레이션 하 고 통합할 수 있습니다. Logic Apps 서비스는 "서버가 없으므로" 규모 나 인스턴스를 걱정할 필요가 없습니다. 트리거가 있는 워크플로와 워크플로가 수행하는 작업을 정의하기만 하면 됩니다. 기본 플랫폼에서 규모, 가용성 및 성능을 처리합니다. Logic Apps는 여러 시스템 및 서비스에서 작업을 조정 해야 하는 사용 사례 및 시나리오에 특히 유용 합니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용 하면 SQL SERVER 또는 SAP에서 Azure Cognitive Services에 이르는 [수백 개의 바로 사용 가능한 커넥터](../connectors/apis-list.md)를 제공 하 여 다양 한 서비스를 오케스트레이션 하 고 통합할 수 있습니다. Logic Apps 서비스는 "서버가 없으므로" 규모 나 인스턴스를 걱정할 필요가 없습니다. 트리거가 있는 워크플로와 워크플로가 수행하는 작업을 정의하기만 하면 됩니다. 기본 플랫폼에서 규모, 가용성 및 성능을 처리합니다. Logic Apps는 여러 시스템 및 서비스에서 작업을 조정 해야 하는 사용 사례 및 시나리오에 특히 유용 합니다.
 
 Azure Logic Apps에서 지 원하는 기능 및 패턴에 대 한 자세한 내용은이 문서에서 일반적인 시작 위치, 예제 및 시나리오를 설명 합니다.
 
@@ -39,7 +38,7 @@ Azure Logic Apps에서 지 원하는 기능 및 패턴에 대 한 자세한 내�
   * **전자 메일을 받을 때** 트리거를 사용 하면 논리 앱이 Logic Apps에서 지 원하는 메일 공급자 (예: [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/)등)에서 새 전자 메일을 확인할 수 있습니다.
 
     > [!IMPORTANT]
-    > Gmail 커넥터를 사용 하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우이 커넥터를 특정 Google 승인 서비스만 사용할 수 있습니다. 또는 [gmail 커넥터를 사용 하 여 인증 하는 데 사용할 google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application)수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조 하세요.
+    > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
     자세한 내용은 다음 항목을 참조하세요.<p>
 
@@ -86,7 +85,7 @@ Azure Logic Apps에서 지 원하는 기능 및 패턴에 대 한 자세한 내�
 엔터프라이즈 통합 솔루션 및 조직 간 원활한 통신을 위해 Azure Logic Apps와 함께 엔터프라이즈 통합 팩 (EIP)를 사용 하 여 이러한 시나리오에 대해 자동화 된 확장 가능한 워크플로를 구축할 수 있습니다. 조직에서 서로 다른 프로토콜 및 형식을 사용하더라도 전자 방식으로 메시지를 교환할 수 있습니다. EIP는 다른 형식을 조직의 시스템에서 처리할 수 있는 형식으로 변환 하 고 AS2, X12, EDIFACT 및 RosettaNet를 비롯 한 업계 표준 프로토콜을 지원 합니다. 이러한 솔루션을 구축 하려면 논리 앱 워크플로와 함께 정의 하 고 사용 하는 아티팩트에 대해 안전 하 고 확장 가능 하며 관리 하기 쉬운 컨테이너를 제공 하는 별도의 Azure 리소스인 통합 계정을 만듭니다. 예를 들어 아티팩트에는 거래 업체, 규약, 맵, 스키마, 인증서 및 일괄 처리 구성이 포함 됩니다.
 
 * [개요: Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하는 B2B 엔터프라이즈 통합 솔루션](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대 한 통합 계정 만들기 및 관리](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* [Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대한 통합 계정 만들기 및 관리](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 ## <a name="access-azure-virtual-network-resources"></a>Azure 가상 네트워크 리소스에 액세스
 
@@ -103,8 +102,8 @@ Visual Studio, Azure DevOps 또는 기타 소스 제어 및 자동화된 빌드 
 
 * [빠른 시작: Azure Logic Apps 사용 하 여 자동화 된 작업, 프로세스 및 워크플로 만들기-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [개요: 논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Azure Logic Apps에 대 한 배포를 자동화 하는 Azure Resource Manager 템플릿 만들기](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Azure Logic Apps에 대한 Azure Resource Manager 템플릿 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 * [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure DevOps에서 Azure Logic Apps에 대 한 함수 앱 작업 설정 및 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
@@ -119,17 +118,17 @@ Visual Studio, Azure DevOps 또는 기타 소스 제어 및 자동화된 빌드 
 
 ### <a name="monitor"></a>모니터
 
-* [실행 상태를 모니터링 하 고, 트리거 기록을 검토 하 고, Azure Logic Apps에 대 한 경고를 설정 합니다.](../logic-apps/monitor-logic-apps.md)
+* [실행 상태 모니터링, 트리거 기록 검토 및 Azure Logic Apps에 대한 경고 설정](../logic-apps/monitor-logic-apps.md)
 * [Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집](../logic-apps/monitor-logic-apps-log-analytics.md)
-* [Azure Logic Apps에서 B2B 메시지에 대 한 Azure Monitor 로그를 설정 하 고 진단 데이터를 수집 합니다.](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Azure Logic Apps에서 B2B 메시지에 대한 Azure Monitor 로그 설정 및 진단 데이터 수집](../logic-apps/monitor-b2b-messages-log-analytics.md)
 * [Azure Logic Apps에 대 한 Azure Monitor 로그의 모니터링 및 추적을 위한 쿼리 보기 및 만들기](../logic-apps/create-monitoring-tracking-queries.md)
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>콘텐츠 형식, 변환 및 변환 처리
 
 Azure Logic Apps [워크플로 정의 언어](https://aka.ms/logicappsdocs)의 다양한 함수를 사용하여 여러 콘텐츠 유형을 액세스, 변환 및 변형시킬 수 있습니다. 예를 들어, `@json()` 및 `@xml()` 워크플로 식을 사용하여 문자열, JSON 및 XML 간에 변환할 수 있습니다. Logic Apps 엔진은 서비스 간에 무손실 방식으로 콘텐츠 전송을 지원하는 콘텐츠 형식을 유지합니다.
 
-* [Azure Logic Apps에서 콘텐츠 형식](../logic-apps/logic-apps-content-type.md)(예: `application/`, `application/octet-stream`및)을 처리 합니다.`multipart/formdata`
-* [식에서 함수를 사용 하 Azure Logic Apps 및 전원 자동화에 대 한 참조 가이드](../logic-apps/workflow-definition-language-functions-reference.md)
+* [Azure Logic Apps에서 콘텐츠 형식](../logic-apps/logic-apps-content-type.md)(예: `application/` , `application/octet-stream` 및)을 처리 합니다.`multipart/formdata`
+* [Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Azure Logic Apps에 대한 워크플로 정의 언어 스키마](../logic-apps/logic-apps-workflow-definition-language.md)
 
 ## <a name="other-integrations-and-capabilities"></a>기타 통합 및 기능
@@ -141,7 +140,7 @@ Azure Logic Apps는 Azure Functions, Azure API Management, Azure App Service 및
 * [자습서: Azure Logic Apps 및 Azure Functions를 사용 하 여 스트리밍 customer insights 대시보드 만들기](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [자습서: Azure Logic Apps 및 Azure Cognitive Services와 통합 되어 Twitter 게시물 감정을 분석 하는 함수 만들기](../azure-functions/functions-twitter-email.md)
 * [자습서: Power BI 및 Azure Logic Apps를 사용 하 여 AI 기반 소셜 대시보드 빌드](https://aka.ms/logicappsdemo)
-* [자습서: Azure Event Grid 및 Logic Apps를 사용 하 여 가상 머신 변경 모니터링](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [자습서: Azure Logic Apps로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [블로그: Azure Logic Apps을 사용 하 여 SOAP 서비스 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

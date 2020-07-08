@@ -3,21 +3,20 @@ title: 자동화 된 ML 결과 이해
 titleSuffix: Azure Machine Learning
 description: 자동화 된 각 기계 학습 실행에 대 한 차트 및 메트릭을 보고 이해 하는 방법에 대해 알아봅니다.
 services: machine-learning
-author: RachelKellam
-ms.author: rakellam
-ms.reviewer: sgilley
+author: aniththa
+ms.author: anumamah
+ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214505"
 ---
-# <a name="understand-automated-machine-learning-results"></a>자동화된 Machine Learning 결과 이해
+# <a name="understand-automated-machine-learning-results"></a>자동화 된 machine learning 결과 이해
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 자동화 된 각 기계 학습 실행에 대 한 차트 및 메트릭을 보고 이해 하는 방법에 대해 알아봅니다. 
@@ -52,7 +51,7 @@ ms.locfileid: "79283460"
 
 1. 아래쪽 테이블에서 **실행**을 선택 합니다.
 
-   [ ![실험 실행](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
+   [ ![ 실험 실행](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
 1. 모델에서 더 탐색 하려는 모델의 **알고리즘 이름을** 선택 합니다.
 
@@ -64,7 +63,7 @@ ms.locfileid: "79283460"
 
 다음 메트릭과 차트는의 자동화 된 기계 학습 기능을 사용 하 여 작성 하는 모든 분류 모델에 사용할 수 있습니다 Azure Machine Learning
 
-+ [메트릭](#classification-metrics)
++ [Metrics](#classification-metrics)(메트릭)
 + [혼동 행렬](#confusion-matrix)
 + [전체 자릿수-회수 차트](#precision-recall-chart)
 + [ROC(수신기 작동 특성)](#roc)
@@ -76,7 +75,7 @@ ms.locfileid: "79283460"
 
 다음 메트릭은 분류 태스크에 대 한 각 실행 반복에 저장 됩니다.
 
-메트릭|Description|계산|추가 매개 변수
+메트릭|설명|계산|추가 매개 변수
 --|--|--|--
 AUC_Macro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Macro(매크로)는 각 클래스에 대한 AUC의 산술 평균입니다.  | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. 마이크로는 각 클래스에서 참 긍정 및 거짓 긍정을 결합 하 여 전역적으로 계산 됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -89,7 +88,7 @@ balanced_accuracy|Balanced accuracy(균형 정확도)는 각 클래스 재현율
 f1_score_macro|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 매크로는 각 클래스에 대 한 F1 점수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
 f1_score_micro|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 마이크로는 전체 참 긍정, 거짓 부정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
 f1_score_weighted|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. Weighted(가중치)는 각 클래스에 대한 F1 점수의 클래스 빈도별 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|이 함수는 확률 분류자의 예측이 지정 된 경우 진정한 레이블의 부정적 로그 가능성으로 정의 된 신경망 등의 다항 () 로지스틱 회귀 및 확장에서 사용 되는 손실 함수입니다. 에서 {0,1} true 레이블 yt를 사용 하는 단일 샘플 및 yt = 1 인 예상 확률 yt는 로그 손실은-log P (yt&#124;yt) =-(yt log (yt) + (1-yt) log (1-yt))입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|없음|
+log_loss|이 함수는 확률 분류자의 예측이 지정 된 경우 진정한 레이블의 부정적 로그 가능성으로 정의 된 신경망 등의 다항 () 로지스틱 회귀 및 확장에서 사용 되는 손실 함수입니다. 에서 true 레이블 yt를 사용 하는 단일 샘플 {0,1} 및 yt = 1 인 예상 확률 yt는 로그 손실은-Log P (yt&#124;yt) =-(yt log (yt) + (1-yt) log (1-yt))입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|없음|
 norm_macro_recall|Normalized Macro Recall(정규화된 매크로 재현율)은 임의 성능 점수가 0이고 완벽한 성능 점수가 1이 되도록 정규화된 매크로 재현율입니다. 이는 norm_macro_recall: = (recall_score_macro-R)/(1-R)로 구현 됩니다. 여기서 R은 임의 예측에 대해 예상 되는 recall_score_macro 값 (예: 이진 분류의 경우 R = 0.5, C 클래스 분류 문제의 경우 R = (1/C))입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "매크로" |
 precision_score_macro|전체 자릿수는 레이블이 올바르게 지정 된 예측 요소의 백분율입니다. 매크로는 각 클래스에 대 한 전체 자릿수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
 precision_score_micro|전체 자릿수는 레이블이 올바르게 지정 된 예측 요소의 백분율입니다. 마이크로는 총 참 긍정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
@@ -209,7 +208,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 다음 메트릭과 차트는의 자동화 된 기계 학습 기능을 사용 하 여 작성 하는 모든 회귀 모델에 사용할 수 있습니다 Azure Machine Learning
 
-+ [메트릭](#reg-metrics)
++ [Metrics](#reg-metrics)(메트릭)
 + [예측 및 True](#pvt)
 + [나머지 히스토그램](#histo)
 
@@ -218,7 +217,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 회귀 또는 예측 작업에 대해 각 실행 반복에 다음 메트릭이 저장 됩니다.
 
-|메트릭|Description|계산|추가 매개 변수
+|메트릭|설명|계산|추가 매개 변수
 --|--|--|--|
 explained_variance|Explained variance(설명된 분산)는 수학 모델에서 지정된 데이터 세트의 편차가 고려되는 비율입니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|없음|
 r2_score|R2는 평균을 출력하는 기준선 모델과 비교한 제곱 오차의 결정 계수 또는 환원율입니다. |[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|없음|
@@ -266,7 +265,10 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 자동화 된 ML은 실행에 대 한 machine learning interpretability 대시보드를 제공 합니다.
 Interpretability 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 자동화 된 ML 실험에서 interpretability를 사용 하도록 설정 [하는 방법](how-to-machine-learning-interpretability-automl.md) 을 참조 하세요.
 
+> [!NOTE]
+> ForecastTCN 모델은 현재 설명 클라이언트에서 지원 되지 않습니다. 이 모델은 최상의 모델로 반환 되 고 주문형 설명 실행을 지원 하지 않는 경우 설명 대시보드를 반환 하지 않습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-+ Azure Machine Learning에서 [자동화 된 ml](concept-automated-ml.md) 에 대해 자세히 알아보세요.
++ Azure Machine Learning에서 [자동화된 ML](concept-automated-ml.md)을 자세히 알아봅니다.
 + 자동화 된 [Machine Learning 모델 설명](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) 샘플 노트북을 사용해 보세요.

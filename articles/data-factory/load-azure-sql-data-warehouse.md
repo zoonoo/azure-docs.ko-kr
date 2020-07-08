@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse에 데이터 로드
-description: Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터 복사
+title: Azure Synapse Analytics에 데이터 로드
+description: Azure Data Factory를 사용 하 여 Azure Synapse Analytics로 데이터 복사
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,44 +10,43 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2020
-ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/08/2020
+ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252001"
 ---
-# <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터 로드
+# <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics에 데이터 로드
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 거대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. SQL Data Warehouse는 엔터프라이즈 데이터 웨어하우스 워크로드에 최적화된 MPP(대규모 병렬 처리) 아키텍처를 기반으로 합니다. 스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
+[Azure Synapse Analytics (이전의 SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 는 관계형 데이터와 비관계형 데이터를 모두 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우스 워크 로드에 최적화 된 MPP (대규모 parallel processing) 아키텍처를 기반으로 합니다. 스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
 
-이제는 Azure SQL Data Warehouse를 시작하는 것이 Azure Data Factory를 사용할 때보다 더 쉽습니다. Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 분석 솔루션을 빌드할 때 서비스를 사용하여 SQL Data Warehouse를 기존 시스템의 데이터로 채우면 시간을 절약할 수 있습니다.
+이제 Azure Data Factory를 사용 하는 경우 보다 쉽게 Azure Synapse Analytics를 시작할 수 있습니다. Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 서비스를 사용 하 여 Azure Synapse Analytics를 기존 시스템의 데이터로 채우고 분석 솔루션을 빌드할 때 시간을 절약할 수 있습니다.
 
-Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로드하면 다음과 같은 이점이 있습니다.
+Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 다음과 같은 이점을 제공 합니다.
 
 * **간편한 설정**: 스크립팅이 필요 없는 직관적인 5단계 마법사.
-* **다양 한 데이터 저장소 지원**: 다양 한 온-프레미스 및 클라우드 기반 데이터 저장소 집합을 기본으로 지원 합니다. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
-* **보안 및 규정 준수**: 데이터가 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
-* **PolyBase를 사용하여 제공되는 뛰어난 성능**: 데이터를 Azure SQL Data Warehouse로 이동하는 가장 효율적인 방법은 Polybase를 사용하는 것입니다. 스테이징 Blob 기능을 사용하여 Azure Blob Storage 및 Data Lake Store를 포함하여 모든 유형의 데이터 스토리지에서 높은 로드 속도를 얻습니다. Polybase는 기본적으로 Azure Blob storage 및 Azure Data Lake Store을 지원 합니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조 하세요.
+* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소 집합에 대한 기본 제공 지원. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+* **보안 및 규정 준수**: 데이터가 HTTPS 또는 Express 경로를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
+* **Polybase를 사용 하는 뛰어난 성능**: polybase는 데이터를 Azure Synapse Analytics로 이동 하는 가장 효율적인 방법입니다. 스테이징 Blob 기능을 사용하여 Azure Blob Storage 및 Data Lake Store를 포함하여 모든 유형의 데이터 스토리지에서 높은 로드 속도를 얻습니다. Polybase는 기본적으로 Azure Blob storage 및 Azure Data Lake Store을 지원 합니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조 하세요.
 
-이 문서에서는 Data Factory 데이터 복사 도구를 사용하여 _Azure SQL Database의 데이터를 Azure SQL Data Warehouse로 로드_하는 방법을 설명합니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
+이 문서에서는 Data Factory 데이터 복사 도구를 사용 하 여 _Azure SQL Database에서 Azure Synapse Analytics로 데이터를 로드_하는 방법을 보여 줍니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
 
 > [!NOTE]
-> 자세한 내용은 [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간에 데이터 복사](connector-azure-sql-data-warehouse.md)를 참조하세요.
+> 자세한 내용은 [Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간에 데이터 복사](connector-azure-sql-data-warehouse.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독: Azure 구독이 없는 경우 시작 하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
-* Azure SQL Data Warehouse: 데이터 웨어하우스에는 SQL 데이터베이스에서 복사된 데이터를 보관하고 있습니다. Azure SQL Data Warehouse가 아직 없는 경우 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조하세요.
-* Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터가 포함된 Azure SQL 데이터베이스에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다.
-* Azure 스토리지 계정: Azure Storage는 대량 복사 작업에서 _스테이징_ Blob으로 사용됩니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조하세요.
+* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure Synapse Analytics: 데이터 웨어하우스는 SQL 데이터베이스에서 복사 된 데이터를 보관 합니다. Azure Synapse Analytics가 없는 경우 [Azure Synapse Analytics 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조 하세요.
+* Azure SQL Database:이 자습서에서는 Azure SQL Database의 놀이 Works LT 샘플 데이터 집합에서 데이터를 복사 합니다. [Azure SQL Database에서 예제 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)의 지침에 따라 SQL Database에서이 예제 데이터베이스를 만들 수 있습니다.
+* Azure 스토리지 계정: Azure Storage는 대량 복사 작업에서 _스테이징_ Blob으로 사용됩니다. Azure storage 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조 하세요.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 왼쪽 메뉴에서 **리소스** > 만들기**데이터 + 분석** > **Data Factory**를 선택 합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
 
 2. **새 데이터 팩터리** 페이지에서 다음 항목에 대 한 값을 제공 합니다.
 
@@ -64,7 +63,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
    **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터 로드
+## <a name="load-data-into-azure-synapse-analytics"></a>Azure Synapse Analytics에 데이터 로드
 
 1. **시작** 페이지에서 **데이터 복사** 타일을 선택 하 여 데이터 복사 도구를 시작 합니다.
 
@@ -115,7 +114,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 1. **테이블 매핑** 페이지에서 콘텐츠를 검토하고, **다음**을 선택합니다. 지능형 테이블 매핑이 표시됩니다. 원본 테이블은 테이블 이름에 따라 대상 테이블에 매핑됩니다. 원본 테이블이 대상에 없으면 기본적으로 Azure Data Factory는 같은 이름으로 대상 테이블을 만듭니다. 기존 대상 테이블에 원본 테이블을 매핑할 수도 있습니다.
 
    > [!NOTE]
-   > SQL Data Warehouse 싱크에 대한 자동 테이블 만들기는 SQL Server 또는 Azure SQL Database가 원본일 때 적용됩니다. 다른 원본 데이터 저장소에서 데이터를 복사하는 경우, 데이터 복사를 실행하기 전에 싱크 Azure SQL Data Warehouse에서 스키마를 미리 만들어야 합니다.
+   > Azure Synapse Analytics 싱크에 대 한 자동 테이블 생성은 SQL Server 또는 Azure SQL Database 원본이 될 때 적용 됩니다. 다른 원본 데이터 저장소에서 데이터를 복사 하는 경우 데이터 복사를 실행 하기 전에 싱크 Azure Synapse Analytics에서 스키마를 미리 만들어야 합니다.
 
    ![테이블 매핑 페이지](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
@@ -125,7 +124,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
 1. **설정** 페이지에서 다음 단계를 완료합니다.
 
-    a. **준비 설정** 섹션에서 **+ 새로 만들기**를 클릭하여 준비 스토리지를 새로 만듭니다. 스토리지는 PolyBase를 사용하여 SQL Data Warehouse에 로드하기 전에, 데이터를 준비하는 데 사용됩니다. 복사가 완료 되 면 Azure Blob Storage의 중간 데이터가 자동으로 정리 됩니다.
+    a. **준비 설정** 섹션에서 **+ 새로 만들기**를 클릭하여 준비 스토리지를 새로 만듭니다. 저장소는 PolyBase를 사용 하 여 Azure Synapse Analytics로 로드 하기 전에 데이터를 준비 하는 데 사용 됩니다. 복사가 완료 되 면 Azure Blob Storage의 중간 데이터가 자동으로 정리 됩니다.
 
     b. **새 연결 된 서비스** 페이지에서 저장소 계정을 선택 하 고 **만들기** 를 선택 하 여 연결 된 서비스를 배포 합니다.
 
@@ -136,11 +135,13 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 1. **요약** 페이지에서 설정을 검토 하 고 **다음**을 선택 합니다.
 
     ![요약 페이지](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. **배포 페이지**에서 **모니터** 를 선택 하 여 파이프라인 (작업)을 모니터링 합니다.
 
-1. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. 파이프라인 실행이 성공적으로 완료 되 면 **파이프라인 이름** 열 아래의 **CopyFromSQLToSQLDW** 링크를 선택 하 여 작업 실행 세부 정보를 보고 파이프라인을 다시 실행 합니다.
+1. **배포 페이지**에서 **모니터**를 선택하여 파이프라인(작업)을 모니터링합니다. 
+ 
+1. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. 파이프라인 실행이 성공적으로 완료 되 면 **파이프라인 이름** 열 아래의 **CopyFromSQLToSQLDW** 링크를 선택 하 여 작업 실행 세부 정보를 보거나 파이프라인을 다시 실행 합니다.
 
     [![파이프라인 실행 모니터링](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. 파이프라인 실행 보기로 다시 전환 하려면 위쪽의 **모든 파이프라인 실행** 링크를 선택 합니다. **새로 고침**을 선택하여 목록을 새로 고칩니다.
 
     ![작업 실행 모니터링](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
@@ -152,7 +153,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure SQL Data Warehouse 지원에 대한 자세한 내용은 다음 문서를 참조하세요.
+Azure Synapse Analytics 지원에 대해 알아보려면 다음 문서로 이동 합니다.
 
 > [!div class="nextstepaction"]
->[Azure SQL Data Warehouse 커넥터](connector-azure-sql-data-warehouse.md)
+>[Azure Synapse Analytics 커넥터](connector-azure-sql-data-warehouse.md)

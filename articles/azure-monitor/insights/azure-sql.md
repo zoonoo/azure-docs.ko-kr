@@ -7,12 +7,11 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249418"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -41,9 +40,9 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL 분석 옵션
 
-아래 표에는 두 가지 버전의 Azure SQL 분석 대시보드의 지원 되는 옵션, 단일 및 풀링된 데이터베이스와 탄력적 풀에 대 한 옵션 및 관리 되는 인스턴스 및 인스턴스 데이터베이스용으로 사용할 수가 간략하게 나와 있습니다.
+아래 표에서는 두 가지 버전의 Azure SQL 분석 대시보드의 지원 되는 옵션, Azure SQL Database 용 및 Azure SQL Managed Instance 데이터베이스용으로 지원 되는 옵션을 간략하게 설명 합니다.
 
-| Azure SQL 분석 옵션 | Description | 단일 및 풀링된 데이터베이스 및 탄력적 풀 지원 | 관리 되는 인스턴스 및 인스턴스 데이터베이스 지원 |
+| Azure SQL 분석 옵션 | 설명 | 지원 SQL Database | SQL Managed Instance 지원 |
 | --- | ------- | ----- | ----- |
 | 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | 예 | 예 |
 | 자세한 정보 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
@@ -58,11 +57,11 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 
 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md) 에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 Azure SQL 분석 (미리 보기)를 추가 합니다.
 
-### <a name="configure-azure-sql-databases-to-stream-diagnostics-telemetry"></a>Azure SQL database를 구성 하 여 진단 원격 분석 스트리밍
+### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>진단 원격 분석을 스트리밍할 Azure SQL Database 구성
 
 작업 영역에서 Azure SQL 분석 솔루션을 만든 후 모니터링 하려는 각 리소스를 **구성** 하 여 진단 원격 분석을 Azure SQL 분석로 스트리밍합니다. 이 페이지에서 자세한 지침을 따르세요.
 
-- Azure SQL Database에 대한 Azure Diagnostics를 사용하도록 설정하여 [Azure SQL 분석에 진단 원격 분석을 스트리밍](../../sql-database/sql-database-metrics-diag-logging.md)합니다.
+- 데이터베이스에 대 한 Azure 진단를 사용 하도록 설정 하 여 [진단 원격 분석을 Azure SQL 분석로 스트리밍합니다](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 위의 페이지에는 단일 Azure SQL 분석 작업 영역에서 여러 Azure 구독을 모니터링하도록 설정하는 지침도 제공합니다.
 
@@ -72,13 +71,13 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 
 ![Azure SQL 분석 요약 타일](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-로드 되 면 타일은 Azure SQL 분석 진단 원격 분석을 수신 하는 단일 및 풀링된 데이터베이스, 탄력적 풀, 관리 되는 인스턴스 및 관리 되는 인스턴스 데이터베이스의 수를 표시 합니다.
+로드 되 면 타일에는 SQL Database의 데이터베이스 및 탄력적 풀 수와, Azure SQL 분석 진단 원격 분석을 받는 SQL Managed Instance의 관리 되는 인스턴스 및 인스턴스 데이터베이스가 표시 됩니다.
 
 ![Azure SQL Analytics 타일](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-Azure SQL 분석은 단일 데이터베이스 및 풀링된 데이터베이스와 탄력적 풀을 모니터링 하기 위한 두 가지 뷰를 제공 하 고 관리 되는 인스턴스 및 인스턴스 데이터베이스를 모니터링 하기 위한 다른 뷰를 제공 합니다.
+Azure SQL 분석는 모니터링 SQL Database와 SQL Managed Instance 모니터링을 위한 다른 보기의 두 가지 별도 보기를 제공 합니다.
 
-단일 및 풀링된 데이터베이스와 탄력적 풀에 대 한 Azure SQL 분석 모니터링 대시보드를 보려면 타일의 위쪽 부분을 클릭 합니다. 관리 되는 인스턴스 및 인스턴스 데이터베이스에 대 한 Azure SQL 분석 모니터링 대시보드를 보려면 타일의 아래쪽 부분을 클릭 합니다.
+SQL Database에 대 한 Azure SQL 분석 모니터링 대시보드를 보려면 타일의 위쪽 부분을 클릭 합니다. SQL Managed Instance에 대 한 Azure SQL 분석 모니터링 대시보드를 보려면 타일의 아래쪽 부분을 클릭 합니다.
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Azure SQL 분석 데이터 보기
 
@@ -86,7 +85,7 @@ Azure SQL 분석은 단일 데이터베이스 및 풀링된 데이터베이스�
 
 일부 메트릭 또는 로그가 Azure Monitor로 스트리밍되는지 않은 경우 Azure SQL 분석의 타일이 모니터링 정보로 채워지지 않습니다.
 
-### <a name="single-and-pooled-databases-and-elastic-pools-view"></a>단일 및 풀링된 데이터베이스 및 탄력적 풀 뷰
+### <a name="sql-database-view"></a>SQL Database 뷰
 
 데이터베이스에 대한 Azure SQL 분석 타일을 선택하면 모니터링 대시보드가 표시됩니다.
 
@@ -98,7 +97,7 @@ Azure SQL 분석은 단일 데이터베이스 및 풀링된 데이터베이스�
 
 이 보기의 각 큐브 뷰에서는 구독, 서버, 탄력적 풀 및 데이터베이스 수준에 대 한 요약을 제공 합니다. 또한 각 관점에 따라 오른쪽에 관점별 보고서가 표시됩니다. 목록에서 구독, 서버, 풀 또는 데이터베이스를 선택하면 계속해서 드릴다운됩니다.
 
-### <a name="managed-instance-and-instances-databases-view"></a>관리 되는 인스턴스 및 인스턴스 데이터베이스 뷰
+### <a name="sql-managed-instance-view"></a>SQL Managed Instance 뷰
 
 데이터베이스에 대한 Azure SQL 분석 타일을 선택하면 모니터링 대시보드가 표시됩니다.
 
@@ -106,13 +105,13 @@ Azure SQL 분석은 단일 데이터베이스 및 풀링된 데이터베이스�
 
 임의의 타일을 선택하면 특정 관점으로의 드릴다운 보고서가 열립니다. 관점을 선택하면 드릴다운 보고서가 열립니다.
 
-관리 되는 인스턴스 뷰를 선택 하면 인스턴스 전체에서 실행 되는 쿼리에 대 한 관리 되는 인스턴스 사용률, 데이터베이스에 포함 된 데이터베이스 및 원격 분석에 대 한 세부 정보가 표시 됩니다.
+SQL Managed Instance 뷰를 선택 하면 인스턴스 전체에서 실행 되는 쿼리에 대 한 관리 되는 인스턴스 사용률, 데이터베이스에 포함 된 데이터베이스 및 원격 분석에 대 한 세부 정보가 표시 됩니다.
 
 ![Azure SQL 분석 시간 제한](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 보고서
 
-Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md)는 모든 Azure SQL 데이터베이스 성능을 알려줍니다. 수집된 모든 Intelligent Insights를 시각화하고 Insights 관점에서 액세스할 수 있습니다.
+Azure SQL Database [Intelligent Insights](../../azure-sql/database/intelligent-insights-overview.md)는 모든 Azure SQL 데이터베이스 성능을 알려줍니다. 수집된 모든 Intelligent Insights를 시각화하고 Insights 관점에서 액세스할 수 있습니다.
 
 ![Azure SQL 분석 정보](./media/azure-sql/azure-sql-sol-insights.png)
 
@@ -170,7 +169,7 @@ Azure SQL 분석을 사용하려면 Azure에서 사용자에게 적어도 읽기
 
 ## <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
 
-Azure SQL Analytics의 데이터 분석은 사용자 지정 쿼리 및 보고를 위한 [Log Analytics 언어](../log-query/get-started-queries.md)를 기반으로 합니다. [사용 가능한 메트릭 및 로그](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available)에서 사용자 지정 쿼리를 위해 데이터베이스 리소스에서 수집된 사용 가능 데이터에 대한 설명을 확인하세요.
+Azure SQL Analytics의 데이터 분석은 사용자 지정 쿼리 및 보고를 위한 [Log Analytics 언어](../log-query/get-started-queries.md)를 기반으로 합니다. [사용 가능한 메트릭 및 로그](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available)에서 사용자 지정 쿼리를 위해 데이터베이스 리소스에서 수집된 사용 가능 데이터에 대한 설명을 확인하세요.
 
 Azure SQL 분석의 자동화 된 경고는 조건이 충족 될 때 경고를 트리거하는 Log Analytics 쿼리를 작성 하는 것을 기반으로 합니다. Azure SQL 분석에서 경고를 설정할 수 있는 Log Analytics 쿼리의 몇 가지 예제를 찾습니다.
 
@@ -178,7 +177,7 @@ Azure SQL 분석의 자동화 된 경고는 조건이 충족 될 때 경고를 �
 
 Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../platform/alerts-metric.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 쿼리](../log-query/log-query-overview.md)입니다.
 
-#### <a name="high-cpu-on-azure-sql-database"></a>Azure SQL Database의 높은 CPU
+#### <a name="high-cpu"></a>높은 CPU
 
 ```
 AzureMetrics
@@ -194,7 +193,7 @@ AzureMetrics
 > - 이 경고를 설정 하기 위한 사전 요구 사항은 모니터링 되는 데이터베이스에서 기본 메트릭을 Azure SQL 분석 하도록 스트림 하는 것입니다.
 > - 대신 높은 DTU 결과를 얻으려면 MetricName 값 cpu_percent를 dtu_consumption_percent로 바꿉니다.
 
-#### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Azure SQL Database 탄력적 풀의 높은 CPU
+#### <a name="high-cpu-on-elastic-pools"></a>탄력적 풀의 높은 CPU
 
 ```
 AzureMetrics
@@ -210,7 +209,7 @@ AzureMetrics
 > - 이 경고를 설정 하기 위한 사전 요구 사항은 모니터링 되는 데이터베이스에서 기본 메트릭을 Azure SQL 분석 하도록 스트림 하는 것입니다.
 > - 대신 높은 DTU 결과를 얻으려면 MetricName 값 cpu_percent를 dtu_consumption_percent로 바꿉니다.
 
-#### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>마지막 1시간에 평균 95% 이상인 Azure SQL Database 스토리지
+#### <a name="storage-in-average-above-95-in-the-last-1-hr"></a>지난 1 시간 동안 95% 위의 평균 저장소
 
 ```
 let time_range = 1h;
@@ -254,9 +253,9 @@ AzureDiagnostics
 | distinct rootCauseAnalysis_s
 ```
 
-### <a name="creating-alerts-for-managed-instances"></a>관리 되는 인스턴스에 대 한 경고 만들기
+### <a name="creating-alerts-for-sql-managed-instance"></a>SQL Managed Instance에 대 한 경고 만들기
 
-#### <a name="managed-instance-storage-is-above-90"></a>관리 되는 인스턴스 저장소가 90%를 초과 합니다.
+#### <a name="storage-is-above-90"></a>저장소 90% 초과
 
 ```
 let storage_percentage_threshold = 90;
@@ -272,7 +271,7 @@ AzureDiagnostics
 > - 이 경고를 설정 하기 위한 사전 요구 사항은 ResourceUsageStats log를 사용 하도록 설정 된 관리 되는 인스턴스를 Azure SQL 분석에 대 한 스트리밍이 있음을 모니터링 한다는 것입니다.
 > - 이 쿼리를 실행 하려면 쿼리에서 해당 조건이 존재 한다는 것을 나타내는 결과 (> 0 결과)가 있을 때 경고를 발생 하도록 설정 하는 경고 규칙이 필요 합니다. 출력은 관리 되는 인스턴스의 저장소 백분율 사용량입니다.
 
-#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>관리 되는 인스턴스 CPU 평균 사용량이 지난 1 시간 동안 95%를 초과 합니다.
+#### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>지난 1 시간 동안 CPU 평균 사용량이 95%를 초과 합니다.
 
 ```
 let cpu_percentage_threshold = 95;

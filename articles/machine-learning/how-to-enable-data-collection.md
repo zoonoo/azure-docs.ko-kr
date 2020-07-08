@@ -5,25 +5,21 @@ description: Azure Blob 저장소에서 Azure Machine Learning 입력 모델 데
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433001"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> Azure Machine Learning 모니터링 SDK는 곧 사용이 중지 될 예정입니다. SDK는 현재 SDK를 사용 하 여 모델의 데이터 드리프트를 모니터링 하는 개발자에 게 적합 합니다. 그러나 새 고객의 경우 [Application Insights로 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)을 사용 하는 것이 좋습니다.
 
 이 문서에서는 Azure Machine Learning에서 입력 모델 데이터를 수집 하는 방법을 보여 줍니다. 또한 azure Kubernetes 서비스 (AKS) 클러스터에 입력 데이터를 배포 하 고 Azure Blob 저장소에 출력 데이터를 저장 하는 방법을 보여 줍니다.
 
@@ -56,7 +52,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 ```
 
 >[!NOTE]
-> 0.1.0 a16 이전 버전의 Python 용 Azure Machine Learning SDK 버전에서는 `designation` 인수의 이름이로 지정 `identifier`됩니다. 이전 버전을 사용 하 여 코드를 개발한 경우 적절 하 게 업데이트 해야 합니다.
+> 0.1.0 a16 이전 버전의 Python 용 Azure Machine Learning SDK 버전에서는 `designation` 인수의 이름이로 지정 됩니다 `identifier` . 이전 버전을 사용 하 여 코드를 개발한 경우 적절 하 게 업데이트 해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -125,7 +121,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 작업 영역을 엽니다.
 
-1. **배포** > 선택**서비스** > **편집**을 선택 합니다.
+1. **배포**선택  >  **서비스**  >  **편집**을 선택 합니다.
 
    ![서비스 편집](././media/how-to-enable-data-collection/EditService.PNG)
 
@@ -143,7 +139,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 작업 영역을 엽니다.
 
-1. **배포** > 선택**서비스** > **편집**을 선택 합니다.
+1. **배포**선택  >  **서비스**  >  **편집**을 선택 합니다.
 
    [![편집 옵션을 선택 합니다.](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
@@ -170,7 +166,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 작업 영역을 엽니다.
 
-1. **저장소**를 선택합니다.
+1. **스토리지**를 선택합니다.
 
     [![저장소 옵션을 선택 합니다.](./media/how-to-enable-data-collection/StorageLocation.png)](././media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
@@ -189,7 +185,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![Power BI blob 설정](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. 스토리지 계정 이름을 추가하고 스토리지 키를 입력합니다. Blob에서 **설정** > **액세스 키** 를 선택 하 여이 정보를 찾을 수 있습니다.
+1. 스토리지 계정 이름을 추가하고 스토리지 키를 입력합니다. Blob에서 **설정**  >  **액세스 키** 를 선택 하 여이 정보를 찾을 수 있습니다.
 
 1. **모델 데이터** 컨테이너를 선택 하 고 **편집**을 선택 합니다.
 
@@ -199,7 +195,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 필터에 모델 경로를 입력 합니다. 특정 연도나 월의 파일만 확인 하려면 필터 경로를 확장 합니다. 예를 들어 3 월 데이터만 보려면 다음 필터 경로를 사용 합니다.
 
-   /modeldata/\<subscriptionid>/\<resourcegroupname>/\<workspacename>/\<webservicename>/\<modelname>/\<modelversion>/\<지정>/\<년>/3
+   /modeldata/ \<subscriptionid> / \<resourcegroupname> / \<workspacename> / \<webservicename> / \<modelname> / \<modelversion> / \<designation> / \<year> /3
 
 1. **이름** 값에 따라 사용자와 관련 된 데이터를 필터링 합니다. 예측 및 입력을 저장 한 경우 각각에 대 한 쿼리를 만들어야 합니다.
 
@@ -227,7 +223,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![Databricks 데이터 업로드 옵션 선택](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. **새 테이블 만들기** 를 선택 하 고 **다른 데이터 원본** > 을 선택 하**Azure Blob Storage** > **노트북에서 테이블 만들기**를 선택 합니다.
+1. **새 테이블 만들기** 를 선택 하 고 **다른 데이터 원본**을 선택 하  >  **Azure Blob Storage**  >  **노트북에서 테이블 만들기**를 선택 합니다.
 
     [![Databricks 테이블 만들기](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

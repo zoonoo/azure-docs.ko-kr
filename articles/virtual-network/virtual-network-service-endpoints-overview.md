@@ -13,24 +13,23 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444457"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
-VNet (Virtual Network) 서비스 끝점은 가상 네트워크 개인 주소 공간을 확장 합니다. 또한 끝점은 직접 연결을 통해 VNet의 id를 Azure 서비스에 확장 합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. VNet에서 Azure 서비스에 대한 트래픽은 Microsoft Azure 백본 네트워크에 항상 유지됩니다.
+VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 최적화 된 경로를 통해 Azure 서비스에 대 한 안전한 직접 연결을 제공 합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 서비스 끝점을 통해 vnet의 개인 IP 주소는 VNet에서 공용 IP 주소가 없어도 Azure 서비스의 끝점에 연결할 수 있습니다.
 
-이 기능은 다음과 같은 Azure 서비스 및 지역에서 사용할 수 있습니다. *Microsoft.\* * 리소스는 괄호 안에 있습니다. 서비스에 대 한 서비스 끝점을 구성 하는 동안 서브넷 쪽에서이 리소스를 사용 하도록 설정 합니다.
+이 기능은 다음과 같은 Azure 서비스 및 지역에서 사용할 수 있습니다. *Microsoft. \* * 리소스는 괄호 안에 있습니다. 서비스에 대 한 서비스 끝점을 구성 하는 동안 서브넷 쪽에서이 리소스를 사용 하도록 설정 합니다.
 
 **일반 공급**
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft 저장소*): 모든 Azure 지역에서 일반 공급 됩니다.
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 모든 Azure 지역에서 일반 공급 됩니다.
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 모든 Azure 지역에서 일반 공급 됩니다.
+- **[Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 모든 Azure 지역에서 일반 공급 됩니다.
+- **[Azure SQL Data Warehouse](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 모든 Azure 지역에서 일반 공급 됩니다.
 - **[Azure Database for PostgreSQL server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
 - **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft .sql*): 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft .sql*): 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
@@ -39,7 +38,7 @@ VNet (Virtual Network) 서비스 끝점은 가상 네트워크 개인 주소 공
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*ServiceBus*): 모든 Azure 지역에서 일반 공급 됩니다.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft EventHub*): 모든 azure 지역에서 일반 공급 됩니다.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*AzureActiveDirectory*): ADLS Gen1를 사용할 수 있는 모든 Azure 지역에서 일반 공급 됩니다.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)**: 일반적으로 App Service를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft 웹*): App Service를 사용할 수 있는 모든 Azure 지역에서 일반 공급 됩니다.
 
 **공개 미리 보기**
 
@@ -76,7 +75,7 @@ VNet (Virtual Network) 서비스 끝점은 가상 네트워크 개인 주소 공
 
   기본적으로 가상 네트워크에 대해 보호 된 Azure 서비스 리소스는 온-프레미스 네트워크에서 연결할 수 없습니다. 온-프레미스의 트래픽을 허용하려는 경우 온-프레미스 또는 ExpressRoute의 공용 IP 주소(일반적으로 NAT)도 허용해야 합니다. Azure 서비스 리소스에 대 한 IP 방화벽 구성을 통해 이러한 IP 주소를 추가할 수 있습니다.
 
-  Express 경로: 공용 피어 링 또는 온-프레미스의 Microsoft 피어 링에 대해 [express](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 경로를 사용 하는 경우 사용 중인 NAT IP 주소를 식별 해야 합니다. 공용 피어 링의 경우 각 Express 경로 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용 되는 두 개의 NAT IP 주소를 기본적으로 사용 합니다. Microsoft 피어 링의 경우 NAT IP 주소는 서비스 공급자가 제공 하거나 제공 하는 고객입니다.서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다.공용 피어링 ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Express 경로 공용 및 Microsoft 피어 링의 NAT에 대 한 자세한 내용은 [express 경로 nat 요구 사항](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)을 참조 하세요.
+  Express 경로: 공용 피어 링 또는 온-프레미스의 Microsoft 피어 링에 대해 [express](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 경로를 사용 하는 경우 사용 중인 NAT IP 주소를 식별 해야 합니다. 공용 피어 링의 경우 각 Express 경로 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용 되는 두 개의 NAT IP 주소를 기본적으로 사용 합니다. Microsoft 피어 링의 경우 NAT IP 주소는 서비스 공급자가 제공 하거나 제공 하는 고객입니다.서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다.ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Express 경로 공용 및 Microsoft 피어 링의 NAT에 대 한 자세한 내용은 [express 경로 nat 요구 사항](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)을 참조 하세요.
 
 ![Virtual Network에 대한 Azure 서비스 보호](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -90,7 +89,7 @@ VNet (Virtual Network) 서비스 끝점은 가상 네트워크 개인 주소 공
 
 ### <a name="considerations"></a>고려 사항
 
-- 서비스 끝점을 사용 하도록 설정한 후에는 서브넷 스위치에 있는 가상 머신의 원본 IP 주소입니다. 원본 IP 주소는 해당 서브넷의 서비스와 통신할 때 공용 IPv4 주소를 사용 하 여 개인 IPv4 주소를 사용 하는 것으로 전환 됩니다. 이 전환 중에 서비스에 대한 기존의 모든 오픈 TCP 연결이 닫힙니다. 서브넷의 서비스에 서비스 엔드포인트를 사용하거나 사용하지 않도록 설정하는 경우 중요한 작업이 실행되지 않아야 합니다. 또한 IP 주소를 전환한 후에 애플리케이션이 Azure 서비스에 자동으로 연결될 수 있어야 합니다.
+- 서비스 끝점을 사용 하도록 설정 하면 원본 IP 주소는 해당 서브넷의 서비스와 통신할 때 공용 IPv4 주소를 사용 하 여 개인 IPv4 주소를 사용 하는 것으로 전환 됩니다. 이 전환 중에 서비스에 대한 기존의 모든 오픈 TCP 연결이 닫힙니다. 서브넷의 서비스에 서비스 엔드포인트를 사용하거나 사용하지 않도록 설정하는 경우 중요한 작업이 실행되지 않아야 합니다. 또한 IP 주소를 전환한 후에 애플리케이션이 Azure 서비스에 자동으로 연결될 수 있어야 합니다.
 
   IP 주소 전환은 가상 네트워크의 서비스 트래픽에만 영향을 줍니다. 가상 컴퓨터에 할당 된 공용 IPv4 주소로 주소를 지정 하는 다른 트래픽에는 영향을 주지 않습니다. Azure 서비스의 경우 Azure 공용 IP 주소를 사용하는 기존 방화벽 규칙이 있는 경우 이러한 규칙은 가상 네트워크 프라이빗 주소로 전환하는 동시에 작동이 중지됩니다.
 - 서비스 끝점을 사용 하 여 Azure 서비스에 대 한 DNS 항목은 현재 상태로 유지 되 고 Azure 서비스에 할당 된 공용 IP 주소로 계속 확인 됩니다.
@@ -139,7 +138,7 @@ Azure Storage 계정과 같은 특정 Azure 서비스는 리소스를 보호 하
 
 VNet 서비스 끝점 정책을 통해 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있습니다. 이 필터는 서비스 끝점에 대 한 특정 Azure 서비스 리소스만 허용 합니다. 서비스 엔드포인트 정책은 Azure 서비스의 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. 자세한 내용은 [Virtual Network 서비스 끝점 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)을 참조 하세요.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 Faq는 [Virtual Network 서비스 끝점 faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)를 참조 하세요.
 
@@ -147,8 +146,8 @@ Faq는 [Virtual Network 서비스 끝점 faq](https://docs.microsoft.com/azure/v
 
 - [가상 네트워크 서비스 엔드포인트 구성](tutorial-restrict-network-access-to-resources.md)
 - [가상 네트워크에 대 한 Azure Storage 계정 보안](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [가상 네트워크에 대 한 Azure SQL Database 보안](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [가상 네트워크에 대 한 Azure SQL Data Warehouse 보안](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [가상 네트워크에 대 한 Azure SQL Database 보안](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [가상 네트워크에 대 한 Azure SQL Data Warehouse 보안](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)
 - [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

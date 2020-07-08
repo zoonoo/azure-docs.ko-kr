@@ -6,12 +6,11 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676848"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service에서 .NET 앱에 대 한 스냅숏 디버거 사용
 
@@ -28,12 +27,12 @@ ms.locfileid: "80298266"
 
 Application Insights 스냅숏 디버거 App Services 런타임의 일부로 미리 설치 되지만 App Service 앱에 대 한 스냅숏을 가져오려면 설정 해야 합니다. 앱을 배포한 후에는 소스 코드에 Application Insights SDK를 포함 했더라도 스냅숏 디버거를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 **App Services** 창으로 이동합니다.
-2. **설정 > Application Insights** 창으로 이동합니다.
+1. App Service에 대 한 Azure 제어판으로 이동 합니다.
+2. **설정 > Application Insights** 페이지로 이동 합니다.
 
    ![App Services 포털에서 App Insights를 사용하도록 설정](./media/snapshot-debugger/applicationinsights-appservices.png)
 
-3. 창의 지침에 따라 새 리소스를 만들거나 기존 App Insights 리소스를 선택하여 앱을 모니터링합니다. 또한 스냅숏 디버거에 대 한 두 스위치가 모두 **켜져**있는지 확인 합니다.
+3. 페이지의 지침에 따라 새 리소스를 만들거나 기존 App Insights 리소스를 선택 하 여 앱을 모니터링 합니다. 또한 스냅숏 디버거에 대 한 두 스위치가 모두 **켜져**있는지 확인 합니다.
 
    ![App Insights 사이트 확장 추가][Enablement UI]
 

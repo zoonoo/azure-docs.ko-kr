@@ -5,20 +5,19 @@ description: Azure Machine Learning를 통해 배포 된 웹 서비스를 보호
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a58b0120feaba907c62bc646f4f85d9185227fed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432865"
 ---
-# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호
+# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning를 통해 배포 된 웹 서비스를 보호 하는 방법을 보여 줍니다.
@@ -54,16 +53,16 @@ TLS 및 SSL은 모두 암호화 및 id 확인에 도움이 되는 *디지털 인
 
 ## <a name="get-a-domain-name"></a>도메인 이름 가져오기
 
-도메인 이름을 아직 소유 하 고 있지 않은 경우 *도메인 이름 등록 기관*에서 하나를 구입 합니다. 프로세스와 가격은 등록 기관 사이에서 다릅니다. 등록자는 도메인 이름을 관리 하는 도구를 제공 합니다. 이러한 도구를 사용 하 여 FQDN (정규화 된 도메인 이름) (예: www\.contoso.com)을 웹 서비스를 호스팅하는 IP 주소에 매핑합니다.
+도메인 이름을 아직 소유 하 고 있지 않은 경우 *도메인 이름 등록 기관*에서 하나를 구입 합니다. 프로세스와 가격은 등록 기관 사이에서 다릅니다. 등록자는 도메인 이름을 관리 하는 도구를 제공 합니다. 이러한 도구를 사용 하 여 FQDN (정규화 된 도메인 이름) (예: www \. contoso.com)을 웹 서비스를 호스팅하는 IP 주소에 매핑합니다.
 
 ## <a name="get-a-tlsssl-certificate"></a>TLS/SSL 인증서 가져오기
 
 TLS/SSL 인증서 (디지털 인증서)를 가져오는 방법에는 여러 가지가 있습니다. 가장 일반적인 것은 CA ( *인증 기관* )에서 구입 하는 것입니다. 인증서를 가져오는 위치와 관계 없이 다음 파일이 필요 합니다.
 
-* **인증서**. 인증서는 전체 인증서 체인을 포함 해야 하며 "PEM 인코딩" 이어야 합니다.
+* **인증서**입니다. 인증서는 전체 인증서 체인을 포함 해야 하며 "PEM 인코딩" 이어야 합니다.
 * **키**. 키도 PEM으로 인코딩해야 합니다.
 
-인증서를 요청할 때 웹 서비스에 사용할 주소의 FQDN (예: www\.contoso.com)을 제공 해야 합니다. 인증서에 스탬프 된 주소와 클라이언트에서 사용 하는 주소를 비교 하 여 웹 서비스의 id를 확인 합니다. 이러한 주소가 일치 하지 않으면 클라이언트에서 오류 메시지를 가져옵니다.
+인증서를 요청할 때 웹 서비스에 사용할 주소의 FQDN (예: www contoso.com)을 제공 해야 합니다 \. . 인증서에 스탬프 된 주소와 클라이언트에서 사용 하는 주소를 비교 하 여 웹 서비스의 id를 확인 합니다. 이러한 주소가 일치 하지 않으면 클라이언트에서 오류 메시지를 가져옵니다.
 
 > [!TIP]
 > 인증 기관에서 인증서 및 키를 PEM 인코딩 파일로 제공할 수 없는 경우 [OpenSSL](https://www.openssl.org/) 와 같은 유틸리티를 사용 하 여 형식을 변경할 수 있습니다.
@@ -87,7 +86,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
 
 **Enable_ssl** 방법은 Microsoft에서 제공 하는 인증서 또는 구입한 인증서를 사용할 수 있습니다.
 
-  * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "contoso" 값은 "contoso\<6-임의 문자>의 도메인 이름을 만듭니다. \<azureregion>. cloudapp.azure.com ", 여기서 \<azureregion>는 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label*를 덮어쓸 수 있습니다.
+  * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "contoso" 값은 도메인 이름 "contoso \<six-random-characters> . \<azureregion> cloudapp.azure.com ", 여기서 \<azureregion> 은 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label*를 덮어쓸 수 있습니다.
 
     TLS를 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
 
@@ -172,6 +171,10 @@ TLS/SSL 인증서가 만료 되 고 갱신 되어야 합니다. 일반적으로�
 
 인증서가 원래 Microsoft에서 생성 된 경우 ( *leaf_domain_label* 를 사용 하 여 서비스를 만드는 경우) 다음 예제 중 하나를 사용 하 여 인증서를 업데이트 합니다.
 
+> [!IMPORTANT]
+> * 기존 인증서가 여전히 유효한 경우 `renew=True` (SDK) 또는 `--ssl-renew` (CLI)를 사용 하 여 구성을 강제로 갱신 합니다. 예를 들어 기존 인증서가 여전히 10 일간 유효 하 고를 사용 하지 않는 경우 `renew=True` 인증서를 갱신 하지 못할 수 있습니다.
+> * 서비스를 처음 배포할 때는 패턴을 `leaf_domain_label` 사용 하 여 DNS 이름을 만드는 데 사용 됩니다 `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net` . 원래 생성 된 6 자리를 포함 하 여 기존 이름을 유지 하려면 원래 값을 사용 `leaf_domain_label` 합니다. 생성 된 6 자리는 포함 하지 마세요.
+
 **SDK 사용**
 
 ```python
@@ -183,7 +186,7 @@ from azureml.core.compute.aks import SslConfiguration
 aks_target = AksCompute(ws, clustername)
 
 # Update the existing certificate by referencing the leaf domain label
-ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True, renew=True)
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
@@ -191,7 +194,7 @@ aks_target.update(update_config)
 **CLI 사용**
 
 ```azurecli
-az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True --ssl-renew
 ```
 
 자세한 내용은 다음 참조 문서를 참조 하세요.
@@ -241,7 +244,7 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 ## <a name="disable-tls"></a>TLS 사용 안 함
 
-Azure Kubernetes Service에 배포 된 모델에 대해 TLS를 사용 하지 않도록 `SslConfiguration` 설정 `status="Disabled"`하려면를 사용 하 여를 만든 다음 업데이트를 수행 합니다.
+Azure Kubernetes Service에 배포 된 모델에 대해 TLS를 사용 하지 않도록 설정 하려면를 사용 하 여를 만든 `SslConfiguration` `status="Disabled"` 다음 업데이트를 수행 합니다.
 
 ```python
 from azureml.core.compute import AksCompute
@@ -259,5 +262,5 @@ aks_target.update(update_config)
 
 ## <a name="next-steps"></a>다음 단계
 방법 배우기:
-+ [웹 서비스로 배포된 기계 학습 모델 사용](how-to-consume-web-service.md)
++ [웹 서비스로 배포 된 machine learning 모델 사용](how-to-consume-web-service.md)
 + [Azure virtual network 내에서 실험 및 유추를 안전 하 게 실행](how-to-enable-virtual-network.md)

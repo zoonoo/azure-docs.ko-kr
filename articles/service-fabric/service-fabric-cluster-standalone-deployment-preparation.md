@@ -5,12 +5,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 6a00b7d1b72d594c08021982b2448de6275414c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079340"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 
@@ -51,7 +50,7 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 
 ## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>노드의 역할을 하는 컴퓨터 준비
 
-다음은 클러스터에 추가하려는 각 컴퓨터에 대한 몇 가지 권장 사양입니다.
+Service Fabric 클러스터의 컴퓨터에 권장 되는 사양은 다음과 같습니다.
 
 * 최소 16GB의 RAM
 * 최소 40GB의 사용 가능한 디스크 공간
@@ -61,9 +60,11 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 * [.NET Framework 4.5.1 이상](https://www.microsoft.com/download/details.aspx?id=40773), 전체 설치
 * [Windows Powershell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * [RemoteRegistry 서비스](https://technet.microsoft.com/library/cc754820) 는 모든 컴퓨터에서 실행 되어야 합니다.
-* Service Fabric 설치 드라이브는 NTFS 파일 시스템 이어야 합니다.
+* **Service Fabric 설치 드라이브는 NTFS 파일 시스템 이어야 합니다.**
+* **Windows 서비스 *성능 로그 & 경고* 및 *windows 이벤트 로그* 를 [사용 하도록 설정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))해야**합니다.
 
-클러스터를 배포하고 구성하는 클러스터 관리자는 각 컴퓨터에서 [관리자 권한](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 이 있어야 합니다. 도메인 컨트롤러에 Service Fabric을 설치할 수 없습니다.
+> [!IMPORTANT]
+> 클러스터를 배포하고 구성하는 클러스터 관리자는 각 컴퓨터에서 [관리자 권한](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 이 있어야 합니다. 도메인 컨트롤러에 Service Fabric을 설치할 수 없습니다.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지 다운로드
 [다운로드 링크 - Service Fabric 독립 실행형 패키지 -Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690), 클러스터의 일부가 아닌 배포 컴퓨터 또는 클러스터의 일부인 컴퓨터 중 하나에 패키지의 압축을 풉니다.

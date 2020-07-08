@@ -7,14 +7,13 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 64e2787aa282e75893fa34e6de1373e6afed09fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800565"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -34,7 +33,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
 1. Iotedge-vm 배포 Azure Resource Manager 템플릿을 사용 하 여 Azure IoT Edge 사용 가능한 Linux VM을 배포 합니다.  시작 하려면 아래 단추를 클릭 합니다.
 
-    [![Iotedge-vm 배포에 대 한 Azure에 배포 단추](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![iotedge-vm-deploy에 대한 Azure에 배포 단추](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 1. 새로 시작 된 창에서 사용 가능한 양식 필드를 입력 합니다.
 
@@ -63,7 +62,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
     모든 필드가 채워져 있으면 페이지 맨 아래에 있는 확인란을 선택 하 여 약관에 동의한 다음 **구매** 를 선택 하 여 배포를 시작 합니다.
 
-1. 배포가 성공적으로 완료 되었는지 확인 합니다.  가상 컴퓨터 리소스는 선택한 리소스 그룹에 배포 되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 `vm-0000000000000`이어야 합니다. 또한 연결 된 **DNS 이름을**기록해 둡니다 .이 이름은 형식 `<dnsLabelPrefix>`이어야 합니다. `<location>`. cloudapp.azure.com.
+1. 배포가 성공적으로 완료 되었는지 확인 합니다.  가상 컴퓨터 리소스는 선택한 리소스 그룹에 배포 되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결 된 **DNS 이름은**. 형식 이어야 합니다. `<dnsLabelPrefix>` `<location>` cloudapp.azure.com.
 
     **DNS 이름은** Azure Portal 내에 새로 배포 된 가상 컴퓨터의 **개요** 섹션에서 가져올 수 있습니다.
 
@@ -108,11 +107,10 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
 1. 새 가상 머신을 만듭니다.
 
-    **AuthenticationType** `password`을 사용 하려면 아래 예제를 참조 하세요.
+    **AuthenticationType** 을 사용 하려면 `password` 아래 예제를 참조 하세요.
 
    ```azurecli-interactive
-   az group deployment create \
-   --name edgeVm \
+   az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -122,15 +120,14 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-    SSH 키를 사용 하 여 인증 하려면 **authenticationType** `sshPublicKey`를 지정 하 고 **adminpasswordorkey** 매개 변수에서 ssh 키의 값을 제공 하면 됩니다.  아래에 예제가 나와 있습니다.
+    SSH 키를 사용 하 여 인증 하려면 **authenticationType** 를 지정 하 `sshPublicKey` 고 **adminpasswordorkey** 매개 변수에서 ssh 키의 값을 제공 하면 됩니다.  아래에 예제가 나와 있습니다.
 
     ```azurecli-interactive
     #Generate the SSH Key
     ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
 
     #Create a VM using the iotedge-vm-deploy script
-    az group deployment create \
-    --name edgeVm \
+    az deployment group create \
     --resource-group IoTEdgeResources \
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -138,10 +135,9 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-     
     ```
 
-1. 배포가 성공적으로 완료 되었는지 확인 합니다.  가상 컴퓨터 리소스는 선택한 리소스 그룹에 배포 되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 `vm-0000000000000`이어야 합니다. 또한 연결 된 **DNS 이름을**기록해 둡니다 .이 이름은 형식 `<dnsLabelPrefix>`이어야 합니다. `<location>`. cloudapp.azure.com.
+1. 배포가 성공적으로 완료 되었는지 확인 합니다.  가상 컴퓨터 리소스는 선택한 리소스 그룹에 배포 되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결 된 **DNS 이름은**. 형식 이어야 합니다. `<dnsLabelPrefix>` `<location>` cloudapp.azure.com.
 
     **DNS 이름은** 이전 단계의 JSON 형식 출력에서 가져올 수 있으며,이는 **공용 SSH** 항목의 일부로 **출력** 섹션 내에서 가져올 수 있습니다.  이 항목의 값을 사용 하 여 새로 배포 된 컴퓨터에 SSH를 수행할 수 있습니다.
 

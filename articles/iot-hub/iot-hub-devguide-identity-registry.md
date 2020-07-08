@@ -11,12 +11,11 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674957"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -110,7 +109,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 
 디바이스에 대한 알림 메시지:
 
-| 속성 | 값 |
+| 이름 | 값 |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -122,7 +121,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 |operationTimestamp | 작업의 ISO8601 타임스탬프 |
 |iothub-message-schema | deviceLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
+본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예제:
 
 ```json
 {
@@ -146,7 +145,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 ```
 모듈에 대한 알림 메시지:
 
-| 속성 | 값 |
+| 이름 | 값 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -158,7 +157,7 @@ moduleId | 모듈의 ID |
 operationTimestamp | 작업의 ISO8601 타임스탬프 |
 iothub-message-schema | moduleLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
+본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예제:
 
 ```json
 {
@@ -188,13 +187,13 @@ iothub-message-schema | moduleLifecycleNotification |
 
 | 속성 | 옵션 | 설명 |
 | --- | --- | --- |
-| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
+| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 디바이스를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 대 한 장치 id의 weak ETag를 나타내는 문자열입니다. |
-| auth |선택적 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
-| auth.symkey |선택적 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
+| auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
+| auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
 | 상태 |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 디바이스를 연결할 수 있습니다. **사용 안 함**이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
-| statusReason |선택적 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
+| statusReason |선택 사항 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
 | connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김**. 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요**: 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
 | connectionStateUpdatedTime |읽기 전용 |연결 상태가 마지막으로 업데이트된 날짜 및 시간을 표시하는 임시 표시기입니다. |
@@ -212,14 +211,14 @@ iothub-message-schema | moduleLifecycleNotification |
 
 | 속성 | 옵션 | 설명 |
 | --- | --- | --- |
-| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
-| moduleId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
+| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
+| moduleId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 디바이스를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 대 한 장치 id의 weak ETag를 나타내는 문자열입니다. |
-| auth |선택적 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
-| auth.symkey |선택적 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
+| auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
+| auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
 | 상태 |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 디바이스를 연결할 수 있습니다. **사용 안 함**이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
-| statusReason |선택적 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
+| statusReason |선택 사항 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
 | connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김**. 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요**: 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
 | connectionStateUpdatedTime |읽기 전용 |연결 상태가 마지막으로 업데이트된 날짜 및 시간을 표시하는 임시 표시기입니다. |
@@ -232,15 +231,15 @@ iothub-message-schema | moduleLifecycleNotification |
 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md) - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
+* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)는 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md)은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md) - IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
 * [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
 
-* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md) - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
+* [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

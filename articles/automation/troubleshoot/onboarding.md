@@ -2,18 +2,14 @@
 title: Azure Automation 기능 배포 문제 해결
 description: 이 문서에서는 Azure Automation 기능을 배포할 때 발생하는 문제를 해결하는 방법을 설명합니다.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/22/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739382"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801032"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>기능 배포 문제 해결
 
@@ -71,7 +67,7 @@ VM 또는 작업 영역의 권한이나 사용자의 권한이 잘못되었거�
 
 #### <a name="resolution"></a>해결 방법
 
-[기능 배포 권한](../automation-role-based-access-control.md#feature-setup-permissions)이 올바른지 확인한 후 기능을 다시 배포하세요. `The solution cannot be enabled on this VM because the permission to read the workspace is missing` 오류 메시지가 표시되면 작업 영역에서 VM을 사용할 수 있는지 확인할 수 있는 `Microsoft.OperationalInsights/workspaces/read` 권한이 있는지 확인하세요.
+[기능 배포 권한](../automation-role-based-access-control.md#feature-setup-permissions)이 올바른지 확인한 후 기능을 다시 배포하세요. 오류 메시지가 표시 `The solution cannot be enabled on this VM because the permission to read the workspace is missing` 되 면 다음 [문제 해결 정보](update-management.md#failed-to-enable-error)를 참조 하세요.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>시나리오: 기능 배포가 실패하고 "진단 로깅을 위한 자동화 계정을 구성하지 못했습니다"라는 메시지가 표시됨
 

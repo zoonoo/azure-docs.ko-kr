@@ -5,17 +5,16 @@ description: Azure Machine Learning에서 Azure Kubernetes 서비스 배포 모�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: d1da7309b296b57db0c28d5b52fe91efa86709c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f56ab853983ebf9b3e27f38ae1737c0c2bce4ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75537007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430284"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -64,7 +63,7 @@ Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집
 
 - 모델의 학습 데이터에서 [데이터 집합](how-to-create-register-datasets.md) 을 만듭니다.
 
-- 모델을 [등록할](concept-model-management-and-deployment.md) 때 학습 데이터 집합을 지정 합니다. 다음 예제에서는 `datasets` 매개 변수를 사용 하 여 학습 데이터 집합을 지정 하는 방법을 보여 줍니다.
+- 모델을 [등록할](concept-model-management-and-deployment.md) 때 학습 데이터 집합을 지정 합니다. 다음 예제에서는 매개 변수를 사용 하 여 `datasets` 학습 데이터 집합을 지정 하는 방법을 보여 줍니다.
 
     ```python
     model = Model.register(model_path=model_file,
@@ -75,12 +74,12 @@ Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집
     print(model_name, image_name, service_name, model)
     ```
 
-- 모델 [데이터 컬렉션을 사용](how-to-enable-data-collection.md) 하 여 모델의 AKS 배포에서 데이터를 수집 하 고 `modeldata` blob 컨테이너에서 데이터를 수집 하 고 있는지 확인 합니다.
+- 모델 [데이터 컬렉션을 사용](how-to-enable-data-collection.md) 하 여 모델의 AKS 배포에서 데이터를 수집 하 고 blob 컨테이너에서 데이터를 수집 하 고 있는지 확인 `modeldata` 합니다.
 
 ## <a name="configure-data-drift"></a>데이터 드리프트 구성
 실험에 대 한 데이터 드리프트를 구성 하려면 다음 Python 예제에서 볼 수 있듯이 종속성을 가져옵니다. 
 
-이 예제에서는 개체를 [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) 구성 하는 방법을 보여 줍니다.
+이 예제에서는 개체를 구성 하는 방법을 보여 줍니다 [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) .
 
 ```python
 # Import Azure ML packages
@@ -98,7 +97,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>DataDriftDetector 실행 제출
 
-구성 된 `DataDriftDetector` 개체를 사용 하 여 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. 실행의 일부로 매개 변수를 `drift_threshold` 설정 하 여 DataDriftDetector 경고를 사용 하도록 설정 합니다. [Datadrift_coefficient](#visualize-drift-metrics) 지정 `drift_threshold`된 보다 위에 있으면 전자 메일이 전송 됩니다.
+구성 된 개체를 사용 하 여 `DataDriftDetector` 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. 실행의 일부로 매개 변수를 설정 하 여 DataDriftDetector 경고를 사용 하도록 설정 `drift_threshold` 합니다. [Datadrift_coefficient](#visualize-drift-metrics) 지정 된 보다 위에 있으면 `drift_threshold` 전자 메일이 전송 됩니다.
 
 ```python
 # adhoc run today
@@ -133,7 +132,7 @@ datadrift_contribution|드리프트에 영향을 주는 기능의 중요 한 기
 여러 가지 방법으로 드리프트 메트릭을 볼 수 있습니다.
 
 * `RunDetails` [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 합니다.
-* 모든 `datadrift` 실행 [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) 개체에 대해 함수를 사용 합니다.
+* [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-)모든 실행 개체에 대해 함수를 사용 `datadrift` 합니다.
 * [Azure Machine Learning studio](https://ml.azure.com)에서 작업 영역의 **모델** 섹션에서 메트릭을 확인 합니다.
 
 다음 Python 예제에서는 관련 데이터 드리프트 메트릭을 그리는 방법을 보여 줍니다. 반환 된 메트릭을 사용 하 여 사용자 지정 시각화를 빌드할 수 있습니다.
@@ -152,7 +151,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>데이터 드리프트 검색 예약 
 
-데이터 드리프트 검색을 사용 하도록 설정 하면 DataDriftDetector가 지정 된 예약 된 빈도로 실행 됩니다. Datadrift_coefficient 지정 `drift_threshold`된에 도달 하면 예약 된 각 실행에 대 한 이메일이 전송 됩니다. 
+데이터 드리프트 검색을 사용 하도록 설정 하면 DataDriftDetector가 지정 된 예약 된 빈도로 실행 됩니다. Datadrift_coefficient 지정 된에 도달 하면 `drift_threshold` 예약 된 각 실행에 대 한 이메일이 전송 됩니다. 
 
 ```python
 datadrift.enable_schedule()

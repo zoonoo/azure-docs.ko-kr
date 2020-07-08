@@ -3,15 +3,14 @@ title: Azure Automation를 사용 하 여에서 작업 시작 StorSimple Data Ma
 description: Azure Automation을 사용하여 StorSimple 데이터 관리자 작업을 트리거하는 방법에 대해 알아보기
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76273984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514931"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 
@@ -28,8 +27,8 @@ ms.locfileid: "76273984"
 
 *   클라이언트 컴퓨터에 설치된 Azure PowerShell. [Azure PowerShell를 다운로드](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)합니다.
 *   리소스 그룹 내의 StorSimple 데이터 관리자 서비스에서 올바르게 구성된 작업 정의.
-*   GitHub [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 리포지토리에서 파일을 다운로드 합니다. 
-*   GitHub [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) 리포지토리에서 스크립트를 다운로드 합니다.
+*   [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip)GitHub 리포지토리에서 파일을 다운로드 합니다. 
+*   [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)GitHub 리포지토리에서 스크립트를 다운로드 합니다.
 
 ## <a name="step-by-step-procedure"></a>단계별 절차
 
@@ -48,7 +47,7 @@ ms.locfileid: "76273984"
    1. Automation 계정의 **이름을** 제공 합니다.
    2. StorSimple 데이터 관리자 서비스에 연결된 **구독**을 선택합니다.
    3. 새 리소스 그룹을 만들거나 기존 리소스 그룹에서 선택합니다.
-   4. **위치**를 선택 합니다.
+   4. **위치**를 선택합니다.
    5. 기본 **실행 계정 만들기** 옵션을 선택된 상태로 둡니다.
    6. 대시보드에 빠른 액세스에 대한 링크를 표시하려면 **대시보드에 고정**을 선택합니다. **만들기**를 클릭합니다.
 
