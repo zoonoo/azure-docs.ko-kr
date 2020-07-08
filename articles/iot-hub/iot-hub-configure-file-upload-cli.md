@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: df3c8d2abf59de6c9f685ad8d93e6689738df8e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302528"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 파일 업로드 구성
@@ -23,11 +22,11 @@ ms.locfileid: "78302528"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-* Azure IoT Hub - Iot hub가 없는 경우 [ `az iot hub create` 명령을](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) 사용 하 여 포털을 만들거나 [포털을 사용 하 여 iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
+* Azure IoT Hub - IoT hub가 없는 경우 [ `az iot hub create` 명령을](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) 사용 하 여 포털을 만들거나 [포털을 사용 하 여 iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
 
 * Azure Storage 계정. Azure Storage 계정이 없으면 Azure CLI를 사용 하 여 계정을 만들 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조 하세요.
 

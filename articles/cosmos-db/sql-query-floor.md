@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 04dfa6a028cf7c44bf99c665b396d51d8a0f3cef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303191"
 ---
 # <a name="floor-azure-cosmos-db"></a>바닥 (Azure Cosmos DB)
@@ -34,7 +33,7 @@ FLOOR (<numeric_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예에서는 `FLOOR` 함수를 사용 하 여 양수, 음수 및 0 값을 보여 줍니다.  
+  다음 예에서는 함수를 사용 하 여 양수, 음수 및 0 값을 보여 줍니다 `FLOOR` .  
   
 ```sql
 SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  
@@ -48,7 +47,7 @@ SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다.
+이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

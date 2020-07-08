@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302919"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
@@ -37,7 +36,7 @@ StringToArray(<str_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는가 서로 `StringToArray` 다른 형식에서 동작 하는 방법을 보여 줍니다. 
+  다음 예제에서는가 `StringToArray` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다. 
   
  유효한 입력을 사용 하는 예제는 다음과 같습니다.
 
@@ -59,7 +58,7 @@ SELECT
 다음은 잘못 된 입력의 예입니다. 
    
  배열 내의 작은따옴표는 유효한 JSON이 아닙니다.
-쿼리 내에서 유효 하더라도 올바른 배열로 구문 분석 되지 않습니다. 배열 문자열 내의 문자열은 "[\\"\\"]"로 이스케이프 되어야 합니다. 그렇지 않으면 주변 따옴표가 단일 ' [""] ' 여야 합니다.
+쿼리 내에서 유효 하더라도 올바른 배열로 구문 분석 되지 않습니다. 배열 문자열 내의 문자열은 "[" "]"로 이스케이프 되어야 합니다 \\ \\ . 그렇지 않으면 주변 따옴표가 단일 ' [""] ' 여야 합니다.
 
 ```sql
 SELECT

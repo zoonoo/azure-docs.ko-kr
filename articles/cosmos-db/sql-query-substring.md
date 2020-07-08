@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303701"
 ---
 # <a name="substring-azure-cosmos-db"></a>SUBSTRING (Azure Cosmos DB)
@@ -26,7 +25,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
 ## <a name="arguments"></a>인수
   
 *str_expr*  
-   는 문자열 식입니다.
+   문자열 식입니다.
   
 *num_expr1*  
    시작 문자를 나타내는 숫자 식입니다. 값 0은 *str_expr*의 첫 번째 문자입니다.
@@ -54,7 +53,7 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 시작 위치가 인 `0`경우 [범위 인덱스](index-policy.md#includeexclude-strategy) 를 활용 합니다.
+이 시스템 함수는 시작 위치가 인 경우 [범위 인덱스](index-policy.md#includeexclude-strategy) 를 활용 합니다 `0` .
 
 ## <a name="next-steps"></a>다음 단계
 

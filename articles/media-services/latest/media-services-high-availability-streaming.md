@@ -14,17 +14,16 @@ ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 1492dd392eabc4331f8e3d4604fb245a89dedff5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78899231"
 ---
 # <a name="media-services-high-availability-streaming"></a>Media Services 고가용성 스트리밍
 
 기본 구성 요소 또는 종속 서비스에 대 한 지역 데이터 센터 가동 중단 또는 오류가 발생 하는 경우 현재 Azure Media Services는 서비스의 즉각적인 장애 조치 (failover)를 제공 하지 않습니다. 이 문서에서는 주문형 비디오 지역 간 스트리밍을 빌드하는 방법에 대 한 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [지역 간 인코딩 시스템을 빌드하는 방법](media-services-high-availability-encoding.md) 검토
 

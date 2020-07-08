@@ -4,10 +4,9 @@ description: Azure CLI 명령을 사용 하 여 컨테이너 이미지 데이터
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403339"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Container Registry에서 컨테이너 이미지 삭제
@@ -58,7 +57,7 @@ Are you sure you want to continue? (y/n):
 
 [매니페스트 다이제스트](container-registry-concepts.md#manifest-digest)는 하나 이상의 태그와 연결되거나 어떤 태그와도 연결되지 않을 수 있습니다. 다이제스트에 따라 삭제하면 이미지에 고유한 모든 계층에 대한 계층 데이터와 마찬가지로 매니페스트에서 참조되는 모든 태그가 삭제됩니다. 공유 계층 데이터는 삭제되지 않습니다.
 
-다이제스트에 따라 삭제하려면 먼저 삭제하려는 이미지를 포함하는 리포지토리의 매니페스트 다이제스트를 나열합니다. 다음은 그 예입니다.
+다이제스트에 따라 삭제하려면 먼저 삭제하려는 이미지를 포함하는 리포지토리의 매니페스트 다이제스트를 나열합니다. 예를 들어:
 
 ```azurecli
 az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -101,7 +100,7 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): 
 ```
 
-`acr-helloworld:v2` 이미지는 해당 이미지에 고유한 레이어 데이터와 마찬가지로 레지스트리에서 삭제 됩니다. 매니페스트가 여러 태그에 연결되면 연결된 모든 태그도 삭제됩니다.
+이미지는 `acr-helloworld:v2` 해당 이미지에 고유한 레이어 데이터와 마찬가지로 레지스트리에서 삭제 됩니다. 매니페스트가 여러 태그에 연결되면 연결된 모든 태그도 삭제됩니다.
 
 ## <a name="delete-digests-by-timestamp"></a>타임 스탬프로 다이제스트 삭제
 
@@ -117,7 +116,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 부실 매니페스트 다이제스트를 확인 한 후 다음 Bash 스크립트를 실행 하 여 지정 된 타임 스탬프 보다 오래 된 매니페스트 다이제스트를 삭제할 수 있습니다. 여기에는 Azure CLI 및 **xargs**가 필요합니다. 기본적으로 스크립트는 삭제하지 않고 수행됩니다. 이미지를 삭제하도록 설정하려면 `ENABLE_DELETE` 값을 `true`(으)로 변경합니다.
 
 > [!WARNING]
-> 다음 샘플 스크립트는 주의 해 서 사용 합니다. 삭제 된 이미지 데이터는 복구할 수 없습니다. 이미지 이름과 달리 매니페스트 다이제스트로 이미지를 가져오는 시스템이 있는 경우 이러한 스크립트를 실행 하면 안 됩니다. 매니페스트 다이제스트를 삭제 하면 해당 시스템에서 레지스트리에서 이미지를 끌어올 수 없습니다. 매니페스트에 따라 끌어오는 대신, [권장 모범 사례](container-registry-image-tag-version.md)에 해당하는 *고유 태그 지정* 체계를 채택하는 것이 좋습니다. 
+> 다음 샘플 스크립트는 주의 해 서 사용 합니다. 삭제 된 이미지 데이터는 복구할 수 없습니다. 이미지 이름과 달리 매니페스트 다이제스트로 이미지를 가져오는 시스템이 있는 경우 이러한 스크립트를 실행 하면 안 됩니다. 매니페스트 다이제스트를 삭제 하면 해당 시스템에서 레지스트리에서 이미지를 끌어올 수 없습니다. 매니페스트에 따라 풀하는 대신 [권장 모범 사례](container-registry-image-tag-version.md)에 해당하는 ‘고유 태그 지정’ 체계를 채택하는 것이 좋습니다. 
 
 ```bash
 #!/bin/bash
@@ -199,7 +198,7 @@ fi
    ]
    ```
 
-시퀀스의 마지막 단계 출력에서 볼 수 있듯이 이제는 `"tags"` 속성이 빈 목록이 되는 고아 매니페스트가 있습니다. 이 매니페스트는 참조하는 고유한 계층 데이터와 함께 레지스트리에 내에 계속 존재합니다. **분리된 이미지와 해당 계층 데이터를 삭제하려면 매니페스트 다이제스트에 따라 삭제해야 합니다**.
+시퀀스의 마지막 단계 출력에서 볼 수 있듯이 이제는 속성이 빈 목록이 되는 고아 매니페스트가 있습니다 `"tags"` . 이 매니페스트는 참조하는 고유한 계층 데이터와 함께 레지스트리에 내에 계속 존재합니다. **분리된 이미지와 해당 계층 데이터를 삭제하려면 매니페스트 다이제스트에 따라 삭제해야 합니다**.
 
 ## <a name="delete-all-untagged-images"></a>태그가 지정되지 않은 모든 이미지 삭제
 
@@ -212,7 +211,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 스크립트에서이 명령을 사용 하 여 리포지토리에서 태그가 없는 모든 이미지를 삭제할 수 있습니다.
 
 > [!WARNING]
-> 다음 샘플 스크립트는 주의해서 사용하세요. 삭제된 이미지 데이터는 복구 가능하지 않습니다. 이미지 이름과 달리 매니페스트 다이제스트로 이미지를 가져오는 시스템이 있는 경우 이러한 스크립트를 실행 하면 안 됩니다. 태그가 지정되지 않은 이미지를 삭제하면 해당 시스템은 레지스트리에서 이미지를 끌어올 수 없게 됩니다. 매니페스트에 따라 끌어오는 대신, [권장 모범 사례](container-registry-image-tag-version.md)에 해당하는 *고유 태그 지정* 체계를 채택하는 것이 좋습니다.
+> 다음 샘플 스크립트는 주의해서 사용하세요. 삭제된 이미지 데이터는 복구 가능하지 않습니다. 이미지 이름과 달리 매니페스트 다이제스트로 이미지를 가져오는 시스템이 있는 경우 이러한 스크립트를 실행 하면 안 됩니다. 태그가 지정되지 않은 이미지를 삭제하면 해당 시스템은 레지스트리에서 이미지를 끌어올 수 없게 됩니다. 매니페스트에 따라 풀하는 대신 [권장 모범 사례](container-registry-image-tag-version.md)에 해당하는 ‘고유 태그 지정’ 체계를 채택하는 것이 좋습니다.
 
 **Bash의 Azure CLI**
 

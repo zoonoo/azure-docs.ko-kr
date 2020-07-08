@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 073efbd91e637a17693617b16c7787d61e150ad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78304245"
 ---
 # <a name="trim-azure-cosmos-db"></a>TRIM (Azure Cosmos DB)
@@ -26,7 +25,7 @@ TRIM(<str_expr>)
 ## <a name="arguments"></a>인수
   
 *str_expr*  
-   는 문자열 식입니다.  
+   문자열 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   
@@ -34,7 +33,7 @@ TRIM(<str_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예에서는 쿼리 내에서를 `TRIM` 사용 하는 방법을 보여 줍니다.  
+  다음 예에서는 쿼리 내에서를 사용 하는 방법을 보여 줍니다 `TRIM` .  
   
 ```sql
 SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4

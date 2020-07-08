@@ -10,10 +10,9 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ms.openlocfilehash: aa0b789b31f50c8b1ccf5450700874a02ad4664c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78304525"
 ---
 # <a name="plan-and-manage-costs-for-azure-storage"></a>Azure Storage에 대 한 비용 계획 및 관리
@@ -56,7 +55,7 @@ Azure Storage에서 Azure 리소스를 사용 하는 경우 비용이 발생 합
 
 비용 분석에서 Azure Storage 비용을 보려면 다음을 수행 합니다.
 
-1. 로그인은 [Azure 포털](https://portal.azure.com)합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **Cost Management + 청구** 창을 열고 메뉴에서 **비용 관리** 를 선택한 다음 **비용 분석**을 선택 합니다. 그런 다음 **범위** 드롭다운에서 특정 구독에 대 한 범위를 변경할 수 있습니다.
 

@@ -4,10 +4,9 @@ description: MARS (Microsoft Azure Recovery Services) 에이전트를 업그레�
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: 49daf438b855d19961519d93b6c3ec535de4756f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672833"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 업그레이드
@@ -60,7 +59,7 @@ Azure Backup 에이전트 업데이트가 필요한 서버를 확인 한 후에�
     -- | ---
     Azure 클라우드 (공용) |   `https://login.windows.net`
     Azure 중국 21Vianet 클라우드   | `https://login.chinacloudapi.cn`
-    Azure 미국 정부 클라우드 |   `https://login.microsoftonline.us`
+    Azure US Government 클라우드 |   `https://login.microsoftonline.us`
     Azure German Cloud  |  `https://login.microsoftonline.de`
 
 1. 서버에 Azure backup 에이전트 업데이트 설치 관리자를 복사 합니다.

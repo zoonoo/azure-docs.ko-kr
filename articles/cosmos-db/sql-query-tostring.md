@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78304262"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
@@ -34,7 +33,7 @@ ToString(<expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는가 서로 `ToString` 다른 형식에서 동작 하는 방법을 보여 줍니다.   
+  다음 예제에서는가 `ToString` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다.   
   
 ```sql
 SELECT 
@@ -57,7 +56,7 @@ SELECT
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- 다음 예에서는와 같은 `ToString` `CONCAT`다른 문자열 함수에서를 사용 하는 방법을 보여 줍니다.   
+ 다음 예에서는 `ToString` 와 같은 다른 문자열 함수에서를 사용 하는 방법을 보여 줍니다 `CONCAT` .   
  
 ```sql
 SELECT 
@@ -78,7 +77,7 @@ FROM p in c.Products
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-다음 예에서는와 같은 `ToString` `REPLACE`다른 문자열 함수에서를 사용 하는 방법을 보여 줍니다.   
+다음 예에서는 `ToString` 와 같은 다른 문자열 함수에서를 사용 하는 방법을 보여 줍니다 `REPLACE` .   
 ```sql
 SELECT 
     n.id AS nutrientID,

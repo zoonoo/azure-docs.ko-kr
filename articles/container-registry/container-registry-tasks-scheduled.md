@@ -4,10 +4,9 @@ description: 이 자습서에서는 하나 이상의 타이머 트리거를 설�
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402871"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>정의 된 일정에 따라 ACR 작업 실행
@@ -41,9 +40,9 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>타이머 트리거를 사용 하 여 작업 만들기
 
-[Az acr task create][az-acr-task-create] 명령을 사용 하 여 작업을 만드는 경우 필요에 따라 타이머 트리거를 추가할 수 있습니다. 매개 변수 `--schedule` 를 추가 하 고 타이머에 대 한 cron 식을 전달 합니다.
+[Az acr task create][az-acr-task-create] 명령을 사용 하 여 작업을 만드는 경우 필요에 따라 타이머 트리거를 추가할 수 있습니다. `--schedule`매개 변수를 추가 하 고 타이머에 대 한 cron 식을 전달 합니다.
 
-간단한 예로, 다음 명령을 실행 하면 매일 Docker 허브에서 `hello-world` 21:00 UTC로 이미지를 실행 하는 것이 트리거됩니다. 소스 코드 컨텍스트 없이 태스크가 실행 됩니다.
+간단한 예로, 다음 명령을 실행 하면 `hello-world` 매일 Docker 허브에서 21:00 UTC로 이미지를 실행 하는 것이 트리거됩니다. 소스 코드 컨텍스트 없이 태스크가 실행 됩니다.
 
 ```azurecli
 az acr task create \
@@ -54,7 +53,7 @@ az acr task create \
   --context /dev/null
 ```
 
-[Az acr task show][az-acr-task-show] 명령을 실행 하 여 타이머 트리거가 구성 되어 있는지 확인 합니다. 기본적으로 기본 이미지 업데이트 트리거도 사용 하도록 설정 됩니다.
+[az acr task show][az-acr-task-show] 명령을 실행하여 타이머 트리거가 구성되어 있는지 확인합니다. 기본적으로 기본 이미지 업데이트 트리거도 사용 하도록 설정 됩니다.
 
 ```azurecli
 az acr task show --name mytask --registry registry --output table
@@ -174,11 +173,11 @@ ACR 작업은 [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리�
 Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. 시간은 24 시간 형식입니다.
 
 > [!NOTE]
-> ACR 작업은 cron 식의 `{second}` 또는 `{year}` 필드를 지원 하지 않습니다. 다른 시스템에 사용 되는 cron 식을 복사 하는 경우 이러한 필드를 사용 하는 경우 제거 해야 합니다.
+> ACR 작업은 `{second}` cron 식의 또는 필드를 지원 하지 않습니다 `{year}` . 다른 시스템에 사용 되는 cron 식을 복사 하는 경우 이러한 필드를 사용 하는 경우 제거 해야 합니다.
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|Type  |예제  |트리거될 때  |
+|형식  |예제  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>`"5 * * * *"`</nobr>|매시간 매 시간 5 분 지난 5 분|
 |모든 값(`*`)|<nobr>`"* 5 * * *"`</nobr>|5:00 UTC부터 1 시간 마다 (60 시간)|

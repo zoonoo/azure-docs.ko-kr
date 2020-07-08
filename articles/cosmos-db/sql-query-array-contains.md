@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 47fe20888aa546e414b268b30c2e03580750a040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303480"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
@@ -40,7 +39,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는를 사용 하 여 `ARRAY_CONTAINS`배열의 멤버 자격을 확인 하는 방법을 보여 줍니다.  
+  다음 예제에서는를 사용 하 여 배열의 멤버 자격을 확인 하는 방법을 보여 줍니다 `ARRAY_CONTAINS` .  
   
 ```sql
 SELECT   
@@ -75,7 +74,7 @@ SELECT
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)를 활용 합니다.
+이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

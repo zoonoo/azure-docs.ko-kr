@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302715"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
@@ -22,7 +21,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 > [!NOTE]  
 > Linux 기반 Hadoop 서버를 사용 하는 방법을 이미 잘 알고 있지만 HDInsight를 처음 사용 하는 경우 [hdinsight의 linux 기반 Apache Hadoop](../hdinsight-hadoop-linux-information.md) 에 대해 알아야 할 사항 문서를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Hadoop 클러스터. [Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요.
 
@@ -77,7 +76,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
     URI(/mapreduce/jar)의 끝부분은 WebHCat에 이 요청이 jar 파일의 클래스에서 MapReduce 작업을 시작함을 알려줍니다. 이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-   * **-d**: `-G` 가 사용 되지 않으므로 요청은 POST 메서드로 기본 설정 됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
+   * **-d**:가 `-G` 사용 되지 않으므로 요청은 POST 메서드로 기본 설정 됩니다. `-d` 는 요청과 함께 전송되는 데이터 값을 지정합니다.
      * **user.name**: 명령을 실행하는 사용자입니다.
      * **jar**: 실행할 클래스가 포함된 jar 파일의 위치입니다.
      * **class**: MapReduce 논리가 포함된 클래스입니다.
@@ -87,7 +86,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
        job_1415651640909_0026
 
-1. 작업 상태를 확인하려면 다음 명령을 사용합니다. 의 `JOBID` 값을 이전 단계에서 반환 된 **실제** 값으로 바꿉니다. 필요에 따라 **jq** 의 위치를 수정 합니다.
+1. 작업 상태를 확인하려면 다음 명령을 사용합니다. 의 값을 `JOBID` 이전 단계에서 반환 된 **실제** 값으로 바꿉니다. 필요에 따라 **jq** 의 위치를 수정 합니다.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -98,7 +97,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
 ### <a name="powershell"></a>PowerShell
 
-1. 사용 편의성을 위해 아래 변수를 설정 합니다. 을 `CLUSTERNAME` 실제 클러스터 이름으로 바꿉니다. 명령을 실행 하 고 메시지가 표시 되 면 클러스터 로그인 암호를 입력 합니다.
+1. 사용 편의성을 위해 아래 변수를 설정 합니다. `CLUSTERNAME`을 실제 클러스터 이름으로 바꿉니다. 명령을 실행 하 고 메시지가 표시 되 면 클러스터 로그인 암호를 입력 합니다.
 
     ```powershell
     $clusterName="CLUSTERNAME"

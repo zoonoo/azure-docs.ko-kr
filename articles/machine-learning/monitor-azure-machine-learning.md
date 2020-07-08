@@ -10,10 +10,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78399108"
 ---
 # <a name="monitoring-azure-machine-learning"></a>모니터링 Azure Machine Learning
@@ -42,7 +41,7 @@ Azure Machine Learning는 다른 Azure 리소스와 동일한 종류의 모니�
 
 ## <a name="analyzing-metric-data"></a>메트릭 데이터 분석
 
-**Azure Monitor** 메뉴에서 **메트릭을** 열어 Azure Machine Learning에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](/azure/azure-monitor/platform/metrics-getting-started) 을 참조 하세요.
+**Azure Monitor** 메뉴에서 **메트릭을** 열어 Azure Machine Learning에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](/azure/azure-monitor/platform/metrics-getting-started)을 참조하세요.
 
 Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Machine Learning 서비스 작업 영역**에 있습니다.
 
@@ -50,7 +49,7 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 
 ### <a name="filtering-and-splitting"></a>필터링 및 분할
 
-차원을 지 원하는 메트릭의 경우 차원 값을 사용 하 여 필터를 적용할 수 있습니다. 예를 들어 **클러스터 이름** 에 대 한 **활성 코어** 를 `cpu-cluster`필터링 합니다. 
+차원을 지 원하는 메트릭의 경우 차원 값을 사용 하 여 필터를 적용할 수 있습니다. 예를 들어 **클러스터 이름** 에 대 한 **활성 코어** 를 필터링 `cpu-cluster` 합니다. 
 
 메트릭을 차원으로 분할 하 여 메트릭의 각 세그먼트가 서로 어떻게 다른 지를 시각화할 수도 있습니다. 예를 들어 파이프라인 **단계 유형을** 분할 하 여 파이프라인에서 사용 되는 단계 유형의 수를 확인 합니다.
 
@@ -62,11 +61,11 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 
 다음 표에서는 Azure Machine Learning에 대 한 일반적인 메트릭 경고 규칙과 권장 메트릭을 보여 줍니다.
 
-| 경고 유형 | 조건 | Description |
+| 경고 유형 | 조건 | 설명 |
 |:---|:---|:---|
 | 모델 배포 실패 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 하나 이상의 모델 배포에 실패 한 경우 |
-| 할당량 사용률 비율 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률 백분율이 90% 보다 큰 경우 |
-| 사용할 수 없는 노드 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 사용할 수 없는 노드가 하나 이상 있는 경우 |
+| 할당량 사용률 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률 백분율이 90% 보다 큰 경우 |
+| 사용 불가 노드 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 사용할 수 없는 노드가 하나 이상 있는 경우 |
 
 ## <a name="configuration"></a>Configuration
 
@@ -85,7 +84,7 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 
 Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |
@@ -107,7 +106,7 @@ Azure Monitor 로그의 데이터는 테이블에 저장 되 고 각 테이블�
 | AmlComputeJobEvent | Azure Machine Learning compute에서 실행 되는 작업의 이벤트입니다. |
 
 > [!IMPORTANT]
-> Azure Machine Learning 메뉴에서 **로그** 를 선택 하면 쿼리 범위가 현재 작업 영역으로 설정 된 Log Analytics 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함 됩니다. 다른 데이터베이스의 데이터 또는 다른 Azure 서비스의 데이터를 포함 하는 쿼리를 실행 하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택 합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](/azure/azure-monitor/log-query/scope/) 를 참조 하세요.
+> Azure Machine Learning 메뉴에서 **로그** 를 선택 하면 쿼리 범위가 현재 작업 영역으로 설정 된 Log Analytics 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 Azure 서비스의 데이터 또는 다른 데이터베이스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그**를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](/azure/azure-monitor/log-query/scope/)를 참조하세요.
 
 로그 및 메트릭에 대 한 자세한 내용은 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md)를 참조 하세요.
 

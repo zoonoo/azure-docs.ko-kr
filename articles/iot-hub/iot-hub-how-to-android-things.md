@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78673391"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 Android Things 플랫폼 개발
@@ -20,7 +19,7 @@ ms.locfileid: "78673391"
 
 이 자습서에서는 Azure IoT Java SDK를 사용하여 Android Things에서 디바이스 쪽 애플리케이션을 빌드하는 단계를 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Android Things는 Android Things OS를 실행하는 하드웨어를 지원합니다.  Android Things OS를 플래시하는 방법은 [Android Things 설명서](https://developer.android.com/things/get-started/kits#flash-at)를 참조하세요.  키보드, 디스플레이 및 마우스 등과 같은 필수 주변 장치가 연결된 상태에서 Android Things 디바이스가 인터넷에 연결되었는지 확인합니다.  이 자습서에서는 Raspberry Pi 3을 사용합니다.
 
@@ -49,7 +48,7 @@ ms.locfileid: "78673391"
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행 하 여 방금 등록 한 장치에 대 한 *장치 연결 문자열* 을 가져옵니다. 아래 `YourIoTHubName` 를 IoT hub에 대해 선택한 이름으로 바꿉니다.
+2. Azure Cloud Shell에서 다음 명령을 실행 하 여 방금 등록 한 장치에 대 한 *장치 연결 문자열* 을 가져옵니다. `YourIoTHubName`아래를 IoT hub에 대해 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table

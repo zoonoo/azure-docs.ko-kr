@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 08c069de70684a8562e86963ddb2e84ee889e7cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302256"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
@@ -26,7 +25,7 @@ LTRIM(<str_expr>)
 ## <a name="arguments"></a>인수
   
 *str_expr*  
-   는 문자열 식입니다.  
+   문자열 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   
@@ -34,7 +33,7 @@ LTRIM(<str_expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예에서는 쿼리 내에서를 `LTRIM` 사용 하는 방법을 보여 줍니다.  
+  다음 예에서는 쿼리 내에서를 사용 하는 방법을 보여 줍니다 `LTRIM` .  
   
 ```sql
 SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 

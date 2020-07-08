@@ -10,18 +10,17 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78898548"
 ---
 # <a name="what-is-azure-scheduler"></a>Azure Scheduler 정의
 
 > [!IMPORTANT]
-> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
+> [Azure Scheduler](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요. 
 >
-> 스케줄러는 Azure Portal에서 더 이상 사용할 수 없지만,이 시점에서 [REST API](/rest/api/scheduler) 및 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md) 을 계속 사용할 수 있으므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
+> Scheduler는 더 이상 Azure Portal에서 사용할 수 없지만 [REST API](/rest/api/scheduler) 및 [Azure Scheduler PowerShell cmdlet](scheduler-powershell-reference.md)은 현재 사용 가능하므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)는 작업을 선언적으로 설명하여 클라우드에서 실행되는 [작업](../scheduler/scheduler-concepts-terms.md)을 만드는 데 도움이 됩니다. 그런 다음, 해당 작업이 자동으로 예약되고 실행됩니다. 예를 들어, HTTP 또는 HTTPS 엔드포인트 호출과 같이 Azure 내부 및 외부에서 서비스를 호출하고, Azure Storage 큐 및 Azure Service Bus 큐 또는 토픽에 메시지를 게시할 수도 있습니다. 작업은 바로 또는 나중에 실행할 수 있습니다. Scheduler는 [복잡한 일정 및 고급 되풀이](../scheduler/scheduler-advanced-complexity.md)를 손쉽게 지원합니다. Scheduler는 작업을 실행하는 경우를 지정하고, 검토할 수 있는 작업 결과의 기록을 유지한 다음, 예측 가능하고 안정적으로 실행할 워크로드를 예약합니다.
 

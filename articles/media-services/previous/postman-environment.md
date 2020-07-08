@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78926705"
 ---
 # <a name="import-the-postman-environment"></a>Postman 환경 가져오기  
@@ -25,7 +24,7 @@ ms.locfileid: "78926705"
 이 문서에는 Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 [Postman 컬렉션](postman-collection.md)을 사용하는 **Postman** 환경 변수의 정의가 포함되어 있습니다. 환경 및 컬렉션 파일은 [Media Services REST API 호출에 대한 Postman 구성](media-rest-apis-with-postman.md) 자습서에서 사용됩니다.
 
 > [!NOTE]
-> `AzureADSTSEndpoint `  = 의 `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`값입니다. 테 넌 트 ID를 가져오려면 포털에서 사용자 이름 위로 마우스를 가져가면 (오른쪽 위 모서리에 있음) "디렉터리: Microsoft ({{TENANTID}})에 표시 됩니다.
+> 의 값 `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token` 입니다. 테 넌 트 ID를 가져오려면 포털에서 사용자 이름 위로 마우스를 가져가면 (오른쪽 위 모서리에 있음) "디렉터리: Microsoft ({{TENANTID}})에 표시 됩니다.
 
 ```
 {

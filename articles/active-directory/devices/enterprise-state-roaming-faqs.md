@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672384"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
@@ -77,7 +76,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 여러 Azure AD 테넌트의 여러 Azure 계정이 동일한 디바이스에 있는 경우 각 Azure AD 테넌트의 Azure Rights Management 서비스와 통신하도록 디바이스 레지스트리를 업데이트해야 합니다.  
 
 1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트, 레이블이 지정된 **Directory ID**에 대한 속성 페이지(https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에 있습니다. 
-2. GUID를 확인한 후에는 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<테넌트 ID GUID>** 를 추가해야 합니다.
+2. GUID를 받은 후에는 **\software\microsoft\windows\settingsync\winmsipc \<tenant ID GUID> HKEY_LOCAL_MACHINE**레지스트리 키를 추가 해야 합니다.
    **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 디바이스에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. AADRM 모듈에서 **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
 
