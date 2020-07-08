@@ -2,17 +2,16 @@
 title: Azure IoT Hub TLS 지원
 description: IoT Hub와 통신하는 디바이스 및 서비스에 대해 보안 TLS 연결을 사용하는 모범 사례
 services: iot-hub
-author: rezasherafat
+author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 01/10/2020
-ms.author: rezas
-ms.openlocfilehash: 5b9f6b993b0d0f527d041b4ee055bf51fefa1253
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/18/2020
+ms.author: jlian
+ms.openlocfilehash: 8c52037684215d1672ed813389d0bbace9a03e42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080610"
 ---
 # <a name="tls-support-in-iot-hub"></a>IoT Hub의 TLS 지원
 
@@ -20,11 +19,17 @@ IoT Hub는 TLS(전송 계층 보안)를 사용하여 IoT 디바이스 및 서비
 
 TLS 1.0 및 1.1은 레거시로 간주되며 사용 중단될 예정입니다. 자세한 내용은 [IoT Hub용 TLS 1.0 및 1.1 사용 중단](iot-hub-tls-deprecating-1-0-and-1-1.md)을 참조하세요. IoT Hub에 연결할 때 TLS 1.2를 기본 TLS 버전으로 사용하는 것이 좋습니다.
 
-## <a name="restrict-connections-to-tls-12-in-your-iot-hub-resource"></a>IoT Hub 리소스에서 TLS 1.2로 연결 제한
+## <a name="tls-12-enforcement-available-in-select-regions"></a>Select 지역에서 TLS 1.2 적용 사용 가능
 
-보안을 강화하려면 TLS 버전 1.2를 사용하는 클라이언트 연결*만* 허용하고 [권장되는 암호](#recommended-ciphers) 사용을 적용하도록 IoT Hub를 구성하는 것이 좋습니다.
+보안을 강화 하려면 TLS 버전 1.2을 사용 하는 클라이언트 *연결만 허용 하도록 IoT hub를 구성* 하 고 [권장 되는 암호화](#recommended-ciphers)사용을 적용 합니다. 이 기능은 다음 지역 에서만 지원 됩니다.
 
-이러한 목적을 위해 [지원 지역](#supported-regions)에서 새 IoT Hub를 프로비저닝하고 Azure Resource Manager 템플릿의 IoT Hub 리소스 사양에서 `minTlsVersion` 속성을 `1.2`로 설정합니다.
+* 미국 동부
+* 미국 중남부
+* 미국 서부 2
+* US Gov 애리조나
+* US Gov 버지니아
+
+이러한 목적을 위해 지원 지역에서 새 IoT Hub를 프로비저닝하고 Azure Resource Manager 템플릿의 IoT Hub 리소스 사양에서 `minTlsVersion` 속성을 `1.2`로 설정합니다.
 
 ```json
 {
@@ -53,18 +58,7 @@ TLS 1.0 및 1.1은 레거시로 간주되며 사용 중단될 예정입니다. �
 
 > [!NOTE]
 > `minTlsVersion` 속성은 읽기 전용이며 IoT Hub 리소스를 만든 후에는 변경할 수 없습니다. 따라서 *모든*  IoT 디바이스 및 서비스가 TLS 1.2 및 [권장되는 암호](#recommended-ciphers)와 호환되는지 적절히 테스트하고 유효성을 검사하는 것이 중요합니다.
-
-## <a name="supported-regions"></a>지원되는 지역
-
-TLS 1.2를 사용해야 하는 IoT Hub는 다음 지역에서 만들 수 있습니다.
-
-* 미국 동부
-* 미국 중남부
-* 미국 서부 2
-* US Gov 애리조나
-* US Gov 버지니아
-
-> [!NOTE]
+> 
 > 장애 조치(failover) 시 IoT Hub의 `minTlsVersion` 속성은 지리적으로 쌍을 이루는 지역에서 장애 조치 후에 적용됩니다.
 
 ## <a name="recommended-ciphers"></a>권장되는 암호

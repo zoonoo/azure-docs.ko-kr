@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079448"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>예: C에 Azure Cognitive Search에 대 한 동의어 추가 #
 
@@ -38,7 +37,7 @@ Azure Cognitive Search에서 동의어는 동일한 용어를 연결 하는 *매
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Cognitive Search 서비스](search-create-service-portal.md)
-* [Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk)
+* [Microsoft.Azure.Search .NET library](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 * [.NET 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>개요
@@ -128,7 +127,7 @@ no document matched
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   동의어 맵은 오픈 소스 표준 `solr` 형식에 따라야 합니다. 이 형식에 대 한 설명은 [Azure Cognitive Search의 동의어](search-synonyms.md) 섹션 `Apache Solr synonym format`에서 설명 합니다.
+   동의어 맵은 오픈 소스 표준 `solr` 형식에 따라야 합니다. 이 형식에 대 한 설명은 [Azure Cognitive Search의 동의어](search-synonyms.md) 섹션에서 설명 `Apache Solr synonym format` 합니다.
 
 2. 인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다. `EnableSynonymsInHotelsIndex`에서 `synonymMaps` 속성을 새로 업로드된 동의어 맵의 이름으로 설정하여 두 개의 필드인 `category` 및 `tags`에서 동의어를 사용합니다.
    ```csharp

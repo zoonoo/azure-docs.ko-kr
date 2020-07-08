@@ -5,12 +5,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75465632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080662"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 독립 실행형 클러스터 개요
 
@@ -21,9 +20,16 @@ Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되�
 서비스 패브릭 클러스터 온-프레미스를 만드는 프로세스는 VM 집합이 있는 클라우드를 선택하여 거기에 클러스터를 만드는 프로세스와 비슷합니다. VM을 프로비전하는 초기 단계는 사용하는 클라우드 공급자 또는 온-프레미스 환경에 의해 제어됩니다. VM을 준비하고 VM 간에 네트워크 연결을 설정한 후에는 동일한 방법으로 서비스 패브릭 패키지를 설정하고, 클러스터 설정을 편집하고, 클러스터 만들기 및 관리 스크립트를 실행합니다. 이렇게 하면 새 호스팅 환경을 대상으로 선택할 때 Service Fabric 클러스터 운영 및 관리에 대한 지식과 경험이 전달됩니다.
 
 ## <a name="cluster-security"></a>클러스터 보안
+
 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다.  사용자는 권한이 없는 사용자가 연결되는 것을 방지하기 위해 클러스터를 보호해야 합니다. 보안 클러스터는 클러스터에서 프로덕션 워크로드를 실행하는 경우에 특히 중요합니다.
 
+> [!NOTE]
+> Windows 인증은 Kerberos를 기반으로 합니다. NTLM은 인증 유형으로 지원 되지 않습니다.
+>
+> 가능 하면 Service Fabric 클러스터에 대해 x.509 인증서 인증을 사용 합니다.
+
 ### <a name="node-to-node-security"></a>노드 간 보안
+
 노드 간 보안은 클러스터의 VM 또는 컴퓨터 간 통신을 보호합니다. 이 보안 시나리오를 통해 클러스터에 가입하도록 인증된 컴퓨터만 호스팅 애플리케이션 및 클러스터의 서비스에 참여할 수 있습니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다.  클러스터 인증서는 클러스터 트래픽의 보안을 유지하고 클러스터 및 서버 인증을 제공하는 데 필요합니다.  자체 서명된 인증서를 테스트 클러스터에 사용할 수 있지만 프로덕션 클러스터 보안 유지에는 신뢰할 수 있는 인증 기관의 인증서를 사용해야 합니다.
 
 Windows 독립 실행형 클러스터에 대해 Windows 보안을 설정할 수도 있습니다. Windows Server 2012 R2 및 Windows Active Directory가 설치된 경우 그룹 관리 서비스 계정으로 Windows 보안을 사용하는 것이 좋습니다. 그렇지 않은 경우 Windows 계정으로 Windows 보안을 사용합니다.
@@ -31,6 +37,7 @@ Windows 독립 실행형 클러스터에 대해 Windows 보안을 설정할 수�
 자세한 내용은 [노드 간 보안](service-fabric-cluster-security.md#node-to-node-security)을 참조하세요.
 
 ### <a name="client-to-node-security"></a>클라이언트-노드 보안
+
 클라이언트-노드 보안은 클라이언트를 인증하고 클라이언트와 클러스터의 개별 노드 간 통신을 보호하도록 합니다. 이 보안 유형을 통해 인증된 사용자만 클러스터 및 클러스터에 배포된 애플리케이션에 액세스할 수 있도록 합니다. 클라이언트는 X.509 인증서 보안 자격 증명을 통해 고유하게 식별됩니다. 개수에 관계없이 선택적 클라이언트 인증서를 사용하여 클러스터에서 관리자 또는 사용자 클라이언트를 인증할 수 있습니다.
 
 클라이언트 인증서 외에, Azure Active Directory도 클러스터에서 클라이언트를 인증하도록 구성할 수 있습니다.
@@ -55,13 +62,15 @@ Windows 독립 실행형 클러스터에 대해 Windows 보안을 설정할 수�
 자세한 내용은 [독립 실행형 클러스터 업그레이드](service-fabric-cluster-upgrade-standalone.md)를 참조하세요.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
+
 다음 운영 체제를 실행하는 컴퓨터 또는 VM에서 클러스터를 만들 수 있습니다(Linux는 아직 지원되지 않음).
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* 시작
+* Windows Server 2019
 
 ## <a name="next-steps"></a>다음 단계
+
 독립 실행형 클러스터의 [보호](service-fabric-cluster-security.md), [크기 조정](service-fabric-cluster-scaling-standalone.md) 및 [업그레이드](service-fabric-cluster-upgrade-standalone.md)에 대해 자세히 알아봅니다.
 
 [Service Fabric 지원 옵션](service-fabric-support.md)에 대해 알아봅니다.

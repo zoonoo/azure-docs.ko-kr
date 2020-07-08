@@ -7,13 +7,12 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 4ff6972e2f7ea219a1c8c8dbabbf9fe12a8fa59e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: d535866881fa6ed73b51eb6039baa9d515b770b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80369469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080839"
 ---
 # <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
@@ -22,7 +21,7 @@ ms.locfileid: "80369469"
 > [!NOTE]
 > Azure Cognitive Search에서 작은 볼륨 (20 개 트랜잭션 미만)을 무료로 실행할 수 있지만, 더 큰 워크 로드 [는 청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -32,17 +31,17 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
-| defaultLanguageCode   |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *es* -스페인어 <br/> *ja-jp* -일본어 <br/> *pt* -포르투갈어 <br/> *zh* - 중국어 간체|
-| visualFeatures |  반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 감지 하거나 범주 (극단적인 폭력 또는 피를 나타냅니다) 합니다. 성적 추천 content (즉, 외설 content)도 검색 됩니다.</li><li>*브랜드* -대략적인 위치를 포함 하 여 이미지 내 다양 한 브랜드를 검색 합니다. *브랜드* 시각적 기능은 영어로만 제공 됩니다.</li><li> *categories* -Cognitive Services [Computer Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의 된 분류에 따라 이미지 콘텐츠를 분류 합니다. </li><li>*설명* -지원 되는 언어의 전체 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 있는 경우 좌표, 성별 및 연령를 생성 합니다.</li><li> *개체* -대략적인 위치를 포함 하 여 이미지 내에서 다양 한 개체를 검색 합니다. *개체* 시각적 기능은 영어로만 제공 됩니다.</li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.**</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다. *Color* 및 *imagetype* 시각적 기능은 더 이상 사용 되지 않지만 [사용자 지정 기술을](https://go.microsoft.com/fwlink/?linkid=2121117)통해이 기능에 계속 액세스할 수 있습니다.|
-| 자세히   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
+| `defaultLanguageCode` |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *es* -스페인어 <br/> *ja-jp* -일본어 <br/> *pt* -포르투갈어 <br/> *zh* - 중국어 간체|
+| `visualFeatures` |    반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 감지 하거나 범주 (극단적인 폭력 또는 피를 나타냅니다) 합니다. 성적 추천 콘텐츠 (외설 콘텐츠 라고도 함)도 검색 됩니다.</li><li>*브랜드* -대략적인 위치를 포함 하 여 이미지 내 다양 한 브랜드를 검색 합니다. *브랜드* 시각적 기능은 영어로만 제공 됩니다.</li><li> *categories* -Cognitive Services [Computer Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의 된 분류에 따라 이미지 콘텐츠를 분류 합니다. </li><li>*설명* -지원 되는 언어의 전체 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 있는 경우 좌표, 성별 및 연령를 생성 합니다.</li><li>   *개체* -대략적인 위치를 포함 하 여 이미지 내에서 다양 한 개체를 검색 합니다. *개체* 시각적 기능은 영어로만 제공 됩니다.</li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.**</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다. *Color* 및 *imagetype* 시각적 기능은 더 이상 사용 되지 않지만 [사용자 지정 기술을](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)통해이 기능에 계속 액세스할 수 있습니다.|
+| `details` | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | Description                                          |
+| 입력 이름      | 설명                                          |
 |---------------|------------------------------------------------------|
-| 이미지         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
+| `image`         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
 
 
@@ -514,15 +513,15 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 | 오류 코드 | Description |
 |------------|-------------|
-| NotSupportedLanguage | 제공한 언어가 지원되지 않습니다. |
-| InvalidImageUrl | 이미지 URL의 형식이 잘못되었거나 액세스할 수 없습니다.|
-| InvalidImageFormat | 입력 데이터가 유효한 이미지가 아닙니다. |
-| InvalidImageSize | 입력 이미지가 너무 큽니다. |
-| NotSupportedVisualFeature  | 지정한 기능 유형이 잘못되었습니다. |
-| NotSupportedImage | 지원되지 않는 이미지(예: 아동 음란물)입니다. |
-| InvalidDetails | 지원되지 않는 도메인 특정 모델입니다. |
+| `NotSupportedLanguage` | 제공한 언어가 지원되지 않습니다. |
+| `InvalidImageUrl` | 이미지 URL의 형식이 잘못되었거나 액세스할 수 없습니다.|
+| `InvalidImageFormat` | 입력 데이터가 유효한 이미지가 아닙니다. |
+| `InvalidImageSize` | 입력 이미지가 너무 큽니다. |
+| `NotSupportedVisualFeature`  | 지정한 기능 유형이 잘못되었습니다. |
+| `NotSupportedImage` | 지원되지 않는 이미지(예: 아동 음란물)입니다. |
+| `InvalidDetails` | 지원되지 않는 도메인 특정 모델입니다. |
 
-와 유사한 `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`오류가 발생 하는 경우 경로를 확인 합니다. 유명인와 랜드마크는 둘 다의 `detail`속성입니다.
+와 유사한 오류가 발생 하는 경우 `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"` 경로를 확인 합니다. 유명인와 랜드마크는 둘 다의 속성 `detail` 입니다.
 
 ```json
 "categories":[  

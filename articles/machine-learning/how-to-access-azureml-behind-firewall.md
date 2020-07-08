@@ -5,30 +5,30 @@ description: Azure 방화벽을 사용 하 여 Azure Machine Learning 작업 영
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080247"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Azure Machine Learning 용 Azure 방화벽 뒤에 작업 영역 사용
 
 이 문서에서는 Azure Machine Learning 작업 영역에서 사용할 수 있도록 Azure 방화벽을 구성 하는 방법에 대해 알아봅니다.
 
-Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 대 한 액세스를 제어 하는 데 사용할 수 있습니다. 올바르게 구성 되지 않은 경우 방화벽에서 작업 영역을 사용 하 여 문제를 일으킬 수 있습니다.
+Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 대 한 액세스를 제어 하는 데 사용할 수 있습니다. 올바르게 구성 되지 않은 경우 방화벽에서 작업 영역을 사용 하 여 문제를 일으킬 수 있습니다. 이 문서에서 설명 하는 Azure Machine Learning 작업 영역 둘 다에서 사용 되는 다양 한 호스트 이름이 있습니다.
 
 ## <a name="network-rules"></a>네트워크 규칙
 
 방화벽에서이 문서의 주소로 들어오고 나가는 트래픽을 허용 하는 네트워크 규칙을 만듭니다.
 
 > [!TIP]
-> 네트워크 규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를 `*`로 설정 합니다.
+> 네트워크 규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를로 설정 `*` 합니다.
 >
 > Azure 방화벽 구성에 대 한 자세한 내용은 [Azure 방화벽 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)을 참조 하세요.
 
@@ -40,16 +40,18 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | 클러스터 학습 |
 | **ml.azure.com** | Azure Machine Learning Studio |
+| **default.exp-tas.com** | Azure Machine Learning studio에서 사용 |
 | **\*. azureml.ms** | Azure Machine Learning Api에서 사용 |
-| **\*. experiments.azureml.net** | Azure Machine Learning에서 실행 되는 실험에서 사용|
+| **\*. experiments.azureml.net** | Azure Machine Learning에서 실행 되는 실험에서 사용 |
 | **\*. modelmanagement.azureml.net** | 모델을 등록 하 고 배포 하는 데 사용 됩니다.|
 | **mlworkspace.azure.ai** | 작업 영역을 볼 때 Azure Portal에서 사용 됩니다. |
 | **\*. aether.ms** | Azure Machine Learning 파이프라인을 실행할 때 사용 됩니다. |
 | **\*. instances.azureml.net** | Azure Machine Learning 계산 인스턴스 |
+| **\*. instances.azureml.ms** | 작업 영역에서 개인 링크를 사용 하도록 설정한 경우 계산 인스턴스 Azure Machine Learning |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | 기본 docker 이미지 |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | 기본 docker 이미지용 Microsoft Container Registry |
 
 ## <a name="python-hosts"></a>Python 호스트
 
