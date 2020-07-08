@@ -4,19 +4,18 @@ description: Azure Active Directory에서 조건부 액세스를 사용하는 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4476502896705c2133b09b203bea0d6f5d74f121
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253361"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 앱 보호 정책 및 승인된 클라이언트 앱 필요
 
@@ -37,7 +36,7 @@ ms.locfileid: "83681402"
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>시나리오 1: Office 365 앱에 앱 보호 정책을 사용하는 승인된 앱 필요
 
-이 시나리오에서 Contoso는 Office 365 리소스에 대한 모든 모바일 액세스가 액세스를 받기 전에 앱 보호 정책을 통해 보호되는 Outlook mobile, OneDrive 및 Microsoft 팀과 같은 승인된 클라이언트 앱을 사용하도록 결정했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
+이 시나리오에서 Contoso는 Office 365 리소스에 대 한 모든 모바일 액세스에서 액세스를 받기 전에 앱 보호 정책에 의해 보호 되는 Outlook mobile 및 OneDrive와 같은 승인 된 클라이언트 앱을 사용 하도록 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
 
 조직에서는 모바일 디바이스에서 승인된 클라이언트 앱을 사용하도록 요구하기 위해 다음 단계를 완료해야 합니다.
 

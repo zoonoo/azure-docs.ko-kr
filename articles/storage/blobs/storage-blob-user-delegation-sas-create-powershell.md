@@ -8,14 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5250a27e6c5fcf012207f1edb95ad46c0aabfe63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536176"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803529"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -32,7 +31,7 @@ PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 Az. Storage �
 1. 모든 이전 Azure PowerShell 설치를 제거합니다.
 
     - **설정**에 있는 **앱 및 기능** 설정을 사용하여 Windows에서 이전에 설치한 Azure PowerShell을 제거합니다.
-    - 에서 모든 **Azure** 모듈을 `%Program Files%\WindowsPowerShell\Modules`제거 합니다.
+    - 에서 모든 **Azure** 모듈을 제거 `%Program Files%\WindowsPowerShell\Modules` 합니다.
 
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
 
@@ -62,7 +61,7 @@ PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 Az. Storage �
 Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
-Azure PowerShell를 설치 하는 방법에 대 한 자세한 내용은 [PowerShellGet을 사용 하 여 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하세요.
+Azure PowerShell을 설치하는 방법에 대한 자세한 내용은 [PowerShellGet을 사용하여 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 ## <a name="sign-in-to-azure-powershell-with-azure-ad"></a>Azure AD를 사용 하 여 Azure PowerShell에 로그인
 
@@ -98,7 +97,7 @@ Azure PowerShell를 사용 하 여 사용자 위임 SAS를 만들 때 SAS에 서
 
 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일 이므로 시작 시간의 7 일 이내에 SAS에 대 한 만료 시간을 지정 해야 합니다. 사용자 위임 키가 만료 된 후에는 SAS가 유효 하지 않으므로 만료 시간이 7 일을 초과 하는 SAS는 7 일 동안만 유효 합니다.
 
-Azure PowerShell 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만들려면 먼저 `-UseConnectedAccount` 매개 변수를 지정 하 여 새 Azure Storage 컨텍스트 개체를 만듭니다. `-UseConnectedAccount` 매개 변수는 명령에서 로그인 한 Azure AD 계정으로 컨텍스트 개체를 만드는 것을 지정 합니다.
+Azure PowerShell 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만들려면 먼저 매개 변수를 지정 하 여 새 Azure Storage 컨텍스트 개체를 만듭니다 `-UseConnectedAccount` . `-UseConnectedAccount`매개 변수는 명령에서 로그인 한 AZURE AD 계정으로 컨텍스트 개체를 만드는 것을 지정 합니다.
 
 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -130,7 +129,7 @@ New-AzStorageContainerSASToken -Context $ctx `
 
 Blob에 대 한 사용자 위임 SAS 토큰을 반환 하려면 이전에 만든 Azure Storage 컨텍스트 개체를 전달 하 여 [AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) 명령을 호출 합니다.
 
-다음 구문은 blob에 대 한 사용자 위임 SAS를 반환 합니다. 이 예에서는 SAS `-FullUri` 토큰이 추가 된 blob URI를 반환 하는 매개 변수를 지정 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
+다음 구문은 blob에 대 한 사용자 위임 SAS를 반환 합니다. 이 예에서는 `-FullUri` SAS 토큰이 추가 된 BLOB URI를 반환 하는 매개 변수를 지정 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
 ```powershell
 New-AzStorageBlobSASToken -Context $ctx `

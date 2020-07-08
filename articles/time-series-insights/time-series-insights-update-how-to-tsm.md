@@ -10,19 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fa56217c54ac662a62a5ce835d75e3d85f05bfa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77470754"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041475"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 모델링
 
 이 문서에서는 Azure Time Series Insights 미리 보기에서 시계열 모델을 사용 하는 방법을 설명 합니다. 몇 가지 일반적인 데이터 시나리오를 자세히 설명합니다.
 
 > [!TIP]
-> * 미리 보기 [시계열 모델](time-series-insights-update-tsm.md)에 대해 읽어 보세요.
+> * 미리 보기 [시계열 모델](concepts-model-overview.md)에 대해 읽어 보세요.
 > * [Azure Time Series Insights preview 탐색기](./time-series-insights-update-explorer.md)에서 미리 보기 UI 탐색에 대해 자세히 알아보세요.
 
 ## <a name="instances"></a>인스턴스
@@ -37,7 +36,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 인스턴스 **�
 
     [![인스턴스를 먼저 선택 하 여 단일 인스턴스를 만듭니다.](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
 
-1. **+ 추가**를 선택합니다.
+1. **+추가**를 선택합니다.
 
     [![+ 추가 단추를 선택 하 여 인스턴스를 추가 합니다.](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
 
@@ -85,7 +84,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 계층 **만들�
 
     [![창을 통해 계층을 만듭니다.](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-hierarchy-panel.png#lightbox)
 
-1. **+ 추가**를 선택합니다.
+1. **+추가**를 선택합니다.
 
     [![계층 + 추가 단추를 클릭 합니다.](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
 
@@ -123,7 +122,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 계층 **만들�
 
 1. **삭제**를 선택 하 여 삭제를 확인 합니다.
 
-## <a name="types"></a>유형
+## <a name="types"></a>형식
 
 Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들기**, **읽기**, **업데이트**및 **삭제** 작업을 지원 합니다. 
 
@@ -168,7 +167,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시계열 모델에 대 한 자세한 내용은 [데이터 모델링](./time-series-insights-update-tsm.md)을 참조 하세요.
+- 시계열 모델에 대 한 자세한 내용은 [데이터 모델링](./concepts-model-overview.md)을 참조 하세요.
 
 - 미리 보기에 대한 자세한 내용은 [Azure Time Series Insights 미리 보기 탐색기에서 데이터 시각화](./time-series-insights-update-explorer.md)를 참조하세요.
 

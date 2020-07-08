@@ -4,11 +4,10 @@ description: Azure Container Instances에서 실행하는 컨테이너에서 환
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686735"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>컨테이너 인스턴스에서 환경 변수 설정
 
@@ -38,7 +37,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-출력을 수정 하려면 추가 된 `--environment-variables` 인수를 사용 하 여 두 번째 컨테이너를 시작 하 고 *NumWords* 및 *MinLength* 변수의 값을 지정 합니다. (이 예제에서는 Bash 셸 또는 Azure Cloud Shell에서 CLI를 실행하고 있다고 가정합니다. Windows 명령 프롬프트를 사용하는 경우 `--environment-variables "NumWords"="5" "MinLength"="8"`과 같이 큰 따옴표를 사용하여 변수를 지정합니다.)
+출력을 수정 하려면 추가 된 인수를 사용 하 여 두 번째 컨테이너를 시작 하 고 `--environment-variables` *NumWords* 및 *MinLength* 변수의 값을 지정 합니다. (이 예제에서는 Bash 셸 또는 Azure Cloud Shell에서 CLI를 실행하고 있다고 가정합니다. Windows 명령 프롬프트를 사용하는 경우 `--environment-variables "NumWords"="5" "MinLength"="8"`과 같이 큰 따옴표를 사용하여 변수를 지정합니다.)
 
 ```azurecli-interactive
 az container create \
@@ -144,7 +143,7 @@ Azure:\
 Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정 하려면 컨테이너를 만들 때 **고급** 페이지에서 지정 합니다.
 
 1. **고급** 페이지에서 *실패 시* **다시 시작 정책을** 로 설정 합니다.
-2. **환경 변수**에서 첫 번째 `NumWords` 변수에 값 `5` 으로을 입력 하 고 두 번째 변수에 값 `MinLength` `8` 을 입력 합니다. 
+2. **환경 변수**에서 `NumWords` 첫 번째 변수에 값으로을 입력 `5` 하 고 `MinLength` `8` 두 번째 변수에 값을 입력 합니다. 
 1. **검토 + 만들기** 를 선택 하 여 컨테이너를 확인 한 다음 배포 합니다.
 
 ![환경 변수 사용 단추 및 텍스트 상자를 표시하는 포털 페이지][portal-env-vars-01]

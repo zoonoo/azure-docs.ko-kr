@@ -4,19 +4,18 @@ description: Azure AD 조건부 액세스를 통해 레거시 인증을 차단�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e657114f4e51775fb73267322a48e362f57b1c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253344"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -65,6 +64,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 - 인증된 SMTP - POP 및 IMAP 클라이언트에서 이메일 메시지를 보낼 때 사용합니다.
 - 자동 검색 - Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결할 때 사용합니다.
+- EAS (exchange ActiveSync)-Exchange Online의 사서함에 연결 하는 데 사용 됩니다.
 - Exchange Online PowerShell - 원격 PowerShell을 사용하여 Exchange Online에 연결하는 데 사용됩니다. Exchange Online PowerShell에 대한 기본 인증을 차단하는 경우 Exchange Online PowerShell 모듈을 사용하여 연결해야 합니다. 자세한 내용은 [다단계 인증을 사용하여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조하세요.
 - EWS(Exchange 웹 서비스) - Outlook, Outlook for Mac 및 타사 앱에서 사용하는 프로그래밍 인터페이스입니다.
 - IMAP4 - IMAP 이메일 클라이언트에서 사용합니다.

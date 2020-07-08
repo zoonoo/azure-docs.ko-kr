@@ -1,19 +1,13 @@
 ---
 title: Azure Service Bus 엔터티에 액세스 하는 응용 프로그램 인증
 description: 이 문서에서는 Azure Service Bus 엔터티 (큐, 토픽 등)에 액세스 하 Azure Active Directory 응용 프로그램을 인증 하는 방법에 대 한 정보를 제공 합니다.
-services: service-bus-messaging
-ms.service: event-hubs
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: aschhab
-ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 707fbec4317b4c34349e04895f9c6a0bdf4f1b47
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341509"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스 하 Azure Active Directory 응용 프로그램 인증 및 권한 부여
 Azure Service Bus은 Azure Active Directory (Azure AD)를 사용 하 여 엔터티 (큐, 토픽, 구독 또는 필터)에 대 한 요청 Service Bus에 권한을 부여 하는 것을 지원 합니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
@@ -21,7 +15,7 @@ Azure Service Bus은 Azure Active Directory (Azure AD)를 사용 하 여 엔터�
 ## <a name="overview"></a>개요
 보안 주체 (사용자, 그룹 또는 응용 프로그램)가 Service Bus 엔터티에 대 한 액세스를 시도 하는 경우 요청에 권한이 부여 되어야 합니다. Azure AD를 사용 하 여 리소스에 대 한 액세스는 2 단계 프로세스입니다. 
 
- 1. 먼저, 보안 주체의 id가 인증 되 고 OAuth 2.0 토큰이 반환 됩니다. 토큰을 요청 하는 리소스 이름은 `https://servicebus.azure.net`입니다.
+ 1. 먼저, 보안 주체의 id가 인증 되 고 OAuth 2.0 토큰이 반환 됩니다. 토큰을 요청 하는 리소스 이름은 `https://servicebus.azure.net` 입니다.
  1. 그런 다음 토큰은 지정 된 리소스에 대 한 액세스 권한을 부여 하기 위해 Service Bus 서비스에 대 한 요청의 일부로 전달 됩니다.
 
 인증 단계를 수행 하려면 응용 프로그램 요청이 런타임에 OAuth 2.0 액세스 토큰을 포함 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 azure 함수 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 관리 id를 사용 하 여 리소스에 액세스할 수 있습니다. 관리 id에서 Service Bus 서비스에 대 한 요청을 인증 하는 방법을 알아보려면 [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 Azure Service Bus 리소스에 대 한 액세스 인증](service-bus-managed-service-identity.md)을 참조 하세요. 

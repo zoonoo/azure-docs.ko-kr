@@ -12,12 +12,11 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 795247cd0d6adfd27115b73c1d0de02e6810d670
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195723"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS 통합 런타임 구성
 
@@ -29,11 +28,11 @@ Microsoft SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-ssis-ir-failover-with-a-sql-database-managed-instance"></a>SQL Database 관리형 인스턴스를 사용한 Azure-SSIS IR 장애 조치(Failover)
+## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>SQL Managed Instance를 사용 하 여 장애 조치 (failover) Azure-SSIS IR
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-Azure SQL Database 관리형 인스턴스는 *DMK(데이터베이스 마스터 키)* 를 사용하여 데이터베이스에 저장된 데이터, 자격 증명 및 연결 정보를 보호합니다. DMK의 자동 암호 해독을 사용하기 위해 *SMK(서버 마스터 키)* 를 통해 키의 복사본이 암호화됩니다. 
+Azure SQL Managed Instance는 데이터베이스 *마스터 키 (DMK)* 를 사용 하 여 데이터베이스에 저장 된 데이터, 자격 증명 및 연결 정보를 보호 합니다. DMK의 자동 암호 해독을 사용하기 위해 *SMK(서버 마스터 키)* 를 통해 키의 복사본이 암호화됩니다. 
 
 SMK는 장애 조치(failover) 그룹에 복제되지 않습니다. 장애 조치(failover) 후 DMK 암호 해독을 위해 기본 및 보조 인스턴스 모두에서 암호를 추가해야 합니다.
 
@@ -43,7 +42,7 @@ SMK는 장애 조치(failover) 그룹에 복제되지 않습니다. 장애 조�
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Azure SQL Database 관리형 인스턴스에서 장애 조치(failover) 그룹을 만듭니다.
+2. SQL Managed Instance에서 장애 조치 (failover) 그룹을 만듭니다.
 
 3. 새 암호화 암호를 사용하여 보조 인스턴스에서 **sp_control_dbmasterkey_password**를 실행합니다.
 
@@ -87,27 +86,27 @@ Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려�
 2. 보조 인스턴스에 대한 새 지역, 엔드포인트 및 가상 네트워크 정보를 사용하여 Azure-SSIS IR을 편집합니다.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                -VNetId "new VNet" `
-                -Subnet "new subnet" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                    -VNetId "new VNet" `
+                    -Subnet "new subnet" `
+                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+        ```
 
-3. Azure-SSIS IR을 다시 시작합니다.
+3. Restart the Azure-SSIS IR.
 
-### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-database-managed-instance"></a>시나리오 3: Azure-SSIS IR이 SQL Database 관리형 인스턴스의 퍼블릭 엔드포인트를 가리킴
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-이 시나리오는 Azure-SSIS IR이 Azure SQL Database 관리형 인스턴스의 퍼블릭 엔드포인트를 가리키고 가상 네트워크에 연결하지 않는 경우에 적합합니다. 시나리오 2와의 유일한 차이점은 장애 조치(failover) 후 Azure-SSIS IR의 가상 네트워크 정보를 편집할 필요가 없다는 것입니다.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
-#### <a name="solution"></a>해결 방법
+#### Solution
 
-장애 조치(failover)가 발생하는 경우 다음 단계를 수행합니다.
+When failover occurs, take the following steps:
 
-1. 주 지역에서 Azure-SSIS IR을 중지합니다.
+1. Stop the Azure-SSIS IR in the primary region.
 
-2. 보조 인스턴스에 대한 새 지역 및 엔드포인트 정보를 사용하여 Azure-SSIS IR을 편집합니다.
+2. Edit the Azure-SSIS IR with the new region and endpoint information for the secondary instance.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
@@ -122,7 +121,7 @@ Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려�
 
 이 시나리오는 현재 지역에서 Azure Data Factory 또는 Azure-SSIS IR 재해가 발생할 때 SSISDB가 새 지역의 새 Azure-SSIS IR로 작업하도록 하려는 경우에 적합합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 장애 조치(failover)가 발생하는 경우 다음 단계를 수행합니다.
 
@@ -131,13 +130,13 @@ Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려�
 
 1. 주 지역에서 Azure-SSIS IR을 중지합니다.
 
-2. 저장 프로시저를 실행하여 **\<new_data_factory_name\>** 과 **\<new_integration_runtime_name\>** 의 연결을 허용하도록 SSISDB의 메타데이터를 업데이트합니다.
+2. 및의 연결을 허용 하도록 SSISDB의 메타 데이터를 업데이트 하는 저장 프로시저를 실행 **\<new_data_factory_name\>** **\<new_integration_runtime_name\>** 합니다.
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
     ```
 
-3. 새 지역에 **\<new_data_factory_name\>** 이라는 새 데이터 팩터리를 만듭니다.
+3. 새 지역에 이라는 새 데이터 팩터리를 만듭니다 **\<new_data_factory_name\>** .
 
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
@@ -147,7 +146,7 @@ Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려�
     
     이 PowerShell 명령에 대한 자세한 내용은 [PowerShell을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
-4. Microsoft Azure PowerShell을 사용하여 새 지역에 **\<new_integration_runtime_name\>** 이라는 새 Azure-SSIS IR을 만듭니다.
+4. **\<new_integration_runtime_name\>** Azure PowerShell를 사용 하 여 새 지역에 이라는 새 Azure-SSIS IR를 만듭니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
@@ -193,7 +192,7 @@ Azure-SSIS IR에서 지역 또는 기타 정보를 업데이트하려는 경우 
 
 이 시나리오는 Azure-SSIS IR이 주 서버 엔드포인트를 가리키고 있는 경우 적합합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 장애 조치(failover)가 발생하는 경우 다음 단계를 수행합니다.
 
@@ -202,12 +201,12 @@ Azure-SSIS IR에서 지역 또는 기타 정보를 업데이트하려는 경우 
 2. 보조 인스턴스에 대한 새 지역, 엔드포인트 및 가상 네트워크 정보를 사용하여 Azure-SSIS IR을 편집합니다.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                        -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                        -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                        -VNetId "new VNet" `
+                        -Subnet "new subnet" `
+                        -SetupScriptContainerSasUri "new custom setup SAS URI"
     ```
 
 3. Azure-SSIS IR을 다시 시작합니다.
@@ -225,13 +224,13 @@ Azure-SSIS IR에서 지역 또는 기타 정보를 업데이트하려는 경우 
 
 1. 주 지역에서 Azure-SSIS IR을 중지합니다.
 
-2. 저장 프로시저를 실행하여 **\<new_data_factory_name\>** 과 **\<new_integration_runtime_name\>** 의 연결을 허용하도록 SSISDB의 메타데이터를 업데이트합니다.
+2. 및의 연결을 허용 하도록 SSISDB의 메타 데이터를 업데이트 하는 저장 프로시저를 실행 **\<new_data_factory_name\>** **\<new_integration_runtime_name\>** 합니다.
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
     ```
 
-3. 새 지역에 **\<new_data_factory_name\>** 이라는 새 데이터 팩터리를 만듭니다.
+3. 새 지역에 이라는 새 데이터 팩터리를 만듭니다 **\<new_data_factory_name\>** .
 
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
@@ -241,7 +240,7 @@ Azure-SSIS IR에서 지역 또는 기타 정보를 업데이트하려는 경우 
     
     이 PowerShell 명령에 대한 자세한 내용은 [PowerShell을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
-4. Microsoft Azure PowerShell을 사용하여 새 지역에 **\<new_integration_runtime_name\>** 이라는 새 Azure-SSIS IR을 만듭니다.
+4. **\<new_integration_runtime_name\>** Azure PowerShell를 사용 하 여 새 지역에 이라는 새 Azure-SSIS IR를 만듭니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `

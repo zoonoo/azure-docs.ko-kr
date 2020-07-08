@@ -8,12 +8,11 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 2476cf360909374f711564fb5fad5c9e0706083d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 2711160534270f38845ab7b48234f4a441c236b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195863"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Azure Data Box Gateway 보안 및 데이터 보호
 
@@ -27,7 +26,6 @@ Data Box Gateway 솔루션은 서로 상호 작용 하는 네 가지 주요 구�
 - **장치를 Data Box Gateway**합니다. 사용자가 제공 하는 시스템의 하이퍼바이저에서 프로 비전 하는 가상 장치입니다. 이 가상 장치는 온-프레미스 데이터를 Azure로 가져오는 데 사용 됩니다.
 - **장치에 연결 된 클라이언트/호스트**. Data Box Gateway 장치에 연결 하 고 보호 해야 하는 데이터를 포함 하는 인프라의 클라이언트입니다.
 - **클라우드 저장소**. Azure cloud platform에서 데이터가 저장 되는 위치입니다. 이 위치는 일반적으로 사용자가 만드는 Data Box Gateway 리소스에 연결 된 저장소 계정입니다.
-
 
 ## <a name="data-box-gateway-service-protection"></a>Data Box Gateway 서비스 보호
 
@@ -56,14 +54,13 @@ Data Box Gateway 장치는 사용자가 제공 하는 온-프레미스 시스템
 
 암호는 권한 있는 사용자만 데이터에 액세스할 수 있도록 합니다. Data Box Gateway 장치는 잠긴 상태에서 부팅 됩니다.
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 - 브라우저를 통해 장치의 로컬 웹 UI에 연결 하 고 장치에 로그인 하는 데 암호를 제공 합니다.
 - HTTP를 통해 장치의 PowerShell 인터페이스에 원격으로 연결 합니다. 원격 관리는 기본적으로 설정 되어 있습니다. 그런 다음 장치 암호를 제공 하 여 장치에 로그인 할 수 있습니다. 자세한 내용은 [Data Box Gateway 장치에 원격으로 연결](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface)을 참조 하세요.
 
 [!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - 로컬 웹 UI를 사용 하 여 [암호를 변경](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access)합니다. 암호를 변경 하는 경우 로그인 하는 데 문제가 없는지 모든 원격 액세스 사용자에 게 알려야 합니다.
-
 
 ## <a name="protect-your-data"></a>데이터 보호
 
@@ -77,10 +74,18 @@ Data Box Gateway 장치는 사용자가 제공 하는 온-프레미스 시스템
 
 [!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
-### <a name="protect-data-via-storage-accounts"></a>스토리지 계정을 통해 데이터 보호
+### <a name="protect-data-using-storage-accounts"></a>저장소 계정을 사용 하 여 데이터 보호
 
 [!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+
 - 저장소 계정 키를 회전 한 다음 정기적으로 [동기화](data-box-gateway-manage-shares.md#sync-storage-keys) 하 여 권한 없는 사용자 로부터 저장소 계정을 보호 합니다.
+
+### <a name="protect-the-device-data-using-bitlocker"></a>BitLocker를 사용 하 여 장치 데이터 보호
+
+Data Box Gateway 가상 머신에서 가상 디스크를 보호 하려면 BitLocker를 사용 하도록 설정 하는 것이 좋습니다. 기본적으로 BitLocker가 활성화되지 않았습니다. 자세한 내용은 다음을 참조하세요.
+
+- [Hyper-V 관리자의 암호화 지원 설정](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [가상 머신의 BitLocker 지원](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>개인 정보 관리
 

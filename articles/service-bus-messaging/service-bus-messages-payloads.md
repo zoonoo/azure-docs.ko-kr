@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus 메시지, 페이로드 및 serialization | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 메시지, 페이로드, 메시지 라우팅 및 serialization에 대 한 개요를 제공 합니다.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 11e56ae2483a254fb00e3593da7841f3f3d844f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341688"
 ---
 # <a name="messages-payloads-and-serialization"></a>메시지, 페이로드 및 serialization
 
@@ -32,7 +21,7 @@ Service Bus 메시지는 Service Bus가 서비스 쪽에서 어떤 형식으로�
  
 AMQP 프로토콜 수준에서 사용되는 해당 이름은 괄호로 묶어 표시됩니다. 
 
-| 속성 이름                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| 속성 이름                         | 설명                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype)(content-type)           | 필요에 따라 RFC2045, 섹션 5의 형식(예: `application/json`)에 따라 설명자를 사용하여 메시지의 페이로드를 설명합니다.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId)(correlation-id)       | 애플리케이션이 상관 관계(예: 회신되는 메시지의 **MessageId** 반영)를 위해 메시지에 대한 컨텍스트를 지정할 수 있도록 합니다.                                                                                                                                                                                                                                                                  |
@@ -53,7 +42,7 @@ AMQP 프로토콜 수준에서 사용되는 해당 이름은 괄호로 묶어 �
 | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber)                        | 시퀀스 번호는 Broker에서 수락하여 저장할 때 메시지에 할당되는 고유의 64비트 정수이며 실제 식별자로 작동합니다. 분할된 엔터티의 경우 최상위 16비트는 파티션 식별자를 나타냅니다. 시퀀스 번호는 일정하게 커지며 간격이 없습니다. 48-64비트 범위가 고갈되면 다시 0에서 시작됩니다. 이 속성은 읽기 전용입니다.                                                                |
 | [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)(group-id)                  | 세션 인식 엔터티의 경우 이 애플리케이션 정의 값은 메시지의 세션 정보를 지정합니다. 동일한 세션 식별자를 갖는 메시지는 요약 잠금이 적용되며 정확한 순차적 처리 및 역 멀티플렉싱이 지원됩니다. 세션을 인식하지 않는 엔터티의 경우 이 값이 무시됩니다.                                                                                                                                     |
 | [크기](/dotnet/api/microsoft.azure.servicebus.message.size)                                  | 이 속성은 스토리지 할당량을 기준으로 하므로 브로커 로그에 포함된 메시지의 저장된 크기를 바이트 수로 반영합니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                                                                                       |
-| [State](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | 로그에 메시지 상태를 나타냅니다. 이 속성은 메시지 검색("보기") 동안 메시지가 "활성" 상태인지와 큐 맨 위에 도달할 때 검색 가능한지, 연기되었는지 또는 예약되기 위해 대기 중인지를 결정하는 데만 적합합니다. 이 속성은 읽기 전용입니다.                                                                                                                                           |
+| [상태](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | 로그에 메시지 상태를 나타냅니다. 이 속성은 메시지 검색("보기") 동안 메시지가 "활성" 상태인지와 큐 맨 위에 도달할 때 검색 가능한지, 연기되었는지 또는 예약되기 위해 대기 중인지를 결정하는 데만 적합합니다. 이 속성은 읽기 전용입니다.                                                                                                                                           |
 | [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive)                            | 이 값은 브로커가 메시지를 수락 및 저장한 순간부터 메시지가 만료되기까지의 상대적 기간으로, **EnqueueTimeUtc**에 캡처됩니다. 명시적으로 설정되지 않은 경우 예상되는 값은 해당 큐 또는 토픽에 대해 **DefaultTimeToLive**입니다. 메시지 수준 **TimeToLive** 값은 엔터티의 **DefaultTimeToLive** 설정보다 길 수 없습니다. 더 길면 자동으로 조정됩니다. |
 | [To](/dotnet/api/microsoft.azure.servicebus.message.to)(to)                               | 이 속성은 라우팅 시나리오에서 나중에 사용하기 위해 예약되어 있으며 현재 broker 자체에서 무시됩니다. 애플리케이션은 메시지의 의도한 논리 대상을 나타내기 위해 규칙 기반 자동 전달 연결 시나리오에서 이 값을 사용할 수 있습니다.                                                                                                                                                                                   |
 | [ViaPartitionKey](/dotnet/api/microsoft.azure.servicebus.message.viapartitionkey)                       | 메시지가 트랜잭션 범위에서 전송 큐를 통해 전송될 경우 이 값은 전송 큐 파티션을 선택합니다.                                                                                                                                                                                                                                                                                                                 |
@@ -77,7 +66,7 @@ Service Bus 네임스페이스 내의 라우팅은 자동 전달 체인 및 토�
 
 Java 또는 .NET Standard 변형과 달리, Service Bus API의 .NET Framework 버전에서는 임의의 .NET 개체를 생성자에 전달하여 **BrokeredMessage** 인스턴스를 만들도록 지원합니다. 
 
-레거시 SBMP 프로토콜을 사용하는 경우 해당 개체는 기본 이진 serializer로 또는 외부에서 제공되는 serializer를 사용해서 serialize됩니다. AMQP 프로토콜을 사용하는 경우 개체는 AMQP 개체로 serialize됩니다. 수신자는 [Getbody\<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용 하 여 해당 개체를 검색 하 여 예상 되는 형식을 제공할 수 있습니다. AMQP를 사용하면 개체가 **ArrayList** 및 **IDictionary<string,object>** 개체의 그래프로 직렬화되고 AMQP 클라이언트가 이것을 디코딩할 수 있습니다. 
+레거시 SBMP 프로토콜을 사용하는 경우 해당 개체는 기본 이진 serializer로 또는 외부에서 제공되는 serializer를 사용해서 serialize됩니다. AMQP 프로토콜을 사용하는 경우 개체는 AMQP 개체로 serialize됩니다. 수신자는 [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용하여 해당 개체를 검색하고 예상되는 형식을 제공할 수 있습니다. AMQP를 사용하면 개체가 **ArrayList** 및 **IDictionary<string,object>** 개체의 그래프로 직렬화되고 AMQP 클라이언트가 이것을 디코딩할 수 있습니다. 
 
 이 숨겨진 serialization 기능이 편리하긴 하지만, 애플리케이션은 개체 serialization을 명시적으로 제어하고, 개체 그래프를 스트림으로 전환한 다음, 메시지에 포함해야 하며, 수신자 쪽에서는 이러한 과정을 반대로 진행해야 합니다. 이로 인해 상호 운용 가능한 결과가 생성됩니다. AMQP는 강력한 이진 인코딩 모델을 사용하지만 AMQP 메시징 에코 시스템에 연결되며 HTTP 클라이언트는 이러한 페이로드를 디코딩하는 데 어려울 수 있다는 점에 유의해야 합니다. 
 

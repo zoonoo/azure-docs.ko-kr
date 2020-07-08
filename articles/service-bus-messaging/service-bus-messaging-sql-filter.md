@@ -1,25 +1,13 @@
 ---
 title: Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs
 description: 이 문서에서는 SQLFilter 문법에 대 한 세부 정보를 제공 합니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341590"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 구문
 
@@ -60,7 +48,7 @@ ms.locfileid: "76759666"
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. 값 `sys` 은 `<property_name>` 이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user``<property_name>` 이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys`값은 `<property_name>` 이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user``<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
   
 ## <a name="remarks"></a>설명
 
@@ -108,7 +96,7 @@ ms.locfileid: "76759666"
 "Contoso & Northwind"  
 ```  
   
-## <a name="pattern"></a>패턴  
+## <a name="pattern"></a>pattern  
   
 ```  
 <pattern> ::=  

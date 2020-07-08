@@ -10,12 +10,11 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734472"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 가상 컴퓨터에 대 한 보안 원격 액세스
 
@@ -41,7 +40,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에�
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
+    * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
 * Azure Active Directory Domain Services 가상 네트워크에서 만든 *워크 로드* 서브넷
     * 필요한 경우 [Azure Active Directory Domain Services 관리 되는 도메인에 대 한 가상 네트워킹을 구성][configure-azureadds-vnet]합니다.
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
@@ -55,16 +54,16 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에�
 * *RDGVM01* -RD 연결 브로커 서버, RD 웹 액세스 서버 및 RD 게이트웨이 서버를 실행 합니다.
 * *RDSHVM01* -RD 세션 호스트 서버를 실행 합니다.
 
-Vm이 Azure AD DS 가상 네트워크의 *워크 로드* 서브넷에 배포 되었는지 확인 한 다음 Vm을 azure AD DS 관리 되는 도메인에 가입 시킵니다. 자세한 내용은 [Windows SERVER VM을 만들고 Azure AD DS 관리 되는 도메인에 가입][tutorial-create-join-vm]하는 방법을 참조 하세요.
+Vm이 Azure AD DS 가상 네트워크의 *워크 로드* 서브넷에 배포 되었는지 확인 한 다음 vm을 관리 되는 도메인에 가입 시킵니다. 자세한 내용은 [Windows SERVER VM을 만들고 관리 되는 도메인에 가입][tutorial-create-join-vm]하는 방법을 참조 하세요.
 
-RD 환경 배포에는 여러 단계가 포함 됩니다. Azure AD DS 관리 되는 도메인에서 사용 하기 위한 특정 변경 없이 기존 RD 배포 가이드를 사용할 수 있습니다.
+RD 환경 배포에는 여러 단계가 포함 됩니다. 기존 RD 배포 가이드는 관리 되는 도메인에서 사용 하기 위한 특정 변경 없이 사용할 수 있습니다.
 
 1. *Contosoadmin*와 같은 *Azure AD DC 관리자* 그룹의 일부인 계정으로 RD 환경에 대해 만든 vm에 로그인 합니다.
 1. RDS를 만들고 구성 하려면 기존 [원격 데스크톱 환경 배포 가이드][deploy-remote-desktop]를 사용 합니다. 원하는 대로 Azure Vm에서 RD 서버 구성 요소를 배포 합니다.
     * Azure AD DS에 한정-RD 라이선스를 구성 하는 경우 배포 가이드에 설명 된 대로 **사용자 단위** **모드로 설정** 합니다.
 1. 웹 브라우저를 사용 하 여 액세스를 제공 하려는 경우 [사용자에 대 한 원격 데스크톱 웹 클라이언트를 설정][rd-web-client]합니다.
 
-Azure AD DS 관리 되는 도메인에 RD을 배포 하면 온-프레미스 AD DS 도메인에서와 마찬가지로 서비스를 관리 하 고 사용할 수 있습니다.
+관리 되는 도메인에 RD을 배포 하면 온-프레미스 AD DS 도메인에서와 같이 서비스를 관리 하 고 사용할 수 있습니다.
 
 ## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>NPS 및 Azure MFA NPS 확장 배포 및 구성
 
@@ -76,7 +75,7 @@ Azure AD DS 관리 되는 도메인에 RD을 배포 하면 온-프레미스 AD D
 
 Azure Multi-Factor Authentication를 Azure AD DS 원격 데스크톱 환경에 통합 하려면 NPS 서버를 만들고 확장을 설치 합니다.
 
-1. Azure AD DS 가상 네트워크의 *워크 로드* 서브넷에 연결 된 추가 Windows Server 2016 또는 2019 VM (예: *NPSVM01*)을 만듭니다. Azure AD DS 관리 되는 도메인에 VM을 가입 시킵니다.
+1. Azure AD DS 가상 네트워크의 *워크 로드* 서브넷에 연결 된 추가 Windows Server 2016 또는 2019 VM (예: *NPSVM01*)을 만듭니다. VM을 관리 되는 도메인에 가입 시킵니다.
 1. *AZURE AD DC 관리자* 그룹의 일부인 계정으로 NPS VM에 로그인 합니다 (예: *contosoadmin*).
 1. **서버 관리자**에서 **역할 및 기능 추가**를 선택 하 고 *네트워크 정책 및 액세스 서비스* 역할을 설치 합니다.
 1. 기존 방법 문서를 사용 하 여 [AZURE MFA NPS 확장을 설치 및 구성][nps-extension]합니다.
@@ -87,9 +86,9 @@ NPS 서버와 Azure Multi-Factor Authentication NPS 확장을 설치한 상태�
 
 Azure Multi-Factor Authentication NPS 확장을 통합 하려면 기존 방법 문서를 사용 하 여 [nps (네트워크 정책 서버) 확장 및 AZURE AD를 사용 하 여 원격 데스크톱 게이트웨이 인프라를 통합][azure-mfa-nps-integration]합니다.
 
-Azure AD DS 관리 되는 도메인과 통합 하는 데 필요한 추가 구성 옵션은 다음과 같습니다.
+관리 되는 도메인과 통합 하는 데 필요한 추가 구성 옵션은 다음과 같습니다.
 
-1. [Active Directory에 NPS 서버를 등록][register-nps-ad]하지 마십시오. 이 단계는 Azure AD DS 관리 되는 도메인에서 실패 합니다.
+1. [Active Directory에 NPS 서버를 등록][register-nps-ad]하지 마십시오. 이 단계는 관리 되는 도메인에서 실패 합니다.
 1. [4 단계에서 네트워크 정책을 구성 하려면][create-nps-policy] **사용자 계정 전화 접속 속성 무시**확인란을 선택 합니다.
 1. Nps 서버 및 Azure Multi-Factor Authentication NPS 확장에 대해 Windows Server 2019를 사용 하는 경우 NPS 서버가 올바르게 통신할 수 있도록 다음 명령을 실행 하 여 보안 채널을 업데이트 합니다.
 

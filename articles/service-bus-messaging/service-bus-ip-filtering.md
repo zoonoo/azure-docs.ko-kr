@@ -1,22 +1,13 @@
 ---
 title: Azure Service Bus에 대한 IP 방화벽 규칙 구성
 description: 특정 IP 주소에서 Azure Service Bus로 연결을 허용하도록 방화벽 규칙을 사용하는 방법입니다.
-services: service-bus
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus
-ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2020
-ms.author: aschhab
-ms.openlocfilehash: fdd3540248c5210e2f6fc47f439641c007a793d8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: a5ae491f82e73c5364788dff8b531e81d17ebb68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647813"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341437"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Azure Service Bus에 대한 IP 방화벽 규칙 구성
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 Service Bus 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.

@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2128fee29e64c58a8066a681776fb509b3e31b6f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77198806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445698"
 ---
 # <a name="configure-opc-publisher"></a>OPC 게시자 구성
 
@@ -58,7 +57,7 @@ ms.locfileid: "77198806"
 
 OPC UA 이벤트를 게시하려면 데이터 변경 내용에 동일한 구성 파일을 사용합니다.
 
-다음 예제에서는 [SimpleEvents 서버](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server)에서 생성한 이벤트의 게시를 구성하는 방법을 보여 줍니다. SimpleEvents 서버는 [OPC Foundation 리포지토리](https://github.com/OPCFoundation/UA-.NETStandard)에서 찾을 수 있습니다.
+다음 예제에서는 [SimpleEvents 서버](https://github.com/OPCFoundation/UA-.NETStandard-Samples/tree/master/Workshop/SimpleEvents/Server)에서 생성한 이벤트의 게시를 구성하는 방법을 보여 줍니다. SimpleEvents 서버는 [OPC Foundation 리포지토리](https://github.com/OPCFoundation/UA-.NETStandard-Samples)에서 찾을 수 있습니다.
 
 ```json
 [

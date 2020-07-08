@@ -8,18 +8,17 @@ author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: eb9703a1944a650f41d76c05d79764f8bdf8cd52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803731"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
@@ -111,7 +110,7 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 
 이 문서에서 사용된 예제 템플릿에는 다음 변수 및 매개 변수가 들어 있습니다.
 
-| 매개 변수 / 변수 | 메모 |
+| 매개 변수 / 변수 | 참고 |
 | --- | --- |
 | adminUsername |가상 머신에 로그인하는 데 사용되는 관리자 계정의 이름을 지정합니다. |
 | adminPassword |가상 머신에 로그인하는 데 사용되는 관리자 계정의 비밀번호를 지정합니다. |

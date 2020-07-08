@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732653"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -28,9 +27,9 @@ ms.locfileid: "82582984"
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>관리되지 않는 디렉터리를 인수하고자 하는 방법을 결정합니다.
 관리자 인수 과정 중에 [Microsoft Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)에서 설명된 대로 소유권을 증명할 수 있습니다. 다음 섹션에서 관리자 환경을 보다 자세히 설명하지만 요약 내용은 다음과 같습니다.
 
-* 관리되지 않는 Azure 디렉터리의 ["내부" 관리자 인수](#internal-admin-takeover)를 수행하는 경우 사용자는 관리되지 않는 디렉터리의 전역 관리자로 추가됩니다. 어떠한 사용자, 도메인 또는 서비스 계획도 사용자가 관리하는 다른 디렉터리로 마이그레이션되지 않습니다.
+* 관리 되지 않는 Azure 디렉터리의 ["내부" 관리자 인수](#internal-admin-takeover) 를 수행 하는 경우 관리 되지 않는 디렉터리의 전역 관리자로 추가 됩니다. 어떤 사용자, 도메인 또는 서비스 계획도 새 관리자가 관리하는 다른 디렉터리로 마이그레이션되지 않습니다.
 
-* 관리되지 않는 Azure 디렉터리의 ["내부" 관리자 인수](#external-admin-takeover)를 수행하는 경우 관리되지 않는 디렉터리의 DNS 도메인 이름을 관리되는 Azure 디렉터리에 추가합니다. 도메인 이름을 추가하면 사용자에서 리소스로 매핑이 관리되는 Azure 디렉터리에 생성되어 사용자가 중단 없이 서비스에 계속 액세스할 수 있습니다. 
+* 관리 되지 않는 Azure 디렉터리의 ["외부" 관리자 인수](#external-admin-takeover) 를 수행 하는 경우 관리 되지 않는 디렉터리의 DNS 도메인 이름을 관리 되는 azure 디렉터리에 추가 합니다. 도메인 이름을 추가하면 사용자에서 리소스로 매핑이 관리되는 Azure 디렉터리에 생성되어 사용자가 중단 없이 서비스에 계속 액세스할 수 있습니다. 
 
 ## <a name="internal-admin-takeover"></a>내부 관리자 인수
 
@@ -57,13 +56,13 @@ DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 A
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Azure AD에서 관리 되는 조직에 도메인 이름 추가
 
 1. [Microsoft 365 관리 센터](https://admin.microsoft.com)를 엽니다.
-2. 사용자 **탭을** 선택 하 고 사용자 지정 도메인 이름을 사용 하지 않는 *사용자\@fourthcoffeexyz.onmicrosoft.com* 같은 이름으로 새 사용자 계정을 만듭니다. 
+2. 사용자 **탭을** 선택 하 고 사용자 지정 도메인 이름을 사용 하지 않는 *사용자 \@ fourthcoffeexyz.onmicrosoft.com* 같은 이름으로 새 사용자 계정을 만듭니다. 
 3. 새 사용자 계정에 Azure AD 조직에 대 한 전역 관리자 권한이 있는지 확인 합니다.
 4. Microsoft 365 관리 센터에서 **도메인** 탭을 열고 도메인 이름을 선택한 다음 **제거**를 선택 합니다. 
   
    ![Office 365에서 도메인 이름 제거](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. 제거된 도메인 이름을 참조하는 Office 365에 사용자 또는 그룹이 있다면 이러한 이름은 onmicrosoft.com 도메인으로 이름이 변경되어야 합니다. 강제로 도메인 이름을 삭제 하면이 예제에서 *사용자\@fourthcoffeexyz.onmicrosoft.com*에 모든 사용자의 이름이 자동으로 바뀝니다.
+5. 제거된 도메인 이름을 참조하는 Office 365에 사용자 또는 그룹이 있다면 이러한 이름은 onmicrosoft.com 도메인으로 이름이 변경되어야 합니다. 강제로 도메인 이름을 삭제 하면이 예제에서 *사용자 \@ fourthcoffeexyz.onmicrosoft.com*에 모든 사용자의 이름이 자동으로 바뀝니다.
   
 6. Azure ad 조직에 대 한 전역 관리자 인 계정으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
   
@@ -72,7 +71,7 @@ DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 A
    ![Azure AD에 추가 된 것으로 확인 된 도메인](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Office 365 조직에 할당 된 라이선스가 있는 Power BI 또는 Azure Rights Management 서비스의 사용자는 도메인 이름이 제거 되 면 대시보드를 저장 해야 합니다. *사용자\@fourthcoffee*대신 사용자 *\@fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
+> Office 365 조직에 할당 된 라이선스가 있는 Power BI 또는 Azure Rights Management 서비스의 사용자는 도메인 이름이 제거 되 면 대시보드를 저장 해야 합니다. 사용자 * \@ fourthcoffee*대신 사용자 * \@ fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
 
 ## <a name="external-admin-takeover"></a>외부 관리자 인수
 
@@ -81,7 +80,7 @@ DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 A
 도메인 이름의 소유권을 확인 하는 경우 Azure AD는 관리 되지 않는 조직에서 도메인 이름을 제거 하 고 기존 조직으로 이동 합니다. 관리되지 않는 디렉터리의 외부 관리자 인수를 하려면 내부 관리자 인수와 동일한 DNS TXT 유효성 검사 프로세스를 필요로 합니다. 차이점은 또한 다음을 도메인 이름과 함께 이동할 수 있습니다.
 
 - 사용자
-- Subscriptions
+- 구독
 - 라이선스 할당
 
 ### <a name="support-for-external-admin-takeover"></a>외부 관리자 인수에 대한 지원
@@ -113,7 +112,7 @@ SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
 
-Cmdlet | 사용법
+Cmdlet | 사용량
 ------- | -------
 `connect-msolservice` | 메시지가 표시 되 면 관리 되는 조직에 로그인 합니다.
 `get-msoldomain` | 현재 조직과 연결 된 도메인 이름을 표시 합니다.
@@ -144,12 +143,12 @@ Cmdlet | 사용법
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    예를 들면 다음과 같습니다.
+    예를 들어:
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들면 다음과 같습니다.
+4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들어:
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +159,7 @@ Cmdlet | 사용법
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   예를 들면 다음과 같습니다.
+   예를 들어:
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force

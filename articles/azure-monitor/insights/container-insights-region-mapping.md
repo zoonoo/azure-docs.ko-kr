@@ -3,12 +3,12 @@ title: 컨테이너 영역 매핑에 대 한 Azure Monitor
 description: 이 문서에서는 컨테이너, Log Analytics 작업 영역 및 사용자 지정 메트릭에 대 한 Azure Monitor 간에 지원 되는 지역 매핑을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/26/2019
-ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75403418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194979"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor에서 지 원하는 지역 매핑
 
@@ -33,7 +33,7 @@ AKS 클러스터 리소스 또는 Log Analytics 작업 영역은 다른 지역�
 |SoutheastAsia |SoutheastAsia |
 |**브라질** | |
 |BrazilSouth | SouthCentralUS |
-|**Canada** ||
+|**캐나다** ||
 |CanadaCentral |CanadaCentral |
 |CanadaEast |CanadaCentral |
 |**유럽** | |
@@ -50,16 +50,16 @@ AKS 클러스터 리소스 또는 Log Analytics 작업 영역은 다른 지역�
 |**일본** | |
 |JapanEast |JapanEast |
 |JapanWest |JapanEast |
-|**대한민국** | |
+|**한국** | |
 |KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
-|**돕습니다** | |
+|**US** | |
 |CentralUS |CentralUS|
 |EastUS |EastUS |
 |EastUS2 |EastUS2 |
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
-|WestCentralUS<sup>1</sup>|E Us<sup>1</sup>|
+|WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
 |US Gov 버지니아 |US Gov 버지니아 |
 
 <sup>1</sup> 용량 제한은 인해 새 리소스를 만들 때 지역을 사용할 수 없습니다. 여기에는 Log Analytics 작업 영역이 포함 됩니다. 그러나 지역에서 기존에 연결 된 리소스는 계속 작동 해야 합니다.

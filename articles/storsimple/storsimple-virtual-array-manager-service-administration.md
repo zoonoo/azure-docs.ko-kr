@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: 958244a5-f9f5-455e-b7ef-71a65558872e
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "62123808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515445"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 가상 배열 관리
 ![설정 프로세스 흐름](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -42,7 +41,7 @@ ms.locfileid: "62123808"
 StorSimple 디바이스 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 가상 배열에 연결됩니다. 이러한 디바이스를 관리하는 브라우저에서 실행되는 중앙 Microsoft Azure Portal을 사용합니다. StorSimple 디바이스 관리자 서비스에 연결하려면 다음을 수행합니다.
 
 #### <a name="to-connect-to-the-service"></a>해당 서비스에 연결하려면
-1. [https://ms.portal.azure.com](https://ms.portal.azure.com)로 이동합니다.
+1. [https://ms.portal.azure.com](https://ms.portal.azure.com)으로 이동합니다.
 2. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure Portal(해당 창의 상단 오른쪽에 있는)로 로그온합니다.
 3. 지정된 구독에서 모든 디바이스 관리자를 보려면 StorSimple 디바이스 관리자에서 찾아보기 --&gt; '필터'로 이동합니다.
 

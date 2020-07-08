@@ -6,25 +6,41 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4dbc559e62523a1ea17236a9e8c9666ef48bba33
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 74ac991eb40864aeb4ac42d4774d9ab61fb14c36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662531"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807675"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>서버용 Azure Arc 에이전트 개요
 
 서버용 Azure Arc Connected Machine 에이전트를 사용하면 Azure 외부에서 회사 네트워크 또는 다른 클라우드 공급자에 호스트되는 Windows 및 Linux 머신을 관리할 수 있습니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.
 
+## <a name="agent-component-details"></a>에이전트 구성 요소 세부 정보
+
+Azure 연결 된 컴퓨터 에이전트 패키지에는 함께 번들로 제공 되는 몇 가지 논리적 구성 요소가 포함 되어 있습니다.
+
+* 하이브리드 인스턴스 메타 데이터 서비스 (HIMDS)는 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.
+
+* 게스트 구성 에이전트는 컴퓨터가 필요한 정책을 준수 하는지 여부를 평가 하는 것과 같은 게스트 내 정책 및 게스트 구성 기능을 제공 합니다.
+
+    연결 되지 않은 컴퓨터에 대 한 Azure Policy [게스트 구성과](../../governance/policy/concepts/guest-configuration.md) 관련 된 다음 동작에 유의 하세요.
+
+    * 연결이 끊어진 컴퓨터를 대상으로 하는 게스트 구성 정책 할당은 영향을 받지 않습니다.
+    * 게스트 할당은 14 일 동안 로컬에 저장 됩니다. 14 일 기간 내에 연결 된 컴퓨터 에이전트가 서비스에 다시 연결 하는 경우 정책 할당이 다시 적용 됩니다.
+    * 할당은 14 일 후에 삭제 되며 14 일이 지나면 컴퓨터에 다시 할당 되지 않습니다.
+
+* 확장 에이전트는 설치, 제거 및 업그레이드를 포함 하 여 VM 확장을 관리 합니다. 확장은 Azure에서 다운로드 되 고 Windows의 `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` 폴더 및 Linux에 복사 됩니다 `/opt/GC_Ext/downloads` . Windows에서는 확장이 다음 경로에 설치 되 `%SystemDrive%\Packages\Plugins\<extension>` 고 Linux에서 확장이에 설치 됩니다 `/var/lib/waagent/<extension>` .
+
 ## <a name="download-agents"></a>에이전트 다운로드
 
 Windows 및 Linux용 Azure Connected Machine 에이전트 패키지는 아래에 나열된 위치에서 다운로드할 수 있습니다.
 
-- Microsoft 다운로드 센터에서 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드합니다.
-- Linux 에이전트 패키지는 선호하는 배포 패키지 형식(.RPM 또는 .DEB)을 사용하여 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)를 통해 배포됩니다.
+* Microsoft 다운로드 센터에서 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드합니다.
+
+* Linux 에이전트 패키지는 선호하는 배포 패키지 형식(.RPM 또는 .DEB)을 사용하여 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)를 통해 배포됩니다.
 
 >[!NOTE]
 >이 미리 보기 기간에는 Ubuntu 16.04 또는 18.04에 적합한 한 가지 패키지만 릴리스되었습니다.
@@ -43,38 +59,42 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
-    |폴더 |Description |
+    |폴더 |설명 |
     |-------|------------|
     |C:\Program Files\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |가져온 토큰이 포함되어 있습니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |서비스 등록 정보를 기록하는 에이전트 구성 파일 `agentconfig.json`이 포함되어 있습니다.|
-    |%ProgramData%\GuestConfig |적용된 Azure 정책 관련 파일이 포함되어 있습니다.|
+    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | 게스트 구성 에이전트 파일을 포함 하는 설치 경로입니다. |
+    |%ProgramData%\GuestConfig |Azure의 (적용) 정책을 포함 합니다.|
+    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | 확장은 Azure에서 다운로드 되 고 여기에 복사 됩니다.|
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 Windows 서비스가 만들어집니다.
 
-    |서비스 이름 |표시 이름 |프로세스 이름 |Description |
+    |서비스 이름 |표시 이름 |프로세스 이름 |설명 |
     |-------------|-------------|-------------|------------|
-    |himds |Azure Hybrid Instance Metadata Service |himds.exe |이 서비스는 Azure IMDS(Instance Metadata Service)를 구현하여 머신을 추적합니다.|
+    |himds |Azure Hybrid Instance Metadata Service |himds.exe |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
     |DscService |Guest Configuration Service |dsc_service.exe |게스트 내 정책을 구현하기 위해 Azure 내부에서 사용되는 DSC(Desired State Configuration) v2 코드베이스입니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다.
 
-    |속성 |기본값 |Description |
+    |속성 |기본값 |설명 |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
-    
-* 문제 해결에 사용할 수 있는 로그 파일은 네 가지입니다. 이 내용은 다음 표에 설명되어 있습니다.
 
-    |로그 |Description |
+* 문제 해결에 사용할 수 있는 로그 파일은 여러 가지가 있습니다. 이 내용은 다음 표에 설명되어 있습니다.
+
+    |로그 |설명 |
     |----|------------|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |에이전트(himds) 서비스의 세부 정보 및 Azure와의 상호 작용을 기록합니다.|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |에이전트 (HIMDS) 서비스의 세부 정보 및 Azure와의 상호 작용을 기록 합니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |자세한 정보(-v) 인수를 사용하는 경우 azcmagent tool 명령의 출력이 포함됩니다.|
-    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |DSC 서비스 활동의 세부 정보,<br> 특히 himds 서비스와 Azure Policy 간의 연결을 기록합니다.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |DSC 서비스 활동의 세부 정보,<br> 특히 HIMDS 서비스와 Azure Policy 간의 연결입니다.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |DSC 서비스 원격 분석 및 자세한 정보 로깅에 대한 세부 정보를 기록합니다.|
+    |%SystemDrive%\ProgramData\GuestConfig\ ext_mgr_logs|확장 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
+    |%SystemDrive%\ProgramData\GuestConfig\ extension_logs\<Extension>|설치 된 확장의 세부 정보를 기록 합니다.|
 
-* 로컬 보안 그룹 **하이브리드 에이전트 확장 애플리케이션**이 만들어집니다. 
+* 로컬 보안 그룹 **하이브리드 에이전트 확장 애플리케이션**이 만들어집니다.
 
 * 에이전트를 제거하는 동안 다음 아티팩트가 제거되지 않습니다.
 
@@ -84,7 +104,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 ## <a name="linux-agent-installation-details"></a>Linux 에이전트 설치 세부 정보
 
-Linux용 Connected Machine 에이전트는 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 호스팅되는 배포(.RPM 또는 .DEB)에 대한 기본 설정 패키지 형식으로 제공됩니다. 에이전트는 셸 스크립트 번들 [Install_linux_azcmagent.sh](https://aka.ms/azcmagent)를 사용하여 설치되고 구성됩니다. 
+Linux용 Connected Machine 에이전트는 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 호스팅되는 배포(.RPM 또는 .DEB)에 대한 기본 설정 패키지 형식으로 제공됩니다. 에이전트는 셸 스크립트 번들 [Install_linux_azcmagent.sh](https://aka.ms/azcmagent)를 사용하여 설치되고 구성됩니다.
 
 Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 시스템 차원 구성 변경 내용이 적용됩니다.
 
@@ -94,29 +114,33 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
     |-------|------------|
     |/var/opt/azcmagent/ |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |/opt/azcmagent/ |
+    |/opt/GC_Ext | 게스트 구성 에이전트 파일을 포함 하는 설치 경로입니다.|
     |/opt/DSC/ |
     |/var/opt/azcmagent/tokens |가져온 토큰이 포함되어 있습니다.|
-    |/var/lib/GuestConfig |적용된 Azure 정책 관련 파일이 포함되어 있습니다.|
+    |/var/lib/GuestConfig |Azure의 (적용) 정책을 포함 합니다.|
+    |/opt/GC_Ext/다운로드|확장은 Azure에서 다운로드 되 고 여기에 복사 됩니다.|
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 디먼이 만들어집니다.
 
-    |서비스 이름 |표시 이름 |프로세스 이름 |Description |
+    |서비스 이름 |표시 이름 |프로세스 이름 |설명 |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |이 서비스는 Azure IMDS(Instance Metadata Service)를 구현하여 머신을 추적합니다.|
+    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
     |dscd.service |Guest Configuration Service |/opt/DSC/dsc_linux_service |게스트 내 정책을 구현하기 위해 Azure 내부에서 사용되는 DSC(Desired State Configuration) v2 코드베이스입니다.|
 
-* 문제 해결에 사용할 수 있는 로그 파일은 네 가지입니다. 이 내용은 다음 표에 설명되어 있습니다.
+* 문제 해결에 사용할 수 있는 로그 파일은 여러 가지가 있습니다. 이 내용은 다음 표에 설명되어 있습니다.
 
     |로그 |Description |
     |----|------------|
-    |/var/opt/azcmagent/log/himds.log |에이전트(himds) 서비스의 세부 정보 및 Azure와의 상호 작용을 기록합니다.|
+    |/var/opt/azcmagent/log/himds.log |에이전트 (HIMDS) 서비스의 세부 정보 및 Azure와의 상호 작용을 기록 합니다.|
     |/var/opt/azcmagent/log/azcmagent.log |자세한 정보(-v) 인수를 사용하는 경우 azcmagent tool 명령의 출력이 포함됩니다.|
     |/opt/logs/dsc.log |DSC 서비스 활동의 세부 정보,<br> 특히 himds 서비스와 Azure Policy 간의 연결을 기록합니다.|
     |/opt/logs/dsc.telemetry.txt |DSC 서비스 원격 분석 및 자세한 정보 로깅에 대한 세부 정보를 기록합니다.|
+    |/var/lib/GuestConfig/ext_mgr_logs |확장 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
+    |/var/log/GuestConfig/extension_logs|설치 된 확장의 세부 정보를 기록 합니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다. 이러한 변수는 `/lib/systemd/system.conf.d/azcmagent.conf`에 설정됩니다.
 
-    |속성 |기본값 |Description |
+    |속성 |기본값 |설명 |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -133,11 +157,11 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
 Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다. 
 
 - Windows Server 2012 R2 이상(Windows Server Core 포함)
-- Ubuntu 16.04 및 18.04
-- CentOS Linux 7
-- SLES(SUSE Linux Enterprise Server) 15
-- Red Hat Enterprise Linux(RHEL) 7
-- Amazon Linux 2
+- Ubuntu 16.04 및 18.04 (x64)
+- CentOS Linux 7 (x64)
+- SUSE Linux Enterprise Server (SLES) 15 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Amazon Linux 2 (x64)
 
 >[!NOTE]
 >이 Windows용 Connected Machine 에이전트의 미리 보기 릴리스는 영어를 사용하도록 구성된 Windows Server만 지원합니다.
@@ -155,7 +179,7 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
 
-Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 보안) 1.2를 사용하도록 머신을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 
+Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 보안) 1.2를 사용하도록 머신을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.
 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
@@ -175,7 +199,7 @@ Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 
 
 URL:
 
-| 에이전트 리소스 | Description |
+| 에이전트 리소스 | 설명 |
 |---------|---------|
 |management.azure.com|Azure 리소스 관리자|
 |login.windows.net|Azure Active Directory|
@@ -215,7 +239,6 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)의 단계에 따라 Azure Portal에서 리소스 공급자를 등록할 수도 있습니다.
-
 
 ## <a name="installation-and-configuration"></a>설치 및 구성
 

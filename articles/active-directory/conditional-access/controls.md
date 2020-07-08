@@ -4,19 +4,18 @@ description: Azure Active Directory 조건부 액세스의 사용자 지정 컨�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c149279a755eb186a3fdc7891e9b511d18c7f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253310"
 ---
 # <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
 
@@ -57,8 +56,8 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+- [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
 - [보고서 전용 모드](concept-conditional-access-report-only.md)
 
-- [조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
+- [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

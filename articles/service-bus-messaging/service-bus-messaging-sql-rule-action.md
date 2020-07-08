@@ -1,25 +1,13 @@
 ---
 title: Azure Service Bus의 SQLRuleAction 구문 참조
 description: 이 문서에서는 SQLRuleAction 구문에 대 한 참조를 제공 합니다. 작업은 조정 된 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341582"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Azure Service Bus에 대 한 SQLRuleAction 구문 참조
 
@@ -112,7 +100,7 @@ ms.locfileid: "76759631"
 "Contoso & Northwind"  
 ```  
   
-## <a name="pattern"></a>패턴  
+## <a name="pattern"></a>pattern  
   
 ```  
 <pattern> ::=  

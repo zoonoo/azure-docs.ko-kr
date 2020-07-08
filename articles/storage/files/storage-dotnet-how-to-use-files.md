@@ -4,16 +4,15 @@ description: Azure Files를 사용하여 파일 데이터를 저장하는 .NET �
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515375"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -34,22 +33,22 @@ Azure Files에 대 한 자세한 내용은 [Azure Files 항목](storage-files-in
 
 ## <a name="understanding-the-net-apis"></a>.NET API 이해
 
-Azure Files는 클라이언트 애플리케이션에 SMB(서버 메시지 블록) 및 REST라는 광범위한 두 가지 방법을 제공합니다. .NET 내에서 및 `System.IO` `WindowsAzure.Storage` api는 이러한 접근 방식을 추상화 합니다.
+Azure Files는 클라이언트 애플리케이션에 SMB(서버 메시지 블록) 및 REST라는 광범위한 두 가지 방법을 제공합니다. .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` api는 이러한 접근 방식을 추상화 합니다.
 
 API | 사용 시기 | 메모
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 사용 하 여 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통해 Azure Files에서 구현 되는 파일 i/o는 일반적으로 네트워크 파일 공유 또는 로컬 저장 장치를 사용 하는 i/o와 동일 합니다. 파일 i/o를 비롯 한 .NET의 다양 한 기능에 대 한 소개는 [콘솔 응용 프로그램](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) 자습서를 참조 하십시오.
-[Microsoft. Azure. Storage. 파일](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | 사용자 애플리케이션의 경우: <ul><li>방화벽 또는 ISP 제약 조건으로 인해 445 포트에서 SMB를 사용 하 여 Azure Files에 액세스할 수 없음</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서에서는 SMB 및 파일 `Microsoft.Azure.Storage.File` 공유 관리 대신 REST를 사용 하 여 파일 i/o를 사용 하는 방법을 보여 줍니다.
+[Microsoft. Azure. Storage. 파일](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | 사용자 애플리케이션의 경우: <ul><li>방화벽 또는 ISP 제약 조건으로 인해 445 포트에서 SMB를 사용 하 여 Azure Files에 액세스할 수 없음</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서에서는 `Microsoft.Azure.Storage.File` SMB 및 파일 공유 관리 대신 REST를 사용 하 여 파일 i/o를 사용 하는 방법을 보여 줍니다.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 애플리케이션 만들기 및 어셈블리 가져오기
 
 Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2019에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
 
-1. Visual Studio를 시작하고 **새 프로젝트 만들기**를 선택합니다.
+1. Visual Studio를 시작하고, **새 프로젝트 만들기**를 선택합니다.
 1. **새 프로젝트 만들기**에서 c #에 대 한 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
 1. **새 프로젝트 구성**에서 앱의 이름을 입력 하 고 **만들기**를 선택 합니다.
 
-이 자습서의 모든 코드 예제를 콘솔 응용 프로그램 `Main()` `Program.cs` 파일의 메서드에 추가할 수 있습니다.
+이 자습서의 모든 코드 예제를 `Main()` 콘솔 응용 프로그램 파일의 메서드에 추가할 수 있습니다 `Program.cs` .
 
 모든 유형의 .NET 응용 프로그램에서 Azure Storage 클라이언트 라이브러리를 사용할 수 있습니다. 이러한 형식에는 Azure 클라우드 서비스, 웹 앱, 데스크톱 및 모바일 응용 프로그램이 포함 됩니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
@@ -70,21 +69,21 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 
   이 패키지는 응용 프로그램이 실행 되는 위치에 관계 없이 구성 파일에서 연결 문자열을 구문 분석 하기 위한 클래스를 제공 합니다.
 
-NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
+NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 아래 단계를 수행합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
-1. **NuGet 패키지 관리자**에서 **찾아보기**를 선택 합니다. 그런 다음를 검색 하 고 **Microsoft Azure. Blob**을 선택 하 고 **설치**를 선택 합니다.
+1. **NuGet 패키지 관리자**에서 **찾아보기**를 선택합니다. 그런 다음를 검색 하 고 **Microsoft Azure. Blob**을 선택 하 고 **설치**를 선택 합니다.
 
    이 단계에서는 패키지와 해당 종속성을 설치 합니다.
 1. 다음 패키지를 검색하고 설치합니다.
 
    * **Microsoft. Azure. Storage. Common**
    * **Microsoft. Azure. Storage. 파일**
-   * **ConfigurationManager**
+   * **Microsoft.Azure.ConfigurationManager**
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>저장소 계정 자격 증명을 App.config 파일에 저장 합니다.
 
-그런 다음 프로젝트의 `App.config` 파일에 자격 증명을 저장 합니다. **솔루션 탐색기**에서 다음 예제와 같이 `App.config` 파일을 두 번 클릭 하 여 편집 합니다. 을 `myaccount` 저장소 계정 이름으로, `mykey` 를 저장소 계정 키로 바꿉니다.
+그런 다음 프로젝트의 파일에 자격 증명을 저장 `App.config` 합니다. **솔루션 탐색기**에서 다음 예제와 같이 파일을 두 번 클릭 `App.config` 하 여 편집 합니다. 을 `myaccount` 저장소 계정 이름으로,를 `mykey` 저장소 계정 키로 바꿉니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -116,7 +115,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>프로그래밍 방식으로 파일 공유 액세스
 
-그런 다음, 위에 표시 된 코드 뒤 `Main()` 에 다음 콘텐츠를 메서드에 추가 하 여 연결 문자열을 검색 합니다. 이 코드는 앞에서 만든 파일에 대 한 참조를 가져오고 해당 내용을 출력 합니다.
+그런 다음, 위에 표시 된 코드 뒤에 다음 콘텐츠를 `Main()` 메서드에 추가 하 여 연결 문자열을 검색 합니다. 이 코드는 앞에서 만든 파일에 대 한 참조를 가져오고 해당 내용을 출력 합니다.
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -428,14 +427,14 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 
 다음 코드 예제에서는 .NET용 스토리지 클라이언트 라이브러리를 사용하여 Azure Files에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
 
-먼저 위에서 추가한 것과 `using` 함께 다음 지시문 `Program.cs` 을 파일에 추가 합니다.
+먼저 `using` `Program.cs` 위에서 추가한 것과 함께 다음 지시문을 파일에 추가 합니다.
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Azure Blob, Azure 테이블 및 `ServiceProperties` azure 큐는 `Microsoft.Azure.Storage.Shared.Protocol` 네임 스페이스에서 공유 형식을 사용 하지만, Azure Files는 `FileServiceProperties` `Microsoft.Azure.Storage.File.Protocol` 네임 스페이스의 형식을 사용 합니다. 그러나 다음 코드를 컴파일하려면 코드에서 두 네임 스페이스를 모두 참조 해야 합니다.
+Azure Blob, Azure 테이블 및 Azure 큐는 `ServiceProperties` 네임 스페이스에서 공유 형식을 사용 하지만 `Microsoft.Azure.Storage.Shared.Protocol` , Azure Files는 `FileServiceProperties` 네임 스페이스의 형식을 사용 합니다 `Microsoft.Azure.Storage.File.Protocol` . 그러나 다음 코드를 컴파일하려면 코드에서 두 네임 스페이스를 모두 참조 해야 합니다.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -494,7 +493,7 @@ Azure Files에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 * [AzCopy 시작](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Windows에서 Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>참조
+### <a name="reference"></a>참고
 
 * [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)
 * [파일 서비스 REST API](/rest/api/storageservices/File-Service-REST-API)

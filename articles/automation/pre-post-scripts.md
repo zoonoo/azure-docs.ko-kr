@@ -5,12 +5,11 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7fa2dd335e457307dd6d7e4ecdc787015b742b32
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: HT
+ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148279"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100382"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -90,6 +89,9 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 > [!NOTE]
 > `SoftwareUpdateConfigurationRunContext` 개체에는 머신에 대한 중복 항목이 포함될 수 있습니다. 이로 인해 사전 스크립트와 사후 스크립트가 동일한 머신에서 여러 번 실행될 수 있습니다. 이 동작을 해결하려면 `Sort-Object -Unique`를 사용하여 고유한 VM 이름만 선택합니다.
+
+> [!NOTE]
+> 현재 PowerShell runbook만 사전/사후 스크립트로 지원 됩니다. Python, 그래픽, PowerShell 워크플로, 그래픽 PowerShell 워크플로 등의 다른 runbook 유형은 현재 사전/사후 스크립트로 지원 되지 않습니다.
 
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>배포에 사전 스크립트 또는 사후 스크립트 사용
 

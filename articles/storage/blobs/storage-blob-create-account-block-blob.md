@@ -4,16 +4,15 @@ description: 프리미엄 성능 특성을 사용 하 여 Azure BlockBlobStorage
 author: tamram
 services: storage
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
-ms.translationtype: MT
+ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463572"
 ---
 # <a name="create-a-blockblobstorage-account"></a>BlockBlobStorage 계정 만들기
 
@@ -51,7 +50,7 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 이 단추는이 방법 문서에 설명 된 단계를 실행 하는 데 사용할 수 있는 대화형 셸을 시작 합니다.
 
-[![포털의 Cloud Shell 창을 보여 주는 스크린샷](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![포털에서 Cloud Shell 창을 보여 주는 스크린샷](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 

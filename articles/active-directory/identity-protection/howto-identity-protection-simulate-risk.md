@@ -4,19 +4,18 @@ description: Id 보호에서 위험 감지를 시뮬레이션 하는 방법 알�
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50e406e74c0b78f41830c4ea7c5b10830002ed3
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72886936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463759"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Id 보호에서 위험 감지 시뮬레이션
 
@@ -66,7 +65,7 @@ ms.locfileid: "72886936"
 **익숙하지 않은 위치에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
 1. 테스트 계정으로 로그인 하는 경우 MFA 챌린지를 전달 하지 않고 MFA (multi-factor authentication) 챌린지를 실패 합니다.
-2. 새 VPN을 사용 하 여으로 [https://myapps.microsoft.com](https://myapps.microsoft.com) 이동 하 고 테스트 계정의 자격 증명을 입력 합니다.
+2. 새 VPN을 사용 하 여으로 이동 하 [https://myapps.microsoft.com](https://myapps.microsoft.com) 고 테스트 계정의 자격 증명을 입력 합니다.
 
 로그인이 10 ~ 15분 이내에 ID 보호 대시보드에 나타납니다.
 
@@ -76,11 +75,11 @@ ms.locfileid: "72886936"
 
 **비정상적인 이동 위험 검색을 시뮬레이트하려면 다음 단계를 수행 합니다**.
 
-1. 표준 브라우저를 사용 하 여로 [https://myapps.microsoft.com](https://myapps.microsoft.com)이동 합니다.  
+1. 표준 브라우저를 사용 하 여로 이동 [https://myapps.microsoft.com](https://myapps.microsoft.com) 합니다.  
 2. 비정상적인 이동 위험 검색을 생성 하려는 계정의 자격 증명을 입력 합니다.
 3. 사용자 에이전트를 변경합니다. F12 (개발자 도구)에서 Microsoft Edge의 사용자 에이전트를 변경할 수 있습니다.
 4. 사용자의 IP 주소를 변경합니다. VPN, 다른 추가 기능을 사용 하 여 IP 주소를 변경 하거나 다른 데이터 센터의 Azure에서 새 가상 컴퓨터를 만들 수 있습니다.
-5. 이전 로그인 후 몇 [https://myapps.microsoft.com](https://myapps.microsoft.com) 분 이내에 동일한 자격 증명을 사용 하 여에 로그인 합니다.
+5. [https://myapps.microsoft.com](https://myapps.microsoft.com)이전 로그인 후 몇 분 이내에 동일한 자격 증명을 사용 하 여에 로그인 합니다.
 
 로그인이 2-4시간 이내에 ID 보호 대시보드에 나타납니다.
 
@@ -92,16 +91,16 @@ ms.locfileid: "72886936"
 
 사용자 위험 보안 정책을 테스트하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
-1. **Azure Active Directory** > **Security**보안 > **개요**로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. **Azure Active Directory**  >  **보안**  >  **개요**로 이동 합니다.
 1. **사용자 위험 정책 구성**을 선택 합니다.
    1. **할당** 아래
       1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
          1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.
-      1. **조건** - **사용자 위험** Microsoft의 권장 사항은이 옵션을 **높음**으로 설정 하는 것입니다.
+      1. **조건**  -  **사용자 위험** Microsoft는이 옵션을 **높음으로**설정 하는 것이 좋습니다.
    1. **컨트롤** 에서
       1. **액세스** - **액세스를 허용** 하 고 **암호 변경을 요구**하는 것이 Microsoft의 권장 사항입니다.
-   1. **정책 강제 적용** - **Off**
+   1. **정책 적용**  -  **끄기**
    1. **저장** -이 작업을 수행 하면 **개요** 페이지로 돌아갑니다.
 1. 예를 들어, 위험 검색 중 하나를 시뮬레이션 하는 등의 방법으로 테스트 계정의 사용자 위험을 상승 시킵니다.
 1. 몇 분 정도 기다린 후 사용자에 대 한 위험이 상승 되었는지 확인 합니다. 그렇지 않으면 사용자에 대 한 더 많은 위험 검색을 시뮬레이트합니다.
@@ -112,16 +111,16 @@ ms.locfileid: "72886936"
 
 로그인 위험 정책을 테스트하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
-1. **Azure Active Directory** > **Security**보안 > **개요**로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. **Azure Active Directory**  >  **보안**  >  **개요**로 이동 합니다.
 1. **로그인 위험 정책 구성**을 선택 합니다.
    1. **할당** 아래
       1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
          1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.
-      1. **조건** - **로그인 위험** Microsoft의 권장 사항은이 옵션을 **보통 이상**으로 설정 하는 것입니다.
+      1. **조건**  -  **로그인 위험** Microsoft는이 옵션을 **보통 이상**으로 설정 하는 것이 좋습니다.
    1. **컨트롤** 에서
       1. **액세스** - **액세스를 허용** 하 고 **multi-factor authentication을 요구**하는 것이 Microsoft의 권장 사항입니다.
-   1. **정책을 적용 합니다** - **On** .
+   1. **정책 적용**  -  **설정**
    1. **저장** -이 작업을 수행 하면 **개요** 페이지로 돌아갑니다.
 1. 이제 위험한 세션을 사용 하 여 로그인 (예: 사용자 브라우저 사용) 하 여 로그인 위험 기반 조건부 액세스를 테스트할 수 있습니다. 
 

@@ -6,15 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cbfc5667fb35b8f807a3a806dda4647af10e9392
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445443"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>블록 Blob에 대한 지정 시간 복원 설정 및 관리(미리 보기)
 
@@ -30,35 +29,23 @@ ms.locfileid: "83118213"
 
 ## <a name="install-the-preview-module"></a>미리 보기 모듈 설치
 
-PowerShell을 사용하여 Azure 지정 시간 복원을 구성하려면 먼저 Az.Storage PowerShell 모듈의 [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) 버전을 설치합니다. 다음 단계에 따라 미리 보기 모듈을 설치합니다.
+PowerShell을 사용 하 여 Azure 지정 시간 복원을 구성 하려면 먼저 Az. Storage preview module version 1.14.1이-preview 이상을 설치 합니다. 최신 미리 보기 버전을 사용 하는 것이 좋지만 특정 시점 복원은 버전 1.14.1이-preview 이상에서 지원 됩니다. Az. Storage 모듈의 다른 버전을 제거 합니다.
 
-1. **설정**에 있는 **앱 및 기능** 설정을 사용하여 이전에 설치한 Azure PowerShell이 있으면 Windows에서 제거합니다.
+다음 명령은 Az. Storage [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) 모듈을 설치 합니다.
 
-1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
+```powershell
+Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
+```
 
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-1. PowerShellGet을 설치한 후 PowerShell 창을 닫았다가 다시 엽니다.
-
-1. Azure PowerShell의 최신 버전을 설치합니다.
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Az.Storage 미리 보기 모듈 설치
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.14.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
+위의 명령을 설치 하려면 버전 2.2.4.1 PowerShellGet 이상이 필요 합니다. 현재 로드 된 버전을 확인 하려면 다음을 수행 합니다.
+```powershell
+Get-Module PowerShellGet
+```
 Azure PowerShell을 설치하는 방법에 대한 자세한 내용은 [PowerShellGet을 사용하여 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>지정 시간 복원 활성화 및 구성
 
-지정 시간 복원을 사용하도록 설정하고 구성하기 전에 필수 구성 요소(일시 삭제, 변경 피드 및 Blob 버전 관리)를 사용하도록 설정합니다. 이러한 각 기능을 사용하도록 설정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+지정 시간 복원을 사용 하도록 설정 하 고 구성 하기 전에 저장소 계정에 대 한 필수 구성 요소 (일시 삭제, 변경 피드 및 blob 버전 관리)를 사용 하도록 설정 합니다. 이러한 각 기능을 사용하도록 설정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Blob에 일시 삭제를 사용하도록 설정](soft-delete-enable.md)
 - [변경 피드를 사용하거나 사용하지 않도록 설정](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
@@ -99,18 +86,23 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>복원 작업 수행
 
-복원 작업을 시작하려면 복원 지점을 UTC **DateTime** 값으로 지정하는 AzStorageBlobRange 명령을 호출합니다. 복원할 Blob의 범위를 사전순으로 하나 이상 지정하거나 범위를 생략하여 스토리지 계정의 모든 컨테이너에 있는 모든 Blob을 복원할 수 있습니다. 복원 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+복원 작업을 시작 하려면 복원 지점을 UTC **날짜/시간** 값으로 지정 하 여 **AzStorageBlobRange** 명령을 호출 합니다. 복원할 blob의 범위를 사전순으로 지정 하거나, 범위를 생략 하 여 저장소 계정의 모든 컨테이너에 있는 모든 blob를 복원할 수 있습니다. 복원 작업당 최대 10 개의 사전순 범위가 지원 됩니다. 페이지 blob 및 추가 blob은 복원에 포함 되지 않습니다. 복원 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 복원할 Blob 범위를 지정할 때는 다음 규칙에 유의해야 합니다.
 
 - 시작 범위와 끝 범위에 지정된 컨테이너 패턴은 최소 3자 이상을 포함해야 합니다. 컨테이너 이름을 Blob 이름과 구분하는 데 사용되는 슬래시(/)는 이 최솟값에 포함되지 않습니다.
-- 복원 작업당 범위를 하나만 지정할 수 있습니다.
+- 복원 작업당 최대 10 개 범위를 지정할 수 있습니다.
 - 와일드카드 문자는 지원되지 않습니다. 표준 문자로 처리됩니다.
 - 복원 작업에 전달된 범위에서 명시적으로 지정하여 `$root` 및 `$web` 컨테이너에서 Blob을 복원할 수 있습니다. `$root` 및 `$web` 컨테이너는 명시적으로 지정된 경우에만 복원됩니다. 다른 시스템 컨테이너는 복원할 수 없습니다.
 
+> [!IMPORTANT]
+> 복원 작업을 수행 하는 경우 Azure Storage은 작업 기간 동안 복원 되는 범위의 blob에 대 한 데이터 작업을 차단 합니다. 읽기, 쓰기 및 삭제 작업은 기본 위치에서 차단 됩니다. 이러한 이유로 복원 작업이 진행 되는 동안 Azure Portal의 컨테이너 나열 등의 작업이 예상 대로 수행 되지 않을 수 있습니다.
+>
+> 저장소 계정이 지리적으로 복제 되는 경우 보조 위치에서 읽기 작업은 복원 작업 중에 진행할 수 있습니다.
+
 ### <a name="restore-all-containers-in-the-account"></a>계정의 모든 컨테이너 복원
 
-스토리지 계정의 모든 Blob과 컨테이너를 복원하려면 `-BlobRestoreRange` 매개 변수를 생략하고 Restore-AzStorageBlobRange 명령을 호출합니다. 다음 예는 스토리지 계정의 컨테이너를 현재 시점 12시간 전의 상태로 복원합니다.
+저장소 계정의 모든 컨테이너와 blob을 복원 하려면 **AzStorageBlobRange** 명령을 호출 하 고 매개 변수를 생략 합니다 `-BlobRestoreRange` . 다음 예는 스토리지 계정의 컨테이너를 현재 시점 12시간 전의 상태로 복원합니다.
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -121,7 +113,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-a-single-range-of-block-blobs"></a>단일 블록 Blob 범위 복원
 
-Blob 범위를 복원하려면 Restore-AzStorageBlobRange 명령을 호출하고 `-BlobRestoreRange` 매개 변수에 대한 컨테이너 및 Blob 이름 범위를 사전순으로 지정합니다. 범위의 시작은 포함되고 범위의 끝은 제외됩니다.
+Blob 범위를 복원 하려면 **AzStorageBlobRange** 명령을 호출 하 고 매개 변수에 대 한 사전순의 컨테이너 및 blob 이름을 지정 `-BlobRestoreRange` 합니다. 범위의 시작은 포함되고 범위의 끝은 제외됩니다.
 
 예를 들어 *sample-container*라는 단일 컨테이너에 Blob을 복원하려면 *sample-container*로 시작하고 *sample-container1*로 끝나는 범위를 지정하면 됩니다. 시작 및 끝 범위에 명명된 컨테이너가 존재할 필요는 없습니다. 범위의 끝은 제외되기 때문에 스토리지 계정에 *sample-container1*이라는 컨테이너가 포함되어 있어도 *sample-container*라는 컨테이너만 복원됩니다.
 
@@ -135,7 +127,7 @@ $range = New-AzStorageBlobRangeToRestore -StartRange sample-container -EndRange 
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
 ```
 
-그런 다음, Restore-AzStorageBlobRange 명령에 범위를 제공합니다. `-TimeToRestore` 매개 변수에 UTC **DateTime** 값을 제공하여 복원 지점을 지정합니다. 다음 예제는 지정된 범위의 Blob을 현재 시점에서 3일 전의 상태로 복원합니다.
+그런 다음 **AzStorageBlobRange** 명령에 범위를 제공 합니다. `-TimeToRestore` 매개 변수에 UTC **DateTime** 값을 제공하여 복원 지점을 지정합니다. 다음 예제는 지정된 범위의 Blob을 현재 시점에서 3일 전의 상태로 복원합니다.
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -147,10 +139,12 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-multiple-ranges-of-block-blobs"></a>여러 블록 Blob 범위 복원
 
-여러 블록 Blob 범위를 복원하려면 `-BlobRestoreRange` 매개 변수에 범위 배열을 지정합니다. 다음 예제는 *container1*과 *container4*의 전체 콘텐츠를 복원합니다.
+여러 블록 Blob 범위를 복원하려면 `-BlobRestoreRange` 매개 변수에 범위 배열을 지정합니다. 복원 작업당 최대 10 개의 범위가 지원 됩니다. 다음 예에서는 *container1* 및 *container4*의 전체 콘텐츠를 복원 하는 두 범위를 지정 합니다.
 
 ```powershell
+# Specify a range that includes the complete contents of container1.
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2
+# Specify a range that includes the complete contents of container4.
 $range2 = New-AzStorageBlobRangeToRestore -StartRange container4 -EndRange container5
 
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
@@ -158,6 +152,31 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddMinutes(-30) `
     -BlobRestoreRange @($range1, $range2)
 ```
+
+### <a name="restore-block-blobs-asynchronously"></a>비동기적으로 블록 blob 복원
+
+복원 작업을 비동기적으로 실행 하려면 `-AsJob` **AzStorageBlobRange** 에 대 한 호출에 매개 변수를 추가 하 고 호출 결과를 변수에 저장 합니다. **AzStorageBlobRange** 명령은 **AzureLongRunningJob**형식의 개체를 반환 합니다. 이 개체의 **State** 속성을 확인 하 여 복원 작업이 완료 되었는지 여부를 확인할 수 있습니다. **상태** 속성의 값이 **실행** 중이거나 **완료**된 것일 수 있습니다.
+
+다음 예제에서는 복원 작업을 비동기적으로 호출 하는 방법을 보여 줍니다.
+
+```powershell
+$job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -TimeToRestore (Get-Date).AddMinutes(-5) `
+    -AsJob
+
+# Check the state of the job.
+$job.State
+```
+
+복원 작업이 실행 된 후에 복원 작업이 완료 될 때까지 대기 하려면 다음 예제와 같이 [대기 작업](/powershell/module/microsoft.powershell.core/wait-job) 명령을 호출 합니다.
+
+```powershell
+$job | Wait-Job
+```
+
+## <a name="known-issues"></a>알려진 문제
+- 추가 blob이 있는 복원의 하위 집합의 경우 복원이 실패 합니다. 지금은 계정에 추가 blob이 있는 경우 복원을 수행 하지 마세요.
 
 ## <a name="next-steps"></a>다음 단계
 

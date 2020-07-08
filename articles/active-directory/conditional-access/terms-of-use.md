@@ -4,19 +4,18 @@ description: 액세스 권한을 얻기 전에 직원 또는 게스트에 게 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253327"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -345,7 +344,7 @@ Intune에서 장치를 등록 하기 전에 Microsoft Intune 등록 앱에 대 �
 > [!NOTE]
 > Intune 등록 앱은 [장치 단위 사용 약관](#per-device-terms-of-use)에 대해 지원 되지 않습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 **Q: 사용자가 사용 약관에 동의 하는 경우/어떻게 할까요?를 참조 하세요.**<br />
 A: 사용 약관 블레이드에서 **수락** 아래에 있는 숫자를 클릭합니다. Azure AD 감사 로그에서 동의 작업을 보거나 검색할 수도 있습니다. 자세한 내용은 사용 약관에 동의/거부한 사람에 대한 보고서 보기 및 [Azure AD 감사 로그 보기](#view-azure-ad-audit-logs)를 참조하세요.
@@ -387,7 +386,7 @@ A: [이전에 동의한 사용 약관을 검토할](#how-users-can-review-their-
 A: Azure AD 사용 약관 및 [Intune](/intune/terms-and-conditions-create)사용 약관을 모두 구성한 경우 사용자는 둘 다 수락 해야 합니다. 자세한 내용은 [조직에 적합한 약관 솔루션 선택 블로그 게시물](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409)을 참조하세요.
 
 **Q: 사용 약관 서비스에서 인증에 사용 하는 끝점은 무엇 인가요?**<br />
-A: 사용 약관는 인증을 위해 https://tokenprovider.termsofuse.identitygovernance.azure.com 및 https://account.activedirectory.windowsazure.com의 끝점을 활용 합니다. 조직에서 등록을 위한 Url의 허용 목록을 사용 하는 경우 로그인을 위해 Azure AD 끝점과 함께 이러한 끝점을 허용 목록에 추가 해야 합니다.
+A: 사용 약관는 인증을 위해 및의 끝점을 활용 합니다. https://tokenprovider.termsofuse.identitygovernance.azure.com https://account.activedirectory.windowsazure.com 조직에서 등록을 위한 Url의 허용 목록을 사용 하는 경우 로그인을 위해 Azure AD 끝점과 함께 이러한 끝점을 허용 목록에 추가 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

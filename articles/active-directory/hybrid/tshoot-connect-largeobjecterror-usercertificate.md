@@ -11,18 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "62095492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356171"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
 
@@ -90,7 +89,7 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 
 2. 다음 값을 사용하여 검색 필터를 구성합니다.
 
-    | attribute | 값 |
+    | 특성 | 값 |
     | --- | --- |
     | Direction |**아웃바운드** |
     | MV 개체 유형 |**Person** |
@@ -110,26 +109,26 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
     | sourceObjectType | EQUAL | 사용자 |
     | cloudMastered | NOTEQUAL | True |
 
-### <a name="step-3-create-the-outbound-sync-rule-required"></a>3단계. 필요한 아웃바운드 동기화 규칙을 만듭니다.
+### <a name="step-3-create-the-outbound-sync-rule-required"></a>3단계: 필요한 아웃바운드 동기화 규칙을 만듭니다.
 새로운 동기화 규칙은 기존 동기화 규칙과 동일한 **범위 지정 필터**와 **높은 우선 순위**를 포함해야 합니다. 이렇게 하면 새 동기화 규칙이 기존 동기화 규칙과 동일한 개체 집합에 적용되고 userCertificate 특성에 대한 기존 동기화 규칙을 재정의합니다. 동기화 규칙을 만들려면
 1. 동기화 규칙 편집기에서 **새 규칙 추가** 단추를 클릭합니다.
-2. **설명 탭** 아래에서 다음 구성을 제공합니다.
+2. **설명 탭**아래에서 다음 구성을 제공 합니다.
 
-    | attribute | 값 | 세부 정보 |
+    | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예: *“Out to AAD – userCertificate에 대한 사용자 지정 재정의”* |
-    | 설명 | *설명 제공* | 예: *“userCertificate 특성에 15개 이상의 값이 있는 경우 NULL을 내보냅니다.”* |
+    | 속성 | *이름 제공* | 예: *“Out to AAD – userCertificate에 대한 사용자 지정 재정의”* |
+    | Description | *설명 제공* | 예: *“userCertificate 특성에 15개 이상의 값이 있는 경우 NULL을 내보냅니다.”* |
     | 연결된 시스템 | *Azure AD 커넥터에 선택* |
     | 연결된 시스템 개체 유형 | **user** | |
     | 메타버스 개체 유형 | **인력** | |
-    | 링크 형식 | **연결** | |
+    | 링크 형식 | **Join** | |
     | 우선 순위 | *1 ~ 99 사이의 숫자 선택* | 선택한 번호는 기존의 동기화 규칙에 사용되어서는 안되며 기존 동기화 규칙보다 낮은 값(따라서 높은 우선 순위)을 포함합니다. |
 
 3. **범위 지정 필터** 탭으로 이동하고 기존 동기화 규칙이 사용 중인 동일한 범위 지정 필터를 구현합니다.
 4. **조인 규칙** 탭을 건너뜁니다.
 5. **변환** 탭으로 이동하고 다음 구성을 사용하여 새 변환을 추가합니다.
 
-    | attribute | 값 |
+    | 특성 | 값 |
     | --- | --- |
     | 흐름 형식 |**식** |
     | 대상 특성 |**userCertificate** |

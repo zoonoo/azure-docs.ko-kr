@@ -3,12 +3,11 @@ title: Azure Migrate에서 평가 도구 추가
 description: Azure Migrate에서 평가 도구를 추가 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195629"
 ---
 # <a name="add-assessment-tools"></a>평가 도구 추가
 
@@ -23,7 +22,7 @@ ms.locfileid: "82901050"
 2. 사용할 평가 시나리오를 선택 합니다.
 
     - Azure로의 마이그레이션을 위한 컴퓨터 및 작업을 검색 하 고 평가 하려면 **서버 평가 및 마이그레이션**을 선택 합니다.
-    - 온-프레미스 SQL 컴퓨터를 평가 하려면 **데이터베이스 평가 및 마이그레이션**을 선택 합니다.
+    - 온-프레미스 SQL Server 데이터베이스를 평가 하려면 **데이터베이스 평가 및 마이그레이션**을 선택 합니다.
     - 온-프레미스 웹 앱을 평가 하려면 **웹 앱 평가 및 마이그레이션**을 선택 합니다.
 
     ![평가 시나리오](./media/how-to-assess/assess-scenario.png)

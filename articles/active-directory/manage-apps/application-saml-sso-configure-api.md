@@ -3,20 +3,19 @@ title: Microsoft Graph API를 사용하여 SAML 기반 Single Sign-On 구성
 titleSuffix: Azure Active Directory
 description: 애플리케이션의 여러 인스턴스에 대해 SAML 기반 Single Sign-On을 설정해야 하나요? Microsoft Graph API로 SAML 기반 Single Sign-On의 구성을 자동화하여 시간을 절약하는 방법을 알아보세요.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: fd59dcdd566110d1df02333f5701c0c206442d5d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 50ee9e3c22c885931e2586f65ba2fa3353fccfeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846463"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355848"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Microsoft Graph API를 사용하여 SAML 기반 SSO 앱 구성 자동화
 
@@ -40,8 +39,8 @@ ms.locfileid: "83846463"
 |리소스 유형 |방법 |
 |---------|---------|
 |[applicationTemplate](https://docs.microsoft.com/graph/api/resources/applicationtemplate?view=graph-rest-beta)|[applicationTemplate 나열](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) <br>[applicationTemplate 인스턴스화](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)|
-|[servicePrincipals](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)|[servicePrincipal 업데이트](https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-beta&tabs=http) <br> [appRoleAssignments 만들기](https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-beta&tabs=http) <br> [claimsMappingPolicies 할당](https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)|
-|[애플리케이션](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)|[애플리케이션 업데이트](https://docs.microsoft.com/graph/api/application-update?view=graph-rest-beta&tabs=http)|
+|[servicePrincipals](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0)|[servicePrincipal 업데이트](https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0&tabs=http) <br> [appRoleAssignments 만들기](https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0&tabs=http) <br> [claimsMappingPolicies 할당](https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)|
+|[애플리케이션](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)|[애플리케이션 업데이트](https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0&tabs=http)|
 |[claimsMappingPolicy](https://docs.microsoft.com/graph/api/resources/claimsmappingpolicy?view=graph-rest-beta)| [claimsMappingPolicy 만들기](https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)
 
 >[!NOTE]
@@ -111,6 +110,8 @@ Content-type: application/json
 
 전 단계에서 애플리케이션에 대해 검색한 템플릿 ID를 사용하여 테넌트에서 애플리케이션 및 서비스 주체의 [인스턴스를 만듭니다](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http).
 
+> [!NOTE] 
+> ApplicationTemplate API를 사용 하 여 [비 갤러리 앱](add-non-gallery-app.md)을 인스턴스화할 수 있습니다. ApplicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621` 를 사용 합니다.
 #### <a name="request"></a>요청
 
 <!-- {
@@ -190,7 +191,7 @@ Content-type: application/json
 ```
 ### <a name="set-single-sign-on-mode"></a>Single Sign-On 모드 설정
 
-이 예제에서는 [servicePrincipal 리소스 종류](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)에서 `saml`을 Single Sign-On 모드로 설정합니다. 그 밖에도 `notificationEmailAddresses`, `loginUrl`, `samlSingleSignOnSettings.relayState`와 같은 SAML SSO 속성을 구성할 수 있습니다.
+이 예제에서는 [servicePrincipal 리소스 종류](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0)에서 `saml`을 Single Sign-On 모드로 설정합니다. 그 밖에도 `notificationEmailAddresses`, `loginUrl`, `samlSingleSignOnSettings.relayState`와 같은 SAML SSO 속성을 구성할 수 있습니다.
 
 #### <a name="request"></a>요청
 
@@ -200,14 +201,11 @@ Content-type: application/json
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 Content-type: servicePrincipal/json
 
 {
-    "preferredSingleSignOnMode": "saml",
-    "notificationEmailAddresses": [
-        "john@contoso.com"
-      ]
+    "preferredSingleSignOnMode": "saml"
 }
 ```
 
@@ -234,7 +232,7 @@ HTTP/1.1 204
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/applications/cbc071a6-0fa5-4859-8g55-e983ef63df63
+PATCH https://graph.microsoft.com/v1.0/applications/cbc071a6-0fa5-4859-8g55-e983ef63df63
 Content-type: applications/json
 
 {
@@ -275,7 +273,7 @@ HTTP/1.1 204
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/serviceprincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/serviceprincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 Content-type: serviceprincipals/json
 
 {
@@ -340,6 +338,8 @@ HTTP/1.1 204
 | roles | assignedroles |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | userprincipalname |
 
+자세한 내용은 [토큰에서 내보낸 클레임 사용자 지정](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping)을 참조 하세요.
+
 #### <a name="request"></a>요청
 
 <!-- {
@@ -348,7 +348,7 @@ HTTP/1.1 204
 }-->
 
 ```msgraph-interactive
-POST https://graph.microsoft.com/beta/policies/claimsMappingPolicies
+POST https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies
 Content-type: claimsMappingPolicies/json
 
 {
@@ -406,7 +406,7 @@ HTTP/1.1 200 OK
 Content-type: claimsMappingPolicies/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/claimsMappingPolicies/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#policies/claimsMappingPolicies/$entity",
     "id": "6b33aa8e-51f3-41a6-a0fd-d660d276197a",
     "definition": [
         "{\"ClaimsMappingPolicy\": {\"Version\": 1,\"IncludeBasicClaimSet\": \"true\",\"ClaimsSchema\": [{\"Source\": \"user\",\"ID\": \"assignedroles\",\"SamlClaimType\":\"https://aws.amazon.com/SAML/Attributes/Role\"\r\n                    },{\"Source\": \"user\",\"ID\": \"userprincipalname\",\"SamlClaimType\": \"https://aws.amazon.com/SAML/Attributes/RoleSessionName\"},{\"Source\": \"user\",\"ID\": \"900\",\"SamlClaimType\": \"https://aws.amazon.com/SAML/Attributes/SessionDuration\"},{\"Source\": \"user\",\"ID\": \"assignedroles\",\"SamlClaimType\":\"appRoles\"},{\"Source\": \"user\",\"ID\": \"userprincipalname\",\"SamlClaimType\": \"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\"}]}}"
@@ -430,7 +430,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-
 Content-type: claimsMappingPolicies/json
 
 {
-  "@odata.id":"https://graph.microsoft.com/beta/policies/claimsMappingPolicies/6b33aa8e-51f3-41a6-a0fd-d660d276197a"
+  "@odata.id":"https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies/6b33aa8e-51f3-41a6-a0fd-d660d276197a"
 }
 ```
 
@@ -503,14 +503,14 @@ PFX 파일에서 Base64 인코딩된 프라이빗 및 공개 키를 추출합니
 #### <a name="request"></a>요청
 
 > [!NOTE]
-> keyCredentials 속성의 “key” 값은 가독성을 위해 짧게 표시되었습니다.
+> keyCredentials 속성의 “key” 값은 가독성을 위해 짧게 표시되었습니다. 값은 base 64로 인코딩됩니다. 개인 키의 경우 속성은 `usage` "Sign"입니다. 공개 키의 경우 속성은 `usage` "Verify"입니다.
 
 <!-- {
   "blockType": "request",
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 
 Content-type: servicePrincipals/json
 
@@ -571,7 +571,7 @@ HTTP/1.1 204
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 
 Content-type: servicePrincipals/json
 
@@ -609,7 +609,7 @@ HTTP/1.1 204
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-POST https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/appRoleAssignments
+POST https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/appRoleAssignments
 
 Content-type: appRoleAssignments/json
 
@@ -642,7 +642,7 @@ Content-type: appRoleAssignments/json
 }
 ```
 
-자세한 내용은 [appRoleAssignment](https://docs.microsoft.com/graph/api/resources/approleassignment?view=graph-rest-beta) 리소스 유형을 참조하세요.
+자세한 내용은 [appRoleAssignment](https://docs.microsoft.com/graph/api/resources/approleassignment?view=graph-rest-1.0) 리소스 유형을 참조하세요.
 
 ## <a name="step-6-configure-the-application-side"></a>6단계: 애플리케이션 쪽 구성
 

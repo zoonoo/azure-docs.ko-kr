@@ -6,16 +6,15 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4ca8fe3e217d3b4affc1bc0bda9ed193e91b2104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100803"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Azure Database for MySQL에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
-*가상 네트워크 규칙*은 Azure Database for MySQL 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 아티클에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for MySQL 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+*가상 네트워크 규칙* 은 Azure Database for MySQL 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 아티클에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for MySQL 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 VNet([가상 네트워크 서비스 끝점][vm-virtual-network-overview]) 및 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다. 다음 그림에서는 Virtual Network 서비스 엔드포인트가 Azure Database for MySQL에서 작동하는 방법을 보여줍니다.
 
@@ -25,7 +24,7 @@ ms.locfileid: "79537145"
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for MySQL이 배포된 모든 Azure 지역에서 사용할 수 있습니다.
 > VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for MySQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## <a name="terminology-and-description"></a>용어 및 설명
 
@@ -33,7 +32,7 @@ ms.locfileid: "79537145"
 
 **서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 머신)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 컴퓨팅 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 컴퓨팅 노드가 가상 네트워크에 액세스할 수 있습니다.
 
-**Virtual Network 서비스 끝점:** [Virtual Network 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d] 은 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함 된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for MySQL 및 PostgreSQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 서브넷에서 모든 Azure SQL Database, Azure Database for MySQL 및 Azure Database for PostgreSQL 서버에 대한 서비스 엔드포인트 트래픽을 구성해야 합니다. 
+**Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다. 이 서비스 태그는 Azure Database for MySQL 및 PostgreSQL 서비스에도 적용됩니다. **Microsoft.Sql** 서비스 태그를 VNet 서비스 엔드포인트에 적용하는 경우 서브넷에서 모든 Azure SQL Database, Azure Database for MySQL 및 Azure Database for PostgreSQL 서버에 대한 서비스 엔드포인트 트래픽을 구성해야 합니다. 
 
 **가상 네트워크 규칙:** Azure Database for MySQL 서버에 대한 가상 네트워크 규칙은 Azure Database for MySQL 서버의 ACL(액세스 제어 목록)에 나열된 서브넷입니다. Azure Database for MySQL 서버에 대한 ACL에 나열되려면 서브넷에는 **Microsoft.Sql** 형식 이름이 있어야 합니다.
 
@@ -45,7 +44,7 @@ ms.locfileid: "79537145"
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>가상 네트워크 규칙의 이점
 
@@ -69,7 +68,7 @@ VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있�
 
 그러나 2018년 8월 현재, Azure Database for MySQL 서버는 아직 서브넷에 할당될 수 있는 서비스가 아닙니다.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>가상 네트워크 규칙에 대한 세부 정보
 
@@ -102,7 +101,7 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 > Azure Database for MySQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
 > - 두 구독은 모두 동일한 Azure Active Directory 테넌트에 있어야 합니다.
 > - 서비스 엔드포인트를 사용하도록 설정하고 지정된 서버에 VNet 서브넷을 추가하는 등의 작업을 시작하는 데 필요한 권한이 사용자에게 있습니다.
-> - 두 구독 모두에 **Microsoft .sql** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource manager-등록][resource-manager-portal] 을 참조 하세요.
+> - 두 구독 모두에 **Microsoft .sql** 및 **Microsoft. DBforMySQL** 리소스 공급자가 등록 되어 있는지 확인 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 

@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162993"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960472"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계 
 
@@ -234,8 +233,10 @@ Azure AD에 대한 내용:
 
 * 발급자 URL는 "/"로 끝나야 합니다. 대상은 플레이어 애플리케이션 클라이언트 ID여야 합니다. 발급자 URL 끝에 "/"를 추가해야 합니다.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     [JWT 디코더](http://jwt.calebb.net/)에서 JWT에 다음과 같이 **aud** 및 **iss**가 나타납니다.
 
@@ -247,11 +248,15 @@ Azure AD에 대한 내용:
 
 * 동적 CENC 보호 설정에 올바른 발급자를 사용합니다.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     다음은 작동하지 않습니다.
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **엔드포인트** 팝업 창에서 GUID를 찾을 수 있습니다.
 
@@ -261,7 +266,9 @@ Azure AD에 대한 내용:
 
 * 제한 사항 요구 사항을 만들 때 적절한 TokenType을 설정합니다.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```csharp
+    objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```
 
     SWT(ACS) 외에도 JWT(Azure AD)의 지원이 추가되었으므로 기본 TokenType은 TokenType.JWT입니다. SWT/ACS를 사용하는 경우 토큰을 TokenType.SWT로 설정해야 합니다.
 
@@ -356,7 +363,7 @@ Azure AD에서 발급한 JWT가 포인터 리소스에 액세스하는 데 사�
 * 더 이상 Media Services에서 라이선스 배달 서비스(ContentKeyAuthorizationPolicy)를 구성하지 않아도 됩니다. 다중 DRM으로 CENC 설정에서 AssetDeliveryPolicy를 구성할 때 라이선스 획득 URL(PlayReady, Widevine 및 FairPlay에 대해)을 제공해야 합니다.
 
 ### <a name="what-if-i-want-to-use-a-custom-sts"></a>사용자 지정 STS를 사용하려면 어떻게 하나요?
-고객은 사용자 지정 STS를 사용하여 JWT를 제공하기로 선택할 수 있습니다. 그 이유는 다음과 같습니다.
+고객은 사용자 지정 STS를 사용하여 JWT를 제공하기로 선택할 수 있습니다. 이유는 다음과 같습니다.
 
 * 고객이 사용한 IDP에서 STS를 지원하지 않습니다. 이 경우 사용자 지정 STS가 옵션일 수 있습니다.
 * 고객은 STS를 고객의 구독자 청구 시스템과 통합하는 데 보다 유연하고 긴밀한 제어가 필요할 수 있습니다. 예를 들어 MVPD 작업자는 프리미엄, 기본 및 스포츠 등과 같은 여러 OTT 구독자 패키지를 제공할 수 있습니다. 이 작업자는 토큰의 클레임을 구독자의 패키지와 일치시켜 특정 패키지의 콘텐츠만 제공되도록 할 수 있습니다. 이 경우 사용자 지정 STS가 필요한 유연성 및 제어를 제공합니다.
@@ -470,7 +477,7 @@ Widevine은 보호된 비디오의 화면 캡처 만들기를 차단하지 않�
 * Azure, Media Services 및 Media Player에 대한 참조 구현도 제공되었습니다.
 * 디자인 및 구현에 직접 관련된 몇 가지 토픽도 설명되었습니다.
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

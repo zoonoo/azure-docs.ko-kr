@@ -2,15 +2,14 @@
 title: AKS(Azure Kubernetes Service)에서 가용성 영역 업그레이드
 description: AKS(Azure Kubernetes Service)의 가용성 영역에 노드를 배포하는 클러스터를 만드는 방법 알아보기
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195556"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -48,7 +47,7 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용하여 
 
 ### <a name="azure-disks-limitations"></a>Azure 디스크 제한 사항
 
-Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역 간에 연결할 수 없으며 대상 Pod를 호스팅하는 지정된 노드와 동일한 영역에 함께 배치되어야 합니다.
+Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아닙니다. 볼륨은 영역에 연결할 수 없으며 대상 pod를 호스트 하는 지정 된 노드와 동일한 영역에 함께 배치 되어야 합니다.
 
 상태 저장 워크로드를 실행해야 하는 경우 Pod 사양의 노드 풀 taint 및 toleration을 사용하여 디스크와 동일한 영역에서 Pod 일정을 그룹화합니다. 또는 Pod에 연결할 수 있는 Azure Files와 같은 네트워크 기반 스토리지를 예약된 대로 영역 간에 사용합니다.
 

@@ -1,22 +1,21 @@
 ---
-title: .NET에서 blob 스냅숏 만들기 및 관리
+title: .NET에서 Blob 스냅샷 만들기 및 관리
 titleSuffix: Azure Storage
 description: Blob의 읽기 전용 스냅숏을 만들어 지정 된 시간에 blob 데이터를 백업 하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 438692d5c142c3f617ee9d0c3f55b9b3740f9b7a
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884697"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463538"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 blob 스냅숏 만들기 및 관리
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 Blob 스냅샷 만들기 및 관리
 
 스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 blob 스냅숏을 만들고 관리 하는 방법을 보여 줍니다.
 
@@ -135,7 +134,7 @@ Blob을 삭제 하려면 먼저 해당 blob의 모든 스냅숏을 삭제 해야
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
 
-다음 코드 예제에서는 .NET에서 blob 및 해당 스냅숏을 삭제 하는 방법을 보여 줍니다. `blobClient` 여기서은 [blobclient](/dotnet/api/azure.storage.blobs.blobclient)형식의 개체입니다.
+다음 코드 예제에서는 .NET에서 blob 및 해당 스냅숏을 삭제 하는 방법을 보여 줍니다 `blobClient` . 여기서은 [blobclient](/dotnet/api/azure.storage.blobs.blobclient)형식의 개체입니다.
 
 ```csharp
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
@@ -150,7 +149,7 @@ await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, nul
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
-다음 코드 예제에서는 .NET에서 blob 및 해당 스냅숏을 삭제 하는 방법을 보여 줍니다. `blockBlob` 여기서은 [CloudBlockBlob] [dotnet_CloudBlockBlob] 형식의 개체입니다.
+다음 코드 예제에서는 .NET에서 blob 및 해당 스냅숏을 삭제 하는 방법을 보여 줍니다 `blockBlob` . 여기서은 [CloudBlockBlob] [dotnet_CloudBlockBlob] 형식의 개체입니다.
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);

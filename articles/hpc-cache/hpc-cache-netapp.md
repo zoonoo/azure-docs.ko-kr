@@ -3,15 +3,14 @@ title: Azure HPC 캐시 및 Azure NetApp Files 사용
 description: Azure HPC 캐시를 사용 하 여 Azure NetApp Files 저장 된 데이터에 대 한 액세스를 개선 하는 방법
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 374f3106ec42233cd5309c2773b05e3c96bbf98e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515494"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Azure NetApp Files에서 Azure HPC 캐시 사용
 
@@ -80,7 +79,7 @@ Azure NetApp Files 볼륨에서 사용 하는 각 IP 주소에 대해 저장소 
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 
-Azure NetApp Files 시스템의 내보내기 이름에는 단일 경로 구성 요소가 있습니다. 내보내기는 파일 액세스를 제공 하지 않기 때문에 Azure NetApp Files의 ``/`` 루트 내보내기에 대 한 저장소 대상을 만들려고 하지 마십시오.
+Azure NetApp Files 시스템의 내보내기 이름에는 단일 경로 구성 요소가 있습니다. ``/``내보내기는 파일 액세스를 제공 하지 않기 때문에 Azure NetApp Files의 루트 내보내기에 대 한 저장소 대상을 만들려고 하지 마십시오.
 
 이러한 저장소 대상에 대 한 가상 네임 스페이스 경로에 대 한 특별 한 제한은 없습니다.
 

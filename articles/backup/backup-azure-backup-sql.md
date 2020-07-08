@@ -3,12 +3,11 @@ title: SQL Server를 DPM 작업으로 Azure에 백업
 description: Azure Backup 서비스를 사용 하 여 SQL Server 데이터베이스를 백업 하는 방법 소개
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195786"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server를 DPM 작업으로 Azure에 백업
 
@@ -43,7 +42,7 @@ Azure에서 SQL Server 데이터베이스를 보호 하려면 먼저 백업 정�
 1. **서버**를 선택 합니다.
 
     ![서버 보호 그룹 유형 선택](./media/backup-azure-backup-sql/pg-servers.png)
-1. 백업 하려는 데이터베이스가 있는 SQL Server 컴퓨터를 확장 합니다. 해당 서버에서 백업할 수 있는 데이터 원본이 표시 됩니다. **모든 SQL 공유** 를 확장 하 고 백업 하려는 데이터베이스를 선택 합니다. 이 예에서는 ReportServer $ MSDPM2012 및 ReportServer $ MSDPM2012TempDB를 선택 합니다. **다음**을 선택합니다.
+1. 백업 하려는 데이터베이스가 있는 SQL Server 가상 컴퓨터를 확장 합니다. 해당 서버에서 백업할 수 있는 데이터 원본이 표시 됩니다. **모든 SQL 공유** 를 확장 하 고 백업 하려는 데이터베이스를 선택 합니다. 이 예에서는 ReportServer $ MSDPM2012 및 ReportServer $ MSDPM2012TempDB를 선택 합니다. **다음**을 선택합니다.
 
     ![SQL Server 데이터베이스 선택](./media/backup-azure-backup-sql/pg-databases.png)
 1. 보호 그룹의 이름을 지정한 다음 **온라인 보호**를 선택 합니다.
@@ -60,7 +59,7 @@ Azure에서 SQL Server 데이터베이스를 보호 하려면 먼저 백업 정�
    >
    >
 
-1. **다음**을 선택합니다. DPM은 사용 가능한 전체 저장소 공간을 보여 줍니다. 또한 잠재적인 디스크 공간 사용률을 보여 줍니다.
+1. **새로 만들기**를 선택합니다. DPM은 사용 가능한 전체 저장소 공간을 보여 줍니다. 또한 잠재적인 디스크 공간 사용률을 보여 줍니다.
 
     ![디스크 할당 설정](./media/backup-azure-backup-sql/pg-storage.png)
 
@@ -80,7 +79,7 @@ Azure에서 SQL Server 데이터베이스를 보호 하려면 먼저 백업 정�
 
     ![일관성 확인을 실행할 시기를 선택 하십시오.](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    DPM은 백업 지점의 무결성에 대 한 일관성 확인을 실행할 수 있습니다. 프로덕션 서버 (이 예제에서는 SQL Server 컴퓨터)에서 백업 파일의 체크섬과 DPM에서 해당 파일에 대 한 백업 된 데이터를 계산 합니다. 검사가 충돌을 발견 하면 DPM의 백업 된 파일이 손상 된 것으로 간주 됩니다. DPM은 체크섬 불일치에 해당 하는 블록을 전송 하 여 백업 된 데이터를 수정 합니다. 일관성 확인은 성능 집약적인 작업 이므로 관리자는 일관성 확인을 예약 하거나 자동으로 실행 하도록 선택할 수 있습니다.
+    DPM은 백업 지점의 무결성에 대 한 일관성 확인을 실행할 수 있습니다. 프로덕션 서버 (이 예에서는 SQL Server 컴퓨터)에서 백업 파일의 체크섬과 DPM에서 해당 파일에 대 한 백업 된 데이터를 계산 합니다. 검사가 충돌을 발견 하면 DPM의 백업 된 파일이 손상 된 것으로 간주 됩니다. DPM은 체크섬 불일치에 해당 하는 블록을 전송 하 여 백업 된 데이터를 수정 합니다. 일관성 확인은 성능 집약적인 작업 이므로 관리자는 일관성 확인을 예약 하거나 자동으로 실행 하도록 선택할 수 있습니다.
 
 1. Azure에서 보호할 데이터 원본을 선택 합니다. **다음**을 선택합니다.
 
@@ -101,7 +100,7 @@ Azure에서 SQL Server 데이터베이스를 보호 하려면 먼저 백업 정�
 
     ![보존 정책 선택](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    이 예제에 대한 설명:
+    이 예제에서:
 
     * 백업은 매일 오후 12:00 시와 오후 8:00에 수행 됩니다. 180 일 동안 유지 됩니다.
     * 토요일 12:00 PM의 백업은 104 주 동안 보관 됩니다.
@@ -148,7 +147,7 @@ Azure에서 SQL Server 데이터베이스와 같은 보호 된 엔터티를 복�
 1. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭 하 고 **복구**를 선택 합니다.
 
     ![Azure에서 데이터베이스 복구](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. DPM에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 선택합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 선택합니다.
+1. DPM에서는 복구 지점에 대한 세부 정보를 보여줍니다. **새로 만들기**를 선택합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 선택합니다.
 
     ![데이터베이스를 원래 위치로 복구](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 

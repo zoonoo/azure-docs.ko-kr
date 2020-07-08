@@ -4,16 +4,15 @@ description: Azure IoT Edge 디먼 및 런타임을 실행할 수 있는 운영 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/12/2020
+ms.date: 06/19/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ec143fbca94c5423ca67e09fa2932e55c06f418e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 097826a24cb2de17b603ff5fe3113d715e079697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807403"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -90,6 +89,7 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
 | Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 20.04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 
 <sup>1</sup> Raspian Buster를 포함하는 Debian 10 시스템은 IoT Edge에서 지원하지 않는 OpenSSL 버전을 사용합니다. IoT Edge를 설치하기 전에 다음 명령을 사용하여 이전 버전을 설치합니다.
 
@@ -97,19 +97,21 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 sudo apt-get install libssl1.0.2
 ```
 
+<sup>2</sup> [Azure IoT Edge 릴리스 리포지토리의](https://github.com/Azure/azure-iotedge/releases) Debian 9 패키지는 Ubuntu 20.04를 사용 하 여 즉시 작동 해야 합니다.
+
 ## <a name="releases"></a>릴리스
 
 IoT Edge 릴리스 자산과 릴리스 정보는 [azure-iotedge 릴리스](https://github.com/Azure/azure-iotedge/releases) 페이지에서 사용할 수 있습니다. 이 섹션에서는 각 버전의 구성 요소를 보다 쉽게 시각화하는 데 유용한 릴리스 정보에 대한 정보를 반영합니다.
 
 IoT Edge 구성 요소는 개별적으로 설치 또는 업데이트할 수 있으며 이전 버전의 구성 요소와 호환됩니다. 다음 표에서는 각 릴리스에 포함된 구성 요소를 보여 줍니다.
 
-| 해제   | 보안 디먼  | 에지 허브<br>에지 에이전트 | Libiothsm | Moby  |
-| --------- | ---------------- | ---------------------- | --------- | ----- |
-| **1.0.9** | 1.0.9.1<br>1.0.9            | 1.0.9.1<br>1.0.9                  | 1.0.9.1<br>1.0.9     |       |
-| **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
-| **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7       | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4(ARMv7hl, CentOS) |
-| **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |
-| **1.0.5** | 1.0.5            | 1.0.5                  | 1.0.5     | 3.0.2 |
+| 해제 | 보안 디먼 | 에지 허브<br>에지 에이전트 | Libiothsm | Moby |
+|--|--|--|--|--|
+| **1.0.9** | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
+| **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
+| **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4(ARMv7hl, CentOS) |
+| **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
+| **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
 IoT Edge는 Microsoft.Azure.Device.Client SDK를 사용합니다. 자세한 내용은 [Azure IoT C# SDK GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp) 또는 [.NET용 Azure SDK 참조 콘텐츠](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet)를 참조하세요. 다음 목록에서는 각 릴리스가 테스트되는 클라이언트 SDK 버전을 보여 줍니다.
 

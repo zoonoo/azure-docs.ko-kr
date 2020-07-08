@@ -8,24 +8,23 @@ ms.author: trbye
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: f997aef59e91bed325b84af855a84f43cd639d83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 660cb14bd081dffbf3e9fb5f02b7690212915355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122845"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807488"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 machine learning 웹 서비스와 함께 Azure AD id 사용
 
-이 방법에서는 Azure Kubernetes Service에서 배포 된 machine learning 모델에 AAD (Azure Active Directory) id를 할당 하는 방법에 대해 알아봅니다. [Aad Pod identity](https://github.com/Azure/aad-pod-identity) 프로젝트를 사용 하면 응용 프로그램에서 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 및 Kubernetes 기본 형식을 사용 하 여 aad로 안전 하 게 클라우드 리소스에 액세스할 수 있습니다. 이렇게 하면 웹 서비스가 스크립트 내에서 `score.py` 직접 자격 증명을 포함 하거나 토큰을 관리할 필요 없이 Azure 리소스에 안전 하 게 액세스할 수 있습니다. 이 문서에서는 azure Kubernetes Service 클러스터에서 Azure Id를 만들고 설치 하 고 배포 된 웹 서비스에 id를 할당 하는 단계를 설명 합니다.
+이 방법에서는 Azure Kubernetes Service에서 배포 된 machine learning 모델에 AAD (Azure Active Directory) id를 할당 하는 방법에 대해 알아봅니다. [Aad Pod identity](https://github.com/Azure/aad-pod-identity) 프로젝트를 사용 하면 응용 프로그램에서 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 및 Kubernetes 기본 형식을 사용 하 여 aad로 안전 하 게 클라우드 리소스에 액세스할 수 있습니다. 이렇게 하면 웹 서비스가 스크립트 내에서 직접 자격 증명을 포함 하거나 토큰을 관리할 필요 없이 Azure 리소스에 안전 하 게 액세스할 수 있습니다 `score.py` . 이 문서에서는 azure Kubernetes Service 클러스터에서 Azure Id를 만들고 설치 하 고 배포 된 웹 서비스에 id를 할당 하는 단계를 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md)입니다.
 
-- `kubectl` 명령을 사용 하 여 AKS 클러스터에 액세스 합니다. 자세한 내용은 [클러스터에 연결](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster) 을 참조 하세요.
+- 명령을 사용 하 여 AKS 클러스터에 액세스 `kubectl` 합니다. 자세한 내용은 [클러스터에 연결](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster) 을 참조 하세요.
 
 - AKS 클러스터에 배포 된 Azure Machine Learning 웹 서비스입니다.
 
@@ -37,7 +36,7 @@ ms.locfileid: "77122845"
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    RBAC를 사용 하는 `true` 경우이 명령은 값을 반환 합니다. 이 값은 다음 단계에서 사용할 명령을 결정 합니다.
+    RBAC를 사용 하는 경우이 명령은 값을 반환 합니다 `true` . 이 값은 다음 단계에서 사용할 명령을 결정 합니다.
 
 1. AKS 클러스터에 [AAD Pod id](https://github.com/Azure/aad-pod-identity#getting-started) 를 설치 하려면 다음 명령 중 하나를 사용 합니다.
 
@@ -94,7 +93,7 @@ spec:
   Selector: <label value to match>
 ```
 
-배포를 편집 하 여 Azure Id 선택기 레이블을 추가 합니다. 에서 `/spec/template/metadata/labels`다음 섹션으로 이동 합니다. 와 `isazuremlapp: “true”`같은 값이 표시 되어야 합니다. 아래와 같이 aad-pod id 레이블을 추가 합니다.
+배포를 편집 하 여 Azure Id 선택기 레이블을 추가 합니다. 에서 다음 섹션으로 이동 `/spec/template/metadata/labels` 합니다. 와 같은 값이 표시 되어야 합니다 `isazuremlapp: “true”` . 아래와 같이 aad-pod id 레이블을 추가 합니다.
 
 ```azurecli-interactive
     kubectl edit deployment/<name of deployment> -n azureml-<name of workspace>
@@ -105,7 +104,7 @@ spec:
   template:
     metadata:
       labels:
-      - aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
+       aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
       ...
 ```
 
@@ -129,11 +128,11 @@ Pod 실행 되 면이 배포에 대 한 웹 서비스에서 코드에 자격 증
 
 ## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Machine learning 웹 서비스에서 Azure Id 사용
 
-AKS 클러스터에 모델을 배포 합니다. 스크립트 `score.py` 에는 azure id가 액세스할 수 있는 azure 리소스를 가리키는 작업이 포함 될 수 있습니다. 액세스 하려는 리소스에 대 한 필수 클라이언트 라이브러리 종속성을 설치 했는지 확인 합니다. 다음은 Azure Id를 사용 하 여 서비스에서 다양 한 Azure 리소스에 액세스 하는 방법에 대 한 몇 가지 예입니다.
+AKS 클러스터에 모델을 배포 합니다. 스크립트에는 `score.py` Azure id가 액세스할 수 있는 azure 리소스를 가리키는 작업이 포함 될 수 있습니다. 액세스 하려는 리소스에 대 한 필수 클라이언트 라이브러리 종속성을 설치 했는지 확인 합니다. 다음은 Azure Id를 사용 하 여 서비스에서 다양 한 Azure 리소스에 액세스 하는 방법에 대 한 몇 가지 예입니다.
 
 ### <a name="access-key-vault-from-your-web-service"></a>웹 서비스에서 Key Vault 액세스
 
-**Key Vault**내에서 암호에 대 한 읽기 액세스 권한을 Azure id에 제공 하면 다음 코드 `score.py` 를 사용 하 여 액세스할 수 있습니다.
+**Key Vault**내에서 암호에 대 한 읽기 액세스 권한을 Azure id에 제공 하면 `score.py` 다음 코드를 사용 하 여 액세스할 수 있습니다.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -153,7 +152,7 @@ secret = secret_client.get_secret(my_secret_name)
 
 ### <a name="access-blob-from-your-web-service"></a>웹 서비스에서 Blob 액세스
 
-**저장소 Blob**내의 데이터에 대 한 Azure id 읽기 액세스 권한을 제공 하는 경우 다음 `score.py` 코드를 사용 하 여 액세스할 수 있습니다.
+**저장소 Blob**내의 데이터에 대 한 Azure id 읽기 액세스 권한을 제공 하는 경우 `score.py` 다음 코드를 사용 하 여 액세스할 수 있습니다.
 
 ```python
 from azure.identity import DefaultAzureCredential

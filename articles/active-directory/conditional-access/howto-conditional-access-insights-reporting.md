@@ -4,19 +4,18 @@ description: Azure AD 조건부 액세스 인사이트 및 보고 통합 문서�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253276"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>조건부 액세스 인사이트 및 보고
 
@@ -98,6 +97,23 @@ Azure AD 로그를 Azure Monitor 로그에 통합하지 않은 경우 다음 단
 대시보드 아래쪽에서 로그인을 검색하여 특정 사용자의 로그인을 조사할 수도 있습니다. 왼쪽 쿼리에는 가장 빈도가 높은 사용자가 표시됩니다. 사용자를 선택하면 오른쪽 쿼리가 필터링됩니다.  
 
 ## <a name="troubleshooting"></a>문제 해결
+
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>권한 오류로 인해 쿼리가 실패 하는 이유는 무엇 인가요?
+
+통합 문서에 액세스 하려면 적절 한 Azure AD 권한 뿐만 아니라 작업 영역 권한 Log Analytics 필요 합니다. 샘플 log analytics 쿼리를 실행 하 여 적절 한 작업 영역 권한이 있는지 테스트 하려면 다음을 수행 합니다.
+
+1. **Azure Portal**에 로그인합니다.
+1. **Azure Active Directory**  >  **로그**로 이동 합니다.
+1. `SigninLogs`쿼리 상자에를 입력 하 고 **실행**을 선택 합니다.
+1. 쿼리에서 결과가 반환 되지 않으면 작업 영역이 올바르게 구성 되지 않았을 수 있습니다. 
+
+![실패 한 쿼리 문제 해결](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Azure AD 로그인 로그를 Log Analytics 작업 영역으로 스트리밍하는 방법에 대 한 자세한 내용은 [AZURE ad 로그를 Azure Monitor 로그와 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)문서를 참조 하세요.
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>조건부 액세스 정책 매개 변수가 비어 있는 이유는 무엇 인가요?
+
+정책 목록은 가장 최근의 로그인 이벤트에 대해 평가 된 정책을 확인 하 여 생성 됩니다. 테 넌 트에 최신 로그인이 없는 경우 통합 문서가 조건부 액세스 정책 목록을 로드 하는 데 몇 분 정도 기다려야 할 수 있습니다. 이 문제는 Log Analytics를 구성 하는 즉시 발생 하거나 테 넌 트에서 최근 로그인 작업이 없는 경우 더 오래 걸릴 수 있습니다.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>통합 문서를 로드하는 데 시간이 오래 걸리는 이유는 무엇인가요?  
 

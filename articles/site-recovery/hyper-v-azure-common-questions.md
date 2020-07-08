@@ -3,12 +3,11 @@ title: Azure Site Recovery의 Hyper-v 재해 복구에 대 한 일반적인 질�
 description: 이 문서에는 Azure Site Recovery 사이트를 사용하여 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 설정하는 방법과 관련된 일반적인 질문이 요약되어 있습니다.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195251"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -46,7 +45,7 @@ Hyper-V 호스트 서버에서 필요한 사항은 배포 시나리오에 따라
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Hyper-V 2세대 가상 머신을 Azure로 복제할 수 있습니까?
-예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)알아보세요.
+예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히 알아보기](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>VMM 서버가 하나밖에 없는 경우 VMM을 사용하여 Site Recovery를 배포할 수 있습니까?
@@ -94,7 +93,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Hyper-V 클러스터에 있는 VM을 복제할 수 있나요?
 
-예, Site Recovery는 클러스터형 Hyper-V 호스트를 지원합니다. 다음 사항에 유의하세요.
+예, Site Recovery는 클러스터형 Hyper-V 호스트를 지원합니다. 다음 사항에 유의합니다.
 
 - 클러스터의 모든 노드는 동일한 자격 증명 모음에 등록되어야 합니다.
 - VMM을 사용하지 않는 경우 클러스터의 모든 Hyper-V 호스트를 동일한Hyper-V 사이트에 추가해야 합니다.
@@ -114,7 +113,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 예. Rest API, PowerShell 또는 Azure SDK를 사용하여 Site Recovery 워크플로를 자동화할 수 있습니다. PowerShell을 사용하여 Hyper-V를 Azure로 복제하기 위한 현재 지원되는 시나리오:
 
 - [PowerShell을 사용하여 VMM 없이 Hyper-V 복제](hyper-v-azure-powershell-resource-manager.md)
-- [Powershell을 사용하여 VMM으로 Hyper-V 복제](hyper-v-vmm-powershell-resource-manager.md)
+- [PowerShell을 사용 하 여 VMM과 Hyper-v 복제](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>복제
 
@@ -159,7 +158,7 @@ Azure에 복제 하는 경우 복제 트래픽은 Azure Storage 계정의 공용
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 
-Hyper-V VM은 30초(Premium Storage 제외), 5분 또는 15분마다 복제할 수 있습니다.
+Hyper-v Vm은 30 초 마다 (premium storage 제외) 또는 5 분 마다 복제할 수 있습니다.
 
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.

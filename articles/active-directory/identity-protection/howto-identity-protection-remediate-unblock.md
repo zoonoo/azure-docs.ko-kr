@@ -4,25 +4,24 @@ description: 미해결 위험 검색을 종료 하는 옵션에 대해 알아봅
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350e7b37d36be70cea345db52cdfb639b2f1c1a8
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463963"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>위험 재구성 및 사용자 차단 해제
 
 [조사](howto-identity-protection-investigate-risk.md)를 완료 한 후에는 작업을 수행 하 여 위험을 수정 하거나 사용자를 차단 해제 하는 것이 좋습니다. 또한 조직에는 [위험 정책을](howto-identity-protection-configure-risk-policies.md)사용 하 여 자동화 된 수정 기능을 사용 하도록 설정할 수 있는 옵션도 있습니다. 조직에서는 조직이 편안 하 게 느껴질 때 제공 되는 모든 위험 검색을 닫으려고 합니다. 위험을 다룰 때 시간이 중요 하므로 가능한 한 빨리 이벤트를 닫는 것이 좋습니다.
 
-## <a name="remediation"></a>재구성
+## <a name="remediation"></a>수정
 
 모든 활성 위험 검색은 사용자 위험 수준 이라는 값을 계산 하는 데 영향을 주지 않습니다. 사용자 위험 수준은 계정이 손상된 가능성에 대한 표시기(낮음, 보통, 높음)입니다. 관리자는 영향을 받는 사용자가 더 이상 위험에 노출 되지 않도록 모든 위험 검색을 종결 하려고 합니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "74382108"
 
 - 사용자의 손상 확인
 - 사용자 위험 해제
-- 안전 하 게 로그인 확인
+- 로그인 보안 확인
 - 로그인이 손상 되었는지 확인
 
 ## <a name="unblocking-users"></a>사용자 차단 해제

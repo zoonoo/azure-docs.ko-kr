@@ -1,25 +1,13 @@
 ---
 title: Azure Service Bus 메시징 예외 | Microsoft Docs
 description: 이 문서에서는 예외 발생 시 수행할 수 있는 Azure Service Bus 메시징 예외 및 제안 된 작업 목록을 제공 합니다.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: aschhab
-ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: dd57938c24565257aefebc89a8b070865e6791af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341649"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
 이 문서에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
@@ -29,7 +17,7 @@ ms.locfileid: "82739350"
 
 1. 사용자 코딩 오류 ([ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx))를 사용 합니다. 일반 조치: 코드를 수정한 후 계속합니다.
 2. 설치/구성 오류 ([ServiceBus. microsoft.servicebus.messaging.messagingentitynotfoundexception](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [system.unauthorizedaccessexception](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 일반 조치: 구성을 검토하고 필요한 경우 변경합니다.
-3. 일시적인 예외 ([ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [ServiceBus, ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception))를 통해 처리 될 것입니다. 일반 조치: 작업을 다시 시도하거나 사용자에게 알립니다. 클라이언트 `RetryPolicy` SDK의 클래스는 다시 시도를 자동으로 처리 하도록 구성할 수 있습니다. 자세한 내용은 [다시 시도 지침](/azure/architecture/best-practices/retry-service-specific#service-bus)을 참조 하세요.
+3. 일시적인 예외 ([ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [ServiceBus, ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception))를 통해 처리 될 것입니다. 일반 조치: 작업을 다시 시도하거나 사용자에게 알립니다. `RetryPolicy`클라이언트 SDK의 클래스는 다시 시도를 자동으로 처리 하도록 구성할 수 있습니다. 자세한 내용은 [다시 시도 지침](/azure/architecture/best-practices/retry-service-specific#service-bus)을 참조 하세요.
 4. 기타 예외 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). 일반 작업: 예외 형식에만 적용 됩니다. 다음 섹션의 표를 참조 하세요. 
 
 ## <a name="exception-types"></a>예외 유형
@@ -76,7 +64,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 ### <a name="namespaces"></a>네임스페이스
 
-네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들면 다음과 같습니다.
+네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들어:
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -149,7 +137,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 
 ### <a name="resolution"></a>해결 방법
 
-**Socketexception** 오류는 응용 프로그램을 호스트 하는 VM이 이름을 `<mynamespace>.servicebus.windows.net` 해당 IP 주소로 변환할 수 없음을 의미 합니다. 
+**Socketexception** 오류는 응용 프로그램을 호스트 하는 VM이 이름을 해당 IP 주소로 변환할 수 없음을 의미 합니다 `<mynamespace>.servicebus.windows.net` . 
 
 아래 명령에서 IP 주소에 대 한 매핑에 성공 했는지 확인 합니다.
 

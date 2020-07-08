@@ -4,17 +4,16 @@ description: Data Lake Storage Gen2용 HDFS CLI 소개
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9c5b1d38e32ff0a0d0954064c8a2511d898d16e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84462926"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
@@ -56,17 +55,17 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
     hdfs dfs -ls <path>
 
-자리 표시자 `<path>` 를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉니다.
+`<path>`자리 표시자를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉니다.
 
-`hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+예: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
     hdfs dfs -mkdir [-p] <path>
 
-자리 표시자 `<path>` 를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
+`<path>`자리 표시자를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
 
-`hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+예: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>파일 또는 디렉터리 삭제
 
@@ -74,13 +73,13 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>` 자리 표시자를 삭제하려는 파일 또는 폴더의 URI로 바꿉니다.
 
-`hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+예: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>파일 및 디렉터리의 Access Control Lists(ACL) 표시
 
     hdfs dfs -getfacl [-R] <path>
 
-예제:
+예:
 
 `hdfs dfs -getfacl -R /dir`
 
@@ -90,7 +89,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
     hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
 
-예제:
+예:
 
 `hdfs dfs -setfacl -m user:hadoop:rw- /file`
 

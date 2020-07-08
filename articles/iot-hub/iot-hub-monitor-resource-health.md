@@ -1,20 +1,18 @@
 ---
 title: Azure IoT Hub의 상태 모니터링 | Microsoft Docs
 description: Azure Monitor 및 Azure Resource Health를 사용하여 IoT Hub를 모니터링하고 신속하게 문제 진단
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 04/21/2020
+ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792044"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
@@ -32,8 +30,6 @@ IoT Hub는 IoT 리소스의 상태를 이해하는 데 사용할 수 있는 자�
 ## <a name="use-azure-monitor"></a>Azure Monitor 사용
 
 Azure Monitor는 Azure 리소스에 대한 진단 정보를 제공합니다. 즉, IoT 허브 내에서 발생하는 작업을 모니터링할 수 있습니다.
-
-Azure Monitor의 진단 설정은 IoT Hub 작업 모니터를 대체합니다. 현재 작업 모니터링을 사용하는 경우 워크플로를 마이그레이션해야 합니다. 자세한 내용은 [작업 모니터링에서 진단 설정으로 마이그레이션](iot-hub-migrate-to-diagnostics-settings.md)을 참조하세요.
 
 Azure Monitor에서 감시하는 특정 메트릭 및 이벤트에 대해 자세히 알아보려면 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/platform/metrics-supported.md) 및 [Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주](../azure-monitor/platform/diagnostic-logs-schema.md)를 참조하세요.
 
@@ -121,11 +117,11 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 #### <a name="routes"></a>경로
 
-메시지 라우팅 범주는 IoT Hub에서 감지하는 대로 메시지 경로 평가 및 엔드포인트 상태 중에 발생한 오류를 추적합니다. 이 범주는 다음과 같은 이벤트를 포함합니다.
+[메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) 범주는 IoT Hub에서 인식 되는 메시지 경로 평가 및 끝점 상태에서 발생 하는 오류를 추적 합니다. 이 범주는 다음과 같은 이벤트를 포함합니다.
 
 * 규칙에서 "정의되지 않음"으로 평가,
 * IoT Hub에서 엔드포인트를 데드로 표시 또는
-* 엔드포인트에서 받은 모든 오류 
+* 엔드포인트에서 받은 모든 오류
 
 이 범주는 메시지 자체에 대한 특정 오류(예: 디바이스 제한 오류)를 포함하지 않습니다. 해당 오류는 "디바이스 원격 분석" 범주 아래에서 보고됩니다.
 
@@ -134,17 +130,24 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
     "records":
     [
         {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "endpointUnhealthy",
-            "category": "Routes",
-            "level": "Error",
-            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-            "location": "Resource location"
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
         }
     ]
 }
 ```
+
+진단 로그 라우팅에 대 한 자세한 내용은 다음과 같습니다.
+
+* [라우팅 진단 로그 오류 코드 목록](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [라우팅 진단 로그의 operationNames 목록](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### <a name="device-telemetry"></a>디바이스 원격 분석
 
@@ -315,7 +318,7 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 분산 추적 범주는 추적 컨텍스트 헤더를 전달하는 메시지의 상관 관계 ID를 추적합니다. 이러한 로그를 완전히 사용 하도록 설정 하려면 [IoT Hub 분산 추적 (미리 보기)을 사용 하 여 종단 간 IoT 응용 프로그램 분석 및 진단을](iot-hub-distributed-tracing.md)수행 하 여 클라이언트 쪽 코드를 업데이트 해야 합니다.
 
-는 `correlationId` [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 제안서를 준수 `span-id`합니다. 여기에는 및가 `trace-id` 포함 됩니다.
+는 `correlationId` [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 제안서를 준수 합니다. 여기에는 및가 포함 `trace-id` `span-id` 됩니다.
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C(디바이스-클라우드) 로그
 
@@ -344,7 +347,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 
 여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
 | **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
@@ -378,10 +381,10 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | 문자열 | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
-| **parentSpanId** | 문자열 | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
+| **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub 송신 로그
 
@@ -410,11 +413,11 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | 문자열 | 라우팅 엔드포인트의 이름입니다. |
-| **endpointType** | 문자열 | 라우팅 엔드포인트의 유형입니다. |
-| **parentSpanId** | 문자열 | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
+| **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |
+| **parentSpanId** | String | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 #### <a name="configurations"></a>구성
 
@@ -543,7 +546,7 @@ IoT Hub의 상태를 확인하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Service Health** > **리소스 상태**로 이동 합니다.
+2. **Service Health**  >  **리소스 상태**로 이동 합니다.
 
 3. 드롭다운 상자에서 구독을 선택한 다음 리소스 유형으로 **IoT Hub** 를 선택 합니다.
 

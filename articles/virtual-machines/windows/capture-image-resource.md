@@ -9,12 +9,11 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 1b72be91ee11ef7003e225fe830a59ea42310ac6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: cf8d4cd3c70e28a6c70ab9321a8f55271ead754f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807505"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -26,7 +25,7 @@ ms.locfileid: "83656690"
 
 Sysprep은 모든 개인 계정 및 보안 정보를 제거한 다음 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
 
-가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) 및 [지원되지 않는 시나리오](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios)를 참조하세요.
+가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) 및 [지원되지 않는 시나리오](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios)를 참조하세요. Sysprep을 실행 하려면 드라이브의 암호를 완전히 해독 해야 합니다. VM에서 암호화를 사용 하도록 설정한 경우 Sysprep를 실행 하기 전에 암호화를 사용 하지 않도록 설정 합니다.
 
 > [!IMPORTANT]
 > VM에서 Sysprep을 실행하고 나면 해당 VM은 *일반화*된 것으로 간주되므로 다시 시작할 수 없습니다. VM 일반화 프로세스는 되돌릴 수 없습니다. 원래 VM을 작동하는 상태로 유지해야 하는 경우에는 [VM의 복사본](create-vm-specialized.md#option-3-copy-an-existing-azure-vm)을 만들고 복사본을 일반화해야 합니다. 
@@ -87,7 +86,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 
 
-## <a name="create-an-image-of-a-vm-using-powershell"></a>Powershell을 사용하여 VM 이미지 만들기
+## <a name="create-an-image-of-a-vm-using-powershell"></a>PowerShell을 사용 하 여 VM 이미지 만들기
 
  
 
@@ -178,7 +177,7 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Powershell을 사용하여 스냅샷에서 이미지 만들기
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>PowerShell을 사용 하 여 스냅숏에서 이미지 만들기
 
 다음 단계를 수행하면 일반화된 VM의 스냅샷에서 관리되는 이미지를 만들 수 있습니다.
 

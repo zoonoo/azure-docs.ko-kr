@@ -3,16 +3,15 @@ title: Azure 파일 동기화 배포 | Microsoft Docs
 description: Azure 파일 동기화를 배포하는 방법을 처음부터 끝까지 알아봅니다.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515363"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -23,14 +22,14 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 * Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
-* Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 Windows Server 버전에 대 한 자세한 내용은 [Windows server와의 상호 운용성](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
+* Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
 * Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure File Sync에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell 원격을 통해 수행할 수 있습니다. Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. \* **$PSVersionTable** 개체의 **PSVersion** 속성 값을 확인 합니다.
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Windows Server 2012 R2를 처음 설치하면 대부분이 그렇듯이, PSVersion 값이 5.1.\*보다 낮으면 [WMF(Windows Management Framework) 5.1](https://www.microsoft.com/download/details.aspx?id=54616)을 다운로드한 후 설치하여 쉽게 업그레이드할 수 있습니다. Windows Server 2012 r 2 용으로 다운로드 하 고 설치할 수 있는 적절 한 패키지는 **win\*\*\*\*\*\*\*8.1 andw2k12r2**입니다. 
+    Windows Server 2012 R2를 처음 설치하면 대부분이 그렇듯이, PSVersion 값이 5.1.\*보다 낮으면 [WMF(Windows Management Framework) 5.1](https://www.microsoft.com/download/details.aspx?id=54616)을 다운로드한 후 설치하여 쉽게 업그레이드할 수 있습니다. Windows Server 2012 r 2 용으로 다운로드 하 고 설치할 수 있는 적절 한 패키지는 **win \* \* \* \* \* \* \* 8.1 andw2k12r2**입니다. 
 
     PowerShell 6 +는 지원 되는 모든 시스템에서 사용할 수 있으며 [GitHub 페이지](https://github.com/PowerShell/PowerShell#get-powershell)를 통해 다운로드할 수 있습니다. 
 
@@ -40,7 +39,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 * PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2 이상 버전이 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
 
     > [!Important]  
-    > Windows Server Core에 .NET 4.7.2 +를 설치 하는 경우 `quiet` 및 `norestart` 플래그를 사용 하 여 설치 해야 합니다. 그렇지 않으면 설치에 실패 합니다. 예를 들어 .NET 4.8을 설치 하는 경우 명령은 다음과 같습니다.
+    > Windows Server Core에 .NET 4.7.2 +를 설치 하는 경우 및 플래그를 사용 하 여 설치 해야 합니다 `quiet` `norestart` . 그렇지 않으면 설치에 실패 합니다. 예를 들어 .NET 4.8을 설치 하는 경우 명령은 다음과 같습니다.
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
@@ -109,7 +108,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 작업이 끝나면 **만들기**를 선택하여 스토리지 동기화 서비스를 배포합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-, `<Az_Region>` `<RG_Name>`및 `<my_storage_sync_service>` 를 고유한 값으로 바꾼 후 다음 명령을 사용 하 여 저장소 동기화 서비스를 만들고 배포 합니다.
+`<Az_Region>`, `<RG_Name>` 및를 고유한 값으로 바꾼 `<my_storage_sync_service>` 후 다음 명령을 사용 하 여 저장소 동기화 서비스를 만들고 배포 합니다.
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -366,7 +365,7 @@ if ($cloudTieringDesired) {
 1. **액세스 허용에서** **선택한 네트워크** 를 선택 합니다.
 1. 해당 하는 섹션 아래에 서버 IP 또는 가상 네트워크가 나열 되어 있는지 확인 합니다.
 1. **신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용** 이 선택 되어 있는지 확인 합니다.
-1. **저장** 을 선택 하 여 설정을 저장 합니다.
+1. **저장**을 선택하여 설정을 저장합니다.
 
 ![Azure File sync를 사용 하도록 방화벽 및 가상 네트워크 설정 구성](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 

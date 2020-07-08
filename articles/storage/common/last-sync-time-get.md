@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4309f1dc63ac7dd96e22f4564a32aae6ed59ad84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195796"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>스토리지 계정에 대한 마지막 동기화 시간 속성 확인
 
@@ -37,13 +36,7 @@ PowerShell 또는 Azure CLI를 사용하여 **마지막 동기화 시간** 속�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell을 사용하여 스토리지 계정의 마지막 동기화 시간을 가져오려면 지역 복제 상태 가져오기를 지원하는 Az.Storage 모듈 버전을 설치합니다. 다음은 그 예입니다.
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
-```
-
-그런 다음, 스토리지 계정의 **GeoReplicationStats.LastSyncTime** 속성을 확인합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 [Az. storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈의 버전 1.11.0 이상을 설치 합니다. 그런 다음, 스토리지 계정의 **GeoReplicationStats.LastSyncTime** 속성을 확인합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

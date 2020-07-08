@@ -7,18 +7,17 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74076999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803628"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -42,7 +41,7 @@ ms.locfileid: "74076999"
 - Azure Load Balancer는 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출하는 데 사용됩니다. 프런트 엔드 주소는 트래픽을 각 웹 사이트의 각 IP 구성에 분산하는 데 사용됩니다.
 - 프런트 엔드 IP 주소와 백 엔드 풀 IP 주소 모두에 동일한 포트 번호가 사용됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시나리오 예제에서는 다음과 같이 구성된 **contosofabrikam**이라는 리소스 그룹이 있다고 가정합니다.
 
@@ -88,7 +87,7 @@ ms.locfileid: "74076999"
 
 1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
-2. 화면 왼쪽 위에서 **리소스** > 만들기**네트워킹** > **Load Balancer**를 선택 합니다. 다음 **만들기**를 선택합니다.
+2. 화면 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **Load Balancer**를 선택 합니다. 다음 **만들기**를 선택합니다.
 
 3. **부하 분산 장치 만들기**에 부하 분산 장치의 이름을 입력합니다. 이 시나리오에는 **mylb**라는 이름이 사용됩니다.
 

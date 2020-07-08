@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory에서 Azure SSIS(SQL Server Integration Services)와 함께 Azure SQL Database Managed Instance 사용
-description: Azure Data Factory에서 SSIS(SQL Server Integration Services)와 함께 Azure SQL Database Managed Instance를 사용하는 방법을 알아봅니다.
+title: Azure Data Factory에서 azure SQL Managed Instance를 Azure SQL Server Integration Services (SSIS)와 함께 사용
+description: Azure Data Factory에서 SQL Server Integration Services (SSIS)를 사용 하 여 Azure SQL Managed Instance를 사용 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,30 +11,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 74cad0ab9ffc3eb05219cb9e2c2585e73498c9bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663541"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195377"
 ---
-# <a name="use-azure-sql-database-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SSIS(SQL Server Integration Services)와 함께 Azure SQL Database Managed Instance 사용
+# <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server Integration Services (SSIS)를 사용 하 여 Azure SQL Managed Instance 사용
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-이제 SSIS(SQL Server Integration Services) 프로젝트 및 워크로드를 Azure 클라우드로 이동할 수 있습니다. SSMS(SQL Server Management Studio)와 같은 친숙한 도구를 사용하여 SQL Database Managed Instance 또는 Azure SQL Database에서 SSIS 프로젝트와 패키지를 배포, 실행 및 관리합니다. 이 문서에서는 Azure-SSIS IR(통합 런타임)에서 Azure SQL Database Managed Instance를 사용할 때 다음과 같은 특정 영역을 강조합니다.
+이제 SSIS(SQL Server Integration Services) 프로젝트 및 워크로드를 Azure 클라우드로 이동할 수 있습니다. SSMS (SQL Server Management Studio)와 같은 친숙 한 도구를 사용 하 여 Azure SQL Database 또는 SQL Managed Instance에서 SSIS 프로젝트 및 패키지를 배포, 실행 및 관리 합니다. 이 문서에서는 azure SSIS IR (통합 런타임)을 사용 하 여 Azure SQL Managed Instance를 사용 하는 경우 다음과 같은 특정 영역을 강조 합니다.
 
-- [Azure SQL Database Managed Instance에서 호스트하는 SSIS 카탈로그(SSISDB)를 사용하여 Azure-SSIS IR 프로비저닝](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
+- [Azure SQL Managed Instance에서 호스트 하는 SSISDB (SSIS 카탈로그)를 사용 하 여 Azure-SSIS IR 프로 비전](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Azure SQL Managed Instance 에이전트 작업으로 SSIS 패키지 실행](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Azure SQL Managed Instance 에이전트 작업으로 SSISDB 로그 정리](#clean-up-ssisdb-logs)
-- [Azure SQL Database Managed Instance를 사용한 Azure-SSIS IR 장애 조치(failover)](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Azure SQL Database Managed Instance를 데이터베이스 워크로드 대상으로 사용하여 ADF의 SSIS로 온-프레미스 SSIS 워크로드 마이그레이션](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
+- [Azure SQL Managed Instance를 사용 하 여 장애 조치 (failover) Azure-SSIS IR](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Azure SQL Managed Instance를 데이터베이스 작업 대상으로 사용 하 여 ADF의 SSIS로 온-프레미스 SSIS 작업 마이그레이션](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
-## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에서 호스트하는 SSISDB를 사용하여 Azure-SSIS IR 프로비저닝
+## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 호스트 하는 SSISDB를 사용 하 여 Azure-SSIS IR 프로 비전
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-1. Azure Active Directory 인증을 선택하는 경우 [Azure SQL Database Managed Instance에서 Azure AD(Azure Active Directory)를 사용하도록 설정](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance)합니다.
+1. Azure Active Directory 인증을 선택 하는 경우 [AZURE SQL Managed Instance에서 Azure Active Directory (AZURE AD)를 사용 하도록 설정](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)합니다.
 
 1. 프라이빗 엔드포인트 또는 퍼블릭 엔드포인트를 통해 SQL Managed Instance를 연결하는 방법을 선택합니다.
 
@@ -44,13 +43,13 @@ ms.locfileid: "83663541"
             - **다른 서브넷**을 사용하여 SQL Managed Instance와 동일한 가상 네트워크 내부에서.
             - 가상 네트워크 피어링(글로벌 VNet 피어링 제약 조건으로 인해 동일한 지역으로 제한됨) 또는 가상 네트워크 간 연결을 통해 SQL Managed Instance와는 다른 가상 네트워크 내부에서.
 
-            SQL Managed Instance 연결에 관한 자세한 내용은 [Azure SQL Database Managed Instance에 애플리케이션 연결](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app)을 참조하세요.
+            SQL 관리 되는 인스턴스 연결에 대 한 자세한 내용은 [AZURE sql Managed Instance에 응용 프로그램 연결](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app)을 참조 하세요.
 
         1. [가상 네트워크를 구성합니다](#configure-virtual-network).
 
     - 퍼블릭 엔드포인트를 통해
 
-        Azure SQL Database Managed Instance는 [퍼블릭 엔드포인트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)를 통해 연결을 제공할 수 있습니다. SQL Managed Instance와 Azure-SSIS IR 간에 트래픽을 허용하려면 인바운드 및 아웃바운드 요구 사항을 충족해야 합니다.
+        Azure SQL 관리 되는 인스턴스는 [공용 끝점](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)을 통해 연결을 제공할 수 있습니다. SQL Managed Instance와 Azure-SSIS IR 간에 트래픽을 허용하려면 인바운드 및 아웃바운드 요구 사항을 충족해야 합니다.
 
         - Azure-SSIS IR이 가상 네트워크 내부에 없는 경우(기본 설정)
 
@@ -90,8 +89,8 @@ ms.locfileid: "83663541"
     1. 가상 네트워크의 리소스 그룹이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인합니다.
 
         Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 해당 리소스는 다음과 같습니다.
-        - 이름이 *\<Guid>-azurebatch-cloudserviceloadbalancer*인 Azure Load Balancer
-        - 이름이 *\<Guid>-azurebatch-cloudservicenetworksecuritygroup인 네트워크 보안 그룹
+        - 이름이 * \<Guid> -azurebatch-cloudserviceloadbalancer* 인 Azure 부하 분산 장치
+        - 이름이 * \<Guid> -azurebatch-cloudservicenetworksecuritygroup 인 네트워크 보안 그룹
         - 이름이 -azurebatch-cloudservicepublicip인 Azure 퍼블릭 IP 주소
 
         해당 리소스는 Azure-SSIS IR이 시작될 때 생성됩니다. Azure-SSIS IR이 중지될 때 삭제됩니다. Azure-SSIS IR 중지가 차단되지 않게 하려면 다른 리소스에서 해당 네트워크 리소스를 다시 사용하지 마세요.
@@ -147,7 +146,7 @@ ms.locfileid: "83663541"
 
     ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    Azure AD 인증을 사용하도록 설정하는 방법에 관한 자세한 내용은 [Azure SQL Database Managed Instance에서 Azure AD 사용](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance)을 참조하세요.
+    Azure AD 인증을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [AZURE SQL Managed Instance에서 AZURE Ad 사용](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)을 참조 하세요.
 
 1. 적용되는 경우 Azure-SSIS IR을 가상 네트워크에 조인합니다.
 

@@ -3,12 +3,11 @@ title: Azure Resource Health 개요
 description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: f0d2fdb8e1c8b92dba526650405405db8ae8a776
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80159254"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041577"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
  
@@ -18,7 +17,7 @@ Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 �
 
 ## <a name="resource-definition-and-health-assessment"></a>리소스 정의 및 상태 평가
 
-*리소스* 는 가상 머신, 웹 앱 또는 SQL database와 같은 Azure 서비스의 특정 인스턴스입니다. Resource Health는 서로 다른 Azure 서비스의 신호에 의존 하 여 리소스가 정상 인지 여부를 평가 합니다. 리소스가 정상이 아니면 Resource Health에서 추가 정보를 분석하여 문제 원인을 파악합니다. 또한 Microsoft가 문제를 해결 하기 위해 수행 하는 작업을 보고 하 고 해결 하기 위해 수행할 수 있는 작업을 식별 합니다.
+*리소스* 는 가상 머신, 웹 앱 또는 SQL Database와 같은 Azure 서비스의 특정 인스턴스입니다. Resource Health는 서로 다른 Azure 서비스의 신호에 의존 하 여 리소스가 정상 인지 여부를 평가 합니다. 리소스가 정상이 아니면 Resource Health에서 추가 정보를 분석하여 문제 원인을 파악합니다. 또한 Microsoft가 문제를 해결 하기 위해 수행 하는 작업을 보고 하 고 해결 하기 위해 수행할 수 있는 작업을 식별 합니다.
 
 상태를 평가 하는 방법에 대 한 자세한 내용은 [Azure Resource Health](resource-health-checks-resource-types.md)에서 리소스 유형 및 상태 검사 목록을 참조 하세요.
 
@@ -80,7 +79,7 @@ Resource Health의 **상태 기록** 섹션에서 최대 30 일 동안의 기록
 
 ![지난 2주 동안의 Resource Health 이벤트 목록](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 하나의 리소스에 대한 Resource Health를 열려면:
 

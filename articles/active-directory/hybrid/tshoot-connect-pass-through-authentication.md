@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60456180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356154"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -44,7 +43,7 @@ ms.locfileid: "60456180"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|Error|Description|해결 방법
+|Error|설명|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
@@ -52,13 +51,40 @@ ms.locfileid: "60456180"
 |AADSTS80005|유효성 검사 중 예측할 수 없는 WebException 발생|일시적인 오류입니다. 요청을 다시 시도하십시오. 계속 실패할 경우 Microsoft 지원에 문의하세요.
 |AADSTS80007|Active Directory와 통신 중 오류 발생|에이전트 로그에서 자세한 정보를 확인하고 Active Directory가 예상대로 작동하는지 확인합니다.
 
+### <a name="users-get-invalid-usernamepassword-error"></a>사용자가 잘못 된 사용자 이름/암호 오류를 가져옵니다. 
+
+사용자의 온-프레미스 UserPrincipalName (UPN)이 사용자의 클라우드 UPN과 다른 경우에 발생할 수 있습니다.
+
+이것이 문제 인지 확인 하려면 먼저 통과 인증 에이전트가 제대로 작동 하는지 테스트 합니다.
+
+
+1. 테스트 계정을 만듭니다.  
+2. 에이전트 컴퓨터에서 PowerShell 모듈을 가져옵니다.
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Invoke PowerShell 명령을 실행 합니다. 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. 자격 증명을 입력 하 라는 메시지가 표시 되 면에 로그인 하는 데 사용 되는 것과 동일한 사용자 이름 및 암호를 입력 https://login.microsoftonline.com) 합니다.
+
+동일한 사용자 이름/암호 오류가 표시 되 면 통과 인증 에이전트가 제대로 작동 하 고 온-프레미스 UPN을 라우팅할 수 없는 문제일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)을 참조 하세요.
+
+
+
+
+
+
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유(프리미엄 라이선스 필요)
 
 테넌트에 연결된 Azure AD Premium 라이선스가 있는 경우 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 [로그인 활동 보고서](../reports-monitoring/concept-sign-ins.md)를 볼 수도 있습니다.
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-[Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 **Azure Active Directory** -> **로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+**Azure Active Directory**  ->  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 Azure Active Directory**로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---

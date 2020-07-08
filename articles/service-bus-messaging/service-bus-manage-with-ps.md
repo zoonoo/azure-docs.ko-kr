@@ -1,25 +1,13 @@
 ---
 title: PowerShell을 사용한 Azure Service Bus 리소스 관리 | Microsoft Docs
 description: 이 문서에서는 Azure PowerShell 모듈을 사용 하 여 Service Bus 엔터티 (네임 스페이스, 큐, 토픽, 구독)를 만들고 관리 하는 방법을 설명 합니다.
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 8605e269f09e4fedf7a61817a3634e75081593ca
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341742"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell을 사용하여 Service Bus 리소스 관리
 
@@ -33,7 +21,7 @@ Azure Resource Manager 템플릿을 사용하여 Service Bus 엔터티를 관리
 
 시작하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
-* Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][purchase options], [구성원 제안][member offers] 또는 [무료 계정][free account]을 참조하세요.
+* Azure 구독 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][purchase options], [구성원 제안][member offers] 또는 [무료 계정][free account]을 참조하세요.
 * Azure PowerShell이 설치된 컴퓨터 관련 지침은 [Azure PowerShell Cmdlet 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
