@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76717653"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026069"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
@@ -40,19 +40,26 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](https://pandas.pydata.org/) �
 다음 두 항목은 SQL Server에서 `newid`를 사용하여 샘플링을 수행하는 방법을 보여줍니다. 선택할 수 있는 메서드는 샘플을 원하는 난수의 (다음 샘플 코드에서 pk_id 자동 생성 된 기본 키로 가정)에 따라 달라 집니다.
 
 1. 낮은 수준 무작위 샘플
-   
-        select  * from <table_name> where <primary_key> in 
-        (select top 10 percent <primary_key> from <table_name> order by newid())
+
+    ```sql
+    select  * from <table_name> where <primary_key> in 
+    (select top 10 percent <primary_key> from <table_name> order by newid())
+    ```
+
 2. 높은 수준 무작위 샘플 
-   
-        SELECT * FROM <table_name>
-        WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
+
+    ```sql
+    SELECT * FROM <table_name>
+    WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
+    ```
 
 데이터를 샘플링하는 데도 Tablesample을 사용할 수 있습니다. 이 옵션은 데이터 크기가 큰 경우 (서로 다른 페이지에 있는 데이터의 상관 관계가 없는 것으로 가정), 쿼리가 적절 한 시간 내에 완료 되는 경우 더 나은 방법일 수 있습니다.
 
-    SELECT *
-    FROM <table_name> 
-    TABLESAMPLE (10 PERCENT)
+```sql
+SELECT *
+FROM <table_name> 
+TABLESAMPLE (10 PERCENT)
+```
 
 > [!NOTE]
 > 이 샘플링된 데이터를 새 테이블에 저장하여 기능을 탐색하고 생성할 수 있습니다.
@@ -67,16 +74,20 @@ Azure Machine Learning [데이터 가져오기][import-data] 모듈에서 위의
 ## <a name="using-the-python-programming-language"></a><a name="python"></a>Python 프로그래밍 언어 사용
 이 섹션에서는 [pyodbc 라이브러리](https://code.google.com/p/pyodbc/)를 사용하여 Python에서 SQL server 데이터베이스에 ODBC 연결을 설정하는 방법을 보여줍니다. 데이터베이스 연결 문자열은 다음과 같습니다. (servername, dbname, username 및 password를 사용자의 구성으로 바꿉니다.)
 
-    #Set up the SQL Azure connection
-    import pyodbc    
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```python
+#Set up the SQL Azure connection
+import pyodbc    
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```
 
 Python의 [Pandas](https://pandas.pydata.org/) 라이브러리에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 다음 코드는 Azure SQL Database의 테이블에서 데이터의 0.1% 샘플을 Pandas 데이터로 읽습니다.
 
-    import pandas as pd
+```python
+import pandas as pd
 
-    # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
+# Query database and load the returned results in pandas data frame
+data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
+```
 
 이제 Pandas 데이터 프레임에서 샘플링된 데이터로 작업할 수 있습니다. 
 
@@ -84,29 +95,35 @@ Python의 [Pandas](https://pandas.pydata.org/) 라이브러리에서는 Python �
 다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. [데이터 가져오기][import-data] 모듈을 사용하여 Blob의 데이터를 Azure Machine Learning 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다. 
 
 1. pandas 데이터 프레임을 로컬 파일에 기록합니다.
-   
-        dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+
+    ```python
+    dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+    ```
+
 2. 로컬 파일을 Azure Blob에 업로드합니다.
-   
-        from azure.storage import BlobService
-        import tables
-   
-        STORAGEACCOUNTNAME= <storage_account_name>
-        LOCALFILENAME= <local_file_name>
-        STORAGEACCOUNTKEY= <storage_account_key>
-        CONTAINERNAME= <container_name>
-        BLOBNAME= <blob_name>
-   
-        output_blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)    
-        localfileprocessed = os.path.join(os.getcwd(),LOCALFILENAME) #assuming file is in current working directory
-   
-        try:
-   
-        #perform upload
-        output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
-   
-        except:            
-            print ("Something went wrong with uploading blob:"+BLOBNAME)
+
+    ```python
+    from azure.storage import BlobService
+    import tables
+
+    STORAGEACCOUNTNAME= <storage_account_name>
+    LOCALFILENAME= <local_file_name>
+    STORAGEACCOUNTKEY= <storage_account_key>
+    CONTAINERNAME= <container_name>
+    BLOBNAME= <blob_name>
+
+    output_blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)    
+    localfileprocessed = os.path.join(os.getcwd(),LOCALFILENAME) #assuming file is in current working directory
+
+    try:
+
+    #perform upload
+    output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
+
+    except:            
+        print ("Something went wrong with uploading blob:"+BLOBNAME)
+    ```
+
 3. 다음 화면에 표시된 대로 Azure Machine Learning [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 
 ![판독기 blob][2]

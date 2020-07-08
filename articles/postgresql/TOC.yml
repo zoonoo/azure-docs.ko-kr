@@ -67,7 +67,7 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -112,6 +112,8 @@
               href: concepts-data-access-and-security-private-link.md
             - name: 데이터 암호화
               href: concepts-data-encryption-postgresql.md
+            - name: 인프라 이중 암호화
+              href: concepts-infrastructure-double-encryption.md
             - name: 보안 기준
               href: security-baseline.md
         - name: 비즈니스 연속성
@@ -307,6 +309,10 @@
               href: howto-data-encryption-cli.md
             - name: 데이터 암호화 유효성 검사
               href: howto-data-encryption-validation.md
+        - name: 인프라 이중 암호화
+          items:
+            - name: 인프라 이중 암호화 구성
+              href: howto-double-encryption.md
         - name: 서버 다시 시작
           items:
             - name: Azure portal

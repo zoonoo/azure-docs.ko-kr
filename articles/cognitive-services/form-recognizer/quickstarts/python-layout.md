@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: c84e36f668a9b5cd7fdb61103300d971fdf6c0fa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 62cbaec3e4eaffb9ff3b29e97516ed7e039b38ff
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563075"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028102"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>빠른 시작: Python과 Form Recognizer REST API를 사용하여 텍스트 및 레이아웃 정보 추출
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 양식 문서입니다. 이 빠른 시작에 대한 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)에서 이미지를 다운로드할 수 있습니다.
 
 > [!NOTE]
-> 이 빠른 시작에서는 로컬에 저장된 문서를 사용합니다. URL로 액세스하는 원격 파일을 사용하는 방법을 알아보려면 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)를 참조하세요.
+> 이 빠른 시작에서는 로컬에 저장된 문서를 사용합니다. URL로 액세스하는 원격 파일을 사용하는 방법을 알아보려면 [참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)를 참조하세요.
 
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="analyze-the-form-layout"></a>양식 레이아웃 분석
 
-레이아웃 분석을 시작하기 위해, 아래 Python 스크립트를 사용하여 **[Analyze Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
+레이아웃 분석을 시작하기 위해, 아래 Python 스크립트를 사용하여 **[Analyze Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
 
 1. `<Endpoint>`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `<path to your form>`을 로컬 양식 문서에 대한 경로로 바꿉니다.
@@ -90,7 +90,7 @@ https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e
 
 ## <a name="get-the-layout-results"></a>레이아웃 결과 가져오기
 
-**Analyze Layout** API를 호출한 후 **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** API를 호출하여 작업의 상태와 추출된 데이터를 가져옵니다. Python 스크립트 맨 아래에 다음 코드를 추가합니다. 이 코드는 새 API 호출에서 작업 ID 값을 사용합니다. 이 스크립트는 결과를 사용할 수 있을 때까지 API를 일정한 간격으로 호출합니다. 1초 이상의 간격을 사용하는 것이 좋습니다.
+**Analyze Layout** API를 호출한 후 **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeLayoutResult)** API를 호출하여 작업의 상태와 추출된 데이터를 가져옵니다. Python 스크립트 맨 아래에 다음 코드를 추가합니다. 이 코드는 새 API 호출에서 작업 ID 값을 사용합니다. 이 스크립트는 결과를 사용할 수 있을 때까지 API를 일정한 간격으로 호출합니다. 1초 이상의 간격을 사용하는 것이 좋습니다.
 
 ```python
 n_tries = 10
@@ -283,4 +283,4 @@ while n_try < n_tries:
 이 빠른 시작에서는 Python과 Form Recognizer REST API를 사용하여 청구서의 텍스트 레이아웃을 추출했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)
+> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)

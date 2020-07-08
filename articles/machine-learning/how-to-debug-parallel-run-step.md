@@ -5,22 +5,22 @@ description: Python용 Azure Machine Learning SDK의 기계 학습 파이프라�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.topic: troubleshooting
+ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 01/15/2020
-ms.openlocfilehash: c4e2777f59bab8d7d874019004bff2e30395ab1d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723479"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027004"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>ParallelRunStep 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)에서 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) 클래스의 디버그 및 문제 해결 방법에 대해 알아봅니다.
+이 문서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)에서 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) 클래스의 디버그 및 문제 해결 방법에 대해 알아봅니다.
 
 ## <a name="testing-scripts-locally"></a>로컬에서 스크립트 테스트
 
@@ -40,7 +40,7 @@ ParallelRunStep 작업의 분산 특성으로 인해 여러 원본의 로그가 
 
 EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 생성된 로그는 다음 파일에 있습니다.
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: EntryScript 도우미를 사용하여 entry_script에서 작성된 로그입니다. Entry_script의 print 문(stdout)도 포함합니다.
+- `~/logs/user/<ip_address>/<node_name>.log.txt`: 이러한 파일은 EntryScript 도우미를 사용 하 여 entry_script에서 작성 한 로그입니다. Entry_script의 print 문(stdout)도 포함합니다.
 
 스크립트의 오류에 대한 간략한 해석은 다음과 같습니다.
 
@@ -52,13 +52,13 @@ EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 �
 
 각 노드가 점수 스크립트를 실행하는 방법을 완전히 해석하려면 각 노드에 대한 개별 프로세스 로그를 확인합니다. 프로세스 로그는 작업자 노드에서 그룹화한 `sys/node` 폴더에 있습니다.
 
-- `~/logs/sys/node/<node_name>.txt`: 이 파일은 작업자가 선택하거나 완료할 때 각각의 미니 일괄 처리에 대한 상세 정보를 제공합니다. 각 미니 일괄 처리에 대해 이 파일에는 다음이 포함됩니다.
+- `~/logs/sys/node/<node_name>.txt`:이 파일은 작업자에서 선택 하거나 완료할 때 각 미니 일괄 처리에 대 한 자세한 정보를 제공 합니다. 각 미니 일괄 처리에 대해 이 파일에는 다음이 포함됩니다.
 
     - 작업자 프로세스의 IP 주소 및 PID 
     - 전체 항목 수, 성공적으로 처리된 항목 수, 실패한 항목 수
     - 시작 시간, 기간, 처리 시간 및 실행 메서드 시간.
 
-각 작업자에 대한 프로세스의 리소스 사용 정보도 확인할 수 있습니다. 이 정보는 CSV 형식이며 `~/logs/sys/perf/overview.csv`에 있습니다. 각 프로세스에 대한 정보는 `~logs/sys/processes.csv`에서 사용할 수 있습니다.
+각 작업자에 대한 프로세스의 리소스 사용 정보도 확인할 수 있습니다. 이 정보는 CSV 형식이며 `~/logs/sys/perf/overview.csv`에 있습니다. 각 프로세스에 대 한 정보는에서 확인할 수 있습니다 `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>원격 컨텍스트의 내 사용자 스크립트는 어떻게 기록하나요?
 아래 샘플 코드에 표시된 것처럼 EntryScript에서 로거를 가져와 포털의 **logs/user** 폴더에 로그가 표시되게 할 수 있습니다.
@@ -87,7 +87,7 @@ def run(mini_batch):
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>조회 테이블을 포함하는 하나 이상의 파일 등, 측면 입력을 모든 작업자에게 전달하려면 어떻게 해야 하나요?
 
-측면 입력을 포함하는 [데이터 세트](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)를 생성하고 작업 영역에 등록합니다. `ParallelRunStep`의 `side_input` 매개 변수에 전달합니다. 또한 `arguments` 섹션에서 해당 경로를 추가하여 탑재된 경로에 쉽게 액세스할 수 있습니다.
+측면 입력을 포함하는 [데이터 세트](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)를 생성하고 작업 영역에 등록합니다. `ParallelRunStep`의 `side_input` 매개 변수에 전달합니다. 또한 섹션에 해당 경로를 추가 하 여 `arguments` 탑재 된 경로에 쉽게 액세스할 수 있습니다.
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -113,6 +113,6 @@ labels_path = args.labels_dir
 
 ## <a name="next-steps"></a>다음 단계
 
-* ParallelRunStep 클래스에 대한 [azureml-contrib-pipeline-step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) 패키지와 [설명서](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py)에 대한 도움말은 SDK 참조를 확인하세요.
+* [Azureml-파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요. ParallelRunStep 클래스에 대 한 참조 [설명서](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) 를 봅니다.
 
-* [고급 자습서](tutorial-pipeline-batch-scoring-classification.md)에서 ParallelRunStep에서의 파이프라인 사용과, 다른 파일을 측면 입력으로 전달하는 예제를 따르세요. 
+* ParallelRunStep와 함께 파이프라인 사용에 대 한 [고급 자습서](tutorial-pipeline-batch-scoring-classification.md) 를 따르세요. 이 자습서에서는 다른 파일을 측면 입력으로 전달 하는 방법을 보여 줍니다. 

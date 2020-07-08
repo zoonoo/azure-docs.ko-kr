@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 17d8c0157fcd478d01452167d240fb67daeeda5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e83536042df1cebb1bb22d6c18d99ae4c3d87873
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399666"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035652"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -17,11 +17,11 @@ ms.locfileid: "81399666"
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 speech sdk 문서의 <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">speech sdk <span class="docon docon-navigate-external x-hidden-focus"></span> 가져오기</a> 섹션에 나오는 지침을 따릅니다.
+작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 _SPEECH Sdk 정보_ 문서의 <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> 음성 sdk 가져오기</a> 섹션에 나오는 지침을 따릅니다.
 
 ## <a name="import-dependencies"></a>종속성 가져오기
 
-이 문서의 예제를 실행 하려면 python 코드 파일의 맨 `import` 위에 다음 문을 포함 합니다.
+이 문서의 예제를 실행 하려면 `import` python 코드 파일의 맨 위에 다음 문을 포함 합니다.
 
 ```python
 import os
@@ -30,7 +30,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="sensitive-data-and-environment-variables"></a>중요 한 데이터 및 환경 변수
 
-이 문서의 예제 소스 코드는 음성 리소스 구독 키 및 지역과 같은 중요 한 데이터를 저장 하는 환경 변수에 따라 달라 집니다. Python 코드 파일에는 호스트 컴퓨터 환경 변수에서 할당 된 두 값, 즉 `SPEECH__SUBSCRIPTION__KEY` 및 `SPEECH__SERVICE__REGION`가 포함 되어 있습니다. 이러한 변수는 모두 전역 범위에 있으므로 코드 파일의 함수 정의 내에서 액세스할 수 있습니다. 환경 변수에 대 한 자세한 내용은 [환경 변수 및 응용 프로그램 구성](../../../../cognitive-services-security.md#environment-variables-and-application-configuration)을 참조 하세요.
+이 문서의 예제 소스 코드는 음성 리소스 구독 키 및 지역과 같은 중요 한 데이터를 저장 하는 환경 변수에 따라 달라 집니다. Python 코드 파일에는 호스트 컴퓨터 환경 변수에서 할당 된 두 값, 즉 및가 포함 되어 있습니다 `SPEECH__SUBSCRIPTION__KEY` `SPEECH__SERVICE__REGION` . 이러한 변수는 모두 전역 범위에 있으므로 코드 파일의 함수 정의 내에서 액세스할 수 있습니다. 환경 변수에 대 한 자세한 내용은 [환경 변수 및 응용 프로그램 구성](../../../../cognitive-services-security.md#environment-variables-and-application-configuration)을 참조 하세요.
 
 ```python
 speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ['SPEECH__SERVICE__REGION']
@@ -62,7 +62,7 @@ def translate_speech_to_text():
 
 ## <a name="change-source-language"></a>소스 언어 변경
 
-음성 번역의 일반적인 작업 중 하나는 입력 (또는 원본) 언어를 지정 하는 것입니다. 입력 언어를 이탈리아어로 변경하는 방법을 살펴보겠습니다. 코드에서 [`SpeechTranslationConfig`][config] 인스턴스와 상호 작용 하 여 `speech_recognition_language` 속성에 할당 합니다.
+음성 번역의 일반적인 작업 중 하나는 입력 (또는 원본) 언어를 지정 하는 것입니다. 입력 언어를 이탈리아어로 변경하는 방법을 살펴보겠습니다. 코드에서 인스턴스와 상호 작용 하 여 [`SpeechTranslationConfig`][config] 속성에 할당 `speech_recognition_language` 합니다.
 
 ```python
 def translate_speech_to_text():
@@ -77,7 +77,7 @@ def translate_speech_to_text():
 
 ## <a name="add-translation-language"></a>번역 언어 추가
 
-음성 번역의 또 다른 일반적인 작업은 대상 번역 언어를 지정 하는 것이 고, 적어도 하나는 필요 하지만 다중 항목은 지원 되는 것입니다. 다음 코드 조각에서 프랑스어와 독일어를 모두 번역 언어로 대상으로 지정 합니다.
+음성 번역의 또 다른 일반적인 작업은 대상 번역 언어를 지정 하는 것이 고, 적어도 하나는 필요 하지만 다중 항목은 지원 되는 것입니다. 다음 코드 조각은 프랑스어와 독일어를 모두 번역 언어 대상으로 설정 합니다.
 
 ```python
 def translate_speech_to_text():
@@ -91,7 +91,7 @@ def translate_speech_to_text():
     translation_config.add_target_language("de")
 ```
 
-에 대 [`add_target_language`][addlang]한 모든 호출에서 새 대상 번역 언어를 지정 합니다. 즉, 소스 언어에서 음성이 인식 될 때 각 대상 변환은 결과 변환 작업의 일부로 사용할 수 있습니다.
+에 대 한 모든 호출 [`add_target_language`][addlang] 에서 새 대상 번역 언어를 지정 합니다. 즉, 소스 언어에서 음성이 인식 될 때 각 대상 변환은 결과 변환 작업의 일부로 사용할 수 있습니다.
 
 ## <a name="initialize-a-translation-recognizer"></a>변환 인식기 초기화
 
@@ -116,7 +116,7 @@ def translate_speech_to_text():
 > [!TIP]
 > [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
 
-먼저 다음과 같이 개체를 참조 `AudioConfig` 합니다.
+먼저 다음과 같이 개체를 참조 합니다 `AudioConfig` .
 
 ```python
 def translate_speech_to_text():
@@ -132,7 +132,7 @@ def translate_speech_to_text():
             translation_config=translation_config, audio_config=audio_config)
 ```
 
-마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audioConfig`를 제공해야 합니다. 그러나를 [`AudioConfig`][audioconfig]만들 때를 `use_default_microphone=True`사용 하 여를 호출 하는 대신를 사용 `filename="path-to-file.wav"` 하 여를 호출 `filename` 하 고 매개 변수를 제공 합니다.
+마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audioConfig`를 제공해야 합니다. 그러나를 만들 때를 사용 하 여를 호출 하는 대신를 사용 하 여를 [`AudioConfig`][audioconfig] `use_default_microphone=True` 호출 하 `filename="path-to-file.wav"` 고 `filename` 매개 변수를 제공 합니다.
 
 ```python
 def translate_speech_to_text():
@@ -191,14 +191,14 @@ translate_speech_to_text()
 
 ## <a name="synthesize-translations"></a>번역 합성
 
-음성 인식 및 번역이 성공적으로 완료 되 면 결과에 사전에 있는 모든 번역이 포함 됩니다. [`translations`][translations] 사전 키는 대상 번역 언어이 고 값은 번역 된 텍스트입니다. 인식 된 음성을 번역 한 후 다른 언어로 합성 (음성-음성) 할 수 있습니다.
+음성 인식 및 번역이 성공적으로 완료 되 면 결과에 사전에 있는 모든 번역이 포함 됩니다. [`translations`][translations]사전 키는 대상 번역 언어이 고 값은 번역 된 텍스트입니다. 인식 된 음성을 번역 한 후 다른 언어로 합성 (음성-음성) 할 수 있습니다.
 
 ### <a name="event-based-synthesis"></a>이벤트 기반 합성
 
-개체 `TranslationRecognizer` 는 이벤트를 `Synthesizing` 노출 합니다. 이벤트는 여러 번 발생 하며, 번역 인식 결과에서 합성 된 오디오를 검색 하는 메커니즘을 제공 합니다. 여러 언어로 번역 하는 경우 [수동 합성](#manual-synthesis)을 참조 하세요. 을 [`voice_name`][voicename] 할당 하 여 합성 음성을 지정 하 고 `Synthesizing` 이벤트에 대 한 이벤트 처리기를 제공 하 여 오디오를 가져옵니다. 다음 예제에서는 변환 된 오디오를 *.wav* 파일로 저장 합니다.
+`TranslationRecognizer`개체는 이벤트를 노출 합니다 `Synthesizing` . 이벤트는 여러 번 발생 하며, 번역 인식 결과에서 합성 된 오디오를 검색 하는 메커니즘을 제공 합니다. 여러 언어로 번역 하는 경우 [수동 합성](#manual-synthesis)을 참조 하세요. 을 할당 하 여 합성 음성을 지정 하 [`voice_name`][voicename] 고 이벤트에 대 한 이벤트 처리기를 제공 하 여 `Synthesizing` 오디오를 가져옵니다. 다음 예제에서는 변환 된 오디오를 *.wav* 파일로 저장 합니다.
 
 > [!IMPORTANT]
-> 이벤트 기반 합성은 단일 번역 에서만 작동 하며 여러 대상 번역 언어를 추가 **하지** 않습니다. 또한는 [`voice_name`][voicename] 대상 번역 언어와 동일한 언어 여야 합니다. 예를 들면와 같습니다. `"de"` 에 `"de-DE-Hedda"`매핑할 수 있습니다.
+> 이벤트 기반 합성은 단일 번역 에서만 작동 하며 여러 대상 번역 언어를 추가 **하지** 않습니다. 또한는 [`voice_name`][voicename] 대상 번역 언어와 동일한 언어 여야 합니다. 예를 들어는 `"de"` 에 매핑할 수 있습니다 `"de-DE-Hedda"` .
 
 ```python
 import os
@@ -252,7 +252,7 @@ translate_speech_to_text()
 
 ### <a name="manual-synthesis"></a>수동 합성
 
-[`translations`][translations] 사전을 사용 하 여 번역 텍스트에서 오디오를 합성할 수 있습니다. 각 번역을 반복 하 고 번역을 합성 합니다. `SpeechSynthesizer` 인스턴스를 만들 때 개체의 `SpeechConfig` [`speech_synthesis_voice_name`][speechsynthesisvoicename] 속성을 원하는 음성으로 설정 해야 합니다. 다음 예제에서는 5 개의 언어로 변환 하 고 각 번역은 해당 신경망에서 오디오 파일로 합성 됩니다.
+[`translations`][translations]사전을 사용 하 여 번역 텍스트에서 오디오를 합성할 수 있습니다. 각 번역을 반복 하 고 번역을 합성 합니다. 인스턴스를 만들 때 `SpeechSynthesizer` 개체의 `SpeechConfig` [`speech_synthesis_voice_name`][speechsynthesisvoicename] 속성을 원하는 음성으로 설정 해야 합니다. 다음 예제에서는 5 개의 언어로 변환 하 고 각 번역은 해당 신경망에서 오디오 파일로 합성 됩니다.
 
 ```python
 import os

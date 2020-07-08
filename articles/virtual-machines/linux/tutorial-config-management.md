@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79223250"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027589"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
 
@@ -29,7 +29,7 @@ Azure [변경 추적](../../automation/change-tracking.md)을 사용하면 변�
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * Windows 업데이트 관리
+> * Linux 업데이트 관리
 > * 변경 내용 및 인벤토리 모니터링
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
@@ -113,7 +113,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 
 
 | 속성 | Description |
 | --- | --- |
-| 속성 |업데이트 배포를 식별하는 고유 이름입니다. |
+| Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
 | 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](../../automation/automation-update-management-groups.md)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 참조하세요. |

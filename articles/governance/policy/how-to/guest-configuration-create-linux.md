@@ -3,12 +3,12 @@ title: Linux용 게스트 구성 정책을 만드는 방법
 description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654869"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026715"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -81,7 +81,7 @@ Linux 환경에서도 게스트 구성은 Desired State Configuration을 언어 
 
 #### <a name="configuration-requirements"></a>구성 요구 사항
 
-사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Resource Manager 템플릿에 있는 게스트 할당 이름은 동일해야 합니다.
+사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux에서 사용자 지정 게스트 구성
 
@@ -347,7 +347,7 @@ describe file(attr_path) do
 end
 ```
 
-cmdlet `New-GuestConfigurationPolicy` 및 `Test-GuestConfigurationPolicyPackage`에는 **Parameters**라는 매개 변수가 포함됩니다. 이 매개 변수는 각 매개 변수에 대한 세부 정보를 모두 포함하는 해시 테이블을 사용하며, 각 Azure Policy 정의를 만드는 데 사용되는 파일의 필수 섹션을 모두 자동으로 만듭니다.
+Cmdlet은 `New-GuestConfigurationPolicy` `Test-GuestConfigurationPolicyPackage` **매개**변수 라는 매개 변수를 포함 합니다. 이 매개 변수는 각 매개 변수에 대한 세부 정보를 모두 포함하는 해시 테이블을 사용하며, 각 Azure Policy 정의를 만드는 데 사용되는 파일의 필수 섹션을 모두 자동으로 만듭니다.
 
 다음 예제에서는 사용자가 정책 할당 시 경로를 제공하는 파일 경로를 감사할 정책 정의를 만듭니다.
 
@@ -371,7 +371,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 

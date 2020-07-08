@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 486b89e5c93de7444758638ad36743ff2f0bcb37
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720982"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026341"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python 클라이언트 라이브러리를 사용하여 Python으로 데이터 세트에 액세스
 Microsoft Azure Machine Learning Python 클라이언트 라이브러리 미리보기를 사용하면 로컬 Python 환경에서 Azure Machine Learning 데이터 세트로 안전하게 액세스할 수 있고, 작업 영역에 데이터 세트를 생성하여 관리할 수 있습니다.
@@ -40,21 +40,26 @@ Python 클라이언트 라이브러리는 다음과 같은 환경에서 테스�
 * python-dateutil
 * pandas
 
-Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와 함께 제공되는 [Anaconda](http://continuum.io/downloads#all) 또는 [Canopy](https://store.enthought.com/downloads/) 등의 Python 배포판을 사용하는 것이 좋습니다. IPython은 반드시 필요하지는 않지만 데이터를 대화식으로 조작하고 시각화는 데 훌륭한 환경입니다.
+Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와 함께 제공되는 [Anaconda](https://www.anaconda.com/) 또는 [Canopy](https://store.enthought.com/downloads/) 등의 Python 배포판을 사용하는 것이 좋습니다. IPython은 반드시 필요하지는 않지만 데이터를 대화식으로 조작하고 시각화는 데 훌륭한 환경입니다.
 
 ### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Azure 기계 학습 Python 클라이언트 라이브러리를 설치하는 방법
 Azure Machine Learning Python 클라이언트 라이브러리를 설치 하 여이 항목에 설명 된 작업을 완료 합니다. 이 라이브러리는 [Python 패키지 인덱스](https://pypi.python.org/pypi/azureml)에서 사용할 수 있습니다. Python 환경에 설치하려면 로컬 Python 환경에서 다음 명령을 실행합니다.
 
-    pip install azureml
+```console
+pip install azureml
+```
 
 또는 [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python)의 원본에서를 다운로드 하 여 설치할 수 있습니다.
 
-    python setup.py install
+```console
+python setup.py install
+```
 
 컴퓨터에 git가 설치된 경우 pip를 사용하여 git 리포지토리에서 직접 설치할 수 있습니다.
 
-    pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
-
+```console
+pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
+```
 
 ## <a name="use-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>코드 조각을 사용 하 여 데이터 집합에 액세스
 Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이터 세트에 프로그래밍 방식으로 액세스할 수 있습니다.
@@ -100,7 +105,7 @@ Python 클라이언트 라이브러리와 함께 사용 하기 위해 Azure Mach
 
 데이터 형식이 Python 클라이언트 라이브러리와 호환되는 한 중간 데이터 세트에 액세스할 수 있습니다.
 
-지원 되는 형식은 다음과 같습니다 (이러한 형식의 상수는 `azureml.DataTypeIds` 클래스에 있습니다).
+지원 되는 형식은 다음과 같습니다 (이러한 형식의 상수는 클래스에 있습니다 `azureml.DataTypeIds` ).
 
 * 일반 텍스트
 * GenericCSV
@@ -143,98 +148,119 @@ Python 클라이언트 라이브러리와 함께 사용 하기 위해 Azure Mach
 ### <a name="workspace"></a>작업 영역
 작업 영역은 Python 클라이언트 라이브러리의 진입점입니다. 클래스에 `Workspace` 작업 영역 ID와 권한 부여 토큰을 제공 하 여 인스턴스를 만듭니다.
 
-    ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
-                   authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
-
+```python
+ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
+               authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
+```
 
 ### <a name="enumerate-datasets"></a>데이터 세트 열거
 지정된 작업 영역에 모든 데이터 세트 열거:
 
-    for ds in ws.datasets:
-        print(ds.name)
+```python
+for ds in ws.datasets:
+    print(ds.name)
+```
 
 사용자 생성 데이터 세트만 열거:
 
-    for ds in ws.user_datasets:
-        print(ds.name)
+```python
+for ds in ws.user_datasets:
+    print(ds.name)
+```
 
 예제 데이터 세트만 열거:
 
-    for ds in ws.example_datasets:
-        print(ds.name)
+```python
+for ds in ws.example_datasets:
+    print(ds.name)
+```
 
 데이터 세트 이름(대/소문자 구분)으로 액세스할 수 있습니다.
 
-    ds = ws.datasets['my dataset name']
+```python
+ds = ws.datasets['my dataset name']
+```
 
 또는 인덱스별로 액세스할 수 있습니다.
 
-    ds = ws.datasets[0]
-
+```python
+ds = ws.datasets[0]
+```
 
 ### <a name="metadata"></a>메타데이터
 데이터 세트에는 콘텐츠 외에도 메타데이터가 있습니다. (중간 데이터 세트는 이 규칙의 예외로서, 메타데이터가 없습니다.)
 
 일부 메타 데이터 값은 사용자가 생성 시 할당:
 
-    print(ds.name)
-    print(ds.description)
-    print(ds.family_id)
-    print(ds.data_type_id)
+* `print(ds.name)`
+* `print(ds.description)`
+* `print(ds.family_id)`
+* `print(ds.data_type_id)`
 
 다른 메타 데이터 값은 Azure 기계 학습에서 할당:
 
-    print(ds.id)
-    print(ds.created_date)
-    print(ds.size)
+* `print(ds.id)`
+* `print(ds.created_date)`
+* `print(ds.size)`
 
 사용 가능한 메타 데이터에 대한 자세한 내용은 `SourceDataset` 클래스를 참조하세요.
 
 ### <a name="read-contents"></a>콘텐츠 읽기
 Machine Learning Studio (클래식)에서 제공 하는 코드 조각은 데이터 집합을 자동으로 다운로드 하 고 pandas 데이터 프레임 개체로 deserialize 합니다. 이 작업은 `to_dataframe` 메서드를 통해 수행됩니다.
 
-    frame = ds.to_dataframe()
+```python
+frame = ds.to_dataframe()
+```
 
 원시 데이터를 다운로드하고 직접 역직렬화를 수행하려는 경우 옵션으로 선택할 수 있습니다. 현재로서는 Python 클라이언트 라이브러리에서 역직렬화할 수 없는 ‘ARFF’와 같은 형식의 경우에만 선택 가능합니다.
 
 텍스트로 콘텐츠 읽기:
 
-    text_data = ds.read_as_text()
+```python
+text_data = ds.read_as_text()
+```
 
 이진을 콘텐츠 읽기:
 
-    binary_data = ds.read_as_binary()
+```python
+binary_data = ds.read_as_binary()
+```
 
 콘텐츠에 스트림만 열 수도 있음:
 
-    with ds.open() as file:
-        binary_data_chunk = file.read(1000)
-
+```python
+with ds.open() as file:
+    binary_data_chunk = file.read(1000)
+```
 
 ### <a name="create-a-new-dataset"></a>새 데이터 세트 만들기
 Python 클라이언트 라이브러리를 사용하면 Python 프로그램에서 데이터 세트를 업로드할 수 있습니다. 이러한 데이터 세트는 작업 영역에서 사용할 수 있습니다.
 
 Pandas DataFrame에 데이터가 있는 경우 다음 코드를 사용합니다.
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets.add_from_dataframe(
-        dataframe=frame,
-        data_type_id=DataTypeIds.GenericCSV,
-        name='my new dataset',
-        description='my description'
-    )
+dataset = ws.datasets.add_from_dataframe(
+    dataframe=frame,
+    data_type_id=DataTypeIds.GenericCSV,
+    name='my new dataset',
+    description='my description'
+)
+```
 
 데이터가 이미 직렬화된 경우 다음을 사용할 수 있습니다.
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets.add_from_raw_data(
-        raw_data=raw_data,
-        data_type_id=DataTypeIds.GenericCSV,
-        name='my new dataset',
-        description='my description'
-    )
+dataset = ws.datasets.add_from_raw_data(
+    raw_data=raw_data,
+    data_type_id=DataTypeIds.GenericCSV,
+    name='my new dataset',
+    description='my description'
+)
+```
 
 Python 클라이언트 라이브러리에서 Pandas DataFrame을 다음 형식으로 직렬화할 수 있습니다(해당 상수는 `azureml.DataTypeIds` 클래스에 있음).
 
@@ -249,66 +275,76 @@ Python 클라이언트 라이브러리에서 Pandas DataFrame을 다음 형식�
 
 기존 데이터 세트를 업데이트하려면 먼저 기존 데이터 세트에 대한 참조를 얻어야 합니다.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 그러면 `update_from_dataframe` 을 사용하여 Azure에서 데이터 세트의 콘텐츠를 직렬화하고 바꿀 수 있습니다.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(frame2)
+dataset.update_from_dataframe(frame2)
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 데이터를 다른 형식으로 직렬화하려면 선택적 `data_type_id` 매개 변수의 값을 지정합니다.
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets['existing dataset']
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        data_type_id=DataTypeIds.GenericTSV,
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    data_type_id=DataTypeIds.GenericTSV,
+)
 
-    print(dataset.data_type_id) # 'GenericTSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericTSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 `description` 매개 변수의 값을 지정하여 선택적으로 새 설명을 설정할 수 있습니다.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        description='data up to feb 2015',
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    description='data up to feb 2015',
+)
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to feb 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to feb 2015'
+```
 
 `name` 매개 변수의 값을 지정하여 선택적으로 새로운 이름을 설정할 수 있습니다. 지금부터 새 이름만 사용하여 데이터 세트를 검색합니다. 다음 코드에서는 데이터, 이름 및 설명을 업데이트 합니다.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        name='existing dataset v2',
-        description='data up to feb 2015',
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    name='existing dataset v2',
+    description='data up to feb 2015',
+)
 
-    print(dataset.data_type_id)                    # 'GenericCSV'
-    print(dataset.name)                            # 'existing dataset v2'
-    print(dataset.description)                     # 'data up to feb 2015'
+print(dataset.data_type_id)                    # 'GenericCSV'
+print(dataset.name)                            # 'existing dataset v2'
+print(dataset.description)                     # 'data up to feb 2015'
 
-    print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
-    print(ws.datasets['existing dataset'].name)    # IndexError
+print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
+print(ws.datasets['existing dataset'].name)    # IndexError
+```
 
 `data_type_id`, `name` 및 `description` 매개 변수는 선택 사항이고 기본적으로 이전 값이 됩니다. `dataframe` 매개 변수는 항상 필요합니다.
 

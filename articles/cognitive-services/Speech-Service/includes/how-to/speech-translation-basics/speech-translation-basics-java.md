@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 73e6e117428808aae39e361a3b119e9b2af1ac27
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60d5fb524d07590ed28641a6c91b87dbeb7dfc9f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399644"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035494"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -17,11 +17,11 @@ ms.locfileid: "81399644"
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 speech sdk 문서의 <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">speech sdk <span class="docon docon-navigate-external x-hidden-focus"></span> 가져오기</a> 섹션에 나오는 지침을 따릅니다.
+작업을 수행하려면 먼저 음성 SDK를 설치해야 합니다. 플랫폼에 따라 _SPEECH Sdk 정보_ 문서의 <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> 음성 sdk 가져오기</a> 섹션에 나오는 지침을 따릅니다.
 
 ## <a name="import-dependencies"></a>종속성 가져오기
 
-이 문서의 예제를 실행 하려면 *의 맨 위에 다음 `import` 문을 포함 합니다 *. Java* 코드 파일입니다.
+이 문서의 예제를 실행 하려면 `import` *의 맨 위에 다음 문을 포함 합니다 *. Java* 코드 파일입니다.
 
 ```java
 package speech;
@@ -36,7 +36,7 @@ import com.microsoft.cognitiveservices.speech.translation.*;
 
 ## <a name="sensitive-data-and-environment-variables"></a>중요 한 데이터 및 환경 변수
 
-이 문서의 예제 소스 코드는 음성 리소스 구독 키 및 지역과 같은 중요 한 데이터를 저장 하는 환경 변수에 따라 달라 집니다. Java 코드 파일에는 호스트 `static final String` 컴퓨터 환경 변수에서 할당 된 두 값, 즉 `SPEECH__SUBSCRIPTION__KEY` 및 `SPEECH__SERVICE__REGION`가 포함 되어 있습니다. 이러한 필드는 모두 클래스 범위에 있으므로 클래스의 메서드 본문 내에서 액세스할 수 있습니다. 환경 변수에 대 한 자세한 내용은 [환경 변수 및 응용 프로그램 구성](../../../../cognitive-services-security.md#environment-variables-and-application-configuration)을 참조 하세요.
+이 문서의 예제 소스 코드는 음성 리소스 구독 키 및 지역과 같은 중요 한 데이터를 저장 하는 환경 변수에 따라 달라 집니다. Java 코드 파일에는 `static final String` 호스트 컴퓨터 환경 변수에서 할당 된 두 값, 즉 및가 포함 되어 있습니다 `SPEECH__SUBSCRIPTION__KEY` `SPEECH__SERVICE__REGION` . 이러한 필드는 모두 클래스 범위에 있으므로 클래스의 메서드 본문 내에서 액세스할 수 있습니다. 환경 변수에 대 한 자세한 내용은 [환경 변수 및 응용 프로그램 구성](../../../../cognitive-services-security.md#environment-variables-and-application-configuration)을 참조 하세요.
 
 ```java
 public class App {
@@ -89,7 +89,7 @@ public class App {
 
 ## <a name="change-source-language"></a>소스 언어 변경
 
-음성 번역의 일반적인 작업 중 하나는 입력 (또는 원본) 언어를 지정 하는 것입니다. 입력 언어를 이탈리아어로 변경하는 방법을 살펴보겠습니다. 코드에서 `setSpeechRecognitionLanguage` 메서드를 호출 하 여 [`SpeechTranslationConfig`][config] 인스턴스와 상호 작용 합니다.
+음성 번역의 일반적인 작업 중 하나는 입력 (또는 원본) 언어를 지정 하는 것입니다. 입력 언어를 이탈리아어로 변경하는 방법을 살펴보겠습니다. 코드에서 [`SpeechTranslationConfig`][config] 메서드를 호출 하 여 인스턴스와 상호 작용 `setSpeechRecognitionLanguage` 합니다.
 
 ```java
 static void translateSpeech() {
@@ -101,11 +101,11 @@ static void translateSpeech() {
 }
 ```
 
-함수 [`setSpeechRecognitionLanguage`][recognitionlang] 에는 언어 로캘 형식 문자열이 필요 합니다. 지원되는 [로캘/언어](../../../language-support.md) 목록의 **로캘** 열에 원하는 값을 입력할 수 있습니다.
+함수에는 [`setSpeechRecognitionLanguage`][recognitionlang] 언어 로캘 형식 문자열이 필요 합니다. 지원되는 [로캘/언어](../../../language-support.md) 목록의 **로캘** 열에 원하는 값을 입력할 수 있습니다.
 
 ## <a name="add-translation-language"></a>번역 언어 추가
 
-음성 번역의 또 다른 일반적인 작업은 대상 번역 언어를 지정 하는 것이 고, 적어도 하나는 필요 하지만 다중 항목은 지원 되는 것입니다. 다음 코드 조각에서 프랑스어와 독일어를 모두 번역 언어로 대상으로 지정 합니다.
+음성 번역의 또 다른 일반적인 작업은 대상 번역 언어를 지정 하는 것이 고, 적어도 하나는 필요 하지만 다중 항목은 지원 되는 것입니다. 다음 코드 조각은 프랑스어와 독일어를 모두 번역 언어 대상으로 설정 합니다.
 
 ```java
 static void translateSpeech() {
@@ -120,7 +120,7 @@ static void translateSpeech() {
 }
 ```
 
-에 대 [`addTargetLanguage`][addlang]한 모든 호출에서 새 대상 번역 언어를 지정 합니다. 즉, 소스 언어에서 음성이 인식 될 때 각 대상 변환은 결과 변환 작업의 일부로 사용할 수 있습니다.
+에 대 한 모든 호출 [`addTargetLanguage`][addlang] 에서 새 대상 번역 언어를 지정 합니다. 즉, 소스 언어에서 음성이 인식 될 때 각 대상 변환은 결과 변환 작업의 일부로 사용할 수 있습니다.
 
 ## <a name="initialize-a-translation-recognizer"></a>변환 인식기 초기화
 
@@ -150,7 +150,7 @@ static void translateSpeech() {
 > [!TIP]
 > [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
 
-먼저 다음과 같이 개체를 참조 `AudioConfig` 합니다.
+먼저 다음과 같이 개체를 참조 합니다 `AudioConfig` .
 
 ```java
 static void translateSpeech() {
@@ -226,14 +226,14 @@ static void translateSpeech() throws ExecutionException, InterruptedException {
 
 ## <a name="synthesize-translations"></a>번역 합성
 
-음성 인식 및 번역이 성공적으로 완료 되 면 결과에 사전에 있는 모든 번역이 포함 됩니다. 함수 [`getTranslations`][translations] 는 키를 대상 번역 언어로 사용 하 여 사전을 반환 하 고 값은 번역 된 텍스트입니다. 인식 된 음성을 번역 한 후 다른 언어로 합성 (음성-음성) 할 수 있습니다.
+음성 인식 및 번역이 성공적으로 완료 되 면 결과에 사전에 있는 모든 번역이 포함 됩니다. [`getTranslations`][translations]함수는 키를 대상 번역 언어로 사용 하 여 사전을 반환 하 고 값은 번역 된 텍스트입니다. 인식 된 음성을 번역 한 후 다른 언어로 합성 (음성-음성) 할 수 있습니다.
 
 ### <a name="event-based-synthesis"></a>이벤트 기반 합성
 
-개체 `TranslationRecognizer` 는 이벤트를 `synthesizing` 노출 합니다. 이벤트는 여러 번 발생 하며, 번역 인식 결과에서 합성 된 오디오를 검색 하는 메커니즘을 제공 합니다. 여러 언어로 번역 하는 경우 [수동 합성](#manual-synthesis)을 참조 하세요. 을 [`setVoiceName`][voicename] 할당 하 여 합성 음성을 지정 하 고 `synthesizing` 이벤트에 대 한 이벤트 처리기를 제공 하 여 오디오를 가져옵니다. 다음 예제에서는 변환 된 오디오를 *.wav* 파일로 저장 합니다.
+`TranslationRecognizer`개체는 이벤트를 노출 합니다 `synthesizing` . 이벤트는 여러 번 발생 하며, 번역 인식 결과에서 합성 된 오디오를 검색 하는 메커니즘을 제공 합니다. 여러 언어로 번역 하는 경우 [수동 합성](#manual-synthesis)을 참조 하세요. 을 할당 하 여 합성 음성을 지정 하 [`setVoiceName`][voicename] 고 이벤트에 대 한 이벤트 처리기를 제공 하 여 `synthesizing` 오디오를 가져옵니다. 다음 예제에서는 변환 된 오디오를 *.wav* 파일로 저장 합니다.
 
 > [!IMPORTANT]
-> 이벤트 기반 합성은 단일 번역 에서만 작동 하며 여러 대상 번역 언어를 추가 **하지** 않습니다. 또한는 [`setVoiceName`][voicename] 대상 번역 언어와 동일한 언어 여야 합니다. 예를 들면와 같습니다. `"de"` 에 `"de-DE-Hedda"`매핑할 수 있습니다.
+> 이벤트 기반 합성은 단일 번역 에서만 작동 하며 여러 대상 번역 언어를 추가 **하지** 않습니다. 또한는 [`setVoiceName`][voicename] 대상 번역 언어와 동일한 언어 여야 합니다. 예를 들어는 `"de"` 에 매핑할 수 있습니다 `"de-DE-Hedda"` .
 
 ```java
 static void translateSpeech() throws ExecutionException, FileNotFoundException, InterruptedException, IOException {
@@ -280,7 +280,7 @@ static void translateSpeech() throws ExecutionException, FileNotFoundException, 
 
 ### <a name="manual-synthesis"></a>수동 합성
 
-함수 [`getTranslations`][translations] 는 번역 텍스트에서 오디오를 합성 하는 데 사용할 수 있는 사전을 반환 합니다. 각 번역을 반복 하 고 번역을 합성 합니다. `SpeechSynthesizer` 인스턴스를 만들 때 개체의 `SpeechConfig` [`setSpeechSynthesisVoiceName`][speechsynthesisvoicename] 속성을 원하는 음성으로 설정 해야 합니다. 다음 예제에서는 5 개의 언어로 변환 하 고 각 번역은 해당 신경망에서 오디오 파일로 합성 됩니다.
+[`getTranslations`][translations]함수는 번역 텍스트에서 오디오를 합성 하는 데 사용할 수 있는 사전을 반환 합니다. 각 번역을 반복 하 고 번역을 합성 합니다. 인스턴스를 만들 때 `SpeechSynthesizer` 개체의 `SpeechConfig` [`setSpeechSynthesisVoiceName`][speechsynthesisvoicename] 속성을 원하는 음성으로 설정 해야 합니다. 다음 예제에서는 5 개의 언어로 변환 하 고 각 번역은 해당 신경망에서 오디오 파일로 합성 됩니다.
 
 ```java
 static void translateSpeech() throws ExecutionException, InterruptedException {

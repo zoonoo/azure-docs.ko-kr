@@ -5,14 +5,14 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: b65bc6097d4841c79a68d4313ac7a3f89f6d1dbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065925"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027821"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 
@@ -26,7 +26,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 1. **메트릭** 창을 엽니다. 기본적으로 메트릭 창에는 Azure Cosmos 계정의 모든 데이터베이스에 대 한 저장소, 인덱스, 요청 단위 메트릭이 표시 됩니다. 이러한 메트릭은 데이터베이스, 컨테이너 또는 지역 별로 필터링 할 수 있습니다. 특정 시간 세분성에서 메트릭을 필터링 할 수도 있습니다. 처리량, 저장소, 가용성, 대기 시간 및 일관성 메트릭에 대 한 자세한 내용은 별도 탭에 제공 됩니다. 
 
-   ![Azure Portal에서 Cosmos DB 성능 메트릭](./media/use-metrics/performance-metrics.png)
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Azure Portal에서 Cosmos DB 성능 메트릭":::
 
 **메트릭** 창에서 다음 메트릭을 사용할 수 있습니다. 
 
@@ -46,17 +46,17 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>성공한 요청 수 또는 오류가 발생하는 요청 수 이해
 
-시작하려면 [Azure Portal](https://portal.azure.com)에서 **메트릭** 블레이드로 이동합니다. 블레이드에서 1 분당 용량을 초과한 * * 요청 수를 찾습니다. 이 차트에서는 상태 코드로 분할된 총 요청 수를 분 단위로 보여 줍니다. HTTP 상태 코드에 대 한 자세한 내용은 [Azure Cosmos DB에 대 한 http 상태 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조 하세요.
+시작하려면 [Azure Portal](https://portal.azure.com)에서 **메트릭** 블레이드로 이동합니다. 블레이드에서 1 분당 용량을 초과한 * * 요청 수를 찾습니다. 이 차트에서는 상태 코드로 분할된 총 요청 수를 분 단위로 보여 줍니다. HTTP 상태 코드에 대 한 자세한 내용은 [Azure Cosmos DB에 대 한 http 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조 하세요.
 
 가장 일반적인 오류 상태 코드는 429입니다(속도 제한/제한). 이 오류는 Azure Cosmos DB에 대한 요청이 프로비전된 처리량보다 더 많은 것을 의미합니다. 이 문제에 대한 가장 일반적인 솔루션은 지정된 컬렉션에 대한 [RU를 확장](./set-throughput.md)하는 것입니다.
 
-![분당 요청 수](media/use-metrics/metrics-12.png)
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="분당 요청 수":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>파티션의 처리량 배포 확인
 
 파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 **메트릭 블레이드**로 이동합니다. **처리량** 탭에서 스토리지 분석은 **각 실제 파티션별 사용된 최대 RU/초** 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포의 예제를 보여줍니다.
 
-![오후 3시 05분에 높은 사용량을 표시하는 단일 파티션](media/use-metrics/metrics-17.png)
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="사용량이 많은 단일 파티션":::
 
 불균등 처리량 배포 시 *핫* 파티션이 발생할 수 있고, 이로 인해 제한된 요청이 초래되고 다시 분할해야 할 수 있습니다. Azure Cosmos DB에서 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](./partition-data.md)을 참조하세요.
 
@@ -64,11 +64,11 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 파티션의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 스토리지 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 메트릭 블레이드로 이동합니다. 스토리지 탭에서 스토리지 분석은 상위 파티션 키 차트에서 사용된 데이터 + 인덱스 스토리지에 표시됩니다. 다음 그래픽은 맨 왼쪽에 있는 불일치 파티션에서 표시된 대로 잘못된 데이터 스토리지 배포를 보여줍니다.
 
-![불량 데이터 배포의 예](media/use-metrics/metrics-07.png)
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="불량 데이터 배포의 예":::
 
 차트에서 파티션을 클릭하여 배포 불균등의 근본 원인인 파티션 키를 확인할 수 있습니다.
 
-![파티션 키로 인해 배포 불균등 발생](media/use-metrics/metrics-05.png)
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="파티션 키로 인해 배포 불균등 발생":::
 
 배포 불균등을 초래하는 파티션 키를 식별한 후 더 많이 배포된 파티션 키로 컨테이너를 다시 분할해야 할 수도 있습니다. Azure Cosmos DB에서 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](./partition-data.md)을 참조하세요.
 

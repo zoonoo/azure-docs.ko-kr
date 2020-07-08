@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 457ff90c21fee2b569fa24d90fffc6ce80cdf969
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658067"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027106"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 
@@ -56,7 +56,7 @@ ms.locfileid: "83658067"
 **Azure Marketplace** 애플리케이션은 Azure에서 기본 제공하거나 Azure를 바탕으로 빌드된 기술적 "빌딩 블록" 솔루션이며 IT 또는 개발자를 대상으로 합니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
 >[!Note]
->교차 목록(SaaS 앱 전용): 목록 또는 평가판 제품이 기술 및 비즈니스 사용자 대상 모두의 기준을 충족하는 경우 제품은 두 상점 모두에 나열됩니다. 아래 게시 옵션에 대해 자세히 알아봅니다.
+>"교차 목록" (SaaS 앱에만 해당): SaaS 제품이 기술 사용자 (Azure Marketplace) 및 비즈니스 대상 (AppSource)을 위한 것 이라면 상점에 적용 가능한 범주 및/또는 하위 범주를 선택할 수 있습니다. 제품의 "교차 목록" 의도는 두 대상 모두로 확장 되는 가치 제안을 기반으로 해야 합니다. 각 Storefront에 적용 가능한 범주를 보려면 [여기](./gtm-offer-listing-best-practices.md#categories) 를 클릭 하세요.
 
 ## <a name="choose-a-publishing-option"></a>게시 옵션 선택
 

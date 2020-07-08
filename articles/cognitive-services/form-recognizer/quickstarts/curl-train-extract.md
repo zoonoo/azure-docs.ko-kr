@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0abc98c95c03e3dd2e12a601188d9c5f7cb4523d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f89ab93820770eb8b5485bb7911c60fe2438454a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85558982"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026822"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!NOTE]
 > 레이블이 지정된 데이터 기능을 사용하여 미리 수동으로 학습 데이터의 일부 또는 전체에 레이블을 지정할 수 있습니다. 이는 좀 더 복잡한 프로세스지만 학습된 모델을 더 효율적으로 만듭니다. 이 기능에 대한 자세한 내용은 개요의 [레이블을 사용하여 학습](../overview.md#train-with-labels) 섹션을 참조하세요.
 
-Azure Blob 컨테이너의 문서를 사용하여 Form Recognizer 모델을 학습시키려면 다음 cURL 명령을 실행하여 **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
+Azure Blob 컨테이너의 문서를 사용하여 Form Recognizer 모델을 학습시키려면 다음 cURL 명령을 실행하여 **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `<Endpoint>`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `<subscription key>`를 이전 단계에서 복사한 구독 키로 바꿉니다.
@@ -53,7 +53,7 @@ curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/custom/models" -H "Conte
 
 ## <a name="get-training-results"></a>학습 결과 가져오기
 
-학습 작업을 시작한 후에는 새 작업인 **[사용자 지정 모델 가져오기](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** 를 사용하여 학습 상태를 확인합니다. 모델 ID를 이 API 호출에 전달하여 학습 상태를 확인합니다.
+학습 작업을 시작한 후에는 새 작업인 **[사용자 지정 모델 가져오기](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetCustomModel)** 를 사용하여 학습 상태를 확인합니다. 모델 ID를 이 API 호출에 전달하여 학습 상태를 확인합니다.
 
 1. `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다.
 1. `<subscription key>`를 구독 키로 바꿉니다.
@@ -135,7 +135,7 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>" -H
 
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>키-값 쌍 및 테이블에 대한 양식 분석
 
-다음으로, 새로 학습된 모델을 사용하여 문서를 분석하고 키-값 쌍 및 테이블을 추출합니다. 다음 cURL 명령을 실행하여 **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
+다음으로, 새로 학습된 모델을 사용하여 문서를 분석하고 키-값 쌍 및 테이블을 추출합니다. 다음 cURL 명령을 실행하여 **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `<Endpoint>`를 Form Recognizer 구독 키에서 가져온 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
 1. `<model ID>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
@@ -422,4 +422,4 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>/ana
 이 빠른 시작에서는 cURL에서 Form Recognizer REST API를 사용하여 모델을 학습시키고 샘플 시나리오에서 실행했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

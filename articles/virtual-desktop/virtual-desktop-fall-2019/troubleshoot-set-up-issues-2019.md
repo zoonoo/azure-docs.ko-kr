@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5825466c099a8c57477f2d9d0420da74ccb2e96d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615397"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026698"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 낙하 2019 릴리스에 적용 됩니다. 스프링 2020 업데이트에 도입 된 Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../troubleshoot-set-up-issues.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-set-up-issues.md)를 참조하세요.
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 및 관련 세션 호스트 풀 인프라의 초기 설정 중에 발생 하는 문제에 대해 설명 합니다.
 
@@ -28,17 +28,35 @@ ms.locfileid: "82615397"
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Windows 10 Enterprise 다중 세션 이미지 가져오기
 
-Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketplace으로 이동 하 여 [가상 데스크톱, 버전 1809에 대해](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)**Microsoft windows 10** > 및 Windows 10 Enterprise **시작** > 을 선택 합니다.
+Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketplace으로 이동 하 여 **Get Started**  >  [가상 데스크톱, 버전 1809에 대해](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)**Microsoft windows 10** > 및 Windows 10 Enterprise 시작을 선택 합니다.
 
-![가상 데스크톱에 대 한 Windows 10 Enterprise 버전 1809을 선택 하는 스크린샷](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![가상 데스크톱에 대 한 Windows 10 Enterprise 버전 1809을 선택 하는 스크린샷](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Windows 가상 데스크톱 테 넌 트 만들기
 
 이 섹션에서는 Windows 가상 데스크톱 테 넌 트를 만들 때 발생할 수 있는 문제에 대해 설명 합니다.
 
+### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>오류: AADSTS650052 앱에서 서비스에 액세스 해야 합니다.
+
+원시 오류의 예:
+
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+configuration of your service subscriptions.650052 Message The app needs access to a service
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
+**원인:** Azure Active directory 인스턴스에서 Windows 가상 데스크톱에 대 한 동의가 부여 되지 않았습니다.
+
+**Fix:** [이 가이드에 따라](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) 동의를 부여 합니다.
+
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>오류: 사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
 
-![사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없는 PowerShell 창의 스크린샷](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없는 PowerShell 창의 스크린샷](../media/UserNotAuthorizedNewTenant.png)
 
 원시 오류의 예:
 
@@ -59,7 +77,8 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 **해결 방법:** [Azure Active Directory 테 넌 트의 사용자에 게 TenantCreator 응용 프로그램 역할 할당](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role)의 지침을 따릅니다. 이 지침을 수행 하면 사용자가 TenantCreator 역할에 할당 됩니다.
 
-![지정 된 TenantCreator 역할의 스크린샷](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![지정 된 TenantCreator 역할의 스크린샷](../media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Windows 가상 데스크톱 세션 호스트 Vm 만들기
 
@@ -71,7 +90,8 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>오류: GitHub의 링크를 사용 하는 경우 "무료 계정 만들기" 라는 메시지가 표시 됩니다.
 
-![무료 계정을 만들기 위한 스크린샷.](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![무료 계정을 만들기 위한 스크린샷.](../media/be615904ace9832754f0669de28abd94.png)
 
 **원인 1:** Azure에 로그인 하는 데 사용 된 계정에 활성 구독이 없거나 사용 된 계정에 구독을 볼 수 있는 권한이 없습니다.
 
@@ -94,7 +114,8 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 ### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>오류: "템플릿 배포가 잘못 되었습니다." 오류가 표시 됩니다.
 
-!["템플릿 배포"의 스크린샷 잘못 되었습니다. "오류](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> !["템플릿 배포"의 스크린샷 잘못 되었습니다. "오류](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 특정 작업을 수행 하기 전에 작업 로그를 확인 하 여 실패 한 배포 유효성 검사에 대 한 자세한 오류를 확인 해야 합니다.
 
@@ -103,10 +124,14 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 1. 현재 Azure Marketplace 배포 제품을 종료 합니다.
 2. 위쪽 검색 창에서 **활동 로그**를 검색 하 고 선택 합니다.
 3. 상태가 **실패** 인 **배포 유효성 검사** 라는 작업을 찾아 작업을 선택 합니다.
-   ![* * 배포 유효성 검사 * * 작업 (* * 실패 * * 상태)의 스크린샷](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![* * 배포 유효성 검사 * * 작업 (* * 실패 * * 상태)의 스크린샷](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. JSON을 선택 하 고 "statusMessage" 필드가 표시 될 때까지 화면 아래쪽으로 스크롤합니다.
-   ![JSON 텍스트의 statusMessage 속성 주위에 빨간색 상자가 있는 실패 한 작업의 스크린샷](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![JSON 텍스트의 statusMessage 속성 주위에 빨간색 상자가 있는 실패 한 작업의 스크린샷](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 작업 템플릿이 할당량 한도를 초과 하는 경우 다음 작업 중 하나를 수행 하 여 수정할 수 있습니다.
 
@@ -122,9 +147,10 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 3. 오류가 식별 되 면 오류 메시지 및 문제 해결을 위해 [Azure Resource Manager 일반적인 Azure 배포 오류 해결](../../azure-resource-manager/resource-manager-common-deployment-errors.md) 의 리소스를 사용 합니다.
 4. 이전 배포 중에 만들어진 모든 리소스를 삭제 하 고 템플릿을 다시 배포 하는 작업을 다시 시도 합니다.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>오류: 배포 하지 못했습니다.>\<호스트 이름/joindomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>오류: 배포 하지 못했습니다. \<hostname> /joindomain
 
-![배포에 실패 했습니다.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![배포에 실패 했습니다.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 원시 오류의 예:
 
@@ -165,7 +191,8 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 ### <a name="error-vmextensionprovisioningerror"></a>오류: VMExtensionProvisioningError
 
-![터미널 프로 비전 상태가 실패 하 여 배포의 스크린샷에 실패 했습니다.](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![터미널 프로 비전 상태가 실패 하 여 배포의 스크린샷에 실패 했습니다.](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **원인 1:** Windows 가상 데스크톱 환경에서 일시적 오류가 발생 했습니다.
 
@@ -175,7 +202,8 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>오류: 지정 된 관리자 사용자 이름이 허용 되지 않습니다.
 
-![지정 된 관리자가 허용 되지 않는 배포의 스크린샷](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![지정 된 관리자가 허용 되지 않는 배포의 스크린샷](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 원시 오류의 예:
 
@@ -194,7 +222,8 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>오류: VM이 확장을 처리할 때 오류를 보고 했습니다.
 
-![배포에서 터미널 프로 비전 상태를 사용 하 여 완료 된 리소스 작업의 스크린샷에 실패 했습니다.](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![배포에서 터미널 프로 비전 상태를 사용 하 여 완료 된 리소스 작업의 스크린샷에 실패 했습니다.](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 원시 오류의 예:
 
@@ -220,7 +249,8 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>오류: DeploymentFailed – PowerShell DSC 구성 ' FirstSessionHost '이 (가) 완료 되었으나 오류가 발생 했습니다.
 
-![오류로 인해 PowerShell DSC 구성 ' FirstSessionHost '를 완료 하 여 배포 실패의 스크린샷](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![오류로 인해 PowerShell DSC 구성 ' FirstSessionHost '를 완료 하 여 배포 실패의 스크린샷](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 원시 오류의 예:
 
@@ -349,7 +379,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>오류: 사용자에 게 Azure Multi-Factor Authentication (MFA)가 필요 합니다.
 
-![MFA (Multi-Factor Authentication 부족으로 인 한 배포의 스크린샷 실패](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![MFA (Multi-Factor Authentication 부족으로 인 한 배포의 스크린샷 실패](../media/MFARequiredError.png)
 
 원시 오류의 예:
 
@@ -375,14 +406,20 @@ GitHub Azure Resource Manager 템플릿을 실행 하는 경우 다음 매개 �
 - IsServicePrincipal: **true**
 - AadTenantId: 만든 서비스 사용자의 Azure AD 테 넌 트 ID
 
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>오류: 가상 네트워크를 구성할 때 vmSubnet을 사용할 수 없습니다.
+
+**원인:** WVD Marketplace 템플릿에서 UI는 하나 이상의 IP 주소를 템플릿에 지정 된 Vm의 총 수로 사용할 수 있는 서브넷만 표시 합니다. 서브넷에서 사용 가능한 실제 IP 주소 수는 배포 되는 새 Vm의 수와 동일 해야 하지만 현재 UI에서 계산할 수는 없습니다.
+
+**해결 방법:** 하나 이상의 IP 주소를 사용 하 여 추가 되는 Vm 수로 사용할 수 있는 서브넷을 Marketplace UI를 사용 하지 않고 지정할 수 있습니다. [기존 배포](expand-existing-host-pool-2019.md#redeploy-from-azure) 를 다시 배포 하거나 [GITHUB의 기본 ARM 템플릿을 사용 하 여 배포할](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool)때 "**existingSubnetName**" 매개 변수에 서브넷 이름을 지정 하 여이 작업을 수행할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-- Windows 가상 데스크톱 및 에스컬레이션 트랙 문제 해결에 대 한 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview-2019.md)을 참조 하세요.
-- Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration-2019.md)을 참조 하세요.
+- Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview-2019.md)을 참조하세요.
+- Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration-2019.md)을 참조하세요.
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection-2019.md)을 참조 하세요.
 - 원격 데스크톱 클라이언트와 관련 된 문제를 해결 하려면 [원격 데스크톱 클라이언트 문제 해결](../troubleshoot-client.md) 을 참조 하세요.
-- Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell-2019.md)을 참조 하세요.
+- Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell-2019.md)을 참조하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](environment-setup-2019.md)을 참조 하세요.
-- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조 하세요.
+- 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)를 참조하세요.

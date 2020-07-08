@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9fb2f3374d635d8086bac5fe02ecf3b7f819ea65
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: ebc6ff2c7c0d72dff318c7582d9ae5339682bc95
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100870"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028230"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
@@ -86,7 +86,7 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
 
-### <a name="common-errors"></a>일반 오류
+### <a name="common-errors"></a>일반적인 오류
 
 |Error|해결 방법|
 |:--|:--|
@@ -110,7 +110,7 @@ Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
 
-### <a name="common-errors"></a>일반 오류
+### <a name="common-errors"></a>일반적인 오류
 
 |Error|해결 방법|
 |:--|:--|
@@ -162,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>다음 단계
 
 이 가이드에서는 복사 API를 사용 하 여 사용자 지정 모델을 보조 폼 인식기 리소스로 백업 하는 방법을 배웠습니다. 다음으로 API 참조 문서를 탐색 하 여 양식 인식기로 수행할 수 있는 다른 작업을 확인 합니다.
-* [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+* [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

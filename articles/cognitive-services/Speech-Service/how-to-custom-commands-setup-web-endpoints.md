@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414286"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027684"
 ---
 # <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
 
@@ -46,11 +46,12 @@ ms.locfileid: "85414286"
    | 이름 | UpdateDeviceState | 웹 끝점의 이름입니다. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | 사용자 지정 명령 앱에서 통신할 끝점의 URL입니다. |
    | 메서드 | POST | 끝점과 함께 허용 되는 상호 작용 (예: GET, POST)입니다.|
-   | 헤더 | 키: 앱, 값: 앱의 고유한 이름 | 요청 헤더에 포함할 헤더 매개 변수입니다.|
+   | 헤더 | 키: 앱, 값: applicationId의 처음 8 자리를 사용 합니다. | 요청 헤더에 포함할 헤더 매개 변수입니다.|
 
     > [!NOTE]
     > - Tv 및 팬의 장치 상태를 저장 하는 데이터베이스와 후크 하는 [Azure Function](https://docs.microsoft.com/azure/azure-functions/)을 사용 하 여 만든 웹 끝점 예제
     > - 제안 된 헤더는 예제 끝점에만 필요 합니다.
+    > - 헤더 값이 예제 끝점에서 고유한 지 확인 하려면 applicationId의 처음 8 자리를 사용 합니다.
     > - 실제 세계에서 웹 끝점은 장치를 관리 하는 [IOT hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) 에 대 한 끝점이 될 수 있습니다.
 
 1. **저장**을 클릭합니다.
@@ -74,6 +75,8 @@ ms.locfileid: "85414286"
     > - 제안 된 쿼리 매개 변수는 예제 끝점에만 필요 합니다.
 
 1. **성공 시-실행 작업**에서 **음성 응답 보내기**를 선택 합니다.
+    
+    **간단한 편집기**에서를 입력 `{SubjectDevice} is {OnOff}` 합니다.
    
    > [!div class="mx-imgBorder"]
    > ![성공 시 웹 끝점 호출 동작](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -83,9 +86,12 @@ ms.locfileid: "85414286"
    | 실행할 작업 | 음성 응답 보내기 | 웹 끝점에 대 한 요청이 성공 하는 경우 실행할 작업입니다. |
    
    > [!NOTE]
-   > - 을 사용 하 여 http 응답의 필드에 직접 액세스할 수도 있습니다 `{YourWebEndpointName.FieldName}` . `{UpdateDeviceState.TV}`
+   > - 을 사용 하 여 http 응답의 필드에 직접 액세스할 수도 있습니다 `{YourWebEndpointName.FieldName}` . 예: `{UpdateDeviceState.TV}`
 
 1. **실패 시-실행 작업**에서 **음성 응답 보내기** 를 선택 합니다.
+
+    **간단한 편집기**에서를 입력 `Sorry, {WebEndpointErrorMessage}` 합니다.
+
    > [!div class="mx-imgBorder"]
    > ![Fail에서 웹 끝점 호출 동작](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 

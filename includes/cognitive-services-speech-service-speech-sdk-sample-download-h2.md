@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: dapine
-ms.openlocfilehash: 7a00361581071ddf54893c42246b8c7ad4ac5722
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3ae3a9583e4373a2c9b7dde91929cb8b809b442f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656567"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035453"
 ---
 ## <a name="sample-source-code"></a>샘플 소스 코드
 
 :::row:::
     :::column span="3":::
-        Speech SDK는 오픈 소스 리포지토리에서 많은 예제 집합을 적극적으로 유지 관리 합니다. 샘플 소스 코드 리포지토리는 <a href="https://aka.ms/csspeech/samples" target="_blank">GitHub <span class="docon docon-navigate-external x-hidden-focus"> </span>의 Microsoft Cognitive Services Speech SDK </a>를 참조 하세요. C #, c + +, Java, Python, 목표-C, Swift, JavaScript, UWP, Unity 및 Xamarin에 대 한 샘플이 있습니다.
+        음성 SDK 팀은 오픈 소스 리포지토리에서 많은 예제 집합을 적극적으로 유지 관리 합니다. 샘플 소스 코드 리포지토리는 <a href="https://aka.ms/csspeech/samples" target="_blank">GitHub <span class="docon docon-navigate-external x-hidden-focus"></span> 의 MICROSOFT COGNITIVE SERVICES Speech SDK </a>를 참조 하세요. C #, c + +, Java, Python, 목표-C, Swift, JavaScript, UWP, Unity 및 Xamarin에 대 한 샘플이 있습니다.
     :::column-end:::
     :::column:::
         <br>

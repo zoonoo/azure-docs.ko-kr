@@ -3,12 +3,12 @@ title: 사용자 고유의 모델을 사용하여 라이브 비디오 분석 - A
 description: 이 빠른 시작에서는 컴퓨터 비전을 적용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석합니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b8f83b9e3c450612c742a831ac800343b3bbbc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: e19c5bd6b44f9a4dd225f6a849ee9aaf62fa6273
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816695"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027667"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>빠른 시작: 사용자 고유의 모델을 사용하여 라이브 비디오 분석
 
@@ -190,7 +190,7 @@ HTTP 확장 노드는 프록시 역할을 수행합니다. 비디오 프레임�
 
 ### <a name="mediasessionestablished-event"></a>MediaSessionEstablished 이벤트
 
-미디어 그래프가 인스턴스화되면 RTSP 원본 노드가 rtspsim-live55 컨테이너에서 실행되는 RTSP 서버에 연결하려고 시도합니다. 연결에 성공하면 다음 이벤트가 출력됩니다. 이벤트 유형은 `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`입니다.
+미디어 그래프가 인스턴스화되면 RTSP 원본 노드가 rtspsim-live555 컨테이너에서 실행되는 RTSP 서버에 연결을 시도합니다. 연결에 성공하면 다음 이벤트가 출력됩니다. 이벤트 유형은 `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`입니다.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

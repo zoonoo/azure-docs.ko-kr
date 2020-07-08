@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: f18672b9e3a368a833fc8cba279d748dfe3c2a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366771"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026987"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Azure 앱 구성에 전용 끝점 사용
 
@@ -24,7 +24,7 @@ Azure 앱 구성에 대해 [개인 끝점](../private-link/private-endpoint-over
 - 개인 피어 링을 사용 하 여 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [연결할 expressroutes](../expressroute/expressroute-locations.md) 를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 앱 구성 저장소에 안전 하 게 연결 합니다.
 
 > [!NOTE]
-> Azure 앱 구성은 개인 끝점을 공개 미리 보기로 사용 하도록 제공 합니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.
+> 이제 개인 끝점 기능이 중부 인도를 *제외한* 모든 지역에서 일반 공급 됩니다. **중앙 인도** 지역에서 Azure 앱 구성은 개인 끝점을 공개 미리 보기로 사용 하도록 제공 합니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.
 
 ## <a name="conceptual-overview"></a>개념적 개요
 
@@ -44,25 +44,21 @@ VNet에서 서비스에 대 한 개인 끝점을 만들 때 서비스 계정 소
 
 ### <a name="connecting-to-private-endpoints"></a>전용 끝점에 연결
 
-Azure는 DNS 확인에 의존 하 여 개인 링크를 통해 VNet에서 구성 저장소로 연결을 라우팅합니다. 앱 구성 저장소를 선택 하 고 **설정** > **액세스 키**를 선택 하 여 Azure Portal에서 연결 문자열을 신속 하 게 찾을 수 있습니다.  
+Azure는 DNS 확인에 의존 하 여 개인 링크를 통해 VNet에서 구성 저장소로 연결을 라우팅합니다. 앱 구성 저장소를 선택 하 고 **설정**  >  **액세스 키**를 선택 하 여 Azure Portal에서 연결 문자열을 신속 하 게 찾을 수 있습니다.  
 
 > [!IMPORTANT]
-> 공용 끝점에서 사용 하는 것 처럼 개인 끝점을 사용 하 여 앱 구성 저장소에 연결 하려면 동일한 연결 문자열을 사용 합니다. 하위 `privatelink` 도메인 URL을 사용 하 여 저장소 계정에 연결 하지 마세요.
+> 공용 끝점에서 사용 하는 것 처럼 개인 끝점을 사용 하 여 앱 구성 저장소에 연결 하려면 동일한 연결 문자열을 사용 합니다. 하위 도메인 URL을 사용 하 여 저장소에 연결 하지 마세요 `privatelink` .
 
 ## <a name="dns-changes-for-private-endpoints"></a>전용 끝점에 대 한 DNS 변경
 
-개인 끝점을 만들 때 구성 저장소에 대 한 DNS CNAME 리소스 레코드는 접두사가 `privatelink`있는 하위 도메인의 별칭으로 업데이트 됩니다. 또한 Azure는 개인 끝점에 대 한 DNS A `privatelink` 리소스 레코드를 사용 하 여 하위 도메인에 해당 하는 [개인 DNS 영역](../dns/private-dns-overview.md) 을 만듭니다.
+개인 끝점을 만들 때 구성 저장소에 대 한 DNS CNAME 리소스 레코드는 접두사가 있는 하위 도메인의 별칭으로 업데이트 됩니다 `privatelink` . 또한 Azure는 개인 끝점에 대 한 DNS A 리소스 레코드를 사용 하 여 하위 도메인에 해당 하는 [개인 DNS 영역](../dns/private-dns-overview.md) 을 만듭니다 `privatelink` .
 
-VNet 외부에서 끝점 URL을 확인 하면 저장소의 공용 끝점으로 확인 됩니다. 개인 끝점을 호스트 하는 VNet 내에서 확인 되는 경우 끝점 URL은 개인 끝점으로 확인 됩니다.
+개인 끝점을 호스트 하는 VNet 내에서 끝점 URL을 확인 하면 저장소의 개인 끝점으로 확인 됩니다. VNet 외부에서 확인 되 면 끝점 URL은 공용 끝점으로 확인 됩니다. 개인 끝점을 만들 때 공용 끝점은 사용 하지 않도록 설정 됩니다.
 
-Azure 방화벽 서비스를 사용 하 여 공용 끝점을 통해 VNet 외부의 클라이언트에 대 한 액세스를 제어할 수 있습니다.
-
-이 접근 방식을 사용 하면 개인 끝점을 호스트 하는 VNet의 클라이언트와 VNet 외부의 클라이언트에 **동일한 연결 문자열을 사용 하 여** 저장소에 액세스할 수 있습니다.
-
-네트워크에서 사용자 지정 DNS 서버를 사용 하는 경우 클라이언트는 개인 끝점 IP 주소에 대 한 서비스 끝점의 FQDN (정규화 된 도메인 이름)을 확인할 수 있어야 합니다. 개인 링크 하위 도메인을 VNet의 개인 DNS 영역에 위임 하도록 DNS 서버를 구성 하거나 개인 끝점 IP 주소를 사용 하 `AppConfigInstanceA.privatelink.azconfig.io` 여에 대 한 A 레코드를 구성 합니다.
+네트워크에서 사용자 지정 DNS 서버를 사용 하는 경우 클라이언트는 개인 끝점 IP 주소에 대 한 서비스 끝점의 FQDN (정규화 된 도메인 이름)을 확인할 수 있어야 합니다. 개인 링크 하위 도메인을 VNet의 개인 DNS 영역에 위임 하도록 DNS 서버를 구성 하거나 `AppConfigInstanceA.privatelink.azconfig.io` 개인 끝점 IP 주소를 사용 하 여에 대 한 A 레코드를 구성 합니다.
 
 > [!TIP]
-> 사용자 지정 또는 온-프레미스 DNS 서버를 사용 하는 경우 하위 `privatelink` 도메인의 저장소 이름을 개인 끝점 IP 주소로 확인 하도록 DNS 서버를 구성 해야 합니다. 이렇게 하려면 하위 `privatelink` 도메인을 VNet의 개인 DNS 영역에 위임 하거나 dns 서버에서 dns 영역을 구성 하 고 dns A 레코드를 추가 합니다.
+> 사용자 지정 또는 온-프레미스 DNS 서버를 사용 하는 경우 하위 도메인의 저장소 이름을 `privatelink` 개인 끝점 IP 주소로 확인 하도록 DNS 서버를 구성 해야 합니다. 이렇게 하려면 하위 `privatelink` 도메인을 VNet의 개인 DNS 영역에 위임 하거나 dns 서버에서 dns 영역을 구성 하 고 Dns A 레코드를 추가 합니다.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -78,5 +74,5 @@ Azure 방화벽 서비스를 사용 하 여 공용 끝점을 통해 VNet 외부�
 
 개인 끝점을 사용 하 여 DNS 서버를 구성 하는 방법을 알아봅니다.
 
-- [Azure 가상 네트워크에서 리소스에 대한 이름 확인](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Azure 가상 네트워크의 리소스 이름 확인](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
 - [전용 끝점에 대 한 DNS 구성](/azure/private-link/private-endpoint-overview#dns-configuration)

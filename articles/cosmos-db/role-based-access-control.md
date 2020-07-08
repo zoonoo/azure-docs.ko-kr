@@ -4,14 +4,14 @@ description: Azure Cosmos DB RBAC (Active directory 통합)를 사용 하 여 �
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4e028e7a5e7e7b8f747d7a1cfb36c553a8113544
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583724"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027021"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
 
@@ -26,7 +26,7 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 |[DocumentDB 계정 기여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다.|
 |[Cosmos DB 계정 판독기](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있음.|
 |[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Azure Cosmos 데이터베이스 또는 컨테이너에 대 한 복원 요청을 제출할 수 있습니다.|
-|[Cosmos DB 연산자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|는 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있지만 데이터에 액세스 하는 데 필요한 키에는 액세스할 수 없습니다.|
+|[Cosmos DB 운영자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|는 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있지만 데이터에 액세스 하는 데 필요한 키에는 액세스할 수 없습니다.|
 
 > [!IMPORTANT]
 > Azure Cosmos DB의 RBAC 지원은 제어 평면 작업에만 적용 됩니다. 데이터 평면 작업은 마스터 키 또는 리소스 토큰을 사용 하 여 보호 됩니다. 자세한 내용은 [Azure Cosmos DB의 데이터에 안전](secure-access-to-data.md) 하 게 액세스를 참조 하세요.
@@ -35,7 +35,7 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 
 Azure Portal의 **액세스 제어 (IAM)** 창은 Azure Cosmos 리소스에 대 한 역할 기반 액세스 제어를 구성 하는 데 사용 됩니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다. 다음 스크린샷은 Azure Portal의 IAM (access control)을 사용한 RBAC (Active Directory 통합)를 보여 줍니다.
 
-![Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명":::
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 
@@ -43,14 +43,39 @@ Azure Portal의 **액세스 제어 (IAM)** 창은 Azure Cosmos 리소스에 대 
 
 ## <a name="preventing-changes-from-cosmos-sdk"></a>Cosmos SDK에서 변경 방지
 
-Cosmos 리소스 공급자는 계정 키 (즉, Cosmos SDK를 통해 연결 하는 응용 프로그램)를 통해 연결 되는 모든 클라이언트의 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 포함 하 여 리소스를 변경할 수 없도록 잠글 수 있습니다. 설정 하는 경우 리소스에 대 한 변경 내용은 적절 한 RBAC 역할 및 자격 증명이 있는 사용자 로부터 가져와야 합니다. 이 기능은 Cosmos 리소스 공급자 `disableKeyBasedMetadataWriteAccess` 의 속성 값으로 설정 됩니다. 이 속성 설정을 사용 하는 Azure Resource Manager 템플릿의 예는 다음과 같습니다.
+> [!WARNING]
+> 이 기능을 사용 하도록 설정 하면 응용 프로그램에 심각한 영향을 줄 수 있습니다. 이 기능을 사용 하도록 설정 하기 전에 철저히 읽어 보세요.
+
+계정 키 (즉, Cosmos SDK를 통해 연결 하는 응용 프로그램)를 사용 하 여 연결 하는 모든 클라이언트에서 수행 되는 리소스의 변경을 방지 하기 위해 Azure Cosmos DB 리소스 공급자를 잠글 수 있습니다. 또한 Azure Portal에서 변경한 내용이 포함 됩니다. 이는 프로덕션 환경에 대 한 제어 및 관리를 더 많이 사용 하 고 리소스 잠금과 같은 기능을 사용 하도록 설정 하 고 제어 평면 작업에 대해 진단 로그를 사용 하도록 설정 하는 사용자에 게 적합할 수 있습니다. Cosmos DB SDK를 통해 연결 하는 클라이언트는 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량에 대 한 속성을 변경할 수 없습니다. Cosmos 컨테이너 자체에 대 한 데이터 읽기 및 쓰기와 관련 된 작업은 영향을 받지 않습니다.
+
+이 설정을 사용 하는 경우 적절 한 RBAC 역할을 가진 사용자만 리소스에 대 한 변경 내용을 적용 하 고 관리 서비스 Id를 비롯 한 Azure Active Directory 자격 증명을 변경할 수 있습니다.
+
+### <a name="check-list-before-enabling"></a>활성화 하기 전에 목록 확인
+
+이 설정은 Cosmos DB SDK, 계정 키를 통해 연결 된 모든 도구 또는 Azure Portal을 포함 하 여 계정 키를 사용 하 여 연결 하는 모든 클라이언트에서 Cosmos 리소스를 변경 하는 것을 방지 합니다. 이 기능을 사용 하도록 설정한 후 응용 프로그램의 문제 또는 오류를 방지 하려면 다음을 포함 하 여이 기능을 활성화 하기 전에 응용 프로그램 또는 Azure Portal 사용자가 다음 작업 중 하나를 수행 하는지 확인 합니다.
+
+- 모든 속성을 포함 하거나 지역을 추가 하거나 제거 하는 Cosmos 계정에 대 한 변경
+
+- 데이터베이스 및 컨테이너와 같은 자식 리소스를 만들고 삭제 합니다. 여기에는 Cassandra, MongoDB, Gremlin 및 table 리소스와 같은 다른 API에 대 한 리소스가 포함 됩니다.
+
+- 데이터베이스 또는 컨테이너 수준 리소스에 대 한 처리량 업데이트
+
+- 인덱스 정책, TTL 및 고유 키를 비롯 한 컨테이너 속성을 수정 합니다.
+
+- 저장 프로시저, 트리거 또는 사용자 정의 함수 수정
+
+응용 프로그램 (또는 Azure Portal를 통한 사용자)이 이러한 작업을 수행 하는 경우 [ARM 템플릿](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), [REST](/rest/api/cosmos-db-resource-provider/) 또는 [Azure 관리 라이브러리](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행 하려면 마이그레이션해야 합니다. Azure Management는 [여러 언어로](https://docs.microsoft.com/azure/?product=featured#languages-and-tools)제공 됩니다.
+
+### <a name="set-via-arm-template"></a>ARM 템플릿을 통해 설정
+
+ARM 템플릿을 사용 하 여이 속성을 설정 하려면 기존 템플릿을 업데이트 하거나 현재 배포에 대 한 새 템플릿을 내보낸 다음 `"disableKeyBasedMetadataWriteAccess": true` databaseAccounts 리소스의 속성에를 포함 합니다. 다음은이 속성 설정을 사용 하는 Azure Resource Manager 템플릿의 기본 예입니다.
 
 ```json
 {
     {
       "type": "Microsoft.DocumentDB/databaseAccounts",
       "name": "[variables('accountName')]",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-04-01",
       "location": "[parameters('location')]",
       "kind": "GlobalDocumentDB",
       "properties": {
@@ -62,15 +87,29 @@ Cosmos 리소스 공급자는 계정 키 (즉, Cosmos SDK를 통해 연결 하�
     }
 }
 ```
-기존 리소스 관리자 템플릿을 내보내고이 속성을 사용 하 여 업데이트 하는 경우 템플릿의 기능을 완전히 바꿀 수 있습니다. 따라서 모든 값이 포함 되지 않은 경우 기본값으로 다시 설정 됩니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하는 또 다른 방법은 다음 명령에 표시 된 대로 Azure CLI를 사용 하는 것입니다.
 
-```cli
-az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+> [!IMPORTANT]
+> 이 속성을 사용 하 여 redploying 때 계정 및 자식 리소스에 대 한 다른 속성을 포함 해야 합니다. 이 템플릿을 그대로 배포 하거나 모든 계정 속성을 다시 설정 합니다.
 
+### <a name="set-via-azure-cli"></a>Azure CLI를 통해 설정
+
+을 사용 하도록 설정 하려면 다음 명령을 사용 Azure CLI 합니다.
+
+```azurecli-interactive
+az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroupName]  --disable-key-based-metadata-write-access true
+
+```
+
+### <a name="set-via-powershell"></a>PowerShell을 통해 설정
+
+Azure PowerShell를 사용 하도록 설정 하려면 아래 명령을 사용 합니다.
+
+```azurepowershell-interactive
+Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBAccountName] -DisableKeyBasedMetadataWriteAccess true
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스에 대 한 RBAC (역할 기반 액세스 제어) 란?](../role-based-access-control/overview.md)
+- [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md)
 - [Azure 리소스에 대한 사용자 지정 역할](../role-based-access-control/custom-roles.md)
 - [Azure Cosmos DB 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
