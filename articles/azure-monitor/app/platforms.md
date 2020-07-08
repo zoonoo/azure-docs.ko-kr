@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.openlocfilehash: 153d4ad3d95c182dcc4f2aa3bad857d7e1984cc2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891104"
 ---
 # <a name="supported-languages"></a>지원되는 언어
@@ -16,7 +15,7 @@ ms.locfileid: "82891104"
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
-* [NODE.JS](../../azure-monitor/app/nodejs.md)
+* [Node.JS](../../azure-monitor/app/nodejs.md)
 * [Python](../../azure-monitor/app/opencensus-python.md)
 
 ## <a name="supported-platforms-and-frameworks"></a>지원되는 플랫폼 및 프레임워크
@@ -33,7 +32,7 @@ ms.locfileid: "82891104"
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
-* [NODE.JS](https://www.npmjs.com/package/applicationinsights)
+* [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [Python](../../azure-monitor/app/opencensus-python.md)
 * [유니버설 Windows 앱](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Windows 데스크톱 애플리케이션, 서비스 및 작업자 역할](../../azure-monitor/app/windows-desktop.md)

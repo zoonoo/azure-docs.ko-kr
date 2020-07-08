@@ -11,15 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
 ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768311"
 ---
 # <a name="wildcard-domains"></a>와일드 카드 도메인
 
-Apex 도메인 및 하위 도메인을 제외 하 고, 와일드 카드 도메인 이름을 Azure Front 도어 프로필의 프런트 엔드 호스트 또는 사용자 지정 도메인 목록에 매핑할 수 있습니다. Azure 프런트 도어 구성에 와일드 카드 도메인이 있으면 동일한 라우팅 규칙에서 API, 응용 프로그램 또는 웹 사이트에 대 한 여러 하위 도메인에 대 한 트래픽 라우팅 동작이 간소화 됩니다. 각 하위 도메인을 별도로 추가 하거나 지정 하도록 구성을 수정할 필요가 없습니다. 예를 들어 동일한 라우팅 규칙을 사용 하 고 `customer1.contoso.com`와일드 `customer2.contoso.com`카드 도메인 `customerN.contoso.com` `*.contoso.com`을 추가 하 여, 및에 대 한 라우팅을 정의할 수 있습니다.
+Apex 도메인 및 하위 도메인을 제외 하 고, 와일드 카드 도메인 이름을 Azure Front 도어 프로필의 프런트 엔드 호스트 또는 사용자 지정 도메인 목록에 매핑할 수 있습니다. Azure 프런트 도어 구성에 와일드 카드 도메인이 있으면 동일한 라우팅 규칙에서 API, 응용 프로그램 또는 웹 사이트에 대 한 여러 하위 도메인에 대 한 트래픽 라우팅 동작이 간소화 됩니다. 각 하위 도메인을 별도로 추가 하거나 지정 하도록 구성을 수정할 필요가 없습니다. 예를 들어 `customer1.contoso.com` `customer2.contoso.com` `customerN.contoso.com` 동일한 라우팅 규칙을 사용 하 고 와일드 카드 도메인을 추가 하 여, 및에 대 한 라우팅을 정의할 수 있습니다 `*.contoso.com` .
 
 와일드 카드 도메인에 대 한 지원으로 향상 된 주요 시나리오는 다음과 같습니다.
 
@@ -31,7 +30,7 @@ Apex 도메인 및 하위 도메인을 제외 하 고, 와일드 카드 도메�
 
 ## <a name="adding-wildcard-domains"></a>와일드 카드 도메인 추가
 
-프런트 엔드 호스트 또는 도메인의 섹션 아래에 와일드 카드 도메인을 추가할 수 있습니다. 하위 도메인과 마찬가지로 Azure Front 도어는 와일드 카드 도메인에 대 한 CNAME 레코드 매핑이 있는지 확인 합니다. 이 DNS 매핑은에 `*.contoso.com` `contoso.azurefd.net`매핑되는 것과 같은 직접 CNAME 레코드 매핑이 될 수 있습니다. 또는 afdverify 임시 매핑을 사용할 수 있습니다. 예를 들어 `afdverify.contoso.com` 로 `afdverify.contoso.azurefd.net` 매핑하면는 와일드 카드에 대 한 CNAME 레코드 맵의 유효성을 검사 합니다.
+프런트 엔드 호스트 또는 도메인의 섹션 아래에 와일드 카드 도메인을 추가할 수 있습니다. 하위 도메인과 마찬가지로 Azure Front 도어는 와일드 카드 도메인에 대 한 CNAME 레코드 매핑이 있는지 확인 합니다. 이 DNS 매핑은에 매핑되는 것과 같은 직접 CNAME 레코드 매핑이 될 수 있습니다 `*.contoso.com` `contoso.azurefd.net` . 또는 afdverify 임시 매핑을 사용할 수 있습니다. 예를 들어 `afdverify.contoso.com` 로 매핑하면는 `afdverify.contoso.azurefd.net` 와일드 카드에 대 한 CNAME 레코드 맵의 유효성을 검사 합니다.
 
 > [!NOTE]
 > Azure DNS는 와일드카드 레코드를 지원합니다.
@@ -40,7 +39,7 @@ Apex 도메인 및 하위 도메인을 제외 하 고, 와일드 카드 도메�
 
 - 하위 도메인에 대 한 다른 경로를 정의 하는 것은 와일드 카드 도메인의 나머지 도메인입니다.
 
-- 특정 하위 도메인에 대해 다른 WAF 정책을 보유 하 고 있습니다. 예를 들어 `*.contoso.com` 는 도메인 `foo.contoso.com` 소유권을 다시 증명 하지 않고도를 추가할 수 있습니다. 그러나의 `*.contoso.com`단일 수준 `foo.bar.contoso.com` 하위 도메인이 아니기 때문에 허용 되지 않습니다. 추가 도메인 `foo.bar.contoso.com` 소유권 유효성 검사 없이 추가 하려면 `*.bar.contosonews.com` 를 추가 해야 합니다.
+- 특정 하위 도메인에 대해 다른 WAF 정책을 보유 하 고 있습니다. 예를 들어는 `*.contoso.com` `foo.contoso.com` 도메인 소유권을 다시 증명 하지 않고도를 추가할 수 있습니다. 그러나 `foo.bar.contoso.com` 의 단일 수준 하위 도메인이 아니기 때문에 허용 되지 않습니다 `*.contoso.com` . 추가 `foo.bar.contoso.com` 도메인 소유권 유효성 검사 없이 추가 하려면를 추가 해야 `*.bar.contosonews.com` 합니다.
 
 특정 제한 사항이 있는 와일드 카드 도메인 및 하위 도메인을 추가할 수 있습니다.
 
@@ -72,7 +71,7 @@ WAF 정책은 다른 도메인과 비슷하게 와일드 카드 도메인에 연
 라우팅 규칙을 구성 하는 경우 와일드 카드 도메인을 프런트 엔드 호스트로 선택할 수 있습니다. 와일드 카드 도메인 및 하위 도메인에 대해 다른 경로 동작을 사용할 수도 있습니다. [Azure Front 도어가 경로 일치를 수행 하는 방법](front-door-route-matching.md)에 설명 된 대로 여러 라우팅 규칙에서 도메인에 대 한 가장 구체적인 일치 항목이 런타임에 선택 됩니다.
 
 > [!IMPORTANT]
-> 라우팅 규칙에 일치 하는 경로 패턴이 있어야 합니다. 그렇지 않으면 클라이언트에 오류가 표시 됩니다. 예를 들어 경로 1 (`*.foo.com/*` 백 엔드 풀 A에 매핑됨)과 경로 2 (`bar.foo.com/somePath/*` 백 엔드 풀 B로 매핑됨)와 같은 라우팅 규칙이 두 개 있습니다. 그런 다음에 대 한 `bar.foo.com/anotherPath/*`요청이 도착 합니다. Azure 전면 도어는 더 구체적인 도메인 일치를 기반으로 경로 2를 선택 합니다. 경로 전체에서 일치 하는 경로 패턴을 찾을 수 없습니다.
+> 라우팅 규칙에 일치 하는 경로 패턴이 있어야 합니다. 그렇지 않으면 클라이언트에 오류가 표시 됩니다. 예를 들어 경로 1 ( `*.foo.com/*` 백 엔드 풀 A에 매핑됨)과 경로 2 ( `bar.foo.com/somePath/*` 백 엔드 풀 B로 매핑됨)와 같은 라우팅 규칙이 두 개 있습니다. 그런 다음에 대 한 요청이 도착 `bar.foo.com/anotherPath/*` 합니다. Azure 전면 도어는 더 구체적인 도메인 일치를 기반으로 경로 2를 선택 합니다. 경로 전체에서 일치 하는 경로 패턴을 찾을 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

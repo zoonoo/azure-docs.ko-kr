@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793043"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위한 CloudSimple 사설 클라우드 최적화
@@ -174,8 +173,8 @@ vSAN 정책은 VM 디스크에 저장 된 데이터에 대해 허용 되는 오�
 3. 왼쪽 메뉴에서 **Vm 저장소 정책** 을 선택 하 고 **Vm 저장소 정책 만들기**를 선택 합니다.
 4. 정책에 대 한 의미 있는 이름을 입력 하 고 **다음**을 클릭 합니다.
 5. **정책 구조** 섹션에서 **vsan storage에 대 한 규칙 사용** 을 선택 하 고 **다음**을 클릭 합니다.
-6. **Vsan** > **가용성** 섹션에서 사이트 재해 허용 범위에 대해 **없음** 을 선택 합니다. 허용 되는 오류에 대해 원하는 FTT의 **RAID 미러링** 옵션을 선택 합니다.
-    ![vSAN 설정](media/oracle-rac-storage-wizard-vsan.png).
+6. **Vsan**  >  **가용성** 섹션에서 사이트 재해 허용 범위에 대해 **없음** 을 선택 합니다. 허용 되는 오류에 대해 원하는 FTT의 **RAID 미러링** 옵션을 선택 합니다.
+    ![vSAN 설정 ](media/oracle-rac-storage-wizard-vsan.png) .
 7. **고급** 섹션에서 개체당 디스크 줄무늬 수를 선택 합니다. 개체 공간 예약의 경우 **굵은 프로 비전**됨을 선택 합니다. **개체 체크섬 사용 안 함**을 선택 합니다. **다음**을 클릭 합니다.
 8. 화면의 지시에 따라 호환 되는 vSAN 데이터 저장소 목록을 확인 하 고 설정을 검토 한 후 설치를 완료 합니다.
 

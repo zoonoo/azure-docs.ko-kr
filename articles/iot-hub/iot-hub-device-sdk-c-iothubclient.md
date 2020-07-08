@@ -10,10 +10,9 @@ ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732613"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
@@ -77,7 +76,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 **LL** api는 백그라운드 스레드를 만들지 않습니다. 대신, IoT Hub에서 데이터를 명시적으로 전송 및 수신하는 새 API를 호출해야 합니다. 다음 예제에 이 내용이 나와 있습니다.
 
-SDK에 포함 된 **iothub\_\_client 샘플\_http** 응용 프로그램은 하위 수준 api를 보여 줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
+SDK에 포함 된 **iothub \_ client \_ 샘플 \_ http** 응용 프로그램은 하위 수준 api를 보여 줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
 
 ```C
 EVENT_INSTANCE message;
@@ -103,7 +102,7 @@ while (1)
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
 ```
 
-**\_IoTHubClient LL\_DoWork** 가 루프에서 자주 호출 되는 이유는 호출 될 때마다 버퍼링 된 *일부* 이벤트를 IoT Hub 전송 하 고 장치에 대해 큐에 대기 중인 *다음 메시지를* 검색 한다는 것입니다. 각 호출에서 버퍼링 된 모든 이벤트를 보내거나 대기 중인 모든 메시지를 검색 하는 것은 보장 되지 않습니다. 버퍼의 모든 이벤트를 전송한 후 다른 처리를 진행하려면 다음과 같은 코드로 이 루프를 바꾸면 됩니다.
+**IoTHubClient \_ LL \_ DoWork** 가 루프에서 자주 호출 되는 이유는 호출 될 때마다 버퍼링 된 *일부* 이벤트를 IoT Hub 전송 하 고 장치에 대해 큐에 대기 중인 *다음 메시지를* 검색 한다는 것입니다. 각 호출에서 버퍼링 된 모든 이벤트를 보내거나 대기 중인 모든 메시지를 검색 하는 것은 보장 되지 않습니다. 버퍼의 모든 이벤트를 전송한 후 다른 처리를 진행하려면 다음과 같은 코드로 이 루프를 바꾸면 됩니다.
 
 ```C
 IOTHUB_CLIENT_STATUS status;
@@ -197,7 +196,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 ## <a name="message-handling"></a>메시지 처리
 
-앞서 설명한 것처럼 IoT Hub에서 메시지가 도착할 때 **IoTHubClient** 라이브러리가 등록된 콜백 함수를 호출하여 응답합니다. 이 함수에는 반환 매개 변수가 있으며 이에 대한 추가 설명이 필요합니다. **Iothub\_\_client 샘플\_http** 샘플 응용 프로그램의 콜백 함수에 대 한 발췌는 다음과 같습니다.
+앞서 설명한 것처럼 IoT Hub에서 메시지가 도착할 때 **IoTHubClient** 라이브러리가 등록된 콜백 함수를 호출하여 응답합니다. 이 함수에는 반환 매개 변수가 있으며 이에 대한 추가 설명이 필요합니다. **Iothub \_ client \_ 샘플 \_ http** 샘플 응용 프로그램의 콜백 함수에 대 한 발췌는 다음과 같습니다.
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)

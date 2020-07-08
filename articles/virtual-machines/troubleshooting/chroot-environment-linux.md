@@ -14,10 +14,9 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
 ms.openlocfilehash: d6605aa77cfa746f60fc3b23e120267a2614f7b1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864683"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Linux 복구 VM의 chroot 환경
@@ -36,7 +35,7 @@ ms.locfileid: "82864683"
 
       `#sudo su -`
 
-   1. 을 사용 하 여 `dmesg` 디스크를 찾습니다 (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
+   1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
       `dmesg | grep SCSI`
 
@@ -84,7 +83,7 @@ ms.locfileid: "82864683"
       ```
 
       > [!NOTE]
-      > 오류가 `unable to unmount /rescue`표시 되 면-l 옵션을 분리할 명령에 추가 합니다.
+      > 오류가 표시 `unable to unmount /rescue` 되 면-l 옵션을 분리할 명령에 추가 합니다.
       >
       > 예: `umount -l /rescue`
 
@@ -103,7 +102,7 @@ ms.locfileid: "82864683"
 
       `#sudo su -`
 
-   1. 을 사용 하 여 `dmesg` 디스크를 찾습니다 (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
+   1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
       `dmesg | grep SCSI`
 
@@ -151,7 +150,7 @@ ms.locfileid: "82864683"
       ```
 
       > [!NOTE]
-      > 오류가 `unable to unmount /rescue`표시 되 면-l 옵션을 분리할 명령에 추가 합니다.
+      > 오류가 표시 `unable to unmount /rescue` 되 면-l 옵션을 분리할 명령에 추가 합니다.
       >
       > 예: `umount -l /rescue`
 
@@ -173,7 +172,7 @@ ms.locfileid: "82864683"
 
       `#sudo su -`
 
-   1. 을 사용 하 여 `dmesg` 디스크를 찾습니다 (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
+   1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
       `dmesg | grep SCSI`
 
@@ -195,7 +194,7 @@ ms.locfileid: "82864683"
       #lvscan
       ```
 
-   1. `lsblk` 명령을 사용 하 여 lvm 이름을 검색 합니다.
+   1. 명령을 사용 `lsblk` 하 여 lvm 이름을 검색 합니다.
 
       ```
       [user@myvm ~]$ lsblk
@@ -264,7 +263,7 @@ ms.locfileid: "82864683"
       ```
 
       > [!NOTE]
-      > 오류가 `unable to unmount /rescue`표시 되 면-l 옵션을 분리할 명령에 추가 합니다.
+      > 오류가 표시 `unable to unmount /rescue` 되 면-l 옵션을 분리할 명령에 추가 합니다.
       >
       > 예: `umount -l /rescue`
 
@@ -286,7 +285,7 @@ ms.locfileid: "82864683"
 
       `#sudo su -`
 
-   1. 을 사용 하 여 `dmesg` 디스크를 찾습니다 (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
+   1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
       `dmesg | grep SCSI`
 
@@ -308,7 +307,7 @@ ms.locfileid: "82864683"
       #lvscan
       ```
 
-   1. `lsblk` 명령을 사용 하 여 lvm 이름을 검색 합니다.
+   1. 명령을 사용 `lsblk` 하 여 lvm 이름을 검색 합니다.
 
       ```
       [user@myvm ~]$ lsblk
@@ -374,7 +373,7 @@ ms.locfileid: "82864683"
       ```
 
       > [!NOTE]
-      > 오류가 `unable to unmount /rescue`표시 되 면-l 옵션을 분리할 명령에 추가 합니다.
+      > 오류가 표시 `unable to unmount /rescue` 되 면-l 옵션을 분리할 명령에 추가 합니다.
       >
       > 예: `umount -l /rescue`
 
@@ -393,7 +392,7 @@ ms.locfileid: "82864683"
 
       `#sudo su -`
 
-   1. 을 사용 하 여 `dmesg` 디스크를 찾습니다 (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
+   1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
       `dmesg | grep SCSI`
 
@@ -443,7 +442,7 @@ ms.locfileid: "82864683"
       ```
 
       > [!NOTE]
-      > 오류가 `unable to unmount /rescue`표시 되 면-l 옵션을 분리할 명령에 추가 합니다.
+      > 오류가 표시 `unable to unmount /rescue` 되 면-l 옵션을 분리할 명령에 추가 합니다.
       >
       > 예: `umount -l /rescue`
 
@@ -462,7 +461,7 @@ ms.locfileid: "82864683"
 
       `#sudo su -`
 
-   1. 을 사용 하 여 `dmesg` 디스크를 찾습니다 (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
+   1. 을 사용 하 여 디스크를 찾습니다 `dmesg` (새 디스크를 검색 하는 데 사용 하는 방법은 다를 수 있음). 다음 예제에서는 **dmesg** 를 사용 하 여 **SCSI** 디스크를 필터링 합니다.
 
       `dmesg | grep SCSI`
 
@@ -512,7 +511,7 @@ ms.locfileid: "82864683"
       ```
 
       > [!NOTE]
-      > 오류가 `unable to unmount /rescue`표시 되 면-l 옵션을 분리할 명령에 추가 합니다.
+      > 오류가 표시 `unable to unmount /rescue` 되 면-l 옵션을 분리할 명령에 추가 합니다.
       >
       > 예: `umount -l /rescue`
 

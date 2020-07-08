@@ -10,17 +10,16 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797137"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>일반화 된 이미지에서 확장 집합 만들기
 
 Azure CLI를 사용 하 여 [공유 이미지 갤러리](shared-image-galleries.md) 에 저장 된 일반화 된 이미지 버전에서 확장 집합을 만듭니다. 특수 이미지 버전을 사용 하 여 확장 집합을 만들려면 [특수화 된 이미지에서 확장 집합 인스턴스 만들기](instance-specialized-image-version-cli.md)를 참조 하세요.
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 자습서에서는 Azure CLI 버전 2.4.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.4.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 
@@ -36,9 +35,9 @@ az sig image-definition list \
    --output tsv
 ```
 
-을 사용 하 여 [`az vmss create`](/cli/azure/vmss#az-vmss-create)확장 집합을 만듭니다. 
+을 사용 하 여 확장 집합을 만듭니다 [`az vmss create`](/cli/azure/vmss#az-vmss-create) . 
 
-의 `--image` 이미지 정의 ID를 사용 하 여 사용 가능한 최신 버전의 이미지에서 확장 집합 인스턴스를 만듭니다. 의 `--image`이미지 버전 ID를 제공 하 여 특정 버전에서 확장 집합 인스턴스를 만들 수도 있습니다. 특정 이미지 버전을 사용 하면 특정 이미지 버전이 지역에서 삭제 되거나 제거 되어 해당 이미지 버전이 제공 되지 않는 경우 자동화가 실패할 수 있음을 의미 합니다. 특정 이미지 버전이 필요 하지 않는 한 새 VM을 만들기 위해 이미지 정의 ID를 사용 하는 것이 좋습니다.
+이미지 정의 ID를 `--image`에 사용하여 사용 가능한 최신 버전의 이미지에서 확장 집합 인스턴스를 만듭니다. 또한 `--image`에 대한 이미지 버전 ID를 제공하여 특정 버전에서 확장 집합 인스턴스를 만들 수 있습니다. 특정 이미지 버전을 사용 하면 특정 이미지 버전이 지역에서 삭제 되거나 제거 되어 해당 이미지 버전이 제공 되지 않는 경우 자동화가 실패할 수 있음을 의미 합니다. 특정 이미지 버전이 필요 하지 않는 한 새 VM을 만들기 위해 이미지 정의 ID를 사용 하는 것이 좋습니다.
 
 이 예제에서는 최신 버전의 *Myimagedefinition* 이미지에서 인스턴스를 만듭니다.
 
@@ -59,7 +58,7 @@ az vmss create \
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [Shared Image Gallery 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 

@@ -10,10 +10,9 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857423"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기)
@@ -30,7 +29,7 @@ ms.locfileid: "82857423"
 
 * HDInsight 클러스터에 연결 합니다. [HDInsight 클러스터에 연결을](apache-spark-intellij-tool-plugin.md)참조 하세요.
 
-* Microsoft Azure Storage 탐색기. [다운로드 Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조 하세요.
+* Microsoft Azure Storage Explorer가 있어야 합니다. [다운로드 Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조 하세요.
 
 ## <a name="create-a-project-with-debugging-template"></a>디버깅 템플릿을 사용 하 여 프로젝트 만들기
 
@@ -44,7 +43,7 @@ ms.locfileid: "82857423"
 
      ![Intellij 디버그 프로젝트 만들기](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
 
-   c. **다음**을 선택합니다.
+   다. **새로 만들기**를 선택합니다.
 
 2. **새 프로젝트** 창에서 다음 단계를 수행합니다.
 
@@ -54,11 +53,11 @@ ms.locfileid: "82857423"
 
    b. **프로젝트 SDK** 드롭다운 목록에서 **Spark 2.3.2** 클러스터용 **Java 1.8** 를 선택 합니다.
 
-   c. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
+   다. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
 
    d. **마침**을 선택합니다.
 
-3. **Src** > **main**main > **scala** 을 선택 하 여 프로젝트에서 코드를 엽니다. 이 예에서는 **AgeMean_Div ()** 스크립트를 사용 합니다.
+3. **Src**  >  **main**  >  **scala** 을 선택 하 여 프로젝트에서 코드를 엽니다. 이 예에서는 **AgeMean_Div ()** 스크립트를 사용 합니다.
 
 ## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 Spark Scala/Java 응용 프로그램 실행
 
@@ -90,7 +89,7 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
 작업 제출에 실패 하는 경우 추가 디버깅을 위해 실패 한 작업 프로필을 로컬 컴퓨터에 다운로드할 수 있습니다.
 
-1. **Microsoft Azure Storage 탐색기**를 열고 실패 한 작업에 대 한 클러스터의 HDInsight 계정을 찾은 다음 해당 위치: **\hdp\spark2-events\\\\\<응용 프로그램 ID>** 에서 로컬 폴더로 실패 한 작업 리소스를 다운로드 합니다. **작업** 창에 다운로드 진행률이 표시 됩니다.
+1. **Microsoft Azure Storage 탐색기**를 열고 실패 한 작업에 대 한 클러스터의 HDInsight 계정을 찾은 다음 해당 위치: **\hdp\spark2-events \\ \\ \<application ID> ** 에서 로컬 폴더로 실패 한 작업 리소스를 다운로드 합니다. **작업** 창에 다운로드 진행률이 표시 됩니다.
 
    ![Azure Storage 탐색기 다운로드 실패](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 

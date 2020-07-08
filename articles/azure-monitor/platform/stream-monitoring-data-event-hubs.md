@@ -8,10 +8,9 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854613"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>이벤트 허브로 Azure 모니터링 데이터 스트리밍
@@ -34,7 +33,7 @@ Azure Monitor는 Azure, 다른 클라우드 및 온-프레미스에서 응용 �
 
 | 계층 | 데이터 | 메서드 |
 |:---|:---|:---|
-| [Azure 테 넌 트](data-sources.md#azure-tenant) | 감사 로그 Azure Active Directory | AAD 테 넌 트에서 테 넌 트 진단 설정을 구성 합니다. 자세한 내용은 [자습서: Azure 이벤트 허브에 로그 Azure Active Directory 스트리밍을](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) 참조 하세요. |
+| [Azure 테넌트](data-sources.md#azure-tenant) | Azure Active Directory 감사 로그 | AAD 테 넌 트에서 테 넌 트 진단 설정을 구성 합니다. 자세한 내용은 [자습서: Azure 이벤트 허브에 로그 Azure Active Directory 스트리밍을](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) 참조 하세요. |
 | [Azure 구독](data-sources.md#azure-subscription) | Azure 동작 로그 | 활동 로그 이벤트를 Event Hubs으로 내보낼 로그 프로필을 만듭니다.  자세한 내용은 azure [플랫폼 로그를 azure Event Hubs로 스트리밍을](resource-logs-stream-event-hubs.md) 참조 하세요. |
 | [Azure 리소스](data-sources.md#azure-resources) | 플랫폼 메트릭<br> 리소스 로그 |두 가지 유형의 데이터는 리소스 진단 설정을 사용하여 이벤트 허브로 전송됩니다. 자세한 내용은 [이벤트 허브에 대 한 Azure 리소스 로그 스트리밍을](resource-logs-stream-event-hubs.md) 참조 하세요. |
 | [운영 체제 (게스트)](data-sources.md#operating-system-guest) | Azure 가상 머신 | Azure에서 Windows 및 Linux 가상 머신에 [Azure 진단 확장](diagnostics-extension-overview.md) 을 설치 합니다. Windows Vm에 대 한 자세한 내용은 [Event Hubs를 사용 하 여 실행 부하 과다 경로의 데이터 스트리밍](diagnostics-extension-stream-event-hubs.md) 및 Linux 진단 확장을 사용 하 여 linux vm에 대 한 자세한 내용은 [메트릭 및 로그를 모니터링 하](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) 는 방법을 Azure 진단. |

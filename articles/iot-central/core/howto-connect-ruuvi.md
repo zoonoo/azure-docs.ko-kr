@@ -11,10 +11,9 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758946"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 RuuviTag 센서 연결
@@ -31,7 +30,7 @@ RuuviTag는 매우 심한 (Bluetooth 저 에너지)를 통해 통신 하며, Azu
 
 Rigado Cascade 500 게이트웨이 장치를 설정 하려면 [여기의 지침](./howto-connect-rigado-cascade-500.md) 을 따르세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 RuuviTag 센서를 연결 하려면 다음 리소스가 필요 합니다.
 
@@ -45,8 +44,8 @@ RuuviTag 센서를 Azure IoT Central 응용 프로그램 인스턴스에 등록 
 
 RuuviTag 장치 템플릿을 추가 하려면:
 
-1. 왼쪽 창에서 ***장치 템플릿*** 탭으로 이동 하 고 **+ 새로**만들기를 선택 ![합니다. 새 장치](./media/howto-connect-ruuvi/devicetemplate-new.png) 템플릿 만들기 페이지에서 ***사용자 지정 템플릿을 만들거나*** ***미리 구성 된 장치 템플릿을 사용할*** 수 있는 옵션을 제공 합니다.
-1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 RuuviTag 장치 템플릿을 선택 합니다. ![RuuviTag 장치 템플릿 선택](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. 왼쪽 창에서 ***장치 템플릿*** 탭으로 이동 하 고 **+ 새로**만들기를 선택 ![ 합니다. 새 장치 템플릿 만들기 ](./media/howto-connect-ruuvi/devicetemplate-new.png) 페이지에서 ***사용자 지정 템플릿을 만들거나*** ***미리 구성 된 장치 템플릿을 사용할*** 수 있는 옵션을 제공 합니다.
+1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 RuuviTag 장치 템플릿을 선택 합니다. ![ RuuviTag 장치 템플릿 선택](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. 다음 ***: 사용자 지정*** 을 선택 하 여 다음 단계를 계속 합니다.
 1. 다음 화면에서 ***만들기*** 를 선택 하 여 IoT Central 응용 프로그램에 C500 장치 템플릿을 등록 합니다.
 
@@ -71,12 +70,12 @@ RuuviTag 장치 템플릿을 추가 하려면:
 1. **장치 > RuuviTag**를 선택 합니다.
 1. **+새로 만들기**를 선택합니다.
 1. 고유한 **장치 ID** 및 친숙 한 **장치 이름을**지정 합니다.  
-1. **시뮬레이션** 된 설정을 사용 하도록 설정 합니다.
+1. **시뮬레이션된** 설정을 사용하도록 설정합니다.
 1. **만들기**를 선택합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 개발자 인 경우 몇 가지 제안 되는 다음 단계는 다음과 같습니다.
+디바이스 개발자라면 다음과 같은 몇 가지 단계를 살펴보세요.
 
-- [Azure IoT Central에서 장치 연결](./concepts-get-connected.md) 에 대해 읽기
-- [Azure CLI를 사용 하 여 장치 연결을 모니터링](./howto-monitor-devices-azure-cli.md) 하는 방법 알아보기
+- [Azure IoT Central에서 디바이스 연결](./concepts-get-connected.md)에 대해 알아봅니다.
+- [Azure CLI를 사용하여 디바이스 연결을 모니터링](./howto-monitor-devices-azure-cli.md)하는 방법을 알아봅니다.

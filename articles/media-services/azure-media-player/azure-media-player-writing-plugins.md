@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857412"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Azure Media Player에 대 한 플러그 인 작성 #
@@ -33,7 +32,7 @@ ms.locfileid: "82857412"
     }).call(this);
 ```
 
-태그 또는 외부 JavaScript 파일 내 `<script>` 에서 HTML 페이지에 직접 코드를 작성할 수 있습니다. 후자를 수행 하는 경우에는 AMP 스크립트 `<head>` *뒤* 에 HTML 페이지의에 JavaScript 파일을 포함 해야 합니다.
+태그 또는 외부 JavaScript 파일 내에서 HTML 페이지에 직접 코드를 작성할 수 있습니다 `<script>` . 후자를 수행 하는 경우에는 `<head>` AMP 스크립트 *뒤* 에 HTML 페이지의에 JavaScript 파일을 포함 해야 합니다.
 
 예:
 

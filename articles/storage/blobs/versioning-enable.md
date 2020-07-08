@@ -10,17 +10,16 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82884346"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 사용 및 관리
+# <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
 
 Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 언제 든 지 저장소 계정에 대 한 blob 버전 관리 (미리 보기)를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-## <a name="enable-blob-versioning"></a>Blob 버전 관리 사용
+## <a name="enable-blob-versioning"></a>BLOB 버전 관리 사용
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -37,7 +36,7 @@ Azure Portal에서 blob 버전 관리를 사용 하도록 설정 하려면
 템플릿에서 blob 버전 관리를 사용 하도록 설정 하려면 **Isversioningenabled** 속성을 **true**로 설정 하 여 템플릿을 만듭니다. 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명 합니다.
 
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
-1. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
+1. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
 1. **템플릿 배포**를 선택 하 고 **만들기**를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
 1. 템플릿 편집기에서 다음 JSON을 붙여넣습니다. `<accountName>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 1. 템플릿을 저장하는 경우
@@ -154,5 +153,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Blob 버전 관리 (미리 보기)](versioning-overview.md)
+- [Blob 버전 관리(미리 보기)](versioning-overview.md)
 - [Azure Storage Blob에 대한 일시 삭제](soft-delete-overview.md)

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
 ms.openlocfilehash: c032e900cd2f58581517b08905d5b0660ed8bbda
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857820"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>SSH를 통해 Azure Toolkit for IntelliJ를 사용 하 여 HDInsight 클러스터에서 Apache Spark 응용 프로그램 디버그
@@ -25,7 +24,7 @@ ms.locfileid: "82857820"
 
 * Windows 사용자의 경우: Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행 하는 동안 [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명 된 대로 예외를 받을 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다.
 
-    이 오류를 해결 하려면 [winutils.exe](https://github.com/steveloughran/winutils) 를 **C:\WinUtils\bin**와 같은 위치에 다운로드 합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils**로 설정합니다.
+    이 오류를 해결 하려면 **C:\WinUtils\bin**와 같은 위치에 [Winutils.exe](https://github.com/steveloughran/winutils) 을 다운로드 합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils**로 설정합니다.
 
 * [INTELLIJ 아이디어](https://www.jetbrains.com/idea/download/#section=windows) (커뮤니티 버전은 무료입니다.).
 
@@ -50,13 +49,13 @@ ms.locfileid: "82857820"
 
      ![Intellij 새 프로젝트 만들기 Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-1. **다음**을 선택합니다.
+1. **새로 만들기**를 선택합니다.
 
 1. 다음 **새 프로젝트** 창에서 다음 정보를 제공 합니다.
 
     |속성 |Description |
     |---|---|
-    |프로젝트 이름|이름을 입력합니다. 이 연습에서는를 `myApp`사용 합니다.|
+    |프로젝트 이름|이름을 입력합니다. 이 연습에서는 `myApp` 를 사용 합니다.|
     |프로젝트 위치|프로젝트를 저장하기를 원하는 위치를 입력합니다.|
     |프로젝트 SDK|비어 있는 경우 **새로 만들기** ...를 선택 하 고 JDK로 이동 합니다.|
     |Spark 버전|만들기 마법사는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x**를 선택합니다. 그렇지 않으면 **Spark 2.x. x**를 선택 합니다. 이 예제에서는 **Spark 2.3.0(Scala 2.11.8)** 을 사용합니다.|
@@ -65,13 +64,13 @@ ms.locfileid: "82857820"
 
 1. **마침**을 선택합니다. 프로젝트를 사용할 수 있게 되기까지 몇 분 정도 걸릴 수 있습니다. 진행률에 대 한 오른쪽 아래 모퉁이를 시청 합니다.
 
-1. 프로젝트를 확장 하 고 **src** > **main** > **scala** > **샘플**로 이동 합니다. **SparkCore_WasbIOTest**를 두 번 클릭 합니다.
+1. 프로젝트를 확장 하 고 **src**  >  **main**  >  **scala**  >  **샘플**로 이동 합니다. **SparkCore_WasbIOTest**를 두 번 클릭 합니다.
 
 ## <a name="perform-local-run"></a>로컬 실행 수행
 
 1. **SparkCore_WasbIOTest** 스크립트에서 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **' SparkCore_WasbIOTest ' 실행** 옵션을 선택 하 여 로컬 실행을 수행 합니다.
 
-1. 로컬 실행이 완료 되 면 현재 프로젝트 탐색기 **데이터** > 의**__기본값__** 에 저장 된 출력 파일을 볼 수 있습니다.
+1. 로컬 실행이 완료 되 면 현재 프로젝트 탐색기 **데이터**의 기본값에 저장 된 출력 파일을 볼 수 있습니다  >  **__default__**.
 
     ![Intellij 프로젝트 로컬 실행 결과](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
@@ -83,7 +82,7 @@ ms.locfileid: "82857820"
     - [WinUtils.exe 위치](#prerequisites): 시스템 환경 변수를 설정하지 않은 경우 해당 단추를 클릭하여 위치를 찾을 수 있습니다.
     - 두 옵션 중 하나를 선택하면 됩니다. 단, MacOS 및 Linux에서는 필요하지 않습니다.
 
-1. 또한 로컬 실행 및 로컬 디버그를 수행하기 전에 수동으로 구성을 설정할 수 있습니다. 이전 스크린샷에서 더하기 기호 (**+**)를 선택 합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다. 저장할 **이름**, **주 클래스 이름**에 대한 정보를 입력하고 로컬 실행 단추를 클릭합니다.
+1. 또한 로컬 실행 및 로컬 디버그를 수행하기 전에 수동으로 구성을 설정할 수 있습니다. 이전 스크린샷에서 더하기 기호 ()를 선택 **+** 합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다. 저장할 **이름**, **주 클래스 이름**에 대한 정보를 입력하고 로컬 실행 단추를 클릭합니다.
 
 ## <a name="perform-local-debugging"></a>로컬 디버깅 수행
 
@@ -93,7 +92,7 @@ ms.locfileid: "82857820"
 
 ## <a name="perform-remote-run"></a>원격 실행 수행
 
-1. **구성 편집 ...** 을 **실행** > 하 여 이동 합니다. 이 메뉴에서 원격 디버깅에 대 한 구성을 만들거나 편집할 수 있습니다.
+1. **Run**  >  **구성 편집 ...** 을 실행 하 여 이동 합니다. 이 메뉴에서 원격 디버깅에 대 한 구성을 만들거나 편집할 수 있습니다.
 
 1. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다.
 
@@ -153,7 +152,7 @@ ms.locfileid: "82857820"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>데모
 

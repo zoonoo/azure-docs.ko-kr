@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
 ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838589"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지
@@ -31,7 +30,7 @@ Azure에서 사용할 수 있는 RHEL 이미지 목록입니다. 달리 명시 �
 > [!NOTE]
 > 원시 이미지는 LVM 분할 이미지를 위해 더 이상 생성 되지 않습니다. LVM은 훨씬 더 유연한 파티션 크기 조정 옵션을 포함 하 여 오래 된 원시 (LVM) 파티션 구성표에 비해 여러 가지 이점을 제공 합니다.
 
-제품| SKU | 분할 | 프로비전 | 참고
+제안| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | RAW    | Linux 에이전트 |
 |             | 6.8      | RAW    | Linux 에이전트 |
@@ -81,7 +80,7 @@ RHEL-HA   | 7.4          | LVM    | Linux 에이전트 | HA 및 업데이트 서
 |             | 76sapha-gen2 | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.6. 2 세대 이미지입니다. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
 |             | 7.7          | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.7. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
 |             | 77sapha-gen2 | LVM    | Linux 에이전트 | HA 및 업데이트 서비스를 사용 하는 SAP 용 RHEL 7.7. 2 세대 이미지입니다. E4S 리포지토리에 연결 됩니다. 은 (는) 기본 계산 요금을 RHEL SAP 및 HA 리포지토리의 프리미엄 뿐만 아니라도 청구 합니다.
-rhel byos     |rhel-lvm74| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.4 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.
+rhel-byos     |rhel-lvm74| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.4 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.
 |             |rhel-lvm75| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.5 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.
 |             |rhel-lvm76| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.6 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.
 |             |rhel-lvm77| LVM    | Linux 에이전트 | 업데이트 원본에 연결 되지 않은 RHEL 7.7 BYOS 이미지는 RHEL premium을 청구 하지 않습니다.

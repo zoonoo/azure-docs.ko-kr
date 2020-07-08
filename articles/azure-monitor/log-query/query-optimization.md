@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
 ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864252"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
@@ -112,7 +111,7 @@ Heartbeat
 
 [Max ()](/azure/kusto/query/max-aggfunction), [sum (](/azure/kusto/query/sum-aggfunction)), [count ()](/azure/kusto/query/count-aggfunction)및 [avg ()](/azure/kusto/query/avg-aggfunction) 와 같은 일부 집계 명령은 논리로 인 한 CPU 영향은 낮지만, 다른 일부는 더 복잡 하며 효율적으로 실행 될 수 있도록 추론 및 추정치를 포함 합니다. 예를 들어 [dcount ()](/azure/kusto/query/dcount-aggfunction) 는 HyperLogLog 알고리즘을 사용 하 여 각 값을 실제로 계산 하지 않고 대량 데이터 집합의 고유 개수에 대 한 종가를 제공 합니다. 백분위 수 함수는 가장 가까운 순위 백분위 수 알고리즘을 사용 하 여 유사한 근사치를 수행 합니다. 몇 가지 명령에는 영향을 줄이기 위한 선택적 매개 변수가 있습니다. 예를 들어 [makeset ()](/azure/kusto/query/makeset-aggfunction) 함수에는 CPU 및 메모리에 크게 영향을 주는 최대 집합 크기를 정의 하는 선택적 매개 변수가 있습니다.
 
-[조인](/azure/kusto/query/joinoperator?pivots=azuremonitor) 및 [요약](/azure/kusto/query/summarizeoperator) 명령을 사용 하면 큰 데이터 집합을 처리할 때 CPU 사용률이 높아질 수 있습니다. 복잡성은 요약 또는 조인 특성으로를 사용 하 `by` 는 열의 가능한 값 ( *카디널리티*라고 함)의 수와 직접적으로 관련이 있습니다. 조인 및 요약의 설명 및 최적화에 대 한 자세한 내용은 해당 설명서 문서 및 최적화 팁을 참조 하세요.
+[조인](/azure/kusto/query/joinoperator?pivots=azuremonitor) 및 [요약](/azure/kusto/query/summarizeoperator) 명령을 사용 하면 큰 데이터 집합을 처리할 때 CPU 사용률이 높아질 수 있습니다. 복잡성은 *cardinality* `by` 요약 또는 조인 특성으로를 사용 하는 열의 가능한 값 (카디널리티 라고 함)의 수와 직접적으로 관련이 있습니다. 조인 및 요약의 설명 및 최적화에 대 한 자세한 내용은 해당 설명서 문서 및 최적화 팁을 참조 하세요.
 
 예를 들어, **Counterpath** 는 항상 **CounterName** 및 **ObjectName**에 매핑되어야 하므로 다음 쿼리는 정확히 동일한 결과를 생성 합니다. 두 번째 방법은 집계 차원이 더 작기 때문에 더 효율적입니다.
 
@@ -204,7 +203,7 @@ Perf
 
 ### <a name="add-early-filters-to-the-query"></a>쿼리에 초기 필터 추가
 
-데이터 볼륨을 줄이는 또 다른 방법은 쿼리의 초기에 [조건을 포함 하는 것입니다](/azure/kusto/query/whereoperator) . Azure 데이터 탐색기 플랫폼은 특정 where 조건과 관련 된 데이터를 포함 하는 파티션을 확인할 수 있도록 하는 캐시를 포함 합니다. 예를 들어 쿼리에가 포함 `where EventID == 4624` 된 경우 일치 하는 이벤트를 포함 하는 파티션을 처리 하는 노드에만 쿼리를 배포 합니다.
+데이터 볼륨을 줄이는 또 다른 방법은 쿼리의 초기에 [조건을 포함 하는 것입니다](/azure/kusto/query/whereoperator) . Azure 데이터 탐색기 플랫폼은 특정 where 조건과 관련 된 데이터를 포함 하는 파티션을 확인할 수 있도록 하는 캐시를 포함 합니다. 예를 들어 쿼리에가 포함 된 경우 일치 하는 `where EventID == 4624` 이벤트를 포함 하는 파티션을 처리 하는 노드에만 쿼리를 배포 합니다.
 
 다음 예제 쿼리는 정확히 동일한 결과를 생성 하지만 두 번째 쿼리는 더 효율적입니다.
 
@@ -261,7 +260,7 @@ Perf
 ) on Computer
 ```
 
-이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들면 다음과 같습니다.
+이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들어:
 
 ```Kusto
 Perf

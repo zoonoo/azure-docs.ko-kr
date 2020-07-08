@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: spelluru
 ms.openlocfilehash: fb3479271733ee218da8a842956f3a8996e07f61
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892018"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure 비동기 작업 추적
@@ -76,7 +75,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 리소스 만들기, 업데이트 또는 삭제(PUT, PATCH, DELETE)하는 작업은 일반적으로 `provisioningState` 값을 반환합니다. 작업이 완료되면 다음 세 가지 값 중 하나가 반환됩니다. 
 
 * 성공
-* Failed
+* 실패
 * 취소됨
 
 다른 값은 모두 작업이 계속 실행 중임을 나타냅니다. 리소스 공급자는 해당 상태를 표시하는 사용자 지정된 값을 반환할 수 있습니다. 예를 들어 요청을 받고 실행 중인 경우 **수락됨**을 받을 수 있습니다.

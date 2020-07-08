@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.openlocfilehash: e03f31d8a78a0d327278768c3f0b66d2119f8dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870064"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Azure의 가상 머신 격리
@@ -22,7 +21,7 @@ ms.locfileid: "81870064"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure PowerShell](dedicated-hosts-powershell.md), [포털](dedicated-hosts-portal.md)및 [Azure CLI](../linux/dedicated-hosts-cli.md)를 사용 하 여 전용 호스트를 배포할 수 있습니다. 자세한 내용은 [전용 호스트](dedicated-hosts.md) 개요를 참조 하세요.
+- [Azure PowerShell](dedicated-hosts-powershell.md), [포털](dedicated-hosts-portal.md)및 [Azure CLI](../linux/dedicated-hosts-cli.md)를 사용 하 여 전용 호스트를 배포할 수 있습니다. 자세한 내용은 [전용 호스트](dedicated-hosts.md) 개요를 참조하세요.
 
 
 

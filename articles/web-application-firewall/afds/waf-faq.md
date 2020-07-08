@@ -9,21 +9,20 @@ ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
 ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82837637"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure Front 도어 서비스의 Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
 이 문서에서는 Azure Front 도어 서비스의 기능 및 기능에 대 한 Azure WAF (웹 응용 프로그램 방화벽)에 대 한 일반적인 질문에 답변 합니다. 
 
-## <a name="what-is-azure-waf"></a>Azure WAF 란?
+## <a name="what-is-azure-waf"></a>Azure WAF란?
 
-Azure WAF는 SQL 삽입, 사이트 간 스크립팅 및 기타 웹 익스플로잇과 같은 일반적인 위협 으로부터 웹 응용 프로그램을 보호 하는 데 도움이 되는 웹 응용 프로그램 방화벽입니다. 사용자 지정 및 관리 규칙의 조합으로 구성 된 WAF 정책을 정의 하 여 웹 응용 프로그램에 대 한 액세스를 제어할 수 있습니다.
+Azure WAF는 SQL 삽입, 사이트 간 스크립팅 및 기타 웹 공격과 같은 일반적인 위협으로부터 웹 애플리케이션을 보호하는 데 유용한 웹 애플리케이션 방화벽입니다. 사용자 지정 및 관리형 규칙의 조합으로 구성된 WAF 정책을 정의하여 웹 애플리케이션에 대한 액세스를 제어할 수 있습니다.
 
-Azure WAF 정책은 Application Gateway 또는 Azure Front 문에 호스트 되는 웹 응용 프로그램에 적용할 수 있습니다.
+Azure WAF 정책은 Application Gateway 또는 Azure Front Doors에 호스트되는 웹 애플리케이션에 적용할 수 있습니다.
 
 ## <a name="what-is-waf-on-azure-front-door"></a>Azure 전면 도어의 WAF 란? 
 
@@ -76,5 +75,5 @@ Rate limit 규칙은 모든 클라이언트 IP 주소에서 비정상적으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 웹 응용 프로그램 방화벽](../overview.md)에 대해 알아봅니다.
-- [Azure Front 도어](../../frontdoor/front-door-overview.md)에 대해 자세히 알아보세요.
+- [Azure 웹 애플리케이션 방화벽](../overview.md)에 대해 알아봅니다.
+- [Azure Front Door](../../frontdoor/front-door-overview.md)에 대해 자세히 알아봅니다.

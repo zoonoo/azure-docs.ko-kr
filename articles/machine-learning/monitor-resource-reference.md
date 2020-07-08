@@ -11,10 +11,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82856021"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 모니터링 데이터 참조
@@ -73,8 +72,8 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | MinimumNodeCount | 클러스터의 최소 노드 수 |
 | MaximumNodeCount | 클러스터의 최대 노드 수 |
 | NodeDeallocationOption | 노드의 할당을 취소 하는 방법 |
-| 게시자 | 클러스터 유형 게시자 |
-| 제품 | 클러스터가 생성 되는 제품 |
+| Publisher | 클러스터 유형 게시자 |
+| 제안 | 클러스터가 생성 되는 제품 |
 | SKU | 클러스터 내에서 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
 | SubnetId | 클러스터의 SubnetId |
@@ -109,8 +108,8 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | VmSize | 노드의 Vm 크기 |
 | VmFamilyName | 노드가 속한 Vm 제품군 |
 | VmPriority | 전용/LowPriority를 만든 노드의 우선 순위입니다. |
-| 게시자 | Vm 이미지 (예: microsoft-dsvm)의 게시자 |
-| 제품 | VM 만들기와 관련 된 제안 |
+| Publisher | Vm 이미지 (예: microsoft-dsvm)의 게시자 |
+| 제안 | VM 만들기와 관련 된 제안 |
 | SKU | 만든 노드/v m의 Sku |
 | 버전 | 노드/v m이 생성 되는 동안 사용 된 이미지의 버전 |
 | ClusterCreationTime | 클러스터가 생성 된 시간 |
@@ -126,9 +125,9 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 다음 표에서는 Azure Machine Learning에 대해 수집 된 플랫폼 메트릭을 나열 합니다. 모든 메트릭은 네임 스페이스 **Azure Machine Learning 작업 영역**에 저장 됩니다.
 
-**모델링**
+**모델**
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | 모델 배포 실패 | 개수 | 실패 한 모델 배포의 수입니다. |
 | 모델 배포가 시작 됨 | 개수 | 시작 된 모델 배포의 수입니다. |
@@ -136,11 +135,11 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | 모델 레지스터가 실패 했습니다. | 개수 | 실패 한 모델 등록 수입니다. |
 | 모델 등록 성공 | 개수 | 성공한 모델 등록 수입니다. |
 
-**양보다**
+**할당량**
 
 할당량 정보는 Azure Machine Learning 계산 전용입니다.
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | 활성 코어 | 개수 | 활성 계산 코어의 수입니다. |
 | 활성 노드 | 개수 | 활성 노드 수입니다. |
@@ -149,7 +148,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | 코어 탈퇴 | 개수 | 종료 되는 코어 수입니다. |
 | 노드 종료 | 개수 | 종료 노드 수입니다. |
 | 선점 코어 | 개수 | 선점 되는 코어 수입니다. |
-| 선점 노드 | 개수 | 선점 된 노드 수입니다. |
+| 선점된 노드 | 개수 | 선점 된 노드 수입니다. |
 | 할당량 사용률 비율 | 백분율 | 사용 된 할당량의 백분율입니다. |
 | 총 코어 | 개수 | 총 코어입니다. |
 | 총 노드 | 개수 | 총 노드입니다. |
@@ -158,7 +157,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 다음은 할당량 메트릭을 필터링 하는 데 사용할 수 있는 차원입니다.
 
-| 차원 | 에서 사용 가능한 메트릭 | Description |
+| 차원 | 에서 사용 가능한 메트릭 | 설명 |
 | ---- | ---- | ---- |
 | 클러스터 이름 | 모든 할당량 메트릭 | 계산 인스턴스의 이름입니다. |
 | Vm 제품군 이름 | 할당량 사용률 비율 | 클러스터에서 사용 하는 VM 제품군의 이름입니다. |
@@ -166,25 +165,25 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 **리소스**
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | CpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 CPU의 양 (%)입니다. 이 메트릭은 노드에서 작업을 실행 하는 경우에만 게시 됩니다. 한 작업에서 하나 이상의 노드를 사용할 수 있습니다. 이 메트릭은 노드당 게시 됩니다. |
 | GpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 GPU의 비율입니다. 한 노드에 하나 이상의 Gpu가 있을 수 있습니다. 이 메트릭은 노드당 GPU 당 게시 됩니다. |
 
 다음은 리소스 메트릭을 필터링 하는 데 사용할 수 있는 차원입니다.
 
-| 차원 | Description |
+| 차원 | 설명 |
 | ----- | ----- |
 | CreatedTime | |
-| DeviceId | 장치 (GPU)의 ID입니다. GpuUtilization에만 사용할 수 있습니다. |
+| deviceId | 장치 (GPU)의 ID입니다. GpuUtilization에만 사용할 수 있습니다. |
 | NodeId | 작업이 실행 되는 위치에 생성 된 노드의 ID입니다. |
 | RunId | 실행/작업의 ID입니다. |
 
-**실행할지**
+**Run**
 
 학습 실행에 대 한 정보입니다.
 
-| 메트릭 | 단위 | Description |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
 | 완료 된 실행 | 개수 | 완료 된 실행 수입니다. |
 | 실패 한 실행 | 개수 | 실패 한 실행 수입니다. |
@@ -192,16 +191,16 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 다음은 실행 메트릭을 필터링 하는 데 사용할 수 있는 차원입니다.
 
-| 차원 | Description |
+| 차원 | 설명 |
 | ---- | ---- |
-| 고 대 여 Etype | 실행에 사용 되는 계산 형식입니다. |
+| ComputeType | 실행에 사용 되는 계산 형식입니다. |
 | PipelineStepType | 실행에 사용 되는 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) 의 형식입니다. |
 | PublishedPipelineId | 실행에 사용 되는 게시 된 파이프라인의 ID입니다. |
 | RunType | 실행 유형입니다. |
 
 RunType 차원의 유효한 값은 다음과 같습니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | ----- | ----- |
 | 실험 | 비 파이프라인 실행 |
 | PipelineRun | 단계별 실행의 부모인 파이프라인 실행입니다. |
@@ -211,4 +210,4 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 ## <a name="see-also"></a>참고 항목
 
 - Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
-- Azure 리소스 모니터링에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource) 을 참조 하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource)을 참조하세요.

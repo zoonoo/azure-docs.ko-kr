@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 04/30/2020
 ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889250"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
@@ -26,13 +25,13 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 > [!IMPORTANT]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. [클러스터 삭제](hdinsight-delete-cluster.md) 방법에 대해 알아보세요.
 
-여러 클러스터를 함께 사용 하는 경우 가상 네트워크를 만들 수 있습니다. 또한 Spark 클러스터를 사용 하는 경우 Hive 웨어하우스 커넥터를 사용 하는 것이 좋습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](./hdinsight-plan-virtual-network-deployment.md) 및 [Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합](interactive-query/apache-hive-warehouse-connector.md)을 참조 하세요.
+여러 클러스터를 함께 사용하는 경우 가상 네트워크를 만들고, Spark 클러스터를 사용하는 경우 Hive Warehouse Connector도 사용하는 것이 좋습니다. 자세한 내용은 [Azure HDInsight에 대한 가상 네트워크 계획](./hdinsight-plan-virtual-network-deployment.md) 및 [Hive Warehouse Connector를 사용하여 Apache Spark 및 Apache Hive 통합](interactive-query/apache-hive-warehouse-connector.md)을 참조하세요.
 
 ## <a name="cluster-setup-methods"></a>클러스터 설정 방법
 
 다음 표는 HDInsight 클러스터를 설정하기 위해 사용할 수 있는 다양한 방법을 보여줍니다.
 
-| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK |
+| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령줄 | REST API | SDK) |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -97,14 +96,14 @@ HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같�
 
 HTTP 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 
-* 허용 되는 특수 `_` 문자: 및`@`
-* 허용 되지 않는 문자: #;. "'\/,: '! *? $ ({}) [] <>|&--= +% ~ ^ space
+* 허용 되는 특수 문자: `_` 및`@`
+* 허용 되지 않는 문자: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ space
 * 최대 길이: 20
 
 SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 
-* 허용 되는 특수`_` 문자: 및`@`
-* 허용 되지 않는 문자: #;. "'\/,: '! *? $ ({}) [] <>|&--= +% ~ ^ space
+* 허용 되는 특수 문자: `_` 및`@`
+* 허용 되지 않는 문자: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ space
 * 최대 길이: 64
 * 예약 된 이름: hadoop, 사용자, oozie, hive, mapred, ambari-qa, 사육 사, tez, hdfs, sqoop, yarn, hcat, ams, hbase, 스톰, 관리자, 관리자, 사용자, user1, 테스트, 사용자 2, test1, user3, 1, 1, 123, a, actuser, adm, 2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
@@ -186,7 +185,7 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 ### <a name="disk-encryption-setting"></a>디스크 암호화 설정
 
-자세한 내용은 [고객이 관리 하는 키 디스크 암호화](./disk-encryption.md)를 참조 하세요.
+자세한 내용은 [고객 관리형 키 디스크 암호화](./disk-encryption.md)를 참조하세요.
 
 ### <a name="kafka-rest-proxy"></a>Kafka REST 프록시
 

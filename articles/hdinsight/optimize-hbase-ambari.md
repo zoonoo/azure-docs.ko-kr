@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: a7da6bc23d797e0e89b2338f446fc850b0fd0577
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797163"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache HBase 최적화
@@ -79,7 +78,7 @@ HBase는 *HFile*이라는 내부 파일 형식으로 데이터를 저장합니�
 
 * `hbase.hregion.memstore.flush.size` 속성은 Memstore가 디스크로 플러시되는 크기를 정의합니다. 기본 크기는128MB입니다.
 
-* HBase 영역 블록 승수는에 의해 `hbase.hregion.memstore.block.multiplier`정의 됩니다. 기본값은 4입니다. 허용되는 최대값은 8입니다.
+* HBase 영역 블록 승수는에 의해 정의 됩니다 `hbase.hregion.memstore.block.multiplier` . 기본값은 4입니다. 허용되는 최대값은 8입니다.
 
 * Memstore가 (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`)바이트이면 HBase가 업데이트를 차단합니다.
 

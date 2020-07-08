@@ -10,10 +10,9 @@ ms.author: laobri
 author: lobrien
 ms.date: 05/01/2020
 ms.openlocfilehash: 2ea353469ed111eebb591aa6ba86c652683cc2f0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858185"
 ---
 # <a name="iterating-and-evolving-machine-learning-pipelines"></a>기계 학습 파이프라인 반복 및 진화
@@ -30,7 +29,7 @@ Azure Machine Learning 파이프라인은 코드를 모듈화 하 고, 결과를
 
 ## <a name="how-do-you-modularize-pipeline-code"></a>파이프라인 코드를 어떻게 모듈화? 
 
-모듈 및 클래스 `ModuleStep` 는 ML 코드를 모듈화 수 있는 좋은 기회를 제공 합니다. 그러나 파이프라인 단계 간을 이동 하는 것은 함수 호출 보다 훨씬 더 비쌉니다. 확인 해야 하는 질문은 그리 많지 않습니다. "이러한 함수와 데이터는 다른 섹션에 있는 것과 개념적으로 다릅니다." 하지만 "이러한 함수와 데이터를 별도로 발전 시키려면 어떻게 해야 하나요?" 또는 "계산 비용이 많이 들고 출력을 다시 사용할 수 있습니까?" 자세한 내용은 thisn'tebook [How to Create Module, ModuleVersion, and use a 파이프라인 In ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb)항목을 참조 하세요.
+모듈 및 `ModuleStep` 클래스는 ML 코드를 모듈화 수 있는 좋은 기회를 제공 합니다. 그러나 파이프라인 단계 간을 이동 하는 것은 함수 호출 보다 훨씬 더 비쌉니다. 확인 해야 하는 질문은 그리 많지 않습니다. "이러한 함수와 데이터는 다른 섹션에 있는 것과 개념적으로 다릅니다." 하지만 "이러한 함수와 데이터를 별도로 발전 시키려면 어떻게 해야 하나요?" 또는 "계산 비용이 많이 들고 출력을 다시 사용할 수 있습니까?" 자세한 내용은 thisn'tebook [How to Create Module, ModuleVersion, and use a 파이프라인 In ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb)항목을 참조 하세요.
 
 앞서 설명한 것 처럼 학습에서 데이터 준비를 분리 하는 것은 종종 이러한 기회입니다. 경우에 따라 데이터 준비는 복잡 하 고 시간이 많이 걸리고 프로세스를 별도의 파이프라인 단계로 나눌 수 있습니다. 다른 기회에는 학습 후 테스트 및 분석이 포함 됩니다. 
 
@@ -48,7 +47,7 @@ Azure Machine Learning 파이프라인은 코드를 모듈화 하 고, 결과를
 
 별도의 파이프라인은 활동을 분할 하는 자연 스러운 선입니다. 여러 개발자나 여러 팀은 서로 다른 단계에서 작업을 수행할 수 있습니다. 즉, 단계 간에 이동 하는 데이터 및 인수에 대해 합의 하기만 하면 됩니다. 
 
-활성 개발 중에 작업 영역에서 `PipelineRun` 결과 `StepRun` 를 검색 및 실행 하 고, 이러한 개체를 사용 하 여 최종 및 중간 출력을 다운로드 하 고, 사용자 고유의으로 모듈화 작업에 해당 아티팩트를 사용할 수 있습니다.
+활성 개발 중에 `PipelineRun` `StepRun` 작업 영역에서 결과를 검색 및 실행 하 고, 이러한 개체를 사용 하 여 최종 및 중간 출력을 다운로드 하 고, 사용자 고유의으로 모듈화 작업에 해당 아티팩트를 사용할 수 있습니다.
 
 ## <a name="use-pipelines-to-test-techniques-in-isolation"></a>파이프라인을 사용 하 여 격리에서 기술 테스트
 

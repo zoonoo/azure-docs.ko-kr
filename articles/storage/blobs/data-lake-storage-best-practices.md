@@ -9,10 +9,9 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857888"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
@@ -39,7 +38,7 @@ Azure Active Directory 서비스 사용자는 일반적으로 Azure Databricks�
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Azure 서비스 액세스 권한으로 Data Lake Storage Gen2 방화벽 사용
 
-Data Lake Storage Gen2는 외부 공격의 벡터를 제한하는 데 추천되는 Azure 서비스에만 방화벽을 설정하고 액세스를 제한하는 옵션을 지원합니다. 방화벽을 통해 > Azure Portal의 저장소 계정에서 방화벽 **을 사용 하도록**설정할 수 있습니다. 방화벽**사용 (설정)** > **Azure 서비스에 대 한 액세스 허용** 옵션입니다.
+Data Lake Storage Gen2는 외부 공격의 벡터를 제한하는 데 추천되는 Azure 서비스에만 방화벽을 설정하고 액세스를 제한하는 옵션을 지원합니다. 방화벽을 통해 Azure Portal의 저장소 계정에서 방화벽 **을 사용 하도록**설정할 수 있습니다. 방화벽  >  **사용 (설정)**  >  **Azure 서비스에 대 한 액세스 허용** 옵션입니다.
 
 Azure Databricks에서 저장소 계정에 액세스 하려면 가상 네트워크에 Azure Databricks를 배포한 후 해당 가상 네트워크를 방화벽에 추가 합니다. [Azure Storage 방화벽 및 가상 네트워크 구성을](https://docs.microsoft.com/azure/storage/common/storage-network-security)참조 하세요.
 

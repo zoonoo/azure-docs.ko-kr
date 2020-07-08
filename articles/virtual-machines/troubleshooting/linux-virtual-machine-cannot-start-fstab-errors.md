@@ -15,10 +15,9 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82883144"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Fstab 오류로 인 한 Linux VM 시작 문제 해결
@@ -119,7 +118,7 @@ Give root password for maintenance
    > [!Note]
    > * 각 줄의 필드는 탭 이나 공백으로 구분 됩니다. 빈 줄은 무시됩니다. 숫자 기호 (#)가 첫 번째 문자인 줄은 주석입니다. 주석 처리 된 줄은 fstab 파일에 그대로 남아 있지만 처리 되지 않습니다. 줄을 제거 하는 대신 fstab 줄을 주석으로 처리 하는 것이 좋습니다.
    > * VM을 복구 및 시작 하려면 파일 시스템 파티션만 필요한 유일한 파티션입니다. 추가 주석 처리 된 파티션에 대해 VM에서 응용 프로그램 오류가 발생할 수 있습니다. 그러나 VM은 추가 파티션 없이 시작 해야 합니다. 주석 처리 된 줄의 주석 처리를 나중에 수행할 수 있습니다.
-   > * 파일 시스템 파티션의 UUID를 사용 하 여 Azure Vm에 데이터 디스크를 탑재 하는 것이 좋습니다. 예를 들어 다음 명령을 실행 합니다.``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * 파일 시스템 파티션의 UUID를 사용 하 여 Azure Vm에 데이터 디스크를 탑재 하는 것이 좋습니다. 예를 들어 다음 명령을 실행합니다. ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * 파일 시스템의 UUID를 확인 하려면 blkid 명령을 실행 합니다. 구문에 대 한 자세한 내용을 보려면 man blkid 명령을 실행 합니다.
    > * Nofail 옵션은 파일 시스템이 손상 되었거나 파일 시스템이 시작 시 존재 하지 않는 경우에도 VM이 시작 되도록 하는 데 도움이 됩니다. VM을 시작 하는 데 필요 하지 않은 파티션에서 오류가 발생 한 후에는 fstab 파일에서 nofail 옵션을 사용 하 여 시작을 계속 하도록 설정 하는 것이 좋습니다.
 
@@ -172,7 +171,7 @@ Give root password for maintenance
    > [!Note]
    > * 각 줄의 필드는 탭 이나 공백으로 구분 됩니다. 빈 줄은 무시됩니다. 숫자 기호 (#)가 첫 번째 문자인 줄은 주석입니다. 주석 처리 된 줄은 fstab 파일에 그대로 남아 있지만 처리 되지 않습니다. 줄을 제거 하는 대신 fstab 줄을 주석으로 처리 하는 것이 좋습니다.
    > * VM을 복구 및 시작 하려면 파일 시스템 파티션만 필요한 유일한 파티션입니다. 추가 주석 처리 된 파티션에 대해 VM에서 응용 프로그램 오류가 발생할 수 있습니다. 그러나 VM은 추가 파티션 없이 시작 해야 합니다. 주석 처리 된 줄의 주석 처리를 나중에 수행할 수 있습니다.
-   > * 파일 시스템 파티션의 UUID를 사용 하 여 Azure Vm에 데이터 디스크를 탑재 하는 것이 좋습니다. 예를 들어 다음 명령을 실행 합니다.``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * 파일 시스템 파티션의 UUID를 사용 하 여 Azure Vm에 데이터 디스크를 탑재 하는 것이 좋습니다. 예를 들어 다음 명령을 실행합니다. ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * 파일 시스템의 UUID를 확인 하려면 blkid 명령을 실행 합니다. 구문에 대 한 자세한 내용을 보려면 man blkid 명령을 실행 합니다.
    > * Nofail 옵션은 파일 시스템이 손상 되었거나 파일 시스템이 시작 시 존재 하지 않는 경우에도 VM이 시작 되도록 하는 데 도움이 됩니다. VM을 시작 하는 데 필요 하지 않은 파티션에서 오류가 발생 한 후에는 fstab 파일에서 nofail 옵션을 사용 하 여 시작을 계속 하도록 설정 하는 것이 좋습니다.
 
@@ -180,7 +179,7 @@ Give root password for maintenance
 
 8. Fstab 파일에 대 한 변경 내용을 저장 합니다.
 
-9. 가상 컴퓨터를 다시 시작합니다.
+9. 가상 머신을 다시 시작합니다.
 
 10. 항목 설명 또는 수정을 완료 한 경우 시스템은 포털에서 bash 프롬프트에 도달 해야 합니다. VM에 연결할 수 있는지 여부를 확인 합니다.
 
@@ -216,7 +215,7 @@ Give root password for maintenance
    > [!Note]
    > * 각 줄의 필드는 탭 이나 공백으로 구분 됩니다. 빈 줄은 무시됩니다. 숫자 기호 (#)가 첫 번째 문자인 줄은 주석입니다. 주석 처리 된 줄은 fstab 파일에 그대로 남아 있지만 처리 되지 않습니다. 줄을 제거 하는 대신 fstab 줄을 주석으로 처리 하는 것이 좋습니다.
    > * VM을 복구 및 시작 하려면 파일 시스템 파티션만 필요한 유일한 파티션입니다. 추가 주석 처리 된 파티션에 대해 VM에서 응용 프로그램 오류가 발생할 수 있습니다. 그러나 VM은 추가 파티션 없이 시작 해야 합니다. 주석 처리 된 줄의 주석 처리를 나중에 수행할 수 있습니다.
-   > * 파일 시스템 파티션의 UUID를 사용 하 여 Azure Vm에 데이터 디스크를 탑재 하는 것이 좋습니다. 예를 들어 다음 명령을 실행 합니다.``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * 파일 시스템 파티션의 UUID를 사용 하 여 Azure Vm에 데이터 디스크를 탑재 하는 것이 좋습니다. 예를 들어 다음 명령을 실행합니다. ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * 파일 시스템의 UUID를 확인 하려면 blkid 명령을 실행 합니다. 구문에 대 한 자세한 내용을 보려면 man blkid 명령을 실행 합니다. 복구 하려는 디스크가 이제 새 VM에 탑재 되어 있는지 확인 합니다. Uuid가 일치 해야 하지만 장치 파티션 Id (예: "/dev/sda1")는이 VM에서 다릅니다. 비시스템 VHD에 있는 원래 오류가 발생 한 VM의 파일 시스템 파티션은 [CLI 명령을 사용 하 여](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux)복구 vm에서 사용할 수 없습니다.
    > * Nofail 옵션은 파일 시스템이 손상 되었거나 파일 시스템이 시작 시 존재 하지 않는 경우에도 VM이 시작 되도록 하는 데 도움이 됩니다. VM을 시작 하는 데 필요 하지 않은 파티션에서 오류가 발생 한 후에는 fstab 파일에서 nofail 옵션을 사용 하 여 시작을 계속 하도록 설정 하는 것이 좋습니다.
 

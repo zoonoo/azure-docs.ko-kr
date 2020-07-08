@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892213"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>JSONPath를 사용 하 여 통합 문서에서 JSON 데이터를 변환 하는 방법
@@ -27,7 +26,7 @@ JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입�
 ## <a name="using-jsonpath"></a>JSONPath 사용
 
 1. *편집* 도구 모음 항목을 클릭 하 여 통합 문서를 편집 모드로 전환 합니다.
-2.  > *쿼리* 추가 *링크*를 사용 하 여 통합 문서에 쿼리 컨트롤을 추가 합니다.
+2. 쿼리 추가 *Add*  >  *Add query* 링크를 사용 하 여 통합 문서에 쿼리 컨트롤을 추가 합니다.
 3. 데이터 원본을 *JSON*으로 선택 합니다.
 4. JSON 편집기를 사용 하 여 다음 JSON 코드 조각을 입력 합니다.
     ```json
@@ -69,7 +68,7 @@ JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입�
 1. *결과 설정* 탭을 선택 하 고 결과 형식을 *JSON 경로*로 전환 합니다.
 2. 다음 JSON 경로 설정을 적용 합니다.
 
-    JSON 경로 테이블: `$.store.books` 이 필드는 테이블 루트의 경로를 나타냅니다. 이 경우 스토어의 책 인벤토리에 주의 해야 합니다. 테이블 경로는 JSON을 책 정보로 필터링 합니다.
+    JSON 경로 `$.store.books` 테이블: 이 필드는 테이블 루트의 경로를 나타냅니다. 이 경우 스토어의 책 인벤토리에 주의 해야 합니다. 테이블 경로는 JSON을 책 정보로 필터링 합니다.
 
    | 열 Id | 열 JSON 경로 |
    |:-----------|:-----------------|

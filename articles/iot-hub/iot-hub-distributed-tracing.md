@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732569"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
@@ -183,8 +182,8 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 먼저 개발자 가이드 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 따라 메시지의 모든 IoT Hub 프로토콜 기본 형식을 구현 해야 합니다. 그런 다음 `tracestate` **system 속성**으로 추가할 MQTT/amqp 메시지의 프로토콜 속성을 편집 합니다. 특히,
 
-* MQTT의 경우 메시지 `%24.tracestate=timestamp%3d1539243209` 항목에를 추가 합니다. `1539243209` 여기서는 unix 타임 스탬프 형식으로 메시지를 만든 시간으로 바꾸어야 합니다. 예를 들어 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) 구현을 참조 하세요.
-* AMQP의 경우 메시지 `key("tracestate")` 주석 `value("timestamp=1539243209")` 으로 및를 추가 합니다. 참조 구현은 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)를 참조 하십시오.
+* MQTT의 경우 `%24.tracestate=timestamp%3d1539243209` 메시지 항목에를 추가 합니다. 여기서는 `1539243209` unix 타임 스탬프 형식으로 메시지를 만든 시간으로 바꾸어야 합니다. 예를 들어 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) 구현을 참조 하세요.
+* AMQP의 경우 `key("tracestate")` `value("timestamp=1539243209")` 메시지 주석으로 및를 추가 합니다. 참조 구현은 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)를 참조 하십시오.
 
 이 속성을 포함하는 메시지의 비율을 제어하려는 경우 쌍 업데이트와 같은 클라우드 시작 이벤트를 수신 대기하도록 논리를 구현합니다.
 
@@ -247,7 +246,7 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 }
 ```
 
-| 요소 이름 | 필수 | Type | Description |
+| 요소 이름 | 필수 | Type | 설명 |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | 예 | 정수 | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
 | `sampling_rate` | 예 | 정수 | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
@@ -272,9 +271,9 @@ Log Analytics에 표시된 예제 로그:
 
 | TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | 속성 |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 다양한 유형의 로그를 이해하려면 [Azure IoT Hub 진단 로그](iot-hub-monitor-resource-health.md#distributed-tracing-preview)를 참조하세요.
 
@@ -311,8 +310,8 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 1. IoT 디바이스는 IoT Hub에 메시지를 보냅니다.
 1. 메시지가 IoT Hub 게이트웨이에 도착합니다.
 1. IoT Hub가 메시지 애플리케이션 속성에서 `tracestate`를 찾고 올바른 형식인지 확인합니다.
-1. 이 경우 IoT Hub는 메시지에 대해 전역적 `trace-id` 으로 고유한를 생성 하 `span-id` 고, "홉"에 대해를 생성 하 고, 작업 `DiagnosticIoTHubD2C`에서 진단 로그를 Azure Monitor 하도록 기록 합니다.
-1. 메시지 처리가 완료 되 면 IoT Hub 다른 `span-id` 작업을 생성 하 고 해당 작업 `trace-id` `DiagnosticIoTHubIngress`아래에 있는 기존과 함께 로그를 기록 합니다.
+1. 이 경우 IoT Hub는 메시지에 대해 전역적으로 고유한를 생성 하 `trace-id` `span-id` 고, "홉"에 대해를 생성 하 고, 작업에서 진단 로그를 Azure Monitor 하도록 기록 합니다 `DiagnosticIoTHubD2C` .
+1. 메시지 처리가 완료 되 면 IoT Hub 다른 작업을 생성 `span-id` 하 고 해당 작업 아래에 있는 기존과 함께 로그를 기록 합니다 `trace-id` `DiagnosticIoTHubIngress` .
 1. 메시지에 대해 라우팅을 사용하도록 설정하면, IoT Hub는 사용자 지정 엔드포인트에 쓰고, `DiagnosticIoTHubEgress` 범주 아래에 동일한 `trace-id`를 사용하여 다른 `span-id`를 기록합니다.
 1. 위 단계는 생성된 각 메시지에 대해 반복됩니다.
 

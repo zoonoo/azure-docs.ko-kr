@@ -9,10 +9,9 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858742"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
@@ -97,7 +96,7 @@ Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스�
 
 다음 단계는 파일 동기화를 사용하는 방법을 간단하게 설명합니다.
 
-1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조 하세요.
+1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
 2. [파일 공유를 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. Azure 파일 서버에서 [파일 동기화를 시작합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.

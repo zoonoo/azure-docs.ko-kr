@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868136"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>온-프레미스에서 CloudSimple 사설 클라우드 환경 및 응용 프로그램에 액세스
@@ -24,32 +23,32 @@ Azure Express 경로 또는 사이트 간 VPN을 사용 하 여 온-프레미스
 
 사설 클라우드 vCenter 및 NSX manager에 액세스 하려면 아래 테이블에 정의 된 포트를 온-프레미스 방화벽에서 열어야 합니다.  
 
-| 포트       | 원본                           | 대상                      | 목적                                                                                                                |
+| 포트       | 원본                           | 대상                      | 용도                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)   | 온-프레미스 DNS 서버          | 사설 클라우드 DNS 서버        | 온-프레미스 네트워크에서 사설 클라우드 DNS 서버로 *az.cloudsimple.io* 의 dns 조회를 전달 하는 데 필요 합니다.       |
 | 53 (UDP)   | 사설 클라우드 DNS 서버        | 온-프레미스 DNS 서버          | 사설 클라우드 vCenter에서 온-프레미스 DNS 서버로의 온-프레미스 도메인 이름을 조회 하는 데 필요 합니다. |
-| 80 (TCP)   | 온-프레미스 네트워크              | 사설 클라우드 관리 네트워크 | VCenter URL을 *http* 에서 *https*로 리디렉션하는 데 필요 합니다.                                                           |
-| 443 (TCP)  | 온-프레미스 네트워크              | 사설 클라우드 관리 네트워크 | 온-프레미스 네트워크에서 vCenter 및 NSX manager에 액세스 하는 데 필요 합니다.                                             |
-| 8000 (TCP) | 온-프레미스 네트워크              | 사설 클라우드 관리 네트워크 | 온-프레미스에서 사설 클라우드로 가상 머신을 vMotion 하는 데 필요 합니다.                                            |
-| 8000 (TCP) | 사설 클라우드 관리 네트워크 | 온-프레미스 네트워크              | 사설 클라우드에서 온-프레미스로의 가상 머신을 vMotion 하는 데 필요 합니다.                                            |
+| 80 (TCP)   | 온-프레미스 네트워크              | 프라이빗 클라우드 관리 네트워크 | VCenter URL을 *http* 에서 *https*로 리디렉션하는 데 필요 합니다.                                                           |
+| 443 (TCP)  | 온-프레미스 네트워크              | 프라이빗 클라우드 관리 네트워크 | 온-프레미스 네트워크에서 vCenter 및 NSX manager에 액세스 하는 데 필요 합니다.                                             |
+| 8000 (TCP) | 온-프레미스 네트워크              | 프라이빗 클라우드 관리 네트워크 | 온-프레미스에서 사설 클라우드로 가상 머신을 vMotion 하는 데 필요 합니다.                                            |
+| 8000 (TCP) | 프라이빗 클라우드 관리 네트워크 | 온-프레미스 네트워크              | 사설 클라우드에서 온-프레미스로의 가상 머신을 vMotion 하는 데 필요 합니다.                                            |
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>온-프레미스 active directory를 id 원본으로 사용 하는 데 필요한 포트
 
 사설 클라우드 vCenter에서 온-프레미스 active directory를 id 원본으로 구성 하려면 테이블에 정의 된 포트를 열어야 합니다.  구성 단계는 [CloudSimple 사설 클라우드에서 vCenter 용 id 공급자로 AZURE AD 사용](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) 을 참조 하세요.
 
-| 포트         | 원본                           | 대상                                         | 목적                                                                                                                                          |
+| 포트         | 원본                           | 대상                                         | 용도                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | 사설 클라우드 DNS 서버        | 온-프레미스 DNS 서버                             | 온-프레미스 active directory 도메인 이름을 사설 클라우드 vCenter에서 온-프레미스 DNS 서버로 전달 하는 데 필요 합니다.          |
-| 389(TCP/UDP) | 사설 클라우드 관리 네트워크 | 온-프레미스 active directory 도메인 컨트롤러     | 사용자 인증을 위해 사설 클라우드 vCenter server에서 active directory 도메인 컨트롤러로의 LDAP 통신에 필요 합니다.                |
-| 636 (TCP)     | 사설 클라우드 관리 네트워크 | 온-프레미스 active directory 도메인 컨트롤러     | 사용자 인증을 위해 사설 클라우드 vCenter server에서 active directory 도메인 컨트롤러로의 보안 LDAP (LDAPS) 통신에 필요 합니다. |
-| 3268 (TCP)    | 사설 클라우드 관리 네트워크 | 온-프레미스 active directory 글로벌 카탈로그 서버 | 다중 도메인 컨트롤러 배포의 LDAP 통신에 필요 합니다.                                                                        |
-| 3269 (TCP)    | 사설 클라우드 관리 네트워크 | 온-프레미스 active directory 글로벌 카탈로그 서버 | 다중 도메인 컨트롤러 배포에서 LDAPS 통신에 필요 합니다.                                                                       |                                           |
+| 389(TCP/UDP) | 프라이빗 클라우드 관리 네트워크 | 온-프레미스 active directory 도메인 컨트롤러     | 사용자 인증을 위해 사설 클라우드 vCenter server에서 active directory 도메인 컨트롤러로의 LDAP 통신에 필요 합니다.                |
+| 636 (TCP)     | 프라이빗 클라우드 관리 네트워크 | 온-프레미스 active directory 도메인 컨트롤러     | 사용자 인증을 위해 사설 클라우드 vCenter server에서 active directory 도메인 컨트롤러로의 보안 LDAP (LDAPS) 통신에 필요 합니다. |
+| 3268 (TCP)    | 프라이빗 클라우드 관리 네트워크 | 온-프레미스 active directory 글로벌 카탈로그 서버 | 다중 도메인 컨트롤러 배포의 LDAP 통신에 필요 합니다.                                                                        |
+| 3269 (TCP)    | 프라이빗 클라우드 관리 네트워크 | 온-프레미스 active directory 글로벌 카탈로그 서버 | 다중 도메인 컨트롤러 배포에서 LDAPS 통신에 필요 합니다.                                                                       |                                           |
 
 ## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>워크 로드 가상 컴퓨터에 액세스 하는 데 필요한 일반 포트
 
 사설 클라우드에서 실행 되는 워크 로드 가상 컴퓨터에 액세스 하려면 온-프레미스 방화벽에서 포트를 열어야 합니다.  아래 표에서는 필요한 공통 포트와 용도를 보여 줍니다.  응용 프로그램 관련 포트 요구 사항은 응용 프로그램 설명서를 참조 하세요.
 
-| 포트         | 원본                         | 대상                          | 목적                                                                              |
+| 포트         | 원본                         | 대상                          | 용도                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | 온-프레미스 네트워크            | 사설 클라우드 워크 로드 네트워크       | 사설 클라우드에서 실행 되는 Linux 가상 머신에 대 한 보안 셸 액세스              |
 | 3389 (TCP)    | 온-프레미스 네트워크            | 사설 클라우드 워크 로드 네트워크       | 사설 클라우드에서 실행 되는 windows 가상 머신에 대 한 원격 데스크톱                 |

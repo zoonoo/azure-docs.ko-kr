@@ -4,10 +4,9 @@ description: Azure Container Registry 리포지토리를 사용 하 여 Kubernet
 ms.topic: article
 ms.date: 03/20/2020
 ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857615"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Azure container registry에 투구 차트 푸시 및 끌어오기
@@ -30,7 +29,7 @@ Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경�
 
 ### <a name="additional-information"></a>추가 정보
 
-* 대부분의 시나리오에서는 기본 `helm chart` 명령으로 투구 3 워크플로를 사용 하 여 차트를 OCI 아티팩트로 관리 하는 것이 좋습니다.
+* 대부분의 시나리오에서는 기본 명령으로 투구 3 워크플로를 사용 하 여 `helm chart` 차트를 OCI 아티팩트로 관리 하는 것이 좋습니다.
 * 투구 3부터 [az acr 투구][az-acr-helm] 명령은 투구 2 클라이언트 및 차트 형식과의 호환성을 위해 지원 됩니다. 이러한 명령에 대 한 향후 개발은 현재 계획 되지 않았습니다. [제품 로드맵](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga)을 참조 하세요.
 * 투구 2 차트는 Azure Portal를 사용 하 여 보거나 관리할 수 없습니다.
 
@@ -41,7 +40,7 @@ Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경�
 - Azure 구독에 있는 **azure container registry** 필요한 경우 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용 하 여 레지스트리를 만듭니다.
 - **투구 클라이언트 버전 3.1.0 이상** -를 실행 `helm version` 하 여 현재 버전을 찾습니다. Helm을 설치하고 업그레이드하는 방법에 대한 자세한 내용은 [Helm 설치][helm-install]를 참조하세요.
 - 투구 차트를 설치 하는 **Kubernetes 클러스터** 입니다. 필요한 경우 [Azure Kubernetes 서비스 클러스터][aks-quickstart]를 만듭니다. 
-- 버전 **2.0.71 이상** -를 실행 `az --version` 하 여 버전을 찾습니다. Azure CLI 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+- 버전 **2.0.71 이상** - `az --version` 를 실행 하 여 버전을 찾습니다. Azure CLI 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ### <a name="high-level-workflow"></a>개략적인 워크플로
 
@@ -49,9 +48,9 @@ Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경�
 
 * Azure container registry에서 하나 이상의 투구 리포지토리를 만들 수 있습니다.
 * 레지스트리에서 투구 3 차트를 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장 합니다. 현재 OCI에 대 한 투구 3 지원은 *실험적*입니다.
-* `helm registry login` 명령을 사용 하 여 레지스트리를 사용 하 여 인증 합니다.
-* 투구 `helm chart` CLI의 명령을 사용 하 여 레지스트리에서 투구 차트를 푸시, 풀 및 관리 합니다.
-* 를 `helm install` 사용 하 여 로컬 리포지토리 캐시에서 Kubernetes 클러스터에 차트를 설치 합니다.
+* 명령을 사용 하 여 레지스트리를 사용 하 여 인증 `helm registry login` 합니다.
+* `helm chart`투구 CLI의 명령을 사용 하 여 레지스트리에서 투구 차트를 푸시, 풀 및 관리 합니다.
+* `helm install`를 사용 하 여 로컬 리포지토리 캐시에서 Kubernetes 클러스터에 차트를 설치 합니다.
 
 예제는 다음 섹션을 참조 하세요.
 
@@ -81,7 +80,7 @@ cd hello-world/templates
 rm -rf *
 ```
 
-`templates` 폴더에 다음 내용이 포함 된 라는 `configmap.yaml` 파일을 만듭니다.
+폴더에 `templates` `configmap.yaml` 다음 내용이 포함 된 라는 파일을 만듭니다.
 
 ```console
 cat <<EOF > configmap.yaml
@@ -98,7 +97,7 @@ EOF
 
 ### <a name="save-chart-to-local-registry-cache"></a>로컬 레지스트리 캐시에 차트 저장
 
-디렉터리를 `hello-world` 하위 디렉터리로 변경 합니다. 그런 다음를 `helm chart save` 실행 하 여 차트의 복사본을 로컬에 저장 하 고 레지스트리의 정규화 된 이름 (모두 소문자)과 대상 리포지토리 및 태그를 사용 하 여 별칭을 만듭니다. 
+디렉터리를 하위 디렉터리로 변경 `hello-world` 합니다. 그런 다음를 실행 `helm chart save` 하 여 차트의 복사본을 로컬에 저장 하 고 레지스트리의 정규화 된 이름 (모두 소문자)과 대상 리포지토리 및 태그를 사용 하 여 별칭을 만듭니다. 
 
 다음 예에서는 레지스트리 이름이 *mycontainerregistry*이 고 대상 리포지토리는 *hello*이며 대상 차트 태그는 *v1*이지만 사용자 환경에 대 한 값을 대체 합니다.
 
@@ -108,7 +107,7 @@ helm chart save . hello-world:v1
 helm chart save . mycontainerregistry.azurecr.io/helm/hello-world:v1
 ```
 
-을 `helm chart list` 실행 하 여 로컬 레지스트리 캐시에 차트를 저장 했는지 확인 합니다. 출력은 다음과 비슷합니다.
+`helm chart list`을 실행 하 여 로컬 레지스트리 캐시에 차트를 저장 했는지 확인 합니다. 출력은 다음과 비슷합니다.
 
 ```console
 REF                                                      NAME            VERSION DIGEST  SIZE            CREATED
@@ -118,9 +117,9 @@ mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0
 
 ### <a name="authenticate-with-the-registry"></a>레지스트리를 사용 하 여 인증
 
-사용자 시나리오 `helm registry login` 에 적합 한 자격 증명을 사용 하 여 [레지스트리를 인증](container-registry-authentication.md) 하도록 투구 3 CLI에서 명령을 실행 합니다.
+`helm registry login`사용자 시나리오에 적합 한 자격 증명을 사용 하 여 [레지스트리를 인증](container-registry-authentication.md) 하도록 투구 3 CLI에서 명령을 실행 합니다.
 
-예를 들어 [끌어오기 및 푸시 권한](container-registry-auth-service-principal.md#create-a-service-principal) (acrpush 역할)을 사용 하 여 레지스트리에 대 한 Azure Active Directory 서비스 주체를 만듭니다. 그런 다음 서비스 주체 자격 증명을 `helm registry login`에 제공 합니다. 다음 예에서는 환경 변수를 사용 하 여 암호를 제공 합니다.
+예를 들어 [끌어오기 및 푸시 권한](container-registry-auth-service-principal.md#create-a-service-principal) (acrpush 역할)을 사용 하 여 레지스트리에 대 한 Azure Active Directory 서비스 주체를 만듭니다. 그런 다음 서비스 주체 자격 증명을에 제공 `helm registry login` 합니다. 다음 예에서는 환경 변수를 사용 하 여 암호를 제공 합니다.
 
 ```console
 echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
@@ -130,7 +129,7 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
 
 ### <a name="push-chart-to-azure-container-registry"></a>Azure Container Registry에 차트 푸시
 
-투구 3 `helm chart push` CLI에서 명령을 실행 하 여 차트를 정규화 된 대상 리포지토리로 푸시합니다.
+`helm chart push`투구 3 CLI에서 명령을 실행 하 여 차트를 정규화 된 대상 리포지토리로 푸시합니다.
 
 ```console
 helm chart push mycontainerregistry.azurecr.io/helm/hello-world:v1
@@ -178,7 +177,7 @@ az acr repository show \
 }
 ```
 
-[Az acr repository show-manifest][az-acr-repository-show-manifests] 명령을 실행 하 여 리포지토리에 저장 된 차트의 세부 정보를 확인 합니다. 예를 들면 다음과 같습니다.
+[Az acr repository show-manifest][az-acr-repository-show-manifests] 명령을 실행 하 여 리포지토리에 저장 된 차트의 세부 정보를 확인 합니다. 예를 들어:
 
 ```azurecli
 az acr repository show-manifests \
@@ -186,7 +185,7 @@ az acr repository show-manifests \
   --repository helm/hello-world --detail
 ```
 
-이 예제의 축약 된 출력에는의 `configMediaType` `application/vnd.cncf.helm.config.v1+json`가 표시 됩니다.
+이 예제의 축약 된 출력에는의가 표시 됩니다 `configMediaType` `application/vnd.cncf.helm.config.v1+json` .
 
 ```output
 [
@@ -205,13 +204,13 @@ az acr repository show-manifests \
 
 ### <a name="pull-chart-to-local-cache"></a>로컬 캐시로 차트 끌어오기
 
-Kubernetes에 투구 차트를 설치 하려면 차트가 로컬 캐시에 있어야 합니다. 이 예에서는 먼저를 실행 `helm chart remove` 하 여 라는 `mycontainerregistry.azurecr.io/helm/hello-world:v1`기존 로컬 차트를 제거 합니다.
+Kubernetes에 투구 차트를 설치 하려면 차트가 로컬 캐시에 있어야 합니다. 이 예에서는 먼저를 실행 `helm chart remove` 하 여 라는 기존 로컬 차트를 제거 합니다 `mycontainerregistry.azurecr.io/helm/hello-world:v1` .
 
 ```console
 helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:v1
 ```
 
-을 `helm chart pull` 실행 하 여 Azure container registry에서 로컬 캐시로 차트를 다운로드 합니다.
+을 실행 `helm chart pull` 하 여 Azure container registry에서 로컬 캐시로 차트를 다운로드 합니다.
 
 ```console
 helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
@@ -219,14 +218,14 @@ helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
 
 ### <a name="export-helm-chart"></a>투구 차트 내보내기
 
-차트를 추가로 작업 하려면를 사용 하 여 `helm chart export`로컬 디렉터리로 내보냅니다. 예를 들어 끌어온 차트를 `install` 디렉터리로 내보냅니다.
+차트를 추가로 작업 하려면를 사용 하 여 로컬 디렉터리로 내보냅니다 `helm chart export` . 예를 들어 끌어온 차트를 `install` 디렉터리로 내보냅니다.
 
 ```console
 helm chart export mycontainerregistry.azurecr.io/helm/hello-world:v1 \
   --destination ./install
 ```
 
-리포지토리의 내보낸 차트에 대 한 정보를 보려면 차트를 내보낸 디렉터리 `helm show chart` 에서 명령을 실행 합니다.
+리포지토리의 내보낸 차트에 대 한 정보를 보려면 `helm show chart` 차트를 내보낸 디렉터리에서 명령을 실행 합니다.
 
 ```console
 cd install
@@ -246,7 +245,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>투구 차트 설치
 
-을 `helm install` 실행 하 여 로컬 캐시로 끌어온 투구 차트를 설치 하 고 내보냅니다. *Myhelmtest*와 같은 릴리스 이름을 지정 하거나 `--generate-name` 매개 변수를 전달 합니다. 예를 들면 다음과 같습니다.
+을 실행 `helm install` 하 여 로컬 캐시로 끌어온 투구 차트를 설치 하 고 내보냅니다. *Myhelmtest*와 같은 릴리스 이름을 지정 하거나 매개 변수를 전달 `--generate-name` 합니다. 예를 들어:
 
 ```console
 helm install myhelmtest ./hello-world
@@ -263,9 +262,9 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-설치를 확인 하려면 `helm get manifest` 명령을 실행 합니다. 이 명령은 `configmap.yaml` 템플릿 파일의 yaml 데이터를 반환 합니다.
+설치를 확인 하려면 `helm get manifest` 명령을 실행 합니다. 이 명령은 템플릿 파일의 YAML 데이터를 반환 합니다 `configmap.yaml` .
 
-을 `helm uninstall` 실행 하 여 클러스터에서 차트 릴리스를 제거 합니다.
+`helm uninstall`을 실행 하 여 클러스터에서 차트 릴리스를 제거 합니다.
 
 ```console
 helm uninstall myhelmtest
@@ -295,7 +294,7 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 * Azure CLI를 통해 Azure container registry로 인증 한 다음 레지스트리 URI 및 자격 증명을 사용 하 여 자동으로 투구 클라이언트를 업데이트 합니다. 이 레지스트리 정보를 수동으로 지정할 필요가 없으므로 자격 증명이 명령 기록에 노출 되지 않습니다.
 * Azure CLI의 [az acr 투구][az-acr-helm] 명령을 사용 하 여 Azure container Registry를 투구 차트 리포지토리로 추가 하 고 차트를 푸시 및 관리 합니다. 이러한 Azure CLI 명령은 투구 2 클라이언트 명령을 래핑합니다.
 * Azure container registry의 차트 리포지토리를 로컬 투구 리포지토리 인덱스에 추가 하 여 차트 검색을 지원 합니다.
-* 를 `helm install` 사용 하 여 로컬 리포지토리 캐시에서 Kubernetes 클러스터에 차트를 설치 합니다.
+* `helm install`를 사용 하 여 로컬 리포지토리 캐시에서 Kubernetes 클러스터에 차트를 설치 합니다.
 
 예제는 다음 섹션을 참조 하세요.
 
@@ -317,7 +316,7 @@ helm repo update
 helm fetch stable/wordpress
 ```
 
-다운로드 `ls` 한 차트를 나열 하려면를 입력 하 고, Wordpress 버전은 파일 이름에 포함 되어 있습니다. `helm fetch stable/wordpress` 명령은 특정 버전을 지정하지 않았으므로 *최신* 버전을 가져왔습니다. 다음 예제 출력에서 Wordpress 차트는 version *8.1.0*입니다.
+`ls`다운로드 한 차트를 나열 하려면를 입력 하 고, Wordpress 버전은 파일 이름에 포함 되어 있습니다. `helm fetch stable/wordpress` 명령은 특정 버전을 지정하지 않았으므로 *최신* 버전을 가져왔습니다. 다음 예제 출력에서 Wordpress 차트는 version *8.1.0*입니다.
 
 ```output
 wordpress-8.1.0.tgz
@@ -345,7 +344,7 @@ az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
 az acr helm repo add --name mycontainerregistry
 ```
 
-리포지토리에 차트가 저장되어 있고 업데이트된 인덱스를 로컬에서 사용할 수 있으면 일반 Helm 클라이언트 명령을 사용해 차트를 검색하거나 설치할 수 있습니다. 리포지토리의 모든 차트를 보려면 다음 `helm search` 명령을 사용 하 여 사용자 고유의 Azure Container Registry 이름을 제공 합니다.
+리포지토리에 차트가 저장되어 있고 업데이트된 인덱스를 로컬에서 사용할 수 있으면 일반 Helm 클라이언트 명령을 사용해 차트를 검색하거나 설치할 수 있습니다. 리포지토리의 모든 차트를 보려면 다음 명령을 사용 하 여 `helm search` 사용자 고유의 Azure Container Registry 이름을 제공 합니다.
 
 ```console
 helm search mycontainerregistry
@@ -366,7 +365,7 @@ az acr helm list --name mycontainerregistry
 
 ### <a name="show-information-for-a-helm-chart"></a>Helm 차트의 정보 표시
 
-리포지토리의 특정 차트에 대 한 정보를 보려면 `helm inspect` 명령을 사용 하면 됩니다.
+리포지토리의 특정 차트에 대 한 정보를 보려면 명령을 사용 하면 `helm inspect` 됩니다.
 
 ```console
 helm inspect mycontainerregistry/wordpress
@@ -399,7 +398,7 @@ version: 8.1.0
 [...]
 ```
 
-Azure CLI [az acr helm show][az-acr-helm-show] 명령을 사용하여 차트의 정보를 표시할 수도 있습니다. 이 명령을 사용하는 경우에도 마찬가지로 차트의 *최신* 버전이 기본적으로 반환됩니다. 8.1.0와 같은 `--version` 특정 버전의 차트를 나열 하기 위해를 추가할 수 *8.1.0*있습니다.
+Azure CLI [az acr helm show][az-acr-helm-show] 명령을 사용하여 차트의 정보를 표시할 수도 있습니다. 이 명령을 사용하는 경우에도 마찬가지로 차트의 *최신* 버전이 기본적으로 반환됩니다. `--version` *8.1.0*와 같은 특정 버전의 차트를 나열 하기 위해를 추가할 수 있습니다.
 
 ```azurecli
 az acr helm show --name mycontainerregistry wordpress
@@ -422,7 +421,7 @@ helm install mycontainerregistry/wordpress
 - Azure Container Registry 리포지토리에서 해당 차트가 다운로드됩니다.
 - Kubernetes 클러스터의 Tiller를 사용하여 차트가 배포됩니다.
 
-설치가 진행 되는 동안 명령 출력의 지침에 따라 WorPress Url 및 자격 증명을 확인 합니다. `kubectl get pods` 명령을 실행 하 여 투구 차트를 통해 배포 된 Kubernetes 리소스를 확인할 수도 있습니다.
+설치가 진행 되는 동안 명령 출력의 지침에 따라 WorPress Url 및 자격 증명을 확인 합니다. `kubectl get pods`명령을 실행 하 여 투구 차트를 통해 배포 된 Kubernetes 리소스를 확인할 수도 있습니다.
 
 ```output
 NAME                                    READY   STATUS    RESTARTS   AGE
@@ -441,7 +440,7 @@ az acr helm delete --name mycontainerregistry wordpress --version 8.1.0
 
 이름을 지정한 차트의 모든 버전을 삭제하려는 경우 `--version` 매개 변수를 제거합니다.
 
-를 실행 `helm search`하면 차트가 계속 반환 됩니다. 여기서도 Helm 클라이언트는 리포지토리에서 사용 가능한 차트 목록을 자동으로 업데이트하지 않습니다. Helm 클라이언트 리포지토리 인덱스를 업데이트하려면 다시 [az acr helm repo add][az-acr-helm-repo-add] 명령을 사용합니다.
+를 실행 하면 차트가 계속 반환 됩니다 `helm search` . 여기서도 Helm 클라이언트는 리포지토리에서 사용 가능한 차트 목록을 자동으로 업데이트하지 않습니다. Helm 클라이언트 리포지토리 인덱스를 업데이트하려면 다시 [az acr helm repo add][az-acr-helm-repo-add] 명령을 사용합니다.
 
 ```azurecli
 az acr helm repo add --name mycontainerregistry

@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82025036"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>전용 호스트에 배포
@@ -28,17 +27,17 @@ ms.locfileid: "82025036"
 > 전용 sku를 사용 하는 것은 현재 롤아웃 중인 최신 API 버전 (2019-12-01) 에서만 사용할 수 있습니다. 배포 템플릿에서이 API 버전을 지정 합니다.
 >
 
-API 버전 2019-12-01부터 ACI 배포에 필요한 배포 `sku` 템플릿의 컨테이너 그룹 속성 섹션 아래에 속성이 있습니다. 현재이 속성은 ACI 용 Azure Resource Manager 배포 템플릿의 일부로 사용할 수 있습니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
+API 버전 2019-12-01부터 `sku` ACI 배포에 필요한 배포 템플릿의 컨테이너 그룹 속성 섹션 아래에 속성이 있습니다. 현재이 속성은 ACI 용 Azure Resource Manager 배포 템플릿의 일부로 사용할 수 있습니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
 
-속성 `sku` 은 다음 값 중 하나를 가질 수 있습니다.
+`sku`속성은 다음 값 중 하나를 가질 수 있습니다.
 * `Standard`-하이퍼바이저 수준 보안을 보장 하는 표준 ACI 배포 선택 
 * `Dedicated`-컨테이너 그룹에 대 한 전용 물리적 호스트와 워크 로드 수준 격리에 사용 됨
 
 ## <a name="modify-your-json-deployment-template"></a>JSON 배포 템플릿 수정
 
 배포 템플릿에서 다음 속성을 수정 하거나 추가 합니다.
-* 에서 `resources`을로 `apiVersion` `2019-12-01`설정 합니다.
-* 컨테이너 그룹 속성에서 value `sku` `Dedicated`를 사용 하 여 속성을 추가 합니다.
+* 에서을 `resources` `apiVersion` 로 설정 `2019-12-01` 합니다.
+* 컨테이너 그룹 속성에서 `sku` value를 사용 하 여 속성을 추가 `Dedicated` 합니다.
 
 다음은 전용 sku를 사용 하는 컨테이너 그룹 배포 템플릿의 리소스 섹션에 대 한 예제 코드 조각입니다.
 

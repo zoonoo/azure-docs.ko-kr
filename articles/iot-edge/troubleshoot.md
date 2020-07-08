@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858602"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
@@ -21,12 +20,12 @@ ms.locfileid: "82858602"
 
 ## <a name="run-the-check-command"></a>' Check ' 명령을 실행 합니다.
 
-IoT Edge 문제를 해결 하는 첫 번째 단계는 일반적인 `check` 문제에 대 한 구성 및 연결 테스트 컬렉션을 실행 하는 명령을 사용 하는 것입니다. 이 `check` 명령은 [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상에서 사용할 수 있습니다.
+IoT Edge 문제를 해결 하는 첫 번째 단계는 `check` 일반적인 문제에 대 한 구성 및 연결 테스트 컬렉션을 실행 하는 명령을 사용 하는 것입니다. `check`이 명령은 [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상에서 사용할 수 있습니다.
 
 >[!NOTE]
 >IoT Edge 장치가 프록시 서버 뒤에 있는 경우 문제 해결 도구에서 연결 확인을 실행할 수 없습니다.
 
-다음과 같이 `check` 명령을 실행 하거나 플래그를 `--help` 포함 하 여 전체 옵션 목록을 볼 수 있습니다.
+`check`다음과 같이 명령을 실행 하거나 플래그를 포함 `--help` 하 여 전체 옵션 목록을 볼 수 있습니다.
 
 Linux에서:
 
@@ -50,9 +49,9 @@ iotedge check
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>' Support-번들 ' 명령을 사용 하 여 디버그 정보 수집
 
-IoT Edge 장치에서 로그를 수집 해야 하는 경우 가장 편리한 방법은 `support-bundle` 명령을 사용 하는 것입니다. 기본적으로이 명령은 모듈, IoT Edge security manager 및 컨테이너 엔진 로그, `iotedge check` JSON 출력 및 기타 유용한 디버그 정보를 수집 합니다. 쉽게 공유할 수 있도록 단일 파일로 압축 합니다. 이 `support-bundle` 명령은 [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) 이상에서 사용할 수 있습니다.
+IoT Edge 장치에서 로그를 수집 해야 하는 경우 가장 편리한 방법은 명령을 사용 하는 것입니다 `support-bundle` . 기본적으로이 명령은 모듈, IoT Edge security manager 및 컨테이너 엔진 로그, `iotedge check` JSON 출력 및 기타 유용한 디버그 정보를 수집 합니다. 쉽게 공유할 수 있도록 단일 파일로 압축 합니다. `support-bundle`이 명령은 [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) 이상에서 사용할 수 있습니다.
 
-플래그를 `support-bundle` 사용 하 여 명령을 실행 하 여 과거부터 로그를 가져올 기간을 지정 합니다. `--since` 예를 `6h` 들어 지난 6 일 이후 지난 6 일 `6d` `6m` 이후 지난 6 시간 후에 로그를 가져올 수 있습니다. 플래그를 `--help` 포함 하 여 전체 옵션 목록을 표시 합니다.
+플래그를 사용 하 여 명령을 실행 하 여 `support-bundle` `--since` 과거부터 로그를 가져올 기간을 지정 합니다. 예를 들어 지난 6 일 이후 지난 6 일 이후 지난 6 시간 후에 `6h` 로그를 가져올 수 `6d` `6m` 있습니다. 플래그를 포함 `--help` 하 여 전체 옵션 목록을 표시 합니다.
 
 Linux에서:
 
@@ -67,11 +66,11 @@ iotedge support-bundle --since 6h
 ```
 
 > [!WARNING]
-> `support-bundle` 명령의 출력에는 호스트, 장치 및 모듈 이름, 모듈에 의해 기록 된 정보 등이 포함 될 수 있습니다. 공개 포럼의 출력을 공유 하는 경우이 점에 유의 하세요.
+> 명령의 출력에는 `support-bundle` 호스트, 장치 및 모듈 이름, 모듈에 의해 기록 된 정보 등이 포함 될 수 있습니다. 공개 포럼의 출력을 공유 하는 경우이 점에 유의 하세요.
 
 ## <a name="check-your-iot-edge-version"></a>IoT Edge 버전 확인
 
-이전 버전의 IoT Edge를 실행 하는 경우 업그레이드 하면 문제가 해결 될 수 있습니다. 이 `iotedge check` 도구는 IoT Edge 보안 데몬이 최신 버전 인지 확인 하지만 IoT Edge 허브 및 에이전트 모듈의 버전을 확인 하지는 않습니다. 장치에서 런타임 모듈의 버전을 확인 하려면 및 `iotedge logs edgeAgent` `iotedge logs edgeHub`명령을 사용 합니다. 버전 번호는 모듈이 시작 될 때 로그에 선언 됩니다.
+이전 버전의 IoT Edge를 실행 하는 경우 업그레이드 하면 문제가 해결 될 수 있습니다. `iotedge check`이 도구는 IoT Edge 보안 데몬이 최신 버전 인지 확인 하지만 IoT Edge 허브 및 에이전트 모듈의 버전을 확인 하지는 않습니다. 장치에서 런타임 모듈의 버전을 확인 하려면 및 명령을 사용 `iotedge logs edgeAgent` `iotedge logs edgeHub` 합니다. 버전 번호는 모듈이 시작 될 때 로그에 선언 됩니다.
 
 장치를 업데이트 하는 방법에 대 한 지침은 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조 하세요.
 
@@ -255,7 +254,7 @@ iotedge restart edgeAgent && iotedge restart edgeHub
 
 IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. 따라서 적절 한 네트워크 및 방화벽 규칙이 안전한 edge에서 클라우드 통신에 대해 설정 되었는지 확인 해야 합니다. 다음 표는 Azure IoT Edge 런타임이 호스트 되는 기본 서버에 대 한 구성 방화벽 규칙을 사용 하는 경우 지침으로 사용할 수 있습니다.
 
-|프로토콜|포트|수신|발신|지침|
+|프로토콜|포트|수신|나가는 포트|지침|
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED(기본값)|BLOCKED(기본값)|<ul> <li>통신 프로토콜로 MQTT를 사용하는 경우 발신(아웃바운드)이 Open이 되도록 구성합니다.<li>MQTT에 대한 1883은 IoT Edge에서 지원되지 않습니다. <li>수신(인바운드) 연결을 차단해야 합니다.</ul>|
 |AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|

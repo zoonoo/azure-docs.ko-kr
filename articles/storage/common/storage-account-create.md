@@ -10,10 +10,9 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82853488"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
@@ -30,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-없습니다.
+없음
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -59,7 +58,7 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 이 단추는이 방법 문서에 설명 된 단계를 실행 하는 데 사용할 수 있는 대화형 셸을 시작 합니다.
 
-[![포털의 Cloud Shell 창을 보여 주는 스크린샷](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![포털에서 Cloud Shell 창을 보여 주는 스크린샷](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 
@@ -67,7 +66,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-없습니다.
+없음
 
 ---
 
@@ -142,7 +141,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우이 매개 변수 `-EnableHierarchicalNamespace $True` 목록에를 포함 합니다.
+> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우 `-EnableHierarchicalNamespace $True` 이 매개 변수 목록에를 포함 합니다.
 
 다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 해당 하는 값을 원하는 값으로 **대체 합니다.**
 
@@ -153,7 +152,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 |GRS(지역 중복 스토리지)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 스토리지)     |Standard_RAGRS         |
 |GZRS(지역 영역 중복 스토리지)    |Standard_GZRS         |
-|읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)    |Standard_RAGZRS         |
+|RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -185,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우이 매개 변수 `--enable-hierarchical-namespace true` 목록에를 포함 합니다. 
+> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우 `--enable-hierarchical-namespace true` 이 매개 변수 목록에를 포함 합니다. 
 
 다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 **sku** 매개 변수를 원하는 값으로 대체 합니다.
 
@@ -196,7 +195,7 @@ az storage account create \
 |GRS(지역 중복 스토리지)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 스토리지)     |Standard_RAGRS         |
 |GZRS(지역 영역 중복 스토리지)    |Standard_GZRS         |
-|읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)    |Standard_RAGZRS         |
+|RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[템플릿](#tab/template)
 
@@ -220,7 +219,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 ```
 
 > [!NOTE]
-> 이 템플릿은 예제로만 사용 됩니다. 이 템플릿의 일부로 구성 되지 않은 많은 저장소 계정 설정이 있습니다. 예를 들어 [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우 `isHnsEnabledad` `StorageAccountPropertiesCreateParameters` 개체의 속성을로 `true`설정 하 여이 템플릿을 수정 합니다. 
+> 이 템플릿은 예제로만 사용 됩니다. 이 템플릿의 일부로 구성 되지 않은 많은 저장소 계정 설정이 있습니다. 예를 들어 [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우 개체의 속성을로 설정 하 여이 템플릿을 수정 `isHnsEnabledad` `StorageAccountPropertiesCreateParameters` `true` 합니다. 
 
 이 템플릿을 수정 하거나 새 템플릿을 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 

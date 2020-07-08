@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: d7fb7b6b409a4e24be97ee61fc7ba1f0c0a93202
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792635"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
@@ -32,16 +31,16 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
 | 호환성 유형 | 주 버전| 부 버전 | 패치 |
 | --- | --- | --- | --- |
-| 클라이언트-서버 통신 호환성 | N | Y | Y |
-| 서버 간 호환성 | N | Y | Y |
-| 파일 형식 호환성 | N | Y | Y |
-| 클라이언트 API 호환성 | N | Y | Y |
+| 클라이언트-서버 통신 호환성 | N | Y | 지원 |
+| 서버 간 호환성 | N | Y | 지원 |
+| 파일 형식 호환성 | N | Y | 지원 |
+| 클라이언트 API 호환성 | N | Y | 지원 |
 | 클라이언트 이진 호환성 | N | N | Y |
 | **서버 쪽 제한 API 호환성** |  |  |  |
-| Stable | N | Y | Y |
+| Stable | N | Y | 지원 |
 | 진화 | N | N | Y |
 | 불안정 | N | N | N |
-| 종속성 호환성 | N | Y | Y |
+| 종속성 호환성 | N | Y | 지원 |
 | 운영 호환성 | N | N | Y |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>동일한 Apache HBase 주 버전으로 업그레이드
@@ -176,7 +175,7 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
 
 1. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
 
-1. 이전 클러스터 (`https://OLDCLUSTERNAME.azurehdidnsight.net`)에서 [Apache Ambari](https://ambari.apache.org/) 에 로그인 하 고 HBase 서비스를 중지 합니다. 서비스를 중지 하 시겠습니까를 확인 하는 메시지가 표시 되 면 해당 확인란을 선택 하 여 HBase에 대 한 유지 관리 모드를 설정 합니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+1. 이전 클러스터 ()에서 [Apache Ambari](https://ambari.apache.org/) 에 로그인 하 `https://OLDCLUSTERNAME.azurehdidnsight.net` 고 HBase 서비스를 중지 합니다. 서비스를 중지 하 시겠습니까를 확인 하는 메시지가 표시 되 면 해당 확인란을 선택 하 여 HBase에 대 한 유지 관리 모드를 설정 합니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
     ![Ambari에서 서비스 > HBase > 서비스 작업에서 중지를 클릭 합니다.](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
@@ -190,14 +189,14 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
 
 1. 향상 된 쓰기 기능으로 HBase 클러스터를 사용 하지 않는 경우이 단계를 건너뜁니다. 쓰기 기능이 향상 된 HBase 클러스터에만 필요 합니다.
 
-   원본 클러스터 `hbase.rootdir` 의 컨테이너를 가리키도록 경로를 변경 합니다.
+   `hbase.rootdir`원본 클러스터의 컨테이너를 가리키도록 경로를 변경 합니다.
 
     ![Ambari에서 HBase rootdir의 컨테이너 이름을 변경 합니다.](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 
 1. HDInsight 3.6을 4.0로 업그레이드 하는 경우 아래 단계를 수행 하 고, 그렇지 않은 경우에는 10 단계로 건너뜁니다.
-    1. **서비스** > **다시 시작 필요**를 선택 하 여 Ambari에서 필요한 모든 서비스를 다시 시작 합니다.
+    1. **서비스**  >  **다시 시작 필요**를 선택 하 여 Ambari에서 필요한 모든 서비스를 다시 시작 합니다.
     1. HBase 서비스를 중지 합니다.
-    1. 아웃 들 노드에 대해 SSH를 수행 하 고 [Zkcli](https://github.com/go-zkcli/zkcli) 명령을 `rmr /hbase-unsecure` 실행 하 여 사육 사에서 HBase 루트 znode를 제거 합니다.
+    1. 아웃 들 노드에 대해 SSH를 수행 하 고 [Zkcli](https://github.com/go-zkcli/zkcli) 명령을 실행 `rmr /hbase-unsecure` 하 여 사육 사에서 HBase 루트 znode를 제거 합니다.
     1. HBase를 다시 시작 합니다.
 
 1. 4.0 이외의 다른 HDInsight 버전으로 업그레이드 하는 경우 다음 단계를 수행 합니다.

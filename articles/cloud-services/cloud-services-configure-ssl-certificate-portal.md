@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82024849"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대 한 TLS 구성
@@ -34,7 +33,7 @@ ms.locfileid: "82024849"
 
 * 인증서는 공개 키를 포함 해야 합니다.
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
-* 인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. Cloudapp.net 도메인에 대 한 CA (인증 기관)에서 TLS/SSL 인증서를 가져올 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 애플리케이션 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com** 인 경우 CA에서 ***. contoso.com** 또는 **www\.contoso.com**에 대 한 인증서를 요청 합니다.
+* 인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. Cloudapp.net 도메인에 대 한 CA (인증 기관)에서 TLS/SSL 인증서를 가져올 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 애플리케이션 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com** 인 경우 CA에서 ***. contoso.com** 또는 **www \. contoso.com**에 대 한 인증서를 요청 합니다.
 * 인증서는 최소한 2048비트 암호화를 사용해야 합니다.
 
 테스트용으로 자체 서명된 인증서를 [만들어](cloud-services-certs-create.md) 사용할 수 있습니다. 자체 서명된 인증서는 CA를 통해 인증되지 않으며 cloudapp.net 도메인을 웹 사이트 URL로 사용할 수 있습니다. 예를 들어 다음 작업에서는 인증서에서 사용되는 CN(일반 이름)이 **sslexample.cloudapp.net**인 자체 서명된 인증서를 사용합니다.
@@ -76,7 +75,7 @@ ms.locfileid: "82024849"
 
    권한(`permissionLevel` 특성)은 다음 값 중 하나로 설정될 수 있습니다.
 
-   | 권한 값 | Description |
+   | 권한 값 | 설명 |
    | --- | --- |
    | limitedOrElevated |**(기본값)** 모든 역할 프로세스는 프라이빗 키에 액세스할 수 있습니다. |
    | elevated |승격된 프로세스만 프라이빗 키에 액세스할 수 있습니다. |
@@ -174,7 +173,7 @@ Azure Portal에 연결하고 다음을 수행합니다.
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
-* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
+* [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 
 

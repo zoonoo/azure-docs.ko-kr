@@ -6,10 +6,9 @@ author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
 ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82836801"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
@@ -19,7 +18,7 @@ ms.locfileid: "82836801"
 [Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)의 기능을 기반으로 하는 변경 분석을 통해 azure 응용 프로그램 변경 내용에 대 한 통찰력을 제공 하 여 관찰성를 늘리고 MTTR (평균 복구 시간)를 줄일 수 있습니다.
 
 > [!IMPORTANT]
-> 변경 분석은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 됩니다. 이 버전은 프로덕션 워크 로드에는 권장 되지 않습니다. 일부 기능은 지원 되지 않거나 제한 된 기능을 가질 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+> 변경 분석은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 됩니다. 이 버전은 프로덕션 워크 로드에는 권장 되지 않습니다. 일부 기능은 지원 되지 않거나 제한 된 기능을 가질 수 있습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -79,7 +78,7 @@ Azure Portal의 검색 창에서 변경 분석을 검색 하 여 환경을 시�
 
 ![변경 세부 정보 스크린샷](./media/change-analysis/change-details.png)
 
-피드백은 블레이드 또는 전자 메일 changeanalysisteam@microsoft.com의 사용자 의견 보내기 단추를 사용 합니다.
+피드백은 블레이드 또는 전자 메일의 사용자 의견 보내기 단추를 사용 changeanalysisteam@microsoft.com 합니다.
 
 ![변경 분석 블레이드의 피드백 단추 스크린샷](./media/change-analysis/change-analysis-feedback.png)
 
@@ -109,7 +108,7 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 
     !["변경 분석 설정" 사용자 인터페이스의 스크린샷](./media/change-analysis/change-analysis-on.png)
 
-5.  > 변경 분석에 액세스 하려면 **진단 및 문제 해결 및****성능** > **응용 프로그램 충돌**을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다. 기본적으로 지난 24 시간 동안의 변경 내용은 즉각적인 문제를 해결 하기 위해 표시 됩니다.
+5. 변경 분석에 액세스 하려면 **진단 및 문제 해결 및**  >  **성능**  >  **응용 프로그램 충돌**을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다. 기본적으로 지난 24 시간 동안의 변경 내용은 즉각적인 문제를 해결 하기 위해 표시 됩니다.
 
      ![Diff 뷰 변경의 스크린샷](./media/change-analysis/change-view.png)
 

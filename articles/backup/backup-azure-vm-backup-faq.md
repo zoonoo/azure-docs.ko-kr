@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800654"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
@@ -65,7 +64,7 @@ Azure Backup에서 Key Vault에 액세스할 수 있는 권한을 제공 합니�
 
 예. **스냅숏 만들기** 상태에서 백업 작업을 취소할 수 있습니다. 스냅샷에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
 
-### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Azure Backup 서비스에서 만든 리소스 그룹 (예: `AzureBackupRG_<geo>_<number>`)에 대 한 잠금을 사용 하도록 설정 했습니다. 내 백업이 계속 작동하나요?
+### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Azure Backup 서비스에서 만든 리소스 그룹 (예:)에 대 한 잠금을 사용 하도록 설정 했습니다 `AzureBackupRG_<geo>_<number>` . 내 백업이 계속 작동하나요?
 
 Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 최대 18 개의 복원 지점이 있으므로 백업이 실패 하기 시작 합니다.
 
@@ -99,11 +98,11 @@ VM 또는 VM 리소스 그룹의 대/소문자를 변경 하는 경우 백업 �
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>VM에 연결 된 선택적 디스크를 백업 하거나 복원할 수 있나요?
 
-이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.
+이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.
 
-현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 백업 및 복원 요구에 효율적이 고 비용 효율적인 솔루션을 제공 합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크의 데이터가 포함 되어 있으므로 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음 둘 다의 복원에 적용 됩니다.
+현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 사용자의 백업 및 복원 요구 사항을 충족하는 능률적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함된 디스크의 데이터가 포함되므로 복원 작업을 수행하는 동안 지정된 복구 지점에서 복원된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅샷과 자격 증명 모음의 복원 모두에 적용됩니다.
 
-미리 보기에 등록 하려면 다음에 작성 합니다.AskAzureBackupTeam@microsoft.com
+미리 보기에 가입하려면 AskAzureBackupTeam@microsoft.com으로 문의해 주세요.
 
 ## <a name="restore"></a>복원
 
@@ -143,13 +142,13 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>암호화 된 VM에 대 한 주요 자격 증명 모음 설정을 변경 하면 어떻게 되나요?
 
-암호화 된 VM에 대 한 주요 자격 증명 모음 설정을 변경한 후에는 백업이 새로운 세부 정보 집합을 사용 하 여 계속 작동 합니다. 그러나 변경 전에 복구 지점에서 복원한 후에는 키 자격 증명 모음에서 암호를 복원 해야 VM을 만들 수 있습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)를 참조 하세요.
+암호화 된 VM에 대 한 주요 자격 증명 모음 설정을 변경한 후에는 백업이 새로운 세부 정보 집합을 사용 하 여 계속 작동 합니다. 그러나 변경 전에 복구 지점에서 복원한 후에는 키 자격 증명 모음에서 암호를 복원 해야 VM을 만들 수 있습니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)를 참조하세요.
 
 비밀/키 롤아웃과 같은 작업에는이 단계가 필요 하지 않으며 복원 후 동일한 KeyVault를 사용할 수 있습니다.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스할 수 있나요?
 
-예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps) 를 참조 하세요.
+예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 관련 [문서](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)를 참조하세요.
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 
@@ -166,9 +165,9 @@ VM은 수정된 정책 또는 새 정책의 일정 및 보존 설정을 사용�
 2. Azure Backup로 구성 된 가상 컴퓨터를 이동 하려면 다음 단계를 수행 합니다.
 
    1. 가상 컴퓨터의 위치를 찾습니다.
-   2. 다음 명명 패턴 `AzureBackupRG_<location of your VM>_1`을 사용 하 여 리소스 그룹을 찾습니다. 예를 들어 *AzureBackupRG_westus2_1*
+   2. 다음 명명 패턴을 사용 하 여 리소스 그룹을 `AzureBackupRG_<location of your VM>_1` 찾습니다. 예를 들어 *AzureBackupRG_westus2_1*
    3. Azure Portal에서 **숨겨진 형식 표시**를 선택 합니다.
-   4. 이름 지정 패턴이 `AzureBackup_<name of your VM that you're trying to move>_###########`있는 **restorePointCollections/** 형식의 리소스를 찾습니다.
+   4. 이름 지정 패턴이 있는 **restorePointCollections/** 형식의 리소스를 찾습니다 `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
    6. 삭제 작업을 완료 한 후 가상 컴퓨터를 이동할 수 있습니다.
 

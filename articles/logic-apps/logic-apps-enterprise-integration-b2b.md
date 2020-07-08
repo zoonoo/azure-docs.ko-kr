@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792363"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 B2B AS2 메시지 받기 및 확인
@@ -35,7 +34,7 @@ ms.locfileid: "82792363"
 
   논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토 하세요.
 
-* Azure 구독과 연결 되 고 논리 앱에 연결 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md) 입니다. 논리 앱과 통합 계정은 모두 동일한 위치 또는 Azure 지역에 있어야 합니다.
+* Azure 구독과 연결 되 고 논리 앱에 연결 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md) 입니다. 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
 
 * 해당 파트너에 대 한 [AS2 및 X12 계약과](logic-apps-enterprise-integration-agreements.md) 함께 통합 계정에 이미 정의 된 두 개 이상의 [거래 업체](../logic-apps/logic-apps-enterprise-integration-partners.md) .
 
@@ -45,7 +44,7 @@ ms.locfileid: "82792363"
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-1. 검색 상자에를 입력 `when a http request`하 고 트리거로 사용할 **HTTP 요청을 받을 때** 를 선택 합니다.
+1. 검색 상자에를 입력 하 `when a http request` 고 트리거로 사용할 **HTTP 요청을 받을 때** 를 선택 합니다.
 
    ![논리 앱 워크플로를 시작 하려면 요청 트리거를 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
@@ -53,9 +52,9 @@ ms.locfileid: "82792363"
 
    !["요청 본문 JSON 스키마"를 비워 둡니다.](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
 
-1. 작업이 완료 되 면 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
 
-   이 단계에서는 논리 앱을 트리거하는 요청을 보내는 데 사용할 **HTTP POST URL** 을 생성 합니다. 이 URL을 복사 하려면 URL 옆에 있는 복사 아이콘을 선택 합니다.
+   이 단계에서는 논리 앱을 트리거하는 요청을 보내는 데 사용할 **HTTP POST URL** 을 생성 합니다. 이 URL을 복사하려면 URL 옆에 있는 복사 아이콘을 선택합니다.
 
    ![호출을 받기 위한 요청 트리거에 대해 생성 된 URL입니다.](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
@@ -67,17 +66,17 @@ ms.locfileid: "82792363"
 
    ![논리 앱 워크플로에 다른 단계 추가](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. **작업 선택**아래의 검색 상자에를 입력 `as2 decode`하 고 **AS2 디코드 (v2)** 를 선택 합니다.
+1. **작업 선택**아래의 검색 상자에를 입력 하 `as2 decode` 고 **AS2 디코드 (v2)** 를 선택 합니다.
 
    !["AS2 디코드 (v2)"를 찾아 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-1. **디코딩할 메시지** 속성에 대해 AS2 작업에서 디코딩할 입력 (HTTP 요청 트리거가 수신 하는 `body` 콘텐츠)을 입력 합니다. 동적 콘텐츠 목록이 나 식으로이 콘텐츠를 입력으로 지정 하는 여러 가지 방법이 있습니다.
+1. **디코딩할 메시지** 속성에 대해 AS2 작업에서 디코딩할 입력 ( `body` HTTP 요청 트리거가 수신 하는 콘텐츠)을 입력 합니다. 동적 콘텐츠 목록이 나 식으로이 콘텐츠를 입력으로 지정 하는 여러 가지 방법이 있습니다.
 
    * 사용 가능한 트리거 출력을 표시 하는 목록에서 선택 하려면 **디코딩할 메시지** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **HTTP 요청을 받을 때**아래에서 **Body** 속성 값을 선택 합니다. 예를 들면 다음과 같습니다.
 
      ![트리거에서 "Body" 값을 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * 트리거의 `body` 출력을 참조 하는 식을 입력 하려면 **디코딩할 메시지** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식**을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인**을 선택 합니다.
+   * 트리거의 출력을 참조 하는 식을 입력 하려면 `body` **디코딩할 메시지** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식**을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인**을 선택 합니다.
 
      `triggerOutputs()['body']`
 
@@ -89,9 +88,9 @@ ms.locfileid: "82792363"
 
      ![트리거에서 확인 된 본문 출력](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
 
-1. **메시지 헤더** 속성에 대해 HTTP 요청 트리거에서 받은 `headers` 콘텐츠에서 설명 된 AS2 작업에 필요한 헤더를 입력 합니다.
+1. **메시지 헤더** 속성에 대해 `headers` HTTP 요청 트리거에서 받은 콘텐츠에서 설명 된 AS2 작업에 필요한 헤더를 입력 합니다.
 
-   트리거의 `headers` 출력을 참조 하는 식을 입력 하려면 **메시지 헤더** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식**을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인**을 선택 합니다.
+   트리거의 출력을 참조 하는 식을 입력 하려면 `headers` **메시지 헤더** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **식**을 선택 합니다. 식 편집기에서 여기에 식을 입력 하 고 **확인**을 선택 합니다.
 
    `triggerOutputs()['Headers']`
 
@@ -117,13 +116,13 @@ ms.locfileid: "82792363"
 
    `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
 
-   가운데 상자에서 비교 작업이로 `is equal to`설정 되었는지 확인 합니다. 오른쪽 상자에 값 `Expected`을 입력 합니다. 이 토큰으로 확인할 식을 얻으려면 디자이너와 코드 뷰 간을 전환 합니다.
+   가운데 상자에서 비교 작업이로 설정 되었는지 확인 `is equal to` 합니다. 오른쪽 상자에 값을 입력 `Expected` 합니다. 이 토큰으로 확인할 식을 얻으려면 디자이너와 코드 뷰 간을 전환 합니다.
 
    ![의사 결정 경로가 있는 Condition 셰이프](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. 이제 **AS2 디코드** 작업 성공 여부를 반환 하는 응답을 지정 합니다.
 
-   1. **AS2 디코드** 작업이 성공 하는 경우 **true** 셰이프에서 **동작 추가**를 선택 합니다. **작업 선택**아래의 검색 상자에를 입력 `response`하 고 **응답**을 선택 합니다.
+   1. **AS2 디코드** 작업이 성공 하는 경우 **true** 셰이프에서 **동작 추가**를 선택 합니다. **작업 선택**아래의 검색 상자에를 입력 하 `response` 고 **응답**을 선택 합니다.
 
       !["응답" 작업을 찾아 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
@@ -141,7 +140,7 @@ ms.locfileid: "82792363"
 
       ![AS2 MDN에 액세스 하기 위한 확인 된 식](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. **AS2 디코드** 작업이 실패 하는 경우 **If False** 셰이프에서 **동작 추가**를 선택 합니다. **작업 선택**아래의 검색 상자에를 입력 `response`하 고 **응답**을 선택 합니다. **응답** 작업을 설정 하 여 원하는 상태와 오류를 반환 합니다.
+   1. **AS2 디코드** 작업이 실패 하는 경우 **If False** 셰이프에서 **동작 추가**를 선택 합니다. **작업 선택**아래의 검색 상자에를 입력 하 `response` 고 **응답**을 선택 합니다. **응답** 작업을 설정 하 여 원하는 상태와 오류를 반환 합니다.
 
 1. 논리 앱을 저장합니다.
 
@@ -149,7 +148,7 @@ ms.locfileid: "82792363"
 
 1. 이제 **X12 메시지 디코딩** 작업을 추가 합니다. **응답** 작업에서 **작업 추가**를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에를 입력 `x12 decode`하 고 **X12 메시지 디코딩**을 선택 합니다.
+1. **작업 선택**아래의 검색 상자에를 입력 하 `x12 decode` 고 **X12 메시지 디코딩**을 선택 합니다.
 
    !["X12 메시지 디코딩" 작업을 찾아 선택 합니다.](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 

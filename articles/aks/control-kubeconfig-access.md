@@ -5,10 +5,9 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2020
 ms.openlocfilehash: 87f4dc18fc595242117e10233d4fecd77e66373f
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82890888"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용하여 AKS(Azure Kubernetes Service)의 Kubernetes 구성 파일에 대한 액세스 정의
@@ -19,7 +18,7 @@ ms.locfileid: "82890888"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 또한이 문서에서는 Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -71,7 +70,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Azure AD 그룹에 사용 권한을 할당 하려는 경우 *사용자가*아닌 *그룹* 의 `--assignee` 개체 ID를 사용 하 여 이전 예제에 표시 된 매개 변수를 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev*라는 Azure AD 그룹의 개체 ID를 가져옵니다.`az ad group show --group appdev --query objectId -o tsv`
+> Azure AD 그룹에 사용 권한을 할당 하려는 경우 `--assignee` *사용자가*아닌 *그룹* 의 개체 ID를 사용 하 여 이전 예제에 표시 된 매개 변수를 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev*라는 Azure AD 그룹의 개체 ID를 가져옵니다.`az ad group show --group appdev --query objectId -o tsv`
 
 필요에 따라 이전에 할당한 역할을 *클러스터 사용자 역할*로 변경할 수 있습니다.
 
@@ -127,7 +126,7 @@ users:
 
 ## <a name="remove-role-permissions"></a>역할 권한 제거
 
-역할 할당을 제거하려면 [az role assignment delete][az-role-assignment-delete] 명령을 사용하세요. 이전 명령에서 가져온 계정 ID 및 클러스터 리소스 ID를 지정 합니다. 사용자가 아닌 그룹에 역할을 할당 한 경우 `--assignee` 매개 변수에 대 한 계정 개체 id 대신 적절 한 그룹 개체 id를 지정 합니다.
+역할 할당을 제거하려면 [az role assignment delete][az-role-assignment-delete] 명령을 사용하세요. 이전 명령에서 가져온 계정 ID 및 클러스터 리소스 ID를 지정 합니다. 사용자가 아닌 그룹에 역할을 할당 한 경우 매개 변수에 대 한 계정 개체 ID 대신 적절 한 그룹 개체 ID를 지정 합니다 `--assignee` .
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER

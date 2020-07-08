@@ -5,10 +5,9 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
 ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81769779"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
@@ -68,21 +67,21 @@ ms.locfileid: "81769779"
 
 | **모니터 원본** | **신호 유형**  | **설명** |
 |-------------|----------------|-------------|
-| 서비스 상태 | 활동 로그  | 지원 안 됨 [서비스 알림에 대한 활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.  |
-| Application Insights | 웹 가용성 테스트 | 지원 안 됨 [웹 테스트 경고](../../azure-monitor/app/monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
+| 서비스 상태 | 활동 로그  | 지원되지 않습니다. [서비스 알림에 대한 활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.  |
+| Application Insights | 웹 가용성 테스트 | 지원되지 않습니다. [웹 테스트 경고](../../azure-monitor/app/monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
 
 ## <a name="manage-alerts"></a>경고 관리
 경고가 해결 과정에 있는지 지정하는 경고 상태를 설정할 수 있습니다. 경고 규칙에 지정 된 조건이 충족 되 면 경고가 만들어지거나 실행 되며 *새*상태를 가집니다. 경고를 확인할 때 및 경고를 닫을 때 상태를 변경할 수 있습니다. 모든 상태 변경은 경고 기록에 저장됩니다.
 
 다음은 지원되는 경고 상태입니다.
 
-| 시스템 상태 | Description |
+| 시스템 상태 | 설명 |
 |:---|:---|
 | 새로 만들기 | 문제가 검색 되었으며 아직 검토 되지 않았습니다. |
 | 확인됨 | 관리자가 경고를 검토하고 작업을 시작했습니다. |
-| 닫힘 | 문제가 해결되었습니다. 경고가 닫힌 후 다른 상태로 변경하면 경고를 다시 열 수 있습니다. |
+| 종결 | 문제가 해결되었습니다. 경고가 닫힌 후 다른 상태로 변경하면 경고를 다시 열 수 있습니다. |
 
-*경고 상태*는 *모니터 조건*과 다르며 독립적입니다. 경고 상태는 사용자가 설정합니다. 모니터 조건은 시스템에 의해 설정됩니다. 경고가 발생할 때 경고의 모니터 조건은 *실행됨*으로 설정됩니다. 경고를 발생한 기본 조건이 사라지면 모니터 조건이 *해결됨*으로 설정됩니다. 경고 상태는 사용자가 변경할 때까지 변경되지 않습니다. [경고 및 스마트 그룹의 상태를 변경하는 방법](https://aka.ms/managing-alert-smart-group-states)을 알아보세요.
+*경고 상태*는 *모니터 조건*과 다르며 독립적입니다. 경고 상태는 사용자가 설정합니다. 모니터 조건은 시스템에 의해 설정됩니다. 경고가 발생 하면 경고의 모니터 조건이 실행 됨으로 설정 *됩니다.* 경고를 발생 시킨 기본 조건이 취소 되 면 모니터 조건이 *해결 됨*으로 설정 됩니다. 경고 상태는 사용자가 변경할 때까지 변경되지 않습니다. [경고 및 스마트 그룹의 상태를 변경하는 방법](https://aka.ms/managing-alert-smart-group-states)을 알아보세요.
 
 ## <a name="smart-groups"></a>스마트 그룹 
 
@@ -103,7 +102,7 @@ ms.locfileid: "81769779"
 
 페이지 위쪽의 드롭다운 메뉴에서 값을 선택 하 여이 뷰를 필터링 할 수 있습니다.
 
-| 열 | Description |
+| Column | 설명 |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
 | Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
@@ -149,7 +148,7 @@ ms.locfileid: "81769779"
 
 페이지 맨 위에 있는 드롭다운 메뉴에서 다음 값을 선택 하 여 뷰를 필터링 할 수 있습니다.
 
-| 열 | Description |
+| Column | 설명 |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
 | Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
@@ -170,7 +169,7 @@ ms.locfileid: "81769779"
 
 경고 정보 페이지에는 다음과 같은 섹션이 포함 되어 있습니다.
 
-| 단원 | Description |
+| 섹션 | Description |
 |:---|:---|
 | 요약 | 경고에 대한 속성과 기타 중요한 정보를 표시합니다. |
 | 기록 | 경고에서 수행한 각 작업과 경고의 변경 내용을 나열합니다. 현재는 상태 변경으로 제한되어 있습니다. |
@@ -178,7 +177,7 @@ ms.locfileid: "81769779"
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>경고 인스턴스에 대 한 RBAC (역할 기반 액세스 제어)
 
-경고 인스턴스를 사용 하 고 관리 하려면 사용자에 게 [모니터링 참여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 또는 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)의 기본 제공 RBAC 역할이 있어야 합니다. 이러한 역할은 구독 수준에서 리소스 수준의 세부적인 할당까지 모든 Azure Resource Manager 범위에서 지원 됩니다. 예를 들어 사용자가 가상 컴퓨터 `ContosoVM1`에 대 한 참가자 액세스를 모니터링 하는 경우 해당 사용자는에 `ContosoVM1`생성 된 경고만 사용 하 고 관리할 수 있습니다.
+경고 인스턴스를 사용 하 고 관리 하려면 사용자에 게 [모니터링 참여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 또는 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)의 기본 제공 RBAC 역할이 있어야 합니다. 이러한 역할은 구독 수준에서 리소스 수준의 세부적인 할당까지 모든 Azure Resource Manager 범위에서 지원 됩니다. 예를 들어 사용자가 가상 컴퓨터에 대 한 참가자 액세스를 모니터링 하는 경우 `ContosoVM1` 해당 사용자는에 생성 된 경고만 사용 하 고 관리할 수 있습니다 `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>프로그래밍 방식으로 경고 인스턴스 관리
 

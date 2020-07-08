@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.custom: seodec18~~~~
 ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838521"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
@@ -26,7 +25,7 @@ ms.locfileid: "82838521"
 
 참조 데이터는 소급되어 조인되지 않습니다. 따라서 데이터를 구성 하 고 업로드 한 후에는 현재 및 이후의 수신 데이터만 일치 하 고 참조 날짜 집합에 조인 합니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>시계열 정보에 대 한 참조 데이터 모델에 대해 알아봅니다.</br>
 
@@ -64,9 +63,9 @@ ms.locfileid: "82838521"
    - 데이터를 텍스트 편집기에 붙여 넣습니다. 그런 다음, **참조 데이터 구문 분석** 단추를 선택합니다.
    - **파일 선택** 단추를 선택하여 로컬 텍스트 파일의 데이터를 추가합니다.
 
-   예를 들어 csv 데이터 붙여넣기: [ ![붙여넣은 csv 데이터](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
+   예를 들어 CSV 데이터 붙여넣기: [ ![ 붙여넣은 csv 데이터](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   예를 들어 json 배열 데이터 붙여넣기: [ ![json 데이터 붙여넣기](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
+   예를 들어 JSON 배열 데이터 붙여넣기: [ ![ json 데이터 붙여넣기](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
    데이터 값을 구문 분석하는 동안 오류가 발생하면 페이지 하단에 빨간색으로 오류가 표시됩니다(예: `CSV parsing error, no rows extracted`).
 
@@ -74,7 +73,7 @@ ms.locfileid: "82838521"
 
    [![참조 데이터 검토](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. 각 열을 검토 하 여 가정 된 데이터 형식을 이해 하 고 필요한 경우 데이터 형식을 변경 합니다.  Double (숫자 데이터), **#** **T | 열 머리글에서 데이터 형식 기호를 선택 합니다. **부울의 경우 F, 문자열의 경우 **Abc**
+1. 각 열을 검토 하 여 가정 된 데이터 형식을 이해 하 고 필요한 경우 데이터 형식을 변경 합니다.  **#** Double (숫자 데이터), T | 열 머리글에서 데이터 형식 기호를 선택 합니다 **. **부울의 경우 F, 문자열의 경우 **Abc**
 
    [![열 머리글에 대한 데이터 형식을 선택합니다.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -93,7 +92,7 @@ ms.locfileid: "82838521"
 
     [![키 열을 선택합니다.](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
 
-    **(선택 사항)** 보조 키 **+** 열을 복합 기본 키로 추가 하는 단추를 선택 합니다. 선택을 실행 취소해야 할 경우 드롭다운 목록에서 빈 값을 선택하여 보조 키를 제거합니다.
+    **(선택 사항)** **+** 보조 키 열을 복합 기본 키로 추가 하는 단추를 선택 합니다. 선택을 실행 취소해야 할 경우 드롭다운 목록에서 빈 값을 선택하여 보조 키를 제거합니다.
 
 1. 데이터를 업로드하려면 **행 업로드** 단추를 선택합니다.
 

@@ -12,19 +12,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868987"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 
-기밀 클라이언트 응용 프로그램을 생성 한 후에는를 호출 `AcquireTokenForClient`하 고, 범위를 전달 하 고, 필요에 따라 토큰을 강제로 새로 고치는 방법으로 앱에 대 한 토큰을 가져올 수 있습니다.
+기밀 클라이언트 응용 프로그램을 생성 한 후에는를 호출 하 고, `AcquireTokenForClient` 범위를 전달 하 고, 필요에 따라 토큰을 강제로 새로 고치는 방법으로 앱에 대 한 토큰을 가져올 수 있습니다.
 
 ## <a name="scopes-to-request"></a>요청할 범위
 
-클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스의 이름 뒤에 나옵니다 `/.default`. 이 표기법은 응용 프로그램을 등록 하는 동안 정적으로 선언 된 *응용 프로그램 수준 권한을* 사용 하도록 Azure Active Directory (Azure AD)에 지시 합니다. 또한 이러한 API 권한은 테 넌 트 관리자가 부여 해야 합니다.
+클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스의 이름 뒤에 나옵니다 `/.default` . 이 표기법은 응용 프로그램을 등록 하는 동안 정적으로 선언 된 *응용 프로그램 수준 권한을* 사용 하도록 Azure Active Directory (Azure AD)에 지시 합니다. 또한 이러한 API 권한은 테 넌 트 관리자가 부여 해야 합니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -53,15 +52,15 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ### <a name="azure-ad-v10-resources"></a>Azure AD (v1.0) 리소스
 
-클라이언트 자격 증명에 사용 되는 범위는 항상에 대 한 리소스 `/.default`ID 여야 합니다.
+클라이언트 자격 증명에 사용 되는 범위는 항상에 대 한 리소스 ID 여야 합니다 `/.default` .
 
 > [!IMPORTANT]
 > MSAL에서 버전 1.0 액세스 토큰을 허용 하는 리소스에 대 한 액세스 토큰을 요청 하는 경우 Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 사용 하 고 리소스 식별자로 사용 하 여 요청 된 범위에서 원하는 대상 그룹을 구문 분석 합니다.
-> 따라서 Azure SQL Database (**https:\//database.windows.net**)와 마찬가지로 리소스에는 슬래시 (Azure SQL Database의 경우 `https://database.windows.net/`)로 끝나는 대상 그룹이 필요 하므로의 `https://database.windows.net//.default`범위를 요청 해야 합니다. (이중 슬래시를 적어둡니다.) 참고 항목: MSAL.NET issue [#747: 리소스 url의 후행 슬래시가 생략 되었으며이로 인해 sql 인증 오류가 발생](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)했습니다.
+> 따라서 Azure SQL Database (**https: \/ /database.windows.net**)와 마찬가지로 리소스에는 슬래시 (Azure SQL Database의 경우)로 끝나는 대상 그룹이 필요 하므로 `https://database.windows.net/` 의 범위를 요청 해야 `https://database.windows.net//.default` 합니다. (이중 슬래시를 적어둡니다.) 참고 항목: MSAL.NET issue [#747: 리소스 url의 후행 슬래시가 생략 되었으며이로 인해 sql 인증 오류가 발생](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)했습니다.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
-앱에 대 한 토큰을 얻으려면 플랫폼에 따라 또는 `AcquireTokenForClient` 이와 동등한를 사용 합니다.
+앱에 대 한 토큰을 얻으려면 `AcquireTokenForClient` 플랫폼에 따라 또는 이와 동등한를 사용 합니다.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -202,13 +201,13 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ## <a name="application-token-cache"></a>응용 프로그램 토큰 캐시
 
-MSAL.NET에서는 `AcquireTokenForClient` 응용 프로그램 토큰 캐시를 사용 합니다. 다른 모든 AcquireToken*XX* 메서드는 사용자 토큰 캐시를 사용 합니다. 는 사용자 `AcquireTokenSilent` 토큰 캐시를 `AcquireTokenForClient`사용 하므로 `AcquireTokenSilent` 를 호출 *user* 하기 전에를 호출 하지 마세요. `AcquireTokenForClient`*응용 프로그램* 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
+MSAL.NET에서는 `AcquireTokenForClient` 응용 프로그램 토큰 캐시를 사용 합니다. 다른 모든 AcquireToken*XX* 메서드는 사용자 토큰 캐시를 사용 합니다. 는 `AcquireTokenSilent` `AcquireTokenForClient` `AcquireTokenSilent` *사용자* 토큰 캐시를 사용 하므로를 호출 하기 전에를 호출 하지 마세요. `AcquireTokenForClient`*응용 프로그램* 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>리소스/. 기본 범위를 사용 했나요?
 
-잘못 된 범위를 사용 했음을 나타내는 오류 메시지가 표시 되 면 `resource/.default` 범위를 사용 하지 않았을 수 있습니다.
+잘못 된 범위를 사용 했음을 나타내는 오류 메시지가 표시 되 면 범위를 사용 하지 않았을 수 있습니다 `resource/.default` .
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>관리자 동의를 제공 해야 하나요? 디먼 앱에 필요 합니다!
 

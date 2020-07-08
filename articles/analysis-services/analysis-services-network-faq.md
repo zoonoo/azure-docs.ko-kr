@@ -8,10 +8,9 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838504"
 ---
 # <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>네트워크 연결 Analysis Services에 대 한 질문과 대답
@@ -41,7 +40,7 @@ ms.locfileid: "82838504"
 ## <a name="azure-apps-with-ip-address"></a>IP 주소를 사용 하는 Azure 앱
 
 **질문** -Azure 기반 응용 프로그램 (예: Azure Functions, Azure Data Factory)을 사용 하 여 즉시 변경 하는 IP 주소를 사용 합니다. 앱이 실행 되는 IP 주소를 동적으로 허용 하도록 Azure Analysis Services 방화벽 규칙을 관리 하려면 어떻게 해야 하나요?   
-**답변** -Azure Analysis Services은 개인 링크, Vnet 또는 서비스 태그를 지원 하지 않습니다. 예를 https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) 들어 클라이언트 응용 프로그램의 IP 주소를 검색 하 고 방화벽 규칙을 자동으로 업데이트 하는 몇 가지 오픈 소스 솔루션이 있습니다.
+**답변** -Azure Analysis Services은 개인 링크, Vnet 또는 서비스 태그를 지원 하지 않습니다. 예를 들어 https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) 클라이언트 응용 프로그램의 IP 주소를 검색 하 고 방화벽 규칙을 자동으로 업데이트 하는 몇 가지 오픈 소스 솔루션이 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857164"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
@@ -128,7 +127,7 @@ OWASP 상위 10 개는 웹 응용 프로그램에 대 한 중요 한 보안 위�
 
 Microsoft는 Azure에서 응용 프로그램을 개발 하는 데 사용할 수 있는 다양 한 [언어, 프레임 워크 및 도구](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) 를 제공 합니다. 예제는 [.net 및 .Net Core 개발자를 위한 Azure](https://docs.microsoft.com/dotnet/azure/)입니다. 제공 하는 각 언어와 프레임 워크에 대해 빠른 시작, 자습서 및 API 참조를 통해 빠르게 시작할 수 있습니다.
 
-Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사용할 수 있는 다양 한 서비스를 제공 합니다. 이러한 서비스를 사용 하면 .NET, .NET Core, Java, Ruby, node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
+Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사용할 수 있는 다양 한 서비스를 제공 합니다. 이러한 서비스를 사용 하면 .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
 Web Apps ( [Azure App Service Web Apps](../../app-service/overview.md) )은 이러한 서비스 중 하나입니다.
 
 Web Apps Microsoft Azure의 기능을 응용 프로그램에 추가 합니다. 여기에는 보안, 부하 분산, 자동 크기 조정 및 자동화 된 관리가 포함 됩니다. 패키지 관리, 스테이징 환경, 사용자 지정 도메인, SSL/TLS 인증서, Azure DevOps, GitHub, Docker 허브 및 기타 원본에서 지속적인 배포와 같은 Web Apps의 DevOps 기능을 활용할 수도 있습니다.
@@ -320,4 +319,4 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 다음 문서에서는 보안 응용 프로그램을 개발 하 고 배포 하는 데 도움이 되는 보안 제어 및 작업을 권장 합니다.
 
 - [보안 애플리케이션 개발](secure-develop.md)
-- [보안 응용 프로그램 배포](secure-deploy.md)
+- [보안 애플리케이션 배포](secure-deploy.md)

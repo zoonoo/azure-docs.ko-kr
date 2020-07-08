@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889694"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
@@ -39,7 +38,7 @@ Application Gateway는 포털, PowerShell 및 CLI(명령줄 인터페이스)를 
 
 ### <a name="view-back-end-health-through-the-portal"></a>포털을 통해 백 엔드 상태 보기
 
-포털에서는 백 엔드 상태를 자동으로 제공합니다. 기존 응용 프로그램 게이트웨이에서 **모니터링** > **백 엔드 상태**를 선택 합니다.
+포털에서는 백 엔드 상태를 자동으로 제공합니다. 기존 응용 프로그램 게이트웨이에서 **모니터링**  >  **백 엔드 상태**를 선택 합니다.
 
 NIC, IP 또는 FQDN과 관계 없이 백 엔드 풀의 각 멤버가 이 페이지에 나열됩니다. 백 엔드 풀 이름, 포트, 백 엔드 HTTP 설정 이름 및 상태도 표시됩니다. 상태에 유효한 값은 **정상**, **비정상**및 **알 수 없음**입니다.
 
@@ -113,11 +112,11 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 활동 로깅은 모든 Resource Manager 리소스에 대해 사용하도록 설정됩니다. 이러한 로그를 통해 사용 가능한 데이터 수집을 시작하려면 액세스 및 성능 로깅을 사용하도록 설정해야 합니다. 로깅을 사용하려면 다음 단계를 사용합니다.
 
-1. 로그 데이터를 저장할 스토리지 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Storage/storageAccounts/\<스토리지 계정 이름\>입니다. 구독의 모든 스토리지 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
+1. 로그 데이터를 저장할 스토리지 계정의 리소스 ID를 적어 둡니다. 이 값의 형식은/subscriptions/ \<subscriptionId\> /Stggg/ \<resource group name\> /providers/Microsoft.Storage/storageAccounts/ \<storage account name\> 입니다. 구독의 모든 스토리지 계정을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다.
 
     ![포털: 스토리지 계정의 리소스 ID](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. 로깅을 사용할 Application Gateway의 리소스 ID를 적어 둡니다. 이 값은 형식은 /subscriptions/\<subscriptionId\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Network/applicationGateways/\<응용 프로그램 게이트웨이 이름\>입니다. 포털을 사용하여 이 정보를 찾을 수 있습니다.
+2. 로깅을 사용할 Application Gateway의 리소스 ID를 적어 둡니다. 이 값의 형식은/subscriptions/ \<subscriptionId\> /Stggg/ \<resource group name\> /providers/Microsoft.Network/applicationGateways/ \<application gateway name\> 입니다. 포털을 사용하여 이 정보를 찾을 수 있습니다.
 
     ![포털: 애플리케이션 게이트웨이의 리소스 ID](./media/application-gateway-diagnostics/diagnostics2.png)
 

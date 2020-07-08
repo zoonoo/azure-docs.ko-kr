@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868834"
 ---
 # <a name="protected-web-api-app-registration"></a>보호 된 웹 API: 앱 등록
@@ -56,7 +55,7 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 
 ### <a name="application-id-uri-and-scopes"></a>응용 프로그램 ID URI 및 범위
 
-범위는 일반적으로 형식 `resourceURI/scopeName`입니다. Microsoft Graph의 경우 범위에는 바로 가기가 있습니다. 예를 들어 `User.Read` 는의 `https://graph.microsoft.com/user.read`바로 가기입니다.
+범위는 일반적으로 형식 `resourceURI/scopeName` 입니다. Microsoft Graph의 경우 범위에는 바로 가기가 있습니다. 예를 들어 `User.Read` 는의 바로 가기입니다 `https://graph.microsoft.com/user.read` .
 
 앱을 등록 하는 동안 다음 매개 변수를 정의 해야 합니다.
 
@@ -64,7 +63,7 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 - 하나 이상의 범위
 - 하나 이상의 앱 역할
 
-기본적으로 응용 프로그램 등록 포털에서는 리소스 URI `api://{clientId}`를 사용 하는 것이 좋습니다. 이 URI는 고유 하지만 사람이 읽을 수는 없습니다. URI를 변경 하는 경우 새 값이 고유한 지 확인 합니다.
+기본적으로 응용 프로그램 등록 포털에서는 리소스 URI를 사용 하는 것이 좋습니다 `api://{clientId}` . 이 URI는 고유 하지만 사람이 읽을 수는 없습니다. URI를 변경 하는 경우 새 값이 고유한 지 확인 합니다.
 
 클라이언트 응용 프로그램에 대 한 범위는 *위임 된 권한* 으로 표시 되 고 앱 역할은 웹 API에 대 한 *응용 프로그램 권한* 으로 표시 됩니다.
 
@@ -76,8 +75,8 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 ### <a name="exposing-delegated-permissions-scopes"></a>위임 된 권한 (범위) 노출
 
 1. 응용 프로그램 등록에서 **API 노출** 을 선택 합니다.
-1. **범위 추가를**선택 합니다.
-1. 메시지가 표시 되 면 **저장 후 계속**을 선택 하`api://{clientId}`여 제안 된 응용 프로그램 ID URI ()를 적용 합니다.
+1. **범위 추가**를 선택합니다.
+1. 메시지가 표시 되 면 `api://{clientId}` **저장 후 계속**을 선택 하 여 제안 된 응용 프로그램 ID URI ()를 적용 합니다.
 1. 다음 값을 지정 합니다.
     - **범위 이름** 을 선택 하 고 **access_as_user**를 입력 합니다.
     - **동의할 수 있는 사용자** 를 선택 하 고 **관리자 및 사용자** 가 선택 되어 있는지 확인 합니다.
@@ -86,7 +85,7 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
     - **사용자 동의 표시 이름** 을 선택 하 고 **액세스 TodoListService를 사용자로**입력 합니다.
     - 사용자 **동의 설명** 을 선택 하 고 enter 키를 **누르면 사용자로 TodoListService Web API에 액세스**합니다.
     - **상태** 값을 **사용**으로 설정 된 상태로 유지 합니다.
- 1. **범위 추가**를 선택 합니다.
+ 1. **범위 추가**를 선택합니다.
 
 ### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>웹 API가 디먼 앱에 의해 호출 되는 경우
 
@@ -101,12 +100,12 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 
 1. 응용 프로그램에 대 한 응용 프로그램 등록에서 **매니페스트**를 선택 합니다.
 1. 매니페스트를 편집 하려면 `appRoles` 설정을 찾고 응용 프로그램 역할을 추가 합니다. 다음 샘플 JSON 블록에서 역할 정의를 제공 합니다.
-1. 만 `allowedMemberTypes` 로 `"Application"` 설정 합니다.
-1. 이 고유한 `id` GUID 인지 확인 합니다.
-1. 및 `value` 에 `displayName` 공백이 없는지 확인 합니다.
+1. `allowedMemberTypes`만로 설정 `"Application"` 합니다.
+1. `id`이 고유한 GUID 인지 확인 합니다.
+1. `displayName`및 `value` 에 공백이 없는지 확인 합니다.
 1. 매니페스트를 저장합니다.
 
-다음 샘플에서는의 내용을 보여 줍니다 `appRoles`. 여기서의 `id` 값은 임의의 고유 GUID가 될 수 있습니다.
+다음 샘플에서는의 내용을 보여 줍니다 `appRoles` . 여기서의 값은 `id` 임의의 고유 GUID가 될 수 있습니다.
 
 ```json
 "appRoles": [
@@ -141,11 +140,11 @@ Microsoft id 플랫폼 끝점은 v1.0 토큰과 v 2.0 토큰을 발급할 수 �
 
    > [!IMPORTANT]
    >
-   > **사용자 할당 필요?** 를 **예**로 설정 하면 AZURE AD에서 웹 API 액세스 토큰을 요청할 때 클라이언트의 앱 역할 할당을 확인 합니다. 클라이언트가 앱 \<역할에 할당 되지 않은 경우 Azure AD는 "INVALID_CLIENT: AADSTS501051: application application name\> 이 \<웹 API\>에 대 한 역할에 할당 되지 않았습니다" 라는 오류 메시지를 반환 합니다.
+   > **사용자 할당 필요?** 를 **예**로 설정 하면 AZURE AD에서 웹 API 액세스 토큰을 요청할 때 클라이언트의 앱 역할 할당을 확인 합니다. 클라이언트가 앱 역할에 할당 되지 않은 경우 Azure AD는 "invalid_client: AADSTS501051: 응용 프로그램이 \<application name\> 역할에 할당 되지 않았습니다." 라는 오류 메시지를 반환 합니다 \<web API\> .
    >
    > **사용자 할당** 을 유지 해야 하는 경우 **아니요**로 설정 하면 클라이언트가 웹 API에 대 한 액세스 토큰을 요청할 때 Azure AD에서 앱 역할 할당을 확인 하지 않습니다. 클라이언트 자격 증명 흐름을 사용 하는 모든 클라이언트를 의미 하는 모든 디먼 클라이언트는 대상 그룹을 지정 하는 방법으로 API에 대 한 액세스 토큰을 가져올 수 있습니다. 모든 응용 프로그램은이에 대 한 권한을 요청 하지 않고도 API에 액세스할 수 있습니다.
    >
-   > 그러나 이전 섹션에서 설명한 것 처럼 웹 API는 항상 응용 프로그램이 테 넌 트 관리자에 의해 권한이 부여 된 올바른 역할 인지 확인할 수 있습니다. API는 액세스 토큰에 역할 클레임이 있는지 확인 하 고이 클레임에 대 한 값이 올바른지 확인 하 여이 확인을 수행 합니다. 이전 JSON 샘플에서 값은 `access_as_application`입니다.
+   > 그러나 이전 섹션에서 설명한 것 처럼 웹 API는 항상 응용 프로그램이 테 넌 트 관리자에 의해 권한이 부여 된 올바른 역할 인지 확인할 수 있습니다. API는 액세스 토큰에 역할 클레임이 있는지 확인 하 고이 클레임에 대 한 값이 올바른지 확인 하 여이 확인을 수행 합니다. 이전 JSON 샘플에서 값은 `access_as_application` 입니다.
 
 1. **저장**을 선택합니다.
 

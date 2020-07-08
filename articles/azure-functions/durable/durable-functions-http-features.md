@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800722"
 ---
 # <a name="http-features"></a>HTTP 기능
@@ -57,13 +56,13 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 
 ---
 
-이전에 표시 된 HTTP 트리거 함수를 사용 하 여 orchestrator 함수를 시작 하려면 모든 HTTP 클라이언트를 사용 해야 합니다. 다음 말아 명령은 라는 `DoWork`오 케 스트레이 터 함수를 시작 합니다.
+이전에 표시 된 HTTP 트리거 함수를 사용 하 여 orchestrator 함수를 시작 하려면 모든 HTTP 클라이언트를 사용 해야 합니다. 다음 말아 명령은 라는 오 케 스트레이 터 함수를 시작 합니다 `DoWork` .
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-다음은 ID로가 `abc123` 인 오케스트레이션의 예제 응답입니다. 명확 하 게 하기 위해 일부 세부 정보가 제거 되었습니다.
+다음은 ID로가 인 오케스트레이션의 예제 응답입니다 `abc123` . 명확 하 게 하기 위해 일부 세부 정보가 제거 되었습니다.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -80,7 +79,7 @@ Retry-After: 10
 }
 ```
 
-이전 예제에서로 끝나는 각 필드는 기본 제공 HTTP `Uri` API에 해당 합니다. 이러한 Api를 사용 하 여 대상 오케스트레이션 인스턴스를 관리할 수 있습니다.
+이전 예제에서로 끝나는 각 필드는 `Uri` 기본 제공 HTTP API에 해당 합니다. 이러한 Api를 사용 하 여 대상 오케스트레이션 인스턴스를 관리할 수 있습니다.
 
 > [!NOTE]
 > Webhook Url의 형식은 실행 중인 Azure Functions 호스트의 버전에 따라 다릅니다. 이전 예제는 Azure Functions 2.0 호스트를 위한 것입니다.
@@ -224,7 +223,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-이전 예제에서 매개 변수는 `tokenSource` [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대 한 Azure AD 토큰을 얻도록 구성 됩니다. 토큰은 리소스 URI `https://management.core.windows.net`로 식별 됩니다. 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에는 지정 된 리소스 그룹 `myRG`의 vm을 관리할 수 있는 권한이 있다고 가정 합니다.
+이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대 한 Azure AD 토큰을 얻도록 구성 됩니다. 토큰은 리소스 URI로 식별 됩니다 `https://management.core.windows.net` . 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에는 지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한이 있다고 가정 합니다 `myRG` .
 
 런타임에 구성 된 토큰 소스는 OAuth 2.0 액세스 토큰을 자동으로 반환 합니다. 그런 다음 소스는 들어오는 요청의 권한 부여 헤더에 토큰을 전달자 토큰으로 추가 합니다. 이 모델은 다음 이유로 인해 HTTP 요청에 권한 부여 헤더를 수동으로 추가 하는 것 보다 향상 되었습니다.
 

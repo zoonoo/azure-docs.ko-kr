@@ -9,10 +9,9 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770074"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>자습서: Azure IoT Hub 메시지 강화 사용
@@ -39,7 +38,7 @@ ms.locfileid: "81770074"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio](https://www.visualstudio.com/)를 설치 합니다.
+* [Visual Studio](https://www.visualstudio.com/)를 설치합니다.
 
 * 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 자습서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
@@ -51,7 +50,7 @@ ms.locfileid: "81770074"
 GitHub에서 [IoT c # 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) 을 다운로드 하 고 압축을 풉니다. 이 리포지토리에는 여러 응용 프로그램, 스크립트 및 리소스 관리자 템플릿이 있습니다. 이 자습서에 사용할 수 있는 항목은 다음과 같습니다.
 
 * 수동 방법의 경우 리소스를 만드는 데 사용 되는 CLI 스크립트가 있습니다. 이 스크립트는/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli에 있습니다. 이 스크립트는 리소스를 만들고 메시지 라우팅을 구성 합니다. 이 스크립트를 실행 한 후 [Azure Portal](https://portal.azure.com)를 사용 하 여 강화 메시지를 수동으로 만듭니다.
-* 자동화 된 방법의 경우 Azure Resource Manager 템플릿이 있습니다. 템플릿은/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments에 있습니다. 이 템플릿은 리소스를 만들고 메시지 라우팅을 구성한 다음 강화 메시지를 구성 합니다.
+* 자동화 된 방법의 경우 Azure Resource Manager 템플릿이 있습니다. 템플릿은/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json입니다. 이 템플릿은 리소스를 만들고 메시지 라우팅을 구성한 다음 강화 메시지를 구성 합니다.
 * 사용 하는 세 번째 응용 프로그램은 IoT hub에 메시지를 보내고 강화 메시지를 테스트 하는 데 사용 하는 장치 시뮬레이션 앱입니다.
 
 ## <a name="manually-set-up-and-configure-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 수동으로 설정 및 구성
@@ -77,7 +76,7 @@ IoT hub 이름 및 저장소 계정 이름과 같이 전역적으로 고유 해�
 
 스크립트에서 만든 리소스는 다음과 같습니다. *보강* 는 강화가 포함 된 메시지에 대 한 리소스 임을 의미 합니다. *원래* 는 보강 않은 메시지에 대 한 리소스 임을 의미 합니다.
 
-| 속성 | 값 |
+| 이름 | 값 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 컨테이너 이름 | 오리지널  |
@@ -259,7 +258,7 @@ az iot hub route create \
 
 2. 이러한 값을 ContosoStorageEndpointEnriched 끝점 목록에 추가 합니다.
 
-   | 키 | 값 | 끝점 (드롭다운 목록) |
+   | Key | 값 | 끝점 (드롭다운 목록) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | Msds-devicelocation | $twin. tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -268,7 +267,7 @@ az iot hub route create \
    > [!NOTE]
    > 장치에 쌍이 없는 경우 여기에 입력 하는 값은 메시지 강화의 값에 대 한 문자열로 기록 됩니다. 장치 쌍 정보를 보려면 포털에서 허브로 이동 하 여 **IoT 장치**를 선택 합니다. 장치를 선택 하 고 페이지 위쪽에서 **장치** 쌍을 선택 합니다.
    >
-   > 쌍 정보를 편집 하 여 위치와 같은 태그를 추가 하 고 특정 값으로 설정할 수 있습니다. 자세한 내용은 [IoT Hub에서 장치 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 참조 하세요.
+   > 쌍 정보를 편집 하 여 위치와 같은 태그를 추가 하 고 특정 값으로 설정할 수 있습니다. 자세한 내용은 [IoT Hub의 디바이스 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 참조하세요.
 
 3. 작업이 완료 되 면 창이 다음 이미지와 같이 표시 됩니다.
 
@@ -287,7 +286,7 @@ az iot hub route create \
 
 1. **사용자 지정 배포** 창에서 **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
 
-1. **템플릿 편집** 창에서 **파일 로드**를 선택 합니다. Windows 탐색기가 나타납니다. **/Iot-hub/Tutorials/Routing/SimulatedDevice/resources**에서 압축을 푼 리포지토리 파일의 **template_messageenrichments json** 파일을 찾습니다. 
+1. **템플릿 편집** 창에서 **파일 로드**를 선택 합니다. Windows 탐색기가 나타납니다. **/Iot-hub/Tutorials/Routing/SimulatedDevice/resources**의 압축을 푼 리포지토리 파일에서 파일 **의template_messageenrichments.js** 를 찾습니다. 
 
    ![로컬 컴퓨터에서 템플릿 선택](./media/tutorial-message-enrichments/template-select.png)
 
@@ -297,7 +296,7 @@ az iot hub route create \
 
    템플릿을 로드 하 여 만든 리소스는 다음과 같습니다. **보강** 는 강화가 포함 된 메시지에 대 한 리소스 임을 의미 합니다. **원래** 는 보강 않은 메시지에 대 한 리소스 임을 의미 합니다. 이러한 값은 Azure CLI 스크립트에서 사용 되는 것과 동일한 값입니다.
 
-   | 속성 | 값 |
+   | 이름 | 값 |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | 컨테이너 이름 | 오리지널  |
@@ -330,13 +329,13 @@ az iot hub route create \
 
 이제 끝점에 대해 강화 메시지를 구성 했으므로 시뮬레이션 된 장치 응용 프로그램을 실행 하 여 IoT hub로 메시지를 보냅니다. 허브는 다음 작업을 수행 하는 설정으로 설정 되었습니다.
 
-* 저장소 끝점 ContosoStorageEndpointOriginal로 라우팅되는 메시지는 보강 되지 않으며 저장소 컨테이너 `original`에 저장 됩니다.
+* 저장소 끝점 ContosoStorageEndpointOriginal로 라우팅되는 메시지는 보강 되지 않으며 저장소 컨테이너에 저장 됩니다 `original` .
 
-* 저장소 끝점 ContosoStorageEndpointEnriched로 라우팅되는 메시지는 보강 되 고 저장소 컨테이너 `enriched`에 저장 됩니다.
+* 저장소 끝점 ContosoStorageEndpointEnriched로 라우팅되는 메시지는 보강 되 고 저장소 컨테이너에 저장 됩니다 `enriched` .
 
 시뮬레이션 된 장치 응용 프로그램은 압축을 푼 다운로드의 응용 프로그램 중 하나입니다. 응용 프로그램은 Azure Storage를 포함 하는 [라우팅 자습서](tutorial-routing.md)의 여러 메시지 라우팅 메서드에 대해 메시지를 보냅니다.
 
-솔루션 파일 **IoT_SimulatedDevice .sln** 을 두 번 클릭 하 여 Visual Studio에서 코드를 열고 **Program.cs**을 엽니다. 표식의 `{your hub name}`IoT hub 이름을 대체 합니다. IoT hub 호스트 이름의 형식은 **{your hub name}. azure-devices.net**입니다. 이 자습서에서는 허브 호스트 이름이 ContosoTestHubMsgEn.azure-devices.net입니다. 그런 다음, 스크립트를 실행 하 여 마커의 `{your device key}`리소스를 만들 때 이전에 저장 한 장치 키를 대체 합니다.
+솔루션 파일 **IoT_SimulatedDevice .sln** 을 두 번 클릭 하 여 Visual Studio에서 코드를 열고 **Program.cs**을 엽니다. 표식의 IoT hub 이름을 대체 합니다 `{your hub name}` . IoT hub 호스트 이름의 형식은 **{your hub name}. azure-devices.net**입니다. 이 자습서에서는 허브 호스트 이름이 ContosoTestHubMsgEn.azure-devices.net입니다. 그런 다음, 스크립트를 실행 하 여 마커의 리소스를 만들 때 이전에 저장 한 장치 키를 대체 합니다 `{your device key}` .
 
 장치 키가 없는 경우 포털에서 검색할 수 있습니다. 로그인 한 후 **리소스 그룹**으로 이동 하 여 리소스 그룹을 선택한 다음, IoT hub를 선택 합니다. **IoT 장치** 에서 테스트 장치를 확인 하 고 장치를 선택 합니다. **기본 키** 옆의 복사 아이콘을 선택 하 여 클립보드에 복사 합니다.
 
@@ -352,7 +351,7 @@ az iot hub route create \
 
 몇 분 동안 콘솔 응용 프로그램을 실행 합니다. 전송 되는 메시지는 응용 프로그램의 콘솔 화면에 표시 됩니다.
 
-앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. 또는 `critical` `storage`의 수준을 임의로 할당 하 여 메시지가 저장소 계정 또는 기본 끝점으로 라우팅됩니다. 저장소 계정의 **보강** 컨테이너로 전송 되는 메시지는 보강 됩니다.
+앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. 또는의 수준을 임의로 할당 하 `critical` 여 `storage` 메시지가 저장소 계정 또는 기본 끝점으로 라우팅됩니다. 저장소 계정의 **보강** 컨테이너로 전송 되는 메시지는 보강 됩니다.
 
 여러 저장소 메시지를 보낸 후에는 데이터를 봅니다.
 
@@ -386,7 +385,7 @@ Unenriched 메시지는 다음과 같습니다. 이러한 필드는 강화에 �
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. 이 자습서의 시작 부분에서 ContosoResourcesMsgEn로 설정 된 리콜입니다. **ContosoResourcesMsgEn** `$resourceGroup`
+리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup`이 자습서의 시작 부분에서 **ContosoResourcesMsgEn** 로 설정 된 리콜입니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

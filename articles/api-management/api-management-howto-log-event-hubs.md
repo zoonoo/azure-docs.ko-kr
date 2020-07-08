@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871266"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법
@@ -46,7 +45,7 @@ API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 �
 6. 인바운드 또는 아웃바운드 처리 창에서 삼각형(연필 옆에 있는)을 클릭합니다.
 7. 코드 편집기를 선택합니다. 자세한 내용은 [정책을 설정하거나 편집하는 방법](set-edit-policies.md)을 참조하세요.
 8. 커서를 `inbound` 또는 `outbound` 정책 섹션에 둡니다.
-9. 오른쪽 창에서 **고급 정책** > **EventHub에 기록을**선택 합니다. 그러면 `log-to-eventhub` 정책 문 템플릿을 삽입합니다.
+9. 오른쪽 창에서 **고급 정책**  >  **EventHub에 기록을**선택 합니다. 그러면 `log-to-eventhub` 정책 문 템플릿을 삽입합니다.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">
@@ -61,7 +60,7 @@ API Management 로거는 [API Management REST API](https://aka.ms/apimapi)를 �
     }
 </log-to-eventhub>
 ```
-이전 `logger-id` 단계에서로 거를 만들기 `{loggerId}` 위해 요청 URL에서에 사용한 값으로 대체 합니다.
+`logger-id` `{loggerId}` 이전 단계에서로 거를 만들기 위해 요청 URL에서에 사용한 값으로 대체 합니다.
 
 문자열을 `log-to-eventhub` 요소에 대한 값으로 반환하는 모든 식을 사용할 수 있습니다. 이 예제에서는 날짜 및 시간, 서비스 이름, 요청 id, 요청 ip 주소 및 작업 이름을 포함 하는 JSON 형식의 문자열이 기록 됩니다.
 

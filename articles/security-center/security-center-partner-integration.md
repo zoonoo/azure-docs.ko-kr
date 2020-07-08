@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
 ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758054"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
@@ -40,9 +39,9 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 - [가상 컴퓨터에 대 한 통합 취약성 스캐너](built-in-vulnerability-assessment.md)입니다.
 - [파트너 취약성 검사 솔루션 배포](partner-vulnerability-assessment.md).
 
-Security Center는 다음에 대 한 취약성 분석도 제공 합니다.
+Security Center는 다음에 대한 취약성 분석도 제공합니다.
 
-* SQL database- [취약성 평가 대시보드에서 취약성 평가 보고서 탐색](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports) 을 참조 하세요.
+* SQL 데이터베이스 - [취약성 평가 대시보드에서 취약성 평가 보고서 탐색](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)을 참조하세요.
 * Azure Container Registry 이미지- [Security Center와 Azure Container Registry 통합 (미리 보기)](azure-container-registry-integration.md) 을 참조 하세요.
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
