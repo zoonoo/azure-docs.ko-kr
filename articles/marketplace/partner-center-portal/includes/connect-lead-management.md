@@ -10,17 +10,17 @@ ms.date: 08/16/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: cf6a5730f92eba8f0a4e63bf40a4d2b50f76eb3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131079"
 ---
 파트너 센터를 통해 marketplace에 제품을 게시 하는 경우 제안을 CRM 시스템에 연결 해야 합니다. 이러한 방식으로 고객이 관심을 표시 하거나 제품을 배포한 후 즉시 고객 연락처 정보를 받을 수 있습니다.
 
 1. 잠재 고객을 보내려는 잠재 고객 대상을 선택합니다. 다음 CRM 시스템이 지원됩니다.
 
-    * 고객 Engagement의 [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md)
+    * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
     * [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md)
     * [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md)
 

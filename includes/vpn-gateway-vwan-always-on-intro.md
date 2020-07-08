@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4ea97e2dbee87f7ab129c4295276c9024c0212c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80116980"
 ---
 Windows 10 VPN 클라이언트 Always On의 새로운 기능은 VPN 연결을 유지 관리할 수 있는 기능입니다. Always On 사용 하면 활성 VPN 프로필이 자동으로 연결 될 수 있으며 사용자 로그인, 네트워크 상태 변경, 장치 화면 활성 등의 트리거에 따라 연결 된 상태를 유지할 수 있습니다.

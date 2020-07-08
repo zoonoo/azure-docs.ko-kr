@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 4f13c171c5fafb13875f5f87d4eb3d6013f0ff30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79486107"
 ---
-`deploymentconfig.json` 문서의 항목은 [aciwebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
+문서의 항목은 `deploymentconfig.json` [Aciwebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
 
-| JSON 엔터티 | 메서드 매개 변수 | Description |
+| JSON 엔터티 | 메서드 매개 변수 | 설명 |
 | ----- | ----- | ----- |
-| `computeType` | 해당 없음 | 컴퓨팅 대상. ACI의 경우 값은 이어야 `ACI`합니다. |
+| `computeType` | 해당 없음 | 컴퓨팅 대상. ACI의 경우 값은 이어야 합니다 `ACI` . |
 | `containerResourceRequirements` | 해당 없음 | CPU 및 메모리 엔터티의 컨테이너입니다. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | 할당할 CPU 코어 수입니다. 기본값과`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | 이 웹 서비스에 할당할 메모리 양 (GB)입니다. 기본`0.5` |

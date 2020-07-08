@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371760"
 ---
 장치 터널을 성공적으로 설정 하려면 다음 요구 사항을 충족 해야 합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "79371760"
 
 가상 네트워크 게이트웨이를 구성 하 고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 클라이언트 장치 터널을 구성 하려면 다음 예제를 사용 합니다.
 
-1. 다음 텍스트를 복사 하 고 ***devicecert***로 저장 합니다.
+1. 다음 텍스트를 복사 하 여 ***devicecert.ps1***로 저장 합니다.
 
    ```
    Param(
@@ -80,7 +80,7 @@ ms.locfileid: "79371760"
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 다음 텍스트를 복사 하 여 **devicecert**와 동일한 폴더에 ***VPNProfile*** 로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
+1. 다음 텍스트를 복사 하 여 **devicecert.ps1**와 동일한 폴더에 ***VPNProfile.xml*** 로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -124,7 +124,7 @@ ms.locfileid: "79371760"
    ```
 
    ![PowerShell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
-1. PowerShell에서 **devicecert** 및 **VPNProfile** 가 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
+1. PowerShell에서 **devicecert.ps1** 및 **VPNProfile.xml** 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest

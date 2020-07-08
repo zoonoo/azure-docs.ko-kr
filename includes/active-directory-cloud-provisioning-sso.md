@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79504366"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Single Sign-on을 사용 하도록 설정 하는 단계
@@ -37,10 +37,10 @@ ms.locfileid: "79504366"
 1. `Enable-AzureADSSOForest`을 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
-   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식 (예 contoso\johndoe 또는 com\johndoe)으로 입력 해야 합니다. 사용자 이름의 도메인 부분을 사용 하 여 DNS를 사용 하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
+   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식(contoso\johndoe 또는 contoso.com\johndoe)으로 입력해야 합니다. 사용자 이름의 도메인 부분을 사용하여 DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
 
    >[!NOTE]
-   >사용 되는 도메인 관리자 계정은 보호 된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패 합니다.
+   >사용되는 도메인 관리자 계정은 보호된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패합니다.
 
 2. 기능을 설정하려는 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 

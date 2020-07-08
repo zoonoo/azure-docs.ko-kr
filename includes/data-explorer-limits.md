@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/20/2020
 ms.author: ilayr
 ms.openlocfilehash: d9e23e74cd980ecf44cd04ad2b6f89dc6a4cf868
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548219"
 ---
 다음 표에서는 Azure 데이터 탐색기 클러스터의 최대 제한에 대해 설명 합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "76548219"
 
 다음 표에서는 Azure 데이터 탐색기 클러스터에서 수행 되는 관리 작업에 대 한 제한을 설명 합니다.
 
-| 범위 | 작업(Operation) | 제한 |
+| Scope | 작업 | 제한 |
 | --- | --- | --- |
 | 클러스터 | 읽기 (예: 클러스터 가져오기) | 5 분당 500 |
 | 클러스터 | 쓰기 (예: 데이터베이스 만들기) | 시간당 1000 |

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3a5485475e3d8030bf85734faec53b0ff0747499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678498"
 ---
 cmdlet을 실행하기 위해 무료 대화형 셸인 Azure Cloud Shell을 사용할 수 있습니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. **복사** 를 선택 하 여 코드를 복사 하 고 Cloud Shell에 붙여넣습니다. **Enter 키** 를 선택 하 여 실행 합니다. Cloud Shell를 시작 하는 몇 가지 방법이 있습니다.

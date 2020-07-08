@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 9ac9865afe37916f1777d92eab8637884eba0c08
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562130"
 ---
 장치는 Azure에서 데이터의 대상으로 사용 되는 저장소 계정과 연결 됩니다. 저장소 계정에 대 한 액세스는 해당 저장소 계정과 연결 된 구독 및 2 512 비트 저장소 액세스 키에 의해 제어 됩니다.

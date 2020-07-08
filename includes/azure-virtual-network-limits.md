@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82096018"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager
@@ -72,7 +72,7 @@ ms.locfileid: "82096018"
 | Nic 당 규칙 (NIC의 모든 Ip에서) | 300                           |
 | 프런트 엔드 IP 구성              | 600                           |
 | 백 엔드 풀 크기                       | 1000 IP 구성, 단일 가상 네트워크 |
-| Load Balancer <sup>당 백 엔드 리소스 1<sup> | 150                   |
+| Load Balancer 당 백 엔드 리소스 <sup> 1<sup> | 150                   |
 | 고가용성 포트                 | 내부 프런트 엔드당 1       |
 | Load Balancer 당 아웃 바운드 규칙        | 600                           |
 | [TCP 유휴 시간 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 분/30 분          |
@@ -105,6 +105,6 @@ ms.locfileid: "82096018"
 | 경로 테이블당 사용자 정의 경로 |400 |400 |
 | 공용 IP 주소(동적) |500 |500 |
 | 예약된 공용 IP 주소 |500 |500 |
-| 배포당 공용 VIP |5 |지원에 문의 |
+| 배포당 공용 VIP |5 |기술 지원 서비스에 문의하십시오. |
 | 배포 당 개인 VIP (내부 부하 분산) |1 |1 |
 | 끝점 액세스 제어 목록 (Acl) |50 |50 |

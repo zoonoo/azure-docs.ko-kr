@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: glenga
 ms.openlocfilehash: 437b4ab62cc8c4903af88ca2f9632e89b953c798
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68669731"
 ---
 Azure에서 함수 앱에 대 한 스트리밍 로그를 켜려면:

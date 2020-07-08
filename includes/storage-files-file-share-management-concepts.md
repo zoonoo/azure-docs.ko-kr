@@ -9,10 +9,10 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a67ad4c5010cf93ff55123013a35c697ce5971f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77597884"
 ---
 Azure 파일 공유는 저장소의 공유 풀을 나타내는 최상위 개체인 *저장소 계정*에 배포 됩니다. 이 저장소 풀을 사용 하 여 여러 파일 공유 뿐만 아니라 blob 컨테이너, 큐, 테이블 등의 기타 저장소 리소스를 배포할 수 있습니다. 저장소 계정에 배포 된 모든 저장소 리소스는 해당 저장소 계정에 적용 되는 제한을 공유 합니다. 저장소 계정에 대 한 현재 한도를 보려면 [Azure Files 확장성 및 성능 목표](../articles/storage/files/storage-files-scale-targets.md)를 참조 하세요.

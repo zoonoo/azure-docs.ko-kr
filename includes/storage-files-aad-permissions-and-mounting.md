@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
 ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792985"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 id에 대 한 액세스 권한 할당
@@ -39,7 +39,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한
 [Azure Portal](https://portal.azure.com)를 사용 하 여 Azure AD ID에 RBAC 역할을 할당 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 파일 공유로 이동 하거나 [파일 공유를 만듭니다](../articles/storage/files/storage-how-to-create-file-share.md).
-2. **Access Control (IAM)** 을 선택 합니다.
+2. **Access Control(IAM)** 을 선택합니다.
 3. **역할 할당 추가** 선택
 4. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정인 **AZURE AD 사용자, 그룹 또는 서비스 주체**에 대 한 **액세스 할당을** 그대로 둡니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다.
 5. **저장** 을 선택 하 여 역할 할당 작업을 완료 합니다.

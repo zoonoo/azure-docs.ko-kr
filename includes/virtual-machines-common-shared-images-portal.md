@@ -9,19 +9,19 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82789001"
 ---
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기
 
-이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에는 대시를 사용할 수 없습니다.  갤러리 이름은 구독 내에서 고유해야 합니다. 
+이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에 대시를 사용할 수 없습니다.  갤러리 이름은 구독 내에서 고유해야 합니다. 
 
 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery*라는 갤러리를 만듭니다.
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 검색 상자에서 **공유 이미지 갤러리** 유형을 사용 하 고 결과에서 **공유 이미지 갤러리** 를 선택 합니다.
 1. **공유 이미지 갤러리** 페이지에서 **추가**를 클릭 합니다.
 1. **공유 이미지 갤러리 만들기** 페이지에서 올바른 구독을 선택 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "82789001"
 
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
-이미지 정의 이미지에 대 한 논리적 그룹화를 만듭니다. 이러한 파일은 내부에서 생성 된 이미지 버전에 대 한 정보를 관리 하는 데 사용 됩니다. 이미지 정의 이름은 대문자, 숫자, 점, 대시 및 마침표로 구성 될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대 한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)를 참조 하세요.
+이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 내부에서 생성된 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)를 참조하세요.
 
 갤러리 내에서 갤러리 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지의 이름은 *Myimagedefinition*입니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "82789001"
 
 관리 되는 이미지에서 이미지 버전을 만듭니다. 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
 
-이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*. *MinorVersion*. *패치*.
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
 이미지 버전을 만들기 위한 단계는 소스가 일반화 된 이미지 인지 아니면 특수 한 VM의 스냅숏 인지에 따라 약간 다릅니다. 
 
@@ -74,7 +74,7 @@ ms.locfileid: "82789001"
 1. 이미지 버전이 유효성 검사를 통과 하는 경우 **만들기**를 선택 합니다.
 1. 배포가 완료 되 면 **리소스로 이동**을 선택 합니다.
 
-이미지를 모든 대상 영역에 복제 하는 데 시간이 걸릴 수 있습니다.
+이미지를 모든 대상 영역에 복제하는 데 시간이 걸릴 수 있습니다.
 
 ### <a name="option-specialized"></a>옵션: 특수
 
@@ -91,7 +91,7 @@ ms.locfileid: "82789001"
 
 ## <a name="share-the-gallery"></a>갤러리 공유
 
-이미지 갤러리 수준에서 액세스를 공유 하는 것이 좋습니다. 다음은 방금 만든 갤러리를 공유 하는 과정을 안내 합니다.
+이미지 갤러리 수준에서 액세스를 공유하는 것이 좋습니다. 다음은 방금 만든 갤러리를 공유 하는 과정을 안내 합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. 왼쪽 메뉴에서 **리소스 그룹**을 선택 합니다. 

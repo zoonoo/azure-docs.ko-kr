@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 632490498b8dd13414657edb9518cd543ac07af6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678863"
 ---
 1. **피어 링 만들기** 페이지의 **구성** 탭에서 여기에 표시 된 대로 상자를 입력 합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "81678863"
     > [!div class="mx-imgBorder"]
     > ![피어 링 전송](../media/setup-direct-review-tab-submit.png)
 
-1. 요청을 제출한 후 배포가 완료 될 때까지 기다립니다. 배포에 실패 하는 경우 [Microsoft 피어 링](mailto:peering@microsoft.com)에 문의 하십시오. 성공적으로 배포 되 면 다음과 같이 표시 됩니다.
+1. 요청을 제출한 후 배포가 완료 될 때까지 기다립니다. 배포에 실패하면 [Microsoft 피어링](mailto:peering@microsoft.com)에 문의하세요. 성공적으로 배포 되 면 다음과 같이 표시 됩니다.
 
     > [!div class="mx-imgBorder"]
     > ![피어 링 성공](../media/setup-direct-success.png)

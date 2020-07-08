@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79500192"
 ---
 1. 이 [지점 및 사이트 간 VPN 클라이언트](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) 문서에 표시 된 대로 Windows 10 클라이언트에 클라이언트 인증서를 설치 합니다. 인증서가 현재 사용자 저장소에 있어야 합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "79500192"
 
 가상 네트워크 게이트웨이를 구성 하 고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 다음 예제를 사용 하 여 클라이언트 장치 터널을 구성 합니다.
 
-1. 다음 텍스트를 복사 하 고 usercert로 저장 *합니다*.
+1. 다음 텍스트를 복사 하 고 *usercert.ps1*로 저장 합니다.
 
    ```
    Param(
@@ -75,7 +75,7 @@ ms.locfileid: "79500192"
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 다음 텍스트를 복사 하 고 *usercert*와 동일한 폴더에 *VPNProfile* 로 저장 합니다. 사용자 환경에 맞게 다음 텍스트를 편집 합니다.
+1. 다음 텍스트를 복사 하 고 *usercert.ps1*와 동일한 폴더에 *VPNProfile.xml* 로 저장 합니다. 사용자 환경에 맞게 다음 텍스트를 편집 합니다.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -121,7 +121,7 @@ ms.locfileid: "79500192"
    ```
 1. PowerShell을 관리자 권한으로 실행합니다.
 
-1. PowerShell에서 *usercert* 및 *VPNProfile* 가 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
+1. PowerShell에서 *usercert.ps1* 및 *VPNProfile.xml* 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
