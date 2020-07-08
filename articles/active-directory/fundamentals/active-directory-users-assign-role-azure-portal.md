@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df52969ea79e5d1af132aa82c2ec1ceedb92b82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87b063a4d51d5d5d1e3d7949be3754ccbe74acca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75422931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604117"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
 조직의 사용자에게 Azure AD(Azure Active Directory) 리소스를 관리할 권한이 필요한 경우 사용자가 해당 권한으로 수행할 작업에 따라 Azure AD에서 사용자에게 적절한 역할을 할당해야 합니다.
@@ -35,7 +35,7 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
 2. **Azure Active Directory**를 검색하고 선택합니다.
 
-      ![Azure Active Directory Azure Portal 검색](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
+      ![Azure Active Directory에 대한 Azure Portal 검색](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
 
 3. **사용자**를 선택 합니다.

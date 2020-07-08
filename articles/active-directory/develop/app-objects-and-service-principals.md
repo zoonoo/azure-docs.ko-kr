@@ -9,57 +9,51 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a636ff15da09bcf1891618d65270376f26fd3239
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 453efd7735c6843ccdaf8dfd86b18d0b2ef8b06d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604627"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
-경우에 따라 “애플리케이션”이 Azure AD(Azure Active Directory)의 컨텍스트에서 사용될 때 용어의 의미를 잘못 이해할 수 있습니다. 이 문서에서는 [다중 테넌트 애플리케이션](developer-glossary.md#multi-tenant-application)에 대한 등록 및 동의에 대한 그림을 통해 Azure AD 애플리케이션 통합의 개념 및 구체적인 측면을 명확히 설명합니다.
-
-## <a name="overview"></a>개요
-
-Azure AD와 통합된 애플리케이션은 소프트웨어 측면을 넘어서는 의미를 지닙니다. "애플리케이션"은 개념적 용어로 애플리케이션 소프트웨어를 나타낼 뿐 아니라, 런타임 시 인증 및 권한 부여 "대화"에서 Azure AD 등록 및 역할을 나타내기도 합니다.
-
-정의에 따라, 애플리케이션은 다음 역할로 작동할 수 있습니다.
-
-- [클라이언트](developer-glossary.md#client-application) 역할(리소스 사용)
-- [리소스 서버](developer-glossary.md#resource-server) 역할(클라이언트에 API 노출)
-- 클라이언트 역할 및 리소스 서버 역할 둘 다
-
-[OAuth 2.0 권한 부여 흐름](developer-glossary.md#authorization-grant)에서는 각각 클라이언트/리소스가 리소스 데이터를 액세스/보호할 수 있도록 하는 대화 프로토콜을 정의합니다.
-
-다음 섹션에서는 Azure AD 애플리케이션 모델이 디자인 타임 및 런타임 시 애플리케이션을 나타내는 방법을 알아보겠습니다.
+이 문서에서는 Azure Active Directory의 응용 프로그램 등록, 응용 프로그램 개체 및 서비스 주체, 사용 방법 및 서로 관련 된 방법을 설명 합니다. 응용 프로그램의 응용 프로그램 개체와 해당 서비스 주체 개체 간의 관계를 보여 주기 위해 다중 테 넌 트 예제 시나리오도 제공 됩니다.
 
 ## <a name="application-registration"></a>애플리케이션 등록
+Id 및 액세스 관리 기능을 Azure AD에 위임 하기 위해 응용 프로그램을 Azure AD [테 넌 트](developer-glossary.md#tenant)에 등록 해야 합니다. Azure AD에 응용 프로그램을 등록 하면 Azure AD와 통합 될 수 있도록 응용 프로그램에 대 한 id 구성이 생성 됩니다. [Azure Portal][AZURE-Portal]에 앱을 등록 하는 경우 단일 테 넌 트 (테 넌 트 에서만 액세스할 수 있음) 또는 다중 테 넌 트 (다른 테 넌 트에서 액세스할 수 있음) 인지 여부를 선택 하 고 선택적으로 리디렉션 URI (액세스 토큰이 전송 되는 위치)를 설정할 수 있습니다.
 
-[Azure Portal][AZURE-Portal]에서 Azure AD 애플리케이션을 등록할 때, Azure AD 테넌트에 다음 두 개의 개체가 만들어집니다.
+앱 등록을 완료 하면 홈 테 넌 트 또는 디렉터리 내에 상주 하는 앱의 전역적으로 고유한 인스턴스 (응용 프로그램 개체)가 있습니다.  앱에 대 한 전역적으로 고유한 ID (앱 또는 클라이언트 ID)도 있습니다.  그런 다음 포털에서 비밀 또는 인증서 및 범위를 추가 하 여 앱이 작동 하도록 하 고 로그인 대화 상자에서 앱의 브랜딩을 사용자 지정할 수 있습니다.
 
-- 애플리케이션 개체
-- 서비스 주체 개체
+포털에서 응용 프로그램을 등록 하는 경우 응용 프로그램 개체 및 서비스 주체 개체는 홈 테 넌 트에 자동으로 만들어집니다.  Microsoft Graph Api를 사용 하 여 응용 프로그램을 등록/만들 경우에는 별도의 단계를 통해 서비스 주체 개체를 만들 수 있습니다.
 
-### <a name="application-object"></a>애플리케이션 개체
+## <a name="application-object"></a>애플리케이션 개체
+Azure AD 응용 프로그램은 응용 프로그램이 등록 된 Azure AD 테 넌 트에 상주 하는 응용 프로그램 개체 (응용 프로그램의 "홈" 테 넌 트 라고도 함)로 정의 됩니다.  응용 프로그램 개체는 하나 이상의 서비스 주체 개체를 만들기 위해 템플릿이나 청사진으로 사용 됩니다.  응용 프로그램이 사용 되는 모든 테 넌 트에 서비스 주체가 생성 됩니다. 개체 지향 프로그래밍의 클래스와 마찬가지로, 응용 프로그램 개체에는 생성 된 모든 서비스 주체 또는 응용 프로그램 인스턴스에 적용 되는 몇 가지 정적 속성이 있습니다. 
 
-Azure AD 애플리케이션은 애플리케이션의 "홈" 테넌트라고도 알려진, 애플리케이션이 등록된 Azure AD 테넌트에 상주하는 하나의 애플리케이션 개체에 의해서만 정의됩니다. Microsoft Graph [응용 프로그램 엔터티][MS-Graph-App-Entity] 는 응용 프로그램 개체의 속성에 대 한 스키마를 정의 합니다.
+응용 프로그램 개체는 응용 프로그램에 액세스 하기 위해 서비스에서 토큰을 발급 하는 방법, 응용 프로그램에서 액세스 해야 하는 리소스 및 응용 프로그램에서 수행할 수 있는 작업의 세 가지 측면을 설명 합니다. 
 
-### <a name="service-principal-object"></a>서비스 주체 개체
+[Azure Portal][AZURE-Portal] 의 **앱 등록** 블레이드는 홈 테 넌 트에서 응용 프로그램 개체를 나열 하 고 관리 하는 데 사용 됩니다.
 
-Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려면 액세스해야 하는 엔터티를 보안 주체로 나타내야 합니다. 사용자(사용자 주체) 및 애플리케이션(서비스 주체) 둘 다 마찬가지입니다.
+Microsoft Graph [응용 프로그램 엔터티][MS-Graph-App-Entity] 는 응용 프로그램 개체의 속성에 대 한 스키마를 정의 합니다.
 
-보안 주체는 Azure AD 테넌트의 사용자/애플리케이션에 대한 액세스 정책 및 권한을 정의합니다. 이를 통해 로그인 동안의 사용자/애플리케이션의 인증 및 리소스 액세스 동안의 권한 부여 같은 핵심 기능이 허용됩니다.
+## <a name="service-principal-object"></a>서비스 주체 개체
+Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려면 액세스해야 하는 엔터티를 보안 주체로 나타내야 합니다. 사용자(사용자 주체) 및 애플리케이션(서비스 주체) 둘 다 마찬가지입니다. 보안 주체는 Azure AD 테넌트의 사용자/애플리케이션에 대한 액세스 정책 및 권한을 정의합니다. 이를 통해 로그인 동안의 사용자/애플리케이션의 인증 및 리소스 액세스 동안의 권한 부여 같은 핵심 기능이 허용됩니다.
 
-애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 주체 개체의 속성에 대 한 스키마를 정의 합니다.
+서비스 사용자는 단일 테 넌 트 또는 디렉터리에 있는 전역 응용 프로그램 개체의 로컬 표현 또는 응용 프로그램 인스턴스입니다. 서비스 주체는 응용 프로그램 개체에서 만든 구체적인 인스턴스이고 해당 응용 프로그램 개체의 특정 속성을 상속 합니다.  응용 프로그램이 사용 되는 각 테 넌 트에 서비스 주체가 만들어지고 전역적으로 고유한 앱 개체를 참조 합니다.  서비스 주체 개체는 앱이 특정 테 넌 트에서 실제로 수행할 수 있는 작업, 앱에 액세스할 수 있는 사용자 및 앱이 액세스할 수 있는 리소스를 정의 합니다. 
 
-### <a name="application-and-service-principal-relationship"></a>애플리케이션 및 서비스 주체 관계
+애플리케이션이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](developer-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]및 기타 도구를 사용 하 여 테 넌 트에서 서비스 사용자 개체를 만들 수도 있습니다.  포털을 사용 하는 경우 응용 프로그램을 등록할 때 서비스 주체가 자동으로 생성 됩니다.
 
-애플리케이션 개체는 모든 테넌트에서 사용하기 위한 애플리케이션의 *글로벌* 표현으로 그리고 서비스 주체는 특정 테넌트에서 사용하기 위한 *로컬* 표현으로 생각할 수 있습니다.
+포털의 **엔터프라이즈 응용 프로그램** 블레이드는 테 넌 트에서 서비스 사용자를 나열 하 고 관리 하는 데 사용 됩니다. 서비스 사용자의 권한, 사용자 동의한 권한, 해당 동의를 수행한 사용자 및 로그인 정보 등을 볼 수 있습니다.
+
+Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 주체 개체의 속성에 대 한 스키마를 정의 합니다.
+
+## <a name="relationship-between-application-objects-and-service-principals"></a>응용 프로그램 개체와 서비스 주체 간의 관계
+
+응용 프로그램 개체는 모든 테 넌 트에서 사용할 응용 프로그램의 *전역* 표현이 며, 서비스 주체는 특정 테 넌 트에서 사용 하기 위한 *로컬* 표현입니다.
 
 애플리케이션 개체는 해당 서비스 주체 개체 만들기에 사용하기 위해 공통의 기본 속성이 *파생*되는 템플릿으로 제공됩니다. 따라서 애플리케이션 개체는 소프트웨어 애플리케이션과 1:1 관계가 있으며 해당 서비스 주체 개체와 1:다 관계가 있습니다.
 
@@ -82,7 +76,7 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 이 예제 시나리오는 다음과 같이 이루어져 있습니다.
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|-------------|
 | 1    | 애플리케이션의 홈 테넌트에서 애플리케이션 및 서비스 주체 개체를 만드는 과정입니다. |
 | 2    | Contoso 관리자와 Fabrikam 관리자가 전적으로 동의한 경우 서비스 주체 개체가 회사의 Azure AD 테넌트에 생성되고 관리자가 부여한 사용 권한이 할당됩니다. 또한 사용자가 개별 사용에 대한 동의를 할 수 있게 HR 앱이 구성/설계될 수 있습니다. |

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77482186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602723"
 ---
 # <a name="azure-firewall-certifications"></a>Azure 방화벽 인증
 
@@ -25,11 +25,11 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 다음은 글로벌 Azure에 대 한 Azure 방화벽 인증입니다.
 
 - 23 NYCRR 500
-- AFM 및 DNB (네덜란드)
-- AMF 및 ACPR (프랑스)
+- AFM 및 DNB(네덜란드)
+- AMF 및 ACPR(프랑스)
 - APRA (오스트레일리아)
 - 아르헨티나
-- 오스트레일리아 IRAP
+- Australia IRAP
 - CDSA
 - CFTC 1.31
 - CSA STAR 증명
@@ -38,16 +38,18 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 - 캐나다 개인 정보 보호법
 - 6PP (영국)
 - EU ENISA IAF
-- EU 모델 조항
+- EU 모델 절
 - 유럽 금융 기관
-- FCA 및 PRA (영국)
-- FERPA (US)
+- FCA 및 PRA(영국)
+- FERPA(미국)
 - FFIEC (US)
-- FINMA (스위스)
-- FSA (덴마크)
-- GRAMM-LEACH-BLILEY ACT (US)
+- FINMA(스위스)
+- FSA(덴마크)
+- GLBA(미국)
 - Germany C5
 - GxP(FDA 21 CFR Part 11)
+- HIPPA
+- HITECH Act (US)
 - HITRUST
 - ISO 20000-1:2011
 - ISO 22301:2012
@@ -58,19 +60,19 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 - Japan My Number Act
 - K-ISMS
 - KNF (폴란드)
-- MA 및 ABS (싱가포르)
+- MAS 및 ABS(싱가포르)
 - MPAA (US)
-- NBB 및 FSMA (벨기에)
+- NBB 및 FSMA(벨기에)
 - NEN 7510:2011 (네덜란드)
 - NHS IG Toolkit(영국)
 - 네덜란드 BIR 2012
 - OSFI (캐나다)
 - PCI DSS 수준 1
-- RBI 및 IRDAI (인도)
+- RBI 및 IRDAI(인도)
 - SOC 1 유형 2
 - SOC 2 유형 2
 - SOC 3
-- SOX (US)
+- SOX(미국)
 - 스페인 DPA
 - TISAX
 - TruSight
@@ -91,18 +93,20 @@ Azure Government에 대 한 Azure 방화벽 인증은 다음과 같습니다.
 - EAR
 - FIPS 140-2
 - FedRAMP High
+- HIPAA
+- HITECH Act (US)
 - HITRUST
 - IRS 1075
 - ITAR
-- MARS-E (US)
+- MARS-E(미국)
 - C
 - NIST 사이버 보안 프레임 워크
 - NIST SP 800-171
 - SOC 1 유형 2
 - SOC 2 유형 2
 - SOC 3
-- SOX (US)
-- 섹션 508 Vpat
+- SOX(미국)
+- 섹션 508 VPATs
 
 ## <a name="icsa-labs-corporate-firewall-certification"></a>ICSA Labs 회사 방화벽 인증
 

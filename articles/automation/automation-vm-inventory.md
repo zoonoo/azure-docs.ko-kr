@@ -4,14 +4,14 @@ description: 이 문서에서는 VM에서 인벤토리 수집을 관리하는 �
 services: automation
 ms.subservice: change-inventory-management
 keywords: 인벤토리, 자동화, 변경, 추적
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603114"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>VM에서 인벤토리 컬렉션 관리
 
@@ -87,7 +87,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 |경로 입력     | 파일을 확인할 경로입니다(예: **/etc/*.conf**).       |
 |경로 유형     | 추적할 항목의 유형입니다. 값은 파일 및 디렉터리입니다.        |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되면 True이고, 그렇지 않으면 False입니다.        |
-|sudo 사용     | 항목을 확인할 때 sudo가 사용되었으면 True이고, 그렇지 않으면 False입니다.         |
+|Sudo 사용     | 항목을 확인할 때 sudo가 사용되었으면 True이고, 그렇지 않으면 False입니다.         |
 |링크     | 디렉터리를 트래버스할 때 바로 가기 링크가 처리되는 방식을 나타내는 값입니다. 가능한 값은 다음과 같습니다. <br> 무시 - 바로 가기 링크가 무시되고 참조된 파일/디렉터리가 포함되지 않습니다.<br>팔로우 - 재귀 중에 바로 가기 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>관리 - 바로 가기 링크를 따르고 반환된 콘텐츠의 취급을 변경할 수 있도록 허용합니다.      |
 
 ## <a name="manage-machine-groups"></a>머신 그룹 관리
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ![인벤토리 페이지에서 머신 그룹 보기](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-목록에서 머신 그룹을 선택하면 머신 그룹 페이지가 열립니다. 이 페이지에서는 머신 그룹에 대한 정보를 보여 줍니다. 이러한 세부 정보에는 그룹을 정의하는 데 사용되는 로그 분석 쿼리가 포함됩니다. 페이지의 맨 아래에서 해당 그룹의 일부인 머신의 페이징된 목록입니다.
+목록에서 머신 그룹을 선택하면 머신 그룹 페이지가 열립니다. 이 페이지에서는 머신 그룹에 대한 정보를 보여 줍니다. 이러한 세부 정보에는 그룹을 정의 하는 데 사용 되는 Azure Monitor 로그 쿼리가 포함 됩니다. 페이지의 맨 아래에서 해당 그룹의 일부인 머신의 페이징된 목록입니다.
 
 ![머신 그룹 페이지 보기](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -115,15 +115,18 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 변경 내용 추적 및 인벤토리 관리에서 VM을 제거하려면:
 
 1. Azure Portal의 왼쪽 창에서 **Log Analytics**를 선택한 다음 VM에서 변경 내용 추적 및 인벤토리를 사용하도록 설정할 때 사용한 작업 영역을 선택합니다.
-2. Log Analytics 페이지에서 **리소스** 메뉴를 엽니다.
+2. **Log Analytics** 페이지에서 **리소스** 메뉴를 엽니다.
 3. **작업 영역 데이터 원본** 아래에서 **가상 머신**을 선택합니다.
 4. 목록에서 연결을 끊을 VM을 선택합니다. 머신에는 **OMS 연결** 열의 **이 작업 영역** 옆에 녹색 확인 표시가 있습니다.
 
    >[!NOTE]
    >OMS(Operations Management Suite)가 이제 ‘Azure Monitor 로그’로 지칭됩니다.
-   
+
 5. 다음 페이지 맨 위에서 **연결 끊기**를 클릭합니다.
 6. 확인 창에서 **예**를 클릭하여 관리에서 머신의 연결을 끊습니다.
+
+>[!NOTE]
+>최근 24 시간 동안 인벤토리에 포함 된 모든 컴퓨터를 보고 하기 때문에 컴퓨터가 등록 취소 된 후에도 계속 표시 됩니다. 컴퓨터 연결을 끊은 후에는 더 이상 나열 되지 않도록 24 시간 동안 기다려야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
