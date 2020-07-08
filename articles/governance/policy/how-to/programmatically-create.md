@@ -3,12 +3,12 @@ title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용하여 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682129"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969892"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -95,7 +95,7 @@ ms.locfileid: "83682129"
    - 구독 - `/subscriptions/{subId}/`
    - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관리하는 방법에 대한 자세한 내용은 [Az.Resources](/powershell/module/az.resources/#policies)를 참조하세요.
+리소스 관리자 PowerShell 모듈을 사용 하 여 리소스 정책을 관리 하는 방법에 대 한 자세한 내용은 [Az. Resources](/powershell/module/az.resources/#policies)를 참조 하세요.
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>ARMClient를 사용하여 정책 정의 만들기 및 할당
 
