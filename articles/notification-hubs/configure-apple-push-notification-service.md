@@ -4,27 +4,27 @@ description: APNS (Apple Push Notification Service) 설정을 사용 하 여 Azu
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 06/22/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: eb1122ba3de0002507589d3e607d1e39d905c308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63c7e0c9569428b55420911f253deee52ce440cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127525"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255401"
 ---
 # <a name="configure-apple-push-notification-service-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure Portal에서 알림 허브에 대 한 Apple Push Notification Service 설정 구성
 
-이 문서에서는 Azure Portal를 사용 하 여 Azure 알림 허브에 대 한 APNS (Apple Push Notification Service) 설정을 구성 하는 방법을 보여 줍니다. 
+이 문서에서는 Azure Portal를 사용 하 여 Azure 알림 허브에 대 한 APNS (Apple Push Notification Service) 설정을 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
-알림 허브를 아직 만들지 않은 경우 지금 만듭니다. 자세한 내용은 [Azure Portal에 Azure 알림 허브 만들기](create-notification-hub-portal.md)를 참조하세요. 
+## <a name="prerequisites"></a>사전 요구 사항
+
+알림 허브를 아직 만들지 않은 경우 지금 만듭니다. 자세한 내용은 [Azure Portal에 Azure 알림 허브 만들기](create-notification-hub-portal.md)를 참조하세요.
 
 ## <a name="configure-apple-push-notification-service"></a>Apple Push Notification Service 구성
 
@@ -34,19 +34,19 @@ ms.locfileid: "80127525"
 
 1. **인증 모드**의 경우 **인증서** 또는 **토큰**을 선택합니다.
 
-   a. **인증서**를 선택한 경우:
-   * 파일 아이콘을 선택한 다음, 업로드할 *.p12* 파일을 선택합니다.
-   * 암호를 입력합니다.
-   * **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
+   - **인증서**를 선택한 경우:
+      - 파일 아이콘을 선택한 다음, 업로드할 *.p12* 파일을 선택합니다.
+      - 암호를 입력합니다.
+      - **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
 
      ![Azure Portal의 APNS 인증서 구성 스크린샷](./media/configure-apple-push-notification-service/notification-hubs-apple-config-cert.png)
 
-   b. **토큰**을 선택한 경우:
-
-   * **키 ID**, **번들 ID**, **팀 ID** 및 **토큰**에 대한 값을 입력합니다.
-   * **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
+   - **토큰**을 선택한 경우:
+      - **키 ID**, **번들 ID**, **팀 ID** 및 **토큰**에 대한 값을 입력합니다.
+      - **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
 
      ![Azure Portal의 APNS 토큰 구성 스크린샷](./media/configure-apple-push-notification-service/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>다음 단계
-IOS 장치로 알림을 푸시하는 방법에 대 한 단계별 지침이 포함 된 자습서는 [Notification Hubs 및 APNS를 사용 하 여 ios 장치에 알림 푸시](notification-hubs-ios-apple-push-notification-apns-get-started.md) 문서를 참조 하세요.
+
+IOS 장치로 알림을 보내는 방법에 대 한 단계별 지침이 포함 된 자습서는 [Azure Notification Hubs를 사용 하 여 ios 앱에 푸시 알림 보내기](ios-sdk-get-started.md)문서를 참조 하세요.

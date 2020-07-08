@@ -4,19 +4,19 @@ description: 조건부 액세스 정책을 구성할 때 알아야 할 사항 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4560a514ddb9949c8cc07864b2319a5878b245e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253378"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스에 대 한 모범 사례
 
@@ -102,7 +102,7 @@ Office 365 앱이 상호 연결 되어 있기 때문에 정책을 만들 때 일
 
 ## <a name="what-you-should-avoid-doing"></a>금지해야 할 기능
 
-조건부 액세스 프레임 워크는 뛰어난 구성 유연성을 제공 합니다. 그러나 훌륭한 유연성은 잘못된 결과를 방지하기 위해 해제하기 전에 각 구성 정책을 신중하게 검토해야 한다는 것을 의미하기도 합니다. 이 컨텍스트에서 **모든 사용자 / 그룹 / 응용 프로그램**등 완전한 집합에 영향을 미치는 할당에 특별한 주의를 기울여야 합니다.
+조건부 액세스 프레임워크는 뛰어난 구성 유연성을 제공합니다. 그러나 훌륭한 유연성은 잘못된 결과를 방지하기 위해 해제하기 전에 각 구성 정책을 신중하게 검토해야 한다는 것을 의미하기도 합니다. 이 컨텍스트에서 **모든 사용자 / 그룹 / 응용 프로그램**등 완전한 집합에 영향을 미치는 할당에 특별한 주의를 기울여야 합니다.
 
 사용자 환경에서 다음과 같은 구성을 피해야 합니다.
 

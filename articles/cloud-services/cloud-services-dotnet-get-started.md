@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255231"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -104,16 +104,16 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케�
 클라우드에서 애플리케이션을 실행하려면 다음 단계를 수행합니다.
 
 * Azure 클라우드 서비스를 만듭니다.
-* Azure SQL 데이터베이스를 만듭니다.
+* Azure SQL Database에서 데이터베이스를 만듭니다.
 * Azure Storage 계정을 만듭니다.
-* Azure에서 실행될 때 Azure SQL 데이터베이스를 사용하도록 솔루션을 구성합니다.
+* Azure에서 실행 될 때 데이터베이스를 사용 하도록 솔루션을 구성 합니다.
 * Azure에서 실행될 때 Azure Storage 계정을 사용하도록 솔루션을 구성합니다.
 * Azure 클라우드 서비스에 프로젝트를 배포합니다.
 
 ### <a name="create-an-azure-cloud-service"></a>Azure 클라우드 서비스 만들기
 Azure 클라우드 서비스는 애플리케이션이 실행되는 환경입니다.
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)를 엽니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)을 엽니다.
 2. **리소스 만들기 > Compute > 클라우드 서비스**를 클릭합니다.
 
 3. DNS 이름 입력 상자에 클라우드 서비스의 URL 접두사를 입력합니다.
@@ -130,7 +130,7 @@ Azure 클라우드 서비스는 애플리케이션이 실행되는 환경입니�
 
     ![새 클라우드 서비스](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Azure SQL 데이터베이스 만들기
+### <a name="create-a-database-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 만들기
 앱이 클라우드에서 실행될 때는 클라우드 기반 데이터베이스를 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기 > 데이터베이스 > SQL Database**를 클릭합니다.
@@ -152,7 +152,7 @@ Azure 클라우드 서비스는 애플리케이션이 실행되는 환경입니�
 8. **Azure 서비스의 서버 액세스 허용**을 선택합니다.
 9. 새 서버에 대해 **선택**을 클릭합니다.
 
-    ![새 SQL Database 서버](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![새 서버](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. **만들기**를 클릭합니다.
 
 ### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
@@ -182,8 +182,9 @@ Azure Storage 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 �
 
     이미지에서 다음 URL을 사용하여 스토리지 계정이 생성됩니다. `csvccontosoads.core.windows.net`
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Azure에서 실행될 때 Azure SQL 데이터베이스를 사용하도록 솔루션 구성
-웹 프로젝트 및 작업자 역할 프로젝트는 각각 고유한 데이터베이스 연결 문자열을 가지며 앱이 Azure에서 실행될 때 Azure SQL 데이터베이스를 가리켜야 합니다.
+### <a name="configure-the-solution-to-use-your-database-in-azure-sql-database-when-it-runs-in-azure"></a>Azure에서 실행 될 때 Azure SQL Database에서 데이터베이스를 사용 하도록 솔루션 구성
+
+웹 프로젝트 및 작업자 역할 프로젝트는 각각 고유한 데이터베이스 연결 문자열을 포함 하며, 각 응용 프로그램은 Azure에서 실행 될 때 Azure SQL Database의 데이터베이스를 가리켜야 합니다.
 
 웹 역할에 대해 [Web.config 변환](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) (영문)을 사용하고 작업자 역할에 대해 클라우드 서비스 환경 설정을 사용합니다.
 
@@ -353,7 +354,7 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 6. *Microsoft.WindowsAzure.ConfigurationManager* NuGet 패키지를 찾은 후 작업자 역할 프로젝트에 설치합니다.
 
 ### <a name="set-project-references"></a>프로젝트 참조 설정
-1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **참조** - **추가 참조**를 클릭 합니다. **참조 관리자** 대화 상자의 왼쪽 창에서 **솔루션 – 프로젝트**를 선택하고 **ContosoAdsCommon**을 선택한 다음 **확인**을 클릭합니다.
+1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **참조**  -  **추가 참조**를 클릭 합니다. **참조 관리자** 대화 상자의 왼쪽 창에서 **솔루션 – 프로젝트**를 선택하고 **ContosoAdsCommon**을 선택한 다음 **확인**을 클릭합니다.
 2. ContosoAdsWorker 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다.
 
     ContosoAdsCommon에는 Entity Framework 데이터 모델 및 컨텍스트 클래스가 포함되며, 이는 프런트 엔드 및 백 엔드 모두에서 사용됩니다.
@@ -388,7 +389,7 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 8. 계속 **ContosoAdsWorker [Role]** 속성 창에서 다른 연결 문자열을 추가합니다.
 
    * 이름: ContosoAdsDbConnectionString
-   * 형식: String
+   * 유형: String
    * 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여 넣습니다. (다음은 Visual Studio 2013용 예제입니다. 이 예제를 복사하고 Visual Studio 2015 이상을 사용하는 경우 데이터 원본을 반드시 변경해야 합니다.)
 
        ```
@@ -398,12 +399,12 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 ### <a name="add-code-files"></a>코드 파일 추가
 이 섹션에서는 다운로드한 솔루션에서 새 솔루션으로 코드 파일을 복사합니다. 다음 섹션에서는 이 코드의 주요 부분을 보여 주고 설명합니다.
 
-프로젝트 또는 폴더에 파일을 추가 하려면 프로젝트나 폴더를 마우스 오른쪽 단추로 클릭 하 고**기존 항목** **추가** - 를 클릭 합니다. 원하는 파일을 선택하고 **추가**를 클릭합니다. 기존 파일을 바꿀지 여부를 묻는 메시지가 나타나면 **예**를 클릭합니다.
+프로젝트 또는 폴더에 파일을 추가 하려면 프로젝트나 폴더를 마우스 오른쪽 단추로 클릭 하 고 **Add**  -  **기존 항목**추가를 클릭 합니다. 원하는 파일을 선택하고 **추가**를 클릭합니다. 기존 파일을 바꿀지 여부를 묻는 메시지가 나타나면 **예**를 클릭합니다.
 
 1. ContosoAdsCommon 프로젝트에서 *Class1.cs* 파일을 삭제하고 그 자리에 다운로드한 프로젝트에서 가져온 *Ad.cs* 및 *ContosoAdscontext.cs* 파일을 추가합니다.
 2. ContosoAdsWeb 프로젝트에 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
-   * *Global.asax.cs*  
+   * *Global.asax.cs*.  
    * *Views\Shared* 폴더: *\__Layout.cshtml*
    * *Views\Home* 폴더: *Index. cshtml*.
    * *Controllers* 폴더: *AdController.cs*.
@@ -530,7 +531,7 @@ imagesQueue.CreateIfNotExists();
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 *AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure Storage 클라이언트 라이브러리 개체를 만듭니다.
 
-그런 다음 *Global.asax.cs*에서 앞서 살펴본 것 처럼 코드는 *이미지* blob 컨테이너에 대 한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기에 지정된 재시도 정책은 각 시도 후 3초 동안 최대 3회까지 대기합니다.
+그런 다음 *Global.asax.cs*에서 앞서 살펴본 것 처럼 코드는 *이미지* blob 컨테이너에 대 한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지 수 백오프 재시도 정책으로 인해 일시적인 오류를 반복 해 서 다시 시도 하는 동안 웹 앱이 잠시 후에 응답 하지 않을 수 있습니다. 여기에 지정된 재시도 정책은 각 시도 후 3초 동안 최대 3회까지 대기합니다.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -776,6 +777,3 @@ Azure Storage 모범 사례 및 패턴에 대한 비디오 소개는 [Microsoft 
 * [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [클라우드 서비스 공급자 선택 방법](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

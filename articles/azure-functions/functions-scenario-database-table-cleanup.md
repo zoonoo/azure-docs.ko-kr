@@ -4,12 +4,12 @@ description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254279"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
@@ -17,17 +17,17 @@ ms.locfileid: "79366815"
 
 C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참고해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [Visual Studio를 사용 하 여 첫 번째 함수 만들기](functions-create-your-first-function-visual-studio.md) 문서의 단계를 완료 하 여 버전 2.x 또는 이후 버전의 런타임을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
 
-+ 이 문서은 AdventureWorksLT 샘플 데이터베이스의 **SalesOrderHeader** 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여줍니다. AdventureWorksLT 샘플 데이터베이스를 만들려면 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서의 단계를 완료합니다.
++ 이 문서은 AdventureWorksLT 샘플 데이터베이스의 **SalesOrderHeader** 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여줍니다. AdventureWorksLT 샘플 데이터베이스를 만들려면 [Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)문서의 단계를 완료 합니다.
 
-+ 이 빠른 시작 에서 사용하는 컴퓨터의 공용 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-get-started-portal-firewall.md)을 추가해야 합니다. 이 규칙은 로컬 컴퓨터에서 SQL 데이터베이스 인스턴스에 액세스할 수 있어야 합니다.  
++ 이 빠른 시작 에서 사용하는 컴퓨터의 공용 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-get-started-portal-firewall.md)을 추가해야 합니다. 이 규칙은 로컬 컴퓨터에서 SQL Database 인스턴스에 액세스할 수 있어야 합니다.  
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-[Azure Portal에서 Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 완료하면 만든 데이터베이스에 대한 연결 문자열을 가져와야 합니다.
+[Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 완료할 때 만든 데이터베이스에 대 한 연결 문자열을 가져와야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -43,7 +43,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시** > **Azure App Service 설정 편집**을 선택 합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**  >  **Azure App Service 설정 편집**을 선택 합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
 
     ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -55,7 +55,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>프로젝트에 SqlClient 패키지 추가
 
-SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL 데이터베이스에 연결하는 데 필요합니다.
+SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL Database에 연결 하는 데 필요 합니다.
 
 1. Visual Studio 2019에서 로컬 함수 앱 프로젝트를 엽니다.
 
@@ -73,7 +73,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
 ## <a name="add-a-timer-triggered-function"></a>타이머 트리거 함수 추가
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Add** > **새 Azure 함수**추가를 선택 합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Add**  >  **새 Azure 함수**추가를 선택 합니다.
 
 1. **Azure Functions** 템플릿을 선택하여 새 항목의 이름을 `DatabaseCleanup.cs`와 같이 지정하고, **추가**를 선택합니다.
 

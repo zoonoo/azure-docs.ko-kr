@@ -3,12 +3,12 @@ title: Azure Portal를 사용 하 여 리소스 배포
 description: Azure Portal 및 Azure 리소스 관리를 사용 하 여 구독의 리소스 그룹에 리소스를 배포 합니다.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255265"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal
 
@@ -86,7 +86,7 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
 1. 템플릿을 만들기 위한 몇 가지 옵션이 표시 됩니다.
 
     - **편집기에서 사용자 고유의 템플릿을 빌드합니다**. 포털 템플릿 편집기를 사용 하 여 템플릿을 만듭니다.  편집기에서 리소스 템플릿 스키마를 추가할 수 있습니다.
-    - **일반 템플릿**: Linux 가상 머신, Windows 가상 머신, 웹 응용 프로그램 및 Azure SQL database를 만드는 데 사용할 수 있는 네 가지 일반적인 템플릿이 있습니다.
+    - **일반 템플릿**: Linux 가상 머신, Windows 가상 머신, 웹 응용 프로그램 및 데이터베이스를 만드는 데 사용할 수 있는 네 가지 일반적인 템플릿이 Azure SQL Database 있습니다.
     - **GitHub 빠른 시작 템플릿 로드**: 기존 빠른 시작 [템플릿을](https://azure.microsoft.com/resources/templates/)사용 합니다.
 
    ![옵션 보기](./media/deploy-portal/see-options.png)
@@ -118,7 +118,7 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
     - **위치**: Azure 위치를 선택 합니다.
     - **저장소 계정 유형**: 기본값을 사용 합니다.
     - **Location**: 기본값을 사용 합니다.
-    - **위에 명시된 사용 약관에 동의함**: (선택)
+    - **위에 명시 된 사용 약관에 동의 함**: (select)
 
 1. **구매**를 선택합니다.
 

@@ -8,22 +8,22 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254415"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름에서 SQL 잘림 오류 행 처리
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-매핑 데이터 흐름을 사용할 때 Data Factory 일반적인 시나리오는 변환 된 데이터를 Azure SQL database에 쓰는 것입니다. 이 시나리오에서는을 방지 해야 하는 일반적인 오류 조건을 열 잘림을 수행할 수 있습니다. 이러한 단계를 수행 하 여 대상 문자열 열에 맞지 않는 열에 대 한 로깅을 제공 하면 데이터 흐름이 해당 시나리오에서 계속 될 수 있습니다.
+데이터 흐름 매핑을 사용할 때 Data Factory 일반적인 시나리오는 변환 된 데이터를 Azure SQL Database의 데이터베이스에 쓰는 것입니다. 이 시나리오에서는을 방지 해야 하는 일반적인 오류 조건을 열 잘림을 수행할 수 있습니다. 이러한 단계를 수행 하 여 대상 문자열 열에 맞지 않는 열에 대 한 로깅을 제공 하면 데이터 흐름이 해당 시나리오에서 계속 될 수 있습니다.
 
 ## <a name="scenario"></a>시나리오
 
-1. "Name" 이라는 ```nvarchar(5)``` 열이 있는 대상 Azure SQL database 테이블이 있습니다.
+1. "Name" 이라는 열이 있는 대상 데이터베이스 테이블이 있습니다 ```nvarchar(5)``` .
 
 2. 데이터 흐름 내에서 싱크의 동영상 제목을 해당 대상 "이름" 열에 매핑해야 합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "81732695"
 
 2. 이 조건부 분할 변환은 "제목"의 최대 길이를 5로 정의 합니다. 5 보다 작거나 같은 행은 ```GoodRows``` 스트림으로 이동 합니다. 5 보다 큰 행은 ```BadRows``` 스트림으로 이동 합니다.
 
-3. 이제 실패 한 행을 기록해 야 합니다. ```BadRows``` 스트림에 대 한 싱크 변환을 스트림에 추가 합니다. 여기에서는 전체 트랜잭션 레코드의 로깅을 사용할 수 있도록 모든 필드를 "자동 매핑" 합니다. Blob Storage의 단일 파일에 대 한 텍스트로 구분 된 CSV 파일 출력입니다. 로그 파일 "badrows. csv"를 호출 합니다.
+3. 이제 실패 한 행을 기록해 야 합니다. ```BadRows```스트림에 대 한 싱크 변환을 스트림에 추가 합니다. 여기에서는 전체 트랜잭션 레코드의 로깅을 사용할 수 있도록 모든 필드를 "자동 매핑" 합니다. Blob Storage의 단일 파일에 대 한 텍스트로 구분 된 CSV 파일 출력입니다. 로그 파일 "badrows.csv"을 (를) 호출 합니다.
 
     ![잘못 된 행](media/data-flow/error3.png)
     

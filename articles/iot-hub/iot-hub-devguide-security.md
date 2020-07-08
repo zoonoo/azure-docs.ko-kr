@@ -11,12 +11,12 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f1f6f4a6a1d48a0f409d5e5aba644a26653aa7df
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252137"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -198,11 +198,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + parse.urlencode(rawtoken)
 ```
 
-다음은 필수 조건에 대한 설치 지침입니다.
-
-[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
-
 보안 토큰을 생성하는 C#의 기능은 다음과 같습니다.
 
 ```csharp
@@ -234,7 +229,6 @@ public static string generateSasToken(string resourceUri, string key, string pol
 }
 
 ```
-
 
 > [!NOTE]
 > IoT Hub 컴퓨터에서 토큰의 유효 기간이 확인되므로 토큰을 생성하는 컴퓨터의 시계에서 편차가 최소여야 합니다.

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95f29331c723e584cdecdd27a714f22377dfd26d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253582"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
 
@@ -26,10 +26,10 @@ ms.locfileid: "81605933"
 
 이 문서에서는 저장 프로시저 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL Database Managed Instance를 사용할 수도 있습니다.
+이 문서의 연습에서는 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스팅합니다. Azure SQL Managed Instance를 사용할 수도 있습니다.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
 Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침에 따라 만듭니다.
@@ -41,8 +41,8 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 먼저, Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-2. [Azure Portal](https://portal.azure.com)로 이동 합니다. 
-3. 왼쪽 메뉴에서 **새로 만들기** 를 클릭 하 고 **데이터 + 분석**를 클릭 한 다음 **Data Factory**를 클릭 합니다. 
+2. [Azure Portal](https://portal.azure.com)로 이동합니다. 
+3. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFTutorialDataFactory**를 입력합니다. 
@@ -53,17 +53,17 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
   
      ![사용할 수 없는 이름 - 오류](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
-4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행 합니다.
+4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
      
    - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
    - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
      리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
 4. **버전**에 대해 **V2**를 선택합니다.
-5. 데이터 팩터리의 **위치** 를 선택 합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
+5. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
-8. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+8. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
      ![데이터 팩터리 배포 중 타일](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
@@ -80,7 +80,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 2. **작업** 도구 상자에서 **일반**을 펼치고, **저장 프로시저** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
 
     ![저장 프로시저 작업 끌어서 놓기](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. 저장 프로시저 작업에 대한 속성 창에서 **SQL 계정** 탭으로 전환한 후 **+ 새로 만들기**를 클릭합니다. SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스(SSIDB 데이터베이스)에 대한 연결을 만듭니다. 
+3. 저장 프로시저 작업에 대한 속성 창에서 **SQL 계정** 탭으로 전환한 후 **+ 새로 만들기**를 클릭합니다. SSIS 카탈로그 (SSIDB 데이터베이스)를 호스팅하는 Azure SQL Database에서 데이터베이스에 대 한 연결을 만듭니다. 
    
     ![새 연결된 서비스 단추](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
 4. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
@@ -98,7 +98,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 5. 속성 창의 **SQL 계정** 탭에서 **저장 프로시저** 탭으로 전환 하 고 다음 단계를 수행 합니다. 
 
     1. **편집**을 선택합니다. 
-    2. **저장 프로시저 이름** 필드에을 입력 `sp_executesql`합니다. 
+    2. **저장 프로시저 이름** 필드에을 입력 `sp_executesql` 합니다. 
     3. **저장 프로시저 매개 변수** 섹션에서 **+ 새로 만들기**를 클릭합니다. 
     4. 매개 변수의 **이름**으로 **stmt**를 입력합니다. 
     5. 매개 변수의 **형식**으로 **String**을 입력합니다. 
@@ -134,7 +134,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
     ![작업 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. Azure SQL 서버의 SSISDB 데이터베이스에 대해 다음 **쿼리**를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
+4. SQL Database에서 SSISDB 데이터베이스에 대해 다음 **쿼리** 를 실행 하 여 패키지가 실행 되었는지 확인할 수 있습니다. 
 
     ```sql
     select * from catalog.executions
@@ -196,7 +196,7 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
 * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
-SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다. 데이터 팩터리는 이 연결된 서비스의 정보를 사용하여 SSISDB 데이터베이스에 연결하고 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
+SSIS 카탈로그를 호스트 하는 데이터베이스를 데이터 팩터리에 연결 하는 연결 된 서비스를 만듭니다. 데이터 팩터리는 이 연결된 서비스의 정보를 사용하여 SSISDB 데이터베이스에 연결하고 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
 
 1. **C:\ADF\RunSSISPackage** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 
 
@@ -217,7 +217,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
 
-3. AzDataFactoryV2LinkedService cmdlet을 실행 하 여 연결 된 서비스 ( **AzureSqlDatabaseLinkedService** **)** 를 만듭니다. 
+3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -353,7 +353,7 @@ while ($True) {
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    Azure SQL Server의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
+    SQL Database에서 SSISDB 데이터베이스에 대해 다음 쿼리를 실행 하 여 패키지가 실행 되었는지 확인할 수 있습니다. 
 
     ```sql
     select * from catalog.executions

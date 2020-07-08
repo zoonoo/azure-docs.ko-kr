@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: 푸시 알림, 푸시 알림, iOS 푸시 알림, Android 푸시 알림, iOS 푸시, Android 푸시
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -17,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255129"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 
@@ -56,7 +54,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>내 허브 또는 네임스페이스를 다른 계층으로 업그레이드하거나 다운그레이드하려면 어떻게 해야 합니까?
 
-**[Azure Portal]** > **Notification Hubs 네임 스페이스** 또는 **Notification Hubs**으로 이동 합니다. 업데이트할 리소스를 선택하고 **가격 책정 계층**으로 이동합니다. 다음 요구 사항에 유의하세요.
+**[Azure Portal]**  >  **Notification Hubs 네임 스페이스** 또는 **Notification Hubs**으로 이동 합니다. 업데이트할 리소스를 선택하고 **가격 책정 계층**으로 이동합니다. 다음 요구 사항에 유의하세요.
 
 * 업데이트된 가격 책정 계층은 작업 중인 네임스페이스 내 *모든* 허브에 적용됩니다.
 * 디바이스 수가 다운그레이드하려는 계층의 한도를 초과하는 경우에는 디바이스를 삭제해야 다운그레이드할 수 있습니다.
@@ -69,7 +67,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="which-client-platforms-do-you-support"></a>어떤 클라이언트 플랫폼이 지원되나요?
 
-푸시 알림은 [ios](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md) [Android China (Baidu를 통해)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([ios](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 및 android, [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari))에 대해 지원 됩니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
+푸시 알림은 [iOS](ios-sdk-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (Baidu 통해)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin [iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 및 [Android](xamarin-notification-hubs-push-notifications-android-gcm.md), [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)에 대해 지원 됩니다. 자세한 내용은 [Notification Hubs 시작 자습서](ios-sdk-get-started.md) 페이지를 참조 하세요.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>문자 메시지, 전자 메일, 웹 알림이 지원되나요?
 
@@ -79,7 +77,7 @@ Notification Hubs는 mobile apps를 실행 하는 장치에 알림을 보냅니�
 
 지원되는 디바이스 수에 대한 내용은 [Notification Hubs 가격 책정] 페이지를 참조하세요.
 
-1000만 개 이상의 등록 된 장치에 대 한 지원이 필요한 경우 여러 허브에서 장치를 분할 해야 합니다.
+1000만 개 이상의 등록 된 장치에 대 한 지원이 필요한 경우 여러 네임 스페이스로 장치를 분할 해야 합니다.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>보낼 수 있는 푸시 알림 수는 몇 개인가요?
 
@@ -193,7 +191,7 @@ Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공
 
 Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
-프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
+프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 - [.Net을 사용 하 여 Azure Monitor 메트릭을 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면 [다음 예제](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)와 같이 FromServicePrincipal 메서드를 오버 로드 하 여 인증서를 제공 합니다. 
 - [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
@@ -206,7 +204,6 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs 가격 책정]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs 시작 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [백 엔드 등록 지침 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: d611be27d8d576748019dee46022ca4cb70e966a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253446"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업이 무기한 보존되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
@@ -74,7 +74,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
 4. **Storage 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 스토리지 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 페이지에서 새 스토리지 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
 
-5. 왼쪽에 열려 있는 **백업 구성** 페이지에서 **데이터베이스 백업**을 구성한 다음 백업에 포함할 데이터베이스(SQL 데이터베이스 또는 MySQL)를 선택하고 **확인**을 클릭합니다.
+5. 남아 있는 **백업 구성** 페이지에서 **백업 데이터베이스**를 구성한 다음 백업에 포함할 데이터베이스 (SQL Database 또는 MySQL)를 선택 하 고 **확인**을 클릭 합니다.
 
     ![스토리지 계정 선택](./media/manage-backup/configure-database.png)
 
@@ -150,7 +150,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 ## <a name="how-backups-are-stored"></a>백업 저장 방법
 앱에 대해 하나 이상의 백업을 만들면 스토리지 계정의 **컨테이너** 페이지와 앱에 해당 백업이 표시됩니다. 스토리지 계정에서 각 백업은 백업 데이터가 포함된 `.zip` 파일과 해당 `.zip` 파일 콘텐츠의 매니페스트가 포함된 `.xml` 파일로 구성되어 있습니다. 실제로 앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
 
-앱에 대한 데이터베이스 백업이 .zip 파일의 루트에 저장됩니다. SQL 데이터베이스의 경우 이 파일은 BACPAC 파일(파일 확장명 없음)이며, 가져올 수 있습니다. BACPAC 내보내기를 기반으로 하여 SQL 데이터베이스를 만들려면 [BACPAC 파일을 가져와 새 사용자 데이터베이스 만들기](https://technet.microsoft.com/library/hh710052.aspx)를 참조하세요.
+앱에 대한 데이터베이스 백업이 .zip 파일의 루트에 저장됩니다. SQL Database의 경우 BACPAC 파일 (파일 확장명 없음) 이며 가져올 수 있습니다. BACPAC 내보내기를 기반으로 Azure SQL Database에서 데이터베이스를 만들려면 [bacpac 파일을 가져와 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/database-import.md)를 참조 하세요.
 
 > [!WARNING]
 > **websitebackups** 컨테이너에 있는 파일을 변경하면 백업이 잘못되어 복원할 수 없게 됩니다.

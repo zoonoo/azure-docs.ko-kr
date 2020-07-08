@@ -3,16 +3,16 @@ title: 리소스의 배포 순서 설정
 description: 리소스가 올바른 순서대로 배포되도록 배포 중 다른 리소스에 종속된 것으로 리소스를 설정하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255214"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>ARM 템플릿에서 리소스를 배포 하는 순서 정의
 
-리소스를 배포할 때 다른 리소스가 배포 되기 전에 존재 하는지 확인 해야 할 수 있습니다. 예를 들어 sql 데이터베이스를 배포 하기 전에 SQL server가 필요 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다.
+리소스를 배포할 때 다른 리소스가 배포 되기 전에 존재 하는지 확인 해야 할 수 있습니다. 예를 들어 데이터베이스를 배포 하기 전에 논리 SQL server가 필요 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다.
 
 Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 동일한 템플릿에 배포되는 리소스에 대한 종속성만 정의하면 됩니다.
 
@@ -59,7 +59,7 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 
 각 부모 리소스는 특정 리소스 종류만 자식 리소스로 허용합니다. 허용되는 리소스 종류는 부모 리소스의 [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)에서 지정됩니다. 자식 리소스 종류의 이름에는 부모 리소스 종류의 이름이 포함됩니다. 예를 들어 **Microsoft.Web/sites/config**와 **Microsoft.Web/sites/extensions**는 둘 다 **Microsoft.Web/sites**의 자식 리소스입니다.
 
-다음 예제에서는 SQL Server 및 SQL 데이터베이스를 보여 줍니다. 데이터베이스가 서버의 자식인 경우에도 SQL 데이터베이스와 SQL Server 간에 명시적 종속성이 정의되어 있습니다.
+다음 예에서는 논리 SQL server 및 데이터베이스를 보여 줍니다. 데이터베이스가 서버의 자식인 경우에도 데이터베이스와 서버 간에 명시적 종속성이 정의 되어 있는지 확인 합니다.
 
 ```json
 "resources": [

@@ -4,12 +4,12 @@ description: Azure Blockchain 워크 벤치 미리 보기의 스마트 계약 �
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254636"
 ---
 # <a name="smart-contract-integration-patterns"></a>스마트 계약 통합 패턴
 
@@ -31,7 +31,7 @@ Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 R
 
 REST API는 주로 웹, 모바일 및 봇 애플리케이션과 같은 대화형 클라이언트에 사용됩니다.
 
-이 섹션에서는 분산 원장으로 트랜잭션을 전송하는 REST API의 측면을 중심으로 한 패턴과, Azure Blockchain Workbench *오프 체인* SQL 데이터베이스에서 트랜잭션 관련 데이터를 쿼리하는 패턴에 대해 설명합니다.
+이 섹션에서는 분산 원장에 트랜잭션을 보내는 REST API의 측면에 초점을 맞춘 패턴을 살펴보고 Azure Blockchain 워크 벤치의 *오프 체인* 데이터베이스에서 트랜잭션에 대 한 데이터를 쿼리 하는 패턴을 살펴봅니다.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>외부 시스템에서 분산 원장으로 트랜잭션 전송
 
@@ -204,7 +204,7 @@ Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원
 
 -   Azure Blockchain Workbench는 애플리케이션, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
 -   외부 시스템 또는 도구는 하나 이상의 대화 상자를 제공하여 데이터베이스 서버 이름, 데이터베이스 이름, 인증 유형, 로그인 자격 증명 및 활용할 데이터베이스 뷰와 같은 데이터베이스 관련 정보 수집을 용이하게 합니다.
--   외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에 의한 다운스트림 사용을 용이하게 하기 위해 SQL 데이터베이스 뷰에 대해 쿼리가 작성됩니다.
+-   쿼리는 외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에의 한 다운스트림 소비를 용이 하 게 하기 위해 데이터베이스 뷰에 대해 작성 됩니다.
 
 ## <a name="storage-integration"></a>스토리지 통합
 

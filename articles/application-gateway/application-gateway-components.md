@@ -4,15 +4,15 @@ description: 이 문서에서는 응용 프로그램 게이트웨이의 다양 �
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 90b3c3fd18bc9211c731ccf16dd646a64a4a1116
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254330"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
 
@@ -126,7 +126,7 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 백 엔드 풀은 요청을 처리 하는 백 엔드 서버에 요청을 라우팅합니다. 백 엔드 풀에는 다음이 포함 될 수 있습니다.
 
 - NIC
-- 가상 머신 확장 집합
+- 가상 머신 크기 집합
 - 공용 IP 주소
 - 내부 IP 주소
 - FQDN
@@ -152,6 +152,6 @@ Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결 되지 �
 
 애플리케이션 게이트웨이를 만듭니다.
 
-* [Azure Portal](quick-create-portal.md)
+* [Azure Portal에서](quick-create-portal.md)
 * [Azure PowerShell 사용](quick-create-powershell.md)
 * [Azure CLI 사용](quick-create-cli.md)

@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3fec04a1a45f8b154e27a1e5303e44111f4cb421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71211878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253871"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
@@ -124,7 +122,7 @@ ms.locfileid: "71211878"
     이 코드는 요청에 대한 디바이스 토큰을 설정합니다.
 
    > [!NOTE]
-   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. [Notification Hubs 시작](notification-hubs-ios-apple-push-notification-apns-get-started.md) 자습서를 완료할 때 추가된 `registerNativeWithDeviceToken` 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
+   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. `registerNativeWithDeviceToken` [Azure Notification Hubs를 사용 하 여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md) 자습서를 완료할 때 추가 된 메서드에 대 한 호출이 이미 있는 경우 해당 호출을 주석으로 처리 하거나 제거 해야 합니다.
 
 8. `PushToUserAppDelegate.m` 파일에서 다음 처리기 메서드를 추가합니다.
 
@@ -258,4 +256,4 @@ ms.locfileid: "71211878"
 
 <!-- URLs. -->
 [Notification Hubs를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Notification Hubs 시작]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Notification Hubs 시작]: ios-sdk-get-started.md

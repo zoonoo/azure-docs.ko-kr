@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282134"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254517"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -31,7 +31,7 @@ ms.locfileid: "79282134"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Blob Storage 사이에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 제공 하는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 ## <a name="overview"></a>개요
-모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소 목록을 제공합니다. 예를 들어 데이터를 SQL Server 데이터베이스 또는 Azure SQL 데이터베이스**에서** Azure Blob Storage**로**로 이동할 수 있습니다. 그리고 데이터를 Azure Blob Storage 스토리지**에서** Azure SQL Data Warehouse 또는 Azure Cosmos DB 컬렉션**으로** 복사할 수 있습니다.
+모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소 목록을 제공합니다. 예를 들어 SQL Server 데이터베이스 또는 Azure SQL Database의 데이터베이스 **에서** Azure blob 저장소 **로** 데이터를 이동할 수 있습니다. 그리고 데이터를 Azure Blob Storage 스토리지**에서** Azure SQL Data Warehouse 또는 Azure Cosmos DB 컬렉션**으로** 복사할 수 있습니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -59,8 +59,8 @@ ms.locfileid: "79282134"
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
 1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다.
-2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결 하는 **연결 된 서비스** 를 만듭니다. 예를 들어 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사하는 경우 Azure Storage 계정 및 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Azure Blob Storage와 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
-2. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 그리고 Blob Storage에서 복사한 데이터를 포함하는 Azure SQL 데이터베이스의 SQL 테이블을 지정하는 또 다른 데이터 세트를 만듭니다. Azure Blob Storage와 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
+2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결 하는 **연결 된 서비스** 를 만듭니다. 예를 들어 Azure blob 저장소에서 Azure SQL Database로 데이터를 복사 하는 경우 Azure storage 계정 및 Azure SQL Database를 데이터 팩터리에 연결 하는 두 개의 연결 된 서비스를 만듭니다. Azure Blob Storage와 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
+2. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 그리고 blob 저장소에서 복사 된 데이터를 보관 하는 Azure SQL Database에 SQL 테이블을 지정 하는 또 다른 데이터 집합을 만듭니다. Azure Blob Storage와 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
 3. 데이터 집합을 입력으로 사용 하 고 데이터 집합을 출력으로 사용 하는 복사 작업을 사용 하 여 **파이프라인** 을 만듭니다. 앞에서 언급한 예에서는 BlobSource를 원본으로, SqlSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure SQL Database에서 Azure Blob Storage로 복사하는 경우 복사 작업에 SqlSource 및 BlobSink를 사용합니다. Azure Blob Storage와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-blob-storage  ) 섹션을 참조하세요.
@@ -81,13 +81,13 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 형식 등에 대 한 정보를 제공 합니다. **AzureBlob** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
-| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 다음 형식으로 지정 됩니다 `Data.<Guid>.txt` (예:: 0a405f8a-93ff-4c6f-b3be-f69616f1df7a). |아니요 |
-| partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [Using partitionedBy 속성 섹션](#using-partitionedby-property) 을 참조 하세요. |아니요 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. format의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소 (이진 복사) 간에 파일을 있는 **그대로 복사** 하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원 되는 형식은 **GZip**, **Deflate**, **BZip2**및 **ZipDeflate**입니다. 지원 되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
+| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 다음과 같은 형식으로 지정 됩니다 `Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
+| partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [Using partitionedBy 속성 섹션](#using-partitionedby-property) 을 참조 하세요. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 ### <a name="using-partitionedby-property"></a>partitionedBy 속성 사용
 이전 섹션에서 설명했듯이 **partitionedBy** 속성, [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용하여 시계열 데이터의 동적 folderPath와 filename을 지정할 수 있습니다.
@@ -174,7 +174,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 이 스토리지를 만든 후에 쉽게 탑재 및 공유할 수 있도록 하려면 Azure File Storage 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다. 이 연습에 나오는 원본 및 대상 데이터 저장소의 유형은 모두 Azure Blob Storage입니다. 이 연습의 파이프라인은 한 폴더의 데이터를 동일한 Blob 컨테이너의 다른 폴더로 복사합니다. 이 연습에서는 Blob Storage를 원본 또는 싱크로 사용할 때 설정 또는 속성을 표시하는 것이 간단합니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
-1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob Storage를 **원본** 및 **대상** 데이터 스토리지로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
+1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob Storage를 **원본** 및 **대상** 데이터 스토리지로 사용합니다. Azure storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조 하세요.
 2. 스토리지 계정에 **adfblobconnector**라는 Blob 컨테이너를 만듭니다.
 4. **adfblobconnector** 컨테이너에 **input**이라는 폴더를 만듭니다.
 5. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 다음 내용이 포함된 **emp.txt**라는 파일을 만들어 **input** 폴더에 업로드합니다.
@@ -193,7 +193,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     4. Data Factory의 **위치**를 선택합니다.
     5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.
     6. **만들기**를 클릭합니다.
-3. 만들기가 완료 되 면 다음 이미지와 같이 **Data Factory** 블레이드가 표시 됩니다. ![데이터 팩터리 홈 페이지](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. 만들기가 완료 되 면 다음 이미지와 같이 **Data Factory** 블레이드가 표시 됩니다. ![ 데이터 팩터리 홈 페이지](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>복사 마법사
 1. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **데이터 복사 마법사**를 별도의 탭에서 시작합니다.  
@@ -233,7 +233,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     1. 다음 옵션을 확인합니다.  
         a. **파일 형식**이 **텍스트 형식**으로 설정되었습니다. 드롭다운 목록에서 지원되는 모든 형식을 볼 수 있습니다. 예: JSON, Avro, ORC, Parquet.
        b. **열 구분 기호**가 `Comma (,)`로 설정되었습니다. 드롭다운 목록에서 Data Factory가 지원하는 다른 열 구분 기호를 볼 수 있습니다. 사용자 지정 구분 기호를 지정할 수도 있습니다.
-       c. **행 구분 기호**가 `Carriage Return + Line feed (\r\n)`로 설정되었습니다. 드롭다운 목록에서 Data Factory가 지원하는 다른 행 구분 기호를 볼 수 있습니다. 사용자 지정 구분 기호를 지정할 수도 있습니다.
+       다. **행 구분 기호**가 `Carriage Return + Line feed (\r\n)`로 설정되었습니다. 드롭다운 목록에서 Data Factory가 지원하는 다른 행 구분 기호를 볼 수 있습니다. 사용자 지정 구분 기호를 지정할 수도 있습니다.
        d. **건너뛸 줄 수**가 **0**으로 설정되었습니다. 파일 맨 위에서 몇 줄을 건너뛰려면 여기에 숫자를 입력합니다.
        e. **첫 번째 데이터 행에 열 이름 포함**이 설정되었습니다. 원본 파일에 첫 번째 행에 열 이름이 있으면 이 옵션을 선택합니다.
        f. **빈 열 값을 Null로 간주합니다** 옵션이 설정되었습니다.
@@ -548,7 +548,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 ```
 **Azure SQL 출력 데이터 집합:**
 
-샘플은 Azure SQL 데이터베이스의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL 데이터베이스에 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
+이 샘플에서는 Azure SQL Database의 "MyTable" 이라는 테이블에 데이터를 복사 합니다. Blob CSV 파일에 포함할 것으로 간주 되는 것과 동일한 수의 열을 사용 하 여 SQL database에 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
 
 ```json
 {

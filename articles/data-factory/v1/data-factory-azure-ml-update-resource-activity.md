@@ -11,18 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0204a2873b288dcb2082dbd5c9c984d29fa6d456
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254925"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 Azure Machine Learning 모델 업데이트
 
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md) 
-> * [Pig 작업](data-factory-pig-activity.md)
+> * [Pig 활동](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
@@ -47,7 +47,7 @@ ms.locfileid: "82930457"
 다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 다시 학습 Machine Learning Studio (클래식) 모델](../../machine-learning/studio/retrain-machine-learning-model.md) 을 참조 하세요.
 
 - **학습 웹 서비스** - 학습 데이터를 수신하고 학습된 모델을 생성합니다. 재학습의 출력은 Azure Blob Storage에서 .ilearner 파일입니다. 웹 서비스로 학습 실험을 게시할 때 사용자에 대한 **기본 엔드포인트** 가 자동으로 만들어집니다. 더 많은 엔드포인트를 만들 수 있지만 예제에서는 기본 엔드포인트만 사용합니다.
-- **점수 매기기 웹 서비스** - 레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력은 실험의 구성에 따라 .csv 파일 또는 Azure SQL 데이터베이스의 행과 같은 다양한 형태를 포함할 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 엔드포인트가 자동으로 만들어집니다. 
+- **점수 매기기 웹 서비스** - 레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력에는 실험의 구성에 따라 .csv 파일 또는 Azure SQL Database의 행과 같은 다양 한 형식이 있을 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 엔드포인트가 자동으로 만들어집니다. 
 
 다음 그림에서는 Azure ML에서 학습 및 점수 매기기 엔드포인트 간의 관계를 보여줍니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "82930457"
 **scoring web service** 을 사용하여 두 번째 **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다. 다음 예제에서는 연결된 서비스 정의를 제공합니다. 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>웹 서비스 점수 매기기는 클래식 웹 서비스입니다.
-점수 매기기 웹 서비스가 **기존 웹 서비스인**경우 Azure Portal를 사용 하 여 두 번째 **기본이 아닌 업데이트 가능한 끝점** 을 만듭니다. 이에 대한 단계는 [엔드포인트 만들기](../../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 엔드포인트를 만든 후 다음 단계를 수행합니다.
+점수 매기기 웹 서비스가 **기존 웹 서비스인**경우 Azure Portal를 사용 하 여 두 번째 **기본이 아닌 업데이트 가능한 끝점** 을 만듭니다. 이에 대한 단계는 [엔드포인트 만들기](../../machine-learning/studio/create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 엔드포인트를 만든 후 다음 단계를 수행합니다.
 
 * **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
 * **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 엔드포인트 페이지 자체의 오른쪽 하단에 있습니다.

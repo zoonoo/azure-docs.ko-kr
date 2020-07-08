@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254075"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>SQL Edge에서 Azure Stream Analytics 작업 사용
 
@@ -52,7 +52,7 @@ Azure SQL Edge에는 Stream Analytics 런타임의 네이티브 구현이 있습
     |필드      | Description |
     |---------------|-------------|
     |출력 별칭 | 출력 별칭의 이름입니다.|
-    |데이터베이스 | SQL 데이터베이스의 이름입니다. SQL Edge 인스턴스에 있는 데이터베이스의 유효한 이름이어야 합니다.|
+    |데이터베이스 | 데이터베이스의 이름입니다. SQL Edge 인스턴스에 있는 데이터베이스의 유효한 이름이어야 합니다.|
     |서버 이름 | SQL 인스턴스의 이름 또는 IP 주소와 포트 번호 정보입니다. SQL Edge 배포의 경우 서버 이름으로 **tcp:.,1433**을 사용할 수 있습니다.|
     |사용자 이름 | 데이터 판독기와 데이터 기록기가 앞에서 지정한 데이터베이스에 액세스할 수 있게 하는 SQL 로그인 계정입니다.|
     |암호 | 앞에서 지정한 SQL 로그인 계정의 암호입니다.|

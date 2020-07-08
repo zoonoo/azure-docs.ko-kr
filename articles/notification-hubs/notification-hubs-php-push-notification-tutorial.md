@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c4bf0569d6e2e595eb03c85abba7224b25b1864
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255452"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>PHP에서 Notification Hubs를 사용하는 방법
 
@@ -32,7 +30,7 @@ MSDN 항목 [NOTIFICATION HUBS REST api](https://msdn.microsoft.com/library/dn22
 이 항목에서는 다음 방법을 보여 줍니다.
 
 * PHP에서 Notification Hubs 기능에 대한 REST 클라이언트를 빌드하는 방법
-* 선택한 모바일 플랫폼에 대 한 [시작 자습서](notification-hubs-ios-apple-push-notification-apns-get-started.md) 에 따라 PHP에서 백 엔드 부분을 구현 합니다.
+* 선택한 모바일 플랫폼에 대해 [Azure Notification Hubs를 사용 하 여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md) 를 따라 PHP에서 백 엔드 부분을 구현 합니다.
 
 ## <a name="client-interface"></a>클라이언트 인터페이스
 
@@ -55,7 +53,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 ## <a name="implementation"></a>구현
 
-아직 시작 하지 않은 경우 백 엔드를 구현 해야 하는 마지막 섹션까지 [시작 자습서] 를 따르세요.
+아직 수행 하지 않은 경우 백 엔드를 구현 해야 하는 마지막 섹션까지 [시작 자습서]를 따르세요.
 필요하면 [PHP REST 래퍼 샘플]에서 코드를 사용하고 직접 [자습서 완료](#complete-tutorial) 섹션으로 이동할 수도 있습니다.
 
 전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](https://msdn.microsoft.com/library/dn530746.aspx)을 참조하세요. 이 섹션에서는 Notification Hubs REST 엔드포인트에 액세스하는 데 필요한 기본 단계의 PHP 구현에 대해 설명합니다.
@@ -222,7 +220,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 이제 PHP 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
-Notification Hubs 클라이언트를 초기화합니다( [시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
+Notification Hubs 클라이언트를 초기화 합니다 ([시작 자습서]의 지시에 따라 연결 문자열 및 허브 이름 대체).
 
     ```php
     $hub = new NotificationHub("connection string", "hubname");
@@ -282,7 +280,7 @@ Notification Hubs 클라이언트를 초기화합니다( [시작 자습서]에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 수행할 수 있습니다.
+이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음과 같은 작업을 할 수 있습니다.
 
 * 위의 모든 코드가 포함된 전체 [PHP REST 래퍼 샘플]을 다운로드합니다.
 * [속보 자습서]에서 Notification Hubs 태그 지정 기능에 대해 계속 알아봅니다.
@@ -291,4 +289,5 @@ Notification Hubs 클라이언트를 초기화합니다( [시작 자습서]에 �
 자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
 [PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[자습서 시작 하기]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md))
+

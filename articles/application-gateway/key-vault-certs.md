@@ -1,22 +1,22 @@
 ---
 title: Azure Key Vault 인증서를 사용 하는 TLS 종료
-description: HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault Azure 애플리케이션 Gateway를 통합 하는 방법에 대해 알아봅니다.
+description: HTTPS 지원 수신기에 연결된 서버 인증서를 위해 Azure Application Gateway를 Key Vault와 통합하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: a214dae7c80cbc520fc6aff5a492466a77261167
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255367"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용 하는 TLS 종료
 
-[Azure Key Vault](../key-vault/general/overview.md) 는 암호, 키 및 TLS/SSL 인증서를 보호 하는 데 사용할 수 있는 플랫폼 관리 암호 저장소입니다. Azure 애플리케이션 Gateway는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault와의 통합을 지원 합니다. 이 지원은 Application Gateway의 v2 SKU로 제한 됩니다.
+[Azure Key Vault](../key-vault/general/overview.md)는 비밀, 키 및 TLS/SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure Application Gateway는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 Application Gateway의 v2 SKU로 제한 됩니다.
 
 Key Vault 통합은 TLS 종료를 위한 두 가지 모델을 제공 합니다.
 
@@ -41,9 +41,9 @@ Application Gateway는 현재 소프트웨어 유효성 검사 인증서만 지�
 
 Key Vault와 통합 Application Gateway 하려면 3 단계 구성 프로세스가 필요 합니다.
 
-1. **사용자 할당 관리 id 만들기**
+1. **사용자 할당 관리 ID 만들기**
 
-   사용자를 대신 하 여 Key Vault에서 인증서를 검색 하는 데 사용 Application Gateway 하는 기존 사용자 할당 관리 id를 만들거나 다시 사용 합니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id 란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조 하세요. 이 단계에서는 Azure Active Directory 테 넌 트에 새 id를 만듭니다. Id를 만드는 데 사용 되는 구독에서 id를 신뢰 합니다.
+   사용자를 대신 하 여 Key Vault에서 인증서를 검색 하는 데 사용 Application Gateway 하는 기존 사용자 할당 관리 id를 만들거나 다시 사용 합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요. 이 단계에서는 Azure Active Directory 테 넌 트에 새 id를 만듭니다. Id를 만드는 데 사용 되는 구독에서 id를 신뢰 합니다.
 
 1. **주요 자격 증명 모음 구성**
 
@@ -52,7 +52,7 @@ Key Vault와 통합 Application Gateway 하려면 3 단계 구성 프로세스�
    > [!NOTE]
    > Azure CLI 또는 PowerShell을 사용 하거나 Azure Portal에서 배포 된 Azure 응용 프로그램을 통해 ARM 템플릿을 통해 응용 프로그램 게이트웨이를 배포 하는 경우, SSL 인증서는 키 자격 증명 모음에 base64 인코딩 PFX 파일로 저장 됩니다. [배포 중에 보안 매개 변수 값을 전달 하려면 Azure Key Vault 사용](../azure-resource-manager/templates/key-vault-parameter.md)의 단계를 완료 해야 합니다. 
    >
-   > 을로 `enabledForTemplateDeployment` `true`설정 하는 것이 특히 중요 합니다. 인증서가 암호를 적거나 암호를 포함할 수 있습니다. 암호를 사용 하는 인증서의 경우 다음 예제에서는 앱 게이트웨이의 ARM 템플릿 구성에 `sslCertificates` `properties` 대 한의 항목에 대 한 가능한 구성을 보여 줍니다. 및 `appGatewaySSLCertificateData` `appGatewaySSLCertificatePassword` 의 값은 [동적 ID로 암호 참조](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id)섹션에 설명 된 대로 key vault에서 조회 됩니다. 에서 `parameters('secretName')` 뒤로 참조를 따라 조회를 수행 하는 방법을 확인 합니다. 인증서가 암호 보다 낮으면 `password` 항목을 생략 합니다.
+   > 을로 설정 하는 것이 특히 중요 `enabledForTemplateDeployment` `true` 합니다. 인증서가 암호를 적거나 암호를 포함할 수 있습니다. 암호를 사용 하는 인증서의 경우 다음 예제에서는 `sslCertificates` `properties` 앱 게이트웨이의 ARM 템플릿 구성에 대 한의 항목에 대 한 가능한 구성을 보여 줍니다. 및의 값 `appGatewaySSLCertificateData` 은 `appGatewaySSLCertificatePassword` [동적 ID로 암호 참조](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id)섹션에 설명 된 대로 key vault에서 조회 됩니다. 에서 뒤로 참조를 따라 조회를 수행 하는 `parameters('secretName')` 방법을 확인 합니다. 인증서가 암호 보다 낮으면 항목을 생략 `password` 합니다.
    >   
    > ```
    > "sslCertificates": [

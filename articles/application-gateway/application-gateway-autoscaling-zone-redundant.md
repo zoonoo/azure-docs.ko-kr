@@ -4,16 +4,16 @@ description: 이 문서에서는 자동 크기 조정 및 영역 중복 기능�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 03/24/2020
+ms.topic: conceptual
+ms.date: 06/06/2020
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254347"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -32,7 +32,7 @@ Application Gateway 및 WAF(웹 애플리케이션 방화벽)는 Standard_v2 및
 - **성능 향상**: V2 SKU는 표준/WAF SKU와 비교할 때 최대 5배 더 나은 TLS 오프로드 성능을 제공합니다.
 - **신속한 빠른 배포 및 업데이트 시간** v2 SKU는 표준/WAF SKU와 비교할 때 보다 빠른 배포 및 업데이트 시간을 제공합니다. 여기에는 WAF 구성 변경 내용도 포함됩니다.
 
-![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+![자동 크기 조정 영역의 다이어그램입니다.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>지원되는 지역
 
@@ -45,7 +45,7 @@ v2 SKU를 사용하는 경우 가격 책정 모델은 사용량에 따라 결정
 - **고정 가격** - Standard_v2 또는 WAF_v2 게이트웨이를 프로비저닝하는 시간별(또는 부분 시간) 가격입니다. 0개 이상의 추가 최소 인스턴스는 항상 고정 가격에 포함된 서비스의 고가용성을 보장합니다.
 - **용량 단위 가격** - 고정 비용 외에 청구되는 소비 기반 비용입니다. 용량 단위 요금은 시간별로 또는 부분 시간별로 계산됩니다. 용량 단위의 세 가지 차원은 컴퓨팅 단위, 영구 연결 및 처리량입니다. 컴퓨팅 단위는 소비된 프로세서 용량의 척도입니다. 컴퓨팅 단위에 영향을 주는 요소는 TLS 연결/초, URL 다시 쓰기 계산 및 WAF 규칙 처리입니다. 영구 연결은 지정된 청구 간격으로 Application Gateway에 설정된 TCP 연결의 척도입니다. 처리량은 지정된 청구 간격으로 시스템에서 처리되는 평균 메가비트/초입니다.  청구는 예약 인스턴스 수를 초과하는 경우에 대해 용량 단위 수준에서 수행됩니다.
 
-각 용량 단위는 최대 1개의 컴퓨팅 단위 또는 2,500개의 영구 연결 또는 2.22Mbps의 처리량으로 구성됩니다.
+각 용량 단위는 1 개의 compute 단위, 2500 영구 연결 및 2.22 Mbps 처리량으로 구성 됩니다.
 
 컴퓨팅 단위 지침:
 

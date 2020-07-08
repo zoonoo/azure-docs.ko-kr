@@ -2,14 +2,14 @@
 title: Azure Blockchain Workbench 데이터베이스 세부 정보 가져오기
 description: Azure Blockchain 워크 벤치 미리 보기 데이터베이스 및 데이터베이스 서버 정보를 가져오는 방법에 대해 알아봅니다.
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: mmercuri
-ms.openlocfilehash: 2b3190a9d042be8ead1ff3d5ef48d4a2a19e8963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 898360d8e22803e17ff4da7d3b63f5595cad47ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254653"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Azure Blockchain Workbench 데이터베이스에 대한 정보 가져오기
 
@@ -31,7 +31,7 @@ ms.locfileid: "74324698"
 1. Azure Blockchain 워크 벤치 리소스에 대 한 **소유자** 권한이 있는 계정으로 Azure Portal에 로그인 합니다.
 2. 왼쪽의 탐색 창에서 **리소스 그룹**을 선택합니다.
 3. Blockchain Workbench 배포에 대한 리소스 그룹의 이름을 선택합니다.
-4. **형식**을 선택하여 리소스 목록을 정렬한 다음, **SQL 서버**를 선택합니다. 그 다음 화면 캡처의 정렬된 목록은 두 개의 SQL 데이터베이스를 보여주는데, 하나는 "master"이고 다른 하나는 "lhgn"을 **리소스 접두사**로 사용합니다.
+4. **형식**을 선택하여 리소스 목록을 정렬한 다음, **SQL 서버**를 선택합니다. 다음 화면 캡처의 정렬 된 목록에는 "master"와 "lhgn"를 **리소스 접두사로**사용 하는 두 개의 데이터베이스가 표시 됩니다.
 
    ![정렬된 Blockchain Workbench 리소스 목록](./media/getdb-details/sorted-workbench-resource-list.png)
 

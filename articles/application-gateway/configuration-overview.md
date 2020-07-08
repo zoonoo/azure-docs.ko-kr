@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 애플리케이션 게이트웨이의 구
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254670"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -20,7 +20,7 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 ![Application Gateway 구성 요소 흐름 차트](./media/configuration-overview/configuration-overview1.png)
 
-이 이미지는 세 개의 수신기가 있는 응용 프로그램을 보여 줍니다. 처음 두 개는 각각 및 `http://acme.com/*` `http://fabrikam.com/*`에 대 한 다중 사이트 수신기입니다. 둘 다 포트 80에서 수신 합니다. 세 번째는 이전에 SSL (SSL(Secure Sockets Layer)) 종료로 알려진 종단 간 TLS (전송 계층 보안) 종료를 포함 하는 기본 수신기입니다.
+이 이미지는 세 개의 수신기가 있는 응용 프로그램을 보여 줍니다. 처음 두 개는 각각 및에 대 한 다중 사이트 수신기 `http://acme.com/*` `http://fabrikam.com/*` 입니다. 둘 다 포트 80에서 수신 합니다. 세 번째는 이전에 SSL (SSL(Secure Sockets Layer)) 종료로 알려진 종단 간 TLS (전송 계층 보안) 종료를 포함 하는 기본 수신기입니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,9 +48,9 @@ Application Gateway은 인스턴스당 하나의 개인 IP 주소를 사용 하 
 
 NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다. 하지만 다음과 같은 몇 가지 제한 사항이 있습니다.
 
-- Application Gateway v1 SKU에 대 한 TCP 포트 65503-65534에서 들어오는 인터넷 트래픽을 허용 하 고, 대상 서브넷 **이 있는 V2** sku에 대 한 tcp 포트 65200-65535 및 원본을 **gmanager** 서비스 태그로 허용 해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 이러한 끝점에서는 외부 엔터티 (해당 게이트웨이의 고객 포함)를 통신할 수 없습니다.
+- 들어오는 인터넷 트래픽을 Application Gateway v1 SKU의 경우 65503-65534 TCP 포트에서 허용하고, 대상 서브넷이 **Any**이고 원본이 **GatewayManager** 서비스 태그인 v2 SKU의 경우 65200-65535 TCP 포트에서 허용해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 이러한 끝점에서는 외부 엔터티 (해당 게이트웨이의 고객 포함)를 통신할 수 없습니다.
 
-- 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙은 인터넷 연결을 허용 합니다. 다음을 권장합니다.
+- 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙은 인터넷 연결을 허용 합니다. 다음을 수행하는 것이 좋습니다.
 
   - 기본 아웃 바운드 규칙을 제거 하지 마십시오.
   - 아웃 바운드 연결을 거부 하는 아웃 바운드 규칙은 만들지 마십시오.
@@ -219,14 +219,12 @@ Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만들 때
 
 규칙을 만들 때 [ *기본* 및 *경로 기반*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules)중에서 선택 합니다.
 
-- 연결 된 수신기의 모든 요청 (예: *<i></i>contoso.com/\*)* 을 단일 백 엔드 풀로 전달 하려면 기본을 선택 합니다.
+- 연결 된 수신기의 모든 요청 (예: * <i></i> contoso.com/ \* )* 을 단일 백 엔드 풀로 전달 하려면 기본을 선택 합니다.
 - 특정 URL 경로에서 특정 백 엔드 풀로 요청을 라우팅하 려는 경우 경로 기반을 선택 합니다. 경로 패턴은 해당 쿼리 매개 변수가 아닌 URL 경로에만 적용 됩니다.
 
 #### <a name="order-of-processing-rules"></a>처리 규칙 순서
 
-V1 SKU의 경우 들어오는 요청의 패턴 일치는 경로가 경로 기반 규칙의 URL 경로 맵에 나열 된 순서 대로 처리 됩니다. 요청이 경로 맵에 있는 두 개 이상의 경로에 있는 패턴과 일치 하면 먼저 나열 된 경로가 일치 됩니다. 그리고 요청은 해당 경로와 연결 된 백 엔드에 전달 됩니다.
-
-V2 SKU의 경우 정확한 일치는 URL 경로 맵의 경로 순서 보다 우선 순위가 높습니다. 요청이 둘 이상의 경로에서 패턴과 일치 하는 경우 요청은 요청과 정확히 일치 하는 경로와 연결 된 백 엔드에 전달 됩니다. 들어오는 요청의 경로가 맵의 경로와 정확히 일치 하지 않는 경우에는 해당 요청의 패턴 일치가 경로 기반 규칙의 경로 맵 순서 목록에서 처리 됩니다.
+V1 및 v2 SKU의 경우 들어오는 요청의 패턴 일치는 경로가 경로 기반 규칙의 URL 경로 맵에 나열 된 순서 대로 처리 됩니다. 요청이 경로 맵에 있는 두 개 이상의 경로에 있는 패턴과 일치 하면 먼저 나열 된 경로가 일치 됩니다. 그리고 요청은 해당 경로와 연결 된 백 엔드에 전달 됩니다.
 
 ### <a name="associated-listener"></a>연결 된 수신기
 
@@ -250,7 +248,7 @@ V2 SKU의 경우 정확한 일치는 URL 경로 맵의 경로 순서 보다 우�
 
 ### <a name="redirection-setting"></a>리디렉션 설정
 
-기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들면 */cart/\** 로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
+기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들면 */cart/ \* *로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
 
 리디렉션에 대 한 자세한 내용은 [Application Gateway 리디렉션 개요](redirect-overview.md)를 참조 하세요.
 
@@ -309,7 +307,7 @@ Azure 애플리케이션 게이트웨이는 사용자 세션을 유지 관리 �
 
 ### <a name="connection-draining"></a>연결 드레이닝
 
-연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 이를 통해 백 엔드 풀의 모든 있음이 인스턴스는 기존 연결을 계속 유지 하 고 구성 가능한 시간 제한에 대해 진행 중인 요청을 처리할 수 있으며 새 요청 또는 연결을 받지 않습니다. 이에 대 한 유일한 예외는 게이트웨이 관리 세션 선호도로 인해 있음이 인스턴스에 대해 바인딩된 요청이 며 있음이 인스턴스로 계속 전달 됩니다. 연결 드레이닝은 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다.
+연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. HTTP 설정에서 연결 드레이닝을 사용 하도록 설정 하 여 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 이를 통해 백 엔드 풀의 모든 있음이 인스턴스는 기존 연결을 계속 유지 하 고 구성 가능한 시간 제한에 대해 진행 중인 요청을 처리할 수 있으며 새 요청 또는 연결을 받지 않습니다. 이에 대 한 유일한 예외는 게이트웨이 관리 세션 선호도로 인해 있음이 인스턴스에 대해 바인딩된 요청이 며 있음이 인스턴스로 계속 전달 됩니다. 연결 드레이닝은 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다.
 
 ### <a name="protocol"></a>프로토콜
 
@@ -378,7 +376,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 이 기능은 응용 프로그램 게이트웨이에서 들어오는 요청의 *호스트* 헤더를 지정한 호스트 이름으로 바꿉니다.
 
-예를 들어 **호스트 이름** 설정에 *www.contoso.com* 가 지정 된 경우 요청이 백 엔드 서버에`https://appgw.eastus.cloudapp.azure.com/path1` 전달 되 면 원래`https://www.contoso.com/path1` 요청 *이 *로 변경 됩니다.
+예를 들어 **호스트 이름** 설정에 *www.contoso.com* 가 지정 된 경우 `https://appgw.eastus.cloudapp.azure.com/path1` `https://www.contoso.com/path1` 요청이 백 엔드 서버에 전달 되 면 원래 요청 *이 *로 변경 됩니다.
 
 ## <a name="back-end-pool"></a>백 엔드 풀
 

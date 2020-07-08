@@ -4,12 +4,12 @@ description: Azure Backup 및 PowerShell을 사용 하 여 Azure Vm에서 SQL �
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 9608b02869b1d41d901ec77a42cfaa6d882040e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 862455175497fe5496c7eea459c32772074671ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255146"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -499,7 +499,7 @@ MSSQLSERVER/m... Backup               InProgress           3/18/2019 8:41:27 PM 
 
 ### <a name="change-policy-for-backup-items"></a>백업 항목에 대 한 정책 변경
 
-사용자는 기존 정책을 수정 하거나 백업 된 항목의 정책을 Policy1에서 Policy2로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) 명령을 매개 변수로 사용 합니다.
+사용자는 백업 된 항목의 정책을 Policy1에서 Policy2로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) 명령을 매개 변수로 사용 합니다.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -513,6 +513,19 @@ Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetP
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
+```
+
+### <a name="edit-an-existing-backup-policy"></a>기존 백업 정책 편집
+
+기존 정책을 편집 하려면 [AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-3.8.0) 명령을 사용 합니다.
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
+```
+모든 오류를 추적 하기 위해 시간이 지난 후 백업 작업을 확인 합니다. 문제가 있는 경우 문제를 해결 해야 합니다. 그런 다음 **FixForInconsistentItems** 매개 변수를 사용 하 여 정책 편집 명령을 다시 실행 하 여 작업이 이전에 실패 한 모든 백업 항목에 대 한 정책 편집을 다시 시도 합니다.
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -FixForInconsistentItems
 ```
 
 ### <a name="re-register-sql-vms"></a>SQL Vm 다시 등록
@@ -597,4 +610,4 @@ SQL Always On 가용성 그룹의 경우 AG (가용성 그룹)의 [모든 노드
 
 [백업 컨테이너가 나열 되](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0)면 sql server-0, sql-server-1도 "AzureVMAppContainer"로 표시 됩니다.
 
-관련 SQL 데이터베이스를 인출 하 여 [백업을 사용 하도록 설정](#configuring-backup) 하 고, [요청 시 백업](#on-demand-backup) 및 [restore PS cmdlet](#restore-sql-dbs) 이 동일 합니다.
+관련 데이터베이스를 인출 하 여 [백업을 사용 하도록 설정](#configuring-backup) 하 고, [요청 시 백업](#on-demand-backup) 및 [restore PS cmdlet](#restore-sql-dbs) 이 동일 합니다.

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254619"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Azure Data Factory에서 지원 되는 파일 형식 및 압축 코덱 (레거시)
 
@@ -41,7 +41,7 @@ ms.locfileid: "81414645"
 | nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값** 은 읽기의 경우 " **\n" 및 "NULL"** 이 고 쓰기의 경우 **"\n"** 입니다. |아니요 |
 | encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [EncodingName 속성](https://msdn.microsoft.com/library/system.text.encoding.aspx)을 참조 하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **u t f-8**입니다. |아니요 |
 | firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |아니요 |
-| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |아니요 |
+| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |예 |
 | treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. |**True (기본값)**<br/>False |아니요 |
 
 ### <a name="textformat-example"></a>TextFormat 예제
@@ -88,7 +88,7 @@ ms.locfileid: "81414645"
 
 JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` 섹션의 `type` 속성을 **JsonFormat**으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값** 은 **Setofobjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
 | jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일**에서** 데이터를 복사할 때만 지원됩니다. | 아니요 |
@@ -97,7 +97,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 | nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
 
 >[!NOTE]
->배열의 데이터를 여러 행에 교차 적용 하는 경우 ( [JsonFormat 예제](#jsonformat-example)에서는 사례 1 > sample 2), 속성 `jsonNodeReference`을 사용 하 여 단일 배열을 확장 하도록 선택할 수 있습니다.
+>배열의 데이터를 여러 행에 교차 적용 하는 경우 ( [JsonFormat 예제](#jsonformat-example)에서는 사례 1 > sample 2), 속성을 사용 하 여 단일 배열을 확장 하도록 선택할 수 있습니다 `jsonNodeReference` .
 
 ### <a name="json-file-patterns"></a>JSON 파일 패턴
 
@@ -411,7 +411,7 @@ SQL Database에 다음 테이블이 있는 경우:
 >[!NOTE]
 >[Parquet format](format-parquet.md) 의 새 모델 문서를 알아보세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
-Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예:
 
 ```json
 "format":
@@ -429,7 +429,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 > [!IMPORTANT]
 > 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
-Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 를 확인 하 여 (찾을 수 없는 경우) openjdk의 시스템 변수 *`JAVA_HOME`* 를 확인 하 여 Java 런타임을 찾습니다.
+Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
 - **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
@@ -445,7 +445,7 @@ Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(역직렬화) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| 부울 | 부울 | 해당 없음 | 해당 없음 |
+| Boolean | Boolean | 해당 없음 | 해당 없음 |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -457,7 +457,7 @@ Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR�
 | Single | Float | 해당 없음 | 해당 없음 |
 | Double | Double | 해당 없음 | 해당 없음 |
 | Decimal | 이진 | Decimal | Decimal |
-| 문자열 | 이진 | Utf8 | Utf8 |
+| String | 이진 | Utf8 | Utf8 |
 | DateTime | Int96 | 해당 없음 | 해당 없음 |
 | TimeSpan | Int96 | 해당 없음 | 해당 없음 |
 | DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
@@ -471,7 +471,7 @@ Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR�
 >[!NOTE]
 >[ORC format](format-orc.md) 의 새 모델 문서를 알아보세요. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
-ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `format` `type` 속성을 **OrcFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `format` `type` 속성을 **OrcFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예:
 
 ```json
 "format":
@@ -489,7 +489,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 > [!IMPORTANT]
 > 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 ORC 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
-ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 를 확인 하 여 (찾을 수 없는 경우) openjdk의 시스템 변수 *`JAVA_HOME`* 를 확인 하 여 Java 런타임을 찾습니다.
+ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
 - **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
@@ -498,24 +498,24 @@ ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서
 
 | Data Factory 중간 데이터 형식 | ORC 형식 |
 |:--- |:--- |
-| 부울 | 부울 |
+| Boolean | Boolean |
 | SByte | Byte |
 | Byte | Short |
 | Int16 | Short |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | long |
-| Int64 | long |
-| UInt64 | 문자열 |
+| UInt32 | Long |
+| Int64 | Long |
+| UInt64 | String |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| 문자열 | String |
+| String | String |
 | DateTime | 타임스탬프 |
 | DateTimeOffset | 타임스탬프 |
 | TimeSpan | 타임스탬프 |
 | ByteArray | 이진 |
-| Guid | 문자열 |
+| Guid | String |
 | Char | Char(1) |
 
 ## <a name="avro-format-legacy"></a><a name="avro-format"></a>AVRO 형식 (레거시)
@@ -523,7 +523,7 @@ ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서
 >[!NOTE]
 >[Avro 형식의](format-avro.md) 새 모델 문서에 대해 알아봅니다. 파일 기반 데이터 저장소 데이터 집합에 대 한 다음 구성은 이전 compabitility의 경우 그대로 계속 지원 됩니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
-Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예:
 
 ```json
 "format":
@@ -542,10 +542,10 @@ Hive 테이블에서 Avro 형식을 사용 하려면 [Apache Hive의 자습서](
 
 Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터를 지원합니다. 입력 데이터 세트에서 `compression` 속성을 지정하는 경우 복사 작업은 원본에서 압축된 데이터를 읽고 압축을 풉니다. 출력 데이터 세트에서 속성을 지정하는 경우 복사 작업은 데이터를 압축하고 싱크에 작성합니다. 다음은 몇 가지 샘플 시나리오입니다.
 
-* Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL 데이터베이스에 결과 데이터를 작성합니다. `type` 속성을 GZIP으로 사용 `compression` 하 여 입력 Azure Blob 데이터 집합을 정의 합니다.
-* 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure Blob에 압축된 데이터를 작성합니다. 속성을 GZip으로 사용 하 여 `compression` 출력 Azure Blob 데이터 집합을 정의 합니다. `type`
-* FTP 서버에서 .zip 파일을 읽고, 압축을 풀어서 내부에 있는 파일을 가져오고, Azure Data Lake Store에 해당 파일을 보관합니다. 속성을 ZipDeflate로 사용 하 여 `compression` 입력 FTP 데이터 집합을 정의 합니다. `type`
-* Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure Blob에 결과 데이터를 작성합니다. GZIP으로 `compression` `type` 설정 된 입력 Azure Blob 데이터 집합을 정의 하 고를 BZIP2로 `compression` `type` 설정 하 여 출력 데이터 집합을 정의 합니다.
+* Azure blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL Database에 결과 데이터를 씁니다. `compression`속성을 GZIP으로 사용 하 여 입력 Azure Blob 데이터 집합을 정의 합니다 `type` .
+* 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure Blob에 압축된 데이터를 작성합니다. 속성을 GZip으로 사용 하 여 출력 Azure Blob 데이터 집합을 정의 `compression` `type` 합니다.
+* FTP 서버에서 .zip 파일을 읽고, 압축을 풀어서 내부에 있는 파일을 가져오고, Azure Data Lake Store에 해당 파일을 보관합니다. 속성을 ZipDeflate로 사용 하 여 입력 FTP 데이터 집합을 정의 `compression` `type` 합니다.
+* Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure Blob에 결과 데이터를 작성합니다. GZIP으로 설정 된 입력 Azure Blob 데이터 집합을 정의 하 고를 BZIP2로 설정 하 여 `compression` `type` 출력 데이터 집합을 정의 합니다 `compression` `type` .
 
 데이터 세트에 대한 압축을 지정하려면 다음 예제와 같이 데이터 세트 JSON의 **압축** 속성을 사용합니다.
 
@@ -575,7 +575,7 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 
 **압축** 섹션에는 두 가지 속성이 있습니다.
 
-* **유형:** **GZIP**, **Deflate**, **BZIP2**또는 **ZipDeflate**수 있는 압축 코덱입니다. 참고 복사 작업을 사용 하 여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓰려면 파일이 폴더로 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/`.
+* **유형:** **GZIP**, **Deflate**, **BZIP2**또는 **ZipDeflate**수 있는 압축 코덱입니다. 참고 복사 작업을 사용 하 여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓰려면 파일이 폴더로 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` .
 * **수준:****최적** 또는 **가장 빠름**이 될 수 있는 압축 비율입니다.
 
   * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
