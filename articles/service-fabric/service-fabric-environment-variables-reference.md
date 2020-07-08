@@ -6,17 +6,16 @@ ms.topic: reference
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645687"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 환경 변수
 
 Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제공 환경 변수가 있습니다. 환경 변수의 전체 목록은 다음과 같습니다.
 
-| 환경 변수                         | Description                                                            | 예제                                                              |
+| 환경 변수                         | 설명                                                            | 예제                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | 애플리케이션의 패브릭 URI 이름                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | 프로세스가 속하는 코드 패키지의 이름              | 코드                                                                 |

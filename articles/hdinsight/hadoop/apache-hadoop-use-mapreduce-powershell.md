@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75830074"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>PowerShell을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
@@ -43,7 +42,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
-1. 편집기를 사용 하 여 다음 코드를 **mapreducejob.ps1**로 저장 합니다.
+1. 편집기를 사용 하 여 **mapreducejob.ps1**으로 다음 코드를 저장 합니다.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
@@ -81,7 +80,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-작업이 완료될 때 정보가 반환되지 않으면 작업에 대한 오류를 봅니다. 이 작업에 대 한 오류 정보를 보려면 **mapreducejob.ps1** 파일의 끝에 다음 명령을 추가 합니다. 그런 다음 파일을 저장 하 고 스크립트를 다시 실행 합니다.
+작업이 완료될 때 정보가 반환되지 않으면 작업에 대한 오류를 봅니다. 이 작업에 대 한 오류 정보를 보려면 다음 명령을 **mapreducejob.ps1** 파일의 끝에 추가 합니다. 그런 다음 파일을 저장 하 고 스크립트를 다시 실행 합니다.
 
 ```powershell
 # Print the output of the WordCount job.

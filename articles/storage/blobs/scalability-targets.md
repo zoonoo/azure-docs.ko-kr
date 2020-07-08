@@ -10,10 +10,9 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 3d0dd4683c990e2bd5b2f6f1990f1b379f76fc75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75748820"
 ---
 # <a name="scalability-and-performance-targets-for-blob-storage"></a>Blob 스토리지의 확장성 및 성능 목표
@@ -24,7 +23,7 @@ ms.locfileid: "75748820"
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Blob 스토리지에 대한 성능 및 확장성 검사 목록](storage-performance-checklist.md)
 - [Standard storage 계정에 대 한 확장성 목표](../common/scalability-targets-standard-account.md)

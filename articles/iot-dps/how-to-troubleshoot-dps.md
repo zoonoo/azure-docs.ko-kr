@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646475"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 문제 해결
@@ -32,7 +31,7 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 4. 원하는 메트릭을 선택 합니다. 
    <br />현재 DPS에는 세 가지 메트릭이 있습니다.
 
-    | 메트릭 이름 | Description |
+    | 메트릭 이름 | 설명 |
     |-------|------------|
     | 증명 시도 | 장치 프로 비전 서비스를 사용 하 여 인증을 시도한 장치 수|
     | 등록 시도 | 인증에 성공한 후 IoT Hub에 등록 하려고 시도한 장치 수|
@@ -58,7 +57,7 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 
 5. 원하는 로그를 수집 하도록 설정 합니다.
 
-    | 로그 이름 | Description |
+    | 로그 이름 | 설명 |
     |-------|------------|
     | DeviceOperations | 장치 연결 이벤트와 관련 된 로그 |
     | ServiceOperations | 서비스 SDK 사용과 관련 된 이벤트 로그 (예: 등록 그룹 만들기 또는 업데이트)|
@@ -69,7 +68,7 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 
 8. 최근 이벤트를 보려면 **실행** 을 클릭 합니다.
 
-9. 결과가 `OperationName`있는 경우, `ResultType` `ResultSignature`, 및 `ResultDescription` (오류 메시지)를 검색 하 여 오류에 대 한 자세한 정보를 얻습니다.
+9. 결과가 있는 경우 `OperationName` ,, `ResultType` `ResultSignature` 및 `ResultDescription` (오류 메시지)를 검색 하 여 오류에 대 한 자세한 정보를 얻습니다.
 
 
 ## <a name="common-error-codes"></a>일반적인 오류 코드

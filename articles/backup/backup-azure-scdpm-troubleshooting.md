@@ -4,10 +4,9 @@ description: 이 문서에서는 System Center Data Protection Manager를 사용
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75664757"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>System Center Data Protection Manager 문제 해결
@@ -58,7 +57,7 @@ System Center Data Protection Manager의 최신 릴리스 정보는 [System Cent
 
 - 최신 버전의 Azure Backup 에이전트를 사용 중인지 확인합니다.
 - Data Protection Manager 서버와 보호되는 서버 사이에 연결(네트워크/방화벽/프록시)이 있는지 확인합니다.
-- SQL server를 보호 하는 경우 **로그인 속성** > **NT 권한** 없음 속성에 **sysadmin** 설정 사용이 표시 되는지 확인 합니다.
+- SQL server를 보호 하는 경우 **로그인 속성**  >  **NT 권한** 없음 속성에 **sysadmin** 설정 사용이 표시 되는지 확인 합니다.
 
 ## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>오류: 서버가 자격 증명 모음 자격 증명 파일에 지정된 대로 등록되지 않았습니다.
 

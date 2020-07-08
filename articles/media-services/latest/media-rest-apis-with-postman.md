@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75779640"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Media Services v3 REST API 호출에 대해 Postman 구성
@@ -35,7 +34,7 @@ ms.locfileid: "75779640"
     지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 다른 대안은 REST 플러그 인 또는 **Telerik Fiddler**를 사용 하는 **Visual Studio Code** 입니다. 
 
 > [!IMPORTANT]
-> [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토 합니다.
+> [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토합니다.
 
 ## <a name="download-postman-files"></a>Postman 파일 다운로드
 
@@ -97,7 +96,7 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 * 응용 프로그램이 "HTTP 504: 게이트웨이 시간 초과"로 인해 실패 하는 경우 위치 변수가 Media Services 계정의 예상 위치 이외의 값으로 명시적으로 설정 되지 않았는지 확인 합니다. 
 * "계정을 찾을 수 없음" 오류가 발생 하는 경우 본문 JSON 메시지의 location 속성이 Media Services 계정이 있는 위치로 설정 되었는지 확인 합니다. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Media Services 계정에 파일 업로드 - REST](upload-files-rest-how-to.md)
 - [Media Services로 필터 만들기 - REST](filters-dynamic-manifest-rest-howto.md)

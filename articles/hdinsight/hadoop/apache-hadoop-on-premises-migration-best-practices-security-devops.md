@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75974415"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
@@ -42,16 +41,16 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 - 다음 매개 변수를 설정하여 HDInsight ESP 클러스터를 배포합니다.
 
-    |매개 변수 |Description |
+    |매개 변수 |설명 |
     |---|---|
     |도메인 이름|Azure AD DS와 연결된 도메인 이름입니다.|
     |도메인 사용자 이름|이전 섹션에서 만든 Azure AD DS DC 관리되는 도메인의 서비스 계정입니다(예: `hdiadmin@contoso.onmicrosoft.com`). 이 도메인 사용자는 이 HDInsight 클러스터의 관리자가 됩니다.|
     |도메인 암호|서비스 계정의 암호입니다.|
     |조직 구성 단위|HDInsight 클러스터에 사용하려는 OU의 고유 이름입니다(예: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`). 이 OU가 없을 경우 HDInsight 클러스터는 서비스 계정의 권한을 사용 하 여 OU를 만들려고 시도 합니다.|
-    |LDAPS URL|예를 `ldaps://contoso.onmicrosoft.com:636`들면입니다.|
+    |LDAPS URL|예를 들면 `ldaps://contoso.onmicrosoft.com:636` 입니다.|
     |사용자 그룹 액세스|클러스터에 동기화할 사용자가 속하는 보안 그룹입니다(예: `HiveUsers`). 여러 사용자 그룹을 지정하려면 세미콜론 ‘;’으로 구분합니다. 그룹은 ESP 클러스터를 만들기 전에 디렉터리에 있어야 합니다.|
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [도메인에 가입된 HDInsight 클러스터를 사용하는 Apache Hadoop 보안 소개](../domain-joined/hdinsight-security-overview.md)
 - [HDInsight에서 Azure 도메인에 가입된 Apache Hadoop 클러스터 계획](../domain-joined/apache-domain-joined-architecture.md)
@@ -81,7 +80,7 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
     - Microsoft 관리 키 또는 고객 관리 키를 사용하는 투명한 서버 쪽 암호화입니다.
     - 클라이언트 쪽 암호화, https 및 TLS를 사용 하는 전송 암호화
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure Virtual Networks 개요](../../virtual-network/virtual-networks-overview.md)
 - [Azure 네트워크 보안 그룹 개요](../../virtual-network/security-overview.md)

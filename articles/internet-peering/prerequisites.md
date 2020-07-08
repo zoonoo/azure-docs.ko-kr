@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3c820a7be561aeef9b7e50fd0ac0cf4dee721af8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75775408"
 ---
 # <a name="prerequisites-to-set-up-peering-with-microsoft"></a>Microsoft와의 피어링을 설정하기 위한 필수 조건
@@ -34,5 +33,5 @@ ms.locfileid: "75775408"
 
 * [포털을 사용 하 여 직접 피어 링을 만들거나 수정](howto-direct-portal.md)합니다.
 * [포털을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환](howto-legacy-direct-portal.md)
-* [포털을 사용 하 여 Exchange 피어 링 만들기 또는 수정](howto-exchange-portal.md)
+* [포털을 사용하여 Exchange 피어링 만들기 또는 수정](howto-exchange-portal.md)
 * [포털을 사용하여 레거시 Exchange 피어링을 Azure 리소스로 변환](howto-legacy-exchange-portal.md)

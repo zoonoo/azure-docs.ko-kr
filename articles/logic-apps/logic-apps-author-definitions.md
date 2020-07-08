@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979387"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 워크플로 정의에 대 한 JSON 만들기, 편집 또는 확장
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 워크플로 정의를 위한 JSON 만들기, 편집 또는 확장
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 자동화된 워크플로를 사용하여 엔터프라이즈 통합 솔루션을 만들 때 기본 논리 앱 정의는 해당 설명 및 유효성 검사에 대해 간단하고 선언적 JSON(JavaScript Object Notation)과 함께 [WDL(워크플로 정의 언어) 스키마](../logic-apps/logic-apps-workflow-definition-language.md)를 사용합니다. 이러한 형식 덕분에 코드에 대해 잘 몰라도 논리 앱 정의를 더 쉽게 읽고 이해할 수 있습니다.
 논리 앱의 만들기 및 배포를 자동화하려는 경우 논리 앱 정의를 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 내 [Azure 리소스](../azure-resource-manager/management/overview.md)로 포함할 수 있습니다.
@@ -127,18 +126,18 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다.
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. 회사 이름 [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) 에 대 한를 가져와서 총 문자 수를 가져옵니다.
+1. [`length()`](../logic-apps/logic-apps-workflow-definition-language.md)회사 이름에 대 한를 가져와서 총 문자 수를 가져옵니다.
 
 2. 짧은 문자열을 구하려면 `5`를 뺍니다.
 
-3. 이제를 [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)가져옵니다.
+3. 이제를 가져옵니다 [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md) .
 인덱스 `5`에서 시작하여 문자열의 나머지로 이동합니다.
 
 4. 이 하위 문자열을 [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) 문자열로 변환 합니다.
 
-5. 이제 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) 모든 `+` 문자를 문자로 `-` 바꿉니다.
+5. 이제 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) 모든 `+` 문자를 `-` 문자로 바꿉니다.
 
-6. 마지막으로 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) 문자를 `/` 포함 하 `_` 는 모든 문자입니다.
+6. 마지막으로 문자를 [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) `/` 포함 하는 모든 문자 `_` 입니다.
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>목록 항목을 속성 값에 매핑한 다음, 맵을 매개 변수로 사용
 
@@ -147,7 +146,7 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다.
 예를 들어,이 워크플로는 일부 범주를 매개 변수로 정의하고 이 범주를 특정 URL과 일치시키는 맵을 정의합니다.
 우선, 워크플로에서 문서의 목록을 가져옵니다. 그런 다음, 워크플로에서 맵을 사용하여 각 문서의 범주와 일치하는 URL을 찾습니다.
 
-*   함수 [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) 는 범주가 알려진 정의 된 범주와 일치 하는지 여부를 확인 합니다.
+*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md)함수는 범주가 알려진 정의 된 범주와 일치 하는지 여부를 확인 합니다.
 
 *   일치하는 범주를 확인한 후에는 대괄호`parameters[...]`를 사용하여 맵에서 항목을 끌어옵니다.
 
@@ -240,7 +239,7 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다.
 
    첫 번째 값이 두 번째 값보다 작은 경우에는 명령이 처음으로 배치된 후 1초 이상의 시간이 경과된 것입니다.
 
-날짜 형식을 지정하기 위해 문자열 포맷터를 사용할 수 있습니다. 예를 들어 RFC1123를 가져오려면를 사용 [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md)합니다.
+날짜 형식을 지정하기 위해 문자열 포맷터를 사용할 수 있습니다. 예를 들어 RFC1123를 가져오려면를 사용 [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md) 합니다.
 [날짜 형식 지정](../logic-apps/logic-apps-workflow-definition-language.md)에 대해 자세히 알아보세요.
 
 ``` json

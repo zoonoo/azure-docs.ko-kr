@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934683"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
@@ -25,7 +24,7 @@ ms.locfileid: "75934683"
 
 Azure HDInsight 클러스터는 특정 유형의 컴퓨팅 용도로 설계되었습니다. 저장소는 여러 클러스터에서 공유할 수 있으므로 여러 작업의 요구 사항을 충족 하기 위해 워크 로드에 최적화 된 여러 계산 클러스터를 만들 수 있습니다. 클러스터 유형마다 해당 특정 워크로드에 대한 최적 구성이 있습니다. 다음 표에는 HDInsight에서 지원되는 클러스터 유형 및 해당 워크로드가 나와 있습니다.
 
-|워크로드|HDInsight 클러스터 유형|
+|작업|HDInsight 클러스터 유형|
 |---|---|
 |일괄 처리(ETL/ELT)|Hadoop, Spark|
 |데이터 웨어하우징|Hadoop, Spark, 대화형 쿼리|
@@ -103,11 +102,11 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Monitor 로그와 같은 Azure SQL Database 모니터링 도구를 사용 하 여 성능 및 가용성에 대 한 metastore를 모니터링 합니다.
-- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. `ANALYZE TABLE [table_name] COMPUTE STATISTICS`)을 입력합니다.
+- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>다양한 워크로드에 대한 모범 사례
 
-- 응답 시간이 향상 된 대화형 hive 쿼리에 llap 클러스터를 사용 하는 것이 좋습니다. [llap](https://cwiki.apache.org/confluence/display/Hive/LLAP) 은 쿼리의 메모리 내 캐싱을 허용 하는 Hive 2.0의 새로운 기능입니다. LLAP 덕분에 Hive 쿼리를 훨씬 빠르게,  [일부 경우에는 Hive 1.x보다 26배 더 빠르게](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/) 수행합니다.
+- 응답 시간이 향상 된 대화형 Hive 쿼리에 LLAP 클러스터를 사용 하는 것이 좋습니다. [llap](https://cwiki.apache.org/confluence/display/Hive/LLAP)   은 쿼리의 메모리 내 캐싱을 허용 하는 Hive 2.0의 새로운 기능입니다. LLAP 덕분에 Hive 쿼리를 훨씬 빠르게,  [일부 경우에는 Hive 1.x보다 26배 더 빠르게](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/) 수행합니다.
 - Hive 작업 대신 Spark 작업을 사용합니다.
 - Impala 기반 쿼리를 LLAP 쿼리로 바꿉니다.
 - MapReduce 작업을 Spark 작업으로 바꿉니다.

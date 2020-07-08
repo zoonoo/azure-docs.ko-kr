@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/08/2020
 tags: connectors
 ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75732707"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
@@ -25,7 +24,7 @@ ms.locfileid: "75732707"
 트리거를 사용 하 여 워크플로를 시작할 수 있습니다. 예를 들어 새 전자 메일이 도착 하는 경우, 일정 항목이 업데이트 될 때 또는 Salesforce와 같은 차이점 서비스에서 이벤트가 발생 하는 경우를 들 수 있습니다. 트리거 이벤트에 응답 하는 동작 (예: 전자 메일 보내기 또는 새 일정 이벤트 만들기)을 사용할 수 있습니다. 
 
 > [!NOTE]
-> 또는 계정에 대 한 작업을 자동화 하려면 [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md)를 사용 합니다. @hotmail.com @outlook.com
+> 또는 계정에 대 한 작업을 자동화 하려면 @outlook.com @hotmail.com [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md)를 사용 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -53,7 +52,7 @@ ms.locfileid: "75732707"
 
 1. 트리거에서 **빈도** 및 **간격** 값을 설정 합니다. **표준 시간대**와 같은 사용 가능한 다른 트리거 속성을 추가 하려면 **새 매개 변수 추가** 목록에서 해당 속성을 선택 합니다.
 
-   예를 들어 트리거가 15 분 마다 일정을 확인 하도록 하려면 **Frequency** 를 **Minute**로 설정 하 고 **Interval** 을로 `15`설정 합니다. 
+   예를 들어 트리거가 15 분 마다 일정을 확인 하도록 하려면 **Frequency** 를 **Minute**로 설정 하 고 **Interval** 을로 설정 `15` 합니다. 
 
    ![트리거의 빈도 및 간격 설정](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -65,11 +64,11 @@ ms.locfileid: "75732707"
 
 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts) 은 논리 앱의 워크플로에서 실행 되는 작업입니다. 이 예제 논리 앱은 Office 365 Outlook에서 새 연락처를 만듭니다. 다른 트리거 또는 작업의 출력을 사용 하 여 연락처를 만들 수 있습니다. 예를 들어, **레코드를 만들 때**논리 앱에서 Dynamics 365 트리거를 사용 한다고 가정 합니다. Office 365 Outlook **연락처 만들기** 작업을 추가 하 고 SalesForce 트리거의 출력을 사용 하 여 새 연락처를 만들 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 논리 앱 디자이너에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
 1. 워크플로의 마지막 단계로 동작을 추가 하려면 **새 단계**를 선택 합니다. 
 
-   단계 사이에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호**+**()를 선택 하 고 **작업 추가**를 선택 합니다.
+   단계 사이에 작업을 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. 검색 상자에서 필터로 `office 365 outlook`을 입력합니다. 이 예제에서는 **연락처 만들기**를 선택 합니다.
 

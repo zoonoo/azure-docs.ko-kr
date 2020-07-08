@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: a951bc07c4a8ed42b1c116332d13674656bbaafd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646798"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>개인 Azure DNS 영역 이란?
@@ -27,7 +26,7 @@ Azure 프라이빗 DNS는 사용자 지정 DNS 솔루션을 추가하지 않고�
 
 구독에서 만들 수 있는 개인 DNS 영역 수와 개인 DNS 영역에서 지원 되는 레코드 집합 수를 이해 하려면 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>제한 사항
 
 * 레이블이 지정 된 단일 개인 DNS 영역은 지원 되지 않습니다. 개인 DNS 영역에는 두 개 이상의 레이블이 있어야 합니다. 예를 들어 contoso.com에는 점으로 구분 된 두 개의 레이블이 있습니다. 개인 DNS 영역에는 최대 34 개의 레이블이 있을 수 있습니다.
 * 개인 DNS 영역에는 영역 위임 (NS 레코드)을 만들 수 없습니다. 자식 도메인을 사용 하려는 경우에는 도메인을 개인 DNS 영역으로 직접 만들고 부모 영역에서 nameserver 위임을 설정 하지 않고 가상 네트워크에 연결할 수 있습니다.

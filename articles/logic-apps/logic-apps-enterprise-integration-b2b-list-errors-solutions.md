@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666689"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Azure Logic Apps의 B2B 오류 및 해결 방법
@@ -63,7 +62,7 @@ ms.locfileid: "75666689"
 | 사용자 조치 | 파트너에게 보내기 전에 AS2Message에 @base64ToBinary를 추가합니다. |
 |||
 
-다음은 그 예입니다.
+예를 들어:
 
 ```json
 "HTTP": {
@@ -83,7 +82,7 @@ ms.locfileid: "75666689"
 | 사용자 조치 | 파트너에게 보내기 전에 MDN에 @base64ToBinary를 추가합니다. | 
 |||
 
-다음은 그 예입니다.
+예를 들어:
 
 ```json
 "Response": {

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75780337"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API를 사용하여 필터 만들기
@@ -83,7 +82,7 @@ ms.locfileid: "75780337"
 
 ## <a name="create-account-filters"></a>계정 필터 만들기
 
-다운로드 한 postman의 컬렉션에서 **계정 필터**->**계정 필터 만들기 또는 업데이트**를 선택 합니다.
+다운로드 한 postman의 컬렉션에서 **계정 필터** -> **계정 필터 만들기 또는 업데이트**를 선택 합니다.
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
@@ -93,7 +92,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **본문** 탭을 선택하고 [이전에 정의](#define-a-filter)한 json 코드를 붙여넣습니다.
 
-**보내기**를 선택 합니다. 
+**보내기**를 선택합니다. 
 
 필터를 만들었습니다.
 
@@ -101,7 +100,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-asset-filters"></a>자산 필터 만들기  
 
-다운로드 한 "Media Services v3" postman collection에서 **자산**->**필터 만들기 또는 업데이트**를 선택 합니다.
+다운로드 한 "Media Services v3" postman collection에서 **자산** -> **필터 만들기 또는 업데이트**를 선택 합니다.
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
@@ -111,7 +110,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **본문** 탭을 선택하고 [이전에 정의](#define-a-filter)한 json 코드를 붙여넣습니다.
 
-**보내기**를 선택 합니다. 
+**보내기**를 선택합니다. 
 
 자산 필터를 만들었습니다.
 
@@ -121,7 +120,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 스트리밍 로케이터에 적용 되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. 동적 패키지 작성 [(스트리밍 끝점)](dynamic-packaging-overview.md) 은 클라이언트에서 URL에 지정 하는 필터 목록과 함께이 필터 목록을 적용 합니다. 이 조합은 URL + 스트리밍 로케이터에 지정 하는 필터를 기반으로 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md)를 생성 합니다. 필터를 적용 하지만 URL에서 필터 이름을 표시 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
 
-REST를 사용 하 여 스트리밍 로케이터를 사용 하 여 필터를 만들고 연결 하려면 [스트리밍 로케이터-만들기](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API `properties.filters` 를 사용 하 고 [요청 본문](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)에를 지정 합니다.
+REST를 사용 하 여 스트리밍 로케이터를 사용 하 여 필터를 만들고 연결 하려면 [스트리밍 로케이터-만들기](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API를 사용 하 고 `properties.filters` [요청 본문](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)에를 지정 합니다.
                                 
 ## <a name="stream-using-filters"></a>필터를 사용 하 여 스트림
 

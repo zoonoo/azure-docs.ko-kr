@@ -9,10 +9,9 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: a1f878361a96c5584f43b31135d79ff799f66efa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75976615"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(PowerShell)
@@ -47,7 +46,7 @@ New-AzResourceGroupDeployment `
     -iotHubName $iotHubName
 ```
 
-PowerShell 스크립트에서 볼 수 있듯이, 사용 되는 템플릿은 Azure 빠른 시작 템플릿에서 볼 수 있습니다. 사용자 고유의를 사용 하려면 먼저 템플릿 파일을 Cloud shell에 업로드 한 다음 `-TemplateFile` 스위치를 사용 하 여 파일 이름을 지정 해야 합니다.  예제는 [템플릿 배포](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template)를 참조 하세요.
+PowerShell 스크립트에서 볼 수 있듯이, 사용 되는 템플릿은 Azure 빠른 시작 템플릿에서 볼 수 있습니다. 사용자 고유의를 사용 하려면 먼저 템플릿 파일을 Cloud shell에 업로드 한 다음 스위치를 사용 하 여 `-TemplateFile` 파일 이름을 지정 해야 합니다.  예제는 [템플릿 배포](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,15 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 26f41a7fd88a3c2018592e89ae95e3b962c1a9e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75911685"
 ---
 # <a name="display-feature-information"></a>기능 정보 표시
 
-공간 데이터는 종종 점으로, 선 및 다각형을 사용 하 여 표현 됩니다. 이 데이터는 연결 된 메타 데이터 정보를 포함 하는 경우가 많습니다. 예를 들어 지점은 저장소의 위치를 나타내고 식당의 메타 데이터는 해당 이름, 주소 및 사용 되는 음식 형식일 수 있습니다. 이 메타 데이터는를 `JsonObject`사용 하 여 이러한 기능의 속성으로 추가할 수 있습니다. 다음 코드에서는 값이 "Hello World!" 인 `title` 속성을 사용 하 여 간단한 point 기능을 만듭니다.
+공간 데이터는 종종 점으로, 선 및 다각형을 사용 하 여 표현 됩니다. 이 데이터는 연결 된 메타 데이터 정보를 포함 하는 경우가 많습니다. 예를 들어 지점은 저장소의 위치를 나타내고 식당의 메타 데이터는 해당 이름, 주소 및 사용 되는 음식 형식일 수 있습니다. 이 메타 데이터는를 사용 하 여 이러한 기능의 속성으로 추가할 수 있습니다 `JsonObject` . 다음 코드에서는 `title` 값이 "Hello World!" 인 속성을 사용 하 여 간단한 point 기능을 만듭니다.
 
 ```java
 //Create a data source and add it to the map.
@@ -32,7 +31,7 @@ properties.addProperty("title", "Hello World!");
 dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64), properties));
 ```
 
-사용자가 맵의 기능과 상호 작용 하는 경우 이벤트를 사용 하 여 해당 작업에 대응할 수 있습니다. 일반적인 시나리오는 사용자가 상호 작용 한 기능의 메타 데이터 속성에 대 한 메시지를 표시 하는 것입니다. `OnFeatureClick` 이벤트는 사용자가 지도의 기능을 탭 할 때를 검색 하는 데 사용 되는 기본 이벤트입니다. `OnLongFeatureClick` 이벤트도 있습니다. 지도에 `OnFeatureClick` 이벤트를 추가 하는 경우이를 제한 하려면 계층의 ID를 전달 하 여 단일 계층으로 제한 될 수 있습니다. 계층 ID가 전달 되지 않은 경우에는 해당 계층에 관계 없이 맵의 모든 기능을 눌러이 이벤트를 발생 시킬 수 있습니다. 다음 코드에서는 지도에서 point 데이터를 렌더링할 기호 계층을 만든 다음 `OnFeatureClick` 이벤트를 추가 하 고이 기호 계층으로 제한 합니다.
+사용자가 맵의 기능과 상호 작용 하는 경우 이벤트를 사용 하 여 해당 작업에 대응할 수 있습니다. 일반적인 시나리오는 사용자가 상호 작용 한 기능의 메타 데이터 속성에 대 한 메시지를 표시 하는 것입니다. `OnFeatureClick`이벤트는 사용자가 지도의 기능을 탭 할 때를 검색 하는 데 사용 되는 기본 이벤트입니다. 이벤트도 있습니다 `OnLongFeatureClick` . 지도에 이벤트를 추가 하는 경우이 `OnFeatureClick` 를 제한 하려면 계층의 ID를 전달 하 여 단일 계층으로 제한 될 수 있습니다. 계층 ID가 전달 되지 않은 경우에는 해당 계층에 관계 없이 맵의 모든 기능을 눌러이 이벤트를 발생 시킬 수 있습니다. 다음 코드에서는 지도에서 point 데이터를 렌더링할 기호 계층을 만든 다음 이벤트를 추가 하 `OnFeatureClick` 고이 기호 계층으로 제한 합니다.
 
 ```java
 //Create a symbol and add it to the map.
@@ -50,7 +49,7 @@ map.events.add((OnFeatureClick) (features) -> {
 
 ## <a name="display-a-toast-message"></a>알림 메시지 표시
 
-알림 메시지는 사용자에 게 정보를 표시 하는 가장 쉬운 방법 중 하나 이며 모든 버전의 Android에서 사용할 수 있습니다. 모든 유형의 사용자 입력을 지원 하지 않으며 짧은 시간 동안만 표시 됩니다. 사용자가 누른 항목에 대 한 정보를 신속 하 게 알리려면 알림 메시지가 표시 될 수 있습니다. 다음 코드에서는 알림 메시지를 `OnFeatureClick` 이벤트와 함께 사용할 수 있는 방법을 보여 줍니다.
+알림 메시지는 사용자에 게 정보를 표시 하는 가장 쉬운 방법 중 하나 이며 모든 버전의 Android에서 사용할 수 있습니다. 모든 유형의 사용자 입력을 지원 하지 않으며 짧은 시간 동안만 표시 됩니다. 사용자가 누른 항목에 대 한 정보를 신속 하 게 알리려면 알림 메시지가 표시 될 수 있습니다. 다음 코드에서는 알림 메시지를 이벤트와 함께 사용할 수 있는 방법을 보여 줍니다 `OnFeatureClick` .
 
 ```java
 //Add a feature click event to the map.
@@ -82,4 +81,4 @@ map.events.add((OnFeatureClick) (features) -> {
 > [기호 계층 추가](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Android 맵에 셰이프 추가](how-to-add-shapes-to-android-map.md)
+> [Android 맵에 도형 추가](how-to-add-shapes-to-android-map.md)

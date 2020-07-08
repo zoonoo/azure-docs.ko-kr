@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979401"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 맵을 사용하여 XML 변환
 
-Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대 한 형식 간에 XML 데이터를 전송 하기 위해 논리 앱은 지도 또는 더욱 구체적으로 확장 가능한 XSLT (스타일 시트 언어 변환) 맵을 사용할 수 있습니다. 맵은 XML 문서의 데이터를 다른 형식으로 변환하는 방법을 설명하는 XML 문서입니다. 
+Azure Logic Apps에서 엔터프라이즈 통합 시나리오의 형식 간에 XML 데이터를 전송하기 위해 논리 앱을 맵, 구체적으로 말하면, XLST(Extensible Stylesheet Language Transformation) 맵을 사용할 수 있습니다. 맵은 XML 문서의 데이터를 다른 형식으로 변환하는 방법을 설명하는 XML 문서입니다. 
 
 예를 들어, YYYMMDD 날짜 형식을 사용하는 고객에게서 정기적으로 B2B 주문 또는 송장을 받는 경우를 가정해 보겠습니다. 그러나 조직은 MMDDYYY 날짜 형식을 사용합니다. 고객 작업 데이터베이스에서 주문 또는 송장 세부 정보를 저장하기 전에 YYYMMDD 날짜 형식을 MMDDYYY 형식으로 변환하는 맵을 정의하여 사용할 수 있습니다.
 
@@ -36,7 +35,7 @@ Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대 한 형식 
   * 어셈블리의 경우 어셈블리를 업로드할 수 있는 Azure blob 컨테이너와 해당 컨테이너의 위치가 필요합니다. 이러한 방식으로 나중에 통합 계정에 어셈블리를 추가할 때 해당 위치를 지정할 수 있습니다. 
   이 작업에는 다음과 같은 항목이 필요합니다.
 
-    | 항목 | Description |
+    | 항목 | 설명 |
     |------|-------------|
     | [Azure storage 계정](../storage/common/storage-account-overview.md) | 이 계정에서 어셈블리의 Azure blob 컨테이너를 만듭니다. [스토리지 계정을 만드는](../storage/common/storage-account-create.md) 방법을 알아봅니다. |
     | Blob 컨테이너 | 이 컨테이너에 어셈블리를 업로드할 수 있습니다. 통합 계정에 어셈블리를 추가할 때도 이 컨테이너의 위치가 필요합니다. [blob 컨테이너를 만드는](../storage/blobs/storage-quickstart-blobs-portal.md) 방법을 알아봅니다. |

@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75973671"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Azure Vm의 PowerShell 복제에서 디스크 제외
@@ -21,7 +20,7 @@ ms.locfileid: "75973671"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전에
 
 - [재해 복구 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해 하 고 있는지 확인 합니다.
 - 모든 구성 요소에 대 한 [지원 요구 사항을](azure-to-azure-support-matrix.md) 검토 합니다.

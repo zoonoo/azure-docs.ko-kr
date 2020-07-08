@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75772621"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
@@ -139,7 +138,7 @@ VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이
 
 꾸준히 증가 – 가능한 응용 프로그램 ' 준비 '는 이러한 소비는 시작 되는 데이터베이스 엔진 사이에서 자주 발생 합니다. 그러나 애플리케이션의 메모리 누수 징후일 수도 있습니다. 응용 프로그램을 식별 하 고 동작이 예상 되는지 여부를 파악 합니다.
 
-페이지 또는 스왑 파일 사용 – Windows 페이징 파일을 사용 하 고 있는지 확인 합니다 (에 있는 D\) : 또는 Linux 스왑 파일 (에 `/dev/sdb`있음). 이러한 파일을 제외 하 고 이러한 볼륨에 아무 것도 없는 경우 해당 디스크에 대 한 읽기/쓰기의 높은를 확인 합니다. 이 문제는 메모리 부족 상태를 나타냅니다.
+페이지 또는 스왑 파일 사용 – Windows 페이징 파일을 사용 하 고 있는지 확인 \) 합니다 (에 있는 D: 또는 Linux 스왑 파일 (에 있음 `/dev/sdb` ). 이러한 파일을 제외 하 고 이러한 볼륨에 아무 것도 없는 경우 해당 디스크에 대 한 읽기/쓰기의 높은를 확인 합니다. 이 문제는 메모리 부족 상태를 나타냅니다.
 
 ### <a name="high-memory-utilization-remediation"></a>높은 메모리 사용률 수정
 
@@ -252,4 +251,4 @@ Standard storage의 새 디스크 제공에는 IOPS 및 처리량 한도가 다�
 
 이 문서의 어느 시점에서 든 도움이 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의 하세요.
 
-또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
+또는 Azure 지원 인시던트를 파일에 제공 합니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.

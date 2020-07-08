@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666876"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
@@ -59,7 +58,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 다음은 그 예입니다. 
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들어: 
 
      ![샘플 JSON 페이로드 입력](./media/logic-apps-content-type/request-trigger.png)
 
@@ -175,9 +174,9 @@ Logic Apps는 다른 콘텐츠 형식과 호환 및 지원되지만 `$content` �
 
 Logic Apps는 양식 데이터를 처리하기 위한 다음과 같은 네이티브 함수를 제공합니다. 
 
-* [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
+* [triggerFormDataValue ()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
 * [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
-* [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
+* [formDataValue ()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
 * [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
 
 또는 이 예제와 같은 언어 식을 사용하여 데이터에 직접 액세스할 수 있습니다.

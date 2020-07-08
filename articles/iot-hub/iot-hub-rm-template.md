@@ -10,10 +10,9 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: 02e814a9da320d688fe57edf3a3fe0640b8f5a47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75976729"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(.NET)
@@ -30,7 +29,7 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio.
-* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분만에 [무료 계정][lnk-free-trial] 을 만들 수 있습니다.
+* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial] 을 만들 수 있습니다.
 * Azure Resource Manager 템플릿 파일을 저장할 수 있는 [Azure Storage 계정][lnk-storage-account]입니다.
 * [Azure PowerShell 1.0][lnk-powershell-install] 이상.
 
@@ -184,7 +183,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 
 이제 애플리케이션을 빌드하고 실행하기 전에 **CreateIoTHub** 메서드를 호출하여 완료합니다.
 
-1. **Main** 메서드의 끝에 다음 코드를 추가합니다.
+1. **Main** 메서드의 끝에 다음 코드를 추가 합니다.
 
     ```csharp
     CreateIoTHub(client);

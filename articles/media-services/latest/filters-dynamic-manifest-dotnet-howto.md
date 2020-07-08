@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
 ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75779249"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기
@@ -86,7 +85,7 @@ client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, enc
 
 스트리밍 로케이터에 적용 되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. 동적 패키지 작성 [(스트리밍 끝점)](dynamic-packaging-overview.md) 은 클라이언트에서 URL에 지정 하는 필터 목록과 함께이 필터 목록을 적용 합니다. 이 조합은 URL + 스트리밍 로케이터에 지정 하는 필터를 기반으로 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md)를 생성 합니다. 필터를 적용 하지만 URL에서 필터 이름을 표시 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
 
-다음 c # 코드에서는 스트리밍 로케이터를 만들고를 지정 `StreamingLocator.Filters`하는 방법을 보여 줍니다. 이 속성은 필터 이름의를 `IList<string>` 사용 하는 선택적 속성입니다.
+다음 c # 코드에서는 스트리밍 로케이터를 만들고를 지정 하는 방법을 보여 줍니다 `StreamingLocator.Filters` . 이 속성은 필터 이름의를 사용 하는 선택적 속성입니다 `IList<string>` .
 
 ```csharp
 IList<string> filters = new List<string>();

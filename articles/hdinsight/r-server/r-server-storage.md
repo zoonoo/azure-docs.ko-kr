@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: 1c79d0390a80a1358ddb09707fbabf6a5a2affdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75660242"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML 서비스용 azure storage 솔루션
@@ -100,7 +99,7 @@ inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 
 모든 디렉터리와 파일 참조는 이제 스토리지 계정 `wasbs://container2@storage2.blob.core.windows.net`을 지정합니다. 지정한 **이름 노드**입니다.
 
-다음과 같이 `/user/RevoShare/<SSH username>` **storage2** 에서 디렉터리를 구성 합니다.
+다음과 `/user/RevoShare/<SSH username>` 같이 **storage2** 에서 디렉터리를 구성 합니다.
 
 ```bash
 hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user

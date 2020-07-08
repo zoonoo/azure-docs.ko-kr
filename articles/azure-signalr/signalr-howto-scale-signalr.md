@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75659290"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Azure SignalR 서비스 인스턴스의 크기를 조정 하는 방법
@@ -29,7 +28,7 @@ ms.locfileid: "75659290"
 
 ## <a name="scale-on-azure-portal"></a>Azure Portal 크기 조정
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)를 엽니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)을 엽니다.
 
 2. SignalR Service 페이지의 왼쪽 메뉴에서 **Scale**을 선택 합니다.
    

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652204"
 ---
 # <a name="microsoftcommontagsbyresource-ui-element"></a>TagsByResource UI 요소
@@ -49,8 +48,8 @@ ms.locfileid: "75652204"
 
 ## <a name="remarks"></a>설명
 
-- `resources` 배열에 있는 하나 이상의 항목을 지정 해야 합니다.
-- 의 `resources` 각 요소는 정규화 된 리소스 형식 이어야 합니다. 이러한 요소는 **리소스** 드롭다운에서 표시 되며 사용자가 taggable 합니다.
+- 배열에 있는 하나 이상의 항목을 `resources` 지정 해야 합니다.
+- 의 각 요소 `resources` 는 정규화 된 리소스 형식 이어야 합니다. 이러한 요소는 **리소스** 드롭다운에서 표시 되며 사용자가 taggable 합니다.
 - 컨트롤의 출력은 Azure Resource Manager 템플릿에서 태그 값을 쉽게 할당할 수 있도록 형식이 지정 됩니다. 템플릿에서 컨트롤의 출력을 받으려면 다음 예제와 같이 템플릿에 매개 변수를 포함 합니다.
 
   ```json

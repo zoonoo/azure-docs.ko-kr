@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68728406"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
@@ -27,11 +26,11 @@ ms.locfileid: "68728406"
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[솔루션의 중요 한 엔터티를 식별 하 고 변경 감사 구현](#sensitive-entities)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[응용 프로그램에 감사 및 로깅이 적용 되는지 확인](#auditing)</li><li>[로그 회전 및 분리가 준비 되어 있는지 확인](#log-rotation)</li><li>[애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 설정](#diagnostics-logging)</li></ul> |
-| **Database** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[응용 프로그램에 감사 및 로깅이 적용 되는지 확인](#auditing)</li><li>[로그 회전 및 분리가 준비 되어 있는지 확인](#log-rotation)</li><li>[애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 사용](#diagnostics-logging)</li></ul> |
+| **데이터베이스** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
 | **Azure Storage** | <ul><li>[Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
 | **WCF** | <ul><li>[충분한 로깅 구현](#sufficient-logging)</li><li>[충분한 감사 실패 처리 구현](#audit-failure-handling)</li></ul> |
-| **Web API** | <ul><li>[웹 API에 감사 및 로깅이 적용 되는지 확인](#logging-web-api)</li></ul> |
+| **앱 API** | <ul><li>[웹 API에 감사 및 로깅이 적용 되는지 확인](#logging-web-api)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[필드 게이트웨이에 적절한 감사 및 로깅 적용](#logging-field-gateway)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에 적절 한 감사 및 로깅이 적용 되는지 확인](#logging-cloud-gateway)</li></ul> |
 
@@ -112,7 +111,7 @@ ms.locfileid: "68728406"
 | **참조**              | 해당 없음  |
 | **단계**                   | <p>애플리케이션이 잘못 사용될 경우 보안 예외를 throw하는 컨트롤이 작동해야 합니다. 예를 들어 입력 유효성 검사가 작동하면 공격자가 regex와 일치하지 않는 악성 코드를 삽입하려고 시도할 때 시스템 악용을 의미하는 보안 예외를 throw할 수 있습니다.</p><p>예를 들어 다음과 같은 문제에 대해 보안 예외를 기록하고 적절한 작업을 수행하는 것이 좋습니다.</p><ul><li>입력 유효성 검사</li><li>CSRF 위반</li><li>무차별 암호 대입(리소스당 사용자별 요청 수에 대한 상한)</li><li>파일 업로드 위반</li><ul>|
 
-## <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a><a id="diagnostics-logging"></a>Azure App Service에서 웹앱에 대한 진단 로깅 설정
+## <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a><a id="diagnostics-logging"></a>Azure App Service에서 웹 앱에 대 한 진단 로깅 사용
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |

@@ -8,10 +8,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666672"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 파트너 간의 일괄 처리 또는 그룹으로 EDI 메시지 교환
@@ -36,7 +35,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 * Azure 구독 구독이 없는 경우 [무료 Azure 계정으로 시작할](https://azure.microsoft.com/free/)수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
 
-* [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 지식
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * Azure 구독에 연결되고 논리 앱에 연결된 기존 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
@@ -64,13 +63,13 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 4. 일괄 처리 수신자 속성을 설정합니다. 
 
-   | 속성 | 값 | 메모 | 
+   | 속성 | 값 | 참고 | 
    |----------|-------|-------|
    | **일괄 처리 모드** | 인라인 |  |  
    | **일괄 처리 이름** | TestBatch | **인라인** 일괄 처리 모드에서만 사용 가능 | 
    | **해제 조건** | 메시지 수 기반, 일정 기반 | **인라인** 일괄 처리 모드에서만 사용 가능 | 
    | **메시지 수** | 10 | **메시지 수 기반** 릴리스 기준에서만 사용 가능 | 
-   | **간격은** | 10 | **일정 기반** 릴리스 기준에서만 사용 가능 | 
+   | **간격** | 10 | **일정 기반** 릴리스 기준에서만 사용 가능 | 
    | **빈도** | minute | **일정 기반** 릴리스 기준에서만 사용 가능 | 
    ||| 
 
@@ -93,7 +92,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
    4. 일괄 처리 인코더 작업에 대해 이러한 속성을 설정합니다.
 
-      | 속성 | Description |
+      | 속성 | 설명 |
       |----------|-------------|
       | **X12 계약 이름** | 목록을 열고, 기존 계약을 선택합니다. <p>목록이 비어 있으면 원하는 계약이 있는 [통합 계정에 논리 앱을 연결했는지](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) 확인합니다. | 
       | **BatchName** | 이 상자 내부를 클릭하고, 동적 콘텐츠 목록이 나타나면 **일괄 처리 이름** 토큰을 선택합니다. | 
@@ -125,7 +124,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
    | 속성 | Description | 
    |----------|-------------|
-   | **방법이** | 이 목록에서 **POST**를 선택합니다. | 
+   | **메서드** | 이 목록에서 **POST**를 선택합니다. | 
    | **Uri** | 요청 bin에 대한 URI를 생성한 다음, 이 상자에 해당 URI를 입력합니다. | 
    | **본문** | 이 상자 내부를 클릭하고, 동적 콘텐츠 목록이 열리면 섹션에 나타나는 **본문** 토큰, **계약 이름으로 일괄 처리 인코딩**을 선택합니다. <p>**본문** 토큰이 없는 경우 **계약 이름으로 일괄 처리 인코딩** 옆의 **자세히 보기**를 선택합니다. | 
    ||| 
@@ -173,10 +172,10 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 4. 일괄 처리 발신자의 속성을 설정합니다.
 
-   | 속성 | Description | 
+   | 속성 | 설명 | 
    |----------|-------------| 
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
-   | **메시지 콘텐츠** | 보내려는 메시지에 대한 콘텐츠입니다. 이 예에서는 **본문** 토큰입니다. | 
+   | **메시지 내용** | 보내려는 메시지에 대한 콘텐츠입니다. 이 예에서는 **본문** 토큰입니다. | 
    ||| 
    
    ![일괄 처리 속성 설정](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)

@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75972595"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 보안-단일 서버
@@ -23,7 +22,7 @@ Azure Database for PostgreSQL 서버에서 데이터를 보호 하는 데 사용
 Azure Database for PostgreSQL 전송 계층 보안을 사용 하 여 전송 중인 데이터를 암호화 하 여 데이터를 보호 합니다. 암호화 (SSL/TLS)는 기본적으로 적용 됩니다.
 
 ### <a name="at-rest"></a>휴지 상태의
-Azure Database for PostgreSQL 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업을 비롯 한 데이터는 디스크에서 암호화 되며 쿼리를 실행 하는 동안 생성 된 임시 파일은 제외 됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
+Azure Database for PostgreSQL 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터는 디스크에서 암호화되며, 쿼리를 실행하는 동안 만든 임시 파일은 제외됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
 
 ## <a name="network-security"></a>네트워크 보안
@@ -38,7 +37,7 @@ IP 방화벽 규칙은 각 요청의 원래 IP 주소에 따라 서버에 대 �
 가상 네트워크 서비스 끝점은 Azure 백본을 통해 가상 네트워크 연결을 확장 합니다. 가상 네트워크 규칙을 사용 하 여 가상 네트워크에서 선택한 서브넷의 연결을 허용 하도록 Azure Database for PostgreSQL 서버를 설정할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 끝점 개요](concepts-data-access-and-security-vnet.md)를 참조 하세요.
 
 ### <a name="private-ip"></a>프라이빗 IP
-개인 링크를 사용 하면 개인 끝점을 통해 Azure에서 Azure Database for PostgreSQL 단일 서버에 연결할 수 있습니다. Azure 개인 링크는 기본적으로 VNet (개인 Virtual Network) 내에 Azure 서비스를 제공 합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용 하 여 액세스할 수 있습니다. 자세한 내용은 [개인 링크 개요](concepts-data-access-and-security-private-link.md) 를 참조 하세요.
+개인 링크를 사용 하면 개인 끝점을 통해 Azure에서 Azure Database for PostgreSQL 단일 서버에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용 하 여 액세스할 수 있습니다. 자세한 내용은 [개인 링크 개요](concepts-data-access-and-security-private-link.md) 를 참조 하세요.
 
 
 ## <a name="access-management"></a>액세스 관리
@@ -48,7 +47,7 @@ Azure Database for PostgreSQL 서버를 만드는 동안 관리자 역할에 대
 [AAD (Azure Active Directory) 인증](concepts-aad-authentication.md)을 사용 하 여 서버에 연결할 수도 있습니다.
 
 
-## <a name="threat-protection"></a>위협 보호
+## <a name="threat-protection"></a>위협 방지
 
 비정상적인 활동을 검색 하는 [고급 위협 방지](concepts-data-access-and-security-threat-protection.md) 를 옵트인 (opt in) 하 여 서버에 액세스 하거나 악용 하려는 비정상적인 시도를 발견할 수 있습니다.
 

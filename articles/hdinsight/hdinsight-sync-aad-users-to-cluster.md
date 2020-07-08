@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: 299d242c38152db6a471159d1f3d2803598c1832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75744852"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
 [ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터](hdinsight-domain-joined-introduction.md)는 Azure AD(Azure Active Directory) 사용자에 대해 강력한 인증을 사용하고, RBAC(*역할 기반 액세스 제어*) 정책도 사용할 수 있습니다. Azure AD에 사용자 및 그룹을 추가 하는 경우 클러스터에 대 한 액세스 권한이 필요한 사용자를 동기화 할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 아직 하지 않은 경우 [Enterprise Security Package가 포함된 HDInsight 클러스터를 만듭니다](hdinsight-domain-joined-configure.md).
 
@@ -45,7 +44,7 @@ ms.locfileid: "75744852"
 
 다음 방법은 Ambari REST API에서 POST를 사용합니다. 자세한 내용은 [Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
 
-1. [Ssh 명령을](hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. `CLUSTERNAME`을 클러스터의 이름으로 대체하여 아래 명령을 편집한 다음, 다음 명령을 입력합니다.
+1. [ssh command](hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. `CLUSTERNAME`을 클러스터의 이름으로 대체하여 아래 명령을 편집한 다음, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -127,7 +126,7 @@ ms.locfileid: "75744852"
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>새로 추가된 Azure AD 사용자 확인
 
-[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)를 열어 새 Azure AD 사용자가 추가되었는지 확인합니다. 로 **`https://CLUSTERNAME.azurehdinsight.net`** 이동 하 여 AMBARI 웹 UI에 액세스 합니다. 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
+[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)를 열어 새 Azure AD 사용자가 추가되었는지 확인합니다. 로 이동 하 여 Ambari 웹 UI에 액세스 **`https://CLUSTERNAME.azurehdinsight.net`** 합니다. 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
 
 1. Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 
@@ -146,7 +145,7 @@ ms.locfileid: "75744852"
 새 사용자(또는 다른 도메인 사용자)는 Ambari에 로그인할 때 전체 Azure AD 사용자 이름 및 도메인 자격 증명을 사용합니다.  Ambari는 Azure AD에서 사용자의 표시 이름으로 사용되는 사용자 별칭을 표시합니다.
 새로운 예제 사용자의 사용자 이름은 `hiveuser3@contoso.com`입니다. Ambari에서 이 새 사용자는 `hiveuser3`로 표시되지만 사용자는 Ambari에 `hiveuser3@contoso.com`으로 로그인합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [ESP가 포함된 HDInsight에서 Apache Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
 * [ESP가 포함된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)

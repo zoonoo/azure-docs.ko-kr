@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75977308"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터-Azure Functions 및 SendGrid를 사용 하 여 도어를 열 때 전자 메일 보내기           
@@ -81,7 +80,7 @@ Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합
 
 ![SendGrid 관리](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-SendGrid 페이지에서 **설정** > **api 키** > **api 키 만들기**를 클릭 합니다.
+SendGrid 페이지에서 **설정**  >  **api 키**  >  **api 키 만들기**를 클릭 합니다.
 
 ![SendGrid API 처음 만들기](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -134,7 +133,7 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-명령 팔레트에서 예제 앱을 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+명령 팔레트에서 예제 앱을 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
 
 ### <a name="provision-azure-services"></a>Azure 서비스 프로비전
 

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
 ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750879"
 ---
 # <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
@@ -38,7 +37,7 @@ ms.locfileid: "75750879"
 
 이러한 속성은 키 배달 로그 스키마에만 적용 됩니다.
 
-|속성|Description|
+|이름|설명|
 |---|---|
 |keyId|요청 된 키의 ID입니다.|
 |keyType|"Clear" (암호화 없음), "FairPlay", "PlayReady" 또는 "Widevine" 값 중 하나일 수 있습니다.|
@@ -108,7 +107,7 @@ ms.locfileid: "75750879"
 } 
 ```
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

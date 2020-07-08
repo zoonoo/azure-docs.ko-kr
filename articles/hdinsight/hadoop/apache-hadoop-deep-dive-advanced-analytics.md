@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 6fc6ea9ca0ce3bf82f027b964db94df50f07f2bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646526"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
@@ -42,12 +41,12 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 * 자율-알고리즘이 학습 데이터를 요구 하지 않습니다.
 * 보충 - 알고리즘에서 소프트웨어 에이전트를 사용하여 특정 컨텍스트 내에서 이상적인 동작을 결정합니다(종종 로봇 공학에서 사용됨)
 
-| 알고리즘 범주| 사용 | 학습 유형 | 알고리즘 |
+| 알고리즘 범주| Windows Server Update Services와 함께 | 학습 유형 | 알고리즘 |
 | --- | --- | --- | -- |
-| 분류 | 사람 또는 사물을 그룹으로 분류합니다. | 감독 | 의사 결정 트리, 로지스틱 회귀, 신경망 |
-| 클러스터링 | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
+| 분류 | 사람 또는 사물을 그룹으로 분류합니다. | 감독됨 | 의사 결정 트리, 로지스틱 회귀, 신경망 |
+| Clustering | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
 | 패턴 검색 | 데이터에서 빈번한 연결을 확인합니다. | 자율 | 연결 규칙 |
-| 재발 | 숫자 결과를 예측합니다. | 감독 | 선형 회귀, 신경망 |
+| 회귀 | 숫자 결과를 예측합니다. | 감독됨 | 선형 회귀, 신경망 |
 | 보충 | 최적의 로봇 동작을 결정합니다. | 보충 | 몬테카를로 시뮬레이션, 딥 마인드 |
 
 ## <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습

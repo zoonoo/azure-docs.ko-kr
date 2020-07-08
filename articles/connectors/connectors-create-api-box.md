@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666774"
 ---
 # <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Box에서 파일 만들기 및 관리
@@ -36,7 +35,7 @@ ms.locfileid: "75666774"
 * Box 계정에 액세스하려는 논리 앱입니다. Box 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md)을 검토 하세요.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

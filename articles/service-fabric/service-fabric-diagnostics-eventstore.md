@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
 ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645738"
 ---
 # <a name="eventstore-overview"></a>EventStore 개요
@@ -65,7 +64,7 @@ EventStore 서비스에는 클러스터의 이벤트 간에 상관 관계를 지
 ### <a name="azure-cluster-version-65"></a>Azure 클러스터 버전 6.5 이상
 Azure 클러스터가 버전 6.5 이상으로 업그레이드 되 면 EventStore가 클러스터에서 자동으로 사용 하도록 설정 됩니다. 옵트아웃 하려면 다음을 사용 하 여 클러스터 템플릿을 업데이트 해야 합니다.
 
-* `2019-03-01` 이상의 API 버전 사용 
+* 이상의 API 버전 사용 `2019-03-01` 
 * 클러스터의 속성 섹션에 다음 코드를 추가 합니다.
   ```json  
     "fabricSettings": [

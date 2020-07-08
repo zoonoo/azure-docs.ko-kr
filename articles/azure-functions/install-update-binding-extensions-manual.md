@@ -4,10 +4,9 @@ description: 배포된 함수 앱용으로 Azure Functions 바인딩 확장을 �
 ms.topic: reference
 ms.date: 09/26/2018
 ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75768863"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>포털에서 Azure Functions 바인딩 확장 수동 설치 또는 업데이트
@@ -22,9 +21,9 @@ Azure Portal에서 바인딩 확장을 수동으로 설치하거나 업데이트
 
 1. [Azure Portal](https://portal.azure.com)에서 함수 앱을 찾아서 선택합니다. **개요** 탭을 선택하고 **중지**를 선택합니다.  함수 앱을 중지하면 변경 내용을 적용할 수 있도록 파일 잠금이 해제됩니다.
 
-1. **플랫폼 기능** 탭을 선택하고 **개발 도구**에서 **고급 도구(Kudu)** 를 선택합니다. Kudu 끝점 (`https://<APP_NAME>.scm.azurewebsites.net/`)이 새 창에서 열립니다.
+1. **플랫폼 기능** 탭을 선택하고 **개발 도구**에서 **고급 도구(Kudu)** 를 선택합니다. Kudu 끝점 ( `https://<APP_NAME>.scm.azurewebsites.net/` )이 새 창에서 열립니다.
 
-1. Kudu 창에서 **디버그 콘솔** > **CMD**를 선택 합니다.  
+1. Kudu 창에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.  
 
 1. 명령 창에서 `D:\home\site\wwwroot`로 이동한 다음 `bin` 옆의 삭제 아이콘을 선택하여 폴더를 삭제합니다. **확인**을 선택하여 삭제를 확인합니다.
 

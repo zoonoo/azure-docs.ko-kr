@@ -8,17 +8,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
 ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75897963"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>CMK (고객이 관리 하는 키)가 설정 된 디스크를 사용 하 여 컴퓨터 복제
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure Vm을 CMK (고객이 관리 하는 키)로 설정 된 관리 디스크로 복제 하는 방법을 설명 합니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 CMK를 사용 하는 관리 디스크가 있는 가상 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 대상 구독에 대 한 대상 지역에서 디스크 암호화 집합을 만들어야 합니다.
 
 ## <a name="enable-replication"></a>복제 사용
@@ -33,14 +32,14 @@ CMK를 사용 하는 관리 디스크가 있는 가상 컴퓨터에 대해 복�
     - **원본 구독**: 원본 가상 머신이 속한 구독입니다. Recovery services 자격 증명 모음과 동일한 Azure Active Directory 테 넌 트에 있는 모든 구독 일 수 있습니다.
     - **리소스 그룹**: 원본 가상 머신이 속해 있는 리소스 그룹입니다. 선택한 리소스 그룹의 모든 Vm은 다음 단계에서 보호를 위해 나열 됩니다.
 
-3. **Virtual Machines** > **가상 컴퓨터 Virtual Machines 선택**에서 복제 하려는 각 VM을 선택 합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택 합니다.
+3. **Virtual Machines**  >  **가상 컴퓨터 Virtual Machines 선택**에서 복제 하려는 각 VM을 선택 합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다.
 
 4. **설정**에서 다음과 같은 대상 사이트 설정을 구성할 수 있습니다.
 
     - **대상 위치**: 원본 가상 머신 데이터가 복제 될 위치입니다. Site Recovery 선택한 컴퓨터의 위치에 따라 적합 한 대상 영역 목록을 제공 합니다. Recovery Services 자격 증명 모음 위치와 동일한 위치를 사용 하는 것이 좋습니다.
     - **대상 구독**: 재해 복구에 사용 되는 대상 구독입니다. 기본적으로 대상 구독은 원본 구독과 동일합니다.
-    - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속하게 될 리소스 그룹입니다. 기본적으로 Site Recovery는 대상 지역에 새 리소스 그룹을 만듭니다. 이름은 접미사를 `asr` 가져옵니다. Azure Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 다시 사용 됩니다. 다음 섹션과 같이 사용자 지정 하도록 선택할 수도 있습니다. 대상 리소스 그룹의 위치는 원본 가상 컴퓨터가 호스트 되는 지역을 제외한 모든 Azure 지역이 될 수 있습니다.
-    - **대상 virtual network**: 기본적으로 Site Recovery는 대상 지역에 새 가상 네트워크를 만듭니다. 이름은 접미사를 `asr` 가져옵니다. 원본 네트워크에 매핑되고 향후 보호에 사용 됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
+    - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속하게 될 리소스 그룹입니다. 기본적으로 Site Recovery는 대상 지역에 새 리소스 그룹을 만듭니다. 이름은 접미사를 가져옵니다 `asr` . Azure Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 다시 사용 됩니다. 다음 섹션과 같이 사용자 지정 하도록 선택할 수도 있습니다. 대상 리소스 그룹의 위치는 원본 가상 컴퓨터가 호스트 되는 지역을 제외한 모든 Azure 지역이 될 수 있습니다.
+    - **대상 virtual network**: 기본적으로 Site Recovery는 대상 지역에 새 가상 네트워크를 만듭니다. 이름은 접미사를 가져옵니다 `asr` . 원본 네트워크에 매핑되고 향후 보호에 사용 됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
     - **대상 저장소 계정 (원본 vm이 관리 디스크를 사용 하지 않는 경우)**: 기본적으로 Site Recovery는 원본 vm 저장소 구성을 모방 하 여 새 대상 저장소 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용 됩니다.
     - **복제본 관리 디스크 (원본 vm이 관리 디스크를 사용 하는 경우)**: Site Recovery 대상 지역에 새 복제본 관리 디스크를 만들어서 원본 vm의 관리 디스크와 동일한 저장소 유형 (standard 또는 premium)의 원본 vm 관리 디스크를 미러링합니다.
     - **캐시 저장소 계정**: Site Recovery에는 원본 지역에서 *캐시 저장소* 라는 추가 저장소 계정이 필요 합니다. 원본 Vm의 모든 변경 내용이 추적 되 고 캐시 저장소 계정으로 전송 됩니다. 그런 다음 대상 위치에 복제 됩니다.
@@ -64,7 +63,7 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 
 3. "저장소 암호화 설정" 옆의 **사용자 지정** 을 선택 하 여 모든 cmk (고객 관리 키) 사용 원본 관리 디스크에 대 한 대상 DES를 선택 합니다. 선택 시 DES가 연결 된 대상 키 자격 증명 모음을 볼 수 있습니다.
 
-4. **대상 리소스** > 만들기**복제 사용**을 선택 합니다.
+4. **대상 리소스 만들기**  >  **복제 사용**을 선택 합니다.
 5. Vm이 복제를 사용 하도록 설정 된 후 복제 된 **항목**에서 vm의 상태를 확인할 수 있습니다.
 
 ![CMK를 사용 하는 디스크가 있는 컴퓨터에 대 한 복제 사용](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
@@ -72,7 +71,7 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 >[!NOTE]
 >초기 복제 중에는 상태를 명확 하 게 진행 하지 않고 새로 고치는 데 시간이 걸릴 수 있습니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭 합니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 * 기존 복제 된 항목에 CMK를 사용 하도록 설정 했습니다. CMK가 대상 지역에도 적용 되도록 하려면 어떻게 해야 하나요?
 

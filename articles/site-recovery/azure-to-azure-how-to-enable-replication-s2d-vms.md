@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75973658"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>스토리지 공간 다이렉트 실행 중인 Azure Vm을 다른 지역에 복제

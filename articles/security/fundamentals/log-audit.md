@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750795"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Azure 보안 로깅 및 감사
@@ -40,19 +39,19 @@ Azure는 보안 정책 및 메커니즘의 차이를 식별할 수 있도록 다
 Azure 로그는 다음과 같은 유형으로 분류됩니다.
 * **제어/관리 로그**는 Azure Resource Manager의 CREATE, UPDATE 및 DELETE 작업에 대한 정보를 제공합니다. 자세한 내용은 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
 
-* **데이터 평면 로그** 는 Azure 리소스 사용의 일부로 발생 하는 이벤트에 대 한 정보를 제공 합니다. 이 로그 유형의 예로 VM(가상 머신)의 Windows 이벤트 시스템, 보안 및 애플리케이션 로그와 Azure Monitor를 통해 구성된 [진단 로그](../../azure-monitor/platform/platform-logs-overview.md)가 있습니다.
+* **데이터 평면 로그**는 Azure 리소스 사용의 일부로 발생한 이벤트에 대한 정보를 제공합니다. 이 로그 유형의 예로 VM(가상 머신)의 Windows 이벤트 시스템, 보안 및 애플리케이션 로그와 Azure Monitor를 통해 구성된 [진단 로그](../../azure-monitor/platform/platform-logs-overview.md)가 있습니다.
 
 * **처리된 이벤트**는 사용자를 대신하여 처리되어 분석된 이벤트/경고에 대한 정보를 제공합니다. 이 로그 유형의 예로 [Azure Security Center](../../security-center/security-center-intro.md)에서 구독을 처리 및 분석하고 간결한 보안 경고를 제공하는 [Azure Security Center 경고](../../security-center/security-center-managing-and-responding-alerts.md)가 있습니다.
 
 다음 표에는 Azure에서 사용할 수 있는 가장 중요한 유형의 로그가 나와 있습니다.
 
-| 로그 범주 | 로그 형식 | 사용법 | 통합 |
+| 로그 범주 | 로그 형식 | 사용량 | 통합 |
 | ------------ | -------- | ------ | ----------- |
 |[활동 로그](../../azure-monitor/platform/platform-logs-overview.md)|Azure Resource Manager 리소스에 대한 제어 평면 이벤트|  구독의 리소스에서 수행된 작업에 대한 인사이트를 제공합니다.|    Rest API, [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Azure 리소스 로그](../../azure-monitor/platform/platform-logs-overview.md)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈번한 데이터|   리소스 자체에서 수행한 작업에 대한 인사이트를 제공합니다.| Azure Monitor|
 |[Azure Active Directory 보고](../../active-directory/reports-monitoring/overview-reports.md)|로그 및 보고서 | 사용자 및 그룹 관리에 대한 사용자 로그인 활동 및 시스템 활동 정보를 보고합니다.|[그래프 API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[가상 머신 및 클라우드 서비스](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows 이벤트 로그 서비스 및 Linux Syslog|  가상 머신에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 스토리지 계정으로 해당 데이터를 전송합니다.|   Azure Monitor의 Windows([WAD](../../monitoring-and-diagnostics/azure-diagnostics.md)[Microsoft Azure Diagnostics 스토리지] 사용) 및 Linux|
-|[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|스토리지 로깅(스토리지 계정에 대한 메트릭 데이터 제공)|추적 요청에 대한 인사이트를 제공하고, 사용 추세를 분석하며, 스토리지 계정과 관련된 문제를 진단합니다.|   REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
+|[Azure 스토리지 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|스토리지 로깅(스토리지 계정에 대한 메트릭 데이터 제공)|추적 요청에 대한 인사이트를 제공하고, 사용 추세를 분석하며, 스토리지 계정과 관련된 문제를 진단합니다.|   REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (네트워크 보안 그룹) 흐름 로그](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|JSON 형식(규칙에 따라 아웃바운드 및 인바운드 흐름 표시)|네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 표시합니다.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application Insight](../../azure-monitor/app/app-insights-overview.md)|로그, 예외 및 사용자 지정 진단|  여러 플랫폼에서 웹 개발자를 위한 APM(애플리케이션 성능 모니터링) 서비스를 제공합니다.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |[데이터 처리/보안 경고](../../security-center/security-center-intro.md)|  경고 Azure Security Center, Azure Monitor 로그 경고|    보안 정보 및 경고를 제공합니다.|  REST API, JSON|

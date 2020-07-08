@@ -8,10 +8,9 @@ ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
 ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75768489"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
@@ -74,4 +73,4 @@ Node.js 앱에 대한 Azure App Service 기본 구성은 가장 일반적인 앱
 - **모범 사례** 홈 페이지 타일을 선택 합니다.
 - 모범 사례에 **대 한 모범 사례** 를 클릭 하 여 모범 사례에 대 한 응용 프로그램의 현재 상태를 확인 하는 **최적의 구성을 위한** 모범 사례를 & 합니다.
 
-또한이 링크를 사용 하 여 리소스에 대 한 App Service 진단을 직접 열 `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`수 있습니다.
+또한이 링크를 사용 하 여 리소스에 대 한 App Service 진단을 직접 열 수 있습니다 `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot` .

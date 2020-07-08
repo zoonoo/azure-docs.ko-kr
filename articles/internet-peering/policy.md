@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75775226"
 ---
 # <a name="peering-policy"></a>피어링 정책
@@ -44,10 +43,10 @@ ms.locfileid: "75775226"
 
 ## <a name="physical-connection-requirements"></a>실제 연결 요구 사항
 * 직접 피어 링 또는 Exchange 피어 링을 위해 Microsoft에 연결할 수 있는 위치는 [Peeringdb](https://www.peeringdb.com/net/694) 에 나열 됩니다.
-* **교환 피어링:**
+* **Exchange 피어 링:**
     * 적절 한 10Gbps 광학을 사용 하 여 단일 모드 파이버를 통해 상호 간 이어야 합니다.
     * 최대 사용률이 50%를 초과 하면 피어는 해당 포트를 업그레이드 해야 합니다.
-* **직접 피어링:**
+* **직접 피어 링:**
     * 상호는 적절 한 10Gbps 또는 100Gbps 광학을 사용 하 여 단일 모드 파이버 보다 커야 합니다.
     * Microsoft는 ISP 또는 네트워크 서비스 공급자와의 직접 피어 링만 설정 합니다.
     * 피어는 최고 사용률이 50%를 초과 하 고 각 metro에서 단일 위치 또는 metro의 여러 위치에서 다양 한 용량을 유지 하는 경우 해당 포트를 업그레이드 해야 합니다.

@@ -4,10 +4,9 @@ description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 �
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.openlocfilehash: 21416edc95d345eb183030a9b0cccb7529305d6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75748642"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
@@ -20,7 +19,7 @@ ms.locfileid: "75748642"
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Azure Portal에서 서비스 상태 알림 보기
 
-1. [Azure Portal](https://portal.azure.com)에서 **모니터**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모니터**를 선택 합니다.
 
     ![모니터를 선택한 Azure Portal 메뉴 스크린샷](./media/service-notifications/home-monitor.png)
 

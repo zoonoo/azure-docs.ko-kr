@@ -8,10 +8,9 @@ ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: lbosq
 ms.openlocfilehash: d9a4e336f582e866fd057f6c281f892ce07b34fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75941840"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API의 일반적인 문제 해결
@@ -22,7 +21,7 @@ MongoDB에 대 한 Azure Cosmos DB API는 MongoDB의 유선 프로토콜 3.2 버
 
 ## <a name="common-errors-and-solutions"></a>일반적인 오류 및 해결 방법
 
-| 오류               | 코드  | Description  | 솔루션  |
+| Error               | 코드  | Description  | 해결 방법  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당 된 처리량을 확장 하거나 작업을 다시 시도할 수 있습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. 예: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |

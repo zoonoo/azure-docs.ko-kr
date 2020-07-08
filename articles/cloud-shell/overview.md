@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
 ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75832502"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
@@ -73,7 +72,7 @@ Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 * [Visual Studio Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 스토리지 연결
-Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이라는 `clouddrive`탑재 된 파일 공유를 통해 두 가지 방법으로 유지 됩니다.  처음 시작하면 Cloud Shell은 사용자를 대신하여 리소스 그룹, 스토리지 계정 및 Azure Files 공유를 만들라는 메시지를 표시합니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
+Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이라는 탑재 된 파일 공유를 통해 두 가지 방법으로 유지 `clouddrive` 됩니다.  처음 시작하면 Cloud Shell은 사용자를 대신하여 리소스 그룹, 스토리지 계정 및 Azure Files 공유를 만들라는 메시지를 표시합니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
 
 자세한 내용은 [새 또는 기존 저장소 계정을](persisting-shell-storage.md) 탑재 하거나 [Cloud Shell에 사용 되는 지 속성 메커니즘](persisting-shell-storage.md#how-cloud-shell-storage-works)에 대해 알아보는 방법을 알아보세요.
 

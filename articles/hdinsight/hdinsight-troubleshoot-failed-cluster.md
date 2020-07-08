@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895310"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생하는 작업 문제 해결
@@ -90,7 +89,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 #### <a name="check-azure-service-usage-limits"></a>Azure 서비스 사용 제한 확인
 
-대규모 클러스터를 시작하거나 많은 클러스터를 동시에 시작한 경우 Azure 서비스 제한을 초과하면 클러스터가 실패할 수 있습니다. 서비스 제한은 Azure 구독에 따라 다릅니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조하세요.
+대규모 클러스터를 시작하거나 많은 클러스터를 동시에 시작한 경우 Azure 서비스 제한을 초과하면 클러스터가 실패할 수 있습니다. 서비스 제한은 Azure 구독에 따라 다릅니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요.
 [리소스 관리자 코어 할당량 증가 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)을 통해 Microsoft에 사용 가능한 HDInsight 리소스(예: VM 코어 및 VM 인스턴스) 수를 늘려 달라고 요청할 수 있습니다.
 
 #### <a name="check-the-release-version"></a>릴리스 버전 확인
@@ -111,7 +110,7 @@ HDInsight 클러스터는 가상 머신 인스턴스에서 실행되는 여러 �
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Ambari UI 대시보드를 사용하여 클러스터 상태 스냅샷 가져오기
 
-[Ambari UI 대시보드](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`)는 작동 시간, 메모리, 네트워크 및 CPU 사용량, HDFS 디스크 사용 등과 같은 클러스터 상태에 대 한 개요를 제공 합니다. Ambari의 호스트 섹션을 사용하여 호스트 수준에서 리소스를 볼 수 있습니다. 서비스를 중지하고 다시 시작할 수도 있습니다.
+[AMBARI UI 대시보드](#view-cluster-configuration-settings-with-the-ambari-ui) ( `https://<clustername>.azurehdinsight.net` )는 작동 시간, 메모리, 네트워크 및 CPU 사용량, HDFS 디스크 사용 등과 같은 클러스터 상태에 대 한 개요를 제공 합니다. Ambari의 호스트 섹션을 사용하여 호스트 수준에서 리소스를 볼 수 있습니다. 서비스를 중지하고 다시 시작할 수도 있습니다.
 
 ### <a name="check-your-webhcat-service"></a>WebHCat 서비스 확인
 

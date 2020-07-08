@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75864284"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>팀 데이터 과학 프로세스 팀에 대 한 팀 리더 작업
@@ -77,7 +76,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 - 여러 데이터 과학 팀이 없는 작은 데이터 과학 그룹 
 - 여러 데이터 과학 팀을 포함 하는 대규모 데이터 과학 그룹으로, 그러나 그룹 수준 스 프린트 계획과 같은 작업으로 팀 간 공동 작업을 최적화 하려고 합니다. 
 
-팀이 단일 그룹 프로젝트에서 팀 특정 리포지토리를 사용 하도록 선택 하는 경우 팀은 * \<teamname>템플릿* 및 * \<teamname>Utilities*와 같은 이름을 가진 리포지토리를 만들어야 합니다. 예: *TeamATemplate* 및 *TeamAUtilities*. 
+팀이 단일 그룹 프로젝트에서 팀 특정 리포지토리를 사용 하도록 선택 하는 경우 팀은 * \<TeamName> 템플릿* 및 * \<TeamName> 유틸리티*와 같은 이름의 리포지토리를 만들어야 합니다. 예: *TeamATemplate* 및 *TeamAUtilities*. 
 
 어떤 경우 든 팀 리더는 팀 멤버가 설정 하 고 복제할 템플릿 및 유틸리티 리포지토리를 알고 있어야 합니다. 프로젝트 책임자는 개별 프로젝트 또는 단일 프로젝트에서 프로젝트 리포지토리를 만들기 위해 [데이터 과학 팀에 대 한 프로젝트 리더 작업](project-lead-tasks.md) 을 따라야 합니다. 
 
@@ -85,7 +84,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 
 팀에 대 한 별도의 프로젝트를 만들려면 다음을 수행 합니다.
 
-1. 웹 브라우저에서 URL *https\//\<: 서버 이름>/\<조직 이름>* 의 그룹의 Azure devops 조직 홈 페이지로 이동 하 고 **새 프로젝트**를 선택 합니다. 
+1. 웹 브라우저에서 URL *https: \/ / \<server name> / \<organization name> *에서 그룹의 Azure devops 조직 홈 페이지로 이동 하 고 **새 프로젝트**를 선택 합니다. 
    
    ![새 프로젝트 선택](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
@@ -95,7 +94,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
    
    ![프로젝트 만들기](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-팀 프로젝트 **요약** 페이지가 열립니다. 페이지 URL은 *\//\<https: 서버\<이름>/조직 이름>/\<팀 이름>* 입니다.
+팀 프로젝트 **요약** 페이지가 열리고 페이지 URL *https: \/ / \<server name> / \<organization name> / \<team name> *가 포함 됩니다.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>MyTeam 기본 리포지토리를 TeamUtilities로 이름 바꾸기
 
@@ -140,7 +139,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
    
    ![가져오기 선택](./media/team-lead-tasks/import-repo.png)
    
-1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 그룹 공통 템플릿 리포지토리의 url을 입력 합니다. URL은 *https\//\<: 서버 이름\<>/조직 이름>/_git/\<리포지토리 이름>* 입니다. 예: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 그룹 공통 템플릿 리포지토리의 url을 입력 합니다. URL은 *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *입니다. 예: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. **가져오기**를 선택합니다. 그룹 템플릿 리포지토리의 콘텐츠를 팀 템플릿 리포지토리로 가져옵니다. 
    
@@ -199,7 +198,7 @@ Azure DevOps에서 직접 파일 또는 폴더를 수정, 업로드 또는 만�
    
 1. 만든 디렉터리로 변경 합니다.
    
-1. Git Bash에서 명령을 `git clone <clone URL>`실행 합니다. 여기서 \<Clone URL>는 **복제** 대화 상자에서 복사한 url입니다.
+1. Git Bash에서 명령을 실행 합니다 `git clone <clone URL>` \<clone URL> . 여기서은 **복제** 대화 상자에서 복사한 URL입니다.
    
    예를 들어 다음 명령 중 하나를 사용 하 여 **Teamutilities** 리포지토리를 로컬 컴퓨터의 *myteam* 디렉터리에 복제 합니다. 
    
@@ -226,7 +225,7 @@ git push
 ```
 
 > [!NOTE]
-> Git 리포지토리에 처음 커밋하는 경우 `git commit` 명령을 실행 하기 전에 전역 매개 변수 *user.name* 및 *user. email* 을 구성 해야 할 수 있습니다. 다음 두 명령을 실행합니다.
+> Git 리포지토리에 처음 커밋하는 경우 명령을 실행 하기 전에 전역 매개 변수 *user.name* 및 *user. email* 을 구성 해야 할 수 있습니다. `git commit` 다음 두 명령을 실행합니다.
 > 
 > `git config --global user.name <your name>`
 > 

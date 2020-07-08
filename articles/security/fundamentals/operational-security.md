@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75749963"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
@@ -148,11 +147,11 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
 
--   **데이터 분리:** 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
+-   **데이터 분리**: 데이터는 서비스 전체에서 각 구성 요소에 논리적으로 별도로 유지됩니다. 모든 데이터에는 조직별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다.
 
 -   **데이터 액세스**: Microsoft 직원은 보안 권장 사항을 제공하고 잠재적 보안 위협을 조사하기 위해 Azure 서비스에서 수집하거나 분석한 정보에 액세스할 수 있습니다. 이러한 정보에는 크래시 덤프 파일, 프로세스 생성 이벤트, VM 디스크 스냅샷 및 아티팩트 등이 포함되며, 가상 머신의 고객 데이터 또는 개인 데이터가 의도치 않게 포함될 수도 있습니다. Microsoft는 [Microsoft Online Services 약관 및 개인정보처리방침](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)을 준수하며, 고객 데이터를 사용하지 않거나 광고 또는 이와 유사한 상업적 목적으로 정보를 유출하지 않습니다.
 
--   **데이터 사용**: Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스를 사용하여 방지 및 검색 기능을 향상시킵니다. [개인 정보 취급 방침](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)에 설명된 개인 정보 취급 방침 약정에 따라 수행합니다.
+-   **데이터 사용**: Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스를 사용하여 방지 및 검색 기능을 향상시킵니다. [개인정보처리방침](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)에 설명된 개인정보처리방침 약정에 따라 수행합니다.
 
 ### <a name="data-location"></a>데이터 위치
 
@@ -199,7 +198,7 @@ Azure Monitor는 특정 유형의 리소스 정보에 대한 포인터를 제공
 
 ### <a name="metrics"></a>메트릭
 
-Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 [메트릭](../../monitoring/monitoring-data-collection.md)을 구성하고 사용하는 몇 가지 방법을 제공합니다. 메트릭은 원격 분석의 중요한 출처로, 다음 작업을 수행할 수 있습니다.
+Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 [메트릭을](../../monitoring/monitoring-data-collection.md) 구성 하 고 사용 하는 여러 가지 방법을 제공 합니다. 메트릭은 원격 분석의 중요한 출처로, 다음 작업을 수행할 수 있습니다.
 
 -   포털 차트에 메트릭을 넣고 해당 차트를 대시보드에 고정하여 리소스(예: VM, 웹 사이트, 논리 앱)의 **성능을 추적**합니다.
 

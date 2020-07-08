@@ -4,10 +4,9 @@ description: 이 문서에서는 컨테이너의 Azure Monitor에서 메모리 �
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75730928"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 성능 문제에 대한 경고를 설정하는 방법
@@ -100,7 +99,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->다음 쿼리에서는-cluster 이름> \<자리 표시자 값을 사용 하 고 \<-controller-name>를 사용 하 여 클러스터와 컨트롤러를 나타냅니다. 경고를 설정할 때 사용자 환경에 특정 한 값으로 대체 합니다.
+>다음 쿼리는 자리 표시자 값 및를 사용 \<your-cluster-name> \<your-controller-name> 하 여 클러스터와 컨트롤러를 나타냅니다. 경고를 설정할 때 사용자 환경에 특정 한 값으로 대체 합니다.
 
 다음 쿼리는 컨트롤러에 있는 모든 컨테이너의 평균 CPU 사용률을 1 분 마다 컨트롤러에 있는 모든 컨테이너 인스턴스의 평균 CPU 사용률으로 계산 합니다. 측정값은 컨테이너에 대해 설정 된 한도의 백분율입니다.
 
@@ -248,7 +247,7 @@ let endDateTime = now();
 >[!NOTE]
 >*보류 중*, *실패*또는 *알 수 없음*과 같은 특정 pod 단계에 대해 경고 하려면 쿼리의 마지막 줄을 수정 합니다. 예를 들어 *Failedcount* 에 대해 경고 하려면 다음을 사용 합니다. <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-다음 쿼리는 사용 가능한 90%의 사용 가능한 공간을 초과 하는 클러스터 노드 디스크를 반환 합니다. 클러스터 ID를 가져오려면 먼저 다음 쿼리를 실행 하 고 `ClusterId` 속성의 값을 복사 합니다.
+다음 쿼리는 사용 가능한 90%의 사용 가능한 공간을 초과 하는 클러스터 노드 디스크를 반환 합니다. 클러스터 ID를 가져오려면 먼저 다음 쿼리를 실행 하 고 속성의 값을 복사 합니다 `ClusterId` .
 
 ```kusto
 InsightsMetrics
@@ -284,12 +283,12 @@ InsightsMetrics
 >
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal에서 **Log Analytics 작업 영역**을 검색 하 고 선택 합니다.
+2. Azure Portal에서 **Log Analytics 작업 영역**을 검색하여 선택합니다.
 3. Log Analytics 작업 영역 목록에서 컨테이너에 대 한 Azure Monitor를 지 원하는 작업 영역을 선택 합니다. 
 4. 왼쪽 창에서 **로그** 를 선택 하 여 Azure Monitor 로그 페이지를 엽니다. 이 페이지를 사용 하 여 Azure Log Analytics 쿼리를 작성 하 고 실행 합니다.
 5. **로그** 페이지에서 이전에 제공 된 [쿼리](#resource-utilization-log-search-queries) 중 하나를 **검색 쿼리** 필드에 붙여넣은 다음 **실행** 을 선택 하 여 결과의 유효성을 검사 합니다. 이 단계를 수행 하지 않으면 **+ 새 경고** 옵션을 선택할 수 없습니다.
 6. **+ 새 경고** 를 선택 하 여 로그 경고를 만듭니다.
-7. **조건** 섹션에서 사용자 지정 로그 검색이 미리 정의 된 사용자 지정 로그 조건 **>정의 \<되어 있지 않을 때마다** 를 선택 합니다. **사용자 지정 로그 검색** 신호 유형은 Azure Monitor 로그 페이지에서 직접 경고 규칙을 만들기 때문에 자동으로 선택 됩니다.  
+7. **조건** 섹션에서 **사용자 지정 로그 \<logic undefined> 검색이** 미리 정의 된 사용자 지정 로그 조건이 될 때마다를 선택 합니다. **사용자 지정 로그 검색** 신호 유형은 Azure Monitor 로그 페이지에서 직접 경고 규칙을 만들기 때문에 자동으로 선택 됩니다.  
 8. 이전에 제공 된 [쿼리](#resource-utilization-log-search-queries) 중 하나를 **검색 쿼리** 필드에 붙여넣습니다.
 9. 다음과 같이 경고를 구성 합니다.
 

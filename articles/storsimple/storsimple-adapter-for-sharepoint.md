@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: twooley
 ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75930218"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
@@ -226,7 +225,7 @@ SharePoint용 StorSimple 어댑터 소프트웨어를 제거하기 전에 표면
 4. **StorSimple 어댑터 구성** 페이지에서, 외부 BLOB 저장소에서 제거할 각 콘텐츠 데이터베이스 아래에 있는 **사용 안 함** 단추를 클릭합니다. 
 5. SharePoint에서 개체를 삭제한 다음 다시 업로드합니다.
 
-또는 SharePoint에 포함 된 Microsoft `RBS Migrate()` PowerShell cmdlet을 사용할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
+또는 SharePoint에 포함 된 Microsoft PowerShell cmdlet을 사용할 수 있습니다 `RBS Migrate()` . 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
 
 Blob을 콘텐츠 데이터베이스로 다시 이동한 후 다음 단계인 [어댑터 제거](#uninstall-the-adapter)로 이동합니다.
 

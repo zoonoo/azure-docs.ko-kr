@@ -4,10 +4,9 @@ description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azur
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750050"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Service Fabric에 대 한 Azure Files 볼륨 드라이버
@@ -18,7 +17,7 @@ Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](
 > Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 일반 공급으로 릴리스 되었습니다.
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
 
 * Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
@@ -29,7 +28,7 @@ Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](
 
 * [Service Fabric 모듈을 사용하는 Powershell](/azure/service-fabric/service-fabric-get-started) 또는 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 설치가 필요합니다.
 
-* Hyper-v 컨테이너를 사용 하는 경우 다음 코드 조각을 ClusterManifest (로컬 클러스터) 또는 fabricSettings Azure Resource Manager 섹션 (Azure cluster) 또는 clustervjson (독립 실행형 클러스터)에 추가 해야 합니다.
+* Hyper-v 컨테이너를 사용 하는 경우 Azure Resource Manager 템플릿 (Azure 클러스터)의 ClusterManifest (로컬 클러스터) 또는 fabricSettings 섹션 또는 (독립 실행형 클러스터)의 ClusterConfig.js에 다음 코드 조각을 추가 해야 합니다.
 
 ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. 이 예제에서 볼륨 이름은 **sfazurefile** 이 고 클러스터에서 수신 대기 하는 포트는 **19100**입니다. 클러스터에 대 한 올바른 값으로 바꿉니다.
 
@@ -39,7 +38,7 @@ ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. 이 예�
 </Section>
 ```
 
-Azure Resource Manager 템플릿 (Azure 배포의 경우) 또는 ClusterConfig (독립 실행형 배포의 경우)의 fabricSettings 섹션에서 다음 코드 조각을 추가 해야 합니다. 다시, 볼륨 이름 및 포트 값을 사용자 고유의 값으로 바꿉니다.
+Azure Resource Manager 템플릿의 fabricSettings 섹션 (Azure 배포의 경우) 또는 ClusterConfig.js(독립 실행형 배포의 경우)에서 다음 코드 조각을 추가 해야 합니다. 다시, 볼륨 이름 및 포트 값을 사용자 고유의 값으로 바꿉니다.
 
 ```json
 "fabricSettings": [

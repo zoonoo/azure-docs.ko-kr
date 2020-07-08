@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75647716"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
@@ -65,7 +64,7 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>원격 모니터링 솔루션의 이전 버전 관련 정보는 어디서 확인할 수 있나요?
 
-원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. 에서 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)보관 된 설명서를 찾을 수 있습니다.
+원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. 에서 보관 된 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>기존 솔루션과 동일한 지역에서 새로운 솔루션 가속기를 사용할 수 있나요?
 

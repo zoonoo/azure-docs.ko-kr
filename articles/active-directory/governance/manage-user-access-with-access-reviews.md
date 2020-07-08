@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c307b349144974a4d38f937feeebb98f369d047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75932410"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
@@ -57,7 +56,7 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 ## <a name="next-steps"></a>다음 단계
 
-[그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)
+[그룹 또는 애플리케이션의 액세스 검토 만들기](create-access-review.md)
 
 
 
