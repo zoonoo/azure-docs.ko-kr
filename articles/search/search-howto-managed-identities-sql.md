@@ -1,7 +1,7 @@
 ---
-title: 관리 ID를 사용하여 Azure SQL 데이터베이스에 대한 연결 설정(미리 보기)
+title: 관리 id (미리 보기)를 사용 하 여 Azure SQL Database에 대 한 연결 설정
 titleSuffix: Azure Cognitive Search
-description: 관리 ID를 사용하여 Azure SQL 데이터베이스에 대한 인덱서 연결을 설정하는 방법 알아보기(미리 보기)
+description: 관리 id (미리 보기)를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정 하는 방법을 알아봅니다.
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -9,22 +9,23 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 87389651707a3bdcc18ae7eb03b88681b5303c4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559934"
 ---
-# <a name="set-up-an-indexer-connection-to-an-azure-sql-database-using-a-managed-identity-preview"></a>관리 ID를 사용하여 Azure SQL 데이터베이스에 인덱서 연결 설정(미리 보기)
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>관리 id (미리 보기)를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결 설정
 
 > [!IMPORTANT] 
 > 관리 ID를 사용하는 데이터 원본 연결 설정 지원은 현재 제어된 공개 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
 > [이 양식](https://aka.ms/azure-cognitive-search/mi-preview-request)을 작성하여 미리 보기에 대한 액세스를 요청할 수 있습니다.
 
-이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure SQL 데이터베이스에 인덱서 연결을 설정하는 방법을 설명합니다.
+이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공 하는 대신 관리 되는 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정 하는 방법을 설명 합니다.
 
 이 기능에 대해 자세히 알아보기 전에 인덱서가 무엇이며 데이터 원본에 대해 인덱서를 설정하는 방법을 이해하는 것이 좋습니다. 자세한 내용은 다음 링크에서 확인할 수 있습니다.
+
 * [인덱서 개요](search-indexer-overview.md)
 * [Azure SQL 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -39,7 +40,7 @@ ms.locfileid: "83663461"
 **저장**을 선택하면 검색 서비스에 할당된 개체 ID가 표시됩니다.
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
- 
+
 ### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 - SQL Server의 Azure Active Directory 관리자 프로비저닝
 
 다음 단계에서 데이터베이스에 연결하는 경우 데이터베이스에 대한 액세스 권한을 검색 서비스에 부여하기 위해 데이터베이스에 대한 관리자 액세스 권한이 있는 Azure AD(Active Directory) 계정에 연결해야 합니다.
@@ -102,7 +103,7 @@ SQL 데이터베이스에서 인덱싱할 때 데이터 원본에는 다음과 �
 * **name**은 검색 서비스 내 데이터 원본의 고유 이름입니다.
 * **type**은 `azuresql`입니다.
 * **credentials**
-    * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식이 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 초기 카탈로그 또는 데이터베이스 이름 및 계정 키 또는 암호가 없는 ResourceID를 제공합니다. ResourceID에는 Azure SQL 데이터베이스의 구독 ID, SQL 데이터베이스의 리소스 그룹 및 SQL 데이터베이스의 이름이 포함되어야 합니다. 
+    * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식이 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 초기 카탈로그 또는 데이터베이스 이름 및 계정 키 또는 암호가 없는 ResourceID를 제공합니다. ResourceId는 Azure SQL Database 구독 ID, SQL Database 리소스 그룹 및 SQL 데이터베이스의 이름을 포함 해야 합니다. 
     * 관리 ID 연결 문자열 형식:
         * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹 이름**/providers/Microsoft.Sql/servers/**SQL Server 이름**/;Connection Timeout=**connection timeout length**;*
 * **container**에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.
@@ -110,7 +111,7 @@ SQL 데이터베이스에서 인덱싱할 때 데이터 원본에는 다음과 �
 다음은 [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)를 사용하여 Azure SQL 데이터 원본 개체를 만드는 방법의 예입니다.
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -131,7 +132,7 @@ Azure Portal 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azur
 검색 가능한 `booktitle` 필드를 사용하여 인덱스를 만드는 방법은 다음과 같습니다.   
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -155,7 +156,7 @@ api-key: [admin key]
 Azure SQL 인덱서에 대한 인덱서 정의 예:
 
 ```
-POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 

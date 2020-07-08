@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560151"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
@@ -28,12 +28,12 @@ ms.locfileid: "77658237"
 통합 문서는 현재 다음 데이터 원본과 호환 됩니다.
 
 * [로그](workbooks-data-sources.md#logs)
-* [메트릭](workbooks-data-sources.md#metrics)
+* [Metrics](workbooks-data-sources.md#metrics)(메트릭)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [경고(미리 보기)](workbooks-data-sources.md#alerts-preview)
-* [워크 로드 상태 (미리 보기)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (미리 보기)](workbooks-data-sources.md#azure-resource-health)
-* [Azure 데이터 탐색기 (미리 보기)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [작업 상태](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
 
 ## <a name="visualizations"></a>시각화
 

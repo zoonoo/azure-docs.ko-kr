@@ -4,15 +4,15 @@ description: Microsoft AppSource 및 Azure Marketplace 제품에서 잠재 고�
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 89b73fd98ca773668d2eb53892d0c21397e9abf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559577"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>상업용 Marketplace 제품의 잠재 고객
 
@@ -87,10 +87,12 @@ ms.locfileid: "83800940"
 
 ## <a name="best-practices-for-lead-management"></a>잠재 고객 관리의 모범 사례
 
+다음은 판매 주기를 통해 리드를 추진 하기 위한 몇 가지 권장 사항입니다.
+
 - **프로세스**: 마일스톤, 분석 및 명확한 팀 소유권을 사용하여 명확한 판매 프로세스를 정의합니다.
 - **자격**: 잠재 고객이 정규화되었는지 여부를 나타내는 필수 조건을 정의합니다. 판매 또는 마케팅 담당자가 전체 판매 프로세스를 진행하기 전에 잠재 고객을 신중하게 한정하도록 합니다.
-- **후속 작업**: 후속 작업을 잊지 마세요. 일반적인 트랜잭션은 5~12개의 후속 작업을 호출해야 합니다.
-- **육성**: 더 높은 이익률을 얻을 수 있도록 잠재 고객을 육성하세요.
+- **후속**작업: 24 시간 이내에 후속 조치를 잊지 마세요. 고객이 테스트 드라이브를 배포한 후 즉시 CRM에서 선택 하는 잠재 고객을 받게 됩니다. 여전히 웜 인 동안 내에서 전자 메일을 보냅니다. 전화 통화 예약을 요청 하 여 제품이 문제를 해결 하는 데 적합 한 솔루션 인지 파악 합니다. 일반적인 트랜잭션은 많은 추가 호출이 필요 합니다.
+- **육성**: 더 높은 이익률을 얻을 수 있도록 잠재 고객을 육성하세요. 체크 인 하지만이를 포 격 하지 않습니다. 닫기 전에 전자 메일을 몇 번 이상 전자 메일로 보내는 것이 좋습니다. 첫 번째 시도 후에는 포기 하지 마십시오. 이러한 고객은 제품을 직접 사용 하 고 무료 평가판으로 시간을 소비 한다는 점에 주의 하세요. 매우 중요 합니다.
 
 ## <a name="common-questions-about-lead-management"></a>잠재 고객 관리에 대한 일반적인 질문
 

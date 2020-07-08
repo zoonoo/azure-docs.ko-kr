@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널을 사용 하 여 경고 조사 | Microsoft Docs
-description: 이 자습서를 사용 하 여 Azure 센티널로 경고를 조사 하는 방법을 알아보세요.
+description: 의심 스러운 상황이 발생 했을 때 사용자에 게 알리는 기본 제공 Azure 위협 검색 템플릿 템플릿을 사용 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: df855aa768fdeb279482b8407259be1a644322d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d1ef885ea36e2eee7fd30268fd7b1f4609a70bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560046"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>자습서: 기본으로 위협 감지
 
@@ -29,7 +29,7 @@ ms.locfileid: "77585206"
 > 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
- [데이터 원본을](quickstart-onboard.md) Azure 센티널에 연결 하 고 나면 의심 스러운 상황이 발생 하면 알림이 표시 됩니다. 이 작업을 수행할 수 있도록 Azure 센티널은 기본 제공 되는 기본 제공 템플릿을 제공 합니다. 이러한 템플릿은 알려진 위협, 일반적인 공격 벡터 및 의심 스러운 활동 에스컬레이션 체인을 기반으로 Microsoft의 보안 전문가 및 분석가 팀에서 설계 되었습니다. 이러한 템플릿을 사용 하도록 설정 하면 사용자 환경에서 의심 스러운 활동을 자동으로 검색 합니다. 사용자의 요구에 따라 활동을 검색 하거나 필터링 하기 위해 많은 템플릿을 사용자 지정할 수 있습니다. 이러한 템플릿에서 생성 된 경고는 사용자 환경에서 할당 하 고 조사할 수 있는 인시던트를 만듭니다.
+ [데이터 원본을](quickstart-onboard.md)   Azure 센티널에 연결 하 고 나면 의심 스러운 상황이 발생 하면 알림이 표시 됩니다. 이 작업을 수행할 수 있도록 Azure 센티널은 기본 제공 되는 기본 제공 템플릿을 제공 합니다. 이러한 템플릿은 알려진 위협, 일반적인 공격 벡터 및 의심 스러운 활동 에스컬레이션 체인을 기반으로 Microsoft의 보안 전문가 및 분석가 팀에서 설계 되었습니다. 이러한 템플릿을 사용 하도록 설정 하면 사용자 환경에서 의심 스러운 활동을 자동으로 검색 합니다. 사용자의 요구에 따라 활동을 검색 하거나 필터링 하기 위해 많은 템플릿을 사용자 지정할 수 있습니다. 이러한 템플릿에서 생성 된 경고는 사용자 환경에서 할당 하 고 조사할 수 있는 인시던트를 만듭니다.
 
 이 자습서는 Azure 센티널로 위협을 검색 하는 데 도움이 됩니다.
 

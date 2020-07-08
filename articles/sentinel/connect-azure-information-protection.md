@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Azure Information Protection 연결
-description: Azure 센티널에서 Azure Information Protection 데이터를 연결 하는 방법에 대해 알아봅니다.
+description: Azure Information Protection 데이터 커넥터를 구성 하 여 Azure Information Protection에서 Azure 센티널로 로깅 정보를 스트리밍합니다. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 396fd7c4289c9d02d451b26f5fb6299acd31e2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f06f8d3450f8907aa1be34b738565ac55e5e3d2d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588555"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559141"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection에서 데이터 연결
 
@@ -35,13 +35,13 @@ Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Inform
     
     작업 영역을 변경 하는 경우 Azure Information Protection에 대 한 새 보고 데이터가 이제 Azure 센티널에 사용 하는 작업 영역에 저장 되며, Azure 센티널에서 기록 데이터를 사용할 수 없습니다. 또한 사용자 지정 쿼리, 경고 또는 REST Api에 대해 이전 작업 영역을 구성 하는 경우 Azure Information Protection에 사용 하려면 Azure 센티널 작업 영역에 대해 이러한 작업 영역을 다시 구성 해야 합니다. Azure Information Protection를 사용 하는 클라이언트와 서비스에는 재구성이 필요 하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 다음은 테 넌 트에 대 한 Azure AD 관리자 역할 중 하나입니다. 
     - Azure Information Protection 관리자
     - 보안 관리자
     - 규정 준수 관리자
-    - 준수 데이터 관리자
+    - 규정 준수 데이터 관리자
     - 전역 관리자
     
     > [!NOTE]

@@ -9,24 +9,24 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561045"
 ---
-# <a name="store-business-critical-blob-data-with-immutable-storage"></a>변경할 수 없는 저장소로 비즈니스에 중요 한 blob 데이터 저장
+# <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
 
-Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용자는 비즈니스에 중요 한 데이터 개체를 웜 (한 번 쓰기, 읽기 다) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 보존 간격이 지속 되는 동안에는 blob을 만들고 읽을 수는 있지만 수정 하거나 삭제할 수는 없습니다. 변경 불가능 한 저장소는 모든 Azure 지역에서 범용 v1, 범용 v2, BlobStorage 및 BlockBlobStorage 계정에 사용할 수 있습니다.
+Azure Blob Storage에 대한 변경 불가능한 스토리지를 사용하면 사용자가 중요 비즈니스용 데이터 개체를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 데이터 보존 기간 동안 Blob을 만들고 읽을 수 있지만 수정하거나 삭제할 수는 없습니다. 변경 불가능 한 저장소는 모든 Azure 지역에서 범용 v1, 범용 v2, BlobStorage 및 BlockBlobStorage 계정에 사용할 수 있습니다.
 
 법적 보류를 설정 및 해제 하거나 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 시간 기반 보존 정책을 만드는 방법에 대 한 자세한 내용은 [Blob 저장소에 대 한 불변성 정책 설정 및 관리](storage-blob-immutability-policies-manage.md)를 참조 하세요.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="about-immutable-blob-storage"></a>변경할 수 없는 Blob 저장소 정보
 
-변경할 수 없는 저장소는 의료 조직, 금융 기관 및 관련&mdash;산업 특히 broker가 데이터&mdash;를 안전 하 게 저장 하는 조직을 지원 합니다. 변경 불가능 한 저장소는 수정 또는 삭제에 대 한 중요 한 데이터를 보호 하기 위해 어떤 시나리오 에서도 활용할 수 있습니다.
+변경할 수 없는 저장소는 의료 조직, 금융 기관 및 관련 산업 &mdash; 특히 broker가 &mdash; 데이터를 안전 하 게 저장 하는 조직을 지원 합니다. 변경 불가능 한 저장소는 수정 또는 삭제에 대 한 중요 한 데이터를 보호 하기 위해 어떤 시나리오 에서도 활용할 수 있습니다.
 
 일반적인 적용 분야는 다음과 같습니다.
 
@@ -48,7 +48,7 @@ Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용�
 
 - **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그가 포함 됩니다. 잠긴 시간 기반 보존 정책에 대 한 최대 7 개의 시간 기반 보존 명령을 표시 하 고 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격을 포함 합니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4 (f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 에는 모든 제어 평면 활동의 포괄적인 로그가 표시 됩니다. [Azure 리소스 로그](../../azure-monitor/platform/platform-logs-overview.md) 를 사용 하도록 설정 하는 동안 데이터 평면 작업을 유지 하 고 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유형의 WORM 또는 변경 불가능한 정책, 즉, 시간 기준 보존 정책과 법적 보존 정책을 지원합니다. 컨테이너에 시간 기반 보존 정책 또는 법적 보류가 적용 되 면 모든 기존 blob이 30 초 이내에 변경할 수 없는 웜 상태로 이동 합니다. 해당 정책으로 보호 된 컨테이너에 업로드 된 모든 새 blob도 변경할 수 없는 상태로 전환 됩니다. 모든 blob이 변경할 수 없는 상태가 되 면 변경할 수 없는 정책이 확인 되 고 변경할 수 없는 컨테이너에서 덮어쓰기 또는 삭제 작업이 허용 되지 않습니다.
 
@@ -78,15 +78,15 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 추가 blob은 데이터 블록으로 구성 되며 감사 및 로깅 시나리오에 필요한 데이터 추가 작업에 최적화 되어 있습니다. 기본적으로 추가 blob은 blob의 끝에 새 블록을 추가할 수 있습니다. 불변성에 관계 없이 추가 blob에서 기존 블록을 수정 하거나 삭제 하는 작업은 기본적으로 허용 되지 않습니다. 추가 blob에 대 한 자세한 내용은 [추가 Blob 정보](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)를 참조 하세요.
 
-시간 기반 보존 정책에만 불변성 보호 `allowProtectedAppendWrites` 및 규정 준수를 유지 하면서 추가 blob에 새 블록을 쓸 수 있는 설정이 있습니다. 사용 하도록 설정 된 경우에는 정책으로 보호 된 컨테이너에서 추가 blob을 직접 만들고 *Appendblock* API를 사용 하 여 기존 추가 blob의 끝에 새 데이터 블록을 계속 추가할 수 있습니다. 새 블록만 추가할 수 있으며 기존 블록은 수정 하거나 삭제할 수 없습니다. 유효 보존 기간이 경과할 때까지 추가 blob의 삭제를 방지 하는 시간 보존 불변성 보호가 여전히 적용 됩니다. 이 설정을 사용 하면 블록 blob 또는 페이지 blob의 불변성 동작에 영향을 주지 않습니다.
+시간 기반 보존 정책에만 `allowProtectedAppendWrites` 불변성 보호 및 규정 준수를 유지 하면서 추가 blob에 새 블록을 쓸 수 있는 설정이 있습니다. 사용 하도록 설정 된 경우에는 정책으로 보호 된 컨테이너에서 추가 blob을 직접 만들고 *Appendblock* API를 사용 하 여 기존 추가 blob의 끝에 새 데이터 블록을 계속 추가할 수 있습니다. 새 블록만 추가할 수 있으며 기존 블록은 수정 하거나 삭제할 수 없습니다. 유효 보존 기간이 경과할 때까지 추가 blob의 삭제를 방지 하는 시간 보존 불변성 보호가 여전히 적용 됩니다. 이 설정을 사용 하면 블록 blob 또는 페이지 blob의 불변성 동작에 영향을 주지 않습니다.
 
 이 설정이 시간 기반 보존 정책의 일부 이기 때문에, 추가 blob은 *유효* 보존 기간 동안 변경할 수 없는 상태로 유지 됩니다. 새 데이터는 추가 blob의 초기 생성 이후에 추가 될 수 있으므로 보존 기간을 결정 하는 방법에는 약간의 차이가 있습니다. 유효 보존은 추가 blob의 **마지막 수정 시간과** 사용자 지정 보존 간격 간의 차이입니다. 마찬가지로 보존 간격이 확장 된 경우에는 변경할 수 없는 저장소에서 사용자 지정 보존 간격의 가장 최근 값을 사용 하 여 유효 보존 기간을 계산 합니다.
 
 예를 들어 사용자가 `allowProtectedAppendWrites` 사용을 설정 하 고 보존 기간을 90 일로 설정 하 여 시간 기반 보존 정책을 만들 수 있습니다. 현재 컨테이너에서 추가 blob 인 _logblob1_이 생성 되 고 다음 10 일 동안 새 로그가 추가 blob에 계속 추가 됩니다. 따라서 _logblob1_ 에 대 한 유효 보존 기간은 오늘부터 100 일입니다 (마지막 추가 시간 + 90 일).
 
-잠금 해제 된 시간 기반 보존 정책을 사용 `allowProtectedAppendWrites` 하면 언제 든 지 설정을 사용 하도록 설정 하 고 사용 하지 않도록 설정할 수 있습니다. 시간 기반 보존 정책이 잠기면 `allowProtectedAppendWrites` 설정을 변경할 수 없습니다.
+잠금 해제 된 시간 기반 보존 정책을 사용 하면 언제 `allowProtectedAppendWrites` 든 지 설정을 사용 하도록 설정 하 고 사용 하지 않도록 설정할 수 있습니다. 시간 기반 보존 정책이 잠기면 `allowProtectedAppendWrites` 설정을 변경할 수 없습니다.
 
-법적 보류 정책은 사용 하도록 `allowProtectedAppendWrites` 설정할 수 없으며 모든 법적 보류가 ' allowProtectedAppendWrites ' 속성을 무효화 합니다. 사용 하도록 설정 된 `allowProtectedAppendWrites` 시간 기반 보존 정책에 법적 보류가 적용 되는 경우에는 법률 보류가 중단 될 때까지 *appendblock* API가 실패 합니다.
+법적 보류 정책은 사용 하도록 설정할 수 없으며 `allowProtectedAppendWrites` 모든 법적 보류가 ' allowProtectedAppendWrites ' 속성을 무효화 합니다. 사용 하도록 설정 된 시간 기반 보존 정책에 법적 보류가 적용 되는 경우에는 `allowProtectedAppendWrites` 법률 보류가 중단 될 때까지 *appendblock* API가 실패 합니다.
 
 ## <a name="legal-holds"></a>법적 보존
 
@@ -108,11 +108,11 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 |---------|---------|---------|---------|
 |BLOB의 유효 보존 기간이 아직 만료되지 않았고/않았거나 법적 보존이 설정되어 있음     |변경할 수 없음: 삭제 및 쓰기 금지         | Blob<sup>1</sup>, put 블록<sup>1</sup>, 블록 목록<sup>1</sup>배치, 컨테이너 삭제, Blob 삭제, Blob 메타 데이터 설정, 페이지 추가, blob 속성 설정, 스냅숏 Blob, 증분 복사 blob, 추가 블록<sup>2</sup>         |컨테이너 삭제를 거부 했습니다. 저장소 계정 삭제 거부 됨         |
 |Blob의 유효 보존 간격이 만료 되었으며 법적 보류가 설정 되지 않았습니다.    |쓰기만 금지(삭제 작업은 허용)         |Blob<sup>1</sup>, put 블록<sup>1</sup>, 블록 목록<sup>1</sup>배치, Blob 메타 데이터 설정, 페이지 배치, blob 속성 설정, 스냅숏 Blob, 증분 복사 blob, 추가 블록<sup>2</sup>         |보호 된 컨테이너 내에 blob이 하나 이상 있는 경우 컨테이너 삭제가 거부 됩니다. *잠긴* 시간 기반 정책에 대해서만 저장소 계정 삭제가 거부 됨         |
-|적용 된 웜 정책 없음 (시간 기반 보존 및 법적 보류 태그 없음)     |변경 가능         |None         |None         |
+|적용 된 웜 정책 없음 (시간 기반 보존 및 법적 보류 태그 없음)     |변경 가능         |없음         |없음         |
 
 <sup>1</sup> blob service를 사용 하면 이러한 작업을 통해 새 blob을 한 번 만들 수 있습니다. 변경할 수 없는 컨테이너의 기존 blob 경로에 대 한 모든 후속 덮어쓰기 작업은 허용 되지 않습니다.
 
-<sup>2</sup> 추가 블록은 `allowProtectedAppendWrites` 속성이 활성화 된 시간 기반 보존 정책에만 허용 됩니다. 자세한 내용은 [보호 된 추가 Blob 쓰기 허용](#allow-protected-append-blobs-writes) 섹션을 참조 하세요.
+<sup>2</sup> 추가 블록은 속성이 활성화 된 시간 기반 보존 정책에만 허용 됩니다 `allowProtectedAppendWrites` . 자세한 내용은 [보호 된 추가 Blob 쓰기 허용](#allow-protected-append-blobs-writes) 섹션을 참조 하세요.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -170,7 +170,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Blob 저장소에 대 한 불변성 정책 설정 및 관리](storage-blob-immutability-policies-manage.md)
+- [Blob Storage에 대한 불변성 정책 설정 및 관리](storage-blob-immutability-policies-manage.md)
 - [수명 주기 관리를 사용 하 여 blob 데이터를 자동으로 계층화 및 삭제 하는 규칙 설정](storage-lifecycle-management-concepts.md)
 - [Azure Storage Blob에 대한 일시 삭제](../blobs/storage-blob-soft-delete.md)
 - [Azure Resource Manager 잠금을 사용 하 여 구독, 리소스 그룹 및 리소스를 보호](../../azure-resource-manager/management/lock-resources.md)합니다.

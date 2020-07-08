@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a3735180d72496d58cdd22d0aa34c8a6f88a6a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559855"
 ---
 # <a name="best-practices-for-creating-assessments"></a>평가 만들기에 대 한 모범 사례
 
@@ -21,15 +21,24 @@ ms.locfileid: "74185974"
 
 ## <a name="about-assessments"></a>평가 정보
 
-Azure Migrate Server 평가를 사용 하 여 만든 평가는 데이터의 특정 시점 스냅숏입니다. Azure Migrate에는 두 가지 유형의 평가가 있습니다.
+Azure Migrate Server 평가를 사용 하 여 만든 평가는 데이터의 특정 시점 스냅숏입니다. Azure Migrate를 사용 하 여 만들 수 있는 두 가지 유형의 평가는 다음과 같습니다. 서버 평가:
 
-**평가 유형** | **세부 정보** | **Data**
+**평가 유형** | **세부 정보**
+--- | --- 
+**Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다. [자세한 정보](concepts-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세한 정보](concepts-azure-vmware-solution-assessment-calculation.md)
+
+
+### <a name="sizing-criteria"></a>크기 조정 조건
+서버 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공 합니다.
+
+**크기 조정 조건** | **세부 정보** | **Data**
 --- | --- | ---
-**성능 기반** | 수집 된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항 (표준 HDD/SSD 또는 프리미엄 관리 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
-**온-프레미스 인 경우** | 권장 사항을 적용 하기 위해 성능 데이터를 사용 하지 않는 평가 | VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가의 저장소 유형 설정에서 선택한 항목을 기반으로 합니다.
+**성능 기반** | 수집 된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | **AZURE vm 평가**: vm 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항 (표준 HDD/SSD 또는 프리미엄 관리 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.<br/><br/> **Azure VMware Solution (avs) 평가**: avs 노드 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.
+**온-프레미스 인 경우** | 권장 사항을 적용 하기 위해 성능 데이터를 사용 하지 않는 평가 | **AZURE vm 평가**: vm 크기 권장 사항은 온-프레미스 vm 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가의 저장소 유형 설정에서 선택한 항목을 기반으로 합니다.<br/><br/> **Azure VMware 솔루션 (avs) 평가**: avs 노드 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.
 
-### <a name="example"></a>예제
-예를 들어 4 개 코어를 사용 하는 온-프레미스 VM의 사용률은 20%이 고 메모리는 8gb 이며 10% 사용률 이면 평가는 다음과 같습니다.
+#### <a name="example"></a>예제
+예를 들어 4 개 코어를 사용 하는 온-프레미스 VM의 사용률은 20%이 고, 10% 사용률의 메모리는 8gb 인 경우 Azure VM 평가는 다음과 같습니다.
 
 - **성능 기반 평가**:
     - 코어 (4 x 0.20 = 0.8) 및 메모리 (8gb x 0.10 = 0.8) 사용률을 기준으로 유효한 코어 및 메모리를 식별 합니다.
@@ -38,6 +47,7 @@ Azure Migrate Server 평가를 사용 하 여 만든 평가는 데이터의 특�
 
 - **As (온-프레미스) 평가**:
     -  4 개의 코어가 있는 VM을 권장 합니다. 8gb의 메모리
+
 
 ## <a name="best-practices-for-creating-assessments"></a>평가 만들기에 대 한 모범 사례
 
@@ -54,6 +64,19 @@ Azure Migrate 어플라이언스는 온-프레미스 환경을 지속적으로 �
 - 있는 **그대로 만들기 평가**: Azure Migrate 포털에서 컴퓨터가 표시 되 면 즉시 평가를 만들 수 있습니다.
 - **성능 기반 평가 만들기**: 이렇게 하면 특히 온-프레미스에서 과도 하 게 프로 비전 된 서버 용량을 사용 하는 경우 보다 비용을 더 효율적으로 예측할 수 있습니다. 그러나 성능 기반 평가의 정확도는 서버에 대해 사용자가 지정한 성능 데이터에 따라 달라 집니다. 
 - **평가 다시 계산**: 평가는 지정 시간 스냅숏 이므로 최신 데이터로 자동으로 업데이트 되지 않습니다. 가져온 최신 데이터로 평가를 업데이트 하려면 다시 계산 해야 합니다.
+ 
+### <a name="ftt-sizing-parameters-for-avs-assessments"></a>AVS 평가를 위한 FTT 크기 조정 매개 변수
+
+AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 저장소 정책은 가상 컴퓨터에 대 한 저장소 요구 사항을 정의 합니다. 이러한 정책은 VM에 저장소를 할당 하는 방법을 결정 하기 때문에 Vm에 필요한 서비스 수준을 보장 합니다. 다음은 사용 가능한 FTT-Raid 조합입니다. 
+
+**허용 하지 못한 (FTT)** | **RAID 구성** | **필요한 최소 호스트** | **크기 조정 고려 사항**
+--- | --- | --- | --- 
+1 | RAID-1 (미러링) | 3 | 100GB VM은 200GB를 사용 합니다.
+1 | RAID 5 (지우기 코딩) | 4 | 100GB VM은 133.33 GB를 사용 합니다.
+2 | RAID-1 (미러링) | 5 | 100GB VM은 300GB를 사용 합니다.
+2 | RAID 6 (코드 지우기) | 6 | 100GB VM은 150GB를 사용 합니다.
+3 | RAID-1 (미러링) | 7 | 100GB VM은 400GB를 사용 합니다.
+
 
 ## <a name="best-practices-for-confidence-ratings"></a>신뢰 등급에 대 한 모범 사례
 
@@ -83,7 +106,18 @@ Azure Migrate 어플라이언스는 온-프레미스 환경을 지속적으로 �
 
 ### <a name="outdated-assessments"></a>오래 된 평가
 
-평가 된 그룹에 있는 Vm에 대 한 온-프레미스 변경 내용이 있는 경우 평가는 **오래**된 것으로 표시 됩니다. 변경 내용을 반영 하려면 평가를 다시 실행 합니다.
+평가 된 그룹에 있는 Vm에 대 한 온-프레미스 변경 내용이 있는 경우 평가는 **오래**된 것으로 표시 됩니다. 아래 속성의 변경 내용 중 하나 이상으로 인해 평가를 "오래 된" 것으로 표시할 수 있습니다.
+
+- 프로세서 코어 수
+- 할당 된 메모리
+- 부팅 유형 또는 펌웨어
+- 운영 체제 이름, 버전 및 아키텍처
+- 디스크 수
+- 네트워크 어댑터 수
+- 디스크 크기 변경 (할당 된 GB)
+- Nic 속성 업데이트. 예: Mac 주소 변경, IP 주소 추가 등
+
+평가를 다시 실행 하 여 변경 내용을 반영 합니다 (**다시 계산**).
 
 ### <a name="low-confidence-rating"></a>낮은 신뢰 등급
 
@@ -94,6 +128,12 @@ Azure Migrate 어플라이언스는 온-프레미스 환경을 지속적으로 �
 - 평가 계산 기간에 일부 VM이 종료되었습니다. 평가 기간 중 일부 VM이 꺼지면 Server Assessment에서 해당 기간의 성능 데이터를 수집할 수 없습니다.
 
 - Server Assessment에서 검색이 시작된 후 VM 몇 개가 생성되었습니다. 예를 들어 마지막 1달의 성능 기록에 대한 평가를 만들려고 하는데, 일부 VM이 불과 일주일 전에 환경에서 생성되었습니다. 이 경우 새 VM의 성능 데이터를 전체 기간에 사용할 수 없으며 신뢰 등급이 낮아집니다.
+
+### <a name="migration-tool-guidance-for-avs-assessments"></a>AVS 평가를 위한 마이그레이션 도구 지침
+
+Azure VMware 솔루션 (AVS) 평가에 대 한 Azure 준비 보고서에서 다음과 같은 권장 도구를 볼 수 있습니다. 
+- **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 VMWare 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

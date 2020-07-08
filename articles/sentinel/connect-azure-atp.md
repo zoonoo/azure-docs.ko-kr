@@ -1,6 +1,6 @@
 ---
 title: Azure ATP 데이터를 Azure 센티널에 연결 | Microsoft Docs
-description: Azure ATP 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
+description: 한 번의 클릭으로 Azure ATP (Advanced Threat Protection)에서 Azure 센티널로 로그를 스트리밍하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 387d04cbbb125006efcc4efc53a02015fe3f5919
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f58c38ccfa234752a80c05c300d245c6c9e97cf0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559168"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Azure ATP (Advanced Threat Protection)에서 데이터 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "77588589"
 
 한 번의 클릭으로 [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) 에서 azure 센티널로 로그를 스트리밍할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
 - Azure ATP의 미리 보기 고객 이어야 하 고 Azure ATP와 Microsoft Cloud App Security 간의 통합을 사용 하도록 설정 해야 합니다. 자세한 내용은 [Azure Advanced Protection 통합](https://docs.microsoft.com/cloud-app-security/aatp-integration)을 참조 하세요.

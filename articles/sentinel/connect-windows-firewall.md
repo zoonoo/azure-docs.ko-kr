@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Windows 방화벽 데이터 연결 | Microsoft Docs
-description: Windows 방화벽 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
+description: Log Analytics 에이전트가 설치 된 Windows 컴퓨터에서 방화벽 이벤트를 쉽게 스트리밍하려면 Azure 센티널의 Windows 방화벽 커넥터를 사용 하도록 설정 합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d33ba0dbb62cd7206829ed9ae580ea2aa3334bcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559473"
 ---
 # <a name="connect-windows-firewall"></a>Windows 방화벽 연결
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560011"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
@@ -112,7 +112,7 @@ RTMP 라이브 인코더에 대한 자세한 내용은 [Azure Media Services RTM
 
 채널을 만들 때 수집 URL을 가져올 수 있습니다. 사용자가 이러한 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널에 데이터 푸시를 시작할 준비가 되면 채널이 **실행 중** 상태여야 합니다. 채널이 데이터 수집을 시작한 후에 미리 보기 URL을 통해 스트림을 미리 볼 수 있습니다.
 
-TLS 연결을 통해 조각화 된 MP4 (부드러운 스트리밍) 라이브 스트림을 수집 하는 옵션이 있습니다. TLS를 통해 수집 하려면 수집 URL을 HTTPS로 업데이트 해야 합니다. 현재 TLS를 통해 RTMP를 수집할 수 없습니다.
+TLS 연결을 통해 조각화 된 MP4 (부드러운 스트리밍) 라이브 스트림을 수집 하는 옵션이 있습니다. TLS를 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 현재 TLS를 통해 RTMP를 수집할 수 없습니다.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>키프레임 간격
 다중 비트 전송률 스트림을 생성하는 데 온-프레미스 라이브 인코더를 사용하는 경우 키 프레임 간격은 GOP(Group of Pictures) 기간(외부 인코더에서 사용됨)을 지정합니다. 채널이 들어오는 스트림을 수신한 후에 HTTP(DASH) 및 HLS(HTTP 라이브 스트리밍)에 부드러운 스트리밍, 동적 적응 스트리밍의 형식으로 클라이언트 재생 애플리케이션에 라이브 스트림을 제공할 수 있습니다. 라이브 스트리밍을 수행할 경우 HLS는 항상 동적으로 패키지됩니다. Media Services는 기본적으로 라이브 인코더에서 수신되는 키 프레임 간격에 따라 자동으로 HLS 세그먼트 패키징 비율(세그먼트당 조각 수)을 계산합니다.
@@ -225,7 +225,8 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>사용자 의견
+## <a name="suggestions-and-feedback"></a>제안 사항 및 피드백
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>관련 항목

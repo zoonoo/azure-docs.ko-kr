@@ -5,20 +5,20 @@ description: Python용 Azure Machine Learning SDK를 사용하여 기계 학습 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 006a2f5775fc053feda1efd568660f29c81fe599
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 50bd9d620fac4031ff398bb13d40b288488dda95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559388"
 ---
-# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
+# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -32,7 +32,7 @@ ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.micr
 
 ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 파이프라인과 연결 된 중간 및 최종 데이터의 저장소를 사용 합니다. 지원 되는 [Azure Storage](https://docs.microsoft.com/azure/storage/) 위치에서 데이터를 읽고 쓸 수 있습니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -55,7 +55,7 @@ ML 파이프라인을 실행 하는 데 필요한 리소스를 만듭니다.
 
 * 파이프라인 단계에서 필요한 데이터에 액세스하는 데 사용되는 데이터 저장소를 설정합니다.
 
-* 데이터 저장소 `Dataset` 에 상주 하거나 데이터 저장소에 액세스할 수 있는 영구 데이터를 가리키도록 개체를 구성 합니다. 파이프라인 단계 `PipelineData` 간에 전달 되는 임시 데이터에 대 한 개체를 구성 합니다. 
+* `Dataset`데이터 저장소에 상주 하거나 데이터 저장소에 액세스할 수 있는 영구 데이터를 가리키도록 개체를 구성 합니다. `PipelineData`파이프라인 단계 간에 전달 되는 임시 데이터에 대 한 개체를 구성 합니다. 
 
 * 파이프라인 단계가 실행될 [컴퓨팅 대상](concept-azure-machine-learning-architecture.md#compute-targets)을 설정합니다.
 
@@ -90,13 +90,13 @@ def_blob_store.upload_files(
 
 파이프라인을 데이터에 연결 하는 방법에 대 한 자세한 내용은 [데이터에 액세스 하는 방법](how-to-access-data.md) 및 데이터 [집합을 등록](how-to-create-register-datasets.md)하는 방법 문서를 참조 하세요. 
 
-### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>및 개체를 `Dataset` `PipelineData` 사용 하 여 데이터 구성
+### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>`Dataset`및 개체를 사용 하 여 데이터 구성 `PipelineData`
 
-파이프라인에서 단계의 입력으로 참조할 수 있는 데이터 원본을 방금 만들었습니다. 파이프라인에 데이터를 제공 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) 개체입니다. 개체 `Dataset` 는 데이터 저장소 또는 웹 URL에서 액세스할 수 있거나 액세스할 수 있는 데이터를 가리킵니다. 클래스 `Dataset` 는 추상 클래스 이므로 하나 이상의 파일을 참조 하는 `FileDataset` (하나 이상의 파일 참조) 또는 `TabularDataset` 구분 기호로 분리 된 열이 있는 하나 이상의 파일에서 만든의 인스턴스를 만듭니다.
+파이프라인에서 단계의 입력으로 참조할 수 있는 데이터 원본을 방금 만들었습니다. 파이프라인에 데이터를 제공 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) 개체입니다. `Dataset`개체는 데이터 저장소 또는 웹 URL에서 액세스할 수 있거나 액세스할 수 있는 데이터를 가리킵니다. `Dataset`클래스는 추상 클래스 이므로 하나 이상의 파일 `FileDataset` 을 참조 하는 (하나 이상의 파일 참조) 또는 `TabularDataset` 구분 기호로 분리 된 열이 있는 하나 이상의 파일에서 만든의 인스턴스를 만듭니다.
 
 `Dataset`개체는 버전 관리, 차이 및 요약 통계를 지원 합니다. `Dataset`은 (는) 지연 평가 (예: Python 생성기) 되며 분할 또는 필터링을 통해 하위 집합을 효율적으로 사용할 수 있습니다. 
 
-[From_file](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 또는 from_delimited_files `Dataset` 와 같은 메서드를 사용 [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-)하 여를 만듭니다.
+`Dataset` [From_file](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 또는 [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-)와 같은 메서드를 사용 하 여를 만듭니다.
 
 ```python
 from azureml.core import Dataset
@@ -214,7 +214,7 @@ except ComputeTargetException:
 
 자세한 예제는 GitHub의 [예제 노트북](https://aka.ms/pl-databricks) 을 참조 하세요.
 
-### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
+### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure 데이터 레이크 분석
 
 Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫폼입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
 
@@ -265,7 +265,7 @@ except ComputeTargetException:
 자세한 예제는 GitHub의 [예제 노트북](https://aka.ms/pl-adla) 을 참조 하세요.
 
 > [!TIP]
-> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) 사용 하 여 학습 전에 데이터를 복사할 수 있습니다.
+> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) 하 여 학습 전에 데이터를 복사할 수 있습니다.
 
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>파이프라인 단계 구성
 
@@ -287,7 +287,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-이전 결과 (`allow_reuse`)를 다시 사용 하는 것은 불필요 한 다시 정렬을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 키입니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. 가 `allow_reuse` false로 설정 된 경우 파이프라인 실행 중에이 단계에 대 한 새 실행이 항상 생성 됩니다. 
+이전 결과 ()를 다시 사용 `allow_reuse` 하는 것은 불필요 한 다시 정렬을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 키입니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. `allow_reuse`가 false로 설정 된 경우 파이프라인 실행 중에이 단계에 대 한 새 실행이 항상 생성 됩니다. 
 
 단계를 정의한 후 일부 또는 모든 단계를 사용하여 파이프라인을 빌드합니다.
 
@@ -327,7 +327,7 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
-### <a name="use-a-dataset"></a>데이터 집합 사용 
+### <a name="use-a-dataset"></a>데이터 세트 사용 
 
 Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL에서 만든 데이터 집합은 모든 파이프라인 단계에 대 한 입력으로 사용할 수 있습니다. [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)에 대 한 출력을 작성 하거나 특정 데이터 저장소에 데이터를 쓰려면 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)를 사용 합니다. 
 
@@ -354,7 +354,7 @@ iris_dataset = run_context.input_datasets['iris_data']
 dataframe = iris_dataset.to_pandas_dataframe()
 ```
 
-줄 `Run.get_context()` 이 강조 표시 됩니다. 이 함수는 현재 `Run` 실험적 실행을 나타내는를 검색 합니다. 위의 샘플에서는이를 사용 하 여 등록 된 데이터 집합을 검색 합니다. `Run` 개체의 또 다른 일반적인 용도는 실험 자체와 실험이 있는 작업 영역을 모두 검색 하는 것입니다. 
+줄 `Run.get_context()` 이 강조 표시 됩니다. 이 함수는 `Run` 현재 실험적 실행을 나타내는를 검색 합니다. 위의 샘플에서는이를 사용 하 여 등록 된 데이터 집합을 검색 합니다. 개체의 또 다른 일반적인 용도는 실험 `Run` 자체와 실험이 있는 작업 영역을 모두 검색 하는 것입니다. 
 
 ```python
 # Within a PythonScriptStep
@@ -386,7 +386,7 @@ pipeline_run1.wait_for_completion()
 * 작업 영역과 연결된 Blob Storage에서 컴퓨팅 대상으로 프로젝트 스냅샷을 다운로드합니다.
 * 파이프라인의 각 단계에 해당하는 Docker 이미지를 빌드합니다.
 * 각 단계에 대 한 Docker 이미지를 컨테이너 레지스트리에서 계산 대상으로 다운로드 합니다.
-* 및 개체에 `Dataset` 대 `PipelineData` 한 액세스를 구성 합니다. `as_mount()` 액세스 모드의 경우 퓨즈를 사용 하 여 가상 액세스를 제공 합니다. 마운트가 지원 되지 않거나 사용자가로 `as_download()`액세스를 지정 하는 경우 데이터는 대신 계산 대상으로 복사 됩니다.
+* 및 개체에 대 한 액세스를 구성 `Dataset` `PipelineData` 합니다. `as_mount()`액세스 모드의 경우 퓨즈를 사용 하 여 가상 액세스를 제공 합니다. 마운트가 지원 되지 않거나 사용자가로 액세스를 지정 하는 경우 `as_download()` 데이터는 대신 계산 대상으로 복사 됩니다.
 * 단계 정의에 지정된 컴퓨팅 대상에서 단계를 실행합니다. 
 * 단계에서 지정한 로그, stdout, stderr, 메트릭, 출력 등의 아티팩트를 만듭니다. 이러한 아티팩트는 업로드 되어 사용자의 기본 데이터 저장소에 보관 됩니다.
 
@@ -409,7 +409,7 @@ pipeline_run1.wait_for_completion()
 
 ## <a name="git-tracking-and-integration"></a>Git 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 자세한 내용은 [Azure Machine Learning에 대 한 Git 통합](concept-train-model-git-integration.md)을 참조 하세요.
+원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 
 ## <a name="publish-a-pipeline"></a>파이프라인 게시
 
@@ -448,7 +448,7 @@ pipeline_run1.wait_for_completion()
 
 ### <a name="run-a-published-pipeline"></a>게시된 파이프라인 실행
 
-게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 이 엔드포인트는 비-Python 클라이언트 등의 외부 시스템에서 파이프라인 실행을 호출합니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
+게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 파이프라인 끝점을 사용 하 여 Python이 아닌 클라이언트를 비롯 한 모든 외부 시스템에서 파이프라인 실행을 트리거할 수 있습니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
 
 이전 파이프라인의 실행을 호출 하려면 [Azurecliauthentication 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) 참조에 설명 된 대로 Azure Active Directory 인증 헤더 토큰이 필요 하거나 [Azure Machine Learning 노트북의 인증](https://aka.ms/pl-restep-auth) 에 대 한 자세한 내용을 확인 하세요.
 
@@ -527,15 +527,15 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-에서 `p.enable()`다시 사용 하도록 설정할 수 있습니다. 자세한 내용은 [PublishedPipeline 클래스](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) 참조를 참조 하세요.
+에서 다시 사용 하도록 설정할 수 있습니다 `p.enable()` . 자세한 내용은 [PublishedPipeline 클래스](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) 참조를 참조 하세요.
 
 ## <a name="caching--reuse"></a>캐싱 & 재사용  
 
 파이프라인의 동작을 최적화 하 고 사용자 지정 하기 위해 캐싱 및 다시 사용에 대 한 몇 가지 작업을 수행할 수 있습니다. 예를 들어 다음을 선택할 수 있습니다.
-+ [단계 정의](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)중에를 설정 `allow_reuse=False` 하 여 **단계의 기본 재사용을 해제** 합니다. 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
++ 단계 정의 중에를 설정 하 여 **단계의 기본 재사용을 해제** 합니다 `allow_reuse=False` [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
 + 를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-기본적 `allow_reuse` 으로 단계를 사용 하 고 단계 정의 `source_directory` 에 지정 된를 해시 합니다. 따라서 지정 된 단계에 대 한 스크립트는 동일 하 게 유지`script_name`되 고, 입력 및 매개 변수를 그대로 유지 하 고,` source_directory` 의 다른 모든 항목이 변경 되지 않은 경우에는 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.
+기본적으로 `allow_reuse` 단계를 사용 하 고 `source_directory` 단계 정의에 지정 된를 해시 합니다. 따라서 지정 된 단계에 대 한 스크립트는 동일 하 게 유지 `script_name` 되 고, 입력 및 매개 변수를 그대로 유지 하 고,의 다른 모든 항목이 변경 되지 않은 경우에는 ` source_directory` 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.
 
 ```python
 step = PythonScriptStep(name="Hello World",

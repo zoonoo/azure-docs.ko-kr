@@ -1,5 +1,5 @@
 ---
-title: AI 보강 기술 세트 디버그(미리 보기)
+title: 디버그 세션 개념 (미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Portal을 통해 액세스하는 디버그 세션은 오류를 식별 및 수정하고, 변경 내용의 유효성을 검사하고, 변경 내용을 AI 보강 파이프라인의 기술 세트에 밀어넣을 수 있는 환경과 같은 IDE를 제공합니다. 디버그 세션은 미리 보기 상태입니다.
 manager: nitinme
@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 04b221d772abf923d7aabfe767a6424b72ed8fb2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560378"
 ---
-# <a name="debug-sessions"></a>디버그 세션
+# <a name="debug-sessions-in-azure-cognitive-search"></a>Azure Cognitive Search의 디버그 세션
 
 디버그 세션은 Azure Portal의 기존 기술 세트와 작동하는 비주얼 편집기입니다. 디버그 세션 내에서 오류를 식별 및 해결하고, 변경 내용의 유효성을 검사하고, 변경 내용을 AI 보강 파이프라인의 기술 세트에 밀어넣을 수 있습니다.
 
 > [!Important]
-> Azure Cognitive Search에 대한 디버그 세션 지원은 [요청에 따라](https://aka.ms/DebugSessions) 제한된 액세스 미리 보기로 사용할 수 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 추천되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 디버그 세션은 서비스 수준 계약 없이 제공 되는 미리 보기 기능이 며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 >
-> 미리 보기에 대한 액세스 권한이 부여되면 Azure Portal을 사용하여 서비스에 대한 디버그 세션에 액세스하고 사용할 수 있습니다.
 
 ## <a name="using-debug-sessions"></a>디버그 세션 사용
 
@@ -86,6 +85,10 @@ ms.locfileid: "83662411"
 ## <a name="errorswarnings"></a>오류/경고
 
 이 창에는 디버그 세션에서 문서에 대해 기술 세트가 실행될 때 생성되는 모든 오류와 경고가 표시됩니다.
+
+## <a name="limitations"></a>제한 사항
+
+디버그 sesisons는 일반적으로 사용 가능한 모든 데이터 원본 amd 가장 많은 데이터 원본을 사용 하 여 작동 합니다. Cosmos DB의 MongoDB API (미리 보기) 및 Cassandra API (미리 보기)는 현재 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
