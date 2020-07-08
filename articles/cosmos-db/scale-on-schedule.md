@@ -3,15 +3,15 @@ title: Azure Functions 타이머를 사용 하 여 일정에 따라 Azure Cosmos
 description: PowerShell 및 Azure Functions를 사용 하 여 Azure Cosmos DB 처리량의 크기를 조정 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 68ba40ea212c061fa5c8bbddc47ea0dfc6d8caa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75935169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262483"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Azure Functions 타이머 트리거를 사용 하 여 Azure Cosmos DB 처리량 크기 조정
 
@@ -21,7 +21,7 @@ Azure Cosmos 계정의 성능은 초당 요청 단위로 표현 된 프로 비�
 
 ## <a name="throughput-scheduler-sample-project"></a>처리량 scheduler 샘플 프로젝트
 
-일정에 따라 Azure Cosmos DB 크기를 조정 하는 프로세스를 간소화 하기 위해 [Azure Cosmos 처리량 스케줄러](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler)라는 샘플 프로젝트를 만들었습니다. 이 프로젝트는 두 개의 타이머 트리거 ("ScaleUpTrigger" 및 "ScaleDownTrigger")가 있는 Azure Functions 앱입니다. 트리거는 각 트리거의 `resources.json` 파일에 정의 된 각 리소스에 대 한 처리량을 설정 하는 PowerShell 스크립트를 실행 합니다. ScaleUpTrigger는 오전 8 시에 실행 되도록 구성 되 고 ScaleDownTrigger는 오후 6 시 UTC로 실행 되도록 구성 되며 이러한 시간은 각 트리거의 `function.json` 파일 내에서 쉽게 업데이트할 수 있습니다.
+일정에 따라 Azure Cosmos DB 크기를 조정 하는 프로세스를 간소화 하기 위해 [Azure Cosmos 처리량 스케줄러](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler)라는 샘플 프로젝트를 만들었습니다. 이 프로젝트는 두 개의 타이머 트리거 ("ScaleUpTrigger" 및 "ScaleDownTrigger")가 있는 Azure Functions 앱입니다. 트리거는 각 트리거의 파일에 정의 된 각 리소스에 대 한 처리량을 설정 하는 PowerShell 스크립트를 실행 합니다 `resources.json` . ScaleUpTrigger는 오전 8 시에 실행 되도록 구성 되 고 ScaleDownTrigger는 오후 6 시 UTC로 실행 되도록 구성 되며 이러한 시간은 각 트리거의 파일 내에서 쉽게 업데이트할 수 있습니다 `function.json` .
 
 이 프로젝트를 로컬로 복제 하 고, 수정 하 여 확장 및 축소할 Azure Cosmos DB 리소스를 지정 하 고, 실행할 일정을 지정할 수 있습니다. 나중에 azure 구독에 배포 하 고 "Azure Cosmos DB operator" 역할을 사용 하 여 RBAC ( [역할 기반 Access Control](role-based-access-control.md) ) 권한을 가진 관리 서비스 id를 사용 하 여 azure Cosmos 계정에 대 한 처리량을 설정 하는 보안을 유지할 수 있습니다.
 

@@ -4,25 +4,25 @@ description: SQL 쿼리 실행 메트릭을 검색 하 고 Azure Cosmos DB 요�
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
-ms.openlocfilehash: 48b9a67de5c870a187ee008bd97265760ca6c341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bec102064d6269964cb917d745af206acf948ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70998375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262551"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>.NET SDK를 사용 하 여 SQL 쿼리 실행 메트릭 가져오기 및 쿼리 성능 분석
 
-이 문서에서는 Azure Cosmos DB에서 SQL 쿼리 성능을 프로 파일링 하는 방법을 보여 줍니다. 이 프로 파일링은 .NET SDK `QueryMetrics` 에서 검색 된를 사용 하 여 수행할 수 있으며 여기에 자세히 설명 되어 있습니다. [Querymetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) 백 엔드 쿼리 실행에 대 한 정보를 포함 하는 강력한 형식의 개체입니다. 이러한 메트릭은 [쿼리 성능 조정](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) 문서에 자세히 설명 되어 있습니다.
+이 문서에서는 Azure Cosmos DB에서 SQL 쿼리 성능을 프로 파일링 하는 방법을 보여 줍니다. 이 프로 파일링은 .NET SDK에서 검색 된를 사용 하 여 수행할 수 `QueryMetrics` 있으며 여기에 자세히 설명 되어 있습니다. [Querymetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) 백 엔드 쿼리 실행에 대 한 정보를 포함 하는 강력한 형식의 개체입니다. 이러한 메트릭은 [쿼리 성능 조정](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) 문서에 자세히 설명 되어 있습니다.
 
 ## <a name="set-the-feedoptions-parameter"></a>FeedOptions 매개 변수 설정
 
 [Documentclient. CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) 의 모든 오버 로드는 선택적 [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) 매개 변수를 사용 합니다. 이 옵션을 사용 하면 쿼리 실행을 튜닝 하 고 매개 변수화 할 수 있습니다. 
 
-Sql 쿼리 실행 메트릭을 수집 하려면 [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) 의 `true` [feedoptions.populatequerymetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) 매개 변수를로 설정 해야 합니다. 를 `PopulateQueryMetrics` true로 설정 하면가 관련 `FeedResponse` `QueryMetrics`를 포함 하 게 됩니다. 
+Sql 쿼리 실행 메트릭을 수집 하려면 [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) 의 [feedoptions.populatequerymetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) 매개 변수를로 설정 해야 합니다 `true` . `PopulateQueryMetrics`를 true로 설정 하면가 `FeedResponse` 관련를 포함 하 게 됩니다 `QueryMetrics` . 
 
 ## <a name="get-query-metrics-with-asdocumentquery"></a>AsDocumentQuery ()를 사용 하 여 쿼리 메트릭 가져오기
 다음 코드 샘플에서는 [Asdocumentquery ()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) 메서드를 사용할 때 메트릭을 검색 하는 방법을 보여 줍니다.
@@ -62,7 +62,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## <a name="aggregating-querymetrics"></a>QueryMetrics 집계
 
-이전 섹션에서 [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) 메서드를 여러 번 호출 했습니다. 각 호출에서 사전이 `FeedResponse` 인 개체를 반환 했습니다 `QueryMetrics`. 쿼리의 모든 연속에 대 한 하나입니다. 다음 예제에서는 LINQ를 `QueryMetrics` 사용 하 여 집계 하는 방법을 보여 줍니다.
+이전 섹션에서 [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) 메서드를 여러 번 호출 했습니다. 각 호출은 쿼리를 `FeedResponse` 연속 하는 `QueryMetrics` 모든 항목에 대 한 사전을 포함 하는 개체를 반환 했습니다. 다음 예제에서는 `QueryMetrics` LINQ를 사용 하 여 집계 하는 방법을 보여 줍니다.
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -84,7 +84,7 @@ Console.WriteLine(aggregatedQueryMetrics);
 
 ## <a name="grouping-query-metrics-by-partition-id"></a>파티션 ID로 쿼리 메트릭 그룹화
 
-파티션 ID를 기준 `QueryMetrics` 으로를 그룹화 할 수 있습니다. 파티션 ID를 기준으로 그룹화 하면 특정 파티션이 다른 파티션에 비해 성능 문제가 발생 하 고 있는지 확인할 수 있습니다. 다음 예제에서는 LINQ를 사용 하 `QueryMetrics` 여 그룹화 하는 방법을 보여 줍니다.
+파티션 ID를 기준으로를 그룹화 할 수 있습니다 `QueryMetrics` . 파티션 ID를 기준으로 그룹화 하면 특정 파티션이 다른 파티션에 비해 성능 문제가 발생 하 고 있는지 확인할 수 있습니다. 다음 예제에서는 LINQ를 사용 하 여 그룹화 하는 방법을 보여 줍니다 `QueryMetrics` .
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -115,7 +115,7 @@ foreach(IGrouping<string, KeyValuePair<string, QueryMetrics>> grouping in groupe
 
 ## <a name="linq-on-documentquery"></a>LINQ on DocumentQuery
 
-메서드를 `AsDocumentQuery()` 사용 하 여 `FeedResponse` LINQ 쿼리에서를 가져올 수도 있습니다.
+`FeedResponse`메서드를 사용 하 여 LINQ 쿼리에서를 가져올 수도 있습니다 `AsDocumentQuery()` .
 
 ```csharp
 IDocumentQuery<Document> linqQuery = client.CreateDocumentQuery(collection.SelfLink, feedOptions)
@@ -129,7 +129,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>비용이 높은 쿼리
 
-각 쿼리에서 사용 되는 요청 단위를 캡처하여 높은 처리량을 사용 하는 비용이 많이 드는 쿼리나 쿼리를 조사할 수 있습니다. 에서 `FeedResponse` [requestcharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) 속성을 사용 하 여 요청 요금을 얻을 수 있습니다. Azure Portal 및 다른 Sdk를 사용 하 여 요청 요금을 얻는 방법에 대 한 자세한 내용은 [요청 단위 요금 청구](find-request-unit-charge.md) 문서를 참조 하세요.
+각 쿼리에서 사용 되는 요청 단위를 캡처하여 높은 처리량을 사용 하는 비용이 많이 드는 쿼리나 쿼리를 조사할 수 있습니다. 에서 [requestcharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) 속성을 사용 하 여 요청 요금을 얻을 수 있습니다 `FeedResponse` . Azure Portal 및 다른 Sdk를 사용 하 여 요청 요금을 얻는 방법에 대 한 자세한 내용은 [요청 단위 요금 청구](find-request-unit-charge.md) 문서를 참조 하세요.
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -148,7 +148,7 @@ while (documentQuery.HasMoreResults)
 
 ## <a name="get-the-query-execution-time"></a>쿼리 실행 시간 가져오기
 
-클라이언트 쪽 쿼리를 실행 하는 데 필요한 시간을 계산할 때 `ExecuteNextAsync` 메서드를 호출 하는 시간만 포함 하 고 코드 베이스의 다른 부분은 포함 하지 않아야 합니다. 이러한 호출은 다음 예제와 같이 쿼리 실행이 걸린 시간을 계산 하는 데 도움이 됩니다.
+클라이언트 쪽 쿼리를 실행 하는 데 필요한 시간을 계산할 때 메서드를 호출 하는 시간만 포함 하 `ExecuteNextAsync` 고 코드 베이스의 다른 부분은 포함 하지 않아야 합니다. 이러한 호출은 다음 예제와 같이 쿼리 실행이 걸린 시간을 계산 하는 데 도움이 됩니다.
 
 ```csharp
 string query = "SELECT * FROM c";

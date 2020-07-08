@@ -4,15 +4,15 @@ description: 이 문서는 MongoDB에서 Mongo DB 용 APi Azure Cosmos DB로의 
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: lbosq
-ms.openlocfilehash: ce33651aae64d0a90264dde6da64b4044c6ce132
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055604c399aa1641e823f24af499102bfff3ed0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263095"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 마이그레이션 후 최적화 단계
 
@@ -35,7 +35,7 @@ MongoDB 데이터베이스에 저장 된 데이터를 MongoDB 용 Azure Cosmos D
 2. [Azure Portal](https://www.portal.azure.com/)의 왼쪽 창에서 **모든 리소스** 메뉴를 열고 데이터를 마이그레이션한 Azure Cosmos DB 계정을 찾습니다.
 3. **연결 문자열** 블레이드를 엽니다. 오른쪽 창에는 계정에 성공적으로 연결하는 데 필요한 모든 정보가 포함되어 있습니다.
 4. 응용 프로그램의 구성 (또는 기타 관련 위치)에 있는 연결 정보를 사용 하 여 앱의 MongoDB 연결에 대 한 Azure Cosmos DB API를 반영 합니다.
-![연결 문자열](./media/mongodb-post-migration/connection-string.png)
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="연결 문자열":::
 
 자세한 내용은 [Azure Cosmos DB에 MongoDB 응용 프로그램 연결](connect-mongodb-account.md) 페이지를 참조 하세요.
 

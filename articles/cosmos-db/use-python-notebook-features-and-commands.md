@@ -3,15 +3,15 @@ title: Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook
 description: 기본 제공 명령 및 기능을 사용하여 Azure Cosmos DB의 기본 제공 Python Notebooks를 사용하는 일반적인 작업을 수행하는 방법을 알아봅니다.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: a16b95249562db98d9382f8ca56bf4a27beba2fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263367"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
 
@@ -23,7 +23,7 @@ Azure Cosmos 계정에 대해 Notebook 지원을 사용하도록 설정한 후 �
 새 코드 셀에서 다음 코드를 삽입하고 실행하여 ``PackageToBeInstalled``를 원하는 Python 패키지로 바꿉니다.
 ```python
 import sys
-!{sys.executable} -m pip install PackageToBeInstalled –user
+!{sys.executable} -m pip install PackageToBeInstalled --user
 ```
 Azure Cosmos 계정 작업 영역의 모든 Notebook에서 이 패키지를 사용할 수 있습니다. 
 
@@ -140,7 +140,7 @@ pd.options.display.max_rows = None
 
 df_cosmos.groupby("Item").size()
 ```
-![nteract 데이터 탐색기](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/nteract-built-in-chart.png" alt-text="nteract 데이터 탐색기":::
 
 ## <a name="use-the-built-in-python-sdk"></a>기본 제공 Python SDK 사용
 [Azure Cosmos DB Python SDK for SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) 버전 4는 Azure Cosmos 계정에 대한 Notebook 환경에 설치되어 포함됩니다.
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Notebook 작업 영역 다시 설정
 Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정**을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
 
-![Notebook 작업 영역 다시 설정](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Notebook 작업 영역 다시 설정":::
 
 ## <a name="next-steps"></a>다음 단계
 

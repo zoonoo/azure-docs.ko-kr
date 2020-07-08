@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 저장 프로시저, 트리거 및 Udf 작성
 description: Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 정의하는 방법 알아보기
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tisande
-ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e9ebd8de956437273246d08821fc87838089a256
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262874"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 
@@ -52,21 +52,42 @@ var helloWorldStoredProc = {
 
 또한 저장 프로시저에는 설명을 설정하는 매개 변수가 포함되며 부울 값입니다. 매개 변수가 true로 설정되고 설명이 누락된 경우 저장 프로시저는 예외를 throw합니다. 그렇지 않으면 저장 프로시저의 나머지가 계속 실행됩니다.
 
-다음 예의 저장 프로시저는 새 Azure Cosmos 항목을 입력으로 사용 하 고, Azure Cosmos 컨테이너에 삽입 하 고, 새로 만든 항목에 대 한 ID를 반환 합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
+다음 예제 저장 프로시저에서는 새 Azure Cosmos 항목의 배열을 입력으로 사용 하 고, Azure Cosmos 컨테이너에 삽입 하 고, 삽입 된 항목의 수를 반환 합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
 
 ```javascript
-function createToDoItem(itemToCreate) {
+function createToDoItems(items) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
+    var count = 0;
 
-    var context = getContext();
-    var container = context.getCollection();
+    if (!items) throw new Error("The array is undefined or null.");
 
-    var accepted = container.createDocument(container.getSelfLink(),
-        itemToCreate,
-        function (err, itemCreated) {
-            if (err) throw new Error('Error' + err.message);
-            context.getResponse().setBody(itemCreated.id)
-        });
-    if (!accepted) return;
+    var numItems = items.length;
+
+    if (numItems == 0) {
+        getContext().getResponse().setBody(0);
+        return;
+    }
+
+    tryCreate(items[count], callback);
+
+    function tryCreate(item, callback) {
+        var options = { disableAutomaticIdGeneration: false };
+
+        var isAccepted = collection.createDocument(collectionLink, item, options, callback);
+
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    function callback(err, item, options) {
+        if (err) throw err;
+        count++;
+        if (count >= numItems) {
+            getContext().getResponse().setBody(count);
+        } else {
+            tryCreate(items[count], callback);
+        }
+    }
 }
 ```
 
@@ -366,7 +387,7 @@ function tax(income) {
 
 ## <a name="logging"></a>로깅 
 
-저장 프로시저, 트리거 또는 사용자 정의 함수를 사용 하는 경우 `console.log()` 명령을 사용 하 여 단계를 기록할 수 있습니다. 이 명령은 다음 예제와 같이이 true로 `EnableScriptLogging` 설정 된 경우 디버깅을 위해 문자열을 집중 합니다.
+저장 프로시저, 트리거 또는 사용자 정의 함수를 사용 하는 경우 명령을 사용 하 여 단계를 기록할 수 있습니다 `console.log()` . 이 명령은 `EnableScriptLogging` 다음 예제와 같이이 true로 설정 된 경우 디버깅을 위해 문자열을 집중 합니다.
 
 ```javascript
 var response = await client.ExecuteStoredProcedureAsync(

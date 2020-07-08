@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 3955d3b9370a1cd2ee88c27e42b107f5ae0f87c2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833530"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263248"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 
@@ -82,9 +82,9 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
   1. 데이터 팩터리 수준에서 기본 제공 **참가자** 역할을 할당합니다.
   2. 권한이 **Microsoft.Resources/deployments/** 인 사용자 지정 역할을 만듭니다. 리소스 그룹 수준에서 사용자에게 이 사용자 지정 역할을 할당합니다.
 
-- 사용자가 연결된 서비스에서만 연결을 테스트할 수 있도록 허용
+- 사용자가 연결 된 서비스에서 연결을 테스트 하거나 데이터 집합의 데이터를 미리 볼 수 있도록 합니다.
 
-    다음 작업에 대한 권한이 있는 사용자 지정 역할을 만듭니다. **Microsoft.DataFactory/factories/getFeatureValue/read** 및 **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. 사용자의 데이터 팩터리 리소스에 이 사용자 지정 역할을 할당합니다.
+    다음 동작에 대 한 권한이 있는 사용자 지정 역할을 만듭니다. **DataFactory/factory/getFeatureValue/read** 및 **DataFactory/Factory/Getfeaturevalue eaccess/action**. 사용자의 데이터 팩터리 리소스에 이 사용자 지정 역할을 할당합니다.
 
 - 사용자가 PowerShell이나 SDK에서는 데이터 팩터리를 업데이트할 수 있지만 Azure Portal에서는 업데이트할 수 없도록 설정합니다.
 

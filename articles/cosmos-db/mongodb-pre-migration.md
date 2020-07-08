@@ -4,15 +4,15 @@ description: 이 문서에서는 MongoDB에서 Cosmos DB로 데이터 마이그�
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: lbosq
-ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263061"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 
@@ -79,7 +79,10 @@ Azure Cosmos DB에서 처리량은 사전에 프로비저닝되며 초당 RU(요
 이와 비슷한 방식으로 분할 기능이 자동으로 용량을 추가하고 그에 따라 데이터의 균형을 다시 조정합니다. 데이터의 올바른 파티션 키를 선택하는 방법에 대한 자세한 내용과 권장 사항은 [파티션 키 선택 문서](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey)를 참조하세요. 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>데이터 인덱싱
-기본적으로 Azure Cosmos DB는 삽입된 모든 데이터에 대한 자동 인덱싱을 제공합니다. Azure Cosmos DB에서 제공하는 인덱싱 기능에는 복합 인덱스, 고유 인덱스 및 TTL(time-to-live) 인덱스 추가가 포함됩니다. 인덱스 관리 인터페이스는 `createIndex()` 명령에 매핑됩니다. [Azure Cosmos DB의 API for MongoDB에서 인덱싱](mongodb-indexing.md)에 대해 자세히 알아보세요.
+
+MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API는 자동으로 `_id` 필드를 인덱싱합니다. 이 필드는 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 추가 필드를 인덱싱 하려면 MongoDB 인덱스 관리 명령을 적용 합니다. 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
+
+Azure Cosmos DB에서 제공 하는 인덱싱 기능에는 복합 인덱스, 고유 인덱스 및 TTL (time-to-live) 인덱스를 추가 하는 작업이 포함 됩니다. 인덱스 관리 인터페이스는 `createIndex()` 명령에 매핑됩니다. [Azure Cosmos DB의 MONGODB API에 대 한](mongodb-indexing.md)자세한 내용은 인덱싱을 참조 하세요.
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md)는 MongoDB 컬렉션을 고유 인덱스로 자동으로 마이그레이션합니다. 그러나 마이그레이션 전에 고유 인덱스를 만들어야 합니다. 컬렉션에 이미 데이터가 있는 경우 Azure Cosmos DB는 고유 인덱스 생성을 지원하지 않습니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md)를 참조하세요.
 

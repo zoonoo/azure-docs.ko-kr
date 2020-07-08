@@ -3,15 +3,15 @@ title: Azure Cosmos DB에서 Azure Kubernetes를 사용하는 방법
 description: Azure Cosmos DB(미리 보기)를 사용하는 Azure에서 Kubernetes 클러스터를 부트스트랩하는 방법 알아보기
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70093723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262636"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Azure Cosmos DB(미리 보기)에서 Azure Kubernetes를 사용하는 방법
 
@@ -27,7 +27,7 @@ Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-intr
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-1. 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치 합니다. 운영 체제에 해당하는 Azure CLI를 다운로드하고 설치할 수 있습니다.
+1. 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. 운영 체제에 해당하는 Azure CLI를 다운로드하고 설치할 수 있습니다.
 
 1. Azure Kubernetes 엔진의 [최신 버전](https://github.com/Azure/aks-engine/releases)을 설치합니다. 다른 운영 체제에 대한 설치 지침은 [Azure Kubernetes 엔진](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) 페이지에서 사용할 수 있습니다. 연결 된 문서의 **AKS 엔진 설치** 섹션에서 단계가 필요 합니다. 다운로드 한 후 zip 파일의 압축을 풉니다.
 

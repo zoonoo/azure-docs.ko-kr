@@ -3,15 +3,15 @@ title: Azure Cosmos DB 및 Azure Functions를 사용 하 여 서버를 사용 �
 description: Azure Cosmos DB 및 Azure Functions를 함께 사용하여 서버를 사용하지 않는 이벤트 구동 컴퓨팅 앱을 만들 수 있는 방법을 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263264"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으�
 
 다음 다이어그램은 다음 세 가지 통합을 각각 보여 줍니다. 
 
-![Azure Cosmos DB 및 Azure Functions의 통합 방법](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="Azure Cosmos DB 및 Azure Functions의 통합 방법" border="false":::
 
 Azure Cosmos DB에 대 한 Azure Functions 트리거, 입력 바인딩 및 출력 바인딩을 다음 조합으로 사용할 수 있습니다.
 
@@ -61,7 +61,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 다음 그림은 Azure Portal에서 이 트리거에 대해 기록되는 코드를 보여 줍니다.
 
-![Azure Portal에서 Cosmos DB에 대 한 Azure Functions 트리거를 만듭니다.](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Azure Portal에서 Cosmos DB에 대 한 Azure Functions 트리거를 만듭니다.":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>재무 사용 사례 - 타이머 트리거 및 입력 바인딩
 
@@ -75,13 +75,13 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 다음 그림은 이 시나리오에 대한 Azure Portal의 코드를 보여 줍니다.
 
-![재무 시나리오의 타이머 트리거에 대한 Index.js 파일](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="재무 시나리오의 타이머 트리거에 대한 Index.js 파일":::
 
-![재무 시나리오의 타이머 트리거에 대한 Run.csx 파일](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="재무 시나리오의 타이머 트리거에 대한 Run.csx 파일":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Cosmos DB에 대 한 게임 사용 사례-Azure Functions 트리거 및 출력 바인딩 
 
-게임에서 새 사용자가 생성되면 [Azure Cosmos DB Gremlin API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색하기 쉽도록 [Azure Cosmos DB SQL 데이터베이스]에 결과를 쓸 수 있습니다.
+게임에서 새 사용자가 생성되면 [Azure Cosmos DB Gremlin API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색 하기 쉽도록 [Azure Cosmos DB 또는 SQL database]() 에 결과를 쓸 수 있습니다.
 
 **구현:** Cosmos DB에 대 한 Azure Functions 트리거 및 출력 바인딩 사용
 

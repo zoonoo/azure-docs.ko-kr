@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB를 Qlik Sense에 연결하고 �
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67985540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263350"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Qlik Sense를 Azure Cosmos DB에 연결하고 데이터 시각화
 
@@ -54,7 +54,7 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 1. Qlik Sense를 열고 **새 앱 만들기**를 선택합니다. 앱 이름을 입력하고 **만들기**를 선택합니다.
 
-   ![새 Qlik Sense 앱 만들기](./media/visualize-qlik-sense/create-new-qlik-sense-app.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="새 Qlik Sense 앱 만들기":::
 
 2. 새 앱을 만든 후에는 **앱 열기**를 선택하고 **파일 및 기타 소스의 데이터 추가**를 선택합니다. 
 
@@ -62,15 +62,15 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 4. **사용자 DSN**으로 전환하고, 앞에서 만든 ODBC 연결을 선택합니다. 연결 이름을 입력하고 **만들기**를 선택합니다. 
 
-   ![새 연결 만들기](./media/visualize-qlik-sense/create-new-connection.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="새 연결 만들기":::
 
 5. 연결을 만든 후에는 비디오 게임 데이터가 들어 있는 데이터베이스 및 컬렉션을 선택하여 미리 볼 수 있습니다.
 
-   ![데이터베이스 및 컬렉션 선택](./media/visualize-qlik-sense/choose-database-and-collection.png) 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="데이터베이스 및 컬렉션 선택"::: 
 
 6. 다음으로, **데이터 추가**를 선택하여 Qlik Sense에 데이터를 로드합니다. Qlik Sense에 데이터를 로드한 후에는 데이터에 대한 인사이트를 생성하고 데이터를 분석할 수 있습니다. 인사이트를 사용할 수도 있고 비디오 게임 판매를 탐색하는 고유의 앱을 빌드할 수도 있습니다. 다음 이미지에 예가 나와 있습니다. 
 
-   ![데이터 시각화](./media/visualize-qlik-sense/visualize-data.png)
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="데이터 시각화":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>ODBC를 사용하여 연결할 때의 제한 사항 
 

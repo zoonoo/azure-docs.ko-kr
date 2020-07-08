@@ -3,16 +3,16 @@ title: Blitzz를 사용 하 여 Oracle에서 Azure Cosmos DB Cassandra API로 �
 description: Blitzz를 사용 하 여 Oracle 데이터베이스에서 Azure Cosmos DB Cassandra API로 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 43d15a7252819a3e4f7635e37458b75e9b7ecca7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262466"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Blitzz를 사용 하 여 Oracle에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 
@@ -54,11 +54,11 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
 
 1. ou는 [Blitzz 웹 사이트](https://www.blitzz.io)에서 데모를 요청 하 여 Blitzz 설치 및 이진 파일을 가져올 수 있습니다. 또는 팀에 [전자 메일](mailto:success@blitzz.io) 을 보낼 수도 있습니다.
 
-   ![Blitzz replicant tool 다운로드](./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png)
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Blitzz replicant tool 다운로드":::
 
-   ![Blitzz replicant 파일](./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png)
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Blitzz replicant 파일":::
 
-1. CLI 터미널에서 원본 데이터베이스 구성을 설정 합니다. 명령을 사용 하 여 **`vi conf/conn/oracle.yml`** 구성 파일을 열고 ORACLE 노드의 IP 주소, 포트 번호, 사용자 이름, 암호 및 기타 필요한 정보를 쉼표로 구분한 목록을 추가 합니다. 다음 코드에서는 구성 파일의 예를 보여 줍니다.
+1. CLI 터미널에서 원본 데이터베이스 구성을 설정 합니다. 명령을 사용 하 여 구성 파일을 열고 **`vi conf/conn/oracle.yml`** oracle 노드의 IP 주소, 포트 번호, 사용자 이름, 암호 및 기타 필요한 정보를 쉼표로 구분한 목록을 추가 합니다. 다음 코드에서는 구성 파일의 예를 보여 줍니다.
 
    ```bash
    type: ORACLE
@@ -75,13 +75,13 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
    use-ssl: false
    ```
 
-   ![Oracle 연결 편집기 열기](./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png)
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Oracle 연결 편집기 열기":::
 
-   ![Oracle 연결 구성](./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png)
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Oracle 연결 구성":::
 
    구성 세부 정보를 입력 한 후 파일을 저장 한 후 닫습니다.
 
-1. 필요에 따라 원본 데이터베이스 필터 파일을 설정할 수 있습니다. 필터 파일은 마이그레이션할 스키마 또는 테이블을 지정 합니다. 명령을 사용 하 여 **`vi filter/oracle_filter.yml`** 구성 파일을 열고 다음 구성 세부 정보를 입력 합니다.
+1. 필요에 따라 원본 데이터베이스 필터 파일을 설정할 수 있습니다. 필터 파일은 마이그레이션할 스키마 또는 테이블을 지정 합니다. 명령을 사용 하 여 구성 파일을 열고 **`vi filter/oracle_filter.yml`** 다음 구성 세부 정보를 입력 합니다.
 
    ```bash
 
@@ -96,13 +96,13 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
 
 1. 데이터를 마이그레이션하기 전에 컨테이너 처리량을 응용 프로그램을 신속 하 게 마이그레이션하는 데 필요한 양만큼 늘립니다. 예를 들어 처리량을 10만 RUs로 늘릴 수 있습니다. 마이그레이션을 시작 하기 전에 처리량을 확장 하면 데이터를 짧은 시간 내에 마이그레이션하는 데 도움이 됩니다. 
 
-   ![Azure Cosmos 컨테이너 전체 확장](./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png)
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Azure Cosmos 컨테이너 전체 확장":::
 
    마이그레이션이 완료 된 후 처리량을 줄여야 합니다. 각 작업에 대해 저장 된 데이터와 RUs의 양에 따라 데이터 마이그레이션 후 필요한 처리량을 예상할 수 있습니다. 필요한 RUs를 추정 하는 방법에 대 한 자세한 내용은 [컨테이너 및 데이터베이스에 대 한 처리량 프로 비전](set-throughput.md) 및 [Azure Cosmos DB capacity planner 문서를 사용 하 여 r u/초 예측](estimate-ru-with-capacity-planner.md) 을 참조 하세요.
 
 1. **연결 문자열** 창에서 Azure Cosmos 계정의 연결 **지점, 포트, 사용자 이름**및 **기본 암호** 를 가져옵니다. 구성 파일에서 이러한 값을 사용 합니다.
 
-1. CLI 터미널에서 대상 데이터베이스 구성을 설정 합니다. 명령을 사용 하 여 **`vi conf/conn/cosmosdb.yml`** 구성 파일을 열고 호스트 URI, 포트 번호, 사용자 이름, 암호 및 기타 필수 매개 변수의 쉼표로 구분 된 목록을 추가 합니다. 다음은 구성 파일의 내용에 대 한 예입니다.
+1. CLI 터미널에서 대상 데이터베이스 구성을 설정 합니다. 명령을 사용 하 여 구성 파일을 열고 **`vi conf/conn/cosmosdb.yml`** 호스트 URI, 포트 번호, 사용자 이름, 암호 및 기타 필수 매개 변수의 쉼표로 구분 된 목록을 추가 합니다. 다음은 구성 파일의 내용에 대 한 예입니다.
 
    ```bash
    type: COSMOSDB
@@ -134,7 +134,7 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
 
    Replicant UI는 복제 진행률을 보여 줍니다. 스키마 마이그레이션 및 스냅숏 작업이 완료 되 면 진행률에 100%가 표시 됩니다. 마이그레이션이 완료 된 후 대상 Azure Cosmos 데이터베이스에서 데이터의 유효성을 검사할 수 있습니다.
 
-   ![Oracle 데이터 마이그레이션 출력](./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png)
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Oracle 데이터 마이그레이션 출력":::
 
 1. 마이그레이션을 위해 전체 모드를 사용 했으므로 원본 Oracle 데이터베이스에서 데이터 삽입, 업데이트 또는 삭제와 같은 작업을 수행할 수 있습니다. 나중에 대상 Azure Cosmos 데이터베이스에서 실시간으로 복제 되었는지 확인할 수 있습니다. 마이그레이션 후 Azure Cosmos 컨테이너에 대해 구성 된 처리량을 줄여야 합니다.
 
@@ -148,6 +148,6 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
 
 ## <a name="next-steps"></a>다음 단계
 
-* [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md) 
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md) 
 * [파티션 키 모범 사례](partitioning-overview.md#choose-partitionkey)
 * [Azure Cosmos DB capacity planner 문서를 사용 하 여 r u/초 예측](estimate-ru-with-capacity-planner.md)

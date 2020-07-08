@@ -3,15 +3,16 @@ title: Azure Cosmos DB C# Notebooks(미리 보기)의 기본 제공 Notebook 명
 description: 기본 제공 명령 및 기능을 사용하여 Azure Cosmos DB의 기본 제공 C# Notebooks를 사용하는 일반적인 작업을 수행하는 방법을 알아봅니다.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 94cb23b1795a93462a0356fb0af215601edb9d64
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263418"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Azure Cosmos DB C# Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
 
@@ -114,14 +115,14 @@ for (int i = 0; i < 5; i++) {
 
 예를 들어 *GetingStarted_Csharp.ipynb* 예제에서는 결과 ``telemetryEvents``를 사용하여 변수를 출력할 수 있습니다. 전체 샘플은 [GettingStarted_Csharp.ipynb notebook](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb)을 참조하세요. 
 
-![Csharp 쿼리 셀](media/use-notebook-features-and-commands/csharp-query-cell.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Csharp 쿼리 셀":::
 
-![nteract 데이터 탐색기](media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="nteract 데이터 탐색기":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>기본 제공 사전 뷰어 사용
 기본 제공 사전 뷰어를 사용하여 변수를 볼 수 있습니다. 셀에서 시각화하려는 변수를 마지막 줄에 배치합니다. 이 변수는 셀이 실행될 때 자동으로 표시됩니다.
 
-![기본 제공 사전 뷰어](media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="기본 제공 사전 뷰어":::
 
 ## <a name="upload-json-items-to-a-container"></a>컨테이너에 JSON 항목 업로드
 ``%%upload`` 매직 명령을 사용하여 JSON 파일에서 지정된 Azure Cosmos 컨테이너로 데이터를 업로드할 수 있습니다. 다음 명령을 실행하여 다음 항목을 업로드합니다.
@@ -159,7 +160,7 @@ Total RUs consumed : 25022.58
 ## <a name="reset-notebooks-workspace"></a>Notebook 작업 영역 다시 설정
 Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정**을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
 
-![Notebook 작업 영역 다시 설정](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Notebook 작업 영역 다시 설정":::
 
 ## <a name="next-steps"></a>다음 단계
 

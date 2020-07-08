@@ -4,14 +4,14 @@ description: GitHub에 연결하고 GitHub 리포지토리에서 Azure Cosmos �
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ce65d316b8236b83435388d2c1883cb9b89b03a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83690409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262891"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>GitHub 리포지토리에서 Azure Cosmos DB로 Notebook 가져오기
 
@@ -29,7 +29,7 @@ Azure Cosmos 계정에 대해 [Notebook 지원을 활성화](enable-notebooks.md
 
 1. **공용 리포지토리** 또는 **공용 및 프라이빗 리포지토리**에 연결하도록 선택할 수 있는 탭이 열립니다.  필요한 옵션을 선택한 후 **액세스 권한 부여**를 선택합니다. Azure Cosmos DB가 GitHub 계정의 리포지토리에 액세스하려면 권한 부여가 필요합니다.
 
-   ![Azure Cosmos DB에 GitHub 리포지토리에 대한 액세스 권한 부여](./media/import-github-notebooks/authorize-access-github.png)
+   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Azure Cosmos DB에 GitHub 리포지토리에 대한 액세스 권한 부여":::
 
 1. 권한 부여를 확인할 수 있는 "github.com" 웹 페이지로 리디렉션됩니다. **AzureCosmosDBNotebooks 권한 부여** 단추를 선택하고 프롬프트에 GitHub 계정 암호를 입력합니다.
 
@@ -37,7 +37,7 @@ Azure Cosmos 계정에 대해 [Notebook 지원을 활성화](enable-notebooks.md
 
 1. 필요한 리포지토리를 선택하면 리포지토리 항목이 **고정되지 않은 리포지토리** 섹션에서 **고정된 리포지토리** 섹션으로 이동합니다. 필요한 경우 해당 리포지토리의 특정 분기를 선택하여 Notebook을 가져올 수도 있습니다.
 
-   ![리포지토리 및 분기 선택](./media/import-github-notebooks/choose-repo-branch.png)
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="리포지토리 및 분기 선택":::
 
 1. **확인**을 선택하여 가져오기 작업을 완료합니다. 선택한 리포지토리 분기에서 사용할 수 있는 모든 Notebook을 Azure Cosmos 계정으로 가져옵니다.
 
@@ -53,7 +53,7 @@ Notebook 작업 영역에서 GitHub 계정의 연결을 끊으려면 **데이터
 
 변경 내용을 커밋한 후 일반 GitHub 흐름에서 일반적으로 변경 내용을 원격으로 푸시합니다. 그러나 이 경우 커밋 옵션은 GitHub에 대한 업데이트를 "준비, 커밋 및 푸시"하는 용도로 사용됩니다.
 
-![Notebooks 편집 및 GitHub 변경 내용 커밋](./media/import-github-notebooks/commit-changes-github.png)
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Notebooks 편집 및 GitHub 변경 내용 커밋":::
 
 ## <a name="next-steps"></a>다음 단계
 

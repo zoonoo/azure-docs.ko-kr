@@ -1,19 +1,19 @@
 ---
 title: Azure Image Builder 템플릿 만들기(미리 보기)
 description: Azure Image Builder에서 사용할 템플릿을 만드는 방법을 알아봅니다.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263316"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -29,7 +29,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -88,7 +88,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-기본적으로 Image Builder는 이미지 크기를 변경하지 않으며 원본 이미지의 크기를 사용합니다. OS 디스크의 크기(Win 및 Linux)를 늘릴 수 있습니다. 이 구성 요소는 선택 사항이며 값 0은 원본 이미지와 동일한 크기를 유지한다는 의미입니다. 
+기본적으로 Image Builder는 이미지 크기를 변경하지 않으며 원본 이미지의 크기를 사용합니다. OS 디스크의 크기를 늘릴 수 **만** 있습니다 (Win 및 Linux) .이는 선택 사항이 며 값 0은 원본 이미지와 동일한 크기를 유지 한다는 의미입니다. OS 디스크 크기는 원본 이미지의 크기 보다 작게 축소할 수 없습니다.
 
 ```json
  {
@@ -521,7 +521,7 @@ az resource show \
  
 배포 속성은 다음과 같습니다.
 - **type** – managedImage 
-- **imageId** – 대상 이미지의 리소스 ID입니다. 필요한 형식: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
+- **imageId** – 대상 이미지의 리소스 ID입니다. 형식이 필요 합니다./Subscriptions/ \<subscriptionId> /Sggg/ \<destinationResourceGroupName> /providers/Microsoft.Compute/images/\<imageName>
 - **location** - 관리형 이미지의 위치입니다.  
 - **runOutputName** – 분포를 식별하는 고유 이름입니다.  
 - **artifactTags** - 선택 사항. 사용자 지정 키 값 쌍 태그입니다.
@@ -561,7 +561,7 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 공유 이미지 갤러리의 배포 속성은 다음과 같습니다.
 
 - **type** - sharedImage  
-- **galleryImageId** – Shared Image Gallery의 ID입니다. 형식: /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** – Shared Image Gallery의 ID입니다. 형식은 다음과 같습니다./subscriptions/ \<subscriptionId> /Resourcegroups/ \<resourceGroupName> /providers/Microsoft.Compute/galleries/ \<sharedImageGalleryName> /images/ \<imageGalleryName> .
 - **runOutputName** – 분포를 식별하는 고유 이름입니다.  
 - **artifactTags** - 선택 사항. 사용자 지정 키 값 쌍 태그입니다.
 - **replicationRegions** - 복제용 지역의 배열입니다. 지역 중 하나는 갤러리가 배포된 지역이어야 합니다.
