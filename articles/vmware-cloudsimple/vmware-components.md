@@ -10,11 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279508"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702825"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
 
@@ -48,7 +47,7 @@ vCenter server 어플라이언스 (VCSA)는 CloudSimple로 VMware 솔루션에 �
 
 ### <a name="vcenter-single-sign-on"></a>vCenter Single Sign-On
 
-VCSA의 Embedded Platform Services 컨트롤러는 **VCenter Single sign-on 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 **CloudOwner@cloudsimple.com** 수 있는 기본 사용자가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
+VCSA의 Embedded Platform Services 컨트롤러는 **VCenter Single sign-on 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 수 있는 기본 사용자 **CloudOwner@cloudsimple.com** 가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
 
 ## <a name="vsan-storage"></a>vSAN 저장소
 
@@ -82,7 +81,7 @@ NSX 데이터 센터는 사설 클라우드에서 네트워크 가상화, 마이
 
 ## <a name="vsphere-cluster"></a>vSphere 클러스터
 
-ESXi 호스트는 사설 클라우드의 고가용성을 보장 하기 위해 클러스터로 구성 됩니다.  사설 클라우드를 만들 때 vSphere 관리 구성 요소가 첫 번째 클러스터에 배포 됩니다.  관리 구성 요소에 대 한 리소스 풀이 만들어지고 모든 관리 Vm이이 리소스 풀에 배포 됩니다. 사설 클라우드를 축소 하기 위해 첫 번째 클러스터를 삭제할 수 없습니다.  vSphere 클러스터는 **VSPHERE HA**를 사용 하는 vm에 대해 고가용성을 제공 합니다.  허용 되는 오류는 클러스터에서 사용 가능한 노드 수를 기반으로 합니다.  수식을 ```Number of nodes = 2N+1``` 사용할 수 있습니다. 여기서 ```N``` 은 허용 되는 오류 수입니다.
+ESXi 호스트는 사설 클라우드의 고가용성을 보장 하기 위해 클러스터로 구성 됩니다.  사설 클라우드를 만들 때 vSphere 관리 구성 요소가 첫 번째 클러스터에 배포 됩니다.  관리 구성 요소에 대 한 리소스 풀이 만들어지고 모든 관리 Vm이이 리소스 풀에 배포 됩니다. 사설 클라우드를 축소 하기 위해 첫 번째 클러스터를 삭제할 수 없습니다.  vSphere 클러스터는 **VSPHERE HA**를 사용 하는 vm에 대해 고가용성을 제공 합니다.  허용 되는 오류는 클러스터에서 사용 가능한 노드 수를 기반으로 합니다.  수식을 사용할 수 있습니다 ```Number of nodes = 2N+1``` . 여기서 ```N``` 은 허용 되는 오류 수입니다.
 
 ### <a name="vsphere-cluster-limits"></a>vSphere 클러스터 제한
 

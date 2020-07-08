@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
 ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702553"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure 배포 관리자에 상태 통합 출시 소개 (공개 미리 보기)
 
@@ -134,7 +133,7 @@ Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 �
 
 이 시점에서 Azure 배포 관리자는 서비스의 상태를 쿼리 하는 방법과 롤아웃의 단계를 파악 하는 방법을 알고 있습니다. 그러나 Azure 배포 관리자를 사용 하면 이러한 검사 타이밍의 심층 구성도 가능 합니다. HealthCheck 단계는 세 개의 순차적 단계로 실행 되며, 모두 구성 가능한 기간이 있습니다. 
 
-1. Wait
+1. 연결 시도 간격
 
     1. 배포 작업이 완료 되 면 Vm이 다시 부팅 되거나, 새 데이터를 기반으로 다시 구성 되거나, 처음으로 시작 될 수 있습니다. 또한 서비스에서 상태 모니터링 공급자에 의해 유용한 상태 신호 내보내기를 시작 하는 데 시간이 걸립니다. 이 tumultuous 프로세스가 진행 되는 동안 업데이트가 아직 안정 된 상태에 도달 하지 않았기 때문에 서비스 상태를 확인 하는 것은 적절 하지 않을 수 있습니다. 실제로 리소스를 사용할 때 정상 상태와 비정상 상태 사이에서 서비스가 진동 될 수 있습니다. 
     1. 대기 단계에서 서비스 상태는 모니터링 되지 않습니다. 상태 검사 프로세스를 시작 하기 전에 배포 된 리소스를 굽기 시간으로 허용 하는 데 사용 됩니다. 

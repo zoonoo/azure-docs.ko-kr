@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700888"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure ExpressRoute
 
@@ -33,12 +32,12 @@ Azure Site Recovery를 사용하면 온-프레미스 [Hyper-V 가상 머신](hyp
 
 Site Recovery는 공용 끝점을 통해 대상 Azure 지역에서 Azure Storage 계정 또는 복제본 관리 디스크로 데이터를 복제 합니다. Site Recovery 복제 트래픽에 대해 Express 경로를 사용 하려면 [Microsoft 피어](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) 링 또는 기존 [공용 피어 링](../expressroute/about-public-peering.md) (새 생성에 사용 되지 않음)을 활용할 수 있습니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 개인 피어 링을 통해 복제가 지원 되지 않습니다.
 
-구성 서버에 대 한 [네트워킹 요구 사항도](vmware-azure-configuration-server-requirements.md#network-requirements) 충족 되는지 확인 합니다. Site Recovery 복제 오케스트레이션에 대해 구성 서버에서 특정 Url에 연결 해야 합니다. 이 연결에는 Express 경로를 사용할 수 없습니다. 
+구성 서버에 대 한 [네트워킹 요구 사항도](vmware-azure-configuration-server-requirements.md#network-requirements) 충족 되는지 확인 합니다. Site Recovery의 복제 오케스트레이션을 위해 구성 서버에서 특정 URL에 연결해야 합니다. 이 연결에는 ExpressRoute를 사용할 수 없습니다. 
 
-온-프레미스에서 프록시를 사용 하 고 복제 트래픽에 대해 Express 경로를 사용 하려는 경우 구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성 해야 합니다. 아래 단계를 따릅니다.
+온-프레미스에서 프록시를 사용 하 고 복제 트래픽에 대해 Express 경로를 사용 하려는 경우 구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성 해야 합니다. 아래의 단계를 수행합니다.
 
 - 시스템 사용자 컨텍스트에 액세스 하려면 [여기](https://aka.ms/PsExec) 에서 PsExec 도구를 다운로드 하세요.
-- 다음 명령줄 psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"를 실행 하 여 시스템 사용자 컨텍스트에서 Internet Explorer를 엽니다.
+- 다음 명령줄을 실행 하 여 Internet Explorer를 시스템 사용자 컨텍스트에서 엽니다. psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"
 - IE에서 프록시 설정 추가
 - 바이패스 목록에서 Azure storage URL *. blob.core.windows.net을 추가 합니다.
 

@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700500"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 이 문서에서는 HDInsight의 Storm 클러스터에서 실행되는 [Apache Storm](https://storm.apache.org/) 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
 
@@ -42,7 +41,7 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 c # 또는 하이브리드 
 
 1. **시작** 창에서 **새 프로젝트 만들기**를 선택합니다.
 
-1. **새 프로젝트 만들기** 창에서 검색 상자를 선택 하 고을 입력 `Storm`합니다. 그런 다음 결과 목록에서 **스톰 샘플** 을 선택 하 고 **다음**을 선택 합니다.
+1. **새 프로젝트 만들기** 창에서 검색 상자를 선택 하 고을 입력 `Storm` 합니다. 그런 다음 결과 목록에서 **스톰 샘플** 을 선택 하 고 **다음**을 선택 합니다.
 
 1. **새 프로젝트 구성** 창에서 **프로젝트 이름을**입력 하 고로 이동 하거나 새 프로젝트를 저장할 **위치** 를 만듭니다. 그런 다음 **만들기**를 선택합니다.
 
@@ -59,7 +58,7 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 c # 또는 하이브리드 
 
 ## <a name="submit-a-topology-using-ssh-and-the-storm-command"></a>SSH 및 스톰 명령을 사용 하 여 토폴로지 제출
 
-1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -74,9 +73,9 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 c # 또는 하이브리드 
     이 명령은 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 이 토폴로지는 임의로 문장을 생성한 다음 문장에서 각 단어의 발생 횟수를 계산합니다.
 
     > [!NOTE]  
-    > 클러스터에 토폴로지를 제출할 때 먼저 `storm` 명령을 사용 하기 전에 클러스터를 포함 하는 jar 파일을 복사 해야 합니다. 클러스터에 파일을 복사하려면 `scp` 명령을 사용할 수 있습니다. 예를 들어 다음과 같이 입력합니다. `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > 클러스터에 토폴로지를 제출할 때 먼저 명령을 사용 하기 전에 클러스터를 포함 하는 jar 파일을 복사 해야 합니다. `storm` 클러스터에 파일을 복사하려면 `scp` 명령을 사용할 수 있습니다. 예를 들어 다음과 같이 입력합니다. `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
-    > *WordCount* 예제 및 기타 스톰 스타터 예제는의 클러스터에 이미 포함 되어 `/usr/hdp/current/storm-client/contrib/storm-starter/`있습니다.
+    > *WordCount* 예제 및 기타 스톰 스타터 예제는의 클러스터에 이미 포함 되어 `/usr/hdp/current/storm-client/contrib/storm-starter/` 있습니다.
 
 ## <a name="submit-a-topology-programmatically"></a>프로그래밍 방식으로 토폴로지 제출
 
@@ -89,7 +88,7 @@ Visual Studio를 사용 하 여 토폴로지를 제출 하면 **스톰 토폴로
 ![모니터 토폴로지, 스톰 토폴로지 보기 창, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
-> **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다. **Azure** > **hdinsight**를 확장 하 고 hdinsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 한 다음 **스톰 토폴로지 보기**를 선택 합니다.
+> **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다. **Azure**  >  **hdinsight**를 확장 하 고 hdinsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 한 다음 **스톰 토폴로지 보기**를 선택 합니다.
 
 이러한 구성 요소에 대한 정보를 보려면 Spout 또는 Bolt에 대한 셰이프를 선택합니다. 선택한 항목에 대 한 구성 요소 정보가 포함 된 도구 설명이 표시 됩니다.
 
@@ -172,7 +171,7 @@ storm rebalance TOPOLOGYNAME
 
 Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
-| 단원 | Description |
+| 섹션 | Description |
 | --- | --- |
 | 클러스터 요약| Storm 클러스터에 대한 기본 정보입니다. |
 | Nimbus 요약 | 기본 Nimbus 정보 목록입니다. |
@@ -188,7 +187,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 **토폴로지 요약** 섹션의 링크를 선택하면 토폴로지에 대한 다음 정보가 표시됩니다.
 
-| 단원 | Description |
+| 섹션 | Description |
 | --- | --- |
 | 토폴로지 요약 | 토폴로지에 대한 기본 정보입니다. |
 | 토폴로지 작업| 토폴로지에 대해 수행할 수 있는 관리 작업입니다. 사용 가능한 작업은이 섹션의 뒷부분에서 설명 합니다. |
@@ -205,13 +204,13 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 **토폴로지 작업** 섹션에서 다음 단추를 선택 하 여 작업을 수행할 수 있습니다.
 
-| 단추 | Description |
+| 단추 | 설명 |
 | --- | --- |
 | 활성화 | 비활성화된 토폴로지 처리를 다시 시작합니다. |
 | 비활성화 | 실행 중인 토폴로지를 일시 중지합니다. |
 | 균형 재조정 | 토폴로지의 병렬 처리를 조정합니다. 클러스터의 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 조정 해야 합니다. 이 작업을 사용 하면 토폴로지가 병렬 처리를 조정 하 여 클러스터의 노드 수를 늘리거나 줄일 수 있습니다.<br/><br/>자세한 내용은 <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Apache Storm 토폴로지의 병렬 처리 이해</a>를 참조하세요.
 | 종료 | 지정된 시간 제한 후 Storm 토폴로지를 종료합니다. |
-| Debug | 실행 중인 토폴로지에 대 한 디버깅 세션을 시작 합니다. |
+| 디버그 | 실행 중인 토폴로지에 대 한 디버깅 세션을 시작 합니다. |
 | 디버그 중지 | 실행 중인 토폴로지에 대 한 디버깅 세션을 종료 합니다. |
 | 로그 수준 변경 | 디버깅 로그 수준을 수정 합니다. |
 
@@ -219,7 +218,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 **Spouts** 또는 **Bolts** 섹션에서 Spout를 선택하면 선택한 항목에 대해 다음 정보가 표시됩니다.
 
-| 단원 | Description |
+| 섹션 | Description |
 | --- | --- |
 | 구성 요소 요약 | Spout 또는 Bolt에 대한 기본 정보입니다. |
 | 구성 요소 작업 | **디버그 및 디버그** 단추를 **중지** 합니다. |
@@ -245,14 +244,14 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 ### <a name="base-uri"></a>기본 URI
 
-Linux 기반 HDInsight 클러스터의 REST API에 대 한 기본 URI는 URL 주소 `https://HEADNODEFQDN:8744/api/v1/`에서 사용할 수 있습니다. 여기서 Head *Nodefqdn* 을 헤드 노드로 바꿉니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성 되며 정적이 아닙니다.
+Linux 기반 HDInsight 클러스터의 REST API에 대 한 기본 URI는 URL 주소에서 사용할 수 `https://HEADNODEFQDN:8744/api/v1/` 있습니다. 여기서 Head *Nodefqdn* 을 헤드 노드로 바꿉니다. 헤드 노드의 도메인 이름은 클러스터를 만드는 동안 생성 되며 정적이 아닙니다.
 
 여러 가지 방법으로 클러스터 헤드 노드에 대 한 FQDN (정규화 된 도메인 이름)을 찾을 수 있습니다.
 
-| FQDN 검색 방법 | Description |
+| FQDN 검색 방법 | 설명 |
 | --- | --- |
 | SSH 세션 | SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다. |
-| Ambari 웹 | Ambari cluster 웹 페이지 (`https://CLUSTERNAME.azurehdinsight.net`)의 페이지 위쪽에서 **서비스** 를 선택 하 고 **스톰**을 선택 합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다. |
+| Ambari 웹 | Ambari cluster 웹 페이지 ()의 `https://CLUSTERNAME.azurehdinsight.net` 페이지 위쪽에서 **서비스** 를 선택 하 고 **스톰**을 선택 합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다. |
 | Ambari REST API | `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. *CLUSTERNAME* 의 두 인스턴스를 클러스터 이름으로 바꿉니다. 메시지가 표시 되 면 사용자 (관리자) 계정에 대 한 암호를 입력 합니다. 응답에서 JSON 출력의 "host_name" 항목에는 노드의 FQDN이 포함 되어 있습니다. |
 
 ### <a name="authentication"></a>인증

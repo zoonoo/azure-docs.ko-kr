@@ -10,11 +10,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700368"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
@@ -46,9 +45,9 @@ HDInsight Storm 이벤트 허브 spout .jar 파일을 사용하여 Azure Event H
 
 오프셋에 대한 검사점 데이터는 Zookeeper의 이벤트 허브 Spout를 통해 다음 두 루트 경로에 저장됩니다.
 
-- 비트랜잭션 spout 검사점은에 `/eventhubspout`저장 됩니다.
+- 비트랜잭션 spout 검사점은에 저장 됩니다 `/eventhubspout` .
 
-- 트랜잭션 spout 검사점 데이터는에 `/transactional`저장 됩니다.
+- 트랜잭션 spout 검사점 데이터는에 저장 됩니다 `/transactional` .
 
 ### <a name="how-to-restore"></a>복원하는 방법
 
@@ -65,7 +64,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 `/stormmetadta/zkdata` HDFS 경로에 사육 사 오프셋 데이터를 내보냅니다.
+2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로에 사육 사 오프셋 데이터를 내보냅니다 `/stormmetadta/zkdata` .
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +73,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 #### <a name="import-offset-metadata"></a>오프셋 메타데이터 가져오기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로 `/stormmetadata/zkdata` 에서 대상 클러스터의 사육 사 서버로의 사육 사 오프셋 데이터를 가져옵니다.
+2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로에서 `/stormmetadata/zkdata` 대상 클러스터의 사육 사 서버로의 사육 사 오프셋 데이터를 가져옵니다.
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +90,9 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>클러스터에서 Storm 이진을 찾는 방법
 
-현재 HDP 스택에 대 한 스톰 이진 파일은 `/usr/hdp/current/storm-client`에 있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
+현재 HDP 스택에 대 한 스톰 이진 파일은에 `/usr/hdp/current/storm-client` 있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
 
-/Usr/hdp에는 특정 HDP 버전에 대 한 여러 바이너리가 있을 수 있습니다 ( `/usr/hdp/2.5.0.1233/storm`예:). 폴더 `/usr/hdp/current/storm-client` 는 클러스터에서 실행 되는 최신 버전에 연결 되어 있습니다.
+/Usr/hdp에는 특정 HDP 버전에 대 한 여러 바이너리가 있을 수 있습니다 (예: `/usr/hdp/2.5.0.1233/storm` ). `/usr/hdp/current/storm-client`폴더는 클러스터에서 실행 되는 최신 버전에 연결 되어 있습니다.
 
 자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [Apache Storm](https://storm.apache.org/)을 참조하세요.
 
@@ -157,13 +156,13 @@ Storm 서비스에 대한 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/
 
 ### <a name="on-head-nodes"></a>헤드 노드에서
 
-Nimbus Log4J 구성은에서 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
+Nimbus Log4J 구성은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
 ### <a name="on-worker-nodes"></a>작업자 노드에서
 
-감독자 Log4J 구성은에서 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
+감독자 Log4J 구성은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
-Worker Log4J 구성 파일은에서 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`읽습니다.
+Worker Log4J 구성 파일은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
 
 예와`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
@@ -172,9 +171,9 @@ Worker Log4J 구성 파일은에서 `/usr/hdp/\<HDP version>/storm/log4j2/worker
 
 ## <a name="not-a-leader-exception"></a>리더 예외가 아닙니다.
 
-토폴로지를 제출 하는 경우 사용자에 게 다음과 `Topology submission exception, cause not a leader, the current leader is NimbusInfo`유사한 오류 메시지가 표시 될 수 있습니다.
+토폴로지를 제출 하는 경우 사용자에 게 다음과 유사한 오류 메시지가 표시 될 수 있습니다 `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은을 참조 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)하십시오.
+이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)를 참조하세요.
 
 ---
 
@@ -182,8 +181,8 @@ Worker Log4J 구성 파일은에서 `/usr/hdp/\<HDP version>/storm/log4j2/worker
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-- Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+- [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
-- 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+- [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699926"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
 - [Azure Portal](https://portal.azure.com "Azure portal")의 Recovery Services 자격 증명 모음입니다.
@@ -36,7 +35,7 @@ ms.locfileid: "79257876"
 ## <a name="choose-your-protection-goals"></a>보호 목표 선택
 
 1. Azure Portal에서 **Recovery Services** 자격 증명 모음 블레이드로 이동한 후 사용자 자격 증명 모음을 선택합니다.
-2. 자격 증명 **모음의 리소스** 메뉴에서 **시작** > **Site Recovery** > **1 단계: 인프라** > 준비**보호 목표**를 클릭 합니다.
+2. 자격 증명 모음의 **리소스** 메뉴에서 **시작**  >  **Site Recovery**  >  **1 단계: 인프라 준비**  >  **보호 목표**를 클릭 합니다.
 
     ![목표 선택](./media/physical-azure-set-up-source/choose-goals.png)
 3. **보호 목표**에서 **Azure에**를 선택하고 **가상화되지 않음/기타**를 선택한 후 **확인**을 클릭합니다.

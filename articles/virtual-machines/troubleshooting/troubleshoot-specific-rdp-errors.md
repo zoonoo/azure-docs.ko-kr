@@ -16,22 +16,21 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701884"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 대한 특정 RDP 오류 메시지 문제 해결
 Azure에서 Windows 가상 머신(VM)에 원격 데스크톱 연결을 사용할 때 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 발생할 수 있는 일반적인 일부 오류 메시지와 이 문제를 해결하기 위한 문제 해결 단계에 대해 자세히 설명합니다. RDP를 사용하여 VM에 연결하는 데 문제가 있지만 특정 오류 메시지가 발생하지 않는다면 [원격 데스크톱에 대한 자세한 문제 해결 가이드](troubleshoot-rdp-connection.md)를 참조하세요.
 
 특정 오류 메시지에 대한 자세한 내용은 다음을 참조하세요.
 
-* [라이선스를 제공 하는 데 사용할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션의 연결을 끊었습니다](#rdplicense).
-* [원격 데스크톱이 컴퓨터 "name"을 찾을 수 없습니다](#rdpname).
+* [라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다](#rdplicense).
+* [원격 데스크톱에서 컴퓨터 "이름"을 찾을 수 없습니다](#rdpname).
 * [인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](#rdpauth)
-* [Windows 보안 오류: 자격 증명이 작동 하지 않습니다](#wincred).
-* [이 컴퓨터는 원격 컴퓨터에 연결할 수 없습니다](#rdpconnect).
+* [Windows 보안 오류: 자격 증명이 작동하지 않았습니다](#wincred).
+* [이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다](#rdpconnect).
 
 <a id="rdplicense"></a>
 
@@ -69,7 +68,7 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.
 원인: 대상 VM이 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
 
-사용자 이름이 *securityauthority*\\*사용자 이름* 형식 (예: CORP\User1)에 있는 경우 *securityauthority* 부분은 VM의 컴퓨터 이름 (로컬 보안 기관) 또는 Active Directory 도메인 이름 중 하나입니다.
+사용자 이름이 *securityauthority* \\ *사용자 이름* 형식 (예: CORP\User1)에 있는 경우 *securityauthority* 부분은 VM의 컴퓨터 이름 (로컬 보안 기관) 또는 Active Directory 도메인 이름 중 하나입니다.
 
 가능한 해결 방법:
 
@@ -84,8 +83,8 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-* 로컬 계정의 경우 *ComputerName*\\*UserName* 구문을 사용 합니다 (예: SQL1\Admin4798).
-* 도메인 계정의 경우 *DomainName*\\*UserName* 구문을 사용 합니다 (예: CONTOSO\peterodman).
+* 로컬 계정의 경우 *ComputerName* \\ *UserName* 구문을 사용 합니다 (예: SQL1\Admin4798).
+* 도메인 계정의 경우 *DomainName* \\ *UserName* 구문을 사용 합니다 (예: CONTOSO\peterodman).
 
 VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 경우 사용자가 로그인할 때 사용한 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 그러면 로컬 계정이 삭제됩니다.
 

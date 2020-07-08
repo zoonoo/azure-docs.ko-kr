@@ -15,11 +15,10 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702178"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>자습서: 사용자 프로 비전을 Active Directory SAP SuccessFactors 구성 (미리 보기)
 이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../app-provisioning/sap-successfactors-attribute-reference.md) 검색을 지원 합니다.
@@ -69,7 +68,7 @@ Azure AD 사용자 프로 비전 서비스에서 지 원하는 SuccessFactors �
 
 1. HR 팀은 SuccessFactors Employee Central에서 작업자 트랜잭션 (Joiners/운송업/Leavers 또는 새 채용/전송/종료)을 수행 합니다.
 2. Azure AD 프로 비전 서비스는 SuccessFactors EC의 예약 된 id 동기화를 실행 하 고 온-프레미스 Active Directory와 동기화 하기 위해 처리 해야 하는 변경 내용을 식별 합니다.
-3. Azure AD 프로 비전 서비스는 AD 계정 만들기/업데이트/사용/사용 안 함 작업을 포함 하는 요청 페이로드를 사용 하 여 온-프레미스 Azure AD Connect 프로 비전 에이전트를 호출 합니다.
+3. Azure AD Provisioning Service는 AD 계정 만들기/업데이트/사용/사용 안 함 작업이 포함된 요청 페이로드로 온-프레미스 Azure AD Connect Provisioning Agent를 호출합니다.
 4. Azure AD Connect 프로비전 에이전트는 서비스 계정을 사용하여 AD 계정 데이터를 추가/업데이트합니다.
 5. Azure AD Connect 동기화 엔진은 델타 동기화를 실행 하 여 AD에서 업데이트를 가져옵니다.
 6. Active Directory 업데이트는 Azure Active Directory와 동기화됩니다.
@@ -152,13 +151,13 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 이 섹션에서는 SuccessFactors에서 통합 범위 내의 각 Active Directory 도메인으로 프로 비전 하는 사용자 계정에 대 한 단계를 제공 합니다.
 
-* [프로 비전 커넥터 앱을 추가 하 고 프로 비전 에이전트를 다운로드 합니다.](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [프로비저닝 커넥터 앱을 추가하고 Provisioning Agent 다운로드](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 * [온-프레미스 프로비전 에이전트 설치 및 구성](#part-2-install-and-configure-on-premises-provisioning-agents)
 * [SuccessFactors 및 Active Directory에 대 한 연결 구성](#part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory)
 * [특성 매핑 구성](#part-4-configure-attribute-mappings)
 * [사용자 프로비저닝 사용 및 시작](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>1 부: 프로 비전 커넥터 앱을 추가 하 고 프로 비전 에이전트 다운로드
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>1부: 프로비저닝 커넥터 앱을 추가하고 Provisioning Agent 다운로드
 
 **SuccessFactors를 Active Directory 프로 비전 하도록 구성 하려면:**
 
@@ -172,28 +171,28 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 5. **SuccessFactors를 검색 하 여 사용자 프로 비전을 Active Directory**하 고 갤러리에서 해당 앱을 추가 합니다.
 
-6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전** 을 선택 합니다.
 
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로 비전** **모드** 를 **자동** 으로 변경
 
-8. 표시 된 정보 배너를 클릭 하 여 프로 비전 에이전트를 다운로드 합니다. 
+8. 표시된 정보 배너를 클릭하여 Provisioning Agent를 다운로드합니다. 
    > [!div class="mx-imgBorder"]
    > ![에이전트 다운로드](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "에이전트 다운로드 화면")
 
 
-### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>2 부: 온-프레미스 프로 비전 에이전트 설치 및 구성
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>2부: 온-프레미스 프로비전 에이전트 설치 및 구성
 
-온-프레미스 Active Directory에 프로 비전 하려면 .NET 4.7.1 + Framework 및 원하는 Active Directory 도메인에 대 한 네트워크 액세스 권한이 있는 서버에 프로 비전 에이전트를 설치 해야 합니다.
+Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7.1 이상이 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 Provisioning Agent를 설치해야 합니다.
 
 > [!TIP]
 > [여기](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
 > 서버에 .NET 4.7.1 이상이 설치되어 있지 않으면 [여기](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)에서 다운로드할 수 있습니다.  
 
-다운로드 한 에이전트 설치 관리자를 서버 호스트로 전송 하 고 아래 제공 된 단계에 따라 에이전트 구성을 완료 합니다.
+다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 아래에 제시된 단계에 따라 에이전트 구성을 완료합니다.
 
-1. 새 에이전트를 설치 하려는 Windows Server에 로그인 합니다.
+1. 새 에이전트를 설치하려는 Windows Server에 로그인합니다.
 
-1. 프로 비전 에이전트 설치 관리자를 시작 하 고 사용 약관에 동의한 다음 **설치** 단추를 클릭 합니다.
+1. Provisioning Agent 설치 관리자를 시작하고 동의한 다음, **설치** 단추를 클릭합니다.
 
    ![설치 화면](./media/workday-inbound-tutorial/pa_install_screen_1.png "설치 화면")
    
@@ -218,7 +217,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    
 1. 도메인을 구성한 후 설치 관리자는 구성된 도메인 목록을 표시합니다. 이 화면에서 5 및 6단계를 반복하여 도메인을 더 추가하거나 **다음**을 클릭하여 에이전트 등록을 진행할 수 있습니다.
 
-   ![구성 된 도메인](./media/workday-inbound-tutorial/pa_install_screen_6.png "구성 된 도메인")
+   ![구성된 도메인](./media/workday-inbound-tutorial/pa_install_screen_6.png "구성된 도메인")
 
    > [!NOTE]
    > 여러 AD 도메인이 있는 경우(예: na.contoso.com, emea.contoso.com) 각 도메인을 목록에 개별적으로 추가하세요.
@@ -226,7 +225,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    
 1. 구성 세부 정보를 검토하고 **확인**을 클릭하여 에이전트를 등록합니다.
   
-   ![화면 확인](./media/workday-inbound-tutorial/pa_install_screen_7.png "화면 확인")
+   ![확인 화면](./media/workday-inbound-tutorial/pa_install_screen_7.png "확인 화면")
    
 1. 구성 마법사가 에이전트 등록의 진행률을 표시합니다.
   
@@ -238,7 +237,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    
 1. 에이전트 설치를 확인하고 “서비스” 스냅인을 열고 “Microsoft Azure AD Connect Provisioning Agent”라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
   
-   ![Services](./media/workday-inbound-tutorial/services.png)
+   ![서비스](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>3 부: 프로 비전 앱에서 SuccessFactors 및 Active Directory에 대 한 연결 구성
 이 단계에서는 Azure Portal에서 SuccessFactors 및 Active Directory와의 연결을 설정 합니다. 
@@ -247,7 +246,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 1. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 회사 ID가 추가 된 SuccessFactors API 사용자 계정의 사용자 이름을 입력 합니다. 형식: **username\@companyID**
+   * **관리자 사용자 이름** – 회사 ID가 추가 된 SuccessFactors API 사용자 계정의 사용자 이름을 입력 합니다. 형식: **username \@ companyID**
 
    * **관리자 암호 –** SuccessFactors API 사용자 계정의 암호를 입력 합니다. 
 
@@ -260,7 +259,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
         > [!NOTE]
         > 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
 
-   * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
+   * **알림 전자 메일-** 전자 메일 주소를 입력 하 고 "오류가 발생 하는 경우 전자 메일 보내기" 확인란을 선택 합니다.
     > [!NOTE]
     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
 
@@ -270,7 +269,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
    * 자격 증명이 성공적으로 저장 되 면 **매핑** 섹션에 **SuccessFactors 사용자를 온-프레미스로 동기화** 기본 매핑이 표시 됩니다 Active Directory
 
-### <a name="part-4-configure-attribute-mappings"></a>4 부: 특성 매핑 구성
+### <a name="part-4-configure-attribute-mappings"></a>4부. 특성 매핑 구성
 
 이 섹션에서는 사용자 데이터가 SuccessFactors에서 Active Directory로 흐르는 방식을 구성 합니다.
 
@@ -282,23 +281,23 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
       * 특성: personIdExternal
 
-      * 연산자: REGEX Match
+      * 연산자: REGEX 일치
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
+   * 예제: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
 
       * 특성: EmployeeID
 
-      * 연산자: IS NOT NULL
+      * 연산자: NULL이 아님
 
    > [!TIP]
    > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. **원본 개체 범위** 에서 범위 지정 필터를 사용 하 여 SuccessFactors에서 소수의 테스트 사용자로 매핑을 테스트 하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
    > [!CAUTION] 
-   > 프로 비전 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용 하지 않도록 설정/삭제 하는 것입니다. SuccessFactors AD 통합에는 바람직하지 않을 수 있습니다. 이 기본 동작을 재정의 하려면 [범위를 벗어나는 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조 하세요.
+   > 프로비저닝 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용하지 않도록 설정/삭제하는 것입니다. SuccessFactors AD 통합에는 바람직하지 않을 수 있습니다. 이 기본 동작을 재정의하려면 범위를 [벗어난 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조하세요.
   
-1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트가** 가장 일반적입니다.
+1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
 1. **특성 매핑** 섹션에서 개별 SuccessFactors 특성을 Active Directory 특성에 매핑하는 방법을 정의할 수 있습니다.
 
@@ -329,11 +328,11 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
       * **이 매핑 적용**
 
-         * **항상** – 사용자 만들기 및 업데이트 작업 모두에서이 매핑을 적용 합니다.
+         * **항상** – 사용자 만들기 및 업데이트 작업 시 이 매핑을 적용합니다.
 
          * **만들기 작업 시에만** - 사용자 만들기 작업 시에만 이 매핑을 적용합니다.
 
-1. 매핑을 저장 하려면 특성 매핑 섹션 맨 위에서 **저장** 을 클릭 합니다.
+1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
 특성 매핑 구성이 완료되면 이제 [사용자 프로비저닝 서비스를 사용하도록 설정하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
 

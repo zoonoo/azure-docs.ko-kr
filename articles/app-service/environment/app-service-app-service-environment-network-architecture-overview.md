@@ -1,6 +1,6 @@
 ---
 title: 네트워크 아키텍처 v1
-description: App Service 환경의 네트워크 토폴로지에 대 한 아키텍처 개요입니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+description: App Service 환경의 네트워크 토폴로지에 대 한 아키텍처 개요입니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
@@ -8,11 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701816"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>App Service Environment의 네트워크 아키텍처 개요
 App Service 환경은 [가상 네트워크][virtualnetwork]의 서브넷에서 항상 만들어지고, App Service 환경에서 실행되는 앱은 동일한 가상 네트워크 토폴로지 내에 위치한 프라이빗 엔드포인트와 통신할 수 있습니다.  고객은 그들의 가상 네트워크 일부를 잠글 수 있기 때문에 App Service Environment에서 일어나는 네트워크 통신 흐름의 유형을 이해하는 것은 중요합니다.

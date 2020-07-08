@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: d6b61e27324220fc78ace3e964aed98f9ba114d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a13a2a081815f2a3b668caf9b4e78c2208601cb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702995"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell
 
@@ -26,7 +25,7 @@ ms.locfileid: "80420941"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -39,7 +38,7 @@ PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>IPv4 및 IPv6 공용 IP 주소 만들기
-인터넷에서 가상 컴퓨터에 액세스 하려면 부하 분산 장치에 대 한 IPv4 및 IPv6 공용 IP 주소가 필요 합니다. [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용 하 여 공용 IP 주소를 만듭니다. 다음 예제에서는 *dsRG1* 리소스 그룹에 *dsPublicIP_v4* 및 *dsPublicIP_v6* 라는 IPv4 및 IPv6 공용 IP 주소를 만듭니다.
+인터넷에서 가상 컴퓨터에 액세스 하려면 부하 분산 장치에 대 한 IPv4 및 IPv6 공용 IP 주소가 필요 합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *dsRG1* 리소스 그룹에 *dsPublicIP_v4* 및 *dsPublicIP_v6* 라는 IPv4 및 IPv6 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 $PublicIP_v4 = New-AzPublicIpAddress `
@@ -307,7 +306,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>IPv4 및 IPv6 끝점의 IP 주소 확인
-을 사용 하 여 `get-AzNetworkInterface`이 배포에 사용 되는 IP를 요약 하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다. 또한를 사용 `get-AzpublicIpAddress`하 여 IPv4 및 IPv6 끝점의 Load Balancer 프런트 엔드 주소를 가져옵니다.
+을 사용 하 여이 배포에 사용 되는 IP를 요약 하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다 `get-AzNetworkInterface` . 또한를 사용 하 여 IPv4 및 IPv6 끝점의 Load Balancer 프런트 엔드 주소를 가져옵니다 `get-AzpublicIpAddress` .
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"

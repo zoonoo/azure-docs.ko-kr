@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257122"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699603"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 복제 정책 구성 및 관리
 
@@ -20,7 +19,7 @@ ms.locfileid: "79257122"
 
 ## <a name="create-a-policy"></a>정책 만들기
 
-1. **Site Recovery 인프라** **관리** > 를 선택 합니다.
+1. **Manage**  >  **Site Recovery 인프라**관리를 선택 합니다.
 2. **VMware 및 실제 컴퓨터의 경우**에서 **복제 정책**을 선택합니다.
 3. **+복제 정책**을 클릭하고 정책 이름을 지정합니다.
 4. **Rpo 임계값**에서 rpo 제한을 지정 합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
@@ -49,7 +48,7 @@ ms.locfileid: "79257122"
 - 복제 된 컴퓨터를 다른 복제 정책에 연결 하려면 관련 컴퓨터에 대 한 보호를 사용 하지 않도록 설정 하 고 다시 활성화 해야 합니다.
 
 다음과 같이 정책을 편집 합니다.
-1. **Manage** > **Site Recovery**인프라 > **복제 정책**관리를 선택 합니다.
+1. **Manage**  >  **Site Recovery 인프라**  >  **복제 정책**관리를 선택 합니다.
 2. 수정 하려는 복제 정책을 선택 합니다.
 3. **설정 편집**을 클릭 하 고 필요에 따라 RPO 임계값/복구 지점 보존 시간/앱 일치 스냅숏 빈도 필드를 업데이트 합니다.
 4. 응용 프로그램 일관성 지점의 생성을 해제 하려는 경우 응용 프로그램 **일치 스냅숏 빈도**의 드롭다운에서 "해제" 값을 선택 합니다.

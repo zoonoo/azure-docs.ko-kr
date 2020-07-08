@@ -5,15 +5,14 @@ description: PowerShell을 사용 하 여 레거시 Exchange 피어 링을 Azure
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: eedf87548d62e05d4940911ed3dcd821077acb27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2abd05243f30a32d8fe49f12bf4ee2ad09855002
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699994"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>PowerShell을 사용 하 여 레거시 Exchange 피어 링을 Azure 리소스로 변환
 
@@ -22,12 +21,12 @@ ms.locfileid: "81686785"
 선호 하는 경우 Azure [portal](howto-legacy-exchange-portal.md)을 사용 하 여이 가이드를 완료할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 구성을 시작 하기 전에 [필수 구성 요소](prerequisites.md) 및 [Exchange 피어 링 연습](walkthrough-exchange-all.md) 을 검토 하십시오.
+* 구성을 시작하기 전에 [필수 구성 요소](prerequisites.md) 및 [Exchange 피어링 연습](walkthrough-exchange-all.md)을 검토합니다.
 
 ### <a name="work-with-azure-powershell"></a>Azure PowerShell 작업
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>레거시 Exchange 피어 링을 Azure 리소스로 변환
+## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>레거시 Exchange 피어링을 Azure 리소스로 변환
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure 계정에 로그인하고 구독을 선택합니다.
 [!INCLUDE [Account](./includes/account-powershell.md)]
@@ -91,13 +90,13 @@ $legacyPeering[0] | New-AzPeering `
     MaxPrefixesAdvertisedV6  : 2000
     ConnectionState          : Active
 ```
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-자세한 내용은 [인터넷 피어 링 faq](faqs.md)를 참조 하십시오.
+자세한 내용은 [인터넷 피어링 FAQ](faqs.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

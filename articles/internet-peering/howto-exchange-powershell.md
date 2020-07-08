@@ -5,15 +5,14 @@ description: PowerShell을 사용 하 여 Exchange 피어 링 만들기 또는 �
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 23c905f148da614c7785b61b76abed191206cd90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c0620875e7da4582156080c4a52fd6fbe0e573c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700249"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>PowerShell을 사용 하 여 Exchange 피어 링 만들기 또는 수정
 
@@ -22,13 +21,13 @@ ms.locfileid: "81678655"
 선호 하는 경우 Azure [portal](howto-exchange-portal.md)을 사용 하 여이 가이드를 완료할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 구성을 시작 하기 전에 [필수 구성 요소](prerequisites.md) 및 [Exchange 피어 링 연습](walkthrough-exchange-all.md) 을 검토 하십시오.
+* 구성을 시작하기 전에 [필수 구성 요소](prerequisites.md) 및 [Exchange 피어링 연습](walkthrough-exchange-all.md)을 검토합니다.
 * Azure 리소스로 변환 되지 않은 Microsoft와 Exchange 피어 링이 이미 있는 경우 [PowerShell을 사용 하 여 레거시 exchange 피어 링을 azure 리소스로 변환](howto-legacy-exchange-powershell.md)을 참조 하세요.
 
 ### <a name="work-with-azure-powershell"></a>Azure PowerShell 작업
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="create-and-provision-an-exchange-peering"></a>Exchange 피어 링 만들기 및 프로 비전
+## <a name="create-and-provision-an-exchange-peering"></a>Exchange 피어링 만들기 및 프로비저닝
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure 계정에 로그인하고 구독을 선택합니다.
 [!INCLUDE [Account](./includes/account-powershell.md)]
@@ -36,16 +35,16 @@ ms.locfileid: "81678655"
 ### <a name="get-the-list-of-supported-peering-locations-for-exchange-peering"></a><a name=exchange-location></a>Exchange 피어 링에 대해 지원 되는 피어 링 위치 목록을 가져옵니다.
 [!INCLUDE [exchange-location](./includes/exchange-powershell-create-location.md)]
 
-### <a name="create-an-exchange-peering"></a><a name=create></a>Exchange 피어 링 만들기
+### <a name="create-an-exchange-peering"></a><a name=create></a>Exchange 피어링 만들기
 [!INCLUDE [exchange-peering](./includes/exchange-powershell-create-connection.md)]
 
 ### <a name="get-exchange-peering"></a><a name=get></a>Exchange 피어 링 가져오기
 [!INCLUDE [peering-exchange-get](./includes/exchange-powershell-get.md)]
 
-## <a name="modify-an-exchange-peering"></a><a name="modify"></a>Exchange 피어 링 수정
+## <a name="modify-an-exchange-peering"></a><a name="modify"></a>Exchange 피어링 수정
 [!INCLUDE [peering-exchange-modify](./includes/exchange-powershell-modify.md)]
 
-## <a name="deprovision-an-exchange-peering"></a><a name=delete></a>Exchange 피어 링 프로 비전 해제
+## <a name="deprovision-an-exchange-peering"></a><a name=delete></a>Exchange 피어링 프로비저닝 해제
 
 [!INCLUDE [peering-exchange-delete](./includes/delete.md)]
 
@@ -54,11 +53,11 @@ ms.locfileid: "81678655"
 * [PowerShell을 사용 하 여 직접 피어 링 만들기 또는 수정](howto-direct-powershell.md)
 * [PowerShell을 사용 하 여 레거시 직접 피어 링을 Azure 리소스로 변환](howto-legacy-direct-powershell.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-자세한 내용은 [인터넷 피어 링 faq](faqs.md)를 참조 하십시오.
+자세한 내용은 [인터넷 피어링 FAQ](faqs.md)를 참조하세요.

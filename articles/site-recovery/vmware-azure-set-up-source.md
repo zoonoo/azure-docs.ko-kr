@@ -9,17 +9,16 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699552"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
 이 아티클에서는 VMware VM을 Azure에 복제하도록 원본 온-프레미스 환경을 설정하는 방법을 설명합니다. 이 문서에는 복제 시나리오를 선택 하 고, 온-프레미스 컴퓨터를 Site Recovery 구성 서버로 설정 하 고, 온-프레미스 Vm을 자동으로 검색 하는 단계가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
 
@@ -31,9 +30,9 @@ ms.locfileid: "79257057"
 
 1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음 이름을 선택합니다. 이 시나리오에서는 **ContosoVMVault**를 사용합니다.
 2. **시작**에서 Site Recovery를 선택합니다. 그런 다음, **인프라 준비**를 선택합니다.
-3. **컴퓨터가 있는** **보호 목표** > 에서 **온-프레미스**를 선택 합니다.
+3. **보호 목표** > **컴퓨터가 있는 위치**에서 **온-프레미스**를 선택합니다.
 4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
-5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 다음 **확인**을 선택합니다.
+5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 다음, **확인**을 선택합니다.
 
 ## <a name="set-up-the-configuration-server"></a>구성 서버 설정
 

@@ -5,15 +5,14 @@ description: PowerShell을 사용 하 여 직접 피어 링 만들기 또는 수
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 7639499aaef8d479c2552849b2124e709c46fd36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 076332ac61359bc793615c2f7c9ea0e22c667bcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700300"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>PowerShell을 사용 하 여 직접 피어 링 만들기 또는 수정
 
@@ -22,13 +21,13 @@ ms.locfileid: "81680743"
 선호 하는 경우 Azure [portal](howto-direct-portal.md)을 사용 하 여이 가이드를 완료할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 구성을 시작 하기 전에 [필수 구성 요소](prerequisites.md) 및 [직접 피어 링 연습](walkthrough-direct-all.md) 을 검토 합니다.
+* 구성을 시작하기 전에 [필수 구성 요소](prerequisites.md) 및 [직접 피어링 연습](walkthrough-direct-all.md)을 검토합니다.
 * Azure 리소스로 변환 되지 않은 Microsoft와 직접 피어 링 연결이 이미 있는 경우 [PowerShell을 사용 하 여 레거시 직접 피어 링을 azure 리소스로 변환](howto-legacy-direct-powershell.md)을 참조 하세요.
 
 ### <a name="work-with-azure-powershell"></a>Azure PowerShell 작업
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="create-and-provision-a-direct-peering"></a>직접 피어 링 만들기 및 프로 비전
+## <a name="create-and-provision-a-direct-peering"></a>직접 피어링 만들기 및 프로비저닝
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure 계정에 로그인하고 구독을 선택합니다.
 [!INCLUDE [Account](./includes/account-powershell.md)]
@@ -36,16 +35,16 @@ ms.locfileid: "81680743"
 ### <a name="get-the-list-of-supported-peering-locations-for-direct-peering"></a><a name=direct-location></a>직접 피어 링에 대해 지원 되는 피어 링 위치 목록 가져오기
 [!INCLUDE [direct-location](./includes/direct-powershell-create-location.md)]
 
-### <a name="create-a-direct-peering"></a><a name=create></a>직접 피어 링 만들기
+### <a name="create-a-direct-peering"></a><a name=create></a>직접 피어링 만들기
 [!INCLUDE [direct-peering](./includes/direct-powershell-create-connection.md)]
 
-### <a name="verify-direct-peering"></a><a name=get></a>직접 피어 링 확인
+### <a name="verify-direct-peering"></a><a name=get></a>직접 피어링 확인
 [!INCLUDE [peering-direct-get](./includes/direct-powershell-get.md)]
 
-## <a name="modify-a-direct-peering"></a><a name="modify"></a>직접 피어 링 수정
+## <a name="modify-a-direct-peering"></a><a name="modify"></a>직접 피어링 수정
 [!INCLUDE [peering-direct-modify](./includes/direct-powershell-modify.md)]
 
-## <a name="deprovision-a-direct-peering"></a><a name="delete"></a>직접 피어 링 프로 비전 해제
+## <a name="deprovision-a-direct-peering"></a><a name="delete"></a>직접 피어링 프로비저닝 해제
 [!INCLUDE [peering-direct-delete](./includes/delete.md)]
 
 ## <a name="next-steps"></a>다음 단계
@@ -53,11 +52,11 @@ ms.locfileid: "81680743"
 * [PowerShell을 사용 하 여 Exchange 피어 링 만들기 또는 수정](howto-exchange-powershell.md)
 * [PowerShell을 사용 하 여 레거시 Exchange 피어 링을 Azure 리소스로 변환](howto-legacy-exchange-powershell.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-자세한 내용은 [인터넷 피어 링 faq](faqs.md)를 참조 하십시오.
+자세한 내용은 [인터넷 피어링 FAQ](faqs.md)를 참조하세요.

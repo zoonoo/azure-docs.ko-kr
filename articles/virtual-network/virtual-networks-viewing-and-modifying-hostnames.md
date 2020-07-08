@@ -8,17 +8,16 @@ manager: dcscontentpm
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702842"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>호스트 이름 보기 및 수정
 호스트 이름으로 역할 인스턴스를 참조하려면 각 역할의 서비스 구성 파일에서 호스트 이름의 값을 설정해야 합니다. 이렇게 하려면 **Role** 요소의 **vmName** 특성에 원하는 호스트 이름을 추가합니다. **vmName** 특성의 값은 각 역할 인스턴스의 호스트 이름에 대한 기준으로 사용됩니다. 예를 들어 **vmName**이 *webrole*이고 해당 역할의 인스턴스가 3개 있으면 인스턴스의 호스트 이름은 *webrole0*, *webrole1*, *webrole2*가 됩니다. 가상 머신의 호스트 이름은 가상 머신 이름을 기준으로 채워지므로 구성 파일에서 가상 머신의 호스트 이름을 지정하지 않아도 됩니다. Microsoft Azure 서비스 구성에 대한 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg 파일)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -41,7 +40,7 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 1. Azure 포털에 연결하기 위한 클라이언트 인증서가 있는지 확인합니다. 클라이언트 인증서를 가져오려면 [방법: 게시 설정과 구독 정보 다운로드 및 가져오기](https://msdn.microsoft.com/library/dn385850.aspx)를 참조하세요. 
 2. 값이 2013-11-01인 x-ms-version 헤더 항목을 설정합니다.
-3. 다음 형식으로 요청을 보냅니다.\/https:/management.core.windows.net/\<subscrition-id-id\>/services/hostedservices/\<service-name\>? embed-detail = true
+3. 다음 형식으로 요청을 보냅니다. https: \/ /management.core.windows.net/ \<subscrition-id\> /services/hostedservices/ \<service-name\> ? embed-detail = true
 4. 각 **RoleInstance** 요소에 대해 **HostName** 요소를 찾습니다.
 
 > [!WARNING]

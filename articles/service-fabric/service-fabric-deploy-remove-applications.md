@@ -4,11 +4,10 @@ description: Azure Service Fabric에서 응용 프로그램을 제거 하 고 �
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699841"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 
@@ -64,7 +63,7 @@ Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용
 
 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령으로 애플리케이션 패키지를 클러스터 이미지 저장소에 업로드합니다.
 
-Visual Studio 2015에서 *MyApplication*이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 애플리케이션 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 애플리케이션 패키지는 *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다. 
+Visual Studio 2015에서 *MyApplication*이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함 된 응용 프로그램 패키지는 *C:\Users \<username\> \Documents\visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다. 
 
 다음 명령은 애플리케이션 패키지의 내용을 나열합니다.
 

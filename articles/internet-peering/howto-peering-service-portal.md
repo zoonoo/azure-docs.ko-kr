@@ -5,21 +5,20 @@ description: Azure Portal를 사용 하 여 직접 피어 링에서 Azure 피어
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
-ms.openlocfilehash: 625a17e5acff00f78c5a19725653eec629936f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700045"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 직접 피어 링에서 Azure 피어 링 서비스를 사용 하도록 설정
 
 이 문서에서는 Azure Portal를 사용 하 여 직접 피어 링에서 Azure [피어 링 서비스](overview-peering-service.md) 를 사용 하도록 설정 하는 방법을 설명 합니다.
 
-원하는 경우 [PowerShell](howto-peering-service-powershell.md)을 사용 하 여이 가이드를 완료할 수 있습니다.
+원하는 경우 [PowerShell](howto-peering-service-powershell.md)을 사용하여 이 가이드를 완료할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * 구성을 시작 하기 전에 [필수 구성 요소](prerequisites.md) 를 검토 합니다.
@@ -43,8 +42,8 @@ ms.locfileid: "81687038"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [포털을 사용 하 여 Exchange 피어 링 만들기 또는 수정](howto-exchange-portal.md)
-* [포털을 사용 하 여 레거시 Exchange 피어 링을 Azure 리소스로 변환](howto-legacy-exchange-portal.md)
+* [포털을 사용하여 교환 피어링 만들기 또는 수정](howto-exchange-portal.md)
+* [포털을 사용하여 레거시 교환 피어링을 Azure 리소스로 변환](howto-legacy-exchange-portal.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 

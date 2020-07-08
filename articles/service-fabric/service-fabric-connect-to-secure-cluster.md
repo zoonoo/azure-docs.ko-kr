@@ -4,11 +4,10 @@ description: Service Fabric 클러스터에 대한 클라이언트 액세스를 
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701222"
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 
@@ -30,7 +29,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 .pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 -passin pass:를 사용합니다.
 
-클라이언트 인증서를 pem 파일로 지정하려면 `--pem` 인수에 파일 경로를 지정합니다. 다음은 그 예입니다.
+클라이언트 인증서를 pem 파일로 지정하려면 `--pem` 인수에 파일 경로를 지정합니다. 예를 들어:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -44,7 +43,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-경우에 따라 테스트 또는 개발 클러스터 보안에 사용된 인증서가 인증서 유효성 검사에 실패하는 경우가 있습니다. 인증서 유효성 검사를 무시하려면 `--no-verify` 옵션을 지정합니다. 다음은 그 예입니다.
+경우에 따라 테스트 또는 개발 클러스터 보안에 사용된 인증서가 인증서 유효성 검사에 실패하는 경우가 있습니다. 인증서 유효성 검사를 무시하려면 `--no-verify` 옵션을 지정합니다. 예를 들어:
 
 > [!WARNING]
 > 프로덕션 Service Fabric 클러스터에 연결할 때 `no-verify` 옵션을 사용하지 마세요.
@@ -53,7 +52,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./cli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-또한 신뢰할 수 있는 CA 인증서 또는 개별 인증서의 디렉터리 경로를 지정할 수 있습니다. 이러한 경로를 지정하려면 `--ca` 인수를 사용합니다. 다음은 그 예입니다.
+또한 신뢰할 수 있는 CA 인증서 또는 개별 인증서의 디렉터리 경로를 지정할 수 있습니다. 이러한 경로를 지정하려면 `--ca` 인수를 사용합니다. 예를 들어:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
