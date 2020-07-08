@@ -3,17 +3,17 @@ title: 데이터 오류 코드 - Azure Stream Analytics
 description: 데이터 오류 코드의 Azure Stream Analytics 문제를 해결합니다.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f7383a56a11ac9b567c80e73cc84944174c30ac8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 56d7527eebb91bd09895f6cd0238721574df1015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594092"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037327"
 ---
-# <a name="azure-stream-analytics-configuration-error-codes"></a>Azure Stream Analytics 구성 오류 코드
+# <a name="azure-stream-analytics-data-error-codes"></a>Azure Stream Analytics 데이터 오류 코드
 
 활동 로그 및 리소스 로그를 사용하여 Azure Stream Analytics 작업에서 예기치 않은 동작을 디버그할 수 있습니다. 이 문서에는 모든 데이터 오류 코드에 대한 설명이 나와 있습니다. 예기치 않은 레코드 스키마와 같이 스트림에 잘못된 데이터가 있는 경우 데이터 오류가 발생합니다.
 

@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 0a41165a77ff5f98a6a0bb408da62cb6c4cb35f8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f2be5a4ffb239b445381b5e7c84de15c0bcea371
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536083"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553915"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>빠른 시작: 콘솔 앱의 ID를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출
 
 이 빠른 시작에서는 앱의 ID를 사용하여 액세스 토큰을 가져온 다음, 디렉터리에 [사용자 목록](https://docs.microsoft.com/graph/api/user-list)을 표시하도록 Microsoft Graph API를 호출할 수 있는 .NET Core 애플리케이션을 작성하는 방법을 알아봅니다. 이 시나리오는 헤드리스, 무인 작업 또는 Windows 서비스를 사용자의 ID 대신 애플리케이션 ID를 사용하여 실행해야 하는 경우에 유용합니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에는 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)가 필요합니다.
 
@@ -198,7 +198,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | 위치: ||
+> | 위치: | Description |
 > |---------|---------|
 > | `config.ClientSecret` | Azure Portal에서 애플리케이션에 대한 클라이언트 비밀이 생성됩니다. |
 > | `config.ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
@@ -215,7 +215,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |위치:| |
+> |위치:| Description |
 > |---------|---------|
 > | `scopes` | 요청된 범위를 포함합니다. 비밀 클라이언트의 경우 요청되는 범위가 Azure Portal에서 설정된 앱 개체에서 정적으로 정의된 것임을 나타내기 위해 `{Application ID URI}/.default`와 유사한 양식을 사용해야 합니다(Microsoft Graph의 경우 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킴). 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 애플리케이션 등록(미리 보기)에서 **API 노출** 섹션 아래에 정의됩니다. |
 

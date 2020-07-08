@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e2ba749b64a6d44c9aa6b03352910ab24771084
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835651"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037616"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작: 실시간 사기 감지
 
@@ -47,7 +47,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>이벤트를 수집하는 Azure Event Hub 만들기
 
-데이터 스트림을 분석하기 위해 Azure로 *수집*합니다. 데이터를 수집하는 일반적인 방법은 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)를 사용하는 것이며, 이를 통해 초당 수백만 이벤트를 수집한 다음 이벤트 정보를 처리 및 저장할 수 있습니다. 이 자습서에서는 이벤트 허브를 만든 후 호출 이벤트 생성기 앱에서 호출 데이터를 이벤트 허브로 보내도록 합니다. 이벤트 허브에 대한 자세한 내용은 [Azure Service Bus 설명서](https://docs.microsoft.com/azure/service-bus/)를 참조하세요.
+데이터 스트림을 분석하기 위해 Azure로 *수집*합니다. 데이터를 수집하는 일반적인 방법은 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)를 사용하는 것이며, 이를 통해 초당 수백만 이벤트를 수집한 다음 이벤트 정보를 처리 및 저장할 수 있습니다. 이 자습서에서는 이벤트 허브를 만든 후 호출 이벤트 생성기 앱에서 호출 데이터를 이벤트 허브로 보내도록 합니다.
 
 >[!NOTE]
 >이 절차의 보다 자세한 버전은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 
@@ -202,7 +202,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭  |  CallStream   |  작업의 입력을 식별하는 이름을 입력합니다.   |
-   |Subscription   |  \<구독\> |  만든 이벤트 허브가 있는 Azure 구독을 선택합니다.   |
+   |Subscription   |  \<Your subscription\> |  만든 이벤트 허브가 있는 Azure 구독을 선택합니다.   |
    |이벤트 허브 네임스페이스  |  asa-eh-ns-demo |  이벤트 허브 네임스페이스의 이름을 입력합니다.   |
    |이벤트 허브 이름  | asa-eh-frauddetection-demo | 이벤트 허브의 이름을 선택합니다.   |
    |이벤트 허브 정책 이름  | asa-policy-manage-demo | 이전에 만든 액세스 정책을 선택합니다.   |
@@ -372,7 +372,7 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |출력 별칭  |  CallStream-FraudulentCalls   |  작업의 출력을 식별하는 이름을 입력합니다.   |
-   |Subscription   |  \<구독\> |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
+   |Subscription   |  \<Your subscription\> |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
    |스토리지 계정  |  asaehstorage |  만든 스토리지 계정의 이름을 입력합니다. |
    |컨테이너  | asa-fraudulentcalls-demo | 새로 만들기를 선택하고 컨테이너 이름을 입력합니다. |
 

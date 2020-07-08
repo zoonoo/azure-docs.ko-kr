@@ -3,12 +3,12 @@ title: 영국 공식 및 영국 NHS 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 영국 공식 및 영국 NHS 청사진 샘플의 배포 단계를 설명합니다.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 7fa78eab463c9a3202b2ec08e1952e275e51b20d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 2ac2d17c08b3f585f86d1b2d339c3c7cf52844ce
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005594"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037174"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
 
@@ -93,7 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브|정책 할당 |진단 로그를 감사하는 리소스 종류(정책: 영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브) |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다.  허용되는 값은 [Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주](../../../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조하세요. |
+|영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브|정책 할당 |진단 로그를 감사하는 리소스 종류(정책: 영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브) |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다.  허용되는 값은 [Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주](../../../../azure-monitor/platform/resource-logs-schema.md)를 참조하세요. |
 |\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록(정책: \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포) |(선택 사항) 기본값은 _없음_입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록(정책: \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포) |(선택 사항) 기본값은 _없음_입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |
 
