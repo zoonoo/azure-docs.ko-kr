@@ -3,12 +3,12 @@ title: CAF Migration 방문 영역 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 방문 영역의 개요 및 아키텍처입니다.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459868"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044824"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플의 개요
 
@@ -28,7 +28,7 @@ CAF Migration 방문 영역 청사진 샘플은 조직에서 가상 머신을 �
 - [Log Analytics](../../../../azure-monitor/overview.md) 배포 - 마이그레이션을 시작하는 순간부터 모든 작업과 서비스가 중앙 위치에 기록되도록 배포됩니다.
 - [Azure Security Center](../../../../security-center/security-center-intro.md)(표준 버전) 배포 - 마이그레이션된 워크로드에 대한 위협 방지 기능을 제공합니다.
 - [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) 배포 - 가상 머신에 대한 격리된 네트워크 및 서브넷을 제공합니다.
-- [Azure Migrate 프로젝트](../../../..//migrate/migrate-overview.md) 배포 - 검색 및 평가용입니다. 서버 평가, 서버 마이그레이션, 데이터베이스 평가 및 데이터베이스 마이그레이션을 위한 도구를 추가하고 있습니다.  
+- [Azure Migrate 프로젝트](../../../../migrate/migrate-services-overview.md) 배포 - 검색 및 평가용입니다. 서버 평가, 서버 마이그레이션, 데이터베이스 평가 및 데이터베이스 마이그레이션을 위한 도구를 추가하고 있습니다.  
 
 
 이러한 모든 요소는 [Azure 아키텍처 센터 - 참조 아키텍처](/azure/architecture/reference-architectures/)에 게시된 검증된 사례를 따릅니다.

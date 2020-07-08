@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76962218"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045827"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>CI/CD npm 패키지를 사용 하 여 Azure Stream Analytics 작업 배포 
 
@@ -25,9 +25,9 @@ Powershell을 사용 하 여 배포 하는 방법에 대 한 자세한 내용은
 
 **Cicd** npm 패키지를 사용 하 여 Azure Stream Analytics 작업에 대 한 연속 통합 및 배포를 사용 하도록 설정할 수 있습니다. Npm 패키지는 [Stream Analytics Visual Studio Code 프로젝트](quick-create-vs-code.md)의 Azure Resource Manager 템플릿을 생성 하는 도구를 제공 합니다. Visual Studio Code를 설치 하지 않고 Windows, macOS 및 Linux에서 사용할 수 있습니다.
 
-패키지를 직접 [다운로드](https://www.npmjs.com/package/azure-streamanalytics-cicd) 하거나 `npm install -g azure-streamanalytics-cicd` 명령을 통해 [전역적](https://docs.npmjs.com/downloading-and-installing-packages-globally) 으로 설치할 수 있습니다. 이 방법은 **Azure Pipelines**에서 빌드 파이프라인의 PowerShell 또는 Azure CLI 스크립트 작업에 사용할 수 있는 권장 되는 방법입니다.
+패키지를 직접 [다운로드](https://www.npmjs.com/package/azure-streamanalytics-cicd) 하거나 명령을 통해 [전역적](https://docs.npmjs.com/downloading-and-installing-packages-globally) 으로 설치할 수 있습니다 `npm install -g azure-streamanalytics-cicd` . 이 방법은 **Azure Pipelines**에서 빌드 파이프라인의 PowerShell 또는 Azure CLI 스크립트 작업에 사용할 수 있는 권장 되는 방법입니다.
 
-패키지를 설치한 후에는 다음 명령을 사용 하 여 Azure Resource Manager 템플릿을 출력 합니다. **ScriptPath** 인수는 프로젝트의 **script.asaql** 파일에 대 한 절대 경로입니다. Asaproj 및 JobConfig 파일이 스크립트 파일과 동일한 폴더에 있는지 확인 합니다. **OutputPath** 를 지정 하지 않으면 템플릿이 프로젝트의 **bin** 폴더 아래에 있는 **배포** 폴더에 배치 됩니다.
+패키지를 설치한 후에는 다음 명령을 사용 하 여 Azure Resource Manager 템플릿을 출력 합니다. **ScriptPath** 인수는 프로젝트의 **script.asaql** 파일에 대 한 절대 경로입니다. 파일에 대 한 asaproj.js및 JobConfig.js스크립트 파일과 동일한 폴더에 있는지 확인 합니다. **OutputPath** 를 지정 하지 않으면 템플릿이 프로젝트의 **bin** 폴더 아래에 있는 **배포** 폴더에 배치 됩니다.
 
 ```powershell
 azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
@@ -39,15 +39,19 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 Stream Analytics Visual Studio Code 프로젝트가 성공적으로 빌드되면 **bin/[Debug/Retail]/Sdeploy** 폴더 아래에 다음 두 개의 Azure Resource Manager 템플릿 파일이 생성 됩니다. 
 
-*  Resource Manager 템플릿 파일
+* Resource Manager 템플릿 파일
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  Resource Manager 매개 변수 파일
+* Resource Manager 매개 변수 파일
 
-       [ProjectName].JobTemplate.parameters.json   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```   
 
-Visual Studio Code 프로젝트의 설정에서 매개 변수. json 파일의 기본 매개 변수를 사용할 수 있습니다. 다른 환경에 배포하려면 해당 매개 변수를 적절하게 바꾸면 됩니다.
+parameters.js파일의 기본 매개 변수는 Visual Studio Code 프로젝트의 설정에서 가져온 것입니다. 다른 환경에 배포하려면 해당 매개 변수를 적절하게 바꾸면 됩니다.
 
 > [!NOTE]
 > 모든 자격 증명에 대해 기본값은 null로 설정됩니다. 클라우드에 배포하기 전에 값을 **설정해야 합니다**.
@@ -70,7 +74,7 @@ Visual Studio Code 프로젝트의 설정에서 매개 변수. json 파일의 �
 
 2. **클래식 편집기를 사용** 하 여 yaml 없이 파이프라인 만들기를 선택 합니다.
 
-3. 원본 유형, 팀 프로젝트 및 리포지토리를 선택 합니다. 그런 다음 **계속**을 선택합니다.
+3. 원본 유형, 팀 프로젝트 및 리포지토리를 선택 합니다. 그런 다음, **계속**을 선택합니다.
 
    ![Azure Stream Analytics 프로젝트 선택](./media/setup-cicd-vs-code/select-repo.png)
 
@@ -145,9 +149,9 @@ Npm, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을 모두 �
 
 1. 작업 드롭다운에서 **테스트 환경에 작업 배포**를 선택 합니다. 
 
-2. **+** **에이전트 작업** 옆에 있는를 선택 하 고 *Azure 리소스 그룹 배포*를 검색 합니다. 다음 매개 변수를 입력합니다.
+2. 에이전트 작업 옆에 있는를 선택 **+** 하 고 *Azure 리소스 그룹 배포*를 검색 합니다. **Agent job** 다음 매개 변수를 입력합니다.
 
-   |설정|값|
+   |Setting|값|
    |-|-|
    |표시 이름| *MyASAJob 배포*|
    |Azure 구독| 구독을 선택합니다.|
@@ -162,9 +166,9 @@ Npm, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을 모두 �
 
 3. 작업 드롭다운에서 **프로덕션 환경에 작업 배포**를 선택 합니다.
 
-4. **+** **에이전트 작업** 옆에 있는를 선택 하 고 *Azure 리소스 그룹 배포*를 검색 합니다. 다음 매개 변수를 입력합니다.
+4. 에이전트 작업 옆에 있는를 선택 **+** 하 고 *Azure 리소스 그룹 배포*를 검색 합니다. **Agent job** 다음 매개 변수를 입력합니다.
 
-   |설정|값|
+   |Setting|값|
    |-|-|
    |표시 이름| *MyASAJob 배포*|
    |Azure 구독| 구독을 선택합니다.|
@@ -183,7 +187,7 @@ Npm, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을 모두 �
 
 ![Azure Pipelines를 사용 하 여 릴리스 만들기](./media/setup-cicd-vs-code/create-release.png)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 Azure Data Lake Store Gen1용 관리 ID를 출력 싱크로 사용하려면 Azure에 배포하기 전에 PowerShell을 사용하여 서비스 주체에 액세스 권한을 제공해야 합니다. [Resource Manager 템플릿에서 관리 ID를 사용하여 ADLS Gen1을 배포](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)하는 방법을 자세히 알아봅니다.
 

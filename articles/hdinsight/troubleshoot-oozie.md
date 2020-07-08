@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: 18831832f82cdbc8cec69e368f006f7acd4836c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb795a9d7100019b2b1820c592f87025b77f5878
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205262"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045861"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Oozie 문제 해결
 
@@ -32,7 +32,9 @@ Apache Oozie UI를 사용 하 여 Oozie 로그를 볼 수 있습니다. Oozie UI
 
 작업 상태가 **일시 중단됨**으로 변경되었습니다. 작업에 대한 세부 정보에 `RunHiveScript` 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
 
-    JA009: Cannot initialize Cluster. Please check your configuration for map
+```output
+JA009: Cannot initialize Cluster. Please check your configuration for map
+```
 
 ### <a name="cause"></a>원인
 
@@ -50,7 +52,9 @@ Apache Oozie UI를 사용 하 여 Oozie 로그를 볼 수 있습니다. Oozie UI
 
 작업 상태가 **일시 중단됨**으로 변경되었습니다. 작업에 대한 세부 정보에 `RunHiveScript` 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음 오류 메시지가 표시됩니다.
 
-    JA002: User: oozie is not allowed to impersonate <USER>
+```output
+JA002: User: oozie is not allowed to impersonate <USER>
+```
 
 ### <a name="cause"></a>원인
 
@@ -60,7 +64,9 @@ Apache Oozie UI를 사용 하 여 Oozie 로그를 볼 수 있습니다. Oozie UI
 
 Oozie는 그룹의 사용자를 가장할 수 있습니다 **`users`** . `groups USERNAME` 을 사용하여 사용자 계정이 멤버로 속해 있는 그룹을 확인합니다. 사용자가 그룹의 멤버가 아닌 경우 **`users`** 다음 명령을 사용 하 여 사용자를 그룹에 추가 합니다.
 
-    sudo adduser USERNAME users
+```bash
+sudo adduser USERNAME users
+```
 
 > [!NOTE]  
 > HDInsight에서 사용자가 그룹에 추가된 것을 인식하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -73,7 +79,9 @@ Oozie는 그룹의 사용자를 가장할 수 있습니다 **`users`** . `groups
 
 작업 상태가 **중단됨**으로 변경되었습니다. 작업에 대한 세부 정보에 `RunSqoopExport` 상태가 **ERROR**로 표시됩니다. 동작을 선택하면 다음 오류 메시지가 표시됩니다.
 
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```output
+Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```
 
 ### <a name="cause"></a>원인
 

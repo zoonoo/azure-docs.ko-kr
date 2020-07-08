@@ -1,17 +1,17 @@
 ---
-title: Azure HPC Cache 만들기
+title: Azure HPC 캐시 인스턴스 만들기
 description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73582191"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045810"
 ---
 # <a name="plan-the-aggregated-namespace"></a>집계형 네임스페이스 계획
 
@@ -29,14 +29,14 @@ Azure HPC 캐시에서이 가상 파일 시스템을 관리 하기 때문에 클
 
 템플릿 데이터는 데이터 센터에 저장 되며,이 작업에 필요한 정보는 다음 하위 디렉터리에 저장 됩니다.
 
-    /goldline/templates/acme2017/sku798
-    /goldline/templates/acme2017/sku980 
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980* 
 
 데이터 센터 저장소 시스템은 다음 내보내기를 노출 합니다.
 
-    /
-    /goldline
-    /goldline/templates
+* */*
+* */goldline*
+* */goldline/templates*
 
 분석할 데이터가 [Clfsload 유틸리티](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload)를 사용 하 여 "sourcecollection" 이라는 Azure Blob storage 컨테이너에 복사 되었습니다.
 
@@ -57,7 +57,7 @@ NFS 원본 경로는 동일한 내보내기의 하위 디렉터리 이므로 동
 | *IP 주소 또는 호스트 이름* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP 주소 또는 호스트 이름* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-클라이언트 응용 프로그램은 캐시를 탑재 하 고 집계 된 네임 스페이스 파일 경로 ``/source`` ``/templates/sku798``, 및 ``/templates/sku980``에 쉽게 액세스할 수 있습니다.
+클라이언트 응용 프로그램은 캐시를 탑재 하 고 집계 된 네임 스페이스 파일 경로, 및에 쉽게 액세스할 수 있습니다 ``/source`` ``/templates/sku798`` ``/templates/sku980`` .
 
 ## <a name="next-steps"></a>다음 단계
 

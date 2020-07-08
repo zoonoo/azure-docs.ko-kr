@@ -1,21 +1,21 @@
 ---
-title: 포털에서 Azure Machine Learning 작업 영역 만들기
+title: 포털에서 작업 영역 만들기
 titleSuffix: Azure Machine Learning
 description: Azure Portal에서 Azure Machine Learning 작업 영역을 만들고, 확인 하 고, 삭제 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269734"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045708"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,9 +40,9 @@ ms.locfileid: "81269734"
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|Description 
+   필드|설명 
    ---|---
-   작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분 하지 않습니다.
+   작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
    Subscription |사용할 Azure 구독을 선택합니다.
    Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 
    위치 | 사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.
@@ -80,7 +80,7 @@ ms.locfileid: "81269734"
 
 1. 페이지의 오른쪽 위에서 자세히 **알아보기** 를 선택 합니다.
 
-   [![작업 영역](./media/how-to-manage-workspace/upgrade.png) 업그레이드](./media/how-to-manage-workspace/upgrade.png#lightbox)
+   [![작업 영역 ](./media/how-to-manage-workspace/upgrade.png) 업그레이드](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. 표시 되는 창에서 **업그레이드** 를 선택 합니다.
 
@@ -121,11 +121,11 @@ ms.locfileid: "81269734"
 ### <a name="moving-the-workspace"></a>작업 영역 이동
 
 > [!WARNING]
-> Azure Machine Learning 작업 영역을 다른 구독으로 이동 하거나 소유 하는 구독을 새 테 넌 트로 이동 하는 것은 지원 되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
+> Azure Machine Learning 작업 영역을 다른 구독으로 이동하거나 소유하는 구독을 새 테넌트로 이동하는 것은 지원되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
 
 ### <a name="deleting-the-azure-container-registry"></a>Azure Container Registry 삭제
 
-Azure Machine Learning 작업 영역에서는 일부 작업에 Azure Container Registry (ACR)를 사용 합니다. 먼저 필요할 때 ACR 인스턴스를 자동으로 만듭니다.
+Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Container Registry)을 사용합니다. 먼저 필요한 경우 ACR 인스턴스를 자동으로 만듭니다.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

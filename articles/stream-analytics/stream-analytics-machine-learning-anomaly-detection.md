@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525535"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044382"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics의 변칙 검색
 
@@ -117,7 +117,7 @@ FROM AnomalyDetectionStep
 * **기록 크기** -이러한 모델은 **기록 크기로**선형으로 수행 됩니다. 기록 크기가 길수록 모델이 새 이벤트 점수를 매기는 데 걸리는 시간이 길어집니다. 이는 모델이 새 이벤트를 기록 버퍼의 각 이전 이벤트와 비교 하기 때문입니다.
 * **기간** - **창 지속 시간은** 기록 크기에 지정 된 수 만큼 이벤트를 수신 하는 데 걸리는 시간을 반영 해야 합니다. 창에 이벤트가 없으면 Azure Stream Analytics에서 누락 된 값을 돌립니다 수 있습니다. 따라서 CPU 소비는 기록 크기의 함수입니다.
 * **이벤트 로드** - **이벤트 로드가**많을 수록 CPU 소비에 영향을 주는 모델에 의해 수행 되는 작업이 더 많이 발생 합니다. 작업은 더 많은 입력 파티션을 사용 하는 비즈니스 논리에 적합 하다 고 가정 하 고 처리가 적합 병렬로 만들어 확장할 수 있습니다.
-* **함수 수준 분할** - **함수 수준 분할** 은 변칙 검색 함수 ```PARTITION BY``` 호출 내에서를 사용 하 여 수행 됩니다. 이러한 유형의 분할은 여러 모델에 대 한 상태를 동시에 유지 해야 하므로 오버 헤드를 추가 합니다. 함수 수준 분할은 장치 수준 분할과 같은 시나리오에서 사용 됩니다.
+* **함수 수준 분할**  -  **함수 수준 분할** 은 ```PARTITION BY``` 변칙 검색 함수 호출 내에서를 사용 하 여 수행 됩니다. 이러한 유형의 분할은 여러 모델에 대 한 상태를 동시에 유지 해야 하므로 오버 헤드를 추가 합니다. 함수 수준 분할은 장치 수준 분할과 같은 시나리오에서 사용 됩니다.
 
 ### <a name="relationship"></a>관계
 기록 크기, 기간 및 총 이벤트 로드는 다음과 같은 방식으로 관련 됩니다.
@@ -149,16 +149,16 @@ DeviceId로 함수를 분할 하는 경우 변칙 검색 함수 호출에 "PARTI
 위에서 분할 되지 않은 구성을 실행 하는 샘플 코드는 Azure 샘플의 [스트리밍 규모](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) 리포지토리에 있습니다. 이 코드는 이벤트 허브를 입력 및 출력으로 사용 하는 함수 수준 분할 없이 stream analytics 작업을 만듭니다. 입력 부하는 테스트 클라이언트를 사용 하 여 생성 됩니다. 각 입력 이벤트는 1KB json 문서입니다. 이벤트는 JSON 데이터를 전송 하는 IoT 장치를 시뮬레이션 합니다 (최대 1K 장치). 기록 크기, 기간 및 총 이벤트 로드는 2 개의 입력 파티션에 따라 달라 집니다.
 
 > [!Note]
-> 보다 정확한 예측을 위해 시나리오에 맞게 예제를 사용자 지정 합니다.
+> 좀 더 정확한 예측을 위해 시나리오에 맞게 샘플을 사용자 지정합니다.
 
 ### <a name="identifying-bottlenecks"></a>병목 상태 식별
-Azure Stream Analytics 작업의 메트릭 창을 사용 하 여 파이프라인의 병목 상태를 식별할 수 있습니다. 처리량 및 ["워터 마크 지연"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그 이벤트** 에 대 한 **입/출력 이벤트** 를 검토 하 여 작업이 입력 속도를 유지 하는지 확인 합니다. 이벤트 허브 메트릭에 대해 **제한 된 요청** 을 찾아 임계값 단위를 적절 하 게 조정 합니다. Cosmos DB 메트릭은 처리량에서 **파티션 키 범위별 최대** 사용량을 검토 하 여 파티션 키 범위를 균등 하 게 사용 하는지 확인 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU**를 모니터링 합니다.
+Azure Stream Analytics 작업의 메트릭 창을 사용하여 파이프라인의 병목 상태를 파악할 수 있습니다. 또한 **입출력 이벤트**를 검토하여 처리량을 확인하고 [“워터마크 지연”](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그된 이벤트**를 검토하여 입력 속도에 맞게 작업이 처리되고 있는지 확인할 수 있습니다. 이벤트 허브 메트릭의 경우 **제한된 요청**을 검색하고 그에 따라 임계값 단위를 조정합니다. Cosmos DB 메트릭의 경우 처리량에서 **파티션 키 범위당 최대 사용된 RU/초**를 검토하여 파티션 키 범위가 균등하게 사용되도록 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU**를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

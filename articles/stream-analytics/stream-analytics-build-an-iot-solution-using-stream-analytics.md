@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426451"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044586"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -28,7 +28,7 @@ ms.locfileid: "75426451"
 * 안심하고 Stream Analytics를 사용하여 고객에 대한 스트리밍 솔루션 개발
 * 모니터링 및 로깅 경험을 사용하여 문제 해결
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 솔루션을 완료하려면 다음 필수 구성 요소가 필요합니다.
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -54,7 +54,7 @@ ms.locfileid: "75426451"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | Description |
+| Column | 설명 |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | EntryTime |요금 창구에 차량이 진입하는 날짜 및 시간(UTC) |
@@ -81,7 +81,7 @@ ms.locfileid: "75426451"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | Description |
+| Column | 설명 |
 | --- | --- |
 | TollId |톨게이트 요금소를 고유하게 식별하는 요금 창구 ID |
 | ExitTime |차량이 요금소를 빠져 나가는 날짜 및 시간(UTC) |
@@ -101,7 +101,7 @@ ms.locfileid: "75426451"
 
 다음은 열에 대한 간단한 설명입니다.
 
-| 열 | Description |
+| Column | 설명 |
 | --- | --- |
 | LicensePlate |차량 번호판 번호 |
 | RegistrationId |차량 등록 ID |
@@ -113,7 +113,7 @@ ms.locfileid: "75426451"
 이 문서 끝에 나오는 “Azure 계정 정리” 섹션의 단계를 수행해야 Azure 크레딧을 최대한 활용할 수 있습니다.
 
 ## <a name="deploy-the-sample"></a>샘플 배포
-몇 번 클릭하여 리소스 그룹에 쉽게 배포할 수 있는 몇 가지 리소스가 있습니다. 솔루션 정의는 GitHub 리포지토리에서에서 호스팅됩니다 [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+몇 번 클릭하여 리소스 그룹에 쉽게 배포할 수 있는 몇 가지 리소스가 있습니다. 솔루션 정의는 GitHub 리포지토리에서에서 호스팅됩니다 [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp) .
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Azure Portal에서 TollApp 템플릿 배포
 1. TollApp 환경을 Azure에 배포하려면 [TollApp Azure 템플릿 배포](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json)에 대한 이 링크를 사용하세요.
@@ -189,7 +189,7 @@ ms.locfileid: "75426451"
 
 3. **데이터 탐색기** 제목을 선택하여 데이터 탐색기 페이지를 엽니다.
 
-4. **TollAppDatabase** > **tollAppCollection**tollAppCollection > **문서**를 확장 합니다.
+4. **TollAppDatabase**  >  **tollAppCollection**  >  **문서**를 확장 합니다.
 
 5. 출력이 지원되면 ID 목록에서 여러 문서가 표시됩니다.
 

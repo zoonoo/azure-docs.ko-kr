@@ -3,12 +3,12 @@ title: FedRAMP High 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 FedRAMP High 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 96b033c153789b3edbfb6a197981fe3d56f12076
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: c4b2915222bc2d1772a2772c719d5d6cc4b59657
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517137"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044807"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>FedRAMP High 청사진 샘플 배포
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |\[미리 보기\]: FedRAMP High 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포|정책 할당|VM을 구성해야 하는 Log Analytics 작업 영역 ID|VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다.|
-|\[미리 보기\]: FedRAMP High 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
+|\[미리 보기\]: FedRAMP High 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
 |\[미리 보기\]: FedRAMP High 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포|정책 할당|Windows VM 관리자 그룹에서 제외해야 하는 사용자 목록|관리자 로컬 그룹에서 제외해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
 |\[미리 보기\]: FedRAMP High 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포|정책 할당|Windows VM 관리자 그룹에 포함해야 하는 사용자 목록|관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
 |\[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|Linux VMSS(VM Scale Sets)용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|

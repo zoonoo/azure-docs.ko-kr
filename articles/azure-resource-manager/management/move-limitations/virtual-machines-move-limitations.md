@@ -2,13 +2,13 @@
 title: 새 구독 또는 리소스 그룹으로 Azure Vm 이동
 description: Azure Resource Manager를 사용 하 여 가상 컴퓨터를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744631"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044552"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>가상 컴퓨터에 대 한 이동 지침
 
@@ -24,6 +24,18 @@ ms.locfileid: "82744631"
 * 가상 네트워크의 모든 리소스를 이동 하지 않는 경우 기존 가상 네트워크의 가상 컴퓨터를 새 구독으로 이동할 수 없습니다.
 * 낮은 우선 순위의 가상 컴퓨터 및 우선 순위가 낮은 가상 컴퓨터 크기 집합은 리소스 그룹 또는 구독 간에 이동할 수 없습니다.
 * 가용성 집합의 가상 머신은 개별적으로 이동할 수 없습니다.
+
+## <a name="azure-disk-encryption"></a>Azure Disk Encryption
+
+키 자격 증명 모음과 통합 된 가상 컴퓨터를 이동 하 여 Linux Vm 또는 [Windows vm 용 Azure Disk Encryption](../../../virtual-machines/windows/disk-encryption-overview.md) [에 대 한 Azure Disk Encryption](../../../virtual-machines/linux/disk-encryption-overview.md) 를 구현할 수 없습니다. VM을 이동 하려면 암호화를 사용 하지 않도록 설정 해야 합니다.
+
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
 
 ## <a name="virtual-machines-with-azure-backup"></a>Azure Backup를 사용 하는 가상 머신
 

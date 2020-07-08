@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 3b740fca47b233fe38915280a1f53458c139293d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 2ad817afd8f4e80e99055646dca34b9bb05d100f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778857"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044314"
 ---
-# <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Azure Security Center의 향상된 보안 점수(미리 보기)
+# <a name="enhanced-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 향상
 
 ## <a name="introduction-to-secure-score"></a>보안 점수 소개
 
 Azure Security Center에는 현재 보안 상황을 이해하고 효과적이고 효율적으로 보안을 개선하도록 지원한다는 두 가지 주요 목표가 있습니다. 이러한 목표를 달성할 수 있도록 하는 Security Center의 핵심적인 측면은 보안 점수입니다.
 
-Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으로 평가합니다. 그런 다음, 현재 보안 상황을 한눈에 파악할 수 있도록 모든 결과를 단일 점수에 집계합니다. 즉, 점수가 높을수록 식별된 위험 수준은 낮습니다. 이러한 점수를 사용하여 조직의 보안 노력과 예상 목표를 추적할 수 있습니다. 
+Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으로 평가합니다. 그런 다음, 현재 보안 상황을 한눈에 파악할 수 있도록 모든 결과를 단일 점수에 집계합니다. 즉, 점수가 높을수록 식별된 위험 수준은 낮습니다.
 
 Security Center의 보안 점수 페이지에는 다음이 포함됩니다.
 
@@ -38,19 +38,32 @@ Security Center의 보안 점수 페이지에는 다음이 포함됩니다.
 
     조직이 각 개별 공격 노출 영역을 얼마나 잘 보호하고 있는지 즉시 확인하려면 각 보안 컨트롤의 점수를 검토합니다.
 
-    자세한 내용은 아래의 [보안 점수 계산 방법](secure-score-security-controls.md#how-the-secure-score-is-calculated)을 참조하세요. 
+    자세한 내용은 아래의 [보안 점수를 계산 하는 방법](secure-score-security-controls.md#how-your-secure-score-is-calculated) 을 참조 하세요. 
 
 
 >[!TIP]
 > 권장 사항 수준에서 이전 버전의 Security Center 제안 사항: 단일 리소스에 대 한 권장 사항에 따라 수정하면 보안 점수가 향상됩니다. 현재, 점수는 컨트롤 내의 단일 리소스에 대한 *모든* 권장 사항에 따라 수정해야만 향상됩니다. 따라서 리소스의 보안이 향상된 경우에만 점수가 향상됩니다.
-> 이 향상된 버전은 아직 미리 보기 상태이지만 이전 보안 점수 환경은 Azure Portal에서 옵션으로 사용할 수 있습니다. 
 
 
-## <a name="locating-your-secure-score"></a>보안 점수 찾기
+## <a name="accessing-your-secure-score"></a>보안 점수 액세스
 
-Security Center에서 점수가 매우 명확히 표시됩니다. 개요 페이지에 첫 번째로 표시됩니다. 전용 보안 점수 페이지를 클릭하면 구독별로 분석된 점수를 볼 수 있습니다. 단일 구독을 클릭하여 우선 순위가 지정된 권장 사항의 세부 목록과 이러한 권장 사항에 따라 수정할 때 구독의 점수에 미치는 영향을 확인할 수 있습니다.
+Azure Portal 또는 Azure Security Center REST API를 사용 하 여 프로그래밍 방식으로 전체 보안 점수 뿐만 아니라 구독 당 점수를 확인할 수 있습니다.
 
-## <a name="how-the-secure-score-is-calculated"></a>보안 점수 계산 방법 
+### <a name="getting-your-secure-score-from-the-portal"></a>포털에서 보안 점수 얻기
+
+Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개요 페이지에 표시 되는 첫 번째 항목입니다. 전용 보안 점수 페이지를 클릭하면 구독별로 분석된 점수를 볼 수 있습니다. 단일 구독을 클릭하여 우선 순위가 지정된 권장 사항의 세부 목록과 이러한 권장 사항에 따라 수정할 때 구독의 점수에 미치는 영향을 확인할 수 있습니다.
+
+![포털에 표시 된 전체 보안 점수](media/secure-score-security-controls/single-secure-score-via-ui.png)
+
+### <a name="getting-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
+
+[보안 점수 API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공 하 고 시간에 따른 보안 점수에 대 한 자체 보고 메커니즘을 작성 합니다. 예를 들어 **보안 점수** API를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 **점수 컨트롤** API를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
+
+![API를 통해 단일 보안 점수 검색](media/secure-score-security-controls/single-secure-score-via-api.png)
+
+보안 점수 API를 기반으로 하는 도구에 대 한 예제는 [GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)을 참조 하세요. 
+
+## <a name="how-your-secure-score-is-calculated"></a>보안 점수를 계산 하는 방법 
 
 전체적인 보안 점수에 대한 각 보안 컨트롤의 기여도는 권장 사항 페이지에 명확히 표시됩니다.
 
@@ -85,6 +98,7 @@ Security Center에서 점수가 매우 명확히 표시됩니다. 개요 페이�
 >[!IMPORTANT]
 > 기본 제공 권장 사항만 보안 점수에 영향을 줍니다.
 
+
 ## <a name="security-controls-and-their-recommendations"></a>보안 제어 및 해당 권장 사항
 
 다음 표에서는 Azure Security Center의 보안 컨트롤을 나열합니다. 각 컨트롤에 대해 *모든* 리소스의 컨트롤에 나열된 *모든* 권장 사항에 따라 수정할 경우 보안 점수에 추가될 수 있는 최대 포인트를 확인할 수 있습니다. 
@@ -106,19 +120,19 @@ Security Center에서 점수가 매우 명확히 표시됩니다. 개요 페이�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 관리 포트(최대 점수 8)</p></strong>무차별 암호 대입 공격(brute force attack)은 VM에 액세스하기 위해 관리 포트를 대상으로 합니다. 포트는 항상 열려 있어야 하는 것은 아니므로 Just-In-Time 네트워크 액세스 제어, 네트워크 보안 그룹 및 가상 머신 포트 관리를 사용하여 포트에 대한 노출을 줄이는 것이 한 가지 완화 전략입니다.<br>많은 IT 조직이 네트워크에서 SSH 통신 아웃바운드를 차단하지 않으므로 공격자는 감염된 시스템의 RDP 포트가 공격자 명령과 다시 통신하여 서버를 제어하도록 허용하는 암호화된 터널을 만들 수 있습니다. 공격자는 Windows 원격 관리 하위 시스템을 사용하여 사용자 환경에서 수평으로 이동하고 도난 당한 자격 증명을 사용하여 네트워크의 다른 리소스에 액세스할 수 있습니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 Just-In-Time 네트워크 액세스 제어를 적용해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- 가상 머신에서 관리 포트를 닫아야 합니다.</td>
+    <td class="tg-lboi"; width=55%>-가상 컴퓨터의 관리 포트를 just-in-time 네트워크 액세스 제어로 보호 해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- 가상 머신에서 관리 포트를 닫아야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">시스템 업데이트 적용(최대 점수 6)</p></strong>시스템 업데이트는 조직에 운영 효율성을 유지하고, 보안 취약성을 줄이고, 최종 사용자에게 보다 안정적인 환경을 제공하는 기능을 제공합니다. 업데이트를 적용하지 않으면 패치가 적용되지 않은 취약한 상태가 되고 공격에 취약한 환경이 발생합니다. 이러한 취약성이 악용될 수 있으며 데이터 손실, 데이터 반출, 랜섬웨어 및 리소스 남용으로 이어질 수 있습니다. 시스템 업데이트를 배포하려면 <a href="https://docs.microsoft.com/azure/automation/automation-update-management">업데이트 관리 솔루션을 사용하여 가상 머신에 대한 패치 및 업데이트를 관리</a>할 수 있습니다. 업데이트 관리는 소프트웨어 릴리스의 배포 및 유지 관리를 제어하는 프로세스입니다.</td>
-    <td class="tg-lboi"; width=55%>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- 클라우드 서비스 역할에 대해 OS 버전을 업데이트해야 합니다.<br>- 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.<br>- 시스템 업데이트를 머신에 설치해야 합니다.<br>- 시스템 업데이트를 적용하려면 머신을 다시 시작해야 합니다.<br>- Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- 클라우드 서비스 역할에 대해 OS 버전을 업데이트해야 합니다.<br>- 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.<br>- 시스템 업데이트를 머신에 설치해야 합니다.<br>- 시스템 업데이트를 적용하려면 머신을 다시 시작해야 합니다.<br>- Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>-Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>-Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">취약성 해결(최대 점수 6)</p></strong>취약성은 리소스의 기밀성, 가용성 또는 무결성을 손상시키기 위해 위협 행위자가 활용할 수 있는 약점입니다. <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt">취약성 관리</a>는 조직의 노출을 줄이고, 엔드포인트 노출 영역을 강화하고, 조직의 복원력을 높이고, 리소스의 공격 노출 영역을 줄입니다. 위협 및 취약성 관리는 소프트웨어 및 보안 구성 오류에 대한 가시성을 제공하고 완화에 대한 권장 사항을 제공합니다.</td>
-    <td class="tg-lboi"; width=55%>- SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>- Azure Container Registry 이미지의 취약성을 수정해야 합니다.<br>- SQL 데이터베이스의 취약성을 수정해야 합니다.<br>- 취약성 평가 솔루션으로 취약성을 수정해야 합니다.<br>- SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.<br>- SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.<br>- 취약성 평가 솔루션을 가상 머신에 설치해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>-SQL Database에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>- Azure Container Registry 이미지의 취약성을 수정해야 합니다.<br>- SQL 데이터베이스의 취약성을 수정해야 합니다.<br>- 취약성 평가 솔루션으로 취약성을 수정해야 합니다.<br>-SQL Managed Instance에서 취약성 평가를 사용 하도록 설정 해야 합니다.<br>- SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.<br>- 취약성 평가 솔루션을 가상 머신에 설치해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">미사용 암호화 사용(최대 점수 4)</p></strong><a href="https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest">미사용 데이터 암호화</a>는 저장된 데이터에 대한 데이터 보호를 제공합니다. 미사용 데이터에 대한 공격에는 데이터가 저장된 하드웨어에 대한 물리적 액세스 권한을 얻습니다. Azures는 대칭 암호화를 사용하여 미사용 데이터를 암호화하고 해독합니다. 데이터가 스토리지에 쓰여질 때 대칭 암호화 키를 사용하여 데이터를 암호화합니다. 암호화 키를 사용하여 메모리에서 사용하도록 준비된 데이터의 암호를 해독합니다. 키는 ID 기반 액세스 제어 및 감사 정책으로 안전하게 보호되는 위치에 저장해야 합니다. 이러한 보안 위치 중 하나는 Azure Key Vault입니다. 공격자가 암호화된 데이터를 획득했지만 암호화 키는 획득하지 못한 경우 암호를 해독하지 않으면 데이터에 액세스할 수 없습니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 디스크 암호화를 적용해야 합니다.<br>- SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.<br>- Automation 계정 변수를 암호화해야 합니다.<br>- Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 합니다.<br>- SQL 서버 TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 가상 머신에서 디스크 암호화를 적용해야 합니다.<br>-SQL Database 투명한 데이터 암호화를 사용 하도록 설정 해야 합니다.<br>- Automation 계정 변수를 암호화해야 합니다.<br>- Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 합니다.<br>- SQL 서버 TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">전송 중 데이터 암호화(최대 점수 4)</p></strong>데이터는 구성 요소, 위치 또는 프로그램 간에 전송될 때 "전송 중" 상태입니다. 전송 중인 데이터 보호에 실패하는 조직은 가로채기(man-in-the-middle) 공격, 도청 및 세션 하이재킹에 대해 취약합니다. SSL/TLS 프로토콜을 사용하여 데이터를 교환하고 VPN을 사용하는 것이 좋습니다. 인터넷을 통해 Azure Virtual Machine과 온-프레미스 위치 간에 암호화된 데이터를 전송하는 경우 <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways">Azure VPN Gateway</a>와 같은 가상 네트워크 게이트웨이를 사용하여 암호화된 트래픽을 보낼 수 있습니다.</td>
@@ -130,15 +144,15 @@ Security Center에서 점수가 매우 명확히 표시됩니다. 개요 페이�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정(최대 점수 4)</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 자산을 배포하고 마감일을 충족해야 할 때는 기본 강화 작업을 잊는 경우가 많습니다. 보안 구성 오류는 운영 체제 및 네트워크 어플라이언스에서 클라우드 리소스에 이르는 인프라의 모든 수준에서 나타날 수 있습니다.<br>Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 조직에 중요한 관련 "규정 준수 패키지"(표준 및 기준)를 구성할 때 나타나는 간격을 토대로 CCEID와 잠재적 보안 영향에 대한 설명을 포함 하는 보안 권장 사항이 제공됩니다.<br>일반적으로 사용되는 패키지는 <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security 벤치마크</a> 및 <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations 벤치마크 버전 1.1.0</a>입니다.</td>
-    <td class="tg-lboi"; width=55%>- Kubernetes 서비스에 Pod 보안 정책을 정의해야 합니다.<br>- 컨테이너 보안 구성의 취약성을 수정해야 합니다.<br>- 머신 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- Kubernetes 서비스에 Pod 보안 정책을 정의해야 합니다.<br>- 컨테이너 보안 구성의 취약성을 수정해야 합니다.<br>- 머신 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>-Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>-Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한(최대 점수 4)</p></strong>조직 내의 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공합니다. 서브넷의 가상 머신은 모든 리소스와 통신할 수 있습니다. 서브넷 내의 리소스 간에 통신을 제한하려면 네트워크 보안 그룹을 만들고, 서브넷에 연결합니다. 조직은 인바운드 및 아웃바운드 규칙을 만들어 권한이 없는 트래픽을 제한하고 보호할 수 있습니다.</td>
     <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용(최대 점수 3)</p></strong>AAC(적응형 애플리케이션 제어)는 Azure 및 비 Azure 머신에서 실행할 수 있는 애플리케이션을 제어하도록 하는 지능적이고 자동화된 종단 간 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.<br>Security Center는 기계 학습을 사용하여 컴퓨터 그룹에 대해 알려진 안전한 애플리케이션의 허용 목록을 만듭니다.<br>애플리케이션 허용 목록에 대한 이러한 혁신적인 접근 방식은 관리 복잡성 없이 보안 혜택을 제공합니다.<br>AAC는 특정 애플리케이션 세트를 실행해야 하는 특화된 서버에 특히 적절합니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용(최대 점수 3)</p></strong>AAC(적응형 애플리케이션 제어)는 Azure 및 비 Azure 머신에서 실행할 수 있는 애플리케이션을 제어하도록 하는 지능적이고 자동화된 종단 간 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.<br>Security Center는 machine learning을 사용 하 여 컴퓨터 그룹의 알려진 안전한 응용 프로그램 목록을 만듭니다.<br>승인 된 응용 프로그램 목록에 대 한이 혁신적인 접근 방식은 관리 복잡성 없이 보안 혜택을 제공 합니다.<br>AAC는 특정 애플리케이션 세트를 실행해야 하는 특화된 서버에 특히 적절합니다.</td>
+    <td class="tg-lboi"; width=55%>- 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>-Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>-Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">데이터 분류 적용(최대 점수 2)</p></strong>민감도 및 비즈니스 영향을 기준으로 조직의 데이터를 분류하면 데이터에 대한 가치를 확인하고 할당할 수 있으며, 거버넌스에 대 한 전략 및 기본 사항을 제공합니다.<br><a href="https://docs.microsoft.com/azure/information-protection/what-is-information-protection">Azure Information Protection</a>을 데이터 분류를 지원할 수 있습니다. 이 기능은 암호화, ID 및 권한 부여 정책을 사용하여 데이터를 보호하고 데이터 액세스를 제한합니다. Microsoft에서 사용하는 일부 분류는 비즈니스 외, 퍼블릭, 일반, 기밀 및 극비를 사용합니다.</td>
@@ -150,7 +164,7 @@ Security Center에서 점수가 매우 명확히 표시됩니다. 개요 페이�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Endpoint Protection 사용(최대 점수 2)</p></strong>엔드포인트가 맬웨어로부터 보호되도록 하기 위해 동작 센서는 엔드포인트 운영 체제에서 데이터를 수집 및 처리하고 분석을 위해 이 데이터를 프라이빗 클라우드로 보냅니다. 보안 분석은 빅 데이터, 기계 학습 및 기타 원본을 활용하여 위협에 대한 대응 방안을 권장합니다. 예를 들어 <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection">Microsoft Defender ATP</a>는 위협 인텔리전스를 사용하여 공격 방법을 식별하고 보안 경고를 생성합니다.<br>Security Center에서는 Endpoint Protection 솔루션 Windows Defender, System Center Endpoint Protection, Trend Micro, Symantec v12.1.1.1100, McAfee v10 for Windows, McAfee v10 for Linux 및 Sophos v9 for Linux를 지원합니다. Security Center가 이러한 솔루션을 검색하는 경우 Endpoint Protection 설치에 대한 권장 사항이 더 이상 표시되지 않습니다.</td>
-    <td class="tg-lboi"; width=55%>- V가상 머신 확장 집합에서 Endpoint Protection 상태 실패를 해결해야 합니다.<br>- 컴퓨터에서 Endpoint Protection 상태 문제를 해결해야 합니다.<br>- 가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.<br>- 가상 머신에 Endpoint Protection 솔루션을 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 머신에 Endpoint Protection 솔루션을 설치해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- V가상 머신 확장 집합에서 Endpoint Protection 상태 실패를 해결해야 합니다.<br>- 컴퓨터에서 Endpoint Protection 상태 문제를 해결해야 합니다.<br>- 가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.<br>- 가상 머신에 Endpoint Protection 솔루션을 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>-Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>-Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 머신에 Endpoint Protection 솔루션을 설치해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">감사 및 로깅 사용(최대 점수 1)</p></strong>데이터 로깅은 과거 문제에 대한 인사이트를 제공하고, 잠재적인 문제를 방지하고, 애플리케이션 성능을 향상시킬 수 있으며 수동 작업을 자동화하는 기능을 제공합니다.<br>- <strong>제어/관리 로그</strong>는 <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/overview">Azure Resource Manager</a> 작업에 대한 정보를 제공합니다.<br>- <strong>데이터 평면 로그</strong>는 Azure 리소스 사용의 일부로 발생한 이벤트에 대한 정보를 제공합니다.<br>- <strong>처리된 이벤트</strong>는 처리되어 분석된 이벤트/경고에 대한 정보를 제공합니다.</td>
@@ -158,7 +172,7 @@ Security Center에서 점수가 매우 명확히 표시됩니다. 개요 페이�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 모범 사례 구현(최대 점수 0)</p></strong>최신 보안 방침에서는 네트워크 경계의 "침해를 가정"합니다. 이러한 이유로 이 컨트롤의 많은 모범 사례는 ID 관리에 중점을 둡니다.<br>키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">Azure Key Vault</a>는 키, .pfx 파일 및 암호를 암호화하여 키와 암호를 보호합니다.<br>VPN(가상 사설망)은 가상 머신에 안전하게 액세스할 수 있는 방법입니다. VPN을 사용할 수 없는 경우 <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>과 같은 복잡한 암호 및 2단계 인증을 사용합니다. 2단계 인증은 사용자 이름 및 암호에만 의존하는 약점을 방지합니다.<br>강력한 인증 및 권한 부여 플랫폼을 사용하는 것이 또 다른 모범 사례입니다. 페더레이션된 ID를 사용하면 조직에서 권한 있는 ID의 관리를 위임할 수 있습니다. 직원의 채용을 끝내고 해당 액세스 권한을 취소해야 하는 경우에도 이러한 과정이 중요합니다.</td>
-    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- SQL 서버에 대한 Advanced Data Security 설정에는 보안 경고를 받을 메일 주소가 포함되어야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>- SQL 관리형 인스턴스의 Advanced Data Security 설정에서 모든 Advanced Threat Protection 유형을 사용하도록 설정해야 합니다.<br>- SQL 서버 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 메일 알림을 사용하도록 설정해야 합니다.<br>- SQL 서버의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>- SQL Server의 Advanced Data Security 설정에서 모든 Advanced Threat Protection 유형을 사용하도록 설정해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>-SQL Database에 대 한 고급 데이터 보안 설정에는 보안 경고를 받을 수 있는 전자 메일 주소가 포함 되어야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>-모든 advanced threat protection 유형은 SQL Managed Instance 고급 데이터 보안 설정에서 사용 하도록 설정 해야 합니다.<br>- SQL 서버 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 메일 알림을 사용하도록 설정해야 합니다.<br>- SQL 서버의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>-서버에 대 한 고급 데이터 보안 설정 SQL Database 모든 advanced threat protection 유형을 사용 하도록 설정 해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.<br>-인터넷에 연결 되지 않은 가상 컴퓨터는 네트워크 보안 그룹을 사용 하 여 보호 해야 합니다.</td>
   </tr>
 </tbody>
 </table>
@@ -172,13 +186,13 @@ Security Center에서 점수가 매우 명확히 표시됩니다. 개요 페이�
 ## <a name="secure-score-faq"></a>보안 점수 FAQ
 
 ### <a name="why-has-my-secure-score-gone-down"></a>보안 점수가 중단된 이유는 무엇인가요?
-Security Center는 점수가 계산되는 방식이 변경된 개선된 보안 점수(현재 미리 보기 상태)로 전환되었습니다. 이제 리소스가 포인트를 받으려면 모든 권장 사항을 해결해야 합니다. 점수도 0-10 크기로 변경되었습니다.
+점수가 계산 되는 방식에 대 한 변경 내용을 포함 하는 향상 된 보안 점수로 전환 된 Security Center. 이제 리소스가 포인트를 받으려면 모든 권장 사항을 해결해야 합니다. 점수도 0-10 크기로 변경되었습니다.
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>보안 컨트롤의 4가지 권장 사항 중 3가지를 해결하는 경우 보안 점수가 변경되나요?
 아니요. 단일 리소스에 대한 모든 권장 사항을 수정할 때까지 변경되지 않습니다. 컨트롤에 대해 최대 점수를 얻으려면 모든 리소스에 대해 모든 권장 사항을 수정해야 합니다.
 
 ### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>이전 보안 점수 환경을 계속 사용할 수 있나요? 
-예. 당분간은 용이한 전환을 지원하기 위해 두 환경이 함께 실행됩니다. 이전 모델은 단계별로 중단될 것입니다. 
+아니요. 에 대해 나란히 실행 되는 동안에는 쉽게 전환할 수 있습니다. 이전 모델은 이제 사용 되지 않습니다. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>권장 사항이 나에게 적용되지 않는 경우 정책에서 사용하지 않도록 설정해도 보안 컨트롤이 이행되고 보안 점수가 업데이트되나요?
 예. 사용자 환경에 적용할 수 없는 경우 권장 사항을 사용하지 않도록 설정하는 것이 좋습니다. 특정 권장 사항을 사용하지 않도록 설정하는 방법에 대한 지침은 [보안 정책 사용 안 함](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies)을 참조하세요.

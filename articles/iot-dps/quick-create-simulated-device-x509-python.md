@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 0c54b862704905b282869c5f2e9c374a173897ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 92e224448d26c24c073bd81b7f9e001fa8a09898
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609916"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044688"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>빠른 시작: IoT Hub Device Provisioning Service용 Python 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 
@@ -22,7 +22,7 @@ ms.locfileid: "84609916"
 
 이 빠른 시작에서는 Windows 컴퓨터에서 시뮬레이션된 X.509 디바이스를 만듭니다. 디바이스 Python 코드 샘플을 사용하여 DPS(Device Provisioning Service)에서 개별 등록을 통해 이 시뮬레이션된 디바이스를 IoT 허브에 연결합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [자동 프로비저닝 개념](concepts-auto-provisioning.md) 검토
 - [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
@@ -87,15 +87,17 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 3. 출력 창에서 메시지가 표시되면 개별 등록에 대한 `i`를 입력합니다. 출력 창에는 시뮬레이션된 디바이스에 대해 로컬로 생성된 X.509 인증서가 표시됩니다. 
     
-    첫 번째 인증서를 클립보드에 복사합니다. 첫 번째 항목으로 시작합니다.
+    ```output
+    Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
         
-    첫 번째 항목이 발견된 후 복사를 종료합니다.
+    End you copying after the first occurrence of:
     
         -----END CERTIFICATE-----
         
-    이러한 줄도 모두 포함해야 합니다. 
+    Make sure to include both of those lines as well.
+    ``` 
 
     ![dice 디바이스 등록 애플리케이션](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  

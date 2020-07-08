@@ -4,14 +4,14 @@ description: 이 문서에서는 관리 ID를 사용하여 Azure SQL DB 출력�
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651963"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045623"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>관리 ID를 사용하여 Azure Stream Analytics 작업에서 Azure SQL Database에 액세스(미리 보기)
 
@@ -70,7 +70,7 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
 다음으로, Azure Active Directory ID에 매핑되는 포함된 데이터베이스 사용자를 SQL Database에 만듭니다. 포함된 데이터베이스 사용자는 master 데이터베이스에 로그인할 수 없지만, 데이터베이스와 연결된 디렉터리의 ID에 매핑됩니다. Azure Active Directory ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 이 경우 Stream Analytics 작업에 대한 포함된 데이터베이스 사용자를 만들어야 합니다. 
 
-1. SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결합니다. **사용자 이름**은 **ALTER ANY USER** 권한이 있는 Azure Active Directory 사용자입니다. SQL Server에서 설정하는 관리자를 예로 들 수 있습니다. **Azure Active Directory - MFA가 지원되는 유니버설** 인증을 사용합니다. 
+1. SQL Server Management Studio를 사용 하 여 SQL Database에 연결 합니다. **사용자 이름**은 **ALTER ANY USER** 권한이 있는 Azure Active Directory 사용자입니다. SQL Server에서 설정하는 관리자를 예로 들 수 있습니다. **Azure Active Directory - MFA가 지원되는 유니버설** 인증을 사용합니다. 
 
    ![SQL Server에 연결](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
@@ -96,7 +96,7 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
-1. Microsoft Azure Active Directory에서 Stream Analytics 작업이 SQL Database에 액세스했는지 확인하려면 데이터베이스와 통신할 Azure Active Directory 권한을 부여해야 합니다. 이렇게 하려면 Azure Portal의 “방화벽 및 가상 네트워크” 페이지로 다시 이동하여 “Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용”을 사용하도록 설정합니다. 
+1. Microsoft Azure Active Directory에서 Stream Analytics 작업이 SQL Database에 액세스했는지 확인하려면 데이터베이스와 통신할 Azure Active Directory 권한을 부여해야 합니다. 이렇게 하려면 Azure Portal의 "방화벽 및 가상 네트워크" 페이지로 이동 하 고 "Azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용"을 사용 하도록 설정 합니다. 
 
    ![방화벽 및 가상 네트워크](./media/sql-db-output-managed-identity/allow-access.png)
 

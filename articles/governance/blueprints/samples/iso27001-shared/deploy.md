@@ -3,12 +3,12 @@ title: ISO 27001 Shared Services 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 ISO 27001 Shared Services 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: a9dabc99469321445006e449757a10fbc51aba87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19e394f115c87c499f7839c6ef63921e68f4d357
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75920688"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044705"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 배포
 
@@ -110,13 +110,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |허용되는 리소스 유형|정책 할당|허용되는 리소스 유형|배포할 수 있는 리소스 종류 목록입니다. 이 목록은 Shared Services에 배포된 모든 리소스 종류로 구성 됩니다.|
 |허용되는 스토리지 계정 SKU|정책 할당|허용되는 스토리지 SKU|허용되는 진단 로그 스토리지 계정 SKU의 목록입니다. 기본값은 _["Standard_LRS"]_ 입니다.|
 |허용되는 가상 머신 SKU|정책 할당|배포할 수 있는 가상 머신 SKU의 목록입니다. 기본값은 _["Standard_DS1_v2", "Standard_DS2_v2"]_ 입니다.|
-|ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 감사하는 리소스 종류|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
-|Log Analytics 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-sharedsvsc-log-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 감사하는 리소스 종류|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
+|Log Analytics 리소스 그룹|Resource group|Name|**잠김** - **조직 이름**을 `-sharedsvsc-log-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |Log Analytics 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Log Analytics 템플릿|Resource Manager 템플릿|서비스 계층|Log Analytics 작업 영역의 계층을 설정합니다. 기본값은 _PerNode_입니다.|
 |Log Analytics 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
 |Log Analytics 템플릿|Resource Manager 템플릿|위치|Log Analytics 작업 영역을 만드는 데 사용되는 지역입니다. 기본값은 _미국 서부 2_입니다.|
-|네트워크 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-sharedsvcs-net-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|네트워크 리소스 그룹|Resource group|Name|**잠김** - **조직 이름**을 `-sharedsvcs-net-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |네트워크 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Azure Firewall 템플릿|Resource Manager 템플릿|Azure Firewall 프라이빗 IP|[Azure Firewall](../../../../firewall/overview.md)의 프라이빗 IP를 구성합니다. 이 값은 Shared Services 서브넷에 대한 기본 경로 테이블로도 사용됩니다. **Azure Firewall 서브넷 주소 접두사**에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_입니다.|
 |Azure Firewall 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
@@ -128,7 +128,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Application Gateway 서브넷 주소 접두사|애플리케이션 게이트웨이 서브넷에 대한 CIDR 표기법입니다. 기본값은 _10.0.2.0/24_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Virtual Network Gateway 서브넷 주소 접두사|가상 네트워크 게이트웨이 서브넷에 대한 CIDR 표기법입니다. 기본값은 _10.0.3.0/24_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Azure Firewall 서브넷 주소 접두사|[Azure Firewall](../../../../firewall/overview.md) 서브넷에 대한 CIDR 표기법입니다. **Azure Firewall 프라이빗 IP** 매개 변수를 포함해야 합니다.|
-|주요 자격 증명 모음 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-sharedsvcs-kv-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|주요 자격 증명 모음 리소스 그룹|Resource group|Name|**잠김** - **조직 이름**을 `-sharedsvcs-kv-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |주요 자격 증명 모음 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|Jumpbox 관리 사용자 이름|Jumpbox의 사용자 이름입니다. **Jumpbox 템플릿**의 동일한 속성 값과 일치해야 합니다. 기본값은 _jb-admin-user_입니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|Jumpbox 관리자 SSH 키 또는 암호|Jumpbox의 계정에 대한 키 또는 암호입니다. **Jumpbox 템플릿**의 동일한 속성 값과 일치해야 합니다. 기본값은 없으며 비워 둘 수 없습니다.|
@@ -137,13 +137,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Key Vault 템플릿|Resource Manager 템플릿|AAD 개체 ID|Key Vault 인스턴스에 액세스해야 하는 계정의 AAD 개체 ID입니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _개체 ID_ 옆의 “복사하려면 클릭” 아이콘을 선택합니다.  |
 |Key Vault 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
 |Key Vault 템플릿|Resource Manager 템플릿|Key Vault SKU|생성된 Key Vault의 SKU를 지정합니다. 기본값은 _프리미엄_입니다.|
-|Jumpbox 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-sharedsvcs-jb-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|Jumpbox 리소스 그룹|Resource group|Name|**잠김** - **조직 이름**을 `-sharedsvcs-jb-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |Jumpbox 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Jumpbox 템플릿|Resource Manager 템플릿|Jumpbox 관리 사용자 이름|Jumpbox VM에 액세스하는 데 사용되는 사용자 이름입니다. **Key Vault 템플릿**의 동일한 속성 값과 일치해야 합니다. 기본값은 _jb-admin-user_입니다.|
 |Jumpbox 템플릿|Resource Manager 템플릿|Jumpbox 관리자 암호(Key Vault 리소스 ID)|Key Vault의 리소스 ID입니다. "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv"를 사용하고 `{subscriptionId}`를 구독 ID로, `{orgName}`을 **조직 이름** 청사진 매개 변수로 바꿉니다.|
 |Jumpbox 템플릿|Resource Manager 템플릿|Jumpbox 관리자 암호(Key Vault 비밀 이름)|Jumpbox 관리자의 사용자 이름입니다. **Key Vault 템플릿** 속성 **Jumpbox 관리 사용자 이름**의 값과 일치해야 합니다.|
 |Jumpbox 템플릿|Resource Manager 템플릿|Jumpbox 운영 체제|Jumpbox VM의 운영 체제를 결정합니다. 기본값은 _Windows_입니다.|
-|Active Directory Domain Services 리소스 그룹|Resource group|속성|**잠김** - **조직 이름**을 `-sharedsvcs-adds-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
+|Active Directory Domain Services 리소스 그룹|Resource group|Name|**잠김** - **조직 이름**을 `-sharedsvcs-adds-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |Active Directory Domain Services 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Active Directory Domain Services 템플릿|Resource Manager 템플릿|도메인 관리 사용자 이름|ADDS Jumpbox의 사용자 이름입니다. **Key Vault 템플릿**의 동일한 속성 값과 일치해야 합니다. 기본값은 _adds-admin-user_입니다.|
 |Active Directory Domain Services 템플릿|Resource Manager 템플릿|도메인 관리자 암호(Key Vault 리소스 ID)|Key Vault의 리소스 ID입니다. "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv"를 사용하고 `{subscriptionId}`를 구독 ID로, `{orgName}`을 **조직 이름** 청사진 매개 변수로 바꿉니다.|

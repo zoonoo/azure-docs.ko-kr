@@ -66,6 +66,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: 기본 제공 보안 컨트롤
       href: load-balancer-security-controls.md
+    - name: 백 엔드 풀 관리
+      href: backend-pool-management.md
 - name: 방법
   items:
     - name: 가상 머신 크기 집합

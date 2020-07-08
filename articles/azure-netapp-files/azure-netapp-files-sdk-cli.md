@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 93d51681a703258477baa81cc8737fefd4955e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731681"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045470"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDK 및 CLI 도구
 
@@ -33,7 +33,7 @@ ms.locfileid: "82731681"
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/azure-sdk](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/azure-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
-|    이동    |    [Azure/azure-sdk](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Go    |    [Azure/azure-sdk](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/azure-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/netapp) |
 |    JavaScript    |    [Azure/azure-node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/azure--ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
@@ -49,12 +49,7 @@ ms.locfileid: "82731681"
 
 ## <a name="code-samples"></a>코드 샘플
 
-다음 표에서는 참조에 대 한 코드 샘플을 나열 합니다.   
-
-|    언어/도구    |    코드 샘플 설명서    |
-|------------------|--------------------------------------------|
-|    .NET   |    [에 대 한 Azure NetApp Files SDK 샘플입니다. Microsoft.netcore.portable.compatibility](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
-|    Python    |    [Python 용 Azure NetApp Files SDK 샘플](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+[Azure NetApp Files에 대 한 코드 샘플을](https://docs.microsoft.com/samples/browse/?filter-products=netapp&products=azure-netapp-files)참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계   
  [Azure Sdk 다운로드](https://azure.microsoft.com/downloads/)

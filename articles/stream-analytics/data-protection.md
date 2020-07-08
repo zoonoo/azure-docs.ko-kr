@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Stream Analytics 작업에서 사용 하�
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
-ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857293"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045351"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
 
@@ -36,7 +36,7 @@ Stream Analytics 포털을 사용 하 여 키를 저장소 계정으로 업데�
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다. 
 
-1. 결과 목록에서 **Analytics** > **Stream Analytics 작업** 을 선택 합니다. 
+1.  **Analytics**   > 결과 목록에서 Analytics **Stream Analytics 작업**   을 선택 합니다. 
 
 1. 이름, 지역, 크기 등의 필요한 세부 정보를 사용 하 여 Stream Analytics 작업 페이지를 채웁니다. 
 

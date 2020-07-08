@@ -3,12 +3,12 @@ title: ISO 27001 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 독립 실행형 ISO 27001 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9eaf559f0c1e6c99d3a2469d63eddea1c1ae9867
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922514"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044654"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>ISO 27001 청사진 샘플의 배포 단계.
 
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
 |허용되는 스토리지 계정 SKU|정책 할당|허용되는 스토리지 SKU의 목록|스토리지 계정에 대해 지정할 수 있는 SKU 목록입니다.|
 |허용되는 가상 머신 SKU|정책 할당|허용되는 가상 머신 SKU의 목록|가상 머신에 지정할 수 있는 SKU의 목록입니다.|
-|ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
+|ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

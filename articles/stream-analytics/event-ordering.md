@@ -5,18 +5,18 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
-ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75461200"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044569"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Azure Stream Analytics에 대 한 이벤트 순서 정책 구성
 
-이 문서에서는 Azure Stream Analytics에서 지연 도착 및 순서 없는 이벤트 정책을 설정 하 고 사용 하는 방법을 설명 합니다. 이러한 정책은 쿼리에 [TIMESTAMP by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) 절을 사용 하는 경우에만 적용 됩니다.
+이 문서에서는 Azure Stream Analytics에서 지연 도착 및 순서 없는 이벤트 정책을 설정 하 고 사용 하는 방법을 설명 합니다. 이러한 정책은 쿼리에 [타임 스탬프 by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) 절을 사용 하는 경우에만 적용 되며 클라우드 입력 원본에만 적용 됩니다.
 
 ## <a name="event-time-and-arrival-time"></a>이벤트 시간 및 도착 시간
 

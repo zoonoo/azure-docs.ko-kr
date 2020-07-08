@@ -3,12 +3,12 @@ title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 컨트롤
 description: Azure Policy 및 RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 6311d5090c884c70bded7fcf754bc968a5b47b32
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 518c6b86ac658273d428a328b433b35d667d7056
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918617"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044756"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 워크로드 청사진 샘플에 대한 컨트롤 매핑
 
@@ -28,7 +28,7 @@ Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 정보의 분류
 
-Azure의 [SQL Vulnerability Assessment 서비스](/azure/sql-database/sql-vulnerability-assessment)는 데이터베이스에 저장된 중요한 데이터를 검색하는 데 도움이 되며 해당 데이터를 분류하기 위한 권장 사항을 포함합니다. 이 청사진은 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 SQL Vulnerability Assessment 검사 중에 식별된 취약성이 해결되었는지 감사합니다.
+Azure의 [SQL Vulnerability Assessment 서비스](../../../../azure-sql/database/sql-vulnerability-assessment.md)는 데이터베이스에 저장된 중요한 데이터를 검색하는 데 도움이 되며 해당 데이터를 분류하기 위한 권장 사항을 포함합니다. 이 청사진은 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 SQL Vulnerability Assessment 검사 중에 식별된 취약성이 해결되었는지 감사합니다.
 
 - \[미리 보기\]: Azure Security Center에서 SQL 취약성 평가 결과 모니터링
 

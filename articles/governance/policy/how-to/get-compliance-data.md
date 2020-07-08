@@ -3,12 +3,12 @@ title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 53c946c59862451859616cb87d1101ae8fd5f15b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747079"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045198"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -34,7 +34,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 - 범위에 새로 할당된 정책 또는 이니셔티브는 업데이트됩니다. 이 시나리오에 대한 평가 주기 및 타이밍은 범위에 대한 새 할당과 동일합니다.
 
-- 리소스는 Resource Manager, REST, Azure CLI 또는 Azure PowerShell을 통해 할당된 범위에 배포됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
+- 리소스는 Azure Resource Manager, REST, Azure CLI 또는 Azure PowerShell를 통해 할당 된 범위에 배포 됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
 
 - 표준 준수 평가 주기입니다. 24시간마다 한 번씩 할당은 자동으로 다시 계산됩니다. 많은 리소스에 대해 대규모 정책 또는 이니셔티브를 평가하는 데는 시간이 걸릴 수 있습니다. 따라서 평가 주기 완료 시점을 미리 예측할 수 없습니다. 작업이 완료되면 업데이트된 준수 결과는 포털 및 SDK에서 지원됩니다.
 
@@ -148,6 +148,9 @@ Azure Policy는 정의의 **type** 및 **name** 필드를 사용하여 리소스
 _총 리소스 수_는 **준수**, **비준수** 및 **충돌** 상태의 리소스 수를 합한 값으로 정의됩니다. 전체 규정 준수 리소스 수는 **준수** 상태인 고유 리소스의 합을 모든 고유 리소스의 합으로 나눈 결과입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다. 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="규정 준수 페이지에서 정책 준수의 예" border="false":::
+
+> [!NOTE]
+> Azure Policy의 규정 준수는 미리 보기 기능입니다. SDK 및 포털의 페이지에서 준수 속성은 사용 하도록 설정 된 이니셔티브와 다릅니다. 자세한 내용은 [규정 준수](../concepts/regulatory-compliance.md) 를 참조 하세요.
 
 ## <a name="portal"></a>포털
 
@@ -426,7 +429,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[활동 로그 분석 솔루션](../../../azure-monitor/platform/activity-log-collect.md)에서 `AzureActivity`가 있는 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md)이 구독에 연결된 경우 간단한 Kusto 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 비준수 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+[활동 로그 분석 솔루션](../../../azure-monitor/platform/activity-log.md)에서 `AzureActivity`가 있는 [Log Analytics 작업 영역](../../../azure-monitor/log-query/log-query-overview.md)이 구독에 연결된 경우 간단한 Kusto 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 비준수 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Monitor 로그를 사용한 Azure Policy준수" border="false":::
 

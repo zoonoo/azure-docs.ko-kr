@@ -3,12 +3,12 @@ title: 리소스 변경 내용 가져오기
 description: 리소스가 변경된 시기를 찾고 변경된 속성의 목록을 가져오고 차이를 평가하는 방법을 이해합니다.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 9e233ebbdd1d70d483af44eacf12cc924deaafac
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: ace911361ccb96cab3d5c7557ba0e524dbf801d2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167165"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044994"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
@@ -28,7 +28,7 @@ ms.locfileid: "84167165"
 이 문서에서는 Resource Graph의 SDK를 통해 이 정보를 수집하는 방법을 보여 줍니다. Azure Portal에서 이 정보를 보려면 Azure Policy의 [변경 기록](../../policy/how-to/determine-non-compliance.md#change-history) 또는 Azure 활동 로그 [변경 기록](../../../azure-monitor/platform/activity-log-view.md#azure-portal)을 참조하세요. 인프라 계층에서 애플리케이션 배포로 애플리케이션 변경에 대한 자세한 내용은 Azure Monitor에서 [애플리케이션 변경 분석(미리 보기) 사용](../../../azure-monitor/app/change-analysis.md)을 참조하세요.
 
 > [!NOTE]
-> Resource Graph의 변경 정보는 Resource Manager 속성에 대한 것입니다. 가상 머신 내의 변경 내용 추적은 Azure Automation의 [변경 내용 추적](../../../automation/automation-change-tracking.md) 또는 Azure Policy의 [VM에 대한 게스트 구성](../../policy/concepts/guest-configuration.md)을 참조하세요.
+> Resource Graph의 변경 정보는 Resource Manager 속성에 대한 것입니다. 가상 머신 내의 변경 내용 추적은 Azure Automation의 [변경 내용 추적](../../../automation/change-tracking.md) 또는 Azure Policy의 [VM에 대한 게스트 구성](../../policy/concepts/guest-configuration.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Resource Graph의 변경 기록은 공개 미리 보기로 제공됩니다.

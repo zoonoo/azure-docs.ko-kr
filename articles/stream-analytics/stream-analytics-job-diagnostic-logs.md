@@ -5,16 +5,16 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: troubleshooting
+ms.date: 06/18/2020
+ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127760"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044518"
 ---
-# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>리소스 로그를 사용 하 여 Azure Stream Analytics 문제 해결
+# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>리소스 로그를 사용하여 Azure Stream Analytics 문제 해결
 
 경우에 따라 Azure Stream Analytics 작업이 예기치 않게 처리를 중지합니다. 이 이벤트 종류의 문제를 해결하는 것이 중요합니다. 오류는 예기치 않은 쿼리 결과, 디바이스에 대한 연결 또는 예기치 않은 서비스 중단으로 인해 발생할 수 있습니다. Stream Analytics의 리소스 로그를 통해 발생 하는 문제의 원인을 파악 하 고 복구 시간을 줄일 수 있습니다.
 
@@ -59,23 +59,23 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 리소스 로그를 켜고 Azure Monitor 로그로 전송 하는 것이 좋습니다. 기본적으로 **해제** 되어 있습니다. 설정 하려면 다음 단계를 완료 합니다.
 
-1.  Azure Portal에 로그인하고 Stream Analytics 작업으로 이동합니다. **모니터링** 아래에서 **진단 로그**를 선택합니다. 다음으로, **진단 켜기**를 선택합니다.
+1.  아직 없는 경우 [Log Analytics 작업 영역을 만듭니다](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) . Stream Analytics 작업과 동일한 지역에 Log Analytics 작업 영역을 포함 하는 것이 좋습니다.
+
+2.  Azure Portal에 로그인하고 Stream Analytics 작업으로 이동합니다. **모니터링** 아래에서 **진단 로그**를 선택합니다. 다음으로, **진단 켜기**를 선택합니다.
 
     ![리소스 로그에 대 한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  **진단 설정**에서 **이름**을 만들고 **Log Analytics에 보내기** 옆에 있는 상자를 선택합니다. 그런 다음, 기존 **Log Analytics 작업 영역**을 추가하거나 새 작업 영역을 만듭니다. **로그** 아래에서 **실행** 및 **작성** 상자를 선택하고 **메트릭** 아래에서 **AllMetrics** 상자를 선택합니다. **저장**을 클릭합니다. 추가 비용을 방지 하기 위해 Stream Analytics 작업과 동일한 Azure 지역에서 Log Analytics 작업 영역을 사용 하는 것이 좋습니다.
+2.  **진단 설정 이름** 에 **이름을** 입력 하 고, **로그**에서 **실행** 및 **제작** 확인란을 선택 하 고, 메트릭 아래의 **allmetrics**확인란을 선택 합니다. **AllMetrics** 그런 다음 **Log Analytics 보내기를** 선택 하 고 작업 영역을 선택 합니다. **저장**을 클릭합니다.
 
-    ![리소스 로그 설정](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![리소스 로그 설정](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Stream Analytics 작업이 시작 되 면 리소스 로그가 Log Analytics 작업 영역으로 라우팅됩니다. 작업에 대 한 리소스 로그를 보려면 **모니터링** 섹션에서 **로그** 를 선택 합니다.
 
    ![모니터링 중인 리소스 로그](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics는 관심 있는 로그를 쉽게 검색할 수 있는 미리 정의 된 쿼리를 제공 합니다. 세 가지 범주에는 **일반**, **입력 데이터 오류** 및 **출력 데이터 오류가**있습니다. 예를 들어 지난 7 일 동안 작업의 모든 오류에 대 한 요약을 보려면 미리 정의 된 적절 한 쿼리 **실행** 을 선택할 수 있습니다. 
+4. Stream Analytics는 관심 있는 로그를 쉽게 검색할 수 있는 미리 정의 된 쿼리를 제공 합니다. 왼쪽 창에서 미리 정의 된 쿼리를 선택 하 고 **실행**을 선택할 수 있습니다. 아래쪽 창에 쿼리 결과가 표시 됩니다. 
 
-   ![모니터링 중인 리소스 로그](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
-
-   ![로그 결과](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
+   ![모니터링 중인 리소스 로그](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>리소스 로그 범주
 
@@ -94,14 +94,14 @@ Azure Stream Analytics는 두 가지 범주의 리소스 로그를 캡처합니�
 
 모든 로그는 JSON 형식으로 저장됩니다. 각 항목에는 다음과 같은 일반적인 문자열 필드가 있습니다.
 
-속성 | Description
+이름 | 설명
 ------- | -------
 time | 로그의 타임스탬프(UTC)입니다.
 resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | 로그 범주로, **실행** 또는 **작성** 중 하나입니다.
 operationName | 기록된 작업의 이름 예 **: 이벤트 전송: 전송: mysqloutput에 대 한 SQL 출력 쓰기 실패**
 상태 | 작업의 상태입니다. 예: **실패** 또는 **성공**.
-level | 로그 수준. 예: **오류**, **경고** 또는 **정보**.
+수준 | 로그 수준. 예: **오류**, **경고** 또는 **정보**.
 properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩니다. 자세한 내용은 이 문서의 다음 섹션을 참조하세요.
 
 ### <a name="execution-log-properties-schema"></a>실행 로그 속성 스키마
@@ -112,11 +112,11 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 
 작업이 데이터를 처리하는 동안 발생한 오류는 이 로그 범주에 속합니다. 이러한 로그는 데이터 읽기, serialization 및 쓰기 작업 도중에 가장 자주 생성됩니다. 이러한 로그는 연결 오류를 포함하지 않습니다. 연결 오류는 일반 이벤트로 처리됩니다. 다양 한 [입력 및 출력 데이터 오류의](https://docs.microsoft.com/azure/stream-analytics/data-errors)원인에 대해 자세히 알아볼 수 있습니다.
 
-속성 | Description
+이름 | 설명
 ------- | -------
 원본 | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
 메시지 | 오류와 연결된 메시지
-Type | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
+형식 | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
 데이터 | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
@@ -133,11 +133,11 @@ Type | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 
 
 일반 이벤트는 다른 모든 항목을 처리합니다.
 
-속성 | Description
+이름 | 설명
 -------- | --------
-오류 | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
+Error | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
 메시지| 로그 메시지
-Type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
+형식 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

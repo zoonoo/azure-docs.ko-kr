@@ -5,21 +5,21 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44b84c03dd9c070fd7ca3764a0dc50e8caa9e1fc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354558"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045164"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
 
 이 자습서에서는 Visual Studio 용 Stream Analytics 도구를 사용 하는 방법에 대해 알아봅니다. Stream Analytics Edge 작업을 작성 하 고, 디버그 하 고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 디바이스에 배포할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "75354558"
  
 ## <a name="create-a-stream-analytics-edge-project"></a>Stream Analytics Edge 프로젝트 만들기 
 
-Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택 합니다. 왼쪽의 **템플릿** 목록으로 이동하고, **Azure Stream Analytics** > **Stream Analytics Edge** > **Azure Stream Analytics Edge 애플리케이션**을 차례로 펼칩니다. 프로젝트에 대한 이름, 위치 및 솔루션 이름을 제공하고 **확인**을 선택합니다.
+Visual Studio에서 **파일**  >  **새로 만들기**  >  **프로젝트**를 선택 합니다. 왼쪽의 **템플릿** 목록으로 이동하고, **Azure Stream Analytics** > **Stream Analytics Edge** > **Azure Stream Analytics Edge 애플리케이션**을 차례로 펼칩니다. 프로젝트에 대한 이름, 위치 및 솔루션 이름을 제공하고 **확인**을 선택합니다.
 
 ![Visual Studio의 새 Stream Analytics Edge 프로젝트](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
@@ -121,6 +121,6 @@ FROM EdgeInput
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure IoT Edge에 대한 추가 정보](../iot-edge/about-iot-edge.md)
+* [Azure IoT Edge에 대 한 자세한 정보](../iot-edge/about-iot-edge.md)
 * [IoT Edge의 ASA 자습서](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [이 설문 조사를 사용하여 팀에 의견 보내기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

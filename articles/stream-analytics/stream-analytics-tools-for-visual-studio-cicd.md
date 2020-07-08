@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56fb677ca80c047fb90c58a3e0aedb41e6d4a3f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354451"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045096"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 통합 및 개발 
 이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 지속적인 통합 및 배포 프로세스를 설정 하는 방법을 설명 합니다.
@@ -34,13 +34,17 @@ MSBuild에 대한 지원을 제공하기 위해 2.3.0000.0 이상 버전의 [Vis
 
 Stream Analytics Visual Studio 프로젝트가 성공적으로 빌드되면 **bin/[Debug/Retail]/Deploy** 폴더 아래에 다음 두 Azure Resource Manager 템플릿 파일이 생성됩니다. 
 
-*  Resource Manager 템플릿 파일
+* Resource Manager 템플릿 파일
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  Resource Manager 매개 변수 파일
-
-       [ProjectName].JobTemplate.parameters.json   
+* Resource Manager 매개 변수 파일
+   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```
 
 Parameters.json 파일의 기본 매개 변수는 Visual Studio 프로젝트의 설정에서 가져옵니다. 다른 환경에 배포하려면 해당 매개 변수를 적절하게 바꾸면 됩니다.
 
@@ -83,7 +87,7 @@ localrun -Project [ProjectFullPath]
 ```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
-예제:
+예:
 ```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```

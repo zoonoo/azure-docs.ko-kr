@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186019"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045504"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -61,7 +61,7 @@ ms.locfileid: "82186019"
 - 각 서브넷에는 가상 네트워크의 주소 공간 내에 CIDR 형식으로 지정된 고유한 주소 범위가 있어야 합니다. 주소 범위는 가상 네트워크의 다른 서브넷과 겹칠 수 없습니다.
 - 일부 Azure 서비스 리소스를 가상 네트워크에 배포하려는 경우 고유한 서브넷을 만들거나 필요할 수 있으므로 이를 위해 할당되지 않은 충분한 공간이 있어야 합니다. Azure 서비스에서 자체 서브넷을 만드는지 여부를 확인하려면 [가상 네트워크에 배포할 수 있는 각 Azure 서비스](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 대한 정보를 참조하세요. 예를 들어 Azure VPN 게이트웨이를 사용하여 온-프레미스 네트워크에 가상 네트워크를 연결하는 경우 가상 네트워크에 해당 게이트웨이 전용 서브넷이 있어야 합니다. 자세한 내용은 [게이트웨이 서브넷](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)을 참조하세요.
 - 기본적으로 Azure에서는 가상 네트워크 내의 모든 서브넷 간에 네트워크 트래픽을 라우팅합니다. 서브넷 간의 Azure 라우팅을 방지하거나 네트워크 가상 어플라이언스를 통해 서브넷 간에 트래픽을 라우팅하도록 Azure의 기본 라우팅을 재정의할 수 있습니다. NVA(네트워크 가상 어플라이언스)를 통해 동일한 가상 네트워크 흐름에서 리소스 간에 이러한 트래픽이 필요한 경우 서로 다른 서브넷에 리소스를 배포합니다. 자세한 내용을 [보안](#security)을 참조하세요.
-- Azure Storage 계정 또는 Azure SQL 데이터베이스와 같은 Azure 리소스에 대한 액세스를 가상 네트워크 서비스 엔드포인트가 있는 특정 서브넷으로 제한할 수 있습니다. 또한 인터넷에서 리소스에 대한 액세스를 거부할 수 있습니다. 여러 서브넷을 만들고 일부 서브넷의 서비스 엔드포인트만 사용하도록 설정할 수 있습니다. [서비스 엔드포인트](virtual-network-service-endpoints-overview.md) 및 이를 사용하도록 설정할 수 있는 Azure 리소스에 대해 자세히 알아보세요.
+- Azure storage 계정 또는 Azure SQL Database와 같은 Azure 리소스에 대 한 액세스를 가상 네트워크 서비스 끝점을 사용 하는 특정 서브넷으로 제한할 수 있습니다. 또한 인터넷에서 리소스에 대한 액세스를 거부할 수 있습니다. 여러 서브넷을 만들고 일부 서브넷의 서비스 엔드포인트만 사용하도록 설정할 수 있습니다. [서비스 엔드포인트](virtual-network-service-endpoints-overview.md) 및 이를 사용하도록 설정할 수 있는 Azure 리소스에 대해 자세히 알아보세요.
 - 가상 네트워크의 각 서브넷에 하나의 네트워크 보안 그룹을 연결하거나 연결하지 않을 수 있습니다. 각 서브넷에 동일하거나 다른 네트워크 보안 그룹을 연결할 수 있습니다. 각 네트워크 보안 그룹에는 원본과 대상 간의 트래픽을 허용하거나 거부하는 규칙이 있습니다. [네트워크 보안 그룹](#traffic-filtering)에 대해 자세히 알아보세요.
 
 ## <a name="security"></a>보안
@@ -103,7 +103,7 @@ Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2
 
 특정 가상 네트워크의 리소스는 Azure의 [기본 제공 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md)를 사용하여 피어링된 가상 네트워크 내 리소스의 이름을 확인할 수 없습니다. 피어링된 가상 네트워크에서 이름을 확인하려면 [자체 DNS 서버를 배포](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)하거나 [Azure DNS 프라이빗 도메인](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용합니다. 가상 네트워크와 온-프레미스 네트워크의 리소스 간에 이름을 확인하려면 자체 DNS 서버도 배포해야 합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Azure에서는 리소스에 대한 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 활용합니다. 권한은 관리 그룹, 구독, 리소스 그룹 및 개별 리소스 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) 에 할당 됩니다. 계층에 대한 자세한 내용은 [리소스 구성](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 엔드포인트 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 엔드포인트](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md#permissions), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 애플리케이션 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
 

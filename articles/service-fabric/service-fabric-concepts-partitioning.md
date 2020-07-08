@@ -3,12 +3,12 @@ title: 서비스 패브릭 서비스 분할
 description: Service Fabric 상태 저장 서비스를 분할하는 방법을 설명합니다. 파티션을 사용하면 로컬 머신에 데이터가 스토리지되므로 데이터와 컴퓨팅을 함께 확장할 수 있습니다.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115156"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045419"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -21,11 +21,11 @@ ms.locfileid: "81115156"
 
 ![상태 비저장 서비스](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-실제로 두 종류의 상태 비저장 서비스 솔루션이 있습니다. 첫 번째는 Azure SQL 데이터베이스처럼 외부적으로 상태를 유지하는 서비스(세션 정보 및 데이터를 저장하는 웹 사이트처럼)입니다. 두 번째는 모든 영구적 상태를 관리하지 않는 계산 전용 서비스(예: 계산기 또는 이미지 미리 보기)입니다.
+실제로 두 종류의 상태 비저장 서비스 솔루션이 있습니다. 첫 번째는 Azure SQL Database의 데이터베이스 (예: 세션 정보 및 데이터를 저장 하는 웹 사이트)와 같이 외부에서 상태를 유지 하는 서비스입니다. 두 번째는 모든 영구적 상태를 관리하지 않는 계산 전용 서비스(예: 계산기 또는 이미지 미리 보기)입니다.
 
 두 경우 모두 상태 비저장 서비스 분할은 매우 드문 시나리오이며 확장성 및 가용성은 일반적으로 더 많은 인스턴스를 추가하여 이루어집니다. 상태 비저장 서비스 인스턴스에 대한 여러 파티션을 고려하려는 경우는 특별한 라우팅 요청을 충족해야 하는 때입니다.
 
-한 예로 특정 범위의 ID가 있는 사용자가 특정한 서비스 인스턴스로만 제공되어야 하는 경우 고려합니다. 상태 비저장 서비스를 분할할 수 있는 경우의 다른 예는 분할된 SQL 데이터베이스와 같은 실제로 분할된 백 엔드가 있는 경우와 데이터베이스 분할에 작성하거나 백 엔드에서 사용되므로 동일한 분할 정보가 필요한 상태 비저장 서비스 내에서 다른 준비 작업을 수행해야 하는 서비스 인스턴스를 제어하려는 경우입니다. 이러한 유형의 시나리오는 다른 방법으로 해결될 수 있으며 서비스 분할이 반드시 필요하지 않습니다.
+한 예로 특정 범위의 ID가 있는 사용자가 특정한 서비스 인스턴스로만 제공되어야 하는 경우 고려합니다. 상태 비저장 서비스를 분할할 수 있는 또 다른 예는 진정한 분할 된 백 엔드가 있는 경우 (예: SQL Database의 분할 된 데이터베이스), 데이터베이스 분할에 써야 하는 서비스 인스턴스를 제어 하려는 경우, 또는 상태 비저장 서비스 내에서 백 엔드에서 사용 되는 것과 동일한 분할 정보를 요구 하는 다른 준비 작업을 수행 하는 경우입니다. 이러한 유형의 시나리오는 다른 방법으로 해결될 수 있으며 서비스 분할이 반드시 필요하지 않습니다.
 
 이 연습의 나머지 부분에서는 상태 저장 서비스에 중점을 둡니다.
 
@@ -115,7 +115,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 > 
 > 
 
-1. **Visual Studio** > **파일** > **New**새 > **프로젝트**를 엽니다.
+1. **Visual Studio**  >  **파일**  >  **새**  >  **프로젝트**를 엽니다.
 2. **새 프로젝트** 대화 상자에서 Service Fabric 애플리케이션을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 이름을 "Alphabet.Processing"으로 지정합니다.

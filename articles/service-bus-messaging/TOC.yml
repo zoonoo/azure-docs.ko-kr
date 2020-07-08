@@ -182,6 +182,10 @@
           href: service-bus-nodejs-how-to-use-queues.md
         - name: 메시지 게시 및 구독(레거시 azure-sb)
           href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+    - name: 통합
+      items:
+        - name: RabbitMQ와 통합
+          href: service-bus-integrate-with-rabbitmq.md
     - name: 관리
       items:
         - name: 자동으로 메시징 단위 업데이트

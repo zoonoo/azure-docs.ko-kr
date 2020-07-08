@@ -5,19 +5,19 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
-ms.topic: conceptual
-ms.openlocfilehash: c29d0d9ecd856ee9611df21d23b1b2b763e24652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: a47b641f4f5049beb605490122a33d407ac3e222
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75486470"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044365"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Visual Studio Code를 통해 샘플 데이터를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
 Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 샘플 데이터를 사용 하 여 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. JSON 파일에서 프로젝트의 **Localrunoutputs** 폴더에 있는 쿼리 결과를 찾을 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [.Net CORE SDK](https://dotnet.microsoft.com/download) 를 설치 하 고 Visual Studio Code를 다시 시작 합니다.
 
@@ -35,7 +35,7 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 샘플 데이
 
 ## <a name="define-a-local-input"></a>로컬 입력 정의
 
-1. Stream Analytics 프로젝트의 입력 폴더에서 **input. json** 을 클릭 합니다. 그런 다음 맨 위 줄에서 **로컬 입력 추가** 를 선택 합니다.
+1. Stream Analytics 프로젝트의 입력 폴더에서 **input.js를** 클릭 합니다. 그런 다음 맨 위 줄에서 **로컬 입력 추가** 를 선택 합니다.
 
     ![프로젝트에서 로컬 입력 추가](./media/quick-create-vs-code/add-input-from-project.png)
 
@@ -55,7 +55,7 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 샘플 데이
 
     ![새 GLOBAL.ASA 로컬 입력 별칭 추가](./media/vscode-local-run/new-local-input-alias.png)
 
-5. 새로 생성 된 **LocalInput_Input json** 파일에서 로컬 데이터 파일이 있는 파일 경로를 입력 합니다.
+5. 새로 생성 된 **LocalInput_Input.js** 파일에서 로컬 데이터 파일이 있는 파일 경로를 입력 합니다.
 
     ![Visual Studio에서 로컬 파일 경로 입력](./media/vscode-local-run/local-file-path.png)
 

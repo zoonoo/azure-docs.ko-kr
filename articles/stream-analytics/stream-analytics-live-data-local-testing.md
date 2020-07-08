@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840488"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044467"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트(미리 보기)
 
@@ -23,7 +23,7 @@ Azure Stream Analytics Tools for Visual Studio를 사용하면 Azure Event Hub, 
 
 지원되는 로컬 테스트 옵션은 다음과 같습니다.
 
-|**입력**  |**출력**  |**작업 유형**  |
+|**Input**  |**출력**  |**작업 유형**  |
 |---------|---------|---------|
 |정적 로컬 데이터   |  정적 로컬 데이터   |   클라우드/에지 |
 |라이브 입력 데이터   |  정적 로컬 데이터   |   클라우드 |

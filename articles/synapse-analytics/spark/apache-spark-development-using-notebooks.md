@@ -1,24 +1,25 @@
 ---
-title: Azure Synapse Studio(미리 보기) Notebook 만들기, 개발 및 유지 관리
+title: Synapse Studio 노트북
 description: 이 문서에서는 데이터 준비 및 시각화를 수행하기 위해 Azure Synapse Studio(미리 보기) Notebook을 만들고 개발하는 방법을 알아봅니다.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702104"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045691"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Azure Synapse Studio(미리 보기) Notebook 만들기, 개발 및 유지 관리
+# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Studio (미리 보기) 노트북 만들기, 개발 및 유지 관리
 
-Azure Synapse Studio(미리 보기) Notebook은 라이브 코드, 시각화 및 이야기 텍스트를 만들 수 있는 웹 인터페이스입니다. Notebook은 아이디어를 검증하고 빠른 실험을 사용하여 데이터를 통해 인사이트를 확보하기 좋은 도구입니다. Notebook은 데이터 준비, 데이터 시각화, 기계 학습 및 기타 빅 데이터 시나리오에서도 널리 사용됩니다.
+Synapse Studio (미리 보기) 노트북은 라이브 코드, 시각화 및 설명을 포함 하는 파일을 만들 수 있는 웹 인터페이스입니다. Notebook은 아이디어를 검증하고 빠른 실험을 사용하여 데이터를 통해 인사이트를 확보하기 좋은 도구입니다. Notebook은 데이터 준비, 데이터 시각화, 기계 학습 및 기타 빅 데이터 시나리오에서도 널리 사용됩니다.
 
 Azure Synapse Studio Notebook을 사용하면 다음이 가능합니다.
 
@@ -109,7 +110,7 @@ Synapse Studio Notebook의 여러 언어 간에 직접 데이터나 변수를 �
 
 ### <a name="ide-style-intellisense"></a>IDE 스타일 IntelliSense
 
-Azure Synapse Studio Notebook은 Monaco 편집기와 통합되어 IDE 스타일 IntelliSense를 셀 편집기로 가져옵니다. 구문 강조 표시, 오류 표식 및 자동 코드 완성 기능은 신속하게 코드를 작성하고 문제를 식별하는 데 유용합니다.
+Azure Synapse Studio Notebook은 Monaco 편집기와 통합되어 IDE 스타일 IntelliSense를 셀 편집기로 가져옵니다. 구문 강조 표시, 오류 표식 및 자동 코드 완성을 통해 코드를 작성 하 고 문제를 더 빠르게 식별할 수 있습니다.
 
 IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되는 기능은 아래 표를 참조하세요.
 
@@ -343,7 +344,7 @@ Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. 편집 모드에서는 편집기 영역에 입력하라는 텍스트 커서가 표시됩니다. 셀이 편집 모드에 있으면 셀에 입력할 수 없습니다. `Enter` 키를 누르거나 마우스를 사용하여 셀의 편집기 영역을 클릭하면 편집 모드로 전환됩니다.
+2. 편집 모드에서는 편집기 영역에 입력하라는 텍스트 커서가 표시됩니다. 셀이 편집 모드에 있는 경우 셀에 입력할 수 있습니다. `Enter` 키를 누르거나 마우스를 사용하여 셀의 편집기 영역을 클릭하면 편집 모드로 전환됩니다.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
