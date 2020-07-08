@@ -10,18 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 514f8e86d6bd28cc5212e0f0058f00e270f43e35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128427"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078131"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 보고서 및 로그 보기
 
@@ -79,21 +78,21 @@ Azure AD 자격 관리 보고서 및 Azure AD 감사 로그는 사용자가 액�
 
 ## <a name="determine-the-status-of-a-users-request"></a>사용자의 요청 상태 확인
 
-사용자가 액세스 패키지에 대 한 액세스를 요청 하 고 수신 하는 방법에 대 한 자세한 내용을 보려면 Azure AD 감사 로그를 사용할 수 있습니다. 특히 `EntitlementManagement` 및 `UserManagement` 범주의 로그 레코드를 사용 하 여 각 요청에 대 한 처리 단계에 대 한 추가 정보를 가져올 수 있습니다.  
+사용자가 액세스 패키지에 대 한 액세스를 요청 하 고 수신 하는 방법에 대 한 자세한 내용을 보려면 Azure AD 감사 로그를 사용할 수 있습니다. 특히 및 범주의 로그 레코드를 사용 `EntitlementManagement` `UserManagement` 하 여 각 요청에 대 한 처리 단계에 대 한 추가 정보를 가져올 수 있습니다.  
 
 1. **Azure Active Directory** 클릭 하 고 **감사 로그**를 클릭 합니다.
 
-1. 위쪽에서 검색 하려는 감사 레코드 **Category** 에 따라 범주 `EntitlementManagement` 를 `UserManagement`또는로 변경 합니다.  
+1. 위쪽에서 **Category** `EntitlementManagement` `UserManagement` 검색 하려는 감사 레코드에 따라 범주를 또는로 변경 합니다.  
 
 1. **적용**을 클릭합니다.
 
 1. 로그를 다운로드 하려면 **다운로드**를 클릭 합니다.
 
-Azure AD가 새 요청을 받으면 **범주가** 이 `EntitlementManagement` 고 **활동이** 일반적으로 `User requests access package assignment`인 감사 레코드를 작성 합니다.  Azure Portal에서 생성 된 직접 할당의 경우 감사 레코드의 **작업** 필드는이 `Administrator directly assigns user to access package`고 할당을 수행 하는 사용자는 **ActorUserPrincipalName**로 식별 됩니다.
+Azure AD가 새 요청을 받으면 **범주가** 이 `EntitlementManagement` 고 **활동이** 일반적으로 인 감사 레코드를 작성 `User requests access package assignment` 합니다.  Azure Portal에서 생성 된 직접 할당의 경우 감사 레코드의 **작업** 필드는이 `Administrator directly assigns user to access package` 고 할당을 수행 하는 사용자는 **ActorUserPrincipalName**로 식별 됩니다.
 
 다음을 포함 하 여 요청이 진행 되는 동안 Azure AD에서 추가 감사 레코드를 작성 합니다.
 
-| 범주 | 작업 | 요청 상태 |
+| 범주 | 활동 | 요청 상태 |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | 요청에 승인이 필요 하지 않음 |
 | `UserManagement` | `Create request approval` | 요청에 승인이 필요 함 |
@@ -101,11 +100,11 @@ Azure AD가 새 요청을 받으면 **범주가** 이 `EntitlementManagement` �
 | `EntitlementManagement` | `Approve access package assignment request` | 승인 된 요청 |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |요청이 승인 되었거나 승인이 필요 하지 않음 |
 
-사용자에 게 액세스 권한이 할당 되 면 Azure AD는 **활동** `Fulfill access package assignment`을 사용 하 `EntitlementManagement` 여 범주에 대 한 감사 레코드를 작성 합니다.  액세스를 받은 사용자는 **ActorUserPrincipalName** 필드로 식별 됩니다.
+사용자에 게 액세스 권한이 할당 되 면 Azure AD는 `EntitlementManagement` **활동** 을 사용 하 여 범주에 대 한 감사 레코드를 작성 `Fulfill access package assignment` 합니다.  액세스를 받은 사용자는 **ActorUserPrincipalName** 필드로 식별 됩니다.
 
-액세스가 할당 되지 않은 경우 Azure AD는 승인자가 요청을 거부 한 경우 `EntitlementManagement` **활동이** `Deny access package assignment request`있는 범주에 대 한 감사 레코드를 기록 하거나 `Access package assignment request timed out (no approver action taken)`승인자가 승인할 수 있도록 요청 시간이 초과 된 경우을 (를) 기록 합니다.
+액세스가 할당 되지 않은 경우 Azure AD는 `EntitlementManagement` 승인자가 요청을 거부 한 경우 **활동이** 있는 범주에 대 한 감사 레코드를 기록 `Deny access package assignment request` 하거나 `Access package assignment request timed out (no approver action taken)` 승인자가 승인할 수 있도록 요청 시간이 초과 된 경우을 (를) 기록 합니다.
 
-사용자의 액세스 패키지 할당이 만료 되거나 사용자가 취소 하거나 관리자가 제거 하면 Azure AD는 **활동** 을 포함 하는 `Remove access package assignment` `EntitlementManagement` 범주에 대 한 감사 레코드를 작성 합니다.
+사용자의 액세스 패키지 할당이 만료 되거나 사용자가 취소 하거나 관리자가 제거 하면 Azure AD는 `EntitlementManagement` **활동** 을 포함 하는 범주에 대 한 감사 레코드를 작성 `Remove access package assignment` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

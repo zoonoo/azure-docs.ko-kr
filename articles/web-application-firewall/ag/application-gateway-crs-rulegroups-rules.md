@@ -8,12 +8,11 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 59409c428aba938c49fc37647db82f30d783a629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052027"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
 
@@ -40,7 +39,10 @@ WAF는 다음과 같은 웹 취약점 으로부터 보호 합니다.
 
 다음 표와 같이 CRS 3.1에는 13 개의 규칙 그룹이 포함 되어 있습니다. 각 그룹은 사용 하지 않도록 설정할 수 있는 여러 규칙을 포함 합니다.
 
-|규칙 그룹|Description|
+> [!NOTE]
+> CR 3.1은 WAF_v2 SKU 에서만 사용할 수 있습니다.
+
+|규칙 그룹|설명|
 |---|---|
 |**[일반](#general-31)**|일반 그룹|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|잠금 해제 방법 (PUT, PATCH)|
@@ -60,7 +62,7 @@ WAF는 다음과 같은 웹 취약점 으로부터 보호 합니다.
 
 다음 표와 같이 CRS 3.0에는 12 개의 규칙 그룹이 포함 되어 있습니다. 각 그룹은 사용 하지 않도록 설정할 수 있는 여러 규칙을 포함 합니다.
 
-|규칙 그룹|Description|
+|규칙 그룹|설명|
 |---|---|
 |**[일반](#general-30)**|일반 그룹|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|잠금 해제 방법 (PUT, PATCH)|
@@ -79,7 +81,7 @@ WAF는 다음과 같은 웹 취약점 으로부터 보호 합니다.
 
 다음 표와 같이 CRS 2.2.9는 10 개의 규칙 그룹을 포함 합니다. 각 그룹은 사용 하지 않도록 설정할 수 있는 여러 규칙을 포함 합니다.
 
-|규칙 그룹|Description|
+|규칙 그룹|설명|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|프로토콜 위반 방지 (예: 잘못 된 문자 또는 요청 본문으로 가져오기)|
 |**[crs_21_protocol_anomalies](#crs21)**|잘못 된 헤더 정보 로부터 보호|
@@ -100,20 +102,20 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">일반</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |200004|가능한 다중 파트 일치하지 않는 경계.|
 
 ### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-31"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |911100|정책에서 허용하지 않는 메서드|
 
 
 ### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-31"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |913100|보안 스캐너와 연결된 사용자-에이전트 발견|
 |913101|스크립팅/일반 HTTP 클라이언트와 연결된 사용자-에이전트 발견|
@@ -124,7 +126,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |920100|잘못된 HTTP 요청 줄|
 |920120|다중 파트/폼 데이터 바이패스 시도|
@@ -176,7 +178,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |921110|HTTP 요청 밀반입 공격|
 |921120|HTTP 응답 분할 공격|
@@ -190,7 +192,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |930100|경로 탐색 공격(/../)|
 |930110|경로 탐색 공격(/../)|
@@ -199,7 +201,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |931100|가능한 원격 파일 포함(RFI) 공격 = IP 주소를 사용하는 URL 매개 변수|
 |931110|가능한 원격 파일 포함(RFI) 공격 = 일반 RFI 취약한 매개 변수 이름이 URL 페이로드에 사용됨|
@@ -208,7 +210,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |932100|원격 명령 실행: Unix 명령 삽입|
 |932105|원격 명령 실행: Unix 명령 삽입|
@@ -227,7 +229,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |933100|PHP 삽입 공격 = 여는/닫는 태그 발견|
 |933110|PHP 삽입 공격 = PHP 스크립트 파일 업로드 발견|
@@ -246,7 +248,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |941100|libinjection을 통한 XSS 공격 감지됨|
 |941101|libinjection을 통한 XSS 공격 감지됨|
@@ -278,7 +280,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
 |942110|SQL 삽입 공격: 일반적인 주입 테스트가 검색 됨|
@@ -328,7 +330,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |943100|가능한 세션 고정 공격 = HTML의 쿠키 값 설정|
 |943110|가능한 세션 고정 공격 = 오프-도메인 참조 페이지가 있는 SessionID 매개 변수 이름|
@@ -336,7 +338,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">요청-944-응용 프로그램-공격-세션-JAVA</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |944120|가능한 페이로드 실행 및 원격 명령 실행|
 |944130|의심 스러운 Java 클래스|
@@ -348,20 +350,20 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">일반</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |200004|가능한 다중 파트 일치하지 않는 경계.|
 
 ### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-30"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |911100|정책에서 허용하지 않는 메서드|
 
 
 ### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-30"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |913100|보안 스캐너와 연결된 사용자-에이전트 발견|
 |913110|보안 스캐너와 연결된 요청 헤더 발견|
@@ -371,7 +373,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |920100|잘못된 HTTP 요청 줄|
 |920130|요청 본문을 구문 분석하지 못했습니다.|
@@ -417,7 +419,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |921100|HTTP 요청 스머글링 공격.|
 |921110|HTTP 요청 밀반입 공격|
@@ -432,7 +434,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |930100|경로 탐색 공격(/../)|
 |930110|경로 탐색 공격(/../)|
@@ -441,7 +443,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |931100|가능한 원격 파일 포함(RFI) 공격 = IP 주소를 사용하는 URL 매개 변수|
 |931110|가능한 원격 파일 포함(RFI) 공격 = 일반 RFI 취약한 매개 변수 이름이 URL 페이로드에 사용됨|
@@ -450,7 +452,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |932120|원격 명령 실행 = Windows PowerShell 명령 발견|
 |932130|원격 명령 실행 = Unix 셸 식 발견|
@@ -461,7 +463,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |933100|PHP 삽입 공격 = 여는/닫는 태그 발견|
 |933110|PHP 삽입 공격 = PHP 스크립트 파일 업로드 발견|
@@ -477,7 +479,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |941100|libinjection을 통한 XSS 공격 감지됨|
 |941110|XSS 필터 - 범주 1 = 스크립트 태그 벡터|
@@ -504,7 +506,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
 |942110|SQL 삽입 공격: 일반적인 주입 테스트가 검색 됨|
@@ -536,7 +538,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |943100|가능한 세션 고정 공격 = HTML의 쿠키 값 설정|
 |943110|가능한 세션 고정 공격 = 오프-도메인 참조 페이지가 있는 SessionID 매개 변수 이름|
@@ -548,7 +550,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960911|잘못된 HTTP 요청 줄|
 |981227|Apache 오류 = 요청에 잘못된 URI가 있습니다.|
@@ -574,7 +576,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a>crs_21_protocol_anomalies
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960008|호스트 헤더가 누락된 요청|
 |960007|빈 호스트 헤더|
@@ -587,7 +589,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_23_request_limits"></a><a name="crs23"></a>crs_23_request_limits
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960209|인수 이름이 너무 김|
 |960208|인수 값이 너무 김|
@@ -598,7 +600,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_30_http_policy"></a><a name="crs30"></a>crs_30_http_policy
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960032|정책에서 허용하지 않는 메서드|
 |960010|요청 콘텐츠 유형이 정책에서 허용되지 않음|
@@ -608,7 +610,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_35_bad_robots"></a><a name="crs35"></a>crs_35_bad_robots
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |990002|요청에 보안 스캐너가 사이트를 스캔한 것으로 표시됨|
 |990901|요청에 보안 스캐너가 사이트를 스캔한 것으로 표시됨|
@@ -617,7 +619,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_40_generic_attacks"></a><a name="crs40"></a>crs_40_generic_attacks
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960024|메타 문자 이상 감지 경고 - 반복적인 단어가 아닌 문자|
 |950008|문서화되지 않은 ColdFusion 태그의 삽입|
@@ -646,7 +648,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_41_sql_injection_attacks"></a><a name="crs41sql"></a>crs_41_sql_injection_attacks
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |981231|SQL 주석 시퀀스가 감지됨.|
 |981260|SQL 16진수 Encoding이 식별됨|
@@ -683,7 +685,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a>crs_41_xss_attacks
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |973336|XSS 필터 - 범주 1 = 스크립트 태그 벡터|
 |973338|XSS 필터 - 범주 3 = Javascript URI 벡터|
@@ -788,13 +790,13 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 ### <a name="crs_42_tight_security"></a><a name="crs42"></a>crs_42_tight_security
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |950103|경로 조작 공격|
 
 ### <a name="crs_45_trojans"></a><a name="crs45"></a>crs_45_trojans
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |950110|백도어 액세스|
 |950921|백도어 액세스|

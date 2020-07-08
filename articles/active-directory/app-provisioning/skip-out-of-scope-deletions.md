@@ -2,31 +2,30 @@
 title: 범위를 벗어난 사용자의 삭제 생략
 description: 범위 사용자에서 프로 비전 해제의 기본 동작을 재정의 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789908"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
-기본적으로 Azure AD 프로 비전 엔진은 범위를 벗어난 사용자를 일시적으로 삭제 하거나 사용 하지 않도록 설정 합니다. 그러나 Workday에서 AD 사용자 인바운드 프로 비전과 같은 특정 시나리오의 경우이 동작이 예상과 다를 수 있으며이 기본 동작을 재정의할 수 있습니다.  
+기본적으로 Azure AD 프로 비전 엔진은 범위를 벗어난 사용자를 일시적으로 삭제 하거나 사용 하지 않도록 설정 합니다. 그러나 Workday에서 AD 사용자 인바운드 프로 비전과 같은 특정 시나리오의 경우이 동작이 예상과 다를 수 있으며이 기본 동작을 재정의 하는 것이 좋습니다.  
 
-이 가이드에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용 하 여 범위를 벗어나는 계정 처리를 제어 하는 플래그 ***SkipOutOfScopeDeletions*** 설정 하는 방법을 설명 합니다. 
+이 문서에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용 하 여 범위를 벗어나는 계정 처리를 제어 하는 플래그 ***SkipOutOfScopeDeletions*** 설정 하는 방법을 설명 합니다. 
 * ***SkipOutOfScopeDeletions*** 가 0 (false)으로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다.
-* ***SkipOutOfScopeDeletions*** 가 1 (true)로 설정 된 경우 범위를 벗어난 계정은 대상에서 사용 하지 않도록 설정 됩니다 .이 플래그는 *프로 비전 앱* 수준에서 설정 되며 Graph API를 사용 하 여 구성할 수 있습니다. 
+* ***SkipOutOfScopeDeletions*** 가 1 (true)로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다. 이 플래그는 *프로 비전 앱* 수준에서 설정 되며 Graph API를 사용 하 여 구성할 수 있습니다. 
 
-이 구성은 *workday에서 사용자 프로 비전* 앱을 Active Directory 하는 데 널리 사용 되므로 다음 단계에서는 workday 응용 프로그램의 스크린샷를 포함 합니다. 그러나이는 **다른 모든 앱** (ServiceNow, Salesforce, Dropbox 등) 에서도 사용할 수 있습니다.
+이 구성은 *workday에서 사용자 프로 비전* 앱을 Active Directory 하는 데 널리 사용 되므로 다음 단계에서는 workday 응용 프로그램의 스크린샷을 포함 합니다. 그러나 ServiceNow, Salesforce, Dropbox 등의 *다른 모든 앱*에서도 구성을 사용할 수 있습니다.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>1 단계: 프로 비전 App Service 보안 주체 ID (개체 ID)를 검색 합니다.
 

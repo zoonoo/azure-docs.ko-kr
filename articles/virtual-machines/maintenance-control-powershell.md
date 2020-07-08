@@ -3,16 +3,15 @@ title: PowerShell을 사용 하 여 Azure 가상 머신에 대 한 유지 관리
 description: 유지 관리 제어 및 PowerShell을 사용 하 여 Azure Vm에 유지 관리를 적용 하는 시기를 제어 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675845"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
 
@@ -20,13 +19,13 @@ ms.locfileid: "82996471"
  
 ## <a name="enable-the-powershell-module"></a>PowerShell 모듈 사용
 
-최신 상태 `PowerShellGet` 인지 확인 합니다.    
+최신 상태 인지 확인 `PowerShellGet` 합니다.    
 
 ```azurepowershell-interactive  
 Install-Module -Name PowerShellGet -Repository PSGallery -Force 
 ``` 
 
-PowerShell 모듈 `Az.Maintenance` 을 설치 합니다.     
+`Az.Maintenance`PowerShell 모듈을 설치 합니다.     
 
 ```azurepowershell-interactive  
 Install-Module -Name Az.Maintenance
@@ -57,7 +56,7 @@ $config = New-AzMaintenanceConfiguration `
    -Location  eastus
 ```
 
-를 `-MaintenanceScope host` 사용 하면 호스트에 대 한 업데이트를 제어 하는 데 유지 관리 구성이 사용 됩니다.
+를 사용 하면 `-MaintenanceScope host` 호스트에 대 한 업데이트를 제어 하는 데 유지 관리 구성이 사용 됩니다.
 
 이름이 같은 구성을 만들려고 하지만 다른 위치에 있는 경우 오류가 발생 합니다. 구성 이름은 구독에 대해 고유 해야 합니다.
 
@@ -73,7 +72,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ### <a name="isolated-vm"></a>격리 된 VM
 
-구성의 ID를 사용 하 여 VM에 구성을 적용 합니다. 에 `-ResourceType VirtualMachines` vm `-ResourceName`의 이름과에 대 한 `-ResourceGroupName`vm의 리소스 그룹을 지정 하 고 제공 합니다. 
+구성의 ID를 사용 하 여 VM에 구성을 적용 합니다. 에 `-ResourceType VirtualMachines` vm의 이름과 `-ResourceName` 에 대 한 vm의 리소스 그룹을 지정 하 고 제공 `-ResourceGroupName` 합니다. 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -88,7 +87,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트에 구성을 적용 하려면 호스트 그룹의 이름 및 `-ResourceType hosts` `-ResourceParentName` `-ResourceParentType hostGroups`를 포함 하는도 포함 해야 합니다. 
+전용 호스트에 구성을 적용 하려면 `-ResourceType hosts` `-ResourceParentName` 호스트 그룹의 이름 및를 포함 하는도 포함 해야 `-ResourceParentType hostGroups` 합니다. 
 
 
 ```azurepowershell-interactive
@@ -106,7 +105,7 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>보류 중인 업데이트 확인
 
-[AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) 를 사용 하 여 보류 중인 업데이트가 있는지 확인 합니다. 사용자 `-subscription` 가 로그인 하는 것과 다른 VM의 Azure 구독을 지정 하려면를 사용 합니다.
+[AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) 를 사용 하 여 보류 중인 업데이트가 있는지 확인 합니다. `-subscription`사용자가 로그인 하는 것과 다른 VM의 Azure 구독을 지정 하려면를 사용 합니다.
 
 표시할 업데이트가 없는 경우이 명령은 아무것도 반환 하지 않습니다. 그렇지 않으면 PSApplyUpdate 개체를 반환 합니다.
 
@@ -166,7 +165,7 @@ New-AzApplyUpdate `
    -ProviderName Microsoft.Compute
 ```
 
-성공 하면이 명령은 개체를 `PSApplyUpdate` 반환 합니다. `Get-AzApplyUpdate` 명령에서 Name 특성을 사용 하 여 업데이트 상태를 확인할 수 있습니다. [업데이트 상태 확인](#check-update-status)을 참조 하세요.
+성공 하면이 명령은 개체를 반환 `PSApplyUpdate` 합니다. 명령에서 Name 특성을 사용 하 여 `Get-AzApplyUpdate` 업데이트 상태를 확인할 수 있습니다. [업데이트 상태 확인](#check-update-status)을 참조 하세요.
 
 ### <a name="dedicated-host"></a>전용 호스트
 
@@ -183,7 +182,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>업데이트 상태 확인
-[AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) 를 사용 하 여 업데이트 상태를 확인 합니다. 아래에 표시 된 명령은를 사용 하 `default` 여 `-ApplyUpdateName` 매개 변수의 최신 업데이트 상태를 보여 줍니다. 업데이트 이름 ( [AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) 명령에 의해 반환 됨)을 대체 하 여 특정 업데이트의 상태를 가져올 수 있습니다.
+[AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) 를 사용 하 여 업데이트 상태를 확인 합니다. 아래에 표시 된 명령은를 사용 하 여 매개 변수의 최신 업데이트 상태를 보여 줍니다 `default` `-ApplyUpdateName` . 업데이트 이름 ( [AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) 명령에 의해 반환 됨)을 대체 하 여 특정 업데이트의 상태를 가져올 수 있습니다.
 
 ```text
 Status         : Completed

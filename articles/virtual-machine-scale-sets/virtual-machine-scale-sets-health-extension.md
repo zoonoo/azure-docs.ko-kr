@@ -9,19 +9,18 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783047"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 애플리케이션 상태 확장 사용
 애플리케이션 상태 모니터링은 배포 관리 및 업그레이드에 대한 중요한 신호입니다. Azure 가상 머신 확장 집합은 배포를 업그레이드하기 위해 개별 인스턴스의 상태 모니터링을 사용하는 [자동 OS 이미지 업그레이드](virtual-machine-scale-sets-automatic-upgrade.md)를 포함한 [롤링 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)를 지원합니다. 또한 상태 확장을 사용 하 여 확장 집합에 있는 각 인스턴스의 응용 프로그램 상태를 모니터링 하 고 [자동 인스턴스 복구](virtual-machine-scale-sets-automatic-instance-repairs.md)를 사용 하 여 인스턴스 복구를 수행할 수 있습니다.
 
 이 문서에서는 애플리케이션 상태 확장을 사용하여 가상 머신 확장 집합에 배포된 애플리케이션의 상태를 모니터링하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
 -   Azure 가상 머신 [확장](../virtual-machines/extensions/overview.md)
 -   가상 머신 확장 집합 [수정](virtual-machine-scale-sets-upgrade-scale-set.md)
@@ -57,20 +56,20 @@ ms.locfileid: "83124111"
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| 게시자 | `Microsoft.ManagedServices` | 문자열 |
+| publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | 문자열 |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>설정
 
-| 속성 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ----
-| protocol | `http` 또는 `https` 또는 `tcp` | 문자열 |
+| protocol | `http` 또는 `https` 또는 `tcp` | string |
 | 포트 | 프로토콜이 또는 인 경우 선택 사항이 `http` `https` 고, 프로토콜이 이면 필수입니다.`tcp` | int |
-| requestPath | 프로토콜이 또는 인 경우 필수입니다. `http` `https` 프로토콜이 일 때 허용 되지 않습니다.`tcp` | 문자열 |
+| requestPath | 프로토콜이 또는 인 경우 필수입니다. `http` `https` 프로토콜이 일 때 허용 되지 않습니다.`tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>애플리케이션 상태 확장 배포
 아래 예제에서 자세히 설명한 대로 애플리케이션 상태 확장은 확장 집합에 여러 가지 방법으로 배포할 수 있습니다.
@@ -154,7 +153,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-확장명 json 파일 콘텐츠입니다.
+파일 내용에 대 한 extension.js입니다.
 
 ```json
 {
@@ -173,7 +172,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
 ```
 
 또한 로그는 정기적으로 애플리케이션 상태를 캡처합니다.

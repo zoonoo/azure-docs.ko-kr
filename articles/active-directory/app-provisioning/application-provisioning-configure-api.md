@@ -2,21 +2,20 @@
 title: Microsoft Graph Api를 사용 하 여 프로 비전 구성-Azure Active Directory | Microsoft Docs
 description: 응용 프로그램의 여러 인스턴스에 대해 프로 비전을 설정 해야 하나요? 자동 프로 비전 구성을 자동화 하기 위해 Microsoft Graph Api를 사용 하 여 시간을 절약 하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782061"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Microsoft Graph Api를 사용 하 여 프로 비전 구성
 
@@ -27,28 +26,28 @@ Azure Portal은 한 번에 하나씩 개별 앱에 대 한 프로 비전을 구�
 
 |단계  |세부 정보  |
 |---------|---------|
-|[1 단계. 갤러리 응용 프로그램 만들기](#step-1-create-the-gallery-application)     |API 클라이언트에 로그인 <br> 갤러리 응용 프로그램 템플릿을 검색 합니다. <br> 갤러리 응용 프로그램 만들기         |
+|[1 단계. 갤러리 응용 프로그램 만들기](#step-1-create-the-gallery-application)     |API 클라이언트에 로그인 <br> 갤러리 응용 프로그램 템플릿을 검색 합니다. <br> 갤러리 애플리케이션 만들기         |
 |[2 단계. 템플릿을 기반으로 프로 비전 작업 만들기](#step-2-create-the-provisioning-job-based-on-the-template)     |프로 비전 커넥터용 템플릿 검색 <br> 프로 비전 작업 만들기         |
 |[3 단계. 액세스 권한 부여](#step-3-authorize-access)     |응용 프로그램에 대 한 연결 테스트 <br> 자격 증명 저장         |
 |[4 단계. 프로 비전 작업 시작](#step-4-start-the-provisioning-job)     |작업 시작         |
 |[5 단계. 프로 비전 모니터링](#step-5-monitor-provisioning)     |프로 비전 작업의 상태를 확인 합니다. <br> 프로 비전 로그를 검색 합니다.         |
 
 > [!NOTE]
-> 이 문서에 표시 된 응답 개체는 가독성을 높이기 위해 줄어들 수 있습니다. 모든 속성은 실제 호출에서 반환 됩니다.
+> 이 문서에서 제시하는 응답 개체는 가독성을 위해 짧게 표시될 수 있습니다. 모든 속성은 실제 호출에서 반환됩니다.
 
-## <a name="step-1-create-the-gallery-application"></a>1 단계: 갤러리 응용 프로그램 만들기
+## <a name="step-1-create-the-gallery-application"></a>1단계: 갤러리 애플리케이션 만들기
 
-### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Microsoft Graph 탐색기 (권장), Postman 또는 사용 하는 기타 API 클라이언트에 로그인
+### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Microsoft Graph Explorer(권장), Postman 또는 그 밖의 API 클라이언트에 로그인
 
-1. [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 시작
+1. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 시작합니다.
 1. "Microsoft 로그인" 단추를 선택 하 고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용 하 여 로그인 합니다.
 
     ![Graph 로그인](./media/application-provisioning-configure-api/wd_export_02.png)
 
-1. 로그인이 완료 되 면 왼쪽 창에 사용자 계정 세부 정보가 표시 됩니다.
+1. 로그인에 성공하면 왼쪽 창에 사용자 계정 세부 정보가 표시됩니다.
 
-### <a name="retrieve-the-gallery-application-template-identifier"></a>갤러리 응용 프로그램 템플릿 식별자를 검색 합니다.
-Azure AD 응용 프로그램 갤러리의 응용 프로그램에는 각 응용 프로그램에 대 한 메타 데이터를 설명 하는 [응용 프로그램 템플릿이](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) 있습니다. 이 템플릿을 사용 하 여 테 넌 트에서 관리를 위해 응용 프로그램 및 서비스 사용자의 인스턴스를 만들 수 있습니다.
+### <a name="retrieve-the-gallery-application-template-identifier"></a>갤러리 애플리케이션 템플릿 식별자 검색
+Azure AD 애플리케이션 갤러리의 각 애플리케이션에는 해당 애플리케이션의 메타데이터를 설명하는 [애플리케이션 템플릿](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http)이 있습니다. 이 템플릿을 사용하여 테넌트에서 관리를 위해 애플리케이션 및 서비스 주체의 인스턴스를 만들 수 있습니다.
 
 #### <a name="request"></a>*요청*
 
@@ -98,7 +97,7 @@ Content-type: application/json
 }
 ```
 
-### <a name="create-the-gallery-application"></a>갤러리 응용 프로그램 만들기
+### <a name="create-the-gallery-application"></a>갤러리 애플리케이션 만들기
 
 마지막 단계에서 응용 프로그램에 대해 검색 된 템플릿 ID를 사용 하 여 테 넌 트에 응용 프로그램 및 서비스 사용자의 [인스턴스를 만듭니다](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) .
 

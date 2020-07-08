@@ -2,20 +2,19 @@
 title: 범위 지정 필터를 사용하여 앱 프로비전 | Microsoft Docs
 description: 개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: mimart
-ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.topic: how-to
+ms.date: 06/08/2020
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781959"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -29,7 +28,7 @@ ms.locfileid: "82593747"
 * **Azure AD에서 SaaS 애플리케이션으로 아웃바운드 프로비전** Azure AD가 원본 시스템일 때 [사용자 및 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)이 프로비전 범위에 포함될 사용자를 결정하는 가장 일반적인 방법입니다. 이러한 할당은 Single Sign-On 활성화에도 사용되며 액세스 및 프로비전을 관리하는 단일 방법을 제공합니다. 범위 지정 필터는 할당과 함께 또는 할당을 대체하여 선택적으로 사용하여 특성 값에 따라 사용자를 필터링할 수 있습니다.
 
     >[!TIP]
-    > 프로비전 설정 아래에 있는 [범위](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 메뉴의 설정을 **모든 사용자 및 그룹 동기화**로 변경하여 엔터프라이즈 애플리케이션에 대한 할당을 기준으로 프로비전을 사용하지 않을 수 있습니다. 이 옵션을 특성 기준 범위 지정 필터와 함께 사용하면 그룹 기반 할당에서보다 더 빠른 성능을 제공합니다.  
+    > 프로비전 설정 아래에 있는 [범위](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 메뉴의 설정을 **모든 사용자 및 그룹 동기화**로 변경하여 엔터프라이즈 애플리케이션에 대한 할당을 기준으로 프로비전을 사용하지 않을 수 있습니다. 
 
 * **HCM 애플리케이션에서 Azure AD 및 Active Directory로의 인바운드 프로비전** [Workday 같은 HCM 애플리케이션](../saas-apps/workday-tutorial.md)이 원본 시스템일 경우, 범위 지정 필터가 HCM 애플리케이션이 Active Directory 또는 Azure AD에 프로비전할 사용자를 판단하는 기본 방법이 됩니다.
 
@@ -64,7 +63,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 2. 자동 프로비전을 구성한 애플리케이션을 선택합니다(예: "ServiceNow").
 
-3. **프로 비전** 탭을 선택 합니다.
+3. **프로비전** 탭을 선택합니다.
 
 4. **매핑** 섹션에서 범위 지정 필터를 구성하려는 매핑을 선택합니다.(예: "Azure Active Directory 사용자를 ServiceNow에 동기화합니다.")
 
@@ -76,9 +75,9 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    a. **EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   b. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
+   b. 같지 **않음** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   c. **이 TRUE 인**경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   다. **이 TRUE 인**경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
    d. **가 FALSE 인 경우** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
@@ -86,7 +85,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    f. **가 NULL이 아닌**경우 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
 
-   g. **REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하면 "true"를 반환합니다. 예를 들어, ([1-9][0-9])는 10~99 범위의 모든 숫자와 일치합니다.
+   예: **REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하면 "true"를 반환합니다. 예를 들어, ([1-9][0-9])는 10~99 범위의 모든 숫자와 일치합니다.
 
    h. **NOT REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하지 않으면 "true"를 반환합니다.
    
@@ -118,8 +117,8 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 ## <a name="common-scoping-filters"></a>공통 범위 지정 필터
 | 대상 특성| 연산자 | 값 | 설명|
 |----|----|----|----|
-|userPrincipalName|REGEX 일치|.\*@domain.com |도메인 @domain.com 을 가진 userprincipal의 모든 사용자는 프로 비전 범위에 포함 됩니다.|
-|userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인 @domain.com 을 가진 userprincipal의 모든 사용자는 프로 비전 범위를 벗어났습니다.|
+|userPrincipalName|REGEX 일치|.\*@domain.com |도메인을 가진 userPrincipal의 모든 사용자 @domain.com 는 프로 비전 범위에 포함 됩니다.|
+|userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인을 가진 userPrincipal의 모든 사용자 @domain.com 는 프로 비전 범위를 벗어났습니다.|
 |department|EQUALS|sales|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
 |workerID|REGEX 일치|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 100만과 200만 사이에 근무 연수가 Ds가 있는 모든 직원은 프로 비전 범위에 있습니다.|
 
@@ -129,5 +128,5 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 * [특성 매핑 식 작성](functions-for-customizing-application-data.md)
 * [계정 프로비전 알림](../app-provisioning/user-provisioning.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](../app-provisioning/use-scim-to-provision-users-and-groups.md)
-* [SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](../saas-apps/tutorial-list.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 

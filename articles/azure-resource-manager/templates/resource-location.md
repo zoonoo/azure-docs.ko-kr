@@ -3,12 +3,11 @@ title: 템플릿 리소스 위치
 description: Azure Resource Manager 템플릿에서 리소스 위치를 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0bf0ac79c7e304a61561808dc2290ceb4a379e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156432"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84672683"
 ---
 # <a name="set-resource-location-in-arm-template"></a>ARM 템플릿에서 리소스 위치 설정
 
@@ -38,13 +37,13 @@ az provider show \
 
 ## <a name="use-location-parameter"></a>Location 매개 변수 사용
 
-템플릿을 배포할 때 유연성을 허용 하려면 매개 변수를 사용 하 여 리소스의 위치를 지정 합니다. 매개 변수의 기본값을로 `resourceGroup().location`설정 합니다.
+템플릿을 배포할 때 유연성을 허용 하려면 매개 변수를 사용 하 여 리소스의 위치를 지정 합니다. 매개 변수의 기본값을로 설정 `resourceGroup().location` 합니다.
 
 다음 예제에서는 매개 변수로 지정된 위치에 배포되는 스토리지 계정을 보여줍니다.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {

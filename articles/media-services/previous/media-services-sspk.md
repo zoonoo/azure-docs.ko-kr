@@ -1,6 +1,6 @@
 ---
-title: Microsoft&reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
-description: Microsoft&reg; 부드러운 스트리밍 클라이언트 포팅 키트에 라이선스를 부여 하는 방법에 대해 알아봅니다.
+title: Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
+description: Microsoft 부드러운 스트리밍 클라이언트 포팅 키트에 라이선스를 부여 하는 방법에 대해 알아봅니다 &reg; .
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677171"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft&reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스 
 ## <a name="overview"></a>개요
 Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 디바이스 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 디바이스 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 디바이스 및 플랫폼 독립적인 구현입니다. 
 
@@ -29,7 +28,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSP
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가됩니다. SSPK 라이선스는 업계에 다음을 제공합니다.
 
 * C++의 부드러운 스트리밍 이식 키트 소스 
@@ -71,11 +70,11 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * 각 연도의 최초 10,000대의 디바이스 구현에 대해서는 사용료 없음 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>라이선스 절차 및 SSPK 액세스
-모든 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) 라이선스 쿼리에 대해 전자 메일을 보냅니다.
+[sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com)모든 라이선스 쿼리에 대해 전자 메일을 보냅니다.
 
 SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
 
-중간 및 최종 SSPK 정식 라이선스는에 기술 질문 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)을 제출할 수 있습니다.
+중간 및 최종 SSPK 정식 라이선스는에 기술 질문을 제출할 수 있습니다 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com) .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 중간 제품 계약 정식 사용자
 
@@ -113,51 +112,41 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Microsoft 부드러운 스트리밍 클라이언트 최종 제품 계약 정식 사용자
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion Technology, Inc.
-* ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
-* British Sky Broadcasting Limited
-* CastPal Technology Inc., Shenzhen
+* Arcelik A. S
 * Compal Electronics, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar Purchasing Corporation
-* Enseo, Inc.
-* FilmFlex 영화가 제한 됨
+* EXPRESS 행운 기술 제한
 * Fluendo S.A.
 * FUNAI 전기 CO., L T D
-* Gibson Innovations Limited
-* Haier Information Applicantion S.R.L
-* HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
-* Infomir GMBH
+* HKC Corporation 제한
+* 홍콩 특별 행정구 Konka
+* Innolux Corporation
+* Innopia 기술, Inc.
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
+* 메가 Fame 전자식 Co. 제한 됨
+* MIRC 전자 제품 제한
 * Nintendo Co., Ltd.
-* Orange SA
-* Saffron Digital Limited
-* Sagemcom Broadband SAS
+* ONEPLUS 전자 (SHENZHEN) CO.
+* Panasonic Corporation
+* Qingdao Haier Optronics Co., l t d.
+* Shenzhen ATEKO 사진 전기 Co., l t d.
 * Shenzhen Chuangwei-RGB 전자 제품
-* Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen KTC 기술 공동., l t d. 
+* Shenzhen Maxmade 기술 Co
+* Shenzhen MTC Co., l t d
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
 * Sky Deutschland Fernsehen GmbH & Co. KG
-* SmarDTV S.A.
+* SMARDTV 글로벌 SAS
 * SoftAtHome
 * Sony Corporation
 * Technicolor Delivery Technologies, SAS
-* Tongfang Global Ltd.
 * Top Victory Investments, Ltd.
-* Toshiba Lifestyle Products & Services Corporation
-* Universal Media Corporation /Slovakia/ s.r.o.
-* VIZIO, Inc.
-* Wistron Corporation
+* UMC 폴란드 sp o.o.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로

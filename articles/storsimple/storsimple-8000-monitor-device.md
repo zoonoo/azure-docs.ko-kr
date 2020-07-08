@@ -3,15 +3,14 @@ title: StorSimple 8000 시리즈 장치 모니터링
 description: StorSimple 디바이스 관리자 서비스를 사용하여 사용량, I/O 성능 및 수용작업량 사용률을 모니터링하는 방법에 대해 설명합니다.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514686"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 모니터링합니다.
 
@@ -29,7 +28,7 @@ StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 솔루션
 
 
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 **사용량**은 볼륨, 볼륨 컨테이너 또는 디바이스에서 사용되는 데이터 스토리지 공간의 양과 관련된 메트릭을 추적합니다. 기본 스토리지, 클라우드 스토리지 또는 디바이스 스토리지 용량 사용률을 기반으로 보고서를 만들 수 있습니다. 용량 사용률은 특정 볼륨, 특정 볼륨 컨테이너 또는 모든 볼륨 컨테이너에 대해 측정될 수 있습니다.
 기본적으로 지난 24시간 동안 사용량이 보고됩니다. 다음을 선택하여 보고되는 사용량에 대한 기간을 변경하기 위해 차트를 편집할 수 있습니다.
 * 지난 24시간

@@ -2,20 +2,19 @@
 title: 매핑을 위해 Azure AD에 특성 동기화
 description: 온-프레미스 Active Directory의 특성을 Azure AD로 동기화 하는 방법을 알아봅니다. SaaS 앱에 대 한 사용자 프로비저닝을 구성할 때 디렉터리 확장 기능을 사용 하 여 기본적으로 동기화 되지 않은 원본 특성을 추가 합니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/13/2019
-ms.author: mimart
-ms.openlocfilehash: 4b51d74d188f8f1c99f2075000e8fd91e70a81a4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.author: kenwith
+ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593151"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781076"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화
 
@@ -45,7 +44,7 @@ Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용�
 
 5. Azure AD Connect 마법사를 완료 하 고 전체 동기화 주기를 실행 하도록 허용 합니다. 주기가 완료 되 면 스키마가 확장 되 고 새 값이 온-프레미스 AD와 Azure AD 간에 동기화 됩니다.
  
-6. Azure Portal에서 [사용자 특성 매핑을 편집](customize-application-attributes.md)하는 동안 **원본 특성** 목록에는 이제 추가 된 특성이 형식 `<attributename> (extension_<appID>_<attributename>)`으로 포함 됩니다. 특성을 선택 하 고 프로 비전을 위한 대상 응용 프로그램에 매핑합니다.
+6. Azure Portal에서 [사용자 특성 매핑을 편집](customize-application-attributes.md)하는 동안 **원본 특성** 목록에는 이제 추가 된 특성이 형식으로 포함 됩니다 `<attributename> (extension_<appID>_<attributename>)` . 특성을 선택 하 고 프로 비전을 위한 대상 응용 프로그램에 매핑합니다.
 
    ![Azure Active Directory Connect 마법사 디렉터리 확장 선택 페이지](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 

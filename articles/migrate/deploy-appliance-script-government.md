@@ -3,12 +3,11 @@ title: Azure Government에서 Azure Migrate 어플라이언스 설정
 description: 에서 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다 Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: fd97161ffa075a6165ea963ef80bfabf8904576e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052485"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Azure Government에서 어플라이언스 설정 
 
@@ -45,14 +44,14 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
+    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip SHA256```
 
-3. 생성 된 해시 값을 확인 합니다. 최신 어플라이언스 버전의 경우:
+3. 최신 어플라이언스 버전 및 해시 값을 확인 합니다.
 
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
+    **알고리즘** | **다운로드** | **SHA256**
+    --- | --- | ---
+    VMware(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="run-the-script"></a>스크립트 실행
 
@@ -71,7 +70,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 AzureMigrateInstaller 스크립트를 실행 **합니다.**``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다.``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
 5. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
 ### <a name="verify-access"></a>액세스 권한 확인
@@ -97,13 +96,14 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 압
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip SHA256```
 
-3. 생성 된 해시 값을 확인 합니다. 최신 어플라이언스 버전의 경우:
+3. 최신 어플라이언스 버전 및 해시 값을 확인 합니다.
 
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | 717f8b9185f565006b5aff0215ecadac
+    **시나리오** | **다운로드** | **SHA256**
+    --- | --- | ---
+    Hyper-V(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
           
 
 ### <a name="run-the-script"></a>스크립트 실행
@@ -123,7 +123,7 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 압
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 AzureMigrateInstaller 스크립트를 실행 **합니다.**``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다.``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
 5. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
 ### <a name="verify-access"></a>액세스 권한 확인
@@ -138,7 +138,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 ### <a name="download-the-script"></a>스크립트 다운로드
 
 1.  **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
-2.   > 컴퓨터가 **Discover machines****가상화 되어 있습니까?** 에서 **가상화 되지 않음/기타**를 선택 합니다.
+2.  컴퓨터가 **Discover machines**  >  **가상화 되어 있습니까?** 에서 **가상화 되지 않음/기타**를 선택 합니다.
 3.  **다운로드**를 클릭 하 여 압축 된 파일을 다운로드 합니다. 
 
 
@@ -149,13 +149,13 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
+    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256```
 
-3. 생성 된 해시 값을 확인 합니다. 최신 어플라이언스 버전의 경우:
+3. 최신 어플라이언스 버전 및 해시 값을 확인 합니다.
 
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | f81c155fc4a1409901caea948713913f
+    **시나리오** | **다운로드*** | **해시 값**
+    --- | --- | ---
+    Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
           
 
 ### <a name="run-the-script"></a>스크립트 실행
@@ -175,7 +175,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 AzureMigrateInstaller 스크립트를 실행 **합니다.**``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다.``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 5. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
 ### <a name="verify-access"></a>액세스 권한 확인

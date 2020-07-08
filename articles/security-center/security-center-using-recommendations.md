@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783234"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다. 
@@ -57,7 +56,7 @@ Jeff는 다음 작업을 수행합니다.
 
 2. Jeff는 **보안 점수** 를 확인 하 여 구독 보안을 전체적으로 파악 하 고 점수가 548 인지 확인 합니다.
 
-3. Jeff는 먼저 처리할 권장 사항을 결정해야 합니다. 따라서 Jeff는 보안 점수를 클릭 하 고 [보안 점수 효과](security-center-secure-score.md)를 개선 하는 정도에 따라 권장 사항을 처리 하기 시작 합니다.
+3. Jeff는 먼저 처리할 권장 사항을 결정해야 합니다. 따라서 Jeff는 보안 점수를 클릭 하 고 [보안 점수](secure-score-security-controls.md)를 개선 하는 정도에 따라 권장 사항을 처리 하기 시작 합니다.
 
 4. Jeff에 많은 VM 및 서버에 연결되어 있으므로 **Compute 및 앱**에 집중하기로 결정했습니다.
 

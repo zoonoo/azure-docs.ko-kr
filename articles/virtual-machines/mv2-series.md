@@ -1,18 +1,17 @@
 ---
 title: Mv2 시리즈-Azure Virtual Machines
 description: Mv2 시리즈 Vm에 대 한 사양입니다.
-services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 04/07/2020
-ms.author: lahugh
-ms.openlocfilehash: 7df8dd439008258ea1b4986054660fb0fb9070ce
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 4576a8bdcb6077a9d5de20c52f99325fdcacc0f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673701"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -24,13 +23,13 @@ Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
 
-실시간 마이그레이션: 지원 되지 않음
+실시간 마이그레이션: 지원되지 않음
 
-메모리 보존 업데이트: 지원 되지 않음
+메모리 보존 업데이트: 지원되지 않음
 
 쓰기 가속기: [지원 됨](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-|Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+|크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |

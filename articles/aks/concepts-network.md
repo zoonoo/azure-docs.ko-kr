@@ -2,14 +2,13 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 네트워킹
 description: kubenet 및 Azure CNI 네트워킹, 수신 컨트롤러, 부하 분산 장치 및 고정 IP 주소를 포함하여 AKS(Azure Kubernetes Service)의 네트워킹에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789500"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -30,7 +29,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 또한 Azure 플랫폼은 AKS 클러스터에 대한 가상 네트워킹을 간소화하는 데에도 도움이 됩니다. Kubernetes 부하 분산 장치를 만들면 기본 Azure 부하 분산 장치 리소스가 만들어지고 구성됩니다. Pod에서 네트워크 포트를 열면 해당 Azure 네트워크 보안 그룹 규칙이 구성됩니다. HTTP 애플리케이션 라우팅의 경우 새 수신 경로가 구성될 때 Azure에서 *외부 DNS*를 구성할 수도 있습니다.
 
-## <a name="services"></a>Services
+## <a name="services"></a>서비스
 
 애플리케이션 워크로드에 대한 네트워크 구성을 간소화하기 위해 Kubernetes는 *Service*를 사용하여 일단의 Pod를 논리적으로 그룹화하고 네트워크 연결을 제공합니다. 사용할 수 있는 Service 유형은 다음과 같습니다.
 
@@ -114,7 +113,7 @@ Kubenet 및 Azure CNI 플러그 인 dns를 모두 사용 하는 DNS와 관련 �
 * Azure 플랫폼은 AKS 클러스터를 만들 때 가상 네트워크 리소스를 자동으로 만들고 구성할 수 있습니다.
 * AKS 클러스터를 만들 때 가상 네트워크 리소스를 수동으로 만들고 구성 하 고 해당 리소스에 연결할 수 있습니다.
 
-서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 다음은 그 예입니다.
+서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 예를 들어:
 
 * AKS 클러스터에 대 한 가상 네트워크 리소스를 수동으로 만드는 경우 고유한 UDRs 또는 서비스 끝점을 구성할 때 지원 됩니다.
 * Azure 플랫폼에서 AKS 클러스터에 대 한 가상 네트워크 리소스를 자동으로 만드는 경우 해당 AKS 관리 리소스를 수동으로 변경 하 여 사용자 고유의 UDRs 또는 서비스 끝점을 구성할 수 없습니다.
@@ -128,6 +127,8 @@ LoadBalancer 유형 Service를 만들면 기본 Azure 부하 분산 장치 리�
 ![AKS 클러스터의 수신 트래픽 흐름을 보여 주는 다이어그램][aks-ingress]
 
 AKS에서는 NGINX와 같은 도구를 사용하여 수신 리소스를 만들거나 AKS HTTP 애플리케이션 라우팅 기능을 사용할 수 있습니다. AKS 클러스터에 대한 HTTP 애플리케이션 라우팅을 사용하도록 설정하면 Azure 플랫폼에서 수신 컨트롤러와 *External-DNS* 컨트롤러를 만듭니다. Kubernetes에서 새 수신 리소스가 만들어지면 필요한 DNS A 레코드가 클러스터별 DNS 영역에 만들어집니다. 자세한 내용은 [HTTP 애플리케이션 라우팅 배포][aks-http-routing]를 참조하세요.
+
+AGIC (Application Gateway 수신 컨트롤러) 추가 기능을 통해 AKS 고객은 Azure의 기본 Application Gateway 수준 7 부하 분산 장치를 활용 하 여 클라우드 소프트웨어를 인터넷에 노출할 수 있습니다. AGIC는 호스트 되는 Kubernetes 클러스터를 모니터링 하 고 Application Gateway를 지속적으로 업데이트 하 여 선택 된 서비스가 인터넷에 노출 되도록 합니다. AKS의 AGIC 추가 기능에 대 한 자세한 내용은 [Application Gateway 수신 컨트롤러 란?][agic-overview] 을 참조 하세요.
 
 수신의 또 다른 일반적인 기능은 SSL/TLS 종료입니다. HTTPS를 통해 액세스되는 대규모 웹 애플리케이션에서 TLS 종료는 애플리케이션 자체 내에서가 아니라 수신 리소스에서 처리할 수 있습니다. 자동 TLS 인증 생성 및 구성을 제공하기 위해 Let's Encrypt와 같은 공급자를 사용하도록 수신 리소스를 구성할 수 있습니다. Let 's Encrypt를 사용하여 NGINX 수신 컨트롤러를 구성하는 방법에 대한 자세한 내용은 [수신 및 TLS][aks-ingress-tls]를 참조하세요.
 
@@ -180,6 +181,7 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[agic-overview]: ../application-gateway/ingress-controller-overview.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
 [support-policies]: support-policies.md
