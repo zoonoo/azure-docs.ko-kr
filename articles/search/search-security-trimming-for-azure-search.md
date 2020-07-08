@@ -1,19 +1,19 @@
 ---
 title: 결과 트리밍을 위한 보안 필터
 titleSuffix: Azure Cognitive Search
-description: 보안 필터 및 사용자 id를 사용 하 여 Azure Cognitive Search 콘텐츠에 대 한 액세스 제어.
+description: 보안 필터 및 사용자 id를 사용 하 여 Azure Cognitive Search 검색 결과의 문서 수준에서 보안 권한.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553135"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Azure Cognitive Search의 결과를 잘라내는 보안 필터
 
@@ -60,7 +60,7 @@ ms.locfileid: "72794273"
 인덱스의 URL 엔드포인트에 HTTP POST 요청을 발급합니다. HTTP 요청의 본문은 추가될 문서를 포함하는 JSON 개체입니다.
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -118,7 +118,7 @@ Azure Cognitive Search를 사용 하 여 문서를 검색 하는 방법에 대 �
 HTTP POST 요청을 발급합니다.
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
 ```
@@ -151,9 +151,9 @@ api-key: [admin or query key]
 ```
 ## <a name="conclusion"></a>결론
 
-사용자 id 및 Azure Cognitive Search `search.in()` 기능을 기준으로 결과를 필터링 하는 방법입니다. 이 함수를 사용 하 여 요청 하는 사용자에 대 한 보안 주체 식별자를 전달 하 여 각 대상 문서와 연결 된 보안 주체 식별자에 대해 일치 시킬 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
+사용자 id 및 Azure Cognitive Search 기능을 기준으로 결과를 필터링 하는 방법입니다 `search.in()` . 이 함수를 사용 하 여 요청 하는 사용자에 대 한 보안 주체 식별자를 전달 하 여 각 대상 문서와 연결 된 보안 주체 식별자에 대해 일치 시킬 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
  
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search 필터를 사용 하 여 id 기반 액세스 제어 Active Directory](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure Cognitive Search의 필터](search-filters.md)

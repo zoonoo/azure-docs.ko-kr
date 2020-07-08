@@ -6,18 +6,18 @@ author: negoe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9e1480ad58390ea8c424bc6032940b4c743210e3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f4d442831658b276f74146ef91e69b92dec83619
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553898"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft id 플랫폼 인증 라이브러리
 
@@ -48,7 +48,7 @@ Microsoft id 플랫폼 끝점을 사용 하는 라이브러리 목록은 다음 
 
 클라이언트 인증 라이브러리를 사용 하 여 보호 된 웹 API를 호출 하기 위한 토큰을 가져옵니다.
 
-| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 예제 | 참조 | 개념 문서 | 로드맵 |
+| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 예제 | 참고 | 개념 문서 | 로드맵 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [참조](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [개념 문서](msal-overview.md)| [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL 각도 | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [각도 SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [참조](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [개념 문서](msal-overview.md) | [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
@@ -72,14 +72,14 @@ Microsoft id 플랫폼 끝점을 사용 하는 라이브러리 목록은 다음 
 
 지원 되는 운영 체제 vs 언어의 용어로는 다음과 같은 매핑이 있습니다.
 
-|             | Windows    | Linux      | macOS      | iOS | Android    |
+| 플랫폼    | Windows    | Linux      | macOS      | iOS | Android    |
 |-------------|------------|------------|------------|------------|------------|
 | ![JavaScript](media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
 | <img alt="C#" src="../../cognitive-services/speech-service/media/index/logo_csharp.svg" width="64px" height="64px" /> | ASP.NET, ASP.NET Core, MSAL.Net (.NET FW, Core, UWP)| ASP.NET Core, MSAL.Net (.NET Core) | ASP.NET Core, MSAL.Net (macOS)       | MSAL.Net (Xamarin.ios) | MSAL.Net (Xamarin Android)|
 | Swift <br> Objective-C |            |            | [iOS 및 macOS용 MSAL](msal-overview.md) | [iOS 및 macOS용 MSAL](msal-overview.md) |            |
 | ![Java](media/sample-v2-code/logo_java.png) Java | msal4j | msal4j | msal4j | | MSAL Android |
 | ![Python](media/sample-v2-code/logo_python.png) Python | MSAL Python | MSAL Python | MSAL Python |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) Node.JS | Passport. 노드 | Passport. 노드 | Passport. 노드 |
+| ![Node.Js](media/sample-v2-code/logo_nodejs.png) Node.JS | Passport. 노드 | Passport. 노드 | Passport. 노드 |
 
 또한 [지원 되는 플랫폼 및 언어에의 한 시나리오](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages) 참조
 

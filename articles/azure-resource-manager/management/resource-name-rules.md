@@ -3,16 +3,18 @@ title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758897"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554347"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
 이 문서에서는 Azure 리소스의 명명 규칙 및 제한 사항을 요약해서 설명합니다. 리소스의 이름을 지정하는 방법에 대한 권장 사항은 [권장 명명 및 태그 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.
+
+이 문서에서는 리소스 공급자 네임 스페이스 별로 리소스를 나열 합니다. 리소스 공급자가 Azure 서비스와 일치 하는 방법에 대 한 목록은 [azure 서비스에 대 한 리소스 공급자](azure-services-resource-providers.md)를 참조 하세요.
 
 리소스 이름은 유효 문자 열에 명시된 경우를 제외하고 대/소문자를 구분하지 않습니다.
 
@@ -34,7 +36,7 @@ ms.locfileid: "83758897"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서비스 | 글로벌 | 1-50 | 영숫자<br><br>문자로 시작합니다. |
+> | 서비스 | 글로벌 | 1-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
 > | service / apis | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
 > | service / apis / issues | api | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
 > | service / apis / issues / attachments | 이슈 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
@@ -81,9 +83,9 @@ ms.locfileid: "83758897"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | locks | 할당 범위 | 1-90 | 영숫자, 마침표, 밑줄, 하이픈, 괄호<br><br>마침표로 끝날 수 없습니다. |
-> | policyassignments | 할당 범위 | 1-128 표시 이름<br><br>1-260 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
-> | policydefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-260 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
-> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-260 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다.  |
+> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
+> | policyDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
+> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위에서 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -172,8 +174,8 @@ ms.locfileid: "83758897"
 > | galleries / images / versions | 이미지 | 32비트 정수 | 숫자 및 마침표 |
 > | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/""[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
-> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/""[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 
 > [!NOTE]
 > Azure Virtual Machines에는 리소스 이름과 호스트 이름이라는 두 가지 고유한 이름이 있습니다. 포털에서 가상 머신을 만들 때 두 이름에 동일한 값이 사용됩니다. 위의 표에 나와 있는 제한은 호스트 이름에 대한 것입니다. 실제 리소스 이름은 최대 64자까지 가능합니다.
@@ -522,7 +524,7 @@ ms.locfileid: "83758897"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 네임스페이스 | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
+> | 네임스페이스 | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 영숫자로 끝납니다. |
 > | namespaces / AuthorizationRules | 네임스페이스 | 1-256 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자로 시작합니다. |
 > | namespaces / notificationHubs | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자로 시작합니다. |
 > | namespaces / notificationHubs / AuthorizationRules | 알림 허브 | 1-256 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자로 시작합니다. |

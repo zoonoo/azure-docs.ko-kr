@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557272"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>AI-보강 필드를 검색 가능한 인덱스에 매핑하는 방법
 
@@ -28,7 +28,7 @@ ms.locfileid: "83005498"
 필드를 매핑하려면 아래와 같이 `outputFieldMappings`을 인덱서 정의에 추가합니다.
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -117,7 +117,7 @@ sourceFieldName에서 경로는 하나 또는 여러 요소를 나타낼 수 있
 
 인덱스에 각 엔터티의 이름을 저장할 형식 컬렉션 (질병)의 ' n a m e ' 이라는 필드가 있다고 가정해 보겠습니다. 
 
-이러한 작업은 다음과 같이 "\*" 기호를 사용 하 여 쉽게 수행할 수 있습니다.
+이러한 작업은 다음과 같이 "" 기호를 사용 하 여 쉽게 수행할 수 있습니다 \* .
 
 ```json
     "outputFieldMappings": [

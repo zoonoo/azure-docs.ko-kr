@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657336"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552814"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -33,7 +33,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 다음 표는 이 솔루션이 지원하는 연결된 원본을 설명합니다.
 
-| **연결 된 원본** | **지원** | **설명** |
+| **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
 | [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
 | [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
@@ -179,7 +179,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 1. 누락 된 DNS 조회 데이터-이 문제를 해결 하려면 구성를 다시 설정 하거나 포털에서 구성 페이지를 한 번만 로드 하십시오. 다시 설정 하려면 설정을 다른 값으로 변경한 다음 다시 원래 값으로 변경 하 고 구성을 저장 합니다.
 
-## <a name="feedback"></a>사용자 의견
+## <a name="suggestions"></a>제안
 
 사용자 의견을 제공 하려면 [Log Analytics UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice) 를 방문 하 여 작업할 DNS 분석 기능에 대 한 아이디어를 게시 하세요. 
 

@@ -4,28 +4,27 @@ description: Azure AD에서 Windows를 실행 하는 Azure VM에 로그인
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554882"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
 이제 조직에서는 **Windows Server 2019 Datacenter edition** 또는 **windows 10 1809** 이상을 실행 하는 Azure vm (가상 머신)에 대 한 AD (Azure Active Directory) 인증을 활용할 수 있습니다. Azure AD를 사용 하 여 Vm에 인증 하면 정책을 중앙에서 제어 하 고 적용할 수 있습니다. Azure RBAC (역할 기반 Access Control) 및 Azure AD 조건부 액세스와 같은 도구를 사용 하 여 VM에 액세스할 수 있는 사용자를 제어할 수 있습니다. 이 문서에서는 Azure AD 인증을 사용 하도록 Windows Server 2019 VM을 만들고 구성 하는 방법을 보여 줍니다.
 
-|     |
-| --- |
-| Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
-|     |
+> [!NOTE]
+> Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경우 다음과 같은 여러 가지 이점이 있습니다.
 
@@ -63,10 +62,10 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
 
 Azure에서 Windows Vm에 대해 Azure AD 인증을 사용 하도록 설정 하려면 Vm 네트워크 구성에서 TCP 포트 443을 통해 다음 끝점에 대 한 아웃 바운드 액세스를 허용 하는지 확인 해야 합니다.
 
-- https:\//enterpriseregistration.windows.net
+- https: \/ /enterpriseregistration.windows.net
 - https:\//login.microsoftonline.com
-- https:\//device.login.microsoftonline.com
-- https:\//pas.windows.net
+- https: \/ /device.login.microsoftonline.com
+- https: \/ /pas.windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Azure에서 Windows VM에 대 한 Azure AD 로그인 사용
 
@@ -141,7 +140,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-확장이 `provisioningState` VM `Succeeded` 에 설치 되 면의가 표시 됩니다.
+`provisioningState` `Succeeded` 확장이 VM에 설치 되 면의가 표시 됩니다.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>VM에 대한 역할 할당 구성
 
@@ -188,7 +187,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> AAD 도메인 및 로그온 사용자 이름 도메인이 일치 하지 않는 경우의 사용자 이름 뿐만 아니라 사용자 계정 `--assignee-object-id`에 대 한 `--assignee`개체 ID를 지정 해야 합니다. [az ad user list](/cli/azure/ad/user#az-ad-user-list)를 사용하여 사용자 계정의 개체 ID를 가져올 수 있습니다.
+> AAD 도메인 및 로그온 사용자 이름 도메인이 일치 하지 않는 경우의 사용자 이름 뿐만 아니라 사용자 계정에 대 한 개체 ID를 지정 해야 합니다 `--assignee-object-id` `--assignee` . [az ad user list](/cli/azure/ad/user#az-ad-user-list)를 사용하여 사용자 계정의 개체 ID를 가져올 수 있습니다.
 
 RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
@@ -243,21 +242,21 @@ VM이 Azure AD 조인 프로세스를 완료 하려면 AADLoginForWindows 확장
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | 이 VM에 할당 된 관리 id에 대해 Azure Active Directory에서 발급 한 유효한 액세스 토큰 |
 
    > [!NOTE]
-   > 액세스 토큰은와 같은 [http://calebb.net/](http://calebb.net/)도구를 사용 하 여 디코딩할 수 있습니다. 액세스 토큰의 "appid"가 VM에 할당 된 관리 id와 일치 하는지 확인 합니다.
+   > 액세스 토큰은와 같은 도구를 사용 하 여 디코딩할 수 있습니다 [http://calebb.net/](http://calebb.net/) . 액세스 토큰의 "appid"가 VM에 할당 된 관리 id와 일치 하는지 확인 합니다.
 
 1. 명령줄을 사용 하 여 VM에서 필요한 끝점에 액세스할 수 있는지 확인 합니다.
    
-   - 말아 https:\//Login.microsoftonline.com/-D –
-   - 말아 https:\//login.microsoftonline.com/`<TenantID>`/-D –
+   - 말아 https: \/ /login.microsoftonline.com/-D –
+   - 말아 https: \/ /login.microsoftonline.com/ `<TenantID>` /-D –
 
    > [!NOTE]
-   > 을 `<TenantID>` azure 구독과 연결 된 Azure AD 테 넌 트 ID로 바꿉니다.
+   > `<TenantID>`을 azure 구독과 연결 된 AZURE AD 테 넌 트 ID로 바꿉니다.
 
-   - 말아 https:\//Enterpriseregistration.windows.net/-D-
-   - 말아 https:\//Device.login.microsoftonline.com/-D-
-   - 말아 https:\//Pas.windows.net/-D-
+   - 말아 https: \/ /enterpriseregistration.windows.net/-D-
+   - 말아 https: \/ /device.login.microsoftonline.com/-D-
+   - 말아 https: \/ /pas.windows.net/-D-
 
-1. 장치 상태는를 실행 `dsregcmd /status`하 여 볼 수 있습니다. 목표는 장치 상태를로 `AzureAdJoined : YES`표시 하는 것입니다.
+1. 장치 상태는를 실행 하 여 볼 수 있습니다 `dsregcmd /status` . 목표는 장치 상태를로 표시 하는 것입니다 `AzureAdJoined : YES` .
 
    > [!NOTE]
    > Azure AD 조인 작업은 사용자 장치 Registration\Admin 로그 아래의 이벤트 뷰어에서 캡처됩니다.
@@ -278,21 +277,21 @@ AADLoginForWindows extension이 특정 오류 코드와 함께 실패 하는 경
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>문제 2: AADLoginForWindows 확장을 설치 하지 못하고 종료 코드:-2145648607
 
-이 종료 코드는 확장이 `https://enterpriseregistration.windows.net` 끝점에 연결할 수 없기 때문에 DSREG_AUTOJOIN_DISC_FAILED로 변환 됩니다.
+이 종료 코드는 확장이 끝점에 연결할 수 없기 때문에 DSREG_AUTOJOIN_DISC_FAILED로 변환 됩니다 `https://enterpriseregistration.windows.net` .
 
 1. 명령줄을 사용 하 여 VM에서 필요한 끝점에 액세스할 수 있는지 확인 합니다.
 
-   - 말아 https:\//Login.microsoftonline.com/-D –
-   - 말아 https:\//login.microsoftonline.com/`<TenantID>`/-D –
+   - 말아 https: \/ /login.microsoftonline.com/-D –
+   - 말아 https: \/ /login.microsoftonline.com/ `<TenantID>` /-D –
    
    > [!NOTE]
-   > 을 `<TenantID>` azure 구독과 연결 된 Azure AD 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾아야 하는 경우 계정 이름 위로 마우스를 이동 하 여 디렉터리/테 넌 트 ID를 가져오거나 Azure Portal에서 디렉터리 ID > Azure Active Directory > 속성을 선택할 수 있습니다.
+   > `<TenantID>`을 azure 구독과 연결 된 AZURE AD 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾아야 하는 경우 계정 이름 위로 마우스를 이동 하 여 디렉터리/테 넌 트 ID를 가져오거나 Azure Portal에서 디렉터리 ID > Azure Active Directory > 속성을 선택할 수 있습니다.
 
-   - 말아 https:\//Enterpriseregistration.windows.net/-D-
-   - 말아 https:\//Device.login.microsoftonline.com/-D-
-   - 말아 https:\//Pas.windows.net/-D-
+   - 말아 https: \/ /enterpriseregistration.windows.net/-D-
+   - 말아 https: \/ /device.login.microsoftonline.com/-D-
+   - 말아 https: \/ /pas.windows.net/-D-
 
-1. "호스트 `<URL>`를 확인할 수 없습니다."와 함께 명령이 실패 하는 경우이 명령을 실행 하 여 VM에서 사용 중인 DNS 서버를 확인 하십시오.
+1. "호스트를 확인할 수 없습니다."와 함께 명령이 실패 하는 경우 `<URL>` 이 명령을 실행 하 여 VM에서 사용 중인 DNS 서버를 확인 하십시오.
    
    `nslookup <URL>`
 
@@ -315,7 +314,7 @@ AADLoginForWindows extension이 특정 오류 코드와 함께 실패 하는 경
 
 Azure AD 자격 증명을 사용 하 여 RDP를 시도할 때 발생 하는 몇 가지 일반적인 오류에는 할당 된 RBAC 역할, 권한이 없는 클라이언트 또는 2FA 로그인 방법이 필요 합니다. 다음 정보를 사용 하 여 이러한 문제를 해결할 수 있습니다.
 
-장치 및 SSO 상태는를 실행 `dsregcmd /status`하 여 볼 수 있습니다. 목표는 장치 상태를 표시 하 `AzureAdJoined : YES` 고 `SSO State` 표시 `AzureAdPrt : YES`하는 것입니다.
+장치 및 SSO 상태는를 실행 하 여 볼 수 있습니다 `dsregcmd /status` . 목표는 장치 상태를 표시 하 고 표시 하는 것입니다 `AzureAdJoined : YES` `SSO State` `AzureAdPrt : YES` .
 
 또한 Azure AD 계정을 사용 하는 RDP 로그인은 AAD\Operational 이벤트 로그 아래의 이벤트 뷰어에서 캡처됩니다.
 

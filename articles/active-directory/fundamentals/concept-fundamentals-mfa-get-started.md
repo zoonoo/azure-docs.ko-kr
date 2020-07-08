@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf05532f81d70d4d7b09de2ccbf9807273a85330
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 38f3a6d9cea1aa1ebcb76f61882dcf2615dc4832
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554657"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>조직의 Azure Multi-Factor Authentication 개요
 
@@ -53,7 +53,7 @@ Enterprise Mobility + Security E5 또는 Microsoft 365 F5와 같이 이 기능�
 
 ## <a name="authentication-methods"></a>인증 방법
 
-|   | 보안 기본값 | 다른 모든 방법 |
+| 메서드 | 보안 기본값 | 다른 모든 방법 |
 | --- | --- | --- |
 | 모바일 앱을 통한 알림 | X | X |
 | 모바일 앱 또는 하드웨어 토큰의 확인 코드 |   | X |

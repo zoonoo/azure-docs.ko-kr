@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 정책 위반 및 청사진 매개 변수 함수와 같은 청사진을 만들고 할당 하 고 제거 하는 문제를 해결 하는 방법에 대해 알아봅니다.
-ms.date: 01/15/2020
+ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76157086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557512"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
@@ -32,7 +32,7 @@ ms.locfileid: "76157086"
 
 ### <a name="scenario-policy-violation"></a><a name="policy-violation"></a>시나리오: 정책 위반
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 정책 위반으로 인해 템플릿을 배포하지 못했습니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "76157086"
 
 ### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>시나리오: 청사진 매개 변수는 함수입니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 함수인 청사진 매개 변수는 아티팩트로 전달되기 전에 처리됩니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "76157086"
 
 ### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>시나리오: 할당 삭제 제한 시간
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 청사진 할당 삭제가 완료 되지 않았습니다.
 
@@ -81,6 +81,6 @@ ms.locfileid: "76157086"
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-- Azure [포럼](https://azure.microsoft.com/support/forums/)을 통해 azure 전문가 로부터 답변을 받으세요.
-- 연결 방법 [@AzureSupport](https://twitter.com/azuresupport) – Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 하 여 고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다.
-- 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기**를 선택 합니다.
+- [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻으세요.
+- [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.
+- 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.

@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e86721d9f8644adabd1e01920c432217354d654
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76905649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556231"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 문서 인덱싱
 
 > [!IMPORTANT] 
-> Azure Data Lake Storage Gen2 지원은 현재 공개 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)작성 하 여 미리 보기에 대 한 액세스를 요청할 수 있습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
+> Azure Data Lake Storage Gen2 지원은 현재 공개 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)작성 하 여 미리 보기에 대 한 액세스를 요청할 수 있습니다. [REST API 버전 2020-06-30-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 
 Azure storage 계정을 설정할 때 [계층적 네임 스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용 하도록 설정 하는 옵션이 있습니다. 이를 통해 계정의 콘텐츠 컬렉션을 디렉터리 및 중첩 된 하위 디렉터리의 계층 구조로 구성할 수 있습니다. 계층적 네임 스페이스를 사용 하도록 설정 하 여 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)를 사용 하도록 설정 합니다.
@@ -38,7 +38,7 @@ Data Lake Storage Gen2에서 콘텐츠를 색인화 하려면 몇 가지 단계�
 
 미리 보기 등록에 성공 했음을 확인 한 후에는 인덱싱 파이프라인을 만들 준비가 완료 된 것입니다.
 
-[REST API 버전 2019-05-06-Preview](search-api-preview.md)를 사용 하 여 Data Lake Storage Gen2에서 콘텐츠 및 메타 데이터를 인덱싱할 수 있습니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
+[REST API 버전 2020-06-30-Preview](search-api-preview.md)를 사용 하 여 Data Lake Storage Gen2에서 콘텐츠 및 메타 데이터를 인덱싱할 수 있습니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 Data Lake Storage Gen2의 인덱싱 콘텐츠는 Azure Blob Storage에서 콘텐츠를 인덱싱하는 것과 동일 합니다. Data Lake Storage Gen2 데이터 원본, 인덱스 및 인덱서를 설정 하는 방법을 이해 하려면 [Azure Cognitive Search를 사용 하 여 Azure Blob Storage 문서를 인덱싱하는 방법](search-howto-indexing-azure-blob-storage.md)을 참조 하세요. 또한 Blob storage 문서는 지원 되는 문서 형식, 추출 되는 blob 메타 데이터 속성, 증분 인덱싱 등에 대 한 정보를 제공 합니다. 이 정보는 Data Lake Storage Gen2에 대해 동일 합니다.
 
@@ -50,7 +50,7 @@ Azure Data Lake Storage Gen2는 Azure 역할 기반 액세스 제어 (RBAC) 및 
 
 ## <a name="change-detection"></a>변경 내용 검색
 
-Data Lake Storage Gen2 인덱서는 변경 내용 검색을 지원 합니다. 즉, 인덱서가 실행 될 때 blob의 `LastModified` 타임 스탬프에 의해 결정 된 대로 변경 된 blob만 다시 인덱싱합니다.
+Data Lake Storage Gen2 인덱서는 변경 내용 검색을 지원 합니다. 즉, 인덱서가 실행 될 때 blob의 타임 스탬프에 의해 결정 된 대로 변경 된 blob만 다시 인덱싱합니다 `LastModified` .
 
 > [!NOTE] 
-> Data Lake Storage Gen2 디렉터리의 이름을 바꿀 수 있습니다. 디렉터리의 이름을 바꾸면 해당 디렉터리의 blob에 대 한 타임 스탬프가 업데이트 되지 않습니다. 결과적으로 인덱서는 이러한 blob의 인덱스를 만들지 않습니다. 디렉터리 이름 바꾸기 후에 디렉터리의 blob이 새 Url을 포함 하 여 인덱싱해야 해야 하는 경우 나중에 실행 하는 동안 인덱서가 인덱스 `LastModified` 를 다시 인덱싱 하도록 디렉터리의 모든 blob에 대 한 타임 스탬프를 업데이트 해야 합니다.
+> Data Lake Storage Gen2 디렉터리의 이름을 바꿀 수 있습니다. 디렉터리의 이름을 바꾸면 해당 디렉터리의 blob에 대 한 타임 스탬프가 업데이트 되지 않습니다. 결과적으로 인덱서는 이러한 blob의 인덱스를 만들지 않습니다. 디렉터리 이름 바꾸기 후에 디렉터리의 blob이 새 Url을 포함 하 여 인덱싱해야 해야 하는 경우 나중에 실행 하는 `LastModified` 동안 인덱서가 인덱스를 다시 인덱싱 하도록 디렉터리의 모든 blob에 대 한 타임 스탬프를 업데이트 해야 합니다.

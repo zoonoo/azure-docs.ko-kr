@@ -2,21 +2,21 @@
 title: 응용 프로그램 프록시 커넥터 디버깅-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) 응용 프로그램 프록시 커넥터를 사용 하 여 문제를 디버그 합니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72311842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555032"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>애플리케이션 프록시 커넥터 디버그 이슈 
 
@@ -40,7 +40,7 @@ ms.locfileid: "72311842"
 
 ![커넥터 디버깅 단계를 보여 주는 순서도](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | 작업 | Description | 
+| 단계 | 작업 | 설명 |
 |---------|---------|---------|
 |1 | 앱에 할당 된 커넥터 그룹 찾기 | 커넥터를 여러 서버에 설치 했을 수 있습니다 .이 경우 커넥터는 커넥터 [그룹에 할당](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)되어야 합니다. 커넥터 그룹에 대한 자세한 내용은 [커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시](application-proxy-connector-groups.md)를 참조하세요. |
 |2 | 커넥터 설치 및 그룹 할당 | 커넥터를 설치 하지 않은 경우에 [는 커넥터 설치 및 등록](application-proxy-add-on-premises-application.md#install-and-register-a-connector)을 참조 하세요.<br></br> 커넥터를 설치 하는 데 문제가 있는 경우 [커넥터를 설치](application-proxy-connector-installation-problem.md)하는 문제를 참조 하세요.<br></br> 커넥터가 그룹에 할당 되지 않은 경우 [그룹에 커넥터 할당](application-proxy-connector-groups.md#create-connector-groups)을 참조 하세요.<br></br>응용 프로그램이 커넥터 그룹에 할당 되지 않은 경우 [커넥터 그룹에 응용 프로그램 할당](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)을 참조 하세요.|

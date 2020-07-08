@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0c56652b4e098213bae0c69d4be5ac77e1b1393c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 12316abd4a738d54e01f88873498e4b299d6053d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556372"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>MySQL 인증에 Azure Active Directory 사용
 
@@ -66,14 +66,18 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 - Azure Active Directory 통합
 - Azure Active Directory MFA 지원을 통한 유니버설 인증
 - Active Directory 애플리케이션 인증서 또는 클라이언트 암호 사용
+- [관리 ID](howto-connect-with-managed-identity.md)
 
 Active Directory에 대해 인증을 수행한 후 토큰을 검색합니다. 이 토큰은 로그인에 사용되는 암호입니다.
+
+새 사용자를 추가 하는 등의 관리 작업은이 시점에서 Azure AD 사용자 역할에 대해서만 지원 됩니다.
 
 > [!NOTE]
 > Active Directory 토큰으로 연결하는 방법에 대한 자세한 내용은 [Azure Database for MySQL에서 Azure AD 구성 및 로그인](howto-configure-sign-in-azure-ad-authentication.md)을 참조하세요.
 
 ## <a name="additional-considerations"></a>기타 고려 사항
 
+- Azure Active Directory 인증은 MySQL 5.7 이상 에서만 사용할 수 있습니다.
 - Azure Database for MySQL 서버에서는 언제든지 Azure AD 관리자를 하나만 구성할 수 있습니다.
 - MySQL의 Azure AD 관리자만 처음에 Azure Active Directory 계정을 사용해서 Azure Database for MySQL에 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure AD 데이터베이스 사용자를 구성할 수 있습니다.
 - Azure AD에서 사용자가 삭제된 경우 사용자가 더 이상 Azure AD에 인증할 수 없습니다. 따라서 더 이상 해당 사용자에 대해 액세스 토큰을 얻을 수 없습니다. 이 경우 일치하는 사용자가 데이터베이스에 있더라도 해당 사용자를 사용해서 서버에 연결하는 것이 불가능합니다.

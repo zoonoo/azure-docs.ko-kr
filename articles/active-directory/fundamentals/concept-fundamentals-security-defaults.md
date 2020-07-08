@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 62933a0e83a7494bc208068cb418f9ccc29ba637
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554528"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
@@ -92,7 +92,7 @@ Azure Multi-Factor Authentication 등록을 완료한 후에는 로그인할 때
 > [!WARNING]
 > 보안 기본값을 사용하도록 설정하기 전에 관리자가 이전 인증 프로토콜을 사용하지 않는지 확인합니다. 자세한 내용은 [레거시 인증에서 전환하는 방법](concept-fundamentals-block-legacy-authentication.md)을 참조하세요.
 
-- [Office 365 및 Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Office 365 및 Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>권한 있는 작업 보호
 
@@ -122,7 +122,7 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 
 이러한 무료 보안 기본값을 사용하면 **알림을 통해 Microsoft Authenticator 앱만 사용하여** Azure Multi-Factor Authentication에 등록하고 사용할 수 있습니다. 조건부 액세스를 사용하면 관리자가 사용하도록 선택하는 모든 인증 방법을 사용할 수 있습니다.
 
-|   | 보안 기본값 | 조건부 액세스 |
+| 메서드 | 보안 기본값 | 조건부 액세스 |
 | --- | --- | --- |
 | 모바일 앱을 통한 알림 | X | X |
 | 모바일 앱 또는 하드웨어 토큰의 확인 코드 | X** | X |

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557989"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -48,18 +48,18 @@ ms.locfileid: "79473560"
 
 ### <a name="elements"></a>요소
 
-|속성|Description|필수|
+|이름|설명|필요한 공간|
 |----------|-----------------|--------------|
 |인증-기본|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|속성|Description|필수|기본값|
+|이름|설명|필요한 공간|기본값|
 |----------|-----------------|--------------|-------------|
-|username|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
+|사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound
@@ -77,29 +77,40 @@ ms.locfileid: "79473560"
 
 ### <a name="examples"></a>예
 
-이 예제에서는 클라이언트 인증서가 해당 지 문으로 식별 됩니다.
+이 예제에서 클라이언트 인증서는 지 문으로 식별 됩니다.
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
+
 이 예제에서 클라이언트 인증서는 리소스 이름으로 식별 됩니다.
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+이 예제에서는 클라이언트 인증서가 기본 제공 인증서 저장소에서 검색 되지 않고 정책에 설정 됩니다.
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### <a name="elements"></a>요소  
   
-|속성|Description|필수|  
+|이름|설명|필요한 공간|  
 |----------|-----------------|--------------|  
 |인증-인증서|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|속성|Description|필수|기본값|  
+|이름|설명|필요한 공간|기본값|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 `thumbprint` `certificate-id` 중 하나를 제공 해야 합니다.|해당 없음|  
-|인증서 id|인증서 리소스 이름입니다.|또는 `thumbprint` `certificate-id` 중 하나를 제공 해야 합니다.|해당 없음|  
+|thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
+|인증서 id|인증서 리소스 이름입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
+|본문|클라이언트 인증서 (바이트 배열)입니다.|예|해당 없음|
+|password|클라이언트 인증서의 암호입니다.|에 지정 된 인증서 `body` 가 암호로 보호 된 경우 사용 됩니다.|해당 없음|
   
-### <a name="usage"></a>사용  
+### <a name="usage"></a>사용량  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
@@ -107,12 +118,14 @@ ms.locfileid: "79473560"
 -   **정책 범위:** 모든 범위  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>관리 id를 사용 하 여 인증  
- `authentication-managed-identity` 정책을 사용 하 여 API Management 서비스의 관리 id를 사용 하 여 백 엔드 서비스를 인증 합니다. 이 정책은 기본적으로 관리 id를 사용 하 여 Azure Active Directory에서 지정 된 리소스에 액세스 하기 위한 액세스 토큰을 가져옵니다. 토큰을 성공적으로 가져오면 정책에서 `Authorization` `Bearer` 스키마를 사용 하 여 헤더의 토큰 값을 설정 합니다.
+ `authentication-managed-identity`관리 id를 사용 하 여 백 엔드 서비스로 인증 하려면 정책을 사용 합니다. 이 정책은 기본적으로 관리 id를 사용 하 여 Azure Active Directory에서 지정 된 리소스에 액세스 하기 위한 액세스 토큰을 가져옵니다. 토큰을 성공적으로 가져오면 정책에서 `Authorization` 스키마를 사용 하 여 헤더의 토큰 값을 설정 합니다 `Bearer` .
+
+시스템 할당 id와 여러 사용자 할당 id를 모두 사용 하 여 토큰을 요청할 수 있습니다. `client-id`를 제공 하지 않으면 시스템 할당 id로 간주 됩니다. `client-id`변수가 제공 된 경우 해당 사용자 할당 id에 대 한 토큰이 요청 됩니다 Azure Active Directory
   
 ### <a name="policy-statement"></a>정책 문  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>예제  
@@ -127,7 +140,7 @@ ms.locfileid: "79473560"
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -135,7 +148,21 @@ ms.locfileid: "79473560"
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
-  
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+```
+
+#### <a name="use-managed-identity-and-set-header-manually"></a>관리 id 사용 및 수동으로 헤더 설정
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<set-header name="Authorization" exists-action="override">
+   <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+</set-header>
+```
+
 #### <a name="use-managed-identity-in-send-request-policy"></a>전송 요청 정책에서 관리 id 사용
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
@@ -147,19 +174,20 @@ ms.locfileid: "79473560"
 
 ### <a name="elements"></a>요소  
   
-|속성|Description|필수|  
+|이름|설명|필요한 공간|  
 |----------|-----------------|--------------|  
 |인증 관리-id |루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|속성|Description|필수|기본값|  
+|이름|설명|필요한 공간|기본값|  
 |----------|-----------------|--------------|-------------|  
-|리소스|문자열입니다. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|  
-|출력-토큰 변수-이름|문자열입니다. 토큰 값을 개체 형식 `string`으로 수신 하는 컨텍스트 변수의 이름입니다. |아니요|해당 없음|  
-|ignore-error|Boolean입니다. 로 설정 하면 `true`액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
+|resource|문자열입니다. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|
+|클라이언트 id|문자열입니다. Azure Active Directory에서 사용자 할당 id의 앱 ID입니다.|아니요|시스템이 할당 한 id|
+|출력-토큰 변수-이름|문자열입니다. 토큰 값을 개체 형식으로 수신 하는 컨텍스트 변수의 이름입니다 `string` . |예|해당 없음|  
+|ignore-error|Boolean입니다. 로 설정 하면 `true` 액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
   
-### <a name="usage"></a>사용  
+### <a name="usage"></a>사용량  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  

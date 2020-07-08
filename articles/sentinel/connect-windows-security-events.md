@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Windows 보안 이벤트 데이터 연결 | Microsoft Docs
-description: Windows 보안 이벤트 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
+description: Security Events 커넥터를 사용 하 여 Windows 시스템에서 Azure 센티널 작업 영역으로 모든 보안 이벤트를 스트리밍하는 방법을 알아봅니다. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 30055ba1befc68d015e3e3162d8db11a2916f3d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80124978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555721"
 ---
 # <a name="connect-windows-security-events"></a>Windows 보안 이벤트 연결 
 

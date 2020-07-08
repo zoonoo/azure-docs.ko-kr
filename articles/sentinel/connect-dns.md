@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에서 DNS 데이터 연결 | Microsoft Docs
-description: Azure 센티널에서 DNS 데이터를 연결 하는 방법에 대해 알아봅니다.
+description: DNS 컴퓨터에 에이전트를 설치 하 여 Windows에서 실행 되는 모든 DNS (도메인 이름 서버)를 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 6d43b82ecd13ac5e082d270ee44ce61fef763d2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555430"
 ---
 # <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 
@@ -41,7 +41,7 @@ DNS 로그 연결을 사용 하도록 설정 하면 다음을 수행할 수 있�
 
 다음 표는 이 솔루션이 지원하는 연결된 원본을 설명합니다.
 
-| **연결 된 원본** | **지원** | **설명** |
+| **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
 | [Windows 에이전트](../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
 | [Linux 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |

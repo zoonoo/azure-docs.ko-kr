@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557871"
 ---
 # <a name="monitor-runbook-output"></a>Runbook 출력 모니터링
 
@@ -88,7 +88,7 @@ Runbook을 게시한 다음 시작하기 전에 자세한 정보 표시 스트�
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>워크플로에서 출력 데이터 형식 선언
 
-워크플로는 [OutputType 특성](https://technet.microsoft.com/library/hh847785.aspx)을 사용하여 출력의 데이터 형식을 지정합니다. 이 특성은 런타임 시 영향을 주지 않지만 Runbook의 예상 출력 디자인 타임에 표시를 제공합니다. Runbook용 도구 집합이 계속 진화하기 때문에 디자인 타임에 출력 데이터 형식을 선언하는 일이 더욱 중요해지고 있습니다. 따라서 생성하는 모든 Runbook에 이 선언을 포함하는 것이 좋습니다.
+워크플로는 [OutputType 특성](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute)을 사용하여 출력의 데이터 형식을 지정합니다. 이 특성은 런타임 시 영향을 주지 않지만 Runbook의 예상 출력 디자인 타임에 표시를 제공합니다. Runbook용 도구 집합이 계속 진화하기 때문에 디자인 타임에 출력 데이터 형식을 선언하는 일이 더욱 중요해지고 있습니다. 따라서 생성하는 모든 Runbook에 이 선언을 포함하는 것이 좋습니다.
 
 다음 샘플 runbook은 문자열 개체를 출력하고 해당 출력 형식의 선언을 포함합니다. Runbook이 특정 유형의 배열을 출력하면 형식의 배열과 달리 형식을 지정해야 합니다.
 

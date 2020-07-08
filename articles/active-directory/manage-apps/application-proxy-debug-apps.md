@@ -2,21 +2,21 @@
 title: 응용 프로그램 프록시 응용 프로그램 디버그-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램의 문제를 디버그 합니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: e61ea30f01e8ae141d24c9bd91b08edef4dbe74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555063"
 ---
 # <a name="debug-application-proxy-application-issues"></a>애플리케이션 프록시 디버그 애플리케이션 이슈 
 
@@ -39,7 +39,7 @@ ms.locfileid: "74382066"
 
 ![응용 프로그램 디버깅 단계를 보여 주는 순서도](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | 작업 | 설명 | 
+| 단계 | 작업 | 설명 |
 |---------|---------|---------|
 |1 | 브라우저를 열고 앱에 액세스 한 다음 자격 증명을 입력 합니다. | 자격 증명을 사용 하 여 앱에 로그인 하 고, [이 회사 앱에 액세스할 수 없는](application-proxy-sign-in-bad-gateway-timeout-error.md)경우와 같은 사용자 관련 오류를 확인 하세요. |
 |2 | 앱에 대 한 사용자 할당 확인 | 사용자 계정에 회사 네트워크 내부에서 앱에 액세스할 수 있는 권한이 있는지 확인 한 다음 [응용 프로그램 테스트](application-proxy-add-on-premises-application.md#test-the-application)의 단계를 수행 하 여 앱에 대 한 로그인을 테스트 합니다. 로그인 문제가 지속 되 [는 경우 로그인 오류 문제를 해결 하는 방법](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요.  |

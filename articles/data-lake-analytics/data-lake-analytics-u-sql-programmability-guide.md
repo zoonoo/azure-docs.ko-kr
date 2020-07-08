@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 587220753ce22aab2dc461047bb5d65b859c868e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73162571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555668"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -28,7 +28,7 @@ U-SQL은 빅 데이터 유형의 워크로드를 위해 설계된 쿼리 언어�
 
 다음 U-SQL 스크립트를 살펴보겠습니다.
 
-```
+```usql
 @a  = 
   SELECT * FROM 
     (VALUES
@@ -50,7 +50,7 @@ U-SQL은 빅 데이터 유형의 워크로드를 위해 설계된 쿼리 언어�
 
 U-SQL 식은 `AND`, `OR` 및 `NOT`과 같은 U-SQL 논리 연산자와 결합된 C# 식입니다. U-SQL 식은 SELECT, EXTRACT, WHERE, HAVING, GROUP BY 및 DECLARE와 함께 사용할 수 있습니다. 예를 들어 다음 스크립트는 문자열을 DateTime 값으로 구문 분석합니다.
 
-```
+```usql
 @results =
   SELECT
     customer,
@@ -61,7 +61,7 @@ U-SQL 식은 `AND`, `OR` 및 `NOT`과 같은 U-SQL 논리 연산자와 결합된
 
 다음 코드 조각은 DECLARE 문에서 문자열을 DateTime 값으로 구문 분석합니다.
 
-```
+```usql
 DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
@@ -69,7 +69,7 @@ DECLARE @d = DateTime.Parse("2016/01/01");
 
 다음 예제는 C# 식을 사용하여 datetime 데이터 변환을 수행하는 방법을 보여줍니다. 이 특정 시나리오에서 datetime 문자열 데이터는 자정 00:00:00 시간 표기법을 사용하는 표준 datetime으로 변환됩니다.
 
-```
+```usql
 DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
@@ -89,7 +89,7 @@ OUTPUT @rs1
 
 다음은 스크립트에서 이 식을 사용하는 방법의 예입니다.
 
-```
+```usql
 @rs1 =
   SELECT
     MAX(guid) AS start_id,
@@ -112,14 +112,14 @@ U-SQL 확장성 모델은 .NET 어셈블리에서 사용자 지정 코드를 추
 
 다음 코드는 어셈블리를 등록하는 방법을 보여 줍니다.
 
-```
+```usql
 CREATE ASSEMBLY MyDB.[MyAssembly]
    FROM "/myassembly.dll";
 ```
 
 다음 코드는 어셈블리를 참조하는 방법을 보여 줍니다.
 
-```
+```usql
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
@@ -140,7 +140,7 @@ U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 작업(�
 
 U-SQL 사용자 정의 함수는 **public** 및 **static**으로 초기화하는 것이 좋습니다.
 
-```
+```usql
 public static string MyFunction(string param1)
 {
     return "my result";
@@ -153,7 +153,7 @@ public static string MyFunction(string param1)
 
 회계 기간을 계산하기 위해 다음 C# 함수를 도입합니다.
 
-```
+```usql
 public static string GetFiscalPeriod(DateTime dt)
 {
     int FiscalMonth=0;
@@ -194,7 +194,7 @@ public static string GetFiscalPeriod(DateTime dt)
 
 이 시나리오의 코드 숨김 섹션은 다음과 같은 모양입니다.
 
-```
+```usql
 using Microsoft.Analytics.Interfaces;
 using Microsoft.Analytics.Types.Sql;
 using System;
@@ -243,14 +243,12 @@ namespace USQL_Programmability
 ```
 
 이제 기본 U-SQL 스크립트에서 이 함수를 호출할 것입니다. 이렇게 하려면 함수에 대해 네임스페이스를 포함하는 정규화된 이름을 제공해야 합니다. 이 경우 NameSpace.Class.Function(매개 변수)입니다.
-
-```
+```usql
 USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
 
 다음은 실제 U-SQL 기본 스크립트입니다.
-
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
@@ -282,7 +280,7 @@ OUTPUT @rs1
 
 다음은 스크립트 실행의 출력 파일입니다.
 
-```
+```output
 0d8b9630-d5ca-11e5-8329-251efa3a2941,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User1",""
 
 20843640-d771-11e5-b87b-8b7265c75a44,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User2",""
@@ -295,7 +293,7 @@ OUTPUT @rs1
 ### <a name="keep-state-between-udf-invocations"></a>UDF 호출 사이 상태 유지
 U-SQL C# 프로그래밍 기능 개체는 코드 숨김 전역 변수를 통한 상호 작용을 활용하여 더 정교해질 수 있습니다. 다음과 같은 비즈니스 사용 사례 시나리오를 살펴보겠습니다.
 
-대규모 조직에서는 사용자가 다양한 내부 애플리케이션 간에 전환할 수 있습니다. 여기에는 Microsoft Dynamics CRM, PowerBI 등이 포함될 수 있습니다. 고객을 위해 사용자가 다양한 애플리케이션 사이를 전환하는 방법, 사용 추세 등에 대한 원격 분석을 적용하는 것이 필요할 수 있습니다. 비즈니스의 목표는 애플리케이션 사용을 최적화하는 것입니다. 다양한 애플리케이션이나 특정 로그인 루틴을 결합하는 것이 필요할 수 있습니다.
+대규모 조직에서는 사용자가 다양한 내부 애플리케이션 간에 전환할 수 있습니다. 여기에는 Microsoft Dynamics CRM, Power BI 등이 포함 될 수 있습니다. 고객을 위해 사용자가 다양한 애플리케이션 사이를 전환하는 방법, 사용 추세 등에 대한 원격 분석을 적용하는 것이 필요할 수 있습니다. 비즈니스의 목표는 애플리케이션 사용을 최적화하는 것입니다. 다양한 애플리케이션이나 특정 로그인 루틴을 결합하는 것이 필요할 수 있습니다.
 
 이러한 목표를 달성하려면 세션 ID 및 마지막으로 발생한 세션 간의 지연 시간을 판단해야 합니다.
 
@@ -307,7 +305,7 @@ U-SQL C# 프로그래밍 기능 개체는 코드 숨김 전역 변수를 통한 
 
 다음은 U-SQL 프로그램의 코드 숨김 섹션입니다.
 
-```
+```csharp
 using Microsoft.Analytics.Interfaces;
 using Microsoft.Analytics.Types.Sql;
 using System;
@@ -347,7 +345,7 @@ namespace USQLApplication21
 
 U-SQL 기본 스크립트는 다음과 같습니다.
 
-```
+```usql
 DECLARE @in string = @"\UserSession\test1.tsv";
 DECLARE @out1 string = @"\UserSession\Out1.csv";
 DECLARE @out2 string = @"\UserSession\Out2.csv";
@@ -399,7 +397,7 @@ OUTPUT @rs2
 
 출력 파일은 다음과 같습니다.
 
-```
+```output
 "2016-02-19T07:32:36.8420000-08:00","User1",,True,"72a0660e-22df-428e-b672-e0977007177f"
 "2016-02-17T11:52:43.6350000-08:00","User2",,True,"4a0cd19a-6e67-4d95-a119-4eda590226ba"
 "2016-02-17T11:59:08.8320000-08:00","User2","2016-02-17T11:52:43.6350000-08:00",False,"4a0cd19a-6e67-4d95-a119-4eda590226ba"
@@ -436,7 +434,7 @@ U-SQL은 UDT가 행 집합의 꼭짓점 간에 전달되는 동안 임의의 UDT
 
 다음과 같이 (이전 SELECT의 외부에 있는) EXTRACTOR 또는 OUTPUTTER에서 UDT를 사용하려고 시도하면:
 
-```
+```usql
 @rs1 =
     SELECT 
         MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
@@ -449,7 +447,7 @@ OUTPUT @rs1
 
 다음 오류가 발생합니다.
 
-```
+```output
 Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
 MyNameSpace.Myfunction_Returning_UDT.
 
@@ -468,7 +466,7 @@ Outptutter에서 UDT를 사용하려면 ToString() 메서드를 사용하여 문
 
 UDT는 현재 GROUP BY에서 사용할 수 없습니다. GROUP BY에 UDT를 사용하면 다음과 같은 오류가 발생합니다.
 
-```
+```output
 Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
 for column myfield
 
@@ -487,7 +485,7 @@ UDT를 정의하려면 다음을 수행해야 합니다.
 
 * 다음 네임스페이스를 추가합니다.
 
-```
+```csharp
 using Microsoft.Analytics.Interfaces
 using System.IO;
 ```
@@ -506,7 +504,7 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 
 * 형식 포맷터: UDT 포맷터를 정의하는 필수 매개 변수이며 구체적으로 `IFormatter` 인터페이스 형식이 여기로 전달되어야 합니다.
 
-```
+```csharp
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
 public class MyType
 { … }
@@ -514,7 +512,7 @@ public class MyType
 
 * 다음 예제와 같이, 일반적인 UDT도 IFormatter 인터페이스에 대한 정의가 필요합니다.
 
-```
+```csharp
 public class MyTypeFormatter : IFormatter<MyType>
 {
     public void Serialize(MyType instance, IColumnWriter writer, ISerializationContext context)
@@ -525,9 +523,9 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-`IFormatter` 인터페이스는 \<typeparamref name="T">의 루트 형식으로 개체 그래프를 직렬화하고 역직렬화합니다.
+`IFormatter`인터페이스는의 루트 형식으로 개체 그래프를 직렬화 및 역직렬화 합니다 \<typeparamref name="T"> .
 
-\<typeparamref name="T"> - 직렬화/역직렬화할 개체 그래프의 루트 형식입니다.
+\<typeparam name="T">Serialize 및 deserialize 할 개체 그래프의 루트 형식입니다.
 
 * **Deserialize**: 제공된 스트림의 데이터를 역직렬화하고 개체 그래프를 다시 구성합니다.
 
@@ -547,7 +545,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 다음은 사용자 지정 UDT 및 IFormatter 인터페이스가 포함된 코드 숨김 섹션의 예제입니다.
 
-```
+```csharp
 [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
 public struct FiscalPeriod
 {
@@ -652,7 +650,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 
 이제 UDT 사용법에 대해 살펴보겠습니다. 코드 숨김 섹션에서 GetFiscalPeriod 함수를 다음과 같이 변경했습니다.
 
-```
+```csharp
 public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
 {
     int FiscalMonth = 0;
@@ -691,7 +689,7 @@ public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
 
 다음은 U-SQL 기본 스크립트에서 이 값을 사용하는 방법에 대한 예제입니다. 이 예제에서는 U-SQL 스크립트에서 UDT를 호출하는 다른 형식을 보여줍니다.
 
-```
+```usql
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.tsv";
 
@@ -737,7 +735,7 @@ OUTPUT @rs2
 
 다음은 전체 코드 숨김 섹션의 예제입니다.
 
-```
+```csharp
 using Microsoft.Analytics.Interfaces;
 using Microsoft.Analytics.Types.Sql;
 using System;
@@ -919,7 +917,7 @@ SqlUserDefinedType 특성은 UDAGG 정의의 **선택 사항** 입니다.
 
 기본 클래스를 사용하면 세 개의 추상 매개 변수(두 개는 입력 매개 변수로, 하나는 결과로)를 전달할 수 있습니다. 데이터 형식은 변수이며, 클래스를 상속하는 동안 정의해야 합니다.
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 {
     string guid_agg;
@@ -941,7 +939,7 @@ public class GuidAggregate : IAggregate<string, string, string>
 
 올바른 입력 및 출력 데이터 형식을 선언하려면 다음과 같이 클래스 정의를 사용합니다.
 
-```
+```csharp
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
@@ -951,13 +949,13 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 
 다음은 그 예입니다.
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
 또는
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 ```
 
@@ -966,13 +964,13 @@ UDAGG를 사용하려면 먼저 코드 숨김에 정의하거나 앞에서 설�
 
 그런 다음, 다음 구문을 사용합니다.
 
-```
+```csharp
 AGG<UDAGG_functionname>(param1,param2)
 ```
 
 UDAGG의 예제는 다음과 같습니다.
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 {
     string guid_agg;
@@ -1000,7 +998,7 @@ public class GuidAggregate : IAggregate<string, string, string>
 
 기본 U-SQL 스크립트:
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 
@@ -1081,7 +1079,7 @@ U-SQL을 사용하면 EXTRACT 문을 사용하여 외부 데이터를 가져올 
 
 UDE(사용자 정의 추출기)를 정의하려면 `IExtractor` 인터페이스를 만들어야 합니다. 열/행 구분 기호 및 인코딩 등과 같은 추출기에 대한 모든 입력 매개 변수는 클래스의 생성자에서 정의해야 합니다. 다음과 같이 `IExtractor` 인터페이스는 `IEnumerable<IRow>` override에 대한 정의도 포함해야 합니다.
 
-```
+```csharp
 [SqlUserDefinedExtractor]
 public class SampleExtractor : IExtractor
 {
@@ -1108,7 +1106,7 @@ SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 A
 
 입력 열 열거형의 경우 먼저 행 구분 기호를 사용하여 입력 스트림을 분할합니다.
 
-```
+```csharp
 foreach (Stream current in input.Split(my_row_delimiter))
 {
 …
@@ -1117,7 +1115,7 @@ foreach (Stream current in input.Split(my_row_delimiter))
 
 그런 다음 입력 행을 열 파트로 세분합니다.
 
-```
+```csharp
 foreach (Stream current in input.Split(my_row_delimiter))
 {
 …
@@ -1131,7 +1129,7 @@ foreach (Stream current in input.Split(my_row_delimiter))
 
 사용자 지정 추출기는 출력에 정의된 열 및 값만 출력한다는 점을 이해하는 것이 중요합니다. 메서드 호출을 설정합니다.
 
-```
+```csharp
 output.Set<string>(count, part);
 ```
 
@@ -1139,7 +1137,7 @@ output.Set<string>(count, part);
 
 다음은 추출기 예제입니다.
 
-```
+```csharp
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
 public class FullDescriptionExtractor : IExtractor
 {
@@ -1200,7 +1198,7 @@ public class FullDescriptionExtractor : IExtractor
 
 다음은 사용자 지정 추출기를 사용하는 기본 U-SQL 스크립트입니다.
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
@@ -1233,7 +1231,7 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 
 다음은 기본 `IOutputter` 클래스 구현입니다.
 
-```
+```csharp
 public abstract class IOutputter : IUserDefinedOperator
 {
     protected IOutputter();
@@ -1245,7 +1243,7 @@ public abstract class IOutputter : IUserDefinedOperator
 
 열/행 구분 기호, 인코딩 등과 같은 출력자에 대한 모든 입력 매개 변수는 클래스의 생성자에서 정의해야 합니다. `IOutputter` 인터페이스는 `void Output` override에 대한 정의도 포함해야 합니다. `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` 특성은 원자성 파일 처리를 위해 선택적으로 설정될 수 있습니다. 자세한 내용은 다음 세부 정보를 참조하세요.
 
-```
+```csharp
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
 public class MyOutputter : IOutputter
 {
@@ -1286,13 +1284,13 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
 
 개별 값은 IRow 인터페이스의 Get 메서드를 호출하여 열거됩니다.
 
-```
+```csharp
 row.Get<string>("column_name")
 ```
 
 개별 열 이름은 `row.Schema`를 호출하여 결정될 수 있습니다.
 
-```
+```csharp
 ISchema schema = row.Schema;
 var col = schema[i];
 string val = row.Get<string>(col.Name)
@@ -1304,7 +1302,7 @@ string val = row.Get<string>(col.Name)
 
 각 행을 반복한 후에 파일에 데이터 버퍼를 플러시하는 것이 중요합니다. 또한 Disposable 특성이 활성화된 상태에서(기본값) **using** 키워드와 함께 `StreamWriter` 개체를 사용해야 합니다.
 
-```
+```csharp
 using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
 {
 …
@@ -1316,7 +1314,7 @@ using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._enc
 ### <a name="set-headers-and-footers-for-user-defined-outputter"></a>사용자 정의 출력자의 머리글 및 바닥글 설정
 헤더를 설정하려면 단일 반복 실행 흐름을 사용합니다.
 
-```
+```csharp
 public override void Output(IRow row, IUnstructuredWriter output)
 {
  …
@@ -1341,7 +1339,7 @@ if (isHeaderRow)
 
 다음의 사용자 정의 출력자에 대한 예제입니다.
 
-```
+```csharp
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
 public class HTMLOutputter : IOutputter
 {
@@ -1448,7 +1446,7 @@ public static class Factory
 
 U-SQL 기본 스크립트:
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.html";
 
@@ -1490,7 +1488,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 이 경우 원래 호출은 다음과 같은 모양입니다.
 
-```
+```usql
 OUTPUT @rs0 
 TO @output_file 
 USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
@@ -1503,7 +1501,7 @@ UDP를 정의하려면 UDP의 선택 사항인 `SqlUserDefinedProcessor` 특성�
 
 다음 예제와 같이 이 인터페이스는 `IRow` 인터페이스 행 집합 override에 대한 정의를 포함해야 합니다.
 
-```
+```csharp
 [SqlUserDefinedProcessor]
 public class MyProcessor: IProcessor
 {
@@ -1522,7 +1520,7 @@ SqlUserDefinedProcessor 특성은 UDP 정의의 **선택 사항**입니다.
 
 입력 열을 열거하는 경우 `input.Get` 메서드를 사용합니다.
 
-```
+```csharp
 string column_name = input.Get<string>("column_name");
 ```
 
@@ -1532,7 +1530,7 @@ string column_name = input.Get<string>("column_name");
 
 사용자 지정 생산자는 `output.Set` 메서드 호출로 정의된 열과 값만을 출력한다는 점을 아는 것이 중요합니다.
 
-```
+```csharp
 output.Set<string>("mycolumn", mycolumn);
 ```
 
@@ -1540,7 +1538,7 @@ output.Set<string>("mycolumn", mycolumn);
 
 다음은 처리기 예제입니다.
 
-```
+```csharp
 [SqlUserDefinedProcessor]
 public class FullDescriptionProcessor : IProcessor
 {
@@ -1564,7 +1562,7 @@ public override IRow Process(IRow input, IUpdatableRow output)
 
 다음은 사용자 지정 처리기를 사용하는 기본 U-SQL 스크립트의 예제입니다.
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
@@ -1594,7 +1592,7 @@ U-SQL 사용자 정의 적용자를 사용하면 쿼리의 외부 테이블 식�
 
 사용자 정의 적용자에 대한 일반적인 호출은 다음과 같은 모양입니다.
 
-```
+```usql
 SELECT …
 FROM …
 CROSS APPLYis used to pass parameters
@@ -1605,7 +1603,7 @@ SELECT 식의 적용자 사용에 대한 자세한 내용은 [U-SQL SELECT: CROS
 
 사용자 정의 적용자 기본 클래스 정의는 다음과 같습니다.
 
-```
+```csharp
 public abstract class IApplier : IUserDefinedOperator
 {
 protected IApplier();
@@ -1616,7 +1614,7 @@ public abstract IEnumerable<IRow> Apply(IRow input, IUpdatableRow output);
 
 사용자 정의 적용자를 정의하려면 사용자 정의 적용자 정의에서 선택적인 [`SqlUserDefinedApplier`] 특성을 포함한 `IApplier` 인터페이스를 생성해야 합니다.
 
-```
+```csharp
 [SqlUserDefinedApplier]
 public class ParserApplier : IApplier
 {
@@ -1642,7 +1640,7 @@ public class ParserApplier : IApplier
 
 주요 프로그래밍 개체는 다음과 같습니다.
 
-```
+```csharp
 public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 ```
 
@@ -1650,7 +1648,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 
 개별 열 이름은 `IRow` 스키마 메서드를 호출하여 결정될 수 있습니다.
 
-```
+```csharp
 ISchema schema = row.Schema;
 var col = schema[i];
 string val = row.Get<string>(col.Name)
@@ -1658,19 +1656,19 @@ string val = row.Get<string>(col.Name)
 
 들어오는 `IRow`에서 실제 데이터 값을 가져오려면 `IRow` 인터페이스의 Get() 메서드를 사용합니다.
 
-```
+```csharp
 mycolumn = row.Get<int>("mycolumn")
 ```
 
 또는 스키마 열 이름을 사용합니다.
 
-```
+```csharp
 row.Get<int>(row.Schema[0].Name)
 ```
 
 출력 값은 `IUpdatableRow` 출력으로 설정해야 합니다
 
-```
+```csharp
 output.Set<int>("mycolumn", mycolumn)
 ```
 
@@ -1680,13 +1678,13 @@ output.Set<int>("mycolumn", mycolumn)
 
 사용자 정의 적용자 매개 변수는 생성자에 전달될 수 있습니다. 적용자는 기본 U-SQL 스크립트에서 Applier를 호출하는 동안 정의되어야 하는 가변 개수의 열을 반환할 수 있습니다.
 
-```
+```csharp
 new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 ```
 
 다음은 사용자 정의 적용자 예제입니다.
 
-```
+```csharp
 [SqlUserDefinedApplier]
 public class ParserApplier : IApplier
 {
@@ -1744,7 +1742,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 
 다음은 이 사용자 정의 적용자에 대한 기본 U-SQL 스크립트입니다.
 
-```
+```usql
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
 DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
 
@@ -1773,7 +1771,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 사용 사례 시나리오에서 사용자 정의 적용자는 car fleet 속성에 대한 쉼표로 구분된 값 파서 역할을 수행합니다. 입력 파일 행은 다음과 같은 모양입니다.
 
-```
+```text
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
 303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
@@ -1781,13 +1779,15 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 파일은 제조업체 모델 등의 자동차 속성을 포함하는 속성 열이 탭으로 분리된 일반적인 TSV 파일입니다. 이러한 속성은 테이블 열로 구문 분석되어야 합니다. 제공된 적용자를 사용하면 전달되는 매개 변수를 기반으로 결과 행 집합에 동적인 수의 속성을 생성할 수 있습니다. 모든 속성을 생성하거나 특정 속성 집합만 생성할 수 있습니다.
 
-    …USQL_Programmability.ParserApplier ("all")
-    …USQL_Programmability.ParserApplier ("make")
-    …USQL_Programmability.ParserApplier ("make&model")
+```text
+...USQL_Programmability.ParserApplier ("all")
+...USQL_Programmability.ParserApplier ("make")
+...USQL_Programmability.ParserApplier ("make&model")
+```
 
 사용자 정의 적용자는 applier 개체의 새 인스턴스로 호출될 수 있습니다.
 
-```
+```usql
 CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
@@ -1804,7 +1804,7 @@ UDC(사용자 정의 결합자)를 사용하면 사용자 지정 논리를 기�
 
 기본 U-SQL 스크립트에서 결합자를 호출하려면 다음 구문을 사용합니다.
 
-```
+```usql
 Combine_Expression :=
     'COMBINE' Combine_Input
     'WITH' Combine_Input
@@ -1821,7 +1821,7 @@ UDC를 정의하려면 UDC 정의에서 선택적인 [`SqlUserDefinedCombiner`] 
 
 기본 `ICombiner` 클래스 정의:
 
-```
+```csharp
 public abstract class ICombiner : IUserDefinedOperator
 {
 protected ICombiner();
@@ -1834,7 +1834,7 @@ public abstract IEnumerable<IRow> Combine(IRowset left, IRowset right,
 
 `ICombiner` 인터페이스의 사용자 지정 구현은 `IEnumerable<IRow>` Combine override에 대한 정의를 포함해야 합니다.
 
-```
+```csharp
 [SqlUserDefinedCombiner]
 public class MyCombiner : ICombiner
 {
@@ -1875,19 +1875,19 @@ CombinerMode 열거형은 다음 값을 포함할 수 있습니다.
 
 입력 행 집합은 **left** 및 **right** `IRowset` 형식의 인터페이스로 전달됩니다. 두 행 집합은 처리하기 위해 모두 열거되어야 합니다. 각 인터페이스를 한 번만 열거할 수 있으므로 필요에 따라 열거하고 캐시해야 합니다.
 
-캐싱을 위해 LINQ 쿼리 실행의 결과로 List\<T\> 형식의 메모리 구조체를 만들 수 있습니다(구체적으로 List<`IRow`>). 익명 데이터 형식도 열거하는 동안에 사용할 수 있습니다.
+캐싱에 사용 하기 위해 \<T\> LINQ 쿼리 실행의 결과로 메모리 구조의 목록 유형을 만들 수 있습니다. 특히 목록<`IRow`> 합니다. 익명 데이터 형식도 열거하는 동안에 사용할 수 있습니다.
 
-LINQ 쿼리에 대한 자세한 내용은 [LINQ 쿼리 소개(C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)를 참조하고, IEnumerable\<T\> 인터페이스에 대한 자세한 내용은 [IEnumerable\<T\> 인터페이스](/dotnet/api/system.collections.generic.ienumerable-1)를 참조하세요.
+LINQ 쿼리에 대 한 자세한 내용은 [Linq 쿼리 소개 (c #)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) 및 ienumerable 인터페이스에 대 한 자세한 내용은 [ienumerable \<T\> interface](/dotnet/api/system.collections.generic.ienumerable-1) 를 참조 하십시오 \<T\> .
 
 들어오는 `IRowset`에서 실제 데이터 값을 가져오려면 `IRow` 인터페이스의 Get() 메서드를 사용합니다.
 
-```
+```csharp
 mycolumn = row.Get<int>("mycolumn")
 ```
 
 개별 열 이름은 `IRow` 스키마 메서드를 호출하여 결정될 수 있습니다.
 
-```
+```csharp
 ISchema schema = row.Schema;
 var col = schema[i];
 string val = row.Get<string>(col.Name)
@@ -1895,13 +1895,13 @@ string val = row.Get<string>(col.Name)
 
 또는 스키마 열 이름을 사용합니다.
 
-```
+```csharp
 c# row.Get<int>(row.Schema[0].Name)
 ```
 
 LINQ를 사용한 일반적인 열거형은 다음과 같은 모양입니다.
 
-```
+```csharp
 var myRowset =
             (from row in left.Rows
                           select new
@@ -1914,7 +1914,7 @@ var myRowset =
 
 출력 값은 `IUpdatableRow` 출력으로 설정해야 합니다.
 
-```
+```csharp
 output.Set<int>("mycolumn", mycolumn)
 ```
 
@@ -1922,7 +1922,7 @@ output.Set<int>("mycolumn", mycolumn)
 
 다음은 결합자 예제입니다.
 
-```
+```csharp
 [SqlUserDefinedCombiner]
 public class CombineSales : ICombiner
 {
@@ -2073,14 +2073,14 @@ OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
 
 사용자 정의 결합자는 applier 개체의 새 인스턴스로 호출될 수 있습니다.
 
-```
+```csharp
 USING new MyNameSpace.MyCombiner();
 ```
 
 
 또는 래퍼 팩터리 메서드 호출을 통해 호출될 수 있습니다.
 
-```
+```csharp
 USING MyNameSpace.MyCombiner();
 ```
 
@@ -2094,7 +2094,7 @@ UDR 클래스를 정의하려면 선택적 `SqlUserDefinedReducer` 특성을 사
 
 이 클래스 인터페이스는 `IEnumerable` 인터페이스 행 집합 override에 대한 정의를 포함해야 합니다.
 
-```
+```csharp
 [SqlUserDefinedReducer]
 public class EmptyUserReducer : IReducer
 {
@@ -2117,7 +2117,7 @@ public class EmptyUserReducer : IReducer
 
 입력 행 열거형의 경우 `Row.Get` 메서드를 사용합니다.
 
-```
+```csharp
 foreach (IRow row in input.Rows)
 {
     row.Get<string>("mycolumn");
@@ -2130,7 +2130,7 @@ foreach (IRow row in input.Rows)
 
 사용자 지정 리듀서는 `output.Set` 메서드 호출로 정의된 값만 출력한다는 것을 이해하는 것이 중요합니다.
 
-```
+```csharp
 output.Set<string>("mycolumn", guid);
 ```
 
@@ -2138,7 +2138,7 @@ output.Set<string>("mycolumn", guid);
 
 다음은 리듀서 예제입니다.
 
-```
+```csharp
 [SqlUserDefinedReducer]
 public class EmptyUserReducer : IReducer
 {
@@ -2176,7 +2176,7 @@ public class EmptyUserReducer : IReducer
 
 다음은 사용자 지정 리듀서를 사용하는 기본 U-SQL 스크립트입니다.
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file_reducer.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 

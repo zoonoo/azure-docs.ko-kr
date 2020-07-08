@@ -2,22 +2,22 @@
 title: 비 갤러리 응용 프로그램 추가-Microsoft identity platform | Microsoft Docs
 description: 비 갤러리 응용 프로그램을 Azure AD 테 넌 트에 추가 합니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555126"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>나열 되지 않은 (비 갤러리) 응용 프로그램을 Azure AD 조직에 추가
 
@@ -34,7 +34,7 @@ ms.locfileid: "77063614"
 
 1. Microsoft id 플랫폼 관리자 계정을 사용 하 여 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 로그인 합니다.
 
-2. **엔터프라이즈 응용 프로그램** > **새 응용 프로그램**을 선택 합니다.
+2. **엔터프라이즈 응용 프로그램**  >  **새 응용 프로그램**을 선택 합니다.
 
 3. (선택 사항 이지만 권장 됨) **AZURE AD 갤러리** 검색 검색 상자에 응용 프로그램의 표시 이름을 입력 합니다. 
 
@@ -70,31 +70,31 @@ ms.locfileid: "77063614"
 
       **할당된** 사용자에 대한 동작:
 
-       | 애플리케이션 속성 설정 | | | 할당된 사용자 경험 | |
+       | 응용 프로그램 속성 | 응용 프로그램 속성 | 응용 프로그램 속성 | 할당된 사용자 경험 | 할당된 사용자 경험 |
        |---|---|---|---|---|
        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당된 사용자가 로그인할 수 있습니까? | 할당된 사용자가 애플리케이션을 볼 수 있습니까?* |
        | 예 | 예 | 예 | 예 | 예  |
-       | 예 | 예 | 아니요  | 예 | 아니요   |
-       | 예 | 아니요  | 예 | 예 | 예  |
-       | 예 | 아니요  | 아니요  | 예 | 아니요   |
-       | 아니요  | 예 | 예 | 아니요  | 아니요   |
-       | 아니요  | 예 | 아니요  | 아니요  | 아니요   |
-       | 아니요  | 아니요  | 예 | 아니요  | 아니요   |
-       | 아니요  | 아니요  | 아니요  | 아니요  | 아니요   |
+       | 예 | 예 | no  | 예 | no   |
+       | 예 | no  | 예 | 예 | 예  |
+       | 예 | 아니요  | no  | 예 | 아니요   |
+       | no  | 예 | 예 | 아니요  | 아니요   |
+       | no  | 예 | 아니요  | 아니요  | 아니요   |
+       | 아니요  | no  | 예 | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 아니요  | 아니요  | no   |
 
       **할당되지 않은** 사용자에 대한 동작:
 
-       | 애플리케이션 속성 설정 | | | 할당되지 않은 사용자 환경 | |
+       | 응용 프로그램 속성 | 응용 프로그램 속성 | 응용 프로그램 속성 | 할당되지 않은 사용자 환경 | 할당되지 않은 사용자 환경 |
        |---|---|---|---|---|
        | 사용자가 로그인할 수 있습니까? | 사용자 할당이 필요합니까? | 사용자가 볼 수 있습니까? | 할당되지 않은 사용자가 로그인할 수 있습니까? | 할당되지 않은 사용자가 애플리케이션을 볼 수 있습니다? * |
-       | 예 | 예 | 예 | 아니요  | 아니요   |
-       | 예 | 예 | 아니요  | 아니요  | 아니요   |
-       | 예 | 아니요  | 예 | 예 | 아니요   |
-       | 예 | 아니요  | 아니요  | 예 | 아니요   |
-       | 아니요  | 예 | 예 | 아니요  | 아니요   |
-       | 아니요  | 예 | 아니요  | 아니요  | 아니요   |
-       | 아니요  | 아니요  | 예 | 아니요  | 아니요   |
-       | 아니요  | 아니요  | 아니요  | 아니요  | 아니요   |
+       | 예 | 예 | 예 | 아니요  | no   |
+       | 예 | 예 | 아니요  | 아니요  | no   |
+       | 예 | no  | 예 | 예 | no   |
+       | 예 | 아니요  | no  | 예 | 아니요   |
+       | no  | 예 | 예 | 아니요  | 아니요   |
+       | no  | 예 | 아니요  | 아니요  | 아니요   |
+       | 아니요  | no  | 예 | 아니요  | 아니요   |
+       | 아니요  | 아니요  | 아니요  | 아니요  | no   |
 
      *사용자가 액세스 패널 및 Office 365 앱 시작 관리자에서 애플리케이션을 볼 수 있습니까?
 
@@ -102,7 +102,7 @@ ms.locfileid: "77063614"
 
     ![로고 변경](media/add-non-gallery-app/change-logo.png)
 
-4. 완료되면 **저장**을 선택합니다.
+4. 완료 되 면 **저장**을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

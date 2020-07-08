@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554777"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -41,13 +41,12 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 하이브리드 Azure AD 구현을 계획하려면 다음 사항을 숙지해야 합니다.
 
-|   |   |
-| --- | --- |
-| ![확인][1] | 지원되는 디바이스 검토 |
-| ![확인][1] | 알아야 할 사항 검토 |
-| ![확인][1] | 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사 검토 |
-| ![확인][1] | Id 인프라에 따라 시나리오를 선택 합니다. |
-| ![확인][1] | 하이브리드 Azure AD 조인에 대 한 온-프레미스 AD UPN 지원 검토 |
+> [!div class="checklist"]
+> - 지원되는 디바이스 검토
+> - 알아야 할 사항 검토
+> - 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사 검토
+> - Id 인프라에 따라 시나리오를 선택 합니다.
+> - 하이브리드 Azure AD 조인에 대 한 온-프레미스 AD UPN 지원 검토
 
 ## <a name="review-supported-devices"></a>지원되는 디바이스 검토
 
@@ -58,7 +57,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 - Windows 10
 - Windows Server 2016
   - **참고**: Azure 국가별 클라우드 고객은 버전 1809을 요구 합니다.
-- 시작
+- Windows Server 2019
 
 Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되는 버전은 [windows 10 릴리스 정보](/windows/release-information/)문서에 나열 되어 있습니다. 모범 사례로, Microsoft는 최신 버전의 Windows 10으로 업그레이드 하는 것이 좋습니다.
 
@@ -100,7 +99,7 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 > [!NOTE]
 > Azure AD 등록 장치는 Intune에서 관리 되는 경우 자동으로 제거 되지 않습니다.
 
-### <a name="additional-considerations"></a>기타 고려 사항
+### <a name="additional-considerations"></a>추가 고려 사항
 - 사용자 환경에서 VDI (가상 데스크톱 인프라)를 사용 하는 경우 [장치 id 및 데스크톱 가상화](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)를 참조 하세요.
 
 - 하이브리드 Azure AD 조인은 FIPS 규격 TPM 2.0에 대해 지원 되며 TPM 1.2에 대해 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2이 있는 경우 하이브리드 Azure AD 조인을 진행 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 tpm에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요. 
@@ -127,8 +126,8 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 
 페더레이션 환경은 다음 요구 사항을 지원하는 ID 공급자가 있어야 합니다. AD FS(Active Directory Federation Services)를 사용하는 페더레이션된 환경을 사용하는 경우에는 아래 요구 사항이 이미 지원됩니다.
 
-- **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 장치에 대 한 하이브리드 Azure AD 조인을 수행 하는 데 필요 합니다.
-- **Ws-trust 프로토콜:** 이 프로토콜은 Azure AD에서 Windows 현재 하이브리드 Azure AD 조인 장치를 인증 하는 데 필요 합니다. AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다. `/adfs/services/trust/2005/windowstransport`  
+- **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 수행하는 데 필요합니다.
+- **WS-Trust 프로토콜:** 이 프로토콜은 Azure AD를 사용하여 현재 Windows 하이브리드 Azure AD 조인 디바이스를 인증하는 데 필요합니다. AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다. `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -160,18 +159,18 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | Description |
+| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | 설명 |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리 대상 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
-| 라우팅 불가능 | 관리 대상 | 지원되지 않음 | |
+| 라우팅 가능 | 관리 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
+| 라우팅 불가능 | 관리 | 지원되지 않음 | |
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [페더레이션된 환경](hybrid-azuread-join-federated-domains.md)
-> 에 대해 하이브리드 Azure Active Directory 조인 구성[관리 환경에 대 한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
+> [페더레이션된 환경](hybrid-azuread-join-federated-domains.md) 
+>  에 대 한 하이브리드 Azure Active Directory 조인 구성 [관리 환경에 대 한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

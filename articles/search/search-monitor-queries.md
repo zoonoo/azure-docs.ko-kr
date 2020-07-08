@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552517"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 요청 모니터링
 
@@ -36,12 +36,12 @@ ms.locfileid: "82127687"
 
 쿼리가 실행 되는 데 일반적으로 밀리초 단위로 계산 되므로 시간 (초)으로 측정 되는 쿼리만 메트릭에 표시 됩니다.
 
-| 집계 형식 | Description |
+| 집계 형식 | 설명 |
 |------------------|-------------|
 | 평균 | 쿼리가 실행 된 후 1 분 내에 발생 한 평균 시간 (초)입니다.|
 | 개수 | 1 분 간격 내에 로그에 내보내는 메트릭 수입니다. |
 | 최대 | 1 분 동안 등록 된 초당 최대 검색 쿼리 수입니다. |
-| 최소 | 1 분 동안 등록 된 초당 검색 쿼리 수입니다.  |
+| 최소값 | 1 분 동안 등록 된 초당 검색 쿼리 수입니다.  |
 | 합계 | 1 분 이내에 실행 된 모든 쿼리의 합계입니다.  |
 
 예를 들어 1 분 이내에 SearchQueriesPerSecond에 대 한 최대값 인 높은 부하의 1 초, 평균 부하의 58 초, 마지막으로 하나의 쿼리 (최소 1 초)가 있는 것과 같은 패턴이 있을 수 있습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "82127687"
 | 평균 | 평균 쿼리 기간 (밀리초)입니다. | 
 | 개수 | 1 분 간격 내에 로그에 내보내는 메트릭 수입니다. |
 | 최대 | 샘플에서 가장 오래 실행 되는 쿼리입니다. | 
-| 최소 | 샘플에서 가장 짧은 실행 쿼리입니다.  | 
+| 최소값 | 샘플에서 가장 짧은 실행 쿼리입니다.  | 
 | 합계 | 이 샘플에 있는 모든 쿼리의 총 실행 시간 (1 분) 내에 실행 됩니다.  |
 
 **검색 대기 시간** 메트릭에 대 한 다음 예제를 고려 합니다. 86 쿼리는 평균 기간이 23.26 밀리초로 샘플링 되었습니다. 최소 0은 일부 쿼리를 삭제 했음을 나타냅니다. 가장 오래 실행 되는 쿼리를 완료 하는 데 1000 밀리초가 걸렸습니다. 총 실행 시간은 2 초입니다.
@@ -87,7 +87,7 @@ ms.locfileid: "82127687"
 | 평균 | 간격 내에 삭제 된 쿼리의 비율입니다. |
 | 개수 | 1 분 간격 내에 로그에 내보내는 메트릭 수입니다. |
 | 최대 | 간격 내에 삭제 된 쿼리의 비율입니다.|
-| 최소 | 간격 내에 삭제 된 쿼리의 비율입니다. |
+| 최소값 | 간격 내에 삭제 된 쿼리의 비율입니다. |
 | 합계 | 간격 내에 삭제 된 쿼리의 비율입니다. |
 
 **제한 된 검색 쿼리 백분율**, 최소, 최대, 평균 및 합계의 경우 1 분 동안 검색 쿼리의 총 수에서 제한 된 검색 쿼리의 비율입니다.
@@ -128,11 +128,11 @@ ms.locfileid: "82127687"
    AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where Query_s != "?api-version=2020-06-30&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. 필요에 따라 특정 구문이 나 문자열을 검색 하도록 *Query_s* 열 필터를 설정 합니다. 예를 *들어를 필터링* `?api-version=2019-05-06&search=*&%24filter=HotelName`할 수 있습니다.
+1. 필요에 따라 특정 구문이 나 문자열을 검색 하도록 *Query_s* 열 필터를 설정 합니다. 예를 *들어를 필터링* 할 수 있습니다 `?api-version=2020-06-30&search=*&%24filter=HotelName` .
 
    ![기록 쿼리 문자열](./media/search-monitor-usage/log-query-strings.png "기록 쿼리 문자열")
 
@@ -181,7 +181,7 @@ ms.locfileid: "82127687"
 
    ![경고 세부 정보](./media/search-monitor-usage/alert-details.png "경고 세부 정보")
 
-전자 메일 알림을 지정한 경우 "Azure: 활성화 된 심각도: 3 `<your rule name>`"의 제목 줄이 포함 된 "Microsoft Azure"에서 전자 메일을 받게 됩니다.
+전자 메일 알림을 지정한 경우 "Azure: 활성화 된 심각도: 3"의 제목 줄이 포함 된 "Microsoft Azure"에서 전자 메일을 받게 됩니다 `<your rule name>` .
 
 <!-- ## Report query data
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81453730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557910"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.
 
@@ -38,16 +38,20 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여기서 `{referenceString}`은 다음 옵션 중 하나로 대체됩니다.
 
 > [!div class="mx-tdBreakAll"]
-> | 참조 문자열                                                            | Description                                                                                                                                                                                 |
+> | 참조 문자열                                                            | 설명                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931).  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |
 
-예를 들어 버전에 대 한 전체 참조는 다음과 같습니다.
+> [!NOTE] 
+> 현재 버전이 필요 합니다. 비밀을 회전할 때 애플리케이션 구성에서 버전을 업데이트해야 합니다.
+
+예를 들어 전체 참조는 다음과 같습니다.
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
+
 또는 다음과 같습니다.
 
 ```
@@ -68,7 +72,7 @@ Key Vault 참조를 [응용 프로그램 설정](configure-common.md#configure-a
 
 Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 이 기능이 작동하려면 종속성을 특정 순서로 시퀀스해야 할 수 있습니다. 중요한 것은, 사이트 정의에서 `siteConfig` 속성을 사용하는 대신 애플리케이션 설정을 자체 리소스로 정의해야 합니다. 이는 사이트를 먼저 정의해야 사이트를 사용하여 시스템 할당 ID를 만들고 액세스 정책에서 사용할 수 있기 때문입니다.
 
-함수 앱에 대한 예제 의사 템플릿은 다음과 같습니다.
+함수 앱에 대 한 의사 (pseudo) 템플릿 예제는 다음과 같습니다.
 
 ```json
 {
@@ -176,7 +180,7 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 
 ## <a name="troubleshooting-key-vault-references"></a>Key Vault 참조 문제 해결
 
-참조가 제대로 확인 되지 않으면 참조 값이 대신 사용 됩니다. 즉, 응용 프로그램 설정의 경우 값이 `@Microsoft.KeyVault(...)` 구문을 갖는 환경 변수가 만들어집니다. 이로 인해 응용 프로그램에서 오류를 throw 할 수 있습니다 .이 경우 특정 구조의 비밀이 필요 하기 때문입니다.
+참조가 제대로 확인 되지 않으면 참조 값이 대신 사용 됩니다. 즉, 응용 프로그램 설정의 경우 값이 구문을 갖는 환경 변수가 만들어집니다 `@Microsoft.KeyVault(...)` . 이로 인해 응용 프로그램에서 오류를 throw 할 수 있습니다 .이 경우 특정 구조의 비밀이 필요 하기 때문입니다.
 
 가장 일반적으로는 [Key Vault 액세스 정책의](#granting-your-app-access-to-key-vault)잘못 된 구성으로 인해 발생 합니다. 그러나 비밀이 더 이상 존재 하지 않거나 참조 자체의 구문 오류가 원인일 수도 있습니다.
 

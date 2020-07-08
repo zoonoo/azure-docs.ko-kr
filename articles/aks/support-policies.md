@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: HT
+ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558078"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
 
@@ -51,9 +51,12 @@ Microsoft와 AKS 팀이 서비스 가용성 및 기능을 배포하고 운영하
 
 Microsoft는 다음에 대한 기술 지원을 제공합니다.
 
+> [!NOTE]
+> Microsoft 지원에서 수행 하는 모든 클러스터 작업은 이름에 대 한 기본 제공 Kubernetes ["편집"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 역할에 따라 사용자 동의가 적용 됩니다 `aks-support-rolebinding` . 이 역할을 사용 하면 클러스터 구성 및 리소스를 편집 하 여 클러스터 문제를 해결 하 고, 역할에서 사용 권한을 수정 하거나 역할 또는 역할 바인딩을 만들 수 AKS 지원 됩니다. 역할 액세스는 JIT (just-in-time) 액세스를 사용 하는 활성 지원 티켓 에서만 사용 하도록 설정 됩니다.
+
 * Kubernetes 서비스가 제공하고 지원하는 모든 Kubernetes 구성 요소(예 API 서버)에 대한 연결
 * Kubernetes 컨트롤 플레인 서비스(예: Kubernetes 마스터 노드, API 서버, etcd 및 kube-dns)의 관리, 작동 시간, QoS 및 작업
-* Etcd. 지원에는 재해 계획 및 클러스터 상태 복원에 대해 30분마다 모든 etcd 데이터의 자동화된 투명 백업이 포함됩니다. 이러한 백업은 고객이나 사용자에게 직접 제공되지 않습니다. 데이터 안정성 및 일관성을 보장합니다.
+* Etcd. 지원에는 재해 계획 및 클러스터 상태 복원에 대해 30분마다 모든 etcd 데이터의 자동화된 투명 백업이 포함됩니다. 이러한 백업은 고객이나 사용자에게 직접 제공되지 않습니다. 데이터 안정성 및 일관성을 보장합니다. Etcd. 주문형 롤백 또는 복원은 기능으로 지원 되지 않습니다.
 * Kubernetes용 Azure 클라우드 공급자 드라이버의 모든 통합 요소. 여기에는 부하 분산 장치, 일관된 볼륨 또는 네트워킹(Kubernetes 및 Azure CNI)과 같은 다른 Azure 서비스에 대한 통합이 포함됩니다.
 * Kubernetes API 서버, etcd, kube-dns 등 컨트롤 플레인 구성 요소의 사용자 지정에 대한 질문이나 문제
 * 네트워킹(예: Azure CNI, kubenet 또는 기타 네트워크 액세스)에 관한 문제 및 기능 문제 문제에는 DNS 확인, 패킷 손실, 라우팅 등이 포함될 수 있습니다. Microsoft는 다음과 같은 다양한 네트워킹 시나리오를 지원합니다.

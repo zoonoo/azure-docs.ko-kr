@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754557"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557452"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search에서 AI 보강 파이프라인에 기술를 만드는 방법 
 
@@ -55,7 +55,7 @@ AI 보강는 Azure Cognitive Search에서 검색할 수 있도록 데이터를 �
 기술 집합은 기술의 배열로서 정의됩니다. 각 기술은 해당 입력의 원본 및 생성된 출력의 이름을 정의합니다. [기술 집합 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-skillset)를 사용하여 이전 다이어그램에 해당하는 기술 집합을 정의할 수 있습니다. 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -163,7 +163,7 @@ Content-Type: application/json
     }
 ```
 
-* 모든 기본 제공 기술에는 `odata.type`, `input`및 `output` 속성이 있습니다. 기술 관련 속성은 해당 기술에 적용 가능한 추가 정보를 제공합니다. 엔터티 인식의 경우 `categories`은 미리 학습된 모델이 인식할 수 있는 엔터티 형식의 고정 집합 중 한 엔터티입니다.
+* 모든 기본 제공 기술에는 `odata.type` , `input` 및 `output` 속성이 있습니다. 기술 관련 속성은 해당 기술에 적용 가능한 추가 정보를 제공합니다. 엔터티 인식의 경우 `categories`은 미리 학습된 모델이 인식할 수 있는 엔터티 형식의 고정 집합 중 한 엔터티입니다.
 
 * 각 기술에는 ```"context"```이 있어야 합니다. 컨텍스트는 작업을 수행할 수준을 나타냅니다. 위의 기술에서 컨텍스트는 전체 문서입니다. 즉, 엔터티 인식 기술이 문서 당 한 번 호출 됩니다. 출력은 또한 해당 수준에서 생성됩니다. 보다 구체적으로, ```"organizations"```은 ```"/document"```의 구성원으로 생성됩니다. 다운스트림 기술에서 새로 만든 이 정보를 ```"/document/organizations"```로 언급할 수 있습니다.  ```"context"``` 필드가 명시적으로 설정되지 않은 경우 기본 컨텍스트는 문서입니다.
 
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 다음은 그 예입니다.
+* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들어:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -247,7 +247,7 @@ Content-Type: application/json
 
 ## <a name="add-a-knowledge-store"></a>기술 자료 저장소 추가
 
-[기술 자료 저장소](knowledge-store-concept-intro.md) 는 보강 문서를 저장 하기 위한 Azure Cognitive Search의 미리 보기 기능입니다. Azure storage 계정에 의해 생성 되는 기술 자료 저장소는 보강 데이터가 있는 리포지토리입니다. 
+[기술 자료 저장소](knowledge-store-concept-intro.md) 는 보강 문서를 저장 하기 위한 Azure Cognitive Search의 기능입니다. Azure storage 계정에 의해 생성 되는 기술 자료 저장소는 보강 데이터가 있는 리포지토리입니다. 
 
 기술 자료 저장소 정의가 기술에 추가 됩니다. 전체 프로세스에 대 한 연습은 [REST에서 기술 자료 저장소 만들기](knowledge-store-create-rest.md)를 참조 하세요.
 

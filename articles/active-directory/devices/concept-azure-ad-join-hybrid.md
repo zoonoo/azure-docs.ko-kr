@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554916"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 가입 디바이스
 
@@ -29,11 +29,11 @@ ms.locfileid: "76512252"
 
 사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 디바이스를 구현할 수 있습니다. 이러한 장치는 온-프레미스 Active Directory에 조인 되 고 Azure Active Directory에 등록 된 장치입니다.
 
-|   | 하이브리드 Azure AD 조인 |
+| 하이브리드 Azure AD 조인 | 설명 |
 | --- | --- |
 | **정의** | 온-프레미스 AD 및 Azure AD에 조인 하 여 조직 계정이 장치에 로그인 하도록 요구 |
-| **기본 대상** | 기존 온-프레미스 AD 인프라를 사용 하는 하이브리드 조직에 적합 |
-|   | 조직의 모든 사용자에 게 적용 가능 |
+| **기본 대상 그룹** | 기존 온-프레미스 AD 인프라를 사용 하는 하이브리드 조직에 적합 |
+|   | 조직의 모든 사용자에게 적용됩니다. |
 | **디바이스 소유권** | 조직 |
 | **운영 체제** | Windows 10, 8.1 및 7 |
 |   | Windows Server 2008/R2, 2012/R2, 2016 및 2019 |
@@ -41,15 +41,15 @@ ms.locfileid: "76512252"
 |   | Azure AD Connect 또는 ADFS 구성을 통한 IT 및 autojoin 도메인 가입 |
 |   | Azure AD Connect 또는 ADFS 구성을 통한 Windows Autopilot 및 autojoin의 도메인 가입 |
 |   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 및 Windows Server 2008 R2-MSI 필요 |
-| **장치 로그인 옵션** | 다음을 사용 하는 조직 계정: |
+| **디바이스 로그인 옵션** | 다음을 사용하는 조직 계정: |
 |   | 암호 |
 |   | 비즈니스용 Windows Hello Win10 |
 | **디바이스 관리** | 그룹 정책 |
 |   | Microsoft Intune를 사용 하 여 독립 실행형 또는 공동 관리 Configuration Manager |
-| **주요 기능** | 클라우드 및 온-프레미스 리소스 모두에 SSO |
+| **주요 기능** | 클라우드 및 온-프레미스 리소스 모두에 대한 SSO |
 |   | 공동 관리 되는 경우 도메인 가입 또는 Intune을 통한 조건부 액세스 |
-|   | 잠금 화면에서 셀프 서비스 암호 재설정 및 Windows Hello PIN 다시 설정 |
-|   | 장치에서 Enterprise State Roaming |
+|   | 잠금 화면에서 셀프 서비스 암호 재설정 및 Windows Hello PIN 재설정 |
+|   | 여러 디바이스에서 Enterprise State Roaming |
 
 ![하이브리드 Azure AD 가입 디바이스](./media/concept-azure-ad-join-hybrid/azure-ad-hybrid-joined-device.png)
 
@@ -65,5 +65,5 @@ ms.locfileid: "76512252"
 ## <a name="next-steps"></a>다음 단계
 
 - [하이브리드 Azure AD 조인 구현 계획](hybrid-azuread-join-plan.md)
-- [Azure Portal를 사용 하 여 장치 id 관리](device-management-azure-portal.md)
+- [Azure Portal을 사용하여 디바이스 ID 관리](device-management-azure-portal.md)
 - [Azure AD에서 부실 디바이스 관리](manage-stale-devices.md)

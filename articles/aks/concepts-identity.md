@@ -4,12 +4,12 @@ description: Azure Active Directory 통합, Kubernetes RBAC(역할 기반 액세
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb3f0a7aee63f8b655e7056ee870de80c2f814e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558164"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -67,6 +67,9 @@ ClusterRole은 리소스에 권한을 부여하는 것과 동일한 방식으로
 역할 바인딩은 지정된 네임스페이스에 대한 역할을 할당하는 데 사용됩니다. 이 방법을 사용하면 사용자가 할당된 네임스페이스의 애플리케이션 리소스에만 액세스할 수 있는 단일 AKS 클러스터를 논리적으로 구분할 수 있습니다. 전체 클러스터 또는 네임스페이스 외부의 리소스에 역할을 바인딩해야 하는 경우 *ClusterRoleBindings*를 대신 사용할 수 있습니다.
 
 ClusterRoleBinding은 사용자에게 역할을 바인딩하는 것과 동일한 방식으로 작동하지만 특정 네임스페이스가 아닌 전체 클러스터의 리소스에 적용할 수 있습니다. 이 방법을 통해 관리자 또는 지원 엔지니어에게 AKS 클러스터의 모든 리소스에 대한 액세스 권한을 부여할 수 있습니다.
+
+> [!NOTE]
+> Microsoft 지원에서 수행 하는 모든 클러스터 작업은 이름에 대 한 기본 제공 Kubernetes ["편집"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 역할에 따라 사용자 동의가 적용 됩니다 `aks-support-rolebinding` . 이 역할을 사용 하면 클러스터 구성 및 리소스를 편집 하 여 클러스터 문제를 해결 하 고, 역할에서 사용 권한을 수정 하거나 역할 또는 역할 바인딩을 만들 수 AKS 지원 됩니다. 역할 액세스는 JIT (just-in-time) 액세스를 사용 하는 활성 지원 티켓 에서만 사용 하도록 설정 됩니다. [AKS 지원 정책](support-policies.md)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,27 +8,27 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76899939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553287"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 Azure Cognitive Search 콘텐츠에 대 한 미사용 암호화
 
 기본적으로 Azure Cognitive Search [는 서비스 관리 키](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models)를 사용 하 여 미사용 인덱싱된 콘텐츠를 암호화 합니다. Azure Key Vault에서 만들고 관리 하는 키를 사용 하 여 추가 암호화 계층으로 기본 암호화를 보완할 수 있습니다. 이 문서에서는 단계를 안내 합니다.
 
-서버 쪽 암호화는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)와의 통합을 통해 지원 됩니다. 사용자 고유의 암호화 키를 만들고 Azure Key Vault에 저장할 수도 있고 Azure Key Vault의 API를 사용하여 암호화 키를 생성할 수도 있습니다. Azure Key Vault를 사용 하 여 키 사용을 감사할 수도 있습니다. 
+서버 쪽 암호화는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)와의 통합을 통해 지원 됩니다. 사용자 고유의 암호화 키를 만들고 Azure Key Vault에 저장할 수도 있고 Azure Key Vault의 API를 사용하여 암호화 키를 생성할 수도 있습니다. Azure Key Vault를 사용하면 키 사용을 감사할 수도 있습니다. 
 
 고객 관리 키를 사용 하는 암호화는 검색 서비스 수준이 아닌 해당 개체가 생성 될 때 인덱스 또는 동의어 맵 수준에서 구성 됩니다. 이미 존재 하는 콘텐츠는 암호화할 수 없습니다. 
 
 키가 모두 같은 Key Vault에 있을 필요는 없습니다. 단일 검색 서비스는 서로 다른 키 자격 증명 모음에 저장 된 고유한 고객 관리 암호화 키를 사용 하 여 암호화 된 여러 인덱스 또는 동의어 맵을 호스트할 수 있습니다.  고객 관리 키를 사용 하 여 암호화 되지 않은 동일한 서비스에 인덱스 및 동의어 맵을 포함할 수도 있습니다. 
 
 > [!IMPORTANT] 
-> 이 기능은 [REST API 버전 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) 및 [.net SDK 버전 8.0-미리 보기](search-dotnet-sdk-migration-version-9.md)에서 사용할 수 있습니다. 현재 Azure Portal에는 고객 관리 암호화 키를 구성할 수 있는 기능이 없습니다. 검색 서비스는 2019 년 1 월 1 일 이후에 생성 되어야 하며 무료 (공유) 서비스 일 수 없습니다.
+> 이 기능은 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 [.net SDK 버전 8.0-미리 보기](search-dotnet-sdk-migration-version-9.md)에서 사용할 수 있습니다. 현재 Azure Portal에는 고객 관리 암호화 키를 구성할 수 있는 기능이 없습니다. 검색 서비스는 2019 년 1 월 1 일 이후에 생성 되어야 하며 무료 (공유) 서비스 일 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 예제에서 사용 되는 서비스는 다음과 같습니다. 
 
@@ -38,7 +38,7 @@ ms.locfileid: "76899939"
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 는 구성 작업에 사용 됩니다.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) 및 [Azure Cognitive Search SDK](https://aka.ms/search-sdk-preview) 를 사용 하 여 REST API를 호출할 수 있습니다. 지금은 고객이 관리 하는 암호화에 대 한 포털이 지원 되지 않습니다.
++ [Postman](search-get-started-postman.md), [AZURE POWERSHELL](search-create-index-rest-api.md) 및 [.net SDK preview](https://aka.ms/search-sdk-preview) 를 사용 하 여 REST API를 호출할 수 있습니다. 지금은 고객이 관리 하는 암호화에 대 한 포털이 지원 되지 않습니다.
 
 >[!Note]
 > Azure 키 자격 증명 모음 키가 삭제 된 경우 Azure Cognitive Search는 고객 관리 키 기능을 사용 하 여 암호화의 특성으로 인해 데이터를 검색할 수 없습니다. 실수로 Key Vault 키 삭제로 인 한 데이터 손실을 방지 하려면 Key Vault에서 일시 삭제 및 제거 보호를 사용 하도록 설정 **해야** 합니다. 자세한 내용은 [Azure Key Vault 일시 삭제](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)를 참조 하세요.   
@@ -236,4 +236,4 @@ REST API를 통해 새 동의어 맵을 만드는 방법에 대 한 자세한 �
 Azure 보안 아키텍처에 익숙하지 않은 경우 [Azure 보안 설명서](https://docs.microsoft.com/azure/security/)를 검토 합니다. 특히이 문서는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [휴지 상태의 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+> [미사용 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

@@ -2,25 +2,25 @@
 title: Azure Active Directory 액세스 패널 배포 계획
 description: Azure Active Directory 액세스 패널 배포에 대 한 지침
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555316"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Azure Active Directory 액세스 패널 배포 계획
 
@@ -81,10 +81,10 @@ Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활�
 
 다음 표에서는 액세스 패널 배포에 대 한 주요 사용 사례를 간략하게 설명 합니다.
 
-| 영역| Description |
+| 영역| 설명 |
 | - | - |
-| 액세스| 액세스 패널 포털은 회사 네트워크 내의 회사 및 개인 장치에서 액세스할 수 있습니다. |
-|액세스 | 액세스 패널 포털은 회사 네트워크 외부의 회사 장치에서 액세스할 수 있습니다. |
+| Access| 액세스 패널 포털은 회사 네트워크 내의 회사 및 개인 장치에서 액세스할 수 있습니다. |
+|Access | 액세스 패널 포털은 회사 네트워크 외부의 회사 장치에서 액세스할 수 있습니다. |
 | 감사| 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 됩니다. |
 | 거버넌스| Azure AD에 연결 된 응용 프로그램 및 그룹에 대 한 사용자 할당의 수명 주기는 정의 되 고 모니터링 됩니다. |
 | 보안| 리소스에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. 권한 있는 사용자만 리소스 액세스를 관리할 수 있습니다. |
@@ -108,7 +108,7 @@ Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활�
    * 셀프 서비스 암호 재설정
    * Multi-Factor Authentication 설정
    * 디바이스 관리
-   * 사용 조건
+   * 사용 약관
    * 조직 관리
 
 1. 내 그룹
@@ -122,7 +122,7 @@ Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활�
 
 다음 표에서는 사용할 수 있는 몇 가지 중요 한 액세스 패널 구성과 일반적인 값을 보여 줍니다.
 
-| 구성| 일반적인 값 |
+| Configuration| 일반적인 값 |
 | - | - |
 | 파일럿 그룹 결정| 사용할 Azure AD 보안 그룹을 식별 하 고 모든 파일럿 구성원이 그룹에 속해 있는지 확인 합니다. |
 | 프로덕션에 사용할 그룹을 결정 합니다.| 사용할 azure AD 보안 그룹 또는 Azure AD에 동기화 된 Active Directory 그룹을 식별 합니다. 모든 파일럿 구성원이 그룹의 일부 인지 확인 합니다. |
@@ -151,7 +151,7 @@ Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활�
 
 ### <a name="plan-communications"></a>통신 계획
 
-통신은 모든 새 서비스의 성공에 중요 합니다. 사용자에 게 경험을 언제 어떻게 변경 하 고 필요한 경우 지원을 얻는 지를 사전에 알려 줍니다.
+통신은 새 서비스의 성공에 대단히 중요합니다. 사용자에 게 경험을 언제 어떻게 변경 하 고 필요한 경우 지원을 얻는 지를 사전에 알려 줍니다.
 
 액세스 패널은 일반적으로 사용자 문제를 만들지 않지만 준비 하는 것이 중요 합니다. 시작 하기 전에 지원 담당자의 모든 리소스 목록 및 가이드를 만듭니다.
 
@@ -215,7 +215,7 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 
 ## <a name="plan-your-my-apps-deployment"></a>내 앱 배포 계획
 
-액세스 패널의 기초는 응용 프로그램 시작 관리자 내 앱 이며, 사용자는에 [https://myapps.microsoft.com](https://myapps.microsoft.com/)액세스 합니다. 내 앱 페이지에서는 사용자에 게 작업을 시작 하 고 필요한 응용 프로그램에 액세스할 수 있는 단일 장소를 제공 합니다. 여기서 사용자는 액세스 Single Sign-On 있는 모든 응용 프로그램의 목록을 찾을 수 있습니다. 
+액세스 패널의 기초는 응용 프로그램 시작 관리자 내 앱 이며, 사용자는에 액세스 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 합니다. 내 앱 페이지에서는 사용자에 게 작업을 시작 하 고 필요한 응용 프로그램에 액세스할 수 있는 단일 장소를 제공 합니다. 여기서 사용자는 액세스 Single Sign-On 있는 모든 응용 프로그램의 목록을 찾을 수 있습니다. 
 
 ![앱 패널의 스크린샷](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -261,7 +261,7 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 
 Azure AD [는 기술 및 비즈니스 정보를 제공 하는 보고서를](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/)제공 합니다. 비즈니스 및 기술 응용 프로그램 소유자와 협력 하 여 이러한 보고서의 소유권을 가정 하 고 정기적으로 사용 합니다. 다음 표에서는 일반적인 보고 시나리오에 대 한 몇 가지 예를 제공 합니다.
 
-|   | 위험 관리| 생산성 향상| 거버넌스 및 규정 준수 |
+| 예제 | 위험 관리| 생산성 향상| 거버넌스 및 규정 준수 |
 |  - |- | - | - |
 | 보고서 유형|  응용 프로그램 사용 권한 및 사용| 계정 프로비전 활동| 응용 프로그램에 액세스 하는 사용자 검토 |
 | 잠재적 작업| 감사 액세스 권한 해지| 프로 비전 오류 수정| 액세스 취소 |

@@ -4,19 +4,19 @@ description: 환경에서 Azure AD 조인 디바이스를 구현하는 데 필�
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672688"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555019"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -32,15 +32,14 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 Azure AD 조인 구현을 계획 하려면 다음을 숙지 해야 합니다.
 
-|   |   |
-|---|---|
-|![확인][1]|시나리오 검토|
-|![확인][1]|ID 인프라 검토|
-|![확인][1]|디바이스 관리 평가|
-|![확인][1]|애플리케이션 및 리소스에 대한 고려 사항 이해|
-|![확인][1]|프로비전 옵션 이해|
-|![확인][1]|엔터프라이즈 상태 로밍 구성|
-|![확인][1]|조건부 액세스 구성|
+> [!div class="checklist"]
+> - 시나리오 검토
+> - ID 인프라 검토
+> - 디바이스 관리 평가
+> - 애플리케이션 및 리소스에 대한 고려 사항 이해
+> - 프로비전 옵션 이해
+> - 엔터프라이즈 상태 로밍 구성
+> - 조건부 액세스 구성
 
 ## <a name="review-your-scenarios"></a>시나리오 검토 
 
@@ -104,7 +103,7 @@ Azure AD 조인:
 
 - Windows 10 디바이스에만 적용됩니다. 
 - 이전 버전의 Windows 또는 다른 운영 체제에는 적용되지 않습니다. Windows 7/8.1 디바이스의 경우 Azure AD 조인을 배포하려면 Windows 10으로 업그레이드해야 합니다.
-- FIPS 모드에서 TPM을 사용한 디바이스에서 지원되지 않습니다.
+- 는 FIPS 규격 TPM 2.0에 대해 지원 되지만 TPM 1.2에는 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2가 있는 경우 Azure AD 조인을 계속 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 tpm에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요.
  
 **권장 사항:** 항상 최신 Windows 10 릴리스를 사용하여 업데이트된 기능을 활용하는 것이 좋습니다.
 
@@ -185,6 +184,8 @@ Azure AD 조인 디바이스는 머신 인증에 의존하는 온-프레미스 �
 
 Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 호스트 머신이 Azure AD에 조인되거나 하이브리드 Azure AD에 조인되어야 합니다. 조인되지 않은 디바이스 또는 Windows 이외의 디바이스에서 원격 데스크톱으로 연결하는 기능은 지원되지 않습니다. 자세한 내용은 [원격 Azure AD 조인 pc에 연결](/windows/client-management/connect-to-remote-aadj-pc)을 참조하세요.
 
+Windows 10 2004 업데이트를 시작 하면 사용자가 Azure AD에 등록 된 Windows 10 장치에서 원격 데스크톱을 Azure AD 조인 장치에 사용할 수 있습니다. 
+
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
 
 다음 방법을 사용하여 Azure AD 조인을 프로비전할 수 있습니다.
@@ -195,7 +196,7 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
  
 다음은 세 방법을 비교한 내용입니다. 
  
-|   | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
+| 요소 | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
 | --- | --- | --- | --- |
 | 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아니요 |
 | IT 활동이 필요 | 아니요 | 예 | 예 |
@@ -295,8 +296,8 @@ Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
-> 회사[장치를 조직의 네트워크에 처음으로 연결 하](/azure/active-directory/user-help/user-help-join-device-on-network) 는 동안 Azure AD에 새 Windows 10 장치 조인
+> [처음 실행 하는 동안 AZURE AD에 새 Windows 10 장치 조인](azuread-joined-devices-frx.md) 
+>  회사 [장치를 조직의 네트워크에 연결](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

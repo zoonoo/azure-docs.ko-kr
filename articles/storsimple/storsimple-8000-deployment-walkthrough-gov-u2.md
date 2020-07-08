@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 22084f9c59070c2efaa112ebfbb0c5ecc647145e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68965877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556026"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Government 포털에서 온-프레미스 StorSimple 디바이스 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "68965877"
 ## <a name="overview"></a>개요
 Microsoft Azure StorSimple 디바이스 배포를 시작합니다. 이러한 배포 자습서는 Azure Government 포털에서 업데이트 3 소프트웨어 이상을 실행하는 StorSimple 8000 시리즈에 적용됩니다. 이 자습서 시리즈에서는 StorSimple 디바이스를 구성하는 방법에 대해 설명하며 구성 검사 목록, 구성 필수 조건 목록 및 자세한 구성 단계를 포함합니다.
 
-이 자습서의 정보는 안전 주의 사항을 검토했으며, StorSimple 디바이스의 포장을 풀었고, 랙을 탑재했으며, 케이블에 연결되어 있다고 가정합니다. 여전히 이러한 작업을 수행해야 하는 경우 [안전 주의 사항](storsimple-safety.md)검토로 시작하세요. 디바이스를 개봉, 랙 탑재 및 케이블로 연결하려면 디바이스별 지침을 따릅니다.
+이 자습서의 정보는 안전 주의 사항을 검토했으며, StorSimple 디바이스의 포장을 풀었고, 랙을 탑재했으며, 케이블에 연결되어 있다고 가정합니다. 여전히 이러한 작업을 수행해야 하는 경우 [안전 주의 사항](storsimple-8000-safety.md)검토로 시작하세요. 디바이스를 개봉, 랙 탑재 및 케이블로 연결하려면 디바이스별 지침을 따릅니다.
 
 * [8100 개봉, 랙 탑재, 케이블 연결](storsimple-8100-hardware-installation.md)
 * [8600 개봉, 랙 탑재, 케이블 연결](storsimple-8600-hardware-installation.md)
@@ -36,13 +36,13 @@ Microsoft Azure StorSimple 디바이스 배포를 시작합니다. 이러한 배
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 구성 검사 목록을 검토하는 것이 좋습니다. 배포 및 구성 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
 > [!NOTE]
-> Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 디바이스에만 적용됩니다. 7000 시리즈 장치에 대 한 자세한 내용은 항목을 참조 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)하세요. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
+> Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 디바이스에만 적용됩니다. 7000 시리즈 장치에 대 한 자세한 내용은 항목을 참조 하세요 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com) . 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
 
 
 ## <a name="deployment-steps"></a>배포 단계
 StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비스에 연결하려면 다음과 같은 필수 단계를 수행합니다. 필수 단계 외에 선택적 단계 및 배포하는 동안 완료해야 할 수도 있는 절차가 있습니다. 단계별 배포 지침은 각 선택적 단계를 수행해야 하는 시기를 나타냅니다.
 
-| 단계 | Description |
+| 단계 | 설명 |
 | --- | --- |
 | **사전** |향후 배포 준비 과정에서 완료해야 합니다. |
 | [배포 구성 검사 목록](#deployment-configuration-checklist) |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |

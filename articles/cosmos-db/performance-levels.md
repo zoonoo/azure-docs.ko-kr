@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556068"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
 
 > [!IMPORTANT] 
 > 이 문서에서 설명하는 S1, S2 및 S3 성능 수준은 이제 사용 중지되어 새 Azure Cosmos DB 계정에 더 이상 사용할 수 없습니다.
->
 
 이 문서에서는 S1, S2 및 S3 성능 수준에 대한 개요를 간략히 설명하고, 이러한 성능 수준을 사용하는 컬렉션을 단일 파티션 컬렉션으로 마이그레이션하는 방법에 대해 설명합니다. 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
@@ -43,7 +42,7 @@ S1, S2 및 S3 성능 수준은 표준 Azure Cosmos DB 제품이 제공하는 유
 
 다음 표에서는 단일 파티션 컬렉션, 분할된 컬렉션 및 S1, S2, S3 성능 수준에서 사용할 수 있는 처리량 및 스토리지 옵션을 비교합니다. 다음은 미국 동부 2 지역의 예입니다.
 
-|   |분할된 컬렉션|단일 파티션 컬렉션|S1|S2|S3|
+| 할당량 이름  |분할된 컬렉션|단일 파티션 컬렉션|S1|S2|S3|
 |---|---|---|---|---|---|
 |최대 처리량|제한 없음|10,000RU/s|250RU/s|1,000RU/s|2,500RU/s|
 |최소 처리량|2,500RU/s|400RU/s|250RU/s|1,000RU/s|2,500RU/s|
@@ -76,7 +75,7 @@ S3 컬렉션이 있는 경우 2,500RU/s 처리량의 단일 파티션 컬렉션�
 
 미국 동부 지역에 각각 10개의 S1 컬렉션(각각 1GB 스토리지 사용)이 있고, 이러한 10개 S1 컬렉션을 400RU/s(최소 수준)의 10개 단일 파티션 컬렉션으로 마이그레이션한다고 가정합니다. 한 달 동안 10개의 단일 파티션 컬렉션을 유지하는 경우 청구서는 다음과 같이 표시됩니다.
 
-![10개 S1 컬렉션 및 10개 단일 파티션 컬렉션에 대한 가격 비교](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="10개 S1 컬렉션 및 10개 단일 파티션 컬렉션에 대한 가격 비교" border="false":::
 
 <a name="more-storage-needed"></a>
 

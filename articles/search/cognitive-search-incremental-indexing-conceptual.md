@@ -1,5 +1,5 @@
 ---
-title: 증분 보강 (미리 보기)
+title: 증분 보강 개념 (미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Storage의 AI 보강 파이프라인에서 중간 콘텐츠 및 증분 변경 내용을 캐시 하 여 기존의 처리 된 문서에 대 한 투자를 유지 합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 manager: nitinme
@@ -7,20 +7,32 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: d4b36f00bad8c06c2f62794fa03a85120af79965
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77024146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557386"
 ---
-# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱 소개
+# <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱
 
 > [!IMPORTANT] 
-> 증분 보강 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
+> 증분 보강 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리 보기 및 2020-06-30-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
 
-증분 보강는 보강 파이프라인에 캐싱과 상태 저장을 추가 하 여 기존 출력에 대 한 투자를 유지 하면서 특정 수정의 영향을 받은 문서만 변경 합니다. 이를 통해 처리에 대 한 현금 투자 (특히 OCR 및 이미지 처리)를 유지할 뿐만 아니라 보다 효율적인 시스템을 만들 수도 있습니다. 구조와 콘텐츠를 캐시 하는 경우 인덱서는 변경 된 기술을 확인 하 고 다운스트림 종속 기술 뿐만 아니라 수정 된 기술을 실행할 수 있습니다. 
+*증분 보강* [기술력과](cognitive-search-working-with-skillsets.md)를 대상으로 하는 기능입니다. Azure Storage 활용 하 여 이후 인덱서 실행에서 다시 사용할 수 있도록 보강 파이프라인에서 내보낸 처리 출력을 저장 합니다. 가능 하면 인덱서는 여전히 유효한 모든 캐시 된 출력을 재사용 합니다. 
+
+증분 보강는 처리 (특히 OCR 및 이미지 처리)에 대 한 현금 투자를 유지할 뿐만 아니라 더 효율적인 시스템을 위해 사용 하기도 합니다. 구조와 콘텐츠를 캐시 하는 경우 인덱서는 변경 된 기술을 확인 하 고 다운스트림 종속 기술 뿐만 아니라 수정 된 기술을 실행할 수 있습니다. 
+
+증분 캐싱을 사용 하는 워크플로에는 다음 단계가 포함 됩니다.
+
+1. 캐시를 저장할 [Azure 저장소 계정을 만들거나 확인](../storage/common/storage-account-create.md) 합니다.
+1. 인덱서에서 [증분 보강를 사용 하도록 설정](search-howto-incremental-index.md) 합니다.
+1. [기술](https://docs.microsoft.com/rest/api/searchservice/create-skillset) 를 [만들어](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 파이프라인을 호출 합니다. 처리 하는 동안 보강의 단계는 나중에 사용 하기 위해 Blob 저장소의 각 문서에 대해 저장 됩니다.
+1. 코드를 테스트 하 고 변경한 후에 [Update 기술](https://docs.microsoft.com/rest/api/searchservice/update-skillset) 를 사용 하 여 정의를 수정 합니다.
+1. [인덱서를 실행](https://docs.microsoft.com/rest/api/searchservice/run-indexer) 하 여 보다 빠르고 비용 효율적인 처리를 위해 캐시 된 출력을 검색 하는 파이프라인을 호출 합니다.
+
+기존 인덱서를 사용할 때의 단계 및 고려 사항에 대 한 자세한 내용은 [Set up 증분 보강](search-howto-incremental-index.md)을 참조 하세요.
 
 ## <a name="indexer-cache"></a>인덱서 캐시
 
@@ -30,7 +42,7 @@ ms.locfileid: "77024146"
 
 ## <a name="cache-configuration"></a>캐시 구성
 
-증분 보강에서 애플리케이션을 빌드하고를 시작 `cache` 하려면 인덱서에 속성을 설정 해야 합니다. 다음 예에서는 캐싱이 설정 된 인덱서를 보여 줍니다. 이 구성의 특정 부분에 대해서는 다음 섹션에서 설명 합니다. 자세한 내용은 [Set up 증분 보강](search-howto-incremental-index.md)를 참조 하세요.
+`cache`증분 보강에서 애플리케이션을 빌드하고를 시작 하려면 인덱서에 속성을 설정 해야 합니다. 다음 예에서는 캐싱이 설정 된 인덱서를 보여 줍니다. 이 구성의 특정 부분에 대해서는 다음 섹션에서 설명 합니다. 자세한 내용은 [Set up 증분 보강](search-howto-incremental-index.md)를 참조 하세요.
 
 ```json
 {
@@ -52,7 +64,7 @@ ms.locfileid: "77024146"
 
 ## <a name="cache-management"></a>캐시 관리
 
-캐시의 수명 주기는 인덱서에서 관리합니다. 인덱서의 `cache` 속성이 null로 설정 되거나 연결 문자열이 변경 된 경우 다음 인덱서 실행 시 기존 캐시가 삭제 됩니다. 캐시 수명 주기는 인덱서 수명 주기와도 연결됩니다. 인덱서가 삭제되면 연결된 캐시도 삭제됩니다.
+캐시의 수명 주기는 인덱서에서 관리합니다. `cache`인덱서의 속성이 null로 설정 되거나 연결 문자열이 변경 된 경우 다음 인덱서 실행 시 기존 캐시가 삭제 됩니다. 캐시 수명 주기는 인덱서 수명 주기와도 연결됩니다. 인덱서가 삭제되면 연결된 캐시도 삭제됩니다.
 
 증분 보강는 사용자가 개입할 필요 없이 변경 내용을 감지 하 고 대응 하도록 설계 되었지만 기본 동작을 재정의 하는 데 사용할 수 있는 매개 변수는 다음과 같습니다.
 
@@ -63,18 +75,18 @@ ms.locfileid: "77024146"
 
 ### <a name="prioritize-new-documents"></a>새 문서 우선 순위 지정
 
-캐시에 `enableReprocessing` 이미 표시 된 들어오는 문서에 대 한 처리를 제어 하도록 속성을 설정 합니다. `true` (기본값) 이면 인덱서를 다시 실행할 때 캐시에 이미 있는 문서가 다시 처리 됩니다. 즉, 기술 업데이트가 해당 문서에 영향을 주는 것으로 가정 합니다. 
+`enableReprocessing`캐시에 이미 표시 된 들어오는 문서에 대 한 처리를 제어 하도록 속성을 설정 합니다. `true`(기본값) 이면 인덱서를 다시 실행할 때 캐시에 이미 있는 문서가 다시 처리 됩니다. 즉, 기술 업데이트가 해당 문서에 영향을 주는 것으로 가정 합니다. 
 
-인 `false`경우 기존 문서를 다시 처리 하지 않고 기존 콘텐츠를 통해 새로운 들어오는 콘텐츠의 우선 순위를 효과적으로 결정 합니다. 는 임시로로 `false` 만 `enableReprocessing` 설정 해야 합니다. 모음에 대 한 일관성을 유지 `enableReprocessing` 하기 위해 `true` 대부분의 시간을 유지 하 여 신규 및 기존 모든 문서를 현재 기술 정의에 따라 유효 하 게 유지 해야 합니다.
+`false`인 경우 기존 문서를 다시 처리 하지 않고 기존 콘텐츠를 통해 새로운 들어오는 콘텐츠의 우선 순위를 효과적으로 결정 합니다. 는 임시로로만 설정 해야 `enableReprocessing` `false` 합니다. 모음에 대 한 일관성을 유지 하기 위해 대부분의 시간을 유지 하 여 `enableReprocessing` `true` 신규 및 기존 모든 문서를 현재 기술 정의에 따라 유효 하 게 유지 해야 합니다.
 
 ### <a name="bypass-skillset-evaluation"></a>바이패스 기술 evaluation
 
 해당 기술의 기술 및 다시 처리를 수정 하는 것은 일반적으로 직접 수행 됩니다. 그러나 기술에 대 한 일부 변경 내용은 다시 처리 되지 않습니다. 예를 들어 사용자 지정 기술을 새 위치에 배포 하거나 새 액세스 키로 배포할 수 있습니다. 대부분의 경우 기술 자체의 수준에 영향을 주지 않는 주변의 수정이 있습니다. 
 
-기술에 대 한 변경 내용이 실제로 피상적인 경우 `disableCacheReprocessingChangeDetection` 매개 변수를로 `true`설정 하 여 기술 evaluation을 재정의 해야 합니다.
+기술에 대 한 변경 내용이 실제로 피상적인 경우 매개 변수를로 설정 하 여 기술 evaluation을 재정의 해야 합니다 `disableCacheReprocessingChangeDetection` `true` .
 
 1. Update 기술를 호출 하 고 기술 정의를 수정 합니다.
-1. 요청에 `disableCacheReprocessingChangeDetection=true` 매개 변수를 추가 합니다.
+1. `disableCacheReprocessingChangeDetection=true`요청에 매개 변수를 추가 합니다.
 1. 변경 내용을 제출 합니다.
 
 이 매개 변수를 설정 하면 기술 정의에 대 한 업데이트만 커밋되고 기존 모음의 효과에 대 한 변경 내용은 평가 되지 않습니다.
@@ -82,22 +94,22 @@ ms.locfileid: "77024146"
 다음 예에서는 매개 변수가 있는 Update 기술 요청을 보여 줍니다.
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### <a name="bypass-data-source-validation-checks"></a>데이터 원본 유효성 검사 무시
 
-대부분의 데이터 원본 정의를 변경 하면 캐시가 무효화 됩니다. 그러나 연결 문자열을 변경 하거나 저장소 계정에서 키를 회전 하는 것과 같이 변경으로 캐시가 무효화 되지 않아야 하는 경우에는 데이터 원본 업데이트에 매개`ignoreResetRequirement` 변수를 추가 합니다. 이 매개 변수를 `true` 로 설정 하면 모든 개체를 다시 작성 하 고 처음부터 채우기 위해 다시 설정 조건을 트리거하지 않고 커밋을 진행할 수 있습니다.
+대부분의 데이터 원본 정의를 변경 하면 캐시가 무효화 됩니다. 그러나 연결 문자열을 변경 하거나 저장소 계정에서 키를 회전 하는 것과 같이 변경으로 캐시가 무효화 되지 않아야 하는 경우에는 `ignoreResetRequirement` 데이터 원본 업데이트에 매개 변수를 추가 합니다. 이 매개 변수를로 설정 하면 `true` 모든 개체를 다시 작성 하 고 처음부터 채우기 위해 다시 설정 조건을 트리거하지 않고 커밋을 진행할 수 있습니다.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
+PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### <a name="force-skillset-evaluation"></a>강제 기술 평가
 
 캐시의 목적은 불필요 한 처리를 방지 하는 것 이지만 인덱서가 검색 하지 않는 기술 (예: 사용자 지정 기술 등의 외부 코드를 변경 하는 경우)을 변경 한다고 가정 합니다.
 
-이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
+이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](https://docs.microsoft.com/rest/api/searchservice/reset-skills) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
 
 ## <a name="change-detection"></a>변경 내용 검색
 
@@ -138,17 +150,17 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 ## <a name="api-reference"></a>API 참조
 
-REST API 버전 `2019-05-06-Preview` 은 인덱서, 기술력과 및 데이터 소스에 대 한 추가 속성을 통해 증분 보강을 제공 합니다. Api를 호출 하는 방법에 대 한 자세한 내용은 참조 설명서 외에도 [증분 보강에 대 한 캐싱 구성](search-howto-incremental-index.md) 을 참조 하세요.
+REST API 버전 `2020-06-30-Preview` 에서는 인덱서의 추가 속성을 통해 증분 보강 제공 합니다. 기술력과 및 데이터 원본은 일반적으로 사용 가능한 버전을 사용할 수 있습니다. Api를 호출 하는 방법에 대 한 자세한 내용은 참조 설명서 외에도 [증분 보강에 대 한 캐싱 구성](search-howto-incremental-index.md) 을 참조 하세요.
 
-+ [Create 인덱서 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Create 인덱서 (api-version = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-+ [Update 인덱서 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Update 인덱서 (api-version = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-+ [Update 기술 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (요청의 새 URI 매개 변수)
++ [Update 기술 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (요청의 새 URI 매개 변수)
 
-+ [기술 다시 설정(api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
++ [기술 재설정 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/reset-skills)
 
-+ 데이터베이스 인덱서 (Azure SQL, Cosmos DB). 일부 인덱서는 쿼리를 통해 데이터를 검색 합니다. 데이터를 검색 하는 쿼리의 경우 [업데이트 데이터 원본은](https://docs.microsoft.com/rest/api/searchservice/update-data-source) 요청에 대 한 새 매개 변수를 지원 합니다 .이 **요구 사항은**업데이트 작업 `true` 에서 캐시를 무효화 하지 않아야 하는 경우로 설정 되어야 합니다. 
++ 데이터베이스 인덱서 (Azure SQL, Cosmos DB). 일부 인덱서는 쿼리를 통해 데이터를 검색 합니다. 데이터를 검색 하는 쿼리의 경우 [업데이트 데이터 원본은](https://docs.microsoft.com/rest/api/searchservice/update-data-source) 요청에 대 한 새 매개 변수를 지원 합니다 .이 **요구 사항은** `true` 업데이트 작업에서 캐시를 무효화 하지 않아야 하는 경우로 설정 되어야 합니다. 
 
   더 이상 검색 되지 않는 데이터의 의도 하지 않은 불일치를 야기 하는 경우에만 **Ignoreresetrequirement 사항을** 사용 합니다.
 

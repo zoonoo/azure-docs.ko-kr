@@ -4,15 +4,15 @@ description: 이 문서에서는 Application Gateway 수신 컨트롤러를 사�
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556169"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러를 사용 하 여 AKS 클러스터에서 여러 네임 스페이스 지원 사용
 
@@ -21,14 +21,14 @@ Kubernetes [네임 스페이스](https://kubernetes.io/docs/concepts/overview/wo
 
 버전 0.7 [Azure 애플리케이션 게이트웨이 Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC)는에서 이벤트를 수집 하 고 여러 네임 스페이스를 관찰할 수 있습니다. AKS 관리자가 [App Gateway](https://azure.microsoft.com/services/application-gateway/) 를 수신으로 사용 하기로 결정 하는 경우 모든 네임 스페이스는 동일한 Application Gateway 인스턴스를 사용 합니다. 단일 수신 컨트롤러 설치는 액세스 가능한 네임 스페이스를 모니터링 하 고 연결 된 Application Gateway를 구성 합니다.
 
-AGIC 버전 0.7는이를 투구 구성에서 하나 `default` 이상의 다른 네임 스페이스로 명시적으로 변경 하지 않는 한 네임 스페이스를 계속 독점적으로 관찰 합니다 (아래 섹션 참조).
+AGIC 버전 0.7는 `default` 이를 투구 구성에서 하나 이상의 다른 네임 스페이스로 명시적으로 변경 하지 않는 한 네임 스페이스를 계속 독점적으로 관찰 합니다 (아래 섹션 참조).
 
 ## <a name="enable-multiple-namespace-support"></a>여러 네임스페이스 지원 사용
 여러 네임 스페이스 지원을 사용 하려면 다음을 수행 합니다.
 1. 다음 방법 중 하나를 통해 [투구-.config](#sample-helm-config-file) 파일을 수정 합니다.
-   - 투구에서 `watchNamespace` 키를 완전히 삭제 [합니다. yaml](#sample-helm-config-file) -AGIC에서 모든 네임 스페이스를 관찰 합니다.
-   - 빈 `watchNamespace` 문자열로 설정-AGIC가 모든 네임 스페이스를 관찰 합니다.
-   - 쉼표 (`watchNamespace: default,secondNamespace`)로 구분 된 여러 네임 스페이스를 추가 합니다.-AGIC는 이러한 네임 스페이스를 독점적으로 관찰 합니다.
+   - `watchNamespace`투구에서 키를 완전히 삭제 [합니다. yaml](#sample-helm-config-file) -AGIC에서 모든 네임 스페이스를 관찰 합니다.
+   - `watchNamespace`빈 문자열로 설정-AGIC가 모든 네임 스페이스를 관찰 합니다.
+   - 쉼표 ()로 구분 된 여러 네임 스페이스를 추가 `watchNamespace: default,secondNamespace` 합니다.-AGIC는 이러한 네임 스페이스를 독점적으로 관찰 합니다.
 2. 다음을 사용 하 여 투구 템플릿 변경 내용을 적용 합니다.`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 여러 네임 스페이스를 관찰 하는 기능으로 배포 된 후에는 AGIC에서 다음을 수행 합니다.
@@ -44,7 +44,8 @@ AGIC 버전 0.7는이를 투구 구성에서 하나 `default` 이상의 다른 �
 
 반면에 경로, 백 엔드 풀, HTTP 설정 및 TLS 인증서는 하나의 네임 스페이스에 의해서만 생성 될 수 있으며 중복 항목이 제거 됩니다.
 
-예를 들어 다음과 같은 중복 된 수신 리소스는 네임 `staging` 스페이스 `production` 및 `www.contoso.com`에 대해 정의 됩니다.
+예를 들어 다음과 같은 중복 된 수신 리소스는 네임 스페이스 `staging` 및 `production` 에 대해 정의 됩니다 `www.contoso.com` .
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -81,7 +82,7 @@ spec:
               servicePort: 80
 ```
 
-는에 대 한 두 개의 수신 리소스가 `www.contoso.com` 각각의 Kubernetes 네임 스페이스로 라우팅되도록 하기에도 불구 하 고 하나의 백 엔드가 트래픽을 처리 하는 데 사용할 수 있습니다. AGIC는 "먼저 리소스 중 하나에 대해" 처음 제공 되는 "기반 구성을 만듭니다. 동시에 두 개의 조절기 리소스를 만든 경우 해당 리소스의 앞에 있는 하나는 우선적으로 적용 됩니다. 위의 예제에서 `production` 수신에 대 한 설정만 만들 수 있습니다. Application Gateway는 다음 리소스로 구성 됩니다.
+는에 대 한 두 개의 수신 리소스가 각각의 Kubernetes 네임 스페이스로 라우팅되도록 하기에도 불구 하 고 `www.contoso.com` 하나의 백 엔드가 트래픽을 처리 하는 데 사용할 수 있습니다. AGIC는 "먼저 리소스 중 하나에 대해" 처음 제공 되는 "기반 구성을 만듭니다. 동시에 두 개의 조절기 리소스를 만든 경우 해당 리소스의 앞에 있는 하나는 우선적으로 적용 됩니다. 위의 예제에서 수신에 대 한 설정만 만들 수 `production` 있습니다. Application Gateway는 다음 리소스로 구성 됩니다.
 
   - 수신기`fl-www.contoso.com-80`
   - 라우팅 규칙:`rr-www.contoso.com-80`
@@ -89,18 +90,19 @@ spec:
   - HTTP 설정:`bp-production-contoso-web-service-80-80-websocket-ingress`
   - 상태 프로브:`pb-production-contoso-web-service-80-websocket-ingress`
 
-*수신기* 및 *라우팅 규칙*을 제외 하 고 만들어진 Application Gateway 리소스는 생성 된 네임 스페이스 (`production`)의 이름을 포함 합니다.
+*수신기* 및 *라우팅 규칙*을 제외 하 고 만들어진 Application Gateway 리소스는 생성 된 네임 스페이스 ()의 이름을 포함 합니다 `production` .
 
-두 개의 수신 리소스가 서로 다른 시점에 AKS 클러스터에 도입 되는 경우 AGIC를 다시 구성 하 고에서 `namespace-B` 로 `namespace-A`트래픽을 다시 라우팅하는 Application Gateway 시나리오에서가 종료 될 수 있습니다.
+두 개의 수신 리소스가 서로 다른 시점에 AKS 클러스터에 도입 되는 경우 AGIC를 다시 구성 하 고에서로 트래픽을 다시 라우팅하는 Application Gateway 시나리오에서가 종료 될 수 있습니다 `namespace-B` `namespace-A` .
 
-예를 들어, AGIC `staging` 는 먼저를 추가한 경우 트래픽을 준비 백 엔드 풀로 라우팅하는 Application Gateway 구성 합니다. 수신을 도입 `production` 하는 이후 단계에서 AGIC는 `production` 백 엔드 풀에 대 한 트래픽 라우팅을 시작 하는 Application Gateway mk-reprogram으로 발생 합니다.
+예를 들어 `staging` , AGIC는 먼저를 추가한 경우 트래픽을 준비 백 엔드 풀로 라우팅하는 Application Gateway 구성 합니다. 수신을 도입 하는 이후 단계에서 `production` AGIC는 백 엔드 풀에 대 한 트래픽 라우팅을 시작 하는 Application Gateway mk-reprogram으로 발생 합니다 `production` .
 
 ## <a name="restrict-access-to-namespaces"></a>네임 스페이스에 대 한 액세스 제한
 기본적으로 AGIC는 네임 스페이스 내에서 주석이 추가 된 수신에 따라 Application Gateway를 구성 합니다. 이 동작을 제한 하려는 경우 다음 옵션을 선택할 수 있습니다.
-  - AGIC에서 yaml 키를 `watchNamespace` 통해 관찰 해야 하는 네임 스페이스를 명시적으로 정의 하 여 네임 스페이스를 제한 합니다 [. yaml](#sample-helm-config-file)
+  - AGIC에서 yaml 키를 통해 관찰 해야 하는 네임 스페이스를 명시적으로 정의 하 여 네임 스페이스를 제한 합니다 `watchNamespace` [. yaml](#sample-helm-config-file)
   - [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) 을 사용 하 여 AGIC를 특정 네임 스페이스로 제한
 
 ## <a name="sample-helm-config-file"></a>샘플 투구 구성 파일
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ spec:
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 
