@@ -1,15 +1,15 @@
 ---
 title: Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 description: Ethereum Authority consortium 솔루션을 사용 하 여 Azure에서 다중 구성원 컨소시엄 Ethereum 네트워크를 배포 하 고 구성 합니다.
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210119"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085925"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 
@@ -17,15 +17,17 @@ ms.locfileid: "85210119"
 
 솔루션 템플릿은 각 consortium 멤버가 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 사용 하 여 블록 체인 네트워크 공간을 프로 비전 하는 데 사용할 수 있습니다. 각 consortium 구성원의 네트워크 공간은 응용 프로그램 또는 사용자가 Ethereum 트랜잭션을 제출 하기 위해 상호 작용할 수 있는 부하 분산 된 유효성 검사기 노드 집합으로 구성 됩니다.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## <a name="choose-an-azure-blockchain-solution"></a>Azure 블록 체인 솔루션 선택
 
 Ethereum authority consortium 솔루션 템플릿을 사용 하도록 선택 하기 전에 시나리오를 사용 가능한 Azure Blockchain 옵션의 일반적인 사용 사례와 비교 합니다.
 
 옵션 | 서비스 모델 | 일반적인 사용 사례
 -------|---------------|-----------------
-솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 템플릿은 지정 된 blockchain 네트워크 유형에 대해 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 배포 하 고 구성 합니다.
+솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 템플릿은 지정 된 blockchain 네트워크 유형에 대해 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 배포 하 고 구성 합니다. 솔루션 템플릿은 서비스 수준 계약 없이 제공 됩니다. [Microsoft Q&질문 페이지를](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
 [Azure Blockchain 서비스](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, consortium 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에는 Azure Blockchain 서비스를 사용 합니다.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain Workbench 미리 보기는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 애플리케이션을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능 컬렉션입니다. 블록 체인 솔루션 프로토타입 또는 블록 체인 응용 프로그램 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain Workbench 미리 보기는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 애플리케이션을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능 컬렉션입니다. 블록 체인 솔루션 프로토타입 또는 블록 체인 응용 프로그램 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다. Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다. [Microsoft Q&질문 페이지를](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -144,7 +146,7 @@ F16s|프리미엄 SSD|high|high|low
 컨소시엄 멤버 ID | 컨소시엄 네트워크에 참여 하는 각 멤버와 연결 된 ID입니다. 이는 충돌을 방지 하기 위해 IP 주소 공간을 구성 하는 데 사용 됩니다. 개인 네트워크의 경우 구성원 ID는 동일한 네트워크에 있는 여러 조직에서 고유 해야 합니다.  고유 멤버 ID는 같은 조직이 여러 지역에 배포하는 경우에도 필요합니다. 충돌이 발생 하지 않도록 하기 위해 다른 조인 멤버와 공유 해야 하므로이 매개 변수의 값을 기록해 둡니다. 유효한 범위는 0에서 255 까지입니다. | 0
 네트워크 ID | 배포하는 컨소시엄 Ethereum 네트워크의 네트워크 ID입니다. 각 Ethereum 네트워크에는 공용 네트워크에 대한 ID를 1로 하는 자체의 네트워크 ID가 있습니다. 유효한 범위는 5에서 999999999 까지입니다. | 10101010
 관리자 Ethereum 주소 | PoA 거 버 넌 스에 참여 하는 데 사용 되는 Ethereum 계정 주소입니다. MetaMask를 사용 하 여 Ethereum 주소를 생성할 수 있습니다. |
-고급 옵션 | Ethereum 설정에 대한 고급 옵션 | 사용 하도록 설정
+고급 옵션 | Ethereum 설정에 대한 고급 옵션 | 사용
 공용 IP를 사용 하 여 배포 | 개인 VNet을 선택 하면 네트워크는 VNet 게이트웨이 뒤에 배포 되 고 피어 링 액세스를 제거 합니다. 사설 VNet의 경우 연결을 호환 하려면 모든 멤버가 VNet 게이트웨이를 사용 해야 합니다. | 공용 IP
 블록 가스 한도 | 네트워크의 시작 블록 가스 한도입니다. | 5000만
 블록 다시 봉인 기간(초) | 네트워크에 트랜잭션이 없을 때 빈 블록이 작성되는 빈도입니다. 빈도가 높으면 블록이 더 빨리 작성되지만 스토리지 비용이 증가합니다. | 15
@@ -160,7 +162,7 @@ F16s|프리미엄 SSD|high|high|low
 
 매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
-모니터링 | 모니터링을 사용 하도록 설정 하는 옵션 | 사용 하도록 설정
+모니터링 | 모니터링을 사용 하도록 설정 하는 옵션 | 사용
 기존 Azure Monitor 로그에 연결 | 새 Azure Monitor 로그 인스턴스를 만들거나 기존 인스턴스에 조인 하는 옵션 | Create new
 위치 | 새 인스턴스가 배포 되는 지역입니다. | 미국 동부
 기존 log analytics 작업 영역 ID (기존 Azure Monitor 로그에 연결 = 기존 조인)|기존 Azure Monitor logs 인스턴스의 작업 영역 ID||해당 없음
@@ -555,7 +557,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 다음 예제에서는 간단한 스마트 계약을 만듭니다. Truffle를 사용 하 여 스마트 계약을 컴파일하여 blockchain 네트워크에 배포 합니다. 배포 된 후에는 트랜잭션을 통해 스마트 계약 함수를 호출 합니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Truffle 및 Web3에 필요 합니다. 설치 옵션을 선택 하 여 경로에 Python을 포함 합니다.
 * Truffle v 5.0.5 `npm install -g truffle@v5.0.5` 를 설치 합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/)를 포함한 여러 도구를 설치해야 합니다. 자세한 내용은 [Truffle 설명서](https://github.com/trufflesuite/truffle)를 참조 하세요.
@@ -729,7 +731,7 @@ Azure Blockchain 뉴스의 경우 [Azure Blockchain 블로그](https://azure.mic
 
 Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하세요.
 
-* [Microsoft Q&Azure Blockchain 서비스에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
+* [Microsoft Q&질문 페이지](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)입니다. 블록 체인 템플릿에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.
 * [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

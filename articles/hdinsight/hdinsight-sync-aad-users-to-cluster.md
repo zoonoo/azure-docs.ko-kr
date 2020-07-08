@@ -5,20 +5,21 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 299d242c38152db6a471159d1f3d2803598c1832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b2a195e0a3145e97bf101b3354c2781fff15801
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75744852"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085976"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
 [ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터](hdinsight-domain-joined-introduction.md)는 Azure AD(Azure Active Directory) 사용자에 대해 강력한 인증을 사용하고, RBAC(*역할 기반 액세스 제어*) 정책도 사용할 수 있습니다. Azure AD에 사용자 및 그룹을 추가 하는 경우 클러스터에 대 한 액세스 권한이 필요한 사용자를 동기화 할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 아직 하지 않은 경우 [Enterprise Security Package가 포함된 HDInsight 클러스터를 만듭니다](hdinsight-domain-joined-configure.md).
 

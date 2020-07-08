@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 48b322f32bd6e8f2a2da0c5be8eb7b7987881f83
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204120"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085942"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -31,13 +31,13 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ## <a name="prerequisites"></a>전제 조건
 
-* **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+* **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* **SSH 클라이언트**입니다. [SSH를 사용 하 여 HDInsight에 연결 (Apache Hadoop)을](hdinsight-hadoop-linux-use-ssh-unix.md)참조 하세요.
+* **SSH 클라이언트** [SSH를 사용 하 여 HDInsight에 연결 (Apache Hadoop)을](hdinsight-hadoop-linux-use-ssh-unix.md)참조 하세요.
 
-* **Azure SQL Database**입니다.  [Azure Portal에서 AZURE SQL Database 만들기](../sql-database/sql-database-get-started.md)를 참조 하세요.  이 문서에서는 **oozietest**라는 데이터베이스를 사용 합니다.
+* **Azure SQL Database**입니다.  [Azure Portal에서 Azure SQL Database에서 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조 하세요.  이 문서에서는 **oozietest**라는 데이터베이스를 사용 합니다.
 
-* 클러스터 기본 스토리지에 대한 URI 체계입니다. `wasb://`Azure Storage `abfs://` Azure Data Lake Storage Gen2 또는 `adl://` Azure Data Lake Storage Gen1에 대 한입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* 클러스터 기본 스토리지에 대한 URI 체계입니다. `wasb://`Azure Storage Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1에 대 한입니다 `abfs://` `adl://` . Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 ## <a name="example-workflow"></a>예제 워크플로
 
@@ -45,11 +45,13 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ![HDInsight oozie 워크플로 다이어그램](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
-1. Hive 작업은 HiveQL 스크립트를 실행 하 여 HDInsight에 포함 `hivesampletable` 된에서 레코드를 추출 합니다. 데이터의 각 행은 특정 모바일 디바이스에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
+1. Hive 작업은 HiveQL 스크립트를 실행 하 여 HDInsight에 포함 된에서 레코드를 추출 합니다 `hivesampletable` . 데이터의 각 행은 특정 모바일 디바이스에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     이 문서에서 사용된 Hive 스크립트는 각 플랫폼(예: Android 또는 iPhone)에 대한 총 방문 횟수를 계산하여 새 Hive 테이블에 저장합니다.
 
@@ -64,7 +66,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예에서는 `wasbs:///tutorials/useoozie`를 사용합니다. 이 디렉터리를 만들려면 다음 단계를 완료합니다.
 
-1. 아래 코드를 편집 하 여 `sshuser` 를 클러스터의 SSH 사용자 이름으로 바꾸고를 클러스터의 `CLUSTERNAME` 이름으로 바꿉니다.  그런 다음 [SSH를 사용](hdinsight-hadoop-linux-use-ssh-unix.md)하 여 HDInsight 클러스터에 연결 하는 코드를 입력 합니다.  
+1. 아래 코드를 편집 하 여를 `sshuser` 클러스터의 SSH 사용자 이름으로 바꾸고를 `CLUSTERNAME` 클러스터의 이름으로 바꿉니다.  그런 다음 [SSH를 사용](hdinsight-hadoop-linux-use-ssh-unix.md)하 여 HDInsight 클러스터에 연결 하는 코드를 입력 합니다.  
 
     ```bash
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -77,9 +79,9 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
     ```
 
     > [!NOTE]  
-    > `-p` 매개 변수는 경로의 모든 디렉터리가 만들어지도록 합니다. 디렉터리 `data` 는 `useooziewf.hql` 스크립트에서 사용 하는 데이터를 저장 하는 데 사용 됩니다.
+    > `-p` 매개 변수는 경로의 모든 디렉터리가 만들어지도록 합니다. `data`디렉터리는 스크립트에서 사용 하는 데이터를 저장 하는 데 사용 됩니다 `useooziewf.hql` .
 
-3. 아래 코드를 편집 하 여 `sshuser` 를 SSH 사용자 이름으로 바꿉니다.  Oozie가 사용자 계정을 가장할 수 있도록 다음 명령을 사용합니다.
+3. 아래 코드를 편집 하 여를 `sshuser` SSH 사용자 이름으로 바꿉니다.  Oozie가 사용자 계정을 가장할 수 있도록 다음 명령을 사용합니다.
 
     ```bash
     sudo adduser sshuser users
@@ -97,7 +99,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 ```
 
 > [!IMPORTANT]  
-> 에 `/usr/share/java/`존재 하는 실제 JDBC 드라이버를 확인 합니다.
+> 에 존재 하는 실제 JDBC 드라이버를 확인 `/usr/share/java/` 합니다.
 
 워크플로에서 MapReduce 애플리케이션이 포함된 jar 등의 다른 리소스를 사용하는 경우 이러한 리소스도 추가해야 합니다.
 
@@ -126,11 +128,11 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 
    * `${hiveDataFolder}`: 테이블의 데이터 파일을 저장할 위치를 포함합니다.
 
-     이 문서의 워크플로 정의 파일인 HiveQL는 런타임에 이러한 값을이 스크립트에 전달 합니다.
+     이 문서에서 workflow.xml 워크플로 정의 파일은 런타임에이 HiveQL 스크립트에 이러한 값을 전달 합니다.
 
 1. 파일을 저장 하려면 **Ctrl + X**를 선택 하 고 **Y**를 입력 한 다음 **enter**키를 선택 합니다.  
 
-1. 다음 명령을 사용 하 여에 `useooziewf.hql` `wasbs:///tutorials/useoozie/useooziewf.hql`복사 합니다.
+1. 다음 명령을 사용 하 여에 복사 합니다 `useooziewf.hql` `wasbs:///tutorials/useoozie/useooziewf.hql` .
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -232,7 +234,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. 아래 코드를 편집 하 여 `<serverName>` 를 azure sql server 이름으로 바꾸고를 `<sqlLogin>` azure sql server 로그인으로 바꿉니다.  명령을 입력 하 여 필수 구성 요소 SQL 데이터베이스에 연결 합니다.  프롬프트에서 암호를 입력 합니다.
+2. 아래 코드를 편집 하 여을 `<serverName>` [논리 SQL server](../azure-sql/database/logical-servers.md) 이름으로 바꾸고를 `<sqlLogin>` 서버 로그인으로 바꿉니다.  명령을 입력 하 여 필수 구성 요소 SQL 데이터베이스에 연결 합니다.  프롬프트에서 암호를 입력 합니다.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -240,11 +242,13 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
     다음 텍스트와 비슷한 출력이 제공됩니다.
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. `1>` 프롬프트에 다음 행을 입력합니다.
 
@@ -257,7 +261,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
     GO
     ```
 
-    `GO` 문을 입력하면 이전 문이 평가됩니다. 이러한 문은 워크플로에서 사용 되는 라는 `mobiledata`테이블을 만듭니다.
+    `GO` 문을 입력하면 이전 문이 평가됩니다. 이러한 문은 워크플로에서 사용 되는 라는 테이블을 만듭니다 `mobiledata` .
 
     테이블이 생성되었는지 확인하려면 다음 명령을 사용합니다.
 
@@ -268,10 +272,12 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
     다음 텍스트와 같은 출력이 표시됩니다.
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
-4. `1>` 프롬프트에를 입력 `exit` 하 여 tsql 유틸리티를 종료 합니다.
+4. 프롬프트에를 입력 하 여 tsql 유틸리티를 종료 합니다 `exit` `1>` .
 
 ## <a name="create-the-job-definition"></a>작업 정의 만들기
 
@@ -299,11 +305,11 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
     |자리 표시자 값| 대체된 값|
     |---|---|
-    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| 1 단계에서 받은 값입니다.|
+    |wasbs://mycontainer \@ mystorageaccount.blob.core.windows.net| 1 단계에서 받은 값입니다.|
     |관리자| 관리자가 아닌 경우 HDInsight 클러스터의 로그인 이름입니다.|
-    |serverName| Azure SQL 데이터베이스 서버 이름입니다.|
-    |sqlLogin| Azure SQL database 서버 로그인.|
-    |sqlPassword| Azure SQL database 서버 로그인 암호입니다.|
+    |serverName| 서버 이름 Azure SQL Database 합니다.|
+    |sqlLogin| 서버 로그인을 Azure SQL Database 합니다.|
+    |sqlPassword| 서버 로그인 암호를 Azure SQL Database 합니다.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -366,7 +372,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
     </configuration>
     ```
 
-    이 파일의 정보는 대부분 workflow.xml 또는 ooziewf.hql 파일에서 사용되는 값(예: `${nameNode}`)을 채우는 데 사용됩니다.  `wasbs` 경로인 경우 전체 경로를 사용해야 합니다. 간단히 `wasbs:///`줄이십시오. `oozie.wf.application.path` 항목은 workflow.xml 파일을 찾을 위치를 정의합니다. 이 파일에는 이 작업에서 실행된 워크플로가 포함되어 있습니다.
+    이 파일의 정보는 대부분 workflow.xml 또는 ooziewf.hql 파일에서 사용되는 값(예: `${nameNode}`)을 채우는 데 사용됩니다.  `wasbs` 경로인 경우 전체 경로를 사용해야 합니다. 간단히 줄이십시오 `wasbs:///` . `oozie.wf.application.path` 항목은 workflow.xml 파일을 찾을 위치를 정의합니다. 이 파일에는 이 작업에서 실행된 워크플로가 포함되어 있습니다.
 
 3. Oozie 작업 정의 구성을 만들려면 다음 명령을 사용합니다.
 
@@ -412,11 +418,11 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
     oozie job -config job.xml -submit
     ```
 
-    이 명령은에서 `job.xml` 작업 정보를 로드 하 고 Oozie로 전송 하지만 실행 하지는 않습니다.
+    이 명령은에서 작업 정보를 로드 하 `job.xml` 고 Oozie로 전송 하지만 실행 하지는 않습니다.
 
     명령이 완료되면 작업의 ID(예: `0000005-150622124850154-oozie-oozi-W`)가 반환됩니다. 이 ID는 작업을 관리하는 데 사용됩니다.
 
-4. 아래 코드를 편집 하 여 `<JOBID>` 을 이전 단계에서 반환 된 ID로 바꿉니다.  작업 상태를 확인하려면 다음 명령을 사용합니다.
+4. 아래 코드를 편집 하 여을 `<JOBID>` 이전 단계에서 반환 된 ID로 바꿉니다.  작업 상태를 확인하려면 다음 명령을 사용합니다.
 
     ```bash
     oozie job -info <JOBID>
@@ -424,24 +430,26 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     이 작업의 상태는 `PREP`입니다. 이 상태는 작업이 만들어졌지만 시작되지 않았음을 나타냅니다.
 
-5. 아래 코드를 편집 하 여 `<JOBID>` 을 이전에 반환 된 ID로 바꿉니다.  작업을 시작하려면 다음 명령을 사용합니다.
+5. 아래 코드를 편집 하 여을 `<JOBID>` 이전에 반환 된 ID로 바꿉니다.  작업을 시작하려면 다음 명령을 사용합니다.
 
     ```bash
     oozie job -start <JOBID>
@@ -449,7 +457,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
     이 명령 후에 상태를 확인하면 실행 중 상태가 표시되고 작업 내 동작에 대한 정보를 반환합니다.  작업을 완료 하는 데 몇 분이 소요 됩니다.
 
-6. 아래 코드를 편집 하 여 `<serverName>` 를 azure sql server 이름으로 바꾸고를 `<sqlLogin>` azure sql server 로그인으로 바꿉니다.  *태스크가* 성공적으로 완료 되 면 다음 명령을 사용 하 여 데이터가 생성 되 고 SQL database 테이블로 내보내지는 확인할 수 있습니다.  프롬프트에서 암호를 입력 합니다.
+6. 아래 코드를 편집 하 여를 `<serverName>` 서버 이름으로 바꾸고를 `<sqlLogin>` 서버 로그인으로 바꿉니다.  *태스크가* 성공적으로 완료 되 면 다음 명령을 사용 하 여 데이터가 생성 되 고 SQL database 테이블로 내보내지는 확인할 수 있습니다.  프롬프트에서 암호를 입력 합니다.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -464,14 +472,16 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
     반환되는 정보는 다음 텍스트와 유사합니다.
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 Oozie 명령에 대한 자세한 내용은 [Apache Oozie 명령줄 도구](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html)를 참조하세요.
 
@@ -481,7 +491,7 @@ Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 
 
 * **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 다음은 그 예입니다.
+* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들어:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -505,9 +515,9 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 1. HDInsight 클러스터에 대한 SSH 터널을 만듭니다. 자세한 내용은 [HDInsight와 SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
 
-2. 터널을 만든 후 URI `http://headnodehost:8080`를 사용 하 여 웹 브라우저에서 AMBARI 웹 UI를 엽니다.
+2. 터널을 만든 후 URI를 사용 하 여 웹 브라우저에서 Ambari 웹 UI를 엽니다 `http://headnodehost:8080` .
 
-3. 페이지의 왼쪽에서 **Oozie** > **빠른 링크** > **Oozie 웹 UI**를 선택 합니다.
+3. 페이지의 왼쪽에서 **Oozie**  >  **빠른 링크**  >  **Oozie 웹 UI**를 선택 합니다.
 
     ![Apache Ambari oozie 웹 ui 단계](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
@@ -574,7 +584,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. 이전에 만든 `job.xml` 파일을 수정 하려면 다음 명령을 사용 합니다.
+4. 이전에 만든 파일을 수정 하려면 `job.xml` 다음 명령을 사용 합니다.
 
     ```bash
     nano job.xml
