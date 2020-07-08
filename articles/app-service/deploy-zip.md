@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32fc57e720f9c23f6ef26f02b2cd4a82c4266984
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945164"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957038"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -27,6 +27,9 @@ ms.locfileid: "75945164"
 자세한 내용은 [Kudu 설명서](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)를 참조하세요.
 
 WAR 파일 배포를 사용하면 [WAR](https://wikipedia.org/wiki/WAR_(file_format)) 파일이 App Service에 배포되고 Java 웹앱이 실행됩니다. [WAR 파일 배포](#deploy-war-file)를 참조하세요.
+
+> [!NOTE]
+> 를 사용 하는 경우 `ZipDeploy` 타임 스탬프가 이미 배포 된 것과 일치 하지 않는 경우에만 파일이 복사 됩니다. 출력을 캐시 하는 빌드 프로세스를 사용 하 여 zip을 생성 하면 배포 속도가 빨라질 수 있습니다. 자세한 내용은 [zip 파일이 나 url에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,7 +54,7 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 이 명령은 ZIP 파일의 파일과 디렉터리를 기본 App Service 애플리케이션 폴더(`\home\site\wwwroot`)에 배포하고 앱을 다시 시작합니다.
 
-기본적으로 배포 엔진은 ZIP 파일을 있는 그대로 실행할 준비가 된 것으로 가정 하 고 빌드 자동화를 실행 하지 않습니다. [Git 배포](deploy-local-git.md)와 동일한 빌드 자동화를 사용 하도록 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 `SCM_DO_BUILD_DURING_DEPLOYMENT` 명령을 실행 하 여 앱 설정을 설정 합니다.
+기본적으로 배포 엔진은 ZIP 파일을 있는 그대로 실행할 준비가 된 것으로 가정 하 고 빌드 자동화를 실행 하지 않습니다. [Git 배포](deploy-local-git.md)와 동일한 빌드 자동화를 사용 하도록 설정 하려면 `SCM_DO_BUILD_DURING_DEPLOYMENT` [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 하 여 앱 설정을 설정 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -63,9 +66,9 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="deploy-war-file"></a>WAR 파일 배포
 
-WAR 파일을 App Service에 배포 하려면 POST 요청을로 `https://<app-name>.scm.azurewebsites.net/api/wardeploy`보냅니다. POST 요청은 메시지 본문에 .war 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다.
+WAR 파일을 App Service에 배포 하려면 POST 요청을로 보냅니다 `https://<app-name>.scm.azurewebsites.net/api/wardeploy` . POST 요청은 메시지 본문에 .war 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다.
 
-WAR 파일 `/api/wardeploy` 을 배포할 때는 항상를 사용 합니다. 이 API는 WAR 파일을 확장 하 여 공유 파일 드라이브에 저장 합니다. 다른 배포 Api를 사용 하면 일관 되지 않은 동작이 발생할 수 있습니다. 
+`/api/wardeploy`WAR 파일을 배포할 때는 항상를 사용 합니다. 이 API는 WAR 파일을 확장 하 여 공유 파일 드라이브에 저장 합니다. 다른 배포 Api를 사용 하면 일관 되지 않은 동작이 발생할 수 있습니다. 
 
 HTTP BASIC 인증의 경우 App Service 배포 자격 증명이 필요합니다. 배포 자격 증명을 설정하는 방법을 알아보려면 [사용자 수준 자격 증명 설정 및 다시 설정](deploy-configure-credentials.md#userscope)을 참조하세요.
 
@@ -91,7 +94,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 고급 배포 시나리오에 대해서는 [Git를 사용하여 Azure에 배포](deploy-local-git.md)를 시도하세요. Azure로의 Git 기반 배포를 수행하면 버전 제어, 패키지 복원, MSBuild 등을 수행할 수 있습니다.
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="more-resources"></a>기타 참고 자료
 
 * [Kudu: zip 파일에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service 배포 자격 증명](deploy-ftp.md)
