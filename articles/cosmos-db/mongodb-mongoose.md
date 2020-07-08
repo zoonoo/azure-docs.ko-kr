@@ -4,17 +4,17 @@ description: Mongoose 프레임워크를 사용하여 Azure Cosmos DB에서 데�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: ff4455571aa5cfa5c9214bdf18af1853b0cef352
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ccd352950117d8427809616f78f4a0691319cdf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585394"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023672"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 
@@ -22,17 +22,17 @@ ms.locfileid: "80585394"
 
 Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-[Node.js](https://nodejs.org/) 버전 v0.10.29 이상
+[Node.js](https://nodejs.org/) 버전 v v0.10.29 이상
 
 ## <a name="create-a-cosmos-account"></a>Cosmos 계정 만들기
 
-Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경우 Node.js 애플리케이션 설치로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용 하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md) 의 단계에 따라 에뮬레이터를 설정 하 고 node.js 응용 프로그램 설정으로 건너뜁니다.
+Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경우 Node.js 애플리케이션 설치로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용 하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md) 의 단계에 따라 에뮬레이터를 설정 하 고 Node.js 응용 프로그램 설정으로 건너뜁니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -40,11 +40,11 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
 이 응용 프로그램에서는 Azure Cosmos DB에서 컬렉션을 만드는 두 가지 방법을 설명 합니다. 
 - **개별 컬렉션에 각 개체 모델 저장**: [전용 처리량을 사용 하 여 데이터베이스를 만드는](set-throughput.md#set-throughput-on-a-database)것이 좋습니다. 이 용량 모델을 사용 하면 더 나은 비용 효율성을 얻을 수 있습니다.
 
-    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js 자습서-Mongoose Node 모듈에서 사용 하기 위해 Azure Cosmos DB 계정에 대 한 데이터 탐색기에서 데이터베이스를 만드는 방법을 보여 주는 Azure Portal의 스크린샷":::
+    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js 자습서-Mongoose Node 모듈에서 사용할 수 있도록 Azure Cosmos DB 계정에 대 한 데이터 탐색기에서 데이터베이스를 만드는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 - **단일 Cosmos DB 컬렉션에 모든 개체 모델 저장**: 모든 모델을 단일 컬렉션에 저장 하려면 처리량 프로 비전 옵션을 선택 하지 않고 새 데이터베이스를 만들 수 있습니다. 이 용량 모델을 사용 하면 모든 개체 모델에 대해 고유한 처리량 용량으로 각 컬렉션을 만듭니다.
 
-데이터베이스를 만든 후에는 아래 `COSMOSDB_DBNAME` 환경 변수에서 이름을 사용 합니다.
+데이터베이스를 만든 후에는 `COSMOSDB_DBNAME` 아래 환경 변수에서 이름을 사용 합니다.
 
 ## <a name="set-up-your-nodejs-application"></a>Node.js 애플리케이션 설정
 
@@ -194,7 +194,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 
 1. 이제 Azure Portal로 이동하면 Cosmos DB에 두 개의 컬렉션이 생성된 것을 확인할 수 있습니다.
 
-    ![Node.js 자습서-여러 컬렉션 이름이 강조 표시 된 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷-노드 데이터베이스][multiple-coll]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js 자습서-여러 컬렉션 이름이 강조 표시 된 노드 데이터베이스를 사용 하 여 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷":::
 
 1. 마지막으로, Cosmos DB에서 데이터를 읽겠습니다. 기본 Mongoose 운영 모델을 사용하고 있으므로 읽기는 Mongoose를 사용한 다른 읽기와 동일합니다.
 
@@ -299,7 +299,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 
 1. 이제 Azure Portal로 돌아가면 ‘Family’ 및 ‘VacationDestinations’ 데이터가 둘 다 포함된 ```alldata```라는 하나의 컬렉션만 표시됩니다.
 
-    ![Node.js 자습서-컬렉션 이름이 강조 표시 된 노드 데이터베이스를 사용 하 여 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷][alldata]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js 자습서-컬렉션 이름이 강조 표시 된 노드 데이터베이스를 사용 하 여 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷":::
 
 1. 또한 각 개체에 ```__type```이라는 다른 특성이 있습니다. 이 특성은 두 가지 개체 모델을 구별하는 데 도움이 됩니다.
 
@@ -323,6 +323,4 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 - Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.
 
-[alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
 [dbleveltp]: ./media/mongodb-mongoose/db-level-throughput.png

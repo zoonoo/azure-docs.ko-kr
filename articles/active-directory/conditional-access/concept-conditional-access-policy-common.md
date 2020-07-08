@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295302"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024386"
 ---
 # <a name="common-conditional-access-policies"></a>일반 조건부 액세스 정책
 
-[보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 은 일부 조직에는 유용 하지만 많은 조직에는 제공 되는 것 보다 더 많은 유연성이 필요 합니다. 예를 들어 다단계 인증을 요구 하는 조건부 액세스 정책에서 비상 액세스 또는 투명 효과 관리 계정과 같은 특정 계정을 제외 하는 기능이 많은 요구 사항이 필요 합니다. 이러한 조직에서는이 문서에서 참조 하는 일반적인 정책을 사용할 수 있습니다.
+[보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 은 일부 조직에는 유용 하지만 많은 조직에는 제공 되는 것 보다 더 많은 유연성이 필요 합니다. 예를 들어 많은 조직에서 multi-factor authentication을 요구 하는 조건부 액세스 정책에서 비상 액세스 또는 투명 효과 관리 계정과 같은 특정 계정을 제외 하는 기능이 필요 합니다. 이러한 조직에서는이 문서에서 참조 하는 일반적인 정책을 사용할 수 있습니다.
 
 ![Azure Portal의 조건부 액세스 정책](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
@@ -38,11 +38,12 @@ ms.locfileid: "80295302"
 * [Azure 관리를 위한 MFA 필요](howto-conditional-access-policy-azure-management.md)\*
 * [모든 사용자에 대해 MFA 필요](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*이러한 네 가지 정책을 함께 구성 하면 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)에 의해 활성화 된 기능이 모방 됩니다.
+\*이러한 네 가지 정책은 함께 구성 된 경우 [보안 기본값으로](../fundamentals/concept-fundamentals-security-defaults.md)사용 하도록 설정 된 기능을 모방 합니다.
 
 ## <a name="additional-policies"></a>추가 정책
 
-* [위험 기반 조건부 액세스(Azure AD Premium P2 필요)](howto-conditional-access-policy-risk.md)
+* [로그온 위험 기반 조건부 액세스 (P2 Azure AD Premium 필요)](howto-conditional-access-policy-risk.md)
+* [사용자 위험 기반 조건부 액세스 (P2 Azure AD Premium 필요)](howto-conditional-access-policy-risk-user.md)
 * [MFA 등록을 위해 신뢰할 수 있는 위치 필요](howto-conditional-access-policy-registration.md)
 * [위치별 액세스 차단](howto-conditional-access-policy-location.md)
 * [규정 준수 디바이스 필요](howto-conditional-access-policy-compliant-device.md)

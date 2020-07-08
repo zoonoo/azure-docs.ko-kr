@@ -109,6 +109,8 @@
           href: concepts-data-encryption-mysql.md
         - name: Azure AD 인증
           href: concepts-azure-ad-authentication.md
+        - name: 인프라 이중 암호화
+          href: concepts-infrastructure-double-encryption.md
         - name: 보안 기준
           href: security-baseline.md
     - name: 비즈니스 연속성
@@ -276,6 +278,10 @@
           href: howto-data-encryption-cli.md
         - name: 데이터 암호화 유효성 검사
           href: howto-data-encryption-validation.md
+    - name: 인프라 이중 암호화
+      items:
+        - name: 인프라 이중 암호화 구성
+          href: howto-double-encryption.md
     - name: Azure AD 통합
       items:
         - name: Azure AD 통합 구성

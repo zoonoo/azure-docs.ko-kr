@@ -7,20 +7,20 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266560"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023774"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당
 
@@ -45,35 +45,33 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기본
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
-1. **리소스 필터**를 사용하여 관리되는 리소스의 목록을 필터링합니다.
+1. 리소스 필터를 사용 하 여 원하는 관리 되는 리소스를 찾을 수 있습니다.
 
     ![관리할 Azure 리소스 목록](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. 관리 하려는 리소스 (예: 구독 또는 관리 그룹)를 선택 합니다.
+1. 관리 하려는 리소스를 선택 하 여 리소스 개요 페이지를 엽니다.
 
-1. 관리 아래에서 **역할** 을 선택 하 여 Azure 리소스에 대 한 역할 목록을 표시 합니다.
+1. **관리**아래에서 **역할** 을 선택 하 여 Azure 리소스에 대 한 역할 목록을 표시 합니다.
 
     ![Azure 리소스 역할](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. **구성원 추가** 를 선택 하 여 새 할당 창을 엽니다.
+1. 할당 **추가** 를 선택 하 여 **할당 추가** 창을 엽니다.
 
-1. 역할 **선택을 선택 하 여** 역할 선택 창을 엽니다.
+1. 역할 **선택을 선택 하 여** **역할 선택** 페이지를 엽니다.
 
     ![새 할당 창](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
 1. 할당하려는 역할을 클릭한 다음, **선택**을 클릭합니다.
 
-    멤버 선택 또는 그룹 창이 열립니다.
+    **멤버 또는 그룹 선택** 창이 열립니다.
 
 1. 역할에 할당 하려는 구성원 또는 그룹을 선택한 다음 **선택**을 클릭 합니다.
 
     ![멤버 또는 그룹 선택 창](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    멤버 자격 설정 창이 열립니다.
-
-1. **할당 유형** 목록에서 **적격** 또는 **활성**을 선택합니다.
+1. **설정** 탭의 **할당 유형** 목록에서 **적격** 또는 **활성**을 선택 합니다.
 
     ![멤버 자격 설정 창](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,19 +81,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기본
 
     - **활성** 할당에는 멤버가 역할을 사용 하는 작업을 수행 하지 않아도 됩니다. 활성으로 할당된 멤버에게는 항상 역할에 할당된 권한이 있습니다.
 
-1. 영구적으로 적격 하거나 영구적으로 할당 된 할당 인 경우 **영구적** 으로 확인란을 선택 합니다.
+1. 특정 할당 기간을 지정 하려면 시작 날짜 및 종료 날짜와 시간을 변경 합니다.
 
-    역할 설정에 따라 이 확인란이 나타나지 않거나 수정 가능하지 않을 수 있습니다.
+1. 완료 되 면 **할당**을 선택 합니다.
 
-1. 특정 할당 기간을 지정하려면 확인란의 선택을 취소하고 시작 및/또는 종료 날짜/시간 상자를 수정합니다.
-
-    ![멤버 자격 설정 - 날짜 및 시간](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. 완료 되 면 **완료**를 선택 합니다.
-
-    ![새 할당 - 추가](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
-
-1. 새 역할 할당을 만들려면 **추가**를 선택 합니다. 상태 알림이 표시됩니다.
+1. 새 역할 할당이 만들어지면 상태 알림이 표시 됩니다.
 
     ![새 할당 - 알림](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
@@ -105,11 +95,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기본
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure 리소스**를 선택합니다.
+1. **Azure 리소스**를 선택 합니다.
 
-1. 관리 하려는 리소스 (예: 구독 또는 관리 그룹)를 선택 합니다.
+1. 관리 하려는 리소스를 선택 하 여 개요 페이지를 엽니다.
 
-1. 관리 아래에서 **역할** 을 선택 하 여 Azure 리소스에 대 한 역할 목록을 표시 합니다.
+1. **관리**아래에서 **역할** 을 선택 하 여 Azure 리소스에 대 한 역할 목록을 표시 합니다.
 
     ![Azure 리소스 역할 - 역할 선택](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

@@ -7,18 +7,18 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048cefaae10cd55091dd72f0b73a3cf9d731a35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253274"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024200"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
@@ -53,15 +53,13 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
     ![Azure AD 역할](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. **구성원 추가** 를 선택 하 여 **새 할당** 페이지를 엽니다.
+1. 할당 **추가** 를 선택 하 여 **할당 추가** 페이지를 엽니다.
 
-1. 역할 **선택을 선택 하 여** 역할 선택 페이지를 엽니다.
+1. 역할 **선택을 선택 하 여** **역할 선택** 페이지를 엽니다.
 
     ![새 할당 창](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. 할당하려는 역할을 클릭한 다음, **선택**을 클릭합니다.
-
-1. 역할에 할당 하려는 멤버를 선택한 다음 **선택**을 선택 합니다.
+1. 할당할 역할을 선택 하 고 역할에 할당 하려는 구성원을 선택한 후 **다음**을 선택 합니다.
 
 1. **멤버 자격 설정** 창의 **할당 유형** 목록에서 **적격** 또는 **활성**을 선택 합니다.
 
@@ -69,15 +67,11 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
     - **활성** 할당에는 멤버가 역할을 사용 하는 작업을 수행 하지 않아도 됩니다. 활성으로 할당된 멤버에게는 항상 역할에 할당된 권한이 있습니다.
 
-1. 영구적으로 적격 하거나 영구적으로 할당 된 할당 인 경우 **영구적** 으로 확인란을 선택 합니다.
-
-    역할 설정에 따라 이 확인란이 나타나지 않거나 수정 가능하지 않을 수 있습니다.
-
-1. 특정 할당 기간을 지정하려면 확인란의 선택을 취소하고 시작 및/또는 종료 날짜/시간 상자를 수정합니다. 완료 되 면 **완료**를 선택 합니다.
+1. 특정 할당 기간을 지정 하려면 시작 및 종료 날짜 및 시간 상자를 추가 합니다. 완료 되 면 **할당** 을 선택 하 여 새 역할 할당을 만듭니다.
 
     ![멤버 자격 설정 - 날짜 및 시간](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. 새 역할 할당을 만들려면 **추가**를 선택 합니다. 상태 알림이 표시됩니다.
+1. 역할이 할당 된 후에는 할당 상태 알림이 표시 됩니다.
 
     ![새 할당 - 알림](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. 이제 사용자에 게 역할에 대 한 자격이 있으므로 [Privileged Identity Management에서 내 AZURE AD 역할 활성화](pim-how-to-activate-role.md)의 지침에 따라 사용자가 해당 역할을 활성화할 수 있음을 알고 있어야 합니다.
 
-    적격 관리자의 경우 활성화 중에 Azure MFA(Multi-factor Authentication)에 등록하라는 메시지가 표시됩니다. 사용자가 MFA에 등록 하거나 Microsoft 계정 (예: @outlook.com)를 사용 하는 경우 모든 역할에서 영구적으로 설정 해야 합니다.
+    정품 인증을 하는 동안 적격 관리자에 게 Azure Multi-Factor Authentication 등록 하 라는 메시지가 표시 됩니다. 사용자가 MFA에 등록 하거나 Microsoft 계정 (예:)를 사용 하는 경우 @outlook.com 모든 역할에서 영구적으로 설정 해야 합니다.
 
 ## <a name="make-a-role-assignment-permanent"></a>역할 할당을 영구적으로 지정
 
@@ -139,7 +133,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. **AZURE AD 역할**을 선택 합니다.
 
-1. **구성원**을 선택합니다.
+1. **멤버**를 선택합니다.
 
     ![멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
@@ -163,7 +157,7 @@ Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단�
 
 1. **AZURE AD 역할**을 선택 합니다.
 
-1. **구성원**을 선택합니다.
+1. **멤버**를 선택합니다.
 
     ![멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 

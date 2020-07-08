@@ -2,22 +2,22 @@
 title: SAML Single Sign-On - 비갤러리 애플리케이션 - Microsoft ID 플랫폼 | Microsoft Docs
 description: Microsoft ID 플랫폼(Azure AD)에서 비갤러리 애플리케이션에 대한 SSO(Single Sign-On) 구성
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758370"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024234"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>비갤러리 애플리케이션에 대한 SAML 기반 Single Sign-On 구성
 
@@ -42,6 +42,8 @@ ms.locfileid: "83758370"
 
 3. **관리** 섹션 아래에서 **Single Sign-On**을 선택합니다. 
 
+   - **Single sign-on** 옵션이 나타나지 않는 몇 가지 시나리오가 있습니다. 예를 들어 **앱 등록** 를 사용 하 여 응용 프로그램을 등록 한 경우 Single Sign-On 기능은 기본적으로 Oidc OAuth를 사용 하도록 설정 됩니다. 이 경우 **Enterprise 응용 프로그램**에서 **Single sign-on** 옵션이 탐색에 표시 되지 않습니다. **앱 등록** 를 사용 하 여 사용자 지정 앱을 추가 하는 경우 매니페스트 파일의 옵션을 구성 합니다. 매니페스트 파일에 대 한 자세한 내용은 (를 참조 https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 하세요. SSO 표준에 대 한 자세한 내용은 (를 참조 https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) 하세요. 응용 프로그램이 다른 테 넌 트에 호스트 되거나 사용자 계정에 필요한 권한 (전역 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 관리자 또는 서비스 주체의 소유자)이 없는 경우에는 탐색에서 **Single sign-on** 이 누락 되는 경우도 있습니다. 사용 권한은 **Single sign-on** 을 열 수는 있지만 저장할 수 없는 시나리오를 일으킬 수도 있습니다. Azure AD 관리 역할에 대 한 자세한 내용은 (를 참조 https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 하세요.
+
 4. **SAML**을 선택합니다. **SAML로 Single Sign-On 설정 - 미리 보기** 페이지가 표시됩니다.
 
    ![1단계 기본 SAML 구성 편집](media/configure-single-sign-on-non-gallery-applications/step-one-basic-saml-config.png)
@@ -53,10 +55,10 @@ ms.locfileid: "83758370"
     | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | Description |
     |:--|:--|:--|:--|
     | **ID(엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 애플리케이션을 고유하게 식별합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. 'https://<subdomain>.contoso.com' 패턴을 사용하여 URL을 입력합니다. *이 값은 애플리케이션에서 보낸 **AuthnRequest**(SAML 요청)에서 **Issuer**(발급자) 요소로 찾을 수 있습니다.* |
-    | **회신 URL** | 필수 | 필수 | 애플리케이션이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 추가 회신 URL 필드를 사용하여 여러 회신 URL을 지정할 수 있습니다. 예를 들어 여러 하위 도메인에 대해 추가 회신 URL이 필요할 수 있습니다. 또는 테스트를 위해 한 번에 여러 회신 URL(로컬 호스트 및 공용 URL)을 지정할 수 있습니다. |
+    | **회신 URL** | 필요한 공간 | 필요한 공간 | 애플리케이션이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 추가 회신 URL 필드를 사용하여 여러 회신 URL을 지정할 수 있습니다. 예를 들어 여러 하위 도메인에 대해 추가 회신 URL이 필요할 수 있습니다. 또는 테스트를 위해 한 번에 여러 회신 URL(로컬 호스트 및 공용 URL)을 지정할 수 있습니다. |
     | **로그온 URL** | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용하여 Office 365 또는 Azure AD 액세스 패널에서 애플리케이션을 시작합니다. 비어 있는 경우 사용자가 Office 365, Azure AD 액세스 패널 또는 Azure AD SSO URL에서 애플리케이션을 실행할 때 IdP에서 시작하는 로그온을 수행합니다.|
-    | **릴레이 상태** | 옵션 | 옵션 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
-    | **로그아웃 URL** | 옵션 | 옵션 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
+    | **릴레이 상태** | 선택 | 선택 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
+    | **로그아웃 URL** | 선택 | 선택 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
 
 자세한 내용은 [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)을 참조하세요.
 
@@ -122,9 +124,9 @@ Azure AD에서는 Base64 또는 원시 형식의 활성 인증서를 기본 **SA
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>4단계. Azure AD를 사용하도록 애플리케이션 설정
 
-**\<applicationName> 설정** 섹션에는 애플리케이션에서 구성해야 하는 값이 나열되어 있으므로 Azure AD를 SAML ID 공급자로 사용합니다. 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 설명서를 찾으려면 **설정 \<애플리케이션 이름>**  제목으로 이동하고 **단계별 지침 보기**를 선택합니다. 설명서는 **로그온** 구성 페이지에 표시됩니다. 이 페이지는 **설정 \<애플리케이션 이름>** 제목에서의 **로그인 URL**, **Azure AD 식별자**, **로그아웃 URL** 값 입력을 안내합니다.
+**설정 \<applicationName> ** 섹션에는 SAML ID 공급자로 Azure AD를 사용 하도록 응용 프로그램에 구성 해야 하는 값이 나열 됩니다. 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 설명서를 찾으려면 ** \<application name> 설정** 제목으로 이동 하 여 단계별 **지침 보기**를 선택 합니다. 설명서는 **로그온** 구성 페이지에 표시됩니다. 이 페이지에서는 ** \<application name> 설정** 제목에서 **로그인 Url**, **AZURE AD 식별자**및 **로그 아웃 url** 값을 입력 하는 방법을 안내 합니다.
 
-1. **\<applicationName> 설정** 섹션까지 아래로 스크롤합니다. 
+1. **설정\<applicationName>** 섹션까지 아래로 스크롤합니다. 
    
    ![4단계 애플리케이션 설정](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

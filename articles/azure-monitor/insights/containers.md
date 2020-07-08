@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
-ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77664697"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984627"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -45,7 +45,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 
 다음 표에서는 Azure Monitor 있는 컨테이너 인벤토리, 성능 및 로그의 Docker 오케스트레이션 및 운영 체제 모니터링 지원에 대해 간략하게 설명 합니다.   
 
-| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 |
+| | ACS | Linux | Windows | 컨테이너<br>재고 | 이미지<br>재고 | 노드<br>재고 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -116,7 +116,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Linux 컨테이너 호스트 설치 및 구성
 
-Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 Log Analytics 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작** > **컴퓨터** 를 클릭 하 여 **작업 영역 ID** 및 **기본 키**를 확인 합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
+Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 Log Analytics 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작**  >  **컴퓨터** 를 클릭 하 여 **작업 영역 ID** 및 **기본 키**를 확인 합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
 **CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
@@ -618,7 +618,6 @@ Log Analytics 열리고 컨테이너의 상태에 대 한 정보가 표시 됩�
 - **KubeEvents_CL** Kubernetes 이벤트를 확인하려면 이 형식을 사용합니다.
 - **KubePodInventory_CL** 클러스터 계층 구조 정보를 이해하려면 이 형식을 사용합니다.
 
-
 ### <a name="to-query-logs-for-container-data"></a>컨테이너 데이터에 대 한 로그를 쿼리하려면
 
 * 최근에 실패했다고 알고 있는 이미지를 선택하고 그에 대한 오류 로그를 찾습니다. **ContainerInventory** 검색을 통해 해당 이미지를 실행 중인 컨테이너 이름부터 찾습니다. 예를 들어, `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`를 검색합니다.  
@@ -628,7 +627,7 @@ Log Analytics 열리고 컨테이너의 상태에 대 한 정보가 표시 됩�
 
 ## <a name="example-log-queries"></a>예제 로그 쿼리
 
-한두 가지 예제로 쿼리 구성을 시작한 다음 환경에 맞게 수정하는 것이 유용한 경우가 종종 있습니다. 먼저 **샘플 쿼리** 영역에서 테스트하면 고급 쿼리를 빌드하는 데 도움이 될 수 있습니다.
+한두 가지 예제로 쿼리 구성을 시작한 다음 환경에 맞게 수정하는 것이 유용한 경우가 종종 있습니다. 시작 지점으로 솔루션 페이지의 맨 오른쪽에 있는 **샘플 쿼리** 영역을 시험해 보고 고급 쿼리를 작성 하는 데 도움이 될 수 있습니다.
 
 ![컨테이너 쿼리](./media/containers/containers-queries.png)
 

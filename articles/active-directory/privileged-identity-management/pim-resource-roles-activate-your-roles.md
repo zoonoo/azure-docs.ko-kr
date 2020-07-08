@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74023143"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023880"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 내 Azure 리소스 역할 활성화
 
@@ -42,13 +42,15 @@ Azure 리소스 역할을 수행 해야 하는 경우 Privileged Identity Manage
 
 1. **Azure 리소스 역할** 을 선택 하 여 적합 한 azure 리소스 역할의 목록을 확인 합니다.
 
-   ![내 역할-Azure 리소스 역할 페이지](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![내 역할-Azure 리소스 역할 페이지](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. **Azure 리소스 역할** 목록에서 활성화하려는 역할을 찾습니다.
 
     ![Azure 리소스 역할-적격 역할 목록](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. **활성화** 를 선택 하 여 활성화 창을 엽니다.
+1. **활성화** 를 선택 하 여 활성화 페이지를 엽니다.
+
+     ![범위, 시작 시간, 기간 및 이유가 포함 된 열려 있는 활성화 창](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. 다단계 인증이 필요한 역할은 **진행하기 전에 ID 확인**을 클릭합니다. 세션당 한 번만 인증해야 합니다.
 
@@ -72,27 +74,9 @@ Azure 리소스 역할을 수행 해야 하는 경우 Privileged Identity Manage
 
 1. **활성화**를 선택합니다.
 
-    역할에 승인이 필요하지 않으면 활성화되고 활성 역할 목록에 추가됩니다. 역할을 사용 하려면 다음 섹션의 단계를 수행 합니다.
-
     [역할을 활성화하는 데 승인이 필요](pim-resource-roles-approval-workflow.md)한 경우 브라우저의 오른쪽 위 모서리에 요청이 승인 보류 중임을 알려주는 알림이 표시됩니다.
 
     ![활성화 요청이 승인 보류 중입니다.](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>활성화 즉시 역할 사용
-
-활성화 후에 지연 되는 경우 Azure 리소스 역할을 즉시 사용 하도록 활성화 한 후 다음 단계를 수행 합니다.
-
-1. Azure AD Privileged Identity Management를 엽니다.
-
-1. **내 역할** 을 선택 하 여 적합 한 azure AD 역할 및 azure 리소스 역할의 목록을 확인 합니다.
-
-1. **Azure 리소스 역할**을 선택 합니다.
-
-1. **활성 역할** 탭을 선택 합니다.
-
-1. 역할이 활성화 되 면 포털에서 로그 아웃 했다가 다시 로그인 합니다.
-
-    이제 역할을 사용할 수 있습니다.
 
 ## <a name="view-the-status-of-your-requests"></a>요청 상태 보기
 
@@ -127,9 +111,6 @@ Azure 리소스 역할을 수행 해야 하는 경우 Privileged Identity Manage
 Privileged Identity Management에서 역할을 활성화할 때 활성화는 권한 있는 역할이 필요한 모든 포털에 즉시 전파 되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파되더라도 포털의 웹 캐싱 때문에 변경 내용이 즉시 적용되지 않을 수 있습니다. 정품 인증이 지연 되는 경우 다음 작업을 수행 해야 합니다.
 
 1. Azure Portal에서 로그아웃한 다음, 다시 로그인합니다.
-
-    Azure 리소스 역할을 활성화 하면 활성화 단계가 표시 됩니다. 모든 단계가 완료되면 **로그아웃** 링크가 표시됩니다. 이 링크를 사용 하 여 로그 아웃할 수 있습니다. 이렇게 하면 대부분의 경우 활성화 지연 시간이 해결 됩니다.
-
 1. Privileged Identity Management에서 역할의 멤버로 나열 되어 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계

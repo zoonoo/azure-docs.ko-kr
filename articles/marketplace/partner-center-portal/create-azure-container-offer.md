@@ -6,25 +6,27 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 1a027eb4cb3351934738319f342afac8d8407e6f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: c3cd5ed952ddb40157ee16246d4d1669d47ed6b9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848807"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984506"
 ---
-# <a name="create-an-azure-container-offer"></a>Azure 컨테이너 제품 만들기
+# <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure container 제품을 만듭니다.
 
-이 문서에서는 컨테이너 제품을 만들고 Azure Marketplace에 게시하는 방법을 설명합니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)(계정이 없는 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
+이 문서에서는 컨테이너 제품을 만들고 Azure Marketplace에 게시하는 방법을 설명합니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+
 2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요**를 선택합니다.
+
 3. 개요 페이지에서 **+ 새 제품** > **Azure Container**를 선택합니다.
 
-    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-azure-container.png)
+   ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 상점에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
@@ -50,10 +52,10 @@ ms.locfileid: "83848807"
 
 이 페이지에서는 제품의 현재 상태에 따라 다른 링크를 표시합니다. 다음은 그 예입니다.
 
-- 제품이 초안 상태인 경우 - [초안 제품 삭제](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- 제품이 라이브 상태인 경우 - [제품 판매 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- 제품이 미리 보기 상태인 경우 - [라이브 상태로 전환](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- 게시자 로그 아웃을 완료하지 않은 경우 - [게시 취소](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- 제품이 초안 상태인 경우 - [초안 제품 삭제](update-existing-offer.md#delete-a-draft-offer)
+- 제품이 라이브 상태인 경우 - [제품 판매 중지](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- 제품이 미리 보기 상태인 경우 - [라이브 상태로 전환](publishing-status.md#publisher-approval)
+- 게시자 로그 아웃을 완료하지 않은 경우 - [게시 취소](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>제품 설정
 
@@ -65,12 +67,12 @@ ms.locfileid: "83848807"
 
 1. **잠재 고객을 보내려는 잠재 고객 대상을 선택합니다**. 파트너 센터에서 지원하는 CRM 시스템은 다음과 같습니다.
 
-   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+   - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+   - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
    > [!NOTE]
-   > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) 또는 [Https 엔드포인트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https)를 사용하여 잠재 고객 데이터를 저장한 다음, CRM 시스템으로 데이터를 내보냅니다.
+   > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 [Https 엔드포인트](commercial-marketplace-lead-management-instructions-https.md)를 사용하여 잠재 고객 데이터를 저장한 다음, CRM 시스템으로 데이터를 내보냅니다.
 
 2. 파트너 센터에 게시하는 동안 제품을 잠재 고객 대상에 연결합니다.
 3. 잠재 고객 대상에 대한 연결이 제대로 구성되었는지 확인합니다. 파트너 센터에 게시한 후에는 연결의 유효성을 검사하고 테스트 잠재 고객을 보냅니다. 제품을 라이브로 전환하기 전에 미리 볼 때 미리보기 환경에서 직접 제품을 구매하여 잠재 고객 연결을 테스트할 수도 있습니다.
@@ -78,9 +80,9 @@ ms.locfileid: "83848807"
 
 몇 가지 추가 잠재 고객 관리 리소스는 다음과 같습니다.
 
-- [잠재 고객 관리 개요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [잠재 고객 관리 FAQ](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [일반적인 잠재 고객 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [잠재 고객 관리 개요](commercial-marketplace-get-customer-leads.md)
+- [잠재 고객 관리 FAQ](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [일반적인 잠재 고객 구성 오류](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
 - [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF(팝업 차단이 해제되어 있는지 확인)
 
 계속하기 전에 **초안 저장**을 선택합니다.
@@ -91,7 +93,12 @@ ms.locfileid: "83848807"
 
 #### <a name="category"></a>Category
 
-하나 이상의 범주와 최대 5개의 범주를 선택합니다. 이러한 범주는 제품을 적절한 Marketplace 검색 영역에 배치하는 데 사용되며 제품 세부 정보 페이지에 표시됩니다. 제품 설명에서 제품이 이러한 범주를 지원하는 방법을 설명합니다. **컨테이너**, 다음 **컨테이너 이미지** 범주 아래에 컨테이너가 표시됩니다.
+범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
+
+- 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
+- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
+
+[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요. 컨테이너는 항상 컨테이너 **아래에 표시 되 고** **컨테이너 이미지** 범주에 표시 됩니다.
 
 #### <a name="legal"></a>법적 정보
 
@@ -100,13 +107,13 @@ ms.locfileid: "83848807"
 - Microsoft 상업용 Marketplace 표준 계약을 사용합니다.
 - 사용자 고유의 사용 약관을 제공합니다.
 
-##### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace 표준 계약
+#### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace 표준 계약
 
 상업용 Marketplace에서 트랜잭션을 용이하게 하기 위해 표준 계약 템플릿을 제공합니다. 표준 계약에 따라 솔루션을 제공하도록 선택할 수 있으며 사용자가 한 번만 확인하고 수락하면 됩니다. 사용자 지정 사용 약관을 만들지 않으려는 경우에 선택할 수 있는 좋은 방법입니다.
 
-표준 계약에 대한 자세한 내용은 [Microsoft 상업용 Marketplace의 표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 참조하세요. [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF를 다운로드할 수도 있습니다(팝업 차단이 해제되어 있는지 확인).
+표준 계약에 대한 자세한 내용은 [Microsoft 상업용 Marketplace의 표준 계약](../standard-contract.md)을 참조하세요. [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF를 다운로드할 수도 있습니다(팝업 차단이 해제되어 있는지 확인).
 
-표준 계약을 사용하려면 **Microsoft 상업용 Marketplace의 표준 계약 사용** 확인란을 선택하고 **수락**을 클릭합니다.
+표준 계약을 사용 하려면 * * Microsoft의 상용 marketplace에 대 한 표준 계약 사용] (.)을 선택 합니다. /standard-contract.md)
 
 > [!NOTE]
 > Microsoft 상업용 Marketplace의 표준 계약을 사용하여 제품을 게시한 후에는 사용자 고유의 사용자 지정 약관을 사용할 수 없습니다. 표준 계약 또는 사용자 고유의 사용 약관에 따라 솔루션을 제공합니다.
@@ -168,7 +175,7 @@ ms.locfileid: "83848807"
 **지원 연락처** 및 **엔지니어링 연락처**의 이름, 이메일 및 전화번호를 제공해야 합니다. 이 정보는 고객에게 표시되지 않지만 Microsoft에서 사용할 수 있습니다. CSP(클라우드 솔루션 공급자) 파트너에도 제공될 수 있습니다.
 
 - 지원 연락처(필수 사항): 일반적인 지원 질문입니다.
-- 엔지니어링 연락처(필수 사항): 기술 관련 질문 및 인증 이슈입니다.
+- 엔지니어링 연락처(필수 사항): 기술 관련 질문 및 인증 문제를 처리할 담당자입니다.
 - CSP 프로그램 연락처(선택 사항): CSP 프로그램과 관련된 재판매인 질문입니다.
 
 **지원 연락처** 섹션에서 글로벌 Azure, Azure Government 또는 둘 다에서 제품을 사용할 수 있는지에 따라 파트너가 제품에 대한 지원을 찾을 수 있는 **지원 웹 사이트**를 제공합니다.
@@ -177,7 +184,7 @@ ms.locfileid: "83848807"
 
 #### <a name="additional-marketplace-listing-resources"></a>추가 Marketplace 목록 리소스
 
-제품 목록을 만드는 방법에 대한 자세한 내용은 [목록에 제품 추가 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)를 참조하세요.
+제품 목록을 만드는 방법에 대한 자세한 내용은 [목록에 제품 추가 모범 사례](../gtm-offer-listing-best-practices.md)를 참조하세요.
 
 ### <a name="marketplace-images"></a>Marketplace 이미지
 
@@ -239,9 +246,6 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 하나 이상의 Azure 구독 ID를 개별적으로 추가하거나(최대 10개), CSV 파일을 업로드하여 추가합니다(최대 100개). 이러한 구독 ID를 추가하여 제품이 라이브로 게시되기 전에 제품을 미리 볼 수 있는 사용자를 결정합니다. 제품이 이미 라이브 상태인 경우 제품의 변경 내용 또는 업데이트를 테스트하는 미리 보기 대상 그룹을 선택할 수 있습니다.
 
-> [!NOTE]
-> 미리 보기 대상 그룹은 프라이빗 대상 그룹과 다릅니다. **미리 보기**는 **프라이빗** 대상(가용성 탭에서 설정)에만 게시되는 제품을 포함하여 Marketplace에 있는 모든 제품이 게시되기 전에 계획을 보고 확인할 수 있습니다.
-
 계속하기 전에 **초안 저장**을 선택합니다.
 
 ### <a name="plan-overview"></a>플랜 개요
@@ -276,22 +280,20 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 이 탭에서 플랜을 사용할 수 있는 클라우드를 선택할 수 있습니다. 이 탭에서의 사용자의 답변은 다른 탭에 표시되는 필드에 영향을 줍니다.
 
-#### <a name="cloud-availability"></a>클라우드 가용성
+#### <a name="azure-regions"></a>Azure 지역
 
-플랜은 하나 이상의 클라우드에서 사용할 수 있어야 합니다.
+Azure Container 제품에 대 한 모든 계획은 **Azure Global**에서 자동으로 사용할 수 있습니다.  요금제는 상업적 marketplace를 사용 하는 모든 글로벌 Azure 지역의 고객이 사용할 수 있습니다. 자세한 내용은 [지리적 가용성 및 통화 지원](../marketplace-geo-availability-currencies.md)을 참조하세요.
 
-**Azure Global** 옵션을 선택하면 상업용 Marketplace를 사용하는 전 세계 Azure 지역에서 고객이 사용자의 플랜을 사용할 수 있습니다 자세한 내용은 [지리적 가용성 및 통화 지원](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)을 참조하세요.
+[**Azure Government**](../../azure-government/documentation-government-welcome.md) 옵션을 선택 하 여 솔루션을 여기에 표시 합니다. 미국 연방, S] (.)의 고객에 대 한 액세스를 제어 하는 정부 커뮤니티 클라우드입니다. /marketplace-geo-availability-currencies.md) em. 게시자는 이 클라우드 커뮤니티에 대한 모든 규정 준수 제어, 보안 조치 및 모범 사례를 담당해야 합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다.
 
-[**Azure Government 클라우드**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 옵션을 선택하여 솔루션을 여기에 표시합니다. 이는 미국 연방, 주, 지방 또는 부족 정부 기관과 여기서 일할 자격이 있는 파트너의 고객에 대한 액세스를 제어하는 정부 커뮤니티 클라우드입니다. 게시자는 이 클라우드 커뮤니티에 대한 모든 규정 준수 제어, 보안 조치 및 모범 사례를 담당해야 합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다.
-
-결과와 다를 수 있으므로 Azure Government에 [게시](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)하기 전에 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 만들고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
+결과와 다를 수 있으므로 Azure Government에 [게시](../../azure-government/documentation-government-manage-marketplace-partners.md)하기 전에 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 만들고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
 
 > [!NOTE]
-> 계획을 게시하고 특정 클라우드에서 사용할 수 있게 되면 해당 클라우드를 제거할 수 없습니다.
+> 계획을 게시 하 고 특정 지역에서 사용할 수 있게 되 면 해당 지역을 제거할 수 없습니다.
 
-#### <a name="azure-government-cloud-certifications"></a>Azure Government 클라우드 인증
+#### <a name="azure-government-certifications"></a>Azure Government 인증
 
-이 옵션은 **클라우드 가용성**에서 **Azure Government 클라우드**를 선택하는 경우에만 표시됩니다.
+이 옵션은 **클라우드 가용성**에서 **Azure Government** 선택 된 경우에만 볼 수 있습니다.
 
 Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리합니다. 예를 들어 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및 CJIS가 있습니다.
 
@@ -333,7 +335,7 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 이 필드는 다음과 같은 경우에 사용됩니다.
 
-- 이 제품을 다른 애플리케이션에서 참조하는 경우에 간접적으로 사용할 수 있습니다.
+- 이 제품은 다른 응용 프로그램을 통해 참조 될 때 간접적으로 사용 됩니다.
 - 제품을 개별적으로 구매하면 안 됩니다.
 - 이 플랜이 초기 테스트에 사용되었으며 더 이상 관련이 없습니다.
 - 임시 또는 계절성 제품에 플랜을 사용했으며 더 이상 제공되지 않습니다.
@@ -342,7 +344,7 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 컨테이너 이미지는 프라이빗 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)에 호스트되어야 합니다. **기술 구성** 탭에서 Azure Container Registry 내의 컨테이너 이미지 리포지토리에 대한 참조 정보를 제공합니다.
 
-제품이 게시된 후에는 컨테이너 이미지가 특정 퍼블릭 컨테이너 레지스트리의 Azure Marketplace로 복사됩니다. 컨테이너 이미지 사용에 대한 모든 요청은 Azure Marketplace 프라이빗 컨테이너 레지스트리가 아닌 퍼블릭 컨테이너 레지스트리에서 제공됩니다. 자세한 내용은 [Azure Container 기술 자산 준비](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets)를 참조하세요.
+제품이 게시된 후에는 컨테이너 이미지가 특정 퍼블릭 컨테이너 레지스트리의 Azure Marketplace로 복사됩니다. 컨테이너 이미지 사용에 대한 모든 요청은 Azure Marketplace 프라이빗 컨테이너 레지스트리가 아닌 퍼블릭 컨테이너 레지스트리에서 제공됩니다. 자세한 내용은 [Azure Container 기술 자산 준비](create-azure-container-technical-assets.md)를 참조하세요.
 
 ### <a name="image-repository-details"></a>이미지 리포지토리 세부 정보
 
@@ -350,11 +352,11 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 **Azure 구독 ID** – 구독 ID를 제공하여 사용량이 보고되고 컨테이너 이미지를 포함하는 Azure Container Registry에 대한 서비스 요금이 청구될 수 있도록 합니다. 이 ID는 Azure Portal의 [구독 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 찾을 수 있습니다.
 
-**Azure 리소스 그룹 이름** – 컨테이너 이미지로 Azure Container Registry를 포함하는 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) 이름을 제공합니다. 리소스 그룹은 위의 구독 ID에서 액세스할 수 있어야 합니다. Azure Portal의 [리소스 그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
+**Azure 리소스 그룹 이름** – 컨테이너 이미지로 Azure Container Registry를 포함하는 [리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md) 이름을 제공합니다. 리소스 그룹은 위의 구독 ID에서 액세스할 수 있어야 합니다. Azure Portal의 [리소스 그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
 
-**Azure Container Registry 이름** – 컨테이너 이미지를 포함하는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro)의 이름을 제공합니다. 컨테이너 레지스트리는 앞에서 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 포함합니다. 이름에서 **azurecr.io**를 생략해야 합니다. Azure Portal의 [컨테이너 레지스트리 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)에서 레지스트리 이름을 찾을 수 있습니다.
+**Azure Container Registry 이름** – 컨테이너 이미지를 포함하는 [Azure Container Registry](../../container-registry/container-registry-intro.md)의 이름을 제공합니다. 컨테이너 레지스트리는 앞에서 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 포함합니다. 이름에서 **azurecr.io**를 생략해야 합니다. Azure Portal의 [컨테이너 레지스트리 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)에서 레지스트리 이름을 찾을 수 있습니다.
 
-**Azure Container Registry의 관리 사용자 이름** – 컨테이너 이미지가 있는 Azure Container Registry와 연결된 [관리 사용자 이름](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)을 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True**로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자**를 **사용**으로 설정할 수 있습니다.
+**Azure Container Registry에 대 한 관리자 사용자 이름** – 컨테이너 이미지가 있는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True**로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자**를 **사용**으로 설정할 수 있습니다.
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
 
@@ -362,7 +364,7 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="액세스 키 메뉴를 보여 줍니다.":::
 
-**Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 포함합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지**로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](https://docs.microsoft.com/azure/container-registry/container-registry-repositories)를 참조하세요.
+**Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 포함합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지**로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요.
 
 > [!NOTE]
 > 이름이 설정되면 변경할 수 없습니다. 계정의 각 제품마다 고유한 이름을 사용합니다.
@@ -375,7 +377,7 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 이 필드는 지원되는 모든 플랫폼에서 최신 버전의 이미지를 가리키는 **최신** 태그를 포함해야 합니다. 또한 버전 태그를 포함해야 합니다(예: xx.xx.xx, xx는 숫자). 고객은 여러 플랫폼을 대상으로 하는 [매니페스트 태그](https://github.com/estesp/manifest-tool)를 사용해야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다.
 
-모든 매니페스트 태그(최신 태그 제외)는 X.Y **-** 또는 X.Y.Z로 시작해야 합니다(X, Y, Z는 정수입니다). 예를 들어 **최신** 태그가 1.0.1-linux-x64, 1.0.1-linux-arm32 및 1.0.1-windows-arm32를 가리키는 경우 이러한 6개의 태그를 이 필드에 추가해야 합니다. 자세한 내용은 [Azure Container 기술 자산 준비](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets)를 참조하세요.
+모든 매니페스트 태그(최신 태그 제외)는 X.Y **-** 또는 X.Y.Z로 시작해야 합니다(X, Y, Z는 정수입니다). 예를 들어 **최신** 태그가 1.0.1-linux-x64, 1.0.1-linux-arm32 및 1.0.1-windows-arm32를 가리키는 경우 이러한 6개의 태그를 이 필드에 추가해야 합니다. 자세한 내용은 [Azure Container 기술 자산 준비](create-azure-container-technical-assets.md)를 참조하세요.
 
 > [!NOTE]
 > 테스트 중에 이미지를 식별할 수 있도록 이미지에 테스트 태그를 추가해야 합니다.
@@ -396,10 +398,10 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 게시하기 위해 제품을 제출하려면 **게시**를 선택합니다.
 
-제품의 미리 보기 버전을 검토하고 승인할 수 있는 시기를 알려주는 이메일을 보내 드립니다.
+Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다.
 
-제품을 공개 게시(또는 프라이빗 제품은 프라이빗 사용자에게 게시)하려면 파트너 센터로 이동하여 **라이브 상태로 전환**을 선택합니다.
+공개에 제품을 게시 하려면 파트너 센터로 이동 하 여 **라이브**를 선택 합니다.
 
 ## <a name="next-step"></a>다음 단계
 
-- [상업용 마켓플레이스에서 기존 제품 업데이트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [상업용 마켓플레이스에서 기존 제품 업데이트](update-existing-offer.md)

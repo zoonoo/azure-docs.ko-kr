@@ -278,6 +278,8 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: 파티션의 요청 시 백업
               href: service-fabric-backup-restore-service-ondemand-backup.md
+            - name: 오프라인으로 신뢰할 수 있는 컬렉션 백업 보기 및 편집
+              href: backup-explorer.md
         - name: 이니셜라이저 CodePackage
           href: initializer-codepackages.md
         - name: RunToCompletion
@@ -476,7 +478,7 @@
               href: service-fabric-reliable-actors-enumerate.md
             - name: 작업자 및 해당 상태 삭제
               href: service-fabric-reliable-actors-delete-actors.md
-            - name: 작업자 Backup 및 복원
+            - name: 작업자 백업 및 복원
               href: service-fabric-reliable-actors-backup-and-restore.md
             - name: 작업자 알림 보내기
               href: service-fabric-reliable-actors-events.md

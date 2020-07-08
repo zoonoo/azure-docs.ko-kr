@@ -6,19 +6,19 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: cf44e50f7d8cc0dbf94c5313373bbd8080baa176
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848790"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984376"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
 이 문서에서는 상업용 Marketplace에서 새 Azure 애플리케이션 제품을 만들기 위한 단계 및 고려 사항을 설명합니다. 새 Azure 애플리케이션 제품을 만들기 전에 관련 개념을 잘 알고 있어야 합니다.
 
-새 Azure 애플리케이션 제품을 게시하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만들고](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
+새 Azure 애플리케이션 제품을 게시하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만들고](create-account.md) 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -34,25 +34,25 @@ Azure 애플리케이션 제품을 디자인, 빌드 및 테스트하려면 Azur
 
 상업용 Marketplace용으로 Azure 애플리케이션 제품을 준비할 때 다음 리소스를 검토합니다.
 
-* [Azure Resource Manager 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
+* [Azure Resource Manager 템플릿 이해](../../azure-resource-manager/resource-group-authoring-templates.md)
 
 * 빠른 시작:
 
     * [Azure Quickstart 템플릿](https://azure.microsoft.com/documentation/templates/)
-    * [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
-    * [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [서비스 카탈로그 앱 배포](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
+    * [Azure 템플릿 모범 사례 가이드](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
+    * [애플리케이션 정의 게시](../../managed-applications/publish-service-catalog-app.md)
+    * [서비스 카탈로그 앱 배포](../../managed-applications/deploy-service-catalog-quickstart.md)
 
 * 자습서:
 
-    * [정의 파일 만들기](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [마켓플레이스 애플리케이션 게시](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
+    * [정의 파일 만들기](../../managed-applications/publish-service-catalog-app.md)
+    * [마켓플레이스 애플리케이션 게시](../../managed-applications/publish-marketplace-app.md)
 
 * 샘플:
 
-    * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-    * [관리되는 애플리케이션 솔루션](https://docs.microsoft.com/azure/managed-applications/sample-projects)
+    * [Azure CLI](../../managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
+    * [관리되는 애플리케이션 솔루션](../../managed-applications/sample-projects.md)
 
 [Azure Marketplace용 관리형 애플리케이션 및 솔루션 템플릿 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603) 동영상에서는 Azure 애플리케이션 제품 유형을 포괄적으로 소개합니다.
 
@@ -72,7 +72,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-* [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Visual Studio Code](https://code.visualstudio.com/)(다음 확장 포함):
     * 확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -84,19 +84,19 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 
 Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션 템플릿의 두 가지 종류가 있습니다.
 
-* **솔루션 템플릿**은 Marketplace에서 솔루션을 게시하는 주요 방법 중 하나입니다. 솔루션에 단일 VM(가상 머신) 이외의 추가 배포 및 구성 자동화가 필요한 경우 이 플랜 유형을 사용합니다. 솔루션 템플릿을 사용하면 복잡한 IaaS 솔루션을 제공하기 위한 VM, 네트워킹 및 스토리지 리소스를 포함하여 둘 이상의 리소스를 제공하는 작업을 자동화할 수 있습니다.  솔루션 템플릿을 빌드하는 방법에 관한 자세한 내용은 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
+* **솔루션 템플릿**은 Marketplace에서 솔루션을 게시하는 주요 방법 중 하나입니다. 솔루션에 단일 VM(가상 머신) 이외의 추가 배포 및 구성 자동화가 필요한 경우 이 플랜 유형을 사용합니다. 솔루션 템플릿을 사용하면 복잡한 IaaS 솔루션을 제공하기 위한 VM, 네트워킹 및 스토리지 리소스를 포함하여 둘 이상의 리소스를 제공하는 작업을 자동화할 수 있습니다.  솔루션 템플릿을 빌드하는 방법에 관한 자세한 내용은 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
-* **관리형 애플리케이션**은 솔루션 템플릿과 비슷하지만 하나의 주요 차이점이 있습니다. 관리되는 애플리케이션에서 리소스는 앱 게시자가 관리하는 리소스 그룹에 배포됩니다. 리소스 그룹은 소비자의 구독에 있지만, 게시자 테넌트의 ID는 해당 리소스 그룹에 액세스할 수 있습니다. 게시자는 지속적인 솔루션 지원을 위한 비용을 지정합니다. 관리형 애플리케이션을 사용하여 완전 관리형 턴키 애플리케이션을 손쉽게 빌드하고 고객에게 제공합니다.  관리되는 애플리케이션의 장점 및 유형에 대한 자세한 내용은 [Azure Managed Applications 개요](https://docs.microsoft.com/azure/managed-applications/overview)를 참조하세요.
+* **관리형 애플리케이션**은 솔루션 템플릿과 비슷하지만 하나의 주요 차이점이 있습니다. 관리되는 애플리케이션에서 리소스는 앱 게시자가 관리하는 리소스 그룹에 배포됩니다. 리소스 그룹은 소비자의 구독에 있지만, 게시자 테넌트의 ID는 해당 리소스 그룹에 액세스할 수 있습니다. 게시자는 지속적인 솔루션 지원을 위한 비용을 지정합니다. 관리형 애플리케이션을 사용하여 완전 관리형 턴키 애플리케이션을 손쉽게 빌드하고 고객에게 제공합니다.  관리되는 애플리케이션의 장점 및 유형에 대한 자세한 내용은 [Azure Managed Applications 개요](../../managed-applications/overview.md)를 참조하세요.
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
 모든 Azure 애플리케이션에는 `.zip` 보관 파일의 루트 폴더에 두 개 이상의 파일이 포함됩니다.
 
-* [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)이라는 Resource Manager 템플릿 파일.  이 템플릿은 고객의 Azure 구독에 배포할 리소스를 정의합니다.  Resource Manager 템플릿의 예는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/) 또는 해당 [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 리포지토리를 참조하세요.
+* [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md)이라는 Resource Manager 템플릿 파일.  이 템플릿은 고객의 Azure 구독에 배포할 리소스를 정의합니다. Resource Manager 템플릿의 예는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/) 또는 해당 [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 리포지토리를 참조하세요.
 
-* [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview)이라는 Azure 애플리케이션 만들기 환경의 사용자 인터페이스 정의.  사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
+* [createUiDefinition.json](../../managed-applications/create-uidefinition-overview.md)이라는 Azure 애플리케이션 만들기 환경의 사용자 인터페이스 정의.  사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
 
-모든 새 Azure 애플리케이션 제품은 [Azure 파트너 고객 사용량 기여 GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution)를 포함해야 합니다. 
+모든 새 Azure 애플리케이션 제품은 [Azure 파트너 고객 사용량 기여 GUID](../azure-partner-customer-usage-attribution.md)를 포함해야 합니다. 
 
 각 애플리케이션 플랜의 게시 요구 사항을 알아보려면 [솔루션 템플릿 제품 게시 요구 사항](../marketplace-solution-templates.md) 및 [관리형 애플리케이션 제품 게시 요구 사항](../marketplace-managed-apps.md)을 참조하세요.
 
@@ -132,14 +132,14 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 ### <a name="test-drive"></a>시험 사용
 
-시험 사용은 “구입 전 체험” 옵션을 제공하여 잠재적인 고객에게 제품을 선보임으로써 구매 전환율을 높이고 적절한 잠재 고객을 창출할 수 있는 유용한 방법입니다. [시험 사용에 관해 자세히 알아보세요](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+시험 사용은 “구입 전 체험” 옵션을 제공하여 잠재적인 고객에게 제품을 선보임으로써 구매 전환율을 높이고 적절한 잠재 고객을 창출할 수 있는 유용한 방법입니다. [시험 사용에 관해 자세히 알아보세요](../what-is-test-drive.md).
 
 일정 기간 동안 시험 사용을 사용하도록 설정하려면 **시험 사용을 사용하도록 설정** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 이 확인란 선택을 취소합니다. 이 항목 뒤에 나오는 [시험 사용 기술 구성](#test-drive-technical-configuration) 섹션에서 시험 사용 환경을 구성합니다.
 
-자세한 내용은 [상업용 Marketplace에서 제품 시험 사용](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)을 참조하세요. [시험 사용 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)를 읽어보고 [시험 사용 개요 PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)를 다운로드할 수도 있습니다(팝업 차단기가 꺼져 있는지 확인).
+자세한 내용은 [상업용 Marketplace에서 제품 시험 사용](test-drive.md)을 참조하세요. [시험 사용 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)를 읽어보고 [시험 사용 개요 PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)를 다운로드할 수도 있습니다(팝업 차단기가 꺼져 있는지 확인).
 
 >[!Note]
->모든 Azure 애플리케이션은 Azure Resource Manager 템플릿을 사용하여 구현되므로 Azure 애플리케이션에 사용할 수 있는 유일한 시험 사용 유형은 [Azure Resource Manager 기반 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)입니다.
+>모든 Azure 애플리케이션은 Azure Resource Manager 템플릿을 사용하여 구현되므로 Azure 애플리케이션에 사용할 수 있는 유일한 시험 사용 유형은 [Azure Resource Manager 기반 시험 사용](../azure-resource-manager-test-drive.md)입니다.
 
 ### <a name="customer-leads"></a>잠재 고객
 
@@ -151,9 +151,16 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 ## <a name="properties"></a>속성
 
-**속성** 페이지에서는 마켓플레이스에서 제품을 그룹화하는 데 사용되는 범주와 산업, 앱 버전 및 제품을 지원하는 법적 계약을 정의합니다.
+**속성** 페이지에서는 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주, 앱 버전 및 제품을 지 원하는 법적 계약을 정의 합니다.
 
-하나 이상, 최대 3개의 범주를 선택하여 제품을 적절한 마켓플레이스 검색 영역에 배치합니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다.
+### <a name="category"></a>범주
+
+범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
+
+- 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
+- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
+
+[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요.
 
 ### <a name="legal"></a>법적 정보
 
@@ -161,16 +168,43 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 ## <a name="offer-listing"></a>제품 목록
 
-이 페이지에서는 상업용 Marketplace 제품의 복사본 및 이미지를 관리합니다. 
+이 페이지에서는 상업용 Marketplace 제품의 복사본 및 이미지를 관리합니다.
 
 ### <a name="marketplace-details"></a>마켓플레이스 세부 정보
 
 > [!NOTE]
-> 제품 설명이 “[영어가 아닌 언어]에서만 사용할 수 있습니다.”로 시작하는 경우 제품 목록 콘텐츠(예: 설명, 문서, 스크린샷, 사용 약관)는 영어로 작성되지 않아도 됩니다. 또한 제품 목록 콘텐츠에 사용된 것과 다른 언어로 콘텐츠를 제공하는 ‘유용한 링크 URL’을 제공할 수 있습니다.
+> 제품 설명이 “[영어가 아닌 언어]에서만 사용할 수 있습니다.”로 시작하는 경우 제품 목록 콘텐츠(예: 설명, 문서, 스크린샷, 사용 약관)는 영어로 작성되지 않아도 됩니다. 또한 제품 목록 콘텐츠에 사용되는 것 이외의 언어로 콘텐츠를 제공하는 *유용한 링크 URL*을 제공할 수 있습니다.
+
+다음은 Azure Marketplace에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
+
+:::image type="content" source="media/example-azure-marketplace-app.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 로고
+2. 범주
+3. 지원 주소 (링크)
+4. 사용 약관
+5. 개인 정보 취급 방침 주소 (링크)
+6. Offer name
+7. 요약
+8. 설명
+9. 스크린샷/비디오
+
+<br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
+
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="이 제품이 Azure Portal 표시 되는 방식을 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 제목
+2. 설명
+3. 유용한 링크
+4. 스크린샷
 
 #### <a name="name"></a>속성
 
-여기에 입력하는 이름은 고객에게 제품 목록의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭**에 입력한 텍스트로 미리 채워져 있지만 이 값을 변경할 수 있습니다. 이 이름은 상표로 등록할 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50자를 초과할 수 없으며 이모지는 포함할 수 없습니다.
+여기에 입력하는 이름은 고객에게 제품 목록의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭**에 입력한 텍스트로 미리 채워져 있지만 이 값을 변경할 수 있습니다. 이 이름은 상표로 등록될 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다. 이름은 50자를 초과할 수 없으며 이모지는 포함할 수 없습니다.
 
 #### <a name="search-results-summary"></a>검색 결과 요약
 
@@ -190,7 +224,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 #### <a name="search-keywords"></a>검색 키워드
 
-필요에 따라 고객이 마켓플레이스에서 제품을 찾을 수 있도록 최대 3개의 검색 키워드를 입력할 수 있습니다. 최상의 결과를 얻기 위해 설명에 관련 키워드도 사용합니다.
+필요에 따라 고객이 Marketplace에서 제품을 찾을 수 있도록 최대 3개의 검색 키워드를 입력할 수 있습니다. 최상의 결과를 얻기 위해 설명에 관련 키워드도 사용합니다.
 
 #### <a name="privacy-policy-link"></a>개인정보처리방침 링크
 
@@ -232,7 +266,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 #### <a name="additional-marketplace-listing-resources"></a>추가 마켓플레이스 목록 리소스
 
-- [마켓플레이스 제품 목록 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Marketplace 제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -265,14 +299,14 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 기술 구성은 [Marketplace 계량 서비스 API](./marketplace-metering-service-apis.md)를 사용하여 관리형 애플리케이션의 계량 이벤트를 내보내는 서비스를 식별하는 데 사용되는 세부 정보(테넌트 ID 및 앱 ID)를 정의합니다.  계량 이벤트를 내보낼 때 서비스에서 사용할 ID를 입력합니다.
 
-* **Azure AD 테넌트 ID**(필수): 두 서비스 간 연결이 인증된 통신을 통해 설정되는지 유효성 검사할 수 있도록 Azure Portal 내에서 [AD(Active Directory) 앱을 만들어야](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 합니다. [테넌트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동하고, **속성**을 선택한 다음, 나열된 **디렉터리 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 검색합니다.
-* **Azure AD 앱 ID**(필수): 또한 [애플리케이션 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 및 인증 키가 필요합니다. 해당 값을 얻으려면 Azure Active Directory로 이동하고, **앱 등록**을 선택한 다음, 나열된 **애플리케이션 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 검색합니다. 인증 키를 찾으려면 **설정**으로 이동하고 **키**를 선택합니다. 설명 및 기간을 입력해야 숫자 값이 제공됩니다.
+* **AZURE ad 테 넌 트 ID** (필수): Azure Portal 내에서 두 서비스 간의 연결이 인증 된 통신 뒤에 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](../../active-directory/develop/howto-create-service-principal-portal.md) 합니다. [테 넌 트 ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
+* **AZURE AD 앱 id** (필수): [응용 프로그램 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)와 인증 키도 필요 합니다. 해당 값을 얻으려면 Azure Active Directory로 이동하고, **앱 등록**을 선택한 다음, 나열된 **애플리케이션 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 검색합니다. 인증 키를 찾으려면 **설정**으로 이동하고 **키**를 선택합니다. 설명 및 기간을 입력해야 숫자 값이 제공됩니다.
 
 >[!Note]
 >Azure 애플리케이션 ID는 게시자 ID와 연결되며 이 게시자 계정 내에서만 다시 사용할 수 있습니다.
 
 >[!Note]
->이 구성은 [일괄 처리 사용량 이벤트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#batch-usage-event)를 사용하려는 경우에 필요합니다.  [사용량 이벤트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#usage-event)를 제출하려는 경우 [인스턴스 메타데이터 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하여 [JWT(JSON Web Token) 전달자 토큰](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)을 가져올 수도 있습니다.
+>이 구성은 [Batch 사용 이벤트](marketplace-metering-service-apis.md#metered-billing-batch-usage-event)를 사용 하려는 경우에 필요 합니다.  [사용 이벤트](marketplace-metering-service-apis.md#metered-billing-single-usage-event)를 제출 하려는 경우 [인스턴스 메타 데이터 서비스](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 [JWT (JSON web token) 전달자 토큰](pc-saas-registration.md#how-to-get-the-publishers-authorization-token)을 가져올 수도 있습니다.
 
 ## <a name="plan-overview"></a>플랜 개요
 
@@ -309,11 +343,11 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 플랜은 하나 이상의 Azure 지역에서 사용할 수 있어야 합니다.
 
-**Azure 글로벌** 옵션을 선택하여 상업용 Marketplace 통합이 있는 모든 Azure 글로벌 지역의 고객이 플랜을 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)을 참조하세요.
+**Azure 글로벌** 옵션을 선택하여 상업용 Marketplace 통합이 있는 모든 Azure 글로벌 지역의 고객이 플랜을 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원](../marketplace-geo-availability-currencies.md)을 참조하세요.
 
-**Azure Government** 옵션을 선택하여 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 지역에서 플랜을 사용할 수 있도록 합니다. 해당 지역은 미국 연방, 주, 지방 또는 부족 단체의 고객뿐만 아니라 관련 고객에게 서비스를 제공할 수 있는 파트너에게도 제어된 액세스를 제공합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다.
+**Azure Government** 옵션을 선택하여 [Azure Government](../../azure-government/documentation-government-welcome.md) 지역에서 플랜을 사용할 수 있도록 합니다. 해당 지역은 미국 연방, 주, 지방 또는 부족 단체의 고객뿐만 아니라 관련 고객에게 서비스를 제공할 수 있는 파트너에게도 제어된 액세스를 제공합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure Government는 물리적으로 격리되어 미국에만 있는 데이터 센터와 네트워크를 사용합니다.
 
-[Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)에 게시하기 전에 특정 엔드포인트가 다를 수 있으므로 환경에서 플랜을 테스트하고 유효성을 검사합니다. 플랜을 설정하고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
+[Azure Government](../../azure-government/documentation-government-manage-marketplace-partners.md)에 게시하기 전에 특정 엔드포인트가 다를 수 있으므로 환경에서 플랜을 테스트하고 유효성을 검사합니다. 플랜을 설정하고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/)에서 평가판 계정을 요청합니다.
 
 >[!NOTE]
 >플랜이 게시되고 특정 Azure 지역에서 사용할 수 있으면 해당 지역을 제거할 수 없습니다.
@@ -399,10 +433,14 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 플랜을 프라이빗으로 설정하고 선택한 제한된 대상 그룹에만 표시하려면 **프라이빗 플랜입니다.** 를 선택합니다. 프라이빗 플랜으로 게시된 후 대상 그룹을 업데이트하거나 모든 사용자가 해당 플랜을 사용할 수 있도록 지정할 수 있습니다. 플랜이 모든 사용자에게 표시되도록 게시된 후에는 모든 사용자에게 계속 표시되어야 하며, 프라이빗 플랜으로 다시 구성할 수 없습니다.
 
+>[!Note]
+>프라이빗 또는 제한된 대상 그룹은 **미리 보기** 탭에서 정의한 미리 보기 대상 그룹과 다릅니다. 미리 보기 대상 그룹은 제품이 마켓플레이스에 라이브로 게시되기 ‘전에’ 해당 제품에 액세스할 수 있습니다. 프라이빗 대상 그룹 선택은 특정 플랜에만 적용되지만, 미리 보기 대상 그룹은 유효성 검사를 위해 모든 플랜(프라이빗 및 퍼블릭)을 볼 수 있습니다.
+
 플랜을 프라이빗으로 설정하는 경우 **Azure 구독 ID**와 설명을 입력합니다. 각 대상 그룹은 해당 프라이빗 플랜에 액세스할 수 있습니다. 할당된 각 Azure 구독 ID에 관한 설명을 포함하는 옵션과 함께 Azure 구독 ID를 사용하여 액세스 권한을 할당합니다. CSV 파일을 가져와서 개별적으로 고객 구독 ID 최대 10개 또는 20,000개를 추가합니다. Azure 구독 ID는 GUID로 표시되며 문자는 소문자여야 합니다.
 
 >[!Note]
->프라이빗 또는 제한된 대상 그룹은 **미리 보기** 탭에서 정의한 미리 보기 대상 그룹과 다릅니다. 미리 보기 대상 그룹은 제품이 마켓플레이스에 라이브로 게시되기 ‘전에’ 해당 제품에 액세스할 수 있습니다. 프라이빗 대상 그룹 선택은 특정 플랜에만 적용되지만, 미리 보기 대상 그룹은 유효성 검사를 위해 모든 플랜(프라이빗 및 퍼블릭)을 볼 수 있습니다.
+>사설 제안은 클라우드 솔루션 공급자 프로그램 (CSP)의 대리점을 통해 설정 된 Azure 구독에서 지원 되지 않습니다.
+
 
 ### <a name="technical-configuration"></a>기술 구성 
 
@@ -421,15 +459,15 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 모든 Azure 애플리케이션 플랜 패키지는 `.zip` 보관 파일의 루트 폴더에 다음 두 개의 파일을 포함해야 합니다.
 
-* [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)이라는 Resource Manager 템플릿 파일. 이 템플릿은 고객 Azure 구독에 대한 리소스 배포를 자동화합니다.  Resource Manager 템플릿의 예는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/) 또는 해당 [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 리포지토리를 참조하세요.
-* [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)이라는 Azure 애플리케이션 만들기 환경의 사용자 인터페이스 정의.
+* [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md)이라는 Resource Manager 템플릿 파일. 이 템플릿은 고객 Azure 구독에 대한 리소스 배포를 자동화합니다.  Resource Manager 템플릿의 예는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/) 또는 해당 [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 리포지토리를 참조하세요.
+* [createUiDefinition.json](../../azure-resource-manager/managed-application-createuidefinition-overview.md)이라는 Azure 애플리케이션 만들기 환경의 사용자 인터페이스 정의.
 
 지원되는 최대 파일 크기는 다음과 같습니다.
 
 * 전체 압축 `.zip` 보관 파일 크기로 최대 1GB
 * `.zip` 보관 파일 내에서 압축되지 않은 개별 파일에 대해 최대 1GB  
 
-모든 새 Azure 애플리케이션 제품은 [Azure 파트너 고객 사용량 기여](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) GUID도 포함해야 합니다.
+모든 새 Azure 애플리케이션 제품은 [Azure 파트너 고객 사용량 기여](../azure-partner-customer-usage-attribution.md) GUID도 포함해야 합니다.
 
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
@@ -442,7 +480,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 #### <a name="enable-just-in-time-jit-access"></a>JIT(Just-In-Time) 액세스 사용
 
-이 플랜에 JIT(Just-In-Time) 액세스를 사용하도록 설정하려면 이 옵션을 선택합니다.  JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다.  자세한 내용은 [Azure Managed Applications의 JIT(Just-In-Time) 액세스 사용 및 요청](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access)을 참조하세요.  관리형 애플리케이션의 소비자가 사용자 계정에 영구 액세스 권한을 부여하도록 요구하려면 이 옵션의 선택을 취소합니다.
+이 플랜에 JIT(Just-In-Time) 액세스를 사용하도록 설정하려면 이 옵션을 선택합니다.  JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다.  자세한 내용은 [Azure Managed Applications의 JIT(Just-In-Time) 액세스 사용 및 요청](../../managed-applications/request-just-in-time-access.md)을 참조하세요.  관리형 애플리케이션의 소비자가 사용자 계정에 영구 액세스 권한을 부여하도록 요구하려면 이 옵션의 선택을 취소합니다.
 
 >[!Note]
 >이 기능을 지원하려면 `createUiDefinition.json` 파일을 업데이트해야 합니다.  
@@ -454,7 +492,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 * **완료 모드**에서 고객이 애플리케이션을 다시 배포하면 `mainTemplate.json`에 정의되지 않은 관리되는 리소스 그룹의 리소스가 제거됩니다. 
 * **증분 모드**에서 애플리케이션을 다시 배포하면 기존 리소스가 변경되지 않습니다.
 
-배포 모드에 관한 자세한 내용은 [Azure Resource Manager 배포 모드](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes)를 참조하세요.
+배포 모드에 관한 자세한 내용은 [Azure Resource Manager 배포 모드](../../azure-resource-manager/deployment-modes.md)를 참조하세요.
 
 #### <a name="notification-endpoint-url"></a>알림 엔드포인트 URL
 
@@ -464,7 +502,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 기본적으로 사용할 수 있는 “`*/read`” 작업 외에 관리되는 리소스에서 고객이 할 수 있는 작업을 지정하려면 이 옵션을 선택합니다. 
 
-고객이 여기에서 수행할 수 있도록 할 추가 작업을 세미콜론으로 구분하여 나열합니다.  자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)를 참조하세요.  사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
+고객이 여기에서 수행할 수 있도록 할 추가 작업을 세미콜론으로 구분하여 나열합니다.  자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](../../role-based-access-control/deny-assignments.md)를 참조하세요.  사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
 
 #### <a name="global-azure--azure-government-cloud"></a>글로벌 Azure/Azure Government 클라우드
 
@@ -474,14 +512,14 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 **권한 부여** – 관리되는 리소스 그룹에 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 Azure Active Directory 개체 ID를 추가합니다. 사용자를 해당 보안 주체 ID로 식별하며, 이 ID는 [Azure Portal의 Azure Active Directory 사용자 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)에서 찾을 수 있습니다.
 
-각 보안 주체의 Azure AD 기본 제공 역할(소유자 또는 기여자) 중 하나를 목록에서 선택합니다. 선택하는 역할은 보안 주체가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명합니다. 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조하세요. RBAC(역할 기반 액세스 제어)에 관한 자세한 내용은 [Azure Portal에서 RBAC 시작](https://docs.microsoft.com/azure/role-based-access-control/overview)을 참조하세요.
+각 보안 주체의 Azure AD 기본 제공 역할(소유자 또는 기여자) 중 하나를 목록에서 선택합니다. 선택하는 역할은 보안 주체가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명합니다. 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. RBAC(역할 기반 액세스 제어)에 관한 자세한 내용은 [Azure Portal에서 RBAC 시작](../../role-based-access-control/overview.md)을 참조하세요.
 
 >[!Note]
 >클라우드당 100개까지 권한 부여를 추가할 수 있지만 일반적으로 Active Directory 사용자 그룹을 만들고 “보안 주체 ID”에 해당 ID를 지정하는 것이 더 쉽습니다. 이렇게 하면 플랜이 배포된 후 관리 그룹에 더 많은 사용자를 추가하고 더 많은 권한 부여만을 추가하기 위해 플랜을 업데이트할 필요성을 줄일 수 있습니다.
 
 #### <a name="policy-settings"></a>정책 설정
 
-배포된 솔루션의 규정 준수 요구 사항을 지정하려면 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)를 관리형 애플리케이션에 적용합니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/index)을 참조하세요. 최대 5개 정책 및 각 정책 옵션의 인스턴스 하나만 구성할 수 있습니다. 일부 정책에는 추가 매개 변수가 필요합니다. 표준 SKU는 감사 정책에 필요합니다. 정책 이름은 50자로 제한됩니다.
+배포된 솔루션의 규정 준수 요구 사항을 지정하려면 [Azure Policy](../../governance/policy/overview.md)를 관리형 애플리케이션에 적용합니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](../../governance/policy/samples/index.md)을 참조하세요. 최대 5개 정책 및 각 정책 옵션의 인스턴스 하나만 구성할 수 있습니다. 일부 정책에는 추가 매개 변수가 필요합니다. 표준 SKU는 감사 정책에 필요합니다. 정책 이름은 50자로 제한됩니다.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -489,7 +527,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 공동 판매 탭에서 정보를 제공하는 것은 완전히 제품 게시를 위한 선택 사항입니다. 공동 판매 준비 및 IP 공동 판매 준비 상태를 달성해야 합니다. 제공하는 정보는 Microsoft 영업 팀에서 고객 요구 사항에 적합한지 평가할 때 솔루션을 자세히 알아보는 데 사용됩니다. 고객에게 직접 제공되지 않습니다.
 
-이 탭에 관한 자세한 내용은 [파트너 센터의 공동 판매 옵션](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)을 참조하세요.
+이 탭에 관한 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조하세요.
 
 ## <a name="resell-through-csps"></a>CSP를 통한 재판매
 
@@ -499,23 +537,23 @@ CSP([클라우드 솔루션 공급자](https://azure.microsoft.com/offers/ms-azr
 
 ## <a name="test-drive"></a>시험 사용
 
-제품을 게시하기 전에 고객이 사용해 볼 수 있도록 데모(시험 사용)를 설정합니다. 고객이 일정 기간 동안 제품을 사용해 볼 수 있도록 데모 환경을 만들려면 [상업용 Marketplace에서 제품 시험 사용](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)을 참조하세요.
+제품을 게시하기 전에 고객이 사용해 볼 수 있도록 데모(시험 사용)를 설정합니다. 고객이 일정 기간 동안 제품을 사용해 볼 수 있도록 데모 환경을 만들려면 [상업용 Marketplace에서 제품 시험 사용](test-drive.md)을 참조하세요.
 
 시험 사용을 사용하도록 설정하려면 [제품 설정](#test-drive) 탭에서 **시험 사용을 사용하도록 설정** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 이 확인란 선택을 취소합니다.
 
 ### <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
-- **Azure AD 앱 ID**(필수): Azure AD(Active Directory) [애플리케이션 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고, 왼쪽 메뉴에서 Active Directory 탭을 선택하고, **앱 등록**을 선택한 다음, 나열된 **애플리케이션 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
+- **AZURE ad 앱 id** (필수): AZURE ACTIVE DIRECTORY (AD) [응용 프로그램 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고 왼쪽 메뉴에서 Active Directory 탭을 선택한 다음 **앱 등록**를 선택 하 고 나열 된 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
 
 #### <a name="deployment-subscription-details"></a>배포 구독 세부 정보
 
 사용자를 대신해서 시험 사용을 배포하려면 별도의 고유한 Azure 구독을 만들고 제공합니다(Power BI 시험 사용에는 필요하지 않음).
 
-* **Azure 구독 ID**(Azure Resource Manager 및 Logic Apps에 필요) - 리소스 사용량 보고 및 청구를 위해 Azure 계정 서비스에 대한 액세스 권한을 부여하는 구독 ID를 입력합니다. 아직 없는 경우 시험 사용에 사용할 [별도의 Azure 구독을 만드는 것](https://docs.microsoft.com/azure/billing/billing-create-subscription)이 좋습니다. [Azure Portal](https://portal.azure.com/)에 로그인하고 왼쪽 메뉴의 **구독** 탭으로 이동하여 Azure 구독 ID를 찾을 수 있습니다. 탭을 선택하면 구독 ID(예: "a83645ac-1234-5ab6-6789-1h234g764ghty")가 표시됩니다.
-* **Azure AD 테넌트 ID**(필수) - Azure AD(Active Directory) [테넌트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고, 왼쪽 메뉴에서 Active Directory 탭을 선택하고, **속성**을 선택한 다음, 나열된 **디렉터리 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용하여 조직의 테넌트 ID를 조회할 수도 있습니다.
+* **Azure 구독 ID**(Azure Resource Manager 및 Logic Apps에 필요) - 리소스 사용량 보고 및 청구를 위해 Azure 계정 서비스에 대한 액세스 권한을 부여하는 구독 ID를 입력합니다. 아직 없는 경우 시험 사용에 사용할 [별도의 Azure 구독을 만드는 것](../../billing/billing-create-subscription.md)이 좋습니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 왼쪽 메뉴의 **구독** 탭으로 이동하면 Azure 구독 ID를 확인할 수 있습니다. 이 탭을 선택 하면 구독 ID (예: "a83645ac-1234-5ab6-6789-1h234g764ghty")가 표시 됩니다.
+* **AZURE ad 테 넌 트 id** (필수) – ad (Azure Active Directory) [테 넌 트 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고, 왼쪽 메뉴에서 Active Directory 탭을 선택하고, **속성**을 선택한 다음, 나열된 **디렉터리 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용하여 조직의 테넌트 ID를 조회할 수도 있습니다.
 * **Azure AD 테넌트 이름**(Dynamic 365에 필요) – Azure AD(Active Directory) 이름을 입력합니다. 이 이름을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 그러면 오른쪽 위 계정 이름 아래에 테넌트 이름이 나열됩니다.
-* **Azure AD 앱 ID**(필수) – Azure AD(Active Directory) [애플리케이션 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고, 왼쪽 탐색 메뉴에서 Active Directory 탭을 선택하고, **앱 등록**을 선택한 다음, 나열된 **애플리케이션 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
-* **Azure Active Directory 애플리케이션 클라이언트 비밀**(필수) – Azure AD 애플리케이션 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)를 입력합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 탐색 메뉴에서 **Azure Active Directory** 탭을 선택하고, **앱 등록**을 선택한 다음, 시험 사용 앱을 선택합니다. 그런 다음, **인증서 및 비밀**을 선택하고, **새 클라이언트 암호**를 선택하고, 설명을 입력하고, **만료**에서 **안 함**을 선택한 다음, **추가**를 선택합니다. 이 페이지를 나가기 전에 값을 복사해야 합니다.
+* **AZURE ad 앱 id** (필수) – AZURE ACTIVE DIRECTORY (AD) [응용 프로그램 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고, 왼쪽 탐색 메뉴에서 Active Directory 탭을 선택하고, **앱 등록**을 선택한 다음, 나열된 **애플리케이션 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
+* **Azure Active Directory 응용 프로그램 클라이언트 암호** (필수) – Azure AD 응용 프로그램 [클라이언트 암호](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 탐색 메뉴에서 **Azure Active Directory** 탭을 선택하고, **앱 등록**을 선택한 다음, 시험 사용 앱을 선택합니다. 그런 다음, **인증서 및 비밀**을 선택하고, **새 클라이언트 암호**를 선택하고, 설명을 입력하고, **만료**에서 **안 함**을 선택한 다음, **추가**를 선택합니다. 이 페이지를 나가기 전에 값을 복사해야 합니다.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -526,12 +564,12 @@ CSP([클라우드 솔루션 공급자](https://azure.microsoft.com/offers/ms-azr
 <!-- The **Test Drive listings** option found under the **Test drive** tab displays the languages (and markets) where your test drive is available (currently English (United States) is the only location available). Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the test drive details (description, user manual, videos, etc.) for each language/market. -->
 
 * **설명**(필수) – 시험 사용, 데모 대상, 사용자의 실험 목표, 알아볼 기능 및 사용자가 제품을 가져올지 여부를 결정하는 데 도움이 되는 관련 정보를 설명합니다. 이 필드에는 최대 3,000자의 텍스트를 입력할 수 있습니다. 
-* **액세스 정보**(Azure Resource Manager 및 논리 시험 사용에 필요) - 이 시험 사용에 액세스하고 사용하기 위해 고객이 알아야 할 사항을 설명합니다. 제품 사용에 관한 시나리오 및 정확히 고객이 시험 사용하는 동안 기능에 액세스하기 위해 알아야 할 내용을 살펴봅니다. 이 필드에는 최대 10,000자의 텍스트를 입력할 수 있습니다.
-* **사용자 매뉴얼**(필수) – 시험 사용 환경의 심층 연습입니다. 사용자 매뉴얼은 고객이 시험 사용을 통해 얻을 수 있는 사항을 정확하게 다루며, 고객에게 있을 수 있는 질문에 대한 참조로 사용됩니다. 파일은 PDF 형식이어야 하며 업로드한 후 최대 255자로 이름이 지정되어야 합니다.
+* **액세스 정보**(Azure Resource Manager 및 논리 시험 사용에 필요) - 이 시험 사용에 액세스하고 사용하기 위해 고객이 알아야 할 사항을 설명합니다. 제품 사용에 대한 시나리오와 고객이 시험 사용을 통해 기능에 액세스하기 위해 알아야 할 사항을 정확히 살펴봅니다. 이 필드에는 최대 10,000자의 텍스트를 입력할 수 있습니다.
+* **사용자 설명서**(필수) – 시험 사용 환경의 심층 연습입니다. 사용자 설명서는 고객이 시험 사용을 통해 얻을 수 있는 사항을 정확하게 다루며, 고객에게 있을 수 있는 질문에 대한 참조로 사용됩니다. 파일은 PDF 형식이어야 하며 업로드한 후 최대 255자로 이름이 지정되어야 합니다.
 * **동영상: 동영상 추가**(선택 사항) – 동영상은 YouTube 또는 Vimeo에 업로드되고 여기에서 링크 및 썸네일 이미지(533 x 324픽셀)로 참조되므로, 고객은 제품의 기능을 성공적으로 사용하고 혜택을 강조하는 시나리오를 이해하는 방법을 포함하여 시험 사용을 보다 잘 이해하는 데 도움이 되는 연습 내용을 볼 수 있습니다.
   * **이름**(필수)
   * **주소**(YouTube 또는 Vimeo만 해당, 필수)
-  * **썸네일**(이미지 파일은 PNG 형식으로 533 x 324픽셀이어야 함).
+  * **축소판 그림** (이미지 파일은 PNG 형식 이어야 하며 533 x 324 픽셀 이어야 함).
 
 계속하기 전에 **초안 저장**을 선택합니다.
 

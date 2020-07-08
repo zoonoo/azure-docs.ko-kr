@@ -6,15 +6,18 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32c4fe3e542135201a7bf4a23aeff94a0e2f902e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457436"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023570"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>고객 관리 키를 사용 하 여 앱 구성 데이터 암호화
 Azure 앱 구성은 [휴지 상태의 중요 한 정보를 암호화](../security/fundamentals/encryption-atrest.md)합니다. 고객 관리 키를 사용 하면 암호화 키를 관리 하도록 허용 하 여 향상 된 데이터 보호 기능을 제공 합니다.  관리 키 암호화를 사용 하는 경우 앱 구성의 모든 중요 한 정보는 사용자 제공 Azure Key Vault 키로 암호화 됩니다.  이를 통해 요청 시 암호화 키를 회전할 수 있습니다.  또한 키에 대 한 앱 구성 인스턴스의 액세스를 취소 하 여 중요 한 정보에 대 한 Azure 앱 구성의 액세스를 취소 하는 기능을 제공 합니다.
+
+> [!NOTE]
+> 고객 관리 키는 이제 중부 인도를 *제외한* 모든 지역에서 일반 공급 됩니다. **중앙 인도** 지역에서 Azure 앱 구성은 고객이 관리 하는 키를 공개 미리 보기로 사용 하도록 제공 합니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.
 
 ## <a name="overview"></a>개요 
 Azure 앱 구성은 Microsoft에서 제공 하는 256 비트 AES 암호화 키를 사용 하 여 미사용의 중요 한 정보를 암호화 합니다. 모든 앱 구성 인스턴스에는 서비스에서 관리 하며 중요 한 정보를 암호화 하는 데 사용 되는 자체 암호화 키가 있습니다. 중요 한 정보에는 키-값 쌍에 있는 값이 포함 됩니다.  고객이 관리 하는 키 기능을 사용 하도록 설정 하면 앱 구성에서 앱 구성 인스턴스에 할당 된 관리 id를 사용 하 여 Azure Active Directory 인증 합니다. 그런 다음 관리 되는 id는 Azure Key Vault를 호출 하 고 앱 구성 인스턴스의 암호화 키를 래핑합니다. 그러면 래핑된 암호화 키가 저장 되 고 래핑 되지 않은 암호화 키가 1 시간 동안 앱 구성 내에 캐시 됩니다. 앱 구성에서는 앱 구성 인스턴스의 암호화 키를 매시간 래핑 해제 된 버전으로 새로 고칩니다. 이렇게 하면 정상적인 운영 상태에서 가용성을 보장 합니다. 
@@ -36,11 +39,11 @@ Azure 앱 구성에 대해 고객이 관리 하는 키 기능을 사용 하도�
 
 이러한 리소스를 구성한 후에는 Azure 앱 구성에서 Key Vault 키를 사용할 수 있도록 두 단계가 남아 있습니다.
 1. 관리 id를 Azure 앱 구성 인스턴스에 할당 합니다.
-2. 대상 Key Vault의 `GET`액세스 `WRAP`정책에서 `UNWRAP` id, 및 사용 권한을 부여 합니다.
+2. `GET` `WRAP` `UNWRAP` 대상 Key Vault의 액세스 정책에서 id, 및 사용 권한을 부여 합니다.
 
 ## <a name="enable-customer-managed-key-encryption-for-your-azure-app-configuration-instance"></a>Azure 앱 구성 인스턴스에 대해 고객이 관리 하는 키 암호화 사용
 시작 하려면 올바르게 구성 된 Azure 앱 구성 인스턴스가 필요 합니다. 앱 구성 인스턴스를 아직 사용할 수 없는 경우 다음 빠른 시작 중 하나를 수행 하 여 설정 합니다.
-- [App Configuration을 사용하여 ASP.NET Core 앱 만들기](quickstart-aspnet-core-app.md)
+- [Azure App Configuration을 사용하여 ASP.NET Core 앱 만들기](quickstart-aspnet-core-app.md)
 - [Azure 앱 구성을 사용 하 여 .NET Core 앱 만들기](quickstart-dotnet-core-app.md)
 - [Azure App Configuration을 사용하여 .NET Framework 앱 만들기](quickstart-dotnet-app.md)
 - [Azure App Configuration을 사용하여 Java Spring 앱 만들기](quickstart-java-spring-app.md)
@@ -49,33 +52,33 @@ Azure 앱 구성에 대해 고객이 관리 하는 키 기능을 사용 하도�
 > Azure Cloud Shell은 이 문서의 명령줄을 실행하는 데 사용할 수 있는 무료 대화형 셸입니다.  여기에는 .NET Core SDK를 비롯한 일반적인 Azure 도구가 미리 설치되어 있습니다. Azure 구독에 로그인한 경우 shell.azure.com에서 [Azure Cloud Shell](https://shell.azure.com)을 시작합니다.  Azure Cloud Shell에 대한 자세한 내용은 [설명서를 참조하세요](../cloud-shell/overview.md).
 
 ### <a name="create-and-configure-an-azure-key-vault"></a>Azure Key Vault 만들기 및 구성
-1. Azure CLI를 사용 하 여 Azure Key Vault를 만듭니다.  및 `resource-group-name` 는 모두 `vault-name` 사용자가 제공 하며 고유 해야 합니다.  이러한 예제 `contoso-vault` 에서는 `contoso-resource-group` 및를 사용 합니다.
+1. Azure CLI를 사용 하 여 Azure Key Vault를 만듭니다.  및는 모두 `vault-name` `resource-group-name` 사용자가 제공 하며 고유 해야 합니다.  `contoso-vault` `contoso-resource-group` 이러한 예제에서는 및를 사용 합니다.
 
     ```azurecli
     az keyvault create --name contoso-vault --resource-group contoso-resource-group
     ```
     
-1. Key Vault에 대해 일시 삭제 및 제거 보호를 사용 하도록 설정 합니다. 1 단계에서 만든 Key Vault (`contoso-vault`) 및 리소스 그룹 (`contoso-resource-group`)의 이름을 대체 합니다.
+1. Key Vault에 대해 일시 삭제 및 제거 보호를 사용 하도록 설정 합니다. `contoso-vault`1 단계에서 만든 Key Vault () 및 리소스 그룹 ()의 이름을 대체 합니다 `contoso-resource-group` .
 
     ```azurecli
     az keyvault update --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection --enable-soft-delete
     ```
     
-1. Key Vault 키를 만듭니다. 이 키에 `key-name` 대해 고유한를 제공 하 고 1 단계에서 만든 Key Vault (`contoso-vault`)의 이름을 대체 합니다. 선호 `RSA` 하는지 아니면 `RSA-HSM` 암호화를 지정 합니다.
+1. Key Vault 키를 만듭니다. `key-name`이 키에 대해 고유한를 제공 하 고 `contoso-vault` 1 단계에서 만든 Key Vault ()의 이름을 대체 합니다. 선호 하는지 `RSA` 아니면 암호화를 지정 `RSA-HSM` 합니다.
 
     ```azurecli
     az keyvault key create --name key-name --kty {RSA or RSA-HSM} --vault-name contoso-vault
     ```
     
-    이 명령의 출력은 생성 된 키에 대 한 키 ID ("kid")를 표시 합니다.  이 연습 뒷부분에서 사용할 키 ID를 적어 둡니다.  키 ID의 형식은 `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`입니다.  키 ID에는 세 가지 중요 한 구성 요소가 있습니다.
+    이 명령의 출력은 생성 된 키에 대 한 키 ID ("kid")를 표시 합니다.  이 연습 뒷부분에서 사용할 키 ID를 적어 둡니다.  키 ID의 형식은 `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}` 입니다.  키 ID에는 세 가지 중요 한 구성 요소가 있습니다.
     1. Key Vault URI: ' https://{my key vault}. 자격 증명 모음. azure .net
     1. Key Vault 키 이름: {키 이름}
     1. Key Vault 키 버전: {Key version}
 
-1. Azure CLI를 사용 하 여 시스템 할당 관리 id를 만들고, 이전 단계에서 사용한 앱 구성 인스턴스 및 리소스 그룹의 이름을 대체 합니다. 관리 되는 id는 관리 되는 키에 액세스 하는 데 사용 됩니다. 앱 구성 `contoso-app-config` 인스턴스의 이름을 보여 주기 위해를 사용 합니다.
+1. Azure CLI를 사용 하 여 시스템 할당 관리 id를 만들고, 이전 단계에서 사용한 앱 구성 인스턴스 및 리소스 그룹의 이름을 대체 합니다. 관리 되는 id는 관리 되는 키에 액세스 하는 데 사용 됩니다. `contoso-app-config`앱 구성 인스턴스의 이름을 보여 주기 위해를 사용 합니다.
     
     ```azurecli
-    az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
+    az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
     이 명령의 출력에는 시스템 할당 id의 보안 주체 ID ("principalId") 및 테 넌 트 ID ("tenandId")가 포함 됩니다.  이는 관리 되는 키에 대 한 id 액세스 권한을 부여 하는 데 사용 됩니다.
@@ -89,13 +92,13 @@ Azure 앱 구성에 대해 고객이 관리 하는 키 기능을 사용 하도�
     }
     ```
 
-1. 키 유효성 검사, 암호화 및 암호 해독을 수행 하려면 Azure 앱 구성 인스턴스의 관리 되는 id에 키에 대 한 액세스 권한이 있어야 합니다. 액세스 해야 하는 특정 작업 집합에는 `GET`, `WRAP`및 `UNWRAP` 키에 대 한가 포함 됩니다.  액세스 권한을 부여 하려면 앱 구성 인스턴스의 관리 id의 보안 주체 ID가 필요 합니다. 이 값은 이전 단계에서 가져온 것입니다. 다음과 같이 표시 됩니다 `contoso-principalId`. 명령줄을 사용 하 여 관리 되는 키에 대 한 사용 권한을 부여 합니다.
+1. 키 유효성 검사, 암호화 및 암호 해독을 수행 하려면 Azure 앱 구성 인스턴스의 관리 되는 id에 키에 대 한 액세스 권한이 있어야 합니다. 액세스 해야 하는 특정 작업 집합에는 `GET` , `WRAP` 및 `UNWRAP` 키에 대 한가 포함 됩니다.  액세스 권한을 부여 하려면 앱 구성 인스턴스의 관리 id의 보안 주체 ID가 필요 합니다. 이 값은 이전 단계에서 가져온 것입니다. 다음과 같이 표시 됩니다 `contoso-principalId` . 명령줄을 사용 하 여 관리 되는 키에 대 한 사용 권한을 부여 합니다.
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
     ```
 
-1. Azure 앱 구성 인스턴스가 관리 키에 액세스할 수 있으면 Azure CLI를 사용 하 여 서비스에서 고객이 관리 하는 키 기능을 사용 하도록 설정할 수 있습니다. 키 생성 단계 `key name` `key vault URI`에서 기록 된 다음 속성을 회수 합니다.
+1. Azure 앱 구성 인스턴스가 관리 키에 액세스할 수 있으면 Azure CLI를 사용 하 여 서비스에서 고객이 관리 하는 키 기능을 사용 하도록 설정할 수 있습니다. 키 생성 단계에서 기록 된 다음 속성을 회수 `key name` `key vault URI` 합니다.
 
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri

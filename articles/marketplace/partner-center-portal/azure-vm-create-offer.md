@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: a64908eb639a44c6bc9d742e84ebb4d01082d49d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: 499c7e9e4ca4ab5db02c566830738f0ceb07e40d
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847925"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984653"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
 이 문서에서는 Azure 가상 머신 제품을 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 만들고 게시하는 방법에 대해 설명합니다. 운영 체제, VHD(가상 하드 디스크) 및 최대 16개의 데이터 디스크가 포함된 Windows 기반 및 Linux 기반 가상 머신을 모두 처리합니다. 
 
-시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만듭니다](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만듭니다](create-account.md). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="introduction"></a>소개
 
@@ -33,19 +33,19 @@ ms.locfileid: "83847925"
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
-아직 검토하지 않은 경우 [가상 머신 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) 및 이 Azure Virtual Machine 자료를 검토합니다.
+아직 검토하지 않은 경우 [가상 머신 제품 게시 가이드](../marketplace-virtual-machines.md) 및 이 Azure Virtual Machine 자료를 검토합니다.
 
 - 빠른 시작 가이드
   - [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)
   - [GitHub Azure 퀵 스타트 템플릿](https://github.com/azure/azure-quickstart-templates)
 - 자습서
-  - [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-  - [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+  - [Linux VM](../../virtual-machines/linux/tutorial-manage-vm.md)
+  - [Windows VM](../../virtual-machines/windows/tutorial-manage-vm.md)
 - 샘플
-  - [Linux VM용 Azure CLI 샘플](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
-  - [Linux VM용 Azure PowerShell 샘플](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
-  - [Windows VM용 Azure CLI 샘플](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-  - [Windows VM용 Azure PowerShell 샘플](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
+  - [Linux VM용 Azure CLI 샘플](../../virtual-machines/linux/cli-samples.md)
+  - [Linux VM용 Azure PowerShell 샘플](../../virtual-machines/linux/powershell-samples.md)
+  - [Windows VM용 Azure CLI 샘플](../../virtual-machines/windows/cli-samples.md)
+  - [Windows VM용 Azure PowerShell 샘플](../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>기술 지식의 기본 사항
 
@@ -63,7 +63,7 @@ ms.locfileid: "83847925"
 2. 왼쪽 창에서 **상업용 마켓플레이스** > **개요**를 차례로 선택합니다.
 3. **개요** 페이지에서 **새 제품** > **Azure Virtual Machine**을 차례로 선택합니다.
 
-    ![왼쪽 창 메뉴 옵션과 "새 제품" 단추를 보여 주는 스크린샷](./media/new-offer-azure-vm.png)
+    ![왼쪽 창 메뉴 옵션과 "새 제품" 단추를 보여 주는 스크린샷](./media/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
 > 제품을 게시한 후에 파트너 센터에서 편집한 내용은 해당 제품을 다시 게시한 후에만 Azure Marketplace에 표시됩니다. 제품을 변경한 후에는 항상 다시 게시해 주세요.
@@ -86,14 +86,14 @@ ms.locfileid: "83847925"
 
 ### <a name="test-drive"></a>시험 사용
 
-*시험 사용*은 잠재 고객에게 제품을 소개하는 좋은 방법입니다. 고객에게 "구입 전 사용해 보기" 옵션을 제공하여 전환을 촉진하고 훌륭한 자격이 있는 잠재 고객을 창출할 수 있습니다. 자세한 내용은 [시험 사용이란?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)을 참조하세요.
+*시험 사용*은 잠재 고객에게 제품을 소개하는 좋은 방법입니다. 고객에게 "구입 전 사용해 보기" 옵션을 제공하여 전환을 촉진하고 훌륭한 자격이 있는 잠재 고객을 창출할 수 있습니다. 자세한 내용은 [시험 사용이란?](../what-is-test-drive.md)을 참조하세요.
 
 일정 기간 동안 시험 사용을 사용하도록 설정하려면 **시험 사용** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 확인란의 선택을 취소합니다.
 
 추가 시험 사용 리소스는 다음과 같습니다.
 
 - [기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [마케팅 모범 사례](../what-is-test-drive.md)
 - [시험 사용 개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF 파일을 다운로드합니다(팝업 차단이 해제되어 있는지 확인).
 
 ### <a name="customer-leads"></a>잠재 고객
@@ -101,12 +101,12 @@ ms.locfileid: "83847925"
 파트너 센터를 사용하여 제품을 상업용 마켓플레이스에 게시하는 경우 CRM(고객 관계 관리) 시스템에 연결합니다. 이렇게 하면 누군가가 제품에 관심을 보이거나 제품을 사용하는 즉시 고객 연락처 정보를 받을 수 있습니다. 시험 사용을 사용하도록 설정하려면 CRM에 연결해야 합니다(이전 섹션 참조). 그렇지 않으면 CRM에 연결하는 것은 선택 사항입니다.
 
 1. 잠재 고객을 보내려는 잠재 고객 대상을 선택합니다. 파트너 센터에서 지원하는 CRM 시스템은 다음과 같습니다.
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > CRM 시스템이 여기에 나열되지 않은 경우 [Azure Table 스토리지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) 또는 [HTTPS 엔드포인트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https)를 사용하여 잠재 고객 데이터를 저장합니다. 그런 다음, 데이터를 CRM 시스템으로 내보냅니다.
+    > CRM 시스템이 여기에 나열되지 않은 경우 [Azure Table 스토리지](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 [HTTPS 엔드포인트](commercial-marketplace-lead-management-instructions-https.md)를 사용하여 잠재 고객 데이터를 저장합니다. 그런 다음, 데이터를 CRM 시스템으로 내보냅니다.
 
 1. 파트너 센터에 게시할 때 제품을 잠재 고객 대상에 연결합니다.
 1. 잠재 고객 대상에 대한 연결이 제대로 구성되어 있는지 확인합니다. 파트너 센터에 게시되면 Microsoft에서 연결의 유효성을 검사하고 테스트 잠재 고객을 보냅니다. 제품이 라이브 모드로 전환되기 전에 해당 제품을 미리 보는 한편, 미리 보기 환경에서 제품을 직접 배포하여 잠재 고객 연결을 테스트할 수도 있습니다.
@@ -116,11 +116,16 @@ ms.locfileid: "83847925"
 
 ## <a name="properties"></a>속성
 
-**속성** 페이지에서 Azure Marketplace의 제품을 그룹화하는 데 사용되는 범주 및 산업, 애플리케이션 버전, 해당 제품을 지원하는 법적 계약을 정의합니다.
+**속성** 페이지에서 제품을 지 원하는 Azure Marketplace, 응용 프로그램 버전 및 법적 계약을 그룹화 하는 데 사용 되는 범주를 정의 합니다.
 
-### <a name="categories"></a>범주
+### <a name="category"></a>범주
 
-하나 이상의 범주와 최대 5개의 범주를 선택합니다. 이러한 범주를 사용하여 제품을 적절한 Azure Marketplace 검색 영역에 배치합니다. 제품 설명에서 제품이 이러한 범주를 지원하는 방법을 설명합니다. 가상 머신 제품은 Azure Marketplace의 **컴퓨팅** 범주 아래에 표시됩니다.
+범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
+
+- 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
+- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
+
+[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요. 가상 컴퓨터는 항상 Azure Marketplace의 **계산** 범주에 표시 됩니다.
 
 ### <a name="legal"></a>법적 정보
 
@@ -143,7 +148,7 @@ ms.locfileid: "83847925"
   > [!NOTE]
   > 상업용 마켓플레이스 표준 계약을 사용하여 제품이 게시되면 사용자 고유의 사용 약관을 사용할 수 없습니다. 표준 계약 또는 사용자 고유의 사용 약관에 따라 솔루션을 제공할 수 있습니다.
 
-  자세한 내용은 [Microsoft 상업용 마켓플레이스 표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 참조하세요. [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF 파일을 다운로드합니다(팝업 차단이 해제되어 있는지 확인).
+  자세한 내용은 [Microsoft 상업용 마켓플레이스 표준 계약](../standard-contract.md)을 참조하세요. [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF 파일을 다운로드합니다(팝업 차단이 해제되어 있는지 확인).
 
   **표준 계약 수정안**
 
@@ -171,11 +176,11 @@ ms.locfileid: "83847925"
 **제품 목록** 페이지에서 제품 이름, 설명, 링크 및 연락처와 같은 제품 세부 정보를 정의합니다.
 
 > [!NOTE]
-> 제품 설명이 "이 애플리케이션은 \<영어 이외의 언어>로만 제공됩니다."라는 문구로 시작하는 경우 제품 목록 콘텐츠(예 설명, 문서, 스크린샷 및 사용 약관)는 영어로 작성할 필요가 없습니다. 또한 콘텐츠를 제품 목록 콘텐츠에 사용된 언어 이외의 언어로 제공하는 사이트에 연결하기 위한 URL을 제공할 수 있습니다.
+> 제안 설명이 "이 응용 프로그램은 에서만 사용할 수 있습니다." 라는 구로 시작 하는 경우 설명, 문서, 스크린샷, 사용 약관 등의 제품 목록에는 영어를 사용할 필요가 없습니다 \<non-English language> . 또한 콘텐츠를 제품 목록 콘텐츠에 사용된 언어 이외의 언어로 제공하는 사이트에 연결하기 위한 URL을 제공할 수 있습니다.
 
 ### <a name="marketplace-details"></a>마켓플레이스 세부 정보
 
-#### <a name="name"></a>속성
+#### <a name="name"></a>이름
 
 여기에 입력한 이름은 고객에게 제품 목록의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭** 상자에 입력한 이름으로 자동으로 채워집니다. 이 이름은 나중에 변경할 수 있습니다. 이름은 다음과 같습니다.
 
@@ -237,8 +242,8 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 제품에 사용할 로고와 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 이미지가 흐리면 제출이 거부됩니다.
 
->[!Note]
->파일을 업로드하는 데 문제가 있으면 파트너 센터에서 사용하는 *https://upload.xboxlive.com* 서비스가 로컬 네트워크에서 차단되지 않는지 확인합니다.
+>[!NOTE]
+>파일을 업로드하는 데 문제가 있으면 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스가 로컬 네트워크에서 차단되지 않는지 확인합니다.
 
 #### <a name="azure-marketplace-logos"></a>Azure Marketplace 로고
 
@@ -259,7 +264,7 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 제품을 설명하는 최대 5개의 비디오를 추가합니다. 비디오는 외부 비디오 서비스에서 호스팅해야 합니다. 각 비디오의 이름, 웹 주소 및 비디오의 썸네일 PNG 이미지(1280&times; 720 픽셀)를 입력합니다.
 
-리소스를 나열하는 추가 마켓플레이스는 [마켓플레이스 제품 목록에 대한 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)를 참조하세요.
+리소스를 나열하는 추가 마켓플레이스는 [마켓플레이스 제품 목록에 대한 모범 사례](../gtm-offer-listing-best-practices.md)를 참조하세요.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -324,11 +329,11 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 플랜은 하나 이상의 Azure 지역에서 사용할 수 있어야 합니다.
 
-**Azure 글로벌** 옵션을 선택하여 상업용 마켓플레이스 통합이 있는 모든 Azure 글로벌 지역의 고객이 플랜을 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)을 참조하세요.
+**Azure 글로벌** 옵션을 선택하여 상업용 마켓플레이스 통합이 있는 모든 Azure 글로벌 지역의 고객이 플랜을 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원](../marketplace-geo-availability-currencies.md)을 참조하세요.
 
-**Azure Government** 옵션을 선택하여 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 지역에서 플랜을 사용할 수 있도록 합니다. 이 지역은 미국 연방, 주, 지방 또는 부족 단체의 고객뿐만 아니라 이러한 고객에게 서비스를 제공할 수 있는 파트너에게도 제어된 액세스를 제공합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure Government는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).
+**Azure Government** 옵션을 선택하여 [Azure Government](../../azure-government/documentation-government-welcome.md) 지역에서 플랜을 사용할 수 있도록 합니다. 이 지역은 미국 연방, 주, 지방 또는 부족 단체의 고객뿐만 아니라 이러한 고객에게 서비스를 제공할 수 있는 파트너에게도 제어된 액세스를 제공합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure Government는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).
 
-[Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)에 게시하기 전에 특정 엔드포인트가 다를 수 있으므로 환경에서 플랜을 테스트하고 유효성을 검사합니다. 플랜을 설정하고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/) 페이지에서 평가판 계정을 요청합니다.
+[Azure Government](../../azure-government/documentation-government-manage-marketplace-partners.md)에 게시하기 전에 특정 엔드포인트가 다를 수 있으므로 환경에서 플랜을 테스트하고 유효성을 검사합니다. 플랜을 설정하고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/) 페이지에서 평가판 계정을 요청합니다.
 
 > [!NOTE]
 > 플랜이 게시되고 특정 Azure 지역에서 사용할 수 있으면 해당 지역을 제거할 수 없습니다.
@@ -337,7 +342,7 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 이 옵션은 이전 섹션에서 **Azure Government**를 Azure 지역으로 선택한 경우에만 표시됩니다.
 
-Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리합니다. 예를 들어 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및 CJIS가 있습니다. 이러한 프로그램에 대한 인증을 알리기 위해 해당 프로그램을 설명하는 최대 100개의 링크를 제공할 수 있습니다. 이러한 링크는 프로그램의 목록에 직접 연결되는 링크이거나 사용자 고유의 웹 사이트에 있는 목록의 규정 준수에 대한 설명에 연결되는 링크일 수 있습니다. 이러한 링크는 Azure Government 고객에게만 표시됩니다.
+Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리합니다. 예를 들어 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및 CJIS가 있습니다. 관련 프로그램에 대한 인증을 알리기 위해 해당 프로그램을 설명하는 최대 100개의 링크를 제공할 수 있습니다. 이러한 링크는 프로그램의 목록에 직접 연결되는 링크이거나 사용자 고유의 웹 사이트에 있는 목록의 규정 준수에 대한 설명에 연결되는 링크일 수 있습니다. 이러한 링크는 Azure Government 고객에게만 표시됩니다.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -400,10 +405,14 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 **프라이빗 대상**: 플랜이 미리 선택한 대상 그룹에만 표시되도록 합니다. 프라이빗 플랜으로 게시된 후에는 대상 그룹을 업데이트하거나 퍼블릭으로 변경할 수 있습니다. 퍼블릭 플랜으로 책정되면 퍼블릭으로 유지해야 하며, 프라이빗 플랜으로 다시 변경할 수 없습니다.
 
-**제한된 대상 그룹(Azure 구독 ID)** : Azure 구독 ID를 사용하여 이 프라이빗 플랜에 액세스할 수 있는 대상 그룹을 할당합니다. 필요에 따라 할당한 각 Azure 구독 ID에 대한 설명을 포함시킵니다. CSV 스프레드시트를 가져오는 경우 수동으로 최대 10개의 구독 ID를 추가하거나 최대 20,000개의 ID를 추가할 수 있습니다. Azure 구독 ID는 GUID로 표시되며, 모든 문자는 소문자여야 합니다.
-
 > [!NOTE]
 > 프라이빗 또는 제한된 대상 그룹은 **미리 보기** 창에서 정의한 미리 보기 대상 그룹이 다릅니다. 미리 보기 대상 그룹은 Azure Marketplace에서 라이브로 게시되기 _전에_ 해당 제품에 액세스할 수 있습니다. 프라이빗 대상 그룹 선택은 특정 플랜에만 적용되지만, 미리 보기 대상 그룹은 유효성 검사를 위해 모든 프라이빗 및 퍼블릭 플랜을 볼 수 있습니다.
+
+**제한된 대상 그룹(Azure 구독 ID)** : Azure 구독 ID를 사용하여 이 프라이빗 플랜에 액세스할 수 있는 대상 그룹을 할당합니다. 필요에 따라 할당한 각 Azure 구독 ID에 대한 설명을 포함시킵니다. CSV 스프레드시트를 가져오는 경우 수동으로 최대 10개의 구독 ID를 추가하거나 최대 20,000개의 ID를 추가할 수 있습니다. Azure 구독 ID는 GUID로 표시되며, 모든 문자는 소문자여야 합니다.
+
+>[!Note]
+>사설 제안은 클라우드 솔루션 공급자 프로그램 (CSP)의 대리점을 통해 설정 된 Azure 구독에서 지원 되지 않습니다.
+
 
 #### <a name="hide-a-plan"></a>플랜 숨기기
 
@@ -416,7 +425,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 ### <a name="technical-configuration"></a>기술 구성
 
-이 플랜과 연결되는 이미지 및 기타 기술 속성을 제공합니다. 자세한 내용은 [Azure VM 기술 자산 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets)를 참조하세요.
+이 플랜과 연결되는 이미지 및 기타 기술 속성을 제공합니다. 자세한 내용은 [Azure VM 기술 자산 만들기](create-azure-container-technical-assets.md)를 참조하세요.
 
 > [!NOTE]
 > **플랜 설정** 탭에서 다른 플랜의 패키지를 다시 사용하도록 이 플랜을 구성한 경우 **기술 구성** 탭이 표시되지 않습니다.
@@ -450,7 +459,7 @@ Azure Marketplace에 표시할 최대 6개의 추천 가상 머신 크기를 선
 가상 머신 이미지에 대한 디스크 버전과 SAS(공유 액세스 서명) URI를 제공합니다. 각 VM 이미지에 대해 최대 16개의 데이터 디스크를 추가합니다. 지정된 제출에서 플랜당 하나의 새 이미지 버전만 제공합니다. 이미지가 게시된 후에는 편집할 수 없지만 삭제할 수는 있습니다. 버전을 삭제하면 새 사용자와 기존 사용자가 모두 삭제된 버전의 새 인스턴스를 배포할 수 없습니다.
 
 - **디스크 버전**: 제공하는 이미지의 버전입니다.
-- **SAS URI**: 운영 체제 VHD가 저장된 Azure 스토리지 계정의 위치입니다.
+- **SAS URI**: 운영 체제 VHD가 저장된 Azure 스토리지 계정의 위치입니다. SAS URI를 가져오는 방법을 알아보려면 [VM 이미지에 대 한 공유 액세스 서명 URI 가져오기](get-sas-uri.md)를 참조 하세요.
 - 데이터 디스크 이미지는 Azure 스토리지 계정에 저장된 VHD 공유 액세스 서명 URI이기도 합니다.
 - 플랜에서 제출당 하나의 이미지만 추가합니다.
 
@@ -466,13 +475,13 @@ Azure Marketplace에 표시할 최대 6개의 추천 가상 머신 크기를 선
 
 ## <a name="test-drive"></a>시험 사용
 
-고객이 제품을 구입하기 전에 일정 기간 동안 제품을 사용해 볼 수 있는 데모 또는 *시험 사용*을 설정합니다. 고객을 위한 데모 환경을 만들려면 [상업용 마켓플레이스의 시험 사용 제품](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)을 참조하세요.
+고객이 제품을 구입하기 전에 일정 기간 동안 제품을 사용해 볼 수 있는 데모 또는 *시험 사용*을 설정합니다. 고객을 위한 데모 환경을 만들려면 [상업용 마켓플레이스의 시험 사용 제품](test-drive.md)을 참조하세요.
 
 시험 사용을 사용하도록 설정하려면 **제품 설정** 창에서 **시험 사용** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 확인란의 선택을 취소합니다.
 
 추가 시험 사용 리소스는 다음과 같습니다.
 
-- [마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [마케팅 모범 사례](../what-is-test-drive.md)
 - [기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [시험 사용 개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF 파일(팝업 차단이 해제되어 있는지 확인)
 
@@ -507,39 +516,80 @@ Microsoft는 미리 보기 버전의 제품을 검토하고 승인할 수 있는
 
 또한 이 페이지에는 상태에 따라 제품을 사용하는 데 도움이 되는 링크가 포함되어 있습니다.
 
-- 제품이 초안인 경우: [초안 제품 삭제](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- 제품이 라이브인 경우: [제품 판매 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- 제품이 미리 보기에 있는 경우: [라이브 상태로 전환](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- 게시자 로그아웃을 완료하지 않은 경우: [게시 취소](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- 제안이 초안 인 경우: [초안 제안 삭제](update-existing-offer.md#delete-a-draft-offer))
+- 제품이 live 인 경우: [제품 판매 중지](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- 제품이 미리 보기 상태 이면 [라이브로 전환](publishing-status.md#publisher-approval)합니다.
+- 게시자 로그 아웃을 완료 하지 않은 경우: [게시 취소](update-existing-offer.md#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>마켓플레이스 예
 
-다음 예에서는 제품이 Azure Marketplace에 표시되는 방식을 보여 줍니다.
+Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음과 같습니다.
 
-### <a name="azure-marketplace-offer-details"></a>Azure Marketplace 제품 세부 정보
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-offer.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
 
-![Azure Marketplace 제품 세부 정보 페이지 예](media/avm-create1.png)
+#### <a name="call-out-descriptions"></a>호출 설명
 
-### <a name="azure-marketplace-search-results"></a>Azure Marketplace 검색 결과
+1. 크게 로고
+2. Price
+3. 범주
+4. 사용 약관
+5. 개인 정보 취급 방침 주소 (링크)
+6. Offer name
+7. 설명
+8. 유용한 링크
+9. 스크린샷/비디오
 
-![Azure Marketplace 검색 세부 정보 페이지 예](media/avm-create2.png)
+<br>다음은 Azure Marketplace 검색 결과에 제품 정보가 표시 되는 방법의 예입니다.
 
-### <a name="azure-marketplace-plan-details"></a>Azure Marketplace 플랜 세부 정보
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="이 제품이 Azure Marketplace 검색 결과에 표시 되는 방식을 보여 줍니다.":::
 
-![Azure Marketplace 플랜 세부 정보 페이지 예](media/avm-create3.png)
+#### <a name="call-out-descriptions"></a>호출 설명
 
-### <a name="azure-portal-offer-details"></a>Azure Portal 제품 세부 정보
+1. 작은 로고
+2. Offer name
+3. 검색 결과 요약
+4. 평가판
 
-![Azure Portal 제품 세부 정보 페이지 예](media/avm-create4.png)
+<br>Azure Marketplace 계획 정보의 예는 다음과 같습니다.
 
-### <a name="azure-portal-search-results"></a>Azure Portal 검색 결과
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Azure Marketplace 계획 정보를 보여 줍니다.":::
 
-![Azure Portal 검색 결과 페이지 예](media/avm-create5.png)
+#### <a name="call-out-descriptions"></a>호출 설명
 
-### <a name="azure-portal-plan-details"></a>Azure Portal 플랜 세부 정보
+1. 계획 이름 및 요약
+2. 권장 VM 크기
+3. 계획 가격 책정
 
-![Azure Portal 플랜 세부 정보 페이지 예](media/avm-create6.png)
+<br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
 
-## <a name="next-steps"></a>다음 단계
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="이 제품이 Azure Portal 표시 되는 방식을 보여 줍니다.":::
 
-- [상업용 마켓플레이스에서 기존 제품 업데이트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 이름
+2. 설명
+3. 유용한 링크
+4. 스크린샷/비디오
+
+<br>Azure Portal 검색 결과에 제품 정보가 표시 되는 방법의 예는 다음과 같습니다.
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="이 제품이 Azure Portal 검색 결과에 표시 되는 방식을 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 작은 로고
+2. Offer name
+3. 검색 결과 요약
+
+<br>Azure Portal 계획 정보의 예는 다음과 같습니다.
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Azure Portal 계획 정보를 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 플랜 이름
+2. 플랜 설명
+
+## <a name="next-step"></a>다음 단계
+
+- [상업용 마켓플레이스에서 기존 제품 업데이트](update-existing-offer.md)

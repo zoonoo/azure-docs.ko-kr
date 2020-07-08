@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 2032ba11c307adda7035d64828d5089da49bedba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308080"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023026"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>사용자 지정 명령 응용 프로그램을 실행 하는 경우 디버그 오류
 
@@ -27,9 +27,8 @@ ms.locfileid: "85308080"
 
 | 오류 코드 | 세부 정보 |
 | ------- | -------- |
-| 401 | AuthenticationFailure: 인증 오류가 발생 하 여 WebSocket을 업그레이드 하지 못했습니다. |
-| 1000 | 최대 websocket 연결 유휴 기간 (> 30만 밀리초)을 초과 했습니다. |
-| 1002 | 상태 코드 ' 101 '이 필요한 경우 서버에서 상태 코드 ' 404 '을 반환 했습니다. |
+| [401](#error-401) | AuthenticationFailure: 인증 오류가 발생 하 여 WebSocket을 업그레이드 하지 못했습니다. |
+| [1002](#error-1002)] | 상태 코드 ' 101 '이 필요한 경우 서버에서 상태 코드 ' 404 '을 반환 했습니다. |
 
 ### <a name="error-401"></a>오류 401
 - 클라이언트 응용 프로그램에 지정 된 지역이 사용자 지정 명령 응용 프로그램의 지역과 일치 하지 않습니다.
@@ -37,9 +36,6 @@ ms.locfileid: "85308080"
 - 음성 리소스 키가 잘못 되었습니다.
     
     음성 리소스 키가 올바른지 확인 합니다.
-
-### <a name="error-1000"></a>오류 1000 
-유휴 연결은 5 분 후에 서버에 의해 종료 됩니다. 다시 연결 해 보세요.
 
 ### <a name="error-1002"></a>오류 1002 
 - 사용자 지정 명령 응용 프로그램이 게시 되지 않았습니다.
@@ -49,10 +45,12 @@ ms.locfileid: "85308080"
 - 사용자 지정 명령 applicationId가 잘못 되었습니다.
 
     사용자 지정 명령 응용 프로그램 ID가 올바른지 확인 합니다.
-
-- 음성 리소스 외부에서 사용자 지정 명령 응용 프로그램에 액세스 하려고 합니다.
+ 음성 리소스 외부의 사용자 지정 명령 응용 프로그램
 
     사용자 지정 명령 응용 프로그램이 음성 리소스 아래에 만들어졌는지 확인 합니다.
+
+연결 문제를 해결 하는 방법에 대 한 자세한 내용은 [Windows 음성 도우미 클라이언트 문제 해결](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/clients/csharp-wpf#troubleshooting) 을 참조 하세요.
+
 
 ## <a name="dialog-is-canceled"></a>대화 상자가 취소 됨
 
@@ -70,14 +68,14 @@ CancelledDialog 이벤트는 다음에 나열 된 취소 코드 및 설명으로
 
 | 취소 코드 | 취소 설명 |
 | ------- | --------------- | ----------- |
-| MaxTurnThresholdReached | 허용 된 최대 수를 허용 하 고 나면 진행률이 생성 되지 않습니다. |
-| RecognizerQuotaExceeded | 인식기 사용 할당량 초과 |
-| RecognizerConnectionFailed | 인식기에 연결 하지 못했습니다. |
-| RecognizerUnauthorized | 현재 구독으로는이 응용 프로그램에 액세스할 수 없습니다. |
-| RecognizerInputExceededAllowedLength | 입력이 인식기에 대해 지원 되는 최대 길이를 초과 합니다. |
-| RecognizerNotFound | 인식기를 찾을 수 없음 |
-| RecognizerInvalidQuery | 인식기에 대 한 잘못 된 쿼리 |
-| RecognizerError | 인식기에서 오류 반환 |
+| [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | 허용 된 최대 수를 허용 하 고 나면 진행률이 생성 되지 않습니다. |
+| [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | 인식기 사용 할당량 초과 |
+| [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | 인식기에 연결 하지 못했습니다. |
+| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | 현재 구독으로는이 응용 프로그램에 액세스할 수 없습니다. |
+| [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | 입력이 인식기에 대해 지원 되는 최대 길이를 초과 합니다. |
+| [RecognizerNotFound](#recognizer-not-found) | 인식기를 찾을 수 없음 |
+| [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | 인식기에 대 한 잘못 된 쿼리 |
+| [RecognizerError](#recognizer-return-an-error) | 인식기에서 오류 반환 |
 
 ### <a name="no-progress-was-made-after-the-max-number-of-turns-allowed"></a>허용 된 최대 수를 허용 하 고 나면 진행률이 생성 되지 않습니다.
 필요한 슬롯이 특정 횟수 만큼 성공적으로 업데이트 되지 않으면 대화가 취소 됩니다. 빌드 최대 수는 3입니다.

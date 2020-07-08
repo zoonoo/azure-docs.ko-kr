@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160718"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024456"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -32,6 +32,10 @@ ms.locfileid: "82160718"
 
 [Id 보호](../identity-protection/overview-identity-protection.md)에 대 한 액세스 권한이 있는 고객은 조건부 액세스 정책의 일부로 로그인 위험을 평가할 수 있습니다. 로그인 위험은 id 소유자가 지정 된 인증 요청에 권한이 부여 되지 않은 확률을 나타냅니다. 로그인 위험에 대 한 자세한 내용은 문서, [위험 요소](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) 및 [방법: 위험 정책 구성 및 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md)에 나와 있습니다.
 
+## <a name="user-risk"></a>사용자 위험 
+
+[Id 보호](../identity-protection/overview-identity-protection.md)에 대 한 액세스 권한이 있는 고객의 경우 조건부 액세스 정책의 일부로 사용자 위험을 평가할 수 있습니다. 사용자 위험은 지정 된 id 또는 계정이 손상 될 확률을 나타냅니다. 사용자 위험에 대 한 자세한 내용은 문서, [위험 요소](../identity-protection/concept-identity-protection-risks.md#user-risk) 및 [방법: 위험 정책 구성 및 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md)에 나와 있습니다.
+
 ## <a name="device-platforms"></a>디바이스 플랫폼
 
 장치 플랫폼은 장치에서 실행 되는 운영 체제를 특징으로 합니다. Azure AD는 장치에서 제공 하는 정보 (예: 사용자 에이전트 문자열)를 사용 하 여 플랫폼을 식별 합니다. 사용자 에이전트 문자열을 수정할 수 있으므로이 정보는 확인 되지 않습니다. 장치 플랫폼은 Microsoft Intune 장치 준수 정책과 함께 사용 하거나 block 문의 일부로 사용 해야 합니다. 기본값은 모든 장치 플랫폼에 적용 하는 것입니다.
@@ -43,9 +47,6 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 - Windows Phone
 - Windows
 - macOS
-
-> [!WARNING]
-> Microsoft는 조건부 액세스 정책 및 macOS 10.15.4 기반 장치에 대 한 문제를 알고 있습니다. 자세한 내용은 다음 블로그 게시물에서 확인할 수 있습니다 [. 알려진 문제: macOS 10.15.4 네이티브 메일 클라이언트/기타 앱을 예기치 않게 차단 하는 조건부 액세스](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 **다른 클라이언트** 상태를 사용 하 여 레거시 인증을 차단 하는 경우 장치 플랫폼 조건을 설정할 수도 있습니다.
 
@@ -59,7 +60,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 위치에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건](location-condition.md)문서에서 찾을 수 있습니다.
 
-## <a name="client-apps-preview"></a>클라이언트 앱 (미리 보기)
+## <a name="client-apps-preview"></a>클라이언트 앱(미리 보기)
 
 기본적으로 조건부 액세스 정책은 최신 인증 프로토콜을 활용 하는 브라우저 기반 응용 프로그램 및 응용 프로그램에 적용 됩니다. 이러한 응용 프로그램 외에도 관리자는 Exchange ActiveSync 클라이언트 및 레거시 프로토콜을 활용 하는 다른 클라이언트를 포함 하도록 선택할 수 있습니다.
 
@@ -73,17 +74,17 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
       - 정책에서 Exchange ActiveSync 사용을 차단 하는 경우 영향을 받는 사용자는 단일 격리 전자 메일을 받게 됩니다. 이 전자 메일은 차단 된 이유에 대 한 정보를 제공 하 고 가능 하면 재구성 지침을 포함 합니다.
    - 기타 클라이언트
       - 이 옵션은 최신 인증을 지원 하지 않는 기본/레거시 인증 프로토콜을 사용 하는 클라이언트를 포함 합니다.
-         - 인증 된 SMTP-POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.
-         - 자동 검색-Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.
-         - Exchange Online PowerShell-원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.
-         - EWS (Exchange 웹 서비스)-Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.
-         - IMAP4-IMAP 메일 클라이언트에서 사용 합니다.
-         - MAPI over HTTP (MAPI/HTTP)-Outlook 2010 이상에서 사용 됩니다.
-         - OAB (오프 라인 주소록)-Outlook에서 다운로드 하 여 사용 하는 주소 목록 컬렉션의 복사본입니다.
-         - Outlook Anywhere (RPC over HTTP)-Outlook 2016 및 이전 버전에서 사용 됩니다.
-         - Outlook 서비스-Windows 10 용 메일 및 일정 앱에서 사용 됩니다.
-         - POP3-POP 메일 클라이언트에서 사용 합니다.
-         - 보고 웹 서비스-Exchange Online에서 보고서 데이터를 검색 하는 데 사용 됩니다.
+         - 인증된 SMTP - POP 및 IMAP 클라이언트에서 이메일 메시지를 보낼 때 사용합니다.
+         - 자동 검색 - Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결할 때 사용합니다.
+         - Exchange Online PowerShell - 원격 PowerShell을 사용하여 Exchange Online에 연결하는 데 사용됩니다. Exchange Online PowerShell에 대한 기본 인증을 차단하는 경우 Exchange Online PowerShell 모듈을 사용하여 연결해야 합니다. 자세한 내용은 [다단계 인증을 사용하여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조하세요.
+         - EWS(Exchange 웹 서비스) - Outlook, Outlook for Mac 및 타사 앱에서 사용하는 프로그래밍 인터페이스입니다.
+         - IMAP4 - IMAP 이메일 클라이언트에서 사용합니다.
+         - MAPI over HTTP(MAPI/HTTP) - Outlook 2010 이상에서 사용합니다.
+         - OAB(오프라인 주소록) - Outlook에서 다운로드하여 사용하는 주소 목록 컬렉션의 복사본입니다.
+         - 외부에서 Outlook 사용(RPC over HTTP) - Outlook 2016 이하 버전에서 사용합니다.
+         - Outlook 서비스 - Windows 10용 메일 및 일정 앱에서 사용합니다.
+         - POP3 - POP 이메일 클라이언트에서 사용합니다.
+         - 보고 웹 서비스 - Exchange Online에서 보고서 데이터를 검색할 때 사용합니다.
 
 이러한 조건은 관리 되는 장치를 요구 하 고, 레거시 인증을 차단 하 고, 웹 응용 프로그램을 차단 하지만 모바일 또는 데스크톱 앱을 허용할 때 주로 사용 됩니다.
 
@@ -99,7 +100,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
 | Android | Microsoft Edge, Intune Managed Browser, Chrome |
 | Windows Phone | Microsoft Edge, Internet Explorer |
-| 시작 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
@@ -115,21 +116,17 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 이 확장을 Chrome 브라우저에 자동으로 배포하려면 다음 레지스트리 키를 만듭니다.
 
-|    |    |
-| --- | --- |
-| 경로 | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| 이름 | 1 |
-| 유형 | REG_SZ (String) |
-| 데이터 | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
+- \Software\Policies\Google\Chrome\ExtensionInstallForcelist 경로 HKEY_LOCAL_MACHINE
+- 이름 1
+- 형식 REG_SZ (문자열)
+- 데이터 ppnbnpeolgkicgegkbkbjmhlideopiji; https \: //clients2.google.com/service/update2/crx
 
 **Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
 
-|    |    |
-| --- | --- |
-| 경로 | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| 이름 | 1 |
-| 유형 | REG_SZ (String) |
-| 데이터 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+- \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls 경로 HKEY_LOCAL_MACHINE
+- 이름 1
+- 형식 REG_SZ (문자열)
+- Data {"pattern": " https://device.login.microsoftonline.com ", "filter": {"ISSUER": {"CN": "MS-조직 액세스"}}}
 
 이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 디바이스 검사가 실패합니다.
 
@@ -176,7 +173,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 **다른 클라이언트**를 선택하여 IMAP, MAPI, POP, SMTP 및 최신 인증을 사용하지 않는 이전 Office 앱과 같은 메일 프로토콜과 함께 기본 인증을 사용하는 앱에 영향을 미치는 조건을 지정할 수 있습니다.
 
-## <a name="device-state-preview"></a>장치 상태 (미리 보기)
+## <a name="device-state-preview"></a>디바이스 상태(미리 보기)
 
 장치 상태 조건은 하이브리드 Azure AD에 가입 된 장치와 조직의 조건부 액세스 정책에서 Microsoft Intune 준수 정책을 준수 하는 것으로 표시 된 장치를 제외 하는 데 사용할 수 있습니다.
 
@@ -187,4 +184,4 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 - [조건부 액세스: Grant](concept-conditional-access-grant.md)
 
-- [조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+- [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)

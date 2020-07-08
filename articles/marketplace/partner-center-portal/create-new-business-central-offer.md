@@ -6,19 +6,19 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.openlocfilehash: 04de89624dd0e6857e96327bb408cf8700a1f6a2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: 498b5935d1170fdce7da76ca475c816f1fb8d136
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848884"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984245"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 제품 만들기
 
 이 문서에서는 새 Dynamics 365 Business Central 제품을 만드는 방법을 설명합니다. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central)은 ERP(전사적 자원 관리) 시스템으로 재무, 운영, 공급 체인, CRM 및 프로젝트 관리 및 전자 상거래를 포함한 광범위한 비즈니스 프로세스를 처리합니다. 프리미엄 패키지는 클래식 배포 모델 및 제조도 지원합니다. Dynamics 365 Business Central의 모든 제품은 인증 프로세스를 통과해야 합니다.
 
-시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)(계정이 없는 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
+시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "83848884"
 2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요**를 선택합니다.
 3. 개요 페이지에서 **+ 새 제품** > **Dynamics 365 business central**을 선택합니다.
 
-    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-dynamics-365-bc.png)
+    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
 > 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 상점에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "83848884"
 
 #### <a name="free-trial-listing"></a>무료 평가판(목록)
 
-평가판을 받을 수 있는 올바른 URL(*http* 또는 *https*로 시작)을 제공하여 무료 평가판에 대한 링크를 통해 고객에게 제품을 나열합니다.  `https://contoso.com/trial/my-app`)을 입력합니다. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
+`http`평가판을 받을 수 있는 올바른 URL (또는부터 시작)을 제공 하 여 고객에 게 제품을 나열 `https` 합니다.  `https://contoso.com/trial/my-app`)을 입력합니다. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 애플리케이션에서 수신하는 토큰은 앱에서 자동으로 계정을 만드는 Azure AD(Active Directory)를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에 Microsoft 계정이 지원되지 않습니다.
@@ -71,28 +71,9 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ### <a name="test-drive"></a>시험 사용
 
-시험 사용은 "구입 전 체험" 옵션을 제공하여 잠재적인 고객에게 제품을 선보임으로써 구매 전환율을 높이고 적절한 잠재 고객을 창출할 수 있는 유용한 방법입니다. [시험 사용에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+시험 사용은 "구입 전 체험" 옵션을 제공하여 잠재적인 고객에게 제품을 선보임으로써 구매 전환율을 높이고 적절한 잠재 고객을 창출할 수 있는 유용한 방법입니다. 자세히 알아보려면 [테스트 드라이브인 무엇 인가요?](../what-is-test-drive.md)를 시작 합니다.
 
-일정 기간 동안 시험 사용을 사용하도록 설정하려면 **시험 사용을 사용하도록 설정** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 이 확인란을 선택 취소합니다. 이 항목 뒷부분에 나오는 [시험 사용 기술 구성](#test-drive-technical-configuration) 섹션에서 시험 사용 환경을 구성합니다.
-
-자세한 내용은 [상업용 Marketplace에서 제품 시험 사용](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)을 참조하세요.
-
-#### <a name="type-of-test-drive"></a>시험 사용 유형
-
-다음 옵션 중에서 선택합니다.
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** – 솔루션을 구성하는 모든 Azure 리소스를 포함하는 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다.
-- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** – Microsoft에서 Business Central 엔터프라이즈 리소스 계획 시스템(재무, 운영, 공급망, CRM 등)에 대해 시험 사용 서비스(프로비전 및 배포 포함)를 호스트하고 유지 관리합니다.  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** – Microsoft에서 고객 참여 시스템(판매, 서비스, 프로젝트 서비스, 현장 서비스 등)에 대한 시험 사용 서비스(프로비전 및 배포 포함)를 호스트하고 유지 관리합니다.  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** – Microsoft에서 재무 및 운영 엔터프라이즈 리소스 계획 시스템(재무, 운영, 제조, 공급망 등)에 대해 시험 사용 서비스(프로비전 및 배포 포함)를 호스트하고 유지 관리합니다. 
-- **[논리 앱](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** – 모든 복잡한 솔루션 아키텍처를 포괄하는 배포 템플릿입니다. 모든 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** – 사용자 지정 빌드 대시보드에 포함된 링크입니다. 대화형 Power BI 시각적 개체를 보여 주려는 제품은 이 유형의 시험 사용을 사용해야 합니다. 포함된 Power BI URL만 업로드하면 됩니다.
-
-#### <a name="additional-test-drive-resources"></a>추가 시험 사용 리소스
-
-- [시험 사용 기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [시험 사용 마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [시험 사용 개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF(팝업 차단이 해제되어 있는지 확인)
+일정 기간 동안 시험 사용을 사용하도록 설정하려면 **시험 사용을 사용하도록 설정** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 이 확인란을 선택 취소합니다.
 
 ### <a name="customer-leads"></a>잠재 고객
 
@@ -104,11 +85,16 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ## <a name="properties"></a>속성
 
-이 페이지에서는 마켓플레이스에서 제품을 그룹화하는 데 사용되는 범주와 산업, 앱 버전 및 제품을 지원하는 법적 계약을 정의할 수 있습니다.
+이 페이지에서는 Marketplace에서 제품을 그룹화하는 데 사용되는 범주와 산업, 앱 버전 및 제품을 지원하는 법적 계약을 정의할 수 있습니다.
 
 ### <a name="category"></a>Category
 
-적절한 마켓플레이스 검색 영역에 제품을 배치하는 데 사용할 범주를 최소 1개, 최대 3개 선택합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원하는지 확인해야 합니다. 
+범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
+
+- 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
+- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
+
+[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요.
 
 ### <a name="industry"></a>산업
 
@@ -120,7 +106,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ### <a name="terms-and-conditions"></a>사용 약관
 
-**사용 약관** 필드에 사용자의 사용 약관을 제공합니다. 사용 약관을 확인할 수 있는 URL을 제공할 수도 있습니다. 고객은 이러한 사용 약관에 동의해야 제품을 사용할 수 있습니다.
+**사용 약관** 필드에 사용자의 법적 사용 약관을 제공합니다. 사용 약관을 찾을 수 있는 URL을 제공할 수도 있습니다. 고객은 이러한 사용 약관에 동의해야 제품을 사용할 수 있습니다.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -130,6 +116,23 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 > [!NOTE]
 > 제품 목록 세부 정보는 한 가지 언어로만 제공할 수 있습니다. "이 애플리케이션은 [영어가 아닌 언어]로만 제공됩니다."라는 문구로 시작하는 경우 영어로 작성되지 않아도 됩니다. 또한 제품 목록 콘텐츠에 사용된 것과 다른 언어로 콘텐츠를 제공하는 도움말 링크 URL을 제공할 수 있습니다.
+
+다음은 Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
+
+:::image type="content" source="media/example-d365-business-central.png" alt-text="이 제품이 Microsoft AppSource 표시 되는 방식을 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 로고
+2. 제품
+3. 범주
+4. 지원 주소 (링크)
+5. 사용 약관
+6. 개인 정보 보호 정책
+7. Offer name
+8. 요약
+9. 설명
+10. 스크린샷/비디오
 
 ### <a name="name"></a>속성
 
@@ -193,11 +196,11 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 #### <a name="videos"></a>동영상
 
-필요에 따라 제품을 설명하는 동영상을 5개까지 추가할 수 있습니다. 이러한 동영상은 YouTube 및/또는 Vimeo에서 호스트해야 합니다. 각 항목에 대해 동영상 이름, 해당 URL 및 동영상 썸네일 이미지(1280 x 720픽셀)를 입력합니다.
+필요에 따라 제품을 설명하는 동영상을 5개까지 추가할 수 있습니다. 이러한 동영상은 YouTube 및/또는 Vimeo에서 호스트해야 합니다. 각 항목에 대해 비디오 이름, 해당 URL 및 비디오의 썸네일 이미지(1280 x 720픽셀)를 입력합니다.
 
 #### <a name="additional-marketplace-listing-resources"></a>추가 마켓플레이스 목록 리소스
 
-[마켓플레이스 제품 목록 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+[마켓플레이스 제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -261,106 +264,11 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ## <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
-이 페이지에서는 고객이 제품을 구입하기 전에 제품을 사용해 볼 수 있도록 시연("시험 사용")을 설정할 수 있습니다. 자세한 내용은 [시험 사용이란?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive) 문서를 참조하세요.
+이 페이지에서는 고객이 제품을 구입하기 전에 제품을 사용해 볼 수 있도록 시연("시험 사용")을 설정할 수 있습니다. [테스트 드라이브 란?](../what-is-test-drive.md)에서 자세히 알아보세요.
 
 시험 사용을 사용하도록 설정하려면 [제품 설치](#test-drive) 탭에서 **시험 사용** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 이 확인란을 선택 취소합니다.
 
-각각의 기술 구성 요구 사항을 포함하는 다음과 같은 종류의 시험 사용을 사용할 수 있습니다.
-
-- [Azure 리소스 관리자](#technical-configuration-for-azure-resource-manager-test-drive)
-- [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
-- [논리 앱](#technical-configuration-for-logic-app-test-drive)
-- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives)(기술 구성 필요 없음)
-
-추가 시험 사용 리소스:
-
-- [마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF. 팝업 차단이 해제되어 있는지 확인)
-
-### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용에 대한 기술 구성
-
-솔루션을 구성하는 모든 Azure 리소스를 포함한 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. [Azure Resource Manager 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)을 설정하는 방법을 자세히 알아보세요.
-
-- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 일반적으로 고객 수가 가장 많은 지역에서 시험 사용을 사용할 수 있도록 하여 가장 가까운 지역을 선택할 수 있게 합니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
-
-- **인스턴스** – 유형(핫 또는 콜드)을 선택하고, 제품을 사용할 수 있는 지역 수를 곱하여 사용 가능한 인스턴스 수를 선택합니다.
-
-    **핫** – 이 유형의 인스턴스는 배포된 후 선택한 지역별로 액세스를 기다립니다. 고객은 배포를 기다릴 필요 없이 시험 사용의 핫 인스턴스에 즉시 액세스할 수 있습니다. 단점은 이러한 인스턴스가 Azure 구독에서 항상 실행되고 있으므로 더 큰 가동 시간 비용이 발생한다는 것입니다. 대부분의 고객이 전체 배포를 기다리지 않으므로 핫 인스턴스를 하나 이상 사용하는 것이 좋습니다. 핫 인스턴스를 사용할 수 없는 경우 고객 사용량이 줄어들게 됩니다.
-
-    **콜드** - 이 유형의 인스턴스는 지역별로 배포할 수 있는 총 인스턴스 수를 나타냅니다. 콜드 인스턴스는 고객이 시험 사용을 요청할 때 배포할 전체 시험 사용 Resource Manager 템플릿이 필요하므로 콜드 인스턴스의 로드 속도는 핫 인스턴스보다 훨씬 느립니다. 단점은 시험 사용 기간 동안 비용을 지불하는 것이고 핫 인스턴스와 같이 Azure 구독에서 항상 실행되는 것은 아닙니다.
-
-- **시험 사용 Azure Resource Manager 템플릿** – Azure Resource Manager 템플릿이 포함된 .zip 파일을 업로드합니다.  자세한 내용은 빠른 시작 문서 [Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)에서 Azure Resource Manager 템플릿을 만드는 방법을 참조하세요.
-
-- **시험 사용 기간**(필수) – 시험 사용이 활성 상태로 유지되는 기간(시간 단위)을 입력합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다. 정수만 사용합니다(예: "2" 시간. "1.5"는 잘못됨).
-
-### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Dynamics 365 시험 사용에 대한 기술 구성
-
-Microsoft는 이 유형의 시험 사용을 사용하는 서비스 프로비전 및 배포를 호스트하고 유지 관리하여 시험 사용의 복잡한 설치 과정을 제거할 수 있습니다. 이 유형의 호스트된 시험 사용에 대한 구성은 시험 사용 대상이 Business Central, 고객 참여 또는 작업 대상인지에 관계없이 동일합니다.
-
-- **최대 동시 시험 사용 수**(필수) – 시험 사용을 동시에 사용할 수 있는 최대 고객 수를 설정합니다. 각 동시 사용자는 시험 사용이 활성화된 상태에서 Dynamics 365 라이선스를 사용하므로 최대 제한 집합을 지원하는 라이선스가 충분한지 확인해야 합니다. 권장 값은 3~5입니다.
-
-- **시험 사용 기간**(필수) – 시험 사용이 활성 상태로 유지되는 기간(시간 단위)을 입력합니다. 이 시간이 지난 후에는 세션이 종료되고 더 이상 라이선스를 사용하지 않습니다. 권장 값은 제품의 복잡성에 따라 2~24시간입니다. 이 기간은 시간 단위로만 설정할 수 있습니다(예: "2"시간. "1.5"는 잘못됨).  시간이 만료된 후 시험 사용에 다시 액세스하려는 경우 새 세션을 요청할 수 있습니다.
-
-- **인스턴스 URL**(필수) – 고객이 시험 사용을 시작하는 URL입니다. 일반적으로 샘플 데이터가 설치된 앱을 실행하는 Dynamics 365 인스턴스의 URL입니다(예: `https://testdrive.crm.dynamics.com`).
-
-- **인스턴스 웹 API URL**(필수) – Microsoft 365 계정에 로그인하고 **설정** \&gt; **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API(서비스 루트 URL)** 로 이동하여 Dynamics 365 인스턴스의 Web API URL을 검색합니다. 여기에 있는 URL(예: `https://testdrive.crm.dynamics.com/api/data/v9.0`)을 복사합니다.
-
-- **역할 이름**(필수) – 사용자 지정 Dynamics 365 시험 사용에서 정의한 보안 역할 이름을 제공합니다(예: test-drive-role). 시험 사용 중 사용자에게 이 역할이 할당됩니다.
-
-### <a name="technical-configuration-for-logic-app-test-drive"></a>논리 앱 시험 사용에 대한 기술 구성
-
-모든 사용자 지정 제품은 복잡한 솔루션 아키텍처의 다양성을 포함하는 이 유형의 시험 사용 배포 템플릿을 사용해야 합니다. 논리 앱 시험 사용을 설정하는 방법에 대한 자세한 내용은 GitHub의 [작업](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) 및 [고객 참여](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)를 참조하세요.
-
-- **지역**(필수, 단일 선택 드롭다운 목록) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 논리 앱에 대한 리소스는 선택한 지역에 배포됩니다. 논리 앱이 특정 지역에 저장된 사용자 지정 리소스를 포함하는 경우 여기서 해당 지역을 선택해야 합니다. 포털에서 논리 앱을 Azure 구독에 로컬로 완전히 배포하고 이를 선택하기 전에 제대로 작동하는지 확인하는 것이 가장 좋습니다.
-
-- **최대 동시 시험 사용 수**(필수) – 시험 사용을 동시에 사용할 수 있는 최대 고객 수를 설정합니다. 이러한 시험 사용은 이미 배포되어 있어 고객은 배포를 기다리지 않고 즉시 액세스할 수 있습니다.
-
-- **시험 사용 기간**(필수) – 시험 사용이 활성 상태로 유지되는 기간(시간 단위)을 입력합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다.
-
-- **Azure 리소스 그룹 이름**(필수) - 논리 앱 시험 사용이 저장된 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) 이름을 입력합니다.
-
-- **Azure 논리 앱 이름**(필수) – 시험 사용을 사용자에게 할당하는 논리 앱의 이름을 입력합니다. 이 논리 앱은 위의 Azure 리소스 그룹에 저장되어야 합니다.
-
-- **논리 앱 이름 프로비전 해제**(필수) – 고객이 완료되면 시험 사용 프로비전을 해제하는 논리 앱의 이름을 입력합니다. 이 논리 앱은 위의 Azure 리소스 그룹에 저장되어야 합니다.
-
-### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Power BI 시험 사용에 필요하지 않은 기술 구성
-
-대화형 Power BI 시각적 개체를 시연하려는 제품은 포함된 링크를 사용하여 사용자 지정 빌드 대시보드를 시험 사용으로 공유할 수 있으며 추가 기술 구성은 필요하지 않습니다. [Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) 템플릿 앱 설정에 대해 자세히 알아보세요.
-
-### <a name="deployment-subscription-details"></a>배포 구독 세부 정보
-
-사용자 대신 시험 사용을 배포하기 위해 별도의 고유한 Azure 구독을 만들고 제공합니다. (Power BI 시험 사용에는 필요하지 않음)
-
-- **Azure 구독 ID**(Azure Resource Manager 및 논리 앱에 필요) - 리소스 사용량 보고 및 청구를 위해 Azure 계정 서비스에 대한 액세스 권한을 부여하는 구독 ID를 입력합니다. 아직 없는 경우 시험 사용에 사용할 [별도의 Azure 구독을 만드는 것](https://docs.microsoft.com/azure/billing/billing-create-subscription)이 좋습니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 왼쪽 메뉴의 **구독** 탭으로 이동하면 Azure 구독 ID를 확인할 수 있습니다. 이 탭을 선택하면 구독 ID(예: "a83645ac-1234-5ab6-6789-1h234g764ghty")가 표시됩니다.
-
-- **Azure AD 테넌트 ID**(필수) - Azure AD(Active Directory) [테넌트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고 왼쪽 메뉴에서 Active Directory 탭을 선택하고 **속성을 선택한 다음 나열된 **디렉터리 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 주소를 사용하여 조직의 테넌트 ID를 조회할 수도 있습니다.
-
-- **Azure AD 테넌트 이름**(Dynamic 365에 필요) – Azure AD(Active Directory) 이름을 입력합니다. 이 이름을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 그러면 오른쪽 위 계정 이름 아래에 테넌트 이름이 나열됩니다.
-
-- **Azure AD 앱 ID**(필수) – Azure AD(Active Directory) [애플리케이션 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고 왼쪽 메뉴에서 Active Directory 탭을 선택한 후 **앱 등록**을 선택하고 나열된 **애플리케이션 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
-
-- **Azure AD 앱 클라이언트 암호**(필수) – Azure AD 애플리케이션 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)를 입력합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택하고 **앱 등록**을 선택한 다음 시험 사용 앱을 선택합니다. 그런 다음 **인증서 및 암호**를 선택하고 **새 클라이언트 암호**선택하여 설명을 입력하고 **만료**에서 **안 함**을 선택한 다음 **추가**를 선택합니다. 이 값을 적어 두어야 합니다. (이렇게 하기 전에 페이지를 벗어나지 마세요. 그러면 값에 액세스할 수 없습니다.)
-
-### <a name="test-drive-marketplace-listings"></a>시험 사용 마켓플레이스 목록
-
-**마켓플레이스 목록** 옵션 **시험 사용** 탭에서 시험 사용 환경에 대한 세부 정보를 정의합니다.
-
-> [!NOTE]
-> 시험 사용 목록 세부 정보는 한 언어로만 제공할 수 있습니다. "이 애플리케이션은 [영어가 아닌 언어]로만 제공됩니다."라는 문구로 시작하는 경우 영어로 작성되지 않아도 됩니다. 또한 시험 사용 목록 콘텐츠에 사용된 것과 다른 언어로 콘텐츠를 제공하는 도움말 링크 URL을 제공할 수 있습니다.
-
-- **설명**(필수) – 시험 사용, 시연 대상, 사용자의 실험 목표, 탐색할 기능 및 사용자가 제품을 가져올지 여부를 결정하는 데 도움이 되는 관련 정보를 설명합니다. 이 필드에는 최대 3,000자의 텍스트를 입력할 수 있습니다. 
-
-- **액세스 정보**(Azure Resource Manager 및 논리 시험 사용에 필요) - 이 시험 사용에 액세스하고 사용하기 위해 고객이 알아야 할 사항을 설명합니다. 제품 사용에 대한 시나리오와 고객이 시험 사용을 통해 기능에 액세스하기 위해 알아야 할 사항을 정확히 살펴봅니다. 이 필드에는 최대 10,000자의 텍스트를 입력할 수 있습니다.
-
-- **사용자 설명서**(필수) – 시험 사용 환경의 심층 연습입니다. 사용자 설명서는 고객이 시험 사용을 통해 얻을 수 있는 사항을 정확하게 다루며, 고객에게 있을 수 있는 질문에 대한 참조로 사용됩니다. 업로드한 파일은 PDF 형식이어야 하며 최대 255자로 이름이 지정되어야 합니다.
-
-- **동영상**(선택 사항) – 동영상을 YouTube 또는 Vimeo에 업로드하고 링크 및 썸네일 이미지(533 x 324픽셀)로 참조되도록 할 수 있으므로 여기서 고객이 제품의 기능을 잘 사용하는 방법을 포함하여 시험 사용을 보다 잘 이해하고 혜택을 강조하는 시나리오를 이해할 수 있도록 안내하는 정보를 볼 수 있습니다.
-  - **이름**(필수)
-  - **URL(YouTube 또는 Vimeo만 해당)** (필수)
-  - **썸네일** 이미지(파일은 PNG 형식으로 533 x 324픽셀이어야 함)
-
-계속하기 전에 **초안 저장**을 선택합니다.
+테스트 드라이브 설정을 마친 후 계속 하려면 **초안 저장** 을 선택 합니다.
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
@@ -396,10 +304,10 @@ Microsoft는 이 유형의 시험 사용을 사용하는 서비스 프로비전 
 
 - 제품의 각 섹션에서 완료 상태를 확인합니다.
     - 시작되지 않음 - 섹션이 작업되지 않았으므로 완료해야 합니다.
-    - 완료되지 않음 – 섹션에 수정해야 하는 오류가 있거나 추가 정보를 입력해야 합니다. 섹션으로 돌아가서 업데이트합니다.
-    - 완료됨 – 섹션이 완료되고 필요한 모든 데이터가 입력되었으며 오류가 발생하지 않습니다. 제품을 제출하려면 먼저 제품의 모든 섹션이 완료됨 상태여야 합니다.
+    - ‘완료되지 않음’ – 섹션에 수정해야 하는 오류가 있거나 추가 정보를 입력해야 합니다. 섹션으로 돌아가서 업데이트합니다.
+    - ‘완료됨’ – 섹션이 완료되고 필요한 모든 데이터가 입력되었으며 오류가 발생하지 않습니다. 제품을 제출하려면 먼저 제품의 모든 섹션이 완료됨 상태여야 합니다.
 - **인증 참고 사항** 섹션에서 앱을 이해하는 데 도움이 되는 추가 정보뿐만 아니라 앱이 올바르게 테스트되는지 확인하는 테스트 지침을 인증 팀에 제공합니다.
-- **제출**을 선택하여 게시할 제품을 제출합니다. 제품의 미리 보기 버전을 검토하고 승인할 수 있게 되면 이메일을 보내 드립니다. 파트너 센터로 돌아가서 제품을 공개 게시(또는 프라이빗 제품을 프라이빗 사용자에게 게시)하려면 **라이브 상태로 전환**을 선택합니다.
+- **제출**을 선택하여 게시할 제품을 제출합니다. 제품의 미리 보기 버전을 검토하고 승인할 수 있게 되면 이메일을 보내 드립니다. 파트너 센터로 돌아가서 제품을 공개로 게시 하기 위해 **live live** 를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

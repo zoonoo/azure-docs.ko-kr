@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700964"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984273"
 ---
 # <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
 
-이 문서에서는 [Microsoft AppSource](https://appsource.microsoft.com/) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 컨설팅 서비스 제품을 게시하는 방법을 설명합니다. AppSource의 Microsoft [Dynamics 365](https://dynamics.microsoft.com/) 및 Power Platform을 기반으로 하는 컨설팅 서비스 제품을 나열합니다. Azure Marketplace의 Microsoft Azure를 기반으로 하는 컨설팅 서비스 제품을 나열합니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+이 문서에서는 [Microsoft AppSource](https://appsource.microsoft.com/) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 컨설팅 서비스 제품을 게시하는 방법을 설명합니다. AppSource의 Microsoft [Dynamics 365](https://dynamics.microsoft.com/) 및 Power Platform을 기반으로 하는 컨설팅 서비스 제품을 나열합니다. Azure Marketplace의 Microsoft Azure를 기반으로 하는 컨설팅 서비스 제품을 나열합니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
-제품을 만들기 전에 [컨설팅 서비스 필수 구성 요소](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites)에서 필수 구성 요소를 검토합니다.
+제품을 만들기 전에 [컨설팅 서비스 필수 구성 요소](consulting-service-prerequisites.md)에서 필수 구성 요소를 검토합니다.
 
 ## <a name="publishing-benefits"></a>게시 이점
 
@@ -63,12 +63,12 @@ ms.locfileid: "83700964"
 
 1. **연결**을 선택하여 잠재 고객을 보낼 위치를 지정합니다. 파트너 센터는 다음과 같은 시스템을 지원합니다.
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) 또는 [Https 엔드포인트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https)를 사용하여 잠재 고객 데이터를 저장한 다음, CRM 시스템으로 데이터를 내보냅니다.
+    > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 [Https 엔드포인트](commercial-marketplace-lead-management-instructions-https.md)를 사용하여 잠재 고객 데이터를 저장한 다음, CRM 시스템으로 데이터를 내보냅니다.
 
 2. 파트너 센터에 게시하는 동안 제품을 잠재 고객 대상에 연결합니다.
 3. 잠재 고객 대상에 대한 연결이 제대로 구성되었는지 확인합니다. 파트너 센터에 게시한 후에는 연결의 유효성을 검사하고 테스트 잠재 고객을 보냅니다. 제품을 라이브로 전환하기 전에 미리 볼 때 미리보기 환경에서 직접 제품을 구매하여 잠재 고객 연결을 테스트할 수도 있습니다.
@@ -76,9 +76,9 @@ ms.locfileid: "83700964"
 
 몇 가지 추가 잠재 고객 관리 리소스는 다음과 같습니다.
 
-- [잠재 고객 관리 개요](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [잠재 고객 관리 FAQ](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [일반적인 잠재 고객 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [잠재 고객 관리 개요](commercial-marketplace-get-customer-leads.md)
+- [리드 관리 faq](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [일반적인 리드 구성 오류](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF(팝업 차단이 해제되어 있는지 확인)
 
 계속하기 전에 **초안 저장**을 선택합니다.
@@ -96,10 +96,19 @@ ms.locfileid: "83700964"
     - **개념 증명**: 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다.
     - **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
 
-3. 기본 제품에 **Azure**를 선택한 경우 최대 3개의 **솔루션 영역**을 선택합니다. 이렇게 하면 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. Azure를 선택하지 않은 경우 이 단계를 건너뜁니다.
-4. 기본 제품에 Azure가 아닌 _기타_를 선택한 경우 최대 3개의 **적용 가능한 제품**을 선택합니다. 이렇게 하면 AppSource 고객이 제품을 보다 쉽게 찾을 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409)(PDF)을 참조하세요.
-5. 제품이 속하는 최대 6개의 **산업**을 선택합니다. 이렇게 하면 고객이 제품을 보다 쉽게 찾을 수 있습니다.
-6. 회사에서 획득한 역량 중 컨설팅 서비스 제품 목록에 표시할 최대 3개의 **역량**을 추가합니다. Azure Expert MSP 및 Azure 네트워킹 MSP를 제외한 하나 이상의 역량이 필요합니다.
+3. **Azure** 를 기본 제품으로 선택한 경우 최대 3 개의 **솔루션 영역**을 선택 합니다. 이렇게 하면 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. Azure를 선택하지 않은 경우 이 단계를 건너뜁니다.
+
+    | 솔루션 영역 | | | |
+    | --- | --- | --- | --- |
+    | 분석 | Backup | DevOps | 마이그레이션 |
+    | 앱 현대화 | 빅 데이터 | 재해 복구 | 네트워킹 |
+    | 보관 | 데이터 플랫폼 | ID | 보안 |
+    | AI + 기계 학습 | 데이터 센터 관리 | 사물 인터넷 | 스토리지 |
+
+1. **Azure** 를 기본 제품으로 선택한 경우 최대 6 개의 **산업**을 선택할 수 있습니다. 이렇게 하면 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. [제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)를 참조 하세요. Azure를 선택 하지 않은 경우이 단계를 건너뜁니다.
+1. 기본 제품에 Azure가 아닌 *기타*를 선택한 경우 최대 3개의 **적용 가능한 제품**을 선택합니다. 이렇게 하면 AppSource 고객이 제품을 보다 쉽게 찾을 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409)(PDF)을 참조하세요.
+1. Azure *이외의 기본 제품을* 선택한 경우 각 업계에 대해 최대 2 개의 **산업** 및 두 개의 **감축할** 를 선택할 수 있습니다. 이렇게 하면 AppSource 고객이 제품을 보다 쉽게 찾을 수 있습니다. [제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)를 참조 하 여 산업 및 감축할의 전체 목록을 참조 하세요.
+1. 회사에서 획득한 역량 중 컨설팅 서비스 제품 목록에 표시할 최대 3개의 **역량**을 추가합니다. Azure Expert MSP 및 Azure 네트워킹 MSP를 제외한 하나 이상의 역량이 필요합니다.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
@@ -110,19 +119,50 @@ ms.locfileid: "83700964"
 > [!NOTE]
 > 제품 설명이 구로 시작되는 경우 제품 세부 정보를 영어로 지정할 필요가 없습니다. &quot;이 애플리케이션은 [영어가 아닌 언어]로만 제공됩니다.&quot; 또한 제품 목록 세부 정보에 사용된 것과 다른 언어로 콘텐츠를 제공하는 유용한 링크를 제공해도 괜찮습니다.
 
+다음은 Azure Marketplace에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
+
+:::image type="content" source="media/example-consulting-service-offer.png" alt-text="이 제품이 Azure Marketplace 표시 되는 방식을 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 로고
+2. Price
+3. 솔루션 영역
+4. 산업
+5. Offer name
+6. 요약
+7. 설명
+8. 스크린샷/비디오
+
+<br>다음은 Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
+
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="이 제품이 Microsoft AppSource 표시 되는 방식을 보여 줍니다.":::
+
+#### <a name="call-out-descriptions"></a>호출 설명
+
+1. 로고
+2. Price
+3. 제품
+4. 산업
+5. Offer name
+6. 요약
+7. 설명
+8. 스크린샷/비디오
+9. 문서
+
 ### <a name="name"></a>속성
 
 여기에 입력하는 이름은 제품의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭** 상자에 입력한 텍스트로 미리 채워집니다. 이 이름은 나중에 변경할 수 있습니다.
 
 이름:
 
-- 상표로 등록될 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다.
+- 상표로 등록된 이름일 수 있으며 상표 또는 저작권 기호를 포함할 수 있습니다.
 - 50자를 초과할 수 없습니다.
 - 이모지를 포함할 수 없습니다.
 
 ### <a name="search-results-summary"></a>검색 결과 요약
 
-제품에 대한 간단한 설명을 제공합니다. 최대 100자까지 입력할 수 있으며 마켓플레이스 검색 결과에 사용됩니다.
+제품에 대한 간단한 설명을 입력합니다. 최대 100자까지 입력할 수 있으며 마켓플레이스 검색 결과에 사용됩니다.
 
 ### <a name="description"></a>Description
 
@@ -199,8 +239,8 @@ ms.locfileid: "83700964"
 4. 준비가 되면 **제출**을 선택합니다.
 5. **제품 개요** 페이지에는 제품의 현재 게시 단계가 표시됩니다.
 
-각 제품 게시 단계의 예상 소요 시간에 대한 자세한 내용은 [상업용 마켓플레이스 제품의 게시 상태 확인](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status)을 참조하세요.
+각 제품 게시 단계의 예상 소요 시간에 대한 자세한 내용은 [상업용 마켓플레이스 제품의 게시 상태 확인](publishing-status.md)을 참조하세요.
 
 ## <a name="update-your-existing-consulting-service-offers"></a>기존 컨설팅 서비스 제품 업데이트
 
-- [상업용 마켓플레이스에서 기존 제품 업데이트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [상업용 마켓플레이스에서 기존 제품 업데이트](update-existing-offer.md)

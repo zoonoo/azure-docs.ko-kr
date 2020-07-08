@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 0c0c57c27689da7df23285c9740665f811f71fd5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: ed2c59a92f348812afac3e39719d3814f0720621
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977569"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023043"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>음성 인식 모드 선택
 
@@ -30,7 +30,7 @@ ms.locfileid: "82977569"
 
 ::: zone pivot="programming-language-csharp"
 
-`RecognizeOnceAsync` 함수 사용에 대 한 자세한 내용은 [.net Speech SDK 문서](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `RecognizeOnceAsync` [.NET Speech SDK 문서](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync)를 참조 하세요.
 
 ```csharp
 var result = await recognizer.RecognizeOnceAsync();
@@ -39,7 +39,7 @@ var result = await recognizer.RecognizeOnceAsync();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-`RecognizeOnceAsync` 함수 사용에 대 한 자세한 내용은 [c + + Speech SDK 문서](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `RecognizeOnceAsync` [c + + Speech SDK 문서](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync)를 참조 하세요.
 
 ```cpp
 auto result = recognize->RecognizeOnceAsync().get();
@@ -48,7 +48,7 @@ auto result = recognize->RecognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-`recognizeOnceAsync` 함수 사용에 대 한 자세한 내용은 [Java Speech SDK 문서](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `recognizeOnceAsync` [JAVA Speech SDK 문서](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable)를 참조 하세요.
 
 ```java
 SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
@@ -57,7 +57,7 @@ SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-`recognize_once` 함수 사용에 대 한 자세한 내용은 [Python Speech SDK 문서](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `recognize_once` [PYTHON Speech SDK 문서](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult)를 참조 하세요.
 
 ```python
 result = speech_recognizer.recognize_once()
@@ -67,7 +67,7 @@ result = speech_recognizer.recognize_once()
 
 ::: zone pivot="programming-language-javascript"
 
-`recognizeOnceAsync` 함수 사용에 대 한 자세한 내용은 [JavaScript Speech SDK 문서](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `recognizeOnceAsync` [JavaScript 용 Speech SDK 문서](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-)를 참조 하세요.
 
 ```JavaScript
 recognizer.recognizeOnceAsync((result)=>{}, (error)=>{}));
@@ -195,7 +195,7 @@ recognizer.stopContinuousRecognitionAsync(()=>{}, (error)=>{});
 
 ::: zone pivot="programming-language-csharp"
 
-`EnableDictation` 함수 사용에 대 한 자세한 내용은 [.net Speech SDK 문서](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `EnableDictation` [.NET Speech SDK 문서](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation)를 참조 하세요.
 
 ```csharp
 // Enable diction
@@ -205,7 +205,7 @@ SpeechConfig.EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-`EnableDictation` 함수 사용에 대 한 자세한 내용은 [c + + Speech SDK 문서](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `EnableDictation` [c + + Speech SDK 문서](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation)를 참조 하세요.
 
 ```cpp
 // Enable diction
@@ -215,7 +215,7 @@ SpeechConfig->EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-`enableDictation` 함수 사용에 대 한 자세한 내용은 [Java Speech SDK 문서](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `enableDictation` [JAVA Speech SDK 문서](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable)를 참조 하세요.
 
 ```java
 // Enable diction
@@ -225,7 +225,7 @@ SpeechConfig.enableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-`enable_dictation` 함수 사용에 대 한 자세한 내용은 [Python Speech SDK 문서](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `enable_dictation` [PYTHON Speech SDK 문서](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--)를 참조 하세요.
 
 ```python
 # Enable diction
@@ -236,7 +236,7 @@ SpeechConfig.enable_dictation()
 
 ::: zone pivot="programming-language-javascript"
 
-`enableDictation` 함수 사용에 대 한 자세한 내용은 [JavaScript Speech SDK 문서](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--)를 참조 하세요.
+함수 사용에 대 한 자세한 내용은 `enableDictation` [JavaScript 용 Speech SDK 문서](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--)를 참조 하세요.
 
 ```JavaScript
 // Enable diction

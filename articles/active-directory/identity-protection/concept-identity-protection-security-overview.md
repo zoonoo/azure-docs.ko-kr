@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382193"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024080"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - 보안 개요
 
@@ -56,7 +56,7 @@ Azure Portal의 [보안 개요](https://aka.ms/IdentityProtectionRefresh) 를 �
 
 ### <a name="legacy-authentication"></a>레거시 인증
 
-‘레거시 인증’ 타일은 조직에서 발생한 지난주의 레거시 인증 수를 표시합니다. 레거시 인증 프로토콜은 MFA와 같은 최신 보안 방법을 지원하지 않습니다. 레거시 인증을 방지하려면 조건부 액세스 정책을 적용하면 됩니다. ‘레거시 인증’ 타일을 클릭하면 ‘ID 보안 점수’로 리디렉션됩니다.
+' 레거시 인증 ' 타일에는 조직에서 발생 하는 위험에 대 한 지난 주의 기존 인증 수가 표시 됩니다. 레거시 인증 프로토콜은 MFA와 같은 최신 보안 방법을 지원하지 않습니다. 레거시 인증을 방지하려면 조건부 액세스 정책을 적용하면 됩니다. ‘레거시 인증’ 타일을 클릭하면 ‘ID 보안 점수’로 리디렉션됩니다.
 
 ### <a name="identity-secure-score"></a>ID 보안 점수
 

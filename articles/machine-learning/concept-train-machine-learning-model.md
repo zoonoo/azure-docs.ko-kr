@@ -9,12 +9,13 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683003"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985738"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -29,7 +30,7 @@ Azure Machine Learning은 SDK를 사용하는 코드 중심 솔루션부터 자�
     | [예측 도구](#estimators) | 예측 도구 클래스를 사용하면 **인기 있는 기계 학습 프레임워크를 기반으로 모델을 쉽게 학습시킬 수 있습니다**. **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer** 및 **Ray RLlib**에 대한 예측 도구 클래스가 있습니다. 아직 전용 예측 도구 클래스가 없는 프레임워크에서 사용할 수 있는 일반 예측 도구도 있습니다. 예측 도구를 사용할 때 실행 구성 정의에 대해 걱정할 필요가 없습니다. |
     | [기계 학습 파이프라인](#machine-learning-pipeline) | 파이프라인은 다른 학습 방법이 아니라 **모듈식 재사용 가능 단계를 사용하여 워크플로를 정의하는 방법**으로, 학습을 포함할 수 있습니다. 기계 학습 파이프라인은 자동화된 기계 학습, 예측 도구 및 실행 구성을 사용하여 모델을 학습시킬 수 있습니다. 파이프라인은 특별히 학습에 집중하지 않으므로, 파이프라인을 사용하는 이유는 다른 학습 방법보다 다양합니다. 일반적으로 다음과 같은 경우에 파이프라인을 사용합니다.<br>* 장기 실행 학습 작업 또는 데이터 준비와 같은 **무인 프로세스를 예약**하려고 합니다.<br>* 이기종 컴퓨팅 리소스 및 스토리지 위치에서 조정되는 **여러 단계**를 사용합니다.<br>* 재학습 또는 일괄 처리 채점 같은 특정 시나리오에서 파이프라인을 **재사용 가능 템플릿**으로 사용합니다.<br>워크플로의 * **데이터 원본, 입력 및 출력을 추적하고 버전을 관리합니다**.<br>* **특정 단계를 독립적으로 작업하는 다른 팀에서 워크플로를 구현**합니다. 그런 다음, 파이프라인에서 여러 단계를 조인하여 워크플로를 구현할 수 있습니다. |
 
-+ [Python용 Azure Machine Learning SDK](#r-sdk): SDK는 그물형 패키지를 사용하여 Azure Machine Learning의 Python SDK에 바인딩합니다. 따라서 모든 R 환경에서 Python SDK를 사용하여 구현된 핵심 개체 및 메서드에 액세스할 수 있습니다.
++ [R에 대 한 AZURE MACHINE LEARNING sdk](#r-sdk): r 용 sdk는 reticulate 패키지를 사용 하 여 Azure Machine Learning의 Python SDK에 바인딩합니다. 따라서 모든 R 환경에서 Python SDK를 사용하여 구현된 핵심 개체 및 메서드에 액세스할 수 있습니다.
 
 + **디자이너**: Azure Machine Learning 디자이너(미리 보기)는 개념 증명을 빌드하기 위한 또는 코딩 경험이 거의 없는 사용자를 위한 쉬운 진입점을 제공합니다. 끌어서 놓기 웹 기반 UI를 사용하여 모델을 학습시킬 수 있습니다. 디자인의 일부로 Python 코드를 사용할 수도 있고, 코드를 작성하지 않고 모델을 학습시킬 수도 있습니다.
 

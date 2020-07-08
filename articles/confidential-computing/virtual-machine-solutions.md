@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773137"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985429"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Azure 가상 머신의 솔루션
 
@@ -69,6 +69,9 @@ az vm list-skus
     --size dc 
     --query "[?family=='standardDCSv2Family']"
 ```
+### <a name="dedicated-host-requirements"></a>전용 호스트 요구 사항
+DCSv2 시리즈 VM 제품군에서 **Standard_DC8_v2** 가상 머신 크기를 배포 하는 것은 전체 호스트를 차지 하 고 다른 테 넌 트 또는 구독과 공유 되지 않습니다. 이 VM SKU 제품군은 전용 호스트 서비스를 통해 일반적으로 충족 되는 규정 준수 및 보안 규정 요구 사항을 충족 하기 위해 필요할 수 있는 격리를 제공 합니다. **Standard_DC8_v2** SKU를 선택 하면 실제 호스트 서버는 사용 가능한 모든 하드웨어 리소스 (예를 들어, 가상 컴퓨터에 대 한 EPC 메모리 포함)를 할당 합니다. 이 기능은 인프라 설계에 의해 존재 하며 **Standard_DC8_v2** 의 모든 기능이 지원 될 예정입니다. 이 배포는 다른 Azure VM 제품군에서 제공 하는 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) 서비스와 동일 하지 않습니다.
+
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
 
