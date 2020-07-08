@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bd93f9062f8446ce20436a7a04e2054aaf5be71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386134"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -33,7 +33,7 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 
 | 국가/지역 | 국가/지역 이름 | 보호자의 동의가 필요한 미성년자의 나이 | 미성년자의 나이 |
 | -------------- | ------------------- | ----------------- | --------- |
-| 기본값 | None | None | 18 |
+| 기본값 | None | 없음 | 18 |
 | AE | 아랍에미리트 | 없음 | 21 |
 | AT | 오스트리아 | 14 | 18 |
 | BE | 벨기에 | 14 | 18 |

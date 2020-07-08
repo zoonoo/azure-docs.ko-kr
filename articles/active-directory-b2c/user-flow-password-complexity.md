@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/11/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c5ef550af0c7e19531ea19093ea937880f7dcf14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 165529697949bba0233567b89c5a8a077d48a28b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78185644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384025"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호에 복잡성 요구 사항 구성
 
@@ -38,9 +38,9 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 ## <a name="configure-password-complexity"></a>암호 복잡도 구성
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
-3. Azure Portal에서 **Azure AD B2C**를 검색 하 고 선택 합니다.
-4. **사용자 흐름 (정책)** 을 선택 합니다.
+2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
+4. **사용자 흐름(정책)** 을 선택합니다.
 2. 사용자 흐름을 선택하고, **속성**을 클릭합니다.
 3. **암호 복잡성**에서 이 사용자 흐름에 대한 암호 복잡성을 **단순**, **강력** 또는 **사용자 지정**으로 변경합니다.
 

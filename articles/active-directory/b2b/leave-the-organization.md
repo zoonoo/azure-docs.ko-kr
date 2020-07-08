@@ -4,19 +4,19 @@ description: Azure AD B2B 게스트 사용자가 액세스 패널을 사용하�
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/13/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bce67c81b924d768826402b707c41c085b7767b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386983"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>게스트 사용자로써 조직 나가기
 
@@ -49,10 +49,10 @@ Azure AD(Azure Active Directory) B2B 게스트 사용자가 더 이상 해당 �
 
 사용자가 조직을 나가면 사용자 계정은 디렉터리에서 "일시 삭제"됩니다. 기본적으로 사용자 개체는 Azure AD에서 **삭제 된 사용자** 영역으로 이동 하지만 30 일 동안 영구적으로 삭제 되지 않습니다. 이 일시 삭제를 사용하면 사용자가 30일 기간 내에 계정을 복원하도록 요청하는 경우 관리자가 사용자 계정(그룹 및 사용 권한 포함)을 복원할 수 있습니다.
 
-원하는 경우 테넌트 관리자는 30일의 기간 중 언제든지 계정을 영구적으로 삭제할 수 있습니다. 이렇게 하려면 다음을 수행합니다.
+원하는 경우 테넌트 관리자는 30일의 기간 중 언제든지 계정을 영구적으로 삭제할 수 있습니다. 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**를 선택 합니다.
-2. **관리**에서 **사용자**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**를 선택합니다.
+2. **관리** 아래에서 **사용자**를 선택합니다.
 3. **삭제된 사용자**를 선택합니다.
 4. 삭제된 사용자 옆의 확인란을 선택한 다음, **영구적으로 삭제**를 선택합니다.
 

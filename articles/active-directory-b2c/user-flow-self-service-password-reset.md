@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6dad52c8a3e63c64bb8e0e0030e8c50b5bab42c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384008"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>고객을 위해 셀프 서비스 암호 재설정 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "78183111"
 2. **Azure Active Directory**를 엽니다(왼쪽 탐색 모음).
 3. 옵션 블레이드에서 아래로 스크롤하고 **암호 재설정**을 선택 합니다.
 4. **셀프 서비스 암호 재설정이 사용하도록 설정됨**을 **모두**로 설정합니다.
-5. 페이지 위쪽에서 **저장**을 클릭합니다. 완료되었습니다!
+5. 페이지 위쪽에서 **저장**을 클릭합니다. 작업을 완료했습니다.
 
 테스트하려면 로컬 계정을 ID 공급자로 가진 로그인 사용자 흐름에서 "지금 실행" 기능을 사용합니다. 메일 주소 및 암호 또는 사용자 이름 및 암호를 입력하는 로컬 계정 로그인 페이지에서 **계정에 액세스할 수 없나요?** 를 클릭하여 고객 환경을 확인합니다.
 

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384960"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
 
@@ -43,7 +43,7 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 * ClaimType 값의 철자가 틀렸거나 ClaimType 값이 스키마에 없습니다.
 * ClaimType 값이 정책 파일 중 하나 이상에 정의되어 있어야 합니다.
-    `<ClaimType Id="issuerUserId">`
+    예: `<ClaimType Id="issuerUserId">`
 * ClaimType이 확장 파일에 정의되어 있지만 기본 파일의 TechnicalProfile 값에도 사용된 경우 기본 파일을 업로드하면 오류가 발생합니다.
 
 > 오류 코드 조각: `...makes a reference to a ClaimsTransformation with id...`
@@ -52,13 +52,13 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 > 오류 코드 조각: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* `<TrustFrameworkPolicy\>` 및 `<BasePolicy\>` 요소의 TenantId 값이 대상 Azure AD B2C 테 넌 트와 일치 하는지 확인 합니다.
+* 및 요소의 TenantId 값이 `<TrustFrameworkPolicy\>` `<BasePolicy\>` 대상 Azure AD B2C 테 넌 트와 일치 하는지 확인 합니다.
 
 ## <a name="troubleshoot-the-runtime"></a>런타임 문제 해결
 
-* **지금 실행** 을 `https://jwt.ms` 사용 하 여 웹 또는 모바일 응용 프로그램에 관계 없이 정책을 테스트 합니다. 이 웹 사이트는 신뢰 당사자 애플리케이션처럼 작동합니다. Azure AD B2C 정책에 의해 생성 된 JWT (JSON web token)의 콘텐츠를 표시 합니다.
+* **지금 실행** 을 사용 하 여 `https://jwt.ms` 웹 또는 모바일 응용 프로그램에 관계 없이 정책을 테스트 합니다. 이 웹 사이트는 신뢰 당사자 애플리케이션처럼 작동합니다. Azure AD B2C 정책에 의해 생성 된 JWT (JSON web token)의 콘텐츠를 표시 합니다.
 
-    토큰 검사를 위해로 `https://jwt.ms` 리디렉션할 수 있는 테스트 응용 프로그램을 만들려면 다음을 수행 합니다.
+    토큰 검사를 위해로 리디렉션할 수 있는 테스트 응용 프로그램을 만들려면 `https://jwt.ms` 다음을 수행 합니다.
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

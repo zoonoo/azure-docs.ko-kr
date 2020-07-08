@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a438363b054361420222804dffac7973470e82e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384977"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리
 
@@ -49,7 +49,7 @@ Azure AD B2C는 좀 더 복잡한 계정 잠금 전략을 사용합니다. 계�
 
 ## <a name="view-locked-out-accounts"></a>잠긴 계정 보기
 
-잠긴 계정에 대 한 정보를 얻기 위해 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 확인할 수 있습니다. **상태**에서 **실패**를 선택 합니다. **로그인 오류 코드** `50053` 를 사용 하 여 로그인 시도에 실패 했습니다.
+잠긴 계정에 대 한 정보를 얻기 위해 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 확인할 수 있습니다. **상태**에서 **실패**를 선택 합니다. **로그인 오류 코드** 를 사용 하 여 로그인 시도에 실패 했습니다 `50053` .
 
 ![잠긴 계정을 표시 하는 Azure AD 로그인 보고서의 섹션](./media/threat-management/portal-01-locked-account.png)
 

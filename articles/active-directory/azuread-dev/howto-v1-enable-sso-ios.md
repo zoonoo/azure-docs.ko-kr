@@ -9,18 +9,18 @@ ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383702"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정
 
@@ -39,7 +39,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 * Azure Active Directory B2B
 * Azure Active Directory 조건부 액세스
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
@@ -230,7 +230,7 @@ App3 리디렉션 URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 </plist>
 ```
 
-각 응용 프로그램에서 키 집합 자격을 사용 하도록 설정 하 고 SSO를 사용할 준비가 되 면 다음 설정에 따라에서 `ADAuthenticationSettings` 다음 설정을 사용 하 여 id SDK에 키 집합을 알려 줍니다.
+각 응용 프로그램에서 키 집합 자격을 사용 하도록 설정 하 고 SSO를 사용할 준비가 되 면 다음 설정에 따라에서 다음 설정을 사용 하 여 id SDK에 키 집합을 알려 줍니다 `ADAuthenticationSettings` .
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > 애플리케이션에서 키 집합을 공유하는 경우 모든 애플리케이션은 사용자를 삭제하거나 더 심한 경우 애플리케이션에서 모든 토큰을 삭제할 수 있습니다. 백그라운드 작업을 하기 위해 토큰을 사용하는 애플리케이션이 있는 경우에 특히 미치는 영향이 커집니다. 키 집합을 공유하면 ID SDK를 통한 모든 제거 작업에 특히 주의해야 합니다.
 
-간단하죠. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
+이것으로 끝입니다. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>브로커 지원 SSO에 대한 SSO 설정
 
@@ -309,7 +309,7 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 애플리케�
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>4단계: 앱에 구성 매개 변수 추가
 
-ADAL은 canOpenURL을 사용하여 브로커가 디바이스에 설치되어 있는지 확인합니다. iOS 9에서 Apple은 애플리케이션에서 쿼리할 수 있는 구성표를 잠갔습니다. 의 LSApplicationQueriesSchemes 섹션에 "msauth"를 추가 해야 `info.plist file`합니다.
+ADAL은 canOpenURL을 사용하여 브로커가 디바이스에 설치되어 있는지 확인합니다. iOS 9에서 Apple은 애플리케이션에서 쿼리할 수 있는 구성표를 잠갔습니다. 의 LSApplicationQueriesSchemes 섹션에 "msauth"를 추가 해야 `info.plist file` 합니다.
 
 ```
     <key>LSApplicationQueriesSchemes</key>

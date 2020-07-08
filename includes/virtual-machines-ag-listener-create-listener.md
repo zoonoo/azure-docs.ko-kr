@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182152"
 ---
 이 단계에서는 장애 조치(Failover) 클러스터 관리자와 SQL Server Management Studio에서 가용성 그룹 수신기를 수동으로 만듭니다.
@@ -19,7 +19,7 @@ ms.locfileid: "67182152"
 
 3. 클러스터 이름을 확장하고 **역할**을 클릭합니다.
 
-4. **역할** 창에서 가용성 그룹 이름을 마우스 오른쪽 단추로 클릭 한 다음 **리소스** > 추가**클라이언트 액세스 지점**을 선택 합니다.
+4. **역할** 창에서 가용성 그룹 이름을 마우스 오른쪽 단추로 클릭 한 다음 **리소스 추가**  >  **클라이언트 액세스 지점**을 선택 합니다.
    
     ![가용성 그룹에 대한 클라이언트 액세스 지점 추가](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 

@@ -1,35 +1,35 @@
 ---
 title: 사용자 마이그레이션 방법
 titleSuffix: Azure AD B2C
-description: 대량 가져오기 또는 원활한 마이그레이션 방법을 사용 하 여 다른 id 공급자의 사용자 계정을 Azure AD B2C로 마이그레이션합니다.
+description: 사전 마이그레이션 또는 원활한 마이그레이션 방법을 사용 하 여 다른 id 공급자의 사용자 계정을 Azure AD B2C로 마이그레이션합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383974"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>사용자를 Azure AD B2C으로 마이그레이션
 
-다른 id 공급자에서 Azure Active Directory B2C (Azure AD B2C)로 마이그레이션하려면 기존 사용자 계정을 마이그레이션해야 할 수도 있습니다. 여기서는 *대량 가져오기* 및 *원활한 마이그레이션*이라는 두 가지 마이그레이션 방법을 설명 합니다. 어느 방법을 사용 하 든 [MICROSOFT GRAPH API](manage-user-accounts-graph-api.md) 를 사용 하 여 Azure AD B2C에서 사용자 계정을 만드는 응용 프로그램이 나 스크립트를 작성 해야 합니다.
+다른 id 공급자에서 Azure Active Directory B2C (Azure AD B2C)로 마이그레이션하려면 기존 사용자 계정을 마이그레이션해야 할 수도 있습니다. 마이그레이션 방법에 대 한 두 가지 마이그레이션 방법, 마이그레이션 *전* 및 *원활한 마이그레이션*. 어느 방법을 사용 하 든 [MICROSOFT GRAPH API](manage-user-accounts-graph-api.md) 를 사용 하 여 Azure AD B2C에서 사용자 계정을 만드는 응용 프로그램이 나 스크립트를 작성 해야 합니다.
 
-## <a name="bulk-import"></a>대량 가져오기
+## <a name="pre-migration"></a>마이그레이션 전
 
-대량 가져오기 흐름에서 마이그레이션 응용 프로그램은 각 사용자 계정에 대해 다음 단계를 수행 합니다.
+마이그레이션 전 흐름에서 마이그레이션 응용 프로그램은 각 사용자 계정에 대해 다음 단계를 수행 합니다.
 
 1. 현재 자격 증명 (사용자 이름 및 암호)을 포함 하 여 이전 id 공급자에서 사용자 계정을 읽습니다.
 1. 현재 자격 증명을 사용 하 여 Azure AD B2C 디렉터리에 해당 계정을 만듭니다.
 
-다음 두 가지 상황 중 하나에서 대량 가져오기 흐름을 사용 합니다.
+다음 두 가지 상황 중 하나로 마이그레이션 전 흐름을 사용 합니다.
 
 - 사용자의 일반 텍스트 자격 증명 (사용자 이름 및 암호)에 액세스할 수 있습니다.
 - 자격 증명은 암호화 되지만 암호를 해독할 수 있습니다.
@@ -43,25 +43,25 @@ ms.locfileid: "80332343"
 - 암호는 해시 함수를 사용 하는 경우와 같이 단방향으로 암호화 된 형식으로 저장 됩니다.
 - 암호는 액세스할 수 없는 방식으로 레거시 id 공급자에 의해 저장 됩니다. 예를 들어 id 공급자가 웹 서비스를 호출 하 여 자격 증명의 유효성을 검사 하는 경우
 
-원활한 마이그레이션 흐름은 사용자 계정에 대 한 대량 마이그레이션은 여전히 필요 하지만 사용자 [지정 정책을](custom-policy-get-started.md) 사용 하 여 처음 로그인 할 때 각 사용자의 암호를 설정 하는 [REST API](custom-policy-rest-api-intro.md) (사용자가 만드는)를 쿼리 합니다.
+원활한 마이그레이션 흐름은 계속 해 서 사용자 계정을 미리 마이그레이션해야 하지만 사용자 [지정 정책을](custom-policy-get-started.md) 사용 하 여 처음 로그인 할 때 각 사용자의 암호를 설정 하는 [REST API](custom-policy-rest-api-intro.md) (사용자가 만드는)를 쿼리 합니다.
 
-따라서 원활한 마이그레이션 흐름에는 *대량 가져오기* 및 *자격 증명 설정*의 두 단계가 있습니다.
+따라서 원활한 마이그레이션 흐름에는 *마이그레이션 전* 및 *자격 증명 설정*의 두 단계가 있습니다.
 
-### <a name="phase-1-bulk-import"></a>1 단계: 대량 가져오기
+### <a name="phase-1-pre-migration"></a>1 단계: 마이그레이션 전
 
 1. 마이그레이션 응용 프로그램은 이전 id 공급자에서 사용자 계정을 읽습니다.
 1. 마이그레이션 응용 프로그램은 Azure AD B2C 디렉터리에 해당 사용자 계정을 만들지만 암호를 *설정 하지*는 않습니다.
 
 ### <a name="phase-2-set-credentials"></a>2 단계: 자격 증명 설정
 
-계정에 대 한 대량 마이그레이션이 완료 되 면 사용자 지정 정책 및 REST API 사용자가 로그인 할 때 다음을 수행 합니다.
+계정에 대 한 사전 마이그레이션이 완료 되 면 사용자 지정 정책 및 REST API 사용자가 로그인 할 때 다음을 수행 합니다.
 
 1. 입력 한 전자 메일 주소에 해당 하는 Azure AD B2C 사용자 계정을 읽습니다.
 1. 부울 확장 특성을 평가 하 여 계정에 마이그레이션에 대 한 플래그가 지정 되었는지 여부를 확인 합니다.
-    - 확장 특성이을 반환 `True`하는 경우 REST API를 호출 하 여 레거시 id 공급자에 대해 암호의 유효성을 검사 합니다.
+    - 확장 특성이을 반환 하는 경우 `True` REST API를 호출 하 여 레거시 id 공급자에 대해 암호의 유효성을 검사 합니다.
       - REST API 암호가 잘못 된 것으로 확인 되 면 사용자에 게 친숙 한 오류를 반환 합니다.
-      - REST API 암호가 올바른지 확인 하는 경우 Azure AD B2C 계정에 암호를 쓰고 부울 확장 특성을로 `False`변경 합니다.
-    - 부울 확장 특성이을 반환 `False`하는 경우 정상적으로 로그인 프로세스를 계속 합니다.
+      - REST API 암호가 올바른지 확인 하는 경우 Azure AD B2C 계정에 암호를 쓰고 부울 확장 특성을로 변경 합니다 `False` .
+    - 부울 확장 특성이을 반환 하는 경우 `False` 정상적으로 로그인 프로세스를 계속 합니다.
 
 사용자 지정 정책 및 REST API 예제를 보려면 GitHub의 [원활한 사용자 마이그레이션 샘플](https://aka.ms/b2c-account-seamless-migration) 을 참조 하세요.
 
@@ -73,7 +73,7 @@ ms.locfileid: "80332343"
 
 원활한 마이그레이션 방법은 사용자 지정 REST API를 사용 하 여 레거시 id 공급자에 대 한 사용자 자격 증명의 유효성을 검사 합니다.
 
-**무차별 암호 대입 공격에 대해 REST API를 보호 해야 합니다.** 공격자는 궁극적으로 사용자의 자격 증명을 추측 하기 위해 여러 암호를 제출할 수 있습니다. 이러한 공격을 해결 하려면 로그인 시도 횟수가 특정 임계값을 전달할 때 REST API에 대 한 요청 처리를 중지 합니다. 또한 Azure AD B2C와 REST API 간의 통신을 보호 합니다. 프로덕션을 위해 RESTful Api를 보호 하는 방법을 알아보려면 [Secure RESTFUL api](secure-rest-api.md)를 참조 하세요.
+**무차별 암호 대입 공격에 대해 REST API를 보호 해야 합니다.** 공격자는 궁극적으로 사용자의 자격 증명을 추측 하기 위해 여러 암호를 제출할 수 있습니다. 이러한 공격을 해결 하려면 로그인 시도 횟수가 특정 임계값을 전달할 때 REST API에 대 한 요청 처리를 중지 합니다. 또한 Azure AD B2C와 REST API 간의 통신을 보호 합니다. 프로덕션을 위해 RESTful Api를 보호하는 방법을 알아보려면 [Secure RESTful API](secure-rest-api.md)를 참조하세요.
 
 ### <a name="user-attributes"></a>사용자 특성
 

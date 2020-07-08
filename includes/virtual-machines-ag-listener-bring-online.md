@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182154"
 ---
 1. [장애 조치(Failover) 클러스터 관리자]에서 **역할**을 펼친 다음 가용성 그룹을 강조 표시합니다.  
@@ -31,7 +31,7 @@ ms.locfileid: "67182154"
 
 8. SQL Server Management Studio를 시작한 다음 주 복제본에 연결합니다.
 
-9. **AlwaysOn** > 고가용성**가용성 그룹** > **\>AvailabilityGroupName\<** > **가용성 그룹 수신기**로 이동 합니다.  
+9. **AlwaysOn 고가용성**  >  **가용성 그룹**  >  **\<AvailabilityGroupName\>**  >  **가용성 그룹 수신기**로 이동 합니다.  
     [장애 조치(Failover) 클러스터 관리자]에서 만든 수신기 이름이 표시됩니다.
 
 10. 수신기 이름을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.

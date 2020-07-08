@@ -4,19 +4,19 @@ description: Active Directory B2B 외부 협업을 사용하도록 설정하고 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: c6a2c1a9b908503ee5afc2687ebef473ffed626a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387184"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>B2B 외부 협업을 사용하도록 설정 및 게스트를 초대할 수 있는 사용자 관리
 
@@ -48,6 +48,9 @@ Azure AD B2B 협업을 사용하면 테넌트 관리자가 다음 초대 정책�
    - **게스트가 초대할 수 있음**: 게스트가 다른 게스트를 초대하도록 허용하려면 이 정책을 **예**로 설정합니다.
    - **게스트에 이메일 일회용 암호 사용(미리 보기)** : 일회용 암호 기능에 대한 자세한 내용은 [이메일 일회용 암호 인증(미리 보기)](one-time-passcode.md)을 참조하세요.
    - **협업 제한 사항**: 특정 도메인에 대한 초대를 허용하거나 차단하는 방법에 대한 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](allow-deny-list.md)을 참조하세요.
+   
+   > [!NOTE]
+   > **구성원이 초대할 수 있음** 을 **아니요** 로 설정 하 고 **관리자 및 사용자의 게스트 초대자 역할에서 초대 가능** 이 **예**로 설정 된 경우 **게스트 초대자** 역할의 사용자는 게스트를 계속 초대할 수 있습니다.
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>사용자에게 게스트 초대자 역할 할당
 
@@ -66,5 +69,4 @@ Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 - [Azure AD B2B 협업이란?](what-is-b2b.md)
 - [초대 없이 B2B Collaboration 게스트 사용자 추가](add-user-without-invite.md)
 - [역할에 B2B 협업 사용자 추가](add-guest-to-role.md)
-
 

@@ -6,18 +6,18 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383940"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -37,7 +37,7 @@ Azure Active Directory B2C (Azure AD B2C)는 B2C 리소스, 발급 된 토큰 �
 |권한 부여 |B2C 리소스에 액세스 하는 사용자의 권한 부여와 관련 된 활동 (예: B2C 정책 목록에 액세스 하는 관리자)         |
 |디렉터리 |관리자가 Azure Portal를 사용 하 여 로그인 할 때 검색 되는 디렉터리 특성과 관련 된 작업입니다. |
 |애플리케이션 | B2C 응용 프로그램에 대 한 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업을 수행 합니다. |
-|키 |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
+|Key |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
 |리소스 |B2C 리소스에 대 한 CRUD 작업 예를 들면 정책 및 id 공급자가 있습니다.
 |인증 |사용자 자격 증명 및 토큰 발급의 유효성 검사|
 
@@ -51,9 +51,9 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 활동 세부 정보 패널에는 다음과 같은 관련 정보가 포함 되어 있습니다.
 
-|단원|필드|Description|
+|섹션|필드|설명|
 |-------|-----|-----------|
-| 작업 | 속성 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 활동 | 이름 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |
@@ -100,9 +100,9 @@ Azure AD 보고 API에 대 한 스크립트 또는 응용 프로그램 기반 �
 
 ### <a name="access-the-api"></a>API 액세스
 
-API를 통해 Azure AD B2C 감사 로그 이벤트를 다운로드 하려면 해당 `B2C` 범주에 대 한 로그를 필터링 합니다. 범주별로 필터링 하려면 Azure AD 보고 `filter` API 끝점을 호출할 때 쿼리 문자열 매개 변수를 사용 합니다.
+API를 통해 Azure AD B2C 감사 로그 이벤트를 다운로드 하려면 해당 범주에 대 한 로그를 필터링 합니다 `B2C` . 범주별로 필터링 하려면 `filter` AZURE AD 보고 API 끝점을 호출할 때 쿼리 문자열 매개 변수를 사용 합니다.
 
-```HTTP
+```http
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
 ```
 
@@ -158,7 +158,7 @@ if ($oauth.access_token -ne $null) {
 
 다음은이 문서의 앞부분에 표시 된 예제 작업 이벤트의 JSON 표현입니다.
 
-```JSON
+```json
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",

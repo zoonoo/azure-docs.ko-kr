@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c9ed0e329b498112feafaf21c34e85ea436cbb77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385946"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Azure MFA 기술 프로필 정의
 
@@ -42,7 +42,7 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 다음 예제에서는 Azure MFA 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
     <DisplayName>Send Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -57,7 +57,7 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 **Inputclaims** 요소는 Azure MFA로 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 MFA 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필수 | 설명 |
+| ClaimReferenceId | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | userPrincipalName | 예 | 전화 번호를 소유 하는 사용자의 식별자입니다. |
 | phoneNumber | 예 | SMS 코드를 보낼 전화 번호입니다. |
@@ -68,24 +68,24 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 ### <a name="output-claims"></a>출력 클레임
 
-Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 출력 클레임을 지정할 필요가 없습니다. 그러나 `DefaultValue` 특성을 설정 하는 동안에는 Azure MFA id 공급자에서 반환 하지 않은 클레임을 포함할 수 있습니다.
+Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 출력 클레임을 지정할 필요가 없습니다. 그러나 특성을 설정 하는 동안에는 Azure MFA id 공급자에서 반환 하지 않은 클레임을 포함할 수 있습니다 `DefaultValue` .
 
 **OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 
 ### <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| attribute | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| 작업(Operation) | 예 | **OneWaySMS**이어야 합니다.  |
+| 연산 | 예 | **OneWaySMS**이어야 합니다.  |
 
 #### <a name="ui-elements"></a>UI 요소
 
-다음 메타 데이터를 사용 하 여 SMS 오류를 보낼 때 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지를 [지역화할](localization-string-ids.md#azure-mfa-error-messages)수 있습니다.
+다음 메타 데이터를 사용 하 여 SMS 오류를 보낼 때 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-mfa-error-messages)될 수 있습니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | UserMessageIfCouldntSendSms | 아니요 | 제공한 전화 번호에 SMS가 허용 되지 않는 경우 사용자 오류 메시지입니다. |
-| Usermessageifin유효한 형식 | 아니요 | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 오류 메시지입니다. |
+| UserMessageIfInvalidFormat | 아니요 | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 오류 메시지입니다. |
 | UserMessageIfServerError | 아니요 | 서버에 내부 오류가 발생 한 경우 사용자 오류 메시지입니다. |
 | UserMessageIfThrottled| 아니요 | 요청이 제한 된 경우 사용자 오류 메시지입니다.|
 
@@ -93,7 +93,7 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 다음 예제에서는 SMS를 통해 코드를 보내는 데 사용 되는 Azure MFA 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
   <DisplayName>Send Sms</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -119,7 +119,7 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 **Inputclaims** 요소는 Azure MFA로 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 MFA 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필수 | 설명 |
+| ClaimReferenceId | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| 예 | 이전에 코드를 전송 하는 데 사용한 것과 동일한 전화 번호입니다. 전화 확인 세션을 찾는 데도 사용 됩니다. |
 | verificationCode  | 예 | 사용자가 제공 하는 확인 코드를 확인 합니다. |
@@ -128,21 +128,21 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 ### <a name="output-claims"></a>출력 클레임
 
-Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 출력 클레임을 지정할 필요가 없습니다. 그러나 `DefaultValue` 특성을 설정 하는 동안에는 Azure MFA id 공급자에서 반환 하지 않은 클레임을 포함할 수 있습니다.
+Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 출력 클레임을 지정할 필요가 없습니다. 그러나 특성을 설정 하는 동안에는 Azure MFA id 공급자에서 반환 하지 않은 클레임을 포함할 수 있습니다 `DefaultValue` .
 
 **OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 
 ### <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| attribute | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
-| 작업(Operation) | 예 | **확인** 해야 함 |
+| 연산 | 예 | **확인** 해야 함 |
 
 #### <a name="ui-elements"></a>UI 요소
 
-다음 메타 데이터를 사용 하 여 코드 확인 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지를 [지역화할](localization-string-ids.md#azure-mfa-error-messages)수 있습니다.
+다음 메타 데이터를 사용 하 여 코드 확인 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-mfa-error-messages)될 수 있습니다.
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필요한 공간 | 설명 |
 | --------- | -------- | ----------- |
 | UserMessageIfMaxAllowedCodeRetryReached| 아니요 | 사용자가 확인 코드를 너무 많이 시도 하는 경우 사용자 오류 메시지입니다. |
 | UserMessageIfServerError | 아니요 | 서버에 내부 오류가 발생 한 경우 사용자 오류 메시지입니다. |
@@ -153,7 +153,7 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 다음 예제에서는 코드를 확인 하는 데 사용 되는 Azure MFA 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">
     <DisplayName>Verify Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

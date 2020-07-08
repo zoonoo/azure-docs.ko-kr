@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738764"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385385"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Azure AD B2C의 전화 번호 클레임 변환 정의
 
@@ -37,7 +37,7 @@ ms.locfileid: "83738764"
 
 이 예제에서는 값 형식이 `phoneNumber`인 cellPhoneNumber 클레임은 값 형식이 `string`인 cellPhone 클레임으로 변환됩니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
@@ -72,7 +72,7 @@ ms.locfileid: "83738764"
 
 이 클레임 변환을 사용하여 제공된 문자열 클레임이 유효한 전화 번호인지 확인할 수 있습니다. 두 값이 같지 않으면 오류 메시지가 throw됩니다. 다음 예제에서는 **phoneString** ClaimType이 실제로 유효한 전화 번호인지 확인한 다음, 표준 Azure AD B2C 형식으로 전화 번호를 반환합니다. 그렇지 않으면 오류 메시지가 throw됩니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
@@ -86,7 +86,7 @@ ms.locfileid: "83738764"
 
 이 클레임 변환이 포함된 유효성 검사 기술 프로필을 호출하는 자체 어설션된 기술 프로필은 오류 메시지를 정의할 수 있습니다.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
@@ -132,7 +132,7 @@ ms.locfileid: "83738764"
 
 다음 예제에서는 전화 번호를 국가별 번호와 국가/지역 코드로 분할하려고 합니다. 전화 번호가 유효한 경우 전화 번호는 국가별 번호로 재정의됩니다. 전화 번호가 잘못된 경우 예외가 throw되지 않으며 전화 번호에 원래 값이 남아 있습니다.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
@@ -150,7 +150,7 @@ ms.locfileid: "83738764"
 
 이 클레임 변환이 포함된 유효성 검사 기술 프로필을 호출하는 자체 어설션된 기술 프로필은 오류 메시지를 정의할 수 있습니다.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfPhoneNumberParseFailure">Custom error message if the phone number is not valid.</Item>

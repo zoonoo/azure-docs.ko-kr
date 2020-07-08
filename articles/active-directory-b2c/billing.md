@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30ecb1e6faa29482a8d69dd1d08e4f127f515596
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386065"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 청구 모델
 
@@ -58,7 +58,7 @@ MAU (월간 활성 사용자) 청구는 **취소할**수 없습니다. Azure AD 
 
 MAU 기반 계량은 구독/리소스 소유자가 변경 내용을 확인 하는 즉시 사용 하도록 설정 됩니다. 월별 청구서는 변경 될 때까지 청구 되는 인증 단위와 변경으로 시작 하는 MAU의 새 단위를 반영 합니다.
 
-사용자는 전환 월에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 동일한 사용자는 구독 청구 주기의 나머지 부분에 대 한 MAU 계산에 포함 되지 않습니다. 예를 들면 다음과 같습니다.
+사용자는 전환 월에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 동일한 사용자는 구독 청구 주기의 나머지 부분에 대 한 MAU 계산에 포함 되지 않습니다. 예를 들어:
 
 * Contoso B2C 테 넌 트에는 1000 명의 사용자가 있습니다. 250 사용자는 지정 된 달에 활성화 됩니다. 구독 관리자는 해당 월 10 일에 인증 단위를 MAU (월간 활성 사용자)로 변경 합니다.
 * 1-10에 대 한 청구는 인증 당 모델을 사용 하 여 청구 됩니다.
@@ -82,7 +82,7 @@ Azure Active Directory B2C (Azure AD B2C)에 대 한 사용 요금은 Azure 구�
 
 Azure AD B2C 테 넌 트에 연결 된 구독은 추가 Azure AD B2C 리소스를 포함 하 여 Azure AD B2C 사용 또는 기타 Azure 리소스의 요금 청구에 사용 될 수 있습니다. Azure AD B2C 테넌트 내의 다른 Azure 라이선스 기반 서비스 또는 Office 365 라이선스를 추가하는 데는 구독을 사용할 수 없습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure 구독](https://azure.microsoft.com/free/)
 * 구독에 연결 하려는 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)
@@ -94,7 +94,7 @@ Azure AD B2C 테 넌 트에 연결 된 구독은 추가 Azure AD B2C 리소스�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 사용 하려는 Azure 구독을 포함 하는 디렉터리 (Azure AD B2C 테 넌 트를 포함 하는 디렉터리*아님* )를 선택 합니다.
 1. **리소스 만들기**를 선택 하 고 `Active Directory B2C` **Marketplace 검색** 필드에를 입력 한 다음 **Azure Active Directory B2C**를 선택 합니다.
-1. **만들기** 선택
+1. **만들기**
 1. **내 Azure 구독에 기존 Azure AD B2C 테 넌 트 연결을**선택 합니다.
 1. 드롭다운에서 **Azure AD B2C 테 넌 트** 를 선택 합니다. 사용자가 전역 관리자이 고 구독에 아직 연결 되지 않은 테 넌 트만 표시 됩니다. **Azure AD B2C 리소스 이름** 필드는 선택한 Azure AD B2C 테 넌 트의 도메인 이름으로 채워집니다.
 1. 관리자 인 활성 Azure **구독** 을 선택 합니다.

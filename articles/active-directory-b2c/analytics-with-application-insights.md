@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25e62e7c6865f91daa242a33a0f491f8015be41a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385980"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
@@ -29,13 +29,13 @@ Azure AD B2C (Azure Active Directory B2C)는 Azure AD B2C에 제공 된 계측 �
 * 성능을 측정합니다.
 * Application Insights에서 알림을 만듭니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 [Application Insights](application-insights-technical-profile.md) 기술 프로필은 Azure AD B2C에서 이벤트를 정의 합니다. 이 프로필은 이벤트의 이름, 기록될 클레임 및 계측 키를 지정합니다. 이벤트를 게시 하기 위해 기술 프로필은 [사용자](userjourneys.md)경험에 오케스트레이션 단계로 추가 됩니다.
 
 Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기록하는 이벤트를 통합할 수 있습니다. Application Insights는 짧은 시간 안에 이벤트 및 세션을 사용할 수 있게 하며, 많은 시각화, 내보내기 및 분석 도구를 제공합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
 
@@ -57,12 +57,12 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 ## <a name="define-claims"></a>클레임 정의
 
-클레임은 Azure AD B2C 정책 실행 중에 데이터의 임시 저장소를 제공 합니다. 클레임 [스키마](claimsschema.md) 는 클레임을 선언 하는 위치입니다.
+클레임은 Azure AD B2C 정책 실행 중에 데이터의 임시 저장소를 제공 합니다. [클레임 스키마](claimsschema.md)에서 클레임을 선언합니다.
 
-1. 정책의 확장 파일을 엽니다. 예를 <em> `SocialAndLocalAccounts/` </em>들면입니다.
+1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>입니다.
 1. [BuildingBlocks](buildingblocks.md) 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. [ClaimsSchema](claimsschema.md) 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
-1. **ClaimsSchema** 요소에 다음 클레임을 추가 합니다. 
+1. **ClaimsSchema** 요소에 다음 클레임을 추가합니다. 
 
 ```xml
 <ClaimType Id="EventType">
@@ -104,12 +104,12 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 기술 프로필은 Azure AD B2C의 ID 경험 프레임워크의 함수로 간주될 수 있습니다. 이 테이블은 세션을 열고 이벤트를 게시하는 데 사용되는 기술 프로필을 정의합니다.
 
-| 기술 프로필 | 작업 |
+| 기술 프로필 | Task |
 | ----------------- | -----|
 | AppInsights-일반 | 모든 Azure Insights 기술 프로필에 포함 되는 공통 매개 변수 집합입니다. |
-| AppInsights-SignInRequest | 로그인 요청 `SignInRequest` 을 받았을 때 클레임 집합을 사용 하 여 이벤트를 기록 합니다. |
-| AppInsights-UserSignUp | 사용자가 `UserSignUp` 등록/로그인 여행에서 등록 옵션을 트리거할 때 이벤트를 기록 합니다. |
-| AppInsights-SignInComplete | 토큰이 신뢰 `SignInComplete` 당사자 응용 프로그램에 전송 되었을 때 인증이 성공적으로 완료 되 면 이벤트를 기록 합니다. |
+| AppInsights-SignInRequest | `SignInRequest`로그인 요청을 받았을 때 클레임 집합을 사용 하 여 이벤트를 기록 합니다. |
+| AppInsights-UserSignUp | `UserSignUp`사용자가 등록/로그인 여행에서 등록 옵션을 트리거할 때 이벤트를 기록 합니다. |
+| AppInsights-SignInComplete | `SignInComplete`토큰이 신뢰 당사자 응용 프로그램에 전송 되었을 때 인증이 성공적으로 완료 되 면 이벤트를 기록 합니다. |
 
 프로필을 스타터 팩의 *TrustFrameworkExtensions.xml* 파일에 추가합니다. 이러한 요소를 **ClaimsProviders** 요소에 추가합니다.
 
@@ -171,7 +171,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 ```xml
 <!-- Track that we have received a sign in request -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AppInsights-SignInRequest" />
   </ClaimsExchanges>
@@ -220,7 +220,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 *TrustFrameworkExtensions.xml* 파일을 저장하고 업로드합니다. 그런 다음, 애플리케이션에서 신뢰 당사자 정책을 호출하거나 Azure Portal에서 **지금 실행**을 사용합니다. 몇 초 내에 사용자 이벤트를 Application Insights에서 사용할 수 있습니다.
 
 1. Azure Active Directory 테 넌 트에서 **Application Insights** 리소스를 엽니다.
-2. **사용** > **이벤트**를 선택 합니다.
+2. **사용**  >  **이벤트**를 선택 합니다.
 3. **During**을 **지난 1시간**으로 설정하고 **By**를 **3분**으로 설정합니다.  결과를 보기 위해 **새로 고침**을 선택해야 할 수도 있습니다.
 
 ![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
@@ -233,7 +233,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 - **PartnerClaimType**은 Azure Insights에 나타나는 속성의 이름입니다. `{property:NAME}`의 구분을 사용합니다. 단, `NAME`은 이벤트에 추가하는 속성입니다.
 - **DefaultValue**는 임의의 문자열 값 또는 클레임 확인자를 사용합니다.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
 <InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 <InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />

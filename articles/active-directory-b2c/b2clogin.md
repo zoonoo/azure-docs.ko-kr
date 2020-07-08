@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 64b440054795670b99a22e37dec7188f3e1cd74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386167"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -50,7 +50,7 @@ Login.microsoftonline.com의 사용 중단은 테 넌 트 Azure Active Directory
 
 ## <a name="change-identity-provider-redirect-urls"></a>Id 공급자 리디렉션 Url 변경
 
-응용 프로그램을 만든 각 id 공급자의 웹 사이트에서 `your-tenant-name.b2clogin.com` *login.microsoftonline.com*대신 리디렉션할 모든 신뢰할 수 있는 url을 변경 합니다.
+응용 프로그램을 만든 각 id 공급자의 웹 사이트에서 login.microsoftonline.com 대신 리디렉션할 모든 신뢰할 수 있는 Url을 변경 `your-tenant-name.b2clogin.com` 합니다. *login.microsoftonline.com*
 
 B2clogin.com 리디렉션 Url에 사용할 수 있는 두 가지 형식이 있습니다. 첫 번째는 테 넌 트 도메인 이름 대신에 테 넌 트 ID (GUID)를 사용 하 여 URL의 어디에 나 "Microsoft"가 표시 되지 않도록 하는 이점을 제공 합니다.
 
@@ -58,7 +58,7 @@ B2clogin.com 리디렉션 Url에 사용할 수 있는 두 가지 형식이 있�
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-두 번째 옵션은 형식의 테 넌 트 도메인 이름을 사용 합니다 `your-tenant-name.onmicrosoft.com`. 예를 들면 다음과 같습니다.
+두 번째 옵션은 형식의 테 넌 트 도메인 이름을 사용 합니다 `your-tenant-name.onmicrosoft.com` . 예를 들어:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -67,11 +67,11 @@ https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth
 두 형식 모두:
 
 * `{your-tenant-name}`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
-* URL `/te` 에 있으면를 제거 합니다.
+* `/te`URL에 있으면를 제거 합니다.
 
 ## <a name="update-your-applications-and-apis"></a>응용 프로그램 및 Api 업데이트
 
-Azure AD B2C 지원 응용 프로그램 및 Api의 코드는 여러 위치 `login.microsoftonline.com` 에서 참조할 수 있습니다. 예를 들어 코드에 사용자 흐름과 토큰 끝점에 대 한 참조가 있을 수 있습니다. 다음을 대신 참조 `your-tenant-name.b2clogin.com`로 업데이트 합니다.
+Azure AD B2C 지원 응용 프로그램 및 Api의 코드는 `login.microsoftonline.com` 여러 위치에서 참조할 수 있습니다. 예를 들어 코드에 사용자 흐름과 토큰 끝점에 대 한 참조가 있을 수 있습니다. 다음을 대신 참조로 업데이트 합니다 `your-tenant-name.b2clogin.com` .
 
 * 권한 부여 엔드포인트
 * 토큰 엔드포인트
@@ -91,7 +91,7 @@ Azure AD B2C에서 보호 하는 Azure API Management Api를 마이그레이션�
 
 ### <a name="validateauthority-property"></a>ValidateAuthority 속성
 
-[MSAL.NET][msal-dotnet] v2 이전 버전을 사용 하는 경우 *b2clogin.com*로 리디렉션을 허용 하도록 **validateauthority** 속성을 클라이언트 인스턴스화에 설정으로 `false` 설정 합니다. 이 설정은 MSAL.NET v3 이상에는 필요 하지 않습니다.
+[MSAL.NET][msal-dotnet] v2 이전 버전을 사용 하는 경우 b2clogin.com로 리디렉션을 허용 하도록 **validateauthority** 속성을 클라이언트 인스턴스화에 설정으로 설정 합니다 `false` . *b2clogin.com* 이 설정은 MSAL.NET v3 이상에는 필요 하지 않습니다.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication

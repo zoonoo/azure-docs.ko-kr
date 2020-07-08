@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383872"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -35,7 +35,7 @@ ms.locfileid: "80666935"
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 페더레이션된 응용 프로그램 (Open ID 및 SAML/WS 급지됨)의 경우 응용 프로그램은 Azure AD 앱 갤러리에 나열 하기 위해 SaaS (software as a service) 모델을 지원 해야 합니다. Enterprise gallery 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원 해야 합니다.
 - Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
@@ -51,7 +51,7 @@ ms.locfileid: "80666935"
 
 응용 프로그램 통합이 Azure AD에서 작동 하는지 테스트 한 후에는 [Microsoft 응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 응용 프로그램 요청을 제출 합니다.
 
-로그인 한 후 다음 페이지가 표시 되 면 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요. 요청을 제출 하는 데 사용할 전자 메일 계정을 제공 합니다. 과 [name@yourbusiness.com](mailto:name@yourbusiness.com) 같은 비즈니스 전자 메일 주소를 선호 합니다. Azure AD 팀이 Microsoft 응용 프로그램 네트워크 포털에 계정을 추가 합니다.
+로그인 한 후 다음 페이지가 표시 되 면 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요. 요청을 제출 하는 데 사용할 전자 메일 계정을 제공 합니다. 과 같은 비즈니스 전자 메일 주소를 [name@yourbusiness.com](mailto:name@yourbusiness.com) 선호 합니다. Azure AD 팀이 Microsoft 응용 프로그램 네트워크 포털에 계정을 추가 합니다.
 
 ![SharePoint portal의 액세스 요청 메시지](./media/howto-app-gallery-listing/errorimage.png)
 
@@ -79,11 +79,11 @@ ms.locfileid: "80666935"
  
 **보안 솔루션:**
 
-* MFA 등록 게스트 사용자는 자신의 사용자 위험을 수정 합니다. 게스트 사용자가 해당 홈 테 넌 트에서 (홈 테 넌 트에서 MFA 및 SSPRhttps://aka.ms/sspr) 필요) 보안 된 암호 변경 또는 재설정을 수행 하 여이 작업을 수행할 수 있습니다. 보안 된 암호 변경 또는 재설정은 온-프레미스이 아닌 Azure AD에서 시작 해야 합니다.
+* MFA 등록 게스트 사용자는 자신의 사용자 위험을 수정 합니다. 게스트 사용자가 https://aka.ms/sspr) 해당 홈 테 넌 트에서 (홈 테 넌 트에서 MFA 및 SSPR 필요) 보안 된 암호 변경 또는 재설정을 수행 하 여이 작업을 수행할 수 있습니다. 보안 된 암호 변경 또는 재설정은 온-프레미스이 아닌 Azure AD에서 시작 해야 합니다.
 
-* 게스트 사용자는 관리자에 게 위험을 해결 합니다. 이 경우 관리자가 암호 재설정 (임시 암호 생성)을 수행 합니다. Id 보호는 필요 하지 않습니다. 게스트 사용자의 관리자는로 https://aka.ms/RiskyUsers 이동 하 여 ' 암호 재설정 '을 클릭할 수 있습니다.
+* 게스트 사용자는 관리자에 게 위험을 해결 합니다. 이 경우 관리자가 암호 재설정 (임시 암호 생성)을 수행 합니다. Id 보호는 필요 하지 않습니다. 게스트 사용자의 관리자는로 이동 하 여 https://aka.ms/RiskyUsers ' 암호 재설정 '을 클릭할 수 있습니다.
 
-* 게스트 사용자는 관리자에 게 위험을 종결 하거나 해제 합니다. 이 경우에도 Id 보호가 필요 하지 않습니다. 관리자는로 https://aka.ms/RiskyUsers 이동 하 여 ' 사용자 위험 해제 '를 클릭할 수 있습니다. 그러나 관리자는 사용자 위험을 닫기 전에이가 거짓 긍정 위험 평가 인지 확인 하기 위해 기한 성실을 수행 해야 합니다. 그렇지 않으면 조사 하지 않고 위험 평가를 억제 하 여 및 Microsoft의 리소스를 위험에 노출 합니다.
+* 게스트 사용자는 관리자에 게 위험을 종결 하거나 해제 합니다. 이 경우에도 Id 보호가 필요 하지 않습니다. 관리자는로 이동 하 여 https://aka.ms/RiskyUsers ' 사용자 위험 해제 '를 클릭할 수 있습니다. 그러나 관리자는 사용자 위험을 닫기 전에이가 거짓 긍정 위험 평가 인지 확인 하기 위해 기한 성실을 수행 해야 합니다. 그렇지 않으면 조사 하지 않고 위험 평가를 억제 하 여 및 Microsoft의 리소스를 위험에 노출 합니다.
 
 > [!NOTE]
 > 액세스에 문제가 있는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
@@ -136,7 +136,7 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거�
 
 ## <a name="list-requests-by-customers"></a>고객 별 요청 나열
 
-고객은 고객이 > **새 요청을 제출**하는 **앱 요청**을 선택 하 여 응용 프로그램을 나열 하는 요청을 제출할 수 있습니다.
+고객은 **고객이**  >  **새 요청을 제출**하는 앱 요청을 선택 하 여 응용 프로그램을 나열 하는 요청을 제출할 수 있습니다.
 
 ![고객이 요청한 앱 타일을 표시 합니다.](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -156,4 +156,4 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거�
 
 ## <a name="escalations"></a>에스컬레이션
 
-모든 에스컬레이션에 대해 [AZURE AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com) SaaSApplicationIntegrations@service.microsoft.com에 전자 메일을 보내면 가능한 한 빨리 응답 합니다.
+모든 에스컬레이션에 대해 [AZURE AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com) 에 전자 메일을 보내면 SaaSApplicationIntegrations@service.microsoft.com 가능한 한 빨리 응답 합니다.

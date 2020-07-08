@@ -3,24 +3,24 @@ title: Azure AD 응용 프로그램 프록시 질문과 대답 | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시을 사용 하 여 내부 온-프레미스 응용 프로그램을 원격 사용자에 게 게시 하는 방법에 대 한 FAQ (질문과 대답)에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386286"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -72,6 +72,13 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 커넥터가 동일한 서브넷에 있을 필요는 없습니다. 그러나 리소스 및 필요한 네트워크 연결 (리소스에 대 한 라우팅, 리소스에서 열린 포트 등)에 대 한 이름 확인 (DNS, 호스트 파일)이 필요 합니다. 권장 사항은 Azure Active Directory 응용 프로그램 프록시를 [사용할 때 네트워크 토폴로지 고려 사항](application-proxy-network-topology.md)을 참조 하세요.
 
+### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>커넥터를 설치할 수 있는 Windows Server 버전은 무엇입니까?
+응용 프로그램 프록시에는 Windows Server 2012 R2 이상이 필요 합니다. 현재 Windows Server 2019에 대 한 HTTP2에는 제한이 있습니다. Windows Server 2019에서 커넥터를 성공적으로 사용 하려면 다음 레지스트리 키를 추가 하 고 서버를 다시 시작 해야 합니다.
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
+
+
 ## <a name="application-configuration"></a>애플리케이션 구성
 
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>기본 및 "긴" 백 엔드 시간 제한의 길이는 어떻게 되나요? 제한 시간을 연장할 수 있나요?
@@ -86,7 +93,7 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 아니요, 게시 된 응용 프로그램에 대 한 IIS 요구 사항은 없습니다. Windows Server가 아닌 서버에서 실행 되는 웹 응용 프로그램을 게시할 수 있습니다. 그러나 웹 서버에서 Negotiate (Kerberos 인증)를 지원 하는지 여부에 따라 비 Windows 서버에서 사전 인증을 사용 하지 못할 수도 있습니다. 커넥터가 설치 된 서버에는 IIS가 필요 하지 않습니다.
 
-## <a name="integrated-windows-authentication"></a>Windows 통합 인증
+## <a name="integrated-windows-authentication"></a>통합 Windows 인증
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>KCD (Kerberos 제한 위임)를 설정할 때 PrincipalsAllowedToDelegateToAccount 메서드를 사용 해야 하는 경우는 언제 인가요?
 
@@ -152,7 +159,7 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket은 QlikSense 이외의 응용 프로그램에 대해 작업을 지원 하나요?
 
-현재 WebSocket 프로토콜 지원은 아직 공개 미리 보기 상태 이며 다른 응용 프로그램에서 작동 하지 않을 수 있습니다. 일부 고객의 경우 WebSocket 프로토콜을 사용 하 여 다른 응용 프로그램과의 성공을 혼합 했습니다. 이러한 시나리오를 테스트 하는 경우 결과를 듣고 싶습니다. 에서 aadapfeedback@microsoft.com사용자 의견을 보내 주시기 바랍니다.
+현재 WebSocket 프로토콜 지원은 아직 공개 미리 보기 상태 이며 다른 응용 프로그램에서 작동 하지 않을 수 있습니다. 일부 고객의 경우 WebSocket 프로토콜을 사용 하 여 다른 응용 프로그램과의 성공을 혼합 했습니다. 이러한 시나리오를 테스트 하는 경우 결과를 듣고 싶습니다. 에서 사용자 의견을 보내 주시기 바랍니다 aadapfeedback@microsoft.com .
 
 Windows 관리 센터 (WAC) 또는 원격 데스크톱 웹 클라이언트 (HTML5)의 기능 (Eventlogs, PowerShell 및 원격 데스크톱 서비스)은 현재 Azure AD 응용 프로그램 프록시를 통해 작동 하지 않습니다.
 

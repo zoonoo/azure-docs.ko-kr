@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386218"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 
@@ -25,12 +25,12 @@ Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그
 다음과 같이 로그 이벤트를 라우팅할 수 있습니다.
 
 * Azure [저장소 계정](../storage/blobs/storage-blobs-introduction.md).
-* Azure [이벤트 허브](../event-hubs/event-hubs-about.md) (및 Splunk 및 Sumo 논리 인스턴스와 통합)
 * 데이터를 분석 하 고, 대시보드를 만들고, 특정 이벤트에 대해 경고 하는 [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs-collect-workspace.md) 입니다.
+* Azure [이벤트 허브](../event-hubs/event-hubs-about.md) (및 Splunk 및 Sumo 논리 인스턴스와 통합)
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료 하려면 Azure PowerShell 모듈을 사용 하 여 Azure Resource Manager 템플릿을 배포 합니다.
 
@@ -59,7 +59,7 @@ Azure Monitor에서 데이터를 받을 대상 Azure storage 계정, event hub �
 Azure AD B2C 디렉터리 (테 넌 트 ID 라고도 함)의 **디렉터리 ID** 입니다.
 
 1. *사용자 관리자* 역할 (또는 이상)이 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. **Azure Active Directory**를 선택 하 고 **속성**을 선택 합니다.
 1. **디렉터리 ID**를 기록 합니다.
 
@@ -72,7 +72,7 @@ Azure AD B2C 디렉터리 (테 넌 트 ID 라고도 함)의 **디렉터리 ID** 
 
 ### <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 
-Azure AD 테 넌 트 ( **고객**)를 등록 하려면 다음 정보를 사용 하 여 제품에 대 한 [Azure Resource Manager 템플릿을](../lighthouse/how-to/onboard-customer.md) 만듭니다. 및 값은 Azure Portal의 [서비스 공급자 페이지](../lighthouse/how-to/view-manage-service-providers.md) 에서 제안 세부 정보를 볼 때 표시 됩니다. `mspOfferDescription` `mspOfferName`
+Azure AD 테 넌 트 ( **고객**)를 등록 하려면 다음 정보를 사용 하 여 제품에 대 한 [Azure Resource Manager 템플릿을](../lighthouse/how-to/onboard-customer.md) 만듭니다. `mspOfferName`및 `mspOfferDescription` 값은 Azure Portal의 [서비스 공급자 페이지](../lighthouse/how-to/view-manage-service-providers.md) 에서 제안 세부 정보를 볼 때 표시 됩니다.
 
 | 필드   | 정의 |
 |---------|------------|
@@ -87,9 +87,9 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 다운로드 합니
 - [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
 - [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-다음으로 매개 변수 파일을 앞에서 기록한 값으로 업데이트 합니다. 다음 JSON 코드 조각은 Azure Resource Manager 템플릿 매개 변수 파일의 예를 보여 줍니다. 의 `authorizations.value.roleDefinitionId`경우 *참가자 역할*에 대 한 `b24988ac-6180-42a0-ab88-20f7382dd24c` [기본 제공 역할](../role-based-access-control/built-in-roles.md) 값을 사용 합니다.
+다음으로 매개 변수 파일을 앞에서 기록한 값으로 업데이트 합니다. 다음 JSON 코드 조각은 Azure Resource Manager 템플릿 매개 변수 파일의 예를 보여 줍니다. 의 경우 `authorizations.value.roleDefinitionId` *참가자 역할*에 대 한 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 값을 사용 `b24988ac-6180-42a0-ab88-20f7382dd24c` 합니다.
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -123,7 +123,7 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 다운로드 합니
 
 매개 변수 파일을 업데이트 한 후에는 구독 수준 배포로 Azure Resource Manager 템플릿을 Azure 테 넌 트에 배포 합니다. 이 배포는 구독 수준 배포이므로 Azure Portal에서 시작할 수 없습니다. Azure PowerShell 모듈 또는 Azure CLI를 사용 하 여 배포할 수 있습니다. Azure PowerShell 메서드는 다음과 같습니다.
 
-[AzAccount](/powershell/azure/authenticate-azureps)를 사용 하 여 구독을 포함 하는 디렉터리에 로그인 합니다. `-tenant` 플래그를 사용 하 여 올바른 디렉터리에 대 한 인증을 적용 합니다.
+[AzAccount](/powershell/azure/authenticate-azureps)를 사용 하 여 구독을 포함 하는 디렉터리에 로그인 합니다. 플래그를 사용 `-tenant` 하 여 올바른 디렉터리에 대 한 인증을 적용 합니다.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
@@ -141,7 +141,7 @@ Get-AzSubscription
 Select-AzSubscription <subscription ID>
 ```
 
-마지막으로, 이전에 다운로드 하 고 업데이트 한 Azure Resource Manager 템플릿 및 매개 변수 파일을 배포 합니다. `Location`, `TemplateFile`및 `TemplateParameterFile` 값을 적절 하 게 바꿉니다.
+마지막으로, 이전에 다운로드 하 고 업데이트 한 Azure Resource Manager 템플릿 및 매개 변수 파일을 배포 합니다. `Location`, `TemplateFile` 및 값을 적절 하 게 바꿉니다 `TemplateParameterFile` .
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -193,13 +193,13 @@ Parameters              :
 
 템플릿을 배포한 후 리소스 프로젝션을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 다음 섹션으로 이동 하 여 구독을 선택 하기 전에 몇 분 (일반적으로 5 개이 하)을 기다려야 할 수 있습니다.
 
-## <a name="select-your-subscription"></a>구독 선택
+## <a name="select-your-subscription"></a>구독을 선택합니다.
 
 템플릿을 배포 하 고 리소스 프로젝션이 완료 될 때까지 몇 분 정도 기다린 후에는 다음 단계를 사용 하 여 구독을 Azure AD B2C 디렉터리에 연결 합니다.
 
 1. 현재 로그인 되어 있는 경우 Azure Portal에서 **로그 아웃** 합니다. 이 단계와 다음 단계를 수행 하 여 포털 세션에서 자격 증명을 새로 고칠 수 있습니다.
 1. Azure AD B2C 관리 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
 1. 구독을 포함 하는 디렉터리를 선택 합니다.
 
     ![디렉터리 전환](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
@@ -224,7 +224,7 @@ Azure Portal에서 [진단 설정을 만들](../active-directory/reports-monitor
 활동 로그 Azure AD B2C에 대 한 모니터링 설정을 구성 하려면:
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. **Azure Active Directory** 선택
 1. **모니터링** 아래에서 **진단 설정**을 선택합니다.
 1. 리소스에 기존 설정이 있는 경우 이미 구성 된 설정 목록이 표시 됩니다. **진단 설정 추가** 를 선택 하 여 새 설정을 추가 하거나 설정을 **편집** 하 여 기존 설정을 편집 합니다. 각 설정에는 대상 유형 중 하나만 지정할 수 있습니다.
@@ -234,7 +234,7 @@ Azure Portal에서 [진단 설정을 만들](../active-directory/reports-monitor
 1. 아직 없는 경우 설정 이름을 지정 합니다.
 1. 로그를 보낼 각 대상에 대 한 확인란을 선택 합니다. **구성** 을 선택 하 여 다음 표에 설명 된 대로 설정을 지정 합니다.
 
-    | 설정 | Description |
+    | Setting | 설명 |
     |:---|:---|
     | 스토리지 계정에 보관 | 저장소 계정의 이름입니다. |
     | 이벤트 허브로 스트림 | 이벤트 허브가 생성 되는 네임 스페이스 (처음으로 로그를 스트리밍하는 경우) 또는 스트리밍되는 경우 (해당 로그 범주를이 네임 스페이스로 스트리밍하는 리소스가 이미 있는 경우).

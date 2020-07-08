@@ -4,29 +4,29 @@ description: Windows 디바이스의 로컬 관리자 그룹에 Azure 역할을 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386371"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
 Windows 디바이스를 관리하려면 로컬 관리자 그룹의 구성원이 되어야 합니다. Azure AD(Azure Active Directory) 조인 프로세스의 일부로, Azure AD는 디바이스에서 이 그룹의 멤버 자격을 업데이트합니다. 비즈니스 요구 사항을 충족하도록 멤버 자격 업데이트를 사용자 지정할 수 있습니다. 멤버 자격 업데이트는 예를 들어 기술 지원팀 직원이 디바이스에 대해 관리자 권한이 필요한 작업을 수행할 수 있도록 하려는 경우에 유용합니다.
 
-이 문서에서는 멤버 자격 업데이트의 작동 방법 및 Azure AD 조인 동안 사용자 지정하는 방법을 설명합니다. 이 문서의 내용은 **하이브리드** Azure AD 조인에 적용되지 않습니다.
+이 문서에서는 로컬 관리자 구성원 업데이트의 작동 방식 및 Azure AD 조인 중에이를 사용자 지정 하는 방법을 설명 합니다. 이 문서의 내용은 **하이브리드 AZURE AD 조인** 장치에는 적용 되지 않습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
-Azure AD 조인을 사용하여 Windows 디바이스를 Azure AD와 연결하는 경우 Azure AD는 디바이스에서 로컬 관리자 그룹에 다음 보안 원칙을 추가합니다.
+Azure ad 조인을 사용 하 여 Azure AD에 Windows 장치를 연결 하는 경우 Azure AD는 장치의 로컬 관리자 그룹에 다음 보안 주체를 추가 합니다.
 
 - Azure AD 글로벌 관리자 역할
 - Azure AD 디바이스 관리자 역할 
@@ -59,10 +59,13 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 >[!NOTE]
 > 이 옵션에는 Azure AD Premium 테넌트가 필요합니다. 
 
-디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. 사용자가 이미 로그인 되어 있는 장치에서는 아래와 같은 작업을 *수행할 때 권한* 업데이트가 수행 됩니다.
+디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. 사용자가 이미 로그인 되어 있는 장치에서는 아래와 같은 작업을 *수행할 때 권한* 상승이 발생 합니다.
 
-- 적절 한 권한으로 새 주 새로 고침 토큰을 발급 하기 위해 Azure AD에 4 시간이 경과 되었습니다. 
+- 적절 한 권한으로 새 기본 새로 고침 토큰을 발급 하기 위해 Azure AD에 대해 최대 4 시간이 경과 되었습니다. 
 - 사용자가 로그 아웃 했다가 다시 로그인 하 여 프로필을 새로 고칠 수 있습니다.
+
+>[!NOTE]
+> 위의 작업은 이전에 관련 장치에 로그인 하지 않은 사용자에 게는 적용 되지 않습니다. 이 경우 관리자 권한은 처음으로 장치에 로그인 한 후 즉시 적용 됩니다. 
 
 ## <a name="manage-regular-users"></a>일반 사용자 관리
 
@@ -88,7 +91,7 @@ Azure AD 조인 프로세스를 사용하는 것 외에, 수동으로 하나의 
 
 디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 특정 디바이스 집합으로 범위를 지정할 수 없습니다.
 
-디바이스 관리자 역할에서 사용자를 제거하는 경우 로그인되어 있는 한 디바이스에서 로컬 관리자 권한을 계속 가집니다. 권한은 다음 번에 로그인하는 중에 또는 새 기본 새로 고침 토큰이 발급된 후 4시간이 지나면 철회됩니다.
+디바이스 관리자 역할에서 사용자를 제거하는 경우 로그인되어 있는 한 디바이스에서 로컬 관리자 권한을 계속 가집니다. 새 주 새로 고침 토큰이 발급 되 면 다음에 로그인 하는 동안 권한이 해지 됩니다. 권한 상승을 유사한이 해지는 최대 4 시간까지 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

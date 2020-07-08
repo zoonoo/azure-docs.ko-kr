@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385419"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용하여 Azure API Management API 보호
 
@@ -35,23 +35,23 @@ Azure AD B2C(Azure Active Directory B2C)에서 인증을 받은 클라이언트�
 
 Azure AD B2C를 사용하여 Azure API Management에서 API를 보호하는 경우 APIM에서 만든 [인바운드 정책](../api-management/api-management-howto-policies.md)에 대해 몇 가지 값이 필요합니다. 먼저 Azure AD B2C 테넌트에서 이전에 만든 애플리케이션의 애플리케이션 ID를 적어 둡니다. 필수 조건에서 만든 애플리케이션을 사용하는 경우 *webbapp1*에 대해 애플리케이션 ID를 사용합니다.
 
-현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션 ID를 가져올 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
+Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **관리**에서 **애플리케이션**을 선택합니다.
-1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션 ID** 열의 값을 적어 둡니다.
-
-#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록(미리 보기)** 를 선택하고, **소유한 애플리케이션** 탭을 선택합니다.
+1. **앱 등록**를 선택 하 고 소유 하는 **응용 프로그램** 탭을 선택 합니다.
 1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션(클라이언트) ID** 열의 값을 적어 둡니다.
+
+#### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. **관리**에서 **응용 프로그램 (레거시)** 을 선택 합니다.
+1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션 ID** 열의 값을 적어 둡니다.
 
 * * *
 
@@ -171,7 +171,7 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 
 1. Postman에서 **보내기** 단추를 선택하여 요청을 실행합니다. 모든 항목을 올바르게 구성한 경우에는 컨퍼런스 발표자 컬렉션을 포함하는 JSON 응답이 제공됩니다(여기서는 잘려서 표시됨).
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 
 1. **보내기** 단추를 선택하여 요청을 실행합니다. 잘못된 토큰을 사용하는 경우 예상되는 결과는 `401` 권한 없는 상태 코드입니다.
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 
 일부 애플리케이션은 일반적으로 단일 REST API와 상호 작용합니다. API에서 여러 애플리케이션용으로 발급된 토큰을 허용하도록 하려면 APIM 인바운드 정책의 `<audiences>` 요소에 해당 애플리케이션 ID를 추가합니다.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 
 마찬가지로, 여러 토큰 발급자를 지원하려면 해당 엔드포인트 URI를 APIM 인바운드 정책의 `<issuers>` 요소에 추가합니다.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ API를 호출하려면 Azure AD B2C에서 발급한 액세스 토큰과 APIM 구
 
 다음 예제 APIM 인바운드 정책은 b2clogin.com 및 login.microsoftonline.com 둘 다에서 발급된 토큰을 허용하는 방법을 보여 줍니다. 또한 두 애플리케이션의 API 요청을 지원합니다.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

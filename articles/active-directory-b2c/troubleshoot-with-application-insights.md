@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fad29c32731ee2470354a51acf32e350eb0c4cfc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384875"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
@@ -42,28 +42,28 @@ ms.locfileid: "78186270"
 
 ## <a name="configure-the-custom-policy"></a>사용자 지정 정책 구성
 
-1. RP (신뢰 당사자) 파일을 엽니다 (예: *Signuto signin .xml*).
+1. *SignUpOrSignin.xml*와 같은 RP (신뢰 당사자) 파일을 엽니다.
 1. 다음 속성을 `<TrustFrameworkPolicy>` 요소에 추가합니다.
 
-   ```XML
+   ```xml
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. `<UserJourneyBehaviors>` 자식 노드가 아직 없으면 `<RelyingParty>` 노드에 추가 합니다. 바로 뒤에 `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`위치 해야 합니다.
-1. 다음 노드를 `<UserJourneyBehaviors>` 요소의 자식으로 추가합니다. 을 이전에 기록한 `{Your Application Insights Key}` Application Insights **계측 키** 로 바꿔야 합니다.
+1. `<UserJourneyBehaviors>`자식 노드가 아직 없으면 `<RelyingParty>` 노드에 추가 합니다. 바로 뒤에 위치 해야 합니다 `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
+1. 다음 노드를 `<UserJourneyBehaviors>` 요소의 자식으로 추가합니다. 을 `{Your Application Insights Key}` 이전에 기록한 Application Insights **계측 키** 로 바꿔야 합니다.
 
-    ```XML
+    ```xml
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
     * `DeveloperMode="true"`처리 파이프라인을 통해 원격 분석을 신속 하 게 처리 하도록 ApplicationInsights에 지시 합니다. 개발에 좋지만 고용량으로 제한 됩니다.
-    * `ClientEnabled="true"`페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 `ClientEnabled= "true"`하 여 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이**며 기본적으로로 `false` 설정 됩니다.
+    * `ClientEnabled="true"`페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 하 여 `ClientEnabled= "true"` 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이**며 기본적으로로 설정 됩니다 `false` .
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
       ...
       TenantId="fabrikamb2c.onmicrosoft.com"
@@ -93,7 +93,7 @@ Application Insights에서 새 로그를 볼 수 있으려면 일반적으로 5 
 
 로그를 확인 하는 데 사용할 수 있는 쿼리 목록은 다음과 같습니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |---------------------|--------------------|
 `traces` | Azure AD B2C에서 생성된 모든 로그를 참조하세요. |
 `traces | where timestamp > ago(1d)` | 마지막 날에 Azure AD B2C에서 생성된 모든 로그를 참조하세요.

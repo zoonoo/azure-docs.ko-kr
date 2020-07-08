@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eadac0e973b361b1fdee63dcc9cfa848a0b2bacb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385351"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Azure AD B2C (미리 보기)에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
@@ -30,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C)의 전화 등록 및 로그인을 사�
 
 SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보내고, 전송 된 각 메시지에 대해 요금이 청구 될 수 있습니다. 가격 책정 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)의 **별도 요금** 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 OTP를 설정 하기 전에 다음 리소스를 준비 해야 합니다.
 
@@ -48,31 +48,31 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. 각 파일에서 문자열 `yourtenant` 을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들어 B2C 테 넌 트의 이름이 *contosob2c*인 경우의 `yourtenant.onmicrosoft.com` 모든 인스턴스는가 `contosob2c.onmicrosoft.com`됩니다.
+1. 각 파일에서 문자열을 `yourtenant` Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들어 B2C 테 넌 트의 이름이 *contosob2c*인 경우의 모든 인스턴스는가 됩니다 `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
 
-1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 [사용자 지정 정책에 응용 프로그램 id 추가](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) 섹션에 설명 된 단계를 완료 합니다. 이 `/phone-number-passwordless/` **`Phone_Email_Base.xml`** 경우, *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework*필수 구성 요소를 완료할 때 등록 한 두 응용 프로그램의 **응용 프로그램 (클라이언트) id** 로 업데이트 합니다.
+1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 [사용자 지정 정책에 응용 프로그램 id 추가](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) 섹션에 설명 된 단계를 완료 합니다. 이 경우, `/phone-number-passwordless/` **`Phone_Email_Base.xml`** *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework*필수 구성 요소를 완료할 때 등록 한 두 응용 프로그램의 **응용 프로그램 (클라이언트) id** 로 업데이트 합니다.
 
 ## <a name="upload-the-policy-files"></a>정책 파일을 업로드 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 Azure AD B2C 테 넌 트로 이동 합니다.
-1. **정책**에서 **Id 경험 프레임 워크**를 선택 합니다.
-1. **사용자 지정 정책 업로드**를 선택 합니다.
+1. **정책**에서 **Identity Experience Framework**를 선택합니다.
+1. **사용자 지정 정책 업로드**를 선택합니다.
 1. 다음 순서로 정책 파일을 업로드 합니다.
-    1. *Phone_Email_Base .xml*
-    1. *SignUpOrSignInWithPhone*
-    1. *SignUpOrSignInWithPhoneOrEmail*
-    1. *ProfileEditPhoneOnly*
-    1. *ProfileEditPhoneEmail*
-    1. *ChangePhoneNumber*
-    1. *PasswordResetEmail .xml*
+    1. *Phone_Email_Base.xml*
+    1. *SignUpOrSignInWithPhone.xml*
+    1. *SignUpOrSignInWithPhoneOrEmail.xml*
+    1. *ProfileEditPhoneOnly.xml*
+    1. *ProfileEditPhoneEmail.xml*
+    1. *ChangePhoneNumber.xml*
+    1. *PasswordResetEmail.xml*
 
-각 파일을 업로드 하면 Azure에서 접두사 `B2C_1A_`를 추가 합니다.
+각 파일을 업로드 하면 Azure에서 접두사를 추가 `B2C_1A_` 합니다.
 
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
 1. **사용자 지정 정책**에서 **B2C_1A_SignUpOrSignInWithPhone**를 선택 합니다.
 1. **응용 프로그램 선택**에서 필수 구성 요소를 완료할 때 등록 한 *webapp1* 응용 프로그램을 선택 합니다.
-1. **회신 Url 선택**에 대해를 `https://jwt.ms`선택 합니다.
+1. **회신 Url 선택**에 대해를 선택 `https://jwt.ms` 합니다.
 1. **지금 실행** 을 선택 하 고 전자 메일 주소 또는 전화 번호를 사용 하 여 등록 합니다.
 1. **지금 실행** 을 선택 하 고 동일한 계정으로 로그인 하 여 구성이 올바른지 확인 합니다.
 
@@ -86,7 +86,7 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

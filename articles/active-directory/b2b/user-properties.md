@@ -4,20 +4,20 @@ description: 초대 상환 전후에 B2B 게스트 사용자 속성 및 상태 A
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 03/19/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f5002e361653614c966dc43301afa83eb7b200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386626"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
@@ -28,7 +28,7 @@ ms.locfileid: "80050808"
 - 상태 1: Azure AD의 외부 인스턴스에 속하며 초대하는 조직의 게스트 사용자로 표시됩니다. 이 경우 B2B 사용자는 초대된 테넌트에 속한 Azure AD 계정을 사용하여 로그인합니다. 파트너 조직이 Azure AD를 사용하지 않는 경우에도 Azure AD에서 게스트 사용자는 여전히 생성됩니다. 단, 본인의 초대를 사용해야 합니다. Azure AD에서는 해당 사용자의 전자 메일 주소를 확인합니다. 이것을 JIT(Just In Time) 테넌트 또는 “바이럴” 테넌트라고도 합니다.
 
    > [!IMPORTANT]
-   > **2021 년 3 월 31**일부 터 MICROSOFT는 B2B 공동 작업 시나리오에 대해 관리 되지 않는 Azure AD 계정 및 테 넌 트를 만들어 초대 상환을 더 이상 지원 하지 않습니다. 준비가 되 면 고객이 [일회용 암호 인증을 전자 메일로](one-time-passcode.md)옵트인 하는 것이 좋습니다. 이 공개 미리 보기 기능에 대 한 사용자 의견을 환영 하며 공동 작업을 위해 훨씬 더 많은 방법을 만들어 보세요.
+   > **2021년 3월 31일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
 - 상태 2: Microsoft 또는 다른 계정에서 홈으로 호스트 조직에서 게스트 사용자로 표시 됩니다. 이 경우 게스트 사용자는 Microsoft 계정 또는 소셜 계정(google.com 또는 유사한)으로 로그인합니다. 초대된 사용자의 ID는 제안 상환 도중 초대 조직의 디렉터리에서 Microsoft 계정으로 만들어집니다.
 
@@ -104,7 +104,11 @@ PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대�
 ![사용자 설정에서 외부 사용자 옵션을 보여 주는 스크린샷](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
-예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Office 365 그룹의 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list)에서 **게스트 개체를 글로벌 주소 목록에 표시할 수 있나요?** 를 참조하세요. 
+예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Office 365 그룹의 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups)에서 **게스트 개체를 글로벌 주소 목록에 표시할 수 있나요?** 를 참조하세요.
+
+## <a name="can-i-update-a-guest-users-email-address"></a>게스트 사용자의 전자 메일 주소를 업데이트할 수 있나요?
+
+게스트 사용자가 초대를 수락 하 고 이후에 메일 주소를 변경 하는 경우 새 메일은 디렉터리의 게스트 사용자 개체와 자동으로 동기화 되지 않습니다. 메일 속성은 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)를 통해 생성 됩니다. Exchange 관리 센터 또는 [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)을 통해 메일 속성을 업데이트할 수 있으며 변경 내용은 Azure AD 게스트 사용자 개체에 반영 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
