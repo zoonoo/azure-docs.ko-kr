@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182235"
 ---
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 정기적인 핫픽스를 설치하려면
 1. 디바이스 직렬 콘솔에 연결합니다. 자세한 내용은 [1단계: 직렬 콘솔에 연결](../articles/storsimple/storsimple-update-device.md#step1)을 참조하세요.
 2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 암호를 입력합니다. 기본 암호는 **Password1**입니다.
-3. 명령 프롬프트에 다음을 입력합니다.
+3. 명령 프롬프트에서 다음을 입력합니다.
    
     ```
     Start-HcsHotfix

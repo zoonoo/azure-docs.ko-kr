@@ -4,15 +4,15 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d679767f1a4be3ecdcf1811662c72dbbe2df33a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67182144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84014788"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
-1. 원격 데스크톱을 사용하여 가상 머신에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop)를 참조하세요.
+1. 원격 데스크톱을 사용하여 가상 머신에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md#remotedesktop)를 참조하세요.
 2. 로그인한 후 시작 화면에서 **WF.msc**를 입력한 다음, ENTER 키를 누릅니다.
    
     ![방화벽 프로그램 시작](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
@@ -29,7 +29,7 @@ ms.locfileid: "67182144"
     **보안 정보:****안전한 경우 연결 허용**을 선택하면 추가 보안을 제공할 수 있습니다. 사용자 환경에서 추가 보안을 구성하려는 경우 이 옵션을 선택하세요.
    
     ![연결 허용](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. **프로필** 대화 상자에서 **공용**, **프라이빗** 및 **도메인**을 선택합니다. 그런 후 **Next** 를 클릭합니다.
+8. **프로필** 대화 상자에서 **공용**, **프라이빗** 및 **도메인**을 선택합니다. **다음**을 클릭합니다.
    
     **보안 정보:****공개**를 선택하면 인터넷을 통한 액세스가 허용됩니다. 가능하면 더 제한적인 프로필을 선택하세요.
    
@@ -67,7 +67,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 5. SQL Server Management Studio 대화 상자에서 **확인**을 클릭하여 SQL Server를 다시 시작해야 하는 요구 사항을 확인합니다.
 6. 개체 탐색기에서 해당 서버를 마우스 오른쪽 단추로 클릭한 다음 **다시 시작**을 클릭합니다. SQL Server 에이전트가 실행 중인 경우 에이전트도 다시 시작해야 합니다.
    
-    ![다시 시작](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![재시작](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. SQL Server Management Studio 대화 상자에서 **예**를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
 
 ### <a name="create-sql-server-authentication-logins"></a>SQL Server 인증 로그인 만들기

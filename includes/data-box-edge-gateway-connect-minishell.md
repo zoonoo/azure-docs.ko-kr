@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182665"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
@@ -28,7 +28,7 @@ Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수
 
     $ip = "<device_ip>"
 
-    을 `<device_ip>` 장치의 IP 주소로 바꿉니다.
+    `<device_ip>`을 장치의 IP 주소로 바꿉니다.
 
 4. 장치의 IP 주소를 클라이언트의 신뢰할 수 있는 호스트 목록에 추가 하려면 다음 명령을 입력 합니다.
 
@@ -59,7 +59,7 @@ Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수
 연결에 사용할 Linux 클라이언트에서 다음을 수행 합니다.
 
 - GitHub에서 [Linux 용 최신 PowerShell Core를 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) 하 여 SSH 원격 기능을 가져옵니다. 
-- [NTLM 모듈의 `gss-ntlmssp` 패키지만 설치](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md)합니다. Ubuntu 클라이언트의 경우 다음 명령을 사용 합니다.
+- [ `gss-ntlmssp` NTLM 모듈의 패키지만 설치](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md)합니다. Ubuntu 클라이언트의 경우 다음 명령을 사용 합니다.
     - `sudo apt-get install gss-ntlmssp`
 
 자세한 내용은 [SSH를 통한 PowerShell 원격](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6)을 참조 하세요.

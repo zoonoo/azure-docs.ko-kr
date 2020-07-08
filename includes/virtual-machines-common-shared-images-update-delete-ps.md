@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182166"
 ---
 ## <a name="update-resources"></a>리소스 업데이트
@@ -25,7 +25,7 @@ ms.locfileid: "67182166"
 이미지 정의:
 - 권장 vCPU
 - 권장 메모리
-- 설명
+- Description
 - 수명 주기 끝
 
 이미지 버전:

@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182215"
 ---
 ## <a name="update-resources"></a>리소스 업데이트
@@ -20,12 +20,12 @@ ms.locfileid: "67182215"
 업데이트할 수 있는 항목에 대 한 몇 가지 제한 사항이 있습니다. 다음 항목을 업데이트할 수 있습니다. 
 
 공유 이미지 갤러리:
-- 설명
+- Description
 
 이미지 정의:
 - 권장 vCPU
 - 권장 메모리
-- 설명
+- Description
 - 수명 주기 끝
 
 이미지 버전:

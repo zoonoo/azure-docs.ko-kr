@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68883798"
 ---
 ## <a name="create-a-module-identity"></a>모듈 ID 만들기
@@ -29,13 +29,13 @@ ms.locfileid: "68883798"
 
     ![Visual Studio 솔루션에 대 한 이름 및 프레임 워크 입력](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **솔루션에 대 한 nuget 패키지 관리**를 엽니다. **찾아보기** 탭을 선택합니다.
+1. Visual Studio에서 **도구**  >  **nuget 패키지 관리자**  >  **솔루션에 대 한 nuget 패키지 관리**를 엽니다. **찾아보기** 탭을 선택합니다.
 
 1. **Microsoft. Azure. 장치**를 검색 합니다. 선택 하 고 **설치**를 선택 합니다.
 
     ![Azure IoT Hub .NET 서비스 SDK 최신 버전을 설치 합니다.](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Program.cs 파일의 `using` 맨 위에 다음 문을 추가 합니다 **Program.cs** .
+1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -102,9 +102,9 @@ ms.locfileid: "68883798"
     }
     ```
 
-    메서드 `AddDeviceAsync` 는 ID **myfirstdevice**를 사용 하 여 장치 id를 만듭니다. Id 레지스트리에 해당 장치 ID가 이미 있는 경우 코드는 기존 장치 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 장치 앱에서이 키를 사용 하 여 허브에 연결 합니다.
+    `AddDeviceAsync`메서드는 ID **myfirstdevice**를 사용 하 여 장치 id를 만듭니다. Id 레지스트리에 해당 장치 ID가 이미 있는 경우 코드는 기존 장치 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 장치 앱에서이 키를 사용 하 여 허브에 연결 합니다.
 
-    메서드 `AddModuleAsync` 는 **myfirstmodule**장치에서 ID **myfirstmodule** 을 사용 하 여 모듈 id를 만듭니다. 해당 모듈 ID가 이미 id 레지스트리에 있으면 코드에서 기존 모듈 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 모듈 앱에서이 키를 사용 하 여 허브에 연결 합니다.
+    `AddModuleAsync`메서드는 **myfirstmodule**장치에서 ID **myfirstmodule** 을 사용 하 여 모듈 id를 만듭니다. 해당 모듈 ID가 이미 id 레지스트리에 있으면 코드에서 기존 모듈 정보만 검색 합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 시뮬레이션 된 모듈 앱에서이 키를 사용 하 여 허브에 연결 합니다.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182731"
 ---
 특정 상황에 대 한 단계를 수행 합니다.
@@ -26,13 +26,13 @@ ms.locfileid: "67182731"
 프로세스 서버가 설치 된 컴퓨터를 액세스 권한을 복원 방법이 없는 경우에만이 단계를 사용 합니다.
 
 1. 관리자 권한으로 구성 서버에 로그인 합니다.
-2. 관리 명령 프롬프트를 열고로 `%ProgramData%\ASR\home\svsystems\bin`이동 합니다.
+2. 관리 명령 프롬프트를 열고로 이동 `%ProgramData%\ASR\home\svsystems\bin` 합니다.
 3. 하나 이상의 프로세스 서버 목록을 가져오려면이 명령을 실행 합니다.
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-    - S.는 아니요: 프로세스 서버 일련 번호입니다.
+    - S. 아니요: 프로세스 서버 일련 번호입니다.
     - I p/이름: 프로세스 서버를 실행 하는 컴퓨터의 IP 주소 및 이름입니다.
     - 하트 비트: 프로세스 서버 컴퓨터에서 마지막 하트 비트입니다.
     ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)

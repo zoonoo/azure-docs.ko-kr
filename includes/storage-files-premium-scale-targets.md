@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
 ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71180061"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>추가 프리미엄 파일 공유 수준 제한
 
-|영역  |대상  |
+|Area  |Target  |
 |---------|---------|
 |최소 크기 증가/감소    |GiB 1      |
 |기준 IOPS    |GiB 당 IOPS 1 개, 최대 10만|
@@ -23,9 +23,9 @@ ms.locfileid: "71180061"
 
 #### <a name="file-level-limits"></a>파일 수준 제한
 
-|영역  |프리미엄 파일  |표준 파일 |
+|Area  |프리미엄 파일  |표준 파일 |
 |---------|---------|---------|
-|Size                  |1TiB         |1TiB|
+|크기                  |1TiB         |1TiB|
 |파일당 최대 IOPS     |5,000         |1,000|
 |동시 핸들    |2,000         |2,000|
 |송신  |300 MiB/초|      표준 파일 처리량 값 참조|
