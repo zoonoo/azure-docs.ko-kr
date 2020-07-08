@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 541c6f4a6c728844524af794f5e2063f4e352cce
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: fb3dda7a2f33fa76ab78a67f86fb015430c64099
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114778"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 암호화 
 
@@ -24,7 +24,7 @@ PaaS 서비스인 Azure Cosmos DB는 사용하기가 매우 간편합니다. Azu
 
 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 데이터를 암호 해독하고 처리하는 시스템은 키를 관리하는 시스템과 통신해야 합니다. 다이어그램에서는 암호화된 데이터의 스토리지와 키 관리가 어떻게 구분되는지를 보여 줍니다. 
 
-![디자인 다이어그램](./media/database-encryption-at-rest/design-diagram.png)
+:::image type="content" source="./media/database-encryption-at-rest/design-diagram.png" alt-text="디자인 다이어그램" border="false":::
 
 사용자 요청의 기본 흐름은 다음과 같습니다.
 - 사용자 데이터베이스 계정은 이미 준비되어 있고 스토리지 키는 관리 서비스 리소스 공급자에 대한 요청을 통해 검색됩니다.
@@ -46,7 +46,7 @@ A: 키는 Microsoft에서 관리합니다.
 A: Microsoft에는 Cosmos DB가 따르는 암호화 키 순환에 대한 일련의 내부 지침이 있습니다. 특정 지침은 게시되지 않습니다. Microsoft는 내부 지침의 하위 집합으로 간주되고 개발자를 위한 유용한 모범 사례가 있는 [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)을 게시합니다.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Q: 나만의 암호화 키를 사용할 수 있나요?
-A: 예, 이제 이 기능은 새 cosmos 계정에 사용할 수 있으며 계정 생성 시 수행해야 합니다. 자세한 내용은 [고객 관리형 키](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) 문서를 참조하세요.
+A: 예,이 기능은 이제 새 Azure Cosmos DB 계정에 사용할 수 있으며 계정을 만들 때 수행 해야 합니다. 자세한 내용은 [고객 관리 키](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) 문서를 참조 하세요.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>Q: 암호화가 켜져 있는 Azure 지역은 어디인가요?
 A: 모든 Azure Cosmos DB 지역에서 모든 사용자 데이터에 대해 암호화가 켜져 있습니다.

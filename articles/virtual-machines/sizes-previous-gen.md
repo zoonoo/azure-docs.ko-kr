@@ -1,25 +1,19 @@
 ---
-title: Azure Linux VM 크기 - 이전 세대 | Microsoft Docs
-description: Azure에서 Linux 가상 머신에 사용할 수 있는 크기의 이전 세대를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Azure VM 크기-이전 세대 | Microsoft Docs
+description: Azure의 가상 컴퓨터에 사용할 수 있는 이전 크기의 생성을 나열 합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
+services: virtual-machines
+ms.subservice: sizes
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
-ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081543"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119225"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -33,11 +27,11 @@ F 시리즈 VM은 더 빠른 CPU를 요구하지만 많은 메모리나 vCPU당 
 
 ACU: 210-250
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_F1  | 1  | 2  | 16  | 3000/46/23    | 4/4x500   | 2/750   |
 | Standard_F2  | 2  | 4  | 32  | 6000/93/46    | 8/8x500   | 2/1500  |
@@ -51,11 +45,11 @@ Fs 시리즈는 Premium Storage 외에도 F 시리즈의 모든 기능을 제공
 
 ACU: 210-250
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원 됨
+Premium Storage 캐싱:  지원됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F1s  | 1  | 2  | 4  | 4  | 4000/32 (12)    | 3200/48   | 2/750   |
 | Standard_F2s  | 2  | 4  | 8  | 8  | 8000/64 (24)    | 6400/96   | 2/1500  |
@@ -76,7 +70,7 @@ NVv2 시리즈 가상 머신은 [NVIDIA Tesla M60](https://images.nvidia.com/con
 
 NVv2 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 애플리케이션 시나리오를 위해 VM에 연결할 수 있습니다.
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
 | Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
@@ -96,9 +90,9 @@ Linux VM의 크기를 조정 하는 방법에 대 한 자세한 내용은 [LINUX
 
 **최신 크기 권장 사항**: [Av2 시리즈](av2-series.md)
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
 기본 계층 크기는 부하 분산, 크기 자동 조정 또는 메모리 집약 가상 머신이 필요하지 않은 개발 워크로드 및 기타 애플리케이션에 기본적으로 사용됩니다.
 
@@ -128,13 +122,13 @@ Premium Storage 캐싱: 지원 되지 않음
 
 ACU: 50-100
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0&nbsp;<sup>1</sup> | 1 | 0.768 | 20 | 1 | 1x500 | 2/100 |
+| Standard_A0 &nbsp; <sup>1</sup> | 1 | 0.768 | 20 | 1 | 1x500 | 2/100 |
 | Standard_A1 | 1 | 1.75 | 70  | 2  | 2x500  | 2/500  |
 | Standard_A2 | 2 | 3.5  | 135 | 4  | 4x500  | 2/500  |
 | Standard_A3 | 4 | 7    | 285 | 8  | 8x500  | 2/1000 |
@@ -153,37 +147,37 @@ Premium Storage 캐싱: 지원 되지 않음
 
 ACU: 225
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
 A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다.  
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수|
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수|
 |---|---|---|---|---|---|---|
-| Standard_A8&nbsp;<sup>1</sup> | 8  | 56  | 382 | 32 | 32x500 | 2 |
-| Standard_A9&nbsp;<sup>1</sup> | 16 | 112 | 382 | 64 | 64x500 | 4 |
+| Standard_A8 &nbsp; <sup>1</sup> | 8  | 56  | 382 | 32 | 32x500 | 2 |
+| Standard_A9 &nbsp; <sup>1</sup> | 16 | 112 | 382 | 64 | 64x500 | 4 |
 | Standard_A10 | 8  | 56  | 382 | 32 | 32x500 | 2 |
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
 <sup>1</sup>MPI 애플리케이션의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.  
 
 > [!NOTE]
-> A8 – A11 Vm은 3/2021에서 사용 중지 될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조 하세요.
+> A8 ~ A11 VM은 2021년 3월에 사용 중지될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
 
 <br>
 
 ### <a name="d-series"></a>D 시리즈  
 
-**최신 크기 권장 사항**: [Dv3 시리즈](dv3-dsv3-series.md)
+**최신 크기 권장 사항**: [Dav4 시리즈](dav4-dasv4-series.md), [Dv4 시리즈](dv4-dsv4-series.md) 및 [Ddv4 시리즈](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_D1  | 1 | 3.5 | 50  | 3000/46/23    | 4/4x500   | 2/500  |
 | Standard_D2  | 2 | 7   | 100 | 6000/93/46    | 8/8x500   | 2/1000 |
@@ -196,15 +190,15 @@ Premium Storage 캐싱: 지원 되지 않음
 
 ### <a name="d-series---memory-optimized"></a>D 시리즈 - 메모리에 최적화  
 
-**최신 크기 권장 사항**: [Dv3 시리즈](dv3-dsv3-series.md)
+**최신 크기 권장 사항**: [Dav4 시리즈](dav4-dasv4-series.md), [Dv4 시리즈](dv4-dsv4-series.md) 및 [Ddv4 시리즈](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_D11 | 2  | 14  | 100 | 6000/93/46    | 8/8x500   | 2/1000 |
 | Standard_D12 | 4  | 28  | 200 | 12000/187/93  | 16/16x500 | 4/2000 |
@@ -225,27 +219,27 @@ Premium Storage 캐싱: 지원 됨
 
 DC 시리즈는 SGX 기술이 포함 된 최신 버전의 3.7 g h z Intel XEON E-2176G 프로세서를 사용 하며, Intel 터보 부스트 기술을 통해 최대 4.7 g h z까지 이동할 수 있습니다. 
 
-| Size          | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기          | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
 | Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32(43)                                                          | 3200 /48                                  | 2 / 1500                                     |
 | Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
 
 > [!IMPORTANT]
 >
-> DC 시리즈 Vm은 [2 세대 vm](./linux/generation-2.md#creating-a-generation-2-vm) 이며 이미지만 지원 `Gen2` 합니다.
+> DC 시리즈 Vm은 [2 세대 vm](./linux/generation-2.md#creating-a-generation-2-vm) 이며 `Gen2` 이미지만 지원 합니다.
 
 
 ### <a name="ds-series"></a>DS 시리즈  
 
-**최신 크기 권장 사항**: [Dsv3 시리즈](dv3-dsv3-series.md)
+**최신 크기 권장 사항**: [Dasv4 시리즈](dav4-dasv4-series.md), [Dsv4 시리즈](dv4-dsv4-series.md) 및 [Ddsv4 시리즈](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원 됨
+Premium Storage 캐싱:  지원됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_DS1 | 1 | 3.5 | 7  | 4  | 4000/32 (43)    | 3200/32   | 2/500  |
 | Standard_DS2 | 2 | 7   | 14 | 8  | 8000/64 (86)    | 6400/64   | 2/1000 |
@@ -258,15 +252,15 @@ Premium Storage 캐싱: 지원 됨
 
 ### <a name="ds-series---memory-optimized"></a>DS 시리즈 - 메모리에 최적화  
 
-**최신 크기 권장 사항**: [Dsv3 시리즈](dv3-dsv3-series.md)
+**최신 크기 권장 사항**: [Dasv4 시리즈](dav4-dasv4-series.md), [Dsv4 시리즈](dv4-dsv4-series.md) 및 [Ddsv4 시리즈](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원 됨
+Premium Storage 캐싱:  지원됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_DS11 | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/64   | 2/1000 |
 | Standard_DS12 | 4  | 28  | 56  | 16 | 16000/128 (144) | 12800/128 | 4/2000 |
@@ -280,22 +274,24 @@ Premium Storage 캐싱: 지원 됨
 
 ### <a name="ls-series"></a>Ls 시리즈
 
+**최신 크기 권장 사항**: [Lsv2 시리즈](lsv2-series.md)
+
 Ls 시리즈는 [Intel® Xeon® 프로세서 E5 v3 제품군](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)을 사용하여 최대 32개의 vCPU를 제공합니다. Ls 시리즈는 G/GS 시리즈와 CPU 성능이 동일하며 vCPU당 8GiB 메모리가 제공됩니다.
 
 Ls 시리즈는 영구 데이터 디스크에서 달성할 수 있는 IOPS를 증가시키기 위해 로컬 캐시를 생성하도록 지원하지 않습니다. 로컬 디스크의 높은 처리량과 IOPS를 사용 하면 여러 Vm에서 데이터를 복제 하는 Apache Cassandra 및 MongoDB와 같은 NoSQL 저장소에 대해 Ls 시리즈 Vm을 사용 하 여 단일 VM의 장애가 발생 하는 경우 지 속성을 달성할 수 있습니다.
 
 ACU: 180-240
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| Size | vCPU | 메모리(GiB) | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 임시 저장소 처리량 (IOPS/MBps) | 최대 캐시 되지 않은 디스크 처리량 (IOPS/MBps) | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리(GiB) | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 임시 저장소 처리량 (IOPS/MBps) | 최대 캐시 되지 않은 디스크 처리량 (IOPS/MBps) | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
 | Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8000  |
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
-| Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
+| Standard_L32s &nbsp; <sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
 Ls 시리즈 VM에서 가능한 최대 디스크 처리량은 연결된 디스크 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다. 자세한 내용은 [Windows](windows/premium-storage-performance.md) 또는 [Linux](linux/premium-storage-performance.md)용 고성능 디자인을 참조 하세요.
 
@@ -303,13 +299,15 @@ Ls 시리즈 VM에서 가능한 최대 디스크 처리량은 연결된 디스�
 
 ### <a name="gs-series"></a>GS 시리즈
 
+**최신 크기 권장 사항**: [Easv4 시리즈](eav4-easv4-series.md), [Esv4 시리즈](ev4-esv4-series.md), [Edsv4 시리즈](edv4-edsv4-series.md) 및 [M 시리즈](m-series.md)
+
 ACU: 180 - 240 <sup>1</sup>
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원 됨
+Premium Storage 캐싱:  지원됨
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 | 2 | 28  | 56  | 8  | 10000/100 (264)  | 5000/ 125  | 2/2000 |
 | Standard_GS2 | 4 | 56  | 112 | 16 | 20000/200 (528)  | 10000/ 250 | 2/4000 |
@@ -327,13 +325,15 @@ Premium Storage 캐싱: 지원 됨
 
 ### <a name="g-series"></a>G 시리즈
 
+**최신 크기 권장 사항**: [Eav4 시리즈](eav4-easv4-series.md), [Ev4 시리즈](ev4-esv4-series.md) 및 [Edv4 시리즈](edv4-edsv4-series.md) 및 [M 시리즈](m-series.md)
+
 ACU: 180-240
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_G1  | 2  | 28  | 384  | 6000/93/46    | 8/8x500   | 2/2000  |
 | Standard_G2  | 4  | 56  | 768  | 12000/187/93  | 16/16x500 | 2/4000  |
@@ -351,15 +351,15 @@ NV 시리즈 가상 머신은 고객이 해당 데이터 또는 시뮬레이션�
 
 NV 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 애플리케이션 시나리오를 위해 VM에 연결할 수 있습니다.
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원 되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-실시간 마이그레이션: 지원 되지 않음
+실시간 마이그레이션: 지원되지 않음
 
-메모리 보존 업데이트: 지원 되지 않음
+메모리 보존 업데이트: 지원되지 않음
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NV6  | 6  | 56  | 340  | 1 | 8  | 24 | 1 | 1 | 25  |
 | Standard_NV12 | 12 | 112 | 680  | 2 | 16 | 48 | 2 | 2 | 50  |

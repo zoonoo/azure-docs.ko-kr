@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77505957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118936"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 예약된 용량을 활용해 비용 최적화
 
@@ -36,7 +36,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 
-2. **모든 서비스** > **예약** > **추가**를 선택 합니다.
+2. **모든 서비스**  >  **예약**  >  **추가**를 선택 합니다.
 
 3. **구매 예약** 창에서 **Azure Cosmos DB**을 선택 합니다.
 
@@ -52,7 +52,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 권장 예제는 다음과 같습니다.
 
-![예약 된 용량 권장 사항](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+:::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png" alt-text="예약 된 용량 권장 사항":::
 
 3만 o s/s 예약을 구매 하는이 권장 사항은 3 년간의 예약에서 3만 r u/초의 예약 크기를 절감 하는 것을 의미 합니다. 이 경우 권장 사항은 최근 30 일의 Azure Cosmos DB 사용량을 기준으로 계산 됩니다. 이 고객의 최근 30 일의 Azure Cosmos DB 사용이 향후 사용을 나타내는 것으로 예상 되는 경우 3만 r u/s 예약을 구매 하 여 절감 액을 극대화 합니다.
 
@@ -60,17 +60,17 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 
-2. **모든 서비스** > **예약** > **추가**를 선택 합니다.  
+2. **모든 서비스**  >  **예약**  >  **추가**를 선택 합니다.  
 
 3. **구매 예약** 창에서 **Azure Cosmos DB** 을 선택 하 여 새 예약을 구입 합니다.  
 
 4. 아래 표에서 설명한 대로 필요한 필드를 채웁니다.
 
-   ![예약 용량 양식 채우기](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="예약 용량 양식 채우기":::
 
-   |필드  |Description  |
+   |필드  |설명  |
    |---------|---------|
-   |범위   |   얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 제어하는 옵션입니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/>  **공유**를 선택하면 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행되는 Azure Cosmos DB 인스턴스에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독입니다.  <br/><br/>  **단일 구독**을 선택하면 예약 할인이 선택한 구독의 Azure Cosmos DB 인스턴스에 적용됩니다. <br/><br/> **단일 리소스 그룹**을 선택 하는 경우 선택한 구독의 Azure Cosmos DB 인스턴스와 해당 구독 내에서 선택한 리소스 그룹에 예약 할인이 적용 됩니다. <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
+   |Scope   |   얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 제어하는 옵션입니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/>  **공유**를 선택하면 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행되는 Azure Cosmos DB 인스턴스에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독입니다.  <br/><br/>  **단일 구독**을 선택하면 예약 할인이 선택한 구독의 Azure Cosmos DB 인스턴스에 적용됩니다. <br/><br/> **단일 리소스 그룹**을 선택 하는 경우 선택한 구독의 Azure Cosmos DB 인스턴스와 해당 구독 내에서 선택한 리소스 그룹에 예약 할인이 적용 됩니다. <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
    |Subscription  |   Azure Cosmos DB 예약 용량에 대한 요금을 지불하는 데 사용되는 구독입니다. 선택한 구독의 결제 방법을 사용 하 여 비용을 청구 합니다. 구독은 다음 형식 중 하나 여야 합니다. <br/><br/>  기업계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p): Enterprise 구독의 경우 요금 청구는 등록의 금액 약정 잔액에서 공제 되거나 초과분로 청구 됩니다. <br/><br/> 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P): 종 량 제 요금이 있는 개별 구독의 경우 요금 청구는 구독에 대 한 신용 카드나 청구서 지불 방법으로 청구 됩니다.    |
    | 리소스 그룹 | 예약 된 용량 할인이 적용 되는 리소스 그룹입니다. |
    |용어  |   1년 또는 3년입니다.   |
@@ -82,7 +82,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 6. **구매 예약** 창에서 예약의 할인율 및 가격을 검토 합니다. 이 예약 가격은 모든 하위 지역에서 처리량이 프로비전되는 Azure Cosmos DB 리소스에 적용됩니다.  
 
-   ![예약 된 용량 요약](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="예약 된 용량 요약":::
 
 7. **검토 + 구매** 를 선택한 다음 **지금 구입**을 선택 합니다. 구매가 성공적으로 완료되면 다음과 같은 페이지가 표시됩니다.
 
@@ -92,7 +92,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)를 참조 하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

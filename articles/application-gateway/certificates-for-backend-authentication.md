@@ -5,15 +5,15 @@ description: 이 문서에서는 Azure 애플리케이션 게이트웨이에서 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 20f588639c54b0a8b7cd304f33b5a9d633a73be6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976543"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 백 엔드를 허용 하는 인증서 만들기
 
@@ -74,11 +74,11 @@ TLS/SSL 인증서에서 공개 키 .cer 파일 (개인 키 아님)을 내보냅�
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>신뢰할 수 있는 루트 인증서 내보내기 (v2 SKU 용)
 
-Application gateway v2 SKU에서 백 엔드 인스턴스를 허용 목록 하려면 신뢰할 수 있는 루트 인증서가 필요 합니다. 루트 인증서는 Base-64로 인코딩된 x.509 (. CER) 백 엔드 서버 인증서의 루트 인증서를 형식으로 지정 합니다. 이 예제에서는 백 엔드 인증서에 TLS/SSL 인증서를 사용 하 고, 공개 키를 내보낸 다음 신뢰할 수 있는 CA의 루트 인증서를 공개 키에서 base64 인코딩 형식으로 내보내 신뢰할 수 있는 루트 인증서를 가져옵니다. 중간 인증서를 서버 인증서와 함께 사용 하 여 백 엔드 서버에 설치 해야 합니다.
+Application gateway v2 SKU에서 백 엔드 인스턴스를 허용 하려면 신뢰할 수 있는 루트 인증서가 필요 합니다. 루트 인증서는 Base-64로 인코딩된 x.509 (. CER) 백 엔드 서버 인증서의 루트 인증서를 형식으로 지정 합니다. 이 예제에서는 백 엔드 인증서에 TLS/SSL 인증서를 사용 하 고, 공개 키를 내보낸 다음 신뢰할 수 있는 CA의 루트 인증서를 공개 키에서 base64 인코딩 형식으로 내보내 신뢰할 수 있는 루트 인증서를 가져옵니다. 중간 인증서를 서버 인증서와 함께 사용 하 여 백 엔드 서버에 설치 해야 합니다.
 
 다음 단계는 인증서에 대 한 .cer 파일을 내보내는 데 도움이 됩니다.
 
-1. 위의 **백 엔드 인증서 (V1 SKU)에서 인증 인증서 내보내기** 섹션에 언급 된 1-9 단계를 사용 하 여 백 엔드 인증서에서 공개 키를 내보냅니다.
+1. 이전 섹션인 [인증 인증서 내보내기 (V1 SKU)](#export-authentication-certificate-for-v1-sku) 에서 언급 한 1-8 단계를 사용 하 여 백 엔드 인증서에서 공개 키를 내보냅니다.
 
 2. 공개 키를 내보낸 후 파일을 엽니다.
 
@@ -106,5 +106,5 @@ Application gateway v2 SKU에서 백 엔드 인스턴스를 허용 목록 하려
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Base-64로 인코딩된 인증 인증서/신뢰할 수 있는 루트 인증서가 x.509 (. CER) 형식을 지정 합니다. 종단 간 TLS 암호화를 위해 백엔드 서버를 허용 목록 응용 프로그램 게이트웨이에이를 추가할 수 있습니다. [PowerShell과 함께 Application Gateway를 사용 하 여 종단 간 TLS 구성](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)을 참조 하세요.
+이제 Base-64로 인코딩된 인증 인증서/신뢰할 수 있는 루트 인증서가 x.509 (. CER) 형식을 지정 합니다. 종단 간 TLS 암호화를 위한 백 엔드 서버를 허용 하도록 응용 프로그램 게이트웨이에이를 추가할 수 있습니다. [PowerShell과 함께 Application Gateway를 사용 하 여 종단 간 TLS 구성](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)을 참조 하세요.
 

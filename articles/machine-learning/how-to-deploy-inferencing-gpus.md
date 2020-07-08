@@ -5,17 +5,18 @@ description: 이 문서에서는 Azure Machine Learning를 사용 하 여 GPU �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78398345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976747"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +34,7 @@ ms.locfileid: "78398345"
 > [!NOTE]
 > 이 문서의 정보는 [Azure Kubernetes Service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md) 문서에 있는 정보를 기반으로 합니다. 이 문서는 일반적으로 AKS에 대 한 배포를 다루는이 문서에서는 GPU 특정 배포에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -52,7 +53,7 @@ ms.locfileid: "78398345"
 기존 작업 영역에 연결 하려면 다음 코드를 사용 합니다.
 
 > [!IMPORTANT]
-> 이 코드 조각에서는 작업 영역 구성을 현재 디렉터리 또는 부모에 저장할 것으로 예상 합니다. 작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 관리](how-to-manage-workspace.md)를 참조 하세요.   구성을 파일에 저장 하는 방법에 대 한 자세한 내용은 [작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace)를 참조 하세요.
+> 이 코드 조각은 작업 영역 구성이 현재 디렉터리 또는 부모 디렉터리에 저장될 것으로 예상합니다. 작업 영역 만들기에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 관리](how-to-manage-workspace.md)를 참조하세요.   파일에 구성 저장에 대한 자세한 내용은 [작업 영역 구성 파일 만들기](how-to-configure-environment.md#workspace)를 참조 하세요.
 
 ```python
 from azureml.core import Workspace
@@ -135,11 +136,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-이 파일의 이름은 `score.py`입니다. 항목 스크립트에 대 한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+이 파일의 이름은 `score.py` 입니다. 항목 스크립트에 대 한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="define-the-conda-environment"></a>Conda 환경 정의
 
-Conda 환경 파일은 서비스에 대 한 종속성을 지정 합니다. 여기에는 모델과 입력 스크립트 모두에 필요한 종속성이 포함 됩니다. 버전 >= 1.0.45를 pip 종속성으로 지정 해야 합니다. 여기에는 모델을 웹 서비스로 호스트 하는 데 필요한 기능이 포함 되어 있기 때문입니다. 다음 YAML은 Tensorflow 모델에 대 한 환경을 정의 합니다. 이 배포 `tensorflow-gpu`에 사용 되는 GPU를 사용 하는를 지정 합니다.
+Conda 환경 파일은 서비스에 대 한 종속성을 지정 합니다. 여기에는 모델과 입력 스크립트 모두에 필요한 종속성이 포함 됩니다. 버전 >= 1.0.45를 pip 종속성으로 지정 해야 합니다. 여기에는 모델을 웹 서비스로 호스트 하는 데 필요한 기능이 포함 되어 있기 때문입니다. 다음 YAML은 Tensorflow 모델에 대 한 환경을 정의 합니다. `tensorflow-gpu`이 배포에 사용 되는 GPU를 사용 하는를 지정 합니다.
 
 ```yaml
 name: project_environment
@@ -157,7 +158,7 @@ channels:
 - conda-forge
 ```
 
-이 예에서는 파일이로 `myenv.yml`저장 됩니다.
+이 예에서는 파일이로 저장 됩니다 `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>배포 구성 정의
 
@@ -212,9 +213,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> `InferenceConfig` 개체에가 `enable_gpu=True`있는 경우 매개 변수 `deployment_target` 는 GPU를 제공 하는 클러스터를 참조 해야 합니다. 그렇지 않으면 배포에 실패합니다.
 
 자세한 내용은 [모델](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
 

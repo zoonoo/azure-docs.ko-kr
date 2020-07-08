@@ -3,12 +3,12 @@ title: Azure Adviser 시작
 description: Azure Adviser를 시작합니다.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117865"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
 
@@ -27,7 +27,7 @@ Azure Portal을 통해 Advisor에 액세스하고, 권장 사항을 검색하고
 
 1. Advisor 대시보드에는 선택한 모든 구독에 대한 권장 사항 요약이 표시됩니다.  구독 필터 드롭다운을 사용하여 권장 사항을 표시할 구독을 선택할 수 있습니다.
 
-1. 특정 범주에 대한 권장 사항을 얻으려면 **고가용성**, **보안**, **성능** 또는 **비용** 탭 중 하나를 클릭합니다. 
+1. 특정 범주에 대 한 권장 사항을 가져오려면 **안정성**, **보안**, **성능**또는 **비용**탭 중 하나를 클릭 합니다. 
 
    ![Azure Advisor 대시보드](./media/advisor-overview/advisor-dashboard.png)
 
@@ -124,7 +124,8 @@ Advisor는 권장 사항 요약을 다운로드할 수 있습니다.  권장 사
 Advisor에 대해 자세히 알아보려면 다음을 참조하세요.
 
 - [Azure Advisor 소개](advisor-overview.md)
-- [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)
+- [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)
 - [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 - [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
-- [Advisor 비용 권장 사항](advisor-performance-recommendations.md)
+- [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
+- [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)

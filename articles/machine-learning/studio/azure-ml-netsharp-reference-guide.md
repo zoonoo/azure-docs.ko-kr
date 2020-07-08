@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85129520"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 Net # 신경망 사양 언어 가이드
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임의 차원의 난해와 같은 복잡한 신경 네트워크 아키텍처를 정의하는 데 사용됩니다. 이미지, 비디오 또는 오디오와 같은 데이터에 대한 학습을 개선하는 데 복잡한 구조체를 사용할 수 있습니다.
 
@@ -58,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음과 같은 작업을 수행할 수 있습니다.
+Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음을 할 수 있습니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.
@@ -91,17 +89,17 @@ Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아�
 
 `Const X = 28;`
 
-상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 다음은 그 예입니다.
+상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예를 들어:
 
 `Const { X = 28; Y = 4; }`
 
-각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 다음은 그 예입니다.
+각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예를 들어:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>계층 선언
 
-계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 다음은 그 예입니다.
+계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예를 들어:
 
 ```Net#
 input Data auto;
@@ -452,7 +450,7 @@ output Digit [10] from Hid3 all;
 + 키워드 `convolve`는 `Conv1` 및 `Conv2`라는 계층이 나선형 계층임을 나타냅니다. 이러한 각 계층 선언 뒤에는 나선 특성 목록이 나옵니다.
 + 네트워크에는 두 번째 숨겨진 계층인 `Conv2`에 완전히 연결된 세 번째 숨겨진 계층인 `Hid3`이 있습니다.
 + `Digit` 출력 계층은 세 번째 계층인 `Hid3`에만 연결됩니다. 키워드 `all`은 출력 계층이 `Hid3`에 완전히 연결되었음을 나타냅니다.
-+ 컨볼루션의 인자 수는 3 `InputShape`입니다. 튜플의 `KernelShape` `Stride`길이는,, 및 `Sharing`입니다.
++ 컨볼루션의 인자 수는 3입니다. 튜플의 길이는,, `InputShape` `KernelShape` `Stride` 및 `Sharing` 입니다.
 + 커널당 가중치 수는 `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`입니다. 또는 `26 * 50 = 1300`입니다.
 + 다음과 같이 각 숨겨진 계층에서 노드를 계산할 수 있습니다.
 

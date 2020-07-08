@@ -1,38 +1,44 @@
 ---
 title: 문자열 필드에 언어 분석기 추가
 titleSuffix: Azure Cognitive Search
-description: 영어가 아닌 쿼리 및 Azure Cognitive Search의 인덱스에 대 한 다중 다국어 어휘 텍스트 분석.
+description: 영어가 아닌 쿼리 및 Azure Cognitive Search의 인덱스에 대 한 다국어 어휘 분석
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130554"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
-‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다.** 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
+‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다.** 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 내용이 영어 및 중국어 텍스트의 개별 필드와 같이 번역 된 문자열로 구성 된 경우 각 필드에 언어 분석기를 지정 하 여 해당 분석기의 다양 한 언어 기능에 액세스할 수 있습니다.
 
-Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 및 Bing에서 사용 되는 독점적인 Microsoft 자연어 처리 기술로 지원 되는 50 분석기를 지원 합니다.
+## <a name="when-to-use-a-language-analyzer"></a>언어 분석기를 사용 하는 경우
 
-## <a name="comparing-analyzers"></a>분석기 비교
+단어 또는 문장 구조 인식이 텍스트 구문 분석에 값을 추가 하는 경우 언어 분석기를 고려해 야 합니다. 일반적인 예는 불규칙 한 동사 형식 ("가져오기" 및 "가져온") 또는 복수 명사 ("마우스" 및 "마우스")를 연결 하는 것입니다. 언어적 인식을 사용 하지 않을 경우 이러한 문자열은 물리적 특성 에서만 구문 분석 되 고 연결을 catch 하는 데 실패 합니다. 텍스트의 큰 청크는이 콘텐츠를 포함할 가능성이 높기 때문에 설명, 검토 또는 요약으로 구성 된 필드는 언어 분석기에 적합 합니다.
+
+또한 콘텐츠가 Western 이외의 언어 문자열로 구성 된 경우 언어 분석기를 고려해 야 합니다. [기본 분석기](search-analyzers.md#default-analyzer) 는 언어에 구애 받지 않지만 공백 및 특수 문자 (하이픈 및 슬래시)를 사용 하 여 문자열을 구분 하는 개념은 서유럽어 이외의 언어에 보다 적합 합니다. 
+
+예를 들어, 중국어, 일본어, 한국어 (CJK) 및 기타 아시아 언어에서는 공백이 반드시 단어 구분 기호 일 필요는 없습니다. 다음 일본어 문자열을 살펴보십시오. 이 문자열에는 공백이 없으므로 언어에 관계 없는 분석기에서 전체 문자열을 하나의 토큰으로 분석할 수 있습니다. 실제로 문자열은 사실입니다.
+
+```
+これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
+(This is the heaviest and brightest group of spherical stars in our galaxy.)
+```
+
+위의 예제에서 성공적인 쿼리에는 전체 토큰 또는 접미사 와일드 카드를 사용 하는 부분 토큰을 포함 해야 합니다. 이렇게 하면 검색 환경이 자연스럽 게 제한 됩니다.
+
+더 나은 환경은 明るい (브라이트), 私たちの (Microsoft), 銀河系 (Galaxy) 등의 개별 단어를 검색 하는 것입니다. Cognitive Search에서 사용할 수 있는 일본어 분석기 중 하나를 사용 하는 것은이 동작의 잠금을 해제할 수 있습니다. 이러한 분석기는 텍스트 청크를 대상 언어로 의미 있는 단어로 분할 하는 것이 더 효율적입니다.
+
+## <a name="comparing-lucene-and-microsoft-analyzers"></a>Lucene 및 Microsoft 분석기 비교
+
+Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 Office 및 Bing에서 사용 되는 독점적인 Microsoft 자연어 처리 기술로 지원 되는 50 언어 분석기를 지원 합니다.
 
 일부 개발자는 보다 친숙하고 간단한 Lucene의 오픈 소스 솔루션을 선호할 수 있습니다. Lucene 언어 분석기가 더 빠르지만 Microsoft 분석기에는 분류 정리, 단어 분해(독일어, 덴마크어, 네덜란드어, 스웨덴어, 노르웨이어, 에스토니아어, 핀란드어, 헝가리어, 슬로바키아어 등의 언어) 및 엔터티 인식(URL, 메일, 날짜, 숫자)과 같은 고급 기능이 있습니다. 가능한 경우 Microsoft 분석기와 Lucene 분석기를 비교하여 어떤 것이 더 적합한지 결정해야 합니다. 
 
@@ -123,7 +129,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 
  이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 + [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

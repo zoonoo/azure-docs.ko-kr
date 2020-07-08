@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117916"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 
@@ -47,7 +47,7 @@ Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습�
 
 Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항상 쿼리에 대한 [쿼리 메트릭을 가져오는](profile-sql-api-query.md) 것입니다. 이러한 메트릭은 Azure Portal에서도 사용할 수 있습니다. 데이터 탐색기에서 쿼리를 실행하면 **결과** 탭 옆에 쿼리 메트릭이 표시됩니다.
 
-[ ![쿼리 메트릭 가져오기](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+:::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="쿼리 메트릭 가져오기" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 쿼리 메트릭을 가져온 후 쿼리의 **검색된 문서 수**를 **출력 문서 수**와 비교합니다. 이 비교를 사용하여 이 문서에서 검토할 관련 섹션을 식별할 수 있습니다.
 

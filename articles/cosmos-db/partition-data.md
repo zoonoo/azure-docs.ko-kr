@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 19e4c61ba930bb9b127e2401174bcea3fd240dce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234221"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112781"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 
@@ -19,11 +19,11 @@ ms.locfileid: "82234221"
 
 ## <a name="logical-partitions"></a>논리 파티션
 
-논리적 파티션은 동일한 파티션 키를 가진 항목 집합으로 구성 됩니다. 예를 들어 음식 영양 대 한 데이터가 포함 된 컨테이너에서 모든 항목에는 `foodGroup` 속성이 포함 됩니다. 를 컨테이너에 `foodGroup` 대 한 파티션 키로 사용할 수 있습니다. `Beef Products`,`Baked Products`, `Sausages and Luncheon Meats`등의 `foodGroup`특정 값이 있는 항목 그룹은 고유한 논리 파티션을 형성 합니다. 기본 데이터를 삭제할 때 논리적 파티션을 삭제 하는 것에 대해 걱정할 필요가 없습니다.
+논리적 파티션은 동일한 파티션 키를 가진 항목 집합으로 구성 됩니다. 예를 들어 음식 영양 대 한 데이터가 포함 된 컨테이너에서 모든 항목에는 `foodGroup` 속성이 포함 됩니다. 를 `foodGroup` 컨테이너에 대 한 파티션 키로 사용할 수 있습니다. ,, 등의 특정 값이 있는 항목 그룹은 `foodGroup` `Beef Products` `Baked Products` `Sausages and Luncheon Meats` 고유한 논리 파티션을 형성 합니다. 기본 데이터를 삭제할 때 논리적 파티션을 삭제 하는 것에 대해 걱정할 필요가 없습니다.
 
 또한 논리적 파티션은 데이터베이스 트랜잭션의 범위를 정의 합니다. [스냅숏 격리로 트랜잭션을](database-transactions-optimistic-concurrency.md)사용 하 여 논리적 파티션 내에서 항목을 업데이트할 수 있습니다. 새 항목이 컨테이너에 추가 되 면 시스템에서 새 논리적 파티션을 투명 하 게 만듭니다.
 
-컨테이너의 논리 파티션 수에는 제한이 없습니다. 각 논리 파티션은 최대 20GB의 데이터를 저장할 수 있습니다. 좋은 파티션 키 선택 항목에는 다양 한 값을 사용할 수 있습니다. 예를 들어 모든 항목에 `foodGroup`속성이 포함 된 컨테이너에서 `Beef Products` 논리 파티션 내의 데이터는 최대 20GB까지 증가할 수 있습니다. 범위가 광범위 한 [파티션 키를 선택](partitioning-overview.md#choose-partitionkey) 하면 컨테이너를 확장할 수 있습니다.
+컨테이너의 논리 파티션 수에는 제한이 없습니다. 각 논리 파티션은 최대 20GB의 데이터를 저장할 수 있습니다. 좋은 파티션 키 선택 항목에는 다양 한 값을 사용할 수 있습니다. 예를 들어 모든 항목에 속성이 포함 된 컨테이너에서 `foodGroup` 논리 파티션 내의 데이터는 `Beef Products` 최대 20GB까지 증가할 수 있습니다. 범위가 광범위 한 [파티션 키를 선택](partitioning-overview.md#choose-partitionkey) 하면 컨테이너를 확장할 수 있습니다.
 
 ## <a name="physical-partitions"></a>실제 파티션
 
@@ -40,11 +40,11 @@ Cosmos 컨테이너의 실제 파티션 수는 다음에 따라 달라 집니다
 
 Azure Portal **메트릭 블레이드의** **저장소** 섹션에서 컨테이너의 실제 파티션을 볼 수 있습니다.
 
-[![실제 파티션](./media/partition-data/view-partitions-zoomed-out.png) 수 보기](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
+:::image type="content" source="./media/partition-data/view-partitions-zoomed-out.png" alt-text="실제 파티션 수 보기" lightbox="./media/partition-data/view-partitions-zoomed-in.png" ::: 
 
-파티션 키로 선택 `/foodGroup` 된이 컨테이너 예제에서는 각각의 세 사각형이 실제 파티션을 나타냅니다. 이미지에서 **파티션 키 범위** 는 실제 파티션과 같습니다. 선택한 실제 파티션에는 세 개의 논리 파티션 `Beef Products`, `Vegetable and Vegetable Products`및 `Soups, Sauces, and Gravies`가 포함 되어 있습니다.
+파티션 키로 선택 된이 컨테이너 예제에서는 `/foodGroup` 각각의 세 사각형이 실제 파티션을 나타냅니다. 이미지에서 **파티션 키 범위** 는 실제 파티션과 같습니다. 선택한 실제 파티션에는 세 개의 논리 파티션, 및가 포함 되어 있습니다 `Beef Products` `Vegetable and Vegetable Products` `Soups, Sauces, and Gravies` .
 
-초당 18000 요청 단위의 처리량을 프로 비전 하는 경우 세 개의 실제 파티션이 프로 비전 된 총 처리량의 1/3을 활용할 수 있습니다. 선택한 실제 파티션 내에서 논리적 파티션 키 `Beef Products` `Vegetable and Vegetable Products`, 및 `Soups, Sauces, and Gravies` 는 집합적으로 물리적 파티션의 6000 프로 비전 된 r u/s를 활용할 수 있습니다. 프로 비전 된 처리량은 컨테이너의 실제 파티션에 균등 하 게 분할 되므로 [올바른 논리적 파티션 키를 선택](partitioning-overview.md#choose-partitionkey)하 여 처리량 소비를 균등 하 게 분산 하는 파티션 키를 선택 하는 것이 중요 합니다. 논리적 파티션 간에 처리량 소비를 균등 하 게 분산 하는 파티션 키를 선택 하는 경우 실제 파티션의 처리량 사용량이 균형을 유지 하 게 됩니다.
+초당 18000 요청 단위의 처리량을 프로 비전 하는 경우 세 개의 실제 파티션이 프로 비전 된 총 처리량의 1/3을 활용할 수 있습니다. 선택한 실제 파티션 내에서 논리적 파티션 키, `Beef Products` 및는 `Vegetable and Vegetable Products` 집합적으로 `Soups, Sauces, and Gravies` 물리적 파티션의 6000 프로 비전 된 r u/s를 활용할 수 있습니다. 프로 비전 된 처리량은 컨테이너의 실제 파티션에 균등 하 게 분할 되므로 [올바른 논리적 파티션 키를 선택](partitioning-overview.md#choose-partitionkey)하 여 처리량 소비를 균등 하 게 분산 하는 파티션 키를 선택 하는 것이 중요 합니다. 논리적 파티션 간에 처리량 소비를 균등 하 게 분산 하는 파티션 키를 선택 하는 경우 실제 파티션의 처리량 사용량이 균형을 유지 하 게 됩니다.
 
 ## <a name="replica-sets"></a>복제본 집합
 
@@ -54,7 +54,7 @@ Azure Portal **메트릭 블레이드의** **저장소** 섹션에서 컨테이�
 
 다음 이미지에서는 논리 파티션이 전역적으로 배포된 실제 파티션에 매핑되는 방법을 보여 줍니다.
 
-![Azure Cosmos DB 분할을 보여 주는 이미지](./media/partition-data/logical-partitions.png)
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Azure Cosmos DB 분할을 보여 주는 이미지" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

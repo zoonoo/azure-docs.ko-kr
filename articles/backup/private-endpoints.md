@@ -1,14 +1,14 @@
 ---
-title: 전용 끝점
+title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124258"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -21,9 +21,11 @@ Azure Backup를 사용 하면 [개인 끝점](https://docs.microsoft.com/azure/p
 - 개인 끝점은 자격 증명 모음에 등록 된 항목이 없는 새 Recovery Services 자격 증명 모음에 대해서만 만들 수 있습니다. 따라서 자격 증명 모음에 대 한 항목을 보호 하려고 하기 전에 개인 끝점을 만들어야 합니다.
 - 하나의 가상 네트워크는 여러 Recovery Services 자격 증명 모음에 대 한 개인 끝점을 포함할 수 있습니다. 또한 하나의 Recovery Services 자격 증명 모음에 대해 여러 가상 네트워크에서 개인 끝점을 포함할 수 있습니다. 그러나 자격 증명 모음에 대해 만들 수 있는 최대 개인 끝점 수는 12입니다.
 - 자격 증명 모음에 대 한 개인 끝점을 만들면 자격 증명 모음이 잠깁니다. 자격 증명 모음에 대 한 개인 끝점을 포함 하는 네트워크에서 네트워크를 통해 액세스할 수 없습니다 (백업 및 복원의 경우). 자격 증명 모음에 대 한 모든 개인 끝점을 제거 하는 경우 모든 네트워크에서 자격 증명 모음에 액세스할 수 있습니다.
+- 백업에 대 한 개인 끝점 연결은 서브넷에 총 11 개의 개인 Ip를 사용 합니다. 이 숫자는 특정 Azure 지역에 대해 더 높을 수 있습니다 (최대 15 개). 따라서 백업용 개인 끝점을 만들려고 할 때 사용할 수 있는 개인 Ip가 충분 하다는 것이 좋습니다.
 - Recovery Services 자격 증명 모음은 (둘 다) Azure Backup 및 Azure Site Recovery에서 사용 되지만이 문서에서는 Azure Backup 전용 전용 끝점을 사용 하는 방법을 설명 합니다.
 - Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 지역에서 작업을 수행 하는 데 Azure Active Directory 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다.
 - 네트워크 정책을 사용 하는 가상 네트워크는 전용 끝점에 대해 지원 되지 않습니다. 계속 하기 전에 네트워크 정책을 사용 하지 않도록 설정 해야 합니다.
+- 1 2020 년 5 월 이전에 등록 한 경우 구독에 Recovery Services 리소스 공급자를 다시 등록 해야 합니다. 공급자를 다시 등록 하려면 Azure Portal의 구독으로 이동 하 여 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동 하 고, **Microsoft recoveryservices** 를 선택 하 고, **다시 등록**을 클릭 합니다.
 
 ## <a name="recommended-and-supported-scenarios"></a>권장 및 지원 되는 시나리오
 
@@ -40,9 +42,6 @@ Azure Backup를 사용 하면 [개인 끝점](https://docs.microsoft.com/azure/p
 
 >[!IMPORTANT]
 > 이 문서에 설명 된 것과 동일한 순서로 단계를 수행 하는 것이 좋습니다. 이렇게 하지 않으면 개인 끝점을 사용 하 고 새 자격 증명 모음을 사용 하 여 프로세스를 다시 시작 해야 하는 자격 증명 모음이 호환 되지 않는 것으로 이어질 수 있습니다.
-
->[!NOTE]
-> Azure Portal 환경의 특정 요소를 현재 사용할 수 없는 경우도 있습니다. 해당 지역의 전체 가용성이 될 때까지 이러한 시나리오의 대체 환경을 참조 하세요.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -89,7 +88,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
     - `privatelink.blob.core.windows.net`
     - `privatelink.queue.core.windows.net`
 
-    | **영역별로**                           | **서비스** | **구독 및 리소스 그룹 (RG) 세부 정보**                  |
+    | **영역**                           | **서비스** | **구독 및 리소스 그룹 (RG) 세부 정보**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
     | `privatelink.blob.core.windows.net`  | Blob        | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다. **rg**의 rg 또는 개인 끝점의 rg |
     | `privatelink.queue.core.windows.net` | 큐       | **RG**: VNET의 RG 또는 개인 끝점의 rg |
@@ -104,13 +103,13 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
 
 Azure에서 별도의 개인 DNS 영역을 만들려는 경우에는 필수 DNS 영역을 만드는 데 사용 된 것과 동일한 단계를 사용 하 여 동일한 작업을 수행할 수 있습니다. 이름 지정 및 구독 세부 정보는 아래와 같습니다.
 
-| **영역별로**                                                     | **서비스** | **구독 및 리소스 그룹 정보**                  |
+| **영역**                                                     | **서비스** | **구독 및 리소스 그룹 정보**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **참고**: *지역은 지역 코드* 를 참조 합니다. 예를 들어 미국 서 부 중부 및 유럽 서 부에 대 한 *wcus* 및 *ne* 가 각각 있습니다. | Backup      | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다. **rg**: 구독 내 모든 RG |
 
 지역 코드는 [이 목록을](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) 참조 하십시오.
 
-국가 geos의 URL 명명 규칙:
+국가 지역의 URL 명명 규칙:
 
 - [중국](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [독일](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
@@ -344,7 +343,7 @@ armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/
 
 다음 JSON 파일을 만들고 섹션의 끝에 있는 PowerShell 명령을 사용 하 여 역할을 만듭니다.
 
-PrivateEndpointContributorRoleDef
+PrivateEndpointContributorRoleDef.js
 
 ```json
 {
@@ -362,7 +361,7 @@ PrivateEndpointContributorRoleDef
 }
 ```
 
-NetworkInterfaceReaderRoleDef
+NetworkInterfaceReaderRoleDef.js
 
 ```json
 {
@@ -380,7 +379,7 @@ NetworkInterfaceReaderRoleDef
 }
 ```
 
-PrivateEndpointSubnetContributorRoleDef
+PrivateEndpointSubnetContributorRoleDef.js
 
 ```json
 {
@@ -496,7 +495,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 세 개의 개인 DNS 영역을 만들고 가상 네트워크에 연결 해야 합니다.
 
-| **영역별로**                                                     | **서비스** |
+| **영역**                                                     | **서비스** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | Blob        |

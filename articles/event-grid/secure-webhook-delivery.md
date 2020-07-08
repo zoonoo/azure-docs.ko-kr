@@ -2,21 +2,21 @@
 title: Azure Event Grid에서 Azure AD를 사용 하 여 보안 WebHook 배달
 description: 를 사용 하 여 Azure Active Directory 보호 하는 HTTPS 끝점에 이벤트를 전달 하는 방법을 설명 Azure Event Grid
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: babanisa
-ms.openlocfilehash: 86d647ebfcf6e4c1ea8d05f58dd1f559d6e30cfc
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.author: femila
+ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126079"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory 보호 된 끝점에 이벤트 게시
 
-이 문서에서는 Azure Active Directory를 활용 하 여 이벤트 구독과 webhook 끝점 간의 연결을 보호 하는 방법을 설명 합니다. Azure AD 응용 프로그램 및 서비스 주체에 대 한 개요는 v2.0 [(Microsoft identity platform) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조 하세요.
+이 문서에서는 Azure Active Directory를 활용 하 여 이벤트 구독과 webhook 끝점 간의 연결을 보호 하는 방법을 설명 합니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조하세요.
 
 이 문서에서는 데모를 위해 Azure Portal를 사용 하지만 CLI, PowerShell 또는 Sdk를 사용 하 여이 기능을 사용 하도록 설정할 수도 있습니다.
 
@@ -24,19 +24,19 @@ ms.locfileid: "82900468"
 
 ## <a name="create-an-azure-ad-application"></a>Azure AD 응용 프로그램 만들기
 
-먼저 보호 된 끝점에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview을 참조하세요.
-    - 디먼 앱에서 호출 하도록 보호 된 API를 구성 합니다.
+먼저 보호 된 끝점에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 을 참조하세요.
+    - 디먼 앱에서 호출하도록 보호된 API를 구성합니다.
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Event Grid를 사용 하 여 Azure AD 응용 프로그램 사용
 
 아래의 PowerShell 스크립트를 사용 하 여 Azure AD 응용 프로그램에서 역할 및 서비스 주체를 만듭니다. Azure AD 응용 프로그램의 테 넌 트 ID 및 개체 ID가 필요 합니다.
 
    > [!NOTE]
-   > 이 스크립트를 실행 하려면 [AZURE AD 응용 프로그램 관리자 역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) 의 멤버 여야 합니다.
+   > 이 스크립트를 실행하려면 [Azure AD 애플리케이션 관리자 역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles)의 멤버여야 합니다.
     
 1. PowerShell 스크립트의 $myTenantId을 수정 하 여 Azure AD 테 넌 트 ID를 사용 합니다.
 1. Azure AD 응용 프로그램의 개체 ID를 사용 하도록 PowerShell 스크립트의 $myAzureADApplicationObjectId 수정
-1. 수정 된 스크립트를 실행 합니다.
+1. 수정된 스크립트를 실행합니다.
 
 ```PowerShell
 # This is your Tenant Id. 
@@ -121,7 +121,7 @@ Write-Host $myApp.AppRoles
 * 스크립트의 출력에서 Azure AD 테 넌 트 ID를 복사 하 고 AAD 테 넌 트 ID 필드에 입력 합니다.
 * 스크립트의 출력에서 Azure AD 응용 프로그램 ID를 복사 하 고 AAD 응용 프로그램 ID 필드에 입력 합니다.
 
-    ![보안 Webhook 작업](./media/secure-webhook-delivery/aad-configuration.png)
+    ![보안 웹후크 작업](./media/secure-webhook-delivery/aad-configuration.png)
 
 ## <a name="next-steps"></a>다음 단계
 

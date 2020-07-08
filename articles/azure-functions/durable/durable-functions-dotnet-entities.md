@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 01e07eaee705634b03cc4462c4058e290daa8bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fdf298357370415c1b3af95dd9ed22ad8539786
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125483"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>.NET의 내구성이 있는 엔터티에 대 한 개발자 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "79278130"
  
 ## <a name="defining-entity-classes"></a>엔터티 클래스 정의
 
-다음 예제는 정수 형식의 단일 값을 `Counter` 저장 하는 엔터티의 구현 이며 `Add`,, 및 `Reset` `Get` `Delete`의 네 가지 작업을 제공 합니다.
+다음 예제는 `Counter` 정수 형식의 단일 값을 저장 하는 엔터티의 구현 이며,, 및의 네 가지 작업을 `Add` 제공 `Reset` `Get` `Delete` 합니다.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -67,10 +67,10 @@ public class Counter
 }
 ```
 
-함수 `Run` 는 클래스 기반 구문을 사용 하는 데 필요한 상용구를 포함 합니다. *정적* Azure 함수 여야 합니다. 엔터티에 의해 처리 되는 각 작업 메시지에 대해 한 번 실행 됩니다. 가 `DispatchAsync<T>` 호출 되 고 엔터티가 메모리에 없는 경우 형식의 `T` 개체를 생성 하 고 저장소에 있는 마지막으로 지속 된 JSON (있는 경우)에서 해당 필드를 채웁니다. 그런 다음 일치 하는 이름을 사용 하 여 메서드를 호출 합니다.
+`Run`함수는 클래스 기반 구문을 사용 하는 데 필요한 상용구를 포함 합니다. *정적* Azure 함수 여야 합니다. 엔터티에 의해 처리 되는 각 작업 메시지에 대해 한 번 실행 됩니다. `DispatchAsync<T>`가 호출 되 고 엔터티가 메모리에 없는 경우 형식의 개체를 생성 하 `T` 고 저장소에 있는 마지막으로 지속 된 JSON (있는 경우)에서 해당 필드를 채웁니다. 그런 다음 일치 하는 이름을 사용 하 여 메서드를 호출 합니다.
 
 > [!NOTE]
-> 클래스 기반 엔터티의 상태는 엔터티가 작업을 처리 하기 전에 **암시적으로 생성** 되며를 호출 `Entity.Current.DeleteState()`하 여 작업에서 **명시적으로 삭제할** 수 있습니다.
+> 클래스 기반 엔터티의 상태는 엔터티가 작업을 처리 하기 전에 **암시적으로 생성** 되며를 호출 하 여 작업에서 **명시적으로 삭제할** 수 있습니다 `Entity.Current.DeleteState()` .
 
 ### <a name="class-requirements"></a>클래스 요구 사항
  
@@ -82,14 +82,14 @@ public class Counter
 또한 작업으로 호출 되는 모든 메서드는 추가 요구 사항을 충족 해야 합니다.
 
 - 작업에는 최대 하나의 인수만 사용할 수 있으며 오버 로드 또는 제네릭 형식 인수를 포함 하지 않아야 합니다.
-- 인터페이스를 사용 하 여 오케스트레이션에 서 호출 해야 하는 작업은 또는 `Task` `Task<T>`를 반환 해야 합니다.
+- 인터페이스를 사용 하 여 오케스트레이션에 서 호출 해야 하는 작업은 또는를 반환 해야 합니다 `Task` `Task<T>` .
 - 인수 및 반환 값은 serialize 할 수 있는 값 또는 개체 여야 합니다.
 
 ### <a name="what-can-operations-do"></a>작업은 무엇을 수행할 수 있나요?
 
 모든 엔터티 작업에서 엔터티 상태를 읽고 업데이트할 수 있으며, 상태에 대 한 변경 내용이 저장소에 자동으로 유지 됩니다. 또한 작업은 모든 Azure Functions 공통 된 일반 제한 내에서 외부 i/o 또는 기타 계산을 수행할 수 있습니다.
 
-작업은 또한 컨텍스트에서 제공 하는 `Entity.Current` 기능에 액세스할 수 있습니다.
+작업은 또한 컨텍스트에서 제공 하는 기능에 액세스할 수 있습니다 `Entity.Current` .
 
 * `EntityName`: 현재 실행 중인 엔터티의 이름입니다.
 * `EntityKey`: 현재 실행 중인 엔터티의 키입니다.
@@ -103,9 +103,9 @@ public class Counter
 ```csharp
     public void Add(int amount) 
     {
-        if (this.Value < 100 && this.Value + amount > 100)
+        if (this.Value < 100 && this.Value + amount >= 100)
         {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId)
+            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
         }
         this.Value += amount;      
     }
@@ -153,7 +153,7 @@ public static async Task<HttpResponseMessage> GetCounter(
 ```
 
 > [!NOTE]
-> 에서 `ReadEntityStateAsync` 반환 되는 개체는 단지 로컬 복사본, 즉 이전 특정 시점에서 엔터티 상태의 스냅숏입니다. 특히 오래 된 것일 수 있으며,이 개체를 수정 해도 실제 엔터티에는 영향을 주지 않습니다. 
+> 에서 반환 되는 개체는 `ReadEntityStateAsync` 단지 로컬 복사본, 즉 이전 특정 시점에서 엔터티 상태의 스냅숏입니다. 특히 오래 된 것일 수 있으며,이 개체를 수정 해도 실제 엔터티에는 영향을 주지 않습니다. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity"></a>예: 오케스트레이션 먼저 신호를 전달 하 고 엔터티를 호출 합니다.
 
@@ -203,7 +203,7 @@ public class Counter : ICounter
 
 ### <a name="example-client-signals-entity-through-interface"></a>예: 클라이언트에서 인터페이스를 통해 신호를 보냅니다.
 
-클라이언트 코드는를 `SignalEntityAsync<TEntityInterface>` 사용 하 여을 구현 `TEntityInterface`하는 엔터티에 신호를 보낼 수 있습니다. 다음은 그 예입니다.
+클라이언트 코드 `SignalEntityAsync<TEntityInterface>` 는를 사용 하 여을 구현 하는 엔터티에 신호를 보낼 수 있습니다 `TEntityInterface` . 예를 들어:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -218,15 +218,15 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-이 예제에서 `proxy` 매개 변수는 내부적으로 생성 된 인스턴스로 `ICounter`, 내부적으로 호출 `Delete` 을 신호로 변환 합니다.
+이 예제에서 `proxy` 매개 변수는 내부적으로 생성 된 인스턴스로 `ICounter` , 내부적으로 호출을 `Delete` 신호로 변환 합니다.
 
 > [!NOTE]
-> Api `SignalEntityAsync` 는 단방향 작업에만 사용할 수 있습니다. 작업이 반환 `Task<T>`되는 경우에도 `T` 매개 변수의 값은 항상 null 이거나 `default`실제 결과가 아닙니다.
-예를 들어 값이 반환 되지 않으므로 `Get` 작업에 신호를 보내는 것은 적절 하지 않습니다. 대신, 클라이언트는를 사용 `ReadStateAsync` 하 여 카운터 상태에 직접 액세스 하거나 `Get` 작업을 호출 하는 orchestrator 함수를 시작할 수 있습니다. 
+> Api는 단방향 `SignalEntityAsync` 작업에만 사용할 수 있습니다. 작업이 반환 되는 경우에도 `Task<T>` `T` 매개 변수의 값은 항상 null 이거나 `default` 실제 결과가 아닙니다.
+예를 들어 `Get` 값이 반환 되지 않으므로 작업에 신호를 보내는 것은 적절 하지 않습니다. 대신, 클라이언트는를 사용 `ReadStateAsync` 하 여 카운터 상태에 직접 액세스 하거나 작업을 호출 하는 orchestrator 함수를 시작할 수 있습니다 `Get` . 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>예: 오케스트레이션은 먼저 신호를 전달 하 고 프록시를 통해 엔터티를 호출 합니다.
 
-오케스트레이션 내에서 엔터티를 호출 하거나 신호를 보내기 위해 `CreateEntityProxy` 를 인터페이스 형식과 함께 사용 하 여 엔터티에 대 한 프록시를 생성할 수 있습니다. 그런 다음이 프록시를 사용 하 여 작업을 호출 하거나 신호를 보낼 수 있습니다.
+오케스트레이션 내에서 엔터티를 호출 하거나 신호를 보내기 위해를 `CreateEntityProxy` 인터페이스 형식과 함께 사용 하 여 엔터티에 대 한 프록시를 생성할 수 있습니다. 그런 다음이 프록시를 사용 하 여 작업을 호출 하거나 신호를 보낼 수 있습니다.
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -246,7 +246,7 @@ public static async Task<int> Run(
 }
 ```
 
-가 반환 `void` 하는 모든 작업은 암시적으로 신호를 보내고 또는 `Task` `Task<T>` 을 반환 하는 모든 작업을 호출 합니다. `SignalEntity<IInterfaceType>` 메서드를 명시적으로 사용 하 여이 기본 동작을 변경 하 고 작업을 반환 하는 경우에도 신호 작업을 수행할 수 있습니다.
+가 반환 하는 모든 작업 `void` 은 암시적으로 신호를 보내고 또는을 반환 하는 모든 작업을 `Task` `Task<T>` 호출 합니다. 메서드를 명시적으로 사용 하 여이 기본 동작을 변경 하 고 작업을 반환 하는 경우에도 신호 작업을 수행할 수 있습니다 `SignalEntity<IInterfaceType>` .
 
 ### <a name="shorter-option-for-specifying-the-target"></a>대상을 지정 하는 짧은 옵션
 
@@ -267,12 +267,12 @@ context.SignalEntity<ICounter>("myCounter", ...);
 * 엔터티 인터페이스는 메서드만 정의 해야 합니다.
 * 엔터티 인터페이스에 제네릭 매개 변수를 포함 하면 안 됩니다.
 * 엔터티 인터페이스 메서드에는 매개 변수를 둘 이상 사용할 수 없습니다.
-* 엔터티 인터페이스 메서드는, `void` `Task`또는을 반환 해야 합니다.`Task<T>` 
+* 엔터티 인터페이스 메서드 `void` 는, 또는을 반환 해야 합니다. `Task``Task<T>` 
 
-이러한 규칙 중 하나라도 위반 되 면 인터페이스가 `InvalidOperationException` 또는 `SignalEntity` `CreateProxy`에 대 한 형식 인수로 사용 되는 경우 런타임에이 throw 됩니다. 예외 메시지는 중단 된 규칙을 설명 합니다.
+이러한 규칙 중 하나라도 위반 되 면 `InvalidOperationException` 인터페이스가 또는에 대 한 형식 인수로 사용 되는 경우 런타임에이 throw 됩니다 `SignalEntity` `CreateProxy` . 예외 메시지는 중단 된 규칙을 설명 합니다.
 
 > [!NOTE]
-> 을 반환 `void` 하는 인터페이스 메서드는 (단방향) 호출 되지 않고 (양방향)만 신호를 받을 수 있습니다. 또는 `Task<T>` 를 반환 `Task` 하는 인터페이스 메서드를 호출 하거나 신호를 받을 수 있습니다. 호출 된 경우 작업의 결과를 반환 하거나 작업에서 throw 된 예외를 다시 throw 합니다. 그러나 신호를 보낸 경우 작업에서 실제 결과 또는 예외를 반환 하지 않고 기본값만 반환 합니다.
+> 을 반환 하는 인터페이스 메서드 `void` 는 (단방향) 호출 되지 않고 (양방향)만 신호를 받을 수 있습니다. 또는를 반환 `Task` `Task<T>` 하는 인터페이스 메서드를 호출 하거나 신호를 받을 수 있습니다. 호출 된 경우 작업의 결과를 반환 하거나 작업에서 throw 된 예외를 다시 throw 합니다. 그러나 신호를 보낸 경우 작업에서 실제 결과 또는 예외를 반환 하지 않고 기본값만 반환 합니다.
 
 ## <a name="entity-serialization"></a>엔터티 serialization
 
@@ -310,10 +310,10 @@ public class User
 ### <a name="serialization-attributes"></a>직렬화 특성
 
 위의 예제에서는 기본 serialization이 더 표시 되도록 여러 특성을 포함 하도록 선택 했습니다.
-- 클래스에 주석을 추가 `[JsonObject(MemberSerialization.OptIn)]` 하 여 클래스를 serialize 할 수 있어야 하 고 JSON 속성으로 명시적으로 표시 된 멤버만 유지 하도록 알려 줍니다.
--  필드를 지속형 엔터티 상태에 포함 하 `[JsonProperty("name")]` 고 JSON 표현에 사용할 속성 이름을 지정 하는 데 사용할 필드에 주석을 추가 합니다.
+- 클래스에 주석을 추가 하 여 `[JsonObject(MemberSerialization.OptIn)]` 클래스를 serialize 할 수 있어야 하 고 JSON 속성으로 명시적으로 표시 된 멤버만 유지 하도록 알려 줍니다.
+-  `[JsonProperty("name")]`필드를 지속형 엔터티 상태에 포함 하 고 JSON 표현에 사용할 속성 이름을 지정 하는 데 사용할 필드에 주석을 추가 합니다.
 
-그러나 이러한 특성은 필요 하지 않습니다. 다른 규칙 또는 특성은 Json.NET에서 작동 하는 한 허용 됩니다. 예를 들어 특성을 사용 `[DataContract]` 하거나 특성을 전혀 사용 하지 않을 수 있습니다.
+그러나 이러한 특성은 필요 하지 않습니다. 다른 규칙 또는 특성은 Json.NET에서 작동 하는 한 허용 됩니다. 예를 들어 `[DataContract]` 특성을 사용 하거나 특성을 전혀 사용 하지 않을 수 있습니다.
 
 ```csharp
 [DataContract]
@@ -331,11 +331,11 @@ public class Counter
 }
 ```
 
-기본적으로 클래스의 이름은 JSON 표현의 일부로 저장 *되지* 않습니다. 즉,을 기본 설정으로 사용 `TypeNameHandling.None` 합니다. 이 기본 동작은 또는 `JsonObject` `JsonProperty` 특성을 사용 하 여 재정의할 수 있습니다.
+기본적으로 클래스의 이름은 JSON 표현의 일부로 저장 *되지* 않습니다. 즉,을 `TypeNameHandling.None` 기본 설정으로 사용 합니다. 이 기본 동작은 `JsonObject` 또는 특성을 사용 하 여 재정의할 수 있습니다 `JsonProperty` .
 
 ### <a name="making-changes-to-class-definitions"></a>클래스 정의 변경
 
-저장 된 JSON 개체가 새 클래스 정의와 더 이상 일치 하지 않을 수 있기 때문에 응용 프로그램을 실행 한 후에 클래스 정의를 변경 하는 경우에는 주의 해야 합니다. 그러나에서 `JsonConvert.PopulateObject`사용 하는 deserialization 프로세스를 이해 하는 한 데이터 형식을 변경 하는 것이 적절 한 경우가 종종 있습니다.
+저장 된 JSON 개체가 새 클래스 정의와 더 이상 일치 하지 않을 수 있기 때문에 응용 프로그램을 실행 한 후에 클래스 정의를 변경 하는 경우에는 주의 해야 합니다. 그러나에서 사용 하는 deserialization 프로세스를 이해 하는 한 데이터 형식을 변경 하는 것이 적절 한 경우가 종종 있습니다 `JsonConvert.PopulateObject` .
 
 예를 들어 다음과 같은 몇 가지 변경 내용과 그 결과를 확인할 수 있습니다.
 
@@ -345,7 +345,7 @@ public class Counter
 1. 속성 형식이 변경 되어 저장 된 JSON에서 더 이상 deserialize 할 수 없는 경우 예외가 throw 됩니다.
 1. 속성의 형식이 변경 되었지만 저장 된 JSON에서 deserialize 할 수 있는 경우에는이 작업을 수행 합니다.
 
-Json.NET의 동작을 사용자 지정 하는 데 사용할 수 있는 여러 가지 옵션이 있습니다. 예를 들어 저장 된 JSON에 클래스에 없는 필드가 포함 된 경우 예외를 강제로 적용 하려면 특성 `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`을 지정 합니다. 임의의 형식으로 저장 된 JSON을 읽을 수 있는 deserialization에 대 한 사용자 지정 코드를 작성할 수도 있습니다.
+Json.NET의 동작을 사용자 지정 하는 데 사용할 수 있는 여러 가지 옵션이 있습니다. 예를 들어 저장 된 JSON에 클래스에 없는 필드가 포함 된 경우 예외를 강제로 적용 하려면 특성을 지정 `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)` 합니다. 임의의 형식으로 저장 된 JSON을 읽을 수 있는 deserialization에 대 한 사용자 지정 코드를 작성할 수도 있습니다.
 
 ## <a name="entity-construction"></a>엔터티 생성
 
@@ -353,7 +353,7 @@ Json.NET의 동작을 사용자 지정 하는 데 사용할 수 있는 여러 �
 
 ### <a name="custom-initialization-on-first-access"></a>처음 액세스할 때 사용자 지정 초기화
 
-액세스 하지 않았거나 삭제 된 엔터티를 작업에 디스패치하기 전에 몇 가지 특수 한 초기화를 수행 해야 하는 경우도 있습니다. 이 동작을 지정 하기 위해 먼저 조건부를 추가할 수 있습니다 `DispatchAsync`.
+액세스 하지 않았거나 삭제 된 엔터티를 작업에 디스패치하기 전에 몇 가지 특수 한 초기화를 수행 해야 하는 경우도 있습니다. 이 동작을 지정 하기 위해 먼저 조건부를 추가할 수 있습니다 `DispatchAsync` .
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -482,7 +482,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="the-entity-context-object"></a>엔터티 컨텍스트 개체입니다.
 
-형식의 `IDurableEntityContext`컨텍스트 개체를 통해 엔터티 관련 기능에 액세스할 수 있습니다. 이 컨텍스트 개체는 엔터티 함수 및 async-local 속성 `Entity.Current`을 통해 매개 변수로 사용할 수 있습니다.
+형식의 컨텍스트 개체를 통해 엔터티 관련 기능에 액세스할 수 있습니다 `IDurableEntityContext` . 이 컨텍스트 개체는 엔터티 함수 및 async-local 속성을 통해 매개 변수로 사용할 수 있습니다 `Entity.Current` .
 
 다음 멤버는 현재 작업에 대 한 정보를 제공 하 고 반환 값을 지정할 수 있도록 합니다. 
 
@@ -500,7 +500,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 * `SetState(arg)`: 엔터티의 상태를 만들거나 업데이트 합니다.
 * `DeleteState()`: 엔터티의 상태 (있는 경우)를 삭제 합니다. 
 
-에서 `GetState` 반환 하는 상태가 개체 이면 응용 프로그램 코드에서 직접 수정할 수 있습니다. 종료 시에는 다시 호출 `SetState` 하지 않아도 됩니다. 가 `GetState<TState>` 여러 번 호출 된 경우 동일한 형식을 사용 해야 합니다.
+에서 반환 하는 상태가 `GetState` 개체 이면 응용 프로그램 코드에서 직접 수정할 수 있습니다. 종료 시에는 다시 호출 하지 않아도 됩니다 `SetState` . `GetState<TState>`가 여러 번 호출 된 경우 동일한 형식을 사용 해야 합니다.
 
 마지막으로, 다음 멤버를 사용 하 여 다른 엔터티에 신호를 보내거나 새 오케스트레이션을 시작 합니다.
 

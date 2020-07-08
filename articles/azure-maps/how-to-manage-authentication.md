@@ -1,19 +1,20 @@
 ---
-title: 인증 관리 | Microsoft Azure 맵
+title: 인증 관리
+titleSuffix: Azure Maps
 description: Microsoft Azure 맵에서 인증을 관리 하려면 Azure Portal을 사용 합니다.
 author: philmea
 ms.author: philmea
-ms.date: 01/29/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: dfe73971f29ea362fdd0ddd654e705b622ab1866
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 174606b4b070b69aba94f438a3f7177f0d5897f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981723"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -25,97 +26,65 @@ Azure Maps 계정을 만든 후에는 기본 키와 보조 키가 생성 됩니�
 
 Azure Portal에서 인증 세부 정보를 볼 수 있습니다. 계정에서 **설정** 메뉴의 **인증**을 선택 합니다.
 
-![인증 세부 정보](./media/how-to-manage-authentication/how-to-view-auth.png)
+> [!div class="mx-imgBorder"]
+> ![인증 세부 정보](./media/how-to-manage-authentication/how-to-view-auth.png)
 
+## <a name="discover-category-and-scenario"></a>범주 및 시나리오 검색
 
-## <a name="register-and-configure-an-azure-ad-app"></a>Azure AD 앱 등록 및 구성
+응용 프로그램 요구에 따라 응용 프로그램 보안을 위한 특정 경로가 있습니다. Azure AD는 광범위 한 인증 흐름을 지 원하는 범주를 정의 합니다. 응용 프로그램에 적합 한 범주를 이해 하려면 [응용 프로그램 범주](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) 를 참조 하세요.
 
-1. Azure Portal의 Azure 서비스 목록에서 **Azure Active Directory** > **앱 등록** > **새 등록**을 선택 합니다.  
+> [!NOTE]
+> 공유 키 인증을 사용 하는 경우에도 범주 및 시나리오를 이해 하면 응용 프로그램을 보호 하는 데 도움이 됩니다.
 
-    ![앱 등록](./media/how-to-manage-authentication/app-registration.png)
+## <a name="determine-authentication-and-authorization"></a>인증 및 권한 부여 결정
 
-1. 앱을 이미 등록 한 경우에는 다음 단계를 계속 진행 합니다. 앱을 등록 하지 않은 경우 **이름을**입력 하 고 **지원 계정 유형을**선택한 다음 **등록**을 선택 합니다.  
+다음 표에서는 Azure Maps의 일반적인 인증 및 권한 부여 시나리오를 간략하게 설명 합니다. 이 표에서는 각 시나리오에서 제공 하는 보호 유형을 비교 하 여 보여 줍니다.
 
-    ![앱 등록 세부 정보](./media/how-to-manage-authentication/app-create.png)
+> [!IMPORTANT]
+> 프로덕션 응용 프로그램에 대해 RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Active Directory (Azure AD)를 구현 하는 것이 좋습니다.
 
-1. Azure Maps에 위임 된 API 권한을 할당 하려면 응용 프로그램으로 이동 합니다. 그런 다음 **앱 등록**에서 **API 권한** > **추가 권한 추가**를 선택 합니다. **내 조직에서 사용 하는 api**에서를 검색 하 고 **Azure Maps**를 선택 합니다.
+| 시나리오                                                                                    | 인증 | 권한 부여 | 개발 활동 | 운영 활동 |
+| ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
+| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | 공유 키     | 해당 없음           | 중간             | 높은               |
+| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | Azure AD       | 높은          | 낮음                | 중간             |
+| [대화형 single sign-on을 사용 하는 웹 단일 페이지 응용 프로그램](./how-to-secure-spa-users.md) | Azure AD       | 높은          | 중간             | 중간             |
+| [비 대화형 sign-on을 사용 하는 웹 단일 페이지 응용 프로그램](./how-to-secure-spa-app.md)      | Azure AD       | 높은          | 중간             | 중간             |
+| [대화형 single sign-on을 사용 하는 웹 응용 프로그램](./how-to-secure-webapp-users.md)          | Azure AD       | 높은          | 높은               | 중간             |
+| [IoT 장치/입력 제한 장치](./how-to-secure-device-code.md)                     | Azure AD       | 높은          | 중간             | 중간             |
 
-    ![앱 API 권한 추가](./media/how-to-manage-authentication/app-permissions.png)
+이 표의 링크를 통해 각 시나리오에 대 한 자세한 구성 정보를 볼 수 있습니다.
 
-1. **액세스 Azure Maps**옆의 확인란을 선택 하 고 **사용 권한 추가**를 선택 합니다.
-
-    ![앱 API 권한 선택](./media/how-to-manage-authentication/select-app-permissions.png)
-
-1. 인증 방법에 따라 다음 단계 중 하나를 완료 합니다. 
-
-    * 응용 프로그램에서 Azure Maps 웹 SDK를 사용 하 여 사용자 토큰 인증을 사용 하 `oauth2AllowImplicitFlow`는 경우을 사용 하도록 설정 합니다. 이 기능을 사용 하도록 설정 하려면 앱 등록의 **매니페스트** 섹션에서을 `oauth2AllowImplicitFlow` true로 설정 합니다. 
-    
-       ![앱 매니페스트](./media/how-to-manage-authentication/app-manifest.png)
-
-    * 응용 프로그램에서 서버 또는 응용 프로그램 인증을 사용 하는 경우 앱 등록 페이지에서 **인증서 & 암호**로 이동 합니다. 그런 다음, 공개 키 인증서를 업로드 하거나 **새 클라이언트**암호를 선택 하 여 암호를 만듭니다. 
-    
-       ![클라이언트 비밀 만들기](./media/how-to-manage-authentication/app-keys.png)
-
-        암호를 만드는 경우 **추가**를 선택한 후 암호를 복사 하 고 안전 하 게 저장 합니다. 이 암호를 사용 하 여 Azure AD에서 토큰을 가져옵니다.
-
-       ![클라이언트 암호 추가](./media/how-to-manage-authentication/add-key.png)
-
-
-## <a name="grant-role-based-access-control-to-azure-maps"></a>Azure Maps에 역할 기반 액세스 제어 권한 부여
-
-Azure AD 테 넌 트에 Azure Maps 계정을 연결한 후 액세스 제어를 허용할 수 있습니다. 사용자, 그룹 또는 응용 프로그램을 하나 이상의 Azure Maps 액세스 제어 역할에 할당 하 여 RBAC ( *역할 기반 액세스 제어* )를 부여 합니다. 
-
-1. **Azure Maps 계정**으로 이동 합니다. **액세스 제어 (IAM)** > **역할 할당**을 선택 합니다.
-
-    ![RBAC 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)
-
-1. **역할 할당** 탭의 **역할**아래에서 **Azure Maps Date Reader (미리 보기)** 를 선택 합니다. **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 사용자 또는 응용 프로그램을 선택 합니다. 그런 다음 **저장**을 선택합니다.
-
-    ![역할 할당 추가](./media/how-to-manage-authentication/add-role-assignment.png)
-
-## <a name="view-available-azure-maps-rbac-roles"></a>사용 가능한 Azure Maps RBAC 역할 보기
+## <a name="view-role-definitions"></a>역할 정의 보기
 
 Azure Maps 사용할 수 있는 RBAC 역할을 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다. 이러한 Azure Maps 역할은 액세스 권한을 부여할 수 있는 역할입니다.
 
-![사용 가능한 역할 보기](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
+> [!div class="mx-imgBorder"]
+> ![사용 가능한 역할 보기](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-
-## <a name="view-azure-maps-rbac"></a>RBAC Azure Maps 보기
-
-RBAC는 세분화 된 액세스 제어를 제공 합니다.
+## <a name="view-role-assignments"></a>역할 할당 보기
 
 Azure Maps에 RBAC가 부여 된 사용자 및 앱을 보려면 **Access Control (IAM)** 로 이동 합니다. 여기에서 **역할 할당**을 선택 하 고 **Azure Maps**를 기준으로 필터링 합니다.
 
-![RBAC가 부여 된 사용자 및 앱 보기](./media/how-to-manage-authentication/how-to-view-amrbac.png)
-
+> [!div class="mx-imgBorder"]
+> ![RBAC가 부여 된 사용자 및 앱 보기](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Azure Maps에 대한 토큰 요청
 
-앱을 등록 하 고 Azure Maps에 연결한 후 액세스 토큰을 요청할 수 있습니다.
+Azure AD 토큰 끝점에서 토큰을 요청 합니다. Azure AD 요청에서 다음 세부 정보를 사용 합니다.
 
-응용 프로그램에서 Azure Maps 웹 SDK를 사용 하 여 사용자 토큰 인증을 사용 하는 경우 Azure Maps 클라이언트 ID 및 Azure AD 앱 ID를 사용 하 여 HTML 페이지를 구성 합니다.
+| Azure 환경      | Azure AD 토큰 끝점             | Azure 리소스 ID              |
+| ---------------------- | ----------------------------------- | ------------------------------ |
+| Azure 퍼블릭 클라우드     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
+| Azure Government 클라우드 | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-응용 프로그램에서 서버 또는 응용 프로그램 인증을 사용 하는 경우 Azure AD 토큰 끝점 `https://login.microsoftonline.com`에서 토큰을 요청 합니다. 요청에서 다음 정보를 사용 합니다. 
-
-* Azure AD 리소스 ID`https://atlas.microsoft.com/`
-* Azure Maps 클라이언트 ID
-* Azure AD 앱 ID
-* Azure AD 앱 등록 암호 또는 인증서
-
-| Azure 환경   | Azure AD 토큰 끝점 | Azure 리소스 ID |
-| --------------------|-------------------------|-------------------|
-| Azure 공용 클라우드        | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
-| Azure Government 클라우드   | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` | 
-
-Azure AD에서 사용자 및 서비스 사용자에 대 한 액세스 토큰을 요청 하는 방법에 대 한 자세한 내용은 [AZURE ad에 대 한 인증 시나리오](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)를 참조 하세요.
-
+사용자 및 서비스 사용자를 위해 Azure AD에서 액세스 토큰을 요청 하는 방법에 대 한 자세한 내용은 [AZURE ad에 대 한 인증 시나리오](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) 및 [시나리오](./how-to-manage-authentication.md#determine-authentication-and-authorization)표에서 특정 시나리오 보기를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [AZURE AD 및 Azure Maps 웹 SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)를 참조 하세요.
 
 Azure Maps 계정에 대 한 API 사용 메트릭을 찾습니다.
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [사용 메트릭 보기](how-to-view-api-usage.md)
 
 Azure Maps와 Azure AD를 통합 하는 방법을 보여 주는 샘플을 탐색 합니다.

@@ -4,15 +4,15 @@ description: P2S 및 RADIUS 인증을 사용하여 Windows 및 Mac OS X 클라�
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdaa2fd1e435e8bf7ff4b17c7f8a15d5bd249d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987166"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -109,7 +109,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
   $GWIPconfName = "gwipconf"
   ```
 
-## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"> </a>리소스 그룹, VNet 및 공용 IP 주소 만들기
+## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"></a> 리소스 그룹, VNet 및 공용 IP 주소 만들기
 
 다음 단계에서는 세 개의 서브넷이 있는 리소스 그룹과 리소스 그룹의 가상 네트워크를 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 'GatewaySubnet'이라고 구체적으로 지정해야 합니다. 다른 이름을 지정하면 게이트웨이 만들기가 실패합니다.
 
@@ -143,7 +143,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"> </a>RADIUS 서버 설정
+## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"></a> RADIUS 서버 설정
 
 가상 네트워크 게이트웨이를 만들고 구성하기 전에 인증을 위한 RADIUS 서버를 올바르게 구성해야 합니다.
 
@@ -153,12 +153,12 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [NPS(네트워크 정책 서버)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) 문서에서는 AD 도메인 인증을 위해 Windows RADIUS 서버(NPS)를 구성하는 방법에 대한 지침을 제공하고 있습니다.
 
-## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>VPN gateway 만들기
+## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a> VPN gateway 만들기
 
 VNet에 대한 VPN 게이트웨이를 구성하고 만듭니다.
 
 * -GatewayType은  'Vpn'이어야 하고 -VpnType은  'RouteBased'여야 합니다.
-* VPN gateway는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 에 따라 완료 하는 데 최대 45 분까지 걸릴 수 있습니다.
+* VPN gateway는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)에 따라 완료 하는 데 최대 45 분까지 걸릴 수 있습니다   .
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -166,7 +166,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"> </a>RADIUS 서버 및 클라이언트 주소 풀 추가
+## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a> RADIUS 서버 및 클라이언트 주소 풀 추가
  
 * -RadiusServer는 이름 또는 IP 주소로 지정할 수 있습니다. 이름을 지정하고 서버가 온-프레미스에 있으면 VPN 게이트웨이에서 해당 이름을 확인할 수 없습니다. 이러한 경우에는 서버의 IP 주소를 지정하는 것이 좋습니다. 
 * -RadiusSecret은 RADIUS 서버에 구성된 것과 일치해야 합니다.
@@ -223,7 +223,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>vpn 클라이언트 구성 패키지를 다운로드 하 고 vpn 클라이언트를 설정 합니다.
+## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> vpn 클라이언트 구성 패키지를 다운로드 하 고 vpn 클라이언트를 설정 합니다.
 
 VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 디바이스를 연결할 수 있습니다.VPN 클라이언트 구성 패키지를 생성하고 VPN 클라이언트를 설정하려면 [RADIUS 인증에 대한 VPN 클라이언트 구성 만들기](point-to-site-vpn-client-configuration-radius.md)를 참조하세요.
 

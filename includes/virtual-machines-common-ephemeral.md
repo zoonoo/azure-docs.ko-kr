@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78155467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112077"
 ---
 삭제 된 OS 디스크는 로컬 VM (가상 컴퓨터) 저장소에 생성 되며 원격 Azure Storage에 저장 되지 않습니다. 사용 후 삭제 OS 디스크는 응용 프로그램이 개별 VM 오류를 허용 하는 상태 비저장 워크 로드에서 잘 작동 하지만 VM 배포 시간 또는 개별 VM 인스턴스 이미지로 다시 설치에 더 많은 영향을 줍니다. 사용 후 삭제 OS 디스크를 사용 하는 경우 OS 디스크에 대 한 읽기/쓰기 대기 시간 및 더 빠른 VM 이미지로 다시 설치 됩니다. 
  
@@ -44,19 +44,22 @@ ms.locfileid: "78155467"
 
 ## <a name="size-requirements"></a>크기 요구 사항
 
-Vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니다. 예를 들어 marketplace의 표준 Windows Server 이미지는 약 127 GiB, 127 GiB 보다 큰 캐시가 있는 VM 크기가 필요 함을 의미 합니다. 이 경우 [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) 의 캐시 크기가 86 GiB이 고 크기가 크지 않습니다. Standard_DS3_v2의 캐시 크기가 172 GiB입니다 .이는 크기가 충분 합니다. 이 경우 Standard_DS3_v2는이 이미지에서 사용할 수 있는 DSv2 시리즈의 가장 작은 크기입니다. Marketplace의 기본 Linux 이미지와로 `[smallsize]` 표시 되는 Windows Server 이미지는 가장 GiB 30 개의 사용 가능한 VM 크기를 사용할 수 있습니다.
+Vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니다. 예를 들어 marketplace의 표준 Windows Server 이미지는 약 127 GiB, 127 GiB 보다 큰 캐시가 있는 VM 크기가 필요 함을 의미 합니다. 이 경우 [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) 의 캐시 크기가 86 GiB이 고 크기가 크지 않습니다. Standard_DS3_v2의 캐시 크기가 172 GiB입니다 .이는 크기가 충분 합니다. 이 경우 Standard_DS3_v2는이 이미지에서 사용할 수 있는 DSv2 시리즈의 가장 작은 크기입니다. Marketplace의 기본 Linux 이미지와로 표시 되는 Windows Server 이미지는 `[smallsize]` 가장 GiB 30 개의 사용 가능한 VM 크기를 사용할 수 있습니다.
 
 또한 임시 디스크는 VM 크기가 Premium storage를 지원 해야 합니다. 크기 (항상 그렇지는 않음) `s` 에는 이름에 DSv2 및 EsV3와 같은가 있습니다. 자세한 내용은 프리미엄 저장소를 지 원하는 크기에 대 한 자세한 내용은 [AZURE VM 크기](../articles/virtual-machines/linux/sizes.md) 를 참조 하세요.
 
+## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>미리 보기-이제 임시 디스크에 임시 OS 디스크를 저장할 수 있습니다.
+이제 삭제 된 OS 디스크를 vm 캐시 외에도 VM 임시/리소스 디스크에 저장할 수 있습니다. 따라서 이제 캐시가 없거나 캐시 공간이 부족 하지만 Dav3, Dav4, Eav4 및 Eav3와 같은 사용 후 삭제 OS 디스크를 저장 하기 위한 temp/resource 디스크가 있는 VM에서 사용 후 삭제 OS 디스크를 사용할 수 있습니다. VM에 캐시 및 임시 공간이 충분 한 경우 이제는 [Diffdiskplacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement)라는 새 속성을 사용 하 여 임시 OS 디스크를 저장 하려는 위치도 지정할 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 시작 하려면 액세스를 [요청](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)하세요.
+
 ## <a name="powershell"></a>PowerShell
 
-PowerShell VM 배포에 임시 디스크를 사용 하려면 VM 구성에서 [AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) 를 사용 합니다. `-DiffDiskSetting` 을 `Local` 로 설정 하 `-Caching` 고 `ReadOnly`를로 설정 합니다.     
+PowerShell VM 배포에 임시 디스크를 사용 하려면 VM 구성에서 [AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) 를 사용 합니다. 을로 설정 하 고를로 설정 `-DiffDiskSetting` `Local` `-Caching` `ReadOnly` 합니다.     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-확장 집합 배포의 경우 구성에서 [AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet을 사용 합니다. `-DiffDiskSetting` 을 `Local` 로 설정 하 `-Caching` 고 `ReadOnly`를로 설정 합니다.
+확장 집합 배포의 경우 구성에서 [AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet을 사용 합니다. 을로 설정 하 고를로 설정 `-DiffDiskSetting` `Local` `-Caching` `ReadOnly` 합니다.
 
 
 ```powershell
@@ -65,7 +68,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-CLI VM 배포에 임시 디스크를 사용 하려면 [az VM create](/cli/azure/vm#az-vm-create) 에서 `--ephemeral-os-disk` 매개 변수를로 설정 하 `true` 고 `--os-disk-caching` 매개 변수를 `ReadOnly`로 설정 합니다.
+CLI VM 배포에 임시 디스크를 사용 하려면 `--ephemeral-os-disk` [az VM create](/cli/azure/vm#az-vm-create) 에서 매개 변수를로 설정 하 `true` 고 `--os-disk-caching` 매개 변수를로 설정 `ReadOnly` 합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -78,7 +81,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-확장 집합의 경우 `--ephemeral-os-disk true` [az-vmss-create](/cli/azure/vmss#az-vmss-create) 에 동일한 매개 변수를 사용 하 고 `--os-disk-caching` 매개 변수를 `ReadOnly`로 설정 합니다.
+확장 집합의 경우 `--ephemeral-os-disk true` [az-vmss-create](/cli/azure/vmss#az-vmss-create) 에 동일한 매개 변수를 사용 하 고 `--os-disk-caching` 매개 변수를로 설정 `ReadOnly` 합니다.
 
 ## <a name="portal"></a>포털   
 
@@ -93,7 +96,7 @@ Azure Portal에서 **디스크** 탭의 **고급** 섹션을 열어 VM을 배포
 ![확장 집합에 대 한 사용 후 삭제 OS 디스크를 사용 하도록 선택 하는 라디오 단추를 보여 주는 스크린샷](./media/virtual-machines-common-ephemeral/scale-set.png)
 
 ## <a name="scale-set-template-deployment"></a>확장 집합 템플릿 배포  
-사용 후 삭제 OS 디스크를 사용 하는 확장 집합을 만드는 프로세스는 템플릿의 `diffDiskSettings` `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` 리소스 유형에 속성을 추가 하는 것입니다. 또한 임시 OS 디스크에 대해 캐싱 정책을로 `ReadOnly` 설정 해야 합니다. 
+사용 후 삭제 OS 디스크를 사용 하는 확장 집합을 만드는 프로세스는 `diffDiskSettings` 템플릿의 리소스 유형에 속성을 추가 하는 것입니다 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` . 또한 `ReadOnly` 임시 OS 디스크에 대해 캐싱 정책을로 설정 해야 합니다. 
 
 
 ```json
@@ -137,7 +140,7 @@ Azure Portal에서 **디스크** 탭의 **고급** 섹션을 열어 VM을 배포
 ```
 
 ## <a name="vm-template-deployment"></a>VM 템플릿 배포 
-템플릿을 사용 하 여 임시 OS 디스크를 사용 하는 VM을 배포할 수 있습니다. 사용 후 삭제 OS 디스크를 사용 하는 VM을 만드는 프로세스는 템플릿의 `diffDiskSettings` virtualMachines/리소스 유형에 속성을 추가 하는 것입니다. 또한 임시 OS 디스크에 대해 캐싱 정책을로 `ReadOnly` 설정 해야 합니다. 
+템플릿을 사용 하 여 임시 OS 디스크를 사용 하는 VM을 배포할 수 있습니다. 사용 후 삭제 OS 디스크를 사용 하는 VM을 만드는 프로세스는 `diffDiskSettings` 템플릿의 virtualMachines/리소스 유형에 속성을 추가 하는 것입니다. 또한 `ReadOnly` 임시 OS 디스크에 대해 캐싱 정책을로 설정 해야 합니다. 
 
 ```json
 { 
@@ -198,7 +201,24 @@ A: 예, 사용 후 삭제 OS 디스크를 사용 하는 VM에 관리 되는 데�
 
 **Q: 모든 VM 크기는 임시 OS 디스크에 대해 지원 되나요?**
 
-A: 아니요, 모든 Premium Storage VM 크기 (DS, ES, FS, GS 및 M)는 B 시리즈, N 시리즈 및 H 시리즈 크기를 제외 하 고 지원 됩니다.  
+A: 아니요, 대부분의 Premium Storage VM 크기 (DS, ES, FS, GS, M 등)가 지원 됩니다. 특정 VM 크기에서 임시 OS 디스크를 지원 하는지 여부를 확인 하려면 다음을 수행할 수 있습니다.
+
+PowerShell cmdlet을 호출 합니다. `Get-AzComputeResourceSku`
+```azurepowershell-interactive
+ 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+
+foreach($vmSize in $vmSizes)
+{
+   foreach($capability in $vmSize.capabilities)
+   {
+       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
+       {
+           $vmSize
+       }
+   }
+}
+```
  
 **Q: 삭제 된 OS 디스크를 기존 Vm 및 확장 집합에 적용할 수 있나요?**
 

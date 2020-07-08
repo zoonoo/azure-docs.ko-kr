@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117229"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -28,13 +28,7 @@ ms.locfileid: "83648807"
 
 ## <a name="matrix-of-networking-features"></a>네트워킹 기능 매트릭스
 
-|                |[사용 계획](functions-scale.md#consumption-plan)|[프리미엄 계획](functions-scale.md#premium-plan)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[인바운드 IP 제한 및 프라이빗 사이트 액세스](#inbound-ip-restrictions)|✅예|✅예|✅예|✅예|
-|[가상 네트워크 통합](#virtual-network-integration)|❌아니요|✅예(지역)|✅예(지역 및 게이트웨이)|✅예|
-|[가상 네트워크 트리거(비 HTTP)](#virtual-network-triggers-non-http)|❌아니요| ✅예 |✅예|✅예|
-|[하이브리드 연결](#hybrid-connections)(Windows 전용)|❌아니요|✅예|✅예|✅예|
-|[아웃바운드 IP 제한](#outbound-ip-restrictions)|❌아니요| ✅예|✅예|✅예|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
 
@@ -139,6 +133,12 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 아웃바운드 IP 제한은 프리미엄 계획, App Service 계획 또는 App Service Environment에서 사용할 수 있습니다. App Service Environment가 배포되는 가상 네트워크에 대한 아웃바운드 제한을 구성할 수 있습니다.
 
 프리미엄 계획 또는 App Service 계획에서 함수 앱과 가상 네트워크를 통합하는 경우 앱에서 기본적으로 인터넷에 아웃바운드 호출을 수행할 수 있습니다. 애플리케이션 설정 `WEBSITE_VNET_ROUTE_ALL=1`을 추가하여 모든 아웃바운드 트래픽이 트래픽 제한에 네트워크 보안 그룹 규칙을 사용할 수 있는 가상 네트워크로 전송되도록 합니다.
+
+## <a name="automation"></a>Automation
+다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
+
++ **Azure CLI**: [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 지역 가상 네트워크 통합을 추가, 나열 또는 제거 하는 명령을 사용 합니다.  
++ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

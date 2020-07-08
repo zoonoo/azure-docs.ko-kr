@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: f00acf3580130d85d6eaeaee4d52eb748d20aa7b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116029"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
 
@@ -44,7 +44,7 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 
 예를 들어, 운영 테이블이 다음과 같은 형식입니다.
 
-![운영 테이블 예](./media/analytical-store-introduction/sample-operational-data-table.png)
+:::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="운영 테이블 예" border="false":::
 
 행 저장소는 디스크에 행별로 직렬화된 형식으로 위의 데이터를 저장합니다. 이 형식을 사용하면 트랜잭션 읽기와 쓰기 속도는 물론 "Product1에 대한 정보 반환"과 같은 운영 쿼리 속도를 높일 수 있습니다. 그러나 데이터 세트가 커지고 데이터에 대해 복잡한 분석 쿼리를 실행하려는 경우 비용이 많이 들 수 있습니다. 예를 들어, "여러 사업부와 월에 걸쳐 '장비'라는 범주에 속하는 제품의 판매 추세"를 알아보려면 복잡한 쿼리를 실행해야 합니다. 이 데이터 세트에 대한 대규모 검사는 프로비저닝된 처리량 측면에서 비용이 많이 들 수 있으며 실시간 애플리케이션 및 서비스를 지원하는 트랜잭션 워크로드의 성능에 영향을 줄 수도 있습니다.
 
@@ -52,7 +52,7 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 
 다음 이미지에서는 Microsoft Azure Cosmos DB의 트랜잭션 행 저장소와 분석 열 저장소를 비교하여 보여줍니다.
 
-![Microsoft Azure Cosmos DB의 트랜잭션 행 저장소와 분석 열 저장소](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Microsoft Azure Cosmos DB의 트랜잭션 행 저장소와 분석 열 저장소" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>분석 워크로드를 위한 분리된 성능
 

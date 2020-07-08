@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/28/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d259c6e2a6ac9ced5f9a1c29d4aec08010f4dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a9dc504edac01654fb21ec3386a596e03492c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85077796"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 일반적인 시나리오
 
 여러 가지 방법으로 조직에 대 한 자격 관리를 구성할 수 있습니다. 그러나 처음 시작 하는 경우 관리자, 카탈로그 소유자, 액세스 패키지 관리자, 승인자 및 요청자에 대 한 일반적인 시나리오를 이해 하는 것이 좋습니다.
 
-## <a name="delegate"></a>대리자(delegate)
+## <a name="delegate"></a>대리자
 
 ### <a name="administrator-delegate-management-of-resources"></a>관리자: 리소스 관리 위임
 
@@ -154,7 +154,7 @@ ms.locfileid: "78190554"
 
 ## <a name="programmatic-administration"></a>프로그래밍 방식 관리
 
-Microsoft Graph를 사용 하 여 액세스 패키지, 카탈로그, 정책, 요청 및 할당을 관리할 수도 있습니다.  위임 `EntitlementManagement.ReadWrite.All` 된 권한이 있는 응용 프로그램을 사용 하는 적절 한 역할의 사용자는 [자격 관리 API](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)를 호출할 수 있습니다.
+Microsoft Graph를 사용 하 여 액세스 패키지, 카탈로그, 정책, 요청 및 할당을 관리할 수도 있습니다.  위임 된 권한이 있는 응용 프로그램을 사용 하는 적절 한 역할의 사용자는 `EntitlementManagement.ReadWrite.All` [자격 관리 API](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)를 호출할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: Azure Service Fabric에 대 한 네트워킹 패턴
 description: Service Fabric에 대한 일반적인 네트워킹 패턴과 Azure 네트워킹 기능을 사용하여 클러스터를 만드는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106621"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -171,7 +171,7 @@ DnsSettings              : {
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-또 다른 예제를 보려면 [Service Fabric에 국한되지 않는 항목](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet)을 참조하세요.
+또 다른 예제를 보려면 [Service Fabric에 국한되지 않는 항목](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet)을 참조하세요.
 
 
 <a id="staticpublicip"></a>

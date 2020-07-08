@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3378b442c80758c4a5dca02b33f92ba3823f33ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246592"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113654"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -25,7 +25,7 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 
 다음 이미지는 RU의 개략적인 개념을 보여 줍니다.
 
-![데이터베이스 작업은 요청 단위를 사용함](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="데이터베이스 작업은 요청 단위를 사용함" border="false":::
 
 용량을 관리하고 계획하려면 Azure Cosmos DB에서는 지정된 데이터 세트를 통해 지정된 데이터베이스 작업에 대한 RU 수가 결정적이 되도록 확인합니다. 응답 헤더를 검사하여 모든 데이터베이스 작업에서 사용하는 RU 수를 추적할 수 있습니다. 매우 요금 및 응용 프로그램의 처리량 요구 사항에 [영향을 주는 요소](request-units.md#request-unit-considerations) 를 이해 하면 응용 프로그램 비용을 효과적으로 실행할 수 있습니다.
 
@@ -67,7 +67,7 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량을 프로비전](set-throughput.md)하는 방법을 자세히 알아봅니다.
-* [논리 파티션에](partition-data.md)대해 자세히 알아보세요.
+* [논리 파티션](partition-data.md)에 대해 자세히 알아봅니다.
 * [프로비전된 처리량 크기를 전역적으로 조정](scaling-throughput.md)하는 방법을 자세히 알아봅니다.
 * [Azure Cosmos 컨테이너의 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
 * [Azure Cosmos 데이터베이스의 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.

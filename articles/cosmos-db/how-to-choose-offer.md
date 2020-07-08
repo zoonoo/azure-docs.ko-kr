@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: b8c4fd3804bfa02b86f62912641eb936ff8cd15e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116811"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>표준(수동) 및 자동 크기 조정 프로비저닝된 처리량 중에서 선택하는 방법 
 
@@ -61,7 +61,7 @@ Azure Cosmos DB [용량 계산기](estimate-ru-with-capacity-planner.md)를 사�
 
 자동 크기 조정을 사용하는 경우 Azure Monitor를 사용하여 프로비저닝된 자동 크기 조정 최대 초당 RU(**자동 크기 조정 최대 처리량**) 및 시스템이 현재 조정된 초당 RU(**프로비저닝된 처리량**)를 확인합니다. 다음은 자동 크기 조정을 사용하는 가변 또는 예측할 수 없는 워크로드의 예제입니다. 트래픽이 없는 경우 시스템은 초당 RU 크기를 초당 최대 RU 중 최소 10%로 조정합니다. 이 경우에는 각각 초당 5,000RU 및 초당 50,000RU입니다. 
 
-![자동 크기 조정을 사용하는 워크로드 예제](media/how-to-choose-offer/autoscale-metrics-azure-monitor.png)
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="자동 크기 조정을 사용하는 워크로드 예제":::
 
 > [!NOTE]
 > 표준(수동) 프로비저닝된 처리량을 사용하는 경우 **프로비저닝된 처리량** 메트릭은 사용자가 설정한 크기를 나타냅니다. 자동 크기 조정 처리량을 사용하는 경우 이 메트릭은 시스템이 현재 조정된 초당 RU를 나타냅니다.

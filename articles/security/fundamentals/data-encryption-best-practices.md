@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124054"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 이 문서에서는 데이터 보안 및 암호화에 대 한 모범 사례를 설명 합니다.
@@ -119,13 +119,13 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 
 회사 외부에서 공유한 이메일, 문서 및 중요한 데이터를 제어하고 보호하려고 합니다. [Azure Information Protection](/azure/information-protection/)은 조직이 문서와 이메일을 분류하고, 레이블을 지정하고, 보호할 수 있게 해주는 클라우드 기반 솔루션입니다. 이러한 작업은 규칙 및 조건을 정의하는 관리자에 의해 자동으로, 사용자에 의해 수동으로 또는 사용자가 권장 사항을 가져오는 조합에 의해 수행될 수 있습니다.
 
-데이터가 저장되는 위치 또는 공유 대상에 관계 없이 항상 분류를 식별할 수 있습니다. 레이블에는 헤더, 바닥글 또는 워터마크와 같은 시각적 표시가 포함됩니다. 메타데이터는 일반 텍스트로 파일 및 이메일 헤더에 추가됩니다. 일반 텍스트를 사용하면 데이터 손실을 방지하는 솔루션 등 다른 서비스가 분류를 식별하고 적절한 조치를 취할 수 있습니다.
+데이터가 저장되는 위치 또는 공유 대상에 관계 없이 항상 분류를 식별할 수 있습니다. 레이블에는 헤더, 바닥글 또는 워터마크와 같은 시각적 표시가 포함됩니다. 메타데이터는 일반 텍스트로 파일 및 메일 머리글에 추가됩니다. 일반 텍스트를 사용하면 데이터 손실을 방지하는 솔루션 등 다른 서비스가 분류를 식별하고 적절한 조치를 취할 수 있습니다.
 
-보호 기술은 Azure RMS(Azure Rights Management)를 사용합니다. 이 기술은 Office 365 및 Azure Active Directory와 같은 다른 Microsoft 클라우드 서비스 및 애플리케이션과 통합됩니다. 이 보호 기술은 암호화, ID 및 권한 부여 정책을 사용합니다. Azure RMS를 통해 적용되는 보호는 조직, 네트워크, 파일 서버 및 애플리케이션의 내부 또는 외부에 있든 그 위치와 상관없이 문서 및 이메일과 함께 유지됩니다.
+보호 기술은 Azure RMS(Azure Rights Management)를 사용합니다. 이 기술은 Microsoft 365 및 Azure Active Directory와 같은 다른 Microsoft 클라우드 서비스 및 응용 프로그램과 통합 됩니다. 이 보호 기술은 암호화, ID 및 권한 부여 정책을 사용합니다. Azure RMS를 통해 적용되는 보호는 조직, 네트워크, 파일 서버 및 애플리케이션의 내부 또는 외부에 있든 그 위치와 상관없이 문서 및 이메일과 함께 유지됩니다.
 
 이 정보 보호 솔루션을 통해 데이터를 다른 사용자와 공유하는 경우에도 제어를 유지합니다. 이러한 애플리케이션 및 솔루션이 온-프레미스 또는 클라우드에 위치하는지와 상관 없이 고유한 기간 업무 애플리케이션 및 소프트웨어 공급 업체의 정보 보호 솔루션에서 Azure RMS를 사용할 수도 있습니다.
 
-다음을 권장합니다.
+다음을 수행하는 것이 좋습니다.
 
 - 조직에 대해 [Azure Information Protection 배포](/azure/information-protection/deployment-roadmap)
 - 비즈니스 요구 사항을 반영하는 레이블 적용 예를 들어, 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.

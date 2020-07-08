@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982002"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -72,7 +73,13 @@ v2 SKU의 경우 공용 IP 리소스를 열고 **구성**을 선택합니다. **
 
 *Keep-Alive 시간 제한*은 클라이언트가 영구 연결에 대한 요청을 다른 HTTP 요청으로 보낼 때까지 Application Gateway가 대기하는 시간을 조정합니다. 이 시간이 지나면 Application Gateway가 연결을 재사용하거나 종료합니다. *TCP 유휴 시간 제한*은 작업이 없을 때 TCP 연결이 열린 상태로 유지되는 시간을 제어합니다. 
 
-Application Gateway v1 SKU의 *Keep-Alive 시간 제한*은 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 제한*은 Application Gateway v1 및 v2 SKU의 프런트 엔드 VIP(가상 IP)에서 기본적으로 4분입니다. 이 값을 변경할 수 없습니다.
+Application Gateway v1 SKU의 *Keep-Alive 시간 제한*은 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 제한*은 Application Gateway v1 및 v2 SKU의 프런트 엔드 VIP(가상 IP)에서 기본적으로 4분입니다. V1 및 v2 Application gateway에서 4 분에서 30 분 사이의 TCP 유휴 시간 제한 값을 구성할 수 있습니다. V1 및 v2 응용 프로그램 게이트웨이의 경우, Application Gateway 공용 IP로 이동 하 여 포털에서 공용 IP의 "구성" 블레이드에서 TCP 유휴 시간 제한을 변경 해야 합니다. 다음 명령을 실행 하 여 PowerShell을 통해 공용 IP의 TCP 유휴 시간 제한 값을 설정할 수 있습니다. 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>애플리케이션 게이트웨이의 수명 주기 중에 IP 또는 DNS 이름이 변경되나요?
 
@@ -211,7 +218,7 @@ IP 연결이 설정되어 있는 한, Application Gateway는 현재 속한 가�
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>사용자 지정 프로브의 호스트 필드는 무엇을 나타내나요?
 
-호스트 필드는 Application Gateway에서 다중 사이트를 구성한 경우 프로브를 보낼 이름을 지정합니다. 지정하지 않으면 '127.0.0.1'이 사용됩니다. 이 값은 가상 머신 호스트 이름과 다릅니다. 형식은 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\>입니다.
+호스트 필드는 Application Gateway에서 다중 사이트를 구성한 경우 프로브를 보낼 이름을 지정합니다. 지정하지 않으면 '127.0.0.1'이 사용됩니다. 이 값은 가상 머신 호스트 이름과 다릅니다. 형식은 \<protocol\> :// \<host\> : \<port\> \<path\> 입니다.
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Application Gateway가 일부 원본 IP 주소에만 액세스하도록 허용할 수 있나요?
 
@@ -337,11 +344,31 @@ Application Gateway는 최대 100의 인증 인증서를 지원합니다.
 Kubernetes를 사용하면 `deployment` 및 `service` 리소스를 만들어서 클러스터 내부에서 Pod 그룹을 공개할 수 있습니다. 외부에서 동일한 서비스를 공개하기 위해 부하 분산, TLS 종료 및 이름 기반 가상 호스팅을 제공하는 [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) 리소스가 정의됩니다.
 이 `Ingress` 리소스를 충족하려면 `Ingress` 리소스의 변경 내용을 수신 대기하고 부하 분산 장치 정책을 구성하는 수신 컨트롤러가 필요합니다.
 
-Application Gateway Ingress Controller는 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)를 AKS 클러스터라고도 하는 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)의 수신으로 사용할 수 있습니다.
+AGIC (Application Gateway 수신 컨트롤러)를 사용 하면 [Azure 애플리케이션 게이트웨이](https://azure.microsoft.com/services/application-gateway/) 를 AKS 클러스터 라고도 하는 [Azure Kubernetes 서비스](https://azure.microsoft.com/services/kubernetes-service/) 에 대 한 수신으로 사용할 수 있습니다.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>단일 수신 컨트롤러 인스턴스가 여러 Application Gateway를 관리할 수 있나요?
 
 현재는 수신 컨트롤러 인스턴스 하나를 Application Gateway 하나에만 연결할 수 있습니다.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Kubenet가 AGIC에서 작동 하지 않는 AKS 클러스터는 무엇 인가요?
+
+AGIC는 Application Gateway 서브넷에 경로 테이블 리소스를 자동으로 연결 하려고 시도 하지만 AGIC의 사용 권한이 부족 하 여이 작업을 수행 하지 못할 수 있습니다. AGIC가 경로 테이블을 Application Gateway 서브넷에 연결할 수 없는 경우 AGIC 로그에 오류가 발생 합니다 .이 경우 AKS 클러스터에서 만든 경로 테이블을 Application Gateway의 서브넷에 수동으로 연결 해야 합니다. 자세한 내용은 [여기](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)에 있는 지침을 참조 하세요.
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>AKS 클러스터와 Application Gateway를 별도의 가상 네트워크에 연결할 수 있나요? 
+
+예, 가상 네트워크는 피어 링 주소 공간이 겹치지 않습니다. Kubenet를 사용 하 여 AKS를 실행 하는 경우 AKS에 의해 생성 된 경로 테이블을 Application Gateway 서브넷에 연결 해야 합니다. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>AGIC 추가 기능에서 지원 되지 않는 기능은 무엇입니까? 
+
+[여기](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) 에 AKS 추가 기능으로 배포 된 AGIC의 차이점을 참조 하세요.
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>추가 기능 및 투구 배포를 사용 해야 하는 경우는 언제 인가요? 
+
+AKS 추가 기능을 통해 배포 된 AGIC의 차이점을 참조 하세요. [여기서](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)는 AKS 추가 기능이 아닌 투구를 통해 배포 된 AGIC에서 지 원하는 시나리오를 문서화 합니다. 일반적으로, 투구를 통해 배포 하면 공식 릴리스 전에 베타 기능 및 릴리스 후보를 테스트할 수 있습니다. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>추가 기능을 사용 하 여 어떤 버전의 AGIC를 배포할지 제어할 수 있나요?
+
+아니요. AGIC 추가 기능은 Microsoft에서 추가 기능을 안정적인 최신 버전으로 자동으로 업데이트 하는 관리 되는 서비스입니다. 
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 
@@ -411,8 +438,6 @@ Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://g
 
 사설 IP 전용 액세스를 위한 NSG 구성 샘플: ![사설 IP 전용 액세스를 위한 Application Gateway V2 NSG 구성](./media/application-gateway-faq/appgw-privip-nsg.png)
 
-### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Application Gateway 선호도 쿠키는 SameSite 특성을 지원하나요?
-예, [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 SameSite 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리해 달라는 요구를 수락했습니다. 즉, 타사 컨텍스트에서는 브라우저가 Application Gateway 선호도 쿠키를 보내지 않습니다. 이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS*라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure*. 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-overview.md#cookie-based-affinity)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

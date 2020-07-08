@@ -5,17 +5,17 @@ description: WhiteNoise 패키지를 사용하여 Azure Machine Learning 모델�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
-ms.openlocfilehash: 47497f23da94e529826b8dddb05b869727fb528e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981849"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Azure Machine Learning에서 차등 프라이버시 사용
 
@@ -24,6 +24,9 @@ ms.locfileid: "83663671"
 WhiteNoise Python 패키지를 사용하여 차등 프라이버시 모범 사례를 Azure Machine Learning 모델에 적용하는 방법에 대해 알아봅니다.
 
 차등 프라이버시는 프라이버시의 골드 표준 정의입니다. 이 프라이버시 정의를 준수하는 시스템은 보조 정보를 소유한 악의적 사용자의 공격을 포함하여 다양한 데이터 재구성 및 재식별 공격에 강력한 보증을 제공합니다. [차등 프라이버시 작업](./concept-differential-privacy.md)에 대해 자세히 알아봅니다.
+
+> [!NOTE]
+> 도구 키트의 이름을 바꾸고 새 이름을 소개 하는 주입니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

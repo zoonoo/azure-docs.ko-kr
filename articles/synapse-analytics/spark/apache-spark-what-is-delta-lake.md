@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 52758eab645fa0bb89cb499a5c617df62c21279e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 244cdf5329e26fc7d928998b734a539f086051ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193382"
 ---
 # <a name="what-is-delta-lake"></a>델타 Lake 란?
 
@@ -22,7 +22,7 @@ Azure Synapse Analytics는 Linux Foundation 델타 Lake와 호환 됩니다. 델
 
 ## <a name="key-features"></a>주요 기능
 
-| 기능 | Description |
+| 기능 | 설명 |
 | --- | --- |
 | **ACID 트랜잭션** | 데이터 레이크는 일반적으로 여러 프로세스 및 파이프라인을 통해 채워지며, 일부는 읽기와 동시에 데이터를 기록 합니다. 델타 Lake 및 트랜잭션 추가 전에 데이터 엔지니어가 데이터 무결성을 보장 하기 위해 수동으로 오류가 발생 하기 쉬운 프로세스를 진행 해야 했습니다. 델타 Lake는 데이터 레이크에 익숙한 ACID 트랜잭션을 가져옵니다. 가장 강력한 수준의 격리 수준인 순차성을 제공 합니다. [델타 Lake: 트랜잭션 로그 압축 풀기](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html)에서 자세히 알아보세요.|
 | **확장 가능한 메타 데이터 처리** | 빅 데이터에서 메타 데이터 자체도 "빅 데이터" 일 수 있습니다. 델타 Lake는 데이터와 마찬가지로 메타 데이터를 처리 하 여 Spark의 분산 처리 능력을 활용 하 여 모든 메타 데이터를 처리 합니다. 따라서 델타 Lake는 수십억 개의 파티션 및 파일을 사용 하 여 페타바이트 규모 테이블을 쉽게 처리할 수 있습니다. |

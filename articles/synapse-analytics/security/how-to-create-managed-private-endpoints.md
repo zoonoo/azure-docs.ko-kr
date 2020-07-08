@@ -4,15 +4,16 @@ description: 이 문서에서는 Azure Synapse 작업 영역에서 데이터 원
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: d6a0a84050cb8f1b3ad0c04aa66c5b3797282f2e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c6f0054364e5bbfb80fc4c1b9db6a4c15f365a81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193892"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>데이터 원본에 대 한 관리 되는 개인 끝점 만들기 (미리 보기)
 

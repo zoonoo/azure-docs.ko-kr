@@ -4,12 +4,12 @@ description: Azure Service Fabric 클러스터에 대한 보안 시나리오 및
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080685"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 
@@ -33,13 +33,18 @@ Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 �
 
 Service Fabric은 클러스터를 만들 때 노드 유형 구성의 일부로 지정하는 X.509 서버 인증서를 사용합니다. 이 문서의 끝에서 인증서 정보 및 인증서 획득 또는 생성 방법에 대한 간략한 개요를 확인할 수 있습니다.
 
-Azure Portal에서 Azure Resource Manager 템플릿을 사용하거나 독립 실행형 JSON 템플릿을 사용하여 클러스터를 만들 때 인증서 보안을 설정합니다. Service Fabric SDK의 기본 동작은 향후 만료 인증서에서 가장 멀리 있는 것으로 인증서를 배포 및 설치하는 것입니다. 기본 동작은 수동으로 초기화된 롤오버를 허용하도록 기본 및 보조 인증서의 정의를 허용했으며, 새로운 기능에 대해 사용하는 것은 권장되지 않습니다. 사용될 기본 인증서에는 향후 만료 날짜에서 가장 멀리 있는 인증서가 있으며, [클라이언트-노드 보안](#client-to-node-security)에 대해 설정한 관리 클라이언트 및 읽기 전용 클라이언트 인증서와 달라야 합니다.
+Azure Portal에서 Azure Resource Manager 템플릿을 사용하거나 독립 실행형 JSON 템플릿을 사용하여 클러스터를 만들 때 인증서 보안을 설정합니다. Service Fabric SDK의 기본 동작은 가장 quantity이 포함 된 인증서를 나중에 만료 되는 날짜에 배포 하 고 설치 하는 것입니다. 클래식 동작을 통해 기본 및 보조 인증서를 정의 하 여 수동으로 시작한 롤오버를 허용 하 고 새 기능에 대해 사용 하지 않는 것이 좋습니다. 사용될 기본 인증서에는 향후 만료 날짜에서 가장 멀리 있는 인증서가 있으며, [클라이언트-노드 보안](#client-to-node-security)에 대해 설정한 관리 클라이언트 및 읽기 전용 클라이언트 인증서와 달라야 합니다.
 
 Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보려면 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조하세요.
 
 독립 실행형 Windows Server 클러스터의 클러스터에서 인증서 보안을 설정하는 방법을 알아보려면 [X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
 
 ### <a name="node-to-node-windows-security"></a>노드 간 Windows 보안
+
+> [!NOTE]
+> Windows 인증은 Kerberos를 기반으로 합니다. NTLM은 인증 유형으로 지원 되지 않습니다.
+>
+> 가능 하면 Service Fabric 클러스터에 대해 x.509 인증서 인증을 사용 합니다.
 
 독립 실행형 Windows Server 클러스터의 Windows 보안을 설정하는 방법을 알아보려면 [Windows 보안을 사용하여 Windows에서 독립 실행형 클러스터 보호](service-fabric-windows-cluster-windows-security.md)를 참조하세요.
 
@@ -49,7 +54,7 @@ Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보
 
 ![클라이언트-노드 통신의 다이어그램][Client-to-Node]
 
-Azure에서 실행되는 클러스터 및 Windows에서 실행되는 독립 실행형 클러스터는 [인증서 보안](https://msdn.microsoft.com/library/ff649801.aspx) 또는 [Windows 보안](https://msdn.microsoft.com/library/ff649396.aspx)을 모두 사용할 수 있습니다.
+Azure에서 실행 되는 클러스터와 Windows에서 실행 되는 독립 실행형 클러스터는 모두 [인증서 보안](https://msdn.microsoft.com/library/ff649801.aspx) 또는 [windows 보안](https://msdn.microsoft.com/library/ff649396.aspx)을 사용할 수 있지만 가능 하면 x.509 인증서 인증을 사용 하는 것이 좋습니다.
 
 ### <a name="client-to-node-certificate-security"></a>클라이언트-노드 인증서 보안
 
@@ -113,7 +118,7 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일�
 
 몇 가지 다른 사항도 고려해야 합니다.
 
-* **주체** 필드는 여러 값을 가질 수 있습니다. 각 값은 값 형식을 나태내는 이니셜로 접두사가 지정됩니다. 일반적으로 초기화는 **CN** ( *일반 이름*)입니다. 예를 들어 **CN = www\.contoso.com**입니다.
+* **주체** 필드는 여러 값을 가질 수 있습니다. 각 값은 값 형식을 나태내는 이니셜로 접두사가 지정됩니다. 일반적으로 초기화는 **CN** ( *일반 이름*)입니다. 예를 들어 **CN = www \. contoso.com**입니다.
 * **주체** 필드는 비워 둘 수 있습니다.
 * 선택적 **주체 대체 이름** 필드가 채워진 경우 인증서의 일반 이름과 SAN당 하나의 항목을 모두 포함해야 합니다. 이러한 값은 **DNS 이름** 값으로 입력 됩니다. SAN을 포함하는 인증서를 생성하는 방법을 알아보려면 [보안 LDAP 인증서에 주체 대체 이름을 추가하는 방법](https://support.microsoft.com/kb/931351)을 참조하세요.
 * 인증서의 **용도 필드 값** 에는 **서버 인증** 또는 **클라이언트 인증과**같은 적절 한 값을 포함 해야 합니다.

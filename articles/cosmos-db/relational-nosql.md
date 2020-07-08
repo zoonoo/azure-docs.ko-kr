@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1cd80fee51565f2a2c1afa38ed883c10f51a5ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75896624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113692"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>NoSQL 및 관계형 데이터베이스의 차이점 이해
 
@@ -29,9 +29,9 @@ ms.locfileid: "75896624"
 
 트랜잭션 볼륨이 초당 수천 개의 트랜잭션과 같이 극단적인 수준에 도달 하는 경우 분산 된 NoSQL 데이터베이스를 고려해 야 합니다. 효율성을 극대화 하 고, 유지 관리 편의성을 높이고, 총 소유 비용을 줄이는 Azure Cosmos DB을 고려 합니다.
 
-![백 엔드](./media/relational-or-nosql/backend-scaled.png)
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="백 엔드" border="false":::
 
-## <a name="hierarchical-data"></a>계층적 데이터
+## <a name="hierarchical-data"></a>계층 데이터
 
 데이터베이스의 트랜잭션에 많은 부모-자식 관계가 포함 될 수 있는 많은 수의 사용 사례가 있습니다. 이러한 관계는 시간이 지남에 따라 현저 하 게 증가 하 고 관리 하기 어려울 수 있습니다. [계층적 데이터베이스](https://en.wikipedia.org/wiki/Hierarchical_database_model) 의 형식은 1980 년대 중에 발생 했지만 저장소의 비효율성 때문에 널리 사용 되지 않았습니다. 또한 [Ted codd의 관계형 모델이](https://en.wikipedia.org/wiki/Relational_model) 거의 모든 주요 데이터베이스 관리 시스템에서 사용 하는 사실상 표준으로 사용 되기 때문에 트랙 션이 손실 됩니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "75896624"
 
 [개체 지향 디자인](https://en.wikipedia.org/wiki/Object-oriented_design)의 등장 및 관계형 모델과 결합할 때 발생 하는 [임피던스 불일치](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) 는 특정 사용 사례에 대 한 관계형 데이터베이스의 앤티앨리어싱을 강조 표시 합니다. 숨겨진 경우에도 종종 상당한 유지 관리 비용이 발생할 수 있습니다. [ORM 방식은](https://en.wikipedia.org/wiki/Object-relational_mapping) 이를 부분적으로 완화 하기 위해 발전 했지만 문서 지향 데이터베이스는 개체 지향 접근 방식으로 훨씬 더 잘 병합 됩니다. 이 접근 방식을 사용 하 여 개발자는 ORM 드라이버 또는 맞춤식 언어별 [데이터베이스 엔진](https://en.wikipedia.org/wiki/Object_database)에 적용 되지 않습니다. 데이터에 부모-자식 관계와 계층의 수준 수준이 많은 경우 [AZURE COSMOS DB SQL API](https://docs.microsoft.com/azure/cosmos-db/introduction)와 같은 nosql 문서 데이터베이스를 사용 하는 것을 고려해 볼 수 있습니다.
 
-![OrderDetails](./media/relational-or-nosql/order-orderdetails.jpg)
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>복합 네트워크 및 관계
 
@@ -49,7 +49,7 @@ Ironically의 이름을 지정 하면 관계형 데이터베이스는 심층적�
 
 데이터베이스에 복잡 한 관계 네트워크를 유지 관리 하는 경우이 데이터를 관리 하기 위한 [Azure Cosmos DB GREMLIN API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) 와 같은 그래프 데이터베이스를 고려해 야 할 수 있습니다.
 
-![Graph](./media/relational-or-nosql/graph.png)
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="그래프":::
 
 Azure Cosmos DB은 모든 주요 NoSQL 모델 형식에 대 한 API 프로젝션을 제공 하는 다중 모델 데이터베이스 서비스입니다. 열 패밀리, 문서, 그래프 및 키-값입니다. [Gremlin (그래프)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) 및 SQL (Core) 문서 API 계층은 완전히 상호 운용 가능 합니다. 여기에는 프로그래밍 기능 수준에서 서로 다른 모델 간을 전환할 때의 이점이 있습니다. 그래프 저장소는 복잡 한 네트워크 순회와 동일한 저장소의 문서 레코드로 모델링 된 트랜잭션의 측면에서 쿼리할 수 있습니다.
 
@@ -76,7 +76,7 @@ NoSQL 데이터베이스를 구현할 때 약간의 이점이 있지만 고려�
 
 첫 번째 과제를 살펴보면 NoSQL 데이터베이스의 규칙에 대 한 규칙은 일반적으로 비 정규화 되어 있습니다 .이는 앞에서 언급 한 것 처럼 분산 시스템에서 보다 효율적인 읽기를 생성 하는 것입니다. 그러나이 방법을 사용 하면 몇 가지 디자인 문제를 해결할 수 있습니다. 하나의 범주 및 여러 태그와 관련 된 제품의 예를 살펴보겠습니다.
 
-![조인](./media/relational-or-nosql/many-joins.png)
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="조인":::
 
 NoSQL 문서 데이터베이스에서 가장 좋은 방법은 범주 이름 및 태그 이름을 "제품 문서"로 직접 비 정규화 하는 것입니다. 그러나 범주, 태그 및 제품을 동기화 상태로 유지 하기 위해이를 용이 하 게 하는 디자인 옵션은 "일 대 다" 관계의 간단한 업데이트 및 데이터 검색에 대 한 조인이 아니라 제품의 여러 레코드 간에 데이터가 중복 되기 때문에 유지 관리 복잡성을 추가 했습니다. 
 

@@ -4,29 +4,24 @@ description: 이 문서에서는 Azure Time Series Insights API를 호출하는 
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+ms.author: shresha
+manager: dpalled
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/18/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 94fef951bf1c5c9d69a9b49cd9465d7d248c74a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099225"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
 이 문서에서는 새 Azure Active Directory 블레이드를 사용하여 Azure Active Directory에 앱을 등록하는 방법을 설명합니다. Azure Active Directory에 등록된 앱은 사용자가 인증을 받고 Time Series Insights 환경에 연결된 Azure Time Series insights API를 사용할 수 있도록 권한을 부여 받도록 합니다.
-
-> [!IMPORTANT]
-> Azure Time Series Insights는 다음 인증 라이브러리를 모두 지원합니다.
-> * 최근 [MSAL(Microsoft 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * [Azure ADAL(Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="service-principal"></a>서비스 주체
 
@@ -81,9 +76,9 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 ### <a name="client-app-initialization"></a>클라이언트 앱 초기화
 
-* 개발자는 [MSAL(Microsoft Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) 또는 [ADAL(Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)을 사용하여 Azure Time Series Insights로 인증할 수 있습니다.
+* 개발자는 MSAL (Microsoft Authentication Library)을 사용 하 여 Azure Time Series Insights 인증할 수 있습니다.
 
-* 예를 들어 ADAL을 사용하여 인증하려면
+* ADAL을 사용 하 여 인증 하려면:
 
    1. 애플리케이션을 대신하여 토큰을 획득하려면 Azure Active Directory 앱 등록 섹션에서 **애플리케이션 ID** 및 **클라이언트 암호**(애플리케이션 키)를 사용합니다.
 
@@ -93,7 +88,10 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
    1. 애플리케이션이 Time Series Insights API를 호출할 때 `Authorization` 헤더에서 이 토큰을 전달할 수 있습니다.
 
-* 또는 개발자가 MSAL을 사용하여 인증하도록 선택할 수 있습니다. 자세히 알아보려면 [MSAL로 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration)에 대해 읽어보고 [C#을 사용하여 Azure Time Series Insights 환경에 대한 GA 참조 데이터 관리](time-series-insights-manage-reference-data-csharp.md) 문서를 참조하세요.
+> [!IMPORTANT]
+> [ADAL (Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) 을 사용 하는 경우 [msal으로의 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration)에 대해 읽어 보십시오.
+
+    See our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
 
 ## <a name="common-headers-and-parameters"></a>일반 헤더 및 매개 변수
 
@@ -113,13 +111,13 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 필요한 요청 헤더는 아래에 설명되어 있습니다.
 
-| 필수 요청 헤더 | Description |
+| 필수 요청 헤더 | 설명 |
 | --- | --- |
 | 권한 부여 | Time Series Insights로 인증하려면 유효한 OAuth 2.0 전달자 토큰을 **권한 부여** 헤더에 전달해야 합니다. |
 
 > [!IMPORTANT]
 > 토큰은 토큰의 "대상"이라고도 하는 `https://api.timeseries.azure.com/` 리소스로 정확히 발급되어야 합니다.
-> * 따라서 [Postman](https://www.getpostman.com/) **AuthURL**은 다음과 같습니다. `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * 따라서 [Postman](https://www.getpostman.com/) **AuthURL**은 다음과 같습니다. `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/`은 유효하지만 `https://api.timeseries.azure.com`은 유효하지 않습니다.
 
 선택적 요청 헤더는 아래에 설명되어 있습니다.
@@ -154,17 +152,17 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 선택적 URL 쿼리 문자열 매개 변수에는 HTTP 요청 실행 시간에 대한 시간 제한을 설정하는 작업이 포함됩니다.
 
-| 선택적 쿼리 매개 변수 | Description | 버전 |
+| 선택적 쿼리 매개 변수 | 설명 | 버전 |
 | --- |  --- | --- |
 | `timeout=<timeout>` | HTTP 요청 실행을 위한 서버 쪽 시간 제한입니다. [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 미 [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API에만 적용됩니다. 제한 시간 값은 ISO 8601 기간 형식(예: `"PT20S"`)이어야 하며 `1-30 s` 범위에 있어야 합니다. 기본값은 `30 s`입니다. | GA |
 | `storeType=<storeType>` | 웜 저장소가 사용하도록 설정된 미리 보기 환경의 경우 `WarmStore` 또는 `ColdStore`에서 쿼리를 실행할 수 있습니다. 쿼리의 이 매개 변수는 쿼리를 실행해야 하는 저장소를 정의합니다. 정의되지 않은 경우 쿼리는 콜드 저장소에서 실행됩니다. 웜 저장소를 쿼리하려면 **storeType**을 `WarmStore`로 설정해야 합니다. 정의되지 않은 경우 콜드 저장소에 대해 쿼리가 실행됩니다. | 미리 보기 |
 
 ## <a name="next-steps"></a>다음 단계
 
-- GA Time Series Insights API를 호출하는 샘플 코드는 [C#을 사용하여 데이터 쿼리](./time-series-insights-query-data-csharp.md)를 읽어보세요.
+* GA Time Series Insights API를 호출하는 샘플 코드는 [C#을 사용하여 데이터 쿼리](./time-series-insights-query-data-csharp.md)를 읽어보세요.
 
-- Preview Time Series Insights API 코드 샘플은 [C#을 사용하여 미리 보기 데이터 쿼리](./time-series-insights-update-query-data-csharp.md)를 읽어보세요.
+* Preview Time Series Insights API 코드 샘플은 [C#을 사용하여 미리 보기 데이터 쿼리](./time-series-insights-update-query-data-csharp.md)를 읽어보세요.
 
-- API 참조 정보를 보려면 [쿼리 API 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) 설명서를 참조하세요.
+* API 참조 정보를 보려면 [쿼리 API 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) 설명서를 참조하세요.
 
-- [서비스 주체를 만드는](../active-directory/develop/howto-create-service-principal-portal.md) 방법을 알아봅니다.
+* [서비스 주체를 만드는](../active-directory/develop/howto-create-service-principal-portal.md) 방법을 알아봅니다.

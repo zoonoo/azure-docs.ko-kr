@@ -8,18 +8,18 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: fa899764e4e80e7eba849e02d617c8c1ca2ae410
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 587e339f2c2d91792ef1c342f7a1f8363da63626
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106007"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
 
 > [!NOTE]
-> 이제 azure에는 고유한 사용자 지정 이미지를 정의 하 고 만드는 데 필요한 Azure Image Builder (미리 보기) 서비스가 있습니다. Azure 이미지 작성기는 패키지를 사용 하 여 구축 되므로 기존 패키지 provisioner 스크립트를 사용할 수도 있습니다. Azure 이미지 작성기를 시작 하려면 [Azure 이미지 작성기를 사용 하 여 LINUX VM 만들기](image-builder.md)를 참조 하세요.
+> 이제 Azure에는 고유한 사용자 지정 이미지를 정의하고 만드는 데 필요한 Azure Image Builder(미리 보기) 서비스가 있습니다. Azure Image Builder는 Packer를 기반으로 빌드되므로 기존 Packer 셸 프로비저닝 프로그램 스크립트도 사용할 수 있습니다. Azure 이미지 작성기를 시작 하려면 [Azure 이미지 작성기를 사용 하 여 LINUX VM 만들기](image-builder.md)를 참조 하세요.
 
 
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
@@ -124,7 +124,7 @@ az account show --query "{ subscription_id: id }"
 
 
 ## <a name="build-packer-image"></a>Packer 이미지 작성
-로컬 컴퓨터에 Packer를 아직 설치하지 않은 경우 [Packer 설치 지침을 따릅니다](https://www.packer.io/docs/install/index.html).
+로컬 컴퓨터에 Packer를 아직 설치하지 않은 경우 [Packer 설치 지침을 따릅니다](https://www.packer.io/docs/install).
 
 다음과 같이 Packer 템플릿 파일을 지정하여 이미지를 작성합니다.
 
@@ -228,4 +228,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 이미지 작성기](image-builder.md)에서 기존 패키지를 사용 하 여 provisioner 스크립트를 사용할 수도 있습니다.
+[Azure Image Builder](image-builder.md)에서 기존 Packer 프로비저닝 프로그램 스크립트를 사용할 수도 있습니다.

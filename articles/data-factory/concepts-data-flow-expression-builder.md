@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/20/2020
+ms.openlocfilehash: 7e2b655b344af90c4555beb0af85fa11cbc6d1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126164"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
 
@@ -76,24 +76,20 @@ Azure Data Factory 사용자 환경에서 식 편집 인터페이스를 식 작�
 
 한 줄 및 여러 줄 주석 구문을 사용 하 여 식에 주석을 추가 합니다.
 
-![한 줄 및 여러 줄 주석 구문](media/data-flow/comments.png "주석")
-
 다음은 유효한 설명 예입니다.
 
 * ```/* This is my comment */```
 
 * ```/* This is a```
 *   ```multi-line comment */```
-   
-* ```// This is a single line comment```
 
 식의 맨 위에 주석을 입력 하면 변환 텍스트 상자에 표시 되어 변환 식을 문서화할 수 있습니다.
 
-![변환 텍스트 상자의 주석](media/data-flow/comments2.png "주석")
+![변환 텍스트 상자의 주석](media/data-flow/comments2.png "의견")
 
 ## <a name="regular-expressions"></a>정규식
 
-많은 식 언어 함수는 정규식 구문을 사용 합니다. 정규식 함수를 사용 하는 경우 식 작성기는 백슬래시 (\\)를 이스케이프 문자 시퀀스로 해석 하려고 합니다. 정규식에서 백슬래시를 사용 하는 경우 전체 regex를 backtick (\`)으로 묶거나 이중 백슬래시를 사용 합니다.
+많은 식 언어 함수는 정규식 구문을 사용 합니다. 정규식 함수를 사용 하는 경우 식 작성기는 백슬래시 ( \\ )를 이스케이프 문자 시퀀스로 해석 하려고 합니다. 정규식에서 백슬래시를 사용 하는 경우 전체 regex를 backtick ()으로 묶거나 \` 이중 백슬래시를 사용 합니다.
 
 백 틱을 사용 하는 예제:
 
@@ -124,15 +120,19 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 ## <a name="convert-to-dates-or-timestamps"></a>날짜 또는 타임 스탬프로 변환
 
-타임 스탬프 출력에 문자열 리터럴을 포함 하려면에서 ```toString()```변환을 래핑합니다.
+타임 스탬프 출력에 문자열 리터럴을 포함 하려면에서 변환을 래핑합니다 ```toString()``` .
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Epoch에서 날짜 또는 타임 스탬프로 밀리초를 변환 하려면를 사용 `toTimestamp(<number of milliseconds>)`합니다. 시간을 초 단위로 가져오는 경우 1000를 곱합니다.
+Epoch에서 날짜 또는 타임 스탬프로 밀리초를 변환 하려면를 사용 `toTimestamp(<number of milliseconds>)` 합니다. 시간을 초 단위로 가져오는 경우 1000를 곱합니다.
 
 ```toTimestamp(1574127407*1000l)```
 
 이전 식의 끝에 있는 후행 "l"은 long 형식으로의 변환을 인라인 구문으로 나타냅니다.
+
+## <a name="find-time-from-epoch-or-unix-time"></a>Epoch 또는 Unix 시간에서 시간 찾기
+
+toLong (currentTimestamp ()-toTimestamp (' 1970-01-01 00:00:00.000 ', ' yyyy-MM-dd HH: MM: ss). SSS ')) * 1000l
 
 ## <a name="next-steps"></a>다음 단계
 

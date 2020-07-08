@@ -4,15 +4,15 @@ description: P2S 인증서 인증용 Windows, Mac, Linux 클라이언트 인증�
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 787b8a34ed4b232b9e6cc033e67b1a8162c85f6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0cfbc39bbbd54e225879bd479bf0ba47186aee8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75902841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987135"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>P2S 인증서 인증 연결용 클라이언트 인증서 설치
 
@@ -35,7 +35,7 @@ ms.locfileid: "75902841"
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
-## <a name="linux"></a><a name="installlinux"></a>용
+## <a name="linux"></a><a name="installlinux"></a>Linux
 
 Linux 클라이언트 인증서는 클라이언트 구성의 일부로 클라이언트에 설치됩니다. [클라이언트 구성 - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) 지침을 참조하세요.
 

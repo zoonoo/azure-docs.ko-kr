@@ -5,14 +5,14 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 06/17/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 61dd98028b7342290984615ea19b561b48aaeadb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61d9712026daab63a002793adf2e17b9db943f94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74792225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976900"
 ---
 # <a name="supported-postgresql-major-versions"></a>지원 되는 PostgreSQL 주 버전
 Microsoft는 Azure Database for PostgreSQL 단일 서버에서 n-2 버전의 PostgreSQL 엔진을 지원 합니다. 버전은 Azure(n)의 현재 주요 버전과 두 개의 이전 주요 버전(-2)이 됩니다.
@@ -20,16 +20,16 @@ Microsoft는 Azure Database for PostgreSQL 단일 서버에서 n-2 버전의 Pos
 Azure Database for PostgreSQL 현재 다음 주 버전을 지원 합니다.
 
 ## <a name="postgresql-version-11"></a>PostgreSQL 버전 11
-현재 부 릴리스는 11.5입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-5.html) 를 참조 하세요.
+현재 부 릴리스는 11.6입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-6.html) 를 참조 하세요.
 
 ## <a name="postgresql-version-10"></a>PostgreSQL 버전 10
-현재 부 릴리스는 10.10입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/10/static/release-10-10.html) 를 참조 하세요.
+현재 부 릴리스는 10.11입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/10/static/release-10-11.html) 를 참조 하세요.
 
 ## <a name="postgresql-version-96"></a>PostgreSQL 버전 9.6
-현재 부 버전은 9.6.15입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html) 를 참조 하세요.
+현재 부 버전은 9.6.16입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/9.6/static/release-9-6-16.html) 를 참조 하세요.
 
 ## <a name="postgresql-version-95"></a>PostgreSQL 버전 9.5
-현재 부 버전은 9.5.19입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html) 를 참조 하세요.
+현재 부 버전은 9.5.20입니다. 이 부 릴리스의 개선 사항 및 수정 내용에 대 한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/9.5/static/release-9-5-20.html) 를 참조 하세요.
 
 ## <a name="managing-upgrades"></a>업그레이드 관리
 PostgreSQL 프로젝트는 보고 된 버그를 수정 하기 위해 부분적 릴리스를 정기적으로 실행 합니다. 서비스의 월간 배포 중에 보조 릴리스로 서버를 자동으로 패치 하는 Azure Database for PostgreSQL. 

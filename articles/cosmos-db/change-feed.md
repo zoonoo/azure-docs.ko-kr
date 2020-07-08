@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb3f7f3d641f33e4b4deb1775600595cc382f68e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119378"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
 
@@ -67,7 +67,7 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 변경 피드는 컨테이너 내에서 각 논리 파티션 키에 대해 사용할 수 있으며, 아래 이미지와 같이 한 명 이상의 소비자에게 배포하여 병렬 처리할 수 있습니다.
 
-![Azure Cosmos DB 변경 피드의 분산 처리](./media/change-feed/changefeedvisual.png)
+:::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Azure Cosmos DB 변경 피드의 분산 처리" border="false":::
 
 ## <a name="features-of-change-feed"></a>변경 피드의 기능
 

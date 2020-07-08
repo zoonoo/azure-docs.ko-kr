@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126215"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
@@ -140,17 +140,17 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
 
-|필드|Description|
+|필드|설명|
 |----|----|
 |**채널이**|상수, "Operation"|
 |**correlationId**|Azure Security Center 경고 ID|
-|**한**|경고에 대 한 설명|
+|**한**|경고에 대한 설명|
 |**eventDataId**|CorrelationId 참조|
 |**eventName**|Value 및 localizedValue 하위 필드에는 경고 표시 이름이 포함 됩니다.|
 |**category**|Value 및 localizedValue 하위 필드는 상수 "보안"입니다.|
 |**eventTimestamp**|경고가 생성 된 시간에 대 한 UTC 타임 스탬프|
 |**id**|정규화 된 경고 ID|
-|**저수준**|상수, "정보"|
+|**수준**|상수, "정보"|
 |**operationId**|CorrelationId 참조|
 |**operationName**|값 필드는 상수-"Microsoft. 보안/위치/경고/활성화/동작" 이며, 지역화 된 값은 "경고 활성화" (잠재적으로 사용자 로캘과 함께 지역화 될 수 있음)입니다.|
 |**resourceGroupName**|리소스 그룹 이름을 포함 합니다.|
@@ -160,7 +160,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 |**status**|Value 및 localizedValue 하위 필드는 상수 "Active"입니다.|
 |**하위 상태**|Value 및 localizedValue 하위 필드는 비어 있습니다.|
 |**submissionTimestamp**|활동 로그에 대 한 이벤트 전송의 UTC 타임 스탬프입니다.|
-|**구독**|손상 된 리소스의 구독 ID입니다.|
+|**subscriptionId**|손상 된 리소스의 구독 ID입니다.|
 |**properties**|경고와 관련 된 추가 속성의 JSON 모음입니다. 이는 경고 간에 변경 될 수 있지만 모든 경고에는 다음 필드가 표시 됩니다.<br>-심각도: 공격의 심각도<br>-compromisedEntity: 손상 된 리소스의 이름입니다.<br>-remediationSteps: 수행할 재구성 단계 배열<br>-의도: 경고의 kill 체인 의도입니다. 가능한 의도는 [의도 테이블](alerts-reference.md#intentions) 에 설명 되어 있습니다.|
 |**relatedEvents**|상수-빈 배열|
 |||
@@ -171,7 +171,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 ### <a name="ms-graph-api"></a>[MS Graph API](#tab/schema-graphapi)
 
-Microsoft Graph은 Microsoft 365의 데이터 및 인텔리전스에 대 한 게이트웨이입니다. Office 365, Windows 10 및 Enterprise Mobility + Security에서 엄청난 양의 데이터에 액세스 하는 데 사용할 수 있는 통합 프로그래밍 모델을 제공 합니다. Microsoft Graph의 다양 한 데이터를 사용 하 여 수백만 명의 사용자와 상호 작용 하는 조직과 소비자를 위한 앱을 빌드할 수 있습니다.
+Microsoft Graph은 Microsoft 365의 데이터 및 인텔리전스에 대 한 게이트웨이입니다. Microsoft 365, Windows 10 및 Enterprise Mobility + Security에서 엄청난 양의 데이터에 액세스 하는 데 사용할 수 있는 통합 프로그래밍 모델을 제공 합니다. Microsoft Graph의 다양 한 데이터를 사용 하 여 수백만 명의 사용자와 상호 작용 하는 조직과 소비자를 위한 앱을 빌드할 수 있습니다.
 
 MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0)에서 사용할 수 있습니다.
 

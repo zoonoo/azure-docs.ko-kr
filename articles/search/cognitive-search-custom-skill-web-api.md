@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74484114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982121"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 사용자 지정 웹 API 기술
 
@@ -36,12 +36,12 @@ Microsoft.Skills.Custom.WebApiSkill
 
 | 매개 변수 이름     | Description |
 |--------------------|-------------|
-| uri | _JSON_ 페이로드가 전송 될 웹 API의 URI입니다. **https** URI 체계만 허용됩니다. |
-| httpMethod | 페이로드를 보내는 데 사용하는 메서드입니다. 허용되는 메서드는 `PUT` 또는 `POST`입니다. |
-| httpHeaders | 키-값 쌍 컬렉션입니다. 여기서 키는 헤더 이름을 나타내고, 값은 페이로드와 함께 Web API로 보낼 헤더 값을 나타냅니다. 헤더 `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`는 이 컬렉션에서 금지됩니다. |
-| 시간 제한 | (선택 사항) 지정할 경우 API 호출을 수행하는 http 클라이언트에 대한 시간 제한을 나타냅니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 예를 들어, 60초인 경우 `PT60S`입니다. 설정하지 않으면 기본값 30초가 선택됩니다. 제한 시간은 최대 230 초, 최소 1 초로 설정할 수 있습니다. |
-| batchSize | (선택 사항) API 호출당 보낼 "데이터 레코드" 수를 나타냅니다(아래의 _JSON_ 페이로드 구조 참조). 설정하지 않으면 기본값인 1,000이 선택됩니다. 인덱싱 처리량과 API의 부하 간에 적절한 절충을 이루려면 이 매개 변수를 사용하는 것이 좋습니다. |
-| degreeOfParallelism | 필드 지정 된 경우 인덱서가 제공 된 끝점과 병렬로 수행 될 호출 수를 나타냅니다. 끝점이 요청 부하를 너무 많이 초과 하 여 실패 하는 경우이 값을 줄일 수 있으며, 끝점에서 더 많은 요청을 수락 하 고 인덱서 성능을 증가 시킬 수 있는 경우이 값을 낮출 수 있습니다.  이 값을 설정 하지 않으면 기본값인 5가 사용 됩니다. DegreeOfParallelism은 최대 10 개까지 설정할 수 있으며 최소값은 1입니다. |
+| `uri` | _JSON_ 페이로드가 전송 될 웹 API의 URI입니다. **https** URI 체계만 허용됩니다. |
+| `httpMethod` | 페이로드를 보내는 데 사용하는 메서드입니다. 허용되는 메서드는 `PUT` 또는 `POST`입니다. |
+| `httpHeaders` | 키-값 쌍 컬렉션입니다. 여기서 키는 헤더 이름을 나타내고, 값은 페이로드와 함께 Web API로 보낼 헤더 값을 나타냅니다. 헤더 `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`는 이 컬렉션에서 금지됩니다. |
+| `timeout` | (선택 사항) 지정할 경우 API 호출을 수행하는 http 클라이언트에 대한 시간 제한을 나타냅니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 예를 들어, 60초인 경우 `PT60S`입니다. 설정하지 않으면 기본값 30초가 선택됩니다. 제한 시간은 최대 230 초, 최소 1 초로 설정할 수 있습니다. |
+| `batchSize` | (선택 사항) API 호출당 보낼 "데이터 레코드" 수를 나타냅니다(아래의 _JSON_ 페이로드 구조 참조). 설정하지 않으면 기본값인 1,000이 선택됩니다. 인덱싱 처리량과 API의 부하 간에 적절한 절충을 이루려면 이 매개 변수를 사용하는 것이 좋습니다. |
+| `degreeOfParallelism` | 필드 지정 된 경우 인덱서가 제공 된 끝점과 병렬로 수행 될 호출 수를 나타냅니다. 끝점이 요청 부하를 너무 많이 초과 하 여 실패 하는 경우이 값을 줄일 수 있으며, 끝점에서 더 많은 요청을 수락 하 고 인덱서 성능을 증가 시킬 수 있는 경우이 값을 낮출 수 있습니다.  이 값을 설정 하지 않으면 기본값인 5가 사용 됩니다. 는 `degreeOfParallelism` 최대 10 자에서 1로 설정할 수 있습니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -137,7 +137,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="sample-output-json-structure"></a>샘플 출력 JSON 구조
 
-"출력"은 웹 API에서 반환 된 응답에 해당 합니다. Web API는 _JSON_ 페이로드 ( `Content-Type` 응답 헤더를 확인 하 여 확인 됨)만 반환 하 고 다음 제약 조건을 충족 해야 합니다.
+"출력"은 웹 API에서 반환 된 응답에 해당 합니다. Web API는 _JSON_ 페이로드 (응답 헤더를 확인 하 여 확인 됨)만 반환 `Content-Type` 하 고 다음 제약 조건을 충족 해야 합니다.
 
 * 개체 배열에 해당하는 `values`라는 최상위 엔터티가 있어야 합니다.
 * 배열의 개체 수는 Web API에 전송 된 개체의 수와 같아야 합니다.
@@ -201,7 +201,7 @@ Web API가 사용 가능하지 않거나 성공적이지 않은 상태 코드를
 
 Web API가 사용 가능하지 않거나 HTTP 오류를 반환하는 경우 HTTP 오류에 대해 사용 가능한 모든 세부 정보를 포함하는 오류가 인덱서 실행 기록에 추가됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)

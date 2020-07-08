@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 8f84d611ecdf3fc0f86273498753e550315cd878
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119157"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정에서 탄력적으로 크기 조정
 
@@ -19,7 +19,7 @@ Cassandra용 Azure Cosmos DB API의 탄력적 특성을 탐색하는 다양한 �
 
 Cassandra API의 경우 [.NET 및 Java SDK](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api)를 사용하여 개별 쿼리에 대한 요청 단위 요금을 검색할 수 있습니다. 이는 서비스에서 프로비저닝해야 하는 RU/초의 양을 결정하는 데 유용합니다.
 
-![데이터베이스 작업은 요청 단위를 사용함](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="데이터베이스 작업은 요청 단위를 사용함" border="false":::
 
 ## <a name="handling-rate-limiting-429-errors"></a>속도 제한 처리(429 오류)
 

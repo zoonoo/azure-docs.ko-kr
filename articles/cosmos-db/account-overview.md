@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d29ed68b2945b2473b33aa88176e6f5d832a0fba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a68207b3e5390a26e8d62ee6b725b0768ea565a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246904"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116080"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 
@@ -29,7 +29,7 @@ Azure Cosmos 컨테이너는 확장성의 기본 단위입니다. 하나의 컨�
 
 Azure 구독을 사용하면 현재 Azure Cosmos 계정을 최대 100개까지 만들 수 있습니다. 하나의 Azure Cosmos 계정은 데이터와 프로비전된 처리량을 무제한으로 관리할 수 있습니다. 계정에서 하나 이상의 Azure Cosmos 데이터베이스를 만들고 이 데이터베이스 내에서 하나 이상의 컨테이너를 만들어서 데이터와 프로비전된 처리량을 관리할 수 있습니다. 다음 그림은 Azure Cosmos 계정의 요소 계층 구조를 보여 줍니다.
 
-![Azure Cosmos 계정의 계층 구조](./media/account-overview/hierarchy.png)
+:::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Azure Cosmos 계정의 계층 구조" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

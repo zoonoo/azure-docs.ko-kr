@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2a596b71ee7e5f58e01d5bc10b330f6f54a69d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428668"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85101009"
 ---
 # <a name="assigning-variables-with-synapse-sql"></a>Synapse SQL을 사용 하 여 변수 할당
 
@@ -22,7 +22,7 @@ ms.locfileid: "81428668"
 
 ## <a name="setting-variables-with-declare"></a>DECLARE를 사용하여 변수 설정
 
-Synapse SQL의 변수는 `DECLARE` 문 또는 `SET` 문을 사용 하 여 설정 됩니다. DECLARE을 사용 하 여 변수를 초기화 하는 것은 Synapse SQL에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
+Synapse SQL의 변수는 문 또는 문을 사용 하 여 설정 됩니다 `DECLARE` `SET` . DECLARE을 사용 하 여 변수를 초기화 하는 것은 Synapse SQL에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
 
 ```sql
 DECLARE @v  int = 0
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-동일한 DECLARE 문에서 변수를 초기화 하 고 사용할 수 없습니다. 을 설명 하기 위해가 모두 동일한 DECLARE 문에서 *@p1* 초기화 되 고 사용 되므로 다음 예는 허용 되지 않습니다. 다음 예제에서는 오류가 발생합니다.
+동일한 DECLARE 문에서 변수를 초기화 하 고 사용할 수 없습니다. 예를 들어, * \@ p1* 이 모두 초기화 되어 동일한 DECLARE 문에서 사용 되므로 다음 예는 허용 되지 않습니다. 다음 예제에서는 오류가 발생합니다.
 
 ```sql
 DECLARE @p1 int = 0

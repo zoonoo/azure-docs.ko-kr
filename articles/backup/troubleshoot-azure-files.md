@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 15cea28ee6c6a969b56e34242e2631b0aa760331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130401"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -25,6 +25,7 @@ ms.locfileid: "82562086"
   >스토리지 계정의 모든 파일 공유를 Recovery Services 자격 증명 모음 하나로 보호할 수 있습니다. [이 스크립트](scripts/backup-powershell-script-find-recovery-services-vault.md) 를 사용 하 여 저장소 계정이 등록 된 recovery services 자격 증명 모음을 찾을 수 있습니다.
 
 - 지원 되지 않는 저장소 계정에 파일 공유가 없는지 확인 하세요. [Azure 파일 공유 백업에 대 한 지원 매트릭스](azure-file-share-support-matrix.md) 를 참조 하 여 지원 되는 저장소 계정을 찾을 수 있습니다.
+- 저장소 계정 이름 및 리소스 그룹 이름의 전체 길이가 새 저장소 계정 및 77 문자 (클래식 저장소 계정)의 경우 84 자를 초과 하지 않는지 확인 하세요. 
 - 저장소 계정의 방화벽 설정을 확인 하 여 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스 하도록 허용 하는 옵션이 설정 되어 있는지 확인 합니다.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>스토리지 계정의 포털 상태 검색이 실패했다는 오류가 발생합니다.
@@ -50,7 +51,7 @@ ms.locfileid: "82562086"
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>보호 해제 파일 공유 후에 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
-Azure Portal에서 **자격 증명 모음** > **백업 인프라** > **저장소 계정을** 열고 **등록 취소** 를 클릭 하 여 Recovery Services 자격 증명 모음에서 저장소 계정을 제거 합니다.
+Azure Portal에서 **자격 증명 모음**  >  **백업 인프라**  >  **저장소 계정을** 열고 **등록 취소** 를 클릭 하 여 Recovery Services 자격 증명 모음에서 저장소 계정을 제거 합니다.
 
 >[!NOTE]
 >Recovery services 자격 증명 모음은 자격 증명 모음에 등록 된 모든 저장소 계정의 등록을 취소 한 후에만 삭제할 수 있습니다.
@@ -276,6 +277,45 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 오류 메시지: 선택한 항목에서 다른 작업이 진행 중입니다.
 
 진행 중인 다른 작업이 완료 될 때까지 기다렸다가 나중에 다시 시도 하세요.
+
+파일에서: troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>일반적인 일시 삭제 관련 오류
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState-이 지점과 연결 된 스냅숏이 일시 삭제 된 상태에 있는 파일 공유에 있으므로이 복원 지점을 사용할 수 없습니다.
+
+오류 코드: UserErrorRestoreAFSInSoftDeleteState
+
+오류 메시지:이 지점과 연결 된 스냅숏이 일시 삭제 된 상태에 있는 파일 공유에 있으므로이 복원 지점을 사용할 수 없습니다.
+
+파일 공유가 일시 삭제 된 상태 이면 복원 작업을 수행할 수 없습니다. 파일 포털에서 또는 [삭제 취소 스크립트](scripts/backup-powershell-script-undelete-file-share.md) 를 사용 하 여 파일 공유의 삭제를 취소 한 다음 복원을 시도 합니다.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>복원 지점 스냅숏이 포함 된 연결 된 파일 공유가 영구적으로 삭제 되었으므로 UserErrorRestoreAFSInDeleteState에 나열 된 복원 지점을 사용할 수 없습니다.
+
+오류 코드: UserErrorRestoreAFSInDeleteState
+
+오류 메시지: 복원 지점 스냅숏이 포함 된 연결 된 파일 공유가 영구적으로 삭제 되었으므로 나열 된 복원 지점을 사용할 수 없습니다.
+
+백업 된 파일 공유가 삭제 되었는지 확인 합니다. 일시 삭제 된 상태 였던 경우 일시 삭제 보존 기간이 초과 되었고 복구 되지 않았는지 확인 합니다. 이러한 경우 모든 스냅숏이 영구적으로 손실 되며 데이터를 복구할 수 없습니다.
+
+>[!NOTE]
+> 백업 된 파일 공유를 삭제 하지 않거나, 일시 삭제 된 상태 이면 일시 삭제 보존 기간이 끝나기 전에 삭제 취소를 수행 하 여 모든 복원 지점이 손실 되지 않도록 하는 것이 좋습니다.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>Azure 파일 공유가 일시 삭제 된 상태 이므로 Usererrorbackupafsin소프트 Deletestate-백업 실패
+
+오류 코드: usererrorbackupafsin소프트 delet
+
+오류 메시지: Azure 파일 공유가 일시 삭제 된 상태 여 서 백업이 실패 했습니다.
+
+파일 **포털** 에서 파일 공유의 삭제를 취소 하거나 [삭제 취소 스크립트](scripts/backup-powershell-script-undelete-file-share.md) 를 사용 하 여 백업을 계속 하 고 데이터 영구 삭제를 방지 합니다.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>연결 된 Azure 파일 공유가 영구적으로 삭제 되어 UserErrorBackupAFSInDeleteState-백업 실패
+
+오류 코드: UserErrorBackupAFSInDeleteState
+
+오류 메시지: 연결 된 Azure 파일 공유가 영구적으로 삭제 되어 백업에 실패 했습니다.
+
+백업 된 파일 공유가 영구적으로 삭제 되었는지 확인 합니다. 그렇다면 백업 실패를 방지 하기 위해 파일 공유에 대 한 백업을 중지 합니다. 보호를 중지 하는 방법에 대해 알아보려면 [Azure 파일 공유에 대 한 보호 중지](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

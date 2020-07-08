@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: c53486bf3368039f172c7a13420e2291dd9c9892
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85121360"
 ---
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 
@@ -37,8 +37,8 @@ ms.locfileid: "83122691"
     | 설정      | 제안 값  | 설명 |
     | ------------ | ---------------- | ----------- |
     | **[Storage 계정](../articles/storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](../articles/azure-functions/functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
-    |**운영 체제**| 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
-    | **[계획](../articles/azure-functions/functions-scale.md)** | Premium | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. **Premium**을 선택 하 고 **Windows 요금제** 및 **Sku 및 크기**에 대 한 기본값을 선택 합니다. |
+    |**운영 체제**| 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. Python은 Linux 에서만 지원 됩니다. |
+    | **[계획](../articles/azure-functions/functions-scale.md)** | Premium | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. **프리미엄**을 선택 합니다. 기본적으로 새 App Service 계획이 만들어집니다. 기본 **Sku와 크기** 는 **EP1**입니다. 여기서 EP는 _탄력적 프리미엄_을 의미 합니다. 자세히 알아보려면 [프리미엄 sku 목록을](../articles/azure-functions/functions-premium-plan.md#available-instance-skus)참조 하세요.<br/>프리미엄 계획에서 JavaScript 함수를 실행 하는 경우 vCPUs 수가 작은 인스턴스를 선택 해야 합니다. 자세한 내용은 [단일 코어 프리미엄 계획 선택](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions)을 참조 하세요.  |
 
     ![호스팅 페이지](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "83122691"
 
 1. **검토 + 만들기** 페이지에서 설정을 검토한 다음, **만들기**를 선택하여 함수 앱을 프로비저닝하고 배포합니다.
 
-1. 포털의 오른쪽 위 모퉁이에 있는 **알림** 아이콘을 선택 하 고 **배포 성공** 메시지를 시청 합니다.
+1. 포털의 오른쪽 위 모서리에 있는 **알림** 아이콘을 선택하고 **배포 성공** 메시지를 확인합니다.
 
 1. **리소스로 이동**을 선택하여 함수 앱을 봅니다. **대시보드에 고정**을 선택할 수도 있습니다. 고정하면 대시보드에서 이 함수 앱 리소스로 쉽게 돌아올 수 있습니다.
 

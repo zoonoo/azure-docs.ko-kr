@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: HT
+ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982805"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125824"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
@@ -38,7 +38,7 @@ Microsoft 클라우드를 사용하면 [최상의 환경](https://www.sdxcentral
 
 예를 들어 런던의 사용자가 도쿄의 서비스에 액세스하려고 시도할 때 인터넷 트래픽이 런던에 있는 당사의 에지 중 하나에 진입하여 Microsoft WAN을 통해 프랑스, 유럽과 인도 사이의 아라비아 전역 경로를 거친 다음, 서비스가 호스팅되는 일본으로 이동합니다. 응답 트래픽이 대칭입니다. 이것을 [콜드 포테이토 라우팅](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing)이라고도 하는데, Microsoft에서 트래픽을 전달할 때까지 트래픽이 Microsoft 네트워크에서 최대한 오래 머문다는 의미입니다.  
   
-Microsoft 서비스를 사용할 때 모든 트래픽이 그렇다는 의미일까요? 예, 데이터 센터 간의 트래픽, Microsoft Azure 내의 트래픽 또는 Virtual Machines, Office 365, XBox, SQL DB, Storage 같은 Microsoft 서비스와 가상 네트워크 간의 모든 트래픽은 당사의 글로벌 네트워크 내에서 라우팅되며, 최적의 성능과 무결성을 보장하기 위해 어떤 경우에도 공용 인터넷을 통해 라우팅되지 않습니다.  
+Microsoft 서비스를 사용할 때 모든 트래픽이 그렇다는 의미일까요? 예, Microsoft Azure 내에서 또는 Virtual Machines, Microsoft 365, XBox, SQL Db, 저장소 및 가상 네트워크와 같은 Microsoft 서비스 간에 전송 되는 모든 트래픽은 최상의 성능 및 무결성을 보장 하기 위해 공용 네트워크 내에서 라우팅됩니다.  
  
 클라우드 및 온라인 서비스의 빠른 성장세를 유지하면서도 일관적이고 우수한 서비스 수준을 유지하려면 대도시, 지상파 및 해저 경로의 파이버 용량과 다양성에 막대한 투자를 해야 합니다. 최근 당사의 글로벌 네트워크에는 해저를 통해 스페인 빌바오와 미국 버지니아주 버지니아 비치를 연결하는 업계 최초의 OLS(Open Line System)인 [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea), 미국 뉴욕과 아일랜드 더블린을 연결하는 [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1), 일본 도쿄와 미국 오리건주 포틀랜드를 연결하는 [NCP(New Cross Pacific)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system)가 추가되었습니다. 
  

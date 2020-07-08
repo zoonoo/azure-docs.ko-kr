@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116301"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 인덱싱
 
@@ -34,13 +34,13 @@ Azure Portal에서 **지리** 와 **기 하 도형** 공간 형식을 전환할 
 
 Azure Portal 내 **데이터 탐색기** 에서 **지리 공간적 구성을** 설정 하는 방법은 다음과 같습니다.
 
-![지리 공간적 구성 설정](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="지리 공간적 구성 설정":::
 
-.NET SDK에서를 `geospatialConfig` 수정 하 여 **지리 공간적 구성을**조정할 수도 있습니다.
+`geospatialConfig`.NET SDK에서를 수정 하 여 **지리 공간적 구성을**조정할 수도 있습니다.
 
-지정 하지 않으면는 `geospatialConfig` 기본적으로 geography 데이터 형식으로 지정 됩니다. 를 수정 `geospatialConfig`하면 컨테이너의 모든 기존 지리 공간적 데이터가 인덱싱해야 됩니다.
+지정 하지 않으면는 `geospatialConfig` 기본적으로 geography 데이터 형식으로 지정 됩니다. 를 수정 하면 `geospatialConfig` 컨테이너의 모든 기존 지리 공간적 데이터가 인덱싱해야 됩니다.
 
-속성을 설정 하 고 **boundingBox**를 추가 하 여 지리 `geometry` 공간적 데이터 형식을로 수정 하는 예제는 다음과 같습니다. `geospatialConfig`
+`geometry`속성을 설정 `geospatialConfig` 하 고 **boundingBox**를 추가 하 여 지리 공간적 데이터 형식을로 수정 하는 예제는 다음과 같습니다.
 
 ```csharp
     //Retrieve the container's details
@@ -107,7 +107,7 @@ Azure CLI, PowerShell 또는 SDK를 사용 하 여 [인덱싱 정책을 수정�
 
 ## <a name="geometry-data-indexing-examples"></a>Geometry 데이터 인덱싱 예제
 
-Geography 데이터 형식과 마찬가지로 **geometry** 데이터 형식을 사용 하 여 인덱싱할 관련 경로와 유형을 지정 해야 합니다. 또한 인덱싱 정책 내에서를 `boundingBox` 지정 하 여 특정 경로에 대해 인덱싱할 원하는 영역을 지정 해야 합니다. 각 지리 공간적 경로에는`boundingBox`고유한가 필요 합니다.
+Geography 데이터 형식과 마찬가지로 **geometry** 데이터 형식을 사용 하 여 인덱싱할 관련 경로와 유형을 지정 해야 합니다. 또한 `boundingBox` 인덱싱 정책 내에서를 지정 하 여 특정 경로에 대해 인덱싱할 원하는 영역을 지정 해야 합니다. 각 지리 공간적 경로에는 고유한가 필요 `boundingBox` 합니다.
 
 경계 상자는 다음 속성으로 구성 됩니다.
 
@@ -120,7 +120,7 @@ Geography 데이터 형식과 마찬가지로 **geometry** 데이터 형식을 �
 
 데이터의 모든 (또는 대부분)를 포함 하는 경계 상자를 만듭니다. 경계 상자 내에 있는 개체에 대해 계산 된 작업만이 공간 인덱스를 활용할 수 있습니다. 경계 상자를 필요한 것 보다 크게 설정 하면 쿼리 성능에 부정적인 영향을 줍니다.
 
-**GeospatialConfig** 로 설정 된 `geometry` **geometry** 데이터를 인덱싱하는 인덱싱 정책 예제는 다음과 같습니다.
+**GeospatialConfig** 로 설정 된 **geometry** 데이터를 인덱싱하는 인덱싱 정책 예제는 `geometry` 다음과 같습니다.
 
 ```json
  {
@@ -159,7 +159,7 @@ Geography 데이터 형식과 마찬가지로 **geometry** 데이터 형식을 �
 위의 인덱싱 정책은 x 좌표에 대해 (-10, 10) **boundingBox** (y 좌표의 경우-20, 20)입니다. 위의 인덱싱 정책이 있는 컨테이너는이 지역 내에 있는 모든 요소, 다각형, 다중 다각형 및 LineStrings를 인덱싱합니다.
 
 > [!NOTE]
-> **BoundingBox** 를 포함 하는 인덱싱 정책을 `geography` 데이터 형식의 컨테이너에 추가 하려고 하면 오류가 발생 합니다. **BoundingBox**를 추가 `geometry` 하기 전에 컨테이너의 **geospatialConfig** 을로 수정 해야 합니다. 컨테이너의 지리 공간적 데이터 형식을 선택 하기 전이나 후에 데이터를 추가 하 고 인덱싱 정책의 나머지를 수정할 수 있습니다 (예: 경로 및 형식).
+> **BoundingBox** 를 포함 하는 인덱싱 정책을 데이터 형식의 컨테이너에 추가 하려고 하면 `geography` 오류가 발생 합니다. **geospatialConfig** `geometry` **BoundingBox**를 추가 하기 전에 컨테이너의 geospatialConfig을로 수정 해야 합니다. 컨테이너의 지리 공간적 데이터 형식을 선택 하기 전이나 후에 데이터를 추가 하 고 인덱싱 정책의 나머지를 수정할 수 있습니다 (예: 경로 및 형식).
 
 ## <a name="next-steps"></a>다음 단계
 

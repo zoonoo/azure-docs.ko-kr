@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 16fad7f57d3054c193da2571f1b33cfd77fdd51c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118732"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스 또는 컨테이너에 자동 크기 조정 처리량 프로비전
 
@@ -26,7 +26,7 @@ ms.locfileid: "83663401"
 
 1. **새 컨테이너**를 선택합니다. 데이터베이스, 컨테이너 및 파티션 키의 이름을 입력합니다. **처리량**에서 **자동 크기 조정** 옵션을 선택하고 데이터베이스 또는 컨테이너의 크기를 조정하려는 [최대 처리량(RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)을 설정합니다.
 
-   ![컨테이너 만들기 및 자동 크기 조정 프로비전된 처리량 구성](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="컨테이너 만들기 및 자동 크기 조정 프로비전된 처리량 구성":::
 
 1. **확인**을 선택합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "83663401"
 
 1. **크기 조정**에서 **자동 크기 조정** 옵션, **저장**을 선택합니다.
 
-   ![기존 컨테이너에서 자동 크기 조정 사용](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="기존 컨테이너에서 자동 크기 조정 사용":::
 
 > [!NOTE]
 > 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정하면 현재의 수동 프로비전된 처리량 설정 및 스토리지에 따라 최대 RU/s의 시작 값이 시스템에 의해 결정됩니다. 작업이 완료된 후 필요하면 최대 RU/s를 변경할 수 있습니다. [자세한 정보](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 

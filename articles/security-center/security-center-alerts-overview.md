@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: a77e75caf836c4f7d142b0b5c23327d73afa6a77
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: b639b382e69be30c2f04471e0a253ef5d7c7b4e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125773"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -53,7 +53,7 @@ Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니�
 
 보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 수동 접근 방법을 사용하고 공격의 발전을 예측하여 식별할 수 없는 위협을 감지하도록 전체 클라우드 패브릭에 대한 이벤트를 평가하는 데 빅 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) 기술의 돌파구를 활용합니다. 이러한 보안 분석은 다음과 같습니다.
 
-* **통합된 위협 인텔리전스**: Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 분석은 Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU(Digital Crimes Unit) 및 MSRC(Microsoft 보안 대응 센터)와 같은 여러 출처에서 유입됩니다. 연구소에서는 주요 클라우드 서비스 공급자 간에 공유하는 인텔리전스 정보와 타사의 피드도 받습니다. Azure Security Center는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다.
+* **통합된 위협 인텔리전스**: Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 분석은 Azure, Microsoft 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU (Digital Crimes Unit) 및 MSRC (Microsoft 보안 대응 센터)와 같은 여러 원본에서 흐릅니다. 연구소에서는 주요 클라우드 서비스 공급자 간에 공유하는 인텔리전스 정보와 타사의 피드도 받습니다. Azure Security Center는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다.
 
 * **동작 분석**: 동작 분석은 알려진 패턴의 컬렉션에 대해 데이터를 분석하고 비교하는 기술입니다. 그러나 이러한 패턴은 단순한 서명이 아닙니다. 대량 데이터 세트에 적용되는 복잡한 기계 학습 알고리즘을 통해 결정됩니다. 또한 전문 분석가가 악의적인 행동을 신중하게 분석하여 결정합니다. Azure Security Center는 동작 분석을 사용하여 가상 머신 로그, 가상 네트워크 디바이스 로그, 패브릭 로그 및 기타 원본에 대한 분석에 따라 손상된 리소스를 식별할 수 있습니다.
 

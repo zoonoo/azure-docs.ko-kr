@@ -4,21 +4,21 @@ description: 이 문서에서는 Application Gateway 메트릭과 Azure Kubernet
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239445"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125466"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Application Gateway 메트릭을 사용 하 여 AKS pod 자동 크기 조정 (베타)
 
 들어오는 트래픽이 늘어나면 수요에 따라 응용 프로그램을 확장 하는 것이 중요 합니다.
 
-다음 자습서에서는 Application Gateway의 `AvgRequestCountPerHealthyHost` 메트릭을 사용 하 여 응용 프로그램을 확장 하는 방법을 설명 합니다. `AvgRequestCountPerHealthyHost`특정 백 엔드 풀 및 백 엔드 HTTP 설정 조합으로 전송 된 평균 요청을 측정 합니다.
+다음 자습서에서는 Application Gateway의 메트릭을 사용 하 여 `AvgRequestCountPerHealthyHost` 응용 프로그램을 확장 하는 방법을 설명 합니다. `AvgRequestCountPerHealthyHost`특정 백 엔드 풀 및 백 엔드 HTTP 설정 조합으로 전송 된 평균 요청을 측정 합니다.
 
 다음 두 구성 요소를 사용할 예정입니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "80239445"
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Azure Kubernetes 메트릭 어댑터 설정
 
-1. 먼저 Azure AAD 서비스 주체를 만들고 Application Gateway의 리소스 그룹에 `Monitoring Reader` 대 한 액세스 권한을 할당 합니다. 
+1. 먼저 Azure AAD 서비스 주체를 만들고 `Monitoring Reader` Application Gateway의 리소스 그룹에 대 한 액세스 권한을 할당 합니다. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -35,11 +35,11 @@ ms.locfileid: "80239445"
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
     ```
 
-1. 이제 위에서 만든 AAD 서비스 주체 [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) 를 사용 하 여를 배포 합니다.
+1. 이제 [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) 위에서 만든 AAD 서비스 주체를 사용 하 여를 배포 합니다.
 
     ```bash
     kubectl create namespace custom-metrics
-    # use values from service principle created above to create secret
+    # use values from service principal created above to create secret
     kubectl create secret generic azure-k8s-metrics-adapter -n custom-metrics \
         --from-literal=azure-tenant-id=<tenantid> \
         --from-literal=azure-client-id=<clientid> \
@@ -47,7 +47,7 @@ ms.locfileid: "80239445"
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. 여기서는 이름 `appgw-request-count-metric`으로 `ExternalMetric` 리소스를 만듭니다. 이 리소스는 리소스 그룹의 `AvgRequestCountPerHealthyHost` `myApplicationGateway` `myResourceGroup` 리소스에 대 한 메트릭을 노출 하도록 메트릭 어댑터에 지시 합니다. `filter` 필드를 사용 하 여 Application Gateway에서 특정 백 엔드 풀 및 백 엔드 HTTP 설정을 대상으로 지정할 수 있습니다.
+1. 여기서는 `ExternalMetric` 이름으로 리소스를 만듭니다 `appgw-request-count-metric` . 이 리소스는 `AvgRequestCountPerHealthyHost` `myApplicationGateway` 리소스 그룹의 리소스에 대 한 메트릭을 노출 하도록 메트릭 어댑터에 지시 합니다 `myResourceGroup` . 필드를 사용 `filter` 하 여 Application Gateway에서 특정 백 엔드 풀 및 백 엔드 HTTP 설정을 대상으로 지정할 수 있습니다.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -92,9 +92,9 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>새 메트릭을 사용 하 여 배포 확장
 
-메트릭 서버를 통해 노출할 `appgw-request-count-metric` 수 있게 되 면를 사용 [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) 하 여 대상 배포를 확장할 수 있습니다.
+메트릭 서버를 통해 노출할 수 있게 되 면를 `appgw-request-count-metric` 사용 하 여 [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) 대상 배포를 확장할 수 있습니다.
 
-다음 예제에서는 샘플 배포 `aspnet`를 대상으로 합니다. 최대 `10` Pod까지 Pod 당 200 `appgw-request-count-metric` 을 > 때 pod를 확장 합니다.
+다음 예제에서는 샘플 배포를 대상으로 `aspnet` 합니다. `appgw-request-count-metric`최대 pod까지 Pod 당 200을 > 때 pod를 확장 합니다 `10` .
 
 대상 배포 이름을 바꾸고 다음 자동 크기 조정 구성을 적용 합니다.
 ```yaml

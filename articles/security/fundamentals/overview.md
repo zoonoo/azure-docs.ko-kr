@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125671"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -223,7 +223,7 @@ Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md)�
 
 ![Express 경로](./media/overview/azure-security-fig1.png)
 
-ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
+Express 경로를 사용 하 여 Microsoft Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
 
 ExpressRoute 연결은 공용 인터넷을 거치지 않으므로 VPN 기반 솔루션보다 안전합니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
@@ -288,7 +288,7 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-intro.md) 는 네트워크 보안 모범 사례에 대 한 Azure 리소스의 보안 상태를 지속적으로 분석 합니다. Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
-## <a name="compute"></a>컴퓨팅
+## <a name="compute"></a>Compute
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신
@@ -308,7 +308,7 @@ Azure IaaS를 사용하면 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersk
 
 AKV(Azure Key Vault) 서비스는 안전하고 가용성이 높은 위치에서 이러한 키의 보안 및 관리를 개선하도록 설계되었습니다. SQL Server 커넥터는 SQL Server에서 Azure Key Vault의 키를 사용할 수 있게 합니다.
 
-온-프레미스 컴퓨터에서 SQL Server를 실행하는 경우 온-프레미스 SQL Server 컴퓨터에서 Azure Key Vault에 액세스할 수 있는 단계가 있습니다. 하지만 Azure VM의 SQL Server에서는 Azure Key Vault 통합 기능을 사용하여 시간을 절약할 수 있습니다. 이 기능을 지원하는 Azure PowerShell cmdlet 몇 개만 있으면 SQL VM이 키 자격 증명 모음에 액세스하는 데 필요한 구성을 자동화할 수 있습니다.
+온-프레미스 컴퓨터에서 SQL Server를 실행 하는 경우 온-프레미스 SQL Server 인스턴스에서 Azure Key Vault에 액세스 하기 위해 수행할 수 있는 단계가 있습니다. 하지만 Azure VM의 SQL Server에서는 Azure Key Vault 통합 기능을 사용하여 시간을 절약할 수 있습니다. 이 기능을 지원하는 Azure PowerShell cmdlet 몇 개만 있으면 SQL VM이 키 자격 증명 모음에 액세스하는 데 필요한 구성을 자동화할 수 있습니다.
 
 ### <a name="vm-disk-encryption"></a>VM 디스크 암호화
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) 은 Windows 및 Linux IaaS 가상 머신 디스크를 암호화 하는 데 도움이 되는 새로운 기능입니다. Windows의 업계 표준 BitLocker 기능과 Linux의 DM-Crypt 기능을 적용하여 OS 및 데이터 디스크에 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 Key Vault 구독에서 디스크 암호화 키와 비밀을 제어하고 관리 할 수 있습니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.

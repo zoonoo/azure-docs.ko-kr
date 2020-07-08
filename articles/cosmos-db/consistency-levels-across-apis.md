@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2851968b102bdcbae95a81352439f39f5837020b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119310"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
@@ -32,7 +32,7 @@ Azure Cosmos DB와 달리 Apache Cassandra는 기본적으로 정확 하 게 정
 
 다음 표에서는 Cassandra API를 사용할 때 기본 Cassandra 일관성 수준이 Azure Cosmos DB의 일관성 수준에 매핑되는 방법을 보여 줍니다.  
 
-[![Cassandra 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" alt-text="Cassandra 일관성 모델 매핑" lightbox="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" :::
 
 ## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>MongoDB 및 Azure Cosmos DB 일관성 수준 간 매핑
 
@@ -50,7 +50,7 @@ MongoDB에 Azure Cosmos DB API를 사용 하는 동안:
 
 다음 표에서는 MongoDB에 대 한 Azure Cosmos DB의 API를 사용 하는 경우 기본 MongoDB 쓰기/읽기 관련 사항을 Azure Cosmos 일관성 수준에 매핑하는 방법을 보여 줍니다.
 
-[![MongoDB 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="MongoDB 일관성 모델 매핑" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

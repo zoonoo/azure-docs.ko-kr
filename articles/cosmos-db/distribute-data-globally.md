@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fba6943adb18675bc804a3881042fe9d68f5b331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114744"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Azure Cosmos DB를 사용한 전역 데이터 배포 - 개요
 
@@ -23,11 +23,11 @@ Azure Cosmos DB는 전역적으로 분산되는 데이터베이스 서비스로 
 
 Azure Cosmos DB를 사용하면 언제든지 계정과 연결된 지역을 추가하거나 제거할 수 있습니다. 애플리케이션이 지역을 추가하거나 제거하기 위해 일시 중지되거나 재배포될 필요가 없습니다. 서비스에서 기본적으로 제공 하는 멀티 호 밍 기능으로 인해 항상 항상 사용 가능한 상태로 유지 됩니다.
 
-![고가용성 배포 토폴로지](./media/distribute-data-globally/deployment-topology.png)
+:::image type="content" source="./media/distribute-data-globally/deployment-topology.png" alt-text="고가용성 배포 토폴로지" border="false":::
 
 ## <a name="key-benefits-of-global-distribution"></a>전역 분산의 주요 혜택
 
-**글로벌 활성-활성 앱 빌드** Novel 다중 마스터 복제 프로토콜을 사용 하면 모든 지역에서 쓰기와 읽기를 모두 지원 합니다. 다중 마스터 기능을 사용 하면 다음을 수행할 수도 있습니다.
+**전역 활성-활성 앱을 빌드합니다.** Novel 다중 마스터 복제 프로토콜을 사용 하면 모든 지역에서 쓰기와 읽기를 모두 지원 합니다. 다중 마스터 기능을 사용 하면 다음을 수행할 수도 있습니다.
 
 - 무제한 탄력적 쓰기 및 읽기 확장성. 
 - 전 세계의 99.999% 읽기 및 쓰기 가용성
@@ -39,9 +39,9 @@ Azure Cosmos DB를 사용하면 언제든지 계정과 연결된 지역을 추�
 
 **고가용성 앱 빌드** 전 세계 여러 지역에서 데이터베이스를 실행 하면 데이터베이스의 가용성이 향상 됩니다. 한 지역을 사용할 수 없게 되면 다른 지역에서 애플리케이션 요청을 자동으로 처리합니다. Azure Cosmos DB는 다중 지역 데이터베이스에 대해 99.999% 읽기 및 쓰기 가용성을 제공합니다.
 
-**지역 가동 중단 동안 비즈니스 연속성 유지** Azure Cosmos DB는 지역 가동 중단 시 [자동 장애 조치(failover)](how-to-manage-database-account.md#automatic-failover)를 지원합니다. 지역 가동 중단 시 Azure Cosmos DB는 해당 대기 시간, 가용성, 일관성 및 처리량 SLA를 계속 유지합니다. 전체 응용 프로그램을 항상 사용할 수 있도록 하기 위해 Cosmos DB는 지역 가동 중단을 시뮬레이션 하는 수동 장애 조치 (failover) API를 제공 합니다. 이 API를 사용하여 정기적인 비즈니스 연속성 훈련을 수행할 수 있습니다.
+**지역 가동 중단 시 비즈니스 연속성을 유지 합니다.** Azure Cosmos DB는 지역 가동 중단 시 [자동 장애 조치(failover)](how-to-manage-database-account.md#automatic-failover)를 지원합니다. 지역 가동 중단 시 Azure Cosmos DB는 해당 대기 시간, 가용성, 일관성 및 처리량 SLA를 계속 유지합니다. 전체 응용 프로그램을 항상 사용할 수 있도록 하기 위해 Cosmos DB는 지역 가동 중단을 시뮬레이션 하는 수동 장애 조치 (failover) API를 제공 합니다. 이 API를 사용하여 정기적인 비즈니스 연속성 훈련을 수행할 수 있습니다.
 
-**전역적으로 읽기 및 쓰기 처리량 조정** 모든 영역을 쓰기 가능 하도록 설정 하 고 전 세계에 탄력적으로 크기를 읽고 쓸 수 있습니다. 응용 프로그램에서 Azure Cosmos 데이터베이스 또는 컨테이너에 대해 구성 하는 처리량은 Azure Cosmos 계정에 연결 된 모든 지역에서 배달 되도록 보장 됩니다. 프로 비전 된 처리량은 [재정적 지원 sla](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)에 의해 보장 됩니다.
+**전체적으로 읽기 및 쓰기 처리량을 확장 합니다.** 모든 영역을 쓰기 가능 하도록 설정 하 고 전 세계에 탄력적으로 크기를 읽고 쓸 수 있습니다. 응용 프로그램에서 Azure Cosmos 데이터베이스 또는 컨테이너에 대해 구성 하는 처리량은 Azure Cosmos 계정에 연결 된 모든 지역에서 배달 되도록 보장 됩니다. 프로 비전 된 처리량은 [재정적 지원 sla](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)에 의해 보장 됩니다.
 
 **잘 정의 된 여러 일관성 모델을 선택 합니다.** Azure Cosmos DB 복제 프로토콜은 5개의 잘 정의되고, 실용적이며, 직관적인 일관성 모델을 제공합니다. 각 모델에서는 일관성과 성능이 절충되었습니다. 이러한 일관성 모델을 사용하여 전역적으로 분산된 애플리케이션을 쉽게 빌드합니다.
 

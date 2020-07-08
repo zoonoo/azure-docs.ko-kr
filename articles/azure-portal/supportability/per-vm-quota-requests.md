@@ -4,15 +4,15 @@ description: Azure Portal에서 VM 계열의 vCPU 할당량 한도 증가를 요
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: de06375dad5999a29691435317e62585a2ea7f64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117168"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>표준 할당량: VM 시리즈로 한도 증가
 
@@ -26,7 +26,7 @@ Azure Resource Manager는 가상 컴퓨터에 대 한 두 가지 유형의 vCPU 
 * 첫 번째 계층은 모든 VM 시리즈에서 *총 지역 vCPUs 제한*입니다.
 * 두 번째 계층은 Dv3 시리즈 vCPUs와 같은 *VM 당 시리즈 vCPUs 한도*입니다.
 
-새 스폿 VM을 배포할 때마다 해당 VM 시리즈에 대 한 새로운 새 및 기존 vCPU 사용량은 특정 VM 시리즈에 대해 승인 된 vCPU 할당량을 초과 하지 않아야 합니다. 또한 모든 VM 시리즈를 통해 배포 되는 새로운 및 기존 vCPUs의 총 수는 구독에 대해 승인 된 총 지역 Vcpus 할당량을 초과 하지 않아야 합니다. 이러한 할당량 중 하나가 초과 되 면 VM 배포는 허용 되지 않습니다.
+새 스폿 VM을 배포할 때마다 모든 스폿 VM 인스턴스에 대 한 새로운 및 기존 vCPU 사용량은 모두 승인 된 지점 vCPU 할당량 제한을 초과 하면 안 됩니다. 스폿 할당량을 초과 하는 경우 스폿 VM 배포는 허용 되지 않습니다.
 
 Azure Portal를 사용 하 여 VM 시리즈에 대 한 vCPU 할당량 한도 증가를 요청할 수 있습니다. VM 시리즈 할당량을 늘리면 전체 지역 vCPU 한도가 같은 양만큼 자동으로 증가 합니다.
 
@@ -45,15 +45,15 @@ Azure Portal를 사용 하 여 VM 시리즈에 대 한 vCPU 할당량 한도 증
 > [!NOTE]
 > 단일 지원 사례를 통해 여러 지역의 할당량 한도 증가를 요청할 수도 있습니다. 자세한 내용은 8 단계를 참조 하세요.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택합니다.
 
    ![도움말 + 지원 링크](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. **도움말 + 지원**에서 **새 지원 요청**을 선택 합니다.
+1. **도움말 + 지원**에서 **새 지원 요청**을 선택합니다.
 
     ![새 지원 요청 만들기](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. **문제점 유형**에 대해 **서비스 및 구독 제한(할당량)** 를 선택합니다.
+1. **문제 유형**에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
 
    ![문제 유형 선택](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 

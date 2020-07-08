@@ -2,21 +2,21 @@
 title: Azure AD에서 앱에 대한 사용자 프로비저닝을 위한 SCIM 엔드포인트 개발
 description: SCIM(도메인 간 ID 관리를 위한 시스템)은 자동 사용자 프로비저닝을 표준화합니다. SCIM 엔드포인트를 개발하고, SCIM API를 Azure Active Directory와 통합하고, 프로비저닝 사용자 및 그룹을 클라우드 애플리케이션으로 자동화하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2fbdf947eb36e1591cc9da52a85e389be63c8535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117321"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -744,6 +744,8 @@ TLS 1.2 암호 도구 모음 최소 막대:
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
+### <a name="ip-ranges"></a>IP 범위
+Azure AD 프로 비전 서비스는 현재 모든 Azure IP 범위에서 수행할 수 있습니다. 서비스가 작동 하는 IP 범위 집합을 통합 하는 작업이 진행 중입니다. 이 문서는 IP 범위 목록이 통합 되 면 업데이트 됩니다. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3단계: SCIM 엔드포인트 빌드
 
@@ -1192,7 +1194,8 @@ SCIM 사양은 인증 및 권한 부여를 위한 SCIM별 스키마를 정의하
 |OAuth 인증 코드 부여|액세스 토큰은 비밀번호보다 수명이 훨씬 짧으며 수명이 긴 전달자 토큰에 없는 자동화된 새로 고침 메커니즘이 있습니다.  책임 수준을 추가하는 초기 권한 부여 중에 실제 사용자가 있어야 합니다. |사용자가 있어야 합니다. 사용자가 조직을 떠나면 토큰이 유효하지 않으므로 권한 부여를 다시 완료해야 합니다.|갤러리 앱에 지원됩니다. 비갤러리 앱에 대한 지원은 현재 진행 중입니다.|
 |OAuth 클라이언트 자격 증명 부여|액세스 토큰은 비밀번호보다 수명이 훨씬 짧으며 수명이 긴 전달자 토큰에 없는 자동화된 새로 고침 메커니즘이 있습니다. 인증 코드 부여 및 클라이언트 자격 증명 부여는 모두 동일한 유형의 액세스 토큰을 만들기 때문에 이러한 메서드 간에 이동하는 것은 API에 인식됩니다.  프로비저닝은 완전히 자동화할 수 있으며 사용자 개입 없이도 새 토큰을 자동으로 요청할 수 있습니다. ||갤러리 앱 및 비갤러리 앱에는 지원되지 않습니다. 지원은 백로그에 있습니다.|
 
-[!NOTE] Azure AD 프로비저닝 구성 사용자 지정 앱 UI에서 토큰 필드를 비워 두지 않는 것이 좋습니다. 생성된 토큰은 주로 테스트 목적으로 사용할 수 있습니다.
+> [!NOTE]
+> Azure AD 프로비저닝 구성 사용자 지정 앱 UI에서 토큰 필드를 비워 두지 않는 것이 좋습니다. 생성된 토큰은 주로 테스트 목적으로 사용할 수 있습니다.
 
 **OAuth 인증 코드 부여 흐름:** 프로비저닝 서비스는 [인증 코드 부여](https://tools.ietf.org/html/rfc6749#page-24)를 지원합니다. 갤러리에 앱 게시 요청을 제출하면 Microsoft 팀에서 다음 정보를 수집하기 위해 사용자와 협력합니다.
 *  권한 부여 URL 사용자 에이전트 리디렉션을 통해 리소스 소유자로부터 권한을 얻기 위한 클라이언트의 URL입니다. 액세스 권한을 부여하기 위해 사용자가 URL로 리디렉션됩니다. 현재는 URL을 테넌트별로 구성할 수 없습니다.

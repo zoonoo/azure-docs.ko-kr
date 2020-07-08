@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: f2a2ee7a2806a753ffd159c91ed782634e74c704
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 06/11/2020
+ms.openlocfilehash: 7d631698f7c00a838f28d55b6b26055e686d27db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84977002"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
@@ -58,7 +58,7 @@ Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)�
   |||
 
   > [!IMPORTANT]
-  > Gmail 커넥터를 사용 하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우이 커넥터를 특정 Google 승인 서비스만 사용할 수 있습니다. 또는 [gmail 커넥터를 사용 하 여 인증 하는 데 사용할 google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application)수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조 하세요.
+  > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
 <a name="integration-service-environment"></a>
 
@@ -94,10 +94,10 @@ Logic Apps는 일정 기반 워크플로를 만들고, 논리 앱이 다른 앱 
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API 아이콘][schedule-icon]<br>**일정**][schedule-doc] | - [ **되풀이** 트리거][schedule-recurrence-doc]를 사용 하 여 기본부터 고급 일정까지 지정 된 되풀이에서 논리 앱을 실행 합니다. <p>- [ **슬라이딩 윈도우** 트리거][schedule-sliding-window-doc]를 사용 하 여 연속 청크의 데이터를 처리 해야 하는 논리 앱을 실행 합니다. <p>- [ **지연** 작업][schedule-delay-doc]을 사용 하 여 지정 된 기간 동안 논리 앱을 일시 중지 합니다. <p>-지정 된 날짜 및 시간까지 [ **지연** 된 작업까지][schedule-delay-until-doc]논리 앱을 일시 중지 합니다. | [![API 아이콘][batch-icon]<br>**일괄 처리**][batch-doc] | - **일괄 처리 메시지** 트리거를 사용하여 메시지를 일괄적으로 처리합니다. <p>- **일괄 처리로 메시지 보내기** 작업을 사용하여 기존 일괄 처리 트리거가 있는 논리 앱을 호출합니다. |
-| [![API 아이콘][http-icon]<br>**HTTP**][http-doc] | HTTP에 대 한 트리거 및 작업을 사용 하 여 HTTP 또는 HTTPS 끝점을 호출 합니다. 다른 HTTP 기본 제공 트리거 및 작업에는 [http + Swagger][http-swagger-doc] 및 [http + Webhook][http-webhook-doc]가 포함 됩니다. | [![API 아이콘][http-request-icon]<br>**요청**][http-request-doc] | - 논리 앱을 다른 앱이나 서비스에서 호출할 수 있게 하고, Event Grid 리소스 이벤트를 트리거하거나, **요청** 트리거를 사용하여 Azure Security Center 경고에 대한 응답을 트리거합니다. <p>- **응답** 작업을 사용하여 앱이나 서비스에 응답을 보냅니다. |
-| [![Api 아이콘][azure-api-management-icon]<br>**Azure api <br>Management**][azure-api-management-doc] | Azure API Management를 통해 관리하고 게시하는 사용자 고유의 API로 정의된 트리거 및 작업을 호출합니다. | [![API 아이콘][azure-app-services-icon]<br>**Azure 앱 <br>서비스**][azure-app-services-doc] | Azure App Service에서 호스팅되는 Azure API Apps 또는 Web Apps를 호출합니다. Swagger가 포함되는 경우 이러한 앱에서 정의된 트리거 및 작업은 다른 모든 고급 트리거 및 작업처럼 나타납니다.|
-| [![API 아이콘][azure-logic-apps-icon]<br>**Azure 논리 <br>앱**][nested-logic-app-doc] | **요청** 트리거로 시작 하는 다른 논리 앱을 호출 합니다. |
+| [![API 아이콘 ][schedule-icon]<br> **일정**][schedule-doc] | - [ **되풀이** 트리거][schedule-recurrence-doc]를 사용 하 여 기본부터 고급 일정까지 지정 된 되풀이에서 논리 앱을 실행 합니다. <p>- [ **슬라이딩 윈도우** 트리거][schedule-sliding-window-doc]를 사용 하 여 연속 청크의 데이터를 처리 해야 하는 논리 앱을 실행 합니다. <p>- [ **지연** 작업][schedule-delay-doc]을 사용 하 여 지정 된 기간 동안 논리 앱을 일시 중지 합니다. <p>-지정 된 날짜 및 시간까지 [ **지연** 된 작업까지][schedule-delay-until-doc]논리 앱을 일시 중지 합니다. | [![API 아이콘 ][batch-icon]<br> **일괄 처리**][batch-doc] | - **일괄 처리 메시지** 트리거를 사용하여 메시지를 일괄적으로 처리합니다. <p>- **일괄 처리로 메시지 보내기** 작업을 사용하여 기존 일괄 처리 트리거가 있는 논리 앱을 호출합니다. |
+| [![API 아이콘 ][http-icon]<br> **HTTP**][http-doc] | HTTP에 대한 트리거 및 작업을 사용하여 HTTP 또는 HTTPS 엔드포인트를 호출합니다. 다른 HTTP 기본 제공 트리거 및 작업에는 [http + Swagger][http-swagger-doc] 및 [http + Webhook][http-webhook-doc]가 포함 됩니다. | [![API 아이콘 ][http-request-icon]<br> **요청**][http-request-doc] | - 논리 앱을 다른 앱이나 서비스에서 호출할 수 있게 하고, Event Grid 리소스 이벤트를 트리거하거나, **요청** 트리거를 사용하여 Azure Security Center 경고에 대한 응답을 트리거합니다. <p>- **응답** 작업을 사용하여 앱이나 서비스에 응답을 보냅니다. |
+| [![API 아이콘 ][azure-api-management-icon]<br> **Azure api <br> Management**][azure-api-management-doc] | Azure API Management를 통해 관리하고 게시하는 사용자 고유의 API로 정의된 트리거 및 작업을 호출합니다. | [![API 아이콘 ][azure-app-services-icon]<br> **Azure 앱 <br> 서비스**][azure-app-services-doc] | Azure App Service에서 호스팅되는 Azure API Apps 또는 Web Apps를 호출합니다. Swagger가 포함되는 경우 이러한 앱에서 정의된 트리거 및 작업은 다른 모든 고급 트리거 및 작업처럼 나타납니다.|
+| [![API 아이콘 ][azure-logic-apps-icon]<br> **Azure 논리 <br> 앱**][nested-logic-app-doc] | **요청** 트리거로 시작 하는 다른 논리 앱을 호출 합니다. |
 |||||
 
 ### <a name="run-code-from-logic-apps"></a>논리 앱에서 코드 실행
@@ -106,7 +106,7 @@ Logic Apps는 논리 앱의 워크플로에서 사용자 고유의 코드를 실
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API 아이콘][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | 논리 앱에서 사용자 지정 코드 조각(C# 또는 Node.js)을 실행하는 Azure 함수를 호출합니다. | [![API 아이콘][inline-code-icon]<br>**인라인 코드**][azure-functions-doc] | 논리 앱에서 JavaScript 코드 조각을 추가 하 고 실행 합니다. |
+| [![API 아이콘 ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | 논리 앱에서 사용자 지정 코드 조각(C# 또는 Node.js)을 실행하는 Azure 함수를 호출합니다. | [![API 아이콘 ][inline-code-icon]<br> **인라인 코드**][inline-code-doc] | 논리 앱에서 JavaScript 코드 조각을 추가 하 고 실행 합니다. |
 |||||
 
 ### <a name="control-workflow"></a>워크플로 제어
@@ -115,9 +115,9 @@ Logic Apps는 논리 앱의 워크플로에서 작업을 구성 하 고 제어 �
 
 |   |   |   |   |
 |---|---|---|---|
-| [![기본 제공 아이콘][condition-icon]<br>**조건**][condition-doc] | 조건을 평가하고, 조건이 true 또는 false인지에 따라 별도의 작업을 실행합니다. | [![][for-each-icon]<br>**각에 대 한** 기본 제공 아이콘][for-each-doc] | 배열의 모든 항목에 대해 동일한 작업을 수행합니다. |
-| [![기본 제공 아이콘][scope-icon]<br>**범위**][scope-doc] | 범위에 속한 작업의 실행이 완료되면 해당 상태를 가져오는 *범위*로 작업을 그룹화합니다. | [![기본 제공 아이콘][switch-icon]<br>**전환**][switch-doc] | 기본 사례를 제외하고는 고유한 값이 할당된 *사례*로 작업을 그룹화합니다. 할당된 값이 식, 개체 또는 토큰의 결과와 일치하는 사례만 실행합니다. 일치하는 사례가 없는 경우 기본 사례를 실행합니다. |
-| [![기본 제공 아이콘][terminate-icon]<br>**종료**][terminate-doc] | 활발히 실행 중인 논리 앱 워크플로를 중지합니다. | [![다음][until-icon]<br>**까지** 기본 제공 아이콘][until-doc] | 지정된 조건이 true이거나 일부 상태가 변경될 때까지 작업을 반복합니다. |
+| [![기본 제공 아이콘 ][condition-icon]<br> **조건**][condition-doc] | 조건을 평가하고, 조건이 true 또는 false인지에 따라 별도의 작업을 실행합니다. | [![][for-each-icon]<br>**각에 대 한** 기본 제공 아이콘][for-each-doc] | 배열의 모든 항목에 대해 동일한 작업을 수행합니다. |
+| [![기본 제공 아이콘 ][scope-icon]<br> **범위**][scope-doc] | 범위에 속한 작업의 실행이 완료되면 해당 상태를 가져오는 *범위*로 작업을 그룹화합니다. | [![기본 제공 아이콘 ][switch-icon]<br> **전환**][switch-doc] | 기본 사례를 제외하고는 고유한 값이 할당된 *사례*로 작업을 그룹화합니다. 할당된 값이 식, 개체 또는 토큰의 결과와 일치하는 사례만 실행합니다. 일치하는 사례가 없는 경우 기본 사례를 실행합니다. |
+| [![기본 제공 아이콘 ][terminate-icon]<br> **종료**][terminate-doc] | 활발히 실행 중인 논리 앱 워크플로를 중지합니다. | [![다음까지 기본 제공 ][until-icon]<br> **Until** 아이콘][until-doc] | 지정된 조건이 true이거나 일부 상태가 변경될 때까지 작업을 반복합니다. |
 |||||
 
 ### <a name="manage-or-manipulate-data"></a>데이터 관리 또는 조작
@@ -126,9 +126,9 @@ Logic Apps는 데이터 출력 및 해당 형식으로 작업 하기 위한 기�
 
 |   |   |
 |---|---|
-| [![기본 제공 아이콘][data-operations-icon]<br>**데이터 작업**][data-operations-doc] | 데이터를 사용하여 수행하는 작업: <p>- **작성**: 다양한 형식의 여러 입력에서 하나의 출력을 만듭니다. <br>- **CSV 테이블 만들기**: JSON 개체를 사용하여 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. <br>- **HTML 테이블 만들기**: JSON 개체를 사용하여 배열에서 HTML 테이블을 만듭니다. <br>- **배열 필터링**: 조건을 충족하는 다른 배열의 항목에서 배열을 만듭니다. <br>- **조인**: 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. <br>- **Json 구문 분석**: 워크플로에서 이러한 속성을 사용할 수 있도록 json 콘텐츠에서 속성 및 해당 값에서 사용자에 게 친숙 한 토큰을 만듭니다. <br>- **선택**: 다른 배열의 항목이나 값을 변환하고 해당 항목을 지정한 속성에 매핑하여 JSON 개체가 포함된 배열을 만듭니다. |
+| [![기본 제공 아이콘 ][data-operations-icon]<br> **데이터 작업**][data-operations-doc] | 데이터를 사용하여 수행하는 작업: <p>- **작성**: 다양한 형식의 여러 입력에서 하나의 출력을 만듭니다. <br>- **CSV 테이블 만들기**: JSON 개체를 사용하여 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. <br>- **HTML 테이블 만들기**: JSON 개체를 사용하여 배열에서 HTML 테이블을 만듭니다. <br>- **배열 필터링**: 조건을 충족하는 다른 배열의 항목에서 배열을 만듭니다. <br>- **조인**: 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. <br>- **Json 구문 분석**: 워크플로에서 이러한 속성을 사용할 수 있도록 json 콘텐츠에서 속성 및 해당 값에서 사용자에 게 친숙 한 토큰을 만듭니다. <br>- **선택**: 다른 배열의 항목이나 값을 변환하고 해당 항목을 지정한 속성에 매핑하여 JSON 개체가 포함된 배열을 만듭니다. |
 | ![기본 제공 아이콘][date-time-icon]<br>**날짜 시간** | 타임스탬프를 사용하여 수행하는 작업: <p>- **시간에 추가**: 타임스탬프에 지정한 단위 수를 추가합니다. <br>- **표준 시간대 변환**: 타임스탬프를 원본 표준 시간대에서 대상 표준 시간대로 변환합니다. <br>- **현재 시간**: 현재 타임스탬프를 문자열로 반환합니다. <br>- **미래 시간 가져오기**: 현재 타임스탬프에 지정한 시간 단위를 더한 값을 반환합니다. <br>- **과거 시간 가져오기**: 현재 타임스탬프에서 지정한 시간 단위를 뺀 값을 반환합니다. <br>- **시간에서 빼기**: 타임스탬프에서 시간 단위 수를 뺍니다. |
-| [![기본 제공 아이콘][variables-icon]<br>**변수**][variables-doc] | 변수를 사용하여 수행하는 작업: <p>- **배열 변수에 추가**: 값을 변수로 저장되는 배열의 마지막 항목으로 삽입합니다. <br>- **문자열 변수에 추가**: 값을 변수로 저장되는 문자열의 마지막 문자로 삽입합니다. <br>- **변수 감소**: 변수를 상수 값만큼 줄입니다. <br>- **변수 증가**: 변수를 상수 값만큼 늘립니다. <br>- **변수 초기화**: 변수를 만들고 해당 데이터 형식과 초기 값을 선언합니다. <br>- **변수 설정**: 기존 변수에 다른 값을 할당합니다. |
+| [![기본 제공 아이콘 ][variables-icon]<br> **변수**][variables-doc] | 변수를 사용하여 수행하는 작업: <p>- **배열 변수에 추가**: 값을 변수로 저장되는 배열의 마지막 항목으로 삽입합니다. <br>- **문자열 변수에 추가**: 값을 변수로 저장되는 문자열의 마지막 문자로 삽입합니다. <br>- **변수 감소**: 변수를 상수 값만큼 줄입니다. <br>- **변수 증가**: 변수를 상수 값만큼 늘립니다. <br>- **변수 초기화**: 변수를 만들고 해당 데이터 형식과 초기 값을 선언합니다. <br>- **변수 설정**: 기존 변수에 다른 값을 할당합니다. |
 |  |  |
 
 <a name="managed-api-connectors"></a>
@@ -139,13 +139,13 @@ Logic Apps은 이러한 서비스 또는 시스템을 사용 하 여 작업, 프
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API 아이콘][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Logic Apps에서 가장 일반적으로 사용되는 커넥터를 사용하여 비동기 메시지, 세션 및 토픽 구독을 관리합니다. | [![API 아이콘][sql-server-icon]<br>**SQL Server**][sql-server-doc] | 레코드를 관리 하거나 저장 프로시저를 실행 하거나 쿼리를 수행할 수 있도록 클라우드의 SQL Server 온-프레미스 또는 Azure SQL Database에 연결 합니다. |
-| [![API 아이콘][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Blob 콘텐츠를 만들고 관리할 수 있도록 저장소 계정에 연결 합니다. | [![API 아이콘][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | 전자 메일, 작업, 일정 이벤트 및 모임, 연락처, 요청 등을 만들고 관리할 수 있도록 Office 365 전자 메일 계정에 연결 합니다. |
-| [![API 아이콘][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | 파일 및 폴더에 대 한 작업을 수행할 수 있도록 SSH를 사용 하 여 인터넷에서 액세스할 수 있는 SFTP 서버에 연결 합니다. | [![API 아이콘][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | 파일, 첨부 파일, 폴더 등을 관리할 수 있도록 SharePoint Online에 연결 합니다. | 
-| [![API 아이콘][dynamics-365-icon]<br>**Dynamics 365<br> **][dynamics-365-doc] | 사용자의 Dynamics 365 계정에 연결 하 여 레코드, 항목 등을 만들고 관리할 수 있습니다. | [![API 아이콘][azure-queues-icon]<br>**Azure <br>큐**][azure-queues-doc] | 큐 및 메시지를 만들고 관리할 수 있도록 Azure Storage 계정에 연결 |
-| [![API 아이콘][ftp-icon]<br>**FTP**][ftp-doc] | 파일 및 폴더에 대 한 작업을 수행할 수 있도록 인터넷에서 액세스할 수 있는 FTP 서버에 연결 합니다. | [![API 아이콘][file-system-icon]<br>**파일 <br>시스템**][file-system-doc] | 파일을 만들고 관리할 수 있도록 온-프레미스 파일 공유에 연결 합니다. |
-| [![API 아이콘][azure-event-hubs-icon]<br>**Azure Event Hubs**][azure-event-hubs-doc] | Event Hub를 통해 이벤트를 사용하고 게시합니다. 예를 들어 Event Hubs를 사용하여 논리 앱에서 출력을 가져온 다음, 해당 출력을 실시간 분석 공급자에게 보냅니다. | [![API 아이콘][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc] | Azure 리소스 또는 타사 리소스가 변경되는 경우와 같이 Event Grid에서 게시한 이벤트를 모니터링합니다. |
-| [![API 아이콘][salesforce-icon]<br>**Salesforce**][salesforce-doc] | 레코드, 작업, 개체 등의 항목을 만들고 관리할 수 있도록 Salesforce 계정에 연결 합니다. | [![API 아이콘][twitter-icon]<br>**Twitter**][twitter-doc] | 트 윗, 팔로 워, 타임 라인 등을 관리할 수 있도록 Twitter 계정에 연결 합니다. 트윗을 SQL, Excel 또는 SharePoint에 저장합니다. |
+| [![API 아이콘 ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Logic Apps에서 가장 일반적으로 사용되는 커넥터를 사용하여 비동기 메시지, 세션 및 토픽 구독을 관리합니다. | [![API 아이콘 ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | 레코드를 관리 하거나 저장 프로시저를 실행 하거나 쿼리를 수행할 수 있도록 클라우드의 SQL Server 온-프레미스 또는 Azure SQL Database에 연결 합니다. |
+| [![API 아이콘 ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Blob 콘텐츠를 만들고 관리할 수 있도록 저장소 계정에 연결 합니다. | [![API 아이콘 ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | 전자 메일, 작업, 일정 이벤트 및 모임, 연락처, 요청 등을 만들고 관리할 수 있도록 Office 365 전자 메일 계정에 연결 합니다. |
+| [![API 아이콘 ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | 파일 및 폴더에 대 한 작업을 수행할 수 있도록 SSH를 사용 하 여 인터넷에서 액세스할 수 있는 SFTP 서버에 연결 합니다. | [![API 아이콘 ][sharepoint-online-icon]<br> **SharePoint <br> Online**][sharepoint-online-doc] | 파일, 첨부 파일, 폴더 등을 관리할 수 있도록 SharePoint Online에 연결 합니다. | 
+| [![API 아이콘 ][dynamics-365-icon]<br> **Dynamics 365 <br> **][dynamics-365-doc] | 사용자의 Dynamics 365 계정에 연결 하 여 레코드, 항목 등을 만들고 관리할 수 있습니다. | [![API 아이콘 ][azure-queues-icon]<br> **Azure <br> 큐**][azure-queues-doc] | 큐 및 메시지를 만들고 관리할 수 있도록 Azure Storage 계정에 연결 |
+| [![API 아이콘 ][ftp-icon]<br> **FTP**][ftp-doc] | 파일 및 폴더에 대 한 작업을 수행할 수 있도록 인터넷에서 액세스할 수 있는 FTP 서버에 연결 합니다. | [![API 아이콘 ][file-system-icon]<br> **파일 <br> 시스템**][file-system-doc] | 파일을 만들고 관리할 수 있도록 온-프레미스 파일 공유에 연결 합니다. |
+| [![API 아이콘 ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Event Hub를 통해 이벤트를 사용하고 게시합니다. 예를 들어 Event Hubs를 사용하여 논리 앱에서 출력을 가져온 다음, 해당 출력을 실시간 분석 공급자에게 보냅니다. | [![API 아이콘 ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc] | Azure 리소스 또는 타사 리소스가 변경되는 경우와 같이 Event Grid에서 게시한 이벤트를 모니터링합니다. |
+| [![API 아이콘 ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | 레코드, 작업, 개체 등의 항목을 만들고 관리할 수 있도록 Salesforce 계정에 연결 합니다. | [![API 아이콘 ][twitter-icon]<br> **Twitter**][twitter-doc] | 트 윗, 팔로 워, 타임 라인 등을 관리할 수 있도록 Twitter 계정에 연결 합니다. 트윗을 SQL, Excel 또는 SharePoint에 저장합니다. |
 |||||
 
 <a name="on-premises-connectors"></a>
@@ -156,8 +156,8 @@ Logic Apps은 이러한 서비스 또는 시스템을 사용 하 여 작업, 프
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-| [![API 아이콘][biztalk-server-icon]<br>**BizTalk** <br> **Server**][biztalk-server-doc] | [![API 아이콘][file-system-icon]<br>**파일 <br>시스템**][file-system-doc] | [![API 아이콘][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-informix-icon]<br>**IBM** <br> **Informix**][ibm-informix-doc] | [![API 아이콘][mysql-icon]<br>**MySQL**][mysql-doc] |
-| [![API 아이콘][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc] | [![API 아이콘][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc] | [![API 아이콘][sharepoint-server-icon]<br>**SharePoint <br>서버**][sharepoint-server-doc] | [![API 아이콘][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API 아이콘][teradata-icon]<br>**Teradata**][teradata-doc] |
+| [![API 아이콘 ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc] | [![API 아이콘 ][file-system-icon]<br> **파일 <br> 시스템**][file-system-doc] | [![API 아이콘 ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![API 아이콘 ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc] | [![API 아이콘 ][mysql-icon]<br> **MySQL**][mysql-doc] |
+| [![API 아이콘 ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc] | [![API 아이콘 ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc] | [![API 아이콘 ][sharepoint-server-icon]<br> **SharePoint <br> 서버**][sharepoint-server-doc] | [![API 아이콘 ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![API 아이콘 ][teradata-icon]<br> **Teradata**][teradata-doc] |
 |||||
 
 <a name="integration-account-connectors"></a>
@@ -168,9 +168,9 @@ Logic Apps은 Azure에서 EIP (엔터프라이즈 통합 팩)를 통해 사용�
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API 아이콘][as2-icon]<br>**AS2 <br>디코딩**][as2-doc] | [![API 아이콘][as2-icon]<br>**AS2 <br>인코딩**][as2-doc] | [![API 아이콘][edifact-icon]<br>**EDIFACT <br>디코딩**][edifact-decode-doc] | [![API 아이콘][edifact-icon]<br>**EDIFACT <br>인코딩**][edifact-encode-doc] |
-| [![API 아이콘][flat-file-decode-icon]<br>**플랫 파일 <br>디코딩**][flat-file-decode-doc] | [![API 아이콘][flat-file-encode-icon]<br>**플랫 파일 <br>인코딩**][flat-file-encode-doc] | [![API 아이콘][integration-account-icon]<br>**통합 <br>계정**][integration-account-doc] | [![API 아이콘][liquid-icon]<br>**액체** <br> **변형**][json-liquid-transform-doc] |
-| [![API 아이콘][x12-icon]<br>**X12 <br>디코딩**][x12-decode-doc] | [![API 아이콘][x12-icon]<br>**X12 <br>인코딩**][x12-encode-doc] | [![API 아이콘][xml-transform-icon]<br>**XML** <br> **변환**][xml-transform-doc] | [![API 아이콘][xml-validate-icon]<br>**XML <br>유효성 검사**][xml-validate-doc] |  
+| [![API 아이콘 ][as2-icon]<br> **AS2 <br> 디코딩**][as2-doc] | [![API 아이콘 ][as2-icon]<br> **AS2 <br> 인코딩**][as2-doc] | [![API 아이콘 ][edifact-icon]<br> **EDIFACT <br> 디코딩**][edifact-decode-doc] | [![API 아이콘 ][edifact-icon]<br> **EDIFACT <br> 인코딩**][edifact-encode-doc] |
+| [![API 아이콘 ][flat-file-decode-icon]<br> **플랫 파일 <br> 디코딩**][flat-file-decode-doc] | [![API 아이콘 ][flat-file-encode-icon]<br> **플랫 파일 <br> 인코딩**][flat-file-encode-doc] | [![API 아이콘 ][integration-account-icon]<br> **통합 <br> 계정**][integration-account-doc] | [![API 아이콘 ][liquid-icon]<br> **액체** <br> **변형**][json-liquid-transform-doc] |
+| [![API 아이콘 ][x12-icon]<br> **X12 <br> 디코딩**][x12-decode-doc] | [![API 아이콘 ][x12-icon]<br> **X12 <br> 인코딩**][x12-encode-doc] | [![API 아이콘 ][xml-transform-icon]<br> **XML** <br> **변환**][xml-transform-doc] | [![API 아이콘 ][xml-validate-icon]<br> **XML <br> 유효성 검사**][xml-validate-doc] |  
 |||||
 
 <a name="enterprise-connectors"></a>
@@ -181,7 +181,7 @@ Logic Apps는 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스
 
 |   |   |   |
 |---|---|---|
-| [![API 아이콘][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API 아이콘][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API 아이콘][sap-icon]<br>**SAP**][sap-connector-doc] |
+| [![API 아이콘 ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![API 아이콘 ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![API 아이콘 ][sap-icon]<br> **SAP**][sap-connector-doc] |
 ||||
 
 <a name="ise-connectors"></a>
@@ -192,11 +192,11 @@ Logic Apps는 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-[![API 아이콘][as2-icon]<br>**AS2**][as2-doc] | [![API 아이콘][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc] | [![API 아이콘][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API 아이콘][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API 아이콘][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] |
-[![API 아이콘][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc] | [![API 아이콘][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] | [![API 아이콘][azure-key-vault-icon]<br>**Azure 주요 <br>자격 증명 모음**][azure-key-vault-doc] | [![API 아이콘][azure-monitor-logs-icon]<br>**Azure Monitor <br>로그**][azure-monitor-logs-doc] | [![API 아이콘][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] |
-| [![API 아이콘][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API 아이콘][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc] | [![API 아이콘][azure-queues-icon]<br>**Azure <br>큐**][azure-queues-doc] | [![API 아이콘][edifact-icon]<br>**EDIFACT**][edifact-doc] | [![API 아이콘][file-system-icon]<br>**파일 <br>시스템**][file-system-doc] |
-| [![API 아이콘][ftp-icon]<br>**FTP**][ftp-doc] | [![API 아이콘][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API 아이콘][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API 아이콘][sap-icon]<br>**SAP**][sap-connector-doc] |
-| [![API 아이콘][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API 아이콘][smtp-icon]<br>**SMTP**][smtp-doc] | [![API 아이콘][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API 아이콘][x12-icon]<br>**X12**][x12-doc] |
+[![API 아이콘 ][as2-icon]<br> **AS2**][as2-doc] | [![API 아이콘 ][azure-automation-icon]<br> **Azure <br> Automation**][azure-automation-doc] | [![API 아이콘 ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | [![API 아이콘 ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API 아이콘 ][azure-event-hubs-icon]<br> **Azure Event <br> Hubs**][azure-event-hubs-doc] |
+[![API 아이콘 ][azure-event-grid-icon]<br> **Azure Event <br> Grid**][azure-event-grid-doc] | [![API 아이콘 ][azure-file-storage-icon]<br> **Azure File <br> Storage**][azure-file-storage-doc] | [![API 아이콘 ][azure-key-vault-icon]<br> **Azure 주요 <br> 자격 증명 모음**][azure-key-vault-doc] | [![API 아이콘 ][azure-monitor-logs-icon]<br> **Azure Monitor <br> 로그**][azure-monitor-logs-doc] | [![API 아이콘 ][azure-service-bus-icon]<br> **Azure Service <br> Bus**][azure-service-bus-doc] |
+| [![API 아이콘 ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc] | [![API 아이콘 ][azure-table-storage-icon]<br> **Azure Table <br> Storage**][azure-table-storage-doc] | [![API 아이콘 ][azure-queues-icon]<br> **Azure <br> 큐**][azure-queues-doc] | [![API 아이콘 ][edifact-icon]<br> **EDIFACT**][edifact-doc] | [![API 아이콘 ][file-system-icon]<br> **파일 <br> 시스템**][file-system-doc] |
+| [![API 아이콘 ][ftp-icon]<br> **FTP**][ftp-doc] | [![API 아이콘 ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![API 아이콘 ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![API 아이콘 ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![API 아이콘 ][sap-icon]<br> **SAP**][sap-connector-doc] |
+| [![API 아이콘 ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | [![API 아이콘 ][smtp-icon]<br> **SMTP**][smtp-doc] | [![API 아이콘 ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![API 아이콘 ][x12-icon]<br> **X12**][x12-doc] |
 ||||||
 
 자세한 내용은 다음 항목을 참조하세요.
@@ -243,6 +243,12 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 > ISE 내에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 작동 하지 않습니다. 그러나 이러한 커넥터는 ISE를 호스트 하는 Azure 가상 네트워크에 연결 된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서 ISE의 논리 앱은 이러한 리소스와 통신할 때 데이터 게이트웨이가 필요 하지 않을 수 있습니다.
 >
 > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요.
+
+<a name="block-connections"></a>
+
+## <a name="block-creating-connections"></a>연결 만들기 차단
+
+조직에서 Azure Logic Apps의 커넥터를 사용 하 여 특정 리소스에 대 한 연결을 허용 하지 않는 경우 [Azure Policy](../governance/policy/overview.md)를 사용 하 여 논리 앱 워크플로에서 특정 커넥터에 대 한 [연결을 만드는 기능을 차단할](../logic-apps/block-connections-connectors.md) 수 있습니다. 자세한 내용은 [Azure Logic Apps에서 특정 커넥터에 의해 생성 된 연결 차단](../logic-apps/block-connections-connectors.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -388,6 +394,7 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [http-response-doc]: ./connectors-native-reqres.md "논리 앱에서 HTTP 요청에 응답"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "논리 앱에서 REST 끝점 호출"
 [http-webhook-doc]: ./connectors-native-webhook.md "HTTP 또는 HTTPS 끝점의 특정 이벤트 대기"
+[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "논리 앱에서 JavaScript 코드 조각 추가 및 실행"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "중첩된 워크플로와 논리 앱 통합"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "쿼리 작업을 사용하여 배열 선택 및 필터링"
 [schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "일정에 따라 논리 앱 실행"
@@ -475,4 +482,3 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "X12 프로토콜을 사용 하는 메시지 인코딩"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "XML 메시지 변환"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "XML 메시지 유효성 검사"
-

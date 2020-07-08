@@ -6,18 +6,18 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e17fa3e99de9f429fa279ba2e5413b60e9084de8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77538467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125705"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
 
 GitHub 작업은 자동화 된 소프트웨어 개발 수명 주기 워크플로를 지원 합니다. Azure 스프링 클라우드의 GitHub 작업을 사용 하 여 Azure에 빌드, 테스트, 패키지, 릴리스 및 배포를 위해 리포지토리에 워크플로를 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 예에서는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)필요 합니다.
 
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증
@@ -45,7 +45,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
-비밀 이름을로 `AZURE_CREDENTIALS` 설정 하 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증*하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
+비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증*하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
@@ -75,7 +75,7 @@ az spring-cloud app create --name account-service
 ```
 
 ### <a name="deploy-with-azure-cli-directly"></a>Azure CLI를 사용 하 여 직접 배포
-리포지토리에서 파일 `.github/workflow/main.yml` 을 만듭니다.
+`.github/workflow/main.yml`리포지토리에서 파일을 만듭니다.
 
 ```
 name: AzureSpringCloud
@@ -99,7 +99,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
     
     - name: Azure Login
       uses: azure/login@v1
@@ -118,7 +118,7 @@ jobs:
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
 ```
 ### <a name="deploy-with-azure-cli-action"></a>Azure CLI 작업으로 배포
-Az `run` command는 최신 버전의 Azure CLI을 사용 합니다. 주요 변경 내용이 있는 경우 Azure/CLI `action`에서 Azure CLI의 특정 버전을 사용할 수도 있습니다. 
+Az `run` command는 최신 버전의 Azure CLI을 사용 합니다. 주요 변경 내용이 있는 경우 Azure/CLI에서 Azure CLI의 특정 버전을 사용할 수도 있습니다 `action` . 
 
 > [!Note] 
 > 이 명령은 새 컨테이너에서 실행 되므로 `env` 작동 하지 않으며 상호 작업 파일 액세스에 추가 제한이 있을 수 있습니다.
@@ -142,7 +142,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     - name: Azure Login
       uses: azure/login@v1
@@ -183,7 +183,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     # Maven plugin can cosume this authentication method automatically
     - name: Azure Login
@@ -198,7 +198,7 @@ jobs:
 ```
 
 ## <a name="run-the-workflow"></a>워크플로 실행
-Github **Actions** 에 푸시 `.github/workflow/main.yml` 하면 github 작업을 자동으로 사용 하도록 설정 해야 합니다. 새 커밋을 푸시할 때 동작이 트리거됩니다. 브라우저에서이 파일을 만드는 경우에는 작업을 이미 실행 해야 합니다.
+Github에 푸시 하면 GitHub **작업** 을 자동으로 사용 하도록 설정 해야 합니다 `.github/workflow/main.yml` . 새 커밋을 푸시할 때 동작이 트리거됩니다. 브라우저에서이 파일을 만드는 경우에는 작업을 이미 실행 해야 합니다.
 
 작업이 활성화 되었는지 확인 하려면 GitHub 리포지토리 페이지에서 **작업** 탭을 클릭 합니다.
 
@@ -211,4 +211,4 @@ Github **Actions** 에 푸시 `.github/workflow/main.yml` 하면 github 작업�
 ## <a name="next-steps"></a>다음 단계
 * [스프링 클라우드 GitHub 작업 Key Vault](./spring-cloud-github-actions-key-vault.md)
 * [Azure Active Directory 서비스 주체](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
-* [Azure에 대 한 GitHub 작업](https://github.com/Azure/actions/)
+* [Azure에 대한 GitHub 작업](https://github.com/Azure/actions/)

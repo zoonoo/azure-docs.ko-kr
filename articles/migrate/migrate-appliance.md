@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106569"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -47,9 +47,9 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **지원되는 배포** | OVA 템플릿을 사용하여 VMware VM으로 배포합니다.<br/><br/> PowerShell 설치 스크립트를 사용하여 VMware VM 또는 물리적 컴퓨터로 배포합니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 vCenter Server에서 최대 10,000개의 VMware VM을 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
-**OVA 템플릿** | 포털 또는 https://aka.ms/migrate/appliance/vmware 에서 다운로드합니다.<br/><br/> 다운로드 크기는 11.2GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
-**PowerShell 스크립트** | 스크립트 [다운로드](https://go.microsoft.com/fwlink/?linkid=2105112)<br/><br/> 
-**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 컴퓨터에서 실행해야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> VMware VM에서 어플라이언스를 실행하는 경우 요구 사항을 충족하는 VM을 할당하는 데 충분한 리소스가 vCenter Server에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
+**OVA 템플릿** | 포털 또는 https://aka.ms/migrate/appliance/vmware 에서 다운로드합니다.<br/><br/> 다운로드 크기는 10.9 GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
+**PowerShell 스크립트** | 이 [문서](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware)를 참조 하세요.<br/><br/> 
+**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 컴퓨터에서 실행해야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> VMware VM에서 어플라이언스를 실행하는 경우 요구 사항을 충족하는 VM을 할당하는 데 충분한 리소스가 vCenter Server에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.
 **VMware 요구 사항** | 어플라이언스를 VMware VM으로 배포하는 경우 버전 5.5 이상을 실행하는 ESXi 호스트에 배포해야 합니다.<br/><br/> vCenter Server에서 5.5, 6.0, 6.5 또는 6.7을 실행합니다.
 **VDDK(에이전트 없는 마이그레이션)** | 어플라이언스를 VMware VM으로 배포하고 에이전트 없는 마이그레이션을 실행하는 경우 VMware vSphere VDDK를 어플라이언스 VM에 설치해야 합니다.
 **해시 값 - OVA** | OVA 템플릿 해시 값을 [확인](tutorial-assess-vmware.md#verify-security)합니다.
@@ -68,8 +68,8 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 5,000개의 Hyper-V VM을 검색할 수 있습니다.<br/> 어플라이언스는 최대 300개의 Hyper-V 호스트에 연결할 수 있습니다.
 **VHD 템플릿** | VHD를 포함하여 압축된 폴더입니다. 포털 또는 https://aka.ms/migrate/appliance/hyperv 에서 다운로드합니다.<br/><br/> 다운로드 크기는 10GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
-**PowerShell 스크립트** | 스크립트 [다운로드](https://go.microsoft.com/fwlink/?linkid=2105112)<br/><br/> 
-**소프트웨어/하드웨어***   |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 컴퓨터에서 실행해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 어플라이언스를 Hyper-V VM으로 실행하는 경우 16GB RAM, 8개의 vCPU, 약 80GB의 스토리지 공간 및 어플라이언스 VM에 대한 외부 스위치를 할당하는 데 충분한 리소스가 Hyper-V 호스트에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
+**PowerShell 스크립트** | 이 [문서](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v)를 참조 하세요.<br/><br/> 
+**소프트웨어/하드웨어***   |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 어플라이언스를 Hyper-V VM으로 실행하는 경우 16GB RAM, 8개의 vCPU, 약 80GB의 스토리지 공간 및 어플라이언스 VM에 대한 외부 스위치를 할당하는 데 충분한 리소스가 Hyper-V 호스트에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
 **Hyper-V 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를 배포하는 경우 Azure Migrate에서 제공하는 어플라이언스 VM은 Hyper-V VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다. 
 **해시 값 - VHD** | VHD 템플릿 해시 값을 [확인](tutorial-assess-hyper-v.md#verify-security)합니다.
 **해시 값 - PowerShell 스크립트** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security)합니다.
@@ -83,9 +83,9 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다. <br/><br/> - **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **평가 에이전트**: 성능 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).
 **지원되는 배포** | PowerShell 설치 스크립트를 사용하여 전용 물리적 컴퓨터 또는 VM으로 배포합니다. 스크립트는 포털에서 다운로드할 수 있습니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
-**검색 제한** | 어플라이언스는 최대 250개의 물리적 서버를 검색할 수 있습니다.
-**PowerShell 스크립트** | 스크립트(AzureMigrateInstaller.ps1)를 포털의 압축된 폴더에 다운로드합니다. [자세히 알아보기](tutorial-assess-physical.md#set-up-the-appliance). 또는 [직접 다운로드](https://go.microsoft.com/fwlink/?linkid=2105112)합니다.<br/><br/> 다운로드 크기는 59.7MB입니다.
-**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 컴퓨터에서 실행해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/> Windows Server 2019를 사용하는 컴퓨터에서 어플라이언스를 실행하는 것은 지원되지 않습니다.
+**검색 제한** | 어플라이언스는 최대 1000 대의 물리적 서버를 검색할 수 있습니다.
+**PowerShell 스크립트** | 스크립트(AzureMigrateInstaller.ps1)를 포털의 압축된 폴더에 다운로드합니다. [자세히 알아보기](tutorial-assess-physical.md#set-up-the-appliance). 또는 [직접 다운로드](https://go.microsoft.com/fwlink/?linkid=2105112)합니다.<br/><br/> 다운로드 크기는 63.1 MB입니다.
+**소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/> Windows Server 2019를 사용하는 컴퓨터에서 어플라이언스를 실행하는 것은 지원되지 않습니다.
 **해시 값** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security)합니다.
 
 ## <a name="url-access"></a>URL 액세스
@@ -206,11 +206,77 @@ CPU 사용률 | cpu.usage.average | 추천 VM 크기/비용
 NIC 읽기 처리량(MB/초) | net.received.average | VM 크기 계산
 NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
+
+### <a name="installed-apps-metadata"></a>설치 된 앱 메타 데이터
+
+응용 프로그램 검색은 설치 된 응용 프로그램 및 운영 체제 데이터를 수집 합니다.
+
+#### <a name="windows-vm-apps-data"></a>Windows VM 앱 데이터
+
+다음은 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM에서 기기가 수집 하는 설치 된 응용 프로그램 데이터입니다. 이 데이터는 Azure에 보냅니다.
+
+**Data** | **레지스트리 위치** | **Key**
+--- | --- | ---
+애플리케이션 이름  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+
+#### <a name="windows-vm-features-data"></a>Windows VM 기능 데이터
+
+다음은 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM에서 기기가 수집 하는 기능 데이터입니다. 이 데이터는 Azure에 보냅니다.
+
+**Data**  | **PowerShell cmdlet** | **속성**
+--- | --- | ---
+이름  | Get Add-windowsfeature  | 이름
+기능 유형 | Get Add-windowsfeature  | FeatureType
+Parent  | Get Add-windowsfeature  | Parent
+
+#### <a name="windows-vm-sql-server-metadata"></a>Windows VM SQL Server 메타 데이터
+
+응용 프로그램 검색에 사용 하도록 설정 된 Microsoft SQL server를 실행 하는 Vm에서 기기가 수집 하는 SQL server 메타 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
+
+**Data**  | **레지스트리 위치**  | **Key**
+--- | --- | ---
+이름  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
+버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
+서비스 팩  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
+버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
+
+#### <a name="windows-vm-operating-system-data"></a>Windows VM 운영 체제 데이터
+
+다음은 기기가 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM을 수집 하는 운영 체제 데이터입니다. 이 데이터는 Azure에 보냅니다.
+
+데이터  | WMI 클래스(WMI class)  | WMI 클래스 속성
+--- | --- | ---
+이름  | Win32_operatingsystem  | 캡션
+버전  | Win32_operatingsystem  | 버전
+Architecture  | Win32_operatingsystem  | OSArchitecture
+
+#### <a name="linux-vm-apps-data"></a>Linux VM 앱 데이터
+
+다음은 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM에서 기기가 수집 하는 설치 된 응용 프로그램 데이터입니다. VM의 운영 체제에 따라 하나 이상의 명령이 실행 됩니다. 이 데이터는 Azure에 보냅니다.
+
+데이터  | 명령
+--- | --- 
+이름 | rpm, dpkg, snap
+버전 | rpm, dpkg, snap
+공급자 | rpm, dpkg, snap
+
+#### <a name="linux-vm-operating-system-data"></a>Linux VM 운영 체제 데이터
+
+다음은 기기가 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM을 수집 하는 운영 체제 데이터입니다. 이 데이터는 Azure에 보냅니다.
+
+**Data**  | **명령** 
+--- | --- | ---
+이름 <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Architecture | uname
+
+
 ### <a name="app-dependencies-metadata"></a>앱 종속성 메타데이터
 
 에이전트 없는 종속성 분석은 연결 및 프로세스 데이터를 수집합니다.
 
-#### <a name="connection-data"></a>연결 데이터
+#### <a name="windows-vm-app-dependencies-data"></a>Windows VM 응용 프로그램 종속성 데이터
 
 어플라이언스에서 에이전트 없는 종속성 분석에 사용하도록 설정된 각 VM으로부터 수집하는 연결 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
 
@@ -224,7 +290,7 @@ TCP 연결 상태 | netstat
 프로세스 ID | netstat
 활성 연결 수 | netstat
 
-#### <a name="process-data"></a>데이터 처리
+
 어플라이언스에서 에이전트 없는 종속성 분석에 사용하도록 설정된 각 VM으로부터 수집하는 프로세스 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
 
 **Data** | **WMI 클래스** | **WMI 클래스 속성**
@@ -233,7 +299,7 @@ TCP 연결 상태 | netstat
 프로세스 인수 | Win32_Process | 명령줄
 애플리케이션 이름 | Win32_Process | ExecutablePath 속성의 VersionInfo.ProductName 매개 변수
 
-#### <a name="linux-vm-data"></a>Linux VM 데이터
+#### <a name="linux-vm-app-dependencies-data"></a>Linux VM 앱 종속성 데이터
 
 어플라이언스에서 에이전트 없는 종속성 분석에 사용하도록 설정된 각 Linux VM으로부터 수집하는 연결 및 프로세스 데이터는 다음과 같습니다. 이 데이터는 Azure에 보냅니다.
 

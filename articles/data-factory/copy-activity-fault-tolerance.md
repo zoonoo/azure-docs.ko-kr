@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: a44703aabc35131cf040892999409173638437a7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658779"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130775"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -80,6 +80,21 @@ logStorageSettings  | 건너뛴 개체 이름을 로깅하려는 경우 지정�
 linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 예
 경로 | 로그 파일의 경로입니다. | 로그 파일을 저장하는 데 사용할 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
+> [!NOTE]
+> 다음은 이진 파일을 복사할 때 복사 작업에서 내결함성을 사용 하기 위한 필수 구성 요소입니다.
+> 원본 저장소에서 삭제 되는 특정 파일을 건너뛰는 경우:
+> - 원본 데이터 집합 및 싱크 데이터 집합은 이진 형식 이어야 하며 압축 형식은 지정할 수 없습니다. 
+> - 지원 되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, 파일 시스템, FTP, SFTP, Amazon S3, Google Cloud Storage 및 HDFS입니다.
+> - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
+>
+> 원본 저장소에서 액세스를 사용할 수 없을 때 특정 파일을 건너뛰는 경우:
+> - 원본 데이터 집합 및 싱크 데이터 집합은 이진 형식 이어야 하며 압축 형식은 지정할 수 없습니다. 
+> - 지원 되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 및 HDFS입니다.
+> - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
+>
+> 원본 및 대상 저장소 간에 일치 하지 않는 것으로 확인 되는 특정 파일을 건너뛰는 경우:
+> - 데이터 일관성 문서에서 자세한 내용을 볼 [수 있습니다.](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)
+
 ### <a name="monitoring"></a>모니터링 
 
 #### <a name="output-from-copy-activity"></a>복사 작업의 출력
@@ -112,8 +127,8 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 열 | Description 
 -------- | -----------  
 타임스탬프 | ADF에서 파일을 건너뛴 타임스탬프입니다.
-Level | 이 항목의 로그 수준입니다. 파일 건너뛰기를 표시하는 항목의 경우 '경고' 수준입니다.
-OperationName | 각 파일에 대한 ADF 복사 작업 동작입니다. 건너뛸 파일을 지정하는 경우 'FileSkip'입니다.
+Level | 이 항목의 로그 수준입니다. 파일 건너뛰기를 표시하는 항목의 경우 ‘경고’ 수준입니다.
+OperationName | 각 파일에 대한 ADF 복사 활동 동작입니다. 건너뛸 파일을 지정하는 경우 ‘FileSkip’입니다.
 OperationItem | 건너뛸 파일 이름입니다.
 메시지 | 파일을 건너뛰는 이유를 설명하는 추가 정보입니다.
 
@@ -170,11 +185,11 @@ Timestamp,Level,OperationName,OperationItem,Message
 }, 
 ```
 
-속성 | Description | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 예
+enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 아니요
 logStorageSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
-linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 예
+linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 아니요
 경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
 ### <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
@@ -247,9 +262,9 @@ Timestamp, Level, OperationName, OperationItem, Message
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 예
-redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
+redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아니요
 linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties)의 연결된 서비스입니다. | `AzureStorage` 또는 `AzureDataLakeStore` 형식의 연결된 서비스 이름은 사용자가 로그 파일을 저장하는 데 사용하려는 인스턴스를 참조합니다. | 예
-경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
+경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니요
 
 ### <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
 복사 작업 실행이 완료되면 복사 작업 출력에서 건너뛴 행의 수를 볼 수 있습니다.

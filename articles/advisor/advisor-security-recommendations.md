@@ -3,12 +3,12 @@ title: Azure Advisor로 리소스를 보다 안전하게 만들기
 description: Azure Advisor를 사용하여 Azure 배포의 보안을 향상시킵니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113860"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Azure Advisor로 리소스를 보다 안전하게 만들기
 
@@ -31,7 +31,7 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 시작](advisor-get-started.md)
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
-* [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)
+* [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)
 * [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)
-
+* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
  

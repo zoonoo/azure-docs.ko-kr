@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 134f0202b4b18e96b9f089460f4235c6b5c0fe4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85105991"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.
@@ -104,7 +104,7 @@ Visual Studio는 Azure의 "BYOL(사용자 라이선스 필요)" 모델을 따릅
 > [!NOTE]
 > 이미지를 스토리지하는 데 약간의 비용이 발생하지만 이러한 추가 비용은 VM이 필요한 각 팀 멤버들이 VM을 처음부터 다시 구축하는 데 드는 오버헤드 비용에 비하면 미미할 수 있습니다. 예를 들어, 전체 팀에서 재사용할 수 있는 127GB 이미지를 만들고 1달 동안 저장하는 데는 몇 달러가 필요합니다. 그러나 이러한 비용은 각 직원이 개인적으로 사용하기 위해 적절히 구성된 개발 박스를 빌드하고 유효성을 검사하기 위해 투입하는 시간에 비하면 별로 크지 않습니다.
 
-또한 개발 태스크나 기술에는 다양한 개발 구성 및 여러 컴퓨터 구성과 같은 더 큰 규모가 필요할 수 있습니다. Azure DevTest Labs를 사용하여 '골든 이미지'의 생성을 자동화하는 레시피를 만들 수 있습니다. DevTest Labs를 사용하여 팀의 실행 중인 VM에 대한 정책을 관리할 수도 있습니다. [개발자용 Azure DevTest Lab을 사용](/azure/devtest-lab/devtest-lab-developer-lab)하는 것이 DevTest Labs에 대한 자세한 내용을 확인하는 최선의 방법입니다.
+또한 개발 태스크나 기술에는 다양한 개발 구성 및 여러 컴퓨터 구성과 같은 더 큰 규모가 필요할 수 있습니다. Azure DevTest Labs를 사용하여 '골든 이미지'의 생성을 자동화하는 레시피를 만들 수 있습니다. DevTest Labs를 사용하여 팀의 실행 중인 VM에 대한 정책을 관리할 수도 있습니다. [개발자용 Azure DevTest Lab을 사용](../../devtest-labs/devtest-lab-developer-lab.md)하는 것이 DevTest Labs에 대한 자세한 내용을 확인하는 최선의 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 미리 구성된 Visual Studio 이미지에 대해 잘 알게 되었으므로 다음 단계는 새 VM을 만드는 것입니다.
