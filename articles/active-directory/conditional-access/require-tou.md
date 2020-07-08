@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74380096"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039826"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구
 
@@ -31,7 +31,7 @@ ms.locfileid: "74380096"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작의 시나리오를 완료하려면 다음이 필요합니다.
 
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구**를 입력합니다.
 
-   ![속성](./media/require-tou/71.png)
+   ![Name](./media/require-tou/71.png)
 
 1. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -209,5 +209,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [특정 앱에 MFA 요구](app-based-mfa.md)
-> [세션 위험이 감지되면 액세스 차단](app-sign-in-risk.md)
+> [특정 앱에 대해 MFA 요구](app-based-mfa.md)

@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: c5357397817b9c6712bdb2e35490e2cdd403d13c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 63c54369ecda6a4f242ca76730c48a414a9d4724
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836467"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040880"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Stream Analytics의 Azure Machine Learning Studio(클래식) 통합(미리 보기)
 Stream Analytics는 Azure Machine Learning Studio(클래식) 엔드포인트를 호출하는 사용자 정의 함수를 지원합니다. 이 기능에 대한 REST API 지원은 [Stream Analytics REST API 라이브러리](https://msdn.microsoft.com/library/azure/dn835031.aspx)에 자세히 설명되어 있습니다. 이 문서에서는 Stream Analytics에서 이 기능을 성공적으로 구현하기 위해 필요한 추가 정보를 제공합니다. 자습서도 게시되어 있으며 [여기](stream-analytics-machine-learning-integration-tutorial.md)서 확인할 수 있습니다.

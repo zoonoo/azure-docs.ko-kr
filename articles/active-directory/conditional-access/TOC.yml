@@ -8,8 +8,6 @@
   items:
     - name: 사용 약관 허용 필요
       href: require-tou.md
-    - name: 세션 위험이 감지되면 액세스 차단
-      href: app-sign-in-risk.md
 - name: 자습서
   items:
     - name: Azure Multi-Factor Authentication 필요
@@ -68,8 +66,10 @@
           href: howto-conditional-access-policy-azure-management.md
         - name: 모든 사용자용 MFA 필요
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: 위험 기반 조건부 액세스
+        - name: 위험 기반 조건부 액세스 로그인
           href: howto-conditional-access-policy-risk.md
+        - name: 사용자 위험 기반 조건부 액세스
+          href: howto-conditional-access-policy-risk-user.md
         - name: 보안 정보 등록 보호
           href: howto-conditional-access-policy-registration.md
         - name: 위치별 액세스 차단

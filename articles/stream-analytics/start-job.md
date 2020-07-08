@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2019
-ms.openlocfilehash: c393eb782c2ff16eb5b3e5967b39938dfe2f1534
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c03eb9d30d204cbfb7fcd8971dd84f2ba5a7737
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426459"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039180"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업을 시작 하는 방법
 
@@ -54,10 +54,10 @@ Start-AzStreamAnalyticsJob `
 
 **OutputStartMode**에는 *jobstarttime*, *customtime*및 *LastOutputEventTime*의 세 가지 옵션이 있습니다. 이 속성이 없으면 기본값은 *Jobstarttime*입니다. 이러한 옵션에 대 한 자세한 내용은 위의 항목을 참조 하세요.
 
-`Start-AzStreamAnalyitcsJob` Cmdlet에 대 한 자세한 내용은 [AzStreamAnalyticsJob 참조를 참조](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob)하세요.
+Cmdlet에 대 한 자세한 내용은 `Start-AzStreamAnalyitcsJob` [AzStreamAnalyticsJob 참조를 참조](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 * [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
-* [빠른 시작: Visual Studio용 Azure Stream Analytics 도구를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
+* [빠른 시작: Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)

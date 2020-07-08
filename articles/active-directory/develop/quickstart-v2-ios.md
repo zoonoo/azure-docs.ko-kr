@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b4092ac7bdd03d2e978cd9d9a8aa9fd2aaf1cdd2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: bd17c20707c3bf1a153e9209cd7e2ec279de0501
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733294"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554050"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -173,7 +173,7 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |위치: ||
+> |위치: | Description |
 > |---------|---------|
 > | `clientId` | *portal.azure.com*에 등록된 애플리케이션의 애플리케이션 ID |
 > | `authority` | Microsoft ID 플랫폼 엔드포인트. 대부분의 경우 *https<span/>://login.microsoftonline.com/common*입니다. |
@@ -237,7 +237,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |위치:||
+> |위치:| Description |
 > |---------|---------|
 > | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 웹 API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`)가 포함됩니다. |
 
@@ -257,7 +257,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |위치: ||
+> |위치: | Description |
 > |---------|---------|
 > | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 웹 API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`)가 포함됩니다. |
 > | `account` | 토큰을 요청하는 계정입니다. 이 빠른 시작은 단일 계정 애플리케이션에 대한 것입니다. 다중 계정 앱을 빌드하려면 `accountsFromDeviceForParameters:completionBlock:`를 사용하여 토큰 요청에 사용할 계정을 식별하고 올바른 `accountIdentifier`를 전달하는 논리를 정의해야 합니다. |

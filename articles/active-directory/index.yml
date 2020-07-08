@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 05/29/2020
-  ms.openlocfilehash: b60e20bdb5dcb35cdeadb6f8d1b6862192a0916a
-  ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+  ms.openlocfilehash: 13e69e5f45244be79d06b0014d32e5c8192c777c
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84345209"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86038075"
 highlightedContent:
   items:
   - title: Azure AD란?
@@ -42,15 +42,15 @@ conceptualContent:
   items:
   - title: 애플리케이션 관리
     links:
-    - url: ./manage-apps/what-is-single-sign-on.md
-      itemType: concept
-      text: SSO(Single Sign-On)란?
-    - url: ./manage-apps/configure-single-sign-on-non-gallery-applications.md
-      itemType: concept
-      text: SAML 기반 SSO 구성
-    - url: ./manage-apps/application-proxy.md
-      itemType: concept
-      text: 온-프레미스 앱에 대한 애플리케이션 프록시
+    - url: ./manage-apps/what-is-application-management.md
+      itemType: overview
+      text: 애플리케이션 관리란?
+    - url: ./manage-apps/view-applications-portal.md
+      itemType: quickstart
+      text: ID 관리용 테넌트를 사용하는 앱 보기
+    - url: ./manage-apps/add-application-portal-setup-sso.md
+      itemType: quickstart
+      text: SAML 기반 SSO 설정
     footerLink:
       url: ./manage-apps/index.yml
       text: 자세히 보기

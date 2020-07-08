@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77598547"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340834"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 파일 공유 만들기 및 관리 
 이 가이드에서는 PowerShell을 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 스토리지 계정은 Azure 파일 공유를 배포하는 데 사용할 수 있는 스토리지의 공유 풀입니다. 스토리지 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 표준 Azure 파일 공유 또는 다른 스토리지 리소스(예: Blob 또는 큐)를 HDD(하드 디스크 드라이브) 회전 미디어에 저장할 수 있는 GPv2(범용 버전 2) 스토리지 계정을 만듭니다. Azure Files는 프리미엄 SSD(반도체 디스크 드라이브)도 지원합니다. 프리미엄 Azure 파일 공유는 FileStorage 스토리지 계정에서 만들 수 있습니다.
 
-이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 스토리지 계정의 이름은 *mystorageaccount\<임의 번호>* 이며, 해당 스토리지 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 스토리지 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
+이 예제에서는 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 스토리지 계정을 만듭니다. 스토리지 계정의 이름은 *mystorageaccount\<random number>* 이며 이 스토리지 계정에 대한 참조는 **$storageAcct** 변수에 저장됩니다. 스토리지 계정 이름은 고유해야 합니다. 따라서 `Get-Random`를 사용하여 고유하게 만들 이름에 숫자를 추가합니다. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -199,7 +199,7 @@ Azure 파일 공유로 수행할 수 있는 유용한 한 가지 추가 작업�
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
-$snapshot = $share.Snapshot()
+$snapshot = $share.CloudFileShare.Snapshot()
 ```
 
 ### <a name="browse-share-snapshots"></a>공유 스냅샷 찾아보기

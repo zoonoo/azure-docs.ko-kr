@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, tracking-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 90954ea2754fd77f1612bd616acb7d3c88e50816
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8fab1449c72dc3e1a27506e97272e322c0e8c6e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558661"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553886"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Python 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -25,7 +25,7 @@ ms.locfileid: "84558661"
 > [!div renderon="docs"]
 > ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -189,7 +189,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | 위치: ||
+> | 위치: |Description |
 > |---------|---------|
 > | `config["secret"]` | Azure Portal에서 애플리케이션에 대한 클라이언트 비밀이 생성됩니다. |
 > | `config["client_id"]` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
@@ -210,7 +210,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |위치:| |
+> |위치:| Description |
 > |---------|---------|
 > | `config["scope"]` | 요청된 범위를 포함합니다. 비밀 클라이언트의 경우 요청되는 범위가 Azure Portal에서 설정된 앱 개체에서 정적으로 정의된 것임을 나타내기 위해 `{Application ID URI}/.default`와 유사한 양식을 사용해야 합니다(Microsoft Graph의 경우 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킴). 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 애플리케이션 등록(미리 보기)에서 **API 노출** 섹션 아래에 정의됩니다. |
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e3674f7686679c27ad732fcaa92620703b91b5fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d22e86a37ca386d41374cf0b4811943108d293b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82112612"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553851"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -128,7 +128,7 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |위치: ||
+> |위치: | Description |
 > |---------|---------|
 > | `ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
 
@@ -150,7 +150,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |위치:||
+> |위치:| Description |
 > |---------|---------|
 > | `_scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
 
@@ -165,7 +165,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |위치: ||
+> |위치: | Description |
 > |---------|---------|
 > | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
 > | `firstAccount` | 캐시의 첫 번째 사용자를 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원함). |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 50b6244e5db6f812d1f9e3d23ea5fa88ea3bebea
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456813"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554139"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
@@ -145,7 +145,7 @@ public void ConfigureServices(IServiceCollection services)
 
 `.AddAzureAd`가 포함된 줄은 애플리케이션에 Microsoft ID 플랫폼 인증을 추가합니다. 그런 다음, Microsoft ID 플랫폼 엔드포인트를 사용하여 로그인하도록 구성됩니다.
 
-> |Where  |  |
+> |Where | Description |
 > |---------|---------|
 > | clientid  | Azure Portal에 등록된 애플리케이션의 애플리케이션(클라이언트) ID입니다. |
 > | Authority | 사용자가 인증하는 STS 엔드포인트. 일반적으로 퍼블릭 클라우드의 경우 <https://login.microsoftonline.com/{tenant}/v2.0>입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |

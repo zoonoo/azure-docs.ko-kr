@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 20ab78aa67fa5d59dac774559b3c43561cf75fbc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271066"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040710"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Azure Time Series Insights Preview란?
 
@@ -78,12 +78,12 @@ Azure Time Series Insights는 데이터 처리, 스토리지(데이터 및 메�
 
 | | |
 | ---| ---|
-| IoT 규모 시계열 데이터에 대한 다중 계층 스토리지 | 데이터 수집을 위한 공유 데이터 처리 파이프라인을 사용하여 웜 및 콜드 저장소에 데이터로 수집할 수 있습니다. 대량의 데이터를 저장하기 위한 대화형 쿼리 및 콜드 조정소에 웜 저장소를 사용합니다. 고성능 자산 기반 쿼리를 활용하는 방법에 대한 자세한 내용은 [쿼리](./time-series-insights-update-tsq.md)를 참조하세요. |
-| 원시 원격 분석을 컨텍스트화하고 자산 기반 인사이트를 제공하는 시계열 모델 | 시계열 모델을 사용하여 시계열 데이터에 대한 인스턴스, 계층, 유형 및 변수를 만들 수 있습니다. 시계열 모델에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.  |
-| 다른 데이터 솔루션과의 지속적인 통합 | Time Series Insights 콜드 저장소의 데이터는 오픈 소스 Apache Parquet 파일에 [저장](./time-series-insights-update-storage-ingress.md)됩니다. 이를 통해 비즈니스 인텔리전스, 고급 기계 학습 및 예측 분석을 포함하는 시나리오에서 다른 데이터 솔루션(자사 또는 타사)과 데이터를 통합할 수 있습니다. |
+| IoT 규모 시계열 데이터에 대한 다중 계층 스토리지 | 데이터 수집을 위한 공유 데이터 처리 파이프라인을 사용하여 웜 및 콜드 저장소에 데이터로 수집할 수 있습니다. 대량의 데이터를 저장하기 위한 대화형 쿼리 및 콜드 조정소에 웜 저장소를 사용합니다. 고성능 자산 기반 쿼리를 활용하는 방법에 대한 자세한 내용은 [쿼리](./concepts-query-overview.md)를 참조하세요. |
+| 원시 원격 분석을 컨텍스트화하고 자산 기반 인사이트를 제공하는 시계열 모델 | 시계열 모델을 사용하여 시계열 데이터에 대한 인스턴스, 계층, 유형 및 변수를 만들 수 있습니다. 시계열 모델에 대해 자세히 알아보려면 [시계열 모델](./concepts-model-overview.md)을 참조하세요.  |
+| 다른 데이터 솔루션과의 지속적인 통합 | Time Series Insights 콜드 저장소의 데이터는 오픈 소스 Apache Parquet 파일에 [저장](concepts-storage.md)됩니다. 이를 통해 비즈니스 인텔리전스, 고급 기계 학습 및 예측 분석을 포함하는 시나리오에서 다른 데이터 솔루션(자사 또는 타사)과 데이터를 통합할 수 있습니다. |
 | 거의 실시간 데이터 검색 | [Azure Time Series Insights Preview 탐색기](./time-series-insights-update-explorer.md) 사용자 환경은 수집 파이프라인을 통한 모든 데이터 스트리밍에 대해 시각화를 제공합니다. 이벤트 원본을 연결하면 이벤트 데이터를 보고 탐색하고 쿼리할 수 있습니다. 이러한 방식으로, 디바이스에서 예상대로 데이터를 내보내는지 여부를 확인할 수 있습니다. IoT 자산의 상태, 생산성 및 전반적인 효율성을 모니터링할 수도 있습니다. | 
 | 확장성 및 통합 | Azure Time Series Insights Power BI 커넥터 통합은 **내보내기** 옵션을 통해 시계열 탐색기 사용자 환경에서 직접 사용할 수 있으므로, 고객이 사용자 환경에서 만든 시계열 쿼리를 Power BI 데스크톱에 직접 내보내고 다른 BI 분석과 함께 시계열 차트를 볼 수 있습니다. 이를 통해 IoT 시계열을 비롯한 다양한 데이터 원본에 대해 단일 창구를 제공함으로써 Power BI 분야에 투자한 산업용 IoT 엔터프라이즈를 대상으로 하는 새로운 차원의 시나리오가 가능해집니다. | 
-| Time Series Insights 플랫폼에 빌드된 사용자 지정 애플리케이션 | Time Series Insights는 [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 지원합니다. SDK는 풍부한 컨트롤 및 간소화된 쿼리 액세스를 제공합니다. SDK를 사용하여 비즈니스 요구에 맞는 사용자 지정 IoT 애플리케이션을 Time Series Insights에 빌드할 수 있습니다. Time Series Insights [쿼리 API](./time-series-insights-update-tsq.md)를 직접 사용하여 사용자 지정 IoT 애플리케이션에 데이터를 제공할 수도 있습니다. |
+| Time Series Insights 플랫폼에 빌드된 사용자 지정 애플리케이션 | Time Series Insights는 [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 지원합니다. SDK는 풍부한 컨트롤 및 간소화된 쿼리 액세스를 제공합니다. SDK를 사용하여 비즈니스 요구에 맞는 사용자 지정 IoT 애플리케이션을 Time Series Insights에 빌드할 수 있습니다. Time Series Insights [쿼리 API](./concepts-query-overview.md)를 직접 사용하여 사용자 지정 IoT 애플리케이션에 데이터를 제공할 수도 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

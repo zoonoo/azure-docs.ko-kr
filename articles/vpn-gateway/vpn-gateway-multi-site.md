@@ -5,15 +5,15 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: yushwang
-ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5283e20b6121dbdc3ce57587d188ad5ad0e1b6b9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77198101"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041033"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
 
@@ -97,52 +97,54 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일을 엽니다.
 마지막 단계에서 다운로드한 네트워크 구성 파일을 엽니다. 원하는 xml 편집기를 사용합니다. 파일은 다음과 유사하게 나타납니다.
 
-        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
-          <VirtualNetworkConfiguration>
-            <LocalNetworkSites>
-              <LocalNetworkSite name="Site1">
-                <AddressSpace>
-                  <AddressPrefix>10.0.0.0/16</AddressPrefix>
-                  <AddressPrefix>10.1.0.0/16</AddressPrefix>
-                </AddressSpace>
-                <VPNGatewayAddress>131.2.3.4</VPNGatewayAddress>
-              </LocalNetworkSite>
-              <LocalNetworkSite name="Site2">
-                <AddressSpace>
-                  <AddressPrefix>10.2.0.0/16</AddressPrefix>
-                  <AddressPrefix>10.3.0.0/16</AddressPrefix>
-                </AddressSpace>
-                <VPNGatewayAddress>131.4.5.6</VPNGatewayAddress>
-              </LocalNetworkSite>
-            </LocalNetworkSites>
-            <VirtualNetworkSites>
-              <VirtualNetworkSite name="VNet1" AffinityGroup="USWest">
-                <AddressSpace>
-                  <AddressPrefix>10.20.0.0/16</AddressPrefix>
-                  <AddressPrefix>10.21.0.0/16</AddressPrefix>
-                </AddressSpace>
-                <Subnets>
-                  <Subnet name="FE">
-                    <AddressPrefix>10.20.0.0/24</AddressPrefix>
-                  </Subnet>
-                  <Subnet name="BE">
-                    <AddressPrefix>10.20.1.0/24</AddressPrefix>
-                  </Subnet>
-                  <Subnet name="GatewaySubnet">
-                    <AddressPrefix>10.20.2.0/29</AddressPrefix>
-                  </Subnet>
-                </Subnets>
-                <Gateway>
-                  <ConnectionsToLocalNetwork>
-                    <LocalNetworkSiteRef name="Site1">
-                      <Connection type="IPsec" />
-                    </LocalNetworkSiteRef>
-                  </ConnectionsToLocalNetwork>
-                </Gateway>
-              </VirtualNetworkSite>
-            </VirtualNetworkSites>
-          </VirtualNetworkConfiguration>
-        </NetworkConfiguration>
+```xml
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+  <VirtualNetworkConfiguration>
+    <LocalNetworkSites>
+      <LocalNetworkSite name="Site1">
+        <AddressSpace>
+          <AddressPrefix>10.0.0.0/16</AddressPrefix>
+          <AddressPrefix>10.1.0.0/16</AddressPrefix>
+        </AddressSpace>
+        <VPNGatewayAddress>131.2.3.4</VPNGatewayAddress>
+      </LocalNetworkSite>
+      <LocalNetworkSite name="Site2">
+        <AddressSpace>
+          <AddressPrefix>10.2.0.0/16</AddressPrefix>
+          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+        </AddressSpace>
+        <VPNGatewayAddress>131.4.5.6</VPNGatewayAddress>
+      </LocalNetworkSite>
+    </LocalNetworkSites>
+    <VirtualNetworkSites>
+      <VirtualNetworkSite name="VNet1" AffinityGroup="USWest">
+        <AddressSpace>
+          <AddressPrefix>10.20.0.0/16</AddressPrefix>
+          <AddressPrefix>10.21.0.0/16</AddressPrefix>
+        </AddressSpace>
+        <Subnets>
+          <Subnet name="FE">
+            <AddressPrefix>10.20.0.0/24</AddressPrefix>
+          </Subnet>
+          <Subnet name="BE">
+            <AddressPrefix>10.20.1.0/24</AddressPrefix>
+          </Subnet>
+          <Subnet name="GatewaySubnet">
+            <AddressPrefix>10.20.2.0/29</AddressPrefix>
+          </Subnet>
+        </Subnets>
+        <Gateway>
+          <ConnectionsToLocalNetwork>
+            <LocalNetworkSiteRef name="Site1">
+              <Connection type="IPsec" />
+            </LocalNetworkSiteRef>
+          </ConnectionsToLocalNetwork>
+        </Gateway>
+      </VirtualNetworkSite>
+    </VirtualNetworkSites>
+  </VirtualNetworkConfiguration>
+</NetworkConfiguration>
+```
 
 ## <a name="4-add-multiple-site-references"></a>4. 여러 사이트 참조 추가
 사이트 참조 정보를 추가 또는 제거하면 ConnectionsToLocalNetwork/LocalNetworkSiteRef의 구성이 변경됩니다. 새 로컬 사이트 참조를 추가하면 Azure에서 새 터널을 만듭니다. 아래 예제에서 네트워크 구성은 단일 사이트 연결용입니다. 모두 변경했으면 파일을 저장합니다.
@@ -172,7 +174,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet 'Get-AzureVNetGatewayKey'를 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

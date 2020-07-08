@@ -9,55 +9,55 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654876"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040047"
 ---
-# <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
+# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Active Directory Domain Services 관리 되는 도메인에 대 한 암호 및 계정 잠금 정책
 
 Azure Active Directory Domain Services (Azure AD DS)에서 사용자 보안을 관리 하려면 계정 잠금 설정 또는 최소 암호 길이 및 복잡성을 제어 하는 세분화 된 암호 정책을 정의할 수 있습니다. 기본 세분화 된 암호 정책이 만들어지고 Azure AD DS 관리 되는 도메인의 모든 사용자에 게 적용 됩니다. 세부적인 제어를 제공 하 고 특정 비즈니스 또는 규정 준수 요구 사항을 충족 하기 위해 특정 사용자 그룹에 추가 정책을 만들고 적용할 수 있습니다.
 
 이 문서에서는 Active Directory 관리 센터를 사용 하 여 Azure AD DS에서 세분화 된 암호 정책을 만들고 구성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 암호 정책은 Azure AD DS 리소스 관리자 배포 모델을 사용 하 여 만든 관리 되는 도메인에만 사용할 수 있습니다. 클래식을 사용 하 여 만든 관리 되는 이전 도메인의 경우 [클래식 가상 네트워크 모델에서 리소스 관리자로 마이그레이션합니다][migrate-from-classic].
+> 암호 정책은 리소스 관리자 배포 모델을 사용 하 여 만든 관리 되는 도메인에만 사용할 수 있습니다. 클래식을 사용 하 여 만든 관리 되는 이전 도메인의 경우 [클래식 가상 네트워크 모델에서 리소스 관리자로 마이그레이션합니다][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
+이 문서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
   * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
   * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-  * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
-  * Azure AD DS 인스턴스는 리소스 관리자 배포 모델을 사용 하 여 만들어야 합니다. 필요한 경우 [클래식 가상 네트워크 모델에서 리소스 관리자로 마이그레이션합니다][migrate-from-classic].
-* Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
+  * 필요한 경우 자습서를 완료 하 여 [관리 되는 Azure Active Directory Domain Services 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
+  * 리소스 관리자 배포 모델을 사용 하 여 관리 되는 도메인을 만들어야 합니다. 필요한 경우 [클래식 가상 네트워크 모델에서 리소스 관리자로 마이그레이션합니다][migrate-from-classic].
+* 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
   * 필요한 경우 자습서를 완료 하 여 [관리 VM을 만듭니다][tutorial-create-management-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
 
 ## <a name="default-password-policy-settings"></a>기본 암호 정책 설정
 
-Fgpp입니다 (세분화 된 암호 정책)를 사용 하면 암호 및 계정 잠금 정책에 대 한 특정 제한을 도메인의 다른 사용자에 게 적용할 수 있습니다. 예를 들어 권한 있는 계정을 보호 하기 위해 일반적인 권한 없는 계정 보다 엄격한 계정 잠금 설정을 적용할 수 있습니다. Azure AD DS 관리 되는 도메인 내에서 여러 Fgpp입니다을 만들고 우선 순위를 지정 하 여 사용자에 게 적용할 수 있습니다.
+Fgpp입니다 (세분화 된 암호 정책)를 사용 하면 암호 및 계정 잠금 정책에 대 한 특정 제한을 도메인의 다른 사용자에 게 적용할 수 있습니다. 예를 들어 권한 있는 계정을 보호 하기 위해 일반적인 권한 없는 계정 보다 엄격한 계정 잠금 설정을 적용할 수 있습니다. 관리 되는 도메인 내에서 여러 Fgpp입니다을 만들고 우선 순위를 지정 하 여 사용자에 게 적용할 수 있습니다.
 
 암호 정책 및 Active Directory 관리 센터 사용에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 * [세분화 되는 암호 정책에 대 한 자세한 정보](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
 * [AD 관리 센터를 사용 하 여 세분화 되는 암호 정책 구성](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
-정책은 Azure AD DS 관리 되는 도메인의 그룹 연결을 통해 배포 되 고 변경 내용은 다음 사용자 로그인 시 적용 됩니다. 정책을 변경 하면 이미 잠겨 있는 사용자 계정의 잠금이 해제 되지 않습니다.
+정책은 관리 되는 도메인의 그룹 연결을 통해 배포 되 고 변경 내용은 다음 사용자 로그인 시 적용 됩니다. 정책을 변경 하면 이미 잠겨 있는 사용자 계정의 잠금이 해제 되지 않습니다.
 
 암호 정책은 적용 되는 사용자 계정이 생성 된 방법에 따라 약간 다르게 동작 합니다. Azure AD DS에서 사용자 계정을 만드는 방법에는 두 가지가 있습니다.
 
 * 사용자 계정은 Azure AD에서 동기화 할 수 있습니다. 여기에는 Azure에서 직접 만든 클라우드 전용 사용자 계정과 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 하이브리드 사용자 계정이 포함 됩니다.
     * Azure AD DS의 대부분 사용자 계정은 Azure AD의 동기화 프로세스를 통해 생성 됩니다.
-* 사용자 계정은 Azure AD DS 관리 되는 도메인에서 수동으로 만들 수 있으며 Azure AD에 존재 하지 않습니다.
+* 사용자 계정은 관리 되는 도메인에서 수동으로 만들 수 있으며 Azure AD에 존재 하지 않습니다.
 
 만든 방법에 관계 없이 모든 사용자에 게는 Azure AD DS의 기본 암호 정책에 따라 다음과 같은 계정 잠금 정책이 적용 됩니다.
 
@@ -72,7 +72,7 @@ Fgpp입니다 (세분화 된 암호 정책)를 사용 하면 암호 및 계정 �
 
 최대 암호 사용 기간을 90 일 보다 크게 지정 하는 Azure AD 암호 정책이 있는 경우 해당 암호 사용 기간은 Azure AD DS의 기본 정책에 적용 됩니다. Azure AD DS에서 다른 최대 암호 사용 기간을 정의 하도록 사용자 지정 암호 정책을 구성할 수 있습니다. Azure AD 또는 온-프레미스 AD DS 환경 보다 Azure AD DS 암호 정책에 짧은 최대 암호 사용 기간을 구성 하는 경우 주의 해야 합니다. 이 시나리오에서는 azure AD 또는 온-프레미스 AD DS 환경에서 변경 하 라는 메시지가 표시 되기 전에 사용자의 암호가 Azure AD DS에서 만료 될 수 있습니다.
 
-Azure AD DS 관리 되는 도메인에서 수동으로 만든 사용자 계정의 경우 다음 추가 암호 설정도 기본 정책에서 적용 됩니다. 이러한 설정은 azure AD에서 동기화 된 사용자 계정에 적용 되지 않습니다. 사용자가 Azure AD DS에서 직접 암호를 업데이트할 수 없기 때문입니다.
+관리 되는 도메인에서 수동으로 만든 사용자 계정의 경우 다음 추가 암호 설정도 기본 정책에서 적용 됩니다. 이러한 설정은 azure AD에서 동기화 된 사용자 계정에 적용 되지 않습니다. 사용자가 Azure AD DS에서 직접 암호를 업데이트할 수 없기 때문입니다.
 
 * **최소 암호 길이 (문자):** 7
 * **암호는 복잡성을 만족해야 함**
@@ -83,19 +83,19 @@ Azure AD DS 관리 되는 도메인에서 수동으로 만든 사용자 계정�
 
 Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 암호 정책을 구성 하는 것이 좋습니다. 예를 들어 다른 계정 잠금 정책 설정을 설정 하는 정책을 만들 수 있습니다.
 
-사용자 지정 암호 정책은 Azure AD DS 관리 되는 도메인의 그룹에 적용 됩니다. 이 구성은 기본 정책을 효과적으로 재정의 합니다.
+사용자 지정 암호 정책은 관리 되는 도메인의 그룹에 적용 됩니다. 이 구성은 기본 정책을 효과적으로 재정의 합니다.
 
-사용자 지정 암호 정책을 만들려면 도메인에 가입 된 VM에서 Active Directory 관리 도구를 사용 합니다. Active Directory 관리 센터를 사용 하면 Ou를 포함 하 여 Azure AD DS 관리 되는 도메인에서 리소스를 보고 편집 하 고 만들 수 있습니다.
+사용자 지정 암호 정책을 만들려면 도메인에 가입 된 VM에서 Active Directory 관리 도구를 사용 합니다. Active Directory 관리 센터를 사용 하면 Ou를 포함 하 여 관리 되는 도메인에서 리소스를 보고 편집 하 고 만들 수 있습니다.
 
 > [!NOTE]
-> Azure AD DS 관리 되는 도메인에서 사용자 지정 암호 정책을 만들려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
+> 관리 되는 도메인에서 사용자 지정 암호 정책을 만들려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
+1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
 1. **시스템** 컨테이너를 열고 **암호 설정 컨테이너**합니다.
 
-    Azure AD DS 관리 되는 도메인에 대 한 기본 제공 암호 정책이 표시 됩니다. 이 기본 제공 정책은 수정할 수 없습니다. 대신, 기본 정책을 재정의 하는 사용자 지정 암호 정책을 만듭니다.
+    관리 되는 도메인에 대 한 기본 제공 암호 정책이 표시 됩니다. 이 기본 제공 정책은 수정할 수 없습니다. 대신, 기본 정책을 재정의 하는 사용자 지정 암호 정책을 만듭니다.
 
     ![Active Directory 관리 센터에서 암호 정책 만들기](./media/password-policy/create-password-policy-adac.png)
 
@@ -107,7 +107,7 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 
 1. 다른 암호 정책 설정을 원하는 대로 편집 합니다. 다음 핵심 사항을 명심 하십시오.
 
-    * Azure AD DS 관리 되는 도메인에서 수동으로 만든 사용자 에게만 암호 복잡성, 나이, 만료 시간 등의 설정을 적용할 수 있습니다.
+    * 관리 되는 도메인에서 수동으로 만든 사용자 에게만 암호 복잡성, 나이, 만료 시간 등의 설정을 적용할 수 있습니다.
     * 계정 잠금 설정은 모든 사용자에 게 적용 되지만 Azure AD 자체가 아닌 관리 되는 도메인 내 에서만 적용 됩니다.
 
     ![사용자 지정 세분화 된 암호 정책 만들기](./media/password-policy/custom-fgpp.png)

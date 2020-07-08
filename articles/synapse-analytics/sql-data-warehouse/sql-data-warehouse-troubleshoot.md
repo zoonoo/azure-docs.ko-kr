@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6f697cf205af9bdfaadfe20e123bcf0b4935c90f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829990"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039027"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "83829990"
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 'NT AUTHORITY\ANONYMOUS LOGON' 사용자에 대해 로그인 실패 (Microsoft SQL Server, 오류: 18456) | 이 오류는 Azure AD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL 풀을 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요](sql-data-warehouse-overview-manage-security.md) 를 참조하세요. |
 | 현재 보안 컨텍스트로는 서버 보안 주체 "MyUserName" 이(가) 데이터베이스 "master" 에 액세스할 수 없습니다. 사용자 기본 데이터베이스를 열 수 없습니다. 로그인이 실패했습니다. 사용자 'MyUserName'에 대한 로그인이 실패했습니다. (Microsoft SQL Server, 오류: 916) | 이 오류는 Azure AD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL 풀을 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요](sql-data-warehouse-overview-manage-security.md) 를 참조하세요. |
-| CTAIP 오류                                                  | 이 오류는 로그인이 SQL 데이터베이스가 아닌 SQL 서버 마스터 데이터베이스에서 만들어진 경우에 발생할 수 있습니다.  이 오류가 발생하는 경우 [보안 개요](sql-data-warehouse-overview-manage-security.md) 문서를 살펴보세요.  이 문서에서는 마스터 데이터베이스에서 로그인과 사용자를 만드는 방법과 SQL 데이터베이스에서 사용자를 만드는 방법을 차례로 설명합니다. |
+| CTAIP 오류                                                  | 이 오류는 SQL Database master 데이터베이스에서 로그인이 만들어졌지만 특정 SQL 데이터베이스에는 없는 경우에 발생할 수 있습니다.  이 오류가 발생하는 경우 [보안 개요](sql-data-warehouse-overview-manage-security.md) 문서를 살펴보세요.  이 문서에서는 master 데이터베이스에서 로그인과 사용자를 만드는 방법과 SQL database에서 사용자를 만드는 방법을 설명 합니다. |
 | 방화벽에 의해 차단                                          | SQL 풀은 알려진 IP 주소만 데이터베이스에 액세스할 수 있도록 방화벽으로 보호됩니다. 방화벽은 기본적으로 안전하며 이는 연결하기 전에 IP 주소 또는 주소 범위를 명시적으로 설정해야 한다는 의미입니다.  액세스를 위해 방화벽을 구성하려면 [프로비전 지침](create-data-warehouse-portal.md)의 [클라이언트 IP에 대한 서버 방화벽 액세스 구성](create-data-warehouse-portal.md) 단계를 따르세요. |
 | 도구 또는 드라이버에 연결할 수 없음                           | Synapse SQL 풀을 사용할 때는 [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT for Visual Studio](sql-data-warehouse-install-visual-studio.md) 또는 [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)를 사용하여 데이터를 쿼리하는 것이 좋습니다. 드라이버와 Azure Synapse에 연결하는 방법에 대한 자세한 내용은 [Azure Synapse용 드라이버](sql-data-warehouse-connection-strings.md) 및 [Azure Synapse에 연결](sql-data-warehouse-connect-overview.md) 문서를 참조하세요. |
 
@@ -59,7 +59,7 @@ ms.locfileid: "83829990"
 | Msg 40847: 서버가 허용되는 데이터베이스 트랜잭션 단위 할당량인 45000을 초과하므로 작업을 수행할 수 없습니다. | 만들려는 데이터베이스의 [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md)를 줄이거나 [할당량 증가를 요청](sql-data-warehouse-get-started-create-support-ticket.md)합니다. |
 | 공간 사용률 조사                              | 시스템의 공간 사용률을 이해하려면 [테이블 크기](sql-data-warehouse-tables-overview.md#table-size-queries) 를 참조하세요. |
 | 테이블 관리 도움말                                    | 테이블 관리에 대한 도움이 필요한 경우 [테이블 개요](sql-data-warehouse-tables-overview.md) 문서를 참조하세요.  이 문서에는 [테이블 데이터 유형](sql-data-warehouse-tables-data-types.md), [테이블 배포](sql-data-warehouse-tables-distribute.md), [테이블 인덱싱](sql-data-warehouse-tables-index.md), [테이블 분할](sql-data-warehouse-tables-partition.md), [테이블 통계 유지 관리](sql-data-warehouse-tables-statistics.md) 및 [임시 테이블](sql-data-warehouse-tables-temporary.md)과 같이 좀 더 자세한 항목으로 연결되는 링크가 포함되어 있습니다. |
-| TDE(투명한 데이터 암호화) 진행률 표시줄이 Azure Portal에서 업데이트되지 않음 | [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 통해 TDE의 상태를 볼 수 있습니다. |
+| TDE(투명한 데이터 암호화) 진행률 표시줄이 Azure Portal에서 업데이트되지 않음 | [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 통해 tde의 상태를 볼 수 있습니다. |
 
 ## <a name="differences-from-sql-database"></a>SQL Database와의 차이점
 

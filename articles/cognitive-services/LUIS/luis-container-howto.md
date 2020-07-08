@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100246"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039010"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
-|필수|목적|
+|필요한 공간|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
@@ -66,7 +66,7 @@ LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합�
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용 하 여 리포지토리에서 컨테이너 이미지를 다운로드 합니다 `mcr.microsoft.com/azure-cognitive-services/luis` .
+명령을 사용 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 하 여 리포지토리에서 컨테이너 이미지를 다운로드 합니다 `mcr.microsoft.com/azure-cognitive-services/luis` .
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
@@ -89,7 +89,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 1. 컨테이너를 사용하고 나면 LUIS 포털의 출력 탑재에서 [엔드포인트 로그를 가져오고](#import-the-endpoint-logs-for-active-learning) 컨테이너를 [중지](#stop-the-container)합니다.
 1. **엔드포인트 발화 검토** 페이지에서 LUIS 포털의 [활성 학습](luis-how-to-review-endpoint-utterances.md)을 사용하여 앱을 개선합니다.
 
-컨테이너에서 실행되는 앱은 변경할 수 없습니다. 컨테이너에서 앱을 변경하기 위해서 [LUIS](https://www.luis.ai) 포털을 사용하는 LUIS 서비스에서 앱을 변경하거나 [작성 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 사용해야 합니다. 그 다음 학습 및/또는 게시한 다음, 새 패키지를 다운로드하고 컨테이너를 다시 실행합니다.
+컨테이너에서 실행되는 앱은 변경할 수 없습니다. 컨테이너에서 앱을 변경 하려면 [LUIS](https://www.luis.ai) portal을 사용 하 여 LUIS 서비스에서 앱을 변경 하거나 LUIS [authoring api](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 사용 해야 합니다. 그 다음 학습 및/또는 게시한 다음, 새 패키지를 다운로드하고 컨테이너를 다시 실행합니다.
 
 컨테이너 내에서 LUIS 앱은 LUIS 서비스로 다시 내보낼 수 없습니다. 쿼리 로그만 업로드할 수 있습니다.
 
@@ -108,7 +108,7 @@ LUIS 컨테이너는 사용자 발화의 예측 쿼리에 응답하기 위해 �
 |패키지 형식|쿼리 엔드포인트 API|쿼리 가용성|패키지 파일 이름 형식|
 |--|--|--|--|
 |바뀔|GET, POST|컨테이너만|`{APP_ID}_v{APP_VERSION}.gz`|
-|준비|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
+|스테이징|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
 |프로덕션|GET, POST|Azure 및 컨테이너|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -118,7 +118,7 @@ LUIS 컨테이너는 사용자 발화의 예측 쿼리에 응답하기 위해 �
 
 LUIS 애플리케이션을 패키징 전에 다음이 필요 합니다.
 
-|패키징 요구 사항|세부 정보|
+|패키징 요구 사항|설명|
 |--|--|
 |Azure _Cognitive Services_ 리소스 인스턴스|지원되는 지역은 다음을 포함합니다.<br><br>미국 서부(`westus`)<br>서유럽(`westeurope`)<br>오스트레일리아 동부(`australiaeast`)|
 |학습된 또는 게시된 LUIS 앱|[지원되지 않는 종속성][unsupported-dependencies]이 없습니다. |
@@ -146,7 +146,7 @@ LUIS [포털](https://www.luis.ai)은 학습된 또는 게시 된 앱의 패키�
 버전이 지정 된 앱의 패키지는 **버전** 목록 페이지에서 사용할 수 있습니다.
 
 1. [LUIS](https://www.luis.ai) 포털에 로그인합니다.
-1. 목록에서 앱을 선택 합니다.
+1. 목록에서 해당 앱을 선택합니다.
 1. 앱의 탐색 모음에서 **관리**를 선택합니다.
 1. 왼쪽 탐색 모음에서 **버전**을 선택합니다.
 1. 목록에서 버전 이름의 왼쪽에 있는 확인란을 선택합니다.
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| 자리 표시자 | Value |
+| 자리 표시자 | 값 |
 |-------------|-------|
 | **{APP_ID}** | 게시된 LUIS 앱의 애플리케이션 ID입니다. |
 | **{SLOT_NAME}** | 게시된 LUIS 앱의 환경입니다. 다음 값 중 하나를 사용합니다.<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| 자리 표시자 | Value |
+| 자리 표시자 | 값 |
 |-------------|-------|
 | **{APP_ID}** | 학습 된 LUIS 앱의 응용 프로그램 ID입니다. |
 | **{APP_VERSION}** | 학습 된 LUIS 앱의 응용 프로그램 버전입니다. |
@@ -212,9 +212,9 @@ Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}
 ```
 
-* 이 예제에서는 드라이브의 `C:` 디렉터리를 사용 하 여 Windows에서 사용 권한 충돌을 방지 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다.
+* 이 예제에서는 드라이브의 디렉터리를 사용 하 여 `C:` Windows에서 사용 권한 충돌을 방지 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다.
 * Docker 컨테이너에 대해 잘 모르는 경우에는 인수의 순서를 변경 하지 마십시오.
-* 다른 운영 체제를 사용 하는 경우 시스템에 올바른 콘솔/터미널, 탑재를 위한 폴더 구문 및 줄 연속 문자를 사용 합니다. 이 예에서는 Windows 콘솔에 줄 연속 문자가 `^`있는 것으로 가정 합니다. 컨테이너는 Linux 운영 체제 이므로 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
+* 다른 운영 체제를 사용 하는 경우 시스템에 올바른 콘솔/터미널, 탑재를 위한 폴더 구문 및 줄 연속 문자를 사용 합니다. 이 예에서는 Windows 콘솔에 줄 연속 문자가 있는 것으로 가정 `^` 합니다. 컨테이너는 Linux 운영 체제 이므로 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
 
 이 명령은 다음을 수행합니다.
 
@@ -229,7 +229,7 @@ ApiKey={API_KEY}
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
-> ApiKey 값은 LUIS 포털에 있는 **Azure 리소스** 페이지의 `Cognitive Services` **키** 이며 azure 리소스 키 페이지 에서도 사용할 수 있습니다.
+> ApiKey 값은 LUIS 포털에 있는 **Azure 리소스** 페이지의 **키** 이며 azure 리소스 키 페이지 에서도 사용할 수 있습니다 `Cognitive Services` .
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -245,14 +245,14 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 # <a name="v3-prediction-endpoint"></a>[V3 예측 엔드포인트](#tab/v3)
 
-|패키지 유형|HTTP 동사|라우팅|쿼리 매개 변수|
+|패키지 유형|HTTP 동사|경로|쿼리 매개 변수|
 |--|--|--|--|
 |게시 날짜|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 |바뀔|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
 
-|쿼리 매개 변수|Type|목적|
+|쿼리 매개 변수|형식|용도|
 |--|--|--|
 |`query`|string|사용자의 발화입니다.|
 |`verbose`|boolean|예측 된 모델에 대 한 모든 메타 데이터를 반환할지 여부를 나타내는 부울 값입니다. 기본값은 false입니다.|
@@ -261,14 +261,14 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 # <a name="v2-prediction-endpoint"></a>[V2 예측 엔드포인트](#tab/v2)
 
-|패키지 유형|HTTP 동사|라우팅|쿼리 매개 변수|
+|패키지 유형|HTTP 동사|경로|쿼리 매개 변수|
 |--|--|--|--|
 |게시 날짜|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
 |바뀔|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
 
-|쿼리 매개 변수|Type|목적|
+|쿼리 매개 변수|형식|용도|
 |--|--|--|
 |`q`|string|사용자의 발화입니다.|
 |`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
@@ -294,7 +294,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-**스테이징** 환경에 대 한 쿼리를 만들려면 경로 `production` 에서을로 `staging`바꿉니다.
+**스테이징** 환경에 대 한 쿼리를 만들려면 `production` 경로에서을로 바꿉니다 `staging` .
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -334,7 +334,7 @@ curl -X GET \
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>활성 학습에 대한 엔드포인트 로그 가져오기
 
-LUIS 컨테이너에 대 한 출력 탑재를 지정 하면 앱 쿼리 로그 파일이 출력 디렉터리에 저장 됩니다. 여기서 `{INSTANCE_ID}` 는 컨테이너 ID입니다. 앱 쿼리 로그는 LUIS 컨테이너에 제출된 각 예측 쿼리에 대한 쿼리, 응답 및 타임스탬프를 포함합니다.
+LUIS 컨테이너에 대 한 출력 탑재를 지정 하면 앱 쿼리 로그 파일이 출력 디렉터리에 저장 됩니다 `{INSTANCE_ID}` . 여기서는 컨테이너 ID입니다. 앱 쿼리 로그는 LUIS 컨테이너에 제출된 각 예측 쿼리에 대한 쿼리, 응답 및 타임스탬프를 포함합니다.
 
 다음 위치는 컨테이너의 로그 파일에 대한 중첩 된 디렉터리 구조를 보여줍니다.
 ```

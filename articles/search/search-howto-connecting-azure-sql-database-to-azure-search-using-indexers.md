@@ -1,7 +1,7 @@
 ---
 title: Azure SQL 데이터 검색
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 인덱서를 사용 하 여 Azure SQL Database에서 데이터를 가져옵니다. 이 문서에서는 연결, 인덱서 구성 및 데이터 수집에 대해 설명합니다.
+description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 인덱서를 사용 하 여 Azure SQL Database 또는 SQL Managed Instance에서 데이터를 가져옵니다. 이 문서에서는 연결, 인덱서 구성 및 데이터 수집에 대해 설명합니다.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,20 +9,20 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 862b3056445bddb358e6485ce5fec4de4d53eace
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74113311"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039282"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Azure Cognitive Search 인덱서를 사용 하 여 Azure SQL Database 콘텐츠에 연결 및 인덱싱
+# <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Azure Cognitive Search 인덱서를 사용 하 여 Azure SQL 콘텐츠 연결 및 인덱싱
 
-[Azure Cognitive Search 인덱스](search-what-is-an-index.md)를 쿼리하려면 먼저 데이터를 채워야 합니다. 데이터가 Azure SQL database에 있는 경우 Azure SQL Database (또는 짧은 **AZURE sql 인덱서** ) **용 azure Cognitive Search 인덱서** 는 인덱싱 프로세스를 자동화할 수 있습니다. 즉, 작성할 코드와 주의 해야 하는 인프라를 줄일 수 있습니다.
+[Azure Cognitive Search 인덱스](search-what-is-an-index.md)를 쿼리하려면 먼저 데이터를 채워야 합니다. 데이터가 Azure SQL Database 또는 SQL Managed Instance에 있는 경우 **Azure SQL Database에 대 한 azure Cognitive Search 인덱서** (또는 Short 용 **azure SQL 인덱서** )는 인덱싱 프로세스를 자동화할 수 있습니다. 즉, 작성 하는 코드는 적고 관심 있는 인프라를 줄일 수 있습니다.
 
-이 문서에서는 [인덱서](search-indexer-overview.md) 사용 원리를 다루지만 Azure SQL 데이터베이스에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. 
+이 문서에서는 [인덱서](search-indexer-overview.md)를 사용 하는 방법에 대해 설명 하지만 AZURE SQL DATABASE 또는 SQL Managed Instance 에서만 사용할 수 있는 기능 (예: 통합 변경 내용 추적)에 대해서도 설명 합니다. 
 
-Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-howto-index-cosmosdb.md), [azure Blob storage](search-howto-indexing-azure-blob-storage.md)및 [azure table storage](search-howto-indexing-azure-tables.md)에 대 한 인덱서를 제공 합니다. 다른 데이터 원본에 대 한 지원을 요청 하려면 [Azure Cognitive Search 피드백 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 피드백을 제공 하세요.
+Azure Cognitive Search는 Azure SQL Database 및 SQL Managed Instance 외에도 [Azure Cosmos DB](search-howto-index-cosmosdb.md), [azure Blob storage](search-howto-indexing-azure-blob-storage.md)및 [azure table storage](search-howto-indexing-azure-tables.md)에 대 한 인덱서를 제공 합니다. 다른 데이터 원본에 대 한 지원을 요청 하려면 [Azure Cognitive Search 피드백 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 피드백을 제공 하세요.
 
 ## <a name="indexers-and-data-sources"></a>인덱서 및 데이터 원본
 
@@ -47,7 +47,7 @@ Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-
 ## <a name="when-to-use-azure-sql-indexer"></a>Azure SQL 인덱서를 사용하는 경우
 데이터와 관련된 여러 요소에 따라 Azure SQL 인덱서를 사용하는 것이 적절할 수도 있고 그렇지 않을 수도 있습니다. 데이터가 다음 요구 사항에 적합한 경우 Azure SQL 인덱서를 사용할 수 있습니다.
 
-| 조건 | 세부 정보 |
+| 조건 | 설명 |
 |----------|---------|
 | 단일 테이블 또는 뷰에서 발생한 데이터 | 데이터가 여러 테이블에 분산된 경우 데이터에 대한 단일 뷰를 만들 수 있습니다. 그러나 뷰를 사용하는 경우 증분 변경 내용으로 인덱스를 새로 고치는 데 SQL Server 통합 변경 검색을 사용할 수 없습니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
 | 호환되는 데이터 형식 | 모든 SQL 유형은 Azure Cognitive Search 인덱스에서 지원 됩니다. 목록은 [데이터 형식 매핑](#TypeMapping)을 참조하세요. |
@@ -62,7 +62,7 @@ Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-
 1. 데이터 원본을 만듭니다.
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
+    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,8 +80,8 @@ Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-
 
 3. 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
 
-    ```
-    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
+   ```
+    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -90,12 +90,14 @@ Azure SQL database 외에도 azure Cognitive Search는 [Azure Cosmos DB](search-
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
-    ```
+   ```
 
 이 방법으로 만든 인덱서에는 일정이 없습니다. 만들어지면 자동으로 한 번 실행됩니다. 언제든지 **run indexer** 요청을 사용하여 다시 실행할 수 있습니다.
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
+```
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
     api-key: admin-key
+```
 
 인덱서 동작의 몇 가지 측면(예: 배치 크기, 인덱서 실행에 실패하기 전에 건너뛸 수 있는 문서 수)을 사용자 지정할 수 있습니다. 자세한 내용은 [인덱서 API 만들기](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)를 참조하세요.
 
@@ -103,11 +105,14 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 
 인덱서 상태 및 실행 기록(인덱싱된 항목 수, 오류 등)을 모니터링하려면 **indexer status** 요청을 사용합니다.
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
+```
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
+```
 
 응답은 다음과 같아야 합니다.
 
+```
     {
         "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
@@ -138,14 +143,16 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
             ... earlier history items
         ]
     }
+```
 
 실행 기록은 50개의 최근에 완료한 실행까지 포함할 수 있으며, 시간 순서의 반대로 정렬됩니다(최신 항목이 응답에서 먼저 표시됨)
-응답에 대한 추가 정보는 [인덱서 상태 가져오기](https://go.microsoft.com/fwlink/p/?LinkId=528198)에서 확인할 수 있습니다.
+응답에 대한 추가 정보는 [인덱서 상태 가져오기](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)에서 확인할 수 있습니다.
 
 ## <a name="run-indexers-on-a-schedule"></a>일정에 따라 인덱서 실행
 일정에 따라 주기적으로 실행되도록 인덱서를 정렬할 수도 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 추가합니다. 아래 예제에서는 인덱서를 업데이트하는 PUT 요청을 보여 줍니다.
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
+```
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -154,10 +161,11 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
 **interval** 매개 변수는 필수 사항입니다. 두 개의 연속된 인덱서 실행 간의 시작 시간 간격을 나타냅니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
-인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search의 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)참조 하세요.
+인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서 일정 지정 방법](search-howto-schedule-indexers.md)을 참조하세요.
 
 <a name="CaptureChangedRows"></a>
 
@@ -172,15 +180,16 @@ SQL 데이터베이스에서 [변경 내용 추적](https://docs.microsoft.com/s
 
 + 데이터베이스 버전 요구 사항:
   * SQL Server 2012 SP3 이상(Azure VM에서 SQL Server를 사용하는 경우)
-  * Azure SQL Database V12(Azure SQL Database를 사용하는 경우)
+  * Azure SQL Database 또는 SQL Managed Instance.
 + 테이블만(뷰 제외). 
 + 데이터베이스에서 테이블에 대해 [변경 내용 추적을 설정](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server)합니다. 
 + 테이블에서 복합 기본 키(두 개 이상의 열을 포함하는 기본 키)가 없습니다.  
 
-#### <a name="usage"></a>사용
+#### <a name="usage"></a>사용량
 
 이 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -190,6 +199,7 @@ SQL 데이터베이스에서 [변경 내용 추적](https://docs.microsoft.com/s
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+```
 
 SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다. 그러나 삭제가 "자동"으로 탐지되려면 검색 인덱스의 문서 키가 SQL 테이블의 기본 키와 동일해야 합니다. 
 
@@ -212,10 +222,11 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 > [!IMPORTANT] 
 > 상위 워터 마크 열에는 [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) 데이터 형식을 사용하는 것이 좋습니다. 다른 데이터 형식을 사용하는 경우 변경 추적이 인덱서 쿼리와 동시에 실행되는 트랜잭션의 모든 변경 내용을 캡처하지는 않습니다. 읽기 전용 복제본이 있는 구성에 **rowversion**을 사용하는 경우 주 복제본에서 인덱서를 가리켜야 합니다. 데이터 동기화 시나리오에는 주 복제본만 사용할 수 있습니다.
 
-#### <a name="usage"></a>사용
+#### <a name="usage"></a>사용량
 
 높은 워터 마크 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -226,27 +237,59 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
+```
 
 > [!WARNING]
-> 원본 테이블의 상위 워터 마크 열에 인덱스가 없는 경우 SQL 인덱서에서 사용 하는 쿼리는 시간 초과 될 수 있습니다. 특히 테이블에 많은 `ORDER BY [High Water Mark Column]` 행이 포함 된 경우 절에서 인덱스를 효율적으로 실행 해야 합니다.
+> 원본 테이블의 상위 워터 마크 열에 인덱스가 없는 경우 SQL 인덱서에서 사용 하는 쿼리는 시간 초과 될 수 있습니다. 특히 `ORDER BY [High Water Mark Column]` 테이블에 많은 행이 포함 된 경우 절에서 인덱스를 효율적으로 실행 해야 합니다.
 >
 >
+
+<a name="convertHighWaterMarkToRowVersion"></a>
+
+##### <a name="converthighwatermarktorowversion"></a>convertHighWaterMarkToRowVersion
+
+상위 워터 마크 열에 [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) 데이터 형식을 사용 하는 경우 인덱서 구성 설정을 사용 하는 것이 좋습니다 `convertHighWaterMarkToRowVersion` . `convertHighWaterMarkToRowVersion`는 다음 두 가지 작업을 수행합니다.
+
+* 인덱서 sql 쿼리의 상위 워터 마크 열에는 rowversion 데이터 형식을 사용 합니다. 올바른 데이터 형식을 사용 하면 인덱서 쿼리 성능이 향상 됩니다.
+* 인덱서 쿼리를 실행 하기 전에 rowversion 값에서 1을 뺍니다. 1 개에서 다 수의 조인이 있는 뷰에 중복 된 rowversion 값이 있는 행이 있을 수 있습니다. 1을 빼면 인덱서 쿼리에서 이러한 행을 누락 하지 않도록 합니다.
+
+이 기능을 사용 하도록 설정 하려면 다음 구성을 사용 하 여 인덱서를 만들거나 업데이트 합니다.
+
+```
+    {
+      ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
+    }
+```
+
+<a name="queryTimeout"></a>
+
+##### <a name="querytimeout"></a>queryTimeout
 
 시간 초과 오류를 발생하는 경우 `queryTimeout` 인덱서 구성 설정을 사용하여 쿼리 제한 시간을 기본값(5분)보다 높은 값으로 설정할 수 있습니다. 예를 들어 제한 시간을 10분으로 설정하려면 다음 구성을 사용하여 인덱서를 만들거나 업데이트합니다.
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
+
+<a name="disableOrderByHighWaterMarkColumn"></a>
+
+##### <a name="disableorderbyhighwatermarkcolumn"></a>disableOrderByHighWaterMarkColumn
 
 `ORDER BY [High Water Mark Column]` 절을 사용하지 않도록 설정할 수도 있습니다. 그러나 인덱서 실행이 오류로 인해 중단된 경우 그때까지 거의 모든 행을 처리했더라도 나중에 실행될 때 모든 행을 다시 처리해야 하므로 이는 권장되지 않습니다. `ORDER BY` 절을 사용하지 않도록 설정하려면 인덱서 정의에서 `disableOrderByHighWaterMarkColumn` 설정을 사용합니다.  
 
+```
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
     }
+```
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Soft Delete 열 삭제 검색 정책
 원본 테이블에서 행이 삭제된 경우 검색 인덱스에서도 해당 행을 삭제할 수 있습니다. SQL 통합 변경 내용 추적 정책을 사용하는 경우 이 작업이 자동으로 수행됩니다. 그러나 상위 워터 마크 변경 내용 추적 정책은 삭제된 행을 지원하지 않습니다. 그렇다면 어떻게 해야 할까요?
@@ -255,6 +298,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 
 일시 삭제 기술을 사용하는 경우 데이터 원본을 만들거나 업데이트할 때 다음과 같이 일시 삭제 정책을 지정할 수 있습니다.
 
+```
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -263,13 +307,14 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
            "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]"
         }
     }
+```
 
 **softDeleteMarkerValue**는 문자열이어야 합니다. 실제 값의 문자열 표현을 사용하세요. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용합니다. 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 문자열 리터럴 `True` 또는 `true`를 사용합니다. 대소문자는 상관 없습니다.
 
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>SQL과 Azure Cognitive Search 데이터 형식 간 매핑
-| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 메모 |
+| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 참고 |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
@@ -286,18 +331,20 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 ## <a name="configuration-settings"></a>구성 설정
 SQL 인덱서는 여러 구성 설정을 노출합니다.
 
-| 설정 | 데이터 형식 | 목적 | 기본값 |
+| Setting | 데이터 형식 | 용도 | 기본값 |
 | --- | --- | --- | --- |
 | queryTimeout |string |SQL 쿼리 실행의 제한 시간 설정 |5분("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |상위 워터 마크 정책에서 사용하는 SQL 쿼리에서 ORDER BY 절이 생략되도록 합니다. [상위 워터 마크 정책](#HighWaterMarkPolicy)을 참조하세요. |false |
 
 이러한 설정은 인덱서 정의의 `parameters.configuration` 개체에 사용됩니다. 예를 들어 쿼리 제한 시간을 10분으로 설정하려면 다음 구성을 사용하여 인덱서를 만들거나 업데이트합니다.
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 ## <a name="faq"></a>FAQ
 
@@ -327,13 +374,13 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 증분 인덱싱의 경우 Azure Cognitive Search는 SQL 통합 변경 내용 추적 및 상위 워터 마크와 같은 두 가지 변경 검색 정책을 지원 합니다.
 
-읽기 전용 복제본에서 SQL 데이터베이스는 통합된 변경 내용 추적을 지원하지 않습니다. 따라서 상위 워터 마크 정책을 사용해야 합니다. 
+읽기 전용 복제본에서 SQL Database는 통합 변경 내용 추적을 지원 하지 않습니다. 따라서 상위 워터 마크 정책을 사용해야 합니다. 
 
-상위 워터 마크 열에는 rowversion 데이터 형식을 사용하는 것이 일반적으로 권장됩니다. 그러나 rowversion 사용 시 SQL Database의 `MIN_ACTIVE_ROWVERSION` 함수를 사용하는 데, 이는 읽기 전용 복제본에서는 지원되지 않습니다. 따라서 rowversion를 사용하는 경우 인덱서가 주 복제본을 가리키도록 해야 합니다.
+상위 워터 마크 열에는 rowversion 데이터 형식을 사용하는 것이 일반적으로 권장됩니다. 그러나 rowversion를 사용 하는 `MIN_ACTIVE_ROWVERSION` 것은 읽기 전용 복제본에서 지원 되지 않는 함수에 의존 합니다. 따라서 rowversion를 사용하는 경우 인덱서가 주 복제본을 가리키도록 해야 합니다.
 
 읽기 전용 복제본에서 rowversion을 사용하려고 하면 다음 오류가 표시됩니다. 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+"보조 (읽기 전용) 가용성 복제본에서는 변경 내용 추적에 rowversion 열을 사용할 수 없습니다. 데이터 원본을 업데이트 하 고 주 가용성 복제본에 대 한 연결을 지정 하십시오. 현재 데이터베이스 ' 업데이트 ' 속성은 ' READ_ONLY ' "입니다.
 
 **Q: 상위 워터 마크 변경 내용 추적에 대체의 rowversion이 아닌 열을 사용할 수 있습니까?**
 
