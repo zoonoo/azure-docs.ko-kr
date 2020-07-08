@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476838"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>사용자별 Azure Multi-Factor Authentication을 사용하여 로그인 이벤트 보호
 
 Azure AD에서 다단계 인증을 요구하여 사용자 로그인 이벤트를 보호하는 방법에는 두 가지가 있습니다. 첫 번째 및 기본 옵션은 특정 조건에서 다단계 인증을 요구하는 조건부 액세스 정책을 설정하는 것입니다. 두 번째 옵션은 각 사용자가 Azure Multi-Factor Authentication을 사용하도록 설정하는 것입니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 _기억된 디바이스_ 기능이 설정된 경우와 같이 몇 가지 예외를 제외하고는, 로그인할 때마다 다단계 인증을 수행합니다.
 
 > [!NOTE]
-> 조건부 액세스 정책을 사용하려 Azure Multi-Factor Authentication을 사용하도록 설정하는 것이 좋습니다. 사용자가 로그인할 때마다 MFA를 수행해야 하므로 라이선스에 조건부 액세스가 포함되지 않는 한 사용자 상태를 변경하는 것은 더 이상 권장되지 않습니다.
+> 조건부 액세스 정책을 사용하려 Azure Multi-Factor Authentication을 사용하도록 설정하는 것이 좋습니다. 사용자가 로그인할 때마다 MFA를 수행해야 하므로 라이선스에 조건부 액세스가 포함되지 않는 한 사용자 상태를 변경하는 것은 더 이상 권장되지 않습니다. 조건부 액세스 사용을 시작하려면 [자습서: Azure Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보호](tutorial-enable-azure-mfa.md)를 참조하세요.
 >
-> 조건부 액세스 사용을 시작하려면 [자습서: Azure Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보호](tutorial-enable-azure-mfa.md)를 참조하세요.
+> 조건부 액세스 권한이 없는 Azure AD 무료 테 넌 트의 경우 [보안 기본값을 사용 하 여 사용자를 보호할](../fundamentals/concept-fundamentals-security-defaults.md)수 있습니다.
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Azure Multi-Factor Authentication 사용자 상태
 
@@ -39,7 +39,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 | 상태 | Description | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
 |:---:| --- |:---:|:--:|:--:|
 | 사용 안 함 | Azure Multi-Factor Authentication에 등록되지 않은 새 사용자에 대한 기본 상태입니다. | 예 | 예 | 예 |
-| 사용 | 사용자가 Azure Multi-Factor Authentication에 등록되었지만 등록되지 않았습니다. 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. | 아니요.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 Azure Multi-Factor Authentication 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure Multi-Factor Authentication 등록이 필요합니다. |
+| 사용 | 사용자가 Azure Multi-Factor Authentication에 등록 되었지만 인증 방법이 등록 되지 않았습니다. 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. | 아니요.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 Azure Multi-Factor Authentication 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure Multi-Factor Authentication 등록이 필요합니다. |
 | 적용 | 사용자가 등록되었으며 Azure Multi-Factor Authentication에 대한 등록 프로세스를 완료했습니다. | 예. 앱에 앱 암호가 필요합니다. | 예. 로그인할 때 Azure Multi-Factor Authentication이 필요합니다. | 예. 로그인할 때 Azure Multi-Factor Authentication이 필요합니다. |
 
 사용자의 상태는 관리자가 사용자를 Azure Multi-Factor Authentication에 등록했는지 그리고 사용자가 등록 프로세스를 완료했는지 여부를 반영합니다.
@@ -84,7 +84,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 * *적용*
 * *사용 안 함*  
 
-사용자를 *적용* 상태로 직접 전환하지 마세요. 이렇게 하면 사용자가 Azure Multi-Factor Authentication 등록을 마치고 [앱 암호](howto-mfa-mfasettings.md#app-passwords)를 가져오지 못했기 때문에 비 브라우저 기반 앱 작동이 중단됩니다.
+사용자를 *적용* 상태로 직접 전환하지 마세요. 이렇게 하면 사용자가 Azure Multi-Factor Authentication 등록을 마치고 [앱 암호](howto-mfa-app-passwords.md)를 가져오지 못했기 때문에 비 브라우저 기반 앱 작동이 중단됩니다.
 
 시작하려면 다음과 같이 [Install-Module](/powershell/module/powershellget/install-module)을 사용하여 *MSOnline* 모듈을 설치합니다.
 

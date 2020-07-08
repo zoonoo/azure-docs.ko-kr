@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f22ecb13284eaf6fb2a833791b5563351ca19147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477858"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -133,7 +133,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>단일 테넌트의 여러 계층
 
-논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 예를 들면 다음과 같습니다.
+논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 예를 들어:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -145,7 +145,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 애플리케이션의 다른 계층이 다른 테넌트에 등록되어 있다면 유사한 사례가 발생합니다. 예를 들어 Office 365 Exchange Online API를 호출하는 네이티브 클라이언트 애플리케이션을 빌드하는 경우를 생각해 보겠습니다. 네이티브 애플리케이션을 개발하고, 그 후 네이티브 애플리케이션이 고객 테넌트에서 실행되도록 하려면 Exchange Online 서비스 주체가 있어야 합니다. 이 경우에 개발자 및 고객이 자신의 테넌트에 서비스 주체가 생성되도록 하려면 Exchange Online를 구매해야 합니다.
 
-Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 이렇게 하려면 다음을 수행합니다.
+Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 다음을 수행합니다.
 
 1. 이전 섹션에 따라 API에서 다중 테넌트 애플리케이션 등록/코드 요구 사항을 구현하는지 확인합니다.
 2. API의 범위/역할을 노출 하는 것 외에, 등록에 "로그인 및 사용자 프로필 읽기" 권한이 포함 되어 있는지 확인 합니다 (기본적으로 제공 됨).
@@ -178,7 +178,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 * [다중 테 넌 트 응용 프로그램 샘플](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [애플리케이션에 대한 브랜딩 지침][AAD-App-Branding]
 * [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
-* [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
+* [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
 * [동의 프레임워크 개요][AAD-Consent-Overview]
 * [Microsoft Graph API 권한 범위][MSFT-Graph-permission-scopes]
 

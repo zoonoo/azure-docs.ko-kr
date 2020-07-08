@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: cf886b7b43280e542f1941e7c0edb570868525d9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477042"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>게시자 확인 문제 해결(미리 보기)
 [게시자 확인(미리 보기)](publisher-verification-overview.md)을 사용하여 프로세스를 완료할 수 없거나 예기치 않은 동작이 발생하는 경우 오류를 수신하거나 예기치 않은 동작이 표시되면 먼저 다음을 수행해야 합니다. 

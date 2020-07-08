@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79318ab67ec58ed10520365a366785ea0de41666
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476277"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 SQL 주문형(미리 보기) 모범 사례
 
@@ -52,7 +52,7 @@ SQL 주문형은 제한이 감지되면 이러한 문제를 해결하는 기능�
 
 ## <a name="push-wildcards-to-lower-levels-in-the-path"></a>와일드카드를 푸시하여 경로에서 수준 내리기
 
-경로에 와일드카드를 사용하여 [여러 파일 및 폴더를 쿼리](develop-storage-files-overview.md#query-multiple-files-or-folders)할 수 있습니다. SQL 주문형은 스토리지 API를 사용하는 첫 번째 *에서 시작하여 스토리지 계정에서 파일을 나열합니다. 지정된 경로와 일치하지 않는 파일은 제거됩니다. 초기 파일 목록을 줄이면 지정된 경로의 첫 번째 와일드카드까지 일치하는 파일이 여러 개 있을 때 성능을 높일 수 있습니다.
+경로에 와일드카드를 사용하여 [여러 파일 및 폴더를 쿼리](query-data-storage.md#query-multiple-files-or-folders)할 수 있습니다. SQL 주문형은 스토리지 API를 사용하는 첫 번째 *에서 시작하여 스토리지 계정에서 파일을 나열합니다. 지정된 경로와 일치하지 않는 파일은 제거됩니다. 초기 파일 목록을 줄이면 지정된 경로의 첫 번째 와일드카드까지 일치하는 파일이 여러 개 있을 때 성능을 높일 수 있습니다.
 
 ## <a name="use-appropriate-data-types"></a>적절한 데이터 형식 사용
 
@@ -113,7 +113,7 @@ FROM
 
 데이터는 종종 여러 파티션으로 구성됩니다. 특정 폴더 및 파일을 쿼리하도록 SQL 주문형에 지시할 수 있습니다. 이렇게 하면 쿼리에서 읽고 처리해야 하는 파일 수와 데이터 양이 줄어듭니다. 그로 인한 보너스로 성능이 향상됩니다.
 
-자세한 내용은 [filename](develop-storage-files-overview.md#filename-function) 및 [filepath](develop-storage-files-overview.md#filepath-function) 함수에 대해 읽어보고 [특정 파일 쿼리](query-specific-files.md) 예제를 참조하세요.
+자세한 내용은 [filename](query-data-storage.md#filename-function) 및 [filepath](query-data-storage.md#filepath-function) 함수에 대해 읽어보고 [특정 파일 쿼리](query-specific-files.md) 예제를 참조하세요.
 
 > [!TIP]
 > 항상 filepath 및 filename 함수의 결과를 적절한 데이터 형식으로 캐스팅하세요. 문자 데이터 형식을 사용하는 경우 적절한 길이를 사용해야 합니다.

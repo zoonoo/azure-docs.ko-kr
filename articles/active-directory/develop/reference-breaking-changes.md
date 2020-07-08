@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477246"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
 
@@ -47,9 +47,9 @@ ms.locfileid: "82871529"
 
 **영향을 받는 프로토콜**: 모든 흐름
 
-2018 6 월 1 일에 Azure Government의 AAD (공식 Azure Active Directory) 기관이에서 `https://login-us.microsoftonline.com` 로 `https://login.microsoftonline.us`변경 되었습니다. 이 변경은 AAD도 서비스를 Azure Government 하는 Microsoft 365 GCC High 및 DoD에도 적용 됩니다. 미국 정부 테 넌 트 내에서 응용 프로그램을 소유 하는 경우 `.us` 끝점에서 사용자를 로그인 하도록 응용 프로그램을 업데이트 해야 합니다.  
+2018 6 월 1 일에 Azure Government의 AAD (공식 Azure Active Directory) 기관이에서로 변경 되었습니다 `https://login-us.microsoftonline.com` `https://login.microsoftonline.us` . 이 변경은 AAD도 서비스를 Azure Government 하는 Microsoft 365 GCC High 및 DoD에도 적용 됩니다. 미국 정부 테 넌 트 내에서 응용 프로그램을 소유 하는 경우 끝점에서 사용자를 로그인 하도록 응용 프로그램을 업데이트 해야 합니다 `.us` .  
 
-5 월 5 일에 Azure AD는 공개 끝점 (`microsoftonline.com`)을 사용 하 여 정부 사용자가 미국 정부 테 넌 트에 호스트 된 앱에 로그인 하지 못하도록 차단 하는 끝점 변경을 적용 하기 시작 합니다.  영향을 받는 앱은 오류 `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`를 표시 하기 시작 합니다. 이 오류는 앱이 공용 클라우드 끝점에서 미국 정부 사용자에 게 로그인을 시도 하 고 있음을 나타냅니다. 앱이 공용 클라우드 테 넌 트에 있고 미국 정부 사용자를 지원 하려면 앱을 업데이트 하 여 [명시적으로 지원](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)해야 합니다. 이를 위해서는 미국 정부 클라우드에서 새 앱 등록을 만들어야 할 수 있습니다. 
+5 월 5 일에 Azure AD는 공개 끝점 ()을 사용 하 여 정부 사용자가 미국 정부 테 넌 트에 호스트 된 앱에 로그인 하지 못하도록 차단 하는 끝점 변경을 적용 하기 시작 합니다 `microsoftonline.com` .  영향을 받는 앱은 오류를 표시 하기 시작 `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` 합니다. 이 오류는 앱이 공용 클라우드 끝점에서 미국 정부 사용자에 게 로그인을 시도 하 고 있음을 나타냅니다. 앱이 공용 클라우드 테 넌 트에 있고 미국 정부 사용자를 지원 하려면 앱을 업데이트 하 여 [명시적으로 지원](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)해야 합니다. 이를 위해서는 미국 정부 클라우드에서 새 앱 등록을 만들어야 할 수 있습니다. 
 
 이 변경 내용은 미국 정부 클라우드의 사용자가 응용 프로그램에 로그인 하는 빈도에 따라 점진적 출시를 사용 하 여 수행 됩니다. 앱에 미국 정부 사용자의 로그인은 자주 적용 되지 않으며 미국 정부 사용자가 자주 사용 하는 앱은 적용이 적용 됩니다. 6 월 2020에 모든 앱에서 적용이 완료 될 것으로 간주 됩니다. 
 
@@ -104,7 +104,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 예:
 
-현재는 `?e=    "f"&g=h` 와 `?e=f&g=h` 동일 하 게 `e`  ==  `f`구문 분석 됩니다.  이 변경으로 인해 이제는 `e`  ==  `    "f"` 이를 구문 분석 하 여 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다.
+현재 `?e=    "f"&g=h` 는와 동일 하 게 구문 분석 됩니다 `?e=f&g=h` `e`  ==  `f` .  이 변경으로 인해 이제는이를 구문 분석 하 여 `e`  ==  `    "f"` 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다.
 
 
 ## <a name="july-2019"></a>2019년 7월
@@ -127,7 +127,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 #### <a name="example-request"></a>요청 예
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 Contoso 테 넌 트에 `gateway.contoso.com/api` 대해 호출 되는 단일 테 넌 트 앱 이며 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`, 클라이언트 앱입니다.  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 Contoso 테 넌 트에 대해 호출 되는 단일 테 넌 트 앱 이며, `gateway.contoso.com/api` 클라이언트 앱입니다 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.
 
 그러나 Contoso 게이트웨이 앱이 다중 테 넌 트 응용 프로그램이 면 Contoso.com 내에서 서비스 사용자가 있는 클라이언트 앱에 관계 없이 요청이 계속 됩니다.
 
@@ -139,7 +139,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 **영향을 받는 프로토콜**: 모든 흐름
 
-[RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)에 따라 Azure AD 응용 프로그램은 이제 OAuth 2.0 요청에 대 한 정적 쿼리 매개 변수 (예: `https://contoso.com/oauth2?idp=microsoft`)를 사용 하 여 리디렉션 (회신) uri를 등록 하 고 사용할 수 있습니다.  동적 리디렉션 Uri는 보안 위험을 나타내므로 사용할 수 없으며 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없습니다. 즉, `state` 매개 변수를 사용 합니다.
+[RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)에 따라 Azure AD 응용 프로그램은 이제 `https://contoso.com/oauth2?idp=microsoft` OAuth 2.0 요청에 대 한 정적 쿼리 매개 변수 (예:)를 사용 하 여 리디렉션 (회신) uri를 등록 하 고 사용할 수 있습니다.  동적 리디렉션 Uri는 보안 위험을 나타내므로 사용할 수 없으며 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없습니다. 즉, `state` 매개 변수를 사용 합니다.
 
 정적 쿼리 매개 변수는 리디렉션 URI의 다른 부분과 마찬가지로 리디렉션 uri에 대 한 문자열 일치가 적용 됩니다. URI로 디코딩된 redirect_uri와 일치 하는 문자열이 등록 되지 않은 경우 요청이 거부 됩니다.  앱 등록에서 URI를 찾은 경우에는 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다.
 
@@ -158,7 +158,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 클라이언트 응용 프로그램은 경우에 따라 짧은 시간 동안 수백 개의 동일한 로그인 요청을 실행 하 여 잘못 동작 하는 경우도 있습니다.  이러한 요청은 성공 하거나 성공 하지 않을 수도 있지만, 모든 사용자에 대 한 대기 시간이 IDP 모든 사용자의 대기 시간이 늘어나고 IDP의 가용성이 감소 합니다.  이러한 응용 프로그램은 정상적인 사용 범위를 벗어나 작동 하 고 올바르게 동작 하도록 업데이트 되어야 합니다.
 
-중복 요청을 여러 번 실행 하는 클라이언트에 `invalid_grant` 오류가 `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`전송 됩니다.
+중복 요청을 여러 번 실행 하는 클라이언트에 오류가 전송 됩니다. `invalid_grant` `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`
 
 대부분의 클라이언트는이 오류를 방지 하기 위해 동작을 변경할 필요가 없습니다.  잘못 구성 된 클라이언트 (토큰 캐싱을 사용 하지 않는 클라이언트 또는 프롬프트 루프를 포함 하는 클라이언트만 이미)는이 오류의 영향을 받습니다.  클라이언트는 다음 요소에 대해 로컬로 (쿠키를 통해) 인스턴스당 추적 됩니다.
 
@@ -172,9 +172,9 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 * 응답 유형 및 모드
 
-짧은 시간 (5 분) 내에 여러 요청 (15 +)을 만드는 앱은 루핑 임을 설명 `invalid_grant` 하는 오류를 받게 됩니다.  요청 되는 토큰은 충분히 수명이 긴 수명 (기본적으로 10 분, 최소 60 분) 이므로이 기간 동안 반복 되는 요청은 필요 하지 않습니다.
+짧은 시간 (5 분) 내에 여러 요청 (15 +)을 만드는 앱은 `invalid_grant` 루핑 임을 설명 하는 오류를 받게 됩니다.  요청 되는 토큰은 충분히 수명이 긴 수명 (기본적으로 10 분, 최소 60 분) 이므로이 기간 동안 반복 되는 요청은 필요 하지 않습니다.
 
-모든 앱은 토큰 `invalid_grant` 을 자동으로 요청 하는 대신 대화형 프롬프트를 표시 하 여 처리 해야 합니다.  클라이언트는이 오류를 방지 하기 위해 수신 하는 토큰을 올바르게 캐싱하지 확인 해야 합니다.
+모든 앱은 `invalid_grant` 토큰을 자동으로 요청 하는 대신 대화형 프롬프트를 표시 하 여 처리 해야 합니다.  클라이언트는이 오류를 방지 하기 위해 수신 하는 토큰을 올바르게 캐싱하지 확인 해야 합니다.
 
 
 ## <a name="october-2018"></a>2018년 10월
@@ -209,5 +209,5 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 1. 하나 이상의 범위를 사용 하 여 응용 프로그램에 대 한 web API를 만듭니다. 이 명시적 진입점으로 인해 더 세분화된 제어 및 보안이 가능합니다.
 1. 앱 매니페스트, [Azure Portal](https://portal.azure.com) 또는 [앱 등록 포털](https://apps.dev.microsoft.com)에서 앱이 암시적 흐름을 통해 액세스 토큰을 발급할 수 있는지 확인합니다. 이 작업은 `oauth2AllowImplicitFlow` 키를 통해 제어됩니다.
-1. 클라이언트 응용 프로그램이를 통해 `response_type=id_token`id_token를 요청 하는 경우 위에서 만든 웹 API`response_type=token`에 대 한 액세스 토큰 ()도 요청 합니다. 따라서 v2.0 엔드포인트를 사용하는 경우 `scope` 매개 변수는 `api://GUID/SCOPE`와 비슷하게 표시되어야 합니다. V1.0 엔드포인트에서 `resource` 매개 변수는 Web API의 앱 URI여야 합니다.
+1. 클라이언트 응용 프로그램이를 통해 id_token를 요청 하는 경우 `response_type=id_token` `response_type=token` 위에서 만든 웹 API에 대 한 액세스 토큰 ()도 요청 합니다. 따라서 v2.0 엔드포인트를 사용하는 경우 `scope` 매개 변수는 `api://GUID/SCOPE`와 비슷하게 표시되어야 합니다. V1.0 엔드포인트에서 `resource` 매개 변수는 Web API의 앱 URI여야 합니다.
 1. Id_token 대신 중간 계층으로 이 액세스 토큰을 전달합니다.

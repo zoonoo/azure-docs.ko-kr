@@ -8,17 +8,17 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773324"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445528"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Windows 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
 
-이 문서는 2019년 2월 21일에 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps) 버전 1.3.0 및 [Packer](https://www.packer.io/docs/install/index.html) 버전 1.3.4를 사용하여 마지막으로 테스트되었습니다.
+이 문서는 2019년 2월 21일에 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps) 버전 1.3.0 및 [Packer](https://www.packer.io/docs/install) 버전 1.3.4를 사용하여 마지막으로 테스트되었습니다.
 
 > [!NOTE]
 > 이제 Azure에는 고유한 사용자 지정 이미지를 정의하고 만드는 데 필요한 Azure Image Builder(미리 보기) 서비스가 있습니다. Azure Image Builder는 Packer를 기반으로 빌드되므로 기존 Packer 셸 프로비저닝 프로그램 스크립트도 사용할 수 있습니다. Azure Image Builder를 시작하려면 [Azure Image Builder를 사용하여 Windows VM 만들기](image-builder.md)를 참조하세요.
@@ -122,7 +122,7 @@ Get-AzSubscription
 
 
 ## <a name="build-packer-image"></a>Packer 이미지 작성
-로컬 컴퓨터에 Packer를 아직 설치하지 않은 경우 [Packer 설치 지침을 따릅니다](https://www.packer.io/docs/install/index.html).
+로컬 컴퓨터에 Packer를 아직 설치하지 않은 경우 [Packer 설치 지침을 따릅니다](https://learn.hashicorp.com/packer/getting-started/install).
 
 명령 프롬프트를 열고 다음과 같이 Packer 템플릿 파일을 지정하여 이미지를 빌드합니다.
 

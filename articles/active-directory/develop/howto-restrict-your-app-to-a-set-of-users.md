@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477790"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>방법: azure ad 테 넌 트에서 사용자 집합으로 Azure AD 앱 제한
 
@@ -55,7 +55,7 @@ ms.locfileid: "81759034"
     1. 왼쪽 주 탐색 메뉴의 맨 위에 있는 **모든 서비스**를 선택합니다.
     1. 필터 검색 상자에 **Azure Active Directory** 를 입력 한 다음 결과에서 **Azure Active Directory** 항목을 선택 합니다.
 
-1. **Azure Active Directory** 창에 있는 **Azure Active Directory** 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 선택합니다.
+1. **Azure Active Directory** 창의 왼쪽 탐색 메뉴 **Azure Active Directory** 에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 1. 모든 **응용 프로그램을 선택 하** 여 모든 응용 프로그램의 목록을 봅니다.
 
      여기에 원하는 애플리케이션이 보이지 않으면 **모든 애플리케이션** 목록의 맨 위에서 다양한 필터를 사용하여 목록을 제한하거나 목록을 아래로 스크롤하여 애플리케이션을 찾습니다.
@@ -82,7 +82,7 @@ ms.locfileid: "81759034"
 
 사용자 할당을 사용하도록 앱을 구성하고 나면 앱에 사용자 및 그룹을 할당할 수 있습니다.
 
-1. 애플리케이션의 왼쪽 탐색 메뉴에서 **사용자 및 그룹** 창을 선택합니다.
+1. 응용 프로그램의 왼쪽 탐색 메뉴에서 **사용자 및 그룹** 창을 선택 합니다.
 1. **사용자 및 그룹** 목록의 맨 위에서 **사용자 추가** 단추를 선택하여 **할당 추가** 창을 엽니다.
 1. **할당 추가** 창에서 **사용자** 선택기를 선택합니다. 
 
@@ -93,10 +93,10 @@ ms.locfileid: "81759034"
 1. 맨 아래 **할당** 단추를 눌러서 앱에 사용자 및 그룹의 할당을 완료합니다. 
 1. 추가한 사용자 및 그룹이 업데이트된 **사용자 및 그룹** 목록에 보이는지 확인합니다.
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 - [방법: 응용 프로그램에 앱 역할 추가](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
-- [ASP.NET Core 웹 앱에 대 한 역할 클레임 & 앱 역할을 사용 하 여 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [ASP.NET Core 웹앱에 앱 역할 및 역할 클레임을 사용하는 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

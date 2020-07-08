@@ -7,24 +7,24 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: 68040c8ee22454c300296493b6c840eabbca98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 408d8856130947e9be9c6d2714310332d9935cdd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76697135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477994"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 응용 프로그램의 게시자 도메인 구성
 
 응용 프로그램의 [동의 프롬프트](application-consent-experience.md) 에서 사용자에 게 해당 정보를 보낼 위치를 알려 주는 응용 프로그램의 게시자 도메인이 표시 됩니다. 5 월 21 일 이후에 등록 된 다중 테 넌 트 응용 **프로그램 (게시자**도메인이 없는 2019)은 확인 되지 않음으로 표시 됩니다. 다중 테 넌 트 응용 프로그램은 단일 조직 디렉터리 외부의 계정을 지 원하는 응용 프로그램입니다. 예를 들어 모든 Azure AD 계정을 지원 하거나 모든 Azure AD 계정 및 개인 Microsoft 계정을 지원 합니다.
 
-## <a name="new-applications"></a>새 응용 프로그램
+## <a name="new-applications"></a>새 애플리케이션
 
 새 앱을 등록 하는 경우 앱의 게시자 도메인을 기본값으로 설정할 수 있습니다. 이 값은 앱이 등록 된 위치, 특히 앱이 테 넌 트에 등록 되었는지 여부 및 테 넌 트에 테 넌 트 확인 된 도메인이 있는지 여부에 따라 달라 집니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "76697135"
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>앱에 대 한 새 도메인을 확인 하려면
 
-1. 이라는 `microsoft-identity-association.json` 파일을 만들고 다음 JSON 코드 조각을 붙여 넣습니다.
+1. 이라는 파일을 만들고 `microsoft-identity-association.json` 다음 JSON 코드 조각을 붙여 넣습니다.
 
    ```json
    {
@@ -85,7 +85,7 @@ ms.locfileid: "76697135"
 
 1. 자리 표시자 *{앱 id-여기}* 를 앱에 해당 하는 응용 프로그램 (클라이언트) id로 바꿉니다.
 
-1. 에서 파일을 호스팅합니다 `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. 확인 된 도메인과 일치 하도록 자리 표시자 *{도메인-여기}* 를 바꿉니다.
+1. 에서 파일을 호스팅합니다 `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json` . 확인 된 도메인과 일치 하도록 자리 표시자 *{도메인-여기}* 를 바꿉니다.
 
 1. **도메인 확인 및 저장** 단추를 클릭 합니다.
 
@@ -94,7 +94,7 @@ ms.locfileid: "76697135"
 - 테 넌 트가 확인 된 도메인을 확인 하는 경우 **확인 된 도메인 선택** 드롭다운에서 도메인 중 하나를 선택 합니다.
 
 >[!Note]
-> 반환 되어야 하는 ' Content-type ' 헤더가 필요 `application/json`합니다. 이와 같은 다른 항목을 사용 하는 경우 아래에 설명 된 대로 오류가 발생할 수 있습니다.`application/json; charset=utf-8` 
+> 반환 되어야 하는 ' Content-type ' 헤더가 필요 `application/json` 합니다. 이와 같은 다른 항목을 사용 하는 경우 아래에 설명 된 대로 오류가 발생할 수 있습니다.`application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

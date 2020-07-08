@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85448754"
 ---
 지금은 ultra disks에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "83196974"
 |서유럽     |3 개 영역          |
 |영국 남부     |3 개 영역          |
 |일본 동부     |두 영역         |
-
+|프랑스 중부    |두 영역        |
 
 
 - 는 다음 VM 시리즈 에서만 지원 됩니다.
@@ -53,6 +53,7 @@ ms.locfileid: "83196974"
 - 빈 디스크로만 만들 수 있음  
 - 현재 디스크 스냅숏, VM 이미지, 가용성 집합, Azure 전용 호스트 또는 Azure disk encryption을 지원 하지 않습니다.
 - 는 현재 Azure Backup 또는 Azure Site Recovery와의 통합을 지원 하지 않습니다.
+- 캐시 되지 않은 읽기와 캐시 되지 않은 쓰기만 지원 합니다.
 - GA Vm에서 현재 IOPS의 최대 제한은 8만입니다.
 
 Azure ultra disks는 기본적으로 구독 당 최대 16 개의 TiB을 제공 하지만 ultra disks는 요청에 따라 더 많은 용량을 지원 합니다. 용량 증가를 요청 하려면 Azure 지원에 문의 하세요.

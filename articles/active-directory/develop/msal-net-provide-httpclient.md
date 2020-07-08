@@ -7,18 +7,18 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/23/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: dbf08e23b2bc1f657363f69df55763437e6c8a90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e13c4ed472535d2c02734949bf72a5ed42108e7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76695055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477331"
 ---
 # <a name="providing-your-own-httpclient-and-proxy-using-msalnet"></a>MSAL.NET을 사용하여 자체 HttpClient 및 프록시 제공
 [공용 클라이언트 애플리케이션을 초기화](msal-net-initializing-client-applications.md)할 때 `.WithHttpClientFactory method`를 사용하여 자체 HttpClient를 제공할 수 있습니다.  자체 HttpClient를 제공하면 HTTP 프록시 세부 제어, 사용자 에이전트 헤더 사용자 지정 또는 MSAL에서 특정 HttpClient를 사용하도록 강제(예: ASP.NET Core 웹앱/API에서)와 같은 고급 시나리오가 지원됩니다.

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 18e1ab1d01394d585cfb06ced8c5fbac04114177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476770"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -106,7 +106,6 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 - [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../../azure-resource-manager/templates/key-vault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 Resource Manager 템플릿에서 이 값을 참조할 수 있습니다.
 - [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure Key Vault용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure Key Vault를 EKM(확장 가능 키 관리) 공급자로 활용하여 애플리케이션 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
 - [주요 자격 증명 모음에서 VM에 인증서를 배포하는 방법](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Azure의 VM에서 실행 중인 클라우드 애플리케이션에는 인증서가 필요합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
-- [종단 간 키 회전 및 감사를 사용하여 Key Vault를 설정하는 방법](../secrets/key-rotation-log-monitoring.md) - Azure Key Vault를 사용하는 키 회전 및 감사를 설정하는 방법을 안내합니다.
 - [Key Vault를 통한 Azure Web App Certificate 배포]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)는 [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) 제품의 일부로 Key Vault에 저장된 인증서를 배포하기 위한 단계별 지침을 제공합니다.
 - [여러 애플리케이션에 Key Vault 액세스 권한 부여](group-permissions-for-apps.md) Key Vault 액세스 제어 정책은 최대 1,024개의 항목을 지원합니다. 그러나 Azure Active Directory 보안 그룹을 만들 수 있습니다. 관련된 모든 서비스 주체를 이 보안 그룹에 추가한 다음 Key Vault에 이 보안 그룹에 대한 액세스를 허용합니다.
 - Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지침은 [Key Vault에 대한 Ryan Jones Azure Resource Manager 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
@@ -128,7 +127,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 - [Key Vault 저장소 계정 키 개요](../secrets/overview-storage-keys.md)) 계정 키 Azure Storage Key Vault 통합에 대해 설명 합니다.
 - [Key Vault 보안 권역](overview-security-worlds.md)에서는 지역과 보안 영역 간의 관계를 설명합니다.
 
-## <a name="social"></a>사회적
+## <a name="social"></a>소셜
 
 - [키 자격 증명 모음 블로그](https://aka.ms/kvblog)
 - [키 자격 증명 모음 포럼](https://aka.ms/kvforum)

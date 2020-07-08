@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06e197a6e445c7dc1179be696318905f2132ee36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77085854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477739"
 ---
 # <a name="configure-keychain"></a>키 집합 구성
 
@@ -30,9 +30,9 @@ ms.locfileid: "77085854"
 
 ### <a name="ios"></a>iOS
 
-IOS의 MSAL은 기본적 `com.microsoft.adalcache` 으로 액세스 그룹을 사용 합니다. 이는 MSAL 및 Azure AD 인증 Library (ADAL) Sdk 둘 다에서 사용 되는 공유 액세스 그룹으로, 동일한 게시자의 여러 앱 간에 SSO (최고 Single Sign-On) 환경을 보장 합니다.
+IOS의 MSAL은 `com.microsoft.adalcache` 기본적으로 액세스 그룹을 사용 합니다. 이는 MSAL 및 Azure AD 인증 Library (ADAL) Sdk 둘 다에서 사용 되는 공유 액세스 그룹으로, 동일한 게시자의 여러 앱 간에 SSO (최고 Single Sign-On) 환경을 보장 합니다.
 
-IOS에서 **프로젝트 설정** > **기능** > 키**집합 공유** 에서 XCode의 앱 자격에 키 집합 그룹을 추가 합니다. `com.microsoft.adalcache`
+IOS에서 `com.microsoft.adalcache` **프로젝트 설정**  >  **기능**키  >  **집합 공유** 에서 XCode의 앱 자격에 키 집합 그룹을 추가 합니다.
 
 ### <a name="macos"></a>macOS
 
@@ -44,7 +44,7 @@ MacOS 10.15 이상 (macOS Catalina.properties)에서 MSAL은 키 집합 액세�
 
 ## <a name="custom-keychain-access-group"></a>사용자 지정 키 집합 액세스 그룹
 
-다른 키 집합 액세스 그룹을 사용 하려는 경우 만들기 `MSALPublicClientApplicationConfig` `MSALPublicClientApplication`전에 만들 때 다음과 같이 사용자 지정 그룹을 전달할 수 있습니다.
+다른 키 집합 액세스 그룹을 사용 하려는 경우 `MSALPublicClientApplicationConfig` 만들기 전에 만들 때 다음과 같이 사용자 지정 그룹을 전달할 수 있습니다 `MSALPublicClientApplication` .
 
 # <a name="objective-c"></a>[Objective-C](#tab/objc)
 

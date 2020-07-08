@@ -7,15 +7,15 @@ ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b77241b1413fea09e5a16e8bd5cbcda8db5b2327
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535828"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477127"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용 하 여 Azure Active Directory 추가
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 ASP.NET MVC 웹 응용 프�
 
 현재 Active Directory 연결된 서비스는 ASP.NET Core 애플리케이션을 지원하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정: Azure 계정이 없는 경우 [평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 - **Visual Studio 2015** 이상. [지금 Visual Studio를 다운로드](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)하세요.
@@ -44,7 +44,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 ASP.NET MVC 웹 응용 프�
 
     ![소개 페이지](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. **Single Sign-On** 페이지의 **도메인** 드롭다운 목록에서 도메인을 선택합니다. 이 목록에는 Visual Studio의 계정 설정 대화 상자 (**파일 > 계정 설정 ...**)에 나열 된 계정으로 액세스할 수 있는 모든 도메인이 포함 되어 있습니다. 대신, 찾고 있는 도메인 이름을 찾을 수 없는 경우 도메인 이름을 입력할 수 있습니다 `mydomain.onmicrosoft.com`. Azure Active Directory 앱을 만들거나 기존 Azure Active Directory 앱의 설정을 사용하는 옵션을 선택할 수 있습니다. 완료되면 **다음**을 선택합니다.
+1. **Single Sign-On** 페이지의 **도메인** 드롭다운 목록에서 도메인을 선택합니다. 이 목록에는 Visual Studio의 계정 설정 대화 상자 (**파일 > 계정 설정 ...**)에 나열 된 계정으로 액세스할 수 있는 모든 도메인이 포함 되어 있습니다. 대신, 찾고 있는 도메인 이름을 찾을 수 없는 경우 도메인 이름을 입력할 수 있습니다 `mydomain.onmicrosoft.com` . Azure Active Directory 앱을 만들거나 기존 Azure Active Directory 앱의 설정을 사용하는 옵션을 선택할 수 있습니다. 완료되면 **다음**을 선택합니다.
 
     ![Single Sign-On 페이지](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 
@@ -72,5 +72,5 @@ Azure Active Directory (Azure AD)를 사용 하 여 ASP.NET MVC 웹 응용 프�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory에 대 한 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

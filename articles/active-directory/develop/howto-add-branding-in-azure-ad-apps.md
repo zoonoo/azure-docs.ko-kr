@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: c5b63fb0b66c78b33fb073eca919ed55bd05107c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c11bbe4aab064c8c1f32cf273cd3e0b6c2a3ae8f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478198"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
@@ -63,11 +63,11 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 "앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](quickstart-v1-integrate-apps-with-azure-ad.md) 문서에서 설명합니다.
 
-관리자는 앱에 동의한 후 사용자의 Office 365 앱 시작 관리자 환경에 추가 하도록 선택할 수 있습니다 (와플 및에서 [https://portal.office.com/myapps](https://portal.office.com/myapps)액세스할 수 있음). 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
+관리자는 앱에 동의한 후 사용자의 Office 365 앱 시작 관리자 환경에 추가 하도록 선택할 수 있습니다 (와플 및에서 액세스할 수 있음 [https://portal.office.com/myapps](https://portal.office.com/myapps) ). 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
 
 ![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들어:
 
 > *이미 Office 365 또는 Microsoft의 다른 비즈니스 서비스를 사용 하는 경우 조직의 데이터에 대 한 액세스> your_app_name <부여할 수 있습니다. 이렇게 하면 사용자가 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 

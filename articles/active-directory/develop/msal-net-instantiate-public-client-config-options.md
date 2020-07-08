@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1dd06e139f931bbf8554f05f05c5d9b9ccf200e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 171b4ddf9a6f3cb5868f2300ea892ad785cbaf22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477433"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 공용 클라이언트 응용 프로그램 인스턴스화
 
@@ -32,7 +32,7 @@ ms.locfileid: "77083602"
 - 웹 앱 및 공용 클라이언트 앱의 경우 (특히 앱에서 broker를 사용 해야 하는 경우) id 공급자가 응용 프로그램에 보안 토큰을 다시 연결 하는 redirectUri도 설정 해야 합니다.
 
 
-.NET Core 콘솔 응용 프로그램에는 다음과 같은 *appsettings* 구성 파일이 있을 수 있습니다.
+.NET Core 콘솔 응용 프로그램의 구성 파일에는 다음 *appsettings.js* 있을 수 있습니다.
 
 ```json
 {

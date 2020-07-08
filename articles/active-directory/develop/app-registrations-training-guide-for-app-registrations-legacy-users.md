@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f72e16afd61d364a2dad634f3502c801f1b99380
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478147"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>새로운 Azure Portal 앱 등록 학습 가이드
 
@@ -56,15 +56,15 @@ Azure Active Directory에서 여기에 설명 된 새 응용 프로그램 등록
 
 - **이름**
 - **개체 ID**
-- **응용 프로그램 ID**
+- **애플리케이션 ID**
 - **앱 ID URI**
 - **로고**
 - **홈페이지 URL**
 - **로그아웃 URL**
 - **서비스 약관 URL**
-- **개인정보 취급 방침 URL**
+- **개인정보처리방침 URL**
 - **응용 프로그램 유형**
-- **다중 테 넌 트**
+- **다중 테넌트**
 
 새 환경에는 해당 페이지가 없습니다. 해당 하는 기능을 찾을 수 있는 위치는 다음과 같습니다.
 
@@ -73,13 +73,13 @@ Azure Active Directory에서 여기에 설명 된 새 응용 프로그램 등록
 - 레거시 환경에서 **다중 테 넌 트** 에 의해 제어 되는 기능은 **인증** 페이지에서 **지원 되는 계정 유형** 으로 대체 되었습니다. 자세한 내용은 [빠른 시작: 응용 프로그램에서 지 원하는 계정 수정](quickstart-modify-supported-accounts.md)을 참조 하세요.
 - **로그 아웃 URL** 은 이제 **인증** 페이지에 있습니다.
 - **응용 프로그램 유형이** 더 이상 올바른 필드가 아닙니다. 대신, **인증** 페이지에서 찾을 수 있는 uri를 리디렉션하여 지원 되는 앱 유형을 결정 합니다.
-- **앱 ID uri** 는 이제 **응용 프로그램 id URI** 라고 하며 **API를 노출**하는 방법에서 찾을 수 있습니다. 레거시 환경에서이 속성은 형식 (예 `https://{tenantdomain}/{appID}` `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b`:)을 사용 하 여 autoregistered 되었습니다. 새 환경에서는로 `api://{appID}`자동 생성 되지만 명시적으로 저장 해야 합니다. Azure AD B2C 테 넌 트에서 `https://{tenantdomain}/{appID}` 형식이 계속 사용 됩니다.
+- **앱 ID uri** 는 이제 **응용 프로그램 id URI** 라고 하며 **API를 노출**하는 방법에서 찾을 수 있습니다. 레거시 환경에서이 속성은 형식 (예:)을 사용 하 여 autoregistered 되었습니다. `https://{tenantdomain}/{appID}` `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b` 새 환경에서는로 자동 생성 `api://{appID}` 되지만 명시적으로 저장 해야 합니다. Azure AD B2C 테 넌 트에서 `https://{tenantdomain}/{appID}` 형식이 계속 사용 됩니다.
 
 ### <a name="reply-urlsredirect-urls"></a>회신 Url/리디렉션 Url
 
 레거시 환경에서 앱에는 **회신 url** 페이지가 있습니다. 새 환경에서는 앱의 **인증** 페이지에서 회신 url을 찾을 수 있습니다. 이제 **리디렉션 uri**라고 합니다.
 
-리디렉션 Uri의 형식이 변경 되었습니다. 웹 또는 공용 앱 유형과 연결 해야 합니다. 보안상의 이유로 와일드 카드 및 `http://` 스키마는 지원 되지 않습니다 ( *http://localhost*제외).
+리디렉션 Uri의 형식이 변경 되었습니다. 웹 또는 공용 앱 유형과 연결 해야 합니다. 보안상의 이유로 와일드 카드 및 `http://` 스키마는 지원 되지 않습니다 (제외) *http://localhost* .
 
 ### <a name="keyscertificates--secrets"></a>키/인증서 & 비밀
 
@@ -118,8 +118,8 @@ Azure Active Directory에서 여기에 설명 된 새 응용 프로그램 등록
 
 새 환경에서는 다음 속성에 대 한 UI 컨트롤을 추가 합니다.
 
-- **인증** 페이지에 **암시적 허용 흐름** (`oauth2AllowImplicitFlow`)이 있습니다. 레거시 환경과 달리 **액세스 토큰** 또는 **ID 토큰**을 사용 하거나 둘 모두를 사용할 수 있습니다.
-- **Api 노출** 페이지에는이 api (`oauth2Permissions`) 및 **권한 있는 클라이언트 응용 프로그램** (`preAuthorizedApplications`) **에서 정의한 범위가** 포함 되어 있습니다. 앱을 web API로 구성 하 고 권한/범위를 노출 하는 방법에 대 한 자세한 내용은 [빠른 시작: 웹 api를 노출 하도록 응용 프로그램 구성](quickstart-configure-app-expose-web-apis.md)을 참조 하세요.
+- **인증** 페이지에 **암시적 허용 흐름** ( `oauth2AllowImplicitFlow` )이 있습니다. 레거시 환경과 달리 **액세스 토큰** 또는 **ID 토큰**을 사용 하거나 둘 모두를 사용할 수 있습니다.
+- **Api 노출** 페이지에는이 api () 및 권한 있는 클라이언트 응용 프로그램 () **에서 정의한 범위가** 포함 되어 있습니다 `oauth2Permissions` **Authorized client applications** `preAuthorizedApplications` . 앱을 web API로 구성 하 고 권한/범위를 노출 하는 방법에 대 한 자세한 내용은 [빠른 시작: 웹 api를 노출 하도록 응용 프로그램 구성](quickstart-configure-app-expose-web-apis.md)을 참조 하세요.
 - **브랜딩** 페이지는 **게시자 도메인**을 포함 합니다. 게시자 도메인은 [응용 프로그램의 동의 프롬프트](application-consent-experience.md)에서 사용자에 게 표시 됩니다. 자세한 내용은 [방법: 응용 프로그램의 게시자 도메인 구성](howto-configure-publisher-domain.md)을 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항

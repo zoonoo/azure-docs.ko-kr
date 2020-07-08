@@ -1,19 +1,14 @@
 ---
 title: 휴지 상태의 데이터를 암호화 하기 위한 고유한 키 구성 Azure Service Bus
 description: 이 문서에서는 rest Azure Service Bus 데이터를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: aschhab
-ms.openlocfilehash: 82a5fbef8c307d60d82b147f04a2a687b8b0433e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85475988"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 데이터 Azure Service Bus 데이터를 암호화 하기 위해 고객이 관리 하는 키 구성
 Azure Service Bus Premium은 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Service Bus Premium은 Azure Storage를 사용 하 여 데이터를 저장 하며, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -28,21 +23,21 @@ BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에�
 >   * 이 기능은 [Azure Service Bus 프리미엄](service-bus-premium-messaging.md) 계층에서 지원 됩니다. 표준 계층 Service Bus 네임 스페이스에 대해 사용 하도록 설정할 수 없습니다.
 >   * 암호화는 새 네임 스페이스 또는 빈 네임 스페이스에만 사용할 수 있습니다. 네임 스페이스에 데이터가 포함 되어 있으면 암호화 작업이 실패 합니다.
 
-Azure Key Vault를 사용 하 여 키를 관리 하 고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 항목](../key-vault/general/overview.md) 을 참조 하세요.
+Azure Key Vault를 사용 하 여 키를 관리 하 고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../key-vault/general/overview.md)
 
-이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](../key-vault/secrets/quick-create-portal.md)을 참조 하세요.
+이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal을 사용하여 키 자격 증명 모음을 만드는 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](../key-vault/secrets/quick-create-portal.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Service Bus에서 고객 관리 키를 사용 하려면 키 자격 증명 모음에 두 개의 필수 속성이 구성 되어 있어야 합니다. **일시 삭제** 및 **제거 안 함**입니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
 
-## <a name="enable-customer-managed-keys"></a>고객이 관리 하는 키 사용
-Azure Portal에서 고객이 관리 하는 키를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+## <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
+Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Service Bus Premium 네임 스페이스로 이동 합니다.
 2. Service Bus 네임 스페이스의 **설정** 페이지에서 **암호화**를 선택 합니다.
 3. 다음 그림에 표시 된 것 처럼 **미사용에서 고객이 관리 하는 키 암호화** 를 선택 합니다.
 
-    ![고객 관리 키 사용](./media/configure-customer-managed-key/enable-customer-managed-key.png)
+    ![고객 관리형 키 사용](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 
 ## <a name="set-up-a-key-vault-with-keys"></a>키를 사용 하 여 키 자격 증명 모음 설정
@@ -98,7 +93,7 @@ Azure Portal에서 고객이 관리 하는 키를 사용 하도록 설정 하려
 
 ## <a name="rotate-your-encryption-keys"></a>암호화 키 회전
 
-Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 증명 모음에서 키를 회전할 수 있습니다. 자세한 내용은 [키 회전 및 감사 설정](../key-vault/secrets/key-rotation-log-monitoring.md)을 참조 하세요. 키 회전을 자동화 하도록 활성화 및 만료 날짜를 설정할 수도 있습니다. Service Bus 서비스는 새 키 버전을 검색 하 고 자동으로 사용을 시작 합니다.
+Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 증명 모음에서 키를 회전할 수 있습니다. 키 회전을 자동화 하도록 활성화 및 만료 날짜를 설정할 수도 있습니다. Service Bus 서비스는 새 키 버전을 검색 하 고 자동으로 사용을 시작 합니다.
 
 ## <a name="revoke-access-to-keys"></a>키에 대 한 액세스 취소
 
@@ -117,7 +112,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
 ### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>관리 서비스 id를 사용 하 여 프리미엄 Service Bus 네임 스페이스 만들기
 이 섹션에서는 Azure Resource Manager 템플릿 및 PowerShell을 사용 하 여 관리 서비스 id를 사용 하 여 Azure Service Bus 네임 스페이스를 만드는 방법을 보여 줍니다. 
 
-1. 관리 서비스 id를 사용 하 여 Service Bus 프리미엄 계층 네임 스페이스를 만드는 Azure Resource Manager 템플릿을 만듭니다. 파일 이름: **CreateServiceBusPremiumNamespace**: 
+1. 관리 서비스 id를 사용 하 여 Service Bus 프리미엄 계층 네임 스페이스를 만드는 Azure Resource Manager 템플릿을 만듭니다. 파일 이름: **CreateServiceBusPremiumNamespace.js**: 
 
     ```json
     {
@@ -165,7 +160,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
        }
     }
     ```
-2. : **CreateServiceBusPremiumNamespaceParams**라는 템플릿 매개 변수 파일을 만듭니다. 
+2. 이름: **CreateServiceBusPremiumNamespaceParams.js에**템플릿 매개 변수 파일을 만듭니다. 
 
     > [!NOTE]
     > 다음 값을 바꿉니다. 
@@ -186,7 +181,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
        }
     }
     ```
-3. 다음 PowerShell 명령을 실행 하 여 템플릿을 배포 하 고 premium Service Bus 네임 스페이스를 만듭니다. 그런 다음 나중에 사용할 Service Bus 네임 스페이스의 ID를 검색 합니다. 명령을 `{MyRG}` 실행 하기 전에 리소스 그룹의 이름으로 대체 합니다.  
+3. 다음 PowerShell 명령을 실행 하 여 템플릿을 배포 하 고 premium Service Bus 네임 스페이스를 만듭니다. 그런 다음 나중에 사용할 Service Bus 네임 스페이스의 ID를 검색 합니다. `{MyRG}`명령을 실행 하기 전에 리소스 그룹의 이름으로 대체 합니다.  
 
     ```powershell
     $outputs = New-AzResourceGroupDeployment -Name CreateServiceBusPremiumNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateServiceBusPremiumNamespace.json -TemplateParameterFile ./CreateServiceBusPremiumNamespaceParams.json
@@ -225,7 +220,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
 
 이 단계에서는 키 자격 증명 모음 정보를 사용 하 여 Service Bus 네임 스페이스를 업데이트 합니다. 
 
-1. 다음 내용으로 **UpdateServiceBusNamespaceWithEncryption** 이라는 json 파일을 만듭니다. 
+1. 다음 콘텐츠를 사용 하 여 **UpdateServiceBusNamespaceWithEncryption.js에** 이라는 JSON 파일을 만듭니다. 
 
     ```json
     {
@@ -288,7 +283,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
     }
     ``` 
 
-2. 템플릿 매개 변수 파일을 만듭니다. **UpdateServiceBusNamespaceWithEncryptionParams**.
+2. 템플릿 매개 변수 파일 만들기: **UpdateServiceBusNamespaceWithEncryptionParams.js**.
 
     > [!NOTE]
     > 다음 값을 바꿉니다. 
@@ -317,7 +312,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
        }
     }
     ```             
-3. 다음 PowerShell 명령을 실행 하 여 리소스 관리자 템플릿을 배포 합니다. 명령을 `{MyRG}` 실행 하기 전에을 리소스 그룹의 이름으로 바꿉니다. 
+3. 다음 PowerShell 명령을 실행 하 여 리소스 관리자 템플릿을 배포 합니다. `{MyRG}`명령을 실행 하기 전에을 리소스 그룹의 이름으로 바꿉니다. 
 
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json

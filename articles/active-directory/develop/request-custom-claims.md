@@ -8,32 +8,32 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 4974fe3b387683f662d7a7b4f3ccb4935153f07e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477195"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>방법: iOS 및 macOS 용 MSAL을 사용 하 여 사용자 지정 클레임 요청
 
 Openid connect Connect를 사용 하면 필요에 따라 사용자 정보 끝점 및/또는 ID 토큰에서 개별 클레임의 반환을 요청할 수 있습니다. 클레임 요청은 요청 된 클레임 목록을 포함 하는 JSON 개체로 표현 됩니다. 자세한 내용은 [Openid connect Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) 을 참조 하세요.
 
-IOS 및 macOS 용 MSAL (Microsoft 인증 라이브러리)을 사용 하면 대화형 토큰 획득 시나리오와 자동 토큰 획득 시나리오에서 특정 클레임을 요청할 수 있습니다. 매개 변수를 `claimsRequest` 통해이를 수행 합니다.
+IOS 및 macOS 용 MSAL (Microsoft 인증 라이브러리)을 사용 하면 대화형 토큰 획득 시나리오와 자동 토큰 획득 시나리오에서 특정 클레임을 요청할 수 있습니다. 매개 변수를 통해이를 수행 `claimsRequest` 합니다.
 
-이 경우 여러 가지 시나리오가 필요 합니다. 예를 들면 다음과 같습니다.
+이 경우 여러 가지 시나리오가 필요 합니다. 예를 들어:
 
 - 응용 프로그램의 표준 집합 외부에서 클레임을 요청 합니다.
 - 응용 프로그램에 대 한 범위를 사용 하 여 지정할 수 없는 표준 클레임의 특정 조합 요청 예를 들어 클레임 누락으로 인해 액세스 토큰이 거부 된 경우 응용 프로그램은 MSAL을 사용 하 여 누락 된 클레임을 요청할 수 있습니다.
 
 > [!NOTE]
-> MSAL은 클레임 요청이 지정 될 때마다 액세스 토큰 캐시를 무시 합니다. 추가 클레임이 필요한 경우에만 `claimsRequest` 매개 변수를 제공 하는 것이 중요 합니다 (각 MSAL API 호출에서 항상 동일한 `claimsRequest` 매개 변수를 제공 하는 것과 반대 됨).
+> MSAL은 클레임 요청이 지정 될 때마다 액세스 토큰 캐시를 무시 합니다. 추가 클레임이 필요한 경우에만 매개 변수를 제공 하는 것이 중요 `claimsRequest` `claimsRequest` 합니다 (각 MSAL API 호출에서 항상 동일한 매개 변수를 제공 하는 것과 반대 됨).
 
-`claimsRequest`및 `MSALSilentTokenParameters` `MSALInteractiveTokenParameters`에서 지정할 수 있습니다.
+`claimsRequest`및에서 지정할 수 `MSALSilentTokenParameters` 있습니다 `MSALInteractiveTokenParameters` .
 
 ```objc
 /*!
