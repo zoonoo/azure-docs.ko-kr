@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 44f1f7ae3b290e1dbf01877f3881e1d95a238446
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70208153"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959146"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Data Science Virtual Machine에서 공통 id 설정
 
@@ -41,9 +41,9 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
     
    1. **사용자 및 그룹**에서 **모든 사용자**를 선택한 다음 **새 사용자**를 선택 합니다.
    
-           The **User** pane opens:
+        **사용자** 창이 열립니다.
       
-      !["사용자" 창](./media/add-user.png)
+        !["사용자" 창](./media/add-user.png)
     
    1. **이름** 및 **사용자 이름**과 같은 사용자에 대한 세부 정보를 입력합니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 "[domain name].onmicrosoft.com" 또는 "contoso.com"과 같은 확인되고 페더레이션되지 않은 [사용자 지정 도메인 이름](../../active-directory/add-custom-domain.md)이어야 합니다.
     

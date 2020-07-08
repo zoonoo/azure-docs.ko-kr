@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69016784"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960370"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
@@ -85,7 +85,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
     | 이름 | 값 |
     | --- | --- |
     | 참조 그룹 |Windows/Extensions |
-    | 참조 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
+    | 참고 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
 
 1. **확인**을 클릭합니다. 
 
@@ -94,7 +94,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 ### <a name="to-design-the-player-user-interface"></a>플레이어 사용자 인터페이스를 디자인하려면
 
 1. 솔루션 탐색기에서 **MainPage.xaml** 을 두 번 클릭하여 디자인 보기에서 엽니다.
-2. 표 및/또는 **표&gt; 태그를 찾아서 XAML 파일에 붙여 넣고 다음 코드를 두 태그 사이에 붙여넣습니다. &lt;** **&gt; &lt;**
+2. ** &lt; 표 &gt; ** 및/또는 ** &lt; 표 &gt; ** 태그를 찾아서 XAML 파일에 붙여 넣고 다음 코드를 두 태그 사이에 붙여넣습니다.
 
    ```xml
          <Grid.RowDefinitions>
@@ -151,15 +151,24 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일 맨 위에 다음 using 문을 추가합니다.
-   
+
+    ```csharp
         using Windows.Media;
+    ```
+
 3. **MainPage** 클래스의 시작 부분에 다음 데이터 멤버를 추가합니다.
-   
-         private MediaExtensionManager extensions = new MediaExtensionManager();
+
+    ```csharp
+        private MediaExtensionManager extensions = new MediaExtensionManager();
+    ```
+
 4. **MainPage** 생성자의 끝에 다음 두 줄을 추가합니다.
-   
+
+    ```csharp
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
+    ```
+
 5. **MainPage** 클래스의 끝에 다음 코드를 붙여 넣습니다.
    ```csharp
          # region UI Button Click Events

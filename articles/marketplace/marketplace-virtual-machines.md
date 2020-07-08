@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: a01c8658ff4929d07cd185dcea45393cfe3b2a17
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e0f0f0fdb75961f3ea9ed90e1684ff5ecd2a792d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858304"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961543"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>가상 컴퓨터 제품 게시 가이드
 
@@ -54,16 +54,16 @@ IaaS (infrastructure as a service) 또는 SaaS (software as a service) 앱을 �
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- | 
 | 청구 및 계량 | VM은 BYOL 또는 종 량 제 월별 요금 청구를 지원 해야 합니다. |  
-| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. VHD를 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요. <ul> <li>[Azure에서 linux 배포판 보증](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (linux vhd의 경우).</li> <li>[Azure 호환 VHD 만들기](./partner-center-portal/azure-vm-create-offer.md) (Windows vhd의 경우)</li> </ul> |  
+| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. VHD를 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요. <ul> <li>[Azure에서 linux 배포판 보증](../virtual-machines/linux/endorsed-distros.md) (linux vhd의 경우).</li> <li>[Azure 호환 VHD 만들기](./partner-center-portal/azure-vm-create-offer.md) (Windows vhd의 경우)</li> </ul> |  
 
 >[!Note]
 >이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다. Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](./cloud-solution-providers.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행 하지 않은 경우 Azure Marketplace를 사용 하 여 [클라우드 비즈니스를 확장](https://azuremarketplace.microsoft.com/sell)하는 방법을 알아보세요.
+아직 수행하지 않은 경우 [Azure Marketplace로 클라우드 비즈니스를 확장](https://azuremarketplace.microsoft.com/sell)하는 방법을 알아보세요.
 
-파트너 센터에서 등록 하 고 작업을 시작 하려면:
+파트너 센터에서 등록하고 작업을 시작하려면
 
-- [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 하 여 제품을 만들거나 완성 합니다.
+- 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
 - 자세한 내용은 [가상 머신 제품 만들기](./partner-center-portal/azure-vm-create-offer.md) 를 참조 하세요.

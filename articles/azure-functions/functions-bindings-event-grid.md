@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461082"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957181"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Grid 바인딩
 
@@ -23,7 +23,7 @@ Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 
 
 원하는 경우 HTTP 트리거를 사용 하 여 Event Grid 이벤트를 처리할 수 있습니다. [HTTP 끝점으로 이벤트 수신을](../event-grid/receive-events.md)참조 하세요. 현재 [CloudEvents 스키마](../event-grid/cloudevents-schema.md#azure-functions)에서 이벤트가 전달 될 때 Azure Functions 앱에 대 한 Event Grid 트리거를 사용할 수 없습니다. 대신, HTTP 트리거를 사용합니다.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |---------|---------|
 | Event Grid 이벤트가 디스패치되 면 함수를 실행 합니다. | [트리거](./functions-bindings-event-grid-trigger.md) |
 | Event Grid 이벤트를 보냅니다. |[출력 바인딩](./functions-bindings-event-grid-output.md) |
@@ -32,13 +32,13 @@ Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 
 
 ## <a name="add-to-your-functions-app"></a>함수 앱에 추가
 
-### <a name="functions-2x-and-higher"></a>함수 2.x 이상
+### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
 트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 
 | 언어                                        | 추가 방법 ...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | [NuGet 패키지]설치, 버전 3(sp3) | |
+| C#                                              | [NuGet 패키지]설치, 2.x 버전 | |
 | C # 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 은 Visual Studio Code와 함께 사용 하는 것이 좋습니다. |
 | C # 스크립트 (온라인 전용 Azure Portal)         | 바인딩 추가                            | 함수 앱을 다시 게시 하지 않고 기존 바인딩 확장을 업데이트 하려면 [확장 업데이트]를 참조 하세요. |
 

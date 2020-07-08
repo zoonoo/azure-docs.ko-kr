@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: e126ee2bd4133281195d4a86c5cb6f1c47bbd6ac
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: d43015c86976594e8d5077a11cbdad27668b343c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266919"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957702"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Azure Virtual Machine 기술 자산 만들기
 
@@ -48,7 +48,7 @@ VM 및 VHD 관리를 위해 다음 스크립팅 환경 중 하나를 사용하�
 
 또한 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-* [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Visual Studio Code](https://code.visualstudio.com/)
   * 확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   * 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -63,10 +63,10 @@ VM 및 VHD 관리를 위해 다음 스크립팅 환경 중 하나를 사용하�
 
 이 섹션에서는 RDP(원격 데스크톱 프로토콜) 사용, VM 크기 선택, 최신 Windows 업데이트 설치 및 VHD 이미지 일반화와 같이 승인된 기본 이미지 사용 방법을 다양한 측면으로 설명합니다.
 
-다음 섹션에서는 Windows 기반 VHD에 대해 주로 다룹니다. Linux 기반 VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 배포판의 Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)를 참조하세요.
+다음 섹션에서는 Windows 기반 VHD에 대해 주로 다룹니다. Linux 기반 VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 배포판의 Linux](../../virtual-machines/linux/endorsed-distros.md)를 참조하세요.
 
 > [!WARNING]
-> 이 항목의 지침에 따라 Azure를 사용하여 미리 구성된 보증 운영 체제를 포함하는 VM을 만듭니다. 솔루션과 호환되지 않는 경우 승인된 운영 체제를 사용하여 온-프레미스 VM을 만들고 구성할 수 있습니다. 그런 다음, [Azure에 업로드할 Windows VHD 또는 VHDX 준비](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)에서 설명한 대로 업로드할 수 있도록 구성하고 준비할 수 있습니다.
+> 이 항목의 지침에 따라 Azure를 사용하여 미리 구성된 보증 운영 체제를 포함하는 VM을 만듭니다. 솔루션과 호환되지 않는 경우 승인된 운영 체제를 사용하여 온-프레미스 VM을 만들고 구성할 수 있습니다. 그런 다음, [Azure에 업로드할 Windows VHD 또는 VHDX 준비](../../virtual-machines/windows/prepare-for-upload-vhd-image.md)에서 설명한 대로 업로드할 수 있도록 구성하고 준비할 수 있습니다.
 
 ### <a name="select-an-approved-base"></a>승인된 기본 이미지 선택
 
@@ -77,22 +77,22 @@ Windows 운영 체제 또는 Linux를 기본으로 선택합니다.
 Windows 기반 VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함하는 Azure 승인 기본 이미지를 기반으로 해야 합니다. 시작하려면 Azure Portal의 다음 이미지 중 하나에서 VM을 만듭니다.
 
 * Windows Server([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
-* [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)(Enterprise, Standard, Web)
-* [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)(Enterprise, Standard, Web)
+* [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)(Enterprise, Standard, Web)
+* [SQL Server 2012 SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)(Enterprise, Standard, Web)
 
 > [!NOTE]
 > 최신 Azure 포털 또는 Azure PowerShell을 사용 중인 경우 2014년 9월 8일 이후에 게시된 Windows Server 이미지가 승인됩니다.
 
 #### <a name="linux"></a>Linux
 
-Azure에서 승인된 Linux 배포판을 다양하게 제공합니다. 현재 목록은 [Azure 보증 배포판의 Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)를 참조하세요.
+Azure에서 승인된 Linux 배포판을 다양하게 제공합니다. 현재 목록은 [Azure 보증 배포판의 Linux](../../virtual-machines/linux/endorsed-distros.md)를 참조하세요.
 
 ### <a name="create-vm-in-the-azure-portal"></a>Azure Portal에서 VM 만들기
 
 [Azure Portal](https://ms.portal.azure.com/)에서 기본 VM 이미지를 만들려면 다음 단계를 수행합니다.
 
 1. VM 제품을 게시하는 데 사용하려는 Azure 구독과 연결된 Microsoft 계정으로 [Azure Portal](https://ms.portal.azure.com/)에 로그인합니다.
-2. 새 리소스 그룹을 만들고, **리소스 그룹 이름**, **구독** 및 **리소스 그룹 위치**를 제공합니다. 자세한 내용은 [리소스 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)를 참조하세요.
+2. 새 리소스 그룹을 만들고, **리소스 그룹 이름**, **구독** 및 **리소스 그룹 위치**를 제공합니다. 자세한 내용은 [리소스 관리](../../azure-resource-manager/resource-group-portal.md)를 참조하세요.
 3. 왼쪽에 있는 **가상 머신**을 선택하면 가상 머신 세부 정보 페이지가 표시됩니다.
 4. **+ 추가**를 선택하여 **가상 머신 환경 만들기**를 엽니다.
 5. 드롭다운 목록에서 이미지를 선택하거나 **모든 공용 및 개인 이미지 찾아보기**를 클릭하여 사용 가능한 모든 가상 머신 이미지를 검색하거나 찾아봅니다.
@@ -106,7 +106,7 @@ Azure에서 승인된 Linux 배포판을 다양하게 제공합니다. 현재 �
 
 Azure에서 지정한 가상 머신의 프로비저닝을 시작합니다. 왼쪽의 **가상 머신** 탭을 선택하여 진행 상황을 추적할 수 있습니다. VM이 만들어지면 상태가 **실행 중**으로 변경됩니다.
 
-새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [일반적인 VHD 만들기 문제(FAQ)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation)를 참조하세요.
+새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [일반적인 VHD 만들기 문제(FAQ)](common-issues-during-vhd-creation.md)를 참조하세요.
 
 ### <a name="connect-to-your-azure-vm"></a>Azure VM에 연결
 
@@ -116,7 +116,7 @@ Azure에서 지정한 가상 머신의 프로비저닝을 시작합니다. 왼�
 
 원격 데스크톱 클라이언트를 사용하여 Azure에서 호스팅되는 Windows 기반 VM에 연결합니다. 대부분의 Windows 버전에는 기본적으로 RDP(원격 데스크톱 프로토콜)에 대한 지원이 포함되어 있습니다. 다른 운영 체제의 경우 [원격 데스크톱 클라이언트](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)에서 클라이언트에 대한 자세한 정보를 찾을 수 있습니다.
 
-이 문서에서는 기본 제공 Windows RDP 지원을 사용하여 VM에 연결하는 방법에 대해 자세히 설명합니다. [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
+이 문서에서는 기본 제공 Windows RDP 지원을 사용하여 VM에 연결하는 방법에 대해 자세히 설명합니다. [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](../../virtual-machines/windows/connect-logon.md)
 
 > [!TIP]
 > 프로세스 중에 보안 경고가 표시될 수 있습니다. 예를 들어 "알 수 없는 게시자의 .rdp 파일입니다" 또는 "사용자 자격 증명을 확인할 수 없습니다"와 같은 경고가 표시됩니다. 이러한 경고는 무시해도 됩니다.
@@ -130,7 +130,7 @@ Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언�
 3. 연결하려는 VM을 선택합니다.
 4. VM이 아직 실행되지 않은 경우 VM을 시작합니다.
 5. VM의 이름을 선택하여 **개요** 페이지를 엽니다.
-6. VM의 공용 IP 주소 및 DNS 이름을 확인합니다(이 값을 설정하지 않은 경우 [네트워크 인터페이스를 만들어야 함](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)).
+6. VM의 공용 IP 주소 및 DNS 이름 (이러한 값이 설정 되지 않은 경우 [네트워크 인터페이스를 만들어야](../../virtual-network/virtual-network-network-interface.md#create-a-network-interface)함)을 확인 합니다.
 7. PuTTY 애플리케이션을 엽니다.
 8. [PuTTY 구성] 대화 상자에서 VM의 IP 주소 또는 DNS 이름을 입력합니다.
 
@@ -141,7 +141,7 @@ Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언�
 
 연결 문제가 있는 경우 SSH 클라이언트에 대한 설명서를 참조하세요. 예를 들어 [10장: 일반적인 오류 메시지](https://www.ssh.com/ssh/putty/putty-manuals)를 참조하세요.
 
-프로비전된 Linux VM에 데스크톱을 추가하는 방법을 포함한 자세한 내용은 [Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)을 참조하세요.
+프로비전된 Linux VM에 데스크톱을 추가하는 방법을 포함한 자세한 내용은 [Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결](../../virtual-machines/linux/use-remote-desktop.md)을 참조하세요.
 
 ## <a name="create-a-vm-using-your-own-image"></a>고유의 이미지를 사용하여 VM 만들기
 
@@ -170,7 +170,7 @@ Azure Portal 또는 Azure PowerShell을 사용하여 이미지를 만듭니다.
 
     :::image type="content" source="media/avm-custom-deployment.png" alt-text="사용자 지정 배포 페이지를 보여 줍니다.":::
 
-3. 편집기에 이 [JSON 템플릿](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template)을 붙여넣고 **저장**을 선택합니다.
+3. 편집기에 이 [JSON 템플릿](../partner-center-portal/azure-vm-image-certification.md)을 붙여넣고 **저장**을 선택합니다.
 4. 표시된 **사용자 지정 배포** 속성 페이지에 대한 매개 변수 값을 제공합니다.
 
     | 매개 변수 | Description |
@@ -183,7 +183,7 @@ Azure Portal 또는 Azure PowerShell을 사용하여 이미지를 만듭니다.
     | OS 유형 | VM 운영 체제: Windows 또는 Linux |
     | 구독 ID | 선택한 구독의 식별자 |
     | 위치 | 배포의 지리적 위치 |
-    | VM 크기 | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)(예: Standard_A2) |
+    | VM 크기 | [Azure VM 크기](../../virtual-machines/windows/sizes.md)(예: Standard_A2) |
     | 공용 IP 주소 이름 | 공용 IP 주소의 이름 |
     | VM 이름 | 새 VM의 이름 |
     | Virtual Network 이름 | VM에서 사용하는 가상 네트워크의 이름 |
@@ -209,8 +209,8 @@ Azure에서 배포가 시작됩니다. 지정된 관리되지 않는 VHD가 있�
 
 사용자의 접근 방법에 해당하는 다음 지침을 사용합니다.
 
-* Azure PowerShell: [Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
-* Azure CLI: [가상 머신 또는 VHD의 이미지를 만드는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)
+* Azure PowerShell: [Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법](../../virtual-machines/windows/capture-image-resource.md)
+* Azure CLI: [가상 머신 또는 VHD의 이미지를 만드는 방법](../../virtual-machines/linux/capture-image.md)
 * API: [Virtual Machines - 캡처](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
 
 ## <a name="configure-the-virtual-machine"></a>가상 머신 구성
@@ -238,7 +238,7 @@ Linux 배포판의 경우 일반적으로 명령줄 도구 또는 그래픽 유�
 
 ### <a name="perform-additional-security-checks"></a>추가 보안 검사 수행
 
-Azure Marketplace에서 솔루션 이미지에 대한 높은 수준의 보안을 유지해야 합니다. 다음 문서에서는 도움이 되는 보안 구성 및 절차에 대한 검사 목록을 제공합니다. [Azure Marketplace 이미지에 대한 보안 권장 사항](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images). 이러한 권장 사항 중 일부는 Linux 기반 이미지에만 적용되지만, 대부분은 모든 VM 이미지에 적용됩니다.
+Azure Marketplace에서 솔루션 이미지에 대한 높은 수준의 보안을 유지해야 합니다. 다음 문서에서는 도움이 되는 보안 구성 및 절차에 대한 검사 목록을 제공합니다. [Azure Marketplace 이미지에 대한 보안 권장 사항](../../security/security-recommendations-azure-marketplace-images.md). 이러한 권장 사항 중 일부는 Linux 기반 이미지에만 적용되지만, 대부분은 모든 VM 이미지에 적용됩니다.
 
 ### <a name="perform-custom-configuration-and-scheduled-tasks"></a>사용자 지정 구성 및 예약된 작업 수행
 
@@ -247,7 +247,7 @@ Azure Marketplace에서 솔루션 이미지에 대한 높은 수준의 보안을
 * 일회성 작업인 경우 작업이 성공적으로 완료된 후 이 작업을 삭제해야 합니다.
 * 이러한 두 드라이브만 항상 존재하는 것이 보장되므로 구성이 C 또는 D 이외의 드라이브에 따라 달라져서는 안 됩니다(C 드라이브는 운영 체제 디스크이고 D 드라이브는 임시 로컬 디스크입니다).
 
-Linux 사용자 지정에 대한 자세한 내용은 [Linux용 가상 머신 확장 및 기능](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux)을 참조하세요.
+Linux 사용자 지정에 대한 자세한 내용은 [Linux용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-linux.md)을 참조하세요.
 
 ## <a name="generalize-the-image"></a>이미지 일반화
 
@@ -258,11 +258,11 @@ Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 �
 Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 사용하여 일반화됩니다. 나중에 OS를 업데이트하거나 재구성하면 sysprep을 다시 실행해야 합니다.
 
 > [!WARNING]
-> 업데이트는 자동으로 실행될 수 있으므로 Sysprep을 실행한 후 배포될 때까지 VM을 해제해 둡니다. 이렇게 종료하면 이후 업데이트에서 운영 체제 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다. sysprep 실행에 대한 자세한 내용은 [VHD를 일반화하는 단계](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)를 참조하세요.
+> 업데이트는 자동으로 실행될 수 있으므로 Sysprep을 실행한 후 배포될 때까지 VM을 해제해 둡니다. 이렇게 종료하면 이후 업데이트에서 운영 체제 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다. Sysprep을 실행 하는 방법에 대 한 자세한 내용은 [VHD를 일반화 하는 단계](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)를 참조 하세요.
 
 ### <a name="linux"></a>Linux
 
-다음 프로세스에서 Linux VM을 일반화하여 별도의 VM으로 다시 배포합니다. 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)을 참조하세요. "캡처된 이미지에서 VM 만들기" 섹션에서 중지할 수 있습니다.
+다음 프로세스에서 Linux VM을 일반화하여 별도의 VM으로 다시 배포합니다. 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](../../virtual-machines/linux/capture-image.md)을 참조하세요. "캡처된 이미지에서 VM 만들기" 섹션에서 중지할 수 있습니다.
 
 1. **Azure Linux 에이전트 제거**
 
@@ -278,8 +278,8 @@ Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hard
 
 ## <a name="next-steps"></a>다음 단계
 
-새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [일반적인 VHD 만들기 문제](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues)를 참조하세요.
+새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [일반적인 VHD 만들기 문제](common-issues-during-vhd-creation.md)를 참조하세요.
 
 그렇지 않은 경우:
 
-* [VM 이미지 인증](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri)에서는 *Azure Certified용 인증 테스트 도구*를 가져올 수 있는 위치와 VM 이미지를 인증하는 데 사용하는 방법을 비롯하여 Azure Marketplace 인증을 위해 VM 이미지를 테스트하고 제출하는 방법에 대해 설명합니다.
+* [VM 이미지 인증](get-sas-uri.md)에서는 *Azure Certified용 인증 테스트 도구*를 가져올 수 있는 위치와 VM 이미지를 인증하는 데 사용하는 방법을 비롯하여 Azure Marketplace 인증을 위해 VM 이미지를 테스트하고 제출하는 방법에 대해 설명합니다.

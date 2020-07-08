@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 471675de58161fc0c0110e2968089da062c6da87
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845795"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960565"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Azure Blob Storage를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -33,11 +33,11 @@ ms.locfileid: "83845795"
 3. Azure Portal에서 다음 절차를 사용하여 스토리지 계정을 만듭니다.  
     1. 왼쪽 메뉴 모음에서 **+리소스 만들기**를 선택합니다.  오른쪽에 **새로 만들기** 창(블레이드)이 표시됩니다.
     2. **새로 만들기** 창에서 **스토리지**를 선택합니다.  오른쪽에 **추천** 목록이 표시됩니다.
-    3. **스토리지 계정**을 선택하여 계정 만들기를 시작합니다.  [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) 문서의 지침을 따르세요.
+    3. **스토리지 계정**을 선택하여 계정 만들기를 시작합니다.  [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal) 문서의 지침을 따르세요.
 
     ![Azure Storage 계정을 만드는 단계](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    스토리지 계정에 대한 자세한 내용을 보려면 [빠른 시작 자습서](https://docs.microsoft.com/azure/storage/)를 선택하세요.  스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+    저장소 계정에 대 한 자세한 내용은이 [빠른](../../storage/blobs/storage-quickstart-blobs-portal.md)시작을 참조 하세요.  스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 4. 스토리지 계정이 프로비전될 때까지 기다립니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다.  그런 다음 Azure Portal의 **홈** 페이지에서 **모든 리소스 보기**를 선택하거나 왼쪽 탐색 모음에서 **모든 리소스**를 선택하여 스토리지 계정에 액세스합니다.
 

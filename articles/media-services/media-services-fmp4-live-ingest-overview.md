@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74888056"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958568"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양 
 
@@ -56,7 +56,7 @@ ms.locfileid: "74888056"
 ## <a name="4-protocol-format--http"></a>4. 프로토콜 형식 – HTTP
 Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 실행 HTTP POST 요청을 사용하여 조각화된 MP4 형식으로 패키징된 인코딩된 미디어 데이터를 서비스에 전송합니다. 각 HTTP POST는 헤더 상자(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)로 시작되고 조각의 시퀀스(**moof** 및 **mdat** 상자)로 계속되는 전체 조각화된 MP4 비트스트림(“스트림”)을 전송합니다. HTTP POST 요청에 대한 URL 구문은 [1]의 섹션 9.2를 참조하세요. POST URL의 예는 다음과 같습니다. 
 
-    http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
 ### <a name="requirements"></a>요구 사항
 자세한 요구 사항은 다음과 같습니다.
@@ -116,7 +116,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
     b. 새 HTTP POST URL은 초기 POST URL과 반드시 동일해야 합니다.
   
-    c. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
+    다. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
   
     d. 반드시 각 트랙에 전송된 마지막 두 조각이 다시 전송되고, 미디어 타임라인에서 불연속성을 발생시키지 않고 스트리밍이 계속되어야 합니다. MP4 조각 타임 스탬프는 HTTP POST 요청 간에도 반드시 지속적으로 증가해야 합니다.
 1. MP4 조각 기간에 상응하는 속도로 데이터가 전송되고 있지 않은 경우 인코더는 HTTP POST 요청을 종료해야 합니다.  데이터를 전송하지 않는 HTTP POST 요청은 Media Services가 서비스 업데이트 발생 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 따라서 스파스 조각이 전송되면 즉시 종료되는 스파스(광고 신호) 트랙용 HTTP POST는 수명이 짧아야 합니다.
@@ -166,7 +166,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
    
     b. 인코더는 데이터가 전송되지 않을 때 HTTP POST 요청을 종료해야 합니다. 데이터를 전송하지 않는 HTTP POST는 Media Services가 서비스 업데이트 또는 서버 다시 시작 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 이러한 경우에 미디어 서버는 소켓의 수신 작업에서 일시적으로 차단됩니다.
    
-    c. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
+    다. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
 
     d. 스파스 조각을 전송하는 경우 인코더는 명시적 콘텐츠-길이 헤더를 사용할 수 있는 경우 이를 설정할 수 있습니다.
 
@@ -174,7 +174,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
     f. 스파스 트랙 조각은 이와 동등하거나 더 큰 타임스탬프 값을 갖는 해당 부모 트랙 조각이 클라이언트에게 제공될 때 클라이언트에게 제공됩니다. 예를 들어, 스파스 조각의 타임스탬프가 t=1000인 경우, 타임스탬프가 1000 이상인 “비디오”(부모 트랙 이름이 “비디오”인 것으로 간주함) 조각을 클라이언트가 본 후 t=1000인 스파스 조각을 다운로드할 수 있을 것으로 예상됩니다. 실제 신호는 지정된 용도에 맞는 프레젠테이션 타임라인에서 서로 다른 위치에 사용될 수 있음에 주의하세요. 이 예제에서, t=1000인 스파스 조각은 몇 초 늦은 위치에 광고를 삽입하는 XML 페이로드를 가질 수 있습니다.
 
-    g. 스파스 트랙 조각의 페이로드는 시나리오에 따라 서로 다른 형식(예: XML, 텍스트 또는 이진)이 될 수 있습니다.
+    예: 스파스 트랙 조각의 페이로드는 시나리오에 따라 서로 다른 형식(예: XML, 텍스트 또는 이진)이 될 수 있습니다.
 
 ### <a name="redundant-audio-track"></a>중복 오디오 트랙
 일반적인 HTTP 적응 스트리밍 시나리오(예: 부드러운 스트리밍 또는 DASH)는 전체 프레젠테이션에 오디오 트랙이 하나만 있는 경우가 많습니다. 클라이언트에 대해 여러 개의 품질 수준을 가져서 오류 조건에서 선택할 수 있는 비디오 트랙과는 달리, 오디오 트랙은 손상된 오디오 트랙을 포함하는 스트림을 수집한 경우 단일 실패 지점이 될 수 있습니다. 

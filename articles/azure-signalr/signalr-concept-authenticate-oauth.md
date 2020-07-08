@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5608d71c4a91c9b46b8ed7de13c9d4c06a3f195f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cb99a0690e1d07f058572b188ae0b76995f48504
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194604"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961798"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service 인증
 
@@ -67,8 +67,10 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 4. 새 OAuth 앱 등록이 완료되면 다음 명령을 사용하여 *클라이언트 ID* 및 *클라이언트 암호*를 보안 관리자에 추가합니다. *Your_GitHub_Client_Id* 및 *Your_GitHub_Client_Secret*을 OAuth 앱에 대한 값으로 바꿉니다.
 
-        dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
-        dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```dotnetcli
+    dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
+    dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```
 
 ## <a name="implement-the-oauth-flow"></a>OAuth 흐름 구현
 
@@ -76,9 +78,11 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 1. 최신 *Microsoft.AspNetCore.Authentication.Cookies* 및 *AspNet.Security.OAuth.GitHub* 패키지에 대한 참조를 추가하고 모든 패키지를 복원합니다.
 
-        dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
-        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
-        dotnet restore
+    ```dotnetcli
+    dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+    dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
+    dotnet restore
+    ```
 
 1. *Startup.cs*를 열고 다음 네임스페이스에 대한 `using` 문을 추가합니다.
 
@@ -345,19 +349,25 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 2. .NET Core CLI를 사용하여 앱을 빌드하고 명령 셸에서 다음 명령을 실행합니다.
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 3. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 웹앱을 로컬로 실행합니다.
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     기본적으로 앱은 포트 5000에 로컬로 호스트됩니다.
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Production
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Production
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+                    Application started. Press Ctrl+C to shut down.
+    ```
 
 4. 브라우저 창을 시작하고 `http://localhost:5000`으로 이동합니다. 위쪽의 **여기** 링크를 클릭하여 GitHub로 로그인합니다.
 
