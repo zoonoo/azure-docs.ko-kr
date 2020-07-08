@@ -3,25 +3,25 @@ title: 셀프 서비스 애플리케이션 액세스를 사용할 때 발생하�
 description: 셀프 서비스 애플리케이션 액세스와 관련된 문제 해결
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a981dfb1d72c21eccf2ad7119ea219114ed15aed
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 8a8a748b11e695041aa6baece381bc8d7d068992
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760918"
 ---
 # <a name="problem-using-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스를 사용할 때 발생하는 문제
 
@@ -53,7 +53,7 @@ ms.locfileid: "65784271"
 
 5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-   * 여기에 표시 하려는 응용 프로그램이 표시 되지 않으면 **모든 응용 프로그램 목록** 의 맨 위에 있는 **필터** 컨트롤을 사용 하 고 **표시** 옵션을 **모든 응용 프로그램** 으로 설정 합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6. 셀프 서비스 액세스를 활성화하려는 애플리케이션을 목록에서 선택합니다.
 

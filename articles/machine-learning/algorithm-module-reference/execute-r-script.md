@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751755"
 ---
-# <a name="execute-r-script"></a>R 스크립트 실행
+# <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
-이 문서에서는 **r 스크립트 실행** 모듈을 사용 하 여 Azure Machine Learning designer (미리 보기) 파이프라인에서 r 코드를 실행 하는 방법을 설명 합니다.
+이 문서에서는 R 스크립트 실행 모듈을 사용 하 여 Azure Machine Learning designer (미리 보기) 파이프라인에서 R 코드를 실행 하는 방법을 설명 합니다.
 
-R을 사용 하면 다음과 같은 기존 모듈에서 현재 지원 되지 않는 작업을 수행할 수 있습니다. 
+R을 사용 하면 기존 모듈이 현재 지원 하지 않는 다음과 같은 작업을 수행할 수 있습니다. 
 - 사용자 지정 데이터 변환 만들기
 - 고유한 메트릭을 사용 하 여 예측 평가
 - 디자이너에서 독립 실행형 모듈로 구현 되지 않는 알고리즘을 사용 하 여 모델 작성
@@ -31,9 +31,9 @@ Azure Machine Learning designer는 R의 CRAN (포괄적인 R 보관 네트워크
 
 ## <a name="supported-r-packages"></a>지원 되는 R 패키지
 
-R 환경은 100 이상의 패키지와 함께 미리 설치 되어 있습니다. 전체 목록은 [사전 설치 된 R 패키지](#pre-installed-r-packages)섹션을 참조 하세요.
+R 환경은 100 개 이상의 패키지와 함께 미리 설치 되어 있습니다. 전체 목록은 [사전 설치 된 R 패키지](#preinstalled-r-packages)섹션을 참조 하세요.
 
-**R 스크립트 실행** 모듈에 다음 코드를 추가 하 고 설치 된 패키지를 볼 수도 있습니다.
+R 스크립트 실행 모듈에 다음 코드를 추가 하 여 설치 된 패키지를 볼 수도 있습니다.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -43,23 +43,23 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 > [!NOTE]
-> 파이프라인이 여러 R 스크립트 실행 모듈을 포함 하 고 미리 설치 된 목록에 없는 동일한 패키지를 필요로 하는 경우 각각의 모듈에 패키지를 각각 설치 하십시오. 
+> 파이프라인에 사전 설치 된 목록에 없는 패키지를 필요로 하는 R 스크립트 실행 모듈이 여러 개 있는 경우 각 모듈에 패키지를 설치 합니다. 
 
 ## <a name="installing-r-packages"></a>R 패키지 설치
-추가 R 패키지를 설치 하려면 `install.packages()` 메서드를 사용 합니다. 패키지는 각 **r 스크립트 실행** 모듈에 대해 설치 되 고 다른 **r 스크립트 실행** 모듈에서 공유 되지 않습니다.
+추가 R 패키지를 설치 하려면 메서드를 사용 `install.packages()` 합니다. 패키지는 각 R 스크립트 실행 모듈에 대해 설치 됩니다. 다른 R 스크립트 실행 모듈에서 공유 되지 않습니다.
 
 > [!NOTE]
-> 패키지를 설치할 때 CRAN 리포지토리를 지정 하세요.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+> 패키지를 설치할 때 CRAN 리포지토리를 지정 합니다 (예:) `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
 이 샘플은 동물원을 설치 하는 방법을 보여 줍니다.
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -76,21 +76,21 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-  > 설치를 반복 하지 않으려면 패키지가 이미 있는지 확인 하세요. 위의 `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` 샘플 코드와 같습니다. 설치를 반복 하면 웹 서비스 요청 시간이 초과 될 수 있습니다.     
+ > 패키지를 설치 하기 전에 설치를 반복 하지 않도록 이미 존재 하는지 확인 합니다. 설치를 반복 하면 웹 서비스 요청 시간이 초과 될 수 있습니다.     
 
-## <a name="upload-files"></a>파일 업로드
-**R 스크립트 실행** 은 AZURE MACHINE LEARNING r SDK를 사용 하 여 파일 업로드를 지원 합니다.
+## <a name="uploading-files"></a>파일 업로드
+R 스크립트 실행 모듈은 Azure Machine Learning R SDK를 사용 하 여 파일 업로드를 지원 합니다.
 
-다음 예제에서는 **R 스크립트 실행**에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
+다음 샘플에서는 R 스크립트 실행에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
 ```R
 
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -117,46 +117,41 @@ azureml_main <- function(dataframe1, dataframe2){
 파이프라인 실행이 완료 되 면 모듈의 오른쪽 패널에서 이미지를 미리 볼 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![업로드 됨-이미지](media/module/upload-image-in-r-script.png)
+> ![업로드 된 이미지 미리 보기](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 
-**R 스크립트 실행** 모듈에는 시작 지점으로 사용할 수 있는 샘플 코드가 포함 되어 있습니다. **R 스크립트 실행** 모듈을 구성 하려면 실행할 입력 및 코드 집합을 제공 합니다.
+R 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는 샘플 코드가 포함 되어 있습니다. R 스크립트 실행 모듈을 구성 하려면 실행할 입력 및 코드 집합을 제공 합니다.
 
-![R 모듈](media/module/execute-r-script.png)
+![R 모듈에 대 한 입력 다이어그램](media/module/execute-r-script.png)
 
 이 모듈을 사용 하 여 로드 하면 디자이너에 저장 된 데이터 집합이 자동으로 R 데이터 프레임으로 변환 됩니다.
 
-1.  **R 스크립트 실행** 모듈을 파이프라인에 추가 합니다.
-
-  
+1.  **R 스크립트 실행** 모듈을 파이프라인에 추가 합니다.  
 
 1. 스크립트에 필요한 모든 입력을 연결 합니다. 입력은 선택 사항이 며 데이터 및 추가 R 코드를 포함할 수 있습니다.
 
-    * **Dataset1**: 첫 번째 입력을로 `dataframe1`참조 합니다. 입력 데이터 집합은 CSV, TSV, ARFF 형식으로 지정 하거나 Azure Machine Learning 데이터 집합에 연결할 수 있습니다.
+    * **Dataset1**: 첫 번째 입력을로 참조 합니다 `dataframe1` . 입력 데이터 집합은 CSV, TSV 또는 ARFF 파일 형식으로 지정 해야 합니다. 또는 Azure Machine Learning 데이터 집합을 연결할 수 있습니다.
 
-    * **Dataset2**: 두 번째 입력을로 `dataframe2`참조 합니다. 또한이 데이터 집합은 CSV, TSV, ARFF 파일 또는 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
+    * **Dataset2**: 두 번째 입력을로 참조 합니다 `dataframe2` . 또한이 데이터 집합은 CSV, TSV 또는 ARFF 파일이 나 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
 
-    * **스크립트 번들**: 세 번째 입력은 ZIP 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
+    * **스크립트 번들**: 세 번째 입력은 .zip 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
 
 1. **R 스크립트** 텍스트 상자에 올바른 R 스크립트를 입력 하거나 붙여 넣습니다.
 
     > [!NOTE]
-    > 스크립트를 작성할 때는 매우 주의 해야 하며 선언 되지 않은 변수를 사용 하거나 가져온 모듈이 나 함수를 사용 하는 것과 같은 구문 오류가 없는지 확인 하십시오. 또한이 문서 끝에 있는 사전 설치 된 패키지 목록에 주의를 기울여야 합니다. 나열 되지 않은 패키지를 사용 하려면 다음 스크립트에 해당 패키지를 설치 하세요.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
-    
-    > [!NOTE]
-    > "보기"와 같이 X11 라이브러리에 종속 된 함수는 미리 설치 되지 않으므로 지원 되지 않습니다.
+    > 스크립트를 작성할 때 주의 해야 합니다. 선언 되지 않은 변수 또는 가져온 모듈이 나 함수를 사용 하는 것과 같은 구문 오류가 없는지 확인 합니다. 이 문서의 끝에 있는 사전 설치 된 패키지 목록에 추가 주의를 기울여야 합니다. 나열 되지 않은 패키지를 사용 하려면 스크립트에 설치 합니다. 예제는 `install.packages("zoo",repos = "http://cran.us.r-project.org")`입니다.
     
     시작 하는 데 도움이 되는 **R 스크립트** 텍스트 상자는 편집 하거나 바꿀 수 있는 샘플 코드로 미리 채워져 있습니다.
     
     ```R
     # R version: 3.5.1
-    # The script MUST contain a function named azureml_main
+    # The script MUST contain a function named azureml_main,
     # which is the entry point for this module.
 
-    # Please note that functions dependant on X11 library
-    # such as "View" are not supported because X11 library
-    # is not pre-installed.
+    # Note that functions dependent on the X11 library,
+    # such as "View," are not supported because the X11 library
+    # is not preinstalled.
     
     # The entry point function MUST have two input arguments.
     # If the input port is not connected, the corresponding
@@ -166,7 +161,7 @@ azureml_main <- function(dataframe1, dataframe2){
     azureml_main <- function(dataframe1, dataframe2){
     print("R script run.")
 
-    # If a zip file is connected to the third input port, it is
+    # If a .zip file is connected to the third input port, it's
     # unzipped under "./Script Bundle". This directory is added
     # to sys.path.
 
@@ -175,46 +170,44 @@ azureml_main <- function(dataframe1, dataframe2){
     }
     ```
 
- * 스크립트는이 모듈의 진입점인 이라는 `azureml_main`함수를 포함 해야 합니다.
+    진입점 함수는 `Param<dataframe1>` `Param<dataframe2>` 함수에 이러한 인수가 사용 되지 않은 경우에도 입력 인수 및를 포함 해야 합니다.
 
- * 진입점 함수에는 두 개의 입력 인수 ( `Param<dataframe1>` 및 `Param<dataframe2>`)가 있어야 합니다 .이 두 인수는 함수에서 사용 되지 않는 경우에도 마찬가지입니다.
-
-   > [!NOTE]
-    > **R 스크립트 실행** 모듈에 전달 되는 `dataframe1` 데이터는 및 `dataframe2`로 참조 됩니다 .이는 Azure Machine Learning 디자이너 (디자이너 참조 `dataset1` `dataset2`)와는 다릅니다. 입력 데이터가 스크립트에서 올바르게 referneced 확인 하세요.  
+    > [!NOTE]
+    > R 스크립트 실행 모듈에 전달 되는 데이터는 및로 참조 됩니다 .이는 `dataframe1` `dataframe2` Azure Machine Learning 디자이너 (디자이너 참조)와는 `dataset1` 다릅니다 `dataset2` . 입력 데이터가 스크립트에서 올바르게 참조 되는지 확인 합니다.  
  
     > [!NOTE]
-    >  기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
+    > 기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
 
-1.  **임의 초기값**: R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
+1.  **임의 초기값**의 경우 R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
 
-1. 파이프라인을 제출 합니다.  
+1. 파이프라인을 제출합니다.  
 
 ## <a name="results"></a>결과
 
-**R 스크립트 실행** 모듈은 여러 출력을 반환할 수 있지만 r 데이터 프레임으로 제공 되어야 합니다. 데이터 프레임은 디자이너에서 다른 모듈과의 호환성을 위해 자동으로 데이터 집합으로 변환 됩니다.
+R 스크립트 실행 모듈은 여러 출력을 반환할 수 있지만 R 데이터 프레임으로 제공 되어야 합니다. 데이터 프레임은 디자이너에서 다른 모듈과의 호환성을 위해 자동으로 데이터 집합으로 변환 됩니다.
 
 R의 표준 메시지 및 오류는 모듈의 로그로 반환 됩니다.
 
-R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 패널에 있는 **출력 + 로그** 탭의 **70_driver_log** 에서 인쇄 된 결과를 찾을 수 있습니다.
+R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 패널에 있는 **출력 + 로그** 탭에서 **70_driver_log** 인쇄 결과를 찾을 수 있습니다.
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 
-사용자 지정 R 스크립트를 사용 하 여 파이프라인을 확장 하는 방법에는 여러 가지가 있습니다.  이 섹션에서는 일반적인 태스크에 대 한 샘플 코드를 제공 합니다.
+사용자 지정 R 스크립트를 사용 하 여 파이프라인을 확장 하는 방법에는 여러 가지가 있습니다. 이 섹션에서는 일반적인 태스크에 대 한 샘플 코드를 제공 합니다.
 
 
-### <a name="add-r-script-as-an-input"></a>R 스크립트를 입력으로 추가
+### <a name="add-an-r-script-as-an-input"></a>R 스크립트를 입력으로 추가
 
-**R 스크립트 실행** 모듈은 임의의 r 스크립트 파일을 입력으로 지원 합니다. 이렇게 하려면 ZIP 파일의 일부로 작업 영역에 업로드 해야 합니다.
+R 스크립트 실행 모듈은 임의의 R 스크립트 파일을 입력으로 지원 합니다. 이를 사용 하려면 .zip 파일의 일부로 작업 영역에 업로드 해야 합니다.
 
-1. R 코드가 포함 된 ZIP 파일을 작업 영역에 업로드 하려면 **데이터 집합** 자산 페이지로 이동 하 여 **데이터 집합 만들기**를 클릭 한 다음 **로컬 파일** 및 **파일** 데이터 집합 유형 옵션을 선택 합니다.  
+1. R 코드가 포함 된 .zip 파일을 작업 영역에 업로드 하려면 **데이터 집합** 자산 페이지로 이동 합니다. **데이터 집합 만들기**를 선택한 다음 **로컬 파일에서** 를 선택 하 고 **파일** 데이터 집합 유형 옵션을 선택 합니다.  
 
 1. 왼쪽 모듈 트리의 **데이터 집합** 범주에 있는 **내 데이터 집합** 목록에서 zip 파일을 사용할 수 있는지 확인 합니다.
 
 1.  데이터 집합을 **스크립트 번들** 입력 포트에 연결 합니다.
 
-1. ZIP 파일에 포함 된 모든 파일은 파이프라인 실행 시간 동안 사용할 수 있습니다. 
+1. .Zip 파일의 모든 파일은 파이프라인 실행 시간 동안 사용할 수 있습니다. 
 
-    스크립트 번들 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 됩니다. 그러나 경로에 디렉터리 **.** /shnamenameu를 추가 하도록 코드를 변경 해야 합니다.
+    스크립트 번들 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 됩니다. 그러나 경로에 디렉터리 **./shhles** 를 추가 하도록 코드를 변경 해야 합니다.
 
 ### <a name="process-data"></a>데이터 처리
 
@@ -222,12 +215,12 @@ R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 �
 
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -236,17 +229,17 @@ R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 �
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
-  # If a zip file is connected to the third input port, it is
+  # If a .zip file is connected to the third input port, it's
   # unzipped under "./Script Bundle". This directory is added
   # to sys.path.
   series <- dataframe1$width
-  # find the maximum and minimum values of width column in dataframe1
+  # Find the maximum and minimum values of the width column in dataframe1
   max_v <- max(series)
   min_v <- min(series)
-  # calculate the scale and bias
+  # Calculate the scale and bias
   scale <- max_v - min_v
   bias <- min_v / dis
-  # apply min-max normalizing
+  # Apply min-max normalizing
   dataframe1$width <- dataframe1$width / scale - bias
   dataframe2$width <- dataframe2$width / scale - bias
   # Return datasets as a Named List
@@ -254,15 +247,15 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### <a name="read-a-zip-file-as-input"></a>ZIP 파일을 입력으로 읽습니다.
+### <a name="read-a-zip-file-as-input"></a>.Zip 파일을 입력으로 읽습니다.
 
-이 샘플은 ZIP 파일의 데이터 집합을 **R 스크립트 실행** 모듈에 대 한 입력으로 사용 하는 방법을 보여 줍니다.
+이 샘플에서는 .zip 파일의 데이터 집합을 R 스크립트 실행 모듈에 대 한 입력으로 사용 하는 방법을 보여 줍니다.
 
-1. CSV 형식의 데이터 파일을 만들고 이름을 "mydatafile. csv"로 지정 합니다.
-1. ZIP 파일을 만들고 CSV 파일을 보관 파일에 추가 합니다.
+1. CSV 형식의 데이터 파일을 만들고 이름을 **mydatafile.csv**로 지정 합니다.
+1. .Zip 파일을 만들고 저장소에 CSV 파일을 추가 합니다.
 1. 압축 파일을 Azure Machine Learning 작업 영역에 업로드 합니다. 
 1. 결과 데이터 집합을 **R 스크립트 실행** 모듈의 **scriptbundle** 입력에 연결 합니다.
-1. 다음 코드를 사용 하 여 zip 파일에서 CSV 데이터를 읽습니다.
+1. Zip 파일에서 CSV 데이터를 읽으려면 다음 코드를 사용 합니다.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -292,9 +285,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### <a name="pass-r-objects-between-execute-r-script-modules"></a>R 스크립트 실행 모듈 간에 R 개체 전달
 
-내부 serialization 메커니즘을 사용하면 **R 스크립트 실행** 모듈 인스턴스 간에 R 개체를 전달할 수 있습니다. 이 예에서는 두 개의 `A` **r 스크립트 실행** 모듈 간에 명명 된 r 개체를 이동 하려고 한다고 가정 합니다.
+내부 serialization 메커니즘을 사용하면 R 스크립트 실행 모듈 인스턴스 간에 R 개체를 전달할 수 있습니다. 이 예에서는 `A` 두 개의 r 스크립트 실행 모듈 간에 명명 된 r 개체를 이동 하려고 한다고 가정 합니다.
 
-1. 첫 번째 **r 스크립트 실행** 모듈을 파이프라인에 추가 하 고 **R 스크립트** 텍스트 상자에 다음 코드를 입력 하 여 직렬화 된 개체 `A` 를 모듈의 출력 데이터 테이블의 열로 만듭니다.  
+1. 첫 번째 **R 스크립트 실행** 모듈을 파이프라인에 추가 합니다. 그런 다음 **R 스크립트** 텍스트 상자에 다음 코드를 입력 하 여 직렬화 된 개체를 `A` 모듈의 출력 데이터 테이블의 열로 만듭니다.  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -308,11 +301,11 @@ azureml_main <- function(dataframe1, dataframe2){
     }
     ```
 
-    Serialization 함수가 디자이너에서 지원 되지 않는 R `Raw` 형식으로 데이터를 출력 하기 때문에 정수 형식으로의 명시적 변환은 수행 됩니다.
+    직렬화 함수는 디자이너에서 지원 하지 않는 R 형식으로 데이터를 출력 하기 때문에 정수 형식으로의 명시적 변환은 수행 됩니다 `Raw` .
 
 1. **R 스크립트 실행** 모듈의 두 번째 인스턴스를 추가 하 고이를 이전 모듈의 출력 포트에 연결 합니다.
 
-1. **R 스크립트** 텍스트 상자에 다음 코드를 입력 하 여 입력 데이터 `A` 테이블에서 개체를 추출 합니다. 
+1. **R 스크립트** 텍스트 상자에 다음 코드를 입력 하 여 `A` 입력 데이터 테이블에서 개체를 추출 합니다. 
 
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -323,9 +316,9 @@ azureml_main <- function(dataframe1, dataframe2){
     }
     ```
 
-## <a name="pre-installed-r-packages"></a>사전 설치 된 R 패키지
+## <a name="preinstalled-r-packages"></a>사전 설치 된 R 패키지
 
-사용할 수 있는 미리 설치 된 R 패키지의 현재 목록:
+현재 다음과 같은 사전 설치 된 R 패키지를 사용할 수 있습니다.
 
 |              |            | 
 |--------------|------------| 
@@ -342,7 +335,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | boot         | 1.3-22     | 
 | broom        | 0.5.2      | 
 | callr        | 3.2.0      | 
-| caret        | 6.0-84     | 
+| 캐럿        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
 | class        | 7.3-15     | 
@@ -351,17 +344,17 @@ azureml_main <- function(dataframe1, dataframe2){
 | cluster      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
-| 컴파일러     | 3.5.1      | 
+| compiler     | 3.5.1      | 
 | crayon       | 1.3.4      | 
 | curl         | 3.3        | 
 | data.table   | 1.12.2     | 
-| 데이터 세트     | 3.5.1      | 
+| datasets     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
 | digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| 평가     | 0.14       | 
+| evaluate     | 0.14       | 
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
@@ -376,7 +369,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | gplots       | 3.0.1.1    | 
 | graphics     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| (grid)         | 3.5.1      | 
+| 그리드         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | haven        | 2.1.0      | 
@@ -416,7 +409,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | prettyunits  | 1.0.2      | 
 | processx     | 3.3.1      | 
 | prodlim      | 2018.04.18 | 
-| 진행률     | 1.2.2      | 
+| progress     | 1.2.2      | 
 | ps           | 1.3.0      | 
 | purrr        | 0.3.2      | 
 | quadprog     | 1.5-7      | 
@@ -441,7 +434,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | rvest        | 0.3.4      | 
 | scales       | 1.0.0      | 
 | selectr      | 0.4-1      | 
-| 공간      | 7.3-11     | 
+| spatial      | 7.3-11     | 
 | splines      | 3.5.1      | 
 | SQUAREM      | 2017.10-1  | 
 | stats        | 3.5.1      | 
@@ -471,8 +464,8 @@ azureml_main <- function(dataframe1, dataframe2){
 | xts          | 0.11-2     | 
 | yaml         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
-| 동물원          | 1.8-6      | 
+| zoo          | 1.8-6      | 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 

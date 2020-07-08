@@ -3,25 +3,25 @@ title: 로그인 한 후 앱 페이지에 오류 메시지가 표시 됩니다. 
 description: 앱에서 오류 메시지를 반환 하는 경우 Azure AD 로그인 문제를 해결 하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77185487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759541"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>사용자가 로그인 하면 앱 페이지에서 오류 메시지를 표시 합니다.
 
@@ -60,7 +60,7 @@ Azure ad 응답으로 보낼 Azure AD 구성의 특성을 추가 하려면 다�
 
    특성을 추가하려면:
 
-   1. **특성 추가**를 선택합니다. **이름을**입력 하 고 드롭다운 목록에서 **값** 을 선택 합니다.
+   1. **특성 추가**를 선택 합니다. **이름을**입력 하 고 드롭다운 목록에서 **값** 을 선택 합니다.
 
    1.  **저장**을 선택합니다. 테이블에 새 특성이 표시 됩니다.
 

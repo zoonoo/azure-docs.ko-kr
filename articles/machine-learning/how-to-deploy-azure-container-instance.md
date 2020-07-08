@@ -5,17 +5,17 @@ description: Azure Container Instances를 사용 하 여 Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/27/2019
-ms.openlocfilehash: d460112394d7c7b7d2da4e8af41c0085b67226ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: dc2acefd69695e34fcf60877591faf4f838ab695
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753179"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Azure Machine Learning를 사용 하 여 ACI (Azure Container Instances에서 �
 
 ACI의 할당량 및 지역 가용성에 대 한 자세한 내용은 [Azure Container Instances 문서에 대 한 할당량 및 지역 가용성](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) 을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -43,7 +43,7 @@ ACI의 할당량 및 지역 가용성에 대 한 자세한 내용은 [Azure Cont
 
     이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- 이 문서의 __CLI__ 코드 조각은 `inferenceconfig.json` 문서를 만든 것으로 가정 합니다. 이 문서를 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+- 이 문서의 __CLI__ 코드 조각은 문서를 만든 것으로 가정 합니다 `inferenceconfig.json` . 이 문서를 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="deploy-to-aci"></a>ACI에 배포
 
@@ -69,7 +69,7 @@ print(service.state)
 
 ### <a name="using-the-cli"></a>CLI 사용
 
-CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. 를 `mymodel:1` 등록 된 모델의 이름 및 버전으로 바꿉니다. 이 `myservice` 서비스를 제공할 이름으로 대체 합니다.
+CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. `mymodel:1`를 등록 된 모델의 이름 및 버전으로 바꿉니다. `myservice`이 서비스를 제공할 이름으로 대체 합니다.
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -94,7 +94,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
-* [TLS를 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호](how-to-secure-web-service.md)
+* [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)

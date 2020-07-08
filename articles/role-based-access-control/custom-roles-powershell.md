@@ -8,27 +8,27 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ffb53bff4e70fbeb80e518fe13aaeaa8b396cfac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790214"
 ---
-# <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
+# <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 역할 만들기 또는 업데이트
 
 > [!IMPORTANT]
-> 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
+> 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 사용자 고유의 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure PowerShell를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
+Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 문서에서는 Azure PowerShell를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
 
 사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)를 참조 하세요.
 
@@ -302,7 +302,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-다음 예제에서는 *Virtual Machine Operator* 사용자 지정 `AssignableScopes` 역할의에 관리 그룹을 추가 합니다. 에 관리 그룹을 추가 `AssignableScopes` 하는 것은 현재 미리 보기 상태입니다.
+다음 예제에서는 `AssignableScopes` *Virtual Machine Operator* 사용자 지정 역할의에 관리 그룹을 추가 합니다. 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
 
 ```azurepowershell
 Get-AzManagementGroup
@@ -401,6 +401,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [자습서: Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
 - [Azure 사용자 지정 역할](custom-roles.md)
 - [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

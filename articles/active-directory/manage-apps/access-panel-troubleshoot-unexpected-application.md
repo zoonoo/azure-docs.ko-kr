@@ -3,25 +3,25 @@ title: 애플리케이션이 액세스 패널에 표시되는 방식 | Microsoft
 description: 애플리케이션이 액세스 패널에 표시되는 문제 해결
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa8ea75cc7fda05326c802c25a91d025b66b5ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22ba0709f4c5ca2294f515bdf1a96bff661b7293
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65784405"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760833"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>애플리케이션이 액세스 패널에 표시되는 방식
 
@@ -46,7 +46,7 @@ ms.locfileid: "65784405"
 
 사용자가 애플리케이션에 할당되었는지 확인하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "65784405"
 
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -96,7 +96,7 @@ ms.locfileid: "65784405"
 
 그룹의 멤버 자격을 확인하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "65784405"
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>사용자가 라이선스에 할당된 그룹의 멤버인지 확인
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 

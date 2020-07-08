@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 2cfc48f7c152f0f38ca70713dc989029e4e64e8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753552"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -39,8 +39,8 @@ https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)�
 | 배포 | 버전 |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
-| Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7 |
+| Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -62,7 +62,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -77,7 +77,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | 문자열 |
 | type | NvidiaGpuDriverLinux | 문자열 |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.3 | int |
 
 ### <a name="settings"></a>설정
 
@@ -113,7 +113,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -131,14 +131,14 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.3 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
 
-다음 예제에서는 위의 Azure Resource Manager 및 PowerShell 예제를 미러링하고 사용자 지정 설정을 기본이 아닌 드라이버 설치의 예제로 추가합니다. 특히, OS 커널을 업데이트하고 특정 CUDA 도구 키트 버전 드라이버를 설치합니다.
+다음 예제에서는 위의 Azure Resource Manager 및 PowerShell 예제를 미러링합니다.
 
 ```azurecli
 az vm extension set \
@@ -146,10 +146,21 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 \
+  --version 1.3 
+```
+
+또한 다음 예제에서는 기본이 아닌 드라이버 설치에 대 한 예제로 두 개의 선택적 사용자 지정 설정을 추가 합니다. 특히 OS 커널을 최신으로 업데이트 하 고 특정 VERDA toolkit 버전 드라이버를 설치 합니다. '--Settings '는 선택 사항이 며 기본값입니다. 커널을 업데이트 하면 확장 설치 시간이 늘어날 수 있습니다. 또한 특정 (이전) VERDA tolkit 버전을 선택 하는 것은 최신 커널을 항상 호환 되지 않을 수도 있습니다.
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85" \
+    "driverVersion": "10.0.130" \
   }'
 ```
 
@@ -167,7 +178,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-확장 실행 출력은 다음 파일에 기록됩니다.
+확장 실행 출력은 다음 파일에 기록 됩니다. 이 파일을 참조 하 여 (모든 장기 실행) 설치의 상태를 추적 하 고 오류를 해결 합니다.
 
 ```bash
 /var/log/azure/nvidia-vmext-status

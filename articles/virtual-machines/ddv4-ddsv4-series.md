@@ -1,28 +1,26 @@
 ---
-title: Ddv4 및 Ddsv4 시리즈 - Azure Virtual Machines
+title: Ddv4 및 Ddsv4 시리즈
 description: Dv4, Ddv4, Dsv4 및 Ddsv4 시리즈 VM에 대한 사양입니다.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 42b42a7477326196546ad445367691192f00569a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: 28963f7b8d6b7fd7361d114935a401a00b6683a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753664"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4 및 Ddsv4 시리즈
 
-Ddv4 및 Ddsv4 시리즈는 하이퍼 스레드 구성의 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되어 대부분의 범용 워크로드에 더 나은 가치 제안을 제공합니다. 모든 코어가 3.4GHz의 터보 클록 속도로 유지되며 [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 갖추고 있습니다. 이 새로운 VM 크기는 [2세대 VM](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)이 포함된 [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series)에 비해 로컬 스토리지가 50% 확장되고, 읽기 쓰기 로컬 디스크 IOPS가 향상됩니다.
+Ddv4 및 Ddsv4 시리즈는 하이퍼 스레드 구성의 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되어 대부분의 범용 워크로드에 더 나은 가치 제안을 제공합니다. 모든 코어가 3.4GHz의 터보 클록 속도로 유지되며 [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 갖추고 있습니다. 또한 [Intel &reg; 심층 학습 부스트](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)를 지원 합니다. 이 새로운 VM 크기는 [2세대 VM](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)이 포함된 [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series)에 비해 로컬 스토리지가 50% 확장되고, 읽기 쓰기 로컬 디스크 IOPS가 향상됩니다.
 
 D 시리즈 사용 사례로는 엔터프라이즈급 애플리케이션, 관계형 데이터베이스, 메모리 내 캐싱 및 분석 등이 있습니다.
-
-> [!IMPORTANT]
-> Ddv4 또는 Ddsv4 시리즈를 사용하여 새 Virtual Machine을 배포하고 Linux Image를 사용할 계획이라면 RHEL 8.x, CentOS 8.x 또는 Oracle 7.x 이상이 필요합니다. RHEL 7.x, CentOS 7.x 또는 Orcale 6.x을 사용할 경우 Kernel Panic 오류가 발생합니다. Microsoft는 수정 사항을 적극적으로 배포하고 있습니다. RHEL, CentOS 및 Oracle만 해당합니다. 
 
 ## <a name="ddv4-series"></a>Ddv4 시리즈
 
@@ -69,7 +67,7 @@ Premium Storage 캐싱:  지원됨
 
 메모리 보존 업데이트: 지원됨
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3000/48 | 2/1000 |
 | Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 2/2000 |

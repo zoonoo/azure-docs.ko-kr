@@ -5,55 +5,55 @@ titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: 74347ce969b6a5ffd57f5ca8396517e78590f3f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76c65d194d03dd1b7ff4cc2f3b45d84ff7909968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059453"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753369"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>사용자 VPN OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기
 
 VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사용할 수 있습니다. 그러나 오픈 VPN 프로토콜을 사용 하는 경우 Azure Active Directory 인증을 사용할 수도 있습니다. 이 문서는 가상 WAN 사용자 VPN (지점 및 사이트 간) 오픈 VPN 인증을 위해 Azure AD 테 넌 트를 설정 하는 데 도움이 됩니다.
 
 > [!NOTE]
-> Azure AD 인증은 OpenVPN&reg; 프로토콜 연결에 대해서만 지원 됩니다.
+> Azure AD 인증은 OpenVPN 프로토콜 연결에 대해서만 지원 됩니다 &reg; .
 >
 
-## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Azure AD 테 넌 트 만들기
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Azure AD 테넌트 만들기
 
-[새 테 넌 트 만들기](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 문서의 단계를 사용 하 여 Azure AD 테 넌 트를 만듭니다.
+[새 테넌트 만들기](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 문서의 단계를 사용하여 Azure AD 테넌트를 만듭니다.
 
-* 조직 이름
+* 조직 구성 이름
 * 초기 도메인 이름
 
 예제:
 
-   ![새 Azure AD 테 넌 트](./media/openvpn-create-azure-ad-tenant/newtenant.png)
+   ![새 Azure AD 테넌트](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
 ## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Azure AD 테 넌 트 사용자 만들기
 
-다음으로 두 개의 사용자 계정을 만듭니다. 전역 관리자 계정과 마스터 사용자 계정 하나를 만듭니다. 마스터 사용자 계정은 마스터 포함 계정 (서비스 계정)으로 사용 됩니다. Azure AD 테 넌 트 사용자 계정을 만들 때 만들려는 사용자의 유형에 대 한 디렉터리 역할을 조정 합니다.
+다음으로 두 개의 사용자 계정을 만듭니다. 전역 관리자 계정과 마스터 사용자 계정 하나를 만듭니다. 마스터 사용자 계정은 마스터 임베딩 계정(서비스 계정)으로 사용됩니다. Azure AD 테넌트 사용자 계정을 만들 때 만들려는 사용자 유형에 대한 디렉터리 역할을 조정합니다.
 
-[이 문서의](../active-directory/fundamentals/add-users-azure-active-directory.md) 단계를 사용 하 여 Azure AD 테 넌 트에 대해 두 명 이상의 사용자를 만듭니다. 계정 유형을 만들려면 **디렉터리 역할** 을 변경 해야 합니다.
+[이 문서](../active-directory/fundamentals/add-users-azure-active-directory.md)의 단계를 사용하여 Azure AD 테넌트에 대해 두 명 이상의 사용자를 만듭니다. 계정 유형을 만들려면 **디렉터리 역할**을 변경해야 합니다.
 
 * 전역 관리자
 * 사용자
 
 ## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. VPN 게이트웨이에서 Azure AD 인증을 사용 하도록 설정
 
-1. 인증에 사용할 디렉터리의 디렉터리 ID를 찾습니다. Active Directory 페이지의 속성 섹션에 나열 됩니다.
+1. 인증에 사용할 디렉터리의 디렉터리 ID를 찾습니다. Active Directory 페이지의 속성 섹션에 나열되어 있습니다.
 
     ![디렉터리 ID](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. 디렉터리 ID를 복사합니다.
 
-3. **전역 관리자** 역할이 할당 된 사용자로 Azure Portal에 로그인 합니다.
+3. **전역 관리자** 역할이 할당된 사용자로 Azure Portal에 로그인합니다.
 
-4. 다음으로, 관리자 동의를 제공 합니다. 브라우저의 주소 표시줄에서 배포 위치와 관련 된 URL을 복사 하 여 붙여 넣습니다.
+4. 다음으로, 관리자 동의를 제공합니다. 브라우저의 주소 표시줄에서 배포 위치와 관련된 URL을 복사하여 붙여넣습니다.
 
     공용
 
@@ -79,11 +79,11 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
-5. 메시지가 표시 되 면 **전역 관리자** 계정을 선택 합니다.
+5. 메시지가 표시되면 **전역 관리자** 계정을 선택합니다.
 
     ![디렉터리 ID](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-6. 메시지가 표시 되 면 **동의** 를 선택 합니다.
+6. 메시지가 표시되면 **수락**을 선택합니다.
 
     ![수락](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 

@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0676b6b183c64dcd0fb15b87de48a4afed3a0011
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749940"
 ---
-# <a name="tested-on-premises-live-streaming-encoders"></a>테스트 된 온-프레미스 라이브 스트리밍 인코더
+# <a name="verified-on-premises-live-streaming-encoders"></a>확인 된 온-프레미스 라이브 스트리밍 인코더
 
 Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)(채널)는 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 라이브 이벤트는 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
@@ -29,7 +29,7 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
  
 * 온-프레미스 라이브 인코더는 RTMP 또는 부드러운 스트리밍 (조각화 된 MP4) 형식 중 하나로 Media Services를 사용 하 여 라이브 인코딩을 수행 하도록 설정 된 라이브 이벤트에 단일 비트 전송률 스트림을 보냅니다. 그러면 라이브 이벤트에서 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다.
 
-이 문서에서는 테스트 된 온-프레미스 라이브 스트리밍 인코더에 대해 설명 합니다. 온-프레미스 라이브 인코더를 확인 하는 방법에 대 한 지침은 [온-프레미스 인코더 확인](become-on-premises-encoder-partner.md) 을 참조 하세요.
+이 문서에서는 확인 된 온-프레미스 라이브 스트리밍 인코더에 대해 설명 합니다. 확인은 공급 업체 자체 확인 또는 고객 검증를 통해 수행 됩니다. Microsoft Azure Media Services는 각 인코더의 전체 또는 엄격한 테스트를 수행 하지 않으며 업데이트를 지속적으로 다시 확인 하지 않습니다. 온-프레미스 라이브 인코더를 확인 하는 방법에 대 한 지침은 [온-프레미스 인코더 확인](become-on-premises-encoder-partner.md) 을 참조 하세요.
 
 Media Services를 사용하는 라이브 인코딩에 대한 자세한 내용은 [Media Services v3을 사용하는 라이브 스트리밍](live-streaming-overview.md)을 참조하세요.
 
@@ -48,22 +48,27 @@ RTMPS를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검
 > RTMPS 프로토콜을 사용 하는 경우 인코더는 TLS 1.2를 지원 해야 합니다.
 
 - Adobe Flash Media Live Encoder 3.2
+- [블랙 매직 ATEM 미니 및 ATEM 미니 PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - 정령 Live (버전 2.14.15 이상)
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) 영웅 7 및 영웅 8
 - Haivision KB
 - Haivision Makito X HEVC
+- [Restream.io](https://restream.io/)
 - OBS Studio
-- Switcher Studio(iOS)
+- [Streamlabs OBS](https://streamlabs.com/)
+- [Switcher Studio(iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast (TLS 1.2 요구 사항으로 인해 버전 13.0.2 이상)
-- Telestream Wirecast S (RTMP만 지원 됨)
+- Telestream Wirecast S (RTMP만 지원 됩니다. TLS 1.2 이상 부족으로 인 한 RTMPS 지원 없음)
 - Teradek Slice 756
 - VMIX
 - xStream
-- [Ffmpeg](https://www.ffmpeg.org)
-- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) 영웅 7 및 영웅 8
-- [Restream.io](https://restream.io/)
 
-## <a name="live-encoders-that-output-fragmented-mp4"></a>조각난 MP4를 출력하는 라이브 인코더
+> [!WARNING]
+> 위의 인코더 목록은 권장 사항 목록에 불과합니다. 인코더는 지속적으로 Microsoft에서 테스트 하거나 유효성을 검사 하지 않으며, 업데이트 또는 주요 변경 내용을 인코더 공급 업체 또는 오픈 소스 프로젝트에서 도입 하 여 호환성을 손상 시킬 수 있습니다. 
+
+## <a name="live-encoders-that-output-fragmented-mp4-smooth-streaming-ingest"></a>조각화 된 MP4 (부드러운 스트리밍 수집)를 출력 하는 라이브 인코더
 
 Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP4)을 출력으로 제공하는 다음 라이브 인코더 중 하나를 사용하도록 권장합니다. 지원되는 URL 체계는 `http://` 또는 `https://`입니다.
 
@@ -74,12 +79,15 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 - Cisco Digital Media Encoder 2200
 - 정령 Live (TLS 1.2 요구 사항으로 인해 버전 2.14.15 이상)
 - Envivio 4Caster C4 Gen III 
+- [Ffmpeg](https://www.ffmpeg.org)
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live 및 Hero 4K(UHD/HEVC)
-- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  라이브 이벤트를 여러 언어로 스트리밍하는 경우 (예: 하나의 영어 오디오 트랙 및 하나의 스페인어 오디오 트랙) 라이브 피드를 통과 라이브 이벤트로 보내도록 구성 된 미디어 Excel 라이브 인코더를 사용 하 여이를 수행할 수 있습니다.
+
+> [!WARNING]
+> 위의 인코더 목록은 권장 사항 목록에 불과합니다. 인코더는 지속적으로 Microsoft에서 테스트 하거나 유효성을 검사 하지 않으며, 언제 든 지 호환성을 중단 하는 인코더 공급 업체 또는 오픈 소스 프로젝트에서 지원 또는 버그를 도입할 수 있습니다. 
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>온-프레미스 라이브 인코더 설정 구성
 
@@ -95,8 +103,10 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 - 대역폭 요구 사항을 결정할 때는 스트리밍 비트 전송률의 2배를 지정합니다. 필수는 아니지만, 이 간단한 규칙은 네트워크 정체의 영향을 완화하는 데 도움이 됩니다.
 - 소프트웨어 기반 인코더를 사용하는 경우 불필요한 프로그램을 모두 닫습니다.
 - 푸시를 시작한 후에 인코더 구성을 변경하면 이벤트에 부정적인 영향을 줍니다. 구성 변경으로 인해 이벤트가 불안정해질 수 있습니다. 
+- 최신 버전의 인코더 소프트웨어를 항상 테스트 하 고 유효성을 검사 하 여 Azure Media Services와의 호환성을 계속 합니다. Microsoft는이 목록에서 인코더의 유효성을 다시 검사 하지 않으며 대부분의 유효성 검사는 소프트웨어 공급 업체에서 "자체 인증"으로 직접 수행 됩니다.
 - 이벤트를 설정할 수 있는 충분한 시간을 확보합니다. 대규모 이벤트의 경우 이벤트보다 1시간 전에 설정을 시작하는 것이 좋습니다.
-- H.264 비디오 및 AAC audio 코덱 출력을 사용 합니다.
+- H.264 비디오 및 AAC-LC 오디오 코덱 출력을 사용 합니다.
+- 브로드캐스팅하는 라이브 이벤트의 형식에 대해 지원 되는 해상도 및 프레임 요금을 적용 합니다 (예: 60fps는 현재 거부 됨).
 - 비디오 품질 간에 키 프레임 또는 GOP 임시 맞춤이 있는지 확인 합니다.
 - 각 비디오 품질에 고유한 스트림 이름이 있는지 확인 합니다.
 - 최적의 적응 비트 전송률 성능을 위해 권장 되는 strict CBR 인코딩을 사용 합니다.
@@ -104,7 +114,7 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 > [!IMPORTANT]
 > 클라우드로의 업로드에는 CPU 및 IO 작업이 포함 되므로 컴퓨터의 물리적 상태 (CPU/메모리/등)를 시청 하세요. 인코더에서 설정을 변경 하는 경우 변경 내용을 적용 하려면 특정 채널/라이브 이벤트를 다시 설정 해야 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [Media Services v3을 통한 라이브 스트리밍](live-streaming-overview.md)
 

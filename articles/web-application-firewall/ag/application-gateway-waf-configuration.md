@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77526793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84752483"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록
 
@@ -31,7 +31,6 @@ WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 �
 * 요청 특성 이름 (args)은 다음과 같이 제외 요소로 추가할 수 있습니다.
 
    * 양식 필드 이름
-   * XML 엔터티
    * JSON 엔터티
    * URL 쿼리 문자열 인수
 
@@ -82,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-따라서 URL `http://www.contoso.com/?user%281%29=fdafdasfda` 이 waf에 전달 되는 경우에는 **fdafdasfda**문자열을 평가 하지 않지만 매개 변수 이름 **사용자 %281 %29**은 (는) 계속 계산 합니다. 
+따라서 URL `http://www.contoso.com/?user%281%29=fdafdasfda` 이 WAF에 전달 되는 경우에는 **fdafdasfda**문자열을 평가 하지 않지만 매개 변수 이름 **사용자 %281 %29**은 (는) 계속 계산 합니다. 
 
 ## <a name="waf-request-size-limits"></a>WAF 요청 크기 제한
 
@@ -103,4 +102,4 @@ WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-WAF 설정을 구성한 후에는 WAF 로그 확인 방법을 살펴볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조 하세요.
+WAF 설정을 구성한 후에는 WAF 로그 확인 방법을 살펴볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조하세요.

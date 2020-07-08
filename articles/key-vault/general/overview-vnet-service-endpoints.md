@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: bd67c3b7eed6b3ce3730bd48cda69d85aa276df4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: eff74fca5ac21a7df431b55cd5c307d3e994010b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792135"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -54,7 +54,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 > 다음과 같은 구성 제한 사항을 고려해야 합니다.
 > * 최대한 127개 가상 네트워크 규칙 및 127개 IPv4 규칙이 허용됩니다. 
 > * "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 대신 개별 IP 주소 규칙을 사용하여 이러한 범위를 구성합니다.
-> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크는 **172.16, 31**, **192.168.** **로 시작**하는 주소를 포함 합니다. 
+> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는 **10.** , **172.16-31** 및 **192.168.** 로 시작하는 주소가 포함됩니다. 
 > * 현재 IPv4 주소만 지원됩니다.
 
 ## <a name="trusted-services"></a>신뢰할 수 있는 서비스
@@ -65,20 +65,21 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 | --- | --- |
 |Azure Virtual Machines 배포 서비스|[고객 관리 Key Vault에서 VM으로 인증서를 배포합니다](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
 |Azure Resource Manager 템플릿 배포 서비스|[배포 하는 동안 보안 값을 전달](../../azure-resource-manager/templates/key-vault-parameter.md)합니다.|
+|Azure 애플리케이션 Gateway v2 SKU|[Key Vault 인증서를 사용 하는 TLS 종료](/azure/application-gateway/key-vault-certs)|
 |Azure Disk Encryption 볼륨 암호화 서비스|가상 머신을 배포하는 동안 BitLocker 키(Windows VM) 또는 DM 암호(Linux VM) 및 키 암호화 키에 대한 액세스를 허용합니다. 그러면 [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)이 설정됩니다.|
 |Azure Backup|Azure Virtual Machines를 백업하는 동안 [Azure Backup](../../backup/backup-introduction-to-azure-backup.md)을 사용하여 관련 키 및 비밀의 백업 및 복원을 허용합니다.|
 |Exchange Online 및 SharePoint Online|[고객 키](/microsoft-365/compliance/customer-key-overview)를 사용하여 Azure Storage 서비스 암호화를 위한 고객 키에 대한 액세스를 허용합니다.|
 |Azure Information Protection|[Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)을 위해 테넌트 키 액세스 허용|
 |Azure App Service|[Key Vault를 통해 Azure Web App 인증서를 배포합니다](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Azure SQL Database 및 Data Warehouse에 대한 BYOK(Bring Your Own Key) 지원을 사용하여 투명한 데이터 암호화](../../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
-|Azure Storage|[Azure Key Vault의 고객 관리 키를 사용하여 Storage 서비스 암호화](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Azure SQL Database|[Azure SQL Database 및 Data Warehouse에 대한 BYOK(Bring Your Own Key) 지원을 사용하여 투명한 데이터 암호화](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure Storage|[Azure Key Vault에서 고객 관리 키를 사용 하 여 저장소 서비스 암호화](../../storage/common/storage-service-encryption-customer-managed-keys.md)합니다.|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../../data-lake-store/data-lake-store-encryption.md).|
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](../../azure-databricks/what-is-azure-databricks.md)|
-|Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
+|Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure 데이터 팩터리|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-|Azure Import/Export| [Import/Export 서비스에 대 한 Azure Key Vault에서 고객이 관리 하는 키 사용](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
 |Azure Container Registry|[고객 관리 키를 사용 하는 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]

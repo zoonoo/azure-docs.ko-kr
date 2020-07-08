@@ -3,17 +3,17 @@ title: Azure Maps 그리기 오류 시각화 도우미 사용
 description: 이 문서에서는 Creator Conversion API에서 반환되는 경고 및 오류를 시각화하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791125"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Azure Maps 그리기 오류 시각화 도우미 사용
 
@@ -78,15 +78,15 @@ _VisualizationTool.zip_ 폴더의 압축을 풉니다. 여기에는 다음 항�
 
 그리기 오류 시각화 도우미 도구를 시작하면 업로드 페이지가 표시됩니다. 업로드 페이지에는 끌어서 놓기 상자가 포함됩니다. 끌어서 놓기 상자는 파일 탐색기 대화 상자를 시작하는 단추로도 작동합니다.
 
-![그리기 오류 시각화 도우미 앱 - 시작 페이지](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="그리기 오류 시각화 도우미 앱 - 시작 페이지":::
 
 _ConversionWarningsAndErrors.json_ 파일은 다운로드된 디렉터리의 루트에 배치되었습니다. _ConversionWarningsAndErrors.json_을 로드하려면 파일을 상자로 끌어서 놓거나 상자를 클릭하고 파일 탐색기 대화 상자에서 파일을 찾은 다음, 파일을 업로드할 수 있습니다.
 
-![그리기 오류 시각화 도우미 앱 - 끌어서 놓기로 데이터 로드](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="그리기 오류 시각화 도우미 앱 - 끌어서 놓기로 데이터 로드":::
 
-_ConversionWarningsAndErrors.json_ 파일이 로드되면 그리기 패키지 오류 및 경고 목록이 표시됩니다. 각 오류 또는 경고에는 레이어, 수준 및 자세한 메시지가 명시됩니다. 이제 각 오류로 이동하여 오류를 해결하는 방법에 대한 자세한 정보를 확인할 수 있습니다.  
+_ConversionWarningsAndErrors.json_ 파일이 로드되면 그리기 패키지 오류 및 경고 목록이 표시됩니다. 각 오류 또는 경고에는 레이어, 수준 및 자세한 메시지가 명시됩니다. 오류 또는 경고에 대 한 자세한 정보를 보려면 **세부 정보** 링크를 클릭 합니다. 그러면 intractable 섹션이 목록 아래에 표시 됩니다. 이제 각 오류로 이동하여 오류를 해결하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
 
-![그리기 오류 시각화 도우미 앱 - 오류 및 경고](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="그리기 오류 시각화 도우미 앱 - 오류 및 경고":::
 
 ## <a name="next-steps"></a>다음 단계
 

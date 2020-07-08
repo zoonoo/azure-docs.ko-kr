@@ -3,25 +3,25 @@ title: 사용자 지정 개발 애플리케이션에 로그인하는 문제 | Mi
 description: Azure AD를 사용 하 여 개발한 응용 프로그램에 로그인 할 수 없도록 하는 일반적인 오류
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a424129abf88c18500c96bd1889fc6dcce2ec6
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: cdfc2a39c6bd3b68df7feb978d2548ad67631235
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759133"
 ---
 # <a name="problems-signing-in-to-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 로그인 하는 문제
 

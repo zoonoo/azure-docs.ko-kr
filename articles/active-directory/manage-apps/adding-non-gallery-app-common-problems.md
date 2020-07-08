@@ -3,24 +3,24 @@ title: 비갤러리 애플리케이션을 추가할 때 발생하는 문제 | Mi
 description: 사용자 지정 비갤러리 애플리케이션을 추가할 때 일반적으로 발생하는 문제 이해
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: ce103ca6c958b0524d753da25c2a79aadfb7c8b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760289"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>비갤러리 애플리케이션을 추가할 때 발생하는 문제
 
@@ -96,7 +96,7 @@ ms.locfileid: "65784486"
 
 - **UPN** – 작업을 수행한 사용자
 
-  *  예 – **tperkins\@f128.info**
+  *  예 – **tperkins \@ f128.info**
 
 - **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 

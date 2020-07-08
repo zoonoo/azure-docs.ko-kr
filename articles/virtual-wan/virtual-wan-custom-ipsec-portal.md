@@ -4,15 +4,15 @@ description: 포털을 사용 하 여 Azure 가상 WAN에 대 한 사용자 지�
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: f37d7f3bfac37253339aab3493fb2c444900e099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ea4523d1558f6887e1aef344198026591dac617
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73515747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84752606"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>포털을 사용 하 여 가상 WAN에 대 한 사용자 지정 IPsec 정책 구성
 
@@ -31,7 +31,7 @@ Azure Portal에서 가상 WAN에 대 한 사용자 지정 IPsec 정책을 구성
 3. **VPN 연결을 편집**합니다. 상황에 **맞는 메뉴** **...에서** **VPN 연결 편집**을 선택 합니다.
 
    ![편집](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
-4. **설정을 구성**합니다. **VPN 연결 편집** 페이지에서 설정을 구성 합니다. **저장** 을 선택 하 여 설정을 저장 합니다.
+4. **설정을 구성**합니다. **VPN 연결 편집** 페이지에서 설정을 구성 합니다. **저장**을 선택하여 설정을 저장합니다.
 
    ![구성 및 저장](./media/virtual-wan-custom-ipsec-portal/edit.png)
 

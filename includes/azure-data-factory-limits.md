@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84754622"
 ---
 Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 되도록 하기 위해 다음과 같은 기본 제한이 적용 되는 다중 테 넌 트 서비스입니다. 구독에 대 한 최대 제한 값을 높이려면 지원 담당자에 게 문의 하세요.
 
@@ -46,7 +46,7 @@ Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 
 | 분당 모니터링 쿼리 | 1,000 | [지원 담당자에 게 문의 하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 분당 엔터티 CRUD 작업 | 50 | [지원 담당자에 게 문의 하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 데이터 흐름 디버그 세션의 최대 시간 | 8 시간 | 8 시간 |
-| 팩터리 당 동시 데이터 흐름 수 | 50 | [지원 담당자에 게 문의 하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| 통합 런타임 당 동시 데이터 흐름 수 | 50 | [지원 담당자에 게 문의 하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 사용자 당 팩터리 당 동시 데이터 흐름 디버그 세션 수 | 3 | 3 |
 | 데이터 흐름 Azure IR TTL 제한 | 4 시간 | [지원 담당자에 게 문의 하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
@@ -64,7 +64,7 @@ Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 
 
 ### <a name="version-1"></a>버전 1
 
-| **리소스** | **기본 제한** | **최대 제한** |
+| **리소스** | **기본 제한** | **최대 한도** |
 | --- | --- | --- |
 | 데이터 팩터리 내의 파이프라인sd |2,500 |[지원 담당자에 게 문의 하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 데이터 팩터리 내의 데이터 집합 |5,000 |[지원 담당자에 게 문의 하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

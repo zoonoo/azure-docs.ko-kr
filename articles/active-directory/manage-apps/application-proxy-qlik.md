@@ -3,23 +3,23 @@ title: Azure AD 앱 프록시 및 Qlik Sense | Microsoft Docs
 description: Azure Portal에서 애플리케이션 프록시를 설정하고 역방향 프록시에 커넥터를 설치합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760051"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>애플리케이션 프록시 및 Qlik Sense 
 Azure Active Directory 애플리케이션 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다.  
@@ -38,7 +38,7 @@ QlikSense를 게시하려면 Azure에서 두 개의 애플리케이션을 게시
 
 
 1. 전역 관리자 권한으로 Azure Portal에 로그인합니다. 
-2. **Azure Active Directory** > **엔터프라이즈 응용 프로그램**을 선택 합니다. 
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다. 
 3. 블레이드의 위쪽에서 **추가**를 선택합니다. 
 4. **온-프레미스 애플리케이션**을 선택합니다. 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 

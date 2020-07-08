@@ -3,24 +3,24 @@ title: Azure AD 갤러리 애플리케이션을 추가하는 문제 | Microsoft 
 description: Azure AD 갤러리 애플리케이션을 추가하는 경우 직면하는 일반적인 문제 및 문제를 해결하기 위해 수행할 수 있는 작업 이해
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4387a3ca02297311cd9ab025c315ca3324cbbbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65784435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760408"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션을 추가하는 문제
 
@@ -99,7 +99,7 @@ ms.locfileid: "65784435"
 
 - **UPN** – 작업을 수행한 사용자
 
-  -   예 – **tperkins\@f128.info**
+  -   예 – **tperkins \@ f128.info**
 
 - **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 

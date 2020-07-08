@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c7091592f8806b6f6655315ae1faace286c2c1f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78207694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805491"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Azure CLI를 사용 하 여 blob 또는 큐 데이터에 대 한 액세스 권한 부여
 
@@ -28,13 +28,13 @@ Azure Storage는 blob 또는 큐 데이터에 대해 작업 권한을 부여 하
 
 Blob 및 큐 데이터를 읽고 쓰기 위한 명령에는 선택적 `--auth-mode` 매개 변수가 포함 됩니다. Azure CLI 데이터 작업에 권한을 부여 하는 방법을 나타내려면이 매개 변수를 지정 합니다.
 
-- `--auth-mode` 매개 변수를로 `login` 설정 하 여 Azure AD 보안 주체를 사용 하 여 로그인 합니다 (권장).
-- 권한 부여 `--auth-mode` 에 사용할 계정 액세스 `key` 키를 검색 하려는 경우 매개 변수를 레거시 값으로 설정 합니다. `--auth-mode` 매개 변수를 생략 하는 경우에도 Azure CLI는 액세스 키를 검색 하려고 시도 합니다.
+- 매개 변수를로 설정 하 여 `--auth-mode` `login` Azure AD 보안 주체를 사용 하 여 로그인 합니다 (권장).
+- `--auth-mode` `key` 권한 부여에 사용할 계정 액세스 키를 검색 하려는 경우 매개 변수를 레거시 값으로 설정 합니다. 매개 변수를 생략 하는 경우에 `--auth-mode` 도 Azure CLI는 액세스 키를 검색 하려고 시도 합니다.
 
-`--auth-mode` 매개 변수를 사용 하려면 Azure CLI 버전 2.0.46 이상을 설치 했는지 확인 합니다. `az --version`을 실행하여 설치된 버전을 확인합니다.
+매개 변수를 사용 하려면 `--auth-mode` Azure CLI 버전 2.0.46 이상을 설치 했는지 확인 합니다. `az --version`을 실행하여 설치된 버전을 확인합니다.
 
 > [!IMPORTANT]
-> `--auth-mode` 매개 변수를 생략 하거나로 `key`설정 하는 경우 Azure CLI은 권한 부여를 위해 계정 액세스 키를 사용 하려고 시도 합니다. 이 경우 명령 또는 **AZURE_STORAGE_KEY** 환경 변수에 액세스 키를 제공 하는 것이 좋습니다. 환경 변수에 대 한 자세한 내용은 [권한 부여 매개 변수에 대 한 환경 변수 설정](#set-environment-variables-for-authorization-parameters)섹션을 참조 하세요.
+> 매개 변수를 생략 `--auth-mode` 하거나로 설정 하 `key` 는 경우 Azure CLI은 권한 부여를 위해 계정 액세스 키를 사용 하려고 시도 합니다. 이 경우 명령 또는 **AZURE_STORAGE_KEY** 환경 변수에 액세스 키를 제공 하는 것이 좋습니다. 환경 변수에 대 한 자세한 내용은 [권한 부여 매개 변수에 대 한 환경 변수 설정](#set-environment-variables-for-authorization-parameters)섹션을 참조 하세요.
 >
 > 액세스 키를 제공 하지 않으면 Azure CLI Azure Storage 리소스 공급자를 호출 하 여 각 작업에 대 한 검색을 수행 하려고 시도 합니다. 리소스 공급자를 호출 해야 하는 많은 데이터 작업을 수행 하면 제한이 발생할 수 있습니다. 리소스 공급자 제한에 대 한 자세한 내용은 [Azure Storage 리소스 공급자에 대 한 확장성 및 성능 목표](scalability-targets-resource-provider.md)를 참조 하세요.
 
@@ -54,12 +54,12 @@ Azure Storage 확장은 blob 및 큐 데이터의 작업에 대해 지원 됩니
 
 다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure CLI에서 컨테이너를 만드는 방법을 보여 줍니다. 컨테이너를 만들려면 Azure CLI에 로그인 해야 하며, 리소스 그룹 및 저장소 계정이 필요 합니다. 이러한 리소스를 만드는 방법을 알아보려면 [빠른 시작: Azure CLI을 사용 하 여 Blob 만들기, 다운로드 및 나열](../blobs/storage-quickstart-blobs-cli.md)을 참조 하세요.
 
-1. 컨테이너를 만들기 전에 [저장소 Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에 게 할당 합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
+1. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
 
     > [!IMPORTANT]
     > RBAC 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-1. `--auth-mode` 매개 변수가로 `login` 설정 된 [az storage container Create](/cli/azure/storage/container#az-storage-container-create) 명령을 호출 하 여 Azure AD 자격 증명을 사용 하 여 컨테이너를 만듭니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+1. 매개 변수가로 설정 된 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 호출 `--auth-mode` 하 여 `login` Azure AD 자격 증명을 사용 하 여 컨테이너를 만듭니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
     ```azurecli
     az storage container create \
@@ -72,7 +72,7 @@ Azure Storage 확장은 blob 및 큐 데이터의 작업에 대해 지원 됩니
 
 계정 키를 소유 하는 경우 모든 Azure Storage 데이터 작업을 호출할 수 있습니다. 일반적으로 계정 키를 사용 하는 것은 안전 하지 않습니다. 계정 키가 손상 되 면 계정에 있는 모든 데이터가 손상 될 수 있습니다.
 
-다음 예제에서는 계정 액세스 키를 사용 하 여 컨테이너를 만드는 방법을 보여 줍니다. 계정 키를 지정 하 고 다음 `--auth-mode` `key` 값으로 매개 변수를 제공 합니다.
+다음 예제에서는 계정 액세스 키를 사용 하 여 컨테이너를 만드는 방법을 보여 줍니다. 계정 키를 지정 하 고 `--auth-mode` 다음 값으로 매개 변수를 제공 합니다 `key` .
 
 ```azurecli
 az storage container create \
@@ -103,7 +103,7 @@ az storage container create \
 |    AZURE_STORAGE_KEY                  |    스토리지 계정 키입니다. 이 변수는 저장소 계정 이름과 함께 사용 해야 합니다.                                                                                                                                                                                                                                                                          |
 |    AZURE_STORAGE_CONNECTION_STRING    |    저장소 계정 키 또는 SAS 토큰을 포함 하는 연결 문자열입니다. 이 변수는 저장소 계정 이름과 함께 사용 해야 합니다.                                                                                                                                                                                                                       |
 |    AZURE_STORAGE_SAS_TOKEN            |    SAS (공유 액세스 서명) 토큰입니다. 이 변수는 저장소 계정 이름과 함께 사용 해야 합니다.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    명령을 실행할 때 사용 되는 권한 부여 모드입니다. 허용 되는 `login` 값은 (권장 `key`) 또는입니다. 을 지정 `login`하는 경우 Azure CLI는 Azure AD 자격 증명을 사용 하 여 데이터 작업에 권한을 부여 합니다. 레거시 `key` 모드를 지정 하는 경우 Azure CLI는 계정 액세스 키에 대 한 쿼리를 시도 하 고 키를 사용 하 여 명령에 권한을 부여 합니다.    |
+|    AZURE_STORAGE_AUTH_MODE            |    명령을 실행할 때 사용 되는 권한 부여 모드입니다. 허용 되는 값은 `login` (권장) 또는 `key` 입니다. 을 지정 하 `login` 는 경우 Azure CLI는 AZURE AD 자격 증명을 사용 하 여 데이터 작업에 권한을 부여 합니다. 레거시 모드를 지정 하는 경우 `key` Azure CLI는 계정 액세스 키에 대 한 쿼리를 시도 하 고 키를 사용 하 여 명령에 권한을 부여 합니다.    |
 
 ## <a name="next-steps"></a>다음 단계
 

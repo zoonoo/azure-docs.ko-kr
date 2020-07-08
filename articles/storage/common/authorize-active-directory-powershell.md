@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/30/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 373b939ac63f31ccaf6a9f01fac92920e19074ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80ca5b63a91da31a5b226a589e15fb202eabd4ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75553450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805767"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
 
@@ -33,7 +33,7 @@ Azure Storage 확장은 blob 및 큐 데이터의 작업에 대해 지원 됩니
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 사용 하 여 Azure Storage에 대해 후속 작업을 실행 하려면 저장소 계정을 참조 하는 저장소 `-UseConnectedAccount` 컨텍스트를 만들고 매개 변수를 포함 합니다.
+Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 사용 하 여 Azure Storage에 대해 후속 작업을 실행 하려면 저장소 계정을 참조 하는 저장소 컨텍스트를 만들고 `-UseConnectedAccount` 매개 변수를 포함 합니다.
 
 다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure PowerShell에서 새 저장소 계정으로 컨테이너를 만드는 방법을 보여 줍니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -62,13 +62,13 @@ Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 �
       -Location $location `
     ```
 
-1. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext)를 호출 하 여 새 저장소 계정을 지정 하는 저장소 계정 컨텍스트를 가져옵니다. 저장소 계정에서 동작 하는 경우 자격 증명을 반복 해 서 전달 하는 대신 컨텍스트를 참조할 수 있습니다. Azure AD `-UseConnectedAccount` 자격 증명을 사용 하 여 후속 데이터 작업을 호출 하는 매개 변수를 포함 합니다.
+1. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext)를 호출 하 여 새 저장소 계정을 지정 하는 저장소 계정 컨텍스트를 가져옵니다. 저장소 계정에서 동작 하는 경우 자격 증명을 반복 해 서 전달 하는 대신 컨텍스트를 참조할 수 있습니다. `-UseConnectedAccount`AZURE AD 자격 증명을 사용 하 여 후속 데이터 작업을 호출 하는 매개 변수를 포함 합니다.
 
     ```powershell
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 컨테이너를 만들기 전에 [저장소 Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에 게 할당 합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
+1. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
 
     > [!IMPORTANT]
     > RBAC 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.

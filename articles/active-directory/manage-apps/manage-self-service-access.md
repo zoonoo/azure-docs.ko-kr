@@ -3,24 +3,24 @@ title: 셀프 서비스 애플리케이션 할당을 구성하는 방법 | Micro
 description: 셀프 서비스 애플리케이션 액세스를 활성화하여 사용자가 자신의 애플리케이션을 찾을 수 있도록 함
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e09fd63ee6121ac9bf7f3c2be00f0ac22f752f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2a59343d4eafaa0e11f56636daa7471e748abf2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763145"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 애플리케이션 할당을 구성하는 방법
 
@@ -53,9 +53,9 @@ ms.locfileid: "81731700"
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 
-2. **Azure Active Directory**를 선택합니다. 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 선택 합니다.
+2. **Azure Active Directory**를 선택합니다. 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 선택합니다.
 
-3. 목록에서 응용 프로그램을 선택 합니다. 응용 프로그램이 표시 되지 않으면 검색 상자에 해당 이름을 입력 하기 시작 합니다. 또는 필터 컨트롤을 사용 하 여 응용 프로그램 종류, 상태 또는 표시 유형을 선택한 다음 **적용**을 선택 합니다.
+3. 목록에서 애플리케이션을 선택합니다. 애플리케이션이 표시되지 않으면 검색 상자에 해당 이름을 입력합니다. 또는 필터 컨트롤을 사용하여 애플리케이션 종류, 상태 또는 표시 유형을 선택한 다음, **적용**을 선택합니다.
 
 4. 왼쪽 탐색 메뉴에서 **셀프 서비스**를 선택 합니다.
 

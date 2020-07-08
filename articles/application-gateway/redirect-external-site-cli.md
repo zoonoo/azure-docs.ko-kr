@@ -4,15 +4,15 @@ description: Azure CLI를 사용하여 내부 웹 트래픽을 해당 풀로 리
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b671af46d34e3b45796186cd10282d060fa8c537
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74011604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804660"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 외부 리디렉션을 포함하는 애플리케이션 게이트웨이 만들기
 
@@ -60,7 +60,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-[Az network application-gateway create](/cli/azure/network/application-gateway) 를 사용 하 여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPAddress*에 할당됩니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPAddress*에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -88,7 +88,7 @@ az network application-gateway create \
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-[Az network application-게이트웨이 리디렉션-구성 만들기](/cli/azure/network/application-gateway/redirect-config)를 사용 하 여 *www\.consoto.org* 에서 *www\.contoso.com* 수신기로 응용 프로그램 게이트웨이에 트래픽을 보내는 리디렉션 구성을 추가 합니다.
+[Az network application-게이트웨이 리디렉션-구성 만들기](/cli/azure/network/application-gateway/redirect-config)를 사용 하 여 *www \. consoto.org* 에서 *www \. contoso.com* 수신기로 응용 프로그램 게이트웨이에 트래픽을 보내는 리디렉션 구성을 추가 합니다.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -132,7 +132,7 @@ az network application-gateway rule create \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 > * 네트워크 설정
 > * 수신기 및 리디렉션 규칙 만들기

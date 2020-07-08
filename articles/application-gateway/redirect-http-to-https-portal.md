@@ -4,15 +4,15 @@ description: Azure Portal을 사용하여 HTTP에서 HTTPS로 리디렉션된 �
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804343"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -215,7 +215,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 1. **myAppGateway**를 선택합니다.
 2. **개요** 페이지에서 **프런트 엔드 공용 IP 주소** 아래의 IP 주소를 기록해 둡니다.
 
-3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
+3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들면 http://52.170.203.149과 같습니다.
 
    ![보안 경고](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

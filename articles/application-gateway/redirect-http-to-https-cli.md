@@ -5,15 +5,15 @@ description: Azure CLI를 사용 하 여 응용 프로그램 게이트웨이를 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19bfaf611093f6ca178a627123d4d0f9c8ccf3ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312151"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804421"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -84,7 +84,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[Az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) 를 사용 하 여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
 
 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 이 예제에서는 애플리케이션 게이트웨이 만들 때 사용자가 만든 인증서 및 해당 암호를 연결합니다. 
 
@@ -224,7 +224,7 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기

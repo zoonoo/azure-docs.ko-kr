@@ -3,25 +3,25 @@ title: Kerberos 제한 위임 문제 해결-앱 프록시
 description: 애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760442"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -38,7 +38,7 @@ KCD를 사용하도록 설정하는 절차는 간단합니다. SSO를 지원하�
 - 서버 및 애플리케이션 호스트는 단일 Azure Active Directory 도메인에 상주합니다. 도메인 및 포리스트 간 시나리오에 대한 자세한 내용은 [KCD 백서](https://aka.ms/KCDPaper)를 참조하세요.
 - 주체 애플리케이션은 사전 인증을 사용하도록 설정하여 Azure 테넌트에 게시됩니다. 사용자는 양식 기반 인증을 통해 Azure에 인증해야 합니다. 리치 클라이언트 인증 시나리오는 이 문서에서 다루지 않습니다. 나중에 특정 시점에 추가될 수도 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환경에 배포할 수 있습니다. 아키텍처는 조직마다 다릅니다. KCD 관련 문제의 가장 일반적인 원인은 환경이 아닙니다. 대부분의 문제가 단순한 구성 오류나 일반적인 실수로 인해 발생합니다.
 

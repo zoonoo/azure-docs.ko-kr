@@ -1,24 +1,24 @@
 ---
 title: 변환된 모델에 대한 정보 가져오기
-description: 모든 모델 변환 매개 변수에 대 한 설명
+description: 모든 모델 변환 매개 변수에 대한 설명
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681520"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805003"
 ---
 # <a name="get-information-about-a-converted-model"></a>변환된 모델에 대한 정보 가져오기
 
-변환 서비스에 의해 생성 된 arrAsset 파일은 렌더링 서비스에서 사용 하기 위한 것입니다. 그러나 렌더링 세션을 시작 하지 않고 모델에 대 한 정보에 액세스 하려는 경우가 있을 수 있습니다. 따라서 변환 서비스는 출력 컨테이너의 arrAsset 파일 옆에 JSON 파일을 배치 합니다. 예를 들어 파일 `buggy.gltf` 을 변환 하는 경우 출력 컨테이너에는 변환 된 자산 `buggy.info.json` `buggy.arrAsset`옆에 이라는 파일이 포함 됩니다. 원본 모델, 변환 된 모델 및 변환 자체에 대 한 정보를 포함 합니다.
+변환 서비스에 의해 생성 된 arrAsset 파일은 렌더링 서비스에서 사용 하기 위한 것입니다. 그러나 렌더링 세션을 시작 하지 않고 모델에 대 한 정보에 액세스 하려는 경우가 있을 수 있습니다. 따라서 변환 서비스는 출력 컨테이너의 arrAsset 파일 옆에 JSON 파일을 배치 합니다. 예를 들어 파일을 변환 하는 경우 `buggy.gltf` 출력 컨테이너에는 변환 된 자산 옆에 이라는 파일이 포함 됩니다 `buggy.info.json` `buggy.arrAsset` . 원본 모델, 변환 된 모델 및 변환 자체에 대 한 정보를 포함 합니다.
 
 ## <a name="example-info-file"></a>예제 *정보* 파일
 
-다음은 라는 `buggy.gltf`파일을 변환 하 여 생성 된 *정보* 파일의 예입니다.
+다음은 라는 파일을 변환 하 여 생성 된 *정보* 파일의 예입니다 `buggy.gltf` .
 
 ```JSON
 {
@@ -100,7 +100,7 @@ ms.locfileid: "80681520"
 이 섹션에서는 원본 장면에 대 한 정보를 제공 합니다. 이 섹션의 값과 원본 모델을 만든 도구의 해당 값 사이에는 종종 차이가 있습니다. 이러한 차이는 내보내기 및 변환 단계에서 모델이 수정 되기 때문에 예상 됩니다.
 
 * `numMeshes`: 각 파트가 단일 자료를 참조할 수 있는 메시 파트의 수입니다.
-* `numFaces`: 전체 모델에 있는 _삼각형_ 의 총 수입니다. 변환 하는 동안 메시를 삼각 측정 합니다.
+* `numFaces`: 전체 모델에 있는 _삼각형_ 의 총 수입니다. 변환 하는 동안 메시를 삼각 측정 합니다. 이 숫자는 [표준 렌더링 VM 크기](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons)의 polygon 한도에 기여 합니다.
 * `numVertices`: 전체 모델의 총 꼭 짓 점 수입니다.
 * `numMaterial`: 전체 모델에 있는 총 자료 수입니다.
 * `numFacesSmallestMesh`: 모델의 가장 작은 메쉬의 삼각형의 수입니다.
@@ -120,9 +120,9 @@ ms.locfileid: "80681520"
 
 이 섹션에서는 변환 된 자산에서 계산 된 정보를 기록 합니다.
 
-* `numMeshPartsCreated`: ArrAsset의 메시 수입니다. 인스턴스는 변환 프로세스 `numMeshes` 의 영향 `inputStatistics` 을 받기 때문에 섹션과 다를 수 있습니다.
+* `numMeshPartsCreated`: ArrAsset의 메시 수입니다. `numMeshes` `inputStatistics` 인스턴스는 변환 프로세스의 영향을 받기 때문에 섹션과 다를 수 있습니다.
 * `numMeshPartsInstanced`: ArrAsset에서 재사용 되는 메시의 수입니다.
-* `recenteringOffset`: ConversionSettings의 `recenterToOrigin` 옵션을 사용 [ConversionSettings](configure-model-conversion.md) 하는 경우이 값은 변환 된 모델을 원래 위치로 다시 이동 하는 변환입니다.
+* `recenteringOffset`: `recenterToOrigin` [ConversionSettings](configure-model-conversion.md) 의 옵션을 사용 하는 경우이 값은 변환 된 모델을 원래 위치로 다시 이동 하는 변환입니다.
 * `boundingBox`: 모델의 범위입니다.
 
 ## <a name="next-steps"></a>다음 단계

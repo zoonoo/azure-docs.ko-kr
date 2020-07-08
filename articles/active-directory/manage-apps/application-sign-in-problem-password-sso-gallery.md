@@ -2,25 +2,25 @@
 title: SSO에 대해 구성 된 Azure AD 갤러리 앱에 로그인 하는 데 문제가 있습니다. | Microsoft Docs
 description: 암호 Single Sign-On 대해 구성 된 Azure AD 갤러리 응용 프로그램의 문제를 해결 하는 방법입니다.
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6eebde3a7c6163b7faf92be193fe442cd5b74d2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68381302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759116"
 ---
 # <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>SSO에 대해 구성 된 Azure AD 갤러리 앱의 로그인 문제
 
@@ -47,7 +47,7 @@ ms.locfileid: "68381302"
 
 ## <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. 지원 되는 브라우저에서 [액세스 패널](https://myapps.microsoft.com) 을 열고 Azure AD에서 사용자로 로그인 합니다.
 
@@ -95,7 +95,7 @@ Azure AD 갤러리에서 앱을 구성 하려면 다음 작업을 수행 해야 
 
 ### <a name="add-the-app-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 앱 추가
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com) 을 열고 전역 관리자 또는 공동 관리자 권한으로 로그인 합니다.
 
@@ -119,7 +119,7 @@ Azure AD 갤러리에서 앱을 구성 하려면 다음 작업을 수행 해야 
 
 ### <a name="configure-the-app-for-password-sso"></a>암호 SSO에 대 한 앱 구성
 
-다음 단계를 수행하세요.
+아래 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/) 을 열고 전역 관리자 또는 공동 관리자 권한으로 로그인 합니다.
 

@@ -3,8 +3,8 @@ title: 'Azure AD 응용 프로그램 프록시: 버전 릴리스 내역 | Micros
 description: 이 문서에서는 Azure AD 응용 프로그램 프록시의 모든 릴리스를 나열 하 고 새로운 기능 및 해결 된 문제에 대해 설명 합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2020
 ms.subservice: app-mgmt
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f027fbce66a73306165a0ad35d1ba3faa7a5c0bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760000"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 응용 프로그램 프록시: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 응용 프로그램 프록시를 정기적으로 업데이트 합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "80983894"
 
 다음은 관련 된 리소스 목록입니다.
 
-리소스 |  세부 정보
+리소스 |  설명
 --------- | --------- |
 응용 프로그램 프록시를 사용 하도록 설정 하는 방법 | 응용 프로그램 프록시를 사용 하도록 설정 하 고 커넥터를 설치 및 등록 하기 위한 필수 구성 요소는이 [자습서](application-proxy-add-on-premises-application.md)에 설명 되어 있습니다.
 Azure AD 애플리케이션 프록시 커넥터 이해 | [커넥터 관리](application-proxy-connectors.md) 및 커넥터 [자동 업그레이드](application-proxy-connectors.md#automatic-updates)방법에 대해 자세히 알아보세요.

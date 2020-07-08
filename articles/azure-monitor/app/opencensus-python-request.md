@@ -5,24 +5,25 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753201"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>OpenCensus Python을 사용 하 여 들어오는 요청 추적
 
-들어오는 요청 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 인기 있는 웹 프레임 워크 `django`를 `flask` 기반으로 하는 웹 응용 프로그램에 전송 된 들어오는 요청 데이터 `pyramid`를 추적 합니다. 그런 다음 데이터는 원격 분석으로 `requests` Azure Monitor Application Insights 전송 됩니다.
+들어오는 요청 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 인기 있는 웹 프레임 워크를 기반으로 하는 웹 응용 프로그램에 전송 된 들어오는 요청 데이터를 추적 `django` `flask` `pyramid` 합니다. 그런 다음 데이터는 원격 분석으로 Azure Monitor Application Insights 전송 됩니다 `requests` .
 
 먼저 최신 [OpenCensus PYTHON SDK](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
 
 ## <a name="tracking-django-applications"></a>Django 응용 프로그램 추적
 
-1. [Pypi](https://pypi.org/project/opencensus-ext-django/) 에서 다운로드 하 여 설치 `django` `opencensus-ext-django` 하 고 미들웨어를 사용 하 여 응용 프로그램을 계측 합니다. `django` 응용 프로그램에 전송 된 들어오는 요청이 추적 됩니다.
+1. `opencensus-ext-django` [Pypi](https://pypi.org/project/opencensus-ext-django/) 에서 다운로드 하 여 설치 하 고 미들웨어를 사용 하 여 응용 프로그램을 계측 `django` 합니다. 응용 프로그램에 전송 된 들어오는 요청이 `django` 추적 됩니다.
 
-2. 파일에를 포함 `opencensus.ext.django.middleware.OpencensusMiddleware` `MIDDLEWARE`합니다. `settings.py`
+2. `opencensus.ext.django.middleware.OpencensusMiddleware`파일에를 포함 `settings.py` `MIDDLEWARE` 합니다.
 
     ```python
     MIDDLEWARE = (
@@ -32,7 +33,7 @@ ms.locfileid: "77669950"
     )
     ```
 
-3. 에서 AzureExporter 올바르게 구성 `settings.py` 되어 있는지 확인 `OPENCENSUS`합니다.
+3. 에서 AzureExporter 올바르게 구성 되어 있는지 확인 `settings.py` `OPENCENSUS` 합니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS` 합니다.
 
     ```python
     OPENCENSUS = {
@@ -41,27 +42,14 @@ ms.locfileid: "77669950"
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. 추적 하지 않으려는 요청에 대해 `settings.py` 아래 `BLACKLIST_PATHS` 에 url을 추가할 수도 있습니다.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
 
 ## <a name="tracking-flask-applications"></a>Flask 응용 프로그램 추적
 
-1. [Pypi](https://pypi.org/project/opencensus-ext-flask/) 에서 다운로드 하 여 설치 `flask` `opencensus-ext-flask` 하 고 미들웨어를 사용 하 여 응용 프로그램을 계측 합니다. `flask` 응용 프로그램에 전송 된 들어오는 요청이 추적 됩니다.
+1. `opencensus-ext-flask` [Pypi](https://pypi.org/project/opencensus-ext-flask/) 에서 다운로드 하 여 설치 하 고 미들웨어를 사용 하 여 응용 프로그램을 계측 `flask` 합니다. 응용 프로그램에 전송 된 들어오는 요청이 `flask` 추적 됩니다.
 
     ```python
     
@@ -86,7 +74,7 @@ ms.locfileid: "77669950"
     
     ```
 
-2. 코드에서 미들웨어를 `flask` 직접 구성할 수 있습니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS`합니다.
+2. 를 통해 응용 프로그램을 구성할 수도 있습니다 `flask` `app.config` . 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS` 합니다.
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -102,7 +90,7 @@ ms.locfileid: "77669950"
 
 ## <a name="tracking-pyramid-applications"></a>피라미드 응용 프로그램 추적
 
-1. [Pypi](https://pypi.org/project/opencensus-ext-pyramid/) 에서 다운로드 하 여 설치 `pyramid` `opencensus-ext-django` 하 고 트윈으로 응용 프로그램을 계측 합니다. `pyramid` 응용 프로그램에 전송 된 들어오는 요청이 추적 됩니다.
+1. `opencensus-ext-django` [Pypi](https://pypi.org/project/opencensus-ext-pyramid/) 에서 다운로드 하 여 설치 하 고 트윈으로 응용 프로그램을 계측 `pyramid` 합니다. 응용 프로그램에 전송 된 들어오는 요청이 `pyramid` 추적 됩니다.
 
     ```python
     def main(global_config, **settings):
@@ -112,7 +100,7 @@ ms.locfileid: "77669950"
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. 코드에서 직접 `pyramid` 트윈을 구성할 수 있습니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS`합니다.
+2. `pyramid`코드에서 직접 트윈을 구성할 수 있습니다. 추적 하지 않으려는 url의 요청을에 추가 `BLACKLIST_PATHS` 합니다.
 
     ```python
     settings = {

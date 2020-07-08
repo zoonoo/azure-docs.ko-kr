@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: 518a1b01f52edcf5fa365e2275d4b995ffd719c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68721268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805180"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Azure Storage 연결 설정
-Azure 모듈 **은 azure storage 계정\_및\_** **\_\_** azure storage ACCESS_KEY 환경 변수를 읽고 azure storage 계정에 연결 하는 데 필요한 정보를 확인 합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService** 를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
+Azure 모듈 **은 azure storage 계정 및 azure storage \_ \_ ** ** \_ \_ ACCESS_KEY** 환경 변수를 읽고 azure storage 계정에 연결 하는 데 필요한 정보를 확인 합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService** 를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -86,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>다음 메시지를 보는 방법
-큐에서 메시지를 제거하지 않고도 **peek\_messages()** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **메시지 피킹\_()** 은 단일 메시지를 피킹합니다. 보려는 메시지의 수를 지정할 수도 있습니다.
+큐에서 메시지를 제거하지 않고도 **peek\_messages()** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **메시지 피킹 \_ ()** 은 단일 메시지를 피킹합니다. 보려는 메시지의 수를 지정할 수도 있습니다.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -99,7 +99,7 @@ result = azure_queue_service.peek_messages("test-queue",
 1. **list\_messages()** 를 호출하면 기본적으로 큐에서 다음 메시지를 가져옵니다. 가져오려는 메시지의 수를 지정할 수도 있습니다. **list\_messages()** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 표시 제한 시간(초 단위)을 매개 변수로 전달합니다.
 2. 큐에서 메시지 제거를 완료 하려면 **delete_message ()** 도 호출 해야 합니다.
 
-메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리 된 직후에 **delete\_message ()** 를 호출 합니다.
+메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리 된 직후에 **delete \_ message ()** 를 호출 합니다.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)

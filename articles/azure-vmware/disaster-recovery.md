@@ -3,18 +3,18 @@ title: 가상 컴퓨터의 재해 복구 완료
 description: 이 문서에서는 AVS를 사용 하 여 가상 머신의 재해 복구를 완료 하는 방법을 보여 줍니다.
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 86f823444d4fff3edf8651f4d949c71d2c981ec7
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749946"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Azure VMWare 솔루션을 사용 하 여 가상 머신의 재해 복구 완료
+# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Azure VMware 솔루션을 사용 하 여 가상 머신의 재해 복구 완료
 
-이 문서에는 VMWare 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하 고 Azure VMWare 솔루션 사설 클라우드를 복구 또는 대상 사이트로 사용 하 여 가상 머신의 재해 복구를 완료 하는 프로세스가 포함 되어 있습니다.
+이 문서에는 VMware 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하 고 Azure VMware 솔루션 사설 클라우드를 복구 또는 대상 사이트로 사용 하 여 가상 머신의 재해 복구를 완료 하는 프로세스가 포함 되어 있습니다.
 
-VMWare HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제공 하는 다양 한 작업을 제공 합니다. 사용 가능한 작업은 다음과 같습니다.
+VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제공 하는 다양 한 작업을 제공 합니다. 사용 가능한 작업은 다음과 같습니다.
 
 - 역방향 – 재해가 발생 한 후 역방향을 사용 하면 사이트 B가 원본 사이트 및 사이트 A를 사용 하 여 보호 된 VM이 유지 되도록 할 수 있습니다.
 
@@ -56,7 +56,7 @@ VMWare HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
 - **정지 사용:** VM을 일시 중지 하 여 일관 된 복사본이 원격 사이트와 동기화 되도록 합니다.
 
-- **대상 저장소:** 보호 된 VM에 대 한 원격 데이터 저장소를 선택 합니다. AVS 사설 클라우드에서이 선택 항목은 VSAN 데이터 저장소 여야 합니다.
+- **대상 저장소:** 보호 된 VM에 대 한 원격 데이터 저장소를 선택 합니다. AVS 사설 클라우드에서이 선택 항목은 vSAN 데이터 저장소 여야 합니다.
 
 - **계산 컨테이너:** 원격 vSphere 클러스터 또는 리소스 풀입니다.
 
@@ -144,7 +144,7 @@ AVS 사설 클라우드의 **Vsphere 클라이언트** 에 로그인 하 고 **h
 
 ## <a name="disaster-recovery-plan-automation"></a>재해 복구 계획 자동화
 
-VMWare HCX에는 현재 재해 복구 계획을 만들고 자동화 하는 메커니즘이 없습니다. 이 기능은 HCX에 존재 하지 않습니다. 그러나 재해 복구 작업을 위한 Api를 포함 하 여 일련의 REST Api를 제공 합니다.
+VMware HCX에는 현재 재해 복구 계획을 만들고 자동화 하는 메커니즘이 없습니다. 이 기능은 HCX에 존재 하지 않습니다. 그러나 재해 복구 작업을 위한 Api를 포함 하 여 일련의 REST Api를 제공 합니다.
 
 API 사양은 URL의 HCX Manager 내에서 액세스할 수 있습니다.
 

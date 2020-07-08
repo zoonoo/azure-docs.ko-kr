@@ -3,24 +3,24 @@ title: 비갤러리 애플리케이션에 대해 비갤러리 Single Sign-On 구
 description: Azure AD 애플리케이션 갤러리에 나열되지 않은 사용자 지정 SAML 애플리케이션에 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7894bfada4d363e89f526280e2925b4f4c6180a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84a8ee8ca29046d26d200aaf853a3efe25f15768
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76711884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763570"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 비갤러리 Single Sign-On 구성 문제
 
@@ -56,7 +56,7 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
-   * 여기에 표시 하려는 응용 프로그램이 표시 되지 않으면 **모든 응용 프로그램 목록** 의 맨 위에 있는 **필터** 컨트롤을 사용 하 고 **표시** 옵션을 **모든 응용 프로그램** 으로 설정 합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6. Single Sign-On을 구성한 애플리케이션을 선택합니다.
 

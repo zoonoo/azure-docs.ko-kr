@@ -5,12 +5,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 Azure 디스크로 영구적
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 9ac41b1738d1691f6547f508d1a38dec89b0bb79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751348"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -19,13 +19,13 @@ ms.locfileid: "82208145"
 > [!NOTE]
 > Azure 디스크는 *액세스 모드* 형식 *ReadWriteOnce*만 사용하여 탑재할 수 있으며, 이렇게 탑재한 디스크는 AKS의 한 Pod에서만 사용 가능합니다. 여러 Pod에서 영구 볼륨을 공유해야 하는 경우에는 [Azure Files][azure-files-pvc]를 사용하세요.
 
-Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][concepts-storage]을 참조 하세요.
+Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="built-in-storage-classes"></a>기본 제공 저장소 클래스
 
@@ -38,7 +38,11 @@ Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 
 * *managed-premium* 스토리지 클래스는 프리미엄 Azure 디스크를 프로비전합니다.
     * 프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. 클러스터의 AKS 노드가 Premium Storage를 사용하는 경우 *managed-premium* 클래스를 선택합니다.
     
-이러한 기본 저장소 클래스를 사용 하면 만든 볼륨 크기를 업데이트할 수 없습니다. 이 기능을 사용 하도록 설정 하려면 기본 저장소 클래스 중 하나에 *allowVolumeExpansion: true* 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만듭니다. `kubectl edit sc` 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다. 저장소 클래스에 대 한 자세한 내용 및 직접 만들기에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][storage-class-concepts]을 참조 하세요.
+기본 저장소 클래스 중 하나를 사용 하는 경우 저장소 클래스를 만든 후에는 볼륨 크기를 업데이트할 수 없습니다. 저장소 클래스를 만든 후 볼륨 크기를 업데이트 하려면 `allowVolumeExpansion: true` 기본 저장소 클래스 중 하나에 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만들 수 있습니다. 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다 `kubectl edit sc` . 
+
+예를 들어 크기가 4 TiB 디스크를 사용 하려는 경우 디스크 `cachingmode: None` [캐싱이 4 TiB 이상 디스크에 대해 지원 되지](../virtual-machines/windows/premium-storage-performance.md#disk-caching)않기 때문에을 정의 하는 저장소 클래스를 만들어야 합니다.
+
+저장소 클래스 및 사용자 고유의 저장소 클래스 만들기에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][storage-class-concepts]을 참조 하세요.
 
 [kubectl get sc][kubectl-get] 명령을 사용하여 미리 생성된 스토리지 클래스를 확인합니다. 다음 예제에서는 AKS 클러스터 내에서 사용할 수 있는 미리 생성된 스토리지 클래스를 보여 줍니다.
 
@@ -86,7 +90,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>영구적 볼륨 사용
 
-영구적 볼륨 클레임이 생성되고 디스크가 성공적으로 프로비전되면 디스크에 액세스하여 Pod를 만들 수 있습니다. 다음 매니페스트는 *azure-managed-disk*라는 영구적 볼륨 클레임을 사용하여 `/mnt/azure` 경로에 Azure 디스크를 탑재하는 기본 NGINX Pod를 만듭니다. Windows Server 컨테이너의 경우 *' d: '* 와 같은 windows 경로 규칙을 사용 하 여 *mountPath* 를 지정 합니다.
+영구적 볼륨 클레임이 생성되고 디스크가 성공적으로 프로비전되면 디스크에 액세스하여 Pod를 만들 수 있습니다. 다음 매니페스트는 *azure-managed-disk*라는 영구적 볼륨 클레임을 사용하여 `/mnt/azure` 경로에 Azure 디스크를 탑재하는 기본 NGINX Pod를 만듭니다. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath*를 지정합니다.
 
 파일 `azure-pvc-disk.yaml`을 만들고 다음 매니페스트에 복사합니다.
 
@@ -251,7 +255,7 @@ Volumes:
 
 ## <a name="next-steps"></a>다음 단계
 
-관련 모범 사례는 [AKS의 저장소 및 백업에 대 한 모범 사례][operator-best-practices-storage]를 참조 하세요.
+관련 모범 사례는 [AKS에서 스토리지 및 백업에 대한 모범 사례][operator-best-practices-storage]를 참조하세요.
 
 Azure 디스크를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알아봅니다.
 

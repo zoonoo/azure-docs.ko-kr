@@ -2,21 +2,22 @@
 title: 페이지의 링크가 애플리케이션 프록시 애플리케이션에서 작동하지 않습니다.
 description: Azure AD와 통합한 애플리케이션 프록시 애플리케이션에 대한 링크가 끊어지는 문제를 해결하는 방법
 services: active-directory
-author: msmimart
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760204"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>페이지의 링크가 애플리케이션 프록시 애플리케이션에서 작동하지 않습니다.
 
@@ -33,7 +34,7 @@ ms.locfileid: "75430236"
 
 1.  내부 URL이 애플리케이션의 모든 관련 링크를 포함하는 루트인지 확인합니다. 이렇게 하면 모든 링크를 동일한 애플리케이션 내에 게시된 콘텐츠로 해결할 수 있습니다.
 
-    내부 URL을 변경하지만 사용자의 방문 페이지를 변경하지 않으려는 경우 홈 페이지 URL을 이전에 게시된 내부 URL로 변경합니다. "Azure Active Directory"-&gt; 앱 등록으로 이동 하 여이 작업을 수행할&gt; 수 있습니다. 응용&gt; 프로그램 브랜딩을 선택 합니다. 브랜딩 섹션에는 원하는 방문 페이지로 조정할 수 있는 "홈페이지 URL" 필드가 표시 됩니다. 레거시 앱 등록 환경을 계속 사용 하는 경우 속성 탭에 "홈 페이지 URL" 정보가 표시 됩니다. 
+    내부 URL을 변경하지만 사용자의 방문 페이지를 변경하지 않으려는 경우 홈 페이지 URL을 이전에 게시된 내부 URL로 변경합니다. "Azure Active Directory"-앱 등록으로 이동 하 여이 작업을 수행할 수 있습니다 &gt; &gt; . 응용 프로그램 브랜딩을 선택 &gt; 합니다. 브랜딩 섹션에는 원하는 방문 페이지로 조정할 수 있는 "홈페이지 URL" 필드가 표시 됩니다. 레거시 앱 등록 환경을 계속 사용 하는 경우 속성 탭에 "홈 페이지 URL" 정보가 표시 됩니다. 
     
     > [!IMPORTANT]
     > 위의 변경 내용을 적용 하기 위해 Azure AD에서 응용 프로그램 개체를 수정 하는 데 필요한 권한이 필요 합니다. 사용자에 게 Azure AD에서 사용자에 게 응용 프로그램 modificaion 권한을 부여 하는 [응용 프로그램 관리자](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) 역할을 할당 받아야 합니다.

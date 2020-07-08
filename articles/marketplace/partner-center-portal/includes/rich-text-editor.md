@@ -5,14 +5,14 @@ author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: d11589e34ac24cafe57d38d0eef25a1b44576b7c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 744d7f49ee12e5f74eb2ae599d640ed658680c6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84752566"
 ---
 더 흡입력 있는 제품 설명을 작성하려면 서식 있는 텍스트 편집기를 사용하여 서식을 적용합니다.
 

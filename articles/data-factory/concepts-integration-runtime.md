@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753558"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -30,6 +30,8 @@ IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같�
 - **SSIS 패키지 실행**: SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
 
 Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  연결 된 서비스 또는 활동에서 참조 되며 활동이 실행 되거나 디스패치되는 계산 환경을 제공 합니다. 이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
+
+Integration runtime은 [관리 허브](author-management-hub.md) , 작업, 데이터 집합 또는이를 참조 하는 데이터 흐름을 통해 Azure Data Factory UX에서 만들 수 있습니다.
 
 ## <a name="integration-runtime-types"></a>통합 런타임 유형
 
@@ -57,7 +59,7 @@ Azure 통합 런타임은 다음과 같은 작업을 수행할 수 있습니다.
 
 - Azure에서 데이터 흐름 실행 
 - 클라우드 데이터 저장소 간에 복사 작업 실행
-- 공용 네트워크에서 다음과 같은 변환 작업을 디스패치 합니다. Databricks 노트북/Jar/Python 작업, hdinsight Hive 작업, hdinsight Pig 작업, hdinsight MapReduce 작업, HDInsight Spark 작업, HDInsight Streaming activity, Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업
+- 공용 네트워크에서 Databricks 노트북/Jar/Python 작업, hdinsight Hive 작업, hdinsight Pig 작업, hdinsight MapReduce 작업, HDInsight Spark 작업, hdinsight Streaming activity, Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업을 디스패치합니다.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
 
@@ -108,14 +110,14 @@ Azure SSIS IR은 공용 네트워크 또는 프라이빗 네트워크에서 프�
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Azure-SSIS IR 컴퓨팅 리소스 및 크기 조정
 
-Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM 클러스터입니다. 자신만의 Azure SQL Database 또는 Managed Instance 서버를 해당 서버에 연결할 SSIS 프로젝트/패키지(SSISDB)의 카탈로그를 호스트하게 만들 수 있습니다. 노드 크기를 지정하여 컴퓨팅 능력을 확장하고 클러스터의 노드 수를 지정하여 확장할 수 있습니다. Azure-SSIS 통합 런타임을 중단하고 적합해 보일 때 시작하여 그 실행 비용을 관리할 수 있습니다.
+Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM 클러스터입니다. SSIS 프로젝트/패키지 (SSISDB)의 카탈로그에 대해 사용자 고유의 Azure SQL Database 또는 SQL Managed Instance를 가져올 수 있습니다. 노드 크기를 지정하여 컴퓨팅 능력을 확장하고 클러스터의 노드 수를 지정하여 확장할 수 있습니다. Azure-SSIS 통합 런타임을 중단하고 적합해 보일 때 시작하여 그 실행 비용을 관리할 수 있습니다.
 
 자세한 내용은 방법 가이드 아래의 Azure-SSIS IR 만들기 및 구성 방법 문서를 참조하세요.  만든 후 SSIS 온-프레미스를 사용할 때와 마찬가지로 SSDT(SQL Server 데이터 도구) 및 SSMS(SQL Server Management Studio) 등 친숙한 도구를 사용하여 기존 SSIS 패키지를 조금만 변경하고 배포 및 관리할 수 있습니다.
 
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서에서는 Azure-SSIS IR을 만들고 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스트 하는 단계별 지침을 제공 합니다. 
-- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
+- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 하 고 SQL Managed Instance를 사용 하 고 IR을 가상 네트워크에 가입 하는 방법에 대 한 지침을 제공 합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
 - [Azure-SSIS IR을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서에서는 Azure-SSIS IR을 Azure 가상 네트워크에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 가상 네트워크에 조인할 수 있도록 가상 네트워크를 구성하는 단계도 제공합니다. 
@@ -161,9 +163,9 @@ UI 또는 작업 모니터링 페이로드에 대한 파이프라인 작업 모�
 
 Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플로에서 고성능을 달성하기 위해 필수적입니다.
 
-- Azure-SSIS IR 위치는 데이터 팩터리의 위치와 동일할 필요는 없지만 SSISDB를 호스팅할 Managed Instance 서버 또는 사용자 고유의 Azure SQL Database 위치와 동일 해야 합니다 (). 이러한 방식으로 Azure SSIS 통합 런타임은 서로 다른 위치 간에 과도한 트래픽을 초래하지 않고 SSISDB에 쉽게 액세스할 수 있습니다.
-- SSISDB를 호스트 하는 기존 Azure SQL Database 또는 Managed Instance 서버가 없지만 온-프레미스 데이터 원본/대상이 있는 경우 온-프레미스 네트워크에 연결 된 가상 네트워크와 동일한 위치에 새 Azure SQL Database 또는 Managed Instance 서버를 만들어야 합니다.  이러한 방식으로 새 Azure SQL Database 또는 Managed Instance 서버를 사용 하 여 Azure-SSIS IR를 만들고 해당 가상 네트워크를 동일한 위치에 조인 하 여 여러 위치에서 데이터 이동을 효과적으로 최소화할 수 있습니다.
-- SSISDB가 호스팅되는 기존 Azure SQL Database 또는 Managed Instance 서버의 위치가 온-프레미스 네트워크에 연결 된 가상 네트워크의 위치와 동일 하지 않은 경우 먼저 기존 Azure SQL Database 또는 Managed Instance 서버를 사용 하 여 Azure-SSIS IR를 만들고 동일한 위치의 다른 가상 네트워크를 조인한 다음 다른 위치 간의 가상 네트워크 연결로 가상 네트워크를 구성 합니다.
+- Azure-SSIS IR 위치는 데이터 팩터리의 위치와 동일할 필요는 없지만 SSISDB가 있는 Azure SQL Database 또는 SQL Managed Instance의 위치와 동일 해야 합니다. 이러한 방식으로 Azure SSIS 통합 런타임은 서로 다른 위치 간에 과도한 트래픽을 초래하지 않고 SSISDB에 쉽게 액세스할 수 있습니다.
+- 기존 SQL Database 또는 SQL Managed Instance 없지만 온-프레미스 데이터 원본/대상이 있는 경우 온-프레미스 네트워크에 연결 된 가상 네트워크의 동일한 위치에 새 Azure SQL Database 또는 SQL Managed Instance를 만들어야 합니다.  이러한 방식으로 새 Azure SQL Database 또는 SQL Managed Instance를 사용 하 여 Azure-SSIS IR를 만들고 해당 가상 네트워크를 동일한 위치에 조인 하 여 여러 위치에서 데이터 이동을 효과적으로 최소화할 수 있습니다.
+- 기존 Azure SQL Database 또는 SQL Managed Instance의 위치가 온-프레미스 네트워크에 연결 된 가상 네트워크의 위치와 동일 하지 않은 경우 먼저 기존 Azure SQL Database 또는 SQL Managed Instance을 사용 하 여 Azure-SSIS IR를 만든 다음 동일한 위치의 다른 가상 네트워크를 연결 하 고 다른 위치 간의 가상 네트워크 연결로 가상 네트워크를 구성 합니다.
 
 다음 다이어그램은 Data Factory 및 해당 통합 런타임의 위치를 보여 줍니다.
 
@@ -197,4 +199,4 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 
 - [Azure 통합 런타임 만들기](create-azure-integration-runtime.md)
 - [자체 호스팅 통합 런타임 만들기](create-self-hosted-integration-runtime.md)
-- [AZURE SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
+- [AZURE SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 하 고 SQL Managed Instance를 사용 하 고 IR을 가상 네트워크에 가입 하는 방법에 대 한 지침을 제공 합니다. 

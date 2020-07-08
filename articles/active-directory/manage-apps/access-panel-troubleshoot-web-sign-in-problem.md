@@ -3,25 +3,25 @@ title: 액세스 패널 웹 사이트에 로그인할 때 발생하는 문제 | 
 description: 액세스 패널을 사용하여 로그인하려고 하는 동안 발생할 수 있는 문제를 해결하기 위한 지침
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 4f2ad4db231c616b3022ecafc62b12d6d81b67fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760816"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>액세스 패널 웹 사이트에 로그인할 때 발생하는 문제
 
@@ -98,7 +98,7 @@ ms.locfileid: "65784317"
 
 사용자의 계정이 있는지를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "65784317"
 
 사용자의 계정 상태를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -136,7 +136,7 @@ ms.locfileid: "65784317"
 
 사용자의 암호를 다시 설정하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -168,7 +168,7 @@ ms.locfileid: "65784317"
 
 사용자의 Multi-Factor Authentication 상태를 확인하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -195,7 +195,7 @@ ms.locfileid: "65784317"
 
 Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정에 사용되는 사용자의 인증 연락처 정보를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -217,7 +217,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 그룹 구성원 자격을 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -235,7 +235,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -253,7 +253,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자에게 라이선스를 할당하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 

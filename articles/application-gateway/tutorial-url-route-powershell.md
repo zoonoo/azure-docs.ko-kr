@@ -4,16 +4,16 @@ description: Azure PowerShell을 사용하여 URL을 기반으로 웹 트래픽�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ca5c411db5644182f7e87f1ee1c63f3cbc4d2e9
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73200413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805988"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -422,11 +422,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-URL&lt;을 http://&gt;: 8080/images/test.htm로 변경 합니다. ip 주소는 ip 주소를 대체 &lt;&gt;하며 다음 예제와 같이 표시 됩니다.
+URL을 http://: 8080/images/test.htm로 변경 하 고 ip 주소를 ip 주소로 &lt; &gt; 바꿉니다 &lt; &gt; . 다음 예제와 같은 내용이 표시 됩니다.
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-URL&lt;을 http://&gt;: 8080/video/test.htm로 변경 합니다. ip 주소는 ip 주소를 대체 &lt;&gt;하며 다음 예제와 같이 표시 됩니다.
+URL을 http:// &lt; &gt; : 8080/video/test.htm로 변경 하 고 ip 주소를 ip 주소로 바꿉니다 &lt; &gt; . 다음 예제와 같은 내용이 표시 됩니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 

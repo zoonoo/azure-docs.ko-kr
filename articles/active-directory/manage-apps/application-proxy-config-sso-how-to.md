@@ -3,32 +3,32 @@ title: 응용 프로그램 프록시 앱에 Single Sign-On를 구성 하는 방�
 description: 애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 신속하게 구성하는 방법
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589b3e51f27147f0a0432b61c22a024c202e388b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb3d1d921be858531372130264e777f8c04a9328
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76712022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764947"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 구성하는 방법
 
 SSO(Single Sign-On)를 사용하면 사용자가 여러 번 인증하지 않고도 애플리케이션에 액세스할 수 있습니다. Azure Active Directory에 대해 클라우드에서 단일 인증을 허용하고 서비스 또는 커넥터가 사용자를 가장하여 애플리케이션에서 추가 인증 질문을 완료할 수 있습니다.
 
 ## <a name="how-to-configure-single-sign-on"></a>Single Sign-On을 구성하는 방법
-SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 통해 사전 인증할 수 있도록 구성되어 있는지 확인합니다. 이 구성을 수행 하려면 **Azure Active Directory**  - &gt; **엔터프라이즈 응용**  - &gt; **프로그램 모든**  - &gt; ** - 응용 프로그램 응용 프로그램 프록시로 이동 합니다. &gt; ** 이 페이지에서 "사전 인증" 필드가 표시되고 "Azure Active Directory"로 설정되어 있는지 확인합니다. 
+SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 통해 사전 인증할 수 있도록 구성되어 있는지 확인합니다. 이 구성을 수행 하려면 **Azure Active Directory**  - &gt; **엔터프라이즈 응용** 프로그램  - &gt; **모든**  - &gt; ** - &gt; **응용 프로그램 응용 프로그램 프록시로 이동 합니다. 이 페이지에서 "사전 인증" 필드가 표시되고 "Azure Active Directory"로 설정되어 있는지 확인합니다. 
 
 사전 인증 방법에 대한 자세한 내용은 [앱 게시 문서](application-proxy-add-on-premises-application.md)의 4단계를 참조하세요.
 

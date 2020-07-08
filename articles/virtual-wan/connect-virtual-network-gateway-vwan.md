@@ -4,15 +4,15 @@ description: 이 문서는 azure 가상 네트워크 게이트웨이를 Azure �
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 688183bc07aa14d5e5df182d7de0897cec93f0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5880f76ffd3a85d4b3cec8e01f58ae5c024a58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749688"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>가상 WAN에 VPN Gateway (가상 네트워크 게이트웨이) 연결
 
@@ -81,7 +81,7 @@ BGP ASN은 65515 일 수 없습니다. 66515는 Azure 가상 WAN에서 사용 �
 
 1. 가상 WAN **vpn 사이트** 페이지의 맨 위에서 **사이트**를 선택 하 고 **사이트 간 vpn 구성 다운로드**를 선택 합니다. Azure는 설정을 사용 하 여 구성 파일을 만듭니다.
 
-   ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/download.png "다운로드로 사용 가능한 제품 설명서에서 데이터 공급자 설치 섹션을 참조하세요")
+   ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/download.png "다운로드")
 2. 구성 파일을 다운로드 하 여 엽니다.
 3. 두 번째 사이트에 대해 이러한 단계를 반복 합니다. 두 구성 파일을 모두 연 후에는 다음 섹션으로 진행할 수 있습니다.
 
@@ -118,7 +118,7 @@ BGP ASN은 65515 일 수 없습니다. 66515는 Azure 가상 WAN에서 사용 �
 3. **확인** 을 클릭하여 연결을 만듭니다.
 4. 가상 네트워크 게이트웨이의 **연결** 페이지에서 연결을 볼 수 있습니다.
 
-   ![연결](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
+   ![연결](./media/connect-virtual-network-gateway-vwan/connect.png "연결")
 5. 이전 단계를 반복 하 여 두 번째 연결을 만듭니다. 두 번째 연결의 경우 만든 다른 로컬 네트워크 게이트웨이를 선택 합니다.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. 연결 테스트

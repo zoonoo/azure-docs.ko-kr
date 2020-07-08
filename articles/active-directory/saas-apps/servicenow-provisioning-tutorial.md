@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: da62efff5db5c71b087657b0eec93f8dd4702665
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751493"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -54,12 +54,19 @@ ms.locfileid: "83780521"
 
 1. ServiceNow 인스턴스 이름을 식별합니다. ServiceNow에 액세스하는 데 사용하는 URL에서 인스턴스 이름을 찾을 수 있습니다. 아래 예제에서 인스턴스 이름은 dev35214입니다.
 
-![ServiceNow 인스턴스](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![ServiceNow 인스턴스](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-    
 2. ServiceNow에서 관리자에 대한 자격 증명을 가져옵니다. ServiceNow의 사용자 프로필로 이동하여 사용자에게 관리자 역할이 있는지 확인합니다. 
 
-![ServiceNow 관리자 역할](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![ServiceNow 관리자 역할](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. ServiceNow에서 다음 설정이 **사용 되지** 않도록 설정 되어 있는지 확인 합니다.
+
+   1. **시스템 보안**  >  **높은 보안 설정**에서  >  **들어오는 스키마 요청에 대 한 기본 인증 필요를**선택 합니다.
+   2. **시스템 속성**  >  을 선택 합니다.**웹 서비스**  >  **는 들어오는 SOAP 요청에 대 한 기본 권한 부여가 필요**합니다.
+     
+   > [!IMPORTANT]
+   > 이러한 설정을 *사용*하는 경우 프로 비전 엔진은 ServiceNow와 통신 하지 못합니다.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 ServiceNow 추가
 
@@ -71,7 +78,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * ServiceNow에 사용자 및 그룹을 할당할 때 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
 
-* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 프로비저닝 범위가 할당된 사용자 및 그룹으로 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
+* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-servicenow"></a>5단계. ServiceNow에 대한 자동 사용자 프로비저닝 구성 
@@ -133,7 +140,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
+1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
@@ -142,6 +149,14 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * **EntryJoiningPropertyValueIsMissing:** [특성 매핑](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 검토하여 일치하는 특성을 식별합니다. 이 값이 프로비저닝하려는 사용자 또는 그룹에 있어야 합니다. 
 * [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html)를 검토하여 요구 사항 또는 제한 사항을 파악합니다(예: 사용자에 대한 국가 코드를 지정하는 형식).
 * 프로비저닝 요청은 기본적으로 https://{인스턴스 이름}.service-now.com/{테이블 이름}으로 전송됩니다. 사용자 지정 테넌트 URL이 필요한 경우 인스턴스 이름 필드에 전체 URL을 제공할 수 있습니다.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   이 오류는 ServiceNow 인스턴스와 통신 하는 데 문제가 있음을 나타냅니다. 다음 설정이 ServiceNow에서 *사용 하지 않도록* 설정 되었는지 확인 합니다.
+   
+   1. **시스템 보안**  >  **높은 보안 설정**에서  >  **들어오는 스키마 요청에 대 한 기본 인증 필요를**선택 합니다.
+   2. **시스템 속성**  >  을 선택 합니다.**웹 서비스**  >  **는 들어오는 SOAP 요청에 대 한 기본 권한 부여가 필요**합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

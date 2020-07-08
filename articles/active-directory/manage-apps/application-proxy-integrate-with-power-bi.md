@@ -3,25 +3,25 @@ title: Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI에 대 
 description: 온-프레미스 Power BI를 Azure AD 응용 프로그램 프록시와 통합 하는 방법에 대 한 기본 사항을 다룹니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/25/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6fab618280f1383e3840c67d85136edc095b9a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 68993a460ba3d6a672a27eb8da5ced85b29d3d12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764556"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 Power BI Mobile에 대한 원격 액세스 설정
 
@@ -50,7 +50,7 @@ SPN은 Kerberos 인증을 사용하는 서비스에 대한 고유한 식별자�
 
 ### <a name="enable-negotiate-authentication"></a>협상 인증 사용
 
-보고서 서버에서 Kerberos 인증을 사용 하도록 설정 하려면 보고서 서버의 인증 유형을 RSWindowsNegotiate으로 구성 합니다. Rsreportserver.config 파일을 사용 하 여이 설정을 구성 합니다.
+보고서 서버에서 Kerberos 인증을 사용 하도록 설정 하려면 보고서 서버의 인증 유형을 RSWindowsNegotiate으로 구성 합니다. rsreportserver.config 파일을 사용 하 여이 설정을 구성 합니다.
 
 ```xml
 <AuthenticationTypes>
@@ -69,23 +69,23 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
 1. 도메인 관리자로 도메인 컨트롤러에 로그인 하 고 **Active Directory 사용자 및 컴퓨터**를 엽니다.
 2. 커넥터가 실행 중인 컴퓨터를 찾습니다.
-3. 컴퓨터를 두 번 클릭 하 고 **위임** 탭을 선택 합니다.
-4. 위임 설정을 **지정 된 서비스에 대 한 위임용 으로만이 컴퓨터 트러스트**로 설정 합니다. 그런 다음 **모든 인증 프로토콜 사용**을 선택합니다.
-5. **추가**를 선택 하 고 **사용자 또는 컴퓨터**를 선택 합니다.
+3. 컴퓨터를 두 번 클릭한 후 **위임** 탭을 선택합니다.
+4. 위임 설정이 **지정된 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**로 설정되어 있는지 확인합니다. 그런 다음 **모든 인증 프로토콜 사용**을 선택 합니다.
+5. **추가**를 선택하고 **사용자 또는 컴퓨터**를 선택합니다.
 6. Reporting Services 하는 데 사용 하 고 있는 서비스 계정을 입력 합니다. Reporting Services 구성 내에서 SPN을 추가할 계정입니다.
-7. **확인**을 클릭합니다. 변경 내용을 저장 하려면 **확인** 을 다시 클릭 합니다.
+7. **확인**을 클릭합니다. 변경 내용을 저장하려면 **확인**을 다시 클릭합니다.
 
 자세한 내용은 [응용 프로그램 프록시를 사용 하 여 앱에 Single Sign-On에 대 한 Kerberos 제한 위임](application-proxy-configure-single-sign-on-with-kcd.md)을 참조 하세요.
 
 ## <a name="step-2-publish-report-services-through-azure-ad-application-proxy"></a>2 단계: Azure AD 응용 프로그램 프록시를 통해 보고서 서비스 게시
 
-이제 Azure AD 응용 프로그램 프록시를 구성할 준비가 되었습니다.
+이제 Azure AD 애플리케이션 프록시를 구성할 준비가 되었습니다.
 
-1. 다음 설정을 사용 하 여 응용 프로그램 프록시를 통해 보고서 서비스를 게시 합니다. 응용 프로그램 프록시를 통해 응용 프로그램을 게시 하는 방법에 대 한 단계별 지침은 [Azure AD 응용 프로그램 프록시를 사용 하 여 응용 프로그램 게시](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)를 참조 하세요.
-   - **내부 url**: 커넥터가 회사 네트워크에서 연결할 수 있는 보고서 서버의 URL을 입력 합니다. 커넥터가 설치 된 서버에서이 URL에 연결할 수 있는지 확인 합니다. 모범 사례는 응용 프로그램 프록시를 통해 게시 된 하위 경로의 `https://servername/` 문제를 방지 하기 위해와 같은 최상위 도메인을 사용 하는 것입니다. 예를 들어, `https://servername/` 또는 `https://servername/reportserver/`가 `https://servername/reports/` 아닌를 사용 합니다.
+1. 다음 설정을 사용 하 여 응용 프로그램 프록시를 통해 보고서 서비스를 게시 합니다. 애플리케이션 프록시를 통해 애플리케이션을 게시하는 방법에 대한 단계별 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)를 참조하세요.
+   - **내부 url**: 커넥터가 회사 네트워크에서 연결할 수 있는 보고서 서버의 URL을 입력 합니다. 커넥터가 설치된 서버에서 이 URL에 연결할 수 있는지 확인합니다. 애플리케이션 프록시를 통해 게시된 하위 경로 문제를 방지하기 위해 `https://servername/`과 같은 최상위 도메인을 사용하는 것이 가장 좋습니다. 예를 들어, `https://servername/`을 사용하고, `https://servername/reports/` 또는 `https://servername/reportserver/`는 사용하지 않습니다.
      > [!NOTE]
-     > 보고서 서버에 대 한 보안 HTTPS 연결을 사용 하는 것이 좋습니다. 방법에 대 한 자세한 내용은 [기본 모드 보고서 서버에서 SSL 연결 구성](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) 을 참조 하세요.
-   - **외부 url**: Power BI 모바일 앱이 연결할 공용 url을 입력 합니다. 예를 들어 사용자 지정 도메인을 `https://reports.contoso.com` 사용 하는 경우 처럼 보일 수 있습니다. 사용자 지정 도메인을 사용 하려면 해당 도메인에 대 한 인증서를 업로드 하 고, 응용 프로그램의 기본 msappproxy.net 도메인에 대 한 DNS 레코드를 가리킵니다. 자세한 단계는 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조 하세요.
+     > 보고서 서버에 대 한 보안 HTTPS 연결을 사용 하는 것이 좋습니다. 자세한 내용은 [기본 모드 보고서 서버에서 SSL 연결 구성](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017)을 참조하세요.
+   - **외부 url**: Power BI 모바일 앱이 연결할 공용 url을 입력 합니다. 예를 들어, 사용자 지정 도메인을 사용하는 경우 `https://reports.contoso.com`처럼 보일 수 있습니다. 사용자 지정 도메인을 사용하려면 해당 도메인에 대한 인증서를 업로드하고, DNS 레코드로 애플리케이션의 기본 msappproxy.net 도메인을 가리킵니다. 자세한 내용은 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조하세요.
 
    - **사전 인증 방법**: Azure Active Directory
 
@@ -93,11 +93,11 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
    a. 포털의 애플리케이션 페이지에서 **Single Sign-On**을 선택합니다.
 
-   b. **Single Sign-on 모드**의 경우 **Windows 통합 인증**을 선택 합니다.
+   b. **Single Sign-On 모드**로 **Windows 통합 인증**을 선택합니다.
 
-   c. **내부 응용 프로그램 SPN** 을 이전에 설정한 값으로 설정 합니다.
+   다. **내부 애플리케이션 SPN**을 이전에 설정한 값으로 설정합니다.
 
-   d. 커넥터에 대한 **위임된 로그인 ID**를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 id로 작업](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)을 참조 하세요.
+   d. 커넥터에 대한 **위임된 로그인 ID**를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 ID로 작업](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)을 참조하세요.
 
    e. **저장**을 클릭하여 변경 내용을 저장합니다.
 
@@ -107,10 +107,10 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
 Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하려면 2 단계에서 자동으로 만들어진 응용 프로그램 등록을 구성 해야 합니다.
 
-1. Azure Active Directory **개요** 페이지에서 **앱 등록**를 선택 합니다.
+1. Azure Active Directory **개요** 페이지에서 **앱 등록**을 선택합니다.
 2. **모든 응용 프로그램** 탭 아래에서 2 단계에서 만든 응용 프로그램을 검색 합니다.
-3. 응용 프로그램을 선택한 다음 **인증**을 선택 합니다.
-4. 사용 중인 플랫폼에 따라 다음 리디렉션 Uri를 추가 합니다.
+3. 해당 애플리케이션을 선택한 다음, **인증**을 선택합니다.
+4. 사용 중인 플랫폼에 따라 다음 리디렉션 URI를 추가합니다.
 
    **IOS**Power BI Mobile에 대 한 앱을 구성 하는 경우 공용 클라이언트 형식의 다음 리디렉션 Uri (모바일 & 데스크톱)를 추가 합니다.
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
@@ -125,7 +125,7 @@ Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하
    - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
-   > 응용 프로그램이 올바르게 작동 하려면 리디렉션 Uri를 추가 해야 합니다. IOS 및 Android Power BI Mobile 모두에 대해 앱을 구성 하는 경우, iOS `urn:ietf:wg:oauth:2.0:oob`에 대해 구성 된 리디렉션 uri 목록에 공용 클라이언트 (모바일 & 데스크톱) 형식의 다음 리디렉션 uri를 추가 합니다.
+   > 애플리케이션이 올바르게 작동하려면 리디렉션 URI를 추가해야 합니다. IOS 및 Android Power BI Mobile 모두에 대해 앱을 구성 하는 경우, iOS에 대해 구성 된 리디렉션 Uri 목록에 공용 클라이언트 (모바일 & 데스크톱) 형식의 다음 리디렉션 URI를 `urn:ietf:wg:oauth:2.0:oob` 추가 합니다.
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>4 단계: Power BI Mobile 앱에서 연결
 
@@ -135,7 +135,7 @@ Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하
 
 2. **연결**을 선택합니다. Azure Active Directory 로그인 페이지로 이동 합니다.
 
-3. 사용자에 대 한 올바른 자격 증명을 입력 하 고 **로그인**을 선택 합니다. Reporting Services 서버의 요소가 표시 됩니다.
+3. 사용자에 대한 올바른 자격 증명을 입력하고 **로그인**을 선택합니다. Reporting Services 서버의 요소가 표시 됩니다.
 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>5 단계: 관리 되는 장치에 대 한 Intune 정책 구성 (선택 사항)
 

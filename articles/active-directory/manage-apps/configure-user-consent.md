@@ -2,21 +2,21 @@
 title: Azure AD를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성
 description: 사용자가 조직의 데이터에 액세스할 수 있는 애플리케이션에 동의하는 방법 및 시기를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0a508e52189938447ea6fc1928d441d81deab392
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763468"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -49,7 +49,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 1. **애플리케이션에 대한 사용자 동의**에서 모든 사용자에 대해 구성할 동의 설정을 선택합니다.
 1. **저장**을 선택하여 설정을 저장합니다.
 
-![사용자 동의 설정](./media/configure-user-consent/setting-for-all-users.png)
+:::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="사용자 동의 설정":::
 
 > [!TIP]
 > 사용자 동의가 사용하지 않도록 설정된 경우 또는 애플리케이션이 사용자가 부여할 수 없는 권한을 요청하는 경우 등에 사용자가 동의할 수 없는 애플리케이션에 대한 검토 및 승인을 관리자에게 요청할 수 있도록 허용하려면 [관리자 동의 워크플로를 사용하도록 설정](configure-admin-consent-workflow.md)하는 것이 좋습니다.
@@ -102,7 +102,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 이 예에서는 Single Sign-On에 필요한 최소 권한 세트를 분류했습니다.
 
-![권한 분류](./media/configure-user-consent/permission-classifications.png)
+:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="권한 분류":::
 
 > [!TIP]
 > Microsoft Graph API의 경우 기본 Single Sign-On을 수행하는 데 필요한 최소 권한은 `openid`, `profile`, `User.Read` 및 `offline_access`입니다. 이러한 권한을 사용하면 앱에서 로그인한 사용자의 프로필 세부 정보를 읽을 수 있으며, 사용자가 더 이상 앱을 사용하지 않는 경우에도 이 액세스를 유지할 수 있습니다.
@@ -192,7 +192,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 이 예제에서 모든 그룹 소유자는 해당 그룹의 데이터에 액세스하는 앱에 동의할 수 있습니다.
 
-![권한 분류](./media/configure-user-consent/group-owner-consent.png)
+:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="그룹 소유자 동의 설정":::
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>PowerShell을 사용하여 그룹 소유자 동의 구성
 

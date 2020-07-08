@@ -3,22 +3,21 @@ title: Azure Active Directory를 사용하기 위해 애플리케이션 등록 |
 description: IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 애플리케이션 통합에 대한 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: mimart
-ms.custom: seohack1
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba54f8042c20a00f8d559ddce28e007a93afaace
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: f0c66c1fc9a9b93d5b4d3af0440ec3fdc276a9b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67108293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763417"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드는 Azure AD(Active Directory)에 대한 LoB(기간 업무) 애플리케이션 개발의 개요를 제공하며, Active Directory/Office 365 글로벌 관리자용으로 작성되었습니다.

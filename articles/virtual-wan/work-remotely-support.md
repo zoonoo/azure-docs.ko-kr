@@ -4,15 +4,15 @@ description: 이 페이지에서는 COVID-19 전염병로 인해 원격 작업�
 services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: ce212b5da90906966025674b58884d0e2f5bb064
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753777"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure 가상 WAN 및 원격 작업 지원
 
@@ -27,7 +27,7 @@ ms.locfileid: "80337138"
 사용자가 지역 간에 연결을 설정할 필요 없이 클라우드 리소스에 액세스할 수 있어야 하나요?
 이 글로벌 전염병는 미국에 대 한 전례 없는 변경 내용을 만들기 때문에 연결 요구에 맞게 Azure Virtual WAN 팀을 사용할 수 있습니다.
 
-Azure 가상 WAN은 여러 네트워킹, 보안 및 라우팅 기능을 결합 하 여 단일 운영 인터페이스를 제공 하는 네트워킹 서비스입니다. 이러한 기능에는 분기 연결 (SD WAN 또는 VPN CPE와 같은 가상 WAN 파트너 장치에서 연결 자동화를 통해), 사이트 간 VPN 연결, 원격 사용자 VPN (지점 및 사이트 간) 연결, 개인 (Express 경로) 연결, 클라우드 연결 (가상 네트워크에 대 한 전이적 연결), VPN Express 경로 상호 연결과, 라우팅, Azure 방화벽, 개인 연결용 암호화 등이 포함 됩니다. 가상 WAN 사용을 시작 하는 데 이러한 사용 사례가 모두 필요 하지는 않습니다. 사용 사례를 하나만 시작 하 고 진화 하는 대로 네트워크를 조정할 수 있습니다.
+Azure Virtual WAN은 많은 네트워킹, 보안 및 라우팅 기능을 결합하여 단일 운영 인터페이스를 제공하는 네트워킹 서비스입니다. 이러한 기능에는 분기 연결 (SD WAN 또는 VPN CPE와 같은 가상 WAN 파트너 장치에서 연결 자동화를 통해), 사이트 간 VPN 연결, 원격 사용자 VPN (지점 및 사이트 간) 연결, 개인 (Express 경로) 연결, 클라우드 연결 (가상 네트워크에 대 한 전이적 연결), VPN Express 경로 상호 연결과, 라우팅, Azure 방화벽, 개인 연결용 암호화 등이 포함 됩니다. 가상 WAN 사용을 시작 하는 데 이러한 사용 사례가 모두 필요 하지는 않습니다. 사용 사례를 하나만 시작 하 고 진화 하는 대로 네트워크를 조정할 수 있습니다.
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan1.png)
 
@@ -51,7 +51,7 @@ IPsec/IKE(IKEv2) 또는 OpenVPN 연결을 통해 Azure의 리소스에 연결할
 
 ## <a name="additional-information"></a><a name="other considerations"></a>추가 정보
 
-가상 WAN은 지역/위치 당 하나의 허브를 지원 합니다. 위치 정보는 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요. 각 허브는 최대 1만 개의 원격 사용자 연결, 1000 분기 연결, 4 개의 Express 경로 회로 및 최대 500 Virtual Network 연결을 지원 합니다. 원격 사용자를 확장할 때 질문이 있는 경우에는에 azurevirtualwan@microsoft.com전자 메일을 보내 도움을 주저 마세요. 기술 지원이 필요한 경우 Azure Portal에서 지원 티켓을 열어야 합니다 .이에 대 한 도움을 받을 수 있어야 합니다.
+가상 WAN은 지역/위치 당 하나의 허브를 지원 합니다. 위치 정보는 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요. 각 허브는 최대 1만 개의 원격 사용자 연결, 1000 분기 연결, 4 개의 Express 경로 회로 및 최대 500 Virtual Network 연결을 지원 합니다. 원격 사용자를 확장할 때 질문이 있는 경우에는에 전자 메일을 보내 도움을 주저 마세요 azurevirtualwan@microsoft.com . 기술 지원이 필요한 경우 Azure Portal에서 지원 티켓을 열어야 합니다 .이에 대 한 도움을 받을 수 있어야 합니다.
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 

@@ -7,17 +7,17 @@ author: adamabmsft
 manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ec9a4daad139a4930174ba9e3445e1cda1f8c54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764046"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -387,7 +387,7 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 
 ### <a name="template-representation-of-our-example-dashboard"></a>예제 대시보드의 템플릿 표현
 
-대시보드의 템플릿 버전은, `virtualMachineName` `virtualMachineResourceGroup`및 `dashboardName`라는 세 개의 매개 변수를 정의 했습니다.  매개 변수를 사용하면 배포할 때마다 다른 Azure 가상 컴퓨터에서 이 대시보드를 가리키도록 할 수 있습니다. Azure virtual machines를 가리키도록이 대시보드를 프로그래밍 방식으로 구성 하 고 배포할 수 있습니다. 이 기능을 테스트 하려면 다음 템플릿을 복사 하 여 [Azure Portal 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)에 붙여 넣습니다.
+대시보드의 템플릿 버전은, 및 라는 세 개의 매개 변수를 정의 했습니다 `virtualMachineName` `virtualMachineResourceGroup` `dashboardName` .  매개 변수를 사용하면 배포할 때마다 다른 Azure 가상 컴퓨터에서 이 대시보드를 가리키도록 할 수 있습니다. Azure virtual machines를 가리키도록이 대시보드를 프로그래밍 방식으로 구성 하 고 배포할 수 있습니다. 이 기능을 테스트 하려면 다음 템플릿을 복사 하 여 [Azure Portal 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)에 붙여 넣습니다.
 
 이 예에서는 자체적으로 대시보드를 배포하지만 템플릿 언어를 사용하면 여러 리소스를 배포하고 하나 이상의 대시보드를 함께 번들링할 수 있습니다.
 

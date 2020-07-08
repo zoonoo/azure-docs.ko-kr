@@ -4,15 +4,15 @@ description: 이 자습서에서는 Azure 가상 WAN을 사용 하 여 Express �
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: b1e6305d142530ab19849f61f12a122d0c6434aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749593"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
 
@@ -132,15 +132,15 @@ VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 I
 * **vpnSiteConfiguration**:이 섹션에서는 가상 WAN에 연결 하는 사이트로 설정 된 장치 세부 정보를 나타냅니다. 여기에는 분기 장치의 이름 및 공용 IP 주소가 포함 됩니다.
 * **vpnSiteConnections**:이 섹션에서는 다음 설정에 대 한 정보를 제공 합니다.
 
-    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예제:
+    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예:
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예제:
+    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예:
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 각 사이트에 `Instance0` 대해 `Instance1` 및를 확인 하 고 공용 IP 주소 대신 개인 ip 주소입니다.<br>예제:
+    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 `Instance0` `Instance1` 각 사이트에 대해 및를 확인 하 고 공용 ip 주소 대신 개인 ip 주소입니다.<br>예:
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"
@@ -231,7 +231,7 @@ Azure VM (가상 머신)과 원격 사이트 간의 통신을 모니터링 하�
 
 ## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. 리소스 정리
 
-이러한 리소스가 더 이상 필요 하지 않은 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 포함 된 모든 리소스를 제거할 수 있습니다. 다음 PowerShell 명령을 실행 하 고을 리소스 `myResourceGroup` 그룹의 이름으로 바꿉니다.
+이러한 리소스가 더 이상 필요 하지 않은 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 포함 된 모든 리소스를 제거할 수 있습니다. 다음 PowerShell 명령을 실행 하 고을 `myResourceGroup` 리소스 그룹의 이름으로 바꿉니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

@@ -5,17 +5,17 @@ services: azure-portal
 keywords: ''
 author: santhoshsomayajula
 ms.date: 01/29/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.author: mblythe
-ms.openlocfilehash: accdfbd939fad73ca7d008450c358d366e7f8b70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248c643c5f1865451abbe201e7033efedb8a7e39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76900770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763944"
 ---
 # <a name="export-or-delete-user-settings"></a>사용자 설정 내보내기 또는 삭제
 
@@ -33,7 +33,7 @@ Azure Portal의 설정 및 기능을 사용 하 여 사용자 지정 환경을 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 포털의 헤더에서 설정 아이콘 ![](media/azure-portal-export-delete-settings/settings-icon.png) **설정**을 선택 합니다.
+1. 포털의 헤더에서 ![ 설정 아이콘 ](media/azure-portal-export-delete-settings/settings-icon.png) **설정**을 선택 합니다.
 
 1. **모든 설정 내보내기** 또는 **모든 설정 및 프라이빗 대시보드 삭제**를 선택합니다.
 
@@ -41,7 +41,7 @@ Azure Portal의 설정 및 기능을 사용 하 여 사용자 지정 환경을 �
 
       다음 표에서는 이러한 작업을 설명 합니다.
 
-      | 작업 | Description |
+      | 작업 | 설명 |
       | --- | --- |
       | **모든 설정 내보내기** | 색 테마, 즐겨찾기, 개인 대시보드 등의 사용자 설정이 포함 된 *json* 파일을 만듭니다.|
       | **모든 설정 및 프라이빗 대시보드 삭제** | 개인 대시보드 및 포털에 대 한 기타 사용자 지정 설정에 대 한 모든 링크를 삭제 합니다. |

@@ -3,22 +3,22 @@ title: NDES 서버에서 AD 응용 프로그램 프록시와 통합
 titleSuffix: Azure Active Directory
 description: NDES 서버를 보호 하기 위해 Azure Active Directory 응용 프로그램 프록시를 배포 하는 방법에 대 한 지침입니다.
 services: active-directory
-author: CelesteDG
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/17/2020
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 4ccd8834671725ace72497391090f81eb197ad6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77032258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760799"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>NDES (네트워크 장치 등록 서비스) 서버에서 Azure AD 응용 프로그램 프록시와 통합
 
@@ -45,7 +45,7 @@ Azure AD 응용 프로그램 프록시은 Azure를 기반으로 합니다. DDOS 
 1. 서비스 약관을 참고하세요. 준비되면 **사용 약관 동의 및 다운로드**를 선택합니다.
 1. Azure AD 응용 프로그램 프록시 connector 설치 파일을 NDES 서버에 복사 합니다. 
    > NDES에 대 한 액세스 권한이 있는 회사 네트워크 내의 모든 서버에 커넥터를 설치할 수 있습니다. NDES 서버 자체에 설치할 필요는 없습니다.
-1. *Aadapplicationproxyconnectorinstaller.exe*와 같은 설치 파일을 실행 합니다. 소프트웨어 사용 조건에 동의합니다.
+1. *AADApplicationProxyConnectorInstaller.exe*와 같은 설치 파일을 실행 합니다. 소프트웨어 사용 조건에 동의합니다.
 1. 설치 하는 동안 Azure AD 디렉터리의 응용 프로그램 프록시를 사용 하 여 커넥터를 등록 하 라는 메시지가 표시 됩니다.
    * Azure AD 디렉터리에서 전역 또는 응용 프로그램 관리자에 대 한 자격 증명을 제공 합니다. Azure AD 전역 또는 응용 프로그램 관리자 자격 증명은 포털에서 Azure 자격 증명과 다를 수 있습니다.
 
@@ -56,7 +56,7 @@ Azure AD 응용 프로그램 프록시은 Azure를 기반으로 합니다. DDOS 
 
    * 커넥터를 설치 하는 서버에 대해 Internet Explorer 보안 강화 구성이 설정 된 경우 등록 화면이 차단 될 수 있습니다. 액세스를 허용 하려면 오류 메시지의 지침에 따라 설치 하는 동안 Internet Explorer 보안 강화를 해제 합니다.
    * 커넥터 등록이 실패 하는 경우 [응용 프로그램 프록시 문제 해결](application-proxy-troubleshoot.md)을 참조 하세요.
-1. 설정이 끝나면 아웃 바운드 프록시를 사용 하는 환경에 대 한 노트가 표시 됩니다. 아웃 바운드 프록시를 통해 작동 하도록 Azure AD 응용 프로그램 프록시 connector를 구성 하려면 제공 된 스크립트 (예:) `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`를 실행 합니다.
+1. 설정이 끝나면 아웃 바운드 프록시를 사용 하는 환경에 대 한 노트가 표시 됩니다. 아웃 바운드 프록시를 통해 작동 하도록 Azure AD 응용 프로그램 프록시 connector를 구성 하려면 제공 된 스크립트 (예:)를 실행 `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1` 합니다.
 1. 다음 예제와 같이 Azure Portal의 응용 프로그램 프록시 페이지에 새 커넥터가 *활성*상태로 나열 됩니다.
 
     ![Azure Portal에서 활성으로 표시 된 새 Azure AD 응용 프로그램 프록시 커넥터](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
@@ -83,7 +83,7 @@ Azure AD 응용 프로그램 프록시은 Azure를 기반으로 합니다. DDOS 
 
 1. 10 단계에서 복사한 링크를 브라우저에 붙여넣어 Azure AD 응용 프로그램 프록시를 통해 NDES 서버에 액세스할 수 있는지 테스트 합니다. 기본 IIS 시작 페이지가 표시 됩니다.
 
-1. 최종 테스트로 이전 단계에서 붙여넣은 기존 URL에 *mscep* 경로를 추가 합니다.
+1. 최종 테스트로 이전 단계에서 붙여넣은 기존 URL에 *mscep.dll* 경로를 추가 합니다.
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 

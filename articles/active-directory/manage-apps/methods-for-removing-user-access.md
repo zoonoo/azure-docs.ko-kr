@@ -3,24 +3,24 @@ title: 애플리케이션에 대한 사용자 액세스를 제거하는 방법 |
 description: 애플리케이션에 대한 사용자 액세스를 제거하는 방법 이해
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b69502995eff88df53af3671a8e611809f83e59
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 6f9626c256755e2fce81b593d95b8680f4bb55ee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65826110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763162"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>애플리케이션에 대한 사용자 액세스를 제거하는 방법
 
@@ -48,7 +48,7 @@ ms.locfileid: "65826110"
 
 5. 모든 **응용 프로그램을 클릭 하** 여 모든 응용 프로그램의 목록을 봅니다.
 
-   * 여기에 표시 하려는 응용 프로그램이 표시 되지 않으면 **모든 응용 프로그램 목록** 의 맨 위에 있는 **필터** 컨트롤을 사용 하 고 **표시** 옵션을 **모든 응용 프로그램** 으로 설정 합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6. 삭제하려는 애플리케이션을 선택합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "65826110"
 
 **전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화**하려면 다음 지침을 따릅니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  **Azure Active Directory 확장**을 엽니다. 
 
@@ -73,4 +73,4 @@ ms.locfileid: "65826110"
 
 ## <a name="next-steps"></a>다음 단계
 
-[앱에 대 한 액세스 관리](what-is-access-management.md)
+[앱에 대한 액세스 관리](what-is-access-management.md)

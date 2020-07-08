@@ -2,23 +2,23 @@
 title: Azure Active Directory 애플리케이션 프록시 및 Tableau | Microsoft Docs
 description: Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65783858"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764505"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
@@ -60,7 +60,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 
 
-    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. `https://adventure-works.tableau.com`)을 입력합니다. 
+    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com`. 
 
     - **사전 인증 방법**: Azure Active Directory(권장되지만 필수 아님)입니다. 
 

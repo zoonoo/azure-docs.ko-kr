@@ -3,8 +3,8 @@ title: 테넌트 제한을 사용하여 SaaS 앱에 대한 액세스 관리 - Az
 description: 테넌트 제한을 사용하여 Azure AD 테넌트를 기준으로 앱에 액세스할 수 있는 사용자를 관리하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763026"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -74,7 +74,7 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 헤더에는 다음 요소가 포함되어야 합니다.
 
-- *Restrict-Access-To-Tenants*의 경우 사용자가 액세스할 수 있도록 허용하려는 쉼표로 구분된 테넌트 목록인 \<허용되는 테넌트 목록\> 값을 사용합니다. 테넌트에 등록된 모든 도메인은 이 목록의 테넌트를 식별하는 데 사용할 수 있습니다. 예를 들어 Contoso 및 Fabrikam 테넌트 모두에 대한 액세스를 허용하기 위해 이름/값 쌍은 다음과 같이 지정됩니다.  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- *-테 넌 트에 대 한 액세스 제한*의 경우 \<permitted tenant list\> 사용자에 게 액세스를 허용 하려는 테 넌 트의 쉼표로 구분 된 목록 값을 사용 합니다. 테넌트에 등록된 모든 도메인은 이 목록의 테넌트를 식별하는 데 사용할 수 있습니다. 예를 들어 Contoso 및 Fabrikam 테넌트 모두에 대한 액세스를 허용하기 위해 이름/값 쌍은 다음과 같이 지정됩니다.  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - *Restrict-Access-Context*의 경우 테넌트 제한을 설정하는 테넌트를 선언하는 단일 디렉터리 ID 값을 사용합니다. 예를 들어 Contoso를 테넌트 제한 정책을 설정하는 테넌트로 선언하기 위해 이름/값 쌍이 다음과 같이 지정됩니다.  `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -155,7 +155,7 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
 
    1. Fiddler Web Debugger 도구에서 **Rules** 메뉴를 선택하고 **Customize Rules...** 를 선택하여 CustomRules 파일을 엽니다.
 
-   2. `OnBeforeRequest` 함수의 시작 부분에 다음 줄을 추가합니다. \<tenant domain\>을 테넌트에 등록된 도메인(예: `contoso.onmicrosoft.com`)으로 바꿉니다. \<directory ID\>를 테넌트의 Azure AD GUID 식별자로 바꿉니다.
+   2. `OnBeforeRequest` 함수의 시작 부분에 다음 줄을 추가합니다. \<tenant domain\>을 테 넌 트에 등록 된 도메인 (예:)으로 바꿉니다 `contoso.onmicrosoft.com` . \<directory ID\>을 테 넌 트의 AZURE AD GUID 식별자로 바꿉니다.
 
       ```JScript.NET
       if (

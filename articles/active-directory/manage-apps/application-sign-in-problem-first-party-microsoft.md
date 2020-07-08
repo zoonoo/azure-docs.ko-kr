@@ -3,25 +3,25 @@ title: Microsoft 애플리케이션에 로그인하는 문제 | Microsoft Docs
 description: Office 365와 같은 Azure AD를 사용하여 자사 Microsoft 애플리케이션에 로그인할 때 직면하는 일반적인 문제 해결
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67108308"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759286"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
@@ -31,9 +31,9 @@ ms.locfileid: "67108308"
 
 -   Office 365 또는 기타 유료 도구 모음에 있는 애플리케이션의 경우 사용자는 **라이선스 할당**을 통해 해당 사용자 계정으로 직접 액세스가 부여되거나 그룹 기반 라이선스 할당 기능을 사용하여 그룹을 통해 액세스가 부여됩니다.
 
--   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자는 **사용자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, Azure AD 회사 또는 학교 계정을 사용 하 여 응용 프로그램에 로그인 하 고 계정에서 제한 된 데이터 집합에 액세스할 수 있습니다.
+-   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자는 **사용자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 해당 Azure AD 회사 또는 학교 계정을 사용하여 애플리케이션에 로그인하고 해당 계정에 대한 일부 제한된 데이터 집합에 대한 액세스 권한을 가질 수 있습니다.
 
--   Microsoft 또는 타사에서 누구나 사용할 수 있도록 무료로 게시 하는 응용 프로그램의 경우 **관리자 동의**를 통해 액세스 권한이 부여 될 수도 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
+-   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자도 **관리자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
 
 문제를 해결하려면 [고려할 애플리케이션 액세스의 일반적인 문제 영역](#general-problem-areas-with-application-access-to-consider)으로 시작하고 연습: Microsoft 애플리케이션 액세스를 해결하는 단계를 읽고 세부 정보를 얻습니다.
 
@@ -117,7 +117,7 @@ ms.locfileid: "67108308"
 
 사용자의 계정이 있는지를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "67108308"
 
 사용자의 계정 상태를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -155,7 +155,7 @@ ms.locfileid: "67108308"
 
 사용자의 암호를 다시 설정하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -187,7 +187,7 @@ ms.locfileid: "67108308"
 
 사용자의 Multi-Factor Authentication 상태를 확인하려면 아래 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -211,7 +211,7 @@ ms.locfileid: "67108308"
 
 Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정에 사용되는 사용자의 인증 연락처 정보를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -233,7 +233,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 그룹 구성원 자격을 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -251,7 +251,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -269,7 +269,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 사용자에게 라이선스를 할당하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -309,7 +309,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹의 멤버 자격을 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -327,7 +327,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 동적 그룹의 구성원 자격 조건을 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -347,7 +347,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹의 할당된 라이선스를 확인하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -365,7 +365,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹의 할당된 라이선스를 다시 처리하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -390,7 +390,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 그룹에 라이선스를 할당하려면 다음 단계를 수행합니다.
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -423,7 +423,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 단일 조건부 액세스 정책을 확인 하거나 유효성을 검사 하려면:
 
-1. [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -446,7 +446,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 단일 응용 프로그램의 현재 구성 된 조건부 액세스 정책을 확인 하거나 유효성을 검사 하려면:
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -478,7 +478,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 단일 조건부 액세스 정책을 확인 하거나 유효성을 검사 하려면:
 
-1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한으로 로그인 합니다.**
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
