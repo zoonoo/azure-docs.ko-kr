@@ -3,12 +3,12 @@ title: Media 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 Media 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 02/25/2020
 ms.topic: sample
-ms.openlocfilehash: f4eb93d3e03b9a0e59a7d53304c19c371d42ea6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c107c49a5ab5ec8c64b2d2deadb2531e8a67f3a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201730"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042801"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Media 청사진 샘플 배포
 
@@ -98,7 +98,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록 |빈 배열(`[]`)을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다. |
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |Windows VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |
 |\[미리 보기\]: Media 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |VM을 구성해야 하는 Log Analytics 작업 영역 ID |VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다. |
-|\[미리 보기\]: Media 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다. |
+|\[미리 보기\]: Media 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다. |
 |\[미리 보기\]: Media 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |관리자 그룹 |그룹입니다. 예: `Administrator; myUser1; myUser2` |
 |\[미리 보기\]: Media 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: `Administrator; myUser1; myUser2` |
 |스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |영향 |정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다. |

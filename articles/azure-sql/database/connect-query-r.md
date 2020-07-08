@@ -14,12 +14,12 @@ ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7bfc00566ef24fb6d6851a7cdee402598fe15951
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: adc3cbd7b98d915a0b598227b459891cb0e0bfff
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052620"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042512"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>빠른 시작: Azure SQL Database Machine Learning Services(미리 보기)와 함께 R을 사용하여 데이터베이스 쿼리 
 
@@ -85,4 +85,3 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 - [Azure SQL Database에서 첫 번째 데이터베이스 디자인](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services(R 포함)](machine-learning-services-overview.md)
 - [Azure SQL Database Machine Learning Services(미리 보기)에서 간단한 R 스크립트 만들기 및 실행](r-script-create-quickstart.md)
-- [Machine Learning Services(미리 보기)를 사용하여 Azure SQL Database에서 고급 R 함수 작성](machine-learning-services-functions.md)

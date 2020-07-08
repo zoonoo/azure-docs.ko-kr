@@ -1,21 +1,21 @@
 ---
 title: 시계열 ID를 선택 하기 위한 모범 사례-Azure Time Series Insights | Microsoft Docs
 description: Azure Time Series Insights 미리 보기에서 시계열 ID를 선택할 때의 모범 사례에 대해 알아봅니다.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: shipramishra
+ms.author: shmishr
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 312bb9bac93ea30d01e1c3138709325ee1aa6173
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838725"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042172"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -37,9 +37,10 @@ ms.locfileid: "82838725"
 주요 모범 사례는 다음과 같습니다.
 
 * 고유 값이 많은 파티션 키를 선택 합니다 (예: 수백 또는 수천). 대부분의 경우 JSON의 장치 ID, 센서 ID 또는 태그 ID 일 수 있습니다.
-* 시계열 ID는 [시계열 모델](./time-series-insights-update-tsm.md)의 리프 노드 수준에서 고유해야 합니다.
+* 시계열 ID는 [시계열 모델](./concepts-model-overview.md)의 리프 노드 수준에서 고유해야 합니다.
 * 시계열 ID의 속성 이름 문자열에 대 한 문자 제한은 128입니다. 시계열 ID의 속성 값에 대 한 문자 제한은 1024입니다.
 * 시계열 ID의 고유한 속성 값이 누락 된 경우 null 값으로 처리 되 고 고유성 제약 조건의 동일한 규칙을 따릅니다.
+* 시계열 ID가 복잡 한 JSON 개체 내에 중첩 된 경우 속성 이름을 제공할 때 수신 [평면화 규칙](./concepts-json-flattening-escaping-rules.md) 을 따라야 합니다. 예제 [B](concepts-json-flattening-escaping-rules.md#example-b)를 확인 합니다. 
 * 시계열 ID로 최대 *세 개의* 키 속성을 선택할 수도 있습니다. 해당 조합은 시계열 ID를 나타내는 복합 키가 됩니다.  
   > [!NOTE]
   > 세 가지 주요 속성은 문자열 이어야 합니다.
@@ -75,12 +76,10 @@ ms.locfileid: "82838725"
 
 Azure Portal에서 다음과 같이 복합 키를 입력할 수 있습니다.
 
-```JSON
-[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
-```
+[![환경에 대한 시계열 ID를 구성합니다.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터 모델링](./time-series-insights-update-tsm.md)에 대해 자세히 알아보세요.
+* 이벤트를 저장 하는 방법을 이해 하려면 [JSON 평면화 및 이스케이프 규칙](./concepts-json-flattening-escaping-rules.md) 을 참조 하세요.
 
 * [Azure Time Series Insights 미리 보기 환경을](./time-series-insights-update-plan.md)계획 합니다.
