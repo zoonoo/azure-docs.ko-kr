@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid-토픽 또는 도메인에 대 한 진단 로그
 description: 이 문서에서는 Azure event grid 토픽 또는 도메인의 진단 로그에 대 한 개념 정보를 제공 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630253"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116746"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Azure Event Grid 토픽/도메인에 대 한 진단 로그
 진단 설정을 통해 사용자는 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역 중 하나에서 **게시 및 배달 오류** 로그를 캡처하고 볼 수 Event Grid 있습니다. 이 문서에서는 로그 및 예제 로그 항목에 대 한 스키마를 제공 합니다.

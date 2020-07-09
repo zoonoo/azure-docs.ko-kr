@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Database Migration Service를 사용하�
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: df818fa4106aec341607d8142b2a672699b8e9d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 587e50393102d1d7791f5ddac904d525f1af36a3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118259"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Azure Database for MySQL로 최소 가동 중지 시간 마이그레이션
 새로 도입된 [Azure Database Migration Service](https://aka.ms/get-dms)(DMS)에 대한 **지속적인 동기화 기능**을 사용하여 최소 가동 중지 시간으로 Azure Database for MySQL로 MySQL 마이그레이션을 수행할 수 있습니다. 이 기능은 애플리케이션에서 발생하는 가동 중지 시간을 제한합니다.

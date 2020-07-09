@@ -1,18 +1,16 @@
 ---
 title: 가상 컴퓨터 제품에 대 한 가격-Azure Marketplace
 description: 가상 컴퓨터 제품의 가격 책정을 지정 하는 세 가지 방법에 대해 설명 합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 2dc69299e69546da25e7e46cfc38b1f5741096fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516151"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115505"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 ==================================

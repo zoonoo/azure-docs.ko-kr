@@ -3,11 +3,12 @@ title: Azure Migrate Server 평가에서 종속성 분석
 description: Azure Migrate Server 평가를 사용 하 여 평가에 대 한 종속성 분석을 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771345"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118803"
 ---
 # <a name="dependency-analysis"></a>종속성 분석
 
@@ -74,7 +75,7 @@ ms.locfileid: "84771345"
 --- | --- | ---
 **지원** | VMware Vm에 대해서만 미리 보기 상태입니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 **에이전트** | 분석 하려는 컴퓨터에서 에이전트가 필요 하지 않습니다. | 분석 하려는 각 온-프레미스 컴퓨터에서 에이전트가 필요 합니다.
-**Log Analytics** | 필수 아님. | Azure Migrate는 종속성 분석을 위해 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 의 [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용 합니다. 
+**Log Analytics** | 필수 아님. | Azure Migrate는 종속성 분석을 위해 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용 합니다. 
 **Process** | TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 에이전트 서비스 맵는 TCP 프로세스에 대 한 데이터 및 각 프로세스에 대 한 인바운드/아웃 바운드 연결을 수집 합니다.
 **Data** | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 **시각화** | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/>  지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.
@@ -87,5 +88,3 @@ ms.locfileid: "84771345"
 - 에이전트 기반 종속성 시각화 [를 설정](how-to-create-group-machine-dependencies.md) 합니다.
 - VMware Vm에 대 한 에이전트 없는 종속성 시각화를 [사용해 보세요](how-to-create-group-machine-dependencies-agentless.md) .
 - 종속성 시각화에 대 한 [일반적인 질문](common-questions-discovery-assessment.md#what-is-dependency-visualization) 을 검토 합니다.
-
-

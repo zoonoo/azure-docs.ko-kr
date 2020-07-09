@@ -4,19 +4,20 @@ description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQ
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2be89f9263c71b7c9d7bc32edd0b1fc7cb2cfbce
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74763694"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118157"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Azure Portal에서 Azure Database for PostgreSQL 단일 서버 로그 구성 및 액세스
 
 Azure Portal에서 [Azure Database for PostgreSQL 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 단계를 수행 하려면 [Azure Database for PostgreSQL 서버가](quickstart-create-server-database-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성

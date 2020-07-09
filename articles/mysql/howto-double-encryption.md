@@ -4,20 +4,20 @@ description: Azure Database for MySQL에 대 한 인프라 이중 암호화를 �
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 4623791e19ec83446b2978105286b71e6ff1eb1c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d3076f2591718931bdab4dba9510d25fe07b2d02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118763"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 인프라 이중 암호화
 
 Azure Database for MySQL에 대 한 인프라를 설정 하 고 관리 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 

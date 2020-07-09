@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: f69301bdbc0af9334858940fbfd3d7d0a0a63153
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807638"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118422"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced threat protection 구성
 
@@ -23,28 +23,19 @@ Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액�
 
 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합 되며, 의심 스러운 활동 및 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 구독 관리자에 게 전자 메일을 통해 전송 됩니다.
 
-서비스 수집에 대 한 읽기, 쓰기 및 삭제 요청에 대 한 리소스 로그는 위협 검색에 대 한 Blob Storage 합니다. Advanced threat protection에서 경고를 조사 하려면 스토리지 분석 로깅을 사용 하 여 관련 저장소 작업을 볼 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md#configure-logging)의 **로깅 구성** 을 참조 하세요.
+Service 수집는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청 및 위협 검색을 위한 Azure Files (미리 보기)에 대 한 리소스 로그를 기록 합니다. Advanced threat protection에서 경고를 조사 하려면 스토리지 분석 로깅을 사용 하 여 관련 저장소 작업을 볼 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md#configure-logging)의 **로깅 구성** 을 참조 하세요.
 
 ## <a name="availability"></a>가용성
 
-Azure Storage용 Advanced Threat Protection은 현재 [Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에만 사용할 수 있습니다. 고급 위협 방지를 지 원하는 계정 유형에는 범용 v2, 블록 blob 및 Blob 저장소 계정이 있습니다. Advanced threat protection은 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
+Azure Storage에 대 한 Advanced threat protection은 현재 Blob Storage, Azure Files (미리 보기) 및 Azure Data Lake Storage Gen2 (미리 보기)에 사용할 수 있습니다. 고급 위협 방지를 지 원하는 계정 유형에는 범용 v2, 블록 blob 및 Blob 저장소 계정이 있습니다. Advanced threat protection은 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure Government 클라우드 지역에서는 사용할 수 없습니다.
+
+Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 설정 된 계정은 Azure Blob 저장소 Api와 Data Lake Storage Api를 모두 사용 하 여 트랜잭션을 지원 합니다. Azure 파일 공유는 SMB를 통한 트랜잭션을 지원 합니다.
 
 무료 30 일 평가판을 비롯 한 가격 정보는 [Azure Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
-
 
 ## <a name="set-up-advanced-threat-protection"></a>Advanced threat protection 설정
 
 다음 섹션에서 설명하는 여러 가지 방법으로 지능형 위협 방지를 구성할 수 있습니다.
-
-### <a name="portal"></a>[포털](#tab/azure-portal)
-
-1. [Azure Portal](https://portal.azure.com/)를 시작 합니다.
-1. Azure Storage 계정으로 이동 합니다. **설정**아래에서 **고급 보안**을 선택 합니다.
-1. 고급 보안 구성 페이지에서 **설정** 링크를 선택 합니다.
-1. **고급 보안** 을 **켜기**로 설정 합니다.
-1. **저장** 을 클릭 하 여 새로운 또는 업데이트 된 정책을 저장 합니다.
-
-    ![Azure Storage Advanced Threat Protection 켜기](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
@@ -61,6 +52,16 @@ Azure Security Center 표준 계층을 구독할 때 advanced threat protection�
 
     ![Security Center에서 ATP 사용](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. **저장**을 클릭합니다.
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
+1. [Azure Portal](https://portal.azure.com/)를 시작 합니다.
+1. Azure Storage 계정으로 이동 합니다. **설정**아래에서 **고급 보안**을 선택 합니다.
+1. 고급 보안 구성 페이지에서 **설정** 링크를 선택 합니다.
+1. **고급 보안** 을 **켜기**로 설정 합니다.
+1. **저장** 을 클릭 하 여 새로운 또는 업데이트 된 정책을 저장 합니다.
+
+    ![Azure Storage Advanced Threat Protection 켜기](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="template"></a>[템플릿](#tab/template)
 

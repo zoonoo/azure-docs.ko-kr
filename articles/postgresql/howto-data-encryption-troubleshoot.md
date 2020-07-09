@@ -4,13 +4,14 @@ description: Azure Database for PostgreSQL-단일 서버에서 데이터 암호�
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: 2902ff17ac14a48f1a11259339c2ab1bc4595980
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee0a1ebe483dd4719fd1a84fec37906329116eba
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79299263"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117902"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 데이터 암호화 문제 해결-단일 서버
 

@@ -4,13 +4,14 @@ description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에�
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4c2051a3f52ae363d8dc704aef790d8ce77efbd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74770172"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116202"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 쿼리 통계 수집 최적화
 이 문서에서는 Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.

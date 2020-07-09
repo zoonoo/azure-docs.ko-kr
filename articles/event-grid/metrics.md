@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid에서 지 원하는 메트릭
 description: 이 문서에서는 Azure Event Grid 서비스에서 지 원하는 Azure Monitor 메트릭을 제공 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 643df2f4cc6347e0fd56f9124b68f1888ab85e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 3b22beafc9f88d2d95b25fd7ad2f2308a4df9097
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116423"
 ---
 # <a name="metrics-supported-by-azure-event-grid"></a>Azure Event Grid에서 지 원하는 메트릭
 이 문서에서는 네임 스페이스로 분류 된 Event Grid 메트릭의 목록을 제공 합니다. 

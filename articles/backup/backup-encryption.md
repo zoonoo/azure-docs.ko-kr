@@ -3,12 +3,12 @@ title: Azure Backup 암호화
 description: Azure Backup의 암호화 기능을 통해 백업 데이터를 보호 하 고 비즈니스의 보안 요구 사항을 충족 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0a3f4db4d248d2534cfebd617be0f3ccc9647f15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807723"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116559"
 ---
 # <a name="encryption-in-azure-backup"></a>Azure Backup 암호화
 
@@ -32,6 +32,13 @@ Azure Virtual Machines를 백업할 때 이제 사용자가 소유 하 고 관�
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 된 관리 디스크 Vm 백업
 
 또한 Azure Backup를 사용 하면 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 위해 키를 사용 하는 Azure vm을 백업할 수 있습니다. 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. ADE는 고객 관리 키를 사용 하는 저장소 서비스 암호화 Azure Disk Encryption와 다릅니다. 즉, ADE는 BitLocker (Windows 용) 및 DM (Linux)을 활용 하 여 게스트 간 암호화를 수행 하므로 SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다. 자세한 내용은 [고객 관리 키를 사용 하 여 관리 디스크 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) 를 참조 하세요.
+
+## <a name="infrastructure-level-encryption-for-backup-data"></a>백업 데이터에 대 한 인프라 수준 암호화
+
+고객 관리 키를 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 암호화 하는 것 외에도 저장소 인프라에 추가 암호화 계층을 구성 하도록 선택할 수 있습니다. 이 인프라 암호화는 플랫폼에 의해 관리 되며, 고객이 관리 하는 키를 사용 하 여 미사용 암호화와 함께 백업 데이터의 2 계층 암호화를 허용 합니다. 미사용 암호화에 고유한 키를 사용 하도록 처음 선택 하는 경우에만 인프라 암호화를 구성할 수 있습니다. 인프라 암호화는 플랫폼 관리 키를 사용 하 여 데이터를 암호화 합니다.
+
+>[!NOTE]
+>인프라 암호화는 현재 제한 된 미리 보기로 제공 되며 미국 동부, 미국 West2 및 미국 남부 중부 지역 에서만 사용할 수 있습니다. 이러한 지역에서이 기능을 사용 하려면 [이 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) 작성 하 고에 전자 메일을 보내 주세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>ADE를 사용 하 여 암호화 된 Vm 백업
 

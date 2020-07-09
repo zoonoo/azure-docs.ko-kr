@@ -1,18 +1,16 @@
 ---
 title: 특정 제품 API 검색-Azure Marketplace
 description: 게시자 네임 스페이스 내에서 지정 된 제품을 검색 하는 API입니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: 771c103b535c09f8481c2b01328078504b8633aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4bbe133d8b223bf717597467336eb486f432380
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515952"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115539"
 ---
 <a name="retrieve-a-specific-offer"></a>특정 제안 검색
 =========================

@@ -1,18 +1,18 @@
 ---
 title: 목록에 제품 추가 모범 사례 - Microsoft 상업용 Marketplace
 description: Microsoft AppSource 및 Azure Marketplace 제품에 대한 시장 진출 목록 등재 모범 사례에 대해 알아봅니다.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027072"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118395"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -31,7 +31,7 @@ ms.locfileid: "86027072"
 
 다른 storefront에 대 한 범주와 산업은 다양 한 제품 유형에 적용 됩니다.
 
-|  | **<br>Storefront 별 범주** |  | **<br>AppSource에 대 한 산업** |
+| 상점 | 범주 <br>Storefront | 범주 <br>Storefront | 산업 <br> AppSource의 경우 |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **제안 유형**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure 앱 | X | |
@@ -144,7 +144,7 @@ Microsoft AppSource 및 Azure Marketplace는 고유한 고객 요구 사항을 �
 
 Marketplace 고객이 제품을 보고 구매할 수 있는 방법에 대 한 자세한 내용은 [제품 유형별 가이드](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) 를 참조 하세요. SaaS 제품의 경우 제품의 트랜잭션 기능 및 범주 선택은 제품이 게시 될 storefront을 결정 합니다.
 
-| SaaS 제안    |     |          |           |    |    |     | 적용 가능한 Storefront |              |
+| SaaS 제안    | SaaS 제안   | SaaS 제안  | SaaS 제안   | SaaS 제안   | SaaS 제안   | SaaS 제안    | 적용 가능한 Storefront | 적용 가능한 Storefront |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | 요금제 청구 | 추가 기능 Microsoft 365 | 연락처 | Transact-sql (계획 1 개 이상) | 전용 요금제 | 공용 전용 계획 | 공용 & 개인 계획 | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |

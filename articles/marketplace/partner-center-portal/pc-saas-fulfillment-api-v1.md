@@ -1,17 +1,16 @@
 ---
 title: SaaS 행 Api v1 | Azure Marketplace
 description: 관련 된 처리 v1 Api를 사용 하 여 Azure Marketplace에서 SaaS 제품을 만들고 관리 하는 방법을 설명 합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/04/2020
-ms.author: dsindona
-ms.openlocfilehash: 01ee0d6a0870cd4f212fc9d50dfe83e55c539af3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f25537953fd33c875aea23592d4526d6f07828d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711122"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118378"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS 행 Api 버전 1 (사용 되지 않음)
 

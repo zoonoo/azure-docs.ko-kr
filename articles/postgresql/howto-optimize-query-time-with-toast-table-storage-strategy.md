@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에�
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1fa0affb821b00d4f5529841533e854e634377
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65066996"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116185"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>TOAST 테이블 스토리지 전략으로 쿼리 시간 최적화 
 이 문서에서는 TOAST(너무 큰 특성 스토리지 기술) 테이블 스토리지 전략을 사용하여 쿼리 시간을 최적화하는 방법을 설명합니다.

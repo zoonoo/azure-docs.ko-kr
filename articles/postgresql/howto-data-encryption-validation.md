@@ -4,14 +4,14 @@ description: 고객 관리 키를 사용 하 여 Azure Database for PostgreSQL �
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515470"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117851"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 데이터 암호화 유효성 검사
 

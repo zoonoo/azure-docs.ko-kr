@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8bf887b8d86131e0b358056fc1744a8d144be3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584104"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117035"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 메트릭에 대 한 경고를 설정 합니다.
 

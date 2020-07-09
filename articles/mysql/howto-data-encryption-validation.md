@@ -4,14 +4,14 @@ description: 고객 관리 키를 사용 하 여 Azure Database for MySQL 데이
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: ee80f50e925bf4545f885d701e70bc21208f1d1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515405"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118531"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 데이터 암호화 유효성 검사
 

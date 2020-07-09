@@ -7,19 +7,19 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 3fbb27c92b6befde04a55bac82edf4256a94088c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25b84646bd6a95f0409184cccd40c6b7c9a0ef7f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551112"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117443"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법, 특히 웹 사이트를 방문하려고 할 때 참조 페이지에 오류가 발생한 경우에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Visual Studio 2015 또는 Visual Studio 2013**.
 * **[Visual Studio 용 Data Lake 도구](https://aka.ms/adltoolsvs)**
 

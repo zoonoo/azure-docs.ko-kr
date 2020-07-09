@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Database for PostgreSQL에서 PowerShell�
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 00fee745c8a12f02d7066d504ffce02e0ec1469f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ea8a03a0ce6f5819bb603c9d0ad7b4d65d5c32
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739674"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118123"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-postgresql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL 서버에서 저장소 자동 증가
 
@@ -22,7 +22,7 @@ ms.locfileid: "84739674"
 > [!IMPORTANT]
 > 저장소는 다운 되지 않고 확장만 가능 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

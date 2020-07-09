@@ -4,12 +4,12 @@ description: 컴퓨팅 노드가 파일 서버와 같은 네트워크의 다른 
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506612"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115414"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -62,7 +62,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
 ![사용자 정의 경로](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Batch 서비스 IP 주소는 시간이 지남에 따라 변경될 수 있습니다. IP 주소 변경으로 인 한 중단을 방지 하려면 Batch 서비스 IP 주소를 자동으로 새로 고치는 프로세스를 만들어 경로 테이블에서 최신 상태로 유지 합니다. 또는 [제어 하는 지정 된 IP 주소를 사용 하 여 풀을 만들](create-pool-public-ip.md)수 있습니다.
+> Batch 서비스 IP 주소는 시간이 지남에 따라 변경될 수 있습니다. IP 주소 변경으로 인 한 중단을 방지 하려면 Batch 서비스 IP 주소를 자동으로 새로 고치는 프로세스를 만들어 경로 테이블에서 최신 상태로 유지 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

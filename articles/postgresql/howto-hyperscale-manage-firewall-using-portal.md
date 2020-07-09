@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 9/12/2019
-ms.openlocfilehash: b7de5755a9a1e49b994e7efa7fc4bca58cc6cfd9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: c84616e8a9b9ff9722f5a104175c80c37dbcbcc3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116916"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 방화벽 규칙 관리 - 하이퍼스케일(Citus)
 서버 수준 방화벽 규칙은 지정된 IP 주소 또는 IP 주소 범위에서 하이퍼스케일(Citus) 코디네이터 노드에 대한 액세스를 관리하는 데 사용할 수 있습니다.

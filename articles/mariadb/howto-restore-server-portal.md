@@ -4,21 +4,21 @@ description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 7c5d7b1ddf5de70b012e98def452fc6d660c4061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d050a8bd351617a6ab567243c5b1ef8d9f93ded
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830776"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115913"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for MariaDB 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MariaDB 서버 및 데이터베이스](quickstart-create-mariadb-server-database-using-azure-portal.md)
 

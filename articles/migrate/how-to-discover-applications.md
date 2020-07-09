@@ -3,11 +3,12 @@ title: Azure Migrate를 사용 하 여 온-프레미스 서버에서 앱, 역할
 description: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능을 검색 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: ae00e390bb49f3a54f7f7ce7d6491cf7ee882491
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770512"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118650"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>컴퓨터 앱, 역할 및 기능 검색
 
@@ -79,4 +80,4 @@ ms.locfileid: "84770512"
 ## <a name="next-steps"></a>다음 단계
 
 - 검색 된 서버에 대 한 [평가를 만듭니다](how-to-create-assessment.md) .
-- [Azure Migrate: 데이터베이스 평가](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017)를 사용 하 여 SQL Server 데이터베이스를 평가 합니다.
+- [Azure Migrate: 데이터베이스 평가](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017)를 사용 하 여 SQL Server 데이터베이스를 평가 합니다.

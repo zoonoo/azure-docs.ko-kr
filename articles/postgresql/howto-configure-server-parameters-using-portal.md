@@ -4,18 +4,19 @@ description: 이 문서에서는 Azure Portal를 통해 Azure Database for Postg
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2018
-ms.openlocfilehash: a9d078fe9aab12b9044733d17a1437801d5130a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a7a98818ba565aad9f2404c77682171514c7573
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74763678"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117987"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Azure Portal를 통해 Azure Database for PostgreSQL 단일 서버에서 서버 매개 변수 구성 
 Azure Portal을 통해 Azure Database for PostgreSQL에 대한 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 

@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid 파트너로 온보딩
 description: Azure Event Grid 파트너 토픽 유형으로 등록 합니다. 파트너 항목에 대 한 리소스 모델 및 게시 흐름을 이해 합니다.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
-ms.openlocfilehash: 47576feb7f3e4f2794aa06d52b4f5504c633ce96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560322"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116117"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Azure Event Grid 파트너로 온보딩
 
@@ -108,7 +105,7 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 1.  게시 서비스가 `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`에 대한 HTTP POST를 수행합니다.
 1.  요청에 인증을 위한 키를 포함하며 이름이 aeg-sas-key인 헤더를 포함합니다. 이 키는 파트너 네임 스페이스를 만드는 동안 프로 비전 됩니다. 예를 들어 유효한 헤더 값은 aeg-sas-key (VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==)입니다.
 1.  콘텐츠 형식 헤더를 "application/cloudevents-batch + json;으로 설정 합니다. charset = 8a ".
-1.  해당 지역에 해당 하는 이벤트 일괄 처리를 사용 하 여 게시 URL에 HTTP POST를 수행 합니다. 예를 들어:
+1.  해당 지역에 해당 하는 이벤트 일괄 처리를 사용 하 여 게시 URL에 HTTP POST를 수행 합니다. 예를 들면 다음과 같습니다.
 
 ``` json
 [
@@ -153,7 +150,7 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 | 잘못된 엔드포인트                 | 404 찾을 수 없음         |
 | 배열 또는 이벤트가 크기 제한을 초과합니다. | 413 페이로드가 너무 큼 |
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [ARM 템플릿](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)

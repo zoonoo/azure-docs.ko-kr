@@ -1,17 +1,16 @@
 ---
 title: 상업용 Marketplace 분석의 파트너 센터 주문 대시보드
 description: 그래픽 및 다운로드 가능한 형식으로 Marketplace 제품에 대한 분석 보고서에 액세스하는 방법을 알아봅니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747803"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118361"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
