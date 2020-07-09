@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408631"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135788"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
 
@@ -93,7 +93,7 @@ DR (재해 복구)을 사용 하도록 설정 하는 사용자에 게 키를 복
     - **대상 위치**: 원본 가상 머신 데이터가 복제 될 위치입니다. Site Recovery 선택한 컴퓨터의 위치에 따라 적합 한 대상 영역 목록을 제공 합니다. Recovery Services 자격 증명 모음 위치와 동일한 위치를 사용 하는 것이 좋습니다.
     - **대상 구독**: 재해 복구에 사용 되는 대상 구독입니다. 기본적으로 대상 구독은 원본 구독과 동일합니다.
     - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속하게 될 리소스 그룹입니다. 기본적으로 Site Recovery는 대상 지역에 새 리소스 그룹을 만듭니다. 이름은 "asr" 접미사를 가져옵니다. Azure Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 다시 사용 됩니다. 다음 섹션과 같이 사용자 지정 하도록 선택할 수도 있습니다. 대상 리소스 그룹의 위치는 원본 가상 컴퓨터가 호스트 되는 지역을 제외한 모든 Azure 지역이 될 수 있습니다.
-    - **대상 virtual network**: 기본적으로 Site Recovery는 대상 지역에 새 가상 네트워크를 만듭니다. 이름은 "asr" 접미사를 가져옵니다. 원본 네트워크에 매핑되고 향후 보호에 사용 됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
+    - **대상 virtual network**: 기본적으로 Site Recovery는 대상 지역에 새 가상 네트워크를 만듭니다. 이름은 "asr" 접미사를 가져옵니다. 원본 네트워크에 매핑되고 향후 보호에 사용 됩니다. [자세히 알아봅니다](./azure-to-azure-network-mapping.md) 를 확인해 보세요.
     - **대상 저장소 계정 (원본 vm이 관리 디스크를 사용 하지 않는 경우)**: 기본적으로 Site Recovery는 원본 vm 저장소 구성을 모방 하 여 새 대상 저장소 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용 됩니다.
     - **복제본 관리 디스크 (원본 vm이 관리 디스크를 사용 하는 경우)**: Site Recovery 대상 지역에 새 복제본 관리 디스크를 만들어서 원본 vm의 관리 디스크와 동일한 저장소 유형 (standard 또는 premium)의 원본 vm 관리 디스크를 미러링합니다.
     - **캐시 저장소 계정**: Site Recovery에는 원본 지역에서 *캐시 저장소* 라는 추가 저장소 계정이 필요 합니다. 원본 Vm의 모든 변경 내용이 추적 되 고 캐시 저장소 계정으로 전송 됩니다. 그런 다음 대상 위치에 복제 됩니다.

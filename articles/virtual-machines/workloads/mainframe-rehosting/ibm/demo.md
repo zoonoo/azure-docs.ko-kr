@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68841380"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135944"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>IBM zD&T v1에서 응용 프로그램 개발자 제어 배포 (ADCD)를 설정 합니다.
 
@@ -26,7 +27,7 @@ Azure Virtual Machines (Vm)에서 IBM Z (zD&T) 환경을 실행할 수 있습니
 
 ZD&T와 같이 ADCDs는 IBM 고객 및 파트너만 사용할 수 있으며 개발 및 테스트 목적 으로만 사용할 수 있습니다. 프로덕션 환경에는 사용 되지 않습니다. 수많은 IBM 설치 패키지는 [Passport 혜택](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) 또는 [IBM 지역](https://www.ibm.com/partnerworld/public)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
@@ -75,7 +76,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 
 4. 로그온 하면 IBM 패키지를 업로드할 디렉터리를 만듭니다. Linux에서 대/소문자를 구분 한다는 점에 유의 하세요. 예를 들어이 데모에서는 패키지를에 업로드 했다고 가정 합니다.
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
 5. [Winscp](https://winscp.net/eng/index.php)와 같은 SSH 클라이언트를 사용 하 여 파일을 업로드 합니다. SCP는 SSH의 일부 이므로 SSH에서 사용 하는 포트 22를 사용 합니다. 로컬 컴퓨터가 Windows가 아닌 경우 SSH 세션에서 [scp 명령을](http://man7.org/linux/man-pages/man1/scp.1.html) 입력할 수 있습니다.
 
@@ -88,8 +89,8 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 
 8. 업로드가 완료 되 면 볼륨 디렉터리로 이동 하 여 모든 **release.tar.gz** 볼륨의 압축을 해제 합니다.
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![압축을 푼 release.tar.gz 볼륨을 보여 주는 파일 탐색기](media/01-gunzip.png)
@@ -99,9 +100,9 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 다음 단계는 업로드 된 패키지를 사용 하도록 zD&T를 구성 하는 것입니다. ZD&T 내의 이미지 저장소 프로세스를 사용 하 여 이미지를 탑재 하 고 사용할 수 있습니다. SSH 또는 FTP를 사용할 수 있습니다.
 
 1. **Zdtserver**를 시작 합니다. 이렇게 하려면 루트 수준에 있어야 합니다. 다음 두 명령을 순서 대로 입력 합니다.
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. 명령에의 한 URL 출력을 확인 하 고이 URL을 사용 하 여 웹 서버에 액세스 합니다. 다음과 유사 하 게 표시 됩니다.
      > https://(사용자의 VM 이름 또는 IP 주소): 9443/ZDTMC/index.html
@@ -183,7 +184,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 > [!NOTE]
 > 디스크 공간이 부족 하다는 오류 메시지가 표시 되 면 지역에 151 Gb가 필요 합니다.
 
-지금까지 이제 Azure에서 IBM 메인프레임 환경을 실행 하 고 있습니다.
+축하합니다! 이제 Azure에서 IBM 메인프레임 환경을 실행 하 고 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 

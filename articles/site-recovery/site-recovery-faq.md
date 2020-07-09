@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주�
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133670"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -56,7 +56,7 @@ Azure로 복제하는 경우 애플리케이션 데이터가 Azure Storage로 �
 예.
 
 ### <a name="what-platforms-do-you-currently-support"></a>현재 어떤 플랫폼이 지원됩니까?
-Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 이상)의 배포가 지원됩니다. [자세히 알아봅니다](https://technet.microsoft.com/library/dn850370.aspx) .
+Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 이상)의 배포가 지원됩니다. [자세히 알아봅니다](/previous-versions/azure/windows-server-azure-pack/dn850370(v=technet.10)) .
 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>단일 Azure Pack 및 단일 VMM 서버 배포가 지원되나요?
 예, Hyper-V 가상 머신을 Azure에 복제하거나 서비스 공급자 사이트 간에 복제할 수 있습니다.  서비스 공급자 사이트 간에 복제할 경우 Azure Runbook 통합을 사용할 수 없습니다.
@@ -105,7 +105,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 예. 사용자가 한 지역에 Site Recovery 자격 증명 모음을 만들면 복제 및 장애 조치(failover)를 활성화하고 오케스트레이션하는 데 필요한 모든 메타데이터가 해당 지역의 지리적 경계 내에 남아 있습니다.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery는 복제를 암호화합니까?
-온-프레미스 사이트 간에 가상 머신과 물리적 서버를 복제할 때 전송 중 암호화가 지원됩니다. Azure에 복제되는 가상 머신과 물리적 서버의 경우 전송 중 암호화 및 [정지된 암호화(Azure 내)](https://docs.microsoft.com/azure/storage/storage-service-encryption)가 모두 지원됩니다.
+온-프레미스 사이트 간에 가상 머신과 물리적 서버를 복제할 때 전송 중 암호화가 지원됩니다. Azure에 복제되는 가상 머신과 물리적 서버의 경우 전송 중 암호화 및 [정지된 암호화(Azure 내)](../storage/common/storage-service-encryption.md)가 모두 지원됩니다.
 
 ### <a name="does-azure-to-azure-site-recovery-use-tls-12-for-all-communications-across-microservices-of-azure"></a>Azure-Azure Site Recovery에서 Azure 마이크로서비스를 거치는 모든 통신에 TLS 1.2를 사용하나요?
 예, TLS 1.2 프로토콜은 Azure-Azure Site Recovery 시나리오에서 기본적으로 적용됩니다. 
@@ -198,7 +198,7 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 예. 다음 문서에서 대역폭 스로틀에 대해 더 자세히 검토할 수 있습니다.
 
 * [VMware VM 및 물리적 서버를 복제하기 위한 용량 계획](site-recovery-plan-capacity-vmware.md)
-* [Azure에 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Azure에 Hyper-V VM을 복제하기 위한 용량 계획](./hyper-v-deployment-planner-overview.md)
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Linux 서버에서 응용 프로그램 일관성을 사용 하 여 복제를 사용 하도록 설정할 수 있나요? 
 예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 다음과 같습니다.
@@ -254,7 +254,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 
 * [자세한](site-recovery-create-recovery-plans.md) 복구 계획을 알아봅니다.
 * [자세히 알아보기](site-recovery-failover.md) .
-* [자세히 알아보기](site-recovery-failback-azure-to-vmware.md)
+* [자세히 알아보기](./vmware-azure-failback.md)
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>내 온-프레미스 호스트가 응답하지 않거나 손상된 경우 다른 호스트로 장애 복구(failback)할 수 있나요?
 예, 대체 위치 복구를 사용하여 Azure에서 다른 호스트로 장애 복구(failback)를 수행할 수 있습니다.
@@ -279,4 +279,3 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 
 ## <a name="next-steps"></a>다음 단계
 * [Site Recovery 개요](site-recovery-overview.md)
-

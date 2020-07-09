@@ -3,11 +3,12 @@ title: Azure Migrate에서 VMware 마이그레이션 지원
 description: Azure Migrate에서 VMware VM 마이그레이션에 대 한 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: c4184628739b6c47b35263fe99285b05b9e0a190
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b026d07c6ac1630048d8aee6778215f3a99dddb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769730"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134985"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -50,7 +51,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 
 **지원** | **세부 정보**
 --- | ---
-**지원되는 운영 체제** | Azure에서 지 원하는 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제를 마이그레이션할 수 있습니다.
+**지원되는 운영 체제** | Azure에서 지 원하는 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](../virtual-machines/linux/endorsed-distros.md) 운영 체제를 마이그레이션할 수 있습니다.
 **Azure의 Windows Vm** | 마이그레이션하기 전에 Vm에서 [일부를 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 해야 할 수도 있습니다. 
 **Azure의 Linux Vm** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우 이러한 운영 체제에 대 한 변경 내용이 자동으로 Azure Migrate.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 작업을 수동으로 수행 합니다.
 **Linux 부팅** | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다.
@@ -85,7 +86,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 --- | ---
 어플라이언스 | 포트 443의 아웃 바운드 연결을 사용 하 여 복제 된 데이터를 Azure에 업로드 하 고, 복제 및 오케스트레이션 서비스를 사용 하 여 Azure Migrate 서비스와 통신 합니다.
 vCenter Server | 어플라이언스에서 복제를 오케스트레이션 할 수 있도록 허용 하는 포트 443의 인바운드 연결-스냅숏 만들기, 데이터 복사, 릴리스 스냅숏
-vSphere/EXSI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바운드는 스냅숏에서 데이터를 복제 합니다.
+vSphere/ESXI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바운드는 스냅숏에서 데이터를 복제 합니다.
 
 ## <a name="agent-based-migration"></a>에이전트 기반 마이그레이션 
 

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: ce3bfd85656972cb93b74a85a1bd6d469837ce22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848234417099c0a31bd0c9e84722b6221aec3aa9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84236311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135828"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>대상 Azure VM의 네트워킹 구성 사용자 지정
 
@@ -26,11 +27,11 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 
 Azure Vm을 복제 하는 동안 장애 조치 VM에 대해 다음과 같은 주요 리소스 구성을 제공할 수 있습니다.
 
-- [내부 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [내부 부하 분산 장치](../load-balancer/load-balancer-overview.md)
 - [공용 IP](../virtual-network/public-ip-addresses.md)
-- 서브넷 및 NIC 모두에 대 한 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+- 서브넷 및 NIC 모두에 대 한 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 복구 쪽 구성을 미리 계획 해야 합니다.
 - 네트워킹 리소스를 미리 만듭니다. Azure Site Recovery 서비스에서 이러한 설정을 적용 하 고 장애 조치 (failover) VM이 이러한 설정을 준수 하는지 확인할 수 있도록 입력으로 제공 합니다.

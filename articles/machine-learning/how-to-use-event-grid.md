@@ -1,5 +1,5 @@
 ---
-title: ML 워크플로의 이벤트 트리거
+title: ML 워크플로의 트리거 이벤트 (미리 보기)
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 이벤트 중심 애플리케이션, 프로세스 또는 CI/CD 기계 학습 워크플로를 설정합니다.
 services: machine-learning
@@ -10,13 +10,14 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5aeec1c2dae1d8a8cc11b5e8b3181d9b22069a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338314"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135958"
 ---
-# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트(미리 보기)를 기반으로 애플리케이션, 프로세스 또는 CI/CD 워크플로 트리거
+# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 (미리 보기)를 기반으로 응용 프로그램, 프로세스 또는 CI/CD 워크플로 트리거
 
 이 문서에서는 [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/)에서 특정 조건을 감지할 때 오류 알림 이메일이나 ML 파이프라인 실행 같은 Azure Machine Learning 이벤트를 기반으로 이벤트 중심 애플리케이션, 프로세스 또는 CI/CD 워크플로를 설정하는 방법을 알아봅니다. 
 

@@ -3,11 +3,12 @@ title: Azure Site Recovery 사용 하는 VMware 재해 복구에 대 한 일반�
 description: Azure Site Recovery를 사용 하 여 Azure에 온-프레미스 VMware Vm의 재해 복구에 대 한 일반적인 질문에 대 한 답을 얻을 수 있습니다.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259513"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135155"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -121,7 +122,7 @@ Site Recovery 온-프레미스 VMware Vm 및 물리적 서버를 Azure의 manage
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>컴퓨터가 보호 된 후 관리 디스크 유형을 변경할 수 있나요?
 
-예, 지속적인 복제를 위해 [관리 디스크의 유형을 쉽게 변경할](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) 수 있습니다. 형식을 변경 하기 전에 관리 디스크에서 공유 액세스 서명 URL이 생성 되지 않도록 합니다.
+예, 지속적인 복제를 위해 [관리 디스크의 유형을 쉽게 변경할](../virtual-machines/windows/convert-disk-storage.md) 수 있습니다. 형식을 변경 하기 전에 관리 디스크에서 공유 액세스 서명 URL이 생성 되지 않도록 합니다.
 
 1. Azure Portal에서 **관리 디스크** 리소스로 이동 하 고 **개요** 블레이드에서 공유 액세스 서명 URL 배너가 있는지 확인 합니다.
 1. 배너가 있는 경우 선택 하 여 진행 중인 내보내기를 취소 합니다.

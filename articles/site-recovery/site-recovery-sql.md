@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4bdca30c82b31bda2e843b3712cfbe772952f3e8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 34cfafadabd9a6328cbe85a5444211828df9db6d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077306"
+ms.locfileid: "86133714"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -34,9 +34,9 @@ SQL Server 인스턴스를 복구 하는 BCDR 기술의 선택은 다음 표에 
 
 배포 유형 | BCDR 기술 | SQL Server에 대 한 RTO 필요 | SQL Server에 대 한 예상 RPO |
 --- | --- | --- | ---
-Azure IaaS (infrastructure as a service) VM (가상 머신) 또는 온-프레미스에서 SQL Server.| [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | 보조 복제본을 주 복제본으로 만드는 데 걸린 시간입니다. | 보조 복제본에 대 한 복제는 비동기 이기 때문에 데이터 손실이 발생 합니다.
-Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [장애 조치(failover) 클러스터링(Always On FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | 노드 간 장애 조치 (failover)에 소요 된 시간입니다. | Always On FCI는 공유 저장소를 사용 하므로 장애 조치 (failover) 시 저장소 인스턴스의 동일한 뷰를 사용할 수 있습니다.
-Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [데이터베이스 미러링 (성능 우선 모드)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | 미러 서버를 웜 대기 서버로 사용 하는 서비스를 강제 적용 하는 데 걸린 시간입니다. | 복제는 비동기적이며, 미러 데이터베이스에 주 데이터베이스보다 약간 뒤처질 수 있습니다. 지연 시간은 일반적으로 작습니다. 하지만 주 서버 또는 미러 서버의 시스템 부하가 많은 경우에는 크기가 커질 수 있습니다.<br/><br/>로그 전달은 데이터베이스 미러링을 보완할 수 있습니다. 비동기 데이터베이스 미러링의 좋은 대안입니다.
+Azure IaaS (infrastructure as a service) VM (가상 머신) 또는 온-프레미스에서 SQL Server.| [Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | 보조 복제본을 주 복제본으로 만드는 데 걸린 시간입니다. | 보조 복제본에 대 한 복제는 비동기 이기 때문에 데이터 손실이 발생 합니다.
+Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [장애 조치(failover) 클러스터링(Always On FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | 노드 간 장애 조치 (failover)에 소요 된 시간입니다. | Always On FCI는 공유 저장소를 사용 하므로 장애 조치 (failover) 시 저장소 인스턴스의 동일한 뷰를 사용할 수 있습니다.
+Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| [데이터베이스 미러링 (성능 우선 모드)](/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | 미러 서버를 웜 대기 서버로 사용 하는 서비스를 강제 적용 하는 데 걸린 시간입니다. | 복제는 비동기적이며, 미러 데이터베이스에 주 데이터베이스보다 약간 뒤처질 수 있습니다. 지연 시간은 일반적으로 작습니다. 하지만 주 서버 또는 미러 서버의 시스템 부하가 많은 경우에는 크기가 커질 수 있습니다.<br/><br/>로그 전달은 데이터베이스 미러링을 보완할 수 있습니다. 비동기 데이터베이스 미러링의 좋은 대안입니다.
 SQL as Azure의 PaaS (platform as a service)<br/><br/>이 배포 유형에는 단일 데이터베이스 및 탄력적 풀이 포함 됩니다. | 활성 지리적 복제 | 장애 조치 (failover)가 트리거된 후 30 초<br/><br/>보조 데이터베이스 중 하나에 대해 장애 조치 (failover)가 활성화 되 면 다른 모든 보조 데이터베이스는 새 주 데이터베이스에 자동으로 연결 됩니다. | RPO는 5 초입니다.<br/><br/>활성 지역 복제는 SQL Server의 Always On 기술을 사용 합니다. Snapshot 격리를 사용 하 여 주 데이터베이스의 커밋된 트랜잭션을 보조 데이터베이스로 비동기적으로 복제 합니다.<br/><br/>보조 데이터에는 부분적 트랜잭션이 포함 되지 않을 수 있습니다.
 Azure에서 활성 지역 복제를 사용 하 여 구성 된 SQL as PaaS.<br/><br/>이 배포 유형에는 관리 되는 인스턴스, 탄력적 풀 및 단일 데이터베이스가 포함 됩니다. | 자동 장애 조치 그룹 | 1 시간의 RTO | RPO는 5 초입니다.<br/><br/>자동 장애 조치 그룹은 활성 지역 복제의 맨 위에 그룹 의미 체계를 제공 합니다. 하지만 동일한 비동기 복제 메커니즘이 사용 됩니다.
 Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| Azure Site Recovery 복제 | RTO는 일반적으로 15 분 미만입니다. 자세한 내용은 [Site Recovery에서 제공 하는 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)를 읽어 보세요. | 응용 프로그램 일관성을 위해 1 시간, 크래시 일관성의 경우 5 분 더 낮은 RPO를 찾고 있는 경우 다른 BCDR 기술을 사용 합니다.
@@ -95,13 +95,13 @@ BCDR 기술 Always On, 활성 지역 복제 및 자동 장애 조치 (failover) 
 
 SQL Always On와 같은 일부 BCDR 기술은 기본적으로 테스트 장애 조치 (failover)를 지원 하지 않습니다. *이러한 기술을 사용 하는 경우에만 다음 방법을 사용 하*는 것이 좋습니다.
 
-1. Azure에서 가용성 그룹 복제본을 호스트 하는 VM에 [Azure Backup](../backup/backup-azure-arm-vms.md) 을 설정 합니다.
+1. Azure에서 가용성 그룹 복제본을 호스트 하는 VM에 [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) 을 설정 합니다.
 
 1. 복구 계획의 테스트 장애 조치 (failover)를 트리거하기 전에 이전 단계에서 수행한 백업에서 VM을 복구 합니다.
 
     ![Azure Backup에서 구성을 복원 하는 창을 보여 주는 스크린샷](./media/site-recovery-sql/restore-from-backup.png)
 
-1. 백업에서 복원 된 VM에서 [쿼럼을 강제 적용](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) 합니다.
+1. 백업에서 복원 된 VM에서 [쿼럼을 강제 적용](/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) 합니다.
 
 1. 수신기의 IP 주소를 테스트 장애 조치 (failover) 네트워크에서 사용할 수 있는 주소로 업데이트 합니다.
 
@@ -139,7 +139,7 @@ Azure 지역으로 복제 하는 경우 Site Recovery는 게스트 클러스터 
 
 1. 보호 하려는 데이터베이스에 대 한 미러 역할을 하도록 인스턴스를 구성 합니다. 보호 우선 모드에서 미러링을 구성 합니다.
 
-1. [Azure](azure-to-azure-tutorial-enable-replication.md), [Hyper-v](site-recovery-hyper-v-site-to-azure.md)또는 [VMware vm 및 물리적 서버](site-recovery-vmware-to-azure-classic.md)에 대 한 기본 사이트에서 Site Recovery를 구성 합니다.
+1. [Azure](azure-to-azure-tutorial-enable-replication.md), [Hyper-v](./hyper-v-azure-tutorial.md)또는 [VMware vm 및 물리적 서버](./vmware-azure-tutorial.md)에 대 한 기본 사이트에서 Site Recovery를 구성 합니다.
 
 1. Site Recovery 복제를 사용 하 여 새 SQL Server 인스턴스를 보조 사이트로 복제 합니다. 안전 하지 않은 미러 복사는 주 클러스터와 동기화 되지만 Site Recovery 복제를 사용 하 여 복제 됩니다.
 
@@ -161,7 +161,7 @@ Site Recovery는 응용 프로그램에 독립적입니다. Site Recovery은 지
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Site Recovery 아키텍처](site-recovery-components.md)에 대해 자세히 알아보세요.
+* [Site Recovery 아키텍처](./azure-to-azure-architecture.md)에 대해 자세히 알아보세요.
 * Azure의 SQL Server 보조 Azure 지역에서 복구를 위한 [고가용성 솔루션](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions) 에 대해 자세히 알아보세요.
 * SQL Database는 보조 Azure 지역에서 복구 하기 위한 [비즈니스 연속성](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) 및 [고가용성](../azure-sql/database/high-availability-sla.md) 옵션에 대해 자세히 알아보세요.
 * 온-프레미스에 있는 SQL Server 컴퓨터의 경우 Azure Virtual Machines에서 복구에 대 한 [고가용성 옵션](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions) 에 대해 자세히 알아보세요.

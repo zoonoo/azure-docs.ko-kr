@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190787"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133696"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
@@ -23,13 +24,13 @@ Site Recovery의 기능은 다음과 같습니다.
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 SAP NetWeaver 응용 프로그램 배포를 보호할 수 있습니다. 이 문서에서는 Site Recovery를 사용 하 여 다른 Azure 데이터 센터에 복제 하는 경우 Azure에서 3 계층 SAP NetWeaver 배포를 보호 하기 위한 모범 사례를 설명 합니다. 이 문서에서는 지원 되는 시나리오 및 구성을 설명 하 고 테스트 장애 조치 (failover) 및 실제 장애 조치 (failover)를 수행 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
-* [Azure에 가상 머신 복제](azure-to-azure-walkthrough-enable-replication.md)
-* [복구 네트워크 디자인](site-recovery-azure-to-azure-networking-guidance.md)
-* [Azure로 테스트 장애 조치(failover) 수행](azure-to-azure-walkthrough-test-failover.md)
+* [Azure에 가상 머신 복제](./azure-to-azure-tutorial-enable-replication.md)
+* [복구 네트워크 디자인](./azure-to-azure-about-networking.md)
+* [Azure로 테스트 장애 조치(failover) 수행](./azure-to-azure-tutorial-dr-drill.md)
 * [Azure로 장애 조치(failover) 수행](site-recovery-failover.md)
 * [도메인 컨트롤러 복제](site-recovery-active-directory.md)
 * [SQL Server 인스턴스 복제](site-recovery-sql.md)
@@ -110,7 +111,7 @@ Site Recovery를 사용 하 여 Azure 지역에서 전체 SAP 배포의 장애 �
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
 
-모든 SAP 애플리케이션 가상 머신을 Azure 재해 복구 데이터 센터로 복제하는 작업을 시작하려면 [Azure로 가상 머신 복제](azure-to-azure-walkthrough-enable-replication.md)의 지침을 따릅니다.
+모든 SAP 애플리케이션 가상 머신을 Azure 재해 복구 데이터 센터로 복제하는 작업을 시작하려면 [Azure로 가상 머신 복제](./azure-to-azure-tutorial-enable-replication.md)의 지침을 따릅니다.
 
 * Active Directory 및 DNS를 보호 하는 방법에 대 한 지침은 [Active Directory 및 dns를 보호 하는 방법을](site-recovery-active-directory.md)알아봅니다.
 

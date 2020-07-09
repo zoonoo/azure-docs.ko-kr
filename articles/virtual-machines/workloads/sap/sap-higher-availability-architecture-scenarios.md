@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86094fd7ff9550946e1b1c13e0773f025a0e977c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77623813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134533"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
 
@@ -266,7 +267,7 @@ SAP는 VM 내에서 OS가 시작된 이후에 즉시 SAP 인스턴스를 시작�
 
 VM 하나에 단일 SAP 애플리케이션 서버 인스턴스가 있는 일반적인 Azure 시나리오와 단일 VM이 다시 시작되는 경우를 가정하면, Autostart는 중요하지 않습니다. 하지만 SAP ABAP(고급 비즈니스 애플리케이션 프로그래밍) 또는 Java 인스턴스의 시작 프로필에 다음 매개 변수를 추가하여 활성화할 수 있습니다.
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

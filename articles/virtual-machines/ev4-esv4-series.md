@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 967df2022166936df71b30fbe9d49798663ce962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccb6bbcddaa5ce76e9dbb04d737830fbaf5c2d9f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783532"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134329"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
@@ -30,7 +30,7 @@ Ev4 시리즈 크기는 Intel Xeon &reg; Platinum 8272CL (캐스케이드 Lake)�
 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Esv4 크기를 사용 합니다. Esv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Ev4 시리즈와 동일 합니다.
 
 > [!IMPORTANT]
-> 이러한 새 크기는 현재 공개 미리 보기 상태입니다. [여기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)에서 이러한 Dv4 및 Dsv4 시리즈를 등록할 수 있습니다. 
+> 이러한 새 크기는 현재 공개 미리 보기 상태입니다. [여기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)에서 이러한 Ev4 및 Esv4 시리즈를 등록할 수 있습니다. 
 
 ACU: 195 - 210
 
@@ -59,7 +59,7 @@ Premium Storage 캐싱:  지원되지 않음
 Esv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드 Lake)에서 실행 됩니다. Esv4 시리즈 인스턴스는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. Evs4 시리즈 Vm은 Intel &reg; 하이퍼 스레딩 기술을 특징으로 합니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
 
 > [!IMPORTANT]
-> 이러한 새 크기는 현재 공개 미리 보기 상태입니다. [여기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)에서 이러한 Dv4 및 Dsv4 시리즈를 등록할 수 있습니다. 
+> 이러한 새 크기는 현재 공개 미리 보기 상태입니다. [여기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)에서 이러한 Ev4 및 Esv4 시리즈를 등록할 수 있습니다. 
 
 ACU: 195-210
 

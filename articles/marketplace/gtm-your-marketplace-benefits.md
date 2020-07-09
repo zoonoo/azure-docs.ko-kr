@@ -1,18 +1,18 @@
 ---
 title: 시장 출시 서비스-상용 marketplace 혜택, Azure Marketplace
 description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출 서비스 - Microsoft 리소스에 대해 설명합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+author: keferna
+ms.author: keferna
+ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085687"
+ms.locfileid: "86135522"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -34,15 +34,15 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 
 상점에 게시하기 위한 최소 요구 사항은 MPNID이므로, MPN 역량 상태 또는 파트너 유형에 관계없이 이러한 혜택은 모든 파트너에게 제공됩니다. 각 파트너는 플랫폼인 Marketplace를 통해 비즈니스를 성장시킬 수 있습니다.
 
-사용자에게 제공되는 리소스를 이해하고 모범 사례를 구현하는 데 도움을 받음으로써 사용자가 [스스로 검토](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)해 볼 수도 있습니다.
+사용자가 사용할 수 있는 리소스를 이해 하 고 모범 사례를 구현 하는 데 도움을 받을 수 있으며, 사용자가 [직접 검토할](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)수도 있습니다.
 
-모든 프로그램 혜택에 대한 자세한 설명은 [Marketplace Rewards 프로그램 데크](https://aka.ms/marketplacerewards)에서 찾을 수 있습니다.
+모든 프로그램 혜택에 대 한 자세한 설명은이 [Marketplace 보상 프로그램 프레젠테이션에서](https://aka.ms/marketplacerewards)찾을 수 있습니다.
 
-시작하는 단계는 간단합니다.
+쉽게 시작할 수 있습니다.
 
 1. Microsoft AppSource 또는 Azure Marketplace에 제품을 게시합니다.
-2. 파트너 센터 [대시보드](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)로 이동 하 여 왼쪽 탐색 메뉴에서 **상업적 마켓플레이스** 를 열고 **Marketplace 보상**을 선택한 다음 **영업 및 마케팅 혜택** 탭을 선택 하 여 혜택 목록을 봅니다.
-3. 영업 및 마케팅 혜택을 활성화하려면 먼저 회사 마케팅 담당자를 할당해야 합니다. 이 담당자는 Marketplace Rewards에 대한 추가 연락을 받게 됩니다.
+2. 파트너 센터의 [Marketplace 보상](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) 으로 이동 하 고 **marketplace 보상 프로그램에서 등록**을 선택 합니다.
+3. 판매 및 마케팅 혜택을 활성화 하려면 회사 마케팅 연락처를 할당 합니다. 이 담당자는 Marketplace Rewards에 대한 추가 연락을 받게 됩니다.
 4. 마케팅 담당자 정보를 추가하거나 업데이트하려면 Marketplace Rewards 페이지의 영업 및 마케팅 혜택 탭 맨 위로 이동한 다음 **추가, 업데이트 또는 변경**을 선택합니다.  다음으로, 아래 작업을 수행합니다.
 
     1. 목록에서 사용자를 선택합니다. 할당하려는 사용자가 목록에 없는 경우 **계정 설정**에서 새 사용자를 추가할 수 있습니다.
@@ -56,7 +56,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 2. Azure 스폰서쉽 혜택을 활용하는 방법은 이러한 혜택의 누릴 수 있을 때 전자 메일을 통해 공유됩니다.
 
 >[!NOTE]
->제품이 4주 넘게 게시되었는데 메시지를 받지 못한 경우, 파트너 센터를 방문하여 해당 제품의 소유자인 조직 내에서 확인하세요. 연락을 취하고 다음 단계를 수행해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 퇴사한 경우, [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 제출할 수 있습니다.
+>제품이 4주 넘게 게시되었는데 메시지를 받지 못한 경우, 파트너 센터를 방문하여 해당 제품의 소유자인 조직 내에서 확인하세요. 연락을 취하고 다음 단계를 수행해야 합니다.<br><br>소유자를 확인할 수 없거나 소유자가 퇴사한 경우, [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 제출할 수 있습니다.
 
 마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례에 대한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항과 프로모션 정보를 받게 됩니다.
 
@@ -75,7 +75,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 Azure Marketplace 또는 Microsoft AppSource에서 거래 가능한 제품을 게시하는 경우 상업용 Marketplace를 통해 판매되는 청구된 판매 거래 또는 사용자를 늘리면 추가 혜택을 이용할 수 있습니다. 
 
 >[!NOTE]
->판매된 사용자 임계값은 Microsoft 365 앱(Microsoft Teams, Office, Outlook 또는 SharePoint와 통합된 SaaS 애플리케이션)에만 적용되고 혜택은 2020년 6월 30일까지 완료되어야 합니다.
+>판매 된 사용자 수 임계값은 Microsoft 365 앱 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램)에만 적용 되 고 혜택은 2020 년 6 월 30 일에 완료 되어야 합니다.
 
 이러한 혜택은 마케팅, 영업 및 기술 활동을 지원하도록 설계되었으므로, 더 많은 방문자를 확보하고 더 많은 잠재 고객을 얻으며 더 많은 비즈니스를 전환하는 데 도움을 받을 수 있습니다.
 

@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
-ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75973671"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135806"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Azure Vm의 PowerShell 복제에서 디스크 제외
 
@@ -18,20 +19,20 @@ ms.locfileid: "75973671"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
 - [재해 복구 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해 하 고 있는지 확인 합니다.
 - 모든 구성 요소에 대 한 [지원 요구 사항을](azure-to-azure-support-matrix.md) 검토 합니다.
-- AzureRm PowerShell "Az" 모듈이 있는지 확인 합니다. PowerShell을 설치 하거나 업데이트 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
+- AzureRm PowerShell "Az" 모듈이 있는지 확인 합니다. PowerShell을 설치 하거나 업데이트 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 - Recovery services 자격 증명 모음 및 보호 된 가상 컴퓨터를 한 번 이상 만들었는지 확인 합니다. 이러한 작업을 수행 하지 않은 경우 [Azure PowerShell를 사용 하 여 Azure 가상 머신에 대 한 재해 복구 설정](azure-to-azure-powershell.md)의 프로세스를 따르세요.
 - 복제용으로 사용 하도록 설정 된 Azure VM에 디스크를 추가 하는 방법에 대 한 정보를 찾고 있는 경우 [이 문서를 검토](azure-to-azure-enable-replication-added-disk.md)하세요.
 
 ## <a name="why-exclude-disks-from-replication"></a>복제에서 디스크를 제외 하는 이유
 다음 이유로 인해 복제에서 디스크를 제외 해야 할 수 있습니다.
 
-- 가상 머신이 [데이터 변경 비율을 복제 하는 Azure Site Recovery 제한](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)에 도달 했습니다.
+- 가상 머신이 [데이터 변경 비율을 복제 하는 Azure Site Recovery 제한](./azure-to-azure-support-matrix.md)에 도달 했습니다.
 
 - 제외 된 디스크에 변동 된 데이터는 중요 하지 않거나 복제할 필요가 없습니다.
 

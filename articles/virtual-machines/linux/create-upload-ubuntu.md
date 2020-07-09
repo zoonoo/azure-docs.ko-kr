@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: abd357808cd0213e92eaba478fb861110bcf9f39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c70a6049596aa38e9ae6118517fc471becbc1676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84666726"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134631"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure용 Ubuntu 가상 머신 준비
 
@@ -20,7 +21,7 @@ ms.locfileid: "84666726"
 * Ubuntu 16.04/Xenial: [ubuntu-16.04-cloudimg-disk1. .vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
 * Ubuntu 18.04/Bionic: [Bionic-cloudimg-.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 가상 하드 디스크에 Ubuntu Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 
 **Ubuntu 설치 참고 사항**
@@ -42,31 +43,36 @@ ms.locfileid: "84666726"
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 
 3. Ubuntu의 Azure 리포지토리를 사용 하려면 이미지의 현재 리포지토리를 바꿉니다.
-   
+
     `/etc/apt/sources.list`를 편집하기 전에 백업을 만드는 것이 좋습니다.
-   
-        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    ```console
+    # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+    ```
 
     Ubuntu 16.04 및 Ubuntu 18.04:
-   
-        # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
-        # sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
-        # sudo apt-get update
 
+    ```console
+    # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+    # sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+    # sudo apt-get update
+    ```
 
 4. Ubuntu Azure 이미지는 이제 [azure 맞춤형 커널을](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)사용 하 고 있습니다. 다음 명령을 실행 하 여 운영 체제를 최신 Azure 맞춤형 커널로 업데이트 하 고 Azure Linux 도구 (Hyper-v 종속성 포함)를 설치 합니다.
 
     Ubuntu 16.04 및 Ubuntu 18.04:
 
-        # sudo apt update
-        # sudo apt install linux-azure linux-image-azure linux-headers-azure linux-tools-common linux-cloud-tools-common linux-tools-azure linux-cloud-tools-azure
-        (recommended) # sudo apt full-upgrade
+    ```console
+    # sudo apt update
+    # sudo apt install linux-azure linux-image-azure linux-headers-azure linux-tools-common linux-cloud-tools-common linux-tools-azure linux-cloud-tools-azure
+    (recommended) # sudo apt full-upgrade
 
-        # sudo reboot
+    # sudo reboot
+    ```
 
 5. Azure용 커널 매개 변수를 추가로 포함하려면 Grub의 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 `/etc/default/grub`을 텍스트 편집기에서 열고 `GRUB_CMDLINE_LINUX_DEFAULT` 변수를 찾거나 필요한 경우 추가하여 다음 매개 변수가 포함되도록 편집합니다.
-   
-    ```
+
+    ```text
     GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
     ```
 
@@ -76,21 +82,25 @@ ms.locfileid: "84666726"
 
 7. 클라우드 초기화 (프로 비전 에이전트)와 Azure Linux 에이전트 (게스트 확장 처리기)를 설치 합니다. 클라우드 초기화는 netplan을 사용 하 여 프로 비전 중에 시스템 네트워크 구성 및 각 후속 부팅을 구성 합니다.
 
-        # sudo apt update
-        # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+    ```console
+    # sudo apt update
+    # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+    ```
 
    > [!Note]
    >  `walinuxagent` 패키지는 `NetworkManager` 및 `NetworkManager-gnome` 패키지가 설치되어 있는 경우 이러한 패키지를 제거할 수 있습니다.
 
 8. Azure에서 클라우드 초기화 프로 비전과 충돌할 수 있는 기본 configs 및 잔여 netplan 아티팩트를 제거 합니다.
 
-        # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
-        # rm -f /etc/cloud/ds-identify.cfg
-        # rm -f /etc/netplan/*.yaml
+    ```console
+    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+    # rm -f /etc/cloud/ds-identify.cfg
+    # rm -f /etc/netplan/*.yaml
+    ```
 
 9. Azure 데이터 원본을 사용 하 여 시스템을 프로 비전 하도록 클라우드 초기화 구성:
 
-    ```
+    ```console
     # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
     datasource_list: [ Azure ]
     EOF
@@ -123,27 +133,31 @@ ms.locfileid: "84666726"
 
 10. 클라우드 init를 사용 하 여 프로 비전을 수행 하도록 Azure Linux 에이전트를 구성 합니다. 이러한 옵션에 대 한 자세한 내용은 [WALinuxAgent 프로젝트](https://github.com/Azure/WALinuxAgent) 를 참조 하세요.
 
-        sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
-        sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-        sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-        sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    ```console
+    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
 
-        cat >> /etc/waagent.conf << EOF
-        # For Azure Linux agent version >= 2.2.45, this is the option to configure,
-        # enable, or disable the provisioning behavior of the Linux agent.
-        # Accepted values are auto (default), waagent, cloud-init, or disabled.
-        # A value of auto means that the agent will rely on cloud-init to handle
-        # provisioning if it is installed and enabled, which in this case it will.
-        Provisioning.Agent=auto
-        EOF
+    cat >> /etc/waagent.conf << EOF
+    # For Azure Linux agent version >= 2.2.45, this is the option to configure,
+    # enable, or disable the provisioning behavior of the Linux agent.
+    # Accepted values are auto (default), waagent, cloud-init, or disabled.
+    # A value of auto means that the agent will rely on cloud-init to handle
+    # provisioning if it is installed and enabled, which in this case it will.
+    Provisioning.Agent=auto
+    EOF
+    ```
 
 11. 클라우드 초기화 및 Azure Linux 에이전트 런타임 아티팩트 및 로그를 정리 합니다.
 
-        # sudo cloud-init clean --logs --seed
-        # sudo rm -rf /var/lib/cloud/
-        # sudo systemctl stop walinuxagent.service
-        # sudo rm -rf /var/lib/waagent/
-        # sudo rm -f /var/log/waagent.log
+    ```console
+    # sudo cloud-init clean --logs --seed
+    # sudo rm -rf /var/lib/cloud/
+    # sudo systemctl stop walinuxagent.service
+    # sudo rm -rf /var/lib/waagent/
+    # sudo rm -f /var/log/waagent.log
+    ```
 
 12. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
@@ -153,10 +167,12 @@ ms.locfileid: "84666726"
     > [!WARNING]
     > 위의 명령을 사용 하 여 프로 비전 해제 하는 것은 이미지가 모든 중요 한 정보를 제거 하 고 재배포에 적합 하다는 것을 보장 하지 않습니다.
 
-        # sudo waagent -force -deprovision+user
-        # rm -f ~/.bash_history
-        # export HISTSIZE=0
-        # logout
+    ```console
+    # sudo waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    # export HISTSIZE=0
+    # logout
+    ```
 
 13. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다.
 

@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: site-recovery
 ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feb4f6a24653aca8da825af90341c8016255e8b6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417857"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133806"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Azure Site Recovery Deployment Planner 버전 기록
 
@@ -168,7 +169,7 @@ ms.locfileid: "84417857"
 
 **알려진 제한 사항:**
 
-- 는 VMware에서 Azure로의 재해 복구 시나리오에만 지원 합니다. Hyper-v에서 Azure로의 재해 복구 시나리오의 경우 [hyper-v capacity planner 도구](./site-recovery-capacity-planning-for-hyper-v-replication.md)를 사용 합니다.
+- 는 VMware에서 Azure로의 재해 복구 시나리오에만 지원 합니다. Hyper-v에서 Azure로의 재해 복구 시나리오의 경우 [hyper-v capacity planner 도구](./hyper-v-deployment-planner-overview.md)를 사용 합니다.
 - 는 미국 정부 및 중국 Microsoft Azure 지역에 대 한 GetThroughput 작업을 지원 하지 않습니다.
 - VCenter 서버에 여러 ESXi 호스트에서 이름이 나 IP 주소가 동일한 두 개 이상의 Vm이 있는 경우이 도구는 Vm 프로필을 cann't 합니다.
 이 버전에서 도구는 VMListFile에서 중복된 VM 이름 또는 IP 주소에 대한 프로파일링을 건너뜁니다. 해결 방법은 VCenter 서버 대신 ESXi 호스트를 사용하여 VM을 프로파일링하는 것입니다. 각 ESXi 호스트에 대해 하나의 인스턴스를 실행 해야 합니다.

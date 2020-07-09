@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/08/2020
 ms.author: jgao
-ms.openlocfilehash: b3de286bbf4513d252b42304cdc667877c72f6da
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057418"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134571"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -147,7 +147,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 
     인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프**를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 **-name \\ "John dole \\ "** 입니다.  이스케이프 된 문자열은 **-name \\ \\ \\ "John dole \\ \\ \\ "** 입니다.
 
-    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 ** \\ "** into ** \\ \\ \\ "** 를 바꿉니다. 예를 들어:
+    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 ** \\ "** into ** \\ \\ \\ "** 를 바꿉니다. 예를 들면 다음과 같습니다.
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -161,7 +161,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 - **supportingScriptUris**: `ScriptContent` 또는 `PrimaryScriptUri`에서 호출되는 지원 파일에 공개적으로 액세스할 수 있는 Url 배열을 지정합니다.
 - **timeout**: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D**입니다.
 - **cleanupPreference**. 스크립트 실행이 터미널 상태가 되면 배포 리소스를 정리하는 기본 설정을 지정합니다. 기본 설정은 **항상**이며 이는 터미널 상태(성공, 실패, 취소됨)에도 불구하고 리소스를 삭제함을 의미합니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
-- **retentionInterval**: 배포 스크립트 실행이 터미널 상태에 도달하면 서비스에서 배포 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 기본값은 **P1D**로, 7일을 의미합니다. 이 속성은 cleanupPreference가 *OnExpiration*으로 설정된 경우에 사용됩니다. *OnExpiration* 속성은 현재 사용하도록 설정되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
+- **retentionInterval**: 배포 스크립트 실행이 터미널 상태에 도달하면 서비스에서 배포 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 기본값은 **P1D**입니다 .이 값은 1 일을 의미 합니다. 이 속성은 cleanupPreference가 *OnExpiration*으로 설정된 경우에 사용됩니다. *OnExpiration* 속성은 현재 사용하도록 설정되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
 ### <a name="additional-samples"></a>추가 샘플
 

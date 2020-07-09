@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75941583"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133815"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
 
@@ -24,7 +25,7 @@ ms.locfileid: "75941583"
 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 복구를 구현하려면 다음과 같은 필수 조건을 완료해야 합니다.
 
@@ -68,7 +69,7 @@ Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Act
 SQL 계층 보호를 위해 권장되는 옵션에 대한 기술 지침은 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 
 ### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Dynamics AX 클라이언트 및 응용 프로그램 개체 서버 Vm에 대 한 보호 사용
-VM이 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 또는 [VMware](site-recovery-vmware-to-azure.md)에 배포되었는지 여부에 따라 관련 Site Recovery 구성을 수행합니다.
+VM이 [Hyper-V](./hyper-v-azure-tutorial.md) 또는 [VMware](./vmware-azure-tutorial.md)에 배포되었는지 여부에 따라 관련 Site Recovery 구성을 수행합니다.
 
 > [!TIP]
 > 크래시 일관성 주기를 15분으로 구성하는 것이 좋습니다.
@@ -175,7 +176,7 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 6. **✓**를 선택하여 장애 복구 프로세스를 시작합니다.
 
 
-장애 복구 수행에 대한 자세한 내용은 [Azure에서 온-프레미스로의 VMware VM 장애 복구](site-recovery-failback-azure-to-vmware.md)를 참조하세요.
+장애 복구 수행에 대한 자세한 내용은 [Azure에서 온-프레미스로의 VMware VM 장애 복구](./vmware-azure-failback.md)를 참조하세요.
 
 ## <a name="summary"></a>요약
 Site Recovery를 사용하여 Dynamics AX 애플리케이션에 대한 완전히 자동화된 재해 복구 계획을 만들 수 있습니다. 중단이 발생할 경우 어디서나 몇 초 이내에 장애 조치(failover)를 시작하고 몇 분 만에 애플리케이션을 가동할 수 있습니다.

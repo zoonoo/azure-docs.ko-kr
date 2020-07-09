@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74133005"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133904"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>아키텍처 - 보조 사이트로 Hyper-V 복제
 
@@ -35,7 +36,7 @@ a
 
 ## <a name="replication-process"></a>복제 프로세스
 
-1. 초기 복제가 트리거될 때 [HYPER-V VM 스냅숏](https://technet.microsoft.com/library/dd560637.aspx) 스냅숏이 생성 됩니다.
+1. 초기 복제가 트리거될 때 [HYPER-V VM 스냅숏](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) 스냅숏이 생성 됩니다.
 2. VM의 가상 하드 디스크는 보조 위치에 하나씩 복제됩니다.
 3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 위치로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅샷과 로그 파일이 디스크 리소스를 사용합니다.
 4. 초기 복제가 완료되면 VM 스냅샷은 삭제되고 델타 복제가 시작됩니다.

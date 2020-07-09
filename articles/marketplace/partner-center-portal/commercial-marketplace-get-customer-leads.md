@@ -1,18 +1,18 @@
 ---
 title: Microsoft 상업용 Marketplace의 잠재 고객
 description: Microsoft AppSource 및 Azure Marketplace 제품에서 잠재 고객을 창출하고 받는 방법 알아보기
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 89b73fd98ca773668d2eb53892d0c21397e9abf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133449"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>상업용 Marketplace 제품의 잠재 고객
 
@@ -109,18 +109,21 @@ ms.locfileid: "85559577"
 잠재 고객 대상에서 `"MSFT_TEST"`를 검색합니다. Microsoft의 샘플 테스트 잠재 고객은 다음과 같습니다.
 
 ```
-company = MSFT_TEST_636573304831318844
-country = US
-description = MSFT_TEST_636573304831318844
-email = MSFT_TEST_636573304831318844@test.com
-encoding = UTF-8
-encoding = UTF-8
-first_name = MSFT_TEST_636573304831318844
-last_name = MSFT_TEST_636573304831318844
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name>
-oid = 00Do0000000ZHog
-phone = 1234567890
-title = MSFT_TEST_636573304831318844
+{
+    "UserDetails": {
+      "FirstName": "MSFT_TEST_636573304831318844",
+      "LastName": "MSFT_TEST_636573304831318844",
+      "Email": "MSFT_TEST_636573304831318844@test.com",
+      "Phone": "1234567890",
+      "Country": "US",
+      "Company": "MSFT_TEST_636573304831318844",
+      "Title": "MSFT_TEST_636573304831318844"
+    },
+    "LeadSource": "AzureMarketplace",
+    "ActionCode": "INS",
+    "OfferTitle": "Contoso Test"
+    "Description": "MSFT_TEST_636573304831318844"
+}
 ```
 
 ### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>라이브 제품이 있지만 잠재 고객이 보이지 않는 이유는 무엇인가요?

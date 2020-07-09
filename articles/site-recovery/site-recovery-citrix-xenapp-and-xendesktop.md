@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74084547"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134845"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>다중 계층 Citrix XenApp 및 XenDesktop 배포에 대해 재해 복구 설정
 
@@ -25,12 +26,12 @@ Citrix XenDesktop은 어디서든 모든 사용자에게 데스크톱 및 애플
 이 문서에서는 Hyper-V 및 VMware vSphere 플랫폼에서 온-프레미스 Citrix XenApp 배포용 재해 복구 솔루션을 빌드하기 위한 단계별 지침을 제공합니다. 또한 복구 계획, 지원되는 구성 및 필수 구성 요소를 사용하여 Azure로의 테스트 장애 조치(재해 복구 드릴) 및 계획되지 않은 장애 조치를 수행하는 방법을 설명합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
-1. [Azure에 가상 머신 복제](site-recovery-vmware-to-azure.md)
-1. 방법: [복구 네트워크 디자인](site-recovery-network-design.md)
+1. [Azure에 가상 머신 복제](./vmware-azure-tutorial.md)
+1. 방법: [복구 네트워크 디자인](./concepts-on-premises-to-azure-networking.md)
 1. [Azure로 테스트 장애 조치 수행](site-recovery-test-failover-to-azure.md)
 1. [Azure로 장애 조치 수행](site-recovery-failover.md)
 1. 방법: [도메인 컨트롤러 복제](site-recovery-active-directory.md)
@@ -55,9 +56,9 @@ AD DNS 서버, SQL Database 서버, Citrix Delivery Controller, StoreFront 서�
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 이 문서에서 다루지 않는 내용 | 예
-**VMware** | 이 문서에서 다루지 않는 내용 | 예
-**물리적 서버** | 이 문서에서 다루지 않는 내용 | 예
+**Hyper-V** | 이 문서에서 다루지 않는 내용 | Yes
+**VMware** | 이 문서에서 다루지 않는 내용 | Yes
+**물리적 서버** | 이 문서에서 다루지 않는 내용 | Yes
 
 ### <a name="versions"></a>버전
 고객은 Hyper-V 또는 VMware에서 실행되는 Virtual Machines 또는 물리적 서버로 XenApp 구성 요소를 배포할 수 있습니다. Azure Site Recovery는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다.
@@ -95,7 +96,7 @@ Azure에서 도메인 컨트롤러를 복제 및 구성하기 위한 지침은 [
 
 SQL Server 보호를 위한 권장 옵션에 대한 자세한 기술 지침은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](site-recovery-sql.md)를 참조하세요.
 
-나머지 구성 요소 가상 머신을 Azure로 복제하기 시작하려면 [이 지침](site-recovery-vmware-to-azure.md)을 따릅니다.
+나머지 구성 요소 가상 머신을 Azure로 복제하기 시작하려면 [이 지침](./vmware-azure-tutorial.md)을 따릅니다.
 
 ![XenApp 구성 요소 보호](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 

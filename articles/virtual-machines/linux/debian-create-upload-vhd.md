@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: d54f7a11d929c31fee29a788eb3a2ae2cc8f2703
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebd20b6187fd4f04ac525e0152d805d9d81de3ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066705"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134602"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure용 Debian VHD 준비
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -27,16 +27,18 @@ ms.locfileid: "80066705"
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Azure-Manage를 사용하여 Debian VHD를 만듭니다.
 Azure 용 Debian Vhd를 생성 하는 데 사용할 수 있는 도구 (예: [Credativ](https://www.credativ.com/)의 [azure 관리 스크립트)](https://github.com/credativ/azure-manage) 가 있습니다. 권장되는 방법과 이미지를 처음부터 새로 만드는 방법을 비교한 것입니다. 예를 들어 Debian 8 VHD를 만들기 위해 다음 명령을 실행하여 `azure-manage`(및 종속성)를 다운로드하고 `azure_build_image` 스크립트를 실행합니다.
 
-    # sudo apt-get update
-    # sudo apt-get install git qemu-utils mbr kpartx debootstrap
+```console
+# sudo apt-get update
+# sudo apt-get install git qemu-utils mbr kpartx debootstrap
 
-    # sudo apt-get install python3-pip python3-dateutil python3-cryptography
-    # sudo pip3 install azure-storage azure-servicemanagement-legacy azure-common pytest pyyaml
-    # git clone https://github.com/credativ/azure-manage.git
-    # cd azure-manage
-    # sudo pip3 install .
+# sudo apt-get install python3-pip python3-dateutil python3-cryptography
+# sudo pip3 install azure-storage azure-servicemanagement-legacy azure-common pytest pyyaml
+# git clone https://github.com/credativ/azure-manage.git
+# cd azure-manage
+# sudo pip3 install .
 
-    # sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
+# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
+```
 
 
 ## <a name="manually-prepare-a-debian-vhd"></a>Debian VHD 수동 준비
@@ -45,56 +47,70 @@ Azure 용 Debian Vhd를 생성 하는 데 사용할 수 있는 도구 (예: [Cre
 3. ISO를 사용하여 OS를 설치한 경우 `/etc/apt/source.list`에서 "`deb cdrom`"과 관련된 모든 줄을 주석 처리합니다.
 
 4. 다음과 같이 `/etc/default/grub` 파일을 편집하고 **GRUB_CMDLINE_LINUX** 매개 변수를 수정하여 Azure에 대한 추가 커널 매개 변수를 포함시킵니다.
-   
-        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
+
+    ```config-grub
+    GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
+    ```
 
 5. grub을 다시 빌드하고 다음을 실행합니다.
 
-        # sudo update-grub
+    ```console
+    # sudo update-grub
+    ```
 
 6. Debian의 Azure 리포지토리를 Debian 8 또는 9에 대한 /etc/apt/sources.list에 추가합니다.
 
     **Debian 8.x "Jessie"**
 
-        deb http://debian-archive.trafficmanager.net/debian jessie main
-        deb-src http://debian-archive.trafficmanager.net/debian jessie main
-        deb http://debian-archive.trafficmanager.net/debian-security jessie/updates main
-        deb-src http://debian-archive.trafficmanager.net/debian-security jessie/updates
-        deb http://debian-archive.trafficmanager.net/debian jessie-updates main
-        deb-src http://debian-archive.trafficmanager.net/debian jessie-updates main
-        deb http://debian-archive.trafficmanager.net/debian jessie-backports main
-        deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
+    ```config-grub
+    deb http://debian-archive.trafficmanager.net/debian jessie main
+    deb-src http://debian-archive.trafficmanager.net/debian jessie main
+    deb http://debian-archive.trafficmanager.net/debian-security jessie/updates main
+    deb-src http://debian-archive.trafficmanager.net/debian-security jessie/updates
+    deb http://debian-archive.trafficmanager.net/debian jessie-updates main
+    deb-src http://debian-archive.trafficmanager.net/debian jessie-updates main
+    deb http://debian-archive.trafficmanager.net/debian jessie-backports main
+    deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
+    ```
 
     **Debian 9.x "Stretch"**
 
-        deb http://debian-archive.trafficmanager.net/debian stretch main
-        deb-src http://debian-archive.trafficmanager.net/debian stretch main
-        deb http://debian-archive.trafficmanager.net/debian-security stretch/updates main
-        deb-src http://debian-archive.trafficmanager.net/debian-security stretch/updates main
-        deb http://debian-archive.trafficmanager.net/debian stretch-updates main
-        deb-src http://debian-archive.trafficmanager.net/debian stretch-updates main
-        deb http://debian-archive.trafficmanager.net/debian stretch-backports main
-        deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
+    ```config-grub
+    deb http://debian-archive.trafficmanager.net/debian stretch main
+    deb-src http://debian-archive.trafficmanager.net/debian stretch main
+    deb http://debian-archive.trafficmanager.net/debian-security stretch/updates main
+    deb-src http://debian-archive.trafficmanager.net/debian-security stretch/updates main
+    deb http://debian-archive.trafficmanager.net/debian stretch-updates main
+    deb-src http://debian-archive.trafficmanager.net/debian stretch-updates main
+    deb http://debian-archive.trafficmanager.net/debian stretch-backports main
+    deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
+    ```
 
 
 7. Azure Linux 에이전트를 설치합니다.
-   
-        # sudo apt-get update
-        # sudo apt-get install waagent
+
+    ```console
+    # sudo apt-get update
+    # sudo apt-get install waagent
+    ```
 
 8. Debian 9+의 경우 Azure의 VM에서 사용할 수 있게 새 Debian 클라우드 커널을 사용하는 것이 좋습니다. 이러한 새 커널을 설치하려면 먼저 다음과 같은 내용으로 /etc/apt/preferences.d/linux.pref라는 파일을 만듭니다.
-   
-        Package: linux-* initramfs-tools
-        Pin: release n=stretch-backports
-        Pin-Priority: 500
-   
+
+    ```config-pref
+    Package: linux-* initramfs-tools
+    Pin: release n=stretch-backports
+    Pin-Priority: 500
+    ```
+
     그런 다음, “sudo apt-get install linux-image-cloud-amd64"를 실행하여 새 Debian 클라우드 커널을 만듭니다.
 
 9. 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 가상 머신을 준비하고 다음 명령을 실행합니다.
-   
-        # sudo waagent –force -deprovision
-        # export HISTSIZE=0
-        # logout
+
+    ```console
+    # sudo waagent –force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
 
 10. **작업** -hyper-v 관리자에서 종료 >를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 

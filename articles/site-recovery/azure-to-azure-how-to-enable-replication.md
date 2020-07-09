@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851167"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135772"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Azure Vm을 다른 Azure 지역에 복제
 
@@ -50,7 +50,7 @@ ms.locfileid: "85851167"
        - Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 다시 사용 됩니다.
        - 리소스 그룹 설정을 사용자 지정할 수 있습니다.
        - 대상 리소스 그룹의 위치는 원본 Vm이 호스트 되는 지역을 제외한 모든 Azure 지역이 될 수 있습니다.
-   - **대상 virtual network**: 기본적으로 Site Recovery는 이름에 "asr" 접미사를 사용 하 여 대상 지역에 새 가상 네트워크를 만듭니다. 이 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호를 위해 사용됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
+   - **대상 virtual network**: 기본적으로 Site Recovery는 이름에 "asr" 접미사를 사용 하 여 대상 지역에 새 가상 네트워크를 만듭니다. 이 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호를 위해 사용됩니다. [자세히 알아봅니다](./azure-to-azure-network-mapping.md) 를 확인해 보세요.
    - **대상 저장소 계정 (원본 vm이 관리 디스크를 사용 하지 않음)**: 기본적으로 Site Recovery는 원본 vm 저장소 구성을 모방 하는 새 대상 저장소 계정을 만듭니다. 스토리지 계정이 이미 있는 경우 다시 사용됩니다.
    - **복제본 관리 디스크 (원본 vm이 관리 디스크를 사용)**: Site Recovery 대상 지역에 새 복제본 관리 디스크를 만들어서 원본 vm의 관리 디스크와 동일한 저장소 유형 (Standard 또는 premium)으로 원본 vm의 관리 디스크를 미러링합니다.
    - **캐시 스토리지 계정**: Site Recovery는 원본 지역에 캐시 스토리지로 불리는 추가 스토리지 계정이 필요합니다. 원본 VM에서 발생하는 모든 변경 내용이 대상 위치로 복제되기 전에 추적되고 캐시 스토리지 계정으로 전송됩니다. 이 저장소 계정은 표준 이어야 합니다.

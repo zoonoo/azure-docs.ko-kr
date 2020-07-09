@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74706374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135398"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
 
@@ -33,12 +34,12 @@ Azure에 대 한 다중 계층 응용 프로그램을 복구 하는 방법에 �
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
-1. [Azure에 가상 머신 복제](site-recovery-vmware-to-azure.md)
-2. 방법: [복구 네트워크 디자인](site-recovery-network-design.md)
+1. [Azure에 가상 머신 복제](./vmware-azure-tutorial.md)
+2. 방법: [복구 네트워크 디자인](./concepts-on-premises-to-azure-networking.md)
 3. [Azure로 테스트 장애 조치 수행](site-recovery-test-failover-to-azure.md)
 4. [Azure로 장애 조치 수행](site-recovery-failover.md)
 5. 방법: [도메인 컨트롤러 복제](site-recovery-active-directory.md)
@@ -46,7 +47,7 @@ Azure에 대 한 다중 계층 응용 프로그램을 복구 하는 방법에 �
 
 ## <a name="sharepoint-architecture"></a>SharePoint 아키텍처
 
-SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 이상의 서버에 배포되어 특정 목적 및 목표를 충족하는 팜 디자인을 구현할 수 있습니다. 수 많은 동시 사용자 및 콘텐츠 항목을 지원하는 일반적인 큰 규모의 많은 처리량을 요구하는 SharePoint 서버 팜은 확장성 전략의 일부로 서비스 그룹화를 사용합니다. 이 접근 방식에는 전용 서버에서 서버를 실행하고, 이러한 서비스를 함께 그룹화한 다음, 서버를 그룹으로 확장하는 것이 포함됩니다. 다음과 같은 토폴로지는 3계층 SharePoint 서버 팜에 대한 서비스 및 서버 그룹화를 보여 줍니다. 다양한 SharePoint 토폴로지에 대한 자세한 지침은 SharePoint 문서 및 제품 라인 아키텍처를 참조하세요. SharePoint 2013 배포에 대한 자세한 내용은 [이 문서](https://technet.microsoft.com/library/cc303422.aspx)에서 확인할 수 있습니다.
+SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 이상의 서버에 배포되어 특정 목적 및 목표를 충족하는 팜 디자인을 구현할 수 있습니다. 수 많은 동시 사용자 및 콘텐츠 항목을 지원하는 일반적인 큰 규모의 많은 처리량을 요구하는 SharePoint 서버 팜은 확장성 전략의 일부로 서비스 그룹화를 사용합니다. 이 접근 방식에는 전용 서버에서 서버를 실행하고, 이러한 서비스를 함께 그룹화한 다음, 서버를 그룹으로 확장하는 것이 포함됩니다. 다음과 같은 토폴로지는 3계층 SharePoint 서버 팜에 대한 서비스 및 서버 그룹화를 보여 줍니다. 다양한 SharePoint 토폴로지에 대한 자세한 지침은 SharePoint 문서 및 제품 라인 아키텍처를 참조하세요. SharePoint 2013 배포에 대한 자세한 내용은 [이 문서](/SharePoint/sharepoint-server)에서 확인할 수 있습니다.
 
 
 
@@ -61,9 +62,9 @@ Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 예 | 예
-**VMware** | 예 | 예
-**물리적 서버** | 예 | 예
+**Hyper-V** | 예 | Yes
+**VMware** | 예 | Yes
+**물리적 서버** | 예 | Yes
 **Azure** | 해당 없음 | 예
 
 
@@ -73,7 +74,7 @@ Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에
 
 ## <a name="replicating-virtual-machines"></a>가상 머신 복제
 
-[이 지침](site-recovery-vmware-to-azure.md)에 따라 가상 머신을 Azure로 복제합니다.
+[이 지침](./vmware-azure-tutorial.md)에 따라 가상 머신을 Azure로 복제합니다.
 
 * 복제가 완료되면 각 계층의 각 가상 머신으로 이동하여 '복제된 항목 &gt; 설정 &gt; 속성 &gt; Compute 및 네트워크'에서 동일한 가용성 집합을 선택했는지 확인합니다. 예를 들어 웹 계층에 VM이 3개 있는 경우 VM 3개가 모두 Azure의 동일한 가용성 집합에 속해 있도록 구성되었는지 확인합니다.
 
@@ -98,7 +99,7 @@ Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에
 
 ### <a name="dns-and-traffic-routing"></a>DNS 및 트래픽 라우팅
 
-인터넷 연결 사이트의 경우 Azure 구독에서 [‘우선 순위’ 형식의 Traffic Manager 프로필을 만듭니다](../traffic-manager/traffic-manager-create-profile.md) . 그런 다음, 다음과 같은 방법으로 DNS 및 Traffic Manager 프로필을 구성합니다.
+인터넷 연결 사이트의 경우 Azure 구독에서 [‘우선 순위’ 형식의 Traffic Manager 프로필을 만듭니다](../traffic-manager/quickstart-create-traffic-manager-profile.md) . 그런 다음, 다음과 같은 방법으로 DNS 및 Traffic Manager 프로필을 구성합니다.
 
 
 | **위치** | **소스** | **Target**|
@@ -162,7 +163,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
     * 이 메서드는 Search Service 애플리케이션의 백업이 치명적인 이벤트 이전에 수행되었으며, DR 사이트에서 백업을 사용할 수 있다고 가정합니다.
     * 이는 백업을 예약하고(예: 하루 한 번) DR 사이트에 백업을 배치하는 복사 절차를 사용하여 손쉽게 달성할 수 있습니다. 복사 절차에는 AzCopy(Azure 복사)와 같은 스크립트를 사용한 프로그램 또는 DFSR(분산 파일 서비스 복제)를 설정하는 것이 포함될 수 있습니다.
     * 이제 SharePoint 팜이 실행되고 있으며, 중앙 관리 ‘Backup 및 복원’으로 이동하여 복원을 선택합니다. 복원은 지정된 백업 위치를 조사합니다(값을 업데이트해야 할 수도 있음). 복원하려는 Search Service 애플리케이션 백업을 선택합니다.
-    * 검색이 복원됩니다. 복원은 해당 서버에 할당된 동일한 토폴로지(동일한 서버의 수)와 동일한 하드 드라이브 문자를 찾는다는 점에 유의하세요. 자세한 내용은 [‘SharePoint 2013의 Search Service 애플리케이션 복원’](https://technet.microsoft.com/library/ee748654.aspx) 문서를 참조하세요.
+    * 검색이 복원됩니다. 복원은 해당 서버에 할당된 동일한 토폴로지(동일한 서버의 수)와 동일한 하드 드라이브 문자를 찾는다는 점에 유의하세요. 자세한 내용은 [‘SharePoint 2013의 Search Service 애플리케이션 복원’](/SharePoint/administration/restore-a-search-service-application) 문서를 참조하세요.
 
 
 6. 새로운 Search Service 애플리케이션으로 시작은 다음 단계를 수행합니다.

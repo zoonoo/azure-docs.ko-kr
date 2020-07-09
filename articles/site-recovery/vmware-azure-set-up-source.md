@@ -8,17 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 095e837043e6322cf85aeaa732f5bcbf7c0fa098
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699552"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135377"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
 이 아티클에서는 VMware VM을 Azure에 복제하도록 원본 온-프레미스 환경을 설정하는 방법을 설명합니다. 이 문서에는 복제 시나리오를 선택 하 고, 온-프레미스 컴퓨터를 Site Recovery 구성 서버로 설정 하 고, 온-프레미스 Vm을 자동으로 검색 하는 단계가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
 
@@ -36,7 +37,7 @@ ms.locfileid: "84699552"
 
 ## <a name="set-up-the-configuration-server"></a>구성 서버 설정
 
-OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-프레미스 VMware VM으로 설정할 수 있습니다. VMware VM에 설치되는 구성 요소에 대해 [자세히 알아봅니다](concepts-vmware-to-azure-architecture.md).
+OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-프레미스 VMware VM으로 설정할 수 있습니다. VMware VM에 설치되는 구성 요소에 대해 [자세히 알아봅니다](./vmware-azure-architecture.md).
 
 1. 구성 서버 배포에 대한 [필수 구성 요소](vmware-azure-deploy-configuration-server.md#prerequisites)에 대해 알아봅니다.
 2. 배포에 대한 [용량 수치를 확인](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements)합니다.

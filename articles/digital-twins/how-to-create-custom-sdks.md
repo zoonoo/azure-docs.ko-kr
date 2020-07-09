@@ -7,22 +7,27 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725803"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135877"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>AutoRest를 사용 하 여 Azure Digital Twins에 대 한 사용자 지정 Sdk 만들기
+# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>AutoRest를 사용 하 여 Azure Digital Twins에 대 한 사용자 지정 Sdk 만들기
 
 현재 Azure Digital Twins Api와 상호 작용 하기 위해 게시 된 데이터 평면 SDK만 .NET (c #) 용입니다. .NET SDK 및 일반적인 Api에 대 한 자세한 내용은 [방법: Azure Digital Twins api 및 Sdk 사용](how-to-use-apis-sdks.md)을 참조 하세요. 다른 언어로 작업 하는 경우이 문서에서는 AutoRest를 사용 하 여 원하는 언어로 SDK를 생성 하는 방법을 보여 줍니다.
 
-## <a name="set-up-the-sdk"></a>SDK 설정
+## <a name="set-up-your-machine"></a>컴퓨터 설정
 
 SDK를 생성 하려면 다음이 필요 합니다.
 * [AutoRest](https://github.com/Azure/autorest), 버전 2.0.4413 (현재 버전 3은 지원 되지 않음)
 * AutoRest에 대 한 필수 구성 요소 [Node.js](https://nodejs.org)
-* [Azure 디지털 Twins OpenAPI (Swagger) 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
+* *에서digitaltwins.js*하는 [Azure Digital Twins Swagger (openapi) 파일과](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) 함께 제공 되는 예제 폴더입니다. Swagger 파일 및 해당 폴더의 예제를 로컬 컴퓨터에 다운로드 합니다.
+
+위의 목록에 있는 모든 항목이 컴퓨터에 장착 되 면 AutoRest를 사용 하 여 SDK를 만들 준비가 된 것입니다.
+
+## <a name="create-the-sdk-with-autorest"></a>AutoRest를 사용 하 여 SDK 만들기 
 
 Node.js 설치 되어 있는 경우이 명령을 실행 하 여 올바른 버전의 AutoRest가 설치 되어 있는지 확인할 수 있습니다.
 ```cmd/sh
@@ -30,31 +35,33 @@ npm install -g autorest@2.0.4413
 ```
 
 Azure Digital Twins Swagger 파일에 대해 AutoRest를 실행 하려면 다음 단계를 수행 합니다.
-1. Azure Digital Twins Swagger 파일을 작업 디렉터리에 복사 합니다.
-2. 명령 프롬프트에서 해당 작업 디렉터리로 전환 합니다.
-3. 다음 명령을 사용 하 여 AutoRest를 실행 합니다.
+1. Azure Digital Twins Swagger 파일 및 함께 제공 되는 예제 폴더를 작업 디렉터리에 복사 합니다.
+2. 명령 프롬프트 창을 사용 하 여 해당 작업 디렉터리로 전환 합니다.
+3. 다음 명령을 사용 하 여 AutoRest를 실행 합니다. 자리 표시자를 선택한 언어로 바꿉니다.,, 등 `<language>` `--python` `--java` `--go` . [AutoRest 추가 정보](https://github.com/Azure/autorest)에서 전체 옵션 목록을 찾을 수 있습니다.
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-그 결과, 작업 디렉터리에 *Adtapi* 라는 새 폴더가 표시 됩니다. 생성 된 SDK 파일에는 나머지 예제를 통해 계속 사용할 수 있는 *Adtapi*네임 스페이스가 포함 됩니다.
+그 결과, 작업 디렉터리에 *Adtapi* 라는 새 폴더가 표시 됩니다. 생성 된 SDK 파일에는이 문서의 나머지 사용 예를 통해 계속 사용할 수 있는 *Adtapi*네임 스페이스가 포함 됩니다.
 
 AutoRest는 다양 한 언어 코드 생성기를 지원 합니다.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Visual Studio 프로젝트에 SDK 추가
 
-AutoRest에서 생성 된 파일을 .NET 솔루션에 직접 포함할 수 있습니다. 그러나 여러 개별 프로젝트 (클라이언트 앱, Azure Functions 앱 등)에서 Azure Digital Twins SDK가 필요할 수 있으므로 생성 된 파일에서 별도의 프로젝트 (.NET 클래스 라이브러리)를 빌드하는 것이 좋습니다. 그런 다음이 클래스 라이브러리 프로젝트를 프로젝트 참조로 다른 솔루션에 포함할 수 있습니다.
+AutoRest에서 생성 된 파일을 .NET 솔루션에 직접 포함할 수 있습니다. 그러나 여러 개별 프로젝트 (클라이언트 앱, Azure Functions 앱 등)에 Azure Digital Twins SDK가 필요할 수 있으므로 생성 된 파일에서 별도의 프로젝트 (.NET 클래스 라이브러리)를 빌드하는 것이 유용할 수 있습니다. 그런 다음이 클래스 라이브러리 프로젝트를 여러 솔루션에 프로젝트 참조로 포함할 수 있습니다.
 
-이 섹션에서는 SDK를 클래스 라이브러리로 빌드하는 방법에 대 한 지침을 제공 합니다 .이 라이브러리는 자체 프로젝트 이며 다른 프로젝트에 포함 될 수 있습니다. 수행하는 단계는 다음과 같습니다.
+이 섹션에서는 SDK를 클래스 라이브러리로 빌드하는 방법에 대 한 지침을 제공 합니다 .이 라이브러리는 자체 프로젝트 이며 다른 프로젝트에 포함 될 수 있습니다. 이러한 단계는 **Visual Studio** 를 사용 합니다. [여기](https://visualstudio.microsoft.com/downloads/)에서 최신 버전을 설치할 수 있습니다.
+
+수행하는 단계는 다음과 같습니다.
 
 1. 클래스 라이브러리에 대 한 새 Visual Studio 솔루션 만들기
-2. 프로젝트 이름으로 "ADTApi" 이름을 사용 합니다.
+2. *Adtapi* 를 프로젝트 이름으로 사용
 3. 솔루션 탐색기에서 생성 된 솔루션의 *Adtapi* 프로젝트를 마우스 오른쪽 단추로 선택 하 고 *기존 항목 > 추가* ...를 선택 합니다.
 4. SDK를 생성 한 폴더를 찾고 루트 수준에서 파일을 선택 합니다.
 5. "확인"을 누릅니다.
 6. 프로젝트에 폴더를 추가 합니다 (솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 선택 하 고 *> 새 폴더 추가*선택).
-7. 폴더 이름 "모델"
+7. 폴더 이름을 *모델* 으로
 8. 솔루션 탐색기에서 *모델* 폴더를 마우스 오른쪽 단추로 선택 하 고 *기존 항목 > 추가* ...를 선택 합니다.
 9. 생성 된 SDK의 *모델* 폴더에서 파일을 선택 하 고 "확인"을 누릅니다.
 

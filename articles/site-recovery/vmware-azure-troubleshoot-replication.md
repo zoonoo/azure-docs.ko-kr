@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197035"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135365"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -94,16 +95,16 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
    - InMage Scout Application 서비스
 4. 원본 머신에서 오류 세부 정보에 대한 위치에서 로그를 검사합니다.
 
-       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    *C:\Program Files (X86) \Microsoft Azure Site Recovery\agent\sv\sv.log \**
 
 ### <a name="process-server-with-no-heartbeat-error-806"></a>하트비트가 없는 프로세스 서버 [오류 806]
 PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합니다.
 1. PS VM이 실행되고 있습니다.
 2. PS에서 오류 세부 정보에 대한 다음 로그를 확인합니다.
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    *C:\ProgramData\ASR\home\svsystems\eventmanager \**\
+    하거나
+    *C:\ProgramData\ASR\home\svsystems\ monitor_protection \* .log*
 
 ### <a name="master-target-server-with-no-heartbeat-error-78022"></a>하트비트가 없는 마스터 대상 서버 [오류 78022]
 
@@ -116,7 +117,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
     - svagents 서비스가 실행 중인지 확인합니다. 실행 중이라면 서비스를 다시 시작합니다.
     - 위치의 로그에서 오류 정보를 확인합니다.
 
-          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+        *C:\Program Files (X86) \Microsoft Azure Site Recovery\agent\sv\sv.log \**
 3. 마스터 대상을 구성 서버에 등록하려면 **%PROGRAMDATA%\ASR\Agent** 폴더로 이동하고 명령 프롬프트에서 다음을 실행합니다.
    ```
    cmd
@@ -146,25 +147,25 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 **해결 방법**: 기술 자료 [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)를 참조하세요.
 
 #### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 앱 일관성을 사용 하도록 설정 하지 않음
-**해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) 같습니다.
+**해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](./site-recovery-faq.md#replication) 같습니다.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인한 추가 원인:
 
 추가로 문제를 해결하려면 원본 머신의 파일을 확인하여 오류에 대한 정확한 오류 코드를 확인합니다.
 
-    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+*C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
 
 파일에서 오류를 찾으려면
 편집기에서 vacp.log 파일을 열어 “vacpError” 문자열을 검색합니다.
 
-    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+`Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
 위의 예제에서 **2147754994**는 아래와 같이 오류를 알려 주는 오류 코드입니다.
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치되어 있지 않음 - 오류 2147221164
 
 해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 설치 되지 않은 경우 "클래스가 등록 되지 않았습니다" 라는 오류 ID 0x80040154 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. </br>
-[VSS 기록기 설치 문제 해결에 대한 문서](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)를 참조하세요.
+[VSS 기록기 설치 문제 해결에 대한 문서](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)를 참조하세요.
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음 - 오류 2147943458
 
@@ -194,4 +195,4 @@ VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는
 
 ## <a name="next-steps"></a>다음 단계
 
-도움이 필요한 경우 [Azure Site Recovery의 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)에 질문을 게시하세요. 활발히 유지되는 커뮤니티가 있으며 엔지니어 중 하나가 도움을 줄 수 있습니다.
+도움이 필요한 경우 [Azure Site Recovery의 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 질문을 게시하세요. 활발히 유지되는 커뮤니티가 있으며 엔지니어 중 하나가 도움을 줄 수 있습니다.

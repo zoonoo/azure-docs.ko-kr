@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920164"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134581"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>강제 터널링 시나리오에서 Windows 정품 인증 실패
 
@@ -78,7 +79,9 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
     ```
 3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Windows 정품 인증을 시도하여 문제가 해결되었는지 확인합니다.
 
@@ -106,7 +109,9 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
 
 3. 정품 인증 문제가 있는 VM으로 이동합니다. [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)을 사용하여 KMS 서버에 연결할 수 있는지 테스트합니다.
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Windows 정품 인증을 시도하여 문제가 해결되었는지 확인합니다.
 

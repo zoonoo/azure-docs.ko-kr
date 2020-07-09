@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1254a2998a0acbf86b3689c66b83502c0334282
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75894974"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134485"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Site Recovery Services 자격 증명 모음 삭제
 
@@ -71,4 +72,4 @@ ms.locfileid: "75894974"
 
     Remove-AzRecoveryServicesVault -Vault $vault
 
-[AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)및 [AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)에 대해 자세히 알아보세요.
+[AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)및 [AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)에 대해 자세히 알아보세요.

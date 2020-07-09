@@ -1,15 +1,14 @@
 ---
 title: 파일 및 폴더의 느린 백업 문제 해결
 description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135048"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 
@@ -50,13 +49,13 @@ Windows에서는 이러한 병목 상태를 검색할 수 있는 [성능 모니�
 
 | 카운터 | 상태 |
 | --- | --- |
-| Logical Disk(Physical Disk)--%idle |* 100% 유휴 ~ 50% 유휴 = 정상</br>* 49% 유휴 ~ 20% 유휴 = 경고 또는 모니터</br>* 19% 유휴 ~ 0% 유휴 = 위험 또는 사양을 벗어남 |
-| 논리 디스크(실제 디스크)--%평균 Disk Sec Read or Write |* 0.001ms ~ 0.015ms = 정상</br>* 0.015ms ~ 0.025ms = 경고 또는 모니터</br>* 0.026ms 이상 = 위험 또는 사양을 벗어남 |
+| Logical Disk(Physical Disk)--%idle |<li> 100% 유휴 상태에서 50% 유휴 = 정상</br><li> 49% 유휴 ~ 20% 유휴 상태 = 경고 또는 모니터</br><li> 19% 유휴 상태에서 0% 유휴 = 위험 또는 사양을 벗어남 |
+| 논리 디스크(실제 디스크)--%평균 Disk Sec Read or Write |<li> 0.001 밀리초 ~ 0.015 밀리초 = 정상</br><li> 0.015 밀리초 ~ 0.025 밀리초 = 경고 또는 모니터</br><li> 0.026 밀리초 이상 = 위험 또는 사양 부족 |
 | 논리 디스크(실제 디스크)--현재 디스크 큐 길이(모든 인스턴스) |6분이 넘는 시간 동안 80개 요청 |
-| Memory--Pool Non Paged Bytes |* 풀 사용률 60% 미만 = 정상<br>* 풀 사용률 61% ~ 80% = 경고 또는 모니터</br>* 풀 사용률 80% 초과 = 위험 또는 사양을 벗어남 |
-| Memory--Pool Paged Bytes |* 풀 사용률 60% 미만 = 정상</br>* 풀 사용률 61% ~ 80% = 경고 또는 모니터</br>* 풀 사용률 80% 초과 = 위험 또는 사양을 벗어남 |
-| Memory--Available Megabytes |* 사용 가능한 여유 메모리 50% = 정상</br>* 사용 가능한 여유 메모리 25% = 모니터</br>* 사용 가능한 여유 메모리 10% = 경고</br>* 사용 가능한 여유 메모리 100MB 또는 5% 미만 = 위험 또는 사양을 벗어남 |
-| Processor--\%%Processor Time(모든 인스턴스) |* 사용률 60% 미만 = 정상</br>* 사용률 61% ~ 90% = 모니터 또는 주의</br>* 사용률 91% ~ 100% = 위험 |
+| Memory--Pool Non Paged Bytes |<li> 사용 된 풀의 60% 미만 = 정상<br><li> 사용 된 풀의 61% ~ 80% = 경고 또는 모니터</br><li> 사용 된 풀 수가 80% 보다 큼 = 위험 또는 사양을 벗어남 |
+| Memory--Pool Paged Bytes |<li> 사용 된 풀의 60% 미만 = 정상</br><li> 사용 된 풀의 61% ~ 80% = 경고 또는 모니터</br><li> 사용 된 풀 수가 80% 보다 큼 = 위험 또는 사양을 벗어남 |
+| Memory--Available Megabytes |<li> 사용 가능한 메모리의 50% 이상 = 정상</br><li> 사용 가능한 메모리의 25% = 모니터</br><li>사용 가능한 메모리의 10% = 경고</br><li> 100 MB 미만 또는 사용 가능한 사용 가능한 메모리의 5% = 위험 또는 사양 부족 |
+| Processor--\%%Processor Time(모든 인스턴스) |<li> 60% 미만의 사용 됨 = 정상</br><li> 61% ~ 90% 사용 됨 = 모니터 또는 주의</br><li> 91% ~ 100% 사용 됨 = 위험 |
 
 > [!NOTE]
 > 인프라가 가능한 원인으로 격리되면 더 나은 성능을 위해 주기적으로 디스크의 조각 모음을 수행하는 것이 좋습니다.

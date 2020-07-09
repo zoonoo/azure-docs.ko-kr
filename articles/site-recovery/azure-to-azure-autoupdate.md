@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: rajanaki
-ms.openlocfilehash: b2f5faea3df695500ea245d1dc71cb96a84c3643
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b57ce89979225015dc87bbfb17f9603897ef6d6b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985604"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135843"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제에서 모바일 서비스의 자동 업데이트
 
@@ -90,7 +90,7 @@ Site Recovery는 확장 업데이트를 관리할 수 있는 여러 가지 방�
 
 - **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에게 기여자 역할을 부여할 권한이 없습니다.
 
-  **권장 조치**: 로그인 된 계정이 참가자로 할당 되었는지 확인 하 고 다시 시도 하세요. 권한 할당에 대 한 자세한 내용은 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)의 필수 권한 섹션을 참조 하세요.
+  **권장 조치**: 로그인 된 계정이 참가자로 할당 되었는지 확인 하 고 다시 시도 하세요. 권한 할당에 대 한 자세한 내용은 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)의 필수 권한 섹션을 참조 하세요.
 
   자동 업데이트를 사용 하도록 설정한 후 대부분의 문제를 해결 하려면 **복구**를 선택 합니다. 복구 단추를 사용할 수 없는 경우 확장 업데이트 설정 창에 표시 되는 오류 메시지를 참조 하세요.
 
@@ -98,11 +98,11 @@ Site Recovery는 확장 업데이트를 관리할 수 있는 여러 가지 방�
 
 - **오류**: 복구 서비스 리소스에 액세스할 수 있는 권한이 실행 계정에 없습니다.
 
-  **권장 작업**: 실행 계정을 삭제 하 고 [다시 만듭니다](/azure/automation/automation-create-runas-account). 또는 Automation 실행 계정의 Azure Active Directory 응용 프로그램이 recovery services 리소스에 액세스할 수 있는지 확인 합니다.
+  **권장 작업**: 실행 계정을 삭제 하 고 [다시 만듭니다](../automation/manage-runas-account.md). 또는 Automation 실행 계정의 Azure Active Directory 응용 프로그램이 recovery services 리소스에 액세스할 수 있는지 확인 합니다.
 
 - **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 애플리케이션, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다.
 
-  **권장 작업**: 실행 계정을 삭제 하 고 [다시 만듭니다](/azure/automation/automation-create-runas-account).
+  **권장 작업**: 실행 계정을 삭제 하 고 [다시 만듭니다](../automation/manage-runas-account.md).
 
 - **오류**: automation 계정에서 사용 하는 Azure 실행 인증서가 곧 만료 됩니다.
 

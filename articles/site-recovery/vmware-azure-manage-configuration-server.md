@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672762"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134824"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구를 위한 구성 서버 관리
 
@@ -21,7 +22,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 ## <a name="update-windows-license"></a>Windows 라이선스 업데이트
 
-OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 중단 없이 사용하려면 제공된 라이선스를 사용하여 Windows를 정품 인증해야 합니다. 라이선스 업데이트는 독립 실행형 키 또는 KMS 표준 키를 통해 수행할 수 있습니다. 지침은 [DISM Windows 명령줄에서 OS를 실행](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options)하는 데 사용할 수 있습니다. 키를 가져오려면 [KMS 클라이언트 설정](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)을 참조 하세요.
+OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 중단 없이 사용하려면 제공된 라이선스를 사용하여 Windows를 정품 인증해야 합니다. 라이선스 업데이트는 독립 실행형 키 또는 KMS 표준 키를 통해 수행할 수 있습니다. 지침은 [DISM Windows 명령줄에서 OS를 실행](/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options)하는 데 사용할 수 있습니다. 키를 가져오려면 [KMS 클라이언트 설정](/windows-server/get-started/kmsclientkeys)을 참조 하세요.
 
 ## <a name="access-configuration-server"></a>구성 서버 액세스
 
@@ -163,7 +164,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들어:
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
@@ -211,21 +212,21 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| 형식 | 설명| 값|
+|매개 변수 이름| Type | 설명| 값|
 |-|-|-|-|
-| /ServerMode|필요한 공간|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
-|/InstallLocation|필요한 공간|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
-|/MySQLCredsFilePath|필요한 공간|MySQL 서버 자격 증명이 저장되는 파일 경로입니다.|파일은 아래에 지정된 형식이어야 합니다.|
-|/VaultCredsFilePath|필요한 공간|자격 증명 모음 자격 증명 파일의 경로입니다.|유효한 파일 경로|
-|/EnvType|필요한 공간|보호하려는 환경 유형입니다. |VMware<br>NonVMware|
-|/PSIP|필요한 공간|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
-|/CSIP|필요한 공간|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
-|/PassphraseFilePath|필요한 공간|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
+| /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
+|/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
+|/MySQLCredsFilePath|필수|MySQL 서버 자격 증명이 저장되는 파일 경로입니다.|파일은 아래에 지정된 형식이어야 합니다.|
+|/VaultCredsFilePath|필수|자격 증명 모음 자격 증명 파일의 경로입니다.|유효한 파일 경로|
+|/EnvType|필수|보호하려는 환경 유형입니다. |VMware<br>NonVMware|
+|/PSIP|필수|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
+|/CSIP|필수|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
+|/PassphraseFilePath|필수|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
 |/BypassProxy|선택 사항|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
 |/ProxySettingsFilePath|선택 사항|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
 |DataTransferSecurePort|선택 사항|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
 |/SkipSpaceCheck|선택 사항|캐시 디스크의 공간 확인을 건너뜁니다.| |
-|/AcceptThirdpartyEULA|필요한 공간|플래그는 타사 EULA에 대한 동의를 의미합니다.| |
+|/AcceptThirdpartyEULA|필수|플래그는 타사 EULA에 대한 동의를 의미합니다.| |
 |/ShowThirdpartyEULA|선택 사항|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
 
 
@@ -265,7 +266,7 @@ ProxyPassword="Password"
 
 필요에 따라 PowerShell을 사용하여 구성 서버를 삭제할 수 있습니다.
 
-1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/install-Az-ps) 합니다.
+1. Azure PowerShell 모듈을 [설치](/powershell/azure/install-Az-ps) 합니다.
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
     `Connect-AzAccount`

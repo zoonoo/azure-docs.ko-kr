@@ -1,27 +1,30 @@
 ---
-title: Azure 위임 리소스 관리에 고객 등록
-description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
+title: Azure Lighthouse에 고객 등록
+description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920929"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133459"
 ---
-# <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 등록
 
-이 문서에서는 서비스 공급자가 고객을 Azure 위임 리소스 관리에 온보딩하여 위임된 해당 리소스(구독 및/또는 리소스 그룹)를 고유한 Azure AD(Azure Active Directory) 테넌트를 통해 액세스 및 관리할 수 있도록 하는 방법을 설명합니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, [여러 테넌트를 관리하는 엔터프라이즈](../concepts/enterprise.md)는 동일한 프로세스를 사용하여 Azure Lighthouse를 설정하고 관리 환경을 통합할 수 있습니다.
+이 문서에서는 서비스 공급자로 고객을 Azure Lighthouse에 등록할 수 있는 방법을 설명 합니다. 이렇게 하면 [azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용 하 여 고객의 위임 된 리소스 (구독 및/또는 리소스 그룹)를 자체 Azure Active Directory (azure AD) 테 넌 트를 통해 액세스 하 고 관리할 수 있습니다.
 
-여러 고객의 리소스를 관리하는 경우 이 프로세스를 반복할 수 있습니다. 그러면 권한 있는 사용자는 테넌트에 로그인한 경우 모든 개별 고객 테넌트에 로그인하지 않고도 고객 테넌시 범위에서 관리 작업을 수행하기 위한 권한을 받을 수 있습니다.
+여러 고객의 리소스를 관리하는 경우 이 프로세스를 반복할 수 있습니다. 그런 다음 권한 있는 사용자가 테 넌 트에 로그인 하면 모든 개별 고객 테 넌 트에 로그인 하지 않고도 관리 작업을 수행 하기 위해 고객 테 넌 트 범위에서 해당 사용자에 게 권한을 부여할 수 있습니다.
 
-고객 계약에 미치는 영향을 추적하고 인지도를 얻으려면 MPN(Microsoft 파트너 네트워크) ID를 온보딩한 각 구독에 대해 액세스 권한이 있는 하나 이상의 사용자 계정과 연결합니다. 서비스 공급자 테넌트에서 이 연결을 수행해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](../../billing/billing-partner-admin-link-started.md)을 참조하세요. 
+고객 계약에 미치는 영향을 추적하고 인지도를 얻으려면 MPN(Microsoft 파트너 네트워크) ID를 온보딩한 각 구독에 대해 액세스 권한이 있는 하나 이상의 사용자 계정과 연결합니다. 서비스 공급자 테넌트에서 이 연결을 수행해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](../../cost-management-billing/manage/link-partner-id.md)을 참조하세요. 
 
 > [!NOTE]
-> 고객이 Azure Marketplace에 게시한 관리형 서비스 제품(퍼블릭 또는 프라이빗)을 구매할 때 온보딩될 수도 있습니다. 자세한 내용은 [Azure Marketplace에 관리형 서비스 제품 게시](publish-managed-services-offers.md)를 참조하세요. 여기에 설명된 온보딩 프로세스를 Azure Marketplace에 게시된 제품에 사용할 수도 있습니다.
+> 또한 고객은 Azure Marketplace 게시 된 관리 서비스 제품 (공용 또는 개인)을 구매할 때 Azure Lighthouse에 등록 수 있습니다. 자세한 내용은 [Azure Marketplace에 관리형 서비스 제품 게시](publish-managed-services-offers.md)를 참조하세요. 여기에 설명된 온보딩 프로세스를 Azure Marketplace에 게시된 제품에 사용할 수도 있습니다.
 
 온보딩 프로세스를 사용하려면 서비스 공급자의 테넌트와 고객의 테넌트 둘 다에서 작업을 수행해야 합니다. 이러한 모든 단계는 이 문서에 설명되어 있습니다.
+
+> [!TIP]
+> 이 항목의 서비스 공급자 및 고객을 참조 하더라도 [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용 하 여 Azure Lighthouse를 설정 하 고 관리 환경을 통합할 수 있습니다.
 
 ## <a name="gather-tenant-and-subscription-details"></a>테넌트 및 구독 세부 정보 수집
 
@@ -193,7 +196,7 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 배포
 
-매개 변수 파일을 업데이트한 후 고객 테넌트의 사용자는 해당 테넌트 내의 Azure Resource Manager 템플릿을 구독 수준 배포로 배포해야 합니다. Azure 위임 리소스 관리에 온보딩하려는 각 구독(또는 온보딩하려는 리소스 그룹을 포함하는 각 구독)에 대해 별도의 배포가 필요합니다.
+매개 변수 파일을 업데이트한 후 고객 테넌트의 사용자는 해당 테넌트 내의 Azure Resource Manager 템플릿을 구독 수준 배포로 배포해야 합니다. 등록 하려는 각 구독 (또는 등록 하려는 리소스 그룹을 포함 하는 각 구독)에 대해 별도의 배포가 필요 합니다.
 
 이 배포는 구독 수준 배포이므로 Azure Portal에서 시작할 수 없습니다. 이 배포는 아래와 같이 PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다.
 
@@ -244,7 +247,7 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>온보딩 성공 확인
 
-고객 구독이 Azure 위임 리소스 관리에 성공적으로 온보딩되면 서비스 공급자의 테넌트에 있는 사용자는 구독 및 해당 리소스를 볼 수 있습니다(개별적으로 또는 해당 권한이 있는 Azure AD 그룹의 멤버로서 위의 프로세스를 통해 액세스 권한이 부여된 경우). 이를 확인하려면 다음 방법 중 하나를 사용하여 구독이 표시되는지 확인합니다.  
+고객 구독이 Azure Lighthouse로 성공적으로 등록 된 경우 서비스 공급자의 테 넌 트에 있는 사용자는 구독 및 해당 리소스를 볼 수 있습니다 (위의 프로세스를 통해 개별적으로 또는 적절 한 권한이 있는 Azure AD 그룹의 멤버로 액세스 권한이 부여 된 경우). 이를 확인하려면 다음 방법 중 하나를 사용하여 구독이 표시되는지 확인합니다.  
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -255,7 +258,7 @@ az deployment create --name <deploymentName> \
 3. Resource Manager 템플릿에서 제공한 제품 이름의 구독을 볼 수 있는지 확인합니다.
 
 > [!IMPORTANT]
-> [내 고객](view-manage-customers.md)에서 위임된 구독을 보려면 Azure 위임 리소스 관리에 대해 구독이 온보딩될 때 서비스 공급자의 테넌트에 있는 사용자에게 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할(또는 읽기 권한자 액세스를 포함하는 다른 기본 제공 역할)을 부여해야 합니다.
+> [내 고객](view-manage-customers.md)의 위임 된 구독을 보려면 구독이 등록 때 서비스 공급자의 테 넌 트에 있는 사용자에 게 [읽기](../../role-based-access-control/built-in-roles.md#reader) 권한자 역할 (또는 읽기 권한자 액세스를 포함 하는 다른 기본 제공 역할)이 부여 되어 있어야 합니다.
 
 고객의 테넌트에서 다음을 수행합니다.
 

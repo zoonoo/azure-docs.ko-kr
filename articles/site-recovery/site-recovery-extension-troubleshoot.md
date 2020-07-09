@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133750"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Azure VM 확장 문제 해결
 
@@ -68,14 +69,14 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 1. Microsoft Azure 게스트 에이전트 서비스가 서비스에 표시 되는지 확인 합니다.
 1. 보호 작업을 다시 시작합니다.
 
-또는 VM에서 [Microsoft .NET 4.5가 설치되어 있는지](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 확인합니다. VM 에이전트가 서비스와 통신 하려면 .NET 4.5이 필요 합니다.
+또는 VM에서 [Microsoft .NET 4.5가 설치되어 있는지](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 확인합니다. VM 에이전트가 서비스와 통신 하려면 .NET 4.5이 필요 합니다.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
 #### <a name="solution"></a>솔루션
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
-1. [Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md)의 지침을 따르세요.
+1. [Linux VM 에이전트 업데이트](../virtual-machines/extensions/update-linux-agent.md)의 지침을 따르세요.
 
    > [!NOTE]
    > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 직접 에이전트 코드를 다운로드 하 여 업데이트 하지 않는 것이 좋습니다. 배포에 대 한 최신 에이전트를 사용할 수 없는 경우 배포 지원에 문의 하 여 설치 방법에 대 한 지침을 제공 합니다. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
@@ -106,6 +107,6 @@ Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이�
 1. **Site Recovery 확장**을 선택합니다.
 1. **제거**를 선택합니다.
 
-Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시 되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/linux/update-agent.md)합니다. 그런 다음 보호를 실행 합니다.
+Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시 되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/extensions/update-linux-agent.md)합니다. 그런 다음 보호를 실행 합니다.
 
 이러한 단계를 완료 하면 보호 하는 동안 확장이 다시 설치 됩니다.

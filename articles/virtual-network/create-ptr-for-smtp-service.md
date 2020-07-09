@@ -13,11 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0264ad93eb53e27d1dc76f2b20ad175a6ee2f8de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8ffadb8d54db0c2a99dc12e45b5990155a0505e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688690"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135064"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>SMTP 배너 검사를 위한 역방향 조회 영역 구성
 
@@ -37,10 +38,12 @@ Microsoft 소유의 영역에 PTR 레코드를 구성하려면 PublicIpAddress �
 
 PTR 레코드를 구성할 때 IP 주소 및 역방향 FQDN이 구독의 소유여야 합니다. 구독에 속하지 않는 역방향 FQDN을 설정하려고 시도하면 다음과 같은 오류 메시지가 나타납니다.
 
-    Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership:
-                        
-    1) ReverseFqdn은 구독에 속한 모든 공용 ip 리소스의 fqdn을 매칭합니다.
-    2) ReverseFqdn은 구독에 속한 모든 공용 ip 리소스의 fqdn을 확인합니다(CName 레코드 체인을 통해).
-    3) 구독에 속한 공용 고정 ip 리소스의 ip 주소를 확인합니다(CName 및 A 레코드 체인을 통해).
+```output
+Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership:
+                    
+1) ReverseFqdn matches fqdn of any public ip resource under the subscription;
+2) ReverseFqdn resolves to the fqdn (through CName records chain) of any public ip resource under the subscription;
+3) It resolves to the ip address (through CName and A records chain) of a static public ip resource under the subscription.
+```
 
 기본 역방향 FQDN을 매칭하기 위해 SMTP 배너를 수동으로 변경하는 경우 원격 메일 서버는 SMTP 배너 호스트가 도메인의 MX 레코드와 일치할 것으로 예상하기 때문에 계속 실패할 수 있습니다.

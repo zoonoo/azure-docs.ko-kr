@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134626"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -461,26 +461,27 @@ CMK를 회전하려면 Azure Key Vault의 새 키 버전을 사용하여 *클러
 
 AEK는 이제 Key Vault의 새 KEK(키 암호화 키) 버전을 사용하여 암호화되지만, 데이터는 항상 AEK(계정 암호화 키)를 사용하여 암호화되므로 키 회전 작업 후에도 모든 데이터에 계속 액세스할 수 있습니다.
 
-## <a name="saving-queries-protected-with-cmk"></a>CMK로 보호 되는 쿼리 저장
+## <a name="cmk-for-queries"></a>쿼리에 CMK
 
-Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 하는 설명 또는 쿼리 구문에 중요 한 정보를 포함할 수 있습니다. 일부 조직에서는 이러한 정보를 CMK 정책의 일부로 보호 된 상태로 유지 하 고 암호화 된 쿼리를 키로 저장 해야 합니다. Azure Monitor를 사용 하면 *저장 된 검색* 및 *로그 경고* 쿼리를 작업 영역에 연결 하는 고유한 저장소 계정에 저장할 수 있습니다. 
+Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 하는 설명 또는 쿼리 구문에 중요 한 정보를 포함할 수 있습니다. 일부 조직에서는 이러한 정보를 CMK 정책의 일부로 보호 된 상태로 유지 하 고 암호화 된 쿼리를 키로 저장 해야 합니다. Azure Monitor를 사용 하면 작업 영역에 연결 될 때 사용자 고유의 저장소 계정에서 키로 암호화 된 *저장 된 검색* 및 *로그 경고* 쿼리를 저장할 수 있습니다. 
 
-> 참고 통합 문서 및 Azure 대시보드에 사용 되는 쿼리에 대 한 CMK는 아직 지원 되지 않습니다. 이러한 쿼리는 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 됩니다.  
+> [!NOTE]
+> 통합 문서 및 Azure 대시보드에 사용 되는 쿼리에 대 한 CMK는 아직 지원 되지 않습니다. 이러한 쿼리는 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 됩니다.  
 
-서비스는 사용자 고유의 저장소 (BYOS)를 사용 하 여 제어 하는 저장소 계정에 쿼리를 업로드 합니다. 즉, Log Analytics 클러스터의 데이터를 암호화 하는 데 사용 하는 것과 동일한 키를 사용 하거나 다른 키를 사용 하 여 [미사용 암호화 정책을](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) 제어할 수 있습니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다. 
+사용자 [고유의 저장소](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (byos)를 가져와서 작업 영역에 연결 하면 서비스에서 *저장 된 검색* 및 *로그 경고* 쿼리를 저장소 계정에 업로드 합니다. 즉, Log Analytics 클러스터의 데이터를 암호화 하는 데 사용 하는 것과 동일한 키를 사용 하거나 다른 키를 사용 하 여 저장소 계정 및 [미사용 암호화 정책을](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) 제어할 수 있습니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다. 
 
 **쿼리에 CMK를 설정 하기 전 고려 사항**
 * 작업 영역 및 저장소 계정에 대 한 ' 쓰기 ' 권한이 있어야 합니다.
 * Log Analytics 작업 영역이 있는 동일한 지역에 저장소 계정을 만들어야 합니다.
 * 저장소의 *저장 검색* 은 서비스 아티팩트로 간주 되 고 형식은 변경 될 수 있습니다.
-* 기존 *저장 검색* 은 작업 영역에서 제거 됩니다. 복사 및는 구성 전에 필요한 *검색을 저장* 합니다. 이 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0) 을 사용 하 여 *저장 된 검색* 을 볼 수 있습니다.
+* 기존 *저장 검색* 은 작업 영역에서 제거 됩니다. 복사 및는 구성 전에 필요한 *검색을 저장* 합니다. [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch) 을 사용 하 여 *저장 된 검색* 을 볼 수 있습니다.
 * 쿼리 기록은 지원 되지 않으므로 실행 한 쿼리를 볼 수 없습니다.
 * 쿼리 저장을 위해 단일 저장소 계정을 작업 영역에 연결할 수 있지만 *저장 된 검색* 및 *로그 경고* 쿼리를 가져오면 사용할 수 있습니다.
 * 대시보드에 고정은 지원 되지 않습니다.
 
-**쿼리에 대 한 BYOS 구성**
+**저장 된 검색 쿼리를 위한 BYOS 구성**
 
-*쿼리* dataSourceType을 사용 하 여 저장소 계정을 작업 영역에 연결 합니다. 
+*쿼리에* 대 한 저장소 계정을 작업 영역에 연결 합니다. *저장 된 검색* 쿼리는 저장소 계정에 저장 됩니다. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
@@ -505,9 +506,9 @@ Content-type: application/json
 
 구성 후에는 저장 된 새 *검색* 쿼리가 저장소에 저장 됩니다.
 
-**로그에 대 한 BYOS 구성-경고**
+**로그 경고 쿼리를 위한 BYOS 구성**
 
-DataSourceType *경고* 와 함께 저장소 계정을 작업 영역에 연결 합니다. 
+*경고* 에 대 한 저장소 계정을 작업 영역에 연결 합니다.- *로그-경고* 쿼리는 저장소 계정에 저장 됩니다. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"

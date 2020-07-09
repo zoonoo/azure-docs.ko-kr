@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309784"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135251"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows의 Azure 직렬 콘솔
 
@@ -101,15 +102,15 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
     ![SAC에 연결](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다.
+1. `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다.
 
-1.    `ch -si 1`을 입력하거나 `<esc>+<tab>` 바로 가기 키를 눌러 CMD 인스턴스를 실행하는 채널로 전환합니다.
+1. `ch -si 1`을 입력하거나 `<esc>+<tab>` 바로 가기 키를 눌러 CMD 인스턴스를 실행하는 채널로 전환합니다.
 
-1.    **Enter** 키를 누른 다음, 관리자 권한으로 로그인 자격 증명을 입력합니다.
+1. **Enter** 키를 누른 다음, 관리자 권한으로 로그인 자격 증명을 입력합니다.
 
-1.    유효한 자격 증명을 입력하면 CMD 인스턴스가 열립니다.
+1. 유효한 자격 증명을 입력하면 CMD 인스턴스가 열립니다.
 
-1.    PowerShell 인스턴스를 시작하려면 CMD 인스턴스에서 `PowerShell`을 입력하고 **Enter** 키를 누릅니다.
+1. PowerShell 인스턴스를 시작하려면 CMD 인스턴스에서 `PowerShell`을 입력하고 **Enter** 키를 누릅니다.
 
     ![PowerShell 인스턴스 열기](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

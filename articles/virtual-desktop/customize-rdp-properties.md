@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9bc2116120f05db9cad63cc945df0ea4367fc3a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cbfe03c48c6d971c140dc332c38a47bc9234173
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135114"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정
 
@@ -53,7 +53,7 @@ Azure Portal에서 RDP 속성을 구성 하려면 다음을 수행 합니다.
 4. Windows 가상 데스크톱 페이지의 화면 왼쪽에 있는 메뉴에서 **호스트 풀** 을 선택 합니다.
 5. 업데이트 하려는 **호스트 풀의 이름을** 선택 합니다.
 6. 화면 왼쪽의 메뉴에서 **속성** 을 선택 합니다.
-7. **속성** 탭에서 rdp **설정** 으로 이동 하 여 rdp 속성 편집을 시작 합니다. 속성은 PowerShell 예제와 같이 쉼표로 구분 된 형식 이어야 합니다.
+7. **속성** 탭에서 rdp **설정** 으로 이동 하 여 rdp 속성 편집을 시작 합니다. 속성은 PowerShell 예제와 같이 세미콜론으로 구분 된 형식 이어야 합니다.
 8. 완료 되 면 **저장** 을 선택 하 여 변경 내용을 저장 합니다.
 
 다음 섹션에서는 PowerShell에서 사용자 지정 RDP 속성을 수동으로 편집 하는 방법을 설명 합니다.

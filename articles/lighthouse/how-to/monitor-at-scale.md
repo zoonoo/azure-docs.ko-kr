@@ -1,17 +1,18 @@
 ---
 title: 대규모로 위임 된 리소스 모니터링
 description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 Azure Monitor 로그를 효과적으로 사용 하는 방법을 알아봅니다.
-ms.date: 02/03/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: bdd91cec650d6810d1d62230219f840a172141d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634118"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133456"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링
 
-서비스 공급자는 Azure 위임 리소스 관리를 위해 여러 고객 테넌트를 온보딩했을 수 있습니다. [Azure Lighthouse](../overview.md)를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
+서비스 공급자로 서 [Azure Lighthouse](../overview.md)에 여러 고객 테 넌 트를 등록 했을 수 있습니다. Azure Lighthouse를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
 
 이 항목에서는 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 [Azure Monitor 로그](../../azure-monitor/platform/data-platform-logs.md) 를 사용 하는 방법을 보여 줍니다.
 
@@ -21,7 +22,7 @@ ms.locfileid: "84634118"
 
 이러한 작업 영역을 고객 테 넌 트에 직접 만드는 것이 좋습니다. 이러한 방식으로 데이터가 자신의 테 넌 트로 내보내지지 않고 테 넌 트에 유지 됩니다. 또한 Log Analytics에서 지 원하는 모든 리소스 또는 서비스를 중앙에서 모니터링할 수 있으므로 모니터링 하는 데이터 형식에 대 한 유연성을 높일 수 있습니다.
 
-[Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)를 사용 하거나 [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)를 사용 하거나 [Azure PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다.
+[Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)를 사용 하거나 [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)를 사용 하거나 [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다.
 
 ## <a name="deploy-policies-that-log-data"></a>데이터를 기록 하는 정책 배포
 

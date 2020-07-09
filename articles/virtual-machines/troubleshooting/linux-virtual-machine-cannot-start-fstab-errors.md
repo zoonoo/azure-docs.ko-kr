@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883144"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135256"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Fstab 오류로 인 한 Linux VM 시작 문제 해결
 
 SSH (Secure Shell) 연결을 사용 하 여 Azure Linux VM (가상 머신)에 연결할 수 없습니다. [Azure Portal](https://portal.azure.com/)에서 [부팅 진단](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 기능을 실행 하면 다음 예제와 유사한 로그 항목이 표시 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 가능한 오류의 예는 다음과 같습니다.
 
@@ -191,16 +192,16 @@ Give root password for maintenance
 
 2. 시스템 디스크를 복구 VM의 데이터 디스크로 탑재 한 후에는 fstab 파일을 백업한 후 다음 단계에 따라 fstab 파일을 수정 합니다.
 
-3.    디스크가 탑재 되지 않았음을 나타내는 오류를 확인 합니다. 다음 예에서는 시스템에서 더 이상 존재 하지 않는 디스크를 연결 하려고 했습니다.
+3. 디스크가 탑재 되지 않았음을 나타내는 오류를 확인 합니다. 다음 예에서는 시스템에서 더 이상 존재 하지 않는 디스크를 연결 하려고 했습니다.
 
-    ```
-    [DEPEND] Dependency failed for /datadisk1.
-    [DEPEND] Dependency failed for Local File Systems.
-    [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
-    [DEPEND] Dependency failed for Migrate local... structure to the new structure.
-    Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
-    Give root password for maintenance (or type Control-D to continue):
-    ```
+   ```output
+   [DEPEND] Dependency failed for /datadisk1.
+   [DEPEND] Dependency failed for Local File Systems.
+   [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
+   [DEPEND] Dependency failed for Migrate local... structure to the new structure.
+   Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
+   Give root password for maintenance (or type Control-D to continue):
+   ```
 
 4. 루트 암호 (Red Hat 기반 Vm)를 사용 하 여 VM에 연결 합니다.
 

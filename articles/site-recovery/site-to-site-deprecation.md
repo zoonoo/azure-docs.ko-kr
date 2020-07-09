@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77661673"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135221"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Azure Site Recovery를 사용 하 여 고객이 관리 하는 사이트 (VMM) 간의 재해 복구 사용 중단
 
@@ -38,7 +39,7 @@ Site Recovery를 사용 하 여 System Center Virtual Machine Manager (SCVMM)에
 - 옵션 1 (권장): [DR 대상으로 Azure를 사용 하 여 시작](hyper-v-vmm-azure-tutorial.md)하도록 선택 합니다.
 
 
-- 옵션 2: 기본 [Hyper-v 복제본 솔루션](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)을 사용 하 여 사이트 간 복제를 계속 하도록 선택 하지만 Azure Portal에서 Azure Site Recovery를 사용 하 여 DR 구성을 관리할 수는 없습니다. 
+- 옵션 2: 기본 [Hyper-v 복제본 솔루션](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)을 사용 하 여 사이트 간 복제를 계속 하도록 선택 하지만 Azure Portal에서 Azure Site Recovery를 사용 하 여 DR 구성을 관리할 수는 없습니다. 
 
 
 ## <a name="remediation-steps"></a>수정 단계

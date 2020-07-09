@@ -15,11 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd913b597e52f81c19b9c6bb20e83be23e5b35bd
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338410"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134697"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(클래식)
 > [!div class="op_single_selector"]
@@ -60,20 +61,28 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 
 Windows PowerShell을 시작하고 **Add-AzureAccount** 명령을 사용하여 Azure 구독에 연결합니다.
 
-    Add-AzureAccount
+```azurepowershell
+Add-AzureAccount
+```
 
 구독이 여러 개인 경우 **Select-AzureSubscription** 을 사용하여 대상 클래식 VM이 포함된 구독을 선택합니다.
 
-    Select-AzureSubscription -SubscriptionName <subscriptionname>
+```azurepowershell
+Select-AzureSubscription -SubscriptionName <subscriptionname>
+```
 
 이때 **Get-AzureVM** 명령을 사용하여 클래식 가상 머신 및 연결된 해당 서비스 이름 목록을 가져올 수 있습니다.
 
-    Get-AzureVM
+```azurepowershell
+Get-AzureVM
+```
 
 ## <a name="installation"></a>설치
 클래식 VM의 경우 PowerShell을 사용하여 SQL Server IaaS 에이전트 확장을 설치하고 관련 서비스를 구성해야 합니다. **Set-AzureVMSqlServerExtension** PowerShell cmdlet을 사용하여 확장을 설치합니다. 예를 들어 다음 명령은 Windows Server VM(클래식)에 확장을 설치한 후 "SQLIaaSExtension"이라고 이름을 지정합니다.
 
-    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```azurepowershell
+Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```
 
 SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 확장을 업데이트한 후 가상 머신을 다시 시작해야 합니다.
 
@@ -90,7 +99,9 @@ SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 �
 
 **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet을 사용할 수도 있습니다.
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```
 
 ## <a name="removal"></a>제거
 Azure Portal에서 가상 머신 속성의 **확장** 블레이드에서 줄임표를 클릭하여 확장을 제거할 수 있습니다. 그런 후 **제거**를 클릭합니다.
@@ -99,7 +110,9 @@ Azure Portal에서 가상 머신 속성의 **확장** 블레이드에서 줄임�
 
 **Remove-AzureVMSqlServerExtension** Powershell cmdlet을 사용할 수도 있습니다.
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```
 
 ## <a name="next-steps"></a>다음 단계
 확장에 의해 지원되는 서비스 중 하나를 사용하기 시작합니다. 자세한 내용은 이 문서의 [지원되는 서비스](#supported-services) 섹션에 참조된 항목을 참조하세요.

@@ -8,16 +8,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74159119"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135670"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 
 
 
-[Site Recovery](site-recovery-overview.md) 서비스를 사용 하 여 [온-프레미스 컴퓨터를 Azure vm으로 마이그레이션한](tutorial-migrate-on-premises-to-azure.md) 다음, 이제 보조 Azure 지역에 대 한 재해 복구를 위해 vm을 설정 하려는 경우이 문서를 따릅니다. 이 문서에서는 마이그레이션된 Vm에 Azure VM 에이전트가 설치 되어 있는지 확인 하는 방법 및 마이그레이션 후 더 이상 필요 하지 않은 Site Recovery 모바일 서비스를 제거 하는 방법을 설명 합니다.
+[Site Recovery](site-recovery-overview.md) 서비스를 사용 하 여 [온-프레미스 컴퓨터를 Azure vm으로 마이그레이션한](./migrate-tutorial-on-premises-azure.md) 다음, 이제 보조 Azure 지역에 대 한 재해 복구를 위해 vm을 설정 하려는 경우이 문서를 따릅니다. 이 문서에서는 마이그레이션된 Vm에 Azure VM 에이전트가 설치 되어 있는지 확인 하는 방법 및 마이그레이션 후 더 이상 필요 하지 않은 Site Recovery 모바일 서비스를 제거 하는 방법을 설명 합니다.
 
 
 
@@ -48,14 +49,14 @@ ms.locfileid: "74159119"
 2. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**에서 **세부 정보** 탭을 선택합니다.
 3. **제품 버전** 필드에 2.6.1198.718 이상이 표시되는지 확인합니다.
 
-Windows 용 에이전트 설치에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) .
+Windows 용 에이전트 설치에 대해 [자세히 알아보세요](../virtual-machines/extensions/agent-windows.md) .
 
 ### <a name="install-the-agent-on-linux-vms"></a>Linux Vm에 에이전트 설치
 
 다음과 같이 [Azure LINUX VM](../virtual-machines/extensions/agent-linux.md) 에이전트를 수동으로 설치 합니다.
 
 1. 컴퓨터에 대 한 관리자 권한이 있는지 확인 합니다.
-2. 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용 하 여 Linux VM 에이전트를 설치 하는 것이 좋습니다. 모든 [인증 배포 공급자](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다.
+2. 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용 하 여 Linux VM 에이전트를 설치 하는 것이 좋습니다. 모든 [인증 배포 공급자](../virtual-machines/linux/endorsed-distros.md)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다.
     - 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 강력히 권장합니다.
     - GitHub에서 직접 Linux VM 에이전트를 설치 하 고 업데이트 하는 것은 권장 되지 않습니다.
     -  최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 설치 방법에 대한 지침을 얻으세요. 

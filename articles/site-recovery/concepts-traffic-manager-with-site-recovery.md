@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134959"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure Traffic Manager
 
@@ -30,7 +30,7 @@ Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요�
 **A사**는 공용 엔드포인트를 사용하여 애플리케이션을 실행 중이며 재해 발생 시 원활하게 트래픽을 Azure로 리디렉션하는 기능을 원합니다. A사는 Azure Traffic Manager의 [우선 순위](../traffic-manager/traffic-manager-configure-priority-routing-method.md) 트래픽 라우팅 메서드를 사용하면 이 장애 조치(Failover) 패턴을 쉽게 구현할 수 있습니다.
 
 설정 방법은 다음과 같습니다.
-- **A사**에서 [Traffic Manager 프로필](../traffic-manager/traffic-manager-create-profile.md)을 만듭니다.
+- **A사**에서 [Traffic Manager 프로필](../traffic-manager/quickstart-create-traffic-manager-profile.md)을 만듭니다.
 - **A사**에서 **우선 순위** 라우팅 메서드를 활용하여 온-프레미스에 사용할 **기본** 엔드포인트와 Azure로 **장애 조치(failover)** 에 사용할 엔드포인트를 만듭니다. **기본** 엔드포인트는 우선 순위 1에 할당되고 **장애 조치(failover)** 엔드포인트는 우선 순위 2에 할당됩니다.
 - **기본** 엔드포인트는 Azure 외부에 호스트되므로 엔드포인트가 [외부](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) 엔드포인트로 생성됩니다.
 - Azure Site Recovery를 사용하면 장애 조치(failover) 전에는 Azure 사이트에서 가상 컴퓨터 또는 애플리케이션이 실행되지 않습니다. 따라서 **장애 조치(failover)** 엔드포인트도 **외부** 엔드포인트로 생성됩니다.
@@ -65,7 +65,7 @@ Azure Traffic Manager의 [가중치](../traffic-manager/traffic-manager-configur
 **C사**는 공용 엔드포인트를 사용하여 애플리케이션을 실행 중이며 재해 발생 시 원활하게 트래픽을 다른 Azure 지역으로 리디렉션하는 기능을 원합니다. [우선 순위](../traffic-manager/traffic-manager-configure-priority-routing-method.md) 트래픽 라우팅 메서드를 사용하여 **C사**는 이러한 장애 조치(Failover) 패턴을 쉽게 구현할 수 있습니다.
 
 설정 방법은 다음과 같습니다.
-- **C사**에서 [Traffic Manager 프로필](../traffic-manager/traffic-manager-create-profile.md)을 만듭니다.
+- **C사**에서 [Traffic Manager 프로필](../traffic-manager/quickstart-create-traffic-manager-profile.md)을 만듭니다.
 - **C사**에서 **우선 순위** 라우팅 메서드를 활용하여 원본 지역(Azure 동아시아)에 사용할 **기본** 엔드포인트와 복구 지역(동남 아시아)으로 **장애 조치(failover)** 에 사용할 엔드포인트를 만듭니다. **기본** 엔드포인트는 우선 순위 1에 할당되고 **장애 조치(failover)** 엔드포인트는 우선 순위 2에 할당됩니다.
 - **기본** 엔드포인트가 Azure에 호스트되므로 엔드포인트는 [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) 엔드포인트일 수 있습니다.
 - Azure Site Recovery를 사용하면 장애 조치(failover) 전에는 복구 Azure 사이트에서 가상 컴퓨터 또는 애플리케이션이 실행되지 않습니다. 따라서 **장애 조치(failover)** 엔드포인트가 [외부](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) 엔드포인트로 생성될 수 있습니다.

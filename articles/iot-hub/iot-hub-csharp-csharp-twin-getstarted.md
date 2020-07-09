@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt
-ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91cebee1196dc38af8ece4086b6e6ab66fdc14da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733126"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135551"
 ---
 # <a name="get-started-with-device-twins-net"></a>디바이스 쌍 시작(.NET)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 이 자습서에서는 다음과 같은 .NET 콘솔 앱을 만듭니다.
-
-* **CreateDeviceIdentity**. 이 앱은 디바이스 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 디바이스 앱에 연결합니다.
 
 * **AddTagsAndQuery**. 이 백 엔드 앱은 태그를 추가하고 디바이스 쌍을 쿼리합니다.
 

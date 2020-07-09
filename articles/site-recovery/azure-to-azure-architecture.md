@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629673"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135863"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -166,11 +167,11 @@ HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해�
 
 #### <a name="control-access-with-nsg-rules"></a>NSG 규칙을 사용하여 액세스 제어
 
-[NSG 규칙](https://docs.microsoft.com/azure/virtual-network/security-overview)을 사용하여 Azure 네트워크/서브넷 간 네트워크 트래픽을 필터링하여 VM 연결을 제어하는 경우 다음 요구 사항을 확인하세요.
+[NSG 규칙](../virtual-network/security-overview.md)을 사용하여 Azure 네트워크/서브넷 간 네트워크 트래픽을 필터링하여 VM 연결을 제어하는 경우 다음 요구 사항을 확인하세요.
 
 - 원본 Azure 지역에 대한 NSG 규칙은 복제 트래픽에 대한 아웃바운드 액세스를 허용해야 합니다.
 - 프로덕션 환경에 배치하기 전에 테스트 환경에서 규칙을 만드는 것이 좋습니다.
-- 개별 IP 주소를 허용하는 대신 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 사용합니다.
+- 개별 IP 주소를 허용하는 대신 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용합니다.
     - 서비스 태그는 보안 규칙을 만들 때 복잡성을 최소화하도록 함께 수집되는 IP 주소 접두사의 그룹을 나타냅니다.
     - Microsoft는 시간이 지남에 따라 서비스 태그를 자동으로 업데이트합니다. 
  

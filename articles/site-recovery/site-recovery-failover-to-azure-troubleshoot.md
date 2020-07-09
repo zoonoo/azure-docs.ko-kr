@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133766"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -90,7 +90,7 @@ Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 �
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>연결할 수 없음/RDP/SSH - VM 연결 단추 사용 가능
 
-Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단**을 검사하고 [이 문서](../virtual-machines/windows/boot-diagnostics.md)에 나열된 오류를 확인합니다.
+Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단**을 검사하고 [이 문서](../virtual-machines/troubleshooting/boot-diagnostics.md)에 나열된 오류를 확인합니다.
 
 1. 가상 머신이 시작되지 않은 경우 이전의 복구 지점으로 장애 조치를 시도합니다.
 2. 가상 머신 내 애플리케이션이 가동되지 않는 경우 애플리케이션 일치 복구 지점으로 장애 조치를 시도합니다.
@@ -174,7 +174,7 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Windows VM에 대한 RDP 연결](../virtual-machines/windows/troubleshoot-rdp-connection.md) 문제 해결
-- [Linux VM에 대한 SSH 연결](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md) 문제 해결
+- [Windows VM에 대한 RDP 연결](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md) 문제 해결
+- [Linux VM에 대한 SSH 연결](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md) 문제 해결
 
-도움이 더 필요하다면 [Site Recovery에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)에 쿼리를 게시하거나 이 문서의 끝에 의견을 남기세요. 도움을 드릴 수 있도록 커뮤니티를 운영 중입니다.
+도움이 더 필요하다면 [Site Recovery에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 쿼리를 게시하거나 이 문서의 끝에 의견을 남기세요. 도움을 드릴 수 있도록 커뮤니티를 운영 중입니다.

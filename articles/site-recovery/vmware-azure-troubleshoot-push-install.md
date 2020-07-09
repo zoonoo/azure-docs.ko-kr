@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656317"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133536"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>모바일 서비스 푸시 설치 문제 해결
 
@@ -169,7 +170,7 @@ WMI를 사용 하도록 설정 하려면
 
 기타 WMI 문제 해결 문서는 다음 문서에서 찾을 수 있습니다.
 
-* [기본 WMI 테스트](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
+* [기본 WMI 테스트](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 * [WMI 문제 해결](/windows/win32/wmisdk/wmi-troubleshooting)
 * [WMI 스크립트 및 WMI 서비스 관련 문제 해결](/previous-versions/tn-archive/ff406382(v=msdn.10))
 
@@ -203,7 +204,7 @@ Azure Site Recovery에서 지 원하는 운영 체제 및 커널 버전의 목�
 
 _/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_또는 _/etc/default/grub_(전체 통합 부팅 로더) 구성 파일에는 **ROOT** 매개 변수 값이 포함 될 수 있으며 UUID (범용 고유 식별자) 대신 실제 장치 이름으로 **다시 시작** 됩니다. VM을 다시 부팅 하는 동안 장치 이름이 변경 될 수 있으므로 UUID 접근 방식을 Site Recovery 합니다. 예를 들어 장애 조치 (failover) 시 VM이 동일한 이름으로 온라인 상태가 되지 않을 수 있으며이로 인해 문제가 발생 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 - 다음 줄은 GRUB 파일 _/boot/grub2/grub.cfg_에서 가져온 것입니다.
 
@@ -222,7 +223,7 @@ _/Boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_또는 _/etc
 
 1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid \<device name>` .
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ```shell
    blkid /dev/sda1

@@ -12,11 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 9295c6e1daaad6346581b959a9b94a7ab74da44c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f92117dc07fc241ca714851956e386cd10d617
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135027"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ (질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,35 +119,104 @@ SQL Managed Instance 프로 비전 된 지역에서 두 하드웨어 생성을 �
 
 SQL Managed Instance의 저장소 크기는 선택한 서비스 계층 (범용 또는 중요 비즈니스용)에 따라 달라 집니다. 이러한 서비스 계층의 저장소 제한 사항은 [서비스 계층 특성](../database/service-tiers-general-purpose-business-critical.md)을 참조 하세요.
 
-## <a name="backup-storage-cost"></a>백업 스토리지 비용 
-
-**백업 저장소는 SQL Managed Instance 저장소에서 공제?**
-
-아니요, 백업 저장소는 SQL Managed Instance 저장소 공간에서 공제 되지 않습니다. 백업 저장소는 인스턴스 저장소 공간과 독립적 이며 크기가 제한 되지 않습니다. 백업 저장소는 7 일에서 35 일까지 구성할 수 있는 인스턴스 데이터베이스의 백업을 보존 하는 기간으로 제한 됩니다. 자세한 내용은 자동화 된 [백업](../database/automated-backups-overview.md)을 참조 하세요.
-
-## <a name="track-billing"></a>청구 추적
-
-**SQL Managed Instance에 대 한 청구 비용을 추적 하는 방법이 있나요?**
-
-[Azure Cost Management 솔루션](/azure/cost-management/)을 사용 하 여이 작업을 수행할 수 있습니다. [Azure Portal](https://portal.azure.com) **구독** 으로 이동 하 여 **비용 분석**을 선택 합니다. 
-
-**누적 비용** 옵션을 사용한 다음 **리소스 유형** 으로을 필터링 `microsoft.sql/managedinstances` 합니다. 
   
-## <a name="inbound-nsg-rules"></a>인바운드 NSG 규칙
+## <a name="networking-requirements"></a>네트워킹 요구 사항 
+
+**Managed Instance 서브넷에 대 한 현재 인바운드/아웃 바운드 NSG 제약 조건은 무엇 인가요?**
+
+필요한 NSG 및 UDR 규칙은 [여기](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)에 설명 되어 있으며 서비스에서 자동으로 설정 됩니다.
+이러한 규칙은 서비스를 유지 관리 하는 데 필요한 것입니다. 관리 되는 인스턴스에 연결 하 고 다른 기능을 사용 하려면 유지 관리 해야 하는 추가 기능 특정 규칙을 설정 해야 합니다.
 
 **관리 포트에서 인바운드 NSG 규칙을 설정 하려면 어떻게 해야 하나요?**
 
-SQL Managed Instance 제어 평면은 관리 포트를 보호 하는 NSG 규칙을 유지 관리 합니다.
+SQL Managed Instance는 관리 포트에 대 한 규칙을 설정 해야 합니다. 이는 [서비스에 대 한 서브넷 구성](connectivity-architecture-overview.md#service-aided-subnet-configuration)이라는 기능을 통해 이루어집니다.
+SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장 하기 위한 것입니다.
 
-에 사용 되는 관리 포트는 다음과 같습니다.
+**인바운드 관리 트래픽에 사용 되는 원본 IP 범위를 가져올 수 있나요?**
 
-포트 9000 및 9003은 Azure Service Fabric 인프라에서 사용 됩니다. Service Fabric 주 역할은 가상 클러스터를 정상 상태로 유지 하 고 구성 요소 복제본의 수를 기준으로 목표 상태를 유지 하는 것입니다.
+예. [Network Watcher 흐름 로그를 구성](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group)하 여 네트워크 보안 그룹을 통해 들어오는 트래픽을 분석할 수 있습니다.
 
-노드 에이전트에서 1438, 1440 및 1452 포트를 사용 합니다. 노드 에이전트는 클러스터 내에서 실행 되는 응용 프로그램이 며, 제어 평면에서 관리 명령을 실행 하는 데 사용 됩니다.
+**데이터 끝점 (포트 1433)에 대 한 액세스를 제어 하기 위해 NSG를 설정할 수 있나요?**
 
-NSG 규칙 외에도 기본 제공 방화벽은 네트워크 계층에서 인스턴스를 보호 합니다. 응용 프로그램 계층에서 통신은 인증서로 보호 됩니다.
+예. Managed Instance 프로 비전 된 후 포트 1433에 대 한 인바운드 액세스를 제어 하는 NSG를 설정할 수 있습니다. 가능한 한 IP 범위를 좁히는 것이 좋습니다.
 
-자세한 내용과 기본 제공 방화벽을 확인 하는 방법에 대 한 자세한 내용은 [AZURE SQL Managed Instance 기본 제공 방화벽](management-endpoint-verify-built-in-firewall.md)을 참조 하세요.
+**Fqdn을 기준으로 아웃 바운드 관리 트래픽을 필터링 하도록 NVA 또는 온-프레미스 방화벽을 설정할 수 있나요?**
+
+아니요. 이는 다음과 같은 여러 가지 이유로 지원 되지 않습니다.
+-   인바운드 관리 요청에 대 한 응답을 나타내는 트래픽 라우팅은 비대칭 이며 작동 하지 않을 수 있습니다.
+-   저장소로 이동 하는 트래픽 라우팅은 처리량 제약 조건 및 대기 시간에 따라 달라 지 며, 이러한 방식으로 예상 된 서비스 품질 및 가용성을 제공할 수 없습니다.
+-   경험에 따라 이러한 구성은 오류가 발생 하기 쉬우며 지원할 수 없습니다.
+
+**아웃 바운드 관리 되지 않는 트래픽에 대해 NVA 또는 방화벽을 설정할 수 있나요?**
+
+예. 이를 구현 하는 가장 간단한 방법은 NVA를 통해 트래픽을 라우팅하는 관리 되는 인스턴스 서브넷과 연결 된 UDR에 0/0 규칙을 추가 하는 것입니다.
+ 
+**Managed Instance에 필요한 IP 주소는 몇 개입니까?**
+
+서브넷에 사용 가능한 [IP 주소](connectivity-architecture-overview.md#network-requirements) 수가 충분해야 합니다. SQL Managed Instance에 대 한 VNet 서브넷 크기를 확인 하려면 [Managed Instance 필요한 서브넷 크기 및 범위 결정](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet)을 참조 하세요. 
+
+**인스턴스 업데이트 작업을 수행 하는 데 충분 한 IP 주소가 없는 경우 어떻게 되나요?**
+
+관리 되는 인스턴스가 프로 비전 되는 서브넷의 [IP 주소가](connectivity-architecture-overview.md#network-requirements) 충분 하지 않은 경우 새 서브넷과 그 안에 새 관리 되는 인스턴스를 만들어야 합니다. 또한 향후 업데이트 작업에서 유사한 상황을 방지 하기 위해 더 많은 IP 주소를 할당 하 여 새 서브넷을 만드는 것이 좋습니다. 새 인스턴스를 프로 비전 한 후에는 이전 인스턴스와 새 인스턴스 사이에서 수동으로 데이터를 백업 및 복원 하거나 인스턴스 간 지정 [시간 복원을](point-in-time-restore.md?tabs=azure-powershell)수행할 수 있습니다.
+
+**Managed Instance를 만들기 위해 빈 서브넷이 필요 한가요?**
+
+아니요. 비어 있는 서브넷 또는 이미 Managed Instance 포함 된 서브넷을 사용할 수 있습니다. 
+
+**서브넷 주소 범위를 변경할 수 있나요?**
+
+내부에 관리 되는 인스턴스가 없으면입니다. 이것은 Azure 네트워킹 인프라의 제한 사항입니다. [빈 서브넷에 주소 공간을 더 추가할](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings)수 있습니다. 
+
+**관리 되는 인스턴스를 다른 서브넷으로 이동할 수 있나요?**
+
+아니요. 현재 Managed Instance 디자인 제한 사항입니다. 그러나 다른 서브넷에 새 인스턴스를 프로 비전 하 고 이전 및 새 인스턴스 간에 데이터를 수동으로 백업 및 복원 하거나 인스턴스 간 지정 [시간 복원을](point-in-time-restore.md?tabs=azure-powershell)수행할 수 있습니다.
+
+**Managed Instance를 만들기 위해 빈 가상 네트워크가 필요 한가요?**
+
+이 항목은 필수 항목이 아닙니다. [AZURE sql Managed Instance에 대 한 가상 네트워크를 만들거나](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) [azure sql Managed Instance에 대 한 기존 가상 네트워크를 구성할](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet)수 있습니다.
+
+**다른 서비스와 Managed Instance를 서브넷에 놓을 수 있나요?**
+
+아니요. 현재 다른 리소스 유형을 이미 포함 하 고 있는 서브넷에 Managed Instance를 배치할 수 없습니다.
+
+## <a name="connectivity"></a>연결 
+
+**IP 주소를 사용 하 여 관리 되는 인스턴스에 연결할 수 있나요?**
+
+아니요, 지원되지 않습니다. Managed Instance의 호스트 이름은 Managed Instance의 가상 클러스터 앞에 있는 부하 분산 장치에 매핑됩니다. 하나의 가상 클러스터가 여러 관리 되는 인스턴스를 호스트할 수 있으므로 이름을 지정 하지 않고 연결을 적절 한 Managed Instance 라우팅할 수 없습니다.
+SQL Managed Instance 가상 클러스터 아키텍처에 대 한 자세한 내용은 [가상 클러스터 연결 아키텍처](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)를 참조 하세요.
+
+**관리 되는 인스턴스에 고정 IP 주소가 있을 수 있나요?**
+
+현재는 지원되지 않습니다.
+
+드물지만 필요한 경우에는 관리 되는 인스턴스를 새 가상 클러스터로 온라인으로 마이그레이션해야 할 수도 있습니다. 필요한 경우이 마이그레이션은 서비스의 보안 및 안정성을 향상 시키기 위한 기술 스택의 변경 내용 때문에 발생 합니다. 새 가상 클러스터로 마이그레이션하면 관리 되는 인스턴스 호스트 이름에 매핑되는 IP 주소가 변경 됩니다. 관리 되는 인스턴스 서비스는 고정 IP 주소 지원을 주장 하지 않으며 정기 유지 관리 주기 중에 통지 없이 변경할 권리를 보유 합니다.
+
+따라서 불필요 한 가동 중지 시간이 발생할 수 있으므로 IP 주소의 불변성에 의존 하지 않는 것이 좋습니다.
+
+**공용 끝점이 Managed Instance?**
+
+예. Managed Instance에는 기본적으로 서비스 관리에만 사용 되는 공용 끝점이 있지만, 고객은 데이터 액세스에도 사용할 수 있습니다. 자세한 내용은 [공용 끝점에서 SQL Managed Instance 사용](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely)을 참조 하세요. 공용 끝점을 구성 하려면 [SQL Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md)으로 이동 합니다.
+
+**Managed Instance에서 공용 끝점에 대 한 액세스를 제어 하는 방법은 무엇입니까?**
+
+Managed Instance는 네트워크 및 응용 프로그램 수준에서 공용 끝점에 대 한 액세스를 제어 합니다.
+
+관리 및 배포 서비스는 외부 부하 분산 장치에 매핑되는 [관리 끝점](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) 을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 트래픽은 관리 되는 인스턴스의 관리 구성 요소만 사용 하는 미리 정의 된 포트 집합에서 수신 된 경우에만 노드에 라우팅됩니다. 노드의 기본 제공 방화벽은 Microsoft IP 범위의 트래픽만 허용 하도록 설정 됩니다. 인증서는 관리 구성 요소와 관리 평면 간의 모든 통신을 상호 인증 합니다. 자세한 내용은 [SQL Managed Instance에 대 한 연결 아키텍처](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture)를 참조 하세요.
+
+**공용 끝점을 사용 하 여 Managed Instance 데이터베이스의 데이터에 액세스할 수 있나요?**
+
+예. 고객은 [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)PowerShell/ARM에서 공용 끝점 데이터 액세스를 사용 하도록 설정 하  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) 고 데이터 포트 (포트 번호 3342)에 대 한 액세스를 잠그기 위해 nsg를 구성 해야 합니다. 자세한 내용은 [AZURE sql Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md) 및 [공용 끝점을 사용 하 여 azure sql Managed Instance 안전 하 게 사용](public-endpoint-overview.md)을 참조 하세요. 
+
+**SQL 데이터 끝점에 대 한 사용자 지정 포트를 지정할 수 있나요?**
+
+아니요,이 옵션은 사용할 수 없습니다.  개인 데이터 끝점의 경우 기본 포트 번호 1433를 사용 하 고 공용 데이터 끝점에는 기본 포트 번호 3342을 사용 Managed Instance Managed Instance.
+
+**다른 지역에 배치 된 관리 되는 인스턴스를 연결 하는 데 권장 되는 방법은 무엇 인가요?**
+
+Express 경로 회로 피어 링은이 작업을 수행 하는 기본 방법입니다. 이는 내부 부하 분산 장치 관련 [제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)으로 인해 지원 되지 않는 지역 간 가상 네트워크 피어 링과 혼합 되지 않습니다.
+
+Express 경로 회로 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli))을 만드는 것입니다.
 
 
 ## <a name="mitigate-data-exfiltration-risks"></a>데이터 반출 위험 완화  
@@ -178,7 +248,11 @@ SQL Managed Instance 사례 연구:
 Azure SQL Managed Instance 배포와 관련 된 이점, 비용 및 위험에 대해 더 잘 이해 하기 위해 [Microsoft Azure SQL Database Managed Instance의 경제적 영향](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance)을 Forrester 연구 합니다.
 
 
-## <a name="dns-refresh"></a>DNS 새로 고침 
+## <a name="dns"></a>DNS
+
+**SQL Managed Instance에 대 한 사용자 지정 DNS를 구성할 수 있나요?**
+
+예. [AZURE SQL Managed Instance에 대 한 사용자 지정 DNS를 구성 하는 방법을](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns)참조 하세요.
 
 **DNS 새로 고침을 수행할 수 있나요?**
 
@@ -191,20 +265,6 @@ DNS 구성은 결국 새로 고쳐집니다.
 
 해결 방법으로 SQL Managed Instance를 4 개 vCores로 다운 그레이드 하 고 나중에 다시 업그레이드 합니다. DNS 구성을 새로 고치면 부작용이 발생 합니다.
 
-
-## <a name="ip-address"></a>IP 주소
-
-**IP 주소를 사용 하 여 SQL Managed Instance에 연결할 수 있나요?**
-
-IP 주소를 사용 하 여 SQL Managed Instance에 연결 하는 것은 지원 되지 않습니다. Sql Managed Instance 호스트 이름은 SQL Managed Instance 가상 클러스터 앞의 부하 분산 장치에 매핑됩니다. 하나의 가상 클러스터가 여러 관리 되는 인스턴스를 호스트할 수 있으므로 이름을 명시적으로 지정 하지 않고 연결을 적절 한 관리 되는 인스턴스로 라우팅할 수 없습니다.
-
-SQL Managed Instance 가상 클러스터 아키텍처에 대 한 자세한 내용은 [가상 클러스터 연결 아키텍처](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)를 참조 하세요.
-
-**SQL Managed Instance 고정 IP 주소를 가질 수 있나요?**
-
-드물지만 필요한 경우에는 SQL Managed Instance를 새 가상 클러스터로 온라인으로 마이그레이션하는 것이 필요할 수 있습니다. 필요한 경우이 마이그레이션은 서비스의 보안 및 안정성을 향상 시키기 위한 기술 스택의 변경 내용 때문에 발생 합니다. 새 가상 클러스터로 마이그레이션하면 SQL Managed Instance 호스트 이름에 매핑되는 IP 주소가 변경 됩니다. SQL Managed Instance 서비스는 고정 IP 주소 지원을 주장 하지 않으며 정기 유지 관리 주기 중에 통지 없이이를 변경할 권리를 보유 합니다.
-
-따라서 불필요 한 가동 중지 시간이 발생할 수 있으므로 IP 주소의 불변성에 의존 하지 않는 것이 좋습니다.
 
 ## <a name="change-time-zone"></a>표준 시간대 변경
 
@@ -235,11 +295,50 @@ SQL Managed Instance와 SQL Server 간에 성능 비교를 수행 하는 데 좋
 
 SQL Managed Instance에서 암호화 보호기를 사용할 수 있도록 설정한 후 표준 데이터베이스 복원 절차를 진행할 수 있습니다.
 
-## <a name="migrate-from-sql-database"></a>SQL Database에서 마이그레이션 
+## <a name="purchasing-models-and-benefits"></a>모델 및 혜택 구매
 
-**Azure SQL Database에서 SQL Managed Instance로 마이그레이션하려면 어떻게 해야 하나요?**
+**SQL Managed Instance에 사용할 수 있는 구매 모델은 무엇 인가요?**
 
-SQL Managed Instance는 계산 및 저장소 크기 마다 동일한 성능 수준을 Azure SQL Database 제공 합니다. 단일 인스턴스에서 데이터를 통합 하거나 단순히 SQL Managed Instance 에서만 지원 되는 기능이 필요한 경우에는 BACPAC (내보내기/가져오기) 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다.
+SQL Managed Instance는 [Vcore 기반 구매 모델](sql-managed-instance-paas-overview.md#vcore-based-purchasing-model)을 제공 합니다.
+
+**SQL Managed Instance에 사용할 수 있는 비용 혜택은 무엇 인가요?**
+
+다음과 같은 방법으로 Azure SQL 혜택을 통해 비용을 절감할 수 있습니다.
+-   온-프레미스 라이선스에 대 한 기존 투자를 극대화 하 고 [Azure 하이브리드 혜택](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell)하 여 최대 55%까지 비용을 절감할 수 있습니다. 
+-   계산 리소스에 대 한 예약을 커밋하고 [예약 된 인스턴스 혜택](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity)으로 최대 33%까지 비용을 절감할 수 있습니다. 최대 82%까지 비용을 절감할 수 있도록이를 Azure 하이브리드 혜택과 결합 하세요. 
+-   진행 중인 개발 및 테스트 워크 로드에 대 한 할인 된 요금을 제공 하는 [Azure 개발/테스트 가격 혜택](https://azure.microsoft.com/pricing/dev-test/) 을 통해 최대 55% 대비 가격을 절감할 수 있습니다.
+
+**예약 인스턴스 혜택을 받을 수 있는 사용자는 누구 인가요?**
+
+예약 인스턴스 혜택을 받을 수 있으려면 구독 유형이 기업 계약 (제품 번호: MS-MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. 예약에 대 한 자세한 내용은 [예약 된 인스턴스 혜택](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity)을 참조 하세요. 
+
+**취소, 교환 또는 환불 예약을 수행할 수 있나요?**
+
+특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)을 참조하세요.
+
+## <a name="billing-for-managed-instance-and-backup-storage"></a>Managed Instance 및 백업 저장소에 대 한 청구
+
+**SQL Managed Instance 가격 책정 옵션은 무엇 인가요?**
+
+가격 책정 옵션 Managed Instance를 살펴보려면 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 참조 하세요.
+
+**관리 되는 인스턴스의 청구 비용을 추적 하려면 어떻게 해야 하나요?**
+
+[Azure Cost Management 솔루션](https://docs.microsoft.com/azure/cost-management-billing/)을 사용 하 여이 작업을 수행할 수 있습니다. [Azure Portal](https://portal.azure.com) **구독** 으로 이동 하 여 **비용 분석**을 선택 합니다. 
+
+**누적 비용** 옵션을 사용한 다음 **리소스 유형** 으로을 필터링 `microsoft.sql/managedinstances` 합니다.
+
+**자동화 된 백업 비용은 얼마나 되나요?**
+
+백업 보존 기간 설정에 관계 없이 구매한 예약 된 데이터 저장소 공간을 사용 하 여 사용 가능한 백업 저장소 공간의 크기를 동일 하 게 얻을 수 있습니다. 백업 저장소 사용량이 할당 된 사용 가능한 백업 저장소 공간 내에 있는 경우 관리 되는 인스턴스의 자동화 된 백업은 추가 비용 없이 무료로 제공 됩니다. 여유 공간 이상으로 백업 저장소를 사용 하는 것을 초과 하면 미국 지역에서 GB/월 당 약 $0.20-$0.24의 비용이 발생 하거나, 해당 지역에 대 한 자세한 내용은 가격 책정 페이지를 참조 하세요. 자세한 내용은 [백업 저장소 사용량 설명](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923)을 참조 하세요.
+
+**백업 저장소 소비에 대 한 청구 비용을 모니터링 하려면 어떻게 해야 하나요?**
+
+Azure Portal을 통해 백업 저장소에 대 한 비용을 모니터링할 수 있습니다. 지침은 [자동화 된 백업에 대 한 비용 모니터링](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs)을 참조 하세요. 
+
+**관리 되는 인스턴스에서 백업 저장소 비용을 최적화 하려면 어떻게 해야 하나요?**
+
+백업 저장소 비용을 최적화 하려면 [SQL Managed Instance의 백업 조정에 대해 자세히](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935)보기를 참조 하세요.
 
 ## <a name="password-policy"></a>암호 정책 
 
@@ -278,3 +377,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (' test '를 원하는 로그인 이름으로 바꾸고 정책 및 만료 값을 조정 합니다.)
+
+## <a name="azure-feedback-and-support"></a>Azure 사용자 의견 및 지원
+
+**SQL Managed Instance 개선 사항에 대 한 아이디어는 어디에서 나갈 수 있나요?**
+
+새 Managed Instance 기능에 투표 하거나 [SQL Managed Instance 피드백 포럼](https://feedback.azure.com/forums/915676-sql-managed-instance)에서 투표에 대 한 새로운 개선 아이디어를 추가할 수 있습니다. 이러한 방식으로 제품 개발에 기여 하 고 잠재적인 개선 사항에 대 한 우선 순위를 지정할 수 있습니다.
+
+**Azure 지원 요청은 어떻게 만들 수 있나요?**
+
+Azure 지원 요청을 만드는 방법에 대 한 자세한 내용은 [azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요.
+

@@ -3,12 +3,12 @@ title: 일반적인 오류 문제 해결
 description: Kubernetes에 대 한 정책 정의, 다양 한 SDK 및 추가 기능 만들기와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 868b8c53a120ebdb6a35806538e02af39e25c338
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6d23a148521506adf0c0fc16913a32aab5eb7a30
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970844"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135566"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Azure Policy를 사용 하 여 오류 해결
 
@@ -95,7 +95,7 @@ Azure Policy에 의해 처리 될 것으로 예상 되는 리소스는 [Azure �
 
 #### <a name="resolution"></a>해결 방법
 
-거부 정책 할당의 오류 메시지에는 정책 정의 및 정책 할당 Id가 포함 됩니다. 메시지의 오류 정보가 누락 된 경우에도 [활동 로그](../../../azure-monitor/platform/activity-log-view.md)에서 사용할 수 있습니다. 이 정보를 사용 하 여 리소스 제한을 이해 하 고 허용 되는 값과 일치 하도록 요청에서 리소스 속성을 조정 하는 방법에 대 한 자세한 내용을 확인 하세요.
+거부 정책 할당의 오류 메시지에는 정책 정의 및 정책 할당 Id가 포함 됩니다. 메시지의 오류 정보가 누락 된 경우에도 [활동 로그](../../../azure-monitor/platform/activity-log.md#view-the-activity-log)에서 사용할 수 있습니다. 이 정보를 사용 하 여 리소스 제한을 이해 하 고 허용 되는 값과 일치 하도록 요청에서 리소스 속성을 조정 하는 방법에 대 한 자세한 내용을 확인 하세요.
 
 ## <a name="template-errors"></a>템플릿 오류
 

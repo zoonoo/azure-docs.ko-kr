@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: d5a82aa3aca55622308cae5816c95df9766048da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: baa132589f5242ab480c9caa55ca793e0652ad6e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049924"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135007"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>스트리밍 수집 처리량 제한
 
 Azure Time Series Insights 스트리밍 데이터 수신 제한 사항은 아래에 설명 되어 있습니다.
 
 > [!TIP]
-> 모든 미리 보기 제한 사항에 대한 포괄적인 목록은 [미리 보기 환경 계획](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits)을 참조하세요. **TODO** 문서 제목이 업데이트 되 면 여기에서 "Preview" 라는 단어를 제거 합니다.
+> 모든 미리 보기 제한 사항에 대한 포괄적인 목록은 [미리 보기 환경 계획](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits)을 참조하세요.
 
 ## <a name="per-environment-limitations"></a>환경당 제한
 

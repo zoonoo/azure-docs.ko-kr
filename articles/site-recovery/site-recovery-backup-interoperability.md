@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: sideeksh
-ms.openlocfilehash: d8c896bc655339fbd7d51f738fb629450e8c12ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c334eee34eb878135d3d81ab15d03618c6604846
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72376212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135172"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Azure Backup에서 Site Recovery 사용에 대 한 지원
 
-이 문서에서는 [Azure Backup 서비스](https://docs.microsoft.com/azure/backup/backup-overview)와 함께 [Site Recovery 서비스](site-recovery-overview.md) 를 사용 하는 데 대 한 지원을 요약 합니다.
+이 문서에서는 [Azure Backup 서비스](../backup/backup-overview.md)와 함께 [Site Recovery 서비스](site-recovery-overview.md) 를 사용 하는 데 대 한 지원을 요약 합니다.
 
 **동작** | **Site Recovery 지원** | **세부 정보**
 --- | --- | ---

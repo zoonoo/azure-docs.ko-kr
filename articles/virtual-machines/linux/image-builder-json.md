@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263316"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135075"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -391,7 +391,8 @@ OS 지원: Linux 및 Windows
 
 ### <a name="windows-update-customizer"></a>Windows 업데이트 사용자 지정자
 이 사용자 지정자는 Packer(Packer 커뮤니티에서 관리하는 오픈 소스 프로젝트)용 [커뮤니티 Windows 업데이트 프로비저닝 프로그램](https://packer.io/docs/provisioners/community-supported.html)을 기반으로 합니다. Microsoft는 Image Builder 서비스에서 이 프로비저닝 프로그램을 테스트 및 유효성 검사를 하고, 관련 문제에 대한 조사를 지원하고, 문제를 해결하기 위해 노력하지만, 이 오픈 소스 프로젝트를 공식적으로 지원하지는 않습니다. 이 Windows 업데이트 프로비저닝 프로그램에 대한 자세한 설명서 및 도움말은 프로젝트 리포지토리를 참조하세요.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -403,7 +404,8 @@ OS 지원: Linux 및 Windows
                 "updateLimit": 20
             }
                ], 
-OS 지원: Windows
+OS support: Windows
+```
 
 사용자 지정 속성은 다음과 같습니다.
 - **type** – WindowsUpdate.

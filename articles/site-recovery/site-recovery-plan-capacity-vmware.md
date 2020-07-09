@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710714"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135455"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
 
@@ -25,7 +26,7 @@ Site Recovery Deployment Planner는 호환 및 호환되지 않는 VM, VM당 디
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
-구성 요소 | 설명
+구성 요소 | 세부 정보
 --- | ---
 **복제** | **일일 최대 변경률**: 보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있습니다. 단일 프로세스 서버는 최대 2TB의 일일 변동률을 처리할 수 있습니다. 따라서 2TB는 보호된 머신에 지원되는 최대 일일 데이터 변경률입니다.<br /><br /> **최대 처리량**: 복제된 컴퓨터는 Azure에서 하나의 스토리지 계정에 속할 수 있습니다. 표준 Azure Storage 계정은 초당 최대 20,000개의 요청을 처리할 수 있습니다. 따라서 원본 머신 전반에서 IOPS(초당 입출력 작업)를 20,000으로 제한하는 것이 좋습니다. 예를 들어 원본 머신의 디스크가 5개이고 각 디스크가 원본 머신에서 120 IOPS(8K 크기)를 생성할 경우, 원본 머신은 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. (필요한 스토리지 계정 수는 총 원본 머신 IOPS를 20,000으로 나눈 값입니다.)
 **구성 서버** | 구성 서버는 보호된 머신에서 실행되는 모든 워크로드에서 일일 변경률 용량을 처리할 수 있어야 합니다. 구성 머신에는 Azure Storage에 데이터를 지속적으로 복제하기에 충분한 대역폭이 있어야 합니다.<br /><br /> 가장 좋은 방법은 보호하려는 머신과 동일한 네트워크 및 LAN 세그먼트에 구성 서버를 배치하는 것입니다. 구성 서버를 다른 네트워크에 배치할 수도 있지만 보호하려는 머신에 레이어 3 네트워크 가시성이 있어야 합니다.<br /><br /> 구성 서버에 권장하는 크기는 다음 섹션의 테이블에 요약되어 있습니다.
@@ -91,11 +92,13 @@ CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머�
 
     ![Azure Backup 속성 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-[Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet를 사용하여 제한을 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
+[Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) cmdlet를 사용하여 제한을 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
-    $mon = [System.DayOfWeek]::Monday
-    $tue = [System.DayOfWeek]::Tuesday
-    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```azurepowershell-interactive
+$mon = [System.DayOfWeek]::Monday
+$tue = [System.DayOfWeek]::Tuesday
+Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```
 
 **Set-OBMachineSetting -NoThrottle** 은 제한이 필요 없다는 뜻입니다.
 

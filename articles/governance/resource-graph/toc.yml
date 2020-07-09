@@ -65,6 +65,10 @@
     - name: 제한된 요청에 대한 지침
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
+    - name: 보안
+      items:
+        - name: Azure Security Benchmark에 대한 보안 기준
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: 방법 가이드
   items:
     - name: 리소스 변경 내용 가져오기

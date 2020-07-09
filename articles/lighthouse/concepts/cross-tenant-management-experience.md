@@ -3,15 +3,16 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920602"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135489"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
-서비스 공급자는 [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하여 [Azure Portal](https://portal.azure.com)의 고유한 테넌트 내에서 여러 고객에 대한 Azure 리소스를 관리할 수 있습니다. 대부분의 작업 및 서비스는 관리형 테넌트의 위임된 Azure 리소스에서 수행할 수 있습니다. 이 문서에서는 Azure 위임 리소스 관리를 효과적으로 수행할 수 있는 고급 시나리오 중 일부에 대해 설명합니다.
+서비스 공급자는 [Azure Lighthouse](../overview.md) 를 사용 하 여 [Azure Portal](https://portal.azure.com)의 테 넌 트 내에서 여러 고객에 대 한 리소스를 관리할 수 있습니다. [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용 하 여 관리 되는 테 넌 트 간에 위임 된 azure 리소스에서 많은 작업 및 서비스를 수행할 수 있습니다.
 
 > [!NOTE]
 > 테넌트 간 관리를 간소화하기 위해 [자체 Azure AD 테넌트가 여러 개 있는 엔터프라이즈 내에서](enterprise.md) Azure 위임 리소스 관리를 사용할 수도 있습니다.
@@ -22,9 +23,9 @@ Azure AD(Azure Active Directory) 테넌트는 조직을 나타냅니다. Azure, 
 
 일반적으로 고객의 Azure 리소스를 관리하기 위해 서비스 공급자는 고객의 테넌트와 연결된 계정을 사용하여 Azure Portal에 로그인해야 하며, 서비스 공급자의 사용자 계정을 만들고 관리하기 위해 고객 테넌트에 관리자가 필요합니다.
 
-Azure 위임 리소스 관리를 통해 온보딩 프로세스는 고객 테넌트의 구독, 리소스 그룹 및 리소스를 액세스하고 관리할 수 있는 서비스 공급자의 테넌트 내의 사용자를 지정합니다. 그러면 이러한 사용자는 자신의 자격 증명을 사용하여 Azure Portal에 로그인할 수 있습니다. Azure Portal 내에서 액세스 권한이 있는 모든 고객에게 속한 리소스를 관리할 수 있습니다. 이 작업은 Azure Portal에서 [내 고객](../how-to/view-manage-customers.md) 페이지에서 수행하거나 Azure Portal 또는 API를 통해 해당 고객의 구독 컨텍스트 내에서 직접 수행할 수 있습니다.
+Azure Lighthouse를 사용 하 여 온 보 딩 프로세스는 고객 테 넌 트의 구독, 리소스 그룹 및 리소스에 액세스 하 고 관리할 수 있는 서비스 공급자의 테 넌 트 내에 있는 사용자를 지정 합니다. 그러면 이러한 사용자는 자신의 자격 증명을 사용하여 Azure Portal에 로그인할 수 있습니다. Azure Portal 내에서 액세스 권한이 있는 모든 고객에게 속한 리소스를 관리할 수 있습니다. 이 작업은 Azure Portal에서 [내 고객](../how-to/view-manage-customers.md) 페이지에서 수행하거나 Azure Portal 또는 API를 통해 해당 고객의 구독 컨텍스트 내에서 직접 수행할 수 있습니다.
 
-Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정에 로그인하지 않고도 여러 고객을 위한 리소스를 더욱 유연하게 관리할 수 있습니다. 예를 들어, 서비스 공급자는 책임 및 액세스 수준이 서로 다른 두 명의 고객을 보유할 수 있습니다. 권한 있는 사용자는 Azure 위임 리소스 관리를 사용하여 서비스 공급자의 테넌트에 로그인하여 이러한 리소스에 액세스할 수 있습니다.
+Azure Lighthouse를 사용 하면 다른 테 넌 트의 다른 계정에 로그인 하지 않고도 여러 고객에 대 한 리소스를 더욱 유연 하 게 관리할 수 있습니다. 예를 들어, 서비스 공급자는 책임 및 액세스 수준이 서로 다른 두 명의 고객을 보유할 수 있습니다. 권한 있는 사용자는 Azure Lighthouse를 사용 하 여 서비스 공급자의 테 넌 트에 로그인 하 여 이러한 리소스에 액세스할 수 있습니다.
 
 ![하나의 서비스 공급자 테넌트를 통해 관리되는 고객 리소스](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -39,15 +40,15 @@ Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-
 > [!TIP]
 > Azure CLI를 사용하는 경우 이러한 값이 표시되지 않으면 `az account clear`를 실행하고 `az login --identity`를 실행하여 캐시를 지워봅니다.
 
-또한 Azure 위임 리소스 관리 작업 수행과 관련된 API도 제공합니다. 자세한 내용은 **참조** 섹션을 참조하세요.
+또한 Azure Lighthouse 작업을 수행 하는 데 관련 된 Api를 제공 합니다. 자세한 내용은 **참조** 섹션을 참조하세요.
 
 ## <a name="enhanced-services-and-scenarios"></a>고급 서비스 및 시나리오
 
-대부분의 작업 및 서비스는 관리형 테넌트의 위임된 리소스에서 수행할 수 있습니다. 다음은 테넌트 간 관리를 효과적으로 수행할 수 있는 몇 가지 주요 시나리오입니다.
+대부분의 작업 및 서비스는 관리형 테넌트의 위임된 리소스에서 수행할 수 있습니다. 다음은 교차 테 넌 트 관리가 특히 효과적일 수 있는 몇 가지 주요 시나리오입니다.
 
 [서버용 Azure Arc(미리 보기)](../../azure-arc/servers/overview.md):
 
-- [Azure 외부의 Windows Server 또는 Linux 컴퓨터를](../../azure-arc/servers/quickstart-onboard-portal.md) Azure의 위임 구독 및/또는 리소스 그룹에 연결
+- [Azure 외부의 Windows Server 또는 Linux 컴퓨터를](../../azure-arc/servers/onboard-portal.md) Azure의 위임 구독 및/또는 리소스 그룹에 연결
 - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
 
 [Azure Automation](../../automation/index.yml):

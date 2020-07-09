@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437499"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134005"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 
@@ -48,10 +48,10 @@ ms.locfileid: "80437499"
 
 VMM을 다음과 같이 준비합니다.
 
-1. 원본 및 대상 VMM 서버에 [VMM 논리 네트워크](https://docs.microsoft.com/system-center/vmm/network-logical)가 있는지 확인합니다.
+1. 원본 및 대상 VMM 서버에 [VMM 논리 네트워크](/system-center/vmm/network-logical)가 있는지 확인합니다.
     - 원본 서버의 논리 네트워크는 Hyper-V 호스트가 있는 원본 클라우드와 연결되어 있어야 합니다.
     - 대상 서버의 논리 네트워크는 대상 클라우드와 연결되어 있어야 합니다.
-1. 원본 및 대상 VMM 서버에 [VM 네트워크](https://docs.microsoft.com/system-center/vmm/network-virtual)가 있는지 확인합니다. VM 네트워크는 각 위치의 논리적 네트워크에 연결되어야 합니다.
+1. 원본 및 대상 VMM 서버에 [VM 네트워크](/system-center/vmm/network-virtual)가 있는지 확인합니다. VM 네트워크는 각 위치의 논리적 네트워크에 연결되어야 합니다.
 2. 원본 Hyper-V 호스트의 VM을 원본 VM 네트워크에 연결합니다. 
 
 

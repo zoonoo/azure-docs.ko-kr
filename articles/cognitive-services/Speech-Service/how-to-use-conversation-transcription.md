@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: b8b874888d3a46a855c3d76d520d390725c40898
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: fc22dea201ccd19c4e7bee92a1092b4ff50117db
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735405"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134949"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>실시간 대화 기록 (미리 보기)
 
@@ -35,7 +35,7 @@ Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는를 사용 
 - [ROOBO 장치 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
 - [Azure Kinect Dev Kit 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 음성 서비스 구독입니다. 아직 없는 경우 [음성 평가판 구독을 얻을](https://azure.microsoft.com/try/cognitive-services/) 수 있습니다.
 
@@ -48,7 +48,7 @@ Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는를 사용 
 - 음성 서명을 만들기 위한 입력 오디오 웨이브 파일은 16 비트 샘플, 16Khz 샘플 요금 및 단일 채널 (mono) 형식 이어야 합니다.
 - 각 오디오 샘플의 권장 길이는 30 초에서 2 분 사이입니다.
 
-### <a name="sample-code"></a>샘플 코드
+### <a name="sample-code"></a>예제 코드
 
 다음 예제에서는 c #에서 [REST API를 사용](https://aka.ms/cts/signaturegenservice) 하 여 음성 서명을 만드는 두 가지 방법을 보여 줍니다. "SpeakerVoice"에 대 한 실제 정보, ""에 대 한 웨이브 파일 이름, `{region}` 및 "YourServiceRegion" (_centralus_ 또는 _eastasia_)의 지역으로 대체 해야 합니다.
 
@@ -140,7 +140,7 @@ public class MyConversationTranscriber
             using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
-                using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
+                using (var conversationTranscriber = new ConversationTranscriber(audioInput))
                 {
                     await conversationTranscriber.JoinConversationAsync(conversation);
 

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488939"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135722"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Azure virtual machines에 대해 영역에 영역 재해 복구를 사용 하도록 설정
 
@@ -97,7 +98,7 @@ Azure Portal 로그인 합니다.
 
 5. 복제 설정을 변경 하려면 ' 다음: 고급 설정 '을 클릭 합니다.
 
-6. 적절 한 경우 언제 든 지 설정을 기본 설정으로 변경 합니다. Azure에서 Azure로의 재해 복구에 대 한 사용자의 경우이 페이지가 친숙 하 게 보일 수 있습니다. 이 블레이드에 제공 되는 옵션에 대 한 자세한 내용은 여기를 참조 [하세요](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) .
+6. 적절 한 경우 언제 든 지 설정을 기본 설정으로 변경 합니다. Azure에서 Azure로의 재해 복구에 대 한 사용자의 경우이 페이지가 친숙 하 게 보일 수 있습니다. 이 블레이드에 제공 되는 옵션에 대 한 자세한 내용은 여기를 참조 [하세요](./azure-to-azure-tutorial-enable-replication.md) .
 
     ![고급 설정 페이지](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -115,7 +116,7 @@ RTO SLA는 전체 Site Recovery와 동일 합니다. 최대 2 시간의 RTO를 �
 Site Recovery 팀 및 Azure 용량 관리 팀은 충분한 인프라 용량을 계획하고 있습니다. 장애 조치 (failover)를 시작할 때 팀은 Site Recovery로 보호 되는 VM 인스턴스가 대상 영역에 배포 되도록 하는 데도 도움이 됩니다.
 
 **4. 지원 되는 운영 체제는 무엇 인가요?**
-영역 간 재해 복구는 Azure에서 Azure로 재해 복구와 동일한 운영 체제를 지원 합니다. [여기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)에서 지원 매트릭스를 참조 하세요.
+영역 간 재해 복구는 Azure에서 Azure로 재해 복구와 동일한 운영 체제를 지원 합니다. [여기](./azure-to-azure-support-matrix.md)에서 지원 매트릭스를 참조 하세요.
 
 **5. 소스 및 대상 리소스 그룹이 동일할 수 있나요?**
 아니요, 다른 리소스 그룹으로 장애 조치 (failover) 해야 합니다.
@@ -124,8 +125,8 @@ Site Recovery 팀 및 Azure 용량 관리 팀은 충분한 인프라 용량을 �
 
 재해 복구 훈련, 장애 조치 (failover), 다시 보호 및 장애 복구를 실행 하기 위해 따라야 하는 단계는 Azure에서 Azure로 재해 복구 시나리오의 단계와 동일 합니다.
 
-재해 복구 훈련을 수행 하려면 [여기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill)에 설명 된 단계를 따르세요.
+재해 복구 훈련을 수행 하려면 [여기](./azure-to-azure-tutorial-dr-drill.md)에 설명 된 단계를 따르세요.
 
-장애 조치 (failover)를 수행 하 고 보조 영역에서 Vm을 다시 보호 하려면 [여기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)에 설명 된 단계를 따르세요.
+장애 조치 (failover)를 수행 하 고 보조 영역에서 Vm을 다시 보호 하려면 [여기](./azure-to-azure-tutorial-failover-failback.md)에 설명 된 단계를 따르세요.
 
-주 영역으로 장애 복구 (failback) 하려면 [여기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback)에 설명 된 단계를 따르세요.
+주 영역으로 장애 복구 (failback) 하려면 [여기](./azure-to-azure-tutorial-failback.md)에 설명 된 단계를 따르세요.

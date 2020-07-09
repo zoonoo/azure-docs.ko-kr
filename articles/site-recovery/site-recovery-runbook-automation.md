@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345141"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134810"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 
@@ -128,7 +129,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 외부 변수를 사용 하 여 여러 복구 계획에서 단일 runbook 스크립트를 사용할 수 있습니다. 
 
-- [Azure Automation 변수](../automation/automation-variables.md) 를 사용 하 여 복구 계획을 실행 하기 위한 매개 변수를 저장 합니다.
+- [Azure Automation 변수](../automation/shared-resources/variables.md) 를 사용 하 여 복구 계획을 실행 하기 위한 매개 변수를 저장 합니다.
 - 복구 계획 이름을 변수에 대한 접두사로 추가하여 각 복구 계획에 대한 개별 변수를 만들 수 있습니다. 그런 다음 매개 변수로 변수를 사용합니다.
 - 스크립트를 변경하지 않고 매개 변수를 변경할 수 있으며 스크립트가 작동하는 방식도 변경할 수 있습니다.
 
@@ -198,7 +199,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 - 예를 들어 SharePoint 복구에는 두 개의 프런트 엔드가 있습니다. 기본 LOB(기간 업무) 애플리케이션에는 하나의 프런트 엔드만 있습니다.
 - 이 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들 수 없습니다.
 
-다음 예제에서는 Azure Automation 계정에 [복잡 한 변수](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) 를 만듭니다.
+다음 예제에서는 Azure Automation 계정에 [복잡 한 변수](/powershell/module/servicemanagement/azure/set-azureautomationvariable) 를 만듭니다.
 
 Azure PowerShell를 사용 하 여 여러 값을 지정 하 여이 작업을 수행 합니다.
 
@@ -263,9 +264,6 @@ Automation 계정에 샘플 스크립트를 배포하려면 **Azure에 배포** 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Automation 실행 계정](../automation/automation-create-runas-account.md) 에 대 한 자세한 정보
+- [Azure Automation 실행 계정](../automation/manage-runas-account.md) 에 대 한 자세한 정보
 - [Azure Automation 샘플 스크립트](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team)를 검토 합니다.
 - 장애 조치 (failover) 실행에 [대해 자세히 알아보세요](site-recovery-failover.md) .
-
-
-

@@ -3,11 +3,12 @@ title: Azure Site Recovery를 사용하여 복제에서 디스크 제외
 description: Azure Site Recovery를 사용하여 Azure로 복제할 때 디스크를 제외하는 방법.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740521"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135692"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>재해 복구에서 디스크 제외
 
@@ -259,7 +260,6 @@ Azure VM의 페이징 파일 설정은 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - 임시 스토리지 디스크에 대한 지침을 자세히 알아보세요.
-    - Azure VM에서 SSD를 사용하여 SQL Server TempDB 및 버퍼 풀 확장을 저장하기는 방법에 대해 [알아보세요](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
-    - Azure VM의 SQL Server에 대한 성능 모범 사례를 [검토하세요](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+    - Azure VM에서 SSD를 사용하여 SQL Server TempDB 및 버퍼 풀 확장을 저장하기는 방법에 대해 [알아보세요](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
+    - Azure VM의 SQL Server에 대한 성능 모범 사례를 [검토하세요](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 - 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](failover-failback-overview.md).
-

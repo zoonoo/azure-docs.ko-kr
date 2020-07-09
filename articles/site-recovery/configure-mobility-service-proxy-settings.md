@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
-ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429ffcab147142ae2e96de13b7c9e1e5ee1ac7ba
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79503128"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133223"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Azure에 대 한 azure 재해 복구에 대 한 모바일 서비스 프록시 설정 구성
 
@@ -54,5 +54,5 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 ProxyInfo는 다음 템플릿 [proxy] Address = http://1.2.3.4 Port = 5678 BypassList = hypervrecoverymanager. windowsazure.servicebus, microsoftonline,,를 포함 합니다. BypassList는 ' *. windows.net '와 같은 와일드 카드를 지원 하지 않지만 windows.net는 무시 해도 좋습니다. 
 
 ## <a name="next-steps"></a>다음 단계:
-- Azure VM 복제를 위한 [네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)에 대해 알아봅니다.
-- [Azure VM을 복제](site-recovery-azure-to-azure.md)하여 재해 복구를 배포합니다.
+- Azure VM 복제를 위한 [네트워킹 지침](./azure-to-azure-about-networking.md)에 대해 알아봅니다.
+- [Azure VM을 복제](./azure-to-azure-quickstart.md)하여 재해 복구를 배포합니다.

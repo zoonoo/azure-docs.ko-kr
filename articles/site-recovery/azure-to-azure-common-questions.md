@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134042"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -88,7 +89,7 @@ Site Recovery는 복제된 VM에서 디스크의 "핫 제거"를 지원하지 �
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 
-Azure VM을 다른 Azure 지역에 복제할 때는 복제가 계속 진행됩니다. 자세한 내용은 [Azure 간 복제 아키텍처](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process)를 참조하세요.
+Azure VM을 다른 Azure 지역에 복제할 때는 복제가 계속 진행됩니다. 자세한 내용은 [Azure 간 복제 아키텍처](./azure-to-azure-architecture.md#replication-process)를 참조하세요.
 
 ### <a name="can-i-replicate-virtual-machines-within-a-region-i-need-this-functionality-to-migrate-vms"></a>한 지역 내에서 가상 머신을 복제할 수 있나요? VM을 마이그레이션하려면 이 기능이 필요합니다.
 
@@ -96,17 +97,17 @@ Azure 간 디스크 복구 솔루션을 사용하여 지역 내에서 VM을 복�
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>VM 인스턴스를 Azure 지역에 복제할 수 있나요?
 
-Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역 간에 VM을 복제 및 복구할 수 있습니다. 지리적 클러스터는 데이터 대기 시간 및 주권에 유의하여 정의됩니다. 자세한 내용은 Site Recovery [지역 지원 행렬](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)을 참조하세요.
+Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역 간에 VM을 복제 및 복구할 수 있습니다. 지리적 클러스터는 데이터 대기 시간 및 주권에 유의하여 정의됩니다. 자세한 내용은 Site Recovery [지역 지원 행렬](./azure-to-azure-support-matrix.md#region-support)을 참조하세요.
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>Site Recovery에 인터넷 연결이 필요한가요?
 
-아니요, Site Recovery에는 인터넷 연결이 필요하지 않습니다. 하지만 [Azure VM 재해 복구의 네트워킹](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)에서 설명한 대로 Site Recovery URL 및 IP 범위에 대한 액세스 권한이 필요합니다.
+아니요, Site Recovery에는 인터넷 연결이 필요하지 않습니다. 하지만 [Azure VM 재해 복구의 네트워킹](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls)에서 설명한 대로 Site Recovery URL 및 IP 범위에 대한 액세스 권한이 필요합니다.
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>계층별로 별도의 리소스 그룹이 있는 애플리케이션을 복제할 수 있나요?
 
 예, 애플리케이션을 복제하고 재해 복구 구성을 별도의 리소스 그룹에 유지할 수도 있습니다.
 
-예를 들어, 애플리케이션에서 각 계층 애플리케이션, 데이터베이스 및 웹이 별도의 리소스 그룹에 있는 경우 [복제 마법사](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)를 3번 선택하여 모든 계층을 보호해야 합니다. Site Recovery는 이러한 세 계층을 세 개의 다른 리소스 그룹에 복제합니다.
+예를 들어, 애플리케이션에서 각 계층 애플리케이션, 데이터베이스 및 웹이 별도의 리소스 그룹에 있는 경우 [복제 마법사](./azure-to-azure-how-to-enable-replication.md#enable-replication)를 3번 선택하여 모든 계층을 보호해야 합니다. Site Recovery는 이러한 세 계층을 세 개의 다른 리소스 그룹에 복제합니다.
 
 ### <a name="can-i-move-storage-accounts-across-resource-groups"></a>리소스 그룹에서 스토리지 계정을 이동할 수 있나요?
 
@@ -121,7 +122,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 - 복구 지점의 보존 기록의 경우 24시간으로 설정합니다.
 - 앱 일치 스냅샷 빈도의 경우 60분으로 설정합니다.
 
-[복제 설정에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[복제 설정에 대해 자세히 알아보세요](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>크래시 일치 복구 지점은 무엇인가요?
 
@@ -182,7 +183,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Linux 서버에서 응용 프로그램 일관성을 사용 하 여 복제를 사용 하도록 설정할 수 있나요?
 
-예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. [자세한 정보](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. [자세한 정보](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>다중 VM 일관성
 
@@ -194,7 +195,7 @@ Site Recovery는 모든 컴퓨터의 복제 그룹을 만드는 **다중 VM 일�
 
 가상 머신을 장애 조치하면 크래시 일치 및 앱 일치 복구 지점을 공유하게 됩니다.
 
-자습서를 통해 [다중 VM 일관성을 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm)합니다.
+자습서를 통해 [다중 VM 일관성을 사용하도록 설정](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm)합니다.
 
 ### <a name="can-i-fail-over-a-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>다중 VM 일관성 복제 그룹 내에서 단일 가상 머신을 장애 조치(failover)할 수 있나요?
 
@@ -290,11 +291,11 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 
 ### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>주 지역에서 재해 복구 지역으로 장애 조치했습니다. DR 지역의 VM이 자동으로 보호되나요?
 
-아니요. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)해야 합니다.
+아니요. Azure VM을 한 지역에서 다른 지역으로 [장애 조치(failover)](./azure-to-azure-tutorial-failover-failback.md)할 경우 VM은 DR 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 보조 지역에서 VM을 [다시 보호](./azure-to-azure-how-to-reprotect.md)해야 합니다.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>다시 보호 시 Site Recovery에서 보조 지역의 전체 데이터를 주 지역에 복제하나요?
 
-상황에 따라 다릅니다. 원본 지역 VM이 있는 경우 원본 디스크와 대상 디스크 사이의 변경 내용만 동기화됩니다. Site Recovery는 디스크를 비교하여 차등을 계산한 다음, 데이터를 전송합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. 다시 보호 중 발생하는 작업에 대한 자세한 내용은 [주 지역으로 장애 조치된 Azure VM 인스턴스 다시 보호](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)를 참조하세요.
+상황에 따라 다릅니다. 원본 지역 VM이 있는 경우 원본 디스크와 대상 디스크 사이의 변경 내용만 동기화됩니다. Site Recovery는 디스크를 비교하여 차등을 계산한 다음, 데이터를 전송합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. 다시 보호 중 발생하는 작업에 대한 자세한 내용은 [주 지역으로 장애 조치된 Azure VM 인스턴스 다시 보호](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection)를 참조하세요.
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>장애 복구(failback)하는 데 시간이 얼마나 걸리나요?
 
@@ -320,10 +321,10 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA 및 DPA 인증을 받았습니다.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery는 복제를 암호화합니까?
 
-예, 전송 중 암호화 및 [Azure의 미사용 데이터 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)가 모두 지원됩니다.
+예, 전송 중 암호화 및 [Azure의 미사용 데이터 암호화](../storage/common/storage-service-encryption.md)가 모두 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 간 지원 요구 사항을 검토합니다](azure-to-azure-support-matrix.md).
 - [Azure 간 복제를 설정합니다](azure-to-azure-tutorial-enable-replication.md).
-- 이 문서를 읽은 후 질문이 있으면 [Azure Recovery Services에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)에 게시해 주세요.
+- 이 문서를 읽은 후 질문이 있으면 [Azure Recovery Services에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 게시해 주세요.
