@@ -1,18 +1,16 @@
 ---
 title: 테스트 드라이브의 유형, Microsoft 상업적 marketplace
 description: 상용 marketplace에서 테스트 드라이브 유형
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: a2d12a372f773a4a389ea7e7f2b3d2811ba889d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801226"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102942"
 ---
 # <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
@@ -70,12 +68,12 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 ### <a name="accepted-parameter-metadata-types"></a>허용되는 매개 변수 메타데이터 유형
 
-| 메타데이터 유형   | 매개 변수 유형  | 설명     | 샘플 값    |
+| 메타데이터 유형   | 매개 변수 유형  | Description     | 샘플 값    |
 |---|---|---|---|
-| **baseuri**     | string          | 배포 패키지의 기본 URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **이름**    | string          | 새 임의 사용자 이름입니다.| admin68876      |
+| **baseuri**     | 문자열          | 배포 패키지의 기본 URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **이름**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
 | **password**    | 보안 문자열    | 새 임의 암호 | Lp!ACS\^2kh     |
-| **세션 id**   | string          | 고유 테스트 드라이브 세션 ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **세션 id**   | 문자열          | 고유 테스트 드라이브 세션 ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 

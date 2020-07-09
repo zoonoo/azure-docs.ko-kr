@@ -3,16 +3,16 @@ title: 대규모로 Azure 센티널 작업 영역 관리
 description: 위임 된 고객 리소스에서 Azure 센티널을 효과적으로 관리 하는 방법을 알아봅니다.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bca5b6fdc84fa5a7a5553fe64c0218c5f0b44aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268778"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105271"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모로 Azure 센티널 작업 영역 관리
 
-서비스 공급자는 Azure 위임 리소스 관리를 위해 여러 고객 테넌트를 온보딩했을 수 있습니다. Azure Lighthouse를 사용 하면 서비스 공급자가 Azure Active Directory 여러 Azure AD (Azure AD) 테 넌 트에서 한 번에 대규모 작업을 수행 하 여 관리 작업을 보다 효율적으로 만들 수 있습니다.
+서비스 공급자로 서 [Azure Lighthouse](../overview.md)에 여러 고객 테 넌 트를 등록 했을 수 있습니다. Azure Lighthouse를 사용 하면 서비스 공급자가 Azure Active Directory 여러 Azure AD (Azure AD) 테 넌 트에서 한 번에 대규모 작업을 수행 하 여 관리 작업을 보다 효율적으로 만들 수 있습니다.
 
 Azure 센티널은 보안 분석과 위협 인텔리전스를 제공 하 여 경고 검색, 위협 가시성, 자동 관리 검색 및 위협 대응을 위한 단일 솔루션을 제공 합니다. Azure Lighthouse를 사용 하면 대규모 테 넌 트 간에 여러 Azure 센티널 작업 영역을 관리할 수 있습니다. 이렇게 하면 여러 작업 영역에서 쿼리를 실행 하거나 통합 문서를 만들어 연결 된 데이터 원본의 데이터를 시각화 하 고 모니터링 하 여 통찰력을 얻을 수 있습니다. 쿼리 및 플레이 북와 같은 IP는 관리 테 넌 트에 남아 있지만 고객 테 넌 트의 보안 관리를 수행 하는 데 사용할 수 있습니다.
 
@@ -35,7 +35,7 @@ Azure 센티널을 사용 하 여 보안 서비스 제공 서비스를 빌드하
 
 ## <a name="granular-role-based-access-control-rbac"></a>세분화 된 역할 기반 액세스 제어 (RBAC)
 
-MSSP에서 관리 하는 각 고객 구독은 [Azure 위임 된 리소스 관리를 위해 등록](onboard-customer.md)되어야 합니다. 이렇게 하면 관리 테 넌 트의 지정 된 사용자가 고객 테 넌 트에 배포 된 Azure 센티널 작업 영역에 액세스 하 고 관리 작업을 수행할 수 있습니다.
+MSSP에서 관리 하는 각 고객 구독은 [Azure Lighthouse로 등록](onboard-customer.md)되어야 합니다. 이렇게 하면 관리 테 넌 트의 지정 된 사용자가 고객 테 넌 트에 배포 된 Azure 센티널 작업 영역에 액세스 하 고 관리 작업을 수행할 수 있습니다.
 
 권한 부여를 만들 때 관리 하는 테 넌 트의 사용자, 그룹 또는 서비스 사용자에 게 Azure 센티널 기본 제공 역할을 할당할 수 있습니다.
 

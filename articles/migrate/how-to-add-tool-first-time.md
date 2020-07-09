@@ -3,15 +3,16 @@ title: Azure Migrate에서 평가/마이그레이션 도구 추가
 description: Azure Migrate 프로젝트를 만들고 평가/마이그레이션 도구를 추가 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82901181"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102534"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>처음으로 평가/마이그레이션 도구에 추가
 
-이 문서에서는 [Azure Migrate](migrate-overview.md) 프로젝트에 평가 또는 마이그레이션 도구를 처음으로 추가 하는 방법을 설명 합니다.  
+이 문서에서는 [Azure Migrate](./migrate-services-overview.md) 프로젝트에 평가 또는 마이그레이션 도구를 처음으로 추가 하는 방법을 설명 합니다.  
 Azure Migrate는 Azure에 대 한 온-프레미스 앱 및 워크 로드 및 사설/공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 기타 도구 및 ISV (독립 소프트웨어 공급 업체) [제품](migrate-services-overview.md#isv-integration) 뿐만 아니라 평가 및 마이그레이션에 대 한 Azure Migrate 도구를 제공 합니다. 
 
 ## <a name="check-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 확인

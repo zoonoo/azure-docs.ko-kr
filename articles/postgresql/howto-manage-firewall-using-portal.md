@@ -4,13 +4,14 @@ description: Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 887b450c88e8d9d06e86cd7dc7725c7538522aa5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74770308"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102126"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙은 지정 된 IP 주소 또는 IP 주소 범위에서 Azure Database for PostgreSQL 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다.

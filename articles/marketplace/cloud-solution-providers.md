@@ -1,18 +1,18 @@
 ---
 title: 클라우드 솔루션 공급자 - Microsoft 상업용 마켓플레이스
 description: 상업용 마켓 플레이스에서 Microsoft CSP(클라우드 솔루션 공급자) 프로그램 파트너 채널을 통해 제품을 판매하는 방법에 대해 알아봅니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: 633656af72790c7dfebeee567713875ce0d609b4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104438"
 ---
 # <a name="cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램
 

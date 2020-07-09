@@ -1,18 +1,18 @@
 ---
 title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919142"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105169"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
-서비스 공급자는 사용자 구독 또는 리소스 그룹이 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 통해 테 넌 트에 위임 되거나 이전에 위임 된 리소스가 제거 되는 경우를 인식 하고자 할 수 있습니다.
+서비스 공급자는 사용자 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)을 통해 테 넌 트에 위임 되거나 이전에 위임 된 리소스가 제거 되는 경우를 인식 하고자 할 수 있습니다.
 
 테 넌 트 관리에서 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 는 테 넌 트 수준에서 위임 작업을 추적 합니다. 이 기록 된 활동에는 모든 고객 테 넌 트에서 추가 되거나 제거 된 위임이 포함 됩니다.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure에서 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)에 고객을 등록 하는 방법에 대해 알아봅니다.
+- [Azure Lighthouse](../concepts/azure-delegated-resource-management.md)에 고객을 등록 하는 방법에 대해 알아봅니다.
 - [Azure Monitor](../../azure-monitor/index.yml) 및 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)에 대해 알아봅니다.

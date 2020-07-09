@@ -1,17 +1,18 @@
 ---
 title: 파트너 센터의 공동 판매 옵션 | Azure Marketplace
 description: 제품의 공동 판매 탭에 제공 하는 정보는 Microsoft 영업 팀에서 고객 요구 사항에 맞게 평가할 때 솔루션에 대 한 자세한 내용을 확인 하는 데 사용 됩니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201442"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104234"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
 

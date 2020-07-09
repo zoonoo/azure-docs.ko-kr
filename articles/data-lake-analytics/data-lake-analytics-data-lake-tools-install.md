@@ -7,19 +7,20 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: 08f0456b6a8b663f0af68fbb179de14b9e3acf79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d153ba1d00c0e43a5809503e047fb66713b7fb7c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70914064"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104931"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구 설치
 
 Visual Studio를 사용 하 여 Azure Data Lake Analytics 계정을 만드는 방법에 대해 알아봅니다. [U-SQL](data-lake-analytics-u-sql-get-started.md) 에서 작업을 정의 하 고 작업을 Data Lake Analytics 서비스로 제출할 수 있습니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Visual Studio**: Express를 제외한 모든 버전이 지원됩니다.
 

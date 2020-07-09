@@ -1,17 +1,18 @@
 ---
 title: Azure 컨테이너 제품에 대한 기술 개념 - Microsoft 상업용 Marketplace
 description: Azure Marketplace에서 컨테이너 제품을 구성하는 데 도움이 되는 기술 리소스 및 지침입니다.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: 8f32313529da965573a6c9884daee678e3bc64cc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: da0fa53567e5c58db8e8394ef5562255d8a7142d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958602"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104270"
 ---
 # <a name="create-an-azure-container-offer"></a>Azure 컨테이너 제품 만들기
 

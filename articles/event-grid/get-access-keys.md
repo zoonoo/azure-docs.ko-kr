@@ -1,17 +1,14 @@
 ---
 title: Event Grid 리소스에 대 한 액세스 키 가져오기
 description: 이 문서에서는 Event Grid 토픽 또는 도메인에 대 한 액세스 키를 가져오는 방법을 설명 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 75ab09de40a4305ebd215985f2f9f181bfd69a24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: e5694fe0b5f22f7f76285c344627005ea727ae3c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105866"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Event Grid 리소스 (토픽 또는 도메인)에 대 한 액세스 키 가져오기
 액세스 키는 리소스 (토픽 및 도메인)를 Azure Event Grid 응용 프로그램 게시 이벤트를 인증 하는 데 사용 됩니다. 키를 정기적으로 다시 생성 하 고 안전 하 게 저장 하는 것이 좋습니다. 다른 키를 다시 생성 하는 동안 한 키를 사용 하 여 연결을 유지할 수 있도록 두 개의 액세스 키가 제공 됩니다.

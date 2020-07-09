@@ -1,18 +1,14 @@
 ---
 title: Event Grid 소스로 서의 Azure 리소스 그룹
 description: Azure Event Grid를 사용하여 리소스 그룹 이벤트에 제공되는 속성을 설명합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393259"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105917"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Event Grid 소스로 서의 Azure 리소스 그룹
 
@@ -235,7 +231,7 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
@@ -248,7 +244,7 @@ VM을 만들거나 스토리지 계정을 삭제할 때와 같이 리소스 그�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 권한 부여 | 개체 | 작업에 대해 요청된 권한입니다. |
 | claims | 개체 | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |

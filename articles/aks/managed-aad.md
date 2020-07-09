@@ -7,19 +7,25 @@ author: mlearned
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: mlearned
-ms.openlocfilehash: bf635d37559d09e887a67be27c412bff7899127b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023400"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105951"
 ---
-# <a name="integrate-aks-managed-azure-ad-preview"></a>AKS로 관리 되는 Azure AD 통합 (미리 보기)
+# <a name="aks-managed-azure-active-directory-integration-preview"></a>AKS 관리 Azure Active Directory 통합 (미리 보기)
 
-> [!Note]
+> [!NOTE]
 > 기존 AKS (azure Kubernetes Service) Azure Active Directory (Azure AD)를 통합 하는 클러스터는 새로운 AKS 관리 Azure AD 환경의 영향을 받지 않습니다.
 
-AKS로 관리 되는 azure AD와의 azure AD 통합은 사용자가 이전에 클라이언트 앱, 서버 앱을 만들고 디렉터리 읽기 권한을 부여 하는 데 필요한 Azure ad 통합 환경을 간소화 하도록 설계 되었습니다. 새 버전에서는 AKS 리소스 공급자가 클라이언트 및 서버 앱을 자동으로 관리합니다.
+AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 앱, 서버 앱을 만들고 디렉터리 읽기 권한을 부여 하는 데 필요한 azure ad 통합 환경을 간소화 하도록 설계 되었습니다. 새 버전에서는 AKS 리소스 공급자가 클라이언트 및 서버 앱을 자동으로 관리합니다.
+
+## <a name="azure-ad-authentication-overview"></a>Azure AD 인증 개요
+
+클러스터 관리자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
+
+[Azure Active Directory 통합 개념 설명서](concepts-identity.md#azure-active-directory-integration)의 AAD 통합 흐름에 대해 자세히 알아보세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -80,30 +86,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/A
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
-## <a name="azure-ad-authentication-overview"></a>Azure AD 인증 개요
-
-클러스터 관리자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
-
-Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook 토큰 인증이 사용됩니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다.
-
-## <a name="webhook-and-api-server"></a>웹 후크 및 API 서버
-
-:::image type="content" source="media/aad-integration/auth-flow.png" alt-text="웹 후크 및 API 서버 인증 흐름":::
-
-위의 그림에 표시 된 것 처럼 API 서버는 AKS webhook 서버를 호출 하 고 다음 단계를 수행 합니다.
-
-1. Azure AD 클라이언트 응용 프로그램은 kubectl에서 [OAuth 2.0 장치 권한 부여 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)을 사용 하 여 사용자를 로그인 하는 데 사용 됩니다.
-2. Azure AD는 access_token, id_token 및 refresh_token를 제공 합니다.
-3. 사용자가 kubeconfig의 access_token를 사용 하 여 kubectl에 대 한 요청을 만듭니다.
-4. Kubectl는 APIServer에 access_token를 보냅니다.
-5. API 서버는 유효성 검사를 수행 하기 위해 Auth WebHook 서버를 사용 하 여 구성 됩니다.
-6. 인증 webhook 서버는 Azure AD 공개 서명 키를 확인 하 여 JSON Web Token 서명이 유효한 지 확인 합니다.
-7. 서버 응용 프로그램은 사용자 제공 자격 증명을 사용 하 여 MS Graph API에서 로그인 한 사용자의 그룹 멤버 자격을 쿼리 합니다.
-8. 응답은 액세스 토큰의 UPN (사용자 계정 이름) 클레임 및 개체 ID를 기반으로 하는 사용자의 그룹 멤버 자격과 같은 사용자 정보를 사용 하 여 APIServer에 전송 됩니다.
-9. API는 Kubernetes Role/RoleBinding에 따라 권한 부여 결정을 수행 합니다.
-10. 권한이 부여 되 면 API 서버는 kubectl에 대 한 응답을 반환 합니다.
-11. Kubectl 사용자에 게 피드백을 제공 합니다.
-
 
 ## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Azure AD를 사용하는 AKS 클러스터 만들기
 
@@ -123,7 +105,7 @@ az group create --name myResourceGroup --location centralus
 az ad group list
 ```
 
-클러스터 관리자에 대 한 새 Azure AD 그룹을 r) 다음 명령을 사용 합니다.
+클러스터 관리자에 대 한 새 Azure AD 그룹을 만들려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 # Create an Azure AD group
@@ -139,7 +121,7 @@ az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-g
 
 AKS로 관리 되는 Azure AD 클러스터가 성공적으로 만들어지면 응답 본문에 다음 섹션이 포함 됩니다.
 ```
-"Azure ADProfile": {
+"AADProfile": {
     "adminGroupObjectIds": null,
     "clientAppId": null,
     "managed": true,
@@ -187,14 +169,16 @@ aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
 
-## <a name="non-interactive-login-with-kubelogin"></a>Kubelogin를 사용 하는 비 대화형 로그인
+## <a name="non-interactive-sign-in-with-kubelogin"></a>Kubelogin를 사용 하 여 비 대화형 로그인
 
-연속 통합 파이프라인과 같이 현재 kubectl에서 사용할 수 없는 일부 비 대화형 시나리오가 있습니다. [Kubelogin](https://github.com/Azure/kubelogin) 를 사용 하 여 비 대화형 서비스 사용자 로그인으로 클러스터에 액세스할 수 있습니다.
+현재 kubectl에서 사용할 수 없는 지속적인 통합 파이프라인과 같은 일부 비 대화형 시나리오가 있습니다. [`kubelogin`](https://github.com/Azure/kubelogin)를 사용 하 여 비 대화형 서비스 사용자 로그인으로 클러스터에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD 역할 기반 액세스 제어][azure-ad-rbac]에 대해 알아봅니다.
-* [kubelogin](https://github.com/Azure/kubelogin)을 사용하여 kubectl에서 사용할 수 없는 Azure 인증 기능에 액세스합니다.
+* [Kubernetes 권한 부여에 대 한 AZURE RBAC 통합][azure-rbac-integration] 에 대해 알아보기
+* [KUBERNETES RBAC와 AZURE AD 통합][azure-ad-rbac]에 대해 알아봅니다.
+* [Kubelogin](https://github.com/Azure/kubelogin) 를 사용 하 여 kubectl에서 사용할 수 없는 Azure 인증 기능에 액세스 합니다.
+* [AKS 및 Kubernetes id 개념][aks-concepts-identity]에 대해 자세히 알아보세요.
 * [ARM (Azure Resource Manager) 템플릿을][aks-arm-template] 사용 하 여 AKS로 관리 되는 Azure AD 사용 클러스터를 만듭니다.
 
 <!-- LINKS - external -->
@@ -203,6 +187,8 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 [aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[azure-rbac-integration]: manage-azure-rbac.md
+[aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

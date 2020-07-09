@@ -8,15 +8,16 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fb64463b0372202adb04c2deb304c389c7773b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3dee468764f27d930081b5a3cd415c48bb79c0d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79164684"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104013"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전트를 설치 하는 방법
 
-[Windows PowerShell DSC (필요한 상태 구성](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) )를 사용 하 여 windows 컴퓨터에 대 한 소프트웨어 설치 및 구성을 자동화할 수 있습니다. 이 문서에서는 DSC를 사용 하 여 하이브리드 Windows 컴퓨터에 서버에 연결 된 컴퓨터 에이전트에 대 한 Azure Arc를 설치 하는 방법을 설명 합니다.
+[Windows PowerShell DSC (필요한 상태 구성](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) )를 사용 하 여 windows 컴퓨터에 대 한 소프트웨어 설치 및 구성을 자동화할 수 있습니다. 이 문서에서는 DSC를 사용 하 여 하이브리드 Windows 컴퓨터에 서버에 연결 된 컴퓨터 에이전트에 대 한 Azure Arc를 설치 하는 방법을 설명 합니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -72,7 +73,7 @@ Cmdlet을 사용 하 여 구성 문서 (MOF 파일)를 컴퓨터에 적용할 �
 
 1. PowerShell 콘솔에서 파일을 저장 한 폴더로 이동 `.ps1` 합니다.
 
-2. 다음 PowerShell 명령을 실행하여 MOF 문서를 컴파일합니다(DSC 구성 컴파일에 대한 자세한 내용은 [DSC 구성](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7) 참조).
+2. 다음 PowerShell 명령을 실행하여 MOF 문서를 컴파일합니다(DSC 구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/scripting/dsc/configurations/configurations?view=powershell-7) 참조).
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -86,7 +87,7 @@ Cmdlet을 사용 하 여 구성 문서 (MOF 파일)를 컴퓨터에 적용할 �
 
 이 리소스는 기존 DSC 구성에 추가 하 여 컴퓨터에 대 한 종단 간 구성을 나타낼 수 있습니다. 예를 들어이 리소스를 보안 운영 체제 설정을 설정 하는 구성에 추가할 수 있습니다.
 
-PowerShell 갤러리의 [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) 모듈을 사용 하 여 구성 결합을 더욱 간소화 하는 예제 구성의 [복합 리소스](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) 를 만들 수 있습니다.
+PowerShell 갤러리의 [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) 모듈을 사용 하 여 구성 결합을 더욱 간소화 하는 예제 구성의 [복합 리소스](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) 를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

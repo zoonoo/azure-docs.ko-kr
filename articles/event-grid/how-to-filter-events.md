@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid에 대한 이벤트를 필터링하는 방법
 description: 이 문서에서는 Event Grid 구독을 만들 때 이벤트 유형 (주체, 운영자 및 데이터 등)을 기준으로 이벤트를 필터링 하는 방법을 보여 줍니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 99fb00f99a055033ccfcd99e32a52d423878fb44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79454026"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105577"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid에 대한 이벤트 필터링
 

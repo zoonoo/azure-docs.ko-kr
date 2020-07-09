@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 45a61b5bc6f1082b84bf94db7e8ad5ce49ec068f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648064"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103792"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Azure에 하이브리드 머신을 대규모로 연결
 
@@ -85,7 +86,7 @@ PowerShell을 사용하여 서비스 주체를 만들려면 다음을 수행합�
 * `location` : [지원되는 Azure 지역](overview.md#supported-regions)을 참조하세요. 이 위치는 리소스 그룹의 위치와 같을 수도 있고 다를 수도 있습니다.
 * `resource-name` : (*선택 사항*) 온-프레미스 머신의 Azure 리소스 표현에 사용됩니다. 이 값을 지정하지 않으면 머신 호스트 이름이 사용됩니다.
 
-[Azcmagent 참조](azcmagent-reference.md)를 검토하여 `azcmagent` 명령줄 도구에 대해 자세히 알아볼 수 있습니다.
+[Azcmagent 참조](./manage-agent.md)를 검토하여 `azcmagent` 명령줄 도구에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="windows-installation-script"></a>Windows 설치 스크립트
 

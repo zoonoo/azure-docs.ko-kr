@@ -1,17 +1,14 @@
 ---
 title: Event Grid 원본으로 Azure Machine Learning
 description: 를 사용 하 여 Machine Learning 작업 영역 이벤트에 제공 되는 속성을 설명 Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82928876"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102500"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Machine Learning
 
@@ -23,7 +20,7 @@ ms.locfileid: "82928876"
 
 Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | MachineLearningServices가 등록 되었습니다. | 새 모델 또는 모델 버전이 성공적으로 등록 되 면 발생 합니다. |
 | MachineLearningServices 배포 | 모델이 끝점에 성공적으로 배포 되 면 발생 합니다. |
@@ -189,73 +186,73 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
 | 데이터 | object | Blob Storage 이벤트 데이터입니다. |
-| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체에는 각 이벤트 유형에 대 한 다음 속성이 있습니다.
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>MachineLearningServices가 등록 되었습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| ModelName | string | 등록 된 모델의 이름입니다. |
-| ModelVersion | string | 등록 된 모델의 버전입니다. |
+| ModelName | 문자열 | 등록 된 모델의 이름입니다. |
+| ModelVersion | 문자열 | 등록 된 모델의 버전입니다. |
 | ModelTags | 개체 | 등록 된 모델의 태그입니다. |
 | ModelProperties | 개체 | 등록 된 모델의 속성입니다. |
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>MachineLearningServices 배포
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| ServiceName | string | 배포 된 서비스의 이름입니다. |
-| ServiceComputeType | string | 배포 된 서비스의 계산 형식 (예: ACI, AKS)입니다. |
-  | ModelIds | string | 쉼표로 구분 된 모델 Id 목록입니다. 서비스에 배포 된 모델의 Id입니다. |
+| ServiceName | 문자열 | 배포 된 서비스의 이름입니다. |
+| ServiceComputeType | 문자열 | 배포 된 서비스의 계산 형식 (예: ACI, AKS)입니다. |
+  | ModelIds | 문자열 | 쉼표로 구분 된 모델 Id 목록입니다. 서비스에 배포 된 모델의 Id입니다. |
 | ServiceTags | 개체 | 배포 된 서비스의 태그입니다. |
 | ServiceProperties | 개체 | 배포 된 서비스의 속성입니다. |
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>MachineLearningServices
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
-| ExperimentId | string | 실행이 속한 실험의 ID입니다. |
-| ExperimentName | string | 실행이 속한 실험의 이름입니다. |
-| RunId | string | 완료 된 실행의 ID입니다. |
-| RunType | string | 완료 된 실행의 실행 형식입니다. |
+| ExperimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
+| ExperimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
+| RunId | 문자열 | 완료 된 실행의 ID입니다. |
+| RunType | 문자열 | 완료 된 실행의 실행 형식입니다. |
 | RunTags | 개체 | 완료 된 실행의 태그입니다. |
 | RunProperties | 개체 | 완료 된 실행의 속성입니다. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>MachineLearningServices. DatasetDriftDetected
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
-| DataDriftId | string | 이벤트를 트리거한 데이터 드리프트 모니터의 ID입니다. |
-| DataDriftName | string | 이벤트를 트리거한 데이터 드리프트 모니터의 이름입니다. |
-| RunId | string | 데이터 드리프트를 검색 한 실행의 ID입니다. |
-| BaseDatasetId | string | 드리프트를 검색 하는 데 사용 되는 기본 데이터 집합의 ID입니다. |
-| TargetDatasetId | string | 드리프트를 검색 하는 데 사용 되는 대상 데이터 집합의 ID입니다. |
+| DataDriftId | 문자열 | 이벤트를 트리거한 데이터 드리프트 모니터의 ID입니다. |
+| DataDriftName | 문자열 | 이벤트를 트리거한 데이터 드리프트 모니터의 이름입니다. |
+| RunId | 문자열 | 데이터 드리프트를 검색 한 실행의 ID입니다. |
+| BaseDatasetId | 문자열 | 드리프트를 검색 하는 데 사용 되는 기본 데이터 집합의 ID입니다. |
+| TargetDatasetId | 문자열 | 드리프트를 검색 하는 데 사용 되는 대상 데이터 집합의 ID입니다. |
 | DriftCoefficient | double | 이벤트를 트리거한 계수 결과입니다. |
 | StartTime | Datetime | 드리프트 검색을 일으킨 대상 데이터 집합 시계열의 시작 시간입니다.  |
 | EndTime | Datetime | 드리프트 검색을 일으킨 대상 데이터 집합 시계열의 종료 시간입니다. |
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>MachineLearningServices. RunStatusChanged
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
-| ExperimentId | string | 실행이 속한 실험의 ID입니다. |
-| ExperimentName | string | 실행이 속한 실험의 이름입니다. |
-| RunId | string | 완료 된 실행의 ID입니다. |
-| RunType | string | 완료 된 실행의 실행 형식입니다. |
+| ExperimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
+| ExperimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
+| RunId | 문자열 | 완료 된 실행의 ID입니다. |
+| RunType | 문자열 | 완료 된 실행의 실행 형식입니다. |
 | RunTags | 개체 | 완료 된 실행의 태그입니다. |
 | RunProperties | 개체 | 완료 된 실행의 속성입니다. |
-| RunStatus | string | 실행의 상태입니다. |
+| RunStatus | 문자열 | 실행의 상태입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 | 제목 | Description |

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857888"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104880"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -76,11 +77,11 @@ Data Lake에 데이터를 연결할 때 보안, 분할 및 처리를 효과적�
 
 IoT 작업에서는 수많은 제품, 디바이스, 조직 및 고객에 걸쳐 있는 데이터 저장소에 많은 양의 데이터가 연결될 수 있습니다. 다운스트림 소비자를 위해 데이터의 조직, 보안 및 효율적인 처리를 수행할 수 있도록 디렉터리 레이아웃을 미리 계획해야 합니다. 고려해야 할 일반적인 템플릿은 다음과 같은 레이아웃일 수 있습니다.
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{2}/{yyyy}/{mm}/{dd}/{hh}/*
 
 예를 들어 비행기 엔진에 대한 영국 내 착륙 원격 분석은 다음 구조와 같이 표시될 수 있습니다.
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*영국/평면/BA1293/Engine1/2017/08/11/12/*
 
 디렉터리 구조의 끝 부분에 날짜를 배치하는 중요한 이유가 있습니다. 특정 지역이나 주제를 사용자/그룹으로 한정하려면 POSIX 권한으로 쉽게 수행할 수 있습니다. 그렇지 않은 경우 앞에 있는 날짜 구조를 사용하여 영국 데이터 또는 특정 비행기만 볼 수 있도록 특정 보안 그룹을 제한해야 하는 경우 모든 시간 디렉터리 아래의 수많은 디렉터리에 대해 별도의 권한이 필요합니다. 또한 앞에 있는 날짜 구조를 사용하면 시간이 지남에 따라 디렉터리 수가 기하급수적으로 늘어납니다.
 
@@ -90,13 +91,13 @@ IoT 작업에서는 수많은 제품, 디바이스, 조직 및 고객에 걸쳐 
 
 데이터 손상 또는 예기치 않은 형식으로 인해 파일 처리가 실패하는 경우가 있습니다. 이러한 경우 디렉터리 구조에서 **/bad** 폴더를 지원하여 추가 검사를 위해 파일을 이동할 수 있습니다. 또한 일괄 처리 작업은 이러한 *불량* 파일에 대한 보고 또는 알림을 처리하여 수동으로 개입할 수 있습니다. 다음과 같은 템플릿 구조를 고려합니다.
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{2}/In/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{2}/Out/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{2}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 예를 들어 북아메리카 지역의 고객으로부터 고객 업데이트의 일일 데이터 추출 결과를 받는 마케팅 회사는 처리 전과 후에 다음 코드 조각처럼 표시될 수 있습니다.
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/to 추출/Acme용지 Co/In/2017/08/14/updates_08142017.csv*\
+*N/압축 풀기/Acme용지 Co/Out/2017/08/14/processed_updates_08142017.csv*
 
 일괄 처리 데이터가 일반적으로 Hive 또는 기존 SQL 데이터베이스와 같은 데이터베이스에 직접 처리되는 경우, 출력이 이미 Hive 테이블 또는 외부 데이터베이스에 대한 별도의 폴더로 이동하기 때문에 **/in** 또는 **/out** 폴더가 필요하지 않습니다. 예를 들어 고객으로부터의 일일 추출 결과가 해당 폴더에 저장되고, Azure Data Factory, Apache Oozie 또는 Apache Airflow 등을 통한 오케스트레이션에서 매일 Hive 또는 Spark 작업을 트리거하여 데이터를 처리하고 Hive 테이블에 씁니다.

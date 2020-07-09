@@ -3,11 +3,12 @@ title: Azure Migrate를 사용 하 여 마이그레이션하기 위해 Windows S
 description: Azure Migrate를 사용 하 여 마이그레이션하기 위해 Windows Server 2003 서버를 준비 하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 33519764b138c7711e6c03a85aa33ec6f936a748
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e33742d59972d491c1efb8d0f1453c1226d4625
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172128"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103945"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>마이그레이션을 위해 Windows Server 2003 컴퓨터 준비
 
@@ -24,7 +25,7 @@ ms.locfileid: "84172128"
 
 마이그레이션하기 전에 Hyper-v Integration Services 설치 되어 있는지 확인 하 고 필요한 경우 설치 합니다.
 
-1. [이러한 지침](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) 에 따라 설치 여부를 확인 합니다.
+1. [이러한 지침](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) 에 따라 설치 여부를 확인 합니다.
 2. 설치 되지 않은 경우 Hyper-v 역할을 사용 하 여 Windows Server 2012 R2/Windows Server 2012를 실행 하는 컴퓨터에 로그인 합니다.
 3. **C:\Windows\System32\vmguest.iso**에서 설치 파일로 이동 하 여 파일을 탑재 합니다.
 2. Windows Server 2003 컴퓨터에 설치 폴더를 복사 하 고 Integration Services를 설치 합니다.

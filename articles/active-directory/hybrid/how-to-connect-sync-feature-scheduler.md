@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357395"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103554"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
 이 항목에서는 Azure AD Connect sync (동기화 엔진)의 기본 제공 스케줄러에 대해 설명 합니다.
@@ -39,6 +39,10 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 * **유지 관리 태스크**. 암호 재설정 및 DRS(Device Registration Service)에 대한 키와 인증서를 갱신합니다. 작업 로그의 이전 항목을 삭제합니다.
 
 스케줄러 자체가 항상 실행되지만 이러한 작업 중 하나만 실행되도록 구성하거나 하나도 실행되지 않도록 구성할 수 있습니다. 예를 들어 고유한 동기화 주기 프로세스가 필요한 경우 스케줄러에서 이 작업을 사용하지 않도록 설정할 수 있지만 유지 관리 작업은 여전히 실행됩니다.
+
+>[!IMPORTANT]
+>동기화 주기가 적어도 7 일 마다 한 번씩 실행 되는지 확인 해야 합니다. 이렇게 하지 않으면 동기화 문제가 발생할 수 있으며,이 경우 전체 동기화를 실행 하 여 해결 해야 합니다.
+
 
 ## <a name="scheduler-configuration"></a>Scheduler 구성
 현재 구성 설정을 보려면 PowerShell로 이동하고 `Get-ADSyncScheduler`를 실행합니다. 아래 그림과 같이 표시됩니다.

@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462800"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103401"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
+
+## <a name="july-2020"></a>2020년 7월
+
+### <a name="text-analytics-for-health-container-public-gated-preview"></a>상태 컨테이너 공용 미리 보기에 대 한 Text Analytics
+
+상태 컨테이너에 대 한 Text Analytics는 이제 환자 흡입구 양식, 의사 (정보), 연구 용지 및 방전 요약 등의 임상 문서에서 구조화 되지 않은 영어 텍스트의 정보를 추출할 수 있는 공용 제어 미리 보기입니다. 현재 상태 컨테이너 사용에 대 한 Text Analytics에 대해서는 요금이 청구 되지 않습니다. 
+
+컨테이너는 다음과 같은 기능을 제공 합니다.
+
+* 명명된 엔터티 인식
+* 관계 추출
+* 엔터티 연결
+* 부정
+
+
+> [!div class="nextstepaction"]
+> [상태 컨테이너 Text Analytics에 대 한 자세한 정보](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>2020년 5월
 
@@ -61,9 +78,6 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 ### <a name="text-analytics-api-v31-public-preview"></a>텍스트 분석 API v 3.1 공개 미리 보기
    * 새 감정 분석 기능- [의견 마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * 보호 된 상태 정보 ()에 대 한 새 [개인 ( `PII` ) 도메인 필터](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `PHI` 입니다.
-   * 새 개인 ( `PII` ) 범주:
-      * 질병의 국제 분류 (ICD-9-CM)
-      * 질병의 국제 분류 (ICD-10-CM)
 
 > [!div class="nextstepaction"]
 > [텍스트 분석 API v 3.1 Preview에 대 한 자세한 정보](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -97,7 +111,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * Email 
+    * 메일 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소
@@ -137,7 +151,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [텍스트 분석 API 이란?](overview.md)  
+* [텍스트 분석 API란?](overview.md)  
 * [사용자 시나리오 예](text-analytics-user-scenarios.md)
 * [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [언어 감지](how-tos/text-analytics-how-to-language-detection.md)

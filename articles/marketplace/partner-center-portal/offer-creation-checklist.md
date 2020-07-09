@@ -1,18 +1,16 @@
 ---
 title: Microsoft 상업적 marketplace의 SaaS 제품 생성 검사 목록
 description: 파트너 센터에서 SaaS 제품 만들기 프로세스에 제공할 수 있는 세부 정보입니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374409"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101711"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>파트너 센터에서 SaaS 제품 생성 검사 목록
 

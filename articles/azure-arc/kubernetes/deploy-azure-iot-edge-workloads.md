@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure IoT Edge 워크로드 배포
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103979"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Azure IoT Edge 워크로드 배포(미리 보기)
 
@@ -25,7 +25,7 @@ Azure Arc 및 Azure IoT Edge는 서로의 기능을 보완합니다. Azure Arc�
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
-* [IoT Edge 디바이스 등록](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) 및 [시뮬레이트된 온도 센서 모듈 배포](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module) 디바이스의 연결 문자열을 확인해야 합니다.
+* [IoT Edge 디바이스 등록](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) 및 [시뮬레이트된 온도 센서 모듈 배포](../../iot-edge/quickstart-linux.md#deploy-a-module) 디바이스의 연결 문자열을 확인해야 합니다.
 
 * [Kubernetes에 대한 IoT Edge 지원](https://aka.ms/edgek8sdoc)을 사용하여 Azure Arc의 Flux 연산자를 통해 배포합니다.
 

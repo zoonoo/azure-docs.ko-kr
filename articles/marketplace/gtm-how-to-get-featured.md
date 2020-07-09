@@ -1,17 +1,18 @@
 ---
 title: 시장 출시 서비스-marketplace에서 주요 기능을 가져오는 방법 | Azure Marketplace
 description: 시장 진출 서비스 - 이 섹션에서는 Azure Marketplace에서 목록이 추천되는 방법을 설명합니다.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: aac3f87c642559b0dfa13c38da448e425df3ffa2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957803"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103571"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>AppSource 및 Azure Marketplace에서 추천되는 방법
 

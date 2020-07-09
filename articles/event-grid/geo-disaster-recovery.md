@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid에서 지역 재해 복구 | Microsoft Docs
 description: Azure Event Grid에서 자동으로 지역 재해 복구 (GeoDR)를 지 원하는 방법을 설명 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: spelluru
-ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66307319"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105849"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Azure Event Grid의 서버 쪽 지역 재해 복구
 이제 Event Grid에는 새로운 기능에 대 한 메타 데이터의 자동 지역 재해 복구 (GeoDR) 뿐만 아니라 기존의 모든 도메인, 토픽 및 이벤트 구독이 있습니다. 전체 Azure 지역이 중단 되는 경우 Event Grid는 이미 쌍을 이루는 지역에 동기화 된 모든 이벤트 관련 인프라 메타 데이터를 포함 합니다. 새 이벤트는 사용자의 개입 없이 다시 전달 되기 시작 합니다. 

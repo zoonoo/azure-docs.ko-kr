@@ -1,18 +1,18 @@
 ---
 title: 권장 보안 방법
-description: Azure 위임 된 리소스 관리를 사용 하는 경우 보안 및 액세스 제어를 고려 하는 것이 중요 합니다.
-ms.date: 03/24/2020
+description: Azure Lighthouse를 사용 하는 경우 보안 및 액세스 제어를 고려 하는 것이 중요 합니다.
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246911"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105424"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
-[Azure 위임 된 리소스 관리](azure-delegated-resource-management.md)를 사용 하는 경우 보안 및 액세스 제어를 고려 하는 것이 중요 합니다. 테 넌 트의 사용자는 고객 구독 및 리소스 그룹에 직접 액세스할 수 있으므로 테 넌 트의 보안을 유지 하는 단계를 수행 하는 것이 좋습니다. 또한 고객의 리소스를 효과적으로 관리 하는 데 필요한 액세스만 허용 하는지 확인 합니다. 이 항목에서는 이 작업을 수행하는 데 도움이 되는 권장 사항을 제공합니다.
+[Azure Lighthouse](../overview.md)를 사용 하는 경우 보안 및 액세스 제어를 고려 하는 것이 중요 합니다. 테 넌 트의 사용자는 고객 구독 및 리소스 그룹에 직접 액세스할 수 있으므로 테 넌 트의 보안을 유지 하는 단계를 수행 하는 것이 좋습니다. 또한 고객의 리소스를 효과적으로 관리 하는 데 필요한 액세스만 허용 하는지 확인 합니다. 이 항목에서는 이 작업을 수행하는 데 도움이 되는 권장 사항을 제공합니다.
 
 ## <a name="require-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 필요
 
@@ -31,7 +31,7 @@ ms.locfileid: "80246911"
 
 예를 들어 다음과 같은 구조를 사용하려고 할 수 있습니다.
 
-|그룹 이름  |형식  |principalId  |역할 정의  |역할 정의 ID  |
+|그룹 이름  |Type  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
 |설계자     |사용자 그룹         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |평가     |사용자 그룹         |\<principalId\>         |판독기         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

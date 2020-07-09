@@ -3,11 +3,12 @@ title: ISV 도구/Movere와 함께 사용할 Azure Migrate 준비
 description: 이 문서에서는 ISV 도구 또는 Movere와 함께 사용할 Azure Migrate를 준비하는 방법과 이 도구를 사용하여 시작하는 방법을 차례로 설명합니다.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770376"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103928"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>ISV 도구 또는 Movere로 작업 준비
 
@@ -35,7 +36,7 @@ Azure 구독에서 Azure AD 앱에 역할을 할당하려면 계정에 **Microso
 1. Azure Portal에서 **구독**을 엽니다.
 2. 관련 구독을 선택합니다. 표시되지 않는 경우 **전역 구독 필터**를 선택합니다. 
 3. **내 사용 권한**을 선택합니다. 그런 다음, **이 구독에 대한 전체 액세스 세부 정보를 보려면 여기를 클릭합니다.** 를 선택합니다.
-4. **역할 할당** > **보기**에서 권한을 확인합니다. 계정에 권한이 없는 경우 구독 관리자에게 [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) 역할 또는 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 역할을 부여해 달라고 요청합니다.
+4. **역할 할당** > **보기**에서 권한을 확인합니다. 계정에 권한이 없는 경우 구독 관리자에게 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 역할 또는 [소유자](../role-based-access-control/built-in-roles.md#owner) 역할을 부여해 달라고 요청합니다.
 
 ## <a name="allow-access-to-urls"></a>URL에 대한 액세스 허용
 

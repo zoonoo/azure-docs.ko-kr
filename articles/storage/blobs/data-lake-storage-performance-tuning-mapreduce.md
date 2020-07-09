@@ -8,17 +8,18 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f5de8da90ac3356480fd809af68ab2c8b30540aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e4030583ac902093c30374c24b877e3f089eb02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465952"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106223"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 
 MapReduce 작업의 성능을 튜닝할 때 고려해야 할 요소를 살펴봅니다. 이 문서에서는 다양한 성능 튜닝 지침에 대해 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.
@@ -56,7 +57,7 @@ MapReduce 작업을 실행할 때 Data Lake Storage Gen2의 성능을 향상시�
 
 mapreduce.job.maps/mapreduce.job.reduces를 튜닝하려면 사용 가능한 YARN 메모리 양을 고려해야 합니다.  이 정보는 Ambari에 제공됩니다.  YARN으로 이동 하 여 Configs 탭을 확인 합니다.  YARN 메모리가이 창에 표시 됩니다.  YARN 메모리에 클러스터에 있는 노드 수를 곱하여 총 YARN 메모리를 얻습니다.
 
-    Total YARN memory = nodes * YARN memory per node
+Total YARN memory = nodes * 노드당 YARN memory
 
 비어 있는 클러스터를 사용 중인 경우 이 메모리가 클러스터의 총 YARN 메모리일 수 있습니다.  다른 애플리케이션에서 메모리를 사용하고 있으면 매퍼 또는 리듀서 수를 사용하려는 컨테이너 수로 줄여서 클러스터 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.  
 
@@ -64,7 +65,7 @@ mapreduce.job.maps/mapreduce.job.reduces를 튜닝하려면 사용 가능한 YAR
 
 YARN 컨테이너는 작업에 사용 가능한 동시성의 양을 결정합니다.  총 YARN 메모리를 가져와 mapreduce.map.memory로 나눕니다.  
 
-    # of YARN containers = total YARN memory / mapreduce.map.memory
+\#of YARN 컨테이너 = total YARN memory/mapreduce.
 
 **5단계: mapreduce.job.maps/mapreduce.job.reduces 설정**
 
@@ -84,18 +85,19 @@ mapreduce.job.maps/mapreduce.job.reduces를 사용 가능한 컨테이너 수 �
 
 이 예제에서는 I/O 집약적 작업을 실행하고 있으며 맵 태스크에 대해 3GB의 메모리가 충분하다고 결정합니다.
 
-    mapreduce.map.memory = 3GB
+mapreduce. 메모리 = 3GB
 
 **3단계: 총 YARN 메모리 결정**
 
-    Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
+클러스터의 총 메모리는 8 개 노드 이며, D14 = 768GB의 YARN 메모리는 96GB입니다.
+
 **4단계: YARN 컨테이너 수 결정**
 
-    # of YARN containers = 768GB of available memory / 3 GB of memory =   256
+\#YARN 컨테이너 = 768GB의 사용 가능한 메모리/3gb 메모리 = 256
 
 **5단계: mapreduce.job.maps/mapreduce.job.reduces 설정**
 
-    mapreduce.map.jobs = 256
+mapreduce.map.jobs = 256
 
 ## <a name="examples-to-run"></a>실행 예제
 
@@ -108,12 +110,18 @@ MapReduce가 Data Lake Storage Gen2에서 실행되는 방법을 보여 주기 �
 
 **Teragen**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 abfs://example/data/1TB-sort-input
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 abfs://example/data/1TB-sort-input
+```
 
 **Terasort**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 abfs://example/data/1TB-sort-input abfs://example/data/1TB-sort-output
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 abfs://example/data/1TB-sort-input abfs://example/data/1TB-sort-output
+```
 
 **Teravalidate**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 abfs://example/data/1TB-sort-output abfs://example/data/1TB-sort-validate
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 abfs://example/data/1TB-sort-output abfs://example/data/1TB-sort-validate
+```

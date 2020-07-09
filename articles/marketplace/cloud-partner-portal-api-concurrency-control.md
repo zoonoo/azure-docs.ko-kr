@@ -1,18 +1,16 @@
 ---
 title: 동시성 제어-Azure Marketplace
 description: 클라우드 파트너 포털 게시 API의 동시성 제어 전략에 대해 설명합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: dec18daea2f4f257e3bb21ee0477e3629b2e630b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b66d266500745d08bef98a42e51cc8a7bab63958
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516139"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102738"
 ---
 # <a name="concurrency-control"></a>동시성 제어
 

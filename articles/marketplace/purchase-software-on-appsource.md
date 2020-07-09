@@ -1,17 +1,18 @@
 ---
 title: AppSource에서 소프트웨어를 구매하는 방법 | Azure Marketplace
 description: AppSource에서 소프트웨어를 구매하는 단계 | Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 0271bd08e01cdbd442e64db0c04184995f7d8d09
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e3faad025a794b0ae9905fa73b090b55799f3279
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958449"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103041"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Microsoft AppSource에서 소프트웨어를 구매하는 방법
 

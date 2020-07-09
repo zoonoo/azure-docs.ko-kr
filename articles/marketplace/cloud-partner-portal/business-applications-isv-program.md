@@ -1,18 +1,18 @@
 ---
 title: Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 description: Business Applications ISV Connect 프로그램에 등록 하는 방법은 다음과 같습니다.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 7/12/2019
-ms.author: dsindona
-ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fe518cf5b01bbefd5b596b10dff27d0e3ecfcfcc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964892"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104950"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 

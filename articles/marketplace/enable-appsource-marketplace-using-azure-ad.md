@@ -1,17 +1,18 @@
 ---
 title: Microsoft 상업용 Marketplace 제품과 Azure Active Directory 통합
 description: Azure Active Directory를 사용하여 Microsoft AppSource 및 Azure Marketplace 제품을 인증합니다.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: e2fff55fd9161aa41411dcb1abbf8ae0c1bae49c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957837"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103626"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>상업용 Marketplace 목록과 Azure Active Directory 통합
 
@@ -34,8 +35,8 @@ Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용�
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 | Virtual Machine | 해당 없음 | 아니요 | 예 | 예 |
 | Azure 앱(솔루션 템플릿)  | N/A | 해당 없음 | 해당 없음 | 해당 없음 |
-| 관리되는 앱  | N/A | 해당 없음 | 해당 없음 | 아니요 |
-| SaaS  | 아니요 | 예 | 예 | 예 |
+| 관리되는 앱  | N/A | 해당 없음 | 해당 없음 | No |
+| SaaS  | No | 예 | 예 | 예 |
 | 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
 | 컨설팅 서비스  | 예 | N/A | 해당 없음 | 해당 없음 |
 

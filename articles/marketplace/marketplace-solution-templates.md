@@ -1,18 +1,18 @@
 ---
 title: Azure 응용 프로그램 게시 가이드 솔루션 템플릿 제품-Azure Marketplace
 description: 이 문서에서는 Azure Marketplace에 솔루션 템플릿을 게시 하기 위한 요구 사항을 설명 합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: msjogarrig
+ms.author: jogarrig
 ms.date: 04/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 4d395aa68c579b8e1271f4225ba57fa5f9932246
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9933e2fd170f8d2fd2f3b483670f184d0cd5eeb5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963787"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103061"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Azure 응용 프로그램 게시 가이드 솔루션 템플릿 제품
 

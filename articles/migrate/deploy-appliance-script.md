@@ -3,15 +3,16 @@ title: 스크립트를 사용 하 여 Azure Migrate 어플라이언스 설정
 description: 스크립트를 사용 하 여 Azure Migrate 어플라이언스를 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052465"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102449"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용 하 여 어플라이언스 설정
 
-이 문서에 따라 VMware Vm 및 Hyper-v Vm의 평가/마이그레이션에 대 한 [Azure Migrate 어플라이언스](deploy-appliance.md) 를 만들 수 있습니다. 스크립트를 실행 하 여 어플라이언스를 만들고 Azure에 연결할 수 있는지 확인 합니다. 
+이 문서에 따라 VMware Vm 및 Hyper-v Vm의 평가/마이그레이션에 대 한 [Azure Migrate 어플라이언스](./migrate-appliance-architecture.md) 를 만들 수 있습니다. 스크립트를 실행 하 여 어플라이언스를 만들고 Azure에 연결할 수 있는지 확인 합니다. 
 
 스크립트를 사용 하거나 Azure Portal에서 다운로드 한 템플릿을 사용 하 여 VMware 및 Hyper-v Vm에 대 한 어플라이언스를 배포할 수 있습니다. 다운로드 한 템플릿을 사용 하 여 VM을 만들 수 없는 경우 스크립트를 사용 하는 것이 유용 합니다.
 
@@ -19,7 +20,7 @@ ms.locfileid: "85052465"
 - 물리적 서버용 어플라이언스를 설정 하려면 스크립트만 사용 하면 됩니다. [이 문서](how-to-set-up-appliance-physical.md)를 따릅니다.
 - Azure Government 클라우드에서 어플라이언스를 설정 하려면 [이 문서](deploy-appliance-script-government.md)를 따릅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 스크립트는 기존 물리적 컴퓨터 또는 VM에 Azure Migrate 어플라이언스를 설정 합니다.
 

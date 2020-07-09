@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에서 방문 페이지 빌드 | Azure
 description: Azure Marketplace 및 Microsoft AppSource에서 앱 및 서비스 게시자에 대한 방문 페이지를 만드는 방법입니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/04/2018
-ms.author: dsindona
-ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7f80910e19348dfa3540f141424205a7531f5e7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80387804"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102823"
 ---
 # <a name="build-your-landing-page"></a>방문 페이지 빌드
 

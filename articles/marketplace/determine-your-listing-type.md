@@ -1,18 +1,18 @@
 ---
 title: 게시 옵션 결정 - Microsoft 상업용 Marketplace
 description: 이 문서에서는 Microsoft AppSource 및 Azure Marketplace에 제품을 게시하기 위한 자격 조건 및 요구 사항을 설명합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 457ff90c21fee2b569fa24d90fffc6ce80cdf969
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027106"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103656"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 

@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Azure Arc를 사용하여 Azure Arc가 지원되는 Kubernetes 클러스터 연결
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341397"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104284"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Azure Arc가 지원되는 Kubernetes 클러스터 연결(미리 보기)
 
@@ -30,7 +30,7 @@ Kubernetes 클러스터를 Azure Arc에 연결합니다.
 * Arc enabled Kubernetes 에이전트를 배포 하기 위해 클러스터의 클러스터 및 클러스터 관리자 역할에 액세스 하려면 kubeconfig 파일이 필요 합니다.
 * `az login` 및 `az connectedk8s connect` 명령에 사용되는 사용자 또는 서비스 주체에는 'Microsoft.Kubernetes/connectedclusters' 리소스 종류에 대한 '읽기' 및 '쓰기' 권한이 있어야 합니다. 이러한 권한이 있는 "Kubernetes 온보딩용 Azure Arc" 역할은 온보딩에 대한 Azure CLI에 사용되는 사용자 또는 서비스 주체에 대한 역할 할당에 사용할 수 있습니다.
 * Connectedk8s 확장을 사용 하 여 클러스터를 등록 하려면 투구 3이 필요 합니다. 이 요구 사항을 충족 하기 위해 [최신 버전의 투구 3을 설치](https://helm.sh/docs/intro/install) 합니다.
-* Azure CLI 버전 2.3 +는 Azure Arc 사용 Kubernetes CLI 확장을 설치 하는 데 필요 합니다. [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 하거나 최신 버전으로 업데이트 하 여 Azure CLI 버전 2.3 +가 설치 되어 있는지 확인 합니다.
+* Azure CLI 버전 2.3 +는 Azure Arc 사용 Kubernetes CLI 확장을 설치 하는 데 필요 합니다. [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하거나 최신 버전으로 업데이트 하 여 Azure CLI 버전 2.3 +가 설치 되어 있는지 확인 합니다.
 * Arc enabled Kubernetes CLI 확장을 설치 합니다.
   
   Kubernetes 클러스터를 Azure에 연결하는 데 도움이 되는 `connectedk8s` 확장을 설치합니다.

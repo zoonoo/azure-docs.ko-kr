@@ -1,21 +1,14 @@
 ---
 title: Event Grid 원본으로 Azure Media Services
 description: Azure Event Grid에서 Media Services 이벤트에 대해 제공되는 속성을 설명합니다.
-services: media-services
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
-ms.workload: ''
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: spelluru
-ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394333"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105934"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Media Services
 
@@ -203,7 +196,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 | 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| outputs | Array | 작업 출력을 가져옵니다.|
+| outputs | 배열 | 작업 출력을 가져옵니다.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
