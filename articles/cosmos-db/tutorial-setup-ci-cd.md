@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 77cf98cae943b8652e20ed48fd41ed717d1e4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba90bb89d731c343dfcb3778433d444f2d9a617a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262126"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025865"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
@@ -26,14 +26,14 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 
 빌드 작업을 사용하려면 먼저 Azure DevOps 조직에 설치해야 합니다. [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview)에서 **Azure Cosmos DB 에뮬레이터** 확장을 찾고, **무료 다운로드**를 클릭합니다.
 
-![Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치](./media/tutorial-setup-ci-cd/addExtension_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_1.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 
 다음으로, 확장을 설치할 조직을 선택합니다. 
 
 > [!NOTE]
 > Azure DevOps 조직에 확장을 설치하려면 계정 소유자 또는 프로젝트 컬렉션 관리자여야 합니다. 사용 권한이 없지만 계정 멤버인 경우 대신 확장을 요청할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
-![확장을 설치할 Azure DevOps 조직을 선택합니다.](./media/tutorial-setup-ci-cd/addExtension_2.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="확장을 설치할 Azure DevOps 조직을 선택합니다.":::
 
 ## <a name="create-a-build-definition"></a>빌드 정의 만들기
 
@@ -41,11 +41,11 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 
 1. 새 빌드 정의를 만들려면 Azure DevOps에서 **빌드** 탭으로 이동합니다. **+새로 만들기**로 이동합니다. \> **새 빌드 파이프라인**
 
-   ![새 빌드 파이프라인 만들기](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="새 빌드 파이프라인 만들기":::
 
 2. 원하는 **원본**, **팀 프로젝트**, **리포지토리**, **수동 및 예약된 빌드의 기본 분기**를 선택합니다. 필요한 옵션을 선택한 다음, **계속**을 선택합니다.
 
-   ![팀 프로젝트, 리포지토리 및 빌드 파이프라인에 대한 분기 선택](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="팀 프로젝트, 리포지토리 및 빌드 파이프라인에 대한 분기 선택":::
 
 3. 마지막으로, 빌드 파이프라인에 대해 원하는 템플릿을 선택합니다. 이 자습서에서는 **ASP.NET** 템플릿을 선택합니다. 이제 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하도록 설정할 수 있는 빌드 파이프라인이 있습니다. 
 
@@ -65,7 +65,7 @@ Start-CosmosDbEmulator
 
 1. 다음으로 에이전트 작업 옆에 있는 **+** 기호를 선택하여 에뮬레이터 빌드 작업을 추가합니다. 검색 상자에서 **cosmos**를 검색하고 **Azure Cosmos DB 에뮬레이터**를 선택하여 에이전트 작업에 추가합니다. 빌드 작업은 Cosmos DB 에뮬레이터의 인스턴스를 이미 실행 중인 컨테이너를 시작합니다. Azure Cosmos DB 에뮬레이터 작업은 에뮬레이터가 실행 상태에 있어야 하는 다른 작업보다 먼저 배치해야 합니다.
 
-   ![빌드 정의에 에뮬레이터 빌드 작업 추가](./media/tutorial-setup-ci-cd/addExtension_3.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="빌드 정의에 에뮬레이터 빌드 작업 추가":::
 
 이 자습서에서는 테스트가 실행되기 전에 에뮬레이터가 사용 가능한지 확인하기 위해 작업을 처음에 추가할 것입니다.
 
@@ -140,21 +140,21 @@ namespace todo.Tests
 
 Visual Studio 테스트 작업의 실행 옵션으로 이동합니다. **설정 파일** 옵션에서 **.runsettings** 파일을 사용하여 테스트를 구성하도록 지정합니다. **테스트 실행 매개 변수 재정의** 옵션에서 `-endpoint $(CosmosDbEmulator.Endpoint)`에 추가합니다. 이렇게 하면 **.runsettings** 파일에 정의된 작업 대신 에뮬레이터 빌드 작업의 엔드포인트를 참조하도록 테스트 작업을 구성합니다.  
 
-![에뮬레이터 빌드 작업 엔드포인트를 사용하여 엔드포인트 변수 재정의](./media/tutorial-setup-ci-cd/addExtension_5.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="에뮬레이터 빌드 작업 엔드포인트를 사용하여 엔드포인트 변수 재정의":::
 
 ## <a name="run-the-build"></a>빌드를 실행합니다.
 
 이제 빌드를 **저장하고 큐에 대기**시킵니다. 
 
-![빌드 저장 및 실행](./media/tutorial-setup-ci-cd/runBuild_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="빌드 저장 및 실행":::
 
 빌드가 시작되면 Cosmos DB 에뮬레이터 작업이 에뮬레이터가 설치된 Docker 이미지를 끌어오기 시작합니다. 
 
-![빌드 저장 및 실행](./media/tutorial-setup-ci-cd/runBuild_4.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="빌드 저장 및 실행":::
 
 빌드가 완료된 후에 테스트가 통과되고 빌드 작업에서 Cosmos DB 에뮬레이터에 대해 모두 실행됩니다.
 
-![빌드 저장 및 실행](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="빌드 저장 및 실행":::
 
 ## <a name="set-up-using-yaml"></a>YAML을 사용하여 설정
 
