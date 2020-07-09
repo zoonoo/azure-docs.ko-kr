@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: f9f05eb73c2fa12c9625c8e26d1c86431bcb8f6a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e9891e3ac12de3f8735407c603ff59b61f4eb05d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087064"
+ms.locfileid: "86118973"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>가상 허브 라우팅을 구성하는 방법
 
@@ -22,7 +22,9 @@ ms.locfileid: "86087064"
 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
 
 > [!NOTE]
-> 이러한 기능 중 일부는 여전히 롤아웃 될 수 있으며 8 월 3 일에 완료 될 예정입니다.
+> 이러한 기능 중 일부는 여전히 롤아웃 될 수 있습니다. 사용자의 지역에서 롤아웃이 아직 발생 하지 않은 경우에는 다음 버전의 문서에 있는 단계를 사용 하세요.
+>* [Azure Portal 문서](virtual-wan-route-table-nva-portal.md)
+>* [PowerShell 문서](virtual-wan-route-table-nva.md)
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>경로 테이블 만들기

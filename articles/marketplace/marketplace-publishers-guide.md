@@ -1,17 +1,18 @@
 ---
 title: Microsoft 상업용 마켓플레이스 게시 가이드
 description: Microsoft AppSource 및 Azure Marketplace에 제품을 게시하려는 Microsoft 파트너를 위한 상업용 마켓플레이스에 대한 개요입니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/12/2020
-ms.author: dsindona
-ms.openlocfilehash: 7ddea556ea4a9c7c0306ebdf1eca1f60769c5318
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2ce8767092fb1b93f743e8a5b81a9fbfb01468bf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958177"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120826"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>상업용 마켓플레이스 게시 가이드
 

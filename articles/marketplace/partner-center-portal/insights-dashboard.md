@@ -1,17 +1,16 @@
 ---
 title: Marketplace 인사이트 - Microsoft 상업용 마켓플레이스
 description: Microsoft AppSource 및 Azure Marketplace에서 고객 참여를 측정할 수 있게 해 주는 Marketplace 웹 분석의 요약에 액세스합니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745665"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120401"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>파트너 센터의 Marketplace 인사이트 대시보드
 

@@ -1,17 +1,18 @@
 ---
 title: 통합 솔루션 게시 - Microsoft 상업용 Marketplace
 description: Microsoft AppSource 및 Azure Marketplace에 통합 솔루션을 게시하기 위한 요구 사항 및 단계를 알아봅니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: a2bce05288d0085306a59f3ff5ee62939941bbaf
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800610"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119534"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 

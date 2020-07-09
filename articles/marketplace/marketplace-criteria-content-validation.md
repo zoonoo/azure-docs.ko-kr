@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace 제품 및 서비스 목록 요구 사항
 description: 이 문서에서는 Azure Marketplace에 대한 새로운 제품 및 서비스를 나열하기 위한 요구 사항 및 지침을 설명합니다.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 6c95f510ce83f924a58b0844285f4142131db3eb
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2b0954941ba6b6b7ce3697889305dc5bbd299590
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119381"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 목록 가이드라인
 
@@ -28,7 +28,7 @@ ms.locfileid: "86027140"
 
 ## <a name="listing-requirements-for-all-offers"></a>모든 제품에 대한 요구 사항 나열
 
-|  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 |
+| number | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 |
 |:--- |:--- |:--- |:--- |
 | 1 | 잠재 대상 고객 | 잠재 대상 고객이 구성되어 있습니다.| OCP(One Commercial Partner) 카탈로그에는 파트너 솔루션 탭에도 표시되는 잠재 고객 대상 CRM 정보가 있습니다. | 
 | 2 | 제품 이름 | 솔루션 제품에 대해 간략히 설명합니다. 파트너의 웹 사이트에 있는 솔루션의 온라인 프로모션을 찾습니다. | 주요 검색어를 포함합니다. |
@@ -47,15 +47,15 @@ ms.locfileid: "86027140"
 
 ## <a name="trial-offer-requirements"></a>평가판 제품 요구 사항
 
-|  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
+| number | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
 |:--- |:--- |:--- |:--- |
-|  | 목록 상태(판촉물 문구) | 링크를 클릭하면 고객 주도 *평가판* 체험으로 이동합니다. | 기타 판촉물 문구(예: *지금 구매*)도 사용할 수 있습니다. | 
+| 1 | 목록 상태(판촉물 문구) | 링크를 클릭하면 고객 주도 *평가판* 체험으로 이동합니다. | 기타 판촉물 문구(예: *지금 구매*)도 사용할 수 있습니다. | 
 
 ---
 
 ## <a name="saas-application-requirements"></a>SaaS 애플리케이션 요구 사항
 
-|  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
+| number | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
 |:--- |:--- |:--- |:--- |
 | 1 | 제품 이름 |<ul><li>소문자 영숫자 문자, 대시 또는 밑줄만 사용해야 합니다. 게시된 후에는 제목을 수정할 수 없습니다.</li><li>솔루션 제품에 대해 설명합니다.</li><li>파트너 웹 사이트의 솔루션 온라인 프로모션을 찾습니다. | 주요 검색어를 포함합니다. |
 | 2 | 기술 정보: 구성 |<ul><li>SaaS(Software as a Service) 앱의 경우 앱만 표시하거나 고객이 Azure를 통해 앱을 구매할 수 있도록 할지를 선택합니다.</li><li>제품 획득 단추에 표시할 적절한 텍스트로 *체험판*, *평가판* 또는 *연락처* 등을 선택합니다.</li><li>앱이 Cortana Intelligence, Power BI 솔루션 템플릿, Power Apps 기술을 활용하는 경우에만 팝업 상자에서 해당 제품 중 하나를 선택합니다. |  |
@@ -73,7 +73,7 @@ ms.locfileid: "86027140"
 
 ## <a name="container-offer-requirements"></a>컨테이너 제품 요구 사항
 
-|  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
+| number | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
 |:--- |:--- |:--- |:--- |
 |1 |제품 설정 | <ul><li>제품 ID: 최대 50자</li><li>게시자 ID: 드롭다운 목록에서 선택합니다.</li><li>이름: 최대 50자 | 설명에서 이미 사용 가능한 이름 스타일을 미러링합니다. 자세한 이름을 사용하지 않습니다. | 
 | 2 | SKU | 파트너가 새 SKU를 선택합니다.| 설명에서 이미 사용 가능한 이름 스타일을 미러링합니다. 자세한 이름을 사용하지 않습니다.  |
@@ -84,7 +84,7 @@ ms.locfileid: "86027140"
 
 ## <a name="consulting-offer-requirements"></a>컨설팅 제품 요구 사항
 
-|  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 |
+| number | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 |
 |:--- |:--- |:--- |:--- |
 | 1 | 제품 이름  |  서비스 유형 및 지속 기간을 *이름: 기간 유형*(예: "제품 참여: 1-Week Proof-of-Concept") 형식으로 명확하게 나열합니다.  | <ul><li>게시자 이름을 반복하지 않습니다.</li><li>설명에서 이미 사용 가능한 이름 스타일을 미러링합니다. 자세한 이름을 사용하지 않습니다. | 
 | 2 | 제품 설명  |<ul><li>[Microsoft 제품 이름](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx)이 적절히 사용되는지 확인합니다.</li><li>*가격: 예상*으로 표시된 제품의 맨 위 또는 맨 아래에 가변성(클라이언트 방문, 마이그레이션되는 서버 수 등)을 설명하는 메모가 있어야 합니다.</li><li>각 제품 유형에 다음과 같은 설명 요구 사항이 있습니다. <ul><li>브리핑에는 다룰 토픽에 대한 정보를 포함하는 4~5개 이상의 글머리 기호가 필요합니다.</li><li>모든 워크샵에 어젠더가 필요합니다.</li><li>워크샵의 지속 기간에 따라 모든 어젠더가 일별 또는 주별로 분석되어야 합니다.</li><li>평가, POC, 비교육 워크샵, 구현 제품에 결과물이 필요합니다.</li><li>교육 워크샵에는 결과물이 필요하지 않지만 다루는 토픽을 포함하는 자세한 어젠더가 필요합니다.</li></ul></ul> | <ul><li>모든 제품에 어젠더 및 결과물이 있습니다.</li><li>제품의 최상위 섹션에 서비스를 제공하는 회사에 대한 컨텍스트 단락이 포함됩니다.</li><li>제품의 최상위 섹션에 서비스 자체의 가치에 대한 단락이 포함됩니다. |

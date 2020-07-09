@@ -1,17 +1,16 @@
 ---
 title: 상업용 마켓플레이스 분석 FAQ 및 용어 - 파트너 센터
 description: 파트너 센터에서 상업용 마켓플레이스 분석에 대해 자주 묻는 질문에 대한 대답을 가져옵니다. 이 문서에는 분석 용어에 대한 데이터 사전이 포함되어 있습니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ece7fa64c64d4c2f771be61984485cf9b1c4abaf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744576"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121744"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>상업용 마켓플레이스 분석 용어 및 일반적인 질문
 

@@ -4,13 +4,14 @@ description: Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 �
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: f7621867aad6baf517462983e35afb0b28223756
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 731827fb63f8b23d21ea2eddaef3fa9b796d14bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119585"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화
 
@@ -21,28 +22,28 @@ Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 �
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 * 고객 관리 키에 사용할 키 자격 증명 모음 및 키를 만듭니다. 또한 키 자격 증명 모음에서 보호 제거 및 일시 삭제를 사용 하도록 설정 합니다.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+   ```azurecli-interactive
+   az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
+   ```
 
 * 만든 Azure Key Vault에서 Azure Database for PostgreSQL 단일 서버의 데이터 암호화에 사용할 키를 만듭니다.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+   ```azurecli-interactive
+   az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+   ```
 
 * 기존 키 자격 증명 모음을 사용 하려면 고객 관리 키로 사용할 다음 속성이 있어야 합니다.
   * [일시 삭제](../key-vault/general/overview-soft-delete.md)
 
-    ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
-    ```
+      ```azurecli-interactive
+      az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+      ```
 
   * [보호 된 데이터 삭제](../key-vault/general/overview-soft-delete.md#purge-protection)
 
-    ```azurecli-interactive
-    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
-    ```
+      ```azurecli-interactive
+      az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
+      ```
 
 * 키에는 고객 관리 키로 사용할 다음 특성이 있어야 합니다.
   * 만료 날짜 없음
@@ -87,36 +88,37 @@ Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for P
 
 ### <a name="creating-a-restoredreplica-server"></a>복원/복제 서버 만들기
 
-  *  [복원 서버 만들기](howto-restore-server-cli.md) 
-  *  [읽기 복제본 서버 만들기](howto-read-replicas-cli.md) 
+* [복원 서버 만들기](howto-restore-server-cli.md)
+* [읽기 복제본 서버 만들기](howto-read-replicas-cli.md)
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>서버를 복원 하 고 나면 복원 된 서버의 데이터 암호화 유효성을 다시 검사 합니다.
 
-    ```azurecli-interactive
-    az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-postgresql-single-server"></a>단일 서버 Azure Database for PostgreSQL에 사용 되는 키에 대 한 추가 기능
 
 ### <a name="get-the-key-used"></a>사용 된 키를 가져옵니다.
 
-    ```azurecli-interactive
-    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+키 url:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>사용 된 키를 나열 합니다.
 
-    ```azurecli-interactive
-    az postgres server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az postgres server key list --name  <server name>  -g <resource_group>
+```
 
 ### <a name="drop-the-key-being-used"></a>사용 중인 키를 삭제 합니다.
 
-    ```azurecli-interactive
-    az postgres server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az postgres server key delete -g <resource_group> --kid <key url> 
+```
+
 ## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Azure Resource Manager 템플릿을 사용 하 여 데이터 암호화 사용
 
 Azure Portal 외에도 새 서버 및 기존 서버에 대해 Azure Resource Manager 템플릿을 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 데이터 암호화를 사용 하도록 설정할 수 있습니다.

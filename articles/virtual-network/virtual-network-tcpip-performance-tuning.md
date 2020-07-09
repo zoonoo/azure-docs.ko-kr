@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68297779"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120282"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 TCP/IP 성능 튜닝
 
@@ -136,7 +136,7 @@ Azure의 경우 TCP MSS 고정을 1350 바이트 및 터널 인터페이스 MTU�
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-전파 속도는 200을 사용할 수 있습니다. 조명이 1 밀리초로 이동 하는 거리 (미터)입니다.
+전파 속도는 200을 사용할 수 있습니다. 조명이 1 밀리초로 이동 하는 거리 (킬로미터)입니다.
 
 예를 들어 샌프란시스코와 샌프란시스코를 만들어 보겠습니다. 직선 거리가 4148입니다. 수식에 해당 값을 연결 하면 다음과 같이 표시 됩니다.
 

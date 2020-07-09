@@ -1,17 +1,18 @@
 ---
 title: Marketo의 잠재 고객 관리 - Microsoft 상업용 Marketplace
 description: Marketo CRM 시스템을 사용하여 Microsoft AppSource 및 Azure Marketplace에서 잠재 고객을 관리하는 방법을 알아봅니다.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849183"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120265"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Marketo를 사용하여 상업용 Marketplace 잠재 고객 관리
 

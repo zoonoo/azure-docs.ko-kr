@@ -1,18 +1,18 @@
 ---
 title: 가상 머신 인증 - 문제 및 해결
 description: 이 문서에서는 VM 이미지에 대 한 일반적인 오류 메시지에 대해 설명 합니다. 관련 솔루션에 대해서도 설명 합니다.
-author: v-miegge
-ms.author: v-krmall
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
+author: v-miegge
+ms.author: v-krmall
 ms.date: 06/16/2020
-ms.openlocfilehash: 71577a52ed1b528bc330d4c8e1f4c34ab6e1d81f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087047"
+ms.locfileid: "86120656"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>가상 컴퓨터 인증 중의 문제 및 해결 방법 
 

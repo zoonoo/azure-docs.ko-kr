@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611376"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121676"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -36,10 +36,10 @@ Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Stu
 필요한 저장소 성능에 대 한 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 저장소 성능 (초당 입/출력 작업 수 [IOPS] 및 처리량)이 Azure VM 지원을 초과 합니다. 마이그레이션을 시작하기 전에 컴퓨터의 스토리지 요구 사항을 낮춰봅니다.
 필요한 네트워크 성능에 대 한 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 네트워크 성능(입력/출력)이 Azure VM 지원을 초과합니다. 컴퓨터의 네트워킹 요구 사항을 낮춰봅니다.
 지정 된 위치에서 VM을 찾을 수 없습니다. | 다른 대상 위치를 사용하여 마이그레이션을 실행해 봅니다.
-하나 이상의 적합 하지 않은 디스크 | VM에 연결 된 하나 이상의 디스크가 Azure 요구 사항을 충족 하지 않습니다. 은<br/><br/> Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 관리 디스크에 대 한 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> VM에 연결 된 각 디스크에 대해 디스크 크기가 64 TB < (울트라 SSD 디스크에서 지원 됨) 확인 합니다.<br/><br/> 그렇지 않은 경우 Azure로 마이그레이션하기 전에 디스크 크기를 줄이거나, Azure에서 여러 디스크를 사용 하 고 여러 디스크를 [함께 스트라이프](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) 하 여 저장소 제한을 더 늘려야 합니다. 각 디스크에 필요한 성능 (IOPS 및 처리량)이 Azure [관리 가상 머신 디스크](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits)에서 지원 되는지 확인 합니다.
+하나 이상의 적합 하지 않은 디스크 | VM에 연결 된 하나 이상의 디스크가 Azure 요구 사항을 충족 하지 않습니다. 은<br/><br/> Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 관리 디스크에 대 한 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> VM에 연결 된 각 디스크에 대해 디스크 크기가 64 TB < (울트라 SSD 디스크에서 지원 됨) 확인 합니다.<br/><br/> 그렇지 않은 경우 Azure로 마이그레이션하기 전에 디스크 크기를 줄이거나, Azure에서 여러 디스크를 사용 하 고 여러 디스크를 [함께 스트라이프](../virtual-machines/windows/premium-storage-performance.md#disk-striping) 하 여 저장소 제한을 더 늘려야 합니다. 각 디스크에 필요한 성능 (IOPS 및 처리량)이 Azure [관리 가상 머신 디스크](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)에서 지원 되는지 확인 합니다.
 부적합한 네트워크 어댑터가 하나 이상 있습니다. | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 네트워크 어댑터를 제거합니다.
 디스크 수 한도 초과 | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 디스크를 제거합니다.
-디스크 크기 한도 초과 | Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> 그러나 Azure는 최대 64-TB 크기의 디스크를 지원 합니다 (울트라 SSD 디스크에서 지원 됨). 마이그레이션을 수행 하기 전에 디스크를 64 TB 미만으로 축소 하거나 Azure에서 여러 디스크를 사용 하 고 [함께 스트라이프](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) 하 여 더 높은 저장소 제한을 얻습니다.
+디스크 크기 한도 초과 | Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> 그러나 Azure는 최대 64-TB 크기의 디스크를 지원 합니다 (울트라 SSD 디스크에서 지원 됨). 마이그레이션을 수행 하기 전에 디스크를 64 TB 미만으로 축소 하거나 Azure에서 여러 디스크를 사용 하 고 [함께 스트라이프](../virtual-machines/windows/premium-storage-performance.md#disk-striping) 하 여 더 높은 저장소 제한을 얻습니다.
 지정된 위치의 디스크를 사용할 수 없음 | 마이그레이션하기 전에 디스크가 대상 위치에 있는지 확인합니다.
 지정된 이중화에 디스크를 사용할 수 없음 | 디스크가 평가 설정에 정의된 중복 스토리지 형식(기본적으로 LRS)을 사용해야 합니다.
 내부 오류로 인해 디스크 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
@@ -52,7 +52,7 @@ Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Stu
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>가져오기 기반 AVS 평가에서 알 수 없음으로 표시 된 제안 된 마이그레이션 도구
 
-CSV 파일을 통해 가져온 컴퓨터의 경우 및 AVS 평가의 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 VMWare 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다. [자세한 정보](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+CSV 파일을 통해 가져온 컴퓨터의 경우 및 AVS 평가의 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 VMWare 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Linux Vm은 Azure VM 평가에서 "조건부로 준비" 됩니다.
 
@@ -64,7 +64,7 @@ VMware 및 Hyper-v Vm의 경우 서버 평가는 서버 평가의 알려진 간�
 - [Azure linux 지원](https://aka.ms/migrate/selfhost/azureendorseddistros)을 검토 하 여 온-프레미스 VM에서 실행 되는 Linux OS가 azure에서 보증 여부를 확인할 수 있습니다.
 -  보증 배포를 확인 한 후에는이 경고를 무시 해도 됩니다.
 
-이 간격은 VMware Vm에서 [응용 프로그램 검색](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) 을 사용 하도록 설정 하 여 해결할 수 있습니다. 서버 평가에서는 제공 된 게스트 자격 증명을 사용 하 여 VM에서 검색 된 운영 체제를 사용 합니다. 이 운영 체제 데이터는 Windows 및 Linux Vm의 경우 적절 한 OS 정보를 식별 합니다.
+이 간격은 VMware Vm에서 [응용 프로그램 검색](./how-to-discover-applications.md) 을 사용 하도록 설정 하 여 해결할 수 있습니다. 서버 평가에서는 제공 된 게스트 자격 증명을 사용 하 여 VM에서 검색 된 운영 체제를 사용 합니다. 이 운영 체제 데이터는 Windows 및 Linux Vm의 경우 적절 한 OS 정보를 식별 합니다.
 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure VM 평가에서 온-프레미스 보다 큰 azure Sku
@@ -101,7 +101,7 @@ Azure Migrate 어플라이언스에서 관련 온-프레미스 Vm에 대 한 성
 - 평가 기간 동안 Vm이 꺼져 있는 경우이 문제가 발생할 수 있습니다. 기기가 꺼져 있으면 기기가 VM에 대 한 성능 데이터를 수집할 수 없습니다.
 - 메모리 카운터만 없고 Hyper-v Vm을 평가 하려는 경우 이러한 Vm에서 동적 메모리를 사용 하도록 설정 했는지 확인 합니다. Hyper-v Vm에 대 한 알려진 문제는 Azure Migrate 어플라이언스는 동적 메모리를 사용 하지 않는 Vm에 대 한 메모리 사용률 데이터를 수집할 수 없습니다.
 - 성능 카운터가 없는 경우 Azure Migrate 서버 평가는 할당 된 코어 및 메모리를 대체 하 고 해당 VM 크기를 권장 합니다.
-- 모든 성능 카운터가 누락 된 경우 평가에 대 한 포트 액세스 요구 사항이 충족 되는지 확인 합니다. [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [hyper-v](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) 및 [물리적](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) 서버 평가를 위한 포트 액세스 요구 사항에 대해 자세히 알아보세요.
+- 모든 성능 카운터가 누락 된 경우 평가에 대 한 포트 액세스 요구 사항이 충족 되는지 확인 합니다. [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [hyper-v](./migrate-support-matrix-hyper-v.md#port-access) 및 [물리적](./migrate-support-matrix-physical.md#port-access) 서버 평가를 위한 포트 액세스 요구 사항에 대해 자세히 알아보세요.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Azure VM 평가에 운영 체제 라이선스가 포함 되어 있나요?
 
@@ -120,11 +120,11 @@ Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으
 
 ## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>실제 서버에 권장 되는 Azure VM SKU가 너무 큰 경우
 
-물리적 서버에서 Hyper-v 가상화를 사용 하는 경우이 문제가 발생할 수 있습니다. 이러한 서버에서 현재 Azure Migrate 실제 및 가상 네트워크 어댑터를 모두 검색 합니다. 따라서 아니요입니다. 검색 된 네트워크 어댑터 수가 실제 보다 높습니다. 서버 평가가 필요한 수의 네트워크 어댑터를 지원할 수 있는 Azure VM을 선택 하는 경우이로 인해 큰 VM이 발생할 수 있습니다. 아니요의 영향에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) . 네트워크 어댑터의 크기를 조정 합니다. 이는 앞으로 처리 될 제품 격차입니다.
+물리적 서버에서 Hyper-v 가상화를 사용 하는 경우이 문제가 발생할 수 있습니다. 이러한 서버에서 현재 Azure Migrate 실제 및 가상 네트워크 어댑터를 모두 검색 합니다. 따라서 아니요입니다. 검색 된 네트워크 어댑터 수가 실제 보다 높습니다. 서버 평가가 필요한 수의 네트워크 어댑터를 지원할 수 있는 Azure VM을 선택 하는 경우이로 인해 큰 VM이 발생할 수 있습니다. 아니요의 영향에 [대해 자세히 알아보세요](./concepts-assessment-calculation.md#calculating-sizing) . 네트워크 어댑터의 크기를 조정 합니다. 이는 앞으로 처리 될 제품 격차입니다.
 
 ## <a name="readiness-category-not-ready-for-my-physical-server"></a>실제 서버에 대 한 준비 범주 "준비 안 됨"
 
-Hyper-v 가상화를 사용 하는 물리적 서버의 경우 준비 범주가 "준비 되지 않음"으로 잘못 표시 될 수 있습니다. 이러한 서버에서 제품 격차 때문에 현재 실제 어댑터와 가상 어댑터를 모두 검색 Azure Migrate 합니다. 따라서 아니요입니다. 검색 된 네트워크 어댑터 수가 실제 보다 높습니다. 온-프레미스 및 성능 기반 평가에서 서버 평가는 필요한 수의 네트워크 어댑터를 지원할 수 있는 Azure VM을 선택 합니다. 네트워크 어댑터 수가 32 보다 더 높은 것으로 검색 되는 경우 최대값은 아닙니다. Azure Vm에서 지원 되는 Nic의 경우 컴퓨터가 "준비 되지 않음"으로 표시 됩니다.  아니요의 영향에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) . 크기 조정 시의 Nic.
+Hyper-v 가상화를 사용 하는 물리적 서버의 경우 준비 범주가 "준비 되지 않음"으로 잘못 표시 될 수 있습니다. 이러한 서버에서 제품 격차 때문에 현재 실제 어댑터와 가상 어댑터를 모두 검색 Azure Migrate 합니다. 따라서 아니요입니다. 검색 된 네트워크 어댑터 수가 실제 보다 높습니다. 온-프레미스 및 성능 기반 평가에서 서버 평가는 필요한 수의 네트워크 어댑터를 지원할 수 있는 Azure VM을 선택 합니다. 네트워크 어댑터 수가 32 보다 더 높은 것으로 검색 되는 경우 최대값은 아닙니다. Azure Vm에서 지원 되는 Nic의 경우 컴퓨터가 "준비 되지 않음"으로 표시 됩니다.  아니요의 영향에 [대해 자세히 알아보세요](./concepts-assessment-calculation.md#calculating-sizing) . 크기 조정 시의 Nic.
 
 
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>실제 서버에 대해 실제 보다 높은 검색 된 Nic 수
@@ -154,18 +154,18 @@ Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- **MMS 에이전트**: 지원 되는 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)및 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) 운영 체제를 검토 합니다.
+- **MMS 에이전트**: 지원 되는 [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)및 [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 운영 체제를 검토 합니다.
 - **종속성 에이전트**: 지원 되는 [Windows 및 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
 
 ## <a name="visualize-dependencies-for--hour"></a>> 시간에 대 한 종속성 시각화
 
 에이전트 없는 종속성 분석을 사용 하면 최대 30 일 동안 종속성을 시각화 하거나 지도에서 내보낼 수 있습니다.
 
-에이전트 기반 종속성 분석을 사용 하면 지난 달의 특정 날짜로 다시 이동할 수 Azure Migrate 있지만 종속성을 시각화할 수 있는 최대 기간은 1 시간입니다. 예를 들어, 종속성 맵의 기간 기능을 사용 하 여 어제 종속성을 볼 수 있지만 1 시간 동안만 볼 수 있습니다. 그러나 Azure Monitor 로그를 사용 하 여 더 긴 기간 동안 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 수 있습니다.
+에이전트 기반 종속성 분석을 사용 하면 지난 달의 특정 날짜로 다시 이동할 수 Azure Migrate 있지만 종속성을 시각화할 수 있는 최대 기간은 1 시간입니다. 예를 들어, 종속성 맵의 기간 기능을 사용 하 여 어제 종속성을 볼 수 있지만 1 시간 동안만 볼 수 있습니다. 그러나 Azure Monitor 로그를 사용 하 여 더 긴 기간 동안 [종속성 데이터를 쿼리할](./how-to-create-group-machine-dependencies.md) 수 있습니다.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>> 10 대의 컴퓨터에 대 한 종속성 시각화
 
-에이전트 기반 종속성 분석을 통해 Azure Migrate 서버 평가에서 Vm이 최대 10 개 포함 된 [그룹에 대 한 종속성을 시각화할](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 수 있습니다. 규모가 큰 그룹의 경우 종속성을 시각화 하기 위해 Vm을 더 작은 그룹으로 분할 하는 것이 좋습니다.
+에이전트 기반 종속성 분석을 통해 Azure Migrate 서버 평가에서 Vm이 최대 10 개 포함 된 [그룹에 대 한 종속성을 시각화할](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) 수 있습니다. 규모가 큰 그룹의 경우 종속성을 시각화 하기 위해 Vm을 더 작은 그룹으로 분할 하는 것이 좋습니다.
 
 
 ## <a name="machines-show-install-agent"></a>컴퓨터에 "에이전트 설치"가 표시 됩니다.

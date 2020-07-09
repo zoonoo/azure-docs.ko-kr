@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에서 시/도 코드 공동 판매
 description: Azure Marketplace에서 제품의 공동 판매 페이지에 대 한 연락처 정보를 제공할 때 사용 가능한 시/도 코드를 가져옵니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 04/01/2020
-ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dd28ab23894988a1ee193f2f8d72cb83b7aafe8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744698"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120520"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Azure Marketplace에서 시/도 코드 공동 판매
 

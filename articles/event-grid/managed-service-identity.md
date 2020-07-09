@@ -1,17 +1,14 @@
 ---
 title: 관리형 서비스 ID를 사용하여 이벤트 전달
 description: 이 문서에서는 Azure Event Grid 토픽에 대해 관리형 서비스 ID를 사용하도록 설정하는 방법을 설명합니다. 이 ID를 사용하여 지원되는 대상에 이벤트를 전달합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/18/2020
-ms.author: spelluru
-ms.openlocfilehash: 4d81845ab61d8a84b9bad47ede4a027cd772c499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412937"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119194"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>관리 id를 사용 하 여 이벤트 배달
 이 문서에서는 Azure event grid 토픽 또는 도메인에 대해 [관리 서비스 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정 하는 방법을 설명 합니다. 이 ID를 사용하여 Service Bus 큐 및 토픽, Event Hubs, 스토리지 계정 등의 지원되는 대상으로 이벤트를 전달합니다.

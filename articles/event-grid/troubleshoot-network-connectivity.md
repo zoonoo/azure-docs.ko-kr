@@ -1,19 +1,16 @@
 ---
 title: 네트워크 연결 문제 해결-Azure Event Grid | Microsoft Docs
 description: 이 문서에서는 Azure Event Grid의 네트워크 연결 문제를 해결 하는 방법에 대 한 정보를 제공 합니다.
-services: event-grid
-documentationcenter: na
 author: batrived
-ms.service: event-grid
-ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 28a570c5fdd3de6f1a3d23b3589c46f7457cabfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85398029"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119007"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>연결 문제 해결-Azure Event Grid
 

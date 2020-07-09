@@ -3,11 +3,12 @@ title: 잘못된 템플릿 오류
 description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324065"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118888"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -47,7 +48,7 @@ Message=Deployment template validation failed
 
 일치하는 구문을 제공하지 않으면 템플릿에서 의도와는 다른 값을 생성합니다.
 
-이러한 오류 유형을 수신하면 식 구문을 주의 깊게 검토합니다. [Visual Studio](create-visual-studio-deployment-project.md) 또는 [Visual Studio Code](use-vs-code-to-create-template.md)와 같이 구문 오류에 대해 경고할 수 있는 JSON 편집기를 사용하는 것을 고려해 보세요.
+이러한 오류 유형을 수신하면 식 구문을 주의 깊게 검토합니다. [Visual Studio](create-visual-studio-deployment-project.md) 또는 [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md)와 같이 구문 오류에 대해 경고할 수 있는 JSON 편집기를 사용하는 것을 고려해 보세요.
 
 <a id="incorrect-segment-lengths"></a>
 

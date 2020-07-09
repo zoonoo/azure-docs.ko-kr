@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid-문제 해결 가이드
 description: 이 문서에서는 오류 코드, 오류 메시지, 설명 및 권장 되는 작업 목록을 제공 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: 2358cf57348b82975250d489ac95d6e0b35eed0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254823"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119041"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Azure Event Grid 오류 문제 해결
 이 문제 해결 가이드에는 Azure Event Grid 오류 코드 목록, 오류 메시지, 설명 및 이러한 오류를 받을 때 수행 해야 하는 권장 작업이 나와 있습니다. 
@@ -25,7 +21,7 @@ ms.locfileid: "85254823"
 | HttpStatusCode 요청<br/>400 | 만료 시간이 잘못 되었습니다. | 이벤트 구독의 만료 시간은 이벤트 구독을 사용 중지할 시기를 결정 합니다. 이 값은 미래에 유효한 DateTime 값 이어야 합니다.| 이벤트 구독 만료 시간이 유효한 날짜/시간 형식 인지 확인 하 고 나중에 사용 하도록 설정 되어 있는지 확인 합니다. |
 
 ## <a name="error-code-409"></a>오류 코드: 409
-| 오류 코드 | 오류 메시지 | 설명 | 권장 조치 |
+| 오류 코드 | 오류 메시지 | Description | 권장 조치 |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode <br/>409 | 지정 된 이름의 항목이 이미 있습니다. 다른 항목 이름을 선택 하십시오.   | 올바른 게시 작업을 위해 단일 Azure 지역에서 사용자 지정 토픽 이름이 고유 해야 합니다. 동일한 이름을 다른 Azure 지역에서 사용할 수 있습니다. | 항목에 대해 다른 이름을 선택 합니다. |
 | HttpStatusCode <br/> 409 | 지정 된이 있는 도메인이 이미 있습니다. 다른 도메인 이름을 선택 하십시오. | 도메인 이름은 올바른 게시 작업을 보장 하기 위해 단일 Azure 지역에서 고유 해야 합니다. 동일한 이름을 다른 Azure 지역에서 사용할 수 있습니다. | 도메인에 대해 다른 이름을 선택 하십시오. |
@@ -33,7 +29,7 @@ ms.locfileid: "85254823"
 
 ## <a name="error-code-403"></a>오류 코드: 403
 
-| 오류 코드 | 오류 메시지 | 설명 | 권장 조치 |
+| 오류 코드 | 오류 메시지 | Description | 권장 조치 |
 | ---------- | ------------- | ----------- | ------------------ |
 | HttpStatusCode <br/>403 | IpAddress 필터링 규칙으로 인해 {IpAddress} 클라이언트에서 {토픽/도메인}에 게시 하는 것이 거부 되었습니다. | 항목 또는 도메인에 IP 방화벽 규칙이 구성 되어 있고 액세스가 구성 된 IP 주소에만 제한 되어 있습니다. | Ip 방화벽 규칙에 ip 주소를 추가 합니다. [ip 방화벽 구성](configure-firewall.md) 을 참조 하세요. |
 | HttpStatusCode <br/> 403 | 요청이 개인 끝점에서 발생 하 고 리소스에 대해 일치 하는 개인 끝점 연결을 찾을 수 없어 클라이언트에서 {토픽/Domain}에 게시 하는 것이 거부 되었습니다. | 토픽 또는 도메인에 개인 끝점이 구성 되어 있고 게시 요청이 구성/승인 되지 않은 개인 끝점에서 제공 되었습니다. | 토픽/도메인에 대 한 개인 끝점을 구성 합니다. [프라이빗 엔드포인트 구성](configure-private-endpoints.md) |

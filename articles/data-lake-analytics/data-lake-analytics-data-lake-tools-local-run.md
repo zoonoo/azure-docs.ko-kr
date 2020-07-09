@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49d8918fc0f17431ae5bbca87f1157b571220840
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "62113938"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120146"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>로컬 머신에서 U-SQL 스크립트 실행
 
@@ -28,7 +28,7 @@ U-SQL 스크립트를 개발하는 경우 스크립트를 로컬로 실행하여
 |구성 요소|로컬 실행|클라우드 실행|
 |---------|---------|---------|
 |스토리지|로컬 데이터 루트 폴더|기본 Azure Data Lake Store 계정|
-|Compute|U-SQL 로컬 실행 엔진|Azure Data Lake Analytics 서비스|
+|컴퓨팅|U-SQL 로컬 실행 엔진|Azure Data Lake Analytics 서비스|
 |실행 환경|로컬 컴퓨터의 작업 디렉터리|Azure Data Lake Analytics 클러스터|
 
 다음 섹션에서는 로컬 실행 구성 요소에 대한 자세한 정보를 제공합니다.

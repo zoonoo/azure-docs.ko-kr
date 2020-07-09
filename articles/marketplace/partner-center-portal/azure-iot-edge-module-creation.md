@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에서 파트너 센터를 사용하여 Azure IoT Edge 모듈 제품 만들기
 description: Azure Marketplace에서 파트너 센터를 사용하여 IoT Edge 모듈 제품을 만들고 구성하고 게시하는 방법을 알아봅니다.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: 8accb29907bde53baf7f175dd1d36a9a2e1fe66b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f97692b604408437bc2ee457bb04ad9b855c7290
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984690"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119296"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Azure Marketplace에서 IoT Edge 모듈 제품 만들기, 구성 및 게시
 
@@ -229,9 +229,9 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 3. 지원 주소 (링크)
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
-6. 이름
+6. Name
 7. 요약
-8. 설명
+8. Description
 9. 유용한 링크
 10. 스크린샷/비디오
 
@@ -251,8 +251,8 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. 이름
-2. 설명
+1. Name
+2. Description
 3. 유용한 링크
 4. 스크린샷
 

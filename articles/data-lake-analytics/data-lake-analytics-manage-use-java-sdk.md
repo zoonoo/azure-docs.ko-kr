@@ -7,21 +7,21 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 883b2895966d71b91554e8978df6876b0edcef88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6409ac10a524f75709cbbf185efb03359606e88c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564768"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121370"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Java 앱을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 이 문서에서는 Azure Java SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * **JDK (Java Development Kit) 8** (java 버전 1.8 사용).
 * **IntelliJ** 또는 다른 적절한 Java 개발 환경. 이 문서의 지침에서는 IntelliJ를 사용합니다.
 * AAD(Azure Active Directory) 애플리케이션을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 애플리케이션에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 애플리케이션을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.

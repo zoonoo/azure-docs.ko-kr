@@ -3,12 +3,12 @@ title: Azure Lighthouse 및 Azure 관리형 애플리케이션
 description: Azure Lighthouse 및 Azure 관리 되는 응용 프로그램 ...
 ms.date: 05/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9923d31e78675927b4ca235607b2a61b24ccc41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82783631"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121608"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse 및 Azure 관리형 애플리케이션
 
@@ -47,4 +47,4 @@ Azure Lighthouse 및 Azure 관리 되는 응용 프로그램은 다른 액세스
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 관리 되는 응용 프로그램](../../azure-resource-manager/managed-applications/overview.md)에 대해 알아봅니다.
-- [Azure 위임 리소스 관리에 구독을 등록](../how-to/onboard-customer.md)하는 방법을 알아봅니다.
+- [Azure Lighthouse에 구독을 등록](../how-to/onboard-customer.md)하는 방법에 대해 알아봅니다.

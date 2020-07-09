@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 44923a124b864083b1badfc617ce0303be66a10e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119211"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리 
 SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Linux 가상 머신을 Azure에서 만들 수 있으므로 로그인할 때 암호가 필요하지 않습니다. Azure Portal, Azure CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 만든 VM은 SSH 연결을 위해 SSH 키 인증을 설정하는 배포의 일부로 SSH 공개 키를 포함할 수 있습니다. 
@@ -41,7 +41,7 @@ SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` �
 
 ### <a name="basic-example"></a>기본 예제
 
-다음 `ssh-keygen` 명령은 기본적으로 `~/.ssh` 디렉터리에 2048비트 SSH RSA 공개 및 프라이빗 키 파일을 생성합니다. SSH 키 쌍이 현재 위치에 있으면 이러한 파일은 덮어쓰여집니다.
+다음 `ssh-keygen` 명령은 기본적으로 디렉터리에 4096 비트 SSH RSA 공개 및 개인 키 파일을 생성 합니다 `~/.ssh` . SSH 키 쌍이 현재 위치에 있으면 이러한 파일은 덮어쓰여집니다.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096

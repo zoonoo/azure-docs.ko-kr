@@ -1,17 +1,18 @@
 ---
 title: Microsoft 상업용 마켓플레이스 표준 계약
 description: 파트너 센터의 Azure Marketplace 및 AppSource에 대한 표준 계약
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/20/2020
-ms.author: dsindona
-ms.openlocfilehash: 53a22140fe62ce0db18c1d02d816eb31b12a381b
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714154"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121557"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스 표준 계약
 

@@ -1,17 +1,18 @@
 ---
 title: Dynamics 365 Customer Engagement의 잠재 고객 관리 - Microsoft 상업용 마켓플레이스
 description: Dynamics 365 Customer Engagement를 설정하여 Microsoft AppSource 및 Azure Marketplace에서 잠재 고객을 관리하는 방법을 알아봅니다.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 555002284b2665a357a28319a400710d66be4604
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957242"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120381"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Dynamics 365 Customer Engagement에 대해 잠재 고객 관리 구성
 

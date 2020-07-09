@@ -1,18 +1,14 @@
 ---
 title: WebHook 이벤트 전달
 description: 이 문서에서는 웹후크를 사용할 때의 웹후크 이벤트 전달 및 엔드포인트 유효성 검사에 대해 설명합니다.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.author: femila
-ms.openlocfilehash: cf298156fe7a347799afced8bb065cb3a02bc49a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558428"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118956"
 ---
 # <a name="webhook-event-delivery"></a>웹후크 이벤트 전달
 웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 Event Grid 서비스는 요청 본문에 이벤트가 포함되어 구성된 엔드포인트로 HTTP 요청을 게시합니다.

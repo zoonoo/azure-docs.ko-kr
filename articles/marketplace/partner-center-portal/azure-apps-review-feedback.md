@@ -1,17 +1,16 @@
 ---
 title: Azure 앱 제품에 대한 피드백 검토 - Microsoft 상업용 마켓플레이스
 description: Microsoft Azure Marketplace 검토 팀에서 Azure 애플리케이션 제품에 대한 피드백을 처리하는 방법. 파트너 센터 자격 증명을 사용하여 Azure DevOps의 피드백에 액세스할 수 있습니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: c9e441512177d731c5ad47b66b454e5722483507
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e8d90f5238ea312602d2142d25b9ae226aa34c84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119024"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Azure 애플리케이션 제품에 대한 검토 피드백 처리
 

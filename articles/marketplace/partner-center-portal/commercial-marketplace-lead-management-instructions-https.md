@@ -1,17 +1,18 @@
 ---
 title: HTTPS 엔드포인트를 사용하여 잠재 고객 관리 - Microsoft 상업용 Marketplace
 description: Power Automate 및 HTTPS 엔드포인트를사용하여 Microsoft AppSource 및 Azure Marketplace에서 잠재 고객을 관리하는 방법을 알아봅니다.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847819"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120374"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>HTTPS 엔드포인트를 사용하여 상업용 Marketplace 잠재 고객 관리
 

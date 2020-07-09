@@ -6,14 +6,14 @@ ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: f5adbb75e6852551976aa040a1a1c723d2e3f59b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dfb03a1b3e0f2bf1146a65627247256125480a2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71309724"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120112"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake Tools의 Vertex Execution View 사용
 Data Lake Analytics 작업을 검사하기 위해 Vertex Execution View를 사용하는 방법을 알아봅니다.

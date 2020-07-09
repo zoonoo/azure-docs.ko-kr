@@ -1,18 +1,16 @@
 ---
 title: 테스트 드라이브 기술 구성, Microsoft 상업적 marketplace
 description: 테스트 드라이브에 대해 알아봅니다. 시험 사용을 통해 새 고객이 제품을 시험 하 여 구매할 수 있습니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: 4750c167ff236b535aaa1ed1dc3c2aa3918e6dad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9c4bd4fb5fc6a25027c2f01466a0d5afc1694b03
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121489"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 

@@ -2,18 +2,16 @@
 title: Marketplace 보상-상용 marketplace 혜택 | Microsoft
 description: Marketplace 보상은 특정 성장 단계에서 사용자를 지원 하도록 설계 되었습니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 01/18/2019
-ms.author: evansma
-ms.openlocfilehash: 2cbd1cc5e9eb85cb9814eb135234315ec29ea668
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e393b6a499ad2b84f25ca1a1c062ca4ef2eec21c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963056"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120741"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 

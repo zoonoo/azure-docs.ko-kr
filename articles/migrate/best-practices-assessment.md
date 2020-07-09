@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1a3735180d72496d58cdd22d0aa34c8a6f88a6a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559855"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119976"
 ---
 # <a name="best-practices-for-creating-assessments"></a>평가 만들기에 대 한 모범 사례
 
-[Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
+[Azure Migrate](./migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
 이 문서에서는 Azure Migrate 서버 평가 도구를 사용 하 여 평가를 만들 때의 모범 사례를 요약 합니다.
 
@@ -26,7 +26,7 @@ Azure Migrate Server 평가를 사용 하 여 만든 평가는 데이터의 특�
 **평가 유형** | **세부 정보**
 --- | --- 
 **Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다. [자세한 정보](concepts-assessment-calculation.md)
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세한 정보](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](../azure-vmware/introduction.md)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세한 정보](concepts-azure-vmware-solution-assessment-calculation.md)
 
 
 ### <a name="sizing-criteria"></a>크기 조정 조건
@@ -132,7 +132,7 @@ AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 저장소 정책
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>AVS 평가를 위한 마이그레이션 도구 지침
 
 Azure VMware 솔루션 (AVS) 평가에 대 한 Azure 준비 보고서에서 다음과 같은 권장 도구를 볼 수 있습니다. 
-- **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
 - **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 VMWare 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다.
 
 

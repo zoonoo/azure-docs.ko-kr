@@ -1,18 +1,16 @@
 ---
 title: VM (가상 컴퓨터) 이미지를 Azure Marketplace의 관리 디스크 저장소로 이동 하 고 있습니다.
 description: 새로운 marketplace 기능 및 기능에 대 한 더 빠르고 안정적인 저장소 및 지원을 제공 하기 위해 marketplace VM 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 17b418ab82cc88b4368efe247b06c0c8bbb27453
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d64bb176f79a0c15c15e425df18a22c9c4f423e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80285115"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120622"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Azure Marketplace에서 VM (가상 컴퓨터) 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
 

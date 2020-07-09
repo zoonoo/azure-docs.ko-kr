@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73953289"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119840"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -39,18 +40,24 @@ ms.locfileid: "73953289"
 2. VMware vSphere PowerCLI 콘솔을 엽니다.
 3. 스크립트의 실행 정책이 사용하도록 설정되어 있는지 확인합니다. 사용하지 않도록 설정되어 있으면 관리자 모드에서 VMware vSphere PowerCLI 콘솔을 시작한 후 다음 명령을 실행하여 실행 정책을 사용하도록 설정합니다.
 
-            Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```powershell
+    Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```
 
 4. Connect-VIServer가 cmdlet의 이름으로 인식되지 않으면 필요에 따라 다음 명령을 실행해야 할 수도 있습니다.
 
-            Add-PSSnapin VMware.VimAutomation.Core
+    ```powershell
+    Add-PSSnapin VMware.VimAutomation.Core
+    ```
 
 5. VCenter 서버/vSphere ESXi 호스트의 모든 VM의 이름을 가져오려면 .txt 파일에 목록을 저장하고 여기에 나열된 두 개의 명령을 실행합니다.
 &lsaquo;서버 이름&rsaquo;, &lsaquo;사용자 이름&rsaquo;, &lsaquo;암호&rsaquo;, &lsaquo;outputfile.txt&rsaquo;을 입력 내용으로 바꿉니다.
 
-            Connect-VIServer -Server <server name> -User <user name> -Password <password>
+    ```powershell
+    Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
-            Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    ```
 
 6. 메모장에서 출력 파일을 연 다음 다른 파일에 프로파일링하려는 모든 VM의 이름(예를 들어 ProfileVMList.txt)을 한 줄에 한 개씩 복사합니다. 이 파일은 명령줄 도구의 *-VMListFile* 매개 변수에 대한 입력으로 사용됩니다
 

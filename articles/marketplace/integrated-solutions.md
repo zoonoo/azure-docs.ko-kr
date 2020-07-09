@@ -1,17 +1,18 @@
 ---
 title: 통합 솔루션 - Microsoft 상업용 마켓플레이스
 description: 상업용 마켓플레이스에서 통합 솔루션을 제공하기 위한 장점, 리소스 및 다음 단계에 대해 알아봅니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: bf20473b407db1804a4275fdc6dd3d528de1f189
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8e029d888b963fd10e7198486a973766755c9812
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657997"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119517"
 ---
 # <a name="integrated-solutions-in-the-commercial-marketplace"></a>상업용 마켓플레이스의 통합 솔루션
 통합 솔루션은 전문가 서비스 파트너에서 제공하는 컨설팅, 배포 및 지원과 함께 Microsoft 파트너의 동종 최고의 기술을 제공합니다.

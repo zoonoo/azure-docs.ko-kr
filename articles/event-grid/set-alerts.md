@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid 메트릭 및 활동 로그 작업에 대 한 경고 설정
 description: 이 문서에서는 Azure Event Grid 메트릭 및 활동 로그 작업에 대 한 경고를 만드는 방법을 설명 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 615ebef749be49822a09470eb0d47d8eb31b9a5a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412841"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119143"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Azure Event Grid 메트릭 및 활동 로그에 대 한 경고 설정
 이 문서에서는 Azure Event Grid 메트릭 및 활동 로그 작업에 대 한 경고를 만드는 방법을 설명 합니다. Azure Event Grid 리소스 (토픽 및 도메인)에 대 한 게시 및 배달 메트릭에 대 한 경고를 만들 수 있습니다. 시스템 항목의 경우 [ **메트릭** 페이지를 사용 하 여 경고를 만듭니다](#create-alerts-using-the-metrics-page).

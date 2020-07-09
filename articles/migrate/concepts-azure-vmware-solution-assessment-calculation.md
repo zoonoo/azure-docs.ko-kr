@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 200a6ba333d283b6a82f1eb228a0fc586b5b1fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118820"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Azure Migrate의 AVS 평가: 서버 평가
 
@@ -29,7 +29,7 @@ ms.locfileid: "85567482"
 **평가 유형** | **세부 정보**
 --- | --- 
 **Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다. [자세히 알아보기](concepts-assessment-calculation.md)
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](../azure-vmware/introduction.md)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 서버 평가의 Azure VMware 솔루션 (AVS) 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공 합니다.
 
@@ -121,7 +121,7 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 | **대상 위치** | 마이그레이션할 AVS 사설 클라우드 위치를 지정 합니다.<br/><br/> 서버 평가의 AVS 평가는 현재 미국 동부, 유럽 서부, 미국 서 부 등의 대상 지역을 지원 합니다. 
 | **저장소 유형** | AVS에서 사용할 저장소 엔진을 지정 합니다.<br/><br/> AVS 평가는 vSAN을 기본 저장소 유형 으로만 지원 합니다. 
 **예약 인스턴스 (RIs)** | 이 속성은 AVS에서 예약 인스턴스를 지정 하는 데 도움이 됩니다. RIs는 현재 AVS 노드에 대해 지원 되지 않습니다. 
-**노드 유형** | 온-프레미스 Vm을 매핑하는 데 사용 되는 [AVS 노드 유형을](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) 지정 합니다. 기본 노드 형식은 AV36입니다. <br/><br/> Azure Migrate Vm을 AVS로 마이그레이션하기 위해 필요한 수의 노드를 권장 합니다. 
+**노드 유형** | 온-프레미스 Vm을 매핑하는 데 사용 되는 [AVS 노드 유형을](../azure-vmware/concepts-private-clouds-clusters.md) 지정 합니다. 기본 노드 형식은 AV36입니다. <br/><br/> Azure Migrate Vm을 AVS로 마이그레이션하기 위해 필요한 수의 노드를 권장 합니다. 
 **FTT 설정, RAID 수준** | 허용 및 Raid 조합에 적용 가능한 실패를 지정 합니다. 온-프레미스 VM 디스크 요구 사항과 함께 선택한 FTT 옵션은 AVS에 필요한 총 vSAN 저장소를 결정 합니다. 
 **크기 조정 기준** | AVS에 대해 vm을 적절 하 게 *크기 조정* 하는 데 사용할 조건을 설정 합니다. 성능 *기반* 크기 조정 또는 성능 기록을 고려 하지 않고 *온-프레미스로* 선택할 수 있습니다. 
 **성능 기록** | 컴퓨터의 성능 데이터를 평가 하는 데 고려할 기간을 설정 합니다. 이 속성은 크기 조정 기준이 *성능 기반*인 경우에만 적용할 수 있습니다. 
@@ -249,14 +249,14 @@ Azure Migrate의 각 성능 기반 평가는 하나 (가장 낮음)에서 5 개�
 - 모든 노드에 걸친 비용을 집계 하 여 월별 총 비용을 계산 합니다.
 - 비용은 평가 설정에 지정된 통화로 표시됩니다.
 
-Azure VMware 솔루션 (AVS)의 가격은 노드당 계산 되므로 총 비용에는 계산 비용 및 저장소 비용 분포가 없습니다. [자세한 정보](https://docs.microsoft.com/azure/azure-vmware/introduction)
+Azure VMware 솔루션 (AVS)의 가격은 노드당 계산 되므로 총 비용에는 계산 비용 및 저장소 비용 분포가 없습니다. [자세한 정보](../azure-vmware/introduction.md)
 
 Azure VMware 솔루션 (AVS)이 미리 보기 상태 이므로 평가의 노드 가격은 미리 보기 가격입니다. 지침은 로컬 MSFT AVS GBB 팀에 문의 하세요.
 
 ## <a name="migration-tool-guidance"></a>마이그레이션 도구 지침
 
 Azure VMware 솔루션 (AVS) 평가에 대 한 Azure 준비 보고서에서 다음과 같은 권장 도구를 볼 수 있습니다. 
-- **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
 - **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 컴퓨터의 경우에는 HCX (VMWare 하이브리드 클라우드 확장) 솔루션을 사용 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계

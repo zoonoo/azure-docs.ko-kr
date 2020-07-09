@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid에 대한 이벤트 필터링
 description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 방법을 설명합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
-ms.openlocfilehash: afe97fd1736fbaa6858adb2fc658b4ab34546f84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456849"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120095"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -120,7 +117,7 @@ ms.locfileid: "84456849"
 
 모든 문자열 비교는 대/소문자를 구분 **하지 않습니다** .
 
-### <a name="key"></a>Key
+### <a name="key"></a>키
 
 Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용합니다.
 
@@ -146,7 +143,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 값은 다음이 될 수 있습니다.
 
 * number
-* string
+* 문자열
 * boolean
 * array
 
@@ -161,7 +158,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ### <a name="stringcontains"></a>StringContains
 

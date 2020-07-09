@@ -1,18 +1,18 @@
 ---
 title: 기존 상업적 Marketplace 제품 업데이트
 description: 편집, 초안 삭제, 게시 요청 취소, 제품 또는 요금제 판매 중지, 개인 사용자 동기화 등 기존 상용 Marketplace 제품을 업데이트 하는 방법을 설명 합니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 62170df567f552699304710902a1f83b84728af2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057962"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120707"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 기존 제품 업데이트
 

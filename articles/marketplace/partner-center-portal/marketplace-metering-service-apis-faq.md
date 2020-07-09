@@ -1,18 +1,16 @@
 ---
 title: 계량 서비스 Api FAQ-Microsoft 상업적 marketplace
 description: Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품에 대 한 계량 서비스 Api에 대 한 질문과 대답입니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 361e35aea90a9817e365d66014faf5f23433c1dc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bdd540ad6c7ef1954936e4fb74bade2458e50927
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120792"
 ---
 # <a name="marketplace-metered-billing-apis---faq"></a>Marketplace 요금제 청구 Api-FAQ
 

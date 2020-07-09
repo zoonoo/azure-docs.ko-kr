@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid의 시스템 항목
 description: Azure Event Grid의 시스템 항목에 대해 설명 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 190c6ccb13a0853913c96ac5d2d3f5faf4594433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887905"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119925"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Azure Event Grid의 시스템 항목
 Event Grid의 시스템 항목은 Azure Storage 및 Azure Event Hubs와 같은 Azure 서비스에서 게시 하는 하나 이상의 이벤트를 나타냅니다. 예를 들어 시스템 토픽은 **모든 blob 이벤트** 를 나타내거나 **특정 저장소 계정**에 대해 게시 된 **blob 및 blob** **삭제** 이벤트만 나타낼 수 있습니다. 이 예에서 blob을 저장소 계정에 업로드 하면 Azure Storage 서비스는 **blob created** 이벤트를 Event Grid의 system 토픽에 게시 합니다. 그러면 이벤트를 수신 하 고 처리 하는 토픽의 [구독자](event-handlers.md) 에 게 이벤트를 전달 합니다. 

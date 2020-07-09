@@ -1,17 +1,18 @@
 ---
 title: 제품 유형별 게시 가이드-Microsoft 상업적 marketplace
 description: 이 문서에서는 Microsoft 상업적 marketplace에서 사용할 수 있는 제품 유형을 설명 합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 6e889fef16d8ad80d52810207f0328a765ca9cfe
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958500"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119721"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 

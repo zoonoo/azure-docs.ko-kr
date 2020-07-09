@@ -1,18 +1,18 @@
 ---
 title: 시험 사용이란? Microsoft 상업적 marketplace
 description: Marketplace 시험 구동 기능 설명
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: ea04556c13d6e56178519dbcbe805447d0dbfc0f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964909"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121472"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
@@ -32,7 +32,7 @@ ms.locfileid: "85964909"
 
 사용 중인 제품, 시나리오 및 marketplace의 유형에 따라 상업용 marketplace에서 선택할 수 있는 다양 한 테스트 드라이브가 있습니다.
 
-- Azure Resource Manager
+- Azure 리소스 관리자
 - 호스트 된 테스트 드라이브
     - Dynamics 365 for Business Central
     - Dynamics 365 for Customer Engagement

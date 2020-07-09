@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid - 구독 유효성 검사 문제 해결
 description: 이 문서에서는 구독 유효성 검사 문제를 해결하는 방법을 보여줍니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.author: spelluru
-ms.openlocfilehash: f292d70eaaca29e714ea35b4f61a141b2d5cd2b6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 07/07/2020
+ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778707"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118990"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Azure Event Grid 구독 유효성 검사 문제 해결
 이 문서에서는 이벤트 구독 유효성 검사 문제 해결에 대한 정보를 제공합니다. 

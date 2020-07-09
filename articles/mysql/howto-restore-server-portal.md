@@ -4,21 +4,21 @@ description: 이 문서에서는 Azure Portal을 사용하여 MySQL용 Azure Dat
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: dab0633e0ac5f434f423053118882783cdb43a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833962"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119228"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MySQL 서버 및 데이터베이스](quickstart-create-mysql-server-database-using-azure-portal.md)
 

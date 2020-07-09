@@ -4,13 +4,14 @@ description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: ba473942eea35ebcd5991b9b0dee4138d4963e16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce8a651fcdda657a1fffa523837181031e0bbc75
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119806"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에서 서버 매개 변수 구성
 

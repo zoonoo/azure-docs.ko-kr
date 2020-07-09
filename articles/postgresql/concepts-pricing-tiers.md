@@ -6,17 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 3a813a9b8c2a81a85d1c4a96d5a4da2256832d3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487987"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121625"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 가격 책정 계층 - 단일 서버
 
 Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 컴퓨팅의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 PostgreSQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-|    | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
+| 리소스/계층 | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -42,7 +43,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 프로비전하는 스토리지는 Azure Database for PostgreSQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 PostgreSQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
-|    | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
+| 저장소 특성 | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
@@ -55,7 +56,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 > 다른 모든 지역은 최대 4TB의 저장소 및 6000 IOPS를 지원 합니다.
 >
 
-서버를 만드는 동안 및 후에 추가 저장소 용량을 추가 하 고 시스템에서 작업의 저장소 사용량에 따라 저장소를 자동으로 늘릴 수 있습니다. 
+서버를 만드는 동안 및 후에 추가 저장소 용량을 추가 하 고 시스템에서 작업의 저장소 사용량에 따라 저장소를 자동으로 늘릴 수 있습니다.
 
 >[!NOTE]
 > 저장소는 다운 되지 않고 확장만 가능 합니다.
@@ -92,7 +93,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 서버를 만든 후 vCore 수, 하드웨어 생성, 가격 책정 계층(기본 제외), 스토리지 크기 및 백업 보존 기간을 독립적으로 변경할 수 있습니다. 서버가 만들어진 후 백업 스토리지 유형은 변경할 수 없습니다. vCore 수는 늘리거나 줄일 수 있습니다. 백업 보존 기간은 7~35일 범위에서 늘리거나 줄일 수 있습니다. 스토리지 크기는 늘릴 수 있습니다. 리소스의 크기 조정은 포털 또는 Azure CLI를 통해 수행할 수 있습니다. Azure CLI를 사용하는 크기 조정의 예제는 [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 모니터링 및 크기 조정](scripts/sample-scale-server-up-or-down.md)을 참조하세요.
 
-> [!NOTE] 
+> [!NOTE]
 > 스토리지 크기는 늘릴 수 있습니다. 증가 한 후에는 더 작은 저장소 크기로 다시 이동할 수 없습니다.
 
 vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 컴퓨팅 할당을 사용하여 원본 서버의 복사본이 만들어집니다. 새 서버가 시작되고 실행된 후 새 서버에 대한 연결로 전환됩니다. 시스템이 새 서버로 전환되면 잠시 동안 새 연결을 설정할 수 없으며, 커밋되지 않은 모든 트랜잭션이 롤백됩니다. 이 기간은 다양하지만, 대부분의 경우 1분 미만입니다.
@@ -106,5 +107,5 @@ vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 �
 ## <a name="next-steps"></a>다음 단계
 
 - [포털에서 PostgreSQL 서버를 만드는](tutorial-design-database-using-azure-portal.md)방법에 대해 알아봅니다.
-- [서비스 제한](concepts-limits.md)에 대해 알아봅니다. 
+- [서비스 제한](concepts-limits.md)에 대해 알아봅니다.
 - [읽기 복제본으로 스케일 아웃](howto-read-replicas-portal.md)하는 방법을 알아봅니다.

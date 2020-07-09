@@ -1,18 +1,16 @@
 ---
 title: Microsoft 상업용 Marketplace 의 기능
 description: 이 문서에서는 상업용 Marketplace 거래 옵션에 대한 가격 책정, 청구, 송장 작성 및 지급 고려 사항에 대해 설명합니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.author: dsindona
-ms.openlocfilehash: c7b13f74e63b9e74924efb70e7c9a70f6fda2d3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964467"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119432"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 

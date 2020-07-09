@@ -1,17 +1,18 @@
 ---
 title: Azure 위임 리소스 관리
-description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
+description: Azure 위임 된 리소스 관리는 Azure Lighthouse의 핵심 부분이 며, 서비스 공급자는 민첩성 및 전체 자릿수를 사용 하 여 위임 된 리소스를 대규모로 관리할 수 있습니다.
 ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbe3c28cdcd252755b8350eaa5d2e72044981174
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120894"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
 
-Azure 위임 리소스 관리는 Azure Lighthouse의 주요 구성 요소 중 하나입니다. Azure 위임 리소스 관리를 통해 서비스 공급자는 고객 참여 및 온보딩 환경을 간소화하는 동시에, 민첩하고 정확하게 대규모의 위임된 리소스를 관리할 수 있습니다.
+Azure 위임 된 리소스 관리는 [Azure Lighthouse](../overview.md)의 주요 구성 요소 중 하나입니다. Azure 위임 리소스 관리를 통해 서비스 공급자는 고객 참여 및 온보딩 환경을 간소화하는 동시에, 민첩하고 정확하게 대규모의 위임된 리소스를 관리할 수 있습니다.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Azure 위임 리소스 관리란?
 
@@ -24,7 +25,7 @@ Azure 위임 리소스 관리를 통해 권한 있는 사용자는 고객의 테
 
 [테넌트 간 관리 환경](cross-tenant-management-experience.md)을 사용하면 Azure Policy, Azure Security Center 등과 같은 Azure 관리 서비스를 보다 효율적으로 사용할 수 있습니다. 모든 서비스 공급자 작업은 고객의 테 넌 트에 저장 되는 활동 로그에서 추적 되며, 관리 테 넌 트의 사용자가 볼 수 있습니다. 즉, 고객과 서비스 공급자 모두 변경 내용과 관련된 사용자를 쉽게 식별할 수 있습니다.
 
-Azure에서 위임 된 리소스 관리에 고객을 등록 하는 경우 사용자는 [제품, 서비스 공급자 및 위임 된 리소스를 확인 하 고 관리할](../how-to/view-manage-service-providers.md)수 있는 Azure Portal의 새 **서비스 공급자** 페이지에 액세스할 수 있습니다. 고객은 서비스 공급자에 대한 액세스 권한을 취소하려는 경우 언제든지 취소할 수 있습니다.
+Azure 위임 된 리소스 관리에 고객을 등록 하는 경우 해당 사용자가 [제품, 서비스 공급자 및 위임 된 리소스를 확인 하 고 관리할](../how-to/view-manage-service-providers.md)수 있는 Azure Portal의 **서비스 공급자** 페이지에 액세스할 수 있습니다. 고객은 서비스 공급자에 대한 액세스 권한을 취소하려는 경우 언제든지 취소할 수 있습니다.
 
 [새 관리 서비스 제안 유형을 Azure Marketplace에 게시](../how-to/publish-managed-services-offers.md) 하 여 고객에 게 Azure 위임 된 리소스 관리에 쉽게 등록할 수 있습니다. 또는 [Azure Resource Manager 템플릿을 배포하여 온보딩 프로세스를 완료](../how-to/onboard-customer.md)할 수 있습니다.
 

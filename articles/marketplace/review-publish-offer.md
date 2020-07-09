@@ -1,19 +1,19 @@
 ---
 title: Microsoft 상용 marketplace에 대 한 제품 검토 및 게시
 description: 파트너 센터를 사용 하 여 제품을 미리 보기에 제출 하 고 제품을 미리 본 다음 Microsoft 상용 marketplace에 게시 합니다.
-author: mingshen-ms
-ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 910a886f02b386d7242bdd5e85f0710baa25408e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090976"
+ms.locfileid: "86119738"
 ---
 # <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>상용 marketplace에 제품 검토 및 게시
 
@@ -25,7 +25,7 @@ ms.locfileid: "86090976"
 1. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요**를 선택 합니다.
 1. **개요** 탭의 **제안**에서 다음 상태 표시기 중 하나가 각 제안의 **상태** 열에 표시 됩니다.
  
-    | 상태 | 설명 |
+    | 상태 | Description |
     | ------------ | ------------- |
     | 초안 | 제안이 만들어졌지만 게시 되 고 있지 않습니다. |
     | 게시 진행 중 | 제안은 게시 프로세스를 통해 작동 합니다. |

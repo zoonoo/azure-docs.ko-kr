@@ -6,14 +6,14 @@ author: jasonwhowell
 ms.author: jasonh
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: 090945a8bedad4a3d39f3f7fb16cae83f4e3f5bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2e77e31049e2643f1488eb3f6be906de735ad2b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121421"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "85564805"
 Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 다음 리소스가 있어야 합니다.
 

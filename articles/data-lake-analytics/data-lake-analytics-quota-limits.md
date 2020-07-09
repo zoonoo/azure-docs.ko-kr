@@ -7,13 +7,14 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b51fbfc15183fe5c8defafa6523835f938c1cf49
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75644718"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121251"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 할당량 및 한도 조정
 
@@ -33,7 +34,7 @@ ADLA(Azure Data Lake Analytics) 계정에서 할당량 및 한도를 조정하�
 
 **계정 당 최대 au (분석 단위) 수:** 250, 기본 32
 
-이는 계정에서 동시에 실행할 수 있는 AU의 최대 개수입니다. 모든 작업에서 실행 중인 총 AU 수가 이 한도를 초과하면 최신 작업이 자동으로 큐에 대기됩니다. 예를 들어:
+이는 계정에서 동시에 실행할 수 있는 AU의 최대 개수입니다. 모든 작업에서 실행 중인 총 AU 수가 이 한도를 초과하면 최신 작업이 자동으로 큐에 대기됩니다. 예를 들면 다음과 같습니다.
 
 * 32AU로 실행되는 작업이 하나뿐인 경우 두 번째 작업을 제출하면 첫 번째 작업이 완료될 때까지 이 작업이 작업 큐에서 대기합니다.
 * 이미 4개의 작업이 실행 중이고 각각 8AU를 사용하는 경우 8AU가 필요한 5번째 작업을 제출하면 8AU가 사용 가능 상태가 될 때까지 작업 큐에서 대기합니다.

@@ -1,18 +1,16 @@
 ---
 title: Azure Event Grid 리소스에 대 한 네트워크 보안
 description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를 구성하는 방법을 설명합니다.
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414252"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119245"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Azure Event Grid 리소스에 대 한 네트워크 보안
 이 문서에서는 Azure Event Grid에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
@@ -59,7 +57,7 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 
 개인 끝점을 사용 하 여 VNet 외부에서 토픽 또는 도메인 끝점 URL을 확인 하면 서비스의 공용 끝점으로 확인 됩니다. ' TopicA '의 DNS 리소스 레코드는 개인 끝점을 호스트 하는 **VNet 외부** 에서 확인 되는 경우 다음과 같습니다.
 
-| 이름                                          | Type      | 값                                         |
+| Name                                          | Type      | 값                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -68,7 +66,7 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 
 개인 끝점을 호스트 하는 VNet에서 확인 되 면 토픽 또는 도메인 끝점 URL은 개인 끝점의 IP 주소로 확인 됩니다. ' TopicA ' 항목에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 **VNet 내부** 에서 확인 되는 경우 다음과 같습니다.
 
-| 이름                                          | Type      | 값                                         |
+| Name                                          | Type      | 값                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
@@ -85,10 +83,10 @@ VNet에서 토픽 또는 도메인에 대 한 개인 끝점을 만드는 경우 
 
 | 연결 상태   |  게시 함 (예/아니요) |
 | ------------------ | -------------------------------|
-| 승인됨           | 예                            |
-| 거부됨           | 아니요                             |
-| 보류 중            | 아니요                             |
-| 연결 끊김       | 아니요                             |
+| 승인됨           | Yes                            |
+| 거부됨           | No                             |
+| 보류 중            | No                             |
+| 연결 끊김       | No                             |
 
 게시에 성공 하려면 개인 끝점 연결 상태를 **승인**해야 합니다. 연결이 거부 되 면 Azure Portal를 사용 하 여 승인할 수 없습니다. 유일한 방법은 연결을 삭제 하 고 새 연결을 만드는 것입니다.
 

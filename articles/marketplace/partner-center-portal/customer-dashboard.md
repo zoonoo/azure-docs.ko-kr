@@ -1,18 +1,16 @@
 ---
 title: 파트너 센터의 Microsoft 상업용 Marketplace 분석의 고객 대시보드
 description: 상업용 Marketplace 분석에서 고객 대시보드를 사용하여 증가 추세를 비롯한 고객 정보에 액세스하는 방법을 알아봅니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: 77541cc9f8a90335aedae0806981cbd8cca1f84d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f71a668b3473521e9d8d7c9318ab2e557380845
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807774"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121761"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 고객 대시보드
 

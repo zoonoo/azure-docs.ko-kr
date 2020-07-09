@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버와 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: 127d484d6cfc35368803069f9c3d602e787baa56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f25bda1a450919264c7ddba3886554381009c546
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384350"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119602"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 사용자 만들기
 
@@ -70,7 +70,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 예:
+4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 예를 들면 다음과 같습니다.
 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;

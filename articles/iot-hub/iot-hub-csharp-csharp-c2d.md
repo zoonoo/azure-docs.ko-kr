@@ -7,16 +7,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/07/2020
 ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 41c29e55f04f9edf06ba375ad4539e5fb3f82c18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13665e8738ef1fb5dd6e0e0ff24e1bd196c7d9a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733429"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120319"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
 
@@ -58,7 +59,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 만든 디바이스 앱을 수정하여 IoT Hub로부터 클라우드-디바이스 메시지를 수신합니다.
 
-1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
+1. Visual Studio의 **SimulatedDevice** 프로젝트에서 **SimulatedDevice** 클래스에 다음 메서드를 추가 합니다.
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -103,7 +104,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-디바이스 메시지 보내기
 
-이제 클라우드-디바이스 메시지를 디바이스 앱으로 보내는 .NET 콘솔 앱을 작성합니다.
+이 섹션에서는 클라우드-장치 메시지를 시뮬레이션 된 장치 앱으로 보내는 .NET 콘솔 앱을 만듭니다.
 
 1. 현재 Visual Studio 솔루션에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트 만들기**에서 C#에 대해 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음**을 선택합니다.
 
@@ -111,7 +112,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
    ![Visual Studio에서 새 프로젝트 구성](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. 솔루션 탐색기에서 새 솔루션을 마우스 오른쪽 단추로 클릭하고, **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 탐색기에서 새 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리**를 선택 합니다.
 
 1. **NuGet 패키지 관리**에서 **찾아보기**를 선택하고 **Microsoft. Azure. 디바이스**를 검색한 후 선택합니다. **설치**를 선택합니다.
 
@@ -123,25 +124,24 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    using Microsoft.Azure.Devices;
    ```
 
-1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. `{iot hub connection string}`자리 표시자 값을 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 기록한 iot hub 연결 문자열로 바꿉니다. `{device id}`자리 표시자 값을 [장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-dotnet.md) 에서 추가한 장치의 장치 ID로 바꿉니다.
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
+   static string targetDevice = "{device id}";
    ```
 
-1. **Program** 클래스에 다음 메서드를 추가합니다. 디바이스 이름을 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 정의할 때 사용한 이름으로 설정합니다.
+1. **Program** 클래스에 다음 메서드를 추가 하 여 장치에 메시지를 보냅니다.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
    {
         var commandMessage = new
          Message(Encoding.ASCII.GetBytes("Cloud to device message."));
-        await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        await serviceClient.SendAsync(targetDevice, commandMessage);
    }
    ```
-
-   이 메서드는 새 클라우드-디바이스 메시지를 ID `myFirstDevice`를 사용하여 디바이스에 보냅니다. 이 매개 변수는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 사용한 값에서 수정한 경우에만 변경합니다.
 
 1. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
 
@@ -157,9 +157,9 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다.
 
-1. **일반 속성** > **시작 프로젝트**에서 **여러 시작 프로젝트**를 선택한 후 **ReadDeviceToCloudMessages**, **SimulatedDevice**및 **SendCloudToDevice**에 대한 **시작** 작업을 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
+1. **공용 속성**  >  **시작 프로젝트**에서 **여러 개의 시작 프로젝트**를 선택한 다음 **SimulatedDevice** 및 **sendcloudtodevice**에 대 한 **시작** 작업을 선택 합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
 
-1. **F5**키를 누릅니다. 세 애플리케이션이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
+1. **F5**키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. **Sendcloudtodevice** 창을 선택 하 고 **enter**키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
 
    ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -206,7 +206,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. **F5** 키를 눌러 앱을 실행합니다. 세 애플리케이션이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 장치 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 애플리케이션에서 피드백 메시지를 수신하는지 확인해야 합니다.
+1. **F5** 키를 눌러 앱을 실행합니다. 두 응용 프로그램이 시작 되는 것을 볼 수 있습니다. **Sendcloudtodevice** 창을 선택 하 고 **enter**키를 누릅니다. 장치 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 애플리케이션에서 피드백 메시지를 수신하는지 확인해야 합니다.
 
    ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 

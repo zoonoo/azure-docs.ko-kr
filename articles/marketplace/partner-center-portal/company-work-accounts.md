@@ -1,18 +1,18 @@
 ---
 title: 회사 회사 계정 및 파트너 센터
 description: 회사에 Microsoft와의 회사 계정이 설정 되어 있는지 확인 하는 방법, 새 회사 계정을 만들거나 파트너 센터에서 사용할 여러 회사 계정을 설정 하는 방법입니다.
-author: dsindona
-ms.author: parthp
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 27a51a1203b0c25474bdb292c467a40b67309757
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964433"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119755"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>회사 회사 계정 및 파트너 센터
 

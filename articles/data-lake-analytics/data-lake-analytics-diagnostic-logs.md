@@ -5,14 +5,14 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: ba0311da88f1fe0cbc0bf885197785db10b1bac2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564853"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121438"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -128,7 +128,7 @@ ms.locfileid: "85564853"
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
 
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -142,7 +142,7 @@ ms.locfileid: "85564853"
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
 
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -178,7 +178,7 @@ ms.locfileid: "85564853"
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
 
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -186,7 +186,7 @@ ms.locfileid: "85564853"
 | operationName |String |기록된 작업의 이름 예를 들어 JobSubmitted |
 | resultType |String |작업 상태(operationName)에 대한 하위 상태입니다. |
 | resultSignature |String |작업 상태(operationName)에 추가 세부 정보입니다. |
-| identity |String |작업을 요청한 사용자입니다. 예: susan@contoso.com. |
+| identity |String |작업을 요청한 사용자입니다. 예들 들어 susan@contoso.com입니다. |
 | properties |JSON |자세한 내용은 다음 섹션(감사 로그 속성 스키마)을 참조하세요. |
 
 > [!NOTE]
@@ -196,7 +196,7 @@ ms.locfileid: "85564853"
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
 
-| 이름 | Type | 설명 |
+| Name | Type | Description |
 | --- | --- | --- |
 | JobId |String |작업에 할당된 ID |
 | JobName |String |작업에 대해 제공된 이름 |

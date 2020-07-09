@@ -1,18 +1,18 @@
 ---
 title: Microsoft 상업용 마켓플레이스 게시자 FAQ
 description: Azure Marketplace 및 Microsoft AppSource와 관련된 일반적인 질문과 대답을 확인하세요.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 985a8ac83d48de11ac134bc9a942c766e4ff5d32
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad4e80c98097955703e4a6fb3c64e93a338f2720
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963600"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121166"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 일반적인 질문
 

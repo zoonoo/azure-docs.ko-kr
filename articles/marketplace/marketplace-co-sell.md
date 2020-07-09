@@ -1,17 +1,18 @@
 ---
 title: 공동 판매 파트너 참여 - Microsoft 상업용 Marketplace
 description: 파트너를 위한 Microsoft 파트너 센터 공동 판매 프로그램은 방대한 고객 기반과 접촉하고 새로운 판매를 창출하는 데 도움이 될 수 있습니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 05/19/2020
-ms.openlocfilehash: 86ff08ed01ea09497c14e91b4c891988569e2df1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: abd5308d965ba35f63fcef1e286a6989be4a0453
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657946"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119465"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 

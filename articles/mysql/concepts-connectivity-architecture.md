@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 661cfb4798ef553918ddc238a5388b11a54e23f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4d90693f2cd3bdd440b7cb914e7fc037103d362
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298689"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120996"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Azure Database for MySQL의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MySQL 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MySQL 연결 아키텍처에 대해 설명 합니다.
@@ -40,7 +41,7 @@ ms.locfileid: "84298689"
 | 중국 북부 | 139.219.15.17    |
 | 중국 북부 2 | 40.73.50.0     |
 | 동아시아 | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| 미국 동부 | 40.121.158.30, 191.238.6.43  |
+| 미국 동부 | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113 |
 | 미국 동부 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | 프랑스 중부 | 40.79.137.0, 40.79.129.1  |
 | 프랑스 남부 | 40.79.177.0     |

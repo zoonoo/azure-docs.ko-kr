@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid에서 Azure AD를 사용 하 여 보안 WebHook 배달
 description: 를 사용 하 여 Azure Active Directory 보호 하는 HTTPS 끝점에 이벤트를 전달 하는 방법을 설명 Azure Event Grid
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.author: femila
-ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126079"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119126"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory 보호 된 끝점에 이벤트 게시
 

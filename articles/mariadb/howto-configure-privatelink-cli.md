@@ -4,14 +4,14 @@ description: Azure CLI에서 Azure Database for MariaDB에 대 한 개인 링크
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 08e7805d9eff1f53c43882f2180e298abd008346
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97901ee0c431699ac8217619042daefd86df2f38
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368331"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120979"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>CLI를 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
@@ -172,7 +172,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
     | Hostname | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
