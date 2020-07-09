@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 011904d7ce14f346b678c753c10a8f3258730ee1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9f41e1d8843783addf601becfda87607253e0a18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135917"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -458,7 +459,9 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에
 
 다음과 같은 결과가 나와야 합니다.
 
-    Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
+```output
+Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
+```
 
 결과가 다른 경우 SAP 배포를 중지하고 설치 명령이 예상대로 작동하지 않은 이유를 조사합니다. 위에서 언급한 것과 다른 SQL Server 코드 페이지를 사용하여 SAP NetWeaver 애플리케이션을 SQL Server 인스턴스에 배포할 수는 **없습니다** .
 
