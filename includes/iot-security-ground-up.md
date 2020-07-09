@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72789705"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050517"
 ---
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 디바이스의 안전한 프로비전, 이러한 디바이스 및 클라우드 간의 보안 연결, 처리 및 스토리지 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 디바이스, 배포의 지리적 분산 및 솔루션 내 많은 수의 디바이스에 대한 작업이 포함됩니다.
 
@@ -89,7 +89,7 @@ Azure IoT 솔루션 가속기는 사용자 인증 및 권한 부여를 위해 AA
 
 데이터가 클라우드에 있는 경우 사용자가 정의한 워크플로에 처리 및 저장할 수 있습니다. 데이터의 각 부분에 대한 액세스는 사용된 스토리지 서비스에 따라 Azure Active Directory로 제어됩니다.
 
-IoT 인프라에서 사용되는 모든 키는 보안 스토리지의 클라우드에 저장되며 키를 다시 프로비전해야하는 경우 롤오버할 수 있는 기능을 보유합니다. 데이터는 [Azure Cosmos DB](../articles/cosmos-db/introduction.md) 또는 [SQL Database](../articles/sql-database/sql-database-faq.md)에 저장할 수 있으며 원하는 보안 수준의 정의를 사용할 수 있습니다. 또한 Azure에서는 데이터에 대한 모든 액세스를 모니터링 및 감사하는 방법을 제공하여 침입 또는 무단 액세스를 경고합니다.
+IoT 인프라에서 사용되는 모든 키는 보안 스토리지의 클라우드에 저장되며 키를 다시 프로비전해야하는 경우 롤오버할 수 있는 기능을 보유합니다. [Azure Cosmos DB](../articles/cosmos-db/introduction.md) 또는 [SQL Database](../articles/sql-database/sql-database-faq.md)에 데이터를 저장 하 여 원하는 보안 수준 정의를 사용할 수 있습니다. 또한 Azure에서는 데이터에 대한 모든 액세스를 모니터링 및 감사하는 방법을 제공하여 침입 또는 무단 액세스를 경고합니다.
 
 ## <a name="conclusion"></a>결론
 
