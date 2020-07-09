@@ -6,19 +6,19 @@ ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/20/2017
 ms.custom: tracking-python
-ms.openlocfilehash: 0d2a7910523bf5b6dd02d4c93aaf851b38cf09df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31a9a12d6c252c60f3000c2a15a5f382734597a2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555647"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110524"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 Python 코드로 U-SQL 스크립트 확장
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 Azure Data Lake Analytics 계정에 Python 확장이 설치되어 있는지 확인하세요.
 

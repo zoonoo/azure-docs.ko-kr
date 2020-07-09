@@ -1,17 +1,18 @@
 ---
 title: 위임에 대한 액세스 권한 제거
-description: Azure 위임 된 리소스 관리를 위해 서비스 공급자에 게 위임 된 리소스에 대 한 액세스를 제거 하는 방법을 알아봅니다.
-ms.date: 04/24/2020
+description: Azure Lighthouse의 서비스 공급자에 게 위임 된 리소스에 대 한 액세스를 제거 하는 방법에 대해 알아봅니다.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636498"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111731"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
-고객의 구독 또는 리소스 그룹이 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 위해 서비스 공급자에 게 위임 된 후 필요한 경우 위임을 제거할 수 있습니다. 위임이 제거 되 면 서비스 공급자 테 넌 트의 사용자에 게 이전에 부여 된 액세스는 더 이상 적용 되지 않습니다.
+고객의 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)의 서비스 공급자에 게 위임 된 후 필요한 경우 위임이 제거 될 수 있습니다. 위임이 제거 되 면 서비스 공급자 테 넌 트의 사용자에 게 이전에 부여 된 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md) 액세스가 더 이상 적용 되지 않습니다.
 
 사용자에 게 적절 한 권한이 있는 한 고객 테 넌 트 또는 서비스 공급자 테 넌 트의 사용자가 위임 제거를 수행할 수 있습니다.
 

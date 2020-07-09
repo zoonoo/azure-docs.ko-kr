@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322053"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111000"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Azure Data Share의 역할 및 요구 사항 
 
@@ -30,9 +30,8 @@ Azure 데이터 저장소에서 데이터를 공유 하거나 받으려면 사�
 
 다음은 데이터 공유 리소스의 관리 되는 id에 할당 된 역할에 대 한 요약입니다.
 
-| |  |  |
-|---|---|---|
 |**데이터 저장소 유형**|**Data Provider 원본 데이터 저장소**|**데이터 소비자 대상 데이터 저장소**|
+|---|---|---|
 |Azure Blob Storage| Storage Blob 데이터 읽기 권한자 | Storage Blob 데이터 기여자
 |Azure Data Lake Gen1 | 소유자 | 지원되지 않음
 |Azure Data Lake Gen2 | Storage Blob 데이터 읽기 권한자 | Storage Blob 데이터 기여자
@@ -42,9 +41,8 @@ Azure 데이터 저장소에서 데이터를 공유 하거나 받으려면 사�
 
 SQL 기반 공유의 경우 Azure 데이터 공유 리소스와 동일한 이름을 가진 Azure SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 다음은 SQL 사용자가 요구 하는 사용 권한에 대 한 요약입니다.
 
-| |  |  |
-|---|---|---|
 |**SQL Database 형식**|**Data Provider SQL 사용자 권한**|**Data Consumer SQL 사용자 권한**|
+|---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics(이전의 SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -103,4 +101,3 @@ Azure 테 넌 트에서 처음으로 Azure 데이터 공유 초대를 보려면 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure - [역할 정의 이해](../role-based-access-control/role-definitions.md)에서 역할에 대해 자세히 알아봅니다.
-

@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341376"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111272"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Azure Policy를 사용하여 대규모로 클러스터 구성 대규모(미리 보기)
 
@@ -30,11 +31,11 @@ Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리�
 4. 정책 범위에서 리소스를 제외하려면 **제외**를 설정합니다.
 5. 정책 할당에 쉽게 식별할 수 있도록 **이름**과 **설명**을 지정합니다.
 6. **정책 적용**이 *사용됨*으로 설정되어 있는지 확인합니다.
-7. **새로 만들기**를 선택합니다.
+7. **다음**을 선택합니다.
 8. `sourceControlConfiguration`을 만드는 동안 사용할 매개 변수 값을 설정합니다.
 9. **다음**을 선택합니다.
 10. **수정 작업 만들기**를 사용합니다.
-11. **관리 ID 만들기**가 선택되어 있는지, ID에 **참여자** 권한이 있는지 확인합니다. 필요한 권한에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal)와 [이 문서의 설명](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources)을 참조하세요.
+11. **관리 ID 만들기**가 선택되어 있는지, ID에 **참여자** 권한이 있는지 확인합니다. 필요한 권한에 대한 자세한 내용은 [이 문서](../../governance/policy/assign-policy-portal.md)와 [이 문서의 설명](../../governance/policy/how-to/remediate-resources.md)을 참조하세요.
 12. **검토 + 만들기**를 선택합니다.
 
 정책 할당을 만든 후 할당 범위 내에 있는 새 `connectedCluster` 리소스(또는 GitOps 에이전트가 설치된 `managedCluster` 리소스)에 대해 `sourceControlConfiguration`이 적용됩니다. 기존 클러스터의 경우 수정 작업을 수동으로 실행해야 합니다. 정책 할당이 적용되는 데에는 보통 10~20분이 걸립니다.
@@ -50,4 +51,4 @@ Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Arc에서 Kubernetes 클러스터를 사용하는 컨테이너에 대한 Azure Monitor 설정](./deploy-azure-monitor-for-containers.md)
+* [Arc에서 Kubernetes 클러스터를 사용하는 컨테이너에 대한 Azure Monitor 설정](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)

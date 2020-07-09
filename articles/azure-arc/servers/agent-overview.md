@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74ac991eb40864aeb4ac42d4774d9ab61fb14c36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807675"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111255"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>서버용 Azure Arc 에이전트 개요
 
@@ -59,7 +60,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
-    |폴더 |설명 |
+    |폴더 |Description |
     |-------|------------|
     |C:\Program Files\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|
@@ -71,21 +72,21 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 Windows 서비스가 만들어집니다.
 
-    |서비스 이름 |표시 이름 |프로세스 이름 |설명 |
+    |서비스 이름 |표시 이름 |프로세스 이름 |Description |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid Instance Metadata Service |himds.exe |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
     |DscService |Guest Configuration Service |dsc_service.exe |게스트 내 정책을 구현하기 위해 Azure 내부에서 사용되는 DSC(Desired State Configuration) v2 코드베이스입니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다.
 
-    |속성 |기본값 |설명 |
+    |속성 |기본값 |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * 문제 해결에 사용할 수 있는 로그 파일은 여러 가지가 있습니다. 이 내용은 다음 표에 설명되어 있습니다.
 
-    |로그 |설명 |
+    |로그 |Description |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |에이전트 (HIMDS) 서비스의 세부 정보 및 Azure와의 상호 작용을 기록 합니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |자세한 정보(-v) 인수를 사용하는 경우 azcmagent tool 명령의 출력이 포함됩니다.|
@@ -122,7 +123,7 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 디먼이 만들어집니다.
 
-    |서비스 이름 |표시 이름 |프로세스 이름 |설명 |
+    |서비스 이름 |표시 이름 |프로세스 이름 |Description |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
     |dscd.service |Guest Configuration Service |/opt/DSC/dsc_linux_service |게스트 내 정책을 구현하기 위해 Azure 내부에서 사용되는 DSC(Desired State Configuration) v2 코드베이스입니다.|
@@ -140,7 +141,7 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다. 이러한 변수는 `/lib/systemd/system.conf.d/azcmagent.conf`에 설정됩니다.
 
-    |속성 |기본값 |설명 |
+    |속성 |기본값 |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -184,7 +185,7 @@ Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 �
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다. | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
-| Windows Server 2012 R2 이상 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면|
+| Windows Server 2012 R2 이상 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면|
 
 ### <a name="networking-configuration"></a>네트워킹 구성
 
@@ -199,7 +200,7 @@ Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 
 
 URL:
 
-| 에이전트 리소스 | 설명 |
+| 에이전트 리소스 | Description |
 |---------|---------|
 |management.azure.com|Azure 리소스 관리자|
 |login.windows.net|Azure Active Directory|
@@ -208,7 +209,7 @@ URL:
 |*-agentservice-prod-1.azure-automation.net|게스트 구성|
 |*.his.arc.azure.com|하이브리드 ID 서비스|
 
-각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. 자세한 내용은 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 검토하세요.
+각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. 자세한 내용은 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 검토하세요.
 
 대부분의 서비스에는 현재 서비스 태그 등록이 없기 때문에 서비스 태그 IP 주소 범위 정보 외에도 앞에서 나온 표의 URL이 필요합니다. 따라서 IP 주소는 변경될 수 있습니다. 방화벽 구성에 IP 주소 범위가 필요한 경우 모든 Azure 서비스에 대한 액세스를 허용하기 위해 **AzureCloud** 서비스 태그를 사용해야 합니다. 이러한 URL의 보안 모니터링 또는 검사를 해제하지 말고, 다른 인터넷 트래픽처럼 허용합니다.
 

@@ -6,17 +6,18 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 44e4114b328701d5de363e91f5562f1daad351c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697173"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111204"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Service Bus](https://azure.microsoft.com/services/service-bus) 와 통합 됩니다. Service Bus와 통합 하면 큐 또는 토픽 메시지에 응답 하는 함수를 작성할 수 있습니다.
 
-| 작업 | 형식 |
+| 작업 | Type |
 |---------|---------|
 | Service Bus 큐 또는 토픽 메시지가 만들어지면 함수를 실행 합니다. | [트리거](./functions-bindings-service-bus-trigger.md) |
 | Azure Service Bus 메시지 보내기 |[출력 바인딩](./functions-bindings-service-bus-output.md) |
@@ -41,7 +42,7 @@ Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)
 
 ### <a name="functions-1x"></a>Functions 1.x
 
-함수 1.x 앱은 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x를 자동으로 참조 합니다.
+함수 1.x 앱은 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x에 대 한 참조를 자동으로 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

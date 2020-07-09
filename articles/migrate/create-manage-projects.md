@@ -3,11 +3,12 @@ title: Azure Migrate 프로젝트 만들기 및 관리
 description: Azure Migrate에서 프로젝트를 찾고 만들고 관리 하 고 삭제 합니다.
 ms.topic: how-to
 ms.date: 04/19/2020
-ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676386"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113431"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 
@@ -82,7 +83,7 @@ Azure Migrate 프로젝트가 이미 있고 추가 프로젝트를 만들려는 
        
     - 이미 Azure Migrate 프로젝트를 삭제 한 경우 Azure Portal의 왼쪽 창에서 **리소스 그룹** 을 선택 하 고 작업 영역을 찾습니다.
        
-2. [지침에 따라](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) 작업 영역을 삭제 합니다.
+2. [지침에 따라](../azure-monitor/platform/delete-workspace.md) 작업 영역을 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

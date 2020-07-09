@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c74d4f0b2e0b2d8ca09c9b2c1f1091594f5657dc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81766872"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111017"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
 
@@ -37,10 +38,10 @@ https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e
 
 **예제 오류**
 
-```
+```output
 Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be
 loaded. For more information, run 'Import-Module PowerShellGet'.
-    
+
 Import-Module : File C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.3.1\PackageManagement.psm1 cannot
 be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at
 https:/go.microsoft.com/fwlink/?LinkID=135170.
@@ -52,8 +53,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 명령을 실행 하 여 PowerShell의 인스턴스를 감사 `$PSVersionTable` 합니다.
 이 명령은 다음과 같은 출력을 생성 합니다.
 
-
-```
+```output
 Name                           Value
 ----                           -----
 PSVersion                      5.1.17763.316
@@ -87,15 +87,17 @@ SerializationVersion           1.1.0.1
         - `-Force`. 확인 메시지를 무시 합니다.
     
     NuGet이 설정 되지 않은 경우이 메시지가 표시 됩니다.
-        
-        NuGet provider is required to continue
-        PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet
-         provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
-        'C:\Users\t\AppData\Local\PackageManagement\ProviderAssemblies'. You can also install the NuGet provider by running
-        'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to install and import
-         the NuGet provider now?
-        [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-    
+
+    ```output
+    NuGet provider is required to continue
+    PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. 
+    The NuGet provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
+    'C:\Users\t\AppData\Local\PackageManagement\ProviderAssemblies'. You can also install the NuGet provider by running
+    'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to install and import
+    the NuGet provider now?
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+    ```    
+
 3. PowerShell 갤러리를 신뢰할 수 있는 리포지토리로 구성 합니다.
     - 설명: 기본적으로 PowerShell 갤러리는 신뢰할 수 없는 리포지토리입니다.
     - 참조: [set-psrepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
@@ -105,11 +107,14 @@ SerializationVersion           1.1.0.1
 
     PowerShell 갤러리 신뢰할 수 없는 경우이 메시지가 표시 됩니다.
 
-        Untrusted repository
-        You are installing the modules from an untrusted repository. If you trust this repository, change its
-        InstallationPolicy value by running the Set-PSRepository cmdlet. Are you sure you want to install the modules from
-        'PSGallery'?
-        [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
+    ```output
+    Untrusted repository
+    You are installing the modules from an untrusted repository. 
+    If you trust this repository, change its InstallationPolicy value 
+    by running the Set-PSRepository cmdlet. Are you sure you want to 
+    install the modules from 'PSGallery'?
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
+    ```
 
     명령을 실행 하 여이 변경 내용을 확인 하 고 모든 PSRepositories 감사를 수행할 수 있습니다 `Get-PSRepository` .
 
@@ -122,14 +127,16 @@ SerializationVersion           1.1.0.1
         - `-Force`. "이미 설치 됨" 경고를 무시 하 고 최신 버전을 설치 합니다.
 
     최신 버전의 PowerShellGet을 사용 하지 않는 경우이 오류가 표시 됩니다.
-    
-        Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
-        At line:1 char:20
-        Install-Module abc -AllowPrerelease
-                           ~~~~~~~~~~~~~~~~
-            CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
-            FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
-    
+
+    ```output
+    Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
+    At line:1 char:20
+    Install-Module abc -AllowPrerelease
+                   ~~~~~~~~~~~~~~~~
+    CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
+    FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
+    ```
+
 5. PowerShell을 다시 시작 합니다. 현재 세션에서는 새 버전을 로드할 수 없습니다. 새 PowerShell 세션에서 PowerShellGet의 최신 버전을 로드 합니다.
 
 ## <a name="download-and-install-the-module-via-powershell-gallery"></a>PowerShell 갤러리를 통해 모듈 다운로드 및 설치
@@ -168,7 +175,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 - 참조: [확장-보관](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)합니다.
 - 명령:
 
-    ```
+    ```console
     $pathToNupkg = "C:\az.applicationmonitor.0.3.0-alpha.nupkg"
     $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
     $pathToNupkg | rename-item -newname $pathToZip
@@ -182,7 +189,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 - 참조: [확장-보관](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) 및 [Microsoft. PowerShell](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - 명령:
 
-    ```
+    ```console
     $pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
     $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\az.applicationmonitor"
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule

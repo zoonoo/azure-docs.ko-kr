@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689013"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112115"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
 Azure Monitor의 컴퓨터 그룹을 사용 하 여 [로그 쿼리의](../log-query/log-query-overview.md) 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
@@ -20,7 +21,7 @@ Azure Monitor의 컴퓨터 그룹을 사용 하 여 [로그 쿼리의](../log-qu
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
-| 메서드 | 설명 |
+| 메서드 | Description |
 |:--- |:--- |
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
@@ -33,7 +34,9 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 
 컴퓨터 그룹에 대해 어떤 쿼리라도 사용할 수 있지만, `distinct Computer`을 사용하여 별개의 컴퓨터 집합을 반환해야 합니다.  다음은 컴퓨터 그룹에 대해 사용할 수 있는 일반적인 예제 쿼리입니다.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 다음 프로시저를 사용하여 Azure Portal의 로그 검색에서 컴퓨터 그룹을 만듭니다.
 
@@ -45,9 +48,9 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 
 다음 표는 컴퓨터 그룹을 정의하는 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:---|:---|
-| 이름   | 포털에 표시할 쿼리의 이름입니다. |
+| Name   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |
 | 범주       | 포털에서 쿼리를 구성할 범주입니다. |
 
@@ -93,31 +96,33 @@ Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 �
 ## <a name="using-a-computer-group-in-a-log-query"></a>로그 쿼리에 컴퓨터 그룹 사용
 일반적으로 다음 구문을 사용하여 해당 별칭을 함수로 취급함으로써 로그 쿼리에서 생성된 컴퓨터 그룹을 쿼리에 사용합니다.
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 예를 들어 mycomputergroup이라는 컴퓨터 그룹에서 컴퓨터에 대해서만 UpdateSummary 레코드를 반환하기 위해 다음을 사용할 수 있습니다.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 가져온 컴퓨터 그룹 및 포함된 컴퓨터는 **ComputerGroup** 테이블에 저장됩니다.  예를 들어 다음 쿼리는 Active Directory의 도메인 컴퓨터 그룹에 포함된 컴퓨터 목록을 반환합니다. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 다음 쿼리는 도메인 컴퓨터의 컴퓨터에 대해서만 UpdateSummary 레코드를 반환합니다.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 대한 레코드가 Log Analytics 작업 영역에 생성됩니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 쿼리 기반의 컴퓨터 그룹에 대한 레코드는 만들어지지 않습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

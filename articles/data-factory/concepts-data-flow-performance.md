@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 07/06/2020
-ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042631"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114383"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -35,7 +35,7 @@ ADF UX의 데이터 흐름을 디자인하고 테스트할 때 클러스터가 �
 
 ![데이터 흐름 모니터링](media/data-flow/mon003.png "데이터 흐름 모니터 3")
 
- 파이프라인 디버그 실행의 경우에는 웜 클러스터의 전체 성능 계산을 위해 1분 정도의 클러스터 설정 시간이 필요합니다. 기본 Azure Integration Runtime를 초기화하는 경우에는 실행하는 데 약 5분 정도 걸릴 수 있습니다.
+ 파이프라인 디버그 실행의 경우에는 웜 클러스터의 전체 성능 계산을 위해 1분 정도의 클러스터 설정 시간이 필요합니다. 기본 Azure Integration Runtime를 초기화 하는 경우 실행 시간은 약 4 분 정도 걸릴 수 있습니다.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Azure Integration Runtime에서 컴퓨팅 크기 늘리기
 
@@ -55,7 +55,7 @@ Integration Runtime를 만드는 방법에 대한 자세한 내용은 [Azure Dat
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>TTL을 사용하여 클러스터 컴퓨팅 시작 시간 줄이기
 
-Azure IR의 데이터 흐름 속성에는 팩터리에 대해 클러스터 컴퓨팅 리소스 풀을 스탠드업할 수 있도록 하는 속성이 있습니다. 이 풀을 사용하면 실행을 위해 데이터 흐름 작업을 순차적으로 제출할 수 있습니다. 풀이 설정된 후에는 주문형 Spark 클러스터에서 각 후속 작업을 실행하는 데 1-2분이 소요됩니다. 리소스 풀의 초기 설정에는 약 6분이 소요됩니다. TTL(Time-to-Live) 설정에서 리소스 풀을 유지 관리하려는 시간을 지정합니다.
+Azure IR의 데이터 흐름 속성에는 팩터리에 대해 클러스터 컴퓨팅 리소스 풀을 스탠드업할 수 있도록 하는 속성이 있습니다. 이 풀을 사용하면 실행을 위해 데이터 흐름 작업을 순차적으로 제출할 수 있습니다. 풀이 설정된 후에는 주문형 Spark 클러스터에서 각 후속 작업을 실행하는 데 1-2분이 소요됩니다. 리소스 풀의 초기 설정에는 약 4 분이 소요 됩니다. TTL(Time-to-Live) 설정에서 리소스 풀을 유지 관리하려는 시간을 지정합니다.
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Azure SQL Database 및 Azure SQL Data Warehouse Synapse에 맞게 최적화
 
@@ -145,7 +145,7 @@ Blob 또는 ADLS 파일 저장소를 기록하는 매핑 데이터 흐름에서 
 
 병렬 모드의 파이프라인 For Each는 실행되는 모든 데이터 흐름 작업에 대해 작업 클러스터를 실행하여 여러 클러스터를 생성합니다. 이로 인해 동시 실행 수가 많은 Azure 서비스가 제한될 수 있습니다. 그러나 파이프라인에서 순차 세트와 함께 For Each 내에서 데이터 흐름 실행을 사용하면 제한 및 리소스 고갈을 방지할 수 있습니다. 이렇게 하면 강제로 데이터 팩터리는 데이터 흐름에 대해 순차적으로 각 파일을 실행하게 됩니다.
 
-순서대로 데이터 흐름에 For Each를 사용하는 경우 Azure Integration Runtime에서 TTL 설정을 활용하는 것이 좋습니다. 각 파일이 반복기 내부에서 5분의 전체 클러스터 시작 시간을 발생하기 때문입니다.
+순서대로 데이터 흐름에 For Each를 사용하는 경우 Azure Integration Runtime에서 TTL 설정을 활용하는 것이 좋습니다. 이는 각 파일에 반복기 내에서 전체 4 분 클러스터 시작 시간이 발생 하기 때문입니다.
 
 ### <a name="optimizing-for-cosmosdb"></a>CosmosDB에 맞게 최적화
 

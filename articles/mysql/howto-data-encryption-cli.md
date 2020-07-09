@@ -4,14 +4,14 @@ description: Azure CLI를 사용 하 여 Azure Database for MySQL에 대 한 데
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: 3c33fdb114356af7707c1aae2eddefd81bf10b9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6cb3e5db1c7fae3b0542557d2dae8239e0624f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82185832"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114621"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
 
@@ -22,17 +22,18 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 * 고객 관리 키에 사용할 키 자격 증명 모음 및 키를 만듭니다. 또한 키 자격 증명 모음에서 보호 제거 및 일시 삭제를 사용 하도록 설정 합니다.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+  ```azurecli-interactive
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  ```
 
 * 만든 Azure Key Vault에서 Azure Database for MySQL의 데이터 암호화에 사용할 키를 만듭니다.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+  ```azurecli-interactive
+  az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+  ```
 
 * 기존 키 자격 증명 모음을 사용 하려면 고객 관리 키로 사용할 다음 속성이 있어야 합니다.
+
   * [일시 삭제](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
@@ -54,17 +55,17 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
 
 1. Azure Database for MySQL에 대 한 관리 되는 id를 가져오는 방법에는 두 가지가 있습니다.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>관리 id를 사용 하 여 새 Azure Database for MySQL 서버를 만듭니다.
+   ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>관리 id를 사용 하 여 새 Azure Database for MySQL 서버를 만듭니다.
 
-    ```azurecli-interactive
-    az mysql server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server create --name -g <resource_group> --location <locations> --storage-size size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> -geo-redundant-backup <Enabled/Disabled>  --assign-identity
+   ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>관리 id를 가져오기 위해 기존 Azure Database for MySQL 서버를 업데이트 합니다.
+   ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>관리 id를 가져오기 위해 기존 Azure Database for MySQL 서버를 업데이트 합니다.
 
-    ```azurecli-interactive
-    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server update --name  <server name>  -g <resource_group> --assign-identity
+   ```
 
 2. **보안 주체**에 대 한 **키 사용 권한** (**가져오기**, **래핑**, **래핑**해제)을 MySQL 서버의 이름으로 설정 합니다.
 
@@ -88,36 +89,36 @@ Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for M
 
 ### <a name="creating-a-restoredreplica-server"></a>복원/복제 서버 만들기
 
-  *  [복원 서버 만들기](howto-restore-server-cli.md) 
-  *  [읽기 복제본 서버 만들기](howto-read-replicas-cli.md) 
+* [복원 서버 만들기](howto-restore-server-cli.md) 
+* [읽기 복제본 서버 만들기](howto-read-replicas-cli.md) 
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>서버를 복원 하 고 나면 복원 된 서버의 데이터 암호화 유효성을 다시 검사 합니다.
 
-    ```azurecli-interactive
-    az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-mysql"></a>Azure Database for MySQL에 사용 되는 키에 대 한 추가 기능
 
 ### <a name="get-the-key-used"></a>사용 된 키를 가져옵니다.
 
-    ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+키 url:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>사용 된 키를 나열 합니다.
 
-    ```azurecli-interactive
-    az mysql server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az mysql server key list --name  <server name>  -g <resource_group>
+```
 
 ### <a name="drop-the-key-being-used"></a>사용 중인 키를 삭제 합니다.
 
-    ```azurecli-interactive
-    az mysql server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az mysql server key delete -g <resource_group> --kid <key url>
+```
 
 ## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Azure Resource Manager 템플릿을 사용 하 여 데이터 암호화 사용
 
@@ -130,6 +131,7 @@ Azure Portal 외에도 새 서버 및 기존 서버에 대해 Azure Resource Man
 이 Azure Resource Manager 템플릿은 Azure Database for MySQL 서버를 만들고 매개 변수로 전달 되는 키 **자격 증명 모음** 및 **키** 를 사용 하 여 서버에서 데이터 암호화를 사용 하도록 설정 합니다.
 
 ### <a name="for-an-existing-server"></a>기존 서버의 경우
+
 또한 Azure Resource Manager 템플릿을 사용 하 여 기존 Azure Database for MySQL 서버에서 데이터 암호화를 사용 하도록 설정할 수 있습니다.
 
 * 속성 개체의 속성 아래에서 이전에 복사한 Azure Key Vault 키의 리소스 ID를 전달 `Uri` 합니다.

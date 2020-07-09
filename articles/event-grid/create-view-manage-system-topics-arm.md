@@ -1,17 +1,14 @@
 ---
 title: Azure Resource Manager 템플릿을 사용 하 여 Azure Event Grid에서 시스템 항목을 만듭니다.
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Event Grid에서 시스템 항목을 만드는 방법을 보여 줍니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: a2fe0ffd5f8ac801d15dc08d027c9442c57ef2b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457416"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115165"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 Azure Event Grid에서 시스템 항목 만들기
 이 문서에서는 리소스 관리자 템플릿을 사용 하 여 시스템 항목을 만들고 관리 하는 방법을 보여 줍니다. 시스템 항목의 개요는 [시스템 항목](system-topics.md)을 참조 하십시오.

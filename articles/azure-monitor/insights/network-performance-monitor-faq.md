@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 191c6d411418229d40b10704ea14d5a536c0d5f7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194006"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110626"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -100,38 +100,50 @@ NPM은 확률적 메커니즘을 사용하여 홉이 속한 비정상 경로 수
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>경고에 대 한 기본 Log Analytics 쿼리
 성능 모니터 쿼리
 
-    NetworkMonitoring 
-     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
-     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
-    
+```kusto
+NetworkMonitoring
+ | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+```
+
 서비스 연결 모니터 쿼리
 
-    NetworkMonitoring                 
-     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
-     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
-    
+```kusto
+NetworkMonitoring
+ | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+```
+
 Express 경로 모니터 쿼리: 회로 쿼리
 
-    NetworkMonitoring
-    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+```kusto
+NetworkMonitoring
+ | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+```
 
 프라이빗 피어링
 
-    NetworkMonitoring 
-     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+```kusto
+NetworkMonitoring
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+```
 
 Microsoft 피어링
 
-    NetworkMonitoring 
-     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+```kusto
+NetworkMonitoring
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+```
 
-일반 쿼리   
+일반 쿼리
 
-    NetworkMonitoring
-    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+```kusto
+NetworkMonitoring
+ | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy")
+```
 
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM은 라우터 및 서버를 개별 디바이스로 모니터링할 수 있나요?
 NPM은 원본 IP와 대상 IP 간의 기본 네트워크 홉(스위치, 라우터, 서버 등)의 IP와 호스트 이름만 식별합니다. 또한 이렇게 식별된 홉 간의 대기 시간도 식별합니다. 이러한 기본 홉을 개별적으로 모니터링하지 않습니다.
@@ -147,21 +159,27 @@ NPM은 원본 IP와 대상 IP 간의 기본 네트워크 홉(스위치, 라우�
 
 MS 피어 링 수준 정보를 보려면 로그 검색에서 아래 설명 된 쿼리를 사용 하십시오.
 
-    NetworkMonitoring 
-     | where SubType == "ERMSPeeringUtilization"
-     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
-    
+```kusto
+NetworkMonitoring
+ | where SubType == "ERMSPeeringUtilization"
+ | project CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
+```
+
 개인 피어 링 수준 정보를 보려면 로그 검색에서 아래에 설명 된 쿼리를 사용 하십시오.
 
-    NetworkMonitoring 
-     | where SubType == "ERVNetConnectionUtilization"
-     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
-  
+```kusto
+NetworkMonitoring
+ | where SubType == "ERVNetConnectionUtilization"
+ | project CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
+```
+
 회로 수준 정보를 보려면 로그 검색에서 아래에서 언급 한 쿼리를 사용 하십시오.
 
-    NetworkMonitoring 
-        | where SubType == "ERCircuitTotalUtilization"
-        | project CircuitName, BitsInPerSecond, BitsOutPerSecond
+```kusto
+NetworkMonitoring
+ | where SubType == "ERCircuitTotalUtilization"
+ | project CircuitName, BitsInPerSecond, BitsOutPerSecond
+```
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM의 성능 모니터에 대해 지원되는 하위 지역은 어느 지역인가요?
 NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
@@ -190,10 +208,12 @@ NPM는 원본과 대상 사이의 종단 간 대기 시간이 임계값을 초�
 
 경로를 찾는 샘플 쿼리가 비정상 상태입니다.
 
-    NetworkMonitoring 
-    | where ( SubType == "ExpressRoutePath")
-    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
-    | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+```kusto
+NetworkMonitoring
+ | where ( SubType == "ExpressRoutePath")
+ | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+ | project SubType, LossHealthState, LatencyHealthState, MedianLatency
+```
 
 ### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>테스트가 비정상으로 표시 되는 이유는 무엇 인가요? 
 NPM는 종단 간 손실, 대기 시간 및 토폴로지를 서로 다른 간격으로 모니터링 합니다. 손실 및 대기 시간은 5 초 마다 한 번씩 측정 되 고 3 분 마다 (성능 모니터 및 Express 경로 모니터의 경우), 토폴로지는 10 분 마다 한 번씩 경로 추적을 사용 하 여 계산 됩니다. 예를 들어 3:44과 4:04 사이에서 토폴로지는 세 번 (3:44, 3:54, 4:04) 업데이트 될 수 있지만 손실 및 대기 시간은 7 회 (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02)로 업데이트 됩니다. 3:54에 생성 된 토폴로지는 3:56, 3:59 및 4:02에서 계산 되는 손실 및 대기 시간에 대해 렌더링 됩니다. ER 회로가 3:59에 비정상 상태임을 알리는 경고가 표시 되는 경우를 가정 합니다. NPM에 로그온 하 여 토폴로지 시간을 3:59로 설정 해 봅니다. NPM는 3:54에 생성 된 토폴로지를 렌더링 합니다. 네트워크의 마지막 알려진 토폴로지를 이해 하려면 TimeProcessed 된 필드 (손실 및 대기 시간을 계산한 시간) 및 TracerouteCompletedTime (토폴로지가 계산 된 시간)을 비교 합니다. 

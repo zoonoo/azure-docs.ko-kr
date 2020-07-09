@@ -1,18 +1,16 @@
 ---
 title: 작업 API 검색-Azure Marketplace
 description: API를 통해 제품의 모든 작업을 검색 하거나 지정 된 operationId에 대해 특정 작업을 가져옵니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: bf980f7c60cd43a4a37a481b96dce737a91d03aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0611cb3cbc24e2b105cdef134e30a7c2fbdd445
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515953"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113465"
 ---
 # <a name="retrieve-operations"></a>작업 검색
 

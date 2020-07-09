@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670596"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112003"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor의 사용자 지정 로그
 
@@ -73,7 +74,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| 설명 | 경로 |
+| Description | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |
@@ -127,11 +128,13 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>사용자 지정 로그 추가 샘플 연습
 다음 섹션은 사용자 지정 로그를 만드는 예제를 안내합니다.  수집되는 샘플 로그에는 각 줄에 하나의 항목이 포함되며, 각 줄은 날짜와 시간으로 시작되고 코드, 상태 및 메시지에 대해 쉼표로 구분된 필드가 있습니다.  몇 가지 샘플 항목이 아래에 표시되어 있습니다.
 
-    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2019-08-27 01:38:22 302,Error,Application could not connect to database
-    2019-08-27 01:31:34 303,Error,Application lost connection to database
+```output
+2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+2019-08-27 01:38:22 302,Error,Application could not connect to database
+2019-08-27 01:31:34 303,Error,Application lost connection to database
+```
 
 ### <a name="upload-and-parse-a-sample-log"></a>샘플 로그 업로드 및 구문 분석
 로그 파일 중 하나를 제공하며 수집할 이벤트를 볼 수 있습니다.  이 경우 New Line(새 줄)은 충분한 구분 기호입니다.  하지만 로그의 단일 항목이 여러 줄에 걸치는 경우 타임스탬프 구분 기호가 사용되어야 합니다.

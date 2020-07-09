@@ -1,19 +1,14 @@
 ---
 title: Azure Event Grid 메트릭 보기 및 경고 설정
 description: 이 문서에서는 Azure Portal를 사용 하 여 토픽 및 구독에 대 한 메트릭을 확인 하 고이에 대 Azure Event Grid 한 경고를 만드는 방법을 설명 합니다.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 75311675ae24f4836ed8f1adb8a7d9802b4d7f0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390604"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114886"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Event Grid 메시지 배달 모니터링 
 이 문서에서는 포털을 사용 하 여 토픽 및 구독 Event Grid에 대 한 메트릭을 확인 하 고이에 대 한 경고를 만드는 방법을 설명 합니다. 

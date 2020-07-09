@@ -1,22 +1,19 @@
 ---
 title: Azure Event Grid-토픽 또는 도메인의 진단 로그를 사용 하도록 설정
 description: 이 문서에서는 Azure event grid 토픽에 대해 진단 로그를 사용 하도록 설정 하는 방법에 대 한 단계별 지침을 제공 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.author: spelluru
-ms.openlocfilehash: 253d1fb933c32735f68cf6a2d471a7687caf5301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670171"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114706"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Azure event grid 토픽 또는 도메인에 대 한 진단 로그 사용
 진단 설정을 통해 사용자는 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역 중 하나에서 **게시 및 배달 오류** 로그를 캡처하고 볼 수 Event Grid 있습니다. 이 문서에서는 Event Grid 항목에서 이러한 설정을 사용 하도록 설정 하는 단계별 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 프로 비전 된 event grid 항목
 - 진단 로그를 캡처하기 위해 프로 비전 된 대상입니다. Event grid 토픽과 동일한 위치에 있는 다음 대상 중 하나를 사용할 수 있습니다.

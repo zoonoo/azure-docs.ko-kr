@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid의 이벤트 도메인
 description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 비즈니스 조직, 고객 또는 애플리케이션에 대한 사용자 지정 이벤트의 흐름을 관리하는 방법을 설명합니다.
-services: event-grid
-author: femila
-ms.service: event-grid
-ms.author: femila
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559504"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114366"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 

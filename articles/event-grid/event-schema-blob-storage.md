@@ -1,18 +1,14 @@
 ---
 title: Event Grid 원본으로 Azure Blob Storage
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트에 제공되는 속성을 설명합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: ec31d8b0b2cc672b65d0c25a4a902befd8693d41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781007"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113754"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Blob Storage
 
@@ -28,7 +24,7 @@ ms.locfileid: "84781007"
 
 이러한 이벤트는 클라이언트가 Blob REST Api를 호출 하 여 blob을 만들거나 바꾸거나 삭제할 때 트리거됩니다.
 
- |이벤트 이름 |설명|
+ |이벤트 이름 |Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Blob을 만들거나 바꿀 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `PutBlob` `PutBlockList` `CopyBlob` Blob REST API에서 사용할 수 있는, 또는 작업을 사용 하는 경우 트리거됩니다.   |
  |**Microsoft.Storage.BlobDeleted** |Blob이 삭제 될 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `DeleteBlob` Blob REST API에서 사용할 수 있는 작업을 호출 하는 경우 트리거됩니다. |
@@ -40,7 +36,7 @@ ms.locfileid: "84781007"
 
 이러한 이벤트는 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하 고 클라이언트는 Azure Data Lake Storage Gen2 REST Api를 호출 하는 경우 트리거됩니다. Bout Azure Data Lake Storage Gen2 자세한 내용은 [Azure Data Lake Storage Gen2 소개](../storage/blobs/data-lake-storage-introduction.md)를 참조 하세요.
 
-|이벤트 이름|설명|
+|이벤트 이름|Description|
 |----------|-----------|
 |**Microsoft.Storage.BlobCreated** | Blob을 만들거나 바꿀 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `CreateFile` `FlushWithClose` Azure Data Lake Storage Gen2 REST API에서 사용할 수 있는 및 작업을 사용 하는 경우 트리거됩니다. |
 |**Microsoft.Storage.BlobDeleted** |Blob이 삭제 될 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `DeleteFile` Azure Data Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 호출 하는 경우에도 트리거됩니다. |
@@ -292,34 +288,34 @@ Blob 저장소 계정에 계층적 네임 스페이스가 있는 경우 데이�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
 | 데이터 | object | Blob Storage 이벤트 데이터입니다. |
-| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
-| api | string | 이벤트를 트리거하는 작업입니다. |
-| clientRequestId | string | 저장소 API 작업에 대 한 클라이언트 제공 요청 id입니다. 이 id는 로그의 "클라이언트-요청 id" 필드를 사용 하 여 Azure Storage 진단 로그와 상호 연결 하는 데 사용할 수 있으며, "x-y-id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
+| api | 문자열 | 이벤트를 트리거하는 작업입니다. |
+| clientRequestId | 문자열 | 저장소 API 작업에 대 한 클라이언트 제공 요청 id입니다. 이 id는 로그의 "클라이언트-요청 id" 필드를 사용 하 여 Azure Storage 진단 로그와 상호 연결 하는 데 사용할 수 있으며, "x-y-id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | requestId | 문자열 | 스토리지 API 작업에 대한 서비스에서 생성된 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
-| eTag | string | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
-| contentType | string | Blob에 대해 지정된 콘텐츠 형식입니다. |
+| eTag | 문자열 | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
+| contentType | 문자열 | Blob에 대해 지정된 콘텐츠 형식입니다. |
 | contentLength | integer | Blob의 크기(바이트)입니다. |
-| blobType | string | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
+| blobType | 문자열 | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
 | contentOffset | number | 이벤트 트리거 응용 프로그램에서 파일에 쓰기를 완료 한 시점에 수행 된 쓰기 작업의 오프셋 (바이트)입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
-| destinationUrl |string | 작업이 완료 된 후 존재 하는 파일의 url입니다. 예를 들어 파일의 이름을 바꾸면 `destinationUrl` 속성에 새 파일 이름의 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
-| sourceUrl |string | 작업 이전에 존재 하는 파일의 url입니다. 예를 들어 파일의 이름을 바꾸면 `sourceUrl` 이름 바꾸기 작업 이전의 원본 파일 이름 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
-| url | string | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 * \<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\> *입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 * \<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *입니다. |
-| recursive | string | `True`모든 자식 디렉터리에서 작업을 수행 하려면 그렇지 않으면 `False` 입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
-| sequencer | string | 특정 Blob 이름에 대한 이벤트의 논리적 순서를 나타내는 불투명 문자열 값입니다.  사용자는 표준 문자열 비교를 사용하여 동일한 Blob 이름에 대한 두 이벤트의 상대적 순서를 이해할 수 있습니다. |
+| destinationUrl |문자열 | 작업이 완료 된 후 존재 하는 파일의 url입니다. 예를 들어 파일의 이름을 바꾸면 `destinationUrl` 속성에 새 파일 이름의 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
+| sourceUrl |문자열 | 작업 이전에 존재 하는 파일의 url입니다. 예를 들어 파일의 이름을 바꾸면 `sourceUrl` 이름 바꾸기 작업 이전의 원본 파일 이름 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
+| url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 * \<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\> *입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 * \<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *입니다. |
+| recursive | 문자열 | `True`모든 자식 디렉터리에서 작업을 수행 하려면 그렇지 않으면 `False` 입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
+| sequencer | 문자열 | 특정 Blob 이름에 대한 이벤트의 논리적 순서를 나타내는 불투명 문자열 값입니다.  사용자는 표준 문자열 비교를 사용하여 동일한 Blob 이름에 대한 두 이벤트의 상대적 순서를 이해할 수 있습니다. |
 | storageDiagnostics | 개체 | 경우에 따라 Azure Storage 서비스에 의해 포함되는 진단 데이터입니다. 포함될 경우, 이벤트 소비자는 무시해야 합니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법

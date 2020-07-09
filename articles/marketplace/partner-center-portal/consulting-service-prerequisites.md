@@ -1,18 +1,18 @@
 ---
 title: Azure 및 Dynamics 365 컨설팅 서비스 필수 구성 요소
 description: Microsoft 상업적 marketplace의 Azure 또는 Dynamics 365 컨설팅 서비스 제품에 대 한 필수 구성 요소
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/08/2020
-ms.author: mingshen
-ms.openlocfilehash: 42bf538ebb78b6b0786a985ed6a32a312db44992
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ef840985053289858f5145bafa4e51ad84734b66
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964399"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111442"
 ---
 # <a name="consulting-service-prerequisites"></a>컨설팅 서비스 필수 구성 요소
 

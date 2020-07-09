@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid의 사용자 지정 항목
 description: Azure Event Grid의 사용자 지정 항목에 대해 설명 합니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 166a48d74d32c8b0a3a59310e693ea96ada29116
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394359"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113788"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Azure Event Grid의 사용자 지정 항목
 Event grid 토픽은 원본에서 이벤트를 전송 하는 끝점을 제공 합니다. 게시자는 Event Grid 항목을 만들고 이벤트 원본에 항목이 하나 필요한지 또는 둘 이상 필요한지 여부를 결정합니다. 항목은 관련 이벤트의 컬렉션에 사용됩니다. 특정 이벤트 형식에 응답하려면 구독자가 구독할 토픽을 결정합니다.

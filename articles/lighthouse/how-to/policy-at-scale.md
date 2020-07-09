@@ -1,17 +1,18 @@
 ---
 title: 대규모로 위임된 구독에 Azure Policy 배포
-description: Azure 위임 리소스 관리를 통해 여러 테넌트에서 정책 정의 및 정책 할당을 배포하는 방법을 알아봅니다.
-ms.date: 11/8/2019
+description: Azure Lighthouse를 사용 하 여 여러 테 넌 트에 정책 정의 및 정책 할당을 배포 하는 방법을 알아봅니다.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e3af1728b4927874fa599bad256798f39721e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636532"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111799"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포
 
-서비스 공급자는 Azure 위임 리소스 관리를 위해 여러 고객 테넌트를 온보딩했을 수 있습니다. [Azure Lighthouse](../overview.md)를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
+서비스 공급자로 서 [Azure Lighthouse](../overview.md)에 여러 고객 테 넌 트를 등록 했을 수 있습니다. Azure Lighthouse를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
 
 이 항목에서는 [Azure Policy](../../governance/policy/index.yml)를 사용하여 PowerShell 명령을 통해 여러 테넌트에서 정책 정의 및 정책 할당을 배포하는 방법을 보여 줍니다. 이 예제에서는 정책 정의를 통해 HTTPS 트래픽만 허용하여 스토리지 계정을 보호합니다.
 

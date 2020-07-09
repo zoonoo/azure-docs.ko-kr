@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에서 Azure 가상 머신 제품 만들기
 description: 필요한 SKU를 사용하여 Azure Marketplace에서 가상 머신 제품을 만드는 방법을 알아봅니다.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: 499c7e9e4ca4ab5db02c566830738f0ceb07e40d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984653"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110983"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -180,7 +180,7 @@ ms.locfileid: "85984653"
 
 ### <a name="marketplace-details"></a>마켓플레이스 세부 정보
 
-#### <a name="name"></a>이름
+#### <a name="name"></a>Name
 
 여기에 입력한 이름은 고객에게 제품 목록의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭** 상자에 입력한 이름으로 자동으로 채워집니다. 이 이름은 나중에 변경할 수 있습니다. 이름은 다음과 같습니다.
 
@@ -535,7 +535,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
-7. 설명
+7. Description
 8. 유용한 링크
 9. 스크린샷/비디오
 
@@ -566,8 +566,8 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. 이름
-2. 설명
+1. Name
+2. Description
 3. 유용한 링크
 4. 스크린샷/비디오
 

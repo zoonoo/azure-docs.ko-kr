@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1d8275d11b845df43238dce82beabe89d6464799
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0272d53c5fc4c565baf5d7105bd6e1b4a0ef535
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944698"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114604"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -26,9 +26,11 @@ ms.locfileid: "84944698"
 
 컨테이너 간에 파일을 복사하려면 AzCopy를 사용할 수 있습니다. 다음 예제를 참조하십시오.
 
-    AzCopy /Source:https://xxx.blob.core.windows.net/xxx
-    /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
-    /S
+```azurepowershell-interactive
+AzCopy /Source:https://xxx.blob.core.windows.net/xxx
+/Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
+/S
+```
 
 AzCopy는 [Blob API 복사](https://docs.microsoft.com/rest/api/storageservices/copy-blob)를 사용하여 컨테이너의 각 파일을 복사합니다.  
 
@@ -54,11 +56,15 @@ Azure CLI를 사용할 수 있습니다.
 
 - 단일 Blob을 다운로드합니다.
 
-      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```azurecli-interactive
+    azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```
 
 - 단일 Blob을 업로드 합니다.
 
-      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```azurecli-interactive
+    azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```
 
 **스토리지 계정 간에 Blob을 마이그레이션하는 방법**
 
@@ -160,15 +166,19 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
     스토리지 계정의 전체 디스크를 복사하려면 다음을 수행합니다.
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     하나의 디스크만 복사하려면 **패턴**에서 해당 디스크의 이름을 제공합니다
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```
 
 작업을 완료하는 데 몇 시간이 걸릴 수 있습니다.
 
@@ -190,9 +200,11 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 3.  다음 명령을 실행하여 컨테이너를 이동합니다. 텍스트를 실제 값으로 바꾸어야 합니다.   
 
-            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-            /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     - `/Source`: 원본 스토리지 계정의 URI를 제공합니다(컨테이너까지).  
     - `/Dest`: 대상 스토리지 계정의 URI를 제공합니다(컨테이너까지).  

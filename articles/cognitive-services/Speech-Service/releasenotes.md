@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086303"
+ms.locfileid: "86112989"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -24,7 +24,7 @@ ms.locfileid: "86086303"
 
 ### <a name="new-features"></a>새로운 기능
 
-* **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 (이집트), Zariyah (아랍어), Salma (스페인), 카탈로니아어 (스페인), Christel (덴마크), Neerja (영어 (인도)) Swara (인도), 네덜란드어 (네덜란드), Colette의 Zofia (폴란드어), 폴란드어 (포르투갈), 폴란드어 (포르투갈), Dariya in 스웨덴어 (포르투갈), Hillevi in 스웨덴어 (스웨덴), Achara in 태국어 (노르웨이), 노르웨이어 (복말), HiuGaai in 중국어 (홍콩), HsiaoYu in 중국어 (대만). [지원 되](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)는 모든 언어를 확인 합니다.  
+* **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), Swara에서 `hi-IN` 힌디어 (인도), Colette in 네덜란드어 (폴란드어 `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` ), Zofia In 폴란드어 (폴란드어), Fernanda in 폴란드어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (스웨덴어), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어의 HsiaoYu (대만 북경어). [지원 되](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)는 모든 언어를 확인 합니다.  
 
 * **사용자 환경을 단순화 하기 위해 학습 흐름을 사용한 사용자 지정 음성, 간소화 된 음성 테스트**: 새로운 테스트 기능을 사용 하면 각 음성이 일반 및 음성 도우미 시나리오를 다루는 각 언어에 대해 최적화 된 미리 정의 된 테스트 집합으로 자동으로 테스트 됩니다. 이러한 테스트 집합은 신중 하 게 선택 하 고 테스트 하 여 일반적인 사용 사례와 언어의 음소을 포함 합니다. 뿐만 아니라 사용자가 모델을 학습할 때 자체 테스트 스크립트를 업로드 하도록 선택할 수 있습니다.
 
@@ -46,23 +46,23 @@ ms.locfileid: "86086303"
 
 * 더 높은 충실도 및 짧은 대기 시간을 위해에서 TTS vocoder 향상 되었습니다.
 
-    * 이탈리아어로 Elsa 업데이트 된 새로운 vocoder로 업데이트 되었습니다 .이는 + 0.464 CMOS (비교 점수 평균)에 게 음성 품질, 40% 더 빠른 통합 및 30%의 첫 번째 바이트 대기 시간을 얻습니다. 
-    * 일반 도메인에 대해 + 0148 CMOS를 사용 하 고, newscast 스타일의 경우 + 0.348, lyrical 스타일의 경우 + 0.195을 사용 하 여 중국어 Xiaoxiao를 새 vocoder로 업데이트 했습니다. 
+    * Elsa를 `it-IT` 새로운 vocoder로 업데이트 했습니다 .이는 + 0.464 CMOS (비교 평균 인)에 게 음성 품질, 40% 더 빠른 통합 및 30%의 첫 번째 바이트 대기 시간을 얻습니다. 
+    * `zh-CN`일반 도메인에 대해 + 0148 CMOS를 사용 하 고, newscast 스타일의 경우 + 0.348, lyrical 스타일의 경우 + 0.195로 Xiaoxiao을 새 vocoder로 업데이트 했습니다. 
 
 * `de-DE` `ja-JP` TTS 출력 보다 자연스럽 게 보이도록 업데이트 된 및 음성 모델
     
-    * 최신 prosody 모델링 방법으로 독일어의 Katja 업데이트 되었습니다. MOS (평균 평가 점수) 이득은 + 0.13입니다. 
-    * 새 피치 강조 prosody 모델을 사용 하 여 일본어로 Nanami를 업데이트 했습니다. MOS (평균 의견 점수) 이득은 + 0.19입니다.  
+    * `de-DE`최신 prosody 모델링 방법으로 Katja이 업데이트 되었습니다. MOS (평균 의견 점수) 이득은 + 0.13입니다. 
+    * `ja-JP`새 피치 강조 prosody 모델을 사용 하 여 Nanami을 업데이트 했습니다. MOS (평균 인지 점수) 이득은 + 0.19입니다.  
 
 * 5 개 언어로 된 단어 수준 음성 정확도 향상
 
     | 언어 | 음성 오류 감소 |
     |---|---|
-    | en-GB | 51% |
-    | en-US | 17% |
-    | pt-BR | 39% |
-    | pt-PT | 77% |
-    | id-ID | 46% |
+    | `en-GB` | 51% |
+    | `ko-KR` | 17% |
+    | `pt-BR` | 39% |
+    | `pt-PT` | 77% |
+    | `id-ID` | 46% |
 
 ### <a name="bug-fixes"></a>버그 수정
 
@@ -71,8 +71,8 @@ ms.locfileid: "86086303"
      
     | 언어 | 입력 | 개선 후의 기능 |
     |---|---|---|
-    | es-MX | $1.58 | un 페소 cincuenta y ocho centavos |
-    | es-ES | $1.58 | un dólar cincuenta y ocho centavos |
+    | `es-MX` | $1.58 | un 페소 cincuenta y ocho centavos |
+    | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
 
     * ,,,,, 로캘에서 음수 통화 (예: "-€325")를 지원 `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` 합니다.
 

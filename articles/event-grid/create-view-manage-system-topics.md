@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid에서 시스템 항목 만들기, 보기 및 관리 (포털)
 description: 이 문서에서는 Azure Portal를 사용 하 여 기존 시스템 항목을 보고 Azure Event Grid 시스템 항목을 만드는 방법을 보여 줍니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457238"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115114"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Azure Portal에서 Event Grid 시스템 항목을 만들고, 확인 하 고, 관리 합니다.
 이 문서에서는 Azure Portal 사용 하 여 시스템 항목을 만들고 관리 하는 방법을 보여 줍니다. 시스템 항목의 개요는 [시스템 항목](system-topics.md)을 참조 하십시오.

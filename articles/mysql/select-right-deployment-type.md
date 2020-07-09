@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 50bcd42189b1bcc945d726277975892f07f1baa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 827c1954456ee7943c48525919ed411836f610aa
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255543"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114026"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절 한 MySQL Server 옵션을 선택 합니다.
 
@@ -30,7 +31,7 @@ Azure를 사용 하면 호스트 된 가상 머신 IaaS (infrastructure as a ser
 
 이러한 옵션들의 주요 차이점은 다음 표에 나와 있습니다.
 
-|            | Azure Database for MySQL | Azure Vm의 MySQL    |
+| attribute          | Azure Database for MySQL | Azure Vm의 MySQL    |
 |:-------------------|:-----------------------------|:--------------------|
 | SLA (서비스 수준 계약)                | 99.99% 가용성의 SLA를 제공 합니다.| 동일한 가용성 집합에서 두 개 이상의 인스턴스를 사용 하 여 최대 99.95%의 가용성을 제공 합니다.<br/><br/>premium storage를 사용 하는 단일 인스턴스 VM의 99.9% 가용성.<br/><br/>99.99% 여러 가용성 집합에 여러 인스턴스가 있는 가용성 영역를 사용 합니다.<br/><br/>[VIRTUAL MACHINES SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 참조 하세요. |
 | 운영 체제 패치        | 자동  | 고객이 관리 |

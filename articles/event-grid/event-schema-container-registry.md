@@ -1,19 +1,14 @@
 ---
 title: Event Grid 원본으로 Azure Container Registry
 description: 를 사용 하 여 Container Registry 이벤트에 제공 되는 속성을 설명 Azure Event Grid
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393356"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113720"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Container Registry
 

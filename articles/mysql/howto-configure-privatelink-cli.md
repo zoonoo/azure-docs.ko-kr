@@ -4,13 +4,14 @@ description: Azure CLI에서 Azure Database for MySQL에 대 한 개인 링크�
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: d99cb634278e141bc156357feb686198f713b198
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78634ee7236c8bc0d256bac7eea521e699c0c39d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673652"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113278"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>CLI를 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
 
@@ -19,7 +20,7 @@ ms.locfileid: "84673652"
 > [!NOTE]
 > 이 기능은 Azure Database for MySQL 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -167,7 +168,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
     | Hostname | *Mydemoserver.privatelink.mysql.database.azure.com* 선택 |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 488f273336da05738609333f911fe3a90ba59496
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186427"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111986"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 애플리케이션의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
@@ -24,26 +24,30 @@ ms.locfileid: "82186427"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-         <Node "oms">
-         URL "127.0.0.1:26000/oms.collectd"
-         Format "JSON"
-         StoreRates true
-         </Node>
-    </Plugin>
+<Plugin write_http>
+   <Node "oms">
+      URL "127.0.0.1:26000/oms.collectd"
+      Format "JSON"
+      StoreRates true
+   </Node>
+</Plugin>
+```
 
 또한 5.5 이전의 collectD 버전을 사용하는 경우 다음 구성을 대신 사용합니다.
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-       <URL "127.0.0.1:26000/oms.collectd">
-        Format "JSON"
-         StoreRates true
-       </URL>
-    </Plugin>
+<Plugin write_http>
+   <URL "127.0.0.1:26000/oms.collectd">
+      Format "JSON"
+      StoreRates true
+   </URL>
+</Plugin>
+```
 
 CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포트를 통해 성능 메트릭 데이터를 Linux용 Log Analytics 에이전트에 보냅니다. 
 
@@ -52,15 +56,17 @@ CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포
 
 또한 Linux용 Log Analytics 에이전트는 CollectD 메트릭에 대해 26000 포트에서 수신한 다음, Azure Monitor 스키마 메트릭으로 변환합니다. 다음은 Linux용 Log Analytics 에이전트 구성 `collectd.conf`입니다.
 
-    <source>
-      type http
-      port 26000
-      bind 127.0.0.1
-    </source>
+```xml
+<source>
+   type http
+   port 26000
+   bind 127.0.0.1
+</source>
 
-    <filter oms.collectd>
-      type filter_collectd
-    </filter>
+<filter oms.collectd>
+   type filter_collectd
+</filter>
+```
 
 > [!NOTE]
 > 기본적으로 CollectD는 10 초 [간격](https://collectd.org/wiki/index.php/Interval)으로 값 읽기로 설정 됩니다. Azure Monitor 로그에 전송 되는 데이터 볼륨에 직접 영향을 주므로 CollectD 구성 내에서이 간격을 조정 하 여 Azure Monitor 로그에 대 한 모니터링 요구 사항과 관련 비용 및 사용량 사이의 균형을 유지 해야 할 수 있습니다.
@@ -83,11 +89,15 @@ Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단�
 
     CollectD config 디렉터리가 /etc/collectd.d/에 있는 경우:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```
 
     CollectD config 디렉터리가 /etc/collectd/collectd.conf.d/에 있는 경우:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```
 
     >[!NOTE]
     >5.5 이전의 CollectD 버전의 경우 위와 같이 `oms.conf`에서 태그를 수정해야 합니다.
@@ -95,13 +105,17 @@ Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단�
 
 2. collectd.conf를 원하는 작업 영역의 omsagent 구성 디렉터리에 복사합니다.
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
-        sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
+    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```
 
 3. 다음 명령을 사용하여 CollectD 및 Linux용 Log Analytics 에이전트를 다시 시작합니다.
 
-        sudo service collectd restart
-        sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```console
+    sudo service collectd restart
+    sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>CollectD 메트릭을 Azure Monitor 스키마로 변환
 Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭과 CollectD에서 수집된 새 메트릭 간에 친숙한 모델을 유지하기 위해 다음 스키마 매핑이 사용됩니다.

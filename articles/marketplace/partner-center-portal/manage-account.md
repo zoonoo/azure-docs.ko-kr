@@ -1,18 +1,18 @@
 ---
 title: Microsoft 파트너 센터에서 상업용 Marketplace 계정을 관리하는 방법
 description: Microsoft 파트너 센터에서 상업용 Marketplace 계정을 관리하는 방법을 알아봅니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dbadee427abfa82fb32ebb7db85adf627dd5e0a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 90ce9e48515213460fdb3db4fed57fd6f5d2688a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964841"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112853"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 

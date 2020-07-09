@@ -1,13 +1,14 @@
 ---
 title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
-ms.date: 09/25/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f9a7aa81772a1edda5fd1915918b547a3066455
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749217"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114145"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
@@ -17,7 +18,7 @@ ms.locfileid: "75749217"
 
 대부분의 조직에서는 단일 Azure AD 테넌트를 사용하여 더 쉽게 관리할 수 있습니다. 모든 리소스가 한 테넌트 내에 있으면 해당 테넌트 내의 지정된 사용자, 사용자 그룹 또는 서비스 주체가 관리 작업을 중앙 집중식으로 수행할 수 있습니다. 가능한 경우에는 언제든지 하나의 테넌트만 조직에 사용하는 것이 좋습니다.
 
-이와 동시에 조직에서 여러 Azure AD 테넌트를 유지 관리해야 하는 상황이 있을 수 있습니다. 경우에 따라 획득이 이루어지고 장기 테넌트 통합 전략을 정의하는 데 시간이 걸리는 경우와 같이 일시적인 상황일 수 있습니다. 또한 조직에서는 완전히 독립적인 자회사, 지리적 또는 법적 요구 사항 등으로 인해 여러 테넌트를 지속적으로 유지 관리해야 할 수도 있습니다. 다중 테넌트 아키텍처가 필요한 경우 Azure 위임 리소스 관리를 사용하여 관리 작업을 중앙 집중화하고 간소화할 수 있습니다. [Azure 위임 리소스 관리](azure-delegated-resource-management.md)를 위해 여러 테넌트의 구독을 온보딩할 수 있으므로 관리 테넌트의 지정된 사용자는 [테넌트 간 관리 기능](cross-tenant-management-experience.md)을 중앙 집중식 확장 가능한 방식으로 수행할 수 있습니다.
+이와 동시에 조직에서 여러 Azure AD 테넌트를 유지 관리해야 하는 상황이 있을 수 있습니다. 경우에 따라 획득이 이루어지고 장기 테넌트 통합 전략을 정의하는 데 시간이 걸리는 경우와 같이 일시적인 상황일 수 있습니다. 또한 조직에서는 완전히 독립적인 자회사, 지리적 또는 법적 요구 사항 등으로 인해 여러 테넌트를 지속적으로 유지 관리해야 할 수도 있습니다. 다중 테 넌 트 아키텍처가 필요한 경우 Azure Lighthouse를 사용 하 여 관리 작업을 중앙 집중화 하 고 간소화할 수 있습니다. [Azure 위임 리소스 관리](azure-delegated-resource-management.md)를 위해 여러 테넌트의 구독을 온보딩할 수 있으므로 관리 테넌트의 지정된 사용자는 [테넌트 간 관리 기능](cross-tenant-management-experience.md)을 중앙 집중식 확장 가능한 방식으로 수행할 수 있습니다.
 
 ## <a name="tenant-management-architecture"></a>테넌트 관리 아키텍처
 
@@ -31,17 +32,17 @@ ms.locfileid: "75749217"
 
 ## <a name="security-and-access-considerations"></a>보안 및 액세스 고려 사항
 
-대부분의 엔터프라이즈 시나리오에서는 구독 내의 특정 리소스 그룹만 위임할 수도 있지만 Azure 위임 리소스 관리에 대한 전체 구독을 위임하는 것이 좋습니다.
+대부분의 엔터프라이즈 시나리오에서는 구독 내의 특정 리소스 그룹만 위임할 수 있지만 Azure Lighthouse에 전체 구독을 위임 하는 것이 좋습니다.
 
 어떤 방식이든 [리소스에 액세스할 수 있는 사용자를 정의할 때는 최소 권한의 원칙을 따라야 합니다](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). 이렇게 하면 필요한 작업을 수행하는 데 필요한 권한만 사용자에게 부여하고 실수로 인한 오류가 발생할 가능성을 줄일 수 있습니다.
 
-Azure Lighthouse 및 Azure 위임 리소스 관리는 물리적으로 데이터 또는 리소스를 이동하는 것이 아니라 관리 테넌트와 관리형 테넌트 간의 논리적 연결만 제공합니다. 또한 액세스는 항상 관리 테넌트에서 관리형 테넌트로의 한 방향으로만 진행됩니다.  관리 테넌트의 사용자와 그룹은 관리형 테넌트 리소스에 대한 관리 작업을 수행할 때 다단계 인증을 계속 사용해야 합니다.
+Azure Lighthouse는 데이터 또는 리소스를 물리적으로 이동 하는 대신 관리 테 넌 트와 관리 되는 테 넌 트 간의 논리적 링크만 제공 합니다. 또한 액세스는 항상 관리 테넌트에서 관리형 테넌트로의 한 방향으로만 진행됩니다.  관리 테넌트의 사용자와 그룹은 관리형 테넌트 리소스에 대한 관리 작업을 수행할 때 다단계 인증을 계속 사용해야 합니다.
 
 내부 또는 외부 거버넌스 및 규정 준수 가드 레일을 사용하는 엔터프라이즈는 투명성 요구 사항을 충족하기 위해 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)를 사용할 수 있습니다. 엔터프라이즈 테넌트에서 관리 및 관리형 테넌트 관계를 설정한 경우 각 테넌트의 사용자는 기록된 활동을 확인하여 다른 테넌트의 사용자가 수행한 작업을 모니터링하고 볼 수 있습니다.
 
 ## <a name="onboarding-process-considerations"></a>온보딩 프로세스 고려 사항
 
-구독(또는 구독 내의 리소스 그룹)은 Azure Resource Manager 템플릿을 배포하거나 Azure Marketplace에 게시된 공개 및 비공개 관리 서비스 제안을 통해 Azure 위임 리소스 관리에 온보딩할 수 있습니다.
+Azure Resource Manager 템플릿을 배포 하거나 개인적으로 또는 공개적으로 Azure Marketplace에 게시 된 관리 서비스 제공을 통해 구독 또는 구독 내의 리소스 그룹을 Azure Lighthouse로 등록 수 있습니다.
 
 엔터프라이즈 사용자는 일반적으로 엔터프라이즈 테넌트에 직접 액세스할 수 있으며 관리 제안을 마케팅하거나 홍보할 필요가 없으므로 일반적으로 Azure Resource Manager 템플릿을 사용하여 직접 배포하는 것이 더 빠르고 간단합니다. [온보딩 지침](../how-to/onboard-customer.md)에서 서비스 공급자 및 고객을 참조하지만, 엔터프라이즈도 동일한 프로세스를 사용할 수 있습니다.
 

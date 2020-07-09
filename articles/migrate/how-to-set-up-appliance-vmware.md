@@ -3,11 +3,12 @@ title: VMware에 대 한 Azure Migrate 어플라이언스 설정
 description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81538259"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112819"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -46,7 +47,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
 2. 다음 명령을 실행 하 여 OVA에 대 한 해시를 생성 합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)일치 해야 합니다.
+3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](./tutorial-assess-vmware.md#verify-security)일치 해야 합니다.
 
 
 
@@ -114,7 +115,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
-애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 대한 액세스 권한이 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware).
+애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 대한 액세스 권한이 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](./migrate-support-matrix-vmware.md).
 
 > [!NOTE]
 > 이 입력은 선택 사항이며 애플리케이션 검색 및 에이전트 없는 종속성 시각화를 사용하도록 설정하는 데 필요합니다.

@@ -1,18 +1,14 @@
 ---
 title: CLI를 사용 하 여 Azure Event Grid 시스템 항목 만들기, 보기 및 관리
 description: 이 문서에서는 Azure CLI 사용 하 여 시스템 항목을 만들고, 확인 하 고, 삭제 하는 방법을 보여 줍니다.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: d9ba83d12e73b3ebceaee3167cdcf7f27922b686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885250"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115046"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Azure CLI을 사용 하 여 Event Grid 시스템 항목 만들기, 보기 및 관리
 이 문서에서는 Azure CLI를 사용 하 여 시스템 항목을 만들고 관리 하는 방법을 보여 줍니다. 시스템 항목의 개요는 [시스템 항목](system-topics.md)을 참조 하십시오.

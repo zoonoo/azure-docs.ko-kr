@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Database f
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 056962483fe10e8b6558d2ca0aeb92d1ec970734
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7683d3472d382707de538874035c8448f589bf82
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831039"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110813"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버를 백업 및 복원 하는 방법
 

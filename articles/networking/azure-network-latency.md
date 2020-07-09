@@ -5,13 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: kumud
-ms.openlocfilehash: 8cf5d07bb071217a5ecafca8f351c94590291603
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0266205ea5ce618793022523ce167cbc6a615c0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994013"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114291"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Azure 네트워크 왕복 대기 시간 통계
 
@@ -21,9 +22,9 @@ Azure는 [ThousandEyes](https://thousandeyes.com)에서 수집 하는 측정, �
 
 대기 시간 측정값은 전 세계 Azure 클라우드 지역에서 호스트 되는 ThousandEyes 에이전트에서 수집 되며, 1 분 간격으로 자체적으로 네트워크 프로브를 지속적으로 보냅니다. 월간 대기 시간 통계는 해당 월에 수집 된 샘플의 평균을 계산 하 여 파생 됩니다.
 
-## <a name="april-2020-round-trip-latency-figures"></a>4 월 2020 라운드 여행 대기 시간 그림
+## <a name="june-2020-round-trip-latency-figures"></a>6 월 2020 라운드 트립 대기 시간 그림
 
-지난 30 일간 Azure 지역 간의 월별 평균 왕복 시간 (2020 년 4 월 30 일에 종료)은 다음과 같습니다. 다음 측정은 [ThousandEyes](https://thousandeyes.com)에 의해 구동 됩니다.
+지난 30 일간 Azure 지역 간의 월별 평균 왕복 시간 (2020 년 6 월 30 일에 종료)은 다음과 같습니다. 다음 측정은 [ThousandEyes](https://thousandeyes.com)에 의해 구동 됩니다.
 
 [![Azure 지역 간 대기 시간 통계](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

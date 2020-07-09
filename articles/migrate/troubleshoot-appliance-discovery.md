@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611359"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114060"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "85611359"
 
 "제공 된 매니페스트 파일이 잘못 되었습니다. 잘못 된 위치 매니페스트 항목입니다." 오류가 표시 되 면 다음을 수행 합니다.
 
-1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
+1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아보기](./tutorial-prepare-vmware.md). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
 2. 그래도 배포가 실패 하 고 VMware vSphere 클라이언트를 사용 하 여 파일을 배포 하는 경우 vSphere 웹 클라이언트를 통해 배포 해 보세요. 그래도 배포가 실패 하면 다른 웹 브라우저를 사용해 보세요.
 3. VSphere 웹 클라이언트를 사용 하 고 vCenter Server 6.5 또는 6.7에 배포 하려는 경우 ESXi 호스트에 직접 OVA를 배포 해 보세요.
    - 웹 클라이언트를 사용 하 여 (vCenter Server 대신) ESXi 호스트에 직접 연결 합니다 (https://<*호스트 IP 주소*>/uis).
@@ -40,7 +40,7 @@ ms.locfileid: "85611359"
 
 - 프록시에 필요한 경우 권한 부여 자격 증명을 제공 해야 합니다.
 - URL 기반 방화벽 프록시를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 [이러한 url](migrate-appliance.md#url-access) 을 허용 목록에 추가 합니다.
-- 가로채기 프록시를 사용 하 여 인터넷에 연결 하는 경우 [다음 단계](https://docs.microsoft.com/azure/migrate/concepts-collector)를 사용 하 여 프록시 인증서를 어플라이언스 VM으로 가져옵니다.
+- 가로채기 프록시를 사용 하 여 인터넷에 연결 하는 경우 [다음 단계](./migrate-appliance.md)를 사용 하 여 프록시 인증서를 어플라이언스 VM으로 가져옵니다.
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>어플라이언스 웹 앱에서 Azure에 로그인 할 수 없습니다.
 
@@ -64,7 +64,7 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 
 이 연결 오류가 발생 하는 경우 vCenter Server *Servername*: 9443에 연결 하지 못할 수 있습니다. 오류 세부 정보는에서 수신 대기 하는 끝점이 없음을 나타내며 `https://\*servername*.com:9443/sdk` 메시지를 수락할 수 있습니다.
 
-- 최신 버전의 어플라이언스를 실행 하 고 있는지 확인 합니다. 그렇지 않은 경우 어플라이언스를 [최신 버전](https://docs.microsoft.com/azure/migrate/concepts-collector)으로 업그레이드 하세요.
+- 최신 버전의 어플라이언스를 실행 하 고 있는지 확인 합니다. 그렇지 않은 경우 어플라이언스를 [최신 버전](./migrate-appliance.md)으로 업그레이드 하세요.
 - 최신 버전에서 문제가 계속 발생 하는 경우 기기가 지정 된 vCenter Server 이름을 확인할 수 없거나 지정 된 포트가 잘못 되었을 수 있습니다. 기본적으로 포트를 지정 하지 않으면 수집기가 포트 번호 443에 연결을 시도 합니다.
 
     1. 어플라이언스에서 *Servername*.com을 Ping 합니다.
@@ -77,10 +77,10 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 
 - 오류 60052, "어플라이언스를 Azure Migrate 프로젝트에 성공적으로 등록 하지 못할 수 있습니다."는 어플라이언스를 등록 하는 데 사용 된 Azure 계정에 권한이 부족 한 경우 발생 합니다.
     - 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
-    - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) .
+    - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](./migrate-appliance.md#appliance---vmware) .
 - 오류 60039, "어플라이언스를 등록 하는 데 사용 된 Azure Migrate 프로젝트를 찾을 수 없어 등록이 실패 하는 경우" 기기가 Azure Migrate 프로젝트에 성공적으로 등록 되지 않을 수 있습니다. "가 발생할 수 있습니다.
     - Azure Portal에서 프로젝트가 리소스 그룹에 있는지 여부를 확인 합니다.
-    - 프로젝트가 존재 하지 않는 경우 리소스 그룹에 새 Azure Migrate 프로젝트를 만들고 어플라이언스를 다시 등록 합니다. 새 프로젝트를 만드는 [방법에 대해 알아봅니다](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) .
+    - 프로젝트가 존재 하지 않는 경우 리소스 그룹에 새 Azure Migrate 프로젝트를 만들고 어플라이언스를 다시 등록 합니다. 새 프로젝트를 만드는 [방법에 대해 알아봅니다](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) .
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>오류 60030/60031: Key Vault 관리 작업에 실패 했습니다.
 
@@ -88,7 +88,7 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 - 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
 - 계정에 오류 메시지에 지정 된 키 자격 증명 모음에 대 한 액세스 권한이 있는지 확인 한 후 작업을 다시 시도 하십시오.
 - 문제가 지속되면 Microsoft 지원에 문의하세요.
-- 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) .
+- 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](./migrate-appliance.md#appliance---vmware) .
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>오류 60028: 검색을 시작할 수 없습니다.
 
@@ -103,7 +103,7 @@ Azure에 로그인 하는 데 잘못 된 Azure 계정을 사용 하는 경우 "�
 - 검색을 시작 하는 사용자 계정이 어플라이언스를 등록 하는 데 사용한 것과 동일한 지 확인 합니다.
 - 검색 작업이 실패 하는 사용자 계정에 Azure Active Directory 응용 프로그램 액세스 권한을 제공 합니다.
 - Azure Migrate 프로젝트에 대해 이전에 만든 리소스 그룹을 삭제 합니다. 다시 시작할 다른 리소스 그룹을 만듭니다.
-- Azure Active Directory 응용 프로그램 사용 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) .
+- Azure Active Directory 응용 프로그램 사용 권한에 [대해 자세히 알아보세요](./migrate-appliance.md#appliance---vmware) .
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>오류 50004: 호스트 또는 클러스터에 연결할 수 없습니다.

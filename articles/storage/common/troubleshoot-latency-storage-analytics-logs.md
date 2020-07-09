@@ -10,11 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d7f6a9fa5d128783f2eb1dfcbcb75775cc499e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113108"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용하여 대기 시간 문제 해결
 
@@ -92,7 +93,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
    * 클라이언트 대기 시간 = 종단 간 대기 시간-서버-대기 시간
 
-          * Example: 8453 – 391 = 8062ms
+        예: 8453 – 391 = 8062ms
 
    다음 표에서는 대기 시간이 긴 OperationType 및 RequestStatus 결과에 대 한 정보를 제공 합니다.
 

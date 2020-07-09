@@ -7,14 +7,14 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/14/2017
-ms.openlocfilehash: e51b5640163546c673a1b0f61da47ccd992f27ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 141be5c2747ae5d0a812b1301b6af7203fe24351
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72030042"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110609"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Visual Studio Code로 로컬에서 U-SQL 실행 및 디버그
 이 문서에서는 로컬 개발 컴퓨터에서 U-SQL 작업을 실행하여 초기 코딩 단계를 가속화하거나 Visual Studio Code로 로컬에서 코드를 디버그하는 방법을 설명합니다. Azure Data Lake Tools for Visual Studio Code에 대한 지침을 보려면 [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)을 참조하세요.
