@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 67a3ba99e29582c5681d69cd0c6db377a258020a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201340"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132957"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -135,11 +136,15 @@ ms.locfileid: "83201340"
 
     - 보호를 일시 중단 하 여 다음을 실행 함으로써 BitLocker를 일시적으로 해제 합니다.
 
-                    manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - 드라이브의 암호를 완전히 해독 합니다. 이렇게 하려면 다음 명령을 실행합니다.
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
 
 ### <a name="key-encryption-key-scenario"></a>키 암호화 키 시나리오
 
@@ -236,17 +241,17 @@ ms.locfileid: "83201340"
 
 4. 스크립트가 시작되면 다음 출력이 표시됩니다.
 
-        GAC    Version        Location                                                                              
-        ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    GAC 버전 위치                                                                              
+    ---    -------        --------                                                                              
+    False v 4.0.30319 C:\Program Files\WindowsPowerShell\Modules\Az.Accounts \. .  False v 4.0.30319 C:\Program Files\WindowsPowerShell\Modules\Az.Accounts \. .
 
     스크립트가 완료되면 다음과 같은 출력이 표시됩니다.
 
-        VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
-        version=2015-06-01 with -1-byte payload
-        VERBOSE: received 360-byte response of content type application/json; charset=utf-8
-
+    ```output
+    VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
+    version=2015-06-01 with -1-byte payload
+    VERBOSE: received 360-byte response of content type application/json; charset=utf-8
+    ```
 
 5. BEK 파일을 사용하여 연결된 디스크의 잠금을 해제하려면 다음 명령을 실행합니다.
 
@@ -264,11 +269,16 @@ ms.locfileid: "83201340"
 
     - 다음 명령을 실행 하 여 보호를 일시 중단 하 여 일시적으로 BitLocker를 해제 합니다.
 
-             manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - 드라이브의 암호를 완전히 해독 합니다. 이렇게 하려면 다음 명령을 실행합니다.
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
+
 ## <a name="script-troubleshooting"></a>스크립트 문제 해결
 
 **오류: 파일 또는 어셈블리를 로드할 수 없습니다.**
@@ -283,7 +293,7 @@ ms.locfileid: "83201340"
 
 **매개 변수 샘플**
 
-| 매개 변수  | 값 샘플  |의견   |
+| 매개 변수  | 값 샘플  |주석   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | 키를 저장 하는 키 자격 증명 모음의 이름입니다. |
 |$kekName   |mykey   | VM을 암호화 하는 데 사용 되는 키의 이름입니다.|

@@ -216,8 +216,8 @@
               href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
             - name: 상태 코드
               href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 게시 상태
-      href: ./partner-center-portal/publishing-status.md
+    - name: 검토 및 게시
+      href: review-publish-offer.md
     - name: 기존 제품 업데이트
       href: ./partner-center-portal/update-existing-offer.md
     - name: 활성화 혜택

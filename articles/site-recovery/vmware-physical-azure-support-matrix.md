@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 8e1fd7e839c50458ddcfc9f83d152d7b45cd6672
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956256"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131889"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -50,8 +50,8 @@ RAM | 16GB
 운영 체제 로케일 | 미국 영어(en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | 구성 서버 버전 [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 이상에서는 필요 하지 않습니다.
 Windows Server 역할 | Active Directory Domain Services 사용 안 함 인터넷 정보 서비스 (IIS) 또는 Hyper-v.
-그룹 정책| - 명령 프롬프트에 대한 액세스 방지 <br/> - 레지스트리 편집 도구에 대한 액세스 방지 <br/> - 파일 첨부를 위한 트러스트 논리 <br/> - 스크립트 실행 켜기 <br/> - [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | 다음을 확인합니다.<br/><br/> -기존의 기본 웹 사이트 없음 <br/> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br/> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br/> - 포트 443에서 수신 대기하는 기존의 웹 사이트/앱 없음<br/>
+그룹 정책| - 명령 프롬프트에 대한 액세스 방지 <br/> - 레지스트리 편집 도구에 대한 액세스 방지 <br/> - 파일 첨부를 위한 트러스트 논리 <br/> - 스크립트 실행 켜기 <br/> - [자세한 정보](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+IIS | 다음을 확인합니다.<br/><br/> -기존의 기본 웹 사이트 없음 <br/> - [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br/> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정 사용  <br/> - 포트 443에서 수신 대기하는 기존의 웹 사이트/앱 없음<br/>
 NIC 유형 | VMXNET3(VMware VM으로 배포될 경우)
 IP 주소 유형 | 정적
 포트 | 443 컨트롤 채널 오케스트레이션에 사용 됨<br/>데이터 전송의 경우 9443
@@ -67,7 +67,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](https://aka.ms/asr_workload).
-머신 이름 | 컴퓨터의 표시 이름이 [Azure 예약 리소스 이름](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name) 에 포함 되지 않는지 확인 합니다.<br/><br/> 논리적 볼륨 이름은 대/소문자를 구분 하지 않습니다. 장치의 두 볼륨 이름이 동일 하지 않은지 확인 합니다. Ex: 이름이 "voLUME1", "voLUME1" 인 볼륨은 Azure Site Recovery를 통해 보호할 수 없습니다.
+머신 이름 | 컴퓨터의 표시 이름이 [Azure 예약 리소스 이름](../azure-resource-manager/templates/error-reserved-resource-name.md) 에 포함 되지 않는지 확인 합니다.<br/><br/> 논리적 볼륨 이름은 대/소문자를 구분 하지 않습니다. 장치의 두 볼륨 이름이 동일 하지 않은지 확인 합니다. Ex: 이름이 "voLUME1", "voLUME1" 인 볼륨은 Azure Site Recovery를 통해 보호할 수 없습니다.
 
 ### <a name="for-windows"></a>Windows의 경우
 
@@ -185,69 +185,69 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 **구성 요소** | **지원됨**
 --- | ---
-Azure ExpressRoute | 예
-ILB | 예
-ELB | 예
-Azure Traffic Manager | 예
-다중 NIC | 예
-예약된 IP 주소 | 예
-IPv4 | 예
-원본 IP 주소 유지 | 예
-Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Azure Traffic Manager | Yes
+다중 NIC | Yes
+예약된 IP 주소 | Yes
+IPv4 | Yes
+원본 IP 주소 유지 | Yes
+Azure 가상 네트워크 서비스 엔드포인트<br/> | Yes
 가속된 네트워킹 | 예
 
 ## <a name="storage"></a>스토리지
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
-Docker 디스크 구성 | 아니요
+Docker 디스크 구성 | No
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
-호스트 SAN(iSCSI/FC) | 예
+호스트 SAN(iSCSI/FC) | Yes
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 VMDK | 예
-게스트/서버 공유 클러스터 디스크 | 아니요
-게스트/서버 암호화된 디스크 | 아니요
-게스트/서버 NFS | 아니요
+게스트/서버 VMDK | Yes
+게스트/서버 공유 클러스터 디스크 | No
+게스트/서버 암호화된 디스크 | No
+게스트/서버 NFS | No
 게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
-게스트/서버 SMB 3.0 | 아니요
-게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
+게스트/서버 SMB 3.0 | No
+게스트/서버 RDM | Yes<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아니요
-4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아니요
-스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 | 예
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | No
+4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | No
+스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 | Yes
 논리 볼륨 관리(LVM)| 굵고 프로 비전-예 <br></br> 씬 프로비저닝-아니요
-게스트/서버 - 스토리지 공간 | 아니요
-게스트/서버 디스크 핫 추가/제거 | 아니요
-게스트/서버 - 디스크 제외 | 예
-게스트/서버 다중 경로(MPIO) | 아니요
+게스트/서버 - 스토리지 공간 | No
+게스트/서버 디스크 핫 추가/제거 | No
+게스트/서버 - 디스크 제외 | Yes
+게스트/서버 다중 경로(MPIO) | No
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전 4 개가 지원 되었습니다.
 ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
-게스트/서버 EFI/UEFI 부팅 | -Windows Server 2012 이상, SLES 12 SP4 및 RHEL 8.0 모바일 에이전트 버전 9.30부터 지원 됨<br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. [자세한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+게스트/서버 EFI/UEFI 부팅 | -Windows Server 2012 이상, SLES 12 SP4 및 RHEL 8.0 모바일 에이전트 버전 9.30부터 지원 됨<br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. [자세한 정보](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>복제 채널
 
 |**복제 유형**   |**지원됨**  |
 |---------|---------|
-|ODX (오프 로드 된 데이터 전송)    |       아니요  |
-|오프 라인 시드        |   아니요      |
-| Azure Data Box | 아니요
+|ODX (오프 로드 된 데이터 전송)    |       No  |
+|오프 라인 시드        |   No      |
+| Azure Data Box | No
 
 ## <a name="azure-storage"></a>Azure Storage
 
 **구성 요소** | **지원됨**
 --- | ---
-로컬 중복 스토리지 | 예
-지역 중복 스토리지 | 예
-읽기 액세스 지역 중복 스토리지 | 예
-쿨 스토리지 | 아니요
-핫 스토리지| 아니요
-블록 Blob | 아니요
-미사용 암호화 (SSE)| 예
+로컬 중복 스토리지 | Yes
+지역 중복 스토리지 | Yes
+읽기 액세스 지역 중복 스토리지 | Yes
+쿨 스토리지 | No
+핫 스토리지| No
+블록 Blob | No
+미사용 암호화 (SSE)| Yes
 미사용 암호화 (CMK)| 예 (PowerShell Az 3.3.0 모듈을 통해)
-Premium Storage | 예
-Import/Export 서비스 | 아니요
+Premium Storage | Yes
+Import/Export 서비스 | No
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.
 범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (v 2에 비해 트랜잭션 비용이 V1에 비해 크게 높음)
 
@@ -255,10 +255,10 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 
 **기능** | **지원됨**
 --- | ---
-가용성 집합 | 예
-가용성 영역 | 아니요
-HUB | 예
-관리 디스크 | 예
+가용성 집합 | Yes
+가용성 영역 | No
+HUB | Yes
+관리 디스크 | Yes
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 
@@ -280,7 +280,7 @@ VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으�
 
 ## <a name="resource-group-limits"></a>리소스 그룹 제한
 
-단일 리소스 그룹에서 보호할 수 있는 가상 머신의 수를 이해 하려면 [구독 제한 및 할당량](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits)에 대 한 문서를 참조 하세요.
+단일 리소스 그룹에서 보호할 수 있는 가상 머신의 수를 이해 하려면 [구독 제한 및 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)에 대 한 문서를 참조 하세요.
 
 ## <a name="churn-limits"></a>변동 제한
 
@@ -312,10 +312,10 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 **동작** | **지원됨**
 --- | ---
-리소스 그룹 간 자격 증명 모음 이동 | 아니요
-구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 아니요
-저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 아니요
+리소스 그룹 간 자격 증명 모음 이동 | No
+구독 내 및 구독 간에 자격 증명 모음 이동 | No
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | No
+저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | No
 
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 353ab1f15a6df8700a9abda22233dc052aa10095
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71056826"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130707"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -103,11 +103,15 @@ PowerShell 사용
 
     Windows의 경우:
 
-        netstat -an
+    ```console
+   netstat -an
+    ```
 
     Linux의 경우:
 
-        netstat -an | grep -i listen
+    ```console
+   netstat -an | grep -i listen
+    ```
 2. NVA 소프트웨어에서 사용하는 TCP 포트가 결과에 나타나지 않으면 이 포트에 도달하는 트래픽에 응답하도록 NVA 및 VM에서 애플리케이션을 구성해야 합니다. [필요에 따라 NVA 공급업체에 문의하세요](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## <a name="check-nva-performance"></a>NVA 성능 확인

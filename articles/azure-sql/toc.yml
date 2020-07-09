@@ -57,7 +57,11 @@
             - name: 동적 데이터 마스킹
               href: database/dynamic-data-masking-overview.md
             - name: SQL 취약성 평가
-              href: database/sql-vulnerability-assessment.md
+              items:
+                - name: SQL 취약성 평가
+                  href: database/sql-vulnerability-assessment.md
+                - name: 취약성 평가 규칙
+                  href: database/sql-database-vulnerability-assessment-rules.md
             - name: '로그인, 사용자 계정, 역할 및 사용 권한'
               href: database/logins-create-manage.md
             - name: Azure AD 인증
@@ -606,6 +610,9 @@
           href: database/powershell-script-content-guide.md?tabs=single-database
         - name: Azure 리소스 관리자
           href: database/arm-templates-content-guide.md?tabs=single-database
+        - name: Azure Policy 기본 제공 기능
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Managed Instance(SQL MI)
@@ -833,6 +840,9 @@
           href: database/powershell-script-content-guide.md?tabs=managed-instance
         - name: Azure 리소스 관리자
           href: database/arm-templates-content-guide.md?tabs=managed-instance
+        - name: Azure Policy 기본 제공 기능
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Azure VM의 SQL Server
@@ -974,8 +984,6 @@
                       items:
                         - name: FCI용 DNN 만들기
                           href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: DNN과의 기능 상호 운용성
-                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                         - name: FCI DNN 및 SQL Server 기능
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                 - name: 연결 구성

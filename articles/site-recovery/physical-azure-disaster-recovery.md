@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699909"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130177"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
 
-이 자습서에서는 Azure에 대한 온-프레미스 물리적 Windows 및 Linux 서버의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 Azure에 대한 온-프레미스 물리적 Windows 및 Linux 서버의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure 및 온-프레미스 필수 조건 설정
@@ -26,7 +27,7 @@ ms.locfileid: "84699909"
 > * 복제 정책 만들기
 > * 서버에 대해 복제 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -118,7 +119,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 시작하기 전에 다음을 수행하세요. 
 
 #### <a name="verify-time-accuracy"></a>시간 정확도 확인
-구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화 되었는지 확인 합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
+구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](/windows-server/networking/windows-time-service/windows-time-service-top)와 동기화 되었는지 확인 합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
 
 #### <a name="verify-connectivity"></a>연결 확인
 컴퓨터에서 사용자 환경을 기반으로 다음 URL에 액세스할 수 있는지 확인합니다. 
@@ -145,7 +146,7 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 2. 대상 배포 모델을 지정합니다.
 3. Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
-   ![대상](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Target](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>복제 정책 만들기

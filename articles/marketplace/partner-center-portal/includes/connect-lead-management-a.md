@@ -2,19 +2,17 @@
 title: 파일 포함
 description: 포함 파일
 documentationcenter: partner-center-commercial-marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 06/01/2020
-ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 8d868d7d231f6dbe1952756917e5a7965d6cea2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38f97f8f3397eb1737c2414f5bbbccf99503711e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121890"
 ---
 마켓플레이스에 제품을 나열 하 고 CRM (고객 관계 관리) 시스템을 연결 하 여 고객에 게 직접 연결 하 여 고객에 게 관심이 나 제품을 배포한 후 즉시 고객 연락처 정보를 받을 수 있도록 합니다.
 

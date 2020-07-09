@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954598"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129887"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Azure로의 온-프레미스 재해 복구를 위한 VM 네트워크 인터페이스 관리
 
@@ -25,7 +26,7 @@ Azure의 VM(가상 머신)에는 하나 이상의 네트워크 인터페이스�
 
 ## <a name="select-the-target-network"></a>대상 네트워크 선택
 
-VMware와 물리적 컴퓨터 및 Hyper-V(System Center Virtual Machine Manager 없음) 가상 머신의 경우 개별 가상 머신에 대해 대상 가상 네트워크를 지정할 수 있습니다. Virtual Machine Manager로 관리되는 Hyper-V 가상 머신의 경우 [네트워크 매핑](site-recovery-network-mapping.md)을 사용하여 원본 Virtual Machine Manager 서버와 대상 Azure 네트워크에서 VM 네트워크를 매핑합니다.
+VMware와 물리적 컴퓨터 및 Hyper-V(System Center Virtual Machine Manager 없음) 가상 머신의 경우 개별 가상 머신에 대해 대상 가상 네트워크를 지정할 수 있습니다. Virtual Machine Manager로 관리되는 Hyper-V 가상 머신의 경우 [네트워크 매핑](./hyper-v-vmm-network-mapping.md)을 사용하여 원본 Virtual Machine Manager 서버와 대상 Azure 네트워크에서 VM 네트워크를 매핑합니다.
 
 1. Recovery Services 자격 증명 모음의 **복제된 항목**에서 복제된 항목을 선택하여 복제된 항목의 설정에 액세스합니다.
 

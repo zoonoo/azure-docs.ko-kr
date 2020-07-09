@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829786"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130150"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -26,7 +27,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 ## <a name="overview"></a>개요
 이 문서에서는 Linux 마스터 대상을 설치하는 방법의 지침을 제공합니다.
 
-이 문서의 마지막 부분 또는 [Azure Recovery Services의 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)에 의견이나 질문을 게시할 수 있습니다.
+이 문서의 마지막 부분 또는 [Azure Recovery Services의 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 의견이나 질문을 게시할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,6 +37,9 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 * 마스터 대상은 프로세스 서버 및 구성 서버와 통신할 수 있는 네트워크에 있어야 합니다.
 * 마스터 대상의 버전이 프로세스 서버 및 구성 서버의 버전과 같거나 그보다 이전 버전이어야 합니다. 예를 들어 구성 서버의 버전이 9.4인 경우 마스터 대상의 버전이 9.4 또는 9.3인 것은 괜찮지만 9.5는 안 됩니다.
 * 마스터 대상은 VMware 가상 머신만 될 수 있고 물리적 서버는 안 됩니다.
+
+> [!NOTE]
+> 마스터 대상 같은 관리 구성 요소에서 Storage vMotion을 설정하지 않아야 합니다. 마스터 대상이 다시 보호 후에 이동되면 VMDK(가상 머신 디스크)를 분리할 수 없습니다. 이 경우, 장애 복구에 실패합니다.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>마스터 대상 서버 만들기에 대한 크기 조정 지침
 
@@ -243,7 +247,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷한 다음, 새 드라이브에서 파일 시스템을 만듭니다. **mkfs.ext4 /dev/mapper/\<보존 디스크의 다중 경로 ID>**
+3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id> **.
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -260,7 +264,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     
     **Insert** 키를 눌러 파일을 편집하기 시작합니다. 새 줄을 만들고 다음 텍스트를 삽입합니다. 이전 명령에서 강조 표시된 다중 경로 ID에 따라 디스크 다중 경로 ID를 편집합니다.
 
-    **/dev/mapper/\<보존 디스크 다중 경로 ID> /mnt/retention ext4 rw 0 0**
+    **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
     **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 
@@ -273,16 +277,22 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 > [!NOTE]
 > 마스터 대상 서버를 설치하기 전에 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소에 매핑하는 항목이 가상 머신의 **/etc/hosts** 파일에 포함되어 있는지 확인합니다.
 
-1. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase**에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt**로 저장합니다.
+1. 다음 명령을 실행하여 마스터 대상을 설치합니다.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase**에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt**로 저장합니다.
 
     `echo <passphrase> >passphrase.txt`
 
     예제: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. 구성 서버의 IP 주소를 적어둡니다. 다음 명령을 실행하여 마스터 대상 서버를 설치하고 이 서버를 구성 서버에 등록합니다.
+3. 구성 서버의 IP 주소를 적어둡니다. 다음 명령을 실행 하 여 서버를 구성 서버에 등록 합니다.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -313,16 +323,10 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 1. 구성 서버의 IP 주소를 적어둡니다. 다음 단계에서 필요합니다.
 
-2. 다음 명령을 실행하여 마스터 대상 서버를 설치하고 이 서버를 구성 서버에 등록합니다.
+2. 다음 명령을 실행 하 여 서버를 구성 서버에 등록 합니다.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    예제: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      스크립트가 완료될 때까지 기다립니다. 마스터 대상이 성공적으로 등록되면 해당 마스터 대상이 포털의 **Site Recovery 인프라** 페이지에 나열됩니다.
@@ -347,9 +351,13 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 * 마스터 대상에는 가상 머신에 대한 스냅샷이 없어야 합니다. 스냅샷이 있으면 장애 복구에 실패합니다.
 
-* 일부 사용자 지정 NIC 구성 때문에 시작하는 동안 네트워크 인터페이스를 사용할 수 없으며 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/sysconfig/network-scripts/ifcfg-eth*에서 다음 속성을 확인합니다.
-    * BOOTPROTO=dhcp
-    * ONBOOT=yes
+* 일부 사용자 지정 NIC 구성 때문에 시작하는 동안 네트워크 인터페이스를 사용할 수 없으며 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의/etc/network/interfaces.에서 다음 속성을 확인 합니다.
+    * auto eth0
+    * iface eth0 inet dhcp <br>
+
+    다음 명령을 사용 하 여 네트워킹 서비스를 다시 시작 합니다. <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>다음 단계

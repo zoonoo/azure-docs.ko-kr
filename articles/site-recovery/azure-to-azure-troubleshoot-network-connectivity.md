@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884871"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132722"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 
@@ -50,7 +51,7 @@ VM에서 사용자 지정 DNS 설정을 사용 하는지 확인 하려면:
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>문제 2: Site Recovery 구성이 실패했습니다(151196).
 
 > [!NOTE]
-> Vm이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 기본적으로와 같은 Office 365 ip에 액세스할 수 없습니다 `login.microsoftonline.com` . [Azure CLI를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성](/azure/load-balancer/configure-load-balancer-outbound-cli)문서에 설명 된 대로 **기본** 내부 부하 분산 장치 유형으로 변경 하거나 아웃 바운드 액세스를 만듭니다.
+> Vm이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 기본적으로와 같은 Office 365 ip에 액세스할 수 없습니다 `login.microsoftonline.com` . [Azure CLI를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성](../load-balancer/configure-load-balancer-outbound-cli.md)문서에 설명 된 대로 **기본** 내부 부하 분산 장치 유형으로 변경 하거나 아웃 바운드 액세스를 만듭니다.
 
 #### <a name="possible-cause"></a>가능한 원인
 
@@ -59,7 +60,7 @@ Office 365 인증 및 id IP4 끝점에 대 한 연결을 설정할 수 없습니
 #### <a name="resolution"></a>해결 방법
 
 - Azure Site Recovery 인증을 위해 Office 365 IP 범위에 액세스할 수 있어야 합니다.
-- Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 Office 365 IP 범위에 대 한 통신을 허용 해야 합니다. Azure AD에 해당 하는 모든 IP 주소에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 하는 [Azure Active Directory (AZURE ad) 서비스 태그](/azure/virtual-network/security-overview#service-tags) 를 만듭니다.
+- Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 Office 365 IP 범위에 대 한 통신을 허용 해야 합니다. Azure AD에 해당 하는 모든 IP 주소에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 하는 [Azure Active Directory (AZURE ad) 서비스 태그](../virtual-network/security-overview.md#service-tags) 를 만듭니다.
 - 향후 Azure AD에 새 주소를 추가 하는 경우 새 NSG 규칙을 만들어야 합니다.
 
 ### <a name="example-nsg-configuration"></a>NSG 구성 예제
@@ -142,7 +143,7 @@ Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](azure-to-azure
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-[필요한 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)를 허용 하려면 [네트워킹 지침 문서의](site-recovery-azure-to-azure-networking-guidance.md)단계를 수행 합니다.
+[필요한 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)를 허용 하려면 [네트워킹 지침 문서의](./azure-to-azure-about-networking.md)단계를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

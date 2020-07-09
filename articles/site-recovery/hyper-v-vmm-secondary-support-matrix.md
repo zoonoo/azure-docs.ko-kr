@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74132951"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131164"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -35,8 +36,8 @@ Windows Server 2016 |  Windows Server 2016 및 2012 R2 호스트가 혼합된 VM
 
 **Windows 버전** | **Hyper-v (VMM 포함)**
 --- | ---
-Windows Server 2016 | Windows Server 2016에서 [Hyper-V가 지원하는](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) 게스트 운영 체제 
-Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) 게스트 운영 체제
+Windows Server 2016 | Windows Server 2016에서 [Hyper-V가 지원하는](/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) 게스트 운영 체제 
+Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) 게스트 운영 체제
 
 ## <a name="linux-machine-storage"></a>Linux 컴퓨터 스토리지
 
@@ -52,14 +53,14 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 
 **구성** | **지원됨**  
 --- | --- 
-호스트 - NIC 팀 | 예 
-호스트 - VLAN | 예 
-호스트 - IPv4 | 예 
-호스트 - IPv6 | 아니요 
-게스트 VM - NIC 팀 | 아니요
-게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아니요
-게스트 VM - Windows/Linux - 고정 IP 주소 | 예
+호스트 - NIC 팀 | Yes 
+호스트 - VLAN | Yes 
+호스트 - IPv4 | Yes 
+호스트 - IPv6 | No 
+게스트 VM - NIC 팀 | No
+게스트 VM - IPv4 | Yes
+게스트 VM - IPv6 | No
+게스트 VM - Windows/Linux - 고정 IP 주소 | Yes
 게스트 VM - 다중 NIC | 예
 
 
@@ -71,8 +72,8 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 --- | --- 
 NFS | 해당 없음
 SMB 3.0 |  예
-SAN(ISCSI) | 예
-다중 경로(MPIO) | 예
+SAN(ISCSI) | Yes
+다중 경로(MPIO) | Yes
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 스토리지
 
@@ -80,26 +81,26 @@ SAN(ISCSI) | 예
 --- | --- | 
 VMDK |  해당 없음
 VHD/VHDX | 예(최대 16개 디스크)
-2세대 VM | 예
-공유 클러스터 디스크 | 아니요
-암호화된 디스크 | 아니요
+2세대 VM | Yes
+공유 클러스터 디스크 | No
+암호화된 디스크 | No
 UEFI| 해당 없음
-NFS | 아니요
-SMB 3.0 | 아니요
+NFS | No
+SMB 3.0 | No
 RDM | 해당 없음
-디스크 > 1TB | 예
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예
-스토리지 공간 | 예
-디스크 핫 추가/제거 | 아니요
-디스크 제외 | 예
-다중 경로(MPIO) | 예
+디스크 > 1TB | Yes
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | Yes
+스토리지 공간 | Yes
+디스크 핫 추가/제거 | No
+디스크 제외 | Yes
+다중 경로(MPIO) | Yes
 
 ## <a name="vaults"></a>자격 증명 모음
 
 **동작** | **지원됨**
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니요
-리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  No
+리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | No
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery 공급자
 
@@ -113,5 +114,4 @@ RDM | 해당 없음
 
 ## <a name="next-steps"></a>다음 단계
 
-[VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](tutorial-vmm-to-vmm.md)
-
+[VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](./hyper-v-vmm-disaster-recovery.md)

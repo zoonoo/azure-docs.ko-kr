@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704389"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129915"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
 이 문서에서는 Azure PowerShell을 사용하여 VMware 가상 머신을 Azure로 복제 및 장애 조치(failover)하는 방법을 설명합니다.
 
-다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - Recovery Services 자격 증명 모음을 만들고 자격 증명 모음 컨텍스트를 설정합니다.
@@ -30,12 +31,12 @@ ms.locfileid: "84704389"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
 - [시나리오 아키텍처 및 구성 요소](vmware-azure-architecture.md)를 이해해야 합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](site-recovery-support-matrix-to-azure.md) 검토 합니다.
+- 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-azure-support-matrix.md) 검토 합니다.
 - Azure PowerShell `Az` 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="log-into-azure"></a>Azure에 로그인
@@ -117,7 +118,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 예를 들어:
+Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 예를 들면 다음과 같습니다.
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -496,4 +497,4 @@ Errors           : {}
 2. 장애 조치(failover)가 완료되면 장애 조치(failover) 작업을 커밋하고 Azure에서 온-프레미스 VMware 사이트로 역방향 복제를 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/Az.RecoveryServices)를 사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다.
+[Azure Site Recovery PowerShell 참조](/powershell/module/Az.RecoveryServices)를 사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다.

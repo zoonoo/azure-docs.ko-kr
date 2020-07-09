@@ -2,19 +2,17 @@
 title: 포함 파일
 description: Microsoft 상업적 marketplace 표준 계약에 대 한 텍스트 파일 포함
 documentationcenter: partner-center-commercial-marketplace
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 01/22/2020
-ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: e7692d8c90d71e76628ecb44ade529eabedfa909
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cbddaed1078ade005c3d60df3face9580bf6609
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691541"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121975"
 ---
 Microsoft는 상업적 marketplace에 대 한 표준 계약 템플릿을 제공 합니다.
 

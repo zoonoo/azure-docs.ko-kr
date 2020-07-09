@@ -3,15 +3,16 @@ title: Azure Migrate에서 평가 도구 추가
 description: Azure Migrate에서 평가 도구를 추가 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195629"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122118"
 ---
 # <a name="add-assessment-tools"></a>평가 도구 추가
 
-이 문서에서는 [Azure Migrate](migrate-overview.md)에서 평가 도구를 추가 하는 방법을 설명 합니다. 
+이 문서에서는 [Azure Migrate](./migrate-services-overview.md)에서 평가 도구를 추가 하는 방법을 설명 합니다. 
 
 - 평가 도구를 추가 하려는 데 아직 Azure Migrate 프로젝트가 없는 경우이 [문서](how-to-add-tool-first-time.md)를 따르세요.
 - ISV 도구 또는 Movere를 추가한 경우에는이 도구를 사용 하 여 작업을 준비 하는 [단계를 수행](prepare-isv-movere.md)합니다.

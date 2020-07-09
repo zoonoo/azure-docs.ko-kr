@@ -6,11 +6,12 @@ manager: rochakm
 ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
-ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 373cffe96119af4a2fc0d74e2090e6cc24dcaf8f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75498124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131255"
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 
@@ -40,7 +41,7 @@ ms.locfileid: "75498124"
 
 ## <a name="exclude-disks"></a>디스크 제외
 
-1. Hyper-v vm에 대 한 [복제를 사용 하도록 설정할](site-recovery-hyper-v-site-to-azure.md) 때 디스크를 제외 하려면 복제 하려는 vm을 선택한 후 **복제**  >  **속성**사용  >  **속성 구성** 페이지에서 **복제할 디스크** 열을 검토 합니다. 기본적으로 모든 디스크는 복제를 위해 선택 됩니다.
+1. Hyper-v vm에 대 한 [복제를 사용 하도록 설정할](./hyper-v-azure-tutorial.md) 때 디스크를 제외 하려면 복제 하려는 vm을 선택한 후 **복제**  >  **속성**사용  >  **속성 구성** 페이지에서 **복제할 디스크** 열을 검토 합니다. 기본적으로 모든 디스크는 복제를 위해 선택 됩니다.
 2. 특정 디스크를 복제 하지 않으려는 경우 **디스크에서 복제할** 디스크의 선택을 취소 합니다. 
 
     ![복제에서 디스크 제외](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)

@@ -6,11 +6,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710238"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132508"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -24,7 +25,7 @@ ms.locfileid: "84710238"
 
 Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위한 cmdlet을 제공합니다. Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는 사이트 복구 PowerShell cmdlet을 사용하여 Azure에서 서버를 보호하고 복구할 수 있습니다.
 
-이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념은 이해해야 합니다. 자세한 내용은 [PowerShell 설명서](/powershell) 및 [Azure Resource Manager에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조 하세요.
+이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념은 이해해야 합니다. 자세한 내용은 [PowerShell 설명서](/powershell) 및 [Azure Resource Manager에서 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)을 참조 하세요.
 
 > [!NOTE]
 > CSP(클라우드 솔루션 공급자) 프로그램의 Microsoft 파트너는 고객의 각 CSP 구독(테넌트 구독)에 대한 고객의 서버 보호를 구성하고 관리할 수 있습니다.

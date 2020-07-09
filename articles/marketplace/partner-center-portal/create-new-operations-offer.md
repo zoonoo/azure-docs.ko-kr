@@ -1,18 +1,18 @@
 ---
 title: 상업용 Marketplace에서 Dynamics 365 for Operations 제품 만들기
 description: Microsoft 파트너 센터의 상업용 Marketplace 포털을 사용하는 CSP(클라우드 솔루션 공급자) 프로그램을 통하거나 Azure Marketplace, AppSource에서 나열 또는 판매하기 위해 새 Dynamics 365 for Operations 제품을 만드는 방법입니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 0a2696da70a785fc1da6bfd2c7b0cabae1a89197
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980696"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121851"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6a284d13d0d737eca65b2593813b3d1b999cfdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361390"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133161"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -211,6 +211,7 @@ ms.locfileid: "85361390"
 [planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Azure Storage 계정 간 디스크 복사)
 [planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (SAP 배포를 위한 VM/VHD 구조)
 [planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (연결된 디스크에 대한 자동 탑재 설정)
+[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (SAP용 Azure 모니터링 솔루션)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -913,7 +914,7 @@ Windows에서 프록시를 구성하기 위해 거치는 단계는 Linux에서 �
 > 일반 지원 문: SAP 용 Azure 확장에 대 한 지원이 필요한 경우에는 항상 SAP의 구성 요소 BC-OP-MS-AZR-0017P-NT-MS-AZR-0017P에서 인시던트를 열어야 합니다.
 > 공동 고객을 지원 하기 위해 SAP 지원 시스템에서 작업 하는 전담 Microsoft 지원 엔지니어가 있습니다.
 
-[Azure의 SAP용 VM 배포 시나리오][deployment-guide-3]의 설명대로 VM을 준비한 경우, Azure VM 에이전트가 가상 머신에 설치됩니다. 다음 단계는 글로벌 Azure 데이터 센터의 Azure 확장 리포지토리에서 사용할 수 있는 SAP용 Azure 확장을 배포하는 것입니다. 자세한 내용은 Virtual Machines [SAP NetWeaver 계획 및 구현] [계획-가이드-9.1]을 참조 하세요.
+[Azure의 SAP용 VM 배포 시나리오][deployment-guide-3]의 설명대로 VM을 준비한 경우, Azure VM 에이전트가 가상 머신에 설치됩니다. 다음 단계는 글로벌 Azure 데이터 센터의 Azure 확장 리포지토리에서 사용할 수 있는 SAP용 Azure 확장을 배포하는 것입니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide-9.1]을 참조하세요.
 
 SAP 용 Azure 확장의 새 버전을 릴리스 하는 중입니다. 새 확장은 가상 컴퓨터의 시스템 할당 id를 사용 하 여 연결 된 디스크, 네트워크 인터페이스 및 가상 컴퓨터 자체에 대 한 정보를 가져옵니다. 이러한 리소스에 액세스할 수 있도록 가상 컴퓨터의 시스템 id에는 가상 컴퓨터, OS 디스크, 데이터 디스크 및 네트워크 인터페이스에 대 한 읽기 권한이 있어야 합니다. 현재는 다음 시나리오 에서만 새 확장을 설치 하는 것이 좋습니다.
 

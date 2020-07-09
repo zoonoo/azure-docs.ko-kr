@@ -324,7 +324,7 @@
           href: how-to-use-secrets-in-runs.md
         - name: 보충 학습
           href: how-to-use-reinforcement-learning.md
-    - name: 기계 학습 자동화
+    - name: 자동화된 기계 학습
       displayName: 'automl, auto ml'
       items:
         - name: 자동화된 ML 사용(Python)

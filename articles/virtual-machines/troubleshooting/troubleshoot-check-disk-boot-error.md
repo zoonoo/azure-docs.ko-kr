@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f80fbd803cbe4ae5c4ac381c8cdb2f72d0ede316
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921490"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132933"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 "파일 시스템 확인 중"을 표시합니다.
 
@@ -37,9 +38,12 @@ Windows VM이 시작되지 않습니다. [부트 진단](boot-diagnostics.md)에
 ## <a name="solution"></a>솔루션 
 
 Windows는 디스크 검사 프로세스가 완료된 후 정상적으로 부팅됩니다. VM의 디스크 검사 프로세스가 중단되면 오프라인에서 VM에 대해 디스크 검사를 실행합니다.
-1.  영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2.  [OS 디스크를 복구 VM에 연결](troubleshoot-recovery-disks-portal-windows.md)합니다.  
-3.  복구 VM에서 연결된 OS 디스크에 대해 디스크 검사를 실행합니다. 다음 샘플에서는 연결된 OS 디스크의 드라이브 문자가 E:입니다. 
-        
-        chkdsk E: /f
-4.  디스크 검사가 완료되면 복구 VM에서 디스크를 분리했다가 영향을 받는 VM에 OS 디스크로서 다시 연결합니다. 자세한 내용은 [OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks-portal-windows.md)을 참조하세요.
+1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+2. [OS 디스크를 복구 VM에 연결](troubleshoot-recovery-disks-portal-windows.md)합니다.  
+3. 복구 VM에서 연결된 OS 디스크에 대해 디스크 검사를 실행합니다. 다음 샘플에서는 연결된 OS 디스크의 드라이브 문자가 E:입니다. 
+
+    ```console
+    chkdsk E: /f
+    ```
+
+4. 디스크 검사가 완료되면 복구 VM에서 디스크를 분리했다가 영향을 받는 VM에 OS 디스크로서 다시 연결합니다. 자세한 내용은 [OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks-portal-windows.md)을 참조하세요.

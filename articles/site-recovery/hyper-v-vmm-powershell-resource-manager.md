@@ -7,11 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048610"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130211"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
 
@@ -19,12 +20,12 @@ ms.locfileid: "77048610"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [시나리오 아키텍처 및 구성 요소](hyper-v-vmm-architecture.md)를 검토합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](site-recovery-support-matrix-to-sec-site.md) 검토 합니다.
-- Virtual Machine Manager 서버 및 Hyper-V 호스트가 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
-- 복제하려는 VM에서 [복제된 컴퓨터 지원](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
+- 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-secondary-support-matrix.md) 검토 합니다.
+- Virtual Machine Manager 서버 및 Hyper-V 호스트가 [지원 요구 사항](./vmware-physical-secondary-support-matrix.md)을 준수하는지 확인합니다.
+- 복제하려는 VM에서 [복제된 컴퓨터 지원](./vmware-physical-secondary-support-matrix.md)을 준수하는지 확인합니다.
 
 ## <a name="prepare-for-network-mapping"></a>네트워크 매핑을 준비
 
@@ -36,10 +37,10 @@ ms.locfileid: "77048610"
 
 Virtual Machine Manager를 다음과 같이 준비합니다.
 
-- [Virtual Machine Manager 논리 네트워크](https://docs.microsoft.com/system-center/vmm/network-logical)가 원본 및 대상 Virtual Machine Manager 서버에 있는지 확인합니다.
+- [Virtual Machine Manager 논리 네트워크](/system-center/vmm/network-logical)가 원본 및 대상 Virtual Machine Manager 서버에 있는지 확인합니다.
   - 원본 서버의 논리 네트워크는 Hyper-V 호스트가 있는 원본 클라우드와 연결되어 있어야 합니다.
   - 대상 서버의 논리 네트워크는 대상 클라우드와 연결되어 있어야 합니다.
-- [VM 네트워크](https://docs.microsoft.com/system-center/vmm/network-virtual)가 원본 및 대상 Virtual Machine Manager 서버에 있는지 확인합니다. VM 네트워크는 각 위치의 논리적 네트워크에 연결되어야 합니다.
+- [VM 네트워크](/system-center/vmm/network-virtual)가 원본 및 대상 Virtual Machine Manager 서버에 있는지 확인합니다. VM 네트워크는 각 위치의 논리적 네트워크에 연결되어야 합니다.
 - 원본 Hyper-V 호스트의 VM을 원본 VM 네트워크에 연결합니다.
 
 ## <a name="prepare-for-powershell"></a>PowerShell에 대한 준비

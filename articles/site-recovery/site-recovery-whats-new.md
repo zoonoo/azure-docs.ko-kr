@@ -3,11 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259221"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131079"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -21,6 +22,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 **Update** |  **통합 설치** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
 [롤업 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [롤업 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [롤업 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -31,6 +33,17 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 > [!NOTE]
 > 업데이트 롤업 44은 Site Recovery 공급자 및 에이전트에 대 한 업데이트를 포함 하지 않았기 때문에 테이블에 표시 되지 않습니다.
+
+## <a name="updates-june-2020"></a>업데이트 (6 월 2020)
+
+### <a name="update-rollup-47"></a>업데이트 롤업 47
+
+[업데이트 롤업 47](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
+**문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
 
 ## <a name="updates-june-2020"></a>업데이트 (6 월 2020)
 
@@ -345,8 +358,8 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 **기능** | **세부 정보**
 --- | ---
 **네트워크 매핑** | 이제 Azure VM 재해 복구의 경우 복제를 사용 하도록 설정할 때 사용 가능한 모든 대상 네트워크를 사용할 수 있습니다.
-**표준 SSD** | 이제 [표준 SSD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)를 사용 하 여 Azure vm에 대 한 재해 복구를 설정할 수 있습니다.
-**스토리지 공간 다이렉트** | 고가용성을 위해 [스토리지 공간 다이렉트](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 를 사용 하 여 Azure VM 앱에서 실행 되는 앱에 대 한 재해 복구를 설정할 수 있습니다.  Site Recovery와 함께 S2D (스토리지 공간 다이렉트)를 사용 하면 Azure VM 워크 로드의 포괄적인 보호 기능을 제공 합니다. S2D를 사용 하면 Azure에서 게스트 클러스터를 호스트할 수 있습니다. 이 기능은 VM이 SAP ASCS 계층, SQL Server 또는 스케일 아웃 파일 서버와 같은 중요 한 응용 프로그램을 호스트 하는 경우에 특히 유용 합니다.
+**표준 SSD** | 이제 [표준 SSD 디스크](../virtual-machines/windows/disks-types.md#standard-ssd)를 사용 하 여 Azure vm에 대 한 재해 복구를 설정할 수 있습니다.
+**스토리지 공간 다이렉트** | 고가용성을 위해 [스토리지 공간 다이렉트](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 를 사용 하 여 Azure VM 앱에서 실행 되는 앱에 대 한 재해 복구를 설정할 수 있습니다.  Site Recovery와 함께 S2D (스토리지 공간 다이렉트)를 사용 하면 Azure VM 워크 로드의 포괄적인 보호 기능을 제공 합니다. S2D를 사용 하면 Azure에서 게스트 클러스터를 호스트할 수 있습니다. 이 기능은 VM이 SAP ASCS 계층, SQL Server 또는 스케일 아웃 파일 서버와 같은 중요 한 응용 프로그램을 호스트 하는 경우에 특히 유용 합니다.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
@@ -364,7 +377,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 ### <a name="accelerated-networking-azure-vms"></a>가속화 네트워킹 (Azure Vm)
 
-가속화 된 네트워킹을 사용 하면 VM에 대 한 단일 루트 i/o 가상화 (SR-IOV)를 사용 하 여 네트워킹 성능을 향상 시킬 수 있습니다. Azure VM에 복제를 사용하도록 설정하면 Site Recovery는 가속화된 네트워킹의 사용 여부를 감지합니다. 사용되는 경우 장애 조치(failover) 후 Site Recovery는 자동으로 [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) 및 [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms)의 대상 복제본 Azure VM에서 가속화된 네트워킹을 구성합니다.
+가속화 된 네트워킹을 사용 하면 VM에 대 한 단일 루트 i/o 가상화 (SR-IOV)를 사용 하 여 네트워킹 성능을 향상 시킬 수 있습니다. Azure VM에 복제를 사용하도록 설정하면 Site Recovery는 가속화된 네트워킹의 사용 여부를 감지합니다. 사용되는 경우 장애 조치(failover) 후 Site Recovery는 자동으로 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms)의 대상 복제본 Azure VM에서 가속화된 네트워킹을 구성합니다.
 
 [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -426,7 +439,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 **Linux 지원** | Red Hat 호환 커널 및 UEK (Unbreakable Enterprise Kernel) 릴리스 5에 대 한 Oracle Linux 6.8, Oracle Linux 6.9 및 Oracle Linux 7.0에 대 한 지원이 추가 되었습니다.
 **Linux BRTFS 파일 시스템** | Azure Vm에 대해 지원 됩니다.
 **가용성 영역의 Azure Vm** | 가용성 영역에 배포 된 Azure Vm에 대해 다른 지역으로 복제를 사용 하도록 설정할 수 있습니다. 이제 Azure VM에 대한 복제를 설정하고, 단일 VM 인스턴스, 가용성 집합의 VM 또는 가용성 영역의 VM으로의 장애 조치(failover) 대상을 설정할 수 있습니다. 이 설정은 복제에 영향을 주지 않습니다. 공지를 [읽어보세요](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/).
-**방화벽 사용 저장소 (포털/PowerShell)** | [방화벽 사용 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-network-security)에 대 한 지원이 추가 되었습니다.<br/><br/> 재해 복구를 위해 방화벽 사용 저장소 계정에서 관리 되지 않는 디스크를 사용 하 여 Azure Vm을 다른 Azure 지역에 복제할 수 있습니다.<br/><br/> 방화벽 사용 저장소 계정을 관리 되지 않는 디스크에 대 한 대상 저장소 계정으로 사용할 수 있습니다.<br/><br/> 포털에서 지원 되며 PowerShell을 사용 합니다.
+**방화벽 사용 저장소 (포털/PowerShell)** | [방화벽 사용 저장소 계정](../storage/common/storage-network-security.md)에 대 한 지원이 추가 되었습니다.<br/><br/> 재해 복구를 위해 방화벽 사용 저장소 계정에서 관리 되지 않는 디스크를 사용 하 여 Azure Vm을 다른 Azure 지역에 복제할 수 있습니다.<br/><br/> 방화벽 사용 저장소 계정을 관리 되지 않는 디스크에 대 한 대상 저장소 계정으로 사용할 수 있습니다.<br/><br/> 포털에서 지원 되며 PowerShell을 사용 합니다.
 
 ## <a name="updates-december-2018"></a>업데이트 (12 월 2018)
 
@@ -467,7 +480,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 **지역 지원** | 오스트레일리아 중부 1 및 오스트레일리아 중부 2에 대 한 Site Recovery 지원이 추가 되었습니다.
 **디스크 암호화 지원** | Azure AD 앱으로 Azure Disk Encryption (ADE)로 암호화 된 Azure Vm의 재해 복구를 위한 지원이 추가 되었습니다. [자세히 알아보기](azure-to-azure-how-to-enable-replication-ade-vms.md).
 **디스크 제외** | 초기화 되지 않은 디스크는 이제 Azure VM을 복제 하는 동안 자동으로 제외 됩니다.
-**방화벽 사용 저장소 (PowerShell)** | [방화벽 사용 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-network-security)에 대 한 지원이 추가 되었습니다.<br/><br/> 재해 복구를 위해 방화벽 사용 저장소 계정에서 관리 되지 않는 디스크를 사용 하 여 Azure Vm을 다른 Azure 지역에 복제할 수 있습니다.<br/><br/> 방화벽 사용 저장소 계정을 관리 되지 않는 디스크에 대 한 대상 저장소 계정으로 사용할 수 있습니다.<br/><br/> PowerShell을 사용 하는 경우에만 지원 됩니다.
+**방화벽 사용 저장소 (PowerShell)** | [방화벽 사용 저장소 계정](../storage/common/storage-network-security.md)에 대 한 지원이 추가 되었습니다.<br/><br/> 재해 복구를 위해 방화벽 사용 저장소 계정에서 관리 되지 않는 디스크를 사용 하 여 Azure Vm을 다른 Azure 지역에 복제할 수 있습니다.<br/><br/> 방화벽 사용 저장소 계정을 관리 되지 않는 디스크에 대 한 대상 저장소 계정으로 사용할 수 있습니다.<br/><br/> PowerShell을 사용 하는 경우에만 지원 됩니다.
 
 
 ### <a name="update-rollup-29"></a>업데이트 롤업 29
@@ -505,7 +518,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 
 **기능** | **세부 정보**
 --- | ---
-**Linux 지원** | RedHat Enterprise Linux 6.10, CentOS 6.10에 대 한 지원이 추가 되었습니다.<br/><br/> 기존 BIOS 호환성 모드에서 GPT (GUID 파티션 테이블) 파티션 스타일을 사용 하는 Linux 기반 Vm이 이제 지원 됩니다. 자세한 내용은 [AZURE VM FAQ](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) 를 참조 하세요.
+**Linux 지원** | RedHat Enterprise Linux 6.10, CentOS 6.10에 대 한 지원이 추가 되었습니다.<br/><br/> 기존 BIOS 호환성 모드에서 GPT (GUID 파티션 테이블) 파티션 스타일을 사용 하는 Linux 기반 Vm이 이제 지원 됩니다. 자세한 내용은 [AZURE VM FAQ](../virtual-machines/linux/faq-for-disks.md) 를 참조 하세요.
 **마이그레이션 후 Vm에 대 한 재해 복구** | 복제를 사용 하도록 설정 하기 전에 VM에서 모바일 서비스를 제거할 필요 없이 온-프레미스 VMware VM을 Azure로 마이그레이션하는 보조 지역에 대 한 재해 복구를 사용 하도록 지원 합니다.
 **Windows Server 2008** | Windows Server 2008 R2/2008 64 비트 및 32 비트를 실행 하는 컴퓨터를 마이그레이션하기 위한 지원<br/><br/> 마이그레이션만 (복제 및 장애 조치). 장애 복구는 지원 되지 않습니다.
 

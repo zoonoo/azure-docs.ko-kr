@@ -1,18 +1,18 @@
 ---
 title: 데이터 요금 청구에 대 한 변칙 검색 서비스-Microsoft Azure Marketplace
 description: 변칙 검색이 작동 하는 방식, 알림이 전송 되는 시기 및 지원 옵션을 설명 합니다.
-author: anbene
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 06/10/2020
-ms.openlocfilehash: b83b6fc0da6a8b2016676d7fb748fc87880868f3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: becd15ceea41e40b35848f46f9657c501acf659a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964569"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122033"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>데이터 요금 청구를 위한 변칙 검색 서비스
 

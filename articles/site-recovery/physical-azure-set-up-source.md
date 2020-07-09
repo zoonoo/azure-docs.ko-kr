@@ -8,17 +8,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2cc3627222bcd8de5a5cb1b5c83b04c5d4ef880
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130200"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
 - [Azure Portal](https://portal.azure.com "Azure portal")의 Recovery Services 자격 증명 모음입니다.
@@ -57,7 +58,7 @@ ms.locfileid: "84699926"
 #### <a name="run-azure-site-recovery-unified-setup"></a>Azure Site Recovery 통합 설치 프로그램 실행
 
 > [!TIP]
-> 사용자 컴퓨터의 시스템 클록에서 시간이 현지 시간보다 5분 이상 차이가 날 경우 구성 서버 등록에 실패합니다. 설치를 시작 하기 전에 시스템 클록을 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) 와 동기화 합니다.
+> 사용자 컴퓨터의 시스템 클록에서 시간이 현지 시간보다 5분 이상 차이가 날 경우 구성 서버 등록에 실패합니다. 설치를 시작 하기 전에 시스템 클록을 [시간 서버](/windows-server/networking/windows-time-service/windows-time-service-top) 와 동기화 합니다.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b03ac554ed578633b55ffa2fde4838c691d04d59
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73953332"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132208"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware Deployment Planner에서 비용 추정치 검토 
 
@@ -149,7 +150,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|Currency|이름||Currency|이름||Currency|이름|
+|Currency|Name||Currency|Name||Currency|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑. (chf)||DKK|덴마크 크론(kr)|
@@ -161,4 +162,4 @@ Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보
 |TRY|터키 리라(TL)||USD| 미국 달러($)||ZAR|남아프리카공화국 랜드(R)|
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Site Recovery를 사용하여 VMware VM을 Azure로](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure) 보호하는 내용에 대해 자세히 알아보세요.
+[Azure Site Recovery를 사용하여 VMware VM을 Azure로](./vmware-azure-tutorial.md) 보호하는 내용에 대해 자세히 알아보세요.

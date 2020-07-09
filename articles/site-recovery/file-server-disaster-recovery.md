@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4b6d583c2dd3d54c6201917a40fa6165efac18f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82858742"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131265"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -44,7 +45,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
     * VM에 Site Recovery에서 지원되지 않는 구성이 있는 경우 이 방법을 사용할 수 있습니다. 예는 경우에 따라 일반적으로 파일 서버 환경에서 사용되는 공유 클러스터 디스크입니다. DFSR은 중간 변동률을 사용하여 대역폭이 낮은 환경에서도 잘 작동합니다. Azure VM을 사용하고 항상 실행하는 추가 비용을 고려해야 합니다. 
 
-* **Azure File Sync를 사용 하 여 파일 복제**: 클라우드를 사용 하려는 경우 또는 Azure VM을 이미 사용 하는 경우 Azure File Sync를 사용할 수 있습니다. Azure File Sync은 업계 표준 SMB ( [서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리 되는 파일 공유의 동기화를 제공 합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
+* **Azure File Sync를 사용 하 여 파일 복제**: 클라우드를 사용 하려는 경우 또는 Azure VM을 이미 사용 하는 경우 Azure File Sync를 사용할 수 있습니다. Azure File Sync은 업계 표준 SMB ( [서버 메시지 블록](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리 되는 파일 공유의 동기화를 제공 합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
 
 다음 다이어그램을 사용하여 파일 서버 환경에 사용할 전략을 결정할 수 있습니다.
 
@@ -66,9 +67,9 @@ Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 �
 | 원본  |보조 사이트 대상  |Azure 대상
 |---------|---------|---------|
 |Azure|  -|예|
-|Hyper-V|  예  |예
-|VMware  |예|  예
-|물리적 서버|  예  |예
+|Hyper-V|  예  |Yes
+|VMware  |Yes|  Yes
+|물리적 서버|  Yes  |Yes
  
 
 > [!IMPORTANT]
@@ -76,13 +77,13 @@ Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 �
 
 
 
-**사이트 간 연결**: 서버 간 통신을 허용하도록 온-프레미스 사이트와 Azure 네트워크 간에 직접 연결을 설정해야 합니다. 재해 복구 사이트로 사용되는 Azure 가상 네트워크에 안전한 사이트 간 VPN 연결을 사용합니다. 자세한 내용은 [온-프레미스 사이트와 Azure 가상 네트워크 간의 사이트 간 VPN 연결 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)을 참조하세요.
+**사이트 간 연결**: 서버 간 통신을 허용하도록 온-프레미스 사이트와 Azure 네트워크 간에 직접 연결을 설정해야 합니다. 재해 복구 사이트로 사용되는 Azure 가상 네트워크에 안전한 사이트 간 VPN 연결을 사용합니다. 자세한 내용은 [온-프레미스 사이트와 Azure 가상 네트워크 간의 사이트 간 VPN 연결 설정](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 참조하세요.
 
-**Active Directory**: DFSR은 Active Directory에 따라 달라집니다. 즉, 로컬 도메인 컨트롤러와 Active Directory 포리스트를 Azure의 재해 복구 사이트로 확장합니다. DFSR을 사용하지 않더라도 대상 사용자가 액세스를 부여 받거나 액세스에 대한 확인이 필요한 경우 이러한 단계를 수행해야 합니다. 자세한 내용은 [Azure로 온-프레미스 Active Directory 확장](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory)을 참조하세요.
+**Active Directory**: DFSR은 Active Directory에 따라 달라집니다. 즉, 로컬 도메인 컨트롤러와 Active Directory 포리스트를 Azure의 재해 복구 사이트로 확장합니다. DFSR을 사용하지 않더라도 대상 사용자가 액세스를 부여 받거나 액세스에 대한 확인이 필요한 경우 이러한 단계를 수행해야 합니다. 자세한 내용은 [Azure로 온-프레미스 Active Directory 확장](./site-recovery-active-directory.md)을 참조하세요.
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Azure IaaS 가상 머신에 대한 재해 복구 권장 사항
 
-Azure IaaS VM에 호스팅되는 파일 서버의 재해 복구를 관리하는 경우 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)로 이동할지 여부에 따라 두 가지 옵션 중에서 선택할 수 있습니다.
+Azure IaaS VM에 호스팅되는 파일 서버의 재해 복구를 관리하는 경우 [Azure Files](../storage/files/storage-files-introduction.md)로 이동할지 여부에 따라 두 가지 옵션 중에서 선택할 수 있습니다.
 
 * [파일 동기화 사용](#use-file-sync-to-replicate-files-hosted-on-an-iaas-virtual-machine)
 * [Site Recovery 사용](#replicate-an-iaas-file-server-virtual-machine-by-using-site-recovery)
@@ -92,16 +93,16 @@ Azure IaaS VM에 호스팅되는 파일 서버의 재해 복구를 관리하는 
 Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Azure 파일 공유는 사용되는 데이터의 성능 및 분산 캐싱을 위해 파일 동기화를 사용하여 온-프레미스 또는 클라우드의 Windows 서버에 복제될 수도 있습니다. 다음 단계에서는 기존의 파일 서버와 동일한 기능을 수행하는 Azure VM에 대한 재해 복구 권장 사항을 설명합니다.
 * Site Recovery를 사용하여 컴퓨터를 보호합니다. [다른 Azure 지역에 Azure VM 복제](azure-to-azure-quickstart.md)의 단계를 따릅니다.
 * 파일 동기화를 사용하여 파일 서버 역할을 하는 VM에서 클라우드로 파일을 복제합니다.
-* Site Recovery의 [복구 계획](site-recovery-create-recovery-plans.md) 기능을 사용하여 [Azure 파일 공유를 탑재](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)하고 가상 머신에서 공유 권한에 액세스하는 스크립트를 추가합니다.
+* Site Recovery의 [복구 계획](site-recovery-create-recovery-plans.md) 기능을 사용하여 [Azure 파일 공유를 탑재](../storage/files/storage-how-to-use-files-windows.md)하고 가상 머신에서 공유 권한에 액세스하는 스크립트를 추가합니다.
 
 다음 단계는 파일 동기화를 사용하는 방법을 간단하게 설명합니다.
 
-1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
-2. [파일 공유를 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
-3. Azure 파일 서버에서 [파일 동기화를 시작합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
+1. [Azure에서 스토리지 계정 만들기](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조하세요.
+2. [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md).
+3. Azure 파일 서버에서 [파일 동기화를 시작합니다](../storage/files/storage-sync-files-deployment-guide.md).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.
 5. 파일은 이제 Azure 파일 공유 및 온-프레미스서버와 동기화된 상태를 유지합니다.
-6. 온-프레미스 환경에서 재해 발생 시 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 장애 조치(failover)를 수행합니다. 스크립트를 추가하여 [Azure 파일 공유를 탑재](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)하고 가상 머신에서 공유에 액세스합니다.
+6. 온-프레미스 환경에서 재해 발생 시 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 장애 조치(failover)를 수행합니다. 스크립트를 추가하여 [Azure 파일 공유를 탑재](../storage/files/storage-how-to-use-files-windows.md)하고 가상 머신에서 공유에 액세스합니다.
 
 ### <a name="replicate-an-iaas-file-server-virtual-machine-by-using-site-recovery"></a>Site Recovery를 사용하여 IaaS 파일 서버 가상 머신 복제
 
@@ -112,42 +113,42 @@ IaaS 파일 서버 가상 머신에 액세스하는 온-프레미스 클라이�
 3. 보조 지역에 IaaS 파일 서버 컴퓨터에 대한 [재해 복구를 설정합니다](azure-to-azure-tutorial-enable-replication.md).
 
 
-보조 지역에 대한 재해 복구의 자세한 내용은 [이 문서](concepts-azure-to-azure-architecture.md)를 참조하세요.
+보조 지역에 대한 재해 복구의 자세한 내용은 [이 문서](./azure-to-azure-architecture.md)를 참조하세요.
 
 
 ## <a name="replicate-an-on-premises-file-server-by-using-site-recovery"></a>Site Recovery를 사용하여 온-프레미스 파일 서버 복제
 
-다음 단계에서는 VMware VM에 대한 복제를 설명합니다. Hyper-V VM을 복제하는 단계는 [이 자습서](tutorial-hyper-v-to-azure.md)를 참조하세요.
+다음 단계에서는 VMware VM에 대한 복제를 설명합니다. Hyper-V VM을 복제하는 단계는 [이 자습서](./hyper-v-azure-tutorial.md)를 참조하세요.
 
 1. 온-프레미스 컴퓨터를 복제 하기 위해 [Azure 리소스를 준비](tutorial-prepare-azure.md) 합니다.
 2. 온-프레미스 사이트와 Azure 네트워크 간에 사이트 간 VPN 연결을 설정합니다. 
 3. 온-프레미스 Active Directory를 확장합니다.
-4. [온-프레미스 VMware 서버를 준비합니다](tutorial-prepare-on-premises-vmware.md).
-5. Azure에 온-프레미스 VM에 대한 [재해 복구를 설정합니다](tutorial-vmware-to-azure.md).
+4. [온-프레미스 VMware 서버를 준비합니다](./vmware-azure-tutorial-prepare-on-premises.md).
+5. Azure에 온-프레미스 VM에 대한 [재해 복구를 설정합니다](./vmware-azure-tutorial.md).
 
 ## <a name="extend-dfsr-to-an-azure-iaas-virtual-machine"></a>Azure IaaS 가상 머신으로 DFSR 확장
 
 1. 온-프레미스 사이트와 Azure 네트워크 간에 사이트 간 VPN 연결을 설정합니다. 
 2. 온-프레미스 Active Directory를 확장합니다.
-3. Azure 가상 네트워크에서 [파일 서버 VM을 만들고 프로비전합니다](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+3. Azure 가상 네트워크에서 [파일 서버 VM을 만들고 프로비전합니다](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 가상 머신을 온-프레미스 환경과 교차 연결한 동일한 Azure 가상 네트워크에 추가했는지 확인합니다. 
 4. Windows Server에서 [DFSR을 설치하고 구성합니다](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877).
-5. [DFS 네임스페이스를 구현합니다](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
+5. [DFS 네임스페이스를 구현합니다](/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6. DFS 네임스페이스를 구현하면 프로덕션에서 재해 복구 사이트로 공유 폴더의 장애 조치는 DFS 네임스페이스 폴더 대상을 업데이트하여 수행할 수 있습니다. 이러한 DFS 네임스페이스 변경 내용이 Active Directory를 통해 복제되면 사용자가 적절한 폴더 대상에 투명하게 연결됩니다.
 
 ## <a name="use-file-sync-to-replicate-your-on-premises-files"></a>파일 동기화를 사용하여 온-프레미스 파일 복제
 파일 동기화를 사용하여 클라우드로 파일을 복제할 수 있습니다. 온-프레미스 파일 서버에 재해 및 불가용성이 발생하는 경우 클라우드의 원하는 파일 위치를 탑재하고 클라이언트 컴퓨터의 서비스 요청을 진행할 수 있습니다.
 Site Recovery와 파일 동기화를 통합하려면:
 
-* Site Recovery를 사용하여 파일 서버 컴퓨터를 보호합니다. [이 자습서](tutorial-vmware-to-azure.md)의 단계를 따릅니다.
+* Site Recovery를 사용하여 파일 서버 컴퓨터를 보호합니다. [이 자습서](./vmware-azure-tutorial.md)의 단계를 따릅니다.
 * 파일 동기화를 사용하여 파일 서버 역할을 하는 컴퓨터에서 클라우드로 파일을 복제합니다.
 * Site Recovery에서 복구 계획 기능을 사용하여 Azure에서 장애 조치된 파일 서버 VM에서 Azure 파일 공유를 탑재하는 스크립트를 추가합니다.
 
 파일 동기화를 사용하려면 다음 단계를 수행합니다.
 
-1. [Azure에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조 하세요.
-2. [파일 공유를 만듭니다](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
-3. 온-프레미스 파일 서버에서 [파일 동기화를 배포합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
+1. [Azure에서 스토리지 계정 만들기](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json) 스토리지 계정에 대해 읽기 액세스 지역 중복 스토리지(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치 (failover)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)를 참조 하세요.
+2. [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md).
+3. 온-프레미스 파일 서버에서 [파일 동기화를 배포합니다](../storage/files/storage-sync-files-deployment-guide.md).
 4. 동기화 그룹을 만듭니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트를 포함해야 합니다. 또한 동기화 그룹은 온-프레미스 Windows 서버의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다.
 5. 파일은 이제 Azure 파일 공유 및 온-프레미스서버와 동기화된 상태를 유지합니다.
 6. 온-프레미스 환경에서 재해 발생 시 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 장애 조치(failover)를 수행합니다. 스크립트를 추가하여 Azure 파일 공유를 탑재하고 가상 머신에서 공유에 액세스합니다.

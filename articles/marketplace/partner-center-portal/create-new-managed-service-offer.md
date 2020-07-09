@@ -1,18 +1,18 @@
 ---
 title: Microsoft 상업용 마켓플레이스에서 관리형 서비스 제품 만들기
 description: 파트너 센터의 상업용 마켓플레이스 포털을 사용하여 Azure Marketplace에 나열할 새로운 관리형 서비스 제품을 만드는 방법입니다.
-author: JnHs
-ms.author: jenhayes
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+author: JnHs
+ms.author: jenhayes
+ms.date: 07/07/2020
+ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957582"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121795"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
@@ -230,7 +230,7 @@ ms.locfileid: "85957582"
 
 - **Azure AD 개체 ID**: 고객의 리소스에 대한 특정 권한(역할 정의에 정의됨)을 부여할 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD 식별자입니다.
 - **Azure AD 개체 표시 이름**: 고객이 이 권한 부여의 용도를 이해하는 데 도움이 되는 친숙한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
-- **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대한 설명은 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 및 [Azure 위임 리소스 관리에 대한 역할 지원](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조하세요.
+- **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대 한 설명은 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 및 [Azure Lighthouse에 대 한 역할 지원](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)을 참조 하세요.
   > [!NOTE]
   > 적용 가능한 신규 기본 제공 역할이 Azure에 추가되면 여기에서 사용할 수 있게 됩니다. 다만, 약간의 지연이 있을 수 있습니다.
 - **할당 가능한 역할**: 이 옵션은 이 권한 부여의 **역할 정의**에서 사용자 액세스 관리자를 선택한 경우에만 나타납니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 역할을 [수정할 수 있는 정책을 배포](../../lighthouse/how-to/deploy-policy-remediation.md)하는 데 필요한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.

@@ -1,18 +1,16 @@
 ---
 title: Microsoft 상업용 Marketplace에서 Azure 앱을 온보딩하기 위한 파트너 센터 제출 API
 description: Microsoft 파트너 센터의 상업용 Marketplace에서 Azure 앱에 대한 파트너 센터 제출 API를 사용하기 위한 필수 구성 요소에 대해 알아봅니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3d86329313c1b6af1e4723dc64c982f9c81ea86b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8343f0954f02423fc48347911f10cf5b9ddee96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964977"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121999"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>파트너 센터에서 Azure 앱을 온보딩하기 위한 파트너 센터 제출 API
 

@@ -1,18 +1,16 @@
 ---
 title: Microsoft 상업용 Marketplace를 위한 새 SaaS 제품 만들기
 description: Microsoft 파트너 센터의 Microsoft 상업용 Marketplace 프로그램을 사용하여 Microsoft AppSource, Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 나열 또는 판매할 새 SaaS(Software as a Service) 제품을 만드는 방법입니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 3393fb6e33cbf80db68c49ac31edb54de35bae64
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a233f3594ace74a6bfeca90ffccfbcb233e5d890
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980599"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121891"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 새 SaaS 제품 만들기
 
@@ -112,7 +110,7 @@ SaaS는 요금 청구 서비스를 사용하여 정액 요금, 사용자당 요�
 
 #### <a name="free-trial-listing"></a>평가판(목록)
 
-올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 평가판에 대 한 링크를 고객에 게 나열 합니다. 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있습니다. 예: `https://contoso.com/trial/saas-app`. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
+올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 평가판에 대 한 링크를 고객에 게 나열 합니다. 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있습니다. 예들 들어 `https://contoso.com/trial/saas-app`입니다. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 애플리케이션에서 수신하는 토큰은 앱에서 자동으로 계정을 만드는 Azure AD를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에 MSA(Microsoft 계정)가 지원되지 않습니다.
@@ -139,7 +137,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명
+9. Description
 10. 스크린샷/비디오
 11. 문서
 
@@ -150,7 +148,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 

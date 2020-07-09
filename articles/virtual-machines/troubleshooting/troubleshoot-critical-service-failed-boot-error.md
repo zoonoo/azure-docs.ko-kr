@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921456"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129858"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
 이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 부팅할 때 발생할 수 있는 "CRITICAL SERVICE FAILED" 오류에 대해 설명합니다. 그리고 해당 문제를 해결할 수 있는 문제 해결 단계를 제공합니다. 
@@ -83,11 +84,15 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 
 1. 복구 VM의 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다. 이 명령은 해당하는 OS 디스크가 다음 부팅 시 안전 모드로 시작되도록 설정합니다.
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     예를 들어 연결한 OS 디스크가 드라이브 F인 경우 다음 명령을 실행합니다.
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Os 디스크를 분리 한 다음, 영향을 받는 VM에 os 디스크를 다시 연결](troubleshoot-recovery-disks-portal-windows.md)합니다. VM이 안전 모드로 부팅됩니다. 오류가 계속 발생하면 선택적 단계로 이동합니다.
 3. **실행** 상자를 열고 **검증 도구**를 실행하여 드라이버 검증 도구 관리자 도구를 시작합니다.
@@ -97,7 +102,10 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 
 7. 안전 부팅 설정을 제거합니다.
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  VM을 다시 시작합니다. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드에서 덤프 로그 분석

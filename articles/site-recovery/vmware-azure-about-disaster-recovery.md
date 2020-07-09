@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954385"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132124"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -20,7 +21,7 @@ ms.locfileid: "73954385"
 
 BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 작동되고 실행되도록 도와줍니다. 계획된 가동 중단 및 예기치 않은 작동 중단 동안 BCDR은 데이터를 안전하고 사용 가능하게 유지하고, 앱이 계속 실행되도록 합니다. 지역 페어링 및 고가용성 스토리지와 같은 플랫폼 BCDR 기능 외에도, Azure는 BCDR 솔루션의 통합된 일부로 Recovery Services를 제공합니다. Recovery Services에는 다음이 포함됩니다. 
 
-- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 온-프레미스 및 Azure VM 데이터를 백업합니다. 파일 및 폴더, 특정 워크로드 또는 전체 VM을 백업할 수 있습니다. 
+- [Azure Backup](../backup/backup-overview.md)은 온-프레미스 및 Azure VM 데이터를 백업합니다. 파일 및 폴더, 특정 워크로드 또는 전체 VM을 백업할 수 있습니다. 
 - [Azure Site Recovery](site-recovery-overview.md)는 온-프레미스 컴퓨터 또는 Azure IaaS VM에서 실행되는 앱 및 워크로드대에 해 복원력 및 재해 복구를 제공합니다. Site Recovery는 복제를 오케스트레이션하고 중단이 발생하면 Azure로 장애 조치(Failover)합니다. 또한 Azure에서 기본 사이트로의 복구를 처리합니다. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Site Recovery는 어떻게 재해 복구를 수행하나요?

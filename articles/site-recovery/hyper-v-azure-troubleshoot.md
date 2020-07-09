@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b3fdd93902709541f4a22e652c34973158ad9c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195271"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132434"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -27,12 +28,12 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 3. Hyper-V 호스트에서 Hyper-V Virtual Machine Management 서비스가 실행되고 있는지 확인합니다.
 4. VM의 Hyper-V-VMMS\Admin 로그인에 표시되는 문제를 확인합니다. 이 로그는 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**에 있습니다.
 5. 게스트 VM에서 WMI가 사용되도록 설정되어 있고 액세스 가능한지 확인합니다.
-   - 기본 WMI 테스트에 대해 [자세히 알아봅니다](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/).
+   - 기본 WMI 테스트에 대해 [자세히 알아봅니다](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf).
    - WMI [문제를 해결합니다](https://aka.ms/WMiTshooting).
-   - WMI 스크립트 및 서비스 문제를 [해결](https://technet.microsoft.com/library/ff406382.aspx#H22) 합니다.
+   - WMI 스크립트 및 서비스 문제를 [해결](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) 합니다.
 6. 게스트 VM에 최신 버전의 Integration Services가 실행되고 있는지 확인합니다.
-    - 최신 버전이 있는지 [확인합니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Integration Services를 최신 상태로 [유지합니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date).
+    - 최신 버전이 있는지 [확인합니다](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Integration Services를 최신 상태로 [유지합니다](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date).
     
 ## <a name="replication-issues"></a>복제 문제
 
@@ -65,7 +66,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 3. 프로파일러를 실행한 후 [대역폭](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) 권장 사항을 따릅니다.
 4. [데이터 변동 제한 사항](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)을 확인합니다. VM에서 높은 데이터 변동이 확인되면 다음을 수행합니다.
    - VM이 재동기화용으로 표시되어 있는지 여부를 확인합니다.
-   - [이 단계](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)에 따라 변동의 원본을 조사합니다.
+   - [이 단계](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization)에 따라 변동의 원본을 조사합니다.
    - HRL 로그 파일이 사용 가능한 디스크 공간의 50%를 초과하면 변동이 발생할 수 있습니다. 이것이 문제인 경우 문제가 발생하는 모든 VM에 대해 더 많은 스토리지 공간을 프로비전합니다.
    - 복제가 일시 중지되지 않았는지 확인합니다. 일시 중지된 경우 HRL 파일에 변경 내용이 계속 써지므로 파일 크기가 커질 수 있습니다.
  
@@ -114,8 +115,8 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
         - 카운터: "Write Bytes / Sec"</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
         - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 스토리지에 대해 2MB/s입니다. [자세한 정보](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - 또한 [스토리지 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)할 수 있습니다.
-8. Linux 기반 서버를 사용 하는 경우 앱에서 일관성을 사용 하도록 설정 했는지 확인 합니다. [자세한 정보](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication)
+    - 또한 [스토리지 확장성 목표를 확인](../storage/common/scalability-targets-standard-account.md)할 수 있습니다.
+8. Linux 기반 서버를 사용 하는 경우 앱에서 일관성을 사용 하도록 설정 했는지 확인 합니다. [자세한 정보](./site-recovery-faq.md#replication)
 9. [Deployment Planner](hyper-v-deployment-planner-run.md)를 실행합니다.
 10. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
 
@@ -129,7 +130,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 2. VM에 대한 VSS 스냅샷을 생성하려면 VM에서 Hyper-V Integration Services가 설치되어 있는지와 Backup(VSS) Integration Services가 사용되도록 설정되어 있는지 확인합니다.
     - Integration Services VSS 서비스/디먼이 게스트에서 실행되고 있는지와 **정상** 상태인지 확인합니다.
-    - **Enable-vmintegrationservice-VMName \<VMName> -Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아보기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - **Enable-vmintegrationservice-VMName \<VMName> -Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아보기](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - VM에서 Backup/VSS Integration Services가 실행되고 있는지와 정상 상태인지 확인합니다. 그렇지 않은 경우, 이러한 서비스와 Hyper-V 호스트 서버의 Hyper-V 볼륨 섀도 복사본 요청자 서비스를 다시 시작합니다.
 
 ### <a name="common-errors"></a>일반적인 오류
@@ -137,7 +138,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 **오류 코드** | **메시지** | **세부 정보**
 --- | --- | ---
 **0x800700EA** | "Hyper-V가 가상 머신에 대한 VSS 스냅샷 집합을 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅샷 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
-**0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)합니다.
+**0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)합니다.
 
 
 
@@ -169,4 +170,3 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 -   VMM의 경우 [SDP(Support Diagnostics Platform) 도구](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)를 사용하여 Site Recovery 로그 수집을 수행합니다.
 -   VMM이 없는 Hyper-V의 경우 [이 도구를 다운로드](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)하고 Hyper-V 호스트에서 실행하여 로그를 수집합니다.
-

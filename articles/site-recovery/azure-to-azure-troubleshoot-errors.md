@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738119"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130446"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-[Azure 청구 지원](/azure/azure-portal/supportability/resource-manager-core-quotas-request) 에 문의 하 여 구독에서 대상 위치에 필요한 크기의 vm을 만들 수 있도록 합니다. 그런 다음 실패 한 작업을 다시 시도 합니다.
+[Azure 청구 지원](../azure-portal/supportability/resource-manager-core-quotas-request.md) 에 문의 하 여 구독에서 대상 위치에 필요한 크기의 vm을 만들 수 있도록 합니다. 그런 다음 실패 한 작업을 다시 시도 합니다.
 
 대상 위치에 용량 제약 조건이 있는 경우 해당 위치로 복제를 사용 하지 않도록 설정 합니다. 그런 다음, 구독에 필요한 크기의 Vm을 만들 수 있는 충분 한 할당량이 있는 다른 위치로 복제를 사용 하도록 설정 합니다.
 
@@ -202,7 +202,7 @@ Office 365 인증 및 id IP4 끝점에 대 한 연결을 설정할 수 없습니
 #### <a name="fix-the-problem"></a>문제 해결
 
 인증을 위해 Office 365 IP 범위에 필요한 액세스를 Azure Site Recovery 합니다.
-Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 aad에 대 한 액세스를 허용 하기 위해 [aad (Azure Active Directory) 서비스 태그](/azure/virtual-network/security-overview#service-tags) 기반 nsg 규칙을 사용 해야 합니다. IP 주소 기반 NSG 규칙을 더 이상 지원 하지 않습니다.
+Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 aad에 대 한 액세스를 허용 하기 위해 [aad (Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 nsg 규칙을 사용 해야 합니다. IP 주소 기반 NSG 규칙을 더 이상 지원 하지 않습니다.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
 
@@ -239,7 +239,7 @@ Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 
 > [!NOTE]
 > 모바일 서비스 에이전트는 **인증 되지 않은 프록시**만 지원 합니다.
 
-### <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>자세한 정보
 
 [필수 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)를 지정 하려면 azure [에서 Azure로 복제에 대 한 정보](azure-to-azure-about-networking.md)를 참조 하세요.
 
@@ -260,8 +260,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 데이터 디스크가 초기화 되었는지 확인 한 후 작업을 다시 시도 하십시오.
 
-- **Windows**: [새 디스크를 연결 하 고 초기화](/azure/virtual-machines/windows/attach-managed-disk-portal)합니다.
-- **Linux**: [linux에서 새 데이터 디스크를 초기화](/azure/virtual-machines/linux/add-disk)합니다.
+- **Windows**: [새 디스크를 연결 하 고 초기화](../virtual-machines/windows/attach-managed-disk-portal.md)합니다.
+- **Linux**: [linux에서 새 데이터 디스크를 초기화](../virtual-machines/linux/add-disk.md)합니다.
 
 문제가 계속되면 지원에 문의하세요.
 
@@ -475,7 +475,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
 
 각 장치 이름을 해당 하는 UUID로 바꿉니다.
 
-1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid <device name>` . 예:
+1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid <device name>` . 예를 들면 다음과 같습니다.
 
    ```shell
    blkid /dev/sda1

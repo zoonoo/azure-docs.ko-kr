@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73936036"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129956"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
 
@@ -38,7 +39,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 ## <a name="before-you-start"></a>시작하기 전에
 
 * VM, VM당 디스크, 디스크당 스토리지를 포함하여 사용자 환경에 대한 정보를 수집합니다.
-* 복제된 데이터에 대한 일일 변경(이탈)률을 식별합니다. [Hyper-V 용량 계획 도구](https://www.microsoft.com/download/details.aspx?id=39057)를 다운로드하여 변경률을 얻습니다. [자세히 알아보세요](site-recovery-capacity-planning-for-hyper-v-replication.md) . 평균을 캡처하기 위해 일주일 이상 이 도구를 실행하는 것이 좋습니다.
+* 복제된 데이터에 대한 일일 변경(이탈)률을 식별합니다. [Hyper-V 용량 계획 도구](https://www.microsoft.com/download/details.aspx?id=39057)를 다운로드하여 변경률을 얻습니다. [자세히 알아보세요](./hyper-v-deployment-planner-overview.md) . 평균을 캡처하기 위해 일주일 이상 이 도구를 실행하는 것이 좋습니다.
 
 
 ## <a name="run-the-quick-planner"></a>Quick Planner 실행
@@ -52,7 +53,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
 
-   b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
+   b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](./hyper-v-deployment-planner-overview.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
    다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
@@ -146,4 +147,4 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>다음 단계
-용량 계획 도구를 [실행하는 방법을 알아봅니다](site-recovery-capacity-planning-for-hyper-v-replication.md).
+용량 계획 도구를 [실행하는 방법을 알아봅니다](./hyper-v-deployment-planner-overview.md).

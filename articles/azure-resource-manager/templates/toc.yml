@@ -222,12 +222,6 @@
         - name: 배포 관리자에서 상태 검사 사용
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: 샘플
-  items:
-    - name: Azure 빠른 시작 템플릿
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: 템플릿 샘플
-      href: template-samples.md
 - name: 개념
   items:
     - name: 템플릿 모범 사례
@@ -299,16 +293,6 @@
             - name: outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: 제작 도구 사용
-      items:
-        - name: VS 코드
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: VS 배포 스크립트를 Az 모듈로 업데이트
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: 템플릿 속성 검색
       items:
         - name: 템플릿 내보내기
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: SAS 토큰을 사용하여 템플릿 보호
           href: secure-template-with-sas-token.md
+        - name: 배포 기록 보기
+          href: deployment-history.md
     - name: 범위가 지정된 배포
       items:
         - name: Subscription
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: 배포 - GitHub Actions
           href: deploy-github-actions.md
-    - name: 배포 기록 보기
-      href: deployment-history.md
+    - name: 제작 도구 사용
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: VS 배포 스크립트를 Az 모듈로 업데이트
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: 배포 문제 해결
       items:
         - name: 배포 오류 문제 해결
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: 리소스
   items:
+    - name: Azure 빠른 시작 템플릿
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: 요금 계산기

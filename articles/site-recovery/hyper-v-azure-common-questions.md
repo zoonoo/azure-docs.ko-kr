@@ -3,11 +3,12 @@ title: Azure Site Recovery의 Hyper-v 재해 복구에 대 한 일반적인 질�
 description: 이 문서에는 Azure Site Recovery 사이트를 사용하여 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 설정하는 방법과 관련된 일반적인 질문이 요약되어 있습니다.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195251"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132671"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -31,17 +32,17 @@ GPv2 저장소 Azure Site Recovery 계정에 발생 하는 트랜잭션 비용�
 
 Hyper-V 호스트 서버에서 필요한 사항은 배포 시나리오에 따라 달라집니다. Hyper-V 필수 구성 요소를 확인해 보세요.
 
-* [Azure로 Hyper-V VM 복제(VMM 없이)](site-recovery-hyper-v-site-to-azure.md)
-* [Azure로 Hyper-V VM 복제(VMM 사용)](site-recovery-vmm-to-azure.md)
-* [보조 데이터 센터에 Hyper-V VM 복제](site-recovery-vmm-to-vmm.md)
-* 보조 데이터 센터에 복제하는 경우 [Hyper-V VM에 대해 지원되는 게스트 운영 체제](https://technet.microsoft.com/library/mt126277.aspx)에 대해 알아보세요.
-* Azure에 복제하는 경우에는 [Azure에서 지원되는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)모든 게스트 운영 체제를 Site Recovery에서도 지원합니다.
+* [Azure로 Hyper-V VM 복제(VMM 없이)](./hyper-v-azure-tutorial.md)
+* [Azure로 Hyper-V VM 복제(VMM 사용)](./hyper-v-vmm-disaster-recovery.md)
+* [보조 데이터 센터에 Hyper-V VM 복제](./hyper-v-vmm-disaster-recovery.md)
+* 보조 데이터 센터에 복제하는 경우 [Hyper-V VM에 대해 지원되는 게스트 운영 체제](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/mt126277(v=ws.11))에 대해 알아보세요.
+* Azure에 복제하는 경우에는 [Azure에서 지원되는](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))모든 게스트 운영 체제를 Site Recovery에서도 지원합니다.
 
 ### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Hyper-V가 클라이언트 운영 체제에서 실행 중인 경우 VM을 보호할 수 있습니까?
-아니요, VM은 지원되는 Windows 서버 컴퓨터를 실행하는 Hyper-V 호스트 서버에 위치해야 합니다. 클라이언트 컴퓨터를 보호해야 하는 경우 물리적 컴퓨터를 [Azure](site-recovery-vmware-to-azure.md) 또는 [보조 데이터 센터](site-recovery-vmware-to-vmware.md)로 복제할 수 있습니다.
+아니요, VM은 지원되는 Windows 서버 컴퓨터를 실행하는 Hyper-V 호스트 서버에 위치해야 합니다. 클라이언트 컴퓨터를 보호해야 하는 경우 물리적 컴퓨터를 [Azure](./vmware-azure-tutorial.md) 또는 [보조 데이터 센터](./vmware-physical-secondary-disaster-recovery.md)로 복제할 수 있습니다.
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Hyper-V 호스트가 VMM 클라우드에 있어야 합니까?
-보조 데이터 센터에 복제하려는 경우 Hyper-V VM은 VMM 클라우드에 위치한 Hyper-V 호스트 서버에 있어야 합니다. Azure로 복제하려는 경우 VMM 클라우드 존재 여부와 상관없이 VM을 복제할 수 있습니다. Azure로 Hyper-V 복제에 대해 [자세히 알아보세요](tutorial-hyper-v-to-azure.md).
+보조 데이터 센터에 복제하려는 경우 Hyper-V VM은 VMM 클라우드에 위치한 Hyper-V 호스트 서버에 있어야 합니다. Azure로 복제하려는 경우 VMM 클라우드 존재 여부와 상관없이 VM을 복제할 수 있습니다. Azure로 Hyper-V 복제에 대해 [자세히 알아보세요](./hyper-v-azure-tutorial.md).
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Hyper-V 2세대 가상 머신을 Azure로 복제할 수 있습니까?
@@ -70,7 +71,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 예. 한 지역에 자격 증명 모음을 만들 때 Site Recovery에서 사용되는 모든 메타데이터가 해당 지역의 지리적 경계 내에 유지되도록 합니다.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery는 복제를 암호화합니까?
-예, 전송 중 암호화 및 [Azure의 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)가 모두 지원됩니다.
+예, 전송 중 암호화 및 [Azure의 암호화](../storage/common/storage-service-encryption.md)가 모두 지원됩니다.
 
 
 ## <a name="deployment"></a>배포

@@ -1,18 +1,18 @@
 ---
 title: Azure Blob Storage를 사용하여 잠재 고객 관리 -Microsoft 상업용 Marketplace
 description: Azure Blob을 사용하여 Microsoft AppSource 및 Azure Marketplace에 대한 잠재 고객을 구성하는 방법을 알아봅니다.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/01/2020
-ms.author: dsindona
-ms.openlocfilehash: 471675de58161fc0c0110e2968089da062c6da87
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960565"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121914"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Azure Blob Storage를 사용하여 상업용 Marketplace 잠재 고객 관리
 

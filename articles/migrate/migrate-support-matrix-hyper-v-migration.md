@@ -3,11 +3,12 @@ title: Azure Migrate의 Hyper-v 마이그레이션 지원
 description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 5dd2ae134e57fc8c719a27c25ddc58e769367065
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ea7d139b3d3cc8c14e43ccfb7c233fcbe4c564c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771238"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122067"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-v 마이그레이션을 위한 지원 매트릭스
 
@@ -32,7 +33,7 @@ ms.locfileid: "84771238"
 
 | **지원**                  | **세부 정보**               
 | :----------------------------- | :------------------- |
-| **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다. |
+| **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](../virtual-machines/linux/endorsed-distros.md) 운영 체제입니다. |
 **Windows Server 2003** | Windows Server 2003를 실행 하는 Vm의 경우 마이그레이션하기 전에 [hyper-v Integration Services를 설치](prepare-windows-server-2003-migration.md) 해야 합니다. | 
 **Azure의 Linux Vm** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우 이러한 운영 체제에 대 한 변경 내용이 자동으로 Azure Migrate.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#linux-machines) 작업을 수동으로 수행 합니다.
 | **Azure에 대 한 필수 변경 내용** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. 마이그레이션하기 전에 수동으로 조정 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
@@ -49,7 +50,7 @@ ms.locfileid: "84771238"
 | **IPv6** | 지원되지 않습니다.|
 | **NIC 팀** | 지원되지 않습니다.|
 | **Azure Site Recovery** | Azure Site Recovery를 사용 하 여 복제에 대해 VM을 사용 하도록 설정한 경우 Azure Migrate 서버 마이그레이션을 사용 하 여 복제할 수 없습니다.|
-| **포트** | VM 복제 데이터를 보내기 위한 HTTPS 포트 443의 아웃 바운드 연결|
+| **Ports** | VM 복제 데이터를 보내기 위한 HTTPS 포트 443의 아웃 바운드 연결|
 
 ### <a name="url-access-public-cloud"></a>URL 액세스 (공용 클라우드)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83841349ec7563231653cd063791e19ae2af4857
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71056812"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130676"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결
 
@@ -81,11 +81,15 @@ VM 앱 또는 서비스가 포트에서 수신 대기하는지 여부를 확인�
 
 **Windows VM**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **Linux VM**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - 가상 머신 자체에서 **telnet** 명령을 실행하여 포트를 테스트합니다. 테스트가 실패하는 경우 애플리케이션 또는 서비스가 해당 포트에서 수신 대기하도록 구성되지 않은 것입니다.
 

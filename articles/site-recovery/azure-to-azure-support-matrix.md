@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 5f9774dd65587c364c90d346f17ed508a263c954
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961274"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132677"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -70,7 +70,7 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 --- | --- | ---
 범용 V2 스토리지 계정(핫 및 쿨 계층) | 지원됨 | V2의 트랜잭션 비용은 V1 스토리지 계정보다 훨씬 높기 때문에 GPv2는 사용하지 않는 것이 좋습니다.
 Premium Storage | 지원되지 않음 | 표준 스토리지 계정은 캐시 스토리지에 사용되며 비용을 최적화하는 데 도움이 됩니다.
-가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.<br></br>또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다.
+가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](../storage/common/storage-network-security.md#exceptions)을 선택해야 합니다.<br></br>또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다.
 
 
 ## <a name="replicated-machine-operating-systems"></a>복제된 컴퓨터 운영 체제
@@ -229,7 +229,7 @@ GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |
 콜드 및 핫 스토리지 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
-가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 [신뢰할 수 있는 Microsoft 서비스 허용](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 사용하도록 설정합니다.
+가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 [신뢰할 수 있는 Microsoft 서비스 허용](../storage/common/storage-network-security.md#exceptions)을 사용하도록 설정합니다.
 범용 V2 스토리지 계정(핫 및 쿨 계층 모두) | 지원됨 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 2세대(UEFI 부팅) | 지원됨
 NVMe 디스크 | 지원되지 않음
@@ -270,10 +270,10 @@ NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 �
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS    | 지원됨 |
-인증되지 않은 프록시 | 지원됨 | [자세한 정보](site-recovery-azure-to-azure-networking-guidance.md)
+인증되지 않은 프록시 | 지원됨 | [자세한 정보](./azure-to-azure-about-networking.md)
 인증된 프록시 | 지원되지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.
-온-프레미스에 대한 VPN 사이트 간 연결<br/><br/>(ExpressRoute 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDR 및 NSG가 구성되어 있는지 확인합니다. [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)
-VNet 간 연결    | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)
+온-프레미스에 대한 VPN 사이트 간 연결<br/><br/>(ExpressRoute 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDR 및 NSG가 구성되어 있는지 확인합니다. [자세히 알아보기](./azure-to-azure-about-networking.md)
+VNet 간 연결    | 지원됨 | [자세히 알아보기](./azure-to-azure-about-networking.md)
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
 가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo Alto 네트워크 어플라이언스 | 지원되지 않음 | 타사 어플라이언스를 사용하는 경우 공급자가 가상 머신 내부에서 적용하는 제한 사항이 있는 경우가 흔합니다. Azure Site Recovery가 에이전트, 확장 및 아웃바운드 연결을 사용할 수 있어야 합니다. 하지만 어플라이언스는 가상 머신 내에서 아웃바운드 작업을 구성하는 것을 허용하지 않습니다.
@@ -282,5 +282,5 @@ IPv6  | 지원되지 않음 | IPv4 및 IPv6을 모두 포함하는 혼합 구성
 
 
 ## <a name="next-steps"></a>다음 단계
-- Azure VM 복제를 위한 [네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)에 대해 알아봅니다.
-- [Azure VM을 복제](site-recovery-azure-to-azure.md)하여 재해 복구를 배포합니다.
+- Azure VM 복제를 위한 [네트워킹 지침](./azure-to-azure-about-networking.md)에 대해 알아봅니다.
+- [Azure VM을 복제](./azure-to-azure-quickstart.md)하여 재해 복구를 배포합니다.

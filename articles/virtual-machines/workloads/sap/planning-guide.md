@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a3b07dadba17f72f6f4c5765787c7122eebaa89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7947b6c04ade1fd6a5d9032f05cb6ec56e7a1f5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132083"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -544,7 +544,7 @@ Azure에서 SAP 배포를 계획 하는 데 중요 한 역할을 합니다. 저�
 
 Azure 내에서 디스크/VHD 이름은 Azure 내에서 VHD에 고유한 이름을 제공 해야 하는 다음 명명 연결을 따릅니다.
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 위의 문자열은 Azure Storage에 저장 된 디스크/VHD를 고유 하 게 식별 해야 합니다.
 
@@ -999,7 +999,7 @@ SAP 시스템 또는 SAP 애플리케이션 계층을 지원하는 전용 DBMS �
 
 데이터 디스크는 Azure Storage 계정에 VHD 파일로 저장할 수 있으며 가상 머신에 직접 연결되거나 이미지로 사용될 수 있습니다. 이 경우 VHD는 다른 위치로 복사된 후에 가상 머신에 연결됩니다. Azure에서 VHD 파일의 전체 이름은 Azure 내에서 고유해야 합니다. 이미 앞서 언급한 것처럼 이 이름은 다음과 같은 3부분으로 구성됩니다.
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 데이터 디스크를 관리 디스크로 사용할 수도 있습니다. 이 경우에는 관리 디스크를 사용하여 새 관리 디스크를 만든 후 가상 머신에 연결합니다. 관리 디스크의 이름은 리소스 그룹 내에서 고유해야 합니다.
 
@@ -1926,7 +1926,7 @@ Azure의 Linux에 대한 SAP HA 아키텍처는 기본적으로 위에 설명된
 
 SAP는 VM 내에서 운영 체제가 시작된 후 즉시 SAP 인스턴스를 시작하기 위한 기능을 제공합니다. 정확한 단계는 SAP 기술 자료 문서 [1909114]에 설명되어 있습니다. 그러나 SAP는 인스턴스 다시 시작 순서가 제어되지 않고 둘 이상의 VM이 영향을 받거나 VM당 여러 인스턴스가 실행되었다고 가정하므로 이러한 설정을 사용하는 것을 더 이상 권장하지 않습니다. VM 하나에 단일 SAP 애플리케이션 서버 인스턴스가 있는 일반적인 Azure 시나리오와 단일 VM이 다시 시작되는 경우를 가정하면, 자동 시작은 중요하지 않으며 이 매개 변수를 다음에 추가하여 사용되도록 설정할 수 있습니다.
 
-    Autostart = 1
+`Autostart = 1`
 
 SAP ABAP 및/또는 Java 인스턴스의 시작 프로필
 

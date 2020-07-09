@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9e2d82130ae188d269847d0e0236ea0e33d00dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283262"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131388"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -124,6 +124,6 @@ NVA(네트워크 가상 어플라이언스)를 사용하여 VM에서 아웃바�
 [사용자 지정 경로](../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 사용하여 Azure 기본 시스템 경로의 0.0.0.0/0 주소 접두사를 재정의하고 VM 트래픽을 온-프레미스 NVA(네트워크 가상 어플라이언스)로 우회시킬 수 있지만 Site Recovery 복제에는 이 구성이 권장되지 않습니다. 사용자 지정 경로를 사용하는 경우 복제 트래픽이 Azure 경계를 나가지 않도록 "Storage"에 대한 가상 네트워크에서 [가상 네트워크 서비스 엔드포인트를 생성](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 가상 머신을 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
+- [Azure 가상 머신을 복제](./azure-to-azure-quickstart.md)하여 워크로드 보호를 시작합니다.
 - Azure 가상 머신 장애 조치(failover)를 위한 [IP 주소 보존](site-recovery-retain-ip-azure-vm-failover.md)에 대해 자세히 알아보세요.
 - [Express 경로를 사용 하 여 Azure virtual machines](azure-vm-disaster-recovery-with-expressroute.md)의 재해 복구에 대해 자세히 알아보세요.

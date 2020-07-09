@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826284"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130131"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)에서 System Center Virtual Machine Manager(VMM) 스크립트를 생성하여 복구 계획에 추가하는 방법을 설명합니다.
 
-이 문서의 맨 아래쪽 또는 [Azure Recovery Services의 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)에 의견이나 질문을 게시할 수 있습니다.
+이 문서의 맨 아래쪽 또는 [Azure Recovery Services의 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 의견이나 질문을 게시할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +38,7 @@ ms.locfileid: "83826284"
 
     `Import-Module -Name virtualmachinemanager`
 
-    자세한 내용은 [Windows PowerShell과 VMM 시작](https://technet.microsoft.com/library/hh875013.aspx)을 참조하세요.
+    자세한 내용은 [Windows PowerShell과 VMM 시작](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12))을 참조하세요.
 * VMM 배포에 최소 1개의 라이브러리 서버가 있어야 합니다. VMM 서버의 라이브러리 공유 경로는 기본적으로 VMM 서버 로컬에 위치합니다. 폴더 이름은 MSCVMMLibrary입니다.
 
   라이브러리 공유 경로가 원격 위치에 있거나 로컬에 있으나 MSCVMMLibrary와 공유되어 있지 않다면 다음과 같이 공유를 구성합니다. 여기서는 공유의 예로 \\libserver2.contoso.com\share\를 사용합니다.
@@ -50,7 +51,7 @@ ms.locfileid: "83826284"
 
      a. **64비트 Windows PowerShell** 콘솔을 권리자 권한으로 엽니다.
      
-     b. **Set-executionpolicy bypass**를 입력합니다. 자세한 내용은 [Set-ExecutionPolicy cmdlet 사용](https://technet.microsoft.com/library/ee176961.aspx)을 참조하세요.
+     b. **Set-executionpolicy bypass**를 입력합니다. 자세한 내용은 [Set-ExecutionPolicy cmdlet 사용](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10))을 참조하세요.
 
      > [!IMPORTANT]
      > **Set-executionpolicy bypass**는 64비트 PowerShell 콘솔에서만 설정해야 합니다. 32비트 PowerShell 콘솔에서 설정하면 스크립트가 실행되지 않습니다.
@@ -59,9 +60,9 @@ ms.locfileid: "83826284"
 
 VMM 소스 사이트가 있다면 VMM 서버에서 스크립트를 생성할 수 있습니다. 그런 다음, 복구 계획에 스크립트를 추가하면 됩니다.
 
-1. 라이브러리 공유에서 새 폴더를 만듭니다. 예: \<VMM 서버 이름>\MSSCVMMLibrary\RPScripts. 폴더를 VMM 서버의 소스와 대상에 배치합니다.
+1. 라이브러리 공유에서 새 폴더를 만듭니다. 예: \<VMM server name> \MSSCVMMLibrary\RPScripts. 폴더를 VMM 서버의 소스와 대상에 배치합니다.
 1. 스크립트를 작성합니다. 여기서는 스크립트의 이름을 RPScript라고 지정하겠습니다. 스크립트가 예상대로 작동하는지 확인합니다.
-1. 스크립트를 소스 및 대상 VMM 서버의 \<VMM 서버 이름>\MSSCVMMLibrary 폴더에 배치합니다.
+1. \<VMM server name>원본 및 대상 VMM 서버의 \MSSCVMMLibrary 폴더에 스크립트를 저장 합니다.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>복구 계획에 스크립트 추가
 

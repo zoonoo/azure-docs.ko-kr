@@ -428,8 +428,6 @@
               href: ./spark/apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
             - name: Apache Spark 작업 실패 - InvalidClassException
               href: ./spark/apache-spark-troubleshoot-job-fails-invalidclassexception.md
-            - name: 저속 Apache Spark 작업 - listStatus
-              href: ./spark/apache-spark-troubleshoot-job-slowness-liststatus.md
             - name: 저속 Apache Spark 작업 - 스토리지 컨테이너
               href: ./spark/apache-spark-troubleshoot-job-slowness-container.md
             - name: IllegalArgumentException 예외
@@ -723,8 +721,6 @@
               href: ./hbase/hbase-troubleshoot-pegged-cpu-region-server.md
             - name: '''hbase hbck'' 명령을 사용하여 시간 제한'
               href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
-            - name: Apache HBase 문제 해결
-              href: ./hbase/apache-troubleshoot-hbase.md
             - name: Apache HBase를 쿼리하는 REST API
               href: ./hbase/troubleshoot-rest-api.md
 - name: 대화형 쿼리

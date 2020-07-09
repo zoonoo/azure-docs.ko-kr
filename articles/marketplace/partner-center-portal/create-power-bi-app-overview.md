@@ -1,18 +1,18 @@
 ---
 title: Power BI 앱 만들기 개요-Microsoft AppSource
 description: 이 문서에서는 Microsoft AppSource에 Power BI 앱을 게시 하기 위한 개략적인 단계에 대해 설명 합니다. 상업적 marketplace에 게시 하기 위해 Power BI 앱에서 충족 해야 하는 기술 및 비즈니스 요구 사항도 제공 됩니다.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/02/2020
-ms.openlocfilehash: 82e131b0e6209089b658c622b415e997b40e9e4b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9bf02fe6552b47070d4f79c4c497830ac2bfad84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121778"
 ---
 # <a name="power-bi-app-creation-overview"></a>Power BI 앱 만들기 개요
 

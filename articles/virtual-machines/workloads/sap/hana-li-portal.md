@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70099809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130882"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 이 문서에서는 [Azure Portal](https://portal.azure.com) 에 [hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 를 표시 하는 방법 및 사용자를 위해 배포 되는 hana large Instance 단위를 사용 하 여 Azure Portal를 통해 수행할 수 있는 작업을 설명 합니다. Azure Portal에서 HANA Large Instances의 표시 유형은 현재 공개 미리 보기로 제공 되는 HANA Large Instances 용 Azure 리소스 공급자를 통해 제공 됩니다.
@@ -31,7 +31,9 @@ ms.locfileid: "70099809"
 ### <a name="register-through-cli-interface"></a>CLI 인터페이스를 통해 등록
 Azure CLI 인터페이스를 통해 HANA Large Instance 배포에 사용 되는 Azure 구독에 로그인 해야 합니다. 다음 명령을 사용 하 여 HANA Large Instance 공급자를 다시 등록할 수 있습니다.
     
-    az provider register --namespace Microsoft.HanaOnAzure
+```azurecli
+az provider register --namespace Microsoft.HanaOnAzure
+```
 
 자세한 내용은 [Azure 리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli) 문서를 참조 하세요.
 

@@ -1,7 +1,5 @@
 - name: Media Services 설명서
   href: ./index.yml
-- name: IoT Edge 설명서에서 Live Video Analytics로 전환
-  href: ../live-video-analytics-edge/overview.md
 - name: 개요
   items:
     - name: Media Services 정보

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132155"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -25,7 +26,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 구성 서버는 최소 하드웨어 및 크기 조정 요구 사항에 따라 항상 사용 가능한 VMware VM으로 설정 해야 합니다. 편리 하 고 쉬운 배포를 위해 Site Recovery는 여기에 나열 된 모든 요구 사항을 준수 하는 구성 서버를 설정 하는 다운로드 가능한 OVA (Open Virtualization Application) 템플릿을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 구성 서버에 대 한 최소 하드웨어 요구 사항은 다음 섹션에 요약 되어 있습니다.
 
@@ -38,7 +39,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 1. 응용 프로그램을 만들려면 사용자에 게 응용 프로그램 개발자 역할이 있어야 합니다.
     - 확인 하려면 Azure Portal에 로그인 합니다.</br>
     - **Azure Active Directory**  >  **역할 및 관리자**로 이동 합니다.</br>
-    - 응용 프로그램 개발자 역할이 사용자에 게 할당 되었는지 확인 합니다. 그렇지 않은 경우이 권한이 있는 사용자를 사용 하거나 관리자에 게 문의 하 여 사용 [권한을 설정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)합니다.
+    - 응용 프로그램 개발자 역할이 사용자에 게 할당 되었는지 확인 합니다. 그렇지 않은 경우이 권한이 있는 사용자를 사용 하거나 관리자에 게 문의 하 여 사용 [권한을 설정](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles)합니다.
     
 2. 응용 프로그램 개발자 역할을 할당할 수 없는 경우 사용자가 id를 만들 **수 있도록 사용자가 응용 프로그램을 등록할 수 있음** 플래그가 **true** 로 설정 되어 있는지 확인 합니다. 이러한 사용 권한을 설정 하려면 다음을 수행 합니다.
     - Azure Portal에 로그인합니다.
@@ -48,7 +49,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
       ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Active Directory Federation Services *지원 되지 않습니다*. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)를 통해 관리 되는 계정을 사용 합니다.
+> Active Directory Federation Services *지원 되지 않습니다*. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)를 통해 관리 되는 계정을 사용 합니다.
 
 ## <a name="download-the-template"></a>템플릿 다운로드
 

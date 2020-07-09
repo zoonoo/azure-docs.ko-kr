@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
-ms.openlocfilehash: 75fa2071f2ad54292e1cff6856de2091b74d3187
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac6fad8995d409c14008b8345e9e576b2403c799
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82101538"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131691"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 
@@ -30,14 +30,14 @@ ms.locfileid: "82101538"
 ## <a name="step-1-create-a-key-vault"></a>1단계: 주요 자격 증명 모음 만들기
 아래 명령을 사용하여 주요 자격 증명 모음을 만들 수 있습니다.
 
-```
+```azurepowershell
 New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
 ## <a name="step-2-create-a-self-signed-certificate"></a>2단계: 자체 서명된 인증서 만들기
 이 PowerShell 스크립트를 사용하여 자체 서명된 인증서를 만들 수 있습니다.
 
-```
+```azurepowershell
 $certificateName = "somename"
 
 $thumbprint = (New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation Cert:\CurrentUser\My -KeySpec KeyExchange).Thumbprint
@@ -52,7 +52,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $
 ## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>3단계: 주요 자격 증명 모음에 자체 서명된 인증서 업로드
 1단계에서 만든 주요 자격 증명 모음에 인증서를 업로드하기 전에 먼저 Microsoft.Compute 리소스 공급자가 이해할 수 있는 형식으로 변환해야 합니다. 아래 PowerShell 스크립트를 사용하면 그러한 형식으로 변환할 수 있습니다.
 
-```
+```azurepowershell
 $fileName = "<Path to the .pfx file>"
 $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
@@ -81,66 +81,76 @@ Microsoft.Compute 리소스 공급자는 VM을 프로비전하는 동안 주요 
 #### <a name="templates"></a>템플릿
 아래 코드를 사용하여 템플릿의 URL에 대한 링크를 가져올 수 있습니다.
 
-    "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
+```json
+"certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
+```
 
 #### <a name="powershell"></a>PowerShell
 아래의 PowerShell 명령을 사용하여 이 URL을 가져올 수 있습니다.
 
-    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+```azurepowershell
+$secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+```
 
 ## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>5단계: VM을 만드는 동안 자체 서명된 인증서 URL 참조
 #### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 템플릿을 통해 VM을 만드는 동안 인증서가 아래와 같이 암호 섹션 및 winRM 섹션에서 참조됩니다.
 
-    "osProfile": {
-          ...
-          "secrets": [
+```json
+"osProfile": {
+      ...
+      "secrets": [
+        {
+          "sourceVault": {
+            "id": "<resource id of the Key Vault containing the secret>"
+          },
+          "vaultCertificates": [
             {
-              "sourceVault": {
-                "id": "<resource id of the Key Vault containing the secret>"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateUrl": "<URL for the certificate you got in Step 4>",
-                  "certificateStore": "<Name of the certificate store on the VM>"
-                }
-              ]
+              "certificateUrl": "<URL for the certificate you got in Step 4>",
+              "certificateStore": "<Name of the certificate store on the VM>"
             }
-          ],
-          "windowsConfiguration": {
-            ...
-            "winRM": {
-              "listeners": [
-                {
-                  "protocol": "http"
-                },
-                {
-                  "protocol": "https",
-                  "certificateUrl": "<URL for the certificate you got in Step 4>"
-                }
-              ]
+          ]
+        }
+      ],
+      "windowsConfiguration": {
+        ...
+        "winRM": {
+          "listeners": [
+            {
+              "protocol": "http"
             },
-            ...
-          }
+            {
+              "protocol": "https",
+              "certificateUrl": "<URL for the certificate you got in Step 4>"
+            }
+          ]
         },
+        ...
+      }
+    },
+```
 
 위 항목에 대한 샘플 템플릿은 [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
 
 이 템플릿의 소스 코드는 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### <a name="powershell"></a>PowerShell
-    $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
-    $credential = Get-Credential
-    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-    $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -ProvisionVMAgent -WinRMCertificateUrl $secretURL
-    $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
-    $CertificateStore = "My"
-    $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+```azurepowershell
+$vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+$credential = Get-Credential
+$secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+$vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -ProvisionVMAgent -WinRMCertificateUrl $secretURL
+$sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+$CertificateStore = "My"
+$vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+```
 
 ## <a name="step-6-connecting-to-the-vm"></a>6단계: VM에 연결
 VM에 연결하려면 먼저 컴퓨터가 WinRM 원격 관리에 맞게 구성되어 있는지 확인해야 합니다. 관리자 권한으로 PowerShell을 시작하고 아래 명령을 실행하여 제대로 설정되었는지 확인합니다.
 
-    Enable-PSRemoting -Force
+```azurepowershell
+Enable-PSRemoting -Force
+```
 
 > [!NOTE]
 > 위 작업이 제대로 수행되지 않으면 WinRM 서비스가 실행되고 있는지 확인해야 합니다. 이 작업은 `Get-Service WinRM`
@@ -149,4 +159,6 @@ VM에 연결하려면 먼저 컴퓨터가 WinRM 원격 관리에 맞게 구성�
 
 설정이 끝나면 아래 명령을 사용하여 VM에 연결할 수 있습니다.
 
-    Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
+```azurepowershell
+Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
+```

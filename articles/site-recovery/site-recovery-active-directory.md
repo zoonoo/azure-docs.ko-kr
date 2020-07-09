@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
-ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80546512"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132316"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
@@ -25,7 +25,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure에 복제하는 경우 구독, Azure Virtual Network, 스토리지 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](site-recovery-support-matrix-to-azure.md) 검토 합니다.
+- 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-azure-support-matrix.md) 검토 합니다.
 
 ## <a name="replicate-the-domain-controller"></a>도메인 컨트롤러 복제
 

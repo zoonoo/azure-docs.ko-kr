@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99b29839028432a6b760265b641d35cdf33ee57f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106569"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122135"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -48,7 +48,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 vCenter Server에서 최대 10,000개의 VMware VM을 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **OVA 템플릿** | 포털 또는 https://aka.ms/migrate/appliance/vmware 에서 다운로드합니다.<br/><br/> 다운로드 크기는 10.9 GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
-**PowerShell 스크립트** | 이 [문서](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware)를 참조 하세요.<br/><br/> 
+**PowerShell 스크립트** | 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-vmware)를 참조 하세요.<br/><br/> 
 **소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 컴퓨터에서 실행해야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> VMware VM에서 어플라이언스를 실행하는 경우 요구 사항을 충족하는 VM을 할당하는 데 충분한 리소스가 vCenter Server에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.
 **VMware 요구 사항** | 어플라이언스를 VMware VM으로 배포하는 경우 버전 5.5 이상을 실행하는 ESXi 호스트에 배포해야 합니다.<br/><br/> vCenter Server에서 5.5, 6.0, 6.5 또는 6.7을 실행합니다.
 **VDDK(에이전트 없는 마이그레이션)** | 어플라이언스를 VMware VM으로 배포하고 에이전트 없는 마이그레이션을 실행하는 경우 VMware vSphere VDDK를 어플라이언스 VM에 설치해야 합니다.
@@ -68,7 +68,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 5,000개의 Hyper-V VM을 검색할 수 있습니다.<br/> 어플라이언스는 최대 300개의 Hyper-V 호스트에 연결할 수 있습니다.
 **VHD 템플릿** | VHD를 포함하여 압축된 폴더입니다. 포털 또는 https://aka.ms/migrate/appliance/hyperv 에서 다운로드합니다.<br/><br/> 다운로드 크기는 10GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다. 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 VM의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
-**PowerShell 스크립트** | 이 [문서](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v)를 참조 하세요.<br/><br/> 
+**PowerShell 스크립트** | 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)를 참조 하세요.<br/><br/> 
 **소프트웨어/하드웨어***   |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 어플라이언스를 Hyper-V VM으로 실행하는 경우 16GB RAM, 8개의 vCPU, 약 80GB의 스토리지 공간 및 어플라이언스 VM에 대한 외부 스위치를 할당하는 데 충분한 리소스가 Hyper-V 호스트에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
 **Hyper-V 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를 배포하는 경우 Azure Migrate에서 제공하는 어플라이언스 VM은 Hyper-V VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다. 
 **해시 값 - VHD** | VHD 템플릿 해시 값을 [확인](tutorial-assess-hyper-v.md#verify-security)합니다.
@@ -227,7 +227,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
 **Data**  | **PowerShell cmdlet** | **속성**
 --- | --- | ---
-이름  | Get Add-windowsfeature  | 이름
+Name  | Get Add-windowsfeature  | Name
 기능 유형 | Get Add-windowsfeature  | FeatureType
 Parent  | Get Add-windowsfeature  | Parent
 
@@ -237,7 +237,7 @@ Parent  | Get Add-windowsfeature  | Parent
 
 **Data**  | **레지스트리 위치**  | **Key**
 --- | --- | ---
-이름  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
+Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
 서비스 팩  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
@@ -248,7 +248,7 @@ Parent  | Get Add-windowsfeature  | Parent
 
 데이터  | WMI 클래스(WMI class)  | WMI 클래스 속성
 --- | --- | ---
-이름  | Win32_operatingsystem  | 캡션
+Name  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 데이터  | 명령
 --- | --- 
-이름 | rpm, dpkg, snap
+Name | rpm, dpkg, snap
 버전 | rpm, dpkg, snap
 공급자 | rpm, dpkg, snap
 
@@ -268,7 +268,7 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 **Data**  | **명령** 
 --- | --- | ---
-이름 <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Architecture | uname
 
 

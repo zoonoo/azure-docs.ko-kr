@@ -1,18 +1,16 @@
 ---
 title: Azure 애플리케이션 제품 만들기 - Microsoft 상업용 Marketplace
 description: 파트너 센터의 상업용 Marketplace 포털에서 새 Azure 애플리케이션 제품을 만들기 위한 단계 및 고려 사항을 알아봅니다. Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 Azure 애플리케이션 제품을 나열하거나 판매할 수 있습니다.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: cf44e50f7d8cc0dbf94c5313373bbd8080baa176
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984376"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121976"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -188,7 +186,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. 설명
+8. Description
 9. 스크린샷/비디오
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.

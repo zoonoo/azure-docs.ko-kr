@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131793"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -32,7 +33,7 @@ ms.locfileid: "81259805"
 
 강제 설치는 [복제를 사용 하도록 설정](vmware-azure-enable-replication.md#enable-replication)하기 위해 Azure Portal에서 실행 되는 작업의 필수적인 부분입니다. 보호 하려는 Vm 집합을 선택 하 고 복제를 사용 하도록 설정 하 고 나면 구성 서버에서 모바일 서비스 에이전트를 서버에 푸시하고, 에이전트를 설치 하 고, 구성 서버에서 에이전트의 등록을 완료 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 푸시 설치 [필수 구성 요소가](vmware-azure-install-mobility-service.md) 충족 되는지 확인 합니다.
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
@@ -67,7 +68,7 @@ ms.locfileid: "81259805"
 
 ## <a name="install-the-mobility-service-using-ui"></a>UI를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -95,7 +96,7 @@ ms.locfileid: "81259805"
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>명령 프롬프트를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -126,9 +127,9 @@ ms.locfileid: "81259805"
 
 #### <a name="installation-settings"></a>설치 설정
 
-Setting | 설명
+설정 | 세부 정보
 --- | ---
-Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
+구문 | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 설치 로그 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `/InstallLocation`| 선택적 매개 변수. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
@@ -137,9 +138,9 @@ Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /
 
 #### <a name="registration-settings"></a>등록 설정
 
-Setting | 설명
+설정 | 세부 정보
 --- | ---
-Syntax | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
+구문 | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 에이전트 구성 로그 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
 `/CSEndPoint` | 필수 매개 변수입니다. `<CSIP>`구성 서버의 IP 주소를 지정 합니다. 유효한 IP 주소를 사용합니다.
 `/PassphraseFilePath` |  필수. 암호의 위치입니다. 유효한 UNC 또는 로컬 파일 경로를 사용합니다.
@@ -167,9 +168,9 @@ Syntax | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath 
 
 #### <a name="installation-settings"></a>설치 설정
 
-Setting | 설명
+설정 | 세부 정보
 --- | ---
-Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
+구문 | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `-d` | 선택적 매개 변수. 모바일 서비스 설치 위치를 지정 합니다 `/usr/local/ASR` .
 `-v` | 필수. 모바일 서비스가 설치 되는 플랫폼을 지정 합니다. <br/> Vmware v m/물리적 서버용 **vmware** <br/> Azure Vm 용 **azure** .
@@ -177,16 +178,16 @@ Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 
 #### <a name="registration-settings"></a>등록 설정
 
-Setting | 설명
+설정 | 세부 정보
 --- | ---
-Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
+구문 | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | 필수 매개 변수입니다. `<CSIP>`구성 서버의 IP 주소를 지정 합니다. 유효한 IP 주소를 사용합니다.
 `-P` |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
 ## <a name="azure-virtual-machine-agent"></a>Azure Virtual Machine 에이전트
 
-- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](/azure/virtual-machines/extensions/features-windows#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 컴퓨터가 Azure로 장애 조치 (failover) 되 면 Azure VM은 VM 확장을 사용 하기 위한 에이전트 설치 필수 구성 요소를 충족 합니다.
-- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](/azure/virtual-machines/extensions/update-linux-agent)가 Azure VM에 수동으로 설치되어야 합니다.
+- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 컴퓨터가 Azure로 장애 조치 (failover) 되 면 Azure VM은 VM 확장을 사용 하기 위한 에이전트 설치 필수 구성 요소를 충족 합니다.
+- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)가 Azure VM에 수동으로 설치되어야 합니다.
 
 ## <a name="locate-installer-files"></a>설치 관리자 파일 찾기
 

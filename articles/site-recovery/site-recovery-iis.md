@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478295"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131343"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
@@ -31,7 +31,7 @@ ms.locfileid: "80478295"
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
 * [Azure에 가상 머신 복제](vmware-azure-tutorial.md)
-* [복구 네트워크 디자인](site-recovery-network-design.md)
+* [복구 네트워크 디자인](./concepts-on-premises-to-azure-networking.md)
 * [Azure로 테스트 장애 조치(failover) 수행](site-recovery-test-failover-to-azure.md)
 * [Azure로 장애 조치(failover) 수행](site-recovery-failover.md)
 * [도메인 컨트롤러 복제](site-recovery-active-directory.md)
@@ -60,9 +60,9 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 
 시나리오 | 보조 사이트 대상 | Azure 대상
 --- | --- | ---
-Hyper-V | 예 | 예
-VMware | 예 | 예
-물리적 서버 | 아니요 | 예
+Hyper-V | 예 | Yes
+VMware | 예 | Yes
+물리적 서버 | 아니요 | Yes
 Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
@@ -92,7 +92,7 @@ Azure|해당 없음|예
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>복구 계획에 스크립트 추가
-IIS 웹 팜 기능이 제대로 작동하려면 장애 조치 후 또는 테스트 장애 조치 중에 Azure 가상 머신에서 일부 작업을 수행해야 할 수도 있습니다. 일부 장애 조치(failover) 사후 작업은 자동화할 수 있습니다. 예를 들어 복구 계획에 해당 스크립트를 추가하여 DNS 항목을 업데이트하거나, 사이트 바인딩을 변경하거나, 연결 문자열을 변경할 수 있습니다. [복구 계획에 VMM 스크립트 추가](site-recovery-how-to-add-vmmscript.md)에서는 스크립트를 사용하여 자동화된 작업을 설정하는 방법에 대해 설명합니다.
+IIS 웹 팜 기능이 제대로 작동하려면 장애 조치 후 또는 테스트 장애 조치 중에 Azure 가상 머신에서 일부 작업을 수행해야 할 수도 있습니다. 일부 장애 조치(failover) 사후 작업은 자동화할 수 있습니다. 예를 들어 복구 계획에 해당 스크립트를 추가하여 DNS 항목을 업데이트하거나, 사이트 바인딩을 변경하거나, 연결 문자열을 변경할 수 있습니다. [복구 계획에 VMM 스크립트 추가](./hyper-v-vmm-recovery-script.md)에서는 스크립트를 사용하여 자동화된 작업을 설정하는 방법에 대해 설명합니다.
 
 #### <a name="dns-update"></a>DNS 업데이트
 DNS가 동적 DNS 업데이트로 구성된 경우 가상 머신은 일반적으로 시작할 때 DNS를 새 IP 주소로 업데이트합니다. DNS를 가상 머신의 새 IP 주소로 업데이트하는 명시적 단계를 추가하려면 복구 계획 그룹에 장애 조치 후 작업으로 [DNS의 IP를 업데이트하는 스크립트](https://aka.ms/asr-dns-update)를 추가합니다.  

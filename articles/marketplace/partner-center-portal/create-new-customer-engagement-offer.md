@@ -1,18 +1,18 @@
 ---
 title: Microsoft 상업용 Marketplace에서 Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 description: 파트너 센터의 CSP(클라우드 솔루션 공급자) 프로그램을 통하거나 Azure Marketplace, AppSource에서 나열 또는 판매하기 위해 새 Dynamics 365 for Customer Engagement 및 PowerApps 제품을 만드는 방법입니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 26f61f6ba2f8fb4c394bc1ce8ee96dfd955dfb8b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e90e45a0c96d8bbd2806a0ab6df70ef83e0cc9f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980659"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121931"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 
@@ -137,7 +137,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 4. 지원 주소 (링크)
 5. 사용 약관 주소 (링크)
 6. Offer name
-7. 설명
+7. Description
 8. 스크린샷/비디오
 
 ### <a name="name"></a>속성

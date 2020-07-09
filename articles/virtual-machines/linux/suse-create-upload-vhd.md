@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: cf50ee847bd1542a3e024cb88cf7bbc8bc283f91
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f0fe18623d1cea6c7fd692a383a351e0ec76fe91
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643423"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132977"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE 가상 머신 준비
 
@@ -36,61 +37,94 @@ ms.locfileid: "83643423"
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 업데이트를 다운로드하고 패키지를 설치할 수 있도록 SUSE Linux Enterprise 시스템을 등록합니다.
 4. 모든 최신 패치로 시스템을 업데이트합니다.
-   
-        # sudo zypper update
-5. 다음과 같이 SLES 리포지토리(SLE11-Public-Cloud-Module)에서 Azure Linux 에이전트를 설치합니다.
-   
-        # sudo zypper install python-azure-agent
-6. chkconfig에서 waagent가 "on"으로 설정되어 있는지 확인하고 그렇지 않으면 자동 시작을 위해 사용하도록 설정합니다.
-   
-        # sudo chkconfig waagent on
+
+    ```console
+    # sudo zypper update
+    ```
+
+1. 다음과 같이 SLES 리포지토리(SLE11-Public-Cloud-Module)에서 Azure Linux 에이전트를 설치합니다.
+
+    ```console
+    # sudo zypper install python-azure-agent
+    ```
+
+1. chkconfig에서 waagent가 "on"으로 설정되어 있는지 확인하고 그렇지 않으면 자동 시작을 위해 사용하도록 설정합니다.
+
+    ```console
+    # sudo chkconfig waagent on
+    ```
+
 7. waagent 서비스가 실행 중인지 확인하고 그렇지 않으면 서비스를 시작합니다. 
-   
-        # sudo service waagent start
+
+    ```console
+    # sudo service waagent start
+    ```
+
 8. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 "/boot/grub/menu.lst"를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
-   
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-   
+
+    ```config-grub
+    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    ```
+
     이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
 9. /boot/grub/menu.lst 및 /etc/fstab 둘 다 디스크 ID(by-id) 대신 해당 UUID(by-uuid)를 사용하는 디스크를 참조하는지 확인합니다. 
    
     디스크 UUID 가져오기
-   
-        # ls /dev/disk/by-uuid/
-   
+
+    ```console
+    # ls /dev/disk/by-uuid/
+    ```
+
     /dev/disk/by-id/를 사용하는 경우 적절한 by-uuid 값으로 /boot/grub/menu.lst 및 /etc/fstab를 모두 업데이트합니다.
    
     변경 전
    
-        root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
+    `root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1`
    
     변경 후
    
-        root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    `root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+
 10. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 머신을 복제하는 경우 문제를 발생시킬 수 있습니다.
-    
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-11. "/etc/sysconfig/network/dhcp" 파일을 편집하여 `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
-    
-     DHCLIENT_SET_HOSTNAME="no"
-12. "/etc/sudoers"에서 다음 줄이 있으면 주석 처리하거나 제거합니다.
-    
+
+    ```console
+    # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+    # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-     Defaults targetpw   # ask for the password of the target user i.e. root
-     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
-     ```
+
+11. "/etc/sysconfig/network/dhcp" 파일을 편집하여 `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
+
+    ```config
+    DHCLIENT_SET_HOSTNAME="no"
+    ```
+
+12. "/etc/sudoers"에서 다음 줄이 있으면 주석 처리하거나 제거합니다.
+
+    ```text
+    Defaults targetpw   # ask for the password of the target user i.e. root
+    ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+    ```
+
 13. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 14. OS 디스크에 스왑 공간을 만들지 마십시오.
     
     Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
-    
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## 참고: 이것을 필요한 대로 설정합니다.
+
+    ```config-conf
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ```
+
 15. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
-    
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+
+    ```console
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
 16. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ---
@@ -98,63 +132,97 @@ ms.locfileid: "83643423"
 1. Hyper-V 관리자의 가운데 창에서 가상 머신을 선택합니다.
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 셸에서 '`zypper lr`' 명령을 실행합니다. 이 명령에서 다음과 유사한 출력이 반환되는 경우 리포지토리가 예상대로 구성된 것입니다. 이 경우 아무 것도 조정할 필요가 없습니다(버전 번호는 다를 수 있음).
-   
-        # | Alias                 | Name                  | Enabled | Refresh
-        --+-----------------------+-----------------------+---------+--------
-        1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
-        2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
-        3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-   
+
+   | # | Alias                 | Name                  | 사용 | 새로 고침
+   | - | :-------------------- | :-------------------- | :------ | :------
+   | 1 | 클라우드: Tools_13.1      | 클라우드: Tools_13.1      | 예     | 예
+   | 2 | openSUSE_13 1_OSS     | openSUSE_13 1_OSS     | 예     | 예
+   | 3 | openSUSE_13 1_Updates | openSUSE_13 1_Updates | 예     | 예
+
     명령이 "정의된 리포지토리가 없습니다..."를 반환하면 다음 명령을 사용하여 해당 리포지토리를 추가합니다.
-   
-        # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-        # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
-        # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
-   
+
+    ```console
+    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
+    # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
+    # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
+    ```
+
     그런 다음 '`zypper lr`' 명령을 다시 실행하여 리포지토리가 추가되었는지 확인할 수 있습니다. 관련된 업데이트 리포지토리 중 하나가 사용되도록 설정되어 있지 않은 경우 다음 명령을 사용하여 사용하도록 설정합니다.
-   
-        # sudo zypper mr -e [NUMBER OF REPOSITORY]
+
+    ```console
+    # sudo zypper mr -e [NUMBER OF REPOSITORY]
+    ```
+
 4. 커널을 사용 가능한 최신 버전으로 업데이트합니다.
-   
-        # sudo zypper up kernel-default
-   
+
+    ```console
+    # sudo zypper up kernel-default
+    ```
+
     또는 모든 최신 패치로 시스템을 업데이트합니다.
-   
-        # sudo zypper update
+
+    ```console
+    # sudo zypper update
+    ```
+
 5. Azure Linux 에이전트를 설치합니다.
-   
-        # sudo zypper install WALinuxAgent
+
+    ```console
+    # sudo zypper install WALinuxAgent
+    ```
+
 6. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 "/boot/grub/menu.lst"를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
-   
+
+    ```config-grub
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-   
+    ```
+
    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다. 또한 커널 부팅 줄에 다음 매개 변수가 있는 경우 해당 매개 변수를 제거합니다.
-   
+
+    ```config-grub
      libata.atapi_enabled=0 reserve=0x1f0,0x8
+    ```
+
 7. "/etc/sysconfig/network/dhcp" 파일을 편집하여 `DHCLIENT_SET_HOSTNAME` 매개 변수를 다음과 같이 변경하는 것이 좋습니다.
-   
+
+    ```config
      DHCLIENT_SET_HOSTNAME="no"
+    ```
+
 8. **중요:** "/etc/sudoers"에서 다음 줄이 있으면 주석 처리하거나 제거합니다.
-     
-     ```
-     Defaults targetpw   # ask for the password of the target user i.e. root
-     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
-     ```
+
+    ```text
+    Defaults targetpw   # ask for the password of the target user i.e. root
+    ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+    ```
 
 9. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 10. OS 디스크에 스왑 공간을 만들지 마십시오.
-    
+
     Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
-    
-     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## 참고: 이것을 필요한 대로 설정합니다.
+
+    ```config-conf
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ```
+
 11. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
-    
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+
+    ```console
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
+
 12. 시작할 때 Azure Linux 에이전트가 실행되는지 확인합니다.
-    
-        # sudo systemctl enable waagent.service
+
+    ```console
+    # sudo systemctl enable waagent.service
+    ```
+
 13. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

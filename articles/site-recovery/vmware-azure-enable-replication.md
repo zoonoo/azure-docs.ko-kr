@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584138"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129934"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -106,9 +106,9 @@ VMware 가상 컴퓨터를 복제 하는 경우 다음 정보를 염두에 두�
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Compute 및 네트워크 속성 창":::
 
    - **AZURE VM 이름**: 필요한 경우 azure 요구 사항에 맞게 이름을 수정 합니다.
-   - **대상 vm 크기 또는 vm 유형**: 기본 vm 크기는 대상 Azure 지역에서 디스크 수, NIC 수, CPU 코어 수, 메모리 및 사용 가능한 VM 역할 크기를 포함 하는 매개 변수를 기반으로 선택 됩니다. Azure Site Recovery는 모든 조건을 충족 하는 사용 가능한 첫 번째 VM 크기를 선택 합니다. 장애 조치 (failover) 전에 언제 든 지 요구 사항에 따라 다른 VM 크기를 선택할 수 있습니다. VM 디스크 크기는 원본 디스크 크기에 따라 달라 집니다. 또한 장애 조치 (failover) 후에만 변경할 수 있습니다. [Windows에서 VM 디스크의 확장성 및 성능 목표](/azure/virtual-machines/windows/disk-scalability-targets)에 대 한 디스크 크기 및 IOPS 속도에 대해 자세히 알아보세요.
-   - **리소스 그룹**: 가상 머신이 사후 장애 조치 (failover)의 일부가 되는 [리소스 그룹](/azure/azure-resource-manager/management/overview#resource-groups)을 선택할 수 있습니다. 장애 조치 (failover) 전에 언제 든 지이 설정을 변경할 수 있습니다. 장애 조치 (failover) 후 가상 컴퓨터를 다른 리소스 그룹으로 마이그레이션하면 해당 가상 컴퓨터에 대 한 보호 설정이 끊어집니다.
-   - **가용성 집합**: 가상 머신이 사후 장애 조치 (failover)의 일부로 사용 되어야 하는 경우 [가용성 집합](/azure/virtual-machines/windows/tutorial-availability-sets) 을 선택할 수 있습니다. 가용성 집합을 선택할 때는 다음 정보를 염두에 두어야 합니다.
+   - **대상 vm 크기 또는 vm 유형**: 기본 vm 크기는 대상 Azure 지역에서 디스크 수, NIC 수, CPU 코어 수, 메모리 및 사용 가능한 VM 역할 크기를 포함 하는 매개 변수를 기반으로 선택 됩니다. Azure Site Recovery는 모든 조건을 충족 하는 사용 가능한 첫 번째 VM 크기를 선택 합니다. 장애 조치 (failover) 전에 언제 든 지 요구 사항에 따라 다른 VM 크기를 선택할 수 있습니다. VM 디스크 크기는 원본 디스크 크기에 따라 달라 집니다. 또한 장애 조치 (failover) 후에만 변경할 수 있습니다. [Windows에서 VM 디스크의 확장성 및 성능 목표](../virtual-machines/windows/disk-scalability-targets.md)에 대 한 디스크 크기 및 IOPS 속도에 대해 자세히 알아보세요.
+   - **리소스 그룹**: 가상 머신이 사후 장애 조치 (failover)의 일부가 되는 [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)을 선택할 수 있습니다. 장애 조치 (failover) 전에 언제 든 지이 설정을 변경할 수 있습니다. 장애 조치 (failover) 후 가상 컴퓨터를 다른 리소스 그룹으로 마이그레이션하면 해당 가상 컴퓨터에 대 한 보호 설정이 끊어집니다.
+   - **가용성 집합**: 가상 머신이 사후 장애 조치 (failover)의 일부로 사용 되어야 하는 경우 [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 을 선택할 수 있습니다. 가용성 집합을 선택할 때는 다음 정보를 염두에 두어야 합니다.
      - 지정 된 리소스 그룹에 속하는 가용성 집합만 나열 됩니다.
      - 서로 다른 가상 네트워크에 있는 Vm은 동일한 가용성 집합에 속할 수 없습니다.
      - 동일한 크기의 가상 머신만 가용성 집합의 일부가 될 수 있습니다.

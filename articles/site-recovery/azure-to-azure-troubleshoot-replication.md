@@ -5,15 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196083"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130400"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
-이 문서에서는 한 지역에서 다른 지역으로 Azure VM (가상 머신)을 복제 및 복구 하는 경우 Azure Site Recovery의 일반적인 문제에 대해 설명 합니다. 일반적인 문제를 해결 하는 방법에 대해서도 설명 합니다. 지원되는 구성에 대한 자세한 내용은 [Azure VM을 복제하기 위한 지원 매트릭스](site-recovery-support-matrix-azure-to-azure.md)를 참조하세요.
+이 문서에서는 한 지역에서 다른 지역으로 Azure VM (가상 머신)을 복제 및 복구 하는 경우 Azure Site Recovery의 일반적인 문제에 대해 설명 합니다. 일반적인 문제를 해결 하는 방법에 대해서도 설명 합니다. 지원되는 구성에 대한 자세한 내용은 [Azure VM을 복제하기 위한 지원 매트릭스](./azure-to-azure-support-matrix.md)를 참조하세요.
 
 Azure Site Recovery은 원본 지역에서 재해 복구 지역으로 데이터를 일관 되 게 복제 합니다. 또한 5 분 마다 크래시 일치 복구 지점을 만듭니다. Site Recovery에서 60분 동안 복구 지점을 만들 수 없는 경우 다음 정보를 알려줍니다.
 
@@ -77,7 +78,7 @@ Azure Site Recovery는 디스크 유형에 따라 데이터 변경 비율에 대
 
 Site Recovery는 복제된 데이터를 캐시 스토리지 계정으로 보냅니다. 가상 컴퓨터의 데이터를 캐시 저장소 계정에 업로드 하는 것이 3 초 이면 네트워크 대기 시간이 발생할 수 있습니다.
 
-대기 시간과 관련 된 문제를 확인 하려면 [AzCopy](/azure/storage/common/storage-use-azcopy)를 사용 합니다. 이 명령줄 유틸리티를 사용 하 여 가상 머신에서 캐시 저장소 계정으로 데이터를 업로드할 수 있습니다. 대기 시간이 긴 경우 NVA (네트워크 가상 어플라이언스)를 사용 하 여 Vm에서 아웃 바운드 네트워크 트래픽을 제어 하 고 있는지 확인 합니다. 모든 복제 트래픽이 NVA를 통과하는 경우 어플라이언스가 제한될 수 있습니다.
+대기 시간과 관련 된 문제를 확인 하려면 [AzCopy](../storage/common/storage-use-azcopy-v10.md)를 사용 합니다. 이 명령줄 유틸리티를 사용 하 여 가상 머신에서 캐시 저장소 계정으로 데이터를 업로드할 수 있습니다. 대기 시간이 긴 경우 NVA (네트워크 가상 어플라이언스)를 사용 하 여 Vm에서 아웃 바운드 네트워크 트래픽을 제어 하 고 있는지 확인 합니다. 모든 복제 트래픽이 NVA를 통과하는 경우 어플라이언스가 제한될 수 있습니다.
 
 복제 트래픽이 NVA로 이동하지 않도록 "Storage"에 대한 가상 네트워크에서 네트워크 서비스 엔드포인트를 만드는 것이 좋습니다. 자세한 내용은 [네트워크 가상 어플라이언스 구성](azure-to-azure-about-networking.md#network-virtual-appliance-configuration)을 참조하세요.
 
@@ -107,7 +108,7 @@ Site Recovery 복제가 작동 하려면 VM이 특정 Url 또는 IP 범위에 �
 
 ### <a name="app-consistency-not-enabled-on-linux-servers"></a>Linux 서버에서 앱 일관성을 사용 하도록 설정 하지 않음
 
-**해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) 같습니다.
+**해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](./site-recovery-faq.md#replication) 같습니다.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>VSS 관련 문제로 인해 더 많은 원인이 있습니다.
 

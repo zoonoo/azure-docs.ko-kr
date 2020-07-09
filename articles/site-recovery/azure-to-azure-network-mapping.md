@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691206"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130437"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
 이 문서에서는 서로 다른 Azure 지역에 있는 Azure VNet(가상 네트워크)의 두 인스턴스를 매핑하는 방법과 네트워크 간에 IP 주소를 설정하는 방법을 설명합니다. 네트워크 매핑은 복제를 사용 하도록 설정할 때 원본 네트워크를 기반으로 하는 대상 네트워크 선택에 대 한 기본 동작을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 네트워크를 매핑하려면 원본 및 대상 Azure 지역에 [Azure VNet](../virtual-network/virtual-networks-overview.md)이 있어야 합니다. 
 
@@ -93,5 +94,5 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure VM 재해 복구와 관련된 [네트워킹 가이드](site-recovery-azure-to-azure-networking-guidance.md)를 검토합니다.
+- Azure VM 재해 복구와 관련된 [네트워킹 가이드](./azure-to-azure-about-networking.md)를 검토합니다.
 - 장애 조치(failover) 후 IP 주소 유지에 대해 [자세히 알아봅니다](site-recovery-retain-ip-azure-vm-failover.md).

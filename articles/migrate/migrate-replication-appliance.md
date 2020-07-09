@@ -3,12 +3,12 @@ title: Azure Migrate 복제 어플라이언스
 description: 에이전트 기반 VMWare 마이그레이션의 Azure Migrate 복제 어플라이언스에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535216"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122101"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
 
@@ -58,8 +58,8 @@ TLS | TLS 1.2를 사용 하도록 설정 해야 합니다.
 MySQL | MySQL을 어플라이언스에 설치 해야 합니다.<br/> MySQL을 설치해야 합니다. 수동으로 설치 하거나 어플라이언스를 배포 하는 동안 설치할 수 Site Recovery.
 다른 앱 | 복제 어플라이언스에서 다른 앱을 실행 하지 마세요.
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V
-그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용
+그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정 사용
 **네트워크 설정** |
 IP 주소 유형 | 정적
 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송)
@@ -129,7 +129,7 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
     - 프로세스 서버는 복제 데이터를 수신 하 고, 최적화 하 고, 암호화 하 고 포트 443 아웃 바운드를 통해 Azure storage로 보냅니다.
 5. 복제 데이터 로그는 먼저 Azure의 캐시 저장소 계정에 저장 됩니다. 이러한 로그는 처리 되 고 데이터는 Azure 관리 디스크에 저장 됩니다.
 
-![아키텍처](./media/migrate-replication-appliance/architecture.png)
+![Architecture](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 

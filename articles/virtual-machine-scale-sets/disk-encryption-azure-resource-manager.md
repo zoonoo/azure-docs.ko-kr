@@ -9,11 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: c2b49a7e7e14bfbefcca64133ff23fdfabe53e7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4284e94f8d8d0effd160c5048f54fcbede417e38
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129764"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 가상 머신 확장 집합 암호화
 
@@ -37,9 +38,9 @@ Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 
 
 그러고 나서 다음 단계를 수행합니다.
 
-     1. Click **Deploy to Azure**.
-     2. Fill in the required fields then agree to the terms and conditions.
-     3. Click **Purchase** to deploy the template.
+1. **Deploy to Azure**를 클릭합니다.
+2. 필수 필드를 채운 후 사용 약관에 동의합니다.
+3. **구매**를 클릭하여 템플릿을 배포합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
