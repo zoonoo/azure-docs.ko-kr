@@ -11,11 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557372"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107328"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
 
@@ -23,9 +24,9 @@ ms.locfileid: "84557372"
 
 이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 [Azure Machine Learning](overview-what-is-azure-ml.md) 를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독  구독이 없으면 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독 계정이 없는 경우 [종 량](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 제 계정을 만들어야 합니다 (무료 AZURE 계정은 FPGA 할당량에 적합 하지 않음).
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - FPGA 할당량입니다. Azure CLI를 사용 하 여 할당량이 있는지 여부를 확인 합니다.
 
@@ -64,7 +65,7 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 ![Azure Machine Learning FPGA 비교 다이어그램](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|프로세서||설명|
+|프로세서||Description|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|

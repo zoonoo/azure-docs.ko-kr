@@ -3,11 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 �
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770580"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109997"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -56,7 +57,7 @@ ms.locfileid: "84770580"
 분석 하려는 각 컴퓨터에서 에이전트를 설치 합니다.
 
 > [!NOTE]
-> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. 통합 지침을 [따릅니다](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) .
+> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. 통합 지침을 [따릅니다](../azure-monitor/insights/service-map-scom.md#prerequisites) .
 
 1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
 2. 종속성 시각화를 사용 하 여 분석 하려는 각 컴퓨터에 대해 **종속성** 열에서 **에이전트 설치 필요**를 클릭 합니다.
@@ -83,7 +84,7 @@ Windows 컴퓨터에 에이전트를 설치하려면
 명령줄에서 또는 Configuration Manager 또는 [Intigua](https://www.intigua.com/intigua-for-azure-migration)같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다.
 - 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration).
 - MMA 에이전트는 이 [스크립트](https://go.microsoft.com/fwlink/?linkid=2104394)를 사용하여 설치할 수도 있습니다.
-- MMA에서 지 원하는 Windows 운영 체제에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) .
+- MMA에서 지 원하는 Windows 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) .
 
 ### <a name="install-mma-on-a-linux-machine"></a>Linux 컴퓨터에 MMA 설치
 
@@ -94,7 +95,7 @@ Linux 컴퓨터에 MMA를 설치 하려면 다음을 수행 합니다.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems)해 보세요. 
+MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)해 보세요. 
 
 ## <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 
@@ -103,8 +104,8 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples).
-- 종속성 에이전트에서 지 원하는 운영 체제에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) .
+- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
+- 종속성 에이전트에서 지 원하는 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
 
 
 ## <a name="create-a-group-using-dependency-visualization"></a>종속성 시각화를 사용 하 여 그룹 만들기
@@ -161,8 +162,8 @@ Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서�
 다음은 종속성 데이터를 추출 하는 데 사용할 수 있는 몇 가지 샘플 쿼리입니다.
 
 - 선호하는 데이터 요소를 추출하도록 쿼리를 수정할 수 있습니다.
-- 종속성 데이터 레코드의 전체 목록을 [검토](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) 합니다.
-- 추가 샘플 쿼리를 [검토](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) 합니다.
+- 종속성 데이터 레코드의 전체 목록을 [검토](../azure-monitor/insights/service-map.md#log-analytics-records) 합니다.
+- 추가 샘플 쿼리를 [검토](../azure-monitor/insights/service-map.md#sample-log-searches) 합니다.
 
 #### <a name="sample-review-inbound-connections"></a>샘플: 인바운드 연결 검토
 
@@ -170,7 +171,7 @@ Vm 집합의 인바운드 연결을 검토 합니다.
 
 - 연결 메트릭에 대 한 테이블의 레코드 (VMConnection)는 개별 실제 네트워크 연결을 나타내지 않습니다.
 - 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다.
-- VMConnection에서 실제 네트워크 연결 데이터를 집계 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) .
+- VMConnection에서 실제 네트워크 연결 데이터를 집계 하는 방법에 [대해 자세히 알아보세요](../azure-monitor/insights/service-map.md#connections) .
 
 ```
 // the machines of interest

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: a7d22a6a2f7100826c865beec0d1cff09fc39660
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043243"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107702"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Azure Migrate를 사용하여 마이그레이션 계획 빌드
 
@@ -24,7 +24,7 @@ ms.locfileid: "86043243"
 
 ## <a name="define-the-goals-of-cloud-migration"></a>클라우드 마이그레이션 목표 정의
 
-마이그레이션 계획을 구축 하기 전에 클라우드로 이동 하는 데 도움이 되는 [동기](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/motivations) 를 이해 하 고 평가 하 여 더 성공적인 비즈니스 결과를 생성 하는 것이 중요 합니다. [Azure에 대 한 클라우드 채택 프레임 워크](https://docs.microsoft.com/azure/cloud-adoption-framework) 에서 설명 하는 것 처럼 비즈니스에 적합 한 다양 한 트리거와 마이그레이션 방법이 있을 수 있습니다.  
+마이그레이션 계획을 구축 하기 전에 클라우드로 이동 하는 데 도움이 되는 [동기](/azure/cloud-adoption-framework/strategy/motivations) 를 이해 하 고 평가 하 여 더 성공적인 비즈니스 결과를 생성 하는 것이 중요 합니다. [Azure에 대 한 클라우드 채택 프레임 워크](/azure/cloud-adoption-framework) 에서 설명 하는 것 처럼 비즈니스에 적합 한 다양 한 트리거와 마이그레이션 방법이 있을 수 있습니다.  
 
 **중요한 비즈니스 이벤트** | **마이그레이션 결과**
 --- | ---
@@ -147,7 +147,7 @@ Azure VM 평가 보고서를 내보내고 다음 준비 범주를 기준으로 �
 
 - 권장 되는 Azure 권한 및 마이그레이션에 필요한 서버/데이터베이스 액세스 역할 및 사용 권한 모델을 검토 합니다.
 
-- 조직을 준비 하 고 디지털 변환에 대 한 인력 맞춤을 보장 합니다. 성공적인 조직 변경에는 견고한 학습 기초가 중요 합니다. Azure 기본 사항, 솔루션 아키텍처 및 보안에 대 한 과정을 비롯 하 여 [Microsoft Learn](https://docs.microsoft.com/learn/azure/?ocid=CM_Discovery_Checklist_PDF)에서 제공 되는 무료 교육을 확인 하세요. 팀에서 [Azure 인증](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)도 탐색 하도록 권장   합니다.  
+- 조직을 준비 하 고 디지털 변환에 대 한 인력 맞춤을 보장 합니다. 성공적인 조직 변경에는 견고한 학습 기초가 중요 합니다. Azure 기본 사항, 솔루션 아키텍처 및 보안에 대 한 과정을 비롯 하 여 [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF)에서 제공 되는 무료 교육을 확인 하세요. 팀에서 [Azure 인증](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)도 탐색 하도록 권장   합니다.  
 
 - 필요한 경우 구현에 대 한 지원을 받으세요. 대부분의 조직에서는 클라우드 마이그레이션을 지원 하기 위해 외부 지원을 옵트인 합니다. 개인화 된 지원을 통해 신속 하 고 안전 하 게 Azure로 이동 하려면 [Azure 전문가 관리 서비스 공급자](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)   또는 [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF)을 고려 하세요.  
 
@@ -164,6 +164,6 @@ Azure에 대 한 전체 규모의 마이그레이션을 시작 하기 전에 항
 
 ## <a name="next-steps"></a>다음 단계
 
--  [cloud migration journey](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)   Azure 클라우드 도입 프레임 워크의 클라우드 마이그레이션 경험을 조사 하세요.
+-  [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate)   Azure 클라우드 도입 프레임 워크의 클라우드 마이그레이션 경험을 조사 하세요.
 - Azure Migrate를 [시작](https://youtu.be/wFfq3YPxYHE) 합니다.
 - [VMware vm](tutorial-assess-vmware.md) 또는 [hyper-v vm](tutorial-assess-hyper-v.md)에 대 한 평가를 만듭니다.

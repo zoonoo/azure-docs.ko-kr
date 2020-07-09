@@ -4,15 +4,16 @@ description: Azure Migrate서비스의 지원 설정 및 제한 사항에 대한
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 51f797ad80886669a8734af6898164737d16971a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108756"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
-[Azure Migrate 서비스](migrate-overview.md)를 사용하여 머신을 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에는 Azure Migrate 시나리오 및 배포에 대한 일반 지원 설정과 제한 사항이 요약되어 있습니다.
+[Azure Migrate 서비스](./migrate-services-overview.md)를 사용하여 머신을 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에는 Azure Migrate 시나리오 및 배포에 대한 일반 지원 설정과 제한 사항이 요약되어 있습니다.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>지원되는 평가/마이그레이션 시나리오
 
@@ -39,8 +40,8 @@ Azure Migrate 서버 마이그레이션 | 해당 없음 | [VMware VM](tutorial-m
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 평가합니다. | 해당 없음
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 평가 및 마이그레이션합니다. |  VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 마이그레이션합니다.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 평가합니다.| 해당 없음
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | SQL Server 데이터베이스를 평가 합니다. | 해당 없음
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | 해당 없음 | SQL Server, Oracle, MySQL, PostgreSQL 및 MongoDB를 마이그레이션합니다. 
+[DMA](/sql/dma/dma-overview?view=sql-server-2017) | SQL Server 데이터베이스를 평가 합니다. | 해당 없음
+[DMS](../dms/dms-overview.md) | 해당 없음 | SQL Server, Oracle, MySQL, PostgreSQL 및 MongoDB를 마이그레이션합니다. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | VDI(가상 데스크톱 인프라)를 평가합니다. | 해당 없음
 [Movere](https://www.movere.io/) | VMWare VM, Hyper-V VM, Xen VM, 물리적 머신, 워크스테이션(VDI 포함) 및 퍼블릭 클라우드 워크로드를 평가합니다. | 해당 없음
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | 해당 없음 | VMWare VM, Hyper-V VM, Xen VM, KVM VM, 물리적 머신 및 퍼블릭 클라우드 워크로드를 마이그레이션합니다. 
@@ -119,4 +120,3 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 
 - 마이그레이션을 위해 [VMware VM 평가](tutorial-assess-vmware.md).
 - 마이그레이션을 위해 [Hyper-V VM 평가](tutorial-assess-hyper-v.md).
-

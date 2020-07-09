@@ -3,11 +3,12 @@ title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 665d98378fc52e972986111847872ae30701f631
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701947"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110235"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -32,17 +33,23 @@ ms.locfileid: "83701947"
 
 경고는 사용자 지정 이벤트는 아니지만 [사용자 지정 메트릭](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)에서 설정할 수 있습니다. 이벤트 발생 시 메트릭 향상을 위한 몇 가지 코드를 작성합니다.
 
-    telemetry.TrackMetric("Alarm", 10);
+```csharp
+telemetry.TrackMetric("Alarm", 10);
+```
 
 또는:
 
-    var measurements = new Dictionary<string,double>();
-    measurements ["Alarm"] = 10;
-    telemetry.TrackEvent("status", null, measurements);
+```csharp
+var measurements = new Dictionary<string,double>();
+measurements ["Alarm"] = 10;
+telemetry.TrackEvent("status", null, measurements);
+```
 
 경고에는 두 상태가 있기 때문에 경고 종료를 고려할 때 낮은 값을 보내야 합니다.
 
-    telemetry.TrackMetric("Alarm", 0.5);
+```csharp
+telemetry.TrackMetric("Alarm", 0.5);
+```
 
 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 에서 차트를 만들어 경고를 확인합니다.
 
@@ -130,9 +137,9 @@ ms.locfileid: "83701947"
 ### <a name="aspnet-classic-applications"></a>ASP.NET 클래식 애플리케이션
 
 ```csharp
-    using  Microsoft.ApplicationInsights.Extensibility;
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 ### <a name="other-applications"></a>다른 애플리케이션

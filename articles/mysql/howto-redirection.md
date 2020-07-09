@@ -4,13 +4,14 @@ description: 이 문서에서는 리디렉션을 사용하여 Azure Database for
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610290"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107821"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>리디렉션을 사용하여 Azure Database for MySQL에 연결
 

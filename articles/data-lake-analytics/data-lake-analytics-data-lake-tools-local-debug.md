@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4e4115518c71c3695797ac051910890d24723bae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 580f23fa2b4fc9c5afee4eb8435e74a8bfa1fbe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085398"
+ms.locfileid: "86106954"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Azure Data Lake Analytics 코드를 로컬로 디버그
 
@@ -45,7 +45,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
    ```sql
    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
    ```
-        
+   
 3. C# 코드에 중단점을 설정합니다.
 4. **F5** 키를 눌러 C# **DLL**을 로컬로 참조하여 스크립트를 디버그합니다.
 

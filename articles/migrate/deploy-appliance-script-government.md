@@ -3,22 +3,23 @@ title: Azure Government에서 Azure Migrate 어플라이언스 설정
 description: 에서 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다 Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052485"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109980"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Azure Government에서 어플라이언스 설정 
 
-이 문서에 따라 Azure Government 클라우드에서 VMware Vm, Hyper-v Vm 및 물리적 서버에 대 한 [Azure Migrate 어플라이언스](deploy-appliance.md) 를 배포할 수 있습니다. 스크립트를 실행 하 여 어플라이언스를 만들고 Azure에 연결할 수 있는지 확인 합니다. 공용 클라우드에서 어플라이언스를 설정 하려면 [이 문서](deploy-appliance-script.md)를 따릅니다.
+이 문서에 따라 Azure Government 클라우드에서 VMware Vm, Hyper-v Vm 및 물리적 서버에 대 한 [Azure Migrate 어플라이언스](./migrate-appliance-architecture.md) 를 배포할 수 있습니다. 스크립트를 실행 하 여 어플라이언스를 만들고 Azure에 연결할 수 있는지 확인 합니다. 공용 클라우드에서 어플라이언스를 설정 하려면 [이 문서](deploy-appliance-script.md)를 따릅니다.
 
 
 > [!NOTE]
 > 템플릿을 사용 하 여 어플라이언스를 배포 하는 옵션 (VMware Vm 및 Hyper-v Vm의 경우)은 Azure Government 지원 되지 않습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 스크립트는 기존 물리적 컴퓨터 또는 VM에 Azure Migrate 어플라이언스를 설정 합니다.
 

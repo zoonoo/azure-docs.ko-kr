@@ -4,12 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)에서 클러스터의 인증 및 권한 부여를 관리하는 방법에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: c7e8cd28380a86a671c74af03fa479abce5cfe25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020050"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107141"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -20,8 +23,9 @@ AKS(Azure Kubernetes Service)에서 클러스터를 배포 및 유지 관리하�
 > [!div class="checklist"]
 >
 > * Azure Active Directory를 사용하여 AKS 클러스터 사용자 인증
-> * RBAC(역할 기반 액세스 제어)로 리소스 액세스 제어
-> * 관리형 ID를 사용하여 다른 서비스와 함께 인증
+> * Kubernetes 역할 기반 액세스 제어 (RBAC)를 사용 하 여 리소스에 대 한 액세스 제어
+> * Azure RBAC를 사용 하 여 kubeconfig 뿐만 아니라 세부적으로 AKS 리소스 및 Kubernetes API에 대 한 액세스를 제어 합니다.
+> * 관리 id를 사용 하 여 다른 서비스에서 pod 자체 인증
 
 ## <a name="use-azure-active-directory"></a>Azure Active Directory 사용
 
@@ -35,18 +39,18 @@ AKS의 Azure AD 통합형 클러스터를 사용하여 리소스에 대한 액�
 
 1. 개발자는 Azure AD로 인증합니다.
 1. Azure AD 토큰 발급 엔드포인트가 액세스 토큰을 발급합니다.
-1. 개발자는 `kubectl create pod`과 같은 Azure AD 토큰을 사용하여 작업을 수행합니다.
+1. 개발자는 Azure AD 토큰을 사용 하 여 작업을 수행 합니다 (예:).`kubectl create pod`
 1. Kubernetes는 Azure Active Directory를 사용하여 토큰의 유효성을 검사하고 개발자의 그룹 멤버 자격을 가져옵니다.
 1. Kubernetes RBAC(역할 기반 액세스 제어) 및 클러스터 정책이 적용됩니다.
 1. 개발자 요청의 성공 여부는 Azure AD 그룹 멤버 자격 및 Kubernetes RBAC/정책의 이전 유효성 검사에 따라 결정됩니다.
 
 Azure AD를 사용하는 AKS 클러스터를 만들려면 [AKS와 Azure Active Directory 통합][aks-aad]을 참조하세요.
 
-## <a name="use-role-based-access-controls-rbac"></a>RBAC(역할 기반 액세스 제어) 사용
+## <a name="use-kubernetes-role-based-access-controls-rbac"></a>Kubernetes 역할 기반 액세스 제어 (RBAC) 사용
 
 **모범 사례 가이드** - Kubernetes RBAC을 사용하여 사용자 또는 그룹이 클러스터의 리소스를 대상으로 가져야 하는 권한을 정의합니다. 필요한 최소 권한을 할당하는 역할 및 바인딩을 만듭니다. Azure AD와 통합되므로 사용자 상태 또는 그룹 멤버 자격의 변경 내용이 자동으로 업데이트되고 클러스터 리소스에 대한 액세스가 최신 상태입니다.
 
-Kubernetes에서는 클러스터의 리소스에 대한 액세스를 세부적으로 제어할 수 있습니다. 권한은 클러스터 수준에서 정의되거나 특정 네임스페이스에 대해 정의될 수 있습니다. 관리할 수 있는 리소스 및 관리에 필요한 권한을 정의할 수 있습니다. 이러한 역할은 바인딩이 있는 사용자 또는 그룹에 적용 됩니다. *Role*, *ClusterRole* 및 *Binding*에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션][aks-concepts-identity]을 참조하세요.
+Kubernetes에서 클러스터의 리소스에 대 한 액세스를 세부적으로 제어할 수 있습니다. 사용 권한은 클러스터 수준 또는 특정 네임 스페이스에서 정의 됩니다. 관리할 수 있는 리소스 및 관리에 필요한 권한을 정의할 수 있습니다. 이러한 역할은 바인딩이 있는 사용자 또는 그룹에 적용 됩니다. *Role*, *ClusterRole* 및 *Binding*에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션][aks-concepts-identity]을 참조하세요.
 
 예를 들어 다음 예제 YAML 매니페스트와 같이 *finance-app*이라는 네임스페이스에서 리소스에 대한 전체 액세스 권한을 부여하는 Role을 만들 수 있습니다.
 
@@ -83,6 +87,16 @@ roleRef:
 *Developer1 \@ CONTOSO.COM* 가 AKS 클러스터에 대해 인증 되 면 해당 리소스에 대 한 모든 권한이 *재무 앱* 네임 스페이스에 있습니다. 이 방식으로 리소스에 대한 액세스를 논리적으로 분리하고 제어합니다. 이전 섹션에 설명된 대로 Kubernetes RBAC는 Azure AD 통합과 함께 사용해야 합니다.
 
 Azure AD 그룹을 사용 하 여 RBAC를 사용 하는 Kubernetes 리소스에 대 한 액세스를 제어 하는 방법을 보려면 [AKS에서 역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어][azure-ad-rbac]를 참조 하세요.
+
+## <a name="use-azure-rbac"></a>Azure RBAC 사용 
+**모범 사례 지침** -Azure RBAC를 사용 하 여 사용자 또는 그룹이 하나 이상의 구독에서 리소스를 AKS 하는 데 필요한 최소 권한을 정의 합니다.
+
+AKS 클러스터를 완벽 하 게 운영 하는 데 필요한 액세스 수준에는 다음 두 가지가 있습니다. 
+1. Azure 구독에서 AKS 리소스에 액세스 합니다. 이 액세스 수준을 통해 AKS Api를 사용 하 여 클러스터를 확장 하거나 업그레이드 하는 작업을 제어 하 고 kubeconfig를 끌어올 수 있습니다.
+AKS 리소스 및 kubeconfig에 대 한 액세스를 제어 하는 방법을 보려면 [클러스터 구성 파일에 대 한 액세스 제한](control-kubeconfig-access.md)을 참조 하세요.
+
+2. Kubernetes API에 대 한 액세스. 이 액세스 수준은 [KUBERNETES RBAC](#use-kubernetes-role-based-access-controls-rbac) (일반적으로) 또는 Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합 하 여 제어 됩니다.
+Azure RBAC를 사용 하 여 Kubernetes API에 권한을 부여 하는 방법에 대 한 자세한 내용은 [Kubernetes 권한 부여를 위해 AZURE Rbac 사용](manage-azure-rbac.md)세부적으로을 참조 하세요.
 
 ## <a name="use-pod-identities"></a>Pod ID 사용
 

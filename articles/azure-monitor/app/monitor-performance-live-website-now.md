@@ -3,12 +3,12 @@ title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mic
 description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807267"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107481"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
@@ -39,10 +39,10 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| 요청 및 예외 |예 |예 |
-| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예 |
+| 요청 및 예외 |Yes |예 |
+| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
 | [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예 |예 |
+| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |Yes |예 |
 | [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
 | [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |아니요 |
 | [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |아니요 |
@@ -98,7 +98,8 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
   ```
 
 - Application Insights 성공적으로 연결 되었는지 확인 해야 하는 경우 명령 창에서 [Sysinternals 핸들](https://docs.microsoft.com/sysinternals/downloads/handle) 을 실행 하 여 applicationinsights.dll IIS에서 로드 되었는지 확인할 수 있습니다.
-  ```cmd
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,7 +110,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 
 ### <a name="unable-to-login"></a>로그인할 수 없음
 
-* 상태 모니터가 로그인할 수 없는 경우 대신, 명령줄 설치를 수행합니다. 상태 모니터는 로그인하여 ikey를 수집하려고 하지만 다음 명령을 사용하여 이 키를 수동으로 제공할 수 있습니다.
+상태 모니터가 로그인할 수 없는 경우 대신, 명령줄 설치를 수행합니다. 상태 모니터는 로그인하여 ikey를 수집하려고 하지만 다음 명령을 사용하여 이 키를 수동으로 제공할 수 있습니다.
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -192,7 +193,9 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 
 먼저 Application Insights 모듈을 가져옵니다.
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 어떤 앱을 모니터링 중인지 확인합니다.
 
@@ -221,12 +224,14 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
     최신 버전을 다운로드하려면 Update-ApplicationInsightsVersion을 사용합니다.
 * 성공 시 `ApplicationInsightsApplication`을(를) 반환합니다. 실패한 경우 stderr에 대한 추적을 기록합니다.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 

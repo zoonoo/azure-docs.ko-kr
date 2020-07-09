@@ -3,11 +3,12 @@ title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft 
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147973"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110218"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -107,7 +108,9 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
 경로의 형식은 다음과 같습니다.
 
-    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```console
+$"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```
 
 Where
 
@@ -117,37 +120,41 @@ Where
 ## <a name="data-format"></a><a name="format"></a> 데이터 형식
 * 각 blob은 다중 '\n'-separated 행을 포함하는 텍스트 파일입니다. 여기에는 약 30초 동안 처리된 원격 분석 데이터가 있습니다.
 * 각 행은 요청 또는 페이지 보기와 같은 원격 분석 데이터 요소를 나타냅니다.
-* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 관찰만 하려는 경우 Visual Studio에서 열고 편집, 고급, 형식 파일을 선택합니다.
+* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 행을 보려면 Visual Studio에서 blob을 열고 **Edit**  >  **고급**  >  **서식 파일**편집을 선택 합니다.
 
-![적합한 도구를 사용하여 원격 분석 보기](./media/export-telemetry/06-json.png)
+   ![적합한 도구를 사용하여 원격 분석 보기](./media/export-telemetry/06-json.png)
 
 시간 기간은 틱 단위이며 10,000틱은 1ms입니다. 예를 들어 이러한 값은 브라우저에서 요청을 보내는 데 1ms, 받는 데 3ms, 브라우저에서 페이지를 처리하는 데 1.8s를 보여줍니다.
 
-    "sendRequest": {"value": 10000.0},
-    "receiveRequest": {"value": 30000.0},
-    "clientProcess": {"value": 17970000.0}
+```json
+"sendRequest": {"value": 10000.0},
+"receiveRequest": {"value": 30000.0},
+"clientProcess": {"value": 17970000.0}
+```
 
 [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>데이터 처리
 작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 다음은 그 예입니다.
 
-    private IEnumerable<T> DeserializeMany<T>(string folderName)
-    {
-      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
-      foreach (var file in files)
+```csharp
+private IEnumerable<T> DeserializeMany<T>(string folderName)
+{
+   var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+   foreach (var file in files)
+   {
+      using (var fileReader = File.OpenText(file))
       {
-         using (var fileReader = File.OpenText(file))
+         string fileContent = fileReader.ReadToEnd();
+         IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+         foreach (var entity in entities)
          {
-            string fileContent = fileReader.ReadToEnd();
-            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-            foreach (var entity in entities)
-            {
-                yield return JsonConvert.DeserializeObject<T>(entity);
-            }
+            yield return JsonConvert.DeserializeObject<T>(entity);
          }
       }
-    }
+   }
+}
+```
 
 더 큰 코드 샘플에 대해서는 [작업자 역할 사용][exportasa]을 참조하세요.
 

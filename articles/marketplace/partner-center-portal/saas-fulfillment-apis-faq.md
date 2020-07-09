@@ -1,18 +1,16 @@
 ---
 title: SaaS 등록 API FAQ-Microsoft 상업적 marketplace
 description: Azure 고객이 SaaS 제품을 구독할 수 있도록 Microsoft 상업적 marketplace에 대 한 몇 가지 통합 요구 사항에 대해 알아봅니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 97359083698e92f39ca854972c864ef769bda730
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963753"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109249"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>SaaS 처리 Api에 대 한 일반적인 질문
 

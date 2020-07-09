@@ -3,11 +3,12 @@ title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773688"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107430"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
@@ -44,33 +45,34 @@ ms.locfileid: "83773688"
 
 ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
-*C#*
-
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey = 
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      ...
+```csharp
+protected void Application_Start()
+{
+  Microsoft.ApplicationInsights.Extensibility.
+    TelemetryConfiguration.Active.InstrumentationKey = 
+      // - for example -
+      WebConfigurationManager.AppSettings["ikey"];
+  ...
+```
 
 이 예제에서는 서로 다른 리소스에 대한 ikeys는 다른 버전의 웹 구성 파일에 배치됩니다. 웹 구성 파일 교체는 릴리스 스크립트의 일부로 수행될 수 있고 대상 리소스를 교체합니다.
 
 ### <a name="web-pages"></a>웹 페이지
 iKey는 [빠른 시작 창에서 가져온 스크립트](../../azure-monitor/app/javascript.md)에 있는 앱의 웹페이지에서도 사용됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
 
-*Razor에서 JavaScript*
-
-    <script type="text/javascript">
-    // Standard Application Insights web page script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      "@Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
-    }) // ...
-
+```javascript
+<script type="text/javascript">
+// Standard Application Insights web page script:
+var appInsights = window.appInsights || function(config){ ...
+// Modify this part:
+}({instrumentationKey:  
+  // Generate from server property:
+  "@Microsoft.ApplicationInsights.Extensibility.
+     TelemetryConfiguration.Active.InstrumentationKey"
+  }
+ )
+//...
+```
 
 ## <a name="create-additional-application-insights-resources"></a>추가 Application Insights 리소스 만들기
 
@@ -95,7 +97,6 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](http
 * [ASP.NET] `BuildInfo.config`에서 버전을 설정합니다. 웹 모듈은 BuildLabel 노드에서 버전을 선택합니다. 프로젝트에 이 파일을 포함하고 솔루션 탐색기에서 항상 복사 속성을 설정합니다.
 
     ```XML
-
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -110,7 +111,6 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](http
 * [ASP.NET] MSBuild에서 BuildInfo.config를 자동으로 생성합니다. 이 작업을 수행하려면 `.csproj` 파일에 몇 줄을 추가합니다.
 
     ```XML
-
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
     </PropertyGroup>
@@ -126,10 +126,10 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](http
 애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. `.csproj` 파일에서 다음을 추가합니다.  
 
 ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
+<PropertyGroup>
+  <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>
+  <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+</PropertyGroup>
 ```
 
 빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.

@@ -3,12 +3,12 @@ title: 컨테이너용 Azure Monitor 에이전트를 관리하는 방법 | Micro
 description: 이 문서에서는 컨테이너용 Azure Monitor에서 사용되는 컨테이너화된 Log Analytics 에이전트를 통해 가장 일반적인 유지 관리 작업을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: ca0fa88cf27db15d45a2c855a1af351764c48fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc5bc0d60cb4ef1e375a997cbb3fe4bd2aed3235
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887511"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107413"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 관리하는 방법
 
@@ -34,24 +34,27 @@ AKS 클러스터에서 에이전트를 업그레이드하는 프로세스는 간
 
 상태는 다음 예제와 유사하며, 여기서 *omi* 및 *omsagent*의 값은 [에이전트 릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)에 지정된 최신 버전과 일치해야 합니다.  
 
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.5
-    omsagent 1.6.0-163
-    docker-cimprov 1.0.0.31
+```console
+User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
+:
+:
+instance of Container_HostInventory
+{
+    [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
+    Computer=aks-nodepool1-39773055-0
+    DockerVersion=1.13.1
+    OperatingSystem=Ubuntu 16.04.3 LTS
+    Volume=local
+    Network=bridge host macvlan null overlay
+    NodeRole=Not Orchestrated
+    OrchestratorType=Kubernetes
+}
+Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc
+Status: Onboarded(OMSAgent Running)
+omi 1.4.2.5
+omsagent 1.6.0-163
+docker-cimprov 1.0.0.31
+```
 
 ### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>하이브리드 Kubernetes 클러스터에서 에이전트 업그레이드
 
@@ -63,21 +66,21 @@ AKS 클러스터에서 에이전트를 업그레이드하는 프로세스는 간
 
 Log Analytics 작업 영역이 상업용 Azure에 있는 경우 다음 명령을 실행합니다.
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
 Log Analytics 작업 영역이 Azure 중국 21Vianet에 있는 경우 다음 명령을 실행 합니다.
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
 Log Analytics 작업 영역이 Azure US Government에 있는 경우 다음 명령을 실행합니다.
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
@@ -90,7 +93,7 @@ $ helm upgrade --name myrelease-1 \
 >Azure Red Hat OpenShift 버전 4.x는 Azure 상업용 클라우드에서만 실행할 수 있습니다.
 >
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
 ```
@@ -99,14 +102,14 @@ $ helm upgrade --name myrelease-1 \
 
 다음 명령을 수행 하 여 프록시 끝점 없이 Azure Arc 사용 Kubernetes 클러스터에서 에이전트를 업그레이드 합니다.
 
-```
+```console
 $ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 다음 명령을 수행 하 여 프록시 끝점이 지정 된 경우 에이전트를 업그레이드 합니다. 프록시 끝점에 대 한 자세한 내용은 [프록시 끝점 구성](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint)을 참조 하세요.
 
-```
-helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```console
+$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>컨테이너에서 환경 변수 수집을 사용하지 않도록 설정하는 방법
@@ -115,14 +118,14 @@ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndp
 
 새 컨테이너 또는 기존 컨테이너에서 환경 변수 수집을 사용하지 않도록 설정하려면 Kubernetes 배포 yaml 구성 파일에서 **AZMON_COLLECT_ENV** 변수를 **False** 값으로 설정합니다. 
 
-```  
+```yaml
 - name: AZMON_COLLECT_ENV  
   value: "False"  
-```  
+```
 
 다음 명령을 실행하여 Azure Red Hat OpenShift 이외의 Kubernetes 클러스터에 변경 내용을 적용합니다. `kubectl apply -f  <path to yaml file>`. ConfigMap을 편집하고 Azure Red Hat OpenShift 클러스터에 이 변경 내용을 적용하려면 다음 명령을 실행합니다.
 
-``` bash
+```bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 ```
 
@@ -132,7 +135,7 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 환경 변수 검색을 다시 사용하도록 설정하려면 이전과 동일한 프로세스를 적용하고 값을 **False**에서 **True**로 변경한 다음, `kubectl` 명령을 다시 실행하여 컨테이너를 업데이트합니다.  
 
-```  
+```yaml
 - name: AZMON_COLLECT_ENV  
   value: "True"  
 ```  

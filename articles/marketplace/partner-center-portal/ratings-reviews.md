@@ -1,17 +1,16 @@
 ---
 title: 파트너 센터의 등급 & 리뷰 분석 대시보드
 description: Microsoft AppSource 및 Azure Marketplace에서 제품에 대 한 고객 피드백의 통합 보기에 액세스 하는 방법에 대해 알아봅니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792924"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109232"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>파트너 센터의 등급 & 리뷰 분석 대시보드
 

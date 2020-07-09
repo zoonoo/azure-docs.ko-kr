@@ -6,17 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109844"
 ---
 # <a name="scale-migration-of-vms"></a>Vm의 규모 마이그레이션 
 
 이 문서는 스크립트를 사용 하 여 많은 수의 Vm (가상 머신)을 마이그레이션하는 방법을 이해 하는 데 도움이 됩니다. 마이그레이션을 확장 하려면 [Azure Site Recovery](../site-recovery/site-recovery-overview.md)을 사용 합니다. 
 
-Site Recovery 스크립트는 GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) 리포지토리에서 다운로드할 수 있습니다. 스크립트를 사용 하 여 VMware, AWS, GCP Vm 및 물리적 서버를 Azure의 managed disks로 마이그레이션할 수 있습니다. VM을 물리적 서버로 마이그레이션하는 경우 이 스크립트를 사용하여 Hyper-V VM을 마이그레이션할 수도 있습니다. Azure Site Recovery PowerShell을 활용 하는 스크립트는 [여기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell)에 설명 되어 있습니다.
+Site Recovery 스크립트는 GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) 리포지토리에서 다운로드할 수 있습니다. 스크립트를 사용 하 여 VMware, AWS, GCP Vm 및 물리적 서버를 Azure의 managed disks로 마이그레이션할 수 있습니다. VM을 물리적 서버로 마이그레이션하는 경우 이 스크립트를 사용하여 Hyper-V VM을 마이그레이션할 수도 있습니다. Azure Site Recovery PowerShell을 활용 하는 스크립트는 [여기](../site-recovery/vmware-azure-disaster-recovery-powershell.md)에 설명 되어 있습니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 - 대상 VM의 기본 NIC에 대해서만 고정 IP 주소를 지정할 수 있습니다.
@@ -24,7 +25,7 @@ Site Recovery 스크립트는 GitHub의 [Azure PowerShell 샘플](https://github
 
 ## <a name="how-does-it-work"></a>작동 원리
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에 다음 단계를 수행해야 합니다.
 - Site Recovery 자격 증명 모음이 Azure 구독에 생성되었는지 확인
 - 구성 서버 및 프로세스 서버가 원본 환경에 설치되었으며 자격 증명 모음이 환경을 검색할 수 있는지 확인
@@ -68,4 +69,4 @@ CSV가 준비되면 다음 단계를 실행하여 온-프레미스 VM을 마이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Site Recovery를 사용하여 서버를 Azure로 마이그레이션하는 방법에 대한 [자세한 정보](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure)
+Azure Site Recovery를 사용하여 서버를 Azure로 마이그레이션하는 방법에 대한 [자세한 정보](../site-recovery/migrate-tutorial-on-premises-azure.md)

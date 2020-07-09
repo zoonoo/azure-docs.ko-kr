@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가의 Azure VM 평가
 description: Azure Migrate Server 평가의 평가에 대 한 자세한 정보
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 33051fbcfb792d3fa9734a818d293775486de647
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549959"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108004"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Azure Migrate에서 Azure VM 평가: 서버 평가
 
@@ -28,7 +28,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 **평가 유형** | **세부 정보**
 --- | --- 
 **Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다.
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](../azure-vmware/introduction.md)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 서버 평가를 사용 하 여 만든 평가는 데이터의 특정 시점 스냅숏입니다. 서버 평가에서 Azure VM 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공 합니다.
 
@@ -148,11 +148,11 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 
 Azure VM 평가의 경우 서버 평가는 온-프레미스 VM의 다음 속성을 검토 하 여 Azure Vm에서 실행 될 수 있는지 여부를 확인 합니다.
 
-속성 | 설명 | Azure 준비 상태
+속성 | 세부 정보 | Azure 준비 상태
 --- | --- | ---
 **부팅 유형** | Azure는 UEFI가 아닌 부팅 유형의 BIOS를 사용 하는 Vm을 지원 합니다. | 부팅 유형이 UEFI 인 경우 조건적으로 준비 됨
 **코어 수** | 각 컴퓨터에는 Azure VM에서 지원 되는 최대 수 인 128 코어가 없어야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 평가 설정에서 편안 하 게 요소를 지정 하는 경우 사용 되는 코어 수를 편안 하 게 곱합니다.<br/><br/> 성능 기록이 없는 경우 Azure Migrate는 편안 하 게 요소를 적용 하지 않고 할당 된 코어를 사용 합니다. | 코어 수가 한도 내에 있으면 준비
-**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없는 경우에는 할당 된 RAM이 편안 하 게 응용 프로그램 없이 사용 됩니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
+**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](../virtual-machines/windows/sizes.md).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없는 경우에는 할당 된 RAM이 편안 하 게 응용 프로그램 없이 사용 됩니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
 **스토리지 디스크** | 할당 된 디스크 크기는 32 TB이 하 여야 합니다. Azure는 Azure 울트라 SSD 디스크를 사용 하 여 64-TB 디스크를 지원 하지만 Azure Migrate: 서버 평가는 현재 울트라 SSD를 지원 하지 않으므로 디스크 크기 제한으로 32 TB를 확인 합니다. <br/><br/> OS 디스크를 포함 하 여 컴퓨터에 연결 된 디스크 수는 65 미만 이어야 합니다. | 디스크 크기와 숫자가 한도 내에 있으면 준비
 **네트워킹** | 컴퓨터에는 32 개의 Nic (네트워크 인터페이스)가 연결 되어 있어야 합니다. | Nic 수가 한도 내에 있으면 준비
 
@@ -161,7 +161,7 @@ Azure VM 평가의 경우 서버 평가는 온-프레미스 VM의 다음 속성�
 VM 속성 검토와 함께 Azure VM 평가의 경우 서버 평가는 컴퓨터의 게스트 운영 체제를 확인 하 여 Azure에서 실행 될 수 있는지 여부를 확인 합니다.
 
 > [!NOTE]
-> VMware Vm에 대 한 게스트 분석을 처리 하기 위해 서버 평가는 vCenter Server에서 VM에 대해 지정 된 운영 체제를 사용 합니다. 그러나 vCenter Server는 Linux VM 운영 체제의 커널 버전을 제공 하지 않습니다. 버전을 검색 하려면 [응용 프로그램 검색](https://docs.microsoft.com/azure/migrate/how-to-discover-applications)을 설정 해야 합니다. 그런 다음, 어플라이언스는 앱 검색을 설정할 때 지정 하는 게스트 자격 증명을 사용 하 여 버전 정보를 검색 합니다.
+> VMware Vm에 대 한 게스트 분석을 처리 하기 위해 서버 평가는 vCenter Server에서 VM에 대해 지정 된 운영 체제를 사용 합니다. 그러나 vCenter Server는 Linux VM 운영 체제의 커널 버전을 제공 하지 않습니다. 버전을 검색 하려면 [응용 프로그램 검색](./how-to-discover-applications.md)을 설정 해야 합니다. 그런 다음, 어플라이언스는 앱 검색을 설정할 때 지정 하는 게스트 자격 증명을 사용 하 여 버전 정보를 검색 합니다.
 
 
 서버 평가는 다음 논리를 사용 하 여 운영 체제에 따라 Azure 준비 상태를 식별 합니다.
@@ -175,8 +175,8 @@ Windows Server 2008 R2 및 모든 SP | Azure에서 완벽하게 지원합니다.
 Windows Server 2008(32비트 및 64비트) | Azure에서 완벽하게 지원합니다. | Azure를 사용할 준비가 되었습니다.
 Windows Server 2003 및 Windows Server 2003 R2 | 이러한 운영 체제는 지원 종료 날짜를 전달 하 고 Azure에서 지원 하기 위해 [CSA (사용자 지정 지원 계약)](https://aka.ms/WSosstatement) 가 필요 합니다. | 조건부로 Azure를 사용할 준비가 되었습니다. Azure로 마이그레이션하기 전에 OS를 업그레이드 하는 것이 좋습니다.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1 및 MS-DOS | 이러한 운영 체제는 지원 종료 날짜를 통과 했습니다. 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 OS 지원을 제공 하지 않습니다. | 조건부로 Azure를 사용할 준비가 되었습니다. Azure로 마이그레이션하기 전에 OS를 업그레이드 하는 것이 좋습니다.
-Windows 7, Windows 8 및 Windows 10 | Azure는 [Visual Studio 구독에 대해서만](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) 지원 합니다. | 조건부로 Azure를 사용할 준비가 되었습니다.
-Windows 10 Pro | Azure는 [다중 테넌트 호스팅 권한을 지원합니다.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | 조건부로 Azure를 사용할 준비가 되었습니다.
+Windows 7, Windows 8 및 Windows 10 | Azure는 [Visual Studio 구독에 대해서만](../virtual-machines/windows/client-images.md) 지원 합니다. | 조건부로 Azure를 사용할 준비가 되었습니다.
+Windows 10 Pro | Azure는 [다중 테넌트 호스팅 권한을 지원합니다.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | 조건부로 Azure를 사용할 준비가 되었습니다.
 Windows Vista 및 Windows XP Professional | 이러한 운영 체제는 지원 종료 날짜를 통과 했습니다. 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 OS 지원을 제공 하지 않습니다. | 조건부로 Azure를 사용할 준비가 되었습니다. Azure로 마이그레이션하기 전에 OS를 업그레이드 하는 것이 좋습니다.
 Linux | Azure에서 보증 하는 [Linux 운영 체제](../virtual-machines/linux/endorsed-distros.md) 를 참조 하세요. 다른 Linux 운영 체제는 Azure에서 시작 될 수 있습니다. 그러나 Azure로 마이그레이션하기 전에 OS를 보증 버전으로 업그레이드 하는 것이 좋습니다. | 버전이 보증되면 Azure 준비 완료입니다.<br/><br/>버전이 보증 되지 않은 경우 조건적으로 준비 됩니다.
 Oracle Solaris, Apple macOS 및 FreeBSD와 같은 다른 운영 체제 | Azure는 이러한 운영 체제를 보증하지 않습니다. 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 OS 지원을 제공 하지 않습니다. | 조건부로 Azure를 사용할 준비가 되었습니다. Azure로 마이그레이션하기 전에 지원 되는 OS를 설치 하는 것이 좋습니다.  

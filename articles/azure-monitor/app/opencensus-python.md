@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: bef2f1c48241a3f0215481aeb0da3fcc237ddb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e1a866799a62c457c2734524c58bb848b8f067e6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076628"
+ms.locfileid: "86107447"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -72,7 +72,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
 
 1. 코드는 입력 될 값을 계속 요청 합니다. 입력한 모든 값에 대해 로그 항목이 내보내집니다.
 
-    ```
+    ```output
     Enter a value: 24
     24
     Enter a value: 55
@@ -88,22 +88,22 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     ```python
     import logging
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    
+
     def valuePrompt():
         line = input("Enter a value: ")
         logger.warning(line)
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     if __name__ == "__main__":
         main()
     ```
@@ -122,9 +122,9 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
 
     ```python
     import logging
-    
+
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
@@ -141,33 +141,33 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
 
 Django 응용 프로그램에 대해 위와 같은 응용 프로그램 코드에서 명시적으로 로깅을 구성 하거나 Django의 로깅 구성에서 지정할 수 있습니다. 이 코드는 Django 설정 구성에 사용 하는 모든 파일로 이동할 수 있습니다. Django 설정을 구성 하는 방법에 대 한 자세한 내용은 [Django settings](https://docs.djangoproject.com/en/3.0/topics/settings/)를 참조 하세요. 로깅 구성에 대 한 자세한 내용은 [Django logging](https://docs.djangoproject.com/en/3.0/topics/logging/)를 참조 하세요.
 
-```python
- LOGGING = {
-     "handlers": {
-         "azure": {
-             "level": "DEBUG",
-          "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-             "instrumentation_key": "<your-ikey-here>",
-          },
-         "console": {
-             "level": "DEBUG",
-             "class": "logging.StreamHandler",
-             "stream": sys.stdout,
-          },
-       },
-     "loggers": {
-         "logger_name": {"handlers": ["azure", "console"]},
-     },
- }
+```json
+LOGGING = {
+    "handlers": {
+        "azure": {
+            "level": "DEBUG",
+        "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+            "instrumentation_key": "<your-ikey-here>",
+         },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
+         },
+      },
+    "loggers": {
+        "logger_name": {"handlers": ["azure", "console"]},
+    },
+}
 ```
 
 구성에 지정 된 것과 동일한 이름으로로 거를 사용 해야 합니다.
 
 ```python
- import logging
-        
- logger = logging.getLogger("logger_name")
- logger.warning("this will be tracked")
+import logging
+
+logger = logging.getLogger("logger_name")
+logger.warning("this will be tracked")
 ```
 
 #### <a name="send-exceptions"></a>예외 보내기
@@ -238,7 +238,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -267,7 +267,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
     ```
 1. 코드를 반복적으로 실행 하면 **Enter 키**를 선택 하 라는 메시지가 표시 됩니다. **Enter 키** 를 선택한 횟수를 추적 하는 메트릭이 생성 됩니다. 각 항목을 사용 하면 값이 증가 하 고 메트릭 정보가 콘솔에 표시 됩니다. 이 정보에는 메트릭이 업데이트된 현재 값 및 현재 타임스탬프가 포함됩니다.
 
-    ```
+    ```output
     Press enter.
     Point(value=ValueLong(5), timestamp=2019-10-09 20:58:04.930426)
     Press enter.
@@ -290,7 +290,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -381,7 +381,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 
 1. 코드를 반복적으로 실행 하면 값을 입력 하 라는 메시지가 표시 됩니다. 각 항목을 사용 하면 값이 셸에 출력 됩니다. OpenCensus Python 모듈은 해당 하는 부분을 생성 합니다 `SpanData` . OpenCensus 프로젝트는 [범위 트리로 추적](https://opencensus.io/core-concepts/tracing/)을 정의합니다.
     
-    ```
+    ```output
     Enter a value: 4
     4
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='15ac5123ac1f6847', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:22.805429Z', end_time='2019-06-27T18:21:44.933405Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
@@ -399,7 +399,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
     from opencensus.ext.azure.trace_exporter import AzureExporter
     from opencensus.trace.samplers import ProbabilitySampler
     from opencensus.trace.tracer import Tracer
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     tracer = Tracer(
         exporter=AzureExporter(

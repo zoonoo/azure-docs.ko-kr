@@ -3,11 +3,12 @@ title: Hyper-v에 대 한 Azure Migrate 어플라이언스 설정
 description: Hyper-v Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56b034709309a3afe9d18df7af9ababc74a24cee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81538293"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109708"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Hyper-v Vm에 대 한 어플라이언스 설정
 
@@ -49,7 +50,7 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  어플라이언스 버전 2.19.11.12의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)일치 해야 합니다.
+3.  어플라이언스 버전 2.19.11.12의 경우 생성 된 해시가 이러한 [설정과](./tutorial-assess-hyper-v.md#verify-security)일치 해야 합니다.
 
 
 

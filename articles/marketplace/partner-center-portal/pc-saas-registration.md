@@ -1,18 +1,16 @@
 ---
 title: SaaS 응용 프로그램 등록-Azure Marketplace
 description: Azure Portal를 사용 하 여 SaaS 응용 프로그램을 등록 하 고 Azure Active Directory 보안 토큰을 받는 방법에 대해 알아봅니다.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.author: dsindona
-ms.openlocfilehash: 630dceedcac36cf6d37d54612d73fabe676d74f6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 85bd6f4192f5c1f47856851ab53521a101340007
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963719"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109266"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
@@ -68,19 +66,19 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 ##### <a name="uri-parameter"></a>*URI 매개 변수*
 
-|  매개 변수 이름    |  필요한 공간         |  설명 |
+|  매개 변수 이름    |  필수         |  Description |
 |  ---------------   |  ---------------  | ------------ |
 |  `tenantId`        |  True      |  등록 된 AAD 응용 프로그램의 테 넌 트 ID입니다. |
 
 ##### <a name="request-header"></a>*요청 헤더*
 
-|  헤더 이름       |  필요한 공간         |  설명 |
+|  헤더 이름       |  필수         |  Description |
 |  ---------------   |  ---------------  | ------------ |
 |  `content-type`    |  True      |  요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다. |
 
 ##### <a name="request-body"></a>*요청 본문*
 
-|  속성 이름     |  필요한 공간         |  설명 |
+|  속성 이름     |  필수         |  Description |
 |  ---------------   |  ---------------  | ------------ |
 |  `grant-type`      |  True      |  권한 부여 유형입니다. 대신 `"client_credentials"`를 |
 |  `client_id`       |  True      |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다. |
@@ -89,7 +87,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 ##### <a name="response"></a>*응답*
 
-|  이름     |  Type         |  설명 |
+|  Name     |  Type         |  설명 |
 |  ------   |  ---------------  | ------------ |
 |  200 정상   |  TokenResponse    |  요청이 성공했습니다. |
 

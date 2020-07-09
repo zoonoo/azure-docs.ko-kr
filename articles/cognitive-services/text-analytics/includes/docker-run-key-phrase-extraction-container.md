@@ -9,14 +9,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 7c7344b7cc9253ef761061b769644a363492d4bd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5929a34ea8fbcbb89f3738ac2a10b14353324b6c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588405"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108955"
 ---
-*핵심 구 추출* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
+*핵심 구 추출* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` . 아래 자리 표시자를 사용자 고유의 값으로 바꿉니다.
+
+| 자리 표시자 | 값 | 형식 또는 예 |
+|-------------|-------|---|
+| **{API_KEY}** | Text Analytics 리소스의 키입니다. 리소스의 **키 및 끝점** 페이지의 Azure Portal에서 찾을 수 있습니다. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | 텍스트 분석 API에 액세스 하기 위한 끝점입니다. 리소스의 **키 및 끝점** 페이지의 Azure Portal에서 찾을 수 있습니다. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

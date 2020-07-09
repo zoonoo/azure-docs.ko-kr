@@ -9,24 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702141"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108993"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
 > [!NOTE]
 > * 감정 분석 v3의 컨테이너가 이제 일반 공급 됩니다. 핵심 문구 추출 및 언어 검색 컨테이너는 제어 되지 않은 공개 미리 보기로 제공 됩니다.
 > * 엔터티 링크 및 NER는 현재 컨테이너로 사용할 수 없습니다.
+> * 현재 상태 컨테이너 사용에 대 한 Text Analytics에 대해서는 요금이 청구 되지 않습니다.
 
 컨테이너를 사용 하면 사용자 환경에서 텍스트 분석 Api를 실행할 수 있으며 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. Text Analytics 컨테이너는 원시 텍스트에 대 한 고급 자연어 처리를 제공 하며, 감정 분석, 핵심 구 추출 및 언어 감지 라는 세 가지 주요 함수를 포함 합니다. 
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!IMPORTANT]
 > 무료 계정은 매월 5000 개의 트랜잭션으로 제한 되며, **무료** 및 **표준** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">가격 책정 계층만 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 컨테이너에 대해 유효 합니다. 트랜잭션 요청 요금에 대 한 자세한 내용은 [데이터 제한](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits)을 참조 하세요.
@@ -59,6 +60,8 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 |---|---------|-------------|--|--|
 | **언어 검색, 핵심 문구 추출**   | 1 개 코어, 2GB 메모리 | 1 코어, 4GB 메모리 |15 | 30|
 | **감정 분석 v3**   | 1 개 코어, 2GB 메모리 | 4 코어, 8GB 메모리 |15 | 30|
+| **상태-1 문서/요청에 대 한 Text Analytics**   |  4 코어, 10GB 메모리 | 6 코어, 12GB 메모리 |15 | 30|
+| **상태-10 개 문서/요청에 대 한 Text Analytics**   |  6 코어, 16GB 메모리 | 8 코어, 20GB 메모리 |15 | 30|
 
 CPU 코어 및 메모리는 `--cpus` 명령의 일부로 사용 되는 및 설정에 해당 `--memory` `docker run` 합니다.
 
@@ -80,6 +83,10 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[상태 (미리 보기)에 대 한 Text Analytics](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
 ## <a name="how-to-use-the-container"></a>컨테이너사용 방법
@@ -92,13 +99,6 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
 [Docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용 하 여 컨테이너를 실행 합니다. 컨테이너는 중지 될 때까지 계속 실행 됩니다.
-
-아래 자리 표시자를 사용자 고유의 값으로 바꿉니다.
-
-| 자리 표시자 | 값 | 형식 또는 예 |
-|-------------|-------|---|
-| **{API_KEY}** | Text Analytics 리소스의 키입니다. 리소스의 **키 및 끝점** 페이지의 Azure Portal에서 찾을 수 있습니다. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | 텍스트 분석 API에 액세스 하기 위한 끝점입니다. 리소스의 **키 및 끝점** 페이지의 Azure Portal에서 찾을 수 있습니다. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * 다음 섹션에서 Docker 명령은 줄 연속 문자 같은 백 슬래시, `\`을 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
@@ -116,6 +116,10 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 # <a name="language-detection-preview"></a>[언어 감지 (미리 보기)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# <a name="text-analytics-for-health-preview"></a>[상태 (미리 보기)에 대 한 Text Analytics](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -141,7 +145,7 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 
 [!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 
@@ -161,8 +165,8 @@ Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사
    * *감정 분석*
    * *핵심 구 추출 (미리 보기)* 
    * *언어 감지 (미리 보기)*
-   
-* 컨테이너 이미지는 Azure의 MCR(Microsoft Container Registry)에서 다운로드됩니다.
+   * *상태 (미리 보기)에 대 한 Text Analytics*
+* 컨테이너 이미지는 MCR (Microsoft Container Registry) 또는 preview 컨테이너 리포지토리에서 다운로드 됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * REST API 또는 SDK를 사용하여 컨테이너의 호스트 URI를 지정함으로써 Text Analytics 컨테이너에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.

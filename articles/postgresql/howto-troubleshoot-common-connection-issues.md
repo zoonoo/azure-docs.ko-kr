@@ -5,14 +5,14 @@ keywords: PostgreSQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: c0011889e59470d94e650a19c6713074155c63fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c97e8e0d55a99e0b022bdc6e97edc778d7b6588a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106551"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107600"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 연결 문제 해결
 

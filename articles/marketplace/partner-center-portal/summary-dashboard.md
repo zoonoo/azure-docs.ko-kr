@@ -1,17 +1,16 @@
 ---
 title: 상업용 Marketplace의 파트너 센터 분석에 대한 요약 대시보드
 description: 파트너 센터의 요약 대시보드에서 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값에 액세스하는 방법을 알아봅니다.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 39b963fe40d26d498e69b8fc9bbb62ce514bef39
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738322"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109147"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 요약 대시보드
 

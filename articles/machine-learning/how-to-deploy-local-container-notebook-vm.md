@@ -1,5 +1,5 @@
 ---
-title: 계산 인스턴스에 모델을 배포 합니다.
+title: 계산 인스턴스에 모델 배포
 titleSuffix: Azure Machine Learning
 description: 계산 인스턴스를 사용 하 여 Azure Machine Learning 모델을 웹 서비스로 배포 하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,11 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 07afeba8ab481da6a23862dee187c8c72df19f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f2872becd5fb23c71fabb63fb4eafe27c00a637
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429576"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106971"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>모델을 배포 하 여 계산 인스턴스 Azure Machine Learning
 
@@ -28,7 +29,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 > [!TIP]
 > 계산 인스턴스의 Jupyter Notebook에서 동일한 VM의 웹 서비스로 모델을 배포 하는 것은 _로컬 배포_입니다. 이 경우 ' 로컬 ' 컴퓨터는 계산 인스턴스입니다. 배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 계산 인스턴스가 실행 되는 Azure Machine Learning 작업 영역입니다. 자세한 내용은 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 참조 하세요.
 
@@ -42,7 +43,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 
     ![노트북에서 실행 중인 로컬 서비스의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. 노트북에는 서비스가 실행 되는 URL 및 포트가 표시 됩니다. 예: `https://localhost:6789`. 가 포함 된 셀을 실행 하 여 포트를 표시할 수도 있습니다 `print('Local service port: {}'.format(local_service.port))` .
+1. 노트북에는 서비스가 실행 되는 URL 및 포트가 표시 됩니다. 예들 들어 `https://localhost:6789`입니다. 가 포함 된 셀을 실행 하 여 포트를 표시할 수도 있습니다 `print('Local service port: {}'.format(local_service.port))` .
 
     ![실행 중인 로컬 서비스 포트의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
@@ -50,7 +51,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
     * 노트북 `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` VM: 
     * 계산 인스턴스: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
-    예제: 
+    예를 들면 다음과 같습니다. 
     * 노트북 VM:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
     * 계산 인스턴스:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
 

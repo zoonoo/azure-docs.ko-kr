@@ -8,21 +8,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85292151"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108505"
 ---
 > [!NOTE]
-> 검색 하려면 `PHI` `domain=phi` 매개 변수 및 모델 버전 이상을 사용 `2020-04-01` 합니다.
+> `PHI`(보호 된 상태 정보)을 검색 하려면 `domain=phi` 매개 변수 및 모델 버전 이상을 사용 `2020-04-01` 합니다.
 >
 > 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
 끝점에 요청을 보낼 때 다음 엔터티 범주가 반환 됩니다 `/v3.1-preview.1/entities/recognition/pii` .
 
-| Category   | 하위 범주 | Description                          | 시작 모델 버전 | 참고 |
+| 범주   | 하위 범주 | Description                          | 시작 모델 버전 | 참고 |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | 해당 없음         | 사람의 이름입니다.  | `2019-10-01`  | 또한로 반환 `domain=phi` 됩니다. |
 | PersonType | 해당 없음         | 사용자가 보유 한 작업 유형 또는 역할 | `2020-02-01` | |
@@ -37,7 +37,7 @@ ms.locfileid: "85292151"
 | URL | 해당 없음 | 웹 사이트에 대 한 Url입니다. | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
 | IP | 해당 없음 | 네트워크 IP 주소. | `2019-10-01` | |
 | DateTime | 해당 없음 | 날짜 및 시간입니다. | `2019-10-01` |  | 
-| DateTime | Date | 일정 날짜 | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
+| DateTime | 날짜 | 일정 날짜 | `2019-10-01` | 또한로 반환 `domain=phi` 됩니다. |
 | 수량 | 해당 없음 | 숫자 및 숫자 수량. | `2019-10-01` |  |
 | 수량 | Age | 에이징을. | `2019-10-01` | | |
 | 질병의 국제 분류 (ICD-9-CM) | 해당 없음 | 질병의 국제 분류와 관련 된 엔터티입니다.   | `2020-04-01` | |

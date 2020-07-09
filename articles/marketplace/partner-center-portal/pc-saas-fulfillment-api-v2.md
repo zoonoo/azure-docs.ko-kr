@@ -1,18 +1,16 @@
 ---
 title: Microsoft 상업적 marketplace의 SaaS 등록 Api v2
 description: Api 버전 2를 사용 하 여 Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품을 만들고 관리 하는 방법에 대해 알아봅니다.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: dsindona
-ms.openlocfilehash: 1a833f86a0d8de3f5b8c83e899a58fa83f3153c4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f501e84e988d340ba710e49d30caddbe56006c8a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963770"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109419"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 처리 Api 버전 2
 
@@ -588,7 +586,7 @@ SaaS 구독에 대해 구매한 기존 계획을 새 요금제 (공용 또는 �
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -653,7 +651,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다.  |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -718,7 +716,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
 
 코드: 400 잘못 된 요청입니다.  `allowedCustomerOperations`이 SaaS 구독의 삭제는 목록에 없습니다.
 

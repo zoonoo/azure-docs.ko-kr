@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a0cee198f028fd90e04dac15e98d7cd33aee9201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79c91fff837e3869eda0f45ce892e63b6611a1d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532351"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107209"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Azure Database for MariaDB와 호환 되는 MariaDB 드라이버 및 관리 도구
 
@@ -37,7 +37,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이
 
 호환성 장점은 데이터베이스 관리 도구까지 확장됩니다. 데이터베이스 조작이 사용자 권한 범위 내에서 작동 하는 한 기존 도구는 계속 해 서 Azure Database for MariaDB를 사용 해야 합니다. 다음 표에는 테스트를 거쳐 Azure Database for MariaDB 10.2와 호환 되는 것으로 확인 된 세 가지 공통 데이터베이스 관리 도구가 나와 있습니다.
 
-| | **MySQL Workbench 6.x 이상** | **Navicat 12** | **PHPMyAdmin 4.x 이상**
+| 작업 | **MySQL Workbench 6.x 이상** | **Navicat 12** | **PHPMyAdmin 4.x 이상**
 ---|---|---|---
 만들기, 업데이트, 읽기, 쓰기, 삭제 | X | X | X
 SSL 연결 | X | X | X

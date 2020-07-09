@@ -3,15 +3,16 @@ title: Azure Migrate의 마이그레이션 도구 추가
 description: Azure Migrate에서 마이그레이션 도구를 추가 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6ac8ed64d3f12783cc16f0428874a19d027adf9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195816"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109810"
 ---
 # <a name="add-migration-tools"></a>마이그레이션 도구 추가
 
-이 문서에서는 [Azure Migrate](migrate-overview.md)의 마이그레이션 도구를 추가 하는 방법을 설명 합니다.
+이 문서에서는 [Azure Migrate](./migrate-services-overview.md)의 마이그레이션 도구를 추가 하는 방법을 설명 합니다.
 
 - 마이그레이션 도구를 추가 하 고 Azure Migrate 프로젝트를 아직 설정 하지 않은 경우이 [문서](how-to-add-tool-first-time.md)를 따릅니다.
 - 마이그레이션을 위해 ISV 도구를 추가한 경우 해당 단계에 [따라](prepare-isv-movere.md)도구를 사용 하 여 작업을 준비 합니다.

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 9dd6dba9b517c26277cc7f7e3c87df81b1c95648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c06365531a4977b6b792e136e515b5b56c2c930
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567458"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110031"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 만들기
 
@@ -34,7 +34,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 **평가 유형** | **세부 정보**
 --- | --- 
 **Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다. [자세히 알아보기](concepts-assessment-calculation.md)
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](../azure-vmware/introduction.md)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
 > Azure VMware Solution (AVS) 평가는 현재 미리 보기로 제공 되며 VMware Vm에 대해서만 만들 수 있습니다.
@@ -110,7 +110,7 @@ Azure VMware 솔루션 (AVS) 평가는 다음을 설명 합니다.
     - **준비 상태 알 수 없음**: 온-프레미스 환경에서 수집 된 메타 데이터가 부족 하 여 컴퓨터의 준비 상태를 확인할 수 Azure Migrate.
 
 3. 제안 된 도구를 검토 합니다.
-    - **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+    - **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
     - **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 컴퓨터의 경우에는 VMWare 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다. 
 
 4. **AVS 준비** 상태를 클릭 합니다. VM 준비 상태 세부 정보를 살펴보고, 드릴다운하여 컴퓨팅, 스토리지 및 네트워크 설정을 포함한 VM 세부 정보를 확인할 수 있습니다.

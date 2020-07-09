@@ -9,11 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 9c5b1d38e32ff0a0d0954064c8a2511d898d16e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36e6b39aaf481abaabe4fb5a4a71a527d1e74749
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84462926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109453"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
@@ -45,7 +46,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
+`hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/`
 
 * `<container-name>` 자리 표시자를 컨테이너에 지정할 이름으로 바꿉니다.
 
@@ -53,7 +54,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 ## <a name="get-a-list-of-files-or-directories"></a>파일 또는 디렉터리 목록 가져오기
 
-    hdfs dfs -ls <path>
+`hdfs dfs -ls <path>`
 
 `<path>`자리 표시자를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉니다.
 
@@ -61,7 +62,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-    hdfs dfs -mkdir [-p] <path>
+`hdfs dfs -mkdir [-p] <path>`
 
 `<path>`자리 표시자를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
 
@@ -69,7 +70,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 ## <a name="delete-a-file-or-directory"></a>파일 또는 디렉터리 삭제
 
-    hdfs dfs -rm <path>
+`hdfs dfs -rm <path>`
 
 `<path>` 자리 표시자를 삭제하려는 파일 또는 폴더의 URI로 바꿉니다.
 
@@ -77,7 +78,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>파일 및 디렉터리의 Access Control Lists(ACL) 표시
 
-    hdfs dfs -getfacl [-R] <path>
+`hdfs dfs -getfacl [-R] <path>`
 
 예:
 
@@ -87,7 +88,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 ## <a name="set-acls-of-files-and-directories"></a>파일 및 디렉터리의 ACL 설정
 
-    hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
+`hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]`
 
 예:
 
@@ -97,19 +98,19 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 ## <a name="change-the-owner-of-files"></a>파일의 소유자 변경
 
-    hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
+`hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>`
 
 [chown](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown) 참조
 
 ## <a name="change-group-association-of-files"></a>파일의 그룹 연결 변경
 
-    hdfs dfs -chgrp [-R] <group> <URI>
+`hdfs dfs -chgrp [-R] <group> <URI>`
 
 [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp) 참조
 
 ## <a name="change-the-permissions-of-files"></a>파일의 사용 권한 변경
 
-    hdfs dfs -chmod [-R] <mode> <URI>
+`hdfs dfs -chmod [-R] <mode> <URI>`
 
 [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)를 참조합니다.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: de526da255d0ffb2d4c8f13d87d9b9e230c8bbd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561820"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109725"
 ---
 # <a name="customize-an-assessment"></a>평가 사용자 지정
 
@@ -28,7 +28,7 @@ Azure Migrate Server 평가 도구를 사용 하 여 Azure로의 마이그레이
 **평가 유형** | **세부 정보**
 --- | --- 
 **Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다. (concepts-assessment-calculation.md)
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](../azure-vmware/introduction.md)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 서버 평가에서 Azure VM 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공 합니다.
 
@@ -40,7 +40,7 @@ Azure Migrate Server 평가 도구를 사용 하 여 Azure로의 마이그레이
 
 ## <a name="how-is-an-assessment-done"></a>평가는 어떻게 수행 하나요?
 
-Azure Migrate Server 평가에서 수행 되는 평가에는 3 단계가 있습니다. 평가는 적합성 분석으로 시작되며 크기 조정, 월별 비용 예측이 차례로 진행됩니다. 컴퓨터는 이전 단계를 통과하는 경우에만 이후 단계로 이동합니다. 예를 들어 컴퓨터가 Azure 적합성 검사에 실패하면 Azure에 적합하지 않은 것으로 표시되고 크기 조정과 비용 예측이 수행되지 않습니다. [자세한 정보](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation)
+Azure Migrate Server 평가에서 수행 되는 평가에는 3 단계가 있습니다. 평가는 적합성 분석으로 시작되며 크기 조정, 월별 비용 예측이 차례로 진행됩니다. 컴퓨터는 이전 단계를 통과하는 경우에만 이후 단계로 이동합니다. 예를 들어 컴퓨터가 Azure 적합성 검사에 실패하면 Azure에 적합하지 않은 것으로 표시되고 크기 조정과 비용 예측이 수행되지 않습니다. [자세한 정보](./concepts-assessment-calculation.md)
 
 ## <a name="whats-in-an-azure-vm-assessment"></a>Azure VM 평가의 기능
 
@@ -70,7 +70,7 @@ Azure Migrate Server 평가에서 수행 되는 평가에는 3 단계가 있습�
 | **대상 위치** | 마이그레이션할 AVS 사설 클라우드 위치를 지정 합니다.<br/><br/> 서버 평가의 AVS 평가는 현재 미국 동부, 유럽 서부, 미국 서 부 등의 대상 지역을 지원 합니다. |
 | **저장소 유형** | AVS에서 사용할 저장소 엔진을 지정 합니다.<br/><br/> AVS 평가는 vSAN을 기본 저장소 유형 으로만 지원 합니다. |
 **예약 인스턴스 (RIs)** | 이 속성은 AVS에서 예약 인스턴스를 지정 하는 데 도움이 됩니다. RIs는 현재 AVS 노드에 대해 지원 되지 않습니다. |
-**노드 유형** | 온-프레미스 Vm을 매핑하는 데 사용 되는 [AVS 노드 유형을](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) 지정 합니다. 기본 노드 형식은 AV36입니다. <br/><br/> Azure Migrate Vm을 AVS로 마이그레이션하기 위해 필요한 수의 노드를 권장 합니다. |
+**노드 유형** | 온-프레미스 Vm을 매핑하는 데 사용 되는 [AVS 노드 유형을](../azure-vmware/concepts-private-clouds-clusters.md) 지정 합니다. 기본 노드 형식은 AV36입니다. <br/><br/> Azure Migrate Vm을 AVS로 마이그레이션하기 위해 필요한 수의 노드를 권장 합니다. |
 **FTT 설정, RAID 수준** | 허용 및 Raid 조합에 적용 가능한 실패를 지정 합니다. 온-프레미스 VM 디스크 요구 사항과 함께 선택한 FTT 옵션은 AVS에 필요한 총 vSAN 저장소를 결정 합니다. |
 **크기 조정 기준** | AVS에 대해 vm을 적절 하 게 _크기 조정_ 하는 데 사용할 조건을 설정 합니다. 성능 _기반_ 크기 조정 또는 성능 기록을 고려 하지 않고 _온-프레미스로_ 선택할 수 있습니다. |
 **성능 기록** | 컴퓨터의 성능 데이터를 평가 하는 데 고려할 기간을 설정 합니다. 이 속성은 크기 조정 기준이 _성능 기반_인 경우에만 적용할 수 있습니다. |

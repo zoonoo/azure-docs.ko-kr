@@ -1,17 +1,16 @@
 ---
 title: Event Grid 원본으로서의 Azure App Service
 description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure App Service를 사용하는 방법을 설명합니다. 스키마와 자습서 및 방법 문서 링크를 제공합니다.
-services: event-grid
 author: jasonfreeberg
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 07/07/2020
 ms.author: jafreebe
-ms.openlocfilehash: 0a24e8ba84739dbc1b5de5e0546a8fe0d2e826f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2465b2f260ed6c174b762fcf64a71100a148254d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650698"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106714"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure App Service
 

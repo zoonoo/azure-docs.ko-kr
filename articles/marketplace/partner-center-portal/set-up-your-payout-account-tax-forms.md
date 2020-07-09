@@ -3,14 +3,13 @@ title: 지급 계정 및 세금 양식 설정 - Microsoft 상업용 마켓플레
 Description: 상업용 마켓플레이스의 제품 판매에서 돈을 받기 위해 지급 계정을 설정하고 필요한 세금 양식을 작성하는 방법을 알아봅니다.
 ms.date: 12/10/2019
 ms.topic: conceptual
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 493043c43cf8dbac94bd33a907c91291fc51bf6c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738288"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109130"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>지급 계정 및 세금 양식 설정
 

@@ -4,13 +4,14 @@ description: PowerShell을 사용 하 여 Azure Database for MySQL에서 읽기 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: eff70d193674877b3b9453319197b60569399968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6d24ba0d31020b82669947189da180348f2a46b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707092"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107991"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -20,7 +21,7 @@ ms.locfileid: "84707092"
 
 PowerShell을 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -55,7 +56,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 | 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  복제본 서버가 생성 되는 리소스 그룹입니다.  |
-| 이름 | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
+| Name | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
 
 지역 간 읽기 복제본을 만들려면 **Location** 매개 변수를 사용 합니다. 다음 예에서는 **미국 서 부** 지역에 복제본을 만듭니다.
 

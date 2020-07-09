@@ -1,17 +1,18 @@
 ---
 title: 파트너 센터에서 상용 marketplace 포털에 대 한 지원 받기
 description: 지원 요청을 파일 하는 방법을 비롯 하 여 파트너 센터의 지원 옵션에 대해 알아봅니다.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/07/2020
-ms.openlocfilehash: a007fe80c7c95305d65819eaa7081a8ff69e1cfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c93c046a78db70a237ddf1d4514938fd4e40ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463691"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109096"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 marketplace 프로그램 지원
 

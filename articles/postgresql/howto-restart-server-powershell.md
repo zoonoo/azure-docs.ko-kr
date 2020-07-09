@@ -4,14 +4,14 @@ description: 이 문서에서는 PowerShell을 사용 하 여 Azure Database for
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: a46437ae14ae644fb9d63d76a64075cc3ba2e25e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95a0459dd21eaf69bf0ee2d8f4cd1482d07313bb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739664"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107925"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL 서버 다시 시작
 
@@ -21,7 +21,7 @@ ms.locfileid: "84739664"
 
 다시 시작을 완료 하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라 집니다. 다시 시작 시간을 줄이려면 다시 시작 하기 전에 서버에서 발생 하는 작업의 양을 최소화 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

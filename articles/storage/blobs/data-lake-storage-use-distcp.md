@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 602053f7a52b9a46fa797bd1146cf63c02bb60d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4930d99c4175126ffba65598bd6b33e973ba1c44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109504"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -36,25 +37,33 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
 2. 계층 구조 네임스페이스를 사용하지 않고 기존 범용 V2 계정에 액세스할 수 있는지 확인합니다.
 
-        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```bash
+    hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```
 
    출력에서 컨테이너의 콘텐츠 목록을 제공해야 합니다.
 
 3. 마찬가지로 클러스터에서 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정에 액세스할 수 있는지 확인합니다. 다음 명령 실행:
 
-        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```bash
+    hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```
 
     출력에 Data Lake Storage 계정의 파일/폴더 목록이 제공되어야 합니다.
 
 4. DistCp를 사용하여 데이터를 WASB에서 Data Lake Storage 계정으로 복사합니다.
 
-        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```bash
+    hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```
 
     이 명령은 Blob 스토리지에 있는 **/example/data/gutenberg/** 폴더의 콘텐츠를 Data Lake Storage 계정의 **/myfolder** 폴더에 복사합니다.
 
 5. 마찬가지로 DistCp를 사용하여 데이터를 Data Lake Storage 계정에서 Blob Storage(WASB)로 복사합니다.
 
-        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```bash
+    hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```
 
     이 명령은 Data Lake Store 계정에 있는 **/myfolder**의 콘텐츠를 WASB의 **/example/data/gutenberg/** 폴더에 복사합니다.
 
@@ -64,7 +73,9 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 **예제**
 
-    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```bash
+hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>사용할 매퍼 수는 어떻게 확인하나요?
 
@@ -74,7 +85,7 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 * **2단계: 매퍼 수 계산** - **m** 값은 총 YARN 메모리 양을 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭을 확인합니다. 이 창에 YARN 컨테이너 크기가 표시됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
 
-        m = (number of nodes * YARN memory for each node) / YARN container size
+    m = (노드 수 * 각 노드에 대 한 YARN 메모리)/YARN 컨테이너 크기
 
 **예제**
 
@@ -82,11 +93,11 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 * **총 YARN 메모리 양**: Ambari 포털에서 하나의 D14 노드에 대한 YARN 메모리 양이 96GB임을 확인할 수 있습니다. 따라서 4노드 클러스터의 전체 YARN 메모리는 다음과 같습니다. 
 
-        YARN memory = 4 * 96GB = 384GB
+    YARN memory = 4 * 96GB = 384GB
 
 * **매퍼 수**: Ambari 포털에서 하나의 D14 클러스터 노드에 대한 YARN 컨테이너 크기가 3,072MB임을 확인할 수 있습니다. 따라서 매퍼 수는 다음과 같습니다.
 
-        m = (4 nodes * 96GB) / 3072MB = 128 mappers
+    m = (4 개 노드 * 96GB)/3072MB = 128 매퍼
 
 다른 애플리케이션에서 메모리를 사용하고 있으면 DistCp에 대한 클러스터 YARN 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.
 
