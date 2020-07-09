@@ -1,7 +1,5 @@
 - name: IoT Edge(미리 보기) 설명서의 Live Video Analytics
   href: index.yml
-- name: Azure Media Services v3 설명서로 전환
-  href: ../latest/index.yml
 - name: 개요
   items:
     - name: IoT Edge의 Live Video Analytics 정보
@@ -34,7 +32,7 @@
       href: playback-multi-day-recordings-tutorial.md
 - name: 샘플
   items:
-    - name: 'IoT Edge C# 샘플의 Live Video Analytics'
+    - name: IoT Edge C# 샘플의 Live Video Analytics
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
 - name: 개념
   items:
