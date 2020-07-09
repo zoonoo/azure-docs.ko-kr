@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Migrate 설명서
-summary: Azure Migrate는 온-프레미스 워크로드를 Azure로 검색, 평가 및 마이그레이션하기 위한 중앙 허브의 도구를 제공합니다.
+summary: Azure Migrate 허브의 도구를 사용하여 온-프레미스 환경을 검색, 평가 및 마이그레이션하는 데 도움이 되는 문서를 찾아보세요.
 metadata:
   title: Azure Migrate 설명서
-  description: Azure Migrate를 사용하여 온-프레미스 워크로드를 Azure로 마이그레이션합니다.
+  description: Azure Migrate 허브의 도구를 사용하여 온-프레미스 환경을 검색, 평가 및 Azure로 마이그레이션하는 방법에 대해 알아보세요.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 11/19/2019
-  ms.openlocfilehash: 3f1d89d7e9c4c8a57c08d6b5880f707a01b7fcb2
-  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+  ms.date: 07/08/2020
+  ms.openlocfilehash: a3c9be5e123892d5d1b8d8e4a0677eb520e34dc6
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2020
-  ms.locfileid: "83835192"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86112666"
 landingContent:
 - title: Azure Migrate 정보
   linkLists:
@@ -96,6 +96,6 @@ landingContent:
     - text: 서비스 기능 요청
       url: https://feedback.azure.com/forums/907195-azure-migrate
     - text: 포럼 질문하기
-      url: https://docs.microsoft.com/answers/topics/azure-migrate.html
+      url: /answers/topics/azure-migrate.html
     - text: Azure Tech Community
       url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

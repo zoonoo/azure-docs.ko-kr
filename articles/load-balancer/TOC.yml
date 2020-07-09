@@ -12,18 +12,21 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Load Balancer 만들기 - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Load Balancer 만들기 - PowerShell
+    - name: Load Balancer 만들기 - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Load Balancer 만들기 - ARM 템플릿
-      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: 내부 Load Balancer 만들기 - 포털
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: 내부 Load Balancer 만들기 - Azure CLI
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: 내부 Load Balancer 만들기 - Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: 내부 Load Balancer 만들기 - ARM 템플릿
+      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: 자습서
   items:
-    - name: VM에 내부 트래픽 부하 분산
-      href: tutorial-load-balancer-standard-manage-portal.md
-    - name: VM에 내부 트래픽 부하 분산
-      href: tutorial-load-balancer-standard-internal-portal.md
     - name: 가용성 영역에 VM 부하 분산
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: 특정 가용성 영역 내에 VM 부하 분산
@@ -78,17 +81,17 @@
           href: configure-vm-scale-set-powershell.md
         - name: 기존 Azure Load Balancer와 함께 사용 - CLI
           href: configure-vm-scale-set-cli.md
-    - name: 기본 Load Balancer를 표준 Load Balancer로 업그레이드
+    - name: 기본에서 표준 Load Balancer로 업그레이드
       items:
         - name: 기본 퍼블릭 Load Balancer 업그레이드
           href: upgrade-basic-standard.md
-        - name: 기본 내부 Load Balancer 업그레이드 - 아웃바운드 연결 필요 없음
+        - name: 내부 Load Balancer 업그레이드 - 아웃바운드 연결 필요 없음
           href: upgrade-basicInternal-standard.md
-        - name: 기본 내부 Load Balancer 업그레이드 - 아웃바운드 연결 필요
+        - name: 내부 Load Balancer 업그레이드 - 아웃바운드 연결 필요
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: 아웃바운드 규칙 구성
       items:
-        - name: Azure portal
+        - name: 포털
           href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
@@ -103,35 +106,25 @@
         - name: Azure Resource Manager 템플릿
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: 내부 부하 분산 장치 구성
-      items:
-        - name: Azure portal
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Azure CLI
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Azure Resource Manager 템플릿
-          href: load-balancer-get-started-ilb-arm-template.md
-          displayName: ARM
     - name: 부하 분산 장치의 TCP 유휴 시간 제한 구성
       href: load-balancer-tcp-idle-timeout.md
     - name: 부하 분산 장치의 배포 모드 구성
       href: load-balancer-distribution-mode.md
     - name: 여러 IP 구성 사용
-      href: load-balancer-multiple-ip.md
       items:
+        - name: 포털
+          href: load-balancer-multiple-ip.md
         - name: Azure CLI
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
     - name: 지역 간 이동
       items:
-        - name: 외부 부하 분산 장치 - 포털
+        - name: 공용 Load Balancer - 포털
           href: move-across-regions-external-load-balancer-portal.md
-        - name: 외부 부하 분산 장치 - PowerShell
+        - name: 공용 Load Balancer - PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
-        - name: 내부 부하 분산 장치 - 포털
+        - name: 공용 Load Balancer - 포털
           href: move-across-regions-internal-load-balancer-portal.md
         - name: 내부 부하 분산 장치 - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md

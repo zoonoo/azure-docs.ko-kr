@@ -1,152 +1,161 @@
-### YamlMime:Hub
+### YamlMime:Landing
 title: Azure Cost Management + 청구 설명서
-summary: Azure Cost Management 및 청구는 Azure 청구를 이해하고, 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
+summary: Azure Cost Management + 청구는 Azure 청구를 이해하고, 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
 metadata:
+  title: Azure Cost Management + 청구
+  description: Azure Cost Management + 청구는 Azure 청구를 이해하고, 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
   ms.service: cost-management-billing
-  description: Azure Cost Management 및 청구는 Azure 청구를 이해하고, 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
-  ms.topic: hub-page
+  ms.topic: landing-page
+  ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/24/2019
-  ms.openlocfilehash: c1fbce7ba94ad097f948a36f93b1f997225c7086
-  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+  ms.date: 06/01/2020
+  ms.openlocfilehash: 04b52a6aff1a8a24f2aa9988afec60c69c88c138
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2020
-  ms.locfileid: "83833605"
-highlightedContent:
-  items:
-  - title: Cost Management + 청구란?
-    itemType: overview
-    url: cost-management-billing-overview.md
-  - title: 비용 분석 및 예산 작성
-    itemType: learn
-    url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/?WT.mc_id=costmanagementcontent_docsazurebilling_-inproduct-learn
-  - title: Cost Management 모범 사례
-    itemType: concept
-    url: ./costs/cost-mgt-best-practices.md
-conceptualContent:
-  items:
-  - title: Azure Billing 시작
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86113397"
+landingContent:
+- title: 비용 분석
+  linkLists:
+  - linkListType: overview
     links:
-    - url: ./understand/review-individual-bill.md
-      itemType: tutorial
-      text: 개별 청구서 검토
-    - url: ./understand/review-customer-agreement-bill.md
-      itemType: tutorial
-      text: 고객 계약 청구서 검토
-    - url: ./understand/review-partner-agreement-bill.md
-      itemType: tutorial
-      text: 파트너 계약 청구서 검토
-    - url: ./understand/review-enterprise-agreement-bill.md
-      itemType: tutorial
-      text: 기업 계약 청구서 검토
-    footerLink:
-      text: 자세히 보기
-      url: ./understand/index.yml
-  - title: 무료 계정
+    - text: Cost Management 및 청구란?
+      url: cost-management-billing-overview.md
+  - linkListType: get-started
     links:
-    - url: ./manage/create-free-services.md
-      itemType: concept
-      text: 평가판 서비스 만들기
-    - url: ./manage/avoid-charges-free-account.md
-      itemType: concept
-      text: 과금 방지
-    - url: ./manage/check-free-service-usage.md
-      itemType: concept
-      text: 사용량 확인
-    - url: ./manage/upgrade-azure-subscription.md
-      itemType: concept
-      text: 구독 업그레이드
-  - title: Azure 비용 및 사용량 관리
+    - text: 자신의 속도에 맞게 학습
+      url: https://aka.ms/costmgmt/learn
+    - text: Azure Cost Management 비디오
+      url: https://www.youtube.com/c/AzureCostManagement
+    - text: 비용 분석 시작
+      url: costs/quick-acm-cost-analysis.md
+  - linkListType: how-to-guide
     links:
-    - url: ./costs/quick-acm-cost-analysis.md
-      itemType: quickstart
-      text: 비용 분석 시작
-    - url: ./costs/tutorial-acm-create-budgets.md
-      itemType: tutorial
-      text: 예산 작성 및 관리
-    - url: ./costs/tutorial-export-acm-data.md
-      itemType: tutorial
-      text: 비용 및 사용량 데이터 내보내기
-    - url: ./costs/tutorial-acm-opt-recommendations.md
-      itemType: tutorial
-      text: 비용 절감 권장 사항에 대한 조치
-    - url: ./costs/cost-analysis-common-uses.md
-      itemType: how-to-guide
-      text: 일반 작업에 대한 비용 분석 사용
-    footerLink:
-      text: 자세히 보기
-      url: ./costs/index.yml
-  - title: Azure 계정 및 구독 관리
+    - text: 일반 작업에 대한 비용 분석 사용
+      url: costs/cost-analysis-common-uses.md
+    - text: Power BI 템플릿 앱을 사용하여 비용 분석
+      url: https://docs.microsoft/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app
+    - text: Power BI Desktop을 사용하여 연결
+      url: /power-bi/desktop-connect-azure-cost-management
+  - linkListType: tutorial
     links:
-    - url: ./manage/manage-billing-access.md
-      itemType: how-to-guide
-      text: 요금 청구에 대한 액세스 권한 부여
-    - url: ./manage/change-azure-account-profile.md
-      itemType: how-to-guide
-      text: 프로필 편집
-    - url: ./manage/resolve-past-due-balance.md
-      itemType: how-to-guide
-      text: 미지불액 해결
-    - url: ./manage/subscription-disabled.md
-      itemType: how-to-guide
-      text: 구독 다시 활성화
-    - url: ./manage/billing-subscription-transfer.md
-      itemType: how-to-guide
-      text: 소유권 이전
-    - url: ./manage/cancel-azure-subscription.md
-      itemType: how-to-guide
-      text: 구독 취소
-    - url: ./manage/change-credit-card.md
-      itemType: how-to-guide
-      text: 신용 카드 변경
-    - url: ./manage/add-change-subscription-administrator.md
-      itemType: how-to-guide
-      text: 관리자 변경
-    - url: ./manage/create-subscription.md
-      itemType: how-to-guide
-      text: 추가 구독 만들기
-    footerLink:
-      text: 자세히 보기
-      url: ./manage/index.yml
-  - title: Azure 예약을 사용하여 저장
+    - text: 개별 계정 청구서 검토
+      url: understand/review-individual-bill.md
+    - text: Microsoft 고객 계약 청구서 검토
+      url: understand/review-customer-agreement-bill.md
+    - text: 기업 계약 청구서 검토
+      url: understand/review-enterprise-agreement-bill.md
+- title: 비용 관리
+  linkLists:
+  - linkListType: tutorial
     links:
-    - url: ./reservations/save-compute-costs-reservations.md
-      itemType: concept
-      text: Azure 예약이란?
-    - url: ./reservations/manage-reserved-vm-instance.md
-      itemType: how-to-guide
-      text: Azure 예약 관리
-    - url: ./reservations/monthly-payments-reservations.md
-      itemType: how-to-guide
-      text: 월별 결제로 예약 구입
-    - url: ./reservations/reservation-renew.md
-      itemType: how-to-guide
-      text: 예약 갱신
-    - url: ./reservations/exchange-and-refund-azure-reservations.md
-      itemType: how-to-guide
-      text: 예약 변경 및 환불
-    footerLink:
-      text: 자세히 보기
-      url: ./reservations/index.yml
-  - title: 참여하기
+    - text: 예산 작성 및 관리
+      url: costs/tutorial-acm-create-budgets.md
+    - text: 비용 및 사용량 데이터 내보내기
+      url: costs/tutorial-export-acm-data.md
+  - linkListType: concept
     links:
-    - url: https://feedback.azure.com/forums/906772-cost-management
-      itemType: how-to-guide
-      text: Cost Management 피드백
-    - url: https://twitter.com/azurecostmgmt
-      itemType: how-to-guide
-      text: Twitter의 Cost Management
-    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
-      itemType: how-to-guide
-      text: Azure Cost Management 기술 커뮤니티
-    - url: https://feedback.azure.com/forums/170030-signup-and-billing
-      itemType: how-to-guide
-      text: Billing 서비스 기능 요청
-    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
-      itemType: how-to-guide
-      text: Azure Billing 기술 커뮤니티
-    - url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
-      itemType: how-to-guide
-      text: Cost Management 및 청구 포럼에 질문하기
+    - text: 자동화로 비용 관리
+      url: https://docs.microsoft/azure/cost-management-billing/costs/manage-automation
+    - text: 사용 약관 설명함
+      url: understand/understand-usage.md
+    - text: 청구서 약관 설명함
+      url: understand/understand-invoice.md
+    - text: Microsoft 고객 계약 사용 약관
+      url: understand/mca-understand-your-usage.md
+    - text: Microsoft 고객 계약 청구서 약관
+      url: understand/mca-understand-your-invoice.md
+  - linkListType: how-to-guide
+    links:
+    - text: 비용 경고 사용
+      url: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - text: Azure 청구서 보기 및 다운로드
+      url: understand/download-azure-invoice.md
+    - text: Azure 사용량 및 요금 보기 및 다운로드
+      url: understand/download-azure-daily-usage.md
+    - text: 외부 서비스 요금 보기
+      url: understand/understand-azure-marketplace-charges.md
+- title: 비용 최적화
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Cost Management 모범 사례
+      url: costs/cost-mgt-best-practices.md
+    - text: Azure Reservations를 사용하여 비용 절감
+      url: reservations/save-compute-costs-reservations.md
+  - linkListType: tutorial
+    links:
+    - text: 권장 사항에 대한 조치
+      url: costs/tutorial-acm-opt-recommendations.md
+  - linkListType: how-to-guide
+    links:
+    - text: 예기치 않은 요금 방지
+      url: manage/getting-started.md
+  - linkListType: learn
+    links:
+    - text: 지금 비용 최적화 시작
+      url: https://azure.microsoft/overview/cost-optimization/
+    - text: Azure에 대한 비용을 예측하고 지출 최적화
+      url: https://docs.microsoft/learn/modules/predict-costs-and-optimize-spending/
+    - text: Microsoft Azure Well-Architected Framework - 비용 최적화
+      url: https://docs.microsoft/learn/modules/azure-well-architected-cost-optimization/
+- title: Cost Management + 청구 구성
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 범위 이해 및 작업
+      url: costs/understand-work-scopes.md
+    - text: Cost Management 데이터 이해
+      url: costs/understand-cost-mgt-data.md
+    - text: Azure의 EA 역할
+      url: manage/understand-ea-roles.md
+    - text: Azure에서 Microsoft 고객 계약 역할
+      url: manage/understand-mca-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Cost Management 데이터에 대한 액세스 할당
+      url: costs/assign-access-acm-data.md
+    - text: 청구 계정 보기
+      url: manage/view-all-accounts.md
+    - text: 추가 구독 만들기
+      url: manage/create-subscription.md
+    - text: 신용 카드 변경
+      url: manage/change-credit-card.md
+    - text: 관리자 변경
+      url: manage/add-change-subscription-administrator.md
+    - text: 청구서로 지불
+      url: manage/pay-by-invoice.md
+- title: Microsoft 고객 계약 계정 검토
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Microsoft 고객 계약에 대한 청구 계정
+      url: understand/mca-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 세금 문서 보기 및 다운로드
+      url: understand/mca-download-tax-document.md
+    - text: Microsoft 고객 계약 청구서 결제
+      url: understand/pay-bill.md
+- title: 예약 구매
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 구매할 예약 선택
+      url: reservations/determine-reservation-purchase.md
+    - text: 예약 변경 및 환불
+      url: reservations/exchange-and-refund-azure-reservations.md
+  - linkListType: how-to-guide
+    links:
+    - text: 예약 구입
+      url: reservations/prepare-buy-reservation.md
+    - text: 예약 관리
+      url: reservations/manage-reserved-vm-instance.md
+    - text: 예약 구매 보기
+      url: reservations/view-purchase-refunds.md
+    - text: 예약 차지백(charge back)
+      url: reservations/charge-back-usage.md
+    - text: 예약 갱신
+      url: reservations/reservation-renew.md

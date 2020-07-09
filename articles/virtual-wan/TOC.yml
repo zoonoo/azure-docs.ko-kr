@@ -116,6 +116,12 @@
           href: how-to-virtual-hub-routing.md
         - name: 가상 허브 유효 경로를 보는 방법
           href: effective-routes-virtual-hub.md
+        - name: 가상 허브에서 NVA로 트래픽 라우팅(레거시)
+          items:
+            - name: Azure portal
+              href: virtual-wan-route-table-nva-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table-nva.md
     - name: 보안
       items:
         - name: 허브에 Azure Firewall 설치

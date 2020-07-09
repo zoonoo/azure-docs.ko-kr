@@ -520,6 +520,8 @@
         - name: 음성 초기화 구성
           displayName: 'containers,configure containers,container config,configuration'
           href: speech-container-configuration.md
+        - name: 음성 컨테이너를 사용하여 일괄 처리
+          href: speech-container-batch-processing.md
         - name: Kubernetes 및 Helm이 있는 음성 컨테이너
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
           href: speech-container-howto-on-premises.md

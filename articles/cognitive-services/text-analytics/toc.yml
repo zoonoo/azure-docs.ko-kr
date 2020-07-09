@@ -68,6 +68,8 @@
       href: How-tos/text-analytics-how-to-keyword-extraction.md
     - name: 명명된 엔터티 인식
       href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: 상태에 대한 Text Analytics
+      href: How-tos/text-analytics-for-health.md
     - name: 컨테이너 사용
       items:
         - name: 컨테이너 설치 및 실행

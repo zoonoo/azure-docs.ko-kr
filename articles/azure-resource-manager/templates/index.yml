@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 03/09/2020
-  ms.openlocfilehash: d6c1708543623423c939d03f0510e1abc72cf637
-  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+  ms.date: 07/07/2020
+  ms.openlocfilehash: 4a40b64c72946c84d034e13f3a22b7cda2b9c6aa
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/23/2020
-  ms.locfileid: "85209201"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86118871"
 landingContent:
 - title: ARM 템플릿 정보
   linkLists:
@@ -29,14 +29,16 @@ landingContent:
     links:
     - text: 모범 사례
       url: template-best-practices.md
+    - text: 질문과 대답
+      url: frequently-asked-questions.md
     - text: 배포 모드
       url: deployment-modes.md
     - text: 연결된 템플릿
       url: linked-templates.md
   - linkListType: video
     links:
-    - text: 새로운 기능
-      url: https://youtu.be/3D-JIKShrws
+    - text: 빌드 2020 프레젠테이션
+      url: https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions
 - title: 시작하기
   linkLists:
   - linkListType: quickstart
@@ -61,8 +63,6 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: VS Code 사용
-      url: use-vs-code-to-create-template.md
     - text: 함수 사용
       url: template-functions.md
     - text: 매개 변수 정의

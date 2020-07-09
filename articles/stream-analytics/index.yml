@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Stream Analytics 설명서
-summary: Azure Stream Analytics는 경고 및 작업을 트리거하는 데 사용할 수 있는 데이터의 빠른 이동 스트림을 분석하고 처리하는 데 도움이 되도록 설계된 완전 관리형 실시간 분석 서비스입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Stream Analytics를 사용하는 방법을 알아보세요.
+summary: Azure Stream Analytics는 인사이트를 얻거나, 보고서를 빌드하거나, 경고 및 작업을 트리거하는 데 사용할 수 있는 데이터의 빠른 이동 스트림을 분석하고 처리하는 데 도움이 되도록 설계된 완전 관리형 실시간 분석 서비스입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Stream Analytics를 사용하는 방법을 알아보세요.
 metadata:
   title: Azure Stream Analytics 설명서
-  description: Azure Stream Analytics는 경고 및 작업을 트리거하는 데 사용할 수 있는 데이터의 빠른 이동 스트림을 분석하고 처리하는 데 도움이 되도록 설계된 완전 관리형 실시간 분석 서비스입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Stream Analytics를 사용하는 방법을 알아보세요.
+  description: Azure Stream Analytics는 인사이트를 얻거나, 보고서를 빌드하거나, 경고 및 작업을 트리거하는 데 사용할 수 있는 데이터의 빠른 이동 스트림을 분석하고 처리하는 데 도움이 되도록 설계된 완전 관리형 실시간 분석 서비스입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Stream Analytics를 사용하는 방법을 알아보세요.
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 757c60487e4c4c7fedca4824cd40e86cbd9ca465
-  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.openlocfilehash: 2ef6663ce3ebf21227635fff763d45391281c955
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82130945"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86119653"
 landingContent:
 - title: Azure Stream Analytics 정보
   linkLists:
