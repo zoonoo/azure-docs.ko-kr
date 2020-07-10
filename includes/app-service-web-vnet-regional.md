@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488796"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218233"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "84488796"
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 몇 가지 제한 사항이 있습니다.
 
 * 전역 피어 링 연결에서 리소스에 연결할 수 없습니다.
-* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 Azure App Service 배율 단위 에서만 사용할 수 있습니다.
+* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 Azure App Service 배율 단위 에서만 사용할 수 있습니다. *PremiumV2 가격 책정 계층에서 실행 해야*하는 것은 아닙니다. PremiumV2 옵션을 사용할 수 있는 App Service 계획에서 실행 되어야 한다는 것을 의미 하는 것은 아닙니다. 즉,이 VNet 통합 기능을 사용할 수 있는 최신 배율 단위 이기도 합니다.
 * 통합 서브넷은 하나의 App Service 계획 에서만 사용할 수 있습니다.
 * 이 기능은 App Service Environment에 있는 격리 된 계획 앱에서 사용할 수 없습니다.
 * 이 기능을 사용 하려면 Azure Resource Manager VNet에서 32 주소 이상의/27 인 사용 하지 않는 서브넷이 필요 합니다.

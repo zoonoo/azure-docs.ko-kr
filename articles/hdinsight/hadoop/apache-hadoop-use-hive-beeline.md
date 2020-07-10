@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 46d0a21ac1461b2553b8262b913aada3fa2a1b6f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3614fac027dd32ab5f5d70f5835432ac3b9b512d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081305"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207732"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -66,21 +66,23 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
     이 명령은 다음 정보를 반환합니다.
 
-        +-----------------------+------------+----------+--+
-        |       col_name        | data_type  | comment  |
-        +-----------------------+------------+----------+--+
-        | clientid              | string     |          |
-        | querytime             | string     |          |
-        | market                | string     |          |
-        | deviceplatform        | string     |          |
-        | devicemake            | string     |          |
-        | devicemodel           | string     |          |
-        | state                 | string     |          |
-        | country               | string     |          |
-        | querydwelltime        | double     |          |
-        | sessionid             | bigint     |          |
-        | sessionpagevieworder  | bigint     |          |
-        +-----------------------+------------+----------+--+
+    ```output
+    +-----------------------+------------+----------+--+
+    |       col_name        | data_type  | comment  |
+    +-----------------------+------------+----------+--+
+    | clientid              | string     |          |
+    | querytime             | string     |          |
+    | market                | string     |          |
+    | deviceplatform        | string     |          |
+    | devicemake            | string     |          |
+    | devicemodel           | string     |          |
+    | state                 | string     |          |
+    | country               | string     |          |
+    | querydwelltime        | double     |          |
+    | sessionid             | bigint     |          |
+    | sessionpagevieworder  | bigint     |          |
+    +-----------------------+------------+----------+--+
+    ```
 
     이 정보는 테이블의 열을 설명합니다.
 
@@ -121,27 +123,29 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
     이 명령의 출력은 다음 텍스트와 비슷합니다.
 
-        INFO  : Tez session hasn't been created yet. Opening session
-        INFO  :
+    ```output
+    INFO  : Tez session hasn't been created yet. Opening session
+    INFO  :
 
-        INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
+    INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
 
-        INFO  : Map 1: -/-      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
-        INFO  : Map 1: 1/1      Reducer 2: 1/1
-        +----------+--------+--+
-        |   sev    | count  |
-        +----------+--------+--+
-        | [ERROR]  | 3      |
-        +----------+--------+--+
-        1 row selected (47.351 seconds)
+    INFO  : Map 1: -/-      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+    INFO  : Map 1: 1/1      Reducer 2: 1/1
+    +----------+--------+--+
+    |   sev    | count  |
+    +----------+--------+--+
+    | [ERROR]  | 3      |
+    +----------+--------+--+
+    1 row selected (47.351 seconds)
+    ```
 
 6. Beeline 끝내기:
 
@@ -196,14 +200,16 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
     데이터 중 t4 열에 모두 **[ERROR]** 가 포함된 3개 행이 반환되어야 합니다.
 
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
-        | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
-        | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (0.813 seconds)
+    ```output
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
+    | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
+    | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    3 rows selected (0.813 seconds)
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

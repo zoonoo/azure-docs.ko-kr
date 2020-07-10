@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076371"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207727"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
@@ -61,7 +61,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
     다음 JSON과 유사한 응답이 수신됩니다.
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -83,9 +83,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
      * **class**: MapReduce 논리가 포함된 클래스입니다.
      * **arg**: MapReduce 작업에 전달할 인수. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
 
-    이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
-
-       job_1415651640909_0026
+    이 명령은 작업 상태를 확인 하는 데 사용할 수 있는 작업 ID를 반환 `job_1415651640909_0026` 해야 합니다.
 
 1. 작업 상태를 확인하려면 다음 명령을 사용합니다. 의 값을 `JOBID` 이전 단계에서 반환 된 **실제** 값으로 바꿉니다. 필요에 따라 **jq** 의 위치를 수정 합니다.
 
@@ -116,7 +114,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
 
     다음 JSON과 유사한 응답이 수신됩니다.
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -146,9 +144,7 @@ Apache Hive WebHCat REST API를 사용 하 여 HDInsight 클러스터의 Apache 
     * **class**: MapReduce 논리가 포함된 클래스입니다.
     * **arg**: MapReduce 작업에 전달할 인수. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
 
-   이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
-
-       job_1415651640909_0026
+   이 명령은 작업 상태를 확인 하는 데 사용할 수 있는 작업 ID를 반환 `job_1415651640909_0026` 해야 합니다.
 
 1. 작업 상태를 확인하려면 다음 명령을 사용합니다.
 

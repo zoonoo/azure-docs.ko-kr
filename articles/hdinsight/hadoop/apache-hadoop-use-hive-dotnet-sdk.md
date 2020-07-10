@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 12d3762889253e2e3d359c6bf44bd166482c69f3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f1927d44daf49d938d2c43ce9de02cb1dbfb735f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076541"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207759"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
 
@@ -43,7 +43,9 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 1. NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
 
-        Install-Package Microsoft.Azure.Management.HDInsight.Job
+    ```console
+    Install-Package Microsoft.Azure.Management.HDInsight.Job
+    ```
 
 1. 변수에 대 한 값을 초기화 하려면 아래 코드를 편집 `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` 합니다. 그런 다음 수정 된 코드를 Visual Studio에서 **Program.cs** 의 전체 콘텐츠로 사용 합니다.
 

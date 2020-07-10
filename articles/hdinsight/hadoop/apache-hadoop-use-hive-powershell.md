@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 653a481efeeaac83215b1e46309944efab924d2e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5588920c860de09ea1561cf5ed4b28a08085438c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076489"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207781"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 
@@ -52,16 +52,20 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
 2. 새 **Azure PowerShell** 명령 프롬프트를 엽니다. `hivejob.ps1` 파일의 디렉터리 위치를 변경한 다음, 명령을 사용하여 스크립트를 실행합니다.
 
-        .\hivejob.ps1
+    ```azurepowershell
+    .\hivejob.ps1
+    ```
 
     스크립트가 실행 되 면 클러스터 이름과 HTTPS/Cluster Admin 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure 구독에 로그인 하 라는 메시지가 표시 될 수도 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
 
-        Display the standard output...
-        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
-        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
-        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```output
+    Display the standard output...
+    2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+    2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+    2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```
 
 4. 앞서 설명한 것처럼 `Invoke-Hive`는 쿼리를 실행하고 응답을 기다리는 데 사용할 수 있습니다. 다음 스크립트를 사용하여 Invoke-Hive 작동 방식을 확인합니다.
 
@@ -69,9 +73,11 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
     출력은 다음 텍스트와 비슷합니다.
 
-        2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
-        2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
-        2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```output
+    2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
+    2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
+    2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```
 
    > [!NOTE]  
    > 더 긴 HiveQL 쿼리에는 Azure PowerShell **Here-Strings** cmdlet 또는 HiveQL 스크립트 파일을 사용할 수 있습니다. 다음 코드 조각은 `Invoke-Hive` cmdlet을 사용하여 HiveQL 스크립트 파일을 실행하는 방법을 보여 줍니다. HiveQL 스크립트 파일은 wasbs://에 업로드해야 합니다.

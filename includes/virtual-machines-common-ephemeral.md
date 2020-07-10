@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8d712e4eecb930b52a519a1aaddf97c744a24ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112077"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218069"
 ---
 삭제 된 OS 디스크는 로컬 VM (가상 컴퓨터) 저장소에 생성 되며 원격 Azure Storage에 저장 되지 않습니다. 사용 후 삭제 OS 디스크는 응용 프로그램이 개별 VM 오류를 허용 하는 상태 비저장 워크 로드에서 잘 작동 하지만 VM 배포 시간 또는 개별 VM 인스턴스 이미지로 다시 설치에 더 많은 영향을 줍니다. 사용 후 삭제 OS 디스크를 사용 하는 경우 OS 디스크에 대 한 읽기/쓰기 대기 시간 및 더 빠른 VM 이미지로 다시 설치 됩니다. 
  
@@ -30,17 +30,17 @@ ms.locfileid: "85112077"
  
 영구 및 임시 OS 디스크의 주요 차이점:
 
-|                             | 영구적 OS 디스크                          | 사용 후 삭제 OS 디스크                              |    |
+|                             | 영구적 OS 디스크                          | 사용 후 삭제 OS 디스크                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| OS 디스크의 크기 제한      | 2TiB                                                                                        | VM 크기나 2TiB의 캐시 크기 중 더 작은 쪽입니다. **GiB의 캐시 크기**에 대해서는 [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)및 [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series) 를 참조 하세요.              |
-| 지원 되는 VM 크기          | 모두                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
-| 디스크 유형 지원           | 관리 및 관리 되지 않는 OS 디스크                                                                | 관리 되는 OS 디스크만                                                               |
-| 지역 지원              | 모든 지역                                                                                  | 모든 지역                              |
-| 데이터 지속성            | Os 디스크에 작성 된 OS 디스크 데이터는 Azure Storage에 저장 됩니다.                                  | OS 디스크에 기록 되는 데이터는 로컬 VM 저장소에 저장 되 고 Azure Storage에 유지 되지 않습니다. |
-| 중지-할당 취소 됨 상태      | Vm 및 확장 집합 인스턴스는 중지-할당 취소 되 고 중지-할당 취소 됨 상태에서 다시 시작 될 수 있습니다. | Vm 및 확장 집합 인스턴스는 중지-할당 취소할 수 없습니다.                                  |
-| 특수 OS 디스크 지원 | 예                                                                                          | 아니요                                                                                 |
-| OS 디스크 크기 조정              | VM을 만드는 동안 및 VM이 중지 되 고 할당이 취소 된 후에 지원 됨                                | VM을 만드는 동안에만 지원 됨                                                  |
-| 새 VM 크기로 크기 조정   | OS 디스크 데이터가 보존 됩니다.                                                                    | Os 디스크의 데이터가 삭제 되 고 OS가 다시 프로 비전 됩니다.                                      |
+| **OS 디스크의 크기 제한**      | 2TiB                                                                                        | VM 크기나 2TiB의 캐시 크기 중 더 작은 쪽입니다. **GiB의 캐시 크기**에 대해서는 [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)및 [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series) 를 참조 하세요.              |
+| **지원 되는 VM 크기**          | 모두                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
+| **디스크 유형 지원**           | 관리 및 관리 되지 않는 OS 디스크                                                                | 관리 되는 OS 디스크만                                                               |
+| **지역 지원**              | 모든 지역                                                                                  | 모든 지역                              |
+| **데이터 지속성**            | Os 디스크에 작성 된 OS 디스크 데이터는 Azure Storage에 저장 됩니다.                                  | OS 디스크에 기록 되는 데이터는 로컬 VM 저장소에 저장 되 고 Azure Storage에 유지 되지 않습니다. |
+| **중지-할당 취소 됨 상태**      | Vm 및 확장 집합 인스턴스는 중지-할당 취소 되 고 중지-할당 취소 됨 상태에서 다시 시작 될 수 있습니다. | Vm 및 확장 집합 인스턴스는 중지-할당 취소할 수 없습니다.                                  |
+| **특수 OS 디스크 지원** | 예                                                                                          | 예                                                                                 |
+| **OS 디스크 크기 조정**              | VM을 만드는 동안 및 VM이 중지 되 고 할당이 취소 된 후에 지원 됨                                | VM을 만드는 동안에만 지원 됨                                                  |
+| **새 VM 크기로 크기 조정**   | OS 디스크 데이터가 보존 됩니다.                                                                    | Os 디스크의 데이터가 삭제 되 고 OS가 다시 프로 비전 됩니다.                                      |
 
 ## <a name="size-requirements"></a>크기 요구 사항
 
@@ -185,7 +185,7 @@ POST https://management.azure.com/subscriptions/{sub-
 id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2018-06-01" 
 ```
  
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q: 로컬 OS 디스크의 크기는 어떻게 되나요?**
 
@@ -237,7 +237,7 @@ A: 예, REST, 템플릿, PowerShell 및 CLI를 사용 하 여 사용 후 삭제 
 A: 임시 디스크는 다음을 지원 하지 않습니다.
 - VM 이미지 캡처
 - 디스크 스냅샷 
-- Azure 디스크 암호화 
+- Azure Disk Encryption 
 - Azure Backup
 - Azure Site Recovery  
 - OS 디스크 교환 

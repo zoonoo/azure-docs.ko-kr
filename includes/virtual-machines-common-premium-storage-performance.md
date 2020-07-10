@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017610"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218418"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -119,10 +119,10 @@ Premium Storage에서 실행 중인 애플리케이션의 성능에 영향을 �
 
 VM 크기 및 각 VM의 유형에 사용할 수 있는 IOPS, 처리량 및 대기 시간에 대한 자세한 내용은 [Linux VM 크기](../articles/virtual-machines/linux/sizes.md) 또는 [Windows VM 크기](../articles/virtual-machines/windows/sizes.md)를 참조하세요.
 
-| &nbsp; | **IOPS** | **처리량** | **대기 시간** |
+| | **IOPS** | **처리량** | **대기 시간** |
 | --- | --- | --- | --- |
 | **예제 시나리오** |초당 비율로 매우 높은 트랜잭션이 필요한 엔터프라이즈 OLTP 애플리케이션입니다. |다량의 데이터를 처리하는 엔터프라이즈 데이터 웨어하우징 애플리케이션입니다. |온라인 게임과 같은 사용자 요청에 대한 즉각적인 응답이 필요한 거의 실시간 애플리케이션입니다. |
-| 성능 요인 | &nbsp; | &nbsp; | &nbsp; |
+| **성능 요인** | &nbsp; | &nbsp; | &nbsp; |
 | **IO 크기** |작은 크기의 IO는 더 높은 IOPS를 생성합니다. |큰 IO 크기는 더 높은 처리량을 생성합니다. | &nbsp;|
 | **VM 크기** |애플리케이션 요구 사항보다 큰 IOPS를 제공하는 VM 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 처리량 한계가 있는 VM 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 규모 제한을 제공하는 VM 크기를 사용합니다. |
 | **디스크 크기** |애플리케이션 요구 사항보다 큰 IOPS를 제공하는 디스크 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 처리량 한계가 있는 디스크 크기를 사용합니다. |애플리케이션 요구 사항보다 큰 규모 제한을 제공하는 디스크 크기를 사용합니다. |

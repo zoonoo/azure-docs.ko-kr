@@ -8,19 +8,17 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ddab6927044ce638e50ff3ad79aa3c35d046c820
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d0e171807985deaebe8faa625d6b767c2a3efd7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69520861"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218336"
 ---
 다음 구성은 아래 단계에 사용 되었습니다.
 
-  | | |
-  |---|---|
-  |Computer| Ubuntu Server 18.04|
-  |종속성| strongSwan |
+- 컴퓨터: Ubuntu Server 18.04
+- 종속성: strongSwan
 
 
 다음 명령을 사용하여 필요한 strongSwan 구성을 설치합니다.

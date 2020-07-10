@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317591"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218331"
 ---
 Shared Image Gallery는 관리형 이미지를 기준으로 구조와 조직을 구축하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
 
@@ -84,20 +84,7 @@ Shared Image Gallery는 두 가지 운영 체제 상태를 지원합니다. 일�
 
 다음 표에는 원본 지역이 나열되어 있습니다. 모든 공용 지역은 대상 지역이 될 수 있지만, 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제하려면 구독이 허용 목록에 포함되어 있어야 합니다. 허용 목록 포함을 요청하려면 https://azure.microsoft.com/global-infrastructure/australia/contact/ 로 이동합니다.
 
-
-| 원본 지역        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| 오스트레일리아 중부     | 중국 동부        | 인도 남부        | 서유럽        |
-| 오스트레일리아 중부 2   | 중국 동부 2      | 동남아시아     | 영국 남부           |
-| 오스트레일리아 동부        | 중국 북부       | 일본 동부         | 영국 서부            |
-| 오스트레일리아 남동부   | 중국 북부 2     | 일본 서부         | US DoD 중부     |
-| 브라질 남부          | 동아시아         | 한국 중부      | US DoD 동부        |
-| 캐나다 중부        | 미국 동부           | 한국 남부        | US Gov 애리조나     |
-| 캐나다 동부           | 미국 동부 2         | 미국 중북부   | US Gov 텍사스       |
-| 인도 중부         | 미국 동부 2 EUAP    | 북유럽       | US Gov 버지니아    |
-| 미국 중부            | 프랑스 중부    | 미국 중남부   | 인도 서부         |
-| 미국 중부 EUAP       | 프랑스 남부      | 미국 중서부    | 미국 서부            |
-|                       |                   |                    | 미국 서부 2          |
+> 오스트레일리아 중부, 중국 동부, 인도, 유럽 서부, 오스트레일리아 중부 2, 중국 동부 2, 동남 아시아, 영국 남부, 오스트레일리아 동부, 중국 북부, 일본 동부, 영국 서부, 오스트레일리아 남동쪽, 중국 북부 2, 일본 서 부, US DoD 중부, 브라질 남부, 동아시아, 대한민국 중부, US DoD 동부, 캐나다 중부, 미국 동부, 한국 남부, US Gov 애리조나, 캐나다 동부, 미국 동부 2, 미국 중 북부 , US Gov 텍사스, 인도 중부, 미국 동부 2 EUAP, 유럽 서 부, US Gov 버지니아 미국 중부, 프랑스 중부, 미국 서 부, 미국 중부 EUAP, 프랑스 남부, 미국 서 부, 미국 서 부, 미국 서 부 2 |
 
 
 
@@ -162,7 +149,7 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 이미지 갤러리 리소스를 만든 후 변경할 수 있습니다. 다음과 같은 제한이 있습니다.
  
 공유 이미지 갤러리:
-- Description
+- 설명
 
 이미지 정의:
 - 권장 vCPU
