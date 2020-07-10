@@ -8,11 +8,12 @@ ms.service: web-application-firewall
 ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682493"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143936"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사이트별 WAF 정책 구성
 
@@ -28,7 +29,7 @@ Application Gateway와 연결된 경우 정책과 모든 설정은 전역적으�
 > * 네트워크 설정
 > * WAF 정책 만들기
 > * WAF를 사용하는 애플리케이션 게이트웨이 만들기
-> * WAF 정책을 전역적, 사이트별 및 URI별로 적용
+> * WAF 정책을 전역적, 사이트별 및 URI 별 (미리 보기) 적용
 > * 가상 머신 확장 집합 만들기
 > * 스토리지 계정 만들기 및 진단 구성
 > * 애플리케이션 게이트웨이 테스트
@@ -249,7 +250,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>URI별 정책 적용
+### <a name="apply-a-per-uri-policy-preview"></a>URI 별 정책 적용 (미리 보기)
 
 URI별 정책을 적용하려면 새 정책을 만들어 경로 규칙 구성에 적용하기만 하면 됩니다. 
 

@@ -3,25 +3,26 @@ title: Azure Batch 모니터링
 description: Azure Batch를 위한 Azure 모니터링 서비스, 메트릭, 진단 로그 및 기타 모니터링 기능에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723530"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144949"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
 Azure 및 Batch 서비스는 Batch 솔루션을 모니터링하는 다양한 서비스, 도구 및 API를 제공합니다. 이 개요 문서에서는 요구 사항에 적합한 모니터링 방법을 선택하도록 도와줍니다.
 
-Azure 리소스 모니터링에 사용할 수 있는 Azure 구성 요소 및 서비스에 대한 개요는 [Azure 애플리케이션 및 리소스 모니터링](../monitoring-and-diagnostics/monitoring-overview.md)을 참조하세요.
+Azure 리소스 모니터링에 사용할 수 있는 Azure 구성 요소 및 서비스에 대한 개요는 [Azure 애플리케이션 및 리소스 모니터링](../azure-monitor/overview.md)을 참조하세요.
 
 ## <a name="subscription-level-monitoring"></a>구독 수준 모니터링
 
-Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)는 [여러 범주](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log)에서 작업 이벤트 데이터를 수집합니다.
+Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)는 [여러 범주](../azure-monitor/platform/activity-log.md#view-the-activity-log)에서 작업 이벤트 데이터를 수집합니다.
 
 특히 Batch 계정의 경우 활동 로그는 계정 생성/삭제 및 키 관리와 관련된 이벤트를 수집합니다.
 
-활동 로그에서 이벤트를 검색하는 한 가지 방법은Azure Portal을 사용하는 것입니다. **모든 서비스** > **활동 로그**를 클릭합니다. 또는 Azure CLI, PowerShell cmdlet 또는 Azure Monitor REST API를 사용하여 이벤트를 쿼리합니다. 활동 로그를 내보내거나 [활동 로그 경고](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)를 구성할 수도 있습니다.
+활동 로그에서 이벤트를 검색하는 한 가지 방법은Azure Portal을 사용하는 것입니다. **모든 서비스** > **활동 로그**를 클릭합니다. 또는 Azure CLI, PowerShell cmdlet 또는 Azure Monitor REST API를 사용하여 이벤트를 쿼리합니다. 활동 로그를 내보내거나 [활동 로그 경고](../azure-monitor/platform/alerts-activity-log.md)를 구성할 수도 있습니다.
 
 ## <a name="batch-account-level-monitoring"></a>Batch 계정 수준 모니터링
 

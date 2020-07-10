@@ -4,19 +4,19 @@ description: 사용자 계정 유형과 구성 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 514a104c879a8d601bb03e2ed1c59b69516bc621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209728"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142677"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
 
 > [!NOTE]
 > 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다.
 >
-> SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Azure에서 Linux VM에 대해 원격 데스크톱 사용](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)을 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [Windows Server VM에 연결](../virtual-machines/windows/connect-logon.md)을 참조하세요.<br /><br />
+> SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Azure에서 Linux VM에 대해 원격 데스크톱 사용](../virtual-machines/linux/use-remote-desktop.md)을 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [Windows Server VM에 연결](../virtual-machines/windows/connect-logon.md)을 참조하세요.<br /><br />
 > RDP를 통해 클라우드 서비스 구성을 실행하는 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
 
 Azure Batch의 태스크는 항상 사용자 계정으로 실행됩니다. 기본적으로 태스크는 관리자 권한 없이 표준 사용자 계정으로 실행됩니다. 특정 시나리오의 경우 작업을 실행 하려는 사용자 계정을 구성할 수 있습니다. 이 문서에서는 사용자 계정의 유형과 시나리오에 맞게 구성 하는 방법을 설명 합니다.

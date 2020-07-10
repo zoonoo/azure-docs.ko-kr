@@ -3,12 +3,12 @@ title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964045"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144932"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -111,7 +111,7 @@ Azure에 여유 용량이 부족하면 우선 순위가 낮은 노드는 선점�
 
 ## <a name="node-size"></a>노드 크기
 
-Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 제품군과 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 대해 다양한 VM 크기(특수화된 [HPC](../virtual-machines/linux/sizes-hpc.md) 또는 [GPU 사용 가능](../virtual-machines/linux/sizes-gpu.md) VM 크기 포함)를 제공합니다. 
+Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 제품군과 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 대해 다양한 VM 크기(특수화된 [HPC](../virtual-machines/sizes-hpc.md) 또는 [GPU 사용 가능](../virtual-machines/sizes-gpu.md) VM 크기 포함)를 제공합니다. 
 
 자세한 내용은 [Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택](batch-pool-vm-sizes.md)을 참조하세요.
 

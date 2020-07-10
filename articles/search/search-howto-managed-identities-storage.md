@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: e6c766008faa6bbe53a4af69f7da9325cb9ff6a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559863"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145391"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정(미리 보기)
 
@@ -103,6 +103,7 @@ Azure Portal 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azur
 
 다음은 검색 가능한`content` 필드가 있는 인덱스를 만들어 blob에서 추출된 텍스트를 저장하는 방법입니다.   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -114,6 +115,7 @@ Azure Portal 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azur
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 인덱스 만들기에 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
@@ -125,6 +127,7 @@ Azure Portal 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azur
 
 Blob 인덱서에 대한 인덱서 정의 예:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -135,6 +138,7 @@ Blob 인덱서에 대한 인덱서 정의 예:
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
 

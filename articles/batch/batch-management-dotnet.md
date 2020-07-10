@@ -4,12 +4,12 @@ description: Batch 관리 .NET 라이브러리로 Azure Batch 계정 리소스�
 ms.topic: how-to
 ms.date: 04/24/2017
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 1e372ebca9edf1fcbd72edd4f070ba26f87e9e67
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1684a177f139a3acff8a4957c0c1e89f46d8848d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961628"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145020"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 
@@ -165,7 +165,7 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory란?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD의 인증 시나리오"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Azure Active Directory와 애플리케이션 통합"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement

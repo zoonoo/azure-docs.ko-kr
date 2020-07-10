@@ -3,12 +3,12 @@ title: Azure Batch로 클라우드에서 대규모 병렬 작업 실행
 description: 대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비스를 사용하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 03c958f44f707e7c5b6ac5c4414bdb5fd4963635
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965079"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142800"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -34,7 +34,7 @@ Batch로 가져올 수 있는 본질적 병렬 워크로드의 예는 다음과 
 * 데이터 수집, 처리 및 ETL 작업
 * 소프트웨어 테스트 실행
 
-Batch를 사용하여 [긴밀하게 결합된 워크로드를 실행](batch-mpi.md)할 수도 있습니다. 이는 실행하는 애플리케이션이 독립적으로 실행되지 않고 서로 통신해야 하는 워크로드입니다. 긴밀하게 결합된 애플리케이션은 일반적으로 Message Passing Interface(MPI) API를 사용합니다. Batch를 통해 [Microsoft MPI](/message-passing-interface/microsoft-mpi) 또는 Intel MPI를 사용하는 긴밀하게 결합된 워크로드를 실행할 수 있습니다. 특수화된 [HPC](../virtual-machines/linux/sizes-hpc.md) 및 [GPU에 최적화된](../virtual-machines/linux/sizes-gpu.md) VM 크기로 애플리케이션 성능을 개선할 수 있습니다.
+Batch를 사용하여 [긴밀하게 결합된 워크로드를 실행](batch-mpi.md)할 수도 있습니다. 이는 실행하는 애플리케이션이 독립적으로 실행되지 않고 서로 통신해야 하는 워크로드입니다. 긴밀하게 결합된 애플리케이션은 일반적으로 Message Passing Interface(MPI) API를 사용합니다. Batch를 통해 [Microsoft MPI](/message-passing-interface/microsoft-mpi) 또는 Intel MPI를 사용하는 긴밀하게 결합된 워크로드를 실행할 수 있습니다. 특수화된 [HPC](../virtual-machines/sizes-hpc.md) 및 [GPU에 최적화된](../virtual-machines/sizes-gpu.md) VM 크기로 애플리케이션 성능을 개선할 수 있습니다.
 
 긴밀하게 결합된 워크로드의 몇 가지 예:
 * 유한 요소 분석
@@ -83,4 +83,3 @@ Batch의 일반적인 시나리오에는 본질적으로 컴퓨팅 노드 풀에
 * [Azure Portal을 사용하여 첫 번째 Batch 작업 실행](quick-create-portal.md)
 * [.NET API를 사용하여 첫 번째 Batch 작업 실행](quick-run-dotnet.md)
 * [Python API를 사용하여 첫 번째 Batch 작업 실행](quick-run-python.md)
-

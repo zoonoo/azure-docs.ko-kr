@@ -4,12 +4,12 @@ description: 컴퓨팅 노드가 파일 서버와 같은 네트워크의 다른 
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115414"
+ms.locfileid: "86142771"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -27,7 +27,7 @@ Azure Batch 풀을 만들 때는 지정한 [Azure 가상 네트워크](../virtua
 
 - **Azure VNet**. VNet 요구 사항 및 구성에 대한 다음 섹션을 참조하세요. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다.
   - Azure Resource Manager VNet을 만들려면 [가상 네트워크 만들기](../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. 리소스 관리자 기반 VNet은 새 배포에 권장 되며, 가상 컴퓨터 구성을 사용 하는 풀 에서만 지원 됩니다.
-  - 클래식 VNet을 만들려면 [여러 서브넷이 있는 가상 네트워크(클래식) 만들기](../virtual-network/create-virtual-network-classic.md)를 참조하세요. 클래식 VNet은 Cloud Services 구성을 사용 하는 풀 에서만 지원 됩니다.
+  - 클래식 VNet을 만들려면 [여러 서브넷이 있는 가상 네트워크(클래식) 만들기](/previous-versions/azure/virtual-network/create-virtual-network-classic)를 참조하세요. 클래식 VNet은 Cloud Services 구성을 사용 하는 풀 에서만 지원 됩니다.
 
 ## <a name="vnet-requirements"></a>VNet 요구 사항
 

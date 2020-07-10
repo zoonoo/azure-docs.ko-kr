@@ -5,11 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956664"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145260"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용하여 HPC 솔루션 빌드 및 배포
 
@@ -188,7 +189,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 
 마지막으로, 오케스트레이터와 비슷하게 동작하는 템플릿이 있습니다. 이 템플릿은 기능 템플릿의 배포를 담당합니다.
 
-다른 문서에서 [연결된 Azure Resource Manager 템플릿 만들기](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md)에 대해 자세히 알아볼 수 있습니다.
+다른 문서에서 [연결된 Azure Resource Manager 템플릿 만들기](../azure-resource-manager/templates/deployment-tutorial-linked-template.md)에 대해 자세히 알아볼 수 있습니다.
 
 ```json
 {

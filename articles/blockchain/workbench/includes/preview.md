@@ -2,16 +2,17 @@
 author: PatAltimore
 ms.service: azure-blockchain
 ms.topic: include
-ms.date: 09/09/2019
+ms.date: 07/07/2020
 ms.author: patricka
-ms.openlocfilehash: a7cf35a03d0ccac09b3b101bc5ba8e784a4e98bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ff45f9c1b64bc98d0e741b589fadb35c91ea432
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70844023"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156717"
 ---
 > [!IMPORTANT]
 > Azure Blockchain Workbench는 현재 공개 미리 보기 상태입니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-> Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다. 지원을 받으려면 [Azure Blockchain 포럼](https://aka.ms/workbenchforum)을 사용합니다.
+> Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다.
+> [Microsoft Q&질문 페이지를](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다. Azure Blockchain 워크 벤치에 대 한 엔지니어링 지원은 배포 문제로 제한 됩니다.

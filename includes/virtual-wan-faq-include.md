@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 98b82047c1744fbd63ecd3665e804e9d8f6c5221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565968"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143899"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
@@ -25,7 +25,7 @@ ms.locfileid: "85565968"
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>가상 WAN에서 가용성 영역 및 복원 력이 어떻게 처리 되나요?
 
-가상 WAN은 허브 내에서 사용할 수 있는 허브 및 서비스의 컬렉션입니다. 사용자는 각자의 요구에 따라 가상 wan을 여러 개 사용할 수 있습니다. 가상 WAN 허브에는 VPN, Express 경로 등과 같은 여러 서비스가 있습니다. 이러한 각 서비스는 지역이 가용성 영역를 지 원하는 경우 가용성 영역 지역에 배포 됩니다. 허브의 초기 배포 후에도 지역이 가용성 영역이 되 면 사용자는 게이트웨이를 다시 만들 수 있으며,이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로 비전 되며 허브 내에 기본 제공 되는 복원 력이 있음을 의미 합니다. 사용자는 여러 지역에서 복원 력을 원할 경우 여러 허브에 연결할 수 있습니다. 가상 WAN의 개념은 전역적 이지만 실제 가상 WAN 리소스는 리소스 관리자 기반 이며 배포 된 지역적으로입니다. 가상 WAN 지역 자체에 문제가 있는 경우 해당 가상 WAN의 모든 허브는 계속 해 서 그대로 작동 하지만, 사용자는 가상 WAN 지역을 사용할 수 있을 때까지 새 허브를 만들 수 없게 됩니다.
+가상 WAN은 허브 내에서 사용할 수 있는 허브 및 서비스의 컬렉션입니다. 사용자는 필요에 따라 가상 WAN을 여러 개 사용할 수 있습니다. 가상 WAN 허브에는 VPN, Express 경로 등과 같은 여러 서비스가 있습니다. 이러한 각 서비스 (Azure 방화벽 제외)는 가용성 영역 지역에 배포 됩니다. 즉, 지역이 가용성 영역를 지원 합니다. 허브의 초기 배포 후에도 지역이 가용성 영역이 되 면 사용자는 게이트웨이를 다시 만들 수 있으며,이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로 비전 되며 허브 내에 기본 제공 되는 복원 력이 있음을 의미 합니다. 사용자는 여러 지역에서 복원 력을 원할 경우 여러 허브에 연결할 수 있습니다. 가상 WAN의 개념은 전역적 이지만 실제 가상 WAN 리소스는 리소스 관리자 기반 이며 배포 된 지역적으로입니다. 가상 WAN 지역 자체에 문제가 있는 경우 해당 가상 WAN의 모든 허브는 계속 해 서 그대로 작동 하지만, 사용자는 가상 WAN 지역을 사용할 수 있을 때까지 새 허브를 만들 수 없게 됩니다.
 
 ### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Azure Virtual WAN 사용자 VPN(지점 및 사이트 간)에서 지원하는 클라이언트는 무엇인가요?
 

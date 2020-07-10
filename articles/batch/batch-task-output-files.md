@@ -4,12 +4,12 @@ description: Batch 서비스 API를 사용하여 Azure Storage에 Batch 작업 �
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965130"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143521"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>컨테이너에 대한 공유 액세스 서명 가져오기
 
-컨테이너를 만든 후에는 컨테이너에 대한 쓰기 액세스 권한이 있는 SAS(공유 액세스 서명)를 가져옵니다. SAS는 컨테이너에 대해 위임된 액세스를 제공합니다. SAS는 지정된 권한 집합 및 지정된 시간 간격으로 액세스 권한을 부여합니다. Batch 서비스에는 컨테이너에 태스크 출력을 기록하는 쓰기 권한이 있는 SAS가 필요합니다. SAS에 대한 자세한 내용은 [Azure Storage에서 \(SAS\)(공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+컨테이너를 만든 후에는 컨테이너에 대한 쓰기 액세스 권한이 있는 SAS(공유 액세스 서명)를 가져옵니다. SAS는 컨테이너에 대해 위임된 액세스를 제공합니다. SAS는 지정된 권한 집합 및 지정된 시간 간격으로 액세스 권한을 부여합니다. Batch 서비스에는 컨테이너에 태스크 출력을 기록하는 쓰기 권한이 있는 SAS가 필요합니다. SAS에 대한 자세한 내용은 [Azure Storage에서 \(SAS\)(공유 액세스 서명) 사용](../storage/common/storage-sas-overview.md)을 참조하세요.
 
 Azure Storage API를 사용하여 SAS를 가져오면 API에서 SAS 토큰 문자열을 반환합니다. 이 토큰 문자열에는 SAS가 유효한 권한과 간격을 포함하여 SAS의 모든 매개 변수가 포함됩니다. SAS를 사용하여 Azure Storage의 컨테이너에 액세스하려면 SAS 토큰 문자열을 리소스 URI에 추가해야 합니다. 리소스 URI는 추가된 SAS 토큰과 함께 Azure Storage에 대해 인증된 액세스를 제공합니다.
 

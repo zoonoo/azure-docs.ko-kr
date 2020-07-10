@@ -4,11 +4,12 @@ description: 풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 �
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960727"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145097"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
  
@@ -86,8 +87,8 @@ Azure Monitor [REST API](/rest/api/monitor/)를 사용 하 여 거의 실시간 
 
 또는 다음을 수행할 수 있습니다.
 
-- 일괄 처리 진단 로그 이벤트를 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)로 스트리밍합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
-- 진단 로그를 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)로 보냅니다. 여기서 진단 로그를 분석하거나 추가 분석을 위해 Power BI 또는 Excel로 내보낼 수 있습니다.
+- 일괄 처리 진단 로그 이벤트를 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 스트리밍합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
+- 진단 로그를 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)로 보냅니다. 여기서 진단 로그를 분석하거나 추가 분석을 위해 Power BI 또는 Excel로 내보낼 수 있습니다.
 
 > [!NOTE]
 > Azure 서비스를 사용하여 진단 로그 데이터를 저장하거나 처리하려면 추가 비용이 발생할 수 있습니다. 
@@ -118,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-예를 들어:
+예:
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
@@ -134,7 +135,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-저장소 계정에서 진단 로그의 스키마에 대 한 자세한 내용은 [Azure 리소스 로그를 저장소 계정에 보관](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account)을 참조 하세요. 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다.
+저장소 계정에서 진단 로그의 스키마에 대 한 자세한 내용은 [Azure 리소스 로그를 저장소 계정에 보관](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)을 참조 하세요. 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다.
 
 ### <a name="service-log-events"></a>서비스 로그 이벤트
 
@@ -177,4 +178,3 @@ Batch 서비스에서 내보내는 서비스 로그 이벤트는 다음과 같�
 
 - Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
 - [일괄 처리 솔루션 모니터링](monitoring-overview.md)에 대해 자세히 알아봅니다.
-

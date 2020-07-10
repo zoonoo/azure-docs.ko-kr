@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 07/08/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e2540bceab17e6f37fd94b28df3814ccffa1c81e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 509568b143c9fbbf236139ca83cb55b0ef39beb0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466832"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145950"
 ---
 다음 표에서는 Azure 범용 v1, v2, Blob 스토리지 및 블록 Blob 스토리지 계정의 기본 제한에 대해 설명합니다. *수신* 제한은 스토리지 계정에 보내는 모든 데이터를 나타냅니다. *송신* 제한은 스토리지 계정에서 받는 모든 데이터를 나타냅니다.
 
@@ -33,11 +33,7 @@ ms.locfileid: "84466832"
 
 <sup>1</sup> Azure Storage 표준 계정은 더 높은 용량 제한과 요청별 수신에 대한 더 높은 제한을 지원합니다. 계정 제한을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하세요.
 
-<sup>2</sup> 스토리지 계정에서 지리적 중복 스토리지(RA-GRS) 또는 지리적 영역 중복 스토리지(RA-GZRS)를 사용하여 읽기 액세스를 사용하도록 설정한 경우 보조 위치의 송신 대상은 기본 위치의 송신 대상과 동일합니다. [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 옵션은 다음과 같습니다.
-
-[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
-
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md)는 Azure Blob 스토리지를 기반으로 하는 빅 데이터 분석 전용 기능 세트입니다.
+<sup>2</sup> 스토리지 계정에서 지리적 중복 스토리지(RA-GRS) 또는 지리적 영역 중복 스토리지(RA-GZRS)를 사용하여 읽기 액세스를 사용하도록 설정한 경우 보조 위치의 송신 대상은 기본 위치의 송신 대상과 동일합니다. 자세한 내용은 [Azure Storage 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
 
 > [!NOTE]
 > 대부분의 시나리오에서는 범용 v2 스토리지 계정을 사용하는 것이 좋습니다. 가동 중지 시간이 없고 데이터를 복사할 필요 없이 범용 v1 또는 Azure Blob 스토리지 계정을 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다. 자세한 내용은 [범용 v2 스토리지 계정으로 업그레이드](../articles/storage/common/storage-account-upgrade.md)를 참조하세요.
