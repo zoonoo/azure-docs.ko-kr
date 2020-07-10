@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362094"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206847"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>빌드 작업 구성 및 사용자 지정
 
@@ -62,11 +62,13 @@ Windows 업데이트 오류 및 해당 문제 해결에 대 한 자세한 내용
     - 지정 된 여러 대상을 세미콜론 (;)으로 구분 해야 합니다.
     - 지정자는 단일 파일 이거나 와일드 카드를 포함할 수 있습니다.
     - 디렉터리 사양은 항상 *로 끝나야 합니다 \\ .
-    - 예:
+    - 예제:
 
+```binskim-targets
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
+```
 
 - **유형** 목록에서 **명령줄** 을 선택 하는 경우 binskim.exe를 실행 해야 합니다.
      - binskim.exe에 대 한 첫 번째 인수가 동사 **분석** 뒤에 하나 이상의 경로 지정이 있는지 확인 합니다. 각 경로는 전체 경로 이거나 원본 디렉터리를 기준으로 하는 경로일 수 있습니다.
@@ -74,11 +76,13 @@ Windows 업데이트 오류 및 해당 문제 해결에 대 한 자세한 내용
      - **/O** 또는 **/output** 옵션은 생략할 수 있습니다. 출력 값이 추가 되거나 대체 됩니다.
      - 표준 명령줄 구성은 다음과 같이 표시 됩니다.
 
+```binskim-line-args
            analyze $(Build.StagingDirectory)\* --recurse --verbose
            analyze *.dll *.exe --recurse --verbose
+```
 
-          > [!NOTE]
-          > \\대상에 대 한 디렉터리를 지정 하는 경우에는 후행 *이 중요 합니다.
+> [!NOTE]
+> \\대상에 대 한 디렉터리를 지정 하는 경우에는 후행 *이 중요 합니다.
 
 BinSkim 명령줄 인수, ID 별 규칙 또는 종료 코드에 대 한 자세한 내용은 [BinSkim 사용자 가이드](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md)를 참조 하세요.
 

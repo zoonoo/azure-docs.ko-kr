@@ -1,7 +1,7 @@
 ---
-title: 데이터 변환
+title: 디자이너에서 데이터 변환 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 디자이너에서 데이터 변환으로 고유 데이터 세트를 만드는 방법을 알아봅니다.
+description: Azure Machine Learning designer (미리 보기)에서 데이터를 변환 하 여 고유한 데이터 집합을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: ea0ba58c3eb38a54be5ff777519ca12d6a2cf9ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68ed1b83b1e82daa9c4578a6b3bec24792a8268d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517540"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203790"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너의 데이터 변환(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

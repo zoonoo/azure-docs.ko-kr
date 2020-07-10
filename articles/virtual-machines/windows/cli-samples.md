@@ -8,20 +8,20 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4868254ffc0448562ff6115a4e6bb030e4353ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11d0af0133a113382ea9ed03eeeb8686ebe0c73b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083312"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203687"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Windows 가상 머신에 대한 Azure CLI 샘플
 
 다음 테이블은 Windows 가상 머신을 배포하는 Azure CLI를 사용하여 빌드된 Bash 셸에 대한 링크를 포함합니다.
 
-| | |
+| 스크립트 | 설명 |
 |---|---|
-|**가상 컴퓨터 만들기**||
+|**가상 머신 만들기**||
 | [가상 머신 만들기](./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 최소한의 구성으로 Windows 가상 머신을 만듭니다. |
 | [완벽히 구성된 가상 머신 만들기](./../scripts/virtual-machines-windows-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 리소스 그룹, 가상 머신 및 모든 관련된 리소스를 만듭니다.|
 | [고가용성 가상 머신 만들기](./../scripts/virtual-machines-windows-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 고가용성의 부하가 분산된 구성으로 여러 가상 머신을 만듭니다. |

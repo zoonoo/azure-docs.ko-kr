@@ -12,17 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79244096"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206234"
 ---
 # <a name="access-and-customize-developer-portal"></a>개발자 포털 액세스 및 사용자 지정
 
 개발자 포털은 Api 설명서를 사용 하 여 자동으로 생성 되 고 완전히 사용자 지정할 수 있는 웹 사이트입니다. API 소비자는 api를 검색 하 고, api를 사용 하 고, 액세스를 요청 하는 방법을 배울 수 있습니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 방법에 관해 알아봅니다.
 
 > [!div class="checklist"]
 > * 개발자 포털의 관리 되는 버전에 액세스
@@ -130,6 +131,7 @@ ms.locfileid: "79244096"
 포털의 방문자가 기본 제공 대화형 콘솔을 통해 Api를 테스트할 수 있도록 하려면 Api에서 CORS (크로스-원본 자원 공유)를 사용 하도록 설정 해야 합니다. 자세한 내용은 [이 문서](api-management-howto-developer-portal.md#cors) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
+- [클라우드 지출에 맞게 최적화 및 절약](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 개발자 포털에 대해 자세히 알아보세요.
 

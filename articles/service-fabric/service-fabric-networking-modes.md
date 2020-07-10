@@ -5,11 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639805"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207226"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -190,15 +191,14 @@ ms.locfileid: "75639805"
  
 3. Windows 클러스터에만 다음 값을 사용하여 가상 네트워크에 UDP/53 포트를 여는 Azure NSG(네트워크 보안 그룹) 규칙을 설정합니다.
 
-   |Setting |값 | |
-   | --- | --- | --- |
-   |우선 순위 |2000 | |
-   |이름 |Custom_Dns  | |
-   |원본 |VirtualNetwork | |
-   |대상 | VirtualNetwork | |
-   |서비스 | DNS(UDP/53) | |
-   |작업 | Allow  | |
-   | | |
+   |설정 |값 |
+   | --- | --- |
+   |우선 순위 |2000 |
+   |이름 |Custom_Dns  |
+   |원본 |VirtualNetwork |
+   |대상 | VirtualNetwork |
+   |서비스 | DNS(UDP/53) |
+   |작업 | Allow  |
 
 4. 각 서비스에 대해 애플리케이션 매니페스트에서 네트워킹 모드를 지정합니다. `<NetworkConfig NetworkType="Open">` **오픈** 네트워킹 모드에서는 서비스가 전용 IP 주소를 갖게 됩니다. 모드를 지정하지 않으면 서비스는 기본적으로 **nat** 모드가 됩니다. 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2` 서비스는 동일한 포트에서 각각 수신 대기할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 대기 중). 오픈 네트워킹 모드를 지정하면 `PortBinding` 구성을 지정할 수 없습니다.
 

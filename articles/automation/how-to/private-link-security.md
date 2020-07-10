@@ -4,24 +4,27 @@ description: Azure 개인 링크를 사용 하 여 네트워크를 Azure Automat
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268723"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207276"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Azure 개인 링크를 사용 하 여 네트워크를 Azure Automation에 안전 하 게 연결
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Azure 개인 링크를 사용 하 여 네트워크를 Azure Automation (미리 보기)에 안전 하 게 연결
 
 Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 자동화 서비스를 VNet에 효과적으로 제공 합니다. VNet 및 Automation 계정의 컴퓨터 간 네트워크 트래픽은 VNet을 통해 이동 하 여 공용 인터넷에서 노출 되는 것을 제거 하는 Microsoft 백본 네트워크의 개인 링크를 통해 이동 합니다.
 
-예를 들어 아웃 바운드 인터넷 액세스를 사용 하지 않도록 설정 하는 VNet이 있습니다. 그러나 Automation 계정에 개인적으로 액세스 하 고 하이브리드 Runbook 작업자의 웹 후크, 상태 구성 및 runbook 작업 같은 자동화 기능을 사용 하려고 합니다. 또한 사용자가 VNET을 통해서만 Automation 계정에 액세스할 수 있도록 하려고 합니다. 이는 전용 끝점을 배포 하 여 수행할 수 있습니다.
+예를 들어 아웃 바운드 인터넷 액세스를 사용 하지 않도록 설정 하는 VNet이 있습니다. 그러나 Automation 계정에 개인적으로 액세스 하 고 하이브리드 Runbook 작업자의 웹 후크, 상태 구성 및 runbook 작업 같은 자동화 기능을 사용 하려고 합니다. 또한 사용자가 VNET을 통해서만 Automation 계정에 액세스할 수 있도록 하려고 합니다.  개인 끝점 배포는 이러한 목표를 달성 합니다.
 
-이 문서에서는를 사용 하는 경우 및 Automation 계정으로 개인 끝점을 설정 하는 방법을 설명 합니다.
+이 문서에서는를 사용 하는 경우 및 Automation 계정 (미리 보기)을 사용 하 여 개인 끝점을 설정 하는 방법을 설명 합니다.
 
 ![Azure Automation에 대 한 개인 링크의 개념적 개요](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> Azure Automation (미리 보기)에 대 한 개인 링크 지원은 Azure 상용 및 Azure 미국 정부 클라우드에서만 사용할 수 있습니다.
 
 ## <a name="advantages"></a>장점
 
@@ -46,9 +49,11 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 
 자동화를 위한 개인 끝점을 만든 후에는 사용자 또는 컴퓨터에서 직접 연결할 수 있는 공용 연결 자동화 Url이 VNet의 하나의 개인 끝점에 매핑됩니다.
 
+미리 보기 릴리스의 일부로 Automation 계정은 개인 끝점을 사용 하 여 보호 되는 Azure 리소스에 액세스할 수 없습니다. 예를 들어 Azure Key Vault, Azure SQL, Azure Storage 계정 등이 있습니다.
+
 ### <a name="webhook-scenario"></a>Webhook 시나리오
 
-웹 후크 URL에 게시를 수행 하 여 runbook을 시작할 수 있습니다. 예를 들어 URL은 다음과 같습니다.`https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+웹 후크 URL에 게시를 수행 하 여 runbook을 시작할 수 있습니다. 예를 들어 URL은 다음과 같습니다.`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>상태 구성 (agentsvc) 시나리오
 
@@ -60,11 +65,11 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 
 ## <a name="planning-based-on-your-network"></a>네트워크 기반 계획 수립
 
-Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 사항을 고려 하세요. 공용 인터넷에 대 한 가상 네트워크 액세스 및 automation 계정에 대 한 액세스 제한 (Automation 계정과 통합 된 경우 개인 링크 그룹 범위를 Azure Monitor 로그로 설정 포함)을 평가 합니다.
+Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 사항을 고려 하세요. 공용 인터넷에 대 한 가상 네트워크 액세스 및 automation 계정에 대 한 액세스 제한 (Automation 계정과 통합 된 경우 개인 링크 그룹 범위를 Azure Monitor 로그로 설정 포함)을 평가 합니다. 또한 지원 되는 기능이 문제 없이 작동 하는지 확인 하기 위한 계획의 일부로 Automation 서비스 [DNS 레코드](./automation-region-dns-records.md) 검토를 포함 합니다.
 
 ### <a name="connect-to-a-private-endpoint"></a>프라이빗 엔드포인트에 연결
 
-네트워크를 연결 하는 개인 끝점을 만듭니다. [Azure Portal 개인 링크 센터](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints)에서이 작업을 수행할 수 있습니다. PublicNetworkAccess 및 개인 링크에 대 한 변경 내용이 적용 되 면 적용 되는 데 최대 35 분이 걸릴 수 있습니다.
+네트워크를 연결 하는 개인 끝점을 만듭니다. [Azure Portal 개인 링크 센터](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints)에서 만들 수 있습니다. PublicNetworkAccess 및 개인 링크에 대 한 변경 내용이 적용 되 면 적용 되는 데 최대 35 분이 걸릴 수 있습니다.
 
 이 섹션에서는 Automation 계정에 대 한 개인 끝점을 만듭니다.
 
@@ -72,9 +77,9 @@ Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 �
 
 2. **Private Link 센터 - 개요**의 **서비스에 대한 프라이빗 연결 설정** 옵션에서 **시작**을 선택합니다.
 
-3. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
+3. **가상 컴퓨터 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -86,9 +91,9 @@ Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 �
 
 4. 완료되면 **다음: 리소스**를 선택합니다.
 
-5. **프라이빗 엔드포인트 만들기 - 리소스**에서 다음 정보를 입력하거나 선택합니다.
+5. **개인 끝점 만들기-리소스**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     |연결 방법  | 내 디렉터리의 Azure 리소스에 연결하도록 선택합니다.|
     | Subscription| 구독을 선택합니다. |
@@ -99,7 +104,7 @@ Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 �
 
 6. 완료되면 **다음: 구성**을 선택합니다.
 
-7. **프라이빗 엔드포인트 만들기 - 구성**에서 다음 정보를 입력하거나 선택합니다.
+7. **개인 끝점 만들기-구성**에서 다음 정보를 입력 하거나 선택 합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
@@ -141,7 +146,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## <a name="dns-configuration"></a>DNS 구성
 
-연결 문자열의 일부로 FQDN을 사용 하 여 개인 링크 리소스에 연결할 때 할당 된 개인 IP 주소를 확인 하도록 DNS 설정을 올바르게 구성 하는 것이 중요 합니다. 기존 Azure 서비스에는 공용 엔드포인트를 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. 프라이빗 엔드포인트를 사용하여 연결하도록 재정의해야 합니다.
+연결 문자열의 일부로 FQDN(정규화된 도메인 이름)을 사용하여 프라이빗 링크 리소스에 연결하는 경우 할당된 프라이빗 IP 주소를 확인하도록 DNS 설정을 올바르게 구성하는 것이 중요합니다. 기존 Azure 서비스에는 공용 엔드포인트를 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. DNS 구성을 검토 하 고 개인 끝점을 사용 하 여 연결 하도록 업데이트 해야 합니다.
 
 프라이빗 엔드포인트와 연결된 네트워크 인터페이스에는 지정된 프라이빗 링크 리소스에 대해 할당된 프라이빗 IP 주소 및 FQDN을 포함하여 DNS를 구성하는 데 필요한 전체 정보 집합이 포함되어 있습니다.
 

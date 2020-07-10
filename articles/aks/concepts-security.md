@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0fe0803b0961b3aaa89627823b4867fac0d5d61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831542"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206308"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -19,11 +19,16 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하
 
 이 문서에서는 AKS에서 애플리케이션을 보호하는 핵심 개념을 소개합니다.
 
-- [마스터 구성 요소 보안](#master-security)
-- [노드 보안](#node-security)
-- [클러스터 업그레이드](#cluster-upgrades)
-- [네트워크 보안](#network-security)
-- [Kubernetes 비밀](#kubernetes-secrets)
+- [AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [마스터 보안](#master-security)
+  - [노드 보안](#node-security)
+    - [계산 격리](#compute-isolation)
+  - [클러스터 업그레이드](#cluster-upgrades)
+    - [차단 및 드레이닝](#cordon-and-drain)
+  - [네트워크 보안](#network-security)
+    - [Azure 네트워크 보안 그룹](#azure-network-security-groups)
+  - [Kubernetes 비밀](#kubernetes-secrets)
+  - [다음 단계](#next-steps)
 
 ## <a name="master-security"></a>마스터 보안
 
@@ -45,7 +50,14 @@ Windows Server 노드의 경우 Windows 업데이트가 자동으로 실행되�
 
 스토리지를 제공하기 위해 노드는 Azure Managed Disks를 사용합니다. 대부분의 VM 노드 크기의 경우 해당되는 항목은 고성능 SSD로 지원되는 프리미엄 디스크입니다. 관리 디스크에 저장된 데이터는 미사용 시 Azure 플랫폼에서 자동으로 저장 데이터 암호화됩니다. 중복성을 높이기 위해 이러한 디스크는 Azure 데이터 센터 내에서 안전하게 복제됩니다.
 
-AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *Pod 보안 정책*과 같은 추가 보안 기능 또는 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다. 워크로드를 격리하는 방법에 대한 자세한 내용은 [AKS의 클러스터 격리에 대한 모범 사례][cluster-isolation]를 참조하세요.
+AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *Pod 보안 정책*과 같은 추가 보안 기능 또는 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다. 워크 로드를 격리 하는 방법에 대 한 자세한 내용은 [AKS의 클러스터 격리에 대 한 모범 사례][cluster-isolation]를 참조 하세요.
+
+### <a name="compute-isolation"></a>계산 격리
+
+ 특정 워크 로드는 규정 준수 또는 규제 요구 사항으로 인해 다른 고객 워크 로드와 높은 수준의 격리를 요구할 수 있습니다. 이러한 워크 로드의 경우 Azure는 AKS 클러스터에서 에이전트 노드로 사용할 수 있는 [격리 된 가상 컴퓨터](../virtual-machines/linux/isolation.md)를 제공 합니다. 이러한 격리 된 가상 머신은 특정 하드웨어 유형 및 단일 고객 전용으로 격리 됩니다. 
+
+ AKS 클러스터에서 이러한 격리 된 가상 컴퓨터를 사용 하려면 AKS 클러스터를 만들거나 노드 풀을 추가할 때 [여기](../virtual-machines/linux/isolation.md) 에 나열 된 격리 된 가상 컴퓨터 크기 중 하나를 **노드 크기로** 선택 합니다.
+
 
 ## <a name="cluster-upgrades"></a>클러스터 업그레이드
 

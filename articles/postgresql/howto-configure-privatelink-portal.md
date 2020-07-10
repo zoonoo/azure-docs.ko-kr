@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f05b70c8197283d9fa576d6ea464aa08554dd773
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102466"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206773"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork*를 입력 합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -164,7 +164,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     |**네트워킹**| |
     | 가상 네트워크| *MyVirtualNetwork*를 선택합니다. |
-    | 서브넷 |  *mySubnet*을 선택합니다. |
+    | 서브넷 | *mySubnet*을 선택합니다. |
     |**프라이빗 DNS 통합**||
     |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. |
     |프라이빗 DNS 영역 |*(New) privatelink* 를 선택 합니다. |
@@ -209,7 +209,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>VM에서 개인적으로 PostgreSQL 서버에 액세스
 
-1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
 2.  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`을 입력합니다. 
 
@@ -246,7 +246,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="clean-up-resources"></a>리소스 정리
 개인 끝점, PostgreSQL 서버 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 포함 된 모든 리소스를 삭제 합니다.
 
-1.  *myResourceGroup*   포털 맨 위에 있는 **검색** 상자에 myresourcegroup을 입력 하 고 검색 결과에서 *myresourcegroup*을 선택   합니다.
+1. 포털 맨 위에 있는 **검색** 상자에 *myresourcegroup* 을 입력 하 고 검색 결과에서 *myresourcegroup*을 선택   합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
 3. **리소스 그룹 이름 입력** 에 myresourcegroup을 입력 하 고 **삭제**를 선택 합니다.
 

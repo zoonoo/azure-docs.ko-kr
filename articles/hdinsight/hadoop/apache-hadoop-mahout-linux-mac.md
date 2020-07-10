@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: f533b2baa3e1e748edfc723a60734daedf3d0a18
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4e4a45519526dd0eeb938a3b83e737d82589c1e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086027"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207665"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Apache Mahout 및 Azure HDInsight를 사용하여 추천 생성
 
@@ -47,11 +47,13 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 `user-ratings.txt`에 포함된 데이터의 구조는 `userID`, `movieID`, `userRating` 및 `timestamp`이며, 각 사용자의 영화 등급 평가를 나타냅니다. 다음은 데이터의 예제입니다.
 
+```output
     196    242    3    881250949
     186    302    3    891717742
     22     377    1    878887116
     244    51     2    880606923
     166    346    1    886397596
+```
 
 ## <a name="run-the-analysis"></a>분석 실행
 

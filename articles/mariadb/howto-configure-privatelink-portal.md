@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: db2fa377cc10759fc57c3e4a27bd7815a5724bd7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 08e146ebde34c6d85e258c93a1ed1780bb97727b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114740"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206446"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>포털을 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork*를 입력 합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -209,7 +209,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="access-the-mariadb-server-privately-from-the-vm"></a>VM에서 전용 Aadb 서버에 액세스
 
-1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
 2.  `nslookup mydemomserver.privatelink.mariadb.database.azure.com`을 입력합니다. 
 

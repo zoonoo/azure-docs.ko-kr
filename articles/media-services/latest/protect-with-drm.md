@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2019
+ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79086738"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206833"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>자습서: DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
@@ -47,7 +48,7 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.
 
@@ -113,7 +114,7 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 지정 된 구성을 사용 하 여 키를 전달 하기 위해 충족 해야 하는 **콘텐츠 키 정책** 에 대 한 요구 사항 (제한 사항)을 설정 해야 합니다. 이 예제에서는 다음 구성 및 요구 사항을 설정합니다.
 
-* Configuration
+* 구성
 
     [PlayReady](playready-license-template-overview.md) 및 [Widevine](widevine-license-template-overview.md) 라이선스를 Media Services 라이선스 배달 서비스에서 배달할 수 있도록 구성합니다. 이 샘플 앱은 [FairPlay](fairplay-license-overview.md) 라이선스를 구성 하지 않지만 FairPlay를 구성 하는 데 사용할 수 있는 메서드를 포함 합니다. FairPlay 구성을 다른 옵션으로 추가할 수 있습니다.
 
@@ -163,7 +164,7 @@ ContentKeyPolicy에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 �
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Media Services 계정의 리소스 정리
 
-일반적으로 다시 사용 하려는 개체를 제외한 모든 항목을 정리 해야 합니다. 일반적으로 변형, StreamingLocators 등을 다시 사용 합니다. 실험 후 계정을 정리하려면 재사용하지 않을 리소스를 삭제해야 합니다. 예를 들어 다음 코드는 Job을 삭제합니다.
+일반적으로 다시 사용 하려는 개체를 제외한 모든 항목을 정리 해야 합니다. 일반적으로 변형, StreamingLocators 등을 다시 사용 합니다. 실험 후 계정을 정리하려면 재사용하지 않을 리소스를 삭제해야 합니다. 예를 들어, 다음 코드는 작업, 만든 자산 및 콘텐츠 키 정책을 삭제 합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 

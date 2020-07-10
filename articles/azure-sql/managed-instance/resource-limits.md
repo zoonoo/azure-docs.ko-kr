@@ -12,11 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 85d347c45e1ca2cd39c7504e44bd3ea063f788d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708420"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206183"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,11 +33,11 @@ SQL Managed Instance에는 기본 인프라와 아키텍처에 따라 달라 지
 
 |   | **Gen4** | **5세대** |
 | --- | --- | --- |
-| 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) 프로세서, fast NVMe SSD, vCore = 1 LP (하이퍼 스레드) |
-| vCore 수 | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| 최대 메모리 (메모리/코어 비율) | vCore당 7GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
-| 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: 1-vCore 당 1.5 g b| 인스턴스 제한: 0.8-vCore 당 1.65 GB |
-| 최대 인스턴스 예약 된 저장소 |  일반 용도: 8TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
+| **하드웨어** | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) 프로세서, fast NVMe SSD, vCore = 1 LP (하이퍼 스레드) |
+| **VCores 수** | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| **최대 메모리 (메모리/코어 비율)** | vCore당 7GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
+| **최대 메모리 내 OLTP 메모리** | 인스턴스 제한: 1-vCore 당 1.5 g b| 인스턴스 제한: 0.8-vCore 당 1.65 GB |
+| **최대 인스턴스 예약 된 저장소** |  일반 용도: 8TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
 
 > [!IMPORTANT]
 > - Gen4 하드웨어가 단계적으로 진행 되 고 있으며 새 배포에 더 이상 사용할 수 없습니다. SQL Managed Instance의 모든 새 인스턴스는 Gen5 하드웨어에 배포 되어야 합니다.
@@ -109,7 +110,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 
 최대 로그 쓰기 처리량 (22 m b/초)에도 인스턴스 수준 제한이 있으므로 인스턴스 처리량 제한에 도달 하 여 로그 파일 전체에서 최대 파일에 도달 하지 못할 수 있습니다.
 
-## <a name="supported-regions"></a>지원되는 지역
+## <a name="supported-regions"></a>지원되는 Azure 지역
 
 SQL Managed Instance은 [지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)에서만 만들 수 있습니다. 현재 지원 되지 않는 지역에서 SQL Managed Instance를 만들려면 [Azure Portal를 통해 지원 요청을 보낼](../database/quota-increase-request.md)수 있습니다.
 

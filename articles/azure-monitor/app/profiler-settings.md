@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188929"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205718"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
@@ -32,7 +32,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 
 **Application Insights Profiler 구성** 페이지에는 다음과 같은 기능이 있습니다.
 
-| | |
+| 기능 | 설명 |
 |-|-|
 지금 프로 파일링 | 이 Application Insights 인스턴스에 연결된 모든 앱에 대해 프로파일링 세션이 시작됩니다.
 트리거 | 프로파일러를 실행 하는 트리거를 구성할 수 있습니다. 
@@ -48,7 +48,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 
 메뉴 모음에서 트리거 단추를 클릭 하면 트리거 설정 상자가 열립니다. CPU 또는 메모리 사용 비율이 설정한 수준에 도달 하면 트리거를 설정 하 여 프로 파일링을 시작할 수 있습니다.
 
-| | |
+| 설정 | Description |
 |-|-|
 설정/해제 단추 | On:이 트리거에서 프로파일러를 시작할 수 있습니다. Off:이 트리거에서 프로파일러를 시작 하지 않습니다.
 메모리 임계값 | 이 메모리 비율을 사용 중인 경우 프로파일러가 시작 됩니다.
@@ -58,7 +58,7 @@ Cooldown | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을
 ## <a name="recent-profiling-sessions"></a>최근 프로 파일링 세션
 페이지의이 섹션에서는 최근 프로 파일링 세션에 대 한 정보를 보여 줍니다. 프로 파일링 세션은 프로파일러 에이전트가 응용 프로그램을 호스팅하는 컴퓨터 중 하나에서 프로필을 가져오는 기간을 나타냅니다. 행 중 하나를 클릭 하 여 세션에서 프로필을 열 수 있습니다. 각 세션에 대해 다음을 보여 줍니다.
 
-| | |
+| 설정 | Description |
 |-|-|
 트리거한 사람 | 트리거, 지금 프로 파일링 또는 기본 샘플링을 통해 세션이 시작 된 방법입니다. 
 앱 이름 | 프로 파일링 된 응용 프로그램의 이름입니다.

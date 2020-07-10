@@ -3,14 +3,15 @@ title: 인증 및 권한 부여
 description: Azure App Service 및 Azure Functions에서 기본 제공 되는 인증 및 권한 부여 지원과, 무단 액세스 로부터 앱을 보호 하는 방법에 대해 알아봅니다.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196444"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206745"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -30,11 +31,11 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 기본 모바일 응용 프로그램과 관련된 자세한 내용은 [Azure App Service를 사용하여 모바일 응용 프로그램에 대한 사용자 인증 및 권한 부여](../app-service-mobile/app-service-mobile-auth.md)를 참조하세요.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 인증 및 권한 부여 모듈은 애플리케이션 코드와 동일한 샌드박스에서 실행됩니다. 이 기능이 활성화되면 애플리케이션 코드에 의해 처리되기 전에 들어오는 모든 HTTP 요청이 여기를 통과합니다.
 
-![](media/app-service-authentication-overview/architecture.png)
+![배포 된 사이트에 대 한 트래픽을 허용 하기 전에 id 공급자와 상호 작용 하는 사이트 샌드박스에서 프로세스에서 가로채는 요청을 보여 주는 아키텍처 다이어그램](media/app-service-authentication-overview/architecture.png)
 
 이 모듈은 다음과 같이 앱에 대한 몇 가지 사항을 처리합니다.
 
@@ -62,7 +63,7 @@ App Service는 웹앱, API 또는 기본 모바일 앱의 사용자와 연결된
 
 일반적으로 애플리케이션에서 이러한 토큰을 수집, 저장 및 새로 고치는 코드를 작성해야 합니다. 토큰 저장소를 사용하면 토큰이 필요할 때 [토큰을 가져오고](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 토큰이 무효화되면 [App Service에 알려 이를 새로 고치도록](app-service-authentication-how-to.md#refresh-identity-provider-tokens) 해야 합니다. 
 
-Id 토큰, 액세스 토큰 및 새로 고침 토큰은 인증 된 세션에 대해 캐시 되며 연결 된 사용자만 액세스할 수 있습니다.  
+ID 토큰, 액세스 토큰 및 새로 고침 토큰은 인증 된 세션에 대해 캐시 되며 연결 된 사용자만 액세스할 수 있습니다.  
 
 앱에서 토큰을 사용할 필요가 없는 경우 토큰 저장소를 사용하지 않도록 설정할 수 있습니다.
 
@@ -81,8 +82,11 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| 모든 [Openid connect Connect](https://openid.net/connect/) 공급자 (미리 보기) | `/.auth/login/<providerName>` |
 
-이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다. 다른 ID 공급자 또는 [사용자 고유의 사용자 지정 ID 솔루션][custom-auth]을 통합할 수도 있습니다.
+이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다.
+
+[레거시 확장성 경로][custom-auth] 는 다른 id 공급자 또는 사용자 지정 인증 솔루션과 통합 하기 위해 존재 하지만 권장 되지 않습니다. 대신 Openid connect Connect 지원 사용을 고려 하십시오.
 
 ## <a name="authentication-flow"></a>인증 흐름
 
@@ -112,7 +116,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 [Azure Portal](https://portal.azure.com)에서 들어오는 요청이 인증 되지 않은 경우 여러 동작을 사용 하 여 App Service 권한 부여를 구성할 수 있습니다.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+!["요청이 인증 되지 않은 경우 수행할 작업" 드롭다운을 보여 주는 스크린샷](media/app-service-authentication-overview/authorization-flow.png)
 
 다음 제목은 옵션을 설명합니다.
 
@@ -150,13 +154,14 @@ App Service에서 인증 [및 권한 부여 사용자 지정](app-service-authen
 * [Google 로그인을 사용하도록 앱을 구성하는 방법][Google]
 * [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법][MSA]
 * [Twitter 로그인을 사용하도록 앱을 구성하는 방법][Twitter]
-* [방법: 애플리케이션에 사용자 지정 인증 사용][custom-auth]
+* [로그인에 Openid connect Connect 공급자를 사용 하도록 앱을 구성 하는 방법 (미리 보기)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

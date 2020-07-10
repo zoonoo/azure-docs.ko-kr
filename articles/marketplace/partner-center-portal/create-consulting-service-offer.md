@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984273"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203808"
 ---
 # <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
 
@@ -98,12 +98,22 @@ ms.locfileid: "85984273"
 
 3. **Azure** 를 기본 제품으로 선택한 경우 최대 3 개의 **솔루션 영역**을 선택 합니다. 이렇게 하면 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. Azure를 선택하지 않은 경우 이 단계를 건너뜁니다.
 
-    | 솔루션 영역 | | | |
-    | --- | --- | --- | --- |
-    | 분석 | Backup | DevOps | 마이그레이션 |
-    | 앱 현대화 | 빅 데이터 | 재해 복구 | 네트워킹 |
-    | 보관 | 데이터 플랫폼 | ID | 보안 |
-    | AI + 기계 학습 | 데이터 센터 관리 | 사물 인터넷 | 스토리지 |
+    - 분석
+    - 앱 현대화
+    - 보관
+    - AI + Machine Learning
+    - Backup
+    - 빅 데이터
+    - 데이터 플랫폼
+    - 데이터 센터 관리
+    - DevOps
+    - 재해 복구
+    - ID
+    - 사물 인터넷
+    - 마이그레이션
+    - 네트워킹
+    - 보안
+    - 스토리지
 
 1. **Azure** 를 기본 제품으로 선택한 경우 최대 6 개의 **산업**을 선택할 수 있습니다. 이렇게 하면 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. [제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)를 참조 하세요. Azure를 선택 하지 않은 경우이 단계를 건너뜁니다.
 1. 기본 제품에 Azure가 아닌 *기타*를 선택한 경우 최대 3개의 **적용 가능한 제품**을 선택합니다. 이렇게 하면 AppSource 고객이 제품을 보다 쉽게 찾을 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409)(PDF)을 참조하세요.
@@ -126,7 +136,7 @@ ms.locfileid: "85984273"
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 로고
-2. Price
+2. 가격
 3. 솔루션 영역
 4. 산업
 5. Offer name
@@ -141,8 +151,8 @@ ms.locfileid: "85984273"
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 로고
-2. Price
-3. 제품
+2. 가격
+3. Products
 4. 산업
 5. Offer name
 6. 요약

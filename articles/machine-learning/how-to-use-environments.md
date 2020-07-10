@@ -9,20 +9,21 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/08/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 7cfcb42093aeb9e323527dea7def7a5b65d2dce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9ddc498fdcfe3d1b6da57e012166066feec933e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558412"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207023"
 ---
-# <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 환경 재사용
+# <a name="how-to-use-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 환경을 사용 하는 방법
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning [환경을](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)만들고 관리 하는 방법에 대해 알아봅니다. 환경을 사용 하면 프로젝트의 소프트웨어 종속성이 진화 함에 따라 추적 하 고 재현할 수 있습니다.
 
-소프트웨어 종속성 관리는 개발자를 위한 일반적인 작업입니다. 광범위 한 수동 소프트웨어 구성 없이 빌드를 재현할 수 있는지 확인 하려고 합니다. Azure Machine Learning `Environment` 클래스는 pip 및 Conda와 같은 로컬 개발 솔루션에 대 한 계정을 제공 하 고 로컬 및 분산 클라우드 개발을 위한 솔루션을 제공 합니다.
+소프트웨어 종속성 관리는 개발자를 위한 일반적인 작업입니다. 광범위 한 수동 소프트웨어 구성 없이 빌드를 재현할 수 있는지 확인 하려고 합니다. Azure Machine Learning `Environment` 클래스는 pip 및 Conda와 같은 로컬 개발 솔루션에 대 한 계정과 Docker 기능을 통한 분산 클라우드 개발을 제공 합니다.
 
 이 문서의 예제에서는 다음 작업을 수행 하는 방법을 보여 줍니다.
 
@@ -33,7 +34,7 @@ ms.locfileid: "84558412"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -44,13 +45,13 @@ Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개
 
 ### <a name="use-a-curated-environment"></a>큐 레이트 환경 사용
 
-큐 레이트 환경 중 하나를 선택 하 여 시작할 수 있습니다. 
+큐 레이트 환경에는 Python 패키지 컬렉션이 포함 되며, 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 환경은 캐시 된 Docker 이미지로 지원 되므로 실행 준비 비용이 줄어듭니다. 이러한 인기 있는 큐 레이트 환경 중 하나를 선택 하 여 시작할 수 있습니다. 
 
 * _AzureML 최소_ 환경에는 실행 추적 및 자산 업로드를 사용 하도록 설정 하는 최소 패키지 집합이 포함 되어 있습니다. 사용자 환경에 대 한 시작 지점으로 사용할 수 있습니다.
 
 * _AzureML-자습서_ 환경에는 일반적인 데이터 과학 패키지가 포함 됩니다. 이러한 패키지에는 Scikit, Pandas, Matplotlib 및 더 큰 azureml-sdk 패키지 집합이 포함 됩니다.
 
-큐 레이트 환경은 캐시 된 Docker 이미지에 의해 지원 됩니다. 이렇게 백업 하면 실행 준비 비용이 줄어듭니다.
+큐 레이트 환경 목록은 [큐 레이트 환경 문서](resource-curated-environments.md)를 참조 하세요.
 
 메서드를 사용 `Environment.get` 하 여 큐 레이트 환경 중 하나를 선택 합니다.
 
@@ -61,6 +62,11 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
+큐 레이트 환경을 수정 하려면 복사 해야 합니다.
+
+```python
+env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
+```
 다음 코드를 사용 하 여 큐 레이트 환경과 해당 패키지를 나열할 수 있습니다.
 
 ```python
@@ -75,6 +81,7 @@ for env in envs:
 > [!WARNING]
 >  _AzureML_ 접두사를 사용 하 여 고유한 환경 이름을 시작 하지 마세요. 이 접두사는 큐 레이트 환경용으로 예약 되어 있습니다.
 
+
 ### <a name="instantiate-an-environment-object"></a>환경 개체 인스턴스화
 
 환경을 수동으로 만들려면 `Environment` SDK에서 클래스를 가져옵니다. 그런 다음, 다음 코드를 사용 하 여 환경 개체를 인스턴스화합니다.
@@ -84,9 +91,11 @@ from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
-### <a name="use-conda-and-pip-specification-files"></a>Conda 및 pip 사양 파일 사용
+사용자 고유의 환경을 정의 하는 경우 `azureml-defaults` pip 종속성으로 버전 >= 1.0.45를 나열 해야 합니다. 이 패키지에는 웹 서비스로 모델을 호스트 하는 데 필요한 기능이 포함 되어 있습니다.
 
-Conda 사양 또는 pip 요구 사항 파일에서 환경을 만들 수도 있습니다. [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-)메서드 또는 메서드를 사용 [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) 합니다. 메서드 인수에 사용자 환경 이름과 원하는 파일의 파일 경로를 포함 합니다.
+### <a name="use-conda-pip-and-docker-files"></a>Conda, pip 및 Docker 파일 사용
+
+Conda 사양 또는 pip 요구 사항 파일에서 환경을 만들 수 있습니다. [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-)메서드 또는 메서드를 사용 [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) 합니다. 메서드 인수에 사용자 환경 이름과 원하는 파일의 파일 경로를 포함 합니다. 또한 메서드를 사용 하 여 Docker 파일에서 환경을 만들 수 있습니다 [`load_from_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#load-from-directory-path-) . 메서드 인수에 Docker 파일이 포함 된 원본 디렉터리의 경로를 포함 합니다. 
 
 ```python
 # From a Conda specification file
@@ -96,9 +105,12 @@ myenv = Environment.from_conda_specification(name = "myenv",
 # From a pip requirements file
 myenv = Environment.from_pip_requirements(name = "myenv"
                                           file_path = "path-to-pip-requirements-file")
+                                          
+# From a Docker file
+myenv = Environment.load_from_directory(path = "path-to-dockerfile-directory")
 ```
 
-### <a name="use-existing-conda-environments"></a>기존 Conda 환경 사용
+### <a name="use-existing-environments"></a>기존 환경 사용
 
 로컬 컴퓨터에 기존 Conda 환경이 있는 경우 서비스를 사용 하 여 환경 개체를 만들 수 있습니다. 이 전략을 사용 하 여 원격 실행에서 로컬 대화형 환경을 다시 사용할 수 있습니다.
 
@@ -107,6 +119,14 @@ myenv = Environment.from_pip_requirements(name = "myenv"
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
                                                     conda_environment_name = "mycondaenv")
+```
+
+환경 정의는 메서드를 사용 하 여 쉽게 편집할 수 있는 형식으로 디렉터리에 저장할 수 있습니다 [`save_to_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#save-to-directory-path--overwrite-false-) . 수정 되 면 디렉터리에서 파일을 로드 하 여 새 환경을 인스턴스화할 수 있습니다.
+
+```python
+myenv = Environment.save_to_directory(path = "path-to-destination-directory", overwrite = False)
+# modify the environment definition
+newenv = Environment.load_from_directory(path = "path-to-source-directory")
 ```
 
 ### <a name="create-environments-automatically"></a>자동으로 환경 만들기
@@ -163,18 +183,9 @@ myenv.python.conda_dependencies=conda_dep
 >[!IMPORTANT]
 > 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 사용자 환경의 캐시 된 이미지를 재사용 합니다. 예를 들어 고정 해제 된 패키지 종속성을 사용 하 여 환경을 만드는 경우 환경을 만들 때 ```numpy``` 설치 된 패키지 버전을 _at the time of environment creation_계속 사용 하 게 됩니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 자세한 내용은 [환경 빌드, 캐싱 및 다시 사용](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)을 참조 하세요.
 
-### <a name="private-wheel-files"></a>개인 휠 파일
+### <a name="private-python-packages"></a>개인 Python 패키지
 
-비공개 pip 휠 파일을 먼저 작업 영역 저장소에 업로드 하 여 사용할 수 있습니다. 정적 메서드를 사용 하 여 업로드 [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) 합니다. 그런 다음 저장소 URL을 캡처하고 메서드에 URL을 전달 `add_pip_package()` 합니다.
-
-```python
-# During environment creation the service replaces the URL by secure SAS URL, so your wheel file is kept private and secure
-whl_url = Environment.add_private_pip_wheel(workspace=ws,file_path = "my-custom.whl")
-myenv = Environment(name="myenv")
-conda_dep = CondaDependencies()
-conda_dep.add_pip_package(whl_url)
-myenv.python.conda_dependencies=conda_dep
-```
+Python 패키지를 공용 인터넷에 노출 하지 않고 개인적으로 안전 하 게 사용 하려면 [개인 python 패키지를 사용 하는 방법](how-to-use-private-python-packages.md)문서를 참조 하세요.
 
 ## <a name="manage-environments"></a>환경 관리
 
@@ -219,7 +230,7 @@ Run.get_environment()
 
 ### <a name="update-an-existing-environment"></a>기존 환경 업데이트
 
-예를 들어 Python 패키지를 추가 하 여 기존 환경을 변경 한다고 가정해 보겠습니다. 그런 다음 실행을 제출 하거나, 모델을 배포 하거나, 환경을 수동으로 등록할 때 환경의 새 버전이 만들어집니다. 버전 관리를 사용 하면 시간에 따른 환경의 변화를 확인할 수 있습니다.
+예를 들어 Python 패키지를 추가 하 여 기존 환경을 변경 한다고 가정해 보겠습니다. 이렇게 하면 실행을 제출 하거나, 모델을 배포 하거나, 환경을 수동으로 등록할 때 환경의 새 버전을 만드는 데 시간이 걸립니다. 버전 관리를 사용 하면 시간에 따른 환경의 변화를 확인할 수 있습니다. 
 
 기존 환경에서 Python 패키지 버전을 업데이트 하려면 해당 패키지에 대 한 버전 번호를 지정 합니다. 정확한 버전 번호를 사용 하지 않는 경우 Azure Machine Learning는 원래 패키지 버전과 기존 환경을 다시 사용 합니다.
 
@@ -233,9 +244,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
+먼저 메서드를 사용 하 여 이미지를 로컬로 빌드하는 것이 유용 [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) 합니다. 선택적 매개 변수를 설정 하면 `pushImageToWorkspaceAcr = True` 결과 이미지가 AZURE ML 작업 영역 컨테이너 레지스트리로 푸시됩니다. 
+
 ## <a name="enable-docker"></a>Docker 사용
 
- [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)Azure Machine Learning 클래스의를 사용 하 여 학습을 실행 하는 `Environment` 게스트 운영 체제를 세밀 하 게 사용자 지정 하 고 제어할 수 있습니다.
+[`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)Azure Machine Learning 클래스의를 사용 하 여 학습을 실행 하는 `Environment` 게스트 운영 체제를 세밀 하 게 사용자 지정 하 고 제어할 수 있습니다. `arguments`변수는 Docker run 명령에 전달할 추가 인수를 지정 하는 데 사용할 수 있습니다.
 
 Docker를 사용 하도록 설정 하면 서비스에서 Docker 이미지를 빌드합니다. 또한 해당 Docker 컨테이너 내에서 사양을 사용 하는 Python 환경을 만듭니다. 이 기능은 학습 실행에 대 한 추가 격리 및 재현 가능성을 제공 합니다.
 
@@ -246,7 +259,7 @@ myenv.docker.enabled = True
 
 기본적으로 새로 빌드된 Docker 이미지는 작업 영역과 연결 된 컨테이너 레지스트리에 나타납니다.  리포지토리 이름의 형식은 *azureml/azureml_ \<uuid\> *입니다. 이름의 고유 식별자 (*uuid*) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이러한 대응을 통해 서비스는 지정 된 환경의 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
 
-또한 서비스는 Ubuntu Linux 기반 [기본 이미지](https://github.com/Azure/AzureML-Containers)중 하나를 자동으로 사용 합니다. 지정 된 Python 패키지를 설치 합니다. 기본 이미지에는 CPU 버전과 GPU 버전이 있습니다. Azure Machine Learning는 사용할 버전을 자동으로 검색 합니다.
+또한 서비스는 Ubuntu Linux 기반 [기본 이미지](https://github.com/Azure/AzureML-Containers)중 하나를 자동으로 사용 합니다. 지정 된 Python 패키지를 설치 합니다. 기본 이미지에는 CPU 버전과 GPU 버전이 있습니다. Azure Machine Learning는 사용할 버전을 자동으로 검색 합니다. 또한 [사용자 지정 Docker 기본 이미지](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image)를 사용할 수 있습니다.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -254,7 +267,7 @@ myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 ```
 
-사용자 지정 Dockerfile을 지정할 수도 있습니다. Docker 명령을 사용 하 여 Azure Machine Learning 기본 이미지 중 하나에서 시작한 ```FROM``` 후 고유한 사용자 지정 단계를 추가 하는 것이 가장 간단 합니다. 비 Python 패키지를 종속성으로 설치 해야 하는 경우이 방법을 사용 합니다.
+사용자 지정 Dockerfile을 지정할 수도 있습니다. Docker 명령을 사용 하 여 Azure Machine Learning 기본 이미지 중 하나에서 시작한 ```FROM``` 후 고유한 사용자 지정 단계를 추가 하는 것이 가장 간단 합니다. 비 Python 패키지를 종속성으로 설치 해야 하는 경우이 방법을 사용 합니다. 기본 이미지를 None으로 설정 해야 합니다.
 
 ```python
 # Specify docker steps as a string. Alternatively, load the string from a file.
@@ -272,9 +285,9 @@ myenv.docker.base_dockerfile = dockerfile
 
 사용자 지정 기본 이미지에 사용 하려는 패키지가 포함 된 Python 환경이 이미 있는 경우도 있습니다.
 
-기본적으로 Azure Machine Learning 서비스는 사용자가 지정한 종속성이 있는 Conda 환경을 빌드하고 기본 이미지에 설치한 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다. 
+기본적으로 Azure Machine Learning 서비스는 사용자가 지정한 종속성이 있는 Conda 환경을 빌드하고 기본 이미지에 설치한 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다. Conda 환경은 사용자 지정 기본 이미지에서 격리 되므로 다른 위치에 설치 된 패키지는 포함 되지 않습니다.
 
-설치 된 패키지를 사용 하려면 매개 변수를 설정 `Environment.python.user_managed_dependencies = True` 합니다. 기본 이미지에 Python 인터프리터가 포함 되어 있고 학습 스크립트에 필요한 패키지를 포함 하는지 확인 합니다.
+설치 된 패키지를 사용 하 고 Conda를 사용 하지 않도록 설정 하려면 매개 변수를 설정 `Environment.python.user_managed_dependencies = True` 합니다. 기본 이미지에 Python 인터프리터가 포함 되어 있고 학습 스크립트에 필요한 패키지를 포함 하는지 확인 합니다.
 
 예를 들어 NumPy 패키지가 설치 된 기본 Miniconda 환경에서 실행 하려면 먼저 패키지를 설치 하는 단계를 포함 하는 Dockerfile을 지정 합니다. 그런 다음 사용자 관리 종속성을로 설정 `True` 합니다. 
 

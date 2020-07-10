@@ -1,0 +1,95 @@
+### YamlMime:Landing
+title: Azure 예약을 사용하여 저장
+summary: Azure Reservations에서 가상 머신, Azure Blob 스토리지 또는 Azure Data Lake Storage Gen2, SQL Database 컴퓨팅 용량, Azure Cosmos DB 처리량 및 기타 Azure 리소스에 대한 1년 또는 3년 요금제를 약정하여 비용을 절감하는 데 어떤 도움이 되는지 알아보세요.
+metadata:
+  title: Azure 예약을 사용하여 저장
+  description: Azure Reservations에서 가상 머신, Azure Blob 스토리지 또는 Azure Data Lake Storage Gen2, SQL Database 컴퓨팅 용량, Azure Cosmos DB 처리량 및 기타 Azure 리소스에 대한 1년 또는 3년 요금제를 약정하여 비용을 절감하는 데 어떤 도움이 되는지 알아보세요.
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 04/30/2020
+  ms.openlocfilehash: 4706c13d6c9e354c6c7ca382f724a7b1094bdda3
+  ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/09/2020
+  ms.locfileid: "86207122"
+landingContent:
+- title: 예약 구매
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure 예약이란?
+      url: save-compute-costs-reservations.md
+    - text: 예약 변경 및 환불
+      url: exchange-and-refund-azure-reservations.md
+    - text: 월별 결제로 예약 구입
+      url: monthly-payments-reservations.md
+  - linkListType: how-to-guide
+    links:
+    - text: 예약 갱신
+      url: reservation-renew.md
+    - text: Azure Synapse Analytics
+      url: prepay-sql-data-warehouse-charges.md
+    - text: 가상 머신
+      url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: Azure Storage
+      url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: Cosmos DB
+      url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+    - text: SQL Database
+      url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+    - text: Azure Data Explorer
+      url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
+    - text: Azure Databricks
+      url: prepay-databricks-reserved-capacity.md
+    - text: App Service
+      url: prepay-app-service-isolated-stamp.md
+    - text: Azure 소프트웨어 플랜
+      url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
+- title: 할인이 적용되는 방법 알아보기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 예약된 VM 인스턴스
+      url: ../manage/understand-vm-reservation-charges.md
+    - text: Azure Storage 예약 용량
+      url: understand-storage-charges.md
+    - text: Cosmos DB 예약된 용량
+      url: understand-cosmosdb-reservation-charges.md
+    - text: SQL Database 예약된 용량
+      url: understand-reservation-charges.md
+    - text: Azure Synapse Analytics
+      url: reservation-discount-azure-sql-dw.md
+    - text: Azure Data Explorer
+      url: understand-azure-data-explorer-reservation-charges.md
+    - text: Azure Databricks
+      url: reservation-discount-databricks.md
+    - text: App Service
+      url: reservation-discount-app-service-isolated-stamp.md
+    - text: Azure 소프트웨어 요금
+      url: understand-suse-reservation-charges.md
+- title: Azure Database에 할인이 적용되는 방법
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Database for MySQL
+      url: understand-reservation-charges-mysql.md
+    - text: Azure Database for PostgreSQL
+      url: understand-reservation-charges-postgresql.md
+    - text: Azure Database for MariaDB
+      url: understand-reservation-charges-mariadb.md
+- title: 예약 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 예약 관리
+      url: manage-reserved-vm-instance.md
+    - text: 예약 보기
+      url: view-reservations.md
+  - linkListType: reference
+    links:
+    - text: 예약 API
+      url: reservation-apis.md

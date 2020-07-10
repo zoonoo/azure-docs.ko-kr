@@ -8,11 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466173"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206905"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 연결을 위한 개인 끝점 만들기
 
@@ -43,8 +44,8 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Subscription | 구독을 선택합니다.|
-    | Resource group | **새로 만들기**를 선택 하 고 *myresourcegroup*을 입력 한 다음 **확인** 을 선택 합니다. |
+    | 구독 | 구독 선택|
+    | 리소스 그룹 | **새로 만들기**를 선택 하 고 *myresourcegroup*을 입력 한 다음 **확인** 을 선택 합니다. |
     | 이름 | *MyVirtualNetwork* 입력 |
     | 지역 | 원하는 지역 선택 |
     |||
@@ -59,7 +60,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. **새 Search Service-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -80,16 +81,16 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. **개인 끝점 만들기**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | 위치 | **미국 서부**를 선택합니다.|
-    | 이름 |  *MyPrivateEndpoint*를 입력 합니다.  |
+    | Name | *myPrivateEndpoint*를 입력합니다.  |
     | 대상 하위 리소스 | 기본 **Searchservice**를 그대로 둡니다. |
     | **네트워킹** |  |
-    | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
-    | 서브넷 |  *mySubnet*을 선택합니다. |
+    | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
+    | 서브넷 | *mySubnet*을 선택합니다. |
     | **프라이빗 DNS 통합** |  |
     | 프라이빗 DNS 영역과 통합  | 기본값 **예**를 그대로 둡니다. |
     | 프라이빗 DNS 영역  | 기본값인 * * (New) privatelink.search.windows.net * *를 그대로 둡니다. |
@@ -113,7 +114,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -188,7 +189,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 검색 서비스 끝점이 개인 인 경우 일부 포털 기능이 사용 하지 않도록 설정 됩니다. 서비스 수준 설정을 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 다른 구성 요소에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다.
 
-1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 
 1. ' Nslookup [검색 서비스 이름]. windows. n e t. net '을 입력 합니다.
 
@@ -206,7 +207,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 1. VM에서 빠른 시작을 완료 하는 것은 서비스가 완전히 작동 하는지 확인 하는 것입니다.
 
-1.  *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
+1. *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
 
 1. 공용 끝점에서 서비스에 액세스할 수 없는지 확인 하려면 로컬 워크스테이션에서 Postman을 열고 빠른 시작에서 처음 몇 가지 작업을 시도 합니다. 원격 서버가 존재 하지 않는다는 오류가 표시 되 면 검색 서비스에 대 한 개인 끝점을 성공적으로 구성 합니다.
 

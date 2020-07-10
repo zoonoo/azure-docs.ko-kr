@@ -81,6 +81,10 @@
               href: samples/resource-manager-alerts-metric.md
             - name: 작업 그룹
               href: samples/resource-manager-action-groups.md
+        - name: Application Insights
+          items:
+            - name: 리소스 만들기
+              href: samples/resource-manager-app-resource.md
         - name: 진단 설정
           href: samples/resource-manager-diagnostic-settings.md
         - name: Log Analytics 작업 영역

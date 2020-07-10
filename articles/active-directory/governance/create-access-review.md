@@ -11,15 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 06/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661339545f2c3f01ffd2e07b0fad08de8ac90278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078873"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204037"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
@@ -27,7 +28,7 @@ ms.locfileid: "85078873"
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자
@@ -105,7 +106,7 @@ ms.locfileid: "85078873"
 
 1. 추가 설정을 지정하려면 **고급 설정** 섹션을 확장합니다.
 
-    ![액세스 검토-고급 설정 만들기](./media/create-access-review/advanced-settings.png)
+    ![액세스 검토-고급 설정 만들기](./media/create-access-review/advanced-settings-preview.png)
 
 1. **권장 사항 표시**를 **사용**으로 설정하면 사용자의 액세스 정보에 따라 검토자에게 시스템 권장 사항이 표시됩니다.
 
@@ -113,9 +114,14 @@ ms.locfileid: "85078873"
 
 1. **메일 알림**을 **사용**으로 설정하면 Azure AD는 액세스 검토가 시작될 때 검토자에게 이메일 알림을 보내고 검토가 완료될 때 관리자에게 이메일 알림을 보냅니다.
 
-1. **미리 알림**을 **사용**으로 설정하면 Azure AD는 검토를 완료하지 않은 검토자에게 진행 중인 액세스 검토에 대한 미리 알림을 보냅니다.
+1. **미리 알림**을 **사용**으로 설정하면 Azure AD는 검토를 완료하지 않은 검토자에게 진행 중인 액세스 검토에 대한 미리 알림을 보냅니다. 
 
-    Azure AD에서는 기본적으로 아직 응답하지 않은 검토자에게 종료일 중간에 미리 알림을 자동으로 보냅니다.
+    >[!NOTE]
+    > 기본적으로 Azure AD는 아직 응답 하지 않은 검토자에 게 종료 날짜를 중간으로 미리 알림을 자동으로 보냅니다.
+
+1. 모드 검토자에 게 보내는 전자 메일의 내용은 검토 이름, 리소스 이름, 기한 등의 검토 정보에 따라 자동으로 생성 됩니다. 추가 지침이 나 연락처 정보와 같은 추가 정보를 전달 하는 방법이 필요한 경우 할당 된 검토자에 게 전송 되는 초대 및 미리 알림 전자 메일에 포함 되는 검토자의 추가 내용 전자 메일에 이러한 세부 정보를 지정할 수 있습니다. 아래 강조 표시 된 섹션은이 정보가 표시 되는 위치입니다.
+
+    ![그룹에 대 한 사용자 액세스 검토](./media/create-access-review/review-users-access-group.png)
 
 ## <a name="start-the-access-review"></a>액세스 검토 시작
 

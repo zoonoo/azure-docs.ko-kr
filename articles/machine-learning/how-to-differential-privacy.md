@@ -1,5 +1,5 @@
 ---
-title: WhiteNoise 패키지를 사용하여 데이터 프라이버시를 유지하는 방법
+title: WhiteNoise 패키지를 사용 하 여 데이터 개인 정보를 유지 하는 방법 (미리 보기)
 titleSuffix: Azure Machine Learning
 description: WhiteNoise 패키지를 사용하여 Azure Machine Learning 모델에 대한 차등 프라이버시 모범 사례를 적용하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
-ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 0ef20eee7e73c3a73a2f2e895242d7c1fce307c9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981849"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206347"
 ---
-# <a name="use-differential-privacy-in-azure-machine-learning"></a>Azure Machine Learning에서 차등 프라이버시 사용
+# <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Azure Machine Learning에서 차등 개인 정보 사용 (미리 보기)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

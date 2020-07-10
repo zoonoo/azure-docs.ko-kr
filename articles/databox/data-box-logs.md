@@ -1,36 +1,37 @@
 ---
-title: 추적 및 로그 Azure Data Box, Azure Data Box Heavy 이벤트 | Microsoft Docs
-description: Azure Data Box의 다양 한 단계에서 이벤트를 추적 하 고 기록 하는 방법 및 Azure Data Box Heavy 순서를 설명 합니다.
+title: Import order에 대 한 Azure Data Box, Azure Data Box Heavy 이벤트 추적 및 기록 | Microsoft Docs
+description: Azure Data Box의 다양 한 단계에서 이벤트를 추적 및 기록 하 고 가져오기 순서를 Azure Data Box Heavy 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676403"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204303"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에 대 한 추적 및 이벤트 로깅
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Azure Data Box에 대 한 추적 및 이벤트 로깅 및 Azure Data Box Heavy 가져오기 순서
 
-Data Box 또는 Data Box Heavy 순서는 순서, 설정, 데이터 복사, 반환, Azure에 업로드 및 확인 및 데이터 지우기 단계를 거칩니다. 주문에 대 한 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
+Data Box 또는 Data Box Heavy 가져오기 순서는 순서, 설정, 데이터 복사, 반환, Azure에 업로드 및 확인 및 데이터 지우기와 같은 단계를 거칩니다. 주문에 대 한 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
 
-다음 표에서는 각 단계에서 순서를 추적 하 고 감사 하는 데 사용할 수 있는 Data Box 또는 Data Box Heavy 주문 단계 및 도구에 대 한 요약을 보여 줍니다.
+다음 표에서는 Data Box 또는 Data Box Heavy 가져오기 순서 단계를 요약 하 고 각 단계에서 주문을 추적 하 고 감사 하는 데 사용할 수 있는 도구를 보여 줍니다.
 
-| Data Box 주문 단계       | 추적 및 감사 도구                                                                        |
+| Data Box 가져오기 순서 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 주문 만들기               | [RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
-| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
+| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure Portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.                                              |
 | 장치에 데이터 복사        | 데이터 복사를 위한 [ *error.xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
 | 배송 준비            | 장치에서 BOM 파일 또는 매니페스트 파일 [을 검사 합니다](#inspect-bom-during-prepare-to-ship) .                                      |
 | Azure에 데이터 업로드       | Azure 데이터 센터에서 데이터를 업로드 하는 동안 오류에 대 한 [복사 로그 검토](#review-copy-log-during-upload-to-azure)                         |
 | 장치에서 데이터 지우기   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
 
-이 문서에서는 Data Box 또는 Data Box Heavy 순서를 추적 하 고 감사 하는 데 사용할 수 있는 다양 한 메커니즘 또는 도구에 대해 자세히 설명 합니다. 이 문서의 정보는, Data Box 및 Data Box Heavy에 모두 적용 됩니다. 이후 섹션에서는 Data Box에 대 한 모든 참조가 Data Box Heavy에도 적용 됩니다.
+이 문서에서는 Data Box 또는 Data Box Heavy 가져오기 순서를 추적 하 고 감사 하는 데 사용할 수 있는 다양 한 메커니즘 또는 도구에 대해 자세히 설명 합니다. 이 문서의 정보는 Data Box 및 Data Box Heavy 가져오기 주문 모두에 적용 됩니다. 이후 섹션에서는 Data Box에 대 한 모든 참조가 Data Box Heavy에도 적용 됩니다.
 
 ## <a name="set-up-access-control-on-the-order"></a>주문에 대 한 액세스 제어 설정
 

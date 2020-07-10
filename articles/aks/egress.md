@@ -5,11 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용�
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80803385"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205785"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 송신 트래픽에 고정 공용 IP 주소 사용
 
@@ -22,6 +23,9 @@ ms.locfileid: "80803385"
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+
+> [!IMPORTANT]
+> 이 문서에서는 단일 노드 풀로 *기본* SKU 부하 분산 장치를 사용 합니다. *기본* SKU 부하 분산 장치는 여러 노드 풀에서 지원 되지 않으므로이 구성은 여러 노드 풀에 사용할 수 없습니다. *표준* SKU 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 공용 표준 LOAD BALANCER 사용 (AKS)][slb] 을 참조 하세요.
 
 ## <a name="egress-traffic-overview"></a>송신 트래픽 개요
 
@@ -92,7 +96,7 @@ spec:
 kubectl apply -f egress-service.yaml
 ```
 
-이 서비스는 Azure Load Balancer에서 새 프런트 엔드 IP를 구성합니다. 다른 IP를 구성하지 않은 경우에는 **모든** 송신 트래픽에 이 주소가 사용되어야 합니다. Azure Load Balancer에 여러 주소가 구성되어 있는 경우에는 Load Balancer의 첫 번째 IP가 송신에 사용됩니다.
+이 서비스는 Azure Load Balancer에서 새 프런트 엔드 IP를 구성합니다. 다른 IP를 구성하지 않은 경우에는 **모든** 송신 트래픽에 이 주소가 사용되어야 합니다. Azure Load Balancer에 여러 주소가 구성 된 경우 이러한 공용 IP 주소는 아웃 바운드 흐름의 후보가 되며 하나는 임의로 선택 됩니다.
 
 ## <a name="verify-egress-address"></a>송신 주소 확인
 
@@ -133,3 +137,4 @@ Azure Load Balancer에 공용 IP 주소가 여러 개 유지되지 않도록 하
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

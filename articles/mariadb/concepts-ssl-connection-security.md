@@ -5,12 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 4111b0b01690097535412205b60619172e2c100a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 2b166c1907a538d528ddabe3f2c53a962664eaa0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416659"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203884"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 SSL/TLS 연결
 Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용하여 데이터베이스 서버를 클라이언트 애플리케이션에 연결하도록 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -19,6 +20,10 @@ Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용하여 데이�
 기본적으로 데이터베이스 서비스는 MariaDB에 연결할 때 SSL 연결이 필요하도록 구성되어야 합니다.  가능하면 SSL 옵션을 해제하지 않는 것이 좋습니다.
 
 Azure Portal 및 CLI를 통해 새로운 Azure Database for MariaDB 서버를 프로비전할 때 SSL 연결 적용이 기본적으로 활성화됩니다.
+
+경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. Azure Database for MariaDB 서버에 연결할 인증서는에 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem 있습니다. 
+
+소 버린 클라우드의 서버 인증서에 대 한 다음 링크 ( [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure 중국](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)및 [azure 독일](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt))를 참조 하세요.
 
 다양한 프로그래밍 언어에 대한 연결 문자열이 Azure Portal에 표시됩니다. 이러한 연결 문자열에는 데이터베이스에 연결하는 데 필요한 SSL 매개 변수가 포함되어 있습니다. Azure Portal에서 VM을 선택합니다. **설정** 제목 아래에서 **연결 문자열**을 선택합니다. SSL 매개 변수는 “ssl=true” 또는 “sslmode=require” 또는 “sslmode=required” 및 다른 변형과 같은 커넥터에 따라 달라집니다.
 
@@ -43,9 +48,9 @@ Azure Database for MariaDB은 클라이언트 연결에 TLS 버전을 적용할 
 예를 들어 최소 TLS 설정 버전 값을 TLS 1.0로 설정 하면 서버에서 TLS 1.0, 1.1 및 1.2 +를 사용 하는 클라이언트의 연결을 허용 한다는 의미입니다. 또는이를 1.2로 설정 하면 TLS 1.2 +를 사용 하는 클라이언트만 연결을 허용 하 고 TLS 1.0 및 TLS 1.1를 사용 하는 모든 연결이 거부 됩니다.
 
 > [!Note] 
-> Azure Database for MariaDB 기본값은 모든 새 서버에서 TLS를 사용 하지 않도록 설정 됩니다. 
+> 기본적으로 Azure Database for MariaDB는 최소 TLS 버전 (설정)을 적용 하지 않습니다 `TLSEnforcementDisabled` .
 >
-> 현재 Azure Database for MariaDB에서 지 원하는 TLS 버전은 TLS 1.0, 1.1 및 1.2입니다. 특정 최소 TLS 버전에 적용 한 후에는 사용 안 함으로 변경할 수 없습니다.
+> 최소 TLS 버전을 적용 한 후에는 나중에 최소 버전 적용을 사용 하지 않도록 설정할 수 없습니다.
 
 Azure Database for MariaDB에 대 한 TLS 설정을 설정 하는 방법에 대 한 자세한 내용은 [tls 설정을 구성 하는 방법](howto-tls-configurations.md)을 참조 하세요.
 

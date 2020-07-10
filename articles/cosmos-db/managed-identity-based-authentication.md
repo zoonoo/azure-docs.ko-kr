@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: dfce18674f382cb683fa74a1bed964e9f86d72c2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970963"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206113"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 id를 사용 하 여 Azure Cosmos DB 데이터에 액세스
 
@@ -53,6 +53,8 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
 이 시나리오에서 함수 앱은 aquarium의 온도를 읽은 다음 해당 데이터를 Azure Cosmos DB의 컨테이너에 다시 씁니다. 함수 앱은 데이터를 작성 해야 하므로 **DocumentDB 계정 참가자** 역할을 할당 해야 합니다. 
 
+### <a name="assign-the-role-using-azure-portal"></a>Azure Portal를 사용 하 여 역할 할당
+
 1. Azure Portal에 로그인 하 여 Azure Cosmos DB 계정으로 이동 합니다. **액세스 제어 (IAM)** 창을 열고 **역할 할당** 탭을 클릭 합니다.
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="액세스 제어 창과 역할 할당 탭을 보여 주는 스크린샷":::
@@ -70,6 +72,18 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="예제로 채워진 역할 할당 추가 창을 보여 주는 스크린샷":::
 
 1. 함수 앱을 선택한 후 **저장**을 선택 합니다.
+
+### <a name="assign-the-role-using-azure-cli"></a>Azure CLI를 사용 하 여 역할 할당
+
+Azure CLI를 사용 하 여 역할을 할당 하려면 다음 명령을 사용 합니다.
+
+```azurecli-interactive
+$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+
+$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
 
 ## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>프로그래밍 방식으로 Azure Cosmos DB 키에 액세스
 

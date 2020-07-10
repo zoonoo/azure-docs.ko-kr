@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508251"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204447"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 관리(업데이트 3 이후)
 
@@ -51,7 +51,7 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 
 각 디바이스 및 볼륨 유형에 대한 최대 프로비전된 용량에 대해 다음 표를 참조하세요. (로컬로 고정된 볼륨은 가상 디바이스에서 사용할 수 없습니다.)
 
-|  | 최대 계층화된 볼륨 크기 | 최대 로컬로 고정된 볼륨 크기 |
+| 형식 | 최대 계층화된 볼륨 크기 | 최대 로컬로 고정된 볼륨 크기 |
 | --- | --- | --- |
 | **물리적 디바이스** | | |
 | 8100 |64TB |8 TB |

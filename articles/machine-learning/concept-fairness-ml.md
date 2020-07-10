@@ -1,5 +1,5 @@
 ---
-title: 기계 학습 모델의 공평 문제 평가 및 완화
+title: 기계 학습 모델 (미리 보기)의 공평 문제 평가 및 완화
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델의 공정성에 대한 내용과 Fairlearn Python 패키지로 보다 공정한 모델을 빌드하는 방법을 알아봅니다.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: c4e9b8386c8341d076a69e2e81b5e92f296153ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611784"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207295"
 ---
-# <a name="build-fairer-machine-learning-models"></a>Fairer machine learning 모델 빌드
+# <a name="build-fairer-machine-learning-models-preview"></a>Fairer machine learning 모델 빌드 (미리 보기)
 
 기계 학습에서 공평 하 고 [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지를 통해 보다 공평 하 게 모델을 빌드하는 방법을 알아보세요. 향상 된 문제를 이해 하 고 기계 학습 모델을 빌드할 때 공평 하 게 평가 하는 데 도움이 되지 않는 경우 불공정 거래법 결과를 생성 하는 모델을 작성할 수 있습니다. 
 

@@ -1,7 +1,7 @@
 ---
-title: 모듈 오류 문제 해결
+title: 디자이너 (미리 보기) 모듈 오류 문제 해결
 titleSuffix: Azure Machine Learning
-description: 오류 코드를 사용하여 Azure Machine Learning 디자이너의 모듈 예외 문제 해결
+description: Azure Machine Learning 디자이너에서 모듈 오류 코드 문제 해결 (미리 보기)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,12 @@ ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b477fbf0744304b28b3f4ef06271ce7728800bf
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213757"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206995"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>디자이너에 대한 예외 및 오류 코드(미리 보기)
 

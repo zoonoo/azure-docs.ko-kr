@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848221"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207542"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer 질문과 대답
 
@@ -49,5 +49,9 @@ nslookup 명령을 사용하여 OpenDNS 확인자에 myip.opendns.com이라는 �
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>동일한 지역에서 Azure Storage에 대 한 연결은 어떻게 작동 하나요?
 위의 시나리오를 통한 아웃바운드 연결은 VM과 동일한 지역에 있는 스토리지에 연결하는 데 필요하지 않습니다. 이를 원하지 않는 경우 위에서 설명한 대로 NSG(네트워크 보안 그룹)를 사용합니다. 다른 지역의 스토리지에 연결하려면 아웃바운드 연결이 필요합니다. 동일한 지역의 VM에서 스토리지에 연결하는 경우 스토리지 진단 로그의 원본 IP 주소는 VM의 공용 IP 주소가 아니라 내부 공급자 주소가 됩니다. 동일한 지역에서 하나 이상의 Virtual Network 서브넷에 있는 VM에 대한 스토리지 계정에 액세스를 제한하려면 스토리지 계정 방화벽을 구성할 때 공용 IP 주소가 아니라 [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 사용합니다. 서비스 엔드포인트가 구성되면 내부 공급자 주소가 아닌 스토리지 진단 로그에 Virtual Network 개인 IP 주소가 표시됩니다.
 
+## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>아웃 바운드 연결에 대 한 가장 좋은 practises 무엇 인가요?
+표준 Load Balancer 및 표준 공용 IP에는 아웃 바운드 연결에 대 한 기능 및 다른 동작이 도입 되었습니다. 이는 기본 SKU와 동일하지 않습니다. 표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다. 여기에는 내부 표준 Load Balancer를 사용할 때 아웃바운드 연결을 만드는 작업이 포함됩니다. 표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다. 즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다. 단일 독립 실행형 VM, 가용성 집합의 모든 VM에 대 한 아웃 바운드 연결의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 동작 합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다. 이 동작은 부하 분산 장치에 여러 개의 네트워크 인터페이스 카드가 연결된 독립 실행형 VM의 경우에도 관찰됩니다. 하나의 NIC를 독립 실행형으로 추가하면 동일한 동작이 발생합니다. 전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-connections.md#outboundrules)을 검토하려면 이 전체 문서를 검토합니다.
+아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
+ 
 ## <a name="next-steps"></a>다음 단계
 위에 나열 되지 않은 경우 질문에 대 한 피드백을 보내 주세요. 이렇게 하면 제품 팀에 대 한 GitHub 문제를 만들어 모든 중요 한 고객 질문이 답변 되었는지 확인할 수 있습니다.

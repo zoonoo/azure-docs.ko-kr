@@ -1,22 +1,23 @@
 ---
-title: 암호화된 추론 서비스 배포
+title: 암호화 된 추론 서비스 (미리 보기) 배포
 titleSuffix: Azure Machine Learning
 description: Microsoft SEAL을 사용하여 이미지 분류를 위한 암호화된 예측 서비스를 배포하는 방법 알아보기
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
-ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560188"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206792"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>암호화된 추론 서비스 배포 방법
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>암호화 된 추론 웹 서비스를 배포 하는 방법 (미리 보기)
 
 [ACI(Azure Container Instance)](https://docs.microsoft.com/azure/container-instances/)에서 암호화된 추론 서비스로 이미지 분류 모델을 배포하는 방법을 알아봅니다. 웹 서비스는 모델 및 채점 로직을 포함하는 Docker 컨테이너 이미지입니다.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: cb6ebdcae837216efac5b9333789dee032219251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738093"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206868"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Express 경로 개인 피어 링에 대 한 백업으로 S2S VPN 사용
 
@@ -71,19 +71,23 @@ ms.locfileid: "84738093"
 
 Express 경로 회로의 기본 연결을 통해 기본 CE 라우터에 대 한 온-프레미스 경로 보급 알림은 아래 (Junos commands)에 표시 됩니다.
 
-    user@SEA-MX03-01> show route advertising-protocol bgp 192.168.11.18 
+```console
+user@SEA-MX03-01> show route advertising-protocol bgp 192.168.11.18 
 
-    Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
+```
 
 Express 경로 회로의 보조 연결을 통해 보조 CE 라우터의 온-프레미스 경로 보급 알림은 아래 (Junos commands)에 표시 됩니다.
 
-    user@SEA-MX03-02> show route advertising-protocol bgp 192.168.11.22 
+```console
+user@SEA-MX03-02> show route advertising-protocol bgp 192.168.11.22 
 
-    Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
+```
 
 백업 연결의 고가용성을 향상 시키기 위해 S2S VPN도 활성-활성 모드에서 구성 됩니다. Azure VPN gateway 구성은 다음과 같습니다. 참고 VPN 구성의 일부로 게이트웨이의 BGP 피어 IP 주소 (10.17.11.76 및 10.17.11.77)도 나열 됩니다.
 
@@ -91,18 +95,20 @@ Express 경로 회로의 보조 연결을 통해 보조 CE 라우터의 온-프�
 
 온-프레미스 경로는 방화벽에서 VPN 게이트웨이의 기본 및 보조 BGP 피어로 보급 됩니다. 경로 알림은 아래에 표시 됩니다 (Junos).
 
-    user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.76 
+```console
+user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.76 
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
 
-    {primary:node0}
-    user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.77    
+{primary:node0}
+user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.77    
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
+```
 
 >[!NOTE] 
 >활성-활성 모드에서 S2S VPN을 구성 하는 것은 재해 복구 백업 네트워크 연결에 대 한 고가용성을 제공할 뿐만 아니라 백업 연결에 대 한 높은 처리량도 제공 합니다. 즉, 활성-활성 모드에서 S2S VPN을 구성 하는 것은 여러 기본 터널을 강제로 만들도록 하는 것이 좋습니다.
@@ -116,66 +122,70 @@ Express 경로 및 S2S VPN을 통해 지정 된 온-프레미스 경로를 보�
 
 Express 경로 회로의 기본 연결을 종료 하는 기본 CE 라우터의 BGP 구성은 아래와 같습니다. IBGP 세션을 통해 보급 된 경로의 로컬 기본 설정 값은 150로 구성 됩니다. 마찬가지로 Express 경로 회로의 보조 연결을 종료 하는 보조 CE 라우터의 로컬 기본 설정도 150으로 구성 되어 있는지 확인 해야 합니다.
 
-    user@SEA-MX03-01> show configuration routing-instances Cust11 
-    description "Customer 11 VRF";
-    instance-type virtual-router;
-    interface xe-0/0/0:0.110;
-    interface ae0.11;
-    protocols {
-      bgp {
-        group ibgp {
-            type internal;
-            local-preference 150;
-            neighbor 192.168.11.1;
-        }
-        group ebgp {
-            peer-as 12076;
-            bfd-liveness-detection {
-                minimum-interval 300;
-                multiplier 3;
-            }
-            neighbor 192.168.11.18;
-        }
-      }
+```console
+user@SEA-MX03-01> show configuration routing-instances Cust11
+description "Customer 11 VRF";
+instance-type virtual-router;
+interface xe-0/0/0:0.110;
+interface ae0.11;
+protocols {
+  bgp {
+    group ibgp {
+        type internal;
+        local-preference 150;
+        neighbor 192.168.11.1;
     }
+    group ebgp {
+        peer-as 12076;
+        bfd-liveness-detection {
+            minimum-interval 300;
+            multiplier 3;
+        }
+        neighbor 192.168.11.18;
+    }
+  }
+}
+```
 
 온-프레미스 방화벽의 라우팅 테이블은 Azure를 대상으로 하는 온-프레미스 트래픽에 대해 기본 경로가 안정 된 상태에서 Express 경로를 초과 하는 것을 확인 합니다 (아래 참조).
 
-    user@SEA-SRX42-01> show route table Cust11.inet.0 10.17.11.0/24    
+```console
+user@SEA-SRX42-01> show route table Cust11.inet.0 10.17.11.0/24
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-    + = Active Route, - = Last Active, * = Both
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
 
-    10.17.11.0/25      *[BGP/170] 2d 00:34:04, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.0 via reth1.11
-                          to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 00:34:01, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.118
-                        [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.119
-    10.17.11.76/32     *[Static/5] 2d 21:12:16
-                        > via st0.118
-    10.17.11.77/32     *[Static/5] 2d 00:41:56
-                        > via st0.119
-    10.17.11.128/26    *[BGP/170] 2d 00:34:04, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.0 via reth1.11
-                          to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 00:34:01, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.118
-                        [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.119
+10.17.11.0/25      *[BGP/170] 2d 00:34:04, localpref 150
+                      AS path: 12076 I, validation-state: unverified
+                    > to 192.168.11.0 via reth1.11
+                      to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 00:34:01, localpref 150
+                      AS path: 12076 I, validation-state: unverified
+                     > to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
+                       AS path: 65515 I, validation-state: unverified
+                    > via st0.118
+                    [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
+                       AS path: 65515 I, validation-state: unverified
+                     > via st0.119
+10.17.11.76/32     *[Static/5] 2d 21:12:16
+                     > via st0.118
+10.17.11.77/32     *[Static/5] 2d 00:41:56
+                    > via st0.119
+10.17.11.128/26    *[BGP/170] 2d 00:34:04, localpref 150
+                       AS path: 12076 I, validation-state: unverified
+                     > to 192.168.11.0 via reth1.11
+                       to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 00:34:01, localpref 150
+                      AS path: 12076 I, validation-state: unverified
+                     > to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
+                       AS path: 65515 I, validation-state: unverified
+                    > via st0.118
+                     [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
+                       AS path: 65515 I, validation-state: unverified
+                     > via st0.119
+```
 
 위의 경로 테이블에서 허브 및 스포크 VNet 경로 (-10.17.11.0/25 and 10.17.11.128/26--)에 대해 VPN 연결 보다 Express 경로 회로가 선호 됨을 확인할 수 있습니다. 192.168.11.0 및 192.168.11.2는 CE 라우터를 향하는 방화벽 인터페이스의 Ip입니다.
 
@@ -183,49 +193,54 @@ Express 경로 회로의 기본 연결을 종료 하는 기본 CE 라우터의 B
 
 이 문서의 앞부분에서 VPN 게이트웨이의 기본 및 보조 BGP 피어로 방화벽의 온-프레미스 경로 보급 알림을 확인 했습니다. 또한 VPN 게이트웨이의 기본 및 보조 BGP 피어에서 방화벽을 통해 수신 되는 Azure 경로를 확인 하겠습니다.
 
-    user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.76 table Cust11.inet.0 
+```console
+user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.76 table Cust11.inet.0 
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-      10.17.11.0/25           10.17.11.76                             65515 I
-      10.17.11.128/26         10.17.11.76                             65515 I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+  10.17.11.0/25           10.17.11.76                             65515 I
+  10.17.11.128/26         10.17.11.76                             65515 I
 
-    {primary:node0}
-    user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.77 table Cust11.inet.0    
+{primary:node0}
+user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.77 table Cust11.inet.0    
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-      10.17.11.0/25           10.17.11.77                             65515 I
-      10.17.11.128/26         10.17.11.77                             65515 I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+  10.17.11.0/25           10.17.11.77                             65515 I
+  10.17.11.128/26         10.17.11.77                             65515 I
+```
 
 마찬가지로 Azure VPN gateway에서 받은 온-프레미스 네트워크 경로 접두사를 확인 합니다. 
 
-    PS C:\Users\user> Get-AzVirtualNetworkGatewayLearnedRoute -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn | where {$_.Network -eq "10.1.11.0/25"} | select Network, NextHop, AsPath, Weight
+```powershell
+PS C:\Users\user> Get-AzVirtualNetworkGatewayLearnedRoute -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn | where {$_.Network -eq "10.1.11.0/25"} | select Network, NextHop, AsPath, Weight
 
-    Network      NextHop       AsPath      Weight
-    -------      -------       ------      ------
-    10.1.11.0/25 192.168.11.88 65020        32768
-    10.1.11.0/25 10.17.11.76   65020        32768
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
-    10.1.11.0/25 192.168.11.88 65020        32768
-    10.1.11.0/25 10.17.11.77   65020        32768
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
+Network      NextHop       AsPath      Weight
+-------      -------       ------      ------
+10.1.11.0/25 192.168.11.88 65020        32768
+10.1.11.0/25 10.17.11.76   65020        32768
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+10.1.11.0/25 192.168.11.88 65020        32768
+10.1.11.0/25 10.17.11.77   65020        32768
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+```
 
 위에서 설명한 것 처럼 VPN gateway에는 VPN 게이트웨이의 기본 BGP 피어와 보조 BGP 피어를 모두 수신 하는 경로가 있습니다. 기본 및 보조 Express 경로 연결을 통해 수신 된 경로에 대 한 가시성도 있습니다 (AS-path 앞에 12076 앞에 있음). VPN 연결을 통해 수신 된 경로를 확인 하려면 연결의 온-프레미스 BGP 피어 IP를 알고 있어야 합니다. 고려 중인 설치의 경우 192.168.11.88이 고 여기에서 받은 경로를 볼 수 있습니다.
 
 다음으로, Azure VPN 게이트웨이에서 온-프레미스 방화벽 BGP 피어 (192.168.11.88)에 알린 경로를 확인 합니다.
 
-    PS C:\Users\user> Get-AzVirtualNetworkGatewayAdvertisedRoute -Peer 192.168.11.88 -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn |  select Network, NextHop, AsPath, Weight
+```powershell
+PS C:\Users\user> Get-AzVirtualNetworkGatewayAdvertisedRoute -Peer 192.168.11.88 -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn |  select Network, NextHop, AsPath, Weight
 
-    Network         NextHop     AsPath Weight
-    -------         -------     ------ ------
-    10.17.11.0/25   10.17.11.76 65515       0
-    10.17.11.128/26 10.17.11.76 65515       0
-    10.17.11.0/25   10.17.11.77 65515       0
-    10.17.11.128/26 10.17.11.77 65515       0
-
+Network         NextHop     AsPath Weight
+-------         -------     ------ ------
+10.17.11.0/25   10.17.11.76 65515       0
+10.17.11.128/26 10.17.11.76 65515       0
+10.17.11.0/25   10.17.11.77 65515       0
+10.17.11.128/26 10.17.11.77 65515       0
+```
 
 경로 교환에 대 한 실패는 연결 실패를 표시 합니다. [문제 해결: Azure 사이트 간 vpn 연결을 연결 하 고 작동을 중지][VPN Troubleshoot] 하 여 vpn 연결 문제 해결에 도움을 줍니다.
 
@@ -239,43 +254,51 @@ Express 경로 회로의 기본 연결을 종료 하는 기본 CE 라우터의 B
 
 트래픽 스위치를 수행 하기 전에 설정에서 현재 경로를 온-프레미스 테스트 서버에서 스포크 VNet의 테스트 VM으로 라우팅합니다.
 
-    C:\Users\PathLabUser>tracert 10.17.11.132
+```console
+C:\Users\PathLabUser>tracert 10.17.11.132
 
-    Tracing route to 10.17.11.132 over a maximum of 30 hops
+Tracing route to 10.17.11.132 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.11.1
-      2    <1 ms    <1 ms    11 ms  192.168.11.0
-      3    <1 ms    <1 ms    <1 ms  192.168.11.18
-      4     *        *        *     Request timed out.
-      5     6 ms     6 ms     5 ms  10.17.11.132
+  1    <1 ms    <1 ms    <1 ms  10.1.11.1
+  2    <1 ms    <1 ms    11 ms  192.168.11.0
+  3    <1 ms    <1 ms    <1 ms  192.168.11.18
+  4     *        *        *     Request timed out.
+  5     6 ms     6 ms     5 ms  10.17.11.132
 
-    Trace complete.
+Trace complete.
+```
 
 설치 프로그램의 기본 및 보조 Express 경로 지점 간 연결 서브넷은 각각 192.168.11.16/30 및 192.168.11.20/30입니다. 위의 추적 경로에서 3 단계에서는 기본 MSEE의 인터페이스 IP 인 192.168.11.18가 적중 되는 것을 확인할 수 있습니다. MSEE 인터페이스가 있으면 현재 경로가 Express 경로를 초과 하 고 있음을 확인 합니다.
 
 [Express 경로 회로 피어][RST]링에서 보고 된 것 처럼 다음 powershell 명령을 사용 하 여 express 경로 회로의 기본 피어 링과 보조 피어 링을 모두 사용 하지 않도록 설정 합니다.
 
-    $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
-    $ckt.Peerings[0].State = "Disabled"
-    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```powershell
+$ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
+$ckt.Peerings[0].State = "Disabled"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 장애 조치 (failover) 전환 시간은 BGP 수렴 시간에 따라 달라 집니다. 이 설정에서 장애 조치 (failover) 스위치는 몇 초 (10 개 미만)를 사용 합니다. 스위치 뒤에 경로 추적를 반복 하면 다음 경로가 표시 됩니다.
 
-    C:\Users\PathLabUser>tracert 10.17.11.132
+```console
+C:\Users\PathLabUser>tracert 10.17.11.132
 
-    Tracing route to 10.17.11.132 over a maximum of 30 hops
+Tracing route to 10.17.11.132 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.11.1
-      2     *        *        *     Request timed out.
-      3     6 ms     7 ms     9 ms  10.17.11.132
+  1    <1 ms    <1 ms    <1 ms  10.1.11.1
+  2     *        *        *     Request timed out.
+  3     6 ms     7 ms     9 ms  10.17.11.132
 
-    Trace complete.
+Trace complete.
+```
 
 경로 추적 결과는 S2S VPN을 통한 백업 연결이 활성 상태 인지 확인 하 고, 기본 및 보조 Express 경로 연결이 모두 실패 하면 서비스 연속성을 제공할 수 있습니다. 장애 조치 (failover) 테스트를 완료 하려면 다음 명령 집합을 사용 하 여 Express 경로 연결을 다시 사용 하도록 설정 하 고 트래픽 흐름을 정규화 하겠습니다.
 
-    $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
-    $ckt.Peerings[0].State = "Enabled"
-    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```powershell
+$ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
+$ckt.Peerings[0].State = "Enabled"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 트래픽이 Express 경로에 다시 전환 되었는지 확인 하려면 경로 추적를 반복 하 여 Express 경로 개인 피어 링을 통과 하는지 확인 합니다.
 

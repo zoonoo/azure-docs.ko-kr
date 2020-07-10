@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 3294a7b2112e9527041ef343f4452aedb7a2a272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39803ab88e5b252ef119d22a697e135c83f87780
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70073475"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205639"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>지역 간에 Azure API Management를 마이그레이션하는 방법
 한 Azure 지역에서 다른 지역으로 API Management 인스턴스를 마이그레이션하려면 [백업 및 복원](api-management-howto-disaster-recovery-backup-restore.md) 기능을 사용할 수 있습니다. 원본 및 대상 지역에서 동일한 API Management 가격 책정 계층을 선택 해야 합니다. 
@@ -47,3 +47,4 @@ ms.locfileid: "70073475"
 ## <a name="next-steps"></a><a name="next-steps"> </a>다음 단계
 * 백업 및 복원 기능에 대 한 자세한 내용은 [재해 복구를 구현 하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조 하세요.
 * Azure 리소스 마이그레이션에 대 한 자세한 내용은 [azure 지역 간 마이그레이션 지침](https://github.com/Azure/Azure-Migration-Guidance)을 참조 하세요.
+* [클라우드 비용을 최적화 하 고 비용을 절약](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하세요.

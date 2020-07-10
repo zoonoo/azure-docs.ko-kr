@@ -1,5 +1,5 @@
 ---
-title: Python에서 ML 모델의 공평 평가
+title: Python에서 ML 모델의 공평 평가 (미리 보기)
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 모델의 공평을 평가 하는 방법을 알아봅니다.
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 06/30/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 9e88b87a7f6471f6c7344cc5548c37e947f18791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f791ef9e18032ce6773f4262586431e693b43b2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660858"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206729"
 ---
-# <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 합니다.  
+# <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 861e011c4bd368a274998859170e78cf444400a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113061"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206169"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 이해
 
@@ -49,13 +50,17 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
 복합 개체의 컬렉션에 여러 필터 조건을 적용 하는 경우이 기준은 *컬렉션의 각 개체*에 적용 되므로 **상관 관계가** 지정 됩니다. 예를 들어 다음 필터는 100 미만의 deluxe 공간이 하나 이상 있는 호텔을 반환 합니다.
 
+```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
+```
 
 필터링이 *상관 관계가 없는*경우 위의 필터는 한 방 deluxe 하 고 다른 방에는 100 미만의 기본 요금이 있는 호텔을 반환할 수 있습니다. 람다 식의 두 절은 같은 범위 변수에 적용 되므로이는 의미가 `room` 없습니다. 이러한 필터가 상호 관련 되는 이유입니다.
 
 그러나 전체 텍스트 검색에는 특정 범위 변수를 참조할 수 있는 방법이 없습니다. 필드 지정 search를 사용 하 여 다음과 같은 [전체 Lucene 쿼리](query-lucene-syntax.md) 를 실행 하는 경우
 
+```odata-filter-expr
     Rooms/Type:deluxe AND Rooms/Description:"city view"
+```
 
 한 방에서 deluxe 하 고 다른 방에는 설명의 "도시 보기"를 언급 하는 호텔을 받을 수 있습니다. 예를 들어의 아래 문서는 `Id` `1` 쿼리와 일치 합니다.
 
@@ -148,19 +153,27 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
 동일 하 게 구축 하 여 동일한 범위 변수에 여러 개의 같음 검사를 결합할 수 있는 방법에 대해 살펴보겠습니다 `or` . [수량자의 대 수 및 분배 속성](https://en.wikipedia.org/wiki/Existential_quantification#Negation)덕분에 작동 합니다. 이 식:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 이는 다음과 동등합니다.
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
+```
 
 그리고 두 개의 `any` 하위 식이 반전 된 인덱스를 사용 하 여 효율적으로 실행 될 수 있습니다. 또한 [수량자의 부정 법칙](https://en.wikipedia.org/wiki/Existential_quantification#Negation)덕분에 다음 식은
 
+```odata-filter-expr
     seasons/all(s: s ne 'winter' and s ne 'fall')
+```
 
 이는 다음과 동등합니다.
 
+```odata-filter-expr
     not seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 따라서 및와 함께를 사용할 수 있습니다 `all` `ne` `and` .
 

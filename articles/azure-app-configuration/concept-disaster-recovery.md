@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523767"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207193"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
@@ -63,7 +64,11 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ## <a name="synchronization-between-configuration-stores"></a>구성 저장소 간 동기화
 
-지역 중복 구성 저장소의 데이터 세트가 모두 동일해야 합니다. App Configuration에서 **내보내기** 함수를 사용하여 요청에 따라 데이터를 기본 저장소에서 보조 저장소로 복사할 수 있습니다. 이 함수는 Azure Portal과 CLI 모두를 통해 사용할 수 있습니다.
+지역 중복 구성 저장소의 데이터 세트가 모두 동일해야 합니다. 두 가지 방법으로 이 작업을 수행할 수 있습니다.
+
+### <a name="backup-manually-using-the-export-function"></a>내보내기 기능을 사용 하 여 수동으로 백업
+
+App Configuration에서 **내보내기** 함수를 사용하여 요청에 따라 데이터를 기본 저장소에서 보조 저장소로 복사할 수 있습니다. 이 함수는 Azure Portal과 CLI 모두를 통해 사용할 수 있습니다.
 
 Azure Portal에서 다음 단계를 수행하면 다른 구성 저장소에 대한 변경을 푸시할 수 있습니다.
 
@@ -71,15 +76,19 @@ Azure Portal에서 다음 단계를 수행하면 다른 구성 저장소에 대�
 
 1. 열리는 새 블레이드에서 보조 저장소의 구독, 리소스 그룹 및 리소스 이름을 지정한 다음 **적용**을 선택 합니다.
 
-1. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 유지한 채 **원본 레이블** 및 **레이블 지정**을 모두 동일한 값으로 설정할 수 있습니다. **적용**을 선택합니다.
+1. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 두고 **레이블과** 레이블 둘 다를 같은 **값으로 설정할** 수 있습니다. **적용**을 선택합니다. 기본 저장소의 모든 레이블에 대해이를 반복 합니다.
 
-1. 모든 구성 변경에 대해 위의 단계를 반복합니다.
+1. 구성이 변경 될 때마다 이전 단계를 반복 합니다.
 
-이 내보내기 프로세스를 자동화하려면 Azure CLI를 사용합니다. 다음 명령에서는 단일 구성 변경을 기본 저장소에서 보조 저장소로 내보내는 방법을 보여줍니다.
+내보내기 프로세스는 Azure CLI을 사용 하 여 수행할 수도 있습니다. 다음 명령은 기본 저장소에서 보조로 모든 구성을 내보내는 방법을 보여 줍니다.
 
 ```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
+
+### <a name="backup-automatically-using-azure-functions"></a>Azure Functions를 사용 하 여 자동으로 백업
+
+Azure Functions를 사용 하 여 백업 프로세스를 자동화할 수 있습니다. 앱 구성에서 Azure Event Grid와의 통합을 활용 합니다. 설정 되 면 앱 구성이 구성 저장소에서 키 값에 대 한 변경 내용에 대 한 Event Grid에 이벤트를 게시 합니다. 따라서 Azure Functions 앱은 이러한 이벤트를 수신 하 고 그에 따라 데이터를 백업할 수 있습니다. 자세한 내용은 [앱 구성 저장소를 자동으로 백업 하는 방법](./howto-backup-config-store.md)에 대 한 자습서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

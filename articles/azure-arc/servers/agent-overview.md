@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/01/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111255"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206623"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>서버용 Azure Arc 에이전트 개요
 
@@ -60,7 +60,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
-    |폴더 |Description |
+    |폴더 |설명 |
     |-------|------------|
     |C:\Program Files\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|
@@ -72,21 +72,21 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 Windows 서비스가 만들어집니다.
 
-    |서비스 이름 |표시 이름 |프로세스 이름 |Description |
+    |서비스 이름 |표시 이름 |프로세스 이름 |설명 |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid Instance Metadata Service |himds.exe |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
     |DscService |Guest Configuration Service |dsc_service.exe |게스트 내 정책을 구현하기 위해 Azure 내부에서 사용되는 DSC(Desired State Configuration) v2 코드베이스입니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다.
 
-    |속성 |기본값 |Description |
+    |속성 |기본값 |설명 |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * 문제 해결에 사용할 수 있는 로그 파일은 여러 가지가 있습니다. 이 내용은 다음 표에 설명되어 있습니다.
 
-    |로그 |Description |
+    |로그 |설명 |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |에이전트 (HIMDS) 서비스의 세부 정보 및 Azure와의 상호 작용을 기록 합니다.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |자세한 정보(-v) 인수를 사용하는 경우 azcmagent tool 명령의 출력이 포함됩니다.|
@@ -123,7 +123,7 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
 
 * 에이전트를 설치하는 동안 대상 머신에 다음 디먼이 만들어집니다.
 
-    |서비스 이름 |표시 이름 |프로세스 이름 |Description |
+    |서비스 이름 |표시 이름 |프로세스 이름 |설명 |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
     |dscd.service |Guest Configuration Service |/opt/DSC/dsc_linux_service |게스트 내 정책을 구현하기 위해 Azure 내부에서 사용되는 DSC(Desired State Configuration) v2 코드베이스입니다.|
@@ -141,7 +141,7 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다. 이러한 변수는 `/lib/systemd/system.conf.d/azcmagent.conf`에 설정됩니다.
 
-    |속성 |기본값 |Description |
+    |속성 |기본값 |설명 |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -200,14 +200,15 @@ Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 
 
 URL:
 
-| 에이전트 리소스 | Description |
+| 에이전트 리소스 | 설명 |
 |---------|---------|
-|management.azure.com|Azure 리소스 관리자|
-|login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
-|agentserviceapi.azure-automation.net|게스트 구성|
-|*-agentservice-prod-1.azure-automation.net|게스트 구성|
-|*.his.arc.azure.com|하이브리드 ID 서비스|
+|`management.azure.com`|Azure 리소스 관리자|
+|`login.windows.net`|Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`agentserviceapi.azure-automation.net`|게스트 구성|
+|`*-agentservice-prod-1.azure-automation.net`|게스트 구성|
+|`*.guestconfiguration.azure.com` |게스트 구성|
+|`*.his.arc.azure.com`|하이브리드 ID 서비스|
 
 각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. 자세한 내용은 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 검토하세요.
 

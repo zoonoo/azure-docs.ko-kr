@@ -7,11 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68965350"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203975"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple을 Azure 파일 동기화 및 Data Box Edge 데이터 전송 옵션과 비교 
 
@@ -27,14 +28,14 @@ ms.locfileid: "68965350"
 
 |                           |StorSimple 8000   |Azure 파일 동기화   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|개요         |계층화된 하이브리드 스토리지 및 보관|클라우드 계층화 및 다중 사이트 동기화를 사용하는 일반 파일 서버 스토리지.  |데이터를 사전 처리하여 네트워크를 통해 Azure로 보내는 스토리지 솔루션.        |
-|시나리오        |파일 서버, 보관, 백업 대상 |파일 서버, 보관(다중 사이트)   |데이터 전송, 데이터 사전 처리(ML 추론, IoT, 보관 포함)    |
-|Edge 컴퓨팅     |사용할 수 없음 |사용할 수 없음 |Azure IoT Edge를 사용한 컨테이너 실행 지원    |
-|폼 팩터      |물리적 디바이스   |Windows Server에 에이전트 설치 |물리적 디바이스   |
-|하드웨어         |서비스의 일부로 Microsoft에서 물리적 디바이스 제공 | 고객이 제공 |서비스의 일부로 Microsoft에서 물리적 디바이스 제공  |
-|데이터 형식      |사용자 지정 형식   |Files         |Blob 또는 파일    |
-|프로토콜 지원 |iSCSI          |SMB, NFS    | SMB 또는 NFS      |
-|가격 책정          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 파일 동기화](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|**개요**     |계층화된 하이브리드 스토리지 및 보관|클라우드 계층화 및 다중 사이트 동기화를 사용하는 일반 파일 서버 스토리지.  |데이터를 사전 처리하여 네트워크를 통해 Azure로 보내는 스토리지 솔루션.        |
+|**시나리오**    |파일 서버, 보관, 백업 대상 |파일 서버, 보관(다중 사이트)   |데이터 전송, 데이터 사전 처리(ML 추론, IoT, 보관 포함)    |
+|**Edge 컴퓨팅** |사용할 수 없음 |사용할 수 없음 |Azure IoT Edge를 사용한 컨테이너 실행 지원    |
+|**폼 팩터**  |물리적 디바이스   |Windows Server에 에이전트 설치 |물리적 디바이스   |
+|**하드웨어**     |서비스의 일부로 Microsoft에서 물리적 디바이스 제공 | 고객이 제공 |서비스의 일부로 Microsoft에서 물리적 디바이스 제공  |
+|**데이터 형식**  |사용자 지정 형식   |파일         |Blob 또는 파일    |
+|**프로토콜 지원** |iSCSI          |SMB, NFS    | SMB 또는 NFS      |
+|**가격**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 파일 동기화](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>다음 단계
 

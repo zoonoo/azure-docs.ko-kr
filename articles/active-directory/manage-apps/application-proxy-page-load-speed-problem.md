@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bff9873742d5d660f563eebcb58ff9bcca940d24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1dc1b14a917786e124775a4505c53f63238a383
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760181"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203865"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>애플리케이션 프록시 애플리케이션을 로드하는 데 시간이 너무 오래 걸림
 
@@ -31,8 +31,6 @@ ms.locfileid: "84760181"
 애플리케이션이 작동하지만 긴 대기 시간이 발생할 수 있습니다. 속도를 향상시키기 위해 네트워크 토폴로지를 약간 조정할 수 있습니다. 여러 토폴로지에 대한 평가는 [네트워크 고려 사항 문서](application-proxy-network-topology.md)를 참조하세요.
 
 현재 네트워크 토폴로지 외에도 성능 튜닝을 위한 추가적인 권장 사항이 없습니다. 애플리케이션 프록시 서비스가 확장됨에 따라 물리적으로 더 가까운 데이터 센터가 제공될 수 있습니다. 더 가까워지면 대기 시간에 도움이 될 수 있습니다. Azure 데이터 센터 목록은 [대기 시간 테스트 페이지](http://www.azurespeed.com/Azure/Latency)를 참조하세요. 
-
-애플리케이션 프록시 서비스를 포함하는 데이터 센터는 [커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)에서 찾을 수 있습니다. 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>애플리케이션 프록시 데이터 센터 위치에 대한 피드백 
 아직 애플리케이션 프록시가 포함되지 않은 Azure 데이터 센터가 있을 수 있지만 이로 인해 사용자의 대기 시간이 크게 향상됩니다. 데이터 센터 위치를 aadapfeedback@microsoft.com으로 보냅니다. Microsoft는 확장 계획에 대한 사용자의 의견을 활용합니다.

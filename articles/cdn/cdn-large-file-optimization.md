@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887659"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206721"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
@@ -107,8 +107,7 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 ### <a name="caching"></a>캐싱
 대용량 파일 최적화는 일반 웹 배달과 다른 기본 caching-expiration(캐싱 만료) 시간을 사용합니다. HTTP 응답 코드에 따라 양수 캐싱과 음수 캐싱을 구분합니다. 원본 서버에서 응답의 cache-control 또는 expires 헤더를 통해 만료 시간을 지정하면 CDN에서 해당 값을 사용합니다. 원본 서버에서 지정하지 않고 파일이 이 최적화 형식에 대한 파일 형식 및 파일 크기 조건과 일치하면 CDN에서 대용량 파일 최적화에 대한 기본값을 사용합니다. 그러지 않으면 CDN에서 일반 웹 배달에 대한 기본값을 사용합니다.
 
-
-|    | 일반 웹 | 대용량 파일 최적화 
+| 캐싱  | 일반 웹 | 대용량 파일 최적화 
 --- | --- | --- 
 캐싱: 긍정 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
 캐싱: 부정 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1초 

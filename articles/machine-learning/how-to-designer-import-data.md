@@ -1,7 +1,7 @@
 ---
-title: 데이터 가져오기
+title: 디자이너로 데이터 가져오기 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: 다양 한 데이터 원본에서 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
+description: 다양 한 데이터 원본에서 Azure Machine Learning designer (미리 보기)로 데이터를 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610951"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207519"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer로 데이터 가져오기 (미리 보기)
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830046"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207798"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 
@@ -199,8 +199,8 @@ StorSimple 프로덕션 디바이스에서 클라우드 연결에 실패하면 �
 
 ### <a name="performance-alerts"></a>성능 경고
 
-| 경고 텍스트 | 이벤트 | 자세한 내용 / 권장 작업 | |
-|:--- |:--- |:--- | --- |
+| 경고 텍스트 | 이벤트 | 자세한 내용 / 권장 작업 |
+|:--- |:--- |:--- |
 | 디바이스 부하가 &lt;*임계값*&gt;을 초과했습니다. |예상된 응답 시간보다 느립니다. |디바이스는 입/출력 부하가 높은 상태에서 사용률을 보고합니다. 이 때문에 디바이스가 예상대로 잘 작동하지 않을 수 있습니다. 디바이스에 연결한 워크로드를 검토하고 다른 디바이스로 이동하거나 더 이상 필요하지 않은지를 결정합니다.|
 | StorSimple 서비스를 시작하지 못했습니다. |데이터 경로 오류 |문제가 지속되면 Microsoft 지원에 문의하세요. |
 

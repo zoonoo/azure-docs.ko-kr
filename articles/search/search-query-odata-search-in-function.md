@@ -19,21 +19,26 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113112"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206921"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Azure Cognitive Search의 OData 함수
 
 [OData 필터 식](query-odata-filter-orderby-syntax.md) 의 일반적인 시나리오는 각 문서의 단일 필드가 가능한 값 중 하 나와 같은지 여부를 확인 하는 것입니다. 예를 들어 일부 응용 프로그램은 쿼리를 실행 하는 사용자를 나타내는 보안 주체 id 목록에 대해 하나 이상의 보안 주체 Id를 포함 하는 필드를 확인 하 여 [보안 트리밍을](search-security-trimming-for-azure-search.md) 구현 하는 방법입니다. 다음과 같이 쿼리를 작성 하는 한 가지 방법은 및 연산자를 사용 하는 것입니다 [`eq`](search-query-odata-comparison-operators.md) [`or`](search-query-odata-logical-operators.md) .
 
+```odata-filter-expr
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
+```
 
 그러나 함수를 사용 하 여이를 보다 간단 하 게 작성할 수 있습니다 `search.in` .
 
+```odata-filter-expr
     group_ids/any(g: search.in(g, '123, 456, 789'))
+```
 
 > [!IMPORTANT]
 > 를 사용 하는 것이 더 짧고 읽기 쉬울 뿐만 아니라를 사용 하면 `search.in` [성능 이점도](#bkmk_performance) 제공 하 고 필터에 포함할 값이 수백 또는 수천 개인 경우 [필터의 특정 크기 제한을](search-query-odata-filter.md#bkmk_limits) 피할 수 있습니다. 따라서 `search.in` 같음 식의 더 복잡 한 분리 대신를 사용 하는 것이 좋습니다.
@@ -41,7 +46,7 @@ ms.locfileid: "74113112"
 > [!NOTE]
 > OData 표준 버전 4.01에는 최근에 Azure Cognitive Search 함수와 비슷한 동작이 있는 [ `in` 연산자](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230)가 도입 되었습니다 `search.in` . 그러나 Azure Cognitive Search는이 연산자를 지원 하지 않으므로 대신 함수를 사용 해야 합니다 `search.in` .
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 함수의 문법을 정의 합니다 `search.in` .
 
@@ -85,23 +90,33 @@ search_in_call ::=
 
 이름이 ' 해상 보기 motel ' 또는 ' 예산 호텔 '과 같은 모든 호텔을 찾습니다. 구에는 기본 구분 기호인 공백이 포함 됩니다. 세 번째 문자열 매개 변수로 작은따옴표에 대체 구분 기호를 지정할 수 있습니다.  
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 ' | '로 구분 된 ' 해상 보기 motel ' 또는 ' 예산 호텔 '과 동일한 이름의 모든 호텔을 찾습니다.
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 ' Wifi ' 또는 ' 드라이기 ' 태그가 있는 대화방을 사용 하 여 모든 호텔 찾기:
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
+```
 
 태그에서 ' 열 수건 랙 ' 또는 ' hairdryer 포함 ' 등의 구에 대해 일치 하는 항목을 찾습니다.
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 ' Motel ' 또는 ' cabin' ' 태그 없이 모든 호텔 찾기:
 
+```odata-filter-expr
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
+```
 
 ## <a name="next-steps"></a>다음 단계  
 

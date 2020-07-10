@@ -6,13 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: d1455bc65f175970bb741dab4a56aa0aac58fc59
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9e54b9add52e484a95cf5a8291dec90a6bb258b8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743005"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207006"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -37,10 +38,10 @@ A.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계�
 ### <a name="q-what-is-azure-data-box"></a>17. Azure Data Box란?
 A. Azure Data Box를 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 이동 통신 사업자를 통해 80TB용량의 사용 가능한 스토리지 디바이스를 배송합니다. 
 
-디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정합니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
+디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정합니다. 서버에서 장치로 또는 장치에서 서버로 데이터를 복사 하 고 장치를 다시 Azure로 배송 합니다. 가져오기 주문의 경우 Azure 데이터 센터에서 데이터가 자동으로 장치에서 Azure로 업로드 됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
 
 ### <a name="q-when-should-i-use-data-box"></a>17. Data Box는 언제 사용해야 하나요?
-A. Azure로 전송할 데이터가 40~500TB이면 Data Box를 사용하는 것이 유리합니다. 데이터 크기가 40TB 미만이면 Data Box Disk를 사용하고, 500TB가 넘으면 [Data Box Heavy](data-box-heavy-overview.md)에 가입합니다.
+A. Azure로 또는 Azure에서 전송 하려는 40-500 TB의 데이터가 있는 경우 Data Box를 사용 하는 것이 좋습니다. 데이터 크기가 40TB 미만이면 Data Box Disk를 사용하고, 500TB가 넘으면 [Data Box Heavy](data-box-heavy-overview.md)에 가입합니다.
 
 ### <a name="q-what-is-the-price-of-data-box"></a>17. Data Box 가격은 어떻게 되나요?
 A. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. Azure Portal에서 주문 중에 제품 모델을 선택하면 디바이스 요금이 표시됩니다. 또한 배송료는 무료이지만, Azure Storage에 대한 비용이 부과됩니다. 자세한 내용은 [Azure Data Box 가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)을 참조하세요. 
@@ -83,7 +84,7 @@ A. 선택한 국가와 지역 조합에서는 Data Box 서비스를 사용할 �
 A. 주문이 이루어지면 해당 주문에 디바이스가 가능한지 여부를 확인합니다. 디바이스가 가능하다면 10일 안에 출고합니다. 수요가 몰리는 기간이 있을 수 있습니다. 이런 경우에는 주문이 대기 상태가 되고 Azure Portal에서 상태 변경을 추적할 수 있습니다. 주문이 90일 안에 이행되지 않으면 자동으로 취소됩니다.
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>17. Data Box에 데이터가 가득 차 다른 장치를 더 주문해야 합니다. 주문을 빠르게 확정할 수 있는 방법이 있나요?
-A. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다.
+A. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다. 가져오기 주문에 대해서만 복제를 수행할 수 있습니다.
 
 ## <a name="configure-and-connect"></a>구성 및 연결
 
@@ -180,18 +181,7 @@ A.  예. Data Box에서는 최대 10개의 스토리지 계정, 범용, 클래�
 A. 디바이스가 손상된 상태로 도착했거나 변조의 증거가 있다면 디바이스를 사용하지 않습니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하고 가능한 빨리 디바이스를 반환하세요. 교체 디바이스를 위한 새 Data Box 주문을 만들 수도 있습니다. 이런 경우 교체 디바이스에 대한 요금이 청구되지 않습니다.
 
 ### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>17. 주문한 Data Box를 직접 픽업할 수 있나요? 원하는 운송업체를 통해 Data Box를 반환할 수 있나요?
-A. 예. Microsoft는 US Gov 지역에만 자체 관리형 배송을 제공합니다. Data Box를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습니다. 주문한 Data Box 디바이스를 픽업하려면 다음 단계를 수행합니다.
-    
-1. 발주 후 주문이 처리되고 Data Box가 준비됩니다. 주문한 제품의 픽업 준비가 완료되었다는 이메일 알림이 발송됩니다. 
-2. 제품 픽업 준비가 완료되면 Azure Portal에서 주문한 제품으로 이동하여 **개요** 블레이드로 이동합니다. 
-3. Azure Portal에 코드가 포함된 알림이 표시됩니다. 이메일을 통해 [Azure Data Box 운영 팀](mailto:adbops@microsoft.com)에 코드를 보냅니다. 그러면 운영 팀에서 위치를 알려주고 픽업 날짜 및 시간을 예약합니다. 이메일 알림을 받은 후 5영업일 내에 팀에게 알려야 합니다.
-
-데이터 복사를 완료되면 다음 단계에 따라 디바이스를 반환합니다.
-
-1. 데이터 복사가 오류 없이 완료되면 **배송 준비**를 실행합니다. 준비가 완료되면 디바이스의 로컬 웹 UI에서 코드를 받게 됩니다. 코드를 복사하고 저장합니다.
-2. 디바이스를 끄고 연결 케이블을 제거합니다.
-3. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
-4. [Azure Data Box 운영 팀](mailto:adbops@microsoft.com)에게 이메일을 통해 앞에서 저장한 코드를 보냅니다. 그러면 운영 팀에서는 디바이스가 배송되는 위치와 시간 정보를 알려줄 것입니다.
+A. 예. Microsoft는 자체 관리 전달도 제공 합니다. Data Box를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습니다. 자세한 내용은 [Data Box에 대 한 자체 관리 전달](data-box-portal-customer-managed-shipping.md)을 참조 하세요.
 
 ### <a name="q-will-my-data-box-devices-cross-countryregion-borders-during-shipping"></a>17. 배송 중에 내 Data Box 디바이스가 국가/지역 경계를 넘을 수 있나요?
 A. 모든 Data Box 디바이스는 목적지와 동일한 국가/지역 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디바이스가 모든 EU 국가/지역 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다. Data Box와 Data Box Heavy 디바이스에 모두 적용됩니다.
@@ -212,7 +202,7 @@ A.  운송 중에는 Data Box의 다음 기능을 통해 데이터를 보호합�
  - 디바이스가 잠겨 있으며 잠금 해제 암호가 있어야 들어가 데이터에 액세스할 수 있습니다.
 자세한 내용은 [Data Box 보안 기능](data-box-security.md)을 참조하세요.  
 
-### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>17. 배송 준비를 마치고 디바이스를 종료했습니다. Data Box에 데이터를 추가할 수 있나요?
+### <a name="q-i-have-finished-prepare-to-ship-for-my-import-order-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>17. 가져오기 주문 준비를 완료 하 고 장치를 종료 합니다. Data Box에 데이터를 추가할 수 있나요?
 A. 예. 디바이스를 켜고 데이터를 더 추가할 수 있습니다. 데이터 복사를 마친 후에는 **배송 준비**를 다시 실행해야 합니다.
 
 ### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>17. 내 디바이스를 받았는데 부팅되지 않았습니다. 디바이스를 다시 배송하려면 어떻게 해야 하나요?
@@ -252,7 +242,7 @@ A.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니�
 
 - UPS로부터의 물류 운송
 - 전원 켜기 및 사용자 공유 액세스 로깅
-- Data Box에 성공적으로 수집된 각 파일에 대 한 64비트 CRC-64(순환 중복 검사) 또는 체크섬이 적용된 매니페스트 파일
+- 64 비트 64 CRC (순환 중복 검사)를 사용 하는 BOM 또는 매니페스트 파일 (수집) 또는 각 파일에 대 한 체크섬이 Data Box 성공적으로 완료 되었습니다.
 - Azure Storage 계정에 업로드하지 못한 파일 보고
 - 데이터가 Azure Storage 계정에 복사된 후 Data Box 디바이스 삭제(NIST 800 88R1 표준에 따라)
 
@@ -260,7 +250,9 @@ A.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니�
 A.  이동 통신 사업자 추적 로그는 Data Box 주문 기록에 캡처됩니다. 이 보고서는 디바이스가 Azure 데이터 센터로 반환되고 디바이스 디스크의 데이터가 정리된 후 사용할 수 있습니다. 즉시 필요한 경우 배송업체 웹 사이트에서 직접 주문 추적 번호를 사용하여 추적 정보를 구할 수 있습니다.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Azure 데이터 센터에 Data Box를 직접 전달할 수 있나요? 
-A.  아니요. 현재 Azure 데이터 센터는 고객 또는 UPS 이외의 운송업체에서 수행하는 Data Box 배달을 허용하지 않습니다.
+A.  아니요. Microsoft에서 관리 하는 배송을 선택한 경우에는 날짜를 전송할 수 없습니다. 현재 Azure 데이터 센터는 고객 또는 UPS 이외의 운송업체에서 수행하는 Data Box 배달을 허용하지 않습니다.
+
+자체 관리 배송을 선택한 경우 Azure 데이터 센터에서 Data Box를 선택 하거나 삭제할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

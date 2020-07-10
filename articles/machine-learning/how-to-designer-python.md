@@ -1,7 +1,7 @@
 ---
-title: 디자이너에서 Python 스크립트 실행
+title: 디자이너에서 Python 스크립트 실행 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 디자이너에서 Python을 사용하여 데이터를 변환하는 방법을 알아봅니다.
+description: Azure Machine Learning designer (미리 보기)에서 Python을 사용 하 여 데이터를 변환 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
 ms.custom: designer, tracking-python
-ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 61086bf8c215a09e457e931ffed157559b339a9b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041016"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206807"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 Python 코드 실행
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601391"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206157"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -413,6 +413,8 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - "중첩된 탑재 지점" 즉, 단일 경로 내 여러 탑재 지점(예: "/1stmountpoint/data/2stmountpoint")이 있는 VM
 - 데이터 드라이브가 OS 폴더 위에 탑재 된 VM입니다.
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm
+- [고객 관리 키를 사용 하 여](disk-encryption.md) ADE로 암호화 된 vm에 서버 쪽 암호화를 적용 하는 것과 그 반대의 경우도 마찬가지입니다.
+- ADE로 암호화 된 VM을 고객이 관리 하는 키를 사용 하는 [서버 쪽 암호화](disk-encryption.md)로 마이그레이션
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: f76b444f737c4deb0fc61953c839c8826f379d5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611393"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207264"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "85611393"
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 유효한 Azure 구독- [무료로 하나를 만듭니다](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -37,11 +37,17 @@ ms.locfileid: "85611393"
 
     이번에는 다중 서비스 리소스를 사용 하 여 다음 Cognitive Services에 액세스할 수 있습니다.
 
-    |                  |                                                      |                    |                               |                  |
-    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Computer Vision  | Content Moderator                                    | Face               | 언어 이해(LUIS) | 텍스트 분석   |
-    | 변환기  | Bing Search v7 <br>(웹, 이미지, 뉴스, 비디오, 시각적 개체) | Bing 사용자 지정 검색 | Bing Entity Search            | Bing Autosuggest |
-    | Bing 맞춤법 검사 |                                                      |                    |                               |                  |
+    - Computer Vision
+    - Content Moderator
+    - Face
+    - 언어 이해(LUIS)
+    - 텍스트 분석
+    - 변환기
+    - Bing Search v7 <br>(웹, 이미지, 뉴스, 비디오, 시각적 개체)
+    - Bing 사용자 지정 검색
+    - Bing Entity Search
+    - Bing Autosuggest
+    - Bing 맞춤법 검사
 
     #### <a name="single-service-resource"></a>[단일 서비스 리소스](#tab/singleservice)
 

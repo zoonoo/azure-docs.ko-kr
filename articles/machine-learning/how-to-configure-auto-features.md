@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa348728cd4e9ac0ce5d70cb293ac850cc549666
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817124"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205693"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 기능화
 
@@ -104,7 +104,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 가드 레일|상태|트리거 조건
 ---|---|---
 **누락된 기능 값 대체** |통과 <br><br><br> 완료| 학습 데이터에서 누락된 기능 값이 검색되지 않았습니다. [누락 값 대체](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) 에 대해 자세히 알아보세요. <br><br> 학습 데이터에서 누락 된 기능 값이 발견 되어 귀속 되었습니다.
-**높은 카디널리티 기능 처리** |통과 <br><br><br> 완료| 입력이 분석 되었으며, 높은 카디널리티 기능이 검색 되지 않았습니다. [높은 카디널리티 기능 검색](#automatic-featurization)에 대해 자세히 알아보세요. <br><br> 사용자 입력에서 높은 카디널리티 기능이 검색 되었으며 처리 되었습니다.
+**높은 카디널리티 기능 처리** |통과 <br><br><br> 완료| 입력이 분석 되었으며, 높은 카디널리티 기능이 검색 되지 않았습니다. <br><br> 사용자 입력에서 높은 카디널리티 기능이 검색 되었으며 처리 되었습니다.
 **유효성 검사 분할 처리** |완료| 유효성 검사 구성이로 설정 되었고 `'auto'` 학습 데이터에 *2만 개 미만의 행*이 포함 되어 있습니다. <br> 교차 유효성 검사를 사용 하 여 학습 된 모델의 각 반복의 유효성을 검사 했습니다. [유효성 검사 데이터](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data)에 대해 자세히 알아보세요. <br><br> 유효성 검사 구성이로 설정 되었으며 `'auto'` 학습 데이터에 *2만 개 이상의 행*이 포함 되어 있습니다. <br> 모델의 유효성 검사를 위해 입력 데이터가 학습 데이터 세트와 유효성 검사 데이터 세트로 분할되었습니다.
 **클래스 분산 검색** |통과 <br><br><br><br><br> 알림 | 입력이 분석되었으며, 학습 데이터에서 모든 클래스가 균형을 유지하고 있습니다. 데이터 집합에는 샘플의 수와 비율을 기준으로 하 여 데이터 집합에 적절 한 표현이 있는 경우 데이터 집합의 균형을 유지 하는 것으로 간주 됩니다. <br><br><br> 입력에서 불균형 클래스가 검색되었습니다. 모델 바이어스를 해결 하려면 분산 문제를 해결 하십시오. [불균형 있는 데이터](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)에 대해 자세히 알아보세요.
 **메모리 문제 검색** |통과 <br><br><br><br> 완료 |<br> 선택한 값 (가로, 지연, 롤링 창)이 분석 되었으며 메모리 부족 문제가 감지 되었습니다. 시계열 [예측 구성](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)에 대해 자세히 알아보세요. <br><br><br>선택한 값 (가로, 지연, 롤링 창)이 분석 되어 실험의 메모리가 부족 해질 수 있습니다. 지연 또는 창 롤링 구성이 해제 되었습니다.

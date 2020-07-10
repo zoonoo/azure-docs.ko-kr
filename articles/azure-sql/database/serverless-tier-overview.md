@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045963"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206936"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -76,7 +76,7 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 
 SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어에 대한 범용 계층에서만 지원됩니다.
 
-## <a name="autoscaling"></a>자동 확장
+## <a name="autoscaling"></a>자동 크기 조정
 
 ### <a name="scaling-responsiveness"></a>크기 조정 응답성
 
@@ -128,7 +128,7 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |기능|자동 다시 시작 트리거|
 |---|---|
 |인증 및 권한 부여|로그인|
-|위협 감지|데이터베이스 또는 서버 수준에서 위협 감지 설정 사용/사용 안 함<br>데이터베이스 또는 서버 수준에서 위협 검색 설정 수정|
+|위협 탐지|데이터베이스 또는 서버 수준에서 위협 감지 설정 사용/사용 안 함<br>데이터베이스 또는 서버 수준에서 위협 검색 설정 수정|
 |데이터 검색 및 분류|민감도 레이블 추가, 수정, 삭제 또는 보기|
 |감사|감사 레코드 보기,<br>감사 정책 업데이트 또는 보기|
 |데이터 마스킹|데이터 마스킹 규칙 추가, 수정, 삭제 또는 보기|
@@ -324,6 +324,19 @@ VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단
 - **보고 빈도**: 분당
 
 이 수량은 초 단위로 계산되어 1분 동안 집계됩니다.
+
+### <a name="minimum-compute-bill"></a>최소 계산 청구서
+
+서버를 사용 하지 않는 데이터베이스가 일시 중지 되 면 계산 청구서는 0입니다.  서버를 사용 하지 않는 데이터베이스가 일시 중지 되지 않은 경우 최소 계산 청구서는 최대 (최소 vCores, 최소 메모리 GB * 1/3)를 기반으로 하는 vCores의 크기 보다 낮습니다.
+
+예제:
+
+- 서버를 사용 하지 않는 데이터베이스를 일시 중지 하 고 8 최대 Vcores 및 1 분 Vcores를 사용 하 여 3.0 GB min memory로 구성 했다고 가정 합니다.  그런 다음 최소 계산 요금은 최대 (1 vCore, 3.0 g b * 1 vCore/3gb) = 1 vCore를 기반으로 합니다.
+- 서버를 사용 하지 않는 데이터베이스를 일시 중지 하 고 4 개의 최대 vCores 및 0.5 분 vCores를 사용 하 여 2.1 GB min memory로 구성 한다고 가정 합니다.  그런 다음 최소 compute 청구는 최대 (0.5 vCores, 2.1 GB * 1 Vcores/3gb) = 0.7 Vcores를 기반으로 합니다.
+
+서버를 사용 하지 않는 [Azure SQL Database 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database) 는 구성 된 최대 및 최소 vcores 수를 기준으로 구성할 수 있는 최소 메모리를 결정 하는 데 사용할 수 있습니다.  규칙으로 구성 된 최소 vCores가 0.5 vCores 보다 큰 경우 최소 계산 요금은 구성 된 최소 메모리와 독립적 이며 구성 된 최소 vCores의 수에 따라 달라 집니다.
+
+### <a name="example-scenario"></a>예제 시나리오
 
 1 분 vCore 및 4 개의 최대 Vcore로 구성 된 서버를 사용 하지 않는 데이터베이스를 생각해 보세요.  약 3gb의 최소 메모리와 12gb의 최대 메모리에 해당 합니다.  자동 일시 중지 지연이 6 시간으로 설정 되 고 데이터베이스 작업이 24 시간 동안 처음 2 시간 동안 활성 상태이 고 비활성 상태인 경우를 가정 합니다.    
 

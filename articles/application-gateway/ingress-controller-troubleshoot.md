@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 29f8a7823207f5571acc345bc6234a318342b173
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207858"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207167"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>수신 컨트롤러에 대 한 일반적인 질문 및 문제 해결
 
@@ -26,7 +26,7 @@ ms.locfileid: "85207858"
 아래 단계에서는 다음을 가정 합니다.
   - AKS 클러스터가 있고 고급 네트워킹을 사용 하도록 설정한 경우
   - AGIC가 AKS 클러스터에 설치 되었습니다.
-  - AKS 클러스터와 공유 하는 VNET에 이미 Application Gateway hav가 있습니다.
+  - AKS 클러스터와 공유 하는 VNET에 Application Gateway 이미 있습니다.
 
 Application Gateway + AKS + AGIC 설치가 올바르게 설정 되었는지 확인 하려면 가능한 가장 간단한 앱을 배포 합니다.
 

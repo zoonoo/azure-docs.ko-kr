@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4cac7a3f663d9ede966b8d6e5753c48629049dcd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fecacbd2c7c6549a1321367157bb179321779ca9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057486"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206517"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 설정
 
@@ -57,15 +57,15 @@ Azure Digital Twins는 RBAC (역할 기반 액세스 제어)에 대해 [AAD (Azu
 
 Azure 구독의 AAD 테 넌 트와 연결 된 전자 메일을 사용 하 여 Azure Digital Twins 인스턴스에서 자신에 대 한 역할 할당을 만듭니다. 
 
-이 작업을 수행 하려면 Azure 구독에서 소유자로 분류 해야 합니다. 명령을 실행 하 `az role assignment list --assignee <your-Azure-email>` 고 출력에서 *Roledefinitionname* 값이 *Owner*인지 확인 하 여이를 확인할 수 있습니다. 값이 *참가자* 또는 *소유자*가 아닌 다른 것으로 확인 되 면 구독 관리자에 게 문의 하 여 역할을 승격 하기 위해 구독에서 사용 권한을 부여 하세요.
+이 작업을 수행 하려면 Azure 구독에서 소유자로 분류 해야 합니다. 명령을 실행 하 `az role assignment list --assignee <your-Azure-email>` 고 출력에서 *Roledefinitionname* 값이 *Owner*인지 확인 하 여이를 확인할 수 있습니다. 값이 *참가자* 또는 *소유자*가 아닌 다른 것으로 확인 되 면 구독 관리자에 게 문의 하 여 구독에서 사용 권한을 부여 하세요. 사용자는 다음 명령을 실행할 수 있도록 전체 구독의 역할을 상승 시킬 수 있습니다. 또는 소유자가 대신 다음 명령을 실행 하 여 Azure Digital Twins 권한을 설정할 수 있습니다.
 
-구독의 소유자는 다음 명령을 사용 하 여 사용자를 Azure Digital Twins 인스턴스의 소유자 역할에 할당할 수 있습니다.
+Azure Digital Twins 인스턴스에서 사용자 "소유자" 권한을 할당 하려면 다음 명령을 사용 합니다 (Azure 구독의 소유자가 실행 해야 함).
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-이 명령을 실행하면 사용자가 만든 역할 할당에 대한 정보가 출력됩니다.
+이 명령의 결과는 생성 된 역할 할당에 대 한 출력 된 정보입니다.
 
 > [!TIP]
 > 대신 *400: BadRequest* 오류가 발생 하는 경우 다음 명령을 실행 하 여 사용자의 *ObjectID* 를 가져옵니다.
@@ -74,7 +74,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 > ```
 > 그런 다음 사용자의 전자 메일 대신 사용자의 *개체 ID* 를 사용 하 여 역할 할당 명령을 반복 합니다.
 
-이제 Azure Digital Twins 인스턴스를 사용할 준비가 되었습니다.
+이제 Azure Digital Twins 인스턴스를 사용할 준비가 되었으며,이 인스턴스를 관리할 수 있는 권한이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

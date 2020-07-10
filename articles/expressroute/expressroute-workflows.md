@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58914709838c72246678ce92005de5ac18695a1f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864369"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204171"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로
 이 페이지에서는 높은 수준에서 구성 워크플로 프로비전 및 라우팅 서비스를 안내합니다.
@@ -54,33 +55,37 @@ ms.locfileid: "75864369"
 
 Express 경로 회로는 리소스 생성 시 다음 상태를 보고 합니다.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 **연결 공급자가 회로를 프로비전하는 과정인 경우**
 
 Express 경로 회로는 연결 공급자가 회로를 프로 비전 하기 위해 작업 하는 동안 다음 상태를 보고 합니다.
 
-    ServiceProviderProvisioningState : Provisioning
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioning
+Status                           : Enabled
+```
 
 **연결 공급자가 프로세스를 프로비전하기를 완료한 경우**
 
 Express 경로 회로는 연결 공급자가 성공적으로 회로를 프로 비전 한 후 다음 상태를 보고 합니다.
 
-    ServiceProviderProvisioningState : Provisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioned
+Status                           : Enabled
+```
 
 **연결 공급자가 회로 프로비전을 해제하는 경우**
 
 Express 경로 회로를 프로 비전 해제 해야 하는 경우 서비스 공급자가 프로 비전 해제 프로세스를 완료 한 후 회로에서 다음 상태를 보고 합니다.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 필요에 따라 PowerShell cmdlet을 다시 사용하거나 실행하여 회로를 삭제할 수 있습니다.  
 
