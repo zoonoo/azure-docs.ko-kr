@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147439"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,7 +389,7 @@ Azure Machine Learning용 [CLI 확장](reference-azure-machine-learning-cli.md)�
 
 ## <a name="set-up-with-vs-code"></a>VS Code를 사용하여 설정
 
-Azure Machine Learning용 [VS Code 확장](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets)을 사용하여 작업 영역과 연결되어 있는 컴퓨팅 대상에 액세스하고, 만들고, 관리할 수 있습니다.
+Azure Machine Learning용 [VS Code 확장](how-to-manage-resources-vscode.md#compute-clusters)을 사용하여 작업 영역과 연결되어 있는 컴퓨팅 대상에 액세스하고, 만들고, 관리할 수 있습니다.
 
 ## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Azure Machine Learning SDK를 사용하여 학습 실행 제출
 

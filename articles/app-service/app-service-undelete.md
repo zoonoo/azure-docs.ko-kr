@@ -5,11 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: d147c87e8fb0fa9e01ba2dbaf732adaae082bcd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167794"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146240"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용하여 삭제된 App Service 앱 복원
 
@@ -17,6 +18,10 @@ Azure App Service에서 앱을 실수로 삭제한 경우 [Az PowerShell 모듈]
 
 > [!NOTE]
 > 삭제된 앱은 초기 삭제 후 30일이 지나면 시스템에서 제거됩니다. 제거된 앱은 복구할 수 없습니다.
+>
+
+> [!NOTE]
+> 삭제 취소 기능은 소비 계획에 대해 지원 되지 않습니다.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>App Service 리소스 공급자 다시 등록

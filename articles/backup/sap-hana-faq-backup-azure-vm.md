@@ -3,12 +3,12 @@ title: FAQ - Azure VM의 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 SAP HANA 데이터베이스를 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: ddc4af9a164de3a822e8aebd6c0a4db769ec62a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262585"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170329"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>자주 묻는 질문 – Azure VM의 SAP HANA 데이터베이스 백업
 
@@ -59,15 +59,19 @@ SAP HANA 인스턴스에서 데이터베이스를 삭제해도 해당 데이터�
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>주문형 백업을 Azure 자격 증명 모음이 아닌 로컬 파일 시스템으로 이동할 수 있나요?
 
-1. 원하는 데이터베이스에 대해 현재 실행 중인 백업이 완료될 때까지 기다리세요(스튜디오에서 완료 여부를 확인하세요).
+1. 원하는 데이터베이스에서 현재 실행 중인 백업이 완료 될 때까지 기다립니다 (studio에서 완료를 확인).
 1. 다음 단계에 따라 원하는 DB에 대해 로그 백업을 사용하지 않도록 설정하고 카탈로그 백업을 **파일 시스템**으로 설정합니다.
 1. **SYSTEMDB** -> **구성** -> **데이터베이스 선택** -> **필터(로그)** 를 두 번 클릭합니다.
     1. enable_auto_log_backup을 **아니요**로 설정합니다.
-    1. log_backup_using_backint를 **false**로 설정합니다.
-1. 원하는 데이터베이스에 대해 주문형 백업을 수행하고, 백업과 카탈로그 백업이 완료될 때까지 기다립니다.
+    1. Catalog_backup_using_backint을 **false** 로 설정 합니다.
+1. 원하는 데이터베이스에서 주문형 백업 (전체/차등/증분)을 수행 하 고 백업 및 카탈로그 백업이 완료 될 때까지 기다립니다.
+1. 로그 백업을 Filesystem로 이동 하려면 enable_auto_log_backup를 **예** 로 설정 합니다.
 1. 백업이 Azure 자격 증명 모음으로 흐를 수 있도록 이전 설정으로 되돌립니다.
     1. enable_auto_log_backup을 **예**로 설정합니다.
-    1. log_backup_using_backint를 **true**로 설정합니다.
+    1. Catalog_backup_using_backint를 **true** 로 설정 합니다.
+
+>[!NOTE]
+>백업을 로컬 파일 시스템으로 이동 하 고 다시 Azure vault로 다시 전환 하면 자격 증명 모음에서 로그 백업의 로그 체인이 끊어질 수 있습니다. 이렇게 하면 전체 백업이 트리거되고 성공적으로 완료 되 면 로그 백업이 시작 됩니다.
 
 ### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>내 HANA 복제 설정으로 SAP HANA 백업을 사용 하려면 어떻게 하나요?
 

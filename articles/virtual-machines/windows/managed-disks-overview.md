@@ -1,18 +1,18 @@
 ---
-title: Azure Disk Storage 개요
-description: Azure VM 사용 시 스토리지 계정을 처리하는 Azure 관리 디스크에 대한 개요
+title: Azure 디스크 저장소 개요
+description: Azure Vm 사용 시 저장소 계정을 처리 하는 Azure managed disks 개요
 author: roygara
 ms.service: virtual-machines
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 4b3a66ce00582a3ef05e77f65acdc46fbde8ce72
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 13237011e160d0190475eadb3f9d20f0d731df60
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82148079"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146629"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 

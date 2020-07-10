@@ -4,12 +4,12 @@ description: .NET용 Azure Batch 파일 규칙 라이브러리를 사용하여 B
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965198"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147171"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
 
@@ -55,7 +55,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 
 파일 규칙 라이브러리를 사용하여 작업 및 태스크 출력 데이터를 유지하려면 Azure Storage에 컨테이너를 만든 다음 출력을 컨테이너에 저장합니다. 태스크 코드에서 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage)를 사용하여 태스크 출력을 컨테이너에 업로드합니다.
 
-Azure Storage의 컨테이너와 Blob 사용에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob 스토리지 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+Azure Storage의 컨테이너와 Blob 사용에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob 스토리지 시작](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
 
 > [!WARNING]
 > 파일 규칙 라이브러리를 사용하여 유지되는 모든 작업 및 태스크 출력은 동일한 컨테이너에 저장됩니다. 많은 수의 태스크에서 동시에 파일을 유지하려고 하면 Azure Storage이 적용될 수 있습니다. 대역폭 제한에 대한 자세한 내용은 [Blob 스토리지에 대한 성능 및 확장성 검사 목록](../storage/blobs/storage-performance-checklist.md)을 참조하세요.

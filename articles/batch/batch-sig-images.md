@@ -4,12 +4,12 @@ description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851719"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147294"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
@@ -30,7 +30,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 - **애플리케이션 미리 설치**. OS 디스크에 애플리케이션을 미리 설치하는 것은 시작 작업을 사용하여 컴퓨팅 노드를 프로비저닝한 후에 애플리케이션을 설치하는 것보다 효율성은 높고 오류 발생 가능성은 낮습니다.
 - **많은 데이터를 한 번에 복사** 관리되는 공유 이미지를 관리되는 이미지의 데이터 디스크에 복사하여 관리되는 공유 이미지의 정적 데이터 부분을 만듭니다. 이 작업은 한 번만 수행하며 풀의 각 노드에서 데이터를 사용할 수 있게 됩니다.
 - **풀을 더 큰 크기로 확장** Shared Image Gallery를 사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다.
-- **관리 되는 이미지만 사용자 지정 이미지로 사용 하는 것 보다 성능이 향상 됩니다.** 공유 이미지 사용자 지정 이미지 풀의 경우, 안정 된 상태에 도달 하는 시간은 최대 25% fasterm, VM 유휴 대기 시간은 최대 30% 짧습니다.
+- **관리 되는 이미지만 사용자 지정 이미지로 사용 하는 것 보다 성능이 향상 됩니다.** 공유 이미지 사용자 지정 이미지 풀의 경우 안정 된 상태에 도달 하는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
 - **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대한 정보, 사용 중인 OS 및 이미지 사용에 대한 정보가 포함되어 있습니다. 이미지를 그룹화하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -83,7 +83,7 @@ Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 
 
 ### <a name="create-a-shared-image-gallery"></a>Shared Image Gallery 만들기
 
-관리 이미지를 성공적으로 만들었으면 Shared Image Gallery를 만들어 사용자 지정 이미지를 사용할 수 있도록 해야 합니다. 이미지에 대한 Shared Image Gallery를 만드는 방법을 알아보려면 [Azure CLI를 사용하여 Shared Image Gallery 만들기](../virtual-machines/linux/shared-images.md) 또는 [Azure Portal을 사용하여 Shared Image Gallery 만들기](../virtual-machines/linux/shared-images-portal.md)를 참조하세요.
+관리 이미지를 성공적으로 만들었으면 Shared Image Gallery를 만들어 사용자 지정 이미지를 사용할 수 있도록 해야 합니다. 이미지에 대한 Shared Image Gallery를 만드는 방법을 알아보려면 [Azure CLI를 사용하여 Shared Image Gallery 만들기](../virtual-machines/shared-images-cli.md) 또는 [Azure Portal을 사용하여 Shared Image Gallery 만들기](../virtual-machines/linux/shared-images-portal.md)를 참조하세요.
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지에서 풀 만들기
 

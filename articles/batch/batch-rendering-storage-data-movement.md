@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965266"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147303"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션
 
@@ -87,7 +87,7 @@ blobfuse는 Azure Blob Storage에 대한 가상 파일 시스템 드라이버이
 
 [Azure Files](../storage/files/storage-files-introduction.md)는 클라우드에서 SMB 프로토콜을 통해 액세스할 수 있는 완전히 관리되는 파일 공유를 제공합니다.  Azure Files는 Azure Blob Storage에 기반한 [비용 효율적](https://azure.microsoft.com/pricing/details/storage/files/) 기능이며 다른 지역에 대한 데이터 복제를 사용하여 구성할 수 있으므로 전역적으로 중복됩니다.  지정된 예측 풀 크기 및 자산 파일 수에서 Azure Files를 사용할지를 결정하기 위해 [대상 크기 조정](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets)을 검토해야 합니다.
 
-Azure 파일 공유를 탑재하는 방법을 설명하는 [블로그 게시물](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) 및 [설명서](../storage/files/storage-how-to-use-files-windows.md)가 있습니다.
+Azure 파일 공유를 탑재 하는 방법에 대 한 [설명서](../storage/files/storage-how-to-use-files-windows.md) 가 있습니다.
 
 ### <a name="mounting-an-azure-files-share"></a>Azure Files 공유 만들기
 

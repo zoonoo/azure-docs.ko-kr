@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f196c21869f4a2f12e28bc4d6c42b8c945ddde71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c6be98eeca4433798ad8ed2bacb9338331b112
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603675"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170448"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -259,10 +259,9 @@ Azure AD/Microsoft 365 로그인 환경의 회사 브랜딩 기능이 업데이�
 **제품 기능:** Id 보안 & 보호
  
 
-클라우드 MFA와 MFA 서버 모두에 대 한 MFA 메일 알림을 다음과 같이 변경 합니다.
+MFA에 대 한 MFA 메일 알림을 다음과 같이 변경 합니다.
 
-전자 메일 알림은 다음 주소에서 전송 됩니다 azure-noreply@microsoft.com .
-사기 행위 경고 전자 메일의 콘텐츠를 업데이트 하 여 사용 차단을 해제 하는 데 필요한 단계를 더 잘 나타낼 수 있습니다.
+전자 메일 알림은 및 주소에서 전송 됩니다. azure-noreply@microsoft.com msonlineservicesteam@microsoftonline.com 사기 행위 경고 전자 메일의 콘텐츠를 업데이트 하 여 사용 차단을 해제 하는 데 필요한 단계를 더 잘 나타낼 수 있습니다.
 
 ---
 

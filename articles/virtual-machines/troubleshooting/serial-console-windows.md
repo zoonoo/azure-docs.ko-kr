@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135251"
+ms.locfileid: "86146649"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows의 Azure 직렬 콘솔
 
@@ -100,11 +100,10 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
 1. 직렬 콘솔에 연결합니다. 연결에 성공하면 프롬프트가 **SAC>** 입니다.
 
-    ![SAC에 연결](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
+   ![SAC에 연결](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다.
 
-1. `ch -si 1`을 입력하거나 `<esc>+<tab>` 바로 가기 키를 눌러 CMD 인스턴스를 실행하는 채널로 전환합니다.
+1. `ch -si 1` `<esc>+<tab>` CMD 인스턴스를 실행 하는 채널로 전환 하려면 바로 가기 키를 입력 하거나 누릅니다.
 
 1. **Enter** 키를 누른 다음, 관리자 권한으로 로그인 자격 증명을 입력합니다.
 
@@ -112,7 +111,7 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
 1. PowerShell 인스턴스를 시작하려면 CMD 인스턴스에서 `PowerShell`을 입력하고 **Enter** 키를 누릅니다.
 
-    ![PowerShell 인스턴스 열기](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![PowerShell 인스턴스 열기](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>NMI 호출에 대해 직렬 콘솔 사용
 NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다. 현재, 프로그래머 및 시스템 관리자는 종종 응답하지 않는 시스템을 디버그하거나 문제를 해결하기 위한 메커니즘으로 NMI를 사용합니다.

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/8/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a0d4d205e82f377d6ea02c91fbd6db7820c3868
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553544"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165875"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -47,7 +47,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름은 애플리케이션이 서비스/웹 API를
 > [!NOTE]
 > 이 시나리오에서는 중간 계층 서비스에서 다운스트림 API에 액세스하기 위해 사용자 동의를 얻기 위한 사용자 상호 작용이 없습니다. 따라서 다운스트림 API에 대한 액세스를 부여할 수 있는 옵션이 인증 과정에서 동의 단계 중 일부로 미리 제공됩니다. 앱에 대해 이를 설정하는 방법을 알아보려면 [중간 계층 애플리케이션에 대한 동의 얻기](#gaining-consent-for-the-middle-tier-application)를 참조하세요.
 
-## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
+## <a name="middle-tier-access-token-request"></a>중간 계층 액세스 토큰 요청
 
 액세스 토큰을 요청하려면 다음 매개 변수로 테넌트별 Microsoft ID 플랫폼 토큰 엔드포인트에 HTTP POST를 만듭니다.
 
@@ -64,11 +64,11 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 | 매개 변수 | Type | 설명 |
 | --- | --- | --- |
 | `grant_type` | 필요한 공간 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
-| `client_id` | 필요한 공간 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
-| `client_secret` | 필요한 공간 | Azure Portal - 앱 등록 페이지에서 앱에 대해 생성한 클라이언트 암호입니다. |
-| `assertion` | 필요한 공간 | 요청에 사용된 토큰 값입니다.  이 토큰에는 이 OBO 요청을 작성하는 앱(`client-id` 필드로 표시된 앱)의 대상이 있어야 합니다. |
-| `scope` | 필요한 공간 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요. |
-| `requested_token_use` | 필요한 공간 | 요청 처리 방법을 지정합니다. OBO 흐름에서는 값을 `on_behalf_of`로 설정해야 합니다. |
+| `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
+| `client_secret` | 필수 | Azure Portal - 앱 등록 페이지에서 앱에 대해 생성한 클라이언트 암호입니다. |
+| `assertion` | 필수 | 중간 계층 API에 전송 된 액세스 토큰입니다.  이 토큰에는 `aud` 이 OBO 요청 (필드로 표시 된 앱)을 만드는 앱의 대상 그룹 () 클레임이 있어야 합니다 `client-id` . 응용 프로그램은 다른 응용 프로그램에 대 한 토큰을 사용할 수 없습니다. 예를 들어 클라이언트가 MS Graph 용 토큰을 전송 하는 경우에는 API가 OBO를 사용 하 여이 API를 사용할 수 없습니다.  대신 토큰을 거부 해야 합니다.  |
+| `scope` | 필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요. |
+| `requested_token_use` | 필수 | 요청 처리 방법을 지정합니다. OBO 흐름에서는 값을 `on_behalf_of`로 설정해야 합니다. |
 
 #### <a name="example"></a>예제
 
@@ -99,7 +99,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 | `client_id` | 필수 |  [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
 | `client_assertion_type` | 필수 | 값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`여야 합니다. |
 | `client_assertion` | 필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요. |
-| `assertion` | 필수 | 요청에 사용된 토큰 값입니다. |
+| `assertion` | 필수 |  중간 계층 API에 전송 된 액세스 토큰입니다.  이 토큰에는 `aud` 이 OBO 요청 (필드로 표시 된 앱)을 만드는 앱의 대상 그룹 () 클레임이 있어야 합니다 `client-id` . 응용 프로그램은 다른 응용 프로그램에 대 한 토큰을 사용할 수 없습니다. 예를 들어 클라이언트가 MS Graph 용 토큰을 전송 하는 경우에는 API가 OBO를 사용 하 여이 API를 사용할 수 없습니다.  대신 토큰을 거부 해야 합니다.  |
 | `requested_token_use` | 필수 | 요청 처리 방법을 지정합니다. OBO 흐름에서는 값을 `on_behalf_of`로 설정해야 합니다. |
 | `scope` | 필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요.|
 
@@ -125,7 +125,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## <a name="service-to-service-access-token-response"></a>서비스 간 액세스 토큰 응답
+## <a name="middle-tier-access-token-response"></a>중간 계층 액세스 토큰 응답
 
 성공 응답은 다음 매개 변수가 있는 JSON OAuth 2.0 응답입니다.
 

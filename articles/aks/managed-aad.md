@@ -3,16 +3,16 @@ title: Azure Kubernetes Service에서 Azure AD 사용
 description: AKS(Azure Kubernetes Service)에서 Azure AD를 사용하는 방법 알아보기
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
-ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 9cacd2454dc987f7d507bb4b677e742f0be0d391
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105951"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166504"
 ---
 # <a name="aks-managed-azure-active-directory-integration-preview"></a>AKS 관리 Azure Active Directory 통합 (미리 보기)
 
@@ -26,10 +26,6 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 클러스터 관리자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
 
 [Azure Active Directory 통합 개념 설명서](concepts-identity.md#azure-active-directory-integration)의 AAD 통합 흐름에 대해 자세히 알아보세요.
-
-## <a name="limitations"></a>제한 사항
-
-* 현재 기존 AKS Azure AD 통합 클러스터를 새로운 AKS로 관리 되는 Azure AD 환경으로 업그레이드할 수 없습니다.
 
 > [!IMPORTANT]
 > AKS 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기는 "있는 그대로" "사용 가능한 상태로" 제공되며, 서비스 수준 계약 및 제한적 보증에서 제외됩니다. AKS 미리 보기의 일부는 고객 지원팀에서 최선을 다해 지원합니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 자세한 내용은 다음 지원 문서를 참조하세요.

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985738"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147042"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -131,6 +131,10 @@ R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SD
 
 * [Azure Machine Learning용 CLI 확장 사용](reference-azure-machine-learning-cli.md)
 * [Azure의 MLOps](https://github.com/microsoft/MLOps)
+
+## <a name="vs-code"></a>VS 코드
+
+VS Code 확장을 사용 하 여 교육 작업을 실행 하 고 관리할 수 있습니다. 자세한 내용은 [VS Code 리소스 관리 방법 가이드](how-to-manage-resources-vscode.md#experiments) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
