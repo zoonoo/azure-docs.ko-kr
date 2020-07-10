@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 03/18/2020
-ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 437db3e1ad367a75d6c8d3a77b138bce79b5f61e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80064201"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147133"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 환경 이란 무엇 인가요?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,7 @@ Azure Machine Learning 환경에서는 학습 및 채점 스크립트와 관련�
 * `Environment`작업 영역에서 기존 개체를 사용 합니다. 이 접근 방식을 사용 하면 일관성과 종속성을 재현 가능성 수 있습니다.
 * 기존 Anaconda 환경 정의에서 가져오기.
 * Azure Machine Learning CLI 사용
+* [VS Code 확장 사용](how-to-manage-resources-vscode.md#create-environment)
 
 특정 코드 샘플은 [학습 및 배포를 위한 재사용 환경](how-to-use-environments.md#create-an-environment)에서 "환경 만들기" 섹션을 참조 하세요. 환경도 작업 영역을 통해 쉽게 관리할 수 있습니다. 여기에는 다음과 같은 기능이 포함 됩니다.
 

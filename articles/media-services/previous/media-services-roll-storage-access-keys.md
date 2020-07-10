@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ddf15ffad086bab5ed6c4e2508cd0874f6ee567
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981953"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166181"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>스토리지 액세스 키 롤링 후 Media Services 업데이트 
 
@@ -48,7 +49,7 @@ Media Services는 제공되는 스토리지 키에 따라 달라집니다. 특�
  
     다음 예제에서는 키를 스토리지 계정에 동기화하는 방법을 보여 줍니다.
   
-         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    `Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId`
   
  3. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
  4. PowerShell cmdlet 또는 Azure Portal을 통해 스토리지 계정 보조 키를 변경합니다.
@@ -59,14 +60,15 @@ Media Services는 제공되는 스토리지 키에 따라 달라집니다. 특�
 
 다음 예제에서는 스토리지 계정을 가져와서 AMS 계정과 동기화하는 방법을 보여 줍니다.
 
-    $regionName = "West US"
-    $resourceGroupName = "SkyMedia-USWest-App"
-    $mediaAccountName = "sky"
-    $storageAccountName = "skystorage"
-    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+```console
+$regionName = "West US"
+$resourceGroupName = "SkyMedia-USWest-App"
+$mediaAccountName = "sky"
+$storageAccountName = "skystorage"
+$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
-
+Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+```
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS 계정에 스토리지 계정을 추가하는 단계
 

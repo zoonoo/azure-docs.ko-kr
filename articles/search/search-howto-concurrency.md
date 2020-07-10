@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f22e69cbc625d21c398151e413574387a2587790
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792208"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145278"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Azure Cognitive Search에서 동시성을 관리 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "72792208"
 > [!Tip]
 > [샘플 c # 솔루션](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) 의 개념 코드는 Azure Cognitive Search에서 동시성 제어가 작동 하는 방식을 설명 합니다. 이 코드는 동시성 제어를 호출하는 조건을 만듭니다. 대부분의 개발자는 [아래의 코드 조각](#samplecode)만 확인해도 되겠지만, 해당 코드를 실행하려는 경우 appsettings.json을 편집하여 서비스 이름과 관리 API 키를 추가하세요. 서비스 URL이 `http://myservice.search.windows.net`인 경우 서비스 이름은 `myservice`입니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 낙관적 동시성은 인덱스, 인덱서, 데이터 원본 및 synonymMap 리소스에 데이터를 기록하는 API 호출에서 액세스 조건을 확인하는 방식으로 구현됩니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "72792208"
 
 ### <a name="sample-code-from-dotnetetagsexplainer-program"></a>[DotNetETagsExplainer 프로그램](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)의 샘플 코드
 
-```
+```csharp
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
@@ -173,6 +173,7 @@ ms.locfileid: "72792208"
 
 해당 코드 조각은 "hotels" 인덱스를 가져와 업데이트 작업의 개체 버전을 확인한 다음 조건이 실패하면 예외를 throw합니다. 그런 후에 작업을 최대 3회까지 다시 시도하는데, 이때 먼저 서버에서 인덱스를 검색하여 최신 버전을 가져옵니다.
 
+```csharp
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
             int MaxNumTries = 3;
@@ -203,7 +204,7 @@ ms.locfileid: "72792208"
             index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
             return index;
         }
-
+```
 
 ## <a name="next-steps"></a>다음 단계
 

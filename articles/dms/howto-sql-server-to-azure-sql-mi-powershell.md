@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 35e6690726750e6c9e6dfb0cb62a6732603c3610
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb8ec09646fa3f3c226edbe957e19d079fd2607c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083664"
+ms.locfileid: "86147426"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>PowerShell &를 사용 하 여 SQL Managed Instance로 SQL Server 마이그레이션 Azure Database Migration Service
 
@@ -35,7 +35,7 @@ ms.locfileid: "86083664"
 
 이 문서에는 온라인 및 오프 라인 마이그레이션을 모두 수행 하는 방법에 대 한 세부 정보가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
@@ -110,7 +110,7 @@ Cmdlet을 사용 하 여 데이터베이스 연결 정보 개체를 만들 수 �
 * *ServerType*. SQL, Oracle 또는 MySQL 등 요청된 데이터베이스 연결 유형입니다. SQL Server 및 Azure SQL에 대해 SQL을 사용합니다.
 * *DataSource*. SQL Server 인스턴스 또는 Azure SQL Database 인스턴스의 이름 또는 IP입니다.
 * *Authtype*. 연결에 대한 인증 유형이며 SqlAuthentication 또는 WindowsAuthentication일 수 있습니다.
-* *Trustservercertificate*. 이 매개 변수는 신뢰의 유효성을 검사 하기 위해 인증서 체인을 우회 하는 동안 채널이 암호화 되는지 여부를 나타내는 값을 설정 합니다. 값은 또는 일 수 있습니다 `$true` `$false` .
+* *Trustservercertificate*. 이 매개 변수는 신뢰의 유효성을 검사 하기 위해 인증서 체인을 우회 하는 동안 채널이 암호화 되는지 여부를 나타내는 값을 설정 합니다. 값은 `$true`, `$false`입니다.
 
 다음 예에서는 SQL 인증을 사용 하 여 *MySourceSQLServer* 라는 원본 SQL Server에 대 한 연결 정보 개체를 만듭니다.
 
@@ -121,13 +121,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-다음 예제에서는 sql 인증을 사용 하 여 ' targetmanagedinstance.database.windows.net ' 이라는 Azure SQL Managed Instance에 대 한 연결 정보를 만드는 방법을 보여 줍니다.
+다음 예제에서는 ' targetmanagedinstance ' 라는 Azure SQL Managed Instance에 대 한 연결 정보를 만드는 방법을 보여 줍니다.
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### <a name="provide-databases-for-the-migration-project"></a>마이그레이션 프로젝트에 대한 데이터베이스 제공
@@ -418,7 +416,7 @@ $command = Invoke-AzDmsCommand -CommandType CompleteSqlMiSync `
 Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 추가 마이그레이션 시나리오 (원본/대상 쌍)에 대 한 자세한 내용은 Microsoft [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하십시오.
 

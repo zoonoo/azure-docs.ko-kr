@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cf78a2f7d909fb260c5ff99f80c9d1482f2cd08b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 85635ff3a52236d0c53b72c68eda0d71debe1f61
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027310"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145918"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 추가 및 관리
 
@@ -34,7 +35,7 @@ Spark 인스턴스가 시작 되 면이 설치를 기본으로 사용 하 여 �
 
 ### <a name="requirements-format"></a>요구 사항 형식
 
-다음 코드 조각에서는 요구 사항 파일의 형식을 보여 줍니다. PyPi 패키지 이름은 정확한 버전과 함께 나열 됩니다. 이 파일은 [pip 고정](https://pip.pypa.io/en/stable/reference/pip_freeze/) 참조 설명서에 설명 된 형식을 따릅니다. 이 예제에서는 특정 버전을 고정 합니다. 이 파일에서 "보다 큼" 및 "보다 작음" 버전을 지정할 수도 있습니다.
+다음 코드 조각에서는 요구 사항 파일의 형식을 보여 줍니다. PyPi 패키지 이름은 정확한 버전과 함께 나열 됩니다. 이 파일은 [pip 고정](https://pip.pypa.io/en/stable/reference/pip_freeze/) 참조 설명서에 설명 된 형식을 따릅니다. 이 예제에서는 특정 버전을 고정 합니다. 
 
 ```
 absl-py==0.7.0

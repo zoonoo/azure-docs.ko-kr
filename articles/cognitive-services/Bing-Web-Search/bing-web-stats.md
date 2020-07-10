@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85609472"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147407"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Bing Search API에 분석 추가
 
@@ -53,7 +53,7 @@ Bing 업데이트는 24 시간 마다 분석 데이터를 분석 하 고 [분석
 - **시간 프레임**: 보고 기간입니다. 다음을 지정할 수 있습니다.
   - **모두**: 최대 13 개월 분량의 데이터를 포함 합니다.  
   - **지난 24 시간**: 지난 24 시간 동안의 분석 포함  
-  - **지난 주: 지난**7 일간의 분석 포함  
+  - **지난 주: 지난**7 일 동안의 분석 포함  
   - **지난 달**: 지난 30 일 동안의 분석 포함  
   - **사용자 지정 날짜 범위**: 지정 된 날짜 범위의 분석 (사용 가능한 경우)을 포함 합니다.  
 

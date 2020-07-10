@@ -4,12 +4,12 @@ description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니�
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507349"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166487"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -49,12 +49,12 @@ ms.locfileid: "85507349"
 
 | |라이브 스트림 | 메트릭 탐색기 및 분석 |
 |---|---|---|
-|대기 시간|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
-|보존 없음|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|주문형|라이브 메트릭 창이 열려 있는 동안에만 데이터가 스트리밍됩니다. |SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|Free|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
-|샘플링|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
-|컨트롤 채널|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|한 가지 방법은 포털에 대 한 통신입니다.|
+|**대기 시간**|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
+|**보존 없음**|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**요청 시**|라이브 메트릭 창이 열려 있는 동안에만 데이터가 스트리밍됩니다. |SDK가 설치되고 사용될 때마다 데이터가 전송됨|
+|**Free**|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
+|**샘플링**|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
+|**컨트롤 채널**|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|한 가지 방법은 포털에 대 한 통신입니다.|
 
 ## <a name="select-and-filter-your-metrics"></a>메트릭 선택 및 필터링
 

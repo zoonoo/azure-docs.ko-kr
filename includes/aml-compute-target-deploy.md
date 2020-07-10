@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85378581"
 ---
-| 컴퓨팅 대상 | 사용 목적 | GPU 지원 | FPGA 지원 | 설명 |
+| 컴퓨팅 대상 | 사용 목적 | GPU 지원 | FPGA 지원 | Description |
 | ----- | ----- | ----- | ----- | ----- |
 | [로컬 &nbsp; 웹 &nbsp; 서비스](../articles/machine-learning/how-to-deploy-and-where.md#local) | 테스트/디버깅 | &nbsp; | &nbsp; | 제한 된 테스트 및 문제 해결에 사용 합니다. 하드웨어 가속은 로컬 시스템에서 라이브러리를 사용 하는지에 따라 달라 집니다.
 | [Azure Machine Learning compute 인스턴스 &nbsp; 웹 &nbsp; 서비스](../articles/machine-learning/how-to-deploy-and-where.md#notebookvm) | 테스트/디버깅 | &nbsp; | &nbsp; | 제한 된 테스트 및 문제 해결에 사용 합니다.

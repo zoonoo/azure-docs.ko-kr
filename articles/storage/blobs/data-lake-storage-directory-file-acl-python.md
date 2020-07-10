@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: f5ff33d021f27f2c5dfb86ca87f2579602f0d1cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559147"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142478"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -21,7 +22,7 @@ ms.locfileid: "84559147"
 
 [패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)  |  [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)  |  [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -93,11 +94,11 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 > [!NOTE]
 > 더 많은 예제는 [Python 용 Azure id 클라이언트 라이브러리](https://pypi.org/project/azure-identity/) 설명서를 참조 하세요.
 
-## <a name="create-a-file-system"></a>파일 시스템 만들기
+## <a name="create-a-container"></a>컨테이너 만들기
 
-파일 시스템은 파일의 컨테이너 역할을 합니다. **Create_file_system FileSystemDataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
+컨테이너는 파일에 대 한 파일 시스템 역할을 합니다. **Create_file_system FileSystemDataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
 
-다음 예제에서는 `my-file-system`이라는 파일 시스템을 만듭니다.
+이 예제에서는 라는 컨테이너를 만듭니다 `my-file-system` .
 
 ```python
 def create_file_system():
@@ -115,7 +116,7 @@ def create_file_system():
 
 **Create_directory FileSystemClient** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
-이 예제에서는 라는 디렉터리를 `my-directory` 파일 시스템에 추가 합니다. 
+이 예제에서는 라는 디렉터리를 `my-directory` 컨테이너에 추가 합니다. 
 
 ```python
 def create_directory():
@@ -330,7 +331,7 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)

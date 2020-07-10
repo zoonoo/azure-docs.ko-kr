@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145977"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
 
@@ -45,7 +45,7 @@ ms.locfileid: "85610866"
 
 1. 사이트를 삭제 한 직후에는 위협 행위자가 누락 된 사이트를 검색 하 고에서 자체 웹 사이트를 만듭니다 `app-contogreat-dev-001.azurewebsites.net` .
 
-    이제에 대 한 트래픽이 `greatapp.contoso.com` 위협 행위자의 Azure 사이트로 이동 하 고 위협 행위자는 표시 되는 콘텐츠를 제어할 수 있습니다. 
+    이제에 사용 되는 트래픽은 `greatapp.contoso.com` 위협 행위자의 Azure 사이트로 이동 하 고, 위협 행위자는 표시 되는 콘텐츠를 제어 합니다. 
 
     현 수 DNS가 악용 되었으며 Contoso의 하위 도메인 "GreatApp"가 하위 도메인 인수의 공격을 받았습니다. 
 
@@ -61,7 +61,7 @@ DNS 레코드를 사용할 수 없는 리소스를 가리키는 경우에는 DNS
 
 - 하위 **도메인의 콘텐츠에 대 한 제어 손실** -부정은 조직의 콘텐츠를 보호할 수 없는 기능 뿐만 아니라 브랜드 손상과 신뢰의 손실을 방지 합니다.
 
-- **의심 되는 방문자 로부터 쿠키를 수집** 합니다. 웹 앱은 세션 쿠키를 하위 도메인 (*. contoso.com)에 노출 하는 것이 일반적 이므로 모든 하위 도메인에서 액세스할 수 있습니다. 위협 행위자는 하위 도메인 인수를 사용 하 여 인증 된 페이지를 빌드하고, 사용자가 방문 하 여 방문 하 고, 쿠키 (보안 쿠키)를 수집할 수 있습니다. 일반적인 오해 SSL 인증서를 사용 하 여 사이트 및 사용자의 쿠키를 인수에서 보호 한다는 것입니다. 그러나 위협 행위자는 하이재킹 된 하위 도메인을 사용 하 여 유효한 SSL 인증서를 적용 하 고 받을 수 있습니다. 그런 다음 보안 쿠키에 대 한 액세스 권한을 부여 하 고 악의적인 사이트의 인식 된 적법성을 추가로 늘릴 수 있습니다.
+- **의심 되는 방문자 로부터 쿠키를 수집** 합니다. 웹 앱은 세션 쿠키를 하위 도메인 (*. contoso.com)에 노출 하는 것이 일반적 이므로 모든 하위 도메인에서 액세스할 수 있습니다. 위협 행위자는 하위 도메인 인수를 사용 하 여 인증 된 페이지를 빌드하고, 사용자가 방문 하 여 방문 하 고, 쿠키 (보안 쿠키)를 수집할 수 있습니다. 일반적인 오해 SSL 인증서를 사용 하 여 사이트 및 사용자의 쿠키를 인수에서 보호 한다는 것입니다. 그러나 위협 행위자는 하이재킹 된 하위 도메인을 사용 하 여 유효한 SSL 인증서를 적용 하 고 받을 수 있습니다. 유효한 SSL 인증서를 통해 보안 쿠키에 대 한 액세스 권한을 부여 하 고 악의적인 사이트의 인식 된 적법성을 더욱 늘릴 수 있습니다.
 
 - **피싱 캠페인** -인증-하위 도메인을 피싱 캠페인에서 사용할 수 있습니다. 악의적인 사이트와 위협 행위자가 알려진 안전한 브랜드의 합법적인 하위 도메인으로 주소가 지정 된 메일을 받을 수 있도록 허용 하는 MX 레코드의 경우에도 마찬가지입니다.
 
@@ -78,14 +78,14 @@ DNS 레코드를 사용할 수 없는 리소스를 가리키는 경우에는 DNS
 
 ### <a name="use-azure-dns-alias-records"></a>Azure DNS 별칭 레코드 사용
 
-DNS 레코드의 수명 주기를 Azure 리소스와 긴밀 하 게 결합 하 여 Azure DNS의 [별칭 레코드](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) 는 현 수 참조를 방지할 수 있습니다. 공용 IP 주소 또는 Traffic Manager 프로필을 가리키는 별칭 레코드로 정규화된 DNS 레코드를 예로 들어보겠습니다. 이러한 기본 리소스를 삭제 하면 DNS 별칭 레코드가 빈 레코드 집합이 됩니다. 삭제 된 리소스를 더 이상 참조 하지 않습니다. 별칭 레코드로 보호할 수 있는 항목에는 제한이 있다는 점에 유의 해야 합니다. 현재이 목록은 다음으로 제한 됩니다.
+Azure DNS의 [별칭 레코드](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) 는 DNS 레코드의 수명 주기를 Azure 리소스와 결합 하 여 현 수 참조를 방지할 수 있습니다. 공용 IP 주소 또는 Traffic Manager 프로필을 가리키는 별칭 레코드로 정규화된 DNS 레코드를 예로 들어보겠습니다. 이러한 기본 리소스를 삭제 하면 DNS 별칭 레코드가 빈 레코드 집합이 됩니다. 삭제 된 리소스를 더 이상 참조 하지 않습니다. 별칭 레코드로 보호할 수 있는 항목에는 제한이 있다는 점에 유의 해야 합니다. 현재이 목록은 다음으로 제한 됩니다.
 
 - Azure Front Door
 - Traffic Manager 프로필
 - CDN (Azure Content Delivery Network) 끝점
 - 공용 IP
 
-인수 하위 도메인에서 별칭 레코드를 사용 하 여 보호할 수 있는 리소스가 있는 경우 현재 제한 된 서비스 제공에도 불구 하 고이를 수행 하는 것이 좋습니다.
+현재 제한 된 서비스 제공에도 불구 하 고 가능 하면 항상 하위 도메인에 대해 인수 하는 별칭 레코드를 사용 하는 것이 좋습니다.
 
 Azure DNS의 별칭 레코드 기능에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) .
 
@@ -120,7 +120,7 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
         - **존재** -Azure 하위 도메인 (예: *. azurewebsites.net 또는 *. cloudapp.azure.com)을 가리키는 리소스에 대 한 DNS 영역을 쿼리 합니다 ( [이 참조 목록](azure-domains.md)참조).
         - 사용자는 DNS 하위 도메인에서 대상으로 하는 모든 리소스 **를 소유 하** 고 있는지 확인 합니다.
 
-    - Azure FQDN (정규화 된 도메인 이름) 끝점과 응용 프로그램 소유자의 서비스 카탈로그를 유지 관리 합니다. 서비스 카탈로그를 빌드하려면 아래 표의 매개 변수를 사용 하 여 다음과 같은 Azure 리소스 그래프 쿼리를 실행 합니다.
+    - Azure FQDN (정규화 된 도메인 이름) 끝점과 응용 프로그램 소유자의 서비스 카탈로그를 유지 관리 합니다. 서비스 카탈로그를 빌드하려면 아래 표의 매개 변수를 사용 하 여 다음 ARG (Azure 리소스 그래프) 쿼리를 실행 합니다.
     
         >[!IMPORTANT]
         > **권한** -모든 Azure 구독에 대 한 액세스 권한이 있는 사용자로 쿼리를 실행 합니다. 
@@ -139,9 +139,12 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
         
         여러 리소스 종류를 결합할 수도 있습니다. 다음 쿼리 예제에서는 Azure App Service **및** Azure App Service 슬롯에서 리소스를 반환 합니다.
 
-        ```
+        ```azurepowershell
         Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
         ```
+
+
+        ARG 쿼리에 대 한 서비스 당 매개 변수:
 
         |리소스 이름  |[ResourceType]  | [FQDNproperty]  |
         |---------|---------|---------|

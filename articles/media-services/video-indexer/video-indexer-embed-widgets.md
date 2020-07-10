@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d76f3afa3a831f402f93322ecec350bfdb0c788d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594851"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166028"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 Video Indexer 위젯을 포함 합니다.
 
-이 문서에서는 앱에 Video Indexer 위젯을 포함 하는 방법을 보여 줍니다. Video Indexer는 *인식 통찰력*, *플레이어*및 *편집자*의 세 가지 위젯 유형을 앱에 포함 하도록 지원 합니다.
+이 문서에서는 앱에 Video Indexer 위젯을 포함 하는 방법을 보여 줍니다. Video Indexer는 다음 세 가지 유형의 위젯을 앱에 포함하는 것을 지원합니다. *인지적 인사이트*, *플레이어* 및 *편집기*.
 
 버전 2부터 위젯 기준 URL에는 지정 된 계정의 지역이 포함 됩니다. 예를 들어 미국 서부 지역의 계정은 `https://www.videoindexer.ai/embed/insights/.../?location=westus2`를 생성합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "82594851"
 
 인지 인사이트 위젯에는 비디오 인덱싱 프로세스에서 추출한 모든 시각적 인사이트가 포함되어 있습니다. 인식 통찰력 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|Description|
+|이름|정의|설명|
 |---|---|---|
 |`widgets` | 쉼표로 구분된 문자열 | 렌더링 하려는 정보를 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` 사용자 및 키워드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: 사람, animatedCharacters, 키워드, 레이블, 정서, 감정을, 토픽, 키 프레임, 성적 증명서, ocr, 스피커, 장면 및 namedEntities.|
 |`controls`|쉼표로 구분된 문자열|렌더링 하려는 컨트롤을 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` 검색 옵션 및 다운로드 단추만 렌더링 합니다.<br/>사용 가능한 옵션: 검색, 다운로드, 사전 설정, 언어|
@@ -42,7 +42,7 @@ ms.locfileid: "82594851"
 
 플레이어 위젯을 사용 하 여 적응 비트 전송률을 사용 하 여 비디오를 스트리밍할 수 있습니다. 플레이어 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|Description|
+|이름|정의|설명|
 |---|---|---|
 |`t` | 시작부터 초 | 지정 된 시간 지점에서 플레이어의 재생을 시작 합니다.<br/> 예: `t=60`. |
 |`captions` | 언어 코드 | **캡션** 메뉴에서 위젯 로드를 사용할 수 있도록 지정 된 언어의 캡션을 페치합니다.<br/> 예: `captions=en-US`. |
@@ -56,12 +56,12 @@ ms.locfileid: "82594851"
 
 편집기 위젯을 사용 하 여 새 프로젝트를 만들고 비디오의 정보를 관리할 수 있습니다. 편집기 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|Name|정의|Description|
+|이름|정의|Description|
 |---|---|---|
 |`accessToken`<sup>*</sup> | String | 위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다. |
 |`language` | 언어 코드 | 플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`. |
 |`locale` | 짧은 언어 코드 | Insights 언어를 제어 합니다. 기본값은 `en`입니다.<br/>예: `language=de`. |
-|`location` ||`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial`paramete에 대 한 기본값입니다 `location` .| 
+|`location` ||`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다.| 
 
 <sup>*</sup>소유자는 신중 하 게 제공 해야 합니다 `accessToken` .
 
@@ -69,7 +69,7 @@ ms.locfileid: "82594851"
 
 이 섹션에서는 공용 및 개인 콘텐츠를 앱에 포함 하는 방법을 설명 합니다.
 
-`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial`paramete에 대 한 기본값입니다 `location` . 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
+`location`매개 변수는 포함 된 링크에 포함 되어야 합니다. 해당 [지역의 이름을 가져오는 방법](regions.md)을 참조 하세요. 계정이 미리 보기 상태인 경우 `trial` 위치 값에 대해를 사용 해야 합니다. `trial``location`매개 변수의 기본값입니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > **플레이어** 또는 **Insights** 위젯에 대 한 링크를 공유 하면 액세스 토큰이 포함 되며 계정에 읽기 전용 권한을 부여 합니다.
@@ -131,47 +131,48 @@ ms.locfileid: "82594851"
 1. AMP player에 대 한 Video Indexer 플러그 인을 추가 합니다.<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Video Indexer 플러그 인을 사용 하 여 Azure Media Player를 인스턴스화합니다.
 
-        // Init the source.
-        function initSource() {
-            var tracks = [{
-            kind: 'captions',
-            // To load vtt from VI, replace it with your vtt URL.
-            src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
-            srclang: 'en',
-            label: 'English'
-            }];
-
-            myPlayer.src([
-            {
-                "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
-                "type": "application/vnd.ms-sstr+xml"
-            }
-            ], tracks);
+    ```javascript
+    // Init the source.
+    function initSource() {
+        var tracks = [{
+        kind: 'captions',
+        // To load vtt from VI, replace it with your vtt URL.
+        src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
+        srclang: 'en',
+        label: 'English'
+        }];
+        myPlayer.src([
+        {
+            "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
+            "type": "application/vnd.ms-sstr+xml"
         }
+        ], tracks);
+    }
 
-        // Init your AMP instance.
-        var myPlayer = amp('vid1', { /* Options */
-            "nativeControlsForTouch": false,
-            autoplay: true,
-            controls: true,
-            width: "640",
-            height: "400",
-            poster: "",
-            plugins: {
-            videobreakedown: {}
-            }
-        }, function () {
-            // Activate the plug-in.
-            this.videobreakdown({
-            videoId: "c4c1ad4c9a",
-            syncTranscript: true,
-            syncLanguage: true,
-            location: "trial" /* location option for paid accounts (default is trial) */
-            });
-
-            // Set the source dynamically.
-            initSource.call(this);
+    // Init your AMP instance.
+    var myPlayer = amp('vid1', { /* Options */
+        "nativeControlsForTouch": false,
+        autoplay: true,
+        controls: true,
+        width: "640",
+        height: "400",
+        poster: "",
+        plugins: {
+        videobreakedown: {}
+        }
+    }, function () {
+        // Activate the plug-in.
+        this.videobreakdown({
+        videoId: "c4c1ad4c9a",
+        syncTranscript: true,
+        syncLanguage: true,
+        location: "trial" /* location option for paid accounts (default is trial) */
         });
+
+        // Set the source dynamically.
+        initSource.call(this);
+    });
+    ```
 
 3. 인지 인사이트 포함 코드를 복사합니다.
 
@@ -187,42 +188,46 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
 
     예를 들어 표준 HTML5 플레이어는 다음과 같습니다.
 
-        <video id="vid1" width="640" height="360" controls autoplay preload>
-           <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
-           Your browser does not support the video tag.
-        </video>    
+    ```html
+    <video id="vid1" width="640" height="360" controls autoplay preload>
+       <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
+       Your browser does not support the video tag.
+    </video>
+    ```
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예:
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예를 들면 다음과 같습니다.
 
-        <script>
+    ```javascript
+    <script>
     
-            (function(){
-            // Reference your player instance.
-            var playerInstance = document.getElementById('vid1');
+        (function(){
+        // Reference your player instance.
+        var playerInstance = document.getElementById('vid1');
         
-            function jumpTo(evt) {
-              var origin = evt.origin || evt.originalEvent.origin;
+        function jumpTo(evt) {
+          var origin = evt.origin || evt.originalEvent.origin;
         
-              // Validate that the event comes from the videobreakdown domain.
-              if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videobreakdown domain.
+          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
                 
-                // Call your player's "jumpTo" implementation.
-                playerInstance.currentTime = evt.data.time;
+            // Call your player's "jumpTo" implementation.
+            playerInstance.currentTime = evt.data.time;
                
-                // Confirm the arrival to us.
-                if ('postMessage' in window) {
-                  evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
-                }
-              }
+            // Confirm the arrival to us.
+            if ('postMessage' in window) {
+              evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
             }
+          }
+        }
         
-            // Listen to the message event.
-            window.addEventListener("message", jumpTo, false);
+        // Listen to the message event.
+        window.addEventListener("message", jumpTo, false);
           
-            }())    
+        }())    
         
-        </script>
+    </script>
+    ```
 
 자세한 내용은 [Azure Media Player + VI Insights 데모](https://codepen.io/videoindexer/pen/YEyPLd)를 참조 하세요.
 
@@ -254,7 +259,7 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -274,7 +279,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) 리포지토리를 참조 하세요.
 
-| 파일/폴더                       | Description                                |
+| 파일/폴더                       | 설명                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | 사용자 지정 Azure Media Player 비디오 인덱서 비디오를 로드 합니다.                        |
 | `azure-media-player-vi-insights`  | 사용자 지정 Azure Media Player를 사용 하 여 VI 정보를 포함 합니다.                             |

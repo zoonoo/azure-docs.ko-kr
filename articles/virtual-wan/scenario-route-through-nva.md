@@ -8,16 +8,22 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0716ca8f0457ca801098c97dd7a5e68751822d4d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848102"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142965"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>시나리오: NVA를 통해 트래픽 라우팅
 
 가상 WAN 가상 허브 라우팅으로 작업할 때 몇 가지 시나리오를 사용할 수 있습니다. 이 NVA 시나리오에서 목표는 NVA (네트워크 가상 어플라이언스)를 통해 분기에서 VNet으로, VNet에서 분기로 트래픽을 라우팅하는 것입니다. 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
+
+> [!NOTE]
+> 라우팅 기능 중 일부는 여전히 롤아웃 될 수 있습니다. 사용자의 지역에서 롤아웃이 아직 발생 하지 않은 경우에는 다음 버전의 문서에 있는 단계를 사용 하세요.
+>* [Azure Portal 문서](virtual-wan-route-table-nva-portal.md)
+>* [PowerShell 문서](virtual-wan-route-table-nva.md)
+>
 
 ## <a name="scenario-architecture"></a><a name="architecture"></a>시나리오 아키텍처
 

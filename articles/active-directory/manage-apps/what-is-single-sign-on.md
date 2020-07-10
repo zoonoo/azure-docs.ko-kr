@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션에 대한 Single Sign-On - Azure Active Directory | Microsoft Docs
+title: Azure Single Sign-On (SSO) 란?
 description: Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. Single Sign-On을 사용하므로 사용자는 모든 애플리케이션에 대한 암호를 기억할 필요가 없어 계정 관리가 간소화됩니다.
 services: active-directory
 author: kenwith
@@ -12,14 +12,14 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479711"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144607"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
+# <a name="what-is-single-sign-on-sso"></a>SSO(Single Sign-On)란?
 
 SSO(Single Sign-On)는 사용자가 Azure AD(Azure Active Directory)의 애플리케이션에 로그인할 때 보안 및 편리함을 제공합니다. 이 문서는 Single Sign-On 방법을 설명하고, 애플리케이션을 구성할 때 가장 적합한 SSO 방법을 선택하는 데 유용합니다.
 
@@ -99,8 +99,8 @@ HTML 기반 로그인 페이지가 있는 클라우드 기반 애플리케이션
 - Windows 10 Anniversary Edition 이상의 Microsoft Edge
 - IOS 및 Android 용 Microsoft Edge
 - Intune Managed Browser
-- Windows 7 이상 및 Mac OS X 이상 Chrome
-- Windows XP SP2 이상 및 Mac OS X 10.6 이상 Firefox 26.0 이상
+- Windows 7 이상 및 macOS X 이상에 대 한 Chrome
+- Windows XP SP2 이상 및 macOS X 10.6 이상의 Firefox 26.0 이상 버전
 
 암호 기반 Single Sign-On에 대 한 클라우드 응용 프로그램을 구성 하려면 [암호 구성 Single Sign-On](configure-password-single-sign-on-non-gallery-applications.md)을 참조 하세요.
 

@@ -7,13 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8b4876377501209e19ac496d605d228208d2323d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46108ed06659d234907c6eaa6841dc18022c73bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670846"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144124"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Azure Data Factory의 Excel 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,11 +32,11 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure 
 | type             | 데이터 집합의 type 속성은 **Excel**로 설정 되어야 합니다.   | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . | 예      |
 | sheetName        | 데이터를 읽을 Excel 워크시트 이름입니다.                       | 예      |
-| range            | 선택적 데이터를 찾기 위한 지정 된 워크시트의 셀 범위 (예: `A3:H5` a3에서 H5), ( `A3` 셀 a3에서 시작 하는 테이블), `A3:A3` (단일 셀). 지정 하지 않으면 ADF는 전체 워크시트에서 표로 읽습니다. | 아니요       |
-| firstRowAsHeader | 지정 된 워크시트/범위의 첫 번째 행을 열 이름의 머리글 줄로 처리할지 여부를 지정 합니다.<br>허용 되는 값은 **true** 및 **false** (기본값)입니다. | 아니요       |
-| nullValue        | Null 값의 문자열 표현을 지정 합니다. <br>기본값은 **빈 문자열**입니다. | 아니요       |
-| compressionCodec | Excel 파일을 읽는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**또는 **lz4**입니다. 기본값은 압축 되지 않습니다. <br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다. <br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 파일은 폴더에 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` . | 아니요       |
-| compressionLevel | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 아니요       |
+| range            | 선택적 데이터를 찾기 위한 지정 된 워크시트의 셀 범위 (예: `A3:H5` a3에서 H5), ( `A3` 셀 a3에서 시작 하는 테이블), `A3:A3` (단일 셀). 지정 하지 않으면 ADF는 전체 워크시트에서 표로 읽습니다. | 예       |
+| firstRowAsHeader | 지정 된 워크시트/범위의 첫 번째 행을 열 이름의 머리글 줄로 처리할지 여부를 지정 합니다.<br>허용 되는 값은 **true** 및 **false** (기본값)입니다. | 예       |
+| nullValue        | Null 값의 문자열 표현을 지정 합니다. <br>기본값은 **빈 문자열**입니다. | 예       |
+| compressionCodec | Excel 파일을 읽는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**또는 **lz4**입니다. 기본값은 압축 되지 않습니다. <br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다. <br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 파일은 폴더에 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` . | 예       |
+| compressionLevel | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 예       |
 
 다음은 Azure Blob Storage에 대 한 Excel 데이터 집합의 예입니다.
 
@@ -74,7 +75,7 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **S\source**로 설정 해야 합니다. | 예      |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. | 아니요       |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. | 예       |
 
 ```json
 "activities": [
@@ -94,6 +95,54 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure 
         ...
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
+
+데이터 흐름 매핑에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 Excel 형식을 읽을 수 있습니다. Excel 데이터 집합을 사용 하거나 [인라인 데이터 집합](data-flow-source.md#inline-datasets)을 사용 하 여 excel 파일을 가리킬 수 있습니다.
+
+### <a name="source-properties"></a>원본 속성
+
+다음 표에서는 Excel 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. 인라인 데이터 집합을 사용 하는 경우 [데이터 집합 속성](#dataset-properties) 섹션에 설명 된 속성과 동일한 추가 파일 설정이 표시 됩니다.
+
+| 이름                      | 설명                                                  | 필수 | 허용되는 값                                            | 데이터 흐름 스크립트 속성         |
+| ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
+| 와일드 카드 경로           | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | 아니요       | String[]                                                  | wildcardPaths                     |
+| 파티션 루트 경로       | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요       | 문자열                                                    | 파티션 (partitionRootPath)                 |
+| 파일 목록             | 소스에서 처리할 파일을 나열 하는 텍스트 파일을 가리키고 있는지 여부 | 아니요       | `true` 또는 `false`                                         | fileList                          |
+| 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용 하 여 새 열을 만듭니다.       | 아니요       | 문자열                                                    | rowUrlColumn                      |
+| 완료 후          | 처리 후 파일을 삭제 하거나 이동 합니다. 컨테이너 루트에서 파일 경로가 시작 됩니다. | 아니요       | 삭제: `true` 또는`false` <br> 옮기고`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| 마지막으로 수정한 사람 필터링   | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | 아니요       | 타임스탬프                                                 | modifiedAfter <br> modifiedBefore |
+
+### <a name="source-example"></a>원본 예제
+
+아래 그림은 데이터 집합 모드를 사용 하 여 데이터 흐름을 매핑하는 Excel 원본 구성의 예입니다.
+
+![Excel 원본](media/data-flow/excel-source.png)
+
+연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    wildcardPaths:['*.xls']) ~> ExcelSource
+```
+
+인라인 데이터 집합을 사용 하는 경우 데이터 흐름 매핑에 다음 원본 옵션이 표시 됩니다.
+
+![Excel 원본 인라인 데이터 집합](media/data-flow/excel-source-inline-dataset.png)
+
+연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'excel',
+    fileSystem: 'container',
+    folderPath: 'path',
+    fileName: 'sample.xls',
+    sheetName: 'worksheet',
+    firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
 ## <a name="next-steps"></a>다음 단계

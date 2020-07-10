@@ -11,11 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444253"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165773"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 장치 배포 계획
 
@@ -33,11 +34,11 @@ Azure AD (Azure Active Directory)를 사용 하면 조직에서 장치 id 관리
 
 * 온-프레미스 Active Directory 및 Azure AD의 장치 간에 [하이브리드 AZURE AD 조인을 만듭니다](concept-azure-ad-join-hybrid.md) . 
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>학습
 
 시작 하기 전에 [장치 id 관리 개요](overview.md)에 대해 잘 알고 있는지 확인 합니다.
 
-### <a name="benefits"></a>이점
+### <a name="benefits"></a>혜택
 
 장치에 Azure AD id를 제공 하는 주요 이점은 다음과 같습니다.
 
@@ -101,7 +102,7 @@ Faq: [AZURE AD 장치 관리 faq](faq.md) 및 [설정 및 데이터 로밍 faq](
 
 iOS 및 Android 장치는 Azure AD만 등록할 수 있습니다. 다음 표에서는 Windows 클라이언트 장치에 대 한 높은 수준의 고려 사항을 보여 줍니다. 개요로 사용 하 고 다양 한 통합 방법을 자세히 살펴보세요.
 
-| | Azure AD 등록됨| Azure AD 조인| 하이브리드 Azure AD 조인 |
+| 고려 사항 | Azure AD 등록됨| Azure AD 조인| 하이브리드 Azure AD 조인 |
 | - | - | - | - |
 | **클라이언트 운영 체제**| | |  |
 | Windows 10 디바이스| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
@@ -178,7 +179,7 @@ Windows 10 Professional 또는 Windows 10 Enterprise가 디바이스에 설치�
 
 Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가 이미 다른 상태에 있을 수 있습니다. 업그레이드 고려 사항은 다음과 같습니다.
 
-| 현재 장치 상태| 원하는 장치 상태| 방법 |
+| 현재 장치 상태| 원하는 장치 상태| 사용 방법 |
 | - | - | - |
 | 온-프레미스 도메인에 가입 됨| Azure AD 조인| Azure AD에 가입 하기 전에 온-프레미스 도메인에서 장치 가입 해제 |
 | 하이브리드 Azure AD 조인| Azure AD 조인| Azure AD에 가입 하기 전에 온-프레미스 도메인 및 Azure AD에서 장치 가입 해제 |
@@ -212,7 +213,7 @@ Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가
 
 하이브리드 Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가 이미 다른 상태에 있을 수 있음을 확인할 수 있습니다. 업그레이드 고려 사항은 다음과 같습니다.
 
-| 현재 장치 상태| 원하는 장치 상태| 방법 |
+| 현재 장치 상태| 원하는 장치 상태| 사용 방법 |
 | - | - | - |
 | 온-프레미스 도메인 가입| 하이브리드 Azure AD 조인| Azure AD connect 또는 AD FS를 사용 하 여 Azure에 가입 |
 | 온-프레미스 작업 그룹 조인 또는 신규| 하이브리드 Azure AD 조인| [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot)에서 지원 됩니다. 그렇지 않으면 하이브리드 Azure AD 조인 전에 장치가 온-프레미스 도메인에 가입 되어 있어야 합니다. |

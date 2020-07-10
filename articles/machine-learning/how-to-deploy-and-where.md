@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
+ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: aa961cb94816b50aa515532e69454fce9b370c54
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083083"
+ms.locfileid: "86146562"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 + **Visual Studio Code 사용**
 
-   Visual Studio Code 사용 하는 경우 그래픽 인터페이스를 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 Visual Studio Code 확장 설명서에서 [모델 배포 및 관리](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) 를 참조 하세요.
+   Visual Studio Code 사용 하는 경우 그래픽 인터페이스를 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 Visual Studio Code 확장 설명서에서 [모델 배포 및 관리](how-to-manage-resources-vscode.md#endpoints) 를 참조 하세요.
 
 ## <a name="register-your-model"></a><a id="registermodel"></a>모델 등록
 
@@ -608,13 +608,13 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | Description | 최종 상태?
+| 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | No |
-| 비정상 | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | No |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | No |
-| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | Yes |
-| Healthy | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | Yes |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
+| 비정상 | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 예 |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 예 |
+| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
+| Healthy | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>계산 인스턴스 웹 서비스 (개발/테스트)
 
@@ -998,7 +998,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-패키지를 만든 후를 사용 `package.pull()` 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예를 들어: 
+패키지를 만든 후를 사용 `package.pull()` 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예를 들면 다음과 같습니다. 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1227,7 +1227,7 @@ def run(request):
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)
-* [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)
+* [웹 서비스로 배포된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
 * [모델 배포에 대 한 이벤트 경고 및 트리거 만들기](how-to-use-event-grid.md)

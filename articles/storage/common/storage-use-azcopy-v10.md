@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504477"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142999"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -31,7 +31,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 - [Windows 64](https://aka.ms/downloadazcopy-v10-windows) 비트 (zip)
 - [Windows 32](https://aka.ms/downloadazcopy-v10-windows-32bit) 비트 (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux)(tar)
+- [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac)(zip)
 
 이러한 파일은 zip 파일 (Windows 및 Mac) 또는 tar 파일 (Linux)로 압축 됩니다. Linux에서 tar 파일을 다운로드 하 고 압축을 풀려면 Linux 배포에 대 한 설명서를 참조 하세요.
@@ -65,9 +65,9 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 
 | 스토리지 유형 | 현재 지원 되는 권한 부여 방법 |
 |--|--|
-|**Blob Storage** | Azure AD & SAS |
+|**Azure BLOB Storage** | Azure AD & SAS |
 |**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
-|**파일 저장소** | SAS 전용 |
+|**File Storage** | SAS 전용 |
 
 ### <a name="option-1-use-azure-active-directory"></a>옵션 1: Azure Active Directory 사용
 
@@ -255,7 +255,7 @@ Id를 인증 하거나 SAS 토큰을 얻은 후 파일 전송을 시작할 수 �
 
 - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
 
-- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
 - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 

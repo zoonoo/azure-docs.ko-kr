@@ -6,14 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a872121ca6560b8ede86abc35294ab8c9b0c1b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022381"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142000"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure Data Factory 커넥터 개요
 
@@ -27,7 +28,16 @@ Azure Data Factory는 복사, 데이터 흐름, 조회, 메타 데이터 가져�
 
 ## <a name="supported-file-formats"></a>지원되는 파일 형식
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
+Azure Data Factory은 다음과 같은 파일 형식을 지원 합니다. 서식 기반 설정에 대 한 각 문서를 참조 하세요.
+
+- [Avro 형식](format-avro.md)
+- [이진 형식](format-binary.md)
+- [Common Data Model 형식](format-common-data-model.md)
+- [구분된 텍스트 형식](format-delimited-text.md)
+- [Excel 형식](format-excel.md)
+- [JSON 형식](format-json.md)
+- [ORC 형식](format-orc.md)
+- [Parquet 형식](format-parquet.md)
 
 ## <a name="next-steps"></a>다음 단계
 

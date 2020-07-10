@@ -10,18 +10,18 @@ ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
 ms.date: 06/16/2020
-ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907553"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147247"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
 이 문서에서는 Azure Machine Learning designer (미리 보기)의 Python 스크립트 실행 모듈을 설명 합니다.
 
-이 모듈을 사용 하 여 Python 코드를 실행 합니다. Python의 아키텍처 및 디자인 원칙에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)를 참조 하세요.
+이 모듈을 사용 하 여 Python 코드를 실행 합니다. Python의 아키텍처 및 디자인 원칙에 대 한 자세한 내용은 [Azure Machine Learning designer에서 python 코드 실행 방법](../how-to-designer-python.md)을 참조 하세요.
 
 Python을 사용 하면 다음과 같이 기존 모듈이 지원 하지 않는 작업을 수행할 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360302"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144716"
 ---
 # <a name="adsync-service-account"></a>ADSync 서비스 계정
 Azure AD Connect Active Directory와 Azure Active Directory 간의 동기화를 오케스트레이션 온-프레미스 서비스를 설치 합니다.  ADSync (Microsoft Azure AD Sync synchronization service)는 온-프레미스 환경의 서버에서 실행 됩니다.  서비스의 자격 증명은 기본적으로 Express 설치에서 설정 되지만 조직의 보안 요구 사항에 맞게 사용자 지정할 수 있습니다.  이러한 자격 증명은 온-프레미스 포리스트 또는 Azure Active Directory 연결 하는 데 사용 되지 않습니다.
@@ -46,9 +46,9 @@ Microsoft는 가상 서비스 계정 또는 독립 실행형 또는 그룹 관�
 - 관리 서비스 계정 – 관리자가 프로 비전 한 독립 실행형 또는 그룹 MSA를 사용 합니다.
 - 도메인 계정 – 관리자가 프로 비전 한 도메인 서비스 계정을 사용 합니다.
 
-![](media/concept-adsync-service-account/adsync1.png)
+!["사용자 지정" 또는 "빠른 설정 사용" 옵션 단추를 사용 하는 Azure AD Connect Express 설정 페이지의 스크린샷](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![선택한 기존 관리 서비스 계정을 사용 하는 옵션을 사용 하 여 "필수 구성 요소 설치" 페이지 Azure AD Connect의 스크린샷](media/concept-adsync-service-account/adsync2.png)
 
 ## <a name="diagnosing-adsync-service-account-changes"></a>ADSync 서비스 계정 변경 진단
 설치 후 ADSync 서비스에 대 한 자격 증명을 변경 하면 서비스가 시작 되지 않고, 동기화 데이터베이스에 대 한 액세스 권한이 손실 되며, 연결 된 디렉터리 (Azure 및 AD DS)를 사용 하 여 인증에 실패 합니다.  새 ADSync 서비스 계정에 대 한 데이터베이스 액세스 권한을 부여 하는 것 만으로는이 문제를 복구할 수 없습니다. 원래 자격 증명이 복원 되기 전 까지는 동기화가 수행 되지 않습니다.

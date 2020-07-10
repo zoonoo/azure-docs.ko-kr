@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 7ed55200db72879f7ec7323b5c165998944688a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906788"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145165"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -443,7 +443,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|없음|
+|CPU 사용률|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|없음|
 |네트워크 인|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|없음|
 |네트워크 아웃|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|없음|
 |디스크 읽기 바이트/초|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|없음|
@@ -456,7 +456,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|RoleInstanceId|
+|CPU 사용률|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율.|RoleInstanceId|
 |네트워크 인|네트워크 인|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|RoleInstanceId|
 |네트워크 아웃|네트워크 아웃|바이트|합계|Virtual Machine이 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|RoleInstanceId|
 |디스크 읽기 바이트/초|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|RoleInstanceId|
@@ -563,7 +563,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|없음|
+|CPU 사용률|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|없음|
 |네트워크 인|청구 가능 네트워크 입력(사용되지 않음)|바이트|합계|가상 머신에서 모든 네트워크 인터페이스에서 받은 청구 가능 바이트 수 (들어오는 트래픽) (사용 되지 않음)|없음|
 |네트워크 아웃|청구 가능 네트워크 출력(사용되지 않음)|바이트|합계|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽) (사용 되지 않음)|없음|
 |디스크 읽기 바이트|디스크 읽기 바이트|바이트|합계|모니터링 기간 동안 디스크에서 읽은 바이트 수|없음|
@@ -608,7 +608,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|VMName|
+|CPU 사용률|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|VMName|
 |네트워크 인|청구 가능 네트워크 입력(사용되지 않음)|바이트|합계|가상 머신에서 모든 네트워크 인터페이스에서 받은 청구 가능 바이트 수 (들어오는 트래픽) (사용 되지 않음)|VMName|
 |네트워크 아웃|청구 가능 네트워크 출력(사용되지 않음)|바이트|합계|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽) (사용 되지 않음)|VMName|
 |디스크 읽기 바이트|디스크 읽기 바이트|바이트|합계|모니터링 기간 동안 디스크에서 읽은 바이트 수|VMName|
@@ -653,7 +653,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|없음|
+|CPU 사용률|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 컴퓨팅 단위의 백분율|없음|
 |네트워크 인|청구 가능 네트워크 입력(사용되지 않음)|바이트|합계|가상 머신에서 모든 네트워크 인터페이스에서 받은 청구 가능 바이트 수 (들어오는 트래픽) (사용 되지 않음)|없음|
 |네트워크 아웃|청구 가능 네트워크 출력(사용되지 않음)|바이트|합계|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽) (사용 되지 않음)|없음|
 |디스크 읽기 바이트|디스크 읽기 바이트|바이트|합계|모니터링 기간 동안 디스크에서 읽은 바이트 수|없음|
@@ -762,7 +762,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 |ScanFailed|검사 실패|개수|합계|실패 한 검색 수를 나타냅니다.|없음|
 |ScanTimeTaken|검색 된 시간|초|합계|총 검색 시간 (초)을 나타냅니다.|없음|
 |CatalogActiveUsers|일별 활성 사용자|개수|합계|매일 활성 사용자 수|없음|
-|CatalogUsage|작업 별 사용 분포|개수|합계|사용자가 카탈로그에 대해 수행 하는 작업의 수를 표시 합니다. 즉, 액세스, 검색, 용어집입니다.|연산|
+|CatalogUsage|작업 별 사용 분포|개수|합계|사용자가 카탈로그에 대해 수행 하는 작업의 수를 표시 합니다. 즉, 액세스, 검색, 용어집입니다.|작업|
 
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
@@ -1093,7 +1093,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|PublishSuccessCount|게시된 이벤트|개수|합계|이 토픽에 게시된 총 이벤트|항목|
+|PublishSuccessCount|게시된 이벤트|개수|합계|이 토픽에 게시된 총 이벤트|토픽|
 |PublishFailCount|실패한 이벤트 게시|개수|합계|이 토픽에 게시하지 못한 총 이벤트|토픽, ErrorType, 오류|
 |PublishSuccessLatencyInMs|게시 성공 대기 시간|밀리초|합계|게시 성공 대기 시간 (밀리초)|없음|
 |MatchedEventCount|일치하는 이벤트|개수|합계|이 이벤트 구독에 일치하는 총 이벤트|토픽, EventSubscriptionName, DomainEventSubscriptionName|
@@ -1448,7 +1448,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|사용량|사용|개수|개수|API 호출 수|ApiCategory, ApiName, ResultType, ResponseCode|
+|사용|사용|개수|개수|API 호출 수|ApiCategory, ApiName, ResultType, ResponseCode|
 |가용성|가용성|백분율|평균|Api의 가용성|ApiCategory, ApiName|
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft.Media/mediaservices/streamingEndpoints
@@ -1855,7 +1855,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 |Average_Bytes Sent/sec|Bytes Sent/sec|개수|평균|Average_Bytes Sent/sec|컴퓨터, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Bytes Total/sec|Bytes Total/sec|개수|평균|Average_Bytes Total/sec|컴퓨터, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Processor Queue Length|프로세서 큐 길이|개수|평균|Average_Processor Queue Length|컴퓨터, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Heartbeat|Heartbeat|개수|합계|Heartbeat|컴퓨터, OSType, 버전, SourceComputerId|
+|하트비트|Heartbeat|개수|합계|하트비트|컴퓨터, OSType, 버전, SourceComputerId|
 |업데이트|업데이트|개수|평균|업데이트|컴퓨터, 제품, 분류, UpdateState, 선택 사항, 승인 됨|
 |이벤트|이벤트|개수|평균|이벤트|원본, 이벤트 로그, 컴퓨터, EventCategory, Eventcategory, EventLevelName, EventID|
 
@@ -2013,9 +2013,9 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 |cache_used_percent|캐시 사용 비율|백분율|최대|캐시 사용 백분율입니다. 데이터 웨어하우스에만 적용 됩니다.|없음|
 |sqlserver_process_core_percent<sup>1</sup> |SQL Server 프로세스 코어 백분율|백분율|최대|운영 체제에 따라 측정 되는 SQL Server 프로세스의 CPU 사용량 백분율입니다.|없음|
 |sqlserver_process_memory_percent<sup>1</sup> |SQL Server 프로세스 메모리 비율|백분율|최대|운영 체제에 따라 측정 되는 SQL Server 프로세스의 메모리 사용량 백분율입니다.|없음|
-|tempdb_data_size<sup>2</sup> |Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일 크기 (Kb)입니다.|없음|
-|tempdb_log_size<sup>2</sup> |Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 로그 파일 크기 (Kb)입니다.|없음|
-|tempdb_log_used_percent<sup>2</sup> |로그가 사용된 Tempdb 백분율|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다.|없음|
+|tempdb_data_size<sup>1</sup> |Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일 크기 (Kb)입니다.|없음|
+|tempdb_log_size<sup>1</sup> |Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 로그 파일 크기 (Kb)입니다.|없음|
+|tempdb_log_used_percent<sup>1</sup> |로그가 사용된 Tempdb 백분율|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다.|없음|
 |local_tempdb_usage_percent|로컬 tempdb 백분율|백분율|평균|로컬 tempdb 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|없음|
 |app_cpu_billed|청구된 앱 CPU|개수|합계|청구 되는 앱 CPU입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|없음|
 |app_cpu_percent|앱 CPU 백분율|백분율|평균|앱 CPU 비율입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|없음|
@@ -2041,8 +2041,6 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 |base_blob_size_bytes|기본 blob 저장소 크기|바이트|최대|기본 blob 저장소 크기입니다. Hyperscale 데이터베이스에 적용 됩니다.|없음|
 
 <sup>1</sup> 이 메트릭은 dtu 기반 구매 모델의 경우 2 개 vcore 이상 또는 200 dtu 이상에서 vcore 구매 모델을 사용 하는 데이터베이스에 사용할 수 있습니다. 
-
-<sup>2</sup> 이 메트릭은 dtu 기반 구매 모델에 대해 vcore 2 개 이상 또는 200 dtu 이상에서 vcore 구매 모델을 사용 하는 데이터베이스에 사용할 수 있습니다. 이 메트릭은 현재 Hyperscale 데이터베이스 또는 데이터 웨어하우스에 사용할 수 없습니다.
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -2074,16 +2072,14 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 |database_cpu_used|사용된 CPU|개수|평균|사용된 CPU|DatabaseResourceId|
 |sqlserver_process_core_percent<sup>1</sup>|SQL Server 프로세스 코어 백분율|백분율|최대|운영 체제에 따라 측정 되는 SQL Server 프로세스의 CPU 사용량 백분율입니다. 탄력적 풀에 적용 됩니다. |없음|
 |sqlserver_process_memory_percent<sup>1</sup>|SQL Server 프로세스 메모리 비율|백분율|최대|운영 체제에 따라 측정 되는 SQL Server 프로세스의 메모리 사용량 백분율입니다. 탄력적 풀에 적용 됩니다. |없음|
-|tempdb_data_size<sup>2</sup>|Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일 크기 (Kb)입니다.|없음|
-|tempdb_log_size<sup>2</sup>|Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 로그 파일 크기 (Kb)입니다. |없음|
-|tempdb_log_used_percent<sup>2</sup>|로그가 사용된 Tempdb 백분율|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다.|없음|
+|tempdb_data_size<sup>1</sup>|Tempdb 데이터 파일 크기(KB)|개수|최대|Tempdb 데이터 파일 크기 (Kb)입니다.|없음|
+|tempdb_log_size<sup>1</sup>|Tempdb 로그 파일 크기(KB)|개수|최대|Tempdb 로그 파일 크기 (Kb)입니다. |없음|
+|tempdb_log_used_percent<sup>1</sup>|로그가 사용된 Tempdb 백분율|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다.|없음|
 |allocated_data_storage|할당된 데이터 공간|바이트|평균|할당된 데이터 공간|없음|
 |database_allocated_data_storage|할당된 데이터 공간|바이트|평균|할당된 데이터 공간|DatabaseResourceId|
 |allocated_data_storage_percent|데이터 공간 할당 백분율|백분율|최대|데이터 공간 할당 백분율|없음|
 
 <sup>1</sup> 이 메트릭은 dtu 기반 구매 모델의 경우 2 개 vcore 이상 또는 200 dtu 이상에서 vcore 구매 모델을 사용 하는 데이터베이스에 사용할 수 있습니다. 
-
-<sup>2</sup> 이 메트릭은 dtu 기반 구매 모델에 대해 vcore 2 개 이상 또는 200 dtu 이상에서 vcore 구매 모델을 사용 하는 데이터베이스에 사용할 수 있습니다. 이 메트릭은 현재 Hyperscale 데이터베이스에 사용할 수 없습니다.
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
@@ -2300,7 +2296,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 |WLGAllocationBySystemPercent|시스템 비율별 작업 그룹 할당|백분율|최대|전체 시스템에 상대적인 리소스 할당 비율|IsUserDefined,|
 |WLGAllocationByMaxResourcePercent|최대 리소스 비율별 작업 그룹 할당|백분율|최대|작업 그룹당 유효 캡 리소스 비율을 기준으로 하는 리소스의 백분율 할당을 표시 합니다. 이 메트릭은 작업 그룹의 효과적인 사용률을 제공 합니다.|IsUserDefined,|
 |WLGEffectiveCapResourcePercent|유효 상한 리소스 비율|백분율|최대|작업 그룹에 대 한 유효 상한 리소스 비율입니다. Min_percentage_resource > 0 인 다른 작업 그룹이 있는 경우 effective_cap_percentage_resource 비례적으로 줄어듭니다.|IsUserDefined,|
-|wlg_effective_min_resource_percent|유효 최소 리소스 비율|백분율|최소값|서비스 수준 및 작업 그룹 설정을 고려 하 여 유효 min 리소스 비율 설정이 허용 됩니다. 낮은 서비스 수준에서 효과적인 min_percentage_resource을 더 높은 수준으로 조정할 수 있습니다.|IsUserDefined,|
+|wlg_effective_min_resource_percent|유효 최소 리소스 비율|백분율|최소|서비스 수준 및 작업 그룹 설정을 고려 하 여 유효 min 리소스 비율 설정이 허용 됩니다. 낮은 서비스 수준에서 효과적인 min_percentage_resource을 더 높은 수준으로 조정할 수 있습니다.|IsUserDefined,|
 |WLGQueuedQueries|작업 그룹 큐에 대기 중인 쿼리|개수|합계|최대 동시성 제한에 도달한 후 큐에 대기 중인 총 요청 수|IsUserDefined,|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
@@ -2354,7 +2350,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 �
 |MemoryUsed|사용된 메모리|바이트|평균|VM에서 사용 중인 컴퓨터 메모리의 양입니다.|없음|
 |MemoryGranted|부여된 메모리|바이트|평균|호스트에서 VM에 부여 된 메모리의 양입니다. 메모리는 한 번에 도달할 때까지 호스트에 부여 되지 않으며, VMkernel에 메모리가 필요한 경우 부여 된 메모리를 교환 하거나 ballooned 수 있습니다.|없음|
 |MemoryActive|메모리 활성|바이트|평균|지난 작은 시간 동안 VM에서 사용 하는 메모리의 양입니다. VM이 현재 필요로 하는 메모리의 양 ("true")입니다. 사용 되지 않는 추가 메모리는 게스트의 성능에 영향을 주지 않고 스왑할 수도 있고 ballooned 수 있습니다.|없음|
-|백분율 CPU|백분율 CPU|백분율|평균|CPU 사용률입니다. 이 값은 시스템의 모든 프로세서 코어를 나타내는 100%로 보고 됩니다. 예를 들어 4 코어 시스템의 50%를 사용 하는 양방향 VM은 2 개의 코어를 완전히 사용 합니다.|없음|
+|CPU 사용률|백분율 CPU|백분율|평균|CPU 사용률입니다. 이 값은 시스템의 모든 프로세서 코어를 나타내는 100%로 보고 됩니다. 예를 들어 4 코어 시스템의 50%를 사용 하는 양방향 VM은 2 개의 코어를 완전히 사용 합니다.|없음|
 |PercentageCpuReady|CPU 준비 백분율|밀리초|합계|준비 시간은 CPU를 과거 업데이트 간격으로 사용할 수 있을 때까지 기다리는 데 걸리는 시간입니다.|없음|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms

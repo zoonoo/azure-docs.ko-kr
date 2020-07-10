@@ -12,11 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db7a1489b877544cd36627f3962b6b4e1b8c462
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433268"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146432"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +30,9 @@ ms.locfileid: "84433268"
 
 계산 대상 또는 로컬 컴퓨터에서 실험을 시작 하려면 먼저 코드를 실행 해야 하는 종속성 파일 및 데이터 파일과 같이 해당 계산 대상에서 필요한 파일을 사용할 수 있는지 확인 해야 합니다.
 
-Azure Machine Learning는 전체 스크립트 폴더를 대상 계산 컨텍스트로 복사 하 여 학습 스크립트를 실행 한 다음 스냅숏을 만듭니다. 실험 스냅샷의 스토리지 용량 한도는 300MB 및/또는 2000개 파일입니다.
+Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)를 사용 하 여 데이터에 액세스 합니다.
+
+실험 스냅샷의 스토리지 용량 한도는 300MB 및/또는 2000개 파일입니다.
 
 이러한 이유로 다음을 수행 하는 것이 좋습니다.
 

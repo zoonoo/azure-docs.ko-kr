@@ -19,17 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113241"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146067"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Azure Cognitive Search의 OData 컬렉션 연산자- `any` 및`all`
 
 Azure Cognitive Search와 함께 사용할 [OData 필터 식을](query-odata-filter-orderby-syntax.md) 작성할 때 컬렉션 필드에 대해 필터링 하는 것이 유용한 경우가 많습니다. 및 연산자를 사용 하 여이를 달성할 수 있습니다 `any` `all` .
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 또는을 사용 하는 OData 식의 문법을 정의 합니다 `any` `all` .
 
@@ -61,27 +62,37 @@ lambda_expression ::= identifier ':' boolean_expression
 
 컬렉션 필터의 **람다 식은** 프로그래밍 언어의 루프 본문과 같습니다. 반복 하는 동안 컬렉션의 현재 요소를 보유 하는 **범위 변수**라고 하는 변수를 정의 합니다. 또한 컬렉션의 각 요소에 대 한 범위 변수에 적용할 필터 기준이 되는 또 다른 부울 식을 정의 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 해당 필드에 `tags` "wifi" 문자열이 정확히 포함 된 문서를 찾습니다.
 
-    tags/any(t: t eq 'wifi')
+```text
+tags/any(t: t eq 'wifi')
+```
 
 필드의 모든 요소가 `ratings` 3 ~ 5 (포함) 사이인 문서를 찾습니다.
 
-    ratings/all(r: r ge 3 and r le 5)
+```text
+ratings/all(r: r ge 3 and r le 5)
+```
 
 필드의 모든 지역 좌표가 지정 된 다각형 내에 있는 문서를 찾습니다 `locations` .
 
-    locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```text
+locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```
 
 필드가 비어 있는 문서를 찾습니다 `rooms` .
 
-    not rooms/any()
+```text
+not rooms/any()
+```
 
 모든 대화방의 문서를 찾습니다 `rooms/amenities` .이 필드에는 "tv"가 포함 되어 있고 `rooms/baseRate` 100 미만 이어야 합니다.
 
-    rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```text
+rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```
 
 ## <a name="limitations"></a>제한 사항
 

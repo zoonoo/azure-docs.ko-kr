@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6809429b26eea30ca0569044634308d2e4dff9f7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025984"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147391"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
 
@@ -24,6 +24,10 @@ ms.locfileid: "86025984"
 ## <a name="routing-concepts"></a><a name="concepts"></a>라우팅 개념
 
 다음 섹션에서는 가상 허브 라우팅의 주요 개념에 대해 설명 합니다.
+
+> [!NOTE]
+> 가상 네트워크 연결의 허브 경로 테이블, 연결, 전파 및 고정 경로에 대 한 이러한 새로운 개념 중 일부는 여전히 롤아웃 될 수 있으며,이 경우 8 월 3 일에 완료 될 것으로 예상 됩니다.
+>
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>허브 경로 테이블
 
@@ -59,10 +63,6 @@ ms.locfileid: "86025984"
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>가상 네트워크 연결에서 정적 경로 구성
 
 정적 경로를 구성 하면 가상 허브에 연결 된 스포크 VNet에 프로 비전 된 NVA (네트워크 가상 어플라이언스)가 될 수 있는 다음 홉 IP를 통해 트래픽을 유도 하는 메커니즘이 제공 됩니다. 고정 경로는 경로 이름, 대상 접두사 목록 및 다음 홉 IP로 구성 됩니다.
-
-> [!NOTE]
-> 가상 네트워크 연결의 연결, 전파 및 고정 경로에 대 한 이러한 새로운 개념 중 일부는 여전히 롤아웃 되 고 8 월 3 일에 완료 될 예정입니다.
->
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>연결 및 전파 기능 집합 전에 기본 및 표준 가상 Wan의 테이블 경로
 

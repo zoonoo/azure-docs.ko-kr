@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: larryfr
 author: larryfr
 ms.date: 11/12/2019
-ms.openlocfilehash: 8932640a69ad68e0fd30b8577ba95768dbf8b9b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e41323d05f1a81fbc73a9158cf30c2b0f7953f3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660882"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147066"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Azure Machine Learning를 사용한 보안 코드 모범 사례
 
-Azure Machine Learning에서 파일 및 콘텐츠를 모든 원본에서 업로드할 수 있습니다. Jupyter 노트북 또는 스크립트 내의 콘텐츠는 잠재적으로 세션에서 데이터를 읽거나, Azure에서 조직 내의 데이터에 액세스 하거나, 사용자를 대신해 악의적인 프로세스를 실행할 수 있습니다.
+Azure Machine Learning에서 모든 원본의 파일 및 콘텐츠를 Azure로 업로드할 수 있습니다. 로드 하는 Jupyter 노트북 또는 스크립트 내의 콘텐츠는 잠재적으로 세션에서 데이터를 읽거나, Azure에서 조직 내의 데이터에 액세스 하거나, 사용자를 대신해 악의적인 프로세스를 실행할 수 있습니다.
 
 > [!IMPORTANT]
 > 신뢰할 수 있는 원본에서 노트북 또는 스크립트만 실행 합니다. 예를 들어 사용자 또는 보안 팀에서 노트북 또는 스크립트를 검토 했습니다.

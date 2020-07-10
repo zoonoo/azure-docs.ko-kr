@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: 13c55f2a7470a0d33e12e9e6f0da9df3421242fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f4ed9940c70ed479c3108f3637aa55f2a42811
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556240"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146904"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 사용하여 Cosmos DB 데이터를 인덱싱하는 방법 
 
@@ -154,6 +154,8 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 데이터 원본을 만들려면 POST 요청을 작성 합니다.
 
+```http
+
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -170,6 +172,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
             "highWaterMarkColumnName": "_ts"
         }
     }
+```
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
@@ -190,6 +193,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 예제 문서:
 
+```http
     {
         "userId": 10001,
         "contact": {
@@ -199,30 +203,37 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
         "company": "microsoft",
         "tags": ["azure", "cosmosdb", "search"]
     }
+```
 
 필터 쿼리:
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```sql
+SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 평면화 쿼리:
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-    
-    
+```sql
+SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
+
 프로젝션 쿼리:
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 배열 평면화 쿼리:
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 ### <a name="3---create-a-target-search-index"></a>3-대상 검색 인덱스 만들기 
 
 아직 없는 경우 [대상 Azure Cognitive Search 인덱스를 만듭니다](/rest/api/searchservice/create-index) . 다음 예에서는 ID 및 설명 필드를 사용 하 여 인덱스를 만듭니다.
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -243,6 +254,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
          "suggestions": true
        }]
      }
+```
 
 대상 인덱스의 스키마가 소스 JSON 문서의 스키마 또는 사용자 지정 쿼리 프로젝션의 출력과 호환되는지 확인합니다.
 
@@ -257,7 +269,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 | Bool |Edm.Boolean, Edm.String |
 | 정수와 같이 보이는 숫자 |Edm.Int32, Edm.Int64, Edm.String |
 | 부동소수점처럼 보이는 숫자 |Edm.Double, Edm.String |
-| String |Edm.String |
+| 문자열 |Edm.String |
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
 | GeoJSON 개체, 예: { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -267,6 +279,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 인덱스와 데이터 원본이 만들어지면 인덱서를 만들 준비가 된 것입니다.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -277,6 +290,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
 
@@ -299,10 +313,12 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 데이터 변경 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재 유일 하 게 지원 되는 정책은 [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) Azure Cosmos DB에서 제공 하는 (타임 스탬프) 속성을 사용 하는 것입니다 `_ts` .이 속성은 다음과 같이 지정 됩니다.
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
+```
 
 적절한 인덱서 성능을 보장하기 위해서는 반드시 이 정책을 사용하는 것이 좋습니다. 
 
@@ -318,11 +334,13 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 경우에 따라 쿼리에 절이 포함 된 경우에도 `ORDER BY [collection alias]._ts` Azure Cognitive Search는 쿼리가를 기준으로 정렬 되는 것을 유추 하지 못할 수 있습니다 `_ts` . 구성 속성을 사용 하 여 결과를 정렬 하는 것을 Azure Cognitive Search에 지시할 수 있습니다 `assumeOrderByHighWaterMarkColumn` . 이 힌트를 지정하려면 다음과 같이 인덱서를 만들거나 업데이트합니다. 
 
+```http
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
     } 
+```
 
 <a name="DataDeletionDetectionPolicy"></a>
 
@@ -330,16 +348,19 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 컬렉션에서 행이 삭제된 경우 일반적으로 검색 인덱스에서도 해당 행을 삭제하려고 할 것입니다. 데이터 삭제 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 다음과 같이 지정되는 `Soft Delete` 정책입니다(삭제 시 일부 유형의 플래그로 표시됨).
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
         "softDeleteColumnName" : "the property that specifies whether a document was deleted",
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
+```
 
 사용자 지정 쿼리를 사용하는 경우 `softDeleteColumnName`에서 참조되는 속성이 쿼리에 의해 프로젝션됩니다.
 
 다음 예제에서는 일시 삭제 정책을 사용하여 데이터 원본을 만듭니다.
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -361,10 +382,11 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
             "softDeleteMarkerValue": "true"
         }
     }
+```
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>다음 단계
 
-지금까지 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
+축하합니다! 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
 
 * Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 서비스 페이지](https://azure.microsoft.com/services/cosmos-db/)를 참조하세요.
 * Azure Cognitive Search에 대 한 자세한 내용은 [Search 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조 하세요.

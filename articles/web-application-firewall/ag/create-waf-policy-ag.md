@@ -7,11 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014539"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146603"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기
 
@@ -22,7 +23,7 @@ WAF 정책을 수신기와 연결 하면 단일 WAF 뒤에 여러 사이트가 �
 Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의 수신기에 다른 정책을 적용 하면 수신기의 정책이 적용 되지만, 수신기의 정책이 할당 된 수신기에 대해서만 적용 됩니다. Application Gateway 정책은 특정 정책이 할당 되지 않은 다른 모든 수신기에도 적용 됩니다. 
 
    > [!NOTE]
-   > 사이트별 및 URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+   > URI 별 WAF 정책은 공개 미리 보기 상태입니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
    > [!NOTE]
    > 방화벽 정책이 WAF에 연결 되 면 항상 해당 WAF에 연결 된 정책이 있어야 합니다. 해당 정책을 덮어쓸 수도 있지만 WAF에서 정책의 연결이 완전히 지원 되지 않습니다. 
 
@@ -35,15 +36,15 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
 1. 포털의 왼쪽 위에서 **리소스 만들기**를 선택 합니다. **Waf**를 검색 하 고, **웹 응용 프로그램 방화벽**을 선택 하 고, **만들기**를 선택 합니다.
 2. **WAF 정책 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력 하거나 선택 하 고 나머지 설정에 대 한 기본값을 적용 한 다음 **검토 + 만들기**를 선택 합니다.
 
-   |Setting  |값  |
+   |설정  |값  |
    |---------|---------|
    |정책     |지역 WAF (Application Gateway)|
    |Subscription     |구독 이름 선택|
-   |Resource group     |리소스 그룹 선택|
+   |리소스 그룹     |리소스 그룹 선택|
    |정책 이름     |WAF 정책의 고유한 이름을 입력 합니다.|
 3. **연결** 탭에서 다음 설정 중 하나를 입력 한 다음 **추가**를 선택 합니다.
 
-   |Setting  |값  |
+   |설정  |값  |
    |---------|---------|
    |Application Gateway 연결     |Application Gateway 프로필 이름을 선택 합니다.|
    |수신기 연결     |Application Gateway 수신기의 이름을 선택한 다음 **추가**를 선택 합니다.|

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561590"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146187"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
 
@@ -55,20 +55,26 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
  
 다음은 중복을 얻는 방법에 대 한 예입니다. 4 개의 문서를 포함 하는 인덱스를 가정 합니다.
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 이제 등급 별로 정렬 된 결과를 한 번에 두 번 반환 하려는 경우를 가정 합니다. 이 쿼리를 실행 하 여 결과의 첫 번째 페이지를 가져올 수 있습니다. 즉 `$top=2&$skip=0&$orderby=rating desc` , 다음과 같은 결과를 생성 합니다.
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 서비스에서는 쿼리 호출 사이에 다섯 번째 문서가 인덱스에 추가 된 것으로 가정 합니다. `{ "id": "5", "rating": 4 }`  잠시 후에 두 번째 페이지를 인출 하는 쿼리를 실행 하 `$top=2&$skip=2&$orderby=rating desc` 고 이러한 결과를 가져옵니다.
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 문서 2는 두 번 인출 됩니다. 새 문서 5는 등급에 대 한 값이 크므로 문서 2 보다 먼저 정렬 되 고 첫 번째 페이지에 도달 하기 때문입니다. 이 동작은 예기치 않을 수 있지만 검색 엔진의 동작 방식에 일반적입니다.
 

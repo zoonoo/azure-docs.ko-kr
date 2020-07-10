@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146026"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Azure Cognitive Search의 OData 비교 연산자- `eq` , `ne` ,,, `gt` `lt` `ge` 및`le`
 
@@ -46,7 +47,7 @@ Azure Cognitive Search의 [OData 필터 식](query-odata-filter-orderby-syntax.m
 > [!NOTE]
 > 원하는 경우 연산자의 좌 변에 상수 값을 입력 하 고 오른쪽에 필드 이름을 넣을 수 있습니다. 범위 연산자의 경우 비교의 의미가 반대로 바뀝니다. 예를 들어 상수 값이 왼쪽에 있으면는 `gt` 상수 값이 필드 보다 큰지 여부를 테스트 합니다. 비교 연산자를 사용 하 여와 같은 함수의 결과를 값과 비교할 수도 있습니다 `geo.distance` . 과 같은 부울 함수의 경우 `search.ismatch` 결과를 or로 비교 하는 `true` `false` 것이 선택 사항입니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 비교 연산자를 사용 하는 OData 식의 문법을 정의 합니다.
 
@@ -131,27 +132,37 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 
 및 연산자를 사용 하 여 정확 하 게 일치 하는 필터에서 문자열을 비교할 수 있습니다 `eq` `ne` . 이러한 비교는 대/소문자를 구분 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 `Rating`필드가 3에서 5 사이인 문서를 찾습니다 (포함).
 
-    Rating ge 3 and Rating le 5
+```text
+Rating ge 3 and Rating le 5
+```
 
 `Location`지정 된 위도 및 경도에서 필드가 2 킬로미터 미만인 문서를 찾습니다.
 
-    geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```text
+geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```
 
 `LastRenovationDate`필드가 2015 년 1 월 1 일 (UTC) 보다 크거나 같은 문서를 찾습니다.
 
-    LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```text
+LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```
 
 `Details/Sku`필드가 다음과 일치 하지 않는 문서를 찾습니다 `null` .
 
-    Details/Sku ne null
+```text
+Details/Sku ne null
+```
 
 하나 이상의 대화방에 "Deluxe Room" 유형이 있는 호텔 문서를 찾습니다. 여기서 필드의 문자열은 `Rooms/Type` 필터와 정확히 일치 합니다.
 
-    Rooms/any(room: room/Type eq 'Deluxe Room')
+```text
+Rooms/any(room: room/Type eq 'Deluxe Room')
+```
 
 ## <a name="next-steps"></a>다음 단계  
 

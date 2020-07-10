@@ -3,12 +3,12 @@ title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mic
 description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107481"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166385"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
@@ -39,14 +39,14 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| 요청 및 예외 |Yes |예 |
-| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
-| [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |Yes |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
-| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |아니요 |
-| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |아니요 |
-| 코드를 다시 빌드해야 함 |예 | 아니요 |
+| **& 예외 요청** |예 |예 |
+| **[자세한 예외](../../azure-monitor/app/asp-net-exceptions.md)** | |예 |
+| **[종속성 진단](../../azure-monitor/app/asp-net-dependencies.md)** |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
+| **[시스템 성능 카운터](../../azure-monitor/app/performance-counters.md)** |예 |예 |
+| **[사용자 지정 원격 분석에 대 한 API][api]** |예 |예 |
+| **[추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md)** |예 |예 |
+| **[사용자 데이터 & 페이지 보기](../../azure-monitor/app/javascript.md)** |예 |예 |
+| **코드를 다시 빌드해야 함** |예 | 예 |
 
 
 
@@ -303,9 +303,9 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
  * 종속성 호출(.NET 4.5); 종속성 호출(.NET 4.6)에 값을 반환합니다.
  * 예외 스택 추적 값
 
-[자세한 정보](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
+[자세히 알아보기](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>동영상
+## <a name="video"></a>비디오
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

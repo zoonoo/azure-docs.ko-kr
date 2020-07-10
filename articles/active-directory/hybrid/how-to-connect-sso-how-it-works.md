@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357922"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144711"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
@@ -45,6 +45,9 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 
 >[!IMPORTANT]
 > `AZUREADSSOACC`보안상의 이유로 컴퓨터 계정을 강력 하 게 보호 해야 합니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에 대 한 Kerberos 위임이 사용 하지 않도록 설정 되어 있고 Active Directory의 다른 계정에 컴퓨터 계정에 대 한 위임 권한이 있는지 확인 하십시오. `AZUREADSSOACC` 실수로 삭제 되는 것이 안전 하 고 도메인 관리자만 액세스할 수 있는 조직 구성 단위 (OU)에 컴퓨터 계정을 저장 합니다. 컴퓨터 계정의 Kerberos 암호 해독 키도 중요 한 것으로 간주 됩니다. 적어도 30일마다 `AZUREADSSOACC` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](how-to-connect-sso-faq.md)하는 것이 좋습니다.
+
+>[!IMPORTANT]
+> 원활한 SSO는 Kerberos에 대 한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 종류를 지원 합니다. AzureADSSOAcc $ account의 암호화 유형을 AES256_HMAC_SHA1 또는 AES 유형 중 하나를 설정 하 여 보안을 강화 하는 것이 좋습니다. 암호화 유형은 Active Directory 계정의의 msds-primary-computer-Supported Types 특성에 저장 됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
 
 설정이 완료되면 Seamless SSO는 IWA(Windows 통합 인증)를 사용하는 다른 로그인과 동일한 방식으로 작동합니다.
 

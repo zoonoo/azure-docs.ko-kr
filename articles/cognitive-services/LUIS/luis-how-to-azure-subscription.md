@@ -4,12 +4,12 @@ description: Language Understanding (LUIS)를 처음 사용 하는 경우 제작
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055769"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144642"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "86055769"
 
 LUIS는 세 가지 유형의 Azure 리소스와 Azure가 아닌 리소스 하나를 허용 합니다.
 
-|Key|용도|인식 서비스`kind`|인식 서비스`type`|
+|키|용도|인식 서비스`kind`|인식 서비스`type`|
 |--|--|--|--|
 |작성 키|작성, 학습, 게시 및 테스트를 사용 하 여 응용 프로그램의 데이터에 액세스 하 고 관리 합니다. LUIS apps를 프로그래밍 방식으로 작성 하려는 경우 LUIS authoring key를 만듭니다.<br><br>키의 용도는 `LUIS.Authoring` 다음을 허용 하는 것입니다.<br>* 교육 및 게시를 포함 하 여 프로그래밍 방식으로 Language Understanding 앱 및 모델 관리<br> * [참가자 역할](#contributions-from-other-authors)에 사용자를 할당 하 여 제작 리소스에 대 한 사용 권한을 제어 합니다.|`LUIS.Authoring`|`Cognitive Services`|
 |쿼리 예측 키| 예측 끝점 요청을 쿼리 합니다. 클라이언트 앱이 스타터 리소스에서 제공 하는 1000 요청 보다 많은 예측을 요청 하기 전에 LUIS 예측 키를 만듭니다. |`LUIS`|`Cognitive Services`|
@@ -147,16 +147,16 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 
 ### <a name="securing-the-query-prediction-endpoint"></a>쿼리 예측 끝점 보안
 
-서버 간 환경에서 호출 하 여 LUIS 예측 런타임 끝점 키를 볼 수 있는 사람을 제어할 수 있습니다. 봇에서 LUIS를 사용하는 경우, 봇과 LUIS 간의 연결은 이미 안전합니다. LUIS 엔드포인트를 직접 호출하는 경우에는 제어된 액세스(예: [AAD](https://azure.microsoft.com/services/active-directory/))를 사용하여 서버 쪽 API(예 : Azure [함수](https://azure.microsoft.com/services/functions/))를 만들어야 합니다. 서버 쪽 API가 호출되고 인증 및 권한 부여가 확인되면 LUIS에 해당 호출을 전달합니다. 이 전략은 가로채기 공격을 방지하지 않지만 사용자의 엔드포인트를 난독 처리하고, 액세스를 추적하도록 허용하고, 엔드포인트 응답 로깅(예: [Application Insights](https://azure.microsoft.com/services/application-insights/))을 추가하도록 허용합니다.
+서버 간 환경에서 호출 하 여 LUIS 예측 런타임 끝점 키를 볼 수 있는 사람을 제어할 수 있습니다. 봇에서 LUIS를 사용하는 경우, 봇과 LUIS 간의 연결은 이미 안전합니다. LUIS 엔드포인트를 직접 호출하는 경우에는 제어된 액세스(예: [AAD](https://azure.microsoft.com/services/active-directory/))를 사용하여 서버 쪽 API(예 : Azure [함수](https://azure.microsoft.com/services/functions/))를 만들어야 합니다. 서버 쪽 API가 호출되고 인증 및 권한 부여가 확인되면 LUIS에 해당 호출을 전달합니다. 이 전략은 메시지 가로채기 (man-in-the-middle) 공격을 방지 하는 것이 아니라 사용자의 끝점을 난독 처리 액세스를 추적할 수 있도록 하 고, [Application Insights](https://azure.microsoft.com/services/application-insights/)등의 끝점 응답 로깅을 추가할 수 있습니다.
 
 <a name="starter-key"></a>
 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>LUIS 포털에 로그인 하 고 제작을 시작 합니다.
 
 1. [LUIS 포털](https://www.luis.ai) 에 로그인 하 고 사용 약관에 동의 합니다.
-1. 사용 하려는 LUIS 제작 키 유형 (무료 평가판 키 또는 새 Azure LUIS authoring key)을 선택 하 여 LUIS 앱을 시작 합니다.
+1. Azure LUIS authoring key를 선택 하 여 LUIS 앱을 시작 합니다.
 
-    ![Language Understanding 제작 리소스의 유형을 선택합니다.](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Language Understanding 제작 리소스의 유형을 선택합니다.](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. 리소스 선택 프로세스를 완료 하면 [새 앱을 만듭니다](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
@@ -243,7 +243,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |형식|Setting|Value|
+    |형식|설정|Value|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|작성 키|

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555032"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145688"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>애플리케이션 프록시 커넥터 디버그 이슈 
 
@@ -44,7 +44,7 @@ ms.locfileid: "85555032"
 |---------|---------|---------|
 |1 | 앱에 할당 된 커넥터 그룹 찾기 | 커넥터를 여러 서버에 설치 했을 수 있습니다 .이 경우 커넥터는 커넥터 [그룹에 할당](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)되어야 합니다. 커넥터 그룹에 대한 자세한 내용은 [커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시](application-proxy-connector-groups.md)를 참조하세요. |
 |2 | 커넥터 설치 및 그룹 할당 | 커넥터를 설치 하지 않은 경우에 [는 커넥터 설치 및 등록](application-proxy-add-on-premises-application.md#install-and-register-a-connector)을 참조 하세요.<br></br> 커넥터를 설치 하는 데 문제가 있는 경우 [커넥터를 설치](application-proxy-connector-installation-problem.md)하는 문제를 참조 하세요.<br></br> 커넥터가 그룹에 할당 되지 않은 경우 [그룹에 커넥터 할당](application-proxy-connector-groups.md#create-connector-groups)을 참조 하세요.<br></br>응용 프로그램이 커넥터 그룹에 할당 되지 않은 경우 [커넥터 그룹에 응용 프로그램 할당](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)을 참조 하세요.|
-|3 | 커넥터 서버에서 포트 테스트 실행 | 커넥터 서버에서 [텔넷](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) 또는 기타 포트 테스트 도구를 사용 하 여 포트 443 및 80이 열려 있는지 확인 하는 방식으로 포트 테스트를 실행 합니다.|
+|3 | 커넥터 서버에서 포트 테스트 실행 | 커넥터 서버에서 [텔넷](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) 또는 기타 포트 테스트 도구를 사용 하 여 포트 [443 및 80이 열려](application-proxy-add-on-premises-application.md#open-ports)있는지 확인 하는 방식으로 포트 테스트를 실행 합니다.|
 |4 | 도메인 및 포트 구성 | [도메인 및 포트가 올바르게 구성 되어 있는지 확인](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) 합니다. 커넥터가 제대로 작동 하려면 열려 있어야 하는 특정 포트와 서버에서 액세스할 수 있어야 하는 Url이 있습니다. |
 |5 | 백 엔드 프록시가 사용 중인지 확인 합니다. | 커넥터에서 백 엔드 프록시 서버를 사용 하 고 있는지, 아니면 무시 하는지 확인 하십시오. 자세한 내용은 [커넥터 프록시 문제 및 서비스 연결 문제 해결](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues)을 참조 하세요. |
 |6 | 백 엔드 프록시를 사용 하도록 커넥터 및 업데이트 프로그램 업데이트 | 백 엔드 프록시가 사용 중인 경우 커넥터가 동일한 프록시를 사용 하 고 있는지 확인 하는 것이 좋습니다. 프록시 서버를 사용 하도록 커넥터를 구성 하 고 문제를 해결 하는 방법에 대 한 자세한 내용은 [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)을 참조 하세요. |

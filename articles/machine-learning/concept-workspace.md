@@ -8,12 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77505568"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147037"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -52,6 +53,7 @@ ms.locfileid: "77505568"
 + [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하는 모든 python 환경에서
 + [R에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 r 환경에서
 + Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서
++ [Azure Machine Learning VS Code 확장](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>작업 영역을 사용 하는 기계 학습
 
@@ -69,13 +71,13 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 
 또한 다음 작업 영역 관리 작업을 수행할 수 있습니다.
 
-| 작업 영역 관리 작업   | 포털              | 스튜디오 | Python SDK/R SDK       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| 작업 영역 만들기        | **&check;**     | | **&check;** | **&check;** |
-| 작업 영역 액세스 관리    | **&check;**   || |  **&check;**    |
-| Enterprise edition으로 업그레이드    | **&check;** | **&check;**  | |     |
-| 계산 리소스 만들기 및 관리    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| 노트북 VM 만들기 |   | **&check;** | |     |
+| 작업 영역 관리 작업   | 포털              | 스튜디오 | Python SDK/R SDK       | CLI        | VS 코드
+|---------------------------|---------|---------|------------|------------|------------|
+| 작업 영역 만들기        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| 작업 영역 액세스 관리    | **&check;**   || |  **&check;**    ||
+| Enterprise edition으로 업그레이드    | **&check;** | **&check;**  | |     ||
+| 계산 리소스 만들기 및 관리    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| 노트북 VM 만들기 |   | **&check;** | |     ||
 
 > [!WARNING]
 > Azure Machine Learning 작업 영역을 다른 구독으로 이동하거나 소유하는 구독을 새 테넌트로 이동하는 것은 지원되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
@@ -89,7 +91,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 * 지점 및 클릭 인터페이스에 대 한 [Azure Portal](how-to-manage-workspace.md) 를 사용 하 여 각 단계를 안내 합니다.
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
 * 회사 보안 표준을 사용 하 여 만들기를 자동화 하거나 사용자 지정 해야 하는 경우 [Azure Resource Manager 템플릿](how-to-create-workspace-template.md) 또는 [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) 를 사용 합니다.
-* Visual Studio Code에서 작업 하는 경우 [VS Code 확장](tutorial-setup-vscode-extension.md)을 사용 합니다.
+* Visual Studio Code에서 작업 하는 경우 [VS Code 확장](how-to-manage-resources-vscode.md#create-a-workspace)을 사용 합니다.
 
 > [!NOTE]
 > 작업 영역 이름은 대/소문자를 구분하지 않습니다.

@@ -7,15 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536627"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143851"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 정책 마이그레이션
 
-이 스크립트를 사용 하면 WAF 구성 또는 사용자 지정 규칙 전용 WAF 정책에서 전체 WAF 정책으로 쉽게 전환할 수 있습니다. 포털에서 *waf 정책으로 마이그레이션*이라는 경고가 표시 되거나, geomatch 사용자 지정 규칙, 사이트별 및 URI 별 waf 정책 또는 봇 완화 규칙 집합과 같은 새로운 공개 미리 보기 waf 기능이 필요할 수 있습니다. 이러한 기능을 사용 하려면 응용 프로그램 게이트웨이에 연결 된 전체 WAF 정책이 필요 합니다. 
+이 스크립트를 사용 하면 WAF 구성 또는 사용자 지정 규칙 전용 WAF 정책에서 전체 WAF 정책으로 쉽게 전환할 수 있습니다. 포털에서 *waf 정책으로 마이그레이션*이라는 경고가 표시 되거나, geomatch 사용자 지정 규칙 (미리 보기), 사이트별 waf 정책, URI 별 waf 정책 (미리 보기) 또는 봇 완화 규칙 집합 (미리 보기)과 같은 새로운 waf 기능이 필요할 수 있습니다. 이러한 기능을 사용 하려면 응용 프로그램 게이트웨이에 연결 된 전체 WAF 정책이 필요 합니다. 
 
 새 WAF 정책을 만드는 방법에 대 한 자세한 내용은 [Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기](create-waf-policy-ag.md)를 참조 하세요. 마이그레이션에 대 한 자세한 내용은 [WAF 정책으로 마이그레이션](create-waf-policy-ag.md#migrate-to-waf-policy)을 참조 하세요.
 

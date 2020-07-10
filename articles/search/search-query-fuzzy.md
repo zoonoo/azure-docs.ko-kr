@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81262437"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146126"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>철자 및 오타를 수정 하는 유사 항목 검색
 
@@ -85,41 +86,53 @@ Azure Cognitive Search에서 다음을 수행 합니다.
 
 "특수"에서 유사 항목 검색을 시작 하 고 설명 필드에 적중 항목 강조 표시를 추가 합니다.
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 응답에서 적중 항목 강조 표시를 추가 했으므로 서식 지정이 일치 하는 용어로 "특수"에 적용 됩니다.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 몇 가지 문자 ("pe")를 수행 하 여 요청을 다시 시도 하 고 "특수" 철자를 확인 합니다.
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 지금까지 응답이 변경 되지 않았습니다. 기본값인 2도 거리를 사용 하 여 "특수"에서 두 문자 "pe"를 제거 하면 해당 용어에 대 한 성공적인 일치를 계속 해 서 수행할 수 있습니다.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 하나 이상의 요청을 시도한 후 총 세 개의 삭제 ("특수"에서 "배율"로)로 마지막 문자 하나를 수행 하 여 검색 단어를 추가로 수정 합니다.
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 동일한 응답이 반환 되지만 "특수"에 일치 하는 것이 아니라 "SQL"에서 유사 항목 일치가 발생 합니다.
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 이 확장 된 예제는 적중 항목 강조 표시에서 모호한 결과를 가져올 수 있는 명확성을 보여 주기 위한 것입니다. 모든 경우에 동일한 문서가 반환 됩니다. 문서 Id에 의존 하 여 일치 하는 항목을 확인 했으므로 "특수"에서 "SQL"로의 이동이 누락 되었을 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식 (쿼리 구문 분석 아키텍처)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)

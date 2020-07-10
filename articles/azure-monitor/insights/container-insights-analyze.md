@@ -3,11 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 모니
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 성능을 확인 하 고 분석 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340907"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166640"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
 
@@ -65,7 +66,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 
 다음 표에서는 다중 클러스터 뷰에서 모니터링 되는 클러스터의 상태를 제어 하는 계산에 대 한 분석을 제공 합니다.
 
-| |상태 |가용성 |
+| 모니터링 되는 클러스터 |상태 |가용성 |
 |-------|-------|-----------------|
 |**사용자 pod**| | |
 | |Healthy |100% |
@@ -116,7 +117,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 
 메트릭 탐색기에서 컨테이너에 대 한 Azure Monitor 집계 된 노드 및 pod 사용률 메트릭을 볼 수 있습니다. 다음 표에서는 메트릭 차트를 사용 하 여 컨테이너 메트릭을 시각화 하는 방법을 이해 하는 데 도움이 되는 세부 정보를 요약 하 여 보여 줍니다.
 
-|네임스페이스 | 메트릭 | Description |
+|네임스페이스 | 메트릭 | 설명 |
 |----------|--------|-------------|
 | 정보. 컨테이너/노드 | |
 | | cpuUsageMillicores | 클러스터 전반의 CPU 사용률 집계 측정. 1000 단위로 분할 된 CPU 코어 (밀리초 = 1000)입니다. 많은 응용 프로그램에서 코어 하나를 사용할 수 있는 컨테이너의 코어 사용량을 확인 하는 데 사용 됩니다.|
@@ -188,7 +189,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 **노드** 탭을 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 |--------|-------------|
 | 이름 | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
@@ -231,7 +232,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨트롤러를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 |--------|-------------|
 | 이름 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 실행이 완료 된 후 *확인*, *종료*, *실패*, *중지*됨 또는 *일시 중지*됨과 같은 상태를 사용 하 여 컨테이너의 롤업 상태입니다. 컨테이너가 실행 되 고 있지만 에이전트가 제대로 표시 되지 않았거나 에이전트가 선택 하지 않았고 30 분 넘게 응답 하지 않은 경우 상태를 *알 수 없음*으로 표시 합니다. 상태 아이콘의 추가 세부 정보는 다음 표에 나와 있습니다.|
@@ -268,7 +269,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨테이너를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 |--------|-------------|
 | 이름 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|

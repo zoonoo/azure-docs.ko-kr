@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295437"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166368"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
 
@@ -36,7 +36,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
     > [!NOTE]
     > **서비스 주체**는 Azure Media Services에 연결하는 대다수 애플리케이션에 사용하는 것이 좋은 모범 사례입니다. 
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음 방법에 관해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 인증 정보 가져오기
@@ -62,7 +62,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 Media Services API에 액세스하려면 다음 데이터 요소를 수집해야 합니다.
 
-|설정|예제|Description|
+|설정|예제|설명|
 |---|-------|-----|
 |Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|<https://amshelloworld.restv2.westus.media.azure.net/api/>|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
@@ -137,8 +137,10 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
     Postman 창 오른쪽의 **Bulk Edit** 링크를 클릭하고 다음 코드를 붙여 넣어도 됩니다.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. **Body** 탭을 누릅니다.
 7. "Key/Value" 데이터 표를 사용하여 본문 정보를 입력합니다. 클라이언트 ID와 암호 값은 적절한 값으로 바꿉니다. 
@@ -147,10 +149,12 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
     Postman 창 오른쪽의 **Bulk Edit**를 클릭하고 다음 본문을 붙여 넣어도 됩니다. 클라이언트 ID와 암호 값은 적절한 값으로 바꿉니다.
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. **보내기**를 누릅니다.
 
@@ -180,11 +184,13 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 5. Postman 창 오른쪽의 **Bulk Edit** 링크를 클릭합니다.
 6. 다음 헤더를 붙여 넣습니다.
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. **보내기**를 누릅니다.
 

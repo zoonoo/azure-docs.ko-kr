@@ -16,11 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338173"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145763"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -94,7 +95,9 @@ ms.locfileid: "85338173"
 
 액세스 패키지 다시 처리 요청을 트리거한 후에 오류가 발생 하는 경우 시스템에서 요청을 다시 처리 하는 동안 기다려야 합니다. 시스템이 여러 시간 동안 다시 처리 되도록 시도 하므로이 시간 동안 다시 처리를 강제할 수 없습니다. 
 
-**배달 실패** 또는 **부분적으로 배달** 된 상태와 1 주일 미만의 완료 된 날짜를 포함 하는 요청을 다시 처리할 수 있습니다.
+**배달 실패** 또는 **부분적으로 배달** 된 상태와 1 주일 미만의 완료 된 날짜를 포함 하는 요청을 다시 처리할 수 있습니다. 그렇지 않으면 다시 **처리** 단추가 회색으로 표시 됩니다.
+
+![다시 처리 단추가 회색으로 표시 됨](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - 평가판 기간 동안 오류가 해결 되 면 요청 상태가 **배달**중으로 변경 됩니다. 이 요청은 사용자의 추가 작업 없이 다시 처리 됩니다.
 
@@ -116,7 +119,7 @@ ms.locfileid: "85338173"
 
 ### <a name="cancel-a-pending-request"></a>보류 중인 요청 취소
 
-아직 배달 되지 않았거나 배달이 실패 한 보류 중인 요청만 취소할 수 있습니다.
+아직 배달 되지 않았거나 배달이 실패 한 보류 중인 요청만 취소할 수 있습니다. 그렇지 않으면 **취소** 단추가 회색으로 표시 됩니다.
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
@@ -138,7 +141,7 @@ ms.locfileid: "85338173"
 
 * 여러 정책이 적용 되는 경우 자동으로 선택 되는 정책이 나 요청자에 게 표시 되는 정책은 다음 우선 순위 논리를 기반으로 합니다.
 
-    | 정책 우선 순위 | Scope |
+    | 정책 우선 순위 | 범위 |
     | --- | --- |
     | P1 | 디렉터리 또는 특정 연결 된 조직의 특정 사용자 및 그룹 |
     | P2 | 디렉터리의 모든 구성원 (게스트 제외) |

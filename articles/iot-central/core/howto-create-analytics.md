@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158285"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147278"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>분석을 사용 하 여 장치 데이터를 분석 하는 방법
 
@@ -90,6 +90,8 @@ Azure IoT Central는 풍부한 분석 기능을 제공 하 여 기록 추세를 
 
 - **표시 그리드:** 결과를 테이블 형식으로 사용할 수 있으므로 각 데이터 요소에 대 한 특정 값을 볼 수 있습니다.
 
-- **마커를 삭제 합니다.** ' 삭제 표식 ' 컨트롤은 차트에서 특정 데이터 요소를 고정 하는 방법을 제공 합니다. 여러 기간에 걸쳐 여러 줄의 데이터를 비교 하려는 경우에 유용 합니다.
+- **CSV로 다운로드:** 결과는 CSV (쉼표로 구분 된 값) 파일로 내보낼 수 있습니다. CSV 파일에는 각 장치에 대 한 데이터가 포함 됩니다. 지정 된 간격 및 기간을 사용 하 여 결과를 내보냅니다. 
+
+- **마커를 삭제 합니다.** ' 놓기 표식 ' 컨트롤은 차트에서 특정 데이터 요소를 고정 하는 방법을 제공 합니다. 여러 기간에 걸쳐 여러 줄의 데이터를 비교 하려는 경우에 유용 합니다.
 
   ![분석에 대한 그리드 보기 표시](media/howto-create-analytics/additionalchartcontrols.png)

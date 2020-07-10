@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055463"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145625"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -226,7 +226,7 @@ Azure Portal, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에�
 ## <a name="troubleshooting-the-migration-process"></a>마이그레이션 프로세스 문제 해결
 
 마이그레이션을 시도 하지만 드롭다운 목록에서 Azure 구독을 찾을 수 없는 경우:
-* Cognitive Services 리소스를 만들 수 있는 유효한 Azure 구독이 있는지 확인 합니다. [Azure Portal](https://ms.portal.azure.com) 로 이동 하 여 구독의 상태를 확인 합니다. 없는 경우 [무료 평가판을 만듭니다](https://azure.microsoft.com/free/).
+* Cognitive Services 리소스를 만들 수 있는 유효한 Azure 구독이 있는지 확인 합니다. [Azure Portal](https://ms.portal.azure.com) 로 이동 하 여 구독의 상태를 확인 합니다. 계정이 없는 경우 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/cognitive-services/).
 * 유효한 구독과 연결 된 적절 한 테 넌 트에 있는지 확인 합니다. 이 도구 모음에서 사용자의 이니셜 왼쪽에 있는 테 넌 트를 전환할 수 있습니다. ![ 테 넌 트를 전환할 수 있는 도구 모음:](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 기존 제작 리소스가 있지만 **기존 제작 리소스 사용** 옵션을 선택 하는 경우이 리소스를 찾을 수 없는 경우:

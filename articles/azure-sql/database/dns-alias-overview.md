@@ -11,11 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: aa8fa9ff6973e908d6af700f7c2965a844e87b04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170990"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145654"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -111,6 +112,8 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 ## <a name="related-resources"></a>관련 참고 자료
 
 - 재해 복구를 포함하는 [Azure SQL Database의 비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+- [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)
+- [서버 Dns 별칭 API](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>다음 단계
 

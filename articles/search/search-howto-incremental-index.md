@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 75b533368a01b2e98bece0751f45b12f36796658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556259"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146884"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search에서 증분 보강 캐싱을 구성 하는 방법
 
@@ -103,11 +103,13 @@ api-key: [YOUR-ADMIN-KEY]
 
 이제 인덱서에 다른 GET 요청을 실행 하면 서비스의 응답에 `ID` cache 개체의 속성이 포함 됩니다. 이 인덱서에 의해 처리 되는 각 문서의 중간 상태와 모든 캐시 된 결과를 포함 하는 컨테이너의 이름에 영숫자 문자열이 추가 됩니다. ID는 Blob 저장소에서 캐시의 이름을 고유 하 게 지정할 때 사용 됩니다.
 
+```http
     "cache": {
         "ID": "<ALPHA-NUMERIC STRING>",
         "enableReprocessing": true,
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
     }
+```
 
 ### <a name="step-5-run-the-indexer"></a>5 단계: 인덱서 실행
 
