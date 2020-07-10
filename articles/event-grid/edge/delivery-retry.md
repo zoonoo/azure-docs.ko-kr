@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841715"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171621"
 ---
 # <a name="delivery-and-retry"></a>배달 및 다시 시도
 
@@ -26,14 +25,14 @@ Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지에 �
 
 Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 대기 합니다. 구독자의 끝점이 응답을 ACK 하지 않으면 메시지는 이후 재시도를 위해 백오프 큐 중 하나에 큐에 삽입 됩니다.
 
-다시 시도가 시도 되는 일정을 결정 하는 두 개의 미리 구성 된 백오프 큐가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+다시 시도가 시도 되는 일정을 결정 하는 두 개의 미리 구성 된 백오프 큐가 있습니다. 해당 항목은 다음과 같습니다.
 
-| 일정 | 설명 |
+| 예약 | 설명 |
 | ---------| ------------ |
 | 1분 | 여기에서 종료 되는 메시지는 1 분 마다 시도 됩니다.
 | 10분 | 여기에서 종료 되는 메시지는 10 분 마다 시도 됩니다.
 
-### <a name="how-it-works"></a>작동 방법
+### <a name="how-it-works"></a>작동 방식
 
 1. 메시지가 Event Grid 모듈에 도착 합니다. 이를 즉시 제공 하려고 합니다.
 1. 배달이 실패 하면 메시지는 1 분 큐로 큐에 배치 되 고 1 분 후에 다시 시도 됩니다.
@@ -42,7 +41,7 @@ Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 �
 
 ## <a name="retry-policy-limits"></a>재시도 정책 제한
 
-재시도 정책을 결정 하는 두 가지 구성이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+재시도 정책을 결정 하는 두 가지 구성이 있습니다. 해당 항목은 다음과 같습니다.
 
 * 최대 시도 횟수
 * 이벤트 TTL (time to live)

@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff49e9baf83d52ba7c40d0c0a9efbd72cee66cd9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844595"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171502"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>자습서: 게시, 클라우드에서 이벤트 구독
 
@@ -21,7 +20,7 @@ ms.locfileid: "76844595"
 
 진행 하기 전에 Event Grid 토픽 및 구독을 이해 하려면 [Event Grid 개념](concepts.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 

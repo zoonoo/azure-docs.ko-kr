@@ -3,11 +3,12 @@ title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
 ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef85ef0615fa0817a574240e65b7670daeaff33b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832324"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181559"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -15,7 +16,7 @@ ms.locfileid: "85832324"
 
 ## <a name="standards-based-blueprint-samples"></a>표준 기반 Blueprint 샘플
 
-|  |  |
+| 샘플 | Description |
 |---------|---------|
 | [오스트레일리아 정부 ISM PROTECTED](./ism-protected/control-mapping.md) | 오스트레일리아 정부 ISM PROTECTED 규정 준수에 대한 보호책을 제공합니다. |
 | [Azure Security Benchmark](./azure-security-benchmark.md) | [Azure Security Benchmark](../../../security/benchmarks/overview.md) 규정을 준수하기 위한 가드 레일을 제공합니다. |

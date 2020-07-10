@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153879"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165212"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>`$filter` `$orderby` Azure Cognitive Search의, 및에 대 한 OData 언어 개요 `$select`
 
@@ -82,7 +83,9 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 
 필드 경로를 고려 `Address/City` 합니다. 필터에서이는 "샌프란시스코"와 같이 현재 문서에 대 한 단일 도시를 나타냅니다. 이와 대조적으로는 `Rooms/Type` `Type` 많은 대화방의 하위 필드 (예: "standard", 두 번째 방에 대 한 "deluxe")를 참조 합니다. 는 `Rooms/Type` 하위 필드의 *단일 인스턴스* 를 참조 하지 않으므로 `Type` 필터에 직접 사용할 수 없습니다. 대신, 방 유형을 필터링 하려면 다음과 같이 범위 변수와 함께 [람다 식을](search-query-odata-collection-operators.md) 사용 합니다.
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 이 예에서는 범위 변수가 `room` 필드 경로에 표시 됩니다 `room/Type` . 이러한 방식으로는 `room/Type` 현재 문서에서 현재 대화방의 유형을 나타냅니다. 이는 하위 필드의 단일 인스턴스이며 `Type` 필터에 직접 사용할 수 있습니다.
 
@@ -236,7 +239,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 - [Azure Cognitive Search의 OData $orderby 구문](search-query-odata-orderby.md)
 - [Azure Cognitive Search의 OData $select 구문](search-query-odata-select.md)
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 - [Azure Cognitive Search의 패싯 탐색](search-faceted-navigation.md)
 - [Azure Cognitive Search의 필터](search-filters.md)

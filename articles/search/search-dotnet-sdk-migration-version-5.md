@@ -9,11 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 32749037ac0abe3c55878c3adaaeff48183ae685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81159b1d19c4c5d46b223158df3ba2c81665c7d7
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080416"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171910"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
 
@@ -47,7 +48,9 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 빌드가 실패하면 다음과 같은 빌드 오류가 표시됩니다.
 
-    The name 'SuggesterSearchMode' does not exist in the current context
+```output
+The name 'SuggesterSearchMode' does not exist in the current context
+```
 
 다음은 이러한 빌드 오류를 수정하는 단계입니다. 오류의 원인 및 해결 방법에 대한 자세한 내용은 [버전 5의 주요 변경 내용](#ListOfChanges)을 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4c4884b643c436eae377b294b2981aa61aa4689d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3a8b271a030de2ddd3aa40b5bb0af871319c0e1f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137592"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171808"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Azure Security 벤치 마크에 대 한 azure 리소스 그래프 보안 기준
 
@@ -22,7 +22,7 @@ ms.locfileid: "86137592"
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../../../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: 정기적으로 사용자 액세스 검토 및 조정
 
@@ -39,7 +39,7 @@ ms.locfileid: "86137592"
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../../../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "86137592"
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../../../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
@@ -99,5 +99,5 @@ ms.locfileid: "86137592"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../../../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../../../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

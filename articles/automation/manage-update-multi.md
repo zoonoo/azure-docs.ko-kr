@@ -5,15 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a2d16bdca18b7fc0afab2a3deb325d1a75be3bb8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834631"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185180"
 ---
 # <a name="manage-updates-for-multiple-vms"></a>여러 VM에 대한 업데이트 관리
 
-Azure Automation 업데이트 관리를 사용하여 Windows 및 Linux VM의 업데이트 및 패치를 관리할 수 있습니다. [Azure Automation](automation-offering-get-started.md) 계정에서 다음을 수행할 수 있습니다.
+Azure Automation 업데이트 관리를 사용하여 Windows 및 Linux VM의 업데이트 및 패치를 관리할 수 있습니다. [Azure Automation](./index.yml) 계정에서 다음을 수행할 수 있습니다.
 
 - VM의 업데이트 관리 사용을 설정합니다.
 - 사용 가능한 업데이트의 상태를 평가합니다.

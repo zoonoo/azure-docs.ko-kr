@@ -9,19 +9,19 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955169"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182715"
 ---
 # <a name="monitor-azure-storage"></a>Azure Storage 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Storage에서 생성하는 모니터링 데이터 및 Azure Monitor 기능을 사용하여 이러한 데이터에 대한 경고를 분석하는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
@@ -84,7 +84,7 @@ Azure Portal에서 진단 설정을 만드는 경우 목록에서 리소스를 �
 
 로그를 수집하려는 작업의 범주도 지정해야 합니다. 다음 표에는 Azure Storage의 범주가 나와 있습니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 |:---|:---|
 | StorageRead | BLOB에 대한 읽기 작업입니다. |
 | StorageWrite | BLOB에 대한 쓰기 작업입니다. |

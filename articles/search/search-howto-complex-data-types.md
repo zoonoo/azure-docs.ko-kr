@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562045"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171842"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search에서 복합 데이터 형식을 모델링 하는 방법
 
@@ -111,7 +111,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 
 여러 개의 용어와 연산자가 있는 경우 쿼리를 사용 하는 경우에는 [Lucene 구문을](query-lucene-syntax.md)사용할 때와 같이 필드 이름이 지정 되는 미묘한 있습니다. 예를 들어이 쿼리는 주소 필드의 두 하위 필드에 대해 두 개의 용어 "포틀랜드" 및 "OR"를 일치 시 키 려 고 합니다.
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 이와 같은 쿼리는 필터와 달리 전체 텍스트 검색에 대 한 *상관 관계가 없는* 입니다. 필터에서 복합 컬렉션의 하위 필드에 대 한 쿼리는 [ `any` 또는 `all` ](search-query-odata-collection-operators.md)의 범위 변수를 사용 하 여 상호 관련 됩니다. 위의 Lucene 쿼리는 Oregon의 다른 도시와 함께 "포틀랜드, Maine" 및 "포틀랜드, Oregon"를 모두 포함 하는 문서를 반환 합니다. 이는 각 절이 전체 문서에 있는 해당 필드의 모든 값에 적용 되므로 "현재 하위 문서"의 개념이 없다는 것입니다. 이에 대 한 자세한 내용은 [Azure Cognitive Search의 OData 컬렉션 필터 이해](search-query-understand-collection-filters.md)를 참조 하세요.
 
@@ -119,7 +119,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 
 `$select`매개 변수는 검색 결과에서 반환 되는 필드를 선택 하는 데 사용 됩니다. 이 매개 변수를 사용 하 여 복합 필드의 특정 하위 필드를 선택 하려면 부모 필드와 하위 필드를 슬래시 ()로 구분 하 여 포함 합니다 `/` .
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 필드는 검색 결과에서 원하는 경우 인덱스에서 검색할 수 있는 것으로 표시 되어야 합니다. 검색할 수 있는 것으로 표시 된 필드만 문에서 사용할 수 있습니다 `$select` .
 
@@ -143,11 +143,11 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 
 필터 식에서 복합 필드의 하위 필드를 참조할 수 있습니다. 패싯에 사용 되는 것과 동일한 [OData 경로 구문을](query-odata-filter-orderby-syntax.md) 사용 하 고 필드를 정렬 하 고 선택 합니다. 예를 들어 다음 필터는 캐나다의 모든 호텔을 반환 합니다.
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 복합 컬렉션 필드를 필터링 하기 위해 [ `any` 및 `all` 연산자](search-query-odata-collection-operators.md)에 **람다 식을** 사용할 수 있습니다. 이 경우 람다 식의 **범위 변수** 는 하위 필드가 있는 개체입니다. 표준 OData 경로 구문을 사용 하 여 이러한 하위 필드를 참조할 수 있습니다. 예를 들어 다음 필터는 하나 이상의 deluxe 대화방 및 모든 비 흡연 대화방을 포함 하는 모든 호텔을 반환 합니다.
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 최상위 단순 필드와 마찬가지로, 인덱스 정의에서 **필터링** 가능한 특성이로 설정 된 경우에만 복합 필드의 단순한 하위 필드를 필터에 포함할 수 있습니다 `true` . 자세한 내용은 [인덱스 API 참조 만들기](/rest/api/searchservice/create-index)를 참조 하세요.
 

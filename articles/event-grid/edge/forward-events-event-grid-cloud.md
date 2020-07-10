@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844720"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171604"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>자습서: Event Grid 클라우드에 이벤트 전달
 
@@ -24,7 +23,7 @@ ms.locfileid: "76844720"
 
  이 자습서를 완료 하려면 [edge](concepts.md) 및 [Azure](../concepts.md)에 대 한 Event Grid 개념을 이해 해야 합니다. 추가 대상 형식은 [이벤트 처리기](event-handlers.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -104,7 +103,7 @@ ms.locfileid: "76844720"
    >[!NOTE]
    > **Endpointurl** 은 클라우드의 EVENT GRID 토픽 url을 지정 합니다. **SasKey** 는 Event Grid 클라우드 토픽의 키를 참조 합니다. **TopicName** 의 값을 사용 하 여 나가는 모든 이벤트를 Event Grid에 스탬프를 지정할 수 있습니다. 이는 Event Grid 도메인 항목에 게시할 때 유용할 수 있습니다. Event Grid 도메인 항목에 대 한 자세한 내용은 [이벤트 도메인](../event-domains.md) 을 참조 하세요.
 
-    예제:
+    예를 들면 다음과 같습니다.
   
     ```json
         {

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 94fef951bf1c5c9d69a9b49cd9465d7d248c74a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9668307047771304c2d3785dc7ff3f760171a43f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099225"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182001"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -91,7 +91,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 > [!IMPORTANT]
 > [ADAL (Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) 을 사용 하는 경우 [msal으로의 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration)에 대해 읽어 보십시오.
 
-    See our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
+   자세히 알아보려면 [c #을 사용 하 여 Azure Time Series Insights 환경에 대 한 GA 참조 데이터 관리](time-series-insights-manage-reference-data-csharp.md) 문서를 참조 하세요.
 
 ## <a name="common-headers-and-parameters"></a>일반 헤더 및 매개 변수
 

@@ -4,11 +4,12 @@ description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958211"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170312"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -62,7 +63,7 @@ Batch 애플리케이션을 등록하려면 [Azure Active Directory와 애플리
 
 ![Azure AD에 Batch 애플리케이션 등록](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Azure AD에 애플리케이션을 등록하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../active-directory/develop/authentication-scenarios.md)를 참조하세요.
+Azure AD에 애플리케이션을 등록하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../active-directory/develop/authentication-vs-authorization.md)를 참조하세요.
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Active Directory에 대한 테넌트 ID 가져오기
 
@@ -426,8 +427,8 @@ credentials = ServicePrincipalCredentials(
 
 - Azure AD 토큰을 사용하여 인증된 Batch 클라이언트를 만드는 방법의 Python 예제의 경우 [Python 스크립트를 사용하여 Azure Batch 사용자 지정 이미지 배포](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) 샘플을 참조하세요.
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory란?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD의 인증 시나리오"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Azure Active Directory와 애플리케이션 통합"
+[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory란?"
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Azure AD의 인증 시나리오"
+[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Azure Active Directory와 애플리케이션 통합"
 [azure_portal]: https://portal.azure.com

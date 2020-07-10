@@ -5,18 +5,16 @@ author: HiteshMadan
 manager: rajarv
 ms.author: himad
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f39d22fe58d4375b3b68bacd237c1b200328c4b1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72992146"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171332"
 ---
-# <a name="module-twin-json-schema"></a>모듈 쌍 JSON 스키마
+# <a name="module-twin-json-schema-azure-event-grid"></a>모듈 쌍 JSON 스키마 (Azure Event Grid)
 
 IoT Edge Event Grid는 IoT Edge 에코 시스템과 통합 되며 모듈 쌍을 통해 토픽 및 구독 만들기를 지원 합니다. 또한 모듈 쌍의 보고 된 속성에 대 한 모든 토픽 및 이벤트 구독의 현재 상태를 보고 합니다.
 

@@ -2,14 +2,16 @@
 title: Azure Kubernetes Service와 Azure Active Directory 통합
 description: Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터를 만들고 Azure Active Directory 사용 하는 방법을 알아봅니다.
 services: container-service
+author: TomGeske
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 0465c54df2095cff7647e974765e61fa9b9ff3e1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106104"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169462"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -19,9 +21,9 @@ ms.locfileid: "86106104"
 
 이 문서에서 사용 되는 전체 샘플 스크립트는 [Azure CLI 샘플-AZURE AD와 AKS 통합][complete-script]을 참조 하세요.
 
-다음과 같은 제한 사항이 적용됩니다.
+## <a name="the-following-limitations-apply"></a>다음과 같은 제한 사항이 적용됩니다.
 
-- Azure AD는 RBAC 사용 클러스터를 새로 만들 때만 사용하도록 설정할 수 있습니다. 기존 AKS 클러스터에서는 Azure AD를 사용하도록 설정할 수 없습니다.
+- Azure AD는 RBAC 지원 클러스터 에서만 사용 하도록 설정할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

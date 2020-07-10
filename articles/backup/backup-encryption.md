@@ -3,12 +3,12 @@ title: Azure Backup 암호화
 description: Azure Backup의 암호화 기능을 통해 백업 데이터를 보호 하 고 비즈니스의 보안 요구 사항을 충족 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116559"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171825"
 ---
 # <a name="encryption-in-azure-backup"></a>Azure Backup 암호화
 
@@ -26,8 +26,7 @@ ms.locfileid: "86116559"
 
 Azure Virtual Machines를 백업할 때 이제 사용자가 소유 하 고 관리 하는 키를 사용 하 여 데이터를 암호화할 수 있습니다. Azure Backup를 사용 하면 Azure Key Vault에 저장 된 RSA 키를 사용 하 여 백업을 암호화할 수 있습니다. 백업 암호화에 사용 되는 암호화 키는 원본에 사용 된 것과 다를 수 있습니다. 데이터는 AES 256 기반 DEK (데이터 암호화 키)를 사용 하 여 보호 됩니다. 즉, 키를 사용 하 여 보호 됩니다. 이를 통해 데이터와 키에 대 한 모든 권한을 제공 합니다. 암호화를 허용 하려면 Recovery Services 자격 증명 모음에 Azure Key Vault 암호화 키에 대 한 액세스 권한을 부여 해야 합니다. 필요할 때마다 키를 사용 하지 않도록 설정 하거나 액세스를 취소할 수 있습니다. 그러나 자격 증명 모음에 대 한 항목을 보호 하기 전에 키를 사용 하 여 암호화를 사용 하도록 설정 해야 합니다.
 
->[!NOTE]
->이 기능은 현재 제한 된 가용성으로 제공 됩니다. 고객 관리 키를 사용 하 여 백업 데이터를 암호화 하려는 경우 [이 설문 조사](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) 를 작성 하 고 전자 메일을 보내 주세요 AskAzureBackupTeam@microsoft.com . 이 기능을 사용 하는 기능에는 Azure Backup 서비스의 승인이 적용 됩니다.
+고객 관리 키를 사용 하 여 백업 데이터를 암호화 하는 방법에 대 한 자세한 내용은 [여기](encryption-at-rest-with-cmk.md)를 참조 하세요.
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 된 관리 디스크 Vm 백업
 
@@ -38,7 +37,7 @@ Azure Virtual Machines를 백업할 때 이제 사용자가 소유 하 고 관�
 고객 관리 키를 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 암호화 하는 것 외에도 저장소 인프라에 추가 암호화 계층을 구성 하도록 선택할 수 있습니다. 이 인프라 암호화는 플랫폼에 의해 관리 되며, 고객이 관리 하는 키를 사용 하 여 미사용 암호화와 함께 백업 데이터의 2 계층 암호화를 허용 합니다. 미사용 암호화에 고유한 키를 사용 하도록 처음 선택 하는 경우에만 인프라 암호화를 구성할 수 있습니다. 인프라 암호화는 플랫폼 관리 키를 사용 하 여 데이터를 암호화 합니다.
 
 >[!NOTE]
->인프라 암호화는 현재 제한 된 미리 보기로 제공 되며 미국 동부, 미국 West2 및 미국 남부 중부 지역 에서만 사용할 수 있습니다. 이러한 지역에서이 기능을 사용 하려면 [이 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) 작성 하 고에 전자 메일을 보내 주세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>인프라 암호화는 현재 제한 된 미리 보기로 제공 되며 미국 동부, 미국 West2, 미국 남부 중부, US Gov 애리조나 및 US .GOV 버지니아 지역 에서만 사용할 수 있습니다. 이러한 지역에서이 기능을 사용 하려면 [이 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) 작성 하 고에 전자 메일을 보내 주세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>ADE를 사용 하 여 암호화 된 Vm 백업
 

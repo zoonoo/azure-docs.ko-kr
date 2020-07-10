@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92333c2528303a6fa53fa30f47def33c33235d39
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086661"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171485"
 ---
 # <a name="persist-state-in-linux"></a>Linux에서 상태 유지
 
@@ -104,7 +103,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
    ```
 
-    예제:
+    예를 들면 다음과 같습니다.
 
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
@@ -122,7 +121,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
     }
     ```
 
-    예제:
+    예를 들면 다음과 같습니다.
 
     ```json
     {

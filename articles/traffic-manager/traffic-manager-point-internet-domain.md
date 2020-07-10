@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: rohink
-ms.openlocfilehash: 6c5c5c185063caf8ca258ad70a70903c9b583e07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0f79ba072c813a7639e87025c19a34e65df023
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294853"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183463"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>회사 인터넷 도메인이 Azure Traffic Manager 도메인을 가리키도록 설정
 
@@ -23,7 +23,7 @@ Traffic Manager 프로필을 만들 때에는 Azure에서 해당 프로필에 DN
 
 예를 들어 이름 `www.contoso.com`이 Traffic Manager DNS 이름 `contoso.trafficmanager.net`을 가리키도록 하려면 다음 DNS 리소스 레코드를 만듭니다.
 
-    `www.contoso.com IN CNAME contoso.trafficmanager.net`
+`www.contoso.com IN CNAME contoso.trafficmanager.net`
 
 *Www \. contoso.com* 에 대 한 모든 트래픽 요청이 *contoso.trafficmanager.net*으로 전달 됩니다.
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610069"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184500"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Azure Monitor의 로그 수집을 위한 고객 소유 스토리지 계정
 
@@ -39,7 +40,7 @@ BYOS를 필요로 하는 한 가지 시나리오는 Private Link를 통한 네�
 
 - 스토리지에 로그를 쓰는 VNet의 리소스에 액세스할 수 있습니다.
 - 연결된 작업 영역과 동일한 영역에 있어야 합니다.
-- *신뢰할 수 있는 MS 서비스가 이 스토리지 계정에 액세스하도록 허용*을 선택하여 Log Analytics가 스토리지 계정에서 로그를 읽을 수 있도록 명시적으로 허용합니다.
+- Azure Monitor 액세스 허용-저장소 계정 액세스를 선택 하 여 네트워크를 선택 하는 경우이 예외를 허용 해야 합니다. *신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용*합니다.
 
 ## <a name="process-to-configure-customer-owned-storage"></a>고객 소유 스토리지를 구성하는 프로세스
 자체 스토리지 계정을 수집에 사용하는 기본 프로세스는 다음과 같습니다.
@@ -50,7 +51,12 @@ BYOS를 필요로 하는 한 가지 시나리오는 Private Link를 통한 네�
 
 링크를 만들고 제거할 수 있는 유일한 방법은 REST API를 사용하는 것입니다. 각 프로세스에 필요한 특정 API 요청에 대한 세부 정보는 아래 섹션에서 제공됩니다.
 
-## <a name="api-request-values"></a>API 요청 값
+## <a name="command-line-and-rest-api"></a>명령줄 및 REST API
+
+### <a name="command-line"></a>명령줄
+연결 된 저장소 계정을 만들고 관리 하려면 [az monitor log analytics 작업 영역 연결 된 저장소](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage)를 사용 합니다. 이 명령은 작업 영역에서 저장소 계정을 연결 하 고 연결을 해제 하 고 연결 된 저장소 계정을 나열할 수 있습니다.
+
+### <a name="request-and-cli-values"></a>요청 및 CLI 값
 
 #### <a name="datasourcetype"></a>dataSourceType 
 
@@ -72,37 +78,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
-
-## <a name="get-current-links"></a>현재 링크 가져오기
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>특정 데이터 원본 유형에 대한 연결된 스토리지 계정 가져오기
-
-#### <a name="api-request"></a>API 요청
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>응답 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### <a name="get-all-linked-storage-accounts"></a>연결된 모든 스토리지 계정 가져오기
+### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>모든 데이터 원본 유형에 대 한 연결 된 저장소 계정 가져오기
 
 #### <a name="api-request"></a>API 요청
 
@@ -144,6 +120,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
         }
     ]
+}
+```
+
+
+### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>특정 데이터 원본 유형에 대한 연결된 스토리지 계정 가져오기
+
+#### <a name="api-request"></a>API 요청
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### <a name="response"></a>대응 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
 }
 ```
 

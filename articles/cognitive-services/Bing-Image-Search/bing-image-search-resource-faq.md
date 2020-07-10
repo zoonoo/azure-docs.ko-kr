@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800026"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184058"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
 
@@ -25,7 +25,7 @@ Azure에서 Microsoft Cognitive Services용 Bing Image Search API와 관련된 �
 
 Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
-| `Attribute`         | `Description` |
+| attribute           | 설명   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |Bing에서 사용자에게 할당한 고유한 ID |
 | `BingAPIs-Market`   |요청을 이행하는 데 사용된 지역/국가 |

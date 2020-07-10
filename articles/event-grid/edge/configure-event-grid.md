@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 841b5092775353bbe3340dbbd55610026f998a15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 632227579fd021a0d2ce1d0b1bb0b8a8288c5f47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76846478"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171672"
 ---
 # <a name="event-grid-configuration"></a>Event Grid 구성
 
@@ -74,10 +73,10 @@ Event Grid는 환경 마다 수정할 수 있는 다양 한 구성을 제공 합
 
 | 속성 이름 | 설명 |
 | ---------------- | ------------ |
-| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | 노브에 허용 되는 최대값 `ApproxBatchSizeInBytes` 입니다. 기본값은 `1_058_576`입니다.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | 노브에 허용 되는 최대값 `MaxEventsPerBatch` 입니다. 기본값은 `50`입니다.
-| `broker__defaultMaxBatchSizeInBytes` | 만 지정 된 경우 최대 배달 요청 크기 `MaxEventsPerBatch` 입니다. 기본값은 `1_058_576`입니다.
-| `broker__defaultMaxEventsPerBatch` | 만 지정 된 경우 일괄 처리에 추가할 최대 이벤트 수 `MaxBatchSizeInBytes` 입니다. 기본값은 `10`입니다.
+| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | 노브에 허용 되는 최대값 `ApproxBatchSizeInBytes` 입니다. 기본값은 `1_058_576`여야 합니다.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | 노브에 허용 되는 최대값 `MaxEventsPerBatch` 입니다. 기본값은 `50`여야 합니다.
+| `broker__defaultMaxBatchSizeInBytes` | 만 지정 된 경우 최대 배달 요청 크기 `MaxEventsPerBatch` 입니다. 기본값은 `1_058_576`여야 합니다.
+| `broker__defaultMaxEventsPerBatch` | 만 지정 된 경우 일괄 처리에 추가할 최대 이벤트 수 `MaxBatchSizeInBytes` 입니다. 기본값은 `10`여야 합니다.
 
 ## <a name="metrics"></a>메트릭
 
@@ -85,4 +84,4 @@ IoT Edge에서 Event Grid 하는 메트릭을 사용 하는 방법에 대 한 �
 
 | 속성 이름 | 설명 |
 | ---------------- | ------------ |
-| `metrics__reporterType` | 메트릭 enpoint에 대 한 보고자 유형입니다. 기본값은 `none` 이며 메트릭을 사용 하지 않습니다. 로 설정 하면 `prometheus` 프로메테우스 표시 형식으로 메트릭이 활성화 됩니다.
+| `metrics__reporterType` | 메트릭 끝점에 대 한 보고자 유형입니다. 기본값은 `none` 이며 메트릭을 사용 하지 않습니다. 로 설정 하면 `prometheus` 프로메테우스 표시 형식으로 메트릭이 활성화 됩니다.

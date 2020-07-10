@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450007"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170261"
 ---
 # <a name="train-pytorch-model"></a>Pytorch 모델 학습
 
@@ -26,7 +27,7 @@ ms.locfileid: "84450007"
 2. **Pytorch 모델 학습** 모듈을 파이프라인에 추가 합니다. **모델 학습** 범주에서이 모듈을 찾을 수 있습니다. **학습**을 확장 하 고 **Pytorch 모델 학습** 모듈을 파이프라인으로 끌어 놓습니다.
 
    > [!NOTE]
-   > **Pytorch 모델 학습** 모듈은 **GPU** 유형 계산 에서만 실행할 수 있습니다. 그렇지 않으면 파이프라인이 실패 합니다. **다른 계산 대상 사용**을 설정 하 여 모듈의 오른쪽 창에서 특정 모듈에 대 한 compute를 선택할 수 있습니다.
+   > **Pytorch 모델 학습** 모듈은 대량 데이터 집합에 대 한 **GPU** 유형 계산에서 더 효율적으로 실행 됩니다. 그렇지 않으면 파이프라인이 실패 합니다. **다른 계산 대상 사용**을 설정 하 여 모듈의 오른쪽 창에서 특정 모듈에 대 한 compute를 선택할 수 있습니다.
 
 3.  왼쪽 입력에서 학습 되지 않은 모델을 연결 합니다. 학습 **Pytorch 모델**의 가운데 및 오른쪽 입력에 학습 데이터 집합 및 유효성 검사 데이터 집합을 연결 합니다.
 

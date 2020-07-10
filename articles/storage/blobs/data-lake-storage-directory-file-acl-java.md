@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 15bdcbfc8e02ff06e09cb1e2a3d0621cb50e4da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1118e584a235f90cc21c8d914f56ebcba7ea74f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466105"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170210"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -20,7 +21,7 @@ ms.locfileid: "84466105"
 
 [패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -104,11 +105,11 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 > 더 많은 예제는 [Java 용 Azure id 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) 설명서를 참조 하세요.
 
 
-## <a name="create-a-file-system"></a>파일 시스템 만들기
+## <a name="create-a-container"></a>컨테이너 만들기
 
-파일 시스템은 파일의 컨테이너 역할을 합니다. **DataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
+컨테이너는 파일에 대 한 파일 시스템 역할을 합니다. **DataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
 
-다음 예제에서는 `my-file-system`이라는 파일 시스템을 만듭니다. 
+이 예제에서는 라는 컨테이너를 만듭니다 `my-file-system` . 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -122,7 +123,7 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 **DataLakeFileSystemClient** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
-이 예에서는 라는 디렉터리를 `my-directory` 파일 시스템에 추가한 다음 라는 하위 디렉터리를 추가 `my-subdirectory` 합니다. 
+이 예제에서는 라는 디렉터리를 `my-directory` 컨테이너에 추가한 다음 라는 하위 디렉터리를 추가 `my-subdirectory` 합니다. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -230,6 +231,8 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 }
 
 ```
+
+컨테이너의 루트 디렉터리에 대 한 ACL을 가져오고 설정할 수도 있습니다. 루트 디렉터리를 가져오려면 `""` **DataLakeFileSystemClient client** 메서드에 빈 문자열 ()을 전달 합니다.
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
@@ -389,7 +392,7 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
 * [패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)

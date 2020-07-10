@@ -11,16 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/03/2020
-ms.openlocfilehash: 576861265771977f7e13140dd595f47bf556e585
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: c3f3e7540f837722d4dd730c5635ac30c699ccd3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84331902"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184364"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory (ADF)에서 Azure SQL Server Integration Services (SSIS) Integration Runtime (IR)의 사용자 지정 설정은 Azure-SSIS IR를 프로 비전 하거나 재구성 하는 동안 고유한 단계를 추가 하기 위한 인터페이스를 제공 합니다. 
 

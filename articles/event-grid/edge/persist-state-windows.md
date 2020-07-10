@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086618"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171468"
 ---
 # <a name="persist-state-in-windows"></a>Windows에서 상태 유지
 
@@ -36,7 +35,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
     ```
 
-    예제:
+    예를 들면 다음과 같습니다.
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
@@ -47,7 +46,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
     ```
 
-    예제:
+    예를 들면 다음과 같습니다.
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume inspect myeventgridvol
@@ -78,7 +77,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     1. *사용자의 사용 권한*아래에서 **수정**을 선택 하 고 **확인**을 선택 합니다.
 1. **바인딩을** 사용 하 여이 볼륨을 탑재 하 고 Azure Portal에서 Event Grid 모듈을 다시 배포 합니다.
 
-   예제:
+   예를 들면 다음과 같습니다.
 
     ```json
         {
@@ -114,7 +113,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
    >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈의 특정 위치를 가리킵니다. Windows의 Event Grid 모듈은 **C: \\ app \\ metadataDb**여야 합니다.
 
 
-    예제:
+    예를 들면 다음과 같습니다.
 
     ```json
     {
@@ -157,7 +156,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
    mkdir <your-directory-name-here>
    ```
 
-   예제:
+   예를 들면 다음과 같습니다.
 
    ```sh
    mkdir C:\myhostdir
@@ -177,7 +176,7 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     >[!IMPORTANT]
     >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈의 특정 위치를 가리킵니다. Windows의 Event Grid 모듈은 **C: \\ app \\ metadataDb**여야 합니다.
 
-    예제:
+    예를 들면 다음과 같습니다.
 
     ```json
     {

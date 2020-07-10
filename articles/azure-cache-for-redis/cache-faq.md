@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856965"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185010"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -41,6 +41,7 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 * [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Azure Cache for Redis 성능](#azure-cache-for-redis-performance)
 * [어떤 영역에 내 캐시를 배치해야 하나요?](#in-what-region-should-i-locate-my-cache)
+* [내 캐시 된 데이터는 어디에 있습니까?](#where-do-my-cached-data-reside)
 * [Azure Cache for Redis에 대한 요금은 어떻게 청구되나요?](#how-am-i-billed-for-azure-cache-for-redis)
 * [Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure 독일에서 Azure Cache for Redis를 사용할 수 있나요?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -149,6 +150,13 @@ stunnel 설정 또는 `redis-benchmark.exe`와 같은 Redis 도구 다운로드�
 ### <a name="in-what-region-should-i-locate-my-cache"></a>어떤 영역에 내 캐시를 배치해야 하나요?
 성능을 최적화하고 대기 시간을 최소화하려면 Azure Cache for Redis를 캐시 클라이언트 애플리케이션과 동일한 지역에 배치합니다.
 
+### <a name="where-do-my-cached-data-reside"></a>내 캐시 된 데이터는 어디에 있습니까?
+Redis 용 Azure Cache는 캐시를 호스팅하는 계층에 따라 VM 또는 vm의 RAM에 응용 프로그램 데이터를 저장 합니다. 사용자의 데이터는 기본적으로 선택한 Azure 지역에만 저장 됩니다. 데이터가 영역을 벗어날 수 있는 두 가지 경우는 다음과 같습니다.
+  1. 캐시에서 지 속성을 사용 하도록 설정 하는 경우 Redis에 대 한 Azure Cache는 사용자가 소유한 Azure Storage 계정으로 데이터를 백업 합니다. 제공 하는 저장소 계정이 다른 지역에 있는 경우 데이터 복사본이 여기에 표시 됩니다.
+  1. 지역에서 복제를 설정 하 고 보조 캐시가 다른 지역에 있는 경우 (일반적으로 해당 하는 경우) 데이터가 해당 지역에 복제 됩니다.
+
+이러한 기능을 사용 하려면 Redis에 대 한 Azure 캐시를 명시적으로 구성 해야 합니다. 저장소 계정 또는 보조 캐시가 있는 지역을 완전히 제어할 수도 있습니다.
+
 <a name="cache-billing"></a>
 
 ### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 요금은 어떻게 청구되나요?
@@ -215,20 +223,20 @@ Azure Cache for Redis에 대한 로컬 에뮬레이터는 없지만 다음 예�
 
 ```csharp
 private static Lazy<ConnectionMultiplexer>
-      lazyConnection = new Lazy<ConnectionMultiplexer>
-    (() =>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
     {
-        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        // Connect to a locally running instance of Redis to simulate
+        // a local cache emulator experience.
         return ConnectionMultiplexer.Connect("127.0.0.1:6379");
     });
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
 ```
 
 원하는 경우 선택적으로 온라인 Azure Cache for Redis의 [기본 캐시 설정](cache-configure.md#default-redis-server-configuration)과 더 가깝게 일치하도록 [redis.conf](https://redis.io/topics/config) 파일을 구성할 수 있습니다.
@@ -367,11 +375,11 @@ CLR ThreadPool에는 두 가지 유형의 스레드 - "작업자" 및 "I/O 완�
 
 StackExchange.Redis(빌드 1.0.450 이상)의 예제 오류 메시지를 살펴보는 경우 ThreadPool 통계를 인쇄하는 것을 볼 수 있습니다(아래 IOCP 및 작업자 세부 정보 참조).
 
-```output
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
+System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 ```
 
 이전 예에서 IOCP 스레드의 경우 사용 중인 6개의 스레드가 있고 시스템이 최소 4개의 스레드를 허용하도록 구성되어 있는 것을 확인할 수 있습니다. 이 경우 클라이언트는 6 > 4로 인해 두 500ms 지연을 볼 수 있습니다.
@@ -386,20 +394,20 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 * `global.asax.cs`에서 [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) 메서드를 사용하여 프로그래밍 방식으로 이 설정을 변경하는 것이 좋습니다. 다음은 그 예입니다.
 
-```cs
-private readonly int minThreads = 200;
-void Application_Start(object sender, EventArgs e)
-{
-    // Code that runs on application startup
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-    BundleConfig.RegisterBundles(BundleTable.Bundles);
-    ThreadPool.SetMinThreads(minThreads, minThreads);
-}
-```
+    ```csharp
+    private readonly int minThreads = 200;
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        AreaRegistration.RegisterAllAreas();
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        ThreadPool.SetMinThreads(minThreads, minThreads);
+    }
+    ```
 
-  > [!NOTE]
-  > 이 메서드로 지정된 값은 전역 설정으로, 전체 AppDomain에 영향을 미칩니다. 예를 들어 4개의 코어 컴퓨터가 있으며 런타임 중에 *minWorkerThreads* 및 *minIOThreads*를 CPU당 50으로 설정하려는 경우 **ThreadPool.SetMinThreads(200, 200)** 을 사용하면 됩니다.
+    > [!NOTE]
+    > 이 메서드로 지정된 값은 전역 설정으로, 전체 AppDomain에 영향을 미칩니다. 예를 들어 4개의 코어 컴퓨터가 있으며 런타임 중에 *minWorkerThreads* 및 *minIOThreads*를 CPU당 50으로 설정하려는 경우 **ThreadPool.SetMinThreads(200, 200)** 을 사용하면 됩니다.
 
 * 일반적으로 `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`에 있는, `Machine.config`의 `<processModel>` 구성 요소 아래 [*minIoThreads* 또는 *minWorkerThreads* 구성 설정](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx)을 사용하여 최소 스레드 설정을 지정할 수도 있습니다. **이러한 방식으로 최소 스레드 수를 설정하는 것은 시스템 차원의 설정이므로 일반적으로 권장되지 않습니다.**
 
@@ -455,7 +463,7 @@ Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.az
   * 대역폭 임계값 제한에 도달했습니다.
   * CPU 바인딩된 작업을 완료하는 데 시간이 너무 오래 걸렸습니다.
 * 서버 쪽 원인
-  * 표준 캐시 제안의 Azure Cache for Redis 서비스가 주 노드에서 보조 노드로 장애 조치를 시작했습니다.
+  * 표준 캐시 기능에서 Redis 서비스에 대 한 Azure Cache는 주 노드에서 복제본 노드로 장애 조치 (failover)를 시작 했습니다.
   * Azure에서 캐시가 배포된 인스턴스에 패치를 적용하고 있었습니다.
     * 이 작업은 Redis 서버 업데이트 또는 일반적인 VM 유지 관리를 위한 것일 수 있습니다.
 

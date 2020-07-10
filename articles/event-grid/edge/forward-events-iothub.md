@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844703"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171553"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>자습서: IoTHub로 이벤트 전달
 
@@ -27,7 +26,7 @@ ms.locfileid: "76844703"
 - [Event Grid 개념](concepts.md)
 - [IoT Edge 허브](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -134,7 +133,7 @@ ms.locfileid: "76844703"
 
 다음과 같이 IoTHub에 전달할 이벤트 구독의 이벤트를 전달 하도록 edge 허브의 경로를 업데이트 합니다.
 
-1. [Azure 포털](https://ms.portal.azure.com)
+1. [Azure Portal](https://ms.portal.azure.com)에 로그인합니다.
 1. **IoT Hub**로 이동 합니다.
 1. 메뉴에서 **IoT Edge** 선택
 1. 장치 목록에서 대상 장치의 ID를 선택 합니다.
@@ -146,7 +145,7 @@ ms.locfileid: "76844703"
   "fromEventGridToIoTHub":"FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
   ```
 
-  예제:
+  예를 들면 다음과 같습니다.
 
   ```json
   {

@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836093"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171944"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 탐색을 구현하는 방법
 
@@ -283,10 +284,12 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 패싯 결과는 패싯 용어와 일치하는 검색 결과에서 발견된 문서입니다. 다음 예제의 *cloud computing*에 대한 검색 결과에서 254개 항목은 콘텐츠 형식이 *internal specification*입니다. 항목은 상호 배타적이지 않을 수 있습니다. 하나의 항목이 두 필터 조건을 모두 충족하는 경우에는 각각 하나로 계산됩니다. 이 중복은 주로 문서 태깅을 구현하는 데 사용되는 `Collection(Edm.String)` 필드를 패싯할 때 발생합니다.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 일반적으로 패싯 결과가 지속적으로 너무 큰 경우에는 필터를 더 추가하여 사용자에게 검색 범위를 좁힐 수 있는 추가 옵션을 제공하는 것이 좋습니다.
 
@@ -344,7 +347,7 @@ Azure Cognitive Search에서는 범위를 계산하는 두 가지 방법을 제�
 
 이전 스크린샷과 같은 패싯 범위를 지정하려면 값 목록을 사용합니다.
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 각 범위는 0부터 작성되며, 목록의 값을 엔드포인트로 사용하고 이전 범위를 잘라 불연속 간격을 만듭니다. Azure Cognitive Search는 이러한 작업을 패싯 탐색의 일부로 수행합니다. 각 간격을 구성하기 위해 코드를 작성할 필요가 없습니다.
 

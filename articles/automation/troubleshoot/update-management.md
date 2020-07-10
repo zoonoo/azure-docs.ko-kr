@@ -5,11 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801889"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183157"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -52,7 +53,7 @@ Error details: Failed to enable the Update solution
 
 ### <a name="issue"></a>문제점
 
-이전 업데이트가 대체된 경우에도 Automation 계정에 대해 누락된 것으로 나타납니다. 대체된 업데이트는 동일한 취약성을 해결하는 후속 업데이트를 사용할 수 있기 때문에 설치하지 않아도 되는 업데이트입니다. 업데이트 관리가 대체된 업데이트를 무시하고 대체하는 업데이트 대신 적용하지 않습니다. 관련 문제에 대한 자세한 내용은 [업데이트가 대체됨](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)을 참조하세요.
+이전 업데이트가 대체된 경우에도 Automation 계정에 대해 누락된 것으로 나타납니다. 대체된 업데이트는 동일한 취약성을 해결하는 후속 업데이트를 사용할 수 있기 때문에 설치하지 않아도 되는 업데이트입니다. 업데이트 관리가 대체된 업데이트를 무시하고 대체하는 업데이트 대신 적용하지 않습니다. 관련 문제에 대한 자세한 내용은 [업데이트가 대체됨](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)을 참조하세요.
 
 ### <a name="cause"></a>원인
 
@@ -155,7 +156,7 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 
 4. 리소스 공급자 목록에서 Microsoft.Automation 리소스 공급자가 등록되어 있는지 확인합니다.
 
-5. 나열되지 않은 경우 [리소스 공급자 등록 오류 해결](/azure/azure-resource-manager/resource-manager-register-provider-errors)의 단계를 수행하여 Microsoft.Automation 공급자를 등록합니다.
+5. 나열되지 않은 경우 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/templates/error-register-resource-provider.md)의 단계를 수행하여 Microsoft.Automation 공급자를 등록합니다.
 
 ## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>시나리오: 동적 일정에 따라 예약된 업데이트에서 일부 머신이 누락됨
 
@@ -177,7 +178,7 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 
 Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 해당 구독의 머신에서 정보를 쿼리하거나 가져올 수 없습니다. 다음 단계를 사용하여 구독에 대한 등록을 확인합니다.
 
-1. [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)에서 Azure 서비스 목록에 액세스합니다.
+1. [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)에서 Azure 서비스 목록에 액세스합니다.
 
 2. **모든 서비스**를 선택한 후 일반 서비스 그룹에서 **구독**을 선택합니다. 
 
@@ -187,7 +188,7 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 5. Microsoft.Automation 리소스 공급자가 등록되어 있는지 확인합니다.
 
-6. 나열되지 않은 경우 [리소스 공급자 등록 오류 해결](/azure/azure-resource-manager/resource-manager-register-provider-errors)의 단계를 수행하여 Microsoft.Automation 공급자를 등록합니다.
+6. 나열되지 않은 경우 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/templates/error-register-resource-provider.md)의 단계를 수행하여 Microsoft.Automation 공급자를 등록합니다.
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>예약 실행 시 머신을 사용할 수 없거나 태그가 올바르게 지정되지 않음
 
@@ -195,9 +196,9 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 1. Azure Portal에서 Automation 계정을 열고 **업데이트 관리**를 선택합니다.
 
-2. 업데이트 배포가 실행된 정확한 시간을 확인하려면 [업데이트 관리 기록](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment)를 확인합니다. 
+2. 업데이트 배포가 실행된 정확한 시간을 확인하려면 [업데이트 관리 기록](../manage-update-multi.md#view-results-of-an-update-deployment)를 확인합니다. 
 
-3. 업데이트 관리에서 누락된 것으로 의심되는 머신의 경우 ARG(Azure Resource Graph)를 사용하여 [머신 변경 내용을 찾습니다](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details). 
+3. 업데이트 관리에서 누락된 것으로 의심되는 머신의 경우 ARG(Azure Resource Graph)를 사용하여 [머신 변경 내용을 찾습니다](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details). 
 
 4. 업데이트 배포를 실행하기 전에 하루와 같은 상당히 긴 기간 동안의 변경 내용을 검색합니다.
 
@@ -225,13 +226,13 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 #### <a name="incorrect-access-on-selected-scopes"></a>선택한 범위에 대한 잘못된 액세스
 
-Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표시됩니다. 범위에 대한 올바른 액세스 권한이 없는 경우 [자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)를 참조하세요.
+Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표시됩니다. 범위에 대한 올바른 액세스 권한이 없는 경우 [자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](../../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조하세요.
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>ARG 쿼리가 예상 머신을 반환하지 않음
 
 아래 단계에 따라 쿼리가 제대로 작동하고 있는지 확인합니다.
 
-1. Azure Portal의 Resource Graph 탐색기 블레이드에서 아래와 같이 형식이 지정된 ARG 쿼리를 실행합니다. 이 쿼리는 업데이트 관리에서 동적 그룹을 만들 때 선택한 필터를 모방합니다. [업데이트 관리에서 동적 그룹 사용](https://docs.microsoft.com/azure/automation/automation-update-management-groups)을 참조하세요. 
+1. Azure Portal의 Resource Graph 탐색기 블레이드에서 아래와 같이 형식이 지정된 ARG 쿼리를 실행합니다. 이 쿼리는 업데이트 관리에서 동적 그룹을 만들 때 선택한 필터를 모방합니다. [업데이트 관리에서 동적 그룹 사용](../automation-update-management-groups.md)을 참조하세요. 
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -266,7 +267,7 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
 
 4. 해당 머신에 대한 Hybrid Worker가 있는지 확인합니다.
 
-5. 머신이 Hybrid Worker로 설정되어 있지 않은 경우에는[Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)의 지침을 사용하여 조정합니다.
+5. 머신이 Hybrid Worker로 설정되어 있지 않은 경우에는[Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화](../automation-hybrid-runbook-worker.md)의 지침을 사용하여 조정합니다.
 
 6. Hybrid Runbook Worker 그룹에 머신을 가입합니다.
 
@@ -342,7 +343,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 ### <a name="resolution"></a>해결 방법
 
-다음 해결 방법을 사용하여 이러한 항목을 예약합니다. `ForUpdateConfiguration` 매개 변수에서 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet을 사용하여 일정을 만들 수 있습니다. 그런 다음, [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet을 사용하여 다른 테넌트의 머신을 `NonAzureComputer` 매개 변수에 전달할 수 있습니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+다음 해결 방법을 사용하여 이러한 항목을 예약합니다. `ForUpdateConfiguration` 매개 변수에서 [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet을 사용하여 일정을 만들 수 있습니다. 그런 다음, [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet을 사용하여 다른 테넌트의 머신을 `NonAzureComputer` 매개 변수에 전달할 수 있습니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -420,7 +421,7 @@ Windows에서는 업데이트가 사용 가능해지는 즉시 자동으로 설�
 
 업데이트 관리 클라이언트의 경우 이 키를 3: `auto download but do not auto install`로 설정하는 것이 좋습니다.
 
-자세한 내용은 [자동 업데이트 구성](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates)을 참조하세요.
+자세한 내용은 [자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configure-automatic-updates)을 참조하세요.
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>시나리오: 컴퓨터가 이미 다른 계정에 등록되어 있습니다.
 
@@ -574,9 +575,9 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 
 ### <a name="machines-dont-install-updates"></a>머신이 업데이트를 설치하지 않음
 
-머신에서 직접 업데이트를 실행해 봅니다. 머신이 업데이트를 적용할 수 없는 경우 [문제 해결 가이드의 잠재적 오류 목록](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult)을 참조하세요.
+머신에서 직접 업데이트를 실행해 봅니다. 머신이 업데이트를 적용할 수 없는 경우 [문제 해결 가이드의 잠재적 오류 목록](#hresult)을 참조하세요.
 
-업데이트가 로컬로 실행되는 경우 [업데이트 관리에서 VM 제거](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources)의 지침에 따라 머신에서 에이전트를 제거했다가 다시 설치해 봅니다.
+업데이트가 로컬로 실행되는 경우 [업데이트 관리에서 VM 제거](../automation-remove-vms-from-update-management.md)의 지침에 따라 머신에서 에이전트를 제거했다가 다시 설치해 봅니다.
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>업데이트를 사용할 수 있는 것을 알지만, 내 머신에는 업데이트가 사용 가능한 것으로 표시되지 않음
 
@@ -592,11 +593,11 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 
 ### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>업데이트가 설치된 것으로 표시되지만, 머신에서 업데이트를 찾을 수 없음
 
-업데이트가 종종 다른 업데이트로 대체됩니다. 자세한 내용은 Windows 업데이트 문제 해결 가이드의 [업데이트가 대체됨](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)을 참조하세요.
+업데이트가 종종 다른 업데이트로 대체됩니다. 자세한 내용은 Windows 업데이트 문제 해결 가이드의 [업데이트가 대체됨](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)을 참조하세요.
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Linux에서 분류를 기준으로 업데이트 설치
 
-분류("중요 업데이트 및 보안 업데이트")를 기준으로 Linux에 업데이트를 배포할 때, 특히 CentOS와 관련하여 중요한 주의 사항이 있습니다. 이러한 제한 사항은 [업데이트 관리 개요 페이지](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)에 설명되어 있습니다.
+분류("중요 업데이트 및 보안 업데이트")를 기준으로 Linux에 업데이트를 배포할 때, 특히 CentOS와 관련하여 중요한 주의 사항이 있습니다. 이러한 제한 사항은 [업데이트 관리 개요 페이지](../automation-update-management.md#linux)에 설명되어 있습니다.
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602가 지속적으로 누락됨
 

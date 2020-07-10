@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: dpalled
-ms.openlocfilehash: ebb62b67b56134902f2752b43dd25fb0a7c6ccd4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0b53749a32e79d690cf4412fdac82b18dfe2f2e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045776"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183633"
 ---
 # <a name="adding-support-for-long-data-type"></a>Long 데이터 형식에 대 한 지원 추가
 
@@ -63,39 +63,43 @@ IoT 솔루션 및 제약 조건에 따라 TSI PAYG 환경으로 전송 되는 �
 
 *이전 변수 정의:*
 
-    "PropertyValueVariable": {
+```tsx
+"PropertyValueVariable": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "$event.propertyValue.Double"
+        "tsx": "$event.propertyValue.Double"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 *새 변수 정의:*
 
-    "PropertyValueVariable ": {
+```tsx
+"PropertyValueVariable ": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 사용자 지정 [시계열 식](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) 으로 *"병합 ($event. toDouble, $event)"* 을 사용할 수도 있습니다.
 
@@ -124,77 +128,81 @@ IoT 솔루션 및 제약 조건에 따라 TSI PAYG 환경으로 전송 되는 �
 
 *이전 변수 정의:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "tolong($event.propertyValue.Double)"
+        "tsx": "tolong($event.propertyValue.Double)"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 *새 변수 정의:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 범주 변수에는 여전히 값이 정수 형식 이어야 합니다. 병합 ()의 모든 인수에 대 한 데이터 형식은 사용자 지정 시계열 식의 Long 형식 이어야 합니다 [.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
