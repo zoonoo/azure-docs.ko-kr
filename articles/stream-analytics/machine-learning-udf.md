@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488752"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141943"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 
@@ -27,7 +28,7 @@ Azure Stream Analytics 작업에서 UDF(사용자 정의 함수)로 기계 학�
 
 3. 웹 서비스가 JSON 직렬화된 데이터를 수락하고 반환하는지 확인합니다.
 
-4. 대규모 프로덕션 배포를 위한 모델을 [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target)에 배포합니다. 웹 서비스가 작업에서 발생하는 요청 수를 처리할 수 없는 경우 Stream Analytics 작업의 성능이 저하되어 대기 시간에 영향을 줍니다. Azure Container Instances에 배포된 모델은 Azure Portal을 사용하는 경우에만 지원됩니다.
+4. 대규모 프로덕션 배포를 위한 모델을 [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target)에 배포합니다. 웹 서비스가 작업에서 발생하는 요청 수를 처리할 수 없는 경우 Stream Analytics 작업의 성능이 저하되어 대기 시간에 영향을 줍니다. Azure Container Instances에 배포된 모델은 Azure Portal을 사용하는 경우에만 지원됩니다. [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) 를 사용 하 여 작성 된 모델은 Stream Analytics에서 아직 지원 되지 않습니다.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>작업에 기계 학습 모델 추가
 
