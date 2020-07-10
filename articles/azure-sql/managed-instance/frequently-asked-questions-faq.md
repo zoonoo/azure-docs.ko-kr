@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 88f92117dc07fc241ca714851956e386cd10d617
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135027"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171162"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ (질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,12 +33,38 @@ SQL Managed Instance에서 지원 되는 기능 목록은 [AZURE SQL Managed Ins
 Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점은 [SQL Server의 t-sql 차이점](transact-sql-tsql-differences-sql-server.md)을 참조 하세요.
 
 
-## <a name="tech-spec--resource-limits"></a>기술 사양 & 리소스 제한
+## <a name="technical-specification-resource-limits-and-other-limitations"></a>기술 사양, 리소스 제한 및 기타 제한 사항
  
 **SQL Managed Instance에 대 한 기술 특성 및 리소스 제한은 어디에서 확인할 수 있나요?**
 
 사용 가능한 하드웨어 생성 특성은 [하드웨어 세대의 기술적 차이점](resource-limits.md#hardware-generation-characteristics)을 참조 하세요.
 사용 가능한 서비스 계층 및 해당 특성에 대 한 자세한 내용은 [서비스 계층 간의 기술적 차이점](resource-limits.md#service-tier-characteristics)을 참조 하세요.
+
+**적합 한 서비스 계층은 무엇 인가요?**
+
+모든 고객은 모든 서비스 계층에 적합 합니다. 그러나 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하 여 Azure SQL Managed Instance의 [할인 된 요금](../database/service-tier-general-purpose.md) 에 대 한 기존 라이선스를 교환 하려는 경우에는 소프트웨어 보증이 적용 되는 SQL Server Enterprise 버전 고객이 범용 또는 [중요 비즈니스용](../database/service-tier-business-critical.md) 성능 계층을 사용할 수 있으며, 소프트웨어 보증이 있는 SQL Server Standard 버전 고객은 범용 성능 계층에만 적격 해야 합니다. 자세한 내용은 [AHB의 특정 권한](../azure-hybrid-benefit.md?tabs=azure-powershell#what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server)을 참조 하세요.
+
+**SQL Managed Instance에 대해 지원 되는 구독 유형은 무엇 인가요?**
+
+지원 되는 구독 유형 목록은 [지원 되는 구독 유형](resource-limits.md#supported-subscription-types)을 참조 하세요. 
+
+**지원 되는 Azure 지역은 무엇 인가요?**
+
+관리 되는 인스턴스는 대부분의 Azure 지역에서 만들 수 있습니다. [SQL Managed Instance 지원 되는 지역을](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)참조 하세요. 현재 지원 되지 않는 지역에 관리 되는 인스턴스가 필요한 경우 Azure Portal를 [통해 지원 요청을 보냅니다](../database/quota-increase-request.md).
+
+**SQL Managed Instance 배포에 대 한 할당량 제한이 있나요?**
+
+관리 되는 인스턴스에는 사용할 수 있는 서브넷 수에 대 한 제한과 프로 비전 할 수 있는 vCores 수에 대 한 제한이 두 가지 기본 제한이 있습니다. 한도는 구독 유형 및 지역에서 다릅니다. 구독 유형별 지역 리소스 제한 목록은 [지역별 리소스 제한 사항](resource-limits.md#regional-resource-limitations)표를 참조 하세요. 이는 수요에 따라 증가할 수 있는 소프트 제한입니다. 현재 지역에서 더 많은 관리 되는 인스턴스를 프로 비전 해야 하는 경우 Azure Portal를 사용 하 여 할당량을 늘리기 위한 지원 요청을 보냅니다. 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](../database/quota-increase-request.md)를 참조 하세요.
+
+**요청 시 관리 되는 인스턴스의 데이터베이스 제한 수 (100)를 늘릴 수 있나요?**
+
+아니요, 현재는 SQL Managed Instance의 데이터베이스 수를 늘릴 수 있는 확정 된 계획이 없습니다. 
+
+**8TB 이상의 데이터가 있는 경우 어디에서 마이그레이션할 수 있나요?**
+워크 로드에 적합 한 다른 Azure 버전으로 마이그레이션하는 것을 고려할 수 있습니다. [Azure SQL Database 하이퍼 규모](../database/service-tier-hyperscale.md) 또는 [azure Virtual Machines의 SQL Server](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)입니다.
+
+**VCore 비율 또는 더 많은 Cpu와 같은 특정 하드웨어 요구 사항이 있는 경우 어디에서 마이그레이션할 수 있나요?**
+[Azure Virtual Machines에서 SQL Server](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) 로 마이그레이션 또는 메모리/cpu 최적화를 [Azure SQL Database](../database/sql-database-paas-overview.md) 하는 것을 고려할 수 있습니다.
 
 ## <a name="known-issues--bugs"></a>알려진 문제 & 버그
 
@@ -52,22 +78,48 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 새 기능 및 미리 보기 기능에 대 한 자세한 내용은 [릴리스 정보](../database/doc-changes-updates-release-notes.md?tabs=managed-instance)를 참조 하세요.
 
-## <a name="deployment-times"></a>배포 시간 
+## <a name="create-update-delete-or-move-sql-managed-instance"></a>SQL Managed Instance 만들기, 업데이트, 삭제 또는 이동
+
+**SQL Managed Instance를 프로 비전 하려면 어떻게 해야 하나요?**
+
+[Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) 및 [ARM 템플릿에서](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates)인스턴스를 프로 비전 할 수 있습니다.
+
+**기존 구독에서 관리 되는 인스턴스를 프로 비전 할 수 있나요?**
+
+예, 해당 구독이 [지원 되는 구독 유형에](resource-limits.md#supported-subscription-types)속하는 경우 기존 구독에 Managed Instance를 프로 비전 할 수 있습니다.
+
+**이름을 숫자로 시작 하는 서브넷에 Managed Instance를 프로 비전 할 수 없는 이유는 무엇 인가요?**
+
+이는 regex ^ [a-zA-Z_] [^ \\ \/ \: \* \? \" \<\> \| \` \' \^ ] * (? <! [ \. 에 대해 서브넷 이름을 확인 하는 기본 구성 요소에 대 한 현재 제한 사항입니다. \s]) $. Regex를 전달 하는 모든 이름과 유효한 서브넷 이름이 현재 지원 됩니다.
+
+**관리 되는 인스턴스의 크기를 조정 하려면 어떻게 해야 하나요?**
+
+[Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) 또는 [ARM 템플릿에서](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)관리 되는 인스턴스를 확장할 수 있습니다.
+
+**내 Managed Instance을 한 지역에서 다른 지역으로 이동할 수 있나요?**
+
+예, 할 수 있습니다. 지침은 [영역 간 리소스 이동](../database/move-resources-across-regions.md)을 참조 하세요.
+
+**내 Managed Instance을 삭제 하려면 어떻게 해야 하나요?**
+
+Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [AZURE CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) 또는 [리소스 관리자 REST Api](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
 
 **인스턴스를 만들거나 업데이트 하는 데 소요 되는 시간 또는 데이터베이스를 복원 하는 데 소요 되는 시간은 어느 정도 인가요?**
 
-관리 되는 인스턴스를 만드는 데 필요한 시간 또는 변경 서비스 계층 (vCores, 저장소)은 여러 가지 요인에 따라 달라 집니다. [관리 작업](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations)에 대해 살펴보겠습니다. 
-
+새 관리 되는 인스턴스를 만들거나 서비스 계층 (vCores, storage)을 변경 하는 데 필요한 시간은 여러 요소에 따라 다릅니다. [관리 작업](sql-managed-instance-paas-overview.md#management-operations)을 참조 하세요.
+ 
 ## <a name="naming-conventions"></a>명명 규칙
 
 **관리 되는 인스턴스의 이름이 SQL Server 온-프레미스 인스턴스와 같을 수 있나요?**
 
 관리 되는 인스턴스 이름 변경은 지원 되지 않습니다.
 
-관리 되는 인스턴스의 기본 DNS *database.windows.net* 을 변경할 수 있습니다. 
+**DNS 영역 접두사를 변경할 수 있나요?**
+
+예, Managed Instance 기본 DNS 영역을 변경할 수 있습니다 *. database.windows.net* 를 변경할 수 있습니다. 
 
 기본값 대신 다른 DNS 영역을 사용 하려면 (예: *. contoso.com*) 
-- CliConfig를 사용 하 여 별칭을 정의 합니다. 이 도구는 단지 레지스트리 설정 래퍼 이므로 그룹 정책 또는 스크립트를 사용 하 여 수행할 수도 있습니다.
+- CliConfig를 사용 하 여 별칭을 정의 합니다. 이 도구는 단지 레지스트리 설정 래퍼 이므로 그룹 정책 또는 스크립트를 사용 하 여 수행할 수 있습니다.
 - *Trustservercertificate = true* 옵션과 함께 *CNAME* 을 사용 합니다.
 
 ## <a name="move-a-database-from-sql-managed-instance"></a>SQL Managed Instance에서 데이터베이스 이동 
@@ -179,45 +231,6 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
 
 아니요. 현재 다른 리소스 유형을 이미 포함 하 고 있는 서브넷에 Managed Instance를 배치할 수 없습니다.
 
-## <a name="connectivity"></a>연결 
-
-**IP 주소를 사용 하 여 관리 되는 인스턴스에 연결할 수 있나요?**
-
-아니요, 지원되지 않습니다. Managed Instance의 호스트 이름은 Managed Instance의 가상 클러스터 앞에 있는 부하 분산 장치에 매핑됩니다. 하나의 가상 클러스터가 여러 관리 되는 인스턴스를 호스트할 수 있으므로 이름을 지정 하지 않고 연결을 적절 한 Managed Instance 라우팅할 수 없습니다.
-SQL Managed Instance 가상 클러스터 아키텍처에 대 한 자세한 내용은 [가상 클러스터 연결 아키텍처](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)를 참조 하세요.
-
-**관리 되는 인스턴스에 고정 IP 주소가 있을 수 있나요?**
-
-현재는 지원되지 않습니다.
-
-드물지만 필요한 경우에는 관리 되는 인스턴스를 새 가상 클러스터로 온라인으로 마이그레이션해야 할 수도 있습니다. 필요한 경우이 마이그레이션은 서비스의 보안 및 안정성을 향상 시키기 위한 기술 스택의 변경 내용 때문에 발생 합니다. 새 가상 클러스터로 마이그레이션하면 관리 되는 인스턴스 호스트 이름에 매핑되는 IP 주소가 변경 됩니다. 관리 되는 인스턴스 서비스는 고정 IP 주소 지원을 주장 하지 않으며 정기 유지 관리 주기 중에 통지 없이 변경할 권리를 보유 합니다.
-
-따라서 불필요 한 가동 중지 시간이 발생할 수 있으므로 IP 주소의 불변성에 의존 하지 않는 것이 좋습니다.
-
-**공용 끝점이 Managed Instance?**
-
-예. Managed Instance에는 기본적으로 서비스 관리에만 사용 되는 공용 끝점이 있지만, 고객은 데이터 액세스에도 사용할 수 있습니다. 자세한 내용은 [공용 끝점에서 SQL Managed Instance 사용](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely)을 참조 하세요. 공용 끝점을 구성 하려면 [SQL Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md)으로 이동 합니다.
-
-**Managed Instance에서 공용 끝점에 대 한 액세스를 제어 하는 방법은 무엇입니까?**
-
-Managed Instance는 네트워크 및 응용 프로그램 수준에서 공용 끝점에 대 한 액세스를 제어 합니다.
-
-관리 및 배포 서비스는 외부 부하 분산 장치에 매핑되는 [관리 끝점](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) 을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 트래픽은 관리 되는 인스턴스의 관리 구성 요소만 사용 하는 미리 정의 된 포트 집합에서 수신 된 경우에만 노드에 라우팅됩니다. 노드의 기본 제공 방화벽은 Microsoft IP 범위의 트래픽만 허용 하도록 설정 됩니다. 인증서는 관리 구성 요소와 관리 평면 간의 모든 통신을 상호 인증 합니다. 자세한 내용은 [SQL Managed Instance에 대 한 연결 아키텍처](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture)를 참조 하세요.
-
-**공용 끝점을 사용 하 여 Managed Instance 데이터베이스의 데이터에 액세스할 수 있나요?**
-
-예. 고객은 [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)PowerShell/ARM에서 공용 끝점 데이터 액세스를 사용 하도록 설정 하  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) 고 데이터 포트 (포트 번호 3342)에 대 한 액세스를 잠그기 위해 nsg를 구성 해야 합니다. 자세한 내용은 [AZURE sql Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md) 및 [공용 끝점을 사용 하 여 azure sql Managed Instance 안전 하 게 사용](public-endpoint-overview.md)을 참조 하세요. 
-
-**SQL 데이터 끝점에 대 한 사용자 지정 포트를 지정할 수 있나요?**
-
-아니요,이 옵션은 사용할 수 없습니다.  개인 데이터 끝점의 경우 기본 포트 번호 1433를 사용 하 고 공용 데이터 끝점에는 기본 포트 번호 3342을 사용 Managed Instance Managed Instance.
-
-**다른 지역에 배치 된 관리 되는 인스턴스를 연결 하는 데 권장 되는 방법은 무엇 인가요?**
-
-Express 경로 회로 피어 링은이 작업을 수행 하는 기본 방법입니다. 이는 내부 부하 분산 장치 관련 [제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)으로 인해 지원 되지 않는 지역 간 가상 네트워크 피어 링과 혼합 되지 않습니다.
-
-Express 경로 회로 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli))을 만드는 것입니다.
-
 
 ## <a name="mitigate-data-exfiltration-risks"></a>데이터 반출 위험 완화  
 
@@ -266,6 +279,20 @@ DNS 구성은 결국 새로 고쳐집니다.
 해결 방법으로 SQL Managed Instance를 4 개 vCores로 다운 그레이드 하 고 나중에 다시 업그레이드 합니다. DNS 구성을 새로 고치면 부작용이 발생 합니다.
 
 
+## <a name="ip-address"></a>IP 주소
+
+**IP 주소를 사용 하 여 SQL Managed Instance에 연결할 수 있나요?**
+
+IP 주소를 사용 하 여 SQL Managed Instance에 연결 하는 것은 지원 되지 않습니다. Sql Managed Instance 호스트 이름은 SQL Managed Instance 가상 클러스터 앞의 부하 분산 장치에 매핑됩니다. 하나의 가상 클러스터가 여러 관리 되는 인스턴스를 호스트할 수 있으므로 이름을 명시적으로 지정 하지 않고 연결을 적절 한 관리 되는 인스턴스로 라우팅할 수 없습니다.
+
+SQL Managed Instance 가상 클러스터 아키텍처에 대 한 자세한 내용은 [가상 클러스터 연결 아키텍처](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)를 참조 하세요.
+
+**SQL Managed Instance 고정 IP 주소를 가질 수 있나요?**
+
+드물지만 필요한 경우에는 SQL Managed Instance를 새 가상 클러스터로 온라인으로 마이그레이션하는 것이 필요할 수 있습니다. 필요한 경우이 마이그레이션은 서비스의 보안 및 안정성을 향상 시키기 위한 기술 스택의 변경 내용 때문에 발생 합니다. 새 가상 클러스터로 마이그레이션하면 SQL Managed Instance 호스트 이름에 매핑되는 IP 주소가 변경 됩니다. SQL Managed Instance 서비스는 고정 IP 주소 지원을 주장 하지 않으며 정기 유지 관리 주기 중에 통지 없이이를 변경할 권리를 보유 합니다.
+
+따라서 불필요 한 가동 중지 시간이 발생할 수 있으므로 IP 주소의 불변성에 의존 하지 않는 것이 좋습니다.
+
 ## <a name="change-time-zone"></a>표준 시간대 변경
 
 **기존 관리 되는 인스턴스의 표준 시간대를 변경할 수 있나요?**
@@ -275,16 +302,29 @@ DNS 구성은 결국 새로 고쳐집니다.
 해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만들고, 수동 백업 및 복원을 수행 하거나, [인스턴스 간 지정 시간 복원을](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)수행 하는 것이 포함 됩니다.
 
 
-## <a name="resolve-performance-issues"></a>성능 문제 해결
+## <a name="security-and-database-encryption"></a>보안 및 데이터베이스 암호화
 
-**SQL Managed Instance의 성능 문제를 해결 어떻게 할까요??**
+**SQL Managed Instance에 대 한 sysadmin 서버 역할을 사용할 수 있나요?**
 
-SQL Managed Instance와 SQL Server 간에 성능 비교를 수행 하는 데 좋은 출발점은 [AZURE SQL Managed Instance와 SQL Server 간의 성능 비교를 위한 모범 사례](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210)입니다.
+예, 고객은 sysadmin 역할의 멤버인 로그인을 만들 수 있습니다.  Sysadmin 권한을 전제로 하는 고객은 인스턴스 운영에 대 한 책임을 가정 하므로 SLA 약정에 부정적인 영향을 미칠 수 있습니다. Sysadmin 서버 역할에 로그인을 추가 하려면 [AZURE AD 인증](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication)을 참조 하세요.
 
-데이터 로드는 필수적인 전체 복구 모델 및 트랜잭션 로그 쓰기 처리량에 대 한 [제한](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) 으로 인해 SQL SERVER 보다 SQL Managed Instance에서 속도가 느립니다. 경우에 따라 사용자 데이터베이스 대신 tempdb로 임시 데이터를 로드 하거나 클러스터형 columnstore 또는 메모리 최적화 테이블을 사용 하 여이 작업을 수행할 수 있습니다.
+**SQL Managed Instance에 대해 투명한 데이터 암호화 지원 되나요?**
 
+예, 투명한 데이터 암호화 SQL Managed Instance에 대해 지원 됩니다. 자세한 내용은 [SQL Managed Instance에 대 한 투명한 데이터 암호화](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)를 참조 하세요.
 
-## <a name="restore-encrypted-backup"></a>암호화 된 백업 복원
+**TDE에 대 한 "자신의 키 가져오기" 모델을 활용할 수 있나요?**
+
+예, BYOK 시나리오에 대 한 Azure Key Vault는 Azure SQL Managed Instance에서 사용할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 투명한 데이터 암호화](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)를 참조 하세요.
+
+**암호화 된 SQL Server 데이터베이스를 마이그레이션할 수 있나요?**
+
+예, 할 수 있습니다. 암호화 된 SQL Server 데이터베이스를 마이그레이션하려면 기존 인증서를 Managed Instance으로 내보내고 가져온 다음 전체 데이터베이스 백업을 수행 하 고 Managed Instance으로 복원 해야 합니다. 
+
+[Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) 를 사용 하 여 tde 암호화 된 데이터베이스를 마이그레이션할 수도 있습니다.
+
+**SQL Managed Instance에 대 한 TDE 보호기 회전을 구성 하려면 어떻게 해야 하나요?**
+
+Azure Cloud Shell를 사용 하 여 Managed Instance에 대 한 TDE 보호기를 회전할 수 있습니다. 자세한 내용은 [Azure Key Vault에서 고유한 키를 사용 하 여 SQL Managed Instance에서 투명한 데이터 암호화](scripts/transparent-data-encryption-byok-powershell.md)를 참조 하세요.
 
 **암호화 된 데이터베이스를 SQL Managed Instance로 복원할 수 있나요?**
 
