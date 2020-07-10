@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201704"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181338"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 복제된 테이블을 사용하기 위한 디자인 지침
 
@@ -149,9 +149,9 @@ SQL 풀은 테이블의 마스터 버전을 유지하여 복제 테이블을 구
 
 예를 들어 다음 부하 패턴은 4개의 원본에서 데이터를 로드하고 4개의 다시 빌드를 호출합니다.
 
-        Load from source 1.
+- 원본 1에서 로드.
 - Select 문이 다시 빌드 1을 호출.
-        원본 2에서 로드.
+- 원본 2에서 로드.
 - Select 문이 다시 빌드 2를 호출.
 - 원본 3에서 로드.
 - Select 문이 다시 빌드 3을 호출.

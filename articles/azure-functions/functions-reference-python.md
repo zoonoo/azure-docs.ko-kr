@@ -4,11 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730750"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170380"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -427,17 +428,15 @@ pip install -r requirements.txt
 
 가상 환경 폴더를 비롯하여 게시에서 제외되는 프로젝트 파일과 폴더는 .funcignore 파일에 나열됩니다.
 
-Python 프로젝트를 Azure에 게시할 때 다음과 같은 세 가지 빌드 작업이 지원됩니다.
+Azure에 Python 프로젝트를 게시 하는 데 지원 되는 세 가지 빌드 작업은 원격 빌드, 로컬 빌드 및 사용자 지정 종속성을 사용한 빌드입니다.
 
-+ 원격 빌드: requirements.txt 파일의 내용에 따라 원격으로 종속성을 가져옵니다. [원격 빌드](functions-deployment-technologies.md#remote-build)는 권장 빌드 방법입니다. 원격 빌드는 Azure 도구의 기본 빌드 옵션이기도 합니다.
-+ 로컬 빌드: requirements.txt 파일의 내용에 따라 로컬로 종속성을 가져옵니다.
-+ 사용자 지정 종속성: 당사의 도구에서 공개적으로 제공하지 않는 패키지를 프로젝트에 사용합니다. Docker가 필요합니다.
-
-CD(지속적인 업데이트) 시스템을 사용하여 종속성을 빌드하고 게시하려면 [Azure Pipelines](functions-how-to-azure-devops.md)를 사용합니다.
+또한 Azure Pipelines를 사용 하 여 종속성을 빌드하고 CD (지속적인 업데이트)를 사용 하 여 게시할 수 있습니다. 자세히 알아보려면 [Azure DevOps를 사용 하 여 지속적인](functions-how-to-azure-devops.md)업데이트를 참조 하세요.
 
 ### <a name="remote-build"></a>원격 빌드
 
-기본적으로 Azure Functions Core Tools는 다음과 같은 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용하여 Python 프로젝트를 Azure에 게시할 때 원격 빌드가 필요합니다.
+원격 빌드를 사용 하는 경우 서버에서 복원 된 종속성과 기본 종속성이 프로덕션 환경과 일치 합니다. 이로 인해 더 작은 배포 패키지가 업로드 됩니다. Windows에서 Python 앱을 개발할 때 원격 빌드를 사용 합니다. 프로젝트에 사용자 지정 종속성이 있는 경우 [추가 인덱스 URL로 원격 빌드를 사용할](#remote-build-with-extra-index-url)수 있습니다. 
+ 
+종속성은 requirements.txt 파일의 내용에 따라 원격으로 가져옵니다. [원격 빌드](functions-deployment-technologies.md#remote-build)는 권장 빌드 방법입니다. 기본적으로 Azure Functions Core Tools는 다음과 같은 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용하여 Python 프로젝트를 Azure에 게시할 때 원격 빌드가 필요합니다.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -449,7 +448,7 @@ func azure functionapp publish <APP_NAME>
 
 ### <a name="local-build"></a>로컬 빌드
 
-다음 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용하여 로컬 빌드로 게시하면 원격 빌드를 차단할 수 있습니다.
+종속성은 requirements.txt 파일의 내용에 따라 로컬로 가져옵니다. 다음 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용하여 로컬 빌드로 게시하면 원격 빌드를 차단할 수 있습니다.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -457,9 +456,21 @@ func azure functionapp publish <APP_NAME> --build local
 
 `<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다.
 
-`--build local` 옵션을 사용하면 requirements.txt 파일에서 프로젝트 종속성을 읽고 해당하는 종속 패키지를 로컬로 다운로드하여 설치합니다. 프로젝트 파일과 종속성은 로컬 컴퓨터에서 Azure로 배포됩니다. 결과적으로 더 큰 배포 패키지가 Azure에 업로드됩니다. 어떤 이유로 Core Tools가 requirements.txt 파일의 종속성이 얻을 수 없는 경우 사용자 지정 종속성 옵션을 사용해야 합니다.
+`--build local` 옵션을 사용하면 requirements.txt 파일에서 프로젝트 종속성을 읽고 해당하는 종속 패키지를 로컬로 다운로드하여 설치합니다. 프로젝트 파일과 종속성은 로컬 컴퓨터에서 Azure로 배포됩니다. 결과적으로 더 큰 배포 패키지가 Azure에 업로드됩니다. 어떤 이유로 Core Tools가 requirements.txt 파일의 종속성이 얻을 수 없는 경우 사용자 지정 종속성 옵션을 사용해야 합니다. 
+
+Windows에서 로컬로 개발 하는 경우에는 로컬 빌드를 사용 하지 않는 것이 좋습니다.
 
 ### <a name="custom-dependencies"></a>사용자 지정 종속성
+
+프로젝트에는 [Python 패키지 인덱스](https://pypi.org/)에서 종속성이 없는 경우 두 가지 방법으로 프로젝트를 빌드할 수 있습니다. 빌드 메서드는 프로젝트를 빌드하는 방법에 따라 달라 집니다.
+
+#### <a name="remote-build-with-extra-index-url"></a>추가 인덱스 URL을 사용 하 여 원격 빌드
+
+액세스할 수 있는 사용자 지정 패키지 인덱스에서 패키지를 사용할 수 있는 경우 원격 빌드를 사용 합니다. 게시 하기 전에 이라는 [앱 설정을 만들어야](functions-how-to-use-azure-function-app-settings.md#settings) `PIP_EXTRA_INDEX_URL` 합니다. 이 설정의 값은 사용자 지정 패키지 인덱스의 URL입니다. 이 설정을 사용 하면 옵션을 사용 하 여 원격 빌드가 실행 되도록 지시할 수 `pip install` `--extra-index-url` 있습니다. 자세히 알아보려면 [Python pip 설치 설명서](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)를 참조 하세요. 
+
+추가 패키지 인덱스 Url을 사용 하 여 기본 인증 자격 증명을 사용할 수도 있습니다. 자세히 알아보려면 Python 설명서의 [기본 인증 자격 증명](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) 을 참조 하세요.
+
+#### <a name="install-local-packages"></a>로컬 패키지 설치
 
 당사의 도구에서 공개적으로 제공하지 않는 패키지를 프로젝트에 사용하는 경우 해당 패키지를 \_\_app\_\_/.python_packages 디렉터리에 배치하면 앱에서 사용할 수 있습니다. 게시하기 전에, 다음 명령을 실행하여 종속성을 로컬로 설치합니다.
 
@@ -467,7 +478,7 @@ func azure functionapp publish <APP_NAME> --build local
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-사용자 지정 종속성을 사용하는 경우 이미 종속성을 설치했으므로 `--no-build` 게시 옵션을 사용해야 합니다.
+프로젝트 폴더에 종속성을 이미 설치 했으므로 사용자 지정 종속성을 사용 하는 경우 `--no-build` 게시 옵션을 사용 해야 합니다.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build

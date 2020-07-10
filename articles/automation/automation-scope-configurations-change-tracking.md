@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 49655d11858086b16099a1864fd4d2dc5988f02a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117441"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185911"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>변경 내용 추적 및 인벤토리 배포 범위 제한
 
-이 문서에서는 [변경 내용 추적 및 인벤토리](change-tracking.md) 기능을 사용 하 여 vm에 변경 내용을 배포 하는 경우 범위 구성으로 작업 하는 방법을 설명 합니다. 자세한 내용은 [Azure Monitor의 모니터링 솔루션 대상 지정 (미리 보기)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting)을 참조 하세요. 
+이 문서에서는 [변경 내용 추적 및 인벤토리](change-tracking.md) 기능을 사용 하 여 vm에 변경 내용을 배포 하는 경우 범위 구성으로 작업 하는 방법을 설명 합니다. 자세한 내용은 [Azure Monitor의 모니터링 솔루션 대상 지정 (미리 보기)](../azure-monitor/insights/solution-targeting.md)을 참조 하세요. 
 
 ## <a name="about-scope-configurations"></a>범위 구성 정보
 

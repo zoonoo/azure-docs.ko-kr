@@ -9,11 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830126"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185843"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Azure Automation의 보안 자산 암호화
 
@@ -51,12 +52,12 @@ Automation 계정에 대해 고객 관리형 키를 사용하도록 설정하기
 
  - 고객 관리형 키가 Azure Key Vault에 저장됩니다. 
  - Key Vault에서 **일시 삭제** 및 **제거 안 함** 속성을 둘 다 사용하도록 설정합니다. 이러한 기능은 실수로 삭제하는 경우 키 복구를 허용하는 데 필요합니다.
- - Azure Automation 암호화에서는 RSA 키만 지원됩니다. 키에 대한 자세한 내용은 [Azure Key Vault 키, 비밀 및 인증서 정보](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)를 참조하세요.
+ - Azure Automation 암호화에서는 RSA 키만 지원됩니다. 키에 대한 자세한 내용은 [Azure Key Vault 키, 비밀 및 인증서 정보](../key-vault/general/about-keys-secrets-certificates.md)를 참조하세요.
 - Automation 계정과 Key Vault는 서로 다른 구독에 있을 수 있지만 동일한 Azure Active Directory 테넌트에 있어야 합니다.
 
 ### <a name="assignment-of-an-identity-to-the-automation-account"></a>Automation 계정에 ID 할당
 
-Automation 계정에서 고객 관리형 키를 사용하려면 Automation 계정이 고객 관리형 키를 저장하는 Key Vault에 대해 인증을 받아야 합니다. Azure Automation은 시스템 할당 관리 ID를 사용하여 Azure Key Vault 계정을 인증합니다. 관리 ID에 대한 자세한 내용은 [Azure 리소스용 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.
+Automation 계정에서 고객 관리형 키를 사용하려면 Automation 계정이 고객 관리형 키를 저장하는 Key Vault에 대해 인증을 받아야 합니다. Azure Automation은 시스템 할당 관리 ID를 사용하여 Azure Key Vault 계정을 인증합니다. 관리 ID에 대한 자세한 내용은 [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
 다음 REST API 호출을 사용하여 시스템 할당 관리 ID를 Automation 계정으로 구성합니다.
 
@@ -184,7 +185,7 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 
 ## <a name="revocation-of-access-to-a-customer-managed-key"></a>고객 관리형 키에 대한 액세스 해지
 
-고객 관리형 키에 대한 액세스를 취소하려면 PowerShell 또는 Azure CLI를 사용합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Automation에서 암호화 키에 액세스할 수 없으므로 Automation 계정의 모든 보안 자산에 대한 액세스가 효과적으로 차단됩니다.
+고객 관리형 키에 대한 액세스를 취소하려면 PowerShell 또는 Azure CLI를 사용합니다. 자세한 내용은 [Azure Key Vault PowerShell](/powershell/module/az.keyvault/) 또는 [Azure Key Vault CLI](/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Automation에서 암호화 키에 액세스할 수 없으므로 Automation 계정의 모든 보안 자산에 대한 액세스가 효과적으로 차단됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

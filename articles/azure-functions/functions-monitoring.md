@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207010"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170414"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -537,7 +537,7 @@ namespace functionapp0915
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>JavaScript 함수의 사용자 지정 원격 분석 로깅
 
-다음은 [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js)를 사용하여 사용자 지정 원격 분석을 보내는 샘플 코드 조각입니다.
+[Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js)를 사용 하 여 사용자 지정 원격 분석을 보내는 샘플 코드 조각은 다음과 같습니다.
 
 ### <a name="version-2x-and-later"></a>2\.x 이상 버전
 
@@ -626,7 +626,7 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ## <a name="streaming-logs"></a>스트리밍 로그
 
-애플리케이션을 개발하는 동안 Azure에서 실행될 때 거의 실시간으로 로그에 기록되는 항목을 보고 싶은 경우가 있습니다.
+응용 프로그램을 개발 하는 동안 Azure에서 실행할 때 거의 실시간으로 로그에 기록 되는 항목을 확인 하는 것이 좋습니다.
 
 함수 실행에 의해 생성되는 로그 파일의 스트림을 보는 두 가지 방법이 있습니다.
 
@@ -688,27 +688,41 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-## <a name="scale-controller-logs"></a>컨트롤러 로그 크기 조정
+## <a name="scale-controller-logs-preview"></a>컨트롤러 로그 크기 조정 (미리 보기)
 
-[Azure Functions 크기 조정 컨트롤러](./functions-scale.md#runtime-scaling) 는 앱을 실행 하는 함수 호스트 인스턴스를 모니터링 하 고 함수 호스트 인스턴스를 추가 하거나 제거할 시기에 대 한 결정을 내립니다. 크기 조정 컨트롤러가 응용 프로그램에서 수행 하는 결정을 이해 해야 하는 경우 로그를 Application Insights 또는 Blob Storage로 내보내도록 구성할 수 있습니다.
+이 기능은 미리 보기 상태입니다. 
 
-> [!WARNING]
-> 이 기능은 미리 보기 상태입니다. 이 기능을 무기한으로 사용 하지 않는 것이 좋습니다 .이 기능을 사용 하는 경우 수집 된 정보가 필요할 때이 기능을 사용 하도록 설정 하 고 사용 하지 않도록 설정 해야 합니다.
+[Azure Functions 크기 조정 컨트롤러](./functions-scale.md#runtime-scaling) 는 앱이 실행 되는 Azure Functions 호스트의 인스턴스를 모니터링 합니다. 이 컨트롤러는 현재 성능에 따라 인스턴스를 추가 하거나 제거할 시기에 대 한 결정을 내립니다. 크기 조정 컨트롤러는 함수 앱에 대 한 크기 조정 컨트롤러의 결정을 더 잘 이해할 수 있도록 Application Insights 또는 Blob 저장소에 대 한 로그를 내보냅니다.
 
-이 기능을 사용 하도록 설정 하려면 라는 새 응용 프로그램 설정을 추가 `SCALE_CONTROLLER_LOGGING_ENABLED` 합니다. 이 설정의 값은 다음과 같은 형식 이어야 합니다 `{Destination}:{Verbosity}` .
-* `{Destination}`전송할 로그의 대상을 지정 하며, 또는 중 하나 여야 합니다 `AppInsights` `Blob` .
-* `{Verbosity}`원하는 로깅 수준을 지정 하며, 또는 중 하나 여야 합니다 `None` `Warning` `Verbose` .
+이 기능을 사용 하도록 설정 하려면 라는 새 응용 프로그램 설정을 추가 `SCALE_CONTROLLER_LOGGING_ENABLED` 합니다. 이 설정의 값은 다음을 기반으로 하는 형식 이어야 합니다 `<DESTINATION>:<VERBOSITY>` .
 
-예를 들어 크기 조정 컨트롤러에서 Application Insights에 대 한 자세한 정보를 기록 하려면 값을 사용 `AppInsights:Verbose` 합니다.
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
-> [!NOTE]
-> 대상 유형을 사용 하도록 설정 하는 경우 `AppInsights` [함수 앱에 대 한 Application Insights](#enable-application-insights-integration)를 구성 해야 합니다.
+예를 들어 다음 Azure CLI 명령은 크기 조정 컨트롤러에서 Application Insights로 자세한 정보 로깅을 설정 합니다.
 
-대상을로 설정 하면 `Blob` `azure-functions-scale-controller` 응용 프로그램 설정에 설정 된 저장소 계정 내에서 이름이 지정 된 blob 컨테이너에 로그가 생성 됩니다 `AzureWebJobsStorage` .
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
 
-자세한 정도를로 설정 하면 `Verbose` 크기 조정 컨트롤러는 작업자 수의 모든 변경에 대 한 이유 뿐만 아니라 크기 조정 컨트롤러의 결정에 참여 하는 트리거에 대 한 정보를 기록 합니다. 예를 들어 로그에는 트리거 경고와 크기 조정 컨트롤러 실행 전후에 트리거에서 사용 하는 해시가 포함 됩니다.
+이 예제에서 및은 `<FUNCTION_APP_NAME>` `<RESOURCE_GROUP_NAME>` 각각 함수 앱의 이름 및 리소스 그룹 이름으로 바꿉니다. 
 
-크기 조정 컨트롤러 로깅을 사용 하지 않도록 설정 하려면의 값을 `{Verbosity}` 로 설정 `None` 하거나 `SCALE_CONTROLLER_LOGGING_ENABLED` 응용 프로그램 설정을 제거 합니다.
+다음 Azure CLI 명령은 자세한 정도를로 설정 하 여 로깅을 사용 하지 않도록 설정 합니다 `None` .
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+다음 Azure CLI 명령을 사용 하 여 설정을 제거 하 여 로깅을 사용 하지 않도록 설정할 수도 있습니다 `SCALE_CONTROLLER_LOGGING_ENABLED` .
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
 
 ## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
 

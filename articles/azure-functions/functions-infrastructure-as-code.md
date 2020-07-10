@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382517"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170397"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -26,12 +26,12 @@ Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있
 
 Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 
-| 리소스                                                                           | 요구 사항 | 구문 및 속성 참조                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |   |
-| [호스팅 계획](./functions-scale.md)                                             | 선택 사항<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| 리소스                                                                           | 요구 사항 | 구문 및 속성 참조                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
+| [호스팅 계획](./functions-scale.md)                                             | 선택 사항<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> 호스팅 계획은 [프리미엄 계획이](./functions-premium-plan.md) 나 [App Service 계획](../app-service/overview-hosting-plans.md)에서 함수 앱을 실행 하도록 선택 하는 경우에만 필요 합니다.
 
@@ -137,7 +137,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 함수 앱에는 다음과 같은 응용 프로그램 설정이 포함 되어야 합니다.
 
-| 설정 이름                 | Description                                                                               | 예제 값                        |
+| 설정 이름                 | 설명                                                                               | 예제 값                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | 함수 런타임에서 내부 큐에 사용 하는 저장소 계정에 대 한 연결 문자열입니다. | [저장소 계정](#storage) 을 참조 하세요.       |
 | FUNCTIONS_EXTENSION_VERSION  | Azure Functions 런타임의 버전입니다.                                                | `~2`                                  |

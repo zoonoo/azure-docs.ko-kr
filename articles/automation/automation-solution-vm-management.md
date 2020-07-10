@@ -5,17 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424077"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185877"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
 작업 시간 외 VM 시작/중지 기능은 사용 하도록 설정 된 Azure Vm을 시작 하거나 중지 합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다. 
 
-이 기능은 [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) cmdlet을 사용 하 여 vm을 시작 합니다. Vm을 중지 하는 데 [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 를 사용 합니다.
+이 기능은 [new-azvm](/powershell/module/az.compute/start-azvm) cmdlet을 사용 하 여 vm을 시작 합니다. Vm을 중지 하는 데 [new-azvm](/powershell/module/az.compute/stop-azvm) 를 사용 합니다.
 
 > [!NOTE]
 > Runbook은 새 Azure Az module cmdlet을 사용 하도록 업데이트 되었지만 AzureRM prefix 별칭을 사용 합니다.
@@ -36,7 +37,7 @@ ms.locfileid: "84424077"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](automation-create-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
+작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./manage-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
 
 작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 모듈 업데이트는 프로덕션 Automation 계정으로 가져오기 전에 테스트 Automation 계정에서 테스트해 보는 것이 좋습니다.
 
@@ -81,10 +82,10 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 
 | 사용 권한 |범위|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Subscription|
-| Microsoft.Authorization/permissions/read |Subscription|
-| Microsoft.Authorization/roleAssignments/read | Subscription |
-| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/Operations/read | 구독|
+| Microsoft.Authorization/permissions/read |구독|
+| Microsoft.Authorization/roleAssignments/read | 구독 |
+| Microsoft.Authorization/roleAssignments/write | 구독 |
 | Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/write | 리소스 그룹 |
@@ -121,7 +122,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 다음 표에는 Automation 계정에서 만든 변수가 나열되어 있습니다. `External` 접두사가 붙은 변수만 수정하세요. `Internal` 접두사가 붙은 변수를 수정하면 원치 않는 결과가 발생합니다.
 
 > [!NOTE]
-> VM 이름 및 리소스 그룹에 적용되는 제한 사항은 주로 변수 크기로 인한 것입니다. [Azure Automation에서 변수 관리](https://docs.microsoft.com/azure/automation/shared-resources/variables)를 참조하세요.
+> VM 이름 및 리소스 그룹에 적용되는 제한 사항은 주로 변수 크기로 인한 것입니다. [Azure Automation에서 변수 관리](./shared-resources/variables.md)를 참조하세요.
 
 |변수 | Description|
 |---------|------------|
@@ -176,7 +177,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 
 이렇게 하지 않으면 이 기능에 대한 Automation 작업이 3시간 이상 실행될 경우 [공평 분배](automation-runbook-execution.md#fair-share) 제한에 따라 일시적으로 언로드되거나 중지됩니다.
 
-Azure CSP 구독은 Azure Resource Manager 모델만 지원합니다. Azure Resource Manager 기반이 아닌 서비스는 프로그램에서 사용할 수 없습니다. 작업 시간 외 VM 시작/중지 기능이 실행되면 이 기능에 클래식 리소스를 관리하기 위한 cmdlet이 있으므로 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)를 참조하세요. CSP 구독을 사용하는 경우 배포 후에 [External_EnableClassicVMs](#variables) 변수를 False로 설정해야 합니다.
+Azure CSP 구독은 Azure Resource Manager 모델만 지원합니다. Azure Resource Manager 기반이 아닌 서비스는 프로그램에서 사용할 수 없습니다. 작업 시간 외 VM 시작/중지 기능이 실행되면 이 기능에 클래식 리소스를 관리하기 위한 cmdlet이 있으므로 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](/azure/cloud-solution-provider/overview/azure-csp-available-services)를 참조하세요. CSP 구독을 사용하는 경우 배포 후에 [External_EnableClassicVMs](#variables) 변수를 False로 설정해야 합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

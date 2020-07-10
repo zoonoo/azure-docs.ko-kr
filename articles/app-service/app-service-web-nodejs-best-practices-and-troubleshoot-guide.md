@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c60e851d61a5f33e1b050412b0e91b81e20a16
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430556"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169988"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -169,7 +170,7 @@ http.createServer(function (req, res) {
 
 site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프롬프트가 표시됩니다.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
+![Site/wwwroot 디렉터리와 명령 프롬프트를 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 `npm install v8-profiler` 명령을 실행합니다.
 
@@ -202,11 +203,11 @@ http.createServer(function (req, res) {
 
 위의 코드 프로필은 WriteConsoleLog 함수를 프로파일링한 후 프로파일 출력을 사이트의 wwwroot 아래 'profile.cpuprofile' 파일에 기록합니다. 애플리케이션에 요청 보내기 사이트의 wwwroot 아래에 'profile.cpuprofile' 파일이 생성된 것을 확인할 수 있습니다.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![Profile.cpuprofile 파일을 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
 이 파일을 다운로드하여 Chrome F12 Tools로 엽니다. Chrome에서 F12 키를 누른 다음 **프로필** 탭을 선택 합니다. **로드** 단추를 선택 합니다. 다운로드한 profile.cpuprofile 파일을 선택합니다. 방금 로드한 프로파일을 클릭합니다.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![로드 한 profile.cpuprofile 파일을 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 95%의 시간이 WriteConsoleLog 함수에 의해 소요되었다는 것을 볼 수 있습니다. 또한 이 문제를 발생시킨 정확한 줄 번호와 원본 파일도 표시됩니다.
 

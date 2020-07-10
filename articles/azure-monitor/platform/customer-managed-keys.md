@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134626"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170346"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -23,7 +23,7 @@ ms.locfileid: "86134626"
 
 [저장 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다. Azure에서 저장 데이터 암호화를 완전하게 관리할 수 있으며, 암호화 또는 암호화 키를 긴밀하게 관리하기 위한 다양한 옵션이 있습니다.
 
-Azure Monitor는 모든 저장 데이터가 Azure 관리형 키를 사용하여 암호화되도록 합니다. 또한 Azure Monitor는  [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)에 저장되어 있고 시스템이 할당한  [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)  인증을 사용하여 스토리지를 통해 액세스되는 사용자 고유의 키를 사용하는 데이터 암호화 옵션을 제공합니다. 이 키는 [소프트웨어 또는 하드웨어 HSM 보호](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 키 중 하나일 수 있습니다.
+Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 에 저장 되 고 시스템 할당 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 인증을 사용 하 여 저장소에서 액세스 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 이 키 (CMK)는 [소프트웨어 또는 하드웨어 HSM으로 보호](https://docs.microsoft.com/azure/key-vault/key-vault-overview)될 수 있습니다.
 
 Azure Monitor의 암호화 사용은  [Azure Storage 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)의  작동 방식과 동일합니다.
 
@@ -235,7 +235,7 @@ Content-type: application/json
 
 ID는 만들 때 *클러스터* 리소스에 할당됩니다.
 
-**응답**
+**Response**
 
 200 OK 및 헤더입니다.
 
@@ -249,7 +249,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-**응답**
+**Response**
 
 ```json
 {
@@ -334,7 +334,7 @@ Content-type: application/json
 
 "KeyVaultProperties"에는 Key Vault 키 식별자 세부 정보가 포함됩니다.
 
-**응답**
+**Response**
 
 200 OK 및 헤더입니다.
 키 식별자의 전파를 완료하는 데 몇 분 정도 걸립니다. 업데이트 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
@@ -546,7 +546,7 @@ Content-type: application/json
   Authorization: Bearer <token>
   ```
 
-  **응답**
+  **Response**
   
   ```json
   {
@@ -652,7 +652,7 @@ Content-type: application/json
   Authorization: Bearer <token>
   ```
 
-  **응답**
+  **Response**
 
   200 OK 및 헤더입니다.
 
