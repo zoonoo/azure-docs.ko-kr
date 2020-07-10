@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/09/2020
-ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b9d3ea30f502f8f95bb12c6a3b270f8eddde0cf
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84661022"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186625"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기
 
@@ -41,7 +42,7 @@ ms.locfileid: "84661022"
 
 이 문서에서는 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 Azure PowerShell Az 모듈이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다. PowerShell의 경우 배포는 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용합니다.
 
-이 문서에서는 Azure CLI를 로컬로 설치하여 사용하도록 선택한 경우 버전 2.1.0 이상을 실행 중이어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI에서 이 배포는 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용합니다. 
+이 문서에서는 Azure CLI를 로컬로 설치하여 사용하도록 선택한 경우 버전 2.1.0 이상을 실행 중이어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI에서 이 배포는 [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용합니다. 
 
 JSON 템플릿은 다음을 묻는 메시지를 표시하도록 구성됩니다.
 

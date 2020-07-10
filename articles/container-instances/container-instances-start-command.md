@@ -3,11 +3,12 @@ title: Container instance에서 entrypoint 재정의
 description: Azure container instance를 배포할 때 컨테이너 이미지의 entrypoint를 재정의 하도록 명령줄 설정
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693059"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169632"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>컨테이너 인스턴스에서 명령줄을 설정 하 여 기본 명령줄 작업을 재정의 합니다.
 
@@ -19,7 +20,7 @@ ms.locfileid: "84693059"
 
 * 기본적으로 명령줄은 컨테이너에서 *셸을 제외 하 고 시작 되는 단일 프로세스* 를 지정 합니다. 예를 들어 명령줄에서 Python 스크립트나 실행 파일을 실행할 수 있습니다. 프로세스에서 추가 매개 변수 또는 인수를 지정할 수 있습니다.
 
-* 여러 명령을 실행 하려면 컨테이너 운영 체제에서 지원 되는 셸 환경을 설정 하 여 명령줄을 시작 합니다. 예:
+* 여러 명령을 실행 하려면 컨테이너 운영 체제에서 지원 되는 셸 환경을 설정 하 여 명령줄을 시작 합니다. 예제:
 
   |운영 체제  |기본 셸  |
   |---------|---------|
@@ -53,8 +54,8 @@ ms.locfileid: "84693059"
 
 |    |  Azure CLI   | 포털 | 템플릿 | 
 | ---- | ---- | --- | --- |
-| 단일 명령 | `--command-line "python myscript.py arg1 arg2"` | **명령 재정의**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| 여러 명령 | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**명령 재정의**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **단일 명령** | `--command-line "python myscript.py arg1 arg2"` | **명령 재정의**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **여러 명령** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**명령 재정의**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Azure CLI 예제
 

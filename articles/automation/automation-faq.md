@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 76c8d09ef2ef0130ddac856a1f37f8b68d977494
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836620"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186234"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Azure Automation 질문과 대답
 
@@ -37,7 +38,7 @@ Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택�
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>Azure 테넌트에 업데이트를 배포할 수 있나요?
 
-업데이트 관리에 보고하는 다른 Azure 테넌트에서 패치가 필요한 머신이 있는 경우 다음 해결 방법을 사용하여 예약해야 합니다. `ForUpdateConfiguration` 매개 변수가 지정된 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet을 사용하여 일정을 만들 수 있습니다. [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet을 사용하여 다른 테넌트의 머신을 `NonAzureComputer` 매개 변수에 전달할 수 있습니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+업데이트 관리에 보고하는 다른 Azure 테넌트에서 패치가 필요한 머신이 있는 경우 다음 해결 방법을 사용하여 예약해야 합니다. `ForUpdateConfiguration` 매개 변수가 지정된 [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet을 사용하여 일정을 만들 수 있습니다. [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet을 사용하여 다른 테넌트의 머신을 `NonAzureComputer` 매개 변수에 전달할 수 있습니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -53,5 +54,5 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 질문에 대한 대답이 여기에 없으면 다음 출처에서 추가 질문 및 대답을 참조할 수 있습니다.
 
-- [Azure Automation](https://docs.microsoft.com/answers/topics/azure-automation.html)
+- [Azure Automation](/answers/topics/azure-automation.html)
 - [피드백 포럼](https://feedback.azure.com/forums/905242-update-management)

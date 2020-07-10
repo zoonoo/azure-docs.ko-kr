@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1fa270907c96cb341f6ce2cbaeb91dfa323c4431
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c01e329e4e4ab403c8966f096239abffee1c1fc5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855212"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185860"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Runbook에서 이메일 보내기
 
@@ -19,16 +19,16 @@ PowerShell을 통해 [SendGrid](https://sendgrid.com/solutions)를 사용하여 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)할 수 있습니다.
-* [SendGrid 계정](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account)
-* **Az** 모듈이 있는 [Automation 계정](automation-offering-get-started.md)
-* Runbook을 저장하고 실행하는 [실행 계정](automation-create-runas-account.md)
+* [SendGrid 계정](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account)
+* **Az** 모듈이 있는 [Automation 계정](./index.yml)
+* Runbook을 저장하고 실행하는 [실행 계정](./manage-runas-account.md)
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
 
 다음 PowerShell 스크립트를 사용하여 Azure Key Vault를 만들 수 있습니다. 변수 값을 사용자 환경에 맞는 값으로 바꿉니다. 코드 블록의 오른쪽 위에 있는 **사용해 보세요.** 단추를 통해 포함된 Azure Cloud Shell을 사용합니다. [Az 모듈](/powershell/azure/install-az-ps)이 로컬 머신에 설치되어 있는 경우 로컬에서 코드를 복사하고 실행할 수도 있습니다.
 
 > [!NOTE]
-> API 키를 검색하려면 [SendGrid API 찾기](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key)에 있는 단계를 사용합니다.
+> API 키를 검색하려면 [SendGrid API 찾기](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key)에 있는 단계를 사용합니다.
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -61,7 +61,7 @@ $appID = $connection.FieldDefinitionValues.ApplicationId
 Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
 ```
 
-Azure Key Vault를 만들고 비밀을 저장하는 다른 방법은 [Key Vault 빠른 시작](/azure/key-vault/)을 참조하세요.
+Azure Key Vault를 만들고 비밀을 저장하는 다른 방법은 [Key Vault 빠른 시작](../key-vault/index.yml)을 참조하세요.
 
 ## <a name="import-required-modules-into-your-automation-account"></a>Automation 계정에 필요한 모듈 가져오기
 
@@ -74,7 +74,7 @@ Runbook 내에서 Azure Key Vault를 사용하려면 Automation 계정으로 다
 
 ## <a name="create-the-runbook-to-send-an-email"></a>이메일을 보내는 Runbook 만들기
 
-Key Vault를 만들고 `SendGrid` API 키를 저장한 후에는 API 키를 검색하고 이메일을 보내는 Runbook을 만들 수 있습니다. `AzureRunAsConnection`을 [실행 계정](automation-create-runas-account.md)으로 사용하여 Azure Key Vault에서 비밀을 검색하도록 Azure를 인증하는 Runbook을 사용해봅니다. Runbook **Send-GridMailMessage**를 호출합니다. 예제 목적으로 사용되는 PowerShell 스크립트를 수정하여 다른 시나리오에서 재사용할 수 있습니다.
+Key Vault를 만들고 `SendGrid` API 키를 저장한 후에는 API 키를 검색하고 이메일을 보내는 Runbook을 만들 수 있습니다. `AzureRunAsConnection`을 [실행 계정](./manage-runas-account.md)으로 사용하여 Azure Key Vault에서 비밀을 검색하도록 Azure를 인증하는 Runbook을 사용해봅니다. Runbook **Send-GridMailMessage**를 호출합니다. 예제 목적으로 사용되는 PowerShell 스크립트를 수정하여 다른 시나리오에서 재사용할 수 있습니다.
 
 1. Azure Automation 계정으로 이동합니다.
 2. **프로세스 자동화** 아래에서 **Runbook**을 선택합니다.
@@ -142,7 +142,7 @@ Runbook이 성공적으로 실행되는지 확인하려면 [Runbook 테스트](m
 
 1. Runbook이 더 이상 필요하지 않은 경우 Runbook 목록에서 선택하고 **삭제**를 클릭합니다.
 
-2. [Remove-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) cmdlet을 사용하여 Key Vault를 삭제합니다.
+2. [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) cmdlet을 사용하여 Key Vault를 삭제합니다.
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"

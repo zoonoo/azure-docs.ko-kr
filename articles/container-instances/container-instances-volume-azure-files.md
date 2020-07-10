@@ -2,13 +2,14 @@
 title: 컨테이너 그룹에 Azure Files 볼륨 탑재
 description: Azure Container Instances를 사용하여 상태가 유지되도록 Azure Files 볼륨을 탑재하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: f66890c503de8de9160f11fb28795012ae57daeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 593400f67db5018f1533dd37eed88ece7fd596c6
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75561340"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169581"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
@@ -102,7 +103,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP \
 CLI 예제에서와 같이이 `dnsNameLabel` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 YAML 파일의 값을 업데이트 합니다.
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: file-share-demo
 properties:
@@ -167,7 +168,7 @@ CLI 및 YAML 배포 외에도 컨테이너 그룹을 배포 하 고 Azure [리�
     {
       "name": "file-share-demo",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [

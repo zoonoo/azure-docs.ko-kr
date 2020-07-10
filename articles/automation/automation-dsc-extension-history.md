@@ -9,11 +9,12 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836926"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186421"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Azure 필요한 상태 구성 확장 버전 기록 작업
 
@@ -98,7 +99,7 @@ Azure DSC(필요한 상태 구성) VM 확장은 필요에 따라 Azure, Windows 
 - **환경:** Azure
 - **설명:** 이 버전은 Windows Server 2016에 포함된 DSC를 사용합니다. 다른 Windows OSes의 경우 [Windows Management Framework 5.1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/)을 설치합니다(WMF 설치에 재부팅 필요). Nano Server의 경우 DSC 역할이 VM에 설치됩니다.
 - **새로운 기능:**
-  - 포털 UI를 통해 DSC Azure Automation뿐만 아니라 Resource Manager 템플릿 사용을 간소화하는 버그 수정 및 향상된 기능 자세한 내용은 DSC 확장 설명서에서 [기본 구성 스크립트](/azure/virtual-machines/extensions/dsc-overview)를 참조하세요.
+  - 포털 UI를 통해 DSC Azure Automation뿐만 아니라 Resource Manager 템플릿 사용을 간소화하는 버그 수정 및 향상된 기능 자세한 내용은 DSC 확장 설명서에서 [기본 구성 스크립트](../virtual-machines/extensions/dsc-overview.md)를 참조하세요.
 
 ### <a name="version-226"></a>버전 2.26
 
@@ -249,6 +250,6 @@ Azure DSC(필요한 상태 구성) VM 확장은 필요에 따라 Azure, Windows 
 ## <a name="next-steps"></a>다음 단계
 
 - PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터](/powershell/scripting/dsc/overview/overview)를 참조하세요.
-- [DSC 확장에 대한 Resource Manager 템플릿](/azure/virtual-machines/extensions/dsc-template)을 검토합니다.
+- [DSC 확장에 대한 Resource Manager 템플릿](../virtual-machines/extensions/dsc-template.md)을 검토합니다.
 - PowerShell DSC로 관리할 수 있는 추가 기능 및 리소스를 보려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)를 찾아보세요.
-- 중요한 매개 변수를 구성에 전달하는 세부 정보는 [DSC 확장 처리기로 안전하게 자격 증명 관리](/azure/virtual-machines/extensions/dsc-credentials)를 참조하세요.
+- 중요한 매개 변수를 구성에 전달하는 세부 정보는 [DSC 확장 처리기로 안전하게 자격 증명 관리](../virtual-machines/extensions/dsc-credentials.md)를 참조하세요.

@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808229"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186798"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>포털을 사용하여 Application Gateway에 대한 사용자 지정 프로브 만들기
 
@@ -48,17 +48,19 @@ Application Gateway 아직 없는 경우 방문 [Application Gateway 만들기](
    |---|---|---|
    |**이름**|customProbe|이 값은 포털에서 액세스할 수 있는 프로브에 지정 된 이름입니다.|
    |**프로토콜**|HTTP 또는 HTTPS | 상태 프로브에서 사용하는 프로토콜입니다. |
-   |**Host**|예: contoso.com|이 값은 응용 프로그램 서버에서 실행 되는 가상 호스트 이름 (VM 호스트 이름과 다름)입니다. 프로브는 (프로토콜)://(호스트 이름):(httpsetting의 포트)/urlPath. 전송 됩니다.  이는 Application Gateway에서 다중 사이트를 구성한 경우에만 적용할 수 있습니다. Application Gateway 단일 사이트에 대해 구성 된 경우 ' 127.0.0.1 '을 입력 합니다.|
-   |**백 엔드 HTTP 설정에서 호스트 이름 선택**|Yes 또는 No|프로브의 *호스트* 헤더를이 프로브가 연결 된 HTTP 설정과 연결 된 백 엔드 풀의 백 엔드 리소스에 대 한 호스트 이름으로 설정 합니다. Azure app service와 같은 다중 테 넌 트 백 엔드의 경우에 특히 필요 합니다. [자세한 정보](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**경로**|/ 또는 다른 경로|사용자 지정 프로브의 전체 url 중 나머지 부분입니다. 유효한 경로는 '/'로 시작합니다. Http:/contoso.com의 기본 경로에 대해 \/ '/'만 사용 합니다. |
+   |**Host**|예: contoso.com|이 값은 응용 프로그램 서버에서 실행 되는 가상 호스트 이름 (VM 호스트 이름과 다름)입니다. 프로브는 \<protocol\> ://으로 전송 됩니다 \<host name\> .\<port\>/\<urlPath\>|
+   |**백 엔드 HTTP 설정에서 호스트 이름 선택**|Yes 또는 No|프로브의 *호스트* 헤더를이 프로브가 연결 된 HTTP 설정의 호스트 이름으로 설정 합니다. Azure app service와 같은 다중 테 넌 트 백 엔드의 경우에 특히 필요 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**백 엔드 HTTP 설정에서 포트 선택**| Yes 또는 No|상태 프로브 *포트* 를이 프로브가 연결 된 HTTP 설정에서 포트로 설정 합니다. 아니요를 선택 하는 경우 사용할 사용자 지정 대상 포트를 입력할 수 있습니다. |
+   |**포트**| 1-65535 | 상태 프로브에 사용 되는 사용자 지정 포트 | 
+   |**경로**|/또는 모든 유효한 경로|사용자 지정 프로브의 전체 url 중 나머지 부분입니다. 유효한 경로는 '/'로 시작합니다. Http:/contoso.com의 기본 경로에 대해 \/ '/'만 사용 합니다. |
    |**간격(초)**|30|상태를 확인하기 위해 프로브가 실행되는 주기입니다. 30초 이하 값을 설정하는 것은 권장되지 않습니다.|
    |**시간 제한(초)**|30|시간이 초과 되기 전에 프로브에서 대기 하는 시간입니다. 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시 됩니다. 시간 제한 간격은 http 호출이 백 엔드 상태 페이지를 사용하도록 설정할 수 있을만큼 충분히 높아야 합니다. 제한 시간 값은이 프로브 설정에 사용 되는 ' Interval ' 값 또는 HTTP 설정의 ' 요청 시간 제한 ' 값 (이 프로브와 연결 될 HTTP 설정) 보다 많을 수 없습니다.|
-|**비정상 임계값**|3|비정상으로 간주 되는 연속 실패 횟수입니다. 임계값은 1 이상으로 설정할 수 있습니다.|
-   |**프로브 일치 조건 사용**|Yes 또는 No|기본적으로 상태 코드가 200-399인 HTTP(S) 응답은 정상으로 간주됩니다. 허용 되는 백 엔드 응답 코드 또는 백 엔드 응답 본문 범위를 변경할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**비정상 임계값**|3|비정상으로 간주 되는 연속 실패 횟수입니다. 임계값은 1 이상으로 설정할 수 있습니다.|
+   |**프로브 일치 조건 사용**|Yes 또는 No|기본적으로 상태 코드가 200-399인 HTTP(S) 응답은 정상으로 간주됩니다. 허용 되는 백 엔드 응답 코드 또는 백 엔드 응답 본문 범위를 변경할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
    |**HTTP 설정**|드롭다운에서 선택|프로브는 여기에서 선택한 HTTP 설정에 연결 되며, 따라서는 선택한 HTTP 설정과 연결 된 백 엔드 풀의 상태를 모니터링 합니다. 선택한 HTTP 설정에서 사용 되는 것과 같은 검색 요청에 대해 동일한 포트를 사용 합니다. 다른 사용자 지정 프로브와 연결 되지 않은 HTTP 설정만 선택할 수 있습니다. <br>이 프로브 구성에서 선택한 프로토콜과 동일한 프로토콜을 사용 하 고 *백 엔드에서 호스트 이름 선택에서* 동일한 상태를 가진 해당 http 설정만 연결에 사용할 수 있습니다.|
    
    > [!IMPORTANT]
-   > 프로브는 하나 이상의 HTTP 설정에 연결 된 경우에만 백 엔드의 상태를 모니터링 합니다. 이 프로브와 연결 된 HTTP 설정에 연결 된 백 엔드 풀의 백 엔드 리소스를 모니터링 합니다. 프로브 요청은 http://(호스트 이름):(httpsetting에서 포트)/urlPath. 전송 됩니다.
+   > 프로브는 하나 이상의 HTTP 설정에 연결 된 경우에만 백 엔드의 상태를 모니터링 합니다. 이 프로브와 연결 된 HTTP 설정에 연결 된 백 엔드 풀의 백 엔드 리소스를 모니터링 합니다. 프로브 요청은 \<protocol\> ://:으로 전송 \<hostName\> 됩니다 \<port\> / \<urlPath\> .
 
 ### <a name="test-backend-health-with-the-probe"></a>프로브를 사용 하 여 백 엔드 상태 테스트
 
@@ -71,7 +73,7 @@ Application Gateway 아직 없는 경우 방문 [Application Gateway 만들기](
 2. 비정상 백 엔드 리소스가 있는 경우 **세부 정보** 열을 확인 하 여 리소스의 비정상 상태에 대 한 이유를 파악 합니다. 잘못 된 프로브 구성으로 인해 리소스가 비정상으로 표시 되 면 **프로브로 돌아가기** 링크를 선택 하 고 프로브 구성을 편집 합니다. 그렇지 않고 백 엔드에서의 문제로 인해 리소스가 비정상으로 표시 되 면 백 엔드 리소스와 관련 된 문제를 해결 한 다음, **프로브로 돌아가기** 링크를 선택 하 고 **테스트**를 선택 하 여 백 엔드를 다시 테스트 합니다.
 
    > [!NOTE]
-   > 비정상 백 엔드 리소스를 사용 하는 경우에도 프로브를 저장 하도록 선택할 수 있지만 권장 되지는 않습니다. 이는 프로브에서 비정상으로 확인 된 백 엔드 풀에서 백 엔드 리소스를 제거 하는 Application Gateway 때문입니다. 백 엔드 풀에 정상 리소스가 없는 경우에는 응용 프로그램에 액세스할 수 없으며 502 오류가 발생 합니다.
+   > 비정상 백 엔드 리소스를 사용 하는 경우에도 프로브를 저장 하도록 선택할 수 있지만 권장 되지는 않습니다. 이는 프로브에서 비정상으로 확인 된 백 엔드 풀에서 백 엔드 서버로 요청을 전달 하지 Application Gateway 않기 때문입니다. 백 엔드 풀에 정상 리소스가 없는 경우에는 응용 프로그램에 액세스할 수 없으며 HTTP 502 오류가 발생 합니다.
 
    ![프로브 결과 보기][6]
 
@@ -98,15 +100,15 @@ Application Gateway 아직 없는 경우 방문 [Application Gateway 만들기](
    |**이름**|customProbe|이 값은 포털에서 액세스할 수 있는 프로브에 지정 된 이름입니다.|
    |**프로토콜**|HTTP 또는 HTTPS | 상태 프로브에서 사용하는 프로토콜입니다. |
    |**Host**|예: contoso.com|이 값은 응용 프로그램 서버에서 실행 되는 가상 호스트 이름 (VM 호스트 이름과 다름)입니다. 프로브는 (프로토콜)://(호스트 이름):(httpsetting의 포트)/urlPath. 전송 됩니다.  이는 Application Gateway에서 다중 사이트를 구성한 경우에만 적용할 수 있습니다. Application Gateway 단일 사이트에 대해 구성 된 경우 ' 127.0.0.1 '을 입력 합니다.|
-   |**백 엔드 HTTP 설정에서 호스트 이름 선택**|Yes 또는 No|프로브의 *호스트* 헤더를이 프로브가 연결 된 HTTP 설정과 연결 된 백 엔드 풀의 백 엔드 리소스에 대 한 호스트 이름으로 설정 합니다. Azure app service와 같은 다중 테 넌 트 백 엔드의 경우에 특히 필요 합니다. [자세한 정보](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**경로**|/ 또는 다른 경로|사용자 지정 프로브의 전체 url 중 나머지 부분입니다. 유효한 경로는 '/'로 시작합니다. Http:/contoso.com의 기본 경로에 대해 \/ '/'만 사용 합니다. |
+   |**백 엔드 HTTP 설정에서 호스트 이름 선택**|Yes 또는 No|프로브의 *호스트* 헤더를이 프로브가 연결 된 HTTP 설정과 연결 된 백 엔드 풀의 백 엔드 리소스에 대 한 호스트 이름으로 설정 합니다. Azure app service와 같은 다중 테 넌 트 백 엔드의 경우에 특히 필요 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**경로**|/또는 모든 유효한 경로|사용자 지정 프로브의 전체 url 중 나머지 부분입니다. 유효한 경로는 '/'로 시작합니다. Http:/contoso.com의 기본 경로에 대해 \/ '/'만 사용 합니다. |
    |**간격(초)**|30|상태를 확인하기 위해 프로브가 실행되는 주기입니다. 30초 이하 값을 설정하는 것은 권장되지 않습니다.|
    |**시간 제한(초)**|30|시간이 초과 되기 전에 프로브에서 대기 하는 시간입니다. 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시 됩니다. 시간 제한 간격은 http 호출이 백 엔드 상태 페이지를 사용하도록 설정할 수 있을만큼 충분히 높아야 합니다. 제한 시간 값은이 프로브 설정에 사용 되는 ' Interval ' 값 또는 HTTP 설정의 ' 요청 시간 제한 ' 값 (이 프로브와 연결 될 HTTP 설정) 보다 많을 수 없습니다.|
-|**비정상 임계값**|3|비정상으로 간주 되는 연속 실패 횟수입니다. 임계값은 1 이상으로 설정할 수 있습니다.|
-   |**프로브 일치 조건 사용**|Yes 또는 No|기본적으로 상태 코드가 200-399인 HTTP(S) 응답은 정상으로 간주됩니다. 허용 되는 백 엔드 응답 코드 또는 백 엔드 응답 본문 범위를 변경할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**비정상 임계값**|3|비정상으로 간주 되는 연속 실패 횟수입니다. 임계값은 1 이상으로 설정할 수 있습니다.|
+   |**프로브 일치 조건 사용**|Yes 또는 No|기본적으로 상태 코드가 200-399인 HTTP(S) 응답은 정상으로 간주됩니다. 허용 되는 백 엔드 응답 코드 또는 백 엔드 응답 본문 범위를 변경할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
 
    > [!IMPORTANT]
-   > 호스트 이름은 서버 이름과 같지 않습니다. 이 값은 애플리케이션 서버에서 실행 중인 가상 호스트의 이름입니다. 프로브는 http://(host name):(port from httpsetting)/urlPath로 전송됩니다.
+   > 호스트 이름은 서버 이름과 같지 않습니다. 이 값은 애플리케이션 서버에서 실행 중인 가상 호스트의 이름입니다. 프로브는 \<protocol\> ://으로 전송 됩니다 \<hostName\> .\<port from http settings\>/\<urlPath\>
 
 ### <a name="add-probe-to-the-gateway"></a>게이트웨이에 프로브 추가
 

@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8770762fa2d2ae6bc0584d75397829298a62e8c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117396"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185894"
 ---
 # <a name="limit-update-management-deployment-scope"></a>업데이트 관리 배포 범위 제한
 
-이 문서에서는 [업데이트 관리](automation-update-management.md) 기능을 사용 하 여 업데이트 및 패치를 vm에 배포 하는 경우 범위 구성으로 작업 하는 방법을 설명 합니다. 자세한 내용은 [Azure Monitor의 모니터링 솔루션 대상 지정 (미리 보기)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting)을 참조 하세요. 
+이 문서에서는 [업데이트 관리](automation-update-management.md) 기능을 사용 하 여 업데이트 및 패치를 vm에 배포 하는 경우 범위 구성으로 작업 하는 방법을 설명 합니다. 자세한 내용은 [Azure Monitor의 모니터링 솔루션 대상 지정 (미리 보기)](../azure-monitor/insights/solution-targeting.md)을 참조 하세요. 
 
 ## <a name="about-scope-configurations"></a>범위 구성 정보
 

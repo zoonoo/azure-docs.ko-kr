@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849759"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186336"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
 
@@ -60,7 +61,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 매개 변수 집합은 특정 cmdlet에 대한 값을 허용하는 필수 및 선택적 매개 변수를 정의합니다. 모든 cmdlet에는 적어도 하나의 매개 변수 집합이 있으며, 여러 개의 집합이 있는 cmdlet도 있습니다. cmdlet에 여러 매개 변수 집합이 있는 경우 매개 변수를 구성하려면 먼저 사용할 집합을 선택해야 합니다. **매개 변수 집합**을 선택하고 다른 집합을 선택하여 활동에서 사용하는 매개 변수 집합을 변경할 수 있습니다. 이 경우 이미 구성한 모든 매개 변수 값이 손실됩니다.
 
-다음 예제에서 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet에는 세 개의 매개 변수 집합이 있습니다. 이 예제에서는 리소스 그룹의 모든 가상 머신을 반환하기 위해 **ListVirtualMachineInResourceGroupParamSet**라는 한 개의 집합을 선택적 매개 변수 하나와 함께 사용합니다. 또한 이 예제에서는 반환할 가상 머신을 지정하기 위해 **GetVirtualMachineInResourceGroupParamSet** 매개 변수 집합을 사용합니다. 이 집합에는 필수 매개 변수 두 개와 선택적 매개 변수 하나가 있습니다.
+다음 예제에서 [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet에는 세 개의 매개 변수 집합이 있습니다. 이 예제에서는 리소스 그룹의 모든 가상 머신을 반환하기 위해 **ListVirtualMachineInResourceGroupParamSet**라는 한 개의 집합을 선택적 매개 변수 하나와 함께 사용합니다. 또한 이 예제에서는 반환할 가상 머신을 지정하기 위해 **GetVirtualMachineInResourceGroupParamSet** 매개 변수 집합을 사용합니다. 이 집합에는 필수 매개 변수 두 개와 선택적 매개 변수 하나가 있습니다.
 
 ![매개 변수 집합](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -263,11 +264,11 @@ Runbook을 작성할 때 Runbook 도구 모음에서 **입력 및 출력**을 �
 
 ## <a name="handle-runbook-output"></a>Runbook 출력 처리
 
-그래픽 작성은 [Runbook의 출력](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages)에 대한 나가는 링크가 없는 활동에서 생성되는 데이터를 저장합니다. 출력은 Runbook 작업과 함께 저장되며, 해당 Runbook이 자식으로 사용되는 경우 부모 Runbook에서 사용할 수 있습니다.
+그래픽 작성은 [Runbook의 출력](./automation-runbook-output-and-messages.md)에 대한 나가는 링크가 없는 활동에서 생성되는 데이터를 저장합니다. 출력은 Runbook 작업과 함께 저장되며, 해당 Runbook이 자식으로 사용되는 경우 부모 Runbook에서 사용할 수 있습니다.
 
 ## <a name="work-with-powershell-expressions"></a>PowerShell 식 사용
 
-그래픽 작성의 장점 중 하나는 최소한의 PowerShell 지식으로 Runbook을 빌드할 수 있다는 것입니다. 그러나 현재 특정 [매개 변수 값](#use-activities)을 채우고 [연결 조건](#use-links-for-workflow)을 설정하기 위해 PowerShell을 약간은 알아야 합니다. 이 섹션에서는 PowerShell 식을 간략히 소개합니다. PowerShell의 세부 사항 전체는 [Windows PowerShell을 사용하는 스크립트](https://docs.microsoft.com/powershell/scripting/overview)에서 사용 가능합니다.
+그래픽 작성의 장점 중 하나는 최소한의 PowerShell 지식으로 Runbook을 빌드할 수 있다는 것입니다. 그러나 현재 특정 [매개 변수 값](#use-activities)을 채우고 [연결 조건](#use-links-for-workflow)을 설정하기 위해 PowerShell을 약간은 알아야 합니다. 이 섹션에서는 PowerShell 식을 간략히 소개합니다. PowerShell의 세부 사항 전체는 [Windows PowerShell을 사용하는 스크립트](/powershell/scripting/overview)에서 사용 가능합니다.
 
 ### <a name="use-a-powershell-expression-as-a-data-source"></a>PowerShell 식을 데이터 원본으로 사용
 
@@ -322,7 +323,7 @@ Runbook은 다음과 같은 보다 복잡한 식에서 활동의 출력을 사�
 
 ### <a name="compare-values"></a>값 비교
 
-[비교 연산자](https://technet.microsoft.com/library/hh847759.aspx) 를 사용하여 값을 비교 하거나 값이 지정된 패턴과 일치하는지를 확인합니다. 비교는 True 또는 False 값을 반환합니다.
+[비교 연산자](/powershell/module/microsoft.powershell.core/about/about_comparison_operators) 를 사용하여 값을 비교 하거나 값이 지정된 패턴과 일치하는지를 확인합니다. 비교는 True 또는 False 값을 반환합니다.
 
 예를 들어 다음 조건은 `Get-AzureVM`이라는 활동의 가상 머신이 현재 중지되었는지 확인합니다.
 
@@ -336,7 +337,7 @@ $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-`-and` 또는 `-or`와 같은 [논리 연산자](https://technet.microsoft.com/library/hh847789.aspx)를 사용하여 Runbook에서 여러 조건을 조인할 수 있습니다. 예를 들어 다음 조건은 이전 예제에서 동일한 가상 머신이 중지됨 또는 중지 중 상태인지 여부를 확인합니다.
+`-and` 또는 `-or`와 같은 [논리 연산자](/powershell/module/microsoft.powershell.core/about/about_logical_operators)를 사용하여 Runbook에서 여러 조건을 조인할 수 있습니다. 예를 들어 다음 조건은 이전 예제에서 동일한 가상 머신이 중지됨 또는 중지 중 상태인지 여부를 확인합니다.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -344,7 +345,7 @@ $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 
 ### <a name="use-hashtables"></a>해시 테이블 사용
 
-[해시 테이블](https://technet.microsoft.com/library/hh847780.aspx)은 값 집합을 반환하는 데 유용한 이름/값 쌍입니다. 또한 해시 테이블은 사전이라고 표시될 수도 있습니다. 특정 활동에 대한 속성은 단순 값 대신 해시 테이블을 필요로 합니다.
+[해시 테이블](/powershell/module/microsoft.powershell.core/about/about_hash_tables)은 값 집합을 반환하는 데 유용한 이름/값 쌍입니다. 또한 해시 테이블은 사전이라고 표시될 수도 있습니다. 특정 활동에 대한 속성은 단순 값 대신 해시 테이블을 필요로 합니다.
 
 다음 구문을 사용하여 해시 테이블을 만듭니다. 해시 테이블은 항목을 몇 개이든 포함할 수 있지만 각각은 이름 및 값으로 정의됩니다.
 
@@ -372,7 +373,7 @@ $h
 
 ## <a name="authenticate-to-azure-resources"></a>Azure 리소스 인증
 
-Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. [실행 계정](automation-create-runas-account.md)(서비스 주체라고도 함)은 Automation Runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 메커니즘입니다. PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용하는 `AzureRunAsConnection` 연결 자산을 캔버스에 추가하여 그래픽 Runbook에 이 기능을 추가할 수 있습니다. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에서 설명합니다.
+Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. [실행 계정](./manage-runas-account.md)(서비스 주체라고도 함)은 Automation Runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 메커니즘입니다. PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets) cmdlet을 사용하는 `AzureRunAsConnection` 연결 자산을 캔버스에 추가하여 그래픽 Runbook에 이 기능을 추가할 수 있습니다. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에서 설명합니다.
 
 ![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -389,7 +390,7 @@ Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대�
 
 **APPLICATIONID**, **CERTIFICATETHUMBPRINT** 및 **TENANTID** 매개 변수 필드의 경우에는 활동이 여러 속성이 있는 개체를 출력하기 때문에 필드 경로에 대한 속성 이름을 지정해야 합니다. 그렇지 않으면 Runbook이 실행될 때 인증을 시도하는 동안 오류가 발생합니다. 실행 계정을 사용하여 runbook을 인증하는데 필요한 최소한의 사항입니다.
 
-일부 구독자는 Azure 클래식 배포를 관리하기 위해 또는 Azure Resource Manager 리소스용으로 [Azure AD 사용자 계정](automation-create-aduser-account.md)을 사용하여 Automation 계정을 만듭니다. 이러한 구독자에 대해 이전 버전과의 호환성을 유지하기 위해 Runbook에서 사용할 인증 메커니즘은 [자격 증명 자산](automation-credentials.md)을 포함하는 `Add-AzureAccount` cmdlet입니다. 자산은 Azure 계정에 대한 액세스 권한이 있는 Active Directory 사용자를 나타냅니다.
+일부 구독자는 Azure 클래식 배포를 관리하기 위해 또는 Azure Resource Manager 리소스용으로 [Azure AD 사용자 계정](./shared-resources/credentials.md)을 사용하여 Automation 계정을 만듭니다. 이러한 구독자에 대해 이전 버전과의 호환성을 유지하기 위해 Runbook에서 사용할 인증 메커니즘은 [자격 증명 자산](./shared-resources/credentials.md)을 포함하는 `Add-AzureAccount` cmdlet입니다. 자산은 Azure 계정에 대한 액세스 권한이 있는 Active Directory 사용자를 나타냅니다.
 
 캔버스에 자격 증명 자산을 추가하고 그 뒤에 입력에 대한 자격 증명 자산을 사용하는 `Add-AzureAccount` 활동을 추가하여 그래픽 Runbook에 대해 이 기능을 활성화할 수 있습니다. 다음 예제를 참조하세요.
 
@@ -434,4 +435,4 @@ Azure Automation의 각 그래픽 Runbook에는 초안 버전과 게시된 버�
 * 그래픽 Runbook을 시작하려면 [자습서: 그래픽 Runbook 만들기](learn/automation-tutorial-runbook-graphical.md)를 참조하세요.
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)을 참조하세요.
 * Automation 실행 계정을 사용하여 인증하는 방법을 알아보려면 [실행 계정](automation-security-overview.md#run-as-account)을 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.

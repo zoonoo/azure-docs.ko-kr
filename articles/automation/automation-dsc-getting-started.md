@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39fbdf19703d8b4b2f8683577701dcb23900616
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836960"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186438"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 시작하기
 
@@ -25,8 +26,8 @@ ms.locfileid: "83836960"
 
 이 문서의 예제를 완료하려면 다음이 필요합니다.
 
-- Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
-- [지원되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)를 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](./manage-runas-account.md)을 참조하세요.
+- [지원되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)를 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="create-a-dsc-configuration"></a>DSC 구성 만들기
 
@@ -236,4 +237,4 @@ State Configuration에서 노드를 더 이상 관리하지 않으려는 경우 
 - 사용자 환경에서 VM에 대한 기능을 사용하도록 설정하려면 [Azure Automation State Configuration 사용](automation-dsc-onboarding.md)을 참조하세요.
 - PowerShell DSC를 이해하려면 [Windows PowerShell Desired State Configuration 개요](/powershell/scripting/dsc/overview/overview)를 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.

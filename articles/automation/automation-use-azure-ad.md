@@ -4,15 +4,16 @@ description: 이 문서에서는 Azure Automation 내에서 Azure 인증 공급�
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 017341fd72329d0538a3cf2a6ec20d03ee6152cc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9c81e3389f2cc96f2581b8edee5f528237cb9eca
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830568"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185673"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Azure AD를 사용하여 Azure에 인증
 
-[Azure AD(Active Directory)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 서비스를 사용하면 사용자 관리, 도메인 관리, Single Sign-On 구성 등의 다양한 관리 작업을 수행할 수 있습니다. 이 문서에서는 Azure Automation 내에서 Azure 인증 공급자로서 Azure AD를 사용하는 방법을 설명합니다. 
+[Azure AD(Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) 서비스를 사용하면 사용자 관리, 도메인 관리, Single Sign-On 구성 등의 다양한 관리 작업을 수행할 수 있습니다. 이 문서에서는 Azure Automation 내에서 Azure 인증 공급자로서 Azure AD를 사용하는 방법을 설명합니다. 
 
 ## <a name="install-azure-ad-modules"></a>Azure AD 모듈 설치
 
@@ -38,14 +39,14 @@ ms.locfileid: "83830568"
 >[!NOTE]
 >이러한 모듈로 작업하려면 64비트 버전 Windows에서 PowerShell 버전 5.1 이상을 사용해야 합니다. 
 
-1. WMF(Windows Management Framework) 5.1을 설치합니다. [WMF 5.1 설치 및 구성](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure?view=powershell-7)을 참조하세요.
+1. WMF(Windows Management Framework) 5.1을 설치합니다. [WMF 5.1 설치 및 구성](/powershell/scripting/wmf/setup/install-configure?view=powershell-7)을 참조하세요.
 
-2. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)의 지침에 따라 AzureRM 및/또는 Az 모듈을 설치합니다.
+2. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)의 지침에 따라 AzureRM 및/또는 Az 모듈을 설치합니다.
 
 ### <a name="install-the-msonline-module"></a>MSOnline 모듈 설치
 
 >[!NOTE]
->MSOnline 모듈을 설치하려면 Office 365 관리자 역할의 구성원이어야 합니다. [관리자 역할 정보](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)를 참조하세요.
+>MSOnline 모듈을 설치하려면 Office 365 관리자 역할의 구성원이어야 합니다. [관리자 역할 정보](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide)를 참조하세요.
 
 1. 컴퓨터에서 Microsoft .NET Framework 3.5.x 기능을 사용하도록 설정되었는지 확인합니다. 컴퓨터에 최신 버전이 설치되었을 확률이 높지만, .NET Framework 이전 버전과의 호환성을 사용하도록 또는 사용하지 않도록 설정할 수 있습니다. 
 
@@ -61,7 +62,7 @@ ms.locfileid: "83830568"
 
 ### <a name="install-support-for-pscredential"></a>PSCredential에 대한 지원 설치
 
-Azure Automation은 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) 클래스를 사용하여 자격 증명 자산을 표시합니다. 스크립트는 `Get-AutomationPSCredential` cmdlet을 사용하여 `PSCredential` 개체를 검색합니다. 자세한 내용은 [Azure Automation의 자격 증명 자산](shared-resources/credentials.md)을 참조하세요.
+Azure Automation은 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) 클래스를 사용하여 자격 증명 자산을 표시합니다. 스크립트는 `Get-AutomationPSCredential` cmdlet을 사용하여 `PSCredential` 개체를 검색합니다. 자세한 내용은 [Azure Automation의 자격 증명 자산](shared-resources/credentials.md)을 참조하세요.
 
 ## <a name="assign-a-subscription-administrator"></a>구독 관리자 할당
 
@@ -79,7 +80,7 @@ Azure AD 사용자 암호를 변경하는 방법은 다음과 같습니다.
 
 ## <a name="configure-azure-automation-to-manage-the-azure-subscription"></a>Azure 구독을 관리하도록 Azure Automation 구성
 
-Azure Automation이 Azure AD와 통신하려면 Azure AD에 대한 Azure 연결과 관련된 자격 증명을 검색해야 합니다. 이러한 자격 증명의 예로는 테넌트 ID, 구독 ID 등이 있습니다. Azure와 Azure AD 간의 연결에 대한 자세한 내용은 [조직을 Azure Active Directory에 연결](https://docs.microsoft.com/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops)을 참조하세요.
+Azure Automation이 Azure AD와 통신하려면 Azure AD에 대한 Azure 연결과 관련된 자격 증명을 검색해야 합니다. 이러한 자격 증명의 예로는 테넌트 ID, 구독 ID 등이 있습니다. Azure와 Azure AD 간의 연결에 대한 자세한 내용은 [조직을 Azure Active Directory에 연결](/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops)을 참조하세요.
 
 ## <a name="create-a-credential-asset"></a>자격 증명 자산 만들기
 
@@ -91,11 +92,11 @@ Azure Portal을 사용하여 자격 증명 자산을 만들 수 있습니다. Au
 
 ### <a name="create-the-credential-asset-with-windows-powershell"></a>Windows PowerShell을 사용하여 자격 증명 자산 만들기
 
-Windows PowerShell에서 새 자격 증명 자산을 준비하기 위해, 스크립트에서는 할당된 사용자 이름 및 암호를 사용하여 `PSCredential` 개체부터 만듭니다. 그 후 스크립트에서 이 개체를 사용하여 [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) cmdlet을 호출하는 방법으로 자산을 만듭니다. 또는 스크립트에서 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet을 호출하여 사용자에게 이름 및 암호를 입력하라는 메시지를 표시할 수도 있습니다. [Azure Automation의 자격 증명 자산](shared-resources/credentials.md)을 참조하세요. 
+Windows PowerShell에서 새 자격 증명 자산을 준비하기 위해, 스크립트에서는 할당된 사용자 이름 및 암호를 사용하여 `PSCredential` 개체부터 만듭니다. 그 후 스크립트에서 이 개체를 사용하여 [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) cmdlet을 호출하는 방법으로 자산을 만듭니다. 또는 스크립트에서 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet을 호출하여 사용자에게 이름 및 암호를 입력하라는 메시지를 표시할 수도 있습니다. [Azure Automation의 자격 증명 자산](shared-resources/credentials.md)을 참조하세요. 
 
 ## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Azure Automation Runbook에서 Azure 리소스 관리
 
-Azure Automation Runbook에서 자격 증명 자산을 사용하여 Azure 리소스를 관리할 수 있습니다. 다음은 Azure 구독에서 가상 머신을 중지하고 시작하는 데 사용할 자격 증명 자산을 수집하는 PowerShell Runbook 예제입니다. 이 Runbook은 먼저 `Get-AutomationPSCredential`을 사용하여 Azure 인증에 사용할 자격 증명을 검색합니다. 그런 다음, [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) cmdlet을 호출하고 자격 증명을 사용하여 Azure에 연결합니다. 이 스크립트는 [Select-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) cmdlet을 사용하여 작업할 구독을 선택합니다. 
+Azure Automation Runbook에서 자격 증명 자산을 사용하여 Azure 리소스를 관리할 수 있습니다. 다음은 Azure 구독에서 가상 머신을 중지하고 시작하는 데 사용할 자격 증명 자산을 수집하는 PowerShell Runbook 예제입니다. 이 Runbook은 먼저 `Get-AutomationPSCredential`을 사용하여 Azure 인증에 사용할 자격 증명을 검색합니다. 그런 다음, [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) cmdlet을 호출하고 자격 증명을 사용하여 Azure에 연결합니다. 이 스크립트는 [Select-AzureSubscription](/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) cmdlet을 사용하여 작업할 구독을 선택합니다. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 
@@ -161,4 +162,4 @@ Workflow Stop-Start-AzureVM
 * 자격 증명 사용에 대한 자세한 내용은 [Azure Automation에서 자격 증명 관리](shared-resources/credentials.md)를 참조하세요.
 * 모듈에 대한 자세한 내용은 [Azure Automation에서 모듈 관리](shared-resources/modules.md)를 참조하세요.
 * Runbook을 시작하려면 [Azure Automation에서 Runbook 시작](start-runbooks.md)을 참조하세요.
-* PowerShell에 대한 자세한 내용은 [PowerShell 설명서](https://docs.microsoft.com/powershell/scripting/overview)를 참조하세요.
+* PowerShell에 대한 자세한 내용은 [PowerShell 설명서](/powershell/scripting/overview)를 참조하세요.

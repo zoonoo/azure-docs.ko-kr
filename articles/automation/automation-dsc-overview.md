@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206889"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186387"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -53,7 +53,7 @@ Azure Automation 상태 구성은 PowerShell 스크립팅에 제공하는 것처
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. [Azure Monitor 로그에 데이터를 보고하는 Azure Automation 상태 구성 전달](automation-dsc-diagnostics.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure Automation 상태 구성을 사용하는 경우 이 섹션의 요구 사항을 고려합니다.
 
@@ -77,7 +77,7 @@ Linux를 실행하는 노드의 경우 DSC Linux 확장은 [지원되는 Linux �
 
 ### <a name="dsc-requirements"></a>DSC 요구 사항
 
-Azure에서 실행되는 모든 Windows 노드의 경우 컴퓨터를 사용하도록 설정하면 [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure)이 설치됩니다. Windows Server 2012 및 Windows 7을 실행하는 노드의 경우 [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency)이 사용됩니다.
+Azure에서 실행되는 모든 Windows 노드의 경우 컴퓨터를 사용하도록 설정하면 [WMF 5.1](/powershell/scripting/wmf/setup/install-configure)이 설치됩니다. Windows Server 2012 및 Windows 7을 실행하는 노드의 경우 [WinRM](/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency)이 사용됩니다.
 
 Azure에서 실행되는 모든 Linux 노드의 경우 컴퓨터를 사용하도록 설정하면 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)가 설치됩니다.
 
@@ -90,7 +90,7 @@ Azure에서 실행되는 모든 Linux 노드의 경우 컴퓨터를 사용하도
 * US Gov 버지니아의 글로벌 URL: * **.azure-automation.us**
 * 에이전트 서비스: **https:// \<workspaceId\> . agentsvc.azure-automation.net**
 
-[WaitFor * 리소스](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)와 같이 노드 간에 통신하는 DSC 리소스를 사용하는 경우에는 노드 간 트래픽만 허용해야 합니다. 이러한 네트워크 요구 사항을 이해하려면 각 DSC 리소스에 대한 문서를 참조하세요.
+[WaitFor * 리소스](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)와 같이 노드 간에 통신하는 DSC 리소스를 사용하는 경우에는 노드 간 트래픽만 허용해야 합니다. 이러한 네트워크 요구 사항을 이해하려면 각 DSC 리소스에 대한 문서를 참조하세요.
 
 TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
 
@@ -114,5 +114,4 @@ Linux 노드의 경우 DSC 에이전트는 프록시를 지원하고 `http_proxy
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - 연속 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.

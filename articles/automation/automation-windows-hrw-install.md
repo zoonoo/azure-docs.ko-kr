@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e1262aedda95f3feb7cf5604644d938bf4d00a53
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854913"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185622"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -18,7 +18,7 @@ Azure Automation의 Hybrid Runbook Worker 기능을 사용 하 여 역할을 호
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -206,9 +206,9 @@ Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 
 Runbook은 Azure Automation 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포 되지 않으므로 수동으로 설치 해야 합니다. Azure 모듈은 예외입니다. 이 모듈은 기본적으로 설치되며 Azure Automation의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공합니다.
 
-Hybrid Runbook Worker의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈(특히, `PowerShellGet` 모듈)을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell)을 참조하세요.
+Hybrid Runbook Worker의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈(특히, `PowerShellGet` 모듈)을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [Windows PowerShell](/powershell/scripting/developer/windows-powershell)을 참조하세요.
 
-설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 `PSModulePath` 환경 변수가 참조하는 위치에 있어야 합니다. 자세한 내용은 [PSModulePath에서 모듈 설치](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7)를 참조하세요.
+설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 `PSModulePath` 환경 변수가 참조하는 위치에 있어야 합니다. 자세한 내용은 [PSModulePath에서 모듈 설치](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7)를 참조하세요.
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>온-프레미스 Windows 컴퓨터에서 Hybrid Runbook Worker 제거
 

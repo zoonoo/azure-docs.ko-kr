@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 775fae09c4d618551327669362cd28a0ae2cc801
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8f376fb383e50a39f0f12d45cf9b5ae47ad6fcbb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837011"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186506"
 ---
 # <a name="create-configurations-from-existing-servers"></a>기존 서버에서 구성 만들기
 
@@ -37,8 +38,8 @@ ms.locfileid: "83837011"
 
 솔루션을 사용한 결과로 SharePointDSC 구성 스크립트와 함께 사용할 [구성 데이터](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data)가 생성됩니다.
 
-데이터 파일이 생성되면 [DSC 구성 스크립트](/powershell/scripting/dsc/overview/overview)와 함께 이 파일을 사용하여 MOF 파일을 생성하고 [MOF 파일을 Azure Automation에 업로드](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)할 수 있습니다.
-그런 다음, [온-프레미스](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)에서 서버를 등록하여 구성을 가져옵니다.
+데이터 파일이 생성되면 [DSC 구성 스크립트](/powershell/scripting/dsc/overview/overview)와 함께 이 파일을 사용하여 MOF 파일을 생성하고 [MOF 파일을 Azure Automation에 업로드](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation)할 수 있습니다.
+그런 다음, [온-프레미스](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) 또는 [Azure](./automation-dsc-onboarding.md#enable-azure-vms)에서 서버를 등록하여 구성을 가져옵니다.
 
 ReverseDSC를 사용해 보려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/ReverseDSC/)를 방문하여 솔루션을 다운로드하거나 "프로젝트 사이트"를 클릭하여 [설명서](https://github.com/Microsoft/sharepointDSC.reverse)를 참조하세요.
 

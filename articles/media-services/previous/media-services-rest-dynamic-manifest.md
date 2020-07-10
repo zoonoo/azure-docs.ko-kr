@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: b778ad8c59cf51f92584cd3590f7d99244f37b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8166a85d1c3421d95ac2b818e51b6b60e7663165
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76774948"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170669"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure Media Services REST API로 필터 생성 
 > [!div class="op_single_selector"]
@@ -57,52 +58,58 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 #### <a name="http-request"></a>HTTP 요청
 요청 헤더
 
-    POST https://media.windows.net/API/Filters HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host:media.windows.net 
+```console
+POST https://media.windows.net/API/Filters HTTP/1.1 
+DataServiceVersion:3.0 
+MaxDataServiceVersion: 3.0 
+Content-Type: application/json 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+Host:media.windows.net 
+```
 
 요청 본문 
 
-    {  
-       "Name":"GlobalFilter",
-       "PresentationTimeRange":{  
-          "StartTimestamp":"0",
-          "EndTimestamp":"9223372036854775807",
-          "PresentationWindowDuration":"12000000000",
-          "LiveBackoffDuration":"0",
-          "Timescale":"10000000"
-       },
-       "Tracks":[  
-          {  
-             "PropertyConditions":
-                  [  
-                {  
-                   "Property":"Type",
-                   "Value":"audio",
-                   "Operator":"Equal"
-                },
-                {  
-                   "Property":"Bitrate",
-                   "Value":"0-2147483647",
-                   "Operator":"Equal"
-                }
-             ]
-          }
-       ]
-    }
-
+```console
+{  
+   "Name":"GlobalFilter",
+   "PresentationTimeRange":{  
+      "StartTimestamp":"0",
+      "EndTimestamp":"9223372036854775807",
+      "PresentationWindowDuration":"12000000000",
+      "LiveBackoffDuration":"0",
+      "Timescale":"10000000"
+   },
+   "Tracks":[  
+      {  
+         "PropertyConditions":
+              [  
+            {  
+               "Property":"Type",
+               "Value":"audio",
+               "Operator":"Equal"
+            },
+            {  
+               "Property":"Bitrate",
+               "Value":"0-2147483647",
+               "Operator":"Equal"
+            }
+         ]
+      }
+   ]
+}
+```
 
 
 
 #### <a name="http-response"></a>HTTP 응답
-    HTTP/1.1 201 Created 
+
+```console
+HTTP/1.1 201 Created 
+```
 
 ### <a name="create-local-assetfilters"></a>로컬 AssetFilter 생성
 로컬 AssetFilter를 만들려면 다음 HTTP 요청을 사용합니다.  
@@ -110,89 +117,104 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 #### <a name="http-request"></a>HTTP 요청
 요청 헤더
 
-    POST https://media.windows.net/API/AssetFilters HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net  
+```console
+POST https://media.windows.net/API/AssetFilters HTTP/1.1 
+DataServiceVersion: 3.0 
+MaxDataServiceVersion: 3.0 
+Content-Type: application/json 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+Host: media.windows.net  
+```
 
 요청 본문 
 
-    {   
-       "Name":"AssetFilter", 
-       "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592", 
-       "PresentationTimeRange":{   
-          "StartTimestamp":"0", 
-          "EndTimestamp":"9223372036854775807", 
-          "PresentationWindowDuration":"12000000000", 
-          "LiveBackoffDuration":"0", 
-          "Timescale":"10000000" 
-       }, 
-       "Tracks":[   
-          {   
-             "PropertyConditions": 
-                  [   
-                {   
-                   "Property":"Type", 
-                   "Value":"audio", 
-                   "Operator":"Equal" 
-                }, 
-                {   
-                   "Property":"Bitrate", 
-                   "Value":"0-2147483647", 
-                   "Operator":"Equal" 
-                } 
-             ] 
-          } 
-       ] 
-    } 
+```console
+{   
+   "Name":"AssetFilter", 
+   "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592", 
+   "PresentationTimeRange":{   
+      "StartTimestamp":"0", 
+      "EndTimestamp":"9223372036854775807", 
+      "PresentationWindowDuration":"12000000000", 
+      "LiveBackoffDuration":"0", 
+      "Timescale":"10000000" 
+   }, 
+   "Tracks":[   
+      {   
+         "PropertyConditions": 
+              [   
+            {   
+               "Property":"Type", 
+               "Value":"audio", 
+               "Operator":"Equal" 
+            }, 
+            {   
+               "Property":"Bitrate", 
+               "Value":"0-2147483647", 
+               "Operator":"Equal" 
+            } 
+         ] 
+      } 
+   ] 
+} 
+```
 
 #### <a name="http-response"></a>HTTP 응답
-    HTTP/1.1 201 Created 
-    . . . 
+
+```console
+HTTP/1.1 201 Created 
+. . . 
+```
 
 ## <a name="list-filters"></a>필터 나열
 ### <a name="get-all-global-filters-in-the-ams-account"></a>AMS 계정의 모든 전역 **Filter**가져오기
 필터를 나열하려면 다음 HTTP 요청을 사용합니다. 
 
 #### <a name="http-request"></a>HTTP 요청
-    GET https://media.windows.net/API/Filters HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    Host: media.windows.net 
+
+```console
+GET https://media.windows.net/API/Filters HTTP/1.1 
+DataServiceVersion:3.0 
+MaxDataServiceVersion: 3.0 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+Host: media.windows.net 
+```
 
 ### <a name="get-assetfilters-associated-with-an-asset"></a>자산에 연결된 **AssetFilter**가져오기
 #### <a name="http-request"></a>HTTP 요청
-    GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net 
+
+```console
+GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
+DataServiceVersion: 3.0 
+MaxDataServiceVersion: 3.0 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+Host: media.windows.net 
+```
 
 ### <a name="get-an-assetfilter-based-on-its-id"></a>해당 ID에 따라 **AssetFilter** 가져오기
 #### <a name="http-request"></a>HTTP 요청
-    GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    x-ms-client-request-id: 00000000
 
+```console
+GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
+DataServiceVersion: 3.0 
+MaxDataServiceVersion: 3.0 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+x-ms-client-request-id: 00000000
+```
 
 ## <a name="update-filters"></a>필터 업데이트
 PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이트합니다.  이 작업에 대한 자세한 내용은 [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx)를 참조하십시오.
@@ -205,39 +227,43 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 #### <a name="http-request"></a>HTTP 요청
 헤더 요청: 
 
-    MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net 
-    Content-Length: 384
+```console
+MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
+DataServiceVersion:3.0 
+MaxDataServiceVersion: 3.0 
+Content-Type: application/json 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+Host: media.windows.net 
+Content-Length: 384
+```
 
 본문 요청: 
 
-    { 
-       "Tracks":[   
-          {   
-             "PropertyConditions": 
-             [   
-                {   
-                   "Property":"Type", 
-                   "Value":"audio", 
-                   "Operator":"Equal" 
-                }, 
-                {   
-                   "Property":"Bitrate", 
-                   "Value":"0-2147483647", 
-                   "Operator":"Equal" 
-                } 
-             ] 
-          } 
-       ] 
-    } 
+```console
+{ 
+   "Tracks":[   
+      {   
+         "PropertyConditions": 
+         [   
+            {   
+               "Property":"Type", 
+               "Value":"audio", 
+               "Operator":"Equal" 
+            }, 
+            {   
+               "Property":"Bitrate", 
+               "Value":"0-2147483647", 
+               "Operator":"Equal" 
+            } 
+         ] 
+      } 
+   ] 
+} 
+```
 
 ### <a name="update-local-assetfilters"></a>로컬 AssetFilter 업데이트
 로컬 필터를 업데이트하려면 다음 HTTP 요청을 사용합니다. 
@@ -245,67 +271,75 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 #### <a name="http-request"></a>HTTP 요청
 헤더 요청: 
 
-    MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net 
+```console
+MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
+DataServiceVersion: 3.0 
+MaxDataServiceVersion: 3.0 
+Content-Type: application/json 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
+Host: media.windows.net 
+```
 
 본문 요청: 
 
-    { 
-       "Tracks":[   
-          {   
-             "PropertyConditions": 
-             [   
-                {   
-                   "Property":"Type", 
-                   "Value":"audio", 
-                   "Operator":"Equal" 
-                }, 
-                {   
-                   "Property":"Bitrate", 
-                   "Value":"0-2147483647", 
-                   "Operator":"Equal" 
-                } 
-             ] 
-          } 
-       ] 
-    } 
-
+```console
+{ 
+   "Tracks":[   
+      {   
+         "PropertyConditions": 
+         [   
+            {   
+               "Property":"Type", 
+               "Value":"audio", 
+               "Operator":"Equal" 
+            }, 
+            {   
+               "Property":"Bitrate", 
+               "Value":"0-2147483647", 
+               "Operator":"Equal" 
+            } 
+         ] 
+      } 
+   ] 
+} 
+```
 
 ## <a name="delete-filters"></a>필터 삭제
 ### <a name="delete-global-filters"></a>전역 Filter 삭제
 전역 Filter를 삭제하려면 다음 HTTP 요청을 사용합니다.
 
 #### <a name="http-request"></a>HTTP 요청
-    DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN>  
-    x-ms-version: 2.19 
-    Host: media.windows.net 
 
+```console
+DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1 
+DataServiceVersion:3.0 
+MaxDataServiceVersion: 3.0 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN>  
+x-ms-version: 2.19 
+Host: media.windows.net 
+```
 
 ### <a name="delete-local-assetfilters"></a>로컬 AssetFilter 삭제
 로컬 AssetFilter를 삭제하려면 다음 HTTP 요청을 사용합니다.
 
 #### <a name="http-request"></a>HTTP 요청
-    DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19 
-    Host: media.windows.net 
+
+```console
+DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1 
+DataServiceVersion: 3.0 
+MaxDataServiceVersion: 3.0 
+Accept: application/json 
+Accept-Charset: UTF-8 
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19 
+Host: media.windows.net 
+```
 
 ## <a name="build-streaming-urls-that-use-filters"></a>필터를 사용하는 스트리밍 URL 작성
 자산을 게시하고 제공하는 방법에 대한 자세한 내용은 [고객에 콘텐츠 배달 개요](media-services-deliver-content-overview.md)를 참조하십시오.
@@ -314,19 +348,19 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 
 **MPEG DASH** 
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)`
 
 **Apple HLS(HTTP 라이브 스트리밍) V4**
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)`
 
 **Apple HLS(HTTP 라이브 스트리밍) V3**
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)`
 
 **부드러운 스트리밍**
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
+`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)`
 
     
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로

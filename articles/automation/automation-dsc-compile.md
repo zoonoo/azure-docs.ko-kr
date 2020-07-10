@@ -5,11 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: de46f4e2fd53b888981076256fda28a2a14995af
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3bb42886c653afbdf8975b532bd2e1e1c3c63ce9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837045"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186540"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation State Configuration에서 DSC 구성 컴파일
 
@@ -26,7 +27,7 @@ Azure Automation State Configuration을 사용하여 다음 방법으로 DSC(Des
   - 대규모 노드 및 비노드 데이터 작업
   - 뛰어난 성능 향상
 
-Azure DSC(Desired State Configuration) 확장으로 Azure Resource Manager 템플릿을 사용하여 Azure VM에 구성을 푸시할 수도 있습니다. Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. Azure Resource Manager 템플릿 사용에 대한 자세한 내용은 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details)을 참조하세요. 
+Azure DSC(Desired State Configuration) 확장으로 Azure Resource Manager 템플릿을 사용하여 Azure VM에 구성을 푸시할 수도 있습니다. Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. Azure Resource Manager 템플릿 사용에 대한 자세한 내용은 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](../virtual-machines/extensions/dsc-template.md#details)을 참조하세요. 
 
 ## <a name="compile-a-dsc-configuration-in-azure-state-configuration"></a>Azure State Configuration에서 DSC 구성 컴파일
 
@@ -62,7 +63,7 @@ $CompilationJob | Get-AzAutomationDscCompilationJobOutput –Stream Any
 
 ### <a name="declare-basic-parameters"></a>기본 매개 변수 선언
 
-매개 변수 형식 및 속성을 포함하는 DSC 구성의 매개 변수 선언은 Azure Automation runbook과 동일하게 작동합니다. [Azure Automation에서 runbook 시작](automation-starting-a-runbook.md) 을 참조하여 runbook 매개 변수에 대한 자세한 내용을 알아봅니다.
+매개 변수 형식 및 속성을 포함하는 DSC 구성의 매개 변수 선언은 Azure Automation runbook과 동일하게 작동합니다. [Azure Automation에서 runbook 시작](./start-runbooks.md) 을 참조하여 runbook 매개 변수에 대한 자세한 내용을 알아봅니다.
 
 다음 예제에서는 `FeatureName` 및 `IsPresent` 매개 변수를 사용하여 컴파일하는 동안 생성되는 **ParametersExample.sample** 노드 구성에서 속성의 값을 결정합니다.
 
@@ -122,7 +123,7 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 **복합 리소스** 기능을 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이 기능을 사용하면 단일 리소스에 여러 구성의 애플리케이션을 적용할 수 있습니다. [복합 리소스: DSC 구성을 리소스로 사용](/powershell/scripting/dsc/resources/authoringresourcecomposite)에서 복합 리소스에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 복합 리소스가 포함된 구성이 올바르게 컴파일되기 위해서는 먼저 복합 리소스가 의존하는 DSC 리소스를 Azure Automation으로 가져와야 합니다. DSC 복합 리소스 추가는 Azure Automation에 PowerShell 모듈을 추가하는 것과 다르지 않습니다. 이 프로세스는 [Azure Automation에서 모듈 관리](/azure/automation/shared-resources/modules)에 설명되어 있습니다.
+> 복합 리소스가 포함된 구성이 올바르게 컴파일되기 위해서는 먼저 복합 리소스가 의존하는 DSC 리소스를 Azure Automation으로 가져와야 합니다. DSC 복합 리소스 추가는 Azure Automation에 PowerShell 모듈을 추가하는 것과 다르지 않습니다. 이 프로세스는 [Azure Automation에서 모듈 관리](./shared-resources/modules.md)에 설명되어 있습니다.
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Azure Automation에서 구성을 컴파일할 때 ConfigurationData 관리
 
@@ -183,10 +184,10 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 
 자산 참조는 Azure Automation State Configuration 및 Runbook 둘 다에서 동일합니다. 자세한 내용은
 
-- [인증서](automation-certificates.md)
+- [인증서](./shared-resources/certificates.md)
 - [연결](automation-connections.md)
-- [자격 증명](automation-credentials.md)
-- [변수](automation-variables.md)
+- [자격 증명](./shared-resources/credentials.md)
+- [변수](./shared-resources/variables.md)
 
 #### <a name="credential-assets"></a>자격 증명 자산
 
@@ -277,7 +278,6 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 - 시작하려면 [Azure Automation State Configuration 시작하기](automation-dsc-getting-started.md)를 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - 지속적인 배포 파이프라인에서 State Configuration을 사용하는 예제는 [Chocolatey를 사용한 지속적인 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.

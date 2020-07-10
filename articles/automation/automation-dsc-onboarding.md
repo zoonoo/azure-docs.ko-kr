@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: f30d15615e4f3c738d969d068bf2864df23e7cdb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae268534a18a921cca012881fa172261c7ba1063
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836909"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186404"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Azure Automation State Configuration 사용
 
@@ -56,7 +57,7 @@ PowerShell에서 [Register-AzAutomationDscNode](/powershell/module/az.automation
 
 ### <a name="register-vms-across-azure-subscriptions"></a>여러 Azure 구독에서 VM 등록
 
-다른 Azure 구독의 VM을 등록하는 가장 좋은 방법은 Azure Resource Manager 배포 템플릿에서 DSC 확장을 사용하는 것입니다. 예제는 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template)에 제공되어 있습니다.
+다른 Azure 구독의 VM을 등록하는 가장 좋은 방법은 Azure Resource Manager 배포 템플릿에서 DSC 확장을 사용하는 것입니다. 예제는 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](../virtual-machines/extensions/dsc-template.md)에 제공되어 있습니다.
 
 템플릿에서 매개 변수로 사용할 등록 키와 등록 URL을 찾으려면 [등록을 통해 안전하게 머신을 사용하도록 설정](#enable-machines-securely-using-registration)을 참조하세요.
 
@@ -72,7 +73,7 @@ PowerShell에서 [Register-AzAutomationDscNode](/powershell/module/az.automation
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 사용하도록 설정하려는 머신에 **metaconfigurations** 폴더를 복사합니다. 그런 다음, 머신에서 로컬로 [Set-DscLocalConfigurationManager](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1)를 호출하는 코드를 추가합니다.
+1. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 사용하도록 설정하려는 머신에 **metaconfigurations** 폴더를 복사합니다. 그런 다음, 머신에서 로컬로 [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1)를 호출하는 코드를 추가합니다.
 1. Azure Portal 또는 cmdlet을 사용하여 머신이 Azure Automation 계정에 등록된 State Configuration 노드로 표시되는지 확인합니다.
 
 ## <a name="enable-physicalvirtual-linux-machines"></a>물리적/가상 Linux 머신을 사용하도록 설정
@@ -122,7 +123,7 @@ State Configuration에 사용할 머신을 설정하려면 [DSC 메타 구성](/
 > [!NOTE]
 > DSC 메타 구성에는 Automation 계정에서 관리에 사용할 머신을 설정하는 데 필요한 비밀이 포함됩니다. 사용한 후에 만들거나 삭제한 DSC 메타 구성을 제대로 보호해야 합니다.
 
-메타 구성에 대한 프록시 지원은 Windows PowerShell DSC 엔진인 [Local Configuration Manager](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7)를 통해 제어됩니다. LCM은 모든 대상 노드에서 실행되며 DSC 구성 스크립트에 포함된 구성 리소스를 호출하는 일을 담당합니다. `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb` 및 `ReportServerWeb` 블록에 필요한 대로 `ProxyURL` 및 `ProxyCredential` 속성의 정의를 포함시켜 메타 구성에 프록시 지원을 포함할 수 있습니다. URL 설정은 `ProxyURL = "http://172.16.3.6:3128";` 형식입니다. `ProxyCredential` 속성은 [Azure Automation에서 자격 증명 관리](shared-resources/credentials.md)에 설명된 대로 `PSCredential` 개체로 설정됩니다. 
+메타 구성에 대한 프록시 지원은 Windows PowerShell DSC 엔진인 [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7)를 통해 제어됩니다. LCM은 모든 대상 노드에서 실행되며 DSC 구성 스크립트에 포함된 구성 리소스를 호출하는 일을 담당합니다. `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb` 및 `ReportServerWeb` 블록에 필요한 대로 `ProxyURL` 및 `ProxyCredential` 속성의 정의를 포함시켜 메타 구성에 프록시 지원을 포함할 수 있습니다. URL 설정은 `ProxyURL = "http://172.16.3.6:3128";` 형식입니다. `ProxyCredential` 속성은 [Azure Automation에서 자격 증명 관리](shared-resources/credentials.md)에 설명된 대로 `PSCredential` 개체로 설정됩니다. 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>DSC 구성을 사용하여 DSC 메타 구성 생성
 
@@ -259,7 +260,7 @@ State Configuration에 사용할 머신을 설정하려면 [DSC 메타 구성](/
 PowerShell DSC LCM 기본값이 사용 사례와 일치하고 머신이 Azure Automation State Configuration에서 끌어오고 Azure Automation State Configuration에 보고하도록 설정하려는 경우 Azure Automation cmdlet을 사용하여 필요한 DSC 메타 구성을 보다 간단하게 생성할 수 있습니다.
 
 1. 로컬 환경의 머신에서 관리자 권한으로 PowerShell 콘솔이나 VSCode를 엽니다.
-2. [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0)를 사용하여 Azure Resource Manager에 연결합니다.
+2. [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0)를 사용하여 Azure Resource Manager에 연결합니다.
 3. 노드를 설정하는 Automation 계정에서 사용하도록 설정하려는 머신의 PowerShell DSC 메타 구성을 다운로드합니다.
 
    ```powershell
@@ -324,8 +325,7 @@ Azure VM Desired State Configuration 확장의 상태를 보는 방법은 다음
 
 - 시작하려면 [Azure Automation State Configuration 시작](automation-dsc-getting-started.md)을 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - 지속적인 배포 파이프라인에서 Azure Automation State Configuration을 사용하는 예제는 [Chocolatey를 사용한 지속적인 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
 - 문제 해결 정보는 [Azure Automation State Configuration 문제 해결](./troubleshoot/desired-state-configuration.md)을 참조하세요.

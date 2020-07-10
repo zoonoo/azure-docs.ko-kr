@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555043"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185588"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -48,11 +49,11 @@ ms.locfileid: "84555043"
 
 - 핫픽스 업데이트는 Windows Server 2016 Core RS3 컴퓨터에서 수집 되지 않습니다.
 
-- 변경 내용이 없더라도 Linux 디먼에서 변경됨 상태를 표시할 수 있습니다. 이 문제는 `SvcRunLevels` Azure Monitor [configurationchange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) 로그의 데이터를 캡처하는 방법 때문에 발생 합니다.
+- 변경 내용이 없더라도 Linux 디먼에서 변경됨 상태를 표시할 수 있습니다. 이 문제는 `SvcRunLevels` Azure Monitor [configurationchange](/azure/azure-monitor/reference/tables/configurationchange) 로그의 데이터를 캡처하는 방법 때문에 발생 합니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-변경 내용 추적 및 인벤토리는 Log Analytics 에이전트 요구 사항을 충족하는 모든 운영 체제에서 지원됩니다. 공식 운영 체제 버전은 Windows Server 2008 SP1 이상 및 Windows 7 SP1 이상입니다. 이 기능은 여러 Linux 운영 체제 에서도 지원 됩니다. Log Analytics를 지 원하는 운영 체제는 [Log Analytics 에이전트 개요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)를 참조 하세요.
+변경 내용 추적 및 인벤토리는 Log Analytics 에이전트 요구 사항을 충족하는 모든 운영 체제에서 지원됩니다. 공식 운영 체제 버전은 Windows Server 2008 SP1 이상 및 Windows 7 SP1 이상입니다. 이 기능은 여러 Linux 운영 체제 에서도 지원 됩니다. Log Analytics를 지 원하는 운영 체제는 [Log Analytics 에이전트 개요](../azure-monitor/platform/log-analytics-agent.md)를 참조 하세요.
 
 TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
 
@@ -90,7 +91,7 @@ Microsoft Azure Portal에서 변경 내용 추적 및 인벤토리를 사용하�
 
 ## <a name="fim-support-in-azure-security-center"></a>Azure Security Center의 FIM 지원
 
-변경 내용 추적 및 인벤토리는 [Azure Security Center FIM(파일 무결성 모니터링)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)을 사용합니다. FIM은 파일과 레지스트리만 모니터링하지만 전체 변경 내용 추적 및 인벤토리 기능에는 다음에 대한 추적도 포함됩니다.
+변경 내용 추적 및 인벤토리는 [Azure Security Center FIM(파일 무결성 모니터링)](../security-center/security-center-file-integrity-monitoring.md)을 사용합니다. FIM은 파일과 레지스트리만 모니터링하지만 전체 변경 내용 추적 및 인벤토리 기능에는 다음에 대한 추적도 포함됩니다.
 
 - 소프트웨어 변경 내용
 - Microsoft 서비스
@@ -105,7 +106,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 
 ## <a name="tracking-of-file-content-changes"></a>파일 변경 내용 추적
 
-변경 내용 추적 및 인벤토리를 사용 하면 Windows 또는 Linux 파일의 내용을 볼 수 있습니다. 파일의 각 변경 내용에 대해 변경 내용 추적 및 인벤토리는 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)에 파일 내용을 저장합니다. 파일을 추적 하는 경우 변경 전후에 해당 내용을 볼 수 있습니다. 파일 콘텐츠는 인라인 또는 side-by-side로 볼 수 있습니다. 
+변경 내용 추적 및 인벤토리를 사용 하면 Windows 또는 Linux 파일의 내용을 볼 수 있습니다. 파일의 각 변경 내용에 대해 변경 내용 추적 및 인벤토리는 [Azure Storage 계정](../storage/common/storage-account-create.md)에 파일 내용을 저장합니다. 파일을 추적 하는 경우 변경 전후에 해당 내용을 볼 수 있습니다. 파일 콘텐츠는 인라인 또는 side-by-side로 볼 수 있습니다. 
 
 ![파일의 변경 내용 보기](./media/change-tracking/view-file-changes.png)
 
@@ -170,7 +171,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 |Services|250|
 |디먼|250|
 
-변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 환경에 따라 월별 약 40MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용 하면 사용 현황 차트에서 변경 내용 추적 및 인벤토리에 따라 데이터 수집을 볼 수 있습니다. 이 데이터 뷰를 사용 하 여 데이터 사용량을 평가 하 고 청구에 미치는 영향을 결정 합니다. [사용량 파악 및 비용 추정](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs)을 참조하세요.
+변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 환경에 따라 월별 약 40MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용 하면 사용 현황 차트에서 변경 내용 추적 및 인벤토리에 따라 데이터 수집을 볼 수 있습니다. 이 데이터 뷰를 사용 하 여 데이터 사용량을 평가 하 고 청구에 미치는 영향을 결정 합니다. [사용량 파악 및 비용 추정](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs)을 참조하세요.
 
 ### <a name="microsoft-service-data"></a>Microsoft 서비스 데이터
 

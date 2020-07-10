@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781194"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185605"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 관리
 
@@ -78,10 +79,10 @@ ms.locfileid: "84781194"
 
 ## <a name="track-file-contents"></a>파일 콘텐츠 추적
 
-파일 콘텐츠 추적을 사용하면 추적된 변경 전후의 파일 콘텐츠를 볼 수 있습니다. 이 기능은 각 변경이 발생 한 후 [저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview) 에 파일 내용을 저장 합니다. 다음은 파일 콘텐츠를 추적하기 위해 따라야 하는 몇 가지 규칙입니다.
+파일 콘텐츠 추적을 사용하면 추적된 변경 전후의 파일 콘텐츠를 볼 수 있습니다. 이 기능은 각 변경이 발생 한 후 [저장소 계정](../storage/common/storage-account-overview.md) 에 파일 내용을 저장 합니다. 다음은 파일 콘텐츠를 추적하기 위해 따라야 하는 몇 가지 규칙입니다.
 
 * 파일 콘텐츠를 저장하려면 Resource Manager 배포 모델을 사용하는 표준 스토리지 계정이 필요합니다. 
-* 프리미엄 및 클래식 배포 모델 스토리지 계정을 사용하지 마세요. [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
+* 프리미엄 및 클래식 배포 모델 스토리지 계정을 사용하지 마세요. [Azure Storage 계정 정보](../storage/common/storage-account-create.md)를 참조하세요.
 * 저장소 계정을 하나의 Automation 계정에만 연결할 수 있습니다.
 * Automation 계정에서 [변경 내용 추적 및 인벤토리](change-tracking.md) 를 사용 하도록 설정 해야 합니다.
 
@@ -169,7 +170,7 @@ ms.locfileid: "84781194"
 ## <a name="next-steps"></a>다음 단계
 
 * 범위 구성에 대 한 자세한 내용은 [제한 변경 내용 추적 및 인벤토리 배포 범위](automation-scope-configurations-change-tracking.md)를 참조 하세요.
-* Log Analytics 작업 영역에 저장된 로그를 검색해야 하는 경우 [Azure Monitor 로그에서 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
+* Log Analytics 작업 영역에 저장된 로그를 검색해야 하는 경우 [Azure Monitor 로그에서 로그 검색](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 * 배포가 완료 되 면 [변경 내용 추적 및 인벤토리에 대해 Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-change-tracking.md)를 참조 하세요.
 * 변경 내용 추적 및 인벤토리에서 Vm을 삭제 하려면 [변경 내용 추적 및 인벤토리에서 Vm 제거](automation-remove-vms-from-change-tracking.md)를 참조 하세요.
 * 기능 오류를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](troubleshoot/change-tracking.md)을 참조하세요.

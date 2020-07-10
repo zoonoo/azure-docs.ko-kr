@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: d55a47e4eb921c71ff3539d34b6db514684da073
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204075"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186132"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Runbook에서 업데이트 관리 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "84204075"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
+* 컴퓨터를 관리하기 위한 [Automation 계정](./index.yml)
 * [가상 머신](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-update-management"></a>업데이트 관리 사용
@@ -50,7 +50,7 @@ ms.locfileid: "84204075"
 
 ## <a name="install-and-update-modules"></a>모듈 설치 및 업데이트
 
-VM에 업데이트 관리를 사용하도록 설정하려면 최신 Azure 모듈로 업데이트하고 [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) 모듈을 가져와야 합니다.
+VM에 업데이트 관리를 사용하도록 설정하려면 최신 Azure 모듈로 업데이트하고 [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) 모듈을 가져와야 합니다.
 
 1. Automation 계정의 **공유 리소스**에서 **모듈**을 선택합니다. 
 2. **Azure 모듈 업데이트**를 선택하여 Azure 모듈을 최신 버전으로 업데이트합니다. 

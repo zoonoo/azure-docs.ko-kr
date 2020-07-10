@@ -6,11 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100012"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186149"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -310,7 +311,7 @@ Automation 계정을 관리하지 않는 사용자 또는 더 이상 조직에�
 
 다음 [Azure PowerShell cmdlet](../role-based-access-control/role-assignments-powershell.md)을 사용하여 Automation 계정에 역할 기반 액세스를 구성할 수도 있습니다.
 
-[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0)에는 Azure Active Directory에서 사용할 수 있는 모든 RBAC 역할이 나열됩니다. 이 cmdlet을 `Name` 매개 변수와 함께 사용하여 특정 역할에서 수행할 수 있는 모든 작업을 나열할 수 있습니다.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0)에는 Azure Active Directory에서 사용할 수 있는 모든 RBAC 역할이 나열됩니다. 이 cmdlet을 `Name` 매개 변수와 함께 사용하여 특정 역할에서 수행할 수 있는 모든 작업을 나열할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -329,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)에는 지정된 범위의 Azure AD RBAC 역할 할당이 나열됩니다. 이 cmdlet은 매개 변수 없이 해당 구독에서 이루어진 모든 역할 할당을 반환합니다. `ExpandPrincipalGroups` 매개 변수를 사용하여 지정된 사용자에 대한 액세스 할당과 해당 사용자가 속한 그룹을 나열합니다.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)에는 지정된 범위의 Azure AD RBAC 역할 할당이 나열됩니다. 이 cmdlet은 매개 변수 없이 해당 구독에서 이루어진 모든 역할 할당을 반환합니다. `ExpandPrincipalGroups` 매개 변수를 사용하여 지정된 사용자에 대한 액세스 할당과 해당 사용자가 속한 그룹을 나열합니다.
 
 **예:** 다음 cmdlet을 사용하여 해당 Automation 계정에 속한 모든 사용자와 그 역할을 나열합니다.
 
@@ -351,7 +352,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0)를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 액세스 권한을 할당합니다.
+[New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0)를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 액세스 권한을 할당합니다.
     
 **예:** 다음 명령을 사용하여 Automation 계정 범위의 사용자에 "Automation 운영자" 역할을 할당합니다.
 
@@ -373,7 +374,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-[Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0)를 사용하여 특정 범위에서 지정된 사용자, 그룹 또는 애플리케이션의 액세스 권한을 제거합니다.
+[Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0)를 사용하여 특정 범위에서 지정된 사용자, 그룹 또는 애플리케이션의 액세스 권한을 제거합니다.
 
 **예:** 다음 명령을 사용하여 Automation 계정 범위의 Automation 운영자 역할에서 사용자를 제거합니다.
 

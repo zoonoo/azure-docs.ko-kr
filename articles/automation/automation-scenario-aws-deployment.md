@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67e2639c2d4b168babeb7c29ef977d39d9e11cb
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 456a7e4f07b2416e1d2037205574f2e7149e70e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855298"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185945"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Runbook을 사용하여 Amazon Web Services VM 배포
 
@@ -101,7 +101,6 @@ AWS PowerShell 모듈을 Azure Automation으로 가져왔는지 확인합니다.
  
 * 지원되는 Runbook을 확인하려면 [Azure Automation Runbook 형식](automation-runbook-types.md)을 참조하세요.
 * Runbook을 사용하려면 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [PowerShell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조하세요.
+* PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
 * 스크립트 지원은 [Azure Automation에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.

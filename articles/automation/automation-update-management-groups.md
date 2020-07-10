@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 25a306b3281079e8476a67ee70c2ca2cfffdd30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830942"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185741"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>업데이트 관리에서 동적 그룹 사용
 
@@ -20,7 +21,7 @@ ms.locfileid: "83830942"
 
 Azure Portal의 **업데이트 관리**에서 Azure 또는 Azure가 아닌 머신의 동적 그룹을 정의할 수 있습니다. [여러 Azure 가상 머신에 대한 업데이트 관리](manage-update-multi.md)를 참조하세요.
 
-동적 그룹은 배포 시 Azure Automation이 평가하는 쿼리를 통해 정의됩니다. 동적 그룹 쿼리가 수많은 머신을 검색하는 경우에도 Azure Automation은 한 번에 최대 1000대의 머신을 처리할 수 있습니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#update-management)을 참조하세요. 
+동적 그룹은 배포 시 Azure Automation이 평가하는 쿼리를 통해 정의됩니다. 동적 그룹 쿼리가 수많은 머신을 검색하는 경우에도 Azure Automation은 한 번에 최대 1000대의 머신을 처리할 수 있습니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#update-management)을 참조하세요. 
 
 > [!NOTE]
 > 업데이트할 머신의 수가 1000대를 초과할 것으로 예상되면 업데이트를 여러 일정으로 나누어 진행하는 것이 좋습니다. 

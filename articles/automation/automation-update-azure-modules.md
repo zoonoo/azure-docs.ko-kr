@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 892197c79285495f49a870bbe79eb75229af2940
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9cc5e5107784d447640ef0ae77d412885b1e5668
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831027"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185775"
 ---
 # <a name="update-azure-powershell-modules"></a>Azure PowerShell 모듈 업데이트
 
@@ -37,7 +38,7 @@ Automation 계정에서 Azure 모듈을 업데이트하려면 오픈 소스로 �
 
 ## <a name="use-update-runbook-code-as-a-regular-powershell-script"></a>업데이트 Runbook 코드를 일반 PowerShell 스크립트로 사용
 
-Runbook 대신 Runbook 코드를 일반 PowerShell 스크립트로 사용할 수 있습니다. 이렇게 하려면 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet을 사용하여 Azure에 로그인한 다음, 스크립트에 `-Login $false`를 전달합니다.
+Runbook 대신 Runbook 코드를 일반 PowerShell 스크립트로 사용할 수 있습니다. 이렇게 하려면 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet을 사용하여 Azure에 로그인한 다음, 스크립트에 `-Login $false`를 전달합니다.
 
 ## <a name="use-the-update-runbook-on-sovereign-clouds"></a>소버린 클라우드에서 업데이터 Runbook 사용
 

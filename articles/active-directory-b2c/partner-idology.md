@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d34bb14dd0f474ff9350fec513c02fbb470d6738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7567302be8d717cda3627af303128bfb704bd014
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385657"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170142"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 IDology 구성에 대 한 자습서 
 
 이 샘플 자습서에서는 [IDology](https://www.idology.com/solutions/)와 Azure AD B2C를 통합 하는 방법에 대 한 지침을 제공 합니다. IDology는 여러 솔루션을 포함 하는 id 확인 및 교정 공급자입니다. 이 샘플에서는 IDology에서 제공 하는 모든 문제를 해결 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작 하려면 다음이 필요 합니다.
 
@@ -41,7 +41,7 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![IDology 아키텍처 다이어그램](media/partner-idology/idology-architecture-diagram.png)
 
-|      |      |
+| 단계 | 설명 |
 |------|------|
 |1     | 사용자가 로그인 페이지에 도착 합니다. |
 |2     | 사용자가 등록 옵션을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다. |

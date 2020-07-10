@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 184e65c929d43e7a5d4ca3be8bd93770c55cd2a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836569"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185928"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -67,15 +68,15 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 * PowerShell 스크립팅에 대해 잘 알아야 합니다.
 * Runbook에서는 [병렬 처리](automation-powershell-workflow.md#use-parallel-processing)를 사용하여 여러 작업을 병렬로 실행할 수 없습니다.
 * Runbook에서는 오류 발생 시 [검사점](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)을 사용하여 Runbook을 다시 시작할 수 없습니다.
-* 새 작업을 만드는 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet을 사용하여 자식 Runbook으로서의 PowerShell 워크플로 Runbook 및 그래픽 Runbook만 포함할 수 있습니다.
+* 새 작업을 만드는 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet을 사용하여 자식 Runbook으로서의 PowerShell 워크플로 Runbook 및 그래픽 Runbook만 포함할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
 PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 
-* PowerShell Runbook이 null 값을 갖는 암호화되지 않은 [변수 자산](automation-variables.md)을 가져올 수 없습니다.
+* PowerShell Runbook이 null 값을 갖는 암호화되지 않은 [변수 자산](./shared-resources/variables.md)을 가져올 수 없습니다.
 * PowerShell Runbook은 이름에 `*~*`가 포함된 변수 자산을 검색할 수 없습니다.
-* PowerShell Runbook의 반복적인 [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) 작업은 80회 반복 후에 크래시가 발생할 수 있습니다.
+* PowerShell Runbook의 반복적인 [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) 작업은 80회 반복 후에 크래시가 발생할 수 있습니다.
 * PowerShell Runbook이 한 번에 대량의 데이터를 출력 스트림에 쓰려고 하면 실패할 수 있습니다. Runbook에서 큰 개체로 작업하는 데 필요한 정보만 출력하면 일반적으로 이 문제를 해결할 수 있습니다. 예를 들어 제한 없이 `Get-Process`를 사용하는 대신 `Get-Process | Select ProcessName, CPU`에서와 같이 cmdlet이 필요한 매개 변수만 출력하도록 할 수 있습니다.
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell 워크플로 Runbook

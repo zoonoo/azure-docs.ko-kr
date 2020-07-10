@@ -72,6 +72,8 @@
           href: cognitive-search-tutorial-blob-python.md
     - name: 기술 세트 디버그
       href: cognitive-search-tutorial-debug-sessions.md
+    - name: 사용자 지정 분석기 만들기
+      href: tutorial-create-custom-analyzer.md
     - name: Power Apps에서 쿼리
       href: search-howto-powerapps.md
 - name: 샘플

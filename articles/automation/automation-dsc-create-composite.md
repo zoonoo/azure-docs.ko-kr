@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b3a49fac5600e6338d5fb56281a3360f0abaa39a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8c834caa2285135b7d39c440489b42c366418042
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836977"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186472"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>구성을 복합 리소스로 변환
 
@@ -42,14 +43,14 @@ ms.locfileid: "83836977"
 이 과제를 해결하기 위해 [CompositeResource](https://github.com/microsoft/compositeresource)라는 커뮤니티 유지 관리 솔루션이 만들어졌습니다.
 
 CompositeResource는 구성에서 새 모듈을 만드는 프로세스를 자동화합니다.
-워크스테이션(또는 빌드 서버)에서 구성 스크립트를 [도트 소싱](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/)으로 시작하여 메모리에 로드되도록 합니다.
+워크스테이션(또는 빌드 서버)에서 구성 스크립트를 [도트 소싱](https://devblogs.microsoft.com/scripting/how-to-reuse-windows-powershell-functions-in-scripts/)으로 시작하여 메모리에 로드되도록 합니다.
 그런 다음, 구성을 실행하여 MOF 파일을 생성하는 대신 CompositeResource 모듈에서 제공하는 함수를 사용하여 변환을 자동화합니다.
 cmdlet은 구성 콘텐츠를 로드하고, 매개 변수 목록을 가져오고, 필요한 모든 항목을 포함하는 새 모듈을 생성합니다.
 
 모듈을 생성한 후에는 버전을 증분하고 변경할 때마다 릴리스 정보를 추가하여 [PowerShellGet 리포지토리](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo)에 게시할 수 있습니다.
 
-구성(또는 여러 구성)을 포함하는 복합 리소스 모듈을 만든 후에는 Azure의 [구성 가능한 작성 환경](/azure/automation/compose-configurationwithcompositeresources)에서 이를 사용하거나 [DSC 구성 스크립트](/powershell/scripting/dsc/configurations/configurations)에 추가하여 MOF 파일을 생성하고 [MOF 파일을 Azure Automation에 업로드](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)할 수 있습니다.
-그런 다음, [온-프레미스](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)에서 서버를 등록하여 구성을 가져옵니다.
+구성(또는 여러 구성)을 포함하는 복합 리소스 모듈을 만든 후에는 Azure의 [구성 가능한 작성 환경](./compose-configurationwithcompositeresources.md)에서 이를 사용하거나 [DSC 구성 스크립트](/powershell/scripting/dsc/configurations/configurations)에 추가하여 MOF 파일을 생성하고 [MOF 파일을 Azure Automation에 업로드](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation)할 수 있습니다.
+그런 다음, [온-프레미스](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) 또는 [Azure](./automation-dsc-onboarding.md#enable-azure-vms)에서 서버를 등록하여 구성을 가져옵니다.
 프로젝트에 대한 최신 업데이트는 PowerShell 갤러리에서 구성을 가져오는 프로세스를 자동화하는 Azure Automation용 [Runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples)도 게시했습니다.
 
 DSC에 대한 복합 리소스 생성을 자동화하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/compositeresource/)를 방문하여 솔루션을 다운로드하거나 "프로젝트 사이트"를 클릭하여 [설명서](https://github.com/microsoft/compositeresource)를 참조하세요.

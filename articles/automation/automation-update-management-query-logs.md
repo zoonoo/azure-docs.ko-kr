@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 146cf01d99ccc00a972c98128d8e93e1ed5fb690
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830772"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185707"
 ---
 # <a name="query-update-management-logs"></a>업데이트 관리 로그 쿼리
 
@@ -193,7 +194,7 @@ Windows 컴퓨터에서 다음 정보를 검토하여 에이전트가 Azure Moni
 1. 제어판에서 **Microsoft Monitoring Agent**를 엽니다. **Azure Log Analytics** 탭에서 에이전트가 다음 메시지를 표시합니다. **Microsoft Monitoring Agent가 Microsoft Log Analytics 서비스에 성공적으로 연결되었습니다.**
 2. Windows 이벤트 로그를 엽니다. **애플리케이션 및 서비스 로그\Operations Manager**로 이동한 후, 원본 **서비스 커넥터**에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
 
-에이전트가 Azure Monitor 로그와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../azure-monitor/platform/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
+에이전트가 Azure Monitor 로그와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../azure-monitor/platform/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../azure-monitor/learn/quick-collect-linux-computer.md)을 참조하세요.
 
 > [!NOTE]
 > Linux 시스템에서 프록시 또는 Log Analytics 게이트웨이와 통신하도록 구성되고 업데이트 관리를 사용하도록 설정하는 경우, 다음 명령을 수행하여 omiuser 그룹 읽기 권한을 파일에 부여하도록 `proxy.conf` 권한을 업데이트합니다.
@@ -408,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor 로그](../log-analytics/log-analytics-log-searches.md)를 참조하세요.
+* Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 * 경고에 대한 도움말은 [경고 구성](automation-tutorial-update-management.md#configure-alerts)을 참조하세요.

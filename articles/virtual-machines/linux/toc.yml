@@ -511,6 +511,8 @@
                       href: ../vm-specialized-image-version-powershell.md
                 - name: 이미지 리소스 업데이트
                   href: ../update-image-resources-powershell.md
+                - name: 공유용 앱 등록
+                  href: ../windows/share-images-across-tenants.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: 포털
               items:
                 - name: '갤러리, 이미지 및 VM 만들기'
@@ -947,8 +949,6 @@
           items:
             - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
               href: migrate-to-premium-storage-using-azure-site-recovery.md
-            - name: 서버 쪽 암호화로 변환
-              href: disks-ade-sse-conversion-cli.md
             - name: Managed Disks로 변환
               href: convert-unmanaged-to-managed-disks.md
             - name: 디스크를 표준 또는 프리미엄으로 변환

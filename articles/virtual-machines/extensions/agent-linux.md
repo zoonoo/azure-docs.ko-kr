@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74073861"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186829"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -130,39 +131,39 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 * daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
 * start: waagent를 백그라운드 프로세스로 실행
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 설명된 다양한 구성 옵션은 다음과 같습니다. 구성 옵션으로 Boolean, String 또는 Integer의 세 가지 형식이 있습니다. 부울 구성 옵션은 "y" 또는 "n"으로 지정할 수 있습니다. "None" 특수 키워드는 아래에서 자세히 설명한 대로 일부 문자열 형식 구성 항목에 사용할 수 있습니다.
 
 **Provisioning.Enabled:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -174,14 +175,14 @@ Default: y
 > 
 
 **Provisioning.DeleteRootPassword:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 설정한 경우 /etc/shadow 파일의 루트 암호가 프로비전 프로세스 중 삭제됩니다.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -190,42 +191,42 @@ Default: y
 새로운 키 쌍의 암호화 종류는 Provisioning.SshHostKeyPairType 항목으로 구성할 수 있습니다. 일부 배포에서는 SSH 디먼이 다시 시작될 때(예: 재부팅 시) 누락된 모든 암호화 종류에 대한 SSH 키 쌍을 다시 만듭니다.
 
 **Provisioning.SshHostKeyPairType:**  
-```
+```txt
 Type: String  
 Default: rsa
 ```
 이 옵션은 가상 머신의 SSH 디먼에서 지원하는 암호화 알고리즘 형식으로 설정할 수 있습니다. 일반적으로 지원되는 값은 "rsa", "dsa" 및 "ecdsa"입니다. Windows의 "putty.exe"는 "ecdsa"를 지원하지 않습니다. 따라서 Windows에서 putty.exe를 사용하여 Linux 배포에 연결하려면 "rsa" 또는 "dsa"를 사용합니다.
 
 **Provisioning.MonitorHostName:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 이 옵션을 설정하면 waagent에서 호스트 이름("hostname" 명령으로 반환됨) 변경에 대해 Linux 가상 머신을 모니터링하고, 변경 내용을 반영하도록 이미지의 네트워킹 구성을 자동으로 업데이트합니다. 이름 변경을 DNS 서버로 푸시하기 위해 가상 머신에서 네트워킹이 다시 시작됩니다. 이로 인해 인터넷 연결이 잠시 끊깁니다.
 
 **Provisioning.DecodeCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 이 옵션을 설정하면 waagent에서 Base64의 CustomData를 디코딩합니다.
 
 **Provisioning.ExecuteCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 이 옵션을 설정하면 waagent에서 프로비전 후에 CustomData를 실행합니다.
 
 **Provisioning.AllowResetSysUser**
-```
+```txt
 Type: Boolean
 Default: n
 ```
 이 옵션을 사용하면 시스템 사용자의 암호를 다시 설정할 수 있습니다. 기본값은 사용 안 함입니다.
 
 **Provisioning.PasswordCryptId**  
-```
+```txt
 Type: String  
 Default: 6
 ```
@@ -236,91 +237,91 @@ Default: 6
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-```
+```txt
 Type: String  
 Default: 10
 ```
 암호 해시를 생성할 때 사용되는 임의 salt의 길이입니다.
 
 **ResourceDisk.Format:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 이 옵션을 설정하면 사용자가 "ResourceDisk.Filesystem"에서 요청한 파일 시스템 형식이 "ntfs" 이외의 형식인 경우 waagent에서 플랫폼이 제공한 리소스 디스크를 포맷하고 탑재합니다. 단일 Linux 파티션 형식(83)이 디스크에서 사용할 수 있게 됩니다. 이 파티션이 성공적으로 탑재될 수 있으면 포맷되지 않습니다.
 
 **ResourceDisk.Filesystem:**  
-```
+```txt
 Type: String  
 Default: ext4
 ```
 이 옵션은 리소스 디스크의 파일 시스템 유형을 지정합니다. 지원되는 값은 Linux 배포에 따라 달라집니다. 문자열이 X이면 mkfs.X가 Linux 이미지에 표시됩니다. 일반적으로 SLES 11 이미지는 'ext3'을 사용해야 합니다. 여기에서 FreeBSD 이미지는 'ufs2'를 사용해야 합니다.
 
 **ResourceDisk.MountPoint:**  
-```
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
 이 옵션은 리소스 디스크가 탑재되는 경로를 지정합니다. 리소스 디스크는 *임시* 디스크이며, VM의 프로비전을 해제할 때 비울 수 있습니다.
 
 **ResourceDisk.MountOptions**  
-```
+```txt
 Type: String  
 Default: None
 ```
 mount -o 명령에 전달될 디스크 탑재 옵션을 지정합니다. 쉼표로 구분된 값 목록입니다(예: 'nodev,nosuid'). 자세한 내용은 mount(8)를 참조하세요.
 
 **ResourceDisk.EnableSwap:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 설정한 경우 스왑 파일(/swapfile)이 리소스 디스크에 만들어져서 시스템 스왑 공간에 추가됩니다.
 
 **ResourceDisk:**  
-```
+```txt
 Type: Integer  
 Default: 0
 ```
 스왑 파일의 크기(MB)입니다.
 
 **Logs.Verbose:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 설정한 경우 로그에 대한 세부 정보 표시가 향상됩니다. waagent에서 /var/log/waagent.log에 로그하고, logrotate 시스템 기능을 활용하여 로그를 순환시킵니다.
 
 **OS.EnableRDMA**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 이 옵션을 설정하면 에이전트에서 기본 하드웨어의 펌웨어 버전과 일치하는 RDMA 커널 드라이버를 설치하고 로드하려고 시도합니다.
 
 **OS.RootDeviceScsiTimeout:**  
-```
+```txt
 Type: Integer  
 Default: 300
 ```
 이 설정은 OS 디스크 및 데이터 드라이브에서 SCSI 시간 제한을 초 단위로 구성합니다. 설정하지 않은 경우 시스템 기본값이 사용됩니다.
 
 **OS.OpensslPath:**  
-```
+```txt
 Type: String  
 Default: None
 ```
 이 설정은 암호화 작업에 사용할 openssl 이진 파일에 대한 대체 경로를 지정하는 데 사용할 수 있습니다.
 
 **HttpProxy.Host, HttpProxy.Port**  
-```
+```txt
 Type: String  
 Default: None
 ```
 이 옵션을 설정하면 에이전트에서 이 프록시 서버를 사용하여 인터넷에 액세스합니다. 
 
 **AutoUpdate.Enabled**
-```
+```txt
 Type: Boolean
 Default: y
 ```

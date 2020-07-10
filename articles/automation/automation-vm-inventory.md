@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: 인벤토리, 자동화, 변경, 추적
 ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603114"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185724"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>VM에서 인벤토리 컬렉션 관리
 
@@ -131,5 +131,5 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 ## <a name="next-steps"></a>다음 단계
 
 * 이 기능을 사용하는 방법에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리 관리](change-tracking-file-contents.md)를 참조하세요.
-* 소프트웨어 변경 내용 추적에 대한 자세한 내용은 [변경 내용 추적으로 사용자 환경에서 소프트웨어 변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)을 참조하세요.
+* 소프트웨어 변경 내용 추적에 대한 자세한 내용은 [변경 내용 추적으로 사용자 환경에서 소프트웨어 변경 내용 추적](./change-tracking.md)을 참조하세요.
 * 이 기능의 일반적인 문제를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](troubleshoot/change-tracking.md)을 참조하세요.

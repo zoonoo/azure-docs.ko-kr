@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4be7934002730253b77b1c129165ad9f19f23b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557871"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185979"
 ---
 # <a name="monitor-runbook-output"></a>Runbook 출력 모니터링
 
 대부분의 Azure Automation Runbook은 일종의 출력 양식을 갖습니다. 이 출력은 사용자에 대한 오류 메시지일 수도 있고 또는 다른 Runbook과 함께 사용하도록 설정된 복합 개체일 수도 있습니다. Windows PowerShell은 [여러 스트림](/powershell/module/microsoft.powershell.core/about/about_redirection) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동합니다. Runbook을 만들 때는 스트림 사용 모범 사례를 따라야 합니다.
 
-다음 표에는 각 스트림에 대한 간략한 설명과 Azure Portal에서 게시된 Runbook에 대한 스트림의 동작과 [Runbook 테스트](automation-testing-runbook.md) 중 스트림의 동작이 나와 있습니다. 출력 스트림은 Runbook 간 통신에 사용되는 주 스트림입니다. 다른 스트림은 사용자에게 정보를 전달하기 위한 메시지 스트림으로 분류됩니다. 
+다음 표에는 각 스트림에 대한 간략한 설명과 Azure Portal에서 게시된 Runbook에 대한 스트림의 동작과 [Runbook 테스트](./manage-runbooks.md) 중 스트림의 동작이 나와 있습니다. 출력 스트림은 Runbook 간 통신에 사용되는 주 스트림입니다. 다른 스트림은 사용자에게 정보를 전달하기 위한 메시지 스트림으로 분류됩니다. 
 
 | STREAM | Description | 게시 날짜 | 테스트 |
 |:--- |:--- |:--- |:--- |
@@ -33,7 +33,7 @@ ms.locfileid: "85557871"
 
 Runbook은 다른 Runbook에 의해 호출되지 않는 경우에만 출력 스트림을 사용하여 클라이언트에 일반 정보를 커뮤니케이션합니다. Runbook에서 [자세한 정보 표시 스트림](#monitor-verbose-stream)을 사용하여 사용자에게 일반 정보를 전달하는 것이 좋습니다.
 
-[Write-Output](https://technet.microsoft.com/library/hh849921.aspx)을 사용하여 Runbook이 출력 스트림으로 데이터를 쓰도록 설정합니다. 또는 스크립트에서 개체를 자체 줄에 배치할 수도 있습니다.
+[Write-Output](/powershell/module/microsoft.powershell.utility/write-output)을 사용하여 Runbook이 출력 스트림으로 데이터를 쓰도록 설정합니다. 또는 스크립트에서 개체를 자체 줄에 배치할 수도 있습니다.
 
 ```powershell
 #The following lines both write an object to the output stream.
@@ -133,7 +133,7 @@ Runbook은 인증 프로필 속성을 반환하는 출력 형식 `Microsoft.Azur
 
 기본적으로 Runbook은 경고나 오류가 발생한 후에도 계속 실행됩니다. 메시지를 만들기 전에 Runbook의 [기본 설정 변수](#work-with-preference-variables)를 설정하여 경고 또는 오류가 발생할 경우 Runbook이 일시 중단되어야 할지를 지정할 수 있습니다. 예를 들어 Runbook이 예외와 마찬가지로 오류가 발생한 경우에도 일시 중단되도록 하려면 `ErrorActionPreference` 변수를 중지로 설정합니다.
 
-[Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 또는 [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet를 사용하여 경고 또는 오류 메시지를 만듭니다. 활동도 경고 및 오류 스트림에 기록할 수 있습니다.
+[Write-Warning](/powershell/module/microsoft.powershell.utility/write-warning) 또는 [Write-Error](/powershell/module/microsoft.powershell.utility/write-error) cmdlet를 사용하여 경고 또는 오류 메시지를 만듭니다. 활동도 경고 및 오류 스트림에 기록할 수 있습니다.
 
 ```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -153,9 +153,9 @@ Azure Automation은 대화형 사용자를 위해 디버그 메시지 스트림�
 
 기본적으로 작업 기록은 성능상의 이유로 게시된 Runbook의 자세한 정보 표시 메시지를 저장하지 않습니다. 자세한 정보 표시 메시지를 저장하려면 Azure Portal **구성** 탭에서 **상세 레코드 기록** 설정을 사용하여 게시된 Runbook이 자세한 정보 표시 메시지를 로깅하도록 구성합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다. 대부분의 경우에는 자세한 정보 표시 레코드를 기록하지 않는 기본 설정을 유지해야 합니다.
 
-[Runbook을 테스트](automation-testing-runbook.md)할 경우 Runbook이 자세한 정보 표시 레코드를 기록하도록 구성되면 자세한 정보 표시 메시지는 표시되지 않습니다. [Runbook을 테스트](automation-testing-runbook.md)하는 동안 자세한 정보 표시 메시지를 표시하려면 `VerbosePreference` 변수를 계속으로 설정해야 합니다. 이 변수를 설정하면 자세한 정보 표시 메시지가 Azure Portal의 테스트 출력 창에 표시됩니다.
+[Runbook을 테스트](./manage-runbooks.md)할 경우 Runbook이 자세한 정보 표시 레코드를 기록하도록 구성되면 자세한 정보 표시 메시지는 표시되지 않습니다. [Runbook을 테스트](./manage-runbooks.md)하는 동안 자세한 정보 표시 메시지를 표시하려면 `VerbosePreference` 변수를 계속으로 설정해야 합니다. 이 변수를 설정하면 자세한 정보 표시 메시지가 Azure Portal의 테스트 출력 창에 표시됩니다.
 
-다음 코드는 [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet을 사용하여 자세한 정보 표시 메시지를 만듭니다.
+다음 코드는 [Write-Verbose](/powershell/module/microsoft.powershell.utility/write-verbose) cmdlet을 사용하여 자세한 정보 표시 메시지를 만듭니다.
 
 ```powershell
 #The following line creates a verbose message.
@@ -170,11 +170,11 @@ Azure Portal의 **구성** 탭을 사용하여 Runbook이 진행률 레코드를
 진행률 레코드 로깅을 사용하도록 설정하면 Runbook은 각 작업이 실행되기 전과 후에 작업 기록에 레코드를 기록합니다. Runbook을 테스트하는 경우에는 Runbook이 진행률 레코드를 로깅하도록 구성되어 있어도 진행률 메시지가 표시되지 않습니다.
 
 >[!NOTE]
->[Write-progress](https://technet.microsoft.com/library/hh849902.aspx) cmdlet은 대화형 사용자로 사용하기 위한 것이기 때문에 Runbook에 유효하지 않습니다.
+>[Write-progress](/powershell/module/microsoft.powershell.utility/write-progress) cmdlet은 대화형 사용자로 사용하기 위한 것이기 때문에 Runbook에 유효하지 않습니다.
 
 ## <a name="work-with-preference-variables"></a>기본 설정 변수로 작업
 
-Runbook에서 특정 Windows PowerShell [기본 설정 변수](https://technet.microsoft.com/library/hh847796.aspx)를 설정하여 서로 다른 출력 스트림으로 전송된 데이터에 대한 응답을 제어할 수 있습니다. 다음 표에는 Runbook에서 사용할 수 있는 기본 설정 변수와 그 기본값 및 유효한 값이 나와 있습니다. Azure Automation 외부의 Windows PowerShell에서 사용할 경우 기본 설정 변수의 추가 값을 사용할 수 있습니다.
+Runbook에서 특정 Windows PowerShell [기본 설정 변수](/powershell/module/microsoft.powershell.core/about/about_preference_variables)를 설정하여 서로 다른 출력 스트림으로 전송된 데이터에 대한 응답을 제어할 수 있습니다. 다음 표에는 Runbook에서 사용할 수 있는 기본 설정 변수와 그 기본값 및 유효한 값이 나와 있습니다. Azure Automation 외부의 Windows PowerShell에서 사용할 경우 기본 설정 변수의 추가 값을 사용할 수 있습니다.
 
 | 변수 | 기본값 | 유효한 값 |
 |:--- |:--- |:--- |
@@ -198,7 +198,7 @@ Runbook의 **작업** 탭을 사용하여 Azure Portal에서 Runbook 작업의 �
 
 ### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Windows PowerShell에서 Runbook 출력 및 메시지 가져오기
 
-Windows PowerShell에서 [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) cmdlet을 사용하여 Runbook에서 출력 및 메시지를 가져올 수 있습니다. 이 cmdlet에는 작업의 ID가 필요하며 가져올 스트림을 지정할 `Stream`이라는 매개 변수가 있습니다. 이 매개 변수에 값 Any를 지정하면 작업의 모든 스트림을 가져올 수 있습니다.
+Windows PowerShell에서 [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) cmdlet을 사용하여 Runbook에서 출력 및 메시지를 가져올 수 있습니다. 이 cmdlet에는 작업의 ID가 필요하며 가져올 스트림을 지정할 `Stream`이라는 매개 변수가 있습니다. 이 매개 변수에 값 Any를 지정하면 작업의 모든 스트림을 가져올 수 있습니다.
 
 다음 예제는 샘플 runbook를 시작한 다음 완료되기를 기다립니다. Runbook의 실행이 완료되면 스크립트가 작업으로부터 Runbook 출력 스트림을 수집합니다.
 
@@ -260,6 +260,5 @@ Azure Monitor 로그와의 통합을 구성하여 작업 데이터를 수집하�
 ## <a name="next-steps"></a>다음 단계
 
 * Runbook을 사용하려면 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [PowerShell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조하세요.
-* * PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-)을 참조하세요.
+* PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
+* * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.

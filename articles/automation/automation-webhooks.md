@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361679"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185639"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>웹후크에서 Runbook 시작
 
-웹후크를 사용하면 외부 서비스는 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다. 외부 서비스에는 Azure DevOps Services, GitHub, Azure Monitor 로그 및 사용자 지정 애플리케이션이 포함됩니다. 해당 서비스는 웹후크를 사용하여 전체 Azure Automation API를 구현하지 않고도 Runbook을 시작할 수 있습니다. [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)에서 Runhook을 시작하는 다른 방법과 웹후크를 비교할 수 있습니다.
+웹후크를 사용하면 외부 서비스는 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다. 외부 서비스에는 Azure DevOps Services, GitHub, Azure Monitor 로그 및 사용자 지정 애플리케이션이 포함됩니다. 해당 서비스는 웹후크를 사용하여 전체 Azure Automation API를 구현하지 않고도 Runbook을 시작할 수 있습니다. [Azure Automation에서 Runbook 시작](./start-runbooks.md)에서 Runhook을 시작하는 다른 방법과 웹후크를 비교할 수 있습니다.
 
 > [!NOTE]
 > 웹후크를 사용하여 Python Runbook을 시작하는 것은 지원되지 않습니다.
@@ -133,7 +133,7 @@ http://<Webhook Server>/token?=<Token Value>
 {"JobIds":["<JobId>"]}
 ```
 
-클라이언트는 Runbook 작업의 완료 여부 또는 완료 상태를 webhook에서 확인할 수 없습니다. [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메커니즘으로 작업 ID를 사용하여 이 정보를 찾을 수 있습니다.
+클라이언트는 Runbook 작업의 완료 여부 또는 완료 상태를 webhook에서 확인할 수 없습니다. [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메커니즘으로 작업 ID를 사용하여 이 정보를 찾을 수 있습니다.
 
 ## <a name="renew-a-webhook"></a>웹후크 갱신
 
@@ -151,7 +151,7 @@ http://<Webhook Server>/token?=<Token Value>
 다음 샘플 Runbook은 webhook 데이터를 수락하고 요청 본문에 지정된 가상 머신을 시작합니다. 이 Runbook을 테스트하려면 Automation 계정의 **Runbook** 아래에서 **Runbook 만들기 추가**를 클릭합니다. Runbook을 만드는 방법을 모르는 경우 [Runbook 만들기](automation-quickstart-create-runbook.md)를 참조하세요.
 
 > [!NOTE]
-> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
+> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
 
 ```powershell
 param

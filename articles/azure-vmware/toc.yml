@@ -26,6 +26,8 @@
       href: concepts-storage.md
     - name: 프라이빗 클라우드의 액세스 및 ID
       href: concepts-identity.md
+    - name: 역할 기반 액세스 제어
+      href: concepts-rbac.md
     - name: 프라이빗 클라우드 업그레이드
       href: concepts-upgrades.md
 - name: 방법 가이드
@@ -36,27 +38,15 @@
       href: manage-dhcp.md
     - name: 재해 복구
       href: disaster-recovery.md
-    - name: 콘텐츠 라이브러리를 통해 VM 배포
-      href: deploy-vm-content-library.md
     - name: AVS용 Azure Backup Server
       items:
         - name: AVS용 Azure Backup Server 설정
           href: set-up-mabs-for-avs.md
         - name: Azure Backup Server를 사용하여 AVS VM 백업
           href: backup-avs-vms-with-mabs.md
-    - name: Azure 네이티브 통합
-      items:
-        - name: API Management
-          href: concepts-api-management.md
-        - name: 허브 및 스포크
-          href: concepts-avs-hub-and-spoke-integration.md
 - name: 참조
   items: null
 - name: 리소스
   items:
-    - name: 문제 해결
-      items:
-        - name: AVS 배포 또는 프로비저닝 실패에 대한 도움 받기
-          href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.md

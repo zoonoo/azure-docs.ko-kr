@@ -5,11 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: d756cf9705cc1ce0041c26dc3ef022c150c514c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204942"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186064"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Automation 계정에서 업데이트 관리 사용
 
@@ -21,7 +22,7 @@ ms.locfileid: "84204942"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
+* 컴퓨터를 관리하기 위한 [Automation 계정](./index.yml)
 * [가상 머신](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인

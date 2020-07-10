@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836841"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186353"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
@@ -56,7 +57,7 @@ Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 1. 텍스트 편집기의 캔버스 컨트롤에서 자식 Runbook의 코드를 배치하려는 위치에 커서를 놓습니다.
 2. 라이브러리 컨트롤에서 **자산** 노드를 확장합니다.
 3. 원하는 자산 형식에 대한 노드를 확장합니다.
-4. 삽입할 자산 이름을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택합니다. [변수 자산](automation-variables.md)의 경우 변수를 가져올지 또는 설정할지 여부에 따라 **"변수 가져오기"를 캔버스에 추가** 또는 **"변수 설정"을 캔버스에 추가**를 선택합니다.
+4. 삽입할 자산 이름을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택합니다. [변수 자산](./shared-resources/variables.md)의 경우 변수를 가져올지 또는 설정할지 여부에 따라 **"변수 가져오기"를 캔버스에 추가** 또는 **"변수 설정"을 캔버스에 추가**를 선택합니다.
 5. 자산에 대한 코드가 Runbook에 삽입됩니다.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Windows PowerShell을 사용하여 Azure Automation Runbook 편집
@@ -95,9 +96,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Azure Automation에서 Runbook 관리](manage-runbooks.md)
 * [PowerShell 워크플로 알아보기](automation-powershell-workflow.md)
 * [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
-* [인증서](automation-certificates.md)
+* [인증서](./shared-resources/certificates.md)
 * [연결](automation-connections.md).
-* [자격 증명](automation-credentials.md).
-* [일정](automation-schedules.md).
-* [변수](automation-variables.md).
-* [PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [자격 증명](./shared-resources/credentials.md).
+* [일정](./shared-resources/schedules.md).
+* [변수](./shared-resources/variables.md).
+* [PowerShell cmdlet 참조](/powershell/module/az.automation/?view=azps-3.7.0#automation)

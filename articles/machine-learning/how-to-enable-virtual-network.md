@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057809"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186863"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,6 +67,9 @@ __가상 네트워크__는 공용 인터넷에서 Azure 리소스를 격리하�
 
 데이터가 가상 네트워크에 저장 된 경우 작업 영역 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 studio에서 데이터에 액세스 권한을 부여 해야 합니다.
 
+> [!IMPORTANT]
+> 대부분의 스튜디오는 가상 네트워크에 저장 된 데이터와 함께 작동 하지만 통합 된 노트북은 __그렇지 않습니다__. 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 하지 않습니다. 대신, 계산 인스턴스에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스](#access-data-in-a-compute-instance-notebook) 섹션을 참조 하세요.
+
 Studio 액세스 권한을 부여 하지 못한 경우이 오류가 표시 되 `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 고 다음 작업을 사용 하지 않도록 설정 합니다.
 
 * Studio에서 데이터를 미리 봅니다.
@@ -85,7 +88,7 @@ Studio 액세스 권한을 부여 하지 못한 경우이 오류가 표시 되 `
 
 동일한 가상 네트워크에 작업 영역 및 저장소 계정을 추가 하 여 서로 액세스할 수 있도록 합니다.
 
-1. 작업 영역을 가상 네트워크에 연결 하려면 [Azure 개인 링크를 사용 하도록 설정](how-to-configure-private-link.md)합니다.
+1. 작업 영역을 가상 네트워크에 연결 하려면 [Azure 개인 링크를 사용 하도록 설정](how-to-configure-private-link.md)합니다. 이 기능은 현재 미리 보기 상태 이며 미국 동부, 미국 서 부 2, 미국 남부 중부 지역에서 사용할 수 있습니다.
 
 1. 저장소 계정을 가상 네트워크에 연결 하려면 [방화벽 및 가상 네트워크 설정을 구성](#use-a-storage-account-for-your-workspace)합니다.
 
@@ -182,7 +185,7 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](https://doc
 
  Azure Data Lake Store Gen1 및 Azure Data Lake Store Gen2는 기본적으로 유효성 검사를 건너뛰고 추가 작업이 필요 하지 않습니다. 그러나 다음 서비스의 경우 유사한 구문을 사용 하 여 데이터 저장소 유효성 검사를 건너뛸 수 있습니다.
 
-- Azure Blob 스토리지
+- Azure Blob storage
 - Azure 파일 공유
 - PostgreSQL
 - Azure SQL Database

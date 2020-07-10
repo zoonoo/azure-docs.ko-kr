@@ -2,14 +2,14 @@
 title: Azure virtual network에 컨테이너 그룹 배포
 description: Azure 명령줄 인터페이스를 사용 하 여 새 또는 기존 Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: 7e54690efc7955eaaa88ca87a6f7a086dd3e19a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0e15b2e65be45e7f77e401b912ef7b784519b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583650"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169598"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -77,7 +77,7 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 예:
+출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 예를 들면 다음과 같습니다.
 
 ```console
 10.0.0.4
@@ -142,7 +142,7 @@ az network profile list --resource-group myResourceGroup \
 네트워크 프로필 ID를 가져온 후 다음 YAML을 새 파일 *vnet-deploy-aci.yaml*에 복사합니다. `networkProfile` 아래의 `id` 값을 방금 검색한 ID로 바꾸고 파일을 저장합니다. 이 YAML은 가상 네트워크에 컨테이너 그룹 *appcontaineryaml*을 만듭니다.
 
 ```YAML
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: westus
 name: appcontaineryaml
 properties:

@@ -2,12 +2,13 @@
 title: 컨테이너 인스턴스에서 준비 프로브 설정
 description: Azure Container Instances 컨테이너가 준비 된 경우에만 요청을 수신 하도록 프로브를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76935690"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169666"
 ---
 # <a name="configure-readiness-probes"></a>준비 상태 프로브 구성
 
@@ -25,7 +26,7 @@ Azure Container Instances은 비정상 컨테이너가 자동으로 다시 시�
 예를 들어 `readiness-probe.yaml` 준비 프로브를 포함 하는 다음 코드 조각을 사용 하 여 파일을 만듭니다. 이 파일은 작은 웹 앱을 실행 하는 컨테이너로 구성 된 컨테이너 그룹을 정의 합니다. 앱은 공용 이미지에서 배포 됩니다 `mcr.microsoft.com/azuredocs/aci-helloworld` . 이 컨테이너 화 된 앱은 Azure CLI 및 기타 빠른 시작을 [사용 하 여 Azure에 컨테이너 인스턴스 배포](container-instances-quickstart.md) 에도 설명 되어 있습니다.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:

@@ -3,12 +3,12 @@ title: Linux에서 개발 환경 설정
 description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 애플리케이션을 빌드할 수 있습니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8610feb68e16646c73c132c0577fd3ff198d74b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854794"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186897"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-f
 Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 지원되는 Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 개발을 위해 이러한 운영 체제 버전이 지원됩니다.
 
@@ -161,8 +161,8 @@ SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 �
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
-RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
+**RHEL** | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
 ## <a name="set-up-a-local-cluster"></a>로컬 클러스터를 설정합니다.
 설치가 완료된 후에 로컬 클러스터를 시작합니다.

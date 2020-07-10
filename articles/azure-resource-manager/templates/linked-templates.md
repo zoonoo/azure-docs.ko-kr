@@ -3,12 +3,12 @@ title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056687"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170652"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -160,7 +160,7 @@ ms.locfileid: "86056687"
 
 의 `exampleVar` 속성 값에 따라의 값이 변경 `scope` `expressionEvaluationOptions` 됩니다. 다음 표에서는 두 범위에 대 한 결과를 보여 줍니다.
 
-| `expressionEvaluationOptions` `scope` | 출력 |
+| `expressionEvaluationOptions`범위 | 출력 |
 | ----- | ------ |
 | inner | 중첩 된 템플릿 |
 | 외부 (또는 기본값) | 부모 템플릿에서 |

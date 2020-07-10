@@ -5,15 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea05e75c0d1db1ef27ae2e8e9364327528a7c8ed
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e30d1606a3928f421d2155e2d1abac0c8a6872aa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837164"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186642"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Azure Automation 업데이트 관리를 위한 Windows 업데이트 설정 구성
 
-Azure Automation 업데이트 관리는 [Windows 업데이트 클라이언트](https://docs.microsoft.com//windows/deployment/update/windows-update-overview)를 사용하여 Windows 업데이트를 다운로드하고 설치합니다. WSUS(Windows Server Update Services) 또는 Windows 업데이트에 연결할 때 Windows 업데이트 클라이언트에서 사용하는 특정 설정이 있습니다. 이러한 설정의 대부분은 다음을 통해 관리할 수 있습니다.
+Azure Automation 업데이트 관리는 [Windows 업데이트 클라이언트](/windows/deployment/update/windows-update-overview)를 사용하여 Windows 업데이트를 다운로드하고 설치합니다. WSUS(Windows Server Update Services) 또는 Windows 업데이트에 연결할 때 Windows 업데이트 클라이언트에서 사용하는 특정 설정이 있습니다. 이러한 설정의 대부분은 다음을 통해 관리할 수 있습니다.
 
 - 로컬 그룹 정책 편집기
 - 그룹 정책
@@ -22,7 +23,7 @@ Azure Automation 업데이트 관리는 [Windows 업데이트 클라이언트](h
 
 업데이트 관리는 Windows 업데이트 클라이언트를 제어하기 위해 지정된 대부분의 설정을 따릅니다. 설정을 사용하여 비 Windows 업데이트를 사용하도록 설정하는 경우 업데이트 관리는 해당 업데이트도 관리합니다. 업데이트 배포를 수행하기 전에 업데이트 다운로드를 사용하도록 설정하면 업데이트 배포가 더 빠르고 효율적이며 유지 관리 기간을 초과할 가능성이 줄어듭니다.
 
-Azure 구독에서 WSUS를 설정하고 Windows 가상 머신을 최신 상태로 안전하게 유지하는 방법에 대한 추가 권장 사항은 [WSUS를 사용하여 Azure에서 Windows 가상 머신을 업데이트하기 위한 배포 계획](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/)을 참조하세요.
+Azure 구독에서 WSUS를 설정하고 Windows 가상 머신을 최신 상태로 안전하게 유지하는 방법에 대한 추가 권장 사항은 [WSUS를 사용하여 Azure에서 Windows 가상 머신을 업데이트하기 위한 배포 계획](/azure/architecture/example-scenario/wsus/)을 참조하세요.
 
 ## <a name="pre-download-updates"></a>업데이트 사전 다운로드
 
@@ -57,7 +58,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 업데이트 관리는 WSUS 설정을 지원합니다. [인트라넷 Microsoft 업데이트 서비스 위치 지정](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location)의 지침을 사용하여 업데이트를 검색하고 다운로드하기 위한 소스를 지정할 수 있습니다. 기본적으로 Windows 업데이트 클라이언트는 Windows 업데이트에서 업데이트를 다운로드하도록 구성됩니다. WSUS 서버를 컴퓨터의 소스로 지정하는 경우 업데이트가 WSUS에서 승인되지 않으면 업데이트 배포가 실패합니다. 
 
-컴퓨터를 내부 업데이트 서비스로 제한하려면 [모든 Windows 업데이트 인터넷 위치에 연결하지 마십시오](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations)를 설정합니다. 
+컴퓨터를 내부 업데이트 서비스로 제한하려면 [모든 Windows 업데이트 인터넷 위치에 연결하지 마십시오](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations)를 설정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

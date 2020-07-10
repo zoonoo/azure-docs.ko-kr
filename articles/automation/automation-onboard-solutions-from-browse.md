@@ -5,11 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0af0848f057b5c225471e9ac13f14db2468d838c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204925"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186098"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Azure Portal에서 업데이트 관리 사용
 
@@ -23,7 +24,7 @@ VM 관리에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
+* 컴퓨터를 관리하기 위한 [Automation 계정](./index.yml)
 * [가상 머신](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인

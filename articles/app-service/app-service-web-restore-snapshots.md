@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255142"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169976"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>스냅샷에서 Azure의 앱 복원
 이 문서에서는 스냅샷에서 [Azure App Service](../app-service/overview.md)의 앱을 복원하는 방법을 설명합니다. 앱의 스냅샷 중 하나를 기반으로 이전 상태로 앱을 복원할 수 있습니다. 스냅샷 백업을 사용하도록 설정할 필요는 없으며 플랫폼이 데이터 복구를 위해 모든 앱의 스냅샷을 자동으로 저장합니다.
@@ -36,15 +37,15 @@ ms.locfileid: "78255142"
 
 1. [Azure Portal](https://portal.azure.com)의 앱 **설정** 페이지에서 **백업** 을 클릭 하 여 **백업** 페이지를 표시 합니다. 그런 다음, **스냅샷(미리 보기)** 섹션에서 **복원**을 클릭합니다.
    
-    ![](./media/app-service-web-restore-snapshots/1.png)
+    ![스냅숏 백업에서 앱을 복원 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/1.png)
 
 2. **복원** 페이지에서 복원할 스냅샷을 선택합니다.
    
-    ![](./media/app-service-web-restore-snapshots/2.png)
+    ![복원할 스냅숏을 선택 하는 방법을 보여 주는 스크린샷 ](./media/app-service-web-restore-snapshots/2.png)
    
 3. **복원 대상**에서 앱 복원 대상을 지정합니다.
    
-    ![](./media/app-service-web-restore-snapshots/3.png)
+    ![복원 대상을 지정 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > **덮어쓰기**를 선택하면 앱의 현재 파일 시스템에 있는 기존 데이터를 모두 지우고 덮어씁니다. **확인**을 클릭하기 전에 수행하려는 작업이 맞는지 확인하세요.
@@ -60,6 +61,6 @@ ms.locfileid: "78255142"
 
 4. 사이트 구성을 복원하도록 선택할 수 있습니다.
    
-    ![](./media/app-service-web-restore-snapshots/4.png)
+    ![사이트 구성을 복원 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/4.png)
 
 5. **확인**을 클릭합니다.

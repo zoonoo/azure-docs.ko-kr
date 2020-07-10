@@ -5,11 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343057"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186166"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
@@ -36,9 +37,9 @@ Hybrid Runbook Worker 역할에 대 한 종속성 인 Windows 및 Linux 용 Log 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
-| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
-| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
-| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
+| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
+| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
+| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 
 ## <a name="data-retention"></a>데이터 보존
 
@@ -50,7 +51,7 @@ Azure Automation에서 리소스를 삭제할 경우 영구적으로 제거하�
 |:--- |:--- |
 | 계정 |사용자가 삭제한 후 30일이 지나면 계정은 영구적으로 제거됩니다. |
 | 자산 |자산은 사용자가 삭제한 후 30일이 지나거나 사용자가 자산을 보유한 계정을 삭제한 후 30일이 지나면 영구적으로 제거됩니다. |
-| DSC 노드 |DSC 노드는 Azure Portal이나 Windows PowerShell에서 [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdlet을 사용하여 자동화 계정에서 노드의 등록을 취소한 후 30일이 지나면 영구적으로 제거됩니다. 노드는 또한 사용자가 노드를 보유하는 계정을 삭제한 후 30일이 지나면 영구적으로 제거됩니다. |
+| DSC 노드 |DSC 노드는 Azure Portal이나 Windows PowerShell에서 [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdlet을 사용하여 자동화 계정에서 노드의 등록을 취소한 후 30일이 지나면 영구적으로 제거됩니다. 노드는 또한 사용자가 노드를 보유하는 계정을 삭제한 후 30일이 지나면 영구적으로 제거됩니다. |
 | 작업 |작업 완료, 중지 또는 일시 중단과 같은 수정 이후 30일이 지나면 작업이 삭제되고 영구 제거됩니다. |
 | 모듈 |모듈은 사용자가 삭제한 후 30일이 지나면 영구적으로 제거됩니다. 또는 사용자가 모듈을 보유한 계정을 삭제한 후 30일이 지나면 영구적으로 제거됩니다. |
 | 노드 구성/MOF 파일 |이전 노드 구성은 새 노드 구성이 생성된 후 30일이 지나면 영구적으로 제거됩니다. |
@@ -65,7 +66,7 @@ Azure에서 Automation 계정을 삭제하면 계정의 모든 개체가 삭제�
 
 ### <a name="runbooks"></a>Runbook
 
-Azure Portal 또는 Windows PowerShell의 [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition)을 사용하여 Runbook을 스크립트 파일로 내보낼 수 있습니다. [Azure Automation에서 Runbook 관리](manage-runbooks.md)에서 설명하는 것과 같이 다른 Automation 계정으로 스크립트 파일을 가져올 수 있습니다.
+Azure Portal 또는 Windows PowerShell의 [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition)을 사용하여 Runbook을 스크립트 파일로 내보낼 수 있습니다. [Azure Automation에서 Runbook 관리](manage-runbooks.md)에서 설명하는 것과 같이 다른 Automation 계정으로 스크립트 파일을 가져올 수 있습니다.
 
 ### <a name="integration-modules"></a>통합 모듈
 
@@ -79,8 +80,7 @@ Azure Automation에서는 통합 모듈을 내보낼 수 없습니다. Automatio
 
 ### <a name="dsc-configurations"></a>DSC 구성
 
-Azure Portal 또는 Windows PowerShell의 [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
-) cmdlet을 사용하여 DSC 구성을 스크립트 파일로 내보낼 수 있습니다. 다른 Automation 계정에서 이러한 구성을 가져오고 사용할 수 있습니다.
+Azure Portal 또는 Windows PowerShell의 [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) cmdlet을 사용하여 DSC 구성을 스크립트 파일로 내보낼 수 있습니다. 다른 Automation 계정에서 이러한 구성을 가져오고 사용할 수 있습니다.
 
 ## <a name="geo-replication-in-azure-automation"></a>Azure Automation의 지역에서 복제
 
@@ -102,4 +102,4 @@ Automation 지역 복제 서비스에 의해 생성된 백업은 Automation 자�
 
 * Azure Automation의 보안 자산에 대한 자세한 내용은 [Azure Automation의 보안 자산 암호화](automation-secure-asset-encryption.md)를 참조하세요.
 
-* 지역 복제에 대한 자세한 내용은 [활성 지역 복제 만들기 및 사용](../sql-database/sql-database-active-geo-replication.md)을 참조하세요.
+* 지역 복제에 대한 자세한 내용은 [활성 지역 복제 만들기 및 사용](../azure-sql/database/active-geo-replication-overview.md)을 참조하세요.

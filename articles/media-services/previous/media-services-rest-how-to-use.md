@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773669"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170822"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요 
 
@@ -38,21 +39,23 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 
 * 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
 * JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(아래 예제 참조)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 **__metadata** 속성을 인식하지 못합니다.  
-  
-        POST https://media.windows.net/API/Jobs HTTP/1.1
-        Content-Type: application/json;odata=verbose
-        Accept: application/json;odata=verbose
-        DataServiceVersion: 3.0
-        MaxDataServiceVersion: 3.0
-        x-ms-version: 2.19
-        Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
-  
-        {
-            "Name" : "NewTestJob", 
-            "InputMediaAssets" : 
-                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-        . . . 
+
+    ```console
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.19
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.windows.net
+
+    {
+        "Name" : "NewTestJob", 
+        "InputMediaAssets" : 
+            [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+    . . . 
+   ```
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Media Services에서 지원하는 표준 HTTP 요청 헤더
 Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해야 하는 필수 헤더 집합이 있으며 포함할 수도 있는 선택적 헤더 집합도 있습니다. 아래 표에서는 필수 헤더를 나열합니다.
@@ -80,15 +83,15 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 | Accept-Charset |"UTF-8"과 같은 문자 집합 유형 |기본값은 UTF-8입니다. |
 | X-HTTP-Method |HTTP 메서드 |PUT 또는 DELETE와 같이 HTTP 메서드를 지원하지 않는 클라이언트나 방화벽이 GET 호출을 통해 터널링된 이러한 메서드를 사용하도록 허용합니다. |
 | 콘텐츠 형식 |내용 유형 |PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다. |
-| client-request-id |String |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
+| client-request-id |문자열 |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
 | 헤더 | 형식 | 값 |
 | --- | --- | --- |
-| request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
-| client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
+| request-id |문자열 |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
+| client-request-id |문자열 |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
 | 날짜 |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
 | 콘텐츠 형식 |상황에 따라 다름 |응답 본문의 콘텐츠 형식입니다. |
 | Content-Encoding |상황에 따라 다름 |Gzip 또는 deflate를 적절하게 합니다. |
@@ -101,7 +104,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 | GET |개체의 현재 값을 반환합니다. |
 | POST |제공된 데이터를 기반으로 개체를 만들거나 명령을 제출합니다. |
 | PUT |개체를 바꾸거나 명명된 개체(있는 경우)를 만듭니다. |
-| Delete |개체를 삭제합니다. |
+| DELETE |개체를 삭제합니다. |
 | MERGE |명명된 속성 변경 내용으로 기존 개체를 업데이트합니다. |
 | HEAD |GET 응답에 대한 개체의 메타데이터를 반환합니다. |
 

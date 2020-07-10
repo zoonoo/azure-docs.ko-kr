@@ -5,11 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 332ff4f6e63a831c1523c3f959708f9dc48a72a9
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5ff6e0ffd4040393a040dc67a511aab47887f6e1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171058"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186268"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Azure VM에서 변경 내용 추적 및 인벤토리 사용
 
@@ -21,7 +22,7 @@ ms.locfileid: "84171058"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 컴퓨터를 관리하기 위한 [Automation 계정](automation-offering-get-started.md)
+* 컴퓨터를 관리하기 위한 [Automation 계정](./index.yml)
 * [가상 머신](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인

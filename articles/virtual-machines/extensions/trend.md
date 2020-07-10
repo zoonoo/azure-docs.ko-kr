@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 874e6f9b1c0bebedb5f50ca38d0703420be69de5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919926"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186965"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 
@@ -61,10 +62,12 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 
 먼저 VM 에이전트가 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 머신 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
 
-    $CSName = "<cloud service name>"
-    $VMName = "<virtual machine name>"
-    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
-    write-host $vm.VM.ProvisionGuestAgent
+```azurepowershell
+$CSName = "<cloud service name>"
+$VMName = "<virtual machine name>"
+$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+write-host $vm.VM.ProvisionGuestAgent
+```
 
 클라우드 서비스 및 가상 머신 이름을 모르는 경우 **Get-AzureVM**을 실행하여 현재 구독의 모든 가상 머신에 대한 해당 정보를 표시합니다.
 
@@ -72,9 +75,11 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 
 VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 
-    $Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
+```azurepowershell
+$Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
 
-    Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
+Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
+```
 
 ## <a name="next-steps"></a>다음 단계
 에이전트가 설치되어 있는 경우 실행을 시작하는 데 몇 분 정도 걸립니다. 그 이후에는 Deep Security Manager를 통해 관리할 수 있도록 가상 머신에서 Deep Security를 정품 인증해야 합니다. 추가 지침은 다음 문서를 참조하세요.
@@ -83,7 +88,7 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 * 가상 머신 구성을 위한 [샘플 Windows PowerShell 스크립트](https://go.microsoft.com/fwlink/?LinkId=404100)
 * [지침](https://go.microsoft.com/fwlink/?LinkId=404099)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 [Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법]
 
 [Azure VM 확장 및 기능]

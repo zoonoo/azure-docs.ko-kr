@@ -9,11 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836858"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186370"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>비규격 Azure Automation 상태 구성 서버 재구성
 
@@ -24,7 +25,7 @@ Azure 컴퓨팅은 고객이 가상 머신 내에서 스크립트를 실행할 �
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>PowerShell을 사용하여 Windows 가상 머신의 드리프트 수정
 
-`Run` 명령 기능을 사용하여 Windows 가상 머신의 드리프트를 수정할 수 있습니다. [실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행](/azure/virtual-machines/windows/run-command)을 참조하세요.
+`Run` 명령 기능을 사용하여 Windows 가상 머신의 드리프트를 수정할 수 있습니다. [실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행](../virtual-machines/windows/run-command.md)을 참조하세요.
 
 Azure Automation 상태 구성 노드에서 최신 구성을 다운로드하여 적용하려면 [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration) cmdlet을 사용합니다.
 
@@ -42,5 +43,5 @@ Azure 노드의 경우 Azure Portal에서 또는 Az 모듈 cmdlet을 사용하�
 
 ## <a name="next-steps"></a>다음 단계
 
-- PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
 - 연속 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.

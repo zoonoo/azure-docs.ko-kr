@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888592"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170788"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드  
 > [!div class="op_single_selector"]
@@ -39,7 +40,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 > * 업로드 URL을 사용하여 Blob Storage에 파일 업로드
 > * 자산에 업로드한 미디어 파일에 대한 메타데이터 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal를 사용 하 여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
@@ -149,7 +150,7 @@ Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API
 
 SAS URL의 형식은 다음과 같습니다.
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### <a name="considerations"></a>고려 사항
 
@@ -172,7 +173,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 ### <a name="overview"></a>개요
 
-이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 항목을 참조하세요.
+이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Storage REST API 사용](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Blob 배치](https://docs.microsoft.com/rest/api/storageservices/put-blob)
@@ -212,15 +213,17 @@ SAS URL의 형식은 다음과 같습니다.
 
 예를 들어 다음 **GET** 작업은 자산 파일(예제에서는 BigBuckBunny.mp4 파일)에 대한 파일 데이터를 가져옵니다. 쿼리는 앞에서 설정한 [환경 변수](postman-environment.md)를 사용하고 있습니다.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 응답에는 크기, 이름 및 기타 정보가 포함됩니다.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## <a name="next-steps"></a>다음 단계
 
 이제 업로드된 자산을 인코딩할 수 있습니다. 자세한 내용은 [자산 인코딩](media-services-portal-encode.md)을 참조하세요.

@@ -16,11 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8928e7293f184e8eb366df6a29e50cbea6a7c93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078204"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170499"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -53,7 +54,7 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
 
 외부 Azure AD 디렉터리 또는 도메인을 연결 된 조직으로 추가 하려면이 섹션의 지침을 따르세요.
 
-**필수 구성 요소 역할**: *전역 관리자*, *사용자 관리자*또는 *게스트 초대자*
+**필수 구성 요소 역할**: *전역 관리자* 또는 *사용자 관리자*
 
 1. Azure Portal에서 **Azure Active Directory**를 선택 하 고 **id 관리**를 선택 합니다.
 

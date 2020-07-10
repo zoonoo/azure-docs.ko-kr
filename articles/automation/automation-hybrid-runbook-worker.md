@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: d921ecc390ae9361c9b36b4738e73a499aa2e8a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361815"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186251"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -63,7 +63,7 @@ Azure Automation와 Log Analytics 에이전트를 실행 하는 컴퓨터 간의
 
 ### <a name="firewall-use"></a>방화벽 사용
 
-방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하는 경우 Hybrid Runbook Worker용으로 구성되었는지 확인합니다. [Automation Hybrid Worker에 대한 Log Analytics 게이트웨이 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)을 참조하세요.
+방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하는 경우 Hybrid Runbook Worker용으로 구성되었는지 확인합니다. [Automation Hybrid Worker에 대한 Log Analytics 게이트웨이 구성](../azure-monitor/platform/gateway.md)을 참조하세요.
 
 ### <a name="service-tags"></a>서비스 태그
 

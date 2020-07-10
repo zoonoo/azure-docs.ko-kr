@@ -3,12 +3,12 @@ title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Mic
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337890"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186914"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -208,7 +208,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="header"></a>header
 
-| 필드 이름 | 사용량 | API 이름 |
+| 필드 이름 | 사용 | API 이름 |
 | --- | --- | --- |
 | 지속성 |- |- |
 | priority |- |- |
@@ -218,7 +218,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 #### <a name="properties"></a>properties
 
-| 필드 이름 | 사용량 | API 이름 |
+| 필드 이름 | 사용 | API 이름 |
 | --- | --- | --- |
 | message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[있어](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
@@ -238,7 +238,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`로 전달되는 다른 서비스 버스 메시지 속성이 몇 개 있습니다.
 
-| 주석 맵 키 | 사용량 | API 이름 |
+| 주석 맵 키 | 사용 | API 이름 |
 | --- | --- | --- |
 | x-opt-scheduled-enqueue-time | 메시지가 엔터티에 표시되어야 하는 시간을 선언합니다. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 애플리케이션 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
@@ -264,8 +264,8 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 
 트랜잭션 작업을 시작하려면 컨트롤러가 코디네이터에서 `txn-id`를 가져와야 합니다. 이를 위해 `declare` 형식 메시지를 전송합니다. 선언에 성공하면 코디네이터가 다음과 같은 처리 결과로 응답을 합니다. 이 응답에 할당된 `txn-id`가 포함되어 있습니다.
 
-| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
-| --- | --- | --- |
+| 클라이언트(컨트롤러) | 방향 | Service Bus(코디네이터) |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
@@ -277,8 +277,8 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 
 > 참고: fail=true는 트랜잭션 롤백을, fail=false는 커밋을 나타냅니다.
 
-| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
-| --- | --- | --- |
+| 클라이언트(컨트롤러) | 방향 | Service Bus(코디네이터) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>다른 링크의<br/>트랜잭션 작업<br/> . . . |
@@ -289,8 +289,8 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 
 모든 트랜잭션 작업은 트랜잭션 배달 상태를 사용 하 여 트랜잭션 배달 상태를 `transactional-state` 전달 합니다. 메시지를 보내는 경우 트랜잭션 상태는 메시지의 전송 프레임에 의해 전달 됩니다. 
 
-| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
-| --- | --- | --- |
+| 클라이언트(컨트롤러) | 방향 | Service Bus(코디네이터) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
@@ -300,8 +300,8 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 
 메시지 배치에는 `Complete` / `Abandon` / `DeadLetter` / `Defer` 같은 작업이 포함됩니다. 트랜잭션 내에서 이러한 작업을 수행하려면 disposition과 함께 `transactional-state`를 전달하세요.
 
-| 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
-| --- | --- | --- |
+| 클라이언트(컨트롤러) | 방향 | Service Bus(코디네이터) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
@@ -357,11 +357,11 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 요청 메시지에는 다음과 같은 애플리케이션 속성이 적용됩니다.
 
-| Key | 선택 사항 | 값 형식 | 값 내용 |
+| 키 | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | operation(작업) |예 |문자열 |**put-token** |
 | 형식 |예 |문자열 |배치되는 토큰의 형식입니다. |
-| name |예 |문자열 |토큰이 적용되는 "대상"입니다. |
+| 이름 |예 |문자열 |토큰이 적용되는 "대상"입니다. |
 | expiration |예 |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
@@ -376,9 +376,9 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 회신 메시지는 다음과 같은 *애플리케이션 속성* 값을 갖습니다.
 
-| Key | 선택 사항 | 값 형식 | 값 내용 |
+| 키 | 선택 사항 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
+| status-code |예 |int |HTTP 응답 코드 **[RFC2616]** |
 | status-description |예 |문자열 |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token*을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.
@@ -399,8 +399,8 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 > 참고: 이 링크를 설정하기 전에 *via-entity* 및 *destination-entity* 모두에 대해 인증이 수행되어야 합니다.
 
-| 클라이언트 | | Service Bus |
-| --- | --- | --- |
+| 클라이언트 | 방향 | Service Bus |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target =**{via-엔터티}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 

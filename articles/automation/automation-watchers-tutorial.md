@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830585"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185656"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>감시자 태스크를 사용하여 업데이트된 파일 추적
 
@@ -19,7 +20,7 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 찾고 Powe
 > 감시자 태스크는 Azure 중국 Vianet 21에서 지원되지 않습니다.
 
 > [!IMPORTANT]
-> 2020년 5월부터는 Azure Logic Apps를 사용하여 이벤트를 모니터링하고 반복 태스크를 예약하고 작업을 트리거할 수 있습니다. [Azure Logic Apps를 사용하여 반복적인 자동화 태스크, 프로세스 및 워크플로 예약 및 실행](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows)을 참조하세요.
+> 2020년 5월부터는 Azure Logic Apps를 사용하여 이벤트를 모니터링하고 반복 태스크를 예약하고 작업을 트리거할 수 있습니다. [Azure Logic Apps를 사용하여 반복적인 자동화 태스크, 프로세스 및 워크플로 예약 및 실행](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)을 참조하세요.
 
 이 자습서에서는 새 파일이 디렉터리에 추가되는 시기를 모니터링하기 위한 감시자 태스크를 만드는 과정을 안내합니다. 다음 방법을 알아봅니다.
 
@@ -36,7 +37,7 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 찾고 Powe
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* 감시자 및 작업 Runbook과 감시자 태스크를 포함하는 [Automation 계정](automation-offering-get-started.md)
+* 감시자 및 작업 Runbook과 감시자 태스크를 포함하는 [Automation 계정](./index.yml)
 * 감시자 작업이 실행되는 [하이브리드 Runbook 작업자](automation-hybrid-runbook-worker.md)
 * PowerShell runbooks PowerShell 워크플로 Runbook은 감시자 태스크에서 지원되지 않습니다.
 
@@ -60,7 +61,7 @@ Azure Automation은 감시자 태스크를 사용하여 이벤트를 찾고 Powe
 
 ## <a name="create-an-automation-variable"></a>Automation 변수 만들기
 
-[Automation 변수](automation-variables.md)는 위의 Runbook이 각 파일에서 읽고 저장하는 타임스탬프를 저장하는 데 사용됩니다.
+[Automation 변수](./shared-resources/variables.md)는 위의 Runbook이 각 파일에서 읽고 저장하는 타임스탬프를 저장하는 데 사용됩니다.
 
 1. **공유 리소스** 아래에서 **변수**를 선택하고 **+ 변수 추가**를 클릭합니다.
 1. 이름에 Watch-NewFileTimestamp를 입력합니다.

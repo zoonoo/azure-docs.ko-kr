@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835253"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186200"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 
@@ -27,8 +28,8 @@ Azure Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상�
 
 Automation 로그를 Azure Monitor 로그로 보내려면 다음이 필요합니다.
 
-* 최신 버전의 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* Log Analytics 작업 영역. 자세한 내용은 [Azure Monitor 로그 시작](../log-analytics/log-analytics-get-started.md)을 참조하세요.
+* 최신 버전의 [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Log Analytics 작업 영역. 자세한 내용은 [Azure Monitor 로그 시작](../azure-monitor/overview.md)을 참조하세요.
 * Azure Automation 계정에 대한 리소스 ID
 
 다음 명령을 사용하여 Azure Automation 계정에 대한 리소스 ID를 찾습니다.
@@ -185,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor 로그를 사용하여 검색 쿼리를 작성하고 Automation 작업 로그를 검토하는 방법에 대한 자세한 내용은 [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
+* Azure Monitor 로그를 사용하여 검색 쿼리를 작성하고 Automation 작업 로그를 검토하는 방법에 대한 자세한 내용은 [Azure Monitor 로그의 로그 검색](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 * Runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 이해하려면 [Runbook 출력 모니터링](automation-runbook-output-and-messages.md)을 참조하세요.
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Azure Automation에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
-* Azure Monitor 로그 및 데이터 수집 소스에 대해 자세히 알아보려면 [Azure Monitor 로그에서 Azure 스토리지 데이터 수집 개요](../azure-monitor/platform/collect-azure-metrics-logs.md)를 참조하세요.
+* Azure Monitor 로그 및 데이터 수집 소스에 대해 자세히 알아보려면 [Azure Monitor 로그에서 Azure 스토리지 데이터 수집 개요](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)를 참조하세요.
 * Log Analytics 문제 해결에 대한 도움말은 [Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data)을 참조하세요.

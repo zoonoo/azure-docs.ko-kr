@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a701a5a9fd77bd801bb535fe1f26bfa17c97757b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204891"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185792"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Azure VM에 대한 업데이트 및 패치 관리
 
@@ -206,7 +206,7 @@ REST API를 사용하여 업데이트 배포를 만드는 방법은 [소프트�
 ## <a name="next-steps"></a>다음 단계
 
 * 범위 구성에 대한 자세한 내용은 [업데이트 관리 배포 범위 제한](automation-scope-configurations-update-management.md)을 참조하세요.
-* Log Analytics 작업 영역에 저장된 로그를 검색해야 하는 경우 [Azure Monitor 로그에서 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
+* Log Analytics 작업 영역에 저장된 로그를 검색해야 하는 경우 [Azure Monitor 로그에서 로그 검색](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 * 배포가 완료되면 [업데이트 관리의 Automation 계정에서 작업 영역 연결 해제](automation-unlink-workspace-update-management.md)를 참조하세요.
 * 업데이트 관리에서 VM을 삭제하려면 [업데이트 관리에서 VM 제거](automation-remove-vms-from-update-management.md)를 참조하세요.
 * 일반적인 업데이트 관리 오류를 해결하려면 [업데이트 관리 문제 해결](troubleshoot/update-management.md)을 참조하세요.

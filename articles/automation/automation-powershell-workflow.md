@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 741569740713fef72f714f7cbce38a3c6f075684
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836688"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186006"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Azure Automation에 대한 PowerShell 워크플로 학습
 
@@ -20,7 +21,7 @@ Azure Automation의 Runbook은 Windows Workflow Foundation을 사용하는 Windo
 > [!NOTE]
 > PowerShell 워크플로는 스크립트는 Windows PowerShell 스크립트와 매우 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다. 따라서 [검사점](#use-checkpoints-in-a-workflow)을 사용해야 하는 경우에만 PowerShell 워크플로를 사용하여 Runbook을 작성하는 것이 좋습니다. 
 
-이 문서의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](https://technet.microsoft.com/library/jj134242.aspx)을 참조하세요.
+이 문서의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11))을 참조하세요.
 
 ## <a name="use-workflow-keyword"></a>워크플로 키워드 사용
 
@@ -45,9 +46,9 @@ PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외�
 
 활동은 시퀀스에서 수행되는 워크플로의 특정 작업입니다. Windows PowerShell 워크플로는 워크플로를 실행할 때 많은 Windows PowerShell cmdlet을 활동으로 자동으로 변환합니다. Runbook에서 이러한 cmdlet 중 하나를 지정한 경우 해당 활동은 Windows Workflow Foundation에 의해 실행됩니다. 
 
-cmdlet에 해당 활동이 없는 경우 Windows PowerShell 워크플로는 [InlineScript](#use-inlinescript) 활동 내에서 cmdlet을 자동으로 실행합니다. InlineScript 블록에 명시적으로 포함하지 않으면 일부 cmdlet은 제외되고 워크플로에서 사용할 수 없습니다. 자세한 내용은 [스크립트 워크플로에서 활동 사용](https://technet.microsoft.com/library/jj574194.aspx)을 참조하세요.
+cmdlet에 해당 활동이 없는 경우 Windows PowerShell 워크플로는 [InlineScript](#use-inlinescript) 활동 내에서 cmdlet을 자동으로 실행합니다. InlineScript 블록에 명시적으로 포함하지 않으면 일부 cmdlet은 제외되고 워크플로에서 사용할 수 없습니다. 자세한 내용은 [스크립트 워크플로에서 활동 사용](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574194(v=ws.11))을 참조하세요.
 
-워크플로 활동은 해당 작업을 구성하기 위해 일반 매개 변수 집합을 공유합니다. [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx)를 참조하세요.
+워크플로 활동은 해당 작업을 구성하기 위해 일반 매개 변수 집합을 공유합니다. [about_WorkflowCommonParameters](/powershell/module/psworkflow/about/about_workflowcommonparameters)를 참조하세요.
 
 ### <a name="positional-parameters"></a>위치 매개 변수
 
@@ -150,7 +151,7 @@ InlineScript 활동은 특정 워크플로에서 중요할 수 있지만 워크�
 * InlineScript 블록 내에서는 [병렬 실행](#use-parallel-processing)을 사용할 수 없습니다.
 * InlineScript는 InlineScript 블록의 전체 길이 동안 Windows PowerShell 세션을 유지하므로 워크플로의 확장성에 영향을 줍니다.
 
-InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows PowerShell 명령 실행](https://technet.microsoft.com/library/jj574197.aspx) 및 [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx)를 참조하세요.
+InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows PowerShell 명령 실행](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574197(v=ws.11)) 및 [about_InlineScript](/powershell/module/psworkflow/about/about_inlinescript)를 참조하세요.
 
 ## <a name="use-parallel-processing"></a>병렬 처리 사용
 
@@ -260,7 +261,7 @@ Workflow Copy-Files
 }
 ```
 
-[Suspend-workflow](https://technet.microsoft.com/library/jj733586.aspx) 작업을 호출한 후 또는 마지막 검사점 이후에 사용자 이름 자격 증명을 유지하지 않기 때문에 자격 증명을 Null로 설정하고 `Suspend-Workflow` 또는 검사점을 호출한 후에 자산 저장소에서 다시 검색해야 합니다.  그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+[Suspend-workflow](/powershell/module/psworkflow/about/about_suspend-workflow) 작업을 호출한 후 또는 마지막 검사점 이후에 사용자 이름 자격 증명을 유지하지 않기 때문에 자격 증명을 Null로 설정하고 `Suspend-Workflow` 또는 검사점을 호출한 후에 자산 저장소에서 다시 검색해야 합니다.  그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 다음과 같은 코드에서는 PowerShell 워크플로 Runbook에서 이 상황을 처리하는 방법을 보여 줍니다.
 
@@ -289,9 +290,9 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다. 서비스 주체로 구성된 실행 계정을 사용하여 인증하는 경우에는 이러한 cmdlet을 사용할 필요가 없습니다.
+> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다. 서비스 주체로 구성된 실행 계정을 사용하여 인증하는 경우에는 이러한 cmdlet을 사용할 필요가 없습니다.
 
-검사점에 대한 자세한 내용은 [스크립트 워크플로에 검사점 추가](https://technet.microsoft.com/library/jj574114.aspx)를 참조하세요.
+검사점에 대한 자세한 내용은 [스크립트 워크플로에 검사점 추가](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11))를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

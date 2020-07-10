@@ -5,15 +5,16 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 35d408c636e20aef9495e72bc8535e0d7a99431e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955271"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170363"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
-Azure Functions 핵심 도구를 사용하여 명령 프롬프트 또는 터미널의 로컬 머신에서 함수를 개발하고 테스트할 수 있습니다. 로컬 함수는 라이브 Azure 서비스에 연결할 수 있고 사용자는 전체 Functions 런타임을 사용하여 로컬 머신에서 함수를 디버깅할 수 있습니다. Azure 구독에 함수 앱을 배포할 수도 있습니다.
+Azure Functions Core Tools를 사용하면 명령 프롬프트나 터미널에서 함수를 개발하고 테스트할 수 있습니다. 로컬 함수는 라이브 Azure 서비스에 연결할 수 있고 사용자는 전체 Functions 런타임을 사용하여 로컬 머신에서 함수를 디버깅할 수 있습니다. Azure 구독에 함수 앱을 배포할 수도 있습니다.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
@@ -115,15 +116,15 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. APT 업데이트를 수행 하기 전에 .NET 개발 원본 목록을 설정 합니다.
+1. APT 업데이트를 수행 하기 전에 APT 원본 목록을 설정 합니다.
 
-   Ubuntu에 대 한 APT 원본 목록을 설정 하려면 다음 명령을 실행 합니다.
+    ##### <a name="ubuntu"></a>Ubuntu
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-   Debian에 대 한 APT 원본 목록을 설정 하려면 다음 명령을 실행 합니다.
+    ##### <a name="debian"></a>Debian
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -135,6 +136,7 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
+    | Ubuntu 20.04    | `focal`     |
     | Ubuntu 19.04    | `disco`     |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -205,22 +207,17 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
-| **`--csharp`**<br/> **`--dotnet`** | [C # 클래스 라이브러리 (.cs) 프로젝트](functions-dotnet-class-library.md)를 초기화 합니다. |
-| **`--csx`** | [C # 스크립트 (csx) 프로젝트](functions-reference-csharp.md)를 초기화 합니다. 후속 명령에서 `--csx`를 지정해야 합니다. |
-| **`--docker`** | 선택한 `--worker-runtime`을 기반으로 하는 기본 이미지를 사용하여 컨테이너용 Docker 파일을 만듭니다. 사용자 지정 Linux 컨테이너에 게시하려는 경우 이 옵션을 사용합니다. |
+| **`--csx`** | 버전 1.x 동작인 .NET 함수를 c # 스크립트로 만듭니다. 에만 유효 `--worker-runtime dotnet` 합니다. |
+| **`--docker`** | 선택한을 기반으로 하는 기본 이미지를 사용 하 여 컨테이너에 대 한 Dockerfile을 만듭니다 `--worker-runtime` . 사용자 지정 Linux 컨테이너에 게시하려는 경우 이 옵션을 사용합니다. |
 | **`--docker-only`** |  Dockerfile을 기존 프로젝트에 추가 합니다. 지정 되지 않았거나 local.settings.js에 설정 되어 있지 않은 경우 작업자-런타임에 대 한 메시지를 표시 합니다. 사용자 지정 Linux 컨테이너에 기존 프로젝트를 게시할 계획인 경우이 옵션을 사용 합니다. |
 | **`--force`** | 프로젝트에 기존 파일이 있어도 프로젝트를 초기화합니다. 이 설정은 이름이 같은 기존 파일을 덮어씁니다. 프로젝트 폴더의 다른 파일에는 영향이 없습니다. |
-| **`--java`**  | [Java 프로젝트](functions-reference-java.md)를 초기화 합니다. |
-| **`--javascript`**<br/>**`--node`**  | [JavaScript 프로젝트](functions-reference-node.md)를 초기화 합니다. |
-| **`--no-source-control`**<br/>**`-n`** | 버전 1.x에서 Git 리포지토리 기본 작성을 차단합니다. 버전 3.x/2.x에서 git 리포지토리는 기본적으로 생성 되지 않습니다. |
-| **`--powershell`**  | [PowerShell 프로젝트](functions-reference-powershell.md)를 초기화 합니다. |
-| **`--python`**  | [Python 프로젝트](functions-reference-python.md)를 초기화 합니다. |
+| **`--language`** | 언어별 프로젝트를 초기화 합니다. 로 설정 되 면 현재 지원 `--worker-runtime` `node` 됩니다. 옵션은 `typescript` 및 `javascript`입니다. 또는를 사용할 수도 `--worker-runtime javascript` 있습니다 `--worker-runtime typescript` .  |
+| **`--managed-dependencies`**  | 관리 되는 종속성을 설치 합니다. 현재 PowerShell worker runtime 에서만이 기능을 지원 합니다. |
 | **`--source-control`** | Git 리포지토리 작성 여부를 제어합니다. 리포지토리는 기본적으로 작성되지 않습니다. `true`이면 리포지토리가 작성됩니다. |
-| **`--typescript`**  | [TypeScript 프로젝트](functions-reference-node.md#typescript)를 초기화 합니다. |
-| **`--worker-runtime`** | 프로젝트의 언어 런타임을 설정합니다. 지원 되는 값은 `csharp` ,, `dotnet` `java` , `javascript` , `node` (JavaScript),, `powershell` `python` 및 `typescript` 입니다. 설정 하지 않은 경우 초기화 하는 동안 런타임을 선택 하 라는 메시지가 표시 됩니다. |
-
+| **`--worker-runtime`** | 프로젝트의 언어 런타임을 설정합니다. 지원 되는 값은 `csharp` , `dotnet` , `javascript` , `node` (JavaScript),, `powershell` `python` 및 `typescript` 입니다. Java의 경우 [Maven](functions-reference-java.md#create-java-functions)를 사용 합니다. 설정 하지 않은 경우 초기화 하는 동안 런타임을 선택 하 라는 메시지가 표시 됩니다. |
+|
 > [!IMPORTANT]
-> 기본적으로 핵심 도구의 버전 3(sp3)/2.x는 .NET 런타임에 대 한 함수 앱 프로젝트를 [c # 클래스 프로젝트](functions-dotnet-class-library.md) (.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 중에/Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
+> 기본적으로 버전 2.x 이상 버전의 핵심 도구는 .NET 런타임에 대 한 함수 앱 프로젝트를 [c # 클래스 프로젝트](functions-dotnet-class-library.md) (.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 중에/Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -234,6 +231,8 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 * [C# 스크립트(.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 에 대해 유효한 저장소 연결 문자열을 설정 하지 않고 [`AzureWebJobsStorage`] 에뮬레이터를 사용 하지 않는 경우 다음 오류 메시지가 표시 됩니다.
 
@@ -306,10 +305,11 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 | 인수     | 설명                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (버전 3(sp3)/2.x) 버전 1.x 및 포털에서 사용 되는 동일한 c # 스크립트 (csx) 템플릿을 생성 합니다. |
-| **`--language`**, **`-l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 3.x/2.x에서이 옵션을 사용 하거나 작업자 런타임과 일치 하는 언어를 선택 하지 마세요. |
+| **`--csx`** | (버전 2.x 이상 버전) 버전 1.x 및 포털에서 사용 되는 동일한 c # 스크립트 (csx) 템플릿을 생성 합니다. |
+| **`--language`**, **`-l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x 이상 버전에서는이 옵션을 사용 하거나 작업자 런타임과 일치 하는 언어를 선택 하지 마세요. |
 | **`--name`**, **`-n`** | 함수 이름입니다. |
 | **`--template`**, **`-t`** | `func templates list` 명령을 사용하여 지원되는 각 언어에 대해 사용 가능한 템플릿의 전체 목록을 확인합니다.   |
+
 
 예를 들어 단일 명령에서 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
 
@@ -366,11 +366,10 @@ npm start
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 1.x에는 지원 되지 않습니다. |
-| **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 1.x에는 지원 되지 않습니다. |
 | **`--cors-credentials`** | 버전 1.x에 대해 지원 되지 않는 크로스-원본 인증 된 요청 (즉, 쿠키 및 인증 헤더)을 허용 합니다. |
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
 | **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 예를 들어 [디버그 포트 및 기타 필수 인수](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers)를 제공 하 여 언어 작업자에 대해 디버깅을 사용 하도록 설정할 수 있습니다. 버전 1.x에는 지원 되지 않습니다. |
-| **`--nodeDebugPort`**, **`-n`** | 사용할 Node.js 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 버전 1.x 전용입니다. |
+| **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 1.x에는 지원 되지 않습니다. |
 | **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 1.x에는 지원 되지 않습니다. |
 | **`--port`**, **`-p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
 | **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. IDE(통합 개발 환경)에서 Core Tools를 시작할 때만 사용됩니다.|
@@ -404,7 +403,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 다음 엔드포인트를 호출하여 HTTP 및 웹후크 트리거된 함수를 로컬로 실행합니다.
 
-```http
+```
 http://localhost:{port}/api/{function_name}
 ```
 
@@ -440,7 +439,7 @@ HTTP 트리거와 웹 후크 및 Event Grid 트리거와는 다른 모든 종류
 
 다음 관리자 엔드포인트를 호출하여 HTTP가 아닌 함수를 트리거합니다.
 
-```http
+```
 http://localhost:{port}/admin/functions/{function_name}
 ```
 
@@ -510,14 +509,14 @@ func azure functionapp publish <FunctionAppName>
 > Azure Portal에서 함수 앱을 만들 때 기본적으로 함수 런타임의 버전 3.x를 사용 합니다. 함수 앱이 런타임 버전 1.x를 사용하도록 하려면 [버전 1.x에서 실행](functions-versions.md#creating-1x-apps)의 지침을 따르세요.
 > 기존 함수가 있는 함수 앱의 런타임 버전은 변경할 수 없습니다.
 
-다음 게시 옵션은 버전 3(sp3), 2.x 및 1.x에 적용 됩니다.
+다음 게시 옵션은 모든 버전에 적용 됩니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. Microsoft Azure Storage 에뮬레이터 사용 하는 경우 먼저 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경 합니다. |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
 
-다음 게시 옵션은 버전 3(sp3) 및 2.x 에서만 지원 됩니다.
+다음 게시 옵션은 버전 2.x 이상 버전 에서만 지원 됩니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
@@ -527,10 +526,10 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
 | **`--build`**, **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local` . |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev`. |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
-| **`--no-build`** | .NET 클래스 라이브러리 함수를 빌드하지 않습니다. |
+| **`--no-build`** | 게시 하는 동안 프로젝트가 빌드되지 않습니다. Python의 경우가 `pip install` 수행 되지 않습니다. |
 | **`--dotnet-cli-params`** | 컴파일된 C#(.csproj) 함수를 게시할 때 Core Tools는 'dotnet build --output bin/publish'를 호출합니다. 이 명령으로 전달하는 모든 매개 변수는 명령줄에 추가됩니다. |
 
 ### <a name="deploy-custom-container"></a>사용자 지정 컨테이너 배포
@@ -580,9 +579,9 @@ Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하�
 
 <!-- LINKS -->
 
-[Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
-[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
 [확장 번들]: functions-bindings-register.md#extension-bundles

@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3cfc63b29b51b70cb41c476c49bc17f5e9cbd308
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746628"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185554"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Azure Automation 계정을 다른 구독으로 이동
 
@@ -40,7 +41,7 @@ Automation 계정에서 작업 영역의 연결을 해제하려면 작업 영역
 
     ![Azure Portal에서 기능 리소스를 삭제하는 스크린샷](../media/move-account/delete-solutions.png)
 
-원하는 경우 다음과 같이 [AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) cmdlet을 사용하여 리소스를 삭제할 수 있습니다.
+원하는 경우 다음과 같이 [AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) cmdlet을 사용하여 리소스를 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -79,7 +80,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 
     ![작업 그룹 페이지의 스크린샷](../media/move-account/delete-action-group.png)
 
-원하는 경우 다음과 같이 [Remove-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) cmdlet을 사용하여 작업 그룹을 삭제할 수 있습니다.
+원하는 경우 다음과 같이 [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) cmdlet을 사용하여 작업 그룹을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
