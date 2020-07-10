@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: f576da01a7d80559419376f1629c0765074065da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2691f63d7bb8c468d065b82c9726e8f7740c20
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262228"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203160"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
 
@@ -22,7 +22,7 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 | 구성 요소 | 버전 |
 |---------|-------|
 | Apache Spark | 2.4. x, 2.3. x, 2.2 및 2.1. x |
-| Scala | 2.11 |
+| 스칼라 | 2.11 |
 | Azure Databricks 런타임 버전 | > 3.4 |
 
 > [!WARNING]
@@ -221,7 +221,7 @@ df
 
 GitHub의 원본에서 커넥터를 빌드하거나 아래 링크에서 Maven의 uber jar을 다운로드할 수 있습니다.
 
-| Spark | Scala | 최신 버전 |
+| Spark | 스칼라 | 최신 버전 |
 |---|---|---|
 | 2.4.0 | 2.11 | [cosmosdb-spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG)
 | 2.3.0 | 2.11 | [cosmosdb-spark_2.3.0 _ 2.11 _ 1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar)
@@ -233,7 +233,7 @@ GitHub의 원본에서 커넥터를 빌드하거나 아래 링크에서 Maven의
 Azure Databricks 가이드의 지침에 따라 [Azure Cosmos DB Spark 커넥터 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html) > Databricks 작업 영역을 사용 하 여 라이브러리를 만듭니다.
 
 > [!NOTE]
-> **Azure Cosmos DB Spark 커넥터 사용** 페이지는 현재 최신 상태가 아닙니다. 6 개의 개별 jar를 6 개의 다른 라이브러리로 다운로드 하는 대신 maven at에서 uber jar를 다운로드 https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) 하 고이 한 jar/라이브러리를 설치할 수 있습니다.
+> 현재 **Azure Cosmos DB Spark 커넥터 사용** 페이지가 최신 상태가 아닙니다. 6 개의 개별 jar를 6 개의 다른 라이브러리로 다운로드 하는 대신 [spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) maven에서 uber jar를 다운로드 하 고이 한 jar/라이브러리를 설치할 수 있습니다.
 > 
 
 ### <a name="using-spark-cli"></a>Spark-cli 사용

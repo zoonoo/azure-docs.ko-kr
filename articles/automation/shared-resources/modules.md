@@ -8,18 +8,19 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82bec23ac35f4f0e6c65720d0c3a36355fa4224d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 2bf3dda6e3d99b5ed67298343f5238d304df7e2b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713484"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187373"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
 Azure Automation은 많은 PowerShell 모듈을 사용하여 DSC 구성에서 Runbook 및 DSC 리소스의 cmdlet을 사용하도록 설정합니다. 지원되는 모듈은 다음과 같습니다.
 
 * [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
-* [Azure PowerShell AzureRM.Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
+* [Azure PowerShell AzureRM.Automation](/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
 * 기타 Azure PowerShell 모듈
 * 내부 `Orchestrator.AssetManagement.Cmdlets` 모듈
 * Python 2 모듈
@@ -105,7 +106,7 @@ Azure Automation에서는 cmdlet을 사용할 수 있도록 사용자 지정 모
 
 ## <a name="migrate-to-az-modules"></a>Az 모듈로 마이그레이션
 
-이 섹션에서는 Automation에서 Az 모듈로 마이그레이션하는 방법에 대해 설명합니다. 자세한 내용은 [Azure PowerShell을 AzureRM에서 Az로 마이그레이션](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0)을 참조하세요. 
+이 섹션에서는 Automation에서 Az 모듈로 마이그레이션하는 방법에 대해 설명합니다. 자세한 내용은 [Azure PowerShell을 AzureRM에서 Az로 마이그레이션](/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0)을 참조하세요. 
 
 Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에서 실행하는 것은 좋지 않습니다. AzureRM에서 Az로 마이그레이션하려는 경우 전체 마이그레이션에 완전히 커밋하는 것이 가장 좋습니다. Automation은 종종 Automation 계정 내에서 샌드박스를 재사용하여 시작 시간에 저장합니다. 전체 모듈 마이그레이션을 수행하지 않는 경우 AzureRM 모듈만 사용하는 작업을 시작한 다음, Az 모듈만 사용하는 다른 작업을 시작하는 경우가 있습니다. 그러면 샌드박스가 곧 충돌하고 모듈이 호환되지 않는다는 오류 메시지가 표시됩니다. 이 경우 특정 Runbook 또는 구성에 대해 무작위 충돌이 발생합니다. 
 
@@ -120,18 +121,18 @@ Az 모듈로 마이그레이션하기 전에 별도의 Automation 계정에서 �
 
 AzureRM 모듈을 사용하는 기존 Runbook 또는 DSC 구성을 실행하지 않도록 하려면 영향을 받는 모든 Runbook 및 구성을 중지하고 예약을 취소해야 합니다. 먼저 각 Runbook 또는 DSC 구성과 해당 일정을 개별적으로 검토하여 필요한 경우 나중에 항목을 다시 예약할 수 있는지 확인합니다. 
 
-일정을 제거할 준비가 되면 Azure Portal 또는 [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet 중 하나를 사용할 수 있습니다. [일정 제거](schedules.md#remove-a-schedule)를 참조하세요.
+일정을 제거할 준비가 되면 Azure Portal 또는 [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet 중 하나를 사용할 수 있습니다. [일정 제거](schedules.md#remove-a-schedule)를 참조하세요.
 
 ### <a name="remove-azurerm-modules"></a>AzureRM 모듈 제거
 
-Az 모듈을 가져오기 전에 AzureRM 모듈을 제거할 수 있습니다. 그러나 이렇게 하면 소스 제어 동기화가 중단되어 아직 예약된 모든 스크립트가 실패할 수 있습니다. 모듈을 제거하려는 경우 [AzureRM 제거](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm)를 참조하세요.
+Az 모듈을 가져오기 전에 AzureRM 모듈을 제거할 수 있습니다. 그러나 이렇게 하면 소스 제어 동기화가 중단되어 아직 예약된 모든 스크립트가 실패할 수 있습니다. 모듈을 제거하려는 경우 [AzureRM 제거](/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm)를 참조하세요.
 
 ### <a name="import-az-modules"></a>Az 모듈 가져오기
 
 Automation 계정으로 Az 모듈을 가져와도 Runbook이 사용하는 PowerShell 세션으로 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
 
 * Runbook이 모듈에서 cmdlet을 호출하는 경우
-* Runbook이 [Import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet을 사용하여 모듈을 명시적으로 가져오는 경우
+* Runbook이 [Import-module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet을 사용하여 모듈을 명시적으로 가져오는 경우
 * Runbook이 다른 종속 모듈을 가져오는 경우
 
 Azure Portal에서 Az 모듈을 가져올 수 있습니다. 전체 Az.Automation 모듈이 아니라 필요한 Az 모듈만 가져와야 합니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
@@ -155,7 +156,7 @@ Az 모듈을 Automation 계정으로 가져온 후에는 Runbook 및 DSC 구성 
 
 Azure Automation에서 사용할 사용자 지정 PowerShell 모듈을 작성하는 경우 이 섹션의 고려 사항을 따르는 것이 좋습니다. 모듈을 가져오기 위해 준비하려면 모듈 폴더와 같은 이름으로 적어도 psd1, .psm1 또는 PowerShell 모듈 **.dll** 파일을 하나 이상 만들어야 합니다. 그런 다음, 모듈 폴더를 압축하여 Azure Automation에서 단일 파일로 가져올 수 있도록 합니다. **.zip** 패키지의 이름이 포함된 모듈 폴더와 같아야 합니다. 
 
-PowerShell 모듈을 작성하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 모듈을 작성하는 방법](https://docs.microsoft.com/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7)을 참조하세요.
+PowerShell 모듈을 작성하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 모듈을 작성하는 방법](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7)을 참조하세요.
 
 ### <a name="version-folder"></a>버전 폴더
 
@@ -314,7 +315,7 @@ Azure Portal에서 모듈을 가져오려면 다음을 수행합니다.
 
 ### <a name="import-modules-by-using-powershell"></a>PowerShell을 사용하여 모듈 가져오기
 
-[New-AzAutomationModule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationmodule?view=azps-3.7.0) cmdlet을 사용하여 모듈을 Automation 계정으로 가져올 수 있습니다. cmdlet은 모듈 .zip 패키지에 대한 URL을 사용합니다.
+[New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule?view=azps-3.7.0) cmdlet을 사용하여 모듈을 Automation 계정으로 가져올 수 있습니다. cmdlet은 모듈 .zip 패키지에 대한 URL을 사용합니다.
 
 ```azurepowershell-interactive
 New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
@@ -371,5 +372,5 @@ Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationA
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-3.7.0)
-* [Windows PowerShell 모듈 작성](https://docs.microsoft.com/powershell/scripting/developer/module/writing-a-windows-powershell-module?view=powershell-7)
+* Azure PowerShell 모듈을 사용 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps?view=azps-3.7.0)을 참조 하세요.
+* PowerShell 모듈을 만드는 방법에 대해 자세히 알아보려면 [Windows powershell 모듈 작성](/powershell/scripting/developer/module/writing-a-windows-powershell-module?view=powershell-7)을 참조 하세요.

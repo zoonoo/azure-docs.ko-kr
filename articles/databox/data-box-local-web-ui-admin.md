@@ -5,14 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608250"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202531"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
@@ -27,6 +28,8 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 - BOM 또는 매니페스트 파일 다운로드
 - 디바이스의 사용 가능한 용량 확인
 - 체크섬 유효성 검사 건너뛰기
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>지원 패키지 생성
 
@@ -79,9 +82,9 @@ Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 
 ## <a name="download-bom-or-manifest-files"></a>BOM 또는 매니페스트 파일 다운로드
 
-BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 된 파일의 목록을 포함 합니다. 이러한 파일은 장치를 배송 하도록 준비할 때 생성 됩니다.
+BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 된 파일의 목록을 포함 합니다. 이러한 파일은 장치를 배송할 준비를 할 때 가져오기 순서에 대해 생성 됩니다.
 
-시작 하기 전에 장치가 **배송 준비** 단계를 완료 했는지 확인 합니다. 다음 단계에 따라 BOM 또는 매니페스트 파일을 다운로드합니다.
+시작 하기 전에 장치가 **배송 준비** 단계를 완료 했는지 확인 합니다. 다음 단계를 수행 하 여 가져오기 순서로 BOM 또는 매니페스트 파일을 다운로드 합니다.
 
 1. 장치의 로컬 웹 UI로 이동 합니다. 장치에서 제공 준비를 완료 한 것을 확인할 수 있습니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료**로 표시됩니다.
 
@@ -101,9 +104,9 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
     |---------|---------|---------|
     |databoxe2etest_BlockBlob.txt     |블록 Blob         |SMB/NFS         |
     |databoxe2etest_PageBlob.txt     |페이지 Blob         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
+    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
+    |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST        |
+    |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST         |
     |mydbmdrg1_MDisk-BOM.txt    |관리 디스크:         |SMB/NFS         |
     |mydbmdrg2_MDisk-BOM.txt     |관리 디스크:         |SMB/NFS         |
 
@@ -167,6 +170,8 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
 
 기본적으로는 배송을 준비할 때 데이터의 체크섬이 생성됩니다. 드물지만 파일 형식(작은 파일 크기)에 따라 성능이 저하될 수 있습니다. 이러한 경우에는 체크섬을 건너뛸 수 있습니다.
 
+발송 준비 중에 체크섬 계산은 가져오기 주문에 대해서만 수행 되며 내보내기 주문에 대해서는 수행 되지 않습니다. 
+
 성능이 매우 낮은 경우가 아니면 체크섬은 사용하는 것이 좋습니다.
 
 1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**으로 이동 합니다.
@@ -176,7 +181,8 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
 2. 체크섬 유효성 검사를 **사용 안 함**으로 설정합니다.
 3. **적용**을 클릭합니다.
 
-## <a name="next-steps"></a>다음 단계
+> [!NOTE]
+> 체크섬 계산 건너뛰기 옵션은 Azure Data Box 잠금 해제 된 경우에만 사용할 수 있습니다. 장치가 잠겨 있으면이 옵션이 표시 되지 않습니다.
 
 - [Azure Portal를 통해 Data Box 및 Data Box Heavy를 관리](data-box-portal-admin.md)하는 방법을 알아봅니다.
 

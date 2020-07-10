@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113167"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201999"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Azure Cognitive Search의 OData 지역 공간 함수- `geo.distance` 및`geo.intersects`
 
@@ -34,7 +35,7 @@ Azure Cognitive Search는 및 함수를 통해 [OData 필터 식](query-odata-fi
 > [!NOTE]
 > `geo.distance` **$Orderby** 매개 변수에서를 사용 하는 경우 함수에 전달 하는 필드는 단일 지리적 지점만 포함 해야 합니다. 즉, 형식이 아닌 형식 이어야 합니다 `Edm.GeographyPoint` `Collection(Edm.GeographyPoint)` . Azure Cognitive Search에서는 컬렉션 필드를 기준으로 정렬할 수 없습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 `geo.distance` 및 함수 및 해당 `geo.intersects` 함수가 작동 하는 지역 공간 값의 문법을 정의 합니다.
 
@@ -104,21 +105,29 @@ Azure Cognitive Search의 다른 모든 비 컬렉션 필드와 마찬가지로 
 
 지정 된 참조 지점의 10 킬로미터 이내에 있는 모든 호텔 찾기 (여기서 location은 형식의 필드 `Edm.GeographyPoint` ):
 
+```odata-filter-expr
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 지정 된 뷰포트 내에서 polygon로 설명 된 모든 호텔을 찾습니다. 여기서 location은 형식의 필드입니다 `Edm.GeographyPoint` . 다각형은 닫혀 있으며(첫 번째 점과 마지막 점 세트가 같음) [점은 시계 반대 방향 순서로 나열되어야 합니다](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 ### <a name="order-by-examples"></a>Order-by 예제
 
 다음을 기준으로 내림차순으로 정렬 `rating` 한 다음 지정 된 좌표의 거리 만큼 오름차순으로 정렬 합니다.
 
+```odata-filter-expr
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 및를 기준으로 내림차순으로 호텔을 정렬 한 `search.score` `rating` 다음, 동일한 등급이 지정 된 두 호텔 사이에서 가장 근접 한 항목을 가장 먼저 나열 합니다.
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>다음 단계  
 

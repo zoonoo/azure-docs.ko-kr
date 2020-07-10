@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning 모델 interpretability
+title: Azure Machine Learning 모델 interpretability (미리 보기)
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning SDK를 사용 하 여 모델이 예측을 수행 하는 이유를 설명 하는 방법을 알아봅니다. 학습 및 유추 중에 모델에서 예측을 만드는 방법을 이해 하는 데 사용할 수 있습니다.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 83fc13362a373686ee027fd642f03003b411cd63
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601686"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201439"
 ---
-# <a name="model-interpretability-in-azure-machine-learning"></a>Azure Machine Learning 모델 interpretability
+# <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning 모델 interpretability (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 ## <a name="overview-of-model-interpretability"></a>모델 interpretability 개요

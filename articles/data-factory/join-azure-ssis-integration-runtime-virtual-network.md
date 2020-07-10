@@ -6,20 +6,21 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: b0e18ec4665ede783145cd1aedf38c907f6f2905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118494"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187815"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory에서 SSIS (SQL Server Integration Services)를 사용 하는 경우 다음과 같은 시나리오에서 azure SSIS IR (통합 런타임)을 Azure virtual network에 조인 해야 합니다.
 
@@ -235,7 +236,7 @@ else
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure 공용      | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.clouddatahub.net</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*.blob.core.windows.net</li><li>\*. table.core.windows.net</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*.azurecr.io</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
     | Azure Government  | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.datamovement.azure.us</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*. table.core.usgovcloudapi.net</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*. azurecr.us</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*. servicebus.usgovcloudapi.net</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
-    | Azure 중국 21Vianet     | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
+    | Azure China 21Vianet     | <ul><li><b>Azure Data Factory (관리)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Azure Storage (관리)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (사용자 지정 설정)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>이벤트 허브 (로깅)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft 로깅 서비스 (내부 사용)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
 
     Azure Storage, Azure Container Registry 및 이벤트 허브의 Fqdn의 경우 이러한 끝점에 대 한 네트워크 트래픽이 방화벽 어플라이언스로 라우팅되지 않고 Azure 백본 네트워크를 통과 하도록 가상 네트워크에 대해 다음 서비스 끝점을 사용 하도록 선택할 수도 있습니다.
     -  Microsoft.Storage

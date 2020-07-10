@@ -8,11 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099068"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203524"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -59,11 +60,11 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 ## <a name="azure-storage-account-size-limits"></a>Azure Storage 계정 크기 제한
 
-스토리지 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob Storage 크기 조정 목표](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)로 이동합니다.
+저장소 계정으로 복사할 수 있는 데이터의 크기에 대 한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 
 
-| Azure Storage 계정에 복사되는 데이터의 크기                      | 기본 제한          |
-|---------------------------------------------------------------------|------------------------|
-| 블록 Blob 및 페이지 Blob                                            | 스토리지 계정당 500TB입니다. <br> 여기에는 Data Box Disk를 비롯해 모든 원본 데이터를 포함합니다.|
+| 데이터 형식             | 기본 제한          |
+|--------------------------|------------------------|
+| 블록 blob, 페이지 blob    | 이러한 제한에 대 한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [azure standard storage 배율 목표](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)및 [Azure Files 크기 조정 대상](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)을 참조 하세요. <br /><br /> 제한에는 Data Box Disk를 포함 하 여 모든 원본의 데이터가 포함 됩니다.|
 
 
 ## <a name="azure-object-size-limits"></a>Azure 개체 크기 제한
@@ -74,7 +75,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 |-------------------|-----------------------------------------------------------|
 | 블록 Blob        | ~ 4.75TiB                                                 |
 | 페이지 Blob         | 8TiB <br> (페이지 Blob 형식으로 업로드 되는 모든 파일은 512 바이트 정렬 되어야 하며, 그렇지 않은 경우 업로드가 실패 합니다. <br> VHD와 VHDX는 모두 512 바이트 정렬 됩니다. |
-|Azure 파일        | 1TiB <br> 최대 공유 크기는 5 TiB     |
+|Azure Files        | 1TiB <br> 최대 공유 크기는 5 TiB     |
 | 관리 디스크     |4TiB <br> 크기 및 제한에 대 한 자세한 내용은 다음을 참조 하세요. <li>[관리 디스크에 대 한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 

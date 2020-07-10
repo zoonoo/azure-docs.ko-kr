@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: sgilley
-ms.author: sanpil
-author: sanpil
+ms.author: nilsp
+author: NilsPohlmann
 ms.date: 12/05/2019
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 50bd9d620fac4031ff398bb13d40b288488dda95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c4bfbe955c2989f420d7a6f325f8101556dddd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559388"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201312"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -34,7 +34,7 @@ ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 �
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 

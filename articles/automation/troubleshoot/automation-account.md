@@ -8,11 +8,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680088"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187288"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Azure Automation 계정 문제 해결
 
@@ -44,7 +45,7 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 
 4. 리소스 공급자 목록에서 **Microsoft.Automation** 리소스 공급자가 등록되어 있는지 확인합니다.
 
-5. 공급자가 나열되지 않으면 [리소스 공급자 등록 오류 해결](/azure/azure-resource-manager/resource-manager-register-provider-errors)에서 설명한 대로 해당 공급자를 등록합니다.
+5. 공급자가 나열되지 않으면 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/templates/error-register-resource-provider.md)에서 설명한 대로 해당 공급자를 등록합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 56b94d66eb0929d2fd0ca74a1a631d229330adfa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69906388"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200505"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Bing Local Business Search API의 검색 범주
 
@@ -36,49 +36,17 @@ Bing Local Business Search API를 사용하면 다양한 범주에서 로컬 비
 ## <a name="sub-categories"></a>하위 범주
 하위 범주는 `localCategories`와 동일한 방식으로 전달됩니다. 하위 범주는 보다 구체적인 범주입니다. 범주 C와 하위 범주 S 중 하나를 동일한 쉼표로 구분된 목록에 지정하면 C만 지정한 경우와 동일한 결과를 얻게 된다는 점에서 이들은 종속적입니다.
 
-### <a name="eat-drink"></a>Eat Drink 
-|  |  |  |  |
-| - | - | - | - |
-| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
-| AmericanRestaurants | Bagels | BarbecueRestaurants |
-| Taverns | SportsBars | Bars |
-| BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
-| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
-| ChineseRestaurants | CoffeeAndTea | Delicatessens | 
-| DeliveryService | Diners | DiscountStores | 
-| Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Supermarkets | 
-| GreekRestaurants | Grocers | HawaiianRestaurants | 
-| HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
-| ItalianRestaurants | JapaneseRestaurants | Juices | 
-| KoreanRestaurants | LiquorStores | MexicanRestaurants |
-| MiddleEasternRestaurants | Pizza | PolishRestaurants | 
-| PortugueseRestaurants | Pretzels | Restaurants | 
-| RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
-| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
-| TakeAway | ThaiRestaurants | TurkishRestaurants | 
-| VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
- 
-### <a name="see-do"></a>See Do 
-|  |  |  |
-| -- | -- | -- |
-| AmusementParks | Attractions | Carnivals |
-| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
-| MovieTheaters | Museums | Parks |
-| SightseeingTours | TouristInformation | Zoos |
- 
-### <a name="shop"></a>Shop 
-|  |  |  |
-| -- | -- | -- |
-| AntiqueStores | Bookstores | CDAndRecordStores |
-| ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
-| DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
-| FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
-| KitchenwareStores | LiquorStores | MallsAndShoppingCenters |
-| MensClothingStores | MusicStores | OutletStores |
-| PetShops | PetSupplyStores | SchoolAndOfficeSupplyStores |
-| ShoeStores | SportingGoodsStores | ToyAndGameStores |
-| VitaminAndSupplementStores | WomensClothingStores |  |
+### <a name="eat-drink"></a>Eat Drink
+
+> BreweriesAndBrewPubs, CocktailLounges, AfricanRestaurants, AmericanRestaurants, Bagels, BarbecueRestaurants, Taverns, SportsBars, 바, BarsGrillsAndPubs, BuffetRestaurants | BelgianRestaurants, BritishRestaurants, CafeRestaurants, CaribbeanRestaurants, ChineseRestaurants, CoffeeAndTea, Delicatessens, DeliveryService, Diners, DiscountStores, 도넛형, FastFood, FrenchRestaurants, FrozenYogurt, GermanRestaurants, Supermarkets, GreekRestaurants, Grocers, HawaiianRestaurants, HungarianRestaurants, IceCreamAndFrozenDesserts, IndianRestaurants, ItalianRestaurants, JapaneseRestaurants, Juices, KoreanRestaurants, LiquorStores, MexicanRestaurants, MiddleEasternRestaurants, 피자, PortugueseRestaurants, Pretzels, RussianAndUkrainianRestaurants, Sandwiches, SeafoodRestaurants, SpanishRestaurants, SteakHouseRestaurants, SushiRestaurants, 요점은, ThaiRestaurants, TurkishRestaurants, VegetarianAndVeganRestaurants, VietnameseRestaurants,,,
+
+### <a name="see-do"></a>See Do
+
+> AmusementParks, 맛보기, Carnivals, Casinos, LandmarksAndHistoricalSites, 미니 Aturegolf강의, MovieTheaters, Museums, 공원, SightseeingTours, TouristInformation, Zoos
+
+### <a name="shop"></a>Shop
+
+> AntiqueStores, Bookstores, CDAndRecordStores, ChildrensClothingStores, CigarAndTobaccoShops, ComicBookStores, DepartmentStores, DiscountStores, FleaMarketsAndBazaars, FurnitureStores, HomeImprovementStores, JewelryAndWatchesStores, KitchenwareStores, LiquorStores, MallsAndShoppingCenters, MensClothingStores, MusicStores, Out Stores, PetShops, PetSupplyStores, SchoolAndOfficeSupplyStores, ShoeStores, SportingGoodsStores, ToyAndGameStores, VitaminAndSupplementStores, WomensClothingStores
 
 
 ## <a name="examples-of-local-categories-search"></a>로컬 범주 검색 예제

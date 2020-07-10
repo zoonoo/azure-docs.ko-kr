@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744976"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187322"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -44,14 +45,14 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 * 부울
 * Null
 
-변수가 지정된 데이터 형식으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. `Not defined`를 지정하면 변수 값이 Null로 설정됩니다. [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet 또는 내부 `Set-AutomationVariable` cmdlet을 사용하여 값을 설정해야 합니다.
+변수가 지정된 데이터 형식으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. `Not defined`를 지정하면 변수 값이 Null로 설정됩니다. [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet 또는 내부 `Set-AutomationVariable` cmdlet을 사용하여 값을 설정해야 합니다.
 
 Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변경할 수 없습니다. 그러나 Windows PowerShell을 사용하여 모든 형식의 값을 제공할 수 있습니다. 복잡한 형식은 [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject)로 검색됩니다.
 
 배열 또는 해시 테이블을 만들어 변수에 저장하여 여러 값을 단일 변수에 저장할 수 있습니다.
 
 >[!NOTE]
->VM 이름 변수는 최대 80자까지 가능합니다. 리소스 그룹 변수는 최대 90자까지 가능합니다. [Azure 리소스에 대한 명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules)을 참조하세요.
+>VM 이름 변수는 최대 80자까지 가능합니다. 리소스 그룹 변수는 최대 90자까지 가능합니다. [Azure 리소스에 대한 명명 규칙 및 제한 사항](../../azure-resource-manager/management/resource-name-rules.md)을 참조하세요.
 
 ## <a name="powershell-cmdlets-to-access-variables"></a>변수에 액세스하는 데 사용되는 PowerShell cmdlet
 
@@ -59,10 +60,10 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 
 | Cmdlet | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <br>**참고:**  이 cmdlet을 사용하여 암호화된 변수의 값을 검색할 수는 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. [변수에 액세스하는 데 사용되는 내부 cmdlet](#internal-cmdlets-to-access-variables)을 참조하세요. |
-|[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | 새 변수를 만들고 해당 값을 설정합니다.|
-|[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| 기존 변수를 제거합니다.|
-|[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| 기존 변수의 값을 설정합니다. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <br>**참고:**  이 cmdlet을 사용하여 암호화된 변수의 값을 검색할 수는 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. [변수에 액세스하는 데 사용되는 내부 cmdlet](#internal-cmdlets-to-access-variables)을 참조하세요. |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | 새 변수를 만들고 해당 값을 설정합니다.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| 기존 변수를 제거합니다.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| 기존 변수의 값을 설정합니다. |
 
 ## <a name="internal-cmdlets-to-access-variables"></a>변수에 액세스하는 데 사용되는 내부 cmdlet
 
@@ -126,7 +127,7 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 예제에서는 [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0)의 가상 머신 개체가 사용되었습니다.
+다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 예제에서는 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0)의 가상 머신 개체가 사용되었습니다.
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"

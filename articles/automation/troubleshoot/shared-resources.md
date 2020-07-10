@@ -8,11 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680878"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187169"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>공유 리소스 문제 해결
 
@@ -32,7 +33,7 @@ PowerShell 모듈 가져오기는 복잡한 다단계 프로세스이므로 모�
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) cmdlet을 사용하여 중단된 모듈을 제거해야 합니다. 그 후 모듈 가져오기를 다시 시도할 수 있습니다.
+이 문제를 해결하려면 [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) cmdlet을 사용하여 중단된 모듈을 제거해야 합니다. 그 후 모듈 가져오기를 다시 시도할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -69,7 +70,7 @@ Automation 계정에서 AzureRM 모듈을 업데이트하려면 계정이 영숫
 * 구조가 Automation에 필요한 구조와 일치하지 않습니다.
 * 모듈이 Automation 계정에 배포되지 않은 다른 모듈에 종속되어 있습니다.
 * 모듈 폴더에 종속성이 없습니다.
-* [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) cmdlet을 사용하여 모듈을 업로드하고 있으며, 전체 스토리지 경로를 제공하지 않았거나 공개적으로 액세스할 수 있는 URL을 사용하여 모듈을 로드하지 않았습니다.
+* [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) cmdlet을 사용하여 모듈을 업로드하고 있으며, 전체 스토리지 경로를 제공하지 않았거나 공개적으로 액세스할 수 있는 URL을 사용하여 모듈을 로드하지 않았습니다.
 
 #### <a name="resolution"></a>해결 방법
 

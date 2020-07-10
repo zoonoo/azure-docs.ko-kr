@@ -7,17 +7,18 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 8d7db5fe88890b7f807263e50757e637ad808eb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d476572ace6803dba6cd9cab97a55953be1d5f6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759314"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202269"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure Virtual Machine PowerShell 샘플
 
 다음 표에는 Linux 가상 머신을 만들고 관리하는 PowerShell 스크립트 샘플에 대한 링크가 제공됩니다.
 
-| | |
+| 스크립트 | 설명 |
 |---|---|
 |**가상 머신 만들기**||
 | [완벽히 구성된 가상 머신 만들기](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 리소스 그룹, 가상 머신 및 모든 관련된 리소스를 만듭니다.|

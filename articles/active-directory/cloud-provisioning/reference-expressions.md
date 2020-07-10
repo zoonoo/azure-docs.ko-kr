@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e1dc68aba4ba294bccca6da278d3e30e51f056
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360456"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201853"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory에서 특성 매핑 식 작성
 클라우드 프로비저닝을 구성하는 경우 식 매핑은 지정할 수 있는 특성 매핑 유형 중 하나입니다. 
@@ -769,11 +769,13 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 **식:** <br>
 
+```ad-attr-mapping-expr
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
+```
 
 **샘플 입/출력:**
 

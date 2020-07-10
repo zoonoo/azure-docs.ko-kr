@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e5f1e38461b7f229f9eb7559aeb6203563fceb6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974175"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200205"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>자습서: AES-128을 사용 하 여 비디오 암호화 및 키 배달 서비스 사용
 
@@ -148,7 +149,7 @@ ContentKeyIdentifierClaim는 **콘텐츠 키 정책**에 사용 됩니다. 즉, 
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Media Services 계정의 리소스 정리
 
-일반적으로 다시 사용 하려는 개체를 제외한 모든 항목을 정리 해야 합니다. 일반적으로 변환, 스트리밍 로케이터 등을 다시 사용 합니다. 실험 후 계정을 정리하려면 재사용하지 않을 리소스를 삭제해야 합니다. 예를 들어 다음 코드는 Job을 삭제합니다.
+일반적으로 다시 사용 하려는 개체를 제외한 모든 항목을 정리 해야 합니다. 일반적으로 변환, 스트리밍 로케이터 등을 다시 사용 합니다. 실험 후 계정을 정리하려면 재사용하지 않을 리소스를 삭제해야 합니다. 예를 들어, 다음 코드는 작업, 만든 자산 및 콘텐츠 키 정책을 삭제 합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 

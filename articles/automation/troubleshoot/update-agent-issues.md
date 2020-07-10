@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680835"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187135"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Windows 업데이트 에이전트 문제 해결
 
@@ -109,7 +110,7 @@ Windows용 Log Analytics 에이전트를 다시 설치하려면 [Windows용 에�
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 다음 스크립트를 가져옵니다. [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). 이 스크립트를 실행하려면 WMF 4.0 이상 버전이 설치되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드하려면 [다양한 버전의 PowerShell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)를 참조하세요.
+스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 다음 스크립트를 가져옵니다. [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). 이 스크립트를 실행하려면 WMF 4.0 이상 버전이 설치되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드하려면 [다양한 버전의 PowerShell 설치](/powershell/scripting/install/installing-powershell)를 참조하세요.
 
 이 스트립트의 출력은 다음 예제와 같이 표시됩니다.
 

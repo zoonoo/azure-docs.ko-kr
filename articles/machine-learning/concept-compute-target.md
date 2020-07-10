@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 06/26/2020
-ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95177282ad5b07a600f11f72789e0fc08f4b52c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483281"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199812"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -48,9 +48,9 @@ Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을
 
 Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. 계산 클러스터와 [계산 인스턴스](concept-compute-instance.md) 는 유일 하 게 관리 되는 계산 Azure Machine Learning. 추가 관리 되는 계산 리소스를 나중에 추가할 수 있습니다.
 
-다음에서 계산 인스턴스 (미리 보기) 또는 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
+다음에서 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
 * Azure Machine Learning Studio
-* Azure portal
+* Azure Portal
 * Python SDK 계산 [Einstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) 및 [amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) 클래스
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (미리 보기)
 * Resource Manager 템플릿

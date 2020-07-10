@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833692"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202609"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,7 +129,7 @@ autoML이 교차 유효성 검사를 적용하여 [과잉 맞춤 모델을 방�
 
 ### <a name="custom-validation-dataset"></a>사용자 지정 유효성 검사 데이터 세트
 
-무작위 분할(일반적으로 시계열 데이터 또는 불균형 데이터)이 허용되지 않는 경우 사용자 지정 유효성 검사 데이터 세트를 사용합니다. 사용자 고유의 유효성 검사 데이터 세트를 지정할 수 있습니다. 모델은 무작위 데이터 세트 대신 지정된 유효성 검사 데이터 세트에 대해 평가됩니다.
+무작위 분할(일반적으로 시계열 데이터 또는 불균형 데이터)이 허용되지 않는 경우 사용자 지정 유효성 검사 데이터 세트를 사용합니다. 사용자 고유의 유효성 검사 데이터 세트를 지정할 수 있습니다. 모델은 무작위 데이터 세트 대신 지정된 유효성 검사 데이터 세트에 대해 평가됩니다. [SDK를 사용 하 여 사용자 지정 유효성 검사 집합을 구성 하는 방법](how-to-configure-cross-validation-data-splits.md#provide-validation-data)에 대해 자세히 알아보세요.
 
 ## <a name="compute-to-run-experiment"></a>실험 실행 컴퓨팅
 
@@ -433,7 +433,7 @@ best_run, fitted_model = automl_run.get_output()
    |변환|엔지니어링된 기능을 생성하기 위해 입력 기능에 적용된 변환 목록입니다.|
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>하이퍼 매개 변수 값을 사용한 스케일링/정규화 및 알고리즘:
 
-파이프라인에 대한 스케일링/정규화 및 알고리즘/하이퍼 매개 변수 값을 이해하려면 fitted_model.steps를 사용합니다. [스케일링/정규화에 대해 자세히 알아보세요](). 샘플 출력은 다음과 같습니다.
+파이프라인에 대한 스케일링/정규화 및 알고리즘/하이퍼 매개 변수 값을 이해하려면 fitted_model.steps를 사용합니다. [스케일링/정규화에 대해 자세히 알아보세요](how-to-configure-auto-features.md). 샘플 출력은 다음과 같습니다.
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))

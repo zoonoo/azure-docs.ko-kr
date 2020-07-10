@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
-ms.openlocfilehash: 5af8f2ed1a910e559393796102f0853c4f3f1fd8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8bb5f69bc43a6af27aa71d4cf1fe054d693cc085
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082049"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201217"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
 Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
@@ -234,26 +234,30 @@ cd C:\HDI
 
     이 쿼리는 테이블에서 상태를 선택 하 고 문자열을 소문자로 변환한 다음 수정 되지 않은 이름과 함께 표시 합니다. 출력은 다음 텍스트와 유사합니다.
 
-        +---------------+---------------+--+
-        |  exampleudf   |     state     |
-        +---------------+---------------+--+
-        | california    | California    |
-        | pennsylvania  | Pennsylvania  |
-        | pennsylvania  | Pennsylvania  |
-        | pennsylvania  | Pennsylvania  |
-        | colorado      | Colorado      |
-        | colorado      | Colorado      |
-        | colorado      | Colorado      |
-        | utah          | Utah          |
-        | utah          | Utah          |
-        | colorado      | Colorado      |
-        +---------------+---------------+--+
+    ```output
+    +---------------+---------------+--+
+    |  exampleudf   |     state     |
+    +---------------+---------------+--+
+    | california    | California    |
+    | pennsylvania  | Pennsylvania  |
+    | pennsylvania  | Pennsylvania  |
+    | pennsylvania  | Pennsylvania  |
+    | colorado      | Colorado      |
+    | colorado      | Colorado      |
+    | colorado      | Colorado      |
+    | utah          | Utah          |
+    | utah          | Utah          |
+    | colorado      | Colorado      |
+    +---------------+---------------+--+
+    ```
 
 ## <a name="troubleshooting"></a>문제 해결
 
 Hive 작업을 실행 하는 경우 다음 텍스트와 유사한 오류가 발생할 수 있습니다.
 
-    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```output
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```
 
 이 문제는 Python 파일의 줄 끝 때문에 발생할 수 있습니다. 많은 Windows 편집기에서는 기본적으로 CRLF를 줄 끝으로 사용하지만 Linux 애플리케이션에서는 보통 LF를 사용합니다.
 

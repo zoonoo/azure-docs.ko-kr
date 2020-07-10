@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dac17c8592530c06dd761914e7f556b35c3674b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80654031"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202992"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -72,9 +73,12 @@ ms.locfileid: "80654031"
 11. 클레임 규칙 이름 아래에 있는 상자에 *로그인한 사용자 유지*를 입력합니다.
 12. 사용자 지정 규칙 상자에서 다음을 입력합니다.
 
+```ad-fs-claim-rule
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![사용자 지정 클레임을 만들어 사용자 로그인 유지](./media/howto-mfa-adfs/trustedip5.png)
+    ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
+```
+
 13. **Finish**를 클릭합니다.
 14. **적용**을 클릭합니다.
 15. **확인**을 클릭합니다.
@@ -93,4 +97,4 @@ ms.locfileid: "80654031"
 4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP**에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택합니다.  
 5. **저장**을 클릭합니다.
 
-이것으로 끝입니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.
+모두 끝났습니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.

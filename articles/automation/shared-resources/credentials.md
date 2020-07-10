@@ -9,15 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 540ae25b22b2c134a47f91ad5b8b19089c7f2acb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744989"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187407"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Azure Automation에서 자격 증명 관리
 
-Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자격 증명을 포함하는 개체를 보유합니다. Runbook 및 DSC 구성에서는 인증을 위해 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) 개체를 수락하는 cmdlet을 사용합니다. 또는 인증이 필요한 일부 애플리케이션이나 서비스에 제공할 `PSCredential` 개체의 사용자 이름과 암호를 추출할 수 있습니다. 
+Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자격 증명을 포함하는 개체를 보유합니다. Runbook 및 DSC 구성에서는 인증을 위해 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) 개체를 수락하는 cmdlet을 사용합니다. 또는 인증이 필요한 일부 애플리케이션이나 서비스에 제공할 `PSCredential` 개체의 사용자 이름과 암호를 추출할 수 있습니다. 
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 Key Vault에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
@@ -30,7 +31,7 @@ Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자�
 
 | Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |자격 증명에 대한 메타데이터를 포함하는 [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) 개체를 검색합니다. Cmdlet은 `PSCredential` 개체 자체를 검색하지 않습니다.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |자격 증명에 대한 메타데이터를 포함하는 [CredentialInfo](/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) 개체를 검색합니다. Cmdlet은 `PSCredential` 개체 자체를 검색하지 않습니다.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |새 Automation 자격 증명을 만듭니다. |
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Automation 자격 증명을 제거합니다. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |기존 Automation 자격 증명에 대한 속성을 설정합니다. |
@@ -42,8 +43,8 @@ Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자�
 | Cmdlet | Description |
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Runbook 또는 DSC 구성에 사용하는 `PSCredential` 개체를 가져옵니다. `Get-AzAutomationCredential` cmdlet은 자격 증명 정보만 검색하기 때문에 대개 이 [내부 cmdlet](modules.md#internal-cmdlets)을 대신 사용합니다. 이 정보는 일반적으로 다른 cmdlet에 전달하는 데 유용하지 않습니다. |
-| [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |사용자 이름 및 암호에 대한 프롬프트로 자격 증명을 가져옵니다. 이 cmdlet은 기본 Microsoft.PowerShell.Security 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
-| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | 자격 증명을 만듭니다. 이 cmdlet은 기본 Azure 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
+| [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |사용자 이름 및 암호에 대한 프롬프트로 자격 증명을 가져옵니다. 이 cmdlet은 기본 Microsoft.PowerShell.Security 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | 자격 증명을 만듭니다. 이 cmdlet은 기본 Azure 모듈의 일부입니다. [기본 모듈](modules.md#default-modules)을 참조하세요.|
 
 코드에서 `PSCredential` 개체를 검색하려면 `Orchestrator.AssetManagement.Cmdlets` 모듈을 가져와야 합니다. 자세한 내용은 [Azure Automation에서 모듈 관리](modules.md)를 참조하세요.
 
@@ -103,7 +104,7 @@ Runbook 또는 DSC 구성은 내부 `Get-AutomationPSCredential` cmdlet을 사�
 > [!NOTE]
 > `Get-AzAutomationCredential` cmdlet은 인증에 사용할 수 있는 `PSCredential` 개체를 검색하지 않습니다. 자격 증명에 대한 정보만 제공합니다. Runbook에서 자격 증명을 사용해야 하는 경우 `Get-AutomationPSCredential`을 사용하여 `PSCredential` 개체로 검색해야 합니다.
 
-또는 [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) 메서드를 사용하여 보안되지 않은 버전의 암호를 나타내는 [NetworkCredential](/dotnet/api/system.net.networkcredential) 개체를 검색할 수 있습니다.
+또는 [GetNetworkCredential](/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) 메서드를 사용하여 보안되지 않은 버전의 암호를 나타내는 [NetworkCredential](/dotnet/api/system.net.networkcredential) 개체를 검색할 수 있습니다.
 
 ### <a name="textual-runbook-example"></a>텍스트 Runbook 예제
 

@@ -1,7 +1,7 @@
 ---
-title: 보충 학습 모델 학습 및 배포
+title: 보충 learning 모델 (미리 보기)을 학습 하 고 배포 합니다.
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning RL(보충 학습)을 사용하여 RL 에이전트에서 Pong을 재생하도록 학습하는 방법을 알아봅니다.
+description: Azure Machine Learning 보충 Learning (미리 보기)을 사용 하 여 Ping를 재생 하는 RL 에이전트를 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918369f68c3b0047213c24f1d4666fd0593cf30
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84556932"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203275"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 

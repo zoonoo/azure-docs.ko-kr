@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f8bafb04d0a5d9c6d25a7ed7e155888d492e9fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a835872d4a4fedfb5ef72a1cb9499e4f969adcd3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80050776"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202104"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
@@ -87,7 +87,9 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 게스트 계정이 있는 사용자는 로그온 할 수 없으며 다음과 같은 오류 메시지가 수신 됩니다.
 
+```plaintext
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+```
 
 사용자에 게는 Azure 사용자 계정이 있고, 중단 또는 관리 되지 않는 바 이럴 테 넌 트가 있습니다. 또한 테 넌 트에는 전역 또는 회사 관리자가 없습니다.
 

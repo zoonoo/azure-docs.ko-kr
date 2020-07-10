@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656823"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187713"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -109,7 +110,7 @@ ms.locfileid: "83656823"
 > [!NOTE]
 > 관심이 있는 센서 파트너의 파트너 ID입니다.
 
-3. 파트너 API로 돌아가서 **Get/\<ID >** 를 선택합니다.
+3. 파트너 API로 돌아가서 **가져오기/ \<ID> **를 선택 합니다.
 4. 3단계의 파트너 ID를 지정하고 **실행**을 선택합니다.
 
    API 응답에는 Event Hubs 연결 문자열이 있어야 합니다.
@@ -249,7 +250,7 @@ ms.locfileid: "83656823"
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: 최대 연결 수 도달
 
-**작업 실패 메시지**: “‘\<username>’ 사용자가 수행한 동시 흐름 두 개의 최대 수입니다.”
+**작업 실패 메시지**: "사용자 ' '이 (가) 달성 하는 최대 두 개의 동시 흐름 수 \<username> 입니다."
 
 **의미**: 최대 연결 수에 도달하여 작업이 실패하는 경우 여러 작업에서 동일한 Sentinel 계정이 사용되고 있는 것입니다.
 
@@ -313,3 +314,39 @@ ms.locfileid: "83656823"
 1. FarmBeats Datahub 리소스 그룹으로 이동합니다.
 2. **App Service**를 선택합니다.  
 3. [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/) 스케일 업 페이지로 이동한 후 적절한 가격 책정 계층을 선택합니다.
+
+## <a name="weather-data-job-failures"></a>날씨 데이터 작업 실패
+
+**오류**: 날씨 데이터를 가져오기 위해 작업을 실행 하지만 작업이 실패 합니다.
+
+### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>날씨 데이터 작업 오류 문제를 해결 하기 위한 로그 수집
+
+1. Azure Portal에서 FarmBeats 리소스 그룹으로 이동 합니다.
+2. 리소스 그룹의 일부인 Data Factory 서비스를 클릭 합니다. 서비스에는 "sku: Datahub" 태그가 있습니다.
+
+> [!NOTE]
+> 리소스 그룹 내에서 서비스의 태그를 보려면 "열 편집"을 클릭 하 고 리소스 그룹 보기에 "태그"를 추가 합니다.
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="프로젝트 FarmBeats":::
+
+3. 데이터 팩터리의 개요 페이지에서 **작성자 및 모니터**를 클릭 합니다. 브라우저에서 새 탭이 열립니다. **모니터** 를 클릭 합니다.
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="프로젝트 FarmBeats":::
+
+4. 날씨 작업 실행의 일부인 파이프라인 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업을 클릭 합니다.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="프로젝트 FarmBeats":::
+
+5. 파이프라인 개요 페이지에서 작업 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업의 실행 Id를 적어 둡니다.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="프로젝트 FarmBeats":::
+
+6. Azure Portal에서 FarmBeats 리소스 그룹으로 돌아가서 이름이 **datahublogs-XXXX** 인 저장소 계정을 클릭 합니다.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="프로젝트 FarmBeats":::
+
+7. **컨테이너**  ->  **adfjobs**를 클릭 합니다. 검색 상자에 위의 5 단계에서 적어둔 작업 실행 ID를 입력 합니다.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="프로젝트 FarmBeats":::
+
+8. 검색 결과에는 작업과 관련 된 로그가 있는 폴더가 포함 됩니다. 로그를 다운로드 하 여 문제를 디버깅 하는 데 도움이 되도록에 보냅니다 farmbeatssupport@microsoft.com .

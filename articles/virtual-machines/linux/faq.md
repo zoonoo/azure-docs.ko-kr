@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 3c6a5e011a536cc9c34565d4f72a9bee6c6a5254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cda729779c333064c91152e8427ce1a05227396e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945158"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201973"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux Virtual Machines에 대한 질문과 대답
 이 문서에서는 Azure에서 Resource Manager 배포 모델을 사용하여 만든 Linux 가상 머신에 대한 일반적인 질문을 일부 해결합니다. 이 항목의 Windows 버전에 대해서는 [Windows Virtual Machines에 대한 질문과 대답](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -55,24 +56,48 @@ Secure Shell (SSH)를 사용 하 여 가상 머신에 로그온 하는 원격 �
 
 다음 사용자 이름은 사용할 수 없습니다.
 
-| | | | |
-|-----------------|-----------|--------------------|----------|
-| `administrator` | `admin`   | `user`             | `user1`  |
-| `test`          | `user2`   | `test1`            | `user3`  |
-| `admin1`        | `1`       | `123`              | `a`      |
-| `actuser`       | `adm`     | `admin2`           | `aspnet` |
-| `backup`        | `console` | `david`            | `guest`  |
-| `john`          | `owner`   | `root`             | `server` |
-| `sql`           | `support` | `support_388945a0` | `sys`    |
-| `test2`         | `test3`   | `user4`            | `user5`  |
-| `video`         |
+- `1`
+- `123`
+- `a`
+- `actuser`
+- `adm`
+- `admin`
+- `admin1`
+- `admin2`
+-`administrator`
+- `aspnet`
+- `backup`
+- `console`
+- `david`
+- `guest`
+- `john`
+- `owner`
+- `root`
+- `server`
+- `sql`
+- `support_388945a0`
+- `support`
+- `sys`
+- `test`
+- `test1`
+- `test2`
+- `test3`
+- `user`
+- `user1`
+- `user2`
+- `user3`
+- `user4`
+- `user5`
+- `video`
+
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>VM을 만들 때의 암호 요구 사항은 무엇인가요?
 
 사용 하는 도구에 따라 다양 한 암호 길이 요구 사항이 있습니다.
  - 포털-12-72 자 사이
  - PowerShell-8-123 자 사이
- - CLI-12-123
+ - CLI-12-123 자 사이
+ - Azure Resource Manager (ARM) 템플릿-12-72 문자 및 제어 문자를 사용할 수 없습니다.
  
 
 또한 암호는 다음 4 가지 복잡성 요구 사항 중 3 가지를 충족 해야 합니다.
@@ -80,7 +105,7 @@ Secure Shell (SSH)를 사용 하 여 가상 머신에 로그온 하는 원격 �
 * 소문자 포함
 * 대문자 포함
 * 숫자 포함
-* 특수 문자 포함(정규식 일치 [\W_])
+* 특수 문자 포함(Regex 일치 [\W_])
 
 사용할 수 없는 암호:
 

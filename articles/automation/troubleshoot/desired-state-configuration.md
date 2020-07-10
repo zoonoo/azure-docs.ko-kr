@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e057f5c9525f3b4ca373897c865990eb29835c0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 8043369ebfef23ed84ccff8e7428fbd2048e10b0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681381"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187220"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Azure Automation State Configuration 문제 해결
 
@@ -25,7 +26,7 @@ ms.locfileid: "83681381"
 
 ### <a name="1-ensure-that-your-configuration-compiles-successfully-on-the-local-machine"></a>1. 로컬 컴퓨터에서 구성이 성공적으로 컴파일되는지 확인
 
-Azure Automation State Configuration은 PowerShell DSC(Desired State Configuration)를 기반으로 합니다. [PowerShell DSC 문서](https://docs.microsoft.com/powershell/scripting/overview)에서 DSC 언어 및 구문에 대한 설명서를 찾을 수 있습니다.
+Azure Automation State Configuration은 PowerShell DSC(Desired State Configuration)를 기반으로 합니다. [PowerShell DSC 문서](/powershell/scripting/overview)에서 DSC 언어 및 구문에 대한 설명서를 찾을 수 있습니다.
 
 로컬 컴퓨터에서 DSC 구성을 컴파일하면 다음과 같은 일반적인 오류를 검색하고 해결할 수 있습니다.
 
@@ -41,7 +42,7 @@ Azure Automation State Configuration은 PowerShell DSC(Desired State Configurati
 
 [안정적인 버전 모듈 설치](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module) 지침에 따라 로컬 컴퓨터에 `xDscDiagnostics` 모듈을 설치할 수 있습니다.
 
-Azure 컴퓨터에 `xDscDiagnostics` 모듈을 설치하려면 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0)를 사용합니다. [실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행](../../virtual-machines/windows/run-command.md) 단계에 따라 Azure Portal에서 **명령 실행** 옵션을 사용할 수도 있습니다.
+Azure 컴퓨터에 `xDscDiagnostics` 모듈을 설치하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0)를 사용합니다. [실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행](../../virtual-machines/windows/run-command.md) 단계에 따라 Azure Portal에서 **명령 실행** 옵션을 사용할 수도 있습니다.
 
 **xDscDiagnostics**를 사용하는 방법에 대한 자세한 내용은 [xDscDiagnostics를 사용하여 DSC 로그 분석](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs)을 참조하세요. [xDscDiagnostics Cmdlet](https://github.com/PowerShell/xDscDiagnostics#cmdlets)도 참조하세요.
 
@@ -65,13 +66,13 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 ### <a name="resolution"></a>해결 방법
 
-[Remove-AzAutomationDscConfiguration]을 사용합니다(https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 cmdlet을 사용하여 구성 삭제).
+[AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0) cmdlet을 사용 하 여 구성을 삭제 합니다.
 
 ## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>시나리오: DSC 에이전트를 등록하지 못함
 
 ### <a name="issue"></a>문제
 
-[Set-DscLocalConfigurationManager](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) 또는 다른 DSC cmdlet 사용 시 다음 오류가 표시됩니다.
+[Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) 또는 다른 DSC cmdlet 사용 시 다음 오류가 표시됩니다.
 
 ```error
 Registration of the Dsc Agent with the server
@@ -176,7 +177,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 * Azure Portal 또는 PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당할 수 있습니다.
 
   * Azure Portal에서 **홈** > **Automation 계정** > (사용자의 Automation 계정) > **State Configuration(DSC)** 으로 이동합니다. 그런 다음 노드를 선택하고 **노드 구성 할당**을 선택합니다.
-  * [Set-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) cmdlet을 사용합니다.
+  * [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) cmdlet을 사용합니다.
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>시나리오: 구성이 컴파일될 때 생성된 노드 구성(MOF 파일)이 없음
 
@@ -215,7 +216,7 @@ WMF(Windows Management Framework) 버전을 업그레이드하고 WMI(Windows Ma
 
 ### <a name="resolution"></a>해결 방법
 
-[DSC 알려진 문제 및 제한 사항](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc)의 지침을 따릅니다.
+[DSC 알려진 문제 및 제한 사항](/powershell/scripting/wmf/known-issues/known-issues-dsc)의 지침을 따릅니다.
 
 ## <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다.
 
@@ -258,7 +259,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 ### <a name="issue"></a>문제
 
-[Register-AzAutomationDSCNode](https://docs.microsoft.com/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) 또는 [Register-AzureRMAutomationDSCNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0)를 사용하여 노드를 등록하면 다음과 같은 오류가 표시됩니다.
+[Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) 또는 [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0)를 사용하여 노드를 등록하면 다음과 같은 오류가 표시됩니다.
 
 ```error
 One or more errors occurred.
@@ -337,7 +338,7 @@ DSC 구성을 업로드할 때 `GatewayTimeout` 오류가 표시됩니다.
 
 ### <a name="resolution"></a>해결 방법
 
-[Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) 호출에 `ModuleName` 매개 변수를 명시적으로 포함하여 DSC 구성을 더 빠르게 구문 분석할 수 있습니다.
+[Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) 호출에 `ModuleName` 매개 변수를 명시적으로 포함하여 DSC 구성을 더 빠르게 구문 분석할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

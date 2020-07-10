@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5fc374cdb60d20896ef01c34f57897c902bbe532
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 52cb701312f598b1b8492226709a7d2767db9600
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828868"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187271"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 시작
 
@@ -21,8 +22,8 @@ ms.locfileid: "83828868"
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Windows PowerShell cmdlet을 사용하여 명령줄에서 호출<br> <li>여러 단계로 구성된 자동화된 기능에 포함할 수 있음<br> <li>인증서 또는 OAuth 사용자 계정/서비스 보안 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적<br> <li>클라이언트에서 PowerShell cmdlet을 지원해야 함 |
 | [Azure Automation API](/rest/api/automation/) |<li>가장 유연하지만 가장 복잡한 방법<br> <li>HTTP 요청을 수행할 수 있는 모든 사용자 지정 코드에서 호출<br> <li>인증서 또는 OAuth 사용자 계정/서비스 보안 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공 ‘API를 사용하여 Python Runbook을 호출하는 경우 JSON 페이로드를 직렬화해야 합니다.’<br> <li>작업 상태 추적 |
 | [Webhook](automation-webhooks.md) |<li>단일 HTTP 요청에서 Runbook 시작<br> <li>URL의 보안 토큰으로 인증<br> <li>웹후크를 만들 때 지정된 매개 변수 값을 클라이언트에서 재정의할 수 없음 Runbook에서 HTTP 요청 세부 정보로 채워진 단일 매개 변수를 정의할 수 있음<br> <li>Webhook URL을 통해 작업 상태를 추적할 수 없음 |
-| [Azure 경고에 응답](../log-analytics/log-analytics-alerts.md) |<li>Azure 경고에 답하여 Runbook을 시작합니다.<br> <li>Runbook에 대한 Webhook과 경고 링크를 구성합니다.<br> <li>URL의 보안 토큰으로 인증 |
-| [일정](automation-schedules.md) |<li>매시간, 매일, 매주 또는 매월 일정에 따라 Runbook을 자동으로 시작<br> <li>Azure Portal, PowerShell cmdlet 또는 Azure API를 통해 일정 조작<br> <li>일정에서 사용할 매개 변수 값 제공 |
+| [Azure 경고에 응답](../azure-monitor/platform/alerts-overview.md) |<li>Azure 경고에 답하여 Runbook을 시작합니다.<br> <li>Runbook에 대한 Webhook과 경고 링크를 구성합니다.<br> <li>URL의 보안 토큰으로 인증 |
+| [일정](./shared-resources/schedules.md) |<li>매시간, 매일, 매주 또는 매월 일정에 따라 Runbook을 자동으로 시작<br> <li>Azure Portal, PowerShell cmdlet 또는 Azure API를 통해 일정 조작<br> <li>일정에서 사용할 매개 변수 값 제공 |
 | [다른 Runbook에서](automation-child-runbooks.md) |<li>Runbook을 다른 Runbook의 활동으로 사용<br> <li>여러 Runbook에서 사용하는 기능에 유용<br> <li>자식 Runbook에 매개 변수 값을 제공하고 부모 Runbook에서 출력 사용 |
 
 다음 이미지는 Runbook의 수명 주기에서 자세한 단계별 프로세스를 보여 줍니다. Runbook이 Azure Automation에서 시작하는 다양한 방법, Hybrid Runbook Worker에서 Azure Automation Runbook을 실행하는 데 필요한 구성 요소 및 여러 구성 요소 간의 상호 작용을 포함합니다. 데이터 센터에서 Automation Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
@@ -110,7 +111,7 @@ Smith
 
 ### <a name="credentials"></a>자격 증명
 
-매개 변수의 데이터 형식이 `PSCredential`인 경우 Azure Automation [자격 증명 자산](automation-credentials.md)의 이름을 입력하면 됩니다. Runbook에서 지정한 이름의 자격 증명을 검색합니다. 다음 테스트 Runbook은 `credential`이라는 매개 변수를 수락합니다.
+매개 변수의 데이터 형식이 `PSCredential`인 경우 Azure Automation [자격 증명 자산](./shared-resources/credentials.md)의 이름을 입력하면 됩니다. Runbook에서 지정한 이름의 자격 증명을 검색합니다. 다음 테스트 Runbook은 `credential`이라는 매개 변수를 수락합니다.
 
 ```powershell
 Workflow Test-Parameters
@@ -144,13 +145,13 @@ jsmith
 
 ## <a name="start-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 시작
 
-Windows PowerShell에서 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0)을 사용하여 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 **Test-Runbook**이라는 Runbook을 시작합니다.
+Windows PowerShell에서 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0)을 사용하여 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 **Test-Runbook**이라는 Runbook을 시작합니다.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook`은 Runbook이 시작된 후 해당 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. 그런 다음, 이 작업 개체를 [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0)에서 사용하여 작업 상태를 확인하고, [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0)에서 사용하여 해당 출력을 검색할 수 있습니다. 다음 예제는 **Test-Runbook**이라는 Runbook을 시작하고, 완료될 때까지 기다렸다가 해당 출력을 표시합니다.
+`Start-AzAutomationRunbook`은 Runbook이 시작된 후 해당 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. 그런 다음, 이 작업 개체를 [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0)에서 사용하여 작업 상태를 확인하고, [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0)에서 사용하여 해당 출력을 검색할 수 있습니다. 다음 예제는 **Test-Runbook**이라는 Runbook을 시작하고, 완료될 때까지 기다렸다가 해당 출력을 표시합니다.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"
@@ -169,7 +170,7 @@ While ($doLoop) {
 Get-AzAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Runbook에 매개 변수가 필요한 경우 [해시 테이블](https://technet.microsoft.com/library/hh847780.aspx)로 매개 변수를 제공해야 합니다. 해시 테이블의 키는 매개 변수 이름과 일치해야 하고, 값은 매개 변수 값입니다. 다음 예제에서는 FirstName 및 LastName이라는 두 개의 문자열 매개 변수와 RepeatCount라는 정수 및 Show라는 부울 매개 변수를 사용하여 Runbook을 시작하는 방법을 보여 줍니다. 매개 변수에 대한 자세한 내용은 [Runbook 매개 변수](#work-with-runbook-parameters)를 참조하세요.
+Runbook에 매개 변수가 필요한 경우 [해시 테이블](/powershell/module/microsoft.powershell.core/about/about_hash_tables)로 매개 변수를 제공해야 합니다. 해시 테이블의 키는 매개 변수 이름과 일치해야 하고, 값은 매개 변수 값입니다. 다음 예제에서는 FirstName 및 LastName이라는 두 개의 문자열 매개 변수와 RepeatCount라는 정수 및 Show라는 부울 매개 변수를 사용하여 Runbook을 시작하는 방법을 보여 줍니다. 매개 변수에 대한 자세한 내용은 [Runbook 매개 변수](#work-with-runbook-parameters)를 참조하세요.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -179,5 +180,5 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 ## <a name="next-steps"></a>다음 단계
 
 * Runbook 관리에 대한 자세한 내용은 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [PowerShell 설명서](https://docs.microsoft.com/powershell/scripting/overview)를 참조하세요.
+* PowerShell에 대한 자세한 내용은 [PowerShell 설명서](/powershell/scripting/overview)를 참조하세요.
 * Runbook 실행과 관련된 문제 해결은 [Runbook 문제 해결](troubleshoot/runbooks.md)을 참조하세요.

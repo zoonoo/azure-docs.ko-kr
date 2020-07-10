@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ac5b1f72e4c70e15ccb12ea41e5f080ca0b8a505
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024573"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203030"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 응용 프로그램 프로 비전
 
@@ -36,7 +36,9 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 - Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) 를 사용 하 여 프로 비전 작업의 상태를 프로그래밍 방식으로 가져옵니다.
 
-        `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
+```microsoft-graph
+        GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
+```
 
 - 전자 메일을 확인 하세요. 응용 프로그램이 격리에 배치 되 면 일회성 알림 이메일이 전송 됩니다. 격리 이유가 변경 되 면 업데이트 된 전자 메일을 보내 새로운 격리 이유를 표시 합니다. 전자 메일이 표시 되지 않는 경우:
 
@@ -74,7 +76,9 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 - Microsoft Graph를 사용 하 여 [프로 비전 작업을 다시 시작](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)합니다. 다시 시작 하는 작업을 완전히 제어할 수 있습니다. Escrows (격리 상태를 적용 하는 에스크로 카운터를 다시 시작 하려면)를 선택 취소 하거나 격리 (격리에서 응용 프로그램을 제거 하려면)를 지우거 나 워터 마크를 지울 수 있습니다. 다음 요청을 사용합니다.
  
-       `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
-       
+```microsoft-graph
+        POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
 "{Id}"를 응용 프로그램 ID의 값으로 바꾸고 "{jobId}"를 [동기화 작업의 id](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal)로 바꿉니다. 
 

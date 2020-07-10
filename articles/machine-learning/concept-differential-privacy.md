@@ -1,21 +1,22 @@
 ---
-title: WhiteNoise 패키지를 사용하여 차등 프라이버시 구현
+title: WhiteNoise 패키지를 사용 하 여 차등 개인 정보 구현 (미리 보기)
 titleSuffix: Azure Machine Learning
 description: 차등 프라이버시가 무엇인지 알아보고, WhiteNoise 패키지를 사용하여 데이터 프라이버시를 보호하는 차등 비공개 시스템을 구현하는 방법을 알아봅니다.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/03/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982665"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199796"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>WhiteNoise 패키지와 차등 프라이버시를 사용하여 데이터 프라이버시 보호
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>차등 개인 정보 및 WhiteNoise 패키지 (미리 보기)를 사용 하 여 데이터 개인 정보 유지
 
 차등 프라이버시가 무엇인지 알아보고, WhiteNoise 패키지가 차등 비공개 시스템을 구현하는 데 어떻게 유용한지 알아봅니다.
 

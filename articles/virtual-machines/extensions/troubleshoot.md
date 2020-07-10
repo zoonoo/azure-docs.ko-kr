@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fa87e860d0f5f5117840b9e230e383cdd6aae7c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74073646"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187560"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 확장 오류 문제 해결
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -30,32 +31,36 @@ Azure Powershell에서 Azure Resource Manager 템플릿을 실행할 수 있습�
 
 Azure PowerShell:
 
-      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
+```azurepowershell
+Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
+```
 
 샘플 출력은 다음과 같습니다.
 
-      Extensions:  {
-      "ExtensionType": "Microsoft.Compute.CustomScriptExtension",
-      "Name": "myCustomScriptExtension",
-      "SubStatuses": [
-        {
-          "Code": "ComponentStatus/StdOut/succeeded",
-          "DisplayStatus": "Provisioning succeeded",
-          "Level": "Info",
-          "Message": "    Directory: C:\\temp\\n\\n\\nMode                LastWriteTime     Length Name
-              \\n----                -------------     ------ ----                              \\n-a---          9/1/2015   2:03 AM         11
-              test.txt                          \\n\\n",
-                      "Time": null
-          },
-        {
-          "Code": "ComponentStatus/StdErr/succeeded",
-          "DisplayStatus": "Provisioning succeeded",
-          "Level": "Info",
-          "Message": "",
-          "Time": null
-        }
+```output
+Extensions:  {
+  "ExtensionType": "Microsoft.Compute.CustomScriptExtension",
+  "Name": "myCustomScriptExtension",
+  "SubStatuses": [
+    {
+      "Code": "ComponentStatus/StdOut/succeeded",
+      "DisplayStatus": "Provisioning succeeded",
+      "Level": "Info",
+      "Message": "    Directory: C:\\temp\\n\\n\\nMode                LastWriteTime     Length Name
+          \\n----                -------------     ------ ----                              \\n-a---          9/1/2015   2:03 AM         11
+          test.txt                          \\n\\n",
+                  "Time": null
+      },
+    {
+      "Code": "ComponentStatus/StdErr/succeeded",
+      "DisplayStatus": "Provisioning succeeded",
+      "Level": "Info",
+      "Message": "",
+      "Time": null
     }
   ]
+}
+```
 
 ## <a name="troubleshooting-extension-failures"></a>확장 오류 문제 해결
 ### <a name="rerun-the-extension-on-the-vm"></a>VM에서 확장 다시 실행
@@ -63,7 +68,9 @@ Azure PowerShell:
 참고: 이후에는 확장을 제거할 필요가 없도록 이 기능이 향상될 예정입니다.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Azure Powershell에서 확장 제거
-    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+```azurepowershell
+Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+```
 
 확장이 제거되면 템플릿을 다시 실행하여 VM에서 스크립트를 실행할 수 있습니다.
 

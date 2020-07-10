@@ -11,11 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782027"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203007"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>사용자 프로 비전 상태를 확인 합니다.
 
@@ -76,12 +77,11 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 | Azure AD의 모든 사용자 동기화|  1,000 미만  | 30분 미만 | 30분 미만 |
 | Azure AD의 모든 사용자 동기화 | 1,000 - 10,000  | 43 - 86분 | 30분 미만 |
 
-
 구성 **동기화 할당 된 사용자 및 그룹**의 경우 다음 수식을 사용 하 여 예상 되는 최소 및 최대 **초기 주기** 시간을 확인할 수 있습니다.
 
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
+- 최소 시간 (분) = 0.01 x [할당 된 사용자, 그룹 및 그룹 구성원 수]
+- 최대 시간 (분) = 0.08 x [할당 된 사용자, 그룹 및 그룹 구성원 수]
+
 **초기 주기**를 완료 하는 데 걸리는 시간에 영향을 주는 요인을 요약 한 것입니다.
 
 - 프로비저닝 범위에 속하는 사용자 및 그룹의 총 수

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 194610845d9625139ff826711fc361bd9670a426
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445528"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202650"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Windows 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
@@ -111,6 +111,9 @@ Get-AzSubscription
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
+      "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
@@ -119,6 +122,8 @@ Get-AzSubscription
 ```
 
 이 템플릿은 Windows Server 2016 VM을 빌드하고 IIS를 설치한 다음 Sysprep을 사용하여 VM을 일반화합니다. IIS 설치는 PowerShell 프로비저너를 사용하여 추가 명령을 실행하는 방법을 보여줍니다. 그런 다음, 최종 Packer 이미지에는 필요한 소프트웨어 설치 및 구성이 포함됩니다.
+
+Windows 게스트 에이전트는 Sysprep 프로세스에 참여 합니다. 에이전트가 완전히 설치 되어 있어야 VM을 sysprep 된 수 있습니다. 이를 확인 하려면 sysprep.exe를 실행 하기 전에 모든 에이전트 서비스가 실행 중 이어야 합니다. 위의 JSON 코드 조각은 PowerShell provisioner에서이 작업을 수행 하는 한 가지 방법을 보여 줍니다. 이 코드 조각은 기본 인 에이전트를 설치 하도록 VM이 구성 된 경우에만 필요 합니다.
 
 
 ## <a name="build-packer-image"></a>Packer 이미지 작성

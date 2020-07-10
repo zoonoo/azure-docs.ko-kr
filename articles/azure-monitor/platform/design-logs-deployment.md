@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed525230315781eeca41956047a173f27b1447e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82165691"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201293"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -62,7 +62,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요소 | Description |
+| 요인 | 설명 |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -97,7 +97,7 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 
 다음 표에서는 액세스 모드를 요약 합니다.
 
-| | 작업 영역-컨텍스트 | 리소스-컨텍스트 |
+| 문제점 | 작업 영역-컨텍스트 | 리소스-컨텍스트 |
 |:---|:---|:---|
 | 각 모델의 용도는 무엇 인가요? | 중앙 관리. 다양 한 리소스에 액세스 해야 하는 데이터 수집 및 사용자를 구성 해야 하는 관리자입니다. 또한 현재 Azure 외부의 리소스에 대 한 로그에 액세스 해야 하는 사용자에 게 필요 합니다. | 응용 프로그램 팀. 모니터링 되는 Azure 리소스의 관리자입니다. |
 | 사용자가 로그를 보려면 어떻게 해야 하나요? | 작업 영역에 대 한 사용 권한. [작업 영역 사용 권한을 사용 하 여 액세스 관리](manage-access.md#manage-access-using-workspace-permissions)에서 **작업 영역 권한** 을 참조 하세요. | 리소스에 대 한 읽기 액세스입니다. [Azure 권한을 사용 하 여 액세스 관리](manage-access.md#manage-access-using-azure-permissions)에서 **리소스 권한** 을 참조 하세요. 사용 권한을 상속 하거나 (예: 포함 하는 리소스 그룹에서) 리소스에 직접 할당할 수 있습니다. 리소스에 대 한 로그에 대 한 사용 권한이 자동으로 할당 됩니다. |
@@ -140,7 +140,7 @@ Operation
 ``` 
 
 
-## <a name="recommendations"></a>권장 사항
+## <a name="recommendations"></a>권장 구성
 
 ![리소스 컨텍스트 디자인 예제](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 

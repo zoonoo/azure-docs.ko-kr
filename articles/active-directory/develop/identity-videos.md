@@ -12,11 +12,12 @@ ms.date: 06/05/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 9e2f4eccb725bfac2229fa1471673a121c77f648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2452d1e0cc07767922b86810a914bba2e6f56dba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84448520"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200924"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Microsoft ID 플랫폼 비디오
 
@@ -65,10 +66,22 @@ ___
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        <!-- BLANK TITLE CELL -->
+        6- <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">프로토콜을 사용 하는 경우 MSAL 라이브러리를 더 쉽게 만들 <span class="docon docon-navigate-external x-hidden-focus"></span> 수 있나요?</a> (15:52)
     :::column-end:::
     :::column:::
-        <!-- BLANK VIDEO CELL -->
+        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        7- <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">MSAL을 사용 하는 경우 알아야 할 필수 프로토콜 개념은 무엇 <span class="docon docon-navigate-external x-hidden-focus"></span> 인가요?</a> (1:51)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -131,6 +144,20 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        7- <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">권한 부여 요청과 토큰의 관계는 무엇입니까? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (1:45)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        8- <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">ID 토큰, 액세스 토큰, 새로 고침 토큰 및 세션 토큰 간의 차이점은 무엇 인가요? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (2:10)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
@@ -237,6 +264,32 @@ ___
         <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank">응용 프로그램 권한 및 위임 된 권한 이란?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank"> <img src="./media/identity-videos/aad-basics-12.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">Microsoft identity platform Openid connect Connect 인증 이란?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">다른 AAD 앱 형식 및 비교 방법<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 ## <a name="migrate-from-v10-to-v20"></a>v1.0에서 v2.0으로 마이그레이션
 
@@ -265,9 +318,9 @@ ___
         <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        <!-- BLANK TITLE CELL -->
+        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank">V1 인증과 v2 인증의 차이점은 무엇 인가요?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        <!-- BLANK VIDEO CELL -->
+        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::

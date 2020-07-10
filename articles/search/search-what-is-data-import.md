@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9a4b6bc8ae20789c1420e68f91cee34ac5b3a3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554259"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202298"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>데이터 가져오기 개요-Azure Cognitive Search
 
@@ -67,7 +67,9 @@ POST 및 GET의 경우 요청 URL에 *서비스 이름*, *인덱스 이름*및 *
 
 GET의 경우 URL 끝의 *쿼리 문자열*은 쿼리 매개 변수를 제공하는 위치입니다. URL 형식은 아래를 참조하세요.
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+```http
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+```
 
 POST의 형식은 동일 하지만 `api-version` 쿼리 문자열 매개 변수에는 있습니다.
 
@@ -75,8 +77,8 @@ POST의 형식은 동일 하지만 `api-version` 쿼리 문자열 매개 변수�
 
 끌어오기 모델은 지원되는 데이터 원본을 탐색하고 인덱스에 데이터를 자동으로 업로드합니다. Azure Cognitive Search에서이 기능은 *인덱서*를 통해 구현 되며, 현재 이러한 플랫폼에 사용할 수 있습니다.
 
-+ [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-+ [테이블 저장소](search-howto-indexing-azure-tables.md)
++ [Azure BLOB Storage](search-howto-indexing-azure-blob-storage.md)
++ [Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure Vm에서 Azure SQL Database, SQL Managed Instance 및 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -96,7 +98,7 @@ POST의 형식은 동일 하지만 `api-version` 쿼리 문자열 매개 변수�
 > [!TIP]
 > 수많은 [Azure Cognitive Search 코드 샘플](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) 에는 포함 되거나 즉시 사용 가능한 데이터 집합이 포함 되어 쉽게 시작할 수 있는 방법이 제공 됩니다. 또한 포털에서는 작은 부동산 데이터 세트("realestate-us-sample")로 구성된 샘플 인덱서 및 데이터 원본도 제공합니다. 샘플 데이터 원본에 미리 구성된 인덱서를 실행하면 인덱스가 검색 탐색기 또는 작성한 코드로 쿼리할 수 있는 문서로 만들어지고 로드됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [인덱서 개요](search-indexer-overview.md)
 + [포털 연습: 인덱스 만들기, 로드, 쿼리](search-get-started-portal.md)

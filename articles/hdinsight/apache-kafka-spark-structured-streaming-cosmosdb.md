@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 629df1c43ff104d89f4b61a9aacb6c7f7720a1ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077140"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203467"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
@@ -66,8 +66,8 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     |속성 |값 |
     |---|---|
-    |Subscription|Azure 구독을 선택합니다.|
-    |Resource group|그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.|
+    |구독|Azure 구독을 선택합니다.|
+    |리소스 그룹|그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.|
     |Cosmos DB 계정 이름|이 값은 Cosmos DB 계정의 이름으로 사용됩니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~31자여야 합니다.|
     |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **myhdi**를 입력하면 __spark-myhdi__라는 Spark 클러스터와 **kafka-myhdi**라는 Kafka 클러스터가 만들어집니다.|
     |클러스터 버전|HDInsight 클러스터 버전입니다. 이 예제는 HDInsight 3.6을 사용하여 테스트되고 다른 클러스터 형식에서 작동하지 않을 수 있습니다.|
@@ -136,7 +136,9 @@ az cosmosdb keys list --name $name --resource-group $resourceGroupName --type ke
 
 1. 웹 브라우저의 Spark 클러스터에 있는 Jupyter Notebook에 연결합니다. 다음 URL에서 `CLUSTERNAME`을 __Spark__ 클러스터의 이름으로 바꿉니다.
 
-        https://CLUSTERNAME.azurehdinsight.net/jupyter
+    ```http
+    https://CLUSTERNAME.azurehdinsight.net/jupyter
+    ```
 
     메시지가 표시되면 클러스터를 만들 때 사용한 클러스터 로그인(관리자) 이름과 암호를 입력합니다.
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134042"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201215"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -120,7 +120,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 복제 정책은 복구 지점의 보존 기록에 대한 설정을 정의합니다. 또한 정책은 앱 일치 스냅샷의 빈도를 정의합니다. 기본적으로 Azure Site Recovery는 다음 기본 설정을 사용하여 새 복제 정책을 만듭니다.
 
 - 복구 지점의 보존 기록의 경우 24시간으로 설정합니다.
-- 앱 일치 스냅샷 빈도의 경우 60분으로 설정합니다.
+- 앱 일치 스냅숏의 빈도는 4 시간입니다.
 
 [복제 설정에 대해 자세히 알아보세요](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
@@ -183,7 +183,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Linux 서버에서 응용 프로그램 일관성을 사용 하 여 복제를 사용 하도록 설정할 수 있나요?
 
-예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. [자세한 정보](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
+예. Linux 운영 체제 Azure Site Recovery는 응용 프로그램 일관성을 위한 응용 프로그램 사용자 지정 스크립트를 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 앱 일관성을 유지 하는 동안 Azure Site Recovery 모바일 에이전트에서 사용 됩니다. [자세히 알아보기](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>다중 VM 일관성
 

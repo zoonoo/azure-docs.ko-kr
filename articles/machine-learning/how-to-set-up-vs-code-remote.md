@@ -1,5 +1,5 @@
 ---
-title: '대화형 디버그: ML 계산 인스턴스 & VS Code'
+title: '대화형 디버그: ML 계산 인스턴스 & VS Code (미리 보기)'
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 사용 하 여 코드를 대화형으로 디버깅 하려면 VS Code 원격을 설정 합니다.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 12/09/2019
-ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 46aefa62ab00c0b3bc2b90467a9fafd61439a10e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433124"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203453"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>VS Code 원격을 사용 하 여 Azure Machine Learning 계산 인스턴스에서 대화형으로 디버그
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>VS Code 원격 (미리 보기)을 사용 하 여 Azure Machine Learning 계산 인스턴스에서 대화형으로 디버그
 
 이 문서에서는 VS Code에서 **코드를 대화형으로 디버그할** 수 있도록 Azure Machine Learning 계산 인스턴스에서 원격 Visual Studio Code를 설정 하는 방법에 대해 알아봅니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: Responsible ML(Machine Learning)
+title: ML (담당 Machine Learning) 미리 보기
 titleSuffix: Azure Machine Learning
 description: Responsible ML이 무엇이고 Azure Machine Learning에서 어떻게 사용하는지 알아보기
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/08/2020
-ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.date: 07/09/2020
+ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920359"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201940"
 ---
-# <a name="responsible-machine-learning-ml"></a>Responsible ML(Machine Learning)
+# <a name="responsible-machine-learning-ml-preview"></a>ML (담당 Machine Learning) 미리 보기
 
 이 문서에서는 Responsible ML이 무엇인지 알아보고 Azure Machine Learning을 사용하여 이를 구현하는 방법에 대해 알아봅니다.
 

@@ -9,11 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: dae72454cd9c0b3cb7370873619595840b770ed3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 17536f49e24da8c508da17c4c2ff5fb2f9bead62
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799986"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200891"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
@@ -38,13 +39,13 @@ Azure Monitor의 로그에는 각 형식에 대해 다양한 속성 세트가 �
 다음 표에는 Azure Monitor에서 로그를 사용할 수 있는 여러 방법이 나와 있습니다.
 
 
-|  |  |
+|  | 설명 |
 |:---|:---|
-| 분석 | Azure Portal에서 [Log Analytics](../log-query/get-started-portal.md)를 사용하여 [로그 쿼리](../log-query/log-query-overview.md)를 작성하고 강력한 데이터 탐색기 분석 엔진을 사용하여 로그 데이터를 대화형으로 분석합니다.<br>Azure Portal의 [Application Insights 분석 콘솔](../app/analytics.md)을 사용하여 로그 쿼리를 작성하고 Application Insights의 로그 데이터를 대화형으로 분석합니다. |
-| 시각화 | 테이블 또는 차트로 렌더링된 쿼리 결과를 [Azure 대시보드](../../azure-portal/azure-portal-dashboards.md)에 고정합니다.<br>[통합 문서](../platform/workbooks-overview.md)를 만들어 대화형 보고서의 여러 데이터 집합을 결합합니다. <br>쿼리의 결과를 [Power BI](powerbi.md)로 내보내 서로 다른 시각화를 사용하고 Azure 외부의 사용자와 공유합니다.<br>쿼리의 결과를 [Grafana](grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 원본과 결합합니다.|
-| 경고 | 쿼리의 결과가 특정 결과와 일치할 때 알림을 보내거나 [자동화된 작업](action-groups.md)을 수행하는 [로그 경고 규칙](alerts-log.md)을 구성합니다.<br>메트릭으로 추출된 특정 로그 데이터 로그에서 [메트릭 경고 규칙](alerts-metric-logs.md)을 구성합니다. |
-| 장치 | [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics)를 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights)을 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[REST API](https://dev.loganalytics.io/)를 사용하여 사용자 지정 애플리케이션에서 로그 쿼리 결과에 액세스합니다. |
-| 내보내기 | 워크플로를 빌드하여 로그 데이터를 검색하고 [Logic Apps](~/articles/logic-apps/index.yml)를 사용하여 이를 외부 위치에 복사합니다. |
+| **분석** | Azure Portal에서 [Log Analytics](../log-query/get-started-portal.md)를 사용하여 [로그 쿼리](../log-query/log-query-overview.md)를 작성하고 강력한 데이터 탐색기 분석 엔진을 사용하여 로그 데이터를 대화형으로 분석합니다.<br>Azure Portal의 [Application Insights 분석 콘솔](../app/analytics.md)을 사용하여 로그 쿼리를 작성하고 Application Insights의 로그 데이터를 대화형으로 분석합니다. |
+| **시각화** | 테이블 또는 차트로 렌더링된 쿼리 결과를 [Azure 대시보드](../../azure-portal/azure-portal-dashboards.md)에 고정합니다.<br>[통합 문서](../platform/workbooks-overview.md)를 만들어 대화형 보고서의 여러 데이터 집합을 결합합니다. <br>쿼리의 결과를 [Power BI](powerbi.md)로 내보내 서로 다른 시각화를 사용하고 Azure 외부의 사용자와 공유합니다.<br>쿼리의 결과를 [Grafana](grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 원본과 결합합니다.|
+| **경고** | 쿼리의 결과가 특정 결과와 일치할 때 알림을 보내거나 [자동화된 작업](action-groups.md)을 수행하는 [로그 경고 규칙](alerts-log.md)을 구성합니다.<br>메트릭으로 추출된 특정 로그 데이터 로그에서 [메트릭 경고 규칙](alerts-metric-logs.md)을 구성합니다. |
+| **장치** | [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics)를 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights)을 사용하여 명령줄에서 로그 쿼리 결과에 액세스합니다.<br>[REST API](https://dev.loganalytics.io/)를 사용하여 사용자 지정 애플리케이션에서 로그 쿼리 결과에 액세스합니다. |
+| **내보내기** | 워크플로를 빌드하여 로그 데이터를 검색하고 [Logic Apps](~/articles/logic-apps/index.yml)를 사용하여 이를 외부 위치에 복사합니다. |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Azure Monitor 로그의 데이터는 어떻게 구성되나요?

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 13b6753d7c04951839852b3090e99fd8cde1fe2d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0d76bf29efeb40f9f29f80b6e3e6414f5e9b6fc8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079805"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203263"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -75,8 +75,8 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
   
     | 필드 | 값 |
     | --- | --- |
-    |Subscription |내게 적합한 구독을 선택합니다.|
-    |Resource group |앞에서 만든 가상 네트워크를 포함하는 리소스 그룹을 선택합니다.|
+    |구독 |내게 적합한 구독을 선택합니다.|
+    |리소스 그룹 |앞에서 만든 가상 네트워크를 포함하는 리소스 그룹을 선택합니다.|
     |가상 머신 이름 | 이 가상 머신을 식별하는 이름을 입력합니다. 이 예제에서는 **DNSProxy**를 사용합니다.|
     |지역 | 앞에서 만든 가상 네트워크와 동일한 지역을 선택합니다.  일부 VM 크기는 일부 지역에서 사용할 수 없습니다.  |
     |가용성 옵션 |  원하는 가용성 수준을 선택합니다.  Azure에서는 애플리케이션 가용성과 복원력을 관리하는 다양한 옵션을 제공합니다.  가용성 영역 또는 가용성 집합에 복제된 VM을 사용하도록 솔루션을 설계하면 데이터 센터 중단 및 유지 관리 이벤트 시 앱과 데이터를 보호할 수 있습니다. 이 예제에서는 **인프라 중복이 필요하지 않습니다**를 사용합니다. |
@@ -131,29 +131,31 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 3. 온-프레미스 DNS 서버에 이름 확인 요청을 전달 하도록 바인딩을 구성 하려면 파일의 내용으로 다음 텍스트를 사용 합니다 `/etc/bind/named.conf.options` .
 
-        acl goodclients {
-            10.0.0.0/16; # Replace with the IP address range of the virtual network
-            10.1.0.0/16; # Replace with the IP address range of the on-premises network
-            localhost;
-            localnets;
-        };
+    ```DNS Zone file
+    acl goodclients {
+        10.0.0.0/16; # Replace with the IP address range of the virtual network
+        10.1.0.0/16; # Replace with the IP address range of the on-premises network
+        localhost;
+        localnets;
+    };
 
-        options {
-                directory "/var/cache/bind";
+    options {
+            directory "/var/cache/bind";
 
-                recursion yes;
+            recursion yes;
 
-                allow-query { goodclients; };
+            allow-query { goodclients; };
 
-                forwarders {
-                192.168.0.1; # Replace with the IP address of the on-premises DNS server
-                };
+            forwarders {
+            192.168.0.1; # Replace with the IP address of the on-premises DNS server
+            };
 
-                dnssec-validation auto;
+            dnssec-validation auto;
 
-                auth-nxdomain no;    # conform to RFC1035
-                listen-on { any; };
-        };
+            auth-nxdomain no;    # conform to RFC1035
+            listen-on { any; };
+    };
+    ```
 
     > [!IMPORTANT]  
     > `goodclients` 섹션의 값을 가상 네트워크와 온-프레미스 네트워크의 IP 주소 범위로 바꿉니다. 이 섹션에서는 이 DNS 서버가 요청을 수락하는 주소를 정의합니다.
@@ -184,11 +186,13 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 5. 가상 네트워크 내에서 리소스의 DNS 이름을 확인하도록 바인딩을 구성하려면 `/etc/bind/named.conf.local` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
 
-        // Replace the following with the DNS suffix for your virtual network
-        zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-            type forward;
-            forwarders {168.63.129.16;}; # The Azure recursive resolver
-        };
+    ```DNS Zone file
+    // Replace the following with the DNS suffix for your virtual network
+    zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+        type forward;
+        forwarders {168.63.129.16;}; # The Azure recursive resolver
+    };
+    ```
 
     > [!IMPORTANT]  
     > `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net`을 이전에 검색한 DNS 접미사로 바꿔야 합니다.
@@ -256,10 +260,12 @@ DNS 서버를 구성하는 방법에 대한 특정 단계는 DNS 서버 소프�
 
 다음 텍스트는 **Bind** DNS 소프트웨어에 대한 조건 전달자 구성의 예제입니다.
 
-    zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-        type forward;
-        forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
-    };
+```DNS Zone file
+zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+    type forward;
+    forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
+};
+```
 
 **Windows Server 2016**에서 DNS를 사용하는 방법에 대한 내용은 [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) 설명서를 참조하세요...
 

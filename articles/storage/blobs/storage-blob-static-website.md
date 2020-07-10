@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833349"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203390"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -76,13 +76,15 @@ ms.locfileid: "85833349"
 
 다음 스크린샷은 Azure Portal의 공용 액세스 수준 설정을 보여 줍니다.
 
-![포털에서 공용 액세스 수준을 설정하는 방법을 보여 주는 스크린샷](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![포털에서 공용 액세스 수준을 설정하는 방법을 보여 주는 스크린샷](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 기본 정적 웹 사이트 엔드포인트에는 영향을 주지 않지만 공용 액세스 수준 변경은 주 Blob 서비스 엔드포인트에는 영향을 줍니다.
 
 예를 들어 **$web** 컨테이너의 공용 액세스 수준을 **개인(익명 액세스 없음)** 에서 **Blob(Blob만 익명 읽기 액세스)** 으로 변경하는 경우 기본 정적 웹 사이트 엔드포인트 `https://contosoblobaccount.z22.web.core.windows.net/index.html`에 대한 공용 액세스 수준은 변경되지 않습니다.
 
 그러나 기본 Blob 서비스 엔드포인트 `https://contosoblobaccount.blob.core.windows.net/$web/index.html`에 대한 공용 액세스가 개인에서 공용으로 변경됩니다. 이제 사용자는 이들 두 엔드포인트 중 하나를 사용하여 해당 파일을 열 수 있습니다.
+
+저장소 계정에 대 한 공용 액세스를 사용 하지 않도록 설정 해도 해당 저장소 계정에서 호스팅되는 정적 웹 사이트에는 영향을 주지 않습니다. 자세한 내용은 [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성](anonymous-read-access-configure.md)을 참조 하세요.
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>정적 웹 사이트 URL에 사용자 지정 도메인 매핑
 

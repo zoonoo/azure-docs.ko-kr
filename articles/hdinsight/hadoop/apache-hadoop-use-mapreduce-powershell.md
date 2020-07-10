@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: 2eb5817a3339494417bb426bfdccb09ae3ac7230
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bd6d02ce1cd60a6d54047139f06fa59f359f9da9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087778"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202407"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>PowerShell을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
@@ -33,7 +33,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 MapReduce 작업을 실행할 때 사용됩니다.
 
-|Cmdlet | Description |
+|cmdlet | 설명 |
 |---|---|
 |연결 AzAccount|Azure 구독에 대해 Azure PowerShell을 인증합니다.|
 |AzHDInsightMapReduceJobDefinition|지정한 MapReduce 정보를 사용하여 새 *작업 정의*를 만듭니다.|
@@ -49,21 +49,25 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 2. 새 **Azure PowerShell** 명령 프롬프트를 엽니다. **mapreducejob.ps1** 파일의 디렉터리 위치를 변경한 다음 명령을 사용하여 스크립트를 실행합니다.
 
-        .\mapreducejob.ps1
+    ```azurepowershell
+    .\mapreducejob.ps1
+    ```
 
     스크립트를 실행할 때 HDInsight 클러스터의 이름과 클러스터 로그인을 입력 하 라는 메시지가 표시 됩니다. Azure 구독에서 인증을 받으라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 출력이 나타납니다.
 
-        Cluster         : CLUSTERNAME
-        ExitCode        : 0
-        Name            : wordcount
-        PercentComplete : map 100% reduce 100%
-        Query           :
-        State           : Completed
-        StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
-        SubmissionTime  : 12/5/2014 8:34:09 PM
-        JobId           : job_1415949758166_0071
+    ```output
+    Cluster         : CLUSTERNAME
+    ExitCode        : 0
+    Name            : wordcount
+    PercentComplete : map 100% reduce 100%
+    Query           :
+    State           : Completed
+    StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
+    SubmissionTime  : 12/5/2014 8:34:09 PM
+    JobId           : job_1415949758166_0071
+    ```
 
     이 출력은 작업이 성공적으로 완료되었음을 나타냅니다.
 

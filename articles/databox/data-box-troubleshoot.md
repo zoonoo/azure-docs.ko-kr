@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 07/08/2020
 ms.author: alkohli
-ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558543"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200134"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy 관련 된 문제 해결
 
-이 문서에서는 Azure Data Box 또는 Azure Data Box Heavy를 사용할 때 나타날 수 있는 문제를 해결 하는 방법에 대 한 정보를 자세히 설명 합니다. 이 문서에는 데이터를 Data Box 복사 하거나 Data Box에서 데이터를 업로드할 때 표시 되는 가능한 오류 목록이 포함 되어 있습니다.
+이 문서에서는 Azure Data Box 또는 Azure Data Box Heavy를 사용할 때 나타날 수 있는 문제를 해결 하는 방법에 대 한 정보를 자세히 설명 합니다. 이 문서에는 데이터를 Data Box 복사할 때 또는 가져오기 순서를 위해 Data Box에서 데이터를 업로드할 때 표시 되는 가능한 오류 목록이 포함 되어 있습니다.
+
+이 문서의 정보는 Data Box에 대해 만들어진 내보내기 주문에는 적용 되지 않습니다.
 
 ## <a name="error-classes"></a>오류 클래스
 
@@ -25,10 +27,10 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 
 | 오류 범주 *        | 설명        | 권장 조치    |
 |----------------------------------------------|---------|--------------------------------------|
-| 컨테이너 또는 공유 이름 | 컨테이너 또는 공유 이름은 Azure 명명 규칙을 따르지 않습니다.  |오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유의 이름을 바꿉니다. [자세히 알아보기](#container-or-share-name-errors).  |
-| 컨테이너 또는 공유 크기 제한 | 컨테이너 또는 공유의 총 데이터가 Azure 제한을 초과 합니다.   |오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유의 전체 데이터를 줄입니다. [자세히 알아보기](#container-or-share-size-limit-errors).|
-| 개체 또는 파일 크기 제한 | 컨테이너 또는 공유의 개체 또는 파일이 Azure 제한을 초과 합니다.|오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유에서 파일 크기를 줄입니다. [자세히 알아보기](#object-or-file-size-limit-errors). |    
-| 데이터 또는 파일 형식 | 데이터 형식 또는 파일 형식은 지원 되지 않습니다. |오류 목록을 다운로드 합니다. <br> 페이지 blob 또는 managed disks의 경우 데이터의 512 바이트를 정렬 하 고 미리 만든 폴더에 복사 해야 합니다. [자세히 알아보기](#data-or-file-type-errors). |
+| 컨테이너 또는 공유 이름 | 컨테이너 또는 공유 이름은 Azure 명명 규칙을 따르지 않습니다.  |오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유의 이름을 바꿉니다. [자세한 정보를 알아보세요](#container-or-share-name-errors).  |
+| 컨테이너 또는 공유 크기 제한 | 컨테이너 또는 공유의 총 데이터가 Azure 제한을 초과 합니다.   |오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유의 전체 데이터를 줄입니다. [자세한 정보를 알아보세요](#container-or-share-size-limit-errors).|
+| 개체 또는 파일 크기 제한 | 컨테이너 또는 공유의 개체 또는 파일이 Azure 제한을 초과 합니다.|오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유에서 파일 크기를 줄입니다. [자세한 정보를 알아보세요](#object-or-file-size-limit-errors). |    
+| 데이터 또는 파일 형식 | 데이터 형식 또는 파일 형식은 지원 되지 않습니다. |오류 목록을 다운로드 합니다. <br> 페이지 blob 또는 managed disks의 경우 데이터의 512 바이트를 정렬 하 고 미리 만든 폴더에 복사 해야 합니다. [자세한 정보를 알아보세요](#data-or-file-type-errors). |
 | 중요 하지 않은 blob 또는 파일 오류  | Blob 또는 파일 이름이 Azure 명명 규칙을 따르지 않거나 파일 형식이 지원 되지 않습니다. | 이러한 blob 또는 파일은 복사 되지 않거나 이름이 변경 될 수 있습니다. [이러한 오류를 해결 하는 방법을 알아봅니다](#non-critical-blob-or-file-errors). |
 
 \*처음 네 개의 오류 범주는 심각한 오류 이며 제공 준비를 진행 하기 전에 수정 해야 합니다.

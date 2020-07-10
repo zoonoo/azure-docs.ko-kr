@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246fcdb27737e99bb677e23216f0305037f54526
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100382"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187458"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -146,7 +147,7 @@ foreach($summary in $finalStatus)
 * 실행 계정
 * 실행하려는 Runbook
 
-Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)를 참조하세요.
+Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)를 참조하세요.
 
 ### <a name="interact-with-non-azure-machines"></a>비 Azure 머신과의 상호 작용
 
@@ -157,7 +158,7 @@ Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](https://docs.micr
 * 로컬에서 실행하려는 Runbook
 * 부모 Runbook
 
-비 Azure 머신과 상호 작용하기 위해 부모 Runbook이 Azure 컨텍스트에서 실행됩니다. 이 Runbook은 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet을 사용하여 자식 Runbook을 호출합니다. `RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다. Runbook 예제 [업데이트 관리 – 로컬에서 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)을 참조하세요.
+비 Azure 머신과 상호 작용하기 위해 부모 Runbook이 Azure 컨텍스트에서 실행됩니다. 이 Runbook은 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet을 사용하여 자식 Runbook을 호출합니다. `RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다. Runbook 예제 [업데이트 관리 – 로컬에서 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)을 참조하세요.
 
 ## <a name="abort-patch-deployment"></a>패치 배포 중단
 
@@ -242,7 +243,7 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
+> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

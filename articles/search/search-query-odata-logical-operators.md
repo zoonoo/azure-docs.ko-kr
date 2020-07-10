@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113193"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201984"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Azure Cognitive Search의 OData 논리 연산자- `and` , `or` ,`not`
 
@@ -35,7 +36,7 @@ Azure Cognitive Search의 [OData 필터 식은](query-odata-filter-orderby-synta
 
 이를 통해 [컬렉션 연산자 `any` 와 `all` ](search-query-odata-collection-operators.md)를 함께 사용 하면 매우 복잡 한 검색 조건을 표현할 수 있는 필터를 생성할 수 있습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 논리 연산자를 사용 하는 OData 식의 문법을 정의 합니다.
 
@@ -92,19 +93,27 @@ logical_expression ::=
 
 `rating`필드가 3에서 5 사이인 문서를 찾습니다 (포함).
 
+```odata-filter-expr
     rating ge 3 and rating le 5
+```
 
 필드의 모든 요소가 `ratings` 3 보다 작거나 5 보다 큰 문서를 찾습니다.
 
+```odata-filter-expr
     ratings/all(r: r lt 3 or r gt 5)
+```
 
 `location`필드가 지정 된 다각형 내에 있고 문서에 "public" 이라는 용어가 포함 되지 않은 문서를 찾습니다.
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
+```
 
 160 미만의 기본 요금을 가진 deluxe 공간이 있는 밴쿠버 캐나다에서 호텔 문서를 찾습니다.
 
+```odata-filter-expr
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
+```
 
 ## <a name="next-steps"></a>다음 단계  
 

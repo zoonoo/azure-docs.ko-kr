@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828885"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187305"
 ---
 # <a name="use-source-control-integration"></a>원본 제어 통합 사용
 
@@ -72,8 +73,7 @@ Azure Portal을 사용하여 소스 제어를 구성하려면 다음 절차를 �
 
 ### <a name="configure-source-control-in-powershell"></a>PowerShell에서 소스 제어 구성
 
-PowerShell을 사용하여 Azure Automation에 소스 제어를 구성할 수도 있습니다. 이 작업에 PowerShell cmdlet을 사용하려면 PAT(개인용 액세스 토큰)가 필요합니다. [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
-) cmdlet을 사용하여 소스 제어 연결을 만듭니다. 이 cmdlet에는 PAT에 대한 보안 문자열이 필요합니다. 보안 문자열을 만드는 방법을 알아보려면 [Convertto-html-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6)을 참조하세요.
+PowerShell을 사용하여 Azure Automation에 소스 제어를 구성할 수도 있습니다. 이 작업에 PowerShell cmdlet을 사용하려면 PAT(개인용 액세스 토큰)가 필요합니다. [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) cmdlet을 사용하여 소스 제어 연결을 만듭니다. 이 cmdlet에는 PAT에 대한 보안 문자열이 필요합니다. 보안 문자열을 만드는 방법을 알아보려면 [Convertto-html-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6)을 참조하세요.
 
 다음 하위 섹션에서는 GitHub, Azure Repos(Git) 및 Azure Repos(TFVC)에 대한 소스 제어 연결의 PowerShell 만들기를 보여 줍니다. 
 
@@ -122,7 +122,7 @@ New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Azure Repos에 대한 최소 PAT 권한
 
-다음 목록에는 Azure Repos에 필요한 최소 PAT 권한이 정의되어 있습니다. Azure Repos에서 PAT를 만드는 방법에 대한 자세한 내용은 [개인용 액세스 토큰을 사용하여 액세스 인증](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)을 참조하세요.
+다음 목록에는 Azure Repos에 필요한 최소 PAT 권한이 정의되어 있습니다. Azure Repos에서 PAT를 만드는 방법에 대한 자세한 내용은 [개인용 액세스 토큰을 사용하여 액세스 인증](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)을 참조하세요.
 
 | 범위  |  액세스 형식  |
 |---------| ----------|
@@ -195,14 +195,14 @@ New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<
 
 ## <a name="handle-encoding-issues"></a>인코딩 문제 처리
 
-여러 사용자가 여러 편집기를 사용하여 소스 제어 리포지토리에서 Runbook을 편집하는 경우 인코딩 문제가 발생할 수 있습니다. 이 상황을 자세히 알아보려면 [인코딩 문제의 일반적인 원인](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues)을 참조하세요.
+여러 사용자가 여러 편집기를 사용하여 소스 제어 리포지토리에서 Runbook을 편집하는 경우 인코딩 문제가 발생할 수 있습니다. 이 상황을 자세히 알아보려면 [인코딩 문제의 일반적인 원인](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues)을 참조하세요.
 
 ## <a name="update-the-pat"></a>PAT 업데이트
 
 현재는 Azure Portal을 사용하여 소스 제어에서 PAT를 업데이트할 수 없습니다. PAT가 만료되거나 철회되면 다음 방법 중 하나로 새 액세스 토큰을 사용하여 소스 제어를 업데이트할 수 있습니다.
 
-* [REST API](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update)를 사용합니다.
-* [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet을 사용합니다.
+* [REST API](/rest/api/automation/sourcecontrol/update)를 사용합니다.
+* [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

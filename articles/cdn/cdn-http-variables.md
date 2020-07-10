@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84340677"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203578"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
 HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 수단을 제공합니다. 이 메타데이터는 요청 또는 응답을 동적으로 변경하는 데 사용할 수 있습니다. HTTP 변수의 사용은 다음 규칙 엔진 기능으로 제한됩니다.
@@ -186,7 +187,7 @@ https:\//www.mydomain.com/mobile/marketing/proposal.htm
 
 다음 표에서 이 구문의 작동 방식을 설명합니다.
 
-| 샘플 구문 | 결과 | |
+| 샘플 구문 | 결과 | 설명 |
 | ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | 변수가 패턴으로 시작하기 때문에 대체되었습니다. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | 변수가 패턴으로 끝나지 않으므로 변경된 내용이 없습니다.|

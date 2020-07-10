@@ -8,17 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196929"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202578"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 후 Excel 및 ODBC 드라이버를 사용 하 여 HDInsight의 Hive 테이블에 연결 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Enterprise Security Package가 포함된 HDInsight 클러스터. [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
 * Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus를 포함한 워크스테이션
@@ -55,10 +56,10 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |---|---|
     |정책 이름|읽기 hivesampletable-모두|
     |Hive 데이터베이스|default|
-    |테이블|hivesampletable|
+    |table|hivesampletable|
     |Hive 열|*|
     |사용자 선택|hiveuser1|
-    |사용 권한|선택|
+    |권한|선택|
 
     ![HDInsight ESP 레인저 Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
@@ -73,10 +74,10 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |---|---|
     |정책 이름|읽기-hivesampletable-devicemake|
     |Hive 데이터베이스|default|
-    |테이블|hivesampletable|
+    |table|hivesampletable|
     |Hive 열|clientid, devicemake|
     |사용자 선택|hiveuser2|
-    |사용 권한|선택|
+    |권한|선택|
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 
@@ -120,7 +121,9 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
 1. **정의** 탭을 선택 합니다. 명령 텍스트는 다음과 같습니다.
 
-       SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"`
+    ```
 
    정의한 Ranger 정책으로 hiveuser1에는 모든 열에 대한 선택 사용 권한이 생성됩니다.  이 쿼리는 1의 자격 증명을 사용 하 여 작동 하지만이 쿼리는 hiveuser2's 자격 증명으로 작동 하지 않습니다.
 
@@ -135,15 +138,21 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 1. Excel에서 새 시트를 추가합니다.
 2. 데이터를 가져오는 마지막 절차를 따릅니다.  유일한 차이점은 hiveuser1의 자격 증명 대신 hiveuser2의 자격 증명을 사용하는 것입니다. hiveuser2에 두 열을 표시하는 사용 권한이 있기 때문에 작업에 실패합니다. 다음 오류가 표시됩니다.
 
-        [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
-        
+    ```output
+    [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
+    ```
+
 3. 데이터를 가져오는 동일한 절차를 따릅니다. 또한 이번에는 hiveuser2의 자격 증명을 사용하여 다음에서 select 문을 수정합니다.
 
-        SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```
 
     다음과 같이 변경합니다.
 
-        SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```
 
     완료 되 면 가져온 데이터 열이 두 개 표시 됩니다.
 

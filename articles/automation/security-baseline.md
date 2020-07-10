@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 718be8599db5b30aa6c98bf4dfbd3663250b9d9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255893"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187424"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
 Automation의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -34,15 +34,15 @@ Runbook에 대 한 추가 격리를 얻으려면 Azure virtual machines에서 �
 
 또는 특정 요구 사항이 있는 경우 Azure 방화벽을 충족 하는 데 사용할 수도 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+* [Azure의 가상 네트워크 및 가상 머신](../virtual-machines/windows/network-overview.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Azure 방화벽을 배포 및 구성 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 및 구성 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Runbook 실행 환경](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-execution-environment)
+* [Runbook 실행 환경](./automation-runbook-execution.md#runbook-execution-environment)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -56,9 +56,9 @@ Azure virtual machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 NSG 규칙 및 사용자 정의 경로는 개인 끝점에 적용 되지 않지만 아웃 바운드 연결에 대 한 NSG 흐름 로그 및 모니터링 정보는 계속 지원 되며 사용할 수 있습니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -80,15 +80,15 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 제한 된 시간 동안 Windows 가상 컴퓨터의 노출을 승인 된 IP 주소로 제한할 수 있습니다. 또한 NSG 구성에 대 한 적응 네트워크 강화 권장 사항을 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트 및 원본 Ip를 제한 합니다.
 
-* [DDoS 보호를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
 
-* [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
 
-* [적응 네트워크 강화 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+* [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
-* [Azure Security Center Just-in-time 네트워크 Access Control 이해](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Azure Security Center Just-in-time 네트워크 Access Control 이해](../security-center/security-center-just-in-time.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -100,9 +100,9 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 Azure virtual machines에서 지 원하는 Hybrid Runbook Worker를 사용 하는 경우 저장소 계정에 NSG 흐름 로그를 기록 하 여 Runbook worker 역할을 하는 Azure Virtual Machines에 대 한 흐름 레코드를 생성할 수 있습니다. 비정상적인 활동을 조사할 때 네트워크 트래픽을 비정상적이 고 예기치 않은 활동에 대해 검토할 수 있도록 Network Watcher 패킷 캡처를 사용 하도록 설정할 수 있습니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Network Watcher를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+* [Network Watcher를 사용하도록 설정하는 방법](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -114,11 +114,11 @@ Azure virtual machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 Azure virtual machines에서 호스트 되는 Hybrid Runbook Worker를 사용 하는 경우 Network Watcher에서 제공 하는 패킷 캡처와 오픈 소스 ID 도구를 결합 하 여 해당 작업자 컴퓨터에 대해 광범위 한 위협에 대 한 네트워크 침입 검색을 수행할 수 있습니다. 또한 위협 인텔리전스를 사용 하도록 설정 하 고 악의적인 네트워크 트래픽에 대해 "경고 및 거부"로 구성 하 여 Virtual Network 세그먼트에 Azure 방화벽을 적절 하 게 배포할 수 있습니다.
 
-* [Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
+* [Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행](../network-watcher/network-watcher-intrusion-detection-open-source-tools.md)
 
-* [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](../firewall/threat-intel.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -136,7 +136,7 @@ Azure virtual machines에서 호스트 되는 Hybrid Runbook Worker를 사용 �
 
 **지침**: Virtual Network 서비스 태그를 사용 하 여 azure에서 구성 된 네트워크 보안 그룹 또는 azure 방화벽에서 자동화 리소스에 액세스 해야 하는 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: GuestAndHybridManagement)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-* [서비스 태그 이해 및 사용](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -148,11 +148,11 @@ Azure virtual machines에서 호스트 되는 Hybrid Runbook Worker를 사용 �
 
 Azure 청사진을 사용 하 여 Azure 리소스 관리자 템플릿, RBAC 컨트롤 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화할 수도 있습니다. 청사진을 새 구독에 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정할 수 있습니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
 
-* [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -166,11 +166,11 @@ Azure 청사진을 사용 하 여 Azure 리소스 관리자 템플릿, RBAC 컨�
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -180,9 +180,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 네트워크 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -190,13 +190,13 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
 **지침**: Microsoft는 Azure 리소스에 대 한 시간 소스를 유지 관리 합니다. 그러나 Windows 가상 머신에서 실행 되는 모든 Hybrid Runbook Worker에 대 한 시간 동기화 설정을 관리할 수 있는 옵션이 있습니다.
 
-* [Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+* [Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](../virtual-machines/windows/time-sync.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -208,19 +208,19 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 
 * [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-* [Azure Monitor 로그에 Azure Automation 작업 데이터 전달](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)
+* [Azure Monitor 로그에 Azure Automation 작업 데이터 전달](./automation-manage-send-joblogs-log-analytics.md)
 
-* [Azure Monitor 로그와 DSC 통합](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)
+* [Azure Monitor 로그와 DSC 통합](./automation-dsc-diagnostics.md)
 
-* [연결된 Log Analytics 작업 영역에 대해 지원되는 지역](https://docs.microsoft.com/azure/automation/how-to/region-mappings)
+* [연결된 Log Analytics 작업 영역에 대해 지원되는 지역](./how-to/region-mappings.md)
 
-* [업데이트 관리 로그 쿼리](https://docs.microsoft.com/azure/automation/automation-update-management-query-logs)
+* [업데이트 관리 로그 쿼리](./automation-update-management-query-logs.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -230,9 +230,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: 이벤트 원본, 날짜, 사용자, 타임 스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함 하는 감사 및 활동 로그에 대 한 액세스를 Azure Monitor를 사용 하도록 설정 합니다.
 
-* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Azure 활동 로그 이벤트를 보고 검색하기](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Azure 활동 로그 이벤트를 보고 검색하기](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Azure Security Center 모니터링**: 예
 
@@ -244,7 +244,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windows 가상 머신에 대 한 보안 이벤트 로그 모니터링을 제공 합니다. 조직에서 보안 이벤트 로그 데이터를 유지 하려는 경우 데이터 컬렉션 계층 내에 저장할 수 있으며,이 시점에서 Log Analytics 쿼리할 수 있습니다. 다음과 같은 다양 한 계층이 있습니다. 최소, 공통 및 모두, 다음 링크에 자세히 설명 되어 있습니다.
 
-* [Azure Security Center 내에서 데이터 컬렉션 계층 구성](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Azure Security Center 내에서 데이터 컬렉션 계층 구성](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -254,9 +254,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-* [Log Analytics에서 데이터 보존 기간 변경](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Automation 계정에 대 한 데이터 보존 세부 정보](https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention)
+* [Automation 계정에 대 한 데이터 보존 세부 정보](./automation-managing-data.md#data-retention)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -268,11 +268,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Azure Monitor의 로그 쿼리 이해](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Azure Monitor의 로그 쿼리 이해](../azure-monitor/log-query/get-started-portal.md)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -284,11 +284,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 또는 온보드 데이터를 Azure 센티널로 설정할 수 있습니다.
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Azure Security Center에서 경고를 관리 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Azure Monitor 로그 데이터를 경고 하는 방법](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Azure Monitor 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -300,9 +300,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 그러나 Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Cloud Services 및 virtual machines에 대해 Microsoft 맬웨어 방지 프로그램을 사용할 수 있습니다. Azure Storage 계정에 이벤트를 기록 하도록 가상 컴퓨터를 구성 합니다. 저장소 계정에서 이벤트를 수집 하 고 해당 하는 경우 경고를 생성 하도록 Log Analytics 작업 영역을 구성 합니다. Azure Security Center "계산 앱"의 권장 사항을 따릅니다 &amp; .
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지를 구성 하는 방법](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지를 구성 하는 방법](../security/fundamentals/antimalware.md)
 
-* [가상 컴퓨터에 대 한 게스트 수준 모니터링을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics)
+* [가상 컴퓨터에 대 한 게스트 수준 모니터링을 사용 하도록 설정 하는 방법](../cost-management-billing/cloudyn/azure-vm-extended-metrics.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -322,7 +322,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 그러나 Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center는 Azure virtual machines에 대 한 보안 이벤트 로그 모니터링을 제공 합니다. Security Center은 지원 되는 모든 Azure Vm에 대 한 Log Analytics 에이전트와 자동 프로비저닝을 사용 하도록 설정 된 경우 생성 되는 새 Vm을 프로 비전 합니다. 또는 에이전트를 수동으로 설치할 수 있습니다. 에이전트를 사용 하면 프로세스 만들기 이벤트 4688 및 이벤트 4688 내의 명령줄 필드를 사용할 수 있습니다. VM에서 생성 되는 새 프로세스는 이벤트 로그에 기록 되 고 Security Center의 검색 서비스에 의해 모니터링 됩니다.
 
-* [Azure Security Center에서 데이터 수집](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -330,19 +330,19 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
 **지침**: 명시적으로 할당 될 수 있고 쿼리할 수 있는 Azure Active Directory 기본 제공 관리자 역할을 사용 합니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다. Runbook에 Automation 계정 실행 계정을 사용 하는 경우 항상 상승 된 권한이 있는 경우에도 이러한 서비스 사용자를 인벤토리에 추적 해야 합니다. 노출 된 공격 노출 영역을 최소화 하려면 사용 하지 않는 실행 계정을 삭제 합니다.
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [실행 또는 클래식 실행 계정 삭제](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -362,11 +362,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있는 역할을 사용 하 고 Azure Resource Manager 하 여 Just-in-time/간단 하 게 액세스할 수 있도록 설정할 수도 있습니다.
 
-* [Privileged Identity Management에 대 한 자세한 정보](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+* [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
-* [실행 또는 클래식 실행 계정 삭제](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -376,11 +376,11 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: 가능 하면 서비스 별로 개별 독립 실행형 자격 증명을 구성 하는 대신 AZURE ACTIVE DIRECTORY에서 SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다.
 
-* [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
-* [Azure AD를 사용하여 Azure에 인증](https://docs.microsoft.com/azure/automation/automation-use-azure-ad)
+* [Azure AD를 사용하여 Azure에 인증](./automation-use-azure-ad.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -390,9 +390,9 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: AZURE AD MFA (multi-factor authentication)를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -402,9 +402,9 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: 프로덕션 환경에서 Azure Automation 계정 리소스에 로그인 하 고 구성 하도록 구성 된 multi-factor authentication과 함께 paw를 사용 합니다.
 
-* [Privileged Access Workstation에 대한 자세한 정보](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -414,11 +414,11 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: Azure AD 위험 검색을 활용 하 여 위험한 사용자 동작에 대 한 경고 및 보고서를 봅니다. 필요에 따라 고객이 작업 그룹을 사용 하 여 Azure Monitor 하 고 사용자 지정 경고/알림을 구성할 Azure Security Center 위험 검색 경고를 전달할 수 있습니다.
 
-* [Azure Security Center 위험 탐지 이해 (의심 스러운 활동)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Azure Security Center 위험 탐지 이해 (의심 스러운 활동)](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../azure-monitor/platform/action-groups.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -428,7 +428,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: 명명 된 조건부 액세스 위치를 사용 하 여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 액세스할 수 있도록 하는 것이 좋습니다.
 
-* [Azure에서 명명 된 위치를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Azure에서 명명 된 위치를 구성 하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -438,9 +438,9 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: Azure AD를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. Hybrid Runbook Worker를 사용 하는 경우 실행 계정 대신 관리 되는 id를 활용 하 여 보다 원활한 보안 권한을 사용할 수 있습니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
-* [관리 id로 runbook 인증 사용](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+* [관리 id로 runbook 인증 사용](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
 **Azure Security Center 모니터링**: 예
 
@@ -450,13 +450,13 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: Azure AD는 부실 계정을 검색하는 데 유용한 로그를 제공합니다. 또한 Azure ID 액세스 검토를 사용하여 그룹 멤버 자격, 엔터프라이즈 애플리케이션에 대한 액세스 및 역할 할당을 효율적으로 관리합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다. Runbook에 대 한 Automation 계정 실행 계정을 사용 하는 경우 언제 든 지 관리자 권한이 있는 경우에도 이러한 서비스 사용자를 인벤토리에 추적할 수 있습니다. 노출 된 공격 노출 영역을 최소화 하려면 사용 하지 않는 실행 계정을 삭제 합니다.
 
-* [Azure AD 보고 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-* [Azure ID 액세스 검토를 사용하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-* [실행 또는 클래식 실행 계정 삭제](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -468,7 +468,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics Workspace로 보내면 이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -478,11 +478,11 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 **지침**: Azure AD 위험 및 id 보호 기능을 사용 하 여 네트워크 리소스에 대 한 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-* [Azure AD 위험한 로그인을 확인하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -494,7 +494,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 그러나 Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하 고 타사에서 고객 데이터에 액세스 해야 하는 경우 (예: 지원 요청 시) Azure virtual machines에 대해 고객 Lockbox (미리 보기)를 사용 하 여 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부 합니다.
 
-* [고객 Lockbox 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [고객 Lockbox 이해](../security/fundamentals/customer-lockbox-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -502,13 +502,13 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 Azure Automation 리소스를 추적 하는 데 도움을 줍니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -518,19 +518,19 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. 별도의 자동화 계정 리소스를 사용 하 여 환경을 격리 합니다. Hybrid Runbook Worker와 같은 리소스는 가상 네트워크/서브넷으로 분리 되 고, 적절 하 게 태그가 지정 되 고, NSG (네트워크 보안 그룹) 또는 Azure 방화벽 내에서 보호 되어야 합니다. 중요 한 데이터를 저장 하거나 처리 하는 가상 컴퓨터의 경우 정책 및 프로시저를 구현 하 여 사용 하지 않을 때이를 해제 합니다.
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure 방화벽을 사용 하 여 경고 또는 경고 및 거부를 구성 하는 방법](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Azure 방화벽을 사용 하 여 경고 또는 경고 및 거부를 구성 하는 방법](../firewall/threat-intel.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -542,7 +542,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요 한 것으로 간주 하 고 고객 데이터 손실 및 노출을 방지 합니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -554,7 +554,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 해당 하는 경우 미사용 암호화 및 전송 중인 암호화에 대 한 Azure Security Center 권장 사항을 따릅니다.
 
-* [Azure를 사용 하 여 전송 중인 암호화 이해](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+* [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 * [Azure Automation TLS 1.2 적용](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
 
@@ -574,11 +574,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: AZURE AD RBAC를 사용 하 여 기본 제공 역할 정의를 사용 하 여 Azure Automation 리소스에 대 한 액세스를 제어 하 고, 최소 권한 또는 ' 간단히 ' 액세스 모델에 따라 자동화 리소스에 액세스 하는 사용자에 게 액세스 권한을 할당 합니다. Hybrid Runbook Worker를 사용 하는 경우 해당 가상 컴퓨터에 대 한 관리 id를 활용 하 여 서비스 사용자를 사용 하지 않도록 합니다. 다중 테 넌 트 또는 Hybrid Runbook Worker를 모두 사용 하는 경우 runbook worker의 id에 대해 적절 하 게 범위가 지정 된 RBAC 권한을 적용 합니다.
 
-* [Azure에서 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
-* [Hybrid Runbook Worker에 대한 Runbook 권한](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker)
+* [Hybrid Runbook Worker에 대한 Runbook 권한](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
-* [역할 권한 및 보안 관리](https://docs.microsoft.com/azure/automation/automation-role-based-access-control)
+* [역할 권한 및 보안 관리](./automation-role-based-access-control.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -600,13 +600,13 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스크는 서버 쪽 암호화 또는 ADE (Azure disk encryption)를 사용 하 여 미사용에 암호화 됩니다. Azure disk encryption은 Windows의 BitLocker 기능을 활용 하 여 게스트 VM 내에서 고객 관리 키를 사용 하 여 관리 디스크를 암호화 합니다. 고객 관리형 키를 사용하는 서버 쪽 암호화는 스토리지 서비스의 데이터를 암호화하여 VM에 대한 모든 OS 유형 및 이미지를 사용할 수 있도록 설정하여 ADE에서 향상됩니다.
 
-* [Azure managed disks의 서버 쪽 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption)
+* [Azure managed disks의 서버 쪽 암호화](../virtual-machines/windows/disk-encryption.md)
 
-* [Windows Vm에 대 한 Azure Disk Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
+* [Windows Vm에 대 한 Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md)
 
-* [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [Azure Automation에서 관리 되는 변수](https://docs.microsoft.com/azure/automation/shared-resources/variables)
+* [Azure Automation에서 관리 되는 변수](./shared-resources/variables.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -616,9 +616,9 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 네트워킹 구성 요소, Azure Automation 계정, runbook과 같은 중요 한 Azure 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-* [네트워크 보안 그룹에 대한 진단 로깅](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+* [네트워크 보안 그룹에 대한 진단 로깅](../private-link/private-link-overview.md#logging-and-monitoring)
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -626,15 +626,15 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
 **지침**: Azure 리소스에 대 한 취약성 평가를 수행 하는 Azure Security Center의 권장 사항 준수
 
-* [Azure Security Center의 보안 권장 사항](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+* [Azure Security Center의 보안 권장 사항](../security-center/security-center-recommendations.md)
 
-* [Security Center 권장 사항 참조](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+* [Security Center 권장 사항 참조](../security-center/recommendations-reference.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -646,9 +646,9 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하는 경우 Azure 업데이트 관리를 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리 합니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-* [Azure의 업데이트 관리](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure의 업데이트 관리](./automation-update-management.md)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Azure VM에 대한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -660,9 +660,9 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하는 경우 Azure 업데이트 관리를 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하면 사용자 지정 업데이트를 WSUS (Windows Server Update Services)에 게시할 수 있습니다. 이 시나리오를 통해 업데이트 관리은 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어로 업데이트 리포지토리로 패치할 수 있습니다.
 
-* [Azure의 업데이트 관리 솔루션](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure의 업데이트 관리 솔루션](./automation-update-management.md)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Azure VM에 대한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -680,7 +680,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: Azure Security Center에서 제공 하는 기본 위험 등급 (보안 점수)을 사용 하 여 검색 된 취약성에 대 한 수정의 우선 순위를 지정 합니다.
 
-* [보안 점수 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+* [보안 점수 Azure Security Center 이해](../security-center/secure-score-security-controls.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -688,17 +688,17 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 Asset Discovery 솔루션 사용
 
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내의 모든 Azure Automation 리소스를 쿼리하고 검색 합니다. 테넌트에서 적절한 권한(읽기)이 있는지 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거할 수 있습니다.
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -708,7 +708,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -718,15 +718,15 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: 해당 하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용 하 여 Azure Automation 리소스를 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다. 노출 된 공격 노출 영역을 최소화 하려면 사용 하지 않는 실행 계정을 삭제 합니다.
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [실행 또는 클래식 실행 계정 삭제](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -748,11 +748,11 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 또한 Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리/검색 합니다. 이는 저장소 계정을 사용 하는 환경 등의 높은 보안 기반 환경에서 유용할 수 있습니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -764,11 +764,11 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하는 경우 Azure Automation는 워크 로드 및 리소스의 배포, 운영 및 서비스 해제 중에 완전 한 제어를 제공 합니다. Azure Virtual Machine 인벤토리를 활용 하 여 Virtual Machines의 모든 소프트웨어에 대 한 정보 수집을 자동화할 수 있습니다. Azure Portal에서 소프트웨어 이름, 버전, 게시자 및 새로 고침 시간을 사용할 수 있습니다. 설치 날짜 및 기타 정보에 대 한 액세스 권한을 얻으려면 게스트 수준 진단을 사용 하도록 설정 하 고 Windows 이벤트 로그를 Log Analytics 작업 영역으로 가져와야 합니다.
 
-* [Azure Automation에 대한 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Azure Automation에 대한 소개](./automation-intro.md)
 
-* [Azure VM 인벤토리를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+* [Azure VM 인벤토리를 사용 하도록 설정 하는 방법](./automation-tutorial-installed-software.md)
 
-* [Azure Automation에서 모듈 관리](https://docs.microsoft.com/azure/automation/shared-resources/modules)
+* [Azure Automation에서 모듈 관리](./shared-resources/modules.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -778,9 +778,9 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: 고객은 고객의 회사 지침에 따라 리소스를 만들거나 사용 하는 데 필요한 Azure Policy를 방지할 수 있습니다. 권한 없는 리소스를 제거 하는 고유한 프로세스를 구현할 수 있습니다. Azure Automation에서 제공 하는 PowerShell 또는 runbook을 통해 포털 또는 cmdlet을 통해 액세스할 수 있는 Python 모듈을 설치, 제거 및 관리할 수 있습니다. Runbook에 대해 승인 되지 않았거나 이전 모듈을 제거 하거나 업데이트 해야 합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Automation에서 모듈 관리](https://docs.microsoft.com/azure/automation/shared-resources/modules)
+* [Azure Automation에서 모듈 관리](./shared-resources/modules.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -790,7 +790,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center 적응 응용 프로그램 제어를 사용 하 여 권한 있는 소프트웨어만 실행 되 고 모든 권한이 없는 소프트웨어가 Azure Virtual Machines에서 실행 되지 않도록 차단할 수 있습니다.
 
-* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -802,9 +802,9 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -816,7 +816,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 적응 응용 프로그램 제어는 Azure 및 비 Azure 컴퓨터 (Windows 및 Linux)에서 실행할 수 있는 응용 프로그램을 제어 하는 데 도움이 되는 Azure Security Center의 지능적이 고 자동화 된 종단 간 솔루션입니다. 조직의 요구 사항에 맞지 않는 경우 타사 솔루션을 구현 합니다.
 
-* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -826,7 +826,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: Azure 조건부 액세스 정책을 사용 하 여 보안 되지 않거나 승인 되지 않은 위치 또는 장치에서 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 하 여 사용자의 Azure Resource Manager 상호 작용 하는 기능을 제한 합니다.
 
-* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -836,9 +836,9 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: Hybrid Runbook Worker 기능을 사용할 때 스크립트의 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스 내에서 스크립트를 실행 하는 사용자의 기능을 제한할 수 있습니다. Azure Security Center 적응 응용 프로그램 제어를 활용 하 여 권한 있는 소프트웨어만 실행 되 고 권한이 없는 모든 소프트웨어가 Azure Virtual Machines에서 실행 되지 않도록 차단할 수도 있습니다.
 
-* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -848,19 +848,19 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: azure 환경에 배포 된 위험도 높은 응용 프로그램은 가상 네트워크, 서브넷, 구독, 관리 그룹 등의 구문을 사용 하 여 별도의 네트워크 및 리소스 컨테이너를 사용 하 여 격리할 수 있으며, azure 방화벽, Waf (웹 응용 프로그램 방화벽) 또는 nsg (네트워크 보안 그룹)를 사용 하 여 충분히 안전 하 게 보호할 수 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+* [Azure의 가상 네트워크 및 가상 머신](../virtual-machines/windows/network-overview.md)
 
-* [Azure 방화벽 개요](https://docs.microsoft.com/azure/firewall/overview)
+* [Azure 방화벽 개요](../firewall/overview.md)
 
-* [Azure 웹 응용 프로그램 방화벽 개요](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Azure 웹 응용 프로그램 방화벽 개요](../web-application-firewall/overview.md)
 
-* [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [네트워크 보안 그룹](../virtual-network/security-overview.md)
 
-* [Azure Virtual Network 개요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)
 
-* [Azure 관리 그룹으로 리소스 구성](https://docs.microsoft.com/azure/governance/management-groups/overview)
+* [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
 
-* [구독 관련 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+* [구독 관련 결정 가이드](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -868,7 +868,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -878,15 +878,15 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구성 기준으로 사용할 수도 있습니다.
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
 
-* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-* [보안 권장 사항 - 참조 가이드](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+* [보안 권장 사항 - 참조 가이드](../security-center/recommendations-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -898,9 +898,9 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center 권장 사항 [Virtual Machines에서 보안 구성의 취약성 해결]을 사용 하 여 가상 컴퓨터에 대 한 보안 구성을 유지 합니다.
 
-* [Azure Security Center 권장 사항을 모니터링 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+* [Azure Security Center 권장 사항을 모니터링 하는 방법](../security-center/security-center-recommendations.md)
 
-* [Azure Security Center 권장 사항을 수정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Azure Security Center 권장 사항을 수정 하는 방법](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -910,17 +910,17 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center 권�
 
 **지침**: Azure Resource Manager 템플릿 및 Azure Policy를 사용 하 여 Azure Automation와 연결 된 Azure 리소스를 안전 하 게 구성 합니다. Azure Resource Manager 템플릿은 Azure 리소스를 배포 하는 데 사용 되는 JSON 기반 파일 이며, 사용자 지정 템플릿은 코드 리포지토리에서 안전 하 게 저장 하 고 유지 관리 해야 합니다. 원본 제어 통합 기능을 사용 하 여 소스 제어 리포지토리의 스크립트를 사용 하 여 자동화 계정의 runbook을 최신 상태로 유지 합니다. Azure 리소스 전체에서 보안 설정을 적용 하려면 [거부] 및 [없는 경우 배포] Azure Policy 사용 합니다.
 
-* [원본 제어 통합 사용](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [원본 제어 통합 사용](./source-control-integration.md)
 
-* [Azure Resource Manager 템플릿 만들기에 대 한 정보](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal)
+* [Azure Resource Manager 템플릿 만들기에 대 한 정보](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
-* [Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 배포](https://docs.microsoft.com/azure/automation/automation-create-account-template#deploy-the-template)
+* [Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 배포](./automation-create-account-template.md#deploy-the-template)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -938,11 +938,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 배포에 대 한 Azure 가
 
 대부분의 시나리오에서 Azure Automation 상태 구성과 결합 된 Microsoft 기본 VM 템플릿은 보안 요구 사항을 충족 하 고 유지 관리 하는 데 도움이 될 수 있습니다.
 
-* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../virtual-machines/windows/download-template.md)
 
-* [ARM 템플릿 만들기에 대 한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [ARM 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 
-* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -952,11 +952,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 배포에 대 한 Azure 가
 
 **지침**: Azure devops를 사용 하 여 사용자 지정 azure 정책, Azure Resource Manager 템플릿 및 필요한 상태 구성 스크립트와 같은 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스에 액세스 하려면 Azure DevOps와 통합 된 경우 Azure Active Directory에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다. 원본 제어 통합 기능을 사용 하 여 소스 제어 리포지토리의 스크립트를 사용 하 여 자동화 계정의 runbook을 최신 상태로 유지 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
-* [원본 제어 통합 사용](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [원본 제어 통합 사용](./source-control-integration.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -968,9 +968,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 배포에 대 한 Azure 가
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 권한 있는 사용자만 이미지에 액세스할 수 있도록 저장소 계정에 있는 사용자 지정 OS 이미지에 대 한 액세스를 적절 하 게 제한 해야 합니다.
 
-* [Azure의 RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Azure의 RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Azure에서 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -980,11 +980,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 권한 있는 사용자만 
 
 **지침**: Azure Policy을 사용 하 여 Azure 리소스에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. Azure Policy 별칭을 사용 하 여 Azure 리소스의 네트워크 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 특정 리소스와 관련 된 기본 제공 정책 정의를 사용할 수도 있습니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+* [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -996,7 +996,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 권한 있는 사용자만 
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프레미스 데이터 센터에서 DSC (Desired State Configuration) 노드에 대 한 구성 관리 서비스인 Runbook worker에서 Azure Automation 상태 구성을 사용 합니다. 안전한 중앙 위치에서 수천 대의 컴퓨터를 빠르고 간편하게 확장할 수 있습니다. 컴퓨터를 쉽게 온보드하고, 컴퓨터에 선언적 구성을 할당하고, 사용자가 지정한 필요 상태에 대한 각 컴퓨터의 규정 준수를 나타내는 보고서를 확인할 수 있습니다.
 
-* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](./automation-dsc-onboarding.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1008,13 +1008,13 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 활용 하 여 Azure 가상 머신에 대 한 기준 검색을 수행 합니다. 자동 구성에 대 한 추가 방법에는 Azure Automation 상태 구성이 포함 됩니다.
 
-* [Azure Security Center에서 권장 사항을 수정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Azure Security Center에서 권장 사항을 수정 하는 방법](../security-center/security-center-remediate-recommendations.md)
 
-* [Azure Automation 상태 구성 시작하기](https://docs.microsoft.com/azure/automation/automation-dsc-getting-started)
+* [Azure Automation 상태 구성 시작하기](./automation-dsc-getting-started.md)
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1026,7 +1026,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 �
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프레미스 데이터 센터에서 DSC (Desired State Configuration) 노드에 대 한 구성 관리 서비스인 Runbook worker에 대 한 Azure Automation 상태 구성을 사용 합니다. 안전한 중앙 위치에서 수천 대의 컴퓨터를 빠르고 간편하게 확장할 수 있습니다. 컴퓨터를 쉽게 온보드하고, 컴퓨터에 선언적 구성을 할당하고, 사용자가 지정한 필요 상태에 대한 각 컴퓨터의 규정 준수를 나타내는 보고서를 확인할 수 있습니다.
 
-* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](./automation-dsc-onboarding.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1036,13 +1036,13 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 **지침**: Azure Key Vault와 함께 관리 서비스 ID를 사용 하 여 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 하 고 보호 합니다.
 
-* [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [관리 id로 runbook 인증 사용](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+* [관리 id로 runbook 인증 사용](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Key Vault를 만드는 방법](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+* [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
-* [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/managed-identity.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1052,9 +1052,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 **지침**: 관리 되는 id를 사용 하 여 azure AD에서 자동으로 관리 되는 Id를 azure 서비스에 제공 합니다. 관리 ID를 사용하면 코드에 자격 증명 없이 Key Vault를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
 
-* [관리 Id를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [관리 Id를 구성 하는 방법](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-* [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1072,7 +1072,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리 맬웨어 방지 소프트웨어 사용
 
@@ -1080,7 +1080,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Windows 가상 머신에 대 한 Microsoft 맬웨어 방지 프로그램을 사용 하 여 runbook worker 리소스를 지속적으로 모니터링 하 고 방어할 수 있습니다.
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지를 구성 하는 방법](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지를 구성 하는 방법](../security/fundamentals/antimalware.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1090,7 +1090,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Windows 가상 머신
 
 **지침**: 해당 사항 없음 서비스로 Azure Automation 파일을 저장 하지 않습니다. Microsoft 맬웨어 방지 프로그램은 Azure 서비스 (예: Azure Automation)를 지 원하는 기본 호스트에서 사용 하도록 설정 되어 있지만 콘텐츠에서 실행 되지 않습니다.
 
-* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 이해](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 이해](../security/fundamentals/antimalware.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1102,9 +1102,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Windows 가상 머신
 
 Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨어 방지 프로그램을 사용 하 여 기본적으로 최신 서명, 플랫폼 및 엔진 업데이트를 runbook worker에 자동으로 설치 합니다. Azure Security Center "계산 앱"의 권장 사항을 따라 &amp; 모든 끝점이 최신 서명으로 최신 상태를 유지 하도록 합니다. Windows OS를 추가 보안으로 추가로 보호 하 여 Azure Security Center와 통합 되는 Microsoft Defender Advanced Threat Protection 서비스에 대 한 바이러스 또는 맬웨어 기반 공격의 위험을 제한할 수 있습니다.
 
-* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 프로그램을 배포 하는 방법](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 프로그램을 배포 하는 방법](../security/fundamentals/antimalware.md)
 
-* [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
+* [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1112,7 +1112,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
@@ -1120,23 +1120,23 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 원본 제어 통합 기능을 사용 하 여 소스 제어 리포지토리의 스크립트를 사용 하 여 자동화 계정의 runbook을 최신 상태로 유지 합니다.
 
-* [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+* [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)
 
-* [Azure Automation 리소스에 대 한 Azure Resource Manager 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.automation/allversions)
+* [Azure Automation 리소스에 대 한 Azure Resource Manager 템플릿 참조](/azure/templates/microsoft.automation/allversions)
 
-* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](https://docs.microsoft.com/azure/automation/automation-create-account-template)
+* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](./automation-create-account-template.md)
 
-* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-* [리소스 그룹-템플릿 내보내기](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+* [리소스 그룹-템플릿 내보내기](/rest/api/resources/resourcegroups/exporttemplate)
 
-* [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Azure Automation 소개](./automation-intro.md)
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [원본 제어 통합 사용](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [원본 제어 통합 사용](./source-control-integration.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1146,23 +1146,23 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 **지침**: Azure Resource Manager을 사용 하 여 Azure Automation 계정 및 관련 리소스를 배포할 수 있습니다. Azure Resource Manager은 Azure Automation 계정 및 관련 리소스를 복원 하기 위해 백업으로 사용할 수 있는 템플릿을 내보내는 기능을 제공 합니다. Azure Automation를 사용 하 여 정기적으로 Azure Resource Manager 템플릿 내보내기 API를 호출 합니다. Azure Key Vault 내에서 고객이 관리 하는 키를 백업 합니다. Azure Portal 또는 PowerShell을 사용 하 여 runbook을 스크립트 파일로 내보낼 수 있습니다.
 
-* [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+* [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)
 
-* [Azure Automation 리소스에 대 한 Azure Resource Manager 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.automation/allversions)
+* [Azure Automation 리소스에 대 한 Azure Resource Manager 템플릿 참조](/azure/templates/microsoft.automation/allversions)
 
-* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](https://docs.microsoft.com/azure/automation/automation-create-account-template)
+* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](./automation-create-account-template.md)
 
-* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-* [리소스 그룹-템플릿 내보내기](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+* [리소스 그룹-템플릿 내보내기](/rest/api/resources/resourcegroups/exporttemplate)
 
-* [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Azure Automation 소개](./automation-intro.md)
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [Automation 계정에 대 한 Azure 데이터 백업](https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup)
+* [Automation 계정에 대 한 Azure 데이터 백업](./automation-managing-data.md#data-backup)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1172,11 +1172,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 **지침**: 필요한 경우 격리 된 구독에 정기적으로 Azure Resource Manager 템플릿 배포를 정기적으로 수행할 수 있는지 확인 합니다. 백업 된 고객이 관리 하는 키의 복원을 테스트 합니다.
 
-* [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+* [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1188,11 +1188,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 원본 제어 통합 기능을 사용 하 여 소스 제어 리포지토리의 스크립트를 사용 하 여 자동화 계정의 runbook을 최신 상태로 유지 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
-* [원본 제어 통합 사용](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [원본 제어 통합 사용](./source-control-integration.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1200,7 +1200,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -1222,9 +1222,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 또한 태그를 사용하여 구독(예: 프로덕션, 비 프로덕션)을 명확하게 표시하고 Azure 리소스, 특히 중요한 데이터를 처리하는 리소스를 명확하게 식별하고 분류하는 명명 시스템을 만듭니다. 인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
-* [Azure Security Center의 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-* [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+* [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -1244,7 +1244,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-* [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1254,9 +1254,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 **지침**: Azure 리소스에 대한 위험을 식별하는 데 도움이 되도록 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다.
 
-* [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
-* [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1266,7 +1266,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 **지침**: Azure Security Center의 Workflow Automation 기능을 사용 하 여 Azure 리소스를 보호 하기 위해 보안 경고 및 권장 사항에 대 한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 
-* [워크플로 자동화 및 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [워크플로 자동화 및 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1274,7 +1274,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -1290,5 +1290,5 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](https://docs.microsoft.com/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

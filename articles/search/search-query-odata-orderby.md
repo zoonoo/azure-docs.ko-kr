@@ -19,17 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113155"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203108"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $orderby 구문
 
  [OData **$orderby** 매개 변수](query-odata-filter-orderby-syntax.md) 를 사용 하 여 Azure Cognitive Search에서 검색 결과에 대 한 사용자 지정 정렬 순서를 적용할 수 있습니다. 이 문서에서는 **$orderby** 구문에 대해 자세히 설명 합니다. 검색 결과를 표시할 때 **$orderby** 를 사용 하는 방법에 대 한 일반적인 정보는 [Azure Cognitive Search에서 검색 결과](search-pagination-page-layout.md)를 사용 하는 방법을 참조 하세요.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 **$Orderby** 매개 변수는 최대 32 개의 **order by 절**에 대 한 쉼표로 구분 된 목록을 허용 합니다. Order by 절의 구문은 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))에서 설명 합니다.
 
@@ -63,19 +64,27 @@ sortable_function ::= geo_distance_call | 'search.score()'
 
 호텔을 기본 요금의 오름차순으로 정렬합니다.
 
+```odata-filter-expr
     $orderby=BaseRate asc
+```
 
 호텔을 등급의 내림차순으로 정렬한 후 기본 요금의 오름차순으로 정렬합니다(오름차순이 기본값임).
 
+```odata-filter-expr
     $orderby=Rating desc,BaseRate
+```
 
 지정 된 좌표의 거리를 기준으로 내림차순으로 호텔을 정렬 합니다.
 
+```odata-filter-expr
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 검색을 기준으로 호텔을 내림차순으로 정렬 한 다음, 지정 된 좌표의 거리를 기준으로 오름차순으로 정렬 합니다. 관련성 점수와 등급이 동일한 두 호텔 사이에 가장 가까운 것이 먼저 나열 됩니다.
 
+```odata-filter-expr
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>다음 단계  
 

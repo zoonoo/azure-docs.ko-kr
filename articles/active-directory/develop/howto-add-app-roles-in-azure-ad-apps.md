@@ -3,7 +3,7 @@ title: 앱 역할 추가 및 토큰에서 가져오기 | Azure
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory에 등록된 애플리케이션에서 앱 역할을 추가하고 이 역할에 사용자와 그룹을 할당하여 토큰의 `roles` 클레임으로 받는 방법을 알아봅니다.
 services: active-directory
-author: kkrishna
+author: kalyankrishna1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: aedf5d710b82185cb634fcd92e6981a2c358ad52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477892"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187033"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에 앱 역할 추가 및 토큰으로 수신
 
@@ -122,7 +122,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 ## <a name="more-information"></a>자세한 정보
 
 - [ASP.NET Core 웹앱에 앱 역할 및 역할 클레임을 사용하는 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Microsoft id 플랫폼을 사용 하 여 응용 프로그램에서 권한 부여 구현 (비디오)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [AAD 액세스 토큰](access-tokens.md)

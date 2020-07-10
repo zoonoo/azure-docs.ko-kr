@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684858"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187237"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
 
@@ -23,7 +24,7 @@ ms.locfileid: "83684858"
 
 ### <a name="scenario-change-tracking-and-inventory-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 및 인벤토리 레코드가 Windows 머신에 표시되지 않음
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 기능에 대해 사용하도록 설정된 Windows 머신에 대한 변경 내용 추적 및 인벤토리 결과가 표시되지 않습니다.
 
@@ -99,11 +100,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 에이전트를 다시 설치해야 합니다. 설치 및 구성에 대한 자세한 내용은 [Log Analytics 에이전트를 사용하여 로그 데이터 수집](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)을 참조하세요.
+쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 에이전트를 다시 설치해야 합니다. 설치 및 구성에 대한 자세한 내용은 [Log Analytics 에이전트를 사용하여 로그 데이터 수집](../../azure-monitor/platform/log-analytics-agent.md)을 참조하세요.
 
-머신이 쿼리 결과에 표시되면 범위 구성을 확인합니다. [Azure Monitor의 모니터링 솔루션 대상 지정](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting)을 참조하세요.
+머신이 쿼리 결과에 표시되면 범위 구성을 확인합니다. [Azure Monitor의 모니터링 솔루션 대상 지정](../../azure-monitor/insights/solution-targeting.md)을 참조하세요.
 
-이 문제의 해결 방법에 대한 자세한 내용은 [문제: Linux 데이터가 보이지 않음](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux-troubleshoot#issue-you-are-not-seeing-any-linux-data)을 참조하세요.
+이 문제의 해결 방법에 대한 자세한 내용은 [문제: Linux 데이터가 보이지 않음](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data)을 참조하세요.
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Linux용 Log Analytics 에이전트가 올바르게 구성되지 않았습니다.
 

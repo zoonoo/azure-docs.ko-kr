@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817708"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200406"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -30,11 +30,14 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 - **디바이스에 연결된 클라이언트/호스트** – Data Box 디스크에 연결하고 보호되어야 하는 데이터를 포함하는 인프라 내의 클라이언트입니다.
 - **클라우드 저장소** – Azure 클라우드 내에서 데이터가 저장되는 위치입니다. 이것이 일반적으로 사용자가 만든 Azure Data Box 리소스에 연결된 스토리지 계정입니다.
 
-다음 다이어그램에는 Azure Data Box 솔루션을 통과하는 온-프레미스에서 Azure로의 데이터 흐름이 나와 있습니다.
+다음 다이어그램에는 Azure Data Box 솔루션을 통과하는 온-프레미스에서 Azure로의 데이터 흐름이 나와 있습니다. 이 흐름은 Data Box 가져오기 순서를 위한 것입니다.
 
 ![Data Box 보안](media/data-box-security/data-box-security-2.png)
 
-데이터가 이러한 솔루션을 흐르면 이벤트가 로깅되고 로그가 생성됩니다. 자세한 내용을 보려면 [Azure Data Box의 추적 및 이벤트 로깅](data-box-logs.md)으로 이동하세요.
+데이터가 이러한 솔루션을 흐르면 이벤트가 로깅되고 로그가 생성됩니다. 자세한 내용은 다음을 참조하세요.
+
+- [Azure Data Box 가져오기 주문에 대 한 추적 및 이벤트 로깅](data-box-logs.md).
+- [Azure Data Box 내보내기 주문에 대 한 추적 및 이벤트 로깅](data-box-export-logs.md)
 
 ## <a name="security-features"></a>보안 기능
 
@@ -81,7 +84,7 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
   - 전화 번호
   - 메일
   - 주소
-  - City
+  - 구/군/시
   - 우편 번호
   - 시스템 상태
   - 국가/시/도/지역

@@ -10,16 +10,17 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 5/14/2019
-ms.openlocfilehash: eb167f121027272330399f8345c90602d93ecbaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: fd9433c2482c4ddd907f7e30c0028dc2a15faed2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84113871"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187679"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 Azure Data Factory (ADF)에 대해 관리 id를 사용 하 여 Azure Active Directory (Azure AD) 인증을 사용 하도록 설정 하 고 기본 인증 방법 (예: SQL 인증) 대신 사용 하 여 다음을 수행 하는 방법을 보여 줍니다.
 
@@ -200,7 +201,7 @@ PowerShell을 사용하여 Azure-SSIS IR을 프로비전하려면 다음 작업�
 
 1.  [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)   모듈을 설치 합니다.
 
-2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 예를 들어:
+2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 예를 들면 다음과 같습니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

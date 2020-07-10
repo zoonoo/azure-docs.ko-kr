@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84606890"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187186"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -203,7 +204,7 @@ The subscription named <subscription name> cannot be found.
 다음 단계에 따라 Azure에서 인증되고 선택하려고 하는 구독에 액세스할 수 있는 권한이 있는지 확인합니다.
 
 1. 스크립트가 독립 실행형으로 작동하는지 확인하기 위해 Azure Automation 외부에서 테스트합니다.
-1. `Select-*` cmdlet을 실행하기 전에 스크립트에서 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) cmdlet을 실행하는지 확인합니다.
+1. `Select-*` cmdlet을 실행하기 전에 스크립트에서 [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) cmdlet을 실행하는지 확인합니다.
 1. Runbook의 시작 부분에 `Disable-AzContextAutosave –Scope Process`를 추가합니다. 이 cmdlet은 모든 자격 증명이 현재 Runbook의 실행에만 적용되도록 합니다.
 1. 오류 메시지가 계속 표시되면 `Connect-AzAccount`에 대한 `AzContext` 매개 변수를 추가하여 코드를 수정한 다음, 코드를 실행합니다.
 
@@ -400,7 +401,7 @@ Object reference not set to an instance of an object
 
 ### <a name="resolution"></a>해결 방법
 
-폴링 논리를 구현하고 [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet을 사용하여 출력을 검색합니다. 이 논리의 샘플은 다음과 같이 정의되어 있습니다.
+폴링 논리를 구현하고 [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet을 사용하여 출력을 검색합니다. 이 논리의 샘플은 다음과 같이 정의되어 있습니다.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -485,7 +486,7 @@ Azure Automation Runbook에 대한 웹후크를 호출하려고 하면 다음 �
 이 오류를 해결하려면 다음 중 하나를 수행합니다.
 
 * Runbook을 편집하고 내보내는 작업 스트림 수를 줄입니다.
-* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 출력 스트림만 검색하도록 [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet에 대한 `Stream` 매개 변수의 값을 설정할 수 있습니다. 
+* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 출력 스트림만 검색하도록 [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet에 대한 `Stream` 매개 변수의 값을 설정할 수 있습니다. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>시나리오: 할당된 할당량을 초과하여 Runbook 작업이 실패함
 
@@ -558,7 +559,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 이 오류를 해결하는 방법은 두 가지가 있습니다.
 
-* [Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)을 사용하는 대신 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0)을 사용하여 Runbook을 시작합니다.
+* [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)을 사용하는 대신 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0)을 사용하여 Runbook을 시작합니다.
 * Hybrid Runbook Worker에서 Runbook 실행을 시도합니다.
 
 Azure Automation Runbook의 이 동작 및 다른 동작에 대한 자세한 내용은 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조하세요.
@@ -587,8 +588,8 @@ Runbook이 Azure 샌드박스의 공평 분배에서 허용되는 3시간 제한
 
 자식 Runbook 시나리오를 사용하도록 설정하는 PowerShell cmdlet은 다음과 같습니다.
 
-* [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
-* [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). 자식 Runbook이 완료된 후에 수행해야 하는 작업이 있는 경우 이 cmdlet을 사용하면 각 자식에 대한 작업 상태를 확인할 수 있습니다.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). 자식 Runbook이 완료된 후에 수행해야 하는 작업이 있는 경우 이 cmdlet을 사용하면 각 자식에 대한 작업 상태를 확인할 수 있습니다.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>시나리오: get_SerializationSettings 메서드에 대한 작업 스트림 오류
 
@@ -651,7 +652,7 @@ Operation returned an invalid status code 'Forbidden'
 
 #### <a name="not-using-a-run-as-account"></a>실행 계정을 사용하지 않음
 
-[5단계 - Azure 리소스를 관리하기 위한 인증 추가](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources)에 따라 실행 계정을 사용하여 Key Vault에 액세스하도록 합니다.
+[5단계 - Azure 리소스를 관리하기 위한 인증 추가](../learn/automation-tutorial-runbook-textual-powershell.md#step-5---add-authentication-to-manage-azure-resources)에 따라 실행 계정을 사용하여 Key Vault에 액세스하도록 합니다.
 
 #### <a name="insufficient-permissions"></a>권한 부족
 
@@ -660,7 +661,7 @@ Key Vault에 액세스하는 데 충분한 권한이 실행 계정에 있도록 
 ## <a name="recommended-documents"></a>권장되는 문서
 
 * [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)
-* [Azure Automation에서 Runbook 시작](../automation-starting-a-runbook.md)
+* [Azure Automation에서 Runbook 시작](../start-runbooks.md)
 
 ## <a name="next-steps"></a>다음 단계
 

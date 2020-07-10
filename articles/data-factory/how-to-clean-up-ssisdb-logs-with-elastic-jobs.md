@@ -5,20 +5,21 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d15ab5f08b7f9f5bc4824aec8980ed4b711ae1d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c7a4a1a839282618e9723e5fc916770a789fc32b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020288"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187622"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 Azure Elastic Database 작업을 사용하여 SQL Server Integration Services 카탈로그 데이터베이스 `SSISDB`에 대한 로그를 정리하는 저장 프로시저를 트리거하는 방법을 설명합니다.
 

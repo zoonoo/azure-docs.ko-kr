@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610652"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202869"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -57,7 +57,7 @@ ms.locfileid: "82610652"
 
 다음 디바이스 플랫폼에 대한 관련 정보가 있습니다.
 
-- [OWA(Outlook Web Access)](active-directory-certificate-based-authentication-android.md)
+- [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
 ## <a name="step-2-configure-the-certificate-authorities"></a>2단계: 인증 기관 구성
@@ -69,6 +69,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 인증 기관에 대한 스키마는 다음과 같습니다.
 
+```csharp
     class TrustedCAsForPasswordlessAuth
     {
        CertificateAuthorityInformation[] certificateAuthorities;
@@ -90,13 +91,16 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
         RootAuthority = 0,
         IntermediateAuthority = 1
     }
+```
 
 구성에는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/install-adv2?view=azureadps-2.0)를 사용할 수 있습니다.
 
 1. 관리자 권한으로 Windows PowerShell을 시작합니다.
 2. Azure AD 모듈 버전 [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 이상을 설치합니다.
 
-        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```powershell
+    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```
 
 첫 번째 구성 단계로 테넌트와 연결을 설정해야 합니다. 테넌트에 대한 연결이 있으면 디렉터리에 정의된 신뢰할 수 있는 인증 기관을 검토, 추가, 삭제 및 수정할 수 있습니다.
 
@@ -104,39 +108,49 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 테넌트와 연결을 설정하려면 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     Connect-AzureAD
+```
 
 ### <a name="retrieve"></a>장치
 
 디렉터리에 정의된 신뢰할 수 있는 인증 기관을 검색하려면 [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     Get-AzureADTrustedCertificateAuthority
+```
 
 ### <a name="add"></a>추가
 
-신뢰할 수 있는 인증 기관을 만들려면 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용하고 **crlDistributionPoint** 특성을 올바른 값으로 설정합니다.
+신뢰할 수 있는 인증 기관을 만들려면 [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용하고 **crlDistributionPoint** 특성을 올바른 값으로 설정합니다.
 
+```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
+```
 
 ### <a name="remove"></a>제거
 
 신뢰할 수 있는 인증 기관을 제거하려면 [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
+```
 
 ### <a name="modify"></a>수정
 
 신뢰할 수 있는 인증 기관을 수정하려면 [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet을 사용합니다.
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
+```
 
 ## <a name="step-3-configure-revocation"></a>3단계: 해지 구성
 
@@ -152,17 +166,23 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 1. 관리 자격 증명을 MSOL 서비스에 연결합니다.
 
+```powershell
         $msolcred = get-credential
         connect-msolservice -credential $msolcred
+```
 
 2. 사용자에 대한 현재 StsRefreshTokensValidFrom 값을 검색합니다.
 
+```powershell
         $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
         $user.StsRefreshTokensValidFrom
+```
 
 3. 사용자에 대한 새 StsRefreshTokensValidFrom 값을 현재 타임스탬프와 같게 구성합니다.
 
+```powershell
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+```
 
 설정하는 날짜는 이후 날짜여야 합니다. 날짜가 이후 날짜가 아닌 경우 **StsRefreshTokensValidFrom** 속성이 설정되지 않은 것입니다. 날짜가 이후 날짜인 경우 **StsRefreshTokensValidFrom** 이 현재 시간(Set-MsolUser 명령으로 지정된 날짜 아님)으로 설정됩니다.
 

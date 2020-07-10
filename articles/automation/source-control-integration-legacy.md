@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828936"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187339"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 사용 - 레거시
 
@@ -55,7 +56,7 @@ ms.locfileid: "83828936"
 5. **확인**을 클릭하면 이제 Automation 계정에 대한 원본 제어 통합이 구성되며 GitHub 정보로 업데이트되어야 합니다. 이제 이 부분을 클릭하여 모든 소스 제어 동기화 작업 기록을 볼 수 있습니다.  
 
     ![현재 구성된 소스 제어 구성의 값](media/source-control-integration-legacy/automation-RepoValues.png)
-6. 소스 제어를 설정하면 두 개의 [변수 자산](automation-variables.md)이 Automation 계정에 생성됩니다. 또한 승인된 애플리케이션이 GitHub 계정에 추가됩니다.
+6. 소스 제어를 설정하면 두 개의 [변수 자산](./shared-resources/variables.md)이 Automation 계정에 생성됩니다. 또한 승인된 애플리케이션이 GitHub 계정에 추가됩니다.
 
    * **Microsoft.Azure.Automation.SourceControl.Connection** 변수는 아래와 같이 연결 문자열의 값을 포함합니다.  
 
@@ -63,7 +64,7 @@ ms.locfileid: "83828936"
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
      | `Type`  |String |
-     | `Value` |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
+     | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath":, \<*Runbook folder path*> "providertype": \<*has a value 1 for GitHub*> , "Repository": \<*Name of your repository*> , "Username": \<*Your GitHub user name*> } |
 
    * **Microsoft.Azure.Automation.SourceControl.OAuthToken**변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
 
@@ -83,7 +84,7 @@ ms.locfileid: "83828936"
 
 Runbook 체크 인을 사용하면 Azure Automation에서 Runbook에 대한 변경 내용을 원본 제어 리포지토리로 푸시할 수 있습니다. Runbook을 체크 인하는 단계는 다음과 같습니다.
 
-1. Automation 계정에서 [새 텍스트 Runbook 만들기](automation-first-runbook-textual.md) 또는 [기존 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 수행합니다. 이 runbook은 PowerShell 워크플로 또는 PowerShell 스크립트 runbook일 수 있습니다.  
+1. Automation 계정에서 [새 텍스트 Runbook 만들기](./learn/automation-tutorial-runbook-textual.md) 또는 [기존 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 수행합니다. 이 runbook은 PowerShell 워크플로 또는 PowerShell 스크립트 runbook일 수 있습니다.  
 2. Runbook을 편집한 후에 저장하고 편집 페이지에서 **체크 인**을 클릭합니다.  
 
     ![GitHub로 체크 인 단추를 표시하는 창](media/source-control-integration-legacy/automation-CheckinButton.png)

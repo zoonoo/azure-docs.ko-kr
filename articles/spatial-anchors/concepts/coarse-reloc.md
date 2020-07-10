@@ -8,11 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ed1a7cacc6c40cb12976c8703164d46e0dc0458
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844397"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202383"
 ---
 # <a name="coarse-relocalization"></a>광역 위치 재결정
 
@@ -119,13 +120,11 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 다음에는 거칠게 다시 지역화에 사용할 센서를 결정 해야 합니다. 이 결정은 개발 중인 응용 프로그램에 따라 달라 지 며, 다음 표의 권장 사항을 잘 알고 있어야 합니다.
 
-
-|             | 실내 | 야외 |
-|-------------|---------|----------|
-| GPS         | 끄기 | 켜기 |
-| WiFi        | 켜기 | 설정 (선택 사항) |
-| 오류 있는 오류 | 설정 (주의 사항, 아래 참조) | 끄기 |
-
+|                 | 실내 | 야외 |
+|-----------------|---------|----------|
+| **GPS**         | 해제 | 켜기 |
+| **무선**        | 켜기 | 설정 (선택 사항) |
+| **오류 있는 오류** | 설정 (주의 사항, 아래 참조) | 해제 |
 
 ### <a name="enabling-gps"></a>GPS 사용
 
@@ -647,7 +646,7 @@ GPS를 사용 하 여 쿼리할 때 동일한 추론을 적용 합니다. 장치
 
 아래 표는 각 센서 유형에 대해 예상 되는 검색 공간을 예상 합니다.
 
-| 센서      | 검색 공간 반지름 (근사값) | 설명 |
+| 센서      | 검색 공간 반지름 (근사값) | 세부 정보 |
 |-------------|:-------:|---------|
 | GPS         | 20 m-30 m | 다른 요소 간의 GPS 불확실성에 의해 결정 됩니다. 보고 된 숫자는 7 미터의-GPS를 사용 하는 휴대폰의 GPS 정확도에 대해 예상 됩니다. |
 | WiFi        | 50 m-100 m | 무선 액세스 지점의 범위에 따라 결정 됩니다. 빈도, 전송기 강도, 물리적 장애물, 간섭 등에 따라 달라 집니다. |
@@ -657,12 +656,11 @@ GPS를 사용 하 여 쿼리할 때 동일한 추론을 적용 합니다. 장치
 
 다음 표에서는 플랫폼별 주의 사항과 함께 지원 되는 각 플랫폼에서 수집 된 센서 데이터를 요약 하 여 보여 줍니다.
 
-
-|             | HoloLens | Android | iOS |
-|-------------|----------|---------|-----|
-| GPS         | 해당 없음 | [Locationmanager][3] API (GPS 및 네트워크 모두)를 통해 지원 됨 | [Cllocationmanager][4] api를 통해 지원 됨 |
-| WiFi        | 3 초 마다 한 번의 검색 속도로 지원 됨 | 지원됨. API 수준 28부터 WiFi 검색은 2 분 마다 4 개의 호출로 제한 됩니다. Android 10에서는 개발자 설정 메뉴에서 제한을 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Android 설명서][5]를 참조 하세요. | 해당 없음-공용 API 없음 |
-| 오류 있는 오류 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 |
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | 해당 없음 | [Locationmanager][3] API (GPS 및 네트워크 모두)를 통해 지원 됨 | [Cllocationmanager][4] api를 통해 지원 됨 |
+| **무선**        | 3 초 마다 한 번의 검색 속도로 지원 됨 | 지원됨. API 수준 28부터 WiFi 검색은 2 분 마다 4 개의 호출로 제한 됩니다. Android 10에서는 개발자 설정 메뉴에서 제한을 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Android 설명서][5]를 참조 하세요. | 해당 없음-공용 API 없음 |
+| **오류 있는 오류** | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 |
 
 ## <a name="next-steps"></a>다음 단계
 

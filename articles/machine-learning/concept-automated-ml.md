@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041730"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199880"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -105,7 +105,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
-## <a name="feature-engineering"></a>기능 엔지니어링
+## <a name="feature-engineering"></a>특징 엔지니어링
 
 기능 엔지니어링은 데이터에 대 한 도메인 정보를 사용 하 여 ML 알고리즘의 기능을 개선 하는 데 도움이 되는 기능을 만드는 프로세스입니다. Azure Machine Learning 확장 및 표준화 기술이 기능 엔지니어링을 용이 하 게 하는 데 적용 됩니다. 이러한 기술 및 기능 엔지니어링을 통칭 하 여 기능화 라고 합니다.
 
@@ -220,21 +220,21 @@ Azure Machine Learning은 자동화된 ML 작업을 위한 두 가지 환경을 
 
 | |Python SDK|스튜디오 웹 환경|
 ----|:----:|:----:
-학습/유효성 검사 세트로 데이터 분할| ✓|✓
-ML 작업 지원: 분류, 회귀 및 예측| ✓| ✓
-기본 메트릭 기반 최적화| ✓| ✓
-AML 컴퓨팅을 컴퓨팅 대상으로 지원 | ✓|✓
-예측 구간, 대상 지연 시간 및 롤링 기간 구성|✓|✓
-종료 조건 설정 |✓|✓ 
-동시 반복 설정| ✓|✓
-열 삭제| ✓|✓
-알고리즘 차단|✓|✓
-교차 유효성 검사 |✓|✓
-Azure Databricks 클러스터에 대한 학습 지원| ✓|
-엔지니어링된 기능 이름 보기|✓|
-기능화 요약| ✓|
-휴일 기능화|✓|
-로그 파일의 세부 정보 표시 수준| ✓|
+|**학습/유효성 검사 세트로 데이터 분할**| ✓|✓
+|**ML 작업 지원: 분류, 회귀 및 예측**| ✓| ✓
+|**기본 메트릭 기반 최적화**| ✓| ✓
+|**AML 컴퓨팅을 컴퓨팅 대상으로 지원** | ✓|✓
+|**예측 범위 구성, 대상 지연 & 롤링 창**|✓|✓
+|**종료 조건 설정** |✓|✓ 
+|**동시 반복 설정**| ✓|✓
+|**열 삭제**| ✓|✓
+|**알고리즘 차단**|✓|✓
+|**교차 유효성 검사** |✓|✓
+|**Azure Databricks 클러스터에 대한 학습 지원**| ✓|
+|**엔지니어링된 기능 이름 보기**|✓|
+|**기능화 요약**| ✓|
+|**휴일 기능화**|✓|
+|**로그 파일의 세부 정보 표시 수준**| ✓|
 
 ### <a name="model-settings"></a>모델 설정
 
@@ -242,11 +242,11 @@ Azure Databricks 클러스터에 대한 학습 지원| ✓|
 
 | |Python SDK|스튜디오 웹 환경|
 |----|:----:|:----:|
-|최상의 모델 등록, 배포, 설명 가능성| ✓|✓|
-|투표 앙상블 및 스택 앙상블 모델 사용| ✓|✓|
-|기본이 아닌 메트릭에 따라 최상의 모델 표시|✓||
-|ONNX 모델 호환성 사용/사용 안 함|✓||
-|모델 테스트 | ✓| |
+|**최상의 모델 등록, 배포, 설명 가능성**| ✓|✓|
+|**투표 앙상블 & stack 앙상블 모델 사용**| ✓|✓|
+|**기본이 아닌 메트릭에 따라 최상의 모델 표시**|✓||
+|**ONNX 모델 호환성 사용/사용 안 함**|✓||
+|**모델 테스트** | ✓| |
 
 ### <a name="run-control-settings"></a>실행 제어 설정
 
@@ -254,10 +254,10 @@ Azure Databricks 클러스터에 대한 학습 지원| ✓|
 
 | |Python SDK|스튜디오 웹 환경|
 |----|:----:|:----:|
-|실행 요약 테이블| ✓|✓|
-|실행 및 자식 실행 취소| ✓|✓|
-|가드 레일 가져오기| ✓|✓|
-|실행 일시 중지 및 다시 시작| ✓| |
+|**실행 요약 테이블**| ✓|✓|
+|**자식 실행 & 취소 실행**| ✓|✓|
+|**가드 레일 가져오기**| ✓|✓|
+|**실행 일시 중지 & 다시 시작**| ✓| |
 
 <a name="use-with-onnx"></a>
 
@@ -279,7 +279,7 @@ AutoML을 사용 하 여 시작 및 실행 하기 위한 여러 리소스가 있
 
  + **코드를 낮거나 사용 하지 않으려면** [자습서: Azure Machine Learning studio를 사용 하 여 자동화 된 ML 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)를 참조 하세요.
 
-방법 문서에서는 AutoML이 제공 하는 기능에 대 한 추가 세부 정보를 제공 합니다. 예제: 
+방법 문서에서는 AutoML이 제공 하는 기능에 대 한 추가 세부 정보를 제공 합니다. 예를 들면 다음과 같습니다. 
 
 + 자동 학습 실험에 대 한 설정 구성
     + Azure Machine Learning Studio의 경우 [이러한 단계를 사용](how-to-use-automated-ml-for-ml-models.md)합니다. 

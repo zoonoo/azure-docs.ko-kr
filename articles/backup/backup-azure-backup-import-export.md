@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Import/Export 서비스를 통
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 5611b5a6fc9ba8bbff11e35449caf0dd9d33fa21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373305"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187832"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 
@@ -42,7 +42,7 @@ Azure Backup 오프 라인 시드 프로세스는 [Azure Import/Export 서비스
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
   > [!NOTE]
   > 다음 필수 구성 요소 및 워크플로는 [최신 Azure Recovery Services 에이전트](https://aka.ms/azurebackup_agent)를 사용 하 여 파일 및 폴더의 오프 라인 백업에만 적용 됩니다. System Center DPM 또는 Azure Backup Server를 사용 하 여 작업에 대 한 오프 라인 백업을 수행 하려면 [dpm 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로](backup-azure-backup-server-import-export.md)를 참조 하세요.
@@ -136,7 +136,7 @@ Azure Backup 오프 라인 시드 프로세스는 [Azure Import/Export 서비스
     | 매개 변수 | 설명 |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |이 필수 입력은 "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 스테이징 위치에 대 한 경로를 제공 하는 데 사용 됩니다. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |이 선택적 입력은 "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 Azure 게시 설정 파일의 경로를 제공 하는 데 사용 됩니다. |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |이 선택적 입력은 Azure 게시 설정 파일에 대 한 경로를 제공 하는 데 사용 됩니다.  |
 
     명령을 실행 하면 유틸리티가 준비 해야 하는 드라이브에 해당 하는 Azure 가져오기 작업의 선택을 요청 합니다. 제공 된 준비 위치와 연결 된 가져오기 작업이 하나만 있는 경우 다음과 같은 페이지가 표시 됩니다.
 
