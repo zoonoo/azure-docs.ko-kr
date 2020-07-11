@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: bbf098feccaf760718b97b1afb2d24bc55eef9ad
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 09eba483a258c1e88b15a5795d32b3b4a029a175
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027038"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232715"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -26,14 +26,14 @@ ms.locfileid: "86027038"
 ## <a name="july-2020"></a>2020년 7월
 
 ### <a name="new-features"></a>새로운 기능
-* v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [JAVA](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)및 [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
+* v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre), [Python](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer), [JAVA](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)및 [JavaScript](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
 * 향상 된 **테이블 향상** 기능 및 향상 된 기능으로는 향상 된 기능 및 테이블 추출 향상 된 기능, 특히 레이블 없이 사용자 지정 학습에서 테이블 헤더와 구조를 학습 하는 기능이 있습니다. 
 * **통화 지원** 전역 통화 기호의 검색 및 추출
 * **Azure .gov** 이제 Azure .Gov 에서도 폼 인식기를 사용할 수 있습니다.
-*   **향상 된 보안 기능**: 
-    *   사용자 **고유의 키 가져오기**  양식 인식기는 클라우드로 지속 될 때 데이터를 자동으로 암호화 하 여 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다. 기본적으로 구독은 Microsoft에서 관리 하는 암호화 키를 사용 합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
+*    **향상 된 보안 기능**: 
+    *    사용자 **고유의 키 가져오기**  양식 인식기는 클라우드로 지속 될 때 데이터를 자동으로 암호화 하 여 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다. 기본적으로 구독은 Microsoft에서 관리 하는 암호화 키를 사용 합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
 )는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.  
-    *   **개인 끝점** – 가상 네트워크 (VNet)에서 [개인 링크를 통해 안전](https://docs.microsoft.com/azure/private-link/private-link-overview) 하 게 데이터에 액세스할 수 있습니다.
+    *    **개인 끝점** – 가상 네트워크 (VNet)에서 [개인 링크를 통해 안전](https://docs.microsoft.com/azure/private-link/private-link-overview) 하 게 데이터에 액세스할 수 있습니다.
 
 
 ## <a name="june-2020"></a>2020년 6월
@@ -51,10 +51,10 @@ ms.locfileid: "86027038"
 
 ### <a name="new-features"></a>새로운 기능
 * **양식 인식기 API v 2.0 공개 미리 보기에 대 한 SDK 지원** 이번 달에는 폼 인식기 v2.0 (미리 보기) 릴리스에 대 한 미리 보기 SDK를 포함 하도록 서비스 지원을 확장 했습니다. 아래 링크를 사용 하 여 원하는 언어로 시작 하세요. 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)
    * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
+   * [Python SDK](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer)
+   * [JavaScript SDK](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)
 
   새 SDK는 폼 인식기에 대 한 v2.0 REST API의 모든 기능을 지원 합니다. 예를 들어 레이블을 사용 하거나 사용 하지 않고 모델을 학습 하 고, 폼에서 텍스트, 키 값 쌍 및 테이블을 추출 하 고, 미리 작성 된 수신 서비스를 사용 하 여 수신 확인에서 데이터를 추출 하 고, 문서의 레이아웃 서비스를 사용 하 여 텍스트와 테이블을 추출할 수 있습니다. [Sdk 피드백 양식](https://aka.ms/FR_SDK_v1_feedback)을 통해 sdk에서 사용자 의견을 공유할 수 있습니다.
  

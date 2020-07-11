@@ -17,4 +17,4 @@ ms.locfileid: "85378544"
 | Azure Storage 계정에 복사되는 데이터의 크기                      | 기본 제한          |
 |---------------------------------------------------------------------|------------------------|
 | 블록 Blob 및 페이지 Blob                                            | 최대 제한은 [Azure 구독에 대해 정의 된 저장소 제한과](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits) 같으며 Data Box를 포함 하 여 모든 원본의 데이터를 포함 합니다.|
-| Azure 파일                                                          | 표준 파일 공유의 최대 크기는 5TB입니다. <br> 프리미엄 파일 공유의 최대 크기는 100TiB입니다.<br> *StorageAccount_AzureFiles*의 모든 폴더는 이 제한을 따라야 합니다.       |
+| Azure Files                                                          | 표준 파일 공유의 최대 크기는 5TB입니다. <br> 프리미엄 파일 공유의 최대 크기는 100TiB입니다.<br> *StorageAccount_AzureFiles*의 모든 폴더는 이 제한을 따라야 합니다.       |

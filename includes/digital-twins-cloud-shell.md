@@ -46,13 +46,13 @@ az extension list
    az extension update --name azure-iot
    ```
 
-* 목록에 다음이 포함 되어 **있지** 않으면 `azure-iot` 확장을 설치 해야 합니다. 이 명령 사용:
+* 목록에 다음이 포함 되어 **있지** 않으면 `azure-iot` 확장을 설치 해야 합니다. 다음 명령을 실행합니다.
 
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
 
-* 목록에 포함 된 경우 `azure-iot-cli-ext` : 확장의 레거시 버전입니다. 한 번에 한 버전의 확장만 설치 해야 하므로 레거시 확장을 제거 해야 합니다. 이 명령 사용:
+* 목록에 포함 된 경우 `azure-iot-cli-ext` : 확장의 레거시 버전입니다. 한 번에 한 버전의 확장만 설치 해야 하므로 레거시 확장을 제거 해야 합니다. 다음 명령을 실행합니다.
 
    ```azurecli-interactive
    az extension remove --name azure-cli-iot-ext
