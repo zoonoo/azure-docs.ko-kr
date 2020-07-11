@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266766"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232698"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -133,7 +134,7 @@ DAST는 SAST(정적 애플리케이션 보안 테스트)와는 다릅니다. SAS
 
 [퍼지 테스트](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)에서는 애플리케이션에 잘못된 데이터 또는 임의의 데이터를 의도적으로 삽입하여 프로그램 오류를 유도합니다. 프로그램 오류를 유도하면 애플리케이션을 릴리스하기 전에 잠재적 보안 문제를 발견하는 데 도움이 됩니다.
 
-[Security Risk Detection](https://docs.microsoft.com/security-risk-detection/)은 소프트웨어에서 보안에 중요한 버그를 찾는 Microsoft 고유의 퍼지 테스트 서비스입니다.
+[Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/)은 소프트웨어에서 보안에 중요한 버그를 찾는 Microsoft 고유의 퍼지 테스트 서비스입니다.
 
 ### <a name="conduct-attack-surface-review"></a>공격 노출 영역 검토 수행
 

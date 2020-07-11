@@ -8,13 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 05/19/2020
+ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 39c694f4e2afbf5d781a8fde43a7db9c4a255466
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392672"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232154"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -31,15 +32,12 @@ ms.locfileid: "85392672"
 
 * CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
 
-## <a name="resource-manager-template"></a>Resource Manager 템플릿
+## <a name="workspace-resource-manager-template"></a>작업 영역 리소스 관리자 템플릿
 
-다음 Resource Manager 템플릿을 사용하여 Azure Machine Learning 작업 영역 및 관련된 Azure 리소스를 만들 수 있습니다.
-
-[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
+이 문서 전체에서 사용 되는 Azure Resource Manager 템플릿은 Azure 빠른 시작 템플릿 GitHub 리포지토리의 [201-기계 학습-고급](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) 디렉터리에서 찾을 수 있습니다.
 
 이 템플릿은 다음과 같은 Azure 서비스를 만듭니다.
 
-* Azure 리소스 그룹
 * Azure Storage 계정
 * Azure Key Vault
 * Azure Application Insights
@@ -48,13 +46,13 @@ ms.locfileid: "85392672"
 
 리소스 그룹은 서비스를 보관하는 컨테이너입니다. Azure Machine Learning 작업 영역에는 다양한 서비스가 필요합니다.
 
-예제 템플릿에는 다음 두 개의 매개 변수가 있습니다.
+예제 템플릿에는 다음과 같은 두 개의 **필수** 매개 변수가 있습니다.
 
-* **location** - 리소스 그룹 및 서비스가 생성되는 위치입니다.
+* 리소스가 생성 될 **위치** 입니다.
 
     선택한 위치는 템플릿에서 대부분의 리소스에 사용됩니다. 단, 다른 서비스를 사용할 수 있는 일부 위치에서 사용할 수 없는 Application Insights 서비스는 예외입니다. 서비스를 사용할 수 없는 위치를 선택하면 미국 중남부 위치에 서비스가 생성됩니다.
 
-* **workspace name** - Azure Machine Learning 작업 영역의 이름입니다.
+* Azure Machine Learning 작업 영역의 이름인 **workspaceName**입니다.
 
     > [!NOTE]
     > 작업 영역 이름은 대/소문자를 구분하지 않습니다.
@@ -74,7 +72,82 @@ ms.locfileid: "85392672"
 * [Azure Resource Manager 템플릿으로 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices 리소스 종류](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-### <a name="advanced-template"></a>고급 템플릿
+## <a name="deploy-template"></a>템플릿 배포
+
+템플릿을 배포 하려면 리소스 그룹을 만들어야 합니다.
+
+그래픽 사용자 인터페이스를 사용 하려는 경우 [Azure Portal](#use-the-azure-portal) 섹션을 참조 하세요.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az group create --name "examplegroup" --location "eastus"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroup -Name "examplegroup" -Location "eastus"
+```
+
+---
+
+리소스 그룹이 성공적으로 만들어지면 다음 명령을 사용 하 여 템플릿을 배포 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" location="eastus"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus"
+```
+
+---
+
+기본적으로 템플릿의 일부로 생성 된 모든 리소스는 새로운 리소스입니다. 그러나 기존 리소스를 사용 하는 옵션도 있습니다. 템플릿에 추가 매개 변수를 제공 하 여 기존 리소스를 사용할 수 있습니다. 예를 들어 기존 저장소 계정을 사용 하려는 경우 **Storageaccountoption** 값을 **기존** 값으로 설정 하 고 **storageaccountname** 매개 변수에 저장소 계정의 이름을 제공 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      storageAccountOption="existing" \
+      storageAccountName="existingstorageaccountname"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -storageAccountOption "existing" `
+  -storageAccountName "existingstorageaccountname"
+```
+
+---
+
+## <a name="deploy-an-encrypted-workspace"></a>암호화 된 작업 영역 배포
 
 다음 템플릿 예에서는 세 가지 설정으로 작업 영역을 만드는 방법을 보여 줍니다.
 
@@ -86,6 +159,7 @@ ms.locfileid: "85392672"
 
 > [!IMPORTANT]
 > 이 템플릿을 사용하기 전에 구독에서 충족해야 하는 특정 요구 사항이 있습니다.
+>
 > * __Azure Machine Learning__ 애플리케이션은 Azure 구독에 대한 __contributor__여야 합니다.
 > * 암호화 키를 포함하는 기존 Azure Key Vault가 있어야 합니다.
 > * __Azure Cosmos DB__ 애플리케이션에 대해 __가져오기__, __래핑__ 및 __래핑 해제__ 액세스 권한을 부여하는 액세스 정책이 Azure Key Vault에 있어야 합니다.
@@ -93,110 +167,482 @@ ms.locfileid: "85392672"
 
 __Azure Machine Learning 앱을 contributor로 추가하려면__ 다음 명령을 사용합니다.
 
-1. CLI에서 Azure에 인증하려면 다음 명령을 사용합니다.
+1. Azure 계정에 로그인 하 고 구독 ID를 가져옵니다. 이 구독은 Azure Machine Learning 작업 영역을 포함하는 구독과 동일해야 합니다.  
 
-    ```azurecli-interactive
-    az login
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az account list --query '[].[name,id]' --output tsv
     ```
-    
-    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
+
+    > [!TIP]
+    > 다른 구독을 선택하려면 `az account set -s <subscription name or ID>` 명령을 사용하고 전환할 구독 이름 또는 ID를 지정합니다. 구독 선택에 대한 자세한 내용은 [여러 Azure 구독 사용](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조하세요. 
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzSubscription
+    ```
+
+    > [!TIP]
+    > 다른 구독을 선택하려면 `Az-SetContext -SubscriptionId <subscription ID>` 명령을 사용하고 전환할 구독 이름 또는 ID를 지정합니다. 구독 선택에 대한 자세한 내용은 [여러 Azure 구독 사용](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0)을 참조하세요.
+
+    ---
 
 1. Azure Machine Learning 앱의 개체 ID를 가져오려면 다음 명령을 사용합니다. 이 값은 각 Azure 구독에 따라 다를 수 있습니다.
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
+    ```
+
+    ---
     이 명령은 GUID인 개체 ID를 반환합니다.
 
-1. 구독에 개체 ID를 contributor로 추가하려면 다음 명령을 사용합니다. `<object-ID>`를 이전 단계의 GUID로 바꿉니다. `<subscription-ID>`를 Azure 구독의 이름 또는 ID로 바꿉니다.
+1. 구독에 개체 ID를 contributor로 추가하려면 다음 명령을 사용합니다. `<object-ID>`서비스 주체의 개체 ID로 대체 합니다. `<subscription-ID>`를 Azure 구독의 이름 또는 ID로 바꿉니다.
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
     ```
 
-__Azure Key Vault에 키를 추가하려면__ __Azure CLI를 사용한 Key Vault 관리__ 문서의 [키 자격 증명 모음에 키, 비밀 또는 인증서 추가](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) 섹션에 있는 정보를 사용합니다.
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
+    ```
+
+    ---
+
+1. 기존 Azure Key Vault에서 키를 생성 하려면 다음 명령 중 하나를 사용 합니다. `<keyvault-name>`키 자격 증명 모음의 이름으로 대체 합니다. `<key-name>`키에 사용할 이름으로 대체 합니다.
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
+    ```
+    --- 
 
 __키 자격 증명 모음에 액세스 정책을 추가하려면 다음 명령을 사용합니다.__
 
 1. Azure Cosmos DB 앱의 개체 ID를 가져오려면 다음 명령을 사용합니다. 이 값은 각 Azure 구독에 따라 다를 수 있습니다.
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
     ```
-    
-    이 명령은 GUID인 개체 ID를 반환합니다.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
+    ```
+    ---
+
+    이 명령은 GUID인 개체 ID를 반환합니다. 나중을 위해 저장
 
 1. 정책을 설정하려면 다음 명령을 사용합니다. `<keyvault-name>`를 기존 Azure Key Vault 이름으로 바꿉니다. `<object-ID>`를 이전 단계의 GUID로 바꿉니다.
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    
+    ```azurepowershell
+    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
+    ```
+    ---    
 
 이 템플릿에 필요한 `cmk_keyvault`(Key Vault ID) 및 `resource_cmk_uri`(키 URI) 매개 변수에 대한 __값을 가져오려면__ 다음 단계를 사용합니다.
 
 1. Key Vault ID를 가져오려면 다음 명령을 사용합니다.
 
-    ```azurecli-interactive
-    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv
     ```
 
-    이 명령은 `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`와 비슷한 값을 반환합니다.
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
+    ```
+    ---
+
+    이 명령은 `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`와 비슷한 값을 반환합니다.
 
 1. 고객 관리형 키에 대한 URI 값을 가져오려면 다음 명령을 사용합니다.
 
-    ```azurecli-interactive
-    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
     ```
 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
+    ```
+    ---
+
     이 명령은 `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`와 비슷한 값을 반환합니다.
-
-__예제 템플릿__
-
-:::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
 
 > [!IMPORTANT]
 > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
+위의 단계를 성공적으로 완료 한 후에는 일반적인 방식으로 템플릿을 배포 합니다. 고객 관리 키를 사용 하도록 설정 하려면 다음 매개 변수를 설정 합니다.
+
+* **Encryption_status** **사용 하도록 설정**합니다.
+* **cmk_keyvault** `cmk_keyvault` 이전 단계에서 얻은 값을 cmk_keyvault 합니다.
+* **resource_cmk_uri** `resource_cmk_uri` 이전 단계에서 얻은 값을 resource_cmk_uri 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      encryption_status="Enabled" \
+      cmk_keyvault="/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" \
+      resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -encryption_status "Enabled" `
+  -cmk_keyvault "/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" `
+  -resource_cmk_uri "https://mykeyvault.vault.azure.net/keys/mykey/{guid}"
+```
+---
+
+고객이 관리 하는 키를 사용 하는 경우 Azure Machine Learning Cosmos DB 인스턴스를 포함 하는 보조 리소스 그룹을 만듭니다. 자세한 내용은 [미사용 암호화-Cosmos DB](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+
+데이터에 대해 제공할 수 있는 추가 구성은 **confidential_data** 매개 변수를 **true**로 설정 하는 것입니다. 이렇게 하면에서 다음을 수행 합니다.
+
+* Azure Machine Learning 계산 클러스터에 대 한 로컬 스크래치 디스크 암호화를 시작 하 여 구독에 이전 클러스터를 만들지 않았습니다. 이전에 구독에서 클러스터를 만든 경우 지원 티켓을 열어 계산 클러스터에 대해 사용 하도록 설정 된 스크래치 디스크를 암호화 합니다.
+* 실행 간에 로컬 스크래치 디스크를 정리 합니다.
+* 는 key vault를 사용 하 여 저장소 계정, 컨테이너 레지스트리 및 SSH 계정에 대 한 자격 증명을 실행 계층에서 계산 클러스터로 안전 하 게 전달 합니다.
+* IP 필터링을 사용 하 여 기본 배치 풀을 AzureMachineLearningService 이외의 외부 서비스에서 호출할 수 없도록 합니다.
+
+  자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+
+## <a name="deploy-workspace-behind-a-virtual-network"></a>가상 네트워크 뒤에 작업 영역 배포
+
+`vnetOption`매개 변수 값을 또는로 설정 `new` 하면 `existing` 가상 네트워크 뒤의 작업 영역에서 사용 하는 리소스를 만들 수 있습니다.
+
+> [!IMPORTANT]
+> 컨테이너 레지스트리의 경우 ' Premium ' sku만 지원 됩니다.
+
+> [!IMPORTANT]
+> Application Insights는 가상 네트워크 뒤의 배포를 지원 하지 않습니다.
+
+### <a name="only-deploy-workspace-behind-private-endpoint"></a>개인 끝점 뒤에 작업 영역만 배포
+
+연결 된 리소스가 가상 네트워크 뒤에 있지 않은 경우 **privateEndpointType** 매개 변수를 또는로 설정 `AutoAproval` 하 여 `ManualApproval` 개인 끝점 뒤에 작업 영역을 배포할 수 있습니다.
+
+> [!IMPORTANT]
+> 배포는 전용 끝점을 지 원하는 지역 에서만 유효 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+### <a name="use-a-new-virtual-network"></a>새 가상 네트워크 사용
+
+새 가상 네트워크 뒤에 리소스를 배포 하려면 해당 리소스에 대 한 가상 네트워크 설정과 함께 **Vnetoption** 을 **new** 로 설정 합니다. 아래 배포에서는 새 가상 네트워크 뒤에 저장소 계정 리소스를 사용 하 여 작업 영역을 배포 하는 방법을 보여 줍니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true"
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+또는 가상 네트워크 뒤에 여러 또는 모든 종속 리소스를 배포할 수 있습니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium"
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+  -keyVaultBehindVNet "true" `
+  -containerRegistryBehindVNet "true" `
+  -containerRegistryOption "new" `
+  -containerRegistrySku "Premium"
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      privateEndpointType="AutoApproval"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -privateEndpointType "AutoApproval"
+```
+
+--- -->
+
+### <a name="use-an-existing-virtual-network--resources"></a>기존 가상 네트워크 & 리소스 사용
+
+기존 연결 된 리소스가 있는 작업 영역을 배포 하려면 서브넷 매개 변수와 함께 **Vnetoption** 매개 변수를 **기존** 으로 설정 해야 합니다. 그러나 배포 **하기 전에** 각 리소스에 대해 가상 네트워크에서 서비스 끝점을 만들어야 합니다. 새 가상 네트워크 배포와 마찬가지로 가상 네트워크 뒤에 리소스를 하나 또는 모두 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> 서브넷에 서비스 끝점이 있어야 합니다. `Microsoft.Storage`
+
+> [!IMPORTANT]
+> 서브넷에서는 개인 끝점을 만들 수 없습니다. 서브넷을 사용 하도록 설정 하려면 개인 끝점을 사용 하지 않도록 설정 합니다.
+
+1. 리소스에 대해 서비스 끝점을 사용 하도록 설정 합니다.
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.KeyVault"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.ContainerRegistry" | Set-AzVirtualNetwork
+    ```
+
+    ---
+
+1. 작업 영역 배포
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="existing" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="examplegroup" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium" \
+      subnetName="examplesubnet" \
+      subnetOption="existing"
+      privateEndpointType="AutoApproval"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -Name "exampledeployment" `
+      -ResourceGroupName "examplegroup" `
+      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+      -workspaceName "exampleworkspace" `
+      -location "eastus" `
+      -vnetOption "existing" `
+      -vnetName "examplevnet" `
+      -vnetResourceGroupName "examplegroup" `
+      -storageAccountBehindVNet "true"
+      -keyVaultBehindVNet "true" `
+      -containerRegistryBehindVNet "true" `
+      -containerRegistryOption "new" `
+      -containerRegistrySku "Premium" `
+      -subnetName "examplesubnet" `
+      -subnetOption "existing"
+      -privateEndpointType "AutoApproval"
+    ```
+    ---
+
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="existing" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="rg" \
+      privateEndpointType="AutoApproval" \
+      subnetName="subnet" \
+      subnetOption="existing"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "existing" `
+  -vnetName "examplevnet" `
+  -vnetResourceGroupName "rg"
+  -privateEndpointType "AutoApproval"
+  -subnetName "subnet"
+  -subnetOption "existing"
+```
+
+--- -->
+
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
-1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 편집__ 화면이 표시되면 이 문서의 템플릿을 붙여넣습니다.
-1. __저장__을 선택하여 템플릿을 사용합니다. 다음 정보를 제공하고 나열된 사용 약관에 동의합니다.
+1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 선택__ 화면에 도착 하면 드롭다운에서 **201-machine learning-고급** 템플릿을 선택 합니다.
+1. 템플릿을 사용 하려면 __템플릿 선택__ 을 선택 합니다. 배포 시나리오에 따라 다음과 같은 필수 정보 및 기타 매개 변수를 제공 합니다.
 
    * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.
    * 리소스 그룹: 서비스를 포함할 리소스 그룹을 선택하거나 만듭니다.
+   * 지역: 리소스가 생성 될 Azure 지역을 선택 합니다.
    * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
    * 위치: 리소스가 생성될 위치를 선택합니다.
+1. __검토 + 만들기__를 선택합니다.
+1. __검토 + 만들기__ 화면에서 나열 된 사용 약관에 동의 하 고 __만들기__를 선택 합니다.
 
 자세한 내용은 [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)를 참조하세요.
-
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용
-
-이 예제에서는 현재 디렉터리의 `azuredeploy.json` 파일에 템플릿을 저장했다고 가정합니다.
-
-```powershell
-New-AzResourceGroup -Name examplegroup -Location "East US"
-new-azresourcegroupdeployment -name exampledeployment `
-  -resourcegroupname examplegroup -location "East US" `
-  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
-```
-
-자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md) 및 [SAS 토큰과 Azure PowerShell을 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/templates/secure-template-with-sas-token.md)를 참조하세요.
-
-## <a name="use-the-azure-cli"></a>Azure CLI 사용
-
-이 예제에서는 현재 디렉터리의 `azuredeploy.json` 파일에 템플릿을 저장했다고 가정합니다.
-
-```azurecli-interactive
-az group create --name examplegroup --location "East US"
-az group deployment create \
-  --name exampledeployment \
-  --resource-group examplegroup \
-  --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace location=eastus sku=basic
-```
-
-자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/templates/deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/templates/secure-template-with-sas-token.md)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -216,7 +662,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
 
 * Key Vault 액세스 정책을 검토한 후 이러한 정책을 사용하여 템플릿의 `accessPolicies` 속성을 설정합니다. 액세스 정책을 보려면 다음 Azure CLI 명령을 사용합니다.
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
@@ -287,7 +733,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
 
     Key Vault의 ID를 가져오기 위해 원래 템플릿 실행의 출력을 참조하거나 Azure CLI를 사용할 수 있습니다. 다음 명령은 Azure CLI를 사용하여 Key Vault 리소스 ID를 가져오는 예입니다.
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
     ```
 

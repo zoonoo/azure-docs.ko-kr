@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080363"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232443"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
 
@@ -25,10 +26,10 @@ Microsoft 관리 키를 사용 하 여 컨테이너 데이터의 암호화를 �
 
 |    |    Microsoft 관리형 키     |     고객 관리형 키     |
 |----|----|----|
-|    암호화/암호 해독 작업    |    Azure    |    Azure    |
-|    키 스토리지    |    Microsoft 키 저장소    |    Azure Key Vault    |
-|    키 회전 책임    |    Microsoft    |    Customer    |
-|    키 액세스    |    Microsoft 전용    |    Microsoft, 고객    |
+|    **암호화/암호 해독 작업**    |    Azure    |    Azure    |
+|    **키 스토리지**    |    Microsoft 키 저장소    |    Azure Key Vault    |
+|    **키 회전 책임**    |    Microsoft    |    고객    |
+|    **키 액세스**    |    Microsoft 전용    |    Microsoft, 고객    |
 
 문서의 나머지 부분에서는 사용자의 키 (고객 관리 키)를 사용 하 여 ACI 배포 데이터를 암호화 하는 데 필요한 단계에 대해 설명 합니다. 
 

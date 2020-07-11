@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481734"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232205"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -174,7 +174,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 예. 하지만 가상 머신에 여러 IP 주소를 할당하는 경우와 같이 필요한 경우가 아니면 권장하지 않습니다. 자세한 내용은 [가상 머신에 여러 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. VM에 연결된 Azure NIC에 할당된 IP 주소가 변경되고 VM 운영 체제 내의 IP 주소가 다르면, VM에 대한 연결이 끊어집니다.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>클라우드 서비스 배포 슬롯을 중지하거나 운영 체제 내에서 VM을 종료하는 경우 IP 주소는 어떻게 됩니까?
-아무 작업도 수행하지 않습니다. IP 주소(공용 VIP, 공용 및 프라이빗)는 클라우드 서비스 배포 슬롯 또는 VM에 할당된 상태로 유지됩니다.
+아무 일도 일어나지 않습니다. IP 주소(공용 VIP, 공용 및 프라이빗)는 클라우드 서비스 배포 슬롯 또는 VM에 할당된 상태로 유지됩니다.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>VM을 다시 배포하지 않고 VNet에서 하나의 서브넷에서 다른 서브넷으로 이동할 수 있습니까?
 예. [다른 서브넷으로 VM 또는 역할 인스턴스를 이동하는 방법](virtual-networks-move-vm-role-to-subnet.md) 문서에서 자세한 정보를 확인할 수 있습니다.
@@ -191,7 +191,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ## <a name="azure-services-that-connect-to-vnets"></a>VNet에 연결하는 Azure 서비스
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
-예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [App Service 네트워킹 기능](../app-service/networking-features.md)
 * [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -406,9 +406,8 @@ Azure Active Directory (Azure AD)는 서비스 끝점을 기본적으로 지원 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>VNet에서 설정할 수 있는 VNet 서비스 엔드포인트 개수에 대한 제한이 있나요?
 가상 네트워크에서 VNet 서비스 엔드포인트의 총수에 대한 제한은 없습니다. Azure 서비스 리소스 (예: Azure Storage 계정)의 경우 서비스는 리소스 보안에 사용 되는 서브넷의 수에 제한을 적용할 수 있습니다. 다음 표에서는 몇 가지 제한 예를 보여 줍니다. 
 
-|||
-|---|---|
 |Azure 서비스| VNet 규칙에 대한 제한|
+|---|---|
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|

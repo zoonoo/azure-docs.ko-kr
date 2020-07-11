@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78199651"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232460"
 ---
 # <a name="live-event-low-latency-settings"></a>라이브 이벤트 낮은 대기 시간 설정
 
@@ -61,15 +62,15 @@ LiveEvent liveEvent = new LiveEvent(
 
 ||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
 |---|---|---|
-|AMP의 DASH|10초|8초|
-|기본 iOS 플레이어의 HLS|14초|10초|
+|**AMP의 DASH**|10초|8초|
+|**기본 iOS 플레이어의 HLS**|14초|10초|
 
 ### <a name="live-encoding"></a>라이브 인코딩
 
 ||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
 |---|---|---|
-|AMP의 DASH|14초|10초|
-|기본 iOS 플레이어의 HLS|18초|13초|
+|**AMP의 DASH**|14초|10초|
+|**기본 iOS 플레이어의 HLS**|18초|13초|
 
 > [!NOTE]
 > 로컬 네트워크 조건에 따라 또는 CDN 캐싱 계층을 도입하여 엔드투엔드 대기 시간이 달라질 수 있습니다. 정확한 구성을 테스트해야 합니다.

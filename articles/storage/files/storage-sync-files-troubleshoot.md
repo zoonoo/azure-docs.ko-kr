@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c8f846201553d3cfa9a2d68b8b4a7ab655c378
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512052"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232381"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -690,7 +690,9 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT(10진)** | -1906441711 |
 | **오류 문자열** | JET_errLogDiskFull |
 | **재구성 필요** | 예 |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT(10진)** | -2134375654 |
 | **오류 문자열** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
@@ -717,12 +719,16 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT(10진)** | -2134375877 |
 | **오류 문자열** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **재구성 필요** | 예 |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT(10진)** | -2134375908 |
 | **오류 문자열** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **재구성 필요** | 예 |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT(10진)** | -2134375853 |
 | **오류 문자열** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
@@ -1159,7 +1165,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 
 위의 조건이 충족되지 않으면 서버에서 계층화된 파일이 이제 분리되기 때문에 액세스를 복원하지 못할 수 있습니다. 분리된 계층화된 파일을 제거하려면 아래 지침을 따르세요.
 
-**참고**
+**참고 사항**
 - 서버에서 계층화된 파일에 액세스할 수 없는 경우 Azure 파일 공유에 직접 액세스하면 전체 파일에 액세스할 수 있습니다.
 - 나중에 분리된 계층화된 파일을 방지하려면 서버 엔드포인트를 삭제할 때 [서버 엔드포인트 제거](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint)에 설명된 단계를 따르세요.
 

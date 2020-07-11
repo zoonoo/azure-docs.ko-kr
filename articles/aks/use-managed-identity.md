@@ -4,14 +4,14 @@ description: Azure Kubernetes 서비스 (AKS)에서 관리 id를 사용 하는 �
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/10/2020
 ms.author: mlearned
-ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27ae1d1a2c6309bdac2410dca4b48abf27d8ea0b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610288"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231984"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "85610288"
 
 다음 리소스를 설치 해야 합니다.
 
-- Azure CLI 버전 2.2.0 이상
+- Azure CLI 버전 2.8.0 이상
 
 ## <a name="limitations"></a>제한 사항
 
@@ -39,7 +39,7 @@ AKS는 기본 제공 서비스 및 추가 기능에 대해 여러 관리 되는 
 | ID                       | 이름    | 사용 사례 | 기본 권한 | 사용자 고유의 id 가져오기
 |----------------------------|-----------|----------|
 | 제어 평면 | 표시 되지 않음 | AKS에서 네트워킹 리소스를 관리 하는 데 사용 됩니다. 예를 들어 수신, 공용 IP 등에 대 한 부하 분산 장치를 만듭니다.| 노드 리소스 그룹에 대 한 참가자 역할 | 현재 지원되지 않음
-| kubelet | AKS 클러스터 이름-agentpool | Azure Container Registry 인증 (ACR) | 노드 리소스 그룹에 대 한 읽기 역할 | 현재 지원되지 않음
+| Kubelet | AKS 클러스터 이름-agentpool | Azure Container Registry 인증 (ACR) | 노드 리소스 그룹에 대 한 읽기 역할 | 현재 지원되지 않음
 | 추가 기능 | AzureNPM | Id가 필요 하지 않음 | 해당 없음 | 아니요
 | 추가 기능 | AzureCNI 네트워크 모니터링 | Id가 필요 하지 않음 | 해당 없음 | 아니요
 | 추가 기능 | azurepolicy (게이트 키퍼) | Id가 필요 하지 않음 | 해당 없음 | 아니요

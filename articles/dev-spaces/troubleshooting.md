@@ -5,11 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309648"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232494"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -59,7 +60,7 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러를 만들지 못함
 
-Azure Dev Spaces 컨트롤러 이름은 31자보다 길 수 없습니다. AKS 클러스터에서 Dev Spaces를 사용하도록 설정하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31자를 초과하는 경우 오류가 표시됩니다. 예를 들어:
+Azure Dev Spaces 컨트롤러 이름은 31자보다 길 수 없습니다. AKS 클러스터에서 Dev Spaces를 사용하도록 설정하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31자를 초과하는 경우 오류가 표시됩니다. 예를 들면 다음과 같습니다.
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
@@ -131,7 +132,7 @@ Azure Dev Spaces에서 기본적으로 지원하지 않는 언어로 애플리�
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 가상 노드의 "컨테이너 이미지 빌드 대기 중..." 단계에서 시간 초과 발생
 
-이 시간 초과 오류는 Dev Spaces를 사용하여 [AKS 가상 노드](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)에서 실행되도록 구성된 서비스를 실행하려고 할 때 발생합니다. Dev Spaces는 현재 가상 노드에서 빌드 또는 디버깅 서비스를 지원하지 않습니다.
+이 시간 초과 오류는 Dev Spaces를 사용하여 [AKS 가상 노드](../aks/virtual-nodes-portal.md)에서 실행되도록 구성된 서비스를 실행하려고 할 때 발생합니다. Dev Spaces는 현재 가상 노드에서 빌드 또는 디버깅 서비스를 지원하지 않습니다.
 
 `--verbose` 스위치를 사용하여 `azds up`을 실행하거나 Visual Studio에서 자세한 정보 로깅을 사용하도록 설정하면 추가 정보가 표시됩니다.
 
@@ -169,7 +170,7 @@ Dev Spaces를 통해 빌드 또는 디버그하려는 서비스가 VM 노드에�
 
 프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 이슈를 해결하려면 Azure Dev Spaces가 사용자 프로젝트에 생성한 _azds.yaml_ 파일을 엽니다. 사용할 Dockerfile을 가리키도록 *‘configurations: develop: build: dockerfile’* 을 업데이트합니다. 예를 들어:
+이 이슈를 해결하려면 Azure Dev Spaces가 사용자 프로젝트에 생성한 _azds.yaml_ 파일을 엽니다. 사용할 Dockerfile을 가리키도록 *‘configurations: develop: build: dockerfile’* 을 업데이트합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 ...
@@ -216,7 +217,7 @@ install:
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 자세한 로깅을 사용하도록 설정합니다.
 
-명령줄에서 `--verbose`를 사용하여 자세한 로깅을 사용하도록 설정합니다. `--output`을 사용하여 출력 형식을 지정할 수도 있습니다. 예를 들어:
+명령줄에서 `--verbose`를 사용하여 자세한 로깅을 사용하도록 설정합니다. `--output`을 사용하여 출력 형식을 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```cmd
 azds up --verbose --output json
@@ -327,7 +328,7 @@ spec:
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-위 명령은 관리 ID에 대한 *clientId*와 *resourceId*를 출력합니다. 예를 들어:
+위 명령은 관리 ID에 대한 *clientId*와 *resourceId*를 출력합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {

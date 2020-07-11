@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: ca6ac145db0536d3cf7e5bcc72a58d72101ab12a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98b72dbb9f3b62fd5985f6245e52293ec31fc682
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459120"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232545"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>네트워킹에 대한 Azure PowerShell 샘플
 
 다음 표에는 Azure PowerShell을 사용하여 빌드된 스크립트에 대한 링크가 포함되어 있습니다.
 
-| | |
+| 스크립트 | 설명 |
 |-|-|
 |**Azure 리소스 간 연결**||
 | [다중 계층 애플리케이션을 위한 가상 네트워크 만들기](./scripts/virtual-network-powershell-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 트래픽은 HTTP로 제한되며, 백 엔드 서브넷에 대한 트래픽은 SQL, 포트 1433으로 제한됩니다. |

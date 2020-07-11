@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: a19a4414cd31c2a4f0261ba0214b99fa12490ecb
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 412574bc9f994b522ef10b15c2f4efcfe69e07c0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856798"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232358"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -32,7 +32,7 @@ ms.locfileid: "85856798"
 Azure 지역은 Azure 컴퓨팅, 네트워킹 및 스토리지 리소스가 있는 글로벌 데이터 센터입니다. Azure 리소스를 만들 때 고객은 리소스 위치를 선택해야 합니다. 리소스 위치는 리소스를 만들 Azure 데이터 센터(또는 가용성 영역)를 결정합니다.
 
 ## <a name="expressroute-locations"></a>ExpressRoute 위치
-ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microsoft Enterprise 에지) 디바이스가 있는 공동 배치 시설입니다. ExpressRoute 위치는 Microsoft 네트워크에 대한 진입점으로, 전 세계적으로 분산되어 있어 전 세계의 Microsoft 네트워크에 연결할 수 있는 기회를 고객에게 제공합니다. 이러한 위치는 ExpressRoute 파트너와 ExpressRoute Direct 고객이 Microsoft 네트워크에 대한 교차 연결이 발생하는 위치입니다. 일반적으로 ExpressRoute 위치는 Azure 지역과 일치하지 않아도 됩니다. 예를 들어, 고객은 *시애틀* 피어링 위치에서 *미국 동부* 리소스 위치로 ExpressRoute 회로를 만들 수 있습니다.
+ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microsoft Enterprise 에지) 디바이스가 있는 공동 배치 시설입니다. ExpressRoute 위치는 Microsoft 네트워크에 대한 진입점으로, 전역적으로 분산되어 있어 전 세계의 Microsoft 네트워크에 연결할 수 있는 기회를 고객에게 제공합니다. 이러한 위치는 ExpressRoute 파트너와 ExpressRoute Direct 고객이 Microsoft 네트워크에 대한 교차 연결이 발생하는 위치입니다. 일반적으로 ExpressRoute 위치는 Azure 지역과 일치하지 않아도 됩니다. 예를 들어, 고객은 *시애틀* 피어링 위치에서 *미국 동부* 리소스 위치로 ExpressRoute 회로를 만들 수 있습니다.
 
 지역 내 하나 이상의 ExpressRoute 위치와 연결된 경우, 지역 내의 모든 지역에 걸쳐 Azure 서비스에 대한 액세스 권한을 갖습니다. 
 
@@ -129,7 +129,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **샌안토니오** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | 미국 중남부 | 10G, 100G | CenturyLink Cloud Connect, Megaport |
 | **상파울루** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | 브라질 남부 | 해당 없음 | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **시애틀** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | 미국 서부 2 | 10G, 100G | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
-| **서울** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | 한국 중부 | 10G, 100G | KINX, KT, LG CNS, Sejong Telecom |
+| **서울** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | 한국 중부 | 10G, 100G | KINX, KT, LG CNS, Sejong Telecom |
 | **실리콘밸리** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | 미국 서부 | 10G, 100G | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Comcast, Coresite, Equinix, InterCloud, Internet2, IX Reach, Packet, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **실리콘밸리2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | 미국 서부 | 10G, 100G | Colt, Coresite | 
 | **싱가포르** | [Equinix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | 동남아시아 | 10G, 100G | Aryaka Networks, AT&T NetBond, British Telecom, China Mobile International, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |

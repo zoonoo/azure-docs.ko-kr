@@ -8,23 +8,24 @@ ms.topic: conceptual
 description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996927"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232426"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)용 재해 복구 지침 검토
 
-Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재해 복구 지침을 파악하고, Dev Spaces에 사용하는 AKS 클러스터에 이러한 지침이 적용되는지 여부를 고려해야 합니다. 자세한 내용은 [AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)를 참조하세요.
+Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재해 복구 지침을 파악하고, Dev Spaces에 사용하는 AKS 클러스터에 이러한 지침이 적용되는지 여부를 고려해야 합니다. 자세한 내용은 [AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례](../../aks/operator-best-practices-multi-region.md)를 참조하세요.
 
 ## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>여러 지역에서 AKS 클러스터에 대해 Dev Spaces를 사용하도록 설정
 
 여러 지역에서 AKS 클러스터에 대해 Dev Spaces를 사용하도록 설정하면 Azure 지역 하나에서 오류가 발생하더라도 Dev Spaces 사용을 즉시 다시 시작할 수 있습니다.
 
-여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)을 참조하세요.
+여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](../../aks/operator-best-practices-multi-region.md#plan-for-multiregion-deployment)을 참조하세요.
 
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Azure CLI를 통해 Dev Spaces를 사용하도록 설정
 
