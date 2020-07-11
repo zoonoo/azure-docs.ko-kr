@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a65065a6f3cbc7264a8efb9bcf128b06897aacf
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734795"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220272"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대 한 사용자 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 구성
 
@@ -42,18 +42,18 @@ SharePoint Server에는 사용자 프로필을 동기화 하는 서비스가 포
 
 ## <a name="service-accounts-overview"></a>서비스 계정 개요
 
-관리 되는 도메인에서 **AAD DC 서비스 계정** 이라는 보안 그룹이 *사용자* OU (조직 구성 단위)의 일부로 존재 합니다. 이 보안 그룹의 구성원에게 다음 권한이 위임됩니다.
+관리 되는 도메인에서 *AAD DC 서비스 계정* 이라는 보안 그룹이 *사용자* OU (조직 구성 단위)의 일부로 존재 합니다. 이 보안 그룹의 구성원에게 다음 권한이 위임됩니다.
 
 - 루트 DSE에 대 한 **디렉터리 변경 내용 복제** 권한
 - *구성* 명명 컨텍스트 (컨테이너)에 대 한 **디렉터리 변경 내용 복제** 권한 `cn=configuration` 입니다.
 
-또한 **AAD DC 서비스 계정** 보안 그룹은 기본 제공 그룹인 **Windows 이전 2000 호환 액세스**의 멤버입니다.
+또한 *AAD DC 서비스 계정* 보안 그룹은 기본 제공 그룹인 *Windows 이전 2000 호환 액세스*의 멤버입니다.
 
 이 보안 그룹에 추가 하는 경우 SharePoint Server 사용자 프로필 동기화 서비스에 대 한 서비스 계정에는 제대로 작동 하는 데 필요한 권한이 부여 됩니다.
 
 ## <a name="enable-support-for-sharepoint-server-user-profile-sync"></a>SharePoint Server 사용자 프로필 동기화에 대 한 지원 사용
 
-SharePoint Server의 서비스 계정에는 디렉터리에 변경 내용을 복제 하 고 SharePoint Server 사용자 프로필 동기화가 제대로 작동 하도록 하는 데 적절 한 권한이 필요 합니다. 이러한 권한을 제공 하려면 SharePoint 사용자 프로필 동기화에 사용 되는 서비스 계정을 **AAD DC 서비스 계정** 그룹에 추가 합니다.
+SharePoint Server의 서비스 계정에는 디렉터리에 변경 내용을 복제 하 고 SharePoint Server 사용자 프로필 동기화가 제대로 작동 하도록 하는 데 적절 한 권한이 필요 합니다. 이러한 권한을 제공 하려면 SharePoint 사용자 프로필 동기화에 사용 되는 서비스 계정을 *AAD DC 서비스 계정* 그룹에 추가 합니다.
 
 Azure AD DS management VM에서 다음 단계를 완료 합니다.
 

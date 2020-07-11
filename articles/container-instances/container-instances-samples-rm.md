@@ -3,11 +3,12 @@ title: Azure Resource Manager 템플릿 샘플
 description: 다른 구성으로 Azure Container Instances를 배포 하 Azure Resource Manager 템플릿 샘플 찾기
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299760"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169649"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Container Instances용 Azure Resource Manager 템플릿
 
@@ -17,7 +18,7 @@ ms.locfileid: "84299760"
 
 ## <a name="sample-templates"></a>샘플 템플릿
 
-| | |
+| 템플릿 | 설명 |
 |-|-|
 | **애플리케이션** ||
 | [WordPress][app-wp] | 컨테이너 그룹에 WordPress 웹 사이트와 해당 MySQL 데이터베이스를 만듭니다. WordPress 사이트 콘텐츠 및 MySQL 데이터베이스는 Azure 파일 공유로 지속됩니다. 또한 WordPress에 대 한 공용 네트워크 액세스를 노출 하는 응용 프로그램 게이트웨이를 만듭니다. |

@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8229864acc80a27994ae3c795213dc2a65d22db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385572"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170125"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 OIDC (itsme Openid connect Connect) 구성
 
 Itsme digital ID 앱을 사용 하면 카드 판독기, 암호, 2 단계 인증 또는 여러 PIN 코드 없이 안전 하 게 로그인 할 수 있습니다. Itsme 앱은 확인 된 id로 강력한 고객 인증을 제공 합니다. 이 문서에서는 클라이언트 암호 사용자 흐름 정책을 사용 하 여 OIDC (itsme Openid connect Connect)와 Azure AD B2C 인증을 통합 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작 하려면 다음이 필요 합니다.
 
@@ -40,7 +40,7 @@ Itsme digital ID 앱을 사용 하면 카드 판독기, 암호, 2 단계 인증 
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-|   |   |
+| 단계 | 설명 |
 |------|------|
 |1     | 웹 사이트 또는 응용 프로그램에서 Azure AD B2C 사용자 흐름을 조정 하 여 **itsme에 로그인** 단추를 포함 합니다. 사용자가이 단추를 클릭 하면 상호 작용 흐름이 시작 됩니다.  |
 |2     | Azure AD B2C는 itsme 클라이언트 암호 API에 권한 부여 요청을 전송 하 여 Openid connect connect 흐름을 시작 합니다. 잘 알려진/Openid connect 구성 끝점은 끝점에 대 한 정보를 포함 하 고 있습니다.  |
@@ -82,16 +82,16 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
    |속성 | 값 |
    |------------ |------- |
-   | Name | itsme |
+   | 이름 | itsme |
    | 메타데이터 URL | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>`<environment>` `e2e` (테스트 환경) 또는 `prd` (프로덕션)  |
    | ClientID     | **클라이언트 ID**( **파트너 코드** 라고도 함)  |
    | 클라이언트 암호 | 사용자의 **client_secret** |
-   | Scope  | openid connect service: YOURSERVICECODE profile email [phone] [address]  |
+   | 범위  | openid connect service: YOURSERVICECODE profile email [phone] [address]  |
    |응답 형식 | 코드 |
    |응답 모드 | Query |
    |도메인 힌트 | *이는 비워 둘 수 있습니다.* |
    |UserID | sub |
-   |표시 이름 | name |
+   |표시 이름 | 이름 |
    |이름 | given_name |
    |Surname | family_name |
    |메일 | 이메일|

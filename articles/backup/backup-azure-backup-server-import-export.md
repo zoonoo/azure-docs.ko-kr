@@ -3,11 +3,12 @@ title: DPM 및 Azure Backup Server를 위한 오프라인 백업
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로를 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921261"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187798"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (MABS)
 
@@ -123,7 +124,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
     | 매개 변수 | 설명 |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |이 필수 입력은 "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 스테이징 위치에 대 한 경로를 제공 하는 데 사용 됩니다. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |이 선택적 입력은 "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 Azure 게시 설정 파일의 경로를 제공 하는 데 사용 됩니다. |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |이 선택적 입력은 Azure 게시 설정 파일에 대 한 경로를 제공 하는 데 사용 됩니다. |
 
     명령을 실행할 때 유틸리티는 준비해야 하는 드라이브에 해당하는 Azure Import 작업의 선택을 요청합니다. 제공된 준비 위치와 연결된 가져오기 작업이 하나만 있는 경우 다음과 같은 화면이 표시됩니다.
 

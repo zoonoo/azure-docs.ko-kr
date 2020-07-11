@@ -3,12 +3,12 @@ title: Data Protection Manager (DPM) 및 MABS (Microsoft Azure Backup 서버)-�
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로를 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374834"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186948"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (이전 버전)
 
@@ -45,7 +45,10 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 > * DPM을 사용 하 여 모든 워크 로드 및 파일의 백업
 > * MABS를 사용 하 여 모든 워크 로드 및 파일의 백업
 
-## <a name="prerequisites"></a>사전 요구 사항
+>[!NOTE]
+>Azure CSP 구독은 DPM 2019 RTM 및 이전 버전, MABS v3 RTM 및 이전 버전에 대 한 오프 라인 시드에 사용 하도록 지원 되지 않습니다. 네트워크를 통한 온라인 백업은 계속 지원 됩니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 오프 라인 백업 워크플로를 시작 하기 전에 다음 필수 구성 요소가 충족 되는지 확인 합니다.
 

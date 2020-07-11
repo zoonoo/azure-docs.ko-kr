@@ -1,5 +1,5 @@
 ---
-title: 자동화 된 ML의 Explainability
+title: 자동화 된 ML의 Explainability (미리 보기)
 titleSuffix: Azure Machine Learning
 description: 자동화 된 ML 모델이 기능 중요도를 결정 하 고 Azure Machine Learning SDK를 사용 하는 경우 예측을 수행 하는 방법에 대 한 설명을 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 03/11/2020
-ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: af3fe7bffbf985936a1648088daaf1a294a69905
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430538"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206602"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretability: 자동화 된 machine learning의 모델 설명
+# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretability: 자동화 된 machine learning (미리 보기)의 모델 설명
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -29,7 +30,7 @@ ms.locfileid: "84430538"
 - 시각화를 사용 하 여 데이터 및 설명의 패턴을 쉽게 확인할 수 있습니다.
 - 유추 또는 점수 매기기 중 interpretability을 구현 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Interpretability 기능. `pip install azureml-interpret azureml-contrib-interpret`을 실행 하 여 필요한 패키지를 가져옵니다.
 - 자동화 된 ML 실험 빌드에 대 한 지식. Azure Machine Learning SDK를 사용 하는 방법에 대 한 자세한 내용은이 [회귀 모델 자습서](tutorial-auto-train-models.md) 를 완료 하거나 [자동화 된 ML 실험을 구성](how-to-configure-auto-train.md)하는 방법을 참조 하세요.
@@ -118,7 +119,7 @@ print(engineered_explanations.get_feature_importance_dict())
 
 를 사용 `TreeScoringExplainer` 하 여 유추 시간에 엔지니어링 된 기능 중요도 값을 계산 하는 점수 매기기 설명을 만듭니다. 이전에 계산 된를 사용 하 여 점수 매기기 설명를 초기화 합니다 `feature_map` . 
 
-점수 매기기 설명을 저장 한 다음 모델 및 점수 매기기 설명를 모델 관리 서비스에 등록 합니다. 다음 코드를 실행합니다.
+점수 매기기 설명을 저장 한 다음 모델 및 점수 매기기 설명를 모델 관리 서비스에 등록 합니다. 다음 코드를 실행하세요.
 
 ```python
 from azureml.interpret.scoring.scoring_explainer import TreeScoringExplainer, save

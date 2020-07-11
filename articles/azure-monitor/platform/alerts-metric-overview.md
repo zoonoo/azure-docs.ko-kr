@@ -1,14 +1,15 @@
 ---
 title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합니다.
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248824"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187526"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -134,9 +135,13 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 세 가지 방법 중 하나로 단일 메트릭 경고 규칙에 따라 모니터링 범위를 지정할 수 있습니다. 예를 들어 virtual machines를 사용 하 여 범위를 다음과 같이 지정할 수 있습니다.  
 
-- 구독 내의 한 Azure 지역에 있는 가상 머신 목록
+- 구독 내에서 한 Azure 지역에 있는 가상 머신 목록
 - 구독 내 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는)
-- 구독의 모든 가상 머신(한 Azure 지역에 있는)
+- 구독의 모든 가상 컴퓨터 (하나의 Azure 지역)
+
+> [!NOTE]
+>
+> 다중 리소스 메트릭 경고 규칙의 범위는 선택한 리소스 유형의 리소스를 하나 이상 포함 해야 합니다.
 
 여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 모니터링 되는 각 리소스에 대 한 개별 알림을 받게 됩니다.
 

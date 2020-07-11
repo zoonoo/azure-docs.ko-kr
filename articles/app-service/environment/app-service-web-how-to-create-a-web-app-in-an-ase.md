@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701833"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220697"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
@@ -27,13 +28,13 @@ ms.locfileid: "84701833"
 > 
 > 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 자습서는 App Service Environment를 만든 적이 있는 개발자를 대상으로 합니다. 만들어 본 적이 없는 경우 [App Service Environment 만들기](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
    
-    ![][1]
+    ![Azure Portal에서 웹 앱을 만들 위치를 보여 주는 스크린샷][1]
 2. 구독을 선택합니다.  
    
     여러 구독이 있는 경우 App Service Environment의 앱을 만들려면 환경을 만드는 데 사용한 동일한 구독을 사용해야 한다는 점에 주의합니다. 
@@ -46,7 +47,7 @@ ms.locfileid: "84701833"
    
     계획 이름에서 설명한 위치를 확인하여 ASE의 App Service 계획을 식별할 수 있습니다.  
    
-    ![][5]
+    ![ASE에서 App Service 계획을 확인 하는 것을 보여 주는 스크린샷][5]
    
     App Service Environment에 이미 존재하는 App Service 계획을 사용하려는 경우 해당 계획을 선택합니다. 새로운 App Service 계획을 만들려는 경우 이 자습서의 다음 섹션인 [App Service Environment에서 App Service 계획 만들기](#createplan)를 참조하세요.
 5. 웹앱에 이름을 입력하고 **만들기**를 클릭합니다. 
@@ -68,18 +69,18 @@ App Service Environment에서 호스팅되는 App Service 계획의 또 다른 �
    
     App Service Environment가 기본적으로 프라이빗 배포 위치이기 때문에 위치에 표시됩니다. 
    
-    ![][2]
+    ![원하는 ASE를 선택 하기 위한 위치 선택을 보여 주는 스크린샷][2]
    
     위치 선택에서 ASE를 선택한 후에 App Service 계획 생성 UI를 업데이트합니다.  위치는 ASE 시스템의 이름 및 지역을 표시하고 가격 책정 계획 선택은 작업자 풀 선택으로 대체됩니다.  
    
-    ![][3]
+    ![위치 선택에서 ASE를 선택한 후 ASE 시스템 세부 정보를 보여 주는 스크린샷][3]
 
 ### <a name="selecting-a-worker-pool"></a>작업자 풀 선택
 일반적으로 Azure App Service 내부와 App Service Environment 외부에는 전용 가격 계획을 선택할 때 사용할 수 있는 3가지 컴퓨팅 크기가 있습니다.  마찬가지로 ASE의 경우 최대 3개의 작업자 풀을 정의하고 해당 작업자 풀에 사용되는 컴퓨팅 크기를 지정할 수 있습니다.  ASE의 테넌트와 관련하여 App Service 계획에 대해 가격 책정 계획을 컴퓨팅 크기로 선택하는 대신 *작업자 풀*이라는 것을 선택합니다.  
 
 작업자 풀 선택 UI에는 작업자 풀 이름 아래에 해당 작업자 풀에 사용되는 컴퓨팅 크기가 표시됩니다.  사용 가능한 양은 해당 풀에서 사용할 수 있는 컴퓨팅 인스턴스 수를 나타냅니다.  실제로 전체 풀에는 이보다 많은 인스턴스가 있을 수 있지만 이 값은 현재 사용 중이지 않은 개수를 나타냅니다.  App Service Environment를 조정하여 컴퓨팅 리소스를 추가해야 하는 경우 [App Service Environment 구성](app-service-web-configure-an-app-service-environment.md)을 참조하세요.
 
-![][4]
+![ASE에 대 한 작업자 풀을 선택할 수 있는 작업자 풀 창을 보여 주는 스크린샷][4]
 
 이 예제에서는 사용 가능한 작업자 풀이 두 개뿐인 것을 확인합니다. 이는 ASE 관리자가 두 개의 작업자 풀에만 호스트를 할당했기 때문입니다.  세 번째 풀은 할당된 VM이 있으면 표시됩니다.  
 

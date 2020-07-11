@@ -3,11 +3,12 @@ title: 선택한 AI를 사용 하 여 라이브 비디오 분석-Azure
 description: 이 문서에서는 사용자가 선택한 컴퓨터 비전 모델을 사용 하 여 라이브 비디오를 분석 하기 위해 IoT Edge 라이브 비디오 분석과 통합 될 수 있는 IoT Edge 모듈을 빌드하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 0ac2af280eefd5ce293a8be422551d5ee6f6d3f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1ea3ebd8c7de4c691d7a982dbc08e9d08d9e38
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260646"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182868"
 ---
 # <a name="analyze-live-video-with-ai-of-your-choice"></a>선택한 AI를 사용하여 라이브 비디오 분석
 
@@ -45,7 +46,7 @@ HTTP 계약은 다음과 같이 정의 됩니다.
 
 라이브 비디오 분석 모듈에서 모듈로의 요청은 다음과 같습니다.
 
-|||
+| 키 | 값 |
 |---|---|
 |POST| `https://hostname/optional-path?optional-query`|
 |동의함|application/json,*/*|
@@ -67,11 +68,11 @@ Content-Length: 519222
 (Image Binary Content)
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>대응
 
 모듈에서 라이브 비디오 분석 모듈로의 응답은 다음과 같아야 합니다.
 
-|||
+| 키 | 값 |
 |---|---|
 |상태 코드|200 OK-유추 결과 발견<br/>204 콘텐츠가 없습니다. AI에서 콘텐츠를 찾을 수 없음<br/>400 잘못 된 요청-필요 하지 않음<br/>500 내부 서버 오류-필요 하지 않음<br/>503 서버 사용 중-헤더가 미리 설정 되지 않은 경우에는 "다시 시도" 헤더 또는 기본 시간 간격에 따라 AMS가 백오프 됩니다.|
 |콘텐츠 형식|application/json|
@@ -187,7 +188,7 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 
 ![데이터 계약-클래스 계층 구조](./media/analyze-live-video-with-ai-your-choice-how-to/data-contracts.png)
 
-### <a name="examples"></a>예  
+### <a name="examples"></a>예제  
 
 아래 예제에는 지원 되는 모든 유추 형식이 포함 된 단일 이벤트가 포함 되어 있습니다.
 
@@ -264,7 +265,7 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
  
 ## <a name="sample-http-extension-modules"></a>샘플 HTTP 확장 모듈
 
-몇 가지 샘플 HTTP 확장 모듈은 [라이브 비디오 분석 GitHub](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis)리포지토리에서 찾을 수 있습니다. 이러한 [비디오 분석 샘플](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 중 하나에서는 [Yolov3](https://pjreddie.com/darknet/yolo/) [onnx](http://onnx.ai/) 모델을 사용 하 여 개체 검색을 위한 IoT Edge 모듈을 빌드하는 방법을 보여 줍니다. 동일한 방법을 사용 하 여 사용자가 선택한 AI 모델을 사용 하 여 사용자 고유의 모듈을 빌드할 수 있습니다.
+몇 가지 샘플 HTTP 확장 모듈은 [라이브 비디오 분석 GitHub](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis)리포지토리에서 찾을 수 있습니다. 이러한 [비디오 분석 샘플](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 중 하나에서는 [YOLOv3](https://pjreddie.com/darknet/yolo/) [onnx](http://onnx.ai/) 모델을 사용 하 여 개체 검색을 위한 IoT Edge 모듈을 빌드하는 방법을 보여 줍니다. 또 다른 [비디오 분석 샘플](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx-tiny) 에서는 경량 버전인 YOLOv3 onnx 모델의 작은 YOLOv3을 사용 하는 방법을 보여 줍니다. 동일한 방법을 사용 하 여 사용자가 선택한 AI 모델을 사용 하 여 사용자 고유의 모듈을 빌드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

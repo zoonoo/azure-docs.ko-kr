@@ -2,13 +2,14 @@
 title: 리소스 로그 수집 & 분석
 description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892396"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169734"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
 
@@ -23,7 +24,7 @@ Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
@@ -67,7 +68,7 @@ az container create \
 YAML을 사용하여 컨테이너 그룹을 배포하려는 경우 이 메서드를 사용합니다. 다음 YAML은 단일 컨테이너로 컨테이너 그룹을 만듭니다. 새 파일에 YAML을 복사한 다음, `LOG_ANALYTICS_WORKSPACE_ID` 및 `LOG_ANALYTICS_WORKSPACE_KEY`를 이전 단계에서 구한 값으로 바꿉니다. 파일을 **deploy-aci.yaml**로 저장합니다.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -104,7 +105,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. `ContainerInstanceLog_CL` 테이블에서 컨테이너 그룹의 로그를 보려면 다음을 수행합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
-1. **일반** 아래에서 **로그** 선택  
+1. **일반**에서 **로그** 를 선택 합니다.  
 1. 다음 쿼리 입력: `ContainerInstanceLog_CL | limit 50`
 1. **실행** 선택
 
@@ -117,7 +118,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 Azure Portal에서 컨테이너 인스턴스에 대한 이벤트를 볼 수도 있습니다. 이벤트에는 인스턴스가 생성된 시간 및 인스턴스가 시작된 시간이 포함됩니다. `ContainerEvent_CL` 테이블에서 이벤트 데이터를 보려면 다음을 수행합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
-1. **일반** 아래에서 **로그** 선택  
+1. **일반**에서 **로그** 를 선택 합니다.  
 1. 다음 쿼리 입력: `ContainerEvent_CL | limit 50`
 1. **실행** 선택
 

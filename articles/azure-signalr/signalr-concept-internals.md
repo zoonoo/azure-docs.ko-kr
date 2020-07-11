@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f06b8f9a2d41fc5400aa0fa610a2be3f31e21f1c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82105763"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169802"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service 내부 기능
 
@@ -23,7 +23,7 @@ Azure SignalR Service는 ASP.NET Core SignalR 프레임워크를 기반으로 �
 
 자체 호스팅 ASP.NET Core SignalR 애플리케이션과의 차이점도 설명되어 있습니다.
 
-![아키텍처](./media/signalr-concept-internals/arch.png)
+![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## <a name="server-connections"></a>서버 연결
 
@@ -84,7 +84,9 @@ ASP.NET Core SignalR의 [전송 프로토콜](https://github.com/aspnet/SignalR/
 
 이 시점에서 애플리케이션 서버는 새 클라이언트의 정보가 포함된 이벤트를 수신합니다. 애플리케이션 서버에 클라이언트에 대한 논리적 연결이 생성됩니다. SignalR Service를 통해 클라이언트에서 애플리케이션 서버로 데이터 채널이 설정됩니다.
 
-SignalR Service는 클라이언트에서 페어링 애플리케이션 서버로 데이터를 전송합니다. 그리고 애플리케이션 서버의 데이터는 매핑된 클라이언트로 전송됩니다.
+SignalR 서비스는 클라이언트에서 페어링 응용 프로그램 서버로 데이터를 전송 합니다. 그리고 애플리케이션 서버의 데이터는 매핑된 클라이언트로 전송됩니다.
+
+SignalR 서비스는 고객 데이터를 저장 하거나 저장 하지 않으며 수신 된 모든 고객 데이터가 실시간으로 대상 서버 또는 클라이언트로 전송 됩니다.
 
 이와 같이, Azure SignalR Service는 본질적으로 애플리케이션 서버와 클라이언트 간의 논리적 전송 계층입니다. 모든 영구 연결은 SignalR Service에 오프로드됩니다.
 애플리케이션 서버는 클라이언트 연결은 걱정할 필요 없이 허브 클래스의 비즈니스 논리만 처리하면 됩니다.

@@ -1,7 +1,7 @@
 ---
 title: 여러 문서를 포함 하는 인덱스 blob
 titleSuffix: Azure Cognitive Search
-description: Azure Congitive Search Blob 인덱서를 사용 하 여 Azure blob에서 텍스트 콘텐츠를 탐색 합니다. 여기서 각 Blob은 하나 이상의 검색 인덱스 문서를 생성할 수 있습니다.
+description: Azure Cognitive Search Blob 인덱서를 사용 하 여 Azure blob에서 텍스트 콘텐츠를 탐색 합니다. 여기서 각 blob은 하나 이상의 검색 인덱스 문서를 생성할 수 있습니다.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,11 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74112272"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146793"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>여러 검색 문서를 생성 하는 blob 인덱싱
 기본적으로 blob 인덱서는 blob의 내용을 단일 검색 문서로 처리 합니다. 특정 **parsingMode** 값은 개별 blob이 여러 검색 문서를 발생 시킬 수 있는 시나리오를 지원 합니다. 인덱서가 blob에서 둘 이상의 검색 문서를 추출할 수 있는 다양 한 유형의 **parsingMode** 는 다음과 같습니다.
@@ -41,25 +42,31 @@ Azure Cognitive Search 인덱스에 표시 되는 각 문서는 문서 키로 �
 
 _Blob1.json_
 
+```json
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
+```
 
 _Blob2.json_
 
+```json
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
+```
 
 **parsingMode** `jsonLines` 키 필드에 대해 명시적 필드 매핑을 지정 하지 않고 인덱서를 만들고 parsingMode을로 설정 하면 다음 매핑이 암시적으로 적용 됩니다.
-    
+
+```http
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
         "targetFieldName": "id",
         "mappingFunction": { "name" : "base64Encode" }
     }
+```
 
 이 설치 프로그램은 다음 정보를 포함 하는 Azure Cognitive Search 인덱스를 생성 합니다 (간단 하 게 하기 위해 base64 인코딩 id 단축).
 
-| id | 온도 | pressure | timestamp |
+| id | 온도 | 압력 | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -72,22 +79,28 @@ _Blob2.json_
 
 _Blob1.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
+```
 
 _Blob2.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
+```
 
 ParsingMode를 사용 하 여 인덱서를 만들 때 다음과 `delimitedText` **parsingMode**같이 키 필드에 필드 매핑 함수를 설정 하는 것이 자연스럽 게 느껴질 수 있습니다.
 
+```http
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
+```
 
 그러나이 매핑은 blob에서 고유 하지 않으므로 4 개의 문서가 인덱스에 표시 _되지_ 않습니다 `recordid` . _across blobs_ 따라서 속성에서 적용 된 암시적 필드 매핑을 `AzureSearch_DocumentKey` "일 대 다" 구문 분석 모드의 키 인덱스 필드에 사용 하는 것이 좋습니다.
 

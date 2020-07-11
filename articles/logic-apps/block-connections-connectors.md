@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 938f10b621d6081af84cf15d7e04c5f5ab517417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977617"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187696"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Azure Logic Apps 커넥터에서 만든 연결 차단
 
@@ -19,9 +19,9 @@ ms.locfileid: "84977617"
 
 이 항목에서는 Azure Portal를 사용 하 여 특정 연결을 차단 하는 정책을 설정 하는 방법을 보여 주지만 Azure REST API, Azure PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 통해 다른 방법으로 정책 정의를 만들 수 있습니다. 자세한 내용은 [자습서: 규정 준수를 적용 하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독 구독이 없는 경우 시작 하기 전에 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/) .
+* Azure 구독. 구독이 없는 경우 시작 하기 전에 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 * 차단 하려는 커넥터의 참조 ID입니다. 자세한 내용은 [커넥터 참조 ID 찾기](#connector-reference-ID)를 참조 하세요.
 
@@ -129,7 +129,7 @@ ms.locfileid: "84977617"
    | **이름** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
    | **설명** | 아니요 | <*정책-정의-이름*> | 정책 정의에 대 한 설명입니다. |
    | **범주** | 예 | **논리 앱** | 정책 정의에 대 한 기존 범주나 새 범주의 이름 |
-   | **정책 적용** | 예 | **Enabled** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
+   | **정책 적용** | 예 | **사용** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
    ||||
 
 1. **정책 규칙**에서 JSON 편집 상자는 정책 정의 템플릿으로 미리 채워집니다. 이 템플릿을 아래 표에 설명 된 속성을 기반으로 하는 [정책 정의](../governance/policy/concepts/definition-structure.md) 로 바꾸고 다음 구문을 따라 바꿉니다.
@@ -250,7 +250,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
    | **이름** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
    | **설명** | 아니요 | <*정책-정의-이름*> | 정책 정의에 대 한 설명입니다. |
    | **범주** | 예 | **논리 앱** | 정책 정의에 대 한 기존 범주나 새 범주의 이름 |
-   | **정책 적용** | 예 | **Enabled** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
+   | **정책 적용** | 예 | **사용** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
    ||||
 
 1. **정책 규칙**에서 JSON 편집 상자는 정책 정의 템플릿으로 미리 채워집니다. 이 템플릿을 아래 표에 설명 된 속성을 기반으로 하는 [정책 정의](../governance/policy/concepts/definition-structure.md) 로 바꾸고 다음 구문을 따라 바꿉니다.
@@ -363,7 +363,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
 
 메시지에는 다음 정보가 포함 됩니다.
 
-| | |
+| Description | 콘텐츠 |
 |---|---|
 | 실패 이유 | `"Resource 'instagram' was disallowed by policy."` |
 | 할당 이름 | `"Block Instagram connections"` |

@@ -5,13 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 6/2/2020
+ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d8ec0c76259a8567906e9ac415864e2cd37a9cd
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299318"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187577"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -1520,7 +1521,9 @@ az group deployment create \
 
 > [!NOTE]
 >
-> 여러 리소스를 모니터링하는 메트릭 경고 규칙에서는 하나의 조건만 허용됩니다.
+> 여러 리소스를 모니터링 하는 메트릭 경고 규칙에서는 다음과 같은 제한 사항이 적용 됩니다.
+> - 경고 규칙의 범위는 선택한 리소스 유형의 리소스를 하나 이상 포함 해야 합니다.
+> - 경고 규칙은 조건을 하나만 포함할 수 있습니다.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>하나 이상의 리소스 그룹에 있는 모든 가상 머신에 대한 정적 임계값 경고
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 191c6d411418229d40b10704ea14d5a536c0d5f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110626"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184551"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -95,7 +95,7 @@ NPM은 원본 에이전트와 대상 간의 모든 가능한 경로 검색할 �
 NPM은 확률적 메커니즘을 사용하여 홉이 속한 비정상 경로 수를 기반으로 각 네트워크 경로, 네트워크 세그먼트 및 구성 요소 네트워크 홉에 고장 확률을 할당합니다. 네트워크 세그먼트와 홉이 더 많은 비정상 경로의 일부가 됨에 따라 그와 연결된 고장 확률도 높아집니다. 서로 연결된 NPM 에이전트가 있는 노드 수가 많은 경우 고장 확률 계산을 위한 데이터 요소가 증가하므로 이 알고리즘이 가장 적합합니다.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>NPM에서 경고를 얼마나 많이 만들 수 있나요?
-[설명서의 경고 섹션](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts)에서 단계별 지침을 참조하세요.
+NPM UI에서 경고를 만드는 것은 현재 문제로 인해 실패 합니다. 경고를 수동으로 만드세요.
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>경고에 대 한 기본 Log Analytics 쿼리
 성능 모니터 쿼리

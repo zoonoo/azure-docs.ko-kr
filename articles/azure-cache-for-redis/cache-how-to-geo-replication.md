@@ -6,15 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74129421"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184976"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
 
-지역 복제는 두 개의 프리미엄 계층 Azure Cache for Redis 인스턴스를 연결하는 메커니즘을 제공합니다. 캐시 하나는 기본 연결 된 캐시로, 다른 하나는 보조 연결 된 캐시로 선택 됩니다. 보조 연결된 캐시는 읽기 전용이 되고 주 캐시에 쓴 데이터는 보조 연결된 캐시에 복제됩니다. 이 기능은 Azure 지역 간에 캐시를 복제하는 데 사용할 수 있습니다. 이 문서에서는 Redis 인스턴스에 대 한 프리미엄 계층 Azure 캐시에 대 한 지역에서 복제를 구성 하는 지침을 제공 합니다.
+지역 복제는 두 개의 프리미엄 계층 Azure Cache for Redis 인스턴스를 연결하는 메커니즘을 제공합니다. 캐시 하나는 기본 연결 된 캐시로, 다른 하나는 보조 연결 된 캐시로 선택 됩니다. 보조 연결된 캐시는 읽기 전용이 되고 주 캐시에 쓴 데이터는 보조 연결된 캐시에 복제됩니다. 기본 및 보조 캐시 인스턴스 간의 데이터 전송은 TLS로 보호 됩니다. 지역에서 복제를 사용 하 여 두 개의 Azure 지역에 걸쳐 있는 캐시를 설정할 수 있습니다. 이 문서에서는 Redis 인스턴스에 대 한 프리미엄 계층 Azure 캐시에 대 한 지역에서 복제를 구성 하는 지침을 제공 합니다.
+
+> [!NOTE]
+> 지역에서 복제는 재해 복구 솔루션으로 설계 되었습니다. 기본적으로 응용 프로그램은 주 지역에서 쓰고 읽습니다. 선택적으로 보조 지역에서 읽도록 구성할 수 있습니다. 지역에서 복제는 응용 프로그램의 나머지 부분이 주 지역에 남아 있는 경우 지역 간에 추가 된 네트워크 대기 시간을 초과 하는 문제로 인해 자동 장애 조치 (failover)를 제공 하지 않습니다. 보조 캐시의 연결을 해제 하 여 장애 조치 (failover)를 관리 하 고 시작 해야 합니다. 그러면 새 주 인스턴스로 승격 됩니다.
 
 ## <a name="geo-replication-prerequisites"></a>지역에서 복제 필수 조건
 

@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 909329a4326354a890c3c4645002f7248f30e8fa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74122693"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184789"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Managed Cache Service에서 Azure Cache for Redis로 마이그레이션
 Azure Managed Cache Service를 사용하는 애플리케이션을 Azure Cache for Redis로 마이그레이션하는 작업은 캐싱 애플리케이션에서 사용하는 Managed Cache Service 기능에 따라 애플리케이션을 최소한으로 변경하면서 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 Managed Cache Service를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 문서에서는 Azure Cache for Redis를 사용하도록 Managed Cache Service 애플리케이션을 마이그레이션하는 데 필요한 구성과 애플리케이션을 변경하는 방법 및 Azure Cache for Redis의 일부 기능을 Managed Cache Service 캐시의 기능을 구현하는 데 사용할 수 있는 방법을 보여 줍니다.
@@ -39,7 +40,7 @@ Azure Managed Cache Service 및 Azure Cache for Redis는 비슷하지만 해당 
 | Managed Cache Service 기능 | Managed Cache Service 지원 | Azure Cache for Redis 지원 |
 | --- | --- | --- |
 | 이름이 지정된 캐시 |기본 캐시는 표준 및 프리미엄 캐시 제품에서 구성됩니다. 원하는 경우 최대 9개의 추가 명명된 캐시가 구성될 수 있습니다. |Azure Cache for Redis에는 명명된 캐시와 비슷한 기능을 구현하는 데 사용할 수 있는 여러 개의 구성 가능한 데이터베이스(기본값 16개)가 있습니다. 자세한 내용은 [Redis 데이터베이스란?](cache-faq.md#what-are-redis-databases) 및 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. |
-| 고가용성 |표준 및 프리미엄 캐시 제품의 캐시에서 항목에 고가용성을 제공합니다. 항목이 오류로 인해 손실된 경우 여전히 캐시에서 항목의 백업 복사본을 사용할 수 있습니다. 보조 캐시에 대한 쓰기는 동기적으로 수행됩니다. |고가용성은 두 개의 노드 기본/복제본 구성(프리미엄 캐시의 각 분할에는 하나의 기본/복제본 쌍이 있음)이 있는 표준 및 프리미엄 캐시 제품에서 사용할 수 있습니다. 복제본에 대한 쓰기는 비동기적으로 수행됩니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. |
+| 고가용성 |표준 및 프리미엄 캐시 제품의 캐시에서 항목에 고가용성을 제공합니다. 항목이 오류로 인해 손실된 경우 여전히 캐시에서 항목의 백업 복사본을 사용할 수 있습니다. 복제본 캐시에 대 한 쓰기는 동기적으로 수행 됩니다. |고가용성은 두 개의 노드 기본/복제본 구성(프리미엄 캐시의 각 분할에는 하나의 기본/복제본 쌍이 있음)이 있는 표준 및 프리미엄 캐시 제품에서 사용할 수 있습니다. 복제본에 대한 쓰기는 비동기적으로 수행됩니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. |
 | 알림 |명명된 캐시에서 다양한 캐시 작업이 발생할 때 클라이언트가 비동기 알림을 받을 수 있습니다. |클라이언트 애플리케이션은 Redis 게시/구독 또는 [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings)을 사용하여 알림에 유사한 기능을 수행할 수 있습니다. |
 | 로컬 캐시 |매우 빠른 액세스를 위해 클라이언트에서 캐시된 개체의 복사본을 로컬로 저장합니다. |클라이언트 애플리케이션은 사전 또는 유사한 데이터 구조를 사용하여 이 기능을 구현해야 합니다. |
 | 제거 정책 |없음 또는 LRU입니다. 기본 정책이 LRU입니다. |Azure Cache for Redis는 volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction 제거 정책을 지원합니다. 기본 정책이 volatile-lru입니다. 자세한 내용은 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. |
@@ -52,8 +53,8 @@ Azure Managed Cache Service 및 Azure Cache for Redis는 비슷하지만 해당 
 Microsoft Azure Cache for Redis를 사용할 수 있는 계층은 다음과 같습니다.
 
 * **기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
-* **표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
-* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 크기가 6gb에서 1.2 TB 사이입니다. 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure Virtual Network](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
+* **표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA,
+* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 크기가 6gb에서 1.2 TB 사이입니다. 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure Virtual Network](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA,
 
 각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격 책정에 대한 자세한 내용은 [캐시 가격 책정 정보](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요.
 

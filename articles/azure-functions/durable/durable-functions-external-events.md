@@ -4,11 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 외부 이벤트�
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262965"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165552"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>지속성 함수의 외부 이벤트 처리(Azure Functions)
 
@@ -19,7 +20,7 @@ ms.locfileid: "76262965"
 
 ## <a name="wait-for-events"></a>이벤트 대기
 
-`WaitForExternalEvent` `waitForExternalEvent` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger) (.Net) 및 (JavaScript) 메서드를 사용 하면 오 케 스트레이 터 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
+오케스트레이션 트리거 바인딩의 [Waitforexternalevent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.net) 및 (JavaScript) 메서드를 사용 하면 오 케 스트레이 터 `waitForExternalEvent` 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -172,7 +173,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>이벤트 보내기
 
-`RaiseEventAsync` `raiseEvent` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) (.Net) 또는 (javascript) 메서드는 `WaitForExternalEvent` (.net) 또는 (javascript)가 대기 하는 이벤트를 보냅니다 `waitForExternalEvent` .  `RaiseEventAsync` 메서드는 *eventName* 및 *eventData*를 매개 변수로 사용합니다. 이벤트 데이터는 JSON 직렬화 가능해야 합니다.
+[RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.net) 또는 `raiseEventAsync` (JavaScript) 메서드를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수 있습니다. 이러한 메서드는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 바인딩에 의해 노출 됩니다. 기본 제공 [이벤트 발생 HTTP API](durable-functions-http-api.md#raise-event) 를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수도 있습니다.
+
+발생 한 이벤트에는 *인스턴스 ID*, *eventName*및 *eventData* 가 매개 변수로 포함 됩니다. Orchestrator 함수는 `WaitForExternalEvent` (.net) 또는 (JavaScript) api를 사용 하 여 이러한 이벤트를 처리 `waitForExternalEvent` 합니다. 이벤트를 처리 하려면 *eventName* 이 송신 및 수신 끝 모두에서 일치 해야 합니다. 또한 이벤트 데이터는 JSON serializable 이어야 합니다.
+
+내부적으로 "이벤트 발생" 메커니즘은 대기 오 케 스트레이 터 함수에 의해 선택 되는 메시지를 큐에 삽입 합니다. 인스턴스가 지정된 *이벤트 이름*에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름*에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
+
+> [!NOTE]
+> 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
 
 다음은 오케스트레이터 함수 인스턴스에 "승인" 이벤트를 보내는 큐 트리거 함수 예제입니다. 오케스트레이션 인스턴스 ID는 큐 메시지 본문에서 가져옵니다.
 
@@ -208,6 +216,19 @@ module.exports = async function(context, instanceId) {
 
 > [!NOTE]
 > 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
+
+### <a name="http"></a>HTTP
+
+다음은 오케스트레이션 인스턴스에 "승인" 이벤트를 발생 시키는 HTTP 요청의 예입니다. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+이 경우 인스턴스 ID는 *Myinstanceid*로 하드 코딩 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

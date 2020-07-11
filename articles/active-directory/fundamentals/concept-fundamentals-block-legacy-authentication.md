@@ -12,11 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196385"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200552"
 ---
 # <a name="blocking-legacy-authentication"></a>레거시 인증 차단
  
@@ -31,9 +32,9 @@ ms.locfileid: "83196385"
 
 디렉터리에서 레거시 인증을 차단하려면 먼저 사용자에게 레거시 인증을 사용하는 앱이 있는지, 이로 인해 전체 디렉터리에 어떤 영향을 미치는지 이해해야 합니다. Azure AD 로그인 로그를 사용하여 레거시 인증을 사용하고 있는지 파악할 수 있습니다.
 
-1.  **Azure Portal**   >  **Azure Active Directory**   >  **로그인**으로 이동 합니다.
+1. **Azure Portal** > **Azure Active Directory** > **로그인**으로 이동합니다.
 1.  **열**클라이언트 앱을 클릭 하 여 표시 되지 않는 경우 **클라이언트 앱** 열을 추가   >  **Client App**합니다.
-1.  **클라이언트 앱** 을 기준으로 필터링  > 제공 된 모든 **레거시 인증 클라이언트** 옵션을 확인 합니다.
+1. **클라이언트 앱** 을 기준으로 필터링 > 제공 된 모든 **레거시 인증 클라이언트** 옵션을 확인 합니다.
 1. **상태별**로 필터링  >  **Success**합니다. 
 1. **날짜 필터를** 사용 하 여 필요한 경우 날짜 범위를 확장 합니다.
 

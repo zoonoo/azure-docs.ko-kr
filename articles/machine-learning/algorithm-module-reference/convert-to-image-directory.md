@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904595"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171145"
 ---
 # <a name="convert-to-image-directory"></a>이미지 디렉터리로 변환
 
@@ -24,11 +24,15 @@ ms.locfileid: "84904595"
 
 1.  **이미지 디렉터리로 변환** 모듈을 실험에 추가 합니다. 모듈 목록의 ' Computer Vision/이미지 데이터 변환 ' 범주에서이 모듈을 찾을 수 있습니다. 
 
-2.  이미지 데이터 집합을 입력으로 연결 합니다. 입력 데이터 집합에 이미지가 있는지 확인 하세요.
+2.  [이미지 데이터 집합을 등록](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) 하 고 모듈 입력 포트에 연결 합니다. 입력 데이터 집합에 이미지가 있는지 확인 하세요. 
     지원 되는 데이터 집합 형식은 다음과 같습니다.
 
     - 다음 확장의 압축 파일: ' .zip ', ' tar ', '. release.tar.gz ', '. bz2 '.
     - 이미지를 포함 하는 폴더입니다. **이러한 폴더를 먼저 압축 한 다음 압축 된 파일을 데이터 집합으로 사용 하는 것이 좋습니다**.
+
+    > [!WARNING]
+    > 데이터 **가져오기** 모듈의 출력 유형이 파일 경로 문자열만 포함 하는 데이터 프레임 Directory 이므로 **데이터 가져오기** 모듈을 사용 하 여 이미지 데이터 집합을 가져올 **수 없습니다** .
+    
 
     > [!NOTE]
     > 감독 학습에서 이미지 데이터 집합을 사용 하는 경우 레이블이 필요 합니다.
@@ -54,13 +58,13 @@ ms.locfileid: "84904595"
 
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| 이름          | Type                  | 설명   |
+| 이름          | 유형                  | 설명   |
 | ------------- | --------------------- | ------------- |
 | 입력 데이터 세트 | AnyDirectory, ZipFile | 입력 데이터 세트 |
 
 ###  <a name="output"></a>출력  
 
-| 이름                   | Type           | 설명            |
+| 이름                   | 유형           | 설명            |
 | ---------------------- | -------------- | ---------------------- |
 | 출력 이미지 디렉터리 | ImageDirectory | 출력 이미지 디렉터리 |
 

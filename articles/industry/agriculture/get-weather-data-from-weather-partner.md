@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078735"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187781"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>날씨 파트너의 날씨 데이터 가져오기
 
@@ -153,7 +153,7 @@ FarmBeats REST API를 사용 하 여 날씨 데이터를 쿼리하려면 다음 
 
 1. FarmBeats Data hub swagger (에서 https://yourdatahub.azurewebsites.net/swagger) /WEATHERDATALOCATION API로 이동 하 여 GET 요청을 수행 합니다. 응답에는 작업 실행의 일부로 지정 된 위치 (위도/경도)에 대해 생성 된/WeatherDataLocation 개체가 포함 됩니다. 개체의 **ID** 와 **weatherDataModelId** 를 적어 둡니다.
 
-2. 1 단계에서 설명한 대로 **weatherDataModelId** 에 대 한 GET/{id}를/WeatherDataModel API로 만듭니다. "날씨 데이터 모델"은 수집 날씨 데이터에 대 한 모든 메타 데이터 및 세부 정보를 포함 합니다. 예를 들어 **날씨 데이터 모델** 개체 내의 **날씨 측정값** 에는 지원 되는 날씨 정보 및 종류와 단위에 대 한 세부 정보가 있습니다. 예제:
+2. 1 단계에서 설명한 대로 **weatherDataModelId** 에 대 한 GET/{id}를/WeatherDataModel API로 만듭니다. "날씨 데이터 모델"은 수집 날씨 데이터에 대 한 모든 메타 데이터 및 세부 정보를 포함 합니다. 예를 들어 **날씨 데이터 모델** 개체 내의 **날씨 측정값** 에는 지원 되는 날씨 정보 및 종류와 단위에 대 한 세부 정보가 있습니다. 예를 들면 다음과 같습니다.
 
    ```json
    {
@@ -211,9 +211,14 @@ FarmBeats REST API를 사용 하 여 날씨 데이터를 쿼리하려면 다음 
 
 앞의 예제에서 응답에는 두 타임 스탬프의 두 타임 스탬프에 대 한 데이터 ("온도")와 보고 된 날씨 데이터의 값이 있습니다. 위의 2 단계에서 설명한 대로 연결 된 날씨 데이터 모델을 참조 하 여 보고 된 값의 형식 및 단위를 해석 해야 합니다.
 
+## <a name="troubleshoot-job-failures"></a>작업 오류 문제 해결
+
+작업 실패 문제를 해결 하기 위해 작업 로그를 확인할 수 있습니다. 이에 대 한 [단계](troubleshoot-azure-farmbeats.md#weather-data-job-failures) 를 수행 하세요.
+
+
 ## <a name="appendix"></a>부록
 
-|        파트너   |  설명   |
+|        파트너   |  세부 정보   |
 | ------- | -------             |
 |     DockerDetails-imageName         |          Docker 이미지 이름입니다. 예를 들면 docker.io/mydockerimage (hub.docker.com의 이미지) 또는 myazureacr.azurecr.io/mydockerimage (이미지 Azure Container Registry의 이미지) 등이 있습니다. 레지스트리를 제공 하지 않으면 기본값 hub.docker.com      |
 |          DockerDetails-imageTag             |         Docker 이미지의 태그 이름입니다. 기본값은 "최신"입니다.     |
@@ -223,8 +228,8 @@ FarmBeats REST API를 사용 하 여 날씨 데이터를 쿼리하려면 다음 
 |    DockerDetails-azureBatchVMDetails-nodeAgentSKUID          |    노드 에이전트 SKU ID를 Azure Batch 합니다. 현재 "batch. ubuntu 18.04" 일괄 처리 노드 에이전트도 지원 됩니다.    |
 | DockerDetails-파트너 자격 증명 | docker에서 파트너 API를 호출 하기 위한 자격 증명입니다. 파트너는 예를 들어 지원 되는 인증 메커니즘을 기반으로 고객에 게이 정보를 제공 해야 합니다. 사용자 이름/암호 또는 API 키. |
 | partnerType | "날씨" (FarmBeats의 다른 파트너 유형은 "센서" 및 "이미지")  |
-|  name   |   FarmBeats 시스템에서 필요한 파트너의 이름입니다.   |
-|  description |  설명   |
+|  이름   |   FarmBeats 시스템에서 필요한 파트너의 이름입니다.   |
+|  설명 |  설명   |
 
 ## <a name="next-steps"></a>다음 단계
 

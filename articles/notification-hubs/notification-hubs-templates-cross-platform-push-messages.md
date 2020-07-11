@@ -16,13 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76263747"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219966"
 ---
-# <a name="templates"></a>템플릿
+# <a name="notification-hubs-templates"></a>Notification Hubs 템플릿
 
 템플릿을 사용하여 클라이언트 애플리케이션이 받고자 하는 알림의 정확한 형식을 지정할 수 있습니다. 템플릿을 사용하면 앱이 다음을 포함한 여러 가지 이점을 얻을 수 있습니다.
 
@@ -61,7 +62,7 @@ Notification Hubs 템플릿 기능을 사용하여 클라이언트 앱은 태그
 
 다음 그림은 프로세스를 보여줍니다.
 
-![](./media/notification-hubs-templates/notification-hubs-hello.png)
+![플랫폼 간 템플릿 사용 프로세스를 보여 주는 다이어그램](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 iOS 클라이언트 앱 등록에 대한 템플릿은 다음과 같습니다.
 
@@ -120,7 +121,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 이 패턴을 사용하면 백 엔드는 앱 사용자에 대한 특정 개인 설정 옵션을 저장할 필요 없이 단일 메시지만 보냅니다. 다음 그림은 이 시나리오를 보여 줍니다.
 
-![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
+![백 엔드가 각 플랫폼에 단일 메시지만 보내는 방법을 보여 주는 다이어그램입니다.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>템플릿을 등록하는 방법
 
@@ -144,7 +145,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 위의 모든 형태가 식이 될 수 있습니다.
 
-연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 예: `{$(prop) + ‘ - ’ + $(prop2)}`.
+연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 정의합니다(예: `{$(prop) + ‘ - ’ + $(prop2)}`).
 
 예를 들어 다음 템플릿은 올바른 XML 템플릿이 아닙니다.
 

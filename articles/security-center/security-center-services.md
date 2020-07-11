@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 4d048bb348b8093db7d3bf92ef0fc93aead35055
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762295"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187016"
 ---
 # <a name="feature-coverage-for-machines"></a>컴퓨터의 기능 검사
 
@@ -38,10 +38,9 @@ ms.locfileid: "84762295"
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|표준|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|표준|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|표준|
-|[적응 애플리케이션 컨트롤](security-center-adaptive-application.md)|✔|-|✔|표준|
+|[적응형 애플리케이션 제어](security-center-adaptive-application.md)|✔|-|✔|표준|
 |[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|표준|
-|[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|표준|
-|적응형 네트워크 제어|✔|✔|-|표준|
+|[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|표준|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|표준|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|-|-|-|표준|
 |누락 된 OS 패치 평가|✔|✔|✔|Free|
@@ -64,9 +63,9 @@ ms.locfileid: "84762295"
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|표준|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|표준|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|표준|
-|[적응 애플리케이션 컨트롤](security-center-adaptive-application.md)|✔|-|✔|표준|
+|[적응형 애플리케이션 제어](security-center-adaptive-application.md)|✔|-|✔|표준|
 |[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|표준|
-|[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|표준|
+|[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|표준|
 |적응형 네트워크 제어|✔|✔|-|표준|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|표준|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|✔|✔|✔|표준|

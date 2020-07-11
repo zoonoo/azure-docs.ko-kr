@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77f2e78fa3df6c7ac6a422a03335f93d2a19d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255869"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169343"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure Multi-Factor Authentication의 세션 수명 이해
 
@@ -122,10 +122,10 @@ Multi-factor authentication 설정을 기억을 하려면 다음 단계를 완�
 
 다음 표에는 라이선스에 따른 권장 사항이 요약 되어 있습니다.
 
-|                              | Azure AD Free 및 Office 365 앱 | Azure AD Premium |
+|              | Azure AD Free 및 Office 365 앱 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
-| SSO                          | [AZURE ad 조인](../devices/concept-azure-ad-join.md) 또는 [하이브리드 azure ad 조인](../devices/concept-azure-ad-join-hybrid.md)또는 관리 되지 않는 장치에 대 한 [원활한 SSO](../hybrid/how-to-connect-sso.md) . | Azure AD 조인<br />하이브리드 Azure AD 조인 |
-| 재인증 설정    | 로그인 상태 유지                  | 로그인 빈도 및 영구 브라우저 세션에 대 한 조건부 액세스 정책 사용 |
+| **SSO**                      | [AZURE ad 조인](../devices/concept-azure-ad-join.md) 또는 [하이브리드 azure ad 조인](../devices/concept-azure-ad-join-hybrid.md)또는 관리 되지 않는 장치에 대 한 [원활한 SSO](../hybrid/how-to-connect-sso.md) . | Azure AD 조인<br />하이브리드 Azure AD 조인 |
+| **재인증 설정** | 로그인 상태 유지                  | 로그인 빈도 및 영구 브라우저 세션에 대 한 조건부 액세스 정책 사용 |
 
 ## <a name="next-steps"></a>다음 단계
 

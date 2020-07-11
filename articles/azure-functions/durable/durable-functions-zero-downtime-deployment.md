@@ -5,11 +5,13 @@ author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74231266"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165705"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions에 대 한 가동 중지 시간이 0 인 배포
 
@@ -18,9 +20,6 @@ Durable Functions의 [안정적인 실행 모델](durable-functions-checkpointin
 이러한 오류가 발생 하지 않도록 하려면 다음 두 가지 옵션을 사용할 수 있습니다. 
 - 실행 중인 모든 오케스트레이션 인스턴스가 완료 될 때까지 배포를 지연 합니다.
 - 실행 중인 오케스트레이션 인스턴스에서 기존 버전의 함수를 사용 하는지 확인 합니다. 
-
-> [!NOTE]
-> 이 문서에서는 Durable Functions 1.x를 대상으로 하는 함수 앱에 대 한 지침을 제공 합니다. Durable Functions 2.x에 도입 된 변경 내용을 고려 하 여 업데이트 되지 않았습니다. 확장 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md)을 참조 하세요.
 
 다음 차트에서는 Durable Functions에 대 한 가동 중지 시간이 0 인 배포를 구현 하는 세 가지 주요 전략을 비교 합니다. 
 
@@ -96,7 +95,7 @@ Durable Functions의 [안정적인 실행 모델](durable-functions-checkpointin
 [FunctionName("StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient client,
+    [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
     var runtimeStatus = new List<OrchestrationRuntimeStatus>();
@@ -104,8 +103,8 @@ public static async Task<IActionResult> StatusCheck(
     runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
     runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
 
-    var status = await client.GetStatusAsync(new DateTime(2015,10,10), null, runtimeStatus);
-    return (ActionResult) new OkObjectResult(new Status() {HasRunning = (status.Count != 0)});
+    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
+    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
 }
 ```
 

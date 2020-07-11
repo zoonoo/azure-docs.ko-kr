@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae9b6bf41d90b0a9111414302b2eafea3c8332d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965625"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169819"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>FCI에 대 한 분산 네트워크 이름 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -81,6 +81,10 @@ Set-ClusterParameter -Name DnsName -Value FCIDNN
 
 이제 클라이언트는 `FCIDNN` SQL Server FCI에 연결할 때 연결 문자열에 입력 합니다. 
 
+   > [!WARNING]
+   > 현재 VNN (가상 네트워크 이름)은 FCI 인프라의 필수 구성 요소 이므로 삭제 하지 마세요. 
+
+
 ### <a name="rename-the-vnn"></a>VNN 이름 바꾸기 
 
 기존 가상 네트워크 이름이 있는 경우 클라이언트에서이 값을 계속 사용 하 여 SQL Server FCI에 연결 하도록 하려면 현재 VNN의 이름을 자리 표시자 값으로 바꾸어야 합니다. 현재 VNN의 이름을 바꾼 후 DNN에 대 한 DNS 이름 값을 VNN으로 설정할 수 있습니다. 
@@ -122,7 +126,7 @@ Start-ClusterResource -Name dnn-demo
 
 ## <a name="restart-sql-server-instance"></a>SQL Server 인스턴스 다시 시작 
 
-장애 조치(Failover) 클러스터 관리자를 사용 하 여 SQL Server 인스턴스를 다시 시작 합니다. 아래 단계를 수행합니다.
+장애 조치(Failover) 클러스터 관리자를 사용 하 여 SQL Server 인스턴스를 다시 시작 합니다. 다음 단계를 수행합니다.
 
 1. 장애 조치(Failover) 클러스터 관리자에서 SQL Server 리소스로 이동 합니다.
 1. SQL Server 리소스를 마우스 오른쪽 단추로 클릭 하 고 오프 라인으로 전환 합니다. 

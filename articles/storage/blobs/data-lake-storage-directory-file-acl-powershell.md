@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d22b83e1f3464f6d87d2bc3821682b25e05d947b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961203"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142552"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -81,11 +81,11 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-file-system"></a>파일 시스템 만들기
+## <a name="create-a-container"></a>컨테이너 만들기
 
-파일 시스템은 파일의 컨테이너 역할을 합니다. Cmdlet을 사용 하 여 만들 수 있습니다 `New-AzStorageContainer` . 
+컨테이너는 파일에 대 한 파일 시스템 역할을 합니다. Cmdlet을 사용 하 여 만들 수 있습니다 `New-AzStorageContainer` . 
 
-다음 예제에서는 `my-file-system`이라는 파일 시스템을 만듭니다.
+이 예제에서는 라는 컨테이너를 만듭니다 `my-file-system` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -96,7 +96,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 Cmdlet을 사용 하 여 디렉터리 참조를 만듭니다 `New-AzDataLakeGen2Item` . 
 
-이 예제에서는 라는 디렉터리를 `my-directory` 파일 시스템에 추가 합니다.
+이 예제에서는 라는 디렉터리를 `my-directory` 컨테이너에 추가 합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -202,7 +202,7 @@ $properties.Group
 $properties.Owner
 ```
 
-파일 시스템의 내용을 나열 하려면 `-Path` 명령에서 매개 변수를 생략 합니다.
+컨테이너의 내용을 나열 하려면 `-Path` 명령에서 매개 변수를 생략 합니다.
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
@@ -270,7 +270,7 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 Cmdlet을 사용 하 여 디렉터리 또는 파일의 ACL을 가져옵니다 `Get-AzDataLakeGen2Item` .
 
-이 예제에서는 **파일 시스템** 의 루트 디렉터리에 대 한 acl을 가져온 다음이 acl을 콘솔에 출력 합니다.
+이 예제에서는 **컨테이너** 의 루트 디렉터리에 대 한 acl을 가져온 다음이 acl을 콘솔에 출력 합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ $file.ACL
 
 Cmdlet을 사용 `set-AzDataLakeGen2ItemAclObject` 하 여 소유 하는 사용자, 소유 그룹 또는 기타 사용자에 대 한 ACL을 만듭니다. 그런 다음 cmdlet을 사용 `Update-AzDataLakeGen2Item` 하 여 ACL을 커밋합니다.
 
-이 예에서는 **파일 시스템** 의 루트 디렉터리에서 소유 사용자, 소유 그룹 또는 기타 사용자에 대 한 acl을 설정 하 고 콘솔에 acl을 인쇄 합니다.
+이 예제에서는 소유 사용자, 소유 그룹 또는 기타 사용자에 대 한 **컨테이너** 의 루트 디렉터리에 대 한 acl을 설정 하 고 콘솔에 acl을 인쇄 합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -349,9 +349,9 @@ $file.ACL
 다음 예제에서는 소유 사용자 및 소유 그룹에 읽기 및 쓰기 권한만 있습니다. 다른 모든 사용자에게는 쓰기 및 실행 권한이 있습니다. 액세스 제어 목록에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](data-lake-storage-access-control.md)를 참조하세요.
 
 
-### <a name="set-acls-on-all-items-in-a-file-system"></a>파일 시스템의 모든 항목에 대 한 Acl 설정
+### <a name="set-acls-on-all-items-in-a-container"></a>컨테이너의 모든 항목에 대 한 Acl 설정
 
-`Get-AzDataLakeGen2Item`및 `-Recurse` 매개 변수를 cmdlet과 함께 사용 하 여 `Update-AzDataLakeGen2Item` 파일 시스템의 디렉터리 및 파일에 대 한 ACL을 재귀적으로 설정할 수 있습니다. 
+`Get-AzDataLakeGen2Item`및 `-Recurse` 매개 변수를 cmdlet과 함께 사용 하 여 `Update-AzDataLakeGen2Item` 컨테이너의 디렉터리 및 파일에 대 한 ACL을 재귀적으로 설정할 수 있습니다. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -422,7 +422,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 |AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission<br>AzDataLakeStoreItemAcl|업데이트-AzDataLakeGen2Item|AzDataLakeGen2Item cmdlet은 단일 항목만 업데이트 하 고 재귀적으로 업데이트 하지 않습니다. 재귀적으로 업데이트 하려는 경우 AzDataLakeStoreChildItem cmdlet을 사용 하 여 항목을 나열 하 고 파이프라인을 AzDataLakeGen2Item cmdlet으로 파이프라인 합니다.|
 |AzDataLakeStoreItem|AzDataLakeGen2Item|항목이 존재 하지 않는 경우 AzDataLakeGen2Item cmdlet에서 오류를 보고 합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [스토리지 PowerShell cmdlet](/powershell/module/az.storage)

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88c2536ad53be0beb583dc64e633322b2a531d15
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704066"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183446"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure Traffic Manager의 성능 저하 상태 문제 해결
 
@@ -55,9 +56,11 @@ Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirectio
 
 예제 출력:
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```output
+StatusCode StatusDescription
+---------- -----------------
+        301 Moved Permanently
+```
 
 리디렉션 응답을 수신했습니다. 앞서 설명한 대로 200 이외의 StatusCode는 실패로 간주됩니다. Traffic Manager는 엔드포인트 상태를 오프라인으로 변경합니다. 이 문제를 해결하려면 웹 사이트 구성을 확인하여 적절한 StatusCode가 프로브 경로에서 반환될 수 있는지 확인합니다. Traffic Manager 검색이 200을 반환하는 경로를 가리키도록 다시 구성합니다.
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/10/2020
-ms.openlocfilehash: 9dfa45e463ecd53524e7516160324a80824e4d8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669531"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206120"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>VCore 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -125,12 +126,12 @@ ms.locfileid: "84669531"
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(TB)|100 |100 |100 |100 |100 |100|
-|최대 로그 크기(TB)|1 |1 |1 |1 |1 |1 |
+|최대 로그 크기(TB)|제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |
 |TempDB 최대 데이터 크기 (GB)|32|64|96|128|160|192|
 |스토리지 유형| [참고 1](#notes) |[참고 1](#notes)|[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |
-|최대 데이터 IOPS *|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
+|최대 로컬 SSD IOPS *|4000 |8000 |12000 |16000 |20000 |24000 |
 |최대 로그 전송률 (MBps)|100 |100 |100 |100 |100 |100 |
-|IO 대기 시간(근사치)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|
+|IO 대기 시간(근사치)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |보조 복제본|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -138,6 +139,8 @@ ms.locfileid: "84669531"
 |읽기 확장|예|예|예|예|예|예|
 |백업 저장소 보존|7 일|7 일|7 일|7 일|7 일|7 일|
 |||
+
+\*로컬 SSD IO 외에도 작업은 원격 [페이지 서버](service-tier-hyperscale.md#page-server) io를 사용 합니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 Io 관리](resource-limits-logical-server.md#resource-governance)및 [리소스 사용률 통계의 데이터 io](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics)를 참조 하세요.
 
 ### <a name="gen4-compute-generation-part-2"></a>Gen4 계산 생성 (2 부)
 
@@ -150,12 +153,12 @@ ms.locfileid: "84669531"
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(TB)|100 |100 |100 |100 |100 |100 |
-|최대 로그 크기(TB)|1 |1 |1 |1 |1 |1 |
+|최대 로그 크기(TB)|제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |
 |TempDB 최대 데이터 크기 (GB)|224|256|288|320|512|768|
 |스토리지 유형| [참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |
-|최대 데이터 IOPS *|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
+|최대 로컬 SSD IOPS *|28000 |32000 |36000 |40,000 |64000 |76800 |
 |최대 로그 전송률 (MBps)|100 |100 |100 |100 |100 |100 |
-|IO 대기 시간(근사치)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|
+|IO 대기 시간(근사치)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
 |최대 동시 작업자(요청)|1400|1600|1800|2000|3200|4800|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |보조 복제본|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -164,7 +167,7 @@ ms.locfileid: "84669531"
 |백업 저장소 보존|7 일|7 일|7 일|7 일|7 일|7 일|
 |||
 
-\*8kb에서 64 KB 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+\*로컬 SSD IO 외에도 작업은 원격 [페이지 서버](service-tier-hyperscale.md#page-server) io를 사용 합니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 Io 관리](resource-limits-logical-server.md#resource-governance)및 [리소스 사용률 통계의 데이터 io](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics)를 참조 하세요.
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>하이퍼 규모 프로 비전 된 계산-Gen5
 
@@ -179,12 +182,12 @@ ms.locfileid: "84669531"
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(TB)|100 |100 |100 |100 |100 |100 |100|
-|최대 로그 크기(TB)|1 |1 |1 |1 |1 |1 |1 |
+|최대 로그 크기(TB)|제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |
 |TempDB 최대 데이터 크기 (GB)|64|128|192|256|320|384|448|
 |스토리지 유형| [참고 1](#notes) |[참고 1](#notes)|[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |
-|최대 데이터 IOPS *|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
+|최대 로컬 SSD IOPS *|8000 |16000 |24000 |32000 |40,000 |48000 |56000 |
 |최대 로그 전송률 (MBps)|100 |100 |100 |100 |100 |100 |100 |
-|IO 대기 시간(근사치)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|
+|IO 대기 시간(근사치)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|1400|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |보조 복제본|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -193,7 +196,7 @@ ms.locfileid: "84669531"
 |백업 저장소 보존|7 일|7 일|7 일|7 일|7 일|7 일|7 일|
 |||
 
-\*8kb에서 64 KB 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+\*로컬 SSD IO 외에도 작업은 원격 [페이지 서버](service-tier-hyperscale.md#page-server) io를 사용 합니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 Io 관리](resource-limits-logical-server.md#resource-governance)및 [리소스 사용률 통계의 데이터 io](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics)를 참조 하세요.
 
 ### <a name="gen5-compute-generation-part-2"></a>Gen5 계산 생성 (2 부)
 
@@ -206,12 +209,12 @@ ms.locfileid: "84669531"
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(TB)|100 |100 |100 |100 |100 |100 |100 |
-|최대 로그 크기(TB)|1 |1 |1 |1 |1 |1 |1 |
+|최대 로그 크기(TB)|제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |제한 없음 |
 |TempDB 최대 데이터 크기 (GB)|512|576|640|768|1024|1280|2560|
 |스토리지 유형| [참고 1](#notes) |[참고 1](#notes)|[참고 1](#notes)|[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |[참고 1](#notes) |
-|최대 데이터 IOPS *|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
+|최대 로컬 SSD IOPS *|64000 |72000 |80,000 |96000 |16만 |192000 |204800 |
 |최대 로그 전송률 (MBps)|100 |100 |100 |100 |100 |100 |100 |
-|IO 대기 시간(근사치)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|[참고 3](#notes)|
+|IO 대기 시간(근사치)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|[참고 2](#notes)|
 |최대 동시 작업자(요청)|1600|1800|2000|2400|3200|4000|8000|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |보조 복제본|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -220,15 +223,13 @@ ms.locfileid: "84669531"
 |백업 저장소 보존|7 일|7 일|7 일|7 일|7 일|7 일|7 일|
 |||
 
-\*8kb에서 64 KB 사이의 최대 IO 크기 값입니다. 실제 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 IO 관리](resource-limits-logical-server.md#resource-governance)를 참조 하세요.
+\*로컬 SSD IO 외에도 작업은 원격 [페이지 서버](service-tier-hyperscale.md#page-server) io를 사용 합니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 Io 관리](resource-limits-logical-server.md#resource-governance)및 [리소스 사용률 통계의 데이터 io](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics)를 참조 하세요.
 
 #### <a name="notes"></a>참고
 
 **참고 1**: hyperscale은 별도의 계산 및 저장소 구성 요소를 포함 하는 다중 계층 아키텍처입니다. [대규모 서비스 계층 아키텍처](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**참고 2**: hyperscale 다중 계층 아키텍처는 여러 수준에서 캐싱을 가집니다. 유효 IOPS는 워크 로드에 따라 달라 집니다.
-
-**참고 3**: 대기 시간은 가장 많이 사용 되는 데이터 페이지를 캐시 하는 계산 복제본의 RBPEX SSD 기반 캐시 데이터에 대 한 1-2 밀리초입니다. 페이지 서버에서 검색 되는 데이터에 대 한 대기 시간이 더 높습니다.
+**참고 2**: 대기 시간은 가장 많이 사용 되는 데이터 페이지를 캐시 하는 로컬 계산 복제본 SSD의 데이터에 대해 1-2 밀리초입니다. 페이지 서버에서 검색 되는 데이터에 대 한 대기 시간이 더 높습니다.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>범용 프로 비전 된 계산-Gen4
 

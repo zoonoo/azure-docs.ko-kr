@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74688671"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220561"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>App Service Environment v1에서 앱 크기 조정
 Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
@@ -29,7 +30,7 @@ ASE에서는 가격 계획을 선택하거나 변경할 필요가 없습니다. 
 
 한 항목을 변경하는 작업은 ASE 호스트된 App Service 계획에 대해 표시되는 적절한 UI를 통해 수행됩니다.  
 
-![][1]
+![크기 조정 서비스 계획 및 작업자 풀 서비스 계획에 대 한 세부 정보를 볼 수 있는 위치를 보여 주는 스크린샷][1]
 
 ASP가 있는 작업자 풀의 사용 가능한 컴퓨팅 리소스 수를 초과하여 ASP를 확장할 수 없습니다.  해당 작업자 풀에 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가해 달라고 요청해야 합니다.  ASE를 다시 구성하는 방법에 대한 정보는 [App Service 환경을 구성하는 방법][HowtoConfigureASE]을 읽어보세요.  일정 또는 메트릭에 따라 용량을 추가하기 위해 ASE 자동 크기 조정 기능을 활용할 수도 있습니다.  ASE 환경 자체에 대한 자동 크기 조정 구성에 대한 자세한 내용은 [App Service 환경에 대한 자동 크기 조정을 구성하는 방법][ASEAutoscale]을 참조하세요.
 
@@ -40,14 +41,14 @@ App Service Environment에서 웹앱을 처음 만드는 경우 1개의 인스�
 
 ASE의 용량이 충분한 경우에는 매우 간단합니다.  확장할 사이트를 유지하는 App Service 계획으로 이동하여 크기 조정을 선택합니다.  그러면 수동으로 ASP 프로그램에 대한 확장을 설정하거나 ASP에 대한 자동 크기 조정 규칙을 구성하는 UI가 열립니다.  수동으로 앱을 확장하려면 ***확장 기준***을 ***수동으로 입력한 인스턴스 수***로 설정하기면 하면 됩니다.  여기에서 원하는 수량으로 슬라이더를 끌거나 슬라이더 옆에 있는 상자에 입력합니다.  
 
-![][2] 
+![Asp에 대 한 규모를 설정 하거나 ASP에 대 한 자동 크기 조정 규칙을 구성할 수 있는 위치를 보여 주는 스크린샷][2] 
 
 ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동일하게 작동합니다.  ***확장 기준***에 있는 ***CPU 비율***을 선택하여 CPU 비율에 따라 ASP에 대한 자동 크기 조정 규칙을 만들거나 ***일정 및 성능 규칙***을 사용하여 좀 더 복잡한 규칙을 만들 수 있습니다.  자동 크기 조정 구성에 관하여 전체 세부 정보를 자세히 보려면 [Azure App Service에서 앱 확장][AppScale] 가이드를 참조하세요. 
 
 ### <a name="worker-pool-selection"></a>작업자 풀 선택
 앞에서 언급한 것처럼 작업자 풀 선택은 ASP UI에서 액세스됩니다.  확장하려는 ASP의 블레이드를 열고 작업자 풀을 선택합니다.  App Service Environment에서 구성한 모든 작업자 풀이 표시됩니다.  작업자 풀이 하나뿐인 경우에는 하나의 풀만 나열됩니다.  ASP가 있는 작업자 풀을 변경하려면 App Service 계획을 이동할 작업자 풀을 선택하기만 하면 됩니다.  
 
-![][3]
+![ASP가 있는 작업자 풀을 변경할 수 있는 위치를 보여 주는 스크린샷][3]
 
 한 작업자 풀에서 다른 작업자 풀로 ASP를 이동하기 전에 ASP에 대해 적절한 용량이 있는지 확인하는 것이 중요합니다.  작업자 풀 목록에는 작업자 풀 이름이 나열될 뿐만 아니라 해당 작업자 풀에서 사용 가능한 작업자 수도 표시됩니다.  App Service 계획을 포함할 수 있는 충분한 인스턴스가 있는지 확인합니다.  이동할 작업자 풀에 추가 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가하도록 요청합니다.  
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4919ce9ecaa3dc4f621aa5658b44aa53fad0bbf3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703998"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201035"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
@@ -32,18 +33,7 @@ Azure 리소스 그룹을 새 Resource Manager 템플릿으로 내보낸 후 다
 
 Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 있습니다.
 
-| 확장명 ||||
-|---|---|---|---|
-| Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
-| Acronis Backup Linux | Docker 확장 | Puppet Agent |
-| Bg Info | DSC Extension | Site 24x7 Apm Insight |
-| BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
-| BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
-| Chef Client | HPE Security Application Defender | Trend Micro DSA |
-| Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
-| 사용자 지정 스크립트 확장 | IaaS Diagnostics | VM Access For Linux |
-| Custom Script for Linux | Linux Chef Client | VM Access For Linux |
-| Datadog Linux Agent | Linux Diagnostic | VM 스냅샷 |
+> Acronis Backup, Acronis Backup Linux, Bg 정보, BMC CTM 에이전트 Linux, BMC CTM 에이전트 Windows, Chef 클라이언트, 사용자 지정 스크립트, 사용자 지정 스크립트 확장, Linux 용 사용자 지정 스크립트, Datadog Linux 에이전트, Datadog Windows 에이전트, Docker 확장, DSC 확장, Dynatrace Linux, Dynatrace Windows, HPE Security Application Defender, IaaS 맬웨어 방지, IaaS 진단, linux Chef 클라이언트, linux 진단, Linux 용 OS 패치, 퍼핏 에이전트 , 연중 무휴 Linux 서버, 사이트 연중 무휴 Windows Server, 추세 마이크로 DSA, 추세 마이크로 DSA Linux, Linux에 대 한 VM 액세스, Linux에 대 한 vm 액세스, vm 스냅숏, VM 스냅숏 Linux에 대 한 vm 액세스
 
 ## <a name="export-the-resource-group"></a>리소스 그룹 내보내기
 

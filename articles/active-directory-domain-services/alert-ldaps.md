@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/18/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 68798cf98bf01697e5d854f5b539c1c381642c3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d987bbbe2a35dd24341b75d5663bab33d8c3bdb9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735033"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220255"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: 보안 LDAP 경고 Azure Active Directory Domain Services
 
@@ -36,7 +36,7 @@ LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Dire
 
 1. Azure Portal에서 **네트워크 보안 그룹**을 검색 하 고 선택 합니다.
 1. *Contoso.com-NSG*와 같이 관리 되는 도메인과 연결 된 네트워크 보안 그룹을 선택한 다음 **인바운드 보안 규칙** 을 선택 합니다.
-1. **+** TCP 포트 636에 대 한 규칙을 추가 합니다. 필요한 경우 창에서 **고급** 을 선택 하 여 규칙을 만듭니다.
+1. **+ 추가** 를 선택 하 여 TCP 포트 636에 대 한 규칙을 만듭니다. 필요한 경우 창에서 **고급** 을 선택 하 여 규칙을 만듭니다.
 1. **원본의**경우 드롭다운 메뉴에서 *IP 주소* 를 선택 합니다. 보안 LDAP 트래픽에 대 한 액세스 권한을 부여 하려는 원본 IP 주소를 입력 합니다.
 1. **대상**으로 *Any* 를 선택한 다음 **대상 포트 범위**에 대해 *636* 을 입력 합니다.
 1. **프로토콜** 을 *TCP* 로 설정 하 고 **작업** 을 *허용*으로 설정 합니다.

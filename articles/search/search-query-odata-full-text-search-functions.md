@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72793361"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201389"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Azure Cognitive Search의 OData 전체 텍스트 `search.ismatch` 검색 기능`search.ismatchscoring`
 
@@ -33,7 +33,7 @@ Azure Cognitive Search는 및 함수를 통해 [OData 필터 식](query-odata-fi
 > [!NOTE]
 > `search.ismatch`및 `search.ismatchscoring` 함수는 [검색 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)의 필터 에서만 지원 됩니다. [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 또는 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) api에서 지원 되지 않습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 및 함수의 문법을 정의 합니다 `search.ismatch` `search.ismatchscoring` .
 
@@ -69,7 +69,7 @@ search_mode ::= "'any'" | "'all'"
 
 매개 변수는 다음 표에 정의 되어 있습니다.
 
-| 매개 변수 이름 | 형식 | Description |
+| 매개 변수 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | `search` | `Edm.String` | [단순](query-simple-syntax.md) 또는 [전체](query-lucene-syntax.md) Lucene 쿼리 구문에서 검색 쿼리입니다. |
 | `searchFields` | `Edm.String` | 검색할 검색 가능한 필드의 쉼표로 구분 된 목록입니다. 인덱스의 모든 검색 가능 필드를 기본값으로 설정 합니다. 매개 변수에서 [필드 지정 search](query-lucene-syntax.md#bkmk_fields) 를 사용 하는 경우 `search` Lucene 쿼리의 필드 지정자는이 매개 변수에 지정 된 모든 필드를 재정의 합니다. |
@@ -94,29 +94,39 @@ search_mode ::= "'any'" | "'all'"
 
 `search.ismatch` `search.ismatchscoring` 동일한 필터 식에 및 함수를 모두 사용할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 "waterfront" 단어를 포함하는 문서를 찾습니다. 이 필터 쿼리는 `search=waterfront`를 사용한 [검색 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)과 동일합니다.
 
+```odata-filter-expr
     search.ismatchscoring('waterfront')
+```
 
 단어 "hostel"을 포함하고 등급이 4 이상인 문서 또는 단어 "motel"을 포함하고 등급이 5인 문서를 찾습니다. 이 요청은 `search.ismatchscoring` 함수를 사용해야만 표시할 수 있습니다.
 
+```odata-filter-expr
     search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
+```
 
 단어 "luxury"가 없는 문서를 찾습니다.
 
+```odata-filter-expr
     not search.ismatch('luxury')
+```
 
 구 "ocean view"를 포함하거나 등급이 5인 문서를 찾습니다. `search.ismatchscoring` 쿼리는 필드 `HotelName` 및 `Rooms/Description`에 대해서만 실행됩니다.
 
 분리의 두 번째 절과 일치 하는 문서만 반환 됩니다. 즉, 호텔은 `Rating` 5와 동일 합니다. 이러한 문서가 식의 점수가 매겨진 부분과 일치 하지 않는 것을 명확 하 게 하기 위해 점수가 0 인 것으로 반환 됩니다.
 
+```odata-filter-expr
     search.ismatchscoring('"ocean view"', 'Rooms/Description,HotelName') or Rating eq 5
+```
 
 호텔 설명에서 "호텔" 및 "공항" 이라는 용어가 5 개의 단어 내에 있고 흡연가 일부 대화방에서 허용 되지 않는 문서를 찾습니다. 이 쿼리는 [전체 Lucene 쿼리 언어](query-lucene-syntax.md)를 사용합니다.
 
+```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
 
 ## <a name="next-steps"></a>다음 단계  
 

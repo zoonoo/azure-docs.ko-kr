@@ -10,11 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: b2ac056ef9140b4187eeb1850e56ba09b9755abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894f01244fef94e9f5a60823ba06ff38c01288a1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704032"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186999"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager 설정 확인
 
@@ -32,9 +33,11 @@ DNS 이름이 사용자 프로필에서 엔드포인트의 IP 주소로 확인�
 
 1. 관리자로 명령 또는 Windows PowerShell 프롬프트를 엽니다.
 2. `ipconfig /flushdns`를 입력하여 DNS 확인자 캐시를 플러시합니다.
-3. `nslookup <your Traffic Manager domain name>`. 예를 들어 다음 명령은 접두사 *myapp.contoso*가 있는 도메인 이름을 확인합니다.
+3. `nslookup <your Traffic Manager domain name>`을 입력합니다. 예를 들어 다음 명령은 접두사 *myapp.contoso*가 있는 도메인 이름을 확인합니다.
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     일반적인 결과는 다음 정보를 보여줍니다.
 

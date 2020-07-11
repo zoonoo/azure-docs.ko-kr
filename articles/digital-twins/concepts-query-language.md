@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985244"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187118"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Azure Digital Twins의 쿼리 언어 정보
 
@@ -30,10 +30,10 @@ Azure Digital Twins 쿼리 저장소 언어에서 사용할 수 있는 작업은
 * 관계 속성으로 쌍를 가져옵니다.
 * 여러 관계 유형 (쿼리)에 대해 쌍을 가져옵니다 `JOIN` . 허용 되는 수에는 제한 사항이 있습니다 `JOIN` (공개 미리 보기의 경우 한 수준).
 * 쌍 `IS_OF_MODEL(twinCollection, twinTypeName)` 의 [모델](concepts-models.md)을 기준으로 필터링 할 수 있는 사용자 지정 함수를 사용 합니다. 상속을 지원 합니다.
-* 위의 모든 조합 ( `AND` , `OR` , `NOT` 연산자)을 사용 합니다.
 * 스칼라 함수 `IS_BOOL` (, `IS_DEFINED` ,,,,,,,)를 사용 `IS_NULL` `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTS_WITH` `ENDS_WITH` 합니다.
-* 쿼리 비교 연산자 ( `AND` / `OR` / `NOT` , `IN` / `NOT IN` , `STARTSWITH` / `ENDSWITH` , `=` `!=` `<` `>` `<=` `>=` ,,,,,)를 사용 합니다.
-* 연속 사용: 쿼리 개체가 페이지 크기 (최대 100)를 사용 하 여 인스턴스화됩니다. 메서드에 대 한 호출을 반복 하 여 한 번에 한 페이지씩 디지털 쌍을 검색할 수 있습니다 `nextAsTwin` .
+* 쿼리 비교 연산자 ( `IN` / `NIN` , `=` , `!=` , `<` `>` `<=` `>=` ,,,)를 사용 합니다.
+* 위의 모든 조합 ( `AND` , `OR` , `NOT` 연산자)을 사용 합니다.
+* 연속 사용: 쿼리 개체가 페이지 크기 (최대 100)를 사용 하 여 인스턴스화됩니다. API에 대 한 후속 호출에 연속 토큰을 제공 하 여 한 번에 한 페이지씩 디지털 쌍을 검색할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

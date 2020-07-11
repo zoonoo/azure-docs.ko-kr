@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6b6da2a15441564ef0b67e76ee5a0e0c85839a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609319"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142407"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -97,6 +98,7 @@ JSON 개체로 표시 되는 경우 디지털 쌍은 다음 필드를 표시 합
 | 필드 이름 | Description |
 | --- | --- |
 | `$dtId` | 디지털 쌍의 ID를 나타내는 사용자 제공 문자열입니다. |
+| `$etag` | 웹 서버에서 할당 한 표준 HTTP 필드 |
 | `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 (*준수*, 일치 *하지 않음*, *알 수 없음*). |
 | `{propertyName}` | JSON ( `string` , number 형식 또는 object)의 속성 값입니다. |
 | `$relationships` | 관계 컬렉션에 대 한 경로 URL입니다. 디지털 쌍에 나가는 관계 가장자리가 없으면이 필드가 없습니다. |
@@ -115,6 +117,7 @@ JSON 개체로 형식이 지정 된 디지털 쌍의 예는 다음과 같습니�
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -162,6 +165,7 @@ JSON 개체로 표시 되는 경우 디지털 쌍의 관계에 다음 필드가 
 | 필드 이름 | Description |
 | --- | --- |
 | `$relationshipId` | 이 관계의 ID를 나타내는 사용자 제공 문자열입니다. 이 문자열은 원본 디지털 쌍의 컨텍스트에서 고유 하며,이는 `sourceId`  +  `relationshipId` Azure digital twins 인스턴스의 컨텍스트에서 고유한 것을 의미 하기도 합니다. |
+| `$etag` | 웹 서버에서 할당 한 표준 HTTP 필드 |
 | `$sourceId` | 원본 디지털 쌍의 ID입니다. |
 | `$targetId` | 대상 디지털 쌍의 ID입니다. |
 | `$relationshipName` | 관계의 이름입니다. |

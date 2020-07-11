@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477858"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201959"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -71,15 +71,21 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 응용 프로그램에서 Microsoft id 플랫폼 으로부터 받은 토큰의 유효성을 검사 하는 방법을 살펴보겠습니다. 단일 테넌트 애플리케이션은 일반적으로 다음과 같은 엔드포인트 값을 사용합니다.
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 그리고 이 값을 사용하여 다음과 같은 메타데이터 URL(이 경우 OpenID Connect)을 생성합니다.
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 이는 토큰의 유효성을 검사하는 데 사용할 두 가지 중요한 정보인 테넌트 서명 키와 발급자 값을 다운로드하기 위해서입니다. 각 Azure AD 테넌트에는 양식의 고유한 발급자 값이 있습니다.
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 여기서 GUID 값은 테넌트의 테넌트 ID 이름 바꾸기 안전 버전입니다. `contoso.onmicrosoft.com`에 대한 이전의 메타데이터 링크를 선택하면 문서에서 이 발급자 값을 볼 수 있습니다.
 
@@ -87,7 +93,9 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 /common 엔드포인트가 테넌트에 일치하지 않고 발급자가 아니기 때문에, /common에 대한 메타데이터의 발급자 값을 검사하면 실제값 대신 템플릿 기반 URL이 있습니다.
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 따라서 다중 테넌트 애플리케이션은 메타데이터의 발급자 값을 토큰의 `issuer` 값과 맞춰보는 것만으로는 토큰의 유효성을 검사할 수 없습니다. 다중 테넌트 애플리케이션에는 발급자 값이 유효하고 발급자 값의 테넌트 ID 부분을 기반으로 하고 있지 않은지 결정하는 논리가 필요합니다. 
 
@@ -133,9 +141,11 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>단일 테넌트의 여러 계층
 
-논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 예를 들어:
+논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 예를 들면 다음과 같습니다.
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 이는 이 문서의 뒷부분에 나오는 [관련 콘텐츠](#related-content) 섹션에 있는 다중 계층 네이티브 클라이언트 호출 웹 API 샘플에서 설명됩니다. 다음 다이어그램에서는 단일 테넌트에 등록된 다중 계층 응용 프로그램에 대한 동의 개요를 제공합니다.
 
@@ -145,7 +155,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 애플리케이션의 다른 계층이 다른 테넌트에 등록되어 있다면 유사한 사례가 발생합니다. 예를 들어 Office 365 Exchange Online API를 호출하는 네이티브 클라이언트 애플리케이션을 빌드하는 경우를 생각해 보겠습니다. 네이티브 애플리케이션을 개발하고, 그 후 네이티브 애플리케이션이 고객 테넌트에서 실행되도록 하려면 Exchange Online 서비스 주체가 있어야 합니다. 이 경우에 개발자 및 고객이 자신의 테넌트에 서비스 주체가 생성되도록 하려면 Exchange Online를 구매해야 합니다.
 
-Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 다음을 수행합니다.
+Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 
 1. 이전 섹션에 따라 API에서 다중 테넌트 애플리케이션 등록/코드 요구 사항을 구현하는지 확인합니다.
 2. API의 범위/역할을 노출 하는 것 외에, 등록에 "로그인 및 사용자 프로필 읽기" 권한이 포함 되어 있는지 확인 합니다 (기본적으로 제공 됨).

@@ -17,11 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e94448debe3e846e37dcffa81a6a6a28f0f7d757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561190"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220068"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 
@@ -376,13 +377,13 @@ hub.send_baidu_notification(baidu_payload)
 
 Python 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="enabling-the-debug-property"></a>`debug` 속성 사용
 
 NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면, 다음과 같이 자세한 HTTP 요청 및 응답 덤프 요청에 전달된 HTTP 헤더뿐만 아니라 Notification Hub에서 받은 HTTP 응답을 이해할 수 있는 NotificationOutcome도 표시됩니다.
 
-![][1]
+![빨간색으로 요약 된 H T T P 요청 및 응답 덤프와 알림 결과 메시지의 세부 정보가 포함 된 콘솔의 스크린샷][1]
 
 예를 들어 메시지가 푸시 알림 서비스로 전송되면
 
@@ -403,7 +404,7 @@ Windows 클라이언트로 브로드캐스트 알림 메시지를 보낼 때 전
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식 및 빨간색으로 요약 된 X W N S 형식 값이 포함 된 콘솔의 스크린샷][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>태그(또는 태그 식)를 지정하여 알림 보내기
 
@@ -413,7 +414,7 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 X W N S 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>여러 태그를 지정하여 알림 보내기
 
@@ -424,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 X W N S 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][4]
 
 ### <a name="templated-notification"></a>템플릿 기반 알림
 
@@ -443,7 +444,7 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![H T T P 요청에 대 한 세부 정보와 콘텐츠 형식 및 Service Bus 알림 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][5]
 
 ## <a name="next-steps"></a>다음 단계
 
