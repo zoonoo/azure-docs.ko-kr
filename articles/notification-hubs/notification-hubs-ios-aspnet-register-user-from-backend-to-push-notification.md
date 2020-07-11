@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253871"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223315"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
@@ -44,11 +44,11 @@ ms.locfileid: "85253871"
 
      이때 스토리보드가 다음과 같이 표시됩니다.
 
-     ![][0]
+     ![구성 요소가 추가 된 MainStoryboard_iPhone storyboard 앱의 스크린샷][0]
 
 2. 단말기 편집기에서 모든 전환된 컨트롤에 대한 콘센트를 만든 다음 호출하고, 텍스트 필드를 뷰 컨트롤러(대리자)에 연결하고, **로그인** 단추에 대한 **동작**을 만듭니다.
 
-    ![][1]
+    ![MainStoryboard_iPhone storyboard 응용 프로그램의 길잡이 편집기 스크린샷][1]
 
     이제 BreakingNewsViewController.h 파일에 다음 코드가 포함되어 있습니다.
 

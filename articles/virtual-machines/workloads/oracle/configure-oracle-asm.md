@@ -3,8 +3,8 @@ title: Azure Linux 가상 머신에 Oracle ASM 설정 | Microsoft Docs
 description: Azure 환경에서 Oracle ASM을 빠르게 준비하여 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,16 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: aa65b789d02c60ef6042aa62e1c138c0e1bd7224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: a707081aca4a28743bff8bdd1046a5e9aee285f1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676908"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224403"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
 
-Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 Oracle ASM(Automated Storage Management) 설치 및 구성과 결합된 기본 Azure 가상 머신 배포에 대해 설명합니다.  다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 Oracle ASM(Automated Storage Management) 설치 및 구성과 결합된 기본 Azure 가상 머신 배포에 대해 설명합니다.  다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Oracle 데이터베이스 VM 만들기 및 연결

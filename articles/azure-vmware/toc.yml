@@ -44,9 +44,19 @@
           href: set-up-mabs-for-avs.md
         - name: Azure Backup Server를 사용하여 AVS VM 백업
           href: backup-avs-vms-with-mabs.md
+    - name: Azure 네이티브 통합
+      items:
+        - name: API Management
+          href: concepts-api-management.md
+        - name: 허브 및 스포크
+          href: concepts-avs-hub-and-spoke-integration.md
 - name: 참조
   items: null
 - name: 리소스
   items:
+    - name: 문제 해결
+      items:
+        - name: AVS 배포 또는 프로비저닝 실패에 대한 도움 받기
+          href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.md

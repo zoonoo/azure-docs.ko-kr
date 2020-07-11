@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121472"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229451"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
@@ -32,7 +32,7 @@ ms.locfileid: "86121472"
 
 사용 중인 제품, 시나리오 및 marketplace의 유형에 따라 상업용 marketplace에서 선택할 수 있는 다양 한 테스트 드라이브가 있습니다.
 
-- Azure 리소스 관리자
+- Azure Resource Manager
 - 호스트 된 테스트 드라이브
     - Dynamics 365 for Business Central
     - Dynamics 365 for Customer Engagement
@@ -74,7 +74,7 @@ ms.locfileid: "86121472"
 
 ## <a name="generate-leads-from-your-test-drive"></a>테스트 드라이브에서 리드 생성
 
-상용 marketplace 테스트 드라이브는 마케터에 적합 한 도구입니다. 비즈니스에 더 많은 잠재 고객을 생성 하기 위해를 시작할 때 출시 간 노력에 통합 하는 것이 좋습니다. 자세한 지침은 [상용 marketplace 제품의 고객 리드](https://github.com/partner-center-portal/commercial-marketplace-get-customer-leads.md)를 참조 하세요.
+상용 marketplace 테스트 드라이브는 마케터에 적합 한 도구입니다. 비즈니스에 더 많은 잠재 고객을 생성 하기 위해를 시작할 때 출시 간 노력에 통합 하는 것이 좋습니다. 자세한 지침은 [상용 marketplace 제품의 고객 리드](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md)를 참조 하세요.
 
 시험 사용 리드를 사용 하 여 처리를 종료 하는 경우 [Microsoft 파트너 판매 연결](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect)에 등록 해야 합니다. 또한 테스트 드라이브가 역할을 수행 하는 고객의 wins에 대해 알아보겠습니다.
 

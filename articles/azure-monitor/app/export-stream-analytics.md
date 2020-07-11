@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Stream Analytics를 사용하여 내보�
 description: Stream Analytics를 사용하면 Application Insights에서 내보내는 데이터를 지속적으로 변환, 필터링 및 라우팅할 수 있습니다.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110490"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224522"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -60,7 +60,7 @@ ms.locfileid: "86110490"
     또한 데이터를 스토리지로 내보냅니다. 
 2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![보려는 이벤트 유형을 설정 하는 방법을 보여 주는 스크린샷](./media/export-stream-analytics/04-data.png)
    
     애플리케이션 이름 및 계측 키에서 파생된 경로 이름의 공통 부분을 적어 둡니다. 
 
@@ -69,21 +69,21 @@ ms.locfileid: "86110490"
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
 [Azure Portal](https://portal.azure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
 
-![](./media/export-stream-analytics/SA001.png)
+![Azure Portal에서 Stream Analytics 작업을 만들기 위한 기본 페이지를 보여 주는 스크린샷](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![새 Stream Analytics 작업을 만들 때 필요한 세부 정보를 보여 주는 스크린샷](./media/export-stream-analytics/SA002.png)
 
 새 작업이 만들어질 때 **리소스로 이동**을 선택합니다.
 
-![](./media/export-stream-analytics/SA003.png)
+![새 Stream Analytics 작업 배포에 성공할 경우 수신 된 메시지를 보여 주는 스크린샷](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>새 입력 추가
 
-![](./media/export-stream-analytics/SA004.png)
+![Stream Analytics 작업에 입력을 추가 하는 방법을 보여 주는 스크린샷](./media/export-stream-analytics/SA004.png)
 
 연속 내보내기 Blob에서 입력을 가져오도록 설정합니다.
 
-![](./media/export-stream-analytics/SA0005.png)
+![연속 내보내기 blob에서 입력을 수행 하도록 Stream Analytics 작업을 구성 하는 방법을 보여 주는 스크린샷](./media/export-stream-analytics/SA0005.png)
 
 이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "86110490"
 ## <a name="add-new-output"></a>새 출력 추가
 이제 작업 > **출력** > **추가**를 선택합니다.
 
-![](./media/export-stream-analytics/SA006.png)
+![Stream Analytics 작업을 선택 하 여 새 출력을 추가 하는 것을 보여 주는 스크린샷](./media/export-stream-analytics/SA006.png)
 
 
 ![새 채널을 선택하고, 출력, 추가, Power BI를 클릭합니다.](./media/export-stream-analytics/SA010.png)

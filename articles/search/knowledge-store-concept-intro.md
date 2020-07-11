@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565280"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230777"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소
 
@@ -138,8 +138,8 @@ REST API는 프로그래밍 방식으로 기술 자료 저장소를 만들 수 �
 
 REST API 버전 `2020-06-30`에서는 기술 세트에 대한 추가 정의를 통해 지식 저장소를 제공합니다. API를 호출하는 방법에 대한 자세한 내용은 이 참조 외에 [Postman Man을 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)를 참조하세요.
 
-+ [Create 기술 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [기술 업데이트 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Create 기술 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [기술 업데이트 (api-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>다음 단계

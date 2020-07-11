@@ -3,12 +3,12 @@ title: Azure Migrate Server 마이그레이션에 대 한 일반적인 질문
 description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 방법에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744334"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224131"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -67,6 +67,9 @@ VMware에 대 한 에이전트 없는 복제 방법은 VMware 스냅숏과 VMwar
 
 Azure Migrate는 TLS 암호화와 함께 NBD (네트워크 블록 장치) 프로토콜을 사용 합니다.
 
+## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>온-프레미스 환경에서 Azure로 데이터를 전송 하는 방법은 무엇 인가요? 전송 전에 암호화 되나요? 
+에이전트 없는 복제 사례의 Azure Migrate 어플라이언스는 데이터를 압축 하 고 업로드 하기 전에 암호화 합니다. 데이터는 https를 통해 보안 통신 채널을 통해 전송 되며 TLS 1.2 이상을 사용 합니다. 또한 Azure Storage는 데이터를 클라우드 (미사용 암호화)에 보관 하는 경우 자동으로 암호화 합니다.  
+
 ## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>마이그레이션에 필요한 최소 vCenter Server 버전은 무엇 인가요?
 
 VCenter Server 5.5 및 vSphere ESXi 호스트 버전 5.5 이상이 있어야 합니다.
@@ -81,7 +84,7 @@ VCenter Server 5.5 및 vSphere ESXi 호스트 버전 5.5 이상이 있어야 합
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용 하 여에서 복제를 어떻게 할까요? 제한 하 시겠습니까?  
 
-NetQosPolicy를 사용 하 여 제한할 수 있습니다. 예:
+NetQosPolicy를 사용 하 여 제한할 수 있습니다. 예를 들면 다음과 같습니다.
 
 NetQosPolicy에서 사용할 AppNamePrefix는 "GatewayWindowsService.exe"입니다. Azure Migrate 어플라이언스에서 정책을 만들어 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한할 수 있습니다.
  
@@ -106,7 +109,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 이는 좋은 사용 사례가 될 수 있지만 현재 지원 하지 않습니다. 두 개 이상의 어플라이언스를 배포 하 여 동일한 Vm 집합을 검색 하면 VM 소유권이 두 어플라이언스 간을 전환 하는 서비스 문제가 발생 합니다. 이는 Vm이 표시 되 고 사라짐을 표시 하는 이유입니다. 이 경우 문제를 해결 하려면 하나의 어플라이언스를 삭제 하 고 하드 새로 고침을 수행 해야 합니다.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware Vm을 마이그레이션하려면 VMware vCenter가 필요 한가요?
-VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아봅니다](migrate-support-matrix-physical-migration.md).
+VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세한 정보를 알아보세요](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>다음 단계
 

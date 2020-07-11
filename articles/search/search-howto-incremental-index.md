@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4a732bd81b65c0c6b0cc227e1ed82de7bae3a1a0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146884"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230709"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search에서 증분 보강 캐싱을 구성 하는 방법
 
@@ -174,7 +174,7 @@ api-key: [YOUR-ADMIN-KEY]
 | [인덱서 만들기 (2020-06-30-미리 보기)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | 인덱서 정의에서 지정 하는 경우 캐시 만들기를 포함 하 여 처음 사용할 때 인덱서를 만들고 실행 합니다. |
 | [인덱서 실행](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | 요청 시 보강 파이프라인을 실행 합니다. 이 API는 캐시에 있는 경우 캐시를 읽고 업데이트 된 인덱서 정의에 캐싱을 추가한 경우 캐시를 만듭니다. 캐싱이 설정 된 인덱서를 실행 하는 경우 캐시 된 출력을 사용할 수 있으면 인덱서는 단계를 생략 합니다. 이 API의 일반 공급 또는 미리 보기 API 버전을 사용할 수 있습니다.|
 | [인덱서 다시 설정](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| 모든 증분 인덱싱 정보에 대 한 인덱서를 지웁니다. 모든 스킬을 다시 실행 하 고 캐시를 다시 작성 하는 것을 포함 하 여 다음 인덱서 실행 (주문형 또는 schedule)은 완전히 다시 처리 됩니다. 인덱서를 삭제 하 고 다시 만드는 것과 기능적으로 동일 합니다. 이 API의 일반 공급 또는 미리 보기 API 버전을 사용할 수 있습니다.|
-| [기술 다시 설정](https://docs.microsoft.com/rest/api/searchservice/reset-skills) | 어떠한 기술도 수정 하지 않은 경우에도 다음 인덱서 실행 시 다시 실행할 기술을 지정 합니다. 캐시는 그에 따라 업데이트 됩니다. 기술 자료 저장소 또는 검색 인덱스와 같은 출력은 캐시의 재사용 가능한 데이터와 업데이트 된 기술 당 새 콘텐츠를 사용 하 여 새로 고쳐집니다. |
+| [기술 다시 설정](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | 어떠한 기술도 수정 하지 않은 경우에도 다음 인덱서 실행 시 다시 실행할 기술을 지정 합니다. 캐시는 그에 따라 업데이트 됩니다. 기술 자료 저장소 또는 검색 인덱스와 같은 출력은 캐시의 재사용 가능한 데이터와 업데이트 된 기술 당 새 콘텐츠를 사용 하 여 새로 고쳐집니다. |
 
 캐시에 발생 하는 작업을 제어 하는 방법에 대 한 자세한 내용은 [캐시 관리](cognitive-search-incremental-indexing-conceptual.md#cache-management)를 참조 하세요.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e00538d1112492c5b7f9fc0f91c86df6d3500701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e59ee029b1705f6f789812b870de96bbb74a6e5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796591"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223553"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>관리 되는 이미지에서 공유 이미지 갤러리 이미지로 마이그레이션
 
@@ -134,3 +134,4 @@ Remove-AzImage `
 
 복제가 완료 되었는지 확인 한 후 [일반화 된 이미지](vm-generalized-image-version-powershell.md)에서 VM을 만들 수 있습니다.
 
+구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

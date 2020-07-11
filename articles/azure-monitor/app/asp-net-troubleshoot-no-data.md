@@ -3,11 +3,12 @@ title: 데이터 없음 문제 해결 - .NET용 Application Insights
 description: Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1c4a741bf092ab89638fdca130a52d96318157
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485161"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221037"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -123,7 +124,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 *앱을 실행한 다음, Microsoft Azure에서 Application Insights 서비스를 열었지만, 모든 차트에 '수집하는 방법을 알아보세요...' 또는 '구성되지 않았습니다' 메시지가 표시됩니다.* 또는 *페이지 보기와 사용자 데이터만 표시되고 서버 데이터는 표시되지 않습니다.*
 
 * Visual Studio의 디버그 모드에서 애플리케이션을 실행합니다(F5). 애플리케이션을 사용하여 원격 분석을 생성합니다. Visual Studio 출력 창에서 기록된 이벤트를 볼 수 있는지 확인합니다.  
-  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+  ![Visual Studio의 디버그 모드에서 응용 프로그램을 실행 하는 것을 보여 주는 스크린샷](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Application Insights 포털에서 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 엽니다. 일반적으로 데이터는 여기에 처음으로 나타납니다.
 * 새로고침 단추를 클릭합니다. 블레이드 자체는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 시간 범위가 커지면 새로 고침 간격이 길어집니다.
 * 계측 키가 일치하는지 확인합니다. Application Insights 포털에서 내 앱의 기본 블레이드로 이동한 다음 **기본 정보** 드롭다운 목록에서 **계측 키**를 확인합니다. 그런 다음, Visual Studio의 프로젝트에서 ApplicationInsights.config를 열고 `<instrumentationkey>`를 찾습니다. 두 키가 같은지 확인합니다. 같이 않으면  

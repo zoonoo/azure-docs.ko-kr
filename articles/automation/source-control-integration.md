@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187305"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229621"
 ---
 # <a name="use-source-control-integration"></a>원본 제어 통합 사용
 
@@ -202,7 +202,7 @@ New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<
 현재는 Azure Portal을 사용하여 소스 제어에서 PAT를 업데이트할 수 없습니다. PAT가 만료되거나 철회되면 다음 방법 중 하나로 새 액세스 토큰을 사용하여 소스 제어를 업데이트할 수 있습니다.
 
 * [REST API](/rest/api/automation/sourcecontrol/update)를 사용합니다.
-* [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet을 사용합니다.
+* [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

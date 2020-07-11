@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81455365"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231712"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
 대규모 Azure 고객 간에 일반적인 시나리오는 온-프레미스 데이터 센터에서 후면 계층에 액세스를 허용하는 동안 인터넷에 노출된 2계층 애플리케이션을 제공해야 하는 경우입니다. 이 문서에서는 UDR(사용자 정의 경로), VPN Gateway 및 네트워크 가상 어플라이언스를 사용하여 다음 요구 사항을 충족하는 2계층 환경을 배포하는 시나리오를 설명합니다.
@@ -33,8 +33,8 @@ DMZ 및 보호 된 네트워크를 사용 하는 표준 경계 네트워크 (또
 
 |  | 장점 | 단점 |
 | --- | --- | --- |
-| NSG |무료입니다. <br/>Azure RBAC에 통합됩니다. <br/>규칙은 Azure Resource Manager 템플릿에서 만들 수 있습니다. |대규모 환경에서 복잡성이 달라질 수 있습니다. |
-| 방화벽 |데이터 평면을 완벽히 제어합니다. <br/>방화벽 콘솔을 통해 중앙에서 관리합니다. |방화벽 어플라이언스의 비용이 듭니다. <br/>Azure RBAC와 통합되지 않습니다. |
+| **NSG** |무료입니다. <br/>Azure RBAC에 통합됩니다. <br/>규칙은 Azure Resource Manager 템플릿에서 만들 수 있습니다. |대규모 환경에서 복잡성이 달라질 수 있습니다. |
+| **방화벽** |데이터 평면을 완벽히 제어합니다. <br/>방화벽 콘솔을 통해 중앙에서 관리합니다. |방화벽 어플라이언스의 비용이 듭니다. <br/>Azure RBAC와 통합되지 않습니다. |
 
 아래 솔루션은 방화벽 가상 어플라이언스를 사용 하 여 DMZ (경계 네트워크)/보호 된 네트워크 시나리오를 구현 합니다.
 

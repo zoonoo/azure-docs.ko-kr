@@ -10,11 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: c640adb0758c8dfd9dcdae3e26fd023afd5499f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9abf4b46896a3c067cfb189da7921dfe318aedab
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252273"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229383"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure PowerShell 샘플
 
@@ -22,7 +23,7 @@ ms.locfileid: "85252273"
 
 다음 표에는 Azure Data Factory의 Azure PowerShell 샘플 스크립트에 대한 링크가 나와 있습니다.
 
-| |  |
+| 스크립트 | 설명  |
 |---|---|
 |**데이터 복사**||
 |[Azure Blob Storage의 폴더에서 다른 폴더로 Blob 복사](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Blob Storage의 폴더에서 동일한 Blob Storage에 있는 다른 폴더로 Blob을 복사합니다. |

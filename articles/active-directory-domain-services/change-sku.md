@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734965"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221448"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>기존 Azure Active Directory Domain Services 관리 되는 도메인에 대 한 SKU 변경
 
-Azure Active Directory Domain Services (Azure AD DS)에서 사용할 수 있는 성능 및 기능은 SKU 유형을 기반으로 합니다. 이러한 기능 차이에는 백업 빈도 또는 단방향 아웃 바운드 포리스트 트러스트의 최대 수 (현재 미리 보기 상태)가 포함 됩니다. 관리 되는 도메인을 만들 때 SKU를 선택 하 고 관리 되는 도메인이 배포 된 후 비즈니스 요구 사항이 변경 됨에 따라 Sku를 위아래로 전환할 수 있습니다. 비즈니스 요구 사항에 대 한 변경에는 더 자주 백업 해야 하는 필요성 또는 추가 포리스트 트러스트를 만들 수 있습니다. 다른 Sku의 제한 및 가격 책정에 대 한 자세한 내용은 [azure AD DS SKU 개념][concepts-sku] 및 [azure AD DS 가격 책정][pricing] 페이지를 참조 하세요.
+Azure Active Directory Domain Services (Azure AD DS)에서 사용할 수 있는 성능 및 기능은 SKU 유형을 기반으로 합니다. 이러한 기능 차이에는 백업 빈도 또는 단방향 아웃 바운드 포리스트 트러스트의 최대 수 (현재 미리 보기 상태)가 포함 됩니다.
+
+관리 되는 도메인을 만들 때 SKU를 선택 하 고 관리 되는 도메인이 배포 된 후 비즈니스 요구 사항이 변경 됨에 따라 Sku를 위아래로 전환할 수 있습니다. 비즈니스 요구 사항에 대 한 변경에는 더 자주 백업 해야 하는 필요성 또는 추가 포리스트 트러스트를 만들 수 있습니다. 다른 Sku의 제한 및 가격 책정에 대 한 자세한 내용은 [azure AD DS SKU 개념][concepts-sku] 및 [azure AD DS 가격 책정][pricing] 페이지를 참조 하세요.
 
 이 문서에서는 Azure Portal를 사용 하 여 기존 Azure AD DS 관리 되는 도메인에 대 한 SKU를 변경 하는 방법을 보여 줍니다.
 
@@ -38,7 +40,7 @@ Azure Active Directory Domain Services (Azure AD DS)에서 사용할 수 있는 
 
 관리 되는 도메인이 배포 된 후 Sku를 위아래로 변경할 수 있습니다. 그러나 리소스 포리스트 (현재 미리 보기 상태)를 사용 하 고 Azure AD DS에서 온-프레미스 AD DS 환경으로의 단방향 아웃 바운드 포리스트 트러스트를 만든 경우 SKU 변경 작업에 대 한 몇 가지 제한 사항이 있습니다. *Premium* 및 *Enterprise* sku는 만들 수 있는 트러스트의 수에 대 한 제한을 정의 합니다. 현재 구성 된 것 보다 낮은 최대 제한이 있는 SKU로 변경할 수 없습니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 * *프리미엄* SKU에서 두 포리스트 트러스트를 만든 경우 *표준* SKU로 변경할 수 없습니다. *표준* SKU는 포리스트 트러스트를 지원 하지 않습니다.
 * 또는 *프리미엄* SKU에서 7 개의 트러스트를 만든 경우 *Enterprise* SKU로 변경할 수 없습니다. *Enterprise* SKU는 최대 5 개의 트러스트를 지원 합니다.

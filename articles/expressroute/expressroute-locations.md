@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 42c8dd298c1fa0de04449945c7bb82e8b8bd6ff0
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 3505427ab88a2241aa2781366c3d15179b03f050
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856609"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231163"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -205,7 +205,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |지원됨 |지원되지 않음 |베를린 |
+| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |지원됨 |지원되지 않음 |베를린 |
 | **Interxion** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨  | 지원되지 않음 | 베를린 |
 | **T 시스템** |지원됨 |지원되지 않음 |베를린 |
@@ -243,7 +243,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | **연결 공급자** | **Exchange** | **위치** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](https://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |싱가포르 |
-| **[Airgate Technologies, Inc.](https://www.airgate.ca/expressroute)** | Equinix, Cologix | 토론토, 몬트리올 |
+| **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | 토론토, 몬트리올 |
 | **[Alaska Communications](https://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |뉴욕, 워싱턴 DC |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |도쿄 |
@@ -303,7 +303,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 
 ## <a name="connectivity-through-datacenter-providers"></a>데이터 센터 공급자를 통한 연결
 
-| **공급자** | **Exchange** |
+| **공급 기업** | **Exchange** |
 | --- | --- |
 | **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport, PacketFabric |
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport, PacketFabric |
@@ -316,7 +316,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | **[Stream Data Centers]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[RagingWire 데이터 센터](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
-| **[T5 데이터 센터](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
+| **[T5 데이터 센터](https://t5datacenters.com/)** | IX Reach |
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>NREN(National Research and Education Networks)을 통한 연결
 

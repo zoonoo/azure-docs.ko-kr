@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 7db8dcc87606e5c58ddac8f609d1538989af5ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d41893d734037e466ad786641fed98c461adcfc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689302"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231814"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Azure Portal를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 
-이 문서에서는 공용 IP 주소에 대해 ISP 네트워크(**인터넷** 옵션)를 통해 라우팅 기본 설정을 구성하는 방법을 보여줍니다. 공용 IP 주소를 만든 후 인터넷에 대한 인바운드 및 아웃바운드 트래픽을 위해 다음 Azure 리소스와 연결할 수 있습니다.
+이 문서에서는 공용 IP 주소에 대 한 ISP 네트워크 (**인터넷** 옵션)를 통해 [라우팅 기본 설정을](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) 구성 하는 방법을 보여 줍니다. 공용 IP 주소를 만든 후 인터넷에 대한 인바운드 및 아웃바운드 트래픽을 위해 다음 Azure 리소스와 연결할 수 있습니다.
 
 * 가상 머신
 * 가상 머신 크기 집합

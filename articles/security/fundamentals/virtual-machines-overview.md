@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657166"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229366"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
@@ -60,7 +61,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테�
 * [차세대 보호](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [엔드포인트 보호 및 응답](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [자동화된 조사 및 수정](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [보안 점수](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [보안 점수](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
 * [고급 사냥](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [관리 및 API](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -115,7 +116,7 @@ Site Recovery:
 
 자세한 정보:
 
-* [Azure Site Recovery란 무엇인가요?](/azure/site-recovery/site-recovery-overview)
+* [Azure Site Recovery 이란?](/azure/site-recovery/site-recovery-overview)
 * [Azure Site Recovery 작동 방식](/azure/site-recovery/site-recovery-components)
 * [Azure Site Recovery에서 보호 하는 작업은 무엇입니까?](/azure/site-recovery/site-recovery-workload)
 
@@ -157,9 +158,9 @@ Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 
 ## <a name="confidential-computing"></a>기밀 컴퓨팅
 
-기밀 컴퓨팅은 기술적으로 가상 머신 보안의 일부가 아니지만 가상 머신 보안의 항목은 "계산" 보안의 더 높은 수준의 주제에 속합니다. 기밀 컴퓨팅은 "계산" 보안의 범주 내에 속합니다.
+기밀 컴퓨팅은 기술적으로 가상 컴퓨터 보안의 일부가 아니지만 가상 컴퓨터 보안의 항목은 "계산" 보안의 상위 수준에 속합니다. 기밀 컴퓨팅은 "compute" 보안 범주에 속합니다.
 
-기밀 컴퓨팅은 데이터가 효율적인 처리에 필요한 “해제 상태”에 있는 경우 데이터가 TEE(Trusted Execution Environment https://en.wikipedia.org/wiki/Trusted_execution_environment - enclave라고도 알려짐) 내에서 보호되도록 합니다. 예제는 아래 그림에 나와 있습니다.  
+기밀 컴퓨팅을 사용 하면 데이터가 "명확" 하 여 효율적인 처리에 필요한 경우 데이터는 아래 그림에 표시 된 것 처럼 신뢰할 수 있는 실행 환경 https://en.wikipedia.org/wiki/Trusted_execution_environment (enclave이 라고도 함) 내에서 보호 됩니다.  
 
 TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업을 볼 수 있는 방법이 없도록 합니다. 권한 있는 코드만 데이터에 액세스할 수 있도록 합니다. 코드가 변경되거나 변조되는 경우 작업이 거부되고 환경이 비활성화됩니다. TEE는 코드를 실행하는 동안 이러한 보호를 적용합니다.
 

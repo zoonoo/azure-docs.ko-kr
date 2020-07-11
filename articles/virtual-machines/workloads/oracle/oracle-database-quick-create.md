@@ -3,8 +3,8 @@ title: Azure VM에서 Oracle 데이터베이스 만들기 | Microsoft Docs
 description: Azure 환경에서 Oracle Database 12c 데이터베이스를 신속하게 가동하고 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: 070477c638e5a625e0c03751a1778fa0a246cd77
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.author: rogardle
+ms.openlocfilehash: 6705d4d1edebe88a577c71b3e48cd837fa7882c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995822"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222992"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 

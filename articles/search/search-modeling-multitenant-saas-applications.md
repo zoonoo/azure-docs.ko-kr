@@ -8,11 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081112"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230760"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테 넌 트 SaaS 응용 프로그램 및 Azure Cognitive Search에 대 한 디자인 패턴
 
@@ -40,14 +41,14 @@ Azure Cognitive Search를 사용 하는 경우 하나는 *검색 서비스*를 �
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 및 인덱스 제한
 Azure Cognitive Search에는 몇 가지 다른 [가격 책정 계층이](https://azure.microsoft.com/pricing/details/search/) 있으며 각 계층에는 서로 다른 [제한과 할당량이](search-limits-quotas-capacity.md)있습니다. 서비스 수준에서 적용되는 제한도 있고, 인덱스 수준에서 적용되는 제한도 있고, 파티션 수준에서 적용되는 제한도 있습니다.
 
-|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | 기본 | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| 서비스당 최대 복제본 |3 |12 |12 |12 |12 |
-| 서비스당 최대 파티션 |1 |12 |12 |12 |3 |
-| 서비스당 최대 검색 단위(복제본*파티션) |3 |36 |36 |36 |36(파티션 최대 3개) |
-| 서비스당 최대 스토리지 |2GB |300GB |1.2TB |2.4TB |600GB |
-| 파티션당 최대 스토리지 |2GB |25GB |100GB |200GB |200GB |
-| 서비스당 최대 인덱스 |5 |50 |200 |200 |3000(인덱서/파티션 최대 1000) |
+| **서비스당 최대 복제본** |3 |12 |12 |12 |12 |
+| **서비스당 최대 파티션** |1 |12 |12 |12 |3 |
+| **서비스당 최대 검색 단위(복제본*파티션)** |3 |36 |36 |36 |36(파티션 최대 3개) |
+| **서비스당 최대 스토리지** |2GB |300GB |1.2TB |2.4TB |600GB |
+| **파티션당 최대 스토리지** |2GB |25GB |100GB |200GB |200GB |
+| **서비스당 최대 인덱스** |5 |50 |200 |200 |3000(인덱서/파티션 최대 1000) |
 
 #### <a name="s3-high-density"></a>S3 고밀도
 Azure Cognitive Search의 S3 가격 책정 계층에는 다중 테 넌 트 시나리오용으로 특별히 설계 된 HD (고밀도) 모드에 대 한 옵션이 있습니다. 대부분의 경우 간소성 및 비용 효율성을 달성하기 위해 단일 서비스에서 여러 소규모 테넌트를 지원해야 합니다.

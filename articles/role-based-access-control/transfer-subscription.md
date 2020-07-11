@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: f169cf45702d4a5051f9f6908b77c645c7a0018f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042393"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230845"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Azure 구독을 다른 Azure AD 디렉터리 (미리 보기)에 전송
 
@@ -74,7 +74,7 @@ ms.locfileid: "86042393"
 | Azure AD 인증을 사용 하는 azure SQL database | 예 | 아니요 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-other-known-resources) |  |  |
 | Azure Storage 및 Azure Data Lake Storage Gen2 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure Data Lake Storage Gen1 | 예 |  |  | Acl을 다시 만들어야 합니다. |
-| Azure 파일 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
+| Azure Files | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 동기화 | 예 | 예 |  |  |
 | Azure Managed Disks | 예 | 해당 없음 |  |  |
 | Kubernetes 용 Azure Container Service | 예 | 예 |  |  |
@@ -83,7 +83,7 @@ ms.locfileid: "86042393"
 
 전송 중인 동일한 구독에 없는 key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
@@ -189,7 +189,7 @@ ms.locfileid: "86042393"
 
 1. 관리 id를 [지 원하는 Azure 서비스 목록을](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) 검토 하 여 관리 되는 id를 사용할 수 있는 위치를 확인 합니다.
 
-1. [Az ad sp list](/azure/ad/sp#az-ad-sp-list) 를 사용 하 여 시스템 할당 및 사용자 할당 관리 id를 나열 합니다.
+1. [Az ad sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) 를 사용 하 여 시스템 할당 및 사용자 할당 관리 id를 나열 합니다.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"

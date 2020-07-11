@@ -8,11 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: fdc3d4244daa1f3b3d12898d6de42128ae1670ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c3f43ac1c4f427f74c86ccb06018688f80ddb55
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392049"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231117"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>SQL API 용 Azure Cosmos DB .NET Core SDK v2: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -26,7 +27,7 @@ ms.locfileid: "85392049"
 > * [동기 Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * 단계 (/rest/api
-> * [REST 리소스 공급자](/rest/apier/)
+> * [REST 리소스 공급자](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)

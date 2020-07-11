@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135737"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224114"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>CMK (고객이 관리 하는 키)가 설정 된 디스크를 사용 하 여 컴퓨터 복제
 
@@ -81,3 +81,8 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 * 복제 된 항목에 새 CMK 사용 디스크를 추가 했습니다. Azure Site Recovery를 사용 하 여이 디스크를 복제 하려면 어떻게 해야 하나요?
 
     기존 복제 된 항목에 새 CMK 사용 가능 디스크를 추가 하는 것은 지원 되지 않습니다. 복제를 사용 하지 않도록 설정 하 고 가상 컴퓨터에 대해 복제를 다시 사용 하도록 설정 하십시오.
+
+* 플랫폼과 고객이 관리 하는 키를 모두 사용 하도록 설정 했습니다. 디스크를 보호 하려면 어떻게 해야 하나요?
+
+    플랫폼과 고객이 관리 하는 키 둘 다에서 이중 암호화를 사용 하도록 설정 하는 것은 Site Recovery suppprted. 이 문서의 지침에 따라 컴퓨터를 보호 합니다. 사전에 대상 지역에서 더블 암호화를 사용 하도록 설정 된 DES를 만들어야 합니다. 이러한 VM에 대 한 복제를 사용 하도록 설정할 때이 DES를 Site Recovery에 제공할 수 있습니다.
+

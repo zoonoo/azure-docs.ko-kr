@@ -9,11 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792033"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223298"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -122,7 +123,7 @@ pageBlob.WritePages(dataStream, startingOffset);
 
 아래 다이어그램은 2개의 별도 쓰기 작업을 보여 줍니다.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![별도의 두 쓰기 옵션을 보여 주는 다이어그램입니다.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  오프셋 0에서 시작하는 쓰기 작업(1024바이트) 
 2.  오프셋 4096에서 시작하는 쓰기 작업(1024바이트) 
@@ -150,7 +151,7 @@ pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSiz
 
 다음 그림에서는 오프셋이 256이 고 범위 크기가 4352 인 읽기 작업을 보여 줍니다. 반환 된 데이터는 주황색으로 강조 표시 됩니다. NUL 페이지에 대해 0이 반환 됩니다.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![256 오프셋 및 4352의 범위 크기를 사용 하는 읽기 작업을 보여 주는 다이어그램](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 빈약하게 채워진 Blob이 있는 경우 유효한 페이지 영역만 다운로드하여 0바이트 송신에 대한 요금을 방지하고 다운로드 대기 시간을 줄이는 것이 좋습니다.  
 

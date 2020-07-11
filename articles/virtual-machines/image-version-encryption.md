@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683944"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223587"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -194,3 +195,5 @@ Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여
 ## <a name="next-steps"></a>다음 단계
 
 [서버 쪽 디스크 암호화](./windows/disk-encryption.md)에 대해 알아봅니다.
+
+구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

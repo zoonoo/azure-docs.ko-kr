@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 693e552c8743b435fac6fda9d5ab023be5d9adeb
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77482975"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221139"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>클라우드 폴더에서 Azure App Service로 콘텐츠 동기화
 이 문서에서는 Dropbox 및 OneDrive에서 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)로 사용자 콘텐츠를 동기화하는 방법을 보여 줍니다. 
@@ -23,11 +24,11 @@ ms.locfileid: "77482975"
 
 왼쪽 메뉴에서 **Deployment Center**  >  **OneDrive** 또는 **Dropbox**  >  **권한 부여**를 클릭 합니다. 표시되는 인증 메시지를 따릅니다. 
 
-![](media/app-service-deploy-content-sync/choose-source.png)
+![Azure Portal의 배포 센터에서 OneDrive 또는 Dropbox에 권한을 부여 하는 방법을 보여 줍니다.](media/app-service-deploy-content-sync/choose-source.png)
 
 한 번 OneDrive 또는 Dropbox로 인증해야 합니다. 이미 인증된 경우 **계속**을 클릭합니다. **계정 변경**을 클릭하여 인증된 OneDrive 또는 Dropbox 계정을 변경할 수 있습니다.
 
-![](media/app-service-deploy-content-sync/continue.png)
+![Azure Portal의 배포 센터에서 권한이 부여 된 OneDrive 또는 Dropbox 계정을 변경 하는 방법을 보여 줍니다.](media/app-service-deploy-content-sync/continue.png)
 
 **구성** 페이지에서 동기화할 폴더를 선택합니다. 이 폴더는 OneDrive 또는 Dropbox에서 다음과 같은 지정된 콘텐츠 경로 아래에 생성됩니다. 
    
@@ -42,7 +43,7 @@ ms.locfileid: "77482975"
 
 클라우드 폴더에 있는 콘텐츠를 App Service와 동기화하려는 경우 **배포 센터** 페이지로 돌아가서 **동기화**를 클릭합니다.
 
-![](media/app-service-deploy-content-sync/synchronize.png)
+![App Service를 사용 하 여 클라우드 폴더를 동기화 하는 방법을 보여 줍니다.](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
    > API의 기본적인 차이 때문에 **비즈니스용 OneDrive**는 지원되지 않습니다. 
@@ -55,7 +56,7 @@ ms.locfileid: "77482975"
 
 왼쪽 메뉴에서 **배포 센터**  >  **연결 끊기**를 클릭 합니다.
 
-![](media/app-service-deploy-content-sync/disable.png)
+![Azure Portal에서 App Service 앱과 클라우드 폴더 동기화를 분리 하는 방법을 보여 줍니다.](media/app-service-deploy-content-sync/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 

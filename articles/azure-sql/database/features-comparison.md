@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 06/25/2020
-ms.openlocfilehash: e48a027af70ec9d002ddcfbb2ee36ded4ca7875a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4eb1afdd7a6e48d8701dafc6dff44ce6e6db4902
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983522"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231627"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -55,7 +55,7 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [데이터베이스 간/세 부분으로 구성 되는 이름 쿼리](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](elastic-query-overview.md) 참조 | 예. 추가적으로 [탄력적 쿼리](elastic-query-overview.md) |
 | [데이터베이스 간 트랜잭션](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 | 예, 인스턴스 내에 있습니다. 인스턴스 간 쿼리에 대 한 [연결 된 서버 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) 을 참조 하세요. |
 | [데이터베이스 메일-DbMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 예 | 예 |
-| [데이터베이스 미러링](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 아니요 | [아니요](../managed-instance/transact-sql-tsql-differences-sql-server.md#database-mirroring) |
+| [데이터베이스 미러링](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 아니요 | ‘아니요’ |
 | [데이터베이스 스냅숏](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | 아니요 | 아니요 |
 | [DBCC 문](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | 대부분 - 개별 문 참조 | 예 - [DBCC 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#dbcc) 참조 |
 | [DDL 문](https://docs.microsoft.com/sql/t-sql/statements/statements) | 대부분 - 개별 문 참조 | 예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
@@ -69,7 +69,7 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [확장 이벤트 (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 일부 - [SQL Database의 확장 이벤트](xevent-db-diff-from-svr.md) 참조 | 예 - [확장 이벤트 차이](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) 참조 |
 | [확장된 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 아니요 | 아니요 |
 | [파일 및 파일 그룹](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 기본 파일 그룹만 해당 | 예. 파일 경로는 자동으로 할당 되며 문에서 파일 위치를 지정할 수 없습니다 `ALTER DATABASE ADD FILE` [statement](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
-| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 아니요 | [아니요](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
+| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 아니요 | ‘아니요’ |
 | [전체 텍스트 검색 (FT)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  예, 하지만 타사 단어 분리기는 지원 되지 않습니다. | 예, 하지만 [타사 단어 분리기는 지원 되지 않습니다](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) . |
 | [함수](https://docs.microsoft.com/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) 참조 |
 | [메모리 내 최적화](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 예- [프리미엄 및 중요 비즈니스용 계층은](../in-memory-oltp-overview.md) 테이블 형식과 같은 비영구 메모리 내 개체만을 제한적으로 지원 합니다. | 예 - [중요 비즈니스용 계층만 해당](../managed-instance/sql-managed-instance-paas-overview.md) |
@@ -118,7 +118,7 @@ Azure 플랫폼은 표준 데이터베이스 기능에 추가 값으로 추가 �
 
 | **플랫폼 기능** | **Azure SQL Database** | **Azure SQL Managed Instance** |
 | --- | --- | --- |
-| [활성 지리적 복제](active-geo-replication-overview.md) | 예-대규모 이외의 모든 서비스 계층 | 아니요, 대 안으로 [자동 장애 조치 (failover) 그룹](auto-failover-group-overview.md) 을 참조 하세요. |
+| [활성 지역 복제](active-geo-replication-overview.md) | 예-대규모 이외의 모든 서비스 계층 | 아니요, 대 안으로 [자동 장애 조치 (failover) 그룹](auto-failover-group-overview.md) 을 참조 하세요. |
 | [자동 장애 조치 그룹](auto-failover-group-overview.md) | 예-대규모 이외의 모든 서비스 계층 | 예, [자동 장애 조치 그룹](auto-failover-group-overview.md) 을 참조 하세요.|
 | 자동 크기 조정 | 예, 하지만 서버 리스 [모델](serverless-tier-overview.md)에서만 사용 됩니다. 서버를 사용 하지 않는 모델에서는 서비스 계층의 변경 (vCore, 저장소 또는 DTU 변경)이 빠르고 온라인 상태입니다. 서비스 계층을 변경 하려면 가동 중지 시간을 최소화 해야 합니다. | 아니요, 예약 된 계산 및 저장소를 선택 해야 합니다. 서비스 계층 (vCore 또는 max storage)의 변경은 온라인 상태 이며 가동 중지 시간을 최소화 하거나 거의 필요 하지 않습니다. |
 | [자동 백업](automated-backups-overview.md) | 예. 전체 백업은 7 일, 차등 12 시간 및 로그 백업 마다 5-10 분 마다 수행 됩니다. | 예. 전체 백업은 7 일, 차등 12 시간 및 로그 백업 마다 5-10 분 마다 수행 됩니다. |
@@ -167,7 +167,7 @@ Azure SQL Database 및 Azure SQL Managed Instance는 데이터를 관리 하는 
 | [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 예 | 예 [버전 18.0 이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 예 | 예 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](xevent-db-diff-from-svr.md) 참조 | 예 |
-| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 예, [미리 보기](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 예, [미리 보기](https://www.microsoft.com/download/details.aspx?id=38829) |
 
 ## <a name="migration-methods"></a>마이그레이션 방법
 

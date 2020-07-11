@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649137"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223859"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](deploy-local-git.md) 및 [FTP/S 배포](deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이러한 자격 증명은 Azure 구독 자격 증명과 동일하지 않습니다.
@@ -22,7 +23,7 @@ ms.locfileid: "83649137"
 
 ### <a name="in-the-cloud-shell"></a>Cloud Shell에서
 
-[Cloud Shell](https://shell.azure.com)에서 배포 사용자를 구성하려면 [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 명령을 실행합니다. \<username> 및 \<password>를 배포 사용자 이름 및 암호로 바꿉니다. 
+[Cloud Shell](https://shell.azure.com)에서 배포 사용자를 구성하려면 [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 명령을 실행합니다. \<username>및를 \<password> 배포 사용자 사용자 이름 및 암호로 바꿉니다. 
 
 - 사용자 이름은 Azure 내에서 고유해야 하고, 로컬 Git 푸시의경우 ' @' 기호를 포함하면 안 됩니다. 
 - 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다. 
@@ -37,19 +38,19 @@ JSON 출력에는 암호가 `null`로 나옵니다. `'Conflict'. Details: 409` �
 
 Azure Portal에서 배포 자격 증명 페이지에 액세스하려면 앱이 하나 이상 있어야 합니다. 사용자 수준 자격 증명을 구성하려면
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** >  **\<any_app >**  > **배포 센터** > **FTP** > **대시보드**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services**  >  **\<any_app>**  >  **Deployment center**  >  **FTP**  >  **대시보드**를 선택 합니다.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Azure 앱 Services의 배포 센터에서 FTP 대시보드를 선택 하는 방법을 보여 줍니다.](./media/app-service-deployment-credentials/access-no-git.png)
 
     또는 Git 배포를 이미 구성한 경우 **App Services** >  **&lt;any_app>**  > **배포 센터** > **FTP/자격 증명**을 선택합니다.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![구성 된 Git 배포에 대 한 Azure 앱 Services의 배포 센터에서 FTP 대시보드를 선택 하는 방법을 보여 줍니다.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. **사용자 자격 증명**을 선택하여 사용자 이름 및 암호를 구성한 다음, **자격 증명 저장**을 선택합니다.
 
 배포 자격 증명을 설정하면 앱의 **개요** 페이지에서 *Git* 배포 사용자 이름을 찾을 수 있습니다.
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![앱의 개요 페이지에서 Git 배포 사용자 이름을 찾는 방법을 보여 줍니다.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 Git 배포가 구성된 경우 페이지에 **Git/배포 사용자 이름**이 표시됩니다. 그렇지 않으면 **FTP/배포 사용자 이름**이 표시됩니다.
 

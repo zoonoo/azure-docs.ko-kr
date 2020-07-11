@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833794"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224097"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -801,7 +801,7 @@ https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
 GitHub 웹후크에 응답하려면 먼저 HTTP 트리거를 사용하여 함수를 만들고 **webHookType** 속성을 `github`로 설정합니다. 그런 다음 URL 및 API 키를 GitHub 리포지토리의 **웹후크 추가** 페이지에 복사합니다. 
 
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![함수에 대 한 webhook를 추가 하는 방법을 보여 주는 스크린샷](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### <a name="slack-webhooks"></a>Slack 웹후크
 

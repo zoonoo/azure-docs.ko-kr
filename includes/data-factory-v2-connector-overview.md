@@ -2,14 +2,14 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/28/2020
+ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 37d87d9613c679bbc9060a390055ff5920185eda
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cda0efdc3eb168ec760cbc8d7932a93ba9c079fe
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142025"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224822"
 ---
 | 범주              | 데이터 저장소                                                   | [복사 작업](../articles/data-factory/copy-activity-overview.md)(원본/싱크) | [매핑 데이터 흐름](../articles/data-factory/concepts-data-flow-overview.md)(원본/싱크) | [조회 작업](../articles/data-factory/control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../articles/data-factory/control-flow-get-metadata-activity.md)/[유효성 검사 작업](../articles/data-factory/control-flow-validation-activity.md) | [활동 삭제](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -74,7 +74,7 @@ ms.locfileid: "86142025"
 | &nbsp;                | [Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure IoT Hub](../articles/data-factory/connector-dynamics-ax.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [GitHub](../articles/data-factory/connector-github.md)       |                                                              | Common Data Model 엔터티 참조                       |                                                              |                                                              |                                                              |
+| &nbsp;                | [GitHub](../articles/data-factory/connector-github.md) |                                                           |  <small>Common Data Model 엔터티 참조</small> |              |                                                              |                                                              |
 | &nbsp;                | [Google AdWords](../articles/data-factory/connector-google-adwords.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [HubSpot(미리 보기)](../articles/data-factory/connector-hubspot.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Jira](../articles/data-factory/connector-jira.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

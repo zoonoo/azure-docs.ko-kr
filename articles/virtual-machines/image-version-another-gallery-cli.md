@@ -1,5 +1,5 @@
 ---
-title: 다른 갤러리에서 이미지 버전 복사
+title: CLI를 사용 하 여 다른 갤러리에서 이미지 버전 복사
 description: Azure CLI를 사용 하 여 다른 갤러리에서 이미지 버전을 복사 합니다.
 author: cynthn
 ms.service: virtual-machines
@@ -9,13 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797059"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224335"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>다른 갤러리에서 이미지 복사
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Azure CLI를 사용 하 여 다른 갤러리에서 이미지 복사
 
 조직에 여러 갤러리가 있는 경우 다른 갤러리에 저장 된 기존 이미지 버전에서 이미지 버전을 만들 수도 있습니다. 예를 들어 새 이미지를 만들고 테스트 하기 위한 개발 및 테스트 갤러리가 있을 수 있습니다. 프로덕션 환경에서 사용할 준비가 되 면이 예제를 사용 하 여 프로덕션 갤러리에 복사할 수 있습니다. [Azure PowerShell](image-version-another-gallery-powershell.md)를 사용 하 여 다른 갤러리의 이미지에서 이미지를 만들 수도 있습니다.
 
@@ -83,7 +84,7 @@ az sig image-definition show \
    --gallery-image-definition myImageDefinition
 ```
 
-출력은 다음과 같이 표시됩니다.
+출력은 다음과 비슷할 것입니다.
 
 ```output
 {
@@ -161,3 +162,5 @@ az sig image-version create \
 [일반화](vm-generalized-image-version-cli.md) 된 이미지 버전 또는 [특수](vm-specialized-image-version-cli.md) 이미지 버전에서 VM을 만듭니다.
 
 또한 [Azure 이미지 작성기 (미리 보기)](./linux/image-builder-overview.md) 를 사용 하면 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전을](./linux/image-builder-gallery-update-image-version.md)업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
+
+구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

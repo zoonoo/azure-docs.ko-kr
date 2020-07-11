@@ -3,8 +3,8 @@ title: Microsoft Azure와 Oracle 클라우드 인프라 통합 | Microsoft Docs
 description: Microsoft Azure에서 실행되는 Oracle 앱을 OCI(Oracle 클라우드 인프라)의 데이터베이스와 통합하는 솔루션에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d93446f4db914c736235daeb4e08e82b9ff00e62
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299879"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224505"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Microsoft Azure와 Oracle 클라우드 인프라를 통합하는 Oracle 애플리케이션 솔루션
 

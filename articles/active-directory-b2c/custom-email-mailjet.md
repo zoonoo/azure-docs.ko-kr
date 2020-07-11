@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b66ef1a28faf97759045d40ea0f649282b2d837
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91360776c50ce514985ad36242606223becbd933
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85398023"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230879"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Mailjet를 사용 하 여 사용자 지정 전자 메일 확인
 
@@ -57,7 +57,7 @@ Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 전자 메일을 �
 
 ## <a name="create-a-mailjet-template"></a>Mailjet 템플릿 만들기
 
-Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 저장 된 상태에서 Mailjet [동적 트랜잭션 템플릿을](https://Mailjet.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)만듭니다.
+Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 저장 된 상태에서 Mailjet [동적 트랜잭션 템플릿을](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)만듭니다.
 
 1. Mailjet 사이트에서 [트랜잭션 템플릿](https://app.mailjet.com/templates/transactional) 페이지를 열고 **새 템플릿 만들기**를 선택 합니다.
 1. **HTML로 코딩 하 여**선택한 다음, **처음부터 코드**를 선택 합니다.

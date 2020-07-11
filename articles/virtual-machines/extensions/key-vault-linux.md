@@ -8,11 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b651776ccd8c93271b57eab0efa24c6a79f50a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676236"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224267"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -57,8 +58,12 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-        }      
-      }
+        },
+        "authenticationSettings": {
+                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
+                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
+       }
       }
     }
 ```
@@ -68,10 +73,14 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 > 
 > `/secrets` 경로가 프라이빗 키를 포함하여 전체 인증서를 반환하지만 `/certificates` 경로에서는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 찾을 수 있습니다. [Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
+> [!NOTE]
+> ' AuthenticationSettings ' 속성은 VM에 할당 된 id가 여러 개 있는 시나리오의 경우 선택 사항입니다.
+> 지정 id를 사용 하 여 Key Vault 인증할 수 있습니다.
+
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -83,6 +92,8 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | 문자열 |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 문자열 배열
+| msiEndpoint | http://169.254.169.254/metadata/identity | 문자열 |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | 문자열 |
 
 
 ## <a name="template-deployment"></a>템플릿 배포

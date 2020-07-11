@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505446"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229570"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 탑재
 
@@ -102,7 +102,7 @@ IP 주소는 vserver에 대해 정의된 클라이언트 측 IP 주소 중 하�
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| 필수 설정 | |
+| 필수 설정 | 설명 |
 --- | ---
 ``hard`` | vFXT 클러스터에 대한 소프트 탑재는 애플리케이션 오류 및 가능한 데이터 손실과 관련이 있습니다.
 ``proto=netid`` | NFS 네트워크 오류를 적절하게 처리하도록 지원합니다.

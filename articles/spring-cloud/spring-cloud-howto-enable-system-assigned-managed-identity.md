@@ -6,18 +6,19 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: d113d20e87d58bad007a35fce47d597a67849a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aadc5806f0c5c610dc28b32039ca944af87ab13
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445205"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231729"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Azure 스프링 클라우드 응용 프로그램에 대해 시스템 할당 관리 id를 사용 하도록 설정 하는 방법
 Azure 리소스에 대 한 관리 되는 id는 Azure 스프링 클라우드 응용 프로그램과 같은 Azure 리소스에 Azure Active Directory 자동으로 관리 되는 id를 제공 합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 이 문서에서는 Azure Portal 및 CLI (버전 0.2.4에서 사용 가능)를 사용 하 여 Azure 스프링 클라우드 앱에 대 한 시스템 할당 관리 id를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 Azure 리소스에 대 한 관리 id에 익숙하지 않은 경우 [개요 섹션](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)을 참조 하세요.
 배포 된 Azure 스프링 클라우드 인스턴스가 필요 합니다. Azure CLI를 [사용 하 여 배포 하는 빠른 시작을](spring-cloud-quickstart-launch-app-cli.md)따르세요.
 
@@ -80,6 +81,6 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 
 ## <a name="next-steps"></a>다음 단계
 * [Java SDK에서 관리 되는 id를 사용 하는 방법](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-* [스프링 부팅 스타터에서 관리 id를 사용 하 여 Azure Key Vault 액세스](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
+* [스프링 부팅 스타터에서 관리 id를 사용 하 여 Azure Key Vault 액세스](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 정보](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 

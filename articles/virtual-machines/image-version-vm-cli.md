@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f53a6b63c744b0e3e41f7ad22270cd842da57674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a983fd65a4934f53643bb21c8751e90dcb9eb21
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796578"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223536"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure의 VM에서 이미지 버전 만들기
 
@@ -105,3 +105,5 @@ az sig image-version create \
 ## <a name="next-steps"></a>다음 단계
 
 Azure CLI를 사용 하 여 [일반화 된 이미지](vm-generalized-image-version-cli.md) 에서 VM을 만듭니다.
+
+구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

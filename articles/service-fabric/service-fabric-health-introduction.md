@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 82e61b2bf127ba86d06aba3110a000ed28a79833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a6e8b2baa400e1221ac1e8271e04cdaa912aff6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392763"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224148"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
@@ -64,7 +65,7 @@ Health 스토어는 클러스터의 엔터티에 대한 상태 관련 정보를 
 * **확인**. 엔터티가 정상입니다. 엔터티 또는 자식(해당하는 경우)에 대해 보고된 알려진 문제가 없습니다.
 * **경고** 엔터티에 몇 가지 문제가 있지만 여전히 제대로 작동합니다. 예를 들어, 지연이 있으나 아직 기능상의 문제는 없습니다. 일부 경우 외부 개입 없이도 경고 상태가 자체 해결되기도 합니다. 이러한 경우 상태 보고서는 알림을 전달하고 상황에 대한 정보를 제공합니다. 또한 사용자 개입이 없으면 심각한 문제를 초래하는 경고 상태도 있을 수 있습니다.
 * **오류** 엔터티가 비정상입니다. 엔터티가 제대로 작동하지 않으므로 해당 엔터티의 상태를 해결하는 조치를 취해야 합니다.
-* **알 수 없음**. 엔터티가 Health 스토어에 존재하지 않습니다. 이 결과는 여러 구성 요소에서 결과를 병합하는 분산 쿼리에서 얻을 수 있습니다. 예를 들어, 노드 목록 가져오기 쿼리는**FailoverManager**, **ClusterManager** 및 **HealthManager**로, 애플리케이션 목록 가져오기 쿼리는 **ClusterManager** 및 **HealthManager**로 갑니다. 이들 쿼리는 여러 시스템 구성 요소의 결과를 병합합니다. 다른 시스템 구성 요소에서 상태 저장소에 없는 엔터티를 반환할 경우 병합된 결과에 알 수 없는 상태가 있습니다. 상태 보고서가 아직 처리되지 않았거나 엔터티가 삭제 후 정리되지 않아 엔터티가 저장소에 없습니다.
+* ‘알 수 없음’. 엔터티가 Health 스토어에 존재하지 않습니다. 이 결과는 여러 구성 요소에서 결과를 병합하는 분산 쿼리에서 얻을 수 있습니다. 예를 들어, 노드 목록 가져오기 쿼리는**FailoverManager**, **ClusterManager** 및 **HealthManager**로, 애플리케이션 목록 가져오기 쿼리는 **ClusterManager** 및 **HealthManager**로 갑니다. 이들 쿼리는 여러 시스템 구성 요소의 결과를 병합합니다. 다른 시스템 구성 요소에서 상태 저장소에 없는 엔터티를 반환할 경우 병합된 결과에 알 수 없는 상태가 있습니다. 상태 보고서가 아직 처리되지 않았거나 엔터티가 삭제 후 정리되지 않아 엔터티가 저장소에 없습니다.
 
 ## <a name="health-policies"></a>상태 정책
 Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 따라 엔터티가 정상인지 결정합니다.
@@ -83,7 +84,7 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 * [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
 * [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). 클러스터에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 애플리케이션의 최대 허용 비율을 지정합니다.
 * [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). 클러스터에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 노드의 최대 허용 비율을 지정합니다. 대형 클러스터에는 항상 복구를 위해 다운되거나 중단되는 노드가 있으므로 이 비율은 이를 허용할 수 있도록 구성되어야 합니다.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). 클러스터 상태를 평가하는 동안 애플리케이션 유형 상태 정책 맵을 사용하여 특수 애플리케이션 유형을 설명할 수 있습니다. 기본적으로 모든 애플리케이션은 풀에 배치되고 MaxPercentUnhealthyApplications를 사용하여 평가됩니다. 일부 애플리케이션 유형을 다르게 처리해야 하는 경우, 전역 풀에서 꺼낼 수 있습니다. 대신, 맵 내의 해당 애플리케이션 유형 이름과 연결된 백분율에 대해 평가됩니다. 예를 들어 클러스터에는 다양한 유형의 애플리케이션 수천 개와 특수 애플리케이션 유형의 제어 애플리케이션 인스턴스가 약간 있습니다. 제어 애플리케이션은 절대 오류가 발생하면 안 됩니다. 일부 실패를 허용하도록 전체 MaxPercentUnhealthyApplications를 20%로 설정할 수 있지만, 애플리케이션 유형 "ControlApplicationType"의 경우에는 MaxPercentUnhealthyApplications를 0으로 설정해야 합니다. 이러한 방식으로, 여러 애플리케이션 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터가 경고로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 하지만 제어 애플리케이션 중 하나라도 잘못되면 클러스터가 비정상 상태가 되고, 이로 인해 클러스터 업그레이드는 업그레이드 구성에 따라 롤백 또는 차단됩니다.
+* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). 클러스터 상태를 평가하는 동안 애플리케이션 유형 상태 정책 맵을 사용하여 특수 애플리케이션 유형을 설명할 수 있습니다. 기본적으로 모든 애플리케이션은 풀에 배치되고 MaxPercentUnhealthyApplications를 사용하여 평가됩니다. 일부 애플리케이션 유형을 다르게 처리해야 하는 경우, 전역 풀에서 꺼낼 수 있습니다. 대신, 맵 내의 해당 애플리케이션 유형 이름과 연결된 백분율에 대해 평가됩니다. 예를 들어 클러스터에는 다양한 유형의 애플리케이션 수천 개와 특수 애플리케이션 유형의 제어 애플리케이션 인스턴스가 약간 있습니다. 제어 애플리케이션은 절대 오류가 발생하면 안 됩니다. 일부 실패를 허용하도록 전체 MaxPercentUnhealthyApplications를 20%로 설정할 수 있지만, 애플리케이션 유형 "ControlApplicationType"의 경우에는 MaxPercentUnhealthyApplications를 0으로 설정해야 합니다. 이러한 방식으로, 여러 애플리케이션 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터가 경고로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 그러나 한 가지 응용 프로그램 응용 프로그램에서 오류가 발생 하는 경우에도 클러스터를 비정상으로 만들 수 있습니다. 그러면 업그레이드 구성에 따라 클러스터 업그레이드를 트리거하고 일시 중지 합니다.
   맵에 정의된 애플리케이션 유형의 경우 모든 애플리케이션 인스턴스를 애플리케이션 전체 풀에서 가져옵니다. 이러한 애플리케이션은 맵의 특정 MaxPercentUnhealthyApplications를 사용하여 총 애플리케이션 수를 기반으로 평가됩니다. 나머지 애플리케이션은 전체 풀에 남아 있으며 MaxPercentUnhealthyApplications를 사용하여 평가됩니다.
 
 다음 예제는 클러스터 매니페스트에서 발췌한 내용입니다. 애플리케이션 유형 맵에 항목을 정의하려면 매개 변수 이름 앞에 "ApplicationTypeMaxPercentUnhealthyApplications-"를 붙이고 그 뒤에 애플리케이션 유형 이름을 붙이면 됩니다.

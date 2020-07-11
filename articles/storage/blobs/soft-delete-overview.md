@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884632"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223791"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Blob Storage에 대한 일시 삭제
 
@@ -53,7 +54,7 @@ Microsoft는 데이터가 애플리케이션 또는 다른 스토리지 계정 �
 
 Blob **배치**, **블록 목록 배치**또는 **blob 복사**를 사용 하 여 blob을 덮어쓰는 경우 쓰기 작업 이전에 blob 상태의 버전이 나 스냅숏이 자동으로 생성 됩니다. 일시 삭제 된 개체가 명시적으로 나열 되지 않은 경우이 개체는 표시 되지 않습니다. 일시 삭제된 개체를 나열하는 방법을 알아보려면 [복구](#recovery) 섹션을 참조하세요.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Blob 추가, 블록 목록 배치 또는 Blob 복사를 사용 하 여 blob의 스냅숏을 덮어쓰는 방법을 보여 주는 다이어그램입니다.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. B0을 B1로 덮어쓰면 일시 삭제 된 B0 스냅숏이 생성 됩니다. B2를 B2로 덮어쓰면 B1의 일시 삭제 된 스냅숏이 생성 됩니다.*
 
@@ -65,13 +66,13 @@ Blob **배치**, **블록 목록 배치**또는 **blob 복사**를 사용 하 �
 
 **Blob 삭제**가 스냅샷에서 호출되는 경우 해당 스냅샷은 일시 삭제됨으로 표시됩니다. 새 스냅샷이 생성되지 않습니다.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Blob 삭제를 사용할 때 blob 스냅숏이 일시 삭제 되는 방법을 보여 주는 다이어그램입니다.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. **Snapshot Blob** 이 호출 되 면 B0은 스냅숏이 되 고 B1은 blob의 활성 상태입니다. B0 스냅숏이 삭제 되 면 일시 삭제로 표시 됩니다.*
 
 기본 Blob에서 **Blob 삭제**가 호출되는 경우(자체 스냅샷이 아닌 모든 Blob) 해당 Blob은 일시 삭제됨으로 표시됩니다. 이전 동작과 일치하는 활성 스냅샷이 있는 Blob에서 **Blob 삭제**를 호출하면 오류를 반환합니다. 일시 삭제된 스냅샷이 있는 Blob에서 **Blob 삭제**를 호출하면 오류를 반환하지 않습니다. 일시 삭제가 설정되면 단일 작업에서 Blob 및 모든 해당 스냅샷을 여전히 삭제할 수 있습니다. 이렇게 하면 기본 Blob 및 스냅샷을 일시 삭제됨으로 표시합니다.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![기본 blob에서 블로그 삭제가 호출 될 때 발생 하는 결과를 보여 주는 다이어그램](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. 여기서 **Delete Blob** 호출은 B2와 연결 된 모든 스냅숏을 삭제 합니다. 활성 blob, B2 및 연결 된 모든 스냅숏이 일시 삭제로 표시 됩니다.*
 
@@ -82,7 +83,7 @@ Blob **배치**, **블록 목록 배치**또는 **blob 복사**를 사용 하 �
 
 다음 표는 일시 삭제가 설정된 경우 예상되는 동작을 자세히 설명합니다.
 
-| REST API 작업 | 리소스 유형 | 설명 | 동작 변경 |
+| REST API 작업 | 리소스 종류 | 설명 | 동작 변경 |
 |--------------------|---------------|-------------|--------------------|
 | [삭제](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경 없음 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
 | [컨테이너 삭제](/rest/api/storageservices/delete-container) | 컨테이너 | 포함하는 모든 Blob을 포함하여 컨테이너를 삭제합니다. | 변경 없음 삭제된 컨테이너의 Blob은 복구할 수 없습니다. |
@@ -104,7 +105,7 @@ Blob **배치**, **블록 목록 배치**또는 **blob 복사**를 사용 하 �
 
 Blob을 일시 삭제 된 특정 스냅숏으로 복원 하려면 기본 blob에서 **삭제 취소 blob** 을 호출 하면 됩니다. 그런 다음, 현재 활성 Blob을 통해 스냅샷을 복사할 수 있습니다. 새 Blob에 스냅샷을 복사할 수도 있습니다.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![삭제 취소 blob을 사용 하는 경우 수행 되는 작업을 보여 주는 다이어그램](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. 여기서는 blob B에서 **삭제 취소 blob** 을 호출 하 여 기본 Blob, B1 및 연결 된 모든 스냅숏을 복원 합니다. 여기에서는 B0만 활성으로 복원 합니다. 두 번째 단계에서는 B0이 기본 blob을 통해 복사 됩니다. 이 복사 작업은 B1의 일시 삭제 된 스냅숏을 생성 합니다.*
 

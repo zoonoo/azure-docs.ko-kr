@@ -1,28 +1,26 @@
 ---
-title: Azure에서 Windows VM 이미지 선택
+title: Azure Marketplace 이미지 찾기 및 사용
 description: Azure PowerShell을 사용하여 Marketplace VM 이미지의 게시자, 제품, SKU 및 버전을 확인합니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083368"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224250"
 ---
-# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지 찾기
+# <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Marketplace에서 VM 이미지 찾기 및 사용
 
-이 문서에서는 Azure PowerShell을 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. 그런 다음, PowerShell, Resource Manager 템플릿 또는 기타 도구를 사용하여 프로그래밍 방식으로 VM을 생성할 때 Marketplace 이미지를 지정할 수 있습니다.
+이 문서에서는 Azure PowerShell을 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. 그런 다음 VM을 만들 때 Marketplace 이미지를 지정할 수 있습니다.
 
 또한 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 상점, [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](../linux/cli-ps-findimage.md)를 사용하여 사용 가능한 이미지와 제품을 찾을 수 있습니다. 
 
- 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -41,8 +39,8 @@ ms.locfileid: "82083368"
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftSharePoint |MicrosoftSharePointServer |sp2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
-| MicrosoftRServer |RServer-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2019-WS2016 |엔터프라이즈 |
+| MicrosoftRServer |RServer-WS2016 |엔터프라이즈 |
 
 ## <a name="navigate-the-images"></a>이미지 이동
 
@@ -318,7 +316,6 @@ $vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $publisherName -Off
 
 기본 이미지 정보를 사용하여 `New-AzVM` cmdlet으로 가상 머신을 빠르게 만들려면 [PowerShell을 사용하여 Windows 가상 머신 만들기](quick-create-powershell.md)를 참조하세요.
 
-
-PowerShell 스크립트 예제를 참조하여 [완전히 구성된 가상 머신을 만드세요](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Azure Marketplace 이미지를 사용 하 여 공유 이미지 갤러리에서 사용자 지정 이미지를 만드는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../marketplace-images.md)을 참조 하세요.
 
 

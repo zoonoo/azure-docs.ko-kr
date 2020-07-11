@@ -4,8 +4,6 @@
   items:
     - name: Microsoft ID 플랫폼이란?
       href: v2-overview.md
-    - name: Microsoft ID 플랫폼의 발전
-      href: about-microsoft-identity-platform.md
 - name: 빠른 시작
   expanded: true
   items:

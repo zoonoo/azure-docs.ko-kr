@@ -3,11 +3,12 @@ title: Application Insights를 사용하여 SharePoint 사이트 모니터링
 description: 새 계측 키를 사용하여 새 애플리케이션 모니터링 시작
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671446"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221054"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
 Azure Application Insights는 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
@@ -48,18 +49,18 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 마스터 페이지를 체크 아웃하고 SharePoint Designer 또는 다른 편집기를 사용하여 편집합니다.
 
-![](./media/sharepoint/03-master.png)
+![Sharepoing 디자이너 또는 다른 편집기를 사용 하 여 마스터 페이지를 편집 하는 방법을 보여 주는 스크린샷](./media/sharepoint/03-master.png)
 
 바로 앞에 코드를 추가 합니다. </head> 태그가. 
 
-![](./media/sharepoint/04-code.png)
+![사이트 페이지에 코드를 추가할 위치를 보여 주는 스크린샷](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>또는 개별 페이지에서
 제한된 페이지 집합을 모니터링하려면 각 페이지에 개별적으로 스크립트를 추가합니다. 
 
 웹 파트를 삽입하고 코드 조각을 포함합니다.
 
-![](./media/sharepoint/05-page.png)
+![제한 된 페이지 집합을 모니터링 하는 스크립트를 추가 하는 방법을 보여 주는 스크린샷](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>앱에 대한 데이터 보기
 응용 프로그램을 다시 배포 합니다.
@@ -68,7 +69,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 첫 번째 이벤트가 검색에 표시됩니다. 
 
-![](./media/sharepoint/09-search.png)
+![앱에서 볼 수 있는 새 데이터를 보여 주는 스크린샷](./media/sharepoint/09-search.png)
 
 더 많은 데이터를 기대하는 경우 몇 초 후에 새로고침을 클릭합니다.
 
@@ -77,7 +78,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 1. Application Insights의 Essentials 드롭 다운에서 앱의 계측 키를 복사합니다. 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Application Insights의 Essentials 드롭다운에서 앱의 계측을 복사 하는 것을 보여 주는 스크린샷](./media/sharepoint/02-props.png)
 
 1. 다음 코드 조각에서 'XXXX'에 대한 계측 키를 대체합니다. 
 2. 포털에서 가져온 코드 조각 대신 SharePoint 앱에 스크립트를 포함합니다.

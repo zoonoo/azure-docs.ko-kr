@@ -9,11 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838470"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223519"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>미리 보기: VM에서 이미지 만들기
 
@@ -138,3 +139,5 @@ $job.State
 ## <a name="next-steps"></a>다음 단계
 
 새 이미지 버전이 제대로 작동 하는지 확인 한 후 VM을 만들 수 있습니다. [특수 이미지 버전](vm-specialized-image-version-powershell.md) 또는 [일반화 된 이미지 버전](vm-generalized-image-version-powershell.md)에서 VM을 만듭니다.
+
+구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

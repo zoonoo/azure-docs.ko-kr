@@ -9,11 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765100"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224862"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -62,7 +63,7 @@ ms.locfileid: "84765100"
 **4단계** - 다음 설명은 위의 다이어그램에서 녹색 숫자로 된 단계에 해당합니다.  
   (1) - 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
   (2)-Key Vault는 CA에 TLS/SSL 인증서 요청을 보냅니다.  
-  (3) - 애플리케이션이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서를 통해 CA의 응답을 수신하는 경우 인증서 만들기가 완료됩니다.  
+  (3) - 애플리케이션이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서로 CA의 응답을 받으면 인증서 작성이 완료된 것입니다.  
   (4)-CA는 X509 TLS/SSL 인증서를 사용 하 여 Key Vault의 TLS/SSL 인증서 요청에 응답 합니다.  
   (5) - 새 인증서 만들기는 CA에 대한 X509 인증서를 병합하여 완료합니다.  
 
@@ -79,6 +80,9 @@ ms.locfileid: "84765100"
 [인증서 작업 가져오기](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   상태: 완료, 오류 정보와 함께 실패 또는 취소  
       -   만들기에 대한 지연으로 인해 취소 작업을 시작할 수 있습니다. 취소가 적용되거나 적용되지 않을 수 있습니다.  
+
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>통합 CA와 연결 된 네트워크 보안 및 액세스 정책
+Key Vault 서비스는 CA (아웃 바운드 트래픽)에 요청을 보냅니다. 따라서 방화벽을 사용 하는 키 자격 증명 모음과 완벽 하 게 호환 됩니다. Key Vault는 CA와 액세스 정책을 공유 하지 않습니다. CA는 개별적으로 서명 요청을 수락 하도록 구성 되어야 합니다. [신뢰할 수 있는 CA 통합 가이드](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
 
 ## <a name="import-a-certificate"></a>인증서 가져오기  
  또는 - Key Vault로 인증서를 가져올 수 있습니다(PFX 또는 PEM).  

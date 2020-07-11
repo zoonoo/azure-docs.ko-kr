@@ -5,22 +5,22 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 740c5dfb7dd4bece32aa2df5ef47d5f87091445b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055497"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231644"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
-기본적으로 AKS 클러스터는 [kubenet][kubenet]을 사용합니다. 그러면 Azure Virtual Network 및 서브넷이 만들어집니다. *kubenet*을 사용하면 노드는 Azure Virtual Network 서브넷의 IP 주소를 얻습니다. Pod는 논리적으로 다른 주소 공간에서 Azure Virtual Network 노드 서브넷에 대한 IP 주소를 받습니다. 그런 후에 NAT(Network Address Translation)는 Pod가 Azure Virtual Network의 리소스에 연결할 수 있도록 구성됩니다. 트래픽의 원본 IP 주소는 노드의 기본 IP 주소로 NAT됩니다. 이 방법을 사용하면 네트워크 공간에서 Pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
+기본적으로 AKS 클러스터는 [kubenet][kubenet]을 사용합니다. 그러면 Azure Virtual Network 및 서브넷이 만들어집니다. *kubenet*을 사용하면 노드는 Azure Virtual Network 서브넷의 IP 주소를 얻습니다. Pod는 논리적으로 다른 주소 공간에서 노드의 Azure 가상 네트워크 서브넷으로 IP 주소를 수신합니다. 그러면 Pod가 Azure 가상 네트워크의 리소스에 연결할 수 있도록 NAT(Network Address Translation)가 구성됩니다. 트래픽의 원본 IP 주소는 노드의 기본 IP 주소로 NAT됩니다. 이 방법을 사용하면 네트워크 공간에서 Pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
 
 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스할 수 있습니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획되어야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 구축해야 할 수 있습니다. 클러스터를 만들 때 또는 새 노드 풀을 만들 때 노드에 배포할 수 있는 최대 pod 수를 구성할 수 있습니다. 새 노드 풀을 만들 때 maxPods를 지정 하지 않으면 kubenet의 기본값 110이 표시 됩니다.
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -54,7 +54,7 @@ Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보�
 
 절충안으로, *kubenet*을 사용하는 AKS 클러스터를 만들고 기존 가상 네트워크 서브넷에 연결할 수 있습니다. 이 방법을 사용하면 클러스터에서 실행될 수 있는 모든 잠재적 pod를 위해 많은 수의 IP 주소를 미리 예약할 필요가 없이, 노드가 정의된 IP 주소를 수신할 수 있습니다.
 
-*kubenet*을 사용하면 훨씬 더 작은 IP 주소 범위를 사용할 수 있으며 대규모 클러스터 및 애플리케이션 요구를 지원할 수 있습니다. 예를 들어 */27* IP 주소 범위를 사용하더라도 20-25 노드 클러스터를 실행하여 확장 또는 업그레이드를 위한 충분한 공간을 확보할 수 있습니다. 이 클러스터 크기는 최대 *2,200-2,750*개 pod를 지원합니다(노드당 최대 pod 기본값이 110개임). AKS에서 *kubenet* 를 사용 하 여 구성할 수 있는 노드당 최대 pod 수는 110입니다.
+*kubenet*을 사용하면 훨씬 더 작은 IP 주소 범위를 사용할 수 있으며 대규모 클러스터 및 애플리케이션 요구를 지원할 수 있습니다. 예를 들어 서브넷에서 */27* IP 주소 범위를 사용 하는 경우 크기를 조정 하거나 업그레이드할 공간이 충분 한 20-25 노드 클러스터를 실행할 수 있습니다. 이 클러스터 크기는 최대 *2,200-2,750*개 pod를 지원합니다(노드당 최대 pod 기본값이 110개임). AKS에서 *kubenet* 를 사용 하 여 구성할 수 있는 노드당 최대 pod 수는 110입니다.
 
 다음 기본 계산은 네트워크 모델의 차이를 비교합니다.
 

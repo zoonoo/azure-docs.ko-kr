@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589655"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224590"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 생성 도구를 사용 하 여 합성 향상
 
@@ -23,11 +23,13 @@ ms.locfileid: "83589655"
 
 오디오 콘텐츠 생성 도구는 [SSML (음성 합성 마크업 언어)](speech-synthesis-markup.md)을 기반으로 합니다. 사용자 지정 및 조정을 간소화 하기 위해 오디오 콘텐츠 생성을 사용 하면 텍스트 음성 변환 출력을 실시간으로 시각적으로 검사할 수 있습니다.
 
-## <a name="how-does-it-work"></a>어떻게 작동합니까?
+오디오 콘텐츠를 만들기 위한 [비디오 자습서](https://www.youtube.com/watch?v=O1wIJ7mts_w) 를 참조 하세요.
+
+## <a name="how-does-it-work"></a>작동 원리
 
 이 다이어그램에서는 텍스트 음성 변환 출력을 미세 조정 하는 데 필요한 단계를 보여 줍니다. 각 단계에 대 한 자세한 내용을 보려면 아래 링크를 사용 하세요.
 
-![](media/audio-content-creation/audio-content-creation-diagram.jpg)
+![텍스트 음성 변환 출력을 미세 조정 하는 데 필요한 단계 다이어그램입니다.](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
 1. [Azure 계정 및 음성 리소스를 설정](#set-up-your-azure-account-and-speech-resource) 하 여 시작 하세요.
 2. 일반 텍스트 또는 SSML 스크립트를 사용 하 여 [오디오 튜닝 파일을 만듭니다](#create-an-audio-tuning-file) .
@@ -103,7 +105,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 | wav | riff-16khz-16 비트 | riff-24khz-16 비트 |
 | mp3 | 오디오-16khz-128kbitrate 전송률-mono-mp3 | 오디오-24khz-160kbitrate 전송률-mono-mp3 |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [긴 오디오 API](https://aka.ms/long-audio-api)
 

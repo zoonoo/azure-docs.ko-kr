@@ -3,12 +3,12 @@ title: 다중 전환 대화-QnA Maker
 description: 프롬프트와 컨텍스트를 사용 하 여 한 질문에서 다른 질문으로의 봇에 대해 다중 턴 이라고 하는 여러 턴을 관리 합니다. 멀티 턴은 이전 질문의 컨텍스트가 다음 질문 및 답변에 영향을 주는 앞뒤로 대화를 수행할 수 있는 기능입니다.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 8ef244e1b6baf480189bb90ea5ff53138a6f377a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81261468"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229349"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
@@ -62,7 +62,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 * 제목의 첫 번째 문자는 대문자 여야 합니다.
 
-* 물음표, `?`로 제목을 끝에 표시 하지 않습니다.
+* 물음표,로 제목을 끝에 표시 하지 않습니다 `?` .
 
 * 예제로 [샘플 문서](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) 를 사용 하 여 고유한 다중 턴 문서를 만들 수 있습니다.
 
@@ -80,7 +80,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>API 만들기를 사용 하 여 다중 전환 프롬프트에서 기술 자료 만들기
 
-[QNA MAKER API 만들기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용 하 여 다중 전환 프롬프트가 포함 된 기술 자료를 만들 수 있습니다. 프롬프트는 `context` 속성의 `prompts` 배열에 추가 됩니다.
+[QNA MAKER API 만들기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용 하 여 다중 전환 프롬프트가 포함 된 기술 자료를 만들 수 있습니다. 프롬프트는 `context` 속성의 배열에 추가 됩니다 `prompts` .
 
 ## <a name="show-questions-and-answers-with-context"></a>컨텍스트를 사용 하 여 질문 및 답변 표시
 
@@ -181,7 +181,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 ## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>초기 응답 및 추가 작업 프롬프트를 반환 하는 JSON 요청
 
-빈 `context` 개체를 사용 하 여 사용자 질문에 대 한 답변을 요청 하 고 추가 작업 프롬프트를 포함 합니다.
+빈 개체를 사용 하 여 `context` 사용자 질문에 대 한 답변을 요청 하 고 추가 작업 프롬프트를 포함 합니다.
 
 ```JSON
 {
@@ -260,7 +260,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 }
 ```
 
-`prompts` 배열은 `displayText` 속성 및 `qnaId` 값에 텍스트를 제공 합니다. 이러한 답변은 대화 흐름에서 다음에 표시 되는 선택 항목으로 표시 한 다음, 다음 `qnaId` 요청에서 QnA Maker으로 다시 보낼 수 있습니다.
+`prompts`배열은 `displayText` 속성 및 값에 텍스트를 제공 합니다 `qnaId` . 이러한 답변은 대화 흐름에서 다음에 표시 되는 선택 항목으로 표시 한 다음, `qnaId` 다음 요청에서 QnA Maker으로 다시 보낼 수 있습니다.
 
 <!--
 
@@ -270,7 +270,7 @@ The `promptsToDelete` array provides the ...
 
 ## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>초기이 아닌 응답을 반환 하는 JSON 요청 및 추가 작업 프롬프트
 
-이전 컨텍스트 `context` 를 포함 하도록 개체를 채웁니다.
+`context`이전 컨텍스트를 포함 하도록 개체를 채웁니다.
 
 다음 JSON 요청에서 현재 질문은 *Windows Hello를 사용 하 여 로그인 하* 고 이전 질문은 *계정 및 로그인*이었습니다.
 
@@ -290,7 +290,7 @@ The `promptsToDelete` array provides the ...
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>초기이 아닌 응답을 반환 하는 JSON 응답 및 추가 작업 프롬프트
 
-QnA Maker _Generateanswer_ JSON 응답에는 `context` `answers` 개체의 첫 번째 항목에 대 한 속성에서 추가 작업 프롬프트가 포함 됩니다.
+QnA Maker _Generateanswer_ JSON 응답에는 `context` 개체의 첫 번째 항목에 대 한 속성에서 추가 작업 프롬프트가 포함 됩니다 `answers` .
 
 ```JSON
 {
@@ -350,7 +350,7 @@ QnA Maker _Generateanswer_ JSON 응답에는 `context` `answers` 개체의 첫 �
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>QnA Maker ID를 사용 하 여 기술 자료 쿼리
 
-다중 턴 기능을 사용 하 여 사용자 지정 응용 프로그램을 빌드하는 경우 초기 질문의 응답에서 추가 작업 프롬프트와 연결 `qnaId` 된이 반환 됩니다. 이제 ID가 있으므로 추가 작업 프롬프트의 요청 본문에서이 ID를 전달할 수 있습니다. 요청 본문에 `qnaId`이 포함 되어 있고 이전 QnA Maker 속성을 포함 하는 컨텍스트 개체를 포함 하는 경우, generateanswer는 순위 알고리즘을 사용 하 여 질문 텍스트에서 답변을 찾는 대신 ID를 사용 하 여 정확한 질문을 반환 합니다.
+다중 턴 기능을 사용 하 여 사용자 지정 응용 프로그램을 빌드하는 경우 초기 질문의 응답에서 추가 작업 프롬프트와 연결 된 `qnaId` 이 반환 됩니다. 이제 ID가 있으므로 추가 작업 프롬프트의 요청 본문에서이 ID를 전달할 수 있습니다. 요청 본문에이 포함 되어 `qnaId` 있고 이전 QnA Maker 속성을 포함 하는 컨텍스트 개체를 포함 하는 경우, GenerateAnswer는 순위 알고리즘을 사용 하 여 질문 텍스트에서 답변을 찾는 대신 ID를 사용 하 여 정확한 질문을 반환 합니다.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>표시 순서는 업데이트 API에서 지원 됩니다.
@@ -359,7 +359,7 @@ JSON 응답에서 반환 되는 [표시 텍스트와 표시 순서](https://docs
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>업데이트 API를 사용 하 여 다중 전환 프롬프트 추가 또는 삭제
 
-[QnA Maker 업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용 하 여 다중 전환 프롬프트를 추가 하거나 삭제할 수 있습니다.  프롬프트는 `context` 속성의 `promptsToAdd` 배열 및 `promptsToDelete` 배열에 추가 됩니다.
+[QnA Maker 업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용 하 여 다중 전환 프롬프트를 추가 하거나 삭제할 수 있습니다.  프롬프트는 `context` 속성의 `promptsToAdd` 배열 및 배열에 추가 됩니다 `promptsToDelete` .
 
 ## <a name="export-knowledge-base-for-version-control"></a>버전 제어를 위한 기술 자료 내보내기
 
@@ -367,7 +367,7 @@ QnA Maker은 내보낸 파일에 다중 전환 대화 단계를 포함 하 여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [대화 상자의](https://aka.ms/qnamakermultiturnsample) 상황별 대화에 대 한 자세한 내용을 보거나, [다중 전환 대화를 위한 개념 봇 디자인](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)에 대해 자세히 알아보세요.
+이 [대화 상자의](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) 상황별 대화에 대 한 자세한 내용을 보거나, [다중 전환 대화를 위한 개념 봇 디자인](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [기술 자료 마이그레이션](../Tutorials/migrate-knowledge-base.md)

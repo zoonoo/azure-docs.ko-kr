@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610068"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223461"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -107,7 +107,7 @@ ms.locfileid: "85610068"
 
 * **패키지를 설치할 때 Databricks 오류 발생**
 
-    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -181,7 +181,27 @@ ms.locfileid: "85610068"
 |이미지를 검토할 때 새로 레이블이 지정 된 이미지는 표시 되지 않습니다.     |   레이블이 지정 된 모든 이미지를 로드 하려면 **첫 번째** 단추를 선택 합니다. **첫 번째** 단추는 목록 맨 앞으로 다시 이동 하지만 레이블이 지정 된 모든 데이터를 로드 합니다.      |
 |개체 검색에 대 한 레이블을 지정 하는 동안 Esc 키를 누르면 왼쪽 위 모퉁이에 크기가 0 인 레이블이 생성 됩니다. 이 상태의 레이블 전송에 실패 합니다.     |   옆의 십자 표시를 클릭 하 여 레이블을 삭제 합니다.  |
 
-### <a name="data-drift-monitors"></a>데이터 드리프트 모니터
+### <a name="data-drift-monitors"></a><a name="data-drift"></a>데이터 드리프트 모니터
+
+데이터 드리프트 모니터의 제한 사항 및 알려진 문제:
+
+* 기록 데이터를 분석 하는 시간 범위는 모니터의 빈도 설정의 31 개로 제한 됩니다. 
+* 기능 목록이 지정 되지 않은 경우 (모든 기능이 사용 됨) 200 기능의 제한 사항
+* 계산 크기는 데이터를 처리할 수 있을 만큼 커야 합니다.
+* 지정 된 모니터 실행의 시작 및 종료 날짜 내에 데이터 집합의 데이터가 있는지 확인 합니다.
+* 데이터 집합 모니터는 50 개 이상의 행이 포함 된 데이터 집합에 대해서만 작동 합니다.
+* 데이터 집합의 열 또는 기능은 다음 표의 조건에 따라 범주 또는 숫자로 분류 됩니다. 이 기능이 이러한 조건을 충족 하지 않는 경우 (예를 들어 >100 고유 값이 포함 된 문자열 형식의 열)이 기능은 데이터 드리프트 알고리즘에서 삭제 되었지만 여전히 프로 파일링 됩니다. 
+
+    | 기능 유형 | 데이터 형식 | 조건 | 제한 사항 | 
+    | ------------ | --------- | --------- | ----------- |
+    | 범주 | string, bool, int, float | 이 기능의 고유 값 수는 100 보다 작고 행 수의 5% 미만입니다. | Null은 고유한 범주로 처리 됩니다. | 
+    | 숫자 | int, float | 기능의 값은 숫자 데이터 형식이 며 범주 기능의 조건을 충족 하지 않습니다. | 값의 15% >null 인 경우 기능이 삭제 됩니다. | 
+
+* [Datadrift 모니터를 만들었지만](how-to-monitor-datasets.md) Azure Machine Learning studio의 데이터 **집합 모니터** 페이지에서 데이터를 볼 수 없는 경우 다음을 시도 합니다.
+
+    1. 페이지 맨 위에서 올바른 날짜 범위를 선택 했는지 확인 합니다.  
+    1. **데이터 집합 모니터** 탭에서 실험 링크를 선택 하 여 실행 상태를 확인 합니다.  이 링크는 테이블의 오른쪽 끝에 있습니다.
+    1. 실행이 성공적으로 완료 되 면 드라이버 로그를 확인 하 여 생성 된 메트릭 수 또는 경고 메시지가 있는지 확인 합니다.  실험을 클릭 한 후 **출력 + 로그** 탭에서 드라이버 로그를 찾습니다.
 
 * SDK 함수에서 `backfill()` 예상 되는 출력을 생성 하지 않는 경우 인증 문제가 원인일 수 있습니다.  이 함수에 전달할 계산을 만들 때는을 사용 하지 마십시오 `Run.get_context().experiment.workspace.compute_targets` .  대신, 다음과 같이 [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) 를 사용 하 여 해당 함수에 전달 하는 계산을 만듭니다 `backfill()` . 
 
@@ -258,7 +278,7 @@ ms.locfileid: "85610068"
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|Error  | 해결 방법  |
+|오류  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

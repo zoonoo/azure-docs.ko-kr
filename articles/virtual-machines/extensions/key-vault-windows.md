@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8e014e7a1c564377582e4503218c4129619daa91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f34ffcf836eddedfb3962471ef3c777ba7880c5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80410729"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224221"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -58,8 +58,12 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-        }      
-      }
+        },
+        "authenticationSettings": {
+                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
+                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
+       }
       }
     }
 ```
@@ -68,6 +72,11 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 > 관찰된 인증서 URL은 `https://myVaultName.vault.azure.net/secrets/myCertName` 형식이어야 합니다.
 > 
 > `/secrets` 경로가 프라이빗 키를 포함하여 전체 인증서를 반환하지만 `/certificates` 경로에서는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 찾을 수 있습니다. [Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+
+> [!NOTE]
+> ' AuthenticationSettings ' 속성은 VM에 할당 된 id가 여러 개 있는 시나리오의 경우 선택 사항입니다.
+> 지정 id를 사용 하 여 Key Vault 인증할 수 있습니다.
+
 
 ### <a name="property-values"></a>속성 값
 
@@ -83,6 +92,8 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 | certificateStoreLocation  | LocalMachine | 문자열 |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 문자열 배열
+| msiEndpoint | http://169.254.169.254/metadata/identity | 문자열 |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | 문자열 |
 
 
 ## <a name="template-deployment"></a>템플릿 배포

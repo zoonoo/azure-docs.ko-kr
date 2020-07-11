@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734999"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221394"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services의 서비스 주체 경고
 
@@ -34,11 +34,11 @@ ms.locfileid: "84734999"
 
 ### <a name="check-for-missing-service-principals"></a>누락된 서비스 주체에 대한 확인
 
-누락된 서비스 주체를 확인하고 다시 만들어야 하는 경우 다음 단계를 완료합니다.
+누락 된 서비스 주체를 확인 하 고 다시 만들어야 하는 경우 다음 단계를 완료 합니다.
 
 1. Azure Portal의 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다.
 1. **Enterprise 애플리케이션**을 선택합니다. *애플리케이션 종류* 드롭다운 메뉴에서 **모든 애플리케이션**을 선택한 다음, **적용**을 선택합니다.
-1. 각 애플리케이션 ID를 검색합니다. 기존 애플리케이션을 찾을 수 없는 경우 *확인* 단계에 따라 서비스 주체를 만들거나 네임스페이스를 다시 등록합니다.
+1. 다음 응용 프로그램 Id를 각각 검색 합니다. 기존 애플리케이션을 찾을 수 없는 경우 *확인* 단계에 따라 서비스 주체를 만들거나 네임스페이스를 다시 등록합니다.
 
     | 애플리케이션 UI | 해결 방법 |
     | :--- | :--- |
@@ -49,9 +49,9 @@ ms.locfileid: "84734999"
 
 ### <a name="recreate-a-missing-service-principal"></a>누락된 서비스 주체 다시 만들기
 
-애플리케이션 ID *2565bd9d-da50-47d4-8b85-4c97f669dc36*이 Azure AD에서 누락된 경우 Azure AD PowerShell을 사용하여 다음 단계를 완료합니다. 자세한 내용은 [Azure AD PowerShell 설치](/powershell/azure/active-directory/install-adv2)를 참조하세요.
+애플리케이션 ID *2565bd9d-da50-47d4-8b85-4c97f669dc36*이 Azure AD에서 누락된 경우 Azure AD PowerShell을 사용하여 다음 단계를 완료합니다. 자세한 내용은 [AZURE AD PowerShell](/powershell/azure/active-directory/install-adv2)을 참조 하세요.
 
-1. Azure AD PowerShell 모듈을 설치하고 다음과 같이 가져옵니다.
+1. 필요한 경우 Azure AD PowerShell 모듈을 설치 하 고 다음과 같이 가져옵니다.
 
     ```powershell
     Install-Module AzureAD
@@ -81,7 +81,7 @@ ms.locfileid: "84734999"
 
 ### <a name="alert-message"></a>경고 메시지
 
-*애플리케이션 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.*
+*응용 프로그램 ID가 "d87dcbc6-a371-462e-88e3-28ad15ec4e64" 인 서비스 주체가 삭제 된 다음 다시 생성 되었습니다. 다시 만들기는 관리 되는 도메인을 서비스 하는 데 필요한 Azure AD Domain Services 리소스에 대해 일관 되지 않은 사용 권한을 벗어납니다. 관리 되는 도메인에서 암호 동기화에 영향을 줄 수 있습니다.*
 
 Azure AD DS는 Azure AD에서 사용자 계정 및 자격 증명을 자동으로 동기화합니다. 이 프로세스에 사용되는 Azure AD 애플리케이션에 문제가 있는 경우 Azure AD DS와 Azure AD 간의 자격 증명 동기화가 실패합니다.
 
@@ -89,7 +89,7 @@ Azure AD DS는 Azure AD에서 사용자 계정 및 자격 증명을 자동으로
 
 자격 증명 동기화에 사용되는 Azure AD 애플리케이션을 다시 만들려면 Azure AD PowerShell을 사용하여 다음 단계를 완료합니다. 자세한 내용은 [Azure AD PowerShell 설치](/powershell/azure/active-directory/install-adv2)를 참조하세요.
 
-1. Azure AD PowerShell 모듈을 설치하고 다음과 같이 가져옵니다.
+1. 필요한 경우 Azure AD PowerShell 모듈을 설치 하 고 다음과 같이 가져옵니다.
 
     ```powershell
     Install-Module AzureAD

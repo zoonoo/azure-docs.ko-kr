@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171162"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224420"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ (질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -122,56 +122,121 @@ Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/r
 - CliConfig를 사용 하 여 별칭을 정의 합니다. 이 도구는 단지 레지스트리 설정 래퍼 이므로 그룹 정책 또는 스크립트를 사용 하 여 수행할 수 있습니다.
 - *Trustservercertificate = true* 옵션과 함께 *CNAME* 을 사용 합니다.
 
-## <a name="move-a-database-from-sql-managed-instance"></a>SQL Managed Instance에서 데이터베이스 이동 
+## <a name="migration-options"></a>마이그레이션 옵션
 
-**SQL Managed Instance에서 SQL Server 또는 Azure SQL Database 데이터베이스를 다시 이동 하려면 어떻게 해야 하나요?**
+**Azure SQL Database 단일 또는 탄력적 풀에서 SQL Managed Instance로 마이그레이션하려면 어떻게 해야 하나요?**
 
-[데이터베이스를 bacpac로 내보낸](../database/database-export.md) 다음 [bacpac 파일을 가져올](../database/database-import.md)수 있습니다. 데이터베이스가 100 GB 보다 작은 경우에 권장 되는 방법입니다.
+관리 되는 인스턴스는 Azure SQL Database의 다른 배포 옵션으로 계산 및 저장소 크기에 따라 동일한 성능 수준을 제공 합니다. 단일 인스턴스에서 데이터를 통합 하거나 관리 되는 인스턴스에서 독점적 으로만 지원 되는 기능만 필요한 경우에는 BACPAC (내보내기/가져오기) 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다. 다음은 SQL Managed Instance로 SQL Database 마이그레이션을 고려 하는 다른 방법입니다. 
+- [데이터 원본 외부]() 사용
+- [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182) 사용
+- [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7) 사용
 
-데이터베이스의 모든 테이블에 기본 키가 있는 경우 트랜잭션 복제를 사용할 수 있습니다.
+**내 인스턴스 데이터베이스를 단일 Azure SQL Database 마이그레이션하려면 어떻게 해야 하나요?**
 
-Sql `COPY_ONLY` Managed Instance SQL Server와 비교 하 여 데이터베이스 버전이 더 높기 때문에 sql Managed Instance에서 가져온 기본 백업을 SQL Server 복원할 수 없습니다.
+한 가지 옵션은 [데이터베이스를 bacpac로 내보낸](../database/database-export.md) 다음 [bacpac 파일을 가져오는](../database/database-import.md)것입니다. 데이터베이스가 100 GB 보다 작은 경우에 권장 되는 방법입니다.
 
-## <a name="migrate-an-instance-database"></a>인스턴스 데이터베이스 마이그레이션
+데이터베이스의 모든 테이블에 *기본* 키가 있고 데이터베이스에 메모리 내 OLTP 개체가 없는 경우 [트랜잭션 복제](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) 를 사용할 수 있습니다.
 
-**내 인스턴스 데이터베이스를 Azure SQL Database 마이그레이션하려면 어떻게 해야 하나요?**
+관리 되는 인스턴스에서 SQL Server와 비교 하 여 더 높은 버전의 데이터베이스를 사용 하므로 관리 되는 인스턴스에서 가져온 네이티브 COPY_ONLY 백업을 SQL Server로 복원할 수 없습니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)을 참조 하세요.
 
-한 가지 옵션은 [데이터베이스를 bacpac로 내보낸](../database/database-export.md) 다음 [bacpac 파일을 가져오는](../database/database-import.md)것입니다. 
+**SQL Server 인스턴스를 SQL Managed Instance로 마이그레이션하려면 어떻게 해야 하나요?**
 
-데이터베이스가 100 GB 보다 작은 경우에 권장 되는 방법입니다. 데이터베이스의 모든 테이블에 기본 키가 있는 경우 트랜잭션 복제를 사용할 수 있습니다.
+SQL Server 인스턴스를 마이그레이션하려면 [SQL Server 인스턴스를 AZURE SQL Managed Instance로 마이그레이션](migrate-to-instance-from-sql-server.md)을 참조 하세요.
+
+**다른 플랫폼에서 SQL Managed Instance로 마이그레이션하려면 어떻게 해야 하나요?**
+
+다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 ## <a name="switch-hardware-generation"></a>하드웨어 생성 전환 
 
-**SQL Managed Instance 하드웨어 생성을 Gen 4와 Gen 5 online 간에 전환할 수 있나요?**
+**관리 되는 인스턴스 하드웨어 생성을 Gen 4와 Gen 5 online 간에 전환할 수 있나요?**
 
-SQL Managed Instance 프로 비전 된 지역에서 두 하드웨어 생성을 모두 사용할 수 있는 경우 하드웨어 세대 간에 자동 온라인 전환이 가능 합니다. 이 경우 하드웨어 세대를 전환 하는 방법을 설명 하는 [Vcore 모델 개요 페이지](../database/service-tiers-vcore.md)를 확인할 수 있습니다.
+관리 되는 인스턴스가 프로 비전 된 지역에서 Gen5 하드웨어를 사용할 수 있는 경우 Gen4에서 Gen5로 자동 온라인 전환이 가능 합니다. 이 경우 하드웨어 세대를 전환 하는 방법을 설명 하는 [Vcore 모델 개요 페이지](../database/service-tiers-vcore.md) 를 확인할 수 있습니다.
 
-이 작업은 장기 실행 작업입니다. 새 관리 되는 인스턴스는 백그라운드에서 프로 비전 되 고 데이터베이스는 이전 인스턴스와 새 인스턴스 간에 자동으로 전송 되며 프로세스가 끝날 때 빠른 장애 조치 (failover)가 발생 합니다. 
+새 관리 되는 인스턴스가 백그라운드에서 프로 비전 되 고 프로세스가 끝날 때 빠른 장애 조치 (failover)를 사용 하 여 이전 인스턴스와 새 인스턴스 간에 데이터베이스가 자동으로 전송 되기 때문에이 작업은 장기 실행 작업입니다.
 
-**두 하드웨어 생성이 동일한 지역에서 지원 되지 않으면 어떻게 되나요?**
+참고: Gen4 하드웨어는 단계적으로 제공 되며 새 배포에 더 이상 제공 되지 않습니다. 모든 새 데이터베이스는 Gen5 하드웨어에 배포 되어야 합니다. Gen5에서 Gen4로의 전환도 사용할 수 없습니다.
 
-동일한 지역에서 두 하드웨어 생성이 모두 지원 되지 않는 경우 하드웨어 생성을 변경 하는 것이 가능 하지만이를 수동으로 수행 해야 합니다. 이렇게 하려면 원하는 하드웨어 생성을 사용할 수 있는 지역에 새 인스턴스를 프로 비전 하 고 이전 인스턴스와 새 인스턴스 간에 데이터를 수동으로 백업 하 고 복원 해야 합니다.
+## <a name="performance"></a>성능 
 
-**업데이트 작업을 수행 하는 데 충분 한 IP 주소가 없는 경우 어떻게 되나요?**
+**Managed Instance 성능을 SQL Server 성능에 어떻게 비교할 수 있나요?**
 
-관리 되는 인스턴스가 프로 비전 되는 서브넷의 IP 주소가 충분 하지 않은 경우 새 서브넷과 그 안에 새 관리 되는 인스턴스를 만들어야 합니다. 또한 향후 업데이트 작업에서 유사한 상황을 방지 하기 위해 더 많은 IP 주소를 할당 하 여 새 서브넷을 만드는 것이 좋습니다. (올바른 서브넷 크기의 경우 [VNet 서브넷의 크기를 확인 하는 방법](vnet-subnet-determine-size.md)을 참조 하세요.) 새 인스턴스를 프로 비전 한 후에는 이전 인스턴스와 새 인스턴스 사이에서 수동으로 데이터를 백업 및 복원 하거나 인스턴스 간 지정 [시간 복원을](point-in-time-restore.md?tabs=azure-powershell)수행할 수 있습니다. 
+관리 되는 인스턴스와 SQL Server 간의 성능 비교를 위해 [AZURE SQL 관리 되는 인스턴스와 SQL Server 문서 간의 성능 비교를 위한](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210) 좋은 출발점은 모범 사례입니다.
 
+**Managed Instance와 SQL Server 간의 성능 차이는 무엇 인가요?**
 
-## <a name="tune-performance"></a>성능 조정
+[SQL 관리 되는 인스턴스와 SQL Server 간 성능 차이의 주요 원인](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)을 참조 하십시오. 범용 Managed Instance 성능에 영향을 주는 로그 파일 크기에 대 한 자세한 내용은 [일반적인 용도에 따라 로그 파일 크기의 영향](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)을 참조 하세요.
 
-**SQL Managed Instance의 성능을 조정할 어떻게 할까요? 있나요?**
+**관리 되는 인스턴스의 성능을 조정할 어떻게 할까요? 있나요?**
 
-범용 계층의 SQL Managed Instance는 원격 저장소를 사용 하므로 데이터 및 로그 파일의 크기는 성능에 중요 합니다. 자세한 내용은 [일반적인 용도의 SQL Managed Instance 성능에 대 한 로그 파일 크기의 영향](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)을 참조 하세요.
+다음을 수행 하 여 관리 되는 인스턴스의 성능을 최적화할 수 있습니다.
+- AI 및 기계 학습을 기반으로 하는 지속적인 성능 조정을 통해 최대 성능 및 안정적인 워크 로드를 제공 하는 [자동 조정](../database/automatic-tuning-overview.md)
+-   트랜잭션 처리 워크 로드에 대 한 처리량과 대기 시간을 개선 하 고 더 빠른 비즈니스 통찰력을 제공 하는 [메모리 내 OLTP](../in-memory-oltp-overview.md) 
 
-워크 로드가 많은 작은 트랜잭션으로 구성 된 경우 연결 유형을 프록시에서 리디렉션 모드로 전환 하는 것이 좋습니다.
+성능을 더욱 잘 조정 하려면 [응용 프로그램 및 데이터베이스 튜닝](../database/performance-guidance.md#tune-your-database)에 대 한 몇 가지 *모범 사례* 를 적용 하는 것이 좋습니다.
+워크 로드가 많은 작은 트랜잭션으로 구성 된 경우에는 짧은 대기 시간 및 높은 처리량을 위해 [프록시에서 리디렉션 모드로 연결 유형을 전환 하는](connection-types-overview.md#changing-connection-type) 것이 좋습니다.
 
-## <a name="maximum-storage-size"></a>최대 스토리지 크기
+## <a name="monitoring-metrics-and-alerts"></a>모니터링, 메트릭 및 경고
+
+**관리 되는 인스턴스를 모니터링 하 고 경고 하는 옵션은 무엇 인가요?**
+
+SQL Managed Instance 사용 및 성능을 모니터링 하 고이에 대 한 경고를 발생 시킬 수 있는 모든 옵션은 [AZURE sql Managed Instance 모니터링 옵션 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416)을 참조 하세요. SQL server에 대 한 실시간 성능 모니터링에 대 한 자세한 내용은 [AZURE SQL DB에 대 한 실시간 성능 모니터링 Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)을 참조 하세요.
+
+**성능 추적에 SQL 프로파일러를 사용할 수 있나요?**
+
+예, SQL 프로파일러가 지원 되거나 SQL Managed Instance. 자세한 내용은 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15)를 참조 하세요.
+
+**Managed Instance 데이터베이스에서 Database Advisor 되 고 Query Performance Insight 지원 되나요?**
+
+아니요, 지원 되지 않습니다. [Dmv](../database/monitoring-with-dmvs.md) 와 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) 를 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) 및 [xevent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) 와 함께 사용 하 여 데이터베이스를 모니터링할 수 있습니다.
+
+**SQL Managed Instance에서 메트릭 경고를 만들 수 있나요?**
+
+예. 자세한 내용은 [SQL Managed Instance에 대 한 경고 만들기](alerts-create.md)를 참조 하세요.
+
+**관리 되는 인스턴스의 데이터베이스에서 메트릭 경고를 만들 수 있나요?**
+
+그러나 경고 메트릭은 관리 되는 인스턴스에만 사용할 수 있습니다. 관리 되는 인스턴스의 개별 데이터베이스에 대 한 경고 메트릭은 사용할 수 없습니다.
+
+## <a name="storage-size"></a>스토리지 크기
 
 **SQL Managed Instance에 대 한 최대 저장소 크기는 얼마 인가요?**
 
 SQL Managed Instance의 저장소 크기는 선택한 서비스 계층 (범용 또는 중요 비즈니스용)에 따라 달라 집니다. 이러한 서비스 계층의 저장소 제한 사항은 [서비스 계층 특성](../database/service-tiers-general-purpose-business-critical.md)을 참조 하세요.
 
-  
+**관리 되는 인스턴스에 사용할 수 있는 최소 저장소 크기는 얼마 인가요?**
+
+인스턴스에서 사용 가능한 최소 저장소 크기는 32 GB입니다. 저장소는 최대 저장소 크기에 32 GB 단위로 추가할 수 있습니다. 첫 번째 32GB는 무료로 제공 됩니다.
+
+**계산 리소스와 별개로 인스턴스에 할당 된 저장소 공간을 늘릴 수 있나요?**
+
+예, compute와 독립적으로 추가 기능 저장소를 특정 범위로 구매할 수 있습니다. [테이블](resource-limits.md#hardware-generation-characteristics)에서 *Max instance reserved storage* 를 참조 하세요.
+
+**범용 서비스 계층에서 저장소 성능을 최적화 하려면 어떻게 해야 하나요?**
+
+저장소 성능을 최적화 하려면 범용 [저장소 모범 사례](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)를 참조 하세요.
+
+## <a name="backup-and-restore"></a>백업 및 복원
+
+**백업 저장소가 관리 되는 인스턴스 저장소에서 공제?**
+
+아니요, 백업 저장소는 관리 되는 인스턴스 저장소 공간에서 공제 되지 않습니다. 백업 저장소는 인스턴스 저장소 공간과 독립적 이며 크기가 제한 되지 않습니다. 백업 저장소는 인스턴스 데이터베이스의 백업을 보존 하는 기간으로 제한 되며 최대 35 일을 구성할 수 있습니다. 자세한 내용은 자동화 된 [백업](../database/automated-backups-overview.md)을 참조 하세요.
+
+**관리 되는 인스턴스에서 자동화 된 백업이 수행 되는 경우를 어떻게 확인할 수 있나요?**
+Managed Instance에서 자동화 된 백업을 수행 하는 시기를 추적 하려면 [AZURE SQL Managed Instance에 대 한 자동화 된 백업을 추적 하는 방법](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355)을 참조 하세요.
+
+**주문형 백업이 지원 되나요?**
+예, Azure Blob Storage에서 복사 전용 전체 백업을 만들 수 있지만 Managed Instance 에서만 복원 가능한 됩니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)을 참조 하세요. 그러나 암호화에 사용 되는 인증서에 액세스할 수 없으므로 서비스 관리 TDE로 데이터베이스를 암호화 하는 경우에는 복사 전용 백업을 수행할 수 없습니다. 이러한 경우에는 특정 시점 복원 기능을 사용 하 여 데이터베이스를 다른 SQL Managed Instance 이동 하거나 고객 관리 키로 전환 합니다.
+
+**네이티브 복원 (.bak 파일에서)은 Managed Instance 지원 되나요?**
+예, SQL Server 2005 이상 버전에서 지원 되며 사용할 수 있습니다.  기본 복원을 사용 하려면 .bak 파일을 Azure blob 저장소에 업로드 하 고 T-sql 명령을 실행 합니다. 자세한 내용은 [URL에서 네이티브 복원](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url)을 참조 하세요.
+
+## <a name="business-continuity"></a>비즈니스 연속성
+
+**내 시스템 데이터베이스가 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되나요?**
+
+시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 되지 않습니다. 따라서 시스템 데이터베이스의 개체에 종속 된 시나리오는 보조 인스턴스에서 개체를 수동으로 만들지 않는 한 보조 인스턴스에서는 불가능 합니다. 해결 방법은 [시스템 데이터베이스에서 개체에 종속 된 시나리오 사용](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases)을 참조 하세요.
+ 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항 
 
 **Managed Instance 서브넷에 대 한 현재 인바운드/아웃 바운드 NSG 제약 조건은 무엇 인가요?**
@@ -231,6 +296,44 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
 
 아니요. 현재 다른 리소스 유형을 이미 포함 하 고 있는 서브넷에 Managed Instance를 배치할 수 없습니다.
 
+## <a name="connectivity"></a>연결 
+
+**IP 주소를 사용 하 여 관리 되는 인스턴스에 연결할 수 있나요?**
+
+아니요, 지원되지 않습니다. Managed Instance의 호스트 이름은 Managed Instance의 가상 클러스터 앞에 있는 부하 분산 장치에 매핑됩니다. 하나의 가상 클러스터가 여러 관리 되는 인스턴스를 호스트할 수 있으므로 이름을 지정 하지 않고 연결을 적절 한 Managed Instance 라우팅할 수 없습니다.
+SQL Managed Instance 가상 클러스터 아키텍처에 대 한 자세한 내용은 [가상 클러스터 연결 아키텍처](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)를 참조 하세요.
+
+**관리 되는 인스턴스에 고정 IP 주소가 있을 수 있나요?**
+
+현재는 지원되지 않습니다.
+
+드물지만 필요한 경우에는 관리 되는 인스턴스를 새 가상 클러스터로 온라인으로 마이그레이션해야 할 수도 있습니다. 필요한 경우이 마이그레이션은 서비스의 보안 및 안정성을 향상 시키기 위한 기술 스택의 변경 내용 때문에 발생 합니다. 새 가상 클러스터로 마이그레이션하면 관리 되는 인스턴스 호스트 이름에 매핑되는 IP 주소가 변경 됩니다. 관리 되는 인스턴스 서비스는 고정 IP 주소 지원을 주장 하지 않으며 정기 유지 관리 주기 중에 통지 없이 변경할 권리를 보유 합니다.
+
+따라서 불필요 한 가동 중지 시간이 발생할 수 있으므로 IP 주소의 불변성에 의존 하지 않는 것이 좋습니다.
+
+**공용 끝점이 Managed Instance?**
+
+예. Managed Instance에는 기본적으로 서비스 관리에만 사용 되는 공용 끝점이 있지만, 고객은 데이터 액세스에도 사용할 수 있습니다. 자세한 내용은 [공용 끝점에서 SQL Managed Instance 사용](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely)을 참조 하세요. 공용 끝점을 구성 하려면 [SQL Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md)으로 이동 합니다.
+
+**Managed Instance에서 공용 끝점에 대 한 액세스를 제어 하는 방법은 무엇입니까?**
+
+Managed Instance는 네트워크 및 응용 프로그램 수준에서 공용 끝점에 대 한 액세스를 제어 합니다.
+
+관리 및 배포 서비스는 외부 부하 분산 장치에 매핑되는 [관리 끝점](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) 을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 트래픽은 관리 되는 인스턴스의 관리 구성 요소만 사용 하는 미리 정의 된 포트 집합에서 수신 된 경우에만 노드에 라우팅됩니다. 노드의 기본 제공 방화벽은 Microsoft IP 범위의 트래픽만 허용 하도록 설정 됩니다. 인증서는 관리 구성 요소와 관리 평면 간의 모든 통신을 상호 인증 합니다. 자세한 내용은 [SQL Managed Instance에 대 한 연결 아키텍처](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture)를 참조 하세요.
+
+**공용 끝점을 사용 하 여 Managed Instance 데이터베이스의 데이터에 액세스할 수 있나요?**
+
+예. 고객은 [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)PowerShell/ARM에서 공용 끝점 데이터 액세스를 사용 하도록 설정 하  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) 고 데이터 포트 (포트 번호 3342)에 대 한 액세스를 잠그기 위해 nsg를 구성 해야 합니다. 자세한 내용은 [AZURE sql Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md) 및 [공용 끝점을 사용 하 여 azure sql Managed Instance 안전 하 게 사용](public-endpoint-overview.md)을 참조 하세요. 
+
+**SQL 데이터 끝점에 대 한 사용자 지정 포트를 지정할 수 있나요?**
+
+아니요,이 옵션은 사용할 수 없습니다.  개인 데이터 끝점의 경우 기본 포트 번호 1433를 사용 하 고 공용 데이터 끝점에는 기본 포트 번호 3342을 사용 Managed Instance Managed Instance.
+
+**다른 지역에 배치 된 관리 되는 인스턴스를 연결 하는 데 권장 되는 방법은 무엇 인가요?**
+
+Express 경로 회로 피어 링은이 작업을 수행 하는 기본 방법입니다. 이는 내부 부하 분산 장치 관련 [제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)으로 인해 지원 되지 않는 지역 간 가상 네트워크 피어 링과 혼합 되지 않습니다.
+
+Express 경로 회로 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli))을 만드는 것입니다.
 
 ## <a name="mitigate-data-exfiltration-risks"></a>데이터 반출 위험 완화  
 
@@ -277,21 +380,6 @@ DNS 구성은 결국 새로 고쳐집니다.
 - 플랫폼 업그레이드 시.
 
 해결 방법으로 SQL Managed Instance를 4 개 vCores로 다운 그레이드 하 고 나중에 다시 업그레이드 합니다. DNS 구성을 새로 고치면 부작용이 발생 합니다.
-
-
-## <a name="ip-address"></a>IP 주소
-
-**IP 주소를 사용 하 여 SQL Managed Instance에 연결할 수 있나요?**
-
-IP 주소를 사용 하 여 SQL Managed Instance에 연결 하는 것은 지원 되지 않습니다. Sql Managed Instance 호스트 이름은 SQL Managed Instance 가상 클러스터 앞의 부하 분산 장치에 매핑됩니다. 하나의 가상 클러스터가 여러 관리 되는 인스턴스를 호스트할 수 있으므로 이름을 명시적으로 지정 하지 않고 연결을 적절 한 관리 되는 인스턴스로 라우팅할 수 없습니다.
-
-SQL Managed Instance 가상 클러스터 아키텍처에 대 한 자세한 내용은 [가상 클러스터 연결 아키텍처](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)를 참조 하세요.
-
-**SQL Managed Instance 고정 IP 주소를 가질 수 있나요?**
-
-드물지만 필요한 경우에는 SQL Managed Instance를 새 가상 클러스터로 온라인으로 마이그레이션하는 것이 필요할 수 있습니다. 필요한 경우이 마이그레이션은 서비스의 보안 및 안정성을 향상 시키기 위한 기술 스택의 변경 내용 때문에 발생 합니다. 새 가상 클러스터로 마이그레이션하면 SQL Managed Instance 호스트 이름에 매핑되는 IP 주소가 변경 됩니다. SQL Managed Instance 서비스는 고정 IP 주소 지원을 주장 하지 않으며 정기 유지 관리 주기 중에 통지 없이이를 변경할 권리를 보유 합니다.
-
-따라서 불필요 한 가동 중지 시간이 발생할 수 있으므로 IP 주소의 불변성에 의존 하지 않는 것이 좋습니다.
 
 ## <a name="change-time-zone"></a>표준 시간대 변경
 

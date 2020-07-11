@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111350"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224063"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Azure 웹 응용 프로그램 방화벽 및 Azure Policy
 
@@ -38,10 +38,12 @@ WAF 리소스를 관리 하는 몇 가지 기본 제공 Azure 정책이 있습�
 
 2.  Azure 정책 서비스의 **제작**에서 **할당**을 선택 합니다.
 
+[!div class="mx-imgBorder"]
 ![Azure 웹 애플리케이션 방화벽](../media/waf-azure-policy/policy-home.png)
 
 3.  할당 페이지의 맨 위에 있는 **정책 할당** 아이콘을 선택 합니다.
 
+[!div class="mx-imgBorder"]
 ![Azure 웹 애플리케이션 방화벽](../media/waf-azure-policy/assign-policy.png)
 
 4.  정책 페이지 기본 사항 할당 탭에서 다음 필드를 업데이트 합니다.
@@ -49,6 +51,7 @@ WAF 리소스를 관리 하는 몇 가지 기본 제공 Azure 정책이 있습�
     2.  **제외**: 정책에서 제외할 범위에서 리소스를 선택 합니다. 
     3.  **정책 정의**: 제외를 사용 하 여 범위에 적용할 Azure Policy를 선택 합니다. 검색 표시줄에 "웹 응용 프로그램 방화벽"을 입력 하 여 Azure Policy 관련 웹 응용 프로그램 방화벽을 선택 합니다.
 
+[!div class="mx-imgBorder"]
 ![Azure 웹 애플리케이션 방화벽](../media/waf-azure-policy/policy-listing.png)
 
 

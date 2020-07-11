@@ -3,12 +3,12 @@ title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft 
 description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601363"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224488"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
@@ -62,7 +62,7 @@ Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나
 ## <a name="how-can-i-verify-whats-being-collected"></a>수집되는 항목을 어떻게 확인할 수 있나요?
 Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에서 앱을 실행합니다. 원격 분석은 출력 창에 나타납니다. 여기에서 복사하고 쉬운 검사를 JSON으로 형식으로 지정할 수 있습니다. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Visual Studio의 디버그 모드에서 앱을 실행 하는 것을 보여 주는 스크린샷](./media/data-retention-privacy/06-vs.png)
 
 진단 창에 보다 읽기 쉬운 보기도 있습니다.
 
@@ -213,7 +213,7 @@ Tls 1.3와 같이 제공 되는 새로운 더 안전한 프로토콜을 자동�
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않음 | 해당 없음
+|Windows Vista | 지원되지 않습니다. | 해당 없음
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 
@@ -255,7 +255,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
 | [호출 추적*][api] |이벤트 이름<br/>**속성** |
 | [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 예를 들어: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| SDK는 데이터를 수집할 수 없습니다. 예를 들면 다음과 같습니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼에 대한 SDK][platforms]의 경우 해당 문서를 참조하세요.
 

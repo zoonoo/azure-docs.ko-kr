@@ -5,11 +5,12 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 description: Azure Dev Spaces 명령줄 도구, Visual Studio Code 확장 및 Visual Studio 확장을 업그레이드하는 방법 알아보기
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: af4ef92d335c350042b74ccfbfaf5266615f92a6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873477"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229264"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Azure Dev Spaces 도구를 업그레이드하는 방법
 
@@ -40,4 +41,4 @@ Azure Dev Spaces는 Azure 개발 워크로드의 일부이며, 모든 Visual Stu
 
 ## <a name="next-steps"></a>다음 단계
 
-새 클러스터를 만들어 새 도구를 테스트합니다. [Azure Dev Spaces](/azure/dev-spaces)에서 빠른 시작 및 자습서를 진행합니다.
+새 클러스터를 만들어 새 도구를 테스트합니다. [Azure Dev Spaces](../index.yml)에서 빠른 시작 및 자습서를 진행합니다.

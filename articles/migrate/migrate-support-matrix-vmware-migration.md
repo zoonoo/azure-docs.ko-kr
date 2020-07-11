@@ -3,12 +3,12 @@ title: Azure Migrate에서 VMware 마이그레이션 지원
 description: Azure Migrate에서 VMware VM 마이그레이션에 대 한 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7b026d07c6ac1630048d8aee6778215f3a99dddb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d8a2488e16031a4d960d039d646d9da5de1c1c2e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134985"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223706"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -51,7 +51,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 
 **지원** | **세부 정보**
 --- | ---
-**지원되는 운영 체제** | Azure에서 지 원하는 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](../virtual-machines/linux/endorsed-distros.md) 운영 체제를 마이그레이션할 수 있습니다.
+**지원 되는 운영 체제** | Azure에서 지 원하는 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](../virtual-machines/linux/endorsed-distros.md) 운영 체제를 마이그레이션할 수 있습니다.
 **Azure의 Windows Vm** | 마이그레이션하기 전에 Vm에서 [일부를 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 해야 할 수도 있습니다. 
 **Azure의 Linux Vm** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우 이러한 운영 체제에 대 한 변경 내용이 자동으로 Azure Migrate.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 작업을 수동으로 수행 합니다.
 **Linux 부팅** | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다.
@@ -162,13 +162,13 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
 운영 체제 디스크 크기 | 최대 2,048GB. 
 운영 체제 디스크 수 | 1 
 데이터 디스크 수 | 64개 이하. 
-데이터 디스크 크기 | 최대 4,095GB 
+데이터 디스크 크기 | 최대 8095
 네트워크 어댑터 | 여러 어댑터가 지원됩니다.
 공유 VHD | 지원되지 않습니다. 
 FC 디스크 | 지원되지 않습니다. 
 BitLocker | 지원되지 않습니다.<br/><br/> 컴퓨터를 마이그레이션하기 전에 BitLocker를 사용 하지 않도록 설정 해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. 
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽**허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll**으로 설정 되어 있는지 확인 합니다. [자세히 알아보기](prepare-for-migration.md).
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽**허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll**으로 설정 되어 있는지 확인 합니다. [자세한 정보를 알아보세요](prepare-for-migration.md).
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/><br/> 마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/><br/> 장애 조치 (failover) 후에 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다.<br/><br/> 또한 VM에 대 한 공용 IP 주소를 추가 합니다.  
 
 

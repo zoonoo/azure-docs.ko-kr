@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135075"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221207"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -150,6 +150,9 @@ API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필�
 - PlatformImage - 원본 이미지가 Marketplace 이미지 임을 나타냅니다.
 - ManagedImage - 일반 관리형 이미지에서 시작할 때 사용합니다.
 - SharedImageVersion - Shared Image Gallery의 이미지 버전을 원본으로 사용하는 경우에 사용됩니다.
+
+> [!NOTE]
+> 기존 Windows 사용자 지정 이미지를 사용 하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. 자세한 내용은 [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조 하십시오.
 
 ### <a name="iso-source"></a>ISO 원본
 이제 [RHEL Bring Your Own Subscription 이미지](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos)가 있으므로 Image Builder에서 이 기능을 사용 중단하는 중입니다. 아래 타임라인을 검토하세요.
@@ -468,7 +471,10 @@ Azure Image Builder는 다음과 같은 세 가지 배포 대상을 지원합니
 - **sharedImage**- Shared Image Gallery입니다.
 - **VHD** - 스토리지 계정의 VHD입니다.
 
-동일한 구성으로 두 대상 유형 모두에 이미지를 배포할 수 있습니다. [예제](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80)를 참조하세요.
+동일한 구성에서 두 대상 유형 모두에 이미지를 배포할 수 있습니다.
+
+> [!NOTE]
+> 기본 AIB sysprep 명령은 "/mode: vm"을 포함 하지 않습니다. 그러나 HyperV 역할을 설치 하는 이미지를 만들 때이 작업이 필요할 수 있습니다. 이 명령 인수를 추가 해야 하는 경우 sysprep 명령을 재정의 해야 합니다.
 
 배포할 대상이 둘 이상 있을 수 있으므로 Image Builder는 `runOutputName`을 쿼리하여 액세스할 수 있는 모든 배포 대상의 상태를 유지 관리합니다.  `runOutputName`은 배포 후 해당 배포에 대한 정보를 위해 쿼리할 수 있는 개체입니다. 예를 들어 VHD의 위치 또는 이미지 버전이 복제된 지역 또는 생성된 SIG 이미지 버전을 쿼리할 수 있습니다. 이는 모든 배포 대상의 속성입니다. `runOutputName`은 각 배포 대상에 고유해야 합니다. 다음은 Shared Image Gallery 배포를 쿼리하는 예제입니다.
 

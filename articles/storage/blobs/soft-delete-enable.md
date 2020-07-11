@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463725"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224896"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Blob에 대한 일시 삭제를 사용 및 관리
 
@@ -39,31 +40,31 @@ Azure Portal을 사용하여 스토리지 계정의 Blob에 대해 일시 삭제
 
 5. **저장** 단추를 선택하여 데이터 보호 설정을 확인합니다.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![데이터 보호 blob 서비스가 선택 된 Azure Portal의 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 일시 삭제된 Blob을 보려면 **삭제된 Blob 표시** 확인란을 선택합니다.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![삭제 된 blob 표시 옵션이 강조 표시 된 데이터 보호 blob 서비스 페이지의 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 지정된 Blob에 대한 일시 삭제된 스냅샷을 보려면 Blob을 선택한 다음, **스냅샷 보기**를 클릭합니다.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![스냅숏 보기 옵션이 강조 표시 된 데이터 보호 blob 서비스 페이지의 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 **삭제된 스냅샷 표시** 확인란이 선택되었는지 확인합니다.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![삭제 된 blob 표시 옵션이 강조 표시 된 스냅숏 보기 페이지의 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 일시 삭제된 Blob 또는 스냅샷을 클릭할 때 새 Blob 속성을 확인합니다. 개체가 삭제된 시점과 Blob 또는 Blob 스냅샷이 영구적으로 만료될 때까지 남은 일 수를 나타냅니다. 일시 삭제된 개체가 스냅샷이 아닌 경우 삭제를 취소하는 옵션을 갖게 됩니다.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![일시 삭제 된 개체에 대 한 세부 정보의 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Blob 삭제 취소는 연결된 모든 스냅샷도 삭제 취소합니다. 활성 Blob에 대해 일시 삭제된 스냅샷을 삭제 취소하려면 Blob을 클릭하고 **모든 스냅샷 삭제 취소**를 선택합니다.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![일시 삭제 된 blob에 대 한 세부 정보의 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Blob의 스냅샷을 삭제 취소하면 **승격**을 클릭하여 루트 Blob에 대한 스냅샷을 복사할 수 있으므로 Blob을 스냅샷으로 복원합니다.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![수준 올리기 옵션이 강조 표시 된 스냅숏 보기 페이지의 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 1413676eb5f3ab6f472648335996c1e607bc8b27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771022"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224624"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,10 +38,10 @@ Open Hub를 통해 SAP Business Warehouse에서 지원되는 모든 싱크 데�
 
 이 SAP Business Warehouse 커넥터는 구체적으로 다음 작업을 지원합니다.
 
-- SAP Business Warehouse **버전 7.01 이상 (2015 년 이후 출시 된 최근 Sap 지원 패키지 스택)**
+- SAP Business Warehouse **버전 7.01 이상 (2015 년 이후 출시 된 최근 Sap 지원 패키지 스택)** 이 커넥터는 SAP BW4/HANA를 지원 하지 않습니다.
 - Open Hub 대상 로컬 테이블(DSO, InfoCube, MultiProvider, DataSource 아래에 있을 수 있음)을 통해 데이터 복사
 - 기본 인증을 사용하여 데이터를 복사합니다.
-- 애플리케이션 서버에 연결
+- SAP 응용 프로그램 서버 또는 SAP 메시지 서버에 연결 하는 중입니다.
 
 ## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 통합 
 
@@ -73,7 +74,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 적절 한 델타 처리를 위해 동일한 열려 있는 허브 테이블에 있는 다른 DTPs의 요청 Id를 가질 수 없습니다. 따라서 각 OHD (개방형 허브 대상)에 대해 두 개 이상의 DTP를 만들지 않아야 합니다. 동일한 InfoProvider에서 전체 및 델타 추출을 필요로 하는 경우 동일한 InfoProvider에 대해 두 개의 OHDs를 만들어야 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 SAP Business Warehouse 커넥터를 사용하려면 다음 작업을 수행해야 합니다.
 
@@ -234,14 +235,14 @@ SAP BW Open Hub에서 데이터를 복사할 때는 SAP BW 데이터 형식에�
 
 | SAP ABAP 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| C(문자열) | String |
+| C(문자열) | 문자열 |
 | I(정수) | Int32 |
 | F(부동) | Double |
-| D(날짜) | String |
-| T(시간) | String |
+| D(날짜) | 문자열 |
+| T(시간) | 문자열 |
 | P(BCD 압축, 통화, 10진수, 수량) | Decimal |
-| N(숫자) | String |
-| X(이진 및 원시) | String |
+| N(숫자) | 문자열 |
+| X(이진 및 원시) | 문자열 |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

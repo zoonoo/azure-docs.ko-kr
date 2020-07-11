@@ -8,13 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ba64ac6d33f96979a05de383ffc02dd757fc906
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734472"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223417"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 가상 컴퓨터에 대 한 보안 원격 액세스
 
@@ -31,7 +32,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에�
 
 ![RDS (원격 데스크톱 서비스) 개요](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
 

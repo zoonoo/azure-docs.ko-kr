@@ -1,5 +1,5 @@
 ---
-title: 관리자 역할 설명 및 권한 - Azure AD | Microsoft Docs
+title: Azure AD 역할 설명 및 사용 권한-Azure Active Directory | Microsoft Docs
 description: 관리자 역할은 사용자를 추가하고, 관리자 역할을 할당하며, 사용자 암호를 다시 설정하고, 사용자 라이선스 또는 도메인을 관리하는 데 사용할 수 있습니다.
 services: active-directory
 author: curtand
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/29/2020
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e648058e866be57deaf8dd159c89fc08141b68
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd0d17732991fd97b2406c9c5f182408f4746d96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166674"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223876"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -42,6 +42,11 @@ Azure AD(Azure Active Directory)를 사용하면 제한된 관리자가 권한�
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
 
 Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법을 알아보려면 [Azure Active Directory에서 관리자 역할 보기 및 할당](directory-manage-roles-portal.md)을 참조하세요.
+
+> [!Note]
+> Azure AD premium P2 라이선스가 있고 이미 PIM (Privileged Identity Management) 인 경우 모든 역할 관리 작업은 Azure AD가 아닌 권한 Id 관리에서 수행 됩니다.
+>
+> ![이미 PIM을 사용 하 고 프리미엄 P2 라이선스가 있는 사용자를 위해 PIM에서 관리 되는 Azure AD 역할](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
 ## <a name="available-roles"></a>사용 가능한 역할
 
@@ -180,6 +185,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 ### <a name="directory-readers"></a>[디렉터리 읽기 권한자](#directory-readers-permissions)
 
 이 역할의 사용자는 기본 디렉터리 정보를 읽을 수 있습니다. 이 역할은 다음 용도로 사용해야 합니다.
+
 * 모든 게스트 사용자가 아닌 특정 게스트 사용자에게만 읽기 권한을 부여합니다.
 * "Azure AD 포털에 대한 액세스 권한을 관리자로만 제한"이 "예"로 설정된 경우 관리자가 아닌 특정 사용자에게 Azure Portal에 대한 액세스 권한을 부여합니다.
 * Directory.Read.All을 사용할 수 없는 디렉터리에 대한 액세스 권한을 서비스 주체에게 부여합니다.
@@ -290,7 +296,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 이 역할은 모든 보안 그룹을 만들고 관리할 수 있습니다. 그러나 Intune 관리자는 Office 그룹에 대한 관리자 권한이 없습니다. 즉, 관리자는 조직 내 모든 Office 그룹의 소유자 또는 멤버를 업데이트할 수 없습니다. 그러나 관리자는 자신이 만드는 Office 그룹을 관리할 수 있으며, 이 권한은 최종 사용자 권한의 일부로 제공됩니다. 따라서 관리자가 만드는 모든 Office 그룹(보안 그룹 아님)은 관리자의 250 할당량을 기준으로 계산되어야 합니다.
 
 > [!NOTE]
-> Microsoft Graph API 및 Azure AD PowerShell에서 이 역할은 "Intune 서비스 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Intune 관리자"입니다.
+> Microsoft Graph API 및 Azure AD PowerShell에서이 역할은 "Intune 서비스 관리자"로 식별 됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Intune 관리자"입니다.
 
 ### <a name="kaizala-administrator"></a>[Kaizala 관리자](#kaizala-administrator-permissions)
 
@@ -309,6 +315,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 이 역할의 사용자는 Exchange, Intune 및 Microsoft Teams와 같은 구성된 서비스에서 조직에 대한 [Office 365 메시지 센터](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)의 알림 및 자문 상태 업데이트를 모니터링할 수 있습니다. 메시지 센터 읽기 권한자는 게시물 및 업데이트 이메일 다이제스트를 매주 수신하며, 메시지 센터 게시물을 Office 365에서 공유할 수 있습니다. Azure AD에서 이 역할에 할당된 사용자는 Azure AD 서비스에서 사용자 및 그룹처럼 읽기 전용 권한만 있습니다. 이 역할에는 지원 티켓 보기, 생성 또는 관리 권한은 없습니다.
 
 ### <a name="modern-commerce-administrator"></a>[최신 상거래 관리자](#modern-commerce-administrator-permissions)
+
 사용하지 마십시오. 이 역할은 상거래에서 자동으로 할당되며 다른 용도로 사용하기에 적합하거나 지원되지 않습니다. 아래에서 자세한 내용을 참조하세요.
 
 최신 상거래 관리자 역할은 특정 사용자에게 Microsoft 365 관리 센터에 액세스하여 **홈**, **청구** 및 **지원**에 대한 왼쪽 탐색 항목을 볼 수 있는 권한을 부여합니다. 이러한 영역에 제공되는 콘텐츠는 사용자가 직접 구매했거나 조직을 대신해서 구매한 제품을 관리하기 위해 사용자에게 할당하는 [상거래 관련 역할](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles)을 통해 제어됩니다. 여기에는 요금 결제 또는 청구 계정 및 청구 프로필 액세스와 같은 작업이 포함될 수 있습니다. 
@@ -316,17 +323,17 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 최신 상거래 관리자 역할이 할당된 사용자는 일반적으로 다른 Microsoft 구매 시스템에서 관리 권한을 갖지만, 관리 센터에 액세스하는 데 사용되는 전역 관리자 또는 대금 청구 관리자 역할은 갖지 못합니다. 
 
 **최신 상거래 관리자 역할은 언제 할당되나요?**
+
 * **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스로 구매하는 사용자에게는 상거래 시스템의 역할과 최신 상거래 관리자 역할이 할당되므로 관리 센터에서 구매를 관리할 수 있습니다. 관리자는 [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide)을 참조하세요.  
-* **Microsoft 상업용 마켓플레이스에서 구매** – 셀프 서비스 구매와 마찬가지로 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품 또는 서비스를 구매할 때 사용자에게 전역 관리자 또는 대금 청구 관리자 역할이 없는 경우 최신 상거래 관리자 역할이 할당됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.   
-* **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락하는 사람이 Azure AD에서 전역 관리자 또는 대금 청구 관리자 역할이 없는 경우 제안을 완료하기 위한 상거래 관련 역할과 관리 센터에 액세스하기 위한 최신 상거래 관리자 역할이 모두 할당됩니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다. 
+* **Microsoft 상업용 마켓플레이스에서 구매** – 셀프 서비스 구매와 마찬가지로 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품 또는 서비스를 구매할 때 사용자에게 전역 관리자 또는 대금 청구 관리자 역할이 없는 경우 최신 상거래 관리자 역할이 할당됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
+* **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락하는 사람이 Azure AD에서 전역 관리자 또는 대금 청구 관리자 역할이 없는 경우 제안을 완료하기 위한 상거래 관련 역할과 관리 센터에 액세스하기 위한 최신 상거래 관리자 역할이 모두 할당됩니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
 * **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 전역 관리자 또는 대금 청구 관리자가 아닌 사용자에게는 관리 센터에 액세스할 수 있도록 최신 상거래 관리자 역할이 할당됩니다.  
 
-사용자가 최신 상거래 관리자 역할의 할당을 해제하면 Microsoft 365 관리 센터에 액세스할 수 없게 됩니다. 직접 또는 조직을 대신해서 제품을 관리하는 사용자는 제품을 관리할 수 없게 됩니다. 여기에는 라이선스 할당, 결제 방법 변경, 청구서 결제 또는 구독 관리에 대한 기타 작업이 포함될 수 있습니다. 
+사용자가 최신 상거래 관리자 역할의 할당을 해제하면 Microsoft 365 관리 센터에 액세스할 수 없게 됩니다. 직접 또는 조직을 대신해서 제품을 관리하는 사용자는 제품을 관리할 수 없게 됩니다. 여기에는 라이선스 할당, 결제 방법 변경, 청구서 결제 또는 구독 관리에 대한 기타 작업이 포함될 수 있습니다.
 
 ### <a name="network-administrator"></a>[네트워크 관리자](#network-administrator-permissions)
 
-이 역할의 사용자는 사용자 위치의 네트워크 원격 분석 데이터를 기반으로 작성되는 Microsoft의 네트워크 경계 아키텍처 권장 사항을 검토할 수 있습니다. Office 365의 네트워크 성능은 일반적으로 사용자 위치와 관련이 있는 신중한 엔터프라이즈 고객 네트워크 경계 아키텍처에 좌우됩니다. 이 역할이 있으면 검색된 사용자 위치와 해당 위치의 네트워크 매개 변수 구성을 편집하여 원격 분석 측정 및 디자인 권장 사항을 쉽게 개선할 수 있습니다. 
-
+이 역할의 사용자는 사용자 위치의 네트워크 원격 분석 데이터를 기반으로 작성되는 Microsoft의 네트워크 경계 아키텍처 권장 사항을 검토할 수 있습니다. Office 365의 네트워크 성능은 일반적으로 사용자 위치와 관련이 있는 신중한 엔터프라이즈 고객 네트워크 경계 아키텍처에 좌우됩니다. 이 역할을 통해 검색 된 사용자 위치를 편집 하 고 해당 위치에 대 한 네트워크 매개 변수를 구성 하 여 원격 분석 측정 및 디자인 권장 사항을 향상할 수 있습니다.
 ### <a name="office-apps-administrator"></a>[Office 앱 관리자](#office-apps-administrator-permissions)
 
 이 역할의 사용자는 Office 365 앱의 클라우드 설정을 관리할 수 있습니다. 여기에는 클라우드 정책 관리, 셀프 서비스 다운로드 관리, Office 앱 관련 보고서를 살펴보는 기능이 포함됩니다. 이 역할은 주 관리 센터 내에서 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능도 부여합니다. 이 역할이 할당된 사용자는 Office 앱 최신 기능의 통신도 관리할 수도 있습니다. 
@@ -401,10 +408,10 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 그런 다음 | 가능한 작업
 --- | ---
-[Microsoft 365 보안 센터](https://protection.office.com) | Microsoft 365 서비스 전반의 보안 관련 정책 모니터링<br>보안 위협과 경고 관리<br>보고서 보기
+[Microsoft 365 보안 센터](https://protection.office.com) | Microsoft 365 서비스 전반의 보안 관련 정책 모니터링<br>보안 위협과 경고 관리<br>보고서를 봅니다.
 ID 보호 센터 | 보안 읽기 권한자 역할의 모든 권한<br>암호 재설정을 제외한 모든 ID 보호 센터 작업을 수행하는 기능도 있음
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 보안 읽기 권한자 역할의 모든 권한<br>Azure AD 역할 할당 또는 설정을 관리할 수 **없음**
-[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 정책 관리<br>보안 위협 확인/조사/대응<br>보고서를 봅니다.
+[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 정책 관리<br>보안 위협 확인/조사/대응<br>보고서 보기
 Azure Advanced Threat Protection | 의심스러운 보안 활동 모니터링/대응
 Windows Defender ATP 및 EDR | 역할 할당<br>머신 그룹 관리<br>엔드포인트 위협 검색 및 자동 수정 구성<br>경고 확인/조사/대응
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 사용자, 디바이스, 등록, 구성 및 애플리케이션 정보 확인<br>Intune을 변경할 수는 없음
@@ -460,7 +467,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 > Microsoft Graph API 및 Azure AD PowerShell에서 이 역할은 "SharePoint 서비스 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "SharePoint 관리자"입니다.
 
 > [!NOTE]
-> 또한이 역할은 Microsoft Intune에 대 한 Microsoft Graph API에 범위 지정 된 사용 권한을 부여 하 여 Sharepoint 및 Onedrive 리소스와 관련 된 정책을 관리 하 고 구성할 수 있도록 합니다.
+> 또한이 역할은 Microsoft Intune에 대 한 Microsoft Graph API에 범위 지정 된 사용 권한을 부여 하 여 SharePoint 및 OneDrive 리소스와 관련 된 정책을 관리 하 고 구성할 수 있도록 합니다.
 
 ### <a name="skype-for-business--lync-administrator"></a>[비즈니스용 Skype/Lync 관리자](#lync-service-administrator-permissions)
 
@@ -487,13 +494,13 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 ### <a name="user-administrator"></a>[사용자 관리자](#user-administrator-permissions)
 
-이 역할의 사용자는 사용자를 만들고, 사용자의 모든 것을 제한적으로(아래 참조) 관리하고, 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자는 대부분의 관리자 역할에 속한 사용자의 일부 사용자 속성을 관리할 권한이 없습니다. 이 역할의 사용자는 MFA를 관리할 권한이 없습니다. 다음 표에는 이 제한이 적용되지 않는 예외적인 역할이 나열되어 있습니다.
+이 역할을 가진 사용자는 사용자를 만들고 몇 가지 제한 사항이 있는 사용자의 모든 측면을 관리할 수 있습니다 (표 참조). 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자는 대부분의 관리자 역할에 속한 사용자의 일부 사용자 속성을 관리할 권한이 없습니다. 이 역할의 사용자는 MFA를 관리할 권한이 없습니다. 다음 표에는 이 제한이 적용되지 않는 예외적인 역할이 나열되어 있습니다.
 
-| 사용 권한 | 가능한 작업 |
+| **사용 권한** | **가능한 작업** |
 | --- | --- |
 |일반적인 사용 권한|<p>사용자 및 그룹 만들기</p><p>사용자 보기 만들기 및 관리</p><p>Office 지원 티켓 관리<p>암호 만료 정책 업데이트|
-|<p>모든 관리자를 포함한 모든 사용자에게</p>|<p>라이선스 관리</p><p>사용자 계정 이름을 제외한 모든 사용자 속성 관리</p>
-|비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 구독자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 재설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
+| <p>모든 관리자를 포함한 모든 사용자에게</p>|<p>라이선스 관리</p><p>사용자 계정 이름을 제외한 모든 사용자 속성 관리</p>
+| 비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 구독자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 재설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 다음은 그 예입니다.

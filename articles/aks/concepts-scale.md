@@ -4,11 +4,12 @@ description: Horizontal Pod Autoscaler, 클러스터 자동 크기 조정기 및
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c9c3cf159d67d2f4acaaab943ecf9d99263ae55
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465340"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223842"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -79,7 +80,7 @@ AKS 클러스터 크기를 빠르게 조정하기 위해 ACI(Azure Container Ins
 
 ![Kubernetes를 ACI로 버스트 크기 조정](media/concepts-scale/burst-scaling.png)
 
-ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴스를 빠르게 배포할 수 있습니다. AKS와 연결할 경우 ACI는 AKS 클러스터의 안전한 논리 확장이 됩니다. 가상 [Kubelet][virtual-kubelet]을 기반으로 하는 [가상 노드][virtual-nodes-cli] 구성 요소는 ACI를 가상 Kubernetes 노드로 표시 하는 AKS 클러스터에 설치 됩니다. 그러면 Kubernetes는 AKS 클러스터에서 직접, VM 노드의 Pod로 실행되는 Pod가 아니라 가상 노드를 통해 ACI 인스턴스로 실행되는 Pod를 예약할 수 있습니다. 가상 노드는 현재 AKS에서 미리 보기로 제공 됩니다.
+ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴스를 빠르게 배포할 수 있습니다. AKS와 연결할 경우 ACI는 AKS 클러스터의 안전한 논리 확장이 됩니다. 가상 [Kubelet][virtual-kubelet]을 기반으로 하는 [가상 노드][virtual-nodes-cli] 구성 요소는 ACI를 가상 Kubernetes 노드로 표시 하는 AKS 클러스터에 설치 됩니다. 그러면 Kubernetes는 AKS 클러스터에서 직접, VM 노드의 Pod로 실행되는 Pod가 아니라 가상 노드를 통해 ACI 인스턴스로 실행되는 Pod를 예약할 수 있습니다.
 
 가상 노드를 사용하기 위해 애플리케이션을 수정할 필요는 없습니다. AKS 및 ACI 간에 배포 크기를 조정할 수 있으며 클러스터 자동 크기 조정기가 AKS 클러스터에 새 노드를 배포할 때 지연이 발생하지 않습니다.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 6f49ece874ea52227e6531193fc53b3bea525702
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b671bb63934eec129e992c369ba8516c191c589
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796604"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223570"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용 하 여 관리 되는 이미지에서 이미지 버전으로 마이그레이션
 공유 이미지 갤러리로 마이그레이션할 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [PowerShell](image-version-managed-image-powershell.md)을 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
@@ -98,3 +98,5 @@ az sig image-version create \
 ## <a name="next-steps"></a>다음 단계
 
 [일반화 된 이미지 버전](vm-generalized-image-version-cli.md)에서 VM을 만듭니다.
+
+구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

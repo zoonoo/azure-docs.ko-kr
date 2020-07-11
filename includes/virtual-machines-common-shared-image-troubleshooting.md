@@ -5,17 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772848"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226439"
 ---
-공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. 디버그 모드는 PowerShell을 사용 하 여 **-debug** 스위치와 CLI를 전달 하 고 **-debug** 스위치를 사용 하 여 활성화 됩니다. 오류를 찾은 후에는 이 문서의 지침에 따라 오류를 해결합니다.
+공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. 디버그 모드는 `--debug` CLI 및 PowerShell로 스위치를 전달 하 여 활성화 됩니다 `-Debug` . 오류를 찾은 후에는 이 문서의 지침에 따라 오류를 해결합니다.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>공유 이미지 갤러리를 만들 수 없음
@@ -43,7 +43,7 @@ ms.locfileid: "75772848"
 
 이름, 게시자, 제품, sku, OS 종류 등의 속성은 필수입니다. 모든 속성이 전달되었는지 확인하세요.
 
-이미지 정의의 **OSType**(Linux 또는 Windows)이 이미지 버전을 만드는 데 사용할 원본 관리 이미지와 동일한지 확인합니다. 
+이미지 정의의 **OSType**(Linux 또는 Windows)가 이미지 버전을 만드는 데 사용 하는 원본과 동일한 지 확인 합니다. 
 
 
 ## <a name="unable-to-create-an-image-version"></a>이미지 버전을 만들 수 없음 
@@ -84,7 +84,7 @@ VM 또는 가상 머신 확장 집합을 만들려는 지역이 이미지 버전
 
 *VM 또는 가상 머신 확장 집합을 만드는 시간이 깁니다.*
 
-VM 또는 가상 머신 확장 집합을 만들려는 이미지 버전의 **OSType**이 이미지 버전을 만드는 데 사용한 원본 관리 이미지의 **OSType**과 동일한지 확인하세요. 
+VM 또는 가상 머신 확장 집합을 만들려는 이미지 버전의 **OSType** 에 이미지 버전을 만드는 데 사용한 것과 동일한 원본 **OSType** 있는지 확인 합니다. 
 
 ## <a name="unable-to-share-resources"></a>리소스를 공유할 수 없음
 

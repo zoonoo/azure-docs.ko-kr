@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550330"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223026"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>대체 로그인 ID (미리 보기)로 전자 메일을 사용 하 여 Azure Active Directory 로그인
 

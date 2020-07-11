@@ -3,12 +3,12 @@ title: 기술 자료 개선 - QnA Maker
 description: 활성 학습을 사용 하 여 기술 자료의 품질을 향상 시킵니다. 기존 질문을 삭제하거나 변경하지 않고 검토, 수락, 거부 또는 추가합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650768"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231780"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 질문 수락
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|이름|유형|용도|
+|HTTP 요청 속성|이름|형식|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host` .|
@@ -137,12 +137,12 @@ Content-Type: application/json
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 
-|JSON 본문 속성|유형|용도|
+|JSON 본문 속성|형식|목적|
 |--|--|--|--|
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
-|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
-|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
-|`qnaID`|숫자|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
+|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
+|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 요소.|
+|`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.
 
@@ -199,7 +199,7 @@ Bot와 같은 클라이언트 쪽 응용 프로그램에서 데이터를 저장 
 * 쿼리가 활성 학습에 사용 되어야 하는지 결정
 * 활성 학습을 위한 QnA Maker의 학습 API로 쿼리를 다시 보냅니다.
 
-[Azure Bot 샘플](https://aka.ms/activelearningsamplebot)에서 이러한 활동은 모두 프로그래밍 되었습니다.
+[Azure Bot 샘플](https://github.com/microsoft/BotBuilder-Samples)에서 이러한 활동은 모두 프로그래밍 되었습니다.
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>봇 Framework 4.x를 사용 하는 학습 API에 대 한 예제 c # 코드
 
@@ -264,7 +264,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 }
 ```
 
-### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>봇 Framework 4.x를 사용 하는 학습 API에 대 한 예제 node.js 코드
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>봇 Framework 4.x를 사용 하는 학습 API에 대 한 예제 Node.js 코드
 
 다음 코드에서는 학습 API를 사용 하 여 QnA Maker에 정보를 다시 보내는 방법을 보여 줍니다.
 

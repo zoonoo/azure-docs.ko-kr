@@ -11,17 +11,20 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 03/24/2020
-  ms.openlocfilehash: dae82c058d5d4e3b2f4c9003c2642456fa71b215
-  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+  ms.openlocfilehash: 18c854389122c7e05a84ea0fd42b0cd2fd0c4c1c
+  ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/23/2020
-  ms.locfileid: "85211205"
+  ms.lasthandoff: 07/10/2020
+  ms.locfileid: "86224369"
 highlightedContent:
   items:
   - title: Cognitive Services란?
     itemType: overview
     url: ./welcome.md
+  - title: Docs의 새로운 기능
+    itemType: whats-new
+    url: whats-new-docs.md
   - title: Cognitive Services 및 기계 학습
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
@@ -37,9 +40,6 @@ highlightedContent:
   - title: Cognitive Services용 가상 네트워크
     itemType: architecture
     url: cognitive-services-virtual-networks.md
-  - title: Cognitive Services용 사용자 지정 하위 도메인
-    itemType: how-to-guide
-    url: cognitive-services-custom-subdomains.md
   - title: Cognitive Services 보안
     itemType: concept
     url: cognitive-services-security.md

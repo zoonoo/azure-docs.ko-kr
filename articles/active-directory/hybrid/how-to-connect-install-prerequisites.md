@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/27/2020
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bcf7b5b8791b813a28133d8a662d1736aacf35a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358721"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223927"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -48,34 +48,35 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * [Active Directory 휴지통을 사용하도록 설정](how-to-connect-sync-recycle-bin.md)하는 것이 좋습니다.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버
->[!IMPORTANT]
->Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있으며 [Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 에 설명 된 대로 계층 0 구성 요소로 처리 되어야 합니다.
+Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니다. [권한 있는 액세스 보안](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)에 설명 된 지침에 따라이 서버에 대 한 관리 액세스를 적절 하 게 보호 하는 것이 중요 합니다. 
 
-* Azure AD Connect는 Small Business Server 또는 2019 이전 Windows Server Essentials에 설치할 수 없습니다(Windows Server Essentials 2019는 지원됨). 서버는 Windows Server Standard 이상을 사용해야 합니다.
-* 도메인 컨트롤러에 Azure AD Connect를 설치 하는 것은 Azure AD Connect을 제대로 설치할 수 없게 하는 보안 방법 및 더 제한적인 설정으로 인해 권장 되지 않습니다.
-* Azure AD Connect 서버에는 전체 GUI가 설치되어 있어야 합니다. Server Core에 설치하는 것은 **지원되지 않습니다**.
->[!IMPORTANT]
->Small business server, server essentials 또는 server core에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다.
+[Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)에 설명 된 대로 Azure AD Connect 서버는 계층 0 구성 요소로 처리 되어야 합니다.  
 
-* Azure AD Connect는 Windows Server 2012 이상에 설치 해야 합니다. 이 서버는 도메인에 가입 되어 있어야 하며 도메인 컨트롤러 또는 구성원 서버가 될 수 있습니다.
-* Azure AD Connect 마법사를 사용 하 여 ADFS 구성을 관리 하는 경우에는 Azure AD Connect 서버에서 PowerShell 기록을 사용 하도록 설정 그룹 정책 하지 않아야 합니다. Azure AD Connect 마법사를 사용하여 동기화 구성을 관리하는 경우 PowerShell 기록을 사용하도록 설정할 수 있지만,
-* Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 애플리케이션 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. [Windows 원격 관리](#windows-remote-management) 를 사용할 수 있어야 합니다.
-* Active Directory Federation Services 배포 되는 경우 [TLS/SSL 인증서](#tlsssl-certificate-requirements)가 필요 합니다.
-* Active Directory Federation Services를 배포하고 있는 경우 [이름 확인](#name-resolution-for-federation-servers)을 구성해야 합니다.
-* 전역 관리자가 MFA를 사용 하도록 설정한 경우 URL은 **https://secure.aadcdn.microsoftonline-p.com** 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 이 사이트를 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
-* IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역을 줄이려면 Azure AD Connect 서버를 강화하는 것이 좋습니다.  아래의 권장 사항을 따르면 조직의 보안 위험을 줄일 수 있습니다.
+Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [Active Directory 보안 설정에 대 한 모범 사례](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)를 참조 하세요.
 
-* 도메인에 가입 된 서버에 Azure AD Connect를 배포 하 고 도메인 관리자 또는 엄격 하 게 제어 되는 다른 보안 그룹에 대 한 관리 액세스를 제한 합니다
+#### <a name="installation-prerequisites"></a>설치 필수 구성 요소 
 
-자세한 내용은 다음을 참조하세요. 
+- Azure AD Connect Windows Server 2012 이상에 가입 된 도메인에 설치 해야 합니다. 이 서버는 도메인 컨트롤러에 있는 것이 좋습니다. 
+- Azure AD Connect는 Small Business Server 또는 2019 이전 Windows Server Essentials에 설치할 수 없습니다(Windows Server Essentials 2019는 지원됨). 서버는 Windows Server Standard 이상을 사용해야 합니다.  
+- Azure AD Connect 서버에는 전체 GUI가 설치되어 있어야 합니다. Windows Server Core에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다. 
+- Azure AD Connect 마법사를 사용 하 여 ADFS 구성을 관리 하는 경우에는 Azure AD Connect 서버에서 PowerShell 기록을 사용 하도록 설정 그룹 정책 하지 않아야 합니다. Azure AD Connect 마법사를 사용하여 동기화 구성을 관리하는 경우 PowerShell 기록을 사용하도록 설정할 수 있지만, 
+- Active Directory Federation Services 배포 되는 경우 다음을 수행 합니다. 
+    - AD FS 또는 웹 응용 프로그램 프록시가 설치 되는 서버는 Windows Server 2012 R2 이상 이어야 합니다. Windows 원격 관리 를 사용할 수 있어야 합니다. 
+    - TLS/SSL 인증서를 구성 해야 합니다.  AD FS 및 [AD FS에서 Ssl 인증서 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap) [에 대 한 Ssl/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 를 참조 하세요.
+    - 이름 확인을 구성 해야 합니다. 
+- 전역 관리자가 MFA를 사용 하도록 설정한 경우 URL은 https://secure.aadcdn.microsoftonline-p.com 신뢰할 수 있는 사이트 목록에 **있어야** 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 이 사이트를 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.  
 
-* [관리자 그룹 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+#### <a name="hardening-your-azure-ad-connect-server"></a>Azure AD Connect 서버 강화 
+IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역을 줄이려면 Azure AD Connect 서버를 강화하는 것이 좋습니다. 아래의 권장 사항에 따라 조직에 대 한 몇 가지 보안 위험을 완화 하는 데 도움이 됩니다.
 
-* [기본 제공 관리자 계정 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+- Azure AD Connect 도메인 컨트롤러 및 다른 계층 0 리소스와 동일 하 게 처리 해야 합니다.https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material 
+- Azure AD Connect 서버에 대 한 관리 액세스를 도메인 관리자 또는 엄격 하 게 제어 되는 다른 보안 그룹 으로만 제한 해야 합니다.
+- [권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 계정을](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)만들어야 합니다. 관리자는 높은 권한이 있는 계정을 사용하여 웹을 탐색하거나, 이메일을 확인하거나, 일상적인 생산성 작업을 수행하면 안 됩니다.
+- [권한 있는 액세스 보안](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts)에 제공 된 지침을 따라야 합니다. 
+- 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 해야 합니다. [LAPS (로컬 관리자 암호) 솔루션](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 은 각 워크스테이션과 서버에서 고유한 임의의 암호를 구성 하 여 ACL로 보호 되는 ACTIVE DIRECTORY (AD)에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
+- 조직의 정보 시스템에 대 한 권한 있는 액세스 권한이 있는 모든 직원에 대해 전용 [권한 있는 액세스 워크스테이션 (PAW)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) 을 구현 해야 합니다. 
+- Active Directory 환경의 공격 노출 영역을 줄이려면 이러한 [추가 지침](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) 을 따라야 합니다.
 
-* [공격 노출 영역을 줄임으로써 보안 향상 및 유지](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
-
-* [Active Directory 공격 노출 영역 축소](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
 * Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다. SQL Server 설치의 유형은 [Azure AD Connect의 성능](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors)에 영향을 줄 수 있습니다.

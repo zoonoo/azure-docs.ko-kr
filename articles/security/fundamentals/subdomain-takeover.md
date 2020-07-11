@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a7ff8a0cf23bf0701a7cc35cb137ec0965f295ec
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145977"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223978"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
 
@@ -117,8 +117,8 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
 
     - DNS 레코드를 정기적으로 검토 하 여 하위 도메인이 모두 Azure 리소스에 매핑되는지 확인 합니다.
 
-        - **존재** -Azure 하위 도메인 (예: *. azurewebsites.net 또는 *. cloudapp.azure.com)을 가리키는 리소스에 대 한 DNS 영역을 쿼리 합니다 ( [이 참조 목록](azure-domains.md)참조).
-        - 사용자는 DNS 하위 도메인에서 대상으로 하는 모든 리소스 **를 소유 하** 고 있는지 확인 합니다.
+        - 존재-Azure 하위 도메인 (예: *. azurewebsites.net 또는 *. cloudapp.azure.com)을 가리키는 리소스에 대 한 DNS 영역을 쿼리 합니다 ( [이 참조 목록](azure-domains.md)참조).
+        - 사용자는 DNS 하위 도메인에서 대상으로 하는 모든 리소스를 소유 하 고 있는지 확인 합니다.
 
     - Azure FQDN (정규화 된 도메인 이름) 끝점과 응용 프로그램 소유자의 서비스 카탈로그를 유지 관리 합니다. 서비스 카탈로그를 빌드하려면 아래 표의 매개 변수를 사용 하 여 다음 ARG (Azure 리소스 그래프) 쿼리를 실행 합니다.
     
@@ -127,26 +127,15 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
         >
         > **제한 사항** -Azure 리소스 그래프에는 azure 환경이 클 경우 고려해 야 하는 제한 및 페이징 제한이 있습니다. Azure 리소스 데이터 집합을 사용 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) .  
 
-        ```
-        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
+        ```powershell
+        Search-AzGraph -Query "resources | where type == '<ResourceType>' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = <FQDNproperty>"
         ``` 
-        
-        예를 들어 다음 쿼리는 Azure App Service에서 리소스를 반환 합니다.
-
-        ```
-        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-        
-        여러 리소스 종류를 결합할 수도 있습니다. 다음 쿼리 예제에서는 Azure App Service **및** Azure App Service 슬롯에서 리소스를 반환 합니다.
-
-        ```azurepowershell
-        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-
 
         ARG 쿼리에 대 한 서비스 당 매개 변수:
 
-        |리소스 이름  |[ResourceType]  | [FQDNproperty]  |
+        |리소스 이름  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
         |Azure Front Door|microsoft.network/frontdoors|속성. cName|
         |Azure Blob Storage|microsoft.storage/storageaccounts|속성. primaryEndpoints. blob|
@@ -157,6 +146,23 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
         |Azure API Management|microsoft.apimanagement/service|hostnameConfigurations. hostName|
         |Azure App Service|microsoft.web/sites|defaultHostName|
         |Azure App Service-슬롯|microsoft.web/sites/slots|defaultHostName|
+
+        
+        **예 1** -이 쿼리는 Azure App Service에서 리소스를 반환 합니다. 
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = properties.defaultHostName"
+        ```
+        
+        **예 2** -이 쿼리는 여러 리소스 형식을 결합 하 여 Azure App Service **및** Azure App Service 슬롯에서 리소스를 반환 합니다.
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
+        'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, 
+        resourceGroup, name, endpoint = properties.defaultHostName"
+        ```
 
 
 - **수정 절차 만들기:**
@@ -173,4 +179,4 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
 
 - [Azure App Service에서 사용자 지정 도메인을 추가할 때 도메인 확인 ID 사용](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
 
--    [빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)

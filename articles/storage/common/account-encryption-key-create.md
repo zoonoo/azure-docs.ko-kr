@@ -10,12 +10,12 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf7d72e6f16605827b55e3a460a9b28010842d2f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805706"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220833"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대해 고객이 관리 하는 키를 지 원하는 계정 만들기
 
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-저장소 계정의 서비스가 계정 암호화 키를 사용 하 고 있는지 확인 하려면 [az storage account](/cli/azure/storage/account#az-storage-account-show) 명령을 호출 합니다. 이 명령은 저장소 계정 속성 및 해당 값의 집합을 반환 합니다. `keyType`암호화 속성 내에서 각 서비스에 대 한 필드를 찾아로 설정 되어 있는지 확인 `Account` 합니다.
+저장소 계정의 서비스가 계정 암호화 키를 사용 하 고 있는지 확인 하려면 [az storage account show](/cli/azure/storage/account#az-storage-account-show) 명령을 호출 합니다. 이 명령은 저장소 계정 속성 및 해당 값의 집합을 반환 합니다. `keyType`암호화 속성 내에서 각 서비스에 대 한 필드를 찾아로 설정 되어 있는지 확인 `Account` 합니다.
 
 ```azurecli
 az storage account show /

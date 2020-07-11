@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 89a5fa0be104c3a7b7e035f82d2fed80d4781701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a8fff374edab7e307cd6dc8fb9aa4a4f974d09c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511985"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224692"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -70,27 +70,31 @@ ms.locfileid: "85511985"
 Cmdlet을 사용 하려면 `Test-NetConnection` Azure PowerShell 모듈이 설치 되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps) 를 참조 하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 스토리지 계정과 관련된 이름으로 바꿔야 합니다.
 
    
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
+```azurepowershell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+# This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
+# The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+# $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+# or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
+```
     
 연결되면 다음 출력이 표시됩니다.
     
   
-    ComputerName     : <your-storage-account-name>
-    RemoteAddress    : <storage-account-ip-address>
-    RemotePort       : 445
-    InterfaceAlias   : <your-network-interface>
-    SourceAddress    : <your-ip-address>
-    TcpTestSucceeded : True
+```azurepowershell
+ComputerName     : <your-storage-account-name>
+RemoteAddress    : <storage-account-ip-address>
+RemotePort       : 445
+InterfaceAlias   : <your-network-interface>
+SourceAddress    : <your-ip-address>
+TcpTestSucceeded : True
+```
  
 
 > [!Note]  
@@ -127,11 +131,11 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
-## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Azure 파일 공유에 복사하는 경우 오류 1816 "이 명령을 처리할 수 있는 할당량이 충분하지 않습니다." 발생
+## <a name="error-1816---not-enough-quota-is-available-to-process-this-command"></a>오류 1816-이 명령을 처리 하는 데 사용할 수 있는 할당량이 부족 합니다.
 
 ### <a name="cause"></a>원인
 
-파일 공유가 탑재되어 있는 컴퓨터의 파일에 허용되는 동시 오픈 핸들의 상한값에 도달하는 경우 오류 1816이 발생합니다.
+Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets)을 참조하세요.
 
 ### <a name="solution"></a>솔루션
 

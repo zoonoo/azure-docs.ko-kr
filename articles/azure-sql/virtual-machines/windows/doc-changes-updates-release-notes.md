@@ -11,17 +11,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 43b2a02acc04a5c81b9e7bfbe3bfb1551b48ed52
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964620"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231508"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배포할 수 있습니다. 이 문서에서는 최신 릴리스의 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 새로운 기능 및 향상된 기능과 관련된 설명서 변경 내용을 요약합니다. 
+
+## <a name="july-2020"></a>2020년 7월
+
+
+| 변경 | 세부 정보 |
+| --- | --- |
+| **로그를 울트라 디스크로 마이그레이션** | 고성능 및 짧은 대기 시간을 활용 하기 위해 [로그 파일을 ultra disk로 마이그레이션하](storage-migrate-to-ultradisk.md) 는 방법에 대해 알아봅니다. | 
+
+
 
 
 ## <a name="june-2020"></a>2020년 6월

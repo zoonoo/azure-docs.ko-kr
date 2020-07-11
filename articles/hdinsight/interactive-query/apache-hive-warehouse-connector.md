@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c2590a2c745969313ae73521dbcd110fbf3b7551
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085857"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221020"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive 통합
 
@@ -37,6 +37,9 @@ Hive Warehouse Connector에서 지원되는 작업은 다음과 같습니다.
 * HiveStreaming을 사용하여 Hive에 DataFrame 또는 Spark 스트림 쓰기
 
 ## <a name="hive-warehouse-connector-setup"></a>Hive Warehouse Connector 설정
+
+> [!IMPORTANT]
+> Spark 2.4 Enterprise Security Package 클러스터에 설치 된 HiveServer2 대화형 인스턴스는 Hive 웨어하우스 커넥터에서 사용할 수 없습니다. 대신, HiveServer2 대화형 작업을 호스트 하는 별도의 HiveServer2 대화형 클러스터를 구성 해야 합니다. 단일 Spark 2.4 클러스터를 활용 하는 Hive 웨어하우스 커넥터 구성은 지원 되지 않습니다.
 
 Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위한 별도의 클러스터가 필요합니다. Azure HDInsight에서 이러한 클러스터를 설정하려면 다음 단계를 수행합니다.
 
@@ -72,7 +75,7 @@ Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위�
 
     | 구성 | 값 |
     |----|----|
-    |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`입니다. <br> 적절한 HDFS 호환 스테이징 디렉터리로 설정합니다. 다른 두 개의 클러스터가 있는 경우 스테이징 디렉터리는 HiveServer2에서 액세스할 수 있도록 LLAP 클러스터 스토리지 계정의 스테이징 디렉터리에 있는 폴더여야 합니다.  `STORAGE_ACCOUNT_NAME`을 클러스터에서 사용하는 스토리지 계정의 이름으로 바꾸고 `STORAGE_CONTAINER_NAME`을 스토리지 컨테이너의 이름으로 바꿉니다. |
+    |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> 적절한 HDFS 호환 스테이징 디렉터리로 설정합니다. 다른 두 개의 클러스터가 있는 경우 스테이징 디렉터리는 HiveServer2에서 액세스할 수 있도록 LLAP 클러스터 스토리지 계정의 스테이징 디렉터리에 있는 폴더여야 합니다.  `STORAGE_ACCOUNT_NAME`을 클러스터에서 사용하는 스토리지 계정의 이름으로 바꾸고 `STORAGE_CONTAINER_NAME`을 스토리지 컨테이너의 이름으로 바꿉니다. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| **HiveServer2 Interactive JDBC URL**에서 이전에 가져온 값입니다. |
     |`spark.datasource.hive.warehouse.metastoreUri`| 이전에 **hive.metastore.uris**에서 가져온 값입니다. |
     |`spark.security.credentials.hiveserver2.enabled`|YARN 클러스터 모드의 경우 `true`, YARN 클라이언트 모드의 경우 `false`입니다. |

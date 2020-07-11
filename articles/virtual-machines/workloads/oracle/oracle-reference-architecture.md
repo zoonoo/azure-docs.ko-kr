@@ -2,22 +2,22 @@
 title: Azure의 Oracle 데이터베이스에 대 한 참조 아키텍처 | Microsoft Docs
 description: Microsoft Azure Virtual Machines에서 Oracle Database Enterprise Edition 데이터베이스를 실행 하기 위한 아키텍처를 참조 합니다.
 services: virtual-machines-linux
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683482"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221615"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -41,7 +41,7 @@ Oracle은 클라우드 네이티브 도구 및 제품 외에도 [Oracle Data gua
 
 ### <a name="oracle-rac-in-the-cloud"></a>클라우드의 Oracle RAC
 
-Oracle RAC (실제 응용 프로그램 클러스터)는 단일 데이터베이스 저장소 (공유-전체 아키텍처 패턴)에 액세스 하는 많은 인스턴스를 포함 하 여 고객이 높은 처리량을 달성할 수 있도록 하는 Oracle의 솔루션입니다. Oracle RAC는 온-프레미스의 고가용성에도 사용할 수 있지만, Oracle RAC 단독은 랙 수준 또는 데이터 센터 수준 오류를 방지 하는 것이 아니라 인스턴스 수준 오류에 대해서만 보호 하므로 클라우드의 고가용성에는 사용할 수 없습니다. 이러한 이유로 Oracle은 고가용성을 위해 데이터베이스 (단일 인스턴스 또는 RAC)와 함께 Oracle Data Guard를 사용 하는 것을 권장 합니다. 일반적으로 고객은 업무에 중요 한 응용 프로그램을 실행 하는 데 높은 SLA를 요구 합니다. Oracle RAC는 현재 Azure의 Oracle에서 인증 또는 지원 되지 않습니다. 그러나 Azure는 인스턴스 수준 오류 로부터 보호 하는 데 도움이 되는 Azure 제품 가용성 영역 및 계획 된 유지 관리 기간 등의 기능을 제공 합니다. 이 외에도, 고객은 Oracle Data Guard, Oracle GoldenGate 및 Oracle 분할와 같은 기술을 사용 하 여 데이터 센터 수준 및 지리적 정치적 오류 뿐만 아니라 랙 수준에서 데이터베이스를 보호할 수 있습니다.
+Oracle RAC (실제 응용 프로그램 클러스터)는 단일 데이터베이스 저장소 (공유-전체 아키텍처 패턴)에 액세스 하는 많은 인스턴스를 포함 하 여 고객이 높은 처리량을 달성할 수 있도록 하는 Oracle의 솔루션입니다. Oracle RAC는 온-프레미스의 고가용성에도 사용할 수 있지만, Oracle RAC 단독은 랙 수준 또는 데이터 센터 수준 오류를 방지 하는 것이 아니라 인스턴스 수준 오류에 대해서만 보호 하므로 클라우드의 고가용성에는 사용할 수 없습니다. 이러한 이유로 Oracle은 고가용성을 위해 데이터베이스 (단일 인스턴스 또는 RAC)와 함께 Oracle Data Guard를 사용 하는 것을 권장 합니다. 일반적으로 고객은 업무에 중요 한 응용 프로그램을 실행 하는 데 높은 SLA를 요구 합니다. Oracle RAC는 현재 Azure의 Oracle에서 인증 또는 지원 되지 않습니다. 그러나 Azure는 인스턴스 수준 오류 로부터 보호 하는 데 도움이 되는 Azure 제품 가용성 영역 및 계획 된 유지 관리 기간 등의 기능을 제공 합니다. 이 외에도 고객은 Oracle Data Guard, Oracle GoldenGate 및 Oracle 분할와 같은 기술을 사용 하 여 성능 및 복원 력을 랙 수준에서 보호 하 고 데이터 센터 수준 및 지리적 정치적 오류를 방지할 수 있습니다.
 
 Oracle Data Guard 또는 GoldenGate와 함께 여러 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview) 에서 oracle 데이터베이스를 실행 하는 경우 고객은 99.99%의 작동 시간 SLA를 얻을 수 있습니다. 가용성 영역이 아직 없는 Azure 지역에서 고객은 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 을 사용 하 고 99.95%의 작동 시간 SLA를 달성할 수 있습니다.
 

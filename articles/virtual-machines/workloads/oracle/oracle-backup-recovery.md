@@ -3,7 +3,7 @@ title: Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 
 description: Azure 환경에서 Oracle Database 12c 데이터베이스를 백업하고 복구하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
+author: rgardler
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687012"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224454"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
 
@@ -171,7 +172,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 4. JSON 파일을 편집합니다.
 
-    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들어:
+    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들면 다음과 같습니다.
 
     ```output
     {

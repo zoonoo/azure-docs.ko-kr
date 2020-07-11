@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c130fb2e032a24384f52f11957632319093e1e3
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536444"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226406"
 ---
 | 리소스 | 표준 파일 공유 | 프리미엄 파일 공유 |
 |----------|---------------|------------------------------------------|
@@ -22,7 +22,7 @@ ms.locfileid: "81536444"
 | 단일 파일 공유에 대 한 대상 처리량 | 최대 300 MiB/초 *, 최대 60 MiB/초,  | 프리미엄 파일 공유 수신 및 송신 값 참조|
 | 단일 파일 공유에 대 한 최대 송신 | 표준 파일 공유 대상 처리량 참조 | 최대 6204 MiB/s |
 | 단일 파일 공유에 대 한 최대 수신 | 표준 파일 공유 대상 처리량 참조 | 최대 4136 MiB/s |
-| 파일별 최대 열린 핸들 수 | 2,000개의 열린 핸들 | 2,000개의 열린 핸들 |
+| 파일 또는 디렉터리 당 최대 열린 핸들 수 | 2,000개의 열린 핸들 | 2,000개의 열린 핸들 |
 | 최대 공유 스냅샷 수 | 200개의 공유 스냅샷 | 200개의 공유 스냅샷 |
 | 최대 개체(디렉터리 및 파일) 이름 길이 | 2048 문자 | 2048 문자 |
 | 최대 경로 이름 구성 요소(경로 \A\B\C\D의 각 문자가 구성 요소) | 255자 | 255자 |

@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: 개념
   items:
+    - name: Microsoft ID 플랫폼의 발전
+      href: about-microsoft-identity-platform.md
     - name: v2.0으로 업데이트해야 하는 이유
       href: azure-ad-endpoint-comparison.md
     - name: 애플리케이션 형식

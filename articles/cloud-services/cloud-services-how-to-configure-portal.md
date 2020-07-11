@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811406"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223740"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 
@@ -47,7 +48,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 클라우드 서비스에 경고를 추가할 수 있습니다. **설정**  >  **경고 규칙**  >  **경고 추가**를 클릭 합니다.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![경고 규칙 옵션이 강조 표시 되 고 빨간색으로 표시 되 고 경고 추가 옵션이 빨간색으로 표시 된 설정으로 이동 하는 설정의 스크린샷](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 여기에서 경고를 설정할 수 있습니다. **메트릭** 드롭다운 상자에서 다음 데이터 형식에 대한 경고를 설정할 수 있습니다.
 
@@ -57,7 +58,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * 네트워크 출력
 * CPU 비율
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![모든 구성 옵션이 설정 된 경고 규칙 추가 창의 스크린샷](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>메트릭 타일에서 모니터링 구성
 

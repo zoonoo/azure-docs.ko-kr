@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856005"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230828"
 ---
 # <a name="key-vault-versions"></a>키 자격 증명 모음 버전
 
@@ -58,13 +58,13 @@ Key Vault에 대 한 Azure Monitor는 현재 미리 보기로 제공 됩니다. 
 - 인증서 관리. 2016 26 월 26 일에 GA 버전 2015-06-01에 기능으로 추가 되었습니다.
 
 일반 공급 (버전 2015-06-01)은 6 월 24 2015 일에 발표 되었습니다. 이 릴리스에서 다음과 같은 사항이 변경되었습니다. 
-- 키 삭제 - "사용" 필드를 제거했습니다.
-- 키에 대한 정보 가져오기 - "사용" 필드를 제거했습니다.
-- 키 자격 증명 모음에 키 가져오기 - "사용" 필드를 제거했습니다.
-- 키 복원 - "사용" 필드를 제거했습니다.     
-- RSA 알고리즘에 대한 "RSA_OAEP"를 "RSA-OAEP"로 변경했습니다. [키, 암호 및 인증서 정보](about-keys-secrets-certificates.md)를 참조 하세요.    
+- 키 삭제-"사용" 필드가 제거 되었습니다.
+- 키-"사용" 필드에 대 한 정보를 가져옵니다.
+- 자격 증명 모음으로 키를 가져옵니다. "사용" 필드가 제거 되었습니다.
+- 키 복원-"사용" 필드가 제거 되었습니다.     
+- RSA 알고리즘에 대해 "RSA_OAEP"을 "OAEP"로 변경 했습니다. [키, 암호 및 인증서 정보](about-keys-secrets-certificates.md)를 참조 하세요.    
  
-두 번째 미리 보기 버전 (버전 2015-02-01-미리 보기)은 2015 년 4 월 20 일에 발표 되었습니다. 자세한 내용은 [REST API 업데이트](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx)를 참조하세요. 다음 작업을 업데이트했습니다.
+두 번째 미리 보기 버전 (버전 2015-02-01-미리 보기)은 2015 년 4 월 20 일에 발표 되었습니다. 자세한 내용은 [REST API 업데이트](https://docs.microsoft.com/archive/blogs/kv/rest-api-update)를 참조하세요. 다음 작업을 업데이트했습니다.
  
 - 자격 증명 모음에 키 나열 - 작업에 페이지 매김 지원을 추가했습니다.
 - 키 버전 나열 - 키 버전을 나열하는 작업을 추가했습니다.  
