@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 100cf1f7bf8a0c903cfd61d93d2f923c32cabd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645534"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260949"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 다시 표시
 기본적으로 Reliable Actors 런타임을 사용하면 논리적 호출 컨텍스트를 기반으로 다시 표시할 수 있습니다. 따라서 동일한 호출 컨텍스트 체인에 있는 경우 행위자가 다시 표시되도록 할 수 있습니다. 예를 들어 행위자 A가 행위자 C에 메시지를 보내는 행위자 B에 메시지를 보내는 경우 메시지 처리 과정의 일부로 행위자 C가 행위자 A를 호출하면 해당 메시지가 다시 표시됩니다. 다른 호출 컨텍스트의 일부인 다른 모든 메시지는 처리를 완료할 때까지 행위자 A에서 차단됩니다.
@@ -101,4 +102,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>다음 단계
-* [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)에서 재진입에 대해 자세히 알아봅니다.
+* [행위자 API 참조 설명서](/previous-versions/azure/dn971626(v=azure.100))에서 재진입에 대해 자세히 알아봅니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d189d5febe54a83cde4fe6cd6aa51e728aa882e6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612370"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259899"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop 환경
 
@@ -66,7 +66,7 @@ Windows 가상 데스크톱 호스트 풀을 설정 하는 방법에 대 한 자
 
 Windows 가상 데스크톱에 연결 하는 방법을 알아보려면 다음 문서 중 하나를 참조 하세요.
 
-- [Windows 10 또는 Windows 7을 사용 하 여 연결](connect-windows-7-and-10.md)
+- [Windows 10 또는 Windows 7을 사용 하 여 연결](connect-windows-7-10.md)
 - [웹 브라우저와 연결](connect-web.md)
 - [Android 클라이언트와 연결](connect-android.md)
 - [macOS 클라이언트와 연결](connect-macos.md)

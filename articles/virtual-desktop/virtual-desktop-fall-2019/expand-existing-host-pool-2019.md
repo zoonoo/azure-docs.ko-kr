@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214284"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260760"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장
 
@@ -129,7 +130,7 @@ ms.locfileid: "85214284"
 
 기존 호스트 풀을 확장 했으므로 Windows 가상 데스크톱 클라이언트에 로그인 하 여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 클라이언트 중 하나를 사용 하 여 세션에 연결할 수 있습니다.
 
-- [Windows Desktop 클라이언트를 사용하여 연결](../connect-windows-7-and-10.md)
+- [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10-2019.md)
 - [웹 클라이언트를 사용하여 연결](connect-web-2019.md)
 - [Android 클라이언트와 연결](connect-android-2019.md)
 - [macOS 클라이언트와 연결](connect-macos-2019.md)

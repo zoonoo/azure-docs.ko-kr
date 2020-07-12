@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392576"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260185"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -73,17 +74,17 @@ FM(장애 조치(Failover) 관리자) 서비스는 클러스터 노드에 대한
 * **다음 단계**: 클러스터에이 경고가 표시 되는 경우 아래 지침에 따라 문제를 해결 합니다. Service Fabric 버전 6.5 이상을 실행 하는 클러스터의 경우, Azure에서 Service Fabric 클러스터의 경우 시드 노드가 다운 된 후에 Service Fabric가 초기값이 아닌 노드로 자동 변경 합니다. 이렇게 하려면 주 노드 형식에서 초기값이 아닌 노드 수가 다운 시드 노드 수와 같거나 더 큰지 확인 합니다. 필요한 경우 주 노드 형식에 노드를 더 추가 하 여이를 구현 합니다.
 클러스터 상태에 따라 문제를 해결 하는 데 다소 시간이 걸릴 수 있습니다. 이 작업이 완료 되 면 경고 보고서가 자동으로 지워집니다.
 
-Service Fabric 독립 실행형 클러스터의 경우 경고 보고서를 지우려면 모든 초기값 노드가 정상 상태가 되어야 합니다. 시드 노드가 비정상 인 이유에 따라 시드 노드가 다운 되는 경우 사용자가 초기값 노드를 만들어야 합니다. 초기값 노드가 제거 되거나 알 수 없는 경우이 시드 노드를 [클러스터에서 제거 해야](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes)합니다.
+Service Fabric 독립 실행형 클러스터의 경우 경고 보고서를 지우려면 모든 초기값 노드가 정상 상태가 되어야 합니다. 시드 노드가 비정상 인 이유에 따라 시드 노드가 다운 되는 경우 사용자가 초기값 노드를 만들어야 합니다. 초기값 노드가 제거 되거나 알 수 없는 경우이 시드 노드를 [클러스터에서 제거 해야](./service-fabric-cluster-windows-server-add-remove-nodes.md)합니다.
 모든 시드 노드가 정상 상태가 되 면 경고 보고서가 자동으로 지워집니다.
 
 6.5 보다 오래 된 Service Fabric 버전을 실행 하는 클러스터의 경우 경고 보고서를 수동으로 지워야 합니다. **사용자는 보고서를 지우기 전에 모든 초기값 노드가 정상 상태 인지 확인 해야**합니다. 초기값 노드가 다운 된 경우에는 사용자가 초기값 노드를 설정 해야 합니다. 초기값 노드가 제거 되거나 알 수 없는 경우에는 해당 시드 노드를 클러스터에서 제거 해야 합니다.
-모든 시드 노드가 정상 상태가 된 후 Powershell에서 다음 명령을 사용 하 여 [경고 보고서를 지웁니다](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport).
+모든 시드 노드가 정상 상태가 된 후 Powershell에서 다음 명령을 사용 하 여 [경고 보고서를 지웁니다](/powershell/module/servicefabric/send-servicefabricclusterhealthreport).
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -646,7 +647,7 @@ HealthEvents          :
 
 - **Istatefulservicereplica.open. istatefulservicereplica.changerole (P)**: 가장 일반적인 경우는 서비스에서 작업을 반환 하지 않았기 때문입니다 `RunAsync` .
 
-정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 예를 들어:
+정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 예:
 
 - **IReplicator.CatchupReplicaSet**:이 경고는 다음 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 
@@ -674,7 +675,7 @@ HealthEvents          :
 * **속성**: 복제본 역할에 따라 **PrimaryReplicationQueueStatus** 또는 **secondaryreplicationqueuestatus입니다**입니다.
 
 ### <a name="slow-naming-operations"></a>느린 이름 지정 작업
-**System.NamingService**는 이름 지정 작업이 허용 가능한 시간보다 오래 걸리는 경우 주 복제본에 해당 상태를 보고합니다. 이름 지정 작업의 예는 [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) 또는 [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync)입니다. FabricClient에서 더 많은 메서드를 찾을 수 있습니다. 예를 들어 [서비스 관리 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) 또는 [속성 관리 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient)에 있습니다.
+**System.NamingService**는 이름 지정 작업이 허용 가능한 시간보다 오래 걸리는 경우 주 복제본에 해당 상태를 보고합니다. 이름 지정 작업의 예는 [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) 또는 [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync)입니다. FabricClient에서 더 많은 메서드를 찾을 수 있습니다. 예를 들어 [서비스 관리 메서드](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) 또는 [속성 관리 메서드](/dotnet/api/system.fabric.fabricclient.propertymanagementclient)에 있습니다.
 
 > [!NOTE]
 > 명명 서비스는 서비스 이름을 클러스터의 한 위치로 확인합니다. 사용자는 이를 사용하여 서비스 이름 및 속성을 관리할 수 있습니다. Service Fabric 분할 지속형 서비스입니다. 파티션 중 하나는 모든 Service Fabric 이름 및 서비스에 대한 메타데이터를 포함하는 *기관 소유자*를 나타냅니다. 서비스 패브릭 이름은 *이름 소유자* 파티션이라는 다른 파티션에 매핑되므로 서비스는 확장 가능합니다. [이름 지정 서비스](service-fabric-architecture.md)에 대해 자세히 알아봅니다.
@@ -737,7 +738,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication 시스템 상태 보고서
 **System.Hosting** 은 배포된 엔터티에 대한 권한입니다.
 
-### <a name="activation"></a>활성화
+### <a name="activation"></a>정품 인증
 System.Hosting은 애플리케이션이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
@@ -879,4 +880,3 @@ System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노
 * [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
-

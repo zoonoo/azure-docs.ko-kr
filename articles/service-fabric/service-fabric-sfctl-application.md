@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906200"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260864"
 ---
 # <a name="sfctl-application"></a>sfctl application
 애플리케이션 및 애플리케이션 유형을 성, 삭제 및 관리합니다.
@@ -19,7 +20,7 @@ ms.locfileid: "76906200"
 |명령|설명|
 | --- | --- |
 | create | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
-| delete | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
+| 삭제 | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
 | 배포됨 | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
 | deployed-health | Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다. |
 | deployed-list | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다. |
@@ -549,4 +550,4 @@ Microsoft Azure Service Fabric 애플리케이션 패키지를 이미지 저장�
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

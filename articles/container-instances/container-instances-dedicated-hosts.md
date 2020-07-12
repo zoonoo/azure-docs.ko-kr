@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025036"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259642"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>전용 호스트에 배포
 
@@ -17,7 +18,7 @@ ms.locfileid: "82025036"
 
 전용 sku는 물리적 서버 관점에서 작업을 격리 해야 하는 컨테이너 작업에 적합 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 전용 sku를 사용 하는 모든 구독에 대 한 기본 제한은 0입니다. 프로덕션 컨테이너 배포에이 sku를 사용 하려는 경우 [Azure 지원 요청][azure-support] 를 만들어 제한을 늘립니다.
 
@@ -27,7 +28,7 @@ ms.locfileid: "82025036"
 > 전용 sku를 사용 하는 것은 현재 롤아웃 중인 최신 API 버전 (2019-12-01) 에서만 사용할 수 있습니다. 배포 템플릿에서이 API 버전을 지정 합니다.
 >
 
-API 버전 2019-12-01부터 `sku` ACI 배포에 필요한 배포 템플릿의 컨테이너 그룹 속성 섹션 아래에 속성이 있습니다. 현재이 속성은 ACI 용 Azure Resource Manager 배포 템플릿의 일부로 사용할 수 있습니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
+API 버전 2019-12-01부터 `sku` ACI 배포에 필요한 배포 템플릿의 컨테이너 그룹 속성 섹션 아래에 속성이 있습니다. 현재이 속성은 ACI 용 Azure Resource Manager 배포 템플릿의 일부로 사용할 수 있습니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](./container-instances-multi-container-group.md)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
 
 `sku`속성은 다음 값 중 하나를 가질 수 있습니다.
 * `Standard`-하이퍼바이저 수준 보안을 보장 하는 표준 ACI 배포 선택 
@@ -136,17 +137,17 @@ API 버전 2019-12-01부터 `sku` ACI 배포에 필요한 배포 템플릿의 �
 az group create --name myResourceGroup --location eastus
 ```
 
-[az group deployment create][az-group-deployment-create] 명령을 사용하여 템플릿을 배포합니다.
+[Az deployment group create][az-deployment-group-create] 명령을 사용 하 여 템플릿을 배포 합니다.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. 배포는 전용 호스트에서 수행 됩니다.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

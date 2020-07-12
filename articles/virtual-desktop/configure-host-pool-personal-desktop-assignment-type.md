@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223111"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260813"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "86223111"
 >[!NOTE]
 > 이 문서의 지침은 풀링된 호스트 풀이 아닌 개인 데스크톱 호스트 풀에만 적용됩니다. 풀링된 호스트 풀의 사용자는 특정 세션 호스트에 할당되지 않기 때문입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Windows 가상 데스크톱 PowerShell 모듈을 이미 다운로드 하 여 설치 했다고 가정 합니다. 그렇지 않은 경우 [PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
 
@@ -91,7 +91,7 @@ Azure Portal에서 세션 호스트에 사용자를 직접 할당 하려면 다�
 
 개인 데스크톱 할당 유형을 구성했으므로 이제 Windows Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 두 방법 문서는 선택한 클라이언트를 사용하여 세션에 연결하는 방법을 보여 줍니다.
 
-- [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-and-10.md)
+- [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10.md)
 - [웹 클라이언트를 사용하여 연결](connect-web.md)
 - [Android 클라이언트와 연결](connect-android.md)
 - [iOS 클라이언트와 연결](connect-ios.md)

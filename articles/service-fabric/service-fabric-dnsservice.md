@@ -3,11 +3,12 @@ title: Azure Service Fabric DNS 서비스
 description: Service Fabric의 DNS 서비스를 사용하여 클러스터 내부에서 마이크로 서비스를 검색할 수 있습니다.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458036"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258906"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -41,7 +42,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 클러스터를 만드는 데 포털을 사용하지 않거나 기존 클러스터를 업데이트하는 경우 템플릿에서 DNS 서비스를 활성화해야 합니다.
 
 - 새 클러스터를 배포하기 위해 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)을 사용하거나 사용자 고유의 Resource Manager 템플릿을 만들 수 있습니다. 
-- 기존 클러스터를 업데이트하기 위해 포털에서 클러스터의 리소스 그룹으로 이동하고 **Automation 스크립트**를 클릭하여 클러스터의 현재 상태를 반영하는 템플릿 및 그룹의 다른 리소스를 사용하여 작업할 수 있습니다. 자세히 알아보려면 [리소스 그룹에서 템플릿 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)를 참조하세요.
+- 기존 클러스터를 업데이트하기 위해 포털에서 클러스터의 리소스 그룹으로 이동하고 **Automation 스크립트**를 클릭하여 클러스터의 현재 상태를 반영하는 템플릿 및 그룹의 다른 리소스를 사용하여 작업할 수 있습니다. 자세히 알아보려면 [리소스 그룹에서 템플릿 내보내기](../azure-resource-manager/templates/export-template-portal.md)를 참조하세요.
 
 템플릿을 가져온 후 다음 단계에 따라 DNS 서비스를 활성화할 수 있습니다.
 
@@ -102,7 +103,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 3. 변경 사항으로 클러스터 템플릿을 업데이트한 후에는 이를 적용하여 업그레이드를 완료합니다. 업그레이드가 완료되면 DNS 시스템 서비스가 클러스터에서 실행을 시작합니다. 서비스 이름은 `fabric:/System/DnsService`이며, Service Fabric 탐색기의 **시스템** 서비스 섹션 아래에서 찾을 수 있습니다. 
 
 > [!NOTE]
-> DNS를 사용 안 함에서 사용으로 업그레이드 하는 경우 Service Fabric Explorer 새 상태를 반영 하지 않을 수 있습니다. 해결 하려면 Azure Resource Manager 템플릿에서 UpgradePolicy를 수정 하 여 노드를 다시 시작 합니다. 자세한 내용은 [Service Fabric 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) 를 참조 하세요.
+> DNS를 사용 안 함에서 사용으로 업그레이드 하는 경우 Service Fabric Explorer 새 상태를 반영 하지 않을 수 있습니다. 해결 하려면 Azure Resource Manager 템플릿에서 UpgradePolicy를 수정 하 여 노드를 다시 시작 합니다. 자세한 내용은 [Service Fabric 템플릿 참조](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) 를 참조 하세요.
 
 > [!NOTE]
 > 로컬 컴퓨터에서 개발할 때 DNS 서비스를 사용 하도록 설정 하면 일부 DNS 설정이 재정의 됩니다. 인터넷에 연결 하는 데 문제가 발생 하는 경우 DNS 설정을 확인 합니다.
@@ -128,7 +129,7 @@ Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 Applic
 
 ![서비스 엔드포인트](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-다음 예제에서는 상태 저장 서비스에 대한 DNS 이름을 `statefulsvc.app`으로 설정합니다. 서비스는 이름 지정된 파티션 구성표를 사용합니다. 파티션 이름은 소문자입니다. 이것은 DNS 쿼리에서 대상이 될 파티션에 대한 요구 사항입니다. 자세한 내용은 [상태 저장 서비스 파티션에서 DNS 쿼리 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition)를 참조하세요.
+다음 예제에서는 상태 저장 서비스에 대한 DNS 이름을 `statefulsvc.app`으로 설정합니다. 서비스는 이름 지정된 파티션 구성표를 사용합니다. 파티션 이름은 소문자입니다. 이것은 DNS 쿼리에서 대상이 될 파티션에 대한 요구 사항입니다. 자세한 내용은 [상태 저장 서비스 파티션에서 DNS 쿼리 만들기](#preview-making-dns-queries-on-a-stateful-service-partition)를 참조하세요.
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -169,7 +170,7 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-조건:
+여기서,
 
 - *First-Label-Of-Partitioned-Service-DNSName*은 서비스 DNS 이름의 첫 번째 부분입니다.
 - *PartitionPrefix*는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 "--"입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
@@ -252,4 +253,3 @@ public class ValuesController : Controller
 
 ## <a name="next-steps"></a>다음 단계
 [서비스와 연결 및 통신](service-fabric-connect-and-communicate-with-services.md)에서 클러스터 내의 서비스 통신에 대해 자세히 알아봅니다.
-

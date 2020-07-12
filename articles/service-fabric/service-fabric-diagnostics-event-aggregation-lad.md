@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609964"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259197"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Linux Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -20,7 +21,7 @@ ms.locfileid: "75609964"
 
 Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
-로그를 업로드 및 수집하는 방법 중 하나는 LAD(Linux Azure Diagnostics) 확장을 사용하여 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있는 옵션을 제공하는 것입니다. 외부 프로세스를 사용 하 여 저장소에서 이벤트를 읽고 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션과 같은 분석 플랫폼 제품에 배치할 수도 있습니다.
+로그를 업로드 및 수집하는 방법 중 하나는 LAD(Linux Azure Diagnostics) 확장을 사용하여 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있는 옵션을 제공하는 것입니다. 외부 프로세스를 사용 하 여 저장소에서 이벤트를 읽고 [Azure Monitor 로그](./service-fabric-diagnostics-oms-setup.md) 또는 다른 로그 구문 분석 솔루션과 같은 분석 플랫폼 제품에 배치할 수도 있습니다.
 
 ## <a name="log-and-event-sources"></a>로그 및 이벤트 원본
 
@@ -42,5 +43,5 @@ Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [L
 
 ## <a name="next-steps"></a>다음 단계
 
-1. 문제를 해결하는 동안 살펴봐야 하는 이벤트에 대해 자세히 알아보려면 [LTTng 설명서](https://lttng.org/docs) 및 [LAD 사용](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)을 참조하세요.
+1. 문제를 해결하는 동안 살펴봐야 하는 이벤트에 대해 자세히 알아보려면 [LTTng 설명서](https://lttng.org/docs) 및 [LAD 사용](../virtual-machines/extensions/diagnostics-linux.md)을 참조하세요.
 2. [Log Analytics 에이전트를 설정](service-fabric-diagnostics-event-analysis-oms.md)하여 메트릭을 수집하고, 클러스터에 배포되는 컨테이너를 모니터링하고 로그를 시각화합니다. 

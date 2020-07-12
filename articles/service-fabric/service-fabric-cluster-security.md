@@ -4,12 +4,12 @@ description: Azure Service Fabric 클러스터에 대한 보안 시나리오 및
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080685"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261070"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 
@@ -27,7 +27,7 @@ Azure 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입
 
 ![노드-노드 통신의 다이어그램][Node-to-Node]
 
-Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 모두 Windows Server 컴퓨터에 대한 [인증서 보안](https://msdn.microsoft.com/library/ff649801.aspx) 또는 [Windows 보안](https://msdn.microsoft.com/library/ff649396.aspx)을 사용할 수 있습니다.
+Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 모두 Windows Server 컴퓨터에 대한 [인증서 보안](/previous-versions/msp-n-p/ff649801(v=pandp.10)) 또는 [Windows 보안](/previous-versions/msp-n-p/ff649396(v=pandp.10))을 사용할 수 있습니다.
 
 ### <a name="node-to-node-certificate-security"></a>노드 간 인증서 보안
 
@@ -54,7 +54,7 @@ Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보
 
 ![클라이언트-노드 통신의 다이어그램][Client-to-Node]
 
-Azure에서 실행 되는 클러스터와 Windows에서 실행 되는 독립 실행형 클러스터는 모두 [인증서 보안](https://msdn.microsoft.com/library/ff649801.aspx) 또는 [windows 보안](https://msdn.microsoft.com/library/ff649396.aspx)을 사용할 수 있지만 가능 하면 x.509 인증서 인증을 사용 하는 것이 좋습니다.
+Azure에서 실행 되는 클러스터와 Windows에서 실행 되는 독립 실행형 클러스터는 모두 [인증서 보안](/previous-versions/msp-n-p/ff649801(v=pandp.10)) 또는 [windows 보안](/previous-versions/msp-n-p/ff649396(v=pandp.10))을 사용할 수 있지만 가능 하면 x.509 인증서 인증을 사용 하는 것이 좋습니다.
 
 ### <a name="client-to-node-certificate-security"></a>클라이언트-노드 인증서 보안
 
@@ -95,7 +95,7 @@ Azure에 호스트된 공용 네트워크에 배포된 Service Fabric 클러스�
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 인증서 및 서비스 패브릭
 
-X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx)을 참조하세요. [Key Vault](../key-vault/general/overview.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
+X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](/dotnet/framework/wcf/feature-details/working-with-certificates)을 참조하세요. [Key Vault](../key-vault/general/overview.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
 
 고려할 몇 가지 중요한 사항은 다음과 같습니다.
 

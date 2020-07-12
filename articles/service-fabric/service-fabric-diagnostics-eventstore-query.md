@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d66248797d577d6894d1125188735ecf71029b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614403"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258888"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
 
@@ -109,7 +110,7 @@ Body:
 
 ## <a name="query-the-eventstore-programmatically"></a>프로그래밍 방식으로 EventStore 쿼리
 
-[Service Fabric 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)를 통해 EventStore를 프로그래밍 방식으로 쿼리할 수도 있습니다.
+[Service Fabric 클라이언트 라이브러리](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)를 통해 EventStore를 프로그래밍 방식으로 쿼리할 수도 있습니다.
 
 Service Fabric 클라이언트가 설정되면 `sfhttpClient.EventStore.<request>`와 같이 EventStore에 액세스하여 이벤트를 쿼리할 수 있습니다.
 
@@ -199,4 +200,3 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 *카오스 서비스:*
 
 클러스터 수준에서 노출되는 카오스 서비스가 시작되거나 중지된 경우에 대한 이벤트가 있습니다. 최근의 카오스 서비스 사용을 확인하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
-

@@ -3,12 +3,12 @@ title: 사용자 할당 관리 id를 사용 하 여 앱 배포
 description: 이 문서에서는 사용자 할당 관리 id를 사용 하 여 Service Fabric 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415639"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260084"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>사용자 할당 관리 Id를 사용 하 여 Service Fabric 응용 프로그램 배포
 
@@ -23,40 +23,42 @@ ms.locfileid: "81415639"
 
 ## <a name="user-assigned-identity"></a>사용자 할당 Id
 
-사용자 할당 id를 사용 하 여 응용 프로그램을 사용 하도록 설정 하려면 먼저 **id** 속성을 **userassigned** 유형 및 참조 된 사용자 할당 id를 사용 하 여 응용 프로그램 리소스에 추가 합니다. 그런 다음, 각 사용자 할당 id의 principalId 매핑에 대 한 이름 목록을 포함 하는 **응용 프로그램** 리소스의 **속성** 섹션 내에 **managedIdentities** 섹션을 추가 합니다. 사용자 할당 Id에 대 한 자세한 내용은 [사용자 할당 관리 Id 만들기, 나열 또는 삭제를](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell)참조 하세요.
+사용자 할당 id를 사용 하 여 응용 프로그램을 사용 하도록 설정 하려면 먼저 **id** 속성을 **userassigned** 유형 및 참조 된 사용자 할당 id를 사용 하 여 응용 프로그램 리소스에 추가 합니다. 그런 다음, 각 사용자 할당 id의 principalId 매핑에 대 한 이름 목록을 포함 하는 **응용 프로그램** 리소스의 **속성** 섹션 내에 **managedIdentities** 섹션을 추가 합니다. 사용자 할당 Id에 대 한 자세한 내용은 [사용자 할당 관리 Id 만들기, 나열 또는 삭제를](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)참조 하세요.
 
 ### <a name="application-template"></a>애플리케이션 템플릿
 
 사용자 할당 id를 사용 하 여 응용 프로그램을 사용 하도록 설정 하려면 먼저 **id** 속성을 **userassigned** 형식의 응용 프로그램 리소스에 추가 하 고, 참조 된 사용자 할당 id를 추가 하 고, **속성** 섹션 내에 **managedIdentities** 개체를 추가 합니다 .이 개체는 사용자가 할당 한 각 id의 principalid 매핑에 대 한 이름 목록을 포함 합니다.
 
-    {
-      "apiVersion": "2019-06-01-preview",
-      "type": "Microsoft.ServiceFabric/clusters/applications",
-      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
-        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
-      ],
-      "identity": {
-        "type" : "userAssigned",
-        "userAssignedIdentities": {
-            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
-        }
-      },
-      "properties": {
-        "typeName": "[parameters('applicationTypeName')]",
-        "typeVersion": "[parameters('applicationTypeVersion')]",
-        "parameters": {
-        },
-        "managedIdentities": [
-          {
-            "name" : "[parameters('userAssignedIdentityName')]",
-            "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
-          }
-        ]
-      }
+```json
+{
+  "apiVersion": "2019-06-01-preview",
+  "type": "Microsoft.ServiceFabric/clusters/applications",
+  "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
+    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
+  ],
+  "identity": {
+    "type" : "userAssigned",
+    "userAssignedIdentities": {
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
     }
+  },
+  "properties": {
+    "typeName": "[parameters('applicationTypeName')]",
+    "typeVersion": "[parameters('applicationTypeVersion')]",
+    "parameters": {
+    },
+    "managedIdentities": [
+      {
+        "name" : "[parameters('userAssignedIdentityName')]",
+        "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
+      }
+    ]
+  }
+}
+```
 
 위의 예제에서 사용자 할당 id의 리소스 이름은 응용 프로그램의 관리 되는 id 이름으로 사용 됩니다. 다음 예에서는 실제 이름이 "AdminUser" 라고 가정 합니다.
 

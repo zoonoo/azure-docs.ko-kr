@@ -3,11 +3,12 @@ title: 컨테이너 그룹에 대 한 고정 IP 주소
 description: 가상 네트워크에서 컨테이너 그룹을 만들고 Azure application gateway를 사용 하 여 컨테이너 화 된 웹 앱에 정적 프런트 엔드 IP 주소를 노출 합니다.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299165"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260790"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>컨테이너 그룹에 대 한 고정 IP 주소 노출
 
@@ -28,7 +29,7 @@ ms.locfileid: "84299165"
 
 일반적인 경우에는 Azure 가상 네트워크가 이미 있을 수 있습니다. 아직 없는 경우 다음 예제 명령과 같이 만듭니다. 가상 네트워크에는 응용 프로그램 게이트웨이와 컨테이너 그룹에 대 한 별도의 서브넷이 필요 합니다.
 
-필요한 경우 Azure 리소스 그룹을 만듭니다. 예를 들어:
+필요한 경우 Azure 리소스 그룹을 만듭니다. 예:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -102,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-[Application gateway 빠른](../application-gateway/quick-create-cli.md)시작의 단계에 따라 가상 네트워크에서 응용 프로그램 게이트웨이를 만듭니다. 다음 [az network application-gateway create][az-network-application-gateway-create] 명령은 공용 프런트 엔드 IP 주소와 백 엔드 컨테이너 그룹에 대 한 경로를 사용 하 여 게이트웨이를 만듭니다. 게이트웨이 설정에 대 한 자세한 내용은 [Application Gateway 설명서](/azure/application-gateway/) 를 참조 하세요.
+[Application gateway 빠른](../application-gateway/quick-create-cli.md)시작의 단계에 따라 가상 네트워크에서 응용 프로그램 게이트웨이를 만듭니다. 다음 [az network application-gateway create][az-network-application-gateway-create] 명령은 공용 프런트 엔드 IP 주소와 백 엔드 컨테이너 그룹에 대 한 경로를 사용 하 여 게이트웨이를 만듭니다. 게이트웨이 설정에 대 한 자세한 내용은 [Application Gateway 설명서](../application-gateway/index.yml) 를 참조 하세요.
 
 ```azurecli
 az network application-gateway create \

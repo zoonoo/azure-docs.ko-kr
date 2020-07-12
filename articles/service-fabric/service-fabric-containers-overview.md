@@ -3,11 +3,12 @@ title: Service Fabric 및 컨테이너 개요
 description: Service Fabric 및 마이크로 서비스 애플리케이션 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 8/8/2018
-ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458210"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259238"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
 
@@ -64,7 +65,7 @@ Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이�
 
 다음은 컨테이너가 적합한 일반적인 예입니다.
 
-* **IIS 리프트 및 시프트**: 기존 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 ASP.NET Core로 마이그레이션하지 않고 컨테이너에 넣을 수 있습니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 애플리케이션을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
+* **IIS 리프트 및 시프트**: 기존 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 ASP.NET Core로 마이그레이션하지 않고 컨테이너에 넣을 수 있습니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 애플리케이션을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
 
 * **컨테이너와 Service Fabric 마이크로 서비스의 혼합**: 기존 컨테이너 이미지를 애플리케이션의 일부에 사용합니다. 예를 들어, 애플리케이션의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다.
 
@@ -89,7 +90,7 @@ Service Fabric은 다음과 같은 컨테이너화된 마이크로 서비스로 
 * 컨테이너에 보안 자격 증명을 설정하는 기능
 * 컨테이너에 대한 다른 네트워킹 모드의 선택
 
-Azure Kubernetes Service를 사용하여 Kubernetes 클러스터 만드는 방법, Azure Container Registry에서 프라이빗 Docker 레지스트리 만드는 방법 등 Azure에서 컨테이너 지원에 대한 포괄적인 개요는 [컨테이너용 Azure](https://docs.microsoft.com/azure/containers/)를 참조하세요.
+Azure Kubernetes Service를 사용하여 Kubernetes 클러스터 만드는 방법, Azure Container Registry에서 프라이빗 Docker 레지스트리 만드는 방법 등 Azure에서 컨테이너 지원에 대한 포괄적인 개요는 [컨테이너용 Azure](../containers/index.yml)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -97,6 +98,6 @@ Azure Kubernetes Service를 사용하여 Kubernetes 클러스터 만드는 방�
 
 [Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers-linux.md)  
 [Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers.md)  
-[Windows 컨테이너에 대한 자세한 내용](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Windows 컨테이너에 대한 자세한 내용](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

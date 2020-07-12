@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422426"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259858"
 ---
 # <a name="linux-support"></a>Linux 지원
 
@@ -69,7 +69,7 @@ Windows 가상 데스크톱에 대 한 Linux 클라이언트를 개발 하려면
 
 다음 클라이언트에 대 한 설명서를 확인 하세요.
 
-- [Windows 데스크톱 클라이언트](connect-windows-7-and-10.md)
+- [Windows 데스크톱 클라이언트](connect-windows-7-10.md)
 - [웹 클라이언트](connect-web.md)
 - [Android 클라이언트](connect-android.md)
 - [macOS 클라이언트](connect-macos.md)

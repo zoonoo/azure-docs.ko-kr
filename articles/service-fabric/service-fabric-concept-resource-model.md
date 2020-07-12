@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Resource Manager를 사용 하 여 Azure 
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682638"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258737"
 ---
 # <a name="service-fabric-application-resource-model"></a>응용 프로그램 리소스 모델 Service Fabric
 
@@ -56,7 +56,7 @@ Service Fabric 클러스터에 Azure Service Fabric 응용 프로그램을 배�
 
 * [Azure Active Directory](../storage/common/storage-auth-aad-app.md)를 사용 하 여 blob 및 큐에 대 한 액세스 권한을 부여 합니다.
 * [Azure Portal에서 RBAC](../storage/common/storage-auth-aad-rbac-portal.md)를 사용 하 여 Azure blob에 대 한 액세스 권한을 부여 하 고 데이터를 큐에 부여 합니다.
-* [공유 액세스 서명을](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature)사용 하 여 액세스를 위임 합니다.
+* [공유 액세스 서명을](/rest/api/storageservices/delegate-access-with-shared-access-signature)사용 하 여 액세스를 위임 합니다.
 
 다음 스크린샷 예제에서는 blob에 대 한 익명 읽기 액세스를 사용 합니다.
 
@@ -91,7 +91,7 @@ Service Fabric 클러스터에 Azure Service Fabric 응용 프로그램을 배�
 >
 >
 
-| 매개 변수              | Description                                 | 예제                                                      | 주석                                                     |
+| 매개 변수              | 설명                                 | 예제                                                      | 주석                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 배포 하는 클러스터의 이름 | sf-cluster123                                                |                                                              |
 | 애플리케이션            | 애플리케이션의 이름                 | Voting                                                       |
@@ -166,13 +166,13 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 리소스 관리자에서 응용 프로그램 리소스 모델을 사용 하 여 배포 된 응용 프로그램을 삭제 하려면 다음을 수행 합니다.
 
-1. [AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet을 사용 하 여 응용 프로그램에 대 한 리소스 ID를 가져옵니다.
+1. [AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet을 사용 하 여 응용 프로그램에 대 한 리소스 ID를 가져옵니다.
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. [AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet을 사용 하 여 응용 프로그램 리소스를 삭제 합니다.
+1. [AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet을 사용 하 여 응용 프로그램 리소스를 삭제 합니다.
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

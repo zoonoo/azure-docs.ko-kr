@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611733"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260242"
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  Azure, 온-프레미스 데이터 센터 또는 모든 클라우드 공급자에서 [어디서나 Service Fabric 클러스터를 호스트](service-fabric-deploy-anywhere.md)할 수 있습니다.  Service Fabric은 [Azure Service Fabric Mesh](/azure/service-fabric-mesh)를 작동하는 오케스트레이터입니다. 임의 프레임워크를 사용하여 서비스를 작성하고, 여러 환경 선택 항목 중에서 애플리케이션을 실행할 위치를 선택할 수 있습니다. 이 문서에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  Azure, 온-프레미스 데이터 센터 또는 모든 클라우드 공급자에서 [어디서나 Service Fabric 클러스터를 호스트](service-fabric-deploy-anywhere.md)할 수 있습니다.  Service Fabric은 [Azure Service Fabric Mesh](../service-fabric-mesh/index.yml)를 작동하는 오케스트레이터입니다. 임의 프레임워크를 사용하여 서비스를 작성하고, 여러 환경 선택 항목 중에서 애플리케이션을 실행할 위치를 선택할 수 있습니다. 이 문서에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.
 
 ## <a name="infrastructure-concepts"></a>인프라 개념
 
@@ -125,13 +125,13 @@ Naming Service와 함께 작동 하는 클라이언트 및 서비스 통신 Api�
 
 ### <a name="resource-model-preview"></a>리소스 모델(미리 보기)
 
-Service Fabric 리소스는 애플리케이션, 서비스, 네트워크 및 볼륨을 포함하여 Service Fabric에 개별적으로 배포할 수 있는 모든 항목입니다. 리소스는 클러스터 엔드포인트에 배포할 수 있는 JSON 파일을 사용하여 정의됩니다.  Service Fabric Mesh의 경우 Azure 리소스 모델 스키마가 사용됩니다. 또한, YAML 파일 스키마를 사용하여 좀 더 쉽게 정의 파일을 작성할 수도 있습니다. Service Fabric이 실행되기만 하면 어디든지 리소스를 배포할 수 있습니다. 리소스 모델은 Service Fabric 애플리케이션을 설명하는 가장 간단한 방법입니다. 주로 컨테이너화된 서비스의 간단한 배포 및 관리에 중점을 둡니다. 자세한 내용은 [Service Fabric 리소스 모델 소개](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources)를 참조하세요.
+Service Fabric 리소스는 애플리케이션, 서비스, 네트워크 및 볼륨을 포함하여 Service Fabric에 개별적으로 배포할 수 있는 모든 항목입니다. 리소스는 클러스터 엔드포인트에 배포할 수 있는 JSON 파일을 사용하여 정의됩니다.  Service Fabric Mesh의 경우 Azure 리소스 모델 스키마가 사용됩니다. 또한, YAML 파일 스키마를 사용하여 좀 더 쉽게 정의 파일을 작성할 수도 있습니다. Service Fabric이 실행되기만 하면 어디든지 리소스를 배포할 수 있습니다. 리소스 모델은 Service Fabric 애플리케이션을 설명하는 가장 간단한 방법입니다. 주로 컨테이너화된 서비스의 간단한 배포 및 관리에 중점을 둡니다. 자세한 내용은 [Service Fabric 리소스 모델 소개](../service-fabric-mesh/service-fabric-mesh-service-fabric-resources.md)를 참조하세요.
 
 ### <a name="native-model"></a>네이티브 모델
 
 네이티브 애플리케이션 모델은 Service Fabric에 대한 모든 하위 수준 액세스를 애플리케이션에 제공합니다. 애플리케이션 및 서비스는 XML 매니페스트 파일에서 등록된 유형으로 정의됩니다.
 
-네이티브 모델은 C# 및 Java로 작성된 Service Fabric 런타임 API 및 클러스터 관리 API에 대한 액세스를 제공하는 Reliable Services 및 Reliable Actors 프레임워크를 지원합니다. 네이티브 모델은 임의 컨테이너 및 실행 파일도 지원합니다. [Service Fabric Mesh 환경](/azure/service-fabric-mesh/service-fabric-mesh-overview)에서는 네이티브 모델이 지원되지 않습니다.
+네이티브 모델은 C# 및 Java로 작성된 Service Fabric 런타임 API 및 클러스터 관리 API에 대한 액세스를 제공하는 Reliable Services 및 Reliable Actors 프레임워크를 지원합니다. 네이티브 모델은 임의 컨테이너 및 실행 파일도 지원합니다. [Service Fabric Mesh 환경](../service-fabric-mesh/service-fabric-mesh-overview.md)에서는 네이티브 모델이 지원되지 않습니다.
 
 **Reliable Services**: 상태 비저장 및 상태 저장 서비스를 구축하는 API입니다. 상태 저장 서비스는 신뢰할 수 있는 컬렉션(예: 사전 또는 큐)에 자신의 상태를 저장합니다. 또한 웹 API 및 WCF(Windows Communication Foundation)와 같은 다양한 통신 스택에 연결할 수 있습니다.
 
@@ -155,7 +155,7 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
  - **Azure Service Fabric Mesh**: Microsoft Azure에서 Service Fabric 애플리케이션을 실행하기 위한 완전히 관리되는 서비스입니다.
  - **Azure Service Fabric**: Azure 호스팅 Service Fabric 클러스터 제품입니다. Service Fabric 클러스터의 업그레이드 및 구성 관리와 함께 Service Fabric과 Azure 인프라 간의 통합을 제공합니다.
- - **Service Fabric 독립 실행형**: [임의 위치(온-프레미스 또는 임의 클라우드 공급자)에 Service Fabric 클러스터를 배포](/azure/service-fabric/service-fabric-deploy-anywhere)하기 위한 설치 및 구성 도구 집합입니다. Azure에서 관리되지 않습니다.
+ - **Service Fabric 독립 실행형**: [임의 위치(온-프레미스 또는 임의 클라우드 공급자)에 Service Fabric 클러스터를 배포](./service-fabric-deploy-anywhere.md)하기 위한 설치 및 구성 도구 집합입니다. Azure에서 관리되지 않습니다.
  - **Service Fabric 개발 클러스터**: Service Fabric 애플리케이션 개발을 위해 Windows, Linux 또는 Mac에서 로컬 개발 환경을 제공합니다.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>환경, 프레임워크 및 배포 모델 지원 매트릭스
@@ -169,7 +169,7 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
 다음 표에서는 다양한 애플리케이션 모델 및 Service Fabric에 대한 애플리케이션 모델의 도구에 대해 설명합니다.
 
-| 애플리케이션 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | PowerShell|
+| 애플리케이션 유형 | 설명 방법 | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Service Fabric Mesh 애플리케이션 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원 안 함 |지원 안 함 | 지원됨 - Mesh 환경만 | 지원되지 않음|
 |Service Fabric 네이티브 애플리케이션 | 네이티브 애플리케이션 모델(XML) | VS 2017 및 VS 2015| 지원 여부|지원 여부|지원 여부|지원 여부|
@@ -184,4 +184,4 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
 Service Fabric Mesh를 자세히 알아보려면 다음을 참고하세요.
 
-* [Service Fabric Mesh 개요](/azure/service-fabric-mesh/service-fabric-mesh-overview)
+* [Service Fabric Mesh 개요](../service-fabric-mesh/service-fabric-mesh-overview.md)

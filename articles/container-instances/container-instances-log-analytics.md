@@ -4,12 +4,12 @@ description: Azure Container Instances의 컨테이너 그룹에서 리소스 �
 ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169734"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259605"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
 
@@ -24,12 +24,12 @@ Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
 * [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](/cli/azure/install-azure-cli)(또는 [Cloud Shell](/azure/cloud-shell/overview))
+* [Azure CLI](/cli/azure/install-azure-cli)(또는 [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Log Analytics 자격 증명 가져오기
 
@@ -153,7 +153,7 @@ ContainerInstanceLog_CL
 
 Azure Monitor 로그에서 로그를 쿼리하고 경고를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search.md)
+* [Azure Monitor 로그의 로그 검색 이해](../azure-monitor/log-query/log-query-overview.md)
 * [Azure Monitor의 통합 경고](../azure-monitor/platform/alerts-overview.md)
 
 

@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c78fa51150ba09e5b72eeb0587679f779c947acf
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2d4fc47247c9fe2ed1af0eee59500db7e894fdd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231054"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260129"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
@@ -80,9 +80,8 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 ## <a name="next-steps"></a>다음 단계
 
-- [호스트에서 암호화 사용](disks-enable-host-based-encryption-cli.md)
-- [Azure CLI-미사용 관리 디스크에서 이중 암호화 사용](disks-enable-double-encryption-at-rest-cli.md)
+- [호스트에서 암호화를 사용 하 여 종단 간 암호화 사용-CLI](disks-enable-host-based-encryption-cli.md)
+- [관리 디스크에 미사용 이중 암호화 사용-CLI](disks-enable-double-encryption-at-rest-cli.md)
 - [관리 디스크에 대해 고객이 관리 하는 키 사용-CLI](disks-enable-customer-managed-keys-cli.md)
 - [관리 디스크에 대해 고객이 관리 하는 키 사용-포털](disks-enable-customer-managed-keys-portal.md)
-- [관리 디스크에 대해 고객이 관리 하는 키 사용-PowerShell](../windows/disks-enable-customer-managed-keys-powershell.md)
 - [Azure Key Vault란?](../../key-vault/general/overview.md)

@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a02fd489ca0eec61b798db7136f963277f6c82
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551780"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261093"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric 애플리케이션 및 클러스터에 대한 모범 사례
 
@@ -26,9 +27,9 @@ ms.locfileid: "75551780"
 ## <a name="compute-planning-and-scaling"></a>컴퓨팅 계획 및 크기 조정
 
 * [컴퓨팅 크기 조정 모범 사례](service-fabric-best-practices-capacity-scaling.md)
-* [컴퓨팅 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [컴퓨팅 용량 계획](./service-fabric-cluster-capacity.md)
 
-## <a name="infrastructure-as-code"></a>코드 제공 인프라(Infrastructure as code)
+## <a name="infrastructure-as-code"></a>코드로서의 인프라
 
 * [코드 제공 인프라 구현에 대한 모범 사례](service-fabric-best-practices-infrastructure-as-code.md)
 
@@ -43,7 +44,7 @@ ms.locfileid: "75551780"
 ## <a name="checklist"></a>검사 목록
 
 이전 섹션에서 제안 하는 사례를 구현한 후 프로덕션 준비 검사 목록에서 모든 모범 사례를 통합 했는지 확인 합니다.
-* [Azure Service Fabric 프로덕션 준비 검사 목록](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+* [Azure Service Fabric 프로덕션 준비 검사 목록](./service-fabric-production-readiness-checklist.md)
 
 ## <a name="next-steps"></a>다음 단계
 

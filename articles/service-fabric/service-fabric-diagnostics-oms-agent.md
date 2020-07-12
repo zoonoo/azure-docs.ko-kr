@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366748"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258679"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 성능 모니터링
 
@@ -22,7 +23,7 @@ ms.locfileid: "79366748"
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Azure CLI를 통해 에이전트 확장 추가
 
-Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure CLI로 제공되는 가상 머신 확장 집합 API를 통하는 것입니다. 아직 Azure CLI가 설정되지 않은 경우 Azure Portal로 이동하여 [Cloud Shell](../cloud-shell/overview.md) 인스턴스를 열거나 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure CLI로 제공되는 가상 머신 확장 집합 API를 통하는 것입니다. 아직 Azure CLI가 설정되지 않은 경우 Azure Portal로 이동하여 [Cloud Shell](../cloud-shell/overview.md) 인스턴스를 열거나 [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다.
 
 1. Cloud Shell이 요청되면 리소스와 동일한 구독에서 작업 중인지 확인합니다. `az account show`로 이를 확인하여 "name" 값이 클러스터 구독의 값과 일치하는지 확인합니다.
 
@@ -72,7 +73,7 @@ Log Analytics 에이전트를 추가했으니, Log Analytics 포털로 이동하
 
 3. **고급 설정**을 클릭합니다.
 
-4. **데이터**를 클릭한 다음, **Windows 또는 Linux 성능 카운터**를 클릭합니다. 사용하도록 선택할 수 있는 기본 카운터의 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx) 설명되어 있습니다.
+4. **데이터**를 클릭한 다음, **Windows 또는 Linux 성능 카운터**를 클릭합니다. 사용하도록 선택할 수 있는 기본 카운터의 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](/windows/win32/perfctrs/specifying-a-counter-path) 설명되어 있습니다.
 
 5. **저장**을 클릭한 다음, **확인**을 클릭합니다.
 
@@ -91,5 +92,5 @@ Log Analytics 에이전트를 추가했으니, Log Analytics 포털로 이동하
 ## <a name="next-steps"></a>다음 단계
 
 * 관련 [성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 수집합니다. Log Analytics 에이전트를 구성하여 특정 성능 카운터를 수집하려면 [데이터 원본 구성](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources)을 검토합니다.
-* 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md) 를 설정 하도록 Azure Monitor 로그 구성
+* 검색 및 진단에 도움이 되는 [자동 경고](../azure-monitor/platform/alerts-overview.md) 를 설정 하도록 Azure Monitor 로그 구성
 * 또는 [Azure Diagnostics 확장을 통해 성능 카운터를 수집하여 Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)에 보낼 수 있습니다.

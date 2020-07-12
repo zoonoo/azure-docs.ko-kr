@@ -24,6 +24,8 @@
   items:
     - name: Windows Virtual Desktop 리소스에 연결
       items:
+        - name: Windows Desktop 클라이언트와 연결
+          href: connect-windows-7-10-2019.md
         - name: 웹 클라이언트를 사용하여 연결
           href: connect-web-2019.md
         - name: Android 클라이언트와 연결

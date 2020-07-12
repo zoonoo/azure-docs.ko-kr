@@ -3,17 +3,18 @@ title: 클러스터에 대한 Azure Load Balancer 규칙 만들기
 description: Azure Service Fabric 클러스터에 대한 포트를 열도록 Azure Load Balancer를 구성합니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025387"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259046"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
 Azure Service Fabric 클러스터를 사용하여 배포한 부하 분산 장치는 트래픽을 노드에서 실행되는 앱으로 보냅니다. 다른 포트를 사용하도록 앱을 변경하면 Azure Load Balancer에서 해당 포트를 노출(또는 다른 포트로 라우팅)해야 합니다.
 
-Azure에 Service Fabric 클러스터를 배포한 경우 부하 분산 장치가 자동으로 만들어집니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/load-balancer-get-started-internet-portal.md)을 참조하세요.
+Azure에 Service Fabric 클러스터를 배포한 경우 부하 분산 장치가 자동으로 만들어집니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/quickstart-load-balancer-standard-public-portal.md)을 참조하세요.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -24,7 +25,7 @@ Service Fabric 애플리케이션 **ServiceManifest.xml** 구성 파일은 애�
 
 ## <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-Load Balancer 규칙은 인터넷 연결 포트를 열고 애플리케이션에서 사용하는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/load-balancer-get-started-internet-portal.md)을 참조하세요.
+Load Balancer 규칙은 인터넷 연결 포트를 열고 애플리케이션에서 사용하는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/quickstart-load-balancer-standard-public-portal.md)을 참조하세요.
 
 Load Balancer 규칙을 만들려면 다음 정보를 수집해야 합니다.
 

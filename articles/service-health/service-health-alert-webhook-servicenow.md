@@ -3,11 +3,12 @@ title: ServiceNow를 사용 하 여 Azure 서비스 상태 경고 보내기
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654106"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260212"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow로 Azure 서비스 상태 경고 보내기
 
@@ -139,9 +140,10 @@ ms.locfileid: "77654106"
      ![ServiceNow에서 "기본 API 경로"](./media/webhook-alerts/servicenow-base-api-path.png)
 
 1.  전체 통합 URL은 다음과 같습니다.
-        
-         https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
+    ```http
+    https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
+    ```
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Azure Portal에서 ServiceNow를 사용하여 경고 만들기
 ### <a name="for-a-new-action-group"></a>새 작업 그룹의 경우:
@@ -153,7 +155,7 @@ ms.locfileid: "77654106"
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -170,7 +172,7 @@ ms.locfileid: "77654106"
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 

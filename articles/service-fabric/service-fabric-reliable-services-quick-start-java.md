@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cab376318bec471fa59614e5bcc716a31dc333
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184149"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260929"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Java에서 Reliable Services 시작
 > [!div class="op_single_selector"]
@@ -190,7 +190,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap)은 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. Service Fabric 및 신뢰할 수 있는 해시 맵을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 해시 맵은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
+[ReliableHashMap](/java/api/microsoft.servicefabric.data.collections.reliablehashmap)은 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. Service Fabric 및 신뢰할 수 있는 해시 맵을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 해시 맵은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
 
 신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 Java 형식을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
 

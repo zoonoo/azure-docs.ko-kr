@@ -8,7 +8,7 @@
 - name: 방법 가이드
   items:
     - name: Azure 파일에서 데이터 유지
-      href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
+      href: ../../aks/azure-files-dynamic-pv.md?toc=/azure/container-service/kubernetes/toc.json
     - name: 모니터
     - name: Spring Boot 앱 배포
       items:

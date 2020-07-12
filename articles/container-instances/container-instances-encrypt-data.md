@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232443"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259712"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
 
@@ -39,7 +39,7 @@ Microsoft 관리 키를 사용 하 여 컨테이너 데이터의 암호화를 �
 
 ### <a name="create-service-principal-for-aci"></a>ACI에 대 한 서비스 주체 만들기
 
-첫 번째 단계는 [Azure 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 에 Azure Container Instances 서비스에 대 한 사용 권한을 부여 하기 위해 할당 된 서비스 주체가 있는지 확인 하는 것입니다. 
+첫 번째 단계는 [Azure 테 넌 트](../active-directory/develop/quickstart-create-new-tenant.md) 에 Azure Container Instances 서비스에 대 한 사용 권한을 부여 하기 위해 할당 된 서비스 주체가 있는지 확인 하는 것입니다. 
 
 > [!IMPORTANT]
 > 다음 명령을 실행 하 고 서비스 주체를 성공적으로 만들기 위해 테 넌 트에서 서비스 사용자를 만들 수 있는 권한이 있는지 확인 합니다.
@@ -59,7 +59,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ### <a name="create-a-key-vault-resource"></a>Key Vault 리소스 만들기
 
-[Azure Portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli)또는 [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell)을 사용 하 여 Azure Key Vault를 만듭니다. 
+[Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md)또는 [PowerShell](../key-vault/secrets/quick-create-powershell.md)을 사용 하 여 Azure Key Vault를 만듭니다. 
 
 키 자격 증명 모음의 속성에 대해 다음 지침을 사용 합니다. 
 * Name: 고유 이름은 필수입니다. 
@@ -96,7 +96,7 @@ ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정�
 > [!IMPORTANT]
 > 고객이 관리 하는 키로 배포 데이터를 암호화 하는 것은 현재 롤아웃 중인 최신 API 버전 (2019-12-01)에서 사용할 수 있습니다. 배포 템플릿에서이 API 버전을 지정 합니다. 이 문제에 문제가 있는 경우 Azure 지원에 문의 하세요.
 
-키 자격 증명 모음 키 및 액세스 정책이 설정 되 면 ACI 배포 템플릿에 다음 속성을 추가 합니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
+키 자격 증명 모음 키 및 액세스 정책이 설정 되 면 ACI 배포 템플릿에 다음 속성을 추가 합니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](./container-instances-multi-container-group.md)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
 * 에서을 `resources` `apiVersion` 로 설정 `2019-12-01` 합니다.
 * 배포 템플릿의 컨테이너 그룹 속성 섹션에서 다음 값을 포함 하는 `encryptionProperties` 을 추가 합니다.
   * `vaultBaseUrl`: key vault의 DNS 이름은 포털에 있는 주요 자격 증명 모음 리소스의 개요 블레이드에서 찾을 수 있습니다.
@@ -129,7 +129,7 @@ ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정�
 ]
 ```
 
-다음은 [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)의 템플릿에서 적용 되는 전체 템플릿입니다. 
+다음은 [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](./container-instances-multi-container-group.md)의 템플릿에서 적용 되는 전체 템플릿입니다. 
 
 ```json
 {
@@ -233,14 +233,14 @@ ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정�
 az group create --name myResourceGroup --location eastus
 ```
 
-[az group deployment create][az-group-deployment-create] 명령을 사용하여 템플릿을 배포합니다.
+[Az deployment group create][az-deployment-group-create] 명령을 사용 하 여 템플릿을 배포 합니다.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. 배포가 완료 되 면 ACI 서비스에서 유지 하는 것과 관련 된 모든 데이터가 사용자가 제공한 키로 암호화 됩니다.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create

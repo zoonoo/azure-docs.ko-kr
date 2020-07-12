@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749541"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260529"
 ---
 # <a name="service-fabric-programming-model-overview"></a>서비스 패브릭 프로그래밍 모델 개요
 
@@ -25,7 +26,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 
 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. Service Fabric는 Windows Server 2016 이상에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원 합니다. 컨테이너 이미지는 컨테이너 저장소에서 가져오고 컴퓨터에 배포될 수 있습니다. 기존 애플리케이션을 컨테이너에서 게스트 실행 파일, Service Fabric 상태 비저장 또는 상태 저장 서비스, Reliable Actors로 배포할 수 있으며, 프로세스의 서비스와 컨테이너의 서비스를 동일한 애플리케이션에서 함께 사용할 수 있습니다.
 
-[Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](service-fabric-deploy-container.md)
+[Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](./service-fabric-get-started-containers.md)
 
 ## <a name="reliable-services"></a>Reliable Services
 

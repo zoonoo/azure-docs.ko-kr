@@ -4,12 +4,12 @@ description: Azure storage 계정을 사용 하 여 전송 파이프라인을 �
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186931"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259460"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -30,13 +30,13 @@ ms.locfileid: "86186931"
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **컨테이너 레지스트리** -전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요 합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동 하기 위한 것입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일 하거나 다른 Azure 구독, Active Directory 테 넌 트 또는 클라우드에 있을 수 있습니다. 레지스트리를 만들어야 하는 경우 [빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요. 
 * **저장소 계정** -구독 및 사용자가 선택한 위치에 원본 및 대상 저장소 계정을 만듭니다. 테스트를 위해 원본 및 대상 레지스트리로 동일한 구독 또는 구독을 사용할 수 있습니다. 클라우드 간 시나리오의 경우 일반적으로 각 클라우드에서 별도의 저장소 계정을 만듭니다. 필요한 경우 [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) 또는 다른 도구를 사용 하 여 저장소 계정을 만듭니다. 
 
   각 계정에서 아티팩트 전송을 위한 blob 컨테이너를 만듭니다. 예를 들어 *transfer*라는 컨테이너를 만듭니다. 두 개 이상의 전송 파이프라인이 동일한 저장소 계정을 공유할 수 있지만 다른 저장소 컨테이너 범위를 사용 해야 합니다.
-* **키 자격 증명 모음** -키 자격 증명 모음은 원본 및 대상 저장소 계정에 액세스 하는 데 사용 되는 SAS 토큰 암호를 저장 하는 데 필요 원본 및 대상 레지스트리와 동일한 Azure 구독 또는 구독에 원본 및 대상 키 자격 증명 모음을 만듭니다. 필요한 경우 [Azure CLI](../key-vault/quick-create-cli.md) 또는 다른 도구를 사용 하 여 키 자격 증명 모음을 만듭니다.
+* **키 자격 증명 모음** -키 자격 증명 모음은 원본 및 대상 저장소 계정에 액세스 하는 데 사용 되는 SAS 토큰 암호를 저장 하는 데 필요 원본 및 대상 레지스트리와 동일한 Azure 구독 또는 구독에 원본 및 대상 키 자격 증명 모음을 만듭니다. 필요한 경우 [Azure CLI](../key-vault/secrets/quick-create-cli.md) 또는 다른 도구를 사용 하 여 키 자격 증명 모음을 만듭니다.
 * **환경 변수** -이 문서의 예에는 원본 및 대상 환경에 대해 다음과 같은 환경 변수를 설정 합니다. 모든 예제는 Bash 셸에 대해 서식 지정 됩니다.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -162,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-명령 출력에서 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
+명령 출력에서 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -208,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
+가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -257,7 +257,7 @@ az storage blob list \
 
 AzCopy 도구나 다른 방법을 사용 하 여 원본 저장소 계정에서 대상 저장소 계정으로 [blob 데이터를 전송](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) 합니다.
 
-예를 들어 다음 [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) 명령은 원본 계정의 *전송* 컨테이너에서 myblob을 대상 계정의 *전송* 컨테이너로 복사 합니다. 대상 계정에 blob이 있는 경우 덮어씁니다. 인증은 원본 및 대상 컨테이너에 대 한 적절 한 사용 권한이 있는 SAS 토큰을 사용 합니다. 토큰을 만드는 단계는 표시 되지 않습니다.
+예를 들어 다음 [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) 명령은 원본 계정의 *전송* 컨테이너에서 myblob을 대상 계정의 *전송* 컨테이너로 복사 합니다. 대상 계정에 blob이 있는 경우 덮어씁니다. 인증은 원본 및 대상 컨테이너에 대 한 적절 한 사용 권한이 있는 SAS 토큰을 사용 합니다. 토큰을 만드는 단계는 표시 되지 않습니다.
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ az deployment group delete \
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

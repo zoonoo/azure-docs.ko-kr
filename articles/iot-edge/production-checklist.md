@@ -4,18 +4,19 @@ description: 적절 한 인증서를 사용 하 여 장치를 설정 하 고 향
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/25/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431919"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258792"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -37,11 +38,14 @@ IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는
 
 ### <a name="install-production-certificates"></a>프로덕션 인증서 설치
 
-프로덕션 단계의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 설치된 CA 인증서는 config.yaml 파일에서 IoT Edge 런타임으로 선언됩니다. 개발 및 테스트 시나리오의 경우, config.xml 파일에 인증서가 선언 되지 않은 경우 IoT Edge 런타임은 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되어 프로덕션 시나리오가 원활하게 진행될 수 없습니다.
+프로덕션 단계의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 설치된 CA 인증서는 config.yaml 파일에서 IoT Edge 런타임으로 선언됩니다. 개발 및 테스트 시나리오의 경우, config.xml 파일에 인증서가 선언 되지 않은 경우 IoT Edge 런타임은 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되어 프로덕션 시나리오가 원활하게 진행될 수 없습니다. 프로덕션 시나리오의 경우 자체 서명 된 인증 기관에서 나 상용 인증 기관에서 구매한 장치 CA 인증서를 제공 해야 합니다.
+
+> [!NOTE]
+> 현재 libiothsm의 제한으로 인해 2050 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
 
 디바이스 CA 인증서의 역할을 이해하려면 [Azure IoT Edge에서 인증서를 사용하는 방법](iot-edge-certs.md)을 참조하세요.
 
-IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에 프로덕션 인증서 설치](how-to-manage-device-certificates.md)를 참조 하세요.
+IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에서 인증서 관리](how-to-manage-device-certificates.md)를 참조 하세요.
 
 ### <a name="have-a-device-management-plan"></a>디바이스 관리 계획 준비
 
@@ -215,7 +219,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 다음 검사 목록은 방화벽 규칙의 시작점입니다.
 
-   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용량 |
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용 |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
@@ -281,7 +285,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대해 로그 설정 조정
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들어:
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예:
 
 ```yml
 "createOptions": {

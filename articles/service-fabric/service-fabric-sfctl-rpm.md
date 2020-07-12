@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76904937"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260290"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 복구 관리자 서비스에 쿼리하고 명령을 보냅니다.
@@ -19,7 +20,7 @@ ms.locfileid: "76904937"
 |명령|설명|
 | --- | --- |
 | approve-force | 지정된 복구 작업의 승인을 강제 적용합니다. |
-| delete | 완료된 복구 작업을 삭제합니다. |
+| 삭제 | 완료된 복구 작업을 삭제합니다. |
 | list | 지정된 필터와 일치하는 복구 작업 목록을 가져옵니다. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force
@@ -92,4 +93,4 @@ ms.locfileid: "76904937"
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

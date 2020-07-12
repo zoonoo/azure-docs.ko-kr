@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079340"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261033"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 
@@ -58,10 +59,10 @@ Service Fabric 클러스터의 컴퓨터에 권장 되는 사양은 다음과 �
 * 모든 컴퓨터에 대해 보안 네트워크 또는 네트워크 연결성
 * Windows Server OS가 설치 되었습니다 (유효한 버전: 2012 R2, 2016, 1709 또는 1803). Service Fabric 버전 6.4.654.9590 이상에서는 서버 2019 및 1809도 지원 합니다.
 * [.NET Framework 4.5.1 이상](https://www.microsoft.com/download/details.aspx?id=40773), 전체 설치
-* [Windows Powershell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* [RemoteRegistry 서비스](https://technet.microsoft.com/library/cc754820) 는 모든 컴퓨터에서 실행 되어야 합니다.
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [RemoteRegistry 서비스](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) 는 모든 컴퓨터에서 실행 되어야 합니다.
 * **Service Fabric 설치 드라이브는 NTFS 파일 시스템 이어야 합니다.**
-* **Windows 서비스 *성능 로그 & 경고* 및 *windows 이벤트 로그* 를 [사용 하도록 설정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))해야**합니다.
+* **Windows 서비스 *성능 로그 & 경고* 및 *windows 이벤트 로그* 를 [사용 하도록 설정](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))해야**합니다.
 
 > [!IMPORTANT]
 > 클러스터를 배포하고 구성하는 클러스터 관리자는 각 컴퓨터에서 [관리자 권한](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 이 있어야 합니다. 도메인 컨트롤러에 Service Fabric을 설치할 수 없습니다.
@@ -156,7 +157,7 @@ Passed                     : True
 현재 이 구성 테스트 모듈은 보안 구성을 확인하지 않으므로 독립적으로 수행되어야 합니다.
 
 > [!NOTE]
-> 이 모듈을 더욱 강력하게 만들도록 계속해서 개선하고 있으므로 현재 TestConfiguration에서 감지하지 못한다고 생각하는 결함 또는 누락된 사례가 있는 경우 [지원 채널](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)을 통해 알려 주세요.
+> 이 모듈을 더욱 강력하게 만들도록 계속해서 개선하고 있으므로 현재 TestConfiguration에서 감지하지 못한다고 생각하는 결함 또는 누락된 사례가 있는 경우 [지원 채널](./service-fabric-support.md)을 통해 알려 주세요.
 >
 >
 

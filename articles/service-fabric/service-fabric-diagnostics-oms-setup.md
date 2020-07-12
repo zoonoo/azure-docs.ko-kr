@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609930"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258656"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>클러스터에 대 한 Azure Monitor 로그 설정
 
@@ -90,7 +91,7 @@ Azure Resource Manager는 이 명령이 기존 리소스에 대한 업데이트�
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Monitor 로그 배포
 
-명령을 사용 하 여 PowerShell을 통해 log analytics 리소스를 배포할 수도 있습니다 `New-AzOperationalInsightsWorkspace` . 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
+명령을 사용 하 여 PowerShell을 통해 log analytics 리소스를 배포할 수도 있습니다 `New-AzOperationalInsightsWorkspace` . 이 방법을 사용하려면 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
 
 ```powershell
 
@@ -122,5 +123,5 @@ PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 �
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능을 알아봅니다.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
 * [뷰 디자이너를 사용 하 여 Azure Monitor 로그에 사용자 지정 보기 만들기](../azure-monitor/platform/view-designer.md)

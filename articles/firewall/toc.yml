@@ -12,8 +12,6 @@
       href: tutorial-hybrid-portal.md
     - name: DNAT를 사용하여 인바운드 트래픽 필터링
       href: tutorial-firewall-dnat.md
-    - name: 진단 로그 모니터링
-      href: tutorial-diagnostics.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -86,6 +84,8 @@
       href: protect-azure-kubernetes-service.md
     - name: DNS 설정
       href: dns-settings.md
+    - name: 진단 로그 모니터링
+      href: firewall-diagnostics.md
 - name: 참조
   items:
     - name: Azure CLI

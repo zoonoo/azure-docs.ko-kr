@@ -5,12 +5,12 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787144"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261118"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
 
@@ -20,7 +20,7 @@ Azure에서 실행되는 Service Fabric 클러스터는 가상 머신 확장 집
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>자격 증명 관리
-크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 머신 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 애플리케이션을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 세트에 액세스해야 합니다. 로그인 하려면 [Azure CLI](https://github.com/azure/azure-cli)을 사용 하 여 만든 [서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) 를 사용할 수 있습니다.
+크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 머신 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 애플리케이션을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 세트에 액세스해야 합니다. 로그인 하려면 [Azure CLI](https://github.com/azure/azure-cli)을 사용 하 여 만든 [서비스 주체](/cli/azure/create-an-azure-service-principal-azure-cli) 를 사용할 수 있습니다.
 
 서비스 주체는 다음 단계에 따라 만들 수 있습니다.
 
@@ -59,7 +59,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-또는 PowerShell cmdlet을 통해 가상 머신 확장 집합 크기를 관리할 수도 있습니다. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)가상 머신 확장 집합 개체를 검색할 수 있습니다. 현재 용량은 `.sku.capacity` 속성을 통해 사용할 수 있습니다. 용량을 원하는 값으로 변경한 후에는 명령을 사용 하 여 Azure의 가상 머신 확장 집합을 업데이트할 수 있습니다 [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) .
+또는 PowerShell cmdlet을 통해 가상 머신 확장 집합 크기를 관리할 수도 있습니다. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)가상 머신 확장 집합 개체를 검색할 수 있습니다. 현재 용량은 `.sku.capacity` 속성을 통해 사용할 수 있습니다. 용량을 원하는 값으로 변경한 후에는 명령을 사용 하 여 Azure의 가상 머신 확장 집합을 업데이트할 수 있습니다 [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) .
 
 노드를 수동으로 추가하는 경우 확장 집합 인스턴스만 추가하면 새로운 Service Fabric 노드를 시작할 수 있습니다. 확장 집합 템플릿에는 새 인스턴스를 자동으로 Service Fabric 클러스터에 조인하는 확장 기능이 포함되어 있기 때문입니다. 
 
@@ -121,4 +121,4 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 - [수동으로 또는 자동 크기 조정 규칙을 사용하여 크기 조정](./service-fabric-cluster-scale-in-out.md)
 - [.NET용 Fluent Azure Management 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/Fluent)(Service Fabric 클러스터의 기본 가상 가상 머신 확장 집합과 상호 작용하는 데 유용함)
-- [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)(Service Fabric 클러스터 및 그 노드와 상호 작용하는 데 유용함)
+- [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient)(Service Fabric 클러스터 및 그 노드와 상호 작용하는 데 유용함)

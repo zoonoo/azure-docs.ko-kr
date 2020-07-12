@@ -3,12 +3,12 @@ title: Azure Portal에서 Service Fabric 클러스터 만들기
 description: Azure Portal 및 Azure Key Vault를 사용하여 Azure에서 보안 Service Fabric 클러스터를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611155"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259313"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 ### <a name="3-security"></a>3. 보안
 ![Azure Portal에 대 한 보안 구성 스크린샷][BasicSecurityConfigs]
 
-보안 테스트 클러스터를 설정하기 쉽도록 **기본** 옵션이 제공됩니다. 이미 인증서가 있고 [키 자격 증명 모음](/azure/key-vault/)에 업로드한 경우(키 자격 증명 모음을 배포에 사용하도록 설정함) **사용자 지정** 옵션을 사용합니다.
+보안 테스트 클러스터를 설정하기 쉽도록 **기본** 옵션이 제공됩니다. 이미 인증서가 있고 [키 자격 증명 모음](../key-vault/index.yml)에 업로드한 경우(키 자격 증명 모음을 배포에 사용하도록 설정함) **사용자 지정** 옵션을 사용합니다.
 
 #### <a name="basic-option"></a>기본 옵션
 화면 지침에 따라 기존 키 자격 증명 모음을 추가하거나 다시 사용하고 인증서를 추가합니다. 인증서 추가는 동기 프로세스이므로 인증서가 생성될 때까지 기다려야 합니다.
@@ -202,7 +202,7 @@ PowerShell 또는 CLI를 사용 하 여 클러스터에서 관리 작업을 수�
 이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md

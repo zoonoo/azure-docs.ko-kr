@@ -4,12 +4,12 @@ description: 상태 비저장 및 상태 저장 서비스를 사용하여 Micros
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 201131f774632e1130c6be6a0dbcb950b96ec508
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038024"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260469"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) 는 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. 서비스 패브릭 및 신뢰할 수 있는 컬렉션을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) 는 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. 서비스 패브릭 및 신뢰할 수 있는 컬렉션을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본* 을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
 
 신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 .NET 유형을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
 
-* 서비스 패브릭은 노드의 상태를 *복제* 하고 신뢰할 수 있는 컬렉션은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 컬렉션에 저장된 모든 항목이 *직렬화 가능*상태가 됩니다. 신뢰할 수 있는 컬렉션은 기본적으로 [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx)를 사용하여 직렬화를 수행하므로 기본 직렬 변환기를 사용할 때 해당 유형이 [데이터 계약 직렬 변환기에서 지원되는지](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) 확인하는 것이 중요합니다.
+* 서비스 패브릭은 노드의 상태를 *복제* 하고 신뢰할 수 있는 컬렉션은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 컬렉션에 저장된 모든 항목이 *직렬화 가능*상태가 됩니다. 신뢰할 수 있는 컬렉션은 기본적으로 [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1)를 사용하여 직렬화를 수행하므로 기본 직렬 변환기를 사용할 때 해당 유형이 [데이터 계약 직렬 변환기에서 지원되는지](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) 확인하는 것이 중요합니다.
 * 신뢰할 수 있는 컬렉션의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 컬렉션에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
   
    트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 디렉터리에 다시 삽입하거나 디렉터리의 *update* 메서드 중 하나를 사용해야 합니다.
@@ -212,7 +212,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 ## <a name="next-steps"></a>다음 단계
 [Visual Studio에서 서비스 패브릭 애플리케이션 디버깅](service-fabric-debugging-your-application.md)
 
-[시작: OWIN 자체 호스팅을 사용하는 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)
+[시작: OWIN 자체 호스팅을 사용하는 서비스 패브릭 Web API 서비스](./service-fabric-reliable-services-communication-aspnetcore.md)
 
 [신뢰할 수 있는 컬렉션에 대한 자세한 정보](service-fabric-reliable-services-reliable-collections.md)
 
@@ -220,5 +220,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
-[신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+[신뢰할 수 있는 서비스에 대한 개발자 참조](/previous-versions/azure/dn706529(v=azure.100))

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4cbfe03c48c6d971c140dc332c38a47bc9234173
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d41df8fe4f411cf28af83c8b4b667f1e86bdb45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135114"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259916"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>호스트 풀의 원격 데스크톱 프로토콜 속성 사용자 지정
 
@@ -132,7 +132,7 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 이제 지정 된 호스트 풀의 RDP 속성을 사용자 지정 했으므로 Windows 가상 데스크톱 클라이언트에 로그인 하 여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 방법 가이드에서는 사용자가 선택한 클라이언트를 사용 하 여 세션에 연결 하는 방법을 설명 합니다.
 
-- [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-and-10.md)
+- [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10.md)
 - [웹 클라이언트를 사용하여 연결](connect-web.md)
 - [Android 클라이언트와 연결](connect-android.md)
 - [macOS 클라이언트와 연결](connect-macos.md)

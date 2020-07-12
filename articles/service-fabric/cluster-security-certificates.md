@@ -4,12 +4,12 @@ description: Service Fabric 클러스터의 인증서 기반 인증에 대해 �
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429669"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259026"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Service Fabric 클러스터의 x.509 인증서 기반 인증
 
@@ -180,7 +180,7 @@ X.509 인증서를 사용 하 여 보호 되는 클러스터의 연결에 대 �
 
 앞서 언급 했 듯이 인증서 유효성 검사는 항상 인증서 체인의 작성 및 평가를 의미 합니다. CA에서 발급 한 인증서의 경우이 처럼 단순한 OS API 호출에는 일반적으로 발급 하는 PKI의 다양 한 끝점에 대 한 몇 가지 아웃 바운드 호출, 응답 캐싱 등이 있습니다. Service Fabric 클러스터에서 인증서 유효성 검사 호출의 전파를 고려할 때 PKI 끝점의 모든 문제는 클러스터의 가용성을 줄이거나 완전히 분석 될 수 있습니다. 아웃 바운드 호출을 억제할 수 없는 경우 (자세한 내용은 FAQ 섹션의 아래 참조) 다음 설정을 사용 하 여 CRL 호출에 실패 한 유효성 검사 오류를 마스킹할 수 있습니다.
 
-  * CrlCheckingFlag-' Security ' 섹션에서 문자열이 UINT로 변환 됩니다. 이 설정의 값은 체인 작성의 동작을 변경 하 여 인증서 체인 상태 오류를 마스킹 하는 Service Fabric에서 사용 됩니다. 이 클래스는 ' dwFlags ' 매개 변수로 Win32 CryptoAPI [목록은 certgetcertificatechain](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) 호출에 전달 되며 함수에서 허용 하는 모든 유효한 플래그 조합으로 설정할 수 있습니다. 값 0은 Service Fabric 런타임이 신뢰 상태 오류를 강제로 무시 하도록 합니다 .이는 사용 하는 것이 중요 한 보안 노출을 구성 하므로 권장 되지 않습니다. 기본값은 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT)입니다.
+  * CrlCheckingFlag-' Security ' 섹션에서 문자열이 UINT로 변환 됩니다. 이 설정의 값은 체인 작성의 동작을 변경 하 여 인증서 체인 상태 오류를 마스킹 하는 Service Fabric에서 사용 됩니다. 이 클래스는 ' dwFlags ' 매개 변수로 Win32 CryptoAPI [목록은 certgetcertificatechain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) 호출에 전달 되며 함수에서 허용 하는 모든 유효한 플래그 조합으로 설정할 수 있습니다. 값 0은 Service Fabric 런타임이 신뢰 상태 오류를 강제로 무시 하도록 합니다 .이는 사용 하는 것이 중요 한 보안 노출을 구성 하므로 권장 되지 않습니다. 기본값은 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT)입니다.
 
   사용 시기: 자체 서명 된 인증서 또는 자체 서명 된 인증서를 사용 하 여 인증서를 지 원하는 적절 한 공개 키 인프라가 없는 개발자 인증서를 사용 하는 경우입니다. 는 Pki 간을 전환 하는 동안 gapped 환경에서 완화가 사용 될 수도 있습니다.
 
@@ -257,7 +257,7 @@ Service Fabric 클러스터에서 업그레이드는 (최대 5 개) ' 업그레�
 별도의 문서에서 Service Fabric 클러스터로 인증서를 관리 하 고 프로 비전 하는 항목을 설명 합니다.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>문제 해결 및 질문과 대답
-Service Fabric 클러스터의 인증 관련 문제를 디버그 하는 것은 쉽지 않지만 다음 힌트와 팁이 도움이 될 수 hopeful. 조사를 시작 하는 가장 쉬운 방법은 클러스터의 노드에서 Service Fabric 이벤트 로그를 검사 하는 것입니다. 즉, 증상을 표시 하는 것은 아니지만 해당 환경 중 하나에 연결할 수는 없는 노드도 있습니다. Windows에서 중요 한 이벤트는 일반적으로 ' 응용 프로그램 및 서비스 Logs\Microsoft-ServiceFabric\Admin ' 또는 ' 작동 ' 채널 아래에 기록 됩니다. [CAPI2 로깅을 사용 하도록 설정](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues)하 여 인증서 유효성 검사, CRL/CTL 검색 등에 대 한 자세한 정보를 수집 하는 것이 유용할 수 있습니다. 재현을 완료 한 후에는 사용 하지 않도록 설정 해야 합니다. 자세한 정보를 확인할 수 있습니다.
+Service Fabric 클러스터의 인증 관련 문제를 디버그 하는 것은 쉽지 않지만 다음 힌트와 팁이 도움이 될 수 hopeful. 조사를 시작 하는 가장 쉬운 방법은 클러스터의 노드에서 Service Fabric 이벤트 로그를 검사 하는 것입니다. 즉, 증상을 표시 하는 것은 아니지만 해당 환경 중 하나에 연결할 수는 없는 노드도 있습니다. Windows에서 중요 한 이벤트는 일반적으로 ' 응용 프로그램 및 서비스 Logs\Microsoft-ServiceFabric\Admin ' 또는 ' 작동 ' 채널 아래에 기록 됩니다. [CAPI2 로깅을 사용 하도록 설정](/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues)하 여 인증서 유효성 검사, CRL/CTL 검색 등에 대 한 자세한 정보를 수집 하는 것이 유용할 수 있습니다. 재현을 완료 한 후에는 사용 하지 않도록 설정 해야 합니다. 자세한 정보를 확인할 수 있습니다.
 
 클러스터에서 인증 문제를 발생 시킨 일반적인 증상은 다음과 같습니다. 
   - 노드가 다운/순환 되 고 있습니다. 
@@ -300,5 +300,4 @@ Service Fabric 클러스터의 인증 관련 문제를 디버그 하는 것은 �
     ```C++
     0x80090014  -2146893804 NTE_BAD_PROV_TYPE
     ```
-    이를 해결 하려면 CAPI1 (예: "Microsoft 고급 RSA 및 AES 암호화 공급자") 공급자를 사용 하 여 클러스터 인증서를 다시 만듭니다. 암호화 공급자에 대 한 자세한 내용은 [암호화 공급자 이해](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers) 를 참조 하세요.
-
+    이를 해결 하려면 CAPI1 (예: "Microsoft 고급 RSA 및 AES 암호화 공급자") 공급자를 사용 하 여 클러스터 인증서를 다시 만듭니다. 암호화 공급자에 대 한 자세한 내용은 [암호화 공급자 이해](/windows/win32/seccertenroll/understanding-cryptographic-providers) 를 참조 하세요.

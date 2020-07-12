@@ -4,25 +4,26 @@ description: Azure Cosmos DB의 SQL 시스템 함수 GetCurrentDateTime에 대�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 07/09/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2ac3235191952702f2acc39a25e948511901050b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4db2ec7bbd05d982af57c05fd46ef7da7c682e15
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555897"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258800"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
- 현재 UTC (협정 세계시) 날짜와 시간을 ISO 8601 문자열로 반환 합니다.
+
+현재 UTC (협정 세계시) 날짜와 시간을 ISO 8601 문자열로 반환 합니다.
   
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
   
 ```sql
 GetCurrentDateTime ()
 ```
-  
+
 ## <a name="return-types"></a>반환 형식
   
   현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합니다 `YYYY-MM-DDThh:mm:ss.fffffffZ` .
@@ -43,13 +44,13 @@ GetCurrentDateTime ()
 
 ## <a name="remarks"></a>설명
 
-  GetCurrentDateTime ()은 비결 정적 함수입니다. 
+  GetCurrentDateTime ()은 비결 정적 함수입니다.
   
   반환 된 결과는 UTC입니다.
 
   정밀도는 7 자리 이며 정확도는 100 나노초입니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는 GetCurrentDateTime () 기본 제공 함수를 사용 하 여 현재 UTC 날짜 시간을 가져오는 방법을 보여 줍니다.
   

@@ -4,14 +4,14 @@ description: 가상 네트워크에서 개인 IP 주소를 사용하여 Azure Co
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/10/2020
 ms.author: thweiss
-ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb1310d0f45f945fc150e0ae011ede0d102a5918
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259109"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대한 Azure Private Link 구성
 
@@ -655,8 +655,6 @@ Azure Cosmos 계정에 Private Link를 사용하면 다음 제한이 적용됩�
 * Private Link가 있는 Azure Cosmos DB의 API for MongoDB 계정을 사용하면 일부 도구 또는 라이브러리가 연결 문자열에서 `appName` 매개 변수를 자동으로 제거하므로 작동하지 않을 수 있습니다. 이 매개 변수는 프라이빗 엔드포인트를 통해 계정에 연결하는 데 필요합니다. Visual Studio Code와 같은 일부 도구는 연결 문자열에서 이 매개 변수를 제거하지 않으므로 호환됩니다.
 
 * 승인된 프라이빗 엔드포인트를 자동으로 만들려면 Azure Cosmos 계정 범위에서 네트워크 관리자에게 적어도 `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` 권한을 부여해야 합니다.
-
-* 현재 중국 기반 Azure 지역에서는 직접 모드가 지원되지 않습니다.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>프라이빗 DNS 영역 통합에 대한 제한
 

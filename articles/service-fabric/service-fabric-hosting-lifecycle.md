@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: da395f020cf3d299211427e740975764653b487d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85802280"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258828"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Azure Service Fabric 호스팅 수명 주기
 이 문서에서는 응용 프로그램이 노드에서 활성화 될 때 발생 하는 이벤트와 동작을 제어 하는 데 사용 되는 다양 한 클러스터 configs에 대 한 개요를 제공 합니다.
@@ -131,7 +131,7 @@ Configs는 활성화/decativation에 영향을 주는 기본값이 있습니다.
 **ServiceTypeDisableGraceInterval**: 기본값은 30 초입니다. 서비스 유형을 사용 하지 않도록 설정할 수 있는 시간 간격입니다.
 **ServiceTypeRegistrationTimeout**: 기본값은 300 초입니다. ServiceType이 Service Fabric에 등록 하기 위한 시간 제한입니다.
 
-### <a name="activation"></a>활성화
+### <a name="activation"></a>정품 인증
 **ActivationRetryBackoffInterval**: 모든 정품 인증 오류에 대 한 백오프 간격의 기본값은 10 초입니다.
 **ActivationMaxFailureCount**: 기본값은 20입니다. 등록 하기 전에 시스템에서 다시 시도 하는 최대 횟수입니다. 
 **ActivationRetryBackoffExponentiationBase**: 기본값은 1.5입니다.
@@ -159,4 +159,4 @@ Configs는 활성화/decativation에 영향을 주는 기본값이 있습니다.
 [a3]: service-fabric-package-apps.md
 [a4]: service-fabric-deploy-remove-applications.md
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricservicepackagetonode
+[p1]: /powershell/module/servicefabric/copy-servicefabricservicepackagetonode

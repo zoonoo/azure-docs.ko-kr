@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: ba8f4591782a4e34fbde26d9669ef01f24450486
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: de2579868ad72bdf4cf78c552e9553f289ecabd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146425"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259056"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 PostgreSQL 확장
 
@@ -31,7 +31,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
 > | [큐브](https://www.postgresql.org/docs/current/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
@@ -46,7 +46,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/current/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [dict \_ xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 확장 된 동의어 처리를 위한 텍스트 검색 사전 템플릿입니다. |
@@ -55,7 +55,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="functions-extensions"></a>함수 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | 자동 증가 필드를 위한 함수입니다. |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | 지구 표면의 대원 거리를 계산하는 방법을 제공합니다. |
@@ -77,7 +77,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="hyperscale-extensions"></a>Hyperscale 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. |
 > | 분할 \_ 재 분산 | 노드 추가 또는 제거의 경우 서버 그룹의 데이터를 안전 하 게 리 밸런스 합니다. |
@@ -85,7 +85,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [블 룸](https://www.postgresql.org/docs/current/bloom.html) | 블 룸 access 메서드 서명 파일 기반 인덱스입니다. |
 > | [btree\_gin](https://www.postgresql.org/docs/current/static/btree-gin.html) | 특정 데이터 형식에 대 한 B-트리 형식의 동작을 구현 하는 샘플 GIN 연산자 클래스를 제공 합니다. |
@@ -94,14 +94,14 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | PostgreSQL에 대 한 관리 기능. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 관계 무결성을 확인 하는 함수입니다. |
@@ -127,7 +127,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **확장** | **설명** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |
@@ -144,6 +144,6 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 에서 제공 하는 쿼리 실행 정보와 서버 성능에 대 한 영향은 각 SQL 문을 로깅할 때 pg_stat_statements 간에 균형을 유지 합니다. Pg_stat_statements 확장을 사용 하지 않는 경우를로 설정 하는 것이 `pg_stat_statements.track` 좋습니다 `none` . 일부 타사 모니터링 서비스는 pg_stat_statements를 사용 하 여 쿼리 성능 정보를 제공할 수 있으므로 이것이 사용자의 사례 인지 여부를 확인 합니다.
 
 ## <a name="dblink-and-postgres_fdw"></a>ablink 및 postgres_fdw
-PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결 하는 데에는 eblink 및 postgres_fdw를 사용할 수 있습니다. 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용 하 여 Azure Database for PostgreSQL 서버 간에 연결 하려면 **Azure 서비스에 대 한 액세스 허용** 을 켜기로 설정 합니다. 또한 확장을 사용 하 여 동일한 서버에 다시 루프를 사용 하려는 경우이 설정을 켜야 합니다. **Azure 서비스에 대 한 액세스 허용** 설정은 **연결 보안**아래에 있는 postgres server에 대 한 Azure Portal 페이지에서 찾을 수 있습니다. 허용 목록 모든 Azure Ip에서 **azure 서비스에 대 한 액세스를 허용** 합니다.
 
-현재는 다른 Azure Database for PostgreSQL 서버에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL의 아웃 바운드 연결이 지원 되지 않습니다.
+Dblink 및 postgres \_ fdw를 사용 하 여 한 PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다.  받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다.  이러한 확장을 사용 하 여 Azure Database for PostgreSQL 서버 또는 Citus (Hyperscale) 서버 그룹 간에 연결 하려면 **Azure 서비스 및 리소스에서이 서버 그룹 (또는 서버)에 액세스할 수 있도록 허용** 을 설정 합니다.  또한 확장을 사용 하 여 동일한 서버에 다시 루프를 사용 하려는 경우이 설정을 켜야 합니다.
+**이 서버 그룹에 액세스할 수 있는 Azure 서비스 및 리소스 허용** 설정은 **네트워킹**아래의 Citus (hyperscale) 서버 그룹에 대 한 Azure Portal 페이지에서 찾을 수 있습니다.  현재는 다른 Azure Database for PostgreSQL 서버 및 Citus (Hyperscale) 서버 그룹에 대 한 연결을 제외 하 고 Azure Database for PostgreSQL 단일 서버 및 Citus (Hyperscale)의 아웃 바운드 연결이 지원 되지 않습니다.

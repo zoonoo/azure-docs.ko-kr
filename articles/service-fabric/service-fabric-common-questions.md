@@ -4,11 +4,12 @@ description: 기능, 사용 사례 및 일반적인 시나리오를 비롯 하 �
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78254894"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258939"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -21,9 +22,9 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
 
-애플리케이션 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 애플리케이션 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [애플리케이션 업그레이드 매개 변수](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 애플리케이션 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
+애플리케이션 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 애플리케이션 업그레이드](./service-fabric-application-upgrade.md?branch=master)는 [애플리케이션 업그레이드 매개 변수](./service-fabric-application-upgrade-parameters.md?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 애플리케이션 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
  
-클러스터에서 여전히 Resource Manager 템플릿의 클래식 인증서 지문 속성을 사용하는 경우 최신 비밀 관리 기능을 활용할 수 있도록 [클러스터를 인증서 지문에서 일반 이름으로 변경](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)하는 것이 좋습니다.
+클러스터에서 여전히 Resource Manager 템플릿의 클래식 인증서 지문 속성을 사용하는 경우 최신 비밀 관리 기능을 활용할 수 있도록 [클러스터를 인증서 지문에서 일반 이름으로 변경](./service-fabric-cluster-change-cert-thumbprint-to-cn.md)하는 것이 좋습니다.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>여러 Azure 지역 또는 나만의 데이터 센터에 걸쳐서 클러스터를 만들 수 있나요?
 
@@ -40,7 +41,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 노드에서 OS 업데이트를 자동으로 수신하나요?
 
-일반적으로 요즘 제공되는 기능인 [Virtual Machine Scale Set 자동 OS 이미지 업데이트](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)를 사용할 수 있습니다.
+일반적으로 요즘 제공되는 기능인 [Virtual Machine Scale Set 자동 OS 이미지 업데이트](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)를 사용할 수 있습니다.
 
 Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아래의 운영 체제를 패치하기 위한 [을 제공](service-fabric-patch-orchestration-application.md)하고 있습니다.
 
@@ -125,7 +126,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
 A. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
-B. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyvault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
+B. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 가져온 다음, [keyvault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
 
 ## <a name="application-design"></a>애플리케이션 설계
 
@@ -176,9 +177,9 @@ Reliable Services와 마찬가지로 행위자 서비스에 저장할 수 있는
 
 GitHub의 Service Fabric 일부에 대해 오픈 소스를 제공하였으며([신뢰할 수 있는 서비스 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [신뢰할 수 있는 작업자 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core 통합 라이브러리](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) 및 [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)), 해당 프로젝트에 대한 커뮤니티 참여를 받고 있습니다. 
 
-Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 발표했습니다](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/). 현재 GitHub의 Linux 빌드 및 테스트 도구가 포함된 [Service Fabric 리포지토리](https://github.com/Microsoft/service-fabric/)가 있습니다. 즉, 리포지토리를 복제하고, Linux용 Service Fabric을 빌드하고, 기본 테스트를 실행하고, 현안을 공개하고, 끌어오기 요청을 제출할 수 있습니다. 마이그레이션된 Windows 빌드 환경과 함께 완벽한 CI 환경을 제공하기 위해 최선을 다하고 있습니다.
+Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 발표했습니다](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). 현재 GitHub의 Linux 빌드 및 테스트 도구가 포함된 [Service Fabric 리포지토리](https://github.com/Microsoft/service-fabric/)가 있습니다. 즉, 리포지토리를 복제하고, Linux용 Service Fabric을 빌드하고, 기본 테스트를 실행하고, 현안을 공개하고, 끌어오기 요청을 제출할 수 있습니다. 마이그레이션된 Windows 빌드 환경과 함께 완벽한 CI 환경을 제공하기 위해 최선을 다하고 있습니다.
 
-공지되면 [Service Fabric 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 자세한 내용을 확인하세요.
+공지되면 [Service Fabric 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 자세한 내용을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

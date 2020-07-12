@@ -22,15 +22,15 @@ sections:
         className: cardsFTitle
         items:
           - title: Kubernetes 클러스터 시작
-            href: /azure/container-service/kubernetes
+            href: ./kubernetes/index.yml
             image:
               src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
+              href: ./kubernetes/index.yml
           - title: DC/OS 및 Docker Swarm 클러스터 시작
-            href: /azure/container-service/dcos-swarm
+            href: ./dcos-swarm/index.yml
             image:
               src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+              href: ./dcos-swarm/index.yml
   - title: Microsoft Learn을 통해 기술 쌓기
     items:
       - type: list

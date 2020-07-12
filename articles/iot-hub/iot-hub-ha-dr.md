@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260178"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -75,6 +76,8 @@ Microsoft에서 시작한 장애 조치 (failover)가 제공 하는 RTO에의 �
 
 수동 장애 조치(failover) 옵션은 주 지역의 가동 중지 시간 발생 여부에 관계없이 항상 사용할 수 있습니다. 따라서 이 옵션을 통해 계획된 장애 조치(failover)를 수행하는 데 사용할 수 있습니다. 계획된 장애 조치(Failover)의 한 사용 예로 정기 장애 조치(failover) 훈련을 들 수 있습니다. 그러나 계획된 장애 조치(Failover) 작업은 이 옵션에 대한 RTO에서 정의한 기간에 대해 허브 가동 중지 시간이 발생하고 위의 RPO 테이블에서 정의한 데이터 손실을 초래합니다. 실제 재해가 발생했을 때 엔드투엔드 솔루션이 가동되어 실행되는 상태를 확실히 유지할 수 있도록 주기적으로 계획된 장애 조치(failover) 옵션을 실행하는 테스트 IoT Hub 인스턴스를 설정할 수 있습니다.
 
+5 월 18 일 이후에 생성 된 IoT hub에 대 한 추가 비용 없이 수동 장애 조치 (failover)를 사용할 수 있습니다. 2017
+
 단계별 지침은 [자습서: IoT hub에 대 한 수동 장애 조치 (failover) 수행](tutorial-manual-failover.md) 을 참조 하세요.
 
 ### <a name="running-test-drills"></a>테스트 드릴 실행
@@ -131,7 +134,7 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
 | --- | --- | --- | --- | --- | --- |
 | Microsoft 시작 장애 조치 |2~26시간|위의 RPO 표 참조|예|None|없음|
 | 수동 장애 조치(failover) |10분~2시간|위의 RPO 표 참조|예|매우 낮음. 포털에서 이 작업을 트리거하기만 하면 됩니다.|없음|
-| 지역 간 HA |1분 미만|사용자 지정 HA 솔루션의 복제 빈도에 따라 다름|아니요|높은|> IoT Hub 1개의 비용 미만|
+| 지역 간 HA |1분 미만|사용자 지정 HA 솔루션의 복제 빈도에 따라 다름|아니요|높음|> IoT Hub 1개의 비용 미만|
 
 ## <a name="next-steps"></a>다음 단계
 

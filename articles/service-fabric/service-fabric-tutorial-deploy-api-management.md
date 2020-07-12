@@ -4,12 +4,12 @@ description: Azure API Management를 빠르게 시작하고 Service Fabric에서
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40f8c53394292a85f6fd032e445d79ed82e2d4e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80292135"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260257"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -30,7 +30,7 @@ Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오�
 시작하기 전에
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치 합니다.
+* [Azure Powershell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치 합니다.
 * 네트워크 보안 그룹에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만듭니다.
 * Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2019](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
 
@@ -151,9 +151,9 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
-[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies)에서는 모든 항목을 함께 연결하는 백 엔드 정책을 만듭니다. 요청이 라우팅되는 백 엔드 Service Fabric 서비스를 구성하는 위치입니다. 이 정책은 모든 API 작업에 적용할 수 있습니다.  자세한 내용은 [정책 개요](/azure/api-management/api-management-howto-policies)를 참조하세요.
+[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies)에서는 모든 항목을 함께 연결하는 백 엔드 정책을 만듭니다. 요청이 라우팅되는 백 엔드 Service Fabric 서비스를 구성하는 위치입니다. 이 정책은 모든 API 작업에 적용할 수 있습니다.  자세한 내용은 [정책 개요](../api-management/api-management-howto-policies.md)를 참조하세요.
 
-[Service Fabric에 대한 백 엔드 구성](/azure/api-management/api-management-transformation-policies#SetBackendService)은 다음 요청 라우팅 컨트롤을 제공합니다.
+[Service Fabric에 대한 백 엔드 구성](../api-management/api-management-transformation-policies.md#SetBackendService)은 다음 요청 라우팅 컨트롤을 제공합니다.
 
 * 하드 코드되거나(예: `"fabric:/myapp/myservice"`) HTTP 요청에서 생성된(예: `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`) Service Fabric 서비스 인스턴스 이름을 지정하여 서비스 인스턴스 선택
 * Service Fabric 분할 체계를 통해 파티션 키를 생성하여 파티션 확인
@@ -180,7 +180,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 </policies>
 ```
 
-전체 Service Fabric 백 엔드 정책 특성 집합은 [API Management 백 엔드 설명서](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)를 참조하세요.
+전체 Service Fabric 백 엔드 정책 특성 집합은 [API Management 백 엔드 설명서](../api-management/api-management-transformation-policies.md#SetBackendService)를 참조하세요.
 
 ## <a name="set-parameters-and-deploy-api-management"></a>매개 변수 설정 및 API Management 배포
 
@@ -291,9 +291,9 @@ az group delete --name $ResourceGroupName
 
 ## <a name="next-steps"></a>다음 단계
 
-[API Management](/azure/api-management/import-and-publish)를 사용하는 방법을 자세히 알아봅니다.
+[API Management](../api-management/import-and-publish.md)를 사용하는 방법을 자세히 알아봅니다.
 
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
 [apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json

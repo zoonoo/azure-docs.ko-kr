@@ -3,11 +3,12 @@ title: Azure Service Fabric 앱 패키지
 description: Azure Service Fabric 응용 프로그램 패키징 및 클러스터에 배포를 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701050"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260968"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
 
@@ -42,7 +43,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들어:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예:
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
@@ -210,7 +211,7 @@ diff 프로비전이 옵션이 아니며 패키지를 포함해야 하는 경우
 `sfpkg` 파일은 초기 애플리케이션 패키지를 포함하는 zip이며 확장명 ".sfpkg"를 갖습니다.
 zip 내의 애플리케이션 패키지는 압축되거나 압축이 풀릴 수 있습니다. zip 내의 애플리케이션 패키지의 압축은 [앞에서 언급한](service-fabric-package-apps.md#compress-a-package) 것처럼 코드, 구성 및 데이터 패키지 수준에서 수행됩니다.
 
-`sfpkg`를 만들려면 압축되거나 압축되지 않은 원래 애플리케이션 패키지를 포함하는 폴더를 시작합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx)를 사용합니다.
+`sfpkg`를 만들려면 압축되거나 압축되지 않은 원래 애플리케이션 패키지를 포함하는 폴더를 시작합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_)를 사용합니다.
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

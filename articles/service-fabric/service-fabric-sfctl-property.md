@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905822"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260321"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
@@ -18,7 +19,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 |명령|설명|
 | --- | --- |
-| delete | 지정된 Service Fabric 속성을 삭제합니다. |
+| 삭제 | 지정된 Service Fabric 속성을 삭제합니다. |
 | Get | 지정된 Service Fabric 속성을 가져옵니다. |
 | list | 지정된 이름에서 모든 Service Fabric 속성에 대한 정보를 가져옵니다. |
 | put | Service Fabric 속성을 만들거나 업데이트합니다. |
@@ -121,4 +122,4 @@ Service Fabric 속성을 만들거나 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.
+- [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

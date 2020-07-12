@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392236"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259440"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -44,7 +44,7 @@ Azure Machine Learning은 웹 서비스에 두 가지 형태의 인증(키 및 �
 
 |인증 방법|Description|Azure Container Instances|AKS|
 |---|---|---|---|
-|키|키는 정적이며 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용 안 함| 기본적으로 사용|
+|키|키는 정적 이므로 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용 안 함| 기본적으로 사용|
 |토큰|토큰은 지정된 기간이 지나면 만료되며 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용 안 함 |
 
 코드 예제는 [웹 서비스 인증 섹션](how-to-setup-authentication.md#web-service-authentication)을 참조하세요.
@@ -111,16 +111,21 @@ Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리�
 
 ## <a name="data-encryption"></a>데이터 암호화.
 
+> [!IMPORTANT]
+> __학습__중에 프로덕션 등급 암호화의 경우 계산 클러스터 Azure Machine Learning를 사용 하는 것이 좋습니다. __유추__중 프로덕션 등급 암호화의 경우 Azure Kubernetes Service를 사용 하는 것이 좋습니다.
+>
+> Azure Machine Learning 계산 인스턴스는 개발/테스트 환경입니다. 이를 사용 하는 경우 파일 공유에 전자 필기장 및 스크립트와 같은 파일을 저장 하는 것이 좋습니다. 데이터를 데이터 저장소에 저장 해야 합니다.
+
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
 > [!IMPORTANT]
 > 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. 
 
-`hbi_workspace` 플래그는 진단 목적으로 Microsoft가 수집하는 데이터 양을 제어하고 Microsoft 관리형 환경에서 추가 암호화가 가능하도록 설정합니다. 또한 다음과 같은 작업도 수행할 수 있습니다.
+`hbi_workspace`플래그는 microsoft에서 진단 목적으로 수집 하 고 microsoft에서 관리 하는 환경에서 추가 암호화를 사용 하도록 설정 하는 데이터의 양을 제어 합니다. 또한 다음 작업을 수행할 수 있습니다.
 
-* 해당 구독에서 이전 클러스터를 만들지 않은 경우 Amlcompute 클러스터에서 로컬 스크래치 디스크 암호화를 시작합니다. 그렇지 않으면 컴퓨팅 클러스터의 스크래치 디스크를 암호화가 가능하도록 지원 티켓을 생성해야 합니다. 
+* 해당 구독에 이전 클러스터를 만들지 않은 경우 Azure Machine Learning 계산 클러스터에서 로컬 스크래치 디스크의 암호화를 시작 합니다. 그렇지 않으면 컴퓨팅 클러스터의 스크래치 디스크를 암호화가 가능하도록 지원 티켓을 생성해야 합니다. 
 * 실행 사이에 로컬 스크래치 디스크를 정리합니다
-* 키 자격 증명 모음을 사용하여 스토리지 계정, 컨테이너 레지스트리 및 SSH 계정의 자격 증명을 실행 레이어에서 컴퓨팅 클러스터로 안전하게 전달합니다.
+* 키 자격 증명 모음을 사용 하 여 저장소 계정, 컨테이너 레지스트리 및 SSH 계정에 대 한 자격 증명을 실행 계층에서 계산 클러스터로 안전 하 게 전달 합니다.
 * IP 필터링이 가능하도록 설정하여 AzureMachineLearningService 이외의 외부 서비스에서 기본 배치 풀을 호출할 수 없도록 합니다.
 
 
@@ -228,7 +233,7 @@ Azure Databricks는 Azure Machine Learning 파이프라인에서 사용할 수 �
 
 Azure Machine Learning은 TLS를 사용하여 다양한 Azure Machine Learning 마이크로서비스 간의 내부 통신을 보호합니다. 모든 Azure Storage 액세스는 보안 채널을 통해 수행됩니다.
 
-채점 엔드포인트에 대한 외부 호출을 보호하기 위해 Azure Machine Learning은 TLS를 사용합니다. 자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)를 참조하세요.
+점수 매기기 끝점에 대 한 외부 호출을 보호 하기 위해 Azure Machine Learning는 TLS를 사용 합니다. 자세한 내용은 [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)를 참조하세요.
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault 사용
 

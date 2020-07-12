@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4a6e8b2baa400e1221ac1e8271e04cdaa912aff6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224148"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258856"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
@@ -60,7 +60,7 @@ Health 스토어는 클러스터의 엔터티에 대한 상태 관련 정보를 
 ## <a name="health-states"></a>성능 상태
 서비스 패브릭은 3가지 성능 상태(정상, 경고 및 오류)를 사용하여 엔터티가 정상인지 여부를 설명합니다. Health 스토어로 전송되는 모든 보고서에 이러한 상태 중 하나를 지정해야 합니다. 상태 평가 결과는 이러한 상태 중 하나입니다.
 
-사용 가능한 [성능 상태](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) 는 다음과 같습니다.
+사용 가능한 [성능 상태](/dotnet/api/system.fabric.health.healthstate) 는 다음과 같습니다.
 
 * **확인**. 엔터티가 정상입니다. 엔터티 또는 자식(해당하는 경우)에 대해 보고된 알려진 문제가 없습니다.
 * **경고** 엔터티에 몇 가지 문제가 있지만 여전히 제대로 작동합니다. 예를 들어, 지연이 있으나 아직 기능상의 문제는 없습니다. 일부 경우 외부 개입 없이도 경고 상태가 자체 해결되기도 합니다. 이러한 경우 상태 보고서는 알림을 전달하고 상황에 대한 정보를 제공합니다. 또한 사용자 개입이 없으면 심각한 문제를 초래하는 경고 상태도 있을 수 있습니다.
@@ -78,13 +78,13 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 기본적으로 서비스 패브릭은 부모-자식 계층 구조 관계에 대한 엄격한 규칙(모든 것이 정상이어야 함)을 적용합니다. 자식 중 하나에 비정상 이벤트가 하나만 있어도 부모가 비정상으로 간주됩니다.
 
 ### <a name="cluster-health-policy"></a>클러스터 상태 정책
-[클러스터 상태 정책](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) 은 클러스터 성능 상태 및 노드 성능 상태를 평가하는 데 사용됩니다. 이 정책은 클러스터 매니페스트에서 정의할 수 있습니다. 없는 경우는 기본 정책(0 허용 실패)이 사용됩니다.
+[클러스터 상태 정책](/dotnet/api/system.fabric.health.clusterhealthpolicy) 은 클러스터 성능 상태 및 노드 성능 상태를 평가하는 데 사용됩니다. 이 정책은 클러스터 매니페스트에서 정의할 수 있습니다. 없는 경우는 기본 정책(0 허용 실패)이 사용됩니다.
 클러스터 상태 정책은 다음과 같습니다.
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
-* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). 클러스터에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 애플리케이션의 최대 허용 비율을 지정합니다.
-* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). 클러스터에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 노드의 최대 허용 비율을 지정합니다. 대형 클러스터에는 항상 복구를 위해 다운되거나 중단되는 노드가 있으므로 이 비율은 이를 허용할 수 있도록 구성되어야 합니다.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). 클러스터 상태를 평가하는 동안 애플리케이션 유형 상태 정책 맵을 사용하여 특수 애플리케이션 유형을 설명할 수 있습니다. 기본적으로 모든 애플리케이션은 풀에 배치되고 MaxPercentUnhealthyApplications를 사용하여 평가됩니다. 일부 애플리케이션 유형을 다르게 처리해야 하는 경우, 전역 풀에서 꺼낼 수 있습니다. 대신, 맵 내의 해당 애플리케이션 유형 이름과 연결된 백분율에 대해 평가됩니다. 예를 들어 클러스터에는 다양한 유형의 애플리케이션 수천 개와 특수 애플리케이션 유형의 제어 애플리케이션 인스턴스가 약간 있습니다. 제어 애플리케이션은 절대 오류가 발생하면 안 됩니다. 일부 실패를 허용하도록 전체 MaxPercentUnhealthyApplications를 20%로 설정할 수 있지만, 애플리케이션 유형 "ControlApplicationType"의 경우에는 MaxPercentUnhealthyApplications를 0으로 설정해야 합니다. 이러한 방식으로, 여러 애플리케이션 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터가 경고로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 그러나 한 가지 응용 프로그램 응용 프로그램에서 오류가 발생 하는 경우에도 클러스터를 비정상으로 만들 수 있습니다. 그러면 업그레이드 구성에 따라 클러스터 업그레이드를 트리거하고 일시 중지 합니다.
+* [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
+* [MaxPercentUnhealthyApplications](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). 클러스터에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 애플리케이션의 최대 허용 비율을 지정합니다.
+* [MaxPercentUnhealthyNodes](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). 클러스터에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 노드의 최대 허용 비율을 지정합니다. 대형 클러스터에는 항상 복구를 위해 다운되거나 중단되는 노드가 있으므로 이 비율은 이를 허용할 수 있도록 구성되어야 합니다.
+* [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). 클러스터 상태를 평가하는 동안 애플리케이션 유형 상태 정책 맵을 사용하여 특수 애플리케이션 유형을 설명할 수 있습니다. 기본적으로 모든 애플리케이션은 풀에 배치되고 MaxPercentUnhealthyApplications를 사용하여 평가됩니다. 일부 애플리케이션 유형을 다르게 처리해야 하는 경우, 전역 풀에서 꺼낼 수 있습니다. 대신, 맵 내의 해당 애플리케이션 유형 이름과 연결된 백분율에 대해 평가됩니다. 예를 들어 클러스터에는 다양한 유형의 애플리케이션 수천 개와 특수 애플리케이션 유형의 제어 애플리케이션 인스턴스가 약간 있습니다. 제어 애플리케이션은 절대 오류가 발생하면 안 됩니다. 일부 실패를 허용하도록 전체 MaxPercentUnhealthyApplications를 20%로 설정할 수 있지만, 애플리케이션 유형 "ControlApplicationType"의 경우에는 MaxPercentUnhealthyApplications를 0으로 설정해야 합니다. 이러한 방식으로, 여러 애플리케이션 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터가 경고로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 그러나 한 가지 응용 프로그램 응용 프로그램에서 오류가 발생 하는 경우에도 클러스터를 비정상으로 만들 수 있습니다. 그러면 업그레이드 구성에 따라 클러스터 업그레이드를 트리거하고 일시 중지 합니다.
   맵에 정의된 애플리케이션 유형의 경우 모든 애플리케이션 인스턴스를 애플리케이션 전체 풀에서 가져옵니다. 이러한 애플리케이션은 맵의 특정 MaxPercentUnhealthyApplications를 사용하여 총 애플리케이션 수를 기반으로 평가됩니다. 나머지 애플리케이션은 전체 풀에 남아 있으며 MaxPercentUnhealthyApplications를 사용하여 평가됩니다.
 
 다음 예제는 클러스터 매니페스트에서 발췌한 내용입니다. 애플리케이션 유형 맵에 항목을 정의하려면 매개 변수 이름 앞에 "ApplicationTypeMaxPercentUnhealthyApplications-"를 붙이고 그 뒤에 애플리케이션 유형 이름을 붙이면 됩니다.
@@ -101,20 +101,20 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 ```
 
 ### <a name="application-health-policy"></a>애플리케이션 상태 정책
-[애플리케이션 상태 정책](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy)은 애플리케이션 및 해당 자식에 대해 이벤트 및 하위 상태 집계의 평가를 수행하는 방법을 설명합니다. 애플리케이션 패키지의 애플리케이션 매니페스트 **ApplicationManifest.xml**에서 정의할 수 있습니다. 정책을 지정하지 않으면 상태 보고가 있거나 자식이 경고 또는 오류 성능 상태인 경우 서비스 패브릭에서 해당 엔터티를 비정상으로 가정합니다.
+[애플리케이션 상태 정책](/dotnet/api/system.fabric.health.applicationhealthpolicy)은 애플리케이션 및 해당 자식에 대해 이벤트 및 하위 상태 집계의 평가를 수행하는 방법을 설명합니다. 애플리케이션 패키지의 애플리케이션 매니페스트 **ApplicationManifest.xml**에서 정의할 수 있습니다. 정책을 지정하지 않으면 상태 보고가 있거나 자식이 경고 또는 오류 성능 상태인 경우 서비스 패브릭에서 해당 엔터티를 비정상으로 가정합니다.
 구성 가능한 정책은 다음과 같습니다.
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
-* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). 애플리케이션에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 배포된 애플리케이션의 최대 허용 비율을 지정합니다. 이 비율은 클러스터에서 애플리케이션이 현재 배포되어 있는 노드 수에 대해 배포된 비정상 애플리케이션의 수를 나누어 계산됩니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 기본 비율: 0.
-* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). 애플리케이션에서 모든 서비스 유형의 기본 상태 정책을 대체하는 기본 서비스 유형 상태 정책을 지정합니다.
-* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). 서비스 유형별 서비스 상태 정책의 맵을 제공합니다. 이러한 정책은 지정된 서비스 유형의 기본 서비스 유형 상태 정책을 대체합니다. 예를 들어 애플리케이션에 상태 비저장 게이트웨이 서비스 유형과 상태 저장 엔진 서비스 유형이 있다면, 평가를 위한 상태 정책을 다르게 구성할 수 있습니다. 서비스 유형별로 정책을 지정할 때 서비스의 상태를 좀더 세분화하여 제어할 수 있습니다.
+* [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
+* [MaxPercentUnhealthyDeployedApplications](/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). 애플리케이션에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 배포된 애플리케이션의 최대 허용 비율을 지정합니다. 이 비율은 클러스터에서 애플리케이션이 현재 배포되어 있는 노드 수에 대해 배포된 비정상 애플리케이션의 수를 나누어 계산됩니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 기본 비율: 0.
+* [DefaultServiceTypeHealthPolicy](/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). 애플리케이션에서 모든 서비스 유형의 기본 상태 정책을 대체하는 기본 서비스 유형 상태 정책을 지정합니다.
+* [ServiceTypeHealthPolicyMap](/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). 서비스 유형별 서비스 상태 정책의 맵을 제공합니다. 이러한 정책은 지정된 서비스 유형의 기본 서비스 유형 상태 정책을 대체합니다. 예를 들어 애플리케이션에 상태 비저장 게이트웨이 서비스 유형과 상태 저장 엔진 서비스 유형이 있다면, 평가를 위한 상태 정책을 다르게 구성할 수 있습니다. 서비스 유형별로 정책을 지정할 때 서비스의 상태를 좀더 세분화하여 제어할 수 있습니다.
 
 ### <a name="service-type-health-policy"></a>서비스 유형 상태 정책
-[서비스 유형 상태 정책](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) 은 서비스 및 서비스의 자식을 평가 및 집계하는 방법을 지정합니다. 정책은 다음과 같습니다.
+[서비스 유형 상태 정책](/dotnet/api/system.fabric.health.servicetypehealthpolicy) 은 서비스 및 서비스의 자식을 평가 및 집계하는 방법을 지정합니다. 정책은 다음과 같습니다.
 
-* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). 서비스를 비정상으로 처리하기 전에 허용되는 최대 비정상 파티션 비율을 지정합니다. 기본 비율: 0.
-* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). 파티션을 비정상으로 처리하기 전에 허용되는 최대 비정상 복제본 비율을 지정합니다. 기본 비율: 0.
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). 애플리케이션을 비정상으로 처리하기 전에 허용되는 최대 비정상 서비스 비율을 지정합니다. 기본 비율: 0.
+* [MaxPercentUnhealthyPartitionsPerService](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). 서비스를 비정상으로 처리하기 전에 허용되는 최대 비정상 파티션 비율을 지정합니다. 기본 비율: 0.
+* [MaxPercentUnhealthyReplicasPerPartition](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). 파티션을 비정상으로 처리하기 전에 허용되는 최대 비정상 복제본 비율을 지정합니다. 기본 비율: 0.
+* [MaxPercentUnhealthyServices](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). 애플리케이션을 비정상으로 처리하기 전에 허용되는 최대 비정상 서비스 비율을 지정합니다. 기본 비율: 0.
 
 다음 예제는 애플리케이션 매니페스트에서 발췌한 내용입니다.
 
@@ -179,10 +179,10 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
 ## <a name="health-reporting"></a>상태 보고
 시스템 구성 요소, 시스템 패브릭 애플리케이션 및 내부/외부 Watchdog에서 Service Fabric 엔터티에 대해 보고할 수 있습니다. 보고자는 모니터링하는 상태를 바탕으로 모니터링되는 엔터티의 상태를 *로컬* 결정으로 파악합니다. 따라서 전역 상태를 살펴보거나 데이터를 집계할 필요가 없습니다. 바람직한 동작은 간단한 보고자를 갖는 것이지 보낼 정보를 추정하기 위해 많은 것들을 살펴봐야 하는 복잡한 조직체를 갖는 것이 아닙니다.
 
-상태 데이터를 Health 스토어로 보내려면 보고자가 영향 받는 엔터티를 식별하여 상태 보고서를 작성해야 합니다. 보고서를 보내려면 [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API `Partition` 또는 `CodePackageActivationContext` 개체, PowerShell cmdlet 또는 REST에 노출된 상태 보고서 API를 사용합니다.
+상태 데이터를 Health 스토어로 보내려면 보고자가 영향 받는 엔터티를 식별하여 상태 보고서를 작성해야 합니다. 보고서를 보내려면 [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API `Partition` 또는 `CodePackageActivationContext` 개체, PowerShell cmdlet 또는 REST에 노출된 상태 보고서 API를 사용합니다.
 
 ### <a name="health-reports"></a>상태 보고서
-클러스터의 각 엔터티에 대한 [상태 보고서](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) 에는 다음과 같은 정보가 포함됩니다.
+클러스터의 각 엔터티에 대한 [상태 보고서](/dotnet/api/system.fabric.health.healthreport) 에는 다음과 같은 정보가 포함됩니다.
 
 * **SourceId**. 상태 이벤트의 보고자를 고유하게 식별하는 문자열입니다.
 * **엔터티 식별자**. 보고서가 적용되는 엔터티를 식별합니다. 다음과 같은 [엔터티 유형](service-fabric-health-introduction.md#health-entities-and-hierarchy)에 따라 달라집니다.
@@ -205,7 +205,7 @@ Health 스토어에서 모든 자식을 평가한 후 비정상 자식에 대해
 SourceId, 엔터티 식별자, 속성 및 HealthState의 4가지 정보는 모든 상태 보고서에서 필요합니다. SourceId 문자열은 접두사 "**System.**"으로 시작할 수 없습니다. 이 접두사는 시스템 보고서용으로 예약되어 있습니다. 동일한 엔터티인 경우 동일한 소스 및 속성에 대해 하나의 보고서만 있습니다. 동일한 소스와 속성에 대한 여러 보고서는 상태 클라이언트(배치 처리된 경우) 또는 Health 스토어 중 한 군데에서 서로 재정의됩니다. 교체는 시퀀스 번호를 기준으로 수행됩니다. 최신 보고서(높은 시퀀스 번호)가 오래된 보고서를 대체합니다.
 
 ### <a name="health-events"></a>상태 이벤트
-내부적으로 Health 스토어에는 보고서와 추가 메타데이터의 모든 정보를 포함하는 [상태 이벤트](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent)가 유지됩니다. 메타데이터에는 보고서를 상태 클라이언트에 제공한 시간 및 서버에서 보고서가 수정된 시간 등이 포함됩니다. 상태 이벤트는 [상태 쿼리](service-fabric-view-entities-aggregated-health.md#health-queries)로 반환됩니다.
+내부적으로 Health 스토어에는 보고서와 추가 메타데이터의 모든 정보를 포함하는 [상태 이벤트](/dotnet/api/system.fabric.health.healthevent)가 유지됩니다. 메타데이터에는 보고서를 상태 클라이언트에 제공한 시간 및 서버에서 보고서가 수정된 시간 등이 포함됩니다. 상태 이벤트는 [상태 쿼리](service-fabric-view-entities-aggregated-health.md#health-queries)로 반환됩니다.
 
 추가된 메타데이터에는 다음이 포함됩니다.
 
@@ -306,4 +306,3 @@ HealthEvents                    :
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
-

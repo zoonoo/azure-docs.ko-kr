@@ -3,12 +3,12 @@ title: 컨테이너 그룹에서 관리 되는 id 사용
 description: 다른 Azure 서비스를 사용 하 여 인증할 수 있는 Azure Container Instances에서 관리 되는 id를 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169785"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259625"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -392,6 +392,6 @@ identity:
 > * Azure key vault에 대 한 id 액세스 권한 부여
 > * 관리 id를 사용 하 여 실행 중인 컨테이너에서 키 자격 증명 모음에 액세스
 
-* [Azure 리소스에 대 한 관리 id](/azure/active-directory/managed-identities-azure-resources/)에 대해 자세히 알아보세요.
+* [Azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/index.yml)에 대해 자세히 알아보세요.
 
 * 관리 id를 사용 하 여 Azure Container Instances에서 키 자격 증명 모음에 액세스 하는 [Azure GO SDK 예](https://medium.com/@samkreter/c98911206328) 를 참조 하세요.

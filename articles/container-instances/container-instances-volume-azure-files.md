@@ -4,12 +4,12 @@ description: Azure Container Instances를 사용하여 상태가 유지되도록
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: 593400f67db5018f1533dd37eed88ece7fd596c6
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169581"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259480"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
@@ -223,11 +223,11 @@ CLI 및 YAML 배포 외에도 컨테이너 그룹을 배포 하 고 Azure [리�
 }
 ```
 
-Resource Manager 템플릿을 사용하여 배포하려면 위의 JSON을 `deploy-aci.json` 파일에 저장한 다음,  매개 변수를 사용하여 [az group deployment create`--template-file`][az-group-deployment-create] 명령을 실행해야 합니다.
+리소스 관리자 템플릿을 사용 하 여 배포 하려면 앞의 JSON을 이라는 파일에 저장 `deploy-aci.json` 한 다음 매개 변수를 사용 하 여 [az deployment group create][az-deployment-group-create] 명령을 실행 합니다 `--template-file` .
 
 ```azurecli
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
 
@@ -285,4 +285,4 @@ Azure Container Instances에서 다른 볼륨 유형을 탑재하는 방법을 �
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

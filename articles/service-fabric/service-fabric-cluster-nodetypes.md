@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787136"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261110"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
 
-[가상 머신 확장 집합](/azure/virtual-machine-scale-sets) 은 Azure 계산 리소스입니다. 확장 집합을 사용하여 가상 머신 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의 하는 각 노드 유형은 정확히 하나의 확장 집합을 설정 합니다. 여러 노드 유형은 동일한 확장 집합에서 지원 될 수 없으며 대부분의 경우 하나의 노드 유형이 여러 확장 집합으로 지원 되어서는 안 됩니다. 이에 대 한 예외는 노드 유형을 수직으로 [조정](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) 하는 드문 경우 이지만, `nodeTypeRef` 복제본이 원래에서 업그레이드 된 확장 집합으로 마이그레이션되는 동안 값이 같은 두 확장 집합을 일시적으로 사용 하는 경우는 예외입니다.
+[가상 머신 확장 집합](../virtual-machine-scale-sets/index.yml) 은 Azure 계산 리소스입니다. 확장 집합을 사용하여 가상 머신 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의 하는 각 노드 유형은 정확히 하나의 확장 집합을 설정 합니다. 여러 노드 유형은 동일한 확장 집합에서 지원 될 수 없으며 대부분의 경우 하나의 노드 유형이 여러 확장 집합으로 지원 되어서는 안 됩니다. 이에 대 한 예외는 노드 유형을 수직으로 [조정](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) 하는 드문 경우 이지만, `nodeTypeRef` 복제본이 원래에서 업그레이드 된 확장 집합으로 마이그레이션되는 동안 값이 같은 두 확장 집합을 일시적으로 사용 하는 경우는 예외입니다.
 
 Service Fabric 런타임은 *ServiceFabric* 가상 머신 확장에 의해 확장 집합의 각 가상 머신에 설치 됩니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 각 클러스터 노드에서 실행되는 OS SKU를 변경하고, 다른 포트의 집합을 열고, 다른 용량 메트릭을 사용할 수 있습니다.
 

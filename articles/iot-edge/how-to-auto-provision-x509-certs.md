@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131302"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260039"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -50,6 +50,9 @@ X.509를 사용 하 여 자동 프로비저닝을 설정 하려면 다음 파일
 * 장치 id 인증서 및 해당 개인 키 인증서입니다. 개별 등록을 만들면 장치 id 인증서가 DPS에 업로드 됩니다. 개인 키가 IoT Edge 런타임에 전달 됩니다.
 * 하나 이상의 장치 id와 중간 인증서가 있어야 하는 전체 체인 인증서. 전체 체인 인증서는 IoT Edge 런타임에 전달 됩니다.
 * 인증서 신뢰 체인의 중간 또는 루트 CA 인증서입니다. 이 인증서는 그룹 등록을 만드는 경우 DPS에 업로드 됩니다.
+
+> [!NOTE]
+> 현재 libiothsm의 제한으로 인해 2050 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
 
 ### <a name="use-test-certificates"></a>테스트 인증서 사용
 
